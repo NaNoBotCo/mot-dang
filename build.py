@@ -294,6 +294,7 @@ def page(title, body, depth, crumbs="", path="", desc=""):
   <div class="svcbar">
     <a href="{r}my.html">🏠 {bi("หน้าแรกของฉัน", "My page")}</a> ·
     <a href="{r}suggest.html">{bi("แนะนำร้าน", "Add your place")}</a> ·
+    <a href="{r}contacts.html">☎️ {bi("เติมเบอร์-ไลน์", "Add contacts")}</a> ·
     <a href="#" class="rand">🎲 {bi("สุ่มพาไป", "Random place")}</a> ·
     <a href="{r}advertise.html">{bi("ลงโฆษณา", "Advertise")}</a> ·
     <a href="{KOFI}" rel="noopener">☕ {bi("เลี้ยงกาแฟมดแดง", "Buy the ants a coffee")}</a>
@@ -333,6 +334,13 @@ def matches(r, m):
 
 def name_of(r):
     return r.get("name") or r.get("nameEn") or r["id"]
+
+
+def has_contact(r):
+    a = r.get("attrs", {})
+    return bool(r.get("phone") or r.get("website") or a.get("lineId")
+                or a.get("facebook") or a.get("instagram") or a.get("email")
+                or a.get("whatsapp"))
 
 
 def entry_li(r, href):
@@ -422,6 +430,16 @@ def detail_page(r, prov_cfg):
     if ig:
         ig_url = ig if ig.startswith("http") else f"https://www.instagram.com/{ig.lstrip('@')}"
         rows.append(f'<dt>Instagram</dt><dd><a href="{att(ig_url)}" rel="nofollow noopener">@{esc(ig_url.rstrip("/").rsplit("/", 1)[-1])}</a></dd>')
+    wa = r.get("attrs", {}).get("whatsapp")
+    if wa:
+        rows.append(f'<dt>WhatsApp</dt><dd><a href="https://wa.me/{att(wa.lstrip("+").replace(" ", ""))}" rel="noopener">{esc(wa)}</a></dd>')
+    em = r.get("attrs", {}).get("email")
+    if em:
+        rows.append(f'<dt>{bi("อีเมล", "Email")}</dt><dd><a href="mailto:{att(em)}">{esc(em)}</a></dd>')
+    bw = r.get("attrs", {}).get("brandWebsite")
+    if bw:
+        rows.append(f'<dt>{bi("เว็บของแบรนด์", "Brand site")}</dt>'
+                    f'<dd><a href="{att(bw)}" rel="nofollow noopener">{esc(bw)}</a></dd>')
     if r.get("lat") is not None:
         osm = f"https://www.openstreetmap.org/?mlat={r['lat']}&mlon={r['lng']}#map=18/{r['lat']}/{r['lng']}"
         gmap = f"https://maps.google.com/?q={r['lat']},{r['lng']}"
@@ -435,8 +453,7 @@ def detail_page(r, prov_cfg):
     if r.get("blurb_th") or r.get("blurb_en"):
         blurb = f'<p class="featured"><span class="star">★</span> {bi(r.get("blurb_th") or "", r.get("blurb_en") or "")}</p>'
     contact_cta = ""
-    if not (r.get("phone") or r.get("website") or r.get("attrs", {}).get("lineId")
-            or r.get("attrs", {}).get("facebook")):
+    if not has_contact(r):
         issue = ("https://github.com/NaNoBotCo/mot-dang/issues/new?title="
                  + att(f"contact: {name_of(r)} ({r['id']})")
                  + "&body=" + att("เบอร์โทร / LINE / เว็บ / Facebook ของที่นี่คือ…"))
@@ -660,6 +677,42 @@ def build():
         f'<script type="application/json" id="pulse">{json.dumps(pulse, ensure_ascii=False)}</script>')
     (DOCS / "my.html").write_text(page("หน้าแรกของฉัน", my_body, depth=0, path="my.html",
                                        desc=my_hint_th))
+
+    # ---- contact drive: the gap, shown plainly and made joinable --------
+    all_recs = [r for p in PROVINCES for r in data[p["key"]]]
+    have = [r for r in all_recs if has_contact(r)]
+    pct = 100 * len(have) // len(all_recs)
+    by_shelf = {}
+    for r in all_recs:
+        for c in r["cat"]:
+            s = by_shelf.setdefault((r["province"], c), [0, 0])
+            s[1] += 1
+            if has_contact(r):
+                s[0] += 1
+    rows_html = "".join(
+        f'<li><a href="{pv}/{c}/index.html"><b>{bi(CATS[c]["th"], CATS[c]["en"])}</b></a> '
+        f'<span class="count">{h}/{t} · {100 * h // t}%</span> '
+        f'<span class="shelf">{"🐜" * (1 + (100 * h // t) // 25)}</span></li>'
+        for (pv, c), (h, t) in sorted(by_shelf.items(), key=lambda kv: kv[1][0] / kv[1][1]))
+    drive_th = (f"ตอนนี้มีข้อมูลติดต่อแล้ว {len(have):,} จาก {len(all_recs):,} แห่ง ({pct}%) — "
+                "อีกเยอะที่ยังขาด เบอร์โทร ไลน์ เพจ หรือเว็บของร้านไหนก็ได้ ส่งมาได้เลย ลงให้ฟรีเสมอ "
+                "เจ้าของร้านยิ่งยินดี ช่วยกันคนละนิด สารบัญเมืองก็ครบขึ้นทุกวัน")
+    drive_en = (f"{len(have):,} of {len(all_recs):,} places ({pct}%) have a way to reach them. "
+                "The rest need one. A phone, a LINE id, a page, a website — any of it, for any "
+                "place. Free to list, always. Shop owners especially welcome.")
+    (DOCS / "contacts.html").write_text(page(
+        "ช่วยเติมข้อมูลติดต่อ",
+        f'<h1>☎️ {bi("ช่วยเติมข้อมูลติดต่อ", "Help fill in the contacts")}</h1>'
+        f'<p class="myhint">{bi(drive_th, drive_en)}</p>'
+        f'<p><a href="https://github.com/NaNoBotCo/mot-dang/issues/new" rel="noopener">'
+        f'<b>{bi("ส่งข้อมูลติดต่อ", "Send a contact")}</b></a> · '
+        f'<a href="{KOFI}" rel="noopener">{bi("ทางโคฟาย", "via Ko-fi")}</a> · '
+        f'<a href="https://www.openstreetmap.org/" rel="noopener">'
+        f'{bi("หรือเติมลง OpenStreetMap โดยตรง", "or add it straight to OpenStreetMap")}</a></p>'
+        f'<h2>{bi("หมวดที่ยังขาดมากที่สุด", "Shelves that need it most")}</h2>'
+        f'<ul class="dir">{rows_html}</ul>'
+        f'{share_block(BASE + "contacts.html", "ช่วยเติมข้อมูลติดต่อ · มดแดง")}',
+        depth=0, path="contacts.html", desc=drive_th))
 
     # ---- advertise: the 1997-innocent ad policy --------------------------
     adv_body = (

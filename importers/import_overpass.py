@@ -111,6 +111,11 @@ def records():
             lng = el.get("lon") or el.get("center", {}).get("lon")
             if lat is None:
                 continue
+            # contact info is the directory's real currency — take every form OSM offers
+            phone = (t.get("phone") or t.get("contact:phone") or t.get("phone:mobile")
+                     or t.get("mobile") or t.get("contact:mobile"))
+            website = (t.get("website") or t.get("contact:website") or t.get("url")
+                       or t.get("website:en"))
             line = t.get("contact:line")
             out.append({
                 "id": f"cm-osm-{el['type']}-{el['id']}", "province": "cm",
@@ -118,14 +123,18 @@ def records():
                 "name": name, "nameTh": t.get("name:th"), "nameEn": t.get("name:en"),
                 "lat": lat, "lng": lng, "geoPrecision": "exact",
                 "address": None,
-                "phone": t.get("phone") or t.get("contact:phone"),
-                "website": t.get("website") or t.get("contact:website"),
+                "phone": phone,
+                "website": website,
                 "hours": t.get("opening_hours"),
                 "attrs": {k: v for k, v in {
                     "brand": t.get("brand"), "cuisine": t.get("cuisine"),
                     "operator": t.get("operator"), "lineId": line,
+                    "email": t.get("email") or t.get("contact:email"),
+                    "whatsapp": t.get("contact:whatsapp"),
                     "facebook": t.get("contact:facebook") or t.get("facebook"),
-                    "instagram": t.get("contact:instagram") or t.get("instagram")}.items() if v},
+                    "instagram": t.get("contact:instagram") or t.get("instagram"),
+                    "brandWebsite": (t.get("brand:website") if not website else None),
+                }.items() if v},
                 "featured": False, "landmark": False,
                 "sources": [{"type": "osm", "ref": f"{el['type']}/{el['id']}",
                              "fetched": "2026-07-27", "via": "mot-dang overpass"}],
