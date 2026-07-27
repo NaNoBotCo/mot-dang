@@ -66,7 +66,7 @@ def fetch(group, selectors, bbox):
     q = "[out:json][timeout:90];(" + "".join(f"{s}({bbox});" for s in selectors) + ");out center tags;"
     body = ("data=" + urllib.parse.quote(q)).encode()
     last = None
-    for attempt in range(4):
+    for attempt in range(6):
         api = APIS[attempt % len(APIS)]
         req = urllib.request.Request(api, data=body, headers={"User-Agent": UA})
         try:
