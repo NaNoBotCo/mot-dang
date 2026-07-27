@@ -36,11 +36,31 @@ Or use the Desktop launcher: **Mot Dang.command**.
 | mueang-map osm-chiang-rai.json | 289 wats | cr/วัด (wireframe seed) |
 | data/curated/featured-chiang-rai.json | hand-entered field truth | cr featured |
 
+## The 1997 layer
+
+- **Search + services bar** on every page; **subcategory shelves** with counts;
+  empty shelves show muted with 🐜 มดกำลังไปเก็บ.
+- **my.html** — the personal start page: pin shelves, get "+N new" badges since
+  your last visit, a daily pick drawn from *your* pins, custom links, sticky
+  notes. All localStorage; Mot Dang follows no one around.
+- **Sorting**: ก→ฮ or 📍 ใกล้ฉัน (client-side geolocation, nothing leaves the device).
+- **Sharing**: LINE-first (green button), FB, X, copy — on every page type.
+- **Sponsors**: rotating 1997-innocent ad boxes from [data/ads.json](data/ads.json),
+  always marked ผู้สนับสนุน; policy on advertise.html.
+- **Contact drive**: pages without phone/LINE/FB carry a "tell the ants" CTA that
+  pre-fills a GitHub issue with the place id. Contact info is the directory's
+  real currency — capture it everywhere.
+
+## Crawl (gentle by design)
+
+`importers/crawl_overpass.py` — snapshot-first (cache/overpass/), one query at a
+time, 12s pauses, retries that rest and rotate mirrors. Refresh with `--fetch`.
+
 ## Roadmap
 
-- **Phase 1** (this): directory site, CM full from existing corpora, CR wireframe.
-- **Phase 1.5**: CM Overpass crawl for hotels, markets, intl schools, condo buildings.
-- **Phase 2**: GIS layer — per-category GeoJSON already ships; add map pages,
-  ตำบล/ซอย browse tree, landmark-relative "near หอนาฬิกา" queries.
-- **Phase 3**: suggest/moderation loop (mueang-map Cloudflare worker pattern).
-- **Phase 4**: sponsors — 1997-innocent ad model.
+- **Phase 2**: GIS layer — map pages, ตำบล/ซอย browse tree, landmark-relative
+  "near หอนาฬิกา" queries (condo scouting included).
+- **Phase 2.5**: what's-on feeds — showtimes + events baked like the ticker;
+  weather + horoscope home modules.
+- **Phase 3**: suggest/moderation worker (mueang-map Cloudflare pattern).
+- **Phase 4**: paying sponsors on the advertise.html terms.

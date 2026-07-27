@@ -114,19 +114,30 @@ def import_mueang_map(fname, province):
 
 
 def main():
+    import import_overpass
     cm, cr = [], []
     cm += import_thai_answers()
     cm += import_womens_health()
     cm += import_mueang_map("osm.json", "cm")
+    cm += import_overpass.records()
     cr += import_mueang_map("osm-chiang-rai.json", "cr")
     cr += json.loads((ROOT / "data" / "curated" / "featured-chiang-rai.json").read_text())
 
     outdir = ROOT / "data" / "canonical"
     outdir.mkdir(parents=True, exist_ok=True)
     for prov, records in (("cm", cm), ("cr", cr)):
-        # field/curated truth wins over crawled truth; last writer wins within a tier
+        # field/curated truth wins over crawled truth; same place from two
+        # sources keeps the stronger record and unions its shelves
+        tier = {"crawled": 0, "curated": 1, "field": 2}
         by_id = {}
-        for r in sorted(records, key=lambda r: {"crawled": 0, "curated": 1, "field": 2}[r["confidence"]]):
+        for r in sorted(records, key=lambda r: tier[r["confidence"]]):
+            ex = by_id.get(r["id"])
+            if ex:
+                r["cat"] = sorted(set(ex["cat"]) | set(r["cat"]))
+                r["sub"] = sorted(set(ex.get("sub", [])) | set(r.get("sub", [])))
+                for k in ("phone", "website", "hours", "address"):
+                    r[k] = r.get(k) or ex.get(k)
+                r["attrs"] = {**ex.get("attrs", {}), **r.get("attrs", {})}
             by_id[r["id"]] = r
         final = sorted(by_id.values(), key=lambda r: r["id"])
         (outdir / f"{prov}.json").write_text(

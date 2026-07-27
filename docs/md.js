@@ -68,6 +68,52 @@ const d=new Date().getDay(),c=cols[d];
 day.innerHTML=`<span class="swatch" style="background:${c[2]}"></span>`+
 `<span class="th">วัน${names[d]} — สีมงคลวันนี้: ${c[0]}</span>`+
 `<span class="en">${ens[d]} — today's auspicious colour: ${c[1]}</span>`;}
+// ---- my page: pins + updates + daily pick + bookmarks + notes ---------
+const H=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pinpick=document.getElementById('pinpick');
+if(pinpick){
+const PULSE=JSON.parse(document.getElementById('pulse').textContent);
+const pins=new Set(JSON.parse(localStorage.getItem('md-pins')||'[]'));
+const seen=JSON.parse(localStorage.getItem('md-seen')||'{}');
+const shelf=document.getElementById('myshelf');
+function renderPins(){shelf.innerHTML=[...pins].map(pc=>{
+const[pv,cat]=pc.split('/');const m=PULSE[pv]&&PULSE[pv][cat];if(!m)return'';
+const fresh=seen[pc]!=null&&m.n>seen[pc]?` <span class="badge">+${m.n-seen[pc]} ใหม่/new</span>`:'';
+return `<li><a href="${pv}/${cat}/index.html"><b>${H(m.t)}</b></a> `+
+`<span class="count">(${m.n.toLocaleString()}) · ${H(m.v)}</span>${fresh}</li>`;}).join('')||
+'<li class="shelf">ยังไม่ได้ปักหมวด — เลือกด้านล่าง / no shelves pinned yet — pick below</li>';}
+pinpick.querySelectorAll('input').forEach(cb=>{cb.checked=pins.has(cb.dataset.pc);
+cb.addEventListener('change',()=>{cb.checked?pins.add(cb.dataset.pc):pins.delete(cb.dataset.pc);
+localStorage.setItem('md-pins',JSON.stringify([...pins]));renderPins();});});
+renderPins();
+[...pins].forEach(pc=>{const[pv,cat]=pc.split('/');
+if(PULSE[pv]&&PULSE[pv][cat])seen[pc]=PULSE[pv][cat].n;});
+localStorage.setItem('md-seen',JSON.stringify(seen));
+(async()=>{const el=document.getElementById('dailypick');if(!el)return;
+const idx=await loadIndex();const pc=[...pins];
+let pool=idx.filter(e=>e.c&&pc.some(p=>{const[pv,cat]=p.split('/');
+return e.p===pv&&e.c.includes(cat);}));
+if(!pool.length)pool=idx;
+const t=new Date(),seed=t.getFullYear()*372+(t.getMonth()+1)*31+t.getDate();
+const pick=pool[seed%pool.length];
+el.innerHTML=`<a href="${pick.p}/p/${pick.id}.html">${H(pick.n)}</a> <span class="count">· ${H(pick.pv)}</span>`;})();
+const bmList=document.getElementById('bmlist'),bmForm=document.getElementById('bmform');
+function renderBm(){const bm=JSON.parse(localStorage.getItem('md-bm')||'[]');
+bmList.innerHTML=bm.map((b,i)=>`<li><a href="${H(b.u)}" rel="noopener">${H(b.n)}</a> `+
+`<button class="bmdel" data-i="${i}" title="ลบ">✕</button></li>`).join('')||
+'<li class="shelf">ยังไม่มีลิงก์ / no links yet</li>';
+bmList.querySelectorAll('.bmdel').forEach(btn=>btn.addEventListener('click',()=>{
+const b=JSON.parse(localStorage.getItem('md-bm')||'[]');b.splice(+btn.dataset.i,1);
+localStorage.setItem('md-bm',JSON.stringify(b));renderBm();}));}
+renderBm();
+bmForm.addEventListener('submit',e=>{e.preventDefault();
+const n=bmForm.querySelector('[name=n]').value.trim(),u=bmForm.querySelector('[name=u]').value.trim();
+if(!n||!u)return;const b=JSON.parse(localStorage.getItem('md-bm')||'[]');
+b.push({n,u});localStorage.setItem('md-bm',JSON.stringify(b));bmForm.reset();renderBm();});
+const notes=document.getElementById('mynotes');
+notes.value=localStorage.getItem('md-notes')||'';
+notes.addEventListener('input',()=>localStorage.setItem('md-notes',notes.value));
+}
 const persona=document.getElementById('persona');
 if(persona){const mods=['m-ticker','m-day','m-rand'];
 const hidden=JSON.parse(localStorage.getItem('md-mods')||'[]');

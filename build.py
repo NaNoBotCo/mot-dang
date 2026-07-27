@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
 BUILD_DATE = "2026-07-27"
-BASE = "https://nanobotco.github.io/mot-dang/"
+BASE = "https://motdang.net/"
 KOFI = "https://ko-fi.com/defiantchiangmai"
 
 CFG = json.loads((ROOT / "data" / "categories.json").read_text())
@@ -78,6 +78,23 @@ dl{display:grid;grid-template-columns:max-content 1fr;gap:.25rem 1.2rem}
 dt{color:var(--ant-dark);font-weight:600} dd{margin:0;overflow-wrap:anywhere}
 .share{margin-top:1rem;font-size:.9rem}
 .share a,.share button{margin-right:.7rem}
+.share a.line{background:#06C755;color:#fff;padding:.12rem .7rem;border-radius:.5rem;
+text-decoration:none;font-weight:600}
+.share a.line:visited{color:#fff} .share a.line:hover{background:#04A648}
+.adbox{border:1px solid var(--ant);border-radius:.6rem;background:#fff;
+padding:.5rem .9rem;margin:1.1rem 0;font-size:.95rem}
+.adbox .adlabel{display:block;font-size:.72rem;letter-spacing:.12em;color:var(--mute);
+text-transform:uppercase;margin-bottom:.1rem}
+.adbox .adsell{font-size:.78rem;margin-left:.6rem;color:var(--mute)}
+.myhint{background:var(--soft);border-radius:.6rem;padding:.5rem .9rem;font-size:.9rem}
+#bmform input{font:inherit;font-size:.9rem;padding:.2rem .5rem;border:1.5px solid var(--soft);
+border-radius:.4rem;margin-right:.4rem;max-width:11rem}
+#bmform button{font:inherit;font-size:.9rem;border:1.5px solid var(--ant);background:none;
+color:var(--ant);border-radius:.4rem;padding:.15rem .7rem;cursor:pointer}
+.bmdel{border:none;background:none;color:var(--mute);cursor:pointer;font-size:.8rem}
+#mynotes{width:100%;min-height:7rem;font:inherit;font-size:.95rem;border:1.5px solid var(--soft);
+border-radius:.5rem;padding:.5rem;background:#fff;color:var(--ink)}
+#pinpick label{display:inline-block;margin:.15rem .9rem .15rem 0;font-size:.92rem;cursor:pointer}
 .share button{font:inherit;font-size:.9rem;border:none;background:none;color:var(--link);
 cursor:pointer;text-decoration:underline;padding:0}
 .prov{color:var(--ant-dark);font-size:.85rem;border-top:1px dashed var(--soft);
@@ -175,6 +192,52 @@ const d=new Date().getDay(),c=cols[d];
 day.innerHTML=`<span class="swatch" style="background:${c[2]}"></span>`+
 `<span class="th">วัน${names[d]} — สีมงคลวันนี้: ${c[0]}</span>`+
 `<span class="en">${ens[d]} — today's auspicious colour: ${c[1]}</span>`;}
+// ---- my page: pins + updates + daily pick + bookmarks + notes ---------
+const H=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pinpick=document.getElementById('pinpick');
+if(pinpick){
+const PULSE=JSON.parse(document.getElementById('pulse').textContent);
+const pins=new Set(JSON.parse(localStorage.getItem('md-pins')||'[]'));
+const seen=JSON.parse(localStorage.getItem('md-seen')||'{}');
+const shelf=document.getElementById('myshelf');
+function renderPins(){shelf.innerHTML=[...pins].map(pc=>{
+const[pv,cat]=pc.split('/');const m=PULSE[pv]&&PULSE[pv][cat];if(!m)return'';
+const fresh=seen[pc]!=null&&m.n>seen[pc]?` <span class="badge">+${m.n-seen[pc]} ใหม่/new</span>`:'';
+return `<li><a href="${pv}/${cat}/index.html"><b>${H(m.t)}</b></a> `+
+`<span class="count">(${m.n.toLocaleString()}) · ${H(m.v)}</span>${fresh}</li>`;}).join('')||
+'<li class="shelf">ยังไม่ได้ปักหมวด — เลือกด้านล่าง / no shelves pinned yet — pick below</li>';}
+pinpick.querySelectorAll('input').forEach(cb=>{cb.checked=pins.has(cb.dataset.pc);
+cb.addEventListener('change',()=>{cb.checked?pins.add(cb.dataset.pc):pins.delete(cb.dataset.pc);
+localStorage.setItem('md-pins',JSON.stringify([...pins]));renderPins();});});
+renderPins();
+[...pins].forEach(pc=>{const[pv,cat]=pc.split('/');
+if(PULSE[pv]&&PULSE[pv][cat])seen[pc]=PULSE[pv][cat].n;});
+localStorage.setItem('md-seen',JSON.stringify(seen));
+(async()=>{const el=document.getElementById('dailypick');if(!el)return;
+const idx=await loadIndex();const pc=[...pins];
+let pool=idx.filter(e=>e.c&&pc.some(p=>{const[pv,cat]=p.split('/');
+return e.p===pv&&e.c.includes(cat);}));
+if(!pool.length)pool=idx;
+const t=new Date(),seed=t.getFullYear()*372+(t.getMonth()+1)*31+t.getDate();
+const pick=pool[seed%pool.length];
+el.innerHTML=`<a href="${pick.p}/p/${pick.id}.html">${H(pick.n)}</a> <span class="count">· ${H(pick.pv)}</span>`;})();
+const bmList=document.getElementById('bmlist'),bmForm=document.getElementById('bmform');
+function renderBm(){const bm=JSON.parse(localStorage.getItem('md-bm')||'[]');
+bmList.innerHTML=bm.map((b,i)=>`<li><a href="${H(b.u)}" rel="noopener">${H(b.n)}</a> `+
+`<button class="bmdel" data-i="${i}" title="ลบ">✕</button></li>`).join('')||
+'<li class="shelf">ยังไม่มีลิงก์ / no links yet</li>';
+bmList.querySelectorAll('.bmdel').forEach(btn=>btn.addEventListener('click',()=>{
+const b=JSON.parse(localStorage.getItem('md-bm')||'[]');b.splice(+btn.dataset.i,1);
+localStorage.setItem('md-bm',JSON.stringify(b));renderBm();}));}
+renderBm();
+bmForm.addEventListener('submit',e=>{e.preventDefault();
+const n=bmForm.querySelector('[name=n]').value.trim(),u=bmForm.querySelector('[name=u]').value.trim();
+if(!n||!u)return;const b=JSON.parse(localStorage.getItem('md-bm')||'[]');
+b.push({n,u});localStorage.setItem('md-bm',JSON.stringify(b));bmForm.reset();renderBm();});
+const notes=document.getElementById('mynotes');
+notes.value=localStorage.getItem('md-notes')||'';
+notes.addEventListener('input',()=>localStorage.setItem('md-notes',notes.value));
+}
 const persona=document.getElementById('persona');
 if(persona){const mods=['m-ticker','m-day','m-rand'];
 const hidden=JSON.parse(localStorage.getItem('md-mods')||'[]');
@@ -229,8 +292,10 @@ def page(title, body, depth, crumbs="", path="", desc=""):
   </div>
   <form class="seek"><input type="search" placeholder="ค้นหาชื่อร้าน วัด คลินิก… / search"><button>{bi("ค้นหา", "Search")}</button></form>
   <div class="svcbar">
+    <a href="{r}my.html">🏠 {bi("หน้าแรกของฉัน", "My page")}</a> ·
     <a href="{r}suggest.html">{bi("แนะนำร้าน", "Add your place")}</a> ·
     <a href="#" class="rand">🎲 {bi("สุ่มพาไป", "Random place")}</a> ·
+    <a href="{r}advertise.html">{bi("ลงโฆษณา", "Advertise")}</a> ·
     <a href="{KOFI}" rel="noopener">☕ {bi("เลี้ยงกาแฟมดแดง", "Buy the ants a coffee")}</a>
   </div>
 </header>
@@ -298,16 +363,31 @@ def listing_page(title_th, title_en, records, depth, prov, crumbs, path, extra_t
     lis = "".join(entry_li(r, "../" * (depth - 1) + f"p/{r['id']}.html") for r in records)
     body = (f"<h1>{bi(title_th, title_en)} "
             f'<span class="count">({len(records):,})</span></h1>'
-            f"{extra_top}{toolbar()}"
-            f'<ul class="dir" data-sortable>{lis}</ul>')
+            f"{extra_top}{ad_box(path, depth)}{toolbar()}"
+            f'<ul class="dir" data-sortable>{lis}</ul>'
+            f"{share_block(BASE + path, title_th)}")
     return page(title_th, body, depth, crumbs=crumbs, path=path,
                 desc=f"{title_th} — {len(records)} แห่ง · มดแดง")
+
+
+ADS = json.loads((ROOT / "data" / "ads.json").read_text())
+
+
+def ad_box(path, depth):
+    import zlib
+    ad = ADS[zlib.crc32(path.encode()) % len(ADS)]
+    href = "../" * depth + ad["url"] if ad.get("house") else ad["url"]
+    rel = "" if ad.get("house") else ' rel="noopener"'
+    return (f'<div class="adbox"><span class="adlabel">— {esc("ผู้สนับสนุน")} · sponsor —</span>'
+            f'<a href="{att(href)}"{rel}><b>{bi(ad["th"], ad["en"])}</b></a>'
+            f'<a class="adsell" href="{"../" * depth}advertise.html">'
+            + bi("ลงโฆษณาที่นี่", "advertise here") + "</a></div>")
 
 
 def share_block(url, name):
     u = att(url)
     return (f'<p class="share">{bi("บอกต่อ", "Share")}: '
-            f'<a href="https://social-plugins.line.me/lineit/share?url={u}" rel="noopener">LINE</a>'
+            f'<a class="line" href="https://social-plugins.line.me/lineit/share?url={u}" rel="noopener">LINE</a>'
             f'<a href="https://www.facebook.com/sharer/sharer.php?u={u}" rel="noopener">Facebook</a>'
             f'<a href="https://twitter.com/intent/tweet?url={u}&text={att(name)}" rel="noopener">X</a>'
             f'<button class="copylink" data-url="{u}" data-label="คัดลอกลิงก์" data-done="คัดลอกแล้ว ✓">คัดลอกลิงก์</button></p>')
@@ -328,6 +408,20 @@ def detail_page(r, prov_cfg):
         rows.append(f"<dt>{bi('เว็บ', 'Website')}</dt><dd><a href=\"{att(r['website'])}\" rel=\"nofollow noopener\">{esc(r['website'])}</a></dd>")
     if r.get("hours"):
         rows.append(f"<dt>{bi('เวลาเปิด', 'Hours')}</dt><dd>{esc(r['hours'])}</dd>")
+    line_id = r.get("attrs", {}).get("lineId")
+    if line_id:
+        lid = line_id.lstrip("@~")
+        rows.append(f'<dt>LINE</dt><dd><a class="line" style="background:#06C755;color:#fff;'
+                    f'padding:.05rem .6rem;border-radius:.5rem;text-decoration:none" '
+                    f'href="https://line.me/R/ti/p/~{att(lid)}" rel="noopener">@{esc(lid)}</a></dd>')
+    fb = r.get("attrs", {}).get("facebook")
+    if fb:
+        fb_url = fb if fb.startswith("http") else f"https://www.facebook.com/{fb}"
+        rows.append(f'<dt>Facebook</dt><dd><a href="{att(fb_url)}" rel="nofollow noopener">{esc(fb_url.rstrip("/").rsplit("/", 1)[-1])}</a></dd>')
+    ig = r.get("attrs", {}).get("instagram")
+    if ig:
+        ig_url = ig if ig.startswith("http") else f"https://www.instagram.com/{ig.lstrip('@')}"
+        rows.append(f'<dt>Instagram</dt><dd><a href="{att(ig_url)}" rel="nofollow noopener">@{esc(ig_url.rstrip("/").rsplit("/", 1)[-1])}</a></dd>')
     if r.get("lat") is not None:
         osm = f"https://www.openstreetmap.org/?mlat={r['lat']}&mlon={r['lng']}#map=18/{r['lat']}/{r['lng']}"
         gmap = f"https://maps.google.com/?q={r['lat']},{r['lng']}"
@@ -340,6 +434,17 @@ def detail_page(r, prov_cfg):
     blurb = ""
     if r.get("blurb_th") or r.get("blurb_en"):
         blurb = f'<p class="featured"><span class="star">★</span> {bi(r.get("blurb_th") or "", r.get("blurb_en") or "")}</p>'
+    contact_cta = ""
+    if not (r.get("phone") or r.get("website") or r.get("attrs", {}).get("lineId")
+            or r.get("attrs", {}).get("facebook")):
+        issue = ("https://github.com/NaNoBotCo/mot-dang/issues/new?title="
+                 + att(f"contact: {name_of(r)} ({r['id']})")
+                 + "&body=" + att("เบอร์โทร / LINE / เว็บ / Facebook ของที่นี่คือ…"))
+        cta = bi("รู้เบอร์โทร LINE หรือเพจของที่นี่ไหม — บอกมดแดงหน่อย ลงให้ฟรี",
+                 "Know a phone, LINE, or page for this place? Tell the ants — listed free.")
+        contact_cta = (f'<p class="myhint">☎️ {cta} '
+                       f'<a href="{issue}" rel="noopener">{bi("ส่งเลย", "Send it")}</a> · '
+                       f'{bi("เจ้าของร้านยิ่งยินดี", "Owners most welcome")}</p>')
     src = (r.get("sources") or [{}])[0]
     prov_line = {"osm": bi("ข้อมูลจาก OpenStreetMap", "Data from OpenStreetMap"),
                  "field": bi("ข้อมูลเก็บภาคสนาม", "Field-collected data"),
@@ -349,8 +454,8 @@ def detail_page(r, prov_cfg):
     path = f"{r['province']}/p/{r['id']}.html"
     crumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
               f'<a href="../index.html">{bi(prov_cfg["th"], prov_cfg["en"])}</a> › {esc(name_of(r))}')
-    body = (f"<h1>{esc(name_of(r))}</h1>{blurb}<dl>{''.join(rows)}</dl>"
-            f"{share_block(BASE + path, name_of(r))}"
+    body = (f"<h1>{esc(name_of(r))}</h1>{blurb}<dl>{''.join(rows)}</dl>{contact_cta}"
+            f"{share_block(BASE + path, name_of(r))}{ad_box(path, 2)}"
             f'<p class="prov">{prov_line}{fetched}</p>')
     desc = r.get("blurb_th") or f"{CATS[r['cat'][0]]['th']} · {prov_cfg['th']} · มดแดง"
     return page(name_of(r), body, depth=2, crumbs=crumbs, path=path, desc=desc)
@@ -376,6 +481,7 @@ def build():
         shutil.rmtree(DOCS)
     DOCS.mkdir()
     (DOCS / ".nojekyll").write_text("")
+    (DOCS / "CNAME").write_text(BASE.split("//")[1].strip("/") + "\n")
     (DOCS / "style.css").write_text(CSS)
     (DOCS / "md.js").write_text(JS)
     (DOCS / "data").mkdir()
@@ -386,6 +492,7 @@ def build():
     data = load()
     home_sections = []
     search_index = []
+    pulse = {}
 
     for p in PROVINCES:
         key, records = p["key"], data[p["key"]]
@@ -396,8 +503,10 @@ def build():
             for c in r["cat"]:
                 counts[c] = counts.get(c, 0) + 1
             search_index.append({"id": r["id"], "n": name_of(r), "e": r.get("nameEn"),
-                                 "p": key, "pv": p["th"]})
+                                 "p": key, "pv": p["th"], "c": r["cat"]})
         live_cats = [c for c in CAT_ORDER if counts.get(c)]
+        pulse[key] = {c: {"n": counts[c], "t": CATS[c]["th"], "v": p["th"]}
+                      for c in live_cats}
 
         grow = f' <span class="grow">{bi("— กำลังเติบโต", "— growing")}</span>' \
             if p["mode"] == "wireframe" else ""
@@ -428,7 +537,9 @@ def build():
         (pdir / "index.html").write_text(page(
             p["th"],
             f'<h1>{bi(p["th"], p["en"])} <span class="count">({len(records):,})</span>{grow}</h1>'
-            f'{feat_html}<h2>{bi("หมวด", "Categories")}</h2><ul class="cats">{prov_shelves}</ul>',
+            f'{feat_html}{ad_box(key + "/index.html", 1)}'
+            f'<h2>{bi("หมวด", "Categories")}</h2><ul class="cats">{prov_shelves}</ul>'
+            f'{share_block(BASE + key + "/index.html", "มดแดง " + p["th"])}',
             depth=1, crumbs=crumbs, path=f"{key}/index.html",
             desc=f"สารบัญ{p['th']} {len(records):,} แห่ง · มดแดง"))
 
@@ -469,8 +580,9 @@ def build():
                       f'<a href="../index.html">{bi(p["th"], p["en"])}</a> › {bi(cdef["th"], cdef["en"])}')
             lis = "".join(entry_li(r, f"../p/{r['id']}.html") for r in in_cat)
             body = (f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
-                    f"{subshelf}{toolbar()}"
-                    f'<ul class="dir" data-sortable>{lis}</ul>{dl}')
+                    f'{subshelf}{ad_box(f"{key}/{c}/index.html", 2)}{toolbar()}'
+                    f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
+                    f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"])}')
             (pdir / c / "index.html").write_text(page(
                 cdef["th"], body, depth=2, crumbs=crumbs, path=f"{key}/{c}/index.html",
                 desc=f"{cdef['th']} {p['th']} — {len(in_cat)} แห่ง · มดแดง"))
@@ -493,9 +605,10 @@ def build():
                      f'<div class="tickerwrap"><span class="ticker">{links}</span></div></div>')
     day_html = (f'<div class="module" id="m-day"><h3>{bi("วันนี้", "Today")}</h3>'
                 f'<p id="daycolor" style="margin:.2rem 0"></p></div>')
+    total = len(search_index)
     rand_html = (f'<div class="module" id="m-rand"><h3>{bi("เดินเล่น", "Wander")}</h3>'
                  f'<p style="margin:.2rem 0"><a href="#" class="rand">🎲 '
-                 f'{bi("สุ่มพาไปที่ใดที่หนึ่งใน 1,217 แห่ง", "Take me somewhere — 1,217 places")}</a></p></div>')
+                 f'{bi(f"สุ่มพาไปที่ใดที่หนึ่งใน {total:,} แห่ง", f"Take me somewhere — {total:,} places")}</a></p></div>')
     persona_html = (
         '<div class="persona" id="persona"><details><summary>⚙ '
         + bi("ปรับแต่งหน้าแรก", "Personalize") + "</summary>"
@@ -511,8 +624,58 @@ def build():
     (DOCS / "index.html").write_text(page(
         "มดแดง",
         f"<p>{bi(intro_th, intro_en)}</p>{persona_html}{tick_html}{day_html}{rand_html}"
-        + "".join(home_sections),
+        + ad_box("index.html", 0) + "".join(home_sections)
+        + share_block(BASE, "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"),
         depth=0, path="", desc=intro_th))
+
+    # ---- my page: the personal start page, the pre-Google way -----------
+    pick_groups = []
+    for p in PROVINCES:
+        boxes = "".join(
+            f'<label><input type="checkbox" data-pc="{p["key"]}/{c}"> '
+            f'{bi(CATS[c]["th"], CATS[c]["en"])} '
+            f'<span class="count">({pulse[p["key"]][c]["n"]:,})</span></label>'
+            for c in CAT_ORDER if c in pulse[p["key"]])
+        pick_groups.append(f'<p><b>{bi(p["th"], p["en"])}</b><br>{boxes}</p>')
+    my_hint_th = ("ตั้งหน้านี้เป็นหน้าแรกของเบราว์เซอร์ แล้วออกท่องเว็บจากที่นี่ทุกวัน — "
+                  "ทุกการตั้งค่าอยู่ในเครื่องของคุณเท่านั้น มดแดงไม่ตามรอยใคร")
+    my_hint_en = ("Set this as your browser's home page and start every day here — "
+                  "your choices live only on this device. Mot Dang follows no one around.")
+    my_body = (
+        f'<h1>🏠 {bi("หน้าแรกของฉัน", "My page")}</h1>'
+        f'<p class="myhint">💡 {bi(my_hint_th, my_hint_en)}</p>'
+        f'<div class="module"><h3>{bi("ของดีวันนี้", "Pick of the day")}</h3>'
+        f'<p id="dailypick" style="margin:.2rem 0">…</p></div>'
+        f'<div class="module"><h3>{bi("หมวดที่ปักไว้", "Pinned shelves")}</h3>'
+        f'<ul class="dir" id="myshelf"></ul>'
+        f'<details id="pinpick"><summary>📌 {bi("เลือกหมวดมาปัก", "Choose shelves to pin")}</summary>'
+        f'{"".join(pick_groups)}</details></div>'
+        f'<div class="module"><h3>{bi("ลิงก์ของฉัน", "My links")}</h3>'
+        f'<form id="bmform"><input name="n" placeholder="ชื่อ / name">'
+        f'<input name="u" placeholder="https://…"><button>{bi("เพิ่ม", "Add")}</button></form>'
+        f'<ul class="dir" id="bmlist"></ul></div>'
+        f'<div class="module"><h3>{bi("โน้ตติดหน้าแรก", "Sticky notes")}</h3>'
+        f'<textarea id="mynotes" placeholder="จดอะไรก็ได้… / jot anything…"></textarea></div>'
+        f"{tick_html}{day_html}{rand_html}"
+        f'<script type="application/json" id="pulse">{json.dumps(pulse, ensure_ascii=False)}</script>')
+    (DOCS / "my.html").write_text(page("หน้าแรกของฉัน", my_body, depth=0, path="my.html",
+                                       desc=my_hint_th))
+
+    # ---- advertise: the 1997-innocent ad policy --------------------------
+    adv_body = (
+        f'<h1>{bi("ลงโฆษณากับมดแดง", "Advertise with Mot Dang")}</h1>'
+        f'<p>{bi("โฆษณาแบบปีหนึ่งเก้าเก้าเจ็ด — สุภาพ ชัดเจน ไม่ตามรอยใคร", "Ads the 1997 way — polite, clearly marked, tracking no one.")}</p>'
+        f'<ul>'
+        f'<li>{bi("ข้อความล้วน หรือภาพนิ่งขนาดพองาม — ไม่มีป๊อปอัป ไม่มีวิดีโอเด้ง", "Text, or one tasteful still picture — no popups, nothing that jumps at you")}</li>'
+        f'<li>{bi("เหมาจ่ายรายเดือน ราคาเดียว คุยกันได้", "One flat monthly rate, friendly to talk about")}</li>'
+        f'<li>{bi("ทุกชิ้นติดป้าย ผู้สนับสนุน เสมอ", "Every placement is marked ผู้สนับสนุน · sponsor, every time")}</li>'
+        f'<li>{bi("โฆษณาไม่มีวันเปลี่ยนลำดับหรือเนื้อหาสารบัญ — สารบัญคือสารบัญ", "Ads never change listing order or content — the directory is the directory")}</li>'
+        f'</ul>'
+        f'<p>{bi("สนใจ? ทักมาทาง", "Interested? Reach us via")} '
+        f'<a href="https://github.com/NaNoBotCo/mot-dang/issues/new" rel="noopener">GitHub</a> · '
+        f'<a href="{KOFI}" rel="noopener">Ko-fi</a></p>')
+    (DOCS / "advertise.html").write_text(page("ลงโฆษณา", adv_body, depth=0, path="advertise.html",
+                                              desc="ลงโฆษณากับมดแดง — โฆษณาแบบปี 1997 สุภาพ ไม่ตามรอยใคร"))
 
     # ---- search + suggest ----------------------------------------------
     (DOCS / "data" / "index.json").write_text(

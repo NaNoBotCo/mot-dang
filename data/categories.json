@@ -123,15 +123,26 @@
         { "key": "wholesale", "th": "ค้าส่ง-ซัพพลายเออร์", "en": "Wholesale & Suppliers" },
         { "key": "online-selling", "th": "ขายออนไลน์-ดรอปชิป", "en": "Online Selling & Dropshipping" }
       ] },
+    { "key": "whats-on", "th": "หนัง-คอนเสิร์ต-อีเวนต์", "en": "Movies, Concerts & Events",
+      "teaser_th": "โรงหนัง ดนตรีสด ที่จัดงาน รอบฉาย...", "teaser_en": "Cinemas, live music, venues, showtimes...",
+      "children": [
+        { "key": "cinema", "th": "โรงหนัง-รอบฉาย", "en": "Cinemas & Showtimes" },
+        { "key": "live-music", "th": "ดนตรีสด", "en": "Live Music" },
+        { "key": "events-venue", "th": "ที่จัดงาน-อีเวนต์", "en": "Event Venues" }
+      ] },
+    { "key": "museums-galleries", "th": "พิพิธภัณฑ์-หอศิลป์", "en": "Museums & Galleries",
+      "teaser_th": "พิพิธภัณฑ์ หอศิลป์ แกลเลอรี...", "teaser_en": "Museums, art galleries, exhibition spaces...",
+      "children": [
+        { "key": "museum", "th": "พิพิธภัณฑ์", "en": "Museums" },
+        { "key": "gallery", "th": "หอศิลป์-แกลเลอรี", "en": "Art Galleries" }
+      ] },
     { "key": "sights", "th": "ที่เที่ยว-ของดี", "en": "Sights & Good Things",
       "teaser_th": "ร้านสัก ห้องสมุด สตูดิโอศิลป์...", "teaser_en": "Tattoo, libraries, art studios...",
       "children": [
         { "key": "tattoo", "th": "ร้านสัก", "en": "Tattoo", "match": { "lens": "tattoo" } },
         { "key": "library", "th": "ห้องสมุด", "en": "Libraries", "match": { "lens": "library" } },
         { "key": "art-studio", "th": "สตูดิโอศิลป์", "en": "Art Studios", "match": { "lens": "art-studio" } },
-        { "key": "museum", "th": "พิพิธภัณฑ์", "en": "Museums" },
         { "key": "historic", "th": "โบราณสถาน-ที่ประวัติศาสตร์", "en": "Historic Places" },
-        { "key": "gallery", "th": "หอศิลป์-แกลเลอรี", "en": "Art Galleries" },
         { "key": "viewpoint", "th": "จุดชมวิว", "en": "Viewpoints" },
         { "key": "outing", "th": "ทริปวันเดียว", "en": "Outings & Day Trips" }
       ] }

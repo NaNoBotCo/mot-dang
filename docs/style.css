@@ -53,6 +53,23 @@ dl{display:grid;grid-template-columns:max-content 1fr;gap:.25rem 1.2rem}
 dt{color:var(--ant-dark);font-weight:600} dd{margin:0;overflow-wrap:anywhere}
 .share{margin-top:1rem;font-size:.9rem}
 .share a,.share button{margin-right:.7rem}
+.share a.line{background:#06C755;color:#fff;padding:.12rem .7rem;border-radius:.5rem;
+text-decoration:none;font-weight:600}
+.share a.line:visited{color:#fff} .share a.line:hover{background:#04A648}
+.adbox{border:1px solid var(--ant);border-radius:.6rem;background:#fff;
+padding:.5rem .9rem;margin:1.1rem 0;font-size:.95rem}
+.adbox .adlabel{display:block;font-size:.72rem;letter-spacing:.12em;color:var(--mute);
+text-transform:uppercase;margin-bottom:.1rem}
+.adbox .adsell{font-size:.78rem;margin-left:.6rem;color:var(--mute)}
+.myhint{background:var(--soft);border-radius:.6rem;padding:.5rem .9rem;font-size:.9rem}
+#bmform input{font:inherit;font-size:.9rem;padding:.2rem .5rem;border:1.5px solid var(--soft);
+border-radius:.4rem;margin-right:.4rem;max-width:11rem}
+#bmform button{font:inherit;font-size:.9rem;border:1.5px solid var(--ant);background:none;
+color:var(--ant);border-radius:.4rem;padding:.15rem .7rem;cursor:pointer}
+.bmdel{border:none;background:none;color:var(--mute);cursor:pointer;font-size:.8rem}
+#mynotes{width:100%;min-height:7rem;font:inherit;font-size:.95rem;border:1.5px solid var(--soft);
+border-radius:.5rem;padding:.5rem;background:#fff;color:var(--ink)}
+#pinpick label{display:inline-block;margin:.15rem .9rem .15rem 0;font-size:.92rem;cursor:pointer}
 .share button{font:inherit;font-size:.9rem;border:none;background:none;color:var(--link);
 cursor:pointer;text-decoration:underline;padding:0}
 .prov{color:var(--ant-dark);font-size:.85rem;border-top:1px dashed var(--soft);

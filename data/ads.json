@@ -1,0 +1,27 @@
+[
+  {
+    "id": "defiant",
+    "th": "Defiant — เพื่อนรู้ทางของฝรั่งในเชียงใหม่ เรื่องหมอ วีซ่า และชีวิตประจำวัน",
+    "en": "Defiant — your Chiang Mai friend-who-knows for medical, visas, and life admin",
+    "url": "https://defiant.to"
+  },
+  {
+    "id": "wichaa",
+    "th": "wichaa.net — คลังวิชาล้านนา ตำรา เครื่องราง ของดีของขลัง เปิดอ่านฟรี",
+    "en": "wichaa.net — the living Lanna knowledge vault: manuscripts, charms, and more",
+    "url": "https://wichaa.net"
+  },
+  {
+    "id": "skipdjt",
+    "th": "Skip DJT — บินฟลอริดาให้ถูกลง เทียบสนามบินก่อนจอง",
+    "en": "Skip DJT — fly Florida for less: compare the airports before you book",
+    "url": "https://nanobotco.github.io/skipdjt"
+  },
+  {
+    "id": "house",
+    "th": "พื้นที่นี้ว่างสำหรับร้านของคุณ — โฆษณาแบบปี 1997 สุภาพ ไม่ตามรอยใคร",
+    "en": "This space is open for your shop — 1997-style ads: polite, no tracking",
+    "url": "advertise.html",
+    "house": true
+  }
+]
