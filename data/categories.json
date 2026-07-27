@@ -1,16 +1,140 @@
 {
-  "_comment": "The category tree IS data. Order here = display order. Empty categories are hidden by build.py (no empty shelves). Keys are stable slugs; th is canonical, en is a display layer.",
+  "_comment": "The category tree IS data. Order = display order. Categories/children with 0 records show as wireframe shelves (muted, unlinked, ant-on-the-way) — the build never fabricates content for them. Children match records via: {attr,value} on attrs, {lens} on attrs.lens, or {sub} on record.sub.",
   "categories": [
-    { "key": "wat",        "th": "วัด-สิ่งศักดิ์สิทธิ์",   "en": "Wats & Sacred Places" },
-    { "key": "food",       "th": "ร้านอาหาร-ของกิน",      "en": "Food & Eats" },
-    { "key": "massage",    "th": "นวด-สปา",               "en": "Massage & Spa" },
-    { "key": "medical",    "th": "หมอ-คลินิก-โรงพยาบาล",  "en": "Doctors & Hospitals" },
-    { "key": "essentials", "th": "ของจำเป็นประจำเมือง",    "en": "City Essentials" },
-    { "key": "hotel",      "th": "โรงแรม-ที่พัก",          "en": "Hotels & Stays" },
-    { "key": "school-intl","th": "โรงเรียนนานาชาติ",       "en": "International Schools" },
-    { "key": "market",     "th": "ตลาด",                  "en": "Markets" },
-    { "key": "realestate", "th": "อสังหาฯ-คอนโด",         "en": "Real Estate & Condos" },
-    { "key": "sights",     "th": "ที่เที่ยว-ของดี",         "en": "Sights & Good Things" }
+    { "key": "wat", "th": "วัด-สิ่งศักดิ์สิทธิ์", "en": "Wats & Sacred Places",
+      "teaser_th": "วัดในเวียง วัดบนดอย ศาลพระภูมิ...", "teaser_en": "Old-city wats, mountain wats, spirit houses...",
+      "children": [
+        { "key": "spirit-house", "th": "ศาลพระภูมิ", "en": "Spirit Houses", "match": { "lens": "spirit-house" } }
+      ] },
+    { "key": "food", "th": "ร้านอาหาร-ของกิน", "en": "Food & Eats",
+      "teaser_th": "ตามสั่ง ข้าวซอย คาเฟ่ ริมน้ำ...", "teaser_en": "Made-to-order, khao soi, cafés, riverside...",
+      "children": [
+        { "key": "made-to-order", "th": "ตามสั่ง-ผัดกะเพรา", "en": "Made-to-order", "match": { "lens": "pad-krapow" } },
+        { "key": "northern", "th": "ข้าวซอย-อาหารเหนือ", "en": "Northern Thai" },
+        { "key": "cafe", "th": "กาแฟ-คาเฟ่", "en": "Coffee & Cafés" },
+        { "key": "riverside", "th": "ร้านริมน้ำ", "en": "Riverside", "match": { "sub": "riverside" } }
+      ] },
+    { "key": "massage", "th": "นวด-สปา", "en": "Massage & Spa",
+      "teaser_th": "นวดแผนไทย ในเวียงเก่า นอกเวียง...", "teaser_en": "Thai massage, in the old city and out...",
+      "children": [
+        { "key": "in-wiang", "th": "ในเวียงเก่า", "en": "In the Old City", "match": { "attr": "inOldCity", "value": true } },
+        { "key": "out-wiang", "th": "นอกเวียง", "en": "Outside the Moat", "match": { "attr": "inOldCity", "value": false } }
+      ] },
+    { "key": "medical", "th": "หมอ-คลินิก-โรงพยาบาล", "en": "Doctors & Hospitals",
+      "teaser_th": "โรงพยาบาล คลินิก หมอฟัน...", "teaser_en": "Hospitals, clinics, dentists...",
+      "children": [
+        { "key": "hospital", "th": "โรงพยาบาล", "en": "Hospitals", "match": { "attr": "facilityType", "value": "hospital" } },
+        { "key": "clinic", "th": "คลินิก", "en": "Clinics", "match": { "attr": "facilityType", "value": "clinic" } },
+        { "key": "doctors", "th": "หมอเฉพาะทาง", "en": "Specialists", "match": { "attr": "facilityType", "value": "doctors" } },
+        { "key": "dentist", "th": "หมอฟัน", "en": "Dentists", "match": { "attr": "facilityType", "value": "dentist" } },
+        { "key": "thai-medicine", "th": "แพทย์แผนไทย-สมุนไพร", "en": "Traditional Thai Medicine" }
+      ] },
+    { "key": "essentials", "th": "ของจำเป็นประจำเมือง", "en": "City Essentials",
+      "teaser_th": "ร้านยา ธนาคาร ไปรษณีย์ ราชการ...", "teaser_en": "Pharmacies, banks, post, government...",
+      "children": [
+        { "key": "pharmacy", "th": "ร้านยา", "en": "Pharmacies", "match": { "attr": "facilityType", "value": "pharmacy" } },
+        { "key": "bank", "th": "ธนาคาร-เอทีเอ็ม", "en": "Banks & ATMs" },
+        { "key": "post", "th": "ไปรษณีย์-ขนส่ง", "en": "Post & Parcels" },
+        { "key": "gov", "th": "ราชการ-เอกสาร", "en": "Government Offices" },
+        { "key": "visa", "th": "วีซ่า-ต่ออายุ", "en": "Visa & Extensions" },
+        { "key": "convenience", "th": "ร้านสะดวกซื้อ", "en": "Convenience Stores" }
+      ] },
+    { "key": "hotel", "th": "โรงแรม-ที่พัก", "en": "Hotels & Stays",
+      "teaser_th": "โรงแรม เกสต์เฮาส์ โฮสเทล...", "teaser_en": "Hotels, guesthouses, hostels...",
+      "children": [
+        { "key": "hotel-full", "th": "โรงแรม", "en": "Hotels" },
+        { "key": "guesthouse", "th": "เกสต์เฮาส์", "en": "Guesthouses" },
+        { "key": "hostel", "th": "โฮสเทล", "en": "Hostels" }
+      ] },
+    { "key": "school-intl", "th": "โรงเรียนนานาชาติ", "en": "International Schools",
+      "teaser_th": "หลักสูตรอังกฤษ อเมริกัน สองภาษา...", "teaser_en": "British, American, bilingual..." },
+    { "key": "market", "th": "ตลาด", "en": "Markets",
+      "teaser_th": "ตลาดสด ถนนคนเดิน ตลาดนัด...", "teaser_en": "Fresh markets, walking streets, flea markets...",
+      "children": [
+        { "key": "fresh", "th": "ตลาดสด", "en": "Fresh Markets" },
+        { "key": "walking-street", "th": "ถนนคนเดิน", "en": "Walking Streets" },
+        { "key": "flea", "th": "ตลาดนัด", "en": "Flea Markets" }
+      ] },
+    { "key": "shopping", "th": "ช้อปปิ้ง-ของฝาก", "en": "Shopping & Gifts",
+      "teaser_th": "หัตถกรรม เสื้อผ้ามือสอง ของฝาก...", "teaser_en": "Crafts, consignment & secondhand, gifts...",
+      "children": [
+        { "key": "crafts", "th": "ของฝาก-หัตถกรรม", "en": "Crafts & Gifts" },
+        { "key": "secondhand", "th": "เสื้อผ้ามือสอง-คัดพิเศษ", "en": "Consignment & Secondhand", "match": { "sub": "secondhand" } },
+        { "key": "mall", "th": "ห้าง-มอลล์", "en": "Malls" },
+        { "key": "diy", "th": "DIY-วัสดุก่อสร้าง", "en": "DIY & Hardware" }
+      ] },
+    { "key": "realestate", "th": "อสังหาฯ-คอนโด", "en": "Real Estate & Condos",
+      "teaser_th": "คอนโด หมู่บ้าน นายหน้า...", "teaser_en": "Condo buildings, moobaan, agents...",
+      "children": [
+        { "key": "condo", "th": "อาคารคอนโด", "en": "Condo Buildings" },
+        { "key": "moobaan", "th": "หมู่บ้าน-บ้านเช่า", "en": "Moobaan & Rentals" },
+        { "key": "agent", "th": "นายหน้า-เอเจนต์", "en": "Agents" }
+      ] },
+    { "key": "transport", "th": "รถ-เดินทาง", "en": "Getting Around",
+      "teaser_th": "เช่ามอไซค์ รถแดง สถานีขนส่ง...", "teaser_en": "Bike rental, rot daeng, stations...",
+      "children": [
+        { "key": "rental", "th": "เช่ารถ-มอเตอร์ไซค์", "en": "Car & Bike Rental" },
+        { "key": "station", "th": "สถานี-ท่ารถ", "en": "Stations & Terminals" },
+        { "key": "songthaew", "th": "รถแดง-สองแถว", "en": "Rot Daeng & Songthaew" },
+        { "key": "fuel", "th": "ปั๊มน้ำมัน", "en": "Fuel Stations" }
+      ] },
+    { "key": "repair", "th": "ช่าง-ซ่อม", "en": "Repairs & Trades",
+      "teaser_th": "ซ่อมรถ ช่างบ้าน มือถือ-คอม...", "teaser_en": "Motors, home trades, phones & computers...",
+      "children": [
+        { "key": "auto", "th": "ซ่อมรถ-อู่", "en": "Auto & Motorbike" },
+        { "key": "home", "th": "ช่างบ้าน-ประปา-ไฟ", "en": "Home Trades" },
+        { "key": "tech", "th": "มือถือ-คอมพิวเตอร์", "en": "Phones & Computers" }
+      ] },
+    { "key": "beauty", "th": "เสริมสวย-ทำผม", "en": "Beauty & Hair",
+      "teaser_th": "ร้านผม ทำเล็บ...", "teaser_en": "Salons, nails...",
+      "children": [
+        { "key": "hair", "th": "ร้านทำผม", "en": "Hair Salons" },
+        { "key": "nails", "th": "ทำเล็บ", "en": "Nails" }
+      ] },
+    { "key": "pets", "th": "สัตว์เลี้ยง", "en": "Pets",
+      "teaser_th": "หมอสัตว์ อาบน้ำตัดขน...", "teaser_en": "Vets, grooming...",
+      "children": [
+        { "key": "vet", "th": "หมอสัตว์", "en": "Vets" },
+        { "key": "grooming", "th": "อาบน้ำ-ตัดขน", "en": "Grooming" }
+      ] },
+    { "key": "learn", "th": "เรียน-กีฬา", "en": "Learning & Sport",
+      "teaser_th": "เรียนภาษา มวยไทย ยิม...", "teaser_en": "Language schools, muay thai, gyms...",
+      "children": [
+        { "key": "language", "th": "เรียนภาษา", "en": "Language Schools" },
+        { "key": "gym", "th": "มวยไทย-ยิม", "en": "Muay Thai & Gyms" },
+        { "key": "university", "th": "มหาวิทยาลัย", "en": "Universities" }
+      ] },
+    { "key": "home-services", "th": "แม่บ้าน-ช่างสวน-ดูแลบ้าน", "en": "Home Services",
+      "teaser_th": "แม่บ้าน ช่างซ่อมบ้าน คนสวน...", "teaser_en": "Housekeepers, handymen, landscapers...",
+      "children": [
+        { "key": "housekeeper", "th": "แม่บ้าน", "en": "Housekeepers" },
+        { "key": "handyman", "th": "ช่างซ่อมบ้าน", "en": "Handymen" },
+        { "key": "landscaper", "th": "คนสวน-จัดสวน", "en": "Landscapers" }
+      ] },
+    { "key": "community", "th": "ชมรม-สมาคม", "en": "Clubs & Community",
+      "teaser_th": "โรตารี ชมรมนานาชาติ จิตอาสา...", "teaser_en": "Rotary, international clubs, volunteering...",
+      "children": [
+        { "key": "intl-clubs", "th": "ชมรมนานาชาติ", "en": "International Clubs" },
+        { "key": "volunteer", "th": "จิตอาสา", "en": "Volunteering" }
+      ] },
+    { "key": "business", "th": "ธุรกิจ-ค้าขาย", "en": "Doing Business",
+      "teaser_th": "ค้าส่ง ซัพพลายเออร์ ขายออนไลน์...", "teaser_en": "Wholesale, suppliers, selling online...",
+      "children": [
+        { "key": "wholesale", "th": "ค้าส่ง-ซัพพลายเออร์", "en": "Wholesale & Suppliers" },
+        { "key": "online-selling", "th": "ขายออนไลน์-ดรอปชิป", "en": "Online Selling & Dropshipping" }
+      ] },
+    { "key": "sights", "th": "ที่เที่ยว-ของดี", "en": "Sights & Good Things",
+      "teaser_th": "ร้านสัก ห้องสมุด สตูดิโอศิลป์...", "teaser_en": "Tattoo, libraries, art studios...",
+      "children": [
+        { "key": "tattoo", "th": "ร้านสัก", "en": "Tattoo", "match": { "lens": "tattoo" } },
+        { "key": "library", "th": "ห้องสมุด", "en": "Libraries", "match": { "lens": "library" } },
+        { "key": "art-studio", "th": "สตูดิโอศิลป์", "en": "Art Studios", "match": { "lens": "art-studio" } },
+        { "key": "museum", "th": "พิพิธภัณฑ์", "en": "Museums" },
+        { "key": "historic", "th": "โบราณสถาน-ที่ประวัติศาสตร์", "en": "Historic Places" },
+        { "key": "gallery", "th": "หอศิลป์-แกลเลอรี", "en": "Art Galleries" },
+        { "key": "viewpoint", "th": "จุดชมวิว", "en": "Viewpoints" },
+        { "key": "outing", "th": "ทริปวันเดียว", "en": "Outings & Day Trips" }
+      ] }
   ],
   "provinces": [
     { "key": "cm", "th": "เชียงใหม่", "en": "Chiang Mai", "mode": "full" },

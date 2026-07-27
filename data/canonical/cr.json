@@ -37,7 +37,11 @@
   "id": "cr-curated-leilas-consignment",
   "province": "cr",
   "cat": [
+   "shopping",
    "sights"
+  ],
+  "sub": [
+   "secondhand"
   ],
   "name": "Leila's Designer Consignment",
   "nameTh": null,
@@ -72,6 +76,9 @@
   "cat": [
    "food",
    "sights"
+  ],
+  "sub": [
+   "riverside"
   ],
   "name": "River Tavern",
   "nameTh": null,
