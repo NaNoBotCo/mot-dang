@@ -9,7 +9,6 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CACHE = ROOT / "cache" / "overpass"
 
 
 def classify(t):
@@ -92,11 +91,12 @@ def classify(t):
     return None
 
 
-def records():
+def records(province="cm"):
     out = []
-    if not CACHE.exists():
+    cache = ROOT / "cache" / "overpass" / province
+    if not cache.exists():
         return out
-    for f in sorted(CACHE.glob("*.json")):
+    for f in sorted(cache.glob("*.json")):
         data = json.loads(f.read_text())
         for el in data.get("elements", []):
             t = el.get("tags", {})
@@ -118,7 +118,7 @@ def records():
                        or t.get("website:en"))
             line = t.get("contact:line")
             out.append({
-                "id": f"cm-osm-{el['type']}-{el['id']}", "province": "cm",
+                "id": f"{province}-osm-{el['type']}-{el['id']}", "province": province,
                 "cat": [cat], "sub": [sub] if sub else [],
                 "name": name, "nameTh": t.get("name:th"), "nameEn": t.get("name:en"),
                 "lat": lat, "lng": lng, "geoPrecision": "exact",

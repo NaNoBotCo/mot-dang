@@ -119,8 +119,9 @@ def main():
     cm += import_thai_answers()
     cm += import_womens_health()
     cm += import_mueang_map("osm.json", "cm")
-    cm += import_overpass.records()
+    cm += import_overpass.records("cm")
     cr += import_mueang_map("osm-chiang-rai.json", "cr")
+    cr += import_overpass.records("cr")
     cr += json.loads((ROOT / "data" / "curated" / "featured-chiang-rai.json").read_text())
 
     outdir = ROOT / "data" / "canonical"

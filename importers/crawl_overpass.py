@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
-"""Slow, soft-footed Overpass crawl for Chiang Mai's empty shelves.
+"""Slow, soft-footed Overpass crawl for empty shelves, one province at a time.
 
 Manners first: snapshot-first (nothing is fetched if a cache file exists),
 one query at a time, a long pause between queries, generous server timeout,
-an identified User-Agent, and one gentle retry on 429/504. Run with --fetch
-to (re)download; without it, only missing cache files are fetched.
+an identified User-Agent, and rests-with-mirror-rotation on 429/504. Run with
+--fetch to (re)download a province; without it, only missing cache files fetch.
 
-  python3 importers/crawl_overpass.py          # fetch only what's missing
-  python3 importers/crawl_overpass.py --fetch  # refresh everything (slow, on purpose)
+  python3 importers/crawl_overpass.py             # CM: fetch only what's missing
+  python3 importers/crawl_overpass.py --fetch     # CM: refresh everything (slow, on purpose)
+  python3 importers/crawl_overpass.py cr          # CR: fetch only what's missing
+  python3 importers/crawl_overpass.py cr --fetch  # CR: refresh everything
 
-Cache: cache/overpass/<group>.json — import_all.py folds these in.
+Cache: cache/overpass/<province>/<group>.json — import_all.py folds these in.
 """
 import json
 import sys
@@ -19,13 +21,16 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CACHE = ROOT / "cache" / "overpass"
 APIS = ["https://overpass-api.de/api/interpreter",
         "https://overpass.kumi.systems/api/interpreter"]
 UA = "mot-dang-directory/1.0 (+https://github.com/NaNoBotCo/mot-dang; gentle one-off harvest)"
-BBOX = "18.60,98.80,19.05,99.15"   # Mueang Chiang Mai and the near ring
 PAUSE = 12                          # seconds between queries — slower and more subtle
 RETRY_PAUSE = 45
+
+BBOX = {
+    "cm": "18.60,98.80,19.05,99.15",   # Mueang Chiang Mai and the near ring
+    "cr": "19.80,99.70,20.00,99.95",   # Mueang Chiang Rai and the near ring
+}
 
 QUERIES = {
     "hotels":     ['nwr["tourism"="hotel"]', 'nwr["tourism"="guest_house"]',
@@ -57,8 +62,8 @@ QUERIES = {
 }
 
 
-def fetch(group, selectors):
-    q = "[out:json][timeout:90];(" + "".join(f"{s}({BBOX});" for s in selectors) + ");out center tags;"
+def fetch(group, selectors, bbox):
+    q = "[out:json][timeout:90];(" + "".join(f"{s}({bbox});" for s in selectors) + ");out center tags;"
     body = ("data=" + urllib.parse.quote(q)).encode()
     last = None
     for attempt in range(4):
@@ -76,22 +81,29 @@ def fetch(group, selectors):
 
 
 def main():
-    force = "--fetch" in sys.argv
-    CACHE.mkdir(parents=True, exist_ok=True)
-    todo = [(g, s) for g, s in QUERIES.items()
-            if force or not (CACHE / f"{g}.json").exists()]
-    if not todo:
-        print("all cached — nothing to fetch (use --fetch to refresh)")
-        return
-    print(f"{len(todo)} groups to fetch, {PAUSE}s between each — slow on purpose")
-    for i, (group, selectors) in enumerate(todo):
-        data = fetch(group, selectors)
-        (CACHE / f"{group}.json").write_text(json.dumps(data, ensure_ascii=False))
-        n = len(data.get("elements", []))
-        print(f"  {group}: {n} elements")
-        if i < len(todo) - 1:
-            time.sleep(PAUSE)
-    print("done — cache/overpass/ is the snapshot; import_all.py folds it in")
+    args = sys.argv[1:]
+    force = "--fetch" in args
+    provinces = [a for a in args if a != "--fetch"] or ["cm"]
+    for province in provinces:
+        if province not in BBOX:
+            print(f"unknown province {province!r} — choices: {list(BBOX)}", file=sys.stderr)
+            continue
+        cache = ROOT / "cache" / "overpass" / province
+        cache.mkdir(parents=True, exist_ok=True)
+        todo = [(g, s) for g, s in QUERIES.items()
+                if force or not (cache / f"{g}.json").exists()]
+        if not todo:
+            print(f"{province}: all cached — nothing to fetch (use --fetch to refresh)")
+            continue
+        print(f"{province}: {len(todo)} groups to fetch, {PAUSE}s between each — slow on purpose")
+        for i, (group, selectors) in enumerate(todo):
+            data = fetch(group, selectors, BBOX[province])
+            (cache / f"{group}.json").write_text(json.dumps(data, ensure_ascii=False))
+            n = len(data.get("elements", []))
+            print(f"  {province}/{group}: {n} elements")
+            if i < len(todo) - 1:
+                time.sleep(PAUSE)
+        print(f"{province}: done — cache/overpass/{province}/ is the snapshot; import_all.py folds it in")
 
 
 if __name__ == "__main__":
