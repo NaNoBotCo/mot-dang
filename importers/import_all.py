@@ -50,7 +50,9 @@ def import_thai_answers():
     out = []
     for r in con.execute("select * from venues"):
         ref = f"{r['osm_type']}/{r['osm_id']}"
-        name = r["name"] or r["name_en"] or f"(ไม่มีชื่อ {ref})"
+        name = r["name"] or r["name_en"]
+        if not name:  # a directory has no shelf for the nameless; a named re-crawl restores them
+            continue
         out.append(rec(
             id=f"cm-osm-{r['osm_type']}-{r['osm_id']}", province="cm", cat=["massage"],
             name=name, name_en=r["name_en"], lat=r["lat"], lng=r["lon"],
@@ -72,9 +74,11 @@ def import_womens_health():
         cat = ["essentials"] if ftype == "pharmacy" else ["medical"]
         src = (r.get("sources") or [{}])[0]
         ref = src.get("ref", f"cmwh/{r['id']}")
+        if not (r.get("nameTh") or r.get("name") or r.get("nameEn")):
+            continue
         out.append(rec(
             id="cm-osm-" + ref.replace("/", "-"), province="cm", cat=cat,
-            name=r.get("nameTh") or r.get("name") or r.get("nameEn") or f"(ไม่มีชื่อ {ref})",
+            name=r.get("nameTh") or r.get("name") or r.get("nameEn"),
             name_th=r.get("nameTh"), name_en=r.get("nameEn"),
             lat=r.get("lat"), lng=r.get("lng"), precision=r.get("geoPrecision", "exact"),
             phone=a.get("phone"), website=a.get("website"), hours=a.get("openingHours"),
@@ -93,9 +97,11 @@ def import_mueang_map(fname, province):
         cats = sorted({c for l in lenses for c in LENS_TO_CAT.get(l, [])}) or ["sights"]
         src = (r.get("sources") or [{}])[0]
         ref = src.get("ref", f"mm/{r['id']}")
+        if not (r.get("name") or r.get("nameRoman")):
+            continue
         out.append(rec(
             id=f"{province}-osm-" + ref.replace("/", "-"), province=province, cat=cats,
-            name=r.get("name") or r.get("nameRoman") or f"(ไม่มีชื่อ {ref})",
+            name=r.get("name") or r.get("nameRoman"),
             name_en=r.get("nameRoman"),
             lat=r.get("lat"), lng=r.get("lng"), precision=r.get("geoPrecision", "exact"),
             address=r.get("address"),

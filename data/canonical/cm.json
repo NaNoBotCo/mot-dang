@@ -514,38 +514,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-node-10749944770",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/10749944770)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7984047,
-  "lng": 98.9705541,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/10749944770",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-node-1076662876",
   "province": "cm",
   "cat": [
@@ -933,38 +901,6 @@
    {
     "type": "osm",
     "ref": "node/11207254965",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-11207270567",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/11207270567)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7822519,
-  "lng": 98.9985855,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": "Mo-Su 10:00-24:00",
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/11207270567",
     "fetched": "2026-07-14",
     "via": "thai-answers"
    }
@@ -1746,38 +1682,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-node-11616264769",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/11616264769)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.768682,
-  "lng": 99.0403427,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/11616264769",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-node-11629286877",
   "province": "cm",
   "cat": [
@@ -1870,38 +1774,6 @@
     "ref": "node/11707782228",
     "fetched": "2026-07-21",
     "via": "cm-womens-health"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-11715707135",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/11715707135)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.778478,
-  "lng": 98.9890299,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/11715707135",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
    }
   ],
   "confidence": "crawled",
@@ -2542,38 +2414,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-node-13240131242",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/13240131242)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7826183,
-  "lng": 98.9797806,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": true
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/13240131242",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-node-13274885089",
   "province": "cm",
   "cat": [
@@ -3065,38 +2905,6 @@
     "ref": "node/13423112414",
     "fetched": "2026-07-21",
     "via": "cm-womens-health"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-13437706092",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/13437706092)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7992653,
-  "lng": 98.9743425,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": "Mo-Su 10:00-22:00",
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/13437706092",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
    }
   ],
   "confidence": "crawled",
@@ -3820,38 +3628,6 @@
     "ref": "node/14016583683",
     "fetched": "2026-07-21",
     "via": "cm-womens-health"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-1416865657",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/1416865657)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.785466,
-  "lng": 98.9910278,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": true
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/1416865657",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
    }
   ],
   "confidence": "crawled",
@@ -4731,38 +4507,6 @@
    {
     "type": "osm",
     "ref": "node/1491432609",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-1491444439",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/1491444439)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7910862,
-  "lng": 98.9964203,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/1491444439",
     "fetched": "2026-07-14",
     "via": "thai-answers"
    }
@@ -5906,38 +5650,6 @@
     "ref": "node/2142584557",
     "fetched": "2026-07-21",
     "via": "mueang-map"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-2203002089",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/2203002089)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7831064,
-  "lng": 98.98183,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": true
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/2203002089",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
    }
   ],
   "confidence": "crawled",
@@ -10334,38 +10046,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-node-3298076983",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/3298076983)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.8046682,
-  "lng": 98.9847389,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/3298076983",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-node-3298082575",
   "province": "cm",
   "cat": [
@@ -10999,38 +10679,6 @@
    {
     "type": "osm",
     "ref": "node/3384100284",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-3384100286",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/3384100286)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7859155,
-  "lng": 98.9837107,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": true
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/3384100286",
     "fetched": "2026-07-14",
     "via": "thai-answers"
    }
@@ -12211,38 +11859,6 @@
    {
     "type": "osm",
     "ref": "node/3417528048",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-3418662544",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/3418662544)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7516166,
-  "lng": 99.0210532,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/3418662544",
     "fetched": "2026-07-14",
     "via": "thai-answers"
    }
@@ -16035,38 +15651,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-node-4876346639",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/4876346639)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7815421,
-  "lng": 99.0026864,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/4876346639",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-node-4876346640",
   "province": "cm",
   "cat": [
@@ -16091,38 +15675,6 @@
    {
     "type": "osm",
     "ref": "node/4876346640",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-4876346721",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/4876346721)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7810174,
-  "lng": 99.0012681,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/4876346721",
     "fetched": "2026-07-14",
     "via": "thai-answers"
    }
@@ -17943,38 +17495,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-node-6271717647",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/6271717647)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7842864,
-  "lng": 98.9920838,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": "Mo-Su 10:00-24:00",
-  "attrs": {
-   "inOldCity": true
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/6271717647",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-node-6322159249",
   "province": "cm",
   "cat": [
@@ -18203,70 +17723,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-node-6349382686",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/6349382686)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7837738,
-  "lng": 99.001371,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/6349382686",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-6351675886",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/6351675886)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.788068,
-  "lng": 98.9947106,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/6351675886",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-node-6351676085",
   "province": "cm",
   "cat": [
@@ -18329,38 +17785,6 @@
     "ref": "node/6352082387",
     "fetched": "2026-07-21",
     "via": "cm-womens-health"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-6354525086",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/6354525086)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7865997,
-  "lng": 98.9815463,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": true
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/6354525086",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
    }
   ],
   "confidence": "crawled",
@@ -19466,38 +18890,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-node-6941180387",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/6941180387)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.8029315,
-  "lng": 98.980995,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/6941180387",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-node-6947375379",
   "province": "cm",
   "cat": [
@@ -19660,38 +19052,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-node-7023416770",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/7023416770)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7838448,
-  "lng": 98.9814935,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": true
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/7023416770",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-node-7026348703",
   "province": "cm",
   "cat": [
@@ -19780,38 +19140,6 @@
    {
     "type": "osm",
     "ref": "node/7027943294",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-7033507873",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/7033507873)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7888102,
-  "lng": 98.9910707,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": true
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/7033507873",
     "fetched": "2026-07-14",
     "via": "thai-answers"
    }
@@ -19980,38 +19308,6 @@
     "ref": "node/7053774548",
     "fetched": "2026-07-21",
     "via": "cm-womens-health"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-7074228985",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/7074228985)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7880403,
-  "lng": 98.990644,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": true
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/7074228985",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
    }
   ],
   "confidence": "crawled",
@@ -21398,38 +20694,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-node-9351747017",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/9351747017)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7732523,
-  "lng": 98.9992603,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/9351747017",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-node-935358254",
   "province": "cm",
   "cat": [
@@ -21562,38 +20826,6 @@
     "ref": "node/9788234773",
     "fetched": "2026-07-19",
     "via": "mueang-map"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-9788261424",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ node/9788261424)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7942342,
-  "lng": 98.9929848,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": true
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/9788261424",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
    }
   ],
   "confidence": "crawled",
@@ -34832,38 +34064,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-way-676268209",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ way/676268209)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7671647,
-  "lng": 98.982501,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "way/676268209",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-way-679152513",
   "province": "cm",
   "cat": [
@@ -36050,38 +35250,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-way-731229889",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ way/731229889)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7839792,
-  "lng": 98.9539243,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": false
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "way/731229889",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-way-742755533",
   "province": "cm",
   "cat": [
@@ -36681,38 +35849,6 @@
     "ref": "way/844924728",
     "fetched": "2026-07-21",
     "via": "cm-womens-health"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-way-872928361",
-  "province": "cm",
-  "cat": [
-   "massage"
-  ],
-  "name": "(ไม่มีชื่อ way/872928361)",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7872671,
-  "lng": 98.9913293,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "inOldCity": true
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "way/872928361",
-    "fetched": "2026-07-14",
-    "via": "thai-answers"
    }
   ],
   "confidence": "crawled",

@@ -88,7 +88,7 @@ def page(title, body, depth, crumbs=""):
     return f"""<!DOCTYPE html>
 <html lang="th"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{esc(title)} · มดแดง</title>
+<title>{esc(title) + ' · มดแดง' if title != 'มดแดง' else 'มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย'}</title>
 <link rel="stylesheet" href="{r}style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐜</text></svg>">
 </head><body>
