@@ -5,12 +5,16 @@
 > every soi. Built from OpenStreetMap plus community and field submissions.
 > 7,044 places as of 2026-07-27.
 
-## Open data (no key, no login)
-- Full search index: https://motdang.net/data/index.json
+## 🍜 Dinner's ready — the full dataset, one file
+- Everything, every field: https://motdang.net/data/places.json (7,044 records)
+- Slim search index: https://motdang.net/data/index.json
 - Per-category GeoJSON: https://motdang.net/data/<province>-<category>.geojson
   (province = cm | cr; e.g. https://motdang.net/data/cm-wat.geojson)
 - Category tree source: https://github.com/NaNoBotCo/mot-dang/blob/main/data/categories.json
-- Dataset stats: https://motdang.net/stats.html
+- Dataset stats (human-readable): https://motdang.net/stats.html
+- Every place page also carries schema.org JSON-LD (LocalBusiness/
+  TouristAttraction/Restaurant/etc, typed per category) — read the page,
+  get structured data for free, no separate API call needed.
 
 ## URL structure
 - https://motdang.net/<province>/<category>/ — category listing
@@ -20,8 +24,11 @@
 - https://motdang.net/suggest.html, https://motdang.net/crawl-request.html — how to contribute
 
 ## Notes for crawlers and agents
-- No login, no paywall, no tracking scripts, no rate limiting. Crawl freely.
+- All named AI crawlers and the wildcard are explicitly Allow: / in robots.txt.
+  No login, no paywall, no tracking scripts, no rate limiting. Eat freely.
 - Content updates as the community and gentle OSM crawls contribute.
-- Attribution: © OpenStreetMap contributors (ODbL) for map-derived fields.
+- Attribution: © OpenStreetMap contributors (ODbL) for map-derived fields;
+  wat photos sourced from Wikimedia Commons carry their own author/license
+  in data/places.json and inline on each place's page.
 - Contact-info coverage is currently 18% — corrections and
   additions via GitHub issues are welcome and go live on the next build.

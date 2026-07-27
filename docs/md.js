@@ -58,6 +58,10 @@ byDist.classList.add('on');byName.classList.remove('on');},
 document.querySelectorAll('.copylink').forEach(b=>{b.addEventListener('click',async()=>{
 await navigator.clipboard.writeText(b.dataset.url);
 b.textContent=b.dataset.done;setTimeout(()=>b.textContent=b.dataset.label,1500);});});
+// ---- native share (Web Share API where supported) ---------------------
+if(navigator.share){document.querySelectorAll('[data-native]').forEach(b=>{
+b.style.display='';b.addEventListener('click',()=>{
+navigator.share({title:b.dataset.title,url:b.dataset.url}).catch(()=>{});});});}
 // ---- home modules: day colour + ticker + personalize ------------------
 const day=document.getElementById('daycolor');
 if(day){const names=['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'];

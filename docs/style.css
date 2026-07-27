@@ -51,11 +51,25 @@ background:#fff;box-shadow:3px 3px 0 var(--soft);transition:transform .18s,box-s
 .featured .star{color:var(--ant)}
 dl{display:grid;grid-template-columns:max-content 1fr;gap:.25rem 1.2rem}
 dt{color:var(--ant-dark);font-weight:600} dd{margin:0;overflow-wrap:anywhere}
-.share{margin-top:1rem;font-size:.9rem}
-.share a,.share button{margin-right:.7rem}
-.share a.line{background:#06C755;color:#fff;padding:.12rem .7rem;border-radius:.5rem;
-text-decoration:none;font-weight:600}
-.share a.line:visited{color:#fff} .share a.line:hover{background:#04A648}
+.share{margin-top:1.2rem}
+.share .sharelabel{font-size:.9rem;color:var(--ant-dark);font-weight:600;display:block;margin-bottom:.4rem}
+.share .row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.share .pill{display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .85rem;
+border-radius:999px;text-decoration:none;font-weight:600;font-size:.88rem;color:#fff;
+border:none;cursor:pointer;font-family:inherit;transition:transform .12s,box-shadow .12s}
+.share .pill:hover{transform:translateY(-1px);box-shadow:0 3px 8px rgba(0,0,0,.18)}
+.share .pill:visited{color:#fff}
+.share .pill.native{background:var(--ant)}
+.share .pill.line{background:#06C755}
+.share .pill.whatsapp{background:#25D366}
+.share .pill.telegram{background:#229ED9}
+.share .pill.facebook{background:#1877F2}
+.share .pill.x{background:#111}
+.share .pill.copy{background:var(--ant-dark)}
+.qrbox{display:flex;align-items:center;gap:.8rem;margin-top:.7rem;background:#fff;
+border:1px solid var(--soft);border-radius:.7rem;padding:.6rem .9rem;max-width:26rem}
+.qrbox img{width:76px;height:76px;image-rendering:pixelated;flex-shrink:0}
+.qrbox p{margin:0;font-size:.85rem;color:var(--mute)}
 .adbox{border:1px solid var(--ant);border-radius:.6rem;background:#fff;
 padding:.5rem .9rem;margin:1.1rem 0;font-size:.95rem}
 .adbox .adlabel{display:block;font-size:.72rem;letter-spacing:.12em;color:var(--mute);

@@ -8,9 +8,17 @@ personalizable home (My Yahoo!) with a news ticker. EN is a client-side
 display layer. No tracking, no third-party scripts, no external requests
 on load; outbound links only. OSM attribution stays.
 """
+import base64
+import io
 import json
 import shutil
 from pathlib import Path
+
+try:
+    import qrcode
+    HAVE_QR = True
+except ImportError:
+    HAVE_QR = False
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
@@ -18,12 +26,23 @@ BUILD_DATE = "2026-07-27"
 BASE = "https://motdang.net/"
 KOFI = "https://ko-fi.com/defiantchiangmai"
 
+
+def qr_data_uri(url):
+    """Tiny inline PNG QR (~500 bytes) — zero extra requests, print-and-scan ready."""
+    if not HAVE_QR:
+        return None
+    buf = io.BytesIO()
+    qrcode.make(url, box_size=5, border=2).save(buf, format="PNG")
+    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+
 CFG = json.loads((ROOT / "data" / "categories.json").read_text())
 CATS = {c["key"]: c for c in CFG["categories"]}
 CAT_ORDER = [c["key"] for c in CFG["categories"]]
 PROVINCES = CFG["provinces"]
 
 PHOTOS_SRC = ROOT / "assets" / "photos"
+_credits_path = PHOTOS_SRC / "credits.json"
+PHOTO_CREDITS = json.loads(_credits_path.read_text()) if _credits_path.exists() else {}
 
 # Original stylized wat illustration — the default photo everywhere a real one
 # is missing. Hand-drawn shapes, brand palette, not a copy of any real temple.
@@ -156,11 +175,25 @@ background:#fff;box-shadow:3px 3px 0 var(--soft);transition:transform .18s,box-s
 .featured .star{color:var(--ant)}
 dl{display:grid;grid-template-columns:max-content 1fr;gap:.25rem 1.2rem}
 dt{color:var(--ant-dark);font-weight:600} dd{margin:0;overflow-wrap:anywhere}
-.share{margin-top:1rem;font-size:.9rem}
-.share a,.share button{margin-right:.7rem}
-.share a.line{background:#06C755;color:#fff;padding:.12rem .7rem;border-radius:.5rem;
-text-decoration:none;font-weight:600}
-.share a.line:visited{color:#fff} .share a.line:hover{background:#04A648}
+.share{margin-top:1.2rem}
+.share .sharelabel{font-size:.9rem;color:var(--ant-dark);font-weight:600;display:block;margin-bottom:.4rem}
+.share .row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.share .pill{display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .85rem;
+border-radius:999px;text-decoration:none;font-weight:600;font-size:.88rem;color:#fff;
+border:none;cursor:pointer;font-family:inherit;transition:transform .12s,box-shadow .12s}
+.share .pill:hover{transform:translateY(-1px);box-shadow:0 3px 8px rgba(0,0,0,.18)}
+.share .pill:visited{color:#fff}
+.share .pill.native{background:var(--ant)}
+.share .pill.line{background:#06C755}
+.share .pill.whatsapp{background:#25D366}
+.share .pill.telegram{background:#229ED9}
+.share .pill.facebook{background:#1877F2}
+.share .pill.x{background:#111}
+.share .pill.copy{background:var(--ant-dark)}
+.qrbox{display:flex;align-items:center;gap:.8rem;margin-top:.7rem;background:#fff;
+border:1px solid var(--soft);border-radius:.7rem;padding:.6rem .9rem;max-width:26rem}
+.qrbox img{width:76px;height:76px;image-rendering:pixelated;flex-shrink:0}
+.qrbox p{margin:0;font-size:.85rem;color:var(--mute)}
 .adbox{border:1px solid var(--ant);border-radius:.6rem;background:#fff;
 padding:.5rem .9rem;margin:1.1rem 0;font-size:.95rem}
 .adbox .adlabel{display:block;font-size:.72rem;letter-spacing:.12em;color:var(--mute);
@@ -297,6 +330,10 @@ byDist.classList.add('on');byName.classList.remove('on');},
 document.querySelectorAll('.copylink').forEach(b=>{b.addEventListener('click',async()=>{
 await navigator.clipboard.writeText(b.dataset.url);
 b.textContent=b.dataset.done;setTimeout(()=>b.textContent=b.dataset.label,1500);});});
+// ---- native share (Web Share API where supported) ---------------------
+if(navigator.share){document.querySelectorAll('[data-native]').forEach(b=>{
+b.style.display='';b.addEventListener('click',()=>{
+navigator.share({title:b.dataset.title,url:b.dataset.url}).catch(()=>{});});});}
 // ---- home modules: day colour + ticker + personalize ------------------
 const day=document.getElementById('daycolor');
 if(day){const names=['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'];
@@ -542,13 +579,28 @@ def ad_box(path, depth):
             + bi("ลงโฆษณาที่นี่", "advertise here") + "</a></div>")
 
 
-def share_block(url, name):
-    u = att(url)
-    return (f'<p class="share">{bi("บอกต่อ", "Share")}: '
-            f'<a class="line" href="https://social-plugins.line.me/lineit/share?url={u}" rel="noopener">LINE</a>'
-            f'<a href="https://www.facebook.com/sharer/sharer.php?u={u}" rel="noopener">Facebook</a>'
-            f'<a href="https://twitter.com/intent/tweet?url={u}&text={att(name)}" rel="noopener">X</a>'
-            f'<button class="copylink" data-url="{u}" data-label="คัดลอกลิงก์" data-done="คัดลอกแล้ว ✓">คัดลอกลิงก์</button></p>')
+def share_block(url, name, qr=False):
+    u, t = att(url), att(name)
+    qr_html = ""
+    if qr:
+        data_uri = qr_data_uri(url)
+        if data_uri:
+            qr_th = "สแกนแชร์หรือพกไว้หน้าร้านก็ได้"
+            qr_en = "Scan to share — or print it by the door"
+            qr_html = (f'<div class="qrbox"><img src="{data_uri}" alt="QR code" width="76" height="76">'
+                      f'<p>{bi(qr_th, qr_en)}</p></div>')
+    return (f'<div class="share"><span class="sharelabel">{bi("บอกต่อ", "Share")}</span>'
+            f'<div class="row">'
+            f'<button class="pill native" data-native data-url="{u}" data-title="{t}" style="display:none">'
+            f'📤 {bi("แชร์", "Share")}</button>'
+            f'<a class="pill line" href="https://social-plugins.line.me/lineit/share?url={u}" rel="noopener">LINE</a>'
+            f'<a class="pill whatsapp" href="https://wa.me/?text={t}%20{u}" rel="noopener">WhatsApp</a>'
+            f'<a class="pill telegram" href="https://t.me/share/url?url={u}&text={t}" rel="noopener">Telegram</a>'
+            f'<a class="pill facebook" href="https://www.facebook.com/sharer/sharer.php?u={u}" rel="noopener">Facebook</a>'
+            f'<a class="pill x" href="https://twitter.com/intent/tweet?url={u}&text={t}" rel="noopener">X</a>'
+            f'<button class="pill copy copylink" data-url="{u}" data-label="🔗 {esc("คัดลอกลิงก์")}" '
+            f'data-done="✓ {esc("คัดลอกแล้ว")}">🔗 {esc("คัดลอกลิงก์")}</button>'
+            f'</div>{qr_html}</div>')
 
 
 def detail_page(r, prov_cfg, photo_file=None):
@@ -615,7 +667,13 @@ def detail_page(r, prov_cfg, photo_file=None):
     if photo_file:
         img_tag = (f'<img class="photo" src="../../photos/{att(photo_file)}" '
                    f'alt="{att(name_of(r))}" loading="lazy">')
-        photo_note = ""
+        credit = PHOTO_CREDITS.get(r["id"])
+        if credit and credit.get("source"):
+            photo_note = (f'<p class="phototag">📷 <a href="{att(credit["source"])}" rel="noopener">'
+                         f'{esc(credit.get("author") or "Wikimedia Commons")}</a>'
+                         f' — {esc(credit.get("license") or "")}, via Wikimedia Commons</p>')
+        else:
+            photo_note = ""
         photo_cta = ""
     else:
         img_tag = (f'<img class="photo" src="../../wat.svg" '
@@ -642,7 +700,7 @@ def detail_page(r, prov_cfg, photo_file=None):
               f'<a href="../index.html">{bi(prov_cfg["th"], prov_cfg["en"])}</a> › {esc(name_of(r))}')
     body = (f"<h1>{esc(name_of(r))}</h1>{img_tag}{photo_note}{blurb}<dl>{''.join(rows)}</dl>"
             f"{contact_cta}{photo_cta}"
-            f"{share_block(BASE + path, name_of(r))}{ad_box(path, 2)}"
+            f"{share_block(BASE + path, name_of(r), qr=True)}{ad_box(path, 2)}"
             f'<p class="prov">{prov_line}{fetched}</p>')
     desc = r.get("blurb_th") or f"{CATS[r['cat'][0]]['th']} · {prov_cfg['th']} · มดแดง"
     return page(name_of(r), body, depth=2, crumbs=crumbs, path=path, desc=desc,
@@ -1093,9 +1151,29 @@ def build():
         f'{share_block(BASE + "stats.html", "สถิติมดแดง · Mot Dang stats")}',
         depth=0, path="stats.html", desc=stats_th))
 
+    # ---- the full buffet: one JSON dump of every field, for agents --------
+    full_dump = []
+    for p in PROVINCES:
+        for r in data[p["key"]]:
+            rec = dict(r)
+            fname = photos.get(r["id"])
+            if fname:
+                rec["photo"] = {"url": BASE + f"photos/{fname}",
+                                **PHOTO_CREDITS.get(r["id"], {})}
+            full_dump.append(rec)
+    (DOCS / "data" / "places.json").write_text(
+        json.dumps(full_dump, ensure_ascii=False))
+
     # ---- bot hospitality: robots, sitemap, llms.txt ----------------------
-    (DOCS / "robots.txt").write_text(
-        "User-agent: *\nAllow: /\n\nSitemap: " + BASE + "sitemap.xml\n")
+    # Explicit per-bot welcomes, not just the wildcard — on purpose, in direct
+    # contrast to sites in this operator's other corpora that block ClaudeBot.
+    AI_BOTS = ["GPTBot", "ChatGPT-User", "ClaudeBot", "anthropic-ai",
+               "Claude-Web", "PerplexityBot", "Google-Extended", "CCBot",
+               "Bytespider", "Applebot-Extended"]
+    robots_txt = "User-agent: *\nAllow: /\n\n" + "".join(
+        f"User-agent: {b}\nAllow: /\n\n" for b in AI_BOTS
+    ) + "Sitemap: " + BASE + "sitemap.xml\n"
+    (DOCS / "robots.txt").write_text(robots_txt)
     sitemap_urls = "".join(
         f"<url><loc>{BASE}{f.relative_to(DOCS).as_posix()}</loc>"
         f"<lastmod>{BUILD_DATE}</lastmod></url>"
@@ -1111,12 +1189,16 @@ def build():
 > every soi. Built from OpenStreetMap plus community and field submissions.
 > {len(all_recs):,} places as of {BUILD_DATE}.
 
-## Open data (no key, no login)
-- Full search index: {BASE}data/index.json
+## 🍜 Dinner's ready — the full dataset, one file
+- Everything, every field: {BASE}data/places.json ({len(full_dump):,} records)
+- Slim search index: {BASE}data/index.json
 - Per-category GeoJSON: {BASE}data/<province>-<category>.geojson
   (province = cm | cr; e.g. {BASE}data/cm-wat.geojson)
 - Category tree source: https://github.com/NaNoBotCo/mot-dang/blob/main/data/categories.json
-- Dataset stats: {BASE}stats.html
+- Dataset stats (human-readable): {BASE}stats.html
+- Every place page also carries schema.org JSON-LD (LocalBusiness/
+  TouristAttraction/Restaurant/etc, typed per category) — read the page,
+  get structured data for free, no separate API call needed.
 
 ## URL structure
 - {BASE}<province>/<category>/ — category listing
@@ -1126,9 +1208,12 @@ def build():
 - {BASE}suggest.html, {BASE}crawl-request.html — how to contribute
 
 ## Notes for crawlers and agents
-- No login, no paywall, no tracking scripts, no rate limiting. Crawl freely.
+- All named AI crawlers and the wildcard are explicitly Allow: / in robots.txt.
+  No login, no paywall, no tracking scripts, no rate limiting. Eat freely.
 - Content updates as the community and gentle OSM crawls contribute.
-- Attribution: © OpenStreetMap contributors (ODbL) for map-derived fields.
+- Attribution: © OpenStreetMap contributors (ODbL) for map-derived fields;
+  wat photos sourced from Wikimedia Commons carry their own author/license
+  in data/places.json and inline on each place's page.
 - Contact-info coverage is currently {overall_pct}% — corrections and
   additions via GitHub issues are welcome and go live on the next build.
 """)

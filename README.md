@@ -7,12 +7,14 @@ full build-out; Chiang Rai is a wireframe that grows.
 ## Quickstart
 
 ```bash
+pip3 install --user qrcode        # once — build.py inlines a QR per place page
 python3 importers/import_all.py   # fold source corpora -> data/canonical/{cm,cr}.json
 python3 build.py                  # -> docs/ (GitHub Pages ready, .nojekyll included)
 open docs/index.html              # works from file://, offline
 ```
 
-Or use the Desktop launcher: **Mot Dang.command**.
+Or use the Desktop launcher: **Mot Dang.command**. Without `qrcode` installed,
+build.py still runs fine — QR boxes are just skipped.
 
 ## Ground rules
 
@@ -35,6 +37,7 @@ Or use the Desktop launcher: **Mot Dang.command**.
 | mueang-map canonical osm.json | 378 lens points | cm/วัด ร้านอาหาร ที่เที่ยว |
 | mueang-map osm-chiang-rai.json | 289 wats | cr/วัด (wireframe seed) |
 | data/curated/featured-chiang-rai.json | hand-entered field truth | cr featured |
+| mueang-map's Commons metadata (`media` field) | 114 real, licensed wat photos | assets/photos/ — see `importers/import_photos_commons.py` |
 
 ## The 1997 layer
 
@@ -44,12 +47,28 @@ Or use the Desktop launcher: **Mot Dang.command**.
   your last visit, a daily pick drawn from *your* pins, custom links, sticky
   notes. All localStorage; Mot Dang follows no one around.
 - **Sorting**: ก→ฮ or 📍 ใกล้ฉัน (client-side geolocation, nothing leaves the device).
-- **Sharing**: LINE-first (green button), FB, X, copy — on every page type.
+- **Sharing**: pill-button row — native Web Share (mobile), LINE, WhatsApp,
+  Telegram, Facebook, X, copy-link — on every page type; place pages also get
+  an inline QR code (base64 PNG, zero extra requests) to scan or print by a door.
+- **Photos**: an original hand-drawn wat illustration is the default image
+  everywhere a real photo is missing (deliberately — see `build.py`'s `WAT_SVG`).
+  `assets/photos/<record-id>.jpg` overrides it automatically; 114 real,
+  Wikimedia-Commons-licensed wat photos already populate this from mueang-map's
+  existing crawl (proper credit line rendered from `assets/photos/credits.json`).
 - **Sponsors**: rotating 1997-innocent ad boxes from [data/ads.json](data/ads.json),
   always marked ผู้สนับสนุน; policy on advertise.html.
 - **Contact drive**: pages without phone/LINE/FB carry a "tell the ants" CTA that
   pre-fills a GitHub issue with the place id. Contact info is the directory's
   real currency — capture it everywhere.
+
+## Bot hospitality
+
+`robots.txt` explicitly allows the wildcard *and* every named AI crawler
+(GPTBot, ClaudeBot, PerplexityBot, etc) — on purpose, unlike sites elsewhere
+in this operator's corpus that block them. `sitemap.xml` lists every page;
+`llms.txt` points agents at the open data (`data/places.json` is the full
+record dump, `data/index.json` the slim search index, `data/*.geojson` per
+category); every place page also carries schema.org JSON-LD.
 
 ## Crawl (gentle by design)
 
