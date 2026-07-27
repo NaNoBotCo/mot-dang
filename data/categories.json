@@ -1,0 +1,19 @@
+{
+  "_comment": "The category tree IS data. Order here = display order. Empty categories are hidden by build.py (no empty shelves). Keys are stable slugs; th is canonical, en is a display layer.",
+  "categories": [
+    { "key": "wat",        "th": "วัด-สิ่งศักดิ์สิทธิ์",   "en": "Wats & Sacred Places" },
+    { "key": "food",       "th": "ร้านอาหาร-ของกิน",      "en": "Food & Eats" },
+    { "key": "massage",    "th": "นวด-สปา",               "en": "Massage & Spa" },
+    { "key": "medical",    "th": "หมอ-คลินิก-โรงพยาบาล",  "en": "Doctors & Hospitals" },
+    { "key": "essentials", "th": "ของจำเป็นประจำเมือง",    "en": "City Essentials" },
+    { "key": "hotel",      "th": "โรงแรม-ที่พัก",          "en": "Hotels & Stays" },
+    { "key": "school-intl","th": "โรงเรียนนานาชาติ",       "en": "International Schools" },
+    { "key": "market",     "th": "ตลาด",                  "en": "Markets" },
+    { "key": "realestate", "th": "อสังหาฯ-คอนโด",         "en": "Real Estate & Condos" },
+    { "key": "sights",     "th": "ที่เที่ยว-ของดี",         "en": "Sights & Good Things" }
+  ],
+  "provinces": [
+    { "key": "cm", "th": "เชียงใหม่", "en": "Chiang Mai", "mode": "full" },
+    { "key": "cr", "th": "เชียงราย", "en": "Chiang Rai", "mode": "wireframe" }
+  ]
+}
