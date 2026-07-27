@@ -36,7 +36,7 @@
         { "key": "bank", "th": "ธนาคาร-เอทีเอ็ม", "en": "Banks & ATMs" },
         { "key": "post", "th": "ไปรษณีย์-ขนส่ง", "en": "Post & Parcels" },
         { "key": "gov", "th": "ราชการ-เอกสาร", "en": "Government Offices" },
-        { "key": "visa", "th": "วีซ่า-ต่ออายุ", "en": "Visa & Extensions" },
+        { "key": "visa", "th": "วีซ่า-ต่ออายุ", "en": "Visa & Extensions", "match": { "sub": "visa" } },
         { "key": "convenience", "th": "ร้านสะดวกซื้อ", "en": "Convenience Stores" }
       ] },
     { "key": "hotel", "th": "โรงแรม-ที่พัก", "en": "Hotels & Stays",

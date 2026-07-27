@@ -49,17 +49,55 @@
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin",
-  "address": null,
+  "address": "Thai Viwat Alley ต.เวียง อ.เมืองเชียงราย จ.เชียงราย 57000",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "kind": "designer consignment shop"
+   "kind": "designer consignment shop",
+   "nextDoor": "cr-curated-leilas-visa"
   },
   "featured": true,
   "landmark": false,
   "blurb_th": "ร้านเสื้อผ้าแบรนด์เนมมือสองคัดพิเศษ ของดีเมืองเชียงราย",
   "blurb_en": "Hand-picked designer consignment — one of Chiang Rai's gems.",
+  "sources": [
+   {
+    "type": "field",
+    "ref": "owner-friend",
+    "fetched": "2026-07-27"
+   }
+  ],
+  "confidence": "field",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-curated-leilas-visa",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "visa"
+  ],
+  "name": "Leila's Visa Services",
+  "nameTh": null,
+  "nameEn": "Leila's Visa Services",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "Thai Viwat Alley ต.เวียง อ.เมืองเชียงราย จ.เชียงราย 57000",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "kind": "visa services",
+   "nextDoor": "cr-curated-leilas-consignment"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "บริการวีซ่า-ต่ออายุ ข้างร้าน Leila's Designer Consignment ในตรอกเดียวกัน",
+  "blurb_en": "Visa and extension services — right next door to Leila's Designer Consignment on the same alley.",
   "sources": [
    {
     "type": "field",
