@@ -34,7 +34,7 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cr-curated-leilas-consignment",
+  "id": "cr-curated-lailas-consignment",
   "province": "cr",
   "cat": [
    "shopping",
@@ -43,9 +43,9 @@
   "sub": [
    "secondhand"
   ],
-  "name": "Leila's Designer Consignment",
+  "name": "Laila's Designer Consignment",
   "nameTh": null,
-  "nameEn": "Leila's Designer Consignment",
+  "nameEn": "Laila's Designer Consignment",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin",
@@ -55,7 +55,7 @@
   "hours": null,
   "attrs": {
    "kind": "designer consignment shop",
-   "nextDoor": "cr-curated-leilas-visa"
+   "nextDoor": "cr-curated-lailas-visa"
   },
   "featured": true,
   "landmark": false,
@@ -72,7 +72,7 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cr-curated-leilas-visa",
+  "id": "cr-curated-lailas-visa",
   "province": "cr",
   "cat": [
    "essentials"
@@ -80,9 +80,9 @@
   "sub": [
    "visa"
   ],
-  "name": "Leila's Visa Services",
+  "name": "Laila's Visa Services",
   "nameTh": null,
-  "nameEn": "Leila's Visa Services",
+  "nameEn": "Laila's Visa Services",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin",
@@ -92,12 +92,12 @@
   "hours": null,
   "attrs": {
    "kind": "visa services",
-   "nextDoor": "cr-curated-leilas-consignment"
+   "nextDoor": "cr-curated-lailas-consignment"
   },
   "featured": false,
   "landmark": false,
-  "blurb_th": "บริการวีซ่า-ต่ออายุ ข้างร้าน Leila's Designer Consignment ในตรอกเดียวกัน",
-  "blurb_en": "Visa and extension services — right next door to Leila's Designer Consignment on the same alley.",
+  "blurb_th": "บริการวีซ่า-ต่ออายุ ข้างร้าน Laila's Designer Consignment ในตรอกเดียวกัน",
+  "blurb_en": "Visa and extension services — right next door to Laila's Designer Consignment on the same alley.",
   "sources": [
    {
     "type": "field",

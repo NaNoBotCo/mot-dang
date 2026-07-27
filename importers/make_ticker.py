@@ -14,8 +14,8 @@ HOUSE = [
     {"th": "🐜 มดแดงเปิดรัง — สารบัญเมืองเชียงใหม่·เชียงราย ฉบับปฐมฤกษ์",
      "en": "🐜 Mot Dang opens the nest — first edition of the CM·CR city directory",
      "url": "index.html"},
-    {"th": "★ ของดีเชียงราย: Leila's Designer Consignment และ River Tavern",
-     "en": "★ Chiang Rai gems: Leila's Designer Consignment and River Tavern",
+    {"th": "★ ของดีเชียงราย: Laila's Designer Consignment และ River Tavern",
+     "en": "★ Chiang Rai gems: Laila's Designer Consignment and River Tavern",
      "url": "cr/index.html"},
 ]
 
