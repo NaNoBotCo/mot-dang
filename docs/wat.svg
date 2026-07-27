@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img">
+<title>ภาพประกอบวัด (ยังไม่มีรูปจริงของสถานที่นี้) — illustrative wat, no real photo yet</title>
+<rect width="480" height="320" fill="#FBF6EE"/>
+<rect x="40" y="285" width="400" height="8" fill="#2A1E16" opacity=".15"/>
+<rect x="80" y="270" width="320" height="18" rx="3" fill="#8F2E13"/>
+<rect x="105" y="190" width="270" height="82" fill="#FBF6EE" stroke="#2A1E16" stroke-width="3"/>
+<rect x="130" y="215" width="34" height="57" fill="#2A1E16" opacity=".18"/>
+<rect x="223" y="215" width="34" height="57" fill="#2A1E16" opacity=".18"/>
+<rect x="316" y="215" width="34" height="57" fill="#2A1E16" opacity=".18"/>
+<polygon points="65,190 415,190 345,150 135,150" fill="#C2401C" stroke="#2A1E16" stroke-width="2"/>
+<polygon points="135,150 345,150 300,113 180,113" fill="#8F2E13" stroke="#2A1E16" stroke-width="2"/>
+<polygon points="180,113 300,113 268,82 212,82" fill="#C2401C" stroke="#2A1E16" stroke-width="2"/>
+<polygon points="222,82 258,82 240,35" fill="#8F2E13"/>
+<circle cx="240" cy="30" r="6" fill="#C2401C"/>
+<path d="M60,190 Q45,170 60,150" fill="none" stroke="#8F2E13" stroke-width="4" stroke-linecap="round"/>
+<path d="M420,190 Q435,170 420,150" fill="none" stroke="#8F2E13" stroke-width="4" stroke-linecap="round"/>
+<g fill="#2A1E16">
+  <ellipse cx="404" cy="278" rx="5" ry="4"/>
+  <ellipse cx="413" cy="278" rx="4" ry="3.4"/>
+  <ellipse cx="420" cy="277" rx="6" ry="4.6"/>
+  <line x1="406" y1="280" x2="402" y2="286" stroke="#2A1E16" stroke-width="1.4"/>
+  <line x1="411" y1="280" x2="415" y2="286" stroke="#2A1E16" stroke-width="1.4"/>
+  <line x1="422" y1="279" x2="427" y2="284" stroke="#2A1E16" stroke-width="1.4"/>
+</g>
+</svg>

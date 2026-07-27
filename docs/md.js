@@ -64,10 +64,10 @@ if(day){const names=['อาทิตย์','จันทร์','อังค�
 const ens=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const cols=[['แดง','red','#C22'],['เหลือง','yellow','#E7B10A'],['ชมพู','pink','#E77'],
 ['เขียว','green','#2A7'],['ส้ม','orange','#E80'],['ฟ้า','light blue','#59F'],['ม่วง','purple','#96C']];
-const d=new Date().getDay(),c=cols[d];
+const d=new Date().getDay(),c=cols[d],be=new Date().getFullYear()+543;
 day.innerHTML=`<span class="swatch" style="background:${c[2]}"></span>`+
-`<span class="th">วัน${names[d]} — สีมงคลวันนี้: ${c[0]}</span>`+
-`<span class="en">${ens[d]} — today's auspicious colour: ${c[1]}</span>`;}
+`<span class="th">วัน${names[d]} — สีมงคลวันนี้: ${c[0]} · พ.ศ. ${be}</span>`+
+`<span class="en">${ens[d]} — today's auspicious colour: ${c[1]} · B.E. ${be}</span>`;}
 // ---- my page: pins + updates + daily pick + bookmarks + notes ---------
 const H=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const pinpick=document.getElementById('pinpick');
@@ -124,3 +124,29 @@ cb.checked=!hidden.includes(id);
 cb.addEventListener('change',()=>{const h=JSON.parse(localStorage.getItem('md-mods')||'[]');
 const i=h.indexOf(id);if(cb.checked&&i>-1)h.splice(i,1);if(!cb.checked&&i===-1)h.push(id);
 localStorage.setItem('md-mods',JSON.stringify(h));el.style.display=cb.checked?'':'none';});});}
+// ---- sortable tables (stats page) --------------------------------------
+document.querySelectorAll('table.sortable').forEach(tbl=>{
+const tbody=tbl.querySelector('tbody');
+tbl.querySelectorAll('th').forEach((th,idx)=>{let asc=true;
+th.addEventListener('click',()=>{
+const rows=[...tbody.querySelectorAll('tr')],numeric=th.dataset.sort==='num';
+rows.sort((a,b)=>{const av=a.children[idx],bv=b.children[idx];
+const A=numeric?parseFloat(av.dataset.v??av.textContent):av.textContent;
+const Bv=numeric?parseFloat(bv.dataset.v??bv.textContent):bv.textContent;
+if(numeric)return asc?A-Bv:Bv-A;
+return asc?String(A).localeCompare(String(Bv),'th'):String(Bv).localeCompare(String(A),'th');});
+rows.forEach(r=>tbody.appendChild(r));
+tbl.querySelectorAll('th').forEach(h=>h.classList.remove('sorted','asc'));
+th.classList.add('sorted');if(asc)th.classList.add('asc');asc=!asc;});});});
+// ---- crawl-request form: build a GitHub issue, no backend needed ------
+const crawlForm=document.getElementById('crawlform');
+if(crawlForm){crawlForm.addEventListener('submit',e=>{
+e.preventDefault();
+const area=crawlForm.area.value.trim(),cat=crawlForm.cat.value.trim(),
+kind=crawlForm.kind.value,note=crawlForm.note.value.trim();
+const title=`crawl request (${kind}): ${area||'?'} — ${cat||'?'}`;
+const body=(note?note+'\n\n':'')+'(ส่งจากฟอร์มในเว็บ / sent from the site form)';
+const url='https://github.com/NaNoBotCo/mot-dang/issues/new?title='+
+encodeURIComponent(title)+'&body='+encodeURIComponent(body);
+window.open(url,'_blank','noopener');
+crawlForm.reset();});}

@@ -23,6 +23,86 @@ CATS = {c["key"]: c for c in CFG["categories"]}
 CAT_ORDER = [c["key"] for c in CFG["categories"]]
 PROVINCES = CFG["provinces"]
 
+PHOTOS_SRC = ROOT / "assets" / "photos"
+
+# Original stylized wat illustration — the default photo everywhere a real one
+# is missing. Hand-drawn shapes, brand palette, not a copy of any real temple.
+WAT_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img">
+<title>ภาพประกอบวัด (ยังไม่มีรูปจริงของสถานที่นี้) — illustrative wat, no real photo yet</title>
+<rect width="480" height="320" fill="#FBF6EE"/>
+<rect x="40" y="285" width="400" height="8" fill="#2A1E16" opacity=".15"/>
+<rect x="80" y="270" width="320" height="18" rx="3" fill="#8F2E13"/>
+<rect x="105" y="190" width="270" height="82" fill="#FBF6EE" stroke="#2A1E16" stroke-width="3"/>
+<rect x="130" y="215" width="34" height="57" fill="#2A1E16" opacity=".18"/>
+<rect x="223" y="215" width="34" height="57" fill="#2A1E16" opacity=".18"/>
+<rect x="316" y="215" width="34" height="57" fill="#2A1E16" opacity=".18"/>
+<polygon points="65,190 415,190 345,150 135,150" fill="#C2401C" stroke="#2A1E16" stroke-width="2"/>
+<polygon points="135,150 345,150 300,113 180,113" fill="#8F2E13" stroke="#2A1E16" stroke-width="2"/>
+<polygon points="180,113 300,113 268,82 212,82" fill="#C2401C" stroke="#2A1E16" stroke-width="2"/>
+<polygon points="222,82 258,82 240,35" fill="#8F2E13"/>
+<circle cx="240" cy="30" r="6" fill="#C2401C"/>
+<path d="M60,190 Q45,170 60,150" fill="none" stroke="#8F2E13" stroke-width="4" stroke-linecap="round"/>
+<path d="M420,190 Q435,170 420,150" fill="none" stroke="#8F2E13" stroke-width="4" stroke-linecap="round"/>
+<g fill="#2A1E16">
+  <ellipse cx="404" cy="278" rx="5" ry="4"/>
+  <ellipse cx="413" cy="278" rx="4" ry="3.4"/>
+  <ellipse cx="420" cy="277" rx="6" ry="4.6"/>
+  <line x1="406" y1="280" x2="402" y2="286" stroke="#2A1E16" stroke-width="1.4"/>
+  <line x1="411" y1="280" x2="415" y2="286" stroke="#2A1E16" stroke-width="1.4"/>
+  <line x1="422" y1="279" x2="427" y2="284" stroke="#2A1E16" stroke-width="1.4"/>
+</g>
+</svg>"""
+
+
+def collect_photos():
+    """assets/photos/<record-id>.(jpg|jpeg|png|webp) -> {id: filename}."""
+    out = {}
+    if PHOTOS_SRC.exists():
+        for f in sorted(PHOTOS_SRC.iterdir()):
+            if f.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp"):
+                out[f.stem] = f.name
+    return out
+
+
+SCHEMA_TYPE = {
+    "wat": "TouristAttraction", "hotel": "LodgingBusiness", "food": "Restaurant",
+    "massage": "HealthAndBeautyBusiness", "medical": "MedicalBusiness",
+    "essentials": "LocalBusiness", "school-intl": "School", "market": "LocalBusiness",
+    "shopping": "Store", "realestate": "RealEstateAgent", "transport": "LocalBusiness",
+    "repair": "LocalBusiness", "beauty": "HealthAndBeautyBusiness", "pets": "LocalBusiness",
+    "learn": "EducationalOrganization", "museums-galleries": "TouristAttraction",
+    "sights": "TouristAttraction", "whats-on": "EntertainmentBusiness",
+    "home-services": "LocalBusiness", "community": "Organization", "business": "LocalBusiness",
+}
+
+
+def ld_json(r, path, photo_file):
+    a = r.get("attrs", {})
+    obj = {
+        "@context": "https://schema.org",
+        "@type": SCHEMA_TYPE.get(r["cat"][0], "LocalBusiness"),
+        "name": name_of(r),
+        "url": BASE + path,
+        "image": BASE + (f"photos/{photo_file}" if photo_file else "wat.svg"),
+    }
+    if r.get("address"):
+        obj["address"] = {"@type": "PostalAddress", "streetAddress": r["address"],
+                           "addressCountry": "TH"}
+    if r.get("lat") is not None:
+        obj["geo"] = {"@type": "GeoCoordinates", "latitude": r["lat"], "longitude": r["lng"]}
+    if r.get("phone"):
+        obj["telephone"] = r["phone"]
+    if r.get("website"):
+        obj["sameAs"] = [r["website"]]
+    same_as = obj.get("sameAs", [])
+    for key, base in (("facebook", "https://www.facebook.com/"), ("instagram", "https://www.instagram.com/")):
+        v = a.get(key)
+        if v:
+            same_as.append(v if v.startswith("http") else base + v.lstrip("@"))
+    if same_as:
+        obj["sameAs"] = same_as
+    return f'<script type="application/ld+json">{json.dumps(obj, ensure_ascii=False)}</script>'
+
 CSS = """
 :root{--paper:#FBF6EE;--ink:#2A1E16;--ant:#C2401C;--ant-dark:#8F2E13;
 --link:#1F3FBF;--visited:#6B3FA0;--soft:#EADFCE;--mute:#9B8B78;}
@@ -120,6 +200,40 @@ vertical-align:-.15em;margin-right:.35em;border:1px solid var(--soft)}
 .persona{font-size:.85rem;text-align:right}
 .persona details{display:inline-block;text-align:left}
 .persona label{display:block;cursor:pointer}
+.photo{max-width:100%;height:auto;max-height:280px;border-radius:.6rem;border:1px solid var(--soft);
+margin:.6rem 0;display:block;background:#fff}
+.phototag{color:var(--mute);font-size:.8rem;margin:-.4rem 0 .6rem}
+.chartlegend{font-size:.9rem;margin:.4rem 0}
+.chartlegend .swatch{display:inline-block;width:.9em;height:.9em;border-radius:3px;
+vertical-align:-.1em;margin-right:.3em}
+.chartcap{color:var(--mute);font-size:.82rem;margin-top:-.3rem}
+.tilerow{display:flex;gap:.8rem;flex-wrap:wrap;margin:1rem 0}
+.tile{background:#fff;border:1px solid var(--soft);border-radius:.7rem;padding:.6rem 1.2rem;
+text-align:center;min-width:7rem}
+.tile b{display:block;font-size:1.7rem;color:var(--ant);line-height:1.3}
+.tile span{font-size:.78rem;color:var(--mute)}
+.missionbar{position:relative;background:var(--soft);border-radius:999px;height:28px;
+overflow:hidden;margin:.6rem 0}
+.missionfill{background:linear-gradient(90deg,#F6D9CE,var(--ant));height:100%;border-radius:999px}
+.missionlabel{position:absolute;top:0;left:.8rem;line-height:28px;font-weight:700;
+color:var(--ink);font-size:.9rem}
+table.sortable{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.92rem}
+table.sortable th,table.sortable td{padding:.35rem .6rem;text-align:right;
+border-bottom:1px solid var(--soft)}
+table.sortable th:first-child,table.sortable td:first-child{text-align:left}
+table.sortable thead th{background:var(--soft);color:var(--ant-dark);cursor:pointer;
+user-select:none}
+table.sortable thead th:hover{background:#dfcfae}
+table.sortable thead th.sorted::after{content:" ▾"}
+table.sortable thead th.sorted.asc::after{content:" ▴"}
+.reqform label{display:block;margin:.7rem 0 .2rem;font-weight:600;color:var(--ant-dark)}
+.reqform input,.reqform select,.reqform textarea{font:inherit;font-size:.95rem;padding:.35rem .6rem;
+border:1.5px solid var(--soft);border-radius:.5rem;background:#fff;color:var(--ink);
+width:100%;max-width:28rem;box-sizing:border-box}
+.reqform textarea{min-height:6rem}
+.reqform button{margin-top:.9rem;font:inherit;border:2px solid var(--ant);background:var(--ant);
+color:#fff;border-radius:.5rem;padding:.4rem 1.2rem;cursor:pointer}
+.reqform button:hover{background:var(--ant-dark)}
 @media(max-width:600px){body{font-size:18px} ul.dir,ul.cats{column-width:auto}}
 """
 
@@ -189,10 +303,10 @@ if(day){const names=['อาทิตย์','จันทร์','อังค�
 const ens=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const cols=[['แดง','red','#C22'],['เหลือง','yellow','#E7B10A'],['ชมพู','pink','#E77'],
 ['เขียว','green','#2A7'],['ส้ม','orange','#E80'],['ฟ้า','light blue','#59F'],['ม่วง','purple','#96C']];
-const d=new Date().getDay(),c=cols[d];
+const d=new Date().getDay(),c=cols[d],be=new Date().getFullYear()+543;
 day.innerHTML=`<span class="swatch" style="background:${c[2]}"></span>`+
-`<span class="th">วัน${names[d]} — สีมงคลวันนี้: ${c[0]}</span>`+
-`<span class="en">${ens[d]} — today's auspicious colour: ${c[1]}</span>`;}
+`<span class="th">วัน${names[d]} — สีมงคลวันนี้: ${c[0]} · พ.ศ. ${be}</span>`+
+`<span class="en">${ens[d]} — today's auspicious colour: ${c[1]} · B.E. ${be}</span>`;}
 // ---- my page: pins + updates + daily pick + bookmarks + notes ---------
 const H=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const pinpick=document.getElementById('pinpick');
@@ -249,6 +363,32 @@ cb.checked=!hidden.includes(id);
 cb.addEventListener('change',()=>{const h=JSON.parse(localStorage.getItem('md-mods')||'[]');
 const i=h.indexOf(id);if(cb.checked&&i>-1)h.splice(i,1);if(!cb.checked&&i===-1)h.push(id);
 localStorage.setItem('md-mods',JSON.stringify(h));el.style.display=cb.checked?'':'none';});});}
+// ---- sortable tables (stats page) --------------------------------------
+document.querySelectorAll('table.sortable').forEach(tbl=>{
+const tbody=tbl.querySelector('tbody');
+tbl.querySelectorAll('th').forEach((th,idx)=>{let asc=true;
+th.addEventListener('click',()=>{
+const rows=[...tbody.querySelectorAll('tr')],numeric=th.dataset.sort==='num';
+rows.sort((a,b)=>{const av=a.children[idx],bv=b.children[idx];
+const A=numeric?parseFloat(av.dataset.v??av.textContent):av.textContent;
+const Bv=numeric?parseFloat(bv.dataset.v??bv.textContent):bv.textContent;
+if(numeric)return asc?A-Bv:Bv-A;
+return asc?String(A).localeCompare(String(Bv),'th'):String(Bv).localeCompare(String(A),'th');});
+rows.forEach(r=>tbody.appendChild(r));
+tbl.querySelectorAll('th').forEach(h=>h.classList.remove('sorted','asc'));
+th.classList.add('sorted');if(asc)th.classList.add('asc');asc=!asc;});});});
+// ---- crawl-request form: build a GitHub issue, no backend needed ------
+const crawlForm=document.getElementById('crawlform');
+if(crawlForm){crawlForm.addEventListener('submit',e=>{
+e.preventDefault();
+const area=crawlForm.area.value.trim(),cat=crawlForm.cat.value.trim(),
+kind=crawlForm.kind.value,note=crawlForm.note.value.trim();
+const title=`crawl request (${kind}): ${area||'?'} — ${cat||'?'}`;
+const body=(note?note+'\n\n':'')+'(ส่งจากฟอร์มในเว็บ / sent from the site form)';
+const url='https://github.com/NaNoBotCo/mot-dang/issues/new?title='+
+encodeURIComponent(title)+'&body='+encodeURIComponent(body);
+window.open(url,'_blank','noopener');
+crawlForm.reset();});}
 """
 
 
@@ -264,7 +404,10 @@ def bi(th, en):
     return f'<span class="th">{esc(th)}</span><span class="en">{esc(en)}</span>'
 
 
-def page(title, body, depth, crumbs="", path="", desc=""):
+BE_BUILD = int(BUILD_DATE[:4]) + 543
+
+
+def page(title, body, depth, crumbs="", path="", desc="", extra_head=""):
     r = "../" * depth
     url = BASE + path
     tt = esc(title) + " · มดแดง" if title != "มดแดง" else "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"
@@ -274,16 +417,19 @@ def page(title, body, depth, crumbs="", path="", desc=""):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{tt}</title>
 <meta name="description" content="{d}">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="{att(url)}">
 <meta property="og:site_name" content="มดแดง Mot Dang">
 <meta property="og:title" content="{att(tt)}">
 <meta property="og:description" content="{d}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{att(url)}">
 <meta property="og:image" content="{BASE}card.png">
+<meta property="og:locale" content="th_TH">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="{r}style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐜</text></svg>">
-</head><body>
+{extra_head}</head><body>
 <main>
 <header class="site">
   <div class="masthead">
@@ -296,7 +442,9 @@ def page(title, body, depth, crumbs="", path="", desc=""):
     <a href="{r}my.html">🏠 {bi("หน้าแรกของฉัน", "My page")}</a> ·
     <a href="{r}suggest.html">{bi("แนะนำร้าน", "Add your place")}</a> ·
     <a href="{r}contacts.html">☎️ {bi("เติมเบอร์-ไลน์", "Add contacts")}</a> ·
+    <a href="{r}crawl-request.html">🐜 {bi("ส่งมดไปสำรวจ", "Request a crawl")}</a> ·
     <a href="#" class="rand">🎲 {bi("สุ่มพาไป", "Random place")}</a> ·
+    <a href="{r}stats.html">📊 {bi("สถิติ", "Stats")}</a> ·
     <a href="{r}advertise.html">{bi("ลงโฆษณา", "Advertise")}</a> ·
     <a href="{KOFI}" rel="noopener">☕ {bi("เลี้ยงกาแฟมดแดง", "Buy the ants a coffee")}</a>
   </div>
@@ -304,11 +452,12 @@ def page(title, body, depth, crumbs="", path="", desc=""):
 {f'<nav class="crumbs">{crumbs}</nav>' if crumbs else ''}
 {body}
 <footer>
-  {bi("สร้างจากข้อมูลเปิดและการเดินเก็บจริง · ปรับปรุง " + BUILD_DATE,
-      "Built from open data and shoe-leather · updated " + BUILD_DATE)}<br>
+  {bi(f"สร้างจากข้อมูลเปิดและการเดินเก็บจริง · ปรับปรุง {BUILD_DATE} (พ.ศ. {BE_BUILD})",
+      f"Built from open data and shoe-leather · updated {BUILD_DATE} (B.E. {BE_BUILD})")}<br>
   © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL) ·
   <a href="https://github.com/NaNoBotCo/mot-dang" rel="noopener">GitHub</a> ·
-  <a href="{KOFI}" rel="noopener">Ko-fi</a>
+  <a href="{KOFI}" rel="noopener">Ko-fi</a> ·
+  <a href="{r}llms.txt">llms.txt</a>
   <span id="scurry">🐜</span>
 </footer>
 </main>
@@ -402,7 +551,7 @@ def share_block(url, name):
             f'<button class="copylink" data-url="{u}" data-label="คัดลอกลิงก์" data-done="คัดลอกแล้ว ✓">คัดลอกลิงก์</button></p>')
 
 
-def detail_page(r, prov_cfg):
+def detail_page(r, prov_cfg, photo_file=None):
     rows = []
     cats = " · ".join(
         f'<a href="../{c}/index.html">{bi(CATS[c]["th"], CATS[c]["en"])}</a>' for c in r["cat"])
@@ -462,7 +611,26 @@ def detail_page(r, prov_cfg):
                  "Know a phone, LINE, or page for this place? Tell the ants — listed free.")
         contact_cta = (f'<p class="myhint">☎️ {cta} '
                        f'<a href="{issue}" rel="noopener">{bi("ส่งเลย", "Send it")}</a> · '
-                       f'{bi("เจ้าของร้านยิ่งยินดี", "Owners most welcome")}</p>')
+                       f'{bi("เจ้าของร้านยิ่งยินดีเจ้า", "Owners most welcome")}</p>')
+    if photo_file:
+        img_tag = (f'<img class="photo" src="../../photos/{att(photo_file)}" '
+                   f'alt="{att(name_of(r))}" loading="lazy">')
+        photo_note = ""
+        photo_cta = ""
+    else:
+        img_tag = (f'<img class="photo" src="../../wat.svg" '
+                   f'alt="{att("ภาพประกอบวัด (ยังไม่มีรูปจริงของสถานที่นี้) — illustrative wat, no real photo yet")}" loading="lazy">')
+        pn_th = "ยังไม่มีรูปของที่นี่ — ใช้ภาพวัดแทนไปพลางก่อน"
+        pn_en = "No real photo of this place yet — a placeholder wat, for now"
+        photo_note = f'<p class="phototag">📷 {bi(pn_th, pn_en)}</p>'
+        issue_photo = ("https://github.com/NaNoBotCo/mot-dang/issues/new?title="
+                       + att(f"photo: {name_of(r)} ({r['id']})")
+                       + "&body=" + att("ลากรูปมาวางในกล่องข้อความได้เลย"))
+        pcta = bi("มีรูปที่นี่ไหม — ลากรูปมาวางในอีชูได้เลย จะใส่แทนภาพวัดให้",
+                  "Have a photo of this place? Drop it into a GitHub issue and we'll swap it in.")
+        photo_cta = (f'<p class="myhint">📷 {pcta} '
+                     f'<a href="{issue_photo}" rel="noopener">{bi("แนบรูป", "Add a photo")}</a> · '
+                     f'{bi("ไม่ต้องขอบคุณ มดขอบคุณเองเจ้า", "No thanks needed — the ants thank you")}</p>')
     src = (r.get("sources") or [{}])[0]
     prov_line = {"osm": bi("ข้อมูลจาก OpenStreetMap", "Data from OpenStreetMap"),
                  "field": bi("ข้อมูลเก็บภาคสนาม", "Field-collected data"),
@@ -472,11 +640,13 @@ def detail_page(r, prov_cfg):
     path = f"{r['province']}/p/{r['id']}.html"
     crumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
               f'<a href="../index.html">{bi(prov_cfg["th"], prov_cfg["en"])}</a> › {esc(name_of(r))}')
-    body = (f"<h1>{esc(name_of(r))}</h1>{blurb}<dl>{''.join(rows)}</dl>{contact_cta}"
+    body = (f"<h1>{esc(name_of(r))}</h1>{img_tag}{photo_note}{blurb}<dl>{''.join(rows)}</dl>"
+            f"{contact_cta}{photo_cta}"
             f"{share_block(BASE + path, name_of(r))}{ad_box(path, 2)}"
             f'<p class="prov">{prov_line}{fetched}</p>')
     desc = r.get("blurb_th") or f"{CATS[r['cat'][0]]['th']} · {prov_cfg['th']} · มดแดง"
-    return page(name_of(r), body, depth=2, crumbs=crumbs, path=path, desc=desc)
+    return page(name_of(r), body, depth=2, crumbs=crumbs, path=path, desc=desc,
+                extra_head=ld_json(r, path, photo_file))
 
 
 def cat_shelf_html(prov_key, cat, live, count, teasers=True, muted_ok=True):
@@ -506,6 +676,12 @@ def build():
     card = ROOT / "assets" / "card.png"
     if card.exists():
         shutil.copy(card, DOCS / "card.png")
+    (DOCS / "wat.svg").write_text(WAT_SVG)
+    photos = collect_photos()
+    if photos:
+        (DOCS / "photos").mkdir()
+        for fname in photos.values():
+            shutil.copy(PHOTOS_SRC / fname, DOCS / "photos" / fname)
 
     data = load()
     home_sections = []
@@ -606,7 +782,8 @@ def build():
                 desc=f"{cdef['th']} {p['th']} — {len(in_cat)} แห่ง · มดแดง"))
 
         for r in records:
-            (pdir / "p" / f"{r['id']}.html").write_text(detail_page(r, p))
+            (pdir / "p" / f"{r['id']}.html").write_text(
+                detail_page(r, p, photos.get(r["id"])))
 
     # ---- home ----------------------------------------------------------
     ticker_items = json.loads((ROOT / "data" / "ticker.json").read_text()) \
@@ -656,7 +833,7 @@ def build():
             for c in CAT_ORDER if c in pulse[p["key"]])
         pick_groups.append(f'<p><b>{bi(p["th"], p["en"])}</b><br>{boxes}</p>')
     my_hint_th = ("ตั้งหน้านี้เป็นหน้าแรกของเบราว์เซอร์ แล้วออกท่องเว็บจากที่นี่ทุกวัน — "
-                  "ทุกการตั้งค่าอยู่ในเครื่องของคุณเท่านั้น มดแดงไม่ตามรอยใคร")
+                  "ทุกการตั้งค่าอยู่ในเครื่องของคุณเท่านั้น มดแดงไม่ตามรอยใครเจ้า")
     my_hint_en = ("Set this as your browser's home page and start every day here — "
                   "your choices live only on this device. Mot Dang follows no one around.")
     my_body = (
@@ -698,7 +875,7 @@ def build():
         for (pv, c), (h, t) in sorted(by_shelf.items(), key=lambda kv: (kv[1][0] / kv[1][1], -kv[1][1])))
     drive_th = (f"ตอนนี้มีข้อมูลติดต่อแล้ว {len(have):,} จาก {len(all_recs):,} แห่ง ({pct}%) — "
                 "อีกเยอะที่ยังขาด เบอร์โทร ไลน์ เพจ หรือเว็บของร้านไหนก็ได้ ส่งมาได้เลย ลงให้ฟรีเสมอ "
-                "เจ้าของร้านยิ่งยินดี ช่วยกันคนละนิด สารบัญเมืองก็ครบขึ้นทุกวัน")
+                "เจ้าของร้านยิ่งยินดี ช่วยกันคนละนิด สารบัญเมืองก็ครบขึ้นทุกวันเจ้า")
     drive_en = (f"{len(have):,} of {len(all_recs):,} places ({pct}%) have a way to reach them. "
                 "The rest need one. A phone, a LINE id, a page, a website — any of it, for any "
                 "place. Free to list, always. Shop owners especially welcome.")
@@ -741,7 +918,7 @@ def build():
         '<ul class="dir" id="results"></ul>',
         depth=0, path="search.html", desc="ค้นหาในมดแดง"))
     suggest_th = ("มดแดงรับฟังเสมอ — ร้านของคุณ ที่ที่คุณรัก หรือหมุดที่ยังไม่ปัก "
-                  "ส่งมาได้ ลงสารบัญฟรี ทีมงานตรวจทานทุกรายการก่อนขึ้นหน้า")
+                  "ส่งมาได้ ลงสารบัญฟรี ทีมงานตรวจทานทุกรายการก่อนขึ้นหน้าเจ้า")
     suggest_en = ("Mot Dang is all ears — your shop, a place you love, or a pin we're missing. "
                   "Listings are free; every entry is reviewed before it goes up.")
     (DOCS / "suggest.html").write_text(page(
@@ -753,6 +930,208 @@ def build():
         f'<a href="{KOFI}" rel="noopener">{bi("ฝากข้อความทาง Ko-fi", "Message us on Ko-fi")}</a></p>'
         f"<p>{bi('เร็วๆ นี้: ฟอร์มแนะนำในหน้านี้เลย', 'Coming soon: a suggestion form right here.')}</p>",
         depth=0, path="suggest.html", desc=suggest_th))
+
+    # ---- crawl request: ask the ants to go survey somewhere new ----------
+    cat_options = "".join(f'<option value="{att(CATS[c]["th"])}">' for c in CAT_ORDER)
+    cr_th = ("ยังไม่มีหมวดที่ต้องการ หรืออยากให้มดไปสำรวจพื้นที่ใหม่ทั้งอำเภอ? "
+             "บอกมาได้เลยเจ้า มดจะได้วางแผนไปเก็บข้อมูลรอบต่อไป")
+    cr_en = ("Missing a category, or want the ants to survey a whole new district? "
+             "Tell us — it goes straight into planning the next crawl.")
+    (DOCS / "crawl-request.html").write_text(page(
+        "ส่งมดไปสำรวจ",
+        f'<h1>🐜 {bi("ส่งมดไปสำรวจ", "Request a crawl")}</h1>'
+        f'<p>{bi(cr_th, cr_en)}</p>'
+        f'<form id="crawlform" class="reqform">'
+        f'<label>{bi("ประเภทคำขอ", "Type of request")}</label>'
+        f'<select name="kind">'
+        f'<option value="หมวดในพื้นที่เดิม">{esc("เพิ่มหมวดในพื้นที่ที่มีอยู่แล้ว")}</option>'
+        f'<option value="พื้นที่ใหม่">{esc("สำรวจอำเภอ-เขตใหม่ทั้งหมด")}</option>'
+        f'<option value="อื่นๆ">{esc("อื่นๆ")}</option></select>'
+        f'<label>{bi("พื้นที่ / อำเภอ / จังหวัด", "Area / district / province")}</label>'
+        f'<input name="area" placeholder="เช่น อ.สันทราย เชียงใหม่">'
+        f'<label>{bi("หมวดที่ต้องการ", "Category wanted")}</label>'
+        f'<input name="cat" list="catlist" placeholder="เช่น ร้านกาแฟ">'
+        f'<datalist id="catlist">{cat_options}</datalist>'
+        f'<label>{bi("รายละเอียดเพิ่มเติม (ถ้ามี)", "More detail (optional)")}</label>'
+        f'<textarea name="note"></textarea>'
+        f'<button>🐜 {bi("ส่งมดไปสำรวจ", "Send the ants exploring")}</button>'
+        f'</form>'
+        f'<p class="myhint">{bi("ฟอร์มนี้เปิดหน้าต่างส่งเป็น GitHub issue ให้อัตโนมัติ ไม่เก็บข้อมูลอะไรไว้ที่นี่", "This form opens a pre-filled GitHub issue — nothing is stored here.")} · '
+        f'<a href="{KOFI}" rel="noopener">{bi("หรือทาง Ko-fi", "or via Ko-fi")}</a></p>',
+        depth=0, path="crawl-request.html", desc=cr_th))
+
+    # ---- stats: the tableau — tiles, charts, and a real sortable table ---
+    cat_counts_by_prov = {p["key"]: {} for p in PROVINCES}
+    for p in PROVINCES:
+        for r in data[p["key"]]:
+            for c in r["cat"]:
+                cat_counts_by_prov[p["key"]][c] = cat_counts_by_prov[p["key"]].get(c, 0) + 1
+    cm_key, cr_key = PROVINCES[0]["key"], PROVINCES[1]["key"]
+    combo = []
+    for c in CAT_ORDER:
+        cm_n = cat_counts_by_prov[cm_key].get(c, 0)
+        cr_n = cat_counts_by_prov[cr_key].get(c, 0)
+        if cm_n or cr_n:
+            combo.append((c, cm_n, cr_n))
+    combo.sort(key=lambda t: -(t[1] + t[2]))
+
+    def bar_chart_grouped(rows):
+        left, bar_h, gap, group_gap, right_pad, width = 220, 14, 2, 12, 56, 720
+        plot_w = width - left - right_pad
+        max_v = max((max(cm_n, cr_n) for _, cm_n, cr_n in rows), default=1)
+        row_h = bar_h * 2 + gap + group_gap
+        height = row_h * len(rows) + 8
+        parts = [f'<svg viewBox="0 0 {width} {height}" width="100%" role="img" '
+                 f'aria-label="จำนวนสถานที่ต่อหมวดหมู่ แยกจังหวัด">']
+        y = 6
+        for c, cm_n, cr_n in rows:
+            label = esc(CATS[c]["th"])
+            cm_w = plot_w * cm_n / max_v
+            cr_w = plot_w * cr_n / max_v
+            parts.append(f'<text x="{left - 10}" y="{y + bar_h + 1}" text-anchor="end" '
+                         f'font-size="12" fill="#2A1E16">{label}</text>')
+            parts.append(f'<rect x="{left}" y="{y}" width="{cm_w:.1f}" height="{bar_h}" rx="4" '
+                         f'fill="#eb6834"><title>{label} · เชียงใหม่: {cm_n:,}</title></rect>')
+            parts.append(f'<text x="{left + cm_w + 6:.1f}" y="{y + bar_h - 2}" font-size="11" '
+                         f'fill="#8F2E13">{cm_n:,}</text>')
+            y2 = y + bar_h + gap
+            parts.append(f'<rect x="{left}" y="{y2}" width="{cr_w:.1f}" height="{bar_h}" rx="4" '
+                         f'fill="#2a78d6"><title>{label} · เชียงราย: {cr_n:,}</title></rect>')
+            parts.append(f'<text x="{left + cr_w + 6:.1f}" y="{y2 + bar_h - 2}" font-size="11" '
+                         f'fill="#1F3FBF">{cr_n:,}</text>')
+            y += row_h
+        parts.append("</svg>")
+        return "".join(parts)
+
+    def lerp_hex(a, b, t):
+        ah = tuple(int(a[i:i + 2], 16) for i in (1, 3, 5))
+        bh = tuple(int(b[i:i + 2], 16) for i in (1, 3, 5))
+        rgb = tuple(round(ah[i] + (bh[i] - ah[i]) * t) for i in range(3))
+        return f"#{rgb[0]:02X}{rgb[1]:02X}{rgb[2]:02X}"
+
+    cov_rows = []
+    for c in CAT_ORDER:
+        h = t = 0
+        for p in PROVINCES:
+            for r in data[p["key"]]:
+                if c in r["cat"]:
+                    t += 1
+                    if has_contact(r):
+                        h += 1
+        if t:
+            cov_rows.append((c, h, t))
+    cov_rows.sort(key=lambda x: x[1] / x[2])
+
+    def coverage_chart(rows):
+        left, bar_h, gap, right_pad, width = 220, 15, 6, 60, 720
+        plot_w = width - left - right_pad
+        height = (bar_h + gap) * len(rows) + 6
+        parts = [f'<svg viewBox="0 0 {width} {height}" width="100%" role="img" '
+                 f'aria-label="สัดส่วนข้อมูลติดต่อต่อหมวดหมู่">']
+        y = 4
+        for c, h, t in rows:
+            pct = 100 * h // t
+            w = plot_w * pct / 100
+            label = esc(CATS[c]["th"])
+            color = lerp_hex("#F6D9CE", "#8F2E13", (100 - pct) / 100)
+            parts.append(f'<text x="{left - 10}" y="{y + bar_h - 3}" text-anchor="end" '
+                         f'font-size="12" fill="#2A1E16">{label}</text>')
+            parts.append(f'<rect x="{left}" y="{y}" width="{max(w, 2):.1f}" height="{bar_h}" rx="4" '
+                         f'fill="{color}"><title>{label}: {h}/{t} = {pct}%</title></rect>')
+            parts.append(f'<text x="{left + w + 6:.1f}" y="{y + bar_h - 3}" font-size="11" '
+                         f'fill="#8F2E13">{pct}%</text>')
+            y += bar_h + gap
+        parts.append("</svg>")
+        return "".join(parts)
+
+    overall_pct = 100 * len(have) // len(all_recs)
+    tiles = (f'<div class="tilerow">'
+             f'<div class="tile"><b>{len(all_recs):,}</b><span>{bi("สถานที่ทั้งหมด", "total places")}</span></div>'
+             f'<div class="tile"><b>{len(combo)}</b><span>{bi("หมวดหลักที่มีข้อมูล", "active categories")}</span></div>'
+             f'<div class="tile"><b>{len(PROVINCES)}</b><span>{bi("จังหวัด", "provinces")}</span></div>'
+             f'<div class="tile"><b>{overall_pct}%</b><span>{bi("ติดต่อได้", "contactable")}</span></div>'
+             f'</div>')
+    mission = (f'<div class="missionbar"><div class="missionfill" style="width:{overall_pct}%"></div>'
+              f'<span class="missionlabel">{len(have):,} / {len(all_recs):,} ({overall_pct}%)</span></div>')
+    legend1 = (f'<p class="chartlegend">'
+              f'<span class="swatch" style="background:#eb6834"></span>{bi("เชียงใหม่", "Chiang Mai")}'
+              f'&nbsp; &nbsp; <span class="swatch" style="background:#2a78d6"></span>'
+              f'{bi("เชียงราย", "Chiang Rai")}</p>')
+    cap2 = bi("สีเข้ม = ยังขาดข้อมูลติดต่อมาก · สีอ่อน = ครบดีแล้ว",
+             "Darker = needs contacts more · lighter = already well covered")
+    cov_pct = {c: 100 * h // t for c, h, t in cov_rows}
+    table_rows = "".join(
+        f'<tr><td><a href="{cm_key}/{c}/index.html">{bi(CATS[c]["th"], CATS[c]["en"])}</a></td>'
+        f'<td data-v="{cm_n}">{cm_n:,}</td><td data-v="{cr_n}">{cr_n:,}</td>'
+        f'<td data-v="{cm_n + cr_n}">{cm_n + cr_n:,}</td>'
+        f'<td data-v="{cov_pct.get(c, 0)}">{cov_pct.get(c, 0)}%</td></tr>'
+        for c, cm_n, cr_n in combo)
+    table_html = (f'<table class="sortable"><thead><tr>'
+                 f'<th>{bi("หมวด", "Category")}</th>'
+                 f'<th data-sort="num">{bi("เชียงใหม่", "Chiang Mai")}</th>'
+                 f'<th data-sort="num">{bi("เชียงราย", "Chiang Rai")}</th>'
+                 f'<th data-sort="num">{bi("รวม", "Total")}</th>'
+                 f'<th data-sort="num">{bi("ติดต่อได้ %", "Contactable %")}</th>'
+                 f'</tr></thead><tbody>{table_rows}</tbody></table>')
+    stats_th = (f"เบื้องหลังตัวเลขของมดแดง — {len(all_recs):,} แห่ง ทั้งสองจังหวัด "
+                "อัปเดตทุกครั้งที่มีการรวบรวมข้อมูลใหม่")
+    stats_en = (f"Mot Dang by the numbers — {len(all_recs):,} places across both provinces, "
+                "refreshed every time new data comes in.")
+    (DOCS / "stats.html").write_text(page(
+        "สถิติมดแดง",
+        f'<h1>📊 {bi("สถิติมดแดง", "Mot Dang by the Numbers")}</h1>'
+        f'<p>{bi(stats_th, stats_en)}</p>'
+        f'{tiles}'
+        f'<h2>{bi("ภารกิจเติมข้อมูลติดต่อ", "The contact-info mission")}</h2>{mission}'
+        f'<h2>{bi("จำนวนสถานที่ต่อหมวด", "Places per category")}</h2>{legend1}'
+        f'{bar_chart_grouped(combo)}'
+        f'<h2>{bi("ข้อมูลติดต่อ ครอบคลุมแค่ไหน", "How complete is the contact info")}</h2>'
+        f'<p class="chartcap">{cap2}</p>'
+        f'{coverage_chart(cov_rows)}'
+        f'<h2>{bi("ตารางเต็ม (คลิกหัวตารางเพื่อเรียง)", "Full table (click a header to sort)")}</h2>'
+        f'{table_html}'
+        f'{share_block(BASE + "stats.html", "สถิติมดแดง · Mot Dang stats")}',
+        depth=0, path="stats.html", desc=stats_th))
+
+    # ---- bot hospitality: robots, sitemap, llms.txt ----------------------
+    (DOCS / "robots.txt").write_text(
+        "User-agent: *\nAllow: /\n\nSitemap: " + BASE + "sitemap.xml\n")
+    sitemap_urls = "".join(
+        f"<url><loc>{BASE}{f.relative_to(DOCS).as_posix()}</loc>"
+        f"<lastmod>{BUILD_DATE}</lastmod></url>"
+        for f in sorted(DOCS.rglob("*.html")))
+    (DOCS / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        + sitemap_urls + "</urlset>")
+    (DOCS / "llms.txt").write_text(f"""# มดแดง Mot Dang
+
+> A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
+> wats, food, hotels, doctors, markets, real estate, and the good things down
+> every soi. Built from OpenStreetMap plus community and field submissions.
+> {len(all_recs):,} places as of {BUILD_DATE}.
+
+## Open data (no key, no login)
+- Full search index: {BASE}data/index.json
+- Per-category GeoJSON: {BASE}data/<province>-<category>.geojson
+  (province = cm | cr; e.g. {BASE}data/cm-wat.geojson)
+- Category tree source: https://github.com/NaNoBotCo/mot-dang/blob/main/data/categories.json
+- Dataset stats: {BASE}stats.html
+
+## URL structure
+- {BASE}<province>/<category>/ — category listing
+- {BASE}<province>/<category>/<subcategory>/ — subcategory listing
+- {BASE}<province>/p/<id>.html — one place, with schema.org JSON-LD
+- {BASE}contacts.html — where contact-info coverage is thin
+- {BASE}suggest.html, {BASE}crawl-request.html — how to contribute
+
+## Notes for crawlers and agents
+- No login, no paywall, no tracking scripts, no rate limiting. Crawl freely.
+- Content updates as the community and gentle OSM crawls contribute.
+- Attribution: © OpenStreetMap contributors (ODbL) for map-derived fields.
+- Contact-info coverage is currently {overall_pct}% — corrections and
+  additions via GitHub issues are welcome and go live on the next build.
+""")
 
     n_pages = sum(1 for _ in DOCS.rglob("*.html"))
     print(f"built {n_pages:,} pages -> docs/")
