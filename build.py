@@ -109,7 +109,8 @@ color:var(--ant-dark);position:relative;overflow:hidden}
 padding:.5rem 1rem;margin:.7rem 0}
 .module h3{margin:.1rem 0 .3rem;font-size:1rem;color:var(--ant-dark)}
 .tickerwrap{overflow:hidden;white-space:nowrap}
-.ticker{display:inline-block;padding-left:100%;animation:tick 55s linear infinite}
+.ticker{display:inline-block;padding-left:100%;animation:tick 55s linear infinite;
+animation-delay:-9s}
 .tickerwrap:hover .ticker{animation-play-state:paused}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-100%)}}
 .ticker a{margin-right:2.5rem}
@@ -689,11 +690,12 @@ def build():
             s[1] += 1
             if has_contact(r):
                 s[0] += 1
+    pnames = {p["key"]: (p["th"], p["en"]) for p in PROVINCES}
     rows_html = "".join(
         f'<li><a href="{pv}/{c}/index.html"><b>{bi(CATS[c]["th"], CATS[c]["en"])}</b></a> '
-        f'<span class="count">{h}/{t} · {100 * h // t}%</span> '
+        f'<span class="count">· {bi(*pnames[pv])} · {h}/{t} = {100 * h // t}%</span> '
         f'<span class="shelf">{"🐜" * (1 + (100 * h // t) // 25)}</span></li>'
-        for (pv, c), (h, t) in sorted(by_shelf.items(), key=lambda kv: kv[1][0] / kv[1][1]))
+        for (pv, c), (h, t) in sorted(by_shelf.items(), key=lambda kv: (kv[1][0] / kv[1][1], -kv[1][1])))
     drive_th = (f"ตอนนี้มีข้อมูลติดต่อแล้ว {len(have):,} จาก {len(all_recs):,} แห่ง ({pct}%) — "
                 "อีกเยอะที่ยังขาด เบอร์โทร ไลน์ เพจ หรือเว็บของร้านไหนก็ได้ ส่งมาได้เลย ลงให้ฟรีเสมอ "
                 "เจ้าของร้านยิ่งยินดี ช่วยกันคนละนิด สารบัญเมืองก็ครบขึ้นทุกวัน")
