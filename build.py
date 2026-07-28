@@ -23,6 +23,33 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
 BUILD_DATE = "2026-07-27"
+
+# The moondial: reuse the real dial art (manuscript-wiki/moondial.py, the same
+# ornate SVG that powers wichaa.net/moon) rather than draw a lesser copy. Pure
+# stdlib on that side — no ephemeris dependency to pull in for the drawing.
+try:
+    import datetime as _dt
+    import sys as _sys
+    _sys.path.insert(0, str((ROOT.parent / "manuscript-wiki").resolve()))
+    import moondial
+    HAVE_MOONDIAL = True
+except ImportError:
+    HAVE_MOONDIAL = False
+
+
+def moon_disc_svg():
+    """Approximate today's disc angle with the mean-synodic formula (honest
+    label on the page: the real ephemeris-backed instrument lives at the link).
+    Epoch + disc-angle formula copied from coucal-clock's lunation.py — the
+    trusted source for this project's actual clock — credited, not guessed."""
+    EPOCH_NEW_MOON = _dt.datetime(2026, 1, 18, 19, 52, tzinfo=_dt.timezone.utc)
+    MEAN_SYNODIC_DAYS = 29.530588
+    days = (_dt.datetime.now(_dt.timezone.utc) - EPOCH_NEW_MOON).total_seconds() / 86400.0
+    lunations = days / MEAN_SYNODIC_DAYS
+    phase_angle_deg = (lunations % 1.0) * 360.0
+    parity = int(round(lunations)) % 2
+    disc_angle_deg = (180.0 * parity + phase_angle_deg / 2.0) % 360.0
+    return moondial.dial_svg(disc_angle_deg=disc_angle_deg)
 BASE = "https://motdang.net/"
 KOFI = "https://ko-fi.com/defiantchiangmai"
 
@@ -251,6 +278,11 @@ border-radius:.5rem;width:8rem;background:#fff;color:var(--ink)}
 .goldchange{font-size:.85rem;margin-left:.4rem}
 .goldchange.up{color:#0f6b3f} .goldchange.down{color:#a31f1f}
 .financecap{color:var(--mute);font-size:.78rem;margin:.4rem 0 0}
+.moonmodule{display:flex;gap:.8rem;align-items:center}
+.moonmodule svg.dial{width:88px;height:88px;flex-shrink:0}
+.moonwhat{font-size:.82rem;border:1px solid var(--ant-dark);color:var(--ant-dark);
+border-radius:999px;padding:0 .55rem;text-decoration:none;white-space:nowrap}
+.moonwhat:hover{background:var(--ant-dark);color:var(--paper)}
 .share button{font:inherit;font-size:.9rem;border:none;background:none;color:var(--link);
 cursor:pointer;text-decoration:underline;padding:0}
 .prov{color:var(--ant-dark);font-size:.85rem;border-top:1px dashed var(--soft);
@@ -479,7 +511,7 @@ notes.value=localStorage.getItem('md-notes')||'';
 notes.addEventListener('input',()=>localStorage.setItem('md-notes',notes.value));
 }
 const persona=document.getElementById('persona');
-if(persona){const mods=['m-ticker','m-day','m-rand','m-fx','m-gold'];
+if(persona){const mods=['m-ticker','m-day','m-rand','m-fx','m-gold','m-moon'];
 const hidden=JSON.parse(localStorage.getItem('md-mods')||'[]');
 mods.forEach(id=>{const el=document.getElementById(id);if(!el)return;
 if(hidden.includes(id))el.style.display='none';
@@ -833,6 +865,9 @@ def build():
     if card.exists():
         shutil.copy(card, DOCS / "card.png")
     (DOCS / "wat.svg").write_text(WAT_SVG)
+    moon_svg_markup = moon_disc_svg() if HAVE_MOONDIAL else None
+    if moon_svg_markup:
+        (DOCS / "moon-disc.svg").write_text(moon_svg_markup)  # standalone, downloadable
     photos = PHOTO_FILES
     if photos:
         (DOCS / "photos").mkdir()
@@ -993,6 +1028,17 @@ def build():
             f'<span class="val">{g["ornamentSell"]:,.0f} ฿</span></div>'
             f'<p class="financecap">{bi("ราคาต่อทองคำหนัก 1 บาท ·", "Price per 1 baht-weight ·")} '
             f'<a href="https://www.goldtraders.or.th/" rel="noopener">สมาคมค้าทองคำ</a> · {esc(g["asOf"][:16].replace("T"," "))}</p></div>')
+    moon_html = ""
+    if moon_svg_markup:
+        moon_cap_th = "จากเครื่องเดียวกับ wichaa.net/moon · มุมโดยประมาณ ไม่ใช้เอฟีเมอริส"
+        moon_cap_en = "Same instrument as wichaa.net/moon · angle approximated, no ephemeris here"
+        moon_html = (
+            f'<div class="module" id="m-moon"><h3>🌙 {bi("จันทรคติ", "Lunation")} '
+            f'<a class="moonwhat" href="https://wichaa.net/moon" rel="noopener" '
+            f'title="{att("ดูคำอธิบายฉบับเต็ม / see the full explanation")}">ℹ️ '
+            f'{bi("นี่คืออะไร", "what’s this?")}</a></h3>'
+            f'<div class="moonmodule">{moon_svg_markup}'
+            f'<p class="financecap" style="margin:0">{bi(moon_cap_th, moon_cap_en)}</p></div></div>')
     total = len(search_index)
     rand_html = (f'<div class="module" id="m-rand"><h3>{bi("เดินเล่น", "Wander")}</h3>'
                  f'<p style="margin:.2rem 0"><a href="#" class="rand">🎲 '
@@ -1005,7 +1051,8 @@ def build():
                                     ("day", "วันนี้-สีมงคล", "Today & colour"),
                                     ("rand", "เดินเล่น", "Wander"),
                                     ("fx", "แปลงสกุลเงิน", "Currency converter"),
-                                    ("gold", "ทองคำวันนี้", "Thai gold ticker")])
+                                    ("gold", "ทองคำวันนี้", "Thai gold ticker"),
+                                    ("moon", "จันทรคติ", "Lunation disc")])
         + "</details></div>")
     intro_th = ("สารบัญเมืองเชียงใหม่และเชียงราย — วัด ร้าน หมอ ตลาด และของดีทุกซอย "
                 "เรียงเป็นหมวดให้เปิดหาได้เหมือนสมุดหน้าเมือง")
@@ -1035,7 +1082,7 @@ def build():
 
     (DOCS / "index.html").write_text(page(
         "มดแดง",
-        f"<p>{bi(intro_th, intro_en)}</p>{hi_html}{persona_html}{tick_html}{day_html}{fx_html}{gold_html}{rand_html}"
+        f"<p>{bi(intro_th, intro_en)}</p>{hi_html}{persona_html}{tick_html}{day_html}{fx_html}{gold_html}{moon_html}{rand_html}"
         + ad_box("index.html", 0) + "".join(home_sections)
         + share_block(BASE, "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"),
         depth=0, path="", desc=intro_th))
@@ -1075,7 +1122,7 @@ def build():
         f'<input name="u" placeholder="https://…"><button>{bi("เพิ่ม", "Add")}</button></form>'
         f'<div id="widgetboxes"></div>'
         f'<script type="application/json" id="widgets-data">{json.dumps(WIDGETS, ensure_ascii=False)}</script></div>'
-        f"{tick_html}{day_html}{fx_html}{gold_html}{rand_html}"
+        f"{tick_html}{day_html}{fx_html}{gold_html}{moon_html}{rand_html}"
         f'<script type="application/json" id="pulse">{json.dumps(pulse, ensure_ascii=False)}</script>')
     (DOCS / "my.html").write_text(page("หน้าแรกของฉัน", my_body, depth=0, path="my.html",
                                        desc=my_hint_th))

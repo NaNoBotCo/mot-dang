@@ -164,7 +164,7 @@ notes.value=localStorage.getItem('md-notes')||'';
 notes.addEventListener('input',()=>localStorage.setItem('md-notes',notes.value));
 }
 const persona=document.getElementById('persona');
-if(persona){const mods=['m-ticker','m-day','m-rand','m-fx','m-gold'];
+if(persona){const mods=['m-ticker','m-day','m-rand','m-fx','m-gold','m-moon'];
 const hidden=JSON.parse(localStorage.getItem('md-mods')||'[]');
 mods.forEach(id=>{const el=document.getElementById(id);if(!el)return;
 if(hidden.includes(id))el.style.display='none';

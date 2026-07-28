@@ -125,6 +125,11 @@ border-radius:.5rem;width:8rem;background:#fff;color:var(--ink)}
 .goldchange{font-size:.85rem;margin-left:.4rem}
 .goldchange.up{color:#0f6b3f} .goldchange.down{color:#a31f1f}
 .financecap{color:var(--mute);font-size:.78rem;margin:.4rem 0 0}
+.moonmodule{display:flex;gap:.8rem;align-items:center}
+.moonmodule svg.dial{width:88px;height:88px;flex-shrink:0}
+.moonwhat{font-size:.82rem;border:1px solid var(--ant-dark);color:var(--ant-dark);
+border-radius:999px;padding:0 .55rem;text-decoration:none;white-space:nowrap}
+.moonwhat:hover{background:var(--ant-dark);color:var(--paper)}
 .share button{font:inherit;font-size:.9rem;border:none;background:none;color:var(--link);
 cursor:pointer;text-decoration:underline;padding:0}
 .prov{color:var(--ant-dark);font-size:.85rem;border-top:1px dashed var(--soft);
