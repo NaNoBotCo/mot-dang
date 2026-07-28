@@ -592,7 +592,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head=""):
 <header class="site">
   <div class="masthead">
     <a class="logo" href="{r}index.html"><span class="ant">🐜</span> มดแดง</a>
-    <span class="tagline">{bi("รู้ทุกซอย เหมือนมดแดง", "knows every soi, like a red ant")}</span>
+    <span class="tagline">{bi("รู้ทุกซอย เหมือนมดแดง", "Search like a local")}</span>
     <button class="langbtn">TH / EN</button>
   </div>
   <form class="seek"><input type="search" placeholder="ค้นหาชื่อร้าน วัด คลินิก… / search"><button>{bi("ค้นหา", "Search")}</button></form>
@@ -612,6 +612,8 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head=""):
 <footer>
   {bi(f"สร้างจากข้อมูลเปิดและการเดินเก็บจริง · ปรับปรุง {BUILD_DATE} (พ.ศ. {BE_BUILD})",
       f"Built from open data and shoe-leather · updated {BUILD_DATE} (B.E. {BE_BUILD})")}<br>
+  {bi("มดแดง 🐜 (แปลว่า red ant) — คนละชื่อคนละตัวกับ “หมูเด้ง” ฮิปโปแคระชื่อดัง นะเจ้า",
+      "มดแดง = “red ant,” not “Moo Deng” the famous baby hippo — different name, different critter")}<br>
   © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL) ·
   <a href="https://github.com/NaNoBotCo/mot-dang" rel="noopener">GitHub</a> ·
   <a href="{KOFI}" rel="noopener">Ko-fi</a> ·
@@ -1447,6 +1449,87 @@ def build():
         f'<a href="https://github.com/NaNoBotCo/mot-dang/issues/new" rel="noopener">GitHub</a> · '
         f'<a href="{KOFI}" rel="noopener">Ko-fi</a></p>',
         depth=0, path="partners.html", desc=partners_th))
+
+    # ---- why.html: factual, verifiable differences from Google, not hype -
+    why_points = [
+        ("ไม่มีการจ่ายเงินเพื่อขึ้นอันดับ",
+         "No pay-to-rank",
+         "ผลของ Google ปนโฆษณาเข้ากับผลค้นหาจริง แต่รายชื่อในมดแดงเรียงตามตัวอักษรเสมอ "
+         "ส่วนโฆษณาที่รับเงินจะติดป้าย ผู้สนับสนุน แยกไว้ชัดเจน และไม่มีวันสลับลำดับสารบัญ",
+         "Google's local results blend paid ads into organic ranking. Mot Dang's category "
+         "listings sort alphabetically, full stop — sponsor boxes are separately labelled "
+         "ผู้สนับสนุน and never reorder the directory itself."),
+        ("ลงร้านได้ฟรีโดยไม่ต้องยืนยันตัวตนกับใคร",
+         "Free listing, no verification hoop",
+         "Google Business Profile ต้องให้เจ้าของร้านสมัครและยืนยันตัวตนเอง (เช่น รอโปสการ์ด) "
+         "ก่อนจะขึ้นเต็มรูปแบบ ร้านเล็กๆ ในเชียงใหม่-เชียงรายจำนวนมากเลยขึ้นไม่ครบหรือไม่ขึ้นเลย "
+         "ส่วนมดแดงลงร้านให้ทันทีที่รู้จัก ไม่ต้องรอเจ้าของร้านทำอะไรก่อน",
+         "A Google Business Profile requires the owner to create and verify it (often via a "
+         "mailed postcard) before it's fully functional — a real barrier that leaves many small "
+         "Northern Thai shops thin or missing. Mot Dang lists a place the moment it's known, no "
+         "owner action required; owners can enrich it for free anytime after."),
+        ("หมวดหมู่คิดแบบคนเชียงใหม่ ไม่ใช่แปลจากหมวดสากล",
+         "Categories built Thai-first, not translated",
+         "นวด-สปาแยก ในเวียงเก่า กับ นอกเวียง อาหารแยก อาหารไทย ข้าวซอย นานาชาติ ตามข้อมูลจริงที่เก็บมา "
+         "ไม่ใช่หมวดสากลของ Google ที่แปลเป็นไทยแบบเดียวกันทั่วโลก",
+         "Massage splits ในเวียงเก่า (inside the old-city moat) from นอกเวียง (outside); food "
+         "splits อาหารไทย from ข้าวซอย from นานาชาติ — drawn from what was actually crawled here, "
+         "not Google's one-size-fits-all global category list machine-translated into Thai."),
+        ("ข้อมูลเปิดให้ดาวน์โหลดจริง",
+         "Open data you can actually download",
+         "ทุกหมวดมีไฟล์ GeoJSON ให้โหลด และข้อมูลทั้งหมดอยู่ในไฟล์เดียวที่ /data/places.json "
+         "ส่วนข้อมูลร้านของ Google อยู่ในระบบปิด มี API จำกัดและมีค่าใช้จ่าย ดาวน์โหลด “ร้านอาหารทุกร้านในเชียงใหม่” "
+         "เป็นไฟล์จาก Google ไม่ได้",
+         "Every category page has a GeoJSON download; the whole dataset is one file at "
+         "/data/places.json. Google's local data lives inside a rate-limited, paid, ToS-"
+         "restricted API — you cannot export \"every restaurant in Chiang Mai\" as a file."),
+        ("ไม่มีการติดตามผู้ใช้เลย",
+         "No tracking, period",
+         "ไม่มีสคริปต์วิเคราะห์ ไม่มีตัวติดตามโฆษณา ไม่มีลายนิ้วมือเบราว์เซอร์ในหน้าไหนเลย — เปิดซอร์สโค้ดตรวจสอบได้เอง "
+         "ต่างจากธุรกิจของ Google ที่วางอยู่บนการเก็บข้อมูลผู้ใช้เป็นหลัก",
+         "No analytics, no ad trackers, no fingerprinting on any page — verifiable by reading "
+         "the source, which is public. Google's core business model runs on tracking; Mot "
+         "Dang's doesn't have one that requires it."),
+        ("เปิดรับบอท AI อย่างตั้งใจ ไม่ใช่กันไว้",
+         "Built for AI agents on purpose",
+         "robots.txt เปิดทางให้ GPTBot, ClaudeBot และบอทอื่นๆ โดยระบุชื่อตรงๆ "
+         "ต่างจาก Google ที่ปิดกั้นบอท AI ส่วนใหญ่ไม่ให้ดึงผลค้นหาของตัวเอง",
+         "robots.txt explicitly names and allows GPTBot, ClaudeBot, and others. Google's own "
+         "robots.txt and terms block or restrict most AI crawlers from its search results."),
+        ("รู้ที่มาของทุกรายการ",
+         "Provenance on every listing",
+         "แต่ละร้านบอกว่าข้อมูลมาจากไหน (OpenStreetMap, ลงพื้นที่จริง, หรือคัดสรรเอง) และเมื่อไหร่ — "
+         "Google ไม่เคยบอกระดับความน่าเชื่อถือของรายการเลยว่าอันไหนสร้างอัตโนมัติ อันไหนเป็นสแปม อันไหนตรวจสอบแล้ว",
+         "Every place states where its data came from (OSM, field visit, curated) and when. "
+         "Google shows no such confidence signal — no way to tell auto-generated, spam, and "
+         "verified listings apart."),
+        ("แก้ไขได้จริง เห็นได้จริง",
+         "A correctable public record",
+         "แจ้งหมุดผิดหรือร้านที่ขาดข้อมูลติดต่อได้ผ่าน GitHub issue สองคลิก เห็นสถานะได้ตลอด "
+         "ต่างจากช่องทางแจ้งแก้ไขของ Google ที่เป็นกล่องดำ ไม่รู้ว่าเรื่องที่ส่งไปถึงไหนแล้ว",
+         "Flag a wrong pin or a missing contact via a two-click, publicly visible GitHub issue. "
+         "Google's correction flow is a black box — no visibility into whether or when it's "
+         "actioned."),
+    ]
+    why_th = ("มดแดงไม่ได้อยากเป็น Google ฉบับเล็ก — อยากเป็นสิ่งที่ Google เป็นไม่ได้ต่างหาก "
+              "นี่คือความต่างที่จับต้องได้จริง ตรวจสอบได้เอง ไม่ใช่คำโฆษณาลอยๆ")
+    why_en = ("Mot Dang isn't trying to be a smaller Google — it's trying to be something "
+              "Google structurally can't be. These are concrete, checkable differences, not "
+              "marketing copy.")
+    why_rows = "".join(
+        f'<div class="module"><h3>{bi(th_h, en_h)}</h3><p>{bi(th_b, en_b)}</p></div>'
+        for th_h, en_h, th_b, en_b in why_points)
+    (DOCS / "why.html").write_text(page(
+        "ทำไมมดแดงดีกว่า Google ในเชียงใหม่-เชียงราย",
+        f'<h1>🐜 {bi("ทำไมมดแดงถึงเหนือกว่า Google ในเชียงใหม่-เชียงราย", "Why Mot Dang beats Google in Chiang Mai and Chiang Rai")}</h1>'
+        f'<p>{bi(why_th, why_en)}</p>{why_rows}'
+        f'<p class="myhint">{bi("ข้อเดียวที่มดแดงไม่อ้าง: จำนวนร้านทั้งหมด — Google สะสมข้อมูลมาหลายสิบปีและมีมากกว่าจริงในแง่ปริมาณดิบ "
+                                 "ความเหนือกว่าของมดแดงอยู่ที่โครงสร้าง ไม่ใช่ปริมาณ",
+                                 "The one thing Mot Dang won't claim: total listing count. Google has decades of raw "
+                                 "scale and genuinely has more places catalogued. Mot Dang's advantage is structural, "
+                                 "not volumetric.")}</p>'
+        f'{share_block(BASE + "why.html", "ทำไมมดแดงดีกว่า Google · มดแดง")}',
+        depth=0, path="why.html", desc=why_th))
 
     # ---- bot hospitality: robots, sitemap, llms.txt ----------------------
     # Explicit per-bot welcomes, not just the wildcard — on purpose, in direct
