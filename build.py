@@ -1145,10 +1145,23 @@ def build():
                   "ส่งมาได้ ลงสารบัญฟรี ทีมงานตรวจทานทุกรายการก่อนขึ้นหน้าเจ้า")
     suggest_en = ("Mot Dang is all ears — your shop, a place you love, or a pin we're missing. "
                   "Listings are free; every entry is reviewed before it goes up.")
+    vendor_th = ("เป็นเจ้าของร้าน? เพิ่มร้านฟรี ใส่เบอร์-LINE-เว็บได้เต็มที่ และถ้าส่งรูปมาด้วย "
+                 "ร้านมีสิทธิ์ได้ขึ้น ★ ที่น่าไป หน้าแรกของจังหวัดด้วยเจ้า")
+    vendor_en = ("Own a business? Listing is free — add your phone, LINE, and website, and if "
+                 "you include a photo your place is eligible for the ★ featured strip on your "
+                 "province's front page.")
+    public_th = ("เป็นคนเดินดิน? รู้จักที่ดีที่มดแดงยังไม่มี หรือเจอหมุดผิด บอกมาได้เลย "
+                 "ช่วยกันคนละนิด สารบัญเมืองก็ครบขึ้นทุกวัน")
+    public_en = ("Just a local or visitor? Know a good place we're missing, or spotted a wrong "
+                 "pin? Tell us — every small correction makes the directory more complete.")
     (DOCS / "suggest.html").write_text(page(
         "แนะนำร้าน",
         f'<h1>{bi("แนะนำร้าน-เพิ่มที่ของคุณ", "Add your place")}</h1>'
         f"<p>{bi(suggest_th, suggest_en)}</p>"
+        f'<div class="module"><h3>🏪 {bi("สำหรับเจ้าของร้าน", "For business owners")}</h3>'
+        f'<p>{bi(vendor_th, vendor_en)}</p></div>'
+        f'<div class="module"><h3>🚶 {bi("สำหรับคนทั่วไป", "For everyone else")}</h3>'
+        f'<p>{bi(public_th, public_en)}</p></div>'
         f'<p><a href="https://github.com/NaNoBotCo/mot-dang/issues/new" rel="noopener">'
         f'{bi("ส่งผ่าน GitHub", "Suggest via GitHub")}</a> · '
         f'<a href="{KOFI}" rel="noopener">{bi("ฝากข้อความทาง Ko-fi", "Message us on Ko-fi")}</a></p>'
