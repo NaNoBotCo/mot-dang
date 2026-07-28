@@ -14,6 +14,8 @@
 - Dataset stats (human-readable): https://motdang.net/stats.html
 - RSS feed of highlights: https://motdang.net/rss.xml (autodiscoverable via <link rel="alternate">
   on every page); cross-promotion open to other local publications: https://motdang.net/partners.html
+- Structural (not volumetric) differences from Google's local data, stated plainly
+  with the one thing we don't claim: https://motdang.net/why.html
 - Every place page also carries schema.org JSON-LD (LocalBusiness/
   TouristAttraction/Restaurant/etc, typed per category) — read the page,
   get structured data for free, no separate API call needed.

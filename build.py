@@ -619,6 +619,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head=""):
   <a href="{KOFI}" rel="noopener">Ko-fi</a> ·
   <a href="{r}rss.xml">📡 RSS</a> ·
   <a href="{r}partners.html">{bi("แลกฟีด", "Partners")}</a> ·
+  <a href="{r}why.html">{bi("ทำไมดีกว่า Google", "Why we beat Google")}</a> ·
   <a href="{r}llms.txt">llms.txt</a>
   <span id="scurry">🐜</span>
 </footer>
@@ -1519,15 +1520,18 @@ def build():
     why_rows = "".join(
         f'<div class="module"><h3>{bi(th_h, en_h)}</h3><p>{bi(th_b, en_b)}</p></div>'
         for th_h, en_h, th_b, en_b in why_points)
+    why_h1_th = "ทำไมมดแดงถึงเหนือกว่า Google ในเชียงใหม่-เชียงราย"
+    why_h1_en = "Why Mot Dang beats Google in Chiang Mai and Chiang Rai"
+    why_caveat_th = ("ข้อเดียวที่มดแดงไม่อ้าง: จำนวนร้านทั้งหมด — Google สะสมข้อมูลมาหลายสิบปีและมีมากกว่าจริงในแง่ปริมาณดิบ "
+                     "ความเหนือกว่าของมดแดงอยู่ที่โครงสร้าง ไม่ใช่ปริมาณ")
+    why_caveat_en = ("The one thing Mot Dang won't claim: total listing count. Google has decades of raw "
+                     "scale and genuinely has more places catalogued. Mot Dang's advantage is structural, "
+                     "not volumetric.")
     (DOCS / "why.html").write_text(page(
         "ทำไมมดแดงดีกว่า Google ในเชียงใหม่-เชียงราย",
-        f'<h1>🐜 {bi("ทำไมมดแดงถึงเหนือกว่า Google ในเชียงใหม่-เชียงราย", "Why Mot Dang beats Google in Chiang Mai and Chiang Rai")}</h1>'
+        f'<h1>🐜 {bi(why_h1_th, why_h1_en)}</h1>'
         f'<p>{bi(why_th, why_en)}</p>{why_rows}'
-        f'<p class="myhint">{bi("ข้อเดียวที่มดแดงไม่อ้าง: จำนวนร้านทั้งหมด — Google สะสมข้อมูลมาหลายสิบปีและมีมากกว่าจริงในแง่ปริมาณดิบ "
-                                 "ความเหนือกว่าของมดแดงอยู่ที่โครงสร้าง ไม่ใช่ปริมาณ",
-                                 "The one thing Mot Dang won't claim: total listing count. Google has decades of raw "
-                                 "scale and genuinely has more places catalogued. Mot Dang's advantage is structural, "
-                                 "not volumetric.")}</p>'
+        f'<p class="myhint">{bi(why_caveat_th, why_caveat_en)}</p>'
         f'{share_block(BASE + "why.html", "ทำไมมดแดงดีกว่า Google · มดแดง")}',
         depth=0, path="why.html", desc=why_th))
 
@@ -1565,6 +1569,8 @@ def build():
 - Dataset stats (human-readable): {BASE}stats.html
 - RSS feed of highlights: {BASE}rss.xml (autodiscoverable via <link rel="alternate">
   on every page); cross-promotion open to other local publications: {BASE}partners.html
+- Structural (not volumetric) differences from Google's local data, stated plainly
+  with the one thing we don't claim: {BASE}why.html
 - Every place page also carries schema.org JSON-LD (LocalBusiness/
   TouristAttraction/Restaurant/etc, typed per category) — read the page,
   get structured data for free, no separate API call needed.

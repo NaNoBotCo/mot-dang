@@ -78,7 +78,7 @@
     <!-- The disc turns about its OWN centre, which sits DISC_CY below the aperture's.
          Moon I starts at the top of the disc, so a rotation of (disc_angle - 90) puts
          it at exactly the bearing moon_position() gives it, and moon II opposite. -->
-    <g id='disc' transform='translate(400.0 415.43) rotate(-8.03)'>
+    <g id='disc' transform='translate(400.0 415.43) rotate(-8)'>
       <circle r='202.51' fill='none' stroke='#20365c' stroke-width='1.2' opacity='.8'/>
       <circle r='120.03' fill='none' stroke='#20365c' stroke-width='1'
               stroke-dasharray='3 7' opacity='.65'/>
@@ -99,7 +99,7 @@
   <!-- TWO travelling indices, 180 deg apart, turning with the disc — one per moon.
        Whichever index is in the upper half is the moon currently in the window, and
        it stands on that moon's own age. Filled bead = moon I, open bead = moon II. -->
-  <g id='index' transform='rotate(-8.03 400.0 400.0)'>
+  <g id='index' transform='rotate(-8 400.0 400.0)'>
     <path d='M400 125l7 12h-14Z' fill='#1b2b28'/>
     <circle cx='400' cy='115' r='6.5' fill='#9a7b32'/>
     <path d='M400 675l7 -12h-14Z' fill='#1b2b28'/>
@@ -118,6 +118,7 @@
   <a href="https://ko-fi.com/defiantchiangmai" rel="noopener">Ko-fi</a> ·
   <a href="rss.xml">📡 RSS</a> ·
   <a href="partners.html"><span class="th">แลกฟีด</span><span class="en">Partners</span></a> ·
+  <a href="why.html"><span class="th">ทำไมดีกว่า Google</span><span class="en">Why we beat Google</span></a> ·
   <a href="llms.txt">llms.txt</a>
   <span id="scurry">🐜</span>
 </footer>
