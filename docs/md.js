@@ -199,3 +199,86 @@ const url='https://github.com/NaNoBotCo/mot-dang/issues/new?title='+
 encodeURIComponent(title)+'&body='+encodeURIComponent(body);
 window.open(url,'_blank','noopener');
 crawlForm.reset();});}
+// ---- claim.html: find-or-paste an existing place, claim it, or edit it -
+const claimFind=document.getElementById('claim-find');
+if(claimFind){
+const cfg=JSON.parse(document.getElementById('claim-cfg').textContent);
+const WORKER=cfg.workerUrl,SITE='https://motdang.net/';
+const FIELDS=['phone','lineId','facebook','instagram','whatsapp','email','website','hours'];
+const params=new URLSearchParams(location.search);
+const stepFind=claimFind,stepConfirm=document.getElementById('claim-confirm'),
+stepSuccess=document.getElementById('claim-success'),stepEdit=document.getElementById('claim-edit');
+function showStep(el){[stepFind,stepConfirm,stepSuccess,stepEdit].forEach(s=>{s.style.display=s===el?'':'none';});}
+const editToken=params.get('edit');
+if(editToken){
+showStep(stepEdit);
+const editForm=document.getElementById('editform'),editErr=document.getElementById('editerror');
+(async()=>{try{
+const res=await fetch(WORKER+'/edit/'+encodeURIComponent(editToken));
+const data=await res.json();
+if(!res.ok)throw new Error(data.error||'ลิงก์ใช้ไม่ได้ / invalid link');
+FIELDS.forEach(f=>{if(data.claim[f])editForm[f].value=data.claim[f];});
+}catch(err){editErr.textContent=err.message;}})();
+editForm.addEventListener('submit',async e=>{
+e.preventDefault();
+const btn=editForm.querySelector('button.submit');
+btn.disabled=true;editErr.style.color='';editErr.textContent='';
+const body={};FIELDS.forEach(f=>{body[f]=editForm[f].value.trim();});
+try{
+const res=await fetch(WORKER+'/edit/'+encodeURIComponent(editToken),{method:'POST',
+headers:{'content-type':'application/json'},body:JSON.stringify(body)});
+const data=await res.json();
+if(!res.ok)throw new Error(data.error||'บันทึกไม่สำเร็จ / save failed');
+editErr.style.color='#1a6b4a';editErr.textContent='✓ บันทึกแล้ว / saved';
+}catch(err){editErr.textContent=err.message;}
+btn.disabled=false;});
+}else{
+let picked=null;
+const results=document.getElementById('claimresults'),search=document.getElementById('claimsearch'),
+urlPaste=document.getElementById('claimurlpaste'),findErr=document.getElementById('claimfinderror');
+function idFromUrl(v){const m=v.trim().match(/\/(cm|cr)\/p\/([a-z0-9-]+)\.html/i);return m?m[2]:null;}
+function pick(e){picked=e;
+document.getElementById('claimwhoname').textContent=e.n;
+document.getElementById('claimwhoprov').textContent='· '+e.pv;
+document.getElementById('claimwholink').href=SITE+e.p+'/p/'+e.id+'.html';
+showStep(stepConfirm);}
+search&&search.addEventListener('input',async()=>{
+const q=search.value.trim().toLowerCase();
+if(!q){results.innerHTML='';return;}
+const idx=await loadIndex();
+const hits=idx.filter(e=>(e.n+' '+(e.e||'')).toLowerCase().includes(q)).slice(0,12);
+results.innerHTML=hits.map(e=>`<li><button>${H(e.n)} <span class="count">· ${H(e.pv)}</span></button></li>`).join('');
+results.querySelectorAll('button').forEach((b,i)=>b.addEventListener('click',()=>pick(hits[i])));});
+urlPaste&&urlPaste.addEventListener('change',async()=>{
+const id=idFromUrl(urlPaste.value);
+findErr.textContent='';
+if(!id){findErr.textContent='หาไอดีจากลิงก์ไม่เจอ / could not read an id from that link';return;}
+const idx=await loadIndex();const e=idx.find(x=>x.id===id);
+if(!e){findErr.textContent='ไม่พบที่นี่ในสารบัญ / not found in the directory';return;}
+pick(e);});
+document.getElementById('claimagain').addEventListener('click',()=>{picked=null;showStep(stepFind);});
+const wantId=params.get('id');
+if(wantId){(async()=>{const idx=await loadIndex();const e=idx.find(x=>x.id===wantId);if(e)pick(e);})();}
+const claimForm=document.getElementById('claimform'),claimErr=document.getElementById('claimerror');
+claimForm.addEventListener('submit',async e=>{
+e.preventDefault();
+if(!picked){claimErr.textContent='เลือกที่ตั้งก่อน / pick a place first';return;}
+const body={placeId:picked.id};let any=false;
+FIELDS.forEach(f=>{const v=claimForm[f].value.trim();if(v){body[f]=v;any=true;}});
+if(!any){claimErr.textContent='ใส่อย่างน้อยหนึ่งช่องทาง / fill in at least one channel';return;}
+const btn=claimForm.querySelector('button.submit');
+btn.disabled=true;btn.textContent='กำลังบันทึก… / saving…';claimErr.textContent='';
+try{
+const res=await fetch(WORKER+'/claim',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
+const data=await res.json();
+if(!res.ok)throw new Error(data.error||'บันทึกไม่สำเร็จ / something went wrong');
+const viewUrl=SITE+picked.p+'/p/'+picked.id+'.html';
+const vlink=document.getElementById('successviewlink');
+vlink.href=viewUrl;vlink.textContent=viewUrl;
+document.getElementById('successediturl').textContent=data.editUrl;
+document.getElementById('successcopybtn').dataset.url=data.editUrl;
+showStep(stepSuccess);
+}catch(err){
+claimErr.textContent=err.message;
+btn.disabled=false;btn.textContent='🏪 ยืนยันฟรี · Claim it free';}});
+}}

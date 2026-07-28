@@ -1,0 +1,18 @@
+# Cloudflare Worker config. Deploy (needs a Cloudflare account + wrangler login):
+#   cd worker && npx wrangler kv namespace create MD_KV   # note the id
+#   (paste the id below) && npx wrangler deploy
+# Then put the worker URL in ../data/config.json as {"claimsWorkerUrl": "https://…workers.dev"}
+# and rerun importers/sync_claims.py before the next build.
+
+name = "mot-dang-claims"
+main = "worker.js"
+compatibility_date = "2026-07-01"
+
+# The namespace is TITLED "MD_KV" in the dashboard, but the binding must stay
+# "KV" — worker.js reads env.KV. `wrangler kv namespace create` suggests a
+# snippet using the title as the binding; pasting that verbatim compiles fine
+# and then 500s on every request against an undefined binding (same gotcha
+# noted in mueang-map/worker/wrangler.toml).
+[[kv_namespaces]]
+binding = "KV"
+id = "ec8e8043f8304f35a3fb01d5cfbefa31"

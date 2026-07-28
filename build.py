@@ -85,6 +85,15 @@ _health = json.loads(_health_path.read_text()) if _health_path.exists() else {}
 LINK_HEALTH = _health.get("links", {})
 LINK_HEALTH_DATE = _health.get("generated", "")
 
+# The claiming layer: an owner enters their own contact facts free at
+# /claim.html, publishing instantly via worker/worker.js (Cloudflare KV, no
+# accounts). importers/sync_claims.py pulls the live set into data/claims.json
+# before each build — see that file's docstring for why this is two steps.
+CLAIMS_WORKER_URL = "https://mot-dang-claims.annika-fe3.workers.dev"
+_claims_path = ROOT / "data" / "claims.json"
+_claims_doc = json.loads(_claims_path.read_text()) if _claims_path.exists() else {}
+CLAIMS = _claims_doc.get("claims", {})
+
 # Verdicts that mean: do not send a person here.
 BROKEN = {"tls", "dns", "down", "timeout", "gone", "http-error", "server-error",
           "parked", "empty", "error"}
@@ -177,10 +186,36 @@ def channels(r):
     a = dict(r.get("attrs") or {})  # local: normalizing must not rewrite the record
     live, retired, seen = [], [], set()
 
+    # Owner-claimed facts (importers/sync_claims.py -> data/claims.json) win
+    # over anything crawled — the owner is the authority on their own number.
+    # Assigned directly, not setdefault, so a claim overrides a stale OSM value.
+    claim = CLAIMS.get(r["id"])
+    claimed_kinds, claim_web = set(), None
+    phone = r.get("phone")
+    if claim:
+        if claim.get("phone"):
+            phone, claimed_kinds = claim["phone"], claimed_kinds | {"phone"}
+        for k in ("lineId", "facebook", "instagram", "whatsapp", "email"):
+            if claim.get(k):
+                a[k] = claim[k]
+                claimed_kinds.add("line" if k == "lineId" else k)
+        cu = norm_url(claim.get("website"))
+        if cu:
+            k = url_kind(cu)
+            if k in ("facebook", "instagram"):
+                a[k] = cu
+            elif k == "line":
+                a["lineUrl"] = cu
+            else:
+                claim_web = cu
+            claimed_kinds.add(k or "web")
+
     def add(kind, label_th, label_en, href, text, badge=None, cls=None):
         if href in seen:
             return
         seen.add(href)
+        if kind in claimed_kinds and badge is None:
+            badge = ("ยืนยันโดยเจ้าของ", "owner-confirmed")
         live.append({"kind": kind, "cls": cls or kind, "th": label_th, "en": label_en,
                      "href": href, "text": text, "badge": badge})
 
@@ -201,8 +236,8 @@ def channels(r):
         elif kind is None:
             sites.append((field, u))
 
-    if r.get("phone"):
-        ph = r["phone"].split(";")[0].strip()
+    if phone:
+        ph = phone.split(";")[0].strip()
         add("phone", "โทร", "Phone", "tel:" + ph.replace(" ", ""), ph)
     line_id = a.get("lineId")
     if line_id:
@@ -215,6 +250,11 @@ def channels(r):
     if fb:
         fb_url = fb if fb.startswith("http") else "https://www.facebook.com/" + fb.lstrip("/")
         add("facebook", "เฟซบุ๊ก", "Facebook", fb_url, handle_of(fb_url) or "Facebook")
+
+    # An owner-claimed website is a first-party assertion, not a crawled field —
+    # it skips the link-health check entirely and is trusted on the owner's say-so.
+    if claim_web:
+        add("web", "เว็บไซต์", "Website", claim_web, pretty_url(claim_web), cls="web")
 
     for field, u in sites:
         v = verdict(u)
@@ -324,8 +364,9 @@ def ld_json(r, path, photo_file):
     # the same rot everywhere downstream.
     obj["mainEntityOfPage"] = {"@type": "WebPage", "@id": BASE + path}
     live, _retired = channels(r)
-    if r.get("phone"):
-        obj["telephone"] = r["phone"]
+    phone_channel = next((c for c in live if c["kind"] == "phone"), None)
+    if phone_channel:
+        obj["telephone"] = phone_channel["text"]
     same_as = [c["href"] for c in live if c["href"].startswith("http")]
     if same_as:
         obj["sameAs"] = same_as
@@ -558,6 +599,21 @@ width:100%;max-width:28rem;box-sizing:border-box}
 color:#fff;border-radius:.5rem;padding:.4rem 1.2rem;cursor:pointer}
 .reqform button:hover{background:var(--ant-dark)}
 @media(max-width:600px){body{font-size:18px} ul.dir,ul.cats{column-width:auto}}
+.claimstep{margin-top:1rem}
+.claimpick{list-style:none;padding:0;margin:.4rem 0;max-height:16rem;overflow-y:auto}
+.claimpick li{margin:0}
+.claimpick button{display:block;width:100%;text-align:left;font:inherit;font-size:.95rem;
+background:none;border:1px solid var(--soft);border-radius:.5rem;padding:.45rem .7rem;
+margin:.25rem 0;cursor:pointer;color:var(--ink)}
+.claimpick button:hover{border-color:var(--ant);background:var(--soft)}
+.claimwho{background:#fff;border:1px solid var(--soft);border-radius:.7rem;padding:.7rem 1rem;margin:.6rem 0}
+.claimwho b{color:var(--ant-dark)}
+.claimagain{background:none;border:none;color:var(--link);text-decoration:underline;
+cursor:pointer;font:inherit;font-size:.85rem;padding:0;margin-top:.3rem}
+.claimcard{border:1px solid var(--soft);border-radius:.9rem;padding:1.1rem 1.2rem;
+margin-top:1rem;background:#fff}
+.claimcard .url-text{font:.85rem ui-monospace,monospace;word-break:break-all;
+background:var(--soft);border-radius:.4rem;padding:.4rem .6rem;margin:.5rem 0}
 """
 
 JS = r"""
@@ -761,6 +817,89 @@ const url='https://github.com/NaNoBotCo/mot-dang/issues/new?title='+
 encodeURIComponent(title)+'&body='+encodeURIComponent(body);
 window.open(url,'_blank','noopener');
 crawlForm.reset();});}
+// ---- claim.html: find-or-paste an existing place, claim it, or edit it -
+const claimFind=document.getElementById('claim-find');
+if(claimFind){
+const cfg=JSON.parse(document.getElementById('claim-cfg').textContent);
+const WORKER=cfg.workerUrl,SITE='https://motdang.net/';
+const FIELDS=['phone','lineId','facebook','instagram','whatsapp','email','website','hours'];
+const params=new URLSearchParams(location.search);
+const stepFind=claimFind,stepConfirm=document.getElementById('claim-confirm'),
+stepSuccess=document.getElementById('claim-success'),stepEdit=document.getElementById('claim-edit');
+function showStep(el){[stepFind,stepConfirm,stepSuccess,stepEdit].forEach(s=>{s.style.display=s===el?'':'none';});}
+const editToken=params.get('edit');
+if(editToken){
+showStep(stepEdit);
+const editForm=document.getElementById('editform'),editErr=document.getElementById('editerror');
+(async()=>{try{
+const res=await fetch(WORKER+'/edit/'+encodeURIComponent(editToken));
+const data=await res.json();
+if(!res.ok)throw new Error(data.error||'ลิงก์ใช้ไม่ได้ / invalid link');
+FIELDS.forEach(f=>{if(data.claim[f])editForm[f].value=data.claim[f];});
+}catch(err){editErr.textContent=err.message;}})();
+editForm.addEventListener('submit',async e=>{
+e.preventDefault();
+const btn=editForm.querySelector('button.submit');
+btn.disabled=true;editErr.style.color='';editErr.textContent='';
+const body={};FIELDS.forEach(f=>{body[f]=editForm[f].value.trim();});
+try{
+const res=await fetch(WORKER+'/edit/'+encodeURIComponent(editToken),{method:'POST',
+headers:{'content-type':'application/json'},body:JSON.stringify(body)});
+const data=await res.json();
+if(!res.ok)throw new Error(data.error||'บันทึกไม่สำเร็จ / save failed');
+editErr.style.color='#1a6b4a';editErr.textContent='✓ บันทึกแล้ว / saved';
+}catch(err){editErr.textContent=err.message;}
+btn.disabled=false;});
+}else{
+let picked=null;
+const results=document.getElementById('claimresults'),search=document.getElementById('claimsearch'),
+urlPaste=document.getElementById('claimurlpaste'),findErr=document.getElementById('claimfinderror');
+function idFromUrl(v){const m=v.trim().match(/\/(cm|cr)\/p\/([a-z0-9-]+)\.html/i);return m?m[2]:null;}
+function pick(e){picked=e;
+document.getElementById('claimwhoname').textContent=e.n;
+document.getElementById('claimwhoprov').textContent='· '+e.pv;
+document.getElementById('claimwholink').href=SITE+e.p+'/p/'+e.id+'.html';
+showStep(stepConfirm);}
+search&&search.addEventListener('input',async()=>{
+const q=search.value.trim().toLowerCase();
+if(!q){results.innerHTML='';return;}
+const idx=await loadIndex();
+const hits=idx.filter(e=>(e.n+' '+(e.e||'')).toLowerCase().includes(q)).slice(0,12);
+results.innerHTML=hits.map(e=>`<li><button>${H(e.n)} <span class="count">· ${H(e.pv)}</span></button></li>`).join('');
+results.querySelectorAll('button').forEach((b,i)=>b.addEventListener('click',()=>pick(hits[i])));});
+urlPaste&&urlPaste.addEventListener('change',async()=>{
+const id=idFromUrl(urlPaste.value);
+findErr.textContent='';
+if(!id){findErr.textContent='หาไอดีจากลิงก์ไม่เจอ / could not read an id from that link';return;}
+const idx=await loadIndex();const e=idx.find(x=>x.id===id);
+if(!e){findErr.textContent='ไม่พบที่นี่ในสารบัญ / not found in the directory';return;}
+pick(e);});
+document.getElementById('claimagain').addEventListener('click',()=>{picked=null;showStep(stepFind);});
+const wantId=params.get('id');
+if(wantId){(async()=>{const idx=await loadIndex();const e=idx.find(x=>x.id===wantId);if(e)pick(e);})();}
+const claimForm=document.getElementById('claimform'),claimErr=document.getElementById('claimerror');
+claimForm.addEventListener('submit',async e=>{
+e.preventDefault();
+if(!picked){claimErr.textContent='เลือกที่ตั้งก่อน / pick a place first';return;}
+const body={placeId:picked.id};let any=false;
+FIELDS.forEach(f=>{const v=claimForm[f].value.trim();if(v){body[f]=v;any=true;}});
+if(!any){claimErr.textContent='ใส่อย่างน้อยหนึ่งช่องทาง / fill in at least one channel';return;}
+const btn=claimForm.querySelector('button.submit');
+btn.disabled=true;btn.textContent='กำลังบันทึก… / saving…';claimErr.textContent='';
+try{
+const res=await fetch(WORKER+'/claim',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
+const data=await res.json();
+if(!res.ok)throw new Error(data.error||'บันทึกไม่สำเร็จ / something went wrong');
+const viewUrl=SITE+picked.p+'/p/'+picked.id+'.html';
+const vlink=document.getElementById('successviewlink');
+vlink.href=viewUrl;vlink.textContent=viewUrl;
+document.getElementById('successediturl').textContent=data.editUrl;
+document.getElementById('successcopybtn').dataset.url=data.editUrl;
+showStep(stepSuccess);
+}catch(err){
+claimErr.textContent=err.message;
+btn.disabled=false;btn.textContent='🏪 ยืนยันฟรี · Claim it free';}});
+}}
 """
 
 
@@ -814,6 +953,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head=""):
   <div class="svcbar">
     <a href="{r}my.html">🏠 {bi("หน้าแรกของฉัน", "My page")}</a> ·
     <a href="{r}suggest.html">{bi("แนะนำร้าน", "Add your place")}</a> ·
+    <a href="{r}claim.html">🏪 {bi("ยืนยันร้านของคุณ", "Claim your place")}</a> ·
     <a href="{r}contacts.html">☎️ {bi("เติมเบอร์-ไลน์", "Add contacts")}</a> ·
     <a href="{r}crawl-request.html">🐜 {bi("ส่งมดไปสำรวจ", "Request a crawl")}</a> ·
     <a href="#" class="rand">🎲 {bi("สุ่มพาไป", "Random place")}</a> ·
@@ -972,6 +1112,7 @@ def reach_block(r):
     parked-domain ad farm.
     """
     live, retired = channels(r)
+    claim = CLAIMS.get(r["id"])
     pills = []
     for c in live:
         icon = CHANNEL_ICON.get(c["kind"], "→")
@@ -1012,16 +1153,18 @@ def reach_block(r):
 
     record_html = ""
     if not any(c["kind"] == "web" for c in live):
-        issue = ("https://github.com/NaNoBotCo/mot-dang/issues/new?title="
-                 + att(f"update: {name_of(r)} ({r['id']})")
-                 + "&body=" + att("ข้อมูลที่ถูกต้องของที่นี่คือ… / The correct details are…"))
+        cta = ""
+        if not claim:
+            claim_url = f"../../claim.html?id={att(r['id'])}"
+            cta = (f' <a href="{claim_url}" rel="noopener">'
+                   + bi("เจ้าของยืนยันข้อมูลได้ฟรีที่นี่เจ้า", "Owners: claim and correct it here, free")
+                   + "</a>")
         record_html = (
             '<p class="ofrecord">🐜 '
             + bi("ที่นี่ไม่มีเว็บของตัวเอง — หน้านี้คือที่บันทึกของมดแดง ใช้อ้างอิงและแชร์ได้เลย",
                  "This place keeps no website of its own — so this page is the record. "
                  "Cite it, share it, link to it.")
-            + f' <a href="{issue}" rel="noopener">'
-            + bi("เจ้าของแก้ไขได้ฟรีเจ้า", "Owners: correct it here, free") + "</a></p>")
+            + cta + "</p>")
 
     if not pills and not retired_html:
         return record_html
@@ -1045,8 +1188,12 @@ def detail_page(r, prov_cfg, photo_file=None):
         rows.append(f"<dt>{bi('ชื่ออังกฤษ', 'English name')}</dt><dd>{esc(r['nameEn'])}</dd>")
     if r.get("address"):
         rows.append(f"<dt>{bi('ที่อยู่', 'Address')}</dt><dd>{esc(r['address'])}</dd>")
-    if r.get("hours"):
-        rows.append(f"<dt>{bi('เวลาเปิด', 'Hours')}</dt><dd>{esc(r['hours'])}</dd>")
+    claim = CLAIMS.get(r["id"])
+    hours = (claim or {}).get("hours") or r.get("hours")
+    if hours:
+        badge = (f' <span class="chbadge">{bi("ยืนยันโดยเจ้าของ", "owner-confirmed")}</span>'
+                 if claim and claim.get("hours") else "")
+        rows.append(f"<dt>{bi('เวลาเปิด', 'Hours')}</dt><dd>{esc(hours)}{badge}</dd>")
     if r.get("lat") is not None:
         osm = f"https://www.openstreetmap.org/?mlat={r['lat']}&mlon={r['lng']}#map=18/{r['lat']}/{r['lng']}"
         gmap = f"https://maps.google.com/?q={r['lat']},{r['lng']}"
@@ -1469,10 +1616,12 @@ def build():
     suggest_en = ("Mot Dang is all ears — your shop, a place you love, or a pin we're missing. "
                   "Listings are free; every entry is reviewed before it goes up.")
     vendor_th = ("เป็นเจ้าของร้าน? เพิ่มร้านฟรี ใส่เบอร์-LINE-เว็บได้เต็มที่ และถ้าส่งรูปมาด้วย "
-                 "ร้านมีสิทธิ์ได้ขึ้น ★ ที่น่าไป หน้าแรกของจังหวัดด้วยเจ้า")
+                 "ร้านมีสิทธิ์ได้ขึ้น ★ ที่น่าไป หน้าแรกของจังหวัดด้วยเจ้า "
+                 "(ร้านคุณอยู่ในสารบัญแล้ว? ยืนยันเบอร์-LINE-เพจได้ทันทีที่หน้ายืนยันร้าน ไม่ต้องรอทีมตรวจ)")
     vendor_en = ("Own a business? Listing is free — add your phone, LINE, and website, and if "
                  "you include a photo your place is eligible for the ★ featured strip on your "
-                 "province's front page.")
+                 "province's front page. (Already listed? Claim it to confirm your contact info "
+                 "instantly, no review wait.)")
     public_th = ("เป็นคนเดินดิน? รู้จักที่ดีที่มดแดงยังไม่มี หรือเจอหมุดผิด บอกมาได้เลย "
                  "ช่วยกันคนละนิด สารบัญเมืองก็ครบขึ้นทุกวัน")
     public_en = ("Just a local or visitor? Know a good place we're missing, or spotted a wrong "
@@ -1482,7 +1631,8 @@ def build():
         f'<h1>{bi("แนะนำร้าน-เพิ่มที่ของคุณ", "Add your place")}</h1>'
         f"<p>{bi(suggest_th, suggest_en)}</p>"
         f'<div class="module"><h3>🏪 {bi("สำหรับเจ้าของร้าน", "For business owners")}</h3>'
-        f'<p>{bi(vendor_th, vendor_en)}</p></div>'
+        f'<p>{bi(vendor_th, vendor_en)}</p>'
+        f'<p><a href="claim.html">🏪 {bi("ร้านอยู่แล้ว? ยืนยันเลย", "Already listed? Claim it")}</a></p></div>'
         f'<div class="module"><h3>🚶 {bi("สำหรับคนทั่วไป", "For everyone else")}</h3>'
         f'<p>{bi(public_th, public_en)}</p></div>'
         f'<p><a href="https://github.com/NaNoBotCo/mot-dang/issues/new" rel="noopener">'
@@ -1490,6 +1640,79 @@ def build():
         f'<a href="{KOFI}" rel="noopener">{bi("ฝากข้อความทาง Ko-fi", "Message us on Ko-fi")}</a></p>'
         f"<p>{bi('เร็วๆ นี้: ฟอร์มแนะนำในหน้านี้เลย', 'Coming soon: a suggestion form right here.')}</p>",
         depth=0, path="suggest.html", desc=suggest_th))
+
+    # ---- claim.html: self-serve, publishes instantly, owner is the authority
+    # on their own contact facts. See worker/worker.js for the Cloudflare side
+    # and importers/sync_claims.py for how a claim reaches the built site.
+    claim_cfg_json = json.dumps({"workerUrl": CLAIMS_WORKER_URL})
+    claim_lede_th = ("เป็นเจ้าของร้าน คลินิก หรือวัดนี้ไหม — ยืนยันเบอร์โทร LINE เพจ หรือเวลาเปิด-ปิด "
+                      "ได้ฟรี ขึ้นทันทีไม่ต้องรอทีมตรวจ ไม่ต้องสมัครสมาชิก "
+                      "(แก้ชื่อ ที่อยู่ หรือหมุด ยังต้องผ่านทีมงานอยู่ — ใช้ปุ่ม “บอกมดแดง” แทนเจ้า)")
+    claim_lede_en = ("Own this shop, clinic, or wat? Confirm your phone, LINE, page, or hours — free, "
+                     "live immediately, no account. (Corrections to the name, address, or map pin still "
+                     "go through a human — use the “tell the ants” link for those.)")
+    (DOCS / "claim.html").write_text(page(
+        "ยืนยันร้านของคุณ",
+        f'<h1>🏪 {bi("ยืนยันร้านของคุณ", "Claim your place")}</h1>'
+        f'<p>{bi(claim_lede_th, claim_lede_en)}</p>'
+        f'<div id="claim-find" class="claimstep">'
+        f'<label>{bi("ค้นหาชื่อร้าน วัด คลินิก…", "Search by name")}</label>'
+        f'<input type="search" id="claimsearch" class="claimsearch">'
+        f'<ul id="claimresults" class="claimpick"></ul>'
+        f'<p class="tinynote">{bi("หรือวางลิงก์หน้ามดแดงของร้านคุณ", "or paste your Mot Dang page link")}</p>'
+        f'<input type="text" id="claimurlpaste" class="claimsearch" placeholder="https://motdang.net/cm/p/…">'
+        f'<div class="error" id="claimfinderror"></div>'
+        f'</div>'
+        f'<div id="claim-confirm" class="claimstep" style="display:none">'
+        f'<div class="claimwho">'
+        f'<span class="th">กำลังยืนยันข้อมูลของ</span><span class="en">Claiming</span>: '
+        f'<b id="claimwhoname"></b> <span class="count" id="claimwhoprov"></span> '
+        f'<a id="claimwholink" target="_blank" rel="noopener">{bi("ดูหน้า", "view page")}</a><br>'
+        f'<button class="claimagain" id="claimagain">{bi("ไม่ใช่ที่นี่? ค้นหาใหม่", "Not this one? search again")}</button>'
+        f'</div>'
+        f'<form id="claimform" class="reqform">'
+        f'<label>{bi("เบอร์โทร", "Phone")}</label><input name="phone" maxlength="40" inputmode="tel">'
+        f'<label>LINE ID</label><input name="lineId" maxlength="60" placeholder="@yourshop">'
+        f'<label>Facebook</label><input name="facebook" maxlength="200" placeholder="facebook.com/yourpage">'
+        f'<label>Instagram</label><input name="instagram" maxlength="200" placeholder="@yourhandle">'
+        f'<label>WhatsApp</label><input name="whatsapp" maxlength="40">'
+        f'<label>{bi("อีเมล", "Email")}</label><input name="email" maxlength="200" type="email">'
+        f'<label>{bi("เว็บไซต์", "Website")}</label><input name="website" maxlength="300">'
+        f'<label>{bi("เวลาเปิด-ปิด", "Hours")}</label><input name="hours" maxlength="200" placeholder="10:00–20:00">'
+        f'<p class="tinynote">{bi("ใส่อย่างน้อยหนึ่งช่องทางที่ติดต่อได้", "Fill in at least one way to reach you")}</p>'
+        f'<button type="submit" class="submit">🏪 {esc("ยืนยันฟรี")} · {esc("Claim it free")}</button>'
+        f'<div class="error" id="claimerror"></div>'
+        f'</form>'
+        f'</div>'
+        f'<div id="claim-success" class="claimstep" style="display:none">'
+        f'<h2>✓ <span class="th">เรียบร้อย ขึ้นหน้าแล้ว</span><span class="en">You\'re listed</span></h2>'
+        f'<p><span class="th">ดูข้อมูลที่ขึ้นจริงได้ที่</span><span class="en">See it live at</span> '
+        f'<a id="successviewlink" target="_blank" rel="noopener"></a></p>'
+        f'<div class="claimcard">'
+        f'<p><b>{bi("เก็บลิงก์นี้ไว้แก้ไขทีหลัง — ห้ามให้คนอื่น", "Save this link to edit later — don’t share it")}</b></p>'
+        f'<div class="url-text" id="successediturl"></div>'
+        f'<button class="pill copy copylink" id="successcopybtn" data-url="" '
+        f'data-label="🔗 {esc("คัดลอกลิงก์แก้ไข")}" data-done="✓ {esc("คัดลอกแล้ว")}">'
+        f'🔗 {esc("คัดลอกลิงก์แก้ไข")}</button>'
+        f'</div>'
+        f'</div>'
+        f'<div id="claim-edit" class="claimstep" style="display:none">'
+        f'<h2>✏️ <span class="th">แก้ไขข้อมูลของคุณ</span><span class="en">Edit your listing</span></h2>'
+        f'<form id="editform" class="reqform">'
+        f'<label>{bi("เบอร์โทร", "Phone")}</label><input name="phone" maxlength="40" inputmode="tel">'
+        f'<label>LINE ID</label><input name="lineId" maxlength="60">'
+        f'<label>Facebook</label><input name="facebook" maxlength="200">'
+        f'<label>Instagram</label><input name="instagram" maxlength="200">'
+        f'<label>WhatsApp</label><input name="whatsapp" maxlength="40">'
+        f'<label>{bi("อีเมล", "Email")}</label><input name="email" maxlength="200" type="email">'
+        f'<label>{bi("เว็บไซต์", "Website")}</label><input name="website" maxlength="300">'
+        f'<label>{bi("เวลาเปิด-ปิด", "Hours")}</label><input name="hours" maxlength="200">'
+        f'<button type="submit" class="submit">{bi("บันทึกการแก้ไข", "Save changes")}</button>'
+        f'<div class="error" id="editerror"></div>'
+        f'</form>'
+        f'</div>'
+        f'<script id="claim-cfg" type="application/json">{claim_cfg_json}</script>',
+        depth=0, path="claim.html", desc=claim_lede_th))
 
     # ---- crawl request: ask the ants to go survey somewhere new ----------
     cat_options = "".join(f'<option value="{att(CATS[c]["th"])}">' for c in CAT_ORDER)
@@ -1800,6 +2023,8 @@ def build():
             if fname:
                 rec["photo"] = {"url": BASE + f"photos/{fname}",
                                 **PHOTO_CREDITS.get(r["id"], {})}
+            if r["id"] in CLAIMS:
+                rec["claim"] = CLAIMS[r["id"]]
             full_dump.append(rec)
     (DOCS / "data" / "places.json").write_text(
         json.dumps(full_dump, ensure_ascii=False))
@@ -2023,12 +2248,26 @@ def build():
 - We never publish a hyperlink to a URL we verified as broken. sameAs in the
   JSON-LD contains only channels that were checked and answered.
 
+## 🏪 Claiming — owners are the authority on their own contact info
+- {BASE}claim.html lets an owner confirm phone/LINE/Facebook/Instagram/
+  WhatsApp/email/website/hours for an EXISTING place, free, published
+  instantly (no moderation queue — Cloudflare Worker + KV, see
+  worker/worker.js). Scope is deliberately narrow: contact and hours only,
+  never name/address/coordinates — those still go through human review.
+- Claimed channels are marked with an owner-confirmed badge in the rendered
+  page and carry that provenance into places.json (see each record's
+  `claim` field, present only where one exists) — a claimed phone or
+  website should be trusted over a crawled one at the same place.
+- {len(CLAIMS):,} place(s) currently claimed, synced via
+  importers/sync_claims.py from {CLAIMS_WORKER_URL}/claims.
+
 ## URL structure
 - {BASE}<province>/<category>/ — category listing
 - {BASE}<province>/<category>/<subcategory>/ — subcategory listing
 - {BASE}<province>/p/<id>.html — one place, with schema.org JSON-LD
 - {BASE}contacts.html — where contact-info coverage is thin
 - {BASE}suggest.html, {BASE}crawl-request.html — how to contribute
+- {BASE}claim.html — owners confirm their own contact info, free, instant
 
 ## Notes for crawlers and agents
 - All named AI crawlers and the wildcard are explicitly Allow: / in robots.txt.

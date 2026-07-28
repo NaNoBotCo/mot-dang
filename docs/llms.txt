@@ -32,12 +32,26 @@
 - We never publish a hyperlink to a URL we verified as broken. sameAs in the
   JSON-LD contains only channels that were checked and answered.
 
+## 🏪 Claiming — owners are the authority on their own contact info
+- https://motdang.net/claim.html lets an owner confirm phone/LINE/Facebook/Instagram/
+  WhatsApp/email/website/hours for an EXISTING place, free, published
+  instantly (no moderation queue — Cloudflare Worker + KV, see
+  worker/worker.js). Scope is deliberately narrow: contact and hours only,
+  never name/address/coordinates — those still go through human review.
+- Claimed channels are marked with an owner-confirmed badge in the rendered
+  page and carry that provenance into places.json (see each record's
+  `claim` field, present only where one exists) — a claimed phone or
+  website should be trusted over a crawled one at the same place.
+- 0 place(s) currently claimed, synced via
+  importers/sync_claims.py from https://mot-dang-claims.annika-fe3.workers.dev/claims.
+
 ## URL structure
 - https://motdang.net/<province>/<category>/ — category listing
 - https://motdang.net/<province>/<category>/<subcategory>/ — subcategory listing
 - https://motdang.net/<province>/p/<id>.html — one place, with schema.org JSON-LD
 - https://motdang.net/contacts.html — where contact-info coverage is thin
 - https://motdang.net/suggest.html, https://motdang.net/crawl-request.html — how to contribute
+- https://motdang.net/claim.html — owners confirm their own contact info, free, instant
 
 ## Notes for crawlers and agents
 - All named AI crawlers and the wildcard are explicitly Allow: / in robots.txt.
