@@ -12,6 +12,7 @@ import base64
 import io
 import json
 import shutil
+import urllib.parse
 from pathlib import Path
 
 try:
@@ -71,6 +72,187 @@ PHOTOS_SRC = ROOT / "assets" / "photos"
 _credits_path = PHOTOS_SRC / "credits.json"
 PHOTO_CREDITS = json.loads(_credits_path.read_text()) if _credits_path.exists() else {}
 
+# ---------------------------------------------------------------- reachability
+# Most places here have no working website, and plenty of the ones that do have
+# a site that has quietly stopped working. The living channel is nearly always a
+# phone, a LINE id, or a Facebook page. So the page ranks channels by whether a
+# person can actually get through, keeps an archived copy of a site that has
+# stopped answering instead of sending anyone into a security warning, and says
+# plainly that this page holds the record when nothing else does.
+# Verdicts come from importers/check_links.py — see data/linkhealth.json.
+_health_path = ROOT / "data" / "linkhealth.json"
+_health = json.loads(_health_path.read_text()) if _health_path.exists() else {}
+LINK_HEALTH = _health.get("links", {})
+LINK_HEALTH_DATE = _health.get("generated", "")
+
+# Verdicts that mean: do not send a person here.
+BROKEN = {"tls", "dns", "down", "timeout", "gone", "http-error", "server-error",
+          "parked", "empty", "error"}
+
+SOCIAL_HOSTS = {
+    "facebook.com": "facebook", "m.facebook.com": "facebook", "web.facebook.com": "facebook",
+    "fb.com": "facebook", "fb.me": "facebook", "instagram.com": "instagram",
+    "line.me": "line", "lin.ee": "line", "tiktok.com": "tiktok",
+    "twitter.com": "x", "x.com": "x", "youtube.com": "youtube", "youtu.be": "youtube",
+    "wa.me": "whatsapp",
+}
+TWO_LEVEL = {"co", "ac", "go", "or", "in", "net", "mi", "com", "org"}
+
+
+def registrable(host):
+    host = (host or "").lower().split(":")[0].strip(".")
+    parts = host.split(".")
+    if len(parts) <= 2:
+        return host
+    if len(parts[-1]) == 2 and parts[-2] in TWO_LEVEL:
+        return ".".join(parts[-3:])
+    return ".".join(parts[-2:])
+
+
+def norm_url(url):
+    url = (url or "").strip()
+    if not url:
+        return None
+    if "://" not in url:
+        url = "http://" + url
+    try:
+        p = urllib.parse.urlsplit(url)
+    except ValueError:
+        return None
+    if p.scheme not in ("http", "https") or not p.netloc:
+        return None
+    return urllib.parse.urlunsplit(p)
+
+
+def url_kind(url):
+    """facebook / instagram / line / … for walled-garden links, else None."""
+    if not url:
+        return None
+    p = urllib.parse.urlsplit(url)
+    return SOCIAL_HOSTS.get(registrable(p.netloc)) or SOCIAL_HOSTS.get(
+        p.netloc.lower().replace("www.", ""))
+
+
+def verdict(url):
+    u = norm_url(url)
+    return LINK_HEALTH.get(u, {}) if u else {}
+
+
+def pretty_url(url):
+    """Show a domain, not a 90-character tracking-parameter novel."""
+    p = urllib.parse.urlsplit(norm_url(url) or url)
+    out = p.netloc.replace("www.", "") + (p.path.rstrip("/") if p.path != "/" else "")
+    return out if len(out) <= 42 else out[:40] + "…"
+
+
+def handle_of(url, prefix="@"):
+    seg = (norm_url(url) or url).rstrip("/").rsplit("/", 1)[-1]
+    seg = urllib.parse.unquote(seg).lstrip("@")
+    if seg.startswith("profile.php") or not seg:
+        return None
+    return prefix + (seg if len(seg) <= 28 else seg[:26] + "…")
+
+
+BROKEN_WHY = {
+    "tls": ("ใบรับรองความปลอดภัยหมดอายุ", "security certificate no longer valid"),
+    "dns": ("โดเมนไม่มีแล้ว", "the domain is gone"),
+    "down": ("เครื่องแม่ข่ายไม่ตอบ", "the server does not answer"),
+    "timeout": ("เครื่องแม่ข่ายไม่ตอบ", "the server does not answer"),
+    "gone": ("หน้านั้นไม่มีแล้ว", "that page is no longer there"),
+    "http-error": ("เปิดไม่ได้", "the site returns an error"),
+    "server-error": ("เครื่องแม่ข่ายมีปัญหา", "the server reports an error"),
+    "parked": ("โดเมนถูกปล่อยว่าง/ประกาศขาย", "the domain is parked or for sale"),
+    "empty": ("หน้าว่างเปล่า", "the page comes back empty"),
+    "error": ("เปิดไม่ได้", "the link could not be opened"),
+}
+
+
+def channels(r):
+    """Every way to reach this place, best-first, plus anything we had to retire.
+
+    Order follows how people here actually get an answer: a phone is picked up,
+    a LINE message is read, a Facebook page is current. A website — when it
+    works at all — is usually the least current of the four.
+    """
+    a = dict(r.get("attrs") or {})  # local: normalizing must not rewrite the record
+    live, retired, seen = [], [], set()
+
+    def add(kind, label_th, label_en, href, text, badge=None, cls=None):
+        if href in seen:
+            return
+        seen.add(href)
+        live.append({"kind": kind, "cls": cls or kind, "th": label_th, "en": label_en,
+                     "href": href, "text": text, "badge": badge})
+
+    # A "website" that is really a Facebook page is filed as Facebook. That is
+    # what it is, and it is the single most common shape of a Thai business's
+    # web presence — pretending otherwise buries the channel that works.
+    sites = []
+    for field, raw in (("website", r.get("website")), ("brandWebsite", a.get("brandWebsite")),
+                       ("website", a.get("website"))):
+        u = norm_url(raw)
+        if not u:
+            continue
+        kind = url_kind(u)
+        if kind in ("facebook", "instagram"):
+            a.setdefault(kind, u)
+        elif kind == "line":
+            a.setdefault("lineUrl", u)
+        elif kind is None:
+            sites.append((field, u))
+
+    if r.get("phone"):
+        ph = r["phone"].split(";")[0].strip()
+        add("phone", "โทร", "Phone", "tel:" + ph.replace(" ", ""), ph)
+    line_id = a.get("lineId")
+    if line_id:
+        lid = line_id.lstrip("@~")
+        add("line", "LINE", "LINE", f"https://line.me/R/ti/p/~{lid}", "@" + lid)
+    elif a.get("lineUrl"):
+        add("line", "LINE", "LINE", a["lineUrl"], handle_of(a["lineUrl"]) or "LINE")
+
+    fb = a.get("facebook")
+    if fb:
+        fb_url = fb if fb.startswith("http") else "https://www.facebook.com/" + fb.lstrip("/")
+        add("facebook", "เฟซบุ๊ก", "Facebook", fb_url, handle_of(fb_url) or "Facebook")
+
+    for field, u in sites:
+        v = verdict(u)
+        st = v.get("status")
+        if st in BROKEN:
+            retired.append({"url": u, "status": st, "detail": v.get("detail", ""),
+                            "wayback": v.get("wayback") or {},
+                            "checked": v.get("checkedAt", LINK_HEALTH_DATE), "field": field})
+            continue
+        if st == "moved-social":
+            target = v.get("final") or u
+            k = v.get("channel") or "facebook"
+            add(k, {"facebook": "เฟซบุ๊ก"}.get(k, k.title()), k.title(), target,
+                handle_of(target) or k.title(),
+                badge=("เว็บเดิมพามาที่นี่", "their old site forwards here"))
+            continue
+        badge = None
+        if st == "redirect-offsite" and v.get("to"):
+            badge = ("ไปที่ " + v["to"], "now at " + v["to"])
+        elif not st:
+            badge = ("ยังไม่ได้ตรวจ", "not checked yet")
+        label_th, label_en = ("เว็บของแบรนด์", "Brand site") if field == "brandWebsite" \
+            else ("เว็บไซต์", "Website")
+        add("web", label_th, label_en, u, pretty_url(u), badge=badge, cls="web")
+
+    ig = a.get("instagram")
+    if ig:
+        ig_url = ig if ig.startswith("http") else "https://www.instagram.com/" + ig.lstrip("@/")
+        add("instagram", "อินสตาแกรม", "Instagram", ig_url, handle_of(ig_url) or "Instagram")
+    wa = a.get("whatsapp")
+    if wa:
+        add("whatsapp", "WhatsApp", "WhatsApp",
+            "https://wa.me/" + wa.lstrip("+").replace(" ", ""), wa)
+    em = a.get("email")
+    if em:
+        add("email", "อีเมล", "Email", "mailto:" + em, em)
+    return live, retired
+
 # Original stylized wat illustration — the default photo everywhere a real one
 # is missing. Hand-drawn shapes, brand palette, not a copy of any real temple.
 WAT_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img">
@@ -125,7 +307,6 @@ SCHEMA_TYPE = {
 
 
 def ld_json(r, path, photo_file):
-    a = r.get("attrs", {})
     obj = {
         "@context": "https://schema.org",
         "@type": SCHEMA_TYPE.get(r["cat"][0], "LocalBusiness"),
@@ -138,15 +319,14 @@ def ld_json(r, path, photo_file):
                            "addressCountry": "TH"}
     if r.get("lat") is not None:
         obj["geo"] = {"@type": "GeoCoordinates", "latitude": r["lat"], "longitude": r["lng"]}
+    # This page is the citable record for the place — say so, and only vouch for
+    # links that were verified to answer. Publishing a dead URL as sameAs feeds
+    # the same rot everywhere downstream.
+    obj["mainEntityOfPage"] = {"@type": "WebPage", "@id": BASE + path}
+    live, _retired = channels(r)
     if r.get("phone"):
         obj["telephone"] = r["phone"]
-    if r.get("website"):
-        obj["sameAs"] = [r["website"]]
-    same_as = obj.get("sameAs", [])
-    for key, base in (("facebook", "https://www.facebook.com/"), ("instagram", "https://www.instagram.com/")):
-        v = a.get(key)
-        if v:
-            same_as.append(v if v.startswith("http") else base + v.lstrip("@"))
+    same_as = [c["href"] for c in live if c["href"].startswith("http")]
     if same_as:
         obj["sameAs"] = same_as
     return f'<script type="application/ld+json">{json.dumps(obj, ensure_ascii=False)}</script>'
@@ -204,6 +384,41 @@ background:#fff;box-shadow:3px 3px 0 var(--soft);transition:transform .18s,box-s
 .featured .star{color:var(--ant)}
 dl{display:grid;grid-template-columns:max-content 1fr;gap:.25rem 1.2rem}
 dt{color:var(--ant-dark);font-weight:600} dd{margin:0;overflow-wrap:anywhere}
+/* Reach block — the channels that actually answer, ranked, above the facts. */
+.reach{margin:1.1rem 0 .4rem;padding:.75rem .9rem .85rem;border-radius:.8rem;
+border:1px solid var(--soft);background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.6));
+backdrop-filter:blur(6px);box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 2px 10px rgba(42,30,22,.05)}
+.reach .row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:flex-start;margin-top:.45rem}
+.reachlabel{font-size:.9rem;color:var(--ant-dark);font-weight:700;letter-spacing:.02em}
+.reach .tinynote{margin-left:.5rem}
+.tinynote{font-size:.8rem;color:var(--mute)}
+.chwrap{display:inline-flex;flex-direction:column;gap:.15rem}
+.reach .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.34rem .9rem;
+border-radius:999px;text-decoration:none;font-size:.9rem;color:#fff;font-weight:500;
+transition:transform .13s cubic-bezier(.34,1.56,.64,1),box-shadow .13s,filter .13s}
+.reach .pill:visited{color:#fff}
+.reach .pill:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.reach .pill:active{transform:translateY(0) scale(.97)}
+.reach .pill b{font-weight:700}
+.reach .chico{font-size:.95em;line-height:1}
+.reach .chlabel{opacity:.85;font-size:.82em}
+.reach .pill.phone{background:var(--ant)}
+.reach .pill.line{background:#06C755}
+.reach .pill.facebook{background:#1877F2}
+.reach .pill.instagram{background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF)}
+.reach .pill.whatsapp{background:#25D366}
+.reach .pill.web{background:#3B5A4A}
+.reach .pill.email{background:var(--ant-dark)}
+.reach .pill.x{background:#111} .reach .pill.tiktok{background:#111}
+.reach .pill.youtube{background:#FF0000} .reach .pill.line b{letter-spacing:.01em}
+.chbadge{font-size:.74rem;color:var(--mute);padding-left:.55rem}
+.retired{margin:.5rem 0 .2rem;padding:.6rem .9rem;border-radius:.7rem;
+border:1px dashed var(--soft);background:rgba(234,223,206,.35);font-size:.88rem}
+.retired ul{margin:.3rem 0 .35rem;padding-left:1.1rem}
+.retired li{margin:.15rem 0}
+.oldsite{color:var(--mute);text-decoration:line-through;text-decoration-thickness:1px}
+.ofrecord{margin:.5rem 0;padding:.55rem .9rem;border-radius:.7rem;font-size:.9rem;
+background:var(--soft)}
 .share{margin-top:1.2rem}
 .share .sharelabel{font-size:.9rem;color:var(--ant-dark);font-weight:600;display:block;margin-bottom:.4rem}
 .share .row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
@@ -621,6 +836,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head=""):
   <a href="{r}rss.xml">📡 RSS</a> ·
   <a href="{r}partners.html">{bi("แลกฟีด", "Partners")}</a> ·
   <a href="{r}why.html">{bi("ทำไมดีกว่า Google", "Why we beat Google")}</a> ·
+  <a href="{r}reach.html">🔗 {bi("ลิงก์ที่ยังเปิดได้", "Which links still work")}</a> ·
   <a href="{r}llms.txt">llms.txt</a>
   <span id="scurry">🐜</span>
 </footer>
@@ -650,11 +866,16 @@ def name_of(r):
     return r.get("name") or r.get("nameEn") or r["id"]
 
 
+_contact_cache = {}
+
+
 def has_contact(r):
-    a = r.get("attrs", {})
-    return bool(r.get("phone") or r.get("website") or a.get("lineId")
-                or a.get("facebook") or a.get("instagram") or a.get("email")
-                or a.get("whatsapp"))
+    """Reachable means a channel that answers. A website that has stopped
+    resolving is not a contact, however good it looks in the data."""
+    hit = _contact_cache.get(r["id"])
+    if hit is None:
+        hit = _contact_cache[r["id"]] = bool(channels(r)[0])
+    return hit
 
 
 def is_featured(r):
@@ -737,6 +958,84 @@ def share_block(url, name, qr=False):
             f'</div>{qr_html}</div>')
 
 
+CHANNEL_ICON = {"phone": "☎️", "line": "💬", "facebook": "f", "web": "🌐",
+                "instagram": "◎", "whatsapp": "✆", "email": "✉️", "x": "𝕏",
+                "tiktok": "♪", "youtube": "▶"}
+
+
+def reach_block(r):
+    """The heart of a place page: how to actually get hold of these people.
+
+    Live channels come first as buttons. A site that has stopped answering is
+    not deleted and not linked either — it is named, dated, and pointed at an
+    archived copy, so nobody gets dropped into a security warning or a
+    parked-domain ad farm.
+    """
+    live, retired = channels(r)
+    pills = []
+    for c in live:
+        icon = CHANNEL_ICON.get(c["kind"], "→")
+        rel = ' rel="nofollow noopener"' if c["href"].startswith("http") else ""
+        badge = ""
+        if c.get("badge"):
+            badge = f'<span class="chbadge">{bi(c["badge"][0], c["badge"][1])}</span>'
+        pills.append(
+            f'<span class="chwrap"><a class="pill {c["cls"]}" href="{att(c["href"])}"{rel}>'
+            f'<span class="chico">{icon}</span> <span class="chlabel">'
+            f'{bi(c["th"], c["en"])}</span> <b>{esc(c["text"])}</b></a>{badge}</span>')
+
+    notes = []
+    for x in retired:
+        why = BROKEN_WHY.get(x["status"], ("เปิดไม่ได้", "not reachable"))
+        checked = esc(x.get("checked") or LINK_HEALTH_DATE)
+        wb = x.get("wayback") or {}
+        if wb.get("url"):
+            stamp = wb.get("timestamp", "")
+            when = f"{stamp[:4]}-{stamp[4:6]}-{stamp[6:8]}" if len(stamp) >= 8 else ""
+            keep = (f' · <a href="{att(wb["url"])}" rel="noopener">'
+                    + bi(f"ดูฉบับเก็บถาวร {when}", f"see the archived copy, {when}") + "</a>")
+        else:
+            keep = ""
+        notes.append(
+            f'<li><span class="oldsite">{esc(pretty_url(x["url"]))}</span> — '
+            + bi(f"{why[0]} (ตรวจเมื่อ {x['checked']})", f"{why[1]} (checked {checked})")
+            + keep + "</li>")
+    retired_html = ""
+    if notes:
+        retired_html = (
+            '<div class="retired"><span class="reachlabel">'
+            + bi("เว็บเดิมของที่นี่", "Their earlier website")
+            + f'</span><ul>{"".join(notes)}</ul><p class="tinynote">'
+            + bi("มดแดงไม่ส่งใครไปหน้าที่เปิดไม่ได้ — เก็บลิงก์ไว้ให้ในคลังแทนเจ้า",
+                 "We don't send anyone to a page that no longer answers — the archived copy is here instead.")
+            + "</p></div>")
+
+    record_html = ""
+    if not any(c["kind"] == "web" for c in live):
+        issue = ("https://github.com/NaNoBotCo/mot-dang/issues/new?title="
+                 + att(f"update: {name_of(r)} ({r['id']})")
+                 + "&body=" + att("ข้อมูลที่ถูกต้องของที่นี่คือ… / The correct details are…"))
+        record_html = (
+            '<p class="ofrecord">🐜 '
+            + bi("ที่นี่ไม่มีเว็บของตัวเอง — หน้านี้คือที่บันทึกของมดแดง ใช้อ้างอิงและแชร์ได้เลย",
+                 "This place keeps no website of its own — so this page is the record. "
+                 "Cite it, share it, link to it.")
+            + f' <a href="{issue}" rel="noopener">'
+            + bi("เจ้าของแก้ไขได้ฟรีเจ้า", "Owners: correct it here, free") + "</a></p>")
+
+    if not pills and not retired_html:
+        return record_html
+    row = f'<div class="row">{"".join(pills)}</div>' if pills else ""
+    label = bi("ติดต่อได้ที่", "Reach them")
+    hint = ""
+    if pills and live[0]["kind"] in ("phone", "line"):
+        hint = ('<span class="tinynote">'
+                + bi("เรียงตามช่องทางที่ติดต่อติดจริง", "ordered by what actually gets an answer")
+                + "</span>")
+    return (f'<section class="reach"><span class="reachlabel">{label}</span>{hint}'
+            f"{row}</section>{retired_html}{record_html}")
+
+
 def detail_page(r, prov_cfg, photo_file=None):
     rows = []
     cats = " · ".join(
@@ -746,36 +1045,8 @@ def detail_page(r, prov_cfg, photo_file=None):
         rows.append(f"<dt>{bi('ชื่ออังกฤษ', 'English name')}</dt><dd>{esc(r['nameEn'])}</dd>")
     if r.get("address"):
         rows.append(f"<dt>{bi('ที่อยู่', 'Address')}</dt><dd>{esc(r['address'])}</dd>")
-    if r.get("phone"):
-        rows.append(f"<dt>{bi('โทร', 'Phone')}</dt><dd><a href=\"tel:{att(r['phone'])}\">{esc(r['phone'])}</a></dd>")
-    if r.get("website"):
-        rows.append(f"<dt>{bi('เว็บ', 'Website')}</dt><dd><a href=\"{att(r['website'])}\" rel=\"nofollow noopener\">{esc(r['website'])}</a></dd>")
     if r.get("hours"):
         rows.append(f"<dt>{bi('เวลาเปิด', 'Hours')}</dt><dd>{esc(r['hours'])}</dd>")
-    line_id = r.get("attrs", {}).get("lineId")
-    if line_id:
-        lid = line_id.lstrip("@~")
-        rows.append(f'<dt>LINE</dt><dd><a class="line" style="background:#06C755;color:#fff;'
-                    f'padding:.05rem .6rem;border-radius:.5rem;text-decoration:none" '
-                    f'href="https://line.me/R/ti/p/~{att(lid)}" rel="noopener">@{esc(lid)}</a></dd>')
-    fb = r.get("attrs", {}).get("facebook")
-    if fb:
-        fb_url = fb if fb.startswith("http") else f"https://www.facebook.com/{fb}"
-        rows.append(f'<dt>Facebook</dt><dd><a href="{att(fb_url)}" rel="nofollow noopener">{esc(fb_url.rstrip("/").rsplit("/", 1)[-1])}</a></dd>')
-    ig = r.get("attrs", {}).get("instagram")
-    if ig:
-        ig_url = ig if ig.startswith("http") else f"https://www.instagram.com/{ig.lstrip('@')}"
-        rows.append(f'<dt>Instagram</dt><dd><a href="{att(ig_url)}" rel="nofollow noopener">@{esc(ig_url.rstrip("/").rsplit("/", 1)[-1])}</a></dd>')
-    wa = r.get("attrs", {}).get("whatsapp")
-    if wa:
-        rows.append(f'<dt>WhatsApp</dt><dd><a href="https://wa.me/{att(wa.lstrip("+").replace(" ", ""))}" rel="noopener">{esc(wa)}</a></dd>')
-    em = r.get("attrs", {}).get("email")
-    if em:
-        rows.append(f'<dt>{bi("อีเมล", "Email")}</dt><dd><a href="mailto:{att(em)}">{esc(em)}</a></dd>')
-    bw = r.get("attrs", {}).get("brandWebsite")
-    if bw:
-        rows.append(f'<dt>{bi("เว็บของแบรนด์", "Brand site")}</dt>'
-                    f'<dd><a href="{att(bw)}" rel="nofollow noopener">{esc(bw)}</a></dd>')
     if r.get("lat") is not None:
         osm = f"https://www.openstreetmap.org/?mlat={r['lat']}&mlon={r['lng']}#map=18/{r['lat']}/{r['lng']}"
         gmap = f"https://maps.google.com/?q={r['lat']},{r['lng']}"
@@ -832,7 +1103,8 @@ def detail_page(r, prov_cfg, photo_file=None):
     path = f"{r['province']}/p/{r['id']}.html"
     crumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
               f'<a href="../index.html">{bi(prov_cfg["th"], prov_cfg["en"])}</a> › {esc(name_of(r))}')
-    body = (f"<h1>{esc(name_of(r))}</h1>{img_tag}{photo_note}{blurb}<dl>{''.join(rows)}</dl>"
+    body = (f"<h1>{esc(name_of(r))}</h1>{img_tag}{photo_note}{blurb}"
+            f"{reach_block(r)}<dl>{''.join(rows)}</dl>"
             f"{contact_cta}{photo_cta}"
             f"{share_block(BASE + path, name_of(r), qr=True)}{ad_box(path, 2)}"
             f'<p class="prov">{prov_line}{fetched}</p>')
@@ -1381,6 +1653,144 @@ def build():
         f'{share_block(BASE + "stats.html", "สถิติมดแดง · Mot Dang stats")}',
         depth=0, path="stats.html", desc=stats_th))
 
+    # ---- reach.html: what we found when we tried every official link ------
+    # The other half of the problem Mot Dang exists to solve. Finding a place is
+    # one thing; landing somewhere that still answers is another. We checked, so
+    # the numbers here are measured, not asserted — rerun check_links.py to redo.
+    tally, wayback_n = {}, 0
+    for v in LINK_HEALTH.values():
+        tally[v.get("status", "?")] = tally.get(v.get("status", "?"), 0) + 1
+        if (v.get("wayback") or {}).get("url"):
+            wayback_n += 1
+    n_links = sum(tally.values())
+    n_social = tally.get("social", 0)
+    n_sites = n_links - n_social
+    n_broken = sum(tally.get(k, 0) for k in BROKEN)
+    n_working = n_sites - n_broken
+    broke_pct = round(100 * n_broken / n_sites) if n_sites else 0
+    social_pct = round(100 * n_social / n_links) if n_links else 0
+
+    VERDICT_LABEL = {
+        "ok": ("เปิดได้ปกติ", "answers normally"),
+        "redirect-offsite": ("ย้ายไปโดเมนอื่น", "moved to another domain"),
+        "moved-social": ("เว็บพาไปหน้าโซเชียลแทน", "site now forwards to a social page"),
+        "social": ("เป็นเพจโซเชียล ไม่ใช่เว็บ", "a social page, not a website"),
+        "dns": ("โดเมนหายไปแล้ว", "the domain no longer exists"),
+        "gone": ("หน้านั้นไม่มีแล้ว (404)", "page not found (404)"),
+        "http-error": ("เปิดไม่ได้", "returns an error"),
+        "timeout": ("ไม่ตอบสนอง", "never answers"),
+        "tls": ("ใบรับรองความปลอดภัยใช้ไม่ได้", "invalid security certificate"),
+        "empty": ("หน้าว่าง", "comes back empty"),
+        "parked": ("โดเมนถูกปล่อยว่าง/ประกาศขาย", "parked or for sale"),
+        "server-error": ("เครื่องแม่ข่ายมีปัญหา", "server error"),
+        "down": ("เครื่องแม่ข่ายไม่ตอบ", "server refuses connections"),
+        "error": ("ลิงก์เสีย", "malformed or unopenable link"),
+    }
+    order = sorted(tally, key=lambda k: -tally[k])
+    verdict_rows = "".join(
+        f'<tr><td>{bi(*VERDICT_LABEL.get(k, (k, k)))}</td>'
+        f'<td data-v="{tally[k]}">{tally[k]:,}</td>'
+        f'<td data-v="{round(100 * tally[k] / n_links, 1) if n_links else 0}">'
+        f'{round(100 * tally[k] / n_links) if n_links else 0}%</td>'
+        f'<td>{"⚠️" if k in BROKEN else ("🌐" if k == "social" else "✓")}</td></tr>'
+        for k in order)
+    verdict_table = (
+        '<table class="sortable"><thead><tr>'
+        f'<th>{bi("ผลตรวจ", "Verdict")}</th><th data-sort="num">{bi("ลิงก์", "Links")}</th>'
+        f'<th data-sort="num">{bi("สัดส่วน", "Share")}</th><th>{bi("ส่งคนไปไหม", "Send anyone?")}</th>'
+        f'</tr></thead><tbody>{verdict_rows}</tbody></table>')
+
+    def donut(working, broken, social):
+        """One bar, three truths, drawn server-side like every other chart here."""
+        total = max(working + broken + social, 1)
+        w, h = 700, 46
+        segs = [(working, "#3B5A4A", bi("เปิดได้", "works")),
+                (broken, "#8F2E13", bi("เปิดไม่ได้", "broken")),
+                (social, "#1877F2", bi("เป็นเพจโซเชียล", "social page"))]
+        parts = [f'<svg viewBox="0 0 {w} {h}" width="100%" role="img" '
+                 f'aria-label="{att(f"{working} working, {broken} broken, {social} social")}">']
+        x = 0
+        for n, color, _lab in segs:
+            seg_w = w * n / total
+            parts.append(f'<rect x="{x:.1f}" y="6" width="{max(seg_w - 2, 1):.1f}" height="{h - 18}" '
+                         f'rx="5" fill="{color}"><title>{n} ({round(100 * n / total)}%)</title></rect>')
+            if seg_w > 46:
+                parts.append(f'<text x="{x + seg_w / 2:.1f}" y="{h / 2 + 3:.0f}" text-anchor="middle" '
+                             f'font-size="13" font-weight="700" fill="#fff">{n:,}</text>')
+            x += seg_w
+        parts.append("</svg>")
+        return "".join(parts)
+
+    reach_tiles = (
+        '<div class="tilerow">'
+        f'<div class="tile"><b>{n_links:,}</b><span>{bi("ลิงก์ที่ตรวจ", "links checked")}</span></div>'
+        f'<div class="tile"><b>{broke_pct}%</b><span>{bi("เว็บที่เปิดไม่ได้", "of real sites are broken")}</span></div>'
+        f'<div class="tile"><b>{social_pct}%</b><span>{bi("“เว็บ” ที่จริงคือเพจ", "of “sites” are social pages")}</span></div>'
+        f'<div class="tile"><b>{wayback_n:,}</b><span>{bi("มีฉบับเก็บถาวรให้", "archived copies kept")}</span></div>'
+        '</div>')
+    reach_lede_th = (
+        f"มดแดงลองเปิดลิงก์เว็บทางการทุกลิงก์ที่มีในสารบัญ ({n_links:,} ลิงก์) แล้วจดว่าอันไหนยังเปิดได้จริง "
+        f"ผลคือ เว็บจริง ๆ {n_sites:,} แห่ง เปิดไม่ได้ {n_broken:,} แห่ง ({broke_pct}%) "
+        f"และอีก {n_social:,} ลิงก์ที่ใส่ไว้ว่า “เว็บไซต์” จริง ๆ แล้วคือเพจโซเชียล")
+    reach_lede_en = (
+        f"We opened every official-site link in the directory ({n_links:,} of them) and wrote down which "
+        f"ones still answer. Of the {n_sites:,} that are genuinely websites, {n_broken:,} are broken "
+        f"({broke_pct}%). Another {n_social:,} links filed as “website” are really social pages.")
+    reach_body_th = (
+        "นี่ไม่ใช่การว่าใคร — เป็นเรื่องปกติของเว็บบ้านเรา ร้านทำเว็บไว้เมื่อสิบปีก่อน แล้วชีวิตจริงย้ายไปอยู่ไลน์กับเฟซบุ๊ก "
+        "โดเมนหมดอายุอย่างเงียบ ๆ คนที่ตามลิงก์ไปก็เจอหน้าว่างหรือคำเตือนความปลอดภัย "
+        "มดแดงจึงทำสองอย่าง: เรียงช่องทางที่ติดต่อติดจริงไว้บนสุดของทุกหน้า "
+        "และเก็บเว็บที่ปิดไปแล้วไว้เป็นฉบับเก็บถาวรแทนการส่งคนไปชนหน้าเสีย")
+    reach_body_en = (
+        "This is not a complaint about anyone's webmaster. It is the ordinary shape of the web here: a shop "
+        "built a site a decade ago, the real conversation moved to LINE and Facebook, and the domain lapsed "
+        "quietly. Anyone following the old link meets a blank page or a security warning. So Mot Dang does two "
+        "things: it puts the channels that actually answer at the top of every place page, and when a site has "
+        "stopped answering it keeps an archived copy instead of sending you into the wall.")
+    reach_record_th = (
+        "และเมื่อที่ไหนไม่มีเว็บของตัวเองเลย — ซึ่งเป็นส่วนใหญ่ — หน้าของมดแดงก็ทำหน้าที่เป็นที่บันทึกหลักของที่นั่นแทน "
+        "ชื่อ ที่อยู่ พิกัด เบอร์ ไลน์ เพจ ครบในที่เดียว ลิงก์ถาวร แชร์ได้ อ้างอิงได้ และเจ้าของแก้ไขได้ฟรีเสมอเจ้า")
+    reach_record_en = (
+        "And where a place keeps no website at all — which is most of them — the Mot Dang page stands in as "
+        "its record: name, address, coordinates, phone, LINE, page, all in one place, at a permanent link you "
+        "can share and cite. Owners can always correct it, free.")
+    reach_method_th = (
+        f"วิธีตรวจ: เปิดลิงก์จริงทีละอัน ตามการเปลี่ยนเส้นทางด้วยมือ ตรวจใบรับรองความปลอดภัย "
+        f"ดูว่าโดเมนยังมีอยู่ไหม และอ่านหน้าที่ได้มาว่าเป็นหน้าประกาศขายโดเมนหรือเปล่า "
+        f"ตรวจครั้งล่าสุด {LINK_HEALTH_DATE or BUILD_DATE} · โค้ดอยู่ที่ importers/check_links.py "
+        f"· ผลดิบทั้งหมดเปิดให้ดาวน์โหลด")
+    reach_method_en = (
+        "Method: each link opened for real, redirects followed by hand, certificate verified, domain checked "
+        "for existence, and the returned page read for domain-for-sale and default-server markers. Last run "
+        f"{LINK_HEALTH_DATE or BUILD_DATE}. The checker is importers/check_links.py and the full raw results "
+        "are downloadable.")
+    (DOCS / "reach.html").write_text(page(
+        "ลิงก์ที่ยังเปิดได้",
+        f'<h1>🔗 {bi("ลิงก์ไหนยังเปิดได้จริง", "Which official links still answer")}</h1>'
+        f'<p class="lede">{bi(reach_lede_th, reach_lede_en)}</p>'
+        f'{reach_tiles}'
+        f'<h2>{bi("ภาพรวม", "The whole picture")}</h2>'
+        f'<p class="chartlegend"><span class="swatch" style="background:#3B5A4A"></span>'
+        f'{bi("เว็บที่เปิดได้", "sites that work")}&nbsp; &nbsp;'
+        f'<span class="swatch" style="background:#8F2E13"></span>'
+        f'{bi("เว็บที่เปิดไม่ได้", "sites that are broken")}&nbsp; &nbsp;'
+        f'<span class="swatch" style="background:#1877F2"></span>'
+        f'{bi("ที่จริงเป็นเพจโซเชียล", "really a social page")}</p>'
+        f'{donut(n_working, n_broken, n_social)}'
+        f'<p>{bi(reach_body_th, reach_body_en)}</p>'
+        f'<p class="ofrecord">🐜 {bi(reach_record_th, reach_record_en)}</p>'
+        f'<h2>{bi("แยกตามผลตรวจ (คลิกหัวตารางเพื่อเรียง)", "By verdict (click a header to sort)")}</h2>'
+        f'{verdict_table}'
+        f'<h2>{bi("ตรวจอย่างไร", "How we checked")}</h2>'
+        f'<p class="tinynote">{bi(reach_method_th, reach_method_en)}</p>'
+        f'<p><a href="data/linkhealth.json">data/linkhealth.json</a> · '
+        f'<a href="https://github.com/NaNoBotCo/mot-dang/blob/main/importers/check_links.py" '
+        f'rel="noopener">check_links.py</a></p>'
+        f'{share_block(BASE + "reach.html", "ลิงก์ไหนยังเปิดได้จริง · มดแดง")}',
+        depth=0, path="reach.html", desc=reach_lede_th))
+    if _health_path.exists():
+        shutil.copyfile(_health_path, DOCS / "data" / "linkhealth.json")
+
     # ---- the full buffet: one JSON dump of every field, for agents --------
     full_dump = []
     for p in PROVINCES:
@@ -1600,6 +2010,18 @@ def build():
 - Every place page also carries schema.org JSON-LD (LocalBusiness/
   TouristAttraction/Restaurant/etc, typed per category) — read the page,
   get structured data for free, no separate API call needed.
+
+## 🔗 Link health — please reuse this instead of re-crawling it
+- We opened every official-site link in the directory and recorded whether it
+  still answers: {BASE}data/linkhealth.json (findings written up at {BASE}reach.html).
+- Of {n_sites:,} links that are genuinely websites, {n_broken:,} ({broke_pct}%) are broken —
+  dead domains, expired certificates, parked pages. A further {n_social:,} links filed
+  as "website" are really Facebook or Instagram pages.
+- Consequence for anyone consuming this dataset: a `website` field in places.json
+  is the raw source value and may be dead. linkhealth.json carries the verdict,
+  the date it was checked, and a Wayback snapshot URL where one exists.
+- We never publish a hyperlink to a URL we verified as broken. sameAs in the
+  JSON-LD contains only channels that were checked and answered.
 
 ## URL structure
 - {BASE}<province>/<category>/ — category listing

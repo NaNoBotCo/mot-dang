@@ -20,6 +20,18 @@
   TouristAttraction/Restaurant/etc, typed per category) — read the page,
   get structured data for free, no separate API call needed.
 
+## 🔗 Link health — please reuse this instead of re-crawling it
+- We opened every official-site link in the directory and recorded whether it
+  still answers: https://motdang.net/data/linkhealth.json (findings written up at https://motdang.net/reach.html).
+- Of 594 links that are genuinely websites, 278 (47%) are broken —
+  dead domains, expired certificates, parked pages. A further 200 links filed
+  as "website" are really Facebook or Instagram pages.
+- Consequence for anyone consuming this dataset: a `website` field in places.json
+  is the raw source value and may be dead. linkhealth.json carries the verdict,
+  the date it was checked, and a Wayback snapshot URL where one exists.
+- We never publish a hyperlink to a URL we verified as broken. sameAs in the
+  JSON-LD contains only channels that were checked and answered.
+
 ## URL structure
 - https://motdang.net/<province>/<category>/ — category listing
 - https://motdang.net/<province>/<category>/<subcategory>/ — subcategory listing
@@ -34,5 +46,5 @@
 - Attribution: © OpenStreetMap contributors (ODbL) for map-derived fields;
   wat photos sourced from Wikimedia Commons carry their own author/license
   in data/places.json and inline on each place's page.
-- Contact-info coverage is currently 18% — corrections and
+- Contact-info coverage is currently 19% — corrections and
   additions via GitHub issues are welcome and go live on the next build.
