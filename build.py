@@ -208,6 +208,38 @@ color:var(--ant);border-radius:.4rem;padding:.15rem .7rem;cursor:pointer}
 #mynotes{width:100%;min-height:7rem;font:inherit;font-size:.95rem;border:1.5px solid var(--soft);
 border-radius:.5rem;padding:.5rem;background:#fff;color:var(--ink)}
 #pinpick label{display:inline-block;margin:.15rem .9rem .15rem 0;font-size:.92rem;cursor:pointer}
+.topicwidget{background:#fff;border:1px solid var(--soft);border-radius:.7rem;
+padding:.6rem 1rem;margin:.6rem 0}
+.topicwidget h4{margin:0 0 .2rem;font-size:1.02rem}
+.topicwidget h4 a{text-decoration:none} .topicwidget h4 a:hover{text-decoration:underline}
+.topicwidget .preview{list-style:none;padding:0;margin:.3rem 0 0;font-size:.88rem}
+.topicwidget .preview li{margin:.1rem 0}
+.topicwidget .unpin{float:right;border:none;background:none;color:var(--mute);
+cursor:pointer;font-size:.85rem}
+.highlights{display:flex;gap:.9rem;overflow-x:auto;padding:.3rem 0 .8rem;margin:.4rem 0}
+.highlights::-webkit-scrollbar{height:8px}
+.hicard{flex:0 0 auto;width:11rem;background:#fff;border:1px solid var(--soft);
+border-radius:.7rem;overflow:hidden;text-decoration:none;color:var(--ink);
+box-shadow:2px 2px 0 var(--soft);transition:transform .15s}
+.hicard:hover{transform:translateY(-3px)} .hicard:visited{color:var(--ink)}
+.hicard img{width:100%;height:7rem;object-fit:cover;display:block;background:var(--soft)}
+.hicard .cap{padding:.4rem .55rem;font-size:.85rem;font-weight:600;line-height:1.3}
+.hicard .cat{display:block;font-weight:400;color:var(--mute);font-size:.78rem}
+.widgetgallery{display:flex;gap:.5rem;flex-wrap:wrap;margin:.4rem 0}
+.widgetgallery button{font:inherit;font-size:.85rem;border:1.5px solid var(--ant-dark);
+background:none;color:var(--ant-dark);border-radius:999px;padding:.2rem .8rem;cursor:pointer}
+.widgetgallery button:hover{background:var(--ant-dark);color:var(--paper)}
+.widgetgallery button:disabled{opacity:.45;cursor:default;background:none;color:var(--mute);
+border-color:var(--soft)}
+.widgetbox{border:1px solid var(--soft);border-radius:.7rem;overflow:hidden;margin:.6rem 0;background:#fff}
+.widgetbox .wtitle{display:flex;justify-content:space-between;align-items:center;
+padding:.35rem .8rem;background:var(--soft);font-size:.85rem;font-weight:600;color:var(--ant-dark)}
+.widgetbox .wtitle button{border:none;background:none;color:var(--mute);cursor:pointer;font-size:.9rem}
+.widgetbox iframe{width:100%;height:22rem;border:none;display:block}
+#addwidgetform input{font:inherit;font-size:.9rem;padding:.2rem .5rem;border:1.5px solid var(--soft);
+border-radius:.4rem;margin-right:.4rem;max-width:11rem}
+#addwidgetform button{font:inherit;font-size:.9rem;border:1.5px solid var(--ant);background:none;
+color:var(--ant);border-radius:.4rem;padding:.15rem .7rem;cursor:pointer}
 .share button{font:inherit;font-size:.9rem;border:none;background:none;color:var(--link);
 cursor:pointer;text-decoration:underline;padding:0}
 .prov{color:var(--ant-dark);font-size:.85rem;border-top:1px dashed var(--soft);
@@ -349,15 +381,28 @@ const H=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"
 const pinpick=document.getElementById('pinpick');
 if(pinpick){
 const PULSE=JSON.parse(document.getElementById('pulse').textContent);
-const pins=new Set(JSON.parse(localStorage.getItem('md-pins')||'[]'));
+const DEFAULT_PINS=['cm/wat','cm/food','cr/wat'];
+const rawPins=localStorage.getItem('md-pins');
+const pins=new Set(rawPins===null?DEFAULT_PINS:JSON.parse(rawPins));
+if(rawPins===null)localStorage.setItem('md-pins',JSON.stringify([...pins]));
 const seen=JSON.parse(localStorage.getItem('md-seen')||'{}');
 const shelf=document.getElementById('myshelf');
-function renderPins(){shelf.innerHTML=[...pins].map(pc=>{
+function unpin(pc){pins.delete(pc);localStorage.setItem('md-pins',JSON.stringify([...pins]));
+const cb=pinpick.querySelector(`input[data-pc="${pc}"]`);if(cb)cb.checked=false;renderPins();}
+async function renderPins(){
+if(!pins.size){shelf.innerHTML='<p class="shelf">ยังไม่ได้ปักหมวด — เลือกด้านล่าง / no shelves pinned yet — pick below</p>';return;}
+const idx=await loadIndex();
+shelf.innerHTML=[...pins].map(pc=>{
 const[pv,cat]=pc.split('/');const m=PULSE[pv]&&PULSE[pv][cat];if(!m)return'';
 const fresh=seen[pc]!=null&&m.n>seen[pc]?` <span class="badge">+${m.n-seen[pc]} ใหม่/new</span>`:'';
-return `<li><a href="${pv}/${cat}/index.html"><b>${H(m.t)}</b></a> `+
-`<span class="count">(${m.n.toLocaleString()}) · ${H(m.v)}</span>${fresh}</li>`;}).join('')||
-'<li class="shelf">ยังไม่ได้ปักหมวด — เลือกด้านล่าง / no shelves pinned yet — pick below</li>';}
+const sample=idx.filter(e=>e.p===pv&&e.c&&e.c.includes(cat)).slice(0,3);
+const preview=sample.map(e=>`<li><a href="${pv}/p/${e.id}.html">${H(e.n)}</a></li>`).join('')
+||'<li class="shelf">🐜</li>';
+return `<div class="topicwidget"><button class="unpin" data-pc="${pc}" title="ถอดปัก / unpin">✕</button>`+
+`<h4><a href="${pv}/${cat}/index.html">${H(m.t)}</a> `+
+`<span class="count">(${m.n.toLocaleString()}) · ${H(m.v)}</span>${fresh}</h4>`+
+`<ul class="preview">${preview}</ul></div>`;}).join('');
+shelf.querySelectorAll('.unpin').forEach(b=>b.addEventListener('click',()=>unpin(b.dataset.pc)));}
 pinpick.querySelectorAll('input').forEach(cb=>{cb.checked=pins.has(cb.dataset.pc);
 cb.addEventListener('change',()=>{cb.checked?pins.add(cb.dataset.pc):pins.delete(cb.dataset.pc);
 localStorage.setItem('md-pins',JSON.stringify([...pins]));renderPins();});});
@@ -373,6 +418,31 @@ if(!pool.length)pool=idx;
 const t=new Date(),seed=t.getFullYear()*372+(t.getMonth()+1)*31+t.getDate();
 const pick=pool[seed%pool.length];
 el.innerHTML=`<a href="${pick.p}/p/${pick.id}.html">${H(pick.n)}</a> <span class="count">· ${H(pick.pv)}</span>`;})();
+// ---- widget gallery: her other projects, opt-in iframes ----------------
+const wgal=document.getElementById('widgetgallery');
+if(wgal){const STARTERS=JSON.parse(document.getElementById('widgets-data').textContent);
+const added=document.getElementById('widgetboxes');
+function myWidgets(){return JSON.parse(localStorage.getItem('md-widgets')||'[]');}
+function renderWidgets(){const list=myWidgets();
+added.innerHTML=list.map((w,i)=>`<div class="widgetbox"><div class="wtitle">`+
+`<span>${H(w.n)}</span><button data-i="${i}" title="เอาออก / remove">✕</button></div>`+
+`<iframe src="${H(w.u)}" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups"></iframe></div>`).join('');
+added.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+const list=myWidgets();list.splice(+b.dataset.i,1);
+localStorage.setItem('md-widgets',JSON.stringify(list));renderWidgets();renderGallery();}));}
+function addWidget(n,u){if(!u)return;const list=myWidgets();
+if(list.some(w=>w.u===u))return;list.push({n,u});
+localStorage.setItem('md-widgets',JSON.stringify(list));renderWidgets();renderGallery();}
+function renderGallery(){const have=new Set(myWidgets().map(w=>w.u));
+wgal.innerHTML=STARTERS.map(w=>`<button data-u="${H(w.url)}" data-n="${H(w.th)}"`+
+`${have.has(w.url)?' disabled':''}>+ ${H(w.th)}</button>`).join('');
+wgal.querySelectorAll('button:not(:disabled)').forEach(b=>b.addEventListener('click',()=>
+addWidget(b.dataset.n,b.dataset.u)));}
+renderWidgets();renderGallery();
+const awf=document.getElementById('addwidgetform');
+awf.addEventListener('submit',e=>{e.preventDefault();
+const n=awf.querySelector('[name=n]').value.trim(),u=awf.querySelector('[name=u]').value.trim();
+if(!n||!u)return;addWidget(n,u);awf.reset();});}
 const bmList=document.getElementById('bmlist'),bmForm=document.getElementById('bmform');
 function renderBm(){const bm=JSON.parse(localStorage.getItem('md-bm')||'[]');
 bmList.innerHTML=bm.map((b,i)=>`<li><a href="${H(b.u)}" rel="noopener">${H(b.n)}</a> `+
@@ -566,6 +636,7 @@ def listing_page(title_th, title_en, records, depth, prov, crumbs, path, extra_t
 
 
 ADS = json.loads((ROOT / "data" / "ads.json").read_text())
+WIDGETS = json.loads((ROOT / "data" / "widgets.json").read_text())
 
 
 def ad_box(path, depth):
@@ -874,9 +945,31 @@ def build():
                 "เรียงเป็นหมวดให้เปิดหาได้เหมือนสมุดหน้าเมือง")
     intro_en = ("A city directory for Chiang Mai and Chiang Rai — wats, shops, doctors, "
                 "markets, and the good things down every soi, sorted the old way.")
+
+    # ---- highlights: the home page comes prefilled, not blank ------------
+    hi_pool = [(p["key"], r) for p in PROVINCES for r in data[p["key"]] if r.get("featured")]
+    hi_pool += sorted(
+        ((p["key"], r) for p in PROVINCES for r in data[p["key"]]
+         if r["id"] in photos and not r.get("featured")),
+        key=lambda pr: pr[1]["id"])
+    seen_hi = set()
+    hi_cards = []
+    for pv, r in hi_pool:
+        if r["id"] in seen_hi or len(hi_cards) >= 8:
+            continue
+        seen_hi.add(r["id"])
+        thumb = f"photos/{photos[r['id']]}" if r["id"] in photos else "wat.svg"
+        cat_th = CATS[r["cat"][0]]["th"]
+        hi_cards.append(
+            f'<a class="hicard" href="{pv}/p/{r["id"]}.html"><img src="{thumb}" '
+            f'alt="{att(name_of(r))}" loading="lazy">'
+            f'<span class="cap">{esc(name_of(r))}<span class="cat">{esc(cat_th)}</span></span></a>')
+    hi_html = (f'<h2>{bi("ของเด่นวันนี้", "Highlights")}</h2>'
+              f'<div class="highlights">{"".join(hi_cards)}</div>') if hi_cards else ""
+
     (DOCS / "index.html").write_text(page(
         "มดแดง",
-        f"<p>{bi(intro_th, intro_en)}</p>{persona_html}{tick_html}{day_html}{rand_html}"
+        f"<p>{bi(intro_th, intro_en)}</p>{hi_html}{persona_html}{tick_html}{day_html}{rand_html}"
         + ad_box("index.html", 0) + "".join(home_sections)
         + share_block(BASE, "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"),
         depth=0, path="", desc=intro_th))
@@ -909,6 +1002,13 @@ def build():
         f'<ul class="dir" id="bmlist"></ul></div>'
         f'<div class="module"><h3>{bi("โน้ตติดหน้าแรก", "Sticky notes")}</h3>'
         f'<textarea id="mynotes" placeholder="จดอะไรก็ได้… / jot anything…"></textarea></div>'
+        f'<div class="module"><h3>🧩 {bi("วิดเจ็ตของฉัน", "My widgets")}</h3>'
+        f'<p class="chartcap">{bi("ใส่วิดเจ็ตที่ฉันทำเอง หรือของใครก็ได้ตามลิงก์", "Add widgets I made — or any link at all")}</p>'
+        f'<div class="widgetgallery" id="widgetgallery"></div>'
+        f'<form id="addwidgetform"><input name="n" placeholder="ชื่อ / name">'
+        f'<input name="u" placeholder="https://…"><button>{bi("เพิ่ม", "Add")}</button></form>'
+        f'<div id="widgetboxes"></div>'
+        f'<script type="application/json" id="widgets-data">{json.dumps(WIDGETS, ensure_ascii=False)}</script></div>'
         f"{tick_html}{day_html}{rand_html}"
         f'<script type="application/json" id="pulse">{json.dumps(pulse, ensure_ascii=False)}</script>')
     (DOCS / "my.html").write_text(page("หน้าแรกของฉัน", my_body, depth=0, path="my.html",

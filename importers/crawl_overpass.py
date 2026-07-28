@@ -57,6 +57,10 @@ QUERIES = {
                    'nwr["shop"="gift"]', 'nwr["shop"="second_hand"]',
                    'nwr["shop"="herbalist"]', 'nwr["healthcare"="alternative"]'],
     "cafes":      ['nwr["amenity"="cafe"]'],
+    "restaurants": ['nwr["amenity"="restaurant"]', 'nwr["amenity"="fast_food"]',
+                    'nwr["amenity"="food_court"]', 'nwr["amenity"="bar"]',
+                    'nwr["amenity"="pub"]', 'nwr["amenity"="biergarten"]',
+                    'nwr["shop"="bakery"]', 'nwr["amenity"="ice_cream"]'],
     "whats-on":   ['nwr["amenity"="cinema"]', 'nwr["amenity"="music_venue"]',
                    'nwr["amenity"="events_venue"]', 'nwr["amenity"="theatre"]'],
 }

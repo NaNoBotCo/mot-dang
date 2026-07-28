@@ -77,15 +77,28 @@ const H=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"
 const pinpick=document.getElementById('pinpick');
 if(pinpick){
 const PULSE=JSON.parse(document.getElementById('pulse').textContent);
-const pins=new Set(JSON.parse(localStorage.getItem('md-pins')||'[]'));
+const DEFAULT_PINS=['cm/wat','cm/food','cr/wat'];
+const rawPins=localStorage.getItem('md-pins');
+const pins=new Set(rawPins===null?DEFAULT_PINS:JSON.parse(rawPins));
+if(rawPins===null)localStorage.setItem('md-pins',JSON.stringify([...pins]));
 const seen=JSON.parse(localStorage.getItem('md-seen')||'{}');
 const shelf=document.getElementById('myshelf');
-function renderPins(){shelf.innerHTML=[...pins].map(pc=>{
+function unpin(pc){pins.delete(pc);localStorage.setItem('md-pins',JSON.stringify([...pins]));
+const cb=pinpick.querySelector(`input[data-pc="${pc}"]`);if(cb)cb.checked=false;renderPins();}
+async function renderPins(){
+if(!pins.size){shelf.innerHTML='<p class="shelf">ยังไม่ได้ปักหมวด — เลือกด้านล่าง / no shelves pinned yet — pick below</p>';return;}
+const idx=await loadIndex();
+shelf.innerHTML=[...pins].map(pc=>{
 const[pv,cat]=pc.split('/');const m=PULSE[pv]&&PULSE[pv][cat];if(!m)return'';
 const fresh=seen[pc]!=null&&m.n>seen[pc]?` <span class="badge">+${m.n-seen[pc]} ใหม่/new</span>`:'';
-return `<li><a href="${pv}/${cat}/index.html"><b>${H(m.t)}</b></a> `+
-`<span class="count">(${m.n.toLocaleString()}) · ${H(m.v)}</span>${fresh}</li>`;}).join('')||
-'<li class="shelf">ยังไม่ได้ปักหมวด — เลือกด้านล่าง / no shelves pinned yet — pick below</li>';}
+const sample=idx.filter(e=>e.p===pv&&e.c&&e.c.includes(cat)).slice(0,3);
+const preview=sample.map(e=>`<li><a href="${pv}/p/${e.id}.html">${H(e.n)}</a></li>`).join('')
+||'<li class="shelf">🐜</li>';
+return `<div class="topicwidget"><button class="unpin" data-pc="${pc}" title="ถอดปัก / unpin">✕</button>`+
+`<h4><a href="${pv}/${cat}/index.html">${H(m.t)}</a> `+
+`<span class="count">(${m.n.toLocaleString()}) · ${H(m.v)}</span>${fresh}</h4>`+
+`<ul class="preview">${preview}</ul></div>`;}).join('');
+shelf.querySelectorAll('.unpin').forEach(b=>b.addEventListener('click',()=>unpin(b.dataset.pc)));}
 pinpick.querySelectorAll('input').forEach(cb=>{cb.checked=pins.has(cb.dataset.pc);
 cb.addEventListener('change',()=>{cb.checked?pins.add(cb.dataset.pc):pins.delete(cb.dataset.pc);
 localStorage.setItem('md-pins',JSON.stringify([...pins]));renderPins();});});
@@ -101,6 +114,31 @@ if(!pool.length)pool=idx;
 const t=new Date(),seed=t.getFullYear()*372+(t.getMonth()+1)*31+t.getDate();
 const pick=pool[seed%pool.length];
 el.innerHTML=`<a href="${pick.p}/p/${pick.id}.html">${H(pick.n)}</a> <span class="count">· ${H(pick.pv)}</span>`;})();
+// ---- widget gallery: her other projects, opt-in iframes ----------------
+const wgal=document.getElementById('widgetgallery');
+if(wgal){const STARTERS=JSON.parse(document.getElementById('widgets-data').textContent);
+const added=document.getElementById('widgetboxes');
+function myWidgets(){return JSON.parse(localStorage.getItem('md-widgets')||'[]');}
+function renderWidgets(){const list=myWidgets();
+added.innerHTML=list.map((w,i)=>`<div class="widgetbox"><div class="wtitle">`+
+`<span>${H(w.n)}</span><button data-i="${i}" title="เอาออก / remove">✕</button></div>`+
+`<iframe src="${H(w.u)}" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups"></iframe></div>`).join('');
+added.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+const list=myWidgets();list.splice(+b.dataset.i,1);
+localStorage.setItem('md-widgets',JSON.stringify(list));renderWidgets();renderGallery();}));}
+function addWidget(n,u){if(!u)return;const list=myWidgets();
+if(list.some(w=>w.u===u))return;list.push({n,u});
+localStorage.setItem('md-widgets',JSON.stringify(list));renderWidgets();renderGallery();}
+function renderGallery(){const have=new Set(myWidgets().map(w=>w.u));
+wgal.innerHTML=STARTERS.map(w=>`<button data-u="${H(w.url)}" data-n="${H(w.th)}"`+
+`${have.has(w.url)?' disabled':''}>+ ${H(w.th)}</button>`).join('');
+wgal.querySelectorAll('button:not(:disabled)').forEach(b=>b.addEventListener('click',()=>
+addWidget(b.dataset.n,b.dataset.u)));}
+renderWidgets();renderGallery();
+const awf=document.getElementById('addwidgetform');
+awf.addEventListener('submit',e=>{e.preventDefault();
+const n=awf.querySelector('[name=n]').value.trim(),u=awf.querySelector('[name=u]').value.trim();
+if(!n||!u)return;addWidget(n,u);awf.reset();});}
 const bmList=document.getElementById('bmlist'),bmForm=document.getElementById('bmform');
 function renderBm(){const bm=JSON.parse(localStorage.getItem('md-bm')||'[]');
 bmList.innerHTML=bm.map((b,i)=>`<li><a href="${H(b.u)}" rel="noopener">${H(b.n)}</a> `+

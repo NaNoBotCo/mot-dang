@@ -11,6 +11,36 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 
+FOOD_INTL = {"japanese", "italian", "chinese", "korean", "indian", "vietnamese",
+             "american", "french", "german", "mediterranean", "mexican", "pizza",
+             "burger", "steak_house", "steak", "sushi", "western", "european",
+             "international", "asian", "sandwich", "fish_and_chips",
+             "italian_pizza", "barbecue", "grill", "curry"}
+
+
+def food_sub(t):
+    """Real-data-backed food granularity: amenity first (unambiguous), then
+    the cuisine tag (683 thai / 90 japanese / 86 regional / ... in the actual
+    crawl — see the survey that justified these buckets)."""
+    a, s = t.get("amenity"), t.get("shop")
+    cuisines = {c.strip() for c in (t.get("cuisine") or "").split(";") if c.strip()}
+    if a in ("fast_food", "food_court"):
+        return "street-food"
+    if s == "bakery" or a == "ice_cream" or cuisines & {"cake", "ice_cream", "dessert"}:
+        return "bakery-dessert"
+    if a in ("bar", "pub", "biergarten"):
+        return "bar-pub"
+    if cuisines & {"vegetarian", "vegan"}:
+        return "vegetarian"
+    if cuisines & {"seafood", "fish"}:
+        return "seafood"
+    if cuisines & {"noodle", "noodles", "ramen"}:
+        return "noodle"
+    if cuisines & FOOD_INTL:
+        return "international"
+    return "thai"
+
+
 def classify(t):
     """tags -> (cat, sub or None), or None to skip."""
     s, a, tr = t.get("shop"), t.get("amenity"), t.get("tourism")
@@ -82,6 +112,9 @@ def classify(t):
         return "medical", "thai-medicine"
     if a == "cafe":
         return "food", "cafe"
+    if a in ("restaurant", "fast_food", "food_court", "bar", "pub", "biergarten") \
+            or s == "bakery" or a == "ice_cream":
+        return "food", food_sub(t)
     if a == "cinema":
         return "whats-on", "cinema"
     if a in ("music_venue", "theatre"):

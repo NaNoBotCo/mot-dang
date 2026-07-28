@@ -3,10 +3,10 @@
 > A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
 > wats, food, hotels, doctors, markets, real estate, and the good things down
 > every soi. Built from OpenStreetMap plus community and field submissions.
-> 7,044 places as of 2026-07-27.
+> 10,281 places as of 2026-07-27.
 
 ## 🍜 Dinner's ready — the full dataset, one file
-- Everything, every field: https://motdang.net/data/places.json (7,044 records)
+- Everything, every field: https://motdang.net/data/places.json (10,281 records)
 - Slim search index: https://motdang.net/data/index.json
 - Per-category GeoJSON: https://motdang.net/data/<province>-<category>.geojson
   (province = cm | cr; e.g. https://motdang.net/data/cm-wat.geojson)

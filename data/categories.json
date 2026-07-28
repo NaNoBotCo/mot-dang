@@ -7,11 +7,19 @@
         { "key": "spirit-house", "th": "ศาลพระภูมิ", "en": "Spirit Houses", "match": { "lens": "spirit-house" } }
       ] },
     { "key": "food", "th": "ร้านอาหาร-ของกิน", "en": "Food & Eats",
-      "teaser_th": "ตามสั่ง ข้าวซอย คาเฟ่ ริมน้ำ...", "teaser_en": "Made-to-order, khao soi, cafés, riverside...",
+      "teaser_th": "อาหารไทย นานาชาติ ข้าวซอย ทะเล มังสวิรัติ สตรีทฟู้ด...",
+      "teaser_en": "Thai, international, noodles, seafood, vegetarian, street food...",
       "children": [
+        { "key": "thai", "th": "อาหารไทย", "en": "Thai", "match": { "sub": "thai" } },
         { "key": "made-to-order", "th": "ตามสั่ง-ผัดกะเพรา", "en": "Made-to-order", "match": { "lens": "pad-krapow" } },
-        { "key": "northern", "th": "ข้าวซอย-อาหารเหนือ", "en": "Northern Thai" },
-        { "key": "cafe", "th": "กาแฟ-คาเฟ่", "en": "Coffee & Cafés" },
+        { "key": "northern", "th": "ข้าวซอย-ก๋วยเตี๋ยว", "en": "Khao Soi & Noodles", "match": { "sub": "noodle" } },
+        { "key": "international", "th": "นานาชาติ", "en": "International", "match": { "sub": "international" } },
+        { "key": "seafood", "th": "อาหารทะเล", "en": "Seafood", "match": { "sub": "seafood" } },
+        { "key": "vegetarian", "th": "มังสวิรัติ-เจ", "en": "Vegetarian & Vegan", "match": { "sub": "vegetarian" } },
+        { "key": "street-food", "th": "สตรีทฟู้ด-ฟาสต์ฟู้ด", "en": "Street Food & Fast Food", "match": { "sub": "street-food" } },
+        { "key": "bakery-dessert", "th": "เบเกอรี่-ของหวาน", "en": "Bakery & Dessert", "match": { "sub": "bakery-dessert" } },
+        { "key": "bar-pub", "th": "บาร์-ผับ", "en": "Bars & Pubs", "match": { "sub": "bar-pub" } },
+        { "key": "cafe", "th": "กาแฟ-คาเฟ่", "en": "Coffee & Cafés", "match": { "sub": "cafe" } },
         { "key": "riverside", "th": "ร้านริมน้ำ", "en": "Riverside", "match": { "sub": "riverside" } }
       ] },
     { "key": "massage", "th": "นวด-สปา", "en": "Massage & Spa",
