@@ -1,0 +1,20 @@
+{
+ "fx": {
+  "date": "2026-07-27",
+  "rates": {
+   "CNY": 0.20149,
+   "EUR": 0.02615,
+   "GBP": 0.02236,
+   "JPY": 4.8732,
+   "USD": 0.02978
+  }
+ },
+ "gold": {
+  "asOf": "2026-07-28T10:55:00",
+  "barBuy": 64350.0,
+  "barSell": 64550.0,
+  "ornamentBuy": 63065.6,
+  "ornamentSell": 65350.0,
+  "changeFromPrevDay": -550.0
+ }
+}

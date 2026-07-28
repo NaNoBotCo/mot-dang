@@ -68,6 +68,13 @@ if(day){const names=['อาทิตย์','จันทร์','อังค�
 const ens=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const cols=[['แดง','red','#C22'],['เหลือง','yellow','#E7B10A'],['ชมพู','pink','#E77'],
 ['เขียว','green','#2A7'],['ส้ม','orange','#E80'],['ฟ้า','light blue','#59F'],['ม่วง','purple','#96C']];
+// ---- currency converter: recompute on input, baked rates, no live call --
+const fxamount=document.getElementById('fxamount');
+if(fxamount){const recalc=()=>{const amt=parseFloat(fxamount.value)||0;
+document.querySelectorAll('.fxout').forEach(el=>{
+el.textContent=(amt*parseFloat(el.dataset.rate)).toLocaleString(undefined,
+{minimumFractionDigits:2,maximumFractionDigits:2});});};
+fxamount.addEventListener('input',recalc);recalc();}
 const d=new Date().getDay(),c=cols[d],be=new Date().getFullYear()+543;
 day.innerHTML=`<span class="swatch" style="background:${c[2]}"></span>`+
 `<span class="th">วัน${names[d]} — สีมงคลวันนี้: ${c[0]} · พ.ศ. ${be}</span>`+
@@ -157,7 +164,7 @@ notes.value=localStorage.getItem('md-notes')||'';
 notes.addEventListener('input',()=>localStorage.setItem('md-notes',notes.value));
 }
 const persona=document.getElementById('persona');
-if(persona){const mods=['m-ticker','m-day','m-rand'];
+if(persona){const mods=['m-ticker','m-day','m-rand','m-fx','m-gold'];
 const hidden=JSON.parse(localStorage.getItem('md-mods')||'[]');
 mods.forEach(id=>{const el=document.getElementById(id);if(!el)return;
 if(hidden.includes(id))el.style.display='none';

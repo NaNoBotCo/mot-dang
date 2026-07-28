@@ -83,6 +83,8 @@ def collect_photos():
     return out
 
 
+PHOTO_FILES = collect_photos()
+
 SCHEMA_TYPE = {
     "wat": "TouristAttraction", "hotel": "LodgingBusiness", "food": "Restaurant",
     "massage": "HealthAndBeautyBusiness", "medical": "MedicalBusiness",
@@ -240,6 +242,15 @@ padding:.35rem .8rem;background:var(--soft);font-size:.85rem;font-weight:600;col
 border-radius:.4rem;margin-right:.4rem;max-width:11rem}
 #addwidgetform button{font:inherit;font-size:.9rem;border:1.5px solid var(--ant);background:none;
 color:var(--ant);border-radius:.4rem;padding:.15rem .7rem;cursor:pointer}
+#fxamount{font:inherit;font-size:1.1rem;padding:.25rem .6rem;border:1.5px solid var(--ant-dark);
+border-radius:.5rem;width:8rem;background:#fff;color:var(--ink)}
+.fxrows{display:grid;grid-template-columns:auto auto;gap:.15rem 1rem;margin:.5rem 0 0;font-size:.95rem}
+.fxrows b{color:var(--ant-dark)}
+.goldrow{display:flex;justify-content:space-between;gap:1rem;margin:.15rem 0;font-size:.95rem}
+.goldrow .lbl{color:var(--mute)} .goldrow .val{font-weight:700}
+.goldchange{font-size:.85rem;margin-left:.4rem}
+.goldchange.up{color:#0f6b3f} .goldchange.down{color:#a31f1f}
+.financecap{color:var(--mute);font-size:.78rem;margin:.4rem 0 0}
 .share button{font:inherit;font-size:.9rem;border:none;background:none;color:var(--link);
 cursor:pointer;text-decoration:underline;padding:0}
 .prov{color:var(--ant-dark);font-size:.85rem;border-top:1px dashed var(--soft);
@@ -372,6 +383,13 @@ if(day){const names=['อาทิตย์','จันทร์','อังค�
 const ens=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const cols=[['แดง','red','#C22'],['เหลือง','yellow','#E7B10A'],['ชมพู','pink','#E77'],
 ['เขียว','green','#2A7'],['ส้ม','orange','#E80'],['ฟ้า','light blue','#59F'],['ม่วง','purple','#96C']];
+// ---- currency converter: recompute on input, baked rates, no live call --
+const fxamount=document.getElementById('fxamount');
+if(fxamount){const recalc=()=>{const amt=parseFloat(fxamount.value)||0;
+document.querySelectorAll('.fxout').forEach(el=>{
+el.textContent=(amt*parseFloat(el.dataset.rate)).toLocaleString(undefined,
+{minimumFractionDigits:2,maximumFractionDigits:2});});};
+fxamount.addEventListener('input',recalc);recalc();}
 const d=new Date().getDay(),c=cols[d],be=new Date().getFullYear()+543;
 day.innerHTML=`<span class="swatch" style="background:${c[2]}"></span>`+
 `<span class="th">วัน${names[d]} — สีมงคลวันนี้: ${c[0]} · พ.ศ. ${be}</span>`+
@@ -461,7 +479,7 @@ notes.value=localStorage.getItem('md-notes')||'';
 notes.addEventListener('input',()=>localStorage.setItem('md-notes',notes.value));
 }
 const persona=document.getElementById('persona');
-if(persona){const mods=['m-ticker','m-day','m-rand'];
+if(persona){const mods=['m-ticker','m-day','m-rand','m-fx','m-gold'];
 const hidden=JSON.parse(localStorage.getItem('md-mods')||'[]');
 mods.forEach(id=>{const el=document.getElementById(id);if(!el)return;
 if(hidden.includes(id))el.style.display='none';
@@ -603,8 +621,14 @@ def has_contact(r):
                 or a.get("whatsapp"))
 
 
+def is_featured(r):
+    """Featured means showcased, and a showcase needs a picture — unless the
+    record is one of the hand-vetted exceptions in data/curated/ (photoExempt)."""
+    return bool(r.get("featured")) and (r["id"] in PHOTO_FILES or r.get("photoExempt"))
+
+
 def entry_li(r, href):
-    star = '<span class="star">★</span> ' if r.get("featured") else ""
+    star = '<span class="star">★</span> ' if is_featured(r) else ""
     pin = ' <span class="badge pin">' + bi("รอปักหมุด", "pin wanted") + "</span>" \
         if r.get("geoPrecision") == "needs-pin" else ""
     lat = f' data-lat="{r["lat"]}" data-lng="{r["lng"]}"' if r.get("lat") is not None else ""
@@ -809,7 +833,7 @@ def build():
     if card.exists():
         shutil.copy(card, DOCS / "card.png")
     (DOCS / "wat.svg").write_text(WAT_SVG)
-    photos = collect_photos()
+    photos = PHOTO_FILES
     if photos:
         (DOCS / "photos").mkdir()
         for fname in photos.values():
@@ -845,7 +869,7 @@ def build():
             f'<span class="count">({len(records):,})</span>{grow}</h2>'
             f'<ul class="cats">{shelf_lis}</ul>')
 
-        featured = [r for r in records if r.get("featured")]
+        featured = [r for r in records if is_featured(r)]
         feat_html = ""
         if featured:
             cards = "".join(
@@ -872,7 +896,7 @@ def build():
         for c in live_cats:
             cdef = CATS[c]
             in_cat = sorted([r for r in records if c in r["cat"]],
-                            key=lambda r: (not r.get("featured"), name_of(r)))
+                            key=lambda r: (not is_featured(r), name_of(r)))
             (pdir / c).mkdir()
             # subcategory shelf (Yahoo genre: bold sub-links with counts; wireframes muted)
             sub_bits = []
@@ -882,7 +906,7 @@ def build():
                     (pdir / c / child["key"]).mkdir(parents=True, exist_ok=True)
                     (pdir / c / child["key"] / "index.html").write_text(listing_page(
                         child["th"], child["en"],
-                        sorted(in_sub, key=lambda r: (not r.get("featured"), name_of(r))),
+                        sorted(in_sub, key=lambda r: (not is_featured(r), name_of(r))),
                         depth=3, prov=key,
                         crumbs=(f'<a href="../../../index.html">{bi("หน้าแรก", "Home")}</a> › '
                                 f'<a href="../../index.html">{bi(p["th"], p["en"])}</a> › '
@@ -932,6 +956,43 @@ def build():
                      f'<div class="tickerwrap"><span class="ticker">{links}</span></div></div>')
     day_html = (f'<div class="module" id="m-day"><h3>{bi("วันนี้", "Today")}</h3>'
                 f'<p id="daycolor" style="margin:.2rem 0"></p></div>')
+
+    # ---- currency converter + Thai gold ticker (baked, default-on) --------
+    finance_path = ROOT / "data" / "finance.json"
+    finance = json.loads(finance_path.read_text()) if finance_path.exists() else {}
+    fx_html = gold_html = ""
+    if finance.get("fx"):
+        fx = finance["fx"]
+        fx_date = fx["date"]
+        cur_names = {"USD": "ดอลลาร์สหรัฐ", "EUR": "ยูโร", "GBP": "ปอนด์", "CNY": "หยวน", "JPY": "เยน"}
+        fx_rows = "".join(f'<span class="lbl">{esc(cur_names.get(k, k))}</span>'
+                          f'<span><b class="fxout" data-rate="{v}">{100 * v:,.2f}</b> {esc(k)}</span>'
+                          for k, v in fx["rates"].items())
+        fx_cap_th, fx_cap_en = f"อัตราจาก ECB · {fx_date}", f"ECB reference rate · {fx_date}"
+        fx_html = (
+            f'<div class="module" id="m-fx"><h3>💱 {bi("แปลงสกุลเงิน", "Currency converter")}</h3>'
+            f'<p style="margin:.2rem 0">฿ <input id="fxamount" type="number" value="100" min="0" step="1"> '
+            f'{bi("บาท", "Thai baht")} =</p>'
+            f'<div class="fxrows" id="fxrows">{fx_rows}</div>'
+            f'<p class="financecap">{bi(fx_cap_th, fx_cap_en)}</p></div>')
+    if finance.get("gold"):
+        g = finance["gold"]
+        chg = g["changeFromPrevDay"]
+        arrow = "▲" if chg > 0 else ("▼" if chg < 0 else "―")
+        cls = "up" if chg > 0 else ("down" if chg < 0 else "")
+        gold_html = (
+            f'<div class="module" id="m-gold"><h3>🥇 {bi("ทองคำวันนี้", "Thai gold today")}</h3>'
+            f'<div class="goldrow"><span class="lbl">{bi("ทองแท่ง รับซื้อ", "Gold bar, buy")}</span>'
+            f'<span class="val">{g["barBuy"]:,.0f} ฿</span></div>'
+            f'<div class="goldrow"><span class="lbl">{bi("ทองแท่ง ขายออก", "Gold bar, sell")}</span>'
+            f'<span class="val">{g["barSell"]:,.0f} ฿ '
+            f'<span class="goldchange {cls}">{arrow} {abs(chg):,.0f}</span></span></div>'
+            f'<div class="goldrow"><span class="lbl">{bi("ทองรูปพรรณ รับซื้อ", "Ornament, buy-back")}</span>'
+            f'<span class="val">{g["ornamentBuy"]:,.0f} ฿</span></div>'
+            f'<div class="goldrow"><span class="lbl">{bi("ทองรูปพรรณ ขายออก", "Ornament, sell")}</span>'
+            f'<span class="val">{g["ornamentSell"]:,.0f} ฿</span></div>'
+            f'<p class="financecap">{bi("ราคาต่อทองคำหนัก 1 บาท ·", "Price per 1 baht-weight ·")} '
+            f'<a href="https://www.goldtraders.or.th/" rel="noopener">สมาคมค้าทองคำ</a> · {esc(g["asOf"][:16].replace("T"," "))}</p></div>')
     total = len(search_index)
     rand_html = (f'<div class="module" id="m-rand"><h3>{bi("เดินเล่น", "Wander")}</h3>'
                  f'<p style="margin:.2rem 0"><a href="#" class="rand">🎲 '
@@ -942,7 +1003,9 @@ def build():
         + "".join(f'<label><input type="checkbox" data-mod="m-{k}"> {bi(th, en)}</label>'
                   for k, th, en in [("ticker", "ข่าววิ่ง", "News ticker"),
                                     ("day", "วันนี้-สีมงคล", "Today & colour"),
-                                    ("rand", "เดินเล่น", "Wander")])
+                                    ("rand", "เดินเล่น", "Wander"),
+                                    ("fx", "แปลงสกุลเงิน", "Currency converter"),
+                                    ("gold", "ทองคำวันนี้", "Thai gold ticker")])
         + "</details></div>")
     intro_th = ("สารบัญเมืองเชียงใหม่และเชียงราย — วัด ร้าน หมอ ตลาด และของดีทุกซอย "
                 "เรียงเป็นหมวดให้เปิดหาได้เหมือนสมุดหน้าเมือง")
@@ -950,10 +1013,10 @@ def build():
                 "markets, and the good things down every soi, sorted the old way.")
 
     # ---- highlights: the home page comes prefilled, not blank ------------
-    hi_pool = [(p["key"], r) for p in PROVINCES for r in data[p["key"]] if r.get("featured")]
+    hi_pool = [(p["key"], r) for p in PROVINCES for r in data[p["key"]] if is_featured(r)]
     hi_pool += sorted(
         ((p["key"], r) for p in PROVINCES for r in data[p["key"]]
-         if r["id"] in photos and not r.get("featured")),
+         if r["id"] in photos and not is_featured(r)),
         key=lambda pr: pr[1]["id"])
     seen_hi = set()
     hi_cards = []
@@ -972,7 +1035,7 @@ def build():
 
     (DOCS / "index.html").write_text(page(
         "มดแดง",
-        f"<p>{bi(intro_th, intro_en)}</p>{hi_html}{persona_html}{tick_html}{day_html}{rand_html}"
+        f"<p>{bi(intro_th, intro_en)}</p>{hi_html}{persona_html}{tick_html}{day_html}{fx_html}{gold_html}{rand_html}"
         + ad_box("index.html", 0) + "".join(home_sections)
         + share_block(BASE, "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"),
         depth=0, path="", desc=intro_th))
@@ -1012,7 +1075,7 @@ def build():
         f'<input name="u" placeholder="https://…"><button>{bi("เพิ่ม", "Add")}</button></form>'
         f'<div id="widgetboxes"></div>'
         f'<script type="application/json" id="widgets-data">{json.dumps(WIDGETS, ensure_ascii=False)}</script></div>'
-        f"{tick_html}{day_html}{rand_html}"
+        f"{tick_html}{day_html}{fx_html}{gold_html}{rand_html}"
         f'<script type="application/json" id="pulse">{json.dumps(pulse, ensure_ascii=False)}</script>')
     (DOCS / "my.html").write_text(page("หน้าแรกของฉัน", my_body, depth=0, path="my.html",
                                        desc=my_hint_th))

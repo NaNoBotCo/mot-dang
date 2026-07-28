@@ -116,6 +116,15 @@ padding:.35rem .8rem;background:var(--soft);font-size:.85rem;font-weight:600;col
 border-radius:.4rem;margin-right:.4rem;max-width:11rem}
 #addwidgetform button{font:inherit;font-size:.9rem;border:1.5px solid var(--ant);background:none;
 color:var(--ant);border-radius:.4rem;padding:.15rem .7rem;cursor:pointer}
+#fxamount{font:inherit;font-size:1.1rem;padding:.25rem .6rem;border:1.5px solid var(--ant-dark);
+border-radius:.5rem;width:8rem;background:#fff;color:var(--ink)}
+.fxrows{display:grid;grid-template-columns:auto auto;gap:.15rem 1rem;margin:.5rem 0 0;font-size:.95rem}
+.fxrows b{color:var(--ant-dark)}
+.goldrow{display:flex;justify-content:space-between;gap:1rem;margin:.15rem 0;font-size:.95rem}
+.goldrow .lbl{color:var(--mute)} .goldrow .val{font-weight:700}
+.goldchange{font-size:.85rem;margin-left:.4rem}
+.goldchange.up{color:#0f6b3f} .goldchange.down{color:#a31f1f}
+.financecap{color:var(--mute);font-size:.78rem;margin:.4rem 0 0}
 .share button{font:inherit;font-size:.9rem;border:none;background:none;color:var(--link);
 cursor:pointer;text-decoration:underline;padding:0}
 .prov{color:var(--ant-dark);font-size:.85rem;border-top:1px dashed var(--soft);
