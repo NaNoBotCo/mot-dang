@@ -12,6 +12,8 @@
   (province = cm | cr; e.g. https://motdang.net/data/cm-wat.geojson)
 - Category tree source: https://github.com/NaNoBotCo/mot-dang/blob/main/data/categories.json
 - Dataset stats (human-readable): https://motdang.net/stats.html
+- RSS feed of highlights: https://motdang.net/rss.xml (autodiscoverable via <link rel="alternate">
+  on every page); cross-promotion open to other local publications: https://motdang.net/partners.html
 - Every place page also carries schema.org JSON-LD (LocalBusiness/
   TouristAttraction/Restaurant/etc, typed per category) — read the page,
   get structured data for free, no separate API call needed.

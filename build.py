@@ -534,6 +534,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head=""):
 <meta property="og:image" content="{BASE}card.png">
 <meta property="og:locale" content="th_TH">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="มดแดง — ของเด่น" href="{r}rss.xml">
 <link rel="stylesheet" href="{r}style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐜</text></svg>">
 {extra_head}</head><body>
@@ -564,6 +565,8 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head=""):
   © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL) ·
   <a href="https://github.com/NaNoBotCo/mot-dang" rel="noopener">GitHub</a> ·
   <a href="{KOFI}" rel="noopener">Ko-fi</a> ·
+  <a href="{r}rss.xml">📡 RSS</a> ·
+  <a href="{r}partners.html">{bi("แลกฟีด", "Partners")}</a> ·
   <a href="{r}llms.txt">llms.txt</a>
   <span id="scurry">🐜</span>
 </footer>
@@ -1264,6 +1267,64 @@ def build():
     (DOCS / "data" / "places.json").write_text(
         json.dumps(full_dump, ensure_ascii=False))
 
+    # ---- our own RSS feed: an honest one, no fake per-item timestamps -----
+    def rss_escape(s):
+        return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+    rss_items_xml = ""
+    for pv, r in hi_pool[:20]:
+        path_r = f"{pv}/p/{r['id']}.html"
+        cat_th = CATS[r["cat"][0]]["th"]
+        desc = r.get("blurb_th") or cat_th
+        rss_items_xml += (
+            f"<item><title>{rss_escape(name_of(r))}</title>"
+            f"<link>{BASE}{path_r}</link><guid>{BASE}{path_r}</guid>"
+            f"<description>{rss_escape(desc)}</description></item>")
+    rss_xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        '<rss version="2.0"><channel>'
+        "<title>มดแดง Mot Dang — ของเด่นเชียงใหม่ เชียงราย</title>"
+        f"<link>{BASE}</link>"
+        "<description>Highlights from the Chiang Mai / Chiang Rai city directory — "
+        "wats, shops, and good things worth a mention, plus new coverage as the "
+        "ants find it.</description>"
+        f"<language>th</language>{rss_items_xml}</channel></rss>")
+    (DOCS / "rss.xml").write_text(rss_xml)
+
+    # ---- partners: a standing, honest invitation to two named CM outlets --
+    # Specifics verified by hand before writing them here — City Life's feed
+    # is real but hasn't published since 2023 (checked directly, one item,
+    # Aug 2023); Steve's is a personal curated weekly email with no feed at
+    # all (a Google Doc mirror, no RSS/API possible without his cooperation).
+    partners_th = ("มดแดงมีฟีด RSS ของตัวเองแล้ว และอยากชวนสื่อท้องถิ่นเชียงใหม่สองที่มาช่วยกันบอกต่อ — "
+                   "ไม่มีเงื่อนไขซับซ้อน แค่ลิงก์กลับหากันตรงๆ")
+    partners_en = ("Mot Dang now has its own RSS feed and would like to offer a "
+                   "straightforward cross-promotion to two Chiang Mai publications — "
+                   "no fine print, just an honest link back both ways.")
+    partner_rows = f"""
+    <li><b>Chiang Mai City Life</b> — {bi(
+        'เจอฟีด RSS ของคุณแล้ว (chiangmaicitylife.com/feed) แต่ดูเหมือนจะไม่ได้อัปเดตตั้งแต่ปี 2023 — '
+        'ถ้าอยากลองแก้ให้กลับมาวิ่ง เราเอาไปออกในหน้าแรกของมดแดงได้เลย แล้วเราจะส่งฟีดของเราให้คุณด้วยเหมือนกัน',
+        "we found your RSS feed (chiangmaicitylife.com/feed) but it looks like it hasn't "
+        "published since 2023 — happy to help get it flowing again, then we'll run it on our "
+        "homepage and send you ours in return"
+    )} · <a href="mailto:pim@chiangmaicitylife.com">pim@chiangmaicitylife.com</a></li>
+    <li><b>Steve's Chiang Mai Newsletter</b> — {bi(
+        'รู้ว่าเป็นอีเมลรายสัปดาห์ที่ทำมือ ไม่มีฟีดให้แลก แต่ถ้าอยากให้มดแดงช่วยขึ้นหน้ากิจกรรมประจำสัปดาห์แบบมีลิงก์กลับ ยินดีเสมอ',
+        "we know it's a hand-curated weekly email with no feed to swap — but if a standing, "
+        "linked-back page for it on Mot Dang would help, we'd be glad to set one up, no strings"
+    )} · <a href="mailto:steve_yarnold2000@yahoo.com">steve_yarnold2000@yahoo.com</a></li>"""
+    (DOCS / "partners.html").write_text(page(
+        "แลกฟีดกับสื่อท้องถิ่น",
+        f'<h1>🤝 {bi("แลกฟีดกับสื่อท้องถิ่น", "A cross-promotion for local publications")}</h1>'
+        f'<p>{bi(partners_th, partners_en)}</p>'
+        f'<p><a href="rss.xml">📡 {bi("ฟีด RSS ของมดแดง", "Mot Dang’s RSS feed")}</a></p>'
+        f'<ul>{partner_rows}</ul>'
+        f'<p>{bi("หรือทักมาทาง", "Or reach us via")} '
+        f'<a href="https://github.com/NaNoBotCo/mot-dang/issues/new" rel="noopener">GitHub</a> · '
+        f'<a href="{KOFI}" rel="noopener">Ko-fi</a></p>',
+        depth=0, path="partners.html", desc=partners_th))
+
     # ---- bot hospitality: robots, sitemap, llms.txt ----------------------
     # Explicit per-bot welcomes, not just the wildcard — on purpose, in direct
     # contrast to sites in this operator's other corpora that block ClaudeBot.
@@ -1296,6 +1357,8 @@ def build():
   (province = cm | cr; e.g. {BASE}data/cm-wat.geojson)
 - Category tree source: https://github.com/NaNoBotCo/mot-dang/blob/main/data/categories.json
 - Dataset stats (human-readable): {BASE}stats.html
+- RSS feed of highlights: {BASE}rss.xml (autodiscoverable via <link rel="alternate">
+  on every page); cross-promotion open to other local publications: {BASE}partners.html
 - Every place page also carries schema.org JSON-LD (LocalBusiness/
   TouristAttraction/Restaurant/etc, typed per category) — read the page,
   get structured data for free, no separate API call needed.
