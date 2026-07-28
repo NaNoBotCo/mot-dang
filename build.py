@@ -1511,6 +1511,31 @@ def build():
          "Flag a wrong pin or a missing contact via a two-click, publicly visible GitHub issue. "
          "Google's correction flow is a black box — no visibility into whether or when it's "
          "actioned."),
+        ("ชื่อไทยไม่ถูกบังคับทับศัพท์",
+         "Thai names stay Thai, not force-transliterated",
+         "Google Maps มักขึ้นชื่อร้านแบบทับศัพท์ไม่ตรงหรือไม่สม่ำเสมอ และค้นด้วยชื่อไทยล้วนบางทีเจอผลน้อยกว่าค้นด้วยคำอังกฤษ "
+         "มดแดงเก็บชื่อไทยไว้เป็นหลัก ให้ชื่ออังกฤษวิ่งคู่กันไป ไม่มีขั้นตอนแปลงที่ทำให้ข้อมูลเพี้ยน",
+         "Google Maps often shows business names romanized inconsistently or oddly, and a "
+         "search in plain Thai script can surface fewer results than the same search spelled "
+         "out in English. Mot Dang keeps the Thai name canonical and lets English ride "
+         "alongside it — no lossy transliteration step in between."),
+        ("ไล่เก็บข้อมูลเฉพาะสองจังหวัดนี้ สั่งเก็บซ้ำได้ตามต้องการ",
+         "A crawl dedicated to exactly two provinces, rerun on demand",
+         "การไล่เก็บของมดแดงเจาะจงแค่อำเภอเมืองเชียงใหม่กับเชียงราย และสั่งเก็บซ้ำได้ทันทีที่เห็นว่าหมวดไหนยังบาง "
+         "(อย่างที่เพิ่งทำไปสองรอบในเซสชันนี้เอง) ตัวเก็บข้อมูลระดับโลกต้องแบ่งความสนใจไปทั่วโลก "
+         "ตัวเก็บที่โฟกัสแค่สองจังหวัดไม่ต้องแย่งความสนใจนั้น",
+         "Mot Dang's crawl targets only Amphoe Mueang Chiang Mai and Chiang Rai, and can be "
+         "rerun deliberately the moment a category looks thin (as happened twice in this very "
+         "project). A global crawler has to spread its attention across the whole planet; a "
+         "crawl that only covers two provinces isn't competing for that same attention."),
+        ("สร้างมาเพื่อความสนใจเฉพาะพื้นที่จริงๆ",
+         "Built for local interests specifically",
+         "หมวดอย่าง ในเวียงเก่า กับ นอกเวียง หรือการหาคอนโดใกล้หอนาฬิกาเชียงราย เกิดขึ้นเพราะมีคนที่อยู่ที่นี่จริงๆ ร้องขอ "
+         "ส่วน Google ให้หน้าตาแบบเดียวกันไม่ว่าจะค้นจากเชียงใหม่หรือคลีฟแลนด์",
+         "Categories like ในเวียงเก่า (inside the old-city moat) vs นอกเวียง, or a Chiang Rai "
+         "condo-buildings-near-the-clock-tower view, exist because someone who actually lives "
+         "here asked for them. Google's local product serves the same interface to a search "
+         "from Chiang Mai as one from Cleveland."),
     ]
     why_th = ("มดแดงไม่ได้อยากเป็น Google ฉบับเล็ก — อยากเป็นสิ่งที่ Google เป็นไม่ได้ต่างหาก "
               "นี่คือความต่างที่จับต้องได้จริง ตรวจสอบได้เอง ไม่ใช่คำโฆษณาลอยๆ")
