@@ -613,7 +613,8 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head=""):
   {bi(f"สร้างจากข้อมูลเปิดและการเดินเก็บจริง · ปรับปรุง {BUILD_DATE} (พ.ศ. {BE_BUILD})",
       f"Built from open data and shoe-leather · updated {BUILD_DATE} (B.E. {BE_BUILD})")}<br>
   {bi("มดแดง 🐜 (แปลว่า red ant) — คนละชื่อคนละตัวกับ “หมูเด้ง” ฮิปโปแคระชื่อดัง นะเจ้า",
-      "มดแดง = “red ant,” not “Moo Deng” the famous baby hippo — different name, different critter")}<br>
+      "มดแดง = “red ant,” not “Moo Deng” the famous baby hippo — different name, different critter")}
+  (<a href="https://en.wikipedia.org/wiki/Moo_Deng" rel="noopener">{bi("ใครคือหมูเด้ง?", "who's Moo Deng?")}</a>)<br>
   © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL) ·
   <a href="https://github.com/NaNoBotCo/mot-dang" rel="noopener">GitHub</a> ·
   <a href="{KOFI}" rel="noopener">Ko-fi</a> ·
