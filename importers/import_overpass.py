@@ -98,6 +98,24 @@ def classify(t):
         return "museums-galleries", "museum"
     if tr == "gallery":
         return "museums-galleries", "gallery"
+    # Tattoo is its own top-level category: 41 records were stranded under
+    # 'sights' with no rule at all, so the whole trade was invisible.
+    if s == "tattoo":
+        return "tattoo", "studio"
+    if s == "piercing":
+        return "tattoo", "piercing"
+    # Parks were never crawled before, so the directory simply had none.
+    lz = t.get("leisure")
+    if lz == "park":
+        return "parks", "park"
+    if lz == "garden":
+        return "parks", "garden"
+    if lz == "nature_reserve" or t.get("boundary") == "national_park":
+        return "parks", "nature"
+    if lz == "playground":
+        return "parks", "playground"
+    if t.get("natural") == "water":
+        return "parks", "water"
     if tr == "viewpoint":
         return "sights", "viewpoint"
     if "historic" in t:

@@ -39,6 +39,12 @@ ORACLE = os.path.abspath(os.path.join(ROOT, "..", "taoist-oracle"))
 
 # ---------------------------------------------------------------- Thai
 # Monday-indexed to match datetime.weekday().
+#
+# There are seven days but EIGHT day-deities, because Wednesday splits: the
+# daylight hours belong to พระพุธ (Mercury) and the night to พระราหู (Rahu).
+# That is why the eight กำลังพระเคราะห์ sum to 108 — the auspicious number, and
+# a check this file asserts rather than trusts. พระเกตุ is the ninth graha of
+# the นพเคราะห์ but was added later and holds no weekday of its own.
 THAI_DAYS = [
     {"th": "วันจันทร์", "en": "Monday", "colour_th": "สีเหลืองนวล", "colour_en": "cream yellow",
      "hex": "#F2D95C", "planet_th": "พระจันทร์", "planet_en": "the Moon", "strength": 15,
@@ -62,6 +68,28 @@ THAI_DAYS = [
      "hex": "#DC3D3D", "planet_th": "พระอาทิตย์", "planet_en": "the Sun", "strength": 6,
      "buddha_th": "ปางถวายเนตร", "buddha_en": "the Buddha gazing in gratitude"},
 ]
+
+# Wednesday after dark belongs to Rahu, not Mercury. Same weekday, different
+# deity, colour, image and strength.
+WEDNESDAY_NIGHT = {
+    "th": "วันพุธกลางคืน", "en": "Wednesday night",
+    "colour_th": "สีดำ", "colour_en": "black", "hex": "#1A1A1E",
+    "planet_th": "พระราหู", "planet_en": "Rahu", "strength": 12,
+    "buddha_th": "ปางป่าเลไลยก์",
+    "buddha_en": "the Buddha of the Parileyyaka forest, attended by elephant and monkey",
+}
+NIGHT_FROM_HOUR = 18   # the conventional start of กลางคืน used here
+
+# The eighth graha. No weekday, so it is offered as a note rather than a day.
+KETU = {
+    "th": "พระเกตุ", "en": "Ketu", "strength": 9,
+    "note_th": ("เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ "
+                "ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค "
+                "มากกว่าจะครองวันใดวันหนึ่ง"),
+    "note_en": ("Ketu is the ninth of the nine grahas and was added later, so it holds no "
+                "weekday. Tradition tells it formed from Rahu's severed tail; its part is "
+                "to soften misfortune and lift luck rather than to govern a day."),
+}
 
 THAI_ZODIAC = [
     ("ชวด", "Rat"), ("ฉลู", "Ox"), ("ขาล", "Tiger"), ("เถาะ", "Rabbit"),
@@ -168,7 +196,14 @@ def build_day(d, oracle_ok):
         "date": d.isoformat(),
         "thai": {**td, "zodiac_year_th": zth, "zodiac_year_en": zen,
                  "lucky": lucky_numbers(d, td["strength"])},
+        "ketu": KETU,
     }
+    # On a Wednesday the page carries both halves and picks by the clock.
+    if wd == 2:
+        entry["thai_night"] = {**WEDNESDAY_NIGHT,
+                               "zodiac_year_th": zth, "zodiac_year_en": zen,
+                               "lucky": lucky_numbers(d, WEDNESDAY_NIGHT["strength"]),
+                               "from_hour": NIGHT_FROM_HOUR}
     # European: the Moon's sign, then every sun sign's aspect to it.
     lon = moon_longitude(datetime(d.year, d.month, d.day, 12))
     mi = int(lon // 30) % 12
@@ -224,6 +259,12 @@ def main():
             import core.ganzhi  # noqa: F401
     except ImportError:
         oracle_ok = False
+
+    # The eight day-strengths must total 108. If an edit ever breaks that, the
+    # table has drifted from the tradition and the whole tile is untrustworthy.
+    total = sum(t["strength"] for t in THAI_DAYS) + WEDNESDAY_NIGHT["strength"]
+    if total != 108:
+        raise SystemExit(f"กำลังพระเคราะห์ sum is {total}, must be 108 — check the table")
 
     today = date.today()
     out = {}

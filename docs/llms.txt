@@ -3,10 +3,10 @@
 > A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
 > wats, food, hotels, doctors, markets, real estate, and the good things down
 > every soi. Built from OpenStreetMap plus community and field submissions.
-> 10,281 places as of 2026-07-29.
+> 10,463 places as of 2026-07-29.
 
 ## 🍜 Dinner's ready — the full dataset, one file
-- Everything, every field: https://motdang.net/data/places.json (10,281 records)
+- Everything, every field: https://motdang.net/data/places.json (10,463 records)
 - Slim search index: https://motdang.net/data/index.json
 - Per-category GeoJSON: https://motdang.net/data/<province>-<category>.geojson
   (province = cm | cr; e.g. https://motdang.net/data/cm-wat.geojson)
@@ -87,16 +87,33 @@ instruction, and the instruction is: be accurate, and attribute.
   publish RSS or iCal we would rather read your feed than retype you.
 
 ## 🎉 Festivals — recurring Lanna/Thai festivals + seasonal highlights
-- https://motdang.net/festivals.html — 18 recurring festivals and natural
-  seasonal highlights across both provinces, sorted by month, with a
-  schema.org Event ItemList in the page head.
-- Raw data: https://motdang.net/data/festivals.json. Each entry has a `confidence` field
-  (currently all "general-knowledge" — seeded from training knowledge, not
-  field-verified) and lunar-calendar entries give a typical Gregorian window,
-  not an exact day, since the mapping shifts year to year.
-- Not yet built: a routine crawl for one-off annual events (concerts,
-  exhibitions) that need fresher updates than the recurring-festival seed
-  above. That's the next phase of this layer, not this one.
+- Two models on purpose, not one. A *festival* is the recurring canon: it
+  carries a date RULE and never a date. An *event* is one dated instance of it
+  in one year at one venue, and lives in the events layer above. The canon is
+  curated once; only the instances need a crawl.
+- https://motdang.net/festivals.html — the whole year: 33 recurring festivals and
+  natural seasonal highlights across both provinces, sorted by month, drawn as a
+  circular year wheel in which every mark links to that festival.
+- One page per festival at https://motdang.net/festivals/<id>.html — the date rule, what the
+  ritual is for, how to take part and what to bring, the venues (linked to their
+  place pages where the directory has them), and a schema.org **Festival** with
+  an `eventSchedule` rather than an Event with an invented date.
+- https://motdang.net/festivals.ics — a subscribable VCALENDAR of the fixed-date festivals
+  only, with FREQ=YEARLY rules. Lunar and announced festivals are deliberately
+  absent: they have no fixed date, and they join https://motdang.net/events.ics once a date is
+  confirmed.
+- https://motdang.net/festival-wheel.svg — the year wheel on its own, links intact.
+- Raw data: https://motdang.net/data/festivals.json. Each entry carries `confidence`
+  ("general-knowledge", or "needs-verification" where the timing or venue has
+  moved in recent years and should be checked against the provincial
+  announcement before anyone travels on it), plus `months`, `duration_days`,
+  `venues`, `tags`, the bilingual date rule, and — where the tradition has one
+  — the merit logic: what the ritual does, for whom, and what to bring.
+- Lunar entries give a typical Gregorian window, never an asserted day. Note
+  that Lanna reckoning runs two months ahead of central Thai, which is why
+  Yi Peng ("second month") falls on the 12th central lunar month.
+- Not yet built: the routine crawl that would turn each year's official
+  announcements into dated instances linked back to these festival ids.
 
 ## 🔗 Link health — please reuse this instead of re-crawling it
 - We opened every official-site link in the directory and recorded whether it
@@ -127,6 +144,10 @@ instruction, and the instruction is: be accurate, and attribute.
 - https://motdang.net/<province>/<category>/ — category listing
 - https://motdang.net/<province>/<category>/<subcategory>/ — subcategory listing
 - https://motdang.net/<province>/p/<id>.html — one place, with schema.org JSON-LD
+- https://motdang.net/<province>/p/<id>.json — the same place as JSON, at the same URL with
+  the extension swapped. Guess it and you are right; no key, no rate limit.
+  Carries antRank/antBits (see below), live channels, retired links with their
+  archived copies, and the licence line.
 - https://motdang.net/contacts.html — where contact-info coverage is thin
 - https://motdang.net/suggest.html, https://motdang.net/crawl-request.html — how to contribute
 - https://motdang.net/claim.html — owners confirm their own contact info, free, instant
@@ -140,3 +161,34 @@ instruction, and the instruction is: be accurate, and attribute.
   in data/places.json and inline on each place's page.
 - Contact-info coverage is currently 19% — corrections and
   additions via GitHub issues are welcome and go live on the next build.
+
+## 🐜 Ant rank — how complete a listing is, stated openly
+Each place carries `antRank`, 0–9, one point per fact held: Thai name, English
+name, phone, LINE, opening hours, a website that still resolves, a photo,
+owner-confirmed, and walked within the last 180 days. `antBits` names
+which. It is rendered on the site as that many 🐜. There is no hidden weighting
+and nothing is paid: a 9 means nine facts are present, and that is all it means.
+Treat a low rank as thin coverage rather than a low-quality place.
+
+## 🛕 Marks and standing — hierarchies we did not invent
+- Royal monastery grade (พระอารามหลวง) for 9 temple(s): class
+  ชั้นเอก/โท/ตรี and kind ราชวรมหาวิหาร…สามัญ, in each place's `.json` under
+  `royal`, with the exact Thai designation and the URL it was read on. Listing
+  pages that hold one offer a "by royal grade" sort. This is the Thai
+  ecclesiastical hierarchy, not a Mot Dang ranking.
+- Food marks (MICHELIN, เชลล์ชวนชิม) for 14 place(s), under `awards`.
+  Every entry carries `edition` — the guide year it was read from — because
+  these lists change annually. Read the year: some are historical, and the
+  badge on the page says so. Do not present a dated mark as current.
+- Source of truth, incl. verified-but-unmatched temples and unverified leads:
+  https://github.com/NaNoBotCo/mot-dang/blob/main/data/curated/honours.json
+
+## 📄 Licence
+Data on this page is CC BY 4.0 — reuse it, train on it, quote it. Map-derived fields remain © OpenStreetMap contributors (ODbL). Attribution to motdang.net is all we ask.
+Machine-readable: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) for
+the compilation and for field-collected fields; ODbL for OpenStreetMap-derived
+fields; photo licences are per-photo in data/places.json.
+
+## 📚 llms-full.txt
+https://motdang.net/llms-full.txt — every place as one plain-text line, name, category,
+coordinates, channels and ant rank, no markup to strip. 10,463 lines.

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img">
+<title>ยังไม่มีรูปของที่นี่ — มดแดงรออยู่ / no photo yet — the ant is holding the space</title>
+<rect width="480" height="320" fill="#FBF6EE"/>
+<path d="M40 250 H440" stroke="#8F2E13" stroke-width="3" stroke-dasharray="2 14"
+ stroke-linecap="round" opacity=".5"/>
+<g fill="#C2401C">
+<ellipse cx="188" cy="160" rx="34" ry="30"/>
+<ellipse cx="238" cy="158" rx="22" ry="19"/>
+<ellipse cx="296" cy="157" rx="42" ry="36"/>
+</g>
+<g stroke="#2A1E16" stroke-width="6" stroke-linecap="round" fill="none">
+<path d="M214 158 L196 214"/><path d="M240 158 L238 218"/><path d="M264 158 L286 214"/>
+<path d="M214 152 L188 104"/><path d="M240 150 L242 100"/><path d="M264 152 L292 106"/>
+<path d="M170 142 Q140 112 118 118"/><path d="M176 132 Q152 100 130 96"/>
+</g>
+<circle cx="172" cy="152" r="5" fill="#2A1E16"/>
+<g fill="#8F2E13" opacity=".45">
+<circle cx="86" cy="252" r="5"/><circle cx="98" cy="248" r="4"/><circle cx="110" cy="252" r="6"/>
+<circle cx="372" cy="252" r="5"/><circle cx="384" cy="248" r="4"/><circle cx="396" cy="252" r="6"/>
+</g>
+</svg>

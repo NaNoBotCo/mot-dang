@@ -1,0 +1,71 @@
+{
+ "_comment": "Kathas that are published everywhere in Thailand, each short enough to set down exactly, with what it is FOR and when it is said. Long verses and anything belonging to a named teacher are deliberately absent — a misremembered line of someone else's scripture is not a small error. The Rahu entry gives the practice rather than a text, because those verses genuinely differ wat to wat.",
+ "kathas": [
+  {
+   "id": "namo",
+   "for_th": "บทนำก่อนสวดทุกบท",
+   "for_en": "Said first, before any other verse",
+   "th": "นะโม ตัสสะ ภะคะวะโต อะระหะโต สัมมาสัมพุทธัสสะ",
+   "rom": "Namo tassa bhagavato arahato sammāsambuddhassa",
+   "gloss_th": "นอบน้อมแด่พระผู้มีพระภาค พระอรหันต์ ผู้ตรัสรู้ชอบด้วยพระองค์เอง นิยมสวด 3 จบ",
+   "gloss_en": "Homage to the Blessed One, the Worthy One, perfectly self-awakened. Usually said three times.",
+   "when_th": "ก่อนบททุกบท",
+   "when_en": "before everything else"
+  },
+  {
+   "id": "sarana",
+   "for_th": "ถึงพระรัตนตรัยเป็นที่พึ่ง",
+   "for_en": "Taking refuge",
+   "th": "พุทธัง สะระณัง คัจฉามิ · ธัมมัง สะระณัง คัจฉามิ · สังฆัง สะระณัง คัจฉามิ",
+   "rom": "Buddhaṃ saraṇaṃ gacchāmi · Dhammaṃ saraṇaṃ gacchāmi · Saṅghaṃ saraṇaṃ gacchāmi",
+   "gloss_th": "ข้าพเจ้าขอถึงพระพุทธ พระธรรม พระสงฆ์ เป็นที่พึ่ง",
+   "gloss_en": "I go to the Buddha, the Dhamma and the Sangha for refuge.",
+   "when_th": "ทำบุญ เข้าวัด เริ่มวันใหม่",
+   "when_en": "at the wat, or to begin a day"
+  },
+  {
+   "id": "metta",
+   "for_th": "แผ่เมตตา",
+   "for_en": "Spreading loving-kindness",
+   "th": "สัพเพ สัตตา สุขิตา โหนตุ",
+   "rom": "Sabbe sattā sukhitā hontu",
+   "gloss_th": "ขอสัตว์ทั้งหลายทั้งปวง จงเป็นสุขเถิด — สวดจบแล้วนิยมแผ่ให้ตนเอง ญาติ และผู้ที่เราขุ่นข้องด้วย",
+   "gloss_en": "May all beings be happy. Traditionally extended to yourself, then family, then whoever you are at odds with.",
+   "when_th": "ก่อนนอน หลังทำบุญ",
+   "when_en": "before sleep, or after making merit"
+  },
+  {
+   "id": "nachalati",
+   "for_th": "เมตตามหานิยม โชคลาภ ค้าขาย",
+   "for_en": "Goodwill, good fortune, trade",
+   "th": "นะ ชา ลี ติ",
+   "rom": "Na Cha Li Ti",
+   "gloss_th": "คาถาสั้นที่คนไทยนิยมสวดขอเมตตามหานิยมและโชคลาภ ผูกกับพระสีวลีและนางกวัก ร้านค้านิยมสวดตอนเปิดร้าน",
+   "gloss_en": "A short verse widely recited for goodwill and good fortune, associated with Phra Sivali and Nang Kwak. Shopkeepers often say it when opening up.",
+   "when_th": "เปิดร้าน ก่อนค้าขาย",
+   "when_en": "when you open the shop"
+  },
+  {
+   "id": "itipiso",
+   "for_th": "ระลึกถึงพระพุทธคุณ",
+   "for_en": "Recollecting the Buddha's qualities",
+   "th": "อิติปิ โส ภะคะวา อะระหัง สัมมาสัมพุทโธ",
+   "rom": "Itipi so bhagavā arahaṃ sammāsambuddho",
+   "gloss_th": "เพราะเหตุนี้ พระผู้มีพระภาคนั้น เป็นพระอรหันต์ ตรัสรู้ชอบเอง (บทเต็มยาวกว่านี้ นี่คือท่อนขึ้นต้น)",
+   "gloss_en": "Thus is the Blessed One: worthy, perfectly self-awakened. (The full verse is longer; this is its opening.)",
+   "when_th": "สวดมนต์ประจำวัน",
+   "when_en": "daily chanting"
+  },
+  {
+   "id": "rahu",
+   "for_th": "บูชาพระราหู วันพุธกลางคืน",
+   "for_en": "Honouring Rahu, Wednesday night",
+   "th": "— ธรรมเนียมมากกว่าบท —",
+   "rom": "— a practice more than a verse —",
+   "gloss_th": "คนไทยนิยมบูชาพระราหูในคืนวันพุธ ด้วยของดำ 8 อย่าง (ไข่เยี่ยวม้า ข้าวเหนียวดำ เฉาก๊วย ถั่วดำ ฯลฯ) จุดธูป 12 ดอก ตามกำลังพระราหู บทสวดมีหลายสำนวนต่างกันไป จึงไม่ลงไว้ที่นี่ ให้ถามที่วัดที่ท่านไป",
+   "gloss_en": "Rahu is honoured on Wednesday nights with eight black offerings — century egg, black sticky rice, grass jelly, black beans and so on — and twelve incense sticks, matching Rahu's strength of 12. The spoken verses differ from temple to temple, so none is set down here; ask at the wat you attend.",
+   "when_th": "คืนวันพุธ",
+   "when_en": "Wednesday after dark"
+  }
+ ]
+}

@@ -110,6 +110,26 @@ const go=i=>{ki=(i+cards.length)%cards.length;cards.forEach((c,n)=>{c.hidden=n!=
 dots.forEach((d,n)=>d.classList.toggle('on',n===ki));};
 dots.forEach(d=>d.addEventListener('click',()=>{go(+d.dataset.kadot);clearInterval(window.__kaT);}));
 if(cards.length>1)window.__kaT=setInterval(()=>go(ki+1),9000);})();
+// --- เซียมซี: shake, a stick falls, read the slip
+(()=>{const host=document.getElementById('w-siamsi');if(!host)return;
+let sticks=[];try{sticks=JSON.parse(host.dataset.siamsi||'[]');}catch(e){return;}
+if(!sticks.length)return;
+const tube=host.querySelector('[data-ss="tube"]'),out=host.querySelector('[data-ss="out"]'),
+btn=host.querySelector('[data-ss="shake"]');
+const V={'ดี':['ดี','good'],'กลาง':['กลาง','middling'],'ระวัง':['ระวัง','take care']};
+btn.addEventListener('click',()=>{
+if(tube.classList.contains('shaking'))return;
+tube.classList.add('shaking');out.hidden=true;
+setTimeout(()=>{tube.classList.remove('shaking');
+const s=sticks[Math.floor(Math.random()*sticks.length)];
+host.querySelector('[data-ss="num"]').textContent='ใบที่ '+s.n;
+const v=V[s.verdict]||[s.verdict,s.verdict];
+const vd=host.querySelector('[data-ss="verdict"]');
+vd.innerHTML='<span class="th">'+v[0]+'</span><span class="en">'+v[1]+'</span>';
+vd.className='ssverdict v-'+(s.verdict==='ดี'?'good':s.verdict==='ระวัง'?'care':'mid');
+host.querySelector('[data-ss="text"]').innerHTML=
+'<span class="th">'+s.th+'</span><span class="en">'+s.en+'</span>';
+out.hidden=false;},900);});})();
 // ---- widgets: choices live in localStorage, no account, no tracking --
 function wLoad(k,d){try{const v=JSON.parse(localStorage.getItem(k));
 return Array.isArray(v)?v:d;}catch(e){return d;}}
@@ -202,7 +222,8 @@ const byName=document.getElementById('sort-name'),byDist=document.getElementById
 byName&&byName.addEventListener('click',()=>{
 items.sort((a,b)=>(a.dataset.n||'').localeCompare(b.dataset.n||'','th'));
 items.forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appendChild(li);});
-byName.classList.add('on');byDist.classList.remove('on');});
+document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('on'));
+byName.classList.add('on');});
 byDist&&byDist.addEventListener('click',()=>{
 navigator.geolocation.getCurrentPosition(pos=>{
 const{latitude:la,longitude:lo}=pos.coords,R=6371;
@@ -216,8 +237,25 @@ items.forEach(li=>{let d=li.querySelector('.dist');const km=parseFloat(li.datase
 if(km<1e8){if(!d){d=document.createElement('span');d.className='dist';li.appendChild(d);}
 d.textContent=' · '+(km<1?Math.round(km*1000)+' ม.':km.toFixed(1)+' กม.');}
 dirList.appendChild(li);});
-byDist.classList.add('on');byName.classList.remove('on');},
-()=>alert('เปิดตำแหน่งที่ตั้งเพื่อเรียงตามระยะทาง / allow location to sort by distance'));});}
+document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('on'));
+byDist.classList.add('on');},
+()=>alert('เปิดตำแหน่งที่ตั้งเพื่อเรียงตามระยะทาง / allow location to sort by distance'));});
+// ---- ant rank sorts: most complete / recently walked / needs love ----
+const btns=[...document.querySelectorAll('.toolbar button')];
+const reorder=(btn,cmp)=>{if(!btn)return;btn.addEventListener('click',()=>{
+items.sort(cmp);
+items.forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appendChild(li);});
+btns.forEach(x=>x&&x.classList.remove('on'));btn.classList.add('on');});};
+const nm=(a,b)=>(a.dataset.n||'').localeCompare(b.dataset.n||'','th');
+const rk=li=>parseInt(li.dataset.rank||'0',10);
+reorder(document.getElementById('sort-rank'),(a,b)=>rk(b)-rk(a)||nm(a,b));
+reorder(document.getElementById('sort-love'),(a,b)=>rk(a)-rk(b)||nm(a,b));
+const rw=li=>parseInt(li.dataset.royal||'0',10);
+reorder(document.getElementById('sort-royal'),(a,b)=>rw(b)-rw(a)||nm(a,b));
+reorder(document.getElementById('sort-hon'),
+(a,b)=>(parseInt(b.dataset.hon||'0',10)-parseInt(a.dataset.hon||'0',10))||rk(b)-rk(a)||nm(a,b));
+reorder(document.getElementById('sort-fresh'),
+(a,b)=>(b.dataset.upd||'').localeCompare(a.dataset.upd||'')||rk(b)-rk(a)||nm(a,b));}
 // ---- copy link --------------------------------------------------------
 document.querySelectorAll('.copylink').forEach(b=>{b.addEventListener('click',async()=>{
 await navigator.clipboard.writeText(b.dataset.url);

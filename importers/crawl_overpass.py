@@ -63,6 +63,16 @@ QUERIES = {
                     'nwr["shop"="bakery"]', 'nwr["amenity"="ice_cream"]'],
     "whats-on":   ['nwr["amenity"="cinema"]', 'nwr["amenity"="music_venue"]',
                    'nwr["amenity"="events_venue"]', 'nwr["amenity"="theatre"]'],
+    # Parks were never queried, which is why the directory had none. The 31
+    # "park" hits in the data were all false positives from names — "Royal
+    # Orchid Park Hotel", "Near the park Backpack hostel". Named features only:
+    # an unnamed patch of grass is not a place anyone looks up.
+    "parks":      ['nwr["leisure"="park"]["name"]', 'nwr["leisure"="garden"]["name"]',
+                   'nwr["leisure"="nature_reserve"]["name"]',
+                   'nwr["boundary"="national_park"]["name"]',
+                   'nwr["leisure"="playground"]["name"]', 'nwr["natural"="water"]["name"]'],
+    # 41 tattoo records were sitting in 'sights' with no rule; crawl them properly.
+    "tattoo":     ['nwr["shop"="tattoo"]', 'nwr["shop"="piercing"]'],
 }
 
 

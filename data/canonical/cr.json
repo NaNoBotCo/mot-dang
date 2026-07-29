@@ -20,6 +20,7 @@
    "note": "งานออกแบบโดยเฉลิมชัย โฆษิตพิพัฒน์ — แสงสีทองทุกค่ำคืน"
   },
   "featured": true,
+  "photoExempt": true,
   "landmark": true,
   "blurb_th": "หอนาฬิกาทองคำใจกลางเมือง จุดหมายตาอันดับหนึ่งของเชียงราย",
   "blurb_en": "The golden clock tower at the heart of town — Chiang Rai's brightest landmark.",
@@ -58,6 +59,7 @@
    "nextDoor": "cr-curated-lailas-visa"
   },
   "featured": true,
+  "photoExempt": true,
   "landmark": false,
   "blurb_th": "ร้านเสื้อผ้าแบรนด์เนมมือสองคัดพิเศษ ของดีเมืองเชียงราย",
   "blurb_en": "Hand-picked designer consignment — one of Chiang Rai's gems.",
@@ -132,6 +134,7 @@
    "kind": "restaurant & tavern"
   },
   "featured": true,
+  "photoExempt": true,
   "landmark": false,
   "blurb_th": "ร้านอาหารริมน้ำบรรยากาศดี น่าแวะเมื่อมาเชียงราย",
   "blurb_en": "Riverside food and good company — worth the stop in Chiang Rai.",
@@ -6528,6 +6531,39 @@
    {
     "type": "osm",
     "ref": "node/13599882601",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-13607264101",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สวนสมเด็จย่า",
+  "nameTh": null,
+  "nameEn": "Somdet Ya Park",
+  "lat": 19.9769632,
+  "lng": 99.8469446,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13607264101",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -14954,6 +14990,39 @@
    {
     "type": "osm",
     "ref": "node/4308390491",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-4321846791",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "playground"
+  ],
+  "name": "Santiburi Golf Club",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8439446,
+  "lng": 99.8980212,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4321846791",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -24068,6 +24137,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-6635204698",
+  "province": "cr",
+  "cat": [
+   "tattoo"
+  ],
+  "sub": [
+   "studio"
+  ],
+  "name": "10x",
+  "nameTh": null,
+  "nameEn": "10x",
+  "lat": 19.9011705,
+  "lng": 99.8212971,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6635204698",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-6635204702",
   "province": "cr",
   "cat": [
@@ -24223,6 +24325,39 @@
    {
     "type": "osm",
     "ref": "node/6635204720",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6635204796",
+  "province": "cr",
+  "cat": [
+   "tattoo"
+  ],
+  "sub": [
+   "studio"
+  ],
+  "name": "Ghost tattoo",
+  "nameTh": null,
+  "nameEn": "Ghost tattoo",
+  "lat": 19.9011162,
+  "lng": 99.8216516,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6635204796",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -30428,6 +30563,105 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-relation-16799085",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "ขัวแคร่",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9547543,
+  "lng": 99.8501316,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "relation/16799085",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-relation-17137029",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองร่องปลาค้าว",
+  "nameTh": "หนองร่องปลาค้าว",
+  "nameEn": "Nong Rong Pla Khao",
+  "lat": 19.9166295,
+  "lng": 99.8537674,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "relation/17137029",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-relation-17971639",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองป่าไม้",
+  "nameTh": "หนองป่าไม้",
+  "nameEn": null,
+  "lat": 19.9430799,
+  "lng": 99.8270546,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "relation/17971639",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-relation-19931461",
   "province": "cr",
   "cat": [
@@ -30586,6 +30820,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-relation-5944648",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "nature"
+  ],
+  "name": "อุทยานแห่งชาติแม่ปืม",
+  "nameTh": null,
+  "nameEn": "Mae Puem National Park",
+  "lat": 19.5605535,
+  "lng": 99.8634039,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "operator": "Department of National Parks, Wildlife and Plant Conservation"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "relation/5944648",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-relation-6666702",
   "province": "cr",
   "cat": [
@@ -30684,6 +30953,39 @@
    {
     "type": "osm",
     "ref": "relation/7125275",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-relation-7770299",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองหลวง",
+  "nameTh": null,
+  "nameEn": "Nong Luang",
+  "lat": 19.8212538,
+  "lng": 99.9373568,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "relation/7770299",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -31714,6 +32016,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-104960000",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "คลองเกาะทอง",
+  "nameTh": "คลองเกาะทอง",
+  "nameEn": "Kho Thong Canal",
+  "lat": 19.9106321,
+  "lng": 99.8427306,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/104960000",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-105137199",
   "province": "cr",
   "cat": [
@@ -32519,6 +32854,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1085548309",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สวนชุมชน",
+  "nameTh": "สวนชุมชน",
+  "nameEn": null,
+  "lat": 19.9141876,
+  "lng": 99.8395919,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1085548309",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1085548310",
   "province": "cr",
   "cat": [
@@ -32874,6 +33242,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1102521904",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "garden"
+  ],
+  "name": "สวนหย่อมป้ายวัด",
+  "nameTh": "สวนหย่อมป้ายวัด",
+  "nameEn": null,
+  "lat": 19.90159,
+  "lng": 99.8189787,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1102521904",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1103082269",
   "province": "cr",
   "cat": [
@@ -33031,6 +33432,39 @@
    {
     "type": "osm",
     "ref": "way/1105521795",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1105525646",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "garden"
+  ],
+  "name": "สวนโรงแรมเวียงอินทร์",
+  "nameTh": "สวนโรงแรมเวียงอินทร์",
+  "nameEn": "Wing Inn Garden",
+  "lat": 19.9271341,
+  "lng": 99.8242663,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1105525646",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -34225,6 +34659,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1127653545",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สวนสยามรวมใจ",
+  "nameTh": "สวนสยามรวมใจ",
+  "nameEn": "Siam Ruamchai Square",
+  "lat": 19.907782,
+  "lng": 99.8414276,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1127653545",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1127661760",
   "province": "cr",
   "cat": [
@@ -35060,6 +35527,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1233195702",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองขัว",
+  "nameTh": "หนองขัว",
+  "nameEn": "Nong Khua",
+  "lat": 19.8199169,
+  "lng": 99.950703,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1233195702",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1262529630",
   "province": "cr",
   "cat": [
@@ -35221,6 +35721,39 @@
    {
     "type": "osm",
     "ref": "way/1315717121",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-132215997",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองบวกบอน",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8753875,
+  "lng": 99.9277459,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/132215997",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -36849,6 +37382,105 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-168868302",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองป่าไคร้",
+  "nameTh": "หนองป่าไคร้",
+  "nameEn": "Nong Pa Khrai",
+  "lat": 19.9473502,
+  "lng": 99.8378062,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/168868302",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-169204225",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองป่าอั้น",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9456897,
+  "lng": 99.7888234,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/169204225",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-169309121",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "สระหน้า",
+  "nameTh": "สระหน้า",
+  "nameEn": "Sra Na",
+  "lat": 19.8971422,
+  "lng": 99.8490767,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/169309121",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-169801125",
   "province": "cr",
   "cat": [
@@ -36950,6 +37582,72 @@
     "ref": "way/204338367",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-204902539",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "garden"
+  ],
+  "name": "สวนแขวงทางหลวง",
+  "nameTh": "สวนแขวงทางหลวง",
+  "nameEn": "Kweang Tangluang Garden",
+  "lat": 19.919449,
+  "lng": 99.8458081,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/204902539",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-210757742",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "อ่างเก็บน้ำห้วยล่างสร้อย",
+  "nameTh": null,
+  "nameEn": "Huai Lang Soi Reservoir",
+  "lat": 19.8614433,
+  "lng": 99.7183967,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/210757742",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -37534,6 +38232,105 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-28446392",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองบัว",
+  "nameTh": "หนองบัว",
+  "nameEn": "Nong Bua",
+  "lat": 19.9785864,
+  "lng": 99.8452466,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/28446392",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-28446394",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองปึ๋ง",
+  "nameTh": "หนองปึ๋ง",
+  "nameEn": "Nong Bueng",
+  "lat": 19.8854735,
+  "lng": 99.8051272,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/28446394",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-28446399",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "อ่างเก็บน้ำห้าสิบ",
+  "nameTh": null,
+  "nameEn": "Reservoir 15",
+  "lat": 19.8669121,
+  "lng": 99.7213475,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/28446399",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-297707196",
   "province": "cr",
   "cat": [
@@ -37679,6 +38476,138 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-314713172",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองร่องแหย่ง",
+  "nameTh": "หนองร่องแหย่ง",
+  "nameEn": null,
+  "lat": 19.9227807,
+  "lng": 99.8817795,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/314713172",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-314713174",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "บ่อปลาน้ำแม่ฮ่าง",
+  "nameTh": "บ่อปลาน้ำแม่ฮ่าง",
+  "nameEn": null,
+  "lat": 19.9217064,
+  "lng": 99.8849548,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/314713174",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-314713175",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองกกหลง",
+  "nameTh": "หนองกกหลง",
+  "nameEn": null,
+  "lat": 19.9231593,
+  "lng": 99.8889264,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/314713175",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-315081923",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองสองตอ",
+  "nameTh": "หนองสองตอ",
+  "nameEn": "Nong Song Tor",
+  "lat": 19.900939,
+  "lng": 99.8539283,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/315081923",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-315250004",
   "province": "cr",
   "cat": [
@@ -37716,6 +38645,74 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-315436118",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สวนหนองปึ๋ง",
+  "nameTh": null,
+  "nameEn": "Nong Bueng Park",
+  "lat": 19.8860994,
+  "lng": 99.8027005,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/315436118",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-316043567",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สวนไม้งามริมกก",
+  "nameTh": null,
+  "nameEn": "Garden Of Reeds",
+  "lat": 19.9254187,
+  "lng": 99.8643518,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "operator": "องค์การบริหารส่วนจังหวัดเชียงราย"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/316043567",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-317482968",
   "province": "cr",
   "cat": [
@@ -37743,6 +38740,39 @@
    {
     "type": "osm",
     "ref": "way/317482968",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-325727411",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สิงห์ปาร์ค",
+  "nameTh": "สิงห์ปาร์ค",
+  "nameEn": "Singha Park",
+  "lat": 19.8600698,
+  "lng": 99.7344876,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/325727411",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -37944,6 +38974,39 @@
    {
     "type": "osm",
     "ref": "way/330740633",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-342465614",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สวนตุง",
+  "nameTh": "สวนตุง",
+  "nameEn": "Suan Tung",
+  "lat": 19.9083574,
+  "lng": 99.8346531,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/342465614",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -38529,6 +39592,42 @@
     "ref": "way/376649472",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-384155064",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "อุทยานศิลปะวัฒนธรรมแม่ฟ้าหลวง",
+  "nameTh": "อุทยานศิลปะวัฒนธรรมแม่ฟ้าหลวง",
+  "nameEn": "Mae Fah Luang Art and Culture Park",
+  "lat": 19.9044709,
+  "lng": 99.7951264,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "+6653716605-7",
+  "website": "https://www.maefahluang.org/mae-fah-luang-art-and-cultural-park/",
+  "hours": "Tu-Su 08:30-16:30",
+  "attrs": {
+   "operator": "Mae Fah Luang Foundation under Royal Patronage",
+   "email": "rmfl@doitung.org"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/384155064",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -39307,6 +40406,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-387050250",
+  "province": "cr",
+  "cat": [
+   "tattoo"
+  ],
+  "sub": [
+   "studio"
+  ],
+  "name": "Namtao Tattoo",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9051148,
+  "lng": 99.8314853,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/387050250",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-387050901",
   "province": "cr",
   "cat": [
@@ -39848,6 +40980,107 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-407667389",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองปึ๋ง",
+  "nameTh": "หนองปึ๋ง",
+  "nameEn": "Nong Bueng",
+  "lat": 19.8861848,
+  "lng": 99.8082795,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/407667389",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-407667392",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "หนองปึ๋ง",
+  "nameTh": "หนองปึ๋ง",
+  "nameEn": "Nong Bueng",
+  "lat": 19.8847189,
+  "lng": 99.8047037,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/407667392",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-410746805",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สวนสาธารณะเกาะแม่ฟ้า ฯ",
+  "nameTh": "สวนสาธารณะเกาะแม่ฟ้า ฯ",
+  "nameEn": "Koh Mae Fah Park",
+  "lat": 19.9214766,
+  "lng": 99.8247488,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": "24/7",
+  "attrs": {
+   "operator": "Chiang Rai Municipal"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/410746805",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-417036549",
   "province": "cr",
   "cat": [
@@ -40285,6 +41518,39 @@
     "ref": "way/458258686",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-458258690",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "น้ำลัด",
+  "nameTh": "น้ำลัด",
+  "nameEn": "Nam Lad",
+  "lat": 19.9314625,
+  "lng": 99.820246,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/458258690",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -42067,6 +43333,72 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-543871762",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สวนสาธารณะ หนองหลวง",
+  "nameTh": null,
+  "nameEn": "Suan Satharana Nong Luang",
+  "lat": 19.8489587,
+  "lng": 99.9429579,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/543871762",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-543872967",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สวนสาธารณะ เกาะลอย",
+  "nameTh": null,
+  "nameEn": "Ko Loi Park",
+  "lat": 19.9183709,
+  "lng": 99.8376601,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/543872967",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-544166249",
   "province": "cr",
   "cat": [
@@ -43642,6 +44974,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-593126843",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองบัว",
+  "nameTh": "หนองบัว",
+  "nameEn": null,
+  "lat": 19.94957,
+  "lng": 99.8562702,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/593126843",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-604179764",
   "province": "cr",
   "cat": [
@@ -44395,6 +45760,39 @@
    {
     "type": "osm",
     "ref": "way/643217606",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-643239166",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองกล้วย",
+  "nameTh": "หนองกล้วย",
+  "nameEn": "Nong Kluay",
+  "lat": 19.9114302,
+  "lng": 99.7820399,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/643239166",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -45802,6 +47200,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-748911030",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "Nong Bueng",
+  "nameTh": "หนองปึ๋ง",
+  "nameEn": null,
+  "lat": 19.8862138,
+  "lng": 99.8025132,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/748911030",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-751053182",
   "province": "cr",
   "cat": [
@@ -46342,6 +47773,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-765579201",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สวนเทิดพระเกียรติ 90 ปีสมเด็จพระศรีนครินทร์",
+  "nameTh": "สวนเทิดพระเกียรติ 90 ปีสมเด็จพระศรีนครินทร์",
+  "nameEn": "Princess Mother 90th Anniversary Park",
+  "lat": 19.9153545,
+  "lng": 99.8316618,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "operator": "Chiangrai municipality"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/765579201",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-772907453",
   "province": "cr",
   "cat": [
@@ -46549,6 +48015,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-87915597",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "ลำน้ำเกาะแม่ฟ้า",
+  "nameTh": "ลำน้ำเกาะแม่ฟ้า",
+  "nameEn": null,
+  "lat": 19.9213588,
+  "lng": 99.8246644,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/87915597",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-87918800",
   "province": "cr",
   "cat": [
@@ -46574,6 +48073,171 @@
    {
     "type": "osm",
     "ref": "way/87918800",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-88177642",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองขี้บ้วน",
+  "nameTh": "หนองขี้บ้วน",
+  "nameEn": "Nong Khi Buan",
+  "lat": 19.8784069,
+  "lng": 99.8031137,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/88177642",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-88182177",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "น้ำลัด",
+  "nameTh": "น้ำลัด",
+  "nameEn": "Nam Lad",
+  "lat": 19.930962,
+  "lng": 99.8224131,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/88182177",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-88182190",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "น้ำลัด",
+  "nameTh": "น้ำลัด",
+  "nameEn": "Nam Lad",
+  "lat": 19.9282636,
+  "lng": 99.8229654,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/88182190",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-88319401",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "คลองเกาะทอง",
+  "nameTh": "คลองเกาะทอง",
+  "nameEn": "Kho Thong Canal",
+  "lat": 19.9105299,
+  "lng": 99.8509857,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/88319401",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-88319408",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "คลองเกาะทอง",
+  "nameTh": "คลองเกาะทอง",
+  "nameEn": "Kho Thong Canal",
+  "lat": 19.9095314,
+  "lng": 99.8447529,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/88319408",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -46613,6 +48277,138 @@
     "ref": "way/93562986",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-959647269",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "garden"
+  ],
+  "name": "ลานต้นสัก",
+  "nameTh": null,
+  "nameEn": "Teak Garden",
+  "lat": 19.9063075,
+  "lng": 99.8272194,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/959647269",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-959647289",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "garden"
+  ],
+  "name": "สวนน้ำตกเก่า",
+  "nameTh": null,
+  "nameEn": "Old Water Fall Garden",
+  "lat": 19.905305,
+  "lng": 99.8254577,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/959647289",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-959647291",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "garden"
+  ],
+  "name": "สวนพฤกษศาสตร์สามัคคี",
+  "nameTh": null,
+  "nameEn": "Samakkhi Botanical Garden",
+  "lat": 19.9051409,
+  "lng": 99.8254858,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/959647291",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-959647313",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "garden"
+  ],
+  "name": "สวนหย่อมข้างอาคาร 5",
+  "nameTh": null,
+  "nameEn": "Fish Ponds Mini Garden",
+  "lat": 19.9045227,
+  "lng": 99.8269708,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/959647313",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -48134,6 +49930,39 @@
    {
     "type": "osm",
     "ref": "way/960685084",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-960685090",
+  "province": "cr",
+  "cat": [
+   "tattoo"
+  ],
+  "sub": [
+   "studio"
+  ],
+  "name": "เล็กคิ้วสวย & สปา",
+  "nameTh": null,
+  "nameEn": "Lek Tattoo Parlor and Spa",
+  "lat": 19.907637,
+  "lng": 99.8235609,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/960685090",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -50888,6 +52717,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-961314553",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองแสะ",
+  "nameTh": "หนองแสะ",
+  "nameEn": null,
+  "lat": 19.9032336,
+  "lng": 99.8556195,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/961314553",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-961802247",
   "province": "cr",
   "cat": [
@@ -51566,6 +53428,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-964176063",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "น้ำตกหน้าหอประชุม",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9062094,
+  "lng": 99.8272466,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/964176063",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-964468591",
   "province": "cr",
   "cat": [
@@ -51665,6 +53560,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-964497469",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สวนสาธารณะริมกก",
+  "nameTh": null,
+  "nameEn": "Kok Riverside Park",
+  "lat": 19.9240611,
+  "lng": 99.8540585,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/964497469",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-964917564",
   "province": "cr",
   "cat": [
@@ -51696,6 +53624,39 @@
     "ref": "way/964917564",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-964921438",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "ข่วงศึกษาวิถีชีวิตวัฒนธรรมล้านนาและอาเซียน",
+  "nameTh": null,
+  "nameEn": "Lanna & Asean Culture Plaza",
+  "lat": 19.9263548,
+  "lng": 99.8679604,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/964921438",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -51838,6 +53799,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-965368812",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "garden"
+  ],
+  "name": "สวนหลังตึก 11",
+  "nameTh": null,
+  "nameEn": "Garden Behind Building 11",
+  "lat": 19.9038033,
+  "lng": 99.826335,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/965368812",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-965582205",
   "province": "cr",
   "cat": [
@@ -51896,6 +53890,39 @@
    {
     "type": "osm",
     "ref": "way/965582258",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-965591448",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "หนองปึ๋ง",
+  "nameTh": "หนองปึ๋ง",
+  "nameEn": "Nong Bueng",
+  "lat": 19.8850632,
+  "lng": 99.8061959,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/965591448",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -52985,6 +55012,138 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-968950271",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "park"
+  ],
+  "name": "สวนสาธารณะเฉลิมพระเกียรติ",
+  "nameTh": "สวนสาธารณะเฉลิมพระเกียรติ",
+  "nameEn": "Chaloem Phrakiat Park",
+  "lat": 19.9211444,
+  "lng": 99.8160204,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/968950271",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-970849385",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "หนองก็อบแก็บ",
+  "nameTh": "หนองก็อบแก็บ",
+  "nameEn": null,
+  "lat": 19.898727,
+  "lng": 99.7962118,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/970849385",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-970878860",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "น้ำลัด",
+  "nameTh": "น้ำลัด",
+  "nameEn": "Nam Lad",
+  "lat": 19.925961,
+  "lng": 99.8212837,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/970878860",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-970878865",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "น้ำลัด",
+  "nameTh": "น้ำลัด",
+  "nameEn": "Nam Lad",
+  "lat": 19.9294074,
+  "lng": 99.8134209,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/970878865",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-971101242",
   "province": "cr",
   "cat": [
@@ -53175,6 +55334,39 @@
    {
     "type": "osm",
     "ref": "way/990683033",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-991206435",
+  "province": "cr",
+  "cat": [
+   "parks"
+  ],
+  "sub": [
+   "water"
+  ],
+  "name": "คูเมืองเชียงราย",
+  "nameTh": "คูเมืองเชียงราย",
+  "nameEn": "Change Rai Moat",
+  "lat": 19.9078282,
+  "lng": 99.8256859,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/991206435",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }

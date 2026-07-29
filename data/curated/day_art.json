@@ -1,0 +1,52 @@
+{
+ "_comment": "Commons art for the day-deities and the พระประจำวันเกิด postures. Only files verified to actually DEPICT the subject are listed. A plain-text search for a posture name returns scanned books that merely mention it — 'A lexilogus of the English, Malay and Chinese languages' came back for ปางห้ามญาติ — so candidates were checked by hand and the four still unfound are named below rather than filled with something wrong.",
+ "verified": {
+  "rahu": {
+   "title": "File:Phra Rahu.gif",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Phra_Rahu.gif/960px-Phra_Rahu.gif",
+   "page": "https://commons.wikimedia.org/wiki/File:Phra_Rahu.gif",
+   "licence": "Public domain",
+   "artist": "Unknown author Unknown author",
+   "desc": "Phra Rahu riding Krat (garuda) holding a mallet a Brahminical diety to whom offerings are made in Siam"
+  },
+  "pang-palelai": {
+   "title": "File:081 Parileyya (9227853196).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/081_Parileyya_%289227853196%29.jpg/960px-081_Parileyya_%289227853196%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:081_Parileyya_(9227853196).jpg",
+   "licence": "CC BY 2.0",
+   "artist": "Photo Dharma from Penang, Malaysia",
+   "desc": "81 Parileyya, Tibetan Temple, Bodhgaya - Buddha Gautama being attended to by an elephant and a monkey in the Parileyyaka Forest. This painting depicts the Buddha while living in the deep forest, where no people were around who could support him by offering food. The monkey then gave the Buddha some "
+  },
+  "pang-saiyat": {
+   "title": "File:Wat Pho Reclining Buddha.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Wat_Pho_Reclining_Buddha.jpg/960px-Wat_Pho_Reclining_Buddha.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Wat_Pho_Reclining_Buddha.jpg",
+   "licence": "CC BY-SA 4.0",
+   "artist": "TomaszSwatowski",
+   "desc": "Reclining Buddha in Wat Pho temple complex in Bangkok, Thailand."
+  },
+  "pang-samathi": {
+   "title": "File:Thai - Seated Crowned Buddha, in Meditation - Walters 542831.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Thai_-_Seated_Crowned_Buddha%2C_in_Meditation_-_Walters_542831.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Thai_-_Seated_Crowned_Buddha,_in_Meditation_-_Walters_542831.jpg",
+   "licence": "Public domain",
+   "artist": "Anonymous ( Thailand ) Unknown author",
+   "desc": "The combination of wide eyes and narrow mouth gives this image a rather severe expression. Though it is now obscured with lacquer and gilding, the crown is of standard Ayutthaya type, with raised-line ornament. The typical Ayutthaya crowned Buddha, with such features as the headdress of tiered rings"
+  },
+  "pang-nak-prok": {
+   "title": "File:Nāga Prok Buddha in Bangkok National Museum.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/N%C4%81ga_Prok_Buddha_in_Bangkok_National_Museum.jpg/960px-N%C4%81ga_Prok_Buddha_in_Bangkok_National_Museum.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:N%C4%81ga_Prok_Buddha_in_Bangkok_National_Museum.jpg",
+   "licence": "CC BY-SA 4.0",
+   "artist": "Chainwit.",
+   "desc": "Nāga Prok (Nak Prok) Buddha in Lopburi art on permanent display at Bangkok National Museum"
+  }
+ },
+ "still_unfound": [
+  "pang-thawai-net",
+  "pang-ham-yat",
+  "pang-um-bat",
+  "pang-rampung"
+ ],
+ "note_unfound": "These four postures need a Commons category walk (Category:Buddha statues in Thailand and its subcategories) rather than a text search, or a hand-picked file."
+}

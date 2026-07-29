@@ -1,479 +1,644 @@
 {
-  "_comment": "Source registry for the events + contact-enrichment layer. This is the map, and it is meant to drive routine operations: importers read `endpoint`+`method`, honour `cadence`, and record results per `id`. Derived by reading one issue of the weekly Chiang Mai events newsletter (27 July 2026) exhaustively and then fetching what it points at. `status` is what was actually fetched and confirmed on the `verified_on` date — never what a source claims about itself. Sources marked `unverified` are named in the newsletter but not yet fetched; `blocked` refused a plain fetch; `walled` needs a login we will not use.",
-  "_yields_key": "events = dated or recurring happenings. contacts = phone / LINE / email / website / booking url for a place, i.e. fuel for the contact-coverage mission. weather = forecast data for the widget wall.",
-  "_cadence_key": "weekly = fast-decaying dated events. monthly = recurring weekly schedules, which change slowly. quarterly = institutional calendars. manual = needs a human.",
-  "generated": "2026-07-29",
-  "sources": [
+ "_comment": "Source registry for the events + contact-enrichment layer. This is the map, and it is meant to drive routine operations: importers read `endpoint`+`method`, honour `cadence`, and record results per `id`. Derived by reading one issue of the weekly Chiang Mai events newsletter (27 July 2026) exhaustively and then fetching what it points at. `status` is what was actually fetched and confirmed on the `verified_on` date — never what a source claims about itself. Sources marked `unverified` are named in the newsletter but not yet fetched; `blocked` refused a plain fetch; `walled` needs a login we will not use.",
+ "_yields_key": "events = dated or recurring happenings. contacts = phone / LINE / email / website / booking url for a place, i.e. fuel for the contact-coverage mission. weather = forecast data for the widget wall.",
+ "_cadence_key": "weekly = fast-decaying dated events. monthly = recurring weekly schedules, which change slowly. quarterly = institutional calendars. manual = needs a human.",
+ "generated": "2026-07-29",
+ "sources": [
+  {
+   "id": "meetup-ical",
+   "name": "Meetup — per-group iCal feeds",
+   "kind": "platform",
+   "url": "https://www.meetup.com/find/?location=th--Chiang-Mai&source=EVENTS",
+   "endpoint": "https://www.meetup.com/{group}/events/ical/",
+   "method": "ical",
+   "yields": [
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "groups": [
+    "chiang-mai-professionals-expats-and-digital-nomads",
+    "beyond-small-talk-chiang-mai",
+    "questionsthatmatter"
+   ],
+   "groups_seen_undiscovered": [
+    "make-new-friends-in-chiang-mai",
+    "creative-writing-meet-up",
+    "ai-engineers-in-thailand"
+   ],
+   "notes": "RFC-5545 with SUMMARY and DTSTART (TZID=Asia/Bangkok). No key, no JS. Weekly recurrences arrive pre-expanded. CAVEAT, measured: these feeds carry NO LOCATION property at all — 0 across all three Chiang Mai feeds — so the venue survives only in prose, either a '**Location:**' line in DESCRIPTION or an '@'/'at' tail on the title. harvest_events.py recovers ~54% of Meetup venues that way and marks them venue_from='title'/'description' so an inferred venue is never mistaken for a stated one. Group HTML pages render client-side and falsely report '0 upcoming events' — the iCal endpoint is the only sane path. The find page IS server-rendered, so discovering new group slugs is automatable.",
+   "venue_coverage": "0% stated, ~54% recoverable from prose"
+  },
+  {
+   "id": "payap-lll",
+   "name": "Lifelong Learning Payap — extension courses",
+   "kind": "institution",
+   "url": "https://www.lllpayap.com/events/",
+   "endpoint": "https://www.lllpayap.com/wp-json/tribe/events/v1/events?per_page=50",
+   "method": "json",
+   "yields": [
+    "events",
+    "contacts"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "priority": "high",
+   "notes": "The Events Calendar plugin REST API. 53 events across 2 pages, confirmed by direct urllib fetch. Per event: title, description, start/end + timezone, cost + currency, categories, tags, image, url. Nested venue carries address/city/province/zip/phone/website; nested organizer carries email. Also exposes /feed/ (blog write-ups of PAST activities, 10 items, not courses — do not mistake it for the calendar) and .ics export from /events/. Highest-volume single institution in the newsletter (~8 mentions in one issue). Also verified: .ics at /events/?ical=1 (PRODID ECPv6.17.1) — a fallback if the JSON API ever changes shape.",
+   "alt_endpoints": {
+    "ical": "https://www.lllpayap.com/events/?ical=1",
+    "rss_blog": "https://www.lllpayap.com/feed/"
+   }
+  },
+  {
+   "id": "citylife-whatson",
+   "name": "Chiang Mai Citylife — CityNow what's on",
+   "kind": "platform",
+   "url": "https://www.chiangmaicitylife.com/citynow/whats-on/",
+   "endpoint": "https://www.chiangmaicitylife.com/citynow/whats-on/live-music/",
+   "method": "html",
+   "yields": [
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Site ALIVE — events dated into Nov 2026, solicits submissions. Its RSS at /feed/ is separately confirmed DEAD (1 item, 2023-08-10); do not use the feed and do not conclude from it that the site is stale. Sections seen in the newsletter: /citynow/whats-on/live-music/ and /citynow/social-life/live-events/. Category-level feeds do NOT exist (/citynow/whats-on/feed/ and /citynow/social-life/live-events/feed/ both 404). /citynow/whats-on/ is the useful page; /citynow/social-life/live-events/ is mostly social photo coverage."
+  },
+  {
+   "id": "jogandjoy",
+   "name": "JOG&JOY — running events",
+   "kind": "platform",
+   "url": "https://www.jogandjoy.com/en",
+   "endpoint": "https://www.jogandjoy.com/thailand-running-calender",
+   "method": "html",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Government-SME organiser, 900+ events nationally. Confirmed CM races with dates and venues: 22K Night Run at Doi Suthep 2026-08-29, Bitcoin Half Marathon at Rot Fai Park 2026-11-22, Muang Thai CM Marathon at Tha Phae Gate 2026-12-20. No feed; browsable listing only. The calendar lives at /thailand-running-calender (note the misspelling in their URL) and is a plain HTML TABLE with columns DATE / EVENT / DISTANCE / PROVINCE / ORG — the province column makes filtering to Chiang Mai trivial. /en/calendar 404s."
+  },
+  {
+   "id": "chiangmainext",
+   "name": "Chiang Mai Next — calendar",
+   "kind": "platform",
+   "url": "https://chiangmainext.com/",
+   "endpoint": null,
+   "method": "blocked",
+   "yields": [
+    "events"
+   ],
+   "cadence": "manual",
+   "status": "blocked",
+   "verified_on": "2026-07-29",
+   "notes": "403 to a plain fetch. Flagged in the newsletter's Notices as a NEW Chiang Mai calendar, so potentially high value. Egress was confirmed working against other hosts in the same session, so this is their firewall. NEEDS A HUMAN LOOK IN A REAL BROWSER."
+  },
+  {
+   "id": "tourismthailand",
+   "name": "Tourism Authority of Thailand — events",
+   "kind": "institution",
+   "url": "https://www.tourismthailand.org/Search-result/events",
+   "endpoint": null,
+   "method": "blocked",
+   "yields": [
+    "events"
+   ],
+   "cadence": "manual",
+   "status": "blocked",
+   "verified_on": "2026-07-29",
+   "notes": "403. TAT Chiang Mai is the origin of several big newsletter items (Lanna Renaissance, Once Upon an Old Town, Big Bad Wolf, Chang Music Connection) but publishes via Facebook."
+  },
+  {
+   "id": "luma",
+   "name": "Luma (lu.ma) — tech/AI events",
+   "kind": "platform",
+   "url": "https://luma.com/3f2i6qhj",
+   "endpoint": null,
+   "method": "js-rendered",
+   "yields": [
+    "events"
+   ],
+   "cadence": "manual",
+   "status": "unusable",
+   "verified_on": "2026-07-29",
+   "notes": "Event pages render client-side with no JSON-LD in delivered HTML; no public feed found. Revisit if a calendar-level .ics turns up. Carries the AI/automation meetup scene."
+  },
+  {
+   "id": "allticket",
+   "name": "All Ticket — 7-Eleven counter ticketing",
+   "kind": "platform",
+   "url": "https://www.allticket.com/",
+   "endpoint": null,
+   "method": "js-rendered",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "unusable",
+   "notes": "HTTP 200 but an empty JS shell — /, /th/events and even /sitemap.xml return the identical header fragment. No server-rendered listings. Needs a headless browser to be worth anything.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "alliance-francaise-cm",
+   "name": "Alliance Française Chiang Mai",
+   "kind": "institution",
+   "url": "https://afchiangmai.com/culture/upcoming-events/",
+   "endpoint": null,
+   "method": "html",
+   "yields": [
+    "events",
+    "contacts"
+   ],
+   "cadence": "monthly",
+   "status": "verified",
+   "notes": "CORRECTION: the national site alliance-francaise.or.th has an EXPIRED TLS CERTIFICATE and cannot be fetched. The Chiang Mai branch runs its own live WordPress at afchiangmai.com — /culture/upcoming-events/ lists events to 2026-08-28 incl. the weekly Friday cinema (100 THB). No feed found. Contacts stated on site: 053 275 277 / 080 067 1650, infochiangmai@alliance-francaise.or.th.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "cm-expats-club",
+   "name": "Chiang Mai Expats Club",
+   "kind": "institution",
+   "url": "https://www.chiangmaiexpatsclub.com/",
+   "endpoint": null,
+   "method": "js-rendered",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "unusable",
+   "notes": "Google Sites: navigation renders but page BODIES come back empty to a plain fetch — /home/events-activities/calendar and /upcoming-events-meetings both returned nav only. Needs a headless browser. Ticketing via TicketTailor. info@chiangmaiexpatsclub.com.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "bridgewebs-cm",
+   "name": "Chiang Mai Bridge Club",
+   "kind": "institution",
+   "url": "https://www.bridgewebs.com/chiangmai/",
+   "endpoint": "https://www.bridgewebs.com/chiangmai/",
+   "method": "html",
+   "yields": [
+    "events"
+   ],
+   "cadence": "quarterly",
+   "status": "verified",
+   "notes": "Verified FRESH — results posted 2026-07-28, updated near-daily. Plain CGI-rendered HTML, no feed. Recurring Mon/Wed/Fri sessions plus named officer contacts incl. phone 084 481 3280. Small but reliably current.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "playtomic-padel-cm",
+   "name": "Padel Club Chiang Mai (Playtomic)",
+   "kind": "venue",
+   "url": "https://app.playtomic.io/tenant/81c96967-fccb-4b98-9b1d-2ce7e8e1d129",
+   "endpoint": null,
+   "method": "js-rendered",
+   "yields": [
+    "events"
+   ],
+   "cadence": "quarterly",
+   "status": "unverified",
+   "notes": "Six days a week of sessions. Playtomic has a documented booking API; tenant id is known."
+  },
+  {
+   "id": "pitchero-cm-cobras",
+   "name": "Chiang Mai Cobras RFC (Pitchero)",
+   "kind": "institution",
+   "url": "https://www.pitchero.com/clubs/chiangmaicobras",
+   "endpoint": null,
+   "method": "html",
+   "yields": [
+    "contacts"
+   ],
+   "cadence": "manual",
+   "status": "stale",
+   "notes": "Reachable and server-rendered, but the last fixture is dated 2025-11-13 — about 8 months stale. NOT viable as a recurring events feed. Still yields contacts: +6663 584 5175, address in Mae Hia.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "chiangmaipao",
+   "name": "Chiang Mai Provincial Administrative Organization",
+   "kind": "institution",
+   "url": "https://www.chiangmaipao.go.th/",
+   "endpoint": null,
+   "method": "blocked",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "blocked",
+   "notes": "HTTP 403 on www, apex and /index.php. Assumption that a .go.th would be crawl-tolerant was WRONG. Hard block.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "buddhadailywisdom",
+   "name": "Buddha Daily Wisdom — Wat Tung Yu programmes",
+   "kind": "venue",
+   "url": "https://www.buddhadailywisdom.com/",
+   "endpoint": null,
+   "method": "html",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "verified",
+   "notes": "CORRECTION: /chiangmai-meditation 404s. The root domain works — retreat 2026-08-16..21 and courses listed to Jan 2027. Wix; /eventscalendar renders without dates. Contacts stated: LINE buddhateacherlove, +66 61-905-4774, hello@BuddhaDailyWisdom.com. Wat Tung Yu programmes bridge events and the wat category.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "venue-sites",
+   "name": "Venue-owned sites with recurring schedules",
+   "kind": "venue-group",
+   "url": null,
+   "endpoint": null,
+   "method": "html",
+   "yields": [
+    "events",
+    "contacts"
+   ],
+   "cadence": "monthly",
+   "status": "unverified",
+   "members": [
     {
-      "id": "meetup-ical",
-      "name": "Meetup — per-group iCal feeds",
-      "kind": "platform",
-      "url": "https://www.meetup.com/find/?location=th--Chiang-Mai&source=EVENTS",
-      "endpoint": "https://www.meetup.com/{group}/events/ical/",
-      "method": "ical",
-      "yields": [
-        "events"
-      ],
-      "cadence": "weekly",
-      "status": "verified",
-      "verified_on": "2026-07-29",
-      "groups": [
-        "chiang-mai-professionals-expats-and-digital-nomads",
-        "beyond-small-talk-chiang-mai",
-        "questionsthatmatter"
-      ],
-      "groups_seen_undiscovered": [
-        "make-new-friends-in-chiang-mai",
-        "creative-writing-meet-up",
-        "ai-engineers-in-thailand"
-      ],
-      "notes": "RFC-5545 with SUMMARY and DTSTART (TZID=Asia/Bangkok). No key, no JS. Weekly recurrences arrive pre-expanded. CAVEAT, measured: these feeds carry NO LOCATION property at all — 0 across all three Chiang Mai feeds — so the venue survives only in prose, either a '**Location:**' line in DESCRIPTION or an '@'/'at' tail on the title. harvest_events.py recovers ~54% of Meetup venues that way and marks them venue_from='title'/'description' so an inferred venue is never mistaken for a stated one. Group HTML pages render client-side and falsely report '0 upcoming events' — the iCal endpoint is the only sane path. The find page IS server-rendered, so discovering new group slugs is automatable.",
-      "venue_coverage": "0% stated, ~54% recoverable from prose"
+     "name": "Maa Yoga Studio & Spa",
+     "url": "https://www.maawellnessretreat.com",
+     "recurring": "5 days/wk wellness rituals"
     },
     {
-      "id": "payap-lll",
-      "name": "Lifelong Learning Payap — extension courses",
-      "kind": "institution",
-      "url": "https://www.lllpayap.com/events/",
-      "endpoint": "https://www.lllpayap.com/wp-json/tribe/events/v1/events?per_page=50",
-      "method": "json",
-      "yields": [
-        "events",
-        "contacts"
-      ],
-      "cadence": "weekly",
-      "status": "verified",
-      "verified_on": "2026-07-29",
-      "priority": "high",
-      "notes": "The Events Calendar plugin REST API. 53 events across 2 pages, confirmed by direct urllib fetch. Per event: title, description, start/end + timezone, cost + currency, categories, tags, image, url. Nested venue carries address/city/province/zip/phone/website; nested organizer carries email. Also exposes /feed/ (blog write-ups of PAST activities, 10 items, not courses — do not mistake it for the calendar) and .ics export from /events/. Highest-volume single institution in the newsletter (~8 mentions in one issue). Also verified: .ics at /events/?ical=1 (PRODID ECPv6.17.1) — a fallback if the JSON API ever changes shape.",
-      "alt_endpoints": {
-        "ical": "https://www.lllpayap.com/events/?ical=1",
-        "rss_blog": "https://www.lllpayap.com/feed/"
-      }
+     "name": "Chiang Mai Holistic",
+     "url": "http://www.chiangmaiholistic.com",
+     "recurring": "4 recurring sound baths/wk"
     },
     {
-      "id": "citylife-whatson",
-      "name": "Chiang Mai Citylife — CityNow what's on",
-      "kind": "platform",
-      "url": "https://www.chiangmaicitylife.com/citynow/whats-on/",
-      "endpoint": "https://www.chiangmaicitylife.com/citynow/whats-on/live-music/",
-      "method": "html",
-      "yields": [
-        "events"
-      ],
-      "cadence": "weekly",
-      "status": "verified",
-      "verified_on": "2026-07-29",
-      "notes": "Site ALIVE — events dated into Nov 2026, solicits submissions. Its RSS at /feed/ is separately confirmed DEAD (1 item, 2023-08-10); do not use the feed and do not conclude from it that the site is stale. Sections seen in the newsletter: /citynow/whats-on/live-music/ and /citynow/social-life/live-events/. Category-level feeds do NOT exist (/citynow/whats-on/feed/ and /citynow/social-life/live-events/feed/ both 404). /citynow/whats-on/ is the useful page; /citynow/social-life/live-events/ is mostly social photo coverage."
+     "name": "Jason Ryer breathwork",
+     "url": "https://jasonryer.com",
+     "recurring": "3 recurring/wk incl. ice bath"
     },
     {
-      "id": "jogandjoy",
-      "name": "JOG&JOY — running events",
-      "kind": "platform",
-      "url": "https://www.jogandjoy.com/en",
-      "endpoint": "https://www.jogandjoy.com/thailand-running-calender",
-      "method": "html",
-      "yields": [
-        "events"
-      ],
-      "cadence": "monthly",
-      "status": "verified",
-      "verified_on": "2026-07-29",
-      "notes": "Government-SME organiser, 900+ events nationally. Confirmed CM races with dates and venues: 22K Night Run at Doi Suthep 2026-08-29, Bitcoin Half Marathon at Rot Fai Park 2026-11-22, Muang Thai CM Marathon at Tha Phae Gate 2026-12-20. No feed; browsable listing only. The calendar lives at /thailand-running-calender (note the misspelling in their URL) and is a plain HTML TABLE with columns DATE / EVENT / DISTANCE / PROVINCE / ORG — the province column makes filtering to Chiang Mai trivial. /en/calendar 404s."
+     "name": "DANCEmandala",
+     "url": "https://dancemandala.com",
+     "recurring": "Sat movement meditation"
     },
     {
-      "id": "chiangmainext",
-      "name": "Chiang Mai Next — calendar",
-      "kind": "platform",
-      "url": "https://chiangmainext.com/",
-      "endpoint": null,
-      "method": "blocked",
-      "yields": [
-        "events"
-      ],
-      "cadence": "manual",
-      "status": "blocked",
-      "verified_on": "2026-07-29",
-      "notes": "403 to a plain fetch. Flagged in the newsletter's Notices as a NEW Chiang Mai calendar, so potentially high value. Egress was confirmed working against other hosts in the same session, so this is their firewall. NEEDS A HUMAN LOOK IN A REAL BROWSER."
+     "name": "Cognitive Fitness Coach",
+     "url": "https://www.cognitivefitnesscoach.com/events",
+     "recurring": "mindful jog"
     },
     {
-      "id": "tourismthailand",
-      "name": "Tourism Authority of Thailand — events",
-      "kind": "institution",
-      "url": "https://www.tourismthailand.org/Search-result/events",
-      "endpoint": null,
-      "method": "blocked",
-      "yields": [
-        "events"
-      ],
-      "cadence": "manual",
-      "status": "blocked",
-      "verified_on": "2026-07-29",
-      "notes": "403. TAT Chiang Mai is the origin of several big newsletter items (Lanna Renaissance, Once Upon an Old Town, Big Bad Wolf, Chang Music Connection) but publishes via Facebook."
+     "name": "RealSpace CM",
+     "url": "https://realspacecm.com",
+     "recurring": "Sat social, Sun Mafia"
     },
     {
-      "id": "luma",
-      "name": "Luma (lu.ma) — tech/AI events",
-      "kind": "platform",
-      "url": "https://luma.com/3f2i6qhj",
-      "endpoint": null,
-      "method": "js-rendered",
-      "yields": [
-        "events"
-      ],
-      "cadence": "manual",
-      "status": "unusable",
-      "verified_on": "2026-07-29",
-      "notes": "Event pages render client-side with no JSON-LD in delivered HTML; no public feed found. Revisit if a calendar-level .ics turns up. Carries the AI/automation meetup scene."
+     "name": "Archers Bar",
+     "url": "https://archersbar.net",
+     "recurring": "Tue quiz, Sun roast (12 yrs unbroken)"
     },
     {
-      "id": "allticket",
-      "name": "All Ticket — 7-Eleven counter ticketing",
-      "kind": "platform",
-      "url": "https://www.allticket.com/",
-      "endpoint": null,
-      "method": "js-rendered",
-      "yields": [
-        "events"
-      ],
-      "cadence": "monthly",
-      "status": "unusable",
-      "notes": "HTTP 200 but an empty JS shell — /, /th/events and even /sitemap.xml return the identical header fragment. No server-rendered listings. Needs a headless browser to be worth anything.",
-      "verified_on": "2026-07-29"
+     "name": "The Riverside",
+     "url": "http://www.theriversidechiangmai.com",
+     "recurring": "Sun music"
     },
     {
-      "id": "alliance-francaise-cm",
-      "name": "Alliance Française Chiang Mai",
-      "kind": "institution",
-      "url": "https://afchiangmai.com/culture/upcoming-events/",
-      "endpoint": null,
-      "method": "html",
-      "yields": [
-        "events",
-        "contacts"
-      ],
-      "cadence": "monthly",
-      "status": "verified",
-      "notes": "CORRECTION: the national site alliance-francaise.or.th has an EXPIRED TLS CERTIFICATE and cannot be fetched. The Chiang Mai branch runs its own live WordPress at afchiangmai.com — /culture/upcoming-events/ lists events to 2026-08-28 incl. the weekly Friday cinema (100 THB). No feed found. Contacts stated on site: 053 275 277 / 080 067 1650, infochiangmai@alliance-francaise.or.th.",
-      "verified_on": "2026-07-29"
+     "name": "Gekko Garden",
+     "url": "https://www.gekkogardenrestaurant.com",
+     "recurring": "Sun roast buffet"
     },
     {
-      "id": "cm-expats-club",
-      "name": "Chiang Mai Expats Club",
-      "kind": "institution",
-      "url": "https://www.chiangmaiexpatsclub.com/",
-      "endpoint": null,
-      "method": "js-rendered",
-      "yields": [
-        "events"
-      ],
-      "cadence": "monthly",
-      "status": "unusable",
-      "notes": "Google Sites: navigation renders but page BODIES come back empty to a plain fetch — /home/events-activities/calendar and /upcoming-events-meetings both returned nav only. Needs a headless browser. Ticketing via TicketTailor. info@chiangmaiexpatsclub.com.",
-      "verified_on": "2026-07-29"
+     "name": "Favola (Marriott)",
+     "url": "https://www.favolachiangmai.com",
+     "recurring": "Sun bottomless brunch"
     },
     {
-      "id": "bridgewebs-cm",
-      "name": "Chiang Mai Bridge Club",
-      "kind": "institution",
-      "url": "https://www.bridgewebs.com/chiangmai/",
-      "endpoint": "https://www.bridgewebs.com/chiangmai/",
-      "method": "html",
-      "yields": [
-        "events"
-      ],
-      "cadence": "quarterly",
-      "status": "verified",
-      "notes": "Verified FRESH — results posted 2026-07-28, updated near-daily. Plain CGI-rendered HTML, no feed. Recurring Mon/Wed/Fri sessions plus named officer contacts incl. phone 084 481 3280. Small but reliably current.",
-      "verified_on": "2026-07-29"
+     "name": "Le Crystal",
+     "url": "https://lecrystalrestaurant.com",
+     "recurring": "seasonal menu"
     },
     {
-      "id": "playtomic-padel-cm",
-      "name": "Padel Club Chiang Mai (Playtomic)",
-      "kind": "venue",
-      "url": "https://app.playtomic.io/tenant/81c96967-fccb-4b98-9b1d-2ce7e8e1d129",
-      "endpoint": null,
-      "method": "js-rendered",
-      "yields": [
-        "events"
-      ],
-      "cadence": "quarterly",
-      "status": "unverified",
-      "notes": "Six days a week of sessions. Playtomic has a documented booking API; tenant id is known."
+     "name": "Berlin's Doner Kebab",
+     "url": "https://www.berlinsdonerkebab.com",
+     "recurring": "daily 10am-2am"
     },
     {
-      "id": "pitchero-cm-cobras",
-      "name": "Chiang Mai Cobras RFC (Pitchero)",
-      "kind": "institution",
-      "url": "https://www.pitchero.com/clubs/chiangmaicobras",
-      "endpoint": null,
-      "method": "html",
-      "yields": [
-        "contacts"
-      ],
-      "cadence": "manual",
-      "status": "stale",
-      "notes": "Reachable and server-rendered, but the last fixture is dated 2025-11-13 — about 8 months stale. NOT viable as a recurring events feed. Still yields contacts: +6663 584 5175, address in Mae Hia.",
-      "verified_on": "2026-07-29"
+     "name": "The Duke's (5 branches)",
+     "url": "https://wherestheduke.com",
+     "recurring": "monthly breakfast buffet, early bird"
     },
     {
-      "id": "chiangmaipao",
-      "name": "Chiang Mai Provincial Administrative Organization",
-      "kind": "institution",
-      "url": "https://www.chiangmaipao.go.th/",
-      "endpoint": null,
-      "method": "blocked",
-      "yields": [
-        "events"
-      ],
-      "cadence": "monthly",
-      "status": "blocked",
-      "notes": "HTTP 403 on www, apex and /index.php. Assumption that a .go.th would be crawl-tolerant was WRONG. Hard block.",
-      "verified_on": "2026-07-29"
+     "name": "U Nimman / Eat@Rincome",
+     "url": "https://www.uhotelsresorts.com/unimmanchiangmai",
+     "recurring": "Thu-Sun seafood"
     },
     {
-      "id": "buddhadailywisdom",
-      "name": "Buddha Daily Wisdom — Wat Tung Yu programmes",
-      "kind": "venue",
-      "url": "https://www.buddhadailywisdom.com/",
-      "endpoint": null,
-      "method": "html",
-      "yields": [
-        "events"
-      ],
-      "cadence": "monthly",
-      "status": "verified",
-      "notes": "CORRECTION: /chiangmai-meditation 404s. The root domain works — retreat 2026-08-16..21 and courses listed to Jan 2027. Wix; /eventscalendar renders without dates. Contacts stated: LINE buddhateacherlove, +66 61-905-4774, hello@BuddhaDailyWisdom.com. Wat Tung Yu programmes bridge events and the wat category.",
-      "verified_on": "2026-07-29"
+     "name": "Eastin Tan",
+     "url": "https://www.eastinhotelsresidences.com/eastintanchiangmai",
+     "recurring": "weekend lunch buffet"
     },
     {
-      "id": "venue-sites",
-      "name": "Venue-owned sites with recurring schedules",
-      "kind": "venue-group",
-      "url": null,
-      "endpoint": null,
-      "method": "html",
-      "yields": [
-        "events",
-        "contacts"
-      ],
-      "cadence": "monthly",
-      "status": "unverified",
-      "members": [
-        {
-          "name": "Maa Yoga Studio & Spa",
-          "url": "https://www.maawellnessretreat.com",
-          "recurring": "5 days/wk wellness rituals"
-        },
-        {
-          "name": "Chiang Mai Holistic",
-          "url": "http://www.chiangmaiholistic.com",
-          "recurring": "4 recurring sound baths/wk"
-        },
-        {
-          "name": "Jason Ryer breathwork",
-          "url": "https://jasonryer.com",
-          "recurring": "3 recurring/wk incl. ice bath"
-        },
-        {
-          "name": "DANCEmandala",
-          "url": "https://dancemandala.com",
-          "recurring": "Sat movement meditation"
-        },
-        {
-          "name": "Cognitive Fitness Coach",
-          "url": "https://www.cognitivefitnesscoach.com/events",
-          "recurring": "mindful jog"
-        },
-        {
-          "name": "RealSpace CM",
-          "url": "https://realspacecm.com",
-          "recurring": "Sat social, Sun Mafia"
-        },
-        {
-          "name": "Archers Bar",
-          "url": "https://archersbar.net",
-          "recurring": "Tue quiz, Sun roast (12 yrs unbroken)"
-        },
-        {
-          "name": "The Riverside",
-          "url": "http://www.theriversidechiangmai.com",
-          "recurring": "Sun music"
-        },
-        {
-          "name": "Gekko Garden",
-          "url": "https://www.gekkogardenrestaurant.com",
-          "recurring": "Sun roast buffet"
-        },
-        {
-          "name": "Favola (Marriott)",
-          "url": "https://www.favolachiangmai.com",
-          "recurring": "Sun bottomless brunch"
-        },
-        {
-          "name": "Le Crystal",
-          "url": "https://lecrystalrestaurant.com",
-          "recurring": "seasonal menu"
-        },
-        {
-          "name": "Berlin's Doner Kebab",
-          "url": "https://www.berlinsdonerkebab.com",
-          "recurring": "daily 10am-2am"
-        },
-        {
-          "name": "The Duke's (5 branches)",
-          "url": "https://wherestheduke.com",
-          "recurring": "monthly breakfast buffet, early bird"
-        },
-        {
-          "name": "U Nimman / Eat@Rincome",
-          "url": "https://www.uhotelsresorts.com/unimmanchiangmai",
-          "recurring": "Thu-Sun seafood"
-        },
-        {
-          "name": "Eastin Tan",
-          "url": "https://www.eastinhotelsresidences.com/eastintanchiangmai",
-          "recurring": "weekend lunch buffet"
-        },
-        {
-          "name": "137 Pillars House",
-          "url": "https://137pillarshotels.com/en/chiangmai",
-          "recurring": "monthly trading club, afternoon tea"
-        },
-        {
-          "name": "Cross Chiang Mai Riverside",
-          "url": "https://crosschiangmairiverside.com/dine",
-          "recurring": "daily brunch"
-        },
-        {
-          "name": "Skugga Vineyard",
-          "url": "https://skuggalife.com",
-          "recurring": "Sun brunch"
-        },
-        {
-          "name": "Araksa Tea Garden",
-          "url": "https://www.araksatea.com",
-          "recurring": "via Payap excursions"
-        }
-      ],
-      "notes": "Each is a small, slow-changing page. Value is dual: a recurring weekly schedule AND first-party contact details for a place already in the catalogue. Batch these into one monthly sweep rather than treating each as its own source. VERIFIED CONTACT-ONLY (no dated events, refresh rarely): realspacecm +66 96 717 4878; maawellnessretreat via wa.me/66843615688; chiangmaiholistic LINE @cmholistic, +66 83 248 1250 / +66 91 859 1308, info@chiangmaiholistic.com — that last one also has weekly recurring sessions but dates them day-of-month with no year."
+     "name": "137 Pillars House",
+     "url": "https://137pillarshotels.com/en/chiangmai",
+     "recurring": "monthly trading club, afternoon tea"
     },
     {
-      "id": "line-official-accounts",
-      "name": "LINE Official Accounts seen in one issue",
-      "kind": "contact-channel",
-      "url": null,
-      "endpoint": null,
-      "method": "manual",
-      "yields": [
-        "contacts"
-      ],
-      "cadence": "manual",
-      "status": "extracted",
-      "verified_on": "2026-07-29",
-      "handles": [
-        "@kantarychiangmai",
-        "@interconchiangmai",
-        "@137pillarshouse",
-        "@cmholistic",
-        "@skuggavineyard",
-        "@crossriverside",
-        "@anantarachiangmai"
-      ],
-      "short_links": [
-        "https://lin.ee/7hb90qp",
-        "https://lin.ee/bm1Fmn9",
-        "https://lin.ee/NgWEcrL",
-        "https://lin.ee/x8mkADz",
-        "https://lin.ee/O6esFM5",
-        "https://lin.ee/QZVdRBU",
-        "https://lin.ee/U9mFL3p"
-      ],
-      "notes": "Confirms the gemba finding that LINE is the real Thai-facing channel. These map onto existing place records and feed the claim system directly — LINE is ranked second in channels() after phone."
+     "name": "Cross Chiang Mai Riverside",
+     "url": "https://crosschiangmairiverside.com/dine",
+     "recurring": "daily brunch"
     },
     {
-      "id": "social-walled",
-      "name": "Facebook / Instagram / WhatsApp — named but login-walled",
-      "kind": "social",
-      "url": null,
-      "endpoint": null,
-      "method": "walled",
-      "yields": [
-        "events",
-        "contacts"
-      ],
-      "cadence": "manual",
-      "status": "walled",
-      "verified_on": "2026-07-29",
-      "notes": "A large share of the newsletter's events exist ONLY here — facebook.com/events/<id>, group ids, IG handles, chat.whatsapp.com invite links. This is a structural ceiling on coverage, not a bug to fix. Value that IS extractable without logging in: the page IDENTITY (handle) as a contact field and claim target on the matching place record."
+     "name": "Skugga Vineyard",
+     "url": "https://skuggalife.com",
+     "recurring": "Sun brunch"
     },
     {
-      "id": "steve-newsletter",
-      "name": "Weekly Chiang Mai events newsletter",
-      "kind": "aggregator",
-      "url": "https://tiny.cc/stevesemail",
-      "endpoint": null,
-      "method": "manual",
-      "yields": [
-        "events",
-        "contacts"
-      ],
-      "cadence": "weekly",
-      "status": "partnership-pending",
-      "notes": "Hand-assembled weekly email; public Google Doc mirror at the url. The body text is venue-supplied press-release copy, not the compiler's own writing — the asset is the DISTRIBUTION LIST of who sends releases in, which is exactly what a crawl cannot reproduce. Partnership offered 2026-07-28, no reply as of 2026-07-29. Treat as a discovery feed for NEW sources to add to this registry, not as a thing to copy."
-    },
-    {
-      "id": "onenimman",
-      "name": "One Nimman",
-      "kind": "venue",
-      "url": "https://www.onenimman.com/",
-      "endpoint": null,
-      "method": "blocked",
-      "yields": [
-        "events"
-      ],
-      "cadence": "manual",
-      "status": "blocked",
-      "verified_on": "2026-07-29",
-      "notes": "HTTP 403 on www, apex and /whats-on — a hard bot block, not a rendering issue. Notable because One Nimman hosts the White Market (Thu-Sun) plus six weekly classes, so it is high-value and unreachable. Manual or owner-claim only."
-    },
-    {
-      "id": "major-showtimes",
-      "name": "Major Cineplex — showtimes (CM + CR screens)",
-      "kind": "platform",
-      "url": "https://www.majorcineplex.com/",
-      "endpoint": "[removed]",
-      "method": "post-form",
-      "yields": [
-        "events"
-      ],
-      "cadence": "daily",
-      "status": "verified",
-      "verified_on": "2026-07-29",
-      "priority": "high",
-      "cinema_ids": {
-        "91": "Central Festival CM",
-        "92": "IMAX Central Festival CM",
-        "40": "CM Airport",
-        "61": "Central Chiang Rai",
-        "188": "Big C Chiang Rai"
-      },
-      "notes": "SUPERSEDES the earlier 'cinemas are unreachable' verdict. The shape of the request is deliberately not published here. Verified live: 183 screenings across 5 CM/CR screens. Only ~2 days of real schedule — day 3+ lists advance-sale titles only, which is the chain's own behaviour, not a parse failure. Importer: importers/make_showtimes.py"
-    },
-    {
-      "id": "open-meteo",
-      "name": "Open-Meteo — weather for the widget",
-      "kind": "platform",
-      "url": "https://open-meteo.com/",
-      "endpoint": "https://api.open-meteo.com/v1/forecast",
-      "method": "json",
-      "yields": [
-        "weather"
-      ],
-      "cadence": "daily",
-      "status": "verified",
-      "verified_on": "2026-07-29",
-      "notes": "Free, keyless, no attribution requirement, CC-BY 4.0, and it accepts every coordinate in ONE request — 15 cities in a single call. Baked by importers/make_weather.py so published pages still make no external request; the reader picks which baked cities to show. A free-text city search would mean a live call from the browser, which this site does not do."
+     "name": "Araksa Tea Garden",
+     "url": "https://www.araksatea.com",
+     "recurring": "via Payap excursions"
     }
-  ]
+   ],
+   "notes": "Each is a small, slow-changing page. Value is dual: a recurring weekly schedule AND first-party contact details for a place already in the catalogue. Batch these into one monthly sweep rather than treating each as its own source. VERIFIED CONTACT-ONLY (no dated events, refresh rarely): realspacecm +66 96 717 4878; maawellnessretreat via wa.me/66843615688; chiangmaiholistic LINE @cmholistic, +66 83 248 1250 / +66 91 859 1308, info@chiangmaiholistic.com — that last one also has weekly recurring sessions but dates them day-of-month with no year."
+  },
+  {
+   "id": "line-official-accounts",
+   "name": "LINE Official Accounts seen in one issue",
+   "kind": "contact-channel",
+   "url": null,
+   "endpoint": null,
+   "method": "manual",
+   "yields": [
+    "contacts"
+   ],
+   "cadence": "manual",
+   "status": "extracted",
+   "verified_on": "2026-07-29",
+   "handles": [
+    "@kantarychiangmai",
+    "@interconchiangmai",
+    "@137pillarshouse",
+    "@cmholistic",
+    "@skuggavineyard",
+    "@crossriverside",
+    "@anantarachiangmai"
+   ],
+   "short_links": [
+    "https://lin.ee/7hb90qp",
+    "https://lin.ee/bm1Fmn9",
+    "https://lin.ee/NgWEcrL",
+    "https://lin.ee/x8mkADz",
+    "https://lin.ee/O6esFM5",
+    "https://lin.ee/QZVdRBU",
+    "https://lin.ee/U9mFL3p"
+   ],
+   "notes": "Confirms the gemba finding that LINE is the real Thai-facing channel. These map onto existing place records and feed the claim system directly — LINE is ranked second in channels() after phone."
+  },
+  {
+   "id": "social-walled",
+   "name": "Facebook / Instagram / WhatsApp — named but login-walled",
+   "kind": "social",
+   "url": null,
+   "endpoint": null,
+   "method": "walled",
+   "yields": [
+    "events",
+    "contacts"
+   ],
+   "cadence": "manual",
+   "status": "walled",
+   "verified_on": "2026-07-29",
+   "notes": "A large share of the newsletter's events exist ONLY here — facebook.com/events/<id>, group ids, IG handles, chat.whatsapp.com invite links. This is a structural ceiling on coverage, not a bug to fix. Value that IS extractable without logging in: the page IDENTITY (handle) as a contact field and claim target on the matching place record."
+  },
+  {
+   "id": "steve-newsletter",
+   "name": "Weekly Chiang Mai events newsletter",
+   "kind": "aggregator",
+   "url": "https://tiny.cc/stevesemail",
+   "endpoint": null,
+   "method": "manual",
+   "yields": [
+    "events",
+    "contacts"
+   ],
+   "cadence": "weekly",
+   "status": "partnership-pending",
+   "notes": "Hand-assembled weekly email; public Google Doc mirror at the url. The body text is venue-supplied press-release copy, not the compiler's own writing — the asset is the DISTRIBUTION LIST of who sends releases in, which is exactly what a crawl cannot reproduce. Partnership offered 2026-07-28, no reply as of 2026-07-29. Treat as a discovery feed for NEW sources to add to this registry, not as a thing to copy."
+  },
+  {
+   "id": "onenimman",
+   "name": "One Nimman",
+   "kind": "venue",
+   "url": "https://www.onenimman.com/",
+   "endpoint": null,
+   "method": "blocked",
+   "yields": [
+    "events"
+   ],
+   "cadence": "manual",
+   "status": "blocked",
+   "verified_on": "2026-07-29",
+   "notes": "HTTP 403 on www, apex and /whats-on — a hard bot block, not a rendering issue. Notable because One Nimman hosts the White Market (Thu-Sun) plus six weekly classes, so it is high-value and unreachable. Manual or owner-claim only."
+  },
+  {
+   "id": "major-showtimes",
+   "name": "Major Cineplex — showtimes (CM + CR screens)",
+   "kind": "platform",
+   "url": "https://www.majorcineplex.com/",
+   "endpoint": "[removed]",
+   "method": "post-form",
+   "yields": [
+    "events"
+   ],
+   "cadence": "daily",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "priority": "high",
+   "cinema_ids": {
+    "91": "Central Festival CM",
+    "92": "IMAX Central Festival CM",
+    "40": "CM Airport",
+    "61": "Central Chiang Rai",
+    "188": "Big C Chiang Rai"
+   },
+   "notes": "SUPERSEDES the earlier 'cinemas are unreachable' verdict. The shape of the request is deliberately not published here. Verified live: 183 screenings across 5 CM/CR screens. Only ~2 days of real schedule — day 3+ lists advance-sale titles only, which is the chain's own behaviour, not a parse failure. Importer: importers/make_showtimes.py"
+  },
+  {
+   "id": "open-meteo",
+   "name": "Open-Meteo — weather for the widget",
+   "kind": "platform",
+   "url": "https://open-meteo.com/",
+   "endpoint": "https://api.open-meteo.com/v1/forecast",
+   "method": "json",
+   "yields": [
+    "weather"
+   ],
+   "cadence": "daily",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Free, keyless, no attribution requirement, CC-BY 4.0, and it accepts every coordinate in ONE request — 15 cities in a single call. Baked by importers/make_weather.py so published pages still make no external request; the reader picks which baked cities to show. A free-text city search would mean a live call from the browser, which this site does not do."
+  },
+  {
+   "id": "prd-chiangmai",
+   "name": "สำนักงานประชาสัมพันธ์จังหวัดเชียงใหม่ — Chiang Mai Provincial PR Office",
+   "kind": "government",
+   "url": "https://chiangmai.prd.go.th/",
+   "endpoint": "https://chiangmai.prd.go.th/",
+   "method": "html",
+   "yields": [
+    "festival-dates",
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Server-rendered, no JS needed, ~17k Thai characters on the homepage. News articles are /th/content/category/detail/id/N/iid/N — 85 of them linked from the front page, headline in the anchor text, which is enough to parse a date out of. This is the source the spec wanted at priority 2 and it works, unlike tourismthailand (blocked) and chiangmaipao (blocked). CAVEAT, measured: the traffic is overwhelmingly RETROSPECTIVE — 'the governor attended', 'citizens joined' — so harvest_festivals.py requires a forward-looking verb (ขอเชิญ / เตรียมจัด / กำหนดจัด) before it will treat a parsed date as an announcement. A /th/calendar/article/index/id/2 route exists but returned only site chrome.",
+   "venue_coverage": "n/a — announcements, not venues"
+  },
+  {
+   "id": "prd-chiangrai",
+   "name": "สำนักงานประชาสัมพันธ์จังหวัดเชียงราย — Chiang Rai Provincial PR Office",
+   "kind": "government",
+   "url": "https://chiangrai.prd.go.th/",
+   "endpoint": "https://chiangrai.prd.go.th/",
+   "method": "html",
+   "yields": [
+    "festival-dates",
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Same PRD platform and same link shape as the Chiang Mai office, ~24k Thai characters on the homepage. Carries the Chiang Rai provincial festival announcements (Mengrai festival, Doi Tung, the lychee fair). Same retrospective-news caveat.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "cmcity-activities",
+   "name": "เทศบาลนครเชียงใหม่ ข่าวกิจกรรม — Chiang Mai Municipality activity news",
+   "kind": "government",
+   "url": "https://www.cmcity.go.th/",
+   "endpoint": "https://www.cmcity.go.th/list/group/321/ข่าวกิจกรรม/",
+   "method": "html",
+   "yields": [
+    "festival-dates",
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "The municipality, not the province — this is who actually runs Inthakhin, Songkran on the moat and Yi Peng in the city. Server-rendered, ~31k Thai characters. Article URLs are /News/N-<the headline in Thai>, so the title survives in the path itself. Group 321 is ข่าวกิจกรรม; group 495 is ข้อมูลต่างๆของถนนคนเดิน (walking-street info) and is worth a separate pass for the Sunday market.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "cea-cmdw",
+   "name": "เทศกาลงานออกแบบเชียงใหม่ (CEA) — Chiang Mai Design Week",
+   "kind": "organiser",
+   "url": "https://www.chiangmaidesignweek.com/",
+   "endpoint": "https://www.chiangmaidesignweek.com/",
+   "method": "html",
+   "yields": [
+    "festival-dates",
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Redirects to the current year's edition (/cmdw2026 as of the probe), server-rendered. Organiser-owned, so its dates are authoritative for cm-design-week. Front page is mostly marketing copy — the probe's first pass parsed a stray date span out of a slogan, which is why harvest_festivals.py caps a festival span at 45 days.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "singhapark",
+   "name": "Singha Park Chiang Rai",
+   "kind": "organiser",
+   "url": "https://singhapark.com/",
+   "endpoint": "https://singhapark.com/",
+   "method": "html",
+   "yields": [
+    "festival-dates"
+   ],
+   "cadence": "monthly",
+   "status": "thin",
+   "verified_on": "2026-07-29",
+   "notes": "Answers a plain fetch and is server-rendered, but the homepage is only ~38kB with ~2.2k Thai characters and yielded zero announcement-shaped links. Authoritative for the balloon fiesta when they post it; needs a deeper path than the homepage to be useful.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "maefahluang",
+   "name": "มูลนิธิแม่ฟ้าหลวง (ดอยตุง) — Mae Fah Luang Foundation",
+   "kind": "organiser",
+   "url": "https://www.maefahluang.org/",
+   "endpoint": "https://www.maefahluang.org/",
+   "method": "html",
+   "yields": [
+    "festival-dates"
+   ],
+   "cadence": "monthly",
+   "status": "thin",
+   "verified_on": "2026-07-29",
+   "notes": "The right domain for Doi Tung: doitung.org does not resolve at all, and doitung.com is the retail shop. Server-rendered (~2.7k Thai characters) but no announcement links on the front page in this pass.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "chiangrai-province",
+   "name": "จังหวัดเชียงราย — Chiang Rai province (WordPress)",
+   "kind": "government",
+   "url": "https://chiangrai.go.th/",
+   "endpoint": "https://chiangrai.go.th/feed/",
+   "method": "rss",
+   "yields": [
+    "places"
+   ],
+   "cadence": "monthly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Publishes a real WordPress RSS feed — 10 items, parses cleanly, no JS. But measured: the content is TOURISM PAGES, not events (เที่ยว อ.เวียงป่าเป้า, วัดป่าอรัญญวิเวก, พระตำหนักดอยตุง). So it is a places feed worth mining for the directory, and NOT a festival-date source. Registered here so nobody re-probes it hoping for dates.",
+   "venue_coverage": "stated in prose"
+  },
+  {
+   "id": "chiangmai-province",
+   "name": "จังหวัดเชียงใหม่ — Chiang Mai province",
+   "kind": "government",
+   "url": "https://www.chiangmai.go.th/",
+   "endpoint": "https://www.chiangmai.go.th/",
+   "method": "html",
+   "yields": [
+    "festival-dates"
+   ],
+   "cadence": "manual",
+   "status": "blocked",
+   "verified_on": "2026-07-29",
+   "notes": "Serves a SELF-SIGNED certificate — the fetch fails with CERTIFICATE_VERIFY_FAILED. Not worked around: this project does not disable certificate verification to reach a source, and it will not send a reader to a security warning either. The provincial PR office (prd-chiangmai) carries the same announcements over a valid certificate; use that.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "chiangraifocus",
+   "name": "เชียงรายโฟกัส — Chiang Rai Focus",
+   "kind": "media",
+   "url": "https://www.chiangraifocus.com/",
+   "endpoint": "https://www.chiangraifocus.com/",
+   "method": "html",
+   "yields": [
+    "festival-dates",
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "thin",
+   "verified_on": "2026-07-29",
+   "notes": "Server-rendered and large (~18k Thai characters). Advertises a category/news/tat-news/ section, which would be a way to read TAT announcements given tourismthailand.org itself is blocked — but that category page returned zero article links in the shape the front page uses, so the listing structure still needs working out.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "cr-municipality",
+   "name": "เทศบาลนครเชียงราย — Chiang Rai Municipality",
+   "kind": "government",
+   "url": "https://www.chiangraicity.go.th/",
+   "endpoint": "https://chiangraicity.go.th/",
+   "method": "js-rendered",
+   "yields": [
+    "festival-dates"
+   ],
+   "cadence": "manual",
+   "status": "unusable",
+   "verified_on": "2026-07-29",
+   "notes": "Returns 200 with only ~59 Thai characters — a client-rendered shell. cr-mu.go.th, the domain first tried, does not resolve. The Chiang Rai municipal equivalent of the Chiang Mai municipality feed is therefore not available to a plain fetch; prd-chiangrai is the fallback.",
+   "venue_coverage": "n/a"
+  }
+ ]
 }

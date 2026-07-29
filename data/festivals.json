@@ -1,5 +1,5 @@
 {
-  "_comment": "Seed set of recurring Chiang Mai / Chiang Rai / Northern-Thai festivals and seasonal highlights, written from general knowledge (not field-crawled) — confidence marked plainly per entry. Dates for lunar-calendar observances are given as typical Gregorian windows, not asserted exact days, since the lunar-to-Gregorian mapping shifts year to year. This is the evergreen half of the festivals layer; a routine crawl for one-off/annual event listings is a separate, not-yet-built phase.",
+  "_comment": "Recurring Chiang Mai / Chiang Rai / Northern-Thai festivals and seasonal highlights. Written from general knowledge, not field-crawled — confidence is marked per entry, and 'needs-verification' means the timing or venue has moved in recent years and should be checked against the provincial announcement before anyone travels on it. Lunar entries give a typical Gregorian window, never an asserted day: the mapping shifts year to year, and Lanna reckoning runs two months ahead of central Thai (Yi Peng = 2nd Lanna month = 12th central month). This is the evergreen canon; dated instances of these festivals live in data/events.json and are linked back by festival id.",
   "festivals": [
     {
       "id": "bo-sang-umbrella",
@@ -15,7 +15,28 @@
       "auspicious_th": null,
       "auspicious_en": null,
       "confidence": "general-knowledge",
-      "month": 1
+      "month": 1,
+      "months": [
+        1
+      ],
+      "duration_days": 3,
+      "tags": [
+        "craft",
+        "parade",
+        "art"
+      ],
+      "rule_th": "ประกาศเป็นปี ๆ ไป ตามธรรมเนียมคือสุดสัปดาห์ที่ 3 ของเดือนมกราคม",
+      "rule_en": "Announced annually; by custom the third weekend of January.",
+      "venues": [
+        {
+          "th": "หมู่บ้านบ่อสร้าง อำเภอสันกำแพง",
+          "en": "Bo Sang village, San Kamphaeng"
+        }
+      ],
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "wild-himalayan-cherry-season",
@@ -31,23 +52,38 @@
       "auspicious_th": null,
       "auspicious_en": null,
       "confidence": "general-knowledge",
-      "month": 1
-    },
-    {
-      "id": "chinese-new-year",
-      "name_th": "ตรุษจีน",
-      "name_en": "Chinese New Year",
-      "province": "both",
-      "window_th": "ผูกกับปฏิทินจันทรคติจีน มักตกช่วงมกราคม–กุมภาพันธ์",
-      "window_en": "Chinese lunar calendar movable, typically January–February",
-      "timing_type": "lunar",
-      "tag": "cultural",
-      "blurb_th": "ชุมชนจีนในเชียงใหม่ (ย่านวโรรส-ช้างม่อย) จัดงานเชิดสิงโตและตลาดกลางคืน ส่วนที่ดอยแม่สลอง เชียงราย ชุมชนชาวยูนนานเชื้อสายก๊กมินตั๋งก็ฉลองอย่างเข้มข้นเป็นพิเศษ",
-      "blurb_en": "Chiang Mai's Chinese community (around the Warorot–Chang Moi area) marks it with lion dances and a night market; in Chiang Rai, the Yunnanese community at Doi Mae Salong — descended from Kuomintang-era settlers — celebrates with particular intensity.",
-      "auspicious_th": "สีแดงและสีทองในงานคือสัญลักษณ์ของโชคลาภและความเจริญรุ่งเรือง",
-      "auspicious_en": "The red and gold everywhere are the traditional colors of luck and prosperity for the coming year.",
-      "confidence": "general-knowledge",
-      "month": 2
+      "month": 1,
+      "months": [
+        12,
+        1,
+        2
+      ],
+      "duration_days": null,
+      "tags": [
+        "seasonal",
+        "flowers",
+        "viewpoint"
+      ],
+      "rule_th": "ไม่มีวันที่แน่นอน — บานเมื่อบาน ปกติปลายธันวาคมถึงต้นกุมภาพันธ์ ยิ่งสูงยิ่งบานช้า",
+      "rule_en": "No fixed date — it blooms when it blooms, usually late December into early February, later the higher you go.",
+      "venues": [
+        {
+          "th": "ขุนช่างเคี่ยน เชียงใหม่",
+          "en": "Khun Chang Khian, Chiang Mai"
+        },
+        {
+          "th": "ขุนวาง เชียงใหม่",
+          "en": "Khun Wang, Chiang Mai"
+        },
+        {
+          "th": "ดอยแม่สลอง เชียงราย",
+          "en": "Doi Mae Salong, Chiang Rai"
+        }
+      ],
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "cm-flower-festival",
@@ -63,23 +99,157 @@
       "auspicious_th": null,
       "auspicious_en": null,
       "confidence": "general-knowledge",
-      "month": 2
+      "month": 2,
+      "months": [
+        2
+      ],
+      "duration_days": 3,
+      "tags": [
+        "flagship",
+        "flowers",
+        "parade"
+      ],
+      "rule_th": "ประกาศเป็นปี ๆ ไป ตามธรรมเนียมคือสุดสัปดาห์แรกของเดือนกุมภาพันธ์ ขบวนแห่รถดอกไม้เช้าวันเสาร์",
+      "rule_en": "Announced annually; by custom the first weekend of February, with the flower-float parade on Saturday morning.",
+      "venues": [
+        {
+          "th": "สวนสาธารณะหนองบวกหาด",
+          "en": "Suan Buak Had Park"
+        },
+        {
+          "th": "เส้นทางขบวนแห่: สะพานนวรัฐ – คูเมือง",
+          "en": "Parade route: Nawarat Bridge to the moat"
+        }
+      ],
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "chinese-new-year",
+      "name_th": "ตรุษจีน",
+      "name_en": "Chinese New Year",
+      "province": "both",
+      "window_th": "ผูกกับปฏิทินจันทรคติจีน มักตกช่วงมกราคม–กุมภาพันธ์",
+      "window_en": "Chinese lunar calendar movable, typically January–February",
+      "timing_type": "lunar",
+      "tag": "cultural",
+      "blurb_th": "ชุมชนจีนในเชียงใหม่ (ย่านวโรรส-ช้างม่อย) จัดงานเชิดสิงโตและตลาดกลางคืน ส่วนที่ดอยแม่สลอง เชียงราย ชุมชนชาวยูนนานเชื้อสายก๊กมินตั๋งก็ฉลองอย่างเข้มข้นเป็นพิเศษ",
+      "blurb_en": "Chiang Mai's Chinese community (around the Warorot–Chang Moi area) marks it with lion dances and a night market; in Chiang Rai, the Yunnanese community at Doi Mae Salong — descended from Kuomintang-era settlers — celebrates with particular intensity.",
+      "auspicious_th": "สีแดงและสีทองในงานคือสัญลักษณ์ของโชคลาภและความเจริญรุ่งเรือง",
+      "auspicious_en": "The red and gold everywhere are the traditional colors of luck and prosperity for the coming year.",
+      "confidence": "general-knowledge",
+      "month": 2,
+      "months": [
+        1,
+        2
+      ],
+      "duration_days": 3,
+      "tags": [
+        "chinese",
+        "market",
+        "food"
+      ],
+      "rule_th": "วันขึ้นปีใหม่ตามปฏิทินจันทรคติจีน ปลายมกราคมถึงกุมภาพันธ์",
+      "rule_en": "Chinese lunar new year — late January into February.",
+      "venues": [
+        {
+          "th": "กาดหลวง (ตลาดวโรรส) เชียงใหม่",
+          "en": "Warorot Market (Kad Luang), Chiang Mai"
+        },
+        {
+          "th": "ตรอกเล่าโจ๊ว ย่านไชน่าทาวน์เชียงใหม่",
+          "en": "Trok Lao Jo, Chiang Mai Chinatown"
+        },
+        {
+          "th": "ดอยแม่สลอง เชียงราย",
+          "en": "Doi Mae Salong, Chiang Rai"
+        }
+      ],
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "cr-red-cross-fair",
-      "name_th": "งานกาชาดเชียงราย",
-      "name_en": "Chiang Rai Red Cross Fair",
+      "name_th": "งานพ่อขุนเม็งรายมหาราชและงานกาชาดเชียงราย",
+      "name_en": "King Mengrai Festival & Chiang Rai Red Cross Fair",
       "province": "cr",
-      "window_th": "กุมภาพันธ์–มีนาคม (ปกติ)",
-      "window_en": "Usually February–March",
+      "window_th": "ปลายมกราคม–กุมภาพันธ์ (รอยืนยันวันจากทางจังหวัด)",
+      "window_en": "Late January into February — dates to be confirmed by the province",
       "timing_type": "fixed",
       "tag": "seasonal",
       "blurb_th": "งานประจำปีของจังหวัดเชียงราย รวมสินค้าพื้นเมือง การแสดงวัฒนธรรมชาติพันธุ์ และซุ้มออกร้านหน่วยงานราชการ",
       "blurb_en": "Chiang Rai's provincial annual fair — local goods, ethnic-community cultural performances, and government-agency booths.",
       "auspicious_th": null,
       "auspicious_en": null,
-      "confidence": "general-knowledge",
-      "month": 2
+      "confidence": "needs-verification",
+      "month": 2,
+      "months": [
+        1,
+        2
+      ],
+      "duration_days": 12,
+      "tags": [
+        "flagship",
+        "fair",
+        "heritage"
+      ],
+      "rule_th": "ตามธรรมเนียมเปิดงานราววันที่ 26 มกราคม วันครบรอบการสถาปนาเมืองเชียงราย พ.ศ. 1805 แล้วจัดต่อเนื่องราว 10–12 วันพร้อมงานกาชาดจังหวัด",
+      "rule_en": "By custom it opens around 26 January — the anniversary of the city's founding in 1262 — and runs roughly 10–12 days together with the provincial Red Cross fair.",
+      "verify_th": "ปีที่ผ่านมามีทั้งที่จัดปลายมกราคมและเลื่อนไปกุมภาพันธ์–มีนาคม ควรเช็กประกาศจังหวัดก่อนเดินทาง",
+      "verify_en": "Recent years have run both from late January and later in February–March — check the provincial announcement before you travel.",
+      "venues": [
+        {
+          "th": "สนามงานประจำจังหวัด เมืองเชียงราย",
+          "en": "Provincial fairground, Chiang Rai town"
+        },
+        {
+          "th": "อนุสาวรีย์พ่อขุนเม็งรายมหาราช",
+          "en": "King Mengrai Monument"
+        }
+      ],
+      "merit_th": "วางพวงมาลาและจุดธูปเทียนถวายพ่อขุนเม็งราย ผู้สถาปนาเมือง — เป็นการขอพรให้บ้านเมืองร่มเย็นตลอดปี",
+      "merit_en": "Laying flowers and lighting incense at the monument to the dynasty's founder is Chiang Rai's own city-luck rite for the year ahead."
+    },
+    {
+      "id": "lisu-new-year",
+      "name_th": "ปีใหม่ลีซู",
+      "name_en": "Lisu New Year",
+      "province": "both",
+      "month": 2,
+      "months": [
+        1,
+        2
+      ],
+      "duration_days": 3,
+      "window_th": "ตรงกับตรุษจีน ปลายมกราคม–กุมภาพันธ์",
+      "window_en": "Falls with Chinese New Year, late January into February",
+      "timing_type": "lunar",
+      "tag": "cultural",
+      "tags": [
+        "hilltribe",
+        "lisu"
+      ],
+      "rule_th": "ตรงกับวันตรุษจีน ปลายมกราคมถึงกุมภาพันธ์ แต่ละหมู่บ้านจัดต่อกันหลายวัน",
+      "rule_en": "Coincides with Chinese New Year, late January into February; villages run several days back to back.",
+      "blurb_th": "ปีใหม่ลีซูจัดตรงกับตรุษจีน มีการเต้นรำรอบต้นไม้ปีใหม่กลางหมู่บ้านต่อเนื่องหลายคืน ชุดลีซูสีสดที่สุดในบรรดากลุ่มชาติพันธุ์บนดอย",
+      "blurb_en": "The Lisu new year runs with Chinese New Year — nights of circle dancing around the new-year tree at the centre of the village, in what is probably the brightest dress of any highland community here.",
+      "auspicious_th": null,
+      "auspicious_en": null,
+      "venues": [
+        {
+          "th": "หมู่บ้านลีซูทั้งสองจังหวัด",
+          "en": "Lisu villages in both provinces"
+        }
+      ],
+      "confidence": "needs-verification",
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "makha-bucha",
@@ -101,7 +271,104 @@
         "dry_day": true,
         "note_th": "ธนาคาร ส่วนราชการ และสำนักงานตรวจคนเข้าเมือง ปิดทำการ · เป็นวันห้ามจำหน่ายสุราทั่วประเทศ (โรงแรมที่ได้รับยกเว้นให้บริการแขกที่พักได้)",
         "note_en": "Banks, government offices and immigration are closed · National ban on alcohol sales (licensed hotels may still serve registered guests)"
-      }
+      },
+      "months": [
+        2,
+        3
+      ],
+      "duration_days": 1,
+      "tags": [
+        "national",
+        "religious"
+      ],
+      "rule_th": "วันเพ็ญเดือน 3 ทางจันทรคติ ปกติกุมภาพันธ์–มีนาคม",
+      "rule_en": "Full moon of the third lunar month — usually February or March.",
+      "venues": [
+        {
+          "th": "ทุกวัด — เวียนเทียนตอนค่ำ",
+          "en": "Every wat — candle circumambulation in the evening"
+        }
+      ],
+      "merit_th": "ไปวัดตอนค่ำ รับธูป 3 ดอก เทียน 1 เล่ม ดอกไม้ 1 กำ แล้วเดินเวียนขวารอบอุโบสถ 3 รอบ",
+      "merit_en": "Go to any wat at dusk. Take three incense sticks, one candle and a flower, and walk clockwise around the ubosot three times.",
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "singha-balloon-fiesta",
+      "name_th": "สิงห์ปาร์ค บอลลูนเฟียสต้า เชียงราย",
+      "name_en": "Singha Park International Balloon Fiesta",
+      "province": "cr",
+      "month": 2,
+      "months": [
+        2
+      ],
+      "duration_days": 5,
+      "window_th": "กลางเดือนกุมภาพันธ์ (ประกาศเป็นปี ๆ ไป)",
+      "window_en": "Mid-February, announced annually",
+      "timing_type": "announced",
+      "tag": "arts",
+      "tags": [
+        "flagship",
+        "family"
+      ],
+      "rule_th": "ประกาศเป็นปี ๆ ไปโดยสิงห์ปาร์ค ปกติกลางเดือนกุมภาพันธ์",
+      "rule_en": "Announced annually by Singha Park — usually mid-February.",
+      "blurb_th": "บอลลูนลมร้อนจากหลายประเทศลอยเหนือไร่ชาสิงห์ปาร์ค เช้าตรู่กับพลบค่ำคือช่วงที่บอลลูนขึ้น กลางวันเป็นตลาดอาหารและดนตรี เป็นงานใหญ่ที่สุดของเชียงรายในหน้าหนาว",
+      "blurb_en": "Hot-air balloons from a dozen countries over the Singha Park tea fields. Balloons fly at first light and again at dusk; the middle of the day is food stalls and music. Chiang Rai's biggest cool-season draw.",
+      "auspicious_th": null,
+      "auspicious_en": null,
+      "venues": [
+        {
+          "th": "สิงห์ปาร์ค เชียงราย",
+          "en": "Singha Park, Chiang Rai"
+        }
+      ],
+      "confidence": "general-knowledge",
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "poi-luang",
+      "name_th": "ปอยหลวง (งานฉลองของวัด)",
+      "name_en": "Poi Luang — the wat's own celebration",
+      "province": "both",
+      "month": 3,
+      "months": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "duration_days": 3,
+      "window_th": "หน้าแล้งเป็นหลัก มกราคม–เมษายน แต่ละวัดกำหนดเอง",
+      "window_en": "Mostly dry season, January–April — each wat sets its own",
+      "timing_type": "announced",
+      "tag": "religious",
+      "tags": [
+        "lanna",
+        "religious",
+        "temple-fair"
+      ],
+      "rule_th": "ไม่ใช่งานเดียวแต่เป็นประเภทของงาน แต่ละวัดจัดเมื่อสร้างวิหาร ศาลา หรือกุฏิเสร็จ ส่วนใหญ่อยู่ในหน้าแล้ง ส่วนงานกฐินอยู่ช่วงตุลาคม–พฤศจิกายน",
+      "rule_en": "Not one festival but a standing category: each wat holds one when a new viharn, sala or kuti is finished, mostly in the dry season. Kathina fairs fall in October–November.",
+      "blurb_th": "งานฉลองถาวรวัตถุของวัด มีขบวนแห่ครัวตาน ตุงยาว ดนตรีพื้นเมือง และมหรสพตอนกลางคืน เป็นงานที่วัดในสองจังหวัดจัดกันตลอดปี — วัดไหนมีงานเมื่อไหร่ ถามที่วัดนั้นตรง ๆ ได้เลย",
+      "blurb_en": "The celebration a wat holds for a newly completed building: processions of offering trees, long tung banners, northern music, and entertainment at night. These run all year across both provinces — ask at the wat itself and they will tell you when theirs is.",
+      "auspicious_th": "การร่วมเป็นเจ้าภาพครัวตานในงานปอยหลวงถือเป็นบุญใหญ่ที่ทำร่วมกันทั้งชุมชน",
+      "auspicious_en": "Sponsoring an offering tree at a poi luang is major merit — and it is merit the whole neighbourhood makes together.",
+      "merit_th": "ถ้าอยากไป ให้เดินไปถามที่วัดใกล้บ้าน วัดเล็ก ๆ มักยินดีมากที่มีคนสนใจ",
+      "merit_en": "If you want to go to one, walk into your nearest wat and ask. The small ones are usually delighted that somebody asked.",
+      "venues": [
+        {
+          "th": "วัดทั่วเชียงใหม่และเชียงราย",
+          "en": "Wats across Chiang Mai and Chiang Rai"
+        }
+      ],
+      "confidence": "general-knowledge",
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "poy-sang-long",
@@ -117,7 +384,37 @@
       "auspicious_th": "การบวชให้ลูกชายถือเป็นบุญใหญ่ของครอบครัว",
       "auspicious_en": "Sponsoring a son's ordination is considered major merit for the whole family.",
       "confidence": "general-knowledge",
-      "month": 4
+      "month": 4,
+      "months": [
+        3,
+        4
+      ],
+      "duration_days": 3,
+      "tags": [
+        "shan",
+        "religious",
+        "ordination"
+      ],
+      "rule_th": "แต่ละวัดกำหนดเอง ส่วนใหญ่ตรงช่วงปิดเทอมปลายมีนาคม–เมษายน",
+      "rule_en": "Set per temple, mostly during the late-March–April school holidays.",
+      "venues": [
+        {
+          "th": "วัดป่าเป้า เชียงใหม่",
+          "en": "Wat Pa Pao, Chiang Mai"
+        },
+        {
+          "th": "วัดกู่เต้า เชียงใหม่",
+          "en": "Wat Ku Tao, Chiang Mai"
+        },
+        {
+          "th": "ชุมชนไทใหญ่แถบแม่สาย เชียงราย",
+          "en": "Shan communities around Mae Sai, Chiang Rai"
+        }
+      ],
+      "merit_th": "เป็นพิธีของครอบครัวเจ้าภาพก่อน ไม่ใช่การแสดง — ถ่ายรูปได้แต่อย่ายืนขวางขบวน และถอดรองเท้าเมื่อเข้าเขตวิหาร",
+      "merit_en": "This is the host family's ceremony first and a spectacle second — photograph freely, but don't block the procession, and take your shoes off inside the viharn.",
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "songkran-pi-mai-muang",
@@ -139,7 +436,74 @@
         "dry_day": false,
         "note_th": "ธนาคาร ส่วนราชการ และสำนักงานตรวจคนเข้าเมือง ปิดทำการ",
         "note_en": "Banks, government offices and immigration are closed"
-      }
+      },
+      "months": [
+        4
+      ],
+      "duration_days": 5,
+      "tags": [
+        "national",
+        "lanna",
+        "religious",
+        "water"
+      ],
+      "rule_th": "13–15 เมษายนทั่วประเทศ เชียงใหม่จัดราว 11–16 เมษายน รอบคูเมืองและท่าแพ",
+      "rule_en": "April 13–15 nationally; Chiang Mai's celebrations run roughly April 11–16 around the moat and Tha Phae.",
+      "venues": [
+        {
+          "th": "ประตูท่าแพ",
+          "en": "Tha Phae Gate"
+        },
+        {
+          "th": "คูเมืองเชียงใหม่",
+          "en": "The city moat"
+        },
+        {
+          "th": "วัดพระสิงห์ (ขบวนแห่พระพุทธสิหิงค์)",
+          "en": "Wat Phra Singh — Phra Buddha Sihing procession"
+        }
+      ],
+      "merit_th": "ขนทรายเข้าวัดก่อเจดีย์ทราย สรงน้ำพระ และรดน้ำดำหัวผู้ใหญ่ด้วยน้ำอบน้ำปรุง เตรียมขันน้ำ ดอกไม้ และผ้าขาวม้าหรือของฝากเล็ก ๆ ไปด้วย",
+      "merit_en": "Carry sand to the wat for a sand chedi, bathe the Buddha images, and pour scented water over elders' hands. Bring a bowl, flowers, and a small gift or cloth for the elders you visit.",
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "cr-lychee-fair",
+      "name_th": "งานลิ้นจี่และของดีเมืองเชียงราย",
+      "name_en": "Chiang Rai Lychee Fair",
+      "province": "cr",
+      "month": 5,
+      "months": [
+        5
+      ],
+      "duration_days": 7,
+      "window_th": "ช่วงลิ้นจี่ออก ปกติเดือนพฤษภาคม",
+      "window_en": "Harvest season, usually May",
+      "timing_type": "announced",
+      "tag": "seasonal",
+      "tags": [
+        "food",
+        "agriculture",
+        "fair"
+      ],
+      "rule_th": "ประกาศเป็นปี ๆ ไป ตามผลผลิตในปีนั้น ปกติเดือนพฤษภาคม",
+      "rule_en": "Announced annually and pegged to that year's harvest — usually May.",
+      "blurb_th": "งานประจำปีที่ขายลิ้นจี่จากสวนในจังหวัดโดยตรง มีประกวดลิ้นจี่ ขบวนรถ และซุ้มสินค้าโอทอปของอำเภอต่าง ๆ เป็นงานของคนในจังหวัดมากกว่างานนักท่องเที่ยว",
+      "blurb_en": "The provincial lychee fair — fruit straight from Chiang Rai orchards, a judging competition, a float parade, and district OTOP stalls. Squarely a local fair rather than a visitor event.",
+      "auspicious_th": null,
+      "auspicious_en": null,
+      "venues": [
+        {
+          "th": "สนามงานประจำจังหวัด เมืองเชียงราย",
+          "en": "Provincial fairground, Chiang Rai town"
+        }
+      ],
+      "confidence": "needs-verification",
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "inthakhin",
@@ -155,7 +519,72 @@
       "auspicious_th": "เชื่อกันว่าถ้าฝนตกระหว่างงาน จะเป็นปีที่น้ำท่าอุดมสมบูรณ์",
       "auspicious_en": "Rain falling during the festival is traditionally taken as a good omen for the coming year's water.",
       "confidence": "general-knowledge",
-      "month": 5
+      "month": 5,
+      "months": [
+        5,
+        6
+      ],
+      "duration_days": 8,
+      "tags": [
+        "lanna",
+        "religious",
+        "city-spirit",
+        "flagship"
+      ],
+      "rule_th": "เริ่มแรม 12 ค่ำ เดือน 8 เหนือ ต่อเนื่องราว 8 วันถึงเดือน 9 เหนือ ปกติปลายพฤษภาคมถึงต้นมิถุนายน",
+      "rule_en": "Begins on the 12th waning day of the 8th Lanna month and runs about eight days into the 9th — typically late May into early June.",
+      "venues": [
+        {
+          "th": "วัดเจดีย์หลวง (หอเสาอินทขีล)",
+          "en": "Wat Chedi Luang — the Sao Inthakhin shrine"
+        }
+      ],
+      "merit_th": "ซื้อขันดอกที่หน้าวัด แล้วใส่ขันดอกบูชาเสาอินทขีลทีละหอตามลำดับ เป็นการฝากดวงเมืองไว้กับหลักเมืองอีกหนึ่งปี",
+      "merit_en": "Buy a khan dok flower bowl at the gate and place offerings shrine by shrine. You are putting the city's fortune in the pillar's keeping for another year — this is Chiang Mai's own luck rite.",
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "visakha-doi-suthep-walk",
+      "name_th": "เตียวขึ้นดอย (คืนก่อนวิสาขบูชา)",
+      "name_en": "Tiao Khuen Doi — the night walk up Doi Suthep",
+      "province": "cm",
+      "month": 5,
+      "months": [
+        5
+      ],
+      "duration_days": 1,
+      "window_th": "คืนก่อนวันวิสาขบูชา ปกติเดือนพฤษภาคม",
+      "window_en": "The eve of Visakha Bucha, usually May",
+      "timing_type": "lunar",
+      "tag": "religious",
+      "tags": [
+        "religious",
+        "pilgrimage",
+        "lanna",
+        "flagship"
+      ],
+      "rule_th": "คืนก่อนวันเพ็ญเดือน 6 ออกเดินราวสี่ทุ่มถึงเที่ยงคืน ถึงยอดดอยตอนเช้ามืด",
+      "rule_en": "The night before the sixth-month full moon. Walkers set off between about 10pm and midnight and reach the summit before dawn.",
+      "blurb_th": "คืนเดียวของปีที่คนเชียงใหม่นับหมื่นเดินขึ้นดอยสุเทพด้วยเท้า ตั้งแต่เชิงดอยแถวมหาวิทยาลัยเชียงใหม่ ขึ้นไปถึงวัดพระธาตุดอยสุเทพ ระยะทางราว 11 กิโลเมตร มีคนตั้งโรงทานให้น้ำให้ข้าวตลอดทาง",
+      "blurb_en": "One night a year, tens of thousands of Chiang Mai people walk up Doi Suthep on foot — about 11 km from the mountain's foot near the university up to Wat Phra That Doi Suthep, with volunteer stalls handing out water and food the whole way.",
+      "merit_th": "ไปแบบเบา ๆ: รองเท้าที่เดินขึ้นเขาได้ ไฟฉาย น้ำหนึ่งขวด และเผื่อเวลาลงดอยตอนเช้าด้วย",
+      "merit_en": "Travel light: shoes you can climb in, a torch, one bottle of water — and a plan for getting back down after sunrise.",
+      "auspicious_th": "การเดินขึ้นไปนมัสการพระธาตุด้วยเท้าถือเป็นการสร้างบุญด้วยความเพียรของตัวเอง",
+      "auspicious_en": "Walking up under your own effort is the merit — the exertion is understood to be part of the offering.",
+      "venues": [
+        {
+          "th": "วัดพระธาตุดอยสุเทพราชวรวิหาร",
+          "en": "Wat Phra That Doi Suthep"
+        },
+        {
+          "th": "เชิงดอย ทางขึ้นแถวมหาวิทยาลัยเชียงใหม่และสวนสัตว์",
+          "en": "The foot of the mountain by CMU and the zoo"
+        }
+      ],
+      "confidence": "general-knowledge",
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "visakha-bucha",
@@ -177,7 +606,68 @@
         "dry_day": true,
         "note_th": "ธนาคาร ส่วนราชการ และสำนักงานตรวจคนเข้าเมือง ปิดทำการ · เป็นวันห้ามจำหน่ายสุราทั่วประเทศ (โรงแรมที่ได้รับยกเว้นให้บริการแขกที่พักได้)",
         "note_en": "Banks, government offices and immigration are closed · National ban on alcohol sales (licensed hotels may still serve registered guests)"
-      }
+      },
+      "months": [
+        5
+      ],
+      "duration_days": 1,
+      "tags": [
+        "national",
+        "religious"
+      ],
+      "rule_th": "วันเพ็ญเดือน 6 ทางจันทรคติ ปกติเดือนพฤษภาคม",
+      "rule_en": "Full moon of the sixth lunar month — usually May.",
+      "venues": [
+        {
+          "th": "ทุกวัด — เวียนเทียนตอนค่ำ",
+          "en": "Every wat — candle circumambulation in the evening"
+        }
+      ],
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "suep-chata-mueang",
+      "name_th": "พิธีสืบชะตาเมืองเชียงใหม่",
+      "name_en": "Suep Chata Mueang — the city fate-extension rite",
+      "province": "cm",
+      "month": 6,
+      "months": [
+        6
+      ],
+      "duration_days": 1,
+      "window_th": "ปกติเดือนมิถุนายน (ทางจังหวัดประกาศเป็นปี ๆ ไป)",
+      "window_en": "Usually June — dates announced annually by the province",
+      "timing_type": "announced",
+      "tag": "religious",
+      "tags": [
+        "lanna",
+        "religious",
+        "city-spirit"
+      ],
+      "rule_th": "ประกาศเป็นปี ๆ ไป ปกติเดือนมิถุนายน จัดพร้อมกันหลายจุดในวันเดียว",
+      "rule_en": "Announced annually, usually June, and held simultaneously at several points in one day.",
+      "blurb_th": "พิธีล้านนาที่ทำให้ “เมือง” ไม่ใช่แค่คน — ต่ออายุชะตาของเมืองเชียงใหม่ทั้งเมือง จัดพร้อมกันที่สะดือเมืองและตามประตูเมืองกับแจ่งทั้งสี่ มีการโยงสายสิญจน์เชื่อมทุกจุดเข้าด้วยกัน",
+      "blurb_en": "A Lanna rite performed not for a person but for the city itself — extending Chiang Mai's life-thread, held on the same day at the city navel and at each of the gates and corners of the old city, with sacred thread run between the points.",
+      "auspicious_th": "เชื่อว่าเป็นการต่ออายุและปัดเป่าเคราะห์ให้เมืองทั้งเมือง ไม่ใช่เฉพาะบุคคล",
+      "auspicious_en": "The blessing is addressed to the whole city — a collective version of the sueb chata rite families hold for an individual.",
+      "venues": [
+        {
+          "th": "สะดือเมือง / เสาอินทขีล",
+          "en": "The city navel and the Inthakhin pillar"
+        },
+        {
+          "th": "ประตูเมืองทั้งห้าและแจ่งทั้งสี่",
+          "en": "The five gates and four corners of the old city"
+        }
+      ],
+      "confidence": "needs-verification",
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "asalha-bucha",
@@ -199,7 +689,69 @@
         "dry_day": true,
         "note_th": "ธนาคาร ส่วนราชการ และสำนักงานตรวจคนเข้าเมือง ปิดทำการ · เป็นวันห้ามจำหน่ายสุราทั่วประเทศ (โรงแรมที่ได้รับยกเว้นให้บริการแขกที่พักได้)",
         "note_en": "Banks, government offices and immigration are closed · National ban on alcohol sales (licensed hotels may still serve registered guests)"
-      }
+      },
+      "months": [
+        7
+      ],
+      "duration_days": 1,
+      "tags": [
+        "national",
+        "religious"
+      ],
+      "rule_th": "วันเพ็ญเดือน 8 ทางจันทรคติ ปกติเดือนกรกฎาคม",
+      "rule_en": "Full moon of the eighth lunar month — usually July.",
+      "venues": [
+        {
+          "th": "ทุกวัด",
+          "en": "Every wat"
+        }
+      ],
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "kings-birthday",
+      "name_th": "วันเฉลิมพระชนมพรรษา รัชกาลที่ 10",
+      "name_en": "H.M. the King's Birthday",
+      "province": "national",
+      "month": 7,
+      "months": [
+        7
+      ],
+      "duration_days": 1,
+      "window_th": "28 กรกฎาคม ทุกปี",
+      "window_en": "July 28 every year",
+      "timing_type": "fixed",
+      "tag": "religious",
+      "tags": [
+        "national",
+        "royal"
+      ],
+      "rule_th": "วันที่ 28 กรกฎาคมของทุกปี",
+      "rule_en": "July 28 each year.",
+      "blurb_th": "วันหยุดราชการ มีพิธีทำบุญตักบาตรตอนเช้าและจุดเทียนถวายพระพรตอนค่ำที่ศาลากลางจังหวัดและวัดใหญ่ ๆ",
+      "blurb_en": "A public holiday, with morning alms-giving and an evening candle ceremony at provincial halls and the larger wats.",
+      "auspicious_th": null,
+      "auspicious_en": null,
+      "venues": [
+        {
+          "th": "ศาลากลางจังหวัด ข่วงเมือง และวัดใหญ่",
+          "en": "Provincial halls, city plazas and the major wats"
+        }
+      ],
+      "confidence": "general-knowledge",
+      "observance": {
+        "public_holiday": true,
+        "dry_day": false,
+        "note_th": "ธนาคาร ส่วนราชการ และสำนักงานตรวจคนเข้าเมือง ปิดทำการ",
+        "note_en": "Banks, government offices and immigration are closed"
+      },
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "khao-phansa",
@@ -221,7 +773,108 @@
         "dry_day": true,
         "note_th": "ธนาคาร ส่วนราชการ และสำนักงานตรวจคนเข้าเมือง ปิดทำการ · เป็นวันห้ามจำหน่ายสุราทั่วประเทศ (โรงแรมที่ได้รับยกเว้นให้บริการแขกที่พักได้)",
         "note_en": "Banks, government offices and immigration are closed · National ban on alcohol sales (licensed hotels may still serve registered guests)"
-      }
+      },
+      "months": [
+        7
+      ],
+      "duration_days": 1,
+      "tags": [
+        "national",
+        "religious"
+      ],
+      "rule_th": "แรม 1 ค่ำ เดือน 8 คือวันถัดจากอาสาฬหบูชา",
+      "rule_en": "The day after Asalha Bucha — first waning day of the eighth lunar month.",
+      "venues": [
+        {
+          "th": "ทุกวัด — ถวายเทียนพรรษาและผ้าอาบน้ำฝน",
+          "en": "Every wat — candle and rain-robe offerings"
+        }
+      ],
+      "merit_th": "ถวายเทียนพรรษา และตั้งสัจจะอธิษฐานว่าจะงดอะไรตลอดสามเดือน",
+      "merit_en": "Offer a Lent candle, and make the vow: name one thing you will give up for the three months.",
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "akha-swing-festival",
+      "name_th": "ประเพณีโล้ชิงช้าอาข่า (แย้ขู่อาเผ่ว)",
+      "name_en": "Akha Swing Festival",
+      "province": "cr",
+      "month": 8,
+      "months": [
+        8,
+        9
+      ],
+      "duration_days": 4,
+      "window_th": "ปลายสิงหาคม–ต้นกันยายน แต่ละหมู่บ้านกำหนดเอง",
+      "window_en": "Late August into early September, set village by village",
+      "timing_type": "announced",
+      "tag": "cultural",
+      "tags": [
+        "hilltribe",
+        "akha",
+        "harvest"
+      ],
+      "rule_th": "ตามปฏิทินอาข่า แต่ละหมู่บ้านกำหนดวันเอง ปกติปลายสิงหาคมถึงต้นกันยายน สี่วัน",
+      "rule_en": "Follows the Akha calendar; each village sets its own four days, usually late August into early September.",
+      "blurb_th": "พิธีปีใหม่ของชาวอาข่าที่จัดกลางฤดูฝนเมื่อข้าวกำลังตั้งท้อง มีการตั้งชิงช้าใหญ่กลางหมู่บ้าน ผู้หญิงแต่งชุดประจำเผ่าเต็มยศ เป็นพิธีบูชาบรรพบุรุษและขอให้ข้าวงาม ไม่ใช่งานแสดง",
+      "blurb_en": "The Akha women's new year, held mid-rains when the rice is in ear — a great swing is raised at the centre of the village and women wear full ceremonial dress. It is an ancestor rite and a prayer for the crop, not a performance.",
+      "auspicious_th": "เป็นพิธีบูชาบรรพบุรุษและขอให้ข้าวในนาสมบูรณ์",
+      "auspicious_en": "The rite honours the ancestors and asks for a full harvest.",
+      "merit_th": "เป็นพิธีของหมู่บ้าน ควรถามก่อนถ่ายรูปคนเสมอ และไปกับคนในพื้นที่ถ้าทำได้",
+      "merit_en": "This is a village ceremony — always ask before photographing people, and go with someone local if you can.",
+      "venues": [
+        {
+          "th": "หมู่บ้านอาข่า แม่ฟ้าหลวง–แม่จัน เชียงราย",
+          "en": "Akha villages, Mae Fah Luang and Mae Chan, Chiang Rai"
+        }
+      ],
+      "confidence": "needs-verification",
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "mothers-day",
+      "name_th": "วันแม่แห่งชาติ",
+      "name_en": "Mother's Day — H.M. Queen Sirikit the Queen Mother's Birthday",
+      "province": "national",
+      "month": 8,
+      "months": [
+        8
+      ],
+      "duration_days": 1,
+      "window_th": "12 สิงหาคม ทุกปี",
+      "window_en": "August 12 every year",
+      "timing_type": "fixed",
+      "tag": "cultural",
+      "tags": [
+        "national",
+        "royal",
+        "family"
+      ],
+      "rule_th": "วันที่ 12 สิงหาคมของทุกปี",
+      "rule_en": "August 12 each year.",
+      "blurb_th": "วันหยุดราชการ ลูกกราบแม่และมอบพวงมาลัยดอกมะลิ โรงเรียนจัดพิธีตอนเช้า ร้านดอกไม้ขายดีที่สุดของปี",
+      "blurb_en": "A public holiday. Children give their mothers jasmine garlands, schools hold morning ceremonies, and it is the florists' biggest day of the year.",
+      "auspicious_th": "ดอกมะลิสีขาวคือสัญลักษณ์ของความรักที่บริสุทธิ์ของแม่",
+      "auspicious_en": "White jasmine stands for a mother's love — the flower is the whole symbolism of the day.",
+      "venues": [
+        {
+          "th": "โรงเรียน วัด และข่วงเมืองทั่วสองจังหวัด",
+          "en": "Schools, wats and city plazas across both provinces"
+        }
+      ],
+      "confidence": "general-knowledge",
+      "observance": {
+        "public_holiday": true,
+        "dry_day": false,
+        "note_th": "ธนาคาร ส่วนราชการ และสำนักงานตรวจคนเข้าเมือง ปิดทำการ",
+        "note_en": "Banks, government offices and immigration are closed"
+      },
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "tan-kuay-salak",
@@ -237,7 +890,29 @@
       "auspicious_th": "เชื่อว่าบุญที่ทำจะส่งถึงญาติผู้ล่วงลับด้วย",
       "auspicious_en": "The merit made this way is believed to reach departed relatives as well as the living.",
       "confidence": "general-knowledge",
-      "month": 9
+      "month": 9,
+      "months": [
+        9,
+        10
+      ],
+      "duration_days": 1,
+      "tags": [
+        "lanna",
+        "religious",
+        "temple-fair"
+      ],
+      "rule_th": "แต่ละวัดกำหนดเอง หมุนเวียนกันไปทั้งฤดู ปกติกันยายน–ตุลาคม",
+      "rule_en": "Set per temple and rotated through the season — usually September into October.",
+      "venues": [
+        {
+          "th": "วัดทั่วภาคเหนือ หมุนเวียนกันเป็นเจ้าภาพ",
+          "en": "Wats across the North, each hosting in turn"
+        }
+      ],
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "ok-phansa",
@@ -259,7 +934,27 @@
         "dry_day": true,
         "note_th": "เป็นวันห้ามจำหน่ายสุราทั่วประเทศ (โรงแรมที่ได้รับยกเว้นให้บริการแขกที่พักได้)",
         "note_en": "National ban on alcohol sales (licensed hotels may still serve registered guests)"
-      }
+      },
+      "months": [
+        10
+      ],
+      "duration_days": 2,
+      "tags": [
+        "national",
+        "religious"
+      ],
+      "rule_th": "วันเพ็ญเดือน 11 ทางจันทรคติ ปกติเดือนตุลาคม ตักบาตรเทโวเช้าวันรุ่งขึ้น",
+      "rule_en": "Full moon of the eleventh lunar month — usually October, with tak bat thewo alms-giving the next morning.",
+      "venues": [
+        {
+          "th": "ทุกวัด — และเปิดฤดูกฐินต่อไปอีกหนึ่งเดือน",
+          "en": "Every wat — and it opens the month-long kathina season"
+        }
+      ],
+      "merit_th": "หลังออกพรรษาคือฤดูกฐิน หนึ่งเดือนที่วัดยังรอเจ้าภาพ — วัดเล็ก ๆ นอกเมืองมักยังไม่มีคนจอง",
+      "merit_en": "Ok Phansa opens kathina season — one month in which a wat may still be waiting for a host. The small out-of-town wats are usually the ones still unspoken for.",
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "yi-peng-loi-krathong",
@@ -275,7 +970,83 @@
       "auspicious_th": "การลอยกระทงเชื่อว่าเป็นการปล่อยเคราะห์กรรมและสิ่งไม่ดีให้ลอยไปกับสายน้ำ ส่วนโคมลอยเชื่อว่าพาความทุกข์ลอยขึ้นฟ้าไปพร้อมกัน",
       "auspicious_en": "Floating a krathong is traditionally taken as releasing bad luck downstream; a rising sky lantern carries troubles up and away the same way.",
       "confidence": "general-knowledge",
-      "month": 11
+      "month": 11,
+      "months": [
+        11
+      ],
+      "duration_days": 3,
+      "tags": [
+        "lanna",
+        "religious",
+        "lanterns",
+        "flagship"
+      ],
+      "rule_th": "คืนวันเพ็ญเดือน 12 ทางจันทรคติกลาง ตรงกับเดือนยี่ของล้านนา (ล้านนานับเร็วกว่าสองเดือน) ปกติเดือนพฤศจิกายน งานในเมืองกินเวลาราวสามวันคร่อมวันเพ็ญ",
+      "rule_en": "Full moon of the 12th central lunar month, which is the 2nd Lanna month — the Northern calendar runs two months ahead, which is why it is called Yi (“second”) Peng. Usually November; city events span about three days around the full moon.",
+      "venues": [
+        {
+          "th": "แม่น้ำปิง สะพานนวรัฐ",
+          "en": "Ping River at Nawarat Bridge"
+        },
+        {
+          "th": "ประตูท่าแพ",
+          "en": "Tha Phae Gate"
+        },
+        {
+          "th": "ข่วงอนุสาวรีย์สามกษัตริย์",
+          "en": "Three Kings Monument"
+        },
+        {
+          "th": "ริมแม่น้ำกก เมืองเชียงราย",
+          "en": "Kok River bank, Chiang Rai town"
+        }
+      ],
+      "verify_th": "การปล่อยโคมลอยหมู่ส่วนใหญ่ย้ายไปเป็นงานขายบัตรนอกเมืองแล้ว และในเขตเมืองมีการจำกัดเวลา-พื้นที่ ตามเส้นทางบิน ควรดูประกาศเขตปล่อยโคมของปีนั้น ๆ ก่อน",
+      "verify_en": "Mass lantern releases are now mostly ticketed events outside the city, and releasing inside the city is restricted by time and zone around the flight paths — check the official release zones published for that year.",
+      "merit_th": "กระทงใบตองย่อยสลายได้ กระทงโฟมไม่ได้ — วัดริมน้ำหลายแห่งแจกใบตองให้ทำเองฟรี",
+      "merit_en": "A banana-leaf krathong breaks down; a foam one does not. Several riverside wats hand out leaves and let you fold your own."
+    },
+    {
+      "id": "cm-design-week",
+      "name_th": "เทศกาลงานออกแบบเชียงใหม่",
+      "name_en": "Chiang Mai Design Week",
+      "province": "cm",
+      "month": 12,
+      "months": [
+        12
+      ],
+      "duration_days": 9,
+      "window_th": "ต้นเดือนธันวาคม ราว 9 วัน",
+      "window_en": "Early December, about nine days",
+      "timing_type": "announced",
+      "tag": "arts",
+      "tags": [
+        "art",
+        "design",
+        "flagship",
+        "craft"
+      ],
+      "rule_th": "ประกาศเป็นปี ๆ ไปโดย CEA/TCDC ปกติต้นเดือนธันวาคม",
+      "rule_en": "Announced annually by CEA/TCDC — usually early December.",
+      "blurb_th": "งานออกแบบประจำปีที่กระจายไปทั่วเมือง ทั้งย่านสามกษัตริย์ ย่านวัดเกตริมแม่น้ำปิง และพื้นที่เล็ก ๆ อีกหลายสิบแห่ง เป็นงานเดียวที่ทำให้ตึกเก่ากลางเมืองเปิดให้คนเข้าไปดูข้างในได้",
+      "blurb_en": "The city's annual design festival, spread across the Three Kings quarter, the Wat Ket riverside and dozens of smaller venues — the one week of the year when old buildings in the centre open their doors.",
+      "auspicious_th": null,
+      "auspicious_en": null,
+      "venues": [
+        {
+          "th": "ข่วงอนุสาวรีย์สามกษัตริย์ / TCDC เชียงใหม่",
+          "en": "Three Kings Monument quarter / TCDC Chiang Mai"
+        },
+        {
+          "th": "ย่านวัดเกต ถนนเจริญราษฎร์",
+          "en": "Wat Ket and Charoenrat riverside"
+        }
+      ],
+      "confidence": "general-knowledge",
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "cm-winter-fair",
@@ -290,8 +1061,115 @@
       "blurb_en": "Chiang Mai's big annual fairground event at the 700th Anniversary Stadium — stalls, performances, and booths from agencies and communities across the province.",
       "auspicious_th": null,
       "auspicious_en": null,
+      "confidence": "needs-verification",
+      "month": 12,
+      "months": [
+        12,
+        1
+      ],
+      "duration_days": 10,
+      "tags": [
+        "fair",
+        "food",
+        "local-life"
+      ],
+      "rule_th": "ประกาศเป็นปี ๆ ไป ปกติปลายธันวาคมถึงสัปดาห์แรกของมกราคม ราว 10 วัน",
+      "rule_en": "Announced annually — usually late December through the first week of January, about ten days.",
+      "verify_th": "สถานที่จัดเคยย้ายระหว่างสนามกีฬา 700 ปี กับสนามด้านหลังศาลากลางจังหวัด ควรเช็กประกาศของปีนั้น",
+      "verify_en": "The venue has moved between the 700th Anniversary Stadium and the municipal grounds behind City Hall — check that year's announcement.",
+      "venues": [
+        {
+          "th": "สนามกีฬาสมโภชเชียงใหม่ 700 ปี",
+          "en": "700th Anniversary Stadium"
+        },
+        {
+          "th": "สนามด้านหลังศาลากลางจังหวัดเชียงใหม่",
+          "en": "Municipal grounds behind Chiang Mai City Hall"
+        }
+      ],
+      "merit_th": null,
+      "merit_en": null
+    },
+    {
+      "id": "cr-flower-festival",
+      "name_th": "เทศกาลดอกไม้งามเชียงราย",
+      "name_en": "Chiang Rai Flower Festival",
+      "province": "cr",
+      "month": 12,
+      "months": [
+        12,
+        1,
+        2
+      ],
+      "duration_days": null,
+      "window_th": "ตลอดหน้าหนาว ปลายธันวาคม–กุมภาพันธ์",
+      "window_en": "Across the cool season, late December into February",
+      "timing_type": "seasonal",
+      "tag": "seasonal",
+      "tags": [
+        "flowers",
+        "flagship"
+      ],
+      "rule_th": "จัดยาวตลอดหน้าหนาว วันเปิด-ปิดประกาศเป็นปี ๆ ไป",
+      "rule_en": "Runs right across the cool season; opening and closing dates are announced annually.",
+      "blurb_th": "สวนตุงและโคมและสวนริมน้ำกกจัดแปลงดอกไม้เมืองหนาวยาวตลอดหน้าหนาว กลางคืนมีไฟและโคมประดับ เดินเล่นได้ทั้งครอบครัวและไม่เสียค่าเข้า",
+      "blurb_en": "Suan Tung Lae Khom and the Kok riverside gardens hold cool-climate flower beds through the whole season, lit with lanterns at night. Free to walk through, and a family evening rather than a ticketed event.",
+      "auspicious_th": null,
+      "auspicious_en": null,
+      "venues": [
+        {
+          "th": "สวนตุงและโคม / สวนริมกก เมืองเชียงราย",
+          "en": "Suan Tung Lae Khom and the Kok riverside gardens, Chiang Rai town"
+        }
+      ],
+      "confidence": "needs-verification",
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "fathers-day",
+      "name_th": "วันพ่อแห่งชาติ",
+      "name_en": "Father's Day — King Bhumibol Memorial Day",
+      "province": "national",
+      "month": 12,
+      "months": [
+        12
+      ],
+      "duration_days": 1,
+      "window_th": "5 ธันวาคม ทุกปี",
+      "window_en": "December 5 every year",
+      "timing_type": "fixed",
+      "tag": "cultural",
+      "tags": [
+        "national",
+        "royal",
+        "family"
+      ],
+      "rule_th": "วันที่ 5 ธันวาคมของทุกปี",
+      "rule_en": "December 5 each year.",
+      "blurb_th": "วันหยุดราชการ วันคล้ายวันพระราชสมภพรัชกาลที่ 9 และวันพ่อแห่งชาติ ดอกประจำวันคือดอกพุทธรักษา",
+      "blurb_en": "A public holiday marking King Bhumibol's birthday and National Father's Day; the canna lily is the flower of the day.",
+      "auspicious_th": null,
+      "auspicious_en": null,
+      "venues": [
+        {
+          "th": "ศาลากลางจังหวัด วัด และโรงเรียน",
+          "en": "Provincial halls, wats and schools"
+        }
+      ],
       "confidence": "general-knowledge",
-      "month": 12
+      "observance": {
+        "public_holiday": true,
+        "dry_day": false,
+        "note_th": "ธนาคาร ส่วนราชการ และสำนักงานตรวจคนเข้าเมือง ปิดทำการ",
+        "note_en": "Banks, government offices and immigration are closed"
+      },
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
     },
     {
       "id": "doi-tung-flower-season",
@@ -307,7 +1185,114 @@
       "auspicious_th": null,
       "auspicious_en": null,
       "confidence": "general-knowledge",
-      "month": 12
+      "month": 12,
+      "months": [
+        11,
+        12,
+        1,
+        2
+      ],
+      "duration_days": null,
+      "tags": [
+        "flowers",
+        "seasonal",
+        "craft"
+      ],
+      "rule_th": "ตลอดฤดูหนาว พฤศจิกายน–กุมภาพันธ์ มีงาน “สีสันแห่งดอยตุง” จัดเฉพาะช่วงสุดสัปดาห์ในบางปี",
+      "rule_en": "Runs all cool season, November–February. In some years a “Colors of Doi Tung” fair is held on weekends within it.",
+      "venues": [
+        {
+          "th": "สวนแม่ฟ้าหลวง โครงการพัฒนาดอยตุง",
+          "en": "Mae Fah Luang Garden, Doi Tung Development Project"
+        }
+      ],
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "hmong-new-year",
+      "name_th": "ปีใหม่ม้ง (น่อเป๊โจ่วฮ์)",
+      "name_en": "Hmong New Year",
+      "province": "both",
+      "month": 12,
+      "months": [
+        12,
+        1
+      ],
+      "duration_days": 3,
+      "window_th": "หลังเก็บเกี่ยว ปกติเดือนธันวาคม แต่ละหมู่บ้านกำหนดเอง",
+      "window_en": "After the harvest, usually December — set village by village",
+      "timing_type": "lunar",
+      "tag": "cultural",
+      "tags": [
+        "hilltribe",
+        "hmong",
+        "harvest"
+      ],
+      "rule_th": "ตามปฏิทินม้ง หลังเก็บเกี่ยวข้าวเสร็จ ปกติเดือนธันวาคม แต่ละหมู่บ้านไม่ตรงกัน",
+      "rule_en": "Follows the Hmong calendar, after the rice is in — usually December, and villages do not all fall on the same days.",
+      "blurb_th": "ปีใหม่ของชาวม้งจัดหลังเก็บเกี่ยว มีการโยนลูกช่วง (โป๊ป๊อ) ซึ่งเป็นพิธีจีบกันแบบดั้งเดิม ผู้หญิงแต่งชุดปักเต็มยศ ที่ใกล้เชียงใหม่ที่สุดคือหมู่บ้านม้งดอยปุย",
+      "blurb_en": "The Hmong new year, held once the harvest is in. The ball-toss (pov pob) is a courtship rite, not a game, and the women wear full embroidered dress. Doi Pui is the village closest to Chiang Mai city.",
+      "auspicious_th": "เป็นการปิดปีเกษตรและเรียกขวัญข้าวกลับเข้าบ้าน",
+      "auspicious_en": "It closes the farming year and calls the rice spirit back to the house.",
+      "venues": [
+        {
+          "th": "หมู่บ้านม้งดอยปุย เชียงใหม่",
+          "en": "Doi Pui Hmong village, Chiang Mai"
+        },
+        {
+          "th": "หมู่บ้านม้งบนดอย เชียงราย",
+          "en": "Highland Hmong villages, Chiang Rai"
+        }
+      ],
+      "confidence": "needs-verification",
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "nye-countdown",
+      "name_th": "เคานต์ดาวน์ส่งท้ายปีเก่า",
+      "name_en": "New Year's Eve countdown",
+      "province": "both",
+      "month": 12,
+      "months": [
+        12
+      ],
+      "duration_days": 1,
+      "window_th": "คืนวันที่ 31 ธันวาคม",
+      "window_en": "The night of December 31",
+      "timing_type": "fixed",
+      "tag": "cultural",
+      "tags": [
+        "countdown",
+        "lanterns",
+        "family"
+      ],
+      "rule_th": "คืนวันที่ 31 ธันวาคมของทุกปี",
+      "rule_en": "The night of 31 December each year.",
+      "blurb_th": "เชียงใหม่นับถอยหลังที่ประตูท่าแพ เชียงรายที่หอนาฬิกา และหลายคนไปสวดมนต์ข้ามปีที่วัดแทน เที่ยงคืนวัดจะตีระฆังพร้อมกัน",
+      "blurb_en": "Chiang Mai counts down at Tha Phae Gate and Chiang Rai at the clock tower — while plenty of people see the year over at a wat instead, chanting through midnight as the temple bells go.",
+      "auspicious_th": "สวดมนต์ข้ามปีที่วัดถือเป็นการเริ่มปีใหม่ด้วยบุญ แทนที่จะเริ่มด้วยความมึนเมา",
+      "auspicious_en": "Chanting the year over at a wat is the traditional alternative: start the year in merit rather than in a hangover.",
+      "verify_th": "การปล่อยโคมลอยคืนปีใหม่มีข้อจำกัดตามเส้นทางบิน ควรดูประกาศของแต่ละปี",
+      "verify_en": "Sky-lantern releases on New Year's Eve are restricted around the flight paths — check that year's announcement.",
+      "venues": [
+        {
+          "th": "ประตูท่าแพ เชียงใหม่",
+          "en": "Tha Phae Gate, Chiang Mai"
+        },
+        {
+          "th": "หอนาฬิกาเฉลิมพระเกียรติ เชียงราย",
+          "en": "Chiang Rai clock tower"
+        }
+      ],
+      "confidence": "general-knowledge",
+      "merit_th": null,
+      "merit_en": null
     },
     {
       "id": "phu-chi-fa-sea-of-mist",
@@ -323,7 +1308,68 @@
       "auspicious_th": null,
       "auspicious_en": null,
       "confidence": "general-knowledge",
-      "month": 12
+      "month": 12,
+      "months": [
+        11,
+        12,
+        1,
+        2
+      ],
+      "duration_days": null,
+      "tags": [
+        "seasonal",
+        "viewpoint"
+      ],
+      "rule_th": "ตลอดฤดูหนาว พฤศจิกายน–กุมภาพันธ์ ต้องขึ้นถึงยอดก่อนฟ้าสาง",
+      "rule_en": "All cool season, November–February — you need to be at the top before first light.",
+      "venues": [
+        {
+          "th": "ยอดภูชี้ฟ้า อำเภอเทิง เชียงราย",
+          "en": "Phu Chi Fa peak, Thoeng district, Chiang Rai"
+        }
+      ],
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
+    },
+    {
+      "id": "royal-project-fair",
+      "name_th": "งานโครงการหลวง",
+      "name_en": "Royal Project Fair",
+      "province": "cm",
+      "month": 12,
+      "months": [
+        12
+      ],
+      "duration_days": 4,
+      "window_th": "ปกติเดือนธันวาคม (ประกาศเป็นปี ๆ ไป)",
+      "window_en": "Usually December, announced annually",
+      "timing_type": "announced",
+      "tag": "seasonal",
+      "tags": [
+        "food",
+        "agriculture",
+        "royal",
+        "market"
+      ],
+      "rule_th": "ประกาศเป็นปี ๆ ไป ปกติเดือนธันวาคม สถานที่เปลี่ยนได้",
+      "rule_en": "Announced annually, usually December; the venue changes.",
+      "blurb_th": "งานขายผลผลิตจากสถานีเกษตรหลวงบนดอยโดยตรง ผัก ผลไม้เมืองหนาว กาแฟ และดอกไม้ ราคาถูกกว่าในห้างและสดกว่ามาก คนเชียงใหม่ไปกันเป็นครอบครัว",
+      "blurb_en": "Produce straight down from the Royal Project stations on the mountains — cool-climate vegetables, fruit, coffee and flowers, cheaper and fresher than the supermarkets. Chiang Mai families go in force.",
+      "auspicious_th": null,
+      "auspicious_en": null,
+      "venues": [
+        {
+          "th": "ศูนย์ประชุมนานาชาติ มช. (สถานที่เปลี่ยนตามปี)",
+          "en": "CMU Convention Centre area — venue varies by year"
+        }
+      ],
+      "confidence": "needs-verification",
+      "merit_th": null,
+      "merit_en": null,
+      "verify_th": null,
+      "verify_en": null
     }
   ]
 }

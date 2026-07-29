@@ -70,6 +70,46 @@ in this operator's corpus that block them. `sitemap.xml` lists every page;
 record dump, `data/index.json` the slim search index, `data/*.geojson` per
 category); every place page also carries schema.org JSON-LD.
 
+## Festivals layer
+
+Two tables, not one. A **festival** is the recurring canon — it carries a date
+*rule* and never a date. An **event** is one dated instance of it, in one year,
+at one venue. `data/festivals.json` is the canon (33 entries, hand-curated,
+`confidence` marked per entry); `data/events.json` is the instances. The canon
+is written once, so only instances need a crawl — which is why 33 festival
+pages exist without a crawler behind them yet.
+
+`festivals_layer.py` renders it: `/festivals.html` (the hub, with the year wheel
+drawn at build time), a page per festival at `/festivals/<id>.html`, the
+standalone `/festival-wheel.svg`, and `/festivals.ics` — fixed-date festivals
+only, with `FREQ=YEARLY`, because a lunar festival has no date to publish and
+does not get invented one. Festival venues are resolved to catalogue records
+through the same strict `match_venue` the events layer uses, so a wat page
+carries the festivals it hosts.
+
+`build.py` calls it in two lines after `build_festivals_page()`. If those lines
+go missing, `python3 festivals_layer.py` re-lays the whole layer over an
+already-built `docs/`; `--wheel` redraws just the wheel.
+
+### Getting this year's dates
+
+`importers/harvest_festivals.py` turns "usually late May" into "26 May – 2 June,
+announced by the province, here is the page". It reads the provincial PR offices
+and Chiang Mai municipality — the spec's first-choice sources, TAT and the
+Chiang Mai PAO, both refuse a plain fetch, and chiangmai.go.th serves a
+self-signed certificate, all recorded in `data/sources.json`.
+
+It will not publish a date on its own authority. A row only reaches the site as
+`announced` if a canon festival matched, a date parsed, the source is official,
+the date is in the future, the span is under 45 days, and the month is one the
+canon already says this festival falls in — and the headline was *announcing*
+rather than reporting. Thai government news is overwhelmingly retrospective, and
+the first live run proved the point: without those gates it produced two dates,
+both wrong (a marketing slogan with stray digits, and a King's-Birthday merit
+ceremony matched to Khao Phansa). Everything else is held in
+`data/festival_dates.json` as a `candidate` with the reason it was held, for a
+human to look at. Nothing on the site reads candidates.
+
 ## Crawl (gentle by design)
 
 `importers/crawl_overpass.py` — snapshot-first (cache/overpass/), one query at a

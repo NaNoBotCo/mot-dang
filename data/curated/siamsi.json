@@ -1,0 +1,174 @@
+{
+ "_comment": "เซียมซี — 28 sticks. The mechanic is the tradition; the words are THIS SITE'S OWN and are labelled as such on the page. Real temple slips differ from wat to wat and are not ours to reproduce or to invent. Verdicts: ดี good, กลาง middling, ระวัง take care.",
+ "count": 28,
+ "sticks": [
+  {
+   "n": 1,
+   "th": "ค้าขายคล่อง มีคนมาหาถึงหน้าร้าน",
+   "en": "Trade moves; someone comes to your door",
+   "verdict": "ดี"
+  },
+  {
+   "n": 2,
+   "th": "รอก่อน อย่าเพิ่งตัดสินใจเรื่องเงิน",
+   "en": "Wait — do not decide about money today",
+   "verdict": "ระวัง"
+  },
+  {
+   "n": 3,
+   "th": "คนเก่ากลับมา คุยดีๆ ได้เรื่อง",
+   "en": "Someone from before returns; talk gently and it works",
+   "verdict": "ดี"
+  },
+  {
+   "n": 4,
+   "th": "เหนื่อยแต่คุ้ม งานที่ทำค้างจะจบ",
+   "en": "Tiring but worth it; the unfinished thing finishes",
+   "verdict": "ดี"
+  },
+  {
+   "n": 5,
+   "th": "มีคนอิจฉา ทำดีต่อไปอย่าโต้",
+   "en": "Someone envies you; keep doing well, do not argue",
+   "verdict": "กลาง"
+  },
+  {
+   "n": 6,
+   "th": "โชคมาทางน้ำ ทางเดินทางใกล้ๆ",
+   "en": "Luck comes by water, or a short journey",
+   "verdict": "ดี"
+  },
+  {
+   "n": 7,
+   "th": "เก็บเงินสด อย่าให้ยืม",
+   "en": "Hold your cash; do not lend it this week",
+   "verdict": "ระวัง"
+  },
+  {
+   "n": 8,
+   "th": "ญาติผู้ใหญ่ช่วยได้ ลองปรึกษา",
+   "en": "An elder can help — ask them",
+   "verdict": "ดี"
+  },
+  {
+   "n": 9,
+   "th": "ของหายจะได้คืน ถามคนใกล้ตัว",
+   "en": "What is lost comes back; ask those closest",
+   "verdict": "กลาง"
+  },
+  {
+   "n": 10,
+   "th": "อย่ารับปากใครวันนี้",
+   "en": "Promise nobody anything today",
+   "verdict": "ระวัง"
+  },
+  {
+   "n": 11,
+   "th": "มีลาภปาก คนเลี้ยงข้าว",
+   "en": "Food-luck — someone feeds you",
+   "verdict": "ดี"
+  },
+  {
+   "n": 12,
+   "th": "สุขภาพ ให้พักให้พอ",
+   "en": "Health: rest properly, that is the whole reading",
+   "verdict": "กลาง"
+  },
+  {
+   "n": 13,
+   "th": "เริ่มใหม่ได้ ฤกษ์เปิดร้านดี",
+   "en": "A good moment to begin again, or to open",
+   "verdict": "ดี"
+  },
+  {
+   "n": 14,
+   "th": "คนกลางจะพาเรื่องดีมา",
+   "en": "A go-between brings something good",
+   "verdict": "ดี"
+  },
+  {
+   "n": 15,
+   "th": "ระวังคำพูด ปากเป็นเหตุ",
+   "en": "Mind your words; the mouth is the cause",
+   "verdict": "ระวัง"
+  },
+  {
+   "n": 16,
+   "th": "รักเก่ายังไม่จบ ค่อยๆ คิด",
+   "en": "An old love is unfinished; think slowly",
+   "verdict": "กลาง"
+  },
+  {
+   "n": 17,
+   "th": "เงินเข้าแบบไม่คาดคิด",
+   "en": "Money arrives from somewhere unexpected",
+   "verdict": "ดี"
+  },
+  {
+   "n": 18,
+   "th": "อย่าเดินทางไกลกลางคืน",
+   "en": "Do not travel far after dark",
+   "verdict": "ระวัง"
+  },
+  {
+   "n": 19,
+   "th": "ทำบุญแล้วจะโล่ง สะเดาะเคราะห์",
+   "en": "Make merit and it lifts; a day for สะเดาะเคราะห์",
+   "verdict": "กลาง"
+  },
+  {
+   "n": 20,
+   "th": "มีคนช่วยโดยไม่ต้องขอ",
+   "en": "Help arrives without your asking",
+   "verdict": "ดี"
+  },
+  {
+   "n": 21,
+   "th": "งานติดขัดตอนเช้า บ่ายคลี่คลาย",
+   "en": "Stuck in the morning, loosens by afternoon",
+   "verdict": "กลาง"
+  },
+  {
+   "n": 22,
+   "th": "คู่แข่งเพลี่ยงพล้ำ อย่าซ้ำเติม",
+   "en": "A rival stumbles; do not press it",
+   "verdict": "กลาง"
+  },
+  {
+   "n": 23,
+   "th": "ลูกหลานนำโชคมา",
+   "en": "A younger one in the family brings luck",
+   "verdict": "ดี"
+  },
+  {
+   "n": 24,
+   "th": "เก็บของเก่าไว้ จะมีค่า",
+   "en": "Keep the old thing; it becomes worth something",
+   "verdict": "กลาง"
+  },
+  {
+   "n": 25,
+   "th": "มีเกณฑ์ได้ของฟรี",
+   "en": "You are due something free",
+   "verdict": "ดี"
+  },
+  {
+   "n": 26,
+   "th": "อย่าเซ็นอะไรวันนี้",
+   "en": "Sign nothing today",
+   "verdict": "ระวัง"
+  },
+  {
+   "n": 27,
+   "th": "สีมงคลช่วยได้ ใส่ตามวัน",
+   "en": "The day's colour helps — wear it",
+   "verdict": "ดี"
+  },
+  {
+   "n": 28,
+   "th": "นิ่งไว้ แล้วจะชนะ",
+   "en": "Stay still, and you win",
+   "verdict": "กลาง"
+  }
+ ]
+}

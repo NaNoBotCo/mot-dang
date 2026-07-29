@@ -27,6 +27,37 @@
      "how_en": "from the day's planetary strength (17) and the date 29/7/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
+   "thai_night": {
+    "th": "วันพุธกลางคืน",
+    "en": "Wednesday night",
+    "colour_th": "สีดำ",
+    "colour_en": "black",
+    "hex": "#1A1A1E",
+    "planet_th": "พระราหู",
+    "planet_en": "Rahu",
+    "strength": 12,
+    "buddha_th": "ปางป่าเลไลยก์",
+    "buddha_en": "the Buddha of the Parileyyaka forest, attended by elephant and monkey",
+    "zodiac_year_th": "มะเมีย",
+    "zodiac_year_en": "Horse",
+    "lucky": {
+     "two": [
+      "55",
+      "48"
+     ],
+     "three": "972",
+     "how_th": "จากกำลังพระเคราะห์ 12 กับวันที่ 29/7/2569",
+     "how_en": "from the day's planetary strength (12) and the date 29/7/2569"
+    },
+    "from_hour": 18
+   },
    "european": {
     "moon_sign_th": "ราศีกุมภ์",
     "moon_sign_en": "Aquarius",
@@ -216,6 +247,13 @@
      "how_th": "จากกำลังพระเคราะห์ 19 กับวันที่ 30/7/2569",
      "how_en": "from the day's planetary strength (19) and the date 30/7/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีกุมภ์",
@@ -407,6 +445,13 @@
      "how_en": "from the day's planetary strength (21) and the date 31/7/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
    "european": {
     "moon_sign_th": "ราศีกุมภ์",
     "moon_sign_en": "Aquarius",
@@ -596,6 +641,13 @@
      "how_th": "จากกำลังพระเคราะห์ 10 กับวันที่ 1/8/2569",
      "how_en": "from the day's planetary strength (10) and the date 1/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีมีน",
@@ -787,6 +839,13 @@
      "how_en": "from the day's planetary strength (6) and the date 2/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
    "european": {
     "moon_sign_th": "ราศีมีน",
     "moon_sign_en": "Pisces",
@@ -976,6 +1035,13 @@
      "how_th": "จากกำลังพระเคราะห์ 15 กับวันที่ 3/8/2569",
      "how_en": "from the day's planetary strength (15) and the date 3/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีเมษ",
@@ -1167,6 +1233,13 @@
      "how_en": "from the day's planetary strength (8) and the date 4/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
    "european": {
     "moon_sign_th": "ราศีเมษ",
     "moon_sign_en": "Aries",
@@ -1356,6 +1429,37 @@
      "how_th": "จากกำลังพระเคราะห์ 17 กับวันที่ 5/8/2569",
      "how_en": "from the day's planetary strength (17) and the date 5/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
+   "thai_night": {
+    "th": "วันพุธกลางคืน",
+    "en": "Wednesday night",
+    "colour_th": "สีดำ",
+    "colour_en": "black",
+    "hex": "#1A1A1E",
+    "planet_th": "พระราหู",
+    "planet_en": "Rahu",
+    "strength": 12,
+    "buddha_th": "ปางป่าเลไลยก์",
+    "buddha_en": "the Buddha of the Parileyyaka forest, attended by elephant and monkey",
+    "zodiac_year_th": "มะเมีย",
+    "zodiac_year_en": "Horse",
+    "lucky": {
+     "two": [
+      "68",
+      "25"
+     ],
+     "three": "809",
+     "how_th": "จากกำลังพระเคราะห์ 12 กับวันที่ 5/8/2569",
+     "how_en": "from the day's planetary strength (12) and the date 5/8/2569"
+    },
+    "from_hour": 18
    },
    "european": {
     "moon_sign_th": "ราศีพฤษภ",
@@ -1547,6 +1651,13 @@
      "how_en": "from the day's planetary strength (19) and the date 6/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
    "european": {
     "moon_sign_th": "ราศีพฤษภ",
     "moon_sign_en": "Taurus",
@@ -1736,6 +1847,13 @@
      "how_th": "จากกำลังพระเคราะห์ 21 กับวันที่ 7/8/2569",
      "how_en": "from the day's planetary strength (21) and the date 7/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีเมถุน",
@@ -1927,6 +2045,13 @@
      "how_en": "from the day's planetary strength (10) and the date 8/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
    "european": {
     "moon_sign_th": "ราศีเมถุน",
     "moon_sign_en": "Gemini",
@@ -2116,6 +2241,13 @@
      "how_th": "จากกำลังพระเคราะห์ 6 กับวันที่ 9/8/2569",
      "how_en": "from the day's planetary strength (6) and the date 9/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีกรกฎ",
@@ -2307,6 +2439,13 @@
      "how_en": "from the day's planetary strength (15) and the date 10/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
    "european": {
     "moon_sign_th": "ราศีกรกฎ",
     "moon_sign_en": "Cancer",
@@ -2496,6 +2635,13 @@
      "how_th": "จากกำลังพระเคราะห์ 8 กับวันที่ 11/8/2569",
      "how_en": "from the day's planetary strength (8) and the date 11/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีสิงห์",
@@ -2687,6 +2833,37 @@
      "how_en": "from the day's planetary strength (17) and the date 12/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
+   "thai_night": {
+    "th": "วันพุธกลางคืน",
+    "en": "Wednesday night",
+    "colour_th": "สีดำ",
+    "colour_en": "black",
+    "hex": "#1A1A1E",
+    "planet_th": "พระราหู",
+    "planet_en": "Rahu",
+    "strength": 12,
+    "buddha_th": "ปางป่าเลไลยก์",
+    "buddha_en": "the Buddha of the Parileyyaka forest, attended by elephant and monkey",
+    "zodiac_year_th": "มะเมีย",
+    "zodiac_year_en": "Horse",
+    "lucky": {
+     "two": [
+      "52",
+      "32"
+     ],
+     "three": "865",
+     "how_th": "จากกำลังพระเคราะห์ 12 กับวันที่ 12/8/2569",
+     "how_en": "from the day's planetary strength (12) and the date 12/8/2569"
+    },
+    "from_hour": 18
+   },
    "european": {
     "moon_sign_th": "ราศีสิงห์",
     "moon_sign_en": "Leo",
@@ -2876,6 +3053,13 @@
      "how_th": "จากกำลังพระเคราะห์ 19 กับวันที่ 13/8/2569",
      "how_en": "from the day's planetary strength (19) and the date 13/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีกันย์",
@@ -3067,6 +3251,13 @@
      "how_en": "from the day's planetary strength (21) and the date 14/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
    "european": {
     "moon_sign_th": "ราศีกันย์",
     "moon_sign_en": "Virgo",
@@ -3256,6 +3447,13 @@
      "how_th": "จากกำลังพระเคราะห์ 10 กับวันที่ 15/8/2569",
      "how_en": "from the day's planetary strength (10) and the date 15/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีกันย์",
@@ -3447,6 +3645,13 @@
      "how_en": "from the day's planetary strength (6) and the date 16/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
    "european": {
     "moon_sign_th": "ราศีตุลย์",
     "moon_sign_en": "Libra",
@@ -3636,6 +3841,13 @@
      "how_th": "จากกำลังพระเคราะห์ 15 กับวันที่ 17/8/2569",
      "how_en": "from the day's planetary strength (15) and the date 17/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีตุลย์",
@@ -3827,6 +4039,13 @@
      "how_en": "from the day's planetary strength (8) and the date 18/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
    "european": {
     "moon_sign_th": "ราศีพิจิก",
     "moon_sign_en": "Scorpio",
@@ -4016,6 +4235,37 @@
      "how_th": "จากกำลังพระเคราะห์ 17 กับวันที่ 19/8/2569",
      "how_en": "from the day's planetary strength (17) and the date 19/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
+   "thai_night": {
+    "th": "วันพุธกลางคืน",
+    "en": "Wednesday night",
+    "colour_th": "สีดำ",
+    "colour_en": "black",
+    "hex": "#1A1A1E",
+    "planet_th": "พระราหู",
+    "planet_en": "Rahu",
+    "strength": 12,
+    "buddha_th": "ปางป่าเลไลยก์",
+    "buddha_en": "the Buddha of the Parileyyaka forest, attended by elephant and monkey",
+    "zodiac_year_th": "มะเมีย",
+    "zodiac_year_en": "Horse",
+    "lucky": {
+     "two": [
+      "36",
+      "39"
+     ],
+     "three": "921",
+     "how_th": "จากกำลังพระเคราะห์ 12 กับวันที่ 19/8/2569",
+     "how_en": "from the day's planetary strength (12) and the date 19/8/2569"
+    },
+    "from_hour": 18
    },
    "european": {
     "moon_sign_th": "ราศีพิจิก",
@@ -4207,6 +4457,13 @@
      "how_en": "from the day's planetary strength (19) and the date 20/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
    "european": {
     "moon_sign_th": "ราศีธนู",
     "moon_sign_en": "Sagittarius",
@@ -4396,6 +4653,13 @@
      "how_th": "จากกำลังพระเคราะห์ 21 กับวันที่ 21/8/2569",
      "how_en": "from the day's planetary strength (21) and the date 21/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีธนู",
@@ -4587,6 +4851,13 @@
      "how_en": "from the day's planetary strength (10) and the date 22/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
    "european": {
     "moon_sign_th": "ราศีธนู",
     "moon_sign_en": "Sagittarius",
@@ -4776,6 +5047,13 @@
      "how_th": "จากกำลังพระเคราะห์ 6 กับวันที่ 23/8/2569",
      "how_en": "from the day's planetary strength (6) and the date 23/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีมังกร",
@@ -4967,6 +5245,13 @@
      "how_en": "from the day's planetary strength (15) and the date 24/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
    "european": {
     "moon_sign_th": "ราศีมังกร",
     "moon_sign_en": "Capricorn",
@@ -5156,6 +5441,13 @@
      "how_th": "จากกำลังพระเคราะห์ 8 กับวันที่ 25/8/2569",
      "how_en": "from the day's planetary strength (8) and the date 25/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีกุมภ์",
@@ -5347,6 +5639,37 @@
      "how_en": "from the day's planetary strength (17) and the date 26/8/2569"
     }
    },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
+   },
+   "thai_night": {
+    "th": "วันพุธกลางคืน",
+    "en": "Wednesday night",
+    "colour_th": "สีดำ",
+    "colour_en": "black",
+    "hex": "#1A1A1E",
+    "planet_th": "พระราหู",
+    "planet_en": "Rahu",
+    "strength": 12,
+    "buddha_th": "ปางป่าเลไลยก์",
+    "buddha_en": "the Buddha of the Parileyyaka forest, attended by elephant and monkey",
+    "zodiac_year_th": "มะเมีย",
+    "zodiac_year_en": "Horse",
+    "lucky": {
+     "two": [
+      "20",
+      "46"
+     ],
+     "three": "977",
+     "how_th": "จากกำลังพระเคราะห์ 12 กับวันที่ 26/8/2569",
+     "how_en": "from the day's planetary strength (12) and the date 26/8/2569"
+    },
+    "from_hour": 18
+   },
    "european": {
     "moon_sign_th": "ราศีกุมภ์",
     "moon_sign_en": "Aquarius",
@@ -5536,6 +5859,13 @@
      "how_th": "จากกำลังพระเคราะห์ 19 กับวันที่ 27/8/2569",
      "how_en": "from the day's planetary strength (19) and the date 27/8/2569"
     }
+   },
+   "ketu": {
+    "th": "พระเกตุ",
+    "en": "Ketu",
+    "strength": 9,
+    "note_th": "เกตุเป็นองค์ที่เก้าของนพเคราะห์ เพิ่มเข้ามาภายหลัง จึงไม่มีวันประจำ ตามตำนานเกิดจากส่วนหางของพระราหู หน้าที่คือช่วยผ่อนเคราะห์และหนุนโชค มากกว่าจะครองวันใดวันหนึ่ง",
+    "note_en": "Ketu is the ninth of the nine grahas and was added later, so it holds no weekday. Tradition tells it formed from Rahu's severed tail; its part is to soften misfortune and lift luck rather than to govern a day."
    },
    "european": {
     "moon_sign_th": "ราศีกุมภ์",
