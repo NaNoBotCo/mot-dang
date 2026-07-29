@@ -1,0 +1,38 @@
+{
+  "_comment": "Hand-verified venue-name → place-id map. Automatic matching in build.py is deliberately strict (exact name, or a full distinctive-token subset) because a wrong venue on a page is worse than no venue: loose 'contains' matching produced Araksa Tea Garden → 'Garden Restaurant' and Bua Bhat Factory → 'Fact Café'. This file is where a human pins the ones strict matching cannot reach. Field truth, per data/curated/ convention — importers must never overwrite it.",
+  "_precision": "Use `approx: true` where the pinned record is the containing institution rather than the exact room or building, so the page can say so instead of implying a precise fix.",
+
+  "aliases": {
+    "cmu": {
+      "place_id": "cm-osm-way-189632187",
+      "why": "Meetup venue string 'CMU' = Chiang Mai University campus (มหาวิทยาลัยเชียงใหม่). Sunset walks meet at the campus entrance.",
+      "approx": true
+    },
+    "cmu entrance": {
+      "place_id": "cm-osm-way-189632187",
+      "why": "Same as CMU.",
+      "approx": true
+    },
+    "lifelong learning payap center": {
+      "place_id": "cm-osm-way-122522956",
+      "why": "Payap University (มหาวิทยาลัยพายัพ). The Lifelong Learning centre sits on the Kaew Nawarat campus; the catalogue record is the university itself.",
+      "approx": true
+    },
+    "wat tung yu": {
+      "place_id": "cm-osm-way-242929634",
+      "why": "วัดทุงยู — hosts the Friday games night and meditation retreats via Buddha Daily Wisdom.",
+      "approx": false
+    }
+  },
+
+  "_missing_from_catalogue": {
+    "_comment": "Event venues confirmed NOT present in the 10,281-record catalogue as of 2026-07-29. These are real coverage gaps and good candidates for a targeted crawl or a 'send the ants' request — an events feed naming a venue we do not have is itself a discovery signal.",
+    "venues": [
+      "Attika Studio",
+      "Lecker Cafe & Bistro",
+      "Bua Bhat Factory",
+      "NARIT Astronomy Park",
+      "Araksa Tea Garden"
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+ "generated": "2026-07-29",
+ "count": 5,
+ "leads": [
+  {
+   "venue_name": "Araksa Tea Garden",
+   "sources": [
+    "payap-lll"
+   ],
+   "phone": "0972861230",
+   "website": "https://www.araksatea.com",
+   "address": "87 Moo1, Ban Chang,",
+   "city": "Mae Taeng District, Chang Wat"
+  },
+  {
+   "venue_name": "Bua Bhat Factory",
+   "sources": [
+    "payap-lll"
+   ],
+   "phone": "053 446 291",
+   "address": "134 Tambon Buak Kang, San Kamphaeng District,",
+   "city": "Chiang Mai"
+  },
+  {
+   "venue_name": "Chiang Mai National Museum",
+   "sources": [
+    "payap-lll"
+   ],
+   "phone": "053221308",
+   "address": "Chiang Mai National Museum, 451, Chang Phueak,",
+   "city": "Mueang Chiang Mai District"
+  },
+  {
+   "venue_name": "Lifelong Learning Payap",
+   "sources": [
+    "payap-lll"
+   ],
+   "email": "lllpayap@gmail.com"
+  },
+  {
+   "venue_name": "Lifelong Learning Payap Center",
+   "sources": [
+    "payap-lll"
+   ],
+   "website": "https://www.lllpayap.com",
+   "address": "Lifelong Learning Payap Center Payap University, Kaew Nawarat Campus, Unnamed Road, Wat Ket, Mueang Chiang Mai District, Chiang Mai 50000, Thailand",
+   "city": "Chiang Mai"
+  }
+ ]
+}
