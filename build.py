@@ -892,6 +892,13 @@ transition:transform .12s ease,border-color .12s ease,box-shadow .12s ease}
 .door b{font-size:1.05rem}
 .door span{font-size:.85rem;color:var(--mute);line-height:1.4}
 .door.own{border-color:var(--ant);background:linear-gradient(160deg,#fff,#fff6f1)}
+.lineqr{display:flex;gap:1rem;align-items:center;background:#fff;border:2px solid #06C755;
+border-radius:.9rem;padding:.9rem 1rem;margin:1rem 0;flex-wrap:wrap}
+.lineqr img{border-radius:.5rem;flex:0 0 auto}
+.lineqr div{display:flex;flex-direction:column;gap:.15rem}
+.lineqr b{font-size:1.05rem}
+.lineqr span{font-size:.85rem;color:var(--mute)}
+.door.line{border-color:#06C755}
 .helpline{background:var(--soft);border-radius:.7rem;padding:.55rem .9rem;margin:.9rem 0;font-size:.9rem}
 .helpline b{color:var(--ant-dark)}
 .festplan{margin-top:.5rem;padding-top:.45rem;border-top:1px dashed var(--soft)}
@@ -3325,6 +3332,7 @@ CONFIG = json.loads(_cfg_path.read_text()) if _cfg_path.exists() else {}
 CONTACT_EMAIL = CONFIG.get("contactEmail", "530kings@proton.me")
 LINE_ADD_URL = CONFIG.get("lineAddUrl", "")
 LINE_OA_ID = CONFIG.get("lineOaId", "")
+LINE_QR = CONFIG.get("lineQr", "")
 
 
 def mailto(subject, body=""):
@@ -3370,6 +3378,23 @@ def add_doors(depth=0, place=None):
         f'</div>')
 
 
+def line_qr_block(depth=0):
+    """The QR, big enough to scan off a screen.
+
+    A shop owner reading this on a laptop cannot tap a LINE link with her
+    phone, and the phone is where LINE lives. Print it and it goes by the till.
+    """
+    if not (LINE_QR and LINE_ADD_URL):
+        return ""
+    r = "../" * depth
+    return (f'<div class="lineqr">'
+            f'<img src="{r}{att(LINE_QR)}" alt="{att("คิวอาร์โค้ดเพิ่มเพื่อนไลน์มดแดง / LINE add-friend QR for Mot Dang")}" width="180" height="180">'
+            f'<div><b>{bi("สแกนเพื่อทักมาทางไลน์", "Scan to reach us on LINE")}</b>'
+            f'<span>{bi("หรือกดที่นี่ถ้าเปิดจากมือถือ", "or tap, if you are on your phone")} — '
+            f'<a href="{att(LINE_ADD_URL)}" rel="noopener">{esc(LINE_OA_ID or "LINE")}</a></span>'
+            f'<span class="tinynote">{bi("พิมพ์ออกมาวางไว้หน้าร้านก็ได้เจ้า", "Print it and stand it by the till")}</span></div></div>')
+
+
 def build_add_page():
     lede_th = ("อยากเพิ่มหรือแก้ข้อมูลในมดแดง เลือกทางไหนก็ได้ที่สะดวก "
                "ไม่ต้องสมัครสมาชิก ไม่มีค่าใช้จ่าย ไม่มีอะไรแอบแฝง")
@@ -3401,6 +3426,7 @@ def build_add_page():
     body = (f'<h1>🐜 {bi("เพิ่มข้อมูล", "Add something")}</h1>'
             f'<p>{bi(lede_th, lede_en)}</p>'
             f'{add_doors(0)}'
+            f'{line_qr_block(0)}'
             f'<h2>{bi("ได้อะไรตอบแทน", "What you get for it")}</h2>'
             f'<p>{bi(rank_th, rank_en)}</p>'
             f'<h2>{bi("รูปถ่าย", "Photographs")}</h2>'
@@ -3514,6 +3540,9 @@ def build():
         shutil.copy(card, DOCS / "card.png")
     (DOCS / "wat.svg").write_text(WAT_SVG)
     (DOCS / "ant.svg").write_text(ANT_SVG)
+    _qr = ROOT / "assets" / LINE_QR if LINE_QR else None
+    if _qr and _qr.exists():
+        shutil.copyfile(_qr, DOCS / LINE_QR)
     if OG_FILES:
         (DOCS / "og").mkdir(exist_ok=True)
         for _id in OG_FILES:

@@ -463,6 +463,13 @@ transition:transform .12s ease,border-color .12s ease,box-shadow .12s ease}
 .door b{font-size:1.05rem}
 .door span{font-size:.85rem;color:var(--mute);line-height:1.4}
 .door.own{border-color:var(--ant);background:linear-gradient(160deg,#fff,#fff6f1)}
+.lineqr{display:flex;gap:1rem;align-items:center;background:#fff;border:2px solid #06C755;
+border-radius:.9rem;padding:.9rem 1rem;margin:1rem 0;flex-wrap:wrap}
+.lineqr img{border-radius:.5rem;flex:0 0 auto}
+.lineqr div{display:flex;flex-direction:column;gap:.15rem}
+.lineqr b{font-size:1.05rem}
+.lineqr span{font-size:.85rem;color:var(--mute)}
+.door.line{border-color:#06C755}
 .helpline{background:var(--soft);border-radius:.7rem;padding:.55rem .9rem;margin:.9rem 0;font-size:.9rem}
 .helpline b{color:var(--ant-dark)}
 .festplan{margin-top:.5rem;padding-top:.45rem;border-top:1px dashed var(--soft)}
