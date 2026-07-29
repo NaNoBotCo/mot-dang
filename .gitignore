@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 cache/
+
+# never commit the LINE channel token
+.mot-dang-line-token
+*.token
