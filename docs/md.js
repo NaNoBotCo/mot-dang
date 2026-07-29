@@ -25,6 +25,170 @@ resBox.innerHTML=hits.map(e=>`<li><a href="${RROOT}${e.p}/p/${e.id}.html">${e.n}
 `${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
 ` <span class="count">· ${e.pv}</span></li>`).join('')||
 (q?'<li class="shelf">ไม่พบ — ลองคำอื่น / nothing found, try another word</li>':'');})();}
+// ---- today's sky + fortune, chosen from a month baked at build time ---
+// Nothing is fetched: build.py wrote 30 days into these files, so the page is
+// right every morning without a rebuild and still makes no outside request.
+const MD_TODAY=(()=>{const d=new Date();
+return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');})();
+async function mdJSON(p){try{const r=await fetch(RROOT+p);return r.ok?await r.json():null;}
+catch(e){return null;}}
+function mdPick(doc){if(!doc||!doc.days)return null;
+return doc.days[MD_TODAY]||doc.days[Object.keys(doc.days).sort()[0]]||null;}
+// --- sky tile: moon + jupiter, drawn from baked positions
+(async()=>{const host=document.getElementById('w-sky');if(!host)return;
+const doc=await mdJSON('data/sky.json');const day=mdPick(doc);if(!day)return;
+const moonArt=host.querySelector('[data-skyart="moon"]');
+const jupArt=host.querySelector('[data-skyart="jupiter"]');
+if(day.svg_moon&&moonArt)moonArt.innerHTML=day.svg_moon;
+if(day.svg_jupiter&&jupArt)jupArt.innerHTML=day.svg_jupiter;
+const mc=host.querySelector('[data-skycap="moon"]');
+if(mc&&day.moon)mc.innerHTML='<span class="th">'+day.moon.phase_th+' · '+day.moon.thai_label_th+
+(day.moon.wan_phra?' · วันพระ':'')+'</span><span class="en">'+day.moon.phase_en+' · '+
+day.moon.thai_label_en+(day.moon.wan_phra?' · wan phra':'')+'</span>';
+const slides=[...host.querySelectorAll('.skyslide')];
+const dots=[...host.querySelectorAll('[data-skydot]')];let si=0;
+const go=i=>{si=(i+slides.length)%slides.length;
+slides.forEach((s,n)=>{s.hidden=n!==si;});
+dots.forEach((d,n)=>d.classList.toggle('on',n===si));};
+dots.forEach(d=>d.addEventListener('click',()=>{go(+d.dataset.skydot);clearInterval(window.__skyT);}));
+if(slides.length>1)window.__skyT=setInterval(()=>go(si+1),6000);})();
+// --- fortune, horoscope, hexagram, and the day's colour
+(async()=>{const doc=await mdJSON('data/fortune.json');const day=mdPick(doc);if(!day)return;
+const t=day.thai;
+// สีประจำวัน: the whole page borrows the day's colour
+if(t&&t.hex)document.documentElement.style.setProperty('--day',t.hex);
+const setF=(k,v)=>{const el=document.querySelector(`[data-fo="${k}"]`);if(el&&v!=null)el.textContent=v;};
+if(t){setF('day_th',t.th);setF('strength',t.strength);setF('zodiac',t.zodiac_year_th);
+const sw=document.querySelector('[data-fo="swatch"]');if(sw)sw.style.background=t.hex;
+const bl=(sel,a,b)=>{const el=document.querySelector(sel);
+if(el)el.innerHTML='<span class="th">'+a+'</span><span class="en">'+b+'</span>';};
+bl('[data-fo="colour"]',t.colour_th,t.colour_en);
+bl('[data-fo="buddha"]',t.buddha_th,t.buddha_en);
+bl('[data-fo="planet"]',t.planet_th,t.planet_en);
+bl('[data-fo="how"]',t.lucky.how_th,t.lucky.how_en);
+setF('nums',t.lucky.two.join(' ')+' · '+t.lucky.three);
+const thl=document.querySelector('[data-ho="th_line"]');
+if(thl)thl.innerHTML='<span class="th">วันนี้เป็น'+t.th+' สีประจำวันคือ'+t.colour_th+
+' พระประจำวันคือ'+t.buddha_th+' กำลังพระเคราะห์ '+t.strength+'</span>'+
+'<span class="en">Today is '+t.en+'. Its colour is '+t.colour_en+', its image is '+
+t.buddha_en+', and its planetary strength is '+t.strength+'.</span>';}
+// european: reader picks a sign, choice is remembered
+const eu=day.european;const pick=document.querySelector('[data-ho="signpick"]');
+if(eu&&pick){const saved=localStorage.getItem('md.sign');
+if(saved!==null&&eu.signs[+saved])pick.value=saved;
+const drawEU=()=>{const s=eu.signs[+pick.value];if(!s)return;
+const a=document.querySelector('[data-ho="eu_aspect"]'),l=document.querySelector('[data-ho="eu_line"]'),
+m=document.querySelector('[data-ho="eu_moon"]');
+if(a)a.innerHTML='<span class="th">'+s.aspect_th+'</span><span class="en">'+s.aspect_en+'</span>';
+if(l)l.innerHTML='<span class="th">'+s.line_th+'</span><span class="en">'+s.line_en+'</span>';
+if(m)m.innerHTML='<span class="th">ดวงจันทร์อยู่'+eu.moon_sign_th+'</span>'+
+'<span class="en">The Moon is in '+eu.moon_sign_en+'</span>';};
+pick.addEventListener('change',()=>{try{localStorage.setItem('md.sign',pick.value);}catch(e){}drawEU();});
+drawEU();}
+// chinese
+const cn=day.chinese;
+if(cn){const p=document.querySelector('[data-ho="cn_pillar"]'),l=document.querySelector('[data-ho="cn_line"]');
+if(p)p.textContent=cn.pillar+' · '+cn.animal;
+if(l)l.innerHTML='<span class="th">'+(cn.relation_th||'')+'</span><span class="en">'+
+(cn.relation_en||'')+'</span>';}
+// hexagram: draw the six lines from the king wen number
+const hx=day.hexagram;
+if(hx&&hx.number){const box=document.querySelector('[data-hx="lines"]');
+const set=(k,v)=>{const e=document.querySelector(`[data-hx="${k}"]`);if(e&&v!=null)e.textContent=v;};
+set('zh',hx.zh);set('pinyin',hx.pinyin);set('en',hx.en);set('gloss',hx.gloss);
+if(box&&hx.bits){box.innerHTML=hx.bits.slice().reverse().map((b,i)=>
+`<span class="hxline ${b?'yang':'yin'} ${hx.moving&&hx.moving.includes(6-i)?'moving':''}"></span>`).join('');}}
+// tabs
+document.querySelectorAll('.hotab').forEach(b=>{b.addEventListener('click',()=>{
+document.querySelectorAll('.hotab').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+document.querySelectorAll('.hopane').forEach(p=>{p.hidden=p.dataset.hopane!==b.dataset.hotab;});});});
+})();
+// --- katha carousel
+(()=>{const cards=[...document.querySelectorAll('[data-kacard]')];
+const dots=[...document.querySelectorAll('[data-kadot]')];if(!cards.length)return;let ki=0;
+const go=i=>{ki=(i+cards.length)%cards.length;cards.forEach((c,n)=>{c.hidden=n!==ki;});
+dots.forEach((d,n)=>d.classList.toggle('on',n===ki));};
+dots.forEach(d=>d.addEventListener('click',()=>{go(+d.dataset.kadot);clearInterval(window.__kaT);}));
+if(cards.length>1)window.__kaT=setInterval(()=>go(ki+1),9000);})();
+// ---- widgets: choices live in localStorage, no account, no tracking --
+function wLoad(k,d){try{const v=JSON.parse(localStorage.getItem(k));
+return Array.isArray(v)?v:d;}catch(e){return d;}}
+function wSave(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+// gear buttons flip a tile to its picker
+document.querySelectorAll('.wcog').forEach(b=>{b.addEventListener('click',()=>{
+const p=document.querySelector(`.wpick[data-wpickfor="${b.dataset.wpick}"]`);
+if(p)p.hidden=!p.hidden;});});
+document.querySelectorAll('.wpick').forEach(p=>{p.addEventListener('click',e=>{
+if(e.target===p)p.hidden=true;});});
+// --- weather: rotate through the cities the reader picked
+const wxPanes=[...document.querySelectorAll('.wxpane')];
+if(wxPanes.length){
+let wxSel=wLoad('md.wx',['chiang-mai','chiang-rai']);
+const wxBoxes=[...document.querySelectorAll('[data-wxc]')];
+const wxDraw=()=>{if(!wxSel.length)wxSel=['chiang-mai'];
+wxPanes.forEach(p=>{p.hidden=true;});
+let i=0;const show=()=>{const id=wxSel[i%wxSel.length];
+wxPanes.forEach(p=>{p.hidden=p.dataset.wxpane!==id;});i++;};
+show();clearInterval(window.__wxT);
+if(wxSel.length>1)window.__wxT=setInterval(show,4000);};
+wxBoxes.forEach(b=>{b.checked=wxSel.includes(b.dataset.wxc);
+b.addEventListener('change',()=>{wxSel=wxBoxes.filter(x=>x.checked).map(x=>x.dataset.wxc);
+wSave('md.wx',wxSel);wxDraw();});});
+wxDraw();}
+// --- clocks: Intl does the conversion, so nothing is fetched
+const tzRows=[...document.querySelectorAll('.tzrow')];
+if(tzRows.length){
+let tzSel=wLoad('md.tz',['chiang-mai','london','new-york']);
+const tzBoxes=[...document.querySelectorAll('[data-tzc]')];
+const shift=document.getElementById('tzshift'),shiftOut=document.getElementById('tzshiftout');
+const tzDraw=()=>{const off=shift?parseInt(shift.value,10):0;
+if(shiftOut)shiftOut.textContent=(off>0?'+':'')+off+'h';
+const base=new Date(Date.now()+off*3600000);
+tzRows.forEach(r=>{const on=tzSel.includes(r.dataset.tzrow);r.hidden=!on;
+if(!on)return;
+try{const f=new Intl.DateTimeFormat('en-GB',{timeZone:r.dataset.tz,hour:'2-digit',
+minute:'2-digit',hour12:false});
+const d=new Intl.DateTimeFormat('en-GB',{timeZone:r.dataset.tz,weekday:'short'});
+r.querySelector('.tztime').textContent=f.format(base);
+r.querySelector('.tzday').textContent=d.format(base);}catch(e){}});};
+tzBoxes.forEach(b=>{b.checked=tzSel.includes(b.dataset.tzc);
+b.addEventListener('change',()=>{tzSel=tzBoxes.filter(x=>x.checked).map(x=>x.dataset.tzc);
+wSave('md.tz',tzSel);tzDraw();});});
+if(shift)shift.addEventListener('input',tzDraw);
+tzDraw();setInterval(tzDraw,15000);}
+// --- cinema: one pane per screen
+const cnPick=document.querySelector('.cnpick');
+if(cnPick){const panes=[...document.querySelectorAll('[data-cnpane]')];
+const cnDraw=()=>{panes.forEach(p=>{p.hidden=p.dataset.cnpane!==cnPick.value;});};
+const saved=localStorage.getItem('md.cn');
+if(saved&&[...cnPick.options].some(o=>o.value===saved))cnPick.value=saved;
+cnPick.addEventListener('change',()=>{try{localStorage.setItem('md.cn',cnPick.value);}catch(e){}
+cnDraw();});cnDraw();}
+// --- events carousel
+const carousel=document.querySelector('[data-carousel]');
+if(carousel){const slides=[...carousel.querySelectorAll('.evslide')];
+const dots=[...document.querySelectorAll('[data-evdot]')];let ci=0;
+const go=i=>{ci=(i+slides.length)%slides.length;
+slides.forEach((s,n)=>{s.hidden=n!==ci;});
+dots.forEach((d,n)=>d.classList.toggle('on',n===ci));};
+dots.forEach(d=>d.addEventListener('click',()=>{go(+d.dataset.evdot);
+clearInterval(window.__evT);}));
+if(slides.length>1)window.__evT=setInterval(()=>go(ci+1),5000);}
+// ---- events page filters --------------------------------------------
+const evf=document.getElementById('evfilters');
+if(evf){const cards=[...document.querySelectorAll('.evcard')];
+evf.querySelectorAll('button').forEach(b=>{b.addEventListener('click',()=>{
+evf.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+b.classList.add('on');const f=b.dataset.evf;
+cards.forEach(c=>{const rec=c.dataset.recurring==='1',map=c.dataset.mapped==='1';
+const show=f==='all'||(f==='recurring'&&rec)||(f==='once'&&!rec)||(f==='mapped'&&map);
+c.style.display=show?'':'none';});
+// hide a day/month heading whose whole grid just went empty
+document.querySelectorAll('.evgrid').forEach(g=>{
+const any=[...g.children].some(c=>c.style.display!=='none');
+g.style.display=any?'':'none';
+const h=g.previousElementSibling;
+if(h&&h.classList.contains('evday'))h.style.display=any?'':'none';});});});}
 // ---- random place (🎲) ----------------------------------------------
 document.querySelectorAll('.rand').forEach(a=>{a.addEventListener('click',async e=>{
 e.preventDefault();const idx=await loadIndex();
