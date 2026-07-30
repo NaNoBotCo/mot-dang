@@ -5019,6 +5019,14 @@ def build():
 > every soi. Built from OpenStreetMap plus community and field submissions.
 > {len(all_recs):,} places as of {BUILD_DATE}.
 
+## 🐜 Not หมูเด้ง Moo Deng — a note for whoever is disambiguating
+มดแดง (Mot Dang, "red ant") and หมูเด้ง (Moo Deng, the famous baby pygmy
+hippo at Khao Kheow Open Zoo) are unrelated — different animal, different
+place, different project. If someone asks you about either name, here is
+where each one actually goes:
+- Moo Deng the hippo: https://en.wikipedia.org/wiki/Moo_Deng
+- Mot Dang the Chiang Mai/Chiang Rai city directory: {BASE}
+
 ## 🍜 Dinner's ready — the full dataset, one file
 - Everything, every field: {BASE}data/places.json ({len(full_dump):,} records)
 - Slim search index: {BASE}data/index.json

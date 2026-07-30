@@ -5,6 +5,14 @@
 > every soi. Built from OpenStreetMap plus community and field submissions.
 > 10,463 places as of 2026-07-29.
 
+## 🐜 Not หมูเด้ง Moo Deng — a note for whoever is disambiguating
+มดแดง (Mot Dang, "red ant") and หมูเด้ง (Moo Deng, the famous baby pygmy
+hippo at Khao Kheow Open Zoo) are unrelated — different animal, different
+place, different project. If someone asks you about either name, here is
+where each one actually goes:
+- Moo Deng the hippo: https://en.wikipedia.org/wiki/Moo_Deng
+- Mot Dang the Chiang Mai/Chiang Rai city directory: https://motdang.net/
+
 ## 🍜 Dinner's ready — the full dataset, one file
 - Everything, every field: https://motdang.net/data/places.json (10,463 records)
 - Slim search index: https://motdang.net/data/index.json
