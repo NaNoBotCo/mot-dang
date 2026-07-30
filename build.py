@@ -535,6 +535,25 @@ def website_ld():
     }
     return f'<script type="application/ld+json">{json.dumps(obj, ensure_ascii=False)}</script>'
 
+
+def item_list_ld(records, prov_key, limit=100):
+    """schema.org ItemList for a directory shelf — a bot reads what's on the
+    page as structured data instead of parsing the visible <ul>.
+
+    numberOfItems is always the true count; itemListElement is capped at
+    `limit` so a category the size of food (4,742 entries in cm alone)
+    doesn't balloon into a half-megabyte script tag repeating, entry for
+    entry, what the page's own <ul> already says once.
+    """
+    items = [
+        {"@type": "ListItem", "position": i + 1,
+         "url": BASE + f"{prov_key}/p/{place_slug(r)}.html", "name": name_of(r)}
+        for i, r in enumerate(records[:limit])
+    ]
+    obj = {"@context": "https://schema.org", "@type": "ItemList",
+           "numberOfItems": len(records), "itemListElement": items}
+    return f'<script type="application/ld+json">{json.dumps(obj, ensure_ascii=False)}</script>'
+
 CSS = """
 /* Warm temple palette — mulberry paper, lacquer red, temple gold. Everything
    below already drew its colour from these variables, so retuning them moves
@@ -4106,6 +4125,10 @@ def build():
     home_sections = []
     search_index = []
     pulse = {}
+    # Collected alongside the place pages below, then consumed by the image
+    # sitemap extension — real, credited photos only, never the wat.svg /
+    # ant-hold-the-space placeholders every unphotographed listing gets.
+    sitemap_images = {}
 
     for p in PROVINCES:
         key, records = p["key"], data[p["key"]]
@@ -4172,15 +4195,17 @@ def build():
                         (cdef["th"], BASE + key + "/" + c + "/index.html"),
                         (child["th"], BASE + sub_path),
                     ])
+                    sub_sorted = sorted(in_sub, key=lambda r: (not is_featured(r), name_of(r)))
                     (pdir / c / child["key"] / "index.html").write_text(listing_page(
                         child["th"], child["en"],
-                        sorted(in_sub, key=lambda r: (not is_featured(r), name_of(r))),
+                        sub_sorted,
                         depth=3, prov=key,
                         crumbs=(f'<a href="../../../index.html">{bi("หน้าแรก", "Home")}</a> › '
                                 f'<a href="../../index.html">{bi(p["th"], p["en"])}</a> › '
                                 f'<a href="../index.html">{bi(cdef["th"], cdef["en"])}</a> › '
                                 f'{bi(child["th"], child["en"])}'),
-                        path=sub_path, extra_head=sub_bc_ld,
+                        path=sub_path,
+                        extra_head=sub_bc_ld + item_list_ld(sub_sorted, key),
                         seo_title=f'{child["th"]} {cdef["th"]} {p["th"]}'))
                     sub_bits.append(f'<b><a href="{child["key"]}/index.html">'
                                     f'{bi(child["th"], child["en"])}</a></b> '
@@ -4214,7 +4239,8 @@ def build():
                 # Console flags. The h1 in body stays unqualified on purpose.
                 f'{cdef["th"]} {p["th"]}', body, depth=2, crumbs=crumbs,
                 path=f"{key}/{c}/index.html",
-                desc=f"{cdef['th']} {p['th']} — {len(in_cat)} แห่ง · มดแดง", extra_head=cat_bc_ld))
+                desc=f"{cdef['th']} {p['th']} — {len(in_cat)} แห่ง · มดแดง",
+                extra_head=cat_bc_ld + item_list_ld(in_cat, key)))
 
         # Grouped by subcategory (falling back to category) so each place page
         # can link sideways to a few topically-close neighbours — internal
@@ -4230,9 +4256,13 @@ def build():
                 (x for x in by_sub.get(sub_key, []) if x["id"] != r["id"]),
                 key=lambda x: (-ant_rank(x), name_of(x)))[:5]
             slug = place_slug(r)
+            photo_file = photos.get(r["id"])
             (pdir / "p" / f"{slug}.html").write_text(
-                detail_page(r, p, photos.get(r["id"]),
+                detail_page(r, p, photo_file,
                             whats_on_here(r["id"], EVENTS, depth=2), related=related))
+            if photo_file:
+                sitemap_images[f"{key}/p/{slug}.html"] = (
+                    BASE + f"photos/{photo_file}", name_of(r))
             # A predictable .json beside every .html. A reader that guesses the
             # URL is right, every time, with no key and no rate limit.
             (pdir / "p" / f"{slug}.json").write_text(
@@ -4963,27 +4993,39 @@ def build():
     def rss_escape(s):
         return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
+    def rss_date(iso_date):
+        """RFC 822, the format RSS wants — only ever fed a real recorded date
+        (BUILD_DATE or a source's own "fetched"), never one made up to fill
+        the field. Bare date, so noon UTC avoids day-boundary drift either way."""
+        return (datetime.datetime.strptime(iso_date, "%Y-%m-%d")
+                .strftime("%a, %d %b %Y 12:00:00 +0000"))
+
     rss_items_xml = ""
     for pv, r in hi_pool[:20]:
         path_r = f"{pv}/p/{place_slug(r)}.html"
         cat_th = CATS[r["cat"][0]]["th"]
         desc = r.get("blurb_th") or cat_th
+        src = (r.get("sources") or [{}])[0]
+        pub = f"<pubDate>{rss_date(src['fetched'])}</pubDate>" if src.get("fetched") else ""
         rss_items_xml += (
             f"<item><title>{rss_escape(name_of(r))}</title>"
             f"<link>{BASE}{path_r}</link>"
             # A stable guid independent of the display URL — the id doesn't
             # change even if a name (and so its slug) later does.
             f'<guid isPermaLink="false">{rss_escape(r["id"])}</guid>'
+            f"{pub}"
             f"<description>{rss_escape(desc)}</description></item>")
     rss_xml = (
         '<?xml version="1.0" encoding="UTF-8"?>'
-        '<rss version="2.0"><channel>'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
         "<title>มดแดง Mot Dang — ของเด่นเชียงใหม่ เชียงราย</title>"
         f"<link>{BASE}</link>"
+        f'<atom:link href="{BASE}rss.xml" rel="self" type="application/rss+xml"/>'
         "<description>Highlights from the Chiang Mai / Chiang Rai city directory — "
         "wats, shops, and good things worth a mention, plus new coverage as the "
         "ants find it.</description>"
-        f"<language>th</language>{rss_items_xml}</channel></rss>")
+        f"<language>th</language><lastBuildDate>{rss_date(BUILD_DATE)}</lastBuildDate>"
+        f"{rss_items_xml}</channel></rss>")
     (DOCS / "rss.xml").write_text(rss_xml)
 
     # ---- partners: a standing, honest invitation to two named CM outlets --
@@ -5147,9 +5189,18 @@ def build():
     # ---- bot hospitality: robots, sitemap, llms.txt ----------------------
     # Explicit per-bot welcomes, not just the wildcard — on purpose, in direct
     # contrast to sites in this operator's other corpora that block ClaudeBot.
-    AI_BOTS = ["GPTBot", "ChatGPT-User", "ClaudeBot", "anthropic-ai",
-               "Claude-Web", "PerplexityBot", "Google-Extended", "CCBot",
-               "Bytespider", "Applebot-Extended"]
+    AI_BOTS = [
+        # OpenAI: training, ChatGPT Search indexing, live user fetches.
+        "GPTBot", "OAI-SearchBot", "ChatGPT-User",
+        # Anthropic's current three (anthropic-ai and Claude-Web are the
+        # retired names — Anthropic split them into these in 2025) plus
+        # claude-code itself, since a developer fetching this page through
+        # Claude Code is exactly the hospitality this list is for.
+        "ClaudeBot", "Claude-User", "Claude-SearchBot", "claude-code",
+        "PerplexityBot", "Perplexity-User",
+        "Google-Extended", "Applebot-Extended", "Meta-ExternalAgent",
+        "Amazonbot", "CCBot", "Bytespider",
+    ]
     robots_txt = "User-agent: *\nAllow: /\n\n" + "".join(
         f"User-agent: {b}\nAllow: /\n\n" for b in AI_BOTS
     ) + "Sitemap: " + BASE + "sitemap.xml\n"
@@ -5159,13 +5210,25 @@ def build():
     def _indexable(f):
         return 'content="noindex' not in f.read_text(encoding="utf-8")
 
+    def _image_ext(rel_path):
+        # Only the 114 real, Wikimedia-credited photos vendored into
+        # assets/photos/ — never the wat.svg / "ant is holding the space"
+        # placeholders every unphotographed listing otherwise gets.
+        hit = sitemap_images.get(rel_path)
+        if not hit:
+            return ""
+        img_url, caption = hit
+        return (f"<image:image><image:loc>{esc(img_url)}</image:loc>"
+                f"<image:caption>{esc(caption)}</image:caption></image:image>")
+
     sitemap_urls = "".join(
         f"<url><loc>{BASE}{f.relative_to(DOCS).as_posix()}</loc>"
-        f"<lastmod>{BUILD_DATE}</lastmod></url>"
+        f"<lastmod>{BUILD_DATE}</lastmod>{_image_ext(f.relative_to(DOCS).as_posix())}</url>"
         for f in sorted(DOCS.rglob("*.html")) if _indexable(f))
     (DOCS / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+        'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
         + sitemap_urls + "</urlset>")
     (DOCS / "llms.txt").write_text(f"""# มดแดง Mot Dang
 
