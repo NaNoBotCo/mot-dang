@@ -1,0 +1,158 @@
+{
+  "_comment": "Copy for the printed A4 handouts — one per trade, front is the pitch and back is the how. Written to be photocopied in black and white, read at arm's length by someone standing up, and pinned to a wall. Thai leads because the reader is Thai; English is there so a farang employer or a volunteer can follow the same sheet. Nothing here promises anything the site does not already do — a handout that oversells is a handout that gets shown to us later.",
+  "_generated_by": "hand, 2026-07-30",
+
+  "_shan_warning": "The shn strings are an unverified machine attempt and MUST be checked by a Shan speaker before a single sheet is printed. make_handouts.py stamps every page with an UNVERIFIED banner until shanVerified is true below. Confidence is low: Shan is under-represented in the model that wrote these and the writer cannot read back what it produced. Separately, and this needs checking on the ground rather than taken from me: Shan literacy in Shan script is uneven among migrant workers in Chiang Mai, and many read Thai script more comfortably. If that holds, the Thai column is doing most of the work and the Shan column is doing something else — signalling that they were thought of, which is not nothing.",
+  "shanVerified": false,
+
+  "common": {
+    "free_th": "ไม่มีค่าใช้จ่าย ไม่เคยเก็บเงิน ไม่หักเปอร์เซ็นต์",
+    "free_en": "Free. Always. No commission, no cut, nothing to sign.",
+    "ants_th": "ข้อมูลครบ ๙ อย่าง = มด ๙ ตัว — ชื่อไทย ชื่ออังกฤษ เบอร์โทร ไลน์ เวลาเปิด เว็บ รูป เจ้าของยืนยันเอง — ตัวที่ ๙ มดเติมให้เอง เมื่อมดไปเดินดูมาแล้ว",
+    "ants_en": "Nine facts, nine ants — Thai name, English name, phone, LINE, hours, website, photo, owner-confirmed. The ninth is ours to earn: the ants have walked past recently.",
+    "how_1_th": "สแกนคิวอาร์นี้ด้วยไลน์",
+    "how_1_en": "Scan this with LINE",
+    "how_2_th": "พิมพ์ชื่อร้านหรือชื่อคุณมา ส่งรูปมาด้วยก็ได้",
+    "how_2_en": "Send your name — a photo too, if you have one",
+    "how_3_th": "มดใส่ให้ ขึ้นเว็บวันเดียวกัน",
+    "how_3_en": "We put it up, same day",
+    "noapp_th": "ไม่ต้องโหลดแอป ไม่ต้องสมัครสมาชิก ไม่ต้องมีอีเมล",
+    "noapp_en": "No app to install, no account to make, no email needed."
+  },
+
+  "sheets": [
+    {
+      "key": "krapow",
+      "audience_th": "ร้านตามสั่ง ร้านข้าวแกง ร้านกะเพรา",
+      "audience_en": "Made-to-order and rice-and-curry shops",
+      "glyph": "🍳",
+      "headline_th": "คนหิวเขาหาในมือถือ ไม่ได้เดินหา",
+      "headline_en": "Hungry people search on a phone now. They don't walk and look.",
+      "lede_th": "มดแดงคือสารบัญร้านในเชียงใหม่กับเชียงราย ร้านของคุณอาจอยู่ในนั้นแล้ว แต่มีแค่ชื่อ ไม่มีเบอร์ ไม่มีเวลาเปิด ไม่มีรูป คนเลยโทรไม่ถูกและไม่รู้ว่าเปิดกี่โมง",
+      "lede_en": "Mot Dang is a directory of Chiang Mai and Chiang Rai. Your shop may already be in it — but with only a name. No phone, no hours, no photo. So nobody calls, and nobody knows when you open.",
+      "points": [
+        ["ลงฟรี ตลอดไป ไม่หักเปอร์เซ็นต์จากออเดอร์ ไม่มีค่าคลิก",
+         "Free listing, forever. We never take a percentage of an order and never charge per click."],
+        ["เบอร์ที่ลงคือเบอร์คุณ ลูกค้าโทรหาคุณตรงๆ ไม่ผ่านใคร",
+         "The number on the page is yours. Customers ring you, not a middleman."],
+        ["บอกเวลาเปิดปิดกับวันหยุดได้ คนจะได้ไม่มาเก้อ",
+         "Say when you open and which day you shut, so nobody turns up to a closed shutter."],
+        ["ส่งรูปกะเพราจานสวยๆ มาสักรูป รูปคือสิ่งที่คนตัดสินใจ",
+         "Send one good photo of the food. The photo is what decides it."],
+        ["ร้านข้างๆ มีมด ๗ ตัว ร้านคุณมี ๒ — เติมให้ครบใช้เวลาห้านาที",
+         "The shop next door has seven ants. Yours has two. Filling that in takes five minutes."]
+      ],
+      "back_th": "แก้ทีหลังได้ตลอด เปลี่ยนเบอร์ ย้ายร้าน ปิดร้าน ทักมาบอกได้เลย",
+      "back_en": "Change it any time — new number, moved, closed for good. Just message us."
+    },
+
+    {
+      "key": "wat",
+      "audience_th": "วัดและผู้ดูแลวัด",
+      "audience_en": "Temples and those who keep them",
+      "glyph": "🛕",
+      "headline_th": "วันพระ เวลาทำวัตร งานบุญ — คนอยากรู้ แต่หาไม่เจอ",
+      "headline_en": "Merit days, chanting times, temple fairs — people want to know and cannot find out.",
+      "lede_th": "มดแดงลงวัดในเชียงใหม่และเชียงรายไว้ ๕๙๓ วัด ส่วนใหญ่มีแค่ชื่อกับตำแหน่งบนแผนที่ ถ้าวัดบอกเวลาทำวัตรกับวันงานมา มดใส่ให้ ไม่มีค่าใช้จ่าย",
+      "lede_en": "Mot Dang lists 593 temples across Chiang Mai and Chiang Rai. Most carry only a name and a point on the map. Tell us the chanting times and the merit days and we will put them up. No charge.",
+      "points": [
+        ["ชั้นพระอารามหลวงขึ้นให้ตามจริง พร้อมที่มาของข้อมูล ไม่ได้จัดอันดับเอง",
+         "Royal monastery grade is shown where it applies, with the source it was read from. We do not rank temples ourselves."],
+        ["รูปวัดใส่เครดิตผู้ถ่ายและสัญญาอนุญาตเสมอ",
+         "Temple photographs always carry the photographer's name and licence."],
+        ["งานบุญกับวันสำคัญขึ้นหน้ากิจกรรมของเว็บ คนที่หาว่าวันนี้มีอะไรจะเจอ",
+         "Merit days and festivals appear on the events page, where people look to see what is on."],
+        ["โฆษณาบนเว็บมี แต่แยกกล่องชัดเจน ไม่ปนกับรายชื่อ และไม่มีการจ่ายเงินเพื่อขึ้นก่อน",
+         "The site does carry advertising, in a clearly marked box, never mixed into the listings — and no one can pay to be placed higher."],
+        ["ข้อมูลเปิดให้ใช้ต่อได้ ใครจะเอาไปทำหนังสือหรือแอปก็ได้ ขอแค่ให้เครดิต",
+         "The data is open for reuse — a book, an app, anything — provided it is credited."]
+      ],
+      "back_th": "ส่งมาทางไลน์ได้เลย: เวลาทำวัตรเช้า-เย็น วันพระเดือนนี้ งานประจำปี และรูปวัดถ้ามี",
+      "back_en": "Send by LINE: morning and evening chanting times, this month's merit days, the annual fair, and a photograph if you have one."
+    },
+
+    {
+      "key": "driver",
+      "audience_th": "คนขับรถ รถรับจ้าง รถตู้ สองแถว",
+      "audience_en": "Drivers — cars, vans, songthaews",
+      "glyph": "🛺",
+      "headline_th": "หน้าเว็บของคุณเอง มีเบอร์คุณ ไม่มีใครหักหัวคิว",
+      "headline_en": "Your own page, with your own number, and nobody taking a cut.",
+      "lede_th": "ไม่ใช่แอป ไม่มีระบบเรียกรถ ไม่มีการหักเปอร์เซ็นต์ เป็นแค่หน้าเว็บหน้าหนึ่งที่บอกว่าคุณคือใคร วิ่งเส้นไหน พูดภาษาอะไร และโทรหาคุณยังไง ลูกค้าโทรหาคุณตรงๆ",
+      "lede_en": "Not an app. No dispatch, no percentage, no rating that can end your week. Just a page that says who you are, where you drive, what languages you speak and how to ring you. Customers call you directly.",
+      "points": [
+        ["ลงเมื่อคุณขอเท่านั้น ไม่มีการเอาชื่อใครขึ้นเองโดยไม่ได้ถาม",
+         "Listed only when you ask. Nobody is put up without being asked first."],
+        ["ลงเฉพาะที่คุณเลือกให้ลง — เบอร์ ไลน์ เส้นทางที่วิ่ง ภาษาที่พูด ประเภทรถ",
+         "Only what you choose goes up — phone, LINE, the routes you run, the languages you speak, the vehicle."],
+        ["ไม่ลงที่อยู่บ้าน ไม่ลงทะเบียนรถ ไม่ลงเลขบัตรประชาชน ไม่เคยขอ",
+         "No home address, no plate number, no ID number. We never ask for them."],
+        ["อยากเอาออกเมื่อไหร่ ทักมาคำเดียว เอาออกให้วันนั้น ไม่ถามเหตุผล",
+         "Want it gone? One message and it comes down that day. No reason needed."],
+        ["ฟรี ไม่มีค่าสมัคร ไม่มีรายเดือน ไม่มีค่าขึ้นอันดับ เพราะไม่มีอันดับให้ซื้อ",
+         "Free. No sign-up fee, no monthly charge, and nothing to buy your way up, because there is no ranking to buy."]
+      ],
+      "back_th": "บอกมาแค่นี้ก็พอ: ชื่อที่อยากให้เรียก เบอร์ ไลน์ วิ่งแถวไหน รถอะไร นั่งได้กี่คน พูดภาษาอะไรบ้าง",
+      "back_en": "This is all we need: the name you want used, phone, LINE, the areas you cover, the vehicle, how many seats, and which languages you speak."
+    },
+
+    {
+      "key": "housekeeper",
+      "audience_th": "แม่บ้าน พี่เลี้ยง คนทำความสะอาด",
+      "audience_en": "Housekeepers, nannies, cleaners",
+      "glyph": "🧹",
+      "trilingual": true,
+      "headline_th": "หน้าเว็บของคุณเอง งานมาหาคุณเอง ไม่ต้องผ่านนายหน้า",
+      "headline_en": "Your own page. Work comes to you, with no agent in between.",
+      "headline_shn": "ၼႃႈလိၵ်ႈဢွၼ်ႇၶွင်ၸဝ်ႈၵဝ်ႇ ၵၢၼ်တေမႃးႁႃၸဝ်ႈၵဝ်ႇ",
+      "lede_th": "มดแดงคือสารบัญของเชียงใหม่กับเชียงราย ถ้าคุณอยากให้คนหาคุณเจอ เราทำหน้าให้คุณหน้าหนึ่ง ฟรี ลงเฉพาะที่คุณอนุญาต และเอาออกได้ทุกเมื่อ",
+      "lede_en": "Mot Dang is a directory for Chiang Mai and Chiang Rai. If you want to be findable, we will make you a page. Free, only what you allow, and taken down whenever you say.",
+      "lede_shn": "မတ်တႅင် ပဵၼ်သဵၼ်ႈမၢႆ ၵဵင်းမႆႇလႄႈ ၵဵင်းႁၢႆး။ ႁဝ်းတေႁဵတ်းၼႃႈလိၵ်ႈပၼ်ၸဝ်ႈၵဝ်ႇ လၢႆလၢႆ။",
+      "points": [
+        ["ฟรี ไม่เคยเก็บเงินคุณ และไม่เคยเก็บเงินจากนายจ้างด้วย ไม่ใช่นายหน้า",
+         "Free. We never charge you, and we never charge an employer either. We are not an agency.",
+         "လၢႆလၢႆ။ ဢမ်ႇလႆႈပၼ်ငိုၼ်း။"],
+        ["ลงเฉพาะที่คุณเลือก — ชื่อที่อยากให้เรียก เบอร์หรือไลน์ ย่านที่รับงาน วันที่ว่าง ภาษาที่พูด",
+         "Only what you choose — the name you want used, a phone or LINE, the areas you work, your free days, your languages.",
+         "လိူၵ်ႈဢဝ်ႁင်းၵူၺ်း — ၸိုဝ်ႈ၊ မၢႆၾူၼ်း၊ တီႈႁဵတ်းၵၢၼ်၊ ဝၼ်းလွတ်ႈ၊ ၽႃႇသႃႇ။"],
+        ["ไม่ลงที่อยู่บ้านคุณ ไม่ลงชื่อนายจ้าง ไม่ลงเลขบัตร ไม่ลงเรื่องวีซ่าหรือใบอนุญาตทำงาน ไม่เคยถาม",
+         "Never your home address, never an employer's name, never an ID number, and nothing about visa or work permit. We do not ask.",
+         "ဢမ်ႇလႆႈသႂ်ႇ တီႈယူႇႁိူၼ်း၊ ဢမ်ႇလႆႈသႂ်ႇ မၢႆၶႅပ်း။"],
+        ["อยากเอาออก ทักมาคำเดียว เอาออกวันนั้น ไม่ถามว่าทำไม",
+         "Want it taken down? One message and it is gone that day. We do not ask why.",
+         "သင်ဝႃႈ ၶႂ်ႈဢဝ်ဢွၵ်ႇ — ပွင်ႇၶၢဝ်ႇမႃးၵမ်းလဵဝ်။"],
+        ["บอกได้ว่าพูดไทใหญ่ ไทย อังกฤษ พม่า — นายจ้างหลายบ้านหาคนที่คุยกันรู้เรื่อง",
+         "Say which of Shan, Thai, English or Burmese you speak. Plenty of households are looking for exactly that.",
+         "လၢတ်ႈလႆႈ တႆး၊ ထႆး၊ ဢိင်းၵလဵတ်ႈ၊ မၢၼ်ႈ။"]
+      ],
+      "back_th": "สแกนไลน์ พิมพ์มาว่า “อยากลงชื่อ” แล้วบอกชื่อกับเบอร์ เท่านั้นเอง",
+      "back_en": "Scan the LINE code, say you would like to be listed, and give a name and a number. That is all.",
+      "back_shn": "သၵႅၼ်ႇ LINE သေ လၢတ်ႈဝႃႈ ၶႂ်ႈသႂ်ႇၸိုဝ်ႈ။"
+    },
+
+    {
+      "key": "massage",
+      "audience_th": "หมอนวด ร้านนวด สปา",
+      "audience_en": "Massage therapists, shops and spas",
+      "glyph": "💆",
+      "headline_th": "ฝีมือเป็นของคุณ ชื่อก็ควรเป็นของคุณ",
+      "headline_en": "The hands are yours. The name should be too.",
+      "lede_th": "มดแดงลงร้านนวดกับสปาไว้ ๒๘๙ แห่ง ส่วนใหญ่มีแค่ชื่อ ไม่มีเบอร์ ไม่มีเวลาเปิด ทั้งที่คนหาหมอนวดมักหาจากชื่อคนที่เคยนวดถูกใจ",
+      "lede_en": "Mot Dang lists 289 massage shops and spas. Most carry only a name — no phone, no hours — even though people usually look for the person whose hands they remember.",
+      "points": [
+        ["ลงได้ว่านวดแผนไทย นวดเชลยศักดิ์ นวดน้ำมัน หรือมีใบรับรองอะไร",
+         "Say what you practise — Thai traditional, chaloeisak, oil — and what certification you hold."],
+        ["ลงเวลาเปิดจริง คนจะได้ไม่โทรมาตอนคุณกำลังนวดอยู่",
+         "Real opening hours, so nobody rings while you have your hands on a client."],
+        ["รูปที่ขึ้นเป็นรูปร้านคุณ ไม่ใช่ภาพวัดที่เว็บใส่แทนไปพลางก่อน",
+         "Your own photograph on your own page, not a stand-in image put there for want of one."],
+        ["ทำงานอิสระไม่มีหน้าร้านก็ลงได้ ลงย่านที่รับงาน ไม่ลงที่อยู่บ้าน",
+         "Freelance with no shopfront? You can still be listed — the areas you work, never your home address."],
+        ["ไม่มีการรีวิวให้ใครมาให้ดาว ไม่มีใครมาทำลายชื่อคุณด้วยดาวเดียว",
+         "There are no star ratings here. Nobody can take your name apart with one star."]
+      ],
+      "back_th": "ส่งมา: ชื่อร้านหรือชื่อคุณ เบอร์ ไลน์ เวลาเปิด แนวที่นวด และรูปสักรูป",
+      "back_en": "Send: the shop or your name, phone, LINE, hours, what you practise, and one photograph."
+    }
+  ]
+}

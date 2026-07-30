@@ -1,0 +1,9 @@
+Tracked "Website / motdang.net homepage" friend path
+Direct link: https://lin.ee/zkv5IdC
+
+Add-friend button HTML:
+<a href="https://lin.ee/zkv5IdC"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/en.png" alt="Add friend" height="36" border="0"></a>
+
+QR code PNGs (S/M/L) in this folder — scan opens the same tracked link.
+
+Untracked general link (from Gain friends > Create a URL): https://lin.ee/TQ01joZ

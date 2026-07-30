@@ -831,17 +831,22 @@ def emit(g, events, data):
             path.write_text(html.replace("<footer>", band + "<footer>", 1))
             touched += 1
 
-    # The homepage strip. Anchored on the highlights heading; if the homepage
-    # ever stops having one, this quietly does nothing rather than injecting
-    # the strip somewhere strange.
+    # The homepage strip goes into the sidebar slot build.py leaves for it.
+    # The anchor is a marker comment rather than a Thai heading: a heading can
+    # be reworded or restyled by anyone touching the homepage and this would
+    # silently stop injecting. A marker only disappears on purpose.
     home = DOCS / "index.html"
     if home.exists():
         html = home.read_text()
-        anchor = '<h2><span class="th">ของเด่นวันนี้</span>'
+        anchor = "<!--MD:COMINGUP-->"
         if anchor in html:
+            strip = coming_up(fests, today, depth=0, g=g, limit=3)
             html = html.replace('</head>', '<link rel="stylesheet" href="festivals.css"></head>', 1)
-            html = html.replace(anchor, coming_up(fests, today, depth=0, g=g) + anchor, 1)
+            html = html.replace(
+                anchor, f'<div class="sidecard gold comingupcard">{strip}</div>' if strip else "", 1)
             home.write_text(html)
+        else:
+            print("  ! homepage has no <!--MD:COMINGUP--> slot — strip not injected")
 
     return {"festivals": len(fests), "place_bands": touched,
             "announced": sum(len(v) for v in ann.values()),

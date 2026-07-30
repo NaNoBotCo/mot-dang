@@ -1,7 +1,16 @@
 
-:root{--paper:#FBF6EE;--ink:#2A1E16;--ant:#C2401C;--ant-dark:#8F2E13;
---link:#1F3FBF;--visited:#6B3FA0;--soft:#EADFCE;--mute:#9B8B78;
---day:#C2401C;}
+/* Warm temple palette — mulberry paper, lacquer red, temple gold. Everything
+   below already drew its colour from these variables, so retuning them moves
+   the whole site at once rather than leaving the homepage a stranger to it. */
+:root{--paper:#f7f1e4;--ink:#241c15;--ant:#a3231c;--ant-dark:#7d1712;
+--link:#14479b;--visited:#6B3FA0;--soft:#ece0c8;--mute:#8a7a62;
+--day:#a3231c;
+--card:#fffdf8;--card-alt:#fdf9f0;--ink-soft:#4a4136;--gloss:#6f6353;
+--gold:#c9962c;--gold-light:#e6c987;--gold-pale:#f6dfa0;
+--marigold-a:#fbdc8e;--marigold-b:#f5cd6a;--marigold-ink:#6d5411;
+--jade-a:#cfe3d2;--jade-b:#b8d4bd;--jade-ink:#26402c;--jade:#1f6b57;
+--warm-border:#ded0b2;--dashed:#c4b28d;--row-hover:#fdf3dd;
+--shadow:#e0d3b6;--shadow-dark:#cbb78d;--on-dark:#f7eeda;--on-dark-mute:#b6a68c;}
 /* สีประจำวัน — md.js sets --day from the baked fortune, so the page
    quietly wears the colour of the weekday, as a Thai calendar does. */
 .masthead{border-bottom:3px solid var(--day)}
@@ -18,9 +27,14 @@ header.site{border-bottom:4px double var(--ant);padding:.8rem 0 .7rem;margin-bot
 .logo:visited{color:var(--ant)} .logo .ant{display:inline-block;transition:transform .35s}
 .logo:hover .ant{transform:rotate(-20deg) translateY(-3px)}
 .tagline{color:var(--ant-dark);font-size:.95rem}
-.langbtn{margin-left:auto;border:2px solid var(--ant);background:none;color:var(--ant);
-border-radius:999px;padding:.15rem .8rem;font:inherit;font-size:.9rem;cursor:pointer}
-.langbtn:hover{background:var(--ant);color:var(--paper)}
+.langgroup{margin-left:auto;display:flex;flex:0 0 auto;border:2px solid var(--ink);
+border-radius:14px;overflow:hidden;box-shadow:0 2px 0 var(--shadow)}
+.langbtn{border:0;border-right:2px solid var(--ink);background:var(--card);color:var(--ink);
+font:inherit;font-size:.85rem;font-weight:600;padding:.3rem .8rem;cursor:pointer;min-height:44px}
+.langbtn:last-child{border-right:0}
+.langbtn:hover{background:var(--row-hover)}
+.langbtn[aria-pressed="true"]{background:var(--ink);color:var(--gold-light)}
+.langbtn[aria-pressed="true"]:hover{background:var(--ant)}
 form.seek{display:flex;gap:.5rem;margin:.7rem 0 .2rem}
 form.seek input{flex:1;max-width:26rem;font:inherit;padding:.25rem .6rem;
 border:2px solid var(--ant-dark);border-radius:.4rem;background:#fff;color:var(--ink)}
@@ -28,7 +42,13 @@ form.seek button{font:inherit;border:2px solid var(--ant);background:var(--ant);
 border-radius:.4rem;padding:.25rem .9rem;cursor:pointer}
 form.seek button:hover{background:var(--ant-dark)}
 .svcbar{font-size:.9rem;margin:.2rem 0 0;color:var(--ant-dark)}
-.en{display:none} body.lang-en .en{display:inline} body.lang-en .th{display:none}
+/* Three ways to read the page: Thai alone, both together, or English alone.
+   The " · " that joins them lives inside the .en span but is itself marked
+   .th, so it shows only when both languages do and never strands itself at
+   the front of a lone English gloss. */
+.en{display:none}
+body.lang-both .en{display:inline}
+body.lang-en .en{display:inline} body.lang-en .th{display:none}
 h1{font-size:1.6rem;margin:.4rem 0} h2{font-size:1.25rem;border-bottom:2px solid var(--soft);
 padding-bottom:.2rem;margin-top:1.6rem}
 ul.dir{list-style:none;padding:0;column-width:22rem;column-gap:2.5rem}
@@ -63,6 +83,10 @@ background:none;color:var(--ant-dark);border-radius:999px;padding:.05rem .7rem;c
 .antgap ul{margin:.25rem 0 0;padding-left:1.1rem}
 .antgap li{opacity:.85}
 .licence{display:block;margin:.35rem 0 .2rem;opacity:.7;font-size:.82rem}
+.ourchannels{margin:1rem 0;padding:.7rem .9rem .8rem;border:1px solid var(--soft);
+border-radius:.8rem;background:#fff}
+.ourchannels ul{margin:.35rem 0 .5rem;padding-left:1.1rem}
+.ourchannels li{margin-bottom:.2rem}
 /* Honours — a temple's grade and the food marks people here already trust.
    Deliberately quieter than the ant rank: standing is stated, not shouted. */
 .hons{white-space:normal}
@@ -509,3 +533,222 @@ cursor:pointer;font:inherit;font-size:.85rem;padding:0;margin-top:.3rem}
 margin-top:1rem;background:#fff}
 .claimcard .url-text{font:.85rem ui-monospace,monospace;word-break:break-all;
 background:var(--soft);border-radius:.4rem;padding:.4rem .6rem;margin:.5rem 0}
+
+/* ===================== homepage & shared chrome ======================= */
+/* Shadows here are hard offsets with no blur. That is deliberate: it reads as
+   printed paper with a second colour slightly out of register, which is what
+   the whole site is pretending to be. */
+
+/* Icons take their colour from the row they sit in, so one hover rule tints
+   the label and its icon together. */
+/* A class that sets `display` outranks the UA's [hidden] rule, so a widget
+   that hides panes by setting .hidden was drawing all of them at once — the
+   weather tile was rendering eight stacked forecasts. One rule, once. */
+[hidden]{display:none !important}
+
+.rowicon{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;
+stroke-linejoin:round;flex:0 0 auto}
+
+/* Present for a screen reader, absent for everyone else. */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
+clip-path:inset(50%);white-space:nowrap}
+:focus-visible{outline:3px solid var(--ant);outline-offset:3px;border-radius:6px}
+.skiplink{position:absolute;left:-9999px;top:.5rem;background:var(--ink);color:#fdf3dd;
+padding:.7rem 1.1rem;border-radius:8px;font-weight:600;z-index:50;text-decoration:none}
+.skiplink:focus{left:1rem}
+
+/* --- masthead ---------------------------------------------------------- */
+body.home main{max-width:1280px}
+header.site{border-bottom:0;padding:.9rem 0 0;margin-bottom:0}
+.masthead{align-items:center;gap:1.1rem}
+.logo{display:flex;align-items:center;gap:.7rem;font-size:1.9rem;line-height:1}
+.logo:hover{text-decoration:none}
+.logomark{width:62px;height:62px;border-radius:16px;background:var(--ant);
+border:2px solid var(--ant-dark);box-shadow:0 0 0 2px var(--gold-light) inset;
+display:grid;place-items:center;flex:0 0 auto;font-size:32px;line-height:1}
+.logo:hover .logomark{transform:rotate(-6deg)}
+.logotext{display:flex;flex-direction:column;line-height:1.05;gap:.15rem}
+.logoth{font-weight:800;letter-spacing:-.01em;font-size:2rem}
+.logorom{font-size:.8rem;color:var(--mute);letter-spacing:.18em;font-weight:600}
+
+form.seek{gap:0;margin:.9rem 0 .2rem;border:2px solid var(--ink);border-radius:14px;
+overflow:hidden;background:#fff;min-height:60px;box-shadow:0 2px 0 var(--shadow);max-width:none}
+form.seek input{flex:1;max-width:none;border:0;border-radius:0;background:transparent;
+padding:0 1.1rem;font-size:1.02rem;min-width:0}
+form.seek input:focus{outline:0}
+form.seek button{border:0;border-radius:0;background:var(--ant);color:#fff;font-weight:600;
+padding:0 1.4rem;display:flex;align-items:center;gap:.5rem;font-size:1.02rem}
+form.seek button:hover{background:var(--ant-dark)}
+
+/* Five things people actually came to do get a real target; everything else
+   stays reachable on the quiet row underneath. */
+.chipbar{display:flex;flex-wrap:wrap;gap:.7rem;margin:.9rem 0 .2rem}
+.chip{display:flex;align-items:center;gap:.55rem;min-height:52px;padding:.4rem 1.05rem;
+border:1.5px solid var(--warm-border);border-radius:999px;background:var(--card-alt);
+color:var(--ink);font-weight:600;font-size:.95rem;text-decoration:none}
+.chip:visited{color:var(--ink)}
+.chip .rowicon{color:var(--ant)}
+.chip:hover{border-color:var(--ant);background:var(--row-hover);text-decoration:none}
+.chip .en{font-weight:400;color:var(--gloss)}
+.chip.dark{background:var(--ink);border-color:var(--ink);color:#fdf3dd}
+.chip.dark:visited{color:#fdf3dd}
+.chip.dark .rowicon{color:var(--gold-light)}
+.chip.dark .en{color:#e8dcc4}
+.chip.dark:hover{background:var(--ant);border-color:var(--ant)}
+.svcbar{font-size:.86rem;margin:.7rem 0 0;color:var(--ant-dark);line-height:2}
+
+/* A band of temple-eave beads, purely decorative. */
+.beadrule{height:10px;margin-top:.9rem;
+background-image:radial-gradient(circle at 9px 10px,var(--gold) 0 3.5px,transparent 3.6px);
+background-size:18px 10px;background-color:var(--ink)}
+.taglineband{background:var(--ink);color:#f2e6d0;padding:.85rem 1.15rem;font-size:.98rem}
+.taglineband .en{color:var(--on-dark-mute)}
+.goldrule{height:6px;background:linear-gradient(90deg,var(--gold),var(--gold-light) 40%,var(--gold))}
+
+/* --- the two-column home ---------------------------------------------- */
+/* Three areas, not two columns: the day's card is separable so it can move
+   above the directory when everything stacks. Desktop keeps it at the top of
+   the right-hand column, exactly where the sidebar would have put it. */
+.homegrid{display:grid;grid-template-columns:minmax(0,1fr) 350px;
+grid-template-areas:"main today" "main side";column-gap:2rem;row-gap:1.3rem;
+align-items:start;margin-top:1.6rem}
+.sidetop{grid-area:today;min-width:0}
+.homemain{grid-area:main;display:flex;flex-direction:column;gap:1.7rem;min-width:0}
+.homeside{grid-area:side;display:flex;flex-direction:column;gap:1.3rem;min-width:0}
+
+.card{background:var(--card);border:2px solid var(--ink);border-radius:18px;
+overflow:hidden;box-shadow:0 3px 0 var(--shadow)}
+.cardhead{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+padding:1rem 1.25rem;border-bottom:2px solid var(--ink);flex-wrap:wrap}
+.cardhead h2{margin:0;border:0;padding:0;font-size:1.6rem;line-height:1.15}
+.cardhead h2 .en{font-size:1.15rem;color:var(--marigold-ink)}
+.cardhead .pill{font-weight:600;font-size:.9rem;background:var(--ink);
+padding:.2rem .8rem;border-radius:999px;white-space:nowrap}
+.card.cm .cardhead{background:linear-gradient(var(--marigold-a),var(--marigold-b))}
+.card.cm .cardhead .pill{color:var(--marigold-b)}
+.card.cr .cardhead{background:linear-gradient(var(--jade-a),var(--jade-b))}
+.card.cr .cardhead h2 .en{color:var(--jade-ink)}
+.card.cr .cardhead .pill{color:var(--jade-b)}
+
+ul.catrows{list-style:none;margin:0;padding:.6rem;display:grid;
+grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:2px}
+ul.catrows li{margin:0}
+.catrow{display:flex;align-items:center;gap:.85rem;padding:.7rem .85rem;border-radius:12px;
+min-height:60px;color:var(--ink);text-decoration:none}
+.catrow:visited{color:var(--ink)}
+.catrow:hover{background:var(--row-hover);text-decoration:none}
+.catrow .rowicon{color:var(--mute)}
+.catrow:hover .rowicon{color:var(--ant)}
+/* A flex column, not display:block on the children — flex blockifies its items
+   whatever their display is, so the language toggle can still hide one with
+   display:none without a specificity fight (and without !important). */
+.catrow .lbl{flex:1;min-width:0;display:flex;flex-direction:column;gap:.1rem}
+.catrow .lbl b{font-weight:600;font-size:1rem;color:var(--link)}
+.catrow .lbl .en{font-size:.82rem;color:var(--gloss);font-weight:400}
+.catrow .n{font-variant-numeric:tabular-nums;color:var(--mute);font-size:.86rem}
+.catrow.soon{cursor:default}
+.catrow.soon .lbl b{color:var(--mute)}
+@media (prefers-reduced-motion:no-preference){
+.catrow,.sidelink{transition:background .12s ease}}
+
+.cardfoot{padding:.8rem 1.25rem 1rem;border-top:1px solid var(--soft);
+display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;font-size:.88rem;color:var(--gloss)}
+.soonchip{font-size:.85rem;padding:.3rem .8rem;border:1px dashed var(--dashed);
+border-radius:999px;color:var(--gloss);display:inline-flex;align-items:center;gap:.4rem}
+.soonchip .rowicon{color:var(--mute)}
+
+/* --- today's picks ----------------------------------------------------- */
+.pickgrid{list-style:none;margin:0;padding:0;display:grid;
+grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem}
+.pickgrid a{display:flex;flex-direction:column;gap:.5rem;color:var(--ink);text-decoration:none}
+.pickgrid a:hover{text-decoration:none}
+.pickgrid img{width:100%;height:124px;object-fit:cover;border-radius:14px;
+border:1px solid var(--warm-border);background:var(--card-alt);display:block}
+.pickgrid .nm{font-weight:600;font-size:.98rem;color:var(--link);line-height:1.3}
+.pickgrid .sub{font-size:.82rem;color:var(--gloss)}
+.pickgrid a:hover .nm{text-decoration:underline;text-decoration-color:var(--ant)}
+
+/* --- sidebar ----------------------------------------------------------- */
+.sidecard{background:var(--card);border:2px solid var(--ink);border-radius:18px;
+overflow:hidden;box-shadow:0 3px 0 var(--shadow)}
+.sidecard>h2,.sidecard>h3{margin:0;padding:.75rem 1rem;border-bottom:2px solid var(--ink);
+font-size:1.1rem;display:flex;align-items:center;gap:.55rem;border-radius:0}
+.sidecard>h2 .en,.sidecard>h3 .en{font-size:.92rem;color:var(--gloss);font-weight:400}
+.sidecard .body{padding:.9rem 1rem}
+.sidecard.dark{background:var(--ink);color:var(--on-dark);box-shadow:0 3px 0 var(--shadow-dark)}
+.sidecard.dark>h2,.sidecard.dark>h3{border-bottom-color:#453a2d}
+.sidecard.dark>h2 .rowicon,.sidecard.dark>h3 .rowicon{color:var(--gold-light)}
+.sidecard.dark>h2 .en,.sidecard.dark>h3 .en{color:var(--on-dark-mute)}
+.sidecard.dark a{color:var(--gold-light)}
+.sidecard.gold>h2,.sidecard.gold>h3{background:linear-gradient(var(--marigold-a),var(--marigold-b))}
+.sidecard.gold>h2 .rowicon,.sidecard.gold>h3 .rowicon{color:var(--ant-dark)}
+.sidecard.gold>h2 .en,.sidecard.gold>h3 .en{color:var(--marigold-ink)}
+.sidelink{display:flex;flex-direction:column;gap:.1rem;align-items:flex-start;
+padding:.65rem .8rem;border-radius:12px;color:var(--ink);text-decoration:none}
+.sidelink:visited{color:var(--ink)}
+.sidelink:hover{background:var(--row-hover);text-decoration:none}
+.sidelink b{font-weight:600;color:var(--link);font-size:1rem}
+.sidelink .en{font-size:.85rem;color:var(--gloss)}
+.whenpill{display:inline-block;margin-top:.3rem;font-size:.8rem;background:#f3ecdc;
+padding:.15rem .6rem;border-radius:999px;color:var(--ink-soft)}
+/* The sidebar borrows the fortune tile whole — same markup, same data-fo hooks,
+   so it still tells the right day tomorrow without a rebuild — and only changes
+   its clothes: no square crop, no card of its own, gold on ink. */
+.sidecard.dark .wtile{aspect-ratio:auto;background:none;border:0;border-radius:0;
+box-shadow:none;overflow:visible;padding:0;color:var(--on-dark)}
+.sidecard.dark .wtile:hover{transform:none;box-shadow:none}
+.sidecard.dark .wtile::after{display:none}
+.sidecard.dark .wtile h3{color:var(--gold-light);border-left:0;padding:.75rem 1rem;
+margin:0 0 .2rem;font-size:1.1rem;border-bottom:1px solid #453a2d}
+.sidecard.dark .wtile>:not(h3):not(.yantra){padding-left:1rem;padding-right:1rem}
+.sidecard.dark .wtile>:last-child{padding-bottom:.9rem}
+.sidecard.dark .yantra{color:var(--gold);opacity:.16}
+.sidecard.dark .foluckylabel,.sidecard.dark .wfoot,.sidecard.dark .foplanet{color:var(--on-dark-mute)}
+.sidecard.dark .fonums{color:var(--gold-light)}
+.sidecard.dark .folucky{margin-top:.5rem}
+.sidecard.dark .fobuddha,.sidecard.dark .foday{color:var(--on-dark)}
+
+.sponsorcard{border:2px dashed var(--dashed);border-radius:18px;padding:.9rem 1rem;
+background:var(--card-alt)}
+.sponsorcard .adlabel{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+color:var(--mute);display:block;margin-bottom:.4rem}
+
+/* --- everything below the fold keeps its old shape, new colours -------- */
+.morehome{margin-top:2.2rem}
+.morehome>h2:first-child{margin-top:0}
+
+/* --- narrow screens ---------------------------------------------------- */
+/* The handouts send people here from a LINE QR, so the phone is the common
+   case, not the exception. Nothing shrinks below a comfortable target. */
+@media (max-width:900px){
+/* Day first, then the directory, then the rest of the almanac. */
+.homegrid{grid-template-columns:minmax(0,1fr);
+grid-template-areas:"today" "main" "side";row-gap:1.4rem}
+body.home main{max-width:100%}
+}
+@media (max-width:600px){
+.logomark{width:50px;height:50px;font-size:26px;border-radius:13px}
+.logoth{font-size:1.6rem}
+.masthead{gap:.7rem}
+.langgroup{margin-left:0;width:100%}
+.langbtn{flex:1}
+form.seek{flex-wrap:wrap;min-height:0}
+form.seek input{flex:1 0 100%;min-height:54px;border-bottom:2px solid var(--ink)}
+form.seek button{flex:1 0 100%;min-height:52px;justify-content:center}
+.chipbar{gap:.5rem}
+.chip{flex:1 1 100%;justify-content:flex-start}
+/* The secondary links ran to seven stacked lines on a phone, pushing the
+   directory itself below two screens of chrome — and a phone is how most
+   people arrive, straight off a QR code. One swipeable row instead, the same
+   way the highlights already scroll. */
+.svcbar{display:flex;align-items:center;gap:.5rem;overflow-x:auto;white-space:nowrap;
+padding-bottom:.35rem;line-height:1.5;-webkit-overflow-scrolling:touch;
+scrollbar-width:none}
+.svcbar::-webkit-scrollbar{display:none}
+.svcbar a{flex:0 0 auto;padding:.2rem 0}
+ul.catrows{grid-template-columns:minmax(0,1fr);padding:.4rem}
+.cardhead{padding:.85rem 1rem}
+.cardhead h2{font-size:1.35rem}
+.pickgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem}
+.pickgrid img{height:104px}
+}

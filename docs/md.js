@@ -1,9 +1,25 @@
 
-// ---- language toggle -------------------------------------------------
-const B=document.body,btn=document.querySelector('.langbtn');
-if(localStorage.getItem('md-lang')==='en')B.classList.add('lang-en');
-btn&&btn.addEventListener('click',()=>{B.classList.toggle('lang-en');
-localStorage.setItem('md-lang',B.classList.contains('lang-en')?'en':'th');});
+// The markup twin of build.py's bi(). Anything the client fills in has to
+// join its two languages the same way the server does, or a gloss hydrated by
+// JS ends up jammed against the Thai ("สีส้มorange") in both-mode.
+function mdBi(th,en){th=th==null?'':th;if(!en)return '<span class="th">'+th+'</span>';
+var sep=/[·—–:-]\s*$/.test(th)?'':'<span class="th"> · </span>';
+return '<span class="bi"><span class="th">'+th+'</span><span class="en">'+sep+en+'</span></span>';}
+
+// ---- language: Thai, both, or English ---------------------------------
+// Default is both. Someone who reads only one of the two should not have to
+// find a control before the page makes sense to them. An earlier explicit
+// choice — including 'th' or 'en' stored by the old two-way toggle — wins.
+const B=document.body;
+function mdSetLang(v){B.classList.remove('lang-en','lang-both');
+if(v==='en')B.classList.add('lang-en');else if(v==='both')B.classList.add('lang-both');
+try{localStorage.setItem('md-lang',v);}catch(e){}
+document.querySelectorAll('.langbtn').forEach(b=>
+b.setAttribute('aria-pressed',b.dataset.lang===v?'true':'false'));}
+mdSetLang((()=>{let v=null;try{v=localStorage.getItem('md-lang');}catch(e){}
+return (v==='th'||v==='en'||v==='both')?v:'both';})());
+document.querySelectorAll('.langbtn').forEach(b=>
+b.addEventListener('click',()=>mdSetLang(b.dataset.lang)));
 // ---- hidden bell: the logo ant scurries ------------------------------
 const logoAnt=document.querySelector('.logo .ant'),runner=document.getElementById('scurry');
 logoAnt&&runner&&logoAnt.closest('.logo').addEventListener('click',()=>{
@@ -61,7 +77,7 @@ const setF=(k,v)=>{const el=document.querySelector(`[data-fo="${k}"]`);if(el&&v!
 if(t){setF('day_th',t.th);setF('strength',t.strength);setF('zodiac',t.zodiac_year_th);
 const sw=document.querySelector('[data-fo="swatch"]');if(sw)sw.style.background=t.hex;
 const bl=(sel,a,b)=>{const el=document.querySelector(sel);
-if(el)el.innerHTML='<span class="th">'+a+'</span><span class="en">'+b+'</span>';};
+if(el)el.innerHTML=mdBi(a,b);};
 bl('[data-fo="colour"]',t.colour_th,t.colour_en);
 bl('[data-fo="buddha"]',t.buddha_th,t.buddha_en);
 bl('[data-fo="planet"]',t.planet_th,t.planet_en);
@@ -79,18 +95,16 @@ if(saved!==null&&eu.signs[+saved])pick.value=saved;
 const drawEU=()=>{const s=eu.signs[+pick.value];if(!s)return;
 const a=document.querySelector('[data-ho="eu_aspect"]'),l=document.querySelector('[data-ho="eu_line"]'),
 m=document.querySelector('[data-ho="eu_moon"]');
-if(a)a.innerHTML='<span class="th">'+s.aspect_th+'</span><span class="en">'+s.aspect_en+'</span>';
-if(l)l.innerHTML='<span class="th">'+s.line_th+'</span><span class="en">'+s.line_en+'</span>';
-if(m)m.innerHTML='<span class="th">ดวงจันทร์อยู่'+eu.moon_sign_th+'</span>'+
-'<span class="en">The Moon is in '+eu.moon_sign_en+'</span>';};
+if(a)a.innerHTML=mdBi(s.aspect_th,s.aspect_en);
+if(l)l.innerHTML=mdBi(s.line_th,s.line_en);
+if(m)m.innerHTML=mdBi('ดวงจันทร์อยู่'+eu.moon_sign_th,'The Moon is in '+eu.moon_sign_en);};
 pick.addEventListener('change',()=>{try{localStorage.setItem('md.sign',pick.value);}catch(e){}drawEU();});
 drawEU();}
 // chinese
 const cn=day.chinese;
 if(cn){const p=document.querySelector('[data-ho="cn_pillar"]'),l=document.querySelector('[data-ho="cn_line"]');
 if(p)p.textContent=cn.pillar+' · '+cn.animal;
-if(l)l.innerHTML='<span class="th">'+(cn.relation_th||'')+'</span><span class="en">'+
-(cn.relation_en||'')+'</span>';}
+if(l)l.innerHTML=mdBi(cn.relation_th||'',cn.relation_en||'');}
 // hexagram: draw the six lines from the king wen number
 const hx=day.hexagram;
 if(hx&&hx.number){const box=document.querySelector('[data-hx="lines"]');
@@ -125,10 +139,10 @@ const s=sticks[Math.floor(Math.random()*sticks.length)];
 host.querySelector('[data-ss="num"]').textContent='ใบที่ '+s.n;
 const v=V[s.verdict]||[s.verdict,s.verdict];
 const vd=host.querySelector('[data-ss="verdict"]');
-vd.innerHTML='<span class="th">'+v[0]+'</span><span class="en">'+v[1]+'</span>';
+vd.innerHTML=mdBi(v[0],v[1]);
 vd.className='ssverdict v-'+(s.verdict==='ดี'?'good':s.verdict==='ระวัง'?'care':'mid');
 host.querySelector('[data-ss="text"]').innerHTML=
-'<span class="th">'+s.th+'</span><span class="en">'+s.en+'</span>';
+mdBi(s.th,s.en);
 out.hidden=false;},900);});})();
 // ---- widgets: choices live in localStorage, no account, no tracking --
 function wLoad(k,d){try{const v=JSON.parse(localStorage.getItem(k));
