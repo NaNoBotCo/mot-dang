@@ -478,6 +478,12 @@ def ld_json(r, path, photo_file):
         "url": BASE + path,
         "image": BASE + (f"photos/{photo_file}" if photo_file else placeholder_for(r)),
     }
+    # A real second name, not just the primary name re-typed in Latin script —
+    # half of what a place gets searched by is whichever language the
+    # searcher is typing in, and Google's entity matching reads alternateName.
+    nen = r.get("nameEn")
+    if nen and nen != r.get("name") and nen != obj["name"]:
+        obj["alternateName"] = nen
     if r.get("address"):
         obj["address"] = {"@type": "PostalAddress", "streetAddress": r["address"],
                            "addressCountry": "TH"}
@@ -2236,14 +2242,18 @@ def toolbar(records=None):
 
 
 def listing_page(title_th, title_en, records, depth, prov, crumbs, path, extra_top="",
-                  extra_head=""):
+                  extra_head="", seo_title=None):
     lis = "".join(entry_li(r, "../" * (depth - 1) + f"p/{place_slug(r)}.html") for r in records)
     body = (f"<h1>{bi(title_th, title_en)} "
             f'<span class="count">({len(records):,})</span></h1>'
             f"{extra_top}{ad_box(path, depth)}{toolbar(records)}"
             f'<ul class="dir" data-sortable>{lis}</ul>'
             f"{share_block(BASE + path, title_th)}")
-    return page(title_th, body, depth, crumbs=crumbs, path=path,
+    # seo_title carries province context into <title>/og:title without
+    # touching the h1 — a subcategory name alone repeats verbatim between
+    # provinces (e.g. "กาแฟ-คาเฟ่" in both cm and cr), which is a duplicate
+    # <title> at exactly the granularity Search Console flags.
+    return page(seo_title or title_th, body, depth, crumbs=crumbs, path=path,
                 desc=f"{title_th} — {len(records)} แห่ง · มดแดง", extra_head=extra_head)
 
 
@@ -2434,6 +2444,36 @@ def place_slug(r):
     return f"{slug}-{numeric}" if slug else numeric
 
 
+def _place_cat_label(r):
+    """The most specific category name on record: subcategory if matched,
+    else the parent category. Shared by place_title and place_desc so the
+    two never name a place's category differently."""
+    cdef = CATS[r["cat"][0]]
+    sub_key = (r.get("sub") or [None])[0]
+    if sub_key:
+        child = next((c for c in cdef.get("children", []) if c["key"] == sub_key), None)
+        if child:
+            return child["th"]
+    return cdef["th"]
+
+
+def place_title(r, prov_cfg):
+    """The <title>/og:title string. The visible h1 stays the bare name — this
+    is what shows in a SERP snippet and a browser tab, where "Wat Phra Singh"
+    alone (repeated as the h1 on the place page itself) tells a searcher
+    nothing a bare name search wouldn't already; category + province does.
+
+    English name rides along in parentheses when it's a real second name
+    (not just the same string in Latin script already) — half of what people
+    search a Thai place by is whichever language they're typing in.
+    """
+    name = name_of(r)
+    nen = r.get("nameEn")
+    if nen and nen != r.get("name") and nen != name:
+        name = f"{name} ({nen})"
+    return f"{name} — {_place_cat_label(r)} {prov_cfg['th']}"
+
+
 def place_desc(r, prov_cfg):
     """A per-place description built from fields already on the record, not
     a category+province template repeated across thousands of pages.
@@ -2444,13 +2484,7 @@ def place_desc(r, prov_cfg):
     """
     if r.get("blurb_th"):
         return r["blurb_th"]
-    cdef = CATS[r["cat"][0]]
-    bits = [name_of(r), cdef["th"]]
-    sub_key = (r.get("sub") or [None])[0]
-    if sub_key:
-        child = next((c for c in cdef.get("children", []) if c["key"] == sub_key), None)
-        if child:
-            bits.append(child["th"])
+    bits = [name_of(r), _place_cat_label(r)]
     if r.get("address"):
         bits.append(r["address"][:60])
     bits.append(prov_cfg["th"])
@@ -2581,7 +2615,7 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
             f'<p class="prov">{prov_line}{fetched}</p>')
     desc = place_desc(r, prov_cfg)
     robots = "index,follow" if place_has_substance(r) else "noindex,follow"
-    return page(name_of(r), body, depth=2, crumbs=crumbs, path=path, desc=desc,
+    return page(place_title(r, prov_cfg), body, depth=2, crumbs=crumbs, path=path, desc=desc,
                 extra_head=ld_json(r, path, photo_file) + bc_ld,
                 og=f"og/{r['id']}.png" if r["id"] in OG_FILES else None,
                 robots=robots)
@@ -4146,7 +4180,8 @@ def build():
                                 f'<a href="../../index.html">{bi(p["th"], p["en"])}</a> › '
                                 f'<a href="../index.html">{bi(cdef["th"], cdef["en"])}</a> › '
                                 f'{bi(child["th"], child["en"])}'),
-                        path=sub_path, extra_head=sub_bc_ld))
+                        path=sub_path, extra_head=sub_bc_ld,
+                        seo_title=f'{child["th"]} {cdef["th"]} {p["th"]}'))
                     sub_bits.append(f'<b><a href="{child["key"]}/index.html">'
                                     f'{bi(child["th"], child["en"])}</a></b> '
                                     f'<span class="count">({len(in_sub):,})</span>')
@@ -4173,7 +4208,12 @@ def build():
                     f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
                     f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"])}')
             (pdir / c / "index.html").write_text(page(
-                cdef["th"], body, depth=2, crumbs=crumbs, path=f"{key}/{c}/index.html",
+                # Province-qualified title — the bare category name alone
+                # (e.g. "ร้านอาหาร-ของกิน") repeats verbatim between cm and cr,
+                # a duplicate <title> at exactly the granularity Search
+                # Console flags. The h1 in body stays unqualified on purpose.
+                f'{cdef["th"]} {p["th"]}', body, depth=2, crumbs=crumbs,
+                path=f"{key}/{c}/index.html",
                 desc=f"{cdef['th']} {p['th']} — {len(in_cat)} แห่ง · มดแดง", extra_head=cat_bc_ld))
 
         # Grouped by subcategory (falling back to category) so each place page
