@@ -1728,7 +1728,7 @@ const claimFind=document.getElementById('claim-find');
 if(claimFind){
 const cfg=JSON.parse(document.getElementById('claim-cfg').textContent);
 const WORKER=cfg.workerUrl,SITE='https://motdang.net/';
-const FIELDS=['phone','lineId','facebook','instagram','whatsapp','email','website','hours'];
+const FIELDS=['phone','lineId','facebook','instagram','whatsapp','email','website','hours','menu','note'];
 const params=new URLSearchParams(location.search);
 const stepFind=claimFind,stepConfirm=document.getElementById('claim-confirm'),
 stepSuccess=document.getElementById('claim-success'),stepEdit=document.getElementById('claim-edit');
@@ -2540,6 +2540,18 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         badge = (f' <span class="chbadge">{bi("ยืนยันโดยเจ้าของ", "owner-confirmed")}</span>'
                  if claim and claim.get("hours") else "")
         rows.append(f"<dt>{bi('เวลาเปิด', 'Hours')}</dt><dd>{esc(hours)}{badge}</dd>")
+    # menu/note come only from a claim (owner's own words, never crawled), so
+    # the badge is unconditional whenever present — unlike hours above, which
+    # can come from either source.
+    owner_badge = f' <span class="chbadge">{bi("ยืนยันโดยเจ้าของ", "owner-confirmed")}</span>'
+    menu_txt = (claim or {}).get("menu")
+    if menu_txt:
+        rows.append(f"<dt>{bi('เมนู', 'Menu')}</dt>"
+                    f"<dd>{esc(menu_txt).replace(chr(10), '<br>')}{owner_badge}</dd>")
+    note_txt = (claim or {}).get("note")
+    if note_txt:
+        rows.append(f"<dt>{bi('หมายเหตุจากร้าน', 'Note from the owner')}</dt>"
+                    f"<dd>{esc(note_txt).replace(chr(10), '<br>')}{owner_badge}</dd>")
     if r.get("lat") is not None:
         osm = f"https://www.openstreetmap.org/?mlat={r['lat']}&mlon={r['lng']}#map=18/{r['lat']}/{r['lng']}"
         gmap = f"https://maps.google.com/?q={r['lat']},{r['lng']}"
@@ -3898,6 +3910,19 @@ def mailto(subject, body=""):
     return f"mailto:{CONTACT_EMAIL}?{q}"
 
 
+def line_chat_url(place=None):
+    """LINE's documented oaMessage deep link: opens the OA chat and
+    pre-fills (never auto-sends) the given text — the user still taps send.
+    Embedding [id:<placeId>] lets the LINE webhook resolve which place a
+    message is about without falling back to a name search.
+    """
+    if not (LINE_OA_ID and LINE_ADD_URL):
+        return LINE_ADD_URL
+    text = f"ยืนยันร้าน {name_of(place)} [id:{place['id']}]" if place else "สวัสดีค่ะ"
+    return (f"https://line.me/R/oaMessage/{urllib.parse.quote(LINE_OA_ID, safe='')}"
+            f"/?{urllib.parse.quote(text, safe='')}")
+
+
 def add_doors(depth=0, place=None):
     """The three things a person actually wants to do, in plain words.
 
@@ -3916,9 +3941,9 @@ def add_doors(depth=0, place=None):
     fix_href = mailto("มดแดง: แก้ข้อมูล" + what, fix_body)
     line_btn = ""
     if LINE_ADD_URL:
-        line_btn = (f'<a class="door line" href="{att(LINE_ADD_URL)}" rel="noopener">'
+        line_btn = (f'<a class="door line" href="{att(line_chat_url(place))}" rel="noopener">'
                     f'<b>💬 {bi("ทักมาทางไลน์", "Message us on LINE")}</b>'
-                    f'<span>{bi("ส่งรูป ส่งเบอร์ พิมพ์บอกเฉยๆ ก็ได้", "Send a photo, a phone number, or just tell us")}</span></a>')
+                    f'<span>{bi("พิมพ์บอกเบอร์ เวลาเปิด หรือเมนูก็ได้เลย", "Just type your phone, hours, or menu")}</span></a>')
     else:
         # No OA yet, so the honest simplest thing on a phone is mail.
         line_btn = (f'<a class="door line" href="{att(mailto("มดแดง: ส่งข้อมูล" + what))}">'
@@ -4625,6 +4650,8 @@ def build():
         f'<label>{bi("อีเมล", "Email")}</label><input name="email" maxlength="200" type="email">'
         f'<label>{bi("เว็บไซต์", "Website")}</label><input name="website" maxlength="300">'
         f'<label>{bi("เวลาเปิด-ปิด", "Hours")}</label><input name="hours" maxlength="200" placeholder="10:00–20:00">'
+        f'<label>{bi("เมนู", "Menu")}</label><textarea name="menu" maxlength="2000" rows="3"></textarea>'
+        f'<label>{bi("หมายเหตุ", "Note")}</label><textarea name="note" maxlength="500" rows="2"></textarea>'
         f'<p class="tinynote">{bi("ใส่อย่างน้อยหนึ่งช่องทางที่ติดต่อได้", "Fill in at least one way to reach you")}</p>'
         f'<button type="submit" class="submit">🏪 {esc("ยืนยันฟรี")} · {esc("Claim it free")}</button>'
         f'<div class="error" id="claimerror"></div>'
@@ -4653,6 +4680,8 @@ def build():
         f'<label>{bi("อีเมล", "Email")}</label><input name="email" maxlength="200" type="email">'
         f'<label>{bi("เว็บไซต์", "Website")}</label><input name="website" maxlength="300">'
         f'<label>{bi("เวลาเปิด-ปิด", "Hours")}</label><input name="hours" maxlength="200">'
+        f'<label>{bi("เมนู", "Menu")}</label><textarea name="menu" maxlength="2000" rows="3"></textarea>'
+        f'<label>{bi("หมายเหตุ", "Note")}</label><textarea name="note" maxlength="500" rows="2"></textarea>'
         f'<button type="submit" class="submit">{bi("บันทึกการแก้ไข", "Save changes")}</button>'
         f'<div class="error" id="editerror"></div>'
         f'</form>'

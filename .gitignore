@@ -6,3 +6,4 @@ cache/
 # never commit the LINE channel token
 .mot-dang-line-token
 *.token
+.dev.vars

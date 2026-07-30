@@ -420,7 +420,7 @@ const claimFind=document.getElementById('claim-find');
 if(claimFind){
 const cfg=JSON.parse(document.getElementById('claim-cfg').textContent);
 const WORKER=cfg.workerUrl,SITE='https://motdang.net/';
-const FIELDS=['phone','lineId','facebook','instagram','whatsapp','email','website','hours'];
+const FIELDS=['phone','lineId','facebook','instagram','whatsapp','email','website','hours','menu','note'];
 const params=new URLSearchParams(location.search);
 const stepFind=claimFind,stepConfirm=document.getElementById('claim-confirm'),
 stepSuccess=document.getElementById('claim-success'),stepEdit=document.getElementById('claim-edit');
