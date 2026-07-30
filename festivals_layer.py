@@ -553,7 +553,7 @@ def build_festival_page(f, g, events, idx, prov_of, neighbours):
                 if nm and (nm in v.get("th", "") or nm in v.get("en", "")):
                     pv = prov_of.get(r["id"])
                     if pv:
-                        link = (f' — <a href="../{pv}/p/{r["id"]}.html">'
+                        link = (f' — <a href="../{pv}/p/{g["place_slug"](r)}.html">'
                                 f'{bi("ดูหน้าสถานที่", "place page")}</a>')
                     break
             rows.append(f'<li>{bi(v["th"], v.get("en", ""))}{link}</li>')
@@ -792,6 +792,7 @@ def emit(g, events, data):
 
     idx = g["_venue_index"](data)
     prov_of = {r["id"]: p["key"] for p in g["PROVINCES"] for r in data[p["key"]]}
+    records_by_id = {r["id"]: r for p in g["PROVINCES"] for r in data[p["key"]]}
     # Confirmed dates from the announcement harvester. Kept in g so the page
     # builders read the same dict the hub and the calendar do.
     g["_ANNOUNCED"] = ann = announced_dates()
@@ -821,7 +822,10 @@ def emit(g, events, data):
         pv = prov_of.get(pid)
         if not pv:
             continue
-        path = DOCS / pv / "p" / f"{pid}.html"
+        rec = records_by_id.get(pid)
+        if not rec:
+            continue
+        path = DOCS / pv / "p" / f'{g["place_slug"](rec)}.html'
         if not path.exists():
             continue
         html = path.read_text()

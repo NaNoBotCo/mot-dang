@@ -37,7 +37,7 @@ document.querySelector('form.seek input').value=q;
 const idx=await loadIndex();const needle=q.toLowerCase();
 const hits=q?idx.filter(e=>(e.n+' '+(e.e||'')).toLowerCase().includes(needle)).slice(0,200):[];
 document.getElementById('rescount').textContent=q?`${hits.length}`:'';
-resBox.innerHTML=hits.map(e=>`<li><a href="${RROOT}${e.p}/p/${e.id}.html">${e.n}</a>`+
+resBox.innerHTML=hits.map(e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
 `${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
 ` <span class="count">· ${e.pv}</span></li>`).join('')||
 (q?'<li class="shelf">ไม่พบ — ลองคำอื่น / nothing found, try another word</li>':'');})();}
@@ -227,7 +227,7 @@ if(h&&h.classList.contains('evday'))h.style.display=any?'':'none';});});});}
 document.querySelectorAll('.rand').forEach(a=>{a.addEventListener('click',async e=>{
 e.preventDefault();const idx=await loadIndex();
 const pick=idx[Math.floor(Math.random()*idx.length)];
-location.href=RROOT+pick.p+'/p/'+pick.id+'.html';});});
+location.href=RROOT+pick.p+'/p/'+pick.s+'.html';});});
 // ---- sort toolbar: name / distance ----------------------------------
 const dirList=document.querySelector('ul.dir[data-sortable]');
 if(dirList){
@@ -315,7 +315,7 @@ shelf.innerHTML=[...pins].map(pc=>{
 const[pv,cat]=pc.split('/');const m=PULSE[pv]&&PULSE[pv][cat];if(!m)return'';
 const fresh=seen[pc]!=null&&m.n>seen[pc]?` <span class="badge">+${m.n-seen[pc]} ใหม่/new</span>`:'';
 const sample=idx.filter(e=>e.p===pv&&e.c&&e.c.includes(cat)).slice(0,3);
-const preview=sample.map(e=>`<li><a href="${pv}/p/${e.id}.html">${H(e.n)}</a></li>`).join('')
+const preview=sample.map(e=>`<li><a href="${pv}/p/${e.s}.html">${H(e.n)}</a></li>`).join('')
 ||'<li class="shelf">🐜</li>';
 return `<div class="topicwidget"><button class="unpin" data-pc="${pc}" title="ถอดปัก / unpin">✕</button>`+
 `<h4><a href="${pv}/${cat}/index.html">${H(m.t)}</a> `+
@@ -336,7 +336,7 @@ return e.p===pv&&e.c.includes(cat);}));
 if(!pool.length)pool=idx;
 const t=new Date(),seed=t.getFullYear()*372+(t.getMonth()+1)*31+t.getDate();
 const pick=pool[seed%pool.length];
-el.innerHTML=`<a href="${pick.p}/p/${pick.id}.html">${H(pick.n)}</a> <span class="count">· ${H(pick.pv)}</span>`;})();
+el.innerHTML=`<a href="${pick.p}/p/${pick.s}.html">${H(pick.n)}</a> <span class="count">· ${H(pick.pv)}</span>`;})();
 // ---- widget gallery: her other projects, opt-in iframes ----------------
 const wgal=document.getElementById('widgetgallery');
 if(wgal){const STARTERS=JSON.parse(document.getElementById('widgets-data').textContent);
@@ -452,11 +452,11 @@ btn.disabled=false;});
 let picked=null;
 const results=document.getElementById('claimresults'),search=document.getElementById('claimsearch'),
 urlPaste=document.getElementById('claimurlpaste'),findErr=document.getElementById('claimfinderror');
-function idFromUrl(v){const m=v.trim().match(/\/(cm|cr)\/p\/([a-z0-9-]+)\.html/i);return m?m[2]:null;}
+function slugFromUrl(v){const m=v.trim().match(/\/(cm|cr)\/p\/([a-z0-9-]+)\.html/i);return m?m[2]:null;}
 function pick(e){picked=e;
 document.getElementById('claimwhoname').textContent=e.n;
 document.getElementById('claimwhoprov').textContent='· '+e.pv;
-document.getElementById('claimwholink').href=SITE+e.p+'/p/'+e.id+'.html';
+document.getElementById('claimwholink').href=SITE+e.p+'/p/'+e.s+'.html';
 showStep(stepConfirm);}
 search&&search.addEventListener('input',async()=>{
 const q=search.value.trim().toLowerCase();
@@ -466,10 +466,10 @@ const hits=idx.filter(e=>(e.n+' '+(e.e||'')).toLowerCase().includes(q)).slice(0,
 results.innerHTML=hits.map(e=>`<li><button>${H(e.n)} <span class="count">· ${H(e.pv)}</span></button></li>`).join('');
 results.querySelectorAll('button').forEach((b,i)=>b.addEventListener('click',()=>pick(hits[i])));});
 urlPaste&&urlPaste.addEventListener('change',async()=>{
-const id=idFromUrl(urlPaste.value);
+const slug=slugFromUrl(urlPaste.value);
 findErr.textContent='';
-if(!id){findErr.textContent='หาไอดีจากลิงก์ไม่เจอ / could not read an id from that link';return;}
-const idx=await loadIndex();const e=idx.find(x=>x.id===id);
+if(!slug){findErr.textContent='หาไอดีจากลิงก์ไม่เจอ / could not read an id from that link';return;}
+const idx=await loadIndex();const e=idx.find(x=>x.s===slug);
 if(!e){findErr.textContent='ไม่พบที่นี่ในสารบัญ / not found in the directory';return;}
 pick(e);});
 document.getElementById('claimagain').addEventListener('click',()=>{picked=null;showStep(stepFind);});
@@ -488,7 +488,7 @@ try{
 const res=await fetch(WORKER+'/claim',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
 const data=await res.json();
 if(!res.ok)throw new Error(data.error||'บันทึกไม่สำเร็จ / something went wrong');
-const viewUrl=SITE+picked.p+'/p/'+picked.id+'.html';
+const viewUrl=SITE+picked.p+'/p/'+picked.s+'.html';
 const vlink=document.getElementById('successviewlink');
 vlink.href=viewUrl;vlink.textContent=viewUrl;
 document.getElementById('successediturl').textContent=data.editUrl;

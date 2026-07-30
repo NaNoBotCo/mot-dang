@@ -13,7 +13,9 @@ import datetime
 import io
 import json
 import math
+import re
 import shutil
+import unicodedata
 import urllib.parse
 from pathlib import Path
 
@@ -494,6 +496,39 @@ def ld_json(r, path, photo_file):
         obj["sameAs"] = same_as
     return f'<script type="application/ld+json">{json.dumps(obj, ensure_ascii=False)}</script>'
 
+
+def breadcrumb_ld(items):
+    """items: (name, url) pairs, root ("หน้าแรก"/Home) first, current page last —
+    the same trail the visible crumbs render, so the two never disagree."""
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": name, "item": url}
+            for i, (name, url) in enumerate(items)
+        ],
+    }
+    return f'<script type="application/ld+json">{json.dumps(obj, ensure_ascii=False)}</script>'
+
+
+def website_ld():
+    """WebSite + SearchAction — the box Google wants before it will draw a
+    sitelinks search box under the listing. search.html already reads ?q= off
+    the URL client-side, so the target needs no server behind it."""
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "มดแดง Mot Dang",
+        "url": BASE,
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {"@type": "EntryPoint",
+                       "urlTemplate": BASE + "search.html?q={search_term_string}"},
+            "query-input": "required name=search_term_string",
+        },
+    }
+    return f'<script type="application/ld+json">{json.dumps(obj, ensure_ascii=False)}</script>'
+
 CSS = """
 /* Warm temple palette — mulberry paper, lacquer red, temple gold. Everything
    below already drew its colour from these variables, so retuning them moves
@@ -566,18 +601,10 @@ padding:.6rem 1rem;margin:.6rem 0 1rem}
 background:none;color:var(--ant-dark);border-radius:999px;padding:.05rem .7rem;cursor:pointer}
 .toolbar button.on,.toolbar button:hover{background:var(--ant-dark);color:var(--paper)}
 .dist{color:var(--ant-dark);font-size:.85rem}
-/* Ant rank — one ant per fact held, nine when complete. The faint ants are the
-   invitation: an owner can see exactly what is missing and what filling it buys. */
-.ants{white-space:nowrap;letter-spacing:-.08em;cursor:help;vertical-align:.02em}
-.ants.small{font-size:.62rem}
-.ants .off{opacity:.16}
+/* Ant rank drives sort order only now (data-rank, invisible) — never a
+   visible count or bar next to a business's name; see build.py ant_panel(). */
 .antlegend{margin:-.3rem 0 .7rem;opacity:.75}
-.antbar{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;margin:.2rem 0 .8rem}
-.antbar .ants{font-size:1rem;letter-spacing:-.05em}
-.antbar .antnum{font-weight:700;color:var(--ant-dark)}
 .antgap{margin:.6rem 0 0;font-size:.9rem}
-.antgap ul{margin:.25rem 0 0;padding-left:1.1rem}
-.antgap li{opacity:.85}
 .licence{display:block;margin:.35rem 0 .2rem;opacity:.7;font-size:.82rem}
 .ourchannels{margin:1rem 0;padding:.7rem .9rem .8rem;border:1px solid var(--soft);
 border-radius:.8rem;background:#fff}
@@ -666,6 +693,10 @@ padding:.5rem .9rem;margin:1.1rem 0;font-size:.95rem}
 .adbox .adlabel{display:block;font-size:.72rem;letter-spacing:.12em;color:var(--mute);
 text-transform:uppercase;margin-bottom:.1rem}
 .adbox .adsell{font-size:.78rem;margin-left:.6rem;color:var(--mute)}
+.related{margin:1.1rem 0}
+.related h2{font-size:.95rem;margin:0 0 .4rem}
+.related ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem .7rem}
+.related li{font-size:.88rem}
 .myhint{background:var(--soft);border-radius:.6rem;padding:.5rem .9rem;font-size:.9rem}
 #bmform input{font:inherit;font-size:.9rem;padding:.2rem .5rem;border:1.5px solid var(--soft);
 border-radius:.4rem;margin-right:.4rem;max-width:11rem}
@@ -1289,7 +1320,7 @@ document.querySelector('form.seek input').value=q;
 const idx=await loadIndex();const needle=q.toLowerCase();
 const hits=q?idx.filter(e=>(e.n+' '+(e.e||'')).toLowerCase().includes(needle)).slice(0,200):[];
 document.getElementById('rescount').textContent=q?`${hits.length}`:'';
-resBox.innerHTML=hits.map(e=>`<li><a href="${RROOT}${e.p}/p/${e.id}.html">${e.n}</a>`+
+resBox.innerHTML=hits.map(e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
 `${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
 ` <span class="count">· ${e.pv}</span></li>`).join('')||
 (q?'<li class="shelf">ไม่พบ — ลองคำอื่น / nothing found, try another word</li>':'');})();}
@@ -1479,7 +1510,7 @@ if(h&&h.classList.contains('evday'))h.style.display=any?'':'none';});});});}
 document.querySelectorAll('.rand').forEach(a=>{a.addEventListener('click',async e=>{
 e.preventDefault();const idx=await loadIndex();
 const pick=idx[Math.floor(Math.random()*idx.length)];
-location.href=RROOT+pick.p+'/p/'+pick.id+'.html';});});
+location.href=RROOT+pick.p+'/p/'+pick.s+'.html';});});
 // ---- sort toolbar: name / distance ----------------------------------
 const dirList=document.querySelector('ul.dir[data-sortable]');
 if(dirList){
@@ -1567,7 +1598,7 @@ shelf.innerHTML=[...pins].map(pc=>{
 const[pv,cat]=pc.split('/');const m=PULSE[pv]&&PULSE[pv][cat];if(!m)return'';
 const fresh=seen[pc]!=null&&m.n>seen[pc]?` <span class="badge">+${m.n-seen[pc]} ใหม่/new</span>`:'';
 const sample=idx.filter(e=>e.p===pv&&e.c&&e.c.includes(cat)).slice(0,3);
-const preview=sample.map(e=>`<li><a href="${pv}/p/${e.id}.html">${H(e.n)}</a></li>`).join('')
+const preview=sample.map(e=>`<li><a href="${pv}/p/${e.s}.html">${H(e.n)}</a></li>`).join('')
 ||'<li class="shelf">🐜</li>';
 return `<div class="topicwidget"><button class="unpin" data-pc="${pc}" title="ถอดปัก / unpin">✕</button>`+
 `<h4><a href="${pv}/${cat}/index.html">${H(m.t)}</a> `+
@@ -1588,7 +1619,7 @@ return e.p===pv&&e.c.includes(cat);}));
 if(!pool.length)pool=idx;
 const t=new Date(),seed=t.getFullYear()*372+(t.getMonth()+1)*31+t.getDate();
 const pick=pool[seed%pool.length];
-el.innerHTML=`<a href="${pick.p}/p/${pick.id}.html">${H(pick.n)}</a> <span class="count">· ${H(pick.pv)}</span>`;})();
+el.innerHTML=`<a href="${pick.p}/p/${pick.s}.html">${H(pick.n)}</a> <span class="count">· ${H(pick.pv)}</span>`;})();
 // ---- widget gallery: her other projects, opt-in iframes ----------------
 const wgal=document.getElementById('widgetgallery');
 if(wgal){const STARTERS=JSON.parse(document.getElementById('widgets-data').textContent);
@@ -1704,11 +1735,11 @@ btn.disabled=false;});
 let picked=null;
 const results=document.getElementById('claimresults'),search=document.getElementById('claimsearch'),
 urlPaste=document.getElementById('claimurlpaste'),findErr=document.getElementById('claimfinderror');
-function idFromUrl(v){const m=v.trim().match(/\/(cm|cr)\/p\/([a-z0-9-]+)\.html/i);return m?m[2]:null;}
+function slugFromUrl(v){const m=v.trim().match(/\/(cm|cr)\/p\/([a-z0-9-]+)\.html/i);return m?m[2]:null;}
 function pick(e){picked=e;
 document.getElementById('claimwhoname').textContent=e.n;
 document.getElementById('claimwhoprov').textContent='· '+e.pv;
-document.getElementById('claimwholink').href=SITE+e.p+'/p/'+e.id+'.html';
+document.getElementById('claimwholink').href=SITE+e.p+'/p/'+e.s+'.html';
 showStep(stepConfirm);}
 search&&search.addEventListener('input',async()=>{
 const q=search.value.trim().toLowerCase();
@@ -1718,10 +1749,10 @@ const hits=idx.filter(e=>(e.n+' '+(e.e||'')).toLowerCase().includes(q)).slice(0,
 results.innerHTML=hits.map(e=>`<li><button>${H(e.n)} <span class="count">· ${H(e.pv)}</span></button></li>`).join('');
 results.querySelectorAll('button').forEach((b,i)=>b.addEventListener('click',()=>pick(hits[i])));});
 urlPaste&&urlPaste.addEventListener('change',async()=>{
-const id=idFromUrl(urlPaste.value);
+const slug=slugFromUrl(urlPaste.value);
 findErr.textContent='';
-if(!id){findErr.textContent='หาไอดีจากลิงก์ไม่เจอ / could not read an id from that link';return;}
-const idx=await loadIndex();const e=idx.find(x=>x.id===id);
+if(!slug){findErr.textContent='หาไอดีจากลิงก์ไม่เจอ / could not read an id from that link';return;}
+const idx=await loadIndex();const e=idx.find(x=>x.s===slug);
 if(!e){findErr.textContent='ไม่พบที่นี่ในสารบัญ / not found in the directory';return;}
 pick(e);});
 document.getElementById('claimagain').addEventListener('click',()=>{picked=null;showStep(stepFind);});
@@ -1740,7 +1771,7 @@ try{
 const res=await fetch(WORKER+'/claim',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
 const data=await res.json();
 if(!res.ok)throw new Error(data.error||'บันทึกไม่สำเร็จ / something went wrong');
-const viewUrl=SITE+picked.p+'/p/'+picked.id+'.html';
+const viewUrl=SITE+picked.p+'/p/'+picked.s+'.html';
 const vlink=document.getElementById('successviewlink');
 vlink.href=viewUrl;vlink.textContent=viewUrl;
 document.getElementById('successediturl').textContent=data.editUrl;
@@ -1799,7 +1830,7 @@ BE_BUILD = int(BUILD_DATE[:4]) + 543
 
 
 def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None,
-         body_class=""):
+         body_class="", robots="index,follow"):
     r = "../" * depth
     url = BASE + path
     tt = esc(title) + " · มดแดง" if title != "มดแดง" else "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"
@@ -1809,7 +1840,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{tt}</title>
 <meta name="description" content="{d}">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="{att(robots)}">
 <link rel="canonical" href="{att(url)}">
 <meta property="og:site_name" content="มดแดง Mot Dang">
 <meta property="og:title" content="{att(tt)}">
@@ -2121,63 +2152,32 @@ def ant_rank(r):
     return sum(1 for v in ant_bits(r).values() if v)
 
 
-def ant_title(r):
-    """One bilingual string — a title attribute cannot carry the bi() spans."""
-    bits = ant_bits(r)
-    n = sum(1 for v in bits.values() if v)
-    miss_th = [f[1] for f in ANT_FIELDS if not bits[f[0]]]
-    miss_en = [f[2] for f in ANT_FIELDS if not bits[f[0]]]
-    th = f"{n}/{ANT_MAX} มด"
-    en = f"{n}/{ANT_MAX} ants"
-    if miss_th:
-        th += " · ยังขาด: " + ", ".join(miss_th)
-        en += " · still missing: " + ", ".join(miss_en)
-    else:
-        th += " · ครบทั้งฝูงแล้วเจ้า"
-        en += " · the whole swarm"
-    return f"{th}  /  {en}"
-
-
-def ant_strip(r, small=True):
-    """🐜 for each thing present, a faint one for each thing still missing."""
-    n = ant_rank(r)
-    cls = "ants small" if small else "ants"
-    return (f'<span class="{cls}" title="{att(ant_title(r))}" '
-            f'aria-label="{att(ant_title(r))}">'
-            f'<span class="on">{"🐜" * n}</span>'
-            f'<span class="off">{"🐜" * (ANT_MAX - n)}</span></span>')
-
-
 def ant_panel(r):
-    """On a place page: the rank, then plainly what would raise it and how.
+    """On a place page: a one-line status, never a score.
 
-    An empty listing is not a dead end — it is the invitation. The two doors are
-    the owner's (claim it, free, instant) and the passer-by's (send the ants).
+    This used to show "N/9" beside a bar of filled and greyed-out ant icons —
+    which, next to a real business's name, reads exactly like a star rating,
+    not "how much we happen to know." A rating of zero (or a wall enumerating
+    all nine missing fields) looks like a bad review of the business itself,
+    not a note about our own data gap. So: no fraction, no bar, ever — only a
+    plain status, and at most a couple of things asked for, phrased as a
+    favour. ant_rank/ant_bits still drive sort order (data-rank, invisible)
+    and the noindex gate; they just never render as a count next to a name.
     """
     bits = ant_bits(r)
     n = sum(1 for v in bits.values() if v)
-    miss = [f for f in ANT_FIELDS if not bits[f[0]]]
-    bar = (f'<p class="antbar">{ant_strip(r, small=False)}'
-           f'<span class="antnum">{n}/{ANT_MAX}</span>'
-           f'<span class="tinynote">'
-           + bi("มดหนึ่งตัว = ข้อมูลหนึ่งอย่างที่มดแดงมี", "one ant per fact we hold")
-           + "</span></p>")
-    if not miss:
-        return bar + ('<p class="antgap">'
-                      + bi("ครบทั้งเก้าตัวแล้วเจ้า — ขอบคุณคนที่ช่วยเติมให้",
-                           "All nine — thank you to whoever filled this in.") + "</p>")
-    claim_url = f"../../claim.html?id={att(r['id'])}"
-    crawl_url = f"../../crawl-request.html?id={att(r['id'])}"
-    items = "".join(f"<li>{bi(f[1], f[2])}</li>" for f in miss)
-    return (bar + '<div class="antgap"><b>'
-            + bi(f"ยังขาดอยู่ {len(miss)} อย่าง", f"{len(miss)} still missing")
-            + f"</b><ul>{items}</ul><p>"
-            + f'<a href="{claim_url}" rel="noopener">'
-            + bi("เจ้าของที่นี่ยืนยันเองได้ ฟรี ทันที", "Owner? Claim it — free, instant")
-            + "</a> · "
-            + f'<a href="{crawl_url}" rel="noopener">🐜 '
-            + bi("ขอให้มดไปเดินสำรวจที่นี่", "Send the ants to walk this one")
-            + "</a></p></div>")
+    if n == 0:
+        return ('<p class="antgap">'
+                + bi("เพิ่งเก็บมาจากแผนที่ ยังไม่มีรายละเอียดเพิ่มเติม",
+                     "Just pinned from the map — no other details on record yet.")
+                + "</p>")
+    if all(bits.values()):
+        return ('<p class="antgap">'
+                + bi("ครบทุกอย่างแล้วเจ้า — ขอบคุณคนที่ช่วยเติมให้",
+                     "Everything's filled in — thank you to whoever helped.") + "</p>")
+    return ('<p class="antgap">'
+            + bi("มีข้อมูลบางส่วนแล้ว — ช่วยเติมให้ครบได้ฟรี",
+                 "Some details on record — help fill in the rest, free.") + "</p>")
 
 
 def entry_li(r, href):
@@ -2189,9 +2189,13 @@ def entry_li(r, href):
     upd = (CLAIMS.get(r["id"]) or {}).get("confirmedAt") or r.get("updatedAt") or ""
     hon = honour_badges(r)
     keys = f' data-royal="{royal_weight(r)}" data-hon="{1 if hon else 0}"'
+    # No visible completeness badge here on purpose — a row of businesses each
+    # showing a "score" out of 9 reads as a ranking of the businesses
+    # themselves. data-rank stays, invisibly, for the sort-by-complete /
+    # needs-love buttons.
     return (f'<li data-n="{att(name_of(r))}"{lat} data-rank="{rank}" '
             f'data-upd="{att(upd)}"{keys}>{star}'
-            f'<a href="{href}">{esc(name_of(r))}</a>{pin} {ant_strip(r)}{hon}</li>')
+            f'<a href="{href}">{esc(name_of(r))}</a>{pin}{hon}</li>')
 
 
 def geojson(records):
@@ -2231,15 +2235,16 @@ def toolbar(records=None):
             + "</p>")
 
 
-def listing_page(title_th, title_en, records, depth, prov, crumbs, path, extra_top=""):
-    lis = "".join(entry_li(r, "../" * (depth - 1) + f"p/{r['id']}.html") for r in records)
+def listing_page(title_th, title_en, records, depth, prov, crumbs, path, extra_top="",
+                  extra_head=""):
+    lis = "".join(entry_li(r, "../" * (depth - 1) + f"p/{place_slug(r)}.html") for r in records)
     body = (f"<h1>{bi(title_th, title_en)} "
             f'<span class="count">({len(records):,})</span></h1>'
             f"{extra_top}{ad_box(path, depth)}{toolbar(records)}"
             f'<ul class="dir" data-sortable>{lis}</ul>'
             f"{share_block(BASE + path, title_th)}")
     return page(title_th, body, depth, crumbs=crumbs, path=path,
-                desc=f"{title_th} — {len(records)} แห่ง · มดแดง")
+                desc=f"{title_th} — {len(records)} แห่ง · มดแดง", extra_head=extra_head)
 
 
 ADS = json.loads((ROOT / "data" / "ads.json").read_text())
@@ -2366,7 +2371,7 @@ def place_json(r, photo_file=None):
     """The machine-readable twin of a place page, at the same URL with .json."""
     live, retired = channels(r)
     rec = dict(r)
-    rec["url"] = BASE + f"{r['province']}/p/{r['id']}.html"
+    rec["url"] = BASE + f"{r['province']}/p/{place_slug(r)}.html"
     rec["antRank"] = ant_rank(r)
     rec["antBits"] = ant_bits(r)
     rec["channels"] = [{"kind": c["kind"], "href": c["href"], "text": c["text"]} for c in live]
@@ -2388,25 +2393,86 @@ def place_json(r, photo_file=None):
 
 
 def next_ant(r):
-    """The single easiest thing that would improve this listing, named plainly.
-
-    "2/9 ants" is a score; "add a phone number and it becomes 3" is an
-    instruction. Owners act on instructions.
+    """The single easiest thing that would improve this listing, asked for
+    like a favour — never as a fraction, and never the full list of what's
+    absent. "0/9" or nine missing fields laid out under a business's name
+    reads as a rating of the business, not a note about our data. One or two
+    concrete asks read as an invitation.
     """
     bits = ant_bits(r)
-    have = sum(1 for v in bits.values() if v)
     missing = [(f[1], f[2]) for f in ANT_FIELDS if not bits[f[0]]]
     if not missing:
-        return (f'<p class="helpline">🐜 <b>{bi("ครบทั้งฝูงแล้วเจ้า", "The whole swarm is here")}</b> — '
-                f'{bi("ข้อมูลที่นี่ครบ 9 มด ขอบคุณคนที่ช่วยเติมเจ้า", "all nine ants. Thank you to whoever filled this in.")}</p>')
-    th_list = ", ".join(m[0] for m in missing[:3])
-    en_list = ", ".join(m[1] for m in missing[:3])
-    return (f'<p class="helpline">🐜 <b>{have}/{ANT_MAX}</b> — '
-            f'{bi("ยังขาด " + th_list, "still missing " + en_list)}. '
-            f'{bi("เติมได้เลย ขึ้นทันที", "Fill one in and it shows at once.")}</p>')
+        return (f'<p class="helpline">🐜 <b>{bi("ครบทุกอย่างแล้วเจ้า", "Everything is here")}</b> — '
+                f'{bi("ขอบคุณคนที่ช่วยเติมเจ้า", "thank you to whoever filled this in.")}</p>')
+    th_list = " และ ".join(m[0] for m in missing[:2])
+    en_list = " and ".join(m[1] for m in missing[:2])
+    return (f'<p class="helpline">🐜 '
+            f'{bi(f"ช่วยเติม{th_list}ได้ไหมเจ้า", f"Could you help add {en_list}?")} '
+            f'{bi("ขึ้นทันทีเลย", "It shows at once.")}</p>')
 
 
-def detail_page(r, prov_cfg, photo_file=None, whatson=""):
+_SLUG_UNSAFE = re.compile(r"[^a-z0-9]+")
+
+
+def place_slug(r):
+    """A readable filename stem: the Latin name plus the OSM id, so it stays
+    unique even between two "7-Eleven"s and stable even if the name changes.
+
+    Falls back to the bare numeric id when there's no Latin name to slug —
+    git on macOS can silently re-normalize Unicode filenames on commit, and
+    an NFC/NFD mismatch after deploy is a 404 with no visible cause. Staying
+    ASCII-only in the filename sidesteps that entirely; the Thai name is
+    still the page's <title>, <h1> and og:title either way.
+    """
+    numeric = re.sub(r"\D", "", r["id"]) or re.sub(r"[^a-z0-9]", "", r["id"].lower())
+    # nameEn is the deliberate English tag when present; otherwise the primary
+    # name is often already Latin script (chains, English-named shops) and
+    # slugs fine on its own. Either way, Thai-only names ASCII-strip to
+    # nothing and fall through to the bare id, same as before.
+    candidate = r.get("nameEn") or name_of(r) or ""
+    slug = _SLUG_UNSAFE.sub("-", candidate.strip().lower()).strip("-")[:60].rstrip("-")
+    return f"{slug}-{numeric}" if slug else numeric
+
+
+def place_desc(r, prov_cfg):
+    """A per-place description built from fields already on the record, not
+    a category+province template repeated across thousands of pages.
+
+    Before this, every place shared one of only 42 description strings across
+    all 10,463 pages — one string alone covered 4,148 of them. That's a
+    duplicate-content signal at exactly the scale Search Console flags.
+    """
+    if r.get("blurb_th"):
+        return r["blurb_th"]
+    cdef = CATS[r["cat"][0]]
+    bits = [name_of(r), cdef["th"]]
+    sub_key = (r.get("sub") or [None])[0]
+    if sub_key:
+        child = next((c for c in cdef.get("children", []) if c["key"] == sub_key), None)
+        if child:
+            bits.append(child["th"])
+    if r.get("address"):
+        bits.append(r["address"][:60])
+    bits.append(prov_cfg["th"])
+    return " · ".join(bits) + " · มดแดง"
+
+
+def place_has_substance(r):
+    """True if this listing offers a searcher something beyond a name pinned
+    to a map — a phone, LINE, hours, a live site, a photo, or an address.
+
+    About 69% of records don't clear this bar yet (an OSM crawl gives little
+    beyond a name for most nodes). Those pages stay noindex,follow until
+    claimed or enriched, so a three-day-old domain's early crawl budget isn't
+    spent averaging quality across ten thousand near-empty stubs.
+    """
+    bits = ant_bits(r)
+    return bool(
+        bits["phone"] or bits["line"] or bits["hours"] or bits["web"]
+        or bits["photo"] or bits["claimed"] or r.get("address"))
+
+
+def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     rows = []
     cats = " · ".join(
         f'<a href="../{c}/index.html">{bi(CATS[c]["th"], CATS[c]["en"])}</a>' for c in r["cat"])
@@ -2493,18 +2559,32 @@ def detail_page(r, prov_cfg, photo_file=None, whatson=""):
                  "curated": bi("ข้อมูลคัดสรรโดยทีมมดแดง", "Curated by the Mot Dang team")}.get(
         src.get("type"), bi("ข้อมูลเปิด", "Open data"))
     fetched = f" · {esc(src['fetched'])}" if src.get("fetched") else ""
-    path = f"{r['province']}/p/{r['id']}.html"
+    path = f"{r['province']}/p/{place_slug(r)}.html"
     crumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
               f'<a href="../index.html">{bi(prov_cfg["th"], prov_cfg["en"])}</a> › {esc(name_of(r))}')
+    bc_ld = breadcrumb_ld([
+        ("หน้าแรก", BASE),
+        (prov_cfg["th"], BASE + prov_cfg["key"] + "/index.html"),
+        (name_of(r), BASE + path),
+    ])
+    related_html = ""
+    if related:
+        items = "".join(
+            f'<li><a href="{place_slug(x)}.html">{esc(name_of(x))}</a></li>' for x in related)
+        related_html = (f'<div class="related"><h2>'
+                         + bi("ที่คล้ายกันแถวนี้", "More like this")
+                         + f"</h2><ul>{items}</ul></div>")
     body = (f"<h1>{esc(name_of(r))}</h1>{honour_panel(r)}{ant_panel(r)}{img_tag}{photo_note}{blurb}"
             f"{reach_block(r)}{whatson}<dl>{''.join(rows)}</dl>"
             f"{contact_cta}{photo_cta}"
-            f"{share_block(BASE + path, name_of(r), qr=True)}{ad_box(path, 2)}"
+            f"{share_block(BASE + path, name_of(r), qr=True)}{ad_box(path, 2)}{related_html}"
             f'<p class="prov">{prov_line}{fetched}</p>')
-    desc = r.get("blurb_th") or f"{CATS[r['cat'][0]]['th']} · {prov_cfg['th']} · มดแดง"
+    desc = place_desc(r, prov_cfg)
+    robots = "index,follow" if place_has_substance(r) else "noindex,follow"
     return page(name_of(r), body, depth=2, crumbs=crumbs, path=path, desc=desc,
-                extra_head=ld_json(r, path, photo_file),
-                og=f"og/{r['id']}.png" if r["id"] in OG_FILES else None)
+                extra_head=ld_json(r, path, photo_file) + bc_ld,
+                og=f"og/{r['id']}.png" if r["id"] in OG_FILES else None,
+                robots=robots)
 
 
 def cat_row_html(prov_key, cat, count):
@@ -2676,7 +2756,7 @@ def enrich_events(data, photos):
             live, _retired = channels(r)
             e["place"] = {
                 "id": r["id"], "name": name_of(r), "province": pv,
-                "href": f'{pv}/p/{r["id"]}.html',
+                "href": f'{pv}/p/{place_slug(r)}.html',
                 "lat": r.get("lat"), "lng": r.get("lng"),
                 "photo": photos.get(r["id"]),
                 "cat": (r["cat"] or [None])[0],
@@ -4001,8 +4081,8 @@ def build():
         for r in records:
             for c in r["cat"]:
                 counts[c] = counts.get(c, 0) + 1
-            search_index.append({"id": r["id"], "n": name_of(r), "e": r.get("nameEn"),
-                                 "p": key, "pv": p["th"], "c": r["cat"]})
+            search_index.append({"id": r["id"], "s": place_slug(r), "n": name_of(r),
+                                 "e": r.get("nameEn"), "p": key, "pv": p["th"], "c": r["cat"]})
         live_cats = [c for c in CAT_ORDER if counts.get(c)]
         pulse[key] = {c: {"n": counts[c], "t": CATS[c]["th"], "v": p["th"]}
                       for c in live_cats}
@@ -4020,7 +4100,7 @@ def build():
         if featured:
             cards = "".join(
                 f'<div class="featured"><span class="star">★</span> '
-                f'<a href="p/{r["id"]}.html"><strong>{esc(name_of(r))}</strong></a><br>'
+                f'<a href="p/{place_slug(r)}.html"><strong>{esc(name_of(r))}</strong></a><br>'
                 f'{bi(r.get("blurb_th") or "", r.get("blurb_en") or "")}</div>'
                 for r in featured)
             feat_html = f'<h2>{bi("ที่น่าไป", "Places to visit")}</h2>{cards}'
@@ -4030,6 +4110,7 @@ def build():
                            muted_ok=(p["mode"] == "full"))
             .replace(f'href="{key}/', 'href="') for c in CAT_ORDER)
         crumbs = f'<a href="../index.html">{bi("หน้าแรก", "Home")}</a> › {bi(p["th"], p["en"])}'
+        prov_bc_ld = breadcrumb_ld([("หน้าแรก", BASE), (p["th"], BASE + key + "/index.html")])
         (pdir / "index.html").write_text(page(
             p["th"],
             f'<h1>{bi(p["th"], p["en"])} <span class="count">({len(records):,})</span>{grow}</h1>'
@@ -4037,7 +4118,7 @@ def build():
             f'<h2>{bi("หมวด", "Categories")}</h2><ul class="cats">{prov_shelves}</ul>'
             f'{share_block(BASE + key + "/index.html", "มดแดง " + p["th"])}',
             depth=1, crumbs=crumbs, path=f"{key}/index.html",
-            desc=f"สารบัญ{p['th']} {len(records):,} แห่ง · มดแดง"))
+            desc=f"สารบัญ{p['th']} {len(records):,} แห่ง · มดแดง", extra_head=prov_bc_ld))
 
         for c in live_cats:
             cdef = CATS[c]
@@ -4050,6 +4131,13 @@ def build():
                 in_sub = [r for r in in_cat if matches(r, child.get("match"))]
                 if in_sub:
                     (pdir / c / child["key"]).mkdir(parents=True, exist_ok=True)
+                    sub_path = f"{key}/{c}/{child['key']}/index.html"
+                    sub_bc_ld = breadcrumb_ld([
+                        ("หน้าแรก", BASE),
+                        (p["th"], BASE + key + "/index.html"),
+                        (cdef["th"], BASE + key + "/" + c + "/index.html"),
+                        (child["th"], BASE + sub_path),
+                    ])
                     (pdir / c / child["key"] / "index.html").write_text(listing_page(
                         child["th"], child["en"],
                         sorted(in_sub, key=lambda r: (not is_featured(r), name_of(r))),
@@ -4058,7 +4146,7 @@ def build():
                                 f'<a href="../../index.html">{bi(p["th"], p["en"])}</a> › '
                                 f'<a href="../index.html">{bi(cdef["th"], cdef["en"])}</a> › '
                                 f'{bi(child["th"], child["en"])}'),
-                        path=f"{key}/{c}/{child['key']}/index.html"))
+                        path=sub_path, extra_head=sub_bc_ld))
                     sub_bits.append(f'<b><a href="{child["key"]}/index.html">'
                                     f'{bi(child["th"], child["en"])}</a></b> '
                                     f'<span class="count">({len(in_sub):,})</span>')
@@ -4074,22 +4162,40 @@ def build():
                   f'({len(gj["features"]):,} {bi("จุด", "points")})</p>')
             crumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
                       f'<a href="../index.html">{bi(p["th"], p["en"])}</a> › {bi(cdef["th"], cdef["en"])}')
-            lis = "".join(entry_li(r, f"../p/{r['id']}.html") for r in in_cat)
+            cat_bc_ld = breadcrumb_ld([
+                ("หน้าแรก", BASE),
+                (p["th"], BASE + key + "/index.html"),
+                (cdef["th"], BASE + key + "/" + c + "/index.html"),
+            ])
+            lis = "".join(entry_li(r, f"../p/{place_slug(r)}.html") for r in in_cat)
             body = (f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
                     f'{subshelf}{ad_box(f"{key}/{c}/index.html", 2)}{toolbar(in_cat)}'
                     f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
                     f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"])}')
             (pdir / c / "index.html").write_text(page(
                 cdef["th"], body, depth=2, crumbs=crumbs, path=f"{key}/{c}/index.html",
-                desc=f"{cdef['th']} {p['th']} — {len(in_cat)} แห่ง · มดแดง"))
+                desc=f"{cdef['th']} {p['th']} — {len(in_cat)} แห่ง · มดแดง", extra_head=cat_bc_ld))
+
+        # Grouped by subcategory (falling back to category) so each place page
+        # can link sideways to a few topically-close neighbours — internal
+        # links a crawler follows on its own, not just the search index.
+        by_sub = {}
+        for r in records:
+            sub_key = (r.get("sub") or [None])[0] or (r["cat"][0] if r.get("cat") else None)
+            by_sub.setdefault(sub_key, []).append(r)
 
         for r in records:
-            (pdir / "p" / f"{r['id']}.html").write_text(
+            sub_key = (r.get("sub") or [None])[0] or (r["cat"][0] if r.get("cat") else None)
+            related = sorted(
+                (x for x in by_sub.get(sub_key, []) if x["id"] != r["id"]),
+                key=lambda x: (-ant_rank(x), name_of(x)))[:5]
+            slug = place_slug(r)
+            (pdir / "p" / f"{slug}.html").write_text(
                 detail_page(r, p, photos.get(r["id"]),
-                            whats_on_here(r["id"], EVENTS, depth=2)))
+                            whats_on_here(r["id"], EVENTS, depth=2), related=related))
             # A predictable .json beside every .html. A reader that guesses the
             # URL is right, every time, with no key and no rate limit.
-            (pdir / "p" / f"{r['id']}.json").write_text(
+            (pdir / "p" / f"{slug}.json").write_text(
                 json.dumps(place_json(r, photos.get(r["id"])), ensure_ascii=False))
 
     # ---- home ----------------------------------------------------------
@@ -4187,7 +4293,7 @@ def build():
         thumb = f"photos/{photos[r['id']]}" if r["id"] in photos else placeholder_for(r)
         cat = CATS[r["cat"][0]]
         hi_cards.append(
-            f'<li><a href="{pv}/p/{r["id"]}.html"><img src="{thumb}" '
+            f'<li><a href="{pv}/p/{place_slug(r)}.html"><img src="{thumb}" '
             f'alt="{att(name_of(r))}" loading="lazy">'
             f'<span class="nm">{esc(name_of(r))}</span>'
             f'<span class="sub">{bi(cat["th"], cat["en"], sep="")}</span></a></li>')
@@ -4274,7 +4380,8 @@ def build():
         + share_block(BASE, "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"))
 
     (DOCS / "index.html").write_text(page(
-        "มดแดง", home_html, depth=0, path="", desc=intro_th, body_class="home"))
+        "มดแดง", home_html, depth=0, path="", desc=intro_th, body_class="home",
+        extra_head=website_ld()))
 
     # ---- my page: the personal start page, the pre-Google way -----------
     pick_groups = []
@@ -4818,12 +4925,15 @@ def build():
 
     rss_items_xml = ""
     for pv, r in hi_pool[:20]:
-        path_r = f"{pv}/p/{r['id']}.html"
+        path_r = f"{pv}/p/{place_slug(r)}.html"
         cat_th = CATS[r["cat"][0]]["th"]
         desc = r.get("blurb_th") or cat_th
         rss_items_xml += (
             f"<item><title>{rss_escape(name_of(r))}</title>"
-            f"<link>{BASE}{path_r}</link><guid>{BASE}{path_r}</guid>"
+            f"<link>{BASE}{path_r}</link>"
+            # A stable guid independent of the display URL — the id doesn't
+            # change even if a name (and so its slug) later does.
+            f'<guid isPermaLink="false">{rss_escape(r["id"])}</guid>'
             f"<description>{rss_escape(desc)}</description></item>")
     rss_xml = (
         '<?xml version="1.0" encoding="UTF-8"?>'
@@ -5004,10 +5114,15 @@ def build():
         f"User-agent: {b}\nAllow: /\n\n" for b in AI_BOTS
     ) + "Sitemap: " + BASE + "sitemap.xml\n"
     (DOCS / "robots.txt").write_text(robots_txt)
+    # A noindex,follow page has no business in the sitemap — listing it
+    # anyway is a mixed signal and spends crawl budget for nothing.
+    def _indexable(f):
+        return 'content="noindex' not in f.read_text(encoding="utf-8")
+
     sitemap_urls = "".join(
         f"<url><loc>{BASE}{f.relative_to(DOCS).as_posix()}</loc>"
         f"<lastmod>{BUILD_DATE}</lastmod></url>"
-        for f in sorted(DOCS.rglob("*.html")))
+        for f in sorted(DOCS.rglob("*.html")) if _indexable(f))
     (DOCS / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
@@ -5237,7 +5352,7 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
         live, _ = channels(r)
         ch = "; ".join(f"{c['kind']}={c['text']}" for c in live) or "-"
         loc = f"{r['lat']},{r['lng']}" if r.get("lat") is not None else "-"
-        return (f"{BASE}{r['province']}/p/{r['id']}.html\t{name_of(r)}\t"
+        return (f"{BASE}{r['province']}/p/{place_slug(r)}.html\t{name_of(r)}\t"
                 f"{r.get('nameEn') or '-'}\t{'/'.join(r['cat'])}\t{loc}\t"
                 f"{ch}\t{r.get('hours') or '-'}\tants={ant_rank(r)}/{ANT_MAX}")
 

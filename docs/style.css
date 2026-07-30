@@ -70,18 +70,10 @@ padding:.6rem 1rem;margin:.6rem 0 1rem}
 background:none;color:var(--ant-dark);border-radius:999px;padding:.05rem .7rem;cursor:pointer}
 .toolbar button.on,.toolbar button:hover{background:var(--ant-dark);color:var(--paper)}
 .dist{color:var(--ant-dark);font-size:.85rem}
-/* Ant rank — one ant per fact held, nine when complete. The faint ants are the
-   invitation: an owner can see exactly what is missing and what filling it buys. */
-.ants{white-space:nowrap;letter-spacing:-.08em;cursor:help;vertical-align:.02em}
-.ants.small{font-size:.62rem}
-.ants .off{opacity:.16}
+/* Ant rank drives sort order only now (data-rank, invisible) — never a
+   visible count or bar next to a business's name; see build.py ant_panel(). */
 .antlegend{margin:-.3rem 0 .7rem;opacity:.75}
-.antbar{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;margin:.2rem 0 .8rem}
-.antbar .ants{font-size:1rem;letter-spacing:-.05em}
-.antbar .antnum{font-weight:700;color:var(--ant-dark)}
 .antgap{margin:.6rem 0 0;font-size:.9rem}
-.antgap ul{margin:.25rem 0 0;padding-left:1.1rem}
-.antgap li{opacity:.85}
 .licence{display:block;margin:.35rem 0 .2rem;opacity:.7;font-size:.82rem}
 .ourchannels{margin:1rem 0;padding:.7rem .9rem .8rem;border:1px solid var(--soft);
 border-radius:.8rem;background:#fff}
@@ -170,6 +162,10 @@ padding:.5rem .9rem;margin:1.1rem 0;font-size:.95rem}
 .adbox .adlabel{display:block;font-size:.72rem;letter-spacing:.12em;color:var(--mute);
 text-transform:uppercase;margin-bottom:.1rem}
 .adbox .adsell{font-size:.78rem;margin-left:.6rem;color:var(--mute)}
+.related{margin:1.1rem 0}
+.related h2{font-size:.95rem;margin:0 0 .4rem}
+.related ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem .7rem}
+.related li{font-size:.88rem}
 .myhint{background:var(--soft);border-radius:.6rem;padding:.5rem .9rem;font-size:.9rem}
 #bmform input{font:inherit;font-size:.9rem;padding:.2rem .5rem;border:1.5px solid var(--soft);
 border-radius:.4rem;margin-right:.4rem;max-width:11rem}
