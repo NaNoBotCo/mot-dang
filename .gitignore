@@ -10,3 +10,4 @@ cache/
 
 # scratch: files moved here for the user to delete (this mount forbids rm)
 _to_delete/
+_incoming/
