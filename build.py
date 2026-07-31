@@ -4122,12 +4122,12 @@ def build():
             print("  note: cannot clear docs/ on this filesystem — files are "
                   "being overwritten in place, so stale pages may survive. "
                   "Rebuild on a normal filesystem before publishing.")
-    DOCS.mkdir()
+    DOCS.mkdir(exist_ok=True)
     (DOCS / ".nojekyll").write_text("")
     (DOCS / "CNAME").write_text(BASE.split("//")[1].strip("/") + "\n")
     (DOCS / "style.css").write_text(CSS)
     (DOCS / "md.js").write_text(JS)
-    (DOCS / "data").mkdir()
+    (DOCS / "data").mkdir(exist_ok=True)
     card = ROOT / "assets" / "card.png"
     if card.exists():
         shutil.copy(card, DOCS / "card.png")
@@ -4145,7 +4145,7 @@ def build():
         (DOCS / "moon-disc.svg").write_text(moon_svg_markup)  # standalone, downloadable
     photos = PHOTO_FILES
     if photos:
-        (DOCS / "photos").mkdir()
+        (DOCS / "photos").mkdir(exist_ok=True)
         for fname in photos.values():
             shutil.copy(PHOTOS_SRC / fname, DOCS / "photos" / fname)
 
@@ -4167,7 +4167,7 @@ def build():
     for p in PROVINCES:
         key, records = p["key"], data[p["key"]]
         pdir = DOCS / key
-        (pdir / "p").mkdir(parents=True)
+        (pdir / "p").mkdir(parents=True, exist_ok=True)
         counts = {}
         for r in records:
             for c in r["cat"]:
@@ -4215,7 +4215,7 @@ def build():
             cdef = CATS[c]
             in_cat = sorted([r for r in records if c in r["cat"]],
                             key=lambda r: (not is_featured(r), name_of(r)))
-            (pdir / c).mkdir()
+            (pdir / c).mkdir(exist_ok=True)
             # subcategory shelf (Yahoo genre: bold sub-links with counts; wireframes muted)
             sub_bits = []
             for child in cdef.get("children", []):
