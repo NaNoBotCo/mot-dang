@@ -1,5 +1,8 @@
 # Mot Dang (มดแดง) — working notes for Claude
 
+Read `AGENTS.md` first for why the site is shaped this way, and
+`notes/empathy-map.md` for who it is for. This file is only the rules that bite.
+
 Thai-first CM+CR directory. Stdlib Python only. `importers/import_all.py` then
 `build.py` → `docs/` (GitHub Pages). Full spec + roadmap in README.md.
 

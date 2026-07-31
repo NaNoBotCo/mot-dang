@@ -4112,7 +4112,16 @@ def build_festivals_page():
 
 def build():
     if DOCS.exists():
-        shutil.rmtree(DOCS)
+        try:
+            shutil.rmtree(DOCS)
+        except PermissionError:
+            # Some mounts allow writes but forbid unlink (the Cowork device
+            # bridge is one). Overwriting still works, so build rather than
+            # refuse — but say plainly that anything deleted upstream will
+            # still be sitting in docs/ afterwards.
+            print("  note: cannot clear docs/ on this filesystem — files are "
+                  "being overwritten in place, so stale pages may survive. "
+                  "Rebuild on a normal filesystem before publishing.")
     DOCS.mkdir()
     (DOCS / ".nojekyll").write_text("")
     (DOCS / "CNAME").write_text(BASE.split("//")[1].strip("/") + "\n")
