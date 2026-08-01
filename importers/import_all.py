@@ -115,6 +115,7 @@ def import_mueang_map(fname, province):
 
 def main():
     import import_overpass
+    import import_fixtures
     cm, cr = [], []
     cm += import_thai_answers()
     cm += import_womens_health()
@@ -141,9 +142,15 @@ def main():
                 r["attrs"] = {**ex.get("attrs", {}), **r.get("attrs", {})}
             by_id[r["id"]] = r
         final = sorted(by_id.values(), key=lambda r: r["id"])
+        # Facets last, on the merged records: the ATM join needs the final
+        # coordinates, and the tag lift needs whichever source ref survived.
+        facets = import_fixtures.apply(final, prov)
         (outdir / f"{prov}.json").write_text(
             json.dumps(final, ensure_ascii=False, indent=1), encoding="utf-8")
-        print(f"{prov}: {len(final)} records")
+        got = sum(1 for r in final if (r.get("attrs") or {}).get("facets"))
+        extra = (f" · {got} with facets ("
+                 + ", ".join(f"{k} {v}" for k, v in sorted(facets.items())) + ")") if got else ""
+        print(f"{prov}: {len(final)} records{extra}")
 
 
 if __name__ == "__main__":

@@ -419,6 +419,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-10199572631",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "เคนตะ ลอนดรี",
+  "nameTh": "เคนตะ ลอนดรี",
+  "nameEn": "Kenta Laudry",
+  "lat": 19.9153789,
+  "lng": 99.8406389,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/10199572631",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-10199588591",
   "province": "cr",
   "cat": [
@@ -466,11 +499,16 @@
   "lat": 19.9069186,
   "lng": 99.8312731,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "528/8-9 13 14 ถนน บรรณปราการ ต.เวียง อ.เมืองเชียงราย 57000",
   "phone": "+6685 354 7850",
   "website": "https://www.facebook.com/profile.php?id=100063611283405",
   "hours": "15.00-23.30",
   "attrs": {
+   "houseNumber": "528/8-9 13 14",
+   "street": "ถนน บรรณปราการ",
+   "subdistrict": "เวียง",
+   "district": "เมืองเชียงราย",
+   "postcode": "57000",
    "cuisine": "spanish;italian;mediterranean"
   },
   "featured": false,
@@ -501,11 +539,15 @@
   "lat": 19.9154368,
   "lng": 99.8387393,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "172/12 เกาะลอยซอย 2 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "172/12",
+   "street": "เกาะลอยซอย 2",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -534,11 +576,13 @@
   "lat": 19.8679524,
   "lng": 99.8343895,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "51 หมู่ 6 57000",
   "phone": "+66 95 685 2392",
   "website": "https://www.facebook.com/a.na.cuisineandcoffee",
   "hours": "Mo-Su 08:30-22:00",
   "attrs": {
+   "houseNumber": "51 หมู่ 6",
+   "postcode": "57000",
    "cuisine": "coffee_shop"
   },
   "featured": false,
@@ -569,11 +613,13 @@
   "lat": 19.8680273,
   "lng": 99.8345419,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "51 หมู่ 6 57000",
   "phone": "+66 95 685 2392",
   "website": "https://www.facebook.com/a.na.cuisineandcoffee",
   "hours": "Mo-Su 08:30-22:00",
   "attrs": {
+   "houseNumber": "51 หมู่ 6",
+   "postcode": "57000",
    "cuisine": "dessert;coffee_shop;regional;thai"
   },
   "featured": false,
@@ -804,11 +850,15 @@
   "lat": 19.9939086,
   "lng": 99.8662282,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "382 ถนนพหลโยธิน 57100",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "382",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57100"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -837,11 +887,15 @@
   "lat": 19.9938199,
   "lng": 99.8662175,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "382/1 ถนนพหลโยธิน 57100",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "382/1",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57100"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -870,11 +924,15 @@
   "lat": 19.9153547,
   "lng": 99.8407138,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "292/3 ถนนเกาะลอย 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "292/3",
+   "street": "ถนนเกาะลอย",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -903,11 +961,15 @@
   "lat": 19.899744,
   "lng": 99.8270826,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "124/13 ถนน สันโค้งหลวง 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "124/13",
+   "street": "ถนน สันโค้งหลวง",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -936,11 +998,15 @@
   "lat": 19.8871096,
   "lng": 99.8388707,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "131/2 เกษตรสมบูรณ์ 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "131/2",
+   "street": "เกษตรสมบูรณ์",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -969,11 +1035,15 @@
   "lat": 19.9060141,
   "lng": 99.8327434,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "869/44 ถนนไทยวิวัฒ์ 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "869/44",
+   "street": "ถนนไทยวิวัฒ์",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -1002,11 +1072,13 @@
   "lat": 19.9059671,
   "lng": 99.8319319,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -1035,11 +1107,15 @@
   "lat": 19.8992152,
   "lng": 99.8204004,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "73/5 ถนนสันโค้งน้อย ซอย 9 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "73/5",
+   "street": "ถนนสันโค้งน้อย ซอย 9",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -1068,11 +1144,14 @@
   "lat": 19.8750363,
   "lng": 99.8242615,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "137/8 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "137/8",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -1292,6 +1371,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-10291400851",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "Ono Wash and Dry",
+  "nameTh": null,
+  "nameEn": "Ono Wash and Dry",
+  "lat": 19.9305673,
+  "lng": 99.843584,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/10291400851",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-10294851199",
   "province": "cr",
   "cat": [
@@ -1426,6 +1538,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-10303934910",
+  "province": "cr",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "wholesale"
+  ],
+  "name": "ทีเจ มอลล์ ค้าส่ง",
+  "nameTh": "ทีเจ มอลล์ ค้าส่ง",
+  "nameEn": "TJ Mall",
+  "lat": 19.9128402,
+  "lng": 99.8601551,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/10303934910",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-10307977396",
   "province": "cr",
   "cat": [
@@ -1440,11 +1585,14 @@
   "lat": 19.9050211,
   "lng": 99.8286083,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "1055 ถนน สนามบิน 57000",
   "phone": "+66966916998",
   "website": null,
   "hours": "Mo-Su 07:30-17:00",
   "attrs": {
+   "houseNumber": "1055",
+   "street": "ถนน สนามบิน",
+   "postcode": "57000",
    "email": "1055brewer@gmail.com"
   },
   "featured": false,
@@ -1758,11 +1906,15 @@
   "lat": 19.9040693,
   "lng": 99.8330832,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "880/2 ถนนพหลโยธิน 57000",
   "phone": null,
   "website": null,
   "hours": "Mo-Su 12:00-22:00",
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "880/2",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -1791,11 +1943,14 @@
   "lat": 19.9062772,
   "lng": 99.8380783,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "703/1 ถนน บรรณปราการ 57000",
   "phone": "+66980547878",
   "website": "www.facebook.com/amici.cei",
   "hours": "Mo-Su 11:30-20:30",
   "attrs": {
+   "houseNumber": "703/1",
+   "street": "ถนน บรรณปราการ",
+   "postcode": "57000",
    "cuisine": "pizza"
   },
   "featured": false,
@@ -1859,11 +2014,14 @@
   "lat": 19.9777167,
   "lng": 99.8589333,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "580 ถนนพหลโยธิน 57100",
   "phone": "+66999688508",
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "580",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57100",
    "cuisine": "tea;coffee;bun;croissant"
   },
   "featured": false,
@@ -2131,11 +2289,13 @@
   "lat": 19.9549845,
   "lng": 99.8573967,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "622 Moo 17 Ban Du, Mueang Chiang Rai, Chiang Rai 57100",
   "phone": "081 476 2292",
   "website": null,
   "hours": "Mo, We-Su 08:30-18:00",
-  "attrs": {},
+  "attrs": {
+   "street": "622 Moo 17 Ban Du, Mueang Chiang Rai, Chiang Rai 57100"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -2164,11 +2324,14 @@
   "lat": 19.9784563,
   "lng": 99.8574836,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "345/9 หน้ามอราชภัฏฝั่งขาออก ซอยร้านหมีพ่นไฟ 57100",
   "phone": "0987485595",
   "website": null,
   "hours": "Mo-Su 10:00-21:00",
   "attrs": {
+   "houseNumber": "345/9",
+   "street": "หน้ามอราชภัฏฝั่งขาออก ซอยร้านหมีพ่นไฟ",
+   "postcode": "57100",
    "cuisine": "เมนูปลา_ส้มตำ_ยำ_อาหารจานเดียว"
   },
   "featured": false,
@@ -2933,11 +3096,16 @@
   "lat": 19.9086108,
   "lng": 99.839623,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "731 Nhongseejaeng Rd Mueang Chiang Rai District 57000",
   "phone": "+66 84 097 4555",
   "website": "https://huankawin.wixsite.com",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "731",
+   "street": "Nhongseejaeng Rd",
+   "district": "Mueang Chiang Rai District",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -3207,7 +3375,10 @@
   "website": null,
   "hours": "24/7",
   "attrs": {
-   "brand": "Mini Big C"
+   "brand": "Mini Big C",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -3270,11 +3441,13 @@
   "lat": 19.9451818,
   "lng": 99.882173,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Road behind Airport",
   "phone": "+66837788802",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "Road behind Airport"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -3314,6 +3487,39 @@
    {
     "type": "osm",
     "ref": "node/11559544559",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-11559718636",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "Fun Wash",
+  "nameTh": "สนุกซัก",
+  "nameEn": "Fun Wash",
+  "lat": 19.9114628,
+  "lng": 99.8361691,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": "24/7",
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/11559718636",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -3407,7 +3613,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "facets": {
+    "wheelchair": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -3437,11 +3646,14 @@
   "lat": 19.9088308,
   "lng": 99.8362132,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "673 ถนน ธนาลัย 57000",
   "phone": "0937574897",
   "website": null,
   "hours": "Mo-Su 10:00-20:00",
   "attrs": {
+   "houseNumber": "673",
+   "street": "ถนน ธนาลัย",
+   "postcode": "57000",
    "facebook": "https://facebook.com/people/Pun-Pun-Rak-Cafe/61550124207681"
   },
   "featured": false,
@@ -3472,11 +3684,14 @@
   "lat": 19.9088254,
   "lng": 99.8362026,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "673 / 3 ถนน ธนาลัย 54000",
   "phone": "0937574897",
   "website": null,
   "hours": "Mo-Su 10:00-20:00",
   "attrs": {
+   "houseNumber": "673 / 3",
+   "street": "ถนน ธนาลัย",
+   "postcode": "54000",
    "facebook": "https://facebook.com/people/Pun-Pun-Rak-Cafe/61550124207681"
   },
   "featured": false,
@@ -3606,11 +3821,14 @@
   "lat": 19.8990183,
   "lng": 99.829728,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "952/7 ถนนร่วมจิตถวาย 57000",
   "phone": "+66815186944",
   "website": "https://www.facebook.com/Meehploen/",
   "hours": "Mo-Su 07:00-17:00",
   "attrs": {
+   "houseNumber": "952/7",
+   "street": "ถนนร่วมจิตถวาย",
+   "postcode": "57000",
    "cuisine": "coffee_shop;dessert"
   },
   "featured": false,
@@ -4054,11 +4272,13 @@
   "lat": 19.9085222,
   "lng": 99.8337381,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนนสวนตุง",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "ถนนสวนตุง"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -4087,11 +4307,13 @@
   "lat": 19.9051959,
   "lng": 99.8348727,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนนประสพสุข 57000",
   "phone": null,
   "website": null,
   "hours": "Su-Fr 14:00-23:00",
   "attrs": {
+   "street": "ถนนประสพสุข",
+   "postcode": "57000",
    "cuisine": "thai"
   },
   "featured": false,
@@ -4188,11 +4410,14 @@
   "lat": 19.9087375,
   "lng": 99.8362111,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "level 2 673, 3 ถนนธนาลัย 57000",
   "phone": "+66 93 757 4897",
   "website": null,
   "hours": "Mo-Su 10:00-21:00",
   "attrs": {
+   "houseNumber": "level 2 673, 3",
+   "street": "ถนนธนาลัย",
+   "postcode": "57000",
    "lineId": "lin.ee"
   },
   "featured": false,
@@ -4256,11 +4481,14 @@
   "lat": 19.9012664,
   "lng": 99.8223604,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "50 สันโค้งน้อย ซอย 6",
   "phone": "+66 88 959 6299",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "50",
+   "street": "สันโค้งน้อย ซอย 6"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -4289,11 +4517,17 @@
   "lat": 19.9758996,
   "lng": 99.8624225,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "468/12-13 ต.บ้านดู่ อ.เมือง จ.เชียงราย ต.บ้านดู่ อ.เมือง 57100",
   "phone": "0612674988",
   "website": "https://www.facebook.com/profile.php?id=61563808474369",
   "hours": "Mo-Su 11:00-22:00",
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "468/12-13",
+   "moo": "ต.บ้านดู่ อ.เมือง จ.เชียงราย",
+   "subdistrict": "บ้านดู่",
+   "district": "เมือง",
+   "postcode": "57100"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -4322,11 +4556,13 @@
   "lat": 19.901501,
   "lng": 99.8307467,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "1000/2 ถนนสถานพยาบาล",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "1000/2",
+   "street": "ถนนสถานพยาบาล",
    "cuisine": "korean"
   },
   "featured": false,
@@ -4579,6 +4815,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-12485369726",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "Neko Wash&Dry",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8974605,
+  "lng": 99.8315166,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": "Mo-Su,PH 00:00-00:00",
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12485369726",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-12528671319",
   "province": "cr",
   "cat": [
@@ -4694,11 +4963,15 @@
   "lat": 19.9786673,
   "lng": 99.8596492,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "141/8 ถนนพหลโยธิน อ.เชียงราย 57100",
   "phone": "0931979212",
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "141/8",
+   "street": "ถนนพหลโยธิน",
+   "district": "เชียงราย",
+   "postcode": "57100",
    "cuisine": "asian"
   },
   "featured": false,
@@ -4832,11 +5105,16 @@
   "lat": 19.9065001,
   "lng": 99.8311949,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนนบรรพปราการ ต.เวียง อ.เมืองเชียงราย 57000",
   "phone": null,
   "website": null,
   "hours": "Mo-Su 17:00-00:00",
-  "attrs": {},
+  "attrs": {
+   "street": "ถนนบรรพปราการ",
+   "subdistrict": "เวียง",
+   "district": "เมืองเชียงราย",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -4898,11 +5176,18 @@
   "lat": 19.9066038,
   "lng": 99.8312063,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "528 24 ถนนเจ็ดยอด หมู่ 5 ต.รอบเวียง อ.เมืองเชียงราย 57000",
   "phone": null,
   "website": null,
   "hours": "17.00-02.00",
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "528 24",
+   "street": "ถนนเจ็ดยอด",
+   "moo": "5",
+   "subdistrict": "รอบเวียง",
+   "district": "เมืองเชียงราย",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -4997,11 +5282,17 @@
   "lat": 19.99235,
   "lng": 99.8602687,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "170/1 ถนนบ้านดำ moo 13 Muang Nanglae 57100",
   "phone": "+66 83 454 0884",
   "website": null,
   "hours": "Mo-Su 09:00-17:00",
   "attrs": {
+   "houseNumber": "170/1",
+   "street": "ถนนบ้านดำ",
+   "moo": "moo 13",
+   "subdistrict": "Muang",
+   "district": "Nanglae",
+   "postcode": "57100",
    "cuisine": "steak_house;coffee_shop;burger;sandwich;chicken;asian;thai;cake",
    "email": "jakaphan513457@icloud.com",
    "facebook": "https://www.facebook.com/share/1CQGmeAbq6/?mibextid=wwXIfr"
@@ -5034,11 +5325,16 @@
   "lat": 19.9064263,
   "lng": 99.837061,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนนศรีเกิด เวียง ลานหน้า 7 11 ชุมชน ตำบลเวียง อ.เมือง 57000",
   "phone": "+66 90 328 8777",
   "website": null,
   "hours": "Mo-Sa 11:00-18:00",
   "attrs": {
+   "street": "ถนนศรีเกิด",
+   "moo": "เวียง ลานหน้า 7 11 ชุมชน",
+   "subdistrict": "ตำบลเวียง",
+   "district": "เมือง",
+   "postcode": "57000",
    "cuisine": "chinese;thai",
    "facebook": "https://www.facebook.com/profile.php?id=61566791615912",
    "instagram": "https://www.instagram.com/fu_roasted_crispypork/"
@@ -5181,7 +5477,10 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "facets": {
+    "toilet": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -5250,7 +5549,10 @@
   "hours": "24/7",
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -5286,7 +5588,10 @@
   "hours": "24/7",
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -5322,7 +5627,10 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "facets": {
+    "toilet": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -5418,11 +5726,17 @@
   "lat": 19.9037793,
   "lng": 99.8130902,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "399/1 ถนนหน้าค่าย ม. 5 ต.รอบเวียง อ.เมืองเชียงราย 57000",
   "phone": "+66 95 146 9539",
   "website": null,
   "hours": "Mo 08:00-17:00; Tu 08:30-17:00; We-Fr 08:00-17:00; Sa 09:00-17:00",
   "attrs": {
+   "houseNumber": "399/1",
+   "street": "ถนนหน้าค่าย",
+   "moo": "ม. 5",
+   "subdistrict": "รอบเวียง",
+   "district": "เมืองเชียงราย",
+   "postcode": "57000",
    "cuisine": "coffee_shop",
    "email": "rainnymalisa@gmail.com",
    "facebook": "https://www.facebook.com/profile.php?id=100066974084464",
@@ -5456,11 +5770,16 @@
   "lat": 19.8855697,
   "lng": 99.830459,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "47/7 ถนนพหลโยธิน ต.รอบเวียง อ.เมือง 57000",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "47/7",
+   "street": "ถนนพหลโยธิน",
+   "subdistrict": "รอบเวียง",
+   "district": "เมือง",
+   "postcode": "57000",
    "cuisine": "thai"
   },
   "featured": false,
@@ -5491,11 +5810,17 @@
   "lat": 19.9048814,
   "lng": 99.8099217,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "293/1 ถนนหน้าค่าย หมู่ที่ 2 ต.รอบเวียง อ.เมืองเชียงราย 57000",
   "phone": "+66 80 553 6289",
   "website": null,
   "hours": "Mo-Su 10:00-20:00",
   "attrs": {
+   "houseNumber": "293/1",
+   "street": "ถนนหน้าค่าย",
+   "moo": "หมู่ที่ 2",
+   "subdistrict": "รอบเวียง",
+   "district": "เมืองเชียงราย",
+   "postcode": "57000",
    "cuisine": "noodle",
    "facebook": "https://www.facebook.com/p/%E0%B8%81%E0%B8%A7%E0%B8%B2%E0%B8%87%E0%B8%95%E0%B8%B8%E0%B9%89%E0%B8%87-100040925544044/"
   },
@@ -5527,11 +5852,17 @@
   "lat": 19.8232952,
   "lng": 99.7481544,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "144 ถนนร่องขุ่น หมู่ 1 ต.บัวสลี อ.แม่ลาว 57250",
   "phone": null,
   "website": "https://web.facebook.com/doofeelcompany",
   "hours": null,
   "attrs": {
+   "houseNumber": "144",
+   "street": "ถนนร่องขุ่น",
+   "moo": "หมู่ 1",
+   "subdistrict": "บัวสลี",
+   "district": "แม่ลาว",
+   "postcode": "57250",
    "cuisine": "coffee_shop;thai;fine_dining;fusion"
   },
   "featured": false,
@@ -5540,6 +5871,39 @@
    {
     "type": "osm",
     "ref": "node/13093773836",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-13114006801",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "washing machine Makao",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9400178,
+  "lng": 99.8355435,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13114006801",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -5628,11 +5992,13 @@
   "lat": 19.940316,
   "lng": 99.8356466,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "San tan lueang Soi 2/3 57100",
   "phone": "09608255759",
   "website": null,
   "hours": "Th-Tu 09:00-17:00",
   "attrs": {
+   "street": "San tan lueang Soi 2/3",
+   "postcode": "57100",
    "cuisine": "cake"
   },
   "featured": false,
@@ -5663,11 +6029,16 @@
   "lat": 19.8522024,
   "lng": 99.7708339,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "283 Pa O Don Chai Ban San Sali Mueang Chiang Rai 57000",
   "phone": "+66 99 380 9034",
   "website": null,
   "hours": "Mo-Su 08:00-17:00",
   "attrs": {
+   "houseNumber": "283",
+   "street": "Pa O Don Chai",
+   "subdistrict": "Ban San Sali",
+   "district": "Mueang Chiang Rai",
+   "postcode": "57000",
    "facebook": "https://www.facebook.com/100093462417039/"
   },
   "featured": false,
@@ -5768,11 +6139,15 @@
   "lat": 19.9068174,
   "lng": 99.7936012,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนนป่างิ้ว ต.รอบเวียง อ.เมืองเชียงราย 57000",
   "phone": "+66 98 150 5155",
   "website": null,
   "hours": "Mo-Su 07:00-19:00",
   "attrs": {
+   "street": "ถนนป่างิ้ว",
+   "subdistrict": "รอบเวียง",
+   "district": "เมืองเชียงราย",
+   "postcode": "57000",
    "cuisine": "thai"
   },
   "featured": false,
@@ -5803,11 +6178,15 @@
   "lat": 19.9068464,
   "lng": 99.7936039,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนนป่างิ้ว ต.รอบเวียง อ.เมืองเชียงราย 57000",
   "phone": "+66 63 729 6646",
   "website": null,
   "hours": "Mo-Su 07:00-19:00",
   "attrs": {
+   "street": "ถนนป่างิ้ว",
+   "subdistrict": "รอบเวียง",
+   "district": "เมืองเชียงราย",
+   "postcode": "57000",
    "cuisine": "thai"
   },
   "featured": false,
@@ -5838,11 +6217,15 @@
   "lat": 19.9233956,
   "lng": 99.8500042,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "353/2 Rim Nam Kok road Mueang Chiang Rai 57100",
   "phone": "+66 89 191 9194",
   "website": null,
   "hours": "Mo-Su 09:00-18:00",
   "attrs": {
+   "houseNumber": "353/2",
+   "street": "Rim Nam Kok road",
+   "district": "Mueang Chiang Rai",
+   "postcode": "57100",
    "cuisine": "coffee_shop;italian;thai",
    "email": "bundarnjai@gmail.com",
    "facebook": "http://www.facebook.com/bundarnjai"
@@ -5908,11 +6291,15 @@
   "lat": 19.90701,
   "lng": 99.831154,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "7ยอด,ถนนบรรพปราการ ต.รอบเวียง อ.เมืองเชียงราย 57000",
   "phone": "0861180044, 0869245378",
   "website": null,
   "hours": "06.00-12.00",
   "attrs": {
+   "street": "7ยอด,ถนนบรรพปราการ",
+   "subdistrict": "รอบเวียง",
+   "district": "เมืองเชียงราย",
+   "postcode": "57000",
    "cuisine": "breakfast"
   },
   "featured": false,
@@ -5943,17 +6330,57 @@
   "lat": 19.9069757,
   "lng": 99.8312653,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "528/26 ถนนบรรพปราการ หมู่ 2 ต.รอบเวียง อ.เมืองเชียงราย 57000",
   "phone": null,
   "website": null,
   "hours": "15.00-23.30",
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "528/26",
+   "street": "ถนนบรรพปราการ",
+   "moo": "2",
+   "subdistrict": "รอบเวียง",
+   "district": "เมืองเชียงราย",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
    {
     "type": "osm",
     "ref": "node/13261753745",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-13269429701",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "centre"
+  ],
+  "name": "หอประชุมหมู่บ้านและลานกิจกรรม",
+  "nameTh": null,
+  "nameEn": "village center",
+  "lat": 19.8562826,
+  "lng": 99.8443227,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13269429701",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -6232,6 +6659,39 @@
    {
     "type": "osm",
     "ref": "node/13463369506",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-13475928474",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "White Bear",
+  "nameTh": null,
+  "nameEn": "White Bear",
+  "lat": 19.9008867,
+  "lng": 99.8362563,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13475928474",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -6643,7 +7103,9 @@
   "cat": [
    "beauty"
   ],
-  "sub": [],
+  "sub": [
+   "beauty-spa"
+  ],
   "name": "นุ้ยหนุ่ย แว๊กซ์ขน และ สปา",
   "nameTh": null,
   "nameEn": "Nuynui Waxing and Spa",
@@ -6805,6 +7267,42 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-13684580801",
+  "province": "cr",
+  "cat": [
+   "home-services"
+  ],
+  "sub": [
+   "landscaper"
+  ],
+  "name": "บ้านสวน",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9394188,
+  "lng": 99.8377433,
+  "geoPrecision": "exact",
+  "address": "131/2 San Ta Lueang Soi 2",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "houseNumber": "131/2",
+   "street": "San Ta Lueang Soi 2"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13684580801",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-13724825735",
   "province": "cr",
   "cat": [
@@ -6910,6 +7408,45 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-13810099368",
+  "province": "cr",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "professional"
+  ],
+  "name": "บริษัท ที พลัส เซอร์วิส แอนด์ แอสเซท จำกัด",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9247809,
+  "lng": 99.8443598,
+  "geoPrecision": "exact",
+  "address": "292/2 ถนนพหลโยธิน rimkok mueang chiang rai 57100",
+  "phone": "0921971233",
+  "website": "https://www.facebook.com/profile.php?id=61575473221220",
+  "hours": "Mo-Sa 08:30-16:30",
+  "attrs": {
+   "houseNumber": "292/2",
+   "street": "ถนนพหลโยธิน",
+   "subdistrict": "rimkok",
+   "district": "mueang chiang rai",
+   "postcode": "57100"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13810099368",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-13844545401",
   "province": "cr",
   "cat": [
@@ -6996,11 +7533,14 @@
   "lat": 19.9042041,
   "lng": 99.8163145,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "198/6 57000",
   "phone": "0901511156;053717119",
   "website": null,
   "hours": "Mo-Su 09:00-18:00",
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "198/6",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -7029,11 +7569,16 @@
   "lat": 19.8894332,
   "lng": 99.8332045,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ราษฎร์บำรุงซอย2/2 201/6 อ.เมืองเชียงราย 57000",
   "phone": null,
   "website": null,
   "hours": "24/7",
-  "attrs": {},
+  "attrs": {
+   "street": "ราษฎร์บำรุงซอย2/2",
+   "moo": "201/6",
+   "district": "เมืองเชียงราย",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -7198,11 +7743,16 @@
   "lat": 19.900033,
   "lng": 99.8383608,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "47/32 ถนนสันคอกช้าง ต.รอบเวียง อ.เมือง 57000",
   "phone": "+66 83 712 6689",
   "website": null,
   "hours": "09:00-16:00; We off",
   "attrs": {
+   "houseNumber": "47/32",
+   "street": "ถนนสันคอกช้าง",
+   "subdistrict": "รอบเวียง",
+   "district": "เมือง",
+   "postcode": "57000",
    "email": "yaninbh289@gmail.com",
    "facebook": "https://www.facebook.com/yaninbh"
   },
@@ -7379,6 +7929,7 @@
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "451/11",
    "cuisine": "steak_house"
   },
   "featured": false,
@@ -8723,7 +9274,10 @@
   "website": null,
   "hours": "24/7",
   "attrs": {
-   "operator": "Tesco Lotus"
+   "operator": "Tesco Lotus",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -8866,7 +9420,10 @@
   "attrs": {
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -10389,7 +10946,7 @@
    "food"
   ],
   "sub": [
-   "thai"
+   "vegetarian"
   ],
   "name": "ร้านอาหารเจ โอเอซิส",
   "nameTh": "ร้านอาหารเจ โอเอซิส",
@@ -10432,11 +10989,13 @@
   "lat": 19.9075906,
   "lng": 99.8404026,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "753 Phahon Yothin Road",
   "phone": "+6653712123",
   "website": "http://www.fun-dhostel.com",
   "hours": null,
   "attrs": {
+   "houseNumber": "753",
+   "street": "Phahon Yothin Road",
    "email": "contact@fun-dhostel.com"
   },
   "featured": false,
@@ -10459,7 +11018,7 @@
    "food"
   ],
   "sub": [
-   "thai"
+   "vegetarian"
   ],
   "name": "Porwin Vegetarian",
   "nameTh": null,
@@ -10593,7 +11152,7 @@
    "food"
   ],
   "sub": [
-   "thai"
+   "vegetarian"
   ],
   "name": "Tamacha",
   "nameTh": null,
@@ -10636,11 +11195,13 @@
   "lat": 19.9043927,
   "lng": 99.8328763,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "879/4-6 Phaholyothin Road",
   "phone": "+6653752535",
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "879/4-6",
+   "street": "Phaholyothin Road",
    "cuisine": "italian"
   },
   "featured": false,
@@ -11994,6 +12555,43 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-2616153676",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "มาลัย ซัก อบ รีด (Malai Laundry)",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8958364,
+  "lng": 99.9421492,
+  "geoPrecision": "exact",
+  "address": "40 moo 6 1173 57210",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "houseNumber": "40 moo 6",
+   "street": "1173",
+   "postcode": "57210"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2616153676",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-2622028405",
   "province": "cr",
   "cat": [
@@ -12498,11 +13096,15 @@
   "lat": 19.9024066,
   "lng": 99.8348627,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "78 Moo.18 Sanpanard Road Soi 2/1 57000",
   "phone": "+66 81 859 9858",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "78 Moo.18",
+   "street": "Sanpanard Road Soi 2/1",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -12602,11 +13204,15 @@
   "lat": 19.9062855,
   "lng": 99.833026,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "541/9 Phayon Yothin Road 57000",
   "phone": "+66834723534",
   "website": "https://www.facebook.com/cheznous.chiangrai",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "541/9",
+   "street": "Phayon Yothin Road",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -12841,11 +13447,13 @@
   "lat": 19.9387548,
   "lng": 99.7670462,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "227 227 Mo. 4 Ban Rim Kok Tambon Mae Yao",
   "phone": "085 6222 097",
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "227",
+   "street": "227 Mo. 4 Ban Rim Kok Tambon Mae Yao",
    "cuisine": "western"
   },
   "featured": false,
@@ -13045,11 +13653,13 @@
   "lat": 19.9011419,
   "lng": 99.8144526,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "64 Sangkhongluang Rd., Moo 16, T. Robwiang, Mueang Chiang Rai",
   "phone": "053-716416 ----  062-6969398",
   "website": "https://www.facebook.com/moommai",
   "hours": "Mo-Su 11:00-14:00, 17:00-23:00",
-  "attrs": {},
+  "attrs": {
+   "street": "64 Sangkhongluang Rd., Moo 16, T. Robwiang, Mueang Chiang Rai"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -13111,11 +13721,13 @@
   "lat": 19.9166048,
   "lng": 99.842117,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "221/1 57000",
   "phone": "+66 53 717691",
   "website": "https://www.facebook.com/Baannukanong",
   "hours": null,
   "attrs": {
+   "houseNumber": "221/1",
+   "postcode": "57000",
    "lineId": "bnncr",
    "facebook": "baannukanong",
    "instagram": "baannukanong"
@@ -14038,7 +14650,10 @@
   "attrs": {
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "facets": {
+    "atm": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -14068,11 +14683,13 @@
   "lat": 19.901111,
   "lng": 99.81945,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนน สันโค้งน้อย",
   "phone": null,
   "website": null,
   "hours": "Su 17:00-23:00",
-  "attrs": {},
+  "attrs": {
+   "street": "ถนน สันโค้งน้อย"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -14676,11 +15293,13 @@
   "lat": 19.8489034,
   "lng": 99.8076444,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "144 Phahonyothin road",
   "phone": "0933969998",
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "144",
+   "street": "Phahonyothin road",
    "email": "nattawat.witta@gmail.com"
   },
   "featured": false,
@@ -14880,11 +15499,15 @@
   "lat": 19.911707,
   "lng": 99.8286801,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "17 ถนน สิงหไคล 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "17",
+   "street": "ถนน สิงหไคล",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -15045,11 +15668,13 @@
   "lat": 19.9188619,
   "lng": 99.8299651,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "537/1 Moo 4, Rim Kok, Chiang Rai 57100",
   "phone": "063 932 3956",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "537/1 Moo 4, Rim Kok, Chiang Rai 57100"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -15144,11 +15769,13 @@
   "lat": 19.9123266,
   "lng": 99.8274689,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "3/2, Soi Sangkaew, Trairat Road",
   "phone": "053711481",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "3/2, Soi Sangkaew, Trairat Road"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -15177,11 +15804,13 @@
   "lat": 19.9074161,
   "lng": 99.8267307,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Ngam Muang Rd. 57000",
   "phone": "+66 84 669 7926",
   "website": "https://www.facebook.com/pages/Baan-Norn-Plearn/529632970442357",
   "hours": "Mo-Su 06:00-21:00",
   "attrs": {
+   "street": "Ngam Muang Rd.",
+   "postcode": "57000",
    "email": "k-sripan@hotmail.com"
   },
   "featured": false,
@@ -15420,11 +16049,14 @@
   "lat": 19.9030659,
   "lng": 99.8324204,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "897/19 ถนนเจ็ดยอด 57000",
   "phone": "+66 81 405-444-1",
   "website": "http://facebook.com/goodmorningchiangrai",
   "hours": "Mo-Su 8:00-23:00",
   "attrs": {
+   "houseNumber": "897/19",
+   "street": "ถนนเจ็ดยอด",
+   "postcode": "57000",
    "email": "totjung@gmail.com"
   },
   "featured": false,
@@ -15455,11 +16087,14 @@
   "lat": 19.9247766,
   "lng": 99.845283,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "395 หมู่2 ถนนพหลโยธิน 57100",
   "phone": "+66897554087",
   "website": "https://www.facebook.com/JaneBeef2016/",
   "hours": null,
   "attrs": {
+   "houseNumber": "395 หมู่2",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57100",
    "cuisine": "noodle"
   },
   "featured": false,
@@ -15589,11 +16224,15 @@
   "lat": 19.845554,
   "lng": 99.815714,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "324 ถนน เวียงบูรพา 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "324",
+   "street": "ถนน เวียงบูรพา",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -15972,11 +16611,13 @@
   "lat": 19.9056763,
   "lng": 99.8311307,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Jetyod Rd 57000",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
+   "street": "Jetyod Rd",
+   "postcode": "57000",
    "cuisine": "regional"
   },
   "featured": false,
@@ -16007,11 +16648,12 @@
   "lat": 19.9087675,
   "lng": 99.8364039,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Thanalai",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
+   "street": "Thanalai",
    "cuisine": "thai"
   },
   "featured": false,
@@ -16355,7 +16997,10 @@
   "website": null,
   "hours": "24/7",
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -17068,11 +17713,14 @@
   "lat": 19.902563,
   "lng": 99.8314859,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "1004/1 Jedyod Road 57000",
   "phone": "053752094",
   "website": "https://www.touristinnhotel.com/",
   "hours": "24/7",
   "attrs": {
+   "houseNumber": "1004/1",
+   "street": "Jedyod Road",
+   "postcode": "57000",
    "email": "touristinn_team@hotmail.co.th"
   },
   "featured": false,
@@ -17372,7 +18020,10 @@
   "website": null,
   "hours": "24/7",
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -17407,7 +18058,10 @@
   "website": null,
   "hours": "24/7",
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -17442,7 +18096,10 @@
   "website": null,
   "hours": "24/7",
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -17584,6 +18241,39 @@
    {
     "type": "osm",
     "ref": "node/4530898878",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-4530908725",
+  "province": "cr",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "professional"
+  ],
+  "name": "สำนักงานบังคับคดี จังหวัดเชียงราย",
+  "nameTh": "สำนักงานบังคับคดี จังหวัดเชียงราย",
+  "nameEn": "Chiang Rai Legal Execution Office",
+  "lat": 19.9132331,
+  "lng": 99.8428275,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4530908725",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -17847,7 +18537,9 @@
   "phone": "+6653716699",
   "website": "https://www.hichiangrai.com/",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "902/3"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -17909,11 +18601,17 @@
   "lat": 19.9236466,
   "lng": 99.8505213,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "353/1 ซอยท่าแพ หมู่ 6 ต.ริมกก อ.เมือง 57100",
   "phone": "0969256535",
   "website": "https://www.facebook.com/damacafe",
   "hours": null,
   "attrs": {
+   "houseNumber": "353/1",
+   "street": "ซอยท่าแพ",
+   "moo": "6",
+   "subdistrict": "ริมกก",
+   "district": "เมือง",
+   "postcode": "57100",
    "cuisine": "coffee_shop;thai;japanese"
   },
   "featured": false,
@@ -17944,11 +18642,12 @@
   "lat": 19.9012502,
   "lng": 99.8308787,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนน สถานพยาบาล",
   "phone": "0819983322",
   "website": null,
   "hours": "Mo-Sa 09:00-17:00",
   "attrs": {
+   "street": "ถนน สถานพยาบาล",
    "cuisine": "coffee_shop",
    "operator": "Jeans",
    "email": "phurit_jeans@hotmail.com"
@@ -17973,7 +18672,7 @@
    "food"
   ],
   "sub": [
-   "thai"
+   "vegetarian"
   ],
   "name": "Vegetarian Restaurant",
   "nameTh": null,
@@ -18016,11 +18715,12 @@
   "lat": 19.8820855,
   "lng": 99.8243814,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Doi Pa Bath",
   "phone": "0846173148",
   "website": "http://chiangrai.golocalist.com",
   "hours": "Mo-Su 10:00-18:00",
   "attrs": {
+   "street": "Doi Pa Bath",
    "cuisine": "tea;coffee_shop",
    "operator": "Bee"
   },
@@ -18052,11 +18752,14 @@
   "lat": 19.9060421,
   "lng": 99.8326964,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "869/39 ถนนไทยวิวัฒ์ 57000",
   "phone": "0956800672",
   "website": "https://www.facebook.com/Reggae-Home-Bar-1223775444352050/",
   "hours": "Mo-Su 17:00-00:00",
   "attrs": {
+   "houseNumber": "869/39",
+   "street": "ถนนไทยวิวัฒ์",
+   "postcode": "57000",
    "email": "buffbearwhite@gmail.com"
   },
   "featured": false,
@@ -18087,11 +18790,14 @@
   "lat": 19.9066483,
   "lng": 99.8311624,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "38/40 ถนนเจ็ดยอด 57000",
   "phone": "0953136370",
   "website": "http://chiangraicentral.com",
   "hours": null,
   "attrs": {
+   "houseNumber": "38/40",
+   "street": "ถนนเจ็ดยอด",
+   "postcode": "57000",
    "operator": "Earn",
    "email": "tiamothailand@gmail.com"
   },
@@ -18156,11 +18862,14 @@
   "lat": 19.9066762,
   "lng": 99.8311651,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "38/40 ถนนเจ็ดยอด 57000",
   "phone": "0908913030",
   "website": "http://chiangraicentral.com",
   "hours": null,
   "attrs": {
+   "houseNumber": "38/40",
+   "street": "ถนนเจ็ดยอด",
+   "postcode": "57000",
    "operator": "Earn",
    "email": "tiamothailand@gmail.com"
   },
@@ -18360,11 +19069,13 @@
   "lat": 19.900768,
   "lng": 99.8371266,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนน สันคอกช้าง 57000",
   "phone": "0641693619",
   "website": null,
   "hours": "Mo-Su 09:00-20:00",
   "attrs": {
+   "street": "ถนน สันคอกช้าง",
+   "postcode": "57000",
    "cuisine": "thai"
   },
   "featured": false,
@@ -18395,11 +19106,13 @@
   "lat": 19.910354,
   "lng": 99.8327198,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนน รัตนเขต",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "ถนน รัตนเขต"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -18463,11 +19176,14 @@
   "lat": 19.9012676,
   "lng": 99.8222922,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "226/50-55 ถนน สันโค้งน้อย 57000",
   "phone": "+6653712290",
   "website": "https://www.sabunngahostel.com",
   "hours": "09:00-22:00",
   "attrs": {
+   "houseNumber": "226/50-55",
+   "street": "ถนน สันโค้งน้อย",
+   "postcode": "57000",
    "cuisine": "thai",
    "email": "sabunngahotel@gmail.com"
   },
@@ -18602,11 +19318,13 @@
   "lat": 19.9084652,
   "lng": 99.8458628,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "326 57000",
   "phone": "0811710047",
   "website": "http://facebook.com/koon.cha.learn",
   "hours": "Mo-Su 09:00-09:00",
   "attrs": {
+   "houseNumber": "326",
+   "postcode": "57000",
    "email": "koonchalearn@gmail.com"
   },
   "featured": false,
@@ -18637,11 +19355,13 @@
   "lat": 19.9043907,
   "lng": 99.8283899,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนน สนามบิน",
   "phone": null,
   "website": null,
   "hours": "Mo-Su 07:00-21:00",
-  "attrs": {},
+  "attrs": {
+   "street": "ถนน สนามบิน"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -18740,7 +19460,9 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "179"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -18872,11 +19594,13 @@
   "lat": 19.9070041,
   "lng": 99.8344385,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -18916,6 +19640,43 @@
    {
     "type": "osm",
     "ref": "node/4717894990",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-4718086990",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "Pawana Laundry",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9030967,
+  "lng": 99.8358383,
+  "geoPrecision": "exact",
+  "address": "76 moo 18 Sanpanard alley 57000",
+  "phone": null,
+  "website": null,
+  "hours": "Fr-We 08:00-18:00",
+  "attrs": {
+   "houseNumber": "76 moo 18",
+   "street": "Sanpanard alley",
+   "postcode": "57000"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4718086990",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -19178,11 +19939,12 @@
   "lat": 19.9050542,
   "lng": 99.8355138,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนน ประสบสูข",
   "phone": "0855945987",
   "website": null,
   "hours": "24/7",
   "attrs": {
+   "street": "ถนน ประสบสูข",
    "email": "backpackhostel1@gmail.com"
   },
   "featured": false,
@@ -19283,11 +20045,14 @@
   "lat": 19.9668971,
   "lng": 99.8478883,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "525/2 ถนนพหลโยธิน 57100",
   "phone": null,
   "website": "https://m.facebook.com/HelloCoffeeAndNoodles/photos/a.1645915592370365.1073741827.1645909215704336/1646322885662969/?type=3&source=44",
   "hours": "Su-Fr 09:00-21:00",
   "attrs": {
+   "houseNumber": "525/2",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57100",
    "cuisine": "noodles;thai;coffee_shop;asian"
   },
   "featured": false,
@@ -19788,11 +20553,12 @@
   "lat": 19.8848295,
   "lng": 99.8303649,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนนพหลโยธิน",
   "phone": "+6653717850",
   "website": null,
   "hours": null,
   "attrs": {
+   "street": "ถนนพหลโยธิน",
    "cuisine": "thai",
    "email": "themobileglove@gmail.com"
   },
@@ -19857,11 +20623,14 @@
   "lat": 19.8989319,
   "lng": 99.8414061,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "36/11 ถนนหนองบัว",
   "phone": null,
   "website": "https://www.booking.com/hotel/th/adchara-mansion.en-gb.html",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "36/11",
+   "street": "ถนนหนองบัว"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -20144,11 +20913,13 @@
   "lat": 19.9061012,
   "lng": 99.8310493,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "1025/5 ถนนเจ็ดยอด",
   "phone": "+66946171923",
   "website": null,
   "hours": "Mo-Su 07:00-22:00",
   "attrs": {
+   "houseNumber": "1025/5",
+   "street": "ถนนเจ็ดยอด",
    "cuisine": "pizza;burger;sandwich;breakfast",
    "email": "pethna39@gmail.com"
   },
@@ -20279,11 +21050,13 @@
   "lat": 19.9031091,
   "lng": 99.815045,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนนหน้าค่าย",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "ถนนหน้าค่าย"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -20584,11 +21357,13 @@
   "lat": 19.9035658,
   "lng": 99.8352449,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Sanapard Rdoad",
   "phone": "+66889513941",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "Sanapard Rdoad"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -20749,11 +21524,15 @@
   "lat": 19.9073544,
   "lng": 99.8243656,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "95 ถนน บรรณปราการ 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "95",
+   "street": "ถนน บรรณปราการ",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -20806,7 +21585,9 @@
   "cat": [
    "beauty"
   ],
-  "sub": [],
+  "sub": [
+   "beauty-spa"
+  ],
   "name": "Haircut",
   "nameTh": null,
   "nameEn": "Haircut",
@@ -21116,11 +21897,15 @@
   "lat": 19.9083932,
   "lng": 99.8461679,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "164/2 ถนนพ่อขุน 57000",
   "phone": "0883587565",
   "website": null,
   "hours": "Mo-Sa 09:00-20:00",
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "164/2",
+   "street": "ถนนพ่อขุน",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -21380,11 +22165,15 @@
   "lat": 19.9530046,
   "lng": 99.7917436,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "342 ซอย 1 บ้านดงเจริญ แม่ยาว 57100",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "342 ซอย 1 บ้านดงเจริญ",
+   "street": "แม่ยาว",
+   "postcode": "57100"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -21413,11 +22202,13 @@
   "lat": 19.9109254,
   "lng": 99.8374824,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "647/1 Srikerd road, Wiang Mueang",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "647/1 Srikerd road, Wiang Mueang"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -21718,7 +22509,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wheelchair": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -21815,11 +22610,15 @@
   "lat": 19.8993156,
   "lng": 99.8403596,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "9/11 ถนนหนองบัว 57000",
   "phone": "+66 85 599 0915",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "9/11",
+   "street": "ถนนหนองบัว",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -22046,11 +22845,13 @@
   "lat": 19.9051853,
   "lng": 99.8314721,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Pemavipat Rd, Tambon Wiang, Amphoe Mueang Chiang Rai, Chang Wat Chiang Rai 57000",
   "phone": "053 600 963",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "Pemavipat Rd, Tambon Wiang, Amphoe Mueang Chiang Rai, Chang Wat Chiang Rai 57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -22518,11 +23319,15 @@
   "lat": 19.9019525,
   "lng": 99.8253864,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "139/25 ถนน สันโค้งน้อย 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "139/25",
+   "street": "ถนน สันโค้งน้อย",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -22705,6 +23510,72 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-6322776876",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "Laundry",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9062523,
+  "lng": 99.8332595,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6322776876",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6322777389",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "Laundromat",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9246714,
+  "lng": 99.8395198,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6322777389",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-6325000596",
   "province": "cr",
   "cat": [
@@ -22719,11 +23590,14 @@
   "lat": 19.901123,
   "lng": 99.8300552,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "998/2 ถนน สถานพยาบาล 57000",
   "phone": "+6653 719 456",
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "998/2",
+   "street": "ถนน สถานพยาบาล",
+   "postcode": "57000",
    "email": "leterrariumhotel@gmail.com"
   },
   "featured": false,
@@ -22861,11 +23735,13 @@
   "lat": 19.8925804,
   "lng": 99.8170051,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "693/47 Moo 24 57000",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "693/47 Moo 24",
+   "postcode": "57000",
    "operator": "Walaipan Choatworapan"
   },
   "featured": false,
@@ -24307,7 +25183,9 @@
   "cat": [
    "beauty"
   ],
-  "sub": [],
+  "sub": [
+   "beauty-spa"
+  ],
   "name": "Mee my soap",
   "nameTh": null,
   "nameEn": "Mee my soap",
@@ -24879,11 +25757,14 @@
   "lat": 19.9087145,
   "lng": 99.85302,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "23/1 ถนนหน้าสนามกีฬา 57000",
   "phone": "+66968606368",
   "website": null,
   "hours": "Mo-Su 08:00-22:00",
   "attrs": {
+   "houseNumber": "23/1",
+   "street": "ถนนหน้าสนามกีฬา",
+   "postcode": "57000",
    "cuisine": "regional;thai;coffee_shop"
   },
   "featured": false,
@@ -25355,11 +26236,14 @@
   "lat": 19.8598233,
   "lng": 99.8208398,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "544/1 ถนนพหลโยธิน 57000",
   "phone": null,
   "website": null,
   "hours": "Mo-Su 09:00-18:00",
   "attrs": {
+   "houseNumber": "544/1",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57000",
    "cuisine": "coffee_shop"
   },
   "featured": false,
@@ -25390,11 +26274,13 @@
   "lat": 19.8193275,
   "lng": 99.7449983,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "134 หมู่ 4 บัวสลี แม่ลาว Chiang Rai 57250",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "134 หมู่ 4 บัวสลี แม่ลาว Chiang Rai 57250"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -25493,11 +26379,13 @@
   "lat": 19.9451276,
   "lng": 99.7959892,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "167 Moo 6, Tambon Mae Yao, Mueang Chiang Rai",
   "phone": "084-610-7686",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "167 Moo 6, Tambon Mae Yao, Mueang Chiang Rai"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -25559,11 +26447,13 @@
   "lat": 19.9772211,
   "lng": 99.8606441,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "121/22 57100",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "121/22",
+   "postcode": "57100",
    "operator": "thawatchai"
   },
   "featured": false,
@@ -25572,6 +26462,39 @@
    {
     "type": "osm",
     "ref": "node/7238538103",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-7252270198",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "Jumbo Wash",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8986911,
+  "lng": 99.8323261,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "020263699",
+  "website": null,
+  "hours": "Mo-Su,PH 00:00-00:00",
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7252270198",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -25671,6 +26594,39 @@
    {
     "type": "osm",
     "ref": "node/7298407064",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-7461678287",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "centre"
+  ],
+  "name": "ศูนย์ชุมชนบ้านทรายมูล",
+  "nameTh": null,
+  "nameEn": "Saimool village center",
+  "lat": 19.9560206,
+  "lng": 99.7813054,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7461678287",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -25790,6 +26746,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-7502437242",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "volunteer"
+  ],
+  "name": "มูลนิธิกระจกเงา",
+  "nameTh": "มูลนิธิกระจกเงา",
+  "nameEn": "the mirror foundation",
+  "lat": 19.9949165,
+  "lng": 99.750357,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "6653737616",
+  "website": "https://themirrorfoundation.org/",
+  "hours": "Mo-Fr 09:00-17:00",
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7502437242",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-7512848386",
   "province": "cr",
   "cat": [
@@ -25874,11 +26863,15 @@
   "lat": 19.9928725,
   "lng": 99.8613154,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "280/13 280/13 Soi Mu Ban Uea Athon Changwat 57100",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "280/13",
+   "street": "280/13 Soi Mu Ban Uea Athon Changwat",
+   "postcode": "57100"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -25907,11 +26900,14 @@
   "lat": 19.9439177,
   "lng": 99.8341475,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "171/24 171/24 b.santarnlhuang T.Rimkok",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "171/24",
+   "street": "171/24 b.santarnlhuang T.Rimkok"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -25973,11 +26969,14 @@
   "lat": 19.9052172,
   "lng": 99.8515955,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "250/15-16 Moo 9 Soi Pho Khun 6/5",
   "phone": "+66979239811",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "250/15-16",
+   "street": "Moo 9 Soi Pho Khun 6/5"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -26042,11 +27041,15 @@
   "lat": 19.8287565,
   "lng": 99.9489952,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "159/1 Moo 1 Ban Samanmit, Tambon Donsila, Amphur Wiang Chai 57210",
   "phone": "+66-(0)-52-029-823",
   "website": "https://musefloweretreat.com",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "159/1",
+   "street": "Moo 1 Ban Samanmit, Tambon Donsila, Amphur Wiang Chai",
+   "postcode": "57210"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -26207,11 +27210,14 @@
   "lat": 19.9763094,
   "lng": 99.8596672,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "159 Moo 3 Phahon Yothin Road",
   "phone": "0943246562",
   "website": null,
   "hours": "Mo-Su 11:00-22:00",
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "159 Moo 3",
+   "street": "Phahon Yothin Road"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -26240,11 +27246,14 @@
   "lat": 19.906715,
   "lng": 99.8250655,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "162 ถนน บรรพปราการ 57000",
   "phone": "0616179097",
   "website": null,
   "hours": "Mo-Sa 10:00-19:00",
   "attrs": {
+   "houseNumber": "162",
+   "street": "ถนน บรรพปราการ",
+   "postcode": "57000",
    "cuisine": "coffee_shop;thai"
   },
   "featured": false,
@@ -26308,11 +27317,14 @@
   "lat": 19.8385384,
   "lng": 99.7660329,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "180 ปากทางเข้าโรงเรียนบ้านดอนชัยวิทยาคม เมือง 57000",
   "phone": "+66933288535",
   "website": "https://www.facebook.com/hycthailand",
   "hours": "Mo-Su 09:00-19:00",
   "attrs": {
+   "houseNumber": "180",
+   "street": "ปากทางเข้าโรงเรียนบ้านดอนชัยวิทยาคม เมือง",
+   "postcode": "57000",
    "cuisine": "barbecue;thai;international;salad;sandwich"
   },
   "featured": false,
@@ -26343,11 +27355,13 @@
   "lat": 19.9652997,
   "lng": 99.8553352,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Phahon Yothin Road",
   "phone": "0956890659",
   "website": null,
   "hours": "Mo-Su 10:00-21:00",
-  "attrs": {},
+  "attrs": {
+   "street": "Phahon Yothin Road"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -26376,11 +27390,13 @@
   "lat": 19.9279451,
   "lng": 99.8440384,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Phahon Yothin Road",
   "phone": null,
   "website": null,
   "hours": "Mo, Tu, Th-Su 10:30-20:00",
-  "attrs": {},
+  "attrs": {
+   "street": "Phahon Yothin Road"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -26442,11 +27458,13 @@
   "lat": 19.8994586,
   "lng": 99.8120866,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Daynhaa-dongmada Road, Ban Manirat",
   "phone": "0629593783",
   "website": "https://www.wongnai.com/restaurants/249798Ei-%E0%B8%AA%E0%B9%89%E0%B8%A1%E0%B8%95%E0%B8%B3%E0%B9%80%E0%B8%94%E0%B9%88%E0%B8%99%E0%B8%AB%E0%B9%89%E0%B8%B2/reviews",
   "hours": "Mo-Su 11:00-21:00",
-  "attrs": {},
+  "attrs": {
+   "street": "Daynhaa-dongmada Road, Ban Manirat"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -26684,7 +27702,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "operator": "SWK Cooperative Store"
+   "operator": "SWK Cooperative Store",
+   "facets": {
+    "toilet": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -26725,6 +27746,39 @@
    {
     "type": "osm",
     "ref": "node/8931699068",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-8931701770",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "clubs"
+  ],
+  "name": "ห้องอากาศยาน",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9056006,
+  "lng": 99.8261286,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8931701770",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -27209,6 +28263,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-8957462325",
+  "province": "cr",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "professional"
+  ],
+  "name": "acct concept",
+  "nameTh": null,
+  "nameEn": "acct concept",
+  "lat": 19.9038953,
+  "lng": 99.8246334,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8957462325",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-8957462393",
   "province": "cr",
   "cat": [
@@ -27293,7 +28380,9 @@
   "phone": "+6653713652",
   "website": null,
   "hours": "Mo-Su 07:00-19:00",
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "1025/34-35"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -27477,6 +28566,39 @@
    {
     "type": "osm",
     "ref": "node/9119957392",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-9121752692",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "ป้าจิตร ซักอบรีด",
+  "nameTh": null,
+  "nameEn": "Pa Chit Laundry",
+  "lat": 19.905103,
+  "lng": 99.8190236,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9121752692",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -27701,11 +28823,16 @@
   "lat": 19.9064095,
   "lng": 99.8276864,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "390 Banphaprakarn Road Wiang Mueang Chiang Rai 57000",
   "phone": "+6653727360 , +6653727361",
   "website": "https://m.facebook.com/Homchanchiangrai",
   "hours": "Mo-Su 09:00-21:00",
   "attrs": {
+   "houseNumber": "390",
+   "street": "Banphaprakarn Road",
+   "subdistrict": "Wiang",
+   "district": "Mueang Chiang Rai",
+   "postcode": "57000",
    "cuisine": "thai;dessert"
   },
   "featured": false,
@@ -28447,11 +29574,13 @@
   "lat": 19.9323131,
   "lng": 99.784582,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Near to Ban Pa O",
   "phone": "0899550942",
   "website": null,
   "hours": "Mo-Su 11:00-20:00",
-  "attrs": {},
+  "attrs": {
+   "street": "Near to Ban Pa O"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -28480,11 +29609,13 @@
   "lat": 19.97482,
   "lng": 99.8588711,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Phahon Yothin Road",
   "phone": null,
   "website": null,
   "hours": "Mo-Su 10:00-15:00",
-  "attrs": {},
+  "attrs": {
+   "street": "Phahon Yothin Road"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -28668,6 +29799,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-9215459178",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "clubs"
+  ],
+  "name": "ที่ทำการชมรมผู้สูงอายุสันโค้งน้อย",
+  "nameTh": "ที่ทำการชมรมผู้สูงอายุสันโค้งน้อย",
+  "nameEn": "San Khong Noi Elderly Club",
+  "lat": 19.9027995,
+  "lng": 99.819219,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9215459178",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-9218379948",
   "province": "cr",
   "cat": [
@@ -28791,11 +29955,13 @@
   "lat": 19.9936933,
   "lng": 99.8646831,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Phahon Yothin Road",
   "phone": "089-7581198",
   "website": null,
   "hours": "Mo-Su 08:00-17:00",
-  "attrs": {},
+  "attrs": {
+   "street": "Phahon Yothin Road"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -28995,11 +30161,14 @@
   "lat": 19.921866,
   "lng": 99.8337784,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "205/3 Moo 4 Rimkok Klang Wiang Road",
   "phone": "0902500570",
   "website": null,
   "hours": "Mo-Sa 11:00-20:00",
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "205/3 Moo 4 Rimkok",
+   "street": "Klang Wiang Road"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -29132,11 +30301,13 @@
   "lat": 19.9702382,
   "lng": 99.8567455,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Phahon Yothin Road",
   "phone": null,
   "website": null,
   "hours": "Mo, We-Su 09:00-20:00",
-  "attrs": {},
+  "attrs": {
+   "street": "Phahon Yothin Road"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -29165,11 +30336,14 @@
   "lat": 19.9358283,
   "lng": 99.8176623,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "หัวหิน 101 ถนนเขาเต่า 57100",
   "phone": null,
   "website": "https://facebook.com/BunnycafebyNanadoo/",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "หัวหิน 101 ถนนเขาเต่า",
+   "postcode": "57100"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -29500,7 +30674,10 @@
   "website": null,
   "hours": "24/7",
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -29530,11 +30707,13 @@
   "lat": 19.9014062,
   "lng": 99.8081109,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนนวัดใหม่หน้าค่าย",
   "phone": "053758139",
   "website": null,
   "hours": "Mo-Su 17:00-22:00",
-  "attrs": {},
+  "attrs": {
+   "street": "ถนนวัดใหม่หน้าค่าย"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -29563,11 +30742,13 @@
   "lat": 19.8399956,
   "lng": 99.7571762,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "136 หมู่ 12 ต.ป่าอ้อดอนชัย อ.เมือง จ.เชียงราย 57000",
   "phone": "082-484-4872",
   "website": null,
   "hours": "Tu-Su 09:30-18:00",
-  "attrs": {},
+  "attrs": {
+   "street": "136 หมู่ 12 ต.ป่าอ้อดอนชัย อ.เมือง จ.เชียงราย 57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -29664,11 +30845,13 @@
   "lat": 19.9027826,
   "lng": 99.8149842,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "196/1 Ratyotha Road, Dong Mada, 57100 Chiang Rai",
   "phone": "083 818 0889",
   "website": null,
   "hours": "Mo, We-Fr 08:00-16:00; Sa, Su 08:00-17:00",
-  "attrs": {},
+  "attrs": {
+   "street": "196/1 Ratyotha Road, Dong Mada, 57100 Chiang Rai"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -29697,11 +30880,13 @@
   "lat": 19.945583,
   "lng": 99.8195726,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "132 หมู่14ต.บ้านดู่ อ.เมือง จ.เชียงราย 57100",
   "phone": "081 885 4795",
   "website": null,
   "hours": "Tu-Su 08:30-17:00",
-  "attrs": {},
+  "attrs": {
+   "street": "132 หมู่14ต.บ้านดู่ อ.เมือง จ.เชียงราย 57100"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -29831,11 +31016,13 @@
   "lat": 19.95577,
   "lng": 99.84097,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ChiangRai West Bypass Road, 131",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "ChiangRai West Bypass Road, 131"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -29940,7 +31127,9 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "915/3"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -29980,6 +31169,39 @@
    {
     "type": "osm",
     "ref": "node/9830633217",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-9841983417",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "Otteri",
+  "nameTh": null,
+  "nameEn": "Otteri",
+  "lat": 19.9019769,
+  "lng": 99.8326121,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": "24/7",
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9841983417",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -30439,11 +31661,12 @@
   "lat": 19.9877167,
   "lng": 99.8630927,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Phahon Yothin Road",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
+   "street": "Phahon Yothin Road",
    "brand": "7-Eleven"
   },
   "featured": false,
@@ -30942,11 +32165,15 @@
   "lat": 19.9142624,
   "lng": 99.8343714,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "247 Singhaclai Road 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "247",
+   "street": "Singhaclai Road",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -31393,11 +32620,13 @@
   "lat": 19.9259789,
   "lng": 99.8714528,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "519 ม.6 57100",
   "phone": "+6653152082",
   "website": "http://www.chiangrai.ru.ac.th",
   "hours": null,
   "attrs": {
+   "houseNumber": "519 ม.6",
+   "postcode": "57100",
    "operator": "มหาวิทยาลัยรามคำแหง"
   },
   "featured": false,
@@ -31468,7 +32697,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "facets": {
+    "toilet": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -31498,11 +32730,15 @@
   "lat": 19.902533,
   "lng": 99.8316539,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "1003 Jetyod Road 57000",
   "phone": "+66 53-713640",
   "website": "http://www.baanjaru.com/",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "1003",
+   "street": "Jetyod Road",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -31775,6 +33011,43 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1019881349",
+  "province": "cr",
+  "cat": [
+   "repair"
+  ],
+  "sub": [
+   "tech"
+  ],
+  "name": "เด่นห้า แอร์ เซอร์วิส",
+  "nameTh": "เด่นห้า แอร์ เซอร์วิส",
+  "nameEn": "Denha AC Service",
+  "lat": 19.9053762,
+  "lng": 99.8186439,
+  "geoPrecision": "exact",
+  "address": "276/3 ถนนเด่นห้า 57000",
+  "phone": "+66855352578",
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "houseNumber": "276/3",
+   "street": "ถนนเด่นห้า",
+   "postcode": "57000"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1019881349",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1019881350",
   "province": "cr",
   "cat": [
@@ -31822,11 +33095,15 @@
   "lat": 19.9052332,
   "lng": 99.8187727,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "276/42 เด่นห้า ซอย 1 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "276/42",
+   "street": "เด่นห้า ซอย 1",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -31855,11 +33132,13 @@
   "lat": 19.984584,
   "lng": 99.848539,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "80 Ban Du Mueang Chiang Rai District 57100",
   "phone": "+6653776000",
   "website": "https://www.crru.ac.th/",
   "hours": null,
   "attrs": {
+   "houseNumber": "80 Ban Du Mueang Chiang Rai District",
+   "postcode": "57100",
    "email": "general@crru.ac.th"
   },
   "featured": false,
@@ -31979,6 +33258,72 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1036773887",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "clubs"
+  ],
+  "name": "สาขาสมาคมสภาผู้สูงอายุแห่งประเทศไทย",
+  "nameTh": "สาขาสมาคมสภาผู้สูงอายุแห่งประเทศไทย",
+  "nameEn": "Senior Citizens Council of Thailand Branch",
+  "lat": 19.9163877,
+  "lng": 99.8348975,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1036773887",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1036773900",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "centre"
+  ],
+  "name": "ชุมชนเทิดพระเกียรติ",
+  "nameTh": "ชุมชนเทิดพระเกียรติ",
+  "nameEn": "Therdprakiat Community Center",
+  "lat": 19.9163742,
+  "lng": 99.8341965,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1036773900",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1041398904",
   "province": "cr",
   "cat": [
@@ -32049,6 +33394,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-104968668",
+  "province": "cr",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "wholesale"
+  ],
+  "name": "แม็คโคร",
+  "nameTh": "แม็คโคร",
+  "nameEn": "Makro",
+  "lat": 19.9566973,
+  "lng": 99.8528416,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": "Mo-Su 06:00-22:00",
+  "attrs": {
+   "brand": "แม็คโคร"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/104968668",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-105137199",
   "province": "cr",
   "cat": [
@@ -32096,11 +33476,14 @@
   "lat": 19.9022384,
   "lng": 99.8202857,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "42 M.15 ราชโยธา ซอย 2/8 (ซอย เชตุพน) 57000",
   "phone": "+66884340147",
   "website": "https://www.facebook.com/COMBO4FITNESS",
   "hours": null,
   "attrs": {
+   "houseNumber": "42 M.15",
+   "street": "ราชโยธา ซอย 2/8 (ซอย เชตุพน)",
+   "postcode": "57000",
    "email": "mathasith12@gmail.com"
   },
   "featured": false,
@@ -32230,11 +33613,15 @@
   "lat": 19.9129129,
   "lng": 99.8291679,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "444 ถนน สิงหไคล 57000",
   "phone": "053910100",
   "website": "https://www.overbrook-hospital.com/",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "444",
+   "street": "ถนน สิงหไคล",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -32395,11 +33782,14 @@
   "lat": 19.8981687,
   "lng": 99.8313606,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "111 ถนนร่วมจิตถวาย 57000",
   "phone": "+66 53 727239",
   "website": "https://www.naiyahotel.com",
   "hours": null,
   "attrs": {
+   "houseNumber": "111",
+   "street": "ถนนร่วมจิตถวาย",
+   "postcode": "57000",
    "email": "naiyafo@gmail.com"
   },
   "featured": false,
@@ -32430,11 +33820,14 @@
   "lat": 19.8987753,
   "lng": 99.8320687,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "929 ถนนพหลโยธิน 57000",
   "phone": "+6653717131",
   "website": "https://www.thailandpost.co.th/",
   "hours": null,
   "attrs": {
+   "houseNumber": "929",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57000",
    "operator": "Thailand Post"
   },
   "featured": false,
@@ -32465,11 +33858,14 @@
   "lat": 19.8984978,
   "lng": 99.8320386,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "931/1-4 ถนนพหลโยธิน 57000",
   "phone": "+66 53711387",
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "931/1-4",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57000",
    "email": "skrit29@hotmail.com"
   },
   "featured": false,
@@ -32478,6 +33874,39 @@
    {
     "type": "osm",
     "ref": "way/1074237714",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1074237727",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "กรีน ซัก อบ รีด",
+  "nameTh": "กรีน ซัก อบ รีด",
+  "nameEn": "Green Laundry",
+  "lat": 19.8976769,
+  "lng": 99.8318356,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1074237727",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -32621,6 +34050,42 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1075278725",
+  "province": "cr",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "professional"
+  ],
+  "name": "สนง. บัญชีผดุงศักดิ์และเพื่อน",
+  "nameTh": "สนง. บัญชีผดุงศักดิ์และเพื่อน",
+  "nameEn": "Padungsak and Friends Accounting",
+  "lat": 19.8993339,
+  "lng": 99.83213,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "+66 94 5962593",
+  "website": null,
+  "hours": "Mo-Fr 09:00-17:00",
+  "attrs": {
+   "operator": "บริษัท กฎหมายและธุรกิจ นิติชน จำกัด",
+   "email": "kongpathai@hotmail.com"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1075278725",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1075480831",
   "province": "cr",
   "cat": [
@@ -32714,6 +34179,39 @@
    {
     "type": "osm",
     "ref": "way/1075480911",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1083152662",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "centre"
+  ],
+  "name": "อาคารอเนกประสงค์ ชุมชนเด่นห้า",
+  "nameTh": "อาคารอเนกประสงค์ ชุมชนเด่นห้า",
+  "nameEn": "Multipurpose Building, Den Ha Community",
+  "lat": 19.9009143,
+  "lng": 99.8111649,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1083152662",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -32821,6 +34319,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1085370856",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "clubs"
+  ],
+  "name": "สมาคมฝรั่งเศสเชียงราย",
+  "nameTh": "สมาคมฝรั่งเศสเชียงราย",
+  "nameEn": "French Alliance",
+  "lat": 19.9153898,
+  "lng": 99.8326565,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1085370856",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1085370857",
   "province": "cr",
   "cat": [
@@ -32846,6 +34377,39 @@
    {
     "type": "osm",
     "ref": "way/1085370857",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1085370871",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "clubs"
+  ],
+  "name": "สมาคมรถเล็กเชียงราย",
+  "nameTh": "สมาคมรถเล็กเชียงราย",
+  "nameEn": "Chiang Rai Small Car Association",
+  "lat": 19.9154944,
+  "lng": 99.8332281,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1085370871",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -33066,11 +34630,14 @@
   "lat": 19.9158563,
   "lng": 99.8382003,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "345 ถนนเกาะลอย",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "345",
+   "street": "ถนนเกาะลอย"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -33421,11 +34988,15 @@
   "lat": 19.9063255,
   "lng": 99.8349037,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "610 ถนนพหลโยธิน 57000",
   "phone": "+66 053 600680",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "610",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -33553,11 +35124,15 @@
   "lat": 19.9014783,
   "lng": 99.8200238,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "34/2 ถนน สันโค้งน้อย 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "34/2",
+   "street": "ถนน สันโค้งน้อย",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -33791,11 +35366,14 @@
   "lat": 19.9142894,
   "lng": 99.8384882,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "199/1-3 Moo 21 ถนน ศรีบุญเรือง 57000",
   "phone": "+66 (0)53 719554",
   "website": "https://www.baanpordeedin.com",
   "hours": null,
   "attrs": {
+   "houseNumber": "199/1-3 Moo 21",
+   "street": "ถนน ศรีบุญเรือง",
+   "postcode": "57000",
    "operator": "The Mirror Foundation",
    "email": "info@baanpordeedin.com"
   },
@@ -34029,11 +35607,15 @@
   "lat": 19.9163374,
   "lng": 99.8414491,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "222/1 ซอยสันติธรรม 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "222/1",
+   "street": "ซอยสันติธรรม",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -34095,11 +35677,13 @@
   "lat": 19.8679676,
   "lng": 99.8344414,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "51 หมู่ 6 57000",
   "phone": "+66 95 685 2392",
   "website": "https://www.facebook.com/a.na.cuisineandcoffee",
   "hours": "Mo-Su 08:30-22:00",
   "attrs": {
+   "houseNumber": "51 หมู่ 6",
+   "postcode": "57000",
    "cuisine": "coffee_shop"
   },
   "featured": false,
@@ -34505,7 +36089,10 @@
   "website": null,
   "hours": "24/7",
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -34772,11 +36359,14 @@
   "lat": 19.9215846,
   "lng": 99.8499884,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "58 2 ถนน แควหวาย 57000",
   "phone": "+6653600000",
   "website": "https://leelawadeechiangrai.com/",
   "hours": "Mo-Su 16:30-23:30",
   "attrs": {
+   "houseNumber": "58 2",
+   "street": "ถนน แควหวาย",
+   "postcode": "57000",
    "cuisine": "thai"
   },
   "featured": false,
@@ -34840,11 +36430,16 @@
   "lat": 19.9221421,
   "lng": 99.850527,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "188/8 Kwae Wai Rd หมู่ที่ 20 Mueang Chiang Rai 57000",
   "phone": "+66 53 748 223",
   "website": "https://th-th.facebook.com/RanXaharHluLaCheiyngray/",
   "hours": "Mo-Su 10:30-20:15",
   "attrs": {
+   "houseNumber": "188/8",
+   "street": "Kwae Wai Rd",
+   "moo": "หมู่ที่ 20",
+   "district": "Mueang Chiang Rai",
+   "postcode": "57000",
    "cuisine": "thai;regional"
   },
   "featured": false,
@@ -34941,11 +36536,16 @@
   "lat": 19.9226415,
   "lng": 99.8522967,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "211, 8 Rob Wiang Rop Wiang Mueang Chiang Rai 57000",
   "phone": "+66 80 818 1763",
   "website": "https://www.thegrandiosehotel.com/",
   "hours": null,
   "attrs": {
+   "houseNumber": "211, 8",
+   "street": "Rob Wiang",
+   "subdistrict": "Rop Wiang",
+   "district": "Mueang Chiang Rai",
+   "postcode": "57000",
    "email": "reservation@thegrandiosehotel.com"
   },
   "featured": false,
@@ -35104,7 +36704,9 @@
   "cat": [
    "beauty"
   ],
-  "sub": [],
+  "sub": [
+   "beauty-spa"
+  ],
   "name": "กิฟฟารีน เชียงราย",
   "nameTh": "กิฟฟารีน เชียงราย",
   "nameEn": "Giffarine Chiang Rai",
@@ -35146,11 +36748,14 @@
   "lat": 19.9691384,
   "lng": 99.8495947,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "406 ban du 57100",
   "phone": "0883300455",
   "website": "https://www.facebook.com/Heavencafe.marble",
   "hours": "Mo-Su 09:00-18:00",
   "attrs": {
+   "houseNumber": "406",
+   "street": "ban du",
+   "postcode": "57100",
    "cuisine": "coffee_shop;thai;cake;dessert"
   },
   "featured": false,
@@ -35338,6 +36943,72 @@
    {
     "type": "osm",
     "ref": "way/1231045489",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1232062459",
+  "province": "cr",
+  "cat": [
+   "home-services"
+  ],
+  "sub": [
+   "landscaper"
+  ],
+  "name": "กาดไม้ เจียงฮาย",
+  "nameTh": "กาดไม้ เจียงฮาย",
+  "nameEn": null,
+  "lat": 19.9283083,
+  "lng": 99.8452274,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1232062459",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1232062464",
+  "province": "cr",
+  "cat": [
+   "home-services"
+  ],
+  "sub": [
+   "landscaper"
+  ],
+  "name": "กาดไม้ แม่กก",
+  "nameTh": "กาดไม้ แม่กก",
+  "nameEn": null,
+  "lat": 19.9267685,
+  "lng": 99.8455401,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1232062464",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -35644,11 +37315,14 @@
   "lat": 19.9179594,
   "lng": 99.8567501,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "97/2 Moo 22 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "97/2 Moo 22",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -35688,6 +37362,39 @@
    {
     "type": "osm",
     "ref": "way/1291733042",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1315717120",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "centre"
+  ],
+  "name": "ภาต 2",
+  "nameTh": null,
+  "nameEn": "The Chiangrai Second Church District Mission Centre",
+  "lat": 19.938967,
+  "lng": 99.8093756,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1315717120",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -36067,7 +37774,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Mini Big C"
+   "brand": "Mini Big C",
+   "facets": {
+    "toilet": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -36097,11 +37807,16 @@
   "lat": 19.8930846,
   "lng": 99.8512234,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "134/12 หมู่ที่ 3 Mueang Chiang Rai 57000",
   "phone": "+66 53746899",
   "website": "https://kong-garden-view-resort.chiangraihotelspage.com/en/",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "134/12",
+   "moo": "หมู่ที่ 3",
+   "district": "Mueang Chiang Rai",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -37264,11 +38979,13 @@
   "lat": 19.9055566,
   "lng": 99.8360465,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "57000",
   "phone": null,
   "website": null,
   "hours": "Mo-Su 05:00-21:00",
-  "attrs": {},
+  "attrs": {
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -37912,11 +39629,15 @@
   "lat": 19.9003424,
   "lng": 99.8354197,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "30 Moo 17 ถนน สันคอกช้าง 57000",
   "phone": "+66 52 020 767",
   "website": null,
   "hours": "24/7",
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "30 Moo 17",
+   "street": "ถนน สันคอกช้าง",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -38040,11 +39761,14 @@
   "lat": 19.9180175,
   "lng": 99.8403792,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนนเกาะลอย 57000",
   "phone": null,
   "website": "https://www.thelegend-chiangrai.com",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "ถนนเกาะลอย",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -38106,11 +39830,15 @@
   "lat": 19.8971808,
   "lng": 99.8422826,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "25/3 1233 57000",
   "phone": "0812887625",
   "website": "www.baanpinkaew.com",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "25/3",
+   "street": "1233",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -38891,11 +40619,13 @@
   "lat": 19.9082311,
   "lng": 99.8311231,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "519 Suksathit Rd.",
   "phone": "+66 53711266",
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "519",
+   "street": "Suksathit Rd.",
    "email": "RECEPTION@THECHIANGRAIHOTEL.COM"
   },
   "featured": false,
@@ -39612,11 +41342,14 @@
   "lat": 19.9044709,
   "lng": 99.7951264,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "313 ถนนป่างิ้ว 57000",
   "phone": "+6653716605-7",
   "website": "https://www.maefahluang.org/mae-fah-luang-art-and-cultural-park/",
   "hours": "Tu-Su 08:30-16:30",
   "attrs": {
+   "houseNumber": "313",
+   "street": "ถนนป่างิ้ว",
+   "postcode": "57000",
    "operator": "Mae Fah Luang Foundation under Royal Patronage",
    "email": "rmfl@doitung.org"
   },
@@ -39749,11 +41482,14 @@
   "lat": 19.9073105,
   "lng": 99.8256207,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "162 ถนน บรรพปราการ 57000",
   "phone": "0616179097",
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "162",
+   "street": "ถนน บรรพปราการ",
+   "postcode": "57000",
    "brand": "Cafe' & Bistro"
   },
   "featured": false,
@@ -40120,11 +41856,16 @@
   "lat": 19.9046057,
   "lng": 99.8304869,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "1005/22 เจ็ดยอด ซอย 1 ตำบลเวียง อำเภอเมืองเชียงราย 57000",
   "phone": "+66 96 334 5034",
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "1005/22",
+   "street": "เจ็ดยอด ซอย 1",
+   "subdistrict": "ตำบลเวียง",
+   "district": "อำเภอเมืองเชียงราย",
+   "postcode": "57000",
    "email": "mercyhostelchiangrai.cr@gmail.com",
    "facebook": "https://www.facebook.com/MercyHostelChiangRai"
   },
@@ -40756,7 +42497,11 @@
   "attrs": {
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "facets": {
+    "atm": "osm-near",
+    "toilet": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -41167,11 +42912,14 @@
   "lat": 19.8919074,
   "lng": 99.8419527,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "136/1 หมู่บ้านลดาวัลย์ 57000",
   "phone": "+66 89 7004533",
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "136/1",
+   "street": "หมู่บ้านลดาวัลย์",
+   "postcode": "57000",
    "cuisine": "coffee_shop"
   },
   "featured": false,
@@ -41242,7 +42990,9 @@
   "phone": "+6653712087",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "168/2"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -41936,11 +43686,14 @@
   "lat": 19.9060091,
   "lng": 99.833378,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "868 ถนนพหลโยธืน 57000",
   "phone": "053600155",
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "868",
+   "street": "ถนนพหลโยธืน",
+   "postcode": "57000",
    "email": "Cityhome.chiangrai@yahoo.com"
   },
   "featured": false,
@@ -43576,7 +45329,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "atm": "osm-near"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -43788,11 +45545,14 @@
   "lat": 19.9091555,
   "lng": 99.83573,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "620/25 3 floor ถนน ธนาลัย 57000",
   "phone": "+6653740088",
   "website": "https://www.pdacr.org/",
   "hours": "Mo-Fr 08:30-18:00; Sa-Su 10:00-18:00",
   "attrs": {
+   "houseNumber": "620/25 3 floor",
+   "street": "ถนน ธนาลัย",
+   "postcode": "57000",
    "email": "crpdatour@hotmail.com"
   },
   "featured": false,
@@ -44571,7 +46331,10 @@
   "attrs": {
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -45054,11 +46817,14 @@
   "lat": 19.9038356,
   "lng": 99.8340698,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "893 ถนนพหลโยธิน 57000",
   "phone": "+66 0-5371-1533",
   "website": "http://www.wianginn.com/",
   "hours": null,
   "attrs": {
+   "houseNumber": "893",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57000",
    "email": "wianginn@ksc.th.com"
   },
   "featured": false,
@@ -45404,7 +47170,10 @@
   "attrs": {
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -45473,7 +47242,9 @@
   "phone": "+66 53600422",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "930/14"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -45572,11 +47343,12 @@
   "lat": 19.8435599,
   "lng": 99.7214171,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "175 หมู่ 5 บ้านเมืองรวง ต.แม่กรณ์ อ.เมือง จ.เชียงราย 57000",
   "phone": "081 963 0392",
   "website": null,
   "hours": null,
   "attrs": {
+   "street": "175 หมู่ 5 บ้านเมืองรวง ต.แม่กรณ์ อ.เมือง จ.เชียงราย 57000",
    "cuisine": "coffee_shop"
   },
   "featured": false,
@@ -46158,6 +47930,7 @@
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "189",
    "brand": "บางจาก"
   },
   "featured": false,
@@ -46581,7 +48354,10 @@
   "hours": "24/7",
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -46679,11 +48455,13 @@
   "lat": 19.9045093,
   "lng": 99.8283076,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "1060/5 ถ.สนามบิน อ.เมือง จ.เชียงราย",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "1060/5",
+   "street": "ถ.สนามบิน อ.เมือง จ.เชียงราย",
    "cuisine": "coffee_shop"
   },
   "featured": false,
@@ -46782,11 +48560,15 @@
   "lat": 19.9097789,
   "lng": 99.8374414,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "652/4 & 5 ถนน อุตรกิจ 57000",
   "phone": "0873045881",
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "652/4 & 5",
+   "street": "ถนน อุตรกิจ",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -47321,7 +49103,10 @@
   "website": null,
   "hours": "Mo-Su,PH 00:00-00:00",
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -47417,11 +49202,12 @@
   "lat": 19.8965764,
   "lng": 99.8275521,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ถนน สนามบิน",
   "phone": "+66887000762",
   "website": "https://www.theroasterybyroj.com",
   "hours": "Tu-Su 08:00-17:00",
   "attrs": {
+   "street": "ถนน สนามบิน",
    "cuisine": "coffee_shop",
    "email": "theroasterychiangrai@gmail.com",
    "facebook": "https://www.facebook.com/theroasterycr/"
@@ -47487,11 +49273,13 @@
   "lat": 19.9786942,
   "lng": 99.8617131,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "Phahon Yothin Road, Ban Du",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "street": "Phahon Yothin Road, Ban Du"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -47625,7 +49413,10 @@
   "hours": "24/7",
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -47855,11 +49646,13 @@
   "lat": 19.8997026,
   "lng": 99.8272588,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "124/3 ถนน สันโค้งหลวง",
   "phone": "088 700 0762",
   "website": null,
   "hours": "Tu-Sa 07:00-17:00; Mo 07:30-17:00",
   "attrs": {
+   "houseNumber": "124/3",
+   "street": "ถนน สันโค้งหลวง",
    "email": "hello.theroast@gmail.com"
   },
   "featured": false,
@@ -47923,11 +49716,13 @@
   "lat": 19.9771865,
   "lng": 99.8606415,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "121/22 m.3 57100",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "121/22 m.3",
+   "postcode": "57100",
    "operator": "Thawatchai"
   },
   "featured": false,
@@ -48751,11 +50546,14 @@
   "lat": 19.907427,
   "lng": 99.8238284,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "94/4 ถนน ราชโยธา 57000",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
+   "houseNumber": "94/4",
+   "street": "ถนน ราชโยธา",
+   "postcode": "57000",
    "cuisine": "coffee;coffee_shop;tea"
   },
   "featured": false,
@@ -48764,6 +50562,39 @@
    {
     "type": "osm",
     "ref": "way/959733157",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-959733166",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "clubs"
+  ],
+  "name": "ร่มไทร สนุ๊กเกอร์",
+  "nameTh": null,
+  "nameEn": "Rom Sai Snooker",
+  "lat": 19.907609,
+  "lng": 99.8250369,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/959733166",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -49127,7 +50958,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "facets": {
+    "atm": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -50905,6 +52739,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-960771470",
+  "province": "cr",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "professional"
+  ],
+  "name": "สำนักงาน นิติธรรม-ธุรกิจ ทนายตวาม",
+  "nameTh": null,
+  "nameEn": "Niti Drumma Thurakit Lawyer Office",
+  "lat": 19.9077567,
+  "lng": 99.8255045,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/960771470",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-960771472",
   "province": "cr",
   "cat": [
@@ -50963,6 +52830,39 @@
    {
     "type": "osm",
     "ref": "way/960771473",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-960771475",
+  "province": "cr",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "professional"
+  ],
+  "name": "พัฒนกิจ จักร์สุวรรณ์ ทนายความ",
+  "nameTh": null,
+  "nameEn": "Pattanakit Jaksuwan Lawyer Office",
+  "lat": 19.907834,
+  "lng": 99.8259678,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/960771475",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -51111,7 +53011,7 @@
    "food"
   ],
   "sub": [
-   "thai"
+   "vegetarian"
   ],
   "name": "ปฐมเจ สาขาเชียงราย",
   "nameTh": null,
@@ -52152,11 +54052,14 @@
   "lat": 19.9070879,
   "lng": 99.8295078,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "42 ถนน บรรพปราการ",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "42",
+   "street": "ถนน บรรพปราการ"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -52884,6 +54787,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-961802268",
+  "province": "cr",
+  "cat": [
+   "repair"
+  ],
+  "sub": [
+   "tech"
+  ],
+  "name": "ฟิกซ์ กะ โฟน",
+  "nameTh": null,
+  "nameEn": "Fix Ka Phone",
+  "lat": 19.9074008,
+  "lng": 99.831101,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/961802268",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-961802274",
   "province": "cr",
   "cat": [
@@ -53067,11 +55003,15 @@
   "lat": 19.9069067,
   "lng": 99.8312729,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "528 ถนน บรรณปราการ 57000",
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "528",
+   "street": "ถนน บรรณปราการ",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -53428,6 +55368,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-963829106",
+  "province": "cr",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "professional"
+  ],
+  "name": "Sunthorn Charoensuawn Lawyer Office",
+  "nameTh": "สำนักงาน สุนทร เจริญศรวล ทนายความ",
+  "nameEn": null,
+  "lat": 19.9114415,
+  "lng": 99.8328308,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/963829106",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-964176063",
   "province": "cr",
   "cat": [
@@ -53508,11 +55481,15 @@
   "lat": 19.9069665,
   "lng": 99.8342555,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "509/2 ถนนพหลโยธืน 57000",
   "phone": "+6652059956",
   "website": null,
   "hours": "Mo-Su 11:00-22:00",
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "509/2",
+   "street": "ถนนพหลโยธืน",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -53552,6 +55529,39 @@
    {
     "type": "osm",
     "ref": "way/964471981",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-964471982",
+  "province": "cr",
+  "cat": [
+   "repair"
+  ],
+  "sub": [
+   "tech"
+  ],
+  "name": "Chuaicharoen",
+  "nameTh": "ช่วยเจริญการช่าง",
+  "nameEn": null,
+  "lat": 19.9069128,
+  "lng": 99.8353081,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/964471982",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -53756,6 +55766,39 @@
    {
     "type": "osm",
     "ref": "way/965305287",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-965305303",
+  "province": "cr",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "clubs"
+  ],
+  "name": "สมาคมส่งเสริมวัฒนธรรมหญิง",
+  "nameTh": null,
+  "nameEn": "Woman Culture Association",
+  "lat": 19.9119784,
+  "lng": 99.8344118,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/965305303",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -54015,13 +56058,48 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "227/21"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
    {
     "type": "osm",
     "ref": "way/965783881",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-965783893",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "laundry"
+  ],
+  "name": "คุณฬา",
+  "nameTh": null,
+  "nameEn": "Kunla Laundry",
+  "lat": 19.9149473,
+  "lng": 99.8348482,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/965783893",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -54627,7 +56705,10 @@
   "attrs": {
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "facets": {
+    "open24": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -55210,6 +57291,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-973413237",
+  "province": "cr",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "bakery-dessert"
+  ],
+  "name": "บัวลอย ป้าหล้า",
+  "nameTh": "บัวลอย ป้าหล้า",
+  "nameEn": "Bua Loi Pa La",
+  "lat": 19.9057148,
+  "lng": 99.8228332,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/973413237",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-973547960",
   "province": "cr",
   "cat": [
@@ -55389,11 +57503,15 @@
   "lat": 19.903429,
   "lng": 99.8148662,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "81/1 ถนนหน้าค่าย 57000",
   "phone": "+6653713349",
   "website": "https://www.oubkhammuseum.com/",
   "hours": "Mo-Sa 08:00-17:30",
-  "attrs": {},
+  "attrs": {
+   "houseNumber": "81/1",
+   "street": "ถนนหน้าค่าย",
+   "postcode": "57000"
+  },
   "featured": false,
   "landmark": false,
   "sources": [

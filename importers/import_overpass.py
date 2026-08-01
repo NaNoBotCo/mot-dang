@@ -30,7 +30,12 @@ def food_sub(t):
         return "bakery-dessert"
     if a in ("bar", "pub", "biergarten"):
         return "bar-pub"
-    if cuisines & {"vegetarian", "vegan"}:
+    # diet:vegetarian=only means the kitchen IS vegetarian; =yes only means it
+    # has options, and 151 omnivore places carry that. Sweeping =yes onto the
+    # มังสวิรัติ-เจ shelf would send someone keeping เจ to a pork-and-rice shop,
+    # so only `only` counts — which is why the shelf read 0 before.
+    diets = {t.get("diet:vegetarian"), t.get("diet:vegan")}
+    if cuisines & {"vegetarian", "vegan"} or "only" in diets:
         return "vegetarian"
     if cuisines & {"seafood", "fish"}:
         return "seafood"
@@ -41,9 +46,57 @@ def food_sub(t):
     return "thai"
 
 
+# craft=* is a grab-bag: a bakery, a tailor and a glazier all carry it, and
+# they belong on three different shelves. Sorting by what the place IS beats
+# inventing a "crafts" shelf nobody would look under — someone wanting a suit
+# altered searches for a tailor, not for a craft.
+CRAFT_TO = {
+    "handicraft": ("shopping", "crafts"), "jeweller": ("shopping", "crafts"),
+    "woodworking": ("shopping", "crafts"), "furniture": ("shopping", "crafts"),
+    "pottery": ("shopping", "crafts"), "basket_maker": ("shopping", "crafts"),
+    "tailor": ("shopping", "tailor"), "shoemaker": ("shopping", "tailor"),
+    "dressmaker": ("shopping", "tailor"), "leather": ("shopping", "tailor"),
+    "bakery": ("food", "bakery-dessert"), "confectionery": ("food", "bakery-dessert"),
+    "coffee_roaster": ("food", "cafe"), "caterer": ("food", "thai"),
+    "electronics_repair": ("repair", "tech"), "computer_repair": ("repair", "tech"),
+    # The building trades — exactly what repair/home (ช่างบ้าน-ประปา-ไฟ) was
+    # drawn for, and why it stayed a wireframe: the shelf existed, the query
+    # never did.
+    "plumber": ("repair", "home"), "electrician": ("repair", "home"),
+    "carpenter": ("repair", "home"), "painter": ("repair", "home"),
+    "hvac": ("repair", "home"), "glaziery": ("repair", "home"),
+    "metal_construction": ("repair", "home"), "roofer": ("repair", "home"),
+    "builder": ("repair", "home"), "locksmith": ("repair", "home"),
+    "gardener": ("home-services", "landscaper"),
+}
+
+
 def classify(t):
     """tags -> (cat, sub or None), or None to skip."""
     s, a, tr = t.get("shop"), t.get("amenity"), t.get("tourism")
+    craft = t.get("craft")
+    if craft in CRAFT_TO:
+        return CRAFT_TO[craft]
+    # A laundry is not a housekeeper. 59 of them is the single biggest thing
+    # this crawl found, and สะดวกซัก on a soi corner is a city essential in
+    # exactly the way a bank is, so it gets its own shelf rather than being
+    # filed under staff-you-hire.
+    if s in ("laundry", "dry_cleaning"):
+        return "essentials", "laundry"
+    if s == "garden_centre":
+        return "home-services", "landscaper"
+    if s in ("wholesale", "trade"):
+        return "business", "wholesale"
+    if t.get("office") == "coworking" or a == "coworking_space":
+        return "business", "coworking"
+    if t.get("office") in ("lawyer", "accountant", "tax_advisor", "notary"):
+        return "business", "professional"
+    if t.get("office") in ("ngo", "charity") or a == "social_facility":
+        return "community", "volunteer"
+    if t.get("club") or t.get("office") == "association":
+        return "community", "clubs"
+    if a == "community_centre":
+        return "community", "centre"
     if tr == "hotel":
         return "hotel", "hotel-full"
     if tr == "guest_house":
@@ -75,9 +128,14 @@ def classify(t):
     if s in ("computer", "mobile_phone"):
         return "repair", "tech"
     if s == "hairdresser":
-        return "beauty", "hair"
+        return "beauty", "barber" if t.get("hairdresser") == "barber" else "hair"
     if s == "beauty":
-        return "beauty", "nails" if t.get("beauty") == "nails" else None
+        # beauty= is a semicolon list in the wild ("nails;waxing"), so split it
+        # rather than compare whole. A shop=beauty with nothing else said is a
+        # beauty salon, not an unfiled record: returning None left 44 of them
+        # off every shelf in the category they were crawled for.
+        kinds = {k.strip() for k in (t.get("beauty") or "").split(";") if k.strip()}
+        return "beauty", "nails" if "nails" in kinds else "beauty-spa"
     if a == "veterinary":
         return "pets", "vet"
     if s == "pet_grooming":
@@ -142,6 +200,53 @@ def classify(t):
     return None
 
 
+def _is_thai(s):
+    return any("฀" <= ch <= "๿" for ch in s)
+
+
+def address_of(t):
+    """The addr:* family, kept as parts and as one readable line.
+
+    OSM here is a mix of scripts — 'Suthep' and 'สุเทพ' both occur, sometimes on
+    neighbouring shops — so the ต./อ. prefixes go on only where the value is
+    already Thai. Nothing is translated or transliterated: what the mapper wrote
+    is what the record carries.
+    """
+    parts = {
+        "houseNumber": t.get("addr:housenumber") or t.get("addr:housename"),
+        "street": t.get("addr:street"),
+        "streetEn": t.get("addr:street:en"),
+        "moo": t.get("addr:place") or t.get("addr:hamlet"),
+        "subdistrict": t.get("addr:subdistrict"),
+        "district": t.get("addr:district"),
+        "postcode": t.get("addr:postcode"),
+    }
+    parts = {k: v.strip() for k, v in parts.items() if v and v.strip()}
+    if not parts:
+        return None, {}
+
+    def tag(prefix, key):
+        v = parts.get(key)
+        if not v:
+            return None
+        if _is_thai(v) and not v.startswith(("ต.", "ตำบล", "อ.", "อำเภอ", "หมู่")):
+            return prefix + v
+        return v
+
+    moo = parts.get("moo")
+    if moo and moo.isdigit():
+        moo = "หมู่ " + moo
+    line = " ".join(x for x in (
+        parts.get("houseNumber"), parts.get("street") or parts.get("streetEn"),
+        moo, tag("ต.", "subdistrict"), tag("อ.", "district"), parts.get("postcode"),
+    ) if x)
+    # A bare house number with nothing to hang it on is not an address.
+    if not (parts.get("street") or parts.get("streetEn") or parts.get("subdistrict")
+            or parts.get("district") or parts.get("postcode")):
+        return None, parts
+    return line or None, parts
+
+
 def records(province="cm"):
     out = []
     cache = ROOT / "cache" / "overpass" / province
@@ -168,16 +273,18 @@ def records(province="cm"):
             website = (t.get("website") or t.get("contact:website") or t.get("url")
                        or t.get("website:en"))
             line = t.get("contact:line")
+            addr_line, addr_parts = address_of(t)
             out.append({
                 "id": f"{province}-osm-{el['type']}-{el['id']}", "province": province,
                 "cat": [cat], "sub": [sub] if sub else [],
                 "name": name, "nameTh": t.get("name:th"), "nameEn": t.get("name:en"),
                 "lat": lat, "lng": lng, "geoPrecision": "exact",
-                "address": None,
+                "address": addr_line,
                 "phone": phone,
                 "website": website,
                 "hours": t.get("opening_hours"),
                 "attrs": {k: v for k, v in {
+                    **addr_parts,
                     "brand": t.get("brand"), "cuisine": t.get("cuisine"),
                     "operator": t.get("operator"), "lineId": line,
                     "email": t.get("email") or t.get("contact:email"),

@@ -188,7 +188,10 @@
         {
           "key": "thai-medicine",
           "th": "แพทย์แผนไทย-สมุนไพร",
-          "en": "Traditional Thai Medicine"
+          "en": "Traditional Thai Medicine",
+          "match": {
+            "sub": "thai-medicine"
+          }
         }
       ]
     },
@@ -211,17 +214,34 @@
         {
           "key": "bank",
           "th": "ธนาคาร-เอทีเอ็ม",
-          "en": "Banks & ATMs"
+          "en": "Banks & ATMs",
+          "match": {
+            "sub": "bank"
+          }
+        },
+        {
+          "key": "laundry",
+          "th": "ร้านซักรีด-สะดวกซัก",
+          "en": "Laundry",
+          "match": {
+            "sub": "laundry"
+          }
         },
         {
           "key": "post",
           "th": "ไปรษณีย์-ขนส่ง",
-          "en": "Post & Parcels"
+          "en": "Post & Parcels",
+          "match": {
+            "sub": "post"
+          }
         },
         {
           "key": "gov",
           "th": "ราชการ-เอกสาร",
-          "en": "Government Offices"
+          "en": "Government Offices",
+          "match": {
+            "sub": "gov"
+          }
         },
         {
           "key": "visa",
@@ -234,7 +254,10 @@
         {
           "key": "convenience",
           "th": "ร้านสะดวกซื้อ",
-          "en": "Convenience Stores"
+          "en": "Convenience Stores",
+          "match": {
+            "sub": "convenience"
+          }
         }
       ]
     },
@@ -248,17 +271,26 @@
         {
           "key": "hotel-full",
           "th": "โรงแรม",
-          "en": "Hotels"
+          "en": "Hotels",
+          "match": {
+            "sub": "hotel-full"
+          }
         },
         {
           "key": "guesthouse",
           "th": "เกสต์เฮาส์",
-          "en": "Guesthouses"
+          "en": "Guesthouses",
+          "match": {
+            "sub": "guesthouse"
+          }
         },
         {
           "key": "hostel",
           "th": "โฮสเทล",
-          "en": "Hostels"
+          "en": "Hostels",
+          "match": {
+            "sub": "hostel"
+          }
         }
       ]
     },
@@ -279,7 +311,10 @@
         {
           "key": "fresh",
           "th": "ตลาดสด",
-          "en": "Fresh Markets"
+          "en": "Fresh Markets",
+          "match": {
+            "sub": "fresh"
+          }
         },
         {
           "key": "walking-street",
@@ -303,7 +338,10 @@
         {
           "key": "crafts",
           "th": "ของฝาก-หัตถกรรม",
-          "en": "Crafts & Gifts"
+          "en": "Crafts & Gifts",
+          "match": {
+            "sub": "crafts"
+          }
         },
         {
           "key": "secondhand",
@@ -316,12 +354,26 @@
         {
           "key": "mall",
           "th": "ห้าง-มอลล์",
-          "en": "Malls"
+          "en": "Malls",
+          "match": {
+            "sub": "mall"
+          }
         },
         {
           "key": "diy",
           "th": "DIY-วัสดุก่อสร้าง",
-          "en": "DIY & Hardware"
+          "en": "DIY & Hardware",
+          "match": {
+            "sub": "diy"
+          }
+        },
+        {
+          "key": "tailor",
+          "th": "ตัดเย็บ-ซ่อมเสื้อผ้า",
+          "en": "Tailors & Alterations",
+          "match": {
+            "sub": "tailor"
+          }
         }
       ]
     },
@@ -335,7 +387,10 @@
         {
           "key": "condo",
           "th": "อาคารคอนโด",
-          "en": "Condo Buildings"
+          "en": "Condo Buildings",
+          "match": {
+            "sub": "condo"
+          }
         },
         {
           "key": "moobaan",
@@ -345,7 +400,10 @@
         {
           "key": "agent",
           "th": "นายหน้า-เอเจนต์",
-          "en": "Agents"
+          "en": "Agents",
+          "match": {
+            "sub": "agent"
+          }
         }
       ]
     },
@@ -359,12 +417,18 @@
         {
           "key": "rental",
           "th": "เช่ารถ-มอเตอร์ไซค์",
-          "en": "Car & Bike Rental"
+          "en": "Car & Bike Rental",
+          "match": {
+            "sub": "rental"
+          }
         },
         {
           "key": "station",
           "th": "สถานี-ท่ารถ",
-          "en": "Stations & Terminals"
+          "en": "Stations & Terminals",
+          "match": {
+            "sub": "station"
+          }
         },
         {
           "key": "songthaew",
@@ -374,7 +438,10 @@
         {
           "key": "fuel",
           "th": "ปั๊มน้ำมัน",
-          "en": "Fuel Stations"
+          "en": "Fuel Stations",
+          "match": {
+            "sub": "fuel"
+          }
         }
       ]
     },
@@ -388,17 +455,26 @@
         {
           "key": "auto",
           "th": "ซ่อมรถ-อู่",
-          "en": "Auto & Motorbike"
+          "en": "Auto & Motorbike",
+          "match": {
+            "sub": "auto"
+          }
         },
         {
           "key": "home",
-          "th": "ช่างบ้าน-ประปา-ไฟ",
-          "en": "Home Trades"
+          "th": "ช่างบ้าน-ช่างอลูมิเนียม",
+          "en": "Home Trades",
+          "match": {
+            "sub": "home"
+          }
         },
         {
           "key": "tech",
           "th": "มือถือ-คอมพิวเตอร์",
-          "en": "Phones & Computers"
+          "en": "Phones & Computers",
+          "match": {
+            "sub": "tech"
+          }
         }
       ]
     },
@@ -412,12 +488,18 @@
         {
           "key": "hair",
           "th": "ร้านทำผม",
-          "en": "Hair Salons"
+          "en": "Hair Salons",
+          "match": {
+            "sub": "hair"
+          }
         },
         {
           "key": "nails",
           "th": "ทำเล็บ",
-          "en": "Nails"
+          "en": "Nails",
+          "match": {
+            "sub": "nails"
+          }
         },
         {
           "key": "salon",
@@ -465,7 +547,7 @@
           "th": "ร้านสักสมัยใหม่",
           "en": "Modern studios",
           "match": {
-            "sub": "tattoo-studio"
+            "sub": "studio"
           }
         },
         {
@@ -496,12 +578,18 @@
         {
           "key": "vet",
           "th": "หมอสัตว์",
-          "en": "Vets"
+          "en": "Vets",
+          "match": {
+            "sub": "vet"
+          }
         },
         {
           "key": "grooming",
           "th": "อาบน้ำ-ตัดขน",
-          "en": "Grooming"
+          "en": "Grooming",
+          "match": {
+            "sub": "grooming"
+          }
         }
       ]
     },
@@ -515,17 +603,26 @@
         {
           "key": "language",
           "th": "เรียนภาษา",
-          "en": "Language Schools"
+          "en": "Language Schools",
+          "match": {
+            "sub": "language"
+          }
         },
         {
           "key": "gym",
           "th": "มวยไทย-ยิม",
-          "en": "Muay Thai & Gyms"
+          "en": "Muay Thai & Gyms",
+          "match": {
+            "sub": "gym"
+          }
         },
         {
           "key": "university",
           "th": "มหาวิทยาลัย",
-          "en": "Universities"
+          "en": "Universities",
+          "match": {
+            "sub": "university"
+          }
         }
       ]
     },
@@ -549,7 +646,10 @@
         {
           "key": "landscaper",
           "th": "คนสวน-จัดสวน",
-          "en": "Landscapers"
+          "en": "Landscapers",
+          "match": {
+            "sub": "landscaper"
+          }
         }
       ]
     },
@@ -562,13 +662,27 @@
       "children": [
         {
           "key": "intl-clubs",
-          "th": "ชมรมนานาชาติ",
-          "en": "International Clubs"
+          "th": "ชมรม-สมาคม",
+          "en": "Clubs & Societies",
+          "match": {
+            "sub": "clubs"
+          }
+        },
+        {
+          "key": "centre",
+          "th": "ศาลาประชาคม-ศูนย์ชุมชน",
+          "en": "Community Centres",
+          "match": {
+            "sub": "centre"
+          }
         },
         {
           "key": "volunteer",
           "th": "จิตอาสา",
-          "en": "Volunteering"
+          "en": "Volunteering",
+          "match": {
+            "sub": "volunteer"
+          }
         }
       ]
     },
@@ -580,14 +694,33 @@
       "teaser_en": "Wholesale, suppliers, selling online...",
       "children": [
         {
+          "key": "coworking",
+          "th": "โคเวิร์กกิ้งสเปซ",
+          "en": "Coworking Spaces",
+          "match": {
+            "sub": "coworking"
+          }
+        },
+        {
           "key": "wholesale",
           "th": "ค้าส่ง-ซัพพลายเออร์",
-          "en": "Wholesale & Suppliers"
+          "en": "Wholesale & Suppliers",
+          "match": {
+            "sub": "wholesale"
+          }
         },
         {
           "key": "online-selling",
           "th": "ขายออนไลน์-ดรอปชิป",
           "en": "Online Selling & Dropshipping"
+        },
+        {
+          "key": "professional",
+          "th": "ทนาย-บัญชี",
+          "en": "Lawyers & Accountants",
+          "match": {
+            "sub": "professional"
+          }
         }
       ]
     },
@@ -601,17 +734,26 @@
         {
           "key": "cinema",
           "th": "โรงหนัง-รอบฉาย",
-          "en": "Cinemas & Showtimes"
+          "en": "Cinemas & Showtimes",
+          "match": {
+            "sub": "cinema"
+          }
         },
         {
           "key": "live-music",
           "th": "ดนตรีสด",
-          "en": "Live Music"
+          "en": "Live Music",
+          "match": {
+            "sub": "live-music"
+          }
         },
         {
           "key": "events-venue",
           "th": "ที่จัดงาน-อีเวนต์",
-          "en": "Event Venues"
+          "en": "Event Venues",
+          "match": {
+            "sub": "events-venue"
+          }
         }
       ]
     },
@@ -625,12 +767,18 @@
         {
           "key": "museum",
           "th": "พิพิธภัณฑ์",
-          "en": "Museums"
+          "en": "Museums",
+          "match": {
+            "sub": "museum"
+          }
         },
         {
           "key": "gallery",
           "th": "หอศิลป์-แกลเลอรี",
-          "en": "Art Galleries"
+          "en": "Art Galleries",
+          "match": {
+            "sub": "gallery"
+          }
         }
       ]
     },
@@ -709,12 +857,18 @@
         {
           "key": "historic",
           "th": "โบราณสถาน-ที่ประวัติศาสตร์",
-          "en": "Historic Places"
+          "en": "Historic Places",
+          "match": {
+            "sub": "historic"
+          }
         },
         {
           "key": "viewpoint",
           "th": "จุดชมวิว",
-          "en": "Viewpoints"
+          "en": "Viewpoints",
+          "match": {
+            "sub": "viewpoint"
+          }
         },
         {
           "key": "outing",

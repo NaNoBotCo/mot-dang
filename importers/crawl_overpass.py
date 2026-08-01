@@ -73,6 +73,31 @@ QUERIES = {
                    'nwr["leisure"="playground"]["name"]', 'nwr["natural"="water"]["name"]'],
     # 41 tattoo records were sitting in 'sights' with no rule; crawl them properly.
     "tattoo":     ['nwr["shop"="tattoo"]', 'nwr["shop"="piercing"]'],
+    # Fixtures, not destinations. Nobody looks up an ATM by name, so these never
+    # become directory records — import_fixtures.py joins them by distance onto
+    # the shops they sit at. OSM maps an ATM as its own node beside the store,
+    # almost never as a tag on it: of 385 7-Elevens in the snapshot, exactly one
+    # carried amenity=atm. The neighbours are where the truth is.
+    "fixtures":   ['nwr["amenity"="atm"]', 'nwr["amenity"="toilets"]',
+                   'nwr["amenity"="vending_machine"]["vending"~"parcel|drinks"]'],
+    # Three whole categories — home-services, community, business — were given
+    # shelves at launch and never a query, so they have sat at zero ever since:
+    # a reader saw "the ants are still collecting" where the truth was that no
+    # ant was ever sent. These are the tags OSM actually uses for them here.
+    # Named features only, on the same rule as parks: an unnamed craft=plumber
+    # node is a dot on a map, not a tradesman anyone can ring.
+    "crafts":     ['nwr["craft"]["name"]', 'nwr["shop"="laundry"]["name"]',
+                   'nwr["shop"="dry_cleaning"]["name"]',
+                   'nwr["shop"="garden_centre"]["name"]'],
+    "community":  ['nwr["amenity"="community_centre"]["name"]',
+                   'nwr["office"="ngo"]["name"]', 'nwr["office"="charity"]["name"]',
+                   'nwr["office"="association"]["name"]',
+                   'nwr["amenity"="social_facility"]["name"]', 'nwr["club"]["name"]'],
+    "business":   ['nwr["shop"="wholesale"]["name"]', 'nwr["shop"="trade"]["name"]',
+                   'nwr["office"="coworking"]["name"]',
+                   'nwr["amenity"="coworking_space"]["name"]',
+                   'nwr["office"="lawyer"]["name"]',
+                   'nwr["office"="accountant"]["name"]'],
 }
 
 
