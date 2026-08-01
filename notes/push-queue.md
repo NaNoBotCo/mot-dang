@@ -6,6 +6,28 @@ What is waiting to go out, and what shipped last time.
 
 Nothing. The working tree is clean and `main` matches `origin/main`.
 
+## Scrub — 2026-08-01, history rewritten
+
+The cinema showtime request recipe (the address, the form it takes, the screen
+ids) had been published twice: as documentation in `data/sources.json` and as
+working code in `importers/make_showtimes.py`. Both are now clean, and the
+recipe lives in `~/.mot-dang-showtimes.json` outside the tree, on the LINE-token
+arrangement. History was rewritten with `git filter-repo --replace-text` and
+force-pushed; the tip tree came out byte-identical, so nothing on the site
+changed.
+
+Two things worth knowing next time:
+
+- **Token-level redaction is not redaction.** The first pass replaced only the
+  field names and the endpoint, and the surviving prose still read "POST to
+  /[removed]/ WITH the slash" — enough to reconstruct it. The pass that worked
+  replaced whole passages by regex, then the tokens.
+- **A force-push does not delete anything from GitHub.** The pre-rewrite commits
+  are still fetchable by full SHA and still hold the recipe. Purging them takes
+  a request to GitHub Support, or deleting and recreating the repo. Until then
+  treat the recipe as exposed — it was public for three days on a site that
+  invites crawlers by name.
+
 ## Last push — 2026-08-01, `84a7d296c`, 11,807 pages
 
 A gap-closing push rather than a feature one. Two commits.
