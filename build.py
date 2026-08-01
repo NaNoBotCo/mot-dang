@@ -27,7 +27,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
-BUILD_DATE = "2026-07-29"
+BUILD_DATE = "2026-08-01"
 
 # The moondial: reuse the real dial art (manuscript-wiki/moondial.py, the same
 # ornate SVG that powers wichaa.net/moon) rather than draw a lesser copy. Pure
@@ -6092,6 +6092,19 @@ def build():
     _graph = ROOT / "data" / "road_graph.json"
     if _graph.exists():
         shutil.copyfile(_graph, DOCS / "data" / "road_graph.json")
+    # Everything llms.txt names under /data/ has to actually be there. These
+    # three were promised and 404ing — a bot told dinner is ready and handed an
+    # empty plate is worse than one never invited. Copy on presence, so a
+    # missing importer output degrades to silence rather than a broken build.
+    #
+    # sources.json is deliberately NOT here. llms.txt points at its GitHub blob
+    # on purpose, and it documents the Major Cineplex endpoint down to the
+    # trailing-slash trick that makes it answer — whether that stays published
+    # is an open question for the user, not something to settle by 404-chasing.
+    for _name in ("streets.json", "weather.json", "showtimes.json"):
+        _src = ROOT / "data" / _name
+        if _src.exists():
+            shutil.copyfile(_src, DOCS / "data" / _name)
     _qr = ROOT / "assets" / LINE_QR if LINE_QR else None
     if _qr and _qr.exists():
         shutil.copyfile(_qr, DOCS / LINE_QR)
