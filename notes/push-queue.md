@@ -79,6 +79,7 @@ believing the key is wrong.
 ps -eo pid,etime,command | grep "[b]uild.py"     # must return nothing
 python3 build.py
 python3 tests/test_publish_gate.py
+python3 tests/test_alt_text.py
 python3 tests/test_facets.py && python3 tests/test_routing.py && python3 tests/test_moat_geometry.py && python3 tests/test_bazi_parity.py
 git log origin/main..HEAD --format='%an <%ae>' | sort -u   # NaNoBotCo only
 ```
