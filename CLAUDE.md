@@ -86,6 +86,15 @@ Rules that bite:
   different places. A card with no photograph gets `.textonly` and gives the
   space to its words. The placeholder is never published as a schema.org
   `image` — that told crawlers a shop's picture is a line drawing of a temple.
+- **Temples are never ranked against each other.** `/merit.html` numbers nine
+  stops because a walk has an order, and says in words that the order is the
+  shortest way round and not a ranking. Royal grade appears because the Sangha
+  assigned it, never as a reason one temple leads. The พระประจำวันเกิด strip is
+  "what to look for at any temple" — pairing a weekday with particular temples
+  is not in the tradition and is not ours to invent.
+- `importers/routing.py` is a second implementation of the routing in
+  `build.py`'s plan JS. They must agree, above all on `oneway` binding ride and
+  not foot, and on the snap walk-in being added at both ends.
 - Run `tests/test_publish_gate.py` after the build and before `git add docs/`.
 - Every image says what it is FOR, not what it is. `tests/test_alt_text.py`
   fails a missing `alt`, an unlabelled `role="img"`, and a label that is only

@@ -2,7 +2,32 @@
 
 What is waiting to go out, and what shipped last time.
 
-## Waiting
+## Waiting — held on purpose while another session works
+
+Six commits. Nothing here is pushed. Rebuild and run all seven suites before it
+goes, since several sessions have been writing to this tree.
+
+| Commit | What |
+|---|---|
+| `4fa766c4ad` | The CSS for a block that shipped without it — **fixes something already live** |
+| `96875b82da` | This ledger |
+| `02590f98bc` | The design study, ported |
+| `a6076574dd` | ไหว้พระ ๙ วัด — nine-temple merit routes |
+| `20aa8c5df7` | Real instrument photographs; placeholders demoted |
+| `073c5a6f7e` | Errands as kinds, not names |
+
+Two new importers and a new page came in with those: `importers/routing.py`
+(the road graph, walked from Python, so build-time work can bake real distances
+without shipping the reader half a megabyte of graph), `importers/build_merit.py`
+→ `data/merit.json`, and `/merit.html`. `PLAN_MAX` went 8 → 9, because
+ไหว้พระ ๙ วัด is nine stops by definition.
+
+New suite: `tests/test_errands.py`. It does not test the code so much as the
+premise — that solving the errands together beats picking the nearest of each.
+14 wins in 20 routable rounds, median 577 m, never worse. If that ever stops
+being true the test fails, because the page makes the claim out loud.
+
+## Older waiting notes
 
 **One commit, `4fa766c4ad`, held back at Nan's instruction — but it is a fix to
 something already live, so it is worth pushing sooner rather than at leisure.**
