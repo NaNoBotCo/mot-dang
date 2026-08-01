@@ -20,6 +20,7 @@ makes a network call.
     python3 importers/harvest_events.py --list      # show registry, fetch nothing
 """
 
+import html
 import json
 import os
 import re
@@ -110,8 +111,14 @@ def _ical_dt(value, params):
 
 
 def _unescape(s):
+    """iCal's own escaping — backslashes, not entities. See _html for those."""
     return (s.replace("\\n", " ").replace("\\N", " ").replace("\\,", ",")
              .replace("\\;", ";").replace("\\\\", "\\")).strip()
+
+
+def _html(s):
+    """Decode HTML entities arriving from a web API, once, on the way in."""
+    return html.unescape(s or "").strip()
 
 
 def venue_from_text(title, description):
@@ -201,16 +208,21 @@ def parse_tribe(source_id, endpoint, refetch):
             events.append({
                 "source": source_id,
                 "uid": str(ev.get("id", "")),
-                "title": (ev.get("title") or "").strip(),
+                # WordPress hands these back HTML-encoded — "Qigong for Balance
+                # &#038; Self-Empowerment". Decoded here, at the door, because
+                # build.py escapes for output and a string that arrives already
+                # encoded comes out the far end as visible &#038; on the page.
+                # Decode once on the way IN, escape once on the way OUT.
+                "title": _html(ev.get("title")),
                 "start": ev.get("start_date", ""),
                 "end": ev.get("end_date", ""),
                 "tz": ev.get("timezone", ""),
                 "all_day": bool(ev.get("all_day")),
                 "url": ev.get("url", ""),
-                "cost": (ev.get("cost") or "").strip(),
-                "venue_name": (v.get("venue") or "").strip(),
+                "cost": _html(ev.get("cost")),
+                "venue_name": _html(v.get("venue")),
                 "venue_from": "feed" if v.get("venue") else "",
-                "description": re.sub(r"<[^>]+>", " ", ev.get("excerpt") or "")[:600].strip(),
+                "description": _html(re.sub(r"<[^>]+>", " ", ev.get("excerpt") or ""))[:600],
             })
             # A venue stated by the organiser is a contact lead, not a guess.
             if v.get("venue") and (v.get("phone") or v.get("website")):

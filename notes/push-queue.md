@@ -149,6 +149,48 @@ and are the two that can start cold.
    `bazi.js` deliberately reproduces the civil-day rule to keep parity
    meaningful — fix upstream first, then regenerate.
 
+## Queued 2026-08-01 — the design study, ported. NOT PUSHED.
+
+Nan liked the CSS in the Claude Design homepage study and asked for it in as
+many places as it fits, but not at the price the study paid: it had thrown out
+the almanac, the fortune, เซียมซี, the lucky numbers, the ant ranks and the
+contribute doors. Every one of those is still here, restyled. Verified rather
+than assumed — the rebuilt homepage lost zero element ids and zero `data-fo /
+-ho / -hx / -siamsi` hooks against the previous build, and all ten widget tiles
+render.
+
+- Palette retuned in `:root`; one design layer appended to `CSS`. Because every
+  rule already drew from those variables, the whole 11,808 pages moved together.
+- Self-hosted Chonburi / Prompt / Sriracha, 132 KB, unicode-range split.
+- 145 of her 151 picks resolved to Wikimedia Commons, licensed, downloaded and
+  tagged on four axes. 4 dropped and named (2 publicdomainpictures.net, 2 an
+  upload URL shape the recogniser still misses).
+- New on the homepage, all additive: a hero, nine shelf tiles with real counts,
+  a gold claim band, an after-dark band. New page `/pictures.html`.
+
+### Found on the way, worth knowing
+
+- **The study captioned pictures by filename.** Its ของกิน tile and its khao soi
+  listing both used `Chiang Mai photo-7544.jpg`, which is a spirit house with
+  red Fanta on it; its Warorot Market card used a green spirit house. Seven of
+  her picks are named "photo-66", "photo-7498" and so on and were tagged here by
+  opening them and looking. Same family as the proximity-is-not-identity lesson
+  in `harvest_commons.py`.
+- **Slug truncation at 60 chars collided**, so two Baan Dum photographs became
+  one file and one catalogue entry pointed at the other one's picture — a
+  wrong-attribution bug. Fixed with a digest suffix on clash only.
+- **7 of 73 event titles carried raw HTML entities** from the WordPress feed and
+  rendered as `Qigong for Balance &#038; Self-Empowerment`. Decoded at the door
+  in `harvest_events.py`; the file on disk was fixed too, so no re-harvest.
+- **The route-planner promo is 1,619 px tall on a phone** and is what actually
+  buries the almanac — three times the hero above it, and it predates all of
+  this. Untouched, because shortening it is a call about her feature, not a
+  styling decision. Worth a decision.
+- **59 place pages still hot-link `upload.wikimedia.org`.** Pre-existing, and
+  now inconsistent with the new art, which is served from our own domain
+  precisely because the site promises it follows no one around. The downloader
+  to fix it already exists.
+
 ### One open question, unanswered since 2026-07-29
 
 `data/sources.json` publicly documents the Major Cineplex showtime endpoint,

@@ -1,16 +1,25 @@
 
 /* Warm temple palette — mulberry paper, lacquer red, temple gold. Everything
    below already drew its colour from these variables, so retuning them moves
-   the whole site at once rather than leaving the homepage a stranger to it. */
-:root{--paper:#f7f1e4;--ink:#241c15;--ant:#a3231c;--ant-dark:#7d1712;
---link:#14479b;--visited:#6B3FA0;--soft:#ece0c8;--mute:#8a7a62;
---day:#a3231c;
---card:#fffdf8;--card-alt:#fdf9f0;--ink-soft:#4a4136;--gloss:#6f6353;
---gold:#c9962c;--gold-light:#e6c987;--gold-pale:#f6dfa0;
---marigold-a:#fbdc8e;--marigold-b:#f5cd6a;--marigold-ink:#6d5411;
+   the whole site at once rather than leaving the homepage a stranger to it.
+   Retuned 2026-08-01 to the values Nan picked out of the Claude Design study:
+   creamier paper, a brighter lacquer red, a real marigold gold. The names did
+   not move, so every rule written against them came along.
+   --link and --visited deliberately stay blue and purple. The study made links
+   red like everything else; this is a directory, and which shelves you have
+   already opened is information the reader is owed. */
+:root{--paper:#faf5ea;--ink:#2a1e16;--ant:#c13a2e;--ant-dark:#8f2a21;
+--link:#14479b;--visited:#6B3FA0;--soft:#e3d5bc;--mute:#a08b6c;
+--day:#c13a2e;
+--card:#fffdf7;--card-alt:#f8f0dd;--ink-soft:#544636;--gloss:#8a755b;
+--gold:#c08a2d;--gold-light:#f3c34b;--gold-pale:#f9e2a4;
+--marigold-a:#f9dc93;--marigold-b:#f3c34b;--marigold-ink:#6d5411;
 --jade-a:#cfe3d2;--jade-b:#b8d4bd;--jade-ink:#26402c;--jade:#1f6b57;
---warm-border:#ded0b2;--dashed:#c4b28d;--row-hover:#fdf3dd;
---shadow:#e0d3b6;--shadow-dark:#cbb78d;--on-dark:#f7eeda;--on-dark-mute:#b6a68c;}
+--warm-border:#e3d5bc;--dashed:#c4b28d;--row-hover:#fcf3dc;
+--shadow:#e3d5bc;--shadow-dark:#c9b074;--on-dark:#f7eeda;--on-dark-mute:#b6a68c;
+/* after dark — the one place the site is allowed to be a nightclub */
+--night-a:#3a1b4f;--night-b:#1e0f30;--night-c:#160a24;--neon:#ff6ec7;
+--neon-gold:#ffd24a;--night-mute:#d8c7ee;}
 /* สีประจำวัน — md.js sets --day from the baked fortune, so the page
    quietly wears the colour of the weekday, as a Thai calendar does. */
 .masthead{border-bottom:3px solid var(--day)}
@@ -983,4 +992,254 @@ ul.catrows{grid-template-columns:minmax(0,1fr);padding:.4rem}
 .cardhead h2{font-size:1.35rem}
 .pickgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem}
 .pickgrid img{height:104px}
+}
+
+/* ======================================================================
+   THE DESIGN LAYER — ported from the Claude Design study Nan picked out.
+   Kept as one block at the end so it overrides by order rather than by a
+   specificity war, and so the whole look can be read (or lifted out) in
+   one piece. Nothing here removes a module; it only changes their clothes.
+   ====================================================================== */
+
+/* --- type ----------------------------------------------------------------
+   Three faces, all SIL Open Font Licence, all served from our own domain:
+   the site promises it follows no one around, and a font from someone else's
+   CDN is a request that reader never asked to make. Licences sit beside the
+   files in assets/fonts/. 132 KB for the lot, split by unicode-range so a
+   Thai reader never downloads the Latin cut.
+   Chonburi is a display face and stays one — headings, never running text.
+   Nothing below 1rem wears it. */
+@font-face{font-family:'Chonburi';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/chonburi-400-thai.woff2) format('woff2');unicode-range:U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC}
+@font-face{font-family:'Chonburi';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/chonburi-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Chonburi';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/chonburi-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/prompt-400-thai.woff2) format('woff2');unicode-range:U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/prompt-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/prompt-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/prompt-600-thai.woff2) format('woff2');unicode-range:U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/prompt-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/prompt-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Sriracha';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/sriracha-400-thai.woff2) format('woff2');unicode-range:U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC}
+@font-face{font-family:'Sriracha';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/sriracha-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Sriracha';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/sriracha-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+body{font-family:'Prompt',-apple-system,"Thonburi","Sarabun","Noto Sans Thai",sans-serif}
+h1,h2,h3,.logoth,.cardhead h2,.herotitle,.sectiontitle{
+font-family:'Chonburi','Prompt',-apple-system,"Thonburi",serif;font-weight:400;
+letter-spacing:.01em;line-height:1.35}
+/* Chonburi has one weight and no bold. Anything that used to lean on <b> for
+   emphasis inside a heading would silently flatten, so those keep Prompt. */
+h1 b,h2 b,h3 b,h1 .en,h2 .en,h3 .en{font-family:'Prompt',sans-serif}
+.hand{font-family:'Sriracha',cursive;font-weight:400}
+::selection{background:var(--gold-light);color:var(--ink)}
+
+/* --- the ribbon ----------------------------------------------------------
+   A woven awning stripe. It opens the page, divides the big movements and
+   closes the footer, which is most of what makes the whole thing read as one
+   object rather than a stack of cards. --gap is whatever it is lying on. */
+.ribbon{height:8px;--gap:var(--paper);
+background:repeating-linear-gradient(90deg,var(--ant) 0 44px,var(--gap) 44px 52px,
+var(--gold) 52px 60px,var(--gap) 60px 68px)}
+.ribbon.tall{height:12px}
+.ribbon.ondark{--gap:var(--ink)}
+.ribbon.onnight{--gap:var(--night-c)}
+
+/* --- the sticker system --------------------------------------------------
+   A hard offset shadow instead of a soft blur, and on hover the thing steps
+   towards you while its shadow grows: the squishy, pressable feel Nan wants
+   on everything. Held to cards you can actually click. */
+.card,.sidecard,.sponsorcard,.planhero{box-shadow:5px 5px 0 var(--shadow)}
+.sidecard.dark{box-shadow:5px 5px 0 var(--shadow-dark)}
+.hicard,.wtile,.moodcard,.pickgrid a,.chip,.citychip{
+box-shadow:4px 4px 0 var(--shadow)}
+@media (prefers-reduced-motion:no-preference){
+.hicard,.wtile,.moodcard,.pickgrid a,.chip,.citychip{
+transition:transform .15s ease,box-shadow .15s ease}
+.hicard:hover,.wtile:hover,.moodcard:hover,.pickgrid a:hover,.chip:hover,.citychip:hover{
+transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--gold-light)}
+.hicard:active,.moodcard:active,.chip:active,.citychip:active{
+transform:translate(1px,1px);box-shadow:2px 2px 0 var(--shadow)}
+}
+.chip.dark:hover,.wtile:hover{box-shadow:7px 7px 0 var(--gold)}
+form.seek{box-shadow:6px 6px 0 var(--gold-light)}
+form.seek:focus-within{box-shadow:6px 6px 0 var(--ant)}
+
+/* Glass belongs where there is something behind it to blur — over a
+   photograph, not over flat paper, where it would cost a repaint and show
+   nothing. So: labels sitting on images, and nowhere else. */
+.glass{background:rgba(255,253,247,.72);backdrop-filter:blur(10px) saturate(1.4);
+-webkit-backdrop-filter:blur(10px) saturate(1.4)}
+
+/* --- hero ---------------------------------------------------------------- */
+.hero{position:relative;display:grid;
+grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr));
+gap:2.4rem;align-items:center;margin:.4rem 0 2.2rem}
+.heroglow{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+.heroglow.a{top:-90px;right:-140px;width:440px;height:440px;
+background:radial-gradient(circle,rgba(243,195,75,.42),rgba(243,195,75,0) 68%)}
+.heroglow.b{bottom:-120px;left:-160px;width:460px;height:460px;
+background:radial-gradient(circle,rgba(193,58,46,.14),rgba(193,58,46,0) 70%)}
+.herocopy{position:relative;z-index:1;min-width:0}
+.heroeyebrow{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);
+font-size:1rem;margin-bottom:.5rem}
+.heroeyebrow::before{content:"";width:8px;height:8px;border-radius:50%;
+background:var(--ant);flex:0 0 auto}
+.herotitle{font-size:clamp(1.8rem,4vw,2.8rem);margin:0 0 .5rem;line-height:1.25}
+.herotitle .accent{color:var(--ant)}
+/* The English gloss cannot ride at display size. Set at the same weight as the
+   Thai it follows, a two-language headline ran to four lines and pushed the
+   whole page down. It gets its own line, at half the size, in the body face —
+   which is also how it reads as a gloss rather than as a second headline.
+   Matched on body.lang-* so it beats the `body.lang-both .en{display:inline}`
+   rule that governs every other gloss on the site. */
+body.lang-both .herotitle .en,body.lang-en .herotitle .en{
+display:block;font-family:'Prompt',sans-serif;font-size:.42em;font-weight:400;
+line-height:1.4;color:var(--gloss);margin-top:.1em}
+body.lang-both .herotitle .accent .en,body.lang-en .herotitle .accent .en{
+color:var(--ant-dark)}
+/* The " · " that joins the pair is a Thai-marked span; on its own line it is
+   just a stray dot. */
+body.lang-both .herotitle .en>.th,body.lang-en .herotitle .en>.th{display:none}
+.herosub{color:var(--gloss);margin:0 0 1.1rem;font-size:1.02rem}
+.heroart{position:relative;height:min(62vw,430px);z-index:1;min-width:0}
+.heroart img{position:absolute;object-fit:cover;border:3px solid var(--card);
+border-radius:18px;background:var(--card-alt);display:block}
+.heroart .a{top:0;right:0;width:78%;height:76%;transform:rotate(2deg);
+box-shadow:0 18px 44px rgba(42,30,22,.22)}
+.heroart .b{bottom:0;left:0;width:52%;height:44%;
+box-shadow:0 14px 34px rgba(42,30,22,.25)}
+.heroart .c{bottom:14%;right:2%;width:31%;height:32%;transform:rotate(4deg);
+box-shadow:0 10px 26px rgba(42,30,22,.22)}
+.herosticker{position:absolute;top:-14px;left:22px;z-index:2;
+background:var(--gold-light);color:var(--ink);font-family:'Sriracha',cursive;
+font-size:.95rem;padding:.45rem 1.1rem;border-radius:999px;transform:rotate(-5deg);
+box-shadow:0 4px 12px rgba(42,30,22,.18)}
+@media (prefers-reduced-motion:no-preference){
+.heroart .b{animation:mdfloat 7s ease-in-out infinite}
+@keyframes mdfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+}
+@media (max-width:900px){.heroart{height:min(78vw,360px)}}
+
+/* --- mood cards ---------------------------------------------------------- */
+.moodgrid{list-style:none;margin:0;padding:0;display:grid;
+grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:1rem}
+.moodcard{display:block;border:2px solid var(--ink);border-radius:18px;
+overflow:hidden;background:var(--card);text-decoration:none;color:var(--ink)}
+.moodcard:visited{color:var(--ink)}
+.moodcard:hover{text-decoration:none}
+.moodcard img{width:100%;height:118px;object-fit:cover;display:block;
+background:var(--card-alt)}
+.moodcard .lbl{padding:.6rem .8rem .75rem}
+.moodcard .lbl b{display:block;font-weight:600;font-size:1.02rem;line-height:1.3}
+.moodcard .lbl .en{font-size:.78rem;color:var(--mute);letter-spacing:.11em;
+text-transform:uppercase;font-weight:600}
+.moodcard .n{font-variant-numeric:tabular-nums;color:var(--gloss);font-size:.84rem}
+
+/* --- after dark ----------------------------------------------------------
+   The one section that leaves the daytime palette. Everything else on this
+   site is paper and lacquer; the night is neon, because that is what the
+   night actually looks like here. */
+.afterdark{position:relative;overflow:hidden;margin:2.4rem 0 0;border-radius:22px;
+border:2px solid var(--ink);
+background:radial-gradient(900px 420px at 50% -80px,var(--night-a) 0%,
+var(--night-b) 55%,var(--night-c) 100%);color:var(--night-mute)}
+.afterdark .inner{position:relative;z-index:1;padding:2.6rem 1.4rem 2.2rem}
+.afterdark .adglow{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+.afterdark .adglow.a{top:20px;left:-140px;width:420px;height:420px;
+background:radial-gradient(circle,rgba(255,110,199,.20),rgba(255,110,199,0) 70%)}
+.afterdark .adglow.b{bottom:-90px;right:-110px;width:400px;height:400px;
+background:radial-gradient(circle,rgba(255,210,74,.15),rgba(255,210,74,0) 70%)}
+.afterdark .adeyebrow{font-family:'Sriracha',cursive;color:var(--neon-gold);
+font-size:1.05rem;margin-bottom:.4rem;text-shadow:0 0 16px rgba(255,210,74,.6)}
+.afterdark h2{font-size:clamp(1.9rem,4vw,2.9rem);margin:0;border:0;padding:0;
+color:var(--neon);text-shadow:0 0 18px rgba(255,110,199,.9),0 0 60px rgba(255,110,199,.5)}
+.afterdark h2 .en{color:var(--night-mute);text-shadow:none;font-size:.95rem;
+letter-spacing:.24em;text-transform:uppercase}
+.afterdark .adhead{text-align:center;margin-bottom:1.8rem}
+.adgrid{list-style:none;margin:0;padding:0;display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
+.adcard{position:relative;display:block;border-radius:18px;overflow:hidden;
+border:1.5px solid rgba(255,110,199,.45);text-decoration:none}
+.adcard img{width:100%;height:250px;object-fit:cover;display:block;filter:saturate(1.15)}
+.adcard .cap{position:absolute;inset:0;display:flex;flex-direction:column;
+justify-content:flex-end;padding:1.1rem;
+background:linear-gradient(180deg,rgba(22,10,36,0) 40%,rgba(22,10,36,.93) 100%)}
+.adcard .cap b{font-family:'Chonburi',serif;font-weight:400;font-size:1.3rem;
+color:#fffdf7;text-shadow:0 0 14px rgba(255,110,199,.5)}
+.adcard .cap .en,.adcard .cap span{color:var(--night-mute);font-size:.9rem}
+.adcard .n{color:var(--neon-gold);font-size:.85rem;font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:no-preference){
+.adcard{transition:box-shadow .2s ease,transform .15s ease}
+.adcard:hover{box-shadow:0 0 34px rgba(255,110,199,.45);transform:translateY(-3px)}
+.afterdark h2{animation:mdglow 3.2s ease-in-out infinite}
+@keyframes mdglow{0%,100%{text-shadow:0 0 18px rgba(255,110,199,.9),0 0 60px rgba(255,110,199,.5)}
+50%{text-shadow:0 0 28px rgba(255,110,199,1),0 0 90px rgba(255,110,199,.7)}}
+}
+.adbtn{display:inline-block;margin-top:1.8rem;color:var(--neon-gold);
+border:2px solid var(--neon-gold);border-radius:999px;padding:.75rem 2rem;
+font-weight:600;text-decoration:none;
+box-shadow:0 0 22px rgba(255,210,74,.25) inset,0 0 18px rgba(255,210,74,.2)}
+.adbtn:visited{color:var(--neon-gold)}
+.adbtn:hover{background:rgba(255,210,74,.14);text-decoration:none}
+
+/* --- the gold band -------------------------------------------------------
+   The claim door, said loudly and once. The gemba walk found eight ways in
+   and no reason to walk through any of them; this is the reason, in the one
+   place a shop owner scrolling past cannot miss it. */
+.goldband{background:var(--gold-light);border:2px solid var(--ink);
+border-radius:20px;margin:2.4rem 0 0;padding:1.6rem 1.4rem;display:flex;
+align-items:center;justify-content:space-between;gap:1.4rem;flex-wrap:wrap;
+box-shadow:5px 5px 0 var(--gold)}
+.goldband h2{margin:0 0 .3rem;border:0;padding:0;font-size:1.55rem}
+.goldband p{margin:0;color:#6b5322;font-size:1rem}
+.goldbandcta{flex:0 0 auto;background:var(--ink);color:var(--gold-light);
+padding:.9rem 2rem;border-radius:999px;font-weight:600;text-decoration:none;
+box-shadow:0 3px 0 #160f0a}
+.goldbandcta:visited{color:var(--gold-light)}
+.goldbandcta:hover{background:var(--ant);color:var(--paper);text-decoration:none}
+
+/* --- sections, credits, and the note that points at them ---------------- */
+.moodsec{margin:2.4rem 0 0}
+.sectiontitle{font-size:clamp(1.5rem,3vw,2.1rem);border:0;padding:0;margin:0 0 1rem}
+.picturenote{margin:2rem 0 0;font-size:.9rem;color:var(--gloss)}
+table.credits{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.92rem}
+table.credits th{text-align:left;border-bottom:2px solid var(--ink);padding:.5rem .6rem}
+table.credits td{border-bottom:1px solid var(--soft);padding:.55rem .6rem;
+vertical-align:top}
+.credshot{width:120px;height:80px;object-fit:cover;border-radius:9px;
+border:1px solid var(--warm-border);display:block}
+.credmeta{color:var(--mute);font-size:.84rem}
+@media (max-width:600px){
+.credshot{width:76px;height:54px}
+table.credits{font-size:.84rem}
+table.credits td,table.credits th{padding:.4rem .3rem}
+/* The collage becomes one band on a phone. The pictures are worth keeping;
+   two screens of them before the day's colour are not. The type comes down
+   with it for the same reason — everything above the almanac is rent, and the
+   person this page is really for opens it to see what colour the day is.
+   (The route-planner promo above the grid is 1,600 px on this width and is
+   the bigger cost by far. That is not this block's to fix.) */
+.hero{gap:1.1rem;margin:.2rem 0 1.4rem}
+.herotitle{font-size:1.55rem;margin-bottom:.35rem}
+body.lang-both .herotitle .en,body.lang-en .herotitle .en{font-size:.5em}
+.heroeyebrow{font-size:.86rem;margin-bottom:.3rem}
+.herosub{font-size:.94rem;margin-bottom:.6rem}
+.heroart{height:150px}
+.heroart .b,.heroart .c{display:none}
+.heroart .a{width:100%;height:100%;transform:none}
+.herosticker{left:auto;right:10px;top:-12px}
+.moodgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.7rem}
+.moodcard img{height:96px}
+.goldband{padding:1.2rem 1rem}
+.afterdark .inner{padding:2rem 1rem 1.6rem}
+.adcard img{height:200px}
+}
+
+/* --- motion -------------------------------------------------------------
+   md.js reveals these on scroll. The rule is scoped to .js-reveal, a class
+   md.js adds to <html> itself, so with scripting off or broken nothing is
+   ever left invisible — the commonest way a reveal effect eats a page. */
+@media (prefers-reduced-motion:no-preference){
+.js-reveal [data-reveal]{opacity:0;transform:translateY(26px);
+transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+.js-reveal [data-reveal].shown{opacity:1;transform:none}
 }

@@ -46,6 +46,29 @@ Rules that bite:
   `../taoist-oracle`. Edit it there and regenerate, or `tests/test_bazi_parity.py`
   starts failing. It and `data/solar_terms.json` are copied into `docs/` by
   build.py — never hand-place them, docs/ is wiped every run.
+- The look comes from a Claude Design study Nan approved. The palette lives in
+  `:root` and the whole design layer sits in ONE block at the end of `CSS` —
+  ribbon, sticker shadows, hero, mood cards, after dark, the gold claim band.
+  Retune the variables, not the rules. Two things from that study are refused
+  on purpose and must stay refused: star ratings and review counts (we hold no
+  ratings; drawing them invents facts about named businesses) and a Leaflet map
+  on third-party tiles (every tile is a request to someone else's server from a
+  site that promises it follows no one around).
+- Type is self-hosted in `assets/fonts/` — Chonburi, Prompt, Sriracha, all SIL
+  OFL, licences beside the files and copied into `docs/fonts/` by build.py.
+  Chonburi is a display face: headings only, never running text, and it has no
+  bold, so `<b>` inside a heading falls back to Prompt.
+- `data/curated/image_picks.json` + `assets/site/` are Nan's own city pictures,
+  resolved by `importers/import_image_picks.py`. They are the site's FURNITURE,
+  not place photos: a picture of a red songthaew may head the transport shelf
+  without being that songthaew. Reach them through `art()` on four axes —
+  topic, season, place, mood. It is deterministic on purpose (a random pick
+  would redraw the homepage every build) and returns nothing rather than
+  something else when a request cannot be met. `local=True` for anything over a
+  shelf, and `not_topic=("people",)` for decoration: a portrait used as
+  wallpaper or as a category tile makes scenery of a named stranger, which is
+  the framing this site does not do. Credit is a licence condition, not a
+  courtesy — `/pictures.html` is generated from what was actually drawn.
 - Run `tests/test_publish_gate.py` after the build and before `git add docs/`.
 - Every image says what it is FOR, not what it is. `tests/test_alt_text.py`
   fails a missing `alt`, an unlabelled `role="img"`, and a label that is only

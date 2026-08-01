@@ -1,0 +1,3853 @@
+{
+ "note": "Hand-picked city photographs for the site's own furniture. Every entry carries the licence and the photographer it arrived with; nothing is published without them.",
+ "source": "data/curated/image_picks_sources.txt",
+ "picks": [
+  {
+   "title": "File:Songkran 012.jpg",
+   "slug": "songkran-012",
+   "page": "https://commons.wikimedia.org/wiki/File:Songkran_012.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Songkran_012.jpg/1280px-Songkran_012.jpg",
+   "width": 1000,
+   "height": 738,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "The roads along the old moat of Chiang Mai are full of vehicles during the Songkran water splashing festival.",
+   "date": "2009-04-14",
+   "topic": [
+    "festival",
+    "city"
+   ],
+   "season": [
+    "hot"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/songkran-012.jpg"
+  },
+  {
+   "title": "File:Preparing Ok Phansa festival.jpg",
+   "slug": "preparing-ok-phansa-festival",
+   "page": "https://commons.wikimedia.org/wiki/File:Preparing_Ok_Phansa_festival.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Preparing_Ok_Phansa_festival.jpg/1280px-Preparing_Ok_Phansa_festival.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY-SA 4.0",
+   "artist": "ASITRAC",
+   "credit": "Own work",
+   "description": "Preparing Ok Phansa festival, end of Buddhist lent. Along the Mekong river, Luang Prabang, Louang Prabang, Laos",
+   "date": "2015-10-26 13:41:36",
+   "topic": [
+    "festival",
+    "nature"
+   ],
+   "season": [
+    "rains"
+   ],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "festive",
+    "green"
+   ],
+   "usable": true,
+   "file": "site/preparing-ok-phansa-festival.jpg"
+  },
+  {
+   "title": "File:Chiang Mai, Procession, Lantern Festival, Thailand.jpg",
+   "slug": "chiang-mai-procession-lantern-festival-thailand",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai,_Procession,_Lantern_Festival,_Thailand.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Chiang_Mai%2C_Procession%2C_Lantern_Festival%2C_Thailand.jpg/1280px-Chiang_Mai%2C_Procession%2C_Lantern_Festival%2C_Thailand.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY 4.0",
+   "artist": "Vyacheslav Argenberg",
+   "credit": "Own work",
+   "description": "Loy Krathong. Yee Peng. Siamese Lantern Festival. Full moon of the 12th month in the traditional Thai lunar calendar. Chiang Mai, Thailand.",
+   "date": "2010-11-20 18:51:55",
+   "topic": [
+    "festival"
+   ],
+   "season": [
+    "cool"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-procession-lantern-festival-thailand.jpg"
+  },
+  {
+   "title": "File:Flower Festival Chiang Mai - P1150971.JPG",
+   "slug": "flower-festival-chiang-mai-p1150971",
+   "page": "https://commons.wikimedia.org/wiki/File:Flower_Festival_Chiang_Mai_-_P1150971.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Flower_Festival_Chiang_Mai_-_P1150971.JPG/1280px-Flower_Festival_Chiang_Mai_-_P1150971.JPG",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 3.0",
+   "artist": "FredTC",
+   "credit": "Own work",
+   "description": "Flower Festival Parade Chiang Mai 2013",
+   "date": "2013-02-02",
+   "topic": [
+    "festival",
+    "nature"
+   ],
+   "season": [
+    "cool"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive",
+    "green"
+   ],
+   "usable": true,
+   "file": "site/flower-festival-chiang-mai-p1150971.jpg"
+  },
+  {
+   "title": "File:Festival Yi Peng. ChiangMai, Tailandia. (16786888573).jpg",
+   "slug": "festival-yi-peng-chiangmai-tailandia-16786888573",
+   "page": "https://commons.wikimedia.org/wiki/File:Festival_Yi_Peng._ChiangMai,_Tailandia._(16786888573).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Festival_Yi_Peng._ChiangMai%2C_Tailandia._%2816786888573%29.jpg/1280px-Festival_Yi_Peng._ChiangMai%2C_Tailandia._%2816786888573%29.jpg",
+   "width": 1000,
+   "height": 677,
+   "licence": "CC BY-SA 2.0",
+   "artist": "Carlos Adampol Galindo from DF, México",
+   "credit": "Festival Yi Peng. ChiangMai, Tailandia.",
+   "description": "Festival Yi Peng. ChiangMai, Tailandia.",
+   "date": "2014-10-24 21:07",
+   "topic": [
+    "festival"
+   ],
+   "season": [
+    "cool"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/festival-yi-peng-chiangmai-tailandia-16786888573.jpg"
+  },
+  {
+   "title": "File:Poy Sang Long Festival in Chiang Mai DSCN4933.jpg",
+   "slug": "poy-sang-long-festival-in-chiang-mai-dscn4933",
+   "page": "https://commons.wikimedia.org/wiki/File:Poy_Sang_Long_Festival_in_Chiang_Mai_DSCN4933.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Poy_Sang_Long_Festival_in_Chiang_Mai_DSCN4933.jpg/1280px-Poy_Sang_Long_Festival_in_Chiang_Mai_DSCN4933.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "FredTC",
+   "credit": "Own work",
+   "description": "Jaarlijks in maart of april is er het Poy Sang Long Festival, waar jongens in de leeftijd 7-14 jaar als prinsjes worden rondgedragen. Dit kan op schouders of op een pony.",
+   "date": "2005-03-22 11:02:14",
+   "topic": [
+    "festival",
+    "arts"
+   ],
+   "season": [
+    "hot"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/poy-sang-long-festival-in-chiang-mai-dscn4933.jpg"
+  },
+  {
+   "title": "File:Poy Sang Long Festival in Chiang Mai P1020783.jpg",
+   "slug": "poy-sang-long-festival-in-chiang-mai-p1020783",
+   "page": "https://commons.wikimedia.org/wiki/File:Poy_Sang_Long_Festival_in_Chiang_Mai_P1020783.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Poy_Sang_Long_Festival_in_Chiang_Mai_P1020783.jpg/1280px-Poy_Sang_Long_Festival_in_Chiang_Mai_P1020783.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "FredTC",
+   "credit": "Own work",
+   "description": "Jaarlijks in maart of april is er het Poy Sang Long Festival, waar jongens in de leeftijd 7-14 jaar als prinsjes worden rondgedragen. Dit kan op schouders of op een pony.",
+   "date": "2007-04-04 10:06:33",
+   "topic": [
+    "festival",
+    "arts"
+   ],
+   "season": [
+    "hot"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/poy-sang-long-festival-in-chiang-mai-p1020783.jpg"
+  },
+  {
+   "title": "File:Chiang Mai, Loy Krathong Lantern Festival 3, Thailand.jpg",
+   "slug": "chiang-mai-loy-krathong-lantern-festival-3-thailand",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai,_Loy_Krathong_Lantern_Festival_3,_Thailand.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Chiang_Mai%2C_Loy_Krathong_Lantern_Festival_3%2C_Thailand.jpg/1280px-Chiang_Mai%2C_Loy_Krathong_Lantern_Festival_3%2C_Thailand.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY 4.0",
+   "artist": "Vyacheslav Argenberg",
+   "credit": "Own work",
+   "description": "Loy Krathong. Yee Peng. Siamese Lantern Festival. Full moon of the 12th month in the traditional Thai lunar calendar. Chiang Mai, Thailand.",
+   "date": "2010-11-20 19:47:02",
+   "topic": [
+    "festival"
+   ],
+   "season": [
+    "cool"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-loy-krathong-lantern-festival-3-thailand.jpg"
+  },
+  {
+   "title": "File:Chiang Mai Thailand Chiang-Mai-Railway-Station-01.jpg",
+   "slug": "chiang-mai-thailand-chiang-mai-railway-station-01",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_Thailand_Chiang-Mai-Railway-Station-01.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Chiang_Mai_Thailand_Chiang-Mai-Railway-Station-01.jpg/1280px-Chiang_Mai_Thailand_Chiang-Mai-Railway-Station-01.jpg",
+   "width": 1000,
+   "height": 465,
+   "licence": "CC BY-SA 4.0",
+   "artist": "CEphoto, Uwe Aranas",
+   "credit": "Own work",
+   "description": "Chiang Mai, Thailand: Chiang Mai Railway Station",
+   "date": "2017-04-17",
+   "topic": [
+    "transport"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-thailand-chiang-mai-railway-station-01.jpg"
+  },
+  {
+   "title": "File:Chiang Mai - East gate of the city wall - 0001.jpg",
+   "slug": "chiang-mai-east-gate-of-the-city-wall-0001",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_-_East_gate_of_the_city_wall_-_0001.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Chiang_Mai_-_East_gate_of_the_city_wall_-_0001.jpg/1280px-Chiang_Mai_-_East_gate_of_the_city_wall_-_0001.jpg",
+   "width": 1000,
+   "height": 605,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Stefan Fussan",
+   "credit": "Own work - My images are also available on MyPortfolio",
+   "description": "East gate (Tha Phae Gate) of the city wall, Chiang Mai, Thailand",
+   "date": "2014-05-23",
+   "topic": [
+    "city"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-east-gate-of-the-city-wall-0001.jpg"
+  },
+  {
+   "title": "File:Unidentified spirit house and temple ruin in Chiang Mai.jpg",
+   "slug": "unidentified-spirit-house-and-temple-ruin-in-chiang-mai",
+   "page": "https://commons.wikimedia.org/wiki/File:Unidentified_spirit_house_and_temple_ruin_in_Chiang_Mai.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Unidentified_spirit_house_and_temple_ruin_in_Chiang_Mai.jpg/1280px-Unidentified_spirit_house_and_temple_ruin_in_Chiang_Mai.jpg",
+   "width": 1000,
+   "height": 1000,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Kate Branch",
+   "credit": "Own work",
+   "description": "Unidentified temple ruin in Chiang Mai.",
+   "date": "2016-03-30 15:45:39",
+   "topic": [
+    "wat",
+    "mu",
+    "history"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/unidentified-spirit-house-and-temple-ruin-in-chiang-mai.jpg"
+  },
+  {
+   "title": "File:Warorot Market 01.jpg",
+   "slug": "warorot-market-01",
+   "page": "https://commons.wikimedia.org/wiki/File:Warorot_Market_01.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/50/Warorot_Market_01.jpg",
+   "width": 1238,
+   "height": 824,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Department of Tourism Thailand: LannaPhoto",
+   "credit": "Own work",
+   "description": "Warorot market (Kat in northern Thai word) is \"The Great Kat\" which shows the everyday life as a social acquaintance, simple, convenient and economical. Diversity in agricultural products create colorful flower market from dawn to late night.",
+   "date": "2013-10-31 12:01:42",
+   "topic": [
+    "market",
+    "night",
+    "nature"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "neon",
+    "streetlife",
+    "green"
+   ],
+   "usable": true,
+   "file": "site/warorot-market-01.jpg"
+  },
+  {
+   "title": "File:Sunday night market in Chiang Mai.jpg",
+   "slug": "sunday-night-market-in-chiang-mai",
+   "page": "https://commons.wikimedia.org/wiki/File:Sunday_night_market_in_Chiang_Mai.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Sunday_night_market_in_Chiang_Mai.jpg",
+   "width": 800,
+   "height": 533,
+   "licence": "CC BY 2.0",
+   "artist": "Nicolai Bangsgaard",
+   "credit": "The Sunday night market in Chiang Mai",
+   "description": "Sunday night market in Chiang Mai",
+   "date": "Taken on 25 March 2007, 22:44",
+   "topic": [
+    "market",
+    "night"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "neon",
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/sunday-night-market-in-chiang-mai.jpg"
+  },
+  {
+   "title": "File:หอนาฬิกาเชียงราย Chiang Rai Clock Tower.jpg",
+   "slug": "chiang-rai-clock-tower",
+   "page": "https://commons.wikimedia.org/wiki/File:%E0%B8%AB%E0%B8%AD%E0%B8%99%E0%B8%B2%E0%B8%AC%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2_Chiang_Rai_Clock_Tower.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/%E0%B8%AB%E0%B8%AD%E0%B8%99%E0%B8%B2%E0%B8%AC%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2_Chiang_Rai_Clock_Tower.jpg/1280px-%E0%B8%AB%E0%B8%AD%E0%B8%99%E0%B8%B2%E0%B8%AC%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2_Chiang_Rai_Clock_Tower.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Chainwit.",
+   "credit": "Own work",
+   "description": "Chaloem Phra Kiat Chiang Rai Clock Tower / Buddha Shilpa Clock Tower (Phuttha Sin) / Chiang Rai Clock Tower",
+   "date": "2020-10-25 11:07:26",
+   "topic": [
+    "wat",
+    "city"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/chiang-rai-clock-tower.jpg"
+  },
+  {
+   "title": "File:หอนาฬิกา เชียงราย ปี 2561 Clock Tower at Chiang Rai in 2018 (1).jpg",
+   "slug": "2561-clock-tower-at-chiang-rai-in-2018-1",
+   "page": "https://commons.wikimedia.org/wiki/File:%E0%B8%AB%E0%B8%AD%E0%B8%99%E0%B8%B2%E0%B8%AC%E0%B8%B4%E0%B8%81%E0%B8%B2_%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2_%E0%B8%9B%E0%B8%B5_2561_Clock_Tower_at_Chiang_Rai_in_2018_(1).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/%E0%B8%AB%E0%B8%AD%E0%B8%99%E0%B8%B2%E0%B8%AC%E0%B8%B4%E0%B8%81%E0%B8%B2_%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2_%E0%B8%9B%E0%B8%B5_2561_Clock_Tower_at_Chiang_Rai_in_2018_%281%29.jpg/1280px-%E0%B8%AB%E0%B8%AD%E0%B8%99%E0%B8%B2%E0%B8%AC%E0%B8%B4%E0%B8%81%E0%B8%B2_%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2_%E0%B8%9B%E0%B8%B5_2561_Clock_Tower_at_Chiang_Rai_in_2018_%281%29.jpg",
+   "width": 1000,
+   "height": 1332,
+   "licence": "CC BY-SA 4.0",
+   "artist": "กสิณธร ราชโอรส",
+   "credit": "Own work",
+   "description": "",
+   "date": "2018-12-09 20:43:29",
+   "topic": [
+    "city"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/2561-clock-tower-at-chiang-rai-in-2018-1.jpg"
+  },
+  {
+   "title": "File:Chiangrai Montage.jpg",
+   "slug": "chiangrai-montage",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiangrai_Montage.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Chiangrai_Montage.jpg/1280px-Chiangrai_Montage.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY-SA 3.0",
+   "artist": "File:Chiang Rai Clock Tower.JPG : (WT-shared) Roundtheworld at wts wikivoyage File:Wat Phra Kaew Chiang Rai.jpg : User:Chainwit. File:สวนดอกไม้ที่พระตำหนักดอยตุง , @ Mae Fah Luang Garden - panoramio.jpg : [1] File:Mangrai Monument.jpg : Thanyakij at Thai Wikipedia File:Golden Triangel at Amphoe Chiang Saen.jpg : User:Oatz File:20171107 White Temple Chiang Rai 0196 DxO.jpg : User:jakubhal derivative work: User:Chainwit.",
+   "credit": "This file was derived from: Chiang Rai Clock Tower.JPG : Wat Phra Kaew Chiang Rai.jpg : สวนดอกไม้ที่พระตำหนักดอยตุง , @ Mae Fah Luang Garden - panoramio.jpg : Mangrai Monument.jpg : Golden Triangel at Amphoe Chiang Saen.jpg : 20171107 White Temple Chiang Rai 0196 DxO.jpg :",
+   "description": "Photo montage of Chaing Rai—Clockwise from top: King Mangrai Monument, Wat Phra Kaew of Chiang Rai , Wat Rong Khun , Golden Triangle Border in Chiang Saen, Chiang Rai City Clocktower, Doi Tung Royal Villa",
+   "date": "2018-12-10 15:10:47",
+   "topic": [
+    "wat",
+    "nature",
+    "arts"
+   ],
+   "season": [
+    "cool"
+   ],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred",
+    "green",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiangrai-montage.jpg"
+  },
+  {
+   "title": "File:Wat Rong Suea Ten (Blue Temple, Chiang Rai) วัดร่องเสือเต้น (October 2021) - img 02.jpg",
+   "slug": "wat-rong-suea-ten-blue-temple-chiang-rai-october-2021-img-02",
+   "page": "https://commons.wikimedia.org/wiki/File:Wat_Rong_Suea_Ten_(Blue_Temple,_Chiang_Rai)_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B9%89%E0%B8%99_(October_2021)_-_img_02.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Wat_Rong_Suea_Ten_%28Blue_Temple%2C_Chiang_Rai%29_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B9%89%E0%B8%99_%28October_2021%29_-_img_02.jpg/1280px-Wat_Rong_Suea_Ten_%28Blue_Temple%2C_Chiang_Rai%29_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B9%89%E0%B8%99_%28October_2021%29_-_img_02.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Chainwit.",
+   "credit": "Own work",
+   "description": "Wat Rong Suea Ten (the Blue Temple of Chiang Rai)",
+   "date": "2021-10-25",
+   "topic": [
+    "wat"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/wat-rong-suea-ten-blue-temple-chiang-rai-october-2021-img-02.jpg"
+  },
+  {
+   "title": "File:King Mangrai Monument อนุสาวรีย์พ่อขุนมังราย ห้าแยกพ่อขุนฯ (October 2021) - img 03.jpg",
+   "slug": "king-mangrai-monument-october-2021-img-03",
+   "page": "https://commons.wikimedia.org/wiki/File:King_Mangrai_Monument_%E0%B8%AD%E0%B8%99%E0%B8%B8%E0%B8%AA%E0%B8%B2%E0%B8%A7%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9E%E0%B9%88%E0%B8%AD%E0%B8%82%E0%B8%B8%E0%B8%99%E0%B8%A1%E0%B8%B1%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2_%E0%B8%AB%E0%B9%89%E0%B8%B2%E0%B9%81%E0%B8%A2%E0%B8%81%E0%B8%9E%E0%B9%88%E0%B8%AD%E0%B8%82%E0%B8%B8%E0%B8%99%E0%B8%AF_(October_2021)_-_img_03.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/King_Mangrai_Monument_%E0%B8%AD%E0%B8%99%E0%B8%B8%E0%B8%AA%E0%B8%B2%E0%B8%A7%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9E%E0%B9%88%E0%B8%AD%E0%B8%82%E0%B8%B8%E0%B8%99%E0%B8%A1%E0%B8%B1%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2_%E0%B8%AB%E0%B9%89%E0%B8%B2%E0%B9%81%E0%B8%A2%E0%B8%81%E0%B8%9E%E0%B9%88%E0%B8%AD%E0%B8%82%E0%B8%B8%E0%B8%99%E0%B8%AF_%28October_2021%29_-_img_03.jpg/1280px-King_Mangrai_Monument_%E0%B8%AD%E0%B8%99%E0%B8%B8%E0%B8%AA%E0%B8%B2%E0%B8%A7%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9E%E0%B9%88%E0%B8%AD%E0%B8%82%E0%B8%B8%E0%B8%99%E0%B8%A1%E0%B8%B1%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2_%E0%B8%AB%E0%B9%89%E0%B8%B2%E0%B9%81%E0%B8%A2%E0%B8%81%E0%B8%9E%E0%B9%88%E0%B8%AD%E0%B8%82%E0%B8%B8%E0%B8%99%E0%B8%AF_%28October_2021%29_-_img_03.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Chainwit.",
+   "credit": "Own work",
+   "description": "King Mangrai (Mengrai) Monument at Pho Khun intersection, Chiang Rai",
+   "date": "2021-10-26 09:23:32",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/king-mangrai-monument-october-2021-img-03.jpg"
+  },
+  {
+   "title": "File:Wat Rong Khun; White Temple North Thailand.jpg",
+   "slug": "wat-rong-khun-white-temple-north-thailand",
+   "page": "https://commons.wikimedia.org/wiki/File:Wat_Rong_Khun;_White_Temple_North_Thailand.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Wat_Rong_Khun%3B_White_Temple_North_Thailand.jpg/1280px-Wat_Rong_Khun%3B_White_Temple_North_Thailand.jpg",
+   "width": 1000,
+   "height": 665,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Hans-Jürgen Neubert",
+   "credit": "Own work",
+   "description": "Wat Rong Khun , The bridge of \"the cycle of rebirth\", White Tempel, Thailand",
+   "date": "11 July 2015, 02:41:35",
+   "topic": [
+    "wat",
+    "city"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/wat-rong-khun-white-temple-north-thailand.jpg"
+  },
+  {
+   "title": "File:Wat Rong Khun (White Temple) - By Chalermchai Kositpipat - Chiang Rai - Thailand - 03 (35152189081).jpg",
+   "slug": "wat-rong-khun-white-temple-by-chalermchai-kositpipat-chiang",
+   "page": "https://commons.wikimedia.org/wiki/File:Wat_Rong_Khun_(White_Temple)_-_By_Chalermchai_Kositpipat_-_Chiang_Rai_-_Thailand_-_03_(35152189081).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Wat_Rong_Khun_%28White_Temple%29_-_By_Chalermchai_Kositpipat_-_Chiang_Rai_-_Thailand_-_03_%2835152189081%29.jpg/1280px-Wat_Rong_Khun_%28White_Temple%29_-_By_Chalermchai_Kositpipat_-_Chiang_Rai_-_Thailand_-_03_%2835152189081%29.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 2.0",
+   "artist": "Adam Jones from Kelowna, BC, Canada",
+   "credit": "Wat Rong Khun (White Temple) - By Chalermchai Kositpipat - Chiang Rai - Thailand - 03",
+   "description": "Wat Rong Khun (White Temple) - By Chalermchai Kositpipat - Chiang Rai - Thailand - 03",
+   "date": "2017-06-13 00:20",
+   "topic": [
+    "wat",
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/wat-rong-khun-white-temple-by-chalermchai-kositpipat-chiang.jpg"
+  },
+  {
+   "title": "File:Naga From Wat Phrathat Doi Suthep Chiang Mai Thailand.jpg",
+   "slug": "naga-from-wat-phrathat-doi-suthep-chiang-mai-thailand",
+   "page": "https://commons.wikimedia.org/wiki/File:Naga_From_Wat_Phrathat_Doi_Suthep_Chiang_Mai_Thailand.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Naga_From_Wat_Phrathat_Doi_Suthep_Chiang_Mai_Thailand.jpg/1280px-Naga_From_Wat_Phrathat_Doi_Suthep_Chiang_Mai_Thailand.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 3.0",
+   "artist": "天上的雲彩 與我對話 06:50, 10 June 2009 (UTC)",
+   "credit": "Own work",
+   "description": "攝於泰國清邁วัดพระธาตุดอยสุเทพ(Wat Phrathat Doi Suthep)前的Naga",
+   "date": "2009-06-10 06:49:07",
+   "topic": [
+    "wat",
+    "nature"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred",
+    "green"
+   ],
+   "usable": true,
+   "file": "site/naga-from-wat-phrathat-doi-suthep-chiang-mai-thailand.jpg"
+  },
+  {
+   "title": "File:Golden Buddha in Golden Triangle.jpg",
+   "slug": "golden-buddha-in-golden-triangle",
+   "page": "https://commons.wikimedia.org/wiki/File:Golden_Buddha_in_Golden_Triangle.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Golden_Buddha_in_Golden_Triangle.jpg/1280px-Golden_Buddha_in_Golden_Triangle.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY 4.0",
+   "artist": "Douglas Perkins",
+   "credit": "Own work",
+   "description": "A golden seated Buddha statue in the Golden Triangle. Sop Ruak, Chiang Rai, Thailand.",
+   "date": "2014-12-30 13:36:42",
+   "topic": [
+    "wat",
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/golden-buddha-in-golden-triangle.jpg"
+  },
+  {
+   "title": "File:Golden Triangle Mekong at Doi Pu Khao 06.jpg",
+   "slug": "golden-triangle-mekong-at-doi-pu-khao-06",
+   "page": "https://commons.wikimedia.org/wiki/File:Golden_Triangle_Mekong_at_Doi_Pu_Khao_06.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Golden_Triangle_Mekong_at_Doi_Pu_Khao_06.jpg/1280px-Golden_Triangle_Mekong_at_Doi_Pu_Khao_06.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Chainwit.",
+   "credit": "Own work",
+   "description": "Golden Triangle viewpoint at Wat Phra That Doi Pu Khao",
+   "date": "2021-10-26",
+   "topic": [
+    "wat",
+    "nature"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred",
+    "green"
+   ],
+   "usable": true,
+   "file": "site/golden-triangle-mekong-at-doi-pu-khao-06.jpg"
+  },
+  {
+   "title": "File:Classical Thai Massage at Tara Angkor Hotel (5918685202).jpg",
+   "slug": "classical-thai-massage-at-tara-angkor-hotel-5918685202",
+   "page": "https://commons.wikimedia.org/wiki/File:Classical_Thai_Massage_at_Tara_Angkor_Hotel_(5918685202).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/69/Classical_Thai_Massage_at_Tara_Angkor_Hotel_%285918685202%29.jpg",
+   "width": 1024,
+   "height": 683,
+   "licence": "CC BY 2.0",
+   "artist": "Tara Angkor Hotel",
+   "credit": "https://www.flickr.com/photos/taraangkorhotel/5918685202/",
+   "description": "Classical Thai massage at Tara Angkor Hotel. The Thai massage is primarily based on an acupressure system of Chinese and Ayurvedic medicine with an added touch of yoga.",
+   "date": "2011-07-09 20:51:58",
+   "topic": [
+    "stay",
+    "wellness"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "usable": true,
+   "file": "site/classical-thai-massage-at-tara-angkor-hotel-5918685202.jpg"
+  },
+  {
+   "title": "File:Spirit-offerings-red-drinks IMG 5981.jpg",
+   "slug": "spirit-offerings-red-drinks-img-5981",
+   "page": "https://commons.wikimedia.org/wiki/File:Spirit-offerings-red-drinks_IMG_5981.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/db/Spirit-offerings-red-drinks_IMG_5981.jpg",
+   "width": 1024,
+   "height": 794,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Per Meistrup",
+   "credit": "Own work",
+   "description": "Offerings of red drinks, both Red Fanta, and local red \"est\", and others, at front of Spirit House. (Chaweng Noi viewpoint, Koh Samui, Thailand, 2016)",
+   "date": "2016-11-12 17:00:54",
+   "topic": [
+    "mu"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/spirit-offerings-red-drinks-img-5981.jpg"
+  },
+  {
+   "title": "File:Spirit-House-by-road IMG 5963.jpg",
+   "slug": "spirit-house-by-road-img-5963",
+   "page": "https://commons.wikimedia.org/wiki/File:Spirit-House-by-road_IMG_5963.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Spirit-House-by-road_IMG_5963.jpg",
+   "width": 1024,
+   "height": 1024,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Per Meistrup",
+   "credit": "Own work",
+   "description": "Spirit Houses with multiple offerings at a road curve. Bypassing vehicles honk their horn twice, when they pass the ghost spirit(s). Many of the offerings are Red Fanta, which may symbolize blood, says one of more explanations. (Chaweng Noi Viewpoint, Koh Samui, Thailand, 2016)",
+   "date": "2016-11-12 16:57:23",
+   "topic": [
+    "mu"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/spirit-house-by-road-img-5963.jpg"
+  },
+  {
+   "title": "File:Monks in Wat Phra Singh - Chiang Mai.jpg",
+   "slug": "monks-in-wat-phra-singh-chiang-mai",
+   "page": "https://commons.wikimedia.org/wiki/File:Monks_in_Wat_Phra_Singh_-_Chiang_Mai.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Monks_in_Wat_Phra_Singh_-_Chiang_Mai.jpg/1280px-Monks_in_Wat_Phra_Singh_-_Chiang_Mai.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY-SA 3.0",
+   "artist": "JJ Harrison ( https://www.jjharrison.com.au/ )",
+   "credit": "Own work",
+   "description": "Buddhist monks in the ubosot of Wat Phra Singh, Chiang Mai, Chiang Mai Province, Thailand",
+   "date": "2013-03-31 08:12:12",
+   "topic": [
+    "wat"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/monks-in-wat-phra-singh-chiang-mai.jpg"
+  },
+  {
+   "title": "File:Wat Chedi Luang, Buddhist monks in orange robes 2, Chiang Mai, Thailand.jpg",
+   "slug": "wat-chedi-luang-buddhist-monks-in-orange-robes-2-chiang-mai",
+   "page": "https://commons.wikimedia.org/wiki/File:Wat_Chedi_Luang,_Buddhist_monks_in_orange_robes_2,_Chiang_Mai,_Thailand.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Wat_Chedi_Luang%2C_Buddhist_monks_in_orange_robes_2%2C_Chiang_Mai%2C_Thailand.jpg/1280px-Wat_Chedi_Luang%2C_Buddhist_monks_in_orange_robes_2%2C_Chiang_Mai%2C_Thailand.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY 4.0",
+   "artist": "Vyacheslav Argenberg",
+   "credit": "Own work",
+   "description": "Buddhist monks in orange robes. Wat Chedi Luang. Buddhist temple in the historic centre of Chiang Mai, Thailand.",
+   "date": "2010-11-19 17:49:55",
+   "topic": [
+    "wat"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/wat-chedi-luang-buddhist-monks-in-orange-robes-2-chiang-mai.jpg"
+  },
+  {
+   "title": "File:Prathat-monks.jpg",
+   "slug": "prathat-monks",
+   "page": "https://commons.wikimedia.org/wiki/File:Prathat-monks.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/9/90/Prathat-monks.jpg",
+   "width": 720,
+   "height": 1104,
+   "licence": "CC BY 2.0",
+   "artist": "Steve Evans from Bangalore, India",
+   "credit": "Flickr",
+   "description": "Wat-Prathat-Doi-Suthep, Buddhist temple near Chiang Mai - Thailand. Canon EOS Digital Rebel, 18-55mm Canon lens Thailand",
+   "date": "2005-07-12 12:14:24",
+   "topic": [
+    "wat",
+    "nature"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred",
+    "green"
+   ],
+   "usable": true,
+   "file": "site/prathat-monks.jpg"
+  },
+  {
+   "title": "File:Thai Tattoo made by Ajarn Prayot.jpg",
+   "slug": "thai-tattoo-made-by-ajarn-prayot",
+   "page": "https://commons.wikimedia.org/wiki/File:Thai_Tattoo_made_by_Ajarn_Prayot.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Thai_Tattoo_made_by_Ajarn_Prayot.jpg",
+   "width": 720,
+   "height": 960,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Sorasak2008",
+   "credit": "Own work",
+   "description": "Thai Tattoo made by Ajarn Prayot (Bangkok Ding Daeng)",
+   "date": "2014-11-01",
+   "topic": [
+    "mu"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/thai-tattoo-made-by-ajarn-prayot.jpg"
+  },
+  {
+   "title": "File:Tung-lanna.JPG",
+   "slug": "tung-lanna",
+   "page": "https://commons.wikimedia.org/wiki/File:Tung-lanna.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tung-lanna.JPG/1280px-Tung-lanna.JPG",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY-SA 3.0",
+   "artist": "LigerCommon",
+   "credit": "Own work",
+   "description": "Temple in Mae Wang District, Chiang Mai Province",
+   "date": "2009-10-31",
+   "topic": [
+    "wat",
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm",
+    "lanna"
+   ],
+   "mood": [
+    "sacred",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/tung-lanna.jpg"
+  },
+  {
+   "title": "File:Baan Dum (Black House) - By Thawan Duchanee - Chiang Rai - Thailand - 20 (35262886726).jpg",
+   "slug": "baan-dum-black-house-by-thawan-duchanee-chiang-rai-3e555b65",
+   "page": "https://commons.wikimedia.org/wiki/File:Baan_Dum_(Black_House)_-_By_Thawan_Duchanee_-_Chiang_Rai_-_Thailand_-_20_(35262886726).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Baan_Dum_%28Black_House%29_-_By_Thawan_Duchanee_-_Chiang_Rai_-_Thailand_-_20_%2835262886726%29.jpg/1280px-Baan_Dum_%28Black_House%29_-_By_Thawan_Duchanee_-_Chiang_Rai_-_Thailand_-_20_%2835262886726%29.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY-SA 2.0",
+   "artist": "Adam Jones from Kelowna, BC, Canada",
+   "credit": "Baan Dum (Black House) - By Thawan Duchanee - Chiang Rai - Thailand - 20",
+   "description": "Baan Dum (Black House) - By Thawan Duchanee - Chiang Rai - Thailand - 20",
+   "date": "2017-06-14 00:18",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/baan-dum-black-house-by-thawan-duchanee-chiang-rai-3e555b65.jpg"
+  },
+  {
+   "title": "File:Baan Dum (Black House) - By Thawan Duchanee - Chiang Rai - Thailand - 03 (35262915806).jpg",
+   "slug": "baan-dum-black-house-by-thawan-duchanee-chiang-rai-thailand",
+   "page": "https://commons.wikimedia.org/wiki/File:Baan_Dum_(Black_House)_-_By_Thawan_Duchanee_-_Chiang_Rai_-_Thailand_-_03_(35262915806).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Baan_Dum_%28Black_House%29_-_By_Thawan_Duchanee_-_Chiang_Rai_-_Thailand_-_03_%2835262915806%29.jpg/1280px-Baan_Dum_%28Black_House%29_-_By_Thawan_Duchanee_-_Chiang_Rai_-_Thailand_-_03_%2835262915806%29.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY-SA 2.0",
+   "artist": "Adam Jones from Kelowna, BC, Canada",
+   "credit": "Baan Dum (Black House) - By Thawan Duchanee - Chiang Rai - Thailand - 03",
+   "description": "Baan Dum (Black House) - By Thawan Duchanee - Chiang Rai - Thailand - 03",
+   "date": "2017-06-13 23:19",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/baan-dum-black-house-by-thawan-duchanee-chiang-rai-thailand.jpg"
+  },
+  {
+   "title": "File:Chiang Rai Blue Temple วัดร่องเสือเต้น.jpg",
+   "slug": "chiang-rai-blue-temple",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Rai_Blue_Temple_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B9%89%E0%B8%99.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Chiang_Rai_Blue_Temple_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B9%89%E0%B8%99.jpg/1280px-Chiang_Rai_Blue_Temple_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B9%89%E0%B8%99.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Chainwit.",
+   "credit": "Own work",
+   "description": "Wat Rong Suea Ten (Thailand Blue Temple), Chiang Rai",
+   "date": "2021-12-26 10:29:31",
+   "topic": [
+    "wat"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/chiang-rai-blue-temple.jpg"
+  },
+  {
+   "title": "File:ChiangRai NightBazaar FoodCourt.JPG",
+   "slug": "chiangrai-nightbazaar-foodcourt",
+   "page": "https://commons.wikimedia.org/wiki/File:ChiangRai_NightBazaar_FoodCourt.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/ChiangRai_NightBazaar_FoodCourt.JPG/1280px-ChiangRai_NightBazaar_FoodCourt.JPG",
+   "width": 1000,
+   "height": 663,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Jpatokal",
+   "credit": "Own work",
+   "description": "Food court at Night Bazaar, Chiang Rai.",
+   "date": "2009-03",
+   "topic": [
+    "food",
+    "market",
+    "night"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "neon",
+    "appetite",
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/chiangrai-nightbazaar-foodcourt.jpg"
+  },
+  {
+   "title": "File:Maejantai Chiang Rai province 04.JPG",
+   "slug": "maejantai-chiang-rai-province-04",
+   "page": "https://commons.wikimedia.org/wiki/File:Maejantai_Chiang_Rai_province_04.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Maejantai_Chiang_Rai_province_04.JPG/1280px-Maejantai_Chiang_Rai_province_04.JPG",
+   "width": 1000,
+   "height": 642,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "A coffee plant nursery in Maejantai village, Chiang Rai province, The coffee plants are of the Arabica Catuia variety.",
+   "date": "2011-12-31",
+   "topic": [
+    "food",
+    "people"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "appetite",
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/maejantai-chiang-rai-province-04.jpg"
+  },
+  {
+   "title": "File:House of Opium.jpg",
+   "slug": "house-of-opium",
+   "page": "https://commons.wikimedia.org/wiki/File:House_of_Opium.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/House_of_Opium.jpg/1280px-House_of_Opium.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY 4.0",
+   "artist": "Douglas Perkins",
+   "credit": "Own work",
+   "description": "The House of Opium, a museum describing the history and cultivation of opium. The Golden Triangle, Sop Ruak, Chiang Rai, Thailand.",
+   "date": "2014-12-30 12:48:40",
+   "topic": [
+    "mu",
+    "arts",
+    "history"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred",
+    "festive",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/house-of-opium.jpg"
+  },
+  {
+   "title": "File:Opium Pipe - Hall of Opium - Sop Ruak - Golden Triangle - Thailand - 02 (34478942074).jpg",
+   "slug": "opium-pipe-hall-of-opium-sop-ruak-golden-triangle-thailand-0",
+   "page": "https://commons.wikimedia.org/wiki/File:Opium_Pipe_-_Hall_of_Opium_-_Sop_Ruak_-_Golden_Triangle_-_Thailand_-_02_(34478942074).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Opium_Pipe_-_Hall_of_Opium_-_Sop_Ruak_-_Golden_Triangle_-_Thailand_-_02_%2834478942074%29.jpg/1280px-Opium_Pipe_-_Hall_of_Opium_-_Sop_Ruak_-_Golden_Triangle_-_Thailand_-_02_%2834478942074%29.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 2.0",
+   "artist": "Adam Jones from Kelowna, BC, Canada",
+   "credit": "Opium Pipe - Hall of Opium - Sop Ruak - Golden Triangle - Thailand - 02",
+   "description": "Opium Pipe - Hall of Opium - Sop Ruak - Golden Triangle - Thailand - 02",
+   "date": "2017-06-15 00:49",
+   "topic": [
+    "mu",
+    "history"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/opium-pipe-hall-of-opium-sop-ruak-golden-triangle-thailand-0.jpg"
+  },
+  {
+   "title": "File:Lanna-Chiang Mai.png",
+   "slug": "lanna-chiang-mai",
+   "page": "https://commons.wikimedia.org/wiki/File:Lanna-Chiang_Mai.png",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Lanna-Chiang_Mai.png",
+   "width": 240,
+   "height": 121,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Photon34",
+   "credit": "Own work",
+   "description": "Lanna-Name of District in the North of Thailand",
+   "date": "2013-07-21 16:59:08",
+   "topic": [
+    "arts",
+    "history"
+   ],
+   "caption_th": "แผนที่เขตล้านนาในภาคเหนือ",
+   "caption_en": "a map of the Lanna districts of the north",
+   "tagged_by": "eye",
+   "season": [],
+   "place": [
+    "cm",
+    "lanna"
+   ],
+   "mood": [
+    "festive",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/lanna-chiang-mai.jpg"
+  },
+  {
+   "title": "File:Lanna cuisine starters.JPG",
+   "slug": "lanna-cuisine-starters",
+   "page": "https://commons.wikimedia.org/wiki/File:Lanna_cuisine_starters.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Lanna_cuisine_starters.JPG/1280px-Lanna_cuisine_starters.JPG",
+   "width": 1000,
+   "height": 1000,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "A sampling of Northern Thai (Lanna) cuisine, here served as starters at \"Huen Muan Jai\" northern Thai restaurant in Chiang Mai. Starting from the top: nam phrik ong (tomato and pork chilli dip), to the left is kaeng hangle (northern Thai pork curry), in the middle is nam phrik num (mashed grilled green chillies, shallots and garlic), below is a small bowl of kaep mu (deep-fried pork rinds), with slices of sai ua (grilled spicy pork sausage) and si khrong mu thot (deep-fried pieces of pork ribs) left of it. The vegetables, excepting the cucumber, are all steamed.",
+   "date": "2011-12-18",
+   "topic": [
+    "food"
+   ],
+   "season": [
+    "rains"
+   ],
+   "place": [
+    "cm",
+    "lanna"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/lanna-cuisine-starters.jpg"
+  },
+  {
+   "title": "File:Thai dancer Chiang Mai 2005 003.jpg",
+   "slug": "thai-dancer-chiang-mai-2005-003",
+   "page": "https://commons.wikimedia.org/wiki/File:Thai_dancer_Chiang_Mai_2005_003.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Thai_dancer_Chiang_Mai_2005_003.jpg/1280px-Thai_dancer_Chiang_Mai_2005_003.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 3.0",
+   "artist": "YashiWong",
+   "credit": "Own work",
+   "description": "Thai dancer. Chiang Mai 2005",
+   "date": "2009-01-24 21:25:46",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/thai-dancer-chiang-mai-2005-003.jpg"
+  },
+  {
+   "title": "File:Cabaret Show, Chiang Mai (5888672136).jpg",
+   "slug": "cabaret-show-chiang-mai-5888672136",
+   "page": "https://commons.wikimedia.org/wiki/File:Cabaret_Show,_Chiang_Mai_(5888672136).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Cabaret_Show%2C_Chiang_Mai_%285888672136%29.jpg",
+   "width": 1200,
+   "height": 1600,
+   "licence": "CC BY 2.0",
+   "artist": "nakhon100",
+   "credit": "Cabaret Show, Chiang Mai",
+   "description": "Cabaret Show, Chiang Mai",
+   "date": "2011-06-29 14:43",
+   "topic": [
+    "night"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "neon"
+   ],
+   "usable": true,
+   "file": "site/cabaret-show-chiang-mai-5888672136.jpg"
+  },
+  {
+   "title": "File:LaoFood LarbNeua.JPG",
+   "slug": "laofood-larbneua",
+   "page": "https://commons.wikimedia.org/wiki/File:LaoFood_LarbNeua.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/LaoFood_LarbNeua.JPG/1280px-LaoFood_LarbNeua.JPG",
+   "width": 1000,
+   "height": 665,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Jpatokal",
+   "credit": "Own work",
+   "description": "Larb neua (Lao-style beef salad). Taken at Dok Champa Restaurant, Vientiane, Laos.",
+   "date": "2008-03",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/laofood-larbneua.jpg"
+  },
+  {
+   "title": "File:Lanna Thai Restaurant Großrinderfeld 4.jpg",
+   "slug": "lanna-thai-restaurant-gro-rinderfeld-4",
+   "page": "https://commons.wikimedia.org/wiki/File:Lanna_Thai_Restaurant_Gro%C3%9Frinderfeld_4.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Lanna_Thai_Restaurant_Gro%C3%9Frinderfeld_4.jpg/1280px-Lanna_Thai_Restaurant_Gro%C3%9Frinderfeld_4.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Triplec85",
+   "credit": "Own work",
+   "description": "Thailändisches Restaurant Lanna Thai Großrinderfeld",
+   "date": "29 January 2020 (according to Exif data)",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "lanna"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/lanna-thai-restaurant-gro-rinderfeld-4.jpg"
+  },
+  {
+   "title": "File:Nam phrik pla chi.jpg",
+   "slug": "nam-phrik-pla-chi",
+   "page": "https://commons.wikimedia.org/wiki/File:Nam_phrik_pla_chi.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Nam_phrik_pla_chi.jpg/1280px-Nam_phrik_pla_chi.jpg",
+   "width": 1000,
+   "height": 1000,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "Nam phrik pla chi (Thai script: น้ำพริกปลาจี่): a chilli paste made with grilled fish. It's normally served with both steamed and raw vegetables and/or other leaves.",
+   "date": "2013-07-31 20:37:35",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/nam-phrik-pla-chi.jpg"
+  },
+  {
+   "title": "File:Crispy pork phat thai - Chiang Rai - 2017-07-01 (001).jpg",
+   "slug": "crispy-pork-phat-thai-chiang-rai-2017-07-01-001",
+   "page": "https://commons.wikimedia.org/wiki/File:Crispy_pork_phat_thai_-_Chiang_Rai_-_2017-07-01_(001).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Crispy_pork_phat_thai_-_Chiang_Rai_-_2017-07-01_%28001%29.jpg/1280px-Crispy_pork_phat_thai_-_Chiang_Rai_-_2017-07-01_%28001%29.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC0",
+   "artist": "Iudexvivorum",
+   "credit": "Own work",
+   "description": "Crispy pork phat thai (ผัดไทยหมูกรอบ) as sold in Chiang Rai, Thailand.",
+   "date": "2017-07-01 13:17:03",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/crispy-pork-phat-thai-chiang-rai-2017-07-01-001.jpg"
+  },
+  {
+   "title": "File:2014 1204 Khao Soi in Chiang Mai.jpg",
+   "slug": "2014-1204-khao-soi-in-chiang-mai",
+   "page": "https://commons.wikimedia.org/wiki/File:2014_1204_Khao_Soi_in_Chiang_Mai.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/2014_1204_Khao_Soi_in_Chiang_Mai.jpg/1280px-2014_1204_Khao_Soi_in_Chiang_Mai.jpg",
+   "width": 1000,
+   "height": 849,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "A very good chicken khao soi in Chiang Mai",
+   "date": "2014-12-04 10:49:31",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/2014-1204-khao-soi-in-chiang-mai.jpg"
+  },
+  {
+   "title": "File:Khao soi kai.JPG",
+   "slug": "khao-soi-kai",
+   "page": "https://commons.wikimedia.org/wiki/File:Khao_soi_kai.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Khao_soi_kai.JPG/1280px-Khao_soi_kai.JPG",
+   "width": 1000,
+   "height": 722,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "Khao soi is a Thai noodle dish made with fresh egg noodles and deep-fried egg noodles served in a curry-like broth. This version is with chicken. Shallots, pickled cabbage and limes are provided on the side as additional ingredients to be added to taste. The dish is a speciality of Northern Thailand.",
+   "date": "2012-01-16",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/khao-soi-kai.jpg"
+  },
+  {
+   "title": "File:Baci in a village.jpg",
+   "slug": "baci-in-a-village",
+   "page": "https://commons.wikimedia.org/wiki/File:Baci_in_a_village.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Baci_in_a_village.jpg/1280px-Baci_in_a_village.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Basile Morin",
+   "credit": "Own work",
+   "description": "For a baci ceremony in a small village in Laos near Luang Prabang, coton bracelets to fix on wrists, chicken and rice alcohol in a bottle, to share",
+   "date": "2005-12-08 15:48:19",
+   "topic": [
+    "food",
+    "festival",
+    "people"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "appetite",
+    "festive",
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/baci-in-a-village.jpg"
+  },
+  {
+   "title": "File:Baci ceremony.jpg",
+   "slug": "baci-ceremony",
+   "page": "https://commons.wikimedia.org/wiki/File:Baci_ceremony.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Baci_ceremony.jpg/1280px-Baci_ceremony.jpg",
+   "width": 1000,
+   "height": 752,
+   "licence": "CC BY 2.0",
+   "artist": "Dalbera",
+   "credit": "Flickr",
+   "description": "Baci ceremony, Luang Prabang, Laos",
+   "date": "2010-01-23",
+   "topic": [
+    "festival"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/baci-ceremony.jpg"
+  },
+  {
+   "title": "File:Chiang Mai, Thailand, Party, People dancing.jpg",
+   "slug": "chiang-mai-thailand-party-people-dancing",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai,_Thailand,_Party,_People_dancing.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Chiang_Mai%2C_Thailand%2C_Party%2C_People_dancing.jpg/1280px-Chiang_Mai%2C_Thailand%2C_Party%2C_People_dancing.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY 4.0",
+   "artist": "Vyacheslav Argenberg",
+   "credit": "Own work",
+   "description": "People dancing. Secret party on the outskirts of Chiang Mai. Open air location. House music and techno music rule the world. Chiang Mai, Thailand.",
+   "date": "2010-11-14 00:24:49",
+   "topic": [
+    "night",
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "neon",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-thailand-party-people-dancing.jpg"
+  },
+  {
+   "title": "File:Chiang Mai-Wat-Baile en la pagoda- Tailandia 121.jpg",
+   "slug": "chiang-mai-wat-baile-en-la-pagoda-tailandia-121",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai-Wat-Baile_en_la_pagoda-_Tailandia_121.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Chiang_Mai-Wat-Baile_en_la_pagoda-_Tailandia_121.jpg/1280px-Chiang_Mai-Wat-Baile_en_la_pagoda-_Tailandia_121.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Siestecita",
+   "credit": "Own work",
+   "description": "Dos muchachas bailando en la pagoda - Chiang Mai - Tailandia",
+   "date": "2007-08-11 21:10:04",
+   "topic": [
+    "wat"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-wat-baile-en-la-pagoda-tailandia-121.jpg"
+  },
+  {
+   "title": "File:Dance of the Ramayana.jpg",
+   "slug": "dance-of-the-ramayana",
+   "page": "https://commons.wikimedia.org/wiki/File:Dance_of_the_Ramayana.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Dance_of_the_Ramayana.jpg/1280px-Dance_of_the_Ramayana.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Evan Silver",
+   "credit": "Own work",
+   "description": "This photo has been taken in the country: Thailand",
+   "date": "2017-01-23 08:54:06",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/dance-of-the-ramayana.jpg"
+  },
+  {
+   "title": "File:Chiang Mai. Benjarong Khantoke. Traditional Thai dance. 2016-10-14 20-52-24.jpg",
+   "slug": "chiang-mai-benjarong-khantoke-traditional-thai-danc-3dc4a473",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai._Benjarong_Khantoke._Traditional_Thai_dance._2016-10-14_20-52-24.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Chiang_Mai._Benjarong_Khantoke._Traditional_Thai_dance._2016-10-14_20-52-24.jpg/1280px-Chiang_Mai._Benjarong_Khantoke._Traditional_Thai_dance._2016-10-14_20-52-24.jpg",
+   "width": 1000,
+   "height": 1500,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Shesmax",
+   "credit": "Own work",
+   "description": "Chiang Mai. Benjarong Khantoke. Traditional Thai dance",
+   "date": "2016-10-14 20:52:24",
+   "topic": [
+    "food",
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "appetite",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-benjarong-khantoke-traditional-thai-danc-3dc4a473.jpg"
+  },
+  {
+   "title": "File:Chiang Mai. Benjarong Khantoke. Traditional Thai dance. 2016-10-14 20-30-14.jpg",
+   "slug": "chiang-mai-benjarong-khantoke-traditional-thai-dance-2016-10",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai._Benjarong_Khantoke._Traditional_Thai_dance._2016-10-14_20-30-14.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Chiang_Mai._Benjarong_Khantoke._Traditional_Thai_dance._2016-10-14_20-30-14.jpg/1280px-Chiang_Mai._Benjarong_Khantoke._Traditional_Thai_dance._2016-10-14_20-30-14.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Shesmax",
+   "credit": "Own work",
+   "description": "Chiang Mai. Benjarong Khantoke. Traditional Thai dance",
+   "date": "2016-10-14 20:30:14",
+   "topic": [
+    "food",
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "appetite",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-benjarong-khantoke-traditional-thai-dance-2016-10.jpg"
+  },
+  {
+   "title": "File:Songkran Day @ Chiangmai Wall.jpg",
+   "slug": "songkran-day-chiangmai-wall",
+   "page": "https://commons.wikimedia.org/wiki/File:Songkran_Day_@_Chiangmai_Wall.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Songkran_Day_%40_Chiangmai_Wall.jpg/1280px-Songkran_Day_%40_Chiangmai_Wall.jpg",
+   "width": 1000,
+   "height": 1289,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Khunmoohan",
+   "credit": "Own work",
+   "description": "This is a photo of a monument in Thailand identified by the ID",
+   "date": "2010-04-13 15:43:08",
+   "topic": [
+    "festival",
+    "arts"
+   ],
+   "season": [
+    "hot"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/songkran-day-chiangmai-wall.jpg"
+  },
+  {
+   "title": "File:Womens Muay Thai teep.jpg",
+   "slug": "womens-muay-thai-teep",
+   "page": "https://commons.wikimedia.org/wiki/File:Womens_Muay_Thai_teep.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Womens_Muay_Thai_teep.jpg",
+   "width": 1200,
+   "height": 795,
+   "licence": "CC BY 2.0",
+   "artist": "Eric Langley",
+   "credit": "Flickr : [1]",
+   "description": "One fighter executes a Muay Thai teep kick against her opponent in a women's Muay Thai match.",
+   "date": "2011-07-30 20:56:11",
+   "topic": [
+    "sport"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/womens-muay-thai-teep.jpg"
+  },
+  {
+   "title": "File:Muay-Thai Thai-boxing-kids IMG 1824.jpg",
+   "slug": "muay-thai-thai-boxing-kids-img-1824",
+   "page": "https://commons.wikimedia.org/wiki/File:Muay-Thai_Thai-boxing-kids_IMG_1824.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Muay-Thai_Thai-boxing-kids_IMG_1824.jpg",
+   "width": 1024,
+   "height": 901,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Per Meistrup",
+   "credit": "Own work",
+   "description": "Kids in professional Muay Thai (Thai boxing) fight (Lamai, Koh Samui, 2016)",
+   "date": "2016-07-02",
+   "topic": [
+    "sport"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/muay-thai-thai-boxing-kids-img-1824.jpg"
+  },
+  {
+   "title": "File:420 Sak Yant Tattoo (32).jpg",
+   "slug": "420-sak-yant-tattoo-32",
+   "page": "https://commons.wikimedia.org/wiki/File:420_Sak_Yant_Tattoo_(32).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/22/420_Sak_Yant_Tattoo_%2832%29.jpg",
+   "width": 636,
+   "height": 900,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Lychiang",
+   "credit": "Own work",
+   "description": "420 Sak Yant Tattoo (32)",
+   "date": "2006-04-26 14:57:08",
+   "topic": [
+    "mu"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/420-sak-yant-tattoo-32.jpg"
+  },
+  {
+   "title": "File:Yantprapidta.JPG",
+   "slug": "yantprapidta",
+   "page": "https://commons.wikimedia.org/wiki/File:Yantprapidta.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/24/Yantprapidta.JPG",
+   "width": 581,
+   "height": 607,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Sakyant",
+   "credit": "Own work",
+   "description": "Thai amulet or \"Yantra\"",
+   "date": "2009-11-07 12:42:16",
+   "topic": [
+    "mu"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/yantprapidta.jpg"
+  },
+  {
+   "title": "File:Akha Smile for 16 Baht.jpg",
+   "slug": "akha-smile-for-16-baht",
+   "page": "https://commons.wikimedia.org/wiki/File:Akha_Smile_for_16_Baht.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Akha_Smile_for_16_Baht.jpg/1280px-Akha_Smile_for_16_Baht.jpg",
+   "width": 1000,
+   "height": 1494,
+   "licence": "CC BY 2.0",
+   "artist": "Adam Baker",
+   "credit": "Flickr : Akha Smile for 16 Baht",
+   "description": "Akha woman in Headdress",
+   "date": "2009-12-03 02:26:16",
+   "topic": [
+    "people"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/akha-smile-for-16-baht.jpg"
+  },
+  {
+   "title": "File:Young woman of the karen tribe in Thailand..jpg",
+   "slug": "young-woman-of-the-karen-tribe-in-thailand",
+   "page": "https://commons.wikimedia.org/wiki/File:Young_woman_of_the_karen_tribe_in_Thailand..jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/76/Young_woman_of_the_karen_tribe_in_Thailand..jpg",
+   "width": 398,
+   "height": 480,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Peter van der Sluijs",
+   "credit": "Own work",
+   "description": "Young woman of the karen tribe in Thailand.",
+   "date": "2012-03-07",
+   "topic": [
+    "people"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/young-woman-of-the-karen-tribe-in-thailand.jpg"
+  },
+  {
+   "title": "File:Naresuan life - Wat Suwan Dararam - Section 14 (2142 BE).jpg",
+   "slug": "naresuan-life-wat-suwan-dararam-section-14-2142-be",
+   "page": "https://commons.wikimedia.org/wiki/File:Naresuan_life_-_Wat_Suwan_Dararam_-_Section_14_(2142_BE).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Naresuan_life_-_Wat_Suwan_Dararam_-_Section_14_%282142_BE%29.jpg/1280px-Naresuan_life_-_Wat_Suwan_Dararam_-_Section_14_%282142_BE%29.jpg",
+   "width": 1000,
+   "height": 1288,
+   "licence": "CC0",
+   "artist": "Iudexvivorum",
+   "credit": "Own work",
+   "description": "* Painting : Naresuan the king of Ayutthaya laid siege to the city of Taungoo in 2142 Buddhist Era (falling between 1599/1600 Common Era ). Place : Mural painting inside the wihan of Wat Suwan Dararam, Phra Nakhon Si Ayutthaya Province , Thailand . Painter : Noble title: Phraya Anusat Chittrakon (พระยาอนุศาสนจิตรกร) Real name: Chan Chittrakon (จันทร จิตรกร) Year painted : 2474 Buddhist Era (falling between 1931/32 Common Era )",
+   "date": "2017-02-13 12:24:33",
+   "topic": [
+    "wat",
+    "arts",
+    "history"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "sacred",
+    "festive",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/naresuan-life-wat-suwan-dararam-section-14-2142-be.jpg"
+  },
+  {
+   "title": "File:Royal statue king naresuan ay.jpg",
+   "slug": "royal-statue-king-naresuan-ay",
+   "page": "https://commons.wikimedia.org/wiki/File:Royal_statue_king_naresuan_ay.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Royal_statue_king_naresuan_ay.jpg",
+   "width": 600,
+   "height": 900,
+   "licence": "CC BY 3.0",
+   "artist": "Satthavut Onla-or",
+   "credit": "Own work ( Original text: Own Photo )",
+   "description": "Royal statue of King Naresuan at Phra Na",
+   "date": "2011-07-27",
+   "topic": [
+    "arts",
+    "history"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "festive",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/royal-statue-king-naresuan-ay.jpg"
+  },
+  {
+   "title": "File:Lahu flute players.jpg",
+   "slug": "lahu-flute-players",
+   "page": "https://commons.wikimedia.org/wiki/File:Lahu_flute_players.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Lahu_flute_players.jpg/1280px-Lahu_flute_players.jpg",
+   "width": 1000,
+   "height": 897,
+   "licence": "CC BY 2.0",
+   "artist": "Steve Jurvetson",
+   "credit": "originally posted to Flickr as Zen Zamfir Zeal",
+   "description": "Two Lahu men in traditional clothes, Burmese refugees in Thailand, play pan flutes.",
+   "date": "2007-12-30 19:46:03",
+   "topic": [
+    "people"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/lahu-flute-players.jpg"
+  },
+  {
+   "title": "File:International Lahu New Year event held on January 11-13, 2024 in Chiang Mai, Thailand.jpg",
+   "slug": "international-lahu-new-year-event-held-on-january-11-13-2024",
+   "page": "https://commons.wikimedia.org/wiki/File:International_Lahu_New_Year_event_held_on_January_11-13,_2024_in_Chiang_Mai,_Thailand.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/International_Lahu_New_Year_event_held_on_January_11-13%2C_2024_in_Chiang_Mai%2C_Thailand.jpg/1280px-International_Lahu_New_Year_event_held_on_January_11-13%2C_2024_in_Chiang_Mai%2C_Thailand.jpg",
+   "width": 1000,
+   "height": 653,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Jseechang",
+   "credit": "Own work",
+   "description": "International Lahu President Jaha Seechang at the First International Lahu New Year event held on January 11-13, 2024.",
+   "date": "2024-01-25",
+   "topic": [
+    "festival",
+    "people"
+   ],
+   "season": [
+    "cool"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive",
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/international-lahu-new-year-event-held-on-january-11-13-2024.jpg"
+  },
+  {
+   "title": "File:Necklace, Akha, Lahu, or Lisu people, Northern Thailand, collected in 1986 - Ethnological Museum, Berlin - DSC01414.JPG",
+   "slug": "necklace-akha-lahu-or-lisu-people-northern-thailand-collecte",
+   "page": "https://commons.wikimedia.org/wiki/File:Necklace,_Akha,_Lahu,_or_Lisu_people,_Northern_Thailand,_collected_in_1986_-_Ethnological_Museum,_Berlin_-_DSC01414.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Necklace%2C_Akha%2C_Lahu%2C_or_Lisu_people%2C_Northern_Thailand%2C_collected_in_1986_-_Ethnological_Museum%2C_Berlin_-_DSC01414.JPG/1280px-Necklace%2C_Akha%2C_Lahu%2C_or_Lisu_people%2C_Northern_Thailand%2C_collected_in_1986_-_Ethnological_Museum%2C_Berlin_-_DSC01414.JPG",
+   "width": 1000,
+   "height": 1500,
+   "licence": "CC0",
+   "artist": "Daderot",
+   "credit": "Own work",
+   "description": "Exhibit in the Ethnological Museum, Berlin, Germany. Photography was permitted in the museum without restriction.",
+   "date": "2014-11-11 08:27:35",
+   "topic": [
+    "people",
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "streetlife",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/necklace-akha-lahu-or-lisu-people-northern-thailand-collecte.jpg"
+  },
+  {
+   "title": "File:Greater Coucal (Centropus sinensis) in Hyderabad W IMG 8957.jpg",
+   "slug": "greater-coucal-centropus-sinensis-in-hyderabad-w-img-8957",
+   "page": "https://commons.wikimedia.org/wiki/File:Greater_Coucal_(Centropus_sinensis)_in_Hyderabad_W_IMG_8957.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/66/Greater_Coucal_%28Centropus_sinensis%29_in_Hyderabad_W_IMG_8957.jpg",
+   "width": 800,
+   "height": 600,
+   "licence": "CC BY 3.0",
+   "artist": "J.M.Garg",
+   "credit": "Own work",
+   "description": "Greater Coucal or the Crow Pheasant Centropus sinensis in Hyderabad , India .",
+   "date": "13/6/09",
+   "topic": [
+    "animals"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "green"
+   ],
+   "usable": true,
+   "file": "site/greater-coucal-centropus-sinensis-in-hyderabad-w-img-8957.jpg"
+  },
+  {
+   "title": "File:Bridge on the River Kwai - Common Myna.JPG",
+   "slug": "bridge-on-the-river-kwai-common-myna",
+   "page": "https://commons.wikimedia.org/wiki/File:Bridge_on_the_River_Kwai_-_Common_Myna.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Bridge_on_the_River_Kwai_-_Common_Myna.JPG/1280px-Bridge_on_the_River_Kwai_-_Common_Myna.JPG",
+   "width": 1000,
+   "height": 666,
+   "licence": "CC BY-SA 4.0",
+   "artist": "PumpkinSky",
+   "credit": "Own work",
+   "description": "Acridotheres tristis , a common myna bird, on the tourist plaza at the River Kwai bridge in Kanchanburi, Thailand.",
+   "date": "2017-04-08",
+   "topic": [
+    "nature",
+    "animals",
+    "city"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "green",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/bridge-on-the-river-kwai-common-myna.jpg"
+  },
+  {
+   "title": "File:Red junglefowl (Gallus gallus) Rarotonga.jpg",
+   "slug": "red-junglefowl-gallus-gallus-rarotonga",
+   "page": "https://commons.wikimedia.org/wiki/File:Red_junglefowl_(Gallus_gallus)_Rarotonga.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Red_junglefowl_%28Gallus_gallus%29_Rarotonga.jpg/1280px-Red_junglefowl_%28Gallus_gallus%29_Rarotonga.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Charles J. Sharp",
+   "credit": "Own work",
+   "description": "Red junglefowl ( Gallus gallus ), Rarotonga, Cook Islands",
+   "date": "2024-10-14 14:40:00",
+   "topic": [
+    "nature",
+    "animals"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "green"
+   ],
+   "usable": true,
+   "file": "site/red-junglefowl-gallus-gallus-rarotonga.jpg"
+  },
+  {
+   "title": "File:TonKwenTemple5.jpg",
+   "slug": "tonkwentemple5",
+   "page": "https://commons.wikimedia.org/wiki/File:TonKwenTemple5.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/TonKwenTemple5.jpg/1280px-TonKwenTemple5.jpg",
+   "width": 1000,
+   "height": 666,
+   "licence": "CC BY-SA 4.0",
+   "artist": "LannaPhoto",
+   "credit": "Own work",
+   "description": "Ton Kwen Temple is an example of small Lanna architecture which is distinguished according to the original tradition. It was built in B.E. 2401 (1858) in the reign of King Gar Varorose Suriyawong. The body of the sanctuary is very magnificent especially the shape and the pattern of the wood carving decorating the banisters extending to the body of the sanctuary which is the stucco of naga. The stucco Buddha Statue in the style of Parng Marn Vichai is situated inside the sanctuary. Besides the sanctuary, there are balconies which are placed specifically surrounding the sanctuary. There is an open (no walls) wooden structure Lanna local Mondhop Chaturamuk with the gable that is constructed in the shape of the grid like the carved wooden partition door and at the saddle there is a stucco of the Ngao. It is an example of a temple that has been conserved since 2520 (1977) continuously until the present.",
+   "date": "2013-09-13 18:55:32",
+   "topic": [
+    "wat",
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm",
+    "lanna"
+   ],
+   "mood": [
+    "sacred",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/tonkwentemple5.jpg"
+  },
+  {
+   "title": "File:Siriphum Waterfall (Doi Inthanon National Park, Chiang Mai, Thailand).jpg",
+   "slug": "siriphum-waterfall-doi-inthanon-national-park-chiang-mai-tha",
+   "page": "https://commons.wikimedia.org/wiki/File:Siriphum_Waterfall_(Doi_Inthanon_National_Park,_Chiang_Mai,_Thailand).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Siriphum_Waterfall_%28Doi_Inthanon_National_Park%2C_Chiang_Mai%2C_Thailand%29.jpg/1280px-Siriphum_Waterfall_%28Doi_Inthanon_National_Park%2C_Chiang_Mai%2C_Thailand%29.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY-SA 4.0",
+   "artist": "KOSIN SUKHUM",
+   "credit": "Own work",
+   "description": "Siri Phum Waterfall, Doi Inthanon National Park , Chiang Mai Province",
+   "date": "2012-01-08 09:23:43",
+   "topic": [
+    "nature"
+   ],
+   "season": [
+    "rains"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "green"
+   ],
+   "usable": true,
+   "file": "site/siriphum-waterfall-doi-inthanon-national-park-chiang-mai-tha.jpg"
+  },
+  {
+   "title": "File:น้ำตกหนึ่งเหนียว ๑ - One sticky waterfall 1.jpg",
+   "slug": "one-sticky-waterfall-1",
+   "page": "https://commons.wikimedia.org/wiki/File:%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%95%E0%B8%81%E0%B8%AB%E0%B8%99%E0%B8%B6%E0%B9%88%E0%B8%87%E0%B9%80%E0%B8%AB%E0%B8%99%E0%B8%B5%E0%B8%A2%E0%B8%A7_%E0%B9%91_-_One_sticky_waterfall_1.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%95%E0%B8%81%E0%B8%AB%E0%B8%99%E0%B8%B6%E0%B9%88%E0%B8%87%E0%B9%80%E0%B8%AB%E0%B8%99%E0%B8%B5%E0%B8%A2%E0%B8%A7_%E0%B9%91_-_One_sticky_waterfall_1.jpg/1280px-%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%95%E0%B8%81%E0%B8%AB%E0%B8%99%E0%B8%B6%E0%B9%88%E0%B8%87%E0%B9%80%E0%B8%AB%E0%B8%99%E0%B8%B5%E0%B8%A2%E0%B8%A7_%E0%B9%91_-_One_sticky_waterfall_1.jpg",
+   "width": 1000,
+   "height": 1500,
+   "licence": "CC0",
+   "artist": "Random username 083794703875938",
+   "credit": "Own work",
+   "description": "waterfall, district of Mae Taeng, province of Chiang Mai, Kingdom of Thailand",
+   "date": "2008-11-18 13:34:02",
+   "topic": [
+    "nature"
+   ],
+   "season": [
+    "rains"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "green"
+   ],
+   "usable": true,
+   "file": "site/one-sticky-waterfall-1.jpg"
+  },
+  {
+   "title": "File:Chiang Mai - Chiang Mai Moat - 0005.jpg",
+   "slug": "chiang-mai-chiang-mai-moat-0005",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_-_Chiang_Mai_Moat_-_0005.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Chiang_Mai_-_Chiang_Mai_Moat_-_0005.jpg/1280px-Chiang_Mai_-_Chiang_Mai_Moat_-_0005.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Stefan Fussan",
+   "credit": "Own work - My images are also available on MyPortfolio",
+   "description": "Chiang Mai Moat, Thailand",
+   "date": "2014-05-23",
+   "topic": [
+    "city"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-chiang-mai-moat-0005.jpg"
+  },
+  {
+   "title": "File:กำแพงเมืองเชียงใหม่ แจงศรีภูมิ.JPG",
+   "slug": "pic",
+   "page": "https://commons.wikimedia.org/wiki/File:%E0%B8%81%E0%B8%B3%E0%B9%81%E0%B8%9E%E0%B8%87%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88_%E0%B9%81%E0%B8%88%E0%B8%87%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A0%E0%B8%B9%E0%B8%A1%E0%B8%B4.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/%E0%B8%81%E0%B8%B3%E0%B9%81%E0%B8%9E%E0%B8%87%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88_%E0%B9%81%E0%B8%88%E0%B8%87%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A0%E0%B8%B9%E0%B8%A1%E0%B8%B4.JPG/1280px-%E0%B8%81%E0%B8%B3%E0%B9%81%E0%B8%9E%E0%B8%87%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88_%E0%B9%81%E0%B8%88%E0%B8%87%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A0%E0%B8%B9%E0%B8%A1%E0%B8%B4.JPG",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Tatpong Katanyukul",
+   "credit": "Own work",
+   "description": "This is a photo of a monument in Thailand identified by the ID",
+   "date": "2014-09-14 09:35:53",
+   "topic": [
+    "arts",
+    "city"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/pic.jpg"
+  },
+  {
+   "title": "File:Lanna Lantern in Phayao โคมล้านนา ที่กว๊านพะเยา.jpg",
+   "slug": "lanna-lantern-in-phayao",
+   "page": "https://commons.wikimedia.org/wiki/File:Lanna_Lantern_in_Phayao_%E0%B9%82%E0%B8%84%E0%B8%A1%E0%B8%A5%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B8%B2_%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%81%E0%B8%A7%E0%B9%8A%E0%B8%B2%E0%B8%99%E0%B8%9E%E0%B8%B0%E0%B9%80%E0%B8%A2%E0%B8%B2.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Lanna_Lantern_in_Phayao_%E0%B9%82%E0%B8%84%E0%B8%A1%E0%B8%A5%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B8%B2_%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%81%E0%B8%A7%E0%B9%8A%E0%B8%B2%E0%B8%99%E0%B8%9E%E0%B8%B0%E0%B9%80%E0%B8%A2%E0%B8%B2.jpg/1280px-Lanna_Lantern_in_Phayao_%E0%B9%82%E0%B8%84%E0%B8%A1%E0%B8%A5%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B8%B2_%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%81%E0%B8%A7%E0%B9%8A%E0%B8%B2%E0%B8%99%E0%B8%9E%E0%B8%B0%E0%B9%80%E0%B8%A2%E0%B8%B2.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Chainwit.",
+   "credit": "Own work",
+   "description": "Lanna style Lantern in Thailand",
+   "date": "2021-12-25",
+   "topic": [
+    "festival"
+   ],
+   "season": [
+    "cool"
+   ],
+   "place": [
+    "lanna"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/lanna-lantern-in-phayao.jpg"
+  },
+  {
+   "title": "File:Chiang-Mai Thailand Songkran-Festival-2017-03.jpg",
+   "slug": "chiang-mai-thailand-songkran-festival-2017-03",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang-Mai_Thailand_Songkran-Festival-2017-03.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Chiang-Mai_Thailand_Songkran-Festival-2017-03.jpg/1280px-Chiang-Mai_Thailand_Songkran-Festival-2017-03.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY-SA 4.0",
+   "artist": "CEphoto, Uwe Aranas",
+   "credit": "Own work",
+   "description": "Chiang Mai, Thailand: Songkran Festival 2017.",
+   "date": "2017-04-14",
+   "topic": [
+    "festival"
+   ],
+   "season": [
+    "hot"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-thailand-songkran-festival-2017-03.jpg"
+  },
+  {
+   "title": "File:Songkran 002aa.jpg",
+   "slug": "songkran-002aa",
+   "page": "https://commons.wikimedia.org/wiki/File:Songkran_002aa.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Songkran_002aa.jpg/1280px-Songkran_002aa.jpg",
+   "width": 1000,
+   "height": 567,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "People on the back of a truck get soaked during the Songkran festival in Chiang Mai, Thailand",
+   "date": "2009-04-14",
+   "topic": [
+    "festival"
+   ],
+   "season": [
+    "hot"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/songkran-002aa.jpg"
+  },
+  {
+   "title": "File:Albino Water Buffalo, Chiang Mai.jpg",
+   "slug": "albino-water-buffalo-chiang-mai",
+   "page": "https://commons.wikimedia.org/wiki/File:Albino_Water_Buffalo,_Chiang_Mai.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Albino_Water_Buffalo%2C_Chiang_Mai.jpg/1280px-Albino_Water_Buffalo%2C_Chiang_Mai.jpg",
+   "width": 1000,
+   "height": 746,
+   "licence": "CC BY 2.0",
+   "artist": "Steve Jurvetson from Menlo Park, USA",
+   "credit": "Albino Water Buffalo",
+   "description": "Water buffalo, with the animal on the left an albino, in Chiang Mai, Thailand",
+   "date": "2007-12-30 01:48",
+   "topic": [
+    "animals"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "green"
+   ],
+   "usable": true,
+   "file": "site/albino-water-buffalo-chiang-mai.jpg"
+  },
+  {
+   "title": "File:Dara Thong2.jpg",
+   "slug": "dara-thong2",
+   "page": "https://commons.wikimedia.org/wiki/File:Dara_Thong2.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/20/Dara_Thong2.jpg",
+   "width": 1280,
+   "height": 1280,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Potapt",
+   "credit": "Own work",
+   "description": "Dara thong ( ดาราทอง ) or thong ek krachang ( ทองเอกกระจัง ), often wrongly referred to as cha mongkut ( จ่ามงกุฎ ), from a Thai dessert shop in Bangkok.",
+   "date": "2016-02-01",
+   "topic": [
+    "food"
+   ],
+   "caption_th": "ดาราทอง (ทองเอกกระจัง) ขนมไทยปิดทองคำเปลว",
+   "caption_en": "dara thong, a Thai sweet finished with gold leaf",
+   "tagged_by": "eye",
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/dara-thong2.jpg"
+  },
+  {
+   "title": "File:White elephant Doi Suthep.JPG",
+   "slug": "white-elephant-doi-suthep",
+   "page": "https://commons.wikimedia.org/wiki/File:White_elephant_Doi_Suthep.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/b1/White_elephant_Doi_Suthep.JPG",
+   "width": 873,
+   "height": 645,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Kyle sb at English Wikipedia",
+   "credit": "Transferred from en.wikipedia to Commons.",
+   "description": "White Elephant Shrine (Chiang Mai). White elephant shrine.",
+   "date": "7 April 2006 (original upload date)",
+   "topic": [
+    "faith",
+    "mu",
+    "nature",
+    "animals"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred",
+    "green"
+   ],
+   "usable": true,
+   "file": "site/white-elephant-doi-suthep.jpg"
+  },
+  {
+   "title": "File:GREEN BUS Chiang Mai Bus.jpg",
+   "slug": "green-bus-chiang-mai-bus",
+   "page": "https://commons.wikimedia.org/wiki/File:GREEN_BUS_Chiang_Mai_Bus.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/GREEN_BUS_Chiang_Mai_Bus.jpg/1280px-GREEN_BUS_Chiang_Mai_Bus.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC0",
+   "artist": "Khxwklong",
+   "credit": "Own work",
+   "description": "GREEN BUS Chiang Mai Bus",
+   "date": "2024-04-03 15:32:27",
+   "topic": [
+    "transport"
+   ],
+   "season": [
+    "rains"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/green-bus-chiang-mai-bus.jpg"
+  },
+  {
+   "title": "File:Chiangmai walking street (Saturday only, Wualai Rd.) - panoramio (2).jpg",
+   "slug": "chiangmai-walking-street-saturday-only-wualai-rd-panoramio-2",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiangmai_walking_street_(Saturday_only,_Wualai_Rd.)_-_panoramio_(2).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Chiangmai_walking_street_%28Saturday_only%2C_Wualai_Rd.%29_-_panoramio_%282%29.jpg/1280px-Chiangmai_walking_street_%28Saturday_only%2C_Wualai_Rd.%29_-_panoramio_%282%29.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY 3.0",
+   "artist": "chootrong",
+   "credit": "https://web.archive.org/web/20161021204022/http://www.panoramio.com/photo/50571062",
+   "description": "chiangmai walking street (Saturday only, Wualai Rd.)",
+   "date": "Taken on 2 April 2011",
+   "topic": [
+    "market"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/chiangmai-walking-street-saturday-only-wualai-rd-panoramio-2.jpg"
+  },
+  {
+   "title": "File:CHIANG MAI NIGHT BAZAAR THAILAND FRB 2012 (6918118894).jpg",
+   "slug": "chiang-mai-night-bazaar-thailand-frb-2012-6918118894",
+   "page": "https://commons.wikimedia.org/wiki/File:CHIANG_MAI_NIGHT_BAZAAR_THAILAND_FRB_2012_(6918118894).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/CHIANG_MAI_NIGHT_BAZAAR_THAILAND_FRB_2012_%286918118894%29.jpg/1280px-CHIANG_MAI_NIGHT_BAZAAR_THAILAND_FRB_2012_%286918118894%29.jpg",
+   "width": 1000,
+   "height": 755,
+   "licence": "CC BY-SA 2.0",
+   "artist": "calflier001",
+   "credit": "CHIANG MAI NIGHT BAZAAR THAILAND FRB 2012",
+   "description": "CHIANG MAI NIGHT BAZAAR THAILAND FRB 2012",
+   "date": "2012-02-20 14:11",
+   "topic": [
+    "market",
+    "night"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "neon",
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-night-bazaar-thailand-frb-2012-6918118894.jpg"
+  },
+  {
+   "title": "File:Chiang Mai, Krathong Festival, Thailand.jpg",
+   "slug": "chiang-mai-krathong-festival-thailand",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai,_Krathong_Festival,_Thailand.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Chiang_Mai%2C_Krathong_Festival%2C_Thailand.jpg/1280px-Chiang_Mai%2C_Krathong_Festival%2C_Thailand.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY 4.0",
+   "artist": "Vyacheslav Argenberg",
+   "credit": "Own work",
+   "description": "Loy Krathong. Yee Peng. Siamese Lantern Festival. Full moon of the 12th month in the traditional Thai lunar calendar. Chiang Mai, Thailand.",
+   "date": "2010-11-21 20:19:54",
+   "topic": [
+    "festival"
+   ],
+   "season": [
+    "cool"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-krathong-festival-thailand.jpg"
+  },
+  {
+   "title": "File:Thai-Cooking-Class-Chiang-Mai-Thailand.jpg",
+   "slug": "thai-cooking-class-chiang-mai-thailand",
+   "page": "https://commons.wikimedia.org/wiki/File:Thai-Cooking-Class-Chiang-Mai-Thailand.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Thai-Cooking-Class-Chiang-Mai-Thailand.jpg",
+   "width": 1024,
+   "height": 822,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Thai Secret Cooking School",
+   "credit": "Own work",
+   "description": "Thai Secret Cooking School in Chiang Mai Thailand. www.Chiang-Mai-Cooking-School.com",
+   "date": "2015-10-27",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/thai-cooking-class-chiang-mai-thailand.jpg"
+  },
+  {
+   "title": "File:Chiang Mai-44-Meo-Kinder-1976-gje.jpg",
+   "slug": "chiang-mai-44-meo-kinder-1976-gje",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai-44-Meo-Kinder-1976-gje.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Chiang_Mai-44-Meo-Kinder-1976-gje.jpg/1280px-Chiang_Mai-44-Meo-Kinder-1976-gje.jpg",
+   "width": 1000,
+   "height": 1237,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Gerd Eichmann",
+   "credit": "Own work",
+   "description": "Chiang Mai in Thailand 1976",
+   "date": "1976-07-22",
+   "topic": [
+    "people",
+    "history"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "streetlife",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-44-meo-kinder-1976-gje.jpg"
+  },
+  {
+   "title": "File:Akha-vrouw met kindje op de 'nightmarket' te Chiang Mai, Thailand.JPG",
+   "slug": "akha-vrouw-met-kindje-op-de-nightmarket-te-chiang-mai-thaila",
+   "page": "https://commons.wikimedia.org/wiki/File:Akha-vrouw_met_kindje_op_de_%27nightmarket%27_te_Chiang_Mai,_Thailand.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Akha-vrouw_met_kindje_op_de_%27nightmarket%27_te_Chiang_Mai%2C_Thailand.JPG/1280px-Akha-vrouw_met_kindje_op_de_%27nightmarket%27_te_Chiang_Mai%2C_Thailand.JPG",
+   "width": 1000,
+   "height": 1500,
+   "licence": "CC BY 3.0",
+   "artist": "Babette Rens",
+   "credit": "Own work",
+   "description": "Akha, hilltribe",
+   "date": "2008-08",
+   "topic": [
+    "market",
+    "night",
+    "people"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "neon",
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/akha-vrouw-met-kindje-op-de-nightmarket-te-chiang-mai-thaila.jpg"
+  },
+  {
+   "title": "File:Folk Music and fire in Chiang Mai.jpg",
+   "slug": "folk-music-and-fire-in-chiang-mai",
+   "page": "https://commons.wikimedia.org/wiki/File:Folk_Music_and_fire_in_Chiang_Mai.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Folk_Music_and_fire_in_Chiang_Mai.jpg/1280px-Folk_Music_and_fire_in_Chiang_Mai.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Bo.botones",
+   "credit": "Own work",
+   "description": "Folk Music and fire in Chiang Mai",
+   "date": "2018-10-20 16:07:25",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/folk-music-and-fire-in-chiang-mai.jpg"
+  },
+  {
+   "title": "File:Roti kluai khai chiang mai 04.jpg",
+   "slug": "roti-kluai-khai-chiang-mai-04",
+   "page": "https://commons.wikimedia.org/wiki/File:Roti_kluai_khai_chiang_mai_04.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Roti_kluai_khai_chiang_mai_04.jpg/1280px-Roti_kluai_khai_chiang_mai_04.jpg",
+   "width": 1000,
+   "height": 722,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "Roti kluai khai is Thai for a roti with banana and egg. Banana slices and a beaten egg are fried inside a roti, then cut and served with condensed sweetened milk and sugar. It is traditionally made by Thai Muslims. This roti was bought as a takeaway from a street stall on the corner of Arak road and Intra Warorot road in Chiang Mai.",
+   "date": "2010-01-21",
+   "topic": [
+    "food",
+    "market"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "appetite",
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/roti-kluai-khai-chiang-mai-04.jpg"
+  },
+  {
+   "title": "File:Taste from Heaven Vegetarian Restaurant, Chiang Mai P1110839.JPG",
+   "slug": "taste-from-heaven-vegetarian-restaurant-chiang-mai-p1110839",
+   "page": "https://commons.wikimedia.org/wiki/File:Taste_from_Heaven_Vegetarian_Restaurant,_Chiang_Mai_P1110839.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Taste_from_Heaven_Vegetarian_Restaurant%2C_Chiang_Mai_P1110839.JPG/1280px-Taste_from_Heaven_Vegetarian_Restaurant%2C_Chiang_Mai_P1110839.JPG",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 3.0",
+   "artist": "deror_avi",
+   "credit": "Own work",
+   "description": "Thai Vegetarian food, \"Taste from Heaven Vegetarian Restaurant\", Chiang Mai, Thailand",
+   "date": "2012-02-17 16:39:20",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/taste-from-heaven-vegetarian-restaurant-chiang-mai-p1110839.jpg"
+  },
+  {
+   "title": "File:Thua paep - Chiang Mai - 2017-07-10.jpg",
+   "slug": "thua-paep-chiang-mai-2017-07-10",
+   "page": "https://commons.wikimedia.org/wiki/File:Thua_paep_-_Chiang_Mai_-_2017-07-10.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Thua_paep_-_Chiang_Mai_-_2017-07-10.jpg/1280px-Thua_paep_-_Chiang_Mai_-_2017-07-10.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC0",
+   "artist": "Iudexvivorum",
+   "credit": "Own work",
+   "description": "Thua paep (ถั่วแปป), a sweet food of Thailand as sold in Chiang Mai, Thailand.",
+   "date": "2017-07-10 13:19:26",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/thua-paep-chiang-mai-2017-07-10.jpg"
+  },
+  {
+   "title": "File:2014 11 Street food stall Chiang Mai.jpg",
+   "slug": "2014-11-street-food-stall-chiang-mai",
+   "page": "https://commons.wikimedia.org/wiki/File:2014_11_Street_food_stall_Chiang_Mai.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/2014_11_Street_food_stall_Chiang_Mai.jpg/1280px-2014_11_Street_food_stall_Chiang_Mai.jpg",
+   "width": 1000,
+   "height": 702,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "A popular street food stall in Chiang Mai on Manee Nopparat road. It is known for its red roast pork, crispy pork, and wontons; either served with rice or in a noodle soup.",
+   "date": "2014-11-30 19:55:14",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/2014-11-street-food-stall-chiang-mai.jpg"
+  },
+  {
+   "title": "File:Mohinga soup and tea leaf salad A Nyar Tar.jpg",
+   "slug": "mohinga-soup-and-tea-leaf-salad-a-nyar-tar",
+   "page": "https://commons.wikimedia.org/wiki/File:Mohinga_soup_and_tea_leaf_salad_A_Nyar_Tar.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Mohinga_soup_and_tea_leaf_salad_A_Nyar_Tar.jpg/1280px-Mohinga_soup_and_tea_leaf_salad_A_Nyar_Tar.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Orderinchaos",
+   "credit": "Own work",
+   "description": "Mohinga and tea leaf salad served at A Nyar Tar, a Burmese restaurant in Bentley, Western Australia.",
+   "date": "2022-03-13 17:25:28",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/mohinga-soup-and-tea-leaf-salad-a-nyar-tar.jpg"
+  },
+  {
+   "title": "File:Somtam kaiyang khaoniaow.jpg",
+   "slug": "somtam-kaiyang-khaoniaow",
+   "page": "https://commons.wikimedia.org/wiki/File:Somtam_kaiyang_khaoniaow.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Somtam_kaiyang_khaoniaow.jpg/1280px-Somtam_kaiyang_khaoniaow.jpg",
+   "width": 1000,
+   "height": 686,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "Som Tam (papaya salad), Kai Yang (grilled chicken) and Khao Niaow (sticky rice): a combination of dishes from Isarn (North East Thailand) which has become extremely popular in the whole of Thailand. It is eaten as a snack or as a lunch time meal. This photo was made at a \"som tam restaurant\" in Bangkok.",
+   "date": "2009-06-20",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/somtam-kaiyang-khaoniaow.jpg"
+  },
+  {
+   "title": "File:Som tam khao niao kai yang.jpg",
+   "slug": "som-tam-khao-niao-kai-yang",
+   "page": "https://commons.wikimedia.org/wiki/File:Som_tam_khao_niao_kai_yang.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Som_tam_khao_niao_kai_yang.jpg/1280px-Som_tam_khao_niao_kai_yang.jpg",
+   "width": 1000,
+   "height": 1000,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "Som tam, khao niao, kai yang (Thai script: ส้มตำ ข้าวเหนียว ไก่ย่าง): papaya salad, sticky rice, grilled chicken. A famous combination, that originated in the Isan area of Thailand, but now eaten throughout the whole of Thailand.",
+   "date": "2013-07-31 15:35:43",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/som-tam-khao-niao-kai-yang.jpg"
+  },
+  {
+   "title": "File:Nasi hitam.jpg",
+   "slug": "nasi-hitam",
+   "page": "https://commons.wikimedia.org/wiki/File:Nasi_hitam.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Nasi_hitam.jpg/1280px-Nasi_hitam.jpg",
+   "width": 1000,
+   "height": 797,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Okkisafire",
+   "credit": "Own work",
+   "description": "Non-glutenous steamed black rice",
+   "date": "2015-09-30 16:59:50",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/nasi-hitam.jpg"
+  },
+  {
+   "title": "File:Variétés de riz.jpg",
+   "slug": "vari-t-s-de-riz",
+   "page": "https://commons.wikimedia.org/wiki/File:Vari%C3%A9t%C3%A9s_de_riz.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Vari%C3%A9t%C3%A9s_de_riz.jpg/1280px-Vari%C3%A9t%C3%A9s_de_riz.jpg",
+   "width": 1000,
+   "height": 450,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Bienvenue en Thaïlande",
+   "credit": "Own work",
+   "description": "Variétés de riz vendu dans un marché aux insectes dans la montagne juste avant Chiang Maï en Thaïlande : Riz jasmin blanc et brun (riz thaï) ; riz gluant et riz gluant nouveau ; riz japonais ; riz Riceberry et mélange de riz brun et blanc",
+   "date": "2023-01-25 17:26:21",
+   "topic": [
+    "food"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "usable": true,
+   "file": "site/vari-t-s-de-riz.jpg"
+  },
+  {
+   "title": "File:Chiang Mai sunday evening walking street.jpg",
+   "slug": "chiang-mai-sunday-evening-walking-street",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_sunday_evening_walking_street.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Chiang_Mai_sunday_evening_walking_street.jpg/1280px-Chiang_Mai_sunday_evening_walking_street.jpg",
+   "width": 1000,
+   "height": 444,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "The Sunday evening walking street is a market which is held in Chiang Mai on Rachadamnoen road, the main road through the old city which leads from Tapae gate to Wat Phra Singh, and its side streets. The products on sale are mainly handicrafts which are made in and around Chiang Mai. Most of the food stalls can be found on adjacent temple grounds. The mountain in the background is Doi Suthep, just west of the city. The photo was made when the sun had already set behind Doi Suthep.",
+   "date": "2010-02-28",
+   "topic": [
+    "wat",
+    "market",
+    "night",
+    "nature",
+    "city"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "neon",
+    "sacred",
+    "streetlife",
+    "green",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-sunday-evening-walking-street.jpg"
+  },
+  {
+   "title": "File:Ancient gate of Suandok temple ,Chiangmai, Thailand.jpg",
+   "slug": "ancient-gate-of-suandok-temple-chiangmai-thailand",
+   "page": "https://commons.wikimedia.org/wiki/File:Ancient_gate_of_Suandok_temple_,Chiangmai,_Thailand.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Ancient_gate_of_Suandok_temple_%2CChiangmai%2C_Thailand.jpg/1280px-Ancient_gate_of_Suandok_temple_%2CChiangmai%2C_Thailand.jpg",
+   "width": 1000,
+   "height": 1510,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Kokunut555",
+   "credit": "Own work",
+   "description": "This is a photo of a monument in Thailand identified by the ID",
+   "date": "2013-09-21 12:01:23",
+   "topic": [
+    "wat",
+    "arts",
+    "city",
+    "history"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred",
+    "festive",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/ancient-gate-of-suandok-temple-chiangmai-thailand.jpg"
+  },
+  {
+   "title": "File:Three Kings Monument, Chiang Mai (I).jpg",
+   "slug": "three-kings-monument-chiang-mai-i",
+   "page": "https://commons.wikimedia.org/wiki/File:Three_Kings_Monument,_Chiang_Mai_(I).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Three_Kings_Monument%2C_Chiang_Mai_%28I%29.jpg/1280px-Three_Kings_Monument%2C_Chiang_Mai_%28I%29.jpg",
+   "width": 1000,
+   "height": 714,
+   "licence": "CC BY 4.0",
+   "artist": "This Photo was taken by Supanut Arunoprayote . Feel free to use any of my images, but please mention me as the author and may send me a message. (สามารถใช้ภาพได้อิสระ แต่กรุณาใส่เครดิตผู้ถ่ายและอาจส่ง ข้อความบอกกล่าวด้วย ) Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved. Please if you think that any changes should be required, please inform the author. Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract .",
+   "credit": "Own work",
+   "description": "The three Kings Monument consists of King Ngam Muang (left), King Mangrai (center), and King Ram Khamhaeng (right) located at Amphoe Mueang Chiang Mai.",
+   "date": "2022-08-04 10:51:14",
+   "topic": [
+    "arts",
+    "city"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/three-kings-monument-chiang-mai-i.jpg"
+  },
+  {
+   "title": "File:20171105 Golden elephant statue of the Wat Phra Singh temple, Chiang Mai, Thailand 9843 DxO.jpg",
+   "slug": "20171105-golden-elephant-statue-of-the-wat-phra-singh-temple",
+   "page": "https://commons.wikimedia.org/wiki/File:20171105_Golden_elephant_statue_of_the_Wat_Phra_Singh_temple,_Chiang_Mai,_Thailand_9843_DxO.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/20171105_Golden_elephant_statue_of_the_Wat_Phra_Singh_temple%2C_Chiang_Mai%2C_Thailand_9843_DxO.jpg/1280px-20171105_Golden_elephant_statue_of_the_Wat_Phra_Singh_temple%2C_Chiang_Mai%2C_Thailand_9843_DxO.jpg",
+   "width": 1000,
+   "height": 1510,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Jakub Hałun",
+   "credit": "Own work",
+   "description": "Golden elephant statue of the Wat Phra Singh temple, Chiang Mai, Thailand",
+   "date": "2017-11-05 10:38:21",
+   "topic": [
+    "wat",
+    "arts",
+    "animals"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred",
+    "festive",
+    "green"
+   ],
+   "usable": true,
+   "file": "site/20171105-golden-elephant-statue-of-the-wat-phra-singh-temple.jpg"
+  },
+  {
+   "title": "File:Chiang Mai - Wat Inthakin Sadue Muang - 0002.jpg",
+   "slug": "chiang-mai-wat-inthakin-sadue-muang-0002",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_-_Wat_Inthakin_Sadue_Muang_-_0002.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Chiang_Mai_-_Wat_Inthakin_Sadue_Muang_-_0002.jpg/1280px-Chiang_Mai_-_Wat_Inthakin_Sadue_Muang_-_0002.jpg",
+   "width": 1000,
+   "height": 1500,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Stefan Fussan",
+   "credit": "Own work - My images are also available on MyPortfolio",
+   "description": "Naga at Wat Inthakin Sadue Muang, Chiang Mai",
+   "date": "2014-05-23",
+   "topic": [
+    "wat"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-wat-inthakin-sadue-muang-0002.jpg"
+  },
+  {
+   "title": "File:Exhibit at Lanna Folklife Museum - Chiang Mai - Thailand (35098001366).jpg",
+   "slug": "exhibit-at-lanna-folklife-museum-chiang-mai-thailand-3509800",
+   "page": "https://commons.wikimedia.org/wiki/File:Exhibit_at_Lanna_Folklife_Museum_-_Chiang_Mai_-_Thailand_(35098001366).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Exhibit_at_Lanna_Folklife_Museum_-_Chiang_Mai_-_Thailand_%2835098001366%29.jpg/1280px-Exhibit_at_Lanna_Folklife_Museum_-_Chiang_Mai_-_Thailand_%2835098001366%29.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 2.0",
+   "artist": "Adam Jones from Kelowna, BC, Canada",
+   "credit": "Exhibit at Lanna Folklife Museum - Chiang Mai - Thailand",
+   "description": "Exhibit at Lanna Folklife Museum - Chiang Mai - Thailand",
+   "date": "2017-06-06 01:58",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm",
+    "lanna"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/exhibit-at-lanna-folklife-museum-chiang-mai-thailand-3509800.jpg"
+  },
+  {
+   "title": "File:Seung.jpg",
+   "slug": "seung",
+   "page": "https://commons.wikimedia.org/wiki/File:Seung.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Seung.jpg",
+   "width": 1024,
+   "height": 683,
+   "licence": "CC BY 2.0",
+   "artist": "unknown",
+   "credit": "",
+   "description": "",
+   "date": "2007-11-03 18:07:29",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/seung.jpg"
+  },
+  {
+   "title": "File:Chiangmai-market3.jpg",
+   "slug": "chiangmai-market3",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiangmai-market3.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/18/Chiangmai-market3.jpg",
+   "width": 720,
+   "height": 1084,
+   "licence": "CC BY 2.0",
+   "artist": "Steve Evans from Bangalore, India",
+   "credit": "Flickr",
+   "description": "Sunday market, Chiangmai: A boy playing a khim , a traditional hammered dulcimer Thailand",
+   "date": "2005-07-10 18:32:54",
+   "topic": [
+    "market"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/chiangmai-market3.jpg"
+  },
+  {
+   "title": "File:Chan Kusalo cremation 04.jpg",
+   "slug": "chan-kusalo-cremation-04",
+   "page": "https://commons.wikimedia.org/wiki/File:Chan_Kusalo_cremation_04.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Chan_Kusalo_cremation_04.jpg/1280px-Chan_Kusalo_cremation_04.jpg",
+   "width": 1000,
+   "height": 768,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Takeaway",
+   "credit": "Own work",
+   "description": "The funeral pyre for Chan Kusalo (the Buddhist \"archbishop\" of Northern Thailand) two days before the cremation ceremony at Wat Chedi Luang in Chiang Mai. The pyre is in the shape of a nok hatsidiling (a creature which is part elephant, part serpent and part bird from the mythical Himaphan forest). The gold leaf covered coffin is already placed inside the Burmese inspired mondop-like structure resting on top of the body of the creature. Chan Kusalo, November 26, 1917 - July 11, 2008",
+   "date": "2010-01-16",
+   "topic": [
+    "wat",
+    "festival",
+    "arts",
+    "animals"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred",
+    "festive",
+    "green"
+   ],
+   "usable": true,
+   "file": "site/chan-kusalo-cremation-04.jpg"
+  },
+  {
+   "title": "File:046 Tribal Girls Dancing (9204941527).jpg",
+   "slug": "046-tribal-girls-dancing-9204941527",
+   "page": "https://commons.wikimedia.org/wiki/File:046_Tribal_Girls_Dancing_(9204941527).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/046_Tribal_Girls_Dancing_%289204941527%29.jpg/1280px-046_Tribal_Girls_Dancing_%289204941527%29.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 2.0",
+   "artist": "Photo Dharma from Sadao, Thailand",
+   "credit": "046 Tribal Girls Dancing",
+   "description": "46 Tribal Girls Dancing, Wat Phra That Doi Suthep, Chiang Mai",
+   "date": "Taken on 2 July 2011, 11:31",
+   "topic": [
+    "wat",
+    "night",
+    "nature",
+    "people"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "neon",
+    "sacred",
+    "green",
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/046-tribal-girls-dancing-9204941527.jpg"
+  },
+  {
+   "title": "File:Religious Goods at 7-11 in Chiang Mai-2.jpg",
+   "slug": "religious-goods-at-7-11-in-chiang-mai-2",
+   "page": "https://commons.wikimedia.org/wiki/File:Religious_Goods_at_7-11_in_Chiang_Mai-2.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Religious_Goods_at_7-11_in_Chiang_Mai-2.jpg/1280px-Religious_Goods_at_7-11_in_Chiang_Mai-2.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Religious Goods at 7-11 in Chiang Mai",
+   "date": "2024-08-28 13:47:51",
+   "topic": [
+    "mu"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/religious-goods-at-7-11-in-chiang-mai-2.jpg"
+  },
+  {
+   "title": "File:Chiang Mai Fresco.jpg",
+   "slug": "chiang-mai-fresco",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_Fresco.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Chiang_Mai_Fresco.jpg/1280px-Chiang_Mai_Fresco.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Chiang Mai Photo",
+   "date": "2024-08-28 16:13:35",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-fresco.jpg"
+  },
+  {
+   "title": "File:Chiang Mai Spirit House.jpg",
+   "slug": "chiang-mai-spirit-house",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_Spirit_House.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Chiang_Mai_Spirit_House.jpg/1280px-Chiang_Mai_Spirit_House.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Chiang Mai Photo",
+   "date": "2024-08-28 23:24:29",
+   "topic": [
+    "mu"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-spirit-house.jpg"
+  },
+  {
+   "title": "File:Sak Yant Chiang Mai 3.jpg",
+   "slug": "sak-yant-chiang-mai-3",
+   "page": "https://commons.wikimedia.org/wiki/File:Sak_Yant_Chiang_Mai_3.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sak_Yant_Chiang_Mai_3.jpg/1280px-Sak_Yant_Chiang_Mai_3.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Photo I took in Chiang Mai",
+   "date": "2024-08-26 23:58:49",
+   "topic": [
+    "mu"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/sak-yant-chiang-mai-3.jpg"
+  },
+  {
+   "title": "File:Chiang Mai photo-66.jpg",
+   "slug": "chiang-mai-photo-66",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_photo-66.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Chiang_Mai_photo-66.jpg/1280px-Chiang_Mai_photo-66.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Photo I took in Chiang Mai",
+   "date": "2024-08-29 17:31:25",
+   "topic": [
+    "wat",
+    "arts"
+   ],
+   "caption_th": "ปูนปั้นมอมเฝ้าบันไดวัด",
+   "caption_en": "a white stucco guardian on a temple stair",
+   "tagged_by": "eye",
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-photo-66.jpg"
+  },
+  {
+   "title": "File:Chiang Mai photo-68.jpg",
+   "slug": "chiang-mai-photo-68",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_photo-68.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Chiang_Mai_photo-68.jpg/1280px-Chiang_Mai_photo-68.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Photo I took in Chiang Mai",
+   "date": "2024-08-29 17:36:32",
+   "topic": [
+    "mu"
+   ],
+   "caption_th": "ศาลพระภูมิสีเขียว หน้าร้าน",
+   "caption_en": "a bright green spirit house outside a shopfront",
+   "tagged_by": "eye",
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-photo-68.jpg"
+  },
+  {
+   "title": "File:Chiang Mai-717.jpg",
+   "slug": "chiang-mai-717",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai-717.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Chiang_Mai-717.jpg/1280px-Chiang_Mai-717.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Photo I took in Chiang Mai",
+   "date": "2024-08-30 13:13:36",
+   "topic": [
+    "mu"
+   ],
+   "caption_th": "ศาลเจ้าที่หลังใหญ่ ประดับดอกดาวเรือง",
+   "caption_en": "a large roadside shrine dressed in marigold garlands",
+   "tagged_by": "eye",
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-717.jpg"
+  },
+  {
+   "title": "File:Chiang Mai Graffiti-152116837.jpg",
+   "slug": "chiang-mai-graffiti-152116837",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_Graffiti-152116837.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Chiang_Mai_Graffiti-152116837.jpg/1280px-Chiang_Mai_Graffiti-152116837.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Chiang Mai Photo",
+   "date": "2024-08-28 00:12:22",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-graffiti-152116837.jpg"
+  },
+  {
+   "title": "File:Chiang Mai Graffiti-152116849.jpg",
+   "slug": "chiang-mai-graffiti-152116849",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_Graffiti-152116849.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Chiang_Mai_Graffiti-152116849.jpg/1280px-Chiang_Mai_Graffiti-152116849.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Chiang Mai Photo",
+   "date": "2024-08-28 00:12:12",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-graffiti-152116849.jpg"
+  },
+  {
+   "title": "File:Chiang Mai photo-7544.jpg",
+   "slug": "chiang-mai-photo-7544",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_photo-7544.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Chiang_Mai_photo-7544.jpg/1280px-Chiang_Mai_photo-7544.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Photo I took in Chiang Mai",
+   "date": "2024-08-27 15:13:07",
+   "topic": [
+    "mu"
+   ],
+   "caption_th": "ศาลพระภูมิ มีน้ำแดงถวาย",
+   "caption_en": "a spirit house with red drinks set out for it",
+   "tagged_by": "eye",
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-photo-7544.jpg"
+  },
+  {
+   "title": "File:Chiang Mai 1945.jpg",
+   "slug": "chiang-mai-1945",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_1945.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Chiang_Mai_1945.jpg/1280px-Chiang_Mai_1945.jpg",
+   "width": 1000,
+   "height": 676,
+   "licence": "Public domain",
+   "artist": "Survey of India Offices",
+   "credit": "University of Wisconsin-Milwaukee Libraries - https://collections.lib.uwm.edu/digital/collection/agdm/id/6966/rec/1",
+   "description": "Old map of Chiang Mai (Thailand) in 1945. Printed at the Survey of India Offices. Size: 57 x 87 cm. Scale: 1:5,000. Repository: American Geographical Society Library, University of Wisconsin-Milwaukee Libraries.",
+   "date": "1945",
+   "topic": [
+    "history"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-1945.jpg"
+  },
+  {
+   "title": "File:Vaporwave bust in Chiang Mai.jpg",
+   "slug": "vaporwave-bust-in-chiang-mai",
+   "page": "https://commons.wikimedia.org/wiki/File:Vaporwave_bust_in_Chiang_Mai.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Vaporwave_bust_in_Chiang_Mai.jpg/1280px-Vaporwave_bust_in_Chiang_Mai.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "September 2024 in Chiang Mai",
+   "date": "2024-09-01",
+   "topic": [
+    "arts",
+    "transport"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive",
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/vaporwave-bust-in-chiang-mai.jpg"
+  },
+  {
+   "title": "File:Chiang Mai photo-7498.jpg",
+   "slug": "chiang-mai-photo-7498",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_photo-7498.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Chiang_Mai_photo-7498.jpg/1280px-Chiang_Mai_photo-7498.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Photo I took in Chiang Mai",
+   "date": "2024-08-27 13:06:22",
+   "topic": [
+    "mu"
+   ],
+   "caption_th": "ศาลพระภูมิ ล้อมด้วยตุ๊กตาและพวงมาลัย",
+   "caption_en": "a spirit house crowded with figurines and garlands",
+   "tagged_by": "eye",
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-photo-7498.jpg"
+  },
+  {
+   "title": "File:Naga Bridge in Chiang Mai-1.jpg",
+   "slug": "naga-bridge-in-chiang-mai-1",
+   "page": "https://commons.wikimedia.org/wiki/File:Naga_Bridge_in_Chiang_Mai-1.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Naga_Bridge_in_Chiang_Mai-1.jpg/1280px-Naga_Bridge_in_Chiang_Mai-1.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Naga Bridge in Chiang Mai",
+   "date": "2024-08-30 13:11:47",
+   "topic": [
+    "wat",
+    "city"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/naga-bridge-in-chiang-mai-1.jpg"
+  },
+  {
+   "title": "File:Unidentified object in Chiang Mai temple-3.jpg",
+   "slug": "unidentified-object-in-chiang-mai-temple-3",
+   "page": "https://commons.wikimedia.org/wiki/File:Unidentified_object_in_Chiang_Mai_temple-3.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Unidentified_object_in_Chiang_Mai_temple-3.jpg/1280px-Unidentified_object_in_Chiang_Mai_temple-3.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Chiang Mai Photo",
+   "date": "2024-08-28 16:11:06",
+   "topic": [
+    "wat"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/unidentified-object-in-chiang-mai-temple-3.jpg"
+  },
+  {
+   "title": "File:Red Car Chiang Mai queue behind Chiang Mai University.jpg",
+   "slug": "red-car-chiang-mai-queue-behind-chiang-mai-university",
+   "page": "https://commons.wikimedia.org/wiki/File:Red_Car_Chiang_Mai_queue_behind_Chiang_Mai_University.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Red_Car_Chiang_Mai_queue_behind_Chiang_Mai_University.jpg/1280px-Red_Car_Chiang_Mai_queue_behind_Chiang_Mai_University.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Patiparn.Nice2002bkk",
+   "credit": "Own work",
+   "description": "Red Car Chiang Mai queue behind Chiang Mai University",
+   "date": "2022-04-11 09:57:34",
+   "topic": [
+    "transport"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/red-car-chiang-mai-queue-behind-chiang-mai-university.jpg"
+  },
+  {
+   "title": "File:Green Spirit House in Chiang Mai-1.jpg",
+   "slug": "green-spirit-house-in-chiang-mai-1",
+   "page": "https://commons.wikimedia.org/wiki/File:Green_Spirit_House_in_Chiang_Mai-1.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Green_Spirit_House_in_Chiang_Mai-1.jpg/1280px-Green_Spirit_House_in_Chiang_Mai-1.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "September 2024 in Chiang Mai-",
+   "date": "2024-09-02 15:02:57",
+   "topic": [
+    "mu"
+   ],
+   "season": [
+    "rains"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/green-spirit-house-in-chiang-mai-1.jpg"
+  },
+  {
+   "title": "File:Chiang Mai police station Indra Shrine.jpg",
+   "slug": "chiang-mai-police-station-indra-shrine",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai_police_station_Indra_Shrine.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Chiang_Mai_police_station_Indra_Shrine.jpg/1280px-Chiang_Mai_police_station_Indra_Shrine.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY 4.0",
+   "artist": "Immanuelle",
+   "credit": "Own work",
+   "description": "Chiang Mai trip photo",
+   "date": "2024-08-27 13:14:23",
+   "topic": [
+    "faith",
+    "mu",
+    "transport"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred",
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-police-station-indra-shrine.jpg"
+  },
+  {
+   "title": "File:Chiang Mai, Loy Krathong Lantern Festival, Thailand.jpg",
+   "slug": "chiang-mai-loy-krathong-lantern-festival-thailand",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Mai,_Loy_Krathong_Lantern_Festival,_Thailand.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Chiang_Mai%2C_Loy_Krathong_Lantern_Festival%2C_Thailand.jpg/1280px-Chiang_Mai%2C_Loy_Krathong_Lantern_Festival%2C_Thailand.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY 4.0",
+   "artist": "Vyacheslav Argenberg",
+   "credit": "Own work",
+   "description": "Loy Krathong. Yee Peng. Siamese Lantern Festival. Full moon of the 12th month in the traditional Thai lunar calendar. Chiang Mai, Thailand.",
+   "date": "2010-11-20 18:58:16",
+   "topic": [
+    "festival"
+   ],
+   "season": [
+    "cool"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-loy-krathong-lantern-festival-thailand.jpg"
+  },
+  {
+   "title": "File:Chiang mai-7 century hostel-small room.jpg",
+   "slug": "chiang-mai-7-century-hostel-small-room",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_mai-7_century_hostel-small_room.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Chiang_mai-7_century_hostel-small_room.jpg/1280px-Chiang_mai-7_century_hostel-small_room.jpg",
+   "width": 1000,
+   "height": 664,
+   "licence": "CC BY-SA 3.0",
+   "artist": "User: (WT-shared) Harlock at wts wikivoyage",
+   "credit": "Own work",
+   "description": "One of the cozy smaller rooms at the 7th Century Guesthouse in Chiang Mai - northern Thailand.",
+   "date": "2011-03-02",
+   "topic": [
+    "stay"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "usable": true,
+   "file": "site/chiang-mai-7-century-hostel-small-room.jpg"
+  },
+  {
+   "title": "File:Hill Tribes Village Museum Chiang Mai Thailand 03.jpg",
+   "slug": "hill-tribes-village-museum-chiang-mai-thailand-03",
+   "page": "https://commons.wikimedia.org/wiki/File:Hill_Tribes_Village_Museum_Chiang_Mai_Thailand_03.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Hill_Tribes_Village_Museum_Chiang_Mai_Thailand_03.jpg/1280px-Hill_Tribes_Village_Museum_Chiang_Mai_Thailand_03.jpg",
+   "width": 1000,
+   "height": 749,
+   "licence": "CC BY 4.0",
+   "artist": "Philip Nalangan",
+   "credit": "Own work",
+   "description": "Hill Tribes Village Museum in Chiang Mai, Thailand",
+   "date": "2006-01-01",
+   "topic": [
+    "people",
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "streetlife",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/hill-tribes-village-museum-chiang-mai-thailand-03.jpg"
+  },
+  {
+   "title": "File:Wat Pha Lat, Chiang Mai 20250116.jpg",
+   "slug": "wat-pha-lat-chiang-mai-20250116",
+   "page": "https://commons.wikimedia.org/wiki/File:Wat_Pha_Lat,_Chiang_Mai_20250116.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Wat_Pha_Lat%2C_Chiang_Mai_20250116.jpg/1280px-Wat_Pha_Lat%2C_Chiang_Mai_20250116.jpg",
+   "width": 1000,
+   "height": 563,
+   "licence": "CC BY 4.0",
+   "artist": "This Photo was taken by Supanut Arunoprayote . Feel free to use any of my images, but please mention me as the author and may send me a message. (สามารถใช้ภาพได้อิสระ แต่กรุณาใส่เครดิตผู้ถ่ายและอาจส่ง ข้อความบอกกล่าวด้วย ) Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved. Please if you think that any changes should be required, please inform the author. Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract .",
+   "credit": "Own work",
+   "description": "The Main Courtyard of Wat Pha Lat , Chiang Mai.",
+   "date": "2025-01-16 10:15:29",
+   "topic": [
+    "wat"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/wat-pha-lat-chiang-mai-20250116.jpg"
+  },
+  {
+   "title": "File:Ping River cruise north of Chiang Mai, Thailand.jpg",
+   "slug": "ping-river-cruise-north-of-chiang-mai-thailand",
+   "page": "https://commons.wikimedia.org/wiki/File:Ping_River_cruise_north_of_Chiang_Mai,_Thailand.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Ping_River_cruise_north_of_Chiang_Mai%2C_Thailand.jpg/1280px-Ping_River_cruise_north_of_Chiang_Mai%2C_Thailand.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY 4.0",
+   "artist": "Vyacheslav Argenberg",
+   "credit": "Own work",
+   "description": "The Ping River is one of the two main tributaries of the Chao Phraya River. It originates in Huai Nam Dang National Park. Chiang Mai, Thailand.",
+   "date": "2010-11-16 16:17:09",
+   "topic": [
+    "nature",
+    "transport"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "green",
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/ping-river-cruise-north-of-chiang-mai-thailand.jpg"
+  },
+  {
+   "title": "File:U S Marine band engages with community in Chiang Mai, Thailand (9794438).jpg",
+   "slug": "u-s-marine-band-engages-with-community-in-chiang-mai-thailan",
+   "page": "https://commons.wikimedia.org/wiki/File:U_S_Marine_band_engages_with_community_in_Chiang_Mai,_Thailand_(9794438).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/U_S_Marine_band_engages_with_community_in_Chiang_Mai%2C_Thailand_%289794438%29.jpg/1280px-U_S_Marine_band_engages_with_community_in_Chiang_Mai%2C_Thailand_%289794438%29.jpg",
+   "width": 1000,
+   "height": 625,
+   "licence": "Public domain",
+   "artist": "U.S. Marine Corps photo by Gunnery Sgt. Shannon Doherty",
+   "credit": "This image was released by the United States Marine Corps with the ID 260622-M-EA532-2044 (next) . This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing . العربية ∙ বাংলা ∙ Bahasa Indonesia ∙ Bahaso Jambi ∙ Deutsch ∙ Deutsch (Sie-Form) ∙ English ∙ español ∙ euskara ∙ فارسی ∙ français ∙ italiano ∙ 日本語 ∙ 한국어 ∙ македонски ∙ മലയാളം ∙ Plattdüütsch ∙ Nederlands ∙ polski ∙ پښتو ∙ português ∙ русский ∙ slovenščina ∙ svenska ∙ Türkçe ∙ українська ∙ 简体中文 ∙ 繁體中文 ∙ +/−",
+   "description": "U.S. Marines with the III Marine Expeditionary Force Band perform for students of The Prince Royal’s College, Chiang Mai, Royal Kingdom of Thailand, June 22, 2026. This performance was part of a musical workshop, where band members worked with students to refine their musicianship and foster relations between the United States and Thailand. (U.S. Marine Corps photo by Gunnery Sgt. Shannon Doherty)",
+   "date": "Taken on 22 June 2026",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/u-s-marine-band-engages-with-community-in-chiang-mai-thailan.jpg"
+  },
+  {
+   "title": "File:Songthaew in Chiang Mai (4).jpg",
+   "slug": "songthaew-in-chiang-mai-4",
+   "page": "https://commons.wikimedia.org/wiki/File:Songthaew_in_Chiang_Mai_(4).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Songthaew_in_Chiang_Mai_%284%29.jpg/1280px-Songthaew_in_Chiang_Mai_%284%29.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Patiparn.Nice2002bkk",
+   "credit": "Own work",
+   "description": "Song Thaew in Chiang Mai",
+   "date": "2022-04-11 11:44:11",
+   "topic": [
+    "transport"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/songthaew-in-chiang-mai-4.jpg"
+  },
+  {
+   "title": "File:Doi Suthep Temple Chiang Mai Thailand 3.jpg",
+   "slug": "doi-suthep-temple-chiang-mai-thailand-3",
+   "page": "https://commons.wikimedia.org/wiki/File:Doi_Suthep_Temple_Chiang_Mai_Thailand_3.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Doi_Suthep_Temple_Chiang_Mai_Thailand_3.jpg/1280px-Doi_Suthep_Temple_Chiang_Mai_Thailand_3.jpg",
+   "width": 1000,
+   "height": 749,
+   "licence": "CC BY 4.0",
+   "artist": "Philip Nalangan",
+   "credit": "Own work",
+   "description": "Green Buddha at Doi Suthep temple in Chiang Mai, Thailand. As one of the most sacred temples in northern Thailand, it is a popular destination for tourists and pilgrims and is known for its panoramic views of the city and surrounding area. The temple is located at an elevation of 3,520 feet (1,073 m) on the slopes of Mount Suthep, which is one of Thailand's highest peaks. To reach the temple, visitors must climb a winding road and 306 steps.",
+   "date": "2006-01-01",
+   "topic": [
+    "wat",
+    "nature"
+   ],
+   "season": [
+    "rains"
+   ],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred",
+    "green"
+   ],
+   "usable": true,
+   "file": "site/doi-suthep-temple-chiang-mai-thailand-3.jpg"
+  },
+  {
+   "title": "File:Ceramic production molds in a ceramics workshop in Chiang Mai, Thailand.jpg",
+   "slug": "ceramic-production-molds-in-a-ceramics-workshop-in-chiang-ma",
+   "page": "https://commons.wikimedia.org/wiki/File:Ceramic_production_molds_in_a_ceramics_workshop_in_Chiang_Mai,_Thailand.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Ceramic_production_molds_in_a_ceramics_workshop_in_Chiang_Mai%2C_Thailand.jpg/1280px-Ceramic_production_molds_in_a_ceramics_workshop_in_Chiang_Mai%2C_Thailand.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY 4.0",
+   "artist": "Goterrestrial",
+   "credit": "Own work",
+   "description": "Photograph showing ceramic production molds arranged in a ceramics workshop in Chiang Mai, Thailand. The molds are used in the production of handmade ceramic tableware.",
+   "date": "2021",
+   "topic": [
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/ceramic-production-molds-in-a-ceramics-workshop-in-chiang-ma.jpg"
+  },
+  {
+   "title": "File:Dendrobium formosum 'Chiang Mai' Roxb. ex Lindl. in Pl. Asiat. Rar. 1- 34 (1830) 20241009 231544.jpg",
+   "slug": "dendrobium-formosum-chiang-mai-roxb-ex-lindl-in-pl-asiat-rar",
+   "page": "https://commons.wikimedia.org/wiki/File:Dendrobium_formosum_%27Chiang_Mai%27_Roxb._ex_Lindl._in_Pl._Asiat._Rar._1-_34_(1830)_20241009_231544.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Dendrobium_formosum_%27Chiang_Mai%27_Roxb._ex_Lindl._in_Pl._Asiat._Rar._1-_34_%281830%29_20241009_231544.jpg/1280px-Dendrobium_formosum_%27Chiang_Mai%27_Roxb._ex_Lindl._in_Pl._Asiat._Rar._1-_34_%281830%29_20241009_231544.jpg",
+   "width": 1000,
+   "height": 667,
+   "licence": "CC BY 4.0",
+   "artist": "Motohiro Sunouchi",
+   "credit": "Own work",
+   "description": "Plant derived from Chiang Mai, Thailand Taxonomy Family ラン科 Orchidaceae Subfamily セッコク亜科 Epidendroideae Tribe Dendrobieae Genus セッコク属 Dendrobium .mw-parser-output .smallcaps{font-variant:small-caps} Sw. Section Formosae Distribution C. Himalaya to Indo-China Lifeform Pseudobulbous epiphyte Synonyms Homotypic synonyms Callista formosa ( Roxb. ex Lindl. ) Kuntze in Revis. Gen. Pl. 2: 654 (1891) Heterotypic synonyms Dendrobium formosum var. giganteum W.Bull in Proc. Roy. Hort. Soc. London 4: 175 (1864)",
+   "date": "2024-10-09",
+   "topic": [
+    "nature",
+    "people",
+    "history"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "green",
+    "streetlife",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/dendrobium-formosum-chiang-mai-roxb-ex-lindl-in-pl-asiat-rar.jpg"
+  },
+  {
+   "title": "File:Statua Kinnaree a Chiang Mai - Thailandia.jpg",
+   "slug": "statua-kinnaree-a-chiang-mai-thailandia",
+   "page": "https://commons.wikimedia.org/wiki/File:Statua_Kinnaree_a_Chiang_Mai_-_Thailandia.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Statua_Kinnaree_a_Chiang_Mai_-_Thailandia.jpg/1280px-Statua_Kinnaree_a_Chiang_Mai_-_Thailandia.jpg",
+   "width": 1000,
+   "height": 1530,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Garonzi Stefania",
+   "credit": "Own work",
+   "description": "Statua in pietra Kinnaree creatura metà umana e metà cigno simbolo dell'amore. Wat Chedi Luang a Chiang Mai in Thailandia.",
+   "date": "2019-01-26 15:59:17",
+   "topic": [
+    "wat",
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "sacred",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/statua-kinnaree-a-chiang-mai-thailandia.jpg"
+  },
+  {
+   "title": "File:AnyWheel fietsen in Chiang Mai 20220603 132427.jpg",
+   "slug": "anywheel-fietsen-in-chiang-mai-20220603-132427",
+   "page": "https://commons.wikimedia.org/wiki/File:AnyWheel_fietsen_in_Chiang_Mai_20220603_132427.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/AnyWheel_fietsen_in_Chiang_Mai_20220603_132427.jpg/1280px-AnyWheel_fietsen_in_Chiang_Mai_20220603_132427.jpg",
+   "width": 1000,
+   "height": 724,
+   "licence": "CC BY-SA 4.0",
+   "artist": "FredTC",
+   "credit": "Own work",
+   "description": "AnyWheel fietsen in Chiang Mai. Ze zijn van een bedrijf uit Singapore.",
+   "date": "2022-06-03 13:24:27",
+   "topic": [
+    "transport"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "usable": true,
+   "file": "site/anywheel-fietsen-in-chiang-mai-20220603-132427.jpg"
+  },
+  {
+   "title": "File:Chiang Rai Mosque6.jpg",
+   "slug": "chiang-rai-mosque6",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Rai_Mosque6.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Chiang_Rai_Mosque6.jpg/1280px-Chiang_Rai_Mosque6.jpg",
+   "width": 1000,
+   "height": 1503,
+   "licence": "CC BY 3.0",
+   "artist": "Iceway12 ( talk ) / Iceway12 at English Wikipedia",
+   "credit": "Own work ( Original text: I created this work entirely by myself. )",
+   "description": "Ban Hoe Mosque located in Chiang Rai , is the biggest mosques in the province.",
+   "date": "2009-12-27",
+   "topic": [
+    "faith"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/chiang-rai-mosque6.jpg"
+  },
+  {
+   "title": "File:Art Bridge Chiang Rai - ขัวศิลปะ (2022) - IMG 02.jpg",
+   "slug": "art-bridge-chiang-rai-2022-img-02",
+   "page": "https://commons.wikimedia.org/wiki/File:Art_Bridge_Chiang_Rai_-_%E0%B8%82%E0%B8%B1%E0%B8%A7%E0%B8%A8%E0%B8%B4%E0%B8%A5%E0%B8%9B%E0%B8%B0_(2022)_-_IMG_02.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Art_Bridge_Chiang_Rai_-_%E0%B8%82%E0%B8%B1%E0%B8%A7%E0%B8%A8%E0%B8%B4%E0%B8%A5%E0%B8%9B%E0%B8%B0_%282022%29_-_IMG_02.jpg/1280px-Art_Bridge_Chiang_Rai_-_%E0%B8%82%E0%B8%B1%E0%B8%A7%E0%B8%A8%E0%B8%B4%E0%B8%A5%E0%B8%9B%E0%B8%B0_%282022%29_-_IMG_02.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY 4.0",
+   "artist": "Chainwit.",
+   "credit": "Own work",
+   "description": "Art Bridge Chiang Rai",
+   "date": "2022-11-19 10:40:34",
+   "topic": [
+    "arts",
+    "city"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "festive",
+    "landmark"
+   ],
+   "usable": true,
+   "file": "site/art-bridge-chiang-rai-2022-img-02.jpg"
+  },
+  {
+   "title": "File:Templo Blanco de Chiang Rai.jpg",
+   "slug": "templo-blanco-de-chiang-rai",
+   "page": "https://commons.wikimedia.org/wiki/File:Templo_Blanco_de_Chiang_Rai.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Templo_Blanco_de_Chiang_Rai.jpg/1280px-Templo_Blanco_de_Chiang_Rai.jpg",
+   "width": 1000,
+   "height": 1333,
+   "licence": "CC BY-SA 4.0",
+   "artist": "Guillermo Álvarez Rodríguez",
+   "credit": "Own work",
+   "description": "Templo blanco situado en Chiang Rai, al norte de Tailandia",
+   "date": "2022-06-25",
+   "topic": [
+    "wat"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/templo-blanco-de-chiang-rai.jpg"
+  },
+  {
+   "title": "File:Chiang Rai - Wat Rong Khun วัดร่องขุ่น (2026) - img 18.jpg",
+   "slug": "chiang-rai-wat-rong-khun-2026-img-18",
+   "page": "https://commons.wikimedia.org/wiki/File:Chiang_Rai_-_Wat_Rong_Khun_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%82%E0%B8%B8%E0%B9%88%E0%B8%99_(2026)_-_img_18.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Chiang_Rai_-_Wat_Rong_Khun_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%82%E0%B8%B8%E0%B9%88%E0%B8%99_%282026%29_-_img_18.jpg/1280px-Chiang_Rai_-_Wat_Rong_Khun_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%82%E0%B8%B8%E0%B9%88%E0%B8%99_%282026%29_-_img_18.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY 4.0",
+   "artist": "Chainwit.",
+   "credit": "Own work",
+   "description": "Wat Rong Khun (White Temple), Chiang Rai",
+   "date": "2026-01-15 09:27:57",
+   "topic": [
+    "wat"
+   ],
+   "season": [],
+   "place": [
+    "cr"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "usable": true,
+   "file": "site/chiang-rai-wat-rong-khun-2026-img-18.jpg"
+  },
+  {
+   "title": "File:ThajskySlin.JPG",
+   "slug": "thajskyslin",
+   "page": "https://commons.wikimedia.org/wiki/File:ThajskySlin.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/c3/ThajskySlin.JPG",
+   "width": 636,
+   "height": 646,
+   "licence": "CC BY-SA 3.0",
+   "artist": "Kyle sb at English Wikipedia",
+   "credit": "Own work by the original uploader",
+   "description": "An elephant painting in Chiang Mai , Thailand .",
+   "date": "6 April 2006 (original upload date)",
+   "topic": [
+    "animals"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "green"
+   ],
+   "usable": true,
+   "file": "site/thajskyslin.jpg"
+  },
+  {
+   "title": "File:Latte Art Chiang Mai (Unsplash).jpg",
+   "slug": "latte-art-chiang-mai-unsplash",
+   "page": "https://commons.wikimedia.org/wiki/File:Latte_Art_Chiang_Mai_(Unsplash).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Latte_Art_Chiang_Mai_%28Unsplash%29.jpg/1280px-Latte_Art_Chiang_Mai_%28Unsplash%29.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC0",
+   "artist": "Waranya Mooldee anyadiary",
+   "credit": "https://unsplash.com/photos/VD0k9ZcxJOU Image at the Wayback Machine Gallery at the Wayback Machine",
+   "description": "Chiang Mai, Thailand",
+   "date": "2016-01-15",
+   "topic": [
+    "food",
+    "arts"
+   ],
+   "season": [],
+   "place": [
+    "cm"
+   ],
+   "mood": [
+    "appetite",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/latte-art-chiang-mai-unsplash.jpg"
+  },
+  {
+   "title": "File:Phra Mae Ya Shrine - ศาลพระแม่ย่า (2026) - exterior img 14.jpg",
+   "slug": "phra-mae-ya-shrine-2026-exterior-img-14",
+   "page": "https://commons.wikimedia.org/wiki/File:Phra_Mae_Ya_Shrine_-_%E0%B8%A8%E0%B8%B2%E0%B8%A5%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%A2%E0%B9%88%E0%B8%B2_(2026)_-_exterior_img_14.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Phra_Mae_Ya_Shrine_-_%E0%B8%A8%E0%B8%B2%E0%B8%A5%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%A2%E0%B9%88%E0%B8%B2_%282026%29_-_exterior_img_14.jpg/1280px-Phra_Mae_Ya_Shrine_-_%E0%B8%A8%E0%B8%B2%E0%B8%A5%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%A2%E0%B9%88%E0%B8%B2_%282026%29_-_exterior_img_14.jpg",
+   "width": 1000,
+   "height": 750,
+   "licence": "CC BY 4.0",
+   "artist": "Chainwit.",
+   "credit": "Own work",
+   "description": "Trays of bai si (also termed baci ), ready for purchase for worshipping at Phra Mae Ya Shrine, Sukhothai",
+   "date": "2026-06-02 11:06:27",
+   "topic": [
+    "faith",
+    "mu",
+    "festival"
+   ],
+   "season": [],
+   "place": [
+    "elsewhere"
+   ],
+   "mood": [
+    "sacred",
+    "festive"
+   ],
+   "usable": true,
+   "file": "site/phra-mae-ya-shrine-2026-exterior-img-14.jpg"
+  }
+ ]
+}

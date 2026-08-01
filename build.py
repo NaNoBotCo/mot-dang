@@ -17,6 +17,7 @@ import re
 import shutil
 import unicodedata
 import urllib.parse
+import zlib
 from pathlib import Path
 
 try:
@@ -106,6 +107,90 @@ PHOTO_CREDITS = json.loads(_credits_path.read_text()) if _credits_path.exists() 
 _ci_path = ROOT / "data" / "commons_images.json"
 COMMONS_IMAGES = (json.loads(_ci_path.read_text()).get("images", {})
                   if _ci_path.exists() else {})
+
+# ------------------------------------------------------- the city, as pictures
+# Nan's own picks, resolved and downloaded by importers/import_image_picks.py.
+# These are the site's furniture — a hero, a shelf card, a section band — not
+# photographs OF anything we list. That distinction is the whole safety rule
+# here: a picture of somebody's actual shop has to BE that shop, which is what
+# harvest_commons.py proves; a picture of a red songthaew over the transport
+# shelf only has to be a red songthaew.
+#
+# Tagged on four axes because that is how she asked to reach them: topic,
+# season, location, mood.
+SITE_ART_SRC = ROOT / "assets" / "site"
+_picks_path = ROOT / "data" / "curated" / "image_picks.json"
+SITE_ART = [p for p in (json.loads(_picks_path.read_text())["picks"]
+                        if _picks_path.exists() else [])
+            if p.get("file") and p.get("usable")]
+ART_USED = {}     # slug -> pick, filled as pictures are drawn; feeds /pictures.html
+
+
+def art(topic=None, mood=None, place=None, season=None, n=1, key="", avoid=(),
+        not_topic=(), slug_has=None, local=False):
+    """Pick pictures off the four axes. Deterministic on purpose.
+
+    A random choice would redraw the homepage on every build, and docs/ already
+    has enough churn that reads as a change when it is not one. crc32 of the
+    caller's key plus the slug gives a stable shuffle that still differs from
+    slot to slot, so two blocks asking for `topic="food"` do not both get the
+    same bowl of khao soi.
+
+    Anything asked for and not found comes back empty rather than falling back
+    to a picture of something else — a wrong picture is worse than none.
+    """
+    def ok(p):
+        if p["slug"] in avoid:
+            return False
+        if not_topic and any(t in p.get("topic", []) for t in not_topic):
+            return False
+        if slug_has and slug_has not in p["slug"]:
+            return False
+        # Several of her picks are of the dish or the custom rather than of
+        # here — a Lanna restaurant in Germany, a baci in Laos, a junglefowl in
+        # Rarotonga. Fine as mood; wrong over a shelf that says Chiang Mai.
+        if local and "elsewhere" in p.get("place", []):
+            return False
+        for axis, want in (("topic", topic), ("mood", mood),
+                           ("place", place), ("season", season)):
+            if want and want not in p.get(axis, []):
+                return False
+        return True
+
+    pool = [p for p in SITE_ART if ok(p)]
+    # Anything already drawn on this page sinks to the bottom of the shuffle,
+    # so the hero and the shelf card below it do not both land on Songkran.
+    # It is a preference, not a ban: with only one honest picture of a subject,
+    # showing it twice still beats showing the wrong one.
+    pool.sort(key=lambda p: (p["slug"] in ART_USED,
+                             zlib.crc32((key + "|" + p["slug"]).encode())))
+    out = pool[:n]
+    for p in out:
+        ART_USED[p["slug"]] = p
+    return out
+
+
+def art_one(**kw):
+    got = art(n=1, **kw)
+    return got[0] if got else None
+
+
+def art_alt(p):
+    """What the picture shows, in both languages, or nothing at all.
+
+    `alt=""` is the correct marking for decoration, and most of this art IS
+    decoration sitting beside a label that already says the word. So the rule
+    is: describe it only where a real description exists to describe it with —
+    never a restatement of the heading next to it, never a guess at a frame
+    nobody here has looked at. Credit for every one of them lives on
+    /pictures.html, which is linked wherever they appear.
+    """
+    if p.get("caption_th") or p.get("caption_en"):
+        return bi_text(p.get("caption_th", ""), p.get("caption_en", ""))
+    d = (p.get("description") or "").strip()
+    if not d or d.lower().startswith("photo i took"):
+        return ""
+    return d[:160]
 
 # ---------------------------------------------------------------- reachability
 # Most places here have no working website, and plenty of the ones that do have
@@ -579,16 +664,25 @@ def item_list_ld(records, prov_key, limit=100):
 CSS = """
 /* Warm temple palette — mulberry paper, lacquer red, temple gold. Everything
    below already drew its colour from these variables, so retuning them moves
-   the whole site at once rather than leaving the homepage a stranger to it. */
-:root{--paper:#f7f1e4;--ink:#241c15;--ant:#a3231c;--ant-dark:#7d1712;
---link:#14479b;--visited:#6B3FA0;--soft:#ece0c8;--mute:#8a7a62;
---day:#a3231c;
---card:#fffdf8;--card-alt:#fdf9f0;--ink-soft:#4a4136;--gloss:#6f6353;
---gold:#c9962c;--gold-light:#e6c987;--gold-pale:#f6dfa0;
---marigold-a:#fbdc8e;--marigold-b:#f5cd6a;--marigold-ink:#6d5411;
+   the whole site at once rather than leaving the homepage a stranger to it.
+   Retuned 2026-08-01 to the values Nan picked out of the Claude Design study:
+   creamier paper, a brighter lacquer red, a real marigold gold. The names did
+   not move, so every rule written against them came along.
+   --link and --visited deliberately stay blue and purple. The study made links
+   red like everything else; this is a directory, and which shelves you have
+   already opened is information the reader is owed. */
+:root{--paper:#faf5ea;--ink:#2a1e16;--ant:#c13a2e;--ant-dark:#8f2a21;
+--link:#14479b;--visited:#6B3FA0;--soft:#e3d5bc;--mute:#a08b6c;
+--day:#c13a2e;
+--card:#fffdf7;--card-alt:#f8f0dd;--ink-soft:#544636;--gloss:#8a755b;
+--gold:#c08a2d;--gold-light:#f3c34b;--gold-pale:#f9e2a4;
+--marigold-a:#f9dc93;--marigold-b:#f3c34b;--marigold-ink:#6d5411;
 --jade-a:#cfe3d2;--jade-b:#b8d4bd;--jade-ink:#26402c;--jade:#1f6b57;
---warm-border:#ded0b2;--dashed:#c4b28d;--row-hover:#fdf3dd;
---shadow:#e0d3b6;--shadow-dark:#cbb78d;--on-dark:#f7eeda;--on-dark-mute:#b6a68c;}
+--warm-border:#e3d5bc;--dashed:#c4b28d;--row-hover:#fcf3dc;
+--shadow:#e3d5bc;--shadow-dark:#c9b074;--on-dark:#f7eeda;--on-dark-mute:#b6a68c;
+/* after dark — the one place the site is allowed to be a nightclub */
+--night-a:#3a1b4f;--night-b:#1e0f30;--night-c:#160a24;--neon:#ff6ec7;
+--neon-gold:#ffd24a;--night-mute:#d8c7ee;}
 /* สีประจำวัน — md.js sets --day from the baked fortune, so the page
    quietly wears the colour of the weekday, as a Thai calendar does. */
 .masthead{border-bottom:3px solid var(--day)}
@@ -1561,6 +1655,256 @@ ul.catrows{grid-template-columns:minmax(0,1fr);padding:.4rem}
 .cardhead h2{font-size:1.35rem}
 .pickgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem}
 .pickgrid img{height:104px}
+}
+
+/* ======================================================================
+   THE DESIGN LAYER — ported from the Claude Design study Nan picked out.
+   Kept as one block at the end so it overrides by order rather than by a
+   specificity war, and so the whole look can be read (or lifted out) in
+   one piece. Nothing here removes a module; it only changes their clothes.
+   ====================================================================== */
+
+/* --- type ----------------------------------------------------------------
+   Three faces, all SIL Open Font Licence, all served from our own domain:
+   the site promises it follows no one around, and a font from someone else's
+   CDN is a request that reader never asked to make. Licences sit beside the
+   files in assets/fonts/. 132 KB for the lot, split by unicode-range so a
+   Thai reader never downloads the Latin cut.
+   Chonburi is a display face and stays one — headings, never running text.
+   Nothing below 1rem wears it. */
+@font-face{font-family:'Chonburi';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/chonburi-400-thai.woff2) format('woff2');unicode-range:U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC}
+@font-face{font-family:'Chonburi';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/chonburi-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Chonburi';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/chonburi-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/prompt-400-thai.woff2) format('woff2');unicode-range:U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/prompt-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/prompt-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/prompt-600-thai.woff2) format('woff2');unicode-range:U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/prompt-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/prompt-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Sriracha';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/sriracha-400-thai.woff2) format('woff2');unicode-range:U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC}
+@font-face{font-family:'Sriracha';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/sriracha-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Sriracha';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/sriracha-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+body{font-family:'Prompt',-apple-system,"Thonburi","Sarabun","Noto Sans Thai",sans-serif}
+h1,h2,h3,.logoth,.cardhead h2,.herotitle,.sectiontitle{
+font-family:'Chonburi','Prompt',-apple-system,"Thonburi",serif;font-weight:400;
+letter-spacing:.01em;line-height:1.35}
+/* Chonburi has one weight and no bold. Anything that used to lean on <b> for
+   emphasis inside a heading would silently flatten, so those keep Prompt. */
+h1 b,h2 b,h3 b,h1 .en,h2 .en,h3 .en{font-family:'Prompt',sans-serif}
+.hand{font-family:'Sriracha',cursive;font-weight:400}
+::selection{background:var(--gold-light);color:var(--ink)}
+
+/* --- the ribbon ----------------------------------------------------------
+   A woven awning stripe. It opens the page, divides the big movements and
+   closes the footer, which is most of what makes the whole thing read as one
+   object rather than a stack of cards. --gap is whatever it is lying on. */
+.ribbon{height:8px;--gap:var(--paper);
+background:repeating-linear-gradient(90deg,var(--ant) 0 44px,var(--gap) 44px 52px,
+var(--gold) 52px 60px,var(--gap) 60px 68px)}
+.ribbon.tall{height:12px}
+.ribbon.ondark{--gap:var(--ink)}
+.ribbon.onnight{--gap:var(--night-c)}
+
+/* --- the sticker system --------------------------------------------------
+   A hard offset shadow instead of a soft blur, and on hover the thing steps
+   towards you while its shadow grows: the squishy, pressable feel Nan wants
+   on everything. Held to cards you can actually click. */
+.card,.sidecard,.sponsorcard,.planhero{box-shadow:5px 5px 0 var(--shadow)}
+.sidecard.dark{box-shadow:5px 5px 0 var(--shadow-dark)}
+.hicard,.wtile,.moodcard,.pickgrid a,.chip,.citychip{
+box-shadow:4px 4px 0 var(--shadow)}
+@media (prefers-reduced-motion:no-preference){
+.hicard,.wtile,.moodcard,.pickgrid a,.chip,.citychip{
+transition:transform .15s ease,box-shadow .15s ease}
+.hicard:hover,.wtile:hover,.moodcard:hover,.pickgrid a:hover,.chip:hover,.citychip:hover{
+transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--gold-light)}
+.hicard:active,.moodcard:active,.chip:active,.citychip:active{
+transform:translate(1px,1px);box-shadow:2px 2px 0 var(--shadow)}
+}
+.chip.dark:hover,.wtile:hover{box-shadow:7px 7px 0 var(--gold)}
+form.seek{box-shadow:6px 6px 0 var(--gold-light)}
+form.seek:focus-within{box-shadow:6px 6px 0 var(--ant)}
+
+/* Glass belongs where there is something behind it to blur — over a
+   photograph, not over flat paper, where it would cost a repaint and show
+   nothing. So: labels sitting on images, and nowhere else. */
+.glass{background:rgba(255,253,247,.72);backdrop-filter:blur(10px) saturate(1.4);
+-webkit-backdrop-filter:blur(10px) saturate(1.4)}
+
+/* --- hero ---------------------------------------------------------------- */
+.hero{position:relative;display:grid;
+grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr));
+gap:2.4rem;align-items:center;margin:.4rem 0 2.2rem}
+.heroglow{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+.heroglow.a{top:-90px;right:-140px;width:440px;height:440px;
+background:radial-gradient(circle,rgba(243,195,75,.42),rgba(243,195,75,0) 68%)}
+.heroglow.b{bottom:-120px;left:-160px;width:460px;height:460px;
+background:radial-gradient(circle,rgba(193,58,46,.14),rgba(193,58,46,0) 70%)}
+.herocopy{position:relative;z-index:1;min-width:0}
+.heroeyebrow{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);
+font-size:1rem;margin-bottom:.5rem}
+.heroeyebrow::before{content:"";width:8px;height:8px;border-radius:50%;
+background:var(--ant);flex:0 0 auto}
+.herotitle{font-size:clamp(1.8rem,4vw,2.8rem);margin:0 0 .5rem;line-height:1.25}
+.herotitle .accent{color:var(--ant)}
+/* The English gloss cannot ride at display size. Set at the same weight as the
+   Thai it follows, a two-language headline ran to four lines and pushed the
+   whole page down. It gets its own line, at half the size, in the body face —
+   which is also how it reads as a gloss rather than as a second headline.
+   Matched on body.lang-* so it beats the `body.lang-both .en{display:inline}`
+   rule that governs every other gloss on the site. */
+body.lang-both .herotitle .en,body.lang-en .herotitle .en{
+display:block;font-family:'Prompt',sans-serif;font-size:.42em;font-weight:400;
+line-height:1.4;color:var(--gloss);margin-top:.1em}
+body.lang-both .herotitle .accent .en,body.lang-en .herotitle .accent .en{
+color:var(--ant-dark)}
+/* The " · " that joins the pair is a Thai-marked span; on its own line it is
+   just a stray dot. */
+body.lang-both .herotitle .en>.th,body.lang-en .herotitle .en>.th{display:none}
+.herosub{color:var(--gloss);margin:0 0 1.1rem;font-size:1.02rem}
+.heroart{position:relative;height:min(62vw,430px);z-index:1;min-width:0}
+.heroart img{position:absolute;object-fit:cover;border:3px solid var(--card);
+border-radius:18px;background:var(--card-alt);display:block}
+.heroart .a{top:0;right:0;width:78%;height:76%;transform:rotate(2deg);
+box-shadow:0 18px 44px rgba(42,30,22,.22)}
+.heroart .b{bottom:0;left:0;width:52%;height:44%;
+box-shadow:0 14px 34px rgba(42,30,22,.25)}
+.heroart .c{bottom:14%;right:2%;width:31%;height:32%;transform:rotate(4deg);
+box-shadow:0 10px 26px rgba(42,30,22,.22)}
+.herosticker{position:absolute;top:-14px;left:22px;z-index:2;
+background:var(--gold-light);color:var(--ink);font-family:'Sriracha',cursive;
+font-size:.95rem;padding:.45rem 1.1rem;border-radius:999px;transform:rotate(-5deg);
+box-shadow:0 4px 12px rgba(42,30,22,.18)}
+@media (prefers-reduced-motion:no-preference){
+.heroart .b{animation:mdfloat 7s ease-in-out infinite}
+@keyframes mdfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+}
+@media (max-width:900px){.heroart{height:min(78vw,360px)}}
+
+/* --- mood cards ---------------------------------------------------------- */
+.moodgrid{list-style:none;margin:0;padding:0;display:grid;
+grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:1rem}
+.moodcard{display:block;border:2px solid var(--ink);border-radius:18px;
+overflow:hidden;background:var(--card);text-decoration:none;color:var(--ink)}
+.moodcard:visited{color:var(--ink)}
+.moodcard:hover{text-decoration:none}
+.moodcard img{width:100%;height:118px;object-fit:cover;display:block;
+background:var(--card-alt)}
+.moodcard .lbl{padding:.6rem .8rem .75rem}
+.moodcard .lbl b{display:block;font-weight:600;font-size:1.02rem;line-height:1.3}
+.moodcard .lbl .en{font-size:.78rem;color:var(--mute);letter-spacing:.11em;
+text-transform:uppercase;font-weight:600}
+.moodcard .n{font-variant-numeric:tabular-nums;color:var(--gloss);font-size:.84rem}
+
+/* --- after dark ----------------------------------------------------------
+   The one section that leaves the daytime palette. Everything else on this
+   site is paper and lacquer; the night is neon, because that is what the
+   night actually looks like here. */
+.afterdark{position:relative;overflow:hidden;margin:2.4rem 0 0;border-radius:22px;
+border:2px solid var(--ink);
+background:radial-gradient(900px 420px at 50% -80px,var(--night-a) 0%,
+var(--night-b) 55%,var(--night-c) 100%);color:var(--night-mute)}
+.afterdark .inner{position:relative;z-index:1;padding:2.6rem 1.4rem 2.2rem}
+.afterdark .adglow{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+.afterdark .adglow.a{top:20px;left:-140px;width:420px;height:420px;
+background:radial-gradient(circle,rgba(255,110,199,.20),rgba(255,110,199,0) 70%)}
+.afterdark .adglow.b{bottom:-90px;right:-110px;width:400px;height:400px;
+background:radial-gradient(circle,rgba(255,210,74,.15),rgba(255,210,74,0) 70%)}
+.afterdark .adeyebrow{font-family:'Sriracha',cursive;color:var(--neon-gold);
+font-size:1.05rem;margin-bottom:.4rem;text-shadow:0 0 16px rgba(255,210,74,.6)}
+.afterdark h2{font-size:clamp(1.9rem,4vw,2.9rem);margin:0;border:0;padding:0;
+color:var(--neon);text-shadow:0 0 18px rgba(255,110,199,.9),0 0 60px rgba(255,110,199,.5)}
+.afterdark h2 .en{color:var(--night-mute);text-shadow:none;font-size:.95rem;
+letter-spacing:.24em;text-transform:uppercase}
+.afterdark .adhead{text-align:center;margin-bottom:1.8rem}
+.adgrid{list-style:none;margin:0;padding:0;display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
+.adcard{position:relative;display:block;border-radius:18px;overflow:hidden;
+border:1.5px solid rgba(255,110,199,.45);text-decoration:none}
+.adcard img{width:100%;height:250px;object-fit:cover;display:block;filter:saturate(1.15)}
+.adcard .cap{position:absolute;inset:0;display:flex;flex-direction:column;
+justify-content:flex-end;padding:1.1rem;
+background:linear-gradient(180deg,rgba(22,10,36,0) 40%,rgba(22,10,36,.93) 100%)}
+.adcard .cap b{font-family:'Chonburi',serif;font-weight:400;font-size:1.3rem;
+color:#fffdf7;text-shadow:0 0 14px rgba(255,110,199,.5)}
+.adcard .cap .en,.adcard .cap span{color:var(--night-mute);font-size:.9rem}
+.adcard .n{color:var(--neon-gold);font-size:.85rem;font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:no-preference){
+.adcard{transition:box-shadow .2s ease,transform .15s ease}
+.adcard:hover{box-shadow:0 0 34px rgba(255,110,199,.45);transform:translateY(-3px)}
+.afterdark h2{animation:mdglow 3.2s ease-in-out infinite}
+@keyframes mdglow{0%,100%{text-shadow:0 0 18px rgba(255,110,199,.9),0 0 60px rgba(255,110,199,.5)}
+50%{text-shadow:0 0 28px rgba(255,110,199,1),0 0 90px rgba(255,110,199,.7)}}
+}
+.adbtn{display:inline-block;margin-top:1.8rem;color:var(--neon-gold);
+border:2px solid var(--neon-gold);border-radius:999px;padding:.75rem 2rem;
+font-weight:600;text-decoration:none;
+box-shadow:0 0 22px rgba(255,210,74,.25) inset,0 0 18px rgba(255,210,74,.2)}
+.adbtn:visited{color:var(--neon-gold)}
+.adbtn:hover{background:rgba(255,210,74,.14);text-decoration:none}
+
+/* --- the gold band -------------------------------------------------------
+   The claim door, said loudly and once. The gemba walk found eight ways in
+   and no reason to walk through any of them; this is the reason, in the one
+   place a shop owner scrolling past cannot miss it. */
+.goldband{background:var(--gold-light);border:2px solid var(--ink);
+border-radius:20px;margin:2.4rem 0 0;padding:1.6rem 1.4rem;display:flex;
+align-items:center;justify-content:space-between;gap:1.4rem;flex-wrap:wrap;
+box-shadow:5px 5px 0 var(--gold)}
+.goldband h2{margin:0 0 .3rem;border:0;padding:0;font-size:1.55rem}
+.goldband p{margin:0;color:#6b5322;font-size:1rem}
+.goldbandcta{flex:0 0 auto;background:var(--ink);color:var(--gold-light);
+padding:.9rem 2rem;border-radius:999px;font-weight:600;text-decoration:none;
+box-shadow:0 3px 0 #160f0a}
+.goldbandcta:visited{color:var(--gold-light)}
+.goldbandcta:hover{background:var(--ant);color:var(--paper);text-decoration:none}
+
+/* --- sections, credits, and the note that points at them ---------------- */
+.moodsec{margin:2.4rem 0 0}
+.sectiontitle{font-size:clamp(1.5rem,3vw,2.1rem);border:0;padding:0;margin:0 0 1rem}
+.picturenote{margin:2rem 0 0;font-size:.9rem;color:var(--gloss)}
+table.credits{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.92rem}
+table.credits th{text-align:left;border-bottom:2px solid var(--ink);padding:.5rem .6rem}
+table.credits td{border-bottom:1px solid var(--soft);padding:.55rem .6rem;
+vertical-align:top}
+.credshot{width:120px;height:80px;object-fit:cover;border-radius:9px;
+border:1px solid var(--warm-border);display:block}
+.credmeta{color:var(--mute);font-size:.84rem}
+@media (max-width:600px){
+.credshot{width:76px;height:54px}
+table.credits{font-size:.84rem}
+table.credits td,table.credits th{padding:.4rem .3rem}
+/* The collage becomes one band on a phone. The pictures are worth keeping;
+   two screens of them before the day's colour are not. The type comes down
+   with it for the same reason — everything above the almanac is rent, and the
+   person this page is really for opens it to see what colour the day is.
+   (The route-planner promo above the grid is 1,600 px on this width and is
+   the bigger cost by far. That is not this block's to fix.) */
+.hero{gap:1.1rem;margin:.2rem 0 1.4rem}
+.herotitle{font-size:1.55rem;margin-bottom:.35rem}
+body.lang-both .herotitle .en,body.lang-en .herotitle .en{font-size:.5em}
+.heroeyebrow{font-size:.86rem;margin-bottom:.3rem}
+.herosub{font-size:.94rem;margin-bottom:.6rem}
+.heroart{height:150px}
+.heroart .b,.heroart .c{display:none}
+.heroart .a{width:100%;height:100%;transform:none}
+.herosticker{left:auto;right:10px;top:-12px}
+.moodgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.7rem}
+.moodcard img{height:96px}
+.goldband{padding:1.2rem 1rem}
+.afterdark .inner{padding:2rem 1rem 1.6rem}
+.adcard img{height:200px}
+}
+
+/* --- motion -------------------------------------------------------------
+   md.js reveals these on scroll. The rule is scoped to .js-reveal, a class
+   md.js adds to <html> itself, so with scripting off or broken nothing is
+   ever left invisible — the commonest way a reveal effect eats a page. */
+@media (prefers-reduced-motion:no-preference){
+.js-reveal [data-reveal]{opacity:0;transform:translateY(26px);
+transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+.js-reveal [data-reveal].shown{opacity:1;transform:none}
 }
 """
 
@@ -2623,6 +2967,47 @@ cur=rest[bi];out.push(rest.splice(bi,1)[0]);}
 places=out;commit();});
 render();
 })();}
+
+// ---- reveal on scroll, and a little parallax -------------------------
+// The two motions carried over from the design study. Both are decoration, so
+// both are built to fail into "everything visible, nothing moving".
+//
+// The reveal rule lives behind .js-reveal on <html>, added here. If this file
+// never runs — blocked, cached badly, thrown by an earlier error — the class
+// is never added, the rule never matches, and the page is simply already
+// there. A reveal effect that hides content by default and shows it from JS
+// is the commonest way a pretty page ships blank; this cannot do that.
+(function(){
+if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+const items=[].slice.call(document.querySelectorAll('[data-reveal]'));
+const pxs=[].slice.call(document.querySelectorAll('[data-parallax]'));
+if(!items.length&&!pxs.length)return;
+document.documentElement.classList.add('js-reveal');
+const show=el=>el.classList.add('shown');
+// Belt and braces: whatever happens to the observer or the scroll handler,
+// nothing stays hidden past six seconds.
+setTimeout(()=>items.forEach(show),6000);
+if('IntersectionObserver' in window){
+const io=new IntersectionObserver((es,o)=>{es.forEach(e=>{
+if(e.isIntersecting){show(e.target);o.unobserve(e.target);}});},
+{rootMargin:'0px 0px -8% 0px'});
+items.forEach(el=>io.observe(el));
+}else items.forEach(show);
+if(!pxs.length)return;
+// Offset each element against its own container's distance from the middle of
+// the screen, so the drift is symmetrical and nothing runs away down the page.
+pxs.forEach(el=>{el.dataset.mdBase=el.style.transform||'';});
+let ticking=false;
+const onScroll=()=>{if(ticking)return;ticking=true;
+requestAnimationFrame(()=>{ticking=false;const vh=window.innerHeight;
+pxs.forEach(el=>{const p=(el.parentElement||el).getBoundingClientRect();
+const mid=p.top+p.height/2-vh/2;
+const y=-mid*parseFloat(el.dataset.parallax||'0.1');
+el.style.transform='translateY('+y.toFixed(1)+'px) '+(el.dataset.mdBase||'');});});};
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',onScroll,{passive:true});
+onScroll();
+})();
 """
 
 
@@ -2721,6 +3106,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
 {extra_head}</head><body{f' class="{body_class}"' if body_class else ''}>
 {ICON_SPRITE}
 <a class="skiplink" href="#content">{bi("ข้ามไปเนื้อหา", "Skip to content")}</a>
+<div class="ribbon" aria-hidden="true"></div>
 <main>
 <header class="site">
   <div class="masthead">
@@ -2778,12 +3164,14 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
   <a href="{r}why.html">{bi("ทำไมดีกว่า Google", "Why we beat Google")}</a> ·
   <a href="{r}reach.html">🔗 {bi("ลิงก์ที่ยังเปิดได้", "Which links still work")}</a> ·
   <a href="{r}privacy.html">{bi("ความเป็นส่วนตัว", "Privacy")}</a> ·
+  <a href="{r}pictures.html">📷 {bi("ภาพประกอบ", "Pictures")}</a> ·
   <a href="{r}llms.txt">llms.txt</a> ·
   <a href="{r}llms-full.txt">llms-full.txt</a><br>
   <span class="licence">{bi(LICENSE_LINE_TH, LICENSE_LINE_EN)}</span>
   <span id="scurry">🐜</span>
 </footer>
 </main>
+<div class="ribbon tall" aria-hidden="true"></div>
 <script src="{r}md.js"></script>
 </body></html>"""
 
@@ -6356,6 +6744,250 @@ def clear_docs():
                   "another build may be running against this checkout — retrying")
 
 
+# ============================================================ the front door
+# The four blocks carried over from the design study Nan liked. Every one of
+# them ADDS; nothing here replaced a module. The study's homepage was lovely
+# and had thrown away the almanac, the fortune, เซียมซี, the lucky numbers, the
+# ant ranks and the contribute doors — which is to say it had thrown away the
+# reason a shop auntie in Chiang Mai would ever open this page. Those all still
+# sit below, wearing the new clothes.
+#
+# Two other things in the study were deliberately NOT carried over:
+#   * its star ratings and review counts. We hold no ratings. Drawing "★ 4.7,
+#     318 reviews" would be inventing them about real, named businesses.
+#   * its Leaflet map on CARTO tiles. Every tile is a request to somebody else's
+#     server from a site that promises it follows no one around. The maps here
+#     stay drawn in Python.
+
+def hero_html(intro_th, intro_en):
+    """Masthead art: three pictures, a greeting, and the ways in people use.
+
+    NO PICTURES OF PEOPLE UP HERE, deliberately. The first draft's lead image
+    was a close portrait of an Akha woman and her child. It is freely licensed
+    and it is beautiful, and blown up as the front-page decoration of a
+    business directory it turns a named stranger into scenery — which is
+    exactly the framing this site has a standing rule against. Faces are fine
+    where they are the subject; they are not fine as wallpaper. So the hero
+    asks for the festival, the food and the landmark, and `not_topic` keeps
+    people out of it whatever the shuffle throws up.
+    """
+    picked, seen = [], []
+    for want, k in (("festival", "hero-1"), ("food", "hero-2"), ("city", "hero-3")):
+        p = art_one(topic=want, key=k, not_topic=("people",), avoid=tuple(seen))
+        if not p:
+            p = art_one(mood="landmark", key=k + "-alt", not_topic=("people",),
+                        avoid=tuple(seen))
+        if p:
+            seen.append(p["slug"])
+            picked.append(p)
+    pics = picked[:3]
+    if not pics:
+        return ""
+    slots = ("a", "b", "c")
+    drift = ("0.06", "", "0.1")     # the middle one floats instead
+    imgs = []
+    for i, p in enumerate(pics):
+        alt = art_alt(p)
+        px = f' data-parallax="{drift[i]}"' if drift[i] else ""
+        imgs.append(f'<img class="{slots[i]}"{px} src="site/{p["slug"]}.jpg" '
+                    f'alt="{att(alt)}" loading="{"eager" if i == 0 else "lazy"}" '
+                    f'width="{p.get("width") or 1000}" height="{p.get("height") or 750}">')
+    hello_th = "อัปเดตทุกวัน โดยคนแถวนี้ กับมดที่เดินทุกซอย"
+    hello_en = "Kept up daily, by people who live here and ants who walk every soi"
+    title_th = "อยากกินอะไร อยากไปไหน"
+    title_en = "What do you feel like, and where are you going"
+    accent_th = "มดแดงรู้ทุกซอย"
+    accent_en = "the red ants know every lane"
+    return (
+        '<section class="hero">'
+        '<div class="heroglow a" aria-hidden="true" data-parallax="0.14"></div>'
+        '<div class="heroglow b" aria-hidden="true" data-parallax="0.08"></div>'
+        '<div class="herocopy">'
+        f'<div class="heroeyebrow hand">{bi(hello_th, hello_en)}</div>'
+        f'<h1 class="herotitle">{bi(title_th, title_en)}<br>'
+        f'<span class="accent">{bi(accent_th, accent_en)}</span></h1>'
+        f'<p class="herosub">{bi(intro_th, intro_en)}</p>'
+        '</div>'
+        f'<div class="heroart">{"".join(imgs)}'
+        f'<span class="herosticker">{bi("ของดีอยู่ในซอย", "the good stuff is down the lane")}</span>'
+        '</div></section>')
+
+
+# Nine, not eight or ten — ก้าว, the same count the highlights already use.
+# Each pairs a real shelf with a picture that is genuinely of that subject; a
+# category with no honest picture is left out rather than given a stand-in.
+# The third item narrows the search where the topic alone is too loose: `mu`
+# holds spirit houses and sak yant together, and a spirit house over the
+# tattoo shelf is a picture of the wrong thing.
+MOODS = [("food", "food", None), ("wat", "wat", None),
+         ("market", "market", None), ("sights", "city", None),
+         ("parks", "nature", None), ("whats-on", "festival", None),
+         ("museums-galleries", "arts", None), ("tattoo", "mu", "yant"),
+         ("transport", "transport", None)]
+
+
+def mood_strip_html(pulse, prov_key):
+    counts = pulse.get(prov_key, {})
+    cards = []
+    used = []
+    for cat, topic, hint in MOODS:
+        if cat not in counts:
+            continue
+        # People stay out of the shelf tiles for the same reason they stay out
+        # of the hero: a portrait used as a clickable category label makes
+        # scenery of somebody.
+        p = None
+        if hint:
+            p = art_one(topic=topic, slug_has=hint, key="mood-" + cat,
+                        not_topic=("people",), local=True, avoid=tuple(used))
+        if not p:
+            p = (art_one(topic=topic, key="mood-" + cat, not_topic=("people",),
+                     local=True, avoid=tuple(used))
+             or art_one(topic=topic, key="mood-" + cat, not_topic=("people",),
+                        avoid=tuple(used)))
+        if not p:
+            continue
+        used.append(p["slug"])
+        c = CATS[cat]
+        # alt="" on purpose: the label directly under the picture already says
+        # the word, and repeating it is the exact fault tests/test_alt_text.py
+        # was written to catch.
+        cards.append(
+            f'<li><a class="moodcard" href="{prov_key}/{cat}/index.html">'
+            f'<img src="site/{p["slug"]}.jpg" alt="" loading="lazy">'
+            f'<span class="lbl"><b>{esc(c["th"])}</b>'
+            f'<span class="en">{esc(c["en"])}</span> '
+            f'<span class="n">({counts[cat]["n"]:,})</span></span></a></li>')
+    if not cards:
+        return ""
+    return (f'<section class="moodsec" data-reveal>'
+            f'<h2 class="sectiontitle">{bi("วันนี้สายไหน", "What are you in the mood for")}</h2>'
+            f'<ul class="moodgrid">{"".join(cards)}</ul></section>')
+
+
+def after_dark_html(pulse, prov_key):
+    """The city after the sun goes down, and the one place the palette changes."""
+    counts = pulse.get(prov_key, {})
+    want = [("market", "ตลาดกลางคืน-กาดแลง", "Night markets",
+             "ของกินริมทาง ของฝาก ราคาคนท้องถิ่น",
+             "street food, gifts, and local prices"),
+            ("whats-on", "หนัง-คอนเสิร์ต-อีเวนต์", "Films, gigs & events",
+             "รอบหนังคืนนี้ คอนเสิร์ต และงานในเมือง",
+             "tonight's showtimes, gigs and what is on"),
+            ("food", "ร้านนั่งดึก-บาร์", "Late tables & bars",
+             "ร้านที่ยังเปิด เมื่อครัวบ้านปิดแล้ว",
+             "still open when the kitchen at home is not")]
+    cards, used = [], []
+    for cat, th, en, sth, sen in want:
+        if cat not in counts:
+            continue
+        p = art_one(topic="night", key="dark-" + cat, not_topic=("people",),
+                    local=True, avoid=tuple(used)) \
+            or art_one(topic=cat, key="dark2-" + cat, not_topic=("people",),
+                       avoid=tuple(used))
+        if not p:
+            continue
+        used.append(p["slug"])
+        cards.append(
+            f'<li><a class="adcard" href="{prov_key}/{cat}/index.html">'
+            f'<img src="site/{p["slug"]}.jpg" alt="" loading="lazy">'
+            f'<span class="cap"><b>{esc(th)}</b><span class="en">{esc(en)}</span>'
+            f'<span>{bi(sth, sen)}</span>'
+            f'<span class="n">{counts[cat]["n"]:,} {bi("แห่ง", "places")}</span>'
+            f'</span></a></li>')
+    if not cards:
+        return ""
+    return (
+        '<section class="afterdark" data-reveal>'
+        '<div class="ribbon onnight" aria-hidden="true"></div>'
+        '<div class="adglow a" aria-hidden="true"></div>'
+        '<div class="adglow b" aria-hidden="true"></div>'
+        '<div class="inner"><div class="adhead">'
+        f'<div class="adeyebrow">{bi("พระอาทิตย์ตกแล้ว…", "the sun has gone down…")}</div>'
+        f'<h2>{bi("ไปต่อไหม?", "shall we keep going?")}</h2></div>'
+        f'<ul class="adgrid">{"".join(cards)}</ul>'
+        '<div style="text-align:center">'
+        f'<a class="adbtn" href="events.html">{bi("ดูงานในเมืองคืนนี้", "see what is on tonight")} →</a>'
+        '</div></div>'
+        '<div class="ribbon onnight" aria-hidden="true"></div></section>')
+
+
+def gold_band_html():
+    """One loud door for the shop owner.
+
+    The gemba walk found eight ways to contribute and nobody walking through
+    any of them. This does not add a ninth — it takes the existing instant,
+    no-account claim and says it once, in gold, where it cannot be missed.
+    """
+    th = "ร้านของคุณอยู่ในนี้แล้ว — มายืนยันเลยเจ้า"
+    en = "Your shop is already listed — come and claim it"
+    sub_th = ("ฟรี ไม่ต้องสมัครสมาชิก ไม่ต้องมีอีเมล แก้เบอร์โทร ไลน์ เวลาเปิด "
+              "ได้เอง ขึ้นทันที")
+    sub_en = ("Free, no account, no email. Fix your phone number, your LINE and "
+              "your opening hours yourself — it shows straight away.")
+    return (f'<section class="goldband" data-reveal><div>'
+            f'<h2>{bi(th, en)}</h2><p>{bi(sub_th, sub_en)}</p></div>'
+            f'<a class="goldbandcta" href="claim.html">'
+            f'{bi("ยืนยันร้านของฉัน", "Claim my place")} →</a></section>')
+
+
+def _short_artist(s):
+    """Name first, terms trimmed. Commons' Artist field is free text and some
+    photographers write a whole permission notice into it."""
+    s = (s or "unknown").strip()
+    s = re.sub(r"^This (?:Photo|File|Image) was taken by ", "", s)
+    for stop in (". Feel free", " Feel free", ". Please", ". If you"):
+        if stop in s:
+            s = s.split(stop)[0]
+            break
+    return s if len(s) <= 110 else s[:107].rstrip(" ,.;") + "…"
+
+
+def pictures_page():
+    """Credit, in one place, for every picture the site's furniture uses.
+
+    These are CC BY and CC BY-SA photographs. Attribution is a condition of
+    using them, not a courtesy, and a hero collage has nowhere to carry three
+    photographer names without becoming a caption. So the pictures link here,
+    and here names every one: photographer, licence, and the file it came from.
+    """
+    rows = []
+    for slug in sorted(ART_USED):
+        p = ART_USED[slug]
+        where = ", ".join(p.get("topic", [])) or "—"
+        rows.append(
+            f'<tr><td><img src="site/{slug}.jpg" alt="" loading="lazy" '
+            f'width="120" height="80" class="credshot"></td>'
+            f'<td><a href="{esc(p["page"])}">{esc(p["title"][5:])}</a><br>'
+            f'<span class="credmeta">{esc(where)}</span></td>'
+            # Some Artist fields are a paragraph of the photographer's own
+            # reuse terms. The name is what attribution needs and the file page
+            # beside it carries the rest verbatim, so this is trimmed, not cut.
+            f'<td>{esc(_short_artist(p.get("artist")))}</td>'
+            f'<td>{esc(p.get("licence") or "—")}</td></tr>')
+    intro_th = ("ภาพประกอบทั้งหมดบนเว็บนี้มาจาก Wikimedia Commons ใช้ได้ตามสัญญาอนุญาต "
+                "ที่ระบุไว้ ขอบคุณช่างภาพทุกท่านเจ้า — ภาพเหล่านี้เป็นภาพของเมือง "
+                "ไม่ใช่ภาพของร้านใดร้านหนึ่ง")
+    intro_en = ("Every picture in this site's own furniture comes from Wikimedia "
+                "Commons and is used under the licence named beside it. Thank you to "
+                "the photographers. These are pictures OF the city, not of any "
+                "particular business — a photograph of a shop appears only on that "
+                "shop's own page.")
+    body = (f'<h1>📷 {bi("ภาพประกอบ", "Pictures")}</h1>'
+            f'<p>{bi(intro_th, intro_en)}</p>'
+            f'<table class="credits"><thead><tr>'
+            f'<th></th><th>{bi("ไฟล์", "File")}</th>'
+            f'<th>{bi("ช่างภาพ", "Photographer")}</th>'
+            f'<th>{bi("สัญญาอนุญาต", "Licence")}</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table>'
+            f'<p class="credmeta">{bi("แบบอักษร Chonburi, Prompt และ Sriracha โดย Cadson Demak (SIL OFL 1.1)", "Type: Chonburi, Prompt and Sriracha by Cadson Demak, SIL Open Font Licence 1.1")}</p>')
+    return page(bi_text("ภาพประกอบ", "Pictures"), body, depth=0,
+                path="pictures.html",
+                crumbs=f'<a href="index.html">{bi("หน้าแรก", "Home")}</a> › '
+                       + bi("ภาพประกอบ", "Pictures"),
+                desc=intro_th)
+
+
 def build():
     clear_docs()
     DOCS.mkdir(exist_ok=True)
@@ -6393,6 +7025,20 @@ def build():
     _qr = ROOT / "assets" / LINE_QR if LINE_QR else None
     if _qr and _qr.exists():
         shutil.copyfile(_qr, DOCS / LINE_QR)
+    # Self-hosted type and Nan's city pictures. Both are referenced from
+    # style.css and the page furniture, so both have to travel with the build —
+    # docs/ is wiped every run, and hand-placing either is the CNAME trap.
+    _fonts = ROOT / "assets" / "fonts"
+    if _fonts.exists():
+        (DOCS / "fonts").mkdir(exist_ok=True)
+        for _f in sorted(_fonts.glob("*.woff2")):
+            shutil.copy(_f, DOCS / "fonts" / _f.name)
+        for _f in sorted(_fonts.glob("OFL-*.txt")):   # the licence travels too
+            shutil.copy(_f, DOCS / "fonts" / _f.name)
+    if SITE_ART_SRC.exists():
+        (DOCS / "site").mkdir(exist_ok=True)
+        for _f in sorted(SITE_ART_SRC.glob("*.jpg")):
+            shutil.copy(_f, DOCS / "site" / _f.name)
     if OG_FILES:
         (DOCS / "og").mkdir(exist_ok=True)
         for _id in OG_FILES:
@@ -6700,8 +7346,10 @@ def build():
     # Directory on the left, almanac on the right. The almanac is what most
     # people open this for, so on a phone — where the columns stack — a short
     # form of it is lifted above the directory rather than buried under it.
-    band_html = (f'<div class="taglineband">{bi(intro_th, intro_en)}</div>'
-                 f'<div class="goldrule" aria-hidden="true"></div>')
+    # The dark tagline band that used to open this page is gone, and its words
+    # are not: intro_th/intro_en now carry the hero. Saying the same sentence
+    # twice, once in a band and once under the title, would have been the only
+    # alternative. It is still the page description too.
 
     plan_promo_html = plan_hero_html()
 
@@ -6731,8 +7379,15 @@ def build():
         f'<div class="sidecard">{fx_html}</div>' if fx_html else "",
         f'<div class="sponsorcard">{ad_box("index.html", 0)}</div>']
 
+    # Hero, then straight into the grid. The day's card stays where the last
+    # round of this deliberately put it — near the top, because the person who
+    # opens this every morning is opening it for the colour of the day, not for
+    # a photograph. Under 700 px the hero drops its collage to a single band so
+    # it stays a couple of lines tall and never pushes the almanac off the fold.
     home_html = (
-        f'{band_html}{plan_promo_html}'
+        f'{hero_html(intro_th, intro_en)}'
+        f'<div class="goldrule" aria-hidden="true"></div>'
+        f'{plan_promo_html}'
         f'<div class="homegrid">'
         + (f'<aside class="sidetop" aria-label="{att("วันนี้ / today")}">'
            f'<div class="sidecard dark">{side_today}</div></aside>' if side_today else "")
@@ -6740,14 +7395,30 @@ def build():
         f'<aside class="homeside" aria-label="{att("ปฏิทิน ราคา / almanac")}">'
         f'{"".join(x for x in side_rest if x)}</aside>'
         f'</div>'
+        # New below the grid, all of it additive: nine shelves with a real
+        # picture and a real count, the claim door said once and loudly, and
+        # the night.
+        f'{mood_strip_html(pulse, PROVINCES[0]["key"])}'
+        f'{gold_band_html()}'
+        f'{after_dark_html(pulse, PROVINCES[0]["key"])}'
         # Everything the wall already did, kept and restyled, below the fold.
         f'<div class="morehome">{ev_html}{wall_html}{persona_html}'
         f'{tick_html}{moon_html}{rand_html}</div>'
+        f'<p class="picturenote">📷 <a href="pictures.html">'
+        + bi("ภาพประกอบทั้งหมด มาจาก Wikimedia Commons — ดูเครดิตช่างภาพ",
+             "Every picture here is from Wikimedia Commons — see the photographers")
+        + '</a></p>'
         + share_block(BASE, "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"))
 
     (DOCS / "index.html").write_text(page(
         "มดแดง", home_html, depth=0, path="", desc=intro_th, body_class="home",
         extra_head=website_ld()))
+
+    # Written after the homepage, not before: ART_USED only knows which
+    # pictures were actually drawn once they have been drawn. Credit follows
+    # use, so the page can never list a photographer whose picture we dropped
+    # or miss one we quietly added.
+    (DOCS / "pictures.html").write_text(pictures_page())
 
     # ---- my page: the personal start page, the pre-Google way -----------
     pick_groups = []

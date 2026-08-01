@@ -1057,3 +1057,44 @@ cur=rest[bi];out.push(rest.splice(bi,1)[0]);}
 places=out;commit();});
 render();
 })();}
+
+// ---- reveal on scroll, and a little parallax -------------------------
+// The two motions carried over from the design study. Both are decoration, so
+// both are built to fail into "everything visible, nothing moving".
+//
+// The reveal rule lives behind .js-reveal on <html>, added here. If this file
+// never runs — blocked, cached badly, thrown by an earlier error — the class
+// is never added, the rule never matches, and the page is simply already
+// there. A reveal effect that hides content by default and shows it from JS
+// is the commonest way a pretty page ships blank; this cannot do that.
+(function(){
+if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+const items=[].slice.call(document.querySelectorAll('[data-reveal]'));
+const pxs=[].slice.call(document.querySelectorAll('[data-parallax]'));
+if(!items.length&&!pxs.length)return;
+document.documentElement.classList.add('js-reveal');
+const show=el=>el.classList.add('shown');
+// Belt and braces: whatever happens to the observer or the scroll handler,
+// nothing stays hidden past six seconds.
+setTimeout(()=>items.forEach(show),6000);
+if('IntersectionObserver' in window){
+const io=new IntersectionObserver((es,o)=>{es.forEach(e=>{
+if(e.isIntersecting){show(e.target);o.unobserve(e.target);}});},
+{rootMargin:'0px 0px -8% 0px'});
+items.forEach(el=>io.observe(el));
+}else items.forEach(show);
+if(!pxs.length)return;
+// Offset each element against its own container's distance from the middle of
+// the screen, so the drift is symmetrical and nothing runs away down the page.
+pxs.forEach(el=>{el.dataset.mdBase=el.style.transform||'';});
+let ticking=false;
+const onScroll=()=>{if(ticking)return;ticking=true;
+requestAnimationFrame(()=>{ticking=false;const vh=window.innerHeight;
+pxs.forEach(el=>{const p=(el.parentElement||el).getBoundingClientRect();
+const mid=p.top+p.height/2-vh/2;
+const y=-mid*parseFloat(el.dataset.parallax||'0.1');
+el.style.transform='translateY('+y.toFixed(1)+'px) '+(el.dataset.mdBase||'');});});};
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',onScroll,{passive:true});
+onScroll();
+})();
