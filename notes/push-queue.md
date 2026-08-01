@@ -4,7 +4,22 @@ What is waiting to go out, and what shipped last time.
 
 ## Waiting
 
-Nothing. The working tree is clean and `main` matches `origin/main`.
+**One commit, `4fa766c4ad`, held back at Nan's instruction — but it is a fix to
+something already live, so it is worth pushing sooner rather than at leisure.**
+
+`git push origin main`, then `python3 importers/ping_indexnow.py`.
+
+The "read more elsewhere" block went out in `09ee7d2305` while the CSS rule for
+it stayed behind in `build.py`. `docs/style.css` has no `.elsewhere` or `.cool`,
+so the block is **live and unstyled on 862 place pages**. This commit is the
+rebuild that makes the two agree. All six suites pass.
+
+How it happened, since it will happen again otherwise: work in progress in the
+working tree got swept into an unrelated commit by a concurrent session, and
+`docs/` was committed from a build older than the `build.py` beside it. Nothing
+checks that the built stylesheet still covers the classes the builder emits —
+`build.py` and `docs/` can disagree silently. A cheap guard would be to collect
+the class names build.py writes and assert each one appears in `CSS`.
 
 ## Scrub — 2026-08-01, history rewritten
 
