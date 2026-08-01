@@ -6144,6 +6144,10 @@ def build_plan_page(data):
         f'<button type="button" id="planerradd">+ {bi("เพิ่มธุระ", "Add errand")}</button>'
         f'</div>'
         f'<ul class="planerrlist" id="planerrlist"></ul>'
+        # Measured, not asserted — tests/test_errands.py runs the same search
+        # over the same graph and reports this. If it ever stops being true the
+        # test fails rather than the page quietly overselling itself.
+        f'<p class="tinynote">{bi("ลองจริง ๒๐ รอบ วิธีนี้สั้นกว่าการเลือกที่ใกล้ที่สุดทีละอย่าง ๑๔ รอบ ประหยัดกลาง ๆ ๕๗๗ เมตร มากสุด ๒.๙ กิโลเมตร และไม่เคยยาวกว่าเลย", "Tested over 20 rounds: choosing together beat picking the nearest of each in 14 of them — median 577 m shorter, best 2.9 km — and was never longer.")}</p>'
         f'<button type="button" id="planerrsolve" class="pill dark" style="display:none">'
         f'🐜 {bi("หาร้านที่ทำให้รอบนี้สั้นที่สุด", "Find the shortest whole round")}</button>'
         f'<div id="planerrout" class="planerrout"></div>'

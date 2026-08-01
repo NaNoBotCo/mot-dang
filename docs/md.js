@@ -751,6 +751,121 @@ const seq=(e[1]===into)?pts:pts.slice().reverse();
 seq.forEach(pt=>{const last=line[line.length-1];
 if(!last||last[0]!==pt[0]||last[1]!==pt[1])line.push(pt);});});
 return {m:bestCost,path:line};}
+// ---- the errand solver -------------------------------------------------
+// Pick a pharmacy, an ATM and som tam by NAME and any tool will route between
+// them. The question people actually have is the other way round: I need those
+// three things, which ones make the shortest single trip? Choosing the nearest
+// of each independently is not the same answer and is often a worse one — the
+// nearest pharmacy can sit the wrong side of a one-way ring from everything
+// else you need.
+//
+// Done in three parts. One Dijkstra per candidate fills a cost matrix (n
+// searches, not n squared pairs). Then every combination of one-candidate-per
+// errand is scored against that matrix, which is arithmetic. Then the order
+// within the winning combination: exact for a small round, 2-opt beyond, since
+// the cost of an approximation here is a slightly longer walk.
+function costsFrom(s,mode){
+if(!GRAPH||!s)return null;
+const N=GRAPH.nodes.length,cost=new Float64Array(N).fill(Infinity),h=new Heap();
+if(passable(GRAPH.edges[s.edge][3],mode,false)||s.a===s.b){cost[s.a]=s.toA;h.push(s.toA,s.a);}
+if(passable(GRAPH.edges[s.edge][3],mode,true)&&s.toB<cost[s.b]){cost[s.b]=s.toB;h.push(s.toB,s.b);}
+for(;;){const top=h.pop();if(!top)break;
+const c=top[0],n=top[1];
+if(c>cost[n])continue;
+const list=GRAPH.adj[n];
+for(let i=0;i<list.length;i++){
+const to=list[i][0],len=list[i][1],flags=list[i][2],fwd=list[i][4];
+if(!passable(flags,mode,fwd===1))continue;
+const nc=c+len;
+if(nc<cost[to]){cost[to]=nc;h.push(nc,to);}}}
+return cost;}
+function costTo(cost,t,mode){
+if(!cost||!t)return null;
+let best=Infinity;
+if(passable(GRAPH.edges[t.edge][3],mode,true))best=Math.min(best,cost[t.a]+t.toA);
+if(passable(GRAPH.edges[t.edge][3],mode,false))best=Math.min(best,cost[t.b]+t.toB);
+return best===Infinity?null:best;}
+// Unreachable is not free. Charged high enough that the search avoids it and
+// low enough that sums stay comparable.
+const NOWAY=1e7;
+function matrixFor(points,mode){
+const snaps=points.map(p=>snap(p,mode));
+const n=points.length,M=[];
+for(let i=0;i<n;i++){
+const row=new Array(n).fill(null);
+if(snaps[i]){const cost=costsFrom(snaps[i],mode);
+for(let j=0;j<n;j++){
+if(!snaps[j])continue;
+if(i===j){row[j]=0;continue;}
+const c=costTo(cost,snaps[j],mode);
+if(c!==null)row[j]=c+snaps[i].d+snaps[j].d;}}
+M.push(row);}
+return M;}
+function tourLen(M,order){let t=0;
+for(let i=0;i<order.length-1;i++){const v=M[order[i]][order[i+1]];t+=(v===null?NOWAY:v);}
+return t;}
+// An open path, not a loop: an errand run ends where it ends. Start is pinned
+// (where the reader is, or the first stop they chose); the rest is free.
+function bestOrder(M,idx){
+const rest=idx.slice(1);
+if(rest.length<=6){
+let best=null,bestLen=Infinity;
+const perm=(arr,cur)=>{
+if(!arr.length){const o=[idx[0]].concat(cur),L=tourLen(M,o);
+if(L<bestLen){bestLen=L;best=o;}return;}
+for(let i=0;i<arr.length;i++)perm(arr.slice(0,i).concat(arr.slice(i+1)),cur.concat([arr[i]]));};
+perm(rest,[]);
+return {order:best,len:bestLen};}
+let order=[idx[0]],left=rest.slice();
+while(left.length){const cur=order[order.length-1];
+let bi=0,bd=Infinity;
+left.forEach((j,i)=>{const v=M[cur][j],d=(v===null?NOWAY:v);if(d<bd){bd=d;bi=i;}});
+order.push(left[bi]);left.splice(bi,1);}
+let improved=true;
+while(improved){improved=false;
+for(let i=1;i<order.length-1;i++)for(let k=i+1;k<order.length;k++){
+const cand=order.slice(0,i).concat(order.slice(i,k+1).reverse(),order.slice(k+1));
+if(tourLen(M,cand)+1e-9<tourLen(M,order)){order=cand;improved=true;}}}
+return {order:order,len:tourLen(M,order)};}
+async function solveErrands(kinds,mode){
+const idx=await loadIndex();
+const area=GRAPH&&GRAPH.area;
+if(!area)return null;
+// Anchor the search: where the reader is, else the stops already chosen, else
+// the middle of the area we can route in.
+const anchor=here||(places.length?{lat:places[0].lat,lng:places[0].lng}
+:{lat:(area.n+area.s)/2,lng:(area.w+area.e)/2});
+const CAND=6;
+const slots=[];
+for(const k of kinds){
+const pool=idx.filter(e=>e.lat!=null&&(e.c||[]).indexOf(k)>-1
+&&e.lat>area.s&&e.lat<area.n&&e.lng>area.w&&e.lng<area.e);
+pool.sort((a,b)=>km(anchor,a)-km(anchor,b));
+if(!pool.length)return {missing:k};
+slots.push(pool.slice(0,CAND));}
+// Points: the fixed part of the round first, then every candidate.
+const fixed=[anchor].concat(places.map(p=>({lat:p.lat,lng:p.lng})));
+const pts=fixed.slice(),meta=[];
+slots.forEach((pool,si)=>pool.forEach(e=>{meta.push({slot:si,e:e,i:pts.length});
+pts.push({lat:e.lat,lng:e.lng});}));
+const M=matrixFor(pts,mode);
+// Every way of taking one candidate per errand. Six candidates over three
+// errands is 216 combinations — small, and each is only a table lookup away
+// from a score.
+let best=null;
+const walk=(si,chosen)=>{
+if(si===slots.length){
+const r=bestOrder(M,fixed.map((_,i)=>i).concat(chosen.map(m=>m.i)));
+if(!best||r.len<best.len)best={len:r.len,order:r.order,chosen:chosen.slice()};
+return;}
+meta.filter(m=>m.slot===si).forEach(m=>{chosen.push(m);walk(si+1,chosen);chosen.pop();});};
+walk(0,[]);
+if(!best)return null;
+// What the naive answer would have been, so the page can say whether asking
+// the question this way actually bought anything.
+const naive=slots.map((pool,si)=>meta.find(m=>m.slot===si&&m.e===pool[0]));
+const nOrder=bestOrder(M,fixed.map((_,i)=>i).concat(naive.map(m=>m.i)));
+return {best:best,naive:{len:nOrder.len},meta:meta,fixedCount:fixed.length};}
 function osmDirections(a,b,mode){
 return 'https://www.openstreetmap.org/directions?engine=fossgis_osrm_'+MODES[mode].osrm+
 '&route='+a.lat.toFixed(5)+'%2C'+a.lng.toFixed(5)+'%3B'+b.lat.toFixed(5)+'%2C'+b.lng.toFixed(5);}
@@ -1041,6 +1156,59 @@ document.getElementById('planlocbtn').classList.add('on');render();},
 // Nearest-neighbour from wherever the run starts. Not the optimal tour, and
 // it does not pretend to be — with eight stops it is close enough to save
 // real riding, and it stays legible: "always go to the nearest one next".
+// ---- errands: the UI over solveErrands ---------------------------------
+const errSel=document.getElementById('planerrsel'),errAdd=document.getElementById('planerradd'),
+errList=document.getElementById('planerrlist'),errSolve=document.getElementById('planerrsolve'),
+errOut=document.getElementById('planerrout');
+if(errSel&&errAdd){
+let kinds=(()=>{try{const v=JSON.parse(localStorage.getItem('md-plan-kinds'));
+return Array.isArray(v)?v.slice(0,4):[];}catch(e){return[];}})();
+const labelOf=k=>{const o=[...errSel.options].find(o=>o.value===k);
+return o?o.textContent.replace(/\s*\(\d+\)$/,''):k;};
+function paintKinds(){
+errList.innerHTML=kinds.map((k,i)=>'<li>'+H2(labelOf(k))+
+' <button type="button" class="errdel" data-i="'+i+'" aria-label="'+
+H2('เอาออก / remove')+'">✕</button></li>').join('');
+errSolve.style.display=kinds.length?'':'none';
+try{localStorage.setItem('md-plan-kinds',JSON.stringify(kinds));}catch(e){}
+errList.querySelectorAll('.errdel').forEach(b=>b.addEventListener('click',()=>{
+kinds.splice(+b.dataset.i,1);paintKinds();errOut.innerHTML='';}));}
+errAdd.addEventListener('click',()=>{
+const k=errSel.value;
+// Four errands over six candidates each is already 1,296 combinations; past
+// that the wait stops being worth the better answer.
+if(!k||kinds.indexOf(k)>-1||kinds.length>=4)return;
+kinds.push(k);paintKinds();errOut.innerHTML='';});
+errSolve.addEventListener('click',async()=>{
+errOut.innerHTML='<p class="tinynote">🐜 '+H2('มดกำลังลองทุกทาง…')+'</p>';
+// Yield once so the message paints before the search blocks the thread.
+await new Promise(r=>setTimeout(r,30));
+const res=await solveErrands(kinds,planMode);
+if(!res||res.missing){errOut.innerHTML='<p class="tinynote">'+
+H2('ยังไม่มีข้อมูลพอในเขตที่มดเดินถนนไว้ / not enough of that kind inside the area we hold roads for')+
+'</p>';return;}
+const chosen=res.best.chosen;
+const saved=res.naive.len-res.best.len;
+const rows=chosen.map(m=>'<li><a href="'+m.e.p+'/p/'+m.e.s+'.html">'+H2(m.e.n)+'</a> '+
+'<span class="tinynote">'+H2(labelOf(kinds[m.slot]))+'</span></li>').join('');
+// Say plainly whether asking the question this way helped. Sometimes the
+// nearest of each IS the best round, and claiming otherwise would be a lie
+// dressed as a feature.
+const verdict=saved>50
+?'<p class="errsaved">'+H2('สั้นกว่าการเลือกที่ใกล้ที่สุดทีละอย่าง '+Math.round(saved)+' เมตร')+
+' · '+H2('shorter than picking the nearest of each, by '+Math.round(saved)+' m')+'</p>'
+:'<p class="tinynote">'+H2('รอบนี้ การเลือกที่ใกล้ที่สุดทีละอย่างก็สั้นพอ ๆ กัน')+
+' · '+H2('here, picking the nearest of each is just as good')+'</p>';
+errOut.innerHTML='<p class="errtotal"><b>'+H2(dist(res.best.len/1000))+'</b> '+
+H2(planMode==='foot'?'เดินทั้งรอบ / walking the whole round':'ขี่รถทั้งรอบ / riding the whole round')+
+'</p>'+verdict+'<ol class="errpicks">'+rows+'</ol>'+
+'<button type="button" id="erradd2plan" class="pill dark">'+
+H2('ใส่ทั้งหมดลงในแผน')+' · '+H2('Add them all to the plan')+'</button>';
+document.getElementById('erradd2plan').addEventListener('click',()=>{
+const add=chosen.map(m=>m.e.p+':'+m.e.s).filter(k=>stops.indexOf(k)<0);
+stops=stops.concat(add).slice(0,PLAN_MAX);
+planSet(stops);location.href='plan.html?stops='+encodeURIComponent(stops.join(','));});});
+paintKinds();}
 document.getElementById('planreorderbtn').addEventListener('click',()=>{
 if(places.length<3)return;
 const rest=places.slice();const out=[];

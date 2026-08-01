@@ -520,6 +520,22 @@ border-radius:.6rem;padding:.15rem .6rem;cursor:pointer;font:inherit;font-size:.
 .evseeall{font-size:.85rem;font-weight:400;margin-left:.4rem}
 .evmapwrap{background:#fff;border:1px solid var(--soft);border-radius:.8rem;padding:.4rem;overflow-x:auto}
 .evmap{display:block;min-width:22rem}
+/* ---- errands: kinds of place, not named ones ------------------------- */
+.planerr{background:var(--card,#fff);border:1px solid var(--soft);border-radius:.8rem;
+padding:.8rem 1rem;margin:.9rem 0}
+.planerr h2{margin:.1rem 0 .3rem;font-size:1.05rem}
+.planerrrow{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.5rem 0}
+.planerrrow select{flex:1 1 14rem;min-height:2.6rem;font-size:1rem;padding:.3rem .4rem}
+.planerrrow button{min-height:2.6rem}
+.planerrlist{list-style:none;padding-left:0;margin:.4rem 0;display:flex;
+flex-wrap:wrap;gap:.4rem}
+.planerrlist li{background:var(--soft);border-radius:999px;padding:.2rem .5rem .2rem .7rem}
+.errdel{border:0;background:none;cursor:pointer;font-size:.9rem;padding:0 .2rem}
+.planerrout{margin-top:.6rem}
+.errtotal{font-size:1.15rem;margin:.3rem 0}
+.errsaved{color:var(--ant-dark,#8F2E13);font-weight:600;margin:.2rem 0}
+ol.errpicks{margin:.4rem 0 .6rem 1.2rem}
+ol.errpicks li{padding:.15rem 0}
 /* ---- ไหว้พระ ๙ วัด ----------------------------------------------------- */
 .meritcard{background:#fff;border:1px solid var(--soft);border-radius:.8rem;
 padding:.9rem 1.1rem;margin:1rem 0}
