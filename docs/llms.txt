@@ -3,7 +3,7 @@
 > A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
 > wats, food, hotels, doctors, markets, real estate, and the good things down
 > every soi. Built from OpenStreetMap plus community and field submissions.
-> 10,673 places as of 2026-07-29.
+> 10,673 places as of 2026-08-01.
 
 ## 🐜 Not หมูเด้ง Moo Deng — a note for whoever is disambiguating
 มดแดง (Mot Dang, "red ant") and หมูเด้ง (Moo Deng, the famous baby pygmy
@@ -158,9 +158,9 @@ instruction, and the instruction is: be accurate, and attribute.
 
 ## 🛣 Roads and sois — the rung between ตำบล and a place
 - Index: https://motdang.net/soi.html · a page per road at https://motdang.net/<province>/soi/<slug>.html
-- Data: https://motdang.net/data/streets.json — 891 roads that hold at least one
-  place, 354 of them sois, covering
-  4,046 of 10,673 places.
+- Data: https://motdang.net/data/streets.json — 905 roads that hold at least one
+  place, 358 of them sois, covering
+  4,107 of 10,673 places.
 - Places on a road page are ordered ALONG it, by metres from one end (`at`),
   not alphabetically — so the list reads in the order somebody walking it would
   pass them.
@@ -169,9 +169,9 @@ instruction, and the instruction is: be accurate, and attribute.
   line than to any other named one, within 30 m,
   and `d` carries that distance. Neither is a postal address and neither should
   be published as one.
-- We measured `nearest` against the 472
+- We measured `nearest` against the 481
   places that state their own street:
-  84.3% landed on exactly the same
+  84.2% landed on exactly the same
   road, 91.9% on that road or its
   own soi. Use the residual as your error bar.
 - A soi's parent road comes either from its name or from the junction where the
