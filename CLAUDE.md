@@ -47,6 +47,12 @@ Rules that bite:
   starts failing. It and `data/solar_terms.json` are copied into `docs/` by
   build.py — never hand-place them, docs/ is wiped every run.
 - Run `tests/test_publish_gate.py` after the build and before `git add docs/`.
+- Every image says what it is FOR, not what it is. `tests/test_alt_text.py`
+  fails a missing `alt`, an unlabelled `role="img"`, and a label that is only
+  the medium ("QR code", "map", "chart"). Use `bi_text()` for alt and
+  aria-label — `bi()` returns spans, and markup inside an attribute gets read
+  out loud. Match both quote styles when scanning HTML: the moondial sibling
+  emits `role='img'`.
 - Never run two builds at once. Both wipe docs/, and the loser silently keeps
   the other's older pages — count a nav link against the page total to catch it.
 - Public pushes only as NaNoBotCo, and only when the user says publish.

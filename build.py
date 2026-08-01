@@ -2612,6 +2612,25 @@ def bi(th, en, sep=" · "):
             f'<span class="en">{lead}{esc(en)}</span></span>')
 
 
+def bi_text(th, en, sep=" · "):
+    """The same pair as plain text, for the places markup cannot go.
+
+    `bi()` returns spans, which is right in the body and wrong inside an
+    `alt=`, an `aria-label`, a `<title>` or a `<meta content=>` — a reader
+    hearing the page would be read the tag soup. This exists because that
+    mistake has now been made twice, once in a meta description.
+
+    Both languages, because the site shows both by default and a screen reader
+    should not get less than the screen does.
+    """
+    th, en = (th or "").strip(), (en or "").strip()
+    if not th:
+        return en
+    if not en:
+        return th
+    return th + sep + en
+
+
 BE_BUILD = int(BUILD_DATE[:4]) + 543
 
 
@@ -3286,7 +3305,13 @@ def share_block(url, name, qr=False):
         if data_uri:
             qr_th = "สแกนแชร์หรือพกไว้หน้าร้านก็ได้"
             qr_en = "Scan to share — or print it by the door"
-            qr_html = (f'<div class="qrbox"><img src="{data_uri}" alt="QR code" width="76" height="76">'
+            # "QR code" named the file format and told a reader who cannot see
+            # it nothing at all — and it said that on 10,673 pages. What matters
+            # about a QR is where it goes, so the alt says where it goes.
+            qr_alt = bi_text("คิวอาร์โค้ด สแกนแล้วเปิดหน้า %s บน motdang.net" % name,
+                             "QR code — scanning it opens the %s page on motdang.net" % name)
+            qr_html = (f'<div class="qrbox"><img src="{data_uri}" alt="{att(qr_alt)}" '
+                      f'width="76" height="76">'
                       f'<p>{bi(qr_th, qr_en)}</p></div>')
     return (f'<div class="share"><span class="sharelabel">{bi("บอกต่อ", "Share")}</span>'
             f'<div class="row">'
@@ -3580,9 +3605,24 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     # developer account first.
     contact_cta = next_ant(r) + add_doors(2, place=r)
     if photo_file:
-        img_tag = (f'<img class="photo" src="../../photos/{att(photo_file)}" '
-                   f'alt="{att(name_of(r))}" loading="lazy">')
+        # The bare name repeated the <h1> and said nothing about the picture.
+        # These 114 credits carry no description field, so the alt is built from
+        # what IS known for certain — the subject the photo was matched to, what
+        # kind of place it is, where it stands, and who took it. What the frame
+        # actually shows is not in the data and is not guessed at here.
         credit = PHOTO_CREDITS.get(r["id"])
+        _by = (credit or {}).get("author")
+        _kind_th = CATS[r["cat"][0]]["th"] if r.get("cat") else ""
+        _kind_en = CATS[r["cat"][0]]["en"] if r.get("cat") else ""
+        _photo_alt = bi_text(
+            "รูปถ่ายของ %s — %s ใน%s%s"
+            % (name_of(r), _kind_th, prov_cfg["th"],
+               (" ถ่ายโดย %s" % _by) if _by else ""),
+            "Photograph of %s, %s in %s%s"
+            % (name_of(r), _kind_en, prov_cfg["en"],
+               (", by %s" % _by) if _by else ""))
+        img_tag = (f'<img class="photo" src="../../photos/{att(photo_file)}" '
+                   f'alt="{att(_photo_alt)}" loading="lazy">')
         if credit and credit.get("source"):
             photo_note = (f'<p class="phototag">📷 <a href="{att(credit["source"])}" rel="noopener">'
                          f'{esc(credit.get("author") or "Wikimedia Commons")}</a>'
@@ -3988,8 +4028,14 @@ def event_map_svg(events):
     def Y(lat):
         return (n - lat) / (n - s) * H
 
+    _nev = sum(v["n"] for v in pins.values())
+    _evlabel = bi_text(
+        "แผนที่สถานที่จัดงาน %d แห่ง รวม %d งาน วางรอบคูเมืองเชียงใหม่ "
+        "จุดยิ่งใหญ่ยิ่งมีงานมาก" % (len(pins), _nev),
+        "Map of %d venues holding %d events, placed around the Chiang Mai moat; "
+        "a bigger dot means more events" % (len(pins), _nev))
     out = [f'<svg viewBox="0 0 {W:.0f} {H:.0f}" width="100%" class="evmap" role="img" '
-           f'aria-label="แผนที่สถานที่จัดงาน — map of event venues">',
+           f'aria-label="{att(_evlabel)}">',
            f'<rect width="{W:.0f}" height="{H:.0f}" fill="#FBF6EE"/>']
     # The moat: a square everyone here navigates by.
     mx, my = X(CM_MOAT["w"]), Y(CM_MOAT["n"])
@@ -4313,6 +4359,17 @@ def moon_phase_svg(m, size=200):
     k = abs(math.cos(2 * math.pi * frac))
     rx = disc * k
     waxing = m.get("waxing", True)
+    # The phase name alone leaves out the two things the disc actually draws:
+    # how much of it is lit, and which ค่ำ of the Thai lunar month this is —
+    # the reckoning วันพระ is counted in, so it is the half that earns its place.
+    # Built here rather than inside the f-string: this file runs on 3.9, where a
+    # multi-line expression inside an f-string is a SyntaxError.
+    _lit = round(100 * m.get("illum", 0.0))
+    moon_label = bi_text(
+        " ".join(x for x in (m.get("phase_th"), m.get("thai_label_th"),
+                             "สว่าง %d%%" % _lit) if x),
+        " ".join(x for x in (m.get("phase_en"), m.get("thai_label_en"),
+                             "%d%% lit" % _lit) if x))
     lit_right = waxing
     big = 1 if frac > 0.5 else 0
     if frac < 0.5:
@@ -4325,7 +4382,7 @@ def moon_phase_svg(m, size=200):
             f'A {rx:.2f} {disc:.2f} 0 0 {sweep_inner} {cx:.2f} {cy - disc:.2f} Z')
     return (
         f'<svg viewBox="0 0 {size} {size}" class="moondisc" role="img" '
-        f'aria-label="{att(m.get("phase_th", "") + " " + m.get("phase_en", ""))}">'
+        f'aria-label="{att(moon_label)}">'
         f'<defs><radialGradient id="mg" cx="38%" cy="34%">'
         f'<stop offset="0%" stop-color="#fffdf5"/><stop offset="70%" stop-color="#efe4cf"/>'
         f'<stop offset="100%" stop-color="#cdbda2"/></radialGradient></defs>'
@@ -4352,8 +4409,24 @@ def jupiter_svg(j, size=200):
     cx, cy = size / 2.0, size / 2.0
     scale = (size / 2.0 - 8) / span
     rj = max(6.0, 2.2 * scale * 2)
+    # "Jupiter and its four moons" is true of the picture on any night. What a
+    # reader who cannot see it is missing is the arrangement — which is the only
+    # thing that changes, and the whole reason the tile is worth drawing. Sides
+    # are read off the drawing itself: mx = cx + x*scale, so positive x is right.
+    _left = [s for s in (j.get("sats") or []) if s["x"] < 0]
+    _right = [s for s in (j.get("sats") or []) if s["x"] >= 0]
+    _sides_th, _sides_en = [], []
+    for _lbl_th, _lbl_en, _group in (("ซ้าย", "left", _left), ("ขวา", "right", _right)):
+        if _group:
+            _order = sorted(_group, key=lambda s: abs(s["x"]))
+            _sides_th.append("%s: %s" % (_lbl_th, " ".join(s["th"] for s in _order)))
+            _sides_en.append("%s: %s" % (_lbl_en, ", ".join(s["en"] for s in _order)))
+    _jlabel = bi_text(
+        "ดาวพฤหัสบดีกับดวงจันทร์ทั้งสี่ คืนนี้เรียงกันแบบนี้ — " + " · ".join(_sides_th),
+        "Jupiter and its four Galilean moons as they stand tonight — "
+        + "; ".join(_sides_en))
     parts = [f'<svg viewBox="0 0 {size} {size}" class="jupdisc" role="img" '
-             f'aria-label="{att("ดาวพฤหัสบดีและดวงจันทร์ทั้งสี่ / Jupiter and its four moons")}">',
+             f'aria-label="{att(_jlabel)}">',
              f'<defs><radialGradient id="jg" cx="38%" cy="35%">'
              f'<stop offset="0%" stop-color="#f6e3c4"/><stop offset="60%" stop-color="#d9a86f"/>'
              f'<stop offset="100%" stop-color="#a4703f"/></radialGradient></defs>',
@@ -5716,8 +5789,19 @@ def street_map_svg(st, by_id):
     def Y(lat):
         return (n - lat) / (n - s) * H
 
+    # The label said the road's name twice. Somebody who cannot see the picture
+    # needs what the picture shows: how many pins, over what length, numbered
+    # in the same order as the list they can read below it.
+    km = (st.get("length") or 0) / 1000.0
+    how_long = ("%.1f กม." % km) if km >= 1 else ("%d ม." % int(st.get("length") or 0))
+    how_long_en = ("%.1f km" % km) if km >= 1 else ("%d m" % int(st.get("length") or 0))
+    label = bi_text(
+        "แผนที่%s ยาว %s มี %d จุด เรียงเลขตามลำดับที่เดินผ่าน ตรงกับรายการข้างล่าง"
+        % (st["name"], how_long, len(pts)),
+        "Map of %s, %s long, with %d numbered points in walking order matching "
+        "the list below" % (st["name"], how_long_en, len(pts)))
     out = ['<svg viewBox="0 0 %.0f %.0f" width="100%%" class="soimap" role="img" '
-           'aria-label="%s">' % (W, H, att("แผนที่%s — map of %s" % (st["name"], st["name"]))),
+           'aria-label="%s">' % (W, H, att(label)),
            '<rect width="%.0f" height="%.0f" fill="#FBF6EE"/>' % (W, H)]
     # The moat, when this road is anywhere near it — it is how everyone here
     # says where they are.
@@ -6727,8 +6811,26 @@ def build():
         max_v = max((max(cm_n, cr_n) for _, cm_n, cr_n in rows), default=1)
         row_h = bar_h * 2 + gap + group_gap
         height = row_h * len(rows) + 8
+        # A chart's label was its heading, which the heading already said. What
+        # a reader who cannot see the bars is owed is the shape of the data:
+        # how many categories, and where the top of the scale sits. The full
+        # numbers are in the sortable table below, so this points at that
+        # rather than reciting eighteen rows.
+        _top = max(rows, key=lambda r: max(r[1], r[2])) if rows else None
+        _lead_th = _lead_en = ""
+        if _top:
+            _lead_th = " หมวดที่มากที่สุดคือ%s (เชียงใหม่ %s · เชียงราย %s)" % (
+                CATS[_top[0]]["th"], "{:,}".format(_top[1]), "{:,}".format(_top[2]))
+            _lead_en = " The largest is %s, with %s in Chiang Mai and %s in Chiang Rai." % (
+                CATS[_top[0]]["en"], "{:,}".format(_top[1]), "{:,}".format(_top[2]))
+        _bclabel = bi_text(
+            "กราฟแท่งเปรียบเทียบจำนวนสถานที่ %d หมวด ระหว่างเชียงใหม่กับเชียงราย"
+            "%s ตัวเลขเต็มอยู่ในตารางข้างล่าง" % (len(rows), _lead_th),
+            "Bar chart comparing how many places each of %d categories holds in "
+            "Chiang Mai versus Chiang Rai.%s Full figures are in the sortable "
+            "table below." % (len(rows), _lead_en))
         parts = [f'<svg viewBox="0 0 {width} {height}" width="100%" role="img" '
-                 f'aria-label="จำนวนสถานที่ต่อหมวดหมู่ แยกจังหวัด">']
+                 f'aria-label="{att(_bclabel)}">']
         y = 6
         for c, cm_n, cr_n in rows:
             label = esc(CATS[c]["th"])
@@ -6772,8 +6874,22 @@ def build():
         left, bar_h, gap, right_pad, width = 220, 15, 6, 60, 720
         plot_w = width - left - right_pad
         height = (bar_h + gap) * len(rows) + 6
+        # Sorted worst-first, so the two ends are the finding: which shelf most
+        # needs phone numbers, and which is already answered.
+        _wst, _bst = (rows[0], rows[-1]) if rows else (None, None)
+        _covlabel = bi_text(
+            "กราฟแท่งแสดงสัดส่วนที่ติดต่อได้ของแต่ละหมวด %d หมวด เรียงจากน้อยไปมาก"
+            % len(rows)
+            + ("" if not _wst else " น้อยที่สุดคือ%s (%d%%) มากที่สุดคือ%s (%d%%)"
+               % (CATS[_wst[0]]["th"], 100 * _wst[1] // _wst[2],
+                  CATS[_bst[0]]["th"], 100 * _bst[1] // _bst[2])),
+            "Bar chart of how reachable each of %d categories is, sorted from "
+            "least to most." % len(rows)
+            + ("" if not _wst else " %s is lowest at %d%%; %s is highest at %d%%."
+               % (CATS[_wst[0]]["en"], 100 * _wst[1] // _wst[2],
+                  CATS[_bst[0]]["en"], 100 * _bst[1] // _bst[2])))
         parts = [f'<svg viewBox="0 0 {width} {height}" width="100%" role="img" '
-                 f'aria-label="สัดส่วนข้อมูลติดต่อต่อหมวดหมู่">']
+                 f'aria-label="{att(_covlabel)}">']
         y = 4
         for c, h, t in rows:
             pct = 100 * h // t
@@ -6895,8 +7011,21 @@ def build():
         segs = [(working, "#3B5A4A", bi("เปิดได้", "works")),
                 (broken, "#8F2E13", bi("เปิดไม่ได้", "broken")),
                 (social, "#1877F2", bi("เป็นเพจโซเชียล", "social page"))]
+        # "316 working, 278 broken, 200 social" was three bare numbers with no
+        # denominator — the whole point of this page is the proportion.
+        _real = max(working + broken, 1)
+        _dlabel = bi_text(
+            "แถบสัดส่วนลิงก์เว็บไซต์ทั้งหมด %s ลิงก์ — เปิดได้ %s (%d%% ของเว็บจริง) "
+            "เปิดไม่ได้ %s (%d%%) และอีก %s เป็นเพจโซเชียลซึ่งตรวจไม่ได้"
+            % ("{:,}".format(total), "{:,}".format(working), 100 * working // _real,
+               "{:,}".format(broken), 100 * broken // _real, "{:,}".format(social)),
+            "Proportional bar of all %s links — %s answer (%d%% of the genuine "
+            "websites), %s are broken (%d%%), and a further %s are social pages, "
+            "which cannot be verified either way."
+            % ("{:,}".format(total), "{:,}".format(working), 100 * working // _real,
+               "{:,}".format(broken), 100 * broken // _real, "{:,}".format(social)))
         parts = [f'<svg viewBox="0 0 {w} {h}" width="100%" role="img" '
-                 f'aria-label="{att(f"{working} working, {broken} broken, {social} social")}">']
+                 f'aria-label="{att(_dlabel)}">']
         x = 0
         for n, color, _lab in segs:
             seg_w = w * n / total
