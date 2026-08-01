@@ -456,6 +456,10 @@ border:1px solid var(--soft);margin-bottom:.35rem;background:#fff}
 .cnlist li{margin:.25rem 0;line-height:1.3}
 .cnmin{color:var(--mute);font-size:.72rem;margin-left:.3rem}
 .cntimes{display:block;color:var(--ant-dark);font-variant-numeric:tabular-nums;font-size:.78rem}
+.cnt{margin-right:.36rem;display:inline-block}
+.cnt.past{opacity:.32}
+.cnmore{margin-top:.3rem;font-size:.78rem}
+.wstale{color:var(--mute);font-style:italic}
 .cnnone{color:var(--mute)}
 /* events tile */
 .evslides{flex:1;position:relative;overflow:hidden;border-radius:.6rem}

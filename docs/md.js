@@ -48,11 +48,20 @@ const MD_TODAY=(()=>{const d=new Date();
 return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');})();
 async function mdJSON(p){try{const r=await fetch(RROOT+p);return r.ok?await r.json():null;}
 catch(e){return null;}}
+// Today or nothing. This used to fall back to the earliest baked day, so once
+// the window ran out every reader was quietly handed a month-old reading with
+// today's date on it. A tile with no entry for today says so instead.
 function mdPick(doc){if(!doc||!doc.days)return null;
-return doc.days[MD_TODAY]||doc.days[Object.keys(doc.days).sort()[0]]||null;}
+return doc.days[MD_TODAY]||null;}
+function mdStale(sel){document.querySelectorAll(sel).forEach(el=>{
+if(el.querySelector('.wstale'))return;
+const s=document.createElement('span');s.className='wfoot wstale';
+s.innerHTML=mdBi('ยังไม่ได้อัปเดตสำหรับวันนี้','not updated for today');
+el.appendChild(s);});}
 // --- sky tile: moon + jupiter, drawn from baked positions
 (async()=>{const host=document.getElementById('w-sky');if(!host)return;
-const doc=await mdJSON('data/sky.json');const day=mdPick(doc);if(!day)return;
+const doc=await mdJSON('data/sky.json');const day=mdPick(doc);
+if(!day){mdStale('#w-sky');return;}
 const moonArt=host.querySelector('[data-skyart="moon"]');
 const jupArt=host.querySelector('[data-skyart="jupiter"]');
 if(day.svg_moon&&moonArt)moonArt.innerHTML=day.svg_moon;
@@ -69,7 +78,8 @@ dots.forEach((d,n)=>d.classList.toggle('on',n===si));};
 dots.forEach(d=>d.addEventListener('click',()=>{go(+d.dataset.skydot);clearInterval(window.__skyT);}));
 if(slides.length>1)window.__skyT=setInterval(()=>go(si+1),6000);})();
 // --- fortune, horoscope, hexagram, and the day's colour
-(async()=>{const doc=await mdJSON('data/fortune.json');const day=mdPick(doc);if(!day)return;
+(async()=>{const doc=await mdJSON('data/fortune.json');const day=mdPick(doc);
+if(!day){mdStale('#w-fortune,#w-horoscope,#w-divination');return;}
 const t=day.thai;
 // สีประจำวัน: the whole page borrows the day's colour
 if(t&&t.hex)document.documentElement.style.setProperty('--day',t.hex);
@@ -84,10 +94,14 @@ bl('[data-fo="planet"]',t.planet_th,t.planet_en);
 bl('[data-fo="how"]',t.lucky.how_th,t.lucky.how_en);
 setF('nums',t.lucky.two.join(' ')+' · '+t.lucky.three);
 const thl=document.querySelector('[data-ho="th_line"]');
-if(thl)thl.innerHTML='<span class="th">วันนี้เป็น'+t.th+' สีประจำวันคือ'+t.colour_th+
-' พระประจำวันคือ'+t.buddha_th+' กำลังพระเคราะห์ '+t.strength+'</span>'+
-'<span class="en">Today is '+t.en+'. Its colour is '+t.colour_en+', its image is '+
-t.buddha_en+', and its planetary strength is '+t.strength+'.</span>';}
+// Through mdBi, not hand-built spans: the " · " that separates the two
+// languages lives inside the English span and is itself marked Thai, so
+// hand-rolling the markup ran the sentences together in ไทย + EN mode.
+if(thl)thl.innerHTML=mdBi(
+'วันนี้เป็น'+t.th+' สีประจำวันคือ'+t.colour_th+
+' พระประจำวันคือ'+t.buddha_th+' กำลังพระเคราะห์ '+t.strength,
+'Today is '+t.en+'. Its colour is '+t.colour_en+', its image is '+
+t.buddha_en+', and its planetary strength is '+t.strength+'.');}
 // european: reader picks a sign, choice is remembered
 const eu=day.european;const pick=document.querySelector('[data-ho="signpick"]');
 if(eu&&pick){const saved=localStorage.getItem('md.sign');
@@ -198,6 +212,15 @@ const saved=localStorage.getItem('md.cn');
 if(saved&&[...cnPick.options].some(o=>o.value===saved))cnPick.value=saved;
 cnPick.addEventListener('change',()=>{try{localStorage.setItem('md.cn',cnPick.value);}catch(e){}
 cnDraw();});cnDraw();}
+// --- showtimes: fade the screenings that have already started. Only when the
+// baked sheet really is today's; on any other day nothing is dimmed.
+(()=>{const host=document.getElementById('w-cinema');if(!host)return;
+if(host.dataset.cndate!==MD_TODAY)return;
+const mark=()=>{const n=new Date(),hm=n.getHours()*60+n.getMinutes();
+host.querySelectorAll('.cnt').forEach(el=>{const p=(el.dataset.t||'').split(':');
+if(p.length!==2)return;
+el.classList.toggle('past',(+p[0])*60+(+p[1])<hm);});};
+mark();setInterval(mark,60000);})();
 // --- events carousel
 const carousel=document.querySelector('[data-carousel]');
 if(carousel){const slides=[...carousel.querySelectorAll('.evslide')];
@@ -293,19 +316,24 @@ b.textContent=b.dataset.done;setTimeout(()=>b.textContent=b.dataset.label,1500);
 if(navigator.share){document.querySelectorAll('[data-native]').forEach(b=>{
 b.style.display='';b.addEventListener('click',()=>{
 navigator.share({title:b.dataset.title,url:b.dataset.url}).catch(()=>{});});});}
+// ---- currency converter: recompute on input, baked rates, no live call --
+// Stands on its own. It used to sit inside the day-colour block below, which
+// is guarded on #daycolor — an element the home page does not carry — so on
+// the one page that has the converter the listener was never attached and the
+// figures sat frozen at whatever build.py baked for 100 baht.
+const fxamount=document.getElementById('fxamount');
+if(fxamount){const recalc=()=>{const amt=parseFloat(fxamount.value)||0;
+document.querySelectorAll('.fxout').forEach(el=>{
+el.textContent=(amt*parseFloat(el.dataset.rate)).toLocaleString(undefined,
+{minimumFractionDigits:2,maximumFractionDigits:2});});};
+fxamount.addEventListener('input',recalc);
+fxamount.addEventListener('change',recalc);recalc();}
 // ---- home modules: day colour + ticker + personalize ------------------
 const day=document.getElementById('daycolor');
 if(day){const names=['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'];
 const ens=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const cols=[['แดง','red','#C22'],['เหลือง','yellow','#E7B10A'],['ชมพู','pink','#E77'],
 ['เขียว','green','#2A7'],['ส้ม','orange','#E80'],['ฟ้า','light blue','#59F'],['ม่วง','purple','#96C']];
-// ---- currency converter: recompute on input, baked rates, no live call --
-const fxamount=document.getElementById('fxamount');
-if(fxamount){const recalc=()=>{const amt=parseFloat(fxamount.value)||0;
-document.querySelectorAll('.fxout').forEach(el=>{
-el.textContent=(amt*parseFloat(el.dataset.rate)).toLocaleString(undefined,
-{minimumFractionDigits:2,maximumFractionDigits:2});});};
-fxamount.addEventListener('input',recalc);recalc();}
 const d=new Date().getDay(),c=cols[d],be=new Date().getFullYear()+543;
 day.innerHTML=`<span class="swatch" style="background:${c[2]}"></span>`+
 `<span class="th">วัน${names[d]} — สีมงคลวันนี้: ${c[0]} · พ.ศ. ${be}</span>`+
