@@ -509,6 +509,17 @@ def ld_json(r, path, photo_file):
     if phone_channel:
         obj["telephone"] = phone_channel["text"]
     same_as = [c["href"] for c in live if c["href"].startswith("http")]
+    # Wikipedia and Wikidata are what sameAs was invented for — the canonical
+    # identifiers for the same real thing. They were sitting unused in the OSM
+    # tags. Only the ones about this place: the brand's entity describes the
+    # chain, and asserting it here would say a branch and its parent company are
+    # one entity, which is exactly the claim sameAs makes.
+    # Not every marked link qualifies. sameAs asserts identity, so a Michelin
+    # article listing eleven restaurants and a Commons file page — both good
+    # reading, both marked on the page — would be false here.
+    for x in elsewhere(r):
+        if x.get("identity") and x["url"] not in same_as:
+            same_as.append(x["url"])
     if same_as:
         obj["sameAs"] = same_as
     return f'<script type="application/ld+json">{json.dumps(obj, ensure_ascii=False)}</script>'
@@ -1023,6 +1034,10 @@ border:1px solid var(--soft);margin-bottom:.35rem;background:#fff}
 .cnlist li{margin:.25rem 0;line-height:1.3}
 .cnmin{color:var(--mute);font-size:.72rem;margin-left:.3rem}
 .cntimes{display:block;color:var(--ant-dark);font-variant-numeric:tabular-nums;font-size:.78rem}
+.cnt{margin-right:.36rem;display:inline-block}
+.cnt.past{opacity:.32}
+.cnmore{margin-top:.3rem;font-size:.78rem}
+.wstale{color:var(--mute);font-style:italic}
 .cnnone{color:var(--mute)}
 /* events tile */
 .evslides{flex:1;position:relative;overflow:hidden;border-radius:.6rem}
@@ -1074,6 +1089,19 @@ border-radius:.6rem;padding:.15rem .6rem;cursor:pointer;font:inherit;font-size:.
 .evseeall{font-size:.85rem;font-weight:400;margin-left:.4rem}
 .evmapwrap{background:#fff;border:1px solid var(--soft);border-radius:.8rem;padding:.4rem;overflow-x:auto}
 .evmap{display:block;min-width:22rem}
+/* ---- read more elsewhere --------------------------------------------- */
+/* Quiet by design. These links leave the site, so they sit below the facts
+   and above the contribute doors, and they do not compete with the contact
+   pills — those are how you reach someone, this is where you read. */
+.elsewhere{margin:1rem 0;padding:.7rem .9rem;background:#fff;
+border:1px solid var(--soft);border-radius:.8rem}
+.elsewhere h2{margin:0 0 .35rem;font-size:1rem}
+.elsewhere ul{list-style:none;padding-left:0;margin:.2rem 0}
+.elsewhere li{padding:.22rem 0;line-height:1.5}
+/* Yahoo's sunglasses, 1997, for the links worth the trip. Not decorative —
+   it has a title, and the legend under the list says what earns it. */
+.cool{font-style:normal;cursor:help}
+.elsewhere .tinynote{margin:.4rem 0 0}
 /* ---- the soi tier: a road, its sois, and what stands on it ----------- */
 .soifig{margin:.8rem 0;background:#fff;border:1px solid var(--soft);border-radius:.8rem;
 padding:.4rem;overflow-x:auto}
@@ -1586,11 +1614,20 @@ const MD_TODAY=(()=>{const d=new Date();
 return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');})();
 async function mdJSON(p){try{const r=await fetch(RROOT+p);return r.ok?await r.json():null;}
 catch(e){return null;}}
+// Today or nothing. This used to fall back to the earliest baked day, so once
+// the window ran out every reader was quietly handed a month-old reading with
+// today's date on it. A tile with no entry for today says so instead.
 function mdPick(doc){if(!doc||!doc.days)return null;
-return doc.days[MD_TODAY]||doc.days[Object.keys(doc.days).sort()[0]]||null;}
+return doc.days[MD_TODAY]||null;}
+function mdStale(sel){document.querySelectorAll(sel).forEach(el=>{
+if(el.querySelector('.wstale'))return;
+const s=document.createElement('span');s.className='wfoot wstale';
+s.innerHTML=mdBi('ยังไม่ได้อัปเดตสำหรับวันนี้','not updated for today');
+el.appendChild(s);});}
 // --- sky tile: moon + jupiter, drawn from baked positions
 (async()=>{const host=document.getElementById('w-sky');if(!host)return;
-const doc=await mdJSON('data/sky.json');const day=mdPick(doc);if(!day)return;
+const doc=await mdJSON('data/sky.json');const day=mdPick(doc);
+if(!day){mdStale('#w-sky');return;}
 const moonArt=host.querySelector('[data-skyart="moon"]');
 const jupArt=host.querySelector('[data-skyart="jupiter"]');
 if(day.svg_moon&&moonArt)moonArt.innerHTML=day.svg_moon;
@@ -1607,7 +1644,8 @@ dots.forEach((d,n)=>d.classList.toggle('on',n===si));};
 dots.forEach(d=>d.addEventListener('click',()=>{go(+d.dataset.skydot);clearInterval(window.__skyT);}));
 if(slides.length>1)window.__skyT=setInterval(()=>go(si+1),6000);})();
 // --- fortune, horoscope, hexagram, and the day's colour
-(async()=>{const doc=await mdJSON('data/fortune.json');const day=mdPick(doc);if(!day)return;
+(async()=>{const doc=await mdJSON('data/fortune.json');const day=mdPick(doc);
+if(!day){mdStale('#w-fortune,#w-horoscope,#w-divination');return;}
 const t=day.thai;
 // สีประจำวัน: the whole page borrows the day's colour
 if(t&&t.hex)document.documentElement.style.setProperty('--day',t.hex);
@@ -1622,10 +1660,14 @@ bl('[data-fo="planet"]',t.planet_th,t.planet_en);
 bl('[data-fo="how"]',t.lucky.how_th,t.lucky.how_en);
 setF('nums',t.lucky.two.join(' ')+' · '+t.lucky.three);
 const thl=document.querySelector('[data-ho="th_line"]');
-if(thl)thl.innerHTML='<span class="th">วันนี้เป็น'+t.th+' สีประจำวันคือ'+t.colour_th+
-' พระประจำวันคือ'+t.buddha_th+' กำลังพระเคราะห์ '+t.strength+'</span>'+
-'<span class="en">Today is '+t.en+'. Its colour is '+t.colour_en+', its image is '+
-t.buddha_en+', and its planetary strength is '+t.strength+'.</span>';}
+// Through mdBi, not hand-built spans: the " · " that separates the two
+// languages lives inside the English span and is itself marked Thai, so
+// hand-rolling the markup ran the sentences together in ไทย + EN mode.
+if(thl)thl.innerHTML=mdBi(
+'วันนี้เป็น'+t.th+' สีประจำวันคือ'+t.colour_th+
+' พระประจำวันคือ'+t.buddha_th+' กำลังพระเคราะห์ '+t.strength,
+'Today is '+t.en+'. Its colour is '+t.colour_en+', its image is '+
+t.buddha_en+', and its planetary strength is '+t.strength+'.');}
 // european: reader picks a sign, choice is remembered
 const eu=day.european;const pick=document.querySelector('[data-ho="signpick"]');
 if(eu&&pick){const saved=localStorage.getItem('md.sign');
@@ -1736,6 +1778,15 @@ const saved=localStorage.getItem('md.cn');
 if(saved&&[...cnPick.options].some(o=>o.value===saved))cnPick.value=saved;
 cnPick.addEventListener('change',()=>{try{localStorage.setItem('md.cn',cnPick.value);}catch(e){}
 cnDraw();});cnDraw();}
+// --- showtimes: fade the screenings that have already started. Only when the
+// baked sheet really is today's; on any other day nothing is dimmed.
+(()=>{const host=document.getElementById('w-cinema');if(!host)return;
+if(host.dataset.cndate!==MD_TODAY)return;
+const mark=()=>{const n=new Date(),hm=n.getHours()*60+n.getMinutes();
+host.querySelectorAll('.cnt').forEach(el=>{const p=(el.dataset.t||'').split(':');
+if(p.length!==2)return;
+el.classList.toggle('past',(+p[0])*60+(+p[1])<hm);});};
+mark();setInterval(mark,60000);})();
 // --- events carousel
 const carousel=document.querySelector('[data-carousel]');
 if(carousel){const slides=[...carousel.querySelectorAll('.evslide')];
@@ -1831,19 +1882,24 @@ b.textContent=b.dataset.done;setTimeout(()=>b.textContent=b.dataset.label,1500);
 if(navigator.share){document.querySelectorAll('[data-native]').forEach(b=>{
 b.style.display='';b.addEventListener('click',()=>{
 navigator.share({title:b.dataset.title,url:b.dataset.url}).catch(()=>{});});});}
+// ---- currency converter: recompute on input, baked rates, no live call --
+// Stands on its own. It used to sit inside the day-colour block below, which
+// is guarded on #daycolor — an element the home page does not carry — so on
+// the one page that has the converter the listener was never attached and the
+// figures sat frozen at whatever build.py baked for 100 baht.
+const fxamount=document.getElementById('fxamount');
+if(fxamount){const recalc=()=>{const amt=parseFloat(fxamount.value)||0;
+document.querySelectorAll('.fxout').forEach(el=>{
+el.textContent=(amt*parseFloat(el.dataset.rate)).toLocaleString(undefined,
+{minimumFractionDigits:2,maximumFractionDigits:2});});};
+fxamount.addEventListener('input',recalc);
+fxamount.addEventListener('change',recalc);recalc();}
 // ---- home modules: day colour + ticker + personalize ------------------
 const day=document.getElementById('daycolor');
 if(day){const names=['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'];
 const ens=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const cols=[['แดง','red','#C22'],['เหลือง','yellow','#E7B10A'],['ชมพู','pink','#E77'],
 ['เขียว','green','#2A7'],['ส้ม','orange','#E80'],['ฟ้า','light blue','#59F'],['ม่วง','purple','#96C']];
-// ---- currency converter: recompute on input, baked rates, no live call --
-const fxamount=document.getElementById('fxamount');
-if(fxamount){const recalc=()=>{const amt=parseFloat(fxamount.value)||0;
-document.querySelectorAll('.fxout').forEach(el=>{
-el.textContent=(amt*parseFloat(el.dataset.rate)).toLocaleString(undefined,
-{minimumFractionDigits:2,maximumFractionDigits:2});});};
-fxamount.addEventListener('input',recalc);recalc();}
 const d=new Date().getDay(),c=cols[d],be=new Date().getFullYear()+543;
 day.innerHTML=`<span class="swatch" style="background:${c[2]}"></span>`+
 `<span class="th">วัน${names[d]} — สีมงคลวันนี้: ${c[0]} · พ.ศ. ${be}</span>`+
@@ -2583,7 +2639,11 @@ def esc(s):
 
 
 def att(s):
-    return esc(s).replace('"', "&quot;")
+    # Both quote characters, always. data-siamsi is emitted inside single
+    # quotes, and one apostrophe in an English slip ("The day's colour")
+    # truncated the whole JSON payload at that character — JSON.parse then
+    # threw into a silent catch and the เซียมซี tube never got a listener.
+    return esc(s).replace('"', "&quot;").replace("'", "&#39;")
 
 
 def bi(th, en, sep=" · "):
@@ -2805,6 +2865,25 @@ for _h in HONOURS_DOC.get("royal", []):
 FOOD_BY_ID = {}
 for _h in HONOURS_DOC.get("food", []):
     FOOD_BY_ID.setdefault(_h["id"], []).append(_h)
+
+# Where each displayed mark was read from. The rule in CLAUDE.md is that nothing
+# enters royal/food without a fetched source URL — this makes that promise
+# clickable instead of merely kept in the file. Royal entries carry `sources` (a
+# list, since a grade can be attested in more than one place), food a single
+# `source`.
+HONOUR_SOURCES = {}
+for _h in HONOURS_DOC.get("royal", []):
+    for _i in _h.get("ids", []):
+        for _s in _h.get("sources", []) or []:
+            HONOUR_SOURCES.setdefault(_i, [])
+            if _s not in HONOUR_SOURCES[_i]:
+                HONOUR_SOURCES[_i].append(_s)
+for _h in HONOURS_DOC.get("food", []):
+    _s = _h.get("source")
+    if _s:
+        HONOUR_SOURCES.setdefault(_h["id"], [])
+        if _s not in HONOUR_SOURCES[_h["id"]]:
+            HONOUR_SOURCES[_h["id"]].append(_s)
 
 
 def royal_of(r):
@@ -3332,6 +3411,87 @@ CHANNEL_ICON = {"phone": "☎️", "line": "💬", "facebook": "f", "web": "🌐
                 "tiktok": "♪", "youtube": "▶"}
 
 
+def _wikipedia_url(tag):
+    """OSM writes it as 'th:ชื่อบทความ'. No language prefix means English."""
+    if not tag:
+        return None, None
+    lang, _, title = tag.partition(":")
+    if not title:
+        lang, title = "en", tag
+    return ("https://%s.wikipedia.org/wiki/%s"
+            % (lang, urllib.parse.quote(title.replace(" ", "_"), safe="")), lang)
+
+
+def elsewhere(r):
+    """Links that lead to a written account of THIS place, and are worth a click.
+
+    Nearly every external link on a page is chrome — the share row, Ko-fi, the
+    OSM attribution — identical across all 11,807 pages. The handful that are
+    actually about the place in front of you get lost in that. This gathers
+    them, and the marker means one specific thing: *this leads somewhere about
+    this place*.
+
+    brand:wikidata is deliberately excluded from the marker. It is the commonest
+    of these tags by far (644 records) and it describes the chain — a branch of
+    7-Eleven linking the 7-Eleven article is true but is not about that shop, so
+    it is labelled as the chain and left unmarked.
+
+    Contact channels stay in reach_block(). That block is for reaching someone;
+    this one is for reading. A live website is a way to get hold of a business,
+    not a reference work, and it is not repeated here.
+    """
+    a = r.get("attrs") or {}
+    out = []
+    wp, lang = _wikipedia_url(a.get("wikipedia"))
+    if wp:
+        out.append({"url": wp, "marked": True, "identity": True,
+                    "th": "บทความวิกิพีเดีย (%s)" % lang,
+                    "en": "Wikipedia article (%s)" % lang})
+    if a.get("wikidata"):
+        out.append({"url": "https://www.wikidata.org/wiki/" + a["wikidata"],
+                    "marked": True, "identity": True,
+                    "th": "ข้อมูลวิกิสนเทศ", "en": "Wikidata entity"})
+    # The Commons page behind the photograph already on this page — the licence
+    # line links the file, this links what else is filed with it.
+    ci = COMMONS_IMAGES.get(r["id"]) or {}
+    credit = PHOTO_CREDITS.get(r["id"]) or {}
+    commons = ci.get("full") or credit.get("source")
+    if commons and "commons.wikimedia.org" in commons:
+        out.append({"url": commons, "marked": True,
+                    "th": "หน้าภาพในวิกิมีเดียคอมมอนส์", "en": "Wikimedia Commons file page"})
+    # The citation behind a mark this site displays. An honour shown without the
+    # source it was read from is an assertion; with it, it is checkable.
+    for src in HONOUR_SOURCES.get(r["id"], []):
+        out.append({"url": src, "marked": True,
+                    "th": "ที่มาของเครื่องหมายที่แสดงไว้", "en": "Source for the mark shown above"})
+    if a.get("brandWikidata"):
+        out.append({"url": "https://www.wikidata.org/wiki/" + a["brandWikidata"],
+                    "marked": False,
+                    "th": "ข้อมูลวิกิสนเทศของแบรนด์ (ทั้งเครือ ไม่ใช่สาขานี้)",
+                    "en": "Wikidata for the chain — the brand, not this branch"})
+    return out
+
+
+def elsewhere_block(r):
+    links = elsewhere(r)
+    if not links:
+        return ""
+    rows = []
+    for x in links:
+        # 1997 Yahoo put sunglasses beside the sites it thought were worth the
+        # trip. Same job here, on a stated rule rather than an editor's taste.
+        mark = ('<span class="cool" title="%s">😎</span> '
+                % att(bi_text("ลิงก์ที่พาไปอ่านเรื่องของที่นี่โดยตรง",
+                              "Goes to something written about this place")))
+        rows.append('<li>%s<a href="%s" rel="noopener">%s</a></li>'
+                    % (mark if x["marked"] else "", att(x["url"]), bi(x["th"], x["en"])))
+    return ('<div class="elsewhere"><h2>%s</h2><ul>%s</ul><p class="tinynote">%s</p></div>'
+            % (bi("อ่านต่อที่อื่น", "Read more elsewhere"), "".join(rows),
+               bi("😎 = พาไปอ่านเรื่องของที่นี่โดยตรง ไม่ใช่ปุ่มแชร์หรือลิงก์ประจำทุกหน้า",
+                  "😎 marks a link about this place itself — not a share button or "
+                  "something every page carries")))
+
+
 def reach_block(r):
     """The heart of a place page: how to actually get hold of these people.
 
@@ -3693,7 +3853,7 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     body = (f"<h1>{esc(name_of(r))}</h1>{plan_cta}{honour_panel(r)}{facet_panel(r)}"
             f"{ant_panel(r)}{img_tag}{photo_note}{blurb}"
             f"{reach_block(r)}{whatson}<dl>{''.join(rows)}</dl>"
-            f"{contact_cta}{photo_cta}"
+            f"{elsewhere_block(r)}{contact_cta}{photo_cta}"
             f"{share_block(BASE + path, name_of(r), qr=True)}{ad_box(path, 2)}{related_html}"
             f'<p class="prov">{prov_line}{fetched}</p>')
     desc = place_desc(r, prov_cfg)
@@ -3863,9 +4023,19 @@ def enrich_events(data, photos):
     idx = _venue_index(data)
     prov_of = {r["id"]: p["key"] for p in PROVINCES for r in data[p["key"]]}
     out = []
+    dropped = 0
     for raw in EVENTS_RAW:
         e = dict(raw)
         e["dt"] = _ev_dt(e.get("start"))
+        # A one-off that has already happened is not what is on. Weekly
+        # regulars have no expiry and stay. Filtering here covers the page,
+        # the carousel, the place-page bands, the .ics and the JSON export
+        # in one place, so none of them can disagree.
+        if not e.get("recurring"):
+            start_day = (e.get("start") or "")[:10]
+            if start_day and start_day < BUILD_DATE:
+                dropped += 1
+                continue
         r, how = match_venue(e.get("venue_name", ""), idx)
         e["place"] = None
         if r:
@@ -3882,6 +4052,9 @@ def enrich_events(data, photos):
             }
         e["richness"] = event_richness(e)
         out.append(e)
+    if dropped:
+        print(f"  events: dropped {dropped} one-off events already past "
+              f"(before {BUILD_DATE}); {len(out)} remain")
     out.sort(key=lambda x: (x.get("start") or "", x.get("title") or ""))
     return out
 
@@ -4294,9 +4467,15 @@ def widget_weather():
     for c in WEATHER_CITIES:
         icon, th, en = wmo(c.get("code"))
         temp = degc(c.get("temp"))
+        # Days still to come, chosen by date rather than by position. The old
+        # [1:4] slice counted from the file's own generation day, so a
+        # weather.json three days stale rendered a "forecast" made entirely of
+        # days that had already happened.
+        ahead = [d for d in (c.get("days") or [])
+                 if (d.get("date") or "") > BUILD_DATE][:3]
         days = "".join(
             f'<span class="wxday"><b>{wmo(d["code"])[0]}</b>{degc(d.get("max"))}°</span>'
-            for d in (c.get("days") or [])[1:4])
+            for d in ahead)
         panes.append(
             f'<div class="wxpane" data-wxpane="{c["id"]}" hidden>'
             f'<span class="wxcity">{bi(c["th"], c["en"])}</span>'
@@ -4498,14 +4677,29 @@ def widget_cinema(data):
         if not films:
             rows = f'<li class="cnnone">{bi("วันนี้ยังไม่มีรอบ", "no times listed today")}</li>'
         else:
-            rows = "".join(
-                f'<li><b>{esc(f["title"])}</b>'
-                + (f'<span class="cnmin">{f["minutes"]}′</span>' if f.get("minutes") else "")
-                + f'<span class="cntimes">{" ".join(esc(t) for t in f["times"][:9])}</span></li>'
-                for f in films[:5])
+            # Every screening, not the first nine. The old cap dropped 13 of
+            # the 22 Spider-Man times at Central Festival without saying so.
+            # Each time carries its own span so md.js can dim the ones that
+            # have already started.
+            lis = []
+            for f in films[:5]:
+                tspans = "".join(
+                    f'<span class="cnt" data-t="{att(t)}">{esc(t)}</span>'
+                    for t in (f.get("times") or []))
+                mins = f'<span class="cnmin">{f["minutes"]}′</span>' if f.get("minutes") else ""
+                lis.append(f'<li><b>{esc(f["title"])}</b>{mins}'
+                           f'<span class="cntimes">{tspans}</span></li>')
+            if len(films) > 5:
+                more = len(films) - 5
+                label = bi(f"อีก {more} เรื่องที่โรงนี้",
+                           f"{more} more films at this cinema")
+                href = att(c.get("url") or "")
+                lis.append(f'<li class="cnmore">'
+                           f'<a href="{href}" rel="noopener">{label}</a></li>')
+            rows = "".join(lis)
         panes.append(f'<ul class="cnlist" data-cnpane="{c["id"]}" hidden>{rows}</ul>')
     return (
-        f'<section class="wtile cine" id="w-cinema">'
+        f'<section class="wtile cine" id="w-cinema" data-cndate="{att(SHOWTIME_DATE)}">'
         f'<h3>🎬 {bi("รอบหนังวันนี้", "Showtimes today")}</h3>'
         f'<select class="cnpick" aria-label="{att("เลือกโรง / choose a cinema")}">{picker}</select>'
         f'{"".join(panes)}'
@@ -4733,6 +4927,13 @@ def widget_siamsi():
     if not SIAMSI:
         return ""
     data = json.dumps(SIAMSI, ensure_ascii=False)
+    # Hoisted out of the f-string below on purpose. build.py runs on Python
+    # 3.9, whose f-string parser will not accept an apostrophe inside a
+    # single-quoted f-string — which is how this sentence previously came to
+    # read "this site is own, not any temple is". Write the prose here.
+    foot = bi("กลไกเป็นของโบราณ ถ้อยคำเป็นของเว็บนี้เอง ไม่ใช่ของวัดใด",
+              "The manner is the old one; the words are this site's own, "
+              "not any temple's.")
     return (
         f'<section class="wtile siamsi maha" id="w-siamsi" data-siamsi=\'{att(data)}\'>'
         f'{YANTRA_SVG}'
@@ -4745,7 +4946,7 @@ def widget_siamsi():
         f'<span class="ssverdict" data-ss="verdict"></span>'
         f'<p class="sstext" data-ss="text"></p></div></div>'
         f'<button class="ssshake" data-ss="shake">🙏 {bi("เขย่า", "Shake")}</button>'
-        f'<span class="wfoot">{bi("กลไกเป็นของโบราณ ถ้อยคำเป็นของเว็บนี้เอง ไม่ใช่ของวัดใด", "The manner is the old one; the words are this site is own, not any temple is")}</span>'
+        f'<span class="wfoot">{foot}</span>'
         f'</section>')
 
 

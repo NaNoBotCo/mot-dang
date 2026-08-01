@@ -292,8 +292,14 @@ def main():
             print(f"  [{s['status']:>19}] {s['cadence']:>9}  {s['id']:<24} {s['name']}")
         return
 
+    # .get, not [] — a verified source may legitimately carry no method here.
+    # major-showtimes lost its method key when the Cineplex recipe moved out of
+    # the tree, and the KeyError stopped every refetch dead, which is how the
+    # events feed came to sit three days stale without anyone noticing. That
+    # source has its own importer; it was never this harvester's to fetch.
     fetchable = [s for s in sources
-                 if s["status"] == "verified" and s["method"] in ("ical", "json")]
+                 if s.get("status") == "verified"
+                 and s.get("method") in ("ical", "json")]
     print(f"🐜 {len(fetchable)} fetchable source(s) of {len(sources)} in the registry")
 
     events, leads, failures = [], [], []

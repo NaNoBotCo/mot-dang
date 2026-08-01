@@ -248,7 +248,7 @@ def build_day(d, oracle_ok):
 
 
 def main():
-    days = 30
+    days = 180
     if "--days" in sys.argv:
         days = int(sys.argv[sys.argv.index("--days") + 1])
     oracle_ok = os.path.isdir(ORACLE)
