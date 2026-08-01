@@ -520,6 +520,31 @@ border-radius:.6rem;padding:.15rem .6rem;cursor:pointer;font:inherit;font-size:.
 .evseeall{font-size:.85rem;font-weight:400;margin-left:.4rem}
 .evmapwrap{background:#fff;border:1px solid var(--soft);border-radius:.8rem;padding:.4rem;overflow-x:auto}
 .evmap{display:block;min-width:22rem}
+/* ---- ไหว้พระ ๙ วัด ----------------------------------------------------- */
+.meritcard{background:#fff;border:1px solid var(--soft);border-radius:.8rem;
+padding:.9rem 1.1rem;margin:1rem 0}
+.meritcard h2{margin:.1rem 0 .2rem}
+.meritdist{color:var(--muted);margin:.1rem 0 .6rem}
+.meritmap{display:block;min-width:20rem;margin:.3rem 0}
+.merithint{font-size:.9rem;color:var(--muted);margin:.35rem 0}
+/* Numbered because the walk is ordered, gold rather than brand red because the
+   round is a merit-making one. Not a scoreboard — the page says so in words
+   and the numbers are deliberately the same size as each other. */
+ol.meritstops{list-style:none;counter-reset:mrt;padding-left:0;margin:.5rem 0}
+ol.meritstops>li{counter-increment:mrt;position:relative;padding:.22rem 0 .22rem 2.3rem}
+ol.meritstops>li::before{content:counter(mrt);position:absolute;left:0;top:.2rem;
+width:1.7rem;height:1.7rem;border-radius:50%;background:#C9A227;color:#fff;
+font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;
+justify-content:center}
+.meritplan{margin:.6rem 0 .1rem}
+.meritrule{font-weight:600}
+.meritdays{background:#fff;border:1px solid var(--soft);border-radius:.8rem;
+padding:.8rem 1rem;margin:1rem 0}
+.meritdays ul{list-style:none;padding-left:0;margin:.5rem 0 0;
+display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:.6rem}
+.meritdays li{line-height:1.45}
+.daydot{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;
+margin-right:.4rem;vertical-align:baseline;border:1px solid rgba(0,0,0,.2)}
 /* ---- read more elsewhere --------------------------------------------- */
 /* Quiet by design. These links leave the site, so they sit below the facts
    and above the contribute doors, and they do not compete with the contact
@@ -1196,6 +1221,52 @@ padding:.9rem 2rem;border-radius:999px;font-weight:600;text-decoration:none;
 box-shadow:0 3px 0 #160f0a}
 .goldbandcta:visited{color:var(--gold-light)}
 .goldbandcta:hover{background:var(--ant);color:var(--paper);text-decoration:none}
+
+/* --- the sky tiles: photographs of real instruments --------------------- */
+.skyshot{display:block;line-height:0;border-radius:12px;overflow:hidden}
+.skyshot img{width:100%;height:100%;object-fit:contain;display:block;
+background:transparent}
+.wtile.sky{background:var(--ink);color:var(--on-dark)}
+.wtile.sky h3{color:var(--gold-light)}
+.wtile.sky .skycap{color:var(--on-dark-mute);font-size:.85rem}
+.shotdate{color:var(--on-dark-mute);font-variant-numeric:tabular-nums;font-size:.78rem}
+@media (prefers-reduced-motion:no-preference){
+.skyshot img{transition:transform .3s ease}
+.skyshot:hover img{transform:scale(1.03)}}
+/* Cast your own — the day's hexagram is everybody's; a real casting is not. */
+.castown{display:inline-block;margin:.4rem 0 0;font-weight:600;font-size:.9rem;
+border:1.5px solid var(--gold);border-radius:999px;padding:.25rem .8rem;
+color:var(--ant-dark);text-decoration:none;background:var(--card)}
+.castown:visited{color:var(--ant-dark)}
+.castown:hover{background:var(--gold-light);text-decoration:none}
+
+/* --- where there is no photograph --------------------------------------
+   The site holds 11,000 places and 145 photographs, so most cards have no
+   picture — and filling every one of them with the same wat drawing put
+   twenty identical temples on the front page and told the reader nothing
+   about twenty different places. The placeholder still earns its keep on a
+   place's OWN page, where it holds the frame beside "send us a photo". In a
+   grid it is replaced by this: the shelf's own glyph on a tinted panel,
+   which does not pretend to be a picture of anything. */
+.nopic{display:flex;align-items:center;justify-content:center;
+width:100%;height:124px;border-radius:14px;font-size:1.5rem;
+background:linear-gradient(160deg,var(--card-alt),var(--row-hover));
+border:1px dashed var(--dashed);color:var(--mute);flex:0 0 auto}
+.nopic .rowicon{color:var(--mute);opacity:.7}
+/* A card with nothing to show gives its whole height to its words instead of
+   reserving a frame for a picture that does not exist. */
+.hicard.textonly{background:linear-gradient(160deg,var(--card),var(--card-alt));
+border-top:4px solid var(--gold-light)}
+.hicard.textonly .cap{padding-top:.9rem}
+.evslide.textonly{display:flex;align-items:flex-end;
+background:linear-gradient(160deg,var(--card-alt),var(--row-hover))}
+.evslide.textonly .evslidecap{position:static;background:none;color:var(--ink);
+width:100%;text-shadow:none}
+.evslide.textonly .evslidewhen,.evslide.textonly .evslidewhere{color:var(--gloss)}
+/* The one place a placeholder helps: quieter than it was, and no longer the
+   loudest thing on a page whose whole ask is "send us a photograph". */
+.placeholderpic{opacity:.55;filter:saturate(.55)}
+.placeholderpic:hover{opacity:.8;filter:none}
 
 /* --- sections, credits, and the note that points at them ---------------- */
 .moodsec{margin:2.4rem 0 0}

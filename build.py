@@ -119,6 +119,15 @@ COMMONS_IMAGES = (json.loads(_ci_path.read_text()).get("images", {})
 # Tagged on four axes because that is how she asked to reach them: topic,
 # season, location, mood.
 SITE_ART_SRC = ROOT / "assets" / "site"
+# Photographs of her own working instruments at wichaa.net, taken daily by
+# importers/make_widget_shots.py. build.py never fetches: it reads this file,
+# and if the file is not there the sky tile simply does not render rather than
+# falling back to a drawing that is wrong.
+_shots_path = ROOT / "data" / "widget_shots.json"
+WIDGET_SHOTS = [s for s in (json.loads(_shots_path.read_text())["shots"]
+                            if _shots_path.exists() else [])
+                if (ROOT / "assets" / s["file"]).exists()]
+
 _picks_path = ROOT / "data" / "curated" / "image_picks.json"
 SITE_ART = [p for p in (json.loads(_picks_path.read_text())["picks"]
                         if _picks_path.exists() else [])
@@ -572,7 +581,10 @@ def ld_json(r, path, photo_file):
         "@type": SCHEMA_TYPE.get(r["cat"][0], "LocalBusiness"),
         "name": name_of(r),
         "url": BASE + path,
-        "image": BASE + (f"photos/{photo_file}" if photo_file else placeholder_for(r)),
+        # Only a real photograph. Publishing the ant or the wat drawing here
+        # told every crawler that this shop's picture is a line drawing of a
+        # temple, which is a false statement about a named business.
+        **({"image": BASE + f"photos/{photo_file}"} if photo_file else {}),
     }
     # A real second name, not just the primary name re-typed in Latin script —
     # half of what a place gets searched by is whichever language the
@@ -1183,6 +1195,47 @@ border-radius:.6rem;padding:.15rem .6rem;cursor:pointer;font:inherit;font-size:.
 .evseeall{font-size:.85rem;font-weight:400;margin-left:.4rem}
 .evmapwrap{background:#fff;border:1px solid var(--soft);border-radius:.8rem;padding:.4rem;overflow-x:auto}
 .evmap{display:block;min-width:22rem}
+/* ---- errands: kinds of place, not named ones ------------------------- */
+.planerr{background:var(--card,#fff);border:1px solid var(--soft);border-radius:.8rem;
+padding:.8rem 1rem;margin:.9rem 0}
+.planerr h2{margin:.1rem 0 .3rem;font-size:1.05rem}
+.planerrrow{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.5rem 0}
+.planerrrow select{flex:1 1 14rem;min-height:2.6rem;font-size:1rem;padding:.3rem .4rem}
+.planerrrow button{min-height:2.6rem}
+.planerrlist{list-style:none;padding-left:0;margin:.4rem 0;display:flex;
+flex-wrap:wrap;gap:.4rem}
+.planerrlist li{background:var(--soft);border-radius:999px;padding:.2rem .5rem .2rem .7rem}
+.errdel{border:0;background:none;cursor:pointer;font-size:.9rem;padding:0 .2rem}
+.planerrout{margin-top:.6rem}
+.errtotal{font-size:1.15rem;margin:.3rem 0}
+.errsaved{color:var(--ant-dark,#8F2E13);font-weight:600;margin:.2rem 0}
+ol.errpicks{margin:.4rem 0 .6rem 1.2rem}
+ol.errpicks li{padding:.15rem 0}
+/* ---- ไหว้พระ ๙ วัด ----------------------------------------------------- */
+.meritcard{background:#fff;border:1px solid var(--soft);border-radius:.8rem;
+padding:.9rem 1.1rem;margin:1rem 0}
+.meritcard h2{margin:.1rem 0 .2rem}
+.meritdist{color:var(--muted);margin:.1rem 0 .6rem}
+.meritmap{display:block;min-width:20rem;margin:.3rem 0}
+.merithint{font-size:.9rem;color:var(--muted);margin:.35rem 0}
+/* Numbered because the walk is ordered, gold rather than brand red because the
+   round is a merit-making one. Not a scoreboard — the page says so in words
+   and the numbers are deliberately the same size as each other. */
+ol.meritstops{list-style:none;counter-reset:mrt;padding-left:0;margin:.5rem 0}
+ol.meritstops>li{counter-increment:mrt;position:relative;padding:.22rem 0 .22rem 2.3rem}
+ol.meritstops>li::before{content:counter(mrt);position:absolute;left:0;top:.2rem;
+width:1.7rem;height:1.7rem;border-radius:50%;background:#C9A227;color:#fff;
+font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;
+justify-content:center}
+.meritplan{margin:.6rem 0 .1rem}
+.meritrule{font-weight:600}
+.meritdays{background:#fff;border:1px solid var(--soft);border-radius:.8rem;
+padding:.8rem 1rem;margin:1rem 0}
+.meritdays ul{list-style:none;padding-left:0;margin:.5rem 0 0;
+display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:.6rem}
+.meritdays li{line-height:1.45}
+.daydot{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;
+margin-right:.4rem;vertical-align:baseline;border:1px solid rgba(0,0,0,.2)}
 /* ---- read more elsewhere --------------------------------------------- */
 /* Quiet by design. These links leave the site, so they sit below the facts
    and above the contribute doors, and they do not compete with the contact
@@ -1860,6 +1913,52 @@ box-shadow:0 3px 0 #160f0a}
 .goldbandcta:visited{color:var(--gold-light)}
 .goldbandcta:hover{background:var(--ant);color:var(--paper);text-decoration:none}
 
+/* --- the sky tiles: photographs of real instruments --------------------- */
+.skyshot{display:block;line-height:0;border-radius:12px;overflow:hidden}
+.skyshot img{width:100%;height:100%;object-fit:contain;display:block;
+background:transparent}
+.wtile.sky{background:var(--ink);color:var(--on-dark)}
+.wtile.sky h3{color:var(--gold-light)}
+.wtile.sky .skycap{color:var(--on-dark-mute);font-size:.85rem}
+.shotdate{color:var(--on-dark-mute);font-variant-numeric:tabular-nums;font-size:.78rem}
+@media (prefers-reduced-motion:no-preference){
+.skyshot img{transition:transform .3s ease}
+.skyshot:hover img{transform:scale(1.03)}}
+/* Cast your own — the day's hexagram is everybody's; a real casting is not. */
+.castown{display:inline-block;margin:.4rem 0 0;font-weight:600;font-size:.9rem;
+border:1.5px solid var(--gold);border-radius:999px;padding:.25rem .8rem;
+color:var(--ant-dark);text-decoration:none;background:var(--card)}
+.castown:visited{color:var(--ant-dark)}
+.castown:hover{background:var(--gold-light);text-decoration:none}
+
+/* --- where there is no photograph --------------------------------------
+   The site holds 11,000 places and 145 photographs, so most cards have no
+   picture — and filling every one of them with the same wat drawing put
+   twenty identical temples on the front page and told the reader nothing
+   about twenty different places. The placeholder still earns its keep on a
+   place's OWN page, where it holds the frame beside "send us a photo". In a
+   grid it is replaced by this: the shelf's own glyph on a tinted panel,
+   which does not pretend to be a picture of anything. */
+.nopic{display:flex;align-items:center;justify-content:center;
+width:100%;height:124px;border-radius:14px;font-size:1.5rem;
+background:linear-gradient(160deg,var(--card-alt),var(--row-hover));
+border:1px dashed var(--dashed);color:var(--mute);flex:0 0 auto}
+.nopic .rowicon{color:var(--mute);opacity:.7}
+/* A card with nothing to show gives its whole height to its words instead of
+   reserving a frame for a picture that does not exist. */
+.hicard.textonly{background:linear-gradient(160deg,var(--card),var(--card-alt));
+border-top:4px solid var(--gold-light)}
+.hicard.textonly .cap{padding-top:.9rem}
+.evslide.textonly{display:flex;align-items:flex-end;
+background:linear-gradient(160deg,var(--card-alt),var(--row-hover))}
+.evslide.textonly .evslidecap{position:static;background:none;color:var(--ink);
+width:100%;text-shadow:none}
+.evslide.textonly .evslidewhen,.evslide.textonly .evslidewhere{color:var(--gloss)}
+/* The one place a placeholder helps: quieter than it was, and no longer the
+   loudest thing on a page whose whole ask is "send us a photograph". */
+.placeholderpic{opacity:.55;filter:saturate(.55)}
+.placeholderpic:hover{opacity:.8;filter:none}
+
 /* --- sections, credits, and the note that points at them ---------------- */
 .moodsec{margin:2.4rem 0 0}
 .sectiontitle{font-size:clamp(1.5rem,3vw,2.1rem);border:0;padding:0;margin:0 0 1rem}
@@ -1972,14 +2071,13 @@ el.appendChild(s);});}
 (async()=>{const host=document.getElementById('w-sky');if(!host)return;
 const doc=await mdJSON('data/sky.json');const day=mdPick(doc);
 if(!day){mdStale('#w-sky');return;}
-const moonArt=host.querySelector('[data-skyart="moon"]');
-const jupArt=host.querySelector('[data-skyart="jupiter"]');
-if(day.svg_moon&&moonArt)moonArt.innerHTML=day.svg_moon;
-if(day.svg_jupiter&&jupArt)jupArt.innerHTML=day.svg_jupiter;
 const mc=host.querySelector('[data-skycap="moon"]');
-if(mc&&day.moon)mc.innerHTML='<span class="th">'+day.moon.phase_th+' · '+day.moon.thai_label_th+
-(day.moon.wan_phra?' · วันพระ':'')+'</span><span class="en">'+day.moon.phase_en+' · '+
-day.moon.thai_label_en+(day.moon.wan_phra?' · wan phra':'')+'</span>';
+// Through mdBi, not hand-built spans: building the pair by hand is what left
+// "แรม 4 ค่ำWaning" jammed together with no separator, the same fault the
+// Thai horoscope line had.
+if(mc&&day.moon)mc.innerHTML=mdBi(
+day.moon.phase_th+' · '+day.moon.thai_label_th+(day.moon.wan_phra?' · วันพระ':''),
+day.moon.phase_en+' · '+day.moon.thai_label_en+(day.moon.wan_phra?' · wan phra':''));
 const slides=[...host.querySelectorAll('.skyslide')];
 const dots=[...host.querySelectorAll('[data-skydot]')];let si=0;
 const go=i=>{si=(i+slides.length)%slides.length;
@@ -2467,7 +2565,7 @@ btn.disabled=false;btn.textContent='🏪 ยืนยันฟรี · Claim it
 // the whole state — the same string is what travels in a ?stops= share link,
 // so a plan someone sends you and a plan you built yourself are the same
 // object by the time either is drawn.
-const PLAN_KEY='md-plan',PLAN_MAX=8;
+const PLAN_KEY='md-plan',PLAN_MAX=9;   // ไหว้พระ ๙ วัด is nine by definition
 const WALK_KMH=4.6,RIDE_KMH=18;
 function planGet(){try{const v=JSON.parse(localStorage.getItem(PLAN_KEY));
 return Array.isArray(v)?v.slice(0,PLAN_MAX):[];}catch(e){return[];}}
@@ -2662,6 +2760,121 @@ const seq=(e[1]===into)?pts:pts.slice().reverse();
 seq.forEach(pt=>{const last=line[line.length-1];
 if(!last||last[0]!==pt[0]||last[1]!==pt[1])line.push(pt);});});
 return {m:bestCost,path:line};}
+// ---- the errand solver -------------------------------------------------
+// Pick a pharmacy, an ATM and som tam by NAME and any tool will route between
+// them. The question people actually have is the other way round: I need those
+// three things, which ones make the shortest single trip? Choosing the nearest
+// of each independently is not the same answer and is often a worse one — the
+// nearest pharmacy can sit the wrong side of a one-way ring from everything
+// else you need.
+//
+// Done in three parts. One Dijkstra per candidate fills a cost matrix (n
+// searches, not n squared pairs). Then every combination of one-candidate-per
+// errand is scored against that matrix, which is arithmetic. Then the order
+// within the winning combination: exact for a small round, 2-opt beyond, since
+// the cost of an approximation here is a slightly longer walk.
+function costsFrom(s,mode){
+if(!GRAPH||!s)return null;
+const N=GRAPH.nodes.length,cost=new Float64Array(N).fill(Infinity),h=new Heap();
+if(passable(GRAPH.edges[s.edge][3],mode,false)||s.a===s.b){cost[s.a]=s.toA;h.push(s.toA,s.a);}
+if(passable(GRAPH.edges[s.edge][3],mode,true)&&s.toB<cost[s.b]){cost[s.b]=s.toB;h.push(s.toB,s.b);}
+for(;;){const top=h.pop();if(!top)break;
+const c=top[0],n=top[1];
+if(c>cost[n])continue;
+const list=GRAPH.adj[n];
+for(let i=0;i<list.length;i++){
+const to=list[i][0],len=list[i][1],flags=list[i][2],fwd=list[i][4];
+if(!passable(flags,mode,fwd===1))continue;
+const nc=c+len;
+if(nc<cost[to]){cost[to]=nc;h.push(nc,to);}}}
+return cost;}
+function costTo(cost,t,mode){
+if(!cost||!t)return null;
+let best=Infinity;
+if(passable(GRAPH.edges[t.edge][3],mode,true))best=Math.min(best,cost[t.a]+t.toA);
+if(passable(GRAPH.edges[t.edge][3],mode,false))best=Math.min(best,cost[t.b]+t.toB);
+return best===Infinity?null:best;}
+// Unreachable is not free. Charged high enough that the search avoids it and
+// low enough that sums stay comparable.
+const NOWAY=1e7;
+function matrixFor(points,mode){
+const snaps=points.map(p=>snap(p,mode));
+const n=points.length,M=[];
+for(let i=0;i<n;i++){
+const row=new Array(n).fill(null);
+if(snaps[i]){const cost=costsFrom(snaps[i],mode);
+for(let j=0;j<n;j++){
+if(!snaps[j])continue;
+if(i===j){row[j]=0;continue;}
+const c=costTo(cost,snaps[j],mode);
+if(c!==null)row[j]=c+snaps[i].d+snaps[j].d;}}
+M.push(row);}
+return M;}
+function tourLen(M,order){let t=0;
+for(let i=0;i<order.length-1;i++){const v=M[order[i]][order[i+1]];t+=(v===null?NOWAY:v);}
+return t;}
+// An open path, not a loop: an errand run ends where it ends. Start is pinned
+// (where the reader is, or the first stop they chose); the rest is free.
+function bestOrder(M,idx){
+const rest=idx.slice(1);
+if(rest.length<=6){
+let best=null,bestLen=Infinity;
+const perm=(arr,cur)=>{
+if(!arr.length){const o=[idx[0]].concat(cur),L=tourLen(M,o);
+if(L<bestLen){bestLen=L;best=o;}return;}
+for(let i=0;i<arr.length;i++)perm(arr.slice(0,i).concat(arr.slice(i+1)),cur.concat([arr[i]]));};
+perm(rest,[]);
+return {order:best,len:bestLen};}
+let order=[idx[0]],left=rest.slice();
+while(left.length){const cur=order[order.length-1];
+let bi=0,bd=Infinity;
+left.forEach((j,i)=>{const v=M[cur][j],d=(v===null?NOWAY:v);if(d<bd){bd=d;bi=i;}});
+order.push(left[bi]);left.splice(bi,1);}
+let improved=true;
+while(improved){improved=false;
+for(let i=1;i<order.length-1;i++)for(let k=i+1;k<order.length;k++){
+const cand=order.slice(0,i).concat(order.slice(i,k+1).reverse(),order.slice(k+1));
+if(tourLen(M,cand)+1e-9<tourLen(M,order)){order=cand;improved=true;}}}
+return {order:order,len:tourLen(M,order)};}
+async function solveErrands(kinds,mode){
+const idx=await loadIndex();
+const area=GRAPH&&GRAPH.area;
+if(!area)return null;
+// Anchor the search: where the reader is, else the stops already chosen, else
+// the middle of the area we can route in.
+const anchor=here||(places.length?{lat:places[0].lat,lng:places[0].lng}
+:{lat:(area.n+area.s)/2,lng:(area.w+area.e)/2});
+const CAND=6;
+const slots=[];
+for(const k of kinds){
+const pool=idx.filter(e=>e.lat!=null&&(e.c||[]).indexOf(k)>-1
+&&e.lat>area.s&&e.lat<area.n&&e.lng>area.w&&e.lng<area.e);
+pool.sort((a,b)=>km(anchor,a)-km(anchor,b));
+if(!pool.length)return {missing:k};
+slots.push(pool.slice(0,CAND));}
+// Points: the fixed part of the round first, then every candidate.
+const fixed=[anchor].concat(places.map(p=>({lat:p.lat,lng:p.lng})));
+const pts=fixed.slice(),meta=[];
+slots.forEach((pool,si)=>pool.forEach(e=>{meta.push({slot:si,e:e,i:pts.length});
+pts.push({lat:e.lat,lng:e.lng});}));
+const M=matrixFor(pts,mode);
+// Every way of taking one candidate per errand. Six candidates over three
+// errands is 216 combinations — small, and each is only a table lookup away
+// from a score.
+let best=null;
+const walk=(si,chosen)=>{
+if(si===slots.length){
+const r=bestOrder(M,fixed.map((_,i)=>i).concat(chosen.map(m=>m.i)));
+if(!best||r.len<best.len)best={len:r.len,order:r.order,chosen:chosen.slice()};
+return;}
+meta.filter(m=>m.slot===si).forEach(m=>{chosen.push(m);walk(si+1,chosen);chosen.pop();});};
+walk(0,[]);
+if(!best)return null;
+// What the naive answer would have been, so the page can say whether asking
+// the question this way actually bought anything.
+const naive=slots.map((pool,si)=>meta.find(m=>m.slot===si&&m.e===pool[0]));
+const nOrder=bestOrder(M,fixed.map((_,i)=>i).concat(naive.map(m=>m.i)));
+return {best:best,naive:{len:nOrder.len},meta:meta,fixedCount:fixed.length};}
 function osmDirections(a,b,mode){
 return 'https://www.openstreetmap.org/directions?engine=fossgis_osrm_'+MODES[mode].osrm+
 '&route='+a.lat.toFixed(5)+'%2C'+a.lng.toFixed(5)+'%3B'+b.lat.toFixed(5)+'%2C'+b.lng.toFixed(5);}
@@ -2952,6 +3165,59 @@ document.getElementById('planlocbtn').classList.add('on');render();},
 // Nearest-neighbour from wherever the run starts. Not the optimal tour, and
 // it does not pretend to be — with eight stops it is close enough to save
 // real riding, and it stays legible: "always go to the nearest one next".
+// ---- errands: the UI over solveErrands ---------------------------------
+const errSel=document.getElementById('planerrsel'),errAdd=document.getElementById('planerradd'),
+errList=document.getElementById('planerrlist'),errSolve=document.getElementById('planerrsolve'),
+errOut=document.getElementById('planerrout');
+if(errSel&&errAdd){
+let kinds=(()=>{try{const v=JSON.parse(localStorage.getItem('md-plan-kinds'));
+return Array.isArray(v)?v.slice(0,4):[];}catch(e){return[];}})();
+const labelOf=k=>{const o=[...errSel.options].find(o=>o.value===k);
+return o?o.textContent.replace(/\s*\(\d+\)$/,''):k;};
+function paintKinds(){
+errList.innerHTML=kinds.map((k,i)=>'<li>'+H2(labelOf(k))+
+' <button type="button" class="errdel" data-i="'+i+'" aria-label="'+
+H2('เอาออก / remove')+'">✕</button></li>').join('');
+errSolve.style.display=kinds.length?'':'none';
+try{localStorage.setItem('md-plan-kinds',JSON.stringify(kinds));}catch(e){}
+errList.querySelectorAll('.errdel').forEach(b=>b.addEventListener('click',()=>{
+kinds.splice(+b.dataset.i,1);paintKinds();errOut.innerHTML='';}));}
+errAdd.addEventListener('click',()=>{
+const k=errSel.value;
+// Four errands over six candidates each is already 1,296 combinations; past
+// that the wait stops being worth the better answer.
+if(!k||kinds.indexOf(k)>-1||kinds.length>=4)return;
+kinds.push(k);paintKinds();errOut.innerHTML='';});
+errSolve.addEventListener('click',async()=>{
+errOut.innerHTML='<p class="tinynote">🐜 '+H2('มดกำลังลองทุกทาง…')+'</p>';
+// Yield once so the message paints before the search blocks the thread.
+await new Promise(r=>setTimeout(r,30));
+const res=await solveErrands(kinds,planMode);
+if(!res||res.missing){errOut.innerHTML='<p class="tinynote">'+
+H2('ยังไม่มีข้อมูลพอในเขตที่มดเดินถนนไว้ / not enough of that kind inside the area we hold roads for')+
+'</p>';return;}
+const chosen=res.best.chosen;
+const saved=res.naive.len-res.best.len;
+const rows=chosen.map(m=>'<li><a href="'+m.e.p+'/p/'+m.e.s+'.html">'+H2(m.e.n)+'</a> '+
+'<span class="tinynote">'+H2(labelOf(kinds[m.slot]))+'</span></li>').join('');
+// Say plainly whether asking the question this way helped. Sometimes the
+// nearest of each IS the best round, and claiming otherwise would be a lie
+// dressed as a feature.
+const verdict=saved>50
+?'<p class="errsaved">'+H2('สั้นกว่าการเลือกที่ใกล้ที่สุดทีละอย่าง '+Math.round(saved)+' เมตร')+
+' · '+H2('shorter than picking the nearest of each, by '+Math.round(saved)+' m')+'</p>'
+:'<p class="tinynote">'+H2('รอบนี้ การเลือกที่ใกล้ที่สุดทีละอย่างก็สั้นพอ ๆ กัน')+
+' · '+H2('here, picking the nearest of each is just as good')+'</p>';
+errOut.innerHTML='<p class="errtotal"><b>'+H2(dist(res.best.len/1000))+'</b> '+
+H2(planMode==='foot'?'เดินทั้งรอบ / walking the whole round':'ขี่รถทั้งรอบ / riding the whole round')+
+'</p>'+verdict+'<ol class="errpicks">'+rows+'</ol>'+
+'<button type="button" id="erradd2plan" class="pill dark">'+
+H2('ใส่ทั้งหมดลงในแผน')+' · '+H2('Add them all to the plan')+'</button>';
+document.getElementById('erradd2plan').addEventListener('click',()=>{
+const add=chosen.map(m=>m.e.p+':'+m.e.s).filter(k=>stops.indexOf(k)<0);
+stops=stops.concat(add).slice(0,PLAN_MAX);
+planSet(stops);location.href='plan.html?stops='+encodeURIComponent(stops.join(','));});});
+paintKinds();}
 document.getElementById('planreorderbtn').addEventListener('click',()=>{
 if(places.length<3)return;
 const rest=places.slice();const out=[];
@@ -3137,6 +3403,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
   <div class="svcbar">
     <a href="{r}contacts.html">{bi("เติมเบอร์-ไลน์", "Add contacts")}</a> ·
     <a href="{r}soi.html">{bi("ถนนและซอย", "Roads & sois")}</a> ·
+    <a href="{r}merit.html">{bi("ไหว้พระ ๙ วัด", "Nine temples")}</a> ·
     <a href="{r}crawl-request.html">{bi("ส่งมดไปสำรวจ", "Request a crawl")}</a> ·
     <a href="{r}widgets.html">{bi("วิดเจ็ต", "Widgets")}</a> ·
     <a href="{r}chart.html">{bi("ดวงจีนสี่เสา", "Four Pillars")}</a> ·
@@ -4196,7 +4463,11 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         ph_alt = ("ภาพประกอบวัด (ยังไม่มีรูปจริงของสถานที่นี้) — illustrative wat, no real photo yet"
                   if ph == "wat.svg" else
                   "ยังไม่มีรูปของที่นี่ — มดแดงรออยู่ / no photo yet — the ant is holding the space")
-        img_tag = (f'<img class="photo" src="../../{ph}" '
+        # Kept here, and only here. On a place's own page the drawing holds the
+        # frame beside "send us a photograph", which is the whole ask; in a grid
+        # of nine it was just the same temple nine times. Toned down so it reads
+        # as a space waiting to be filled rather than as this shop's picture.
+        img_tag = (f'<img class="photo placeholderpic" src="../../{ph}" '
                    f'alt="{att(ph_alt)}" loading="lazy">')
         if ph == "wat.svg":
             pn_th = "ยังไม่มีรูปของที่นี่ — ใช้ภาพวัดแทนไปพลางก่อน"
@@ -4911,138 +5182,47 @@ def widget_clocks():
         f'</section>')
 
 
-def moon_phase_svg(m, size=200):
-    """A clean lunation disc drawn from the baked illumination fraction.
 
-    The ornate dial at wichaa.net/moon is the full instrument; this is the
-    pocket version, sized for a tile and readable at a glance.
+
+def widget_sky(depth=0):
+    """Today's sky, photographed off the instruments that actually compute it.
+
+    This tile used to draw its own moon and its own Jupiter, and the moon
+    appeared in three different home-made forms across the site, none of them
+    right — one of them said so on the page: "angle approximated, no ephemeris
+    here". Meanwhile wichaa.net/moon, /jovilabe and /redspot are finished,
+    correct, and hers. So the drawings are gone and these are photographs,
+    taken daily by importers/make_widget_shots.py, each one a door back to the
+    instrument it came from.
+
+    Interim, by her instruction — the destination is an animated preview here
+    and the real widget running compactly on the reader's own page.
     """
-    r = size / 2.0
-    cx = cy = r
-    disc = r * 0.86
-    frac = m.get("frac", 0.0)
-    # Terminator: an ellipse whose half-width tracks the phase, so the shape
-    # is a real crescent-to-gibbous sweep rather than a slider.
-    k = abs(math.cos(2 * math.pi * frac))
-    rx = disc * k
-    waxing = m.get("waxing", True)
-    # The phase name alone leaves out the two things the disc actually draws:
-    # how much of it is lit, and which ค่ำ of the Thai lunar month this is —
-    # the reckoning วันพระ is counted in, so it is the half that earns its place.
-    # Built here rather than inside the f-string: this file runs on 3.9, where a
-    # multi-line expression inside an f-string is a SyntaxError.
-    _lit = round(100 * m.get("illum", 0.0))
-    moon_label = bi_text(
-        " ".join(x for x in (m.get("phase_th"), m.get("thai_label_th"),
-                             "สว่าง %d%%" % _lit) if x),
-        " ".join(x for x in (m.get("phase_en"), m.get("thai_label_en"),
-                             "%d%% lit" % _lit) if x))
-    lit_right = waxing
-    big = 1 if frac > 0.5 else 0
-    if frac < 0.5:
-        # waxing: lit on the right, terminator bulges left of centre
-        sweep_outer, sweep_inner = 1, (0 if frac < 0.25 else 1)
-    else:
-        sweep_outer, sweep_inner = 0, (1 if frac < 0.75 else 0)
-    path = (f'M {cx:.2f} {cy - disc:.2f} '
-            f'A {disc:.2f} {disc:.2f} 0 0 {sweep_outer} {cx:.2f} {cy + disc:.2f} '
-            f'A {rx:.2f} {disc:.2f} 0 0 {sweep_inner} {cx:.2f} {cy - disc:.2f} Z')
-    return (
-        f'<svg viewBox="0 0 {size} {size}" class="moondisc" role="img" '
-        f'aria-label="{att(moon_label)}">'
-        f'<defs><radialGradient id="mg" cx="38%" cy="34%">'
-        f'<stop offset="0%" stop-color="#fffdf5"/><stop offset="70%" stop-color="#efe4cf"/>'
-        f'<stop offset="100%" stop-color="#cdbda2"/></radialGradient></defs>'
-        f'<circle cx="{cx}" cy="{cy}" r="{disc + 5:.1f}" fill="#0d0a08" opacity=".55"/>'
-        f'<circle cx="{cx}" cy="{cy}" r="{disc:.2f}" fill="#141010"/>'
-        f'<path d="{path}" fill="url(#mg)"/>'
-        f'<circle cx="{cx - disc * .3:.1f}" cy="{cy - disc * .25:.1f}" r="{disc * .13:.1f}" fill="#000" opacity=".07"/>'
-        f'<circle cx="{cx + disc * .22:.1f}" cy="{cy + disc * .3:.1f}" r="{disc * .17:.1f}" fill="#000" opacity=".06"/>'
-        f'<circle cx="{cx - disc * .05:.1f}" cy="{cy + disc * .12:.1f}" r="{disc * .09:.1f}" fill="#000" opacity=".05"/>'
-        f'<circle cx="{cx}" cy="{cy}" r="{disc:.2f}" fill="none" stroke="#e8d9bd" stroke-opacity=".25"/>'
-        f'</svg>')
-
-
-def jupiter_svg(j, size=200):
-    """Jupiter and the four Galilean moons where they actually are tonight.
-
-    Positions come from ../jovilabe's ephemeris fit (baked by make_sky.py), in
-    Jupiter radii along the equator. Callisto reaches about 26 radii, so that
-    sets the frame.
-    """
-    if not j:
+    if not WIDGET_SHOTS:
         return ""
-    span = 28.0
-    cx, cy = size / 2.0, size / 2.0
-    scale = (size / 2.0 - 8) / span
-    rj = max(6.0, 2.2 * scale * 2)
-    # "Jupiter and its four moons" is true of the picture on any night. What a
-    # reader who cannot see it is missing is the arrangement — which is the only
-    # thing that changes, and the whole reason the tile is worth drawing. Sides
-    # are read off the drawing itself: mx = cx + x*scale, so positive x is right.
-    _left = [s for s in (j.get("sats") or []) if s["x"] < 0]
-    _right = [s for s in (j.get("sats") or []) if s["x"] >= 0]
-    _sides_th, _sides_en = [], []
-    for _lbl_th, _lbl_en, _group in (("ซ้าย", "left", _left), ("ขวา", "right", _right)):
-        if _group:
-            _order = sorted(_group, key=lambda s: abs(s["x"]))
-            _sides_th.append("%s: %s" % (_lbl_th, " ".join(s["th"] for s in _order)))
-            _sides_en.append("%s: %s" % (_lbl_en, ", ".join(s["en"] for s in _order)))
-    _jlabel = bi_text(
-        "ดาวพฤหัสบดีกับดวงจันทร์ทั้งสี่ คืนนี้เรียงกันแบบนี้ — " + " · ".join(_sides_th),
-        "Jupiter and its four Galilean moons as they stand tonight — "
-        + "; ".join(_sides_en))
-    parts = [f'<svg viewBox="0 0 {size} {size}" class="jupdisc" role="img" '
-             f'aria-label="{att(_jlabel)}">',
-             f'<defs><radialGradient id="jg" cx="38%" cy="35%">'
-             f'<stop offset="0%" stop-color="#f6e3c4"/><stop offset="60%" stop-color="#d9a86f"/>'
-             f'<stop offset="100%" stop-color="#a4703f"/></radialGradient></defs>',
-             f'<rect width="{size}" height="{size}" fill="#0d0a08"/>']
-    # a few faint stars, placed deterministically so the tile does not shimmer
-    for i in range(14):
-        sx = (i * 61 % size)
-        sy = (i * 37 % size)
-        parts.append(f'<circle cx="{sx}" cy="{sy}" r="{0.6 + (i % 3) * 0.25:.2f}" '
-                     f'fill="#fff" opacity="{0.10 + (i % 4) * 0.05:.2f}"/>')
-    # the planet, slightly oblate, with its belts
-    ry = rj * 0.93
-    parts.append(f'<ellipse cx="{cx:.1f}" cy="{cy:.1f}" rx="{rj:.1f}" ry="{ry:.1f}" fill="url(#jg)"/>')
-    for off, h, op in ((-0.42, 0.13, .30), (-0.10, 0.16, .24), (0.26, 0.12, .28)):
-        parts.append(f'<ellipse cx="{cx:.1f}" cy="{cy + ry * off:.1f}" rx="{rj * 0.97:.1f}" '
-                     f'ry="{ry * h:.1f}" fill="#8a5a33" opacity="{op}"/>')
-    parts.append(f'<ellipse cx="{cx + rj * .32:.1f}" cy="{cy + ry * .27:.1f}" '
-                 f'rx="{rj * .19:.1f}" ry="{ry * .10:.1f}" fill="#c0512f" opacity=".75"/>')
-    for s in j.get("sats", []):
-        mx = cx + s["x"] * scale
-        my = cy - s["y"] * scale * 6      # exaggerate tiny out-of-plane offsets
-        rr = 2.6 if s["en"] in ("Io", "Europa") else 3.1
-        parts.append(f'<circle cx="{mx:.1f}" cy="{my:.1f}" r="{rr}" fill="#fdf6e6" '
-                     f'opacity="{1.0 if s["front"] else 0.75:.2f}">'
-                     f'<title>{esc(s["th"])} {esc(s["en"])}</title></circle>')
-        parts.append(f'<text x="{mx:.1f}" y="{my - 6:.1f}" text-anchor="middle" font-size="7" '
-                     f'fill="#e8d9bd" opacity=".8">{esc(s["en"][:2])}</text>')
-    parts.append("</svg>")
-    return "".join(parts)
-
-
-def widget_sky():
-    """Lunation and Jupiter, as slides. Big graphic, few words — per the brief."""
-    if not SKY_DAYS:
-        return ""
+    r = "../" * depth
     slides, dots = [], []
-    for i, (kind, label_th, label_en) in enumerate(
-            [("moon", "ข้างขึ้นข้างแรม", "Lunation"), ("jupiter", "ดวงจันทร์ของพฤหัสบดี", "Jupiter's moons")]):
-        slides.append(f'<div class="skyslide" data-skyslide="{kind}"{" hidden" if i else ""}>'
-                      f'<div class="skyart" data-skyart="{kind}"></div>'
-                      f'<span class="skycap" data-skycap="{kind}">{bi(label_th, label_en)}</span></div>')
+    for i, s in enumerate(WIDGET_SHOTS):
+        # The caption is live where the data is: md.js writes today's ค่ำ and
+        # phase into the moon slide out of sky.json. The picture is a
+        # photograph of a dated instrument; the words beside it stay current.
+        cap = f'<span class="skycap" data-skycap="{s["id"]}">{bi(s["th"], s["en"])}</span>'
+        slides.append(
+            f'<div class="skyslide" data-skyslide="{s["id"]}"{" hidden" if i else ""}>'
+            f'<a class="skyshot" href="{att(s["url"])}" rel="noopener" '
+            f'title="{att(bi_text(s["cap_th"], s["cap_en"]))}">'
+            f'<img src="{r}{s["file"]}" alt="{att(bi_text(s["cap_th"], s["cap_en"]))}" '
+            f'loading="lazy" width="900" height="900"></a>{cap}</div>')
         dots.append(f'<button class="evdot{" on" if i == 0 else ""}" data-skydot="{i}" '
-                    f'aria-label="{att(label_en)}"></button>')
+                    f'aria-label="{att(s["en"])}"></button>')
+    taken = WIDGET_SHOTS[0].get("taken", "")
     return (
         f'<section class="wtile sky" id="w-sky">'
         f'<div class="skyslides">{"".join(slides)}</div>'
         f'<div class="evdots">{"".join(dots)}</div>'
-        f'<span class="wfoot moonfoot"><a href="https://wichaa.net/moon" rel="noopener">'
-        f'{bi("หน้าปัดเต็ม", "the full dial")}</a></span>'
+        f'<span class="wfoot moonfoot">'
+        f'<a href="https://wichaa.net/moon" rel="noopener">{bi("เปิดหน้าปัดจริง", "open the working dial")}</a>'
+        f' <span class="shotdate">{esc(taken)}</span></span>'
         f'</section>')
 
 
@@ -5107,13 +5287,14 @@ def widget_events(events):
             continue
         seen.add(key)
         pl = e.get("place") or {}
-        thumb = f'photos/{pl["photo"]}' if pl.get("photo") else "wat.svg"
         href = pl.get("href") or "events.html"
         where = pl.get("name") or e.get("venue_name") or ""
+        has_pic = bool(pl.get("photo"))
+        pic = (f'<img src="photos/{pl["photo"]}" alt="" loading="lazy">'
+               if has_pic else "")
         slides.append(
-            f'<a class="evslide" href="{href}"{" hidden" if slides else ""}>'
-            f'<img src="{thumb}" alt="" loading="lazy"'
-            f'{"" if pl.get("photo") else " class=evplaceholder"}>'
+            f'<a class="evslide{"" if has_pic else " textonly"}" href="{href}"'
+            f'{" hidden" if slides else ""}>{pic}'
             f'<span class="evslidecap"><b>{esc((e.get("title") or "")[:60])}</b>'
             f'<span class="evslidewhen">{event_when(e)}</span>'
             f'{f"<span class=evslidewhere>📍 {esc(where[:34])}</span>" if where else ""}'
@@ -5246,6 +5427,12 @@ def widget_divination():
         f'<span data-hx="pinyin">{esc(h["pinyin"])}</span></p>'
         f'<p class="hxen" data-hx="en">{esc(h["en"])}</p>'
         f'<p class="hxgloss" data-hx="gloss">{esc(h["gloss"])}</p>'
+        # Today's hexagram is the same for everyone, which is the time method
+        # working as intended — and it is also the reason to offer the other
+        # kind. wichaa.net/divination is a real casting: three coins, six
+        # throws, changing lines and all.
+        f'<a class="castown" href="https://wichaa.net/divination" rel="noopener">'
+        f'🪙 {bi("เสี่ยงทายเอง", "Cast your own")} →</a>'
         f'<span class="wfoot">{bi("วิธีเหมยฮวาอี้ซู่ ตั้งก่วยจากวันเวลา", "Plum Blossom time method — the date builds the hexagram")}</span>'
         f'</section>')
 
@@ -5356,7 +5543,7 @@ def widget_wall(events, data, moon_svg, depth=0, skip=()):
     being shown somewhere better — the homepage lifts the day's fortune into the
     sidebar, and printing the lucky colour twice on one page helps nobody."""
     tiles = [("events", widget_events(events)), ("fortune", widget_fortune()),
-             ("sky", widget_sky()), ("siamsi", widget_siamsi()),
+             ("sky", widget_sky(depth)), ("siamsi", widget_siamsi()),
              ("katha", widget_katha()), ("horoscope", widget_horoscope()),
              ("weather", widget_weather()), ("divination", widget_divination()),
              ("clocks", widget_clocks()), ("cinema", widget_cinema(data))]
@@ -5375,10 +5562,12 @@ def write_sky_json():
         return
     out = {}
     for day, e in SKY_DAYS.items():
-        rec = {"moon": e.get("moon", {}), "svg_moon": moon_phase_svg(e.get("moon", {}))}
+        # Numbers only. The pictures are photographs now (see
+        # widget_sky); baking a second, cruder drawing beside them was
+        # how the moon came to appear on this site three different ways.
+        rec = {"moon": e.get("moon", {})}
         if e.get("jupiter"):
             rec["jupiter"] = e["jupiter"]
-            rec["svg_jupiter"] = jupiter_svg(e["jupiter"])
         out[day] = rec
     (DOCS / "data" / "sky.json").write_text(
         json.dumps({"generated": _SKY.get("generated", ""), "days": out}, ensure_ascii=False))
@@ -5723,6 +5912,18 @@ def _road_graph_stats():
 
 ROAD_GRAPH_STATS = _road_graph_stats()
 
+
+def _road_graph_area():
+    """The graph's bounding box, for anything that needs to ask whether a point
+    is routable at all. ROAD_GRAPH_STATS beside it is prose for llms.txt."""
+    p = ROOT / "data" / "road_graph.json"
+    if not p.exists():
+        return None
+    return json.loads(p.read_text()).get("area")
+
+
+ROAD_GRAPH_AREA = _road_graph_area()
+
 PLAN_DEMO_GIF = "plan-demo.gif"
 _pd_path = ROOT / "assets" / "plan-demo.json"
 PLAN_DEMO = json.loads(_pd_path.read_text()) if _pd_path.exists() else None
@@ -5827,7 +6028,47 @@ def plan_demo_figure():
             f'<figcaption>{bi(cap_th, cap_en)}</figcaption></figure>')
 
 
-def build_plan_page():
+def plan_kind_options(data):
+    """Errand kinds the solver can search for.
+
+    Subcategories where one exists, because "ร้านยา" is an errand and "ของใช้
+    จำเป็น" is not — you do not run out to do a category. Only kinds that
+    actually hold enough places inside the routable box to be worth choosing
+    between; offering a kind with one candidate is offering a decision that has
+    already been made.
+    """
+    area = ROAD_GRAPH_AREA
+    counts = {}
+    for p in PROVINCES:
+        for r in data.get(p["key"], []):
+            if r.get("lat") is None:
+                continue
+            if area and not (area["s"] < r["lat"] < area["n"]
+                             and area["w"] < r["lng"] < area["e"]):
+                continue
+            for sub in r.get("sub") or []:
+                counts[("sub", sub)] = counts.get(("sub", sub), 0) + 1
+            for c in r.get("cat") or []:
+                counts[("cat", c)] = counts.get(("cat", c), 0) + 1
+    opts = []
+    for cdef in (CATS[c] for c in CAT_ORDER if c in CATS):
+        for child in cdef.get("children", []):
+            n = counts.get(("sub", child["key"]), 0)
+            if n >= 4:
+                opts.append((child["key"], "%s · %s" % (child["th"], child["en"]), n))
+    seen = set(o[0] for o in opts)
+    for c in CAT_ORDER:
+        if c in seen or c not in CATS:
+            continue
+        n = counts.get(("cat", c), 0)
+        if n >= 4:
+            opts.append((c, "%s · %s" % (CATS[c]["th"], CATS[c]["en"]), n))
+    opts.sort(key=lambda o: -o[2])
+    return "".join('<option value="%s">%s (%d)</option>' % (att(k), esc(lab), n)
+                   for k, lab, n in opts)
+
+
+def build_plan_page(data):
     """The errand-run planner: pick a few stops from anywhere on the site,
     see them on one map with the walking/scooter distance between each, then
     share or download the whole run as one thing.
@@ -5889,6 +6130,23 @@ def build_plan_page():
         f'🚶 {bi("เดิน", "On foot")}</button>'
         f'<button type="button" class="pmbtn" data-mode="ride" aria-pressed="false">'
         f'🛵 {bi("มอเตอร์ไซค์", "Scooter")}</button>'
+        f'</div>'
+        # Errands, as kinds rather than names. Every other tool makes you pick
+        # the pharmacy first and then routes to it; this picks the pharmacy that
+        # makes the whole round shortest, which is a different and better answer
+        # whenever more than one will do.
+        f'<div class="planerr">'
+        f'<h2>🧺 {bi("ธุระที่ต้องทำ", "Errands to run")}</h2>'
+        f'<p class="tinynote">{bi("บอกว่าจะไปทำอะไร ไม่ต้องบอกว่าร้านไหน — มดจะเลือกร้านที่ทำให้รอบนี้สั้นที่สุดให้เอง", "Say what you need, not which shop. The ants pick the ones that make the whole round shortest.")}</p>'
+        f'<div class="planerrrow">'
+        f'<label class="vh" for="planerrsel">{bi("ชนิดของที่จะไป", "Kind of place")}</label>'
+        f'<select id="planerrsel">{plan_kind_options(data)}</select>'
+        f'<button type="button" id="planerradd">+ {bi("เพิ่มธุระ", "Add errand")}</button>'
+        f'</div>'
+        f'<ul class="planerrlist" id="planerrlist"></ul>'
+        f'<button type="button" id="planerrsolve" class="pill dark" style="display:none">'
+        f'🐜 {bi("หาร้านที่ทำให้รอบนี้สั้นที่สุด", "Find the shortest whole round")}</button>'
+        f'<div id="planerrout" class="planerrout"></div>'
         f'</div>'
         f'<div class="plantools">'
         f'<button type="button" id="planlocbtn">📍 {bi("ใช้ตำแหน่งของฉัน", "Use my location")}</button>'
@@ -6988,6 +7246,203 @@ def pictures_page():
                 desc=intro_th)
 
 
+# ------------------------------------------------------- ไหว้พระ ๙ วัด
+# Nine temples in one round is a practice people here already keep, most at
+# ปีใหม่ and สงกรานต์. What nobody had was a walkable order for the nine nearest
+# them, which is a thing the road graph can simply work out.
+#
+# The rule that governs this whole page, from notes/empathy-map.md: temples are
+# never ranked against each other. A route is an order of walking. It is said in
+# those words on the page rather than left to be inferred, because a numbered
+# list of temples will be read as a league table unless it is told not to be.
+_merit_path = ROOT / "data" / "merit.json"
+MERIT = json.loads(_merit_path.read_text()) if _merit_path.exists() else {}
+MERIT_ROUTES = MERIT.get("routes", [])
+
+
+def merit_map_svg(route, by_id):
+    """The round as a closed loop, stops numbered in walking order.
+
+    Same equirectangular projection as the soi and event maps, drawn in Python —
+    the site ships no tiles and no Leaflet. The line between stops is drawn
+    straight on purpose: the real route follows the road graph, and pretending
+    this sketch is that route would overstate it. The caption says so.
+    """
+    stops = route.get("stops") or []
+    if not stops:
+        return ""
+    lats = [s["lat"] for s in stops]
+    lngs = [s["lng"] for s in stops]
+    span = max(max(lats) - min(lats),
+               (max(lngs) - min(lngs)) * math.cos(math.radians(sum(lats) / len(lats))), 1e-4)
+    pad = span * 0.18
+    n, s_, w, e = max(lats) + pad, min(lats) - pad, min(lngs) - pad, max(lngs) + pad
+    kx = math.cos(math.radians((n + s_) / 2))
+    W = 720.0
+    H = max(240.0, min(560.0, W * ((n - s_) / ((e - w) * kx or 1e-9))))
+
+    def X(lng):
+        return (lng - w) / (e - w) * W
+
+    def Y(lat):
+        return (n - lat) / (n - s_) * H
+
+    walk = route.get("foot_m")
+    label = bi_text(
+        "แผนที่เส้นทางไหว้พระ ๙ วัด %s ระยะเดินราว %s กิโลเมตร จุดที่ ๑ ถึง ๙ "
+        "เรียงตามลำดับที่เดิน ไม่ใช่การจัดอันดับวัด"
+        % (route.get("area_th", ""), ("%.1f" % (walk / 1000.0)) if walk else "—"),
+        "Map of a nine-temple round %s, about %s km on foot. Points 1 to 9 are "
+        "the order of walking, not a ranking of temples."
+        % (route.get("area_en", ""), ("%.1f" % (walk / 1000.0)) if walk else "—"))
+    out = ['<svg viewBox="0 0 %.0f %.0f" width="100%%" class="meritmap" role="img" '
+           'aria-label="%s">' % (W, H, att(label)),
+           '<rect width="%.0f" height="%.0f" fill="#FBF6EE"/>' % (W, H)]
+    if MOAT_POLY:
+        mlat = [p[0] for p in MOAT_POLY]
+        mlng = [p[1] for p in MOAT_POLY]
+        if min(mlat) < n and max(mlat) > s_ and min(mlng) < e and max(mlng) > w:
+            ring = " ".join("%.1f,%.1f" % (X(p[1]), Y(p[0])) for p in MOAT_POLY)
+            out.append('<polygon points="%s" fill="none" stroke="#2a78d6" '
+                       'stroke-width="2" stroke-dasharray="5 4" opacity=".55">'
+                       '<title>คูเมืองเชียงใหม่ · the old city moat</title></polygon>' % ring)
+    ring = " ".join("%.1f,%.1f" % (X(s["lng"]), Y(s["lat"])) for s in stops)
+    out.append('<polygon points="%s" fill="none" stroke="#C9A227" stroke-width="2.5" '
+               'stroke-linejoin="round" opacity=".8"/>' % ring)
+    for i, st in enumerate(stops, 1):
+        cx, cy = X(st["lng"]), Y(st["lat"])
+        out.append('<circle cx="%.1f" cy="%.1f" r="12" fill="#C9A227" stroke="#7A5C00" '
+                   'stroke-width="1.5"><title>%s</title></circle>'
+                   % (cx, cy, att("%d. %s" % (i, st.get("name") or ""))))
+        out.append('<text x="%.1f" y="%.1f" text-anchor="middle" font-size="12" '
+                   'font-weight="700" fill="#fff">%d</text>' % (cx, cy + 4, i))
+    out.append("</svg>")
+    return "".join(out)
+
+
+def merit_card(route, by_id, depth=0):
+    r_ = "../" * depth
+    stops = route.get("stops") or []
+    rows, plan_keys = [], []
+    for i, st in enumerate(stops, 1):
+        rec = by_id.get(st["id"])
+        if rec:
+            href = "%s%s/p/%s.html" % (r_, rec["province"], place_slug(rec))
+            plan_keys.append("%s:%s" % (rec["province"], place_slug(rec)))
+            hon = honour_badges(rec)
+            name = esc(name_of(rec))
+        else:
+            href, hon, name = None, "", esc(st.get("name") or "")
+        inner = ('<a href="%s">%s</a>%s' % (att(href), name, hon)) if href else name
+        rows.append("<li>%s</li>" % inner)
+    walk = route.get("foot_m")
+    ride = route.get("ride_m")
+
+    def km(m):
+        return "—" if not m else ("%.1f" % (m / 1000.0))
+
+    # Walking is usually SHORTER than riding here, because the one-way ring
+    # binds a scooter and not a person. Worth stating on a page about a round
+    # most people would assume is quicker on a bike.
+    hint = ""
+    if walk and ride and ride > walk * 1.05:
+        hint = ('<p class="merithint">%s</p>'
+                % bi("เดินใกล้กว่าขี่รถ เพราะถนนเดินรถทางเดียวบังคับรถ ไม่บังคับคนเดิน",
+                     "The walk is shorter than the ride — one-way streets bind a "
+                     "scooter and not a person on foot."))
+    plan = ""
+    if plan_keys:
+        plan = ('<p class="meritplan"><a class="pill dark" href="%splan.html?stops=%s">%s</a></p>'
+                % (r_, att(",".join(plan_keys)),
+                   bi("เปิดในตัววางแผน เดินทีละช่วง", "Open in the planner, leg by leg")))
+    return (
+        '<div class="meritcard" id="%s">'
+        '<h2>%s</h2>'
+        '<p class="meritdist">%s</p>'
+        '%s%s'
+        '<ol class="meritstops">%s</ol>%s'
+        '</div>'
+        % (att(route.get("slug", "")),
+           bi(route.get("th", ""), route.get("en", "")),
+           bi("เดิน %s กม. · ขี่รถ %s กม." % (km(walk), km(ride)),
+              "%s km on foot · %s km riding" % (km(walk), km(ride))),
+           merit_map_svg(route, by_id), hint,
+           "".join(rows), plan))
+
+
+def build_merit_page(data):
+    if not MERIT_ROUTES:
+        return 0
+    by_id = {r["id"]: r for p in PROVINCES for r in data[p["key"]]}
+    c = MERIT.get("counts", {})
+
+    # The eight พระประจำวันเกิด, as a reference — what to look for, at any
+    # temple. Deliberately NOT paired with routes or temples: the weekday image
+    # is a real tradition, "these nine temples are for people born on a Tuesday"
+    # is not, and inventing it here would be the same error as inventing a
+    # เซียมซี verse.
+    days = "".join(
+        '<li><span class="daydot" style="background:%s"></span>%s<br>'
+        '<span class="tinynote">%s</span></li>'
+        % (att(d.get("hex", "#ccc")), bi(d.get("th", ""), d.get("en", "")),
+           esc(d.get("buddha_th", "")) + " · " + esc(d.get("buddha_en", "")))
+        for d in MERIT.get("birthday_buddhas", []))
+    daystrip = ""
+    if days:
+        daystrip = (
+            '<div class="meritdays"><h2>%s</h2><p>%s</p><ul>%s</ul></div>'
+            % (bi("พระประจำวันเกิด — ไว้มองหาเวลาไปถึง",
+                  "The Buddha of your birth weekday — what to look for"),
+               bi("ที่วัดไหนก็มองหาได้ ไม่ได้ผูกกับวัดใดวัดหนึ่งหรือเส้นทางใด",
+                  "Look for it at any temple. It is not tied to a particular "
+                  "temple or to any of the rounds below."),
+               days))
+
+    intro = (
+        '<p>%s</p><p class="meritrule">%s</p>'
+        % (bi(MERIT.get("practice_th", ""), MERIT.get("practice_en", "")),
+           bi(MERIT.get("not_a_ranking_th", ""), MERIT.get("not_a_ranking_en", ""))))
+
+    how = (
+        '<div class="soiabout"><h2>%s</h2><p>%s</p><p class="tinynote">%s</p></div>'
+        % (bi("เส้นทางนี้มาจากไหน", "Where these rounds come from"),
+           bi("มดจับวัด %d แห่งที่อยู่ในเขตที่มีข้อมูลถนน มารวมเป็นรอบละ ๙ วัด "
+              "แล้วเรียงลำดับด้วยระยะทางจริงบนถนน ทั้งแบบเดินและแบบขี่รถ "
+              "วัดหนึ่งอยู่ได้รอบเดียว รอบที่เดินใกล้ที่สุดอยู่บนสุด"
+              % c.get("temples_in_box", 0),
+              "We took the %d temples inside the area we hold road data for, "
+              "grouped them into rounds of nine, and ordered each round by real "
+              "distance along the streets — separately for walking and riding. "
+              "No temple appears on two rounds. The shortest walk leads."
+              % c.get("temples_in_box", 0)),
+           bi("ตั้งวัดไว้ %d แห่งที่ถนนยังเดินไปไม่ถึงจริง และรวมชื่อซ้ำ %d ชื่อ "
+              "เพราะวัดเดียวไม่ควรโผล่สองครั้งในรอบเดียว"
+              % (c.get("set_aside", 0), c.get("duplicates_folded", 0)),
+              "%d temples were set aside because the road network cannot "
+              "actually reach them, and %d duplicate names were folded — one "
+              "temple should not appear twice in the same round."
+              % (c.get("set_aside", 0), c.get("duplicates_folded", 0)))))
+
+    cards = "".join(merit_card(r, by_id, depth=0) for r in MERIT_ROUTES)
+    body = (
+        '<h1>%s <span class="count">(%d)</span></h1>%s%s%s%s%s%s'
+        % (bi("ไหว้พระ ๙ วัด", "Nine-temple rounds"), len(MERIT_ROUTES),
+           intro, ad_box("merit.html", 0), daystrip, cards, how,
+           share_block(BASE + "merit.html", "ไหว้พระ ๙ วัด มดแดง")))
+    (DOCS / "merit.html").write_text(page(
+        "ไหว้พระ ๙ วัด", body, 0,
+        crumbs='<a href="index.html">%s</a> › %s' % (bi("หน้าแรก", "Home"),
+                                                     bi("ไหว้พระ ๙ วัด", "Nine-temple rounds")),
+        path="merit.html",
+        desc="ไหว้พระ ๙ วัด เชียงใหม่ — %d เส้นทาง เรียงตามระยะทางเดินจริง · มดแดง"
+             % len(MERIT_ROUTES),
+        extra_head=breadcrumb_ld([("หน้าแรก", BASE),
+                                  ("ไหว้พระ ๙ วัด", BASE + "merit.html")])))
+    if _merit_path.exists():
+        shutil.copyfile(_merit_path, DOCS / "data" / "merit.json")
+    return 1
+
+
 def build():
     clear_docs()
     DOCS.mkdir(exist_ok=True)
@@ -7039,13 +7494,17 @@ def build():
         (DOCS / "site").mkdir(exist_ok=True)
         for _f in sorted(SITE_ART_SRC.glob("*.jpg")):
             shutil.copy(_f, DOCS / "site" / _f.name)
+    if WIDGET_SHOTS:
+        (DOCS / "widgets").mkdir(exist_ok=True)
+        for _s in WIDGET_SHOTS:
+            shutil.copy(ROOT / "assets" / _s["file"], DOCS / _s["file"])
     if OG_FILES:
         (DOCS / "og").mkdir(exist_ok=True)
         for _id in OG_FILES:
             shutil.copy(OG_SRC / f"{_id}.png", DOCS / "og" / f"{_id}.png")
-    moon_svg_markup = moon_disc_svg() if HAVE_MOONDIAL else None
-    if moon_svg_markup:
-        (DOCS / "moon-disc.svg").write_text(moon_svg_markup)  # standalone, downloadable
+    # The home-made moon drawings are gone: the sky tile photographs the
+    # real instruments at wichaa.net instead. See widget_sky().
+    moon_svg_markup = None
     photos = PHOTO_FILES
     if photos:
         (DOCS / "photos").mkdir(exist_ok=True)
@@ -7260,17 +7719,6 @@ def build():
             f'<span class="val">{g["ornamentSell"]:,.0f} ฿</span></div>'
             f'<p class="financecap">{bi("ราคาต่อทองคำหนัก 1 บาท ·", "Price per 1 baht-weight ·")} '
             f'<a href="https://www.goldtraders.or.th/" rel="noopener">สมาคมค้าทองคำ</a> · {esc(g["asOf"][:16].replace("T"," "))}</p></div>')
-    moon_html = ""
-    if moon_svg_markup:
-        moon_cap_th = "จากเครื่องเดียวกับ wichaa.net/moon · มุมโดยประมาณ ไม่ใช้เอฟีเมอริส"
-        moon_cap_en = "Same instrument as wichaa.net/moon · angle approximated, no ephemeris here"
-        moon_html = (
-            f'<div class="module" id="m-moon"><h3>🌙 {bi("จันทรคติ", "Lunation")} '
-            f'<a class="moonwhat" href="https://wichaa.net/moon" rel="noopener" '
-            f'title="{att("ดูคำอธิบายฉบับเต็ม / see the full explanation")}">ℹ️ '
-            f'{bi("นี่คืออะไร", "what’s this?")}</a></h3>'
-            f'<div class="moonmodule">{moon_svg_markup}'
-            f'<p class="financecap" style="margin:0">{bi(moon_cap_th, moon_cap_en)}</p></div></div>')
     total = len(search_index)
     rand_html = (f'<div class="module" id="m-rand"><h3>{bi("เดินเล่น", "Wander")}</h3>'
                  f'<p style="margin:.2rem 0"><a href="#" class="rand">🎲 '
@@ -7280,8 +7728,7 @@ def build():
         + bi("ปรับแต่งหน้าแรก", "Personalize") + "</summary>"
         + "".join(f'<label><input type="checkbox" data-mod="m-{k}"> {bi(th, en)}</label>'
                   for k, th, en in [("ticker", "ข่าววิ่ง", "News ticker"),
-                                    ("rand", "เดินเล่น", "Wander"),
-                                    ("moon", "จันทรคติ", "Lunation disc")])
+                                    ("rand", "เดินเล่น", "Wander")])
         + "</details></div>")
     intro_th = ("สารบัญเมืองเชียงใหม่และเชียงราย — วัด ร้าน หมอ ตลาด และของดีทุกซอย "
                 "เรียงเป็นหมวดให้เปิดหาได้เหมือนสมุดหน้าเมือง")
@@ -7300,11 +7747,19 @@ def build():
         if r["id"] in seen_hi or len(hi_cards) >= 9:  # nine — ก้าว, not a grid default
             continue
         seen_hi.add(r["id"])
-        thumb = f"photos/{photos[r['id']]}" if r["id"] in photos else placeholder_for(r)
         cat = CATS[r["cat"][0]]
+        # A real photograph or none. Nine copies of the same wat drawing in one
+        # grid says nothing about nine different places, and it was most of
+        # what the front page was showing. Where there is no photograph the
+        # card keeps its shape with a tinted panel and the category glyph —
+        # quiet, and not pretending to be a picture of anything.
+        if r["id"] in photos:
+            pic = (f'<img src="photos/{photos[r["id"]]}" '
+                   f'alt="{att(name_of(r))}" loading="lazy">')
+        else:
+            pic = f'<span class="nopic" aria-hidden="true">{svg_icon(CAT_ICON.get(r["cat"][0]), 30)}</span>'
         hi_cards.append(
-            f'<li><a href="{pv}/p/{place_slug(r)}.html"><img src="{thumb}" '
-            f'alt="{att(name_of(r))}" loading="lazy">'
+            f'<li><a href="{pv}/p/{place_slug(r)}.html">{pic}'
             f'<span class="nm">{esc(name_of(r))}</span>'
             f'<span class="sub">{bi(cat["th"], cat["en"], sep="")}</span></a></li>')
 
@@ -7319,12 +7774,17 @@ def build():
             continue
         seen_ev.add(key)
         pl = e.get("place") or {}
-        thumb = f'photos/{pl["photo"]}' if pl.get("photo") else "wat.svg"
         href = f'{pl["href"]}' if pl.get("href") else "events.html"
         when = event_when(e)
+        # No picture at all rather than a picture of nothing. Seven identical
+        # tinted panels in a row is the same fault as seven identical wat
+        # drawings, only quieter — so an event with no photograph becomes a
+        # text card and the words get the space.
+        has_pic = bool(pl.get("photo"))
+        pic = (f'<img src="photos/{pl["photo"]}" '
+               f'alt="{att(e.get("title", ""))}" loading="lazy">') if has_pic else ""
         ev_cards.append(
-            f'<a class="hicard" href="{href}"><img src="{thumb}" '
-            f'alt="{att(e.get("title", ""))}" loading="lazy">'
+            f'<a class="hicard{"" if has_pic else " textonly"}" href="{href}">{pic}'
             f'<span class="cap">{esc((e.get("title") or "")[:52])}'
             f'<span class="cat">{when}</span></span></a>')
     # 'fortune' is lifted out of the wall and into the sidebar's Today card.
@@ -7403,7 +7863,7 @@ def build():
         f'{after_dark_html(pulse, PROVINCES[0]["key"])}'
         # Everything the wall already did, kept and restyled, below the fold.
         f'<div class="morehome">{ev_html}{wall_html}{persona_html}'
-        f'{tick_html}{moon_html}{rand_html}</div>'
+        f'{tick_html}{rand_html}</div>'
         f'<p class="picturenote">📷 <a href="pictures.html">'
         + bi("ภาพประกอบทั้งหมด มาจาก Wikimedia Commons — ดูเครดิตช่างภาพ",
              "Every picture here is from Wikimedia Commons — see the photographers")
@@ -7458,7 +7918,7 @@ def build():
         # my.html has no sidebar to lift it into, so the day gets its full tile
         # here — the same one, with the same data-fo hooks.
         f'<div class="wgrid">{widget_fortune()}</div>'
-        f"{tick_html}{fx_html}{gold_html}{moon_html}{rand_html}"
+        f"{tick_html}{fx_html}{gold_html}{rand_html}"
         f'<script type="application/json" id="pulse">{json.dumps(pulse, ensure_ascii=False)}</script>')
     (DOCS / "my.html").write_text(page("หน้าแรกของฉัน", my_body, depth=0, path="my.html",
                                        desc=my_hint_th))
@@ -8198,10 +8658,11 @@ def build():
     build_events_page(EVENTS)
     build_list_your_event_page()
     build_add_page()
-    build_plan_page()
+    build_plan_page(data)
     build_chart_page()
     build_privacy_page()
     print("  roads & sois:", build_street_pages(data), "pages")
+    print("  merit rounds:", build_merit_page(data), "page")
     (DOCS / "widgets.html").write_text(
         build_widgets_page(EVENTS, data, moon_svg_markup))
     write_sky_json()

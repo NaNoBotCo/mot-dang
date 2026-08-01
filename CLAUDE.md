@@ -6,7 +6,9 @@ Read `AGENTS.md` first for why the site is shaped this way, and
 Thai-first CM+CR directory. Stdlib Python only. `importers/import_all.py` then
 `build.py` → `docs/` (GitHub Pages). Full spec + roadmap in README.md.
 
-Pipeline order: `importers/import_all.py` → `importers/build_streets.py` (roads
+Pipeline order: `importers/make_widget_shots.py` (daily — photographs the live
+instruments at wichaa.net; skip it and the sky tile just does not render) →
+`importers/import_all.py` → `importers/build_streets.py` (roads
 and sois; needs `cache/roads/`, ~20 s) → `make_og_cards.py` (optional, needs
 Chrome + Pillow, writes `assets/og/`) → `build.py` → push →
 `importers/ping_indexnow.py`.
@@ -69,6 +71,21 @@ Rules that bite:
   wallpaper or as a category tile makes scenery of a named stranger, which is
   the framing this site does not do. Credit is a licence condition, not a
   courtesy — `/pictures.html` is generated from what was actually drawn.
+- **The moon is not drawn here.** It used to be, three different ways, and one
+  of them told the reader on the page that its angle was approximate. The sky
+  tile now shows daily photographs of wichaa.net/moon, /jovilabe and /redspot,
+  taken by `importers/make_widget_shots.py`, each linking back to the working
+  instrument. The crop is a CSS selector in that file, not a pixel box, so a
+  new row in wichaa's header does not break it — and the importer refuses a
+  blank frame rather than shipping a white square. Do not add another local
+  moon drawing. Interim by design: the destination is an animated preview in
+  the widget picker and the real widget running compactly on the reader's page.
+- **Placeholders only where they help.** `wat.svg` / `ant.svg` belong on a
+  place's OWN page, beside the ask for a photograph. They do NOT go in grids:
+  twenty identical temples on the front page said nothing about twenty
+  different places. A card with no photograph gets `.textonly` and gives the
+  space to its words. The placeholder is never published as a schema.org
+  `image` — that told crawlers a shop's picture is a line drawing of a temple.
 - Run `tests/test_publish_gate.py` after the build and before `git add docs/`.
 - Every image says what it is FOR, not what it is. `tests/test_alt_text.py`
   fails a missing `alt`, an unlabelled `role="img"`, and a label that is only

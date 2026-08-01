@@ -62,14 +62,13 @@ el.appendChild(s);});}
 (async()=>{const host=document.getElementById('w-sky');if(!host)return;
 const doc=await mdJSON('data/sky.json');const day=mdPick(doc);
 if(!day){mdStale('#w-sky');return;}
-const moonArt=host.querySelector('[data-skyart="moon"]');
-const jupArt=host.querySelector('[data-skyart="jupiter"]');
-if(day.svg_moon&&moonArt)moonArt.innerHTML=day.svg_moon;
-if(day.svg_jupiter&&jupArt)jupArt.innerHTML=day.svg_jupiter;
 const mc=host.querySelector('[data-skycap="moon"]');
-if(mc&&day.moon)mc.innerHTML='<span class="th">'+day.moon.phase_th+' · '+day.moon.thai_label_th+
-(day.moon.wan_phra?' · วันพระ':'')+'</span><span class="en">'+day.moon.phase_en+' · '+
-day.moon.thai_label_en+(day.moon.wan_phra?' · wan phra':'')+'</span>';
+// Through mdBi, not hand-built spans: building the pair by hand is what left
+// "แรม 4 ค่ำWaning" jammed together with no separator, the same fault the
+// Thai horoscope line had.
+if(mc&&day.moon)mc.innerHTML=mdBi(
+day.moon.phase_th+' · '+day.moon.thai_label_th+(day.moon.wan_phra?' · วันพระ':''),
+day.moon.phase_en+' · '+day.moon.thai_label_en+(day.moon.wan_phra?' · wan phra':''));
 const slides=[...host.querySelectorAll('.skyslide')];
 const dots=[...host.querySelectorAll('[data-skydot]')];let si=0;
 const go=i=>{si=(i+slides.length)%slides.length;
@@ -557,7 +556,7 @@ btn.disabled=false;btn.textContent='🏪 ยืนยันฟรี · Claim it
 // the whole state — the same string is what travels in a ?stops= share link,
 // so a plan someone sends you and a plan you built yourself are the same
 // object by the time either is drawn.
-const PLAN_KEY='md-plan',PLAN_MAX=8;
+const PLAN_KEY='md-plan',PLAN_MAX=9;   // ไหว้พระ ๙ วัด is nine by definition
 const WALK_KMH=4.6,RIDE_KMH=18;
 function planGet(){try{const v=JSON.parse(localStorage.getItem(PLAN_KEY));
 return Array.isArray(v)?v.slice(0,PLAN_MAX):[];}catch(e){return[];}}

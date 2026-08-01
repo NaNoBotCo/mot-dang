@@ -191,6 +191,53 @@ render.
   precisely because the site promises it follows no one around. The downloader
   to fix it already exists.
 
+## Queued 2026-08-01 (second round) — real instruments, fewer placeholders.
+
+- **The moon stopped being drawn here.** It had appeared three ways: a moondial
+  copy in a `#m-moon` module, a home-made disc baked into `sky.json`, and a
+  home-made Jupiter beside it. One of them printed "มุมโดยประมาณ ไม่ใช้เอฟีเมอริส
+  · angle approximated, no ephemeris here" on the page. All three are gone.
+  `importers/make_widget_shots.py` photographs **wichaa.net/moon, /jovilabe and
+  /redspot** daily and the sky tile shows those three, each linking back to the
+  working instrument. `docs/moon-disc.svg`, `moon_phase_svg()` and
+  `jupiter_svg()` are deleted; `sky.json` keeps the numbers, which is what the
+  live caption reads.
+  - The crop is a **CSS selector**, not a pixel box, so wichaa's header can grow
+    a row without breaking it. First attempt styled the selector directly and
+    `.instrument` matched more than once — the jovilabe came back as a stack of
+    its stat cards. It now marks ONE element and styles the mark.
+  - It **refuses a blank frame** (colour count + inked fraction) and keeps
+    yesterday's shot rather than shipping a white square.
+- **"Cast your own"** on the hexagram tile → wichaa.net/divination. The day's
+  hexagram is the same for everybody, which is the time method working as
+  intended, and is exactly why the other kind deserves a door.
+- **Placeholders demoted.** The front page carried **20** copies of the same wat
+  drawing; it now carries **0**. They stay on a place's own page, toned down,
+  where they sit beside "send us a photograph" and earn it. Cards with no
+  photograph became `.textonly`. The placeholder is also no longer published as
+  the schema.org `image` — that was telling every crawler a shop's picture is a
+  line drawing of a temple.
+- Fixed while in there: the sky caption was hand-building its two language
+  spans and rendered "แรม 4 ค่ำWaning" with no separator. Through `mdBi()` now,
+  the same fix the Thai horoscope line already needed once.
+
+### Still to do on this line (her direction, not yet built)
+
+Animated GIF previews of each tool in the widget picker, and the **actual
+compact widget** running on the reader's own page rather than a picture of one.
+The screenshot pipeline is the first step: `make_widget_shots.py` already loads
+each instrument in a real browser and isolates one element, so emitting a short
+animated loop is the same trick with several frames, and the "compact live
+version" wants the instruments to expose an embeddable size.
+
+### Needs a decision
+
+`make_widget_shots.py` refreshes on demand and is option 13 on the Desktop
+launcher. Nothing SCHEDULES it yet, and a daily refresh only reaches the live
+site if the day's shot is also committed and pushed — GitHub Pages rebuilds on
+push, not on a clock. Say the word and it goes in as a launchd job beside the
+dead-man's-switch one, with the push included or left to you.
+
 ### One open question, unanswered since 2026-07-29
 
 `data/sources.json` publicly documents the Major Cineplex showtime endpoint,
