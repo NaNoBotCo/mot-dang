@@ -129,6 +129,16 @@ _claims_path = ROOT / "data" / "claims.json"
 _claims_doc = json.loads(_claims_path.read_text()) if _claims_path.exists() else {}
 CLAIMS = _claims_doc.get("claims", {})
 
+# The facet layer: what makes one branch of a chain different from the next.
+# data/facets.json is the whole schema — labels, icons, and the question to ask
+# a passer-by. importers/import_fixtures.py fills what evidence allows; the rest
+# arrives by claim. Keyed by record.sub, so a shelf of convenience stores gets
+# the convenience row and nothing else does.
+_facets_doc = json.loads((ROOT / "data" / "facets.json").read_text())
+FACET_SETS = _facets_doc["sets"]
+FACET_SET_BY_SUB = {sub: s for s in FACET_SETS for sub in s.get("appliesTo", [])}
+FACET_DEF = {s["key"]: {f["key"]: f for f in s["facets"]} for s in FACET_SETS}
+
 # Verdicts that mean: do not send a person here.
 BROKEN = {"tls", "dns", "down", "timeout", "gone", "http-error", "server-error",
           "parked", "empty", "error"}
@@ -372,6 +382,7 @@ style="position:absolute" xmlns="http://www.w3.org/2000/svg"><defs>
 <g id="i-coin"><ellipse cx="12" cy="6.5" rx="8" ry="3"/><path d="M4 6.5v11c0 1.7 3.6 3 8 3s8-1.3 8-3v-11"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></g>
 <g id="i-swap"><path d="M4 8h14l-3.5-3.5"/><path d="M20 16H6l3.5 3.5"/></g>
 <g id="i-moon"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></g>
+<g id="i-route"><circle cx="5" cy="18.5" r="2.3"/><circle cx="19" cy="5.5" r="2.3"/><path d="M6.8 16.8 11 12.5a3 3 0 0 0 .9-2.5c-.15-1.3.4-2.3 1.5-3.2l3.2-2.4" stroke-dasharray="1.8 2.6"/></g>
 </defs></svg>"""
 
 
@@ -618,6 +629,25 @@ border-radius:.5rem;padding:0 .5rem;white-space:nowrap}
 .badge{background:var(--soft);border-radius:.5rem;padding:0 .5rem;font-size:.8rem;white-space:nowrap}
 .badge.pin{background:#F6D9CE;color:var(--ant-dark)}
 .grow{color:var(--ant-dark);font-size:.9rem;font-style:italic}
+/* Plan (route) toggle — a small ring on every listing row, a labelled pill
+   on the place page itself. Same data-plan key drives both. */
+.planbtn{border:1.5px solid var(--warm-border);background:#fff;border-radius:50%;
+width:23px;height:23px;padding:0;margin-left:.35rem;cursor:pointer;
+display:inline-flex;align-items:center;justify-content:center;vertical-align:-6px}
+.planbtn:hover{border-color:var(--ant)}
+.planbtn .planicon{color:var(--gloss);width:14px;height:14px}
+.planbtn.on{background:var(--ant);border-color:var(--ant-dark)}
+.planbtn.on .planicon{color:#fff}
+.planbtn-lg{border-radius:.6rem;width:auto;height:auto;padding:.5rem .95rem;gap:.45rem;
+margin:.5rem 0 .2rem;font:inherit;font-weight:700;border:2px solid var(--ant)}
+.planbtn-lg .planicon{width:18px;height:18px}
+.planbtn-lg:not(.on){color:var(--ant-dark)}
+.planbtn-lg.on{color:#fff}
+.planbtn-lg .off-label,.planbtn-lg.on .on-label{display:inline}
+.planbtn-lg .on-label,.planbtn-lg.on .off-label{display:none}
+.chip .plancount{background:var(--ant);color:#fff;border-radius:1rem;font-size:.72rem;
+font-weight:700;padding:.05rem .42rem;margin-left:-.1rem}
+.chip.dark .plancount{background:var(--gold);color:var(--ink)}
 .subshelf{background:#fff;border:1px solid var(--soft);border-radius:.7rem;
 padding:.6rem 1rem;margin:.6rem 0 1rem}
 .subshelf b a{font-weight:700}
@@ -648,6 +678,33 @@ border:1px solid #DFC98C;background:linear-gradient(180deg,#FDF6E6,#FBF6EE)}
 .honpanel li{margin-bottom:.4rem}
 .honverb,.honsrc{display:block;font-size:.85rem;opacity:.8}
 .honsrc a{font-size:.82rem}
+/* Facets — what this branch of the chain actually has. Solid-bordered when a
+   person confirmed it, dashed when it was joined by distance from a map point:
+   the border IS the provenance, readable before the tooltip is opened. */
+.facets{white-space:normal}
+.facet{display:inline-block;font-size:.72rem;line-height:1.6;margin-left:.3rem;
+padding:0 .45rem;border-radius:999px;vertical-align:.08em;cursor:help;
+background:#E8F0E2;color:#3C5A2E;border:1px solid #C3D8B6}
+.facet.near{border-style:dashed;opacity:.85}
+.facet.field{background:#DCEFD2;border-color:#8FBF77;font-weight:600}
+.facets:not(.small) .facet{font-size:.86rem;line-height:2;margin:.15rem .3rem .15rem 0;
+padding:.1rem .7rem}
+.facetpanel{margin:.9rem 0;padding:.7rem .9rem .8rem;border-radius:.8rem;
+border:1px solid #C3D8B6;background:linear-gradient(180deg,#F3F8EF,#F8FAF5)}
+.facetpanel .facetlede{margin:.15rem 0 .5rem}
+.facetbar{margin-top:.4rem}
+.fchip{cursor:pointer}
+.fchip.on{background:var(--ant);color:#fff;border-color:var(--ant)}
+.fchip.clear{opacity:.7}
+.dir li.fhide{display:none}
+.facetticks{margin:.9rem 0;padding:.6rem .8rem .8rem;border:1px solid #C3D8B6;
+border-radius:.8rem;background:#F7FAF4}
+.facetticks legend{font-weight:700;padding:0 .35rem}
+.facetticks .tick{display:inline-flex;align-items:center;gap:.35rem;
+margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;border:1px solid #C3D8B6;
+border-radius:999px;background:#fff;cursor:pointer;font-size:.9rem}
+.facetticks .tick:has(input:checked){background:#DCEFD2;border-color:#8FBF77;font-weight:600}
+.facetticks input{width:1.05rem;height:1.05rem;accent-color:#5C8A44}
 .lineoa{margin:.9rem 0;padding:.7rem .9rem .8rem;border:1.5px dashed #06C755;border-radius:.8rem;
 background:rgba(6,199,85,.05)}
 .lineoa p{margin:.3rem 0}
@@ -667,6 +724,37 @@ backdrop-filter:blur(6px);box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 2px 10
 .reachlabel{font-size:.9rem;color:var(--ant-dark);font-weight:700;letter-spacing:.02em}
 .reach .tinynote{margin-left:.5rem}
 .tinynote{font-size:.8rem;color:var(--mute)}
+/* Birth chart — the four pillars. Computed in the reader's own browser, so the
+   page has nowhere to send a birth date even if it wanted to. */
+.chartform{display:flex;flex-wrap:wrap;gap:.75rem;align-items:flex-end;margin:1rem 0 .4rem;
+padding:.9rem 1rem;border-radius:.9rem;border:1px solid var(--soft);
+background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.6));
+backdrop-filter:blur(6px);box-shadow:0 2px 12px rgba(42,30,22,.06)}
+.chartform label{display:flex;flex-direction:column;gap:.25rem;font-size:.86rem;color:var(--ant-dark)}
+.chartform input{font:inherit;padding:.42rem .6rem;border:1px solid var(--soft);border-radius:.55rem;
+background:#fff;color:var(--ink)}
+.chartform button{font:inherit;font-weight:600;padding:.5rem 1.3rem;border:2px solid var(--ink);
+border-radius:999px;background:var(--ant);color:#fff;cursor:pointer;
+transition:transform .13s cubic-bezier(.34,1.56,.64,1),box-shadow .13s}
+.chartform button:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(42,30,22,.18)}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(7.5rem,1fr));gap:.7rem;margin:1rem 0}
+.pillar{text-align:center;padding:.85rem .5rem;border-radius:.8rem;border:1px solid var(--soft);
+background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(255,255,255,.65));
+box-shadow:0 2px 10px rgba(42,30,22,.05)}
+.pillar .zh{font-size:2.1rem;line-height:1.15;color:var(--ink)}
+.pillar .pin{font-size:.82rem;color:var(--mute)}
+.pillar .who{font-size:.8rem;color:var(--ant-dark);font-weight:700;letter-spacing:.02em}
+.pillar.unknown{opacity:.55;border-style:dashed}
+.elements{display:flex;flex-wrap:wrap;gap:.45rem;margin:.6rem 0 0}
+.elements span{padding:.28rem .8rem;border-radius:999px;border:1px solid var(--soft);font-size:.86rem}
+.elements .none{opacity:.5}
+.chartnote{margin:.5rem 0 0;font-size:.85rem;color:var(--mute)}
+.chartout[hidden]{display:none}
+/* Privacy — plain rows, no clever layout. Someone reading this wants answers. */
+.privrow{margin:1rem 0;padding:.85rem 1rem;border-radius:.8rem;border:1px solid var(--soft);
+background:rgba(255,255,255,.7)}
+.privrow h3{margin:0 0 .3rem;font-size:1rem;color:var(--ant-dark)}
+.privrow p{margin:.2rem 0}
 .chwrap{display:inline-flex;flex-direction:column;gap:.15rem}
 .reach .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.34rem .9rem;
 border-radius:999px;text-decoration:none;font-size:.9rem;color:#fff;font-weight:500;
@@ -986,6 +1074,146 @@ border-radius:.6rem;padding:.15rem .6rem;cursor:pointer;font:inherit;font-size:.
 .evseeall{font-size:.85rem;font-weight:400;margin-left:.4rem}
 .evmapwrap{background:#fff;border:1px solid var(--soft);border-radius:.8rem;padding:.4rem;overflow-x:auto}
 .evmap{display:block;min-width:22rem}
+/* ---- the soi tier: a road, its sois, and what stands on it ----------- */
+.soifig{margin:.8rem 0;background:#fff;border:1px solid var(--soft);border-radius:.8rem;
+padding:.4rem;overflow-x:auto}
+.soimap{display:block;min-width:20rem}
+.soifig figcaption{font-size:.85rem;color:var(--muted);padding:.25rem .5rem .1rem}
+.soisub{color:var(--muted);margin:.1rem 0 .7rem}
+.soilen{white-space:nowrap}
+.soiparent{margin:.2rem 0 .6rem}
+/* The walking order is the point of the page, so the numbers are shown rather
+   than being an invisible property of the list. Counter, not <ol> markers,
+   because the rows already carry the star and the badges. */
+ol.soidir{list-style:none;counter-reset:soi;padding-left:0}
+ol.soidir>li{counter-increment:soi;position:relative;padding-left:2.4rem}
+ol.soidir>li::before{content:counter(soi);position:absolute;left:0;top:.15rem;
+min-width:1.7rem;height:1.7rem;border-radius:50%;background:var(--brand);color:#fff;
+font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;
+justify-content:center;padding:0 .3rem}
+/* A matched-by-position distance is quiet: it is a caveat, not a feature. */
+.soidist{font-size:.75rem;color:var(--muted);margin-left:.4rem;white-space:nowrap}
+.soimethod{font-size:.9rem;color:var(--muted);background:#fff;border:1px solid var(--soft);
+border-radius:.6rem;padding:.5rem .7rem;margin:.5rem 0}
+.soicross,.soialso,.soiabout{margin:1.1rem 0}
+.soicross p,.soialso p{line-height:2}
+.soiindex{list-style:none;padding-left:0;columns:2;column-gap:1.6rem}
+.soiindex li{break-inside:avoid;padding:.3rem .1rem}
+.soikids{display:block;font-size:.85rem;color:var(--muted);margin-left:.9rem;line-height:1.9}
+.soikids a{color:var(--muted)}
+.soiflag{font-size:.8rem}
+.soiabout{background:#fff;border:1px solid var(--soft);border-radius:.8rem;padding:.8rem 1rem}
+/* ---- plan.html: the errand-run planner ------------------------------- */
+/* The hero. This is the best thing on the site, so it gets the space and the
+   words to say what it does rather than a one-line tease. */
+.planhero{border:2px solid var(--ink);border-radius:18px;overflow:hidden;
+margin:1rem 0 1.6rem;background:var(--card);box-shadow:0 4px 0 var(--shadow-dark)}
+.planhero .hh{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;
+padding:.7rem 1.2rem;border-bottom:2px solid var(--ink);
+background:linear-gradient(var(--marigold-a),var(--marigold-b))}
+.planhero .hh h2{margin:0;border:0;padding:0;font-size:1.3rem}
+.planhero .hh .en{font-size:1rem;color:var(--marigold-ink);font-weight:400}
+.planhero .hh .newflag{margin-left:auto;background:var(--ant);color:#fff;font-size:.72rem;
+font-weight:700;border-radius:1rem;padding:.15rem .6rem;letter-spacing:.03em;white-space:nowrap}
+.planhero .hbody{display:flex;gap:1.3rem;padding:1.2rem;flex-wrap:wrap;align-items:flex-start}
+.planhero .hgif{flex:0 0 auto;width:200px;height:200px;border-radius:14px;
+border:1px solid var(--warm-border);background:#FBF6EE}
+.planhero .htext{flex:1 1 17rem;min-width:0}
+.planhero .hlede{margin:0 0 .7rem;font-size:1.02rem;line-height:1.5}
+.planhero ul.hpts{list-style:none;margin:0 0 .9rem;padding:0;font-size:.92rem}
+.planhero ul.hpts li{margin:.3rem 0;padding-left:1.5rem;position:relative;color:var(--ink-soft)}
+.planhero ul.hpts li::before{content:"🐜";position:absolute;left:0;font-size:.85rem}
+.planhero .hnum{background:var(--soft);border-radius:.7rem;padding:.55rem .85rem;
+font-size:.88rem;margin:0 0 .9rem;color:var(--ink)}
+.planhero .hnum .hcap{display:block;font-weight:700;color:var(--ant-dark);margin-bottom:.25rem}
+.planhero .hnum table{border-collapse:collapse;width:100%;max-width:22rem}
+.planhero .hnum td{padding:.1rem .3rem;vertical-align:baseline}
+.planhero .hnum td.hg{width:1.4rem}
+.planhero .hnum td.hv{text-align:right;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.planhero .hnum tr.crow td{color:var(--mute)}
+.planhero .hnum tr.crow td.hv{text-decoration:line-through;font-weight:400}
+.planhero .hnum tr.foot td.hv{color:var(--ant-dark)}
+.planhero .hnum tr.ride td.hv{color:#1c5aa8}
+.planhero .hnum .hwhy{display:block;margin-top:.3rem;font-size:.82rem;color:var(--gloss)}
+.planhero .hcta{display:inline-block;background:var(--ant);color:#fff;border:2px solid var(--ink);
+border-radius:.7rem;padding:.6rem 1.3rem;font-weight:700;text-decoration:none;font-size:1.02rem;
+box-shadow:0 3px 0 var(--shadow-dark)}
+.planhero .hcta:hover{background:var(--ant-dark);text-decoration:none}
+.planhero .hcta:visited{color:#fff}
+.planhero .hfoot{margin:.6rem 0 0;font-size:.82rem;color:var(--gloss)}
+@media (max-width:34rem){
+.planhero .hbody{justify-content:center}
+.planhero .hgif{width:100%;height:auto;max-width:260px}}
+.plantools{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.6rem 0 1rem}
+.plantools button{border:2px solid var(--ant);background:none;color:var(--ant-dark);
+border-radius:.6rem;padding:.35rem .8rem;cursor:pointer;font:inherit;font-size:.9rem}
+.plantools button:hover{background:var(--ant);color:#fff}
+.plantools button.on{background:var(--ant);color:#fff}
+.plantotal{background:var(--card);border:2px solid var(--ink);border-radius:14px;
+padding:.7rem 1rem;margin:0 0 1rem;font-size:.95rem;box-shadow:0 3px 0 var(--shadow-dark)}
+.plantotal b{color:var(--ant-dark)}
+.planbanner{background:var(--marigold-a);border:2px solid var(--gold);border-radius:.8rem;
+padding:.7rem 1rem;margin:0 0 1rem;display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
+.planbanner button{border:2px solid var(--ink);background:var(--ant);color:#fff;
+border-radius:.5rem;padding:.3rem .8rem;font:inherit;font-weight:700;cursor:pointer}
+.planmapwrap{background:#fff;border:1px solid var(--soft);border-radius:.8rem;padding:.4rem;
+overflow-x:auto;margin-bottom:1rem}
+.planmap{display:block;min-width:22rem}
+.planempty{background:var(--soft);border-radius:.8rem;padding:1.2rem;text-align:center;
+color:var(--ink-soft)}
+.plansteps{list-style:none;margin:0 0 1rem;padding:0;display:flex;flex-direction:column;gap:0}
+.planstop{display:flex;gap:.7rem;background:#fff;border:1px solid var(--soft);
+border-radius:.9rem;padding:.7rem .9rem;align-items:flex-start}
+.plannum{flex:0 0 auto;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--ant);
+color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;
+font-size:.95rem}
+.planbody{flex:1;min-width:0}
+.planbody h3{margin:0;font-size:1.02rem;line-height:1.35}
+.planbody h3 a{text-decoration:none} .planbody h3 a:hover{text-decoration:underline}
+.plancat{font-size:.82rem;color:var(--ant-dark)}
+.planaddr{margin:.15rem 0 0;font-size:.85rem;color:var(--gloss)}
+.planchan{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0 0}
+.planchan a{font-size:.78rem;background:var(--soft);border-radius:.5rem;padding:.05rem .45rem;
+text-decoration:none;color:var(--ant-dark)}
+.planacts{flex:0 0 auto;display:flex;flex-direction:column;gap:.2rem;align-items:center}
+.planacts button{border:1px solid var(--warm-border);background:#fff;border-radius:.4rem;
+width:1.9rem;height:1.9rem;cursor:pointer;font-size:.95rem;line-height:1;padding:0}
+.planacts button:hover{border-color:var(--ant)}
+.planacts button:disabled{opacity:.3;cursor:default}
+.planacts .plandel{color:var(--ant-dark)}
+.planleg{display:flex;align-items:center;gap:.6rem;padding:.25rem 0 .25rem 2.55rem;
+font-size:.82rem;color:var(--mute)}
+.planleg::before{content:"";flex:0 0 2px;align-self:stretch;background:var(--dashed);
+min-height:1rem}
+.planvia{display:block;color:#1c5aa8;font-weight:600;margin-top:.1rem;font-size:.85rem}
+.planvia a{color:#1c5aa8}
+/* Two networks, two readings. The mode you picked is the emphatic one; the
+   other stays legible, because the comparison is the useful part. */
+.planmodes{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin:.8rem 0 .2rem}
+.pmlabel{font-size:.9rem;color:var(--ant-dark);font-weight:600;margin-right:.2rem}
+.pmbtn{font:inherit;font-size:.9rem;border:2px solid var(--ink);background:var(--card);
+color:var(--ink);border-radius:.6rem;padding:.32rem .85rem;cursor:pointer;min-height:44px}
+.pmbtn:hover{background:var(--row-hover)}
+.pmbtn.on{background:var(--ink);color:var(--gold-light);border-color:var(--ink)}
+.pleg,.pmode{display:inline-flex;align-items:center;gap:.3rem;margin-right:.7rem;
+font-size:.88rem;white-space:nowrap}
+.pleg.foot,.pmode.foot{color:var(--ant-dark);font-weight:600}
+.pleg.ride,.pmode.ride{color:#1c5aa8;font-weight:600}
+.pleg.none{color:var(--mute);font-weight:400}
+body:not(.mode-ride) .pleg.ride,body:not(.mode-ride) .pmode.ride{font-weight:400;opacity:.72}
+body.mode-ride .pleg.foot,body.mode-ride .pmode.foot{font-weight:400;opacity:.72}
+.planleg.out{color:var(--mute);flex-wrap:wrap}
+.planosm{font-size:.8rem;border:1px solid var(--ant);border-radius:.5rem;
+padding:.05rem .45rem;text-decoration:none;color:var(--ant-dark);white-space:nowrap}
+.planosm:hover{background:var(--ant);color:#fff}
+.plandl{display:inline-block;margin-top:.2rem;font-size:.85rem}
+.plandemo{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin:1rem 0 1.3rem;
+background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:.8rem 1rem;
+box-shadow:0 3px 0 var(--shadow-dark)}
+.plandemo img{flex:0 0 auto;width:200px;height:200px;border-radius:12px;
+border:1px solid var(--warm-border);background:#FBF6EE}
+.plandemo figcaption{flex:1 1 15rem;font-size:.9rem;color:var(--ink-soft);margin:0}
+@media (max-width:34rem){.plandemo{justify-content:center;text-align:center}}
 .evgap{background:var(--soft);border-radius:.8rem;padding:.7rem 1rem;margin:1rem 0}
 .evgaplist{font-weight:600;color:var(--ant-dark)}
 .evpartner{display:flex;align-items:center;gap:.5rem;margin:.8rem 0;flex-wrap:wrap}
@@ -1299,6 +1527,8 @@ scrollbar-width:none}
 .svcbar::-webkit-scrollbar{display:none}
 .svcbar a{flex:0 0 auto;padding:.2rem 0}
 ul.catrows{grid-template-columns:minmax(0,1fr);padding:.4rem}
+.soiindex li{padding:.5rem .1rem}
+.soikids{display:block;margin-left:0}
 .cardhead{padding:.85rem 1rem}
 .cardhead h2{font-size:1.35rem}
 .pickgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem}
@@ -1577,7 +1807,22 @@ reorder(document.getElementById('sort-royal'),(a,b)=>rw(b)-rw(a)||nm(a,b));
 reorder(document.getElementById('sort-hon'),
 (a,b)=>(parseInt(b.dataset.hon||'0',10)-parseInt(a.dataset.hon||'0',10))||rk(b)-rk(a)||nm(a,b));
 reorder(document.getElementById('sort-fresh'),
-(a,b)=>(b.dataset.upd||'').localeCompare(a.dataset.upd||'')||rk(b)-rk(a)||nm(a,b));}
+(a,b)=>(b.dataset.upd||'').localeCompare(a.dataset.upd||'')||rk(b)-rk(a)||nm(a,b));
+// ---- facet chips: keep only rows that have ALL the picked things ------
+// AND, not OR, because the question is always "somewhere with a cash machine
+// AND somewhere to sit", never "either one". The heading count follows the
+// filter so it never contradicts what is on screen.
+const fbar=document.querySelector('[data-facetbar]');
+if(fbar){const on=new Set();const h1c=document.querySelector('h1 .count');
+const total=items.length;
+const paint=()=>{let shown=0;
+items.forEach(li=>{const has=new Set((li.dataset.facets||'').split(' ').filter(Boolean));
+const ok=[...on].every(f=>has.has(f));li.classList.toggle('fhide',!ok);if(ok)shown++;});
+fbar.querySelectorAll('.fchip').forEach(b=>b.classList.toggle('on',on.has(b.dataset.f)));
+if(h1c)h1c.textContent='('+shown.toLocaleString()+(shown<total?' / '+total.toLocaleString():'')+')';};
+fbar.querySelectorAll('.fchip').forEach(b=>b.addEventListener('click',()=>{
+const f=b.dataset.f;if(!f){on.clear();}else if(on.has(f)){on.delete(f);}else{on.add(f);}
+paint();}));}}
 // ---- copy link --------------------------------------------------------
 document.querySelectorAll('.copylink').forEach(b=>{b.addEventListener('click',async()=>{
 await navigator.clipboard.writeText(b.dataset.url);
@@ -1729,6 +1974,12 @@ if(claimFind){
 const cfg=JSON.parse(document.getElementById('claim-cfg').textContent);
 const WORKER=cfg.workerUrl,SITE='https://motdang.net/';
 const FIELDS=['phone','lineId','facebook','instagram','whatsapp','email','website','hours','menu','note'];
+// Facet ticks travel as an array, not as FIELDS entries — an empty array is a
+// real answer ("I looked; it has none of these"), which a blank text input
+// cannot express.
+const getTicks=form=>[...form.querySelectorAll('input[name="facet"]:checked')].map(c=>c.value);
+const setTicks=(form,vals)=>{const on=new Set(vals||[]);
+form.querySelectorAll('input[name="facet"]').forEach(c=>{c.checked=on.has(c.value);});};
 const params=new URLSearchParams(location.search);
 const stepFind=claimFind,stepConfirm=document.getElementById('claim-confirm'),
 stepSuccess=document.getElementById('claim-success'),stepEdit=document.getElementById('claim-edit');
@@ -1742,12 +1993,14 @@ const res=await fetch(WORKER+'/edit/'+encodeURIComponent(editToken));
 const data=await res.json();
 if(!res.ok)throw new Error(data.error||'ลิงก์ใช้ไม่ได้ / invalid link');
 FIELDS.forEach(f=>{if(data.claim[f])editForm[f].value=data.claim[f];});
+setTicks(editForm,data.claim.facets);
 }catch(err){editErr.textContent=err.message;}})();
 editForm.addEventListener('submit',async e=>{
 e.preventDefault();
 const btn=editForm.querySelector('button.submit');
 btn.disabled=true;editErr.style.color='';editErr.textContent='';
 const body={};FIELDS.forEach(f=>{body[f]=editForm[f].value.trim();});
+body.facets=getTicks(editForm);
 try{
 const res=await fetch(WORKER+'/edit/'+encodeURIComponent(editToken),{method:'POST',
 headers:{'content-type':'application/json'},body:JSON.stringify(body)});
@@ -1789,6 +2042,9 @@ e.preventDefault();
 if(!picked){claimErr.textContent='เลือกที่ตั้งก่อน / pick a place first';return;}
 const body={placeId:picked.id};let any=false;
 FIELDS.forEach(f=>{const v=claimForm[f].value.trim();if(v){body[f]=v;any=true;}});
+// Ticks ride along but never satisfy `any` — a claim still needs a real way
+// to reach the shop, or a passer-by could lock an owner out with one tick.
+body.facets=getTicks(claimForm);
 if(!any){claimErr.textContent='ใส่อย่างน้อยหนึ่งช่องทาง / fill in at least one channel';return;}
 const btn=claimForm.querySelector('button.submit');
 btn.disabled=true;btn.textContent='กำลังบันทึก… / saving…';claimErr.textContent='';
@@ -1806,6 +2062,511 @@ showStep(stepSuccess);
 claimErr.textContent=err.message;
 btn.disabled=false;btn.textContent='🏪 ยืนยันฟรี · Claim it free';}});
 }}
+// ---- route plan: pick stops anywhere, see them together on plan.html --
+// A plan is an ordered list of "province:slug" keys in localStorage. That is
+// the whole state — the same string is what travels in a ?stops= share link,
+// so a plan someone sends you and a plan you built yourself are the same
+// object by the time either is drawn.
+const PLAN_KEY='md-plan',PLAN_MAX=8;
+const WALK_KMH=4.6,RIDE_KMH=18;
+function planGet(){try{const v=JSON.parse(localStorage.getItem(PLAN_KEY));
+return Array.isArray(v)?v.slice(0,PLAN_MAX):[];}catch(e){return[];}}
+function planSet(list){try{localStorage.setItem(PLAN_KEY,JSON.stringify(list.slice(0,PLAN_MAX)));}
+catch(e){}planPaint();}
+function planPaint(){const list=planGet(),have=new Set(list);
+document.querySelectorAll('.planbtn[data-plan]').forEach(b=>{
+const on=have.has(b.dataset.plan);b.classList.toggle('on',on);
+b.setAttribute('aria-pressed',on?'true':'false');});
+document.querySelectorAll('.plancount').forEach(el=>{
+el.textContent=list.length||'';el.style.display=list.length?'':'none';});}
+document.querySelectorAll('.planbtn[data-plan]').forEach(b=>{
+b.addEventListener('click',e=>{e.preventDefault();
+const k=b.dataset.plan,list=planGet(),i=list.indexOf(k);
+if(i>-1)list.splice(i,1);
+else if(list.length>=PLAN_MAX){alert('แผนหนึ่งเก็บได้ '+PLAN_MAX+' จุด / a plan holds '+PLAN_MAX+' stops');return;}
+else list.push(k);
+planSet(list);});});
+planPaint();
+// ---- plan.html itself --------------------------------------------------
+const planSteps=document.getElementById('plansteps');
+if(planSteps){(async()=>{
+const CATL=JSON.parse(document.getElementById('cat-labels').textContent);
+const SITE='https://motdang.net/';
+const GEO=JSON.parse(document.getElementById('plan-geo').textContent);
+const MOAT=GEO.moat;
+// The moat ring as its four แจ่ง corners, in order. Slightly out of square,
+// which is the point: an axis-aligned box puts Suan Dok Gate on the wrong
+// side of the water it stands on.
+const POLY=(GEO.poly||[]).map(p=>({lat:p[0],lng:p[1]}));
+const POLY_EDGES=POLY.map((p,i)=>[p,POLY[(i+1)%POLY.length]]);
+const elEmpty=document.getElementById('planempty'),elHas=document.getElementById('planhasstops'),
+elTotal=document.getElementById('plantotal'),elMap=document.getElementById('planmap'),
+elBanner=document.getElementById('planbanner');
+let here=null; // the reader's own position, once they offer it
+// A shared link wins over whatever is in this browser, but never silently:
+// the banner says a plan arrived and offers to keep it before it overwrites.
+const shared=new URLSearchParams(location.search).get('stops');
+let stops=planGet(),incoming=null;
+if(shared){const inc=shared.split(',').map(s=>s.trim()).filter(Boolean).slice(0,PLAN_MAX);
+if(inc.length){incoming=inc;stops=inc;}}
+function km(a,b){const R=6371,dLa=(b.lat-a.lat)*Math.PI/180,dLo=(b.lng-a.lng)*Math.PI/180;
+const h=Math.sin(dLa/2)**2+Math.cos(a.lat*Math.PI/180)*Math.cos(b.lat*Math.PI/180)*Math.sin(dLo/2)**2;
+return 2*R*Math.asin(Math.sqrt(h));}
+function dist(d){return d<1?Math.round(d*1000)+' ม./m':d.toFixed(1)+' กม./km';}
+function mins(d,kmh){const m=Math.round(d/kmh*60);return m<1?'<1':m;}
+function segX(a,b,c,d){
+const side=(p,q,r)=>(q.lng-p.lng)*(r.lat-p.lat)-(q.lat-p.lat)*(r.lng-p.lng);
+const d1=side(c,d,a),d2=side(c,d,b),d3=side(a,b,c),d4=side(a,b,d);
+return ((d1>0&&d2<0)||(d1<0&&d2>0))&&((d3>0&&d4<0)||(d3<0&&d4>0));}
+// ---- the road graph: nobody can fly ----------------------------------
+// Straight-line distance is wrong in a city and most wrong for the two people
+// this page is for. There are buildings in the way, sois that do not join up,
+// a one-way ring around the moat, and water you cross at a footbridge or a
+// U-turn and nowhere else — and a footbridge is a road to a walker and a wall
+// to a scooter. So we route on the real network, with a mode.
+//
+// The asymmetry that does most of the work: **oneway binds ride and not foot.**
+// On a one-way ring road the shop thirty metres behind you is a lap away.
+let GRAPH=null,GRAPH_STATE='cold';
+const MODES={foot:{kmh:4.6,fwd:1,bwd:2,osrm:'foot'},
+             ride:{kmh:18,fwd:4,bwd:8,osrm:'car'}};
+async function loadGraph(){
+if(GRAPH_STATE!=='cold')return GRAPH;
+GRAPH_STATE='loading';
+const g=await mdJSON('data/road_graph.json');
+if(!g||!g.nodes||!g.edges){GRAPH_STATE='absent';return null;}
+const S=g.scale;
+const nodes=g.nodes.map(p=>[p[0]/S,p[1]/S]);
+// Rebuild each edge's full polyline: its two junction ends with the road's
+// bends, which arrive delta-encoded, threaded back between them.
+const adj=nodes.map(()=>[]);
+const geom=[];
+g.edges.forEach((e,i)=>{
+const a=e[0],b=e[1],len=e[2],flags=e[3],d=e[4]||[];
+const pts=[nodes[a]];
+let la=0,ln=0;
+for(let k=0;k<d.length;k+=2){
+if(k===0){la=d[0];ln=d[1];}else{la+=d[k];ln+=d[k+1];}
+pts.push([la/S,ln/S]);}
+pts.push(nodes[b]);
+geom.push(pts);
+adj[a].push([b,len,flags,i,1]);
+adj[b].push([a,len,flags,i,0]);});
+GRAPH={area:g.area,nodes:nodes,adj:adj,edges:g.edges,geom:geom};
+GRAPH_STATE='ready';
+return GRAPH;}
+function inArea(p){const a=GRAPH&&GRAPH.area;
+return !!a&&p.lat>a.s&&p.lat<a.n&&p.lng>a.w&&p.lng<a.e;}
+function passable(flags,mode,fwd){const m=MODES[mode];
+return (flags&(fwd?m.fwd:m.bwd))!==0;}
+// Metres from p to the segment ab, and how far along ab the foot of that
+// perpendicular falls. Local flat projection: over one road segment the
+// curvature of the earth is not the error that matters.
+function toSeg(p,a,b){
+const kx=Math.cos(p.lat*Math.PI/180)*111320,ky=110540;
+const px=0,py=0;
+const ax=(a[1]-p.lng)*kx,ay=(a[0]-p.lat)*ky;
+const bx=(b[1]-p.lng)*kx,by=(b[0]-p.lat)*ky;
+const dx=bx-ax,dy=by-ay,L=dx*dx+dy*dy;
+let t=L?((px-ax)*dx+(py-ay)*dy)/L:0;
+t=Math.max(0,Math.min(1,t));
+const cx=ax+t*dx,cy=ay+t*dy;
+return {d:Math.hypot(cx-px,cy-py),t:t,seg:Math.sqrt(L)};}
+// Snap a stop onto the network: nearest point on the nearest edge this mode may
+// use, with the walk-in distance to each end of it. Snapping to junctions alone
+// would throw away up to a block of accuracy on every stop.
+function snap(p,mode){
+if(!GRAPH)return null;
+let best=null;
+for(let i=0;i<GRAPH.geom.length;i++){
+const flags=GRAPH.edges[i][3];
+if(!passable(flags,mode,true)&&!passable(flags,mode,false))continue;
+const pts=GRAPH.geom[i];
+let run=0;
+for(let k=0;k<pts.length-1;k++){
+const r=toSeg(p,pts[k],pts[k+1]);
+if(!best||r.d<best.d){
+best={d:r.d,edge:i,fromA:run+r.t*r.seg,total:0};}
+run+=r.seg;}
+if(best&&best.edge===i){
+let tot=0;
+for(let k=0;k<pts.length-1;k++)tot+=toSeg(p,pts[k],pts[k+1]).seg;
+best.total=tot;}}
+if(!best)return null;
+const e=GRAPH.edges[best.edge];
+best.a=e[0];best.b=e[1];
+best.toA=best.fromA;best.toB=Math.max(0,best.total-best.fromA);
+return best;}
+// A tiny binary heap — Dijkstra on ~10k junctions wants one, and an array sort
+// per pop turns a millisecond into a second.
+function Heap(){this.a=[];}
+Heap.prototype.push=function(k,v){const a=this.a;a.push([k,v]);let i=a.length-1;
+while(i>0){const p=(i-1)>>1;if(a[p][0]<=a[i][0])break;const t=a[p];a[p]=a[i];a[i]=t;i=p;}};
+Heap.prototype.pop=function(){const a=this.a;if(!a.length)return null;
+const top=a[0],last=a.pop();
+if(a.length){a[0]=last;let i=0;
+for(;;){const l=2*i+1,r=l+1;let m=i;
+if(l<a.length&&a[l][0]<a[m][0])m=l;
+if(r<a.length&&a[r][0]<a[m][0])m=r;
+if(m===i)break;const t=a[m];a[m]=a[i];a[i]=t;i=m;}}
+return top;};
+// Dijkstra from both ends of the start edge to both ends of the goal edge.
+// Directed: an edge is only traversable the way this mode is allowed to take
+// it, which is where oneway earns its keep.
+function route(from,to,mode){
+if(!GRAPH||!from||!to)return null;
+// Both stops on one stretch of road is only a straight answer if this mode may
+// travel that way down it. On a one-way soi the shop thirty metres behind you
+// is a lap away, so that case falls through to the search like any other.
+if(from.edge===to.edge){
+const fwd=to.fromA>=from.fromA;
+if(passable(GRAPH.edges[from.edge][3],mode,fwd))
+return {m:Math.abs(to.fromA-from.fromA),path:null,sameEdge:true};}
+const N=GRAPH.nodes.length;
+const cost=new Float64Array(N).fill(Infinity);
+const prevN=new Int32Array(N).fill(-1),prevE=new Int32Array(N).fill(-1);
+const h=new Heap();
+// Leaving the start edge is only possible towards an end this mode may reach.
+if(passable(GRAPH.edges[from.edge][3],mode,false)||from.a===from.b){
+cost[from.a]=from.toA;h.push(from.toA,from.a);}
+if(passable(GRAPH.edges[from.edge][3],mode,true)){
+if(from.toB<cost[from.b]){cost[from.b]=from.toB;h.push(from.toB,from.b);}}
+const goals={};
+if(passable(GRAPH.edges[to.edge][3],mode,true))goals[to.a]=to.toA;
+if(passable(GRAPH.edges[to.edge][3],mode,false))goals[to.b]=to.toB;
+if(!Object.keys(goals).length)return null;
+let bestGoal=null,bestCost=Infinity;
+while(true){
+const top=h.pop();
+if(!top)break;
+const c=top[0],n=top[1];
+if(c>cost[n])continue;
+if(c>=bestCost)break;
+if(goals[n]!==undefined&&c+goals[n]<bestCost){bestCost=c+goals[n];bestGoal=n;}
+const list=GRAPH.adj[n];
+for(let i=0;i<list.length;i++){
+const to2=list[i][0],len=list[i][1],flags=list[i][2],ei=list[i][3],fwd=list[i][4];
+if(!passable(flags,mode,fwd===1))continue;
+const nc=c+len;
+if(nc<cost[to2]){cost[to2]=nc;prevN[to2]=n;prevE[to2]=ei;h.push(nc,to2);}}}
+if(bestGoal===null)return null;
+// Stitch the junction chain back into one polyline for drawing.
+const chain=[];
+let cur=bestGoal;
+while(cur!==-1&&prevE[cur]!==-1){chain.push([prevE[cur],cur]);cur=prevN[cur];}
+chain.reverse();
+const line=[];
+chain.forEach(([ei,into])=>{
+const e=GRAPH.edges[ei],pts=GRAPH.geom[ei];
+const seq=(e[1]===into)?pts:pts.slice().reverse();
+seq.forEach(pt=>{const last=line[line.length-1];
+if(!last||last[0]!==pt[0]||last[1]!==pt[1])line.push(pt);});});
+return {m:bestCost,path:line};}
+function osmDirections(a,b,mode){
+return 'https://www.openstreetmap.org/directions?engine=fossgis_osrm_'+MODES[mode].osrm+
+'&route='+a.lat.toFixed(5)+'%2C'+a.lng.toFixed(5)+'%3B'+b.lat.toFixed(5)+'%2C'+b.lng.toFixed(5);}
+// One leg, both ways of travelling it. The two modes get different distances
+// because they are genuinely different journeys — that is the whole point.
+function leg(a,b){
+const out={crow:km(a,b),foot:null,ride:null,routed:false};
+if(GRAPH_STATE!=='ready'||!inArea(a)||!inArea(b))return out;
+for(const mode of ['foot','ride']){
+const s=snap(a,mode),t=snap(b,mode);
+if(!s||!t)continue;
+const r=route(s,t,mode);
+if(!r)continue;
+// Add the walk-in from each stop to the road it was snapped to; otherwise a
+// shop set back from the street reads as being on it.
+out[mode]={km:(r.m+s.d+t.d)/1000,path:r.path,snap:Math.round(s.d+t.d)};}
+out.routed=!!(out.foot||out.ride);
+return out;}
+async function resolve(keys){
+const idx=await loadIndex();
+const bySlug={};idx.forEach(e=>{bySlug[e.p+':'+e.s]=e;});
+const out=[];
+for(const k of keys){const e=bySlug[k];
+if(!e||e.lat==null)continue;
+const rec={key:k,n:e.n,en:e.e,p:e.p,s:e.s,pv:e.pv,c:e.c||[],lat:e.lat,lng:e.lng};
+// The slim index carries no address or phone. The per-place .json beside
+// every page does, and eight of those is a cheap price for stop cards that
+// are actually useful standing in the street.
+const j=await mdJSON(e.p+'/p/'+e.s+'.json');
+if(j){rec.addr=j.address||'';rec.chan=(j.channels||[]).slice(0,4);}
+out.push(rec);}
+return out;}
+// Which network the reader is on. It decides what "nearest" means when the
+// stops are reordered, and which of the two lines the page leads with.
+let planMode=(()=>{try{return localStorage.getItem('md-planmode')==='ride'?'ride':'foot';}
+catch(e){return 'foot';}})();
+// The graph is half a megabyte, so it loads here and nowhere else on the site.
+await loadGraph();
+let places=await resolve(stops);
+// Drop anything the index no longer knows, rather than leaving a hole.
+if(places.length!==stops.length&&!incoming){stops=places.map(p=>p.key);planSet(stops);}
+function svgMap(list,legs){
+if(!list.length)return'';
+// The stops set the frame — never the moat. Framing to the moat as well
+// squeezes four stops 400m apart into a knot in the middle of a 1.6km
+// square. The moat is drawn afterwards, clipped by the viewBox, so it is a
+// landmark you recognise at the edge of the picture rather than the subject.
+const pts=list.map(p=>({lat:p.lat,lng:p.lng}));
+if(here)pts.push(here);
+// Frame the roads the route actually uses, not just its stops: a leg that has
+// to go round three blocks leaves the box drawn around its endpoints.
+(legs||[]).forEach(l=>{if(!l)return;
+['foot','ride'].forEach(m=>{if(l[m]&&l[m].path)l[m].path.forEach(
+q=>pts.push({lat:q[0],lng:q[1]}));});});
+let n=Math.max(...pts.map(p=>p.lat)),s=Math.min(...pts.map(p=>p.lat)),
+w=Math.min(...pts.map(p=>p.lng)),e=Math.max(...pts.map(p=>p.lng));
+// A single stop has no extent at all; give every plan a floor so one pin
+// does not divide by zero and eight clustered pins are not a smudge.
+const padLat=Math.max((n-s)*0.22,0.0022),padLng=Math.max((e-w)*0.22,0.0022);
+n+=padLat;s-=padLat;w-=padLng;e+=padLng;
+const kx=Math.cos((n+s)/2*Math.PI/180),W=760;
+const H=Math.max(240,Math.min(520,W*((n-s)/((e-w)*kx||1e-9))));
+const X=lng=>(lng-w)/(e-w)*W,Y=lat=>(n-lat)/(n-s)*H;
+let o=['<svg viewBox="0 0 '+W+' '+Math.round(H)+'" width="100%" class="planmap" role="img" '+
+'aria-label="แผนที่ทริปของคุณ / map of your route">',
+'<rect width="'+W+'" height="'+Math.round(H)+'" fill="#FBF6EE"/>'];
+// The moat, the square everybody here navigates by — but only when a side of
+// it actually falls inside the frame. A run of stops entirely within the old
+// city frames tighter than the moat itself, and drawing the square then puts
+// all four of its sides off-canvas: markup nobody can see. That case gets the
+// one fact it was there to convey, in words.
+if(POLY.length&&list.some(p=>p.p==='cm')){
+const frame=[{lat:n,lng:w},{lat:n,lng:e},{lat:s,lng:e},{lat:s,lng:w}];
+const frameEdges=frame.map((p,i)=>[p,frame[(i+1)%4]]);
+const vertexIn=p=>p.lat<n&&p.lat>s&&p.lng>w&&p.lng<e;
+const shows=POLY.some(vertexIn)||POLY_EDGES.some(me=>frameEdges.some(fe=>segX(me[0],me[1],fe[0],fe[1])));
+o.push('<path d="'+POLY.map((p,i)=>(i?'L':'M')+X(p.lng).toFixed(1)+' '+Y(p.lat).toFixed(1)).join(' ')+
+'Z" fill="none" stroke="#2a78d6" stroke-width="2" stroke-dasharray="5 4" opacity=".55">'+
+'<title>คูเมืองเชียงใหม่ (เส้นโดยประมาณ จากหมุดแจ่งทั้งสี่) · the old city moat, '+
+'traced from the four แจ่ง corner pins</title></path>');
+// Label above the ring's northernmost point — the ring is ordered by bearing,
+// so no fixed index is "the top".
+if(shows){const top=POLY.reduce((a,b)=>b.lat>a.lat?b:a),ty=Y(top.lat)-8;
+if(ty>14)o.push('<text x="'+Math.min(Math.max(X(top.lng),60),W-60).toFixed(1)+
+'" y="'+ty.toFixed(1)+'" text-anchor="middle" font-size="11" fill="#2a78d6" opacity=".8">'+
+'คูเมือง · the moat</text>');}
+else o.push('<text x="'+(W-12)+'" y="20" text-anchor="end" font-size="11" fill="#2a78d6" '+
+'opacity=".8">ในเวียงเก่า · inside the old city</text>');}
+// Draw the roads the route really follows. Both modes, because they diverge:
+// where the walk and the ride part company is exactly the thing worth seeing.
+// The scooter line goes down first and solid, the walking line over it dashed,
+// so where they agree you read one road and where they differ you read two.
+const drawPath=(pth,stroke,w,dash)=>{
+if(!pth||pth.length<2)return;
+const d=pth.map((q,i)=>(i?'L':'M')+X(q[1]).toFixed(1)+' '+Y(q[0]).toFixed(1)).join(' ');
+o.push('<path d="'+d+'" fill="none" stroke="'+stroke+'" stroke-width="'+w+
+'" stroke-linejoin="round" stroke-linecap="round"'+
+(dash?' stroke-dasharray="'+dash+'"':'')+' opacity=".85"/>');};
+let anyRouted=false,anyStraight=false;
+(legs||[]).forEach(l=>{if(!l)return;
+if(l.ride&&l.ride.path){drawPath(l.ride.path,'#1c5aa8',4,'');anyRouted=true;}
+if(l.foot&&l.foot.path){drawPath(l.foot.path,'#a3231c',2.5,'6 4');anyRouted=true;}});
+// The stub from a pin to the road it sits back from. Its length is already in
+// the leg distance; without it drawn, a shop down a lane looks unreachable —
+// the route line simply stops short of its own pin.
+(legs||[]).forEach((l,i)=>{if(!l)return;
+const pth=(l.foot&&l.foot.path)||(l.ride&&l.ride.path);
+if(!pth||pth.length<2)return;
+[[list[i],pth[0]],[list[i+1],pth[pth.length-1]]].forEach(([stop,end])=>{
+if(!stop)return;
+const dx=X(end[1])-X(stop.lng),dy=Y(end[0])-Y(stop.lat);
+if(Math.hypot(dx,dy)<3)return;
+o.push('<line x1="'+X(stop.lng).toFixed(1)+'" y1="'+Y(stop.lat).toFixed(1)+'" x2="'+
+X(end[1]).toFixed(1)+'" y2="'+Y(end[0]).toFixed(1)+'" stroke="#8a7a62" stroke-width="1.5" '+
+'stroke-dasharray="2 3" opacity=".7"><title>'+
+'จากหมุดถึงถนน / from the pin out to the road</title></line>');});});
+// A leg the graph could not route still needs a line, but a faint dotted one
+// that does not pretend to be a road.
+list.forEach((p,i)=>{const L=(legs||[])[i-1];
+if(i&&L&&!L.routed){anyStraight=true;
+const a=list[i-1];
+o.push('<path d="M'+X(a.lng).toFixed(1)+' '+Y(a.lat).toFixed(1)+'L'+X(p.lng).toFixed(1)+
+' '+Y(p.lat).toFixed(1)+'" fill="none" stroke="#8a7a62" stroke-width="2" '+
+'stroke-dasharray="2 5" opacity=".8"><title>'+
+'เส้นตรง ยังไม่ได้คิดตามถนน / straight line, not routed</title></path>');}});
+if(here){o.push('<circle cx="'+X(here.lng).toFixed(1)+'" cy="'+Y(here.lat).toFixed(1)+
+'" r="7" fill="#2a78d6" fill-opacity=".25" stroke="#2a78d6" stroke-width="2">'+
+'<title>ตำแหน่งของคุณ · you are here</title></circle>');}
+list.forEach((p,i)=>{const cx=X(p.lng),cy=Y(p.lat);
+o.push('<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="13" fill="#a3231c" '+
+'stroke="#7d1712" stroke-width="2"><title>'+H2(p.n)+'</title></circle>');
+o.push('<text x="'+cx.toFixed(1)+'" y="'+(cy+5).toFixed(1)+'" text-anchor="middle" '+
+'font-size="14" font-weight="700" fill="#fff">'+(i+1)+'</text>');
+const label=p.n.length>24?p.n.slice(0,23)+'…':p.n;
+let anchor='middle',lx=cx;const half=label.length*3.6;
+if(cx-half<4){anchor='start';lx=4;}else if(cx+half>W-4){anchor='end';lx=W-4;}
+o.push('<text x="'+lx.toFixed(1)+'" y="'+(cy-18).toFixed(1)+'" text-anchor="'+anchor+
+'" font-size="12" fill="#2A1E16">'+H2(label)+'</text>');});
+const kmDeg=111.32*kx,barKm=(e-w)*kx*111.32>6?2:0.5,barPx=barKm/kmDeg/(e-w)*W;
+if(barPx<W*0.6){const by=Math.round(H-16);
+o.push('<line x1="16" y1="'+by+'" x2="'+(16+barPx).toFixed(1)+'" y2="'+by+
+'" stroke="#2A1E16" stroke-width="2"/>');
+o.push('<text x="16" y="'+(by-5)+'" font-size="10" fill="#2A1E16">'+barKm+' กม./km</text>');}
+// Two lines on one map need saying which is which.
+if(anyRouted||anyStraight){let lx=W-14,ly=H-34;
+const key=(stroke,wd,dash,label)=>{
+o.push('<line x1="'+(lx-26)+'" y1="'+ly+'" x2="'+(lx-6)+'" y2="'+ly+'" stroke="'+stroke+
+'" stroke-width="'+wd+'"'+(dash?' stroke-dasharray="'+dash+'"':'')+' stroke-linecap="round"/>');
+o.push('<text x="'+(lx-32)+'" y="'+(ly+4)+'" text-anchor="end" font-size="10" fill="#2A1E16">'+
+label+'</text>');ly+=14;};
+if(anyRouted){key('#a3231c',2.5,'6 4','🚶 เดิน/walk');key('#1c5aa8',4,'','🛵 มอไซค์/scooter');}
+if(anyStraight)key('#8a7a62',2,'2 5','เส้นตรง/straight');}
+o.push('</svg>');return o.join('');}
+function H2(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function planUrl(){return SITE+'plan.html?stops='+encodeURIComponent(places.map(p=>p.key).join(','));}
+// share_block bakes the bare plan.html URL into each pill's query string. Swap
+// that placeholder for the real ?stops= link — percent-encoded, since it now
+// carries a ? of its own and would otherwise truncate the outer share URL.
+function repointShare(){const box=document.getElementById('planshare');if(!box)return;
+const u=planUrl(),t='แผนเดินทาง '+places.length+' จุด · มดแดง';
+box.querySelectorAll('a.pill').forEach(a=>{
+if(!a.dataset.tpl)a.dataset.tpl=a.getAttribute('href');
+a.setAttribute('href',a.dataset.tpl.split(SITE+'plan.html').join(encodeURIComponent(u)));});
+box.querySelectorAll('[data-url]').forEach(b=>{b.dataset.url=u;
+if(b.dataset.title!=null)b.dataset.title=t;});}
+function textPlan(){
+const lines=['แผนเดินทาง / My route — มดแดง motdang.net',''];
+places.forEach((p,i)=>{lines.push((i+1)+'. '+p.n+(p.en&&p.en!==p.n?' ('+p.en+')':''));
+if(p.addr)lines.push('   '+p.addr);
+(p.chan||[]).forEach(c=>lines.push('   '+c.text));
+lines.push('   '+SITE+p.p+'/p/'+p.s+'.html');
+const nx=places[i+1];
+if(nx){const L=leg(p,nx);
+if(L.routed){
+if(L.foot)lines.push('   ↓ เดิน/walk '+dist(L.foot.km)+' — '+mins(L.foot.km,MODES.foot.kmh)+' นาที/min');
+else lines.push('   ↓ เดินไปไม่ได้ / not walkable');
+if(L.ride)lines.push('     ขี่/scooter '+dist(L.ride.km)+' — '+mins(L.ride.km,MODES.ride.kmh)+' นาที/min');
+else lines.push('     ขี่ไปไม่ได้ / no road for a scooter');
+}else{
+lines.push('   ↓ '+dist(L.crow)+' เส้นตรง ยังไม่ได้คิดตามถนน / straight line, not routed');
+lines.push('     '+osmDirections(p,nx,'foot'));}}
+lines.push('');});
+lines.push('ลิงก์ทริปนี้ / this route: '+planUrl());
+return lines.join('\n');}
+// The demo teaches an empty page. Once there are real stops on the map it is
+// just a second animated map competing with the true one, so it steps aside.
+const elDemo=document.getElementById('plandemo');
+function render(){
+if(elDemo)elDemo.style.display=places.length?'none':'';
+if(!places.length){elEmpty.style.display='';elHas.style.display='none';
+if(incoming)elBanner.style.display='none';return;}
+elEmpty.style.display='none';elHas.style.display='';
+const legs=[];for(let i=1;i<places.length;i++)legs.push(leg(places[i-1],places[i]));
+elMap.innerHTML=svgMap(places,legs);
+// Totals per mode, and only over the legs that mode could actually route.
+// Summing a routed leg with a crow-flies one would produce a number that is
+// neither, so an unrouted leg is counted and named separately.
+const sum=m=>legs.reduce((t,l)=>t+(l[m]?l[m].km:0),0);
+const unrouted=legs.filter(l=>!l.routed).length;
+const footTot=sum('foot'),rideTot=sum('ride');
+const legIn=here&&places.length?leg(here,places[0]):null;
+let tot='<b>'+places.length+' จุด / stops</b>';
+if(places.length>1){
+if(GRAPH_STATE==='ready'&&(footTot||rideTot)){
+tot+=' · <span class="pmode foot">🚶 '+dist(footTot)+' · '+mins(footTot,MODES.foot.kmh)+' นาที/min</span>'+
+' · <span class="pmode ride">🛵 '+dist(rideTot)+' · '+mins(rideTot,MODES.ride.kmh)+' นาที/min</span>';
+if(rideTot>footTot*1.15)tot+=' <span class="tinynote">'+
+'(มอไซค์ไกลกว่าเพราะถนนเดินรถทางเดียว / longer by scooter — one-way streets)</span>';
+}else{
+tot+=' · '+dist(footTot||rideTot||0);}}
+else tot+=' · จุดเดียว / a single stop';
+if(legIn&&legIn.foot)tot+=' · จากตำแหน่งคุณถึงจุดแรก '+dist(legIn.foot.km);
+if(unrouted)tot+=' · <b>'+unrouted+' ช่วงอยู่นอกเขตคิดเส้นทาง</b> / '+unrouted+
+' leg'+(unrouted>1?'s':'')+' outside the routed area';
+elTotal.innerHTML=tot;
+planSteps.innerHTML=places.map((p,i)=>{
+const cats=(p.c||[]).map(c=>CATL[c]?CATL[c][0]:c).join(' · ');
+const chan=(p.chan||[]).map(c=>'<a href="'+H2(c.href)+'" rel="noopener">'+H2(c.text)+'</a>').join('');
+const L=legs[i];
+let legHtml='';
+if(L){
+if(L.routed){
+const f=L.foot,r=L.ride;
+let rows='';
+if(f)rows+='<span class="pleg foot">🚶 '+dist(f.km)+' · '+mins(f.km,MODES.foot.kmh)+' นาที/min</span>';
+if(r)rows+='<span class="pleg ride">🛵 '+dist(r.km)+' · '+mins(r.km,MODES.ride.kmh)+' นาที/min</span>';
+if(!f)rows+='<span class="pleg none">🚶 เดินไปไม่ได้ / not walkable</span>';
+if(!r)rows+='<span class="pleg none">🛵 ขี่ไปไม่ได้ / no road for a scooter</span>';
+let note='';
+if(f&&r&&r.km>f.km*1.25)note='<span class="planvia">↳ '+
+'ขี่ไกลกว่าเดิน '+dist(r.km-f.km)+' — ถนนทางเดียวหรือต้องกลับรถ / '+
+'the ride is '+dist(r.km-f.km)+' longer: one-way, or a U-turn to get across</span>';
+legHtml='<li class="planleg">'+rows+note+'</li>';
+}else{
+const A=places[i],B=places[i+1];
+legHtml='<li class="planleg out">↓ '+dist(L.crow)+' '+
+'<span class="tinynote">เส้นตรง ยังไม่ได้คิดตามถนน / straight line, not routed</span> '+
+'<a class="planosm" href="'+H2(osmDirections(A,B,'foot'))+'" rel="noopener">🚶 ดูเส้นทาง/directions ↗</a> '+
+'<a class="planosm" href="'+H2(osmDirections(A,B,'ride'))+'" rel="noopener">🛵 ดูเส้นทาง/directions ↗</a></li>';}}
+return '<li class="planstop"><span class="plannum">'+(i+1)+'</span>'+
+'<div class="planbody"><h3><a href="'+RROOT+p.p+'/p/'+p.s+'.html">'+H2(p.n)+'</a></h3>'+
+'<span class="plancat">'+H2(cats)+' · '+H2(p.pv)+'</span>'+
+(p.addr?'<p class="planaddr">'+H2(p.addr)+'</p>':'')+
+(chan?'<div class="planchan">'+chan+'</div>':'')+
+'</div><div class="planacts">'+
+'<button type="button" data-up="'+i+'" title="เลื่อนขึ้น / move up"'+(i?'':' disabled')+'>▲</button>'+
+'<button type="button" data-down="'+i+'" title="เลื่อนลง / move down"'+(i<places.length-1?'':' disabled')+'>▼</button>'+
+'<button type="button" class="plandel" data-del="'+i+'" title="เอาออก / remove">✕</button>'+
+'</div></li>'+legHtml;}).join('');
+planSteps.querySelectorAll('[data-up]').forEach(b=>b.addEventListener('click',()=>{
+const i=+b.dataset.up;[places[i-1],places[i]]=[places[i],places[i-1]];commit();}));
+planSteps.querySelectorAll('[data-down]').forEach(b=>b.addEventListener('click',()=>{
+const i=+b.dataset.down;[places[i+1],places[i]]=[places[i],places[i+1]];commit();}));
+planSteps.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>{
+places.splice(+b.dataset.del,1);commit();}));
+const dl=document.getElementById('plandlbtn');
+if(dl){if(dl.dataset.blob)URL.revokeObjectURL(dl.dataset.blob);
+const url=URL.createObjectURL(new Blob([textPlan()],{type:'text/plain;charset=utf-8'}));
+dl.dataset.blob=url;dl.href=url;}
+repointShare();}
+// commit = the plan changed for real: remember it, redraw, and stop treating
+// it as somebody else's shared link.
+function commit(){incoming=null;elBanner.style.display='none';
+planSet(places.map(p=>p.key));render();}
+if(incoming){const mine=planGet();
+elBanner.className='planbanner';elBanner.style.display='';
+elBanner.innerHTML='<span>📩 <b>แผนที่มีคนแชร์มา '+incoming.length+' จุด</b> · '+
+'A route someone shared with you'+(mine.length?' — แผนเดิมของคุณยังอยู่ / your own plan is untouched':'')+
+'</span><button type="button" id="plankeep">💾 เก็บเป็นแผนของฉัน / Keep as mine</button>';
+document.getElementById('plankeep').addEventListener('click',commit);}
+document.querySelectorAll('.pmbtn').forEach(b=>b.addEventListener('click',()=>{
+planMode=b.dataset.mode;
+try{localStorage.setItem('md-planmode',planMode);}catch(e){}
+document.querySelectorAll('.pmbtn').forEach(x=>{const on=x===b;
+x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
+document.body.classList.toggle('mode-ride',planMode==='ride');
+render();}));
+document.body.classList.toggle('mode-ride',planMode==='ride');
+document.querySelectorAll('.pmbtn').forEach(x=>{const on=x.dataset.mode===planMode;
+x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
+document.getElementById('planclearbtn').addEventListener('click',()=>{
+places=[];planSet([]);incoming=null;elBanner.style.display='none';render();});
+document.getElementById('planlocbtn').addEventListener('click',()=>{
+navigator.geolocation.getCurrentPosition(pos=>{
+here={lat:pos.coords.latitude,lng:pos.coords.longitude};
+document.getElementById('planlocbtn').classList.add('on');render();},
+()=>alert('เปิดตำแหน่งที่ตั้งก่อน / allow location first'));});
+// Nearest-neighbour from wherever the run starts. Not the optimal tour, and
+// it does not pretend to be — with eight stops it is close enough to save
+// real riding, and it stays legible: "always go to the nearest one next".
+document.getElementById('planreorderbtn').addEventListener('click',()=>{
+if(places.length<3)return;
+const rest=places.slice();const out=[];
+let cur=here||rest[0];
+if(!here)out.push(rest.shift());
+// Nearest by the network the reader is actually travelling on. Ordering by
+// crow-flies would happily send a scooter the wrong way up a one-way soi.
+const nearBy=(a,b)=>{const L=leg(a,b);
+const r=L[planMode]||L.foot||L.ride;return r?r.km:L.crow;};
+while(rest.length){let bi=0,bd=Infinity;
+rest.forEach((p,i)=>{const d=nearBy(cur,p);if(d<bd){bd=d;bi=i;}});
+cur=rest[bi];out.push(rest.splice(bi,1)[0]);}
+places=out;commit();});
+render();
+})();}
 """
 
 
@@ -1905,12 +2666,15 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <a class="chip" href="{r}add.html">{svg_icon("i-plus", 22)}<span>{bi("เพิ่มข้อมูล", "Add a place")}</span></a>
     <a class="chip" href="{r}claim.html">{svg_icon("i-claim", 22)}<span>{bi("ยืนยันร้านของคุณ", "Claim your place")}</span></a>
     <a class="chip" href="{r}events.html">{svg_icon("i-lantern", 22)}<span>{bi("งานบุญ-งานเมือง", "What is on")}</span></a>
-    <a class="chip dark rand" href="#">{svg_icon("i-dice", 22)}<span>{bi("สุ่มพาไป", "Take me somewhere")}</span></a>
+    <a class="chip dark" href="{r}plan.html">{svg_icon("i-route", 22)}<span>{bi("วางแผนเดินทาง", "Plan a route")}</span><span class="plancount" style="display:none"></span></a>
+    <a class="chip rand" href="#">{svg_icon("i-dice", 22)}<span>{bi("สุ่มพาไป", "Take me somewhere")}</span></a>
   </nav>
   <div class="svcbar">
     <a href="{r}contacts.html">{bi("เติมเบอร์-ไลน์", "Add contacts")}</a> ·
+    <a href="{r}soi.html">{bi("ถนนและซอย", "Roads & sois")}</a> ·
     <a href="{r}crawl-request.html">{bi("ส่งมดไปสำรวจ", "Request a crawl")}</a> ·
     <a href="{r}widgets.html">{bi("วิดเจ็ต", "Widgets")}</a> ·
+    <a href="{r}chart.html">{bi("ดวงจีนสี่เสา", "Four Pillars")}</a> ·
     <a href="{r}festivals.html">{bi("เทศกาล-ฤดูกาล", "Festivals & seasons")}</a> ·
     <a href="{r}stats.html">{bi("สถิติ", "Stats")}</a> ·
     <a href="{r}advertise.html">{bi("ลงโฆษณา", "Advertise")}</a> ·
@@ -1934,6 +2698,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
   <a href="{r}partners.html">{bi("แลกฟีด", "Partners")}</a> ·
   <a href="{r}why.html">{bi("ทำไมดีกว่า Google", "Why we beat Google")}</a> ·
   <a href="{r}reach.html">🔗 {bi("ลิงก์ที่ยังเปิดได้", "Which links still work")}</a> ·
+  <a href="{r}privacy.html">{bi("ความเป็นส่วนตัว", "Privacy")}</a> ·
   <a href="{r}llms.txt">llms.txt</a> ·
   <a href="{r}llms-full.txt">llms-full.txt</a><br>
   <span class="licence">{bi(LICENSE_LINE_TH, LICENSE_LINE_EN)}</span>
@@ -2205,6 +2970,222 @@ def ant_panel(r):
                  "Some details on record — help fill in the rest, free.") + "</p>")
 
 
+# ------------------------------------------------------------------- facets
+# A chain branch is not its brand. Two 7-Elevens 400m apart differ by whether
+# one has a cash machine and somewhere to sit — which is the entire reason a
+# person picks one over the other, and precisely what a crawl cannot see. See
+# data/facets.json for the schema and importers/import_fixtures.py for what
+# evidence can fill without asking anyone.
+#
+# Presence is the only claim made. A facet that is absent renders as nothing,
+# never as "no": we know 105 shops have an ATM; we do not know that the other
+# 410 lack one, and a directory that implies it would be lying quietly.
+
+def facet_set_of(r):
+    for s in r.get("sub") or []:
+        if s in FACET_SET_BY_SUB:
+            return FACET_SET_BY_SUB[s]
+    return None
+
+
+def facet_bits(r):
+    """key -> provenance ("field", "osm-near", "osm-tag"), best source winning.
+
+    An owner or a passer-by who stood at the door outranks a spatial join every
+    time, so claims are merged last.
+    """
+    fs = facet_set_of(r)
+    if not fs:
+        return {}
+    known = FACET_DEF.get(fs["key"], {})
+    got = {k: v for k, v in ((r.get("attrs") or {}).get("facets") or {}).items()
+           if k in known}
+    for k in (CLAIMS.get(r["id"]) or {}).get("facets") or []:
+        if k in known:
+            got[k] = "field"
+    return got
+
+
+FACET_SRC_NOTE = {
+    "field": ("มีคนไปดูมาเอง", "checked by a person"),
+    "osm-near": ("จากแผนที่ OpenStreetMap ที่ปักไว้ใกล้ร้าน", "an OpenStreetMap point beside the shop"),
+    "osm-tag": ("จากป้ายข้อมูลใน OpenStreetMap", "tagged in OpenStreetMap"),
+}
+
+
+def facet_pills(r, small=True):
+    """The row a reader actually scans: icon, word, and how we know.
+
+    Anything joined by distance rather than confirmed at the door says so —
+    an ATM "beside the shop" is evidence, not testimony, and the difference
+    matters to someone riding across town for it.
+    """
+    bits = facet_bits(r)
+    if not bits:
+        return ""
+    fs = facet_set_of(r)
+    known = FACET_DEF[fs["key"]]
+    out = []
+    for f in fs["facets"]:                      # schema order, not dict order
+        src = bits.get(f["key"])
+        if not src:
+            continue
+        # The border states provenance and nothing else, so every distance-join
+        # is dashed — including the ATM, which is the strongest of them and
+        # still not the same claim as someone having stood there. What
+        # auto_means_near changes is the wording ("Toilet nearby"), not how
+        # confident the mark looks.
+        near = src == "osm-near"
+        # Plain text, not bi(): a title attribute renders literally, so the
+        # markup bi() returns would be shown to the reader as angle brackets.
+        tip = " / ".join(x for x in FACET_SRC_NOTE.get(src, ("", "")) if x)
+        cls = "facet" + (" near" if near else "") + (" field" if src == "field" else "")
+        out.append(f'<span class="{cls}" title="{att(tip)}">{f["icon"]} '
+                   + bi(f["th"], f["en"]) + "</span>")
+    if not out:
+        return ""
+    return f'<span class="facets{" small" if small else ""}">{"".join(out)}</span>'
+
+
+def facet_door(r, fs):
+    """One tap to tell the ants what this branch has.
+
+    A prefilled GitHub issue, which is the developers' side entrance and known
+    to be the wrong front door for a shop owner — but this contributor is not a
+    shop owner, they are a passer-by with an observation, and it costs nothing
+    and risks nothing to give them a working route today. The one-tap LINE
+    version needs a branch in the webhook, which currently answers any message
+    carrying a place id by starting the owner-claim interview: someone who only
+    wanted to say "this one has a cash machine" would be asked for their
+    opening hours. Better no door than that one.
+    """
+    lines = [f'{i + 1}. {f["icon"]} {f["th"]} / {f["en"]}'
+             for i, f in enumerate(fs["facets"])]
+    body = (f'{name_of(r)}\n{BASE}{r["province"]}/p/{place_slug(r)}.html\n'
+            f'[id:{r["id"]}]\n\n'
+            "ลบข้อที่สาขานี้ไม่มีออก แล้วส่งได้เลย\n"
+            "Delete the lines this branch does NOT have, then send.\n\n"
+            + "\n".join(lines)
+            + "\n\nอย่างอื่น / Anything else:\n")
+    url = ("https://github.com/NaNoBotCo/mot-dang/issues/new?title="
+           + urllib.parse.quote(f"สาขานี้มีอะไร / What this branch has: {name_of(r)}")
+           + "&body=" + urllib.parse.quote(body))
+    return (f'<p class="facetdoor"><a class="pill" href="{att(url)}" rel="noopener">🐜 '
+            + bi("บอกมดแดงว่าสาขานี้มีอะไร", "Tell the ants what this branch has")
+            + "</a></p>")
+
+
+def facet_panel(r):
+    """On a place page: the row, its heading, and an invitation to correct it."""
+    pills = facet_pills(r, small=False)
+    fs = facet_set_of(r)
+    if not fs:
+        return ""
+    if not pills:
+        # An empty row is still worth printing on a chain branch: it is the
+        # clearest possible statement of what we do not yet know, next to the
+        # one button that fixes it.
+        body = ('<p class="antgap">'
+                + bi("ยังไม่รู้ว่าสาขานี้มีอะไรบ้าง — ใครผ่านไปช่วยบอกมดแดงหน่อย",
+                     "We don't know what this branch has yet — if you pass by, tell the ants.")
+                + "</p>")
+    else:
+        body = pills + f'<p class="tinynote">' + bi(
+            "มีเท่าที่รู้ ไม่ได้แปลว่าอย่างอื่นไม่มี · ชี้เมาส์ที่ป้ายเพื่อดูว่ารู้มาจากไหน",
+            "This lists what we know of — not what the shop lacks. Point at a tag "
+            "to see where it came from.") + "</p>"
+    return (f'<section class="facetpanel"><span class="reachlabel">'
+            + bi(fs["th"], fs["en"]) + "</span>"
+            + f'<p class="tinynote facetlede">' + bi(fs["note_th"], fs["note_en"]) + "</p>"
+            + body + facet_door(r, fs) + "</section>")
+
+
+def facet_ticks(set_key="convenience"):
+    """The tick-list, for the claim and edit forms.
+
+    Checkboxes rather than free text because this is the one contribution
+    format a person will actually finish while standing in a queue — and
+    because a closed vocabulary is the narrowest possible field: nothing a
+    submitter types can survive it.
+    """
+    fs = next((s for s in FACET_SETS if s["key"] == set_key), None)
+    if not fs:
+        return ""
+    boxes = "".join(
+        f'<label class="tick"><input type="checkbox" name="facet" value="{f["key"]}"> '
+        f'{f["icon"]} ' + bi(f["th"], f["en"]) + "</label>"
+        for f in fs["facets"])
+    return (f'<fieldset class="facetticks" data-facetticks><legend>'
+            + bi(fs["th"], fs["en"]) + "</legend>"
+            + f'<p class="tinynote">'
+            + bi("ติ๊กเฉพาะที่มีจริง ที่ไม่ได้ติ๊กแปลว่ายังไม่รู้ ไม่ได้แปลว่าไม่มี",
+                 "Tick only what's really there. Unticked means we don't know — "
+                 "not that it's missing.")
+            + f"</p>{boxes}</fieldset>")
+
+
+def facet_chips(records):
+    """Filter chips for a shelf, with live counts — the Yahoo-directory move.
+
+    Only chips that would find something are drawn: a chip reading "ATM (0)" is
+    a dead end wearing the costume of a filter. Counts are of records on this
+    page, so they always add up to what a reader can see.
+    """
+    sets = {}
+    for r in records:
+        fs = facet_set_of(r)
+        if fs:
+            sets.setdefault(fs["key"], fs)
+    if len(sets) != 1:      # a mixed shelf has no single honest chip row
+        return ""
+    fs = next(iter(sets.values()))
+    counts = {}
+    for r in records:
+        for k in facet_bits(r):
+            counts[k] = counts.get(k, 0) + 1
+    chips = [f'<button class="fchip" data-f="{f["key"]}">{f["icon"]} '
+             + bi(f["th"], f["en"]) + f' <span class="count">({counts[f["key"]]:,})</span></button>'
+             for f in fs["facets"] if counts.get(f["key"])]
+    if not chips:
+        return ""
+    return ('<div class="toolbar facetbar" data-facetbar>'
+            + bi("มีอะไร", "Has") + ": " + "".join(chips)
+            + f'<button class="fchip clear" data-f="">✕ ' + bi("ล้าง", "clear")
+            + "</button></div><p class=\"tinynote\">"
+            + bi("เลือกได้หลายอย่าง — จะเหลือแต่ร้านที่มีครบตามที่เลือก",
+                 "Pick more than one — the list keeps only shops that have all of them.")
+            + "</p>")
+
+
+def plan_key(r):
+    """The stable id a place is tracked by in a route plan: province+slug,
+    the exact pair plan.html needs to fetch p/<slug>.json — no separate
+    lookup table has to travel alongside it."""
+    return f"{r['province']}:{place_slug(r)}"
+
+
+def plan_toggle_btn(r, big=False):
+    """A ring on a listing row; a labelled pill on the place page. Both read
+    the same localStorage set (md-plan, md.js), so adding from either place
+    keeps the other in sync without a page reload.
+
+    The ring carries no visible text, so it gets an aria-label naming the place
+    rather than leaning on `title` — which plenty of assistive tech skips, and
+    which would in any case announce the same nine words four thousand times on
+    a category page. Named, it reads as "add Taa Peng Cat to my route plan".
+    """
+    key = att(plan_key(r))
+    if big:
+        return (f'<button type="button" class="planbtn planbtn-lg" data-plan="{key}" '
+                f'aria-pressed="false">{svg_icon("i-route", 18, "planicon")}'
+                f'<span class="off-label">{bi("เพิ่มลงแผนเดินทาง", "Add to my plan")}</span>'
+                f'<span class="on-label">{bi("เอาออกจากแผน", "Remove from plan")}</span></button>')
+    label = f'เพิ่ม {name_of(r)} ลงแผนเดินทาง / add {name_of(r)} to my route plan'
+    return (f'<button type="button" class="planbtn" data-plan="{key}" aria-pressed="false" '
+            f'aria-label="{att(label)}" title="{att(label)}">'
+            f'{svg_icon("i-route", 14, "planicon")}</button>')
+
+
 def entry_li(r, href):
     star = '<span class="star">★</span> ' if is_featured(r) else ""
     pin = ' <span class="badge pin">' + bi("รอปักหมุด", "pin wanted") + "</span>" \
@@ -2218,9 +3199,15 @@ def entry_li(r, href):
     # showing a "score" out of 9 reads as a ranking of the businesses
     # themselves. data-rank stays, invisibly, for the sort-by-complete /
     # needs-love buttons.
+    plan = plan_toggle_btn(r) if r.get("lat") is not None else ""
+    # data-facets drives the chip filter; the pills render inline so a reader
+    # scanning 332 near-identical branch names can see the difference without
+    # opening any of them. That scan is the whole point of the facet layer.
+    fb = facet_bits(r)
+    fac = f' data-facets="{att(" ".join(sorted(fb)))}"' if fb else ""
     return (f'<li data-n="{att(name_of(r))}"{lat} data-rank="{rank}" '
-            f'data-upd="{att(upd)}"{keys}>{star}'
-            f'<a href="{href}">{esc(name_of(r))}</a>{pin}{hon}</li>')
+            f'data-upd="{att(upd)}"{keys}{fac}>{star}'
+            f'<a href="{href}">{esc(name_of(r))}</a>{pin}{hon}{facet_pills(r)}{plan}</li>')
 
 
 def geojson(records):
@@ -2265,7 +3252,7 @@ def listing_page(title_th, title_en, records, depth, prov, crumbs, path, extra_t
     lis = "".join(entry_li(r, "../" * (depth - 1) + f"p/{place_slug(r)}.html") for r in records)
     body = (f"<h1>{bi(title_th, title_en)} "
             f'<span class="count">({len(records):,})</span></h1>'
-            f"{extra_top}{ad_box(path, depth)}{toolbar(records)}"
+            f"{extra_top}{ad_box(path, depth)}{toolbar(records)}{facet_chips(records)}"
             f'<ul class="dir" data-sortable>{lis}</ul>'
             f"{share_block(BASE + path, title_th)}")
     # seo_title carries province context into <title>/og:title without
@@ -2417,6 +3404,11 @@ def place_json(r, photo_file=None):
         rec["royal"] = {k: v for k, v in h.items() if k != "ids"}
     if FOOD_BY_ID.get(r["id"]):
         rec["awards"] = FOOD_BY_ID[r["id"]]
+    # Facets as {key: provenance}, so a consumer can weigh "someone stood there"
+    # against "a point sits 22m away" instead of getting a flat true.
+    fb = facet_bits(r)
+    if fb:
+        rec["facets"] = fb
     rec["license"] = LICENSE_LINE_EN
     return rec
 
@@ -2534,6 +3526,24 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         rows.append(f"<dt>{bi('ชื่ออังกฤษ', 'English name')}</dt><dd>{esc(r['nameEn'])}</dd>")
     if r.get("address"):
         rows.append(f"<dt>{bi('ที่อยู่', 'Address')}</dt><dd>{esc(r['address'])}</dd>")
+    # The road it stands on, and the neighbours up and down it. A listing that
+    # only ever pointed at its category was a leaf; this is the rung people
+    # actually use to say where something is.
+    on_street = STREET_OF.get(r["id"])
+    if on_street:
+        st, entry = on_street
+        near = ""
+        if entry.get("via") == "nearest" and entry.get("d") is not None:
+            near = (f' <span class="tinynote">'
+                    + bi(f"(ติดถนนนี้ที่สุด ห่าง {int(entry['d'])} ม.)",
+                         f"(nearest road, {int(entry['d'])} m away)") + "</span>")
+        rows.append(
+            f"<dt>{bi('ถนน', 'Road')}</dt>"
+            f'<dd><a href="{att(street_href(st, 2))}">{esc(st["name"])}</a>{near}<br>'
+            f'<span class="tinynote">'
+            + bi(f"ดูอีก {len(st['places']) - 1:,} ที่บนถนนเดียวกัน เรียงตามลำดับที่เดินผ่าน",
+                 f"See {len(st['places']) - 1:,} more on the same road, in walking order")
+            + "</span></dd>")
     claim = CLAIMS.get(r["id"])
     hours = (claim or {}).get("hours") or r.get("hours")
     if hours:
@@ -2639,7 +3649,9 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         related_html = (f'<div class="related"><h2>'
                          + bi("ที่คล้ายกันแถวนี้", "More like this")
                          + f"</h2><ul>{items}</ul></div>")
-    body = (f"<h1>{esc(name_of(r))}</h1>{honour_panel(r)}{ant_panel(r)}{img_tag}{photo_note}{blurb}"
+    plan_cta = plan_toggle_btn(r, big=True) if r.get("lat") is not None else ""
+    body = (f"<h1>{esc(name_of(r))}</h1>{plan_cta}{honour_panel(r)}{facet_panel(r)}"
+            f"{ant_panel(r)}{img_tag}{photo_note}{blurb}"
             f"{reach_block(r)}{whatson}<dl>{''.join(rows)}</dl>"
             f"{contact_cta}{photo_cta}"
             f"{share_block(BASE + path, name_of(r), qr=True)}{ad_box(path, 2)}{related_html}"
@@ -2893,7 +3905,61 @@ def ics_data_uri(e):
 # No tiles, no external scripts — the site forbids both. So the map is drawn
 # here, in Python, as inline SVG: venue pins over the old-city moat, which is
 # the reference every local reads a Chiang Mai map by.
-CM_MOAT = {"n": 18.7955, "s": 18.7815, "w": 98.9755, "e": 98.9925}
+# The old city moat, taken from the four แจ่ง (corner bastions) as they are
+# pinned in the catalogue rather than typed in by hand. The hand-typed square
+# this replaces had its west side 372 m out — enough to put Suan Dok Gate on
+# the wrong side of its own moat, which matters now that a route leg is
+# tested against these edges and not merely drawn against them.
+MOAT_CORNER_IDS = {
+    "ne": "cm-osm-way-263459882",   # แจ่งศรีภูมิ
+    "se": "cm-osm-way-791602197",   # แจ่งก๊ะต๊ำ
+    "sw": "cm-osm-way-317516851",   # แจ่งกู่เฮือง
+    "nw": "cm-osm-way-317516852",   # แจ่งหัวลิน
+}
+
+# Where a person actually gets across: the five gates and the four corners.
+# Not an exhaustive list of every bridge over the moat — the page says so —
+# but the crossings anyone here would name when giving directions.
+MOAT_CROSSING_IDS = [
+    "cm-osm-node-11229077788",  # ประตูช้างเผือก Chang Phueak Gate — north
+    "cm-osm-node-1017379824",   # ประตูท่าแพ Thapae Gate — east
+    "cm-osm-node-6107975995",   # ประตูเชียงใหม่ Chiang Mai Gate — south
+    "cm-osm-node-11226724529",  # ประตูแสนปุง Saen Pung Gate — south-west
+    "cm-osm-node-6717438786",   # ประตูสวนดอก Suan Dok Gate — west
+    "cm-osm-way-263459882", "cm-osm-way-791602197",
+    "cm-osm-way-317516851", "cm-osm-way-317516852",
+]
+
+
+def _moat_ring():
+    """The moat as the quadrilateral of its four แจ่ง corners.
+
+    The gates are deliberately NOT threaded into this ring, though they lie on
+    the moat and doing so draws a prettier line. Their nodes sit on the road
+    crossing, a little OUTSIDE the water — Suan Dok Gate's is ~92 m west of
+    the corner-to-corner line — so a ring through them bulges outward and
+    swallows places that are genuinely across the water. Tried it: a nail
+    salon on the far bank came out as inside the old city and its leg stopped
+    reporting a crossing at all. The corners bound the water; the gates are
+    where you get over it. Two different questions, two different geometries.
+    """
+    path = ROOT / "data" / "canonical" / "cm.json"
+    if not path.exists():
+        return None
+    by_id = {r["id"]: r for r in json.loads(path.read_text())}
+    pts = [by_id.get(MOAT_CORNER_IDS[k]) for k in ("nw", "ne", "se", "sw")]
+    if not all(p and p.get("lat") is not None for p in pts):
+        return None
+    return [[p["lat"], p["lng"]] for p in pts]
+
+
+MOAT_POLY = _moat_ring()
+if MOAT_POLY:
+    _la = [p[0] for p in MOAT_POLY]
+    _ln = [p[1] for p in MOAT_POLY]
+    CM_MOAT = {"n": max(_la), "s": min(_la), "w": min(_ln), "e": max(_ln)}
+else:
+    CM_MOAT = {"n": 18.79518, "s": 18.78163, "w": 98.97903, "e": 98.99304}
 
 
 def event_map_svg(events):
@@ -3978,6 +5044,467 @@ def line_qr_block(depth=0):
             f'<span class="tinynote">{bi("พิมพ์ออกมาวางไว้หน้าร้านก็ได้เจ้า", "Print it and stand it by the till")}</span></div></div>')
 
 
+def _road_graph_stats():
+    """One line describing the shipped graph, counted rather than asserted — so
+    llms.txt cannot claim a shape the file does not have."""
+    p = ROOT / "data" / "road_graph.json"
+    if not p.exists():
+        return "graph not built yet"
+    g = json.loads(p.read_text())
+    e = g["edges"]
+    walk_only = sum(1 for x in e if (x[3] & 3) and not (x[3] & 12))
+    ride_only = sum(1 for x in e if (x[3] & 12) and not (x[3] & 3))
+    ow = sum(1 for x in e if (x[3] & 12) in (4, 8))
+    return (f"{len(g['nodes']):,} junctions, {len(e):,} edges — {walk_only:,} walk-only, "
+            f"{ride_only:,} no walker may use, {ow:,} one-way for a scooter")
+
+
+ROAD_GRAPH_STATS = _road_graph_stats()
+
+PLAN_DEMO_GIF = "plan-demo.gif"
+_pd_path = ROOT / "assets" / "plan-demo.json"
+PLAN_DEMO = json.loads(_pd_path.read_text()) if _pd_path.exists() else None
+
+
+def plan_hero_html(depth=0):
+    """The homepage hero for the route planner.
+
+    It gets room to say what it does, because "plan a route" tells a reader
+    nothing they could not guess and hides the part that is actually unusual:
+    the walking answer and the scooter answer are different answers. The numbers
+    quoted are the demo's own, read from the sidecar make_plan_demo.py writes,
+    so the hero cannot advertise a claim the tool would not reproduce.
+    """
+    r = "../" * depth
+    gif = ""
+    if PLAN_DEMO and (ROOT / "assets" / PLAN_DEMO_GIF).exists():
+        # Built outside the f-string: Python 3.9 will not take a multi-line
+        # expression inside one, and this alt text needs two lines.
+        gif_alt = ("ภาพเคลื่อนไหวแสดงการวางแผนเดินทางสามจุด "
+                   "เส้นทางเดินและเส้นทางมอเตอร์ไซค์ต่างกัน / animation of a three-stop "
+                   "route plan, the walking line and the scooter line differing")
+        gif = (f'<img class="hgif" src="{r}{PLAN_DEMO_GIF}" width="200" height="200" '
+               f'alt="{att(gif_alt)}" loading="lazy">')
+    lede_th = ("เลือกร้านก๋วยเตี๋ยว คลินิก ร้านทำเล็บ — จุดไหนก็ได้จากทั่วสารบัญนี้ — "
+               "แล้วดูพร้อมกันในแผนที่เดียว พร้อมระยะทางจริงตามถนนแต่ละช่วง")
+    lede_en = ("Pick a noodle stand, a clinic, a nail place — any stops from anywhere in the "
+               "directory — and see them together on one map, with the real street distance "
+               "for every leg.")
+    pts = [
+        ("เดินกับขี่มอเตอร์ไซค์ คิดแยกกัน เพราะมันไม่เหมือนกันจริงๆ — "
+         "สะพานคนเดินมอเตอร์ไซค์ขึ้นไม่ได้ และถนนเดินรถทางเดียวทำให้ต้องอ้อม",
+         "Walking and riding are worked out separately, because they really are different "
+         "journeys — a footbridge is no use to a scooter, and a one-way street means going round"),
+        ("คิดตามถนนจริง ไม่ใช่ลากเส้นตรงข้ามตึกข้ามคูเมือง",
+         "Routed along real streets — not a straight line drawn through buildings and across the moat"),
+        ("แชร์ทริปทั้งหมดเป็นลิงก์เดียว ส่งไลน์ให้ใครก็ได้ ไม่ต้องสมัคร ไม่เก็บข้อมูล",
+         "Share the whole run as one link over LINE — no account, nothing tracked"),
+        ("ดาวน์โหลดเก็บไว้เป็นข้อความ พร้อมเบอร์โทรและเวลาเปิดของทุกจุด",
+         "Download it as plain text, with every stop's phone number and opening hours"),
+    ]
+    pts_html = "".join(f"<li>{bi(a, b)}</li>" for a, b in pts)
+    # A three-row comparison rather than a sentence: bi() escapes its arguments
+    # by design, so emphasis cannot live inside one — and the same two stops
+    # measured three ways is more legible as a list anyway.
+    num = ""
+    if PLAN_DEMO:
+        rows = [
+            ("", bi("บินตรง", "as the crow flies"), f'{PLAN_DEMO["crowM"]} m', "crow"),
+            ("🚶", bi("เดินจริง", "on foot"), f'{PLAN_DEMO["footM"]} m', "foot"),
+            ("🛵", bi("ขี่มอเตอร์ไซค์", "on a scooter"), f'{PLAN_DEMO["rideM"]} m', "ride"),
+        ]
+        body = "".join(
+            f'<tr class="{cls}"><td class="hg">{g}</td><td>{lbl}</td>'
+            f'<td class="hv">{v}</td></tr>' for g, lbl, v, cls in rows)
+        num = (f'<div class="hnum"><span class="hcap">'
+               + bi("สองจุดเดียวกัน วัดสามแบบ", "The same two stops, measured three ways")
+               + f'</span><table>{body}</table><span class="hwhy">'
+               + bi("คูเมืองขวางอยู่ — คนเดินข้ามสะพานได้ มอเตอร์ไซค์ต้องอ้อม",
+                    "The moat is between them: a walker takes the footbridge, a scooter goes round.")
+               + "</span></div>")
+    return (
+        f'<section class="planhero" aria-labelledby="h-plan">'
+        f'<div class="hh"><h2 id="h-plan">{svg_icon("i-route", 26)} '
+        f'{bi("วางแผนบ่ายนี้", "Plan your afternoon")}</h2>'
+        f'<span class="newflag">{bi("ใหม่", "NEW")}</span></div>'
+        f'<div class="hbody">{gif}<div class="htext">'
+        f'<p class="hlede">{bi(lede_th, lede_en)}</p>'
+        f'<ul class="hpts">{pts_html}</ul>{num}'
+        f'<a class="hcta" href="{r}plan.html">{bi("เริ่มวางแผน", "Start planning")} →</a>'
+        f'<p class="hfoot">'
+        + bi("ครอบคลุมในเวียงและรอบนอกราว ๒ กิโลเมตร · นอกเขตนี้บอกตรงๆ ว่ายังไม่ได้คิดตามถนน",
+             "Covers the old city and about 2 km around it — outside that, it says so plainly "
+             "instead of guessing.")
+        + "</p></div></div></section>")
+
+
+def plan_demo_figure():
+    """The little looping demo, beside the tool it demonstrates.
+
+    Its numbers are read from the sidecar make_plan_demo.py writes next to the
+    frames, so the caption always quotes the run actually being drawn. If the
+    gif has not been generated the whole figure simply does not appear —
+    nothing here waits on it.
+    """
+    if not PLAN_DEMO or not (ROOT / "assets" / PLAN_DEMO_GIF).exists():
+        return ""
+    crow, f_m, r_m = PLAN_DEMO["crowM"], PLAN_DEMO["footM"], PLAN_DEMO["rideM"]
+    alt = ("ภาพเคลื่อนไหว: ปักหมุดสามจุดในเชียงใหม่ แล้วลากเส้นทางจริงตามถนนสองเส้น — "
+           "เส้นทึบสีน้ำเงินคือทางมอเตอร์ไซค์ เส้นประสีแดงคือทางเดิน ซึ่งไม่ใช่เส้นเดียวกัน — "
+           "animation: three stops pinned in Chiang Mai, then two real routes drawn along the "
+           "streets — a solid blue line for the scooter and a dashed red one for walking, "
+           "which are not the same line")
+    cap_th = (f"สามจุดจริง เส้นทางจริงตามถนน — ช่วงสุดท้ายบินตรงได้ {crow} เมตร "
+              f"แต่เดินจริง {f_m} เมตร และขี่มอเตอร์ไซค์ {r_m} เมตร "
+              f"คนละเส้นกัน เพราะสะพานคนเดินมอเตอร์ไซค์ขึ้นไม่ได้ และถนนบางสายเดินรถทางเดียว")
+    cap_en = (f"Three real stops, routed along real streets. That last leg is {crow} m as the "
+              f"crow flies, {f_m} m on foot, and {r_m} m on a scooter — different lines, because "
+              f"a footbridge is no use to a scooter and some streets only run one way.")
+    return (f'<figure class="plandemo" id="plandemo">'
+            f'<img src="{PLAN_DEMO_GIF}" width="200" height="200" alt="{att(alt)}" loading="lazy">'
+            f'<figcaption>{bi(cap_th, cap_en)}</figcaption></figure>')
+
+
+def build_plan_page():
+    """The errand-run planner: pick a few stops from anywhere on the site,
+    see them on one map with the walking/scooter distance between each, then
+    share or download the whole run as one thing.
+
+    The page itself is a near-empty shell — a handful of ids for md.js to
+    fill in. It has to be: the stops are whatever the reader picked, so
+    nothing about the actual plan can be baked at build time the way the
+    rest of this site is. What IS baked: the category-label lookup (so a
+    stop card can say "อาหาร · Food" without a second data file) and a
+    share_block pointed at plan.html itself, which md.js then repoints at
+    the real ?stops=... link once the plan is known — same trick as the
+    single-place share block, just re-aimed after the fact instead of
+    server-rendered once.
+    """
+    cat_labels = {c: [CATS[c]["th"], CATS[c]["en"]] for c in CAT_ORDER}
+    # The moat ring is shipped for orientation on the map — it is the square
+    # everybody here navigates by. It no longer drives any distance: the gates
+    # and the footbridges are edges in the road graph now, so which of them a
+    # leg uses is the router's answer and not a special case here.
+    geo = {"moat": CM_MOAT, "poly": MOAT_POLY}
+    lede_th = ("เลือกร้านก๋วยเตี๋ยว คลินิก ร้านทำเล็บ — จุดไหนก็ได้จากทั่วเว็บนี้ — "
+               "แล้วมาดูพร้อมกันในหน้าเดียว รู้ระยะทางแต่ละช่วง เดินก็ได้ ขี่มอไซค์ก็ได้ "
+               "แชร์ทริปทั้งหมดเป็นลิงก์เดียว หรือดาวน์โหลดเก็บไว้ก็ได้")
+    lede_en = ("Pick a noodle stand, a clinic, a nail place — any mix of stops from anywhere "
+               "on this site — and see them together on one page, with the distance between "
+               "each leg on foot or by scooter. Share the whole run as one link, or download "
+               "it to keep.")
+    how_th = ('กด 🧭 "เพิ่มลงแผนเดินทาง" ที่หน้าร้านหรือในรายชื่อ '
+              'แล้วกลับมาที่นี่ — เก็บได้สูงสุด 8 จุดต่อทริป')
+    how_en = ('Tap "Add to plan" on any place page or listing row, then come back here — '
+              'up to 8 stops per trip.')
+    plan_dist_caveat = bi("ระยะทางเป็นเส้นตรง ไม่ใช่เส้นทางจริงบนถนน — ใช้กะเวลาคร่าวๆ เท่านั้นเจ้า",
+                          "Distances are straight-line, not routed along real streets — "
+                          "a rough guide to timing, not turn-by-turn directions.")
+    plan_moat_caveat = bi(
+        "ถ้าช่วงไหนต้องข้ามคูเมือง มดแดงจะคิดระยะอ้อมไปทางประตูหรือแจ่งที่ใกล้ที่สุดให้ "
+        "จุดข้ามที่รู้จักคือประตูทั้งห้าและแจ่งทั้งสี่ — อาจมีสะพานอื่นอีกที่ยังไม่ได้บันทึกไว้",
+        "Where a leg has to cross the moat, the distance shown is the way round by the "
+        "nearest gate or corner, not through the water. The crossings on record are the "
+        "five gates and the four แจ่ง corners — there may be other bridges we have not "
+        "catalogued yet. The moat outline is traced between the four corner pins, so it "
+        "runs a little inside the real bank in places.")
+    body = (
+        f'<h1>{svg_icon("i-route", 30)} {bi("วางแผนเดินทาง", "Plan your route")}</h1>'
+        f'<p>{bi(lede_th, lede_en)}</p>'
+        f'<p class="myhint">{bi(how_th, how_en)}</p>'
+        f'{plan_demo_figure()}'
+        f'<div id="planbanner" style="display:none"></div>'
+        f'<div id="planempty" class="planempty" style="display:none">'
+        f'<p>🐜 {bi("ยังไม่ได้เพิ่มจุดไหนเลย", "No stops added yet")}</p>'
+        f'<p class="tinynote">{bi(how_th, how_en)}</p>'
+        f'<p><a href="{PROVINCES[0]["key"]}/index.html">{bi("เริ่มดูสารบัญ →", "Browse the directory →")}</a></p>'
+        f'</div>'
+        f'<div id="planhasstops" style="display:none">'
+        f'<div id="plantotal" class="plantotal"></div>'
+        f'<div class="planmodes" role="group" aria-label="{att("วิธีเดินทาง / how you travel")}">'
+        f'<span class="pmlabel">{bi("ไปแบบไหน", "Travelling by")}</span>'
+        f'<button type="button" class="pmbtn on" data-mode="foot" aria-pressed="true">'
+        f'🚶 {bi("เดิน", "On foot")}</button>'
+        f'<button type="button" class="pmbtn" data-mode="ride" aria-pressed="false">'
+        f'🛵 {bi("มอเตอร์ไซค์", "Scooter")}</button>'
+        f'</div>'
+        f'<div class="plantools">'
+        f'<button type="button" id="planlocbtn">📍 {bi("ใช้ตำแหน่งของฉัน", "Use my location")}</button>'
+        f'<button type="button" id="planreorderbtn">🔀 {bi("จัดลำดับให้ใกล้สุด", "Reorder for shortest route")}</button>'
+        f'<a id="plandlbtn" class="plandl" download="motdang-plan.txt">'
+        f'⬇ {bi("ดาวน์โหลดเป็นข้อความ", "Download as text")}</a>'
+        f'<button type="button" id="planclearbtn">🗑 {bi("ล้างแผนทั้งหมด", "Clear plan")}</button>'
+        f'</div>'
+        f'<div class="planmapwrap"><div id="planmap"></div></div>'
+        f'<ul class="plansteps" id="plansteps"></ul>'
+        f'<div id="planshare">{share_block(BASE + "plan.html", "แผนเดินทาง · มดแดง")}</div>'
+        f'</div>'
+        f'<p class="tinynote">{plan_dist_caveat}</p>'
+        f'<p class="tinynote">{plan_moat_caveat}</p>'
+        f'<script type="application/json" id="cat-labels">{json.dumps(cat_labels, ensure_ascii=False)}</script>'
+        f'<script type="application/json" id="plan-geo">{json.dumps(geo, ensure_ascii=False)}</script>'
+    )
+    (DOCS / "plan.html").write_text(page(
+        "วางแผนเดินทาง", body, depth=0, path="plan.html", desc=lede_th))
+
+
+_solar = json.loads((ROOT / "data" / "solar_terms.json").read_text())
+SOLAR_FROM, SOLAR_TO = _solar["from"], _solar["to"]
+
+# Drawn in the browser from what bazi.js returns. The Thai branch names are the
+# same twelve-animal cycle under their Thai names — this labels the BRANCH of
+# the pillar, which 立春 has already settled, and says nothing about the Thai
+# calendar year (that one turns at Songkran, and the page says so).
+CHART_JS = r"""// Renders the four pillars. Nothing here sends anything anywhere.
+(function () {
+  'use strict';
+  var form = document.getElementById('chartform');
+  var out = document.getElementById('chartout');
+  if (!form || !out || !window.MDBazi) return;
+
+  function bi(th, en) {
+    return '<span class="bi"><span class="th">' + th +
+           '</span><span class="en"><span class="th"> · </span>' + en + '</span></span>';
+  }
+  var ELEM_TH = ['ไม้', 'ไฟ', 'ดิน', 'ทอง', 'น้ำ'];
+  var ANIMAL_TH = ['ชวด', 'ฉลู', 'ขาล', 'เถาะ', 'มะโรง', 'มะเส็ง',
+                   'มะเมีย', 'มะแม', 'วอก', 'ระกา', 'จอ', 'กุน'];
+  var WHO = [['ปี', 'Year'], ['เดือน', 'Month'], ['วัน', 'Day'], ['ชั่วโมง', 'Hour']];
+
+  var TERMS = null, loading = null;
+  function terms() {
+    if (TERMS) return Promise.resolve(TERMS);
+    if (!loading) {
+      var root = document.documentElement.getAttribute('data-root') || '';
+      loading = fetch(root + 'data/solar_terms.json')
+        .then(function (r) { return r.json(); })
+        .then(function (j) { TERMS = j; return j; });
+    }
+    return loading;
+  }
+
+  function cell(p, who, extra) {
+    if (!p) {
+      return '<div class="pillar unknown"><div class="who">' + bi(who[0], who[1]) +
+             '</div><div class="zh">—</div><div class="pin">' +
+             bi('ไม่ทราบเวลาเกิด', 'birth time unknown') + '</div></div>';
+    }
+    return '<div class="pillar"><div class="who">' + bi(who[0], who[1]) +
+           '</div><div class="zh">' + p.zh + '</div><div class="pin">' + p.pinyin +
+           '</div><div class="pin">' + bi('ธาตุ' + ELEM_TH[p.element], p.elementEn) +
+           '</div>' + (extra || '') + '</div>';
+  }
+
+  function render(c) {
+    if (c.error) {
+      out.innerHTML = '<p class="chartnote">' +
+        bi('ตารางสุริยคติมีเฉพาะปี ' + c.from + '–' + c.to,
+           'The solar-term table only covers ' + c.from + '–' + c.to) + '</p>';
+      out.hidden = false;
+      return;
+    }
+    var p = c.pillars;
+    var animal = '<div class="pin">' +
+      bi('นักษัตร' + ANIMAL_TH[p.year.branch], p.year.animal) + '</div>';
+    var html = '<div class="pillars">' +
+      cell(p.year, WHO[0], animal) + cell(p.month, WHO[1]) +
+      cell(p.day, WHO[2]) + cell(p.hour, WHO[3], '') + '</div>';
+
+    html += '<p>' + bi('ธาตุประจำตัว (日主) — ' + c.dayMaster.zh + ' ธาตุ' +
+                       ELEM_TH[c.dayMaster.element],
+                       'Day master ' + c.dayMaster.pinyin + ', ' + c.dayMaster.elementEn) + '</p>';
+
+    var tally = '<div class="elements">';
+    for (var i = 0; i < 5; i++) {
+      var n = c.elements[i];
+      tally += '<span' + (n ? '' : ' class="none"') + '>' + c.elementNames[i][0] + ' ' +
+               bi('ธาตุ' + ELEM_TH[i], c.elementNames[i][1]) + ' × ' + n + '</span>';
+    }
+    tally += '</div>';
+    html += tally;
+    html += '<p class="chartnote">' +
+      bi(c.hasHour ? 'นับจากทั้งสี่เสา' : 'นับจากสามเสา เพราะไม่ได้ใส่เวลาเกิด',
+         c.hasHour ? 'Counted across all four pillars.'
+                   : 'Counted across three pillars — no birth time was given.') + '</p>';
+    out.innerHTML = html;
+    out.hidden = false;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = document.getElementById('bdate').value;
+    if (!d) return;
+    var t = document.getElementById('btime').value;
+    var parts = d.split('-').map(Number);
+    var hasHour = !!t;
+    var hour = hasHour ? Number(t.split(':')[0]) + Number(t.split(':')[1]) / 60 : 0;
+    terms().then(function (T) {
+      render(window.MDBazi.chart(T, parts[0], parts[1], parts[2], hour, hasHour));
+      out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+})();
+"""
+
+
+def build_privacy_page():
+    """What the site holds, what it never sees, and how to make it stop.
+
+    Written before anything collects anything, which is the only order that
+    makes it true. The controller is named by the contact address alone — no
+    personal or business name, by the operator's decision.
+    """
+    lede_th = ("มดแดงไม่ติดตามคุณ ไม่มีคุกกี้ ไม่มีสถิติผู้เข้าชม ไม่มีปุ่มโซเชียลที่แอบส่งข้อมูลกลับบ้าน "
+               "หน้าเว็บทุกหน้าเป็นไฟล์นิ่ง ไม่เรียกอะไรจากข้างนอกเลย")
+    lede_en = ("Mot Dang does not track you. No cookies, no analytics, no social buttons "
+               "phoning home. Every page is a static file that calls nothing from outside.")
+
+    rows = [
+        ("เครื่องของคุณเก็บอะไรไว้",
+         "What your own device keeps",
+         "ชั้นที่คุณปักหมุด วิดเจ็ตที่เลือก เมืองที่ดูอากาศ และรายการที่ใส่ไว้ในแผนเดินทาง "
+         "เก็บอยู่ใน localStorage ของเบราว์เซอร์คุณเอง ไม่เคยถูกส่งมาที่เรา "
+         "ล้างข้อมูลเบราว์เซอร์แล้วหายทันที ไม่ต้องขอใคร",
+         "Your pinned shelves, chosen widgets, weather cities, and route basket live in "
+         "your browser's own localStorage. They are never sent to us. Clearing your "
+         "browser data erases them, and you need nobody's permission to do it."),
+        ("ดวงจีน คำนวณในเครื่องคุณ",
+         "The birth chart is computed on your device",
+         "หน้าดวงจีนคิดเลขทั้งหมดในเบราว์เซอร์ของคุณ วันเกิดและเวลาเกิดไม่ได้ถูกส่งไปไหนเลย "
+         "หน้านั้นไม่มีปลายทางจะส่งไปด้วยซ้ำ ปิดแท็บก็จบ",
+         "The chart page does its arithmetic in your browser. Your birth date and time are "
+         "not transmitted anywhere — the page has no endpoint to send them to. Close the "
+         "tab and it is gone."),
+        ("สิ่งที่เราได้รับ ก็ต่อเมื่อคุณส่งมาเอง",
+         "What reaches us, and only when you send it",
+         "ข้อความทางไลน์ อีเมล ฟอร์มยืนยันร้าน และ issue บน GitHub — ทั้งหมดคุณเป็นคนเริ่ม "
+         "ฟอร์มยืนยันร้านรับได้เฉพาะช่องทางติดต่อกับเวลาเปิด (เบอร์ ไลน์ เฟซบุ๊ก ไอจี วอทส์แอป อีเมล เว็บ) "
+         "แก้ชื่อหรือที่อยู่ไม่ได้ และข้อมูลที่ยืนยันแล้วจะขึ้นเว็บเป็นสาธารณะ เพราะนั่นคือจุดประสงค์ของมัน",
+         "LINE messages, email, the claim form, and GitHub issues — every one of them "
+         "starts with you. The claim form accepts contact channels and opening hours only "
+         "(phone, LINE, Facebook, Instagram, WhatsApp, email, website); it cannot change a "
+         "name or an address. What you confirm becomes public on the site, because that is "
+         "the point of confirming it."),
+        ("สิ่งที่เราไม่ได้ควบคุม",
+         "What we do not control",
+         "เว็บนี้ฝากไว้กับ GitHub Pages และฟอร์มยืนยันร้านวิ่งผ่าน Cloudflare "
+         "ผู้ให้บริการทั้งสองเก็บ log ของเซิร์ฟเวอร์ตามปกติ ซึ่งเราไม่ได้อ่านและไม่ได้เอามาใช้ "
+         "ลิงก์ที่พาออกไปข้างนอก เช่น ไลน์ เฟซบุ๊ก Ko-fi หรือเว็บของร้าน อยู่ใต้กติกาของเจ้าของที่นั่น",
+         "The site is hosted on GitHub Pages and the claim form runs on Cloudflare. Both "
+         "keep ordinary server logs, which we do not read and do not use. Links that take "
+         "you off the site — LINE, Facebook, Ko-fi, a shop's own website — are governed by "
+         "whoever runs those."),
+        ("วิดเจ็ตในหน้าของฉัน",
+         "The widgets on My page",
+         "หน้า “ของฉัน” ให้คุณฝังหน้าเว็บอื่นได้ถ้าคุณเลือกเอง นั่นเป็นข้อยกเว้นเดียวของกติกา "
+         "“ไม่เรียกอะไรจากข้างนอก” และมันเกิดขึ้นเมื่อคุณกดเพิ่มเท่านั้น ลบออกได้ทุกเมื่อ",
+         "My page lets you embed other pages if you choose to. That is the single exception "
+         "to the no-external-requests rule, it happens only when you add one yourself, and "
+         "you can remove it at any time."),
+        ("อยากให้ลบ",
+         "Asking us to erase something",
+         f"เขียนมาที่ {CONTACT_EMAIL} บอกว่าอยากให้ลบอะไร ไม่ต้องอธิบายเหตุผล "
+         "ถ้าเป็นข้อมูลที่คุณยืนยันไว้ บอกชื่อร้านมาก็พอ",
+         f"Write to {CONTACT_EMAIL} and say what you want removed. No reason required. "
+         "If it is something you claimed, the name of the place is enough."),
+        ("จดหมายข่าว ยังไม่มี",
+         "There is no mailing list yet",
+         "ตอนนี้มดแดงไม่ได้เก็บอีเมลใครไว้ส่งข่าว ถ้าวันหนึ่งมี การยินยอมจะแยกออกจากกันคนละช่อง "
+         "ไม่ติ๊กไว้ให้ล่วงหน้า และไม่เป็นเงื่อนไขของการใช้อย่างอื่น หน้านี้จะถูกแก้ก่อนที่จะเริ่มเก็บ",
+         "Mot Dang holds nobody's email for news. If that ever changes, consent will be a "
+         "separate box, unticked, and never a condition of anything else — and this page "
+         "will say so before a single address is collected."),
+    ]
+    body = [f'<h1>🐜 {bi("ความเป็นส่วนตัว", "Privacy")}</h1>',
+            f'<p>{bi(lede_th, lede_en)}</p>']
+    for th, en, pth, pen in rows:
+        body.append(f'<div class="privrow"><h3>{bi(th, en)}</h3><p>{bi(pth, pen)}</p></div>')
+    body.append(
+        f'<p class="tinynote">{bi(f"ติดต่อเรื่องนี้ได้ที่ {CONTACT_EMAIL} · ปรับปรุง {BUILD_DATE}", f"Questions about any of this: {CONTACT_EMAIL} · updated {BUILD_DATE}")}</p>')
+    body.append(share_block(BASE + "privacy.html", "ความเป็นส่วนตัว · มดแดง"))
+    (DOCS / "privacy.html").write_text(page(
+        "ความเป็นส่วนตัว", "".join(body), depth=0, path="privacy.html", desc=lede_th))
+
+
+def build_chart_page():
+    """ดวงจีน — the four pillars, drawn by assets/bazi.js in the reader's browser.
+
+    The engine and its table have been finished and parity-tested against
+    ../taoist-oracle for a while (tests/test_bazi_parity.py, 4,018 consecutive
+    dates); nothing rendered them. This is that page.
+
+    No form posts anywhere. If data/config.json ever gains a `listEndpoint`,
+    the "email me this" block below appears — until then it stays out of the
+    HTML entirely, the same way the LINE blocks stay hidden while
+    `lineOaId` is empty.
+    """
+    lede_th = ("ดวงจีนสี่เสา (八字) จากวันเกิดของคุณ คิดในเครื่องคุณเอง "
+               "ไม่มีการส่งวันเกิดไปที่ไหนทั้งสิ้น ไม่ต้องกรอกชื่อ ไม่ต้องสมัคร")
+    lede_en = ("Your Four Pillars (八字), worked out from your birth date. The arithmetic "
+               "runs on your own device — the date is not sent anywhere, and there is no "
+               "name to give and nothing to join.")
+    how_th = ("ปีจีนเปลี่ยนที่ลี่ชุน (立春) ราวต้นเดือนกุมภาพันธ์ ไม่ใช่วันที่ 1 มกราคม "
+              "และไม่ใช่วันตรุษจีนด้วย คนเกิดปลายมกราคมจึงมักได้นักษัตรของปีก่อนหน้า "
+              "ถ้าไม่ทราบเวลาเกิด เสาเวลาจะเว้นไว้ ไม่เดาให้ — อีกสามเสายังใช้ได้ตามปกติ "
+              "คนละระบบกับปีนักษัตรไทย ซึ่งเปลี่ยนตอนสงกรานต์")
+    how_en = ("The Chinese year turns at 立春, in the first days of February — not on "
+              "1 January, and not at Chinese New Year either. Someone born in late January "
+              "usually carries the previous year's animal. If you do not know your birth "
+              "time, the hour pillar is left out rather than guessed; the other three "
+              "still stand. This is a different system from the Thai zodiac year, which "
+              "turns at Songkran.")
+    src_th = ("เลขคณิตมาจากโปรเจกต์ taoist-oracle ของเราเอง และถูกตรวจทานกับต้นทาง "
+              "4,018 วันติดต่อกัน ทั้งสี่เสาตรงกันทุกวัน ตารางสุริยคติครอบคลุมปี "
+              f"{SOLAR_FROM}–{SOLAR_TO}")
+    src_en = ("The arithmetic comes from our own taoist-oracle project and is checked "
+              "against it over 4,018 consecutive dates, all four pillars agreeing on every "
+              f"one. The solar-term table covers {SOLAR_FROM}–{SOLAR_TO}.")
+
+    ask = CONFIG.get("listEndpoint", "")
+    mail_block = ""
+    if ask:
+        mail_block = (
+            f'<div class="privrow"><h3>{bi("ส่งดวงนี้ไปที่อีเมล", "Email this chart to yourself")}</h3>'
+            f'<form class="chartform" id="chartmail" data-endpoint="{att(ask)}">'
+            f'<label>{bi("อีเมล", "Email")}<input type="email" name="email" required></label>'
+            f'<label class="consent"><input type="checkbox" name="consentNews"> '
+            f'{bi("ส่งข่าวมดแดงให้ด้วย (แยกจากการส่งดวง ไม่ติ๊กก็ได้ดวงเหมือนกัน)", "Also send me Mot Dang news (separate from the chart, and not required to get it)")}</label>'
+            f'<button type="submit">{bi("ส่ง", "Send")}</button></form></div>')
+
+    body = (
+        f'<h1>🐜 {bi("ดวงจีนสี่เสา", "Your Four Pillars")}</h1>'
+        f'<p>{bi(lede_th, lede_en)}</p>'
+        f'<form class="chartform" id="chartform">'
+        f'<label>{bi("วันเกิด", "Birth date")}'
+        f'<input type="date" id="bdate" required min="{SOLAR_FROM}-02-05" max="{SOLAR_TO}-01-05"></label>'
+        f'<label>{bi("เวลาเกิด (ไม่ทราบก็ข้ามได้)", "Birth time (skip if unknown)")}'
+        f'<input type="time" id="btime"></label>'
+        f'<button type="submit">{bi("ดูดวง", "Read it")}</button>'
+        f'</form>'
+        f'<div class="chartout" id="chartout" hidden></div>'
+        f'<h2>{bi("อ่านยังไง", "How to read it")}</h2>'
+        f'<p>{bi(how_th, how_en)}</p>'
+        f'{mail_block}'
+        f'<h2>{bi("เลขมาจากไหน", "Where the numbers come from")}</h2>'
+        f'<p>{bi(src_th, src_en)}</p>'
+        f'<p class="tinynote">{bi("หน้านี้ไม่เก็บอะไรเลย อ่านเพิ่มที่", "This page stores nothing. More at")} '
+        f'<a href="privacy.html">{bi("ความเป็นส่วนตัว", "Privacy")}</a></p>'
+        f'{share_block(BASE + "chart.html", "ดวงจีนสี่เสา · มดแดง")}')
+
+    head = ('<script src="bazi.js"></script>'
+            '<script src="chart.js" defer></script>')
+    (DOCS / "chart.html").write_text(page(
+        "ดวงจีนสี่เสา", body, depth=0, path="chart.html", desc=lede_th,
+        extra_head=head))
+    (DOCS / "chart.js").write_text(CHART_JS)
+    shutil.copyfile(ROOT / "assets" / "bazi.js", DOCS / "bazi.js")
+    # docs/ is wiped every run, so the engine and its table are copied in here
+    # rather than left sitting in docs/ — the same trap as CNAME and bazi.js's
+    # first home. mkdir because page order must not decide whether this works.
+    (DOCS / "data").mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(ROOT / "data" / "solar_terms.json", DOCS / "data" / "solar_terms.json")
+
+
 def build_add_page():
     lede_th = ("อยากเพิ่มหรือแก้ข้อมูลในมดแดง เลือกทางไหนก็ได้ที่สะดวก "
                "ไม่ต้องสมัครสมาชิก ไม่มีค่าใช้จ่าย ไม่มีอะไรแอบแฝง")
@@ -4110,10 +5637,418 @@ def build_festivals_page():
         json.dumps({"festivals": FESTIVALS}, ensure_ascii=False, indent=2))
 
 
-def build():
-    if DOCS.exists():
+# ---------------------------------------------------------------- the soi tier
+# The directory has always walked จังหวัด → อำเภอ → ตำบล → place and skipped the
+# rung people actually use out loud: the road, and the soi off it. รู้ทุกซอย is
+# the tagline; this is the tagline as a page.
+#
+# Two things make a street page different from another shelf of names. Places
+# are ordered ALONG the road rather than alphabetically, so the list reads the
+# way a walk does. And the road links to the roads it meets, so the network is
+# something a reader — or a crawler — can walk without going back to an index.
+_streets_path = ROOT / "data" / "streets.json"
+STREETS_DATA = json.loads(_streets_path.read_text()) if _streets_path.exists() \
+    else {"streets": [], "counts": {}, "check": {}}
+STREETS = STREETS_DATA.get("streets", [])
+STREET_BY_SLUG = {s["slug"]: s for s in STREETS}
+# Each place lands on exactly one street, so this is a plain lookup rather than
+# a list — build_streets.py stops at the first assignment on purpose.
+STREET_OF = {}
+for _s in STREETS:
+    for _e in _s["places"]:
+        STREET_OF.setdefault(_e["id"], (_s, _e))
+STREET_KIDS = {}
+for _s in STREETS:
+    if _s.get("parent"):
+        STREET_KIDS.setdefault(_s["parent"], []).append(_s)
+
+
+def street_label(st, short=False):
+    """The road as a reader says it. A soi shows its parent unless the name
+    already carries it — 'ถนนมูลเมือง ซอย 6' should not become
+    'ถนนมูลเมือง ซอย 6 (ถนนมูลเมือง)'."""
+    name = st["name"]
+    if short or not st.get("soi") or not st.get("parent"):
+        return name
+    parent = STREET_BY_SLUG.get(st["parent"])
+    if not parent or norm_ish(parent["name"]) in norm_ish(name):
+        return name
+    return "%s — %s" % (name, parent["name"])
+
+
+def norm_ish(s):
+    return re.sub(r"\s+", "", s or "")
+
+
+def street_href(st, depth):
+    return "../" * depth + "%s/soi/%s.html" % (st["province"], st["slug"])
+
+
+def street_map_svg(st, by_id):
+    """The road drawn as itself, with its places pinned in walking order.
+
+    No tiles and no Leaflet — the site ships no external scripts — so this is an
+    equirectangular projection with a cosine correction, written straight into
+    the page as SVG. The numbers on the pins are the numbers in the list below,
+    which is what makes the picture usable rather than decorative (and what will
+    make it printable when the handout sheets want a map).
+    """
+    pts = [(pl, by_id.get(pl["id"])) for pl in st["places"]]
+    pts = [(pl, r) for pl, r in pts if r and r.get("lat") is not None]
+    if not st["geom"] or not pts:
+        return ""
+    lats = [c[0] for run in st["geom"] for c in run] + [r["lat"] for _, r in pts]
+    lngs = [c[1] for run in st["geom"] for c in run] + [r["lng"] for _, r in pts]
+    n, s = max(lats), min(lats)
+    w, e = min(lngs), max(lngs)
+    # A dead-straight soi has zero extent across itself; pad by the larger span
+    # so a 200 m lane does not render as a 200 m by 0 m sliver.
+    span = max(n - s, (e - w) * math.cos(math.radians((n + s) / 2)), 1e-4)
+    pad = span * 0.12
+    n, s, w, e = n + pad, s - pad, w - pad, e + pad
+    kx = math.cos(math.radians((n + s) / 2))
+    W = 720.0
+    H = max(200.0, min(620.0, W * ((n - s) / ((e - w) * kx or 1e-9))))
+
+    def X(lng):
+        return (lng - w) / (e - w) * W
+
+    def Y(lat):
+        return (n - lat) / (n - s) * H
+
+    out = ['<svg viewBox="0 0 %.0f %.0f" width="100%%" class="soimap" role="img" '
+           'aria-label="%s">' % (W, H, att("แผนที่%s — map of %s" % (st["name"], st["name"]))),
+           '<rect width="%.0f" height="%.0f" fill="#FBF6EE"/>' % (W, H)]
+    # The moat, when this road is anywhere near it — it is how everyone here
+    # says where they are.
+    if MOAT_POLY:
+        ring = " ".join("%.1f,%.1f" % (X(p[1]), Y(p[0])) for p in MOAT_POLY)
+        mlat = [p[0] for p in MOAT_POLY]
+        mlng = [p[1] for p in MOAT_POLY]
+        if min(mlat) < n and max(mlat) > s and min(mlng) < e and max(mlng) > w:
+            out.append('<polygon points="%s" fill="none" stroke="#2a78d6" '
+                       'stroke-width="2" stroke-dasharray="5 4" opacity=".55">'
+                       '<title>คูเมืองเชียงใหม่ · the old city moat</title></polygon>' % ring)
+    for run in st["geom"]:
+        d = " ".join("%.1f,%.1f" % (X(c[1]), Y(c[0])) for c in run)
+        out.append('<polyline points="%s" fill="none" stroke="#C9B8A2" stroke-width="9" '
+                   'stroke-linecap="round" stroke-linejoin="round"/>' % d)
+        out.append('<polyline points="%s" fill="none" stroke="#FBF6EE" stroke-width="3" '
+                   'stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>' % d)
+    numbered = len(pts) <= 40
+    for i, (pl, r) in enumerate(pts, 1):
+        cx, cy = X(r["lng"]), Y(r["lat"])
+        rad = 11.0 if numbered else 4.5
+        soft = ' fill-opacity=".85"' if pl.get("via") == "nearest" else ""
+        out.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="#eb6834" stroke="#8F2E13" '
+                   'stroke-width="1.5"%s><title>%s</title></circle>'
+                   % (cx, cy, rad, soft, att("%d. %s" % (i, name_of(r)))))
+        if numbered:
+            out.append('<text x="%.1f" y="%.1f" text-anchor="middle" font-size="11" '
+                       'font-weight="700" fill="#fff">%d</text>' % (cx, cy + 4, i))
+    # A map without a scale bar is a picture.
+    km_deg = 111.32 * kx
+    for bar_km in (0.1, 0.2, 0.5, 1.0, 2.0):
+        bar_px = bar_km / km_deg / (e - w) * W
+        if bar_px > 60:
+            break
+    out.append('<g transform="translate(14,%.1f)">' % (H - 16))
+    out.append('<line x1="0" y1="0" x2="%.1f" y2="0" stroke="#2A1E16" stroke-width="2"/>' % bar_px)
+    out.append('<text x="0" y="-5" font-size="11" fill="#2A1E16">%s</text>'
+               % (("%d ม./m" % int(bar_km * 1000)) if bar_km < 1 else ("%g กม./km" % bar_km)))
+    out.append("</g></svg>")
+    return "".join(out)
+
+
+def street_method_note(st):
+    """Say how each place got onto this road. A nearest-way match is a good
+    guess and this page says so in those words rather than dressing it as an
+    address — the same rule the events layer follows for an inferred venue."""
+    stated = sum(1 for p in st["places"] if p.get("via") == "stated")
+    near = sum(1 for p in st["places"] if p.get("via") == "nearest")
+    chk = STREETS_DATA.get("check") or {}
+    bits = []
+    if stated:
+        bits.append(bi("%d แห่งบอกที่อยู่เองว่าอยู่ถนนนี้" % stated,
+                       "%d give this road as their own address" % stated))
+    if near:
+        bits.append(bi("%d แห่งอยู่ติดถนนนี้ที่สุด (ไม่เกิน %d เมตร)"
+                       % (near, int(STREETS_DATA.get("cap_m", 30))),
+                       "%d stand closer to this road than to any other, within %d m"
+                       % (near, int(STREETS_DATA.get("cap_m", 30)))))
+    how = " · ".join(bits)
+    acc = ""
+    if chk.get("pct_family") and near:
+        acc = " " + bi(
+            "เราตรวจวิธีนี้กับ %d แห่งที่บอกที่อยู่เองไว้แล้ว — ตรงกัน %s%%"
+            % (chk["n"], chk["pct_family"]),
+            "We checked that guess against %d places that state their own address: "
+            "%s%% landed on the same road or its own soi." % (chk["n"], chk["pct_family"]))
+    return ('<p class="soimethod">📍 %s.%s %s</p>'
+            % (how, acc,
+               bi("นี่คือถนนที่ร้านตั้งอยู่ ไม่ใช่บ้านเลขที่เจ้า",
+                  "This is the road a place stands on, not a postal address.")))
+
+
+def street_page(st, by_id, prov_cfg):
+    depth = 2
+    r_ = "../" * depth
+    recs = [(pl, by_id[pl["id"]]) for pl in st["places"] if pl["id"] in by_id]
+    title = st["name"]
+    en = st.get("nameEn") or ""
+    # No invented gloss: a road with no name:en shows its Thai name alone, and
+    # bi() draws only the Thai span when the English side is empty.
+    head_en = en if en and en != title else ""
+
+    # Where it sits in the tree: the parent road, then the sois off this one.
+    lineage = []
+    if st.get("parent") and st["parent"] in STREET_BY_SLUG:
+        par = STREET_BY_SLUG[st["parent"]]
+        via = bi("ตามชื่อ", "by name") if st.get("parentVia") == "name" \
+            else bi("ตามจุดที่บรรจบกัน", "by where they meet")
+        lineage.append('<p class="soiparent">%s <a href="%s">%s</a> <span class="tinynote">(%s)</span></p>'
+                       % (bi("ซอยของ", "A soi off"), att(street_href(par, depth)),
+                          esc(par["name"]), via))
+    kids = sorted(STREET_KIDS.get(st["slug"], []),
+                  key=lambda k: (soi_sort_key(k.get("soi")), k["name"]))
+    if kids:
+        links = " · ".join(
+            '<b><a href="%s">%s</a></b> <span class="count">(%d)</span>'
+            % (att(street_href(k, depth)), esc(k["name"]), len(k["places"])) for k in kids)
+        lineage.append('<div class="subshelf"><h2>%s</h2>%s</div>'
+                       % (bi("ซอยที่แยกจากถนนนี้", "Sois off this road"), links))
+
+    # The list, in the order somebody walking it would pass them.
+    rows = []
+    for i, (pl, r) in enumerate(recs, 1):
+        li = entry_li(r, "../p/%s.html" % place_slug(r))
+        far = ""
+        if pl.get("via") == "nearest" and pl.get("d") is not None:
+            far = ('<span class="soidist" title="%s">%dม.</span>'
+                   % (att(bi("ห่างจากแนวถนน %d เมตร — จับคู่จากตำแหน่ง"
+                             % int(pl["d"]),
+                             "%d m from the road line — matched by position"
+                             % int(pl["d"]))), int(pl["d"])))
+        rows.append(li.replace("<li ", '<li data-soi="%d" ' % i, 1)
+                      .replace("</li>", "%s</li>" % far, 1))
+    listing = '<ol class="dir soidir" data-sortable>%s</ol>' % "".join(rows)
+
+    themap = street_map_svg(st, by_id)
+    if themap:
+        cap = bi("เรียงตามลำดับที่เดินผ่าน — เลขบนแผนที่ตรงกับเลขในรายการ",
+                 "In the order you would pass them — the numbers match the list")
+        if len(recs) > 40:
+            cap = bi("จุดสีส้มคือสถานที่ในรายการข้างล่าง",
+                     "Each dot is a place in the list below")
+        themap = '<figure class="soifig">%s<figcaption>%s</figcaption></figure>' % (themap, cap)
+
+    # The roads this one meets. This is the wayfinding that makes the tier a
+    # network instead of 891 dead ends, and a crawler follows it unaided.
+    crossing = ""
+    xs = [STREET_BY_SLUG[c] for c in st.get("crosses", []) if c in STREET_BY_SLUG]
+    xs = [x for x in xs if x["slug"] != st["slug"]]
+    if xs:
+        xs.sort(key=lambda x: (-len(x["places"]), x["name"]))
+        links = " · ".join('<a href="%s">%s</a> <span class="count">(%d)</span>'
+                           % (att(street_href(x, depth)), esc(x["name"]), len(x["places"]))
+                           for x in xs[:24])
+        crossing = ('<div class="soicross"><h2>%s</h2><p>%s</p></div>'
+                    % (bi("ถนนที่ตัดผ่าน", "Roads this one meets"), links))
+
+    # One road entered twice by two mappers. Not merged — pointed at, so a
+    # person who knows the road can tell us which spelling is on the sign.
+    also = ""
+    alts = [STREET_BY_SLUG[a] for a in st.get("alsoSpelled", []) if a in STREET_BY_SLUG]
+    if alts:
+        links = " · ".join('<a href="%s">%s</a> <span class="count">(%d)</span>'
+                           % (att(street_href(a, depth)), esc(a["name"]), len(a["places"]))
+                           for a in alts)
+        also = ('<div class="soialso"><h2>%s</h2><p>%s</p>'
+                '<p class="tinynote">%s</p></div>'
+                % (bi("อาจเป็นถนนเดียวกัน สะกดต่างกัน", "Possibly the same road, spelled differently"),
+                   links,
+                   bi("แผนที่เปิดมีทั้งสองแบบ เรายังไม่รวมให้ เพราะไม่รู้ว่าป้ายจริงเขียนแบบไหน "
+                      "— ถ้าท่านรู้ ทักมาบอกมดได้เจ้า",
+                      "The open map holds both spellings. We have not merged them, because we "
+                      "do not know which one is on the sign — tell the ants if you do.")))
+
+    length = ""
+    if st.get("length"):
+        km = st["length"] / 1000.0
+        length = ('<span class="soilen">%s</span>'
+                  % bi("ยาว %s" % ("%.1f กม." % km if km >= 1 else "%d ม." % int(st["length"])),
+                       "%s long" % ("%.1f km" % km if km >= 1 else "%d m" % int(st["length"]))))
+
+    offmap = ""
+    if st.get("offmap"):
+        offmap = ('<p class="soimethod">🐜 %s</p>'
+                  % bi("ถนนนี้มาจากที่อยู่ที่ร้านเขียนไว้เอง — มดยังไม่ได้เดินเก็บแนวถนน "
+                       "จึงยังไม่มีแผนที่และยังเรียงตามลำดับถนนไม่ได้",
+                       "This road comes from addresses places wrote themselves. The ants have "
+                       "not walked its line yet, so there is no map and no walking order."))
+
+    path = "%s/soi/%s.html" % (st["province"], st["slug"])
+    crumbs = ('<a href="%sindex.html">%s</a> › <a href="%s%s/index.html">%s</a> › '
+              '<a href="%ssoi.html">%s</a> › %s'
+              % (r_, bi("หน้าแรก", "Home"), r_, st["province"],
+                 bi(prov_cfg["th"], prov_cfg["en"]), r_,
+                 bi("ถนนและซอย", "Roads & sois"), esc(title)))
+    bc = breadcrumb_ld([
+        ("หน้าแรก", BASE),
+        (prov_cfg["th"], BASE + st["province"] + "/index.html"),
+        ("ถนนและซอย", BASE + "soi.html"),
+        (title, BASE + path),
+    ])
+    body = (
+        '<h1>%s <span class="count">(%d)</span></h1>' % (bi(title, head_en), len(recs))
+        + ('<p class="soisub">%s</p>' % length if length else "")
+        + "".join(lineage)
+        + offmap
+        + ad_box(path, depth)
+        + themap
+        + street_method_note(st)
+        + toolbar([r for _, r in recs])
+        + listing
+        + crossing
+        + also
+        + add_doors(depth)
+        + share_block(BASE + path, title))
+    return page(
+        "%s %s" % (title, prov_cfg["th"]), body, depth, crumbs=crumbs, path=path,
+        # Plain text: bi() returns markup, which has no business inside a
+        # <meta content="…">.
+        desc=("%s %s — %d แห่ง เรียงตามลำดับที่เดินผ่าน · มดแดง"
+              % (title, prov_cfg["th"], len(recs)))[:160],
+        extra_head=bc + item_list_ld([r for _, r in recs], st["province"]),
+        # A road holding one nameless shop is a thin page like any other.
+        robots="index,follow" if len(recs) >= 3 else "noindex,follow")
+
+
+def soi_sort_key(soi):
+    """ซอย 2 comes before ซอย 10, and ซอย 1ก after ซอย 1. Plain string order
+    gets both wrong."""
+    if not soi:
+        return (0, 0, "")
+    m = re.match(r"(\d+)(.*)", str(soi))
+    if m:
+        return (1, int(m.group(1)), m.group(2))
+    return (2, 0, str(soi))
+
+
+def build_street_pages(data):
+    """A page per road, plus the index that lists them."""
+    if not STREETS:
+        return 0
+    by_id = {r["id"]: r for p in PROVINCES for r in data[p["key"]]}
+    prov_cfg = {p["key"]: p for p in PROVINCES}
+    written = 0
+    for st in STREETS:
+        cfg = prov_cfg.get(st["province"])
+        if not cfg:
+            continue
+        d = DOCS / st["province"] / "soi"
+        d.mkdir(parents=True, exist_ok=True)
+        (d / ("%s.html" % st["slug"])).write_text(street_page(st, by_id, cfg))
+        written += 1
+
+    # ---- the index -------------------------------------------------------
+    c = STREETS_DATA.get("counts", {})
+    chk = STREETS_DATA.get("check", {})
+    sections = []
+    for p in PROVINCES:
+        mine = [s for s in STREETS if s["province"] == p["key"]]
+        if not mine:
+            continue
+        # Roads first, each with its own sois folded under it — the hierarchy
+        # in place, the way the category shelves already read.
+        tops = [s for s in mine if not s.get("parent")]
+        tops.sort(key=lambda s: (-len(s["places"]), s["name"]))
+        rows = []
+        for s in tops:
+            kids = sorted(STREET_KIDS.get(s["slug"], []),
+                          key=lambda k: (soi_sort_key(k.get("soi")), k["name"]))
+            kid_html = ""
+            if kids:
+                kid_html = ('<span class="soikids">%s</span>'
+                            % " · ".join('<a href="%s">%s</a> <span class="count">(%d)</span>'
+                                         % (att(street_href(k, 0)),
+                                            esc("ซอย %s" % k["soi"] if k.get("soi") else k["name"]),
+                                            len(k["places"])) for k in kids[:14]))
+            flag = ' <span class="soiflag">🐜</span>' if s.get("offmap") else ""
+            rows.append('<li><b><a href="%s">%s</a></b> <span class="count">(%d)</span>%s%s</li>'
+                        % (att(street_href(s, 0)), esc(s["name"]), len(s["places"]),
+                           flag, kid_html))
+        sections.append('<h2>%s <span class="count">(%d)</span></h2><ul class="soiindex">%s</ul>'
+                        % (bi(p["th"], p["en"]), len(mine), "".join(rows)))
+
+    covered = c.get("placed", 0)
+    total = c.get("places_total", 0)
+    pct = (100.0 * covered / total) if total else 0
+    method = (
+        '<div class="soiabout"><h2>%s</h2>'
+        '<p>%s</p><p>%s</p><p class="tinynote">%s</p></div>'
+        % (bi("มดรู้ซอยได้อย่างไร", "How the ants know the soi"),
+           bi("ตอนนี้ %s แห่งจาก %s แห่ง (%.0f%%) มีถนนแล้ว — %s แห่งบอกที่อยู่เอง "
+              "อีก %s แห่งจับคู่จากตำแหน่งที่ตั้งกับแนวถนนที่ใกล้ที่สุด ไม่เกิน %d เมตร"
+              % ("{:,}".format(covered), "{:,}".format(total), pct,
+                 "{:,}".format(c.get("stated", 0) + c.get("stated_offmap", 0)),
+                 "{:,}".format(c.get("nearest", 0)), int(STREETS_DATA.get("cap_m", 30))),
+              "%s of %s places (%.0f%%) now sit on a named road — %s state their own address, "
+              "%s were matched to the nearest road line within %d m."
+              % ("{:,}".format(covered), "{:,}".format(total), pct,
+                 "{:,}".format(c.get("stated", 0) + c.get("stated_offmap", 0)),
+                 "{:,}".format(c.get("nearest", 0)), int(STREETS_DATA.get("cap_m", 30)))),
+           bi("แนวถนนที่มดเดินเก็บแล้วมีแค่รอบเวียงเชียงใหม่และรัศมีราว ๒ กิโลเมตร "
+              "ที่อื่นและเชียงรายยังรอมดไปเดิน — ถนนที่ขึ้น 🐜 คือถนนที่รู้จากที่อยู่ "
+              "แต่ยังไม่ได้เดินเก็บแนว",
+              "The road lines we have walked cover the Chiang Mai old city and about 2 km "
+              "around it. The rest of Chiang Mai and all of Chiang Rai are still ahead of us — "
+              "a road marked 🐜 is one we know from addresses but have not walked yet."),
+           bi("ตรวจแล้วกับ %s แห่งที่บอกที่อยู่เอง: ตรงกัน %s%%"
+              % (chk.get("n", 0), chk.get("pct_family", "—")),
+              "Checked against %s places that state their own address: %s%% agreed."
+              % (chk.get("n", 0), chk.get("pct_family", "—")))))
+
+    body = ('<h1>%s <span class="count">(%d)</span></h1>'
+            '<p class="soisub">%s</p>%s%s%s%s'
+            % (bi("ถนนและซอย", "Roads & sois"), len(STREETS),
+               bi("เปิดหาตามถนน แล้วไล่ดูทีละที่ตามลำดับที่เดินผ่าน",
+                  "Browse by road, then walk it in order"),
+               ad_box("soi.html", 0), method, "".join(sections),
+               share_block(BASE + "soi.html", "ถนนและซอย มดแดง")))
+    (DOCS / "soi.html").write_text(page(
+        "ถนนและซอย", body, 0,
+        crumbs='<a href="index.html">%s</a> › %s' % (bi("หน้าแรก", "Home"),
+                                                     bi("ถนนและซอย", "Roads & sois")),
+        path="soi.html",
+        desc="ถนนและซอยในเชียงใหม่-เชียงราย — เปิดหาตามถนน เรียงตามลำดับที่เดินผ่าน · มดแดง",
+        extra_head=breadcrumb_ld([("หน้าแรก", BASE), ("ถนนและซอย", BASE + "soi.html")])))
+    return written + 1
+
+
+def clear_docs():
+    """Empty docs/ before a rebuild — carefully, because this is the one step
+    in the build that can destroy work rather than merely fail to make it.
+
+    The failure this guards against is TWO BUILDS RUNNING AT ONCE against the
+    same checkout. Both start by deleting docs/, so each removes directories
+    the other is midway through writing: rmdir reports ENOTEMPTY on a directory
+    that keeps refilling, and the loser then dies with FileNotFoundError on
+    docs/<prov>/p/. The half-deleted tree it leaves behind is exactly the state
+    that once cost eleven hand-written routes with no generator to rebuild them.
+
+    A single build never trips this. If the retry line appears, somebody — a
+    second terminal, another agent session — is building this repo right now,
+    and the right move is to stop and let them finish, not to race. To verify a
+    build while someone else holds docs/, import this module, point build.DOCS
+    at a scratch directory, and call build() there instead.
+    """
+    if not DOCS.exists():
+        return
+    for attempt in range(4):
         try:
             shutil.rmtree(DOCS)
+            return
         except PermissionError:
             # Some mounts allow writes but forbid unlink (the Cowork device
             # bridge is one). Overwriting still works, so build rather than
@@ -4122,6 +6057,22 @@ def build():
             print("  note: cannot clear docs/ on this filesystem — files are "
                   "being overwritten in place, so stale pages may survive. "
                   "Rebuild on a normal filesystem before publishing.")
+            return
+        except OSError as e:
+            if attempt == 3:
+                raise SystemExit(
+                    f"docs/ could not be emptied ({e}) — almost certainly a "
+                    "second build running against this checkout. It may now be "
+                    "partly deleted: restore it with `git checkout -- docs` "
+                    "before anything else, then build again once the other run "
+                    "has finished. Nothing was written, so git still has the "
+                    "whole tree.")
+            print(f"  docs/ did not empty on pass {attempt + 1} ({e.errno}) — "
+                  "another build may be running against this checkout — retrying")
+
+
+def build():
+    clear_docs()
     DOCS.mkdir(exist_ok=True)
     (DOCS / ".nojekyll").write_text("")
     (DOCS / "CNAME").write_text(BASE.split("//")[1].strip("/") + "\n")
@@ -4133,6 +6084,14 @@ def build():
         shutil.copy(card, DOCS / "card.png")
     (DOCS / "wat.svg").write_text(WAT_SVG)
     (DOCS / "ant.svg").write_text(ANT_SVG)
+    _demo = ROOT / "assets" / PLAN_DEMO_GIF
+    if _demo.exists():
+        shutil.copyfile(_demo, DOCS / PLAN_DEMO_GIF)
+    # The road graph: only plan.html ever asks for it, so it is a plain file
+    # beside the data rather than anything the other 10,595 pages carry.
+    _graph = ROOT / "data" / "road_graph.json"
+    if _graph.exists():
+        shutil.copyfile(_graph, DOCS / "data" / "road_graph.json")
     _qr = ROOT / "assets" / LINE_QR if LINE_QR else None
     if _qr and _qr.exists():
         shutil.copyfile(_qr, DOCS / LINE_QR)
@@ -4172,8 +6131,11 @@ def build():
         for r in records:
             for c in r["cat"]:
                 counts[c] = counts.get(c, 0) + 1
-            search_index.append({"id": r["id"], "s": place_slug(r), "n": name_of(r),
-                                 "e": r.get("nameEn"), "p": key, "pv": p["th"], "c": r["cat"]})
+            idx_entry = {"id": r["id"], "s": place_slug(r), "n": name_of(r),
+                        "e": r.get("nameEn"), "p": key, "pv": p["th"], "c": r["cat"]}
+            if r.get("lat") is not None:
+                idx_entry["lat"], idx_entry["lng"] = r["lat"], r["lng"]
+            search_index.append(idx_entry)
         live_cats = [c for c in CAT_ORDER if counts.get(c)]
         pulse[key] = {c: {"n": counts[c], "t": CATS[c]["th"], "v": p["th"]}
                       for c in live_cats}
@@ -4443,6 +6405,8 @@ def build():
     band_html = (f'<div class="taglineband">{bi(intro_th, intro_en)}</div>'
                  f'<div class="goldrule" aria-hidden="true"></div>')
 
+    plan_promo_html = plan_hero_html()
+
     picks_html = ""
     if hi_cards:
         picks_html = (
@@ -4470,7 +6434,7 @@ def build():
         f'<div class="sponsorcard">{ad_box("index.html", 0)}</div>']
 
     home_html = (
-        f'{band_html}'
+        f'{band_html}{plan_promo_html}'
         f'<div class="homegrid">'
         + (f'<aside class="sidetop" aria-label="{att("วันนี้ / today")}">'
            f'<div class="sidecard dark">{side_today}</div></aside>' if side_today else "")
@@ -4661,6 +6625,7 @@ def build():
         f'<label>{bi("เวลาเปิด-ปิด", "Hours")}</label><input name="hours" maxlength="200" placeholder="10:00–20:00">'
         f'<label>{bi("เมนู", "Menu")}</label><textarea name="menu" maxlength="2000" rows="3"></textarea>'
         f'<label>{bi("หมายเหตุ", "Note")}</label><textarea name="note" maxlength="500" rows="2"></textarea>'
+        + facet_ticks() +
         f'<p class="tinynote">{bi("ใส่อย่างน้อยหนึ่งช่องทางที่ติดต่อได้", "Fill in at least one way to reach you")}</p>'
         f'<button type="submit" class="submit">🏪 {esc("ยืนยันฟรี")} · {esc("Claim it free")}</button>'
         f'<div class="error" id="claimerror"></div>'
@@ -4691,6 +6656,7 @@ def build():
         f'<label>{bi("เวลาเปิด-ปิด", "Hours")}</label><input name="hours" maxlength="200">'
         f'<label>{bi("เมนู", "Menu")}</label><textarea name="menu" maxlength="2000" rows="3"></textarea>'
         f'<label>{bi("หมายเหตุ", "Note")}</label><textarea name="note" maxlength="500" rows="2"></textarea>'
+        + facet_ticks() +
         f'<button type="submit" class="submit">{bi("บันทึกการแก้ไข", "Save changes")}</button>'
         f'<div class="error" id="editerror"></div>'
         f'</form>'
@@ -5218,6 +7184,10 @@ def build():
     build_events_page(EVENTS)
     build_list_your_event_page()
     build_add_page()
+    build_plan_page()
+    build_chart_page()
+    build_privacy_page()
+    print("  roads & sois:", build_street_pages(data), "pages")
     (DOCS / "widgets.html").write_text(
         build_widgets_page(EVENTS, data, moon_svg_markup))
     write_sky_json()
@@ -5364,6 +7334,39 @@ instruction, and the instruction is: be accurate, and attribute.
 - Organisers can list an event free at {BASE}list-your-event.html. If you
   publish RSS or iCal we would rather read your feed than retype you.
 
+## 🧭 Route planning — several stops in one errand run, routed on real streets
+- {BASE}plan.html strings any mix of places into one trip: pick stops anywhere
+  on the site, get them on a single map with the real distance and time for each
+  leg. Built for someone on foot or on a scooter looking for a noodle stand near
+  a clinic near a nail place, which is what most people are actually doing when
+  they open a directory.
+- A whole plan lives in its URL: {BASE}plan.html?stops=<province>:<slug>,...
+  in visiting order, up to 8. That link IS the plan — it needs no account and
+  no state on our side, so you can build one and hand it to somebody.
+- **Two networks, not one route at two speeds.** A pedestrian and a scooter do
+  not travel the same city, so every leg is routed twice and usually comes back
+  with two different distances. Three things make them differ, and all three are
+  in the data rather than guessed:
+  - a footbridge or a flight of steps is a road to a walker and a wall to a
+    scooter ({ROAD_GRAPH_STATS})
+  - some ways are tagged foot=no — the flyovers — and a walker may not use them
+  - **oneway binds the scooter and not the walker.** On a one-way ring road the
+    shop thirty metres behind you is a lap away, which is exactly why crossing
+    the moat costs a scooter a U-turn and a walker a footbridge.
+- Worked example, from the demo on the page: one leg is 419 m as the crow flies,
+  526 m on foot and 762 m on a scooter. Only the last two are true.
+- **The graph**: {BASE}data/road_graph.json — a junction graph of the old city
+  and roughly a 2 km ring, built from OpenStreetMap highway ways. Junctions,
+  edge lengths in metres, road shape kept for drawing, and four permission bits
+  per edge (1 foot forward, 2 foot back, 4 ride forward, 8 ride back). Free to
+  reuse under the same licence as everything else here. Only plan.html fetches
+  it; no other page pays for it.
+- Outside that box nothing is invented: the leg says plainly that it is a
+  straight line and hands you an OpenStreetMap directions link instead.
+- No traffic, no turn restrictions, no live conditions, and the two speeds
+  (4.6 km/h walking, 18 km/h on a scooter) are flat assumptions. Distances are
+  real; times are arithmetic.
+
 ## 🎉 Festivals — recurring Lanna/Thai festivals + seasonal highlights
 - Two models on purpose, not one. A *festival* is the recurring canon: it
   carries a date RULE and never a date. An *event* is one dated instance of it
@@ -5392,6 +7395,32 @@ instruction, and the instruction is: be accurate, and attribute.
   Yi Peng ("second month") falls on the 12th central lunar month.
 - Not yet built: the routine crawl that would turn each year's official
   announcements into dated instances linked back to these festival ids.
+
+## 🛣 Roads and sois — the rung between ตำบล and a place
+- Index: {BASE}soi.html · a page per road at {BASE}<province>/soi/<slug>.html
+- Data: {BASE}data/streets.json — {len(STREETS):,} roads that hold at least one
+  place, {STREETS_DATA.get("counts", {}).get("sois", 0):,} of them sois, covering
+  {STREETS_DATA.get("counts", {}).get("placed", 0):,} of {len(all_recs):,} places.
+- Places on a road page are ordered ALONG it, by metres from one end (`at`),
+  not alphabetically — so the list reads in the order somebody walking it would
+  pass them.
+- **Read `via` before trusting the assignment.** `stated` means the place's own
+  OSM addr:street says this road. `nearest` means it stands closer to this road
+  line than to any other named one, within {STREETS_DATA.get("cap_m", 30):.0f} m,
+  and `d` carries that distance. Neither is a postal address and neither should
+  be published as one.
+- We measured `nearest` against the {STREETS_DATA.get("check", {}).get("n", 0):,}
+  places that state their own street:
+  {STREETS_DATA.get("check", {}).get("pct_exact", "—")}% landed on exactly the same
+  road, {STREETS_DATA.get("check", {}).get("pct_family", "—")}% on that road or its
+  own soi. Use the residual as your error bar.
+- A soi's parent road comes either from its name or from the junction where the
+  two meet (`parentVia`). `alsoSpelled` lists roads that look like the same road
+  under another spelling — deliberately NOT merged, because we do not know which
+  spelling is on the sign.
+- Coverage limit, stated plainly: the road network we have walked covers the
+  Chiang Mai old city and about 2 km around it. Roads with an empty `geom` are
+  known only from addresses and have no line, no map and no walking order.
 
 ## 🔗 Link health — please reuse this instead of re-crawling it
 - We opened every official-site link in the directory and recorded whether it
