@@ -2,30 +2,52 @@
 
 What is waiting to go out, and what shipped last time.
 
-## Waiting — held on purpose while another session works
+## Waiting
 
-Six commits. Nothing here is pushed. Rebuild and run all seven suites before it
-goes, since several sessions have been writing to this tree.
+Nothing. The working tree is clean and `main` matches `origin/main`.
+
+## Last push — 2026-08-01, `4a42b00225`, 11,809 pages
+
+Seven commits, held while other sessions worked and then sent as **one push** —
+the previous round's two "Page build failed" errors came from three pushes
+landing ninety seconds apart, not from anything in the content.
 
 | Commit | What |
 |---|---|
-| `4fa766c4ad` | The CSS for a block that shipped without it — **fixes something already live** |
-| `96875b82da` | This ledger |
+| `4fa766c4ad` | The CSS for a block that had shipped without it |
+| `96875b82da` | Ledger |
 | `02590f98bc` | The design study, ported |
 | `a6076574dd` | ไหว้พระ ๙ วัด — nine-temple merit routes |
 | `20aa8c5df7` | Real instrument photographs; placeholders demoted |
 | `073c5a6f7e` | Errands as kinds, not names |
+| `4a42b00225` | Ledger + the two rules the merit page runs on |
 
-Two new importers and a new page came in with those: `importers/routing.py`
-(the road graph, walked from Python, so build-time work can bake real distances
-without shipping the reader half a megabyte of graph), `importers/build_merit.py`
-→ `data/merit.json`, and `/merit.html`. `PLAN_MAX` went 8 → 9, because
+New with those: `importers/routing.py` (the road graph walked from Python, so
+build-time work can bake real distances without shipping the reader half a
+megabyte of graph), `importers/build_merit.py` → `data/merit.json`,
+`/merit.html`, and `tests/test_errands.py`. `PLAN_MAX` went 8 → 9, because
 ไหว้พระ ๙ วัด is nine stops by definition.
 
-New suite: `tests/test_errands.py`. It does not test the code so much as the
-premise — that solving the errands together beats picking the nearest of each.
-14 wins in 20 routable rounds, median 577 m, never worse. If that ever stops
-being true the test fails, because the page makes the claim out loud.
+Verified live: `/merit.html` with ten rounds, ten maps, the not-a-ranking line
+and the eight postures; the errand panel on `/plan.html`; `solveErrands` in
+`md.js`; `.elsewhere`, `.cool`, `.meritcard` and `.planerr` all present in the
+served stylesheet; every self-hosted woff2 answering 200; footer at 2026-08-01.
+IndexNow took 4,283 URLs, 200 first try.
+
+**Two things worth carrying forward.** The Pages API's `commit` field lags — it
+reported the previous SHA while the new content was already being served, so
+verify by fetching content, never by trusting that field. And `motdang.net`
+serves a stale `md.js` to an un-busted URL for a while after a push: a plain
+`curl` said the errand solver was missing when `?cb=` proved it was there and
+byte-identical. Bust the cache before believing a file did not deploy.
+
+**The guard from last time, run by hand this round:** collect every class the
+HTML uses, compare against every stylesheet actually served — `docs/style.css`,
+`docs/festivals.css`, and any inline `<style>`. 405 classes used, 384 styled.
+The 21 without a rule are JS hooks (`.rand`, `.copylink`, `.fix`, `.submit`) and
+tile modifiers styled through their parent — no repeat of the `.elsewhere` case,
+where a whole block shipped with nothing to render it. Reading only one
+stylesheet gives 33 false positives; read them all.
 
 ## Older waiting notes
 
