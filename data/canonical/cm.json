@@ -328,7 +328,8 @@
   "hours": null,
   "attrs": {
    "brand": "The Pizza Company",
-   "cuisine": "pizza"
+   "cuisine": "pizza",
+   "brandWikidata": "Q2413520"
   },
   "featured": false,
   "landmark": false,
@@ -1873,7 +1874,8 @@
   "hours": null,
   "attrs": {
    "brand": "KFC",
-   "cuisine": "chicken"
+   "cuisine": "chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -2046,6 +2048,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -3605,7 +3608,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงเทพ"
+   "brand": "ธนาคารกรุงเทพ",
+   "brandWikidata": "Q806483"
   },
   "featured": false,
   "landmark": false,
@@ -4192,6 +4196,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -4617,6 +4622,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -5225,6 +5231,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -5881,7 +5888,8 @@
   "attrs": {
    "brand": "KFC",
    "cuisine": "chicken",
-   "operator": "Kentucky Fried Chicken"
+   "operator": "Kentucky Fried Chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -6050,6 +6058,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -7961,6 +7970,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag",
     "wheelchair": "osm-tag"
@@ -10362,7 +10372,8 @@
   "hours": "Mo-Fr 06:30-23:00; Sa,Su 06:30-22:00",
   "attrs": {
    "brand": "Starbucks",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q37158"
   },
   "featured": false,
   "landmark": false,
@@ -10500,6 +10511,7 @@
   "hours": "24/7",
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -10537,7 +10549,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "MR.DIY"
+   "brand": "MR.DIY",
+   "brandWikidata": "Q105044323"
   },
   "featured": false,
   "landmark": false,
@@ -11392,7 +11405,8 @@
   "website": "https://www.mrdiy.com/th/",
   "hours": "Mo-Su 09:00-22:00",
   "attrs": {
-   "brand": "MR.DIY"
+   "brand": "MR.DIY",
+   "brandWikidata": "Q105044323"
   },
   "featured": false,
   "landmark": false,
@@ -12666,6 +12680,7 @@
   "hours": "24/7",
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -13348,7 +13363,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงไทย"
+   "brand": "ธนาคารกรุงไทย",
+   "brandWikidata": "Q962865"
   },
   "featured": false,
   "landmark": false,
@@ -14227,7 +14243,8 @@
   "hours": null,
   "attrs": {
    "brand": "Starbucks",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q37158"
   },
   "featured": false,
   "landmark": false,
@@ -14265,7 +14282,8 @@
    "street": "ถนนช้างคลาน",
    "postcode": "50100",
    "brand": "ธนาคารกสิกรไทย",
-   "operator": "Kasaikornbank"
+   "operator": "Kasaikornbank",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -14662,6 +14680,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag",
@@ -17361,7 +17380,8 @@
    "houseNumber": "130",
    "street": "รอบเมืองเชียงใหม่",
    "postcode": "50130",
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -19818,7 +19838,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Tiger Mart"
+   "brand": "Tiger Mart",
+   "brandWikidata": "Q57643977"
   },
   "featured": false,
   "landmark": false,
@@ -20027,7 +20048,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -21774,7 +21796,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -24157,7 +24180,8 @@
   "hours": "Mo-Su 06:00-20:00",
   "attrs": {
    "brand": "Café Amazon",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -26195,7 +26219,8 @@
   "hours": "Mo-Su 06:00-20:00",
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -26230,7 +26255,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -26265,7 +26291,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -28913,7 +28940,8 @@
   "hours": null,
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -30569,7 +30597,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "MR.DIY"
+   "brand": "MR.DIY",
+   "brandWikidata": "Q105044323"
   },
   "featured": false,
   "landmark": false,
@@ -30604,7 +30633,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -30640,7 +30670,8 @@
   "hours": null,
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -32773,7 +32804,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -32920,6 +32952,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -33616,6 +33649,7 @@
    "streetEn": "Charoen Muang Road",
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -38551,7 +38585,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Big C Mini"
+   "brand": "Big C Mini",
+   "brandWikidata": "Q858665"
   },
   "featured": false,
   "landmark": false,
@@ -39067,7 +39102,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -41281,6 +41317,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -41353,7 +41390,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -41553,7 +41591,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -42174,6 +42213,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -42909,6 +42949,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "toilet": "osm-near",
@@ -42948,7 +42989,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงเทพ"
+   "brand": "ธนาคารกรุงเทพ",
+   "brandWikidata": "Q806483"
   },
   "featured": false,
   "landmark": false,
@@ -42985,6 +43027,7 @@
   "attrs": {
    "brand": "Tesco",
    "operator": "Tesco Lotus",
+   "brandWikidata": "Q487494",
    "facets": {
     "atm": "osm-near",
     "toilet": "osm-near",
@@ -44000,7 +44043,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "DHL"
+   "brand": "DHL",
+   "brandWikidata": "Q489815"
   },
   "featured": false,
   "landmark": false,
@@ -44855,7 +44899,8 @@
   "hours": null,
   "attrs": {
    "brand": "Mixue Ice Cream & Tea",
-   "cuisine": "ice_cream;bubble_tea"
+   "cuisine": "ice_cream;bubble_tea",
+   "brandWikidata": "Q107406476"
   },
   "featured": false,
   "landmark": false,
@@ -49011,7 +49056,8 @@
   "website": null,
   "hours": "PH,Mo-Su 07:00-09:00",
   "attrs": {
-   "brand": "Avis"
+   "brand": "Avis",
+   "brandWikidata": "Q791136"
   },
   "featured": false,
   "landmark": false,
@@ -49250,7 +49296,8 @@
   "hours": "PH,Mo-Su 07:00-22:00",
   "attrs": {
    "brand": "Dairy Queen",
-   "cuisine": "ice_cream;burger"
+   "cuisine": "ice_cream;burger",
+   "brandWikidata": "Q1141226"
   },
   "featured": false,
   "landmark": false,
@@ -49319,7 +49366,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Hertz"
+   "brand": "Hertz",
+   "brandWikidata": "Q1543874"
   },
   "featured": false,
   "landmark": false,
@@ -49528,7 +49576,8 @@
    "houseNumber": "60",
    "street": "มหิดล",
    "brand": "Burger King",
-   "cuisine": "burger"
+   "cuisine": "burger",
+   "brandWikidata": "Q177054"
   },
   "featured": false,
   "landmark": false,
@@ -50225,6 +50274,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -50970,6 +51020,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -51579,6 +51630,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -51788,6 +51840,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -52003,7 +52056,8 @@
   "hours": null,
   "attrs": {
    "brand": "ธนาคารทหารไทย",
-   "operator": "ธนาคารทหารไทย"
+   "operator": "ธนาคารทหารไทย",
+   "brandWikidata": "Q1527826"
   },
   "featured": false,
   "landmark": false,
@@ -52110,6 +52164,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -52318,6 +52373,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -52426,6 +52482,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -52558,6 +52615,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -52832,6 +52890,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -53114,6 +53173,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -53153,6 +53213,7 @@
   "hours": "24/7",
   "attrs": {
    "brand": "Lotus's go fresh",
+   "brandWikidata": "Q125937967",
    "facets": {
     "open24": "osm-tag"
    }
@@ -53227,6 +53288,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -53372,6 +53434,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -53445,6 +53508,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -53486,6 +53550,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -54062,7 +54127,9 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "wikidata": "Q20446820"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -54374,7 +54441,8 @@
   "attrs": {
    "brand": "KFC",
    "cuisine": "chicken",
-   "operator": "Kentucky Fried Chicken"
+   "operator": "Kentucky Fried Chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -54411,7 +54479,8 @@
   "attrs": {
    "brand": "MK Restaurants",
    "cuisine": "thai",
-   "operator": "MK Restaurants"
+   "operator": "MK Restaurants",
+   "brandWikidata": "Q62075359"
   },
   "featured": false,
   "landmark": false,
@@ -54481,6 +54550,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -54726,6 +54796,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -54866,6 +54937,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "https://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -55479,7 +55551,9 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "wikidata": "Q13017454"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -55550,6 +55624,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -55723,6 +55798,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -56184,7 +56260,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -57041,7 +57118,8 @@
   "hours": null,
   "attrs": {
    "brand": "Hard Rock Cafe",
-   "cuisine": "american"
+   "cuisine": "american",
+   "brandWikidata": "Q918151"
   },
   "featured": false,
   "landmark": false,
@@ -57705,7 +57783,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "กรุงศรี"
+   "brand": "กรุงศรี",
+   "brandWikidata": "Q782537"
   },
   "featured": false,
   "landmark": false,
@@ -58923,6 +59002,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -58963,6 +59043,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -59237,6 +59318,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -59276,6 +59358,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -59348,6 +59431,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -59924,6 +60008,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -59963,6 +60048,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -60035,6 +60121,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -60074,7 +60161,8 @@
   "attrs": {
    "brand": "McDonald's",
    "cuisine": "burger",
-   "operator": "McDonald's"
+   "operator": "McDonald's",
+   "brandWikidata": "Q38076"
   },
   "featured": false,
   "landmark": false,
@@ -60216,6 +60304,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -60323,6 +60412,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -60469,6 +60559,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -60857,6 +60948,7 @@
    "brand": "7-Eleven",
    "operator": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -61467,6 +61559,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -62086,6 +62179,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -62461,6 +62555,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -62567,6 +62662,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -62924,6 +63020,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -63031,6 +63128,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -63172,6 +63270,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -63246,6 +63345,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -63354,6 +63454,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -63633,7 +63734,8 @@
   "attrs": {
    "brand": "KFC",
    "cuisine": "chicken",
-   "operator": "Kentucky Fried Chicken"
+   "operator": "Kentucky Fried Chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -64498,6 +64600,7 @@
   "attrs": {
    "brand": "Lotus's go fresh",
    "operator": "Tesco Lotus",
+   "brandWikidata": "Q125937967",
    "facets": {
     "open24": "osm-tag"
    }
@@ -64572,6 +64675,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -65056,6 +65160,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -65361,6 +65466,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -65465,7 +65571,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -66514,7 +66621,8 @@
   "hours": null,
   "attrs": {
    "brand": "Subway",
-   "cuisine": "sandwich"
+   "cuisine": "sandwich",
+   "brandWikidata": "Q244457"
   },
   "featured": false,
   "landmark": false,
@@ -66688,7 +66796,8 @@
   "website": null,
   "hours": "Mo-Fr 09:00-16:00",
   "attrs": {
-   "brand": "ธนาคารกรุงเทพ"
+   "brand": "ธนาคารกรุงเทพ",
+   "brandWikidata": "Q806483"
   },
   "featured": false,
   "landmark": false,
@@ -67893,7 +68002,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -68371,6 +68481,7 @@
   "hours": null,
   "attrs": {
    "brand": "Jiffy",
+   "brandWikidata": "Q16770436",
    "facets": {
     "toilet": "osm-near"
    }
@@ -69033,6 +69144,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -69690,6 +69802,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -70378,6 +70491,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -70553,7 +70667,8 @@
   "attrs": {
    "brand": "KFC",
    "cuisine": "chicken",
-   "operator": "Kentucky Fried Chicken"
+   "operator": "Kentucky Fried Chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -70658,6 +70773,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -71414,6 +71530,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -72295,6 +72412,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -72576,6 +72694,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -72681,7 +72800,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "DHL"
+   "brand": "DHL",
+   "brandWikidata": "Q489815"
   },
   "featured": false,
   "landmark": false,
@@ -73403,6 +73523,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -73475,7 +73596,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารไทยพาณิชย์"
+   "brand": "ธนาคารไทยพาณิชย์",
+   "brandWikidata": "Q2038986"
   },
   "featured": false,
   "landmark": false,
@@ -73512,6 +73634,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -73618,7 +73741,8 @@
   "attrs": {
    "brand": "McDonald's",
    "cuisine": "burger",
-   "operator": "McDonald's"
+   "operator": "McDonald's",
+   "brandWikidata": "Q38076"
   },
   "featured": false,
   "landmark": false,
@@ -74026,6 +74150,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -74429,6 +74554,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -74734,6 +74860,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -74973,6 +75100,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -75185,6 +75313,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -76486,6 +76615,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -76690,6 +76820,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -76795,6 +76926,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -77529,7 +77661,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกสิกรไทย"
+   "brand": "ธนาคารกสิกรไทย",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -77800,6 +77933,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -77839,6 +77973,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -77879,6 +78014,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -77919,6 +78055,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -78232,6 +78369,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -78272,6 +78410,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -78348,6 +78487,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -78696,7 +78836,8 @@
   "attrs": {
    "brand": "MK Restaurants",
    "cuisine": "thai",
-   "operator": "MK Restaurants"
+   "operator": "MK Restaurants",
+   "brandWikidata": "Q62075359"
   },
   "featured": false,
   "landmark": false,
@@ -78766,7 +78907,8 @@
   "attrs": {
    "brand": "KFC",
    "cuisine": "chicken",
-   "operator": "Kentucky Fried Chicken"
+   "operator": "Kentucky Fried Chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -78803,7 +78945,8 @@
   "attrs": {
    "brand": "McDonald's",
    "cuisine": "burger",
-   "operator": "McDonald's"
+   "operator": "McDonald's",
+   "brandWikidata": "Q38076"
   },
   "featured": false,
   "landmark": false,
@@ -78872,7 +79015,8 @@
   "hours": null,
   "attrs": {
    "brand": "ธนาคารกสิกรไทย",
-   "operator": "ธนาคารกสิกรไทย"
+   "operator": "ธนาคารกสิกรไทย",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -79760,6 +79904,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -79936,7 +80081,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงไทย"
+   "brand": "ธนาคารกรุงไทย",
+   "brandWikidata": "Q962865"
   },
   "featured": false,
   "landmark": false,
@@ -80762,6 +80908,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -80801,6 +80948,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -80841,6 +80989,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -80948,7 +81097,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกสิกรไทย"
+   "brand": "ธนาคารกสิกรไทย",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -81294,6 +81444,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -82068,6 +82219,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -82482,6 +82634,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -82654,6 +82807,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -83843,6 +83997,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -84932,6 +85087,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -85042,6 +85198,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -85081,6 +85238,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -85253,6 +85411,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -85627,7 +85786,8 @@
   "hours": null,
   "attrs": {
    "brand": "Budget",
-   "operator": "WORLDCLASS Rent a Car co., Ltd."
+   "operator": "WORLDCLASS Rent a Car co., Ltd.",
+   "brandWikidata": "Q1001437"
   },
   "featured": false,
   "landmark": false,
@@ -86036,6 +86196,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -86448,7 +86609,8 @@
   "hours": null,
   "attrs": {
    "brand": "PT",
-   "operator": "PT"
+   "operator": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -86683,6 +86845,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -86893,6 +87056,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -87000,6 +87164,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -87179,6 +87344,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -87585,6 +87751,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -87656,7 +87823,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "CP Freshmart"
+   "brand": "CP Freshmart",
+   "brandWikidata": "Q125917787"
   },
   "featured": false,
   "landmark": false,
@@ -87693,6 +87861,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -87732,6 +87901,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -88046,6 +88216,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -88291,7 +88462,8 @@
   "hours": null,
   "attrs": {
    "brand": "The Coffee Club",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q7726599"
   },
   "featured": false,
   "landmark": false,
@@ -89211,7 +89383,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -89523,7 +89696,8 @@
   "hours": null,
   "attrs": {
    "brand": "KFC",
-   "cuisine": "chicken"
+   "cuisine": "chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -90672,7 +90846,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Major Cineplex"
+   "brand": "Major Cineplex",
+   "brandWikidata": "Q6128861"
   },
   "featured": false,
   "landmark": false,
@@ -91562,7 +91737,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -91632,6 +91808,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -92624,7 +92801,8 @@
   "hours": null,
   "attrs": {
    "brand": "Starbucks",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q37158"
   },
   "featured": false,
   "landmark": false,
@@ -92803,7 +92981,8 @@
   "hours": null,
   "attrs": {
    "brand": "Burger King",
-   "cuisine": "burger"
+   "cuisine": "burger",
+   "brandWikidata": "Q177054"
   },
   "featured": false,
   "landmark": false,
@@ -92840,6 +93019,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -93225,6 +93405,7 @@
    "houseNumber": "188/13",
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -93502,7 +93683,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -93572,6 +93754,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -94890,6 +95073,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -94997,7 +95181,8 @@
   "attrs": {
    "brand": "McDonald's",
    "cuisine": "burger",
-   "operator": "McDonald's"
+   "operator": "McDonald's",
+   "brandWikidata": "Q38076"
   },
   "featured": false,
   "landmark": false,
@@ -97145,7 +97330,8 @@
   "attrs": {
    "brand": "KFC",
    "cuisine": "chicken",
-   "operator": "Kentucky Fried Chicken"
+   "operator": "Kentucky Fried Chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -98424,7 +98610,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารออมสิน"
+   "brand": "ธนาคารออมสิน",
+   "brandWikidata": "Q6579041"
   },
   "featured": false,
   "landmark": false,
@@ -98629,7 +98816,8 @@
   "website": null,
   "hours": "PH,Mo-Su 07:00-21:00",
   "attrs": {
-   "brand": "Avis"
+   "brand": "Avis",
+   "brandWikidata": "Q791136"
   },
   "featured": false,
   "landmark": false,
@@ -98664,7 +98852,8 @@
   "website": null,
   "hours": "PH,Mo-Su 08:00-19:00",
   "attrs": {
-   "brand": "Budget"
+   "brand": "Budget",
+   "brandWikidata": "Q1001437"
   },
   "featured": false,
   "landmark": false,
@@ -98700,7 +98889,8 @@
   "hours": null,
   "attrs": {
    "brand": "Starbucks",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q37158"
   },
   "featured": false,
   "landmark": false,
@@ -100195,7 +100385,8 @@
   "hours": null,
   "attrs": {
    "brand": "Chester's",
-   "cuisine": "chicken"
+   "cuisine": "chicken",
+   "brandWikidata": "Q5093401"
   },
   "featured": false,
   "landmark": false,
@@ -100337,7 +100528,8 @@
   "attrs": {
    "brand": "KFC",
    "cuisine": "chicken",
-   "operator": "Kentucky Fried Chicken"
+   "operator": "Kentucky Fried Chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -100372,7 +100564,8 @@
   "website": null,
   "hours": "Mo-Su 11:00-19:00",
   "attrs": {
-   "brand": "ธนาคารกสิกรไทย"
+   "brand": "ธนาคารกสิกรไทย",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -100409,7 +100602,8 @@
   "attrs": {
    "brand": "MK Restaurants",
    "cuisine": "thai",
-   "operator": "MK Restaurants"
+   "operator": "MK Restaurants",
+   "brandWikidata": "Q62075359"
   },
   "featured": false,
   "landmark": false,
@@ -100479,7 +100673,8 @@
   "hours": null,
   "attrs": {
    "brand": "Starbucks",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q37158"
   },
   "featured": false,
   "landmark": false,
@@ -100514,7 +100709,8 @@
   "website": null,
   "hours": "Mo-Su 11:00-19:30",
   "attrs": {
-   "brand": "ธนาคารทหารไทย"
+   "brand": "ธนาคารทหารไทย",
+   "brandWikidata": "Q1527826"
   },
   "featured": false,
   "landmark": false,
@@ -101256,7 +101452,8 @@
   "attrs": {
    "brand": "McDonald's",
    "cuisine": "burger",
-   "operator": "McDonald's"
+   "operator": "McDonald's",
+   "brandWikidata": "Q38076"
   },
   "featured": false,
   "landmark": false,
@@ -101393,6 +101590,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -102360,6 +102558,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -102400,6 +102599,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -103088,7 +103288,8 @@
   "attrs": {
    "brand": "McDonald's",
    "cuisine": "burger",
-   "operator": "McDonald's"
+   "operator": "McDonald's",
+   "brandWikidata": "Q38076"
   },
   "featured": false,
   "landmark": false,
@@ -104205,6 +104406,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -105867,7 +106069,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -106474,7 +106677,8 @@
   "hours": null,
   "attrs": {
    "street": "ซอย1",
-   "brand": "ธนาคารไทยพาณิชย์"
+   "brand": "ธนาคารไทยพาณิชย์",
+   "brandWikidata": "Q2038986"
   },
   "featured": false,
   "landmark": false,
@@ -106677,7 +106881,8 @@
   "attrs": {
    "brand": "KFC",
    "cuisine": "chicken",
-   "operator": "Kentucky Fried Chicken"
+   "operator": "Kentucky Fried Chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -107148,6 +107353,7 @@
   "hours": "24/7",
   "attrs": {
    "brand": "Lotus's go fresh",
+   "brandWikidata": "Q125937967",
    "facets": {
     "open24": "osm-tag"
    }
@@ -107253,7 +107459,8 @@
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
    "cuisine": "coffee_shop",
-   "operator": "PTT"
+   "operator": "PTT",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -107896,6 +108103,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -108036,6 +108244,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -108308,7 +108517,8 @@
   "hours": "Mo-Fr 11:00-2:00; Sa,Su 10:00-21:00",
   "attrs": {
    "brand": "Black Canyon",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q125870828"
   },
   "featured": false,
   "landmark": false,
@@ -108551,7 +108761,8 @@
   "website": null,
   "hours": "Mo-Fr 11:00-20:00; Sa-Su 10:30-19:30",
   "attrs": {
-   "brand": "ธนาคารออมสิน"
+   "brand": "ธนาคารออมสิน",
+   "brandWikidata": "Q6579041"
   },
   "featured": false,
   "landmark": false,
@@ -108586,7 +108797,8 @@
   "website": null,
   "hours": "Mo-Fr 11:00-20:00; Sa-Su 10:30-20:00",
   "attrs": {
-   "brand": "ธนาคารออมสิน"
+   "brand": "ธนาคารออมสิน",
+   "brandWikidata": "Q6579041"
   },
   "featured": false,
   "landmark": false,
@@ -108623,7 +108835,8 @@
   "attrs": {
    "brand": "HOT POT Buffet",
    "cuisine": "hotpot;chinese",
-   "operator": "Inter-Buffet Restaurants"
+   "operator": "Inter-Buffet Restaurants",
+   "brandWikidata": "Q125919341"
   },
   "featured": false,
   "landmark": false,
@@ -108730,7 +108943,8 @@
   "attrs": {
    "brand": "KFC",
    "cuisine": "chicken",
-   "operator": "Kentucky Fried Chicken"
+   "operator": "Kentucky Fried Chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -108798,7 +109012,8 @@
   "website": null,
   "hours": "Mo-Su 11:00-20:00",
   "attrs": {
-   "brand": "ธนาคารกสิกรไทย"
+   "brand": "ธนาคารกสิกรไทย",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -108835,7 +109050,8 @@
   "attrs": {
    "brand": "MK Restaurants",
    "cuisine": "thai",
-   "operator": "MK Restaurants"
+   "operator": "MK Restaurants",
+   "brandWikidata": "Q62075359"
   },
   "featured": false,
   "landmark": false,
@@ -108870,7 +109086,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Major Cineplex"
+   "brand": "Major Cineplex",
+   "brandWikidata": "Q6128861"
   },
   "featured": false,
   "landmark": false,
@@ -108906,7 +109123,8 @@
   "hours": "Mo-Fr 10:00-21:00; Sa,Su 10:00-21:00",
   "attrs": {
    "brand": "Oishi Ramen",
-   "cuisine": "ramen"
+   "cuisine": "ramen",
+   "brandWikidata": "Q125870474"
   },
   "featured": false,
   "landmark": false,
@@ -108977,7 +109195,8 @@
   "hours": "Mo-Fr 11:00-21:00; Sa,Su 10:00-21:00",
   "attrs": {
    "brand": "Pizza Hut",
-   "cuisine": "pizza"
+   "cuisine": "pizza",
+   "brandWikidata": "Q191615"
   },
   "featured": false,
   "landmark": false,
@@ -109013,7 +109232,8 @@
   "hours": "Mo-Fr 11:00-21:00; Sa,Su 10:00-21:00",
   "attrs": {
    "brand": "S&P",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q125872113"
   },
   "featured": false,
   "landmark": false,
@@ -109049,7 +109269,8 @@
   "hours": "Mo-Fr 11:00-21:00; Sa,Su 11:00-21:00",
   "attrs": {
    "brand": "Santa Fé",
-   "cuisine": "steak_house"
+   "cuisine": "steak_house",
+   "brandWikidata": "Q125915873"
   },
   "featured": false,
   "landmark": false,
@@ -109085,7 +109306,8 @@
   "hours": "Mo-Fr 11:00-21:00; Sa,Su 10:00-21:00",
   "attrs": {
    "brand": "Sizzler",
-   "cuisine": "steak_house"
+   "cuisine": "steak_house",
+   "brandWikidata": "Q1848822"
   },
   "featured": false,
   "landmark": false,
@@ -109121,7 +109343,8 @@
   "hours": "Mo-Fr 11:00-21:00; Sa,Su 10:00-21:00",
   "attrs": {
    "brand": "Starbucks",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q37158"
   },
   "featured": false,
   "landmark": false,
@@ -109157,7 +109380,8 @@
   "hours": "Mo-Fr 11:00-21:00; Sa,Su 10:00-21:00",
   "attrs": {
    "brand": "Swensen's",
-   "cuisine": "ice_cream"
+   "cuisine": "ice_cream",
+   "brandWikidata": "Q6640658"
   },
   "featured": false,
   "landmark": false,
@@ -109193,7 +109417,8 @@
   "hours": "Mo-Fr 11:00-21:00; Sa,Su 10:00-21:00",
   "attrs": {
    "brand": "The Pizza Company",
-   "cuisine": "pizza"
+   "cuisine": "pizza",
+   "brandWikidata": "Q2413520"
   },
   "featured": false,
   "landmark": false,
@@ -109329,7 +109554,8 @@
   "website": null,
   "hours": "Mo-Su 10:30-19:00",
   "attrs": {
-   "brand": "ธนาคารกรุงเทพ"
+   "brand": "ธนาคารกรุงเทพ",
+   "brandWikidata": "Q806483"
   },
   "featured": false,
   "landmark": false,
@@ -109364,7 +109590,8 @@
   "website": null,
   "hours": "Mo-Su 11:00-20:00",
   "attrs": {
-   "brand": "กรุงศรี"
+   "brand": "กรุงศรี",
+   "brandWikidata": "Q782537"
   },
   "featured": false,
   "landmark": false,
@@ -109399,7 +109626,8 @@
   "website": null,
   "hours": "Mo-Su 11:00-20:00",
   "attrs": {
-   "brand": "ธนาคารกสิกรไทย"
+   "brand": "ธนาคารกสิกรไทย",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -109434,7 +109662,8 @@
   "website": null,
   "hours": "Mo-Su 11:00-20:00",
   "attrs": {
-   "brand": "ธนาคารกรุงไทย"
+   "brand": "ธนาคารกรุงไทย",
+   "brandWikidata": "Q962865"
   },
   "featured": false,
   "landmark": false,
@@ -109469,7 +109698,8 @@
   "website": null,
   "hours": "Mo-Su 11:00-19:30",
   "attrs": {
-   "brand": "ธนาคารไทยพาณิชย์"
+   "brand": "ธนาคารไทยพาณิชย์",
+   "brandWikidata": "Q2038986"
   },
   "featured": false,
   "landmark": false,
@@ -109505,7 +109735,8 @@
   "hours": "Mo-Fr 11:00-21:00; Sa,Su 10:00-21:00",
   "attrs": {
    "brand": "Swensen's",
-   "cuisine": "ice_cream"
+   "cuisine": "ice_cream",
+   "brandWikidata": "Q6640658"
   },
   "featured": false,
   "landmark": false,
@@ -109540,7 +109771,8 @@
   "website": null,
   "hours": "Mo-Su 11:00-20:00",
   "attrs": {
-   "brand": "ธนาคารทหารไทย"
+   "brand": "ธนาคารทหารไทย",
+   "brandWikidata": "Q1527826"
   },
   "featured": false,
   "landmark": false,
@@ -109575,7 +109807,8 @@
   "website": null,
   "hours": "Mo-Su 11:00-20:00",
   "attrs": {
-   "brand": "UOB"
+   "brand": "UOB",
+   "brandWikidata": "Q2064074"
   },
   "featured": false,
   "landmark": false,
@@ -109612,7 +109845,8 @@
   "attrs": {
    "brand": "McDonald's",
    "cuisine": "burger",
-   "operator": "McDonald's"
+   "operator": "McDonald's",
+   "brandWikidata": "Q38076"
   },
   "featured": false,
   "landmark": false,
@@ -109648,7 +109882,8 @@
   "hours": "Mo-Fr 11:00-21:00; Sa,Su 10:00-21:00",
   "attrs": {
    "brand": "Mister Donut",
-   "cuisine": "donut"
+   "cuisine": "donut",
+   "brandWikidata": "Q1065819"
   },
   "featured": false,
   "landmark": false,
@@ -109991,7 +110226,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -110126,7 +110362,8 @@
   "hours": null,
   "attrs": {
    "brand": "Starbucks",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q37158"
   },
   "featured": false,
   "landmark": false,
@@ -110374,7 +110611,8 @@
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
    "cuisine": "coffee_shop",
-   "operator": "PTT"
+   "operator": "PTT",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -110509,7 +110747,8 @@
   "website": null,
   "hours": "Mo-Fr 08:30-16:00",
   "attrs": {
-   "brand": "ธนาคารไทยพาณิชย์"
+   "brand": "ธนาคารไทยพาณิชย์",
+   "brandWikidata": "Q2038986"
   },
   "featured": false,
   "landmark": false,
@@ -111186,6 +111425,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -111225,6 +111465,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -115450,7 +115691,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงไทย"
+   "brand": "ธนาคารกรุงไทย",
+   "brandWikidata": "Q962865"
   },
   "featured": false,
   "landmark": false,
@@ -115487,6 +115729,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "toilet": "osm-near"
@@ -115527,7 +115770,8 @@
   "attrs": {
    "brand": "KFC",
    "cuisine": "chicken",
-   "operator": "Kentucky Fried Chicken"
+   "operator": "Kentucky Fried Chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -116987,6 +117231,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -117607,6 +117852,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -118776,7 +119022,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงเทพ"
+   "brand": "ธนาคารกรุงเทพ",
+   "brandWikidata": "Q806483"
   },
   "featured": false,
   "landmark": false,
@@ -118877,7 +119124,8 @@
   "website": null,
   "hours": "Mo-Fr 10:00-18:00",
   "attrs": {
-   "brand": "ธนาคารกรุงไทย"
+   "brand": "ธนาคารกรุงไทย",
+   "brandWikidata": "Q962865"
   },
   "featured": false,
   "landmark": false,
@@ -118948,7 +119196,8 @@
   "hours": null,
   "attrs": {
    "brand": "Pizza Hut",
-   "cuisine": "pizza"
+   "cuisine": "pizza",
+   "brandWikidata": "Q191615"
   },
   "featured": false,
   "landmark": false,
@@ -119087,6 +119336,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -120843,7 +121093,8 @@
   "attrs": {
    "brand": "KFC",
    "cuisine": "chicken",
-   "operator": "Kentucky Fried Chicken"
+   "operator": "Kentucky Fried Chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -120878,7 +121129,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกสิกรไทย"
+   "brand": "ธนาคารกสิกรไทย",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -120913,7 +121165,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงไทย"
+   "brand": "ธนาคารกรุงไทย",
+   "brandWikidata": "Q962865"
   },
   "featured": false,
   "landmark": false,
@@ -120950,7 +121203,8 @@
   "attrs": {
    "brand": "MK Restaurants",
    "cuisine": "thai",
-   "operator": "MK Restaurants"
+   "operator": "MK Restaurants",
+   "brandWikidata": "Q62075359"
   },
   "featured": false,
   "landmark": false,
@@ -120985,7 +121239,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารไทยพาณิชย์"
+   "brand": "ธนาคารไทยพาณิชย์",
+   "brandWikidata": "Q2038986"
   },
   "featured": false,
   "landmark": false,
@@ -121021,7 +121276,8 @@
   "hours": null,
   "attrs": {
    "brand": "Pizza Hut",
-   "cuisine": "pizza"
+   "cuisine": "pizza",
+   "brandWikidata": "Q191615"
   },
   "featured": false,
   "landmark": false,
@@ -124155,7 +124411,8 @@
   "hours": null,
   "attrs": {
    "brand": "ธนาคารกสิกรไทย",
-   "operator": "Kasikorn Bank"
+   "operator": "Kasikorn Bank",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -124191,7 +124448,8 @@
   "hours": null,
   "attrs": {
    "brand": "Dunkin'",
-   "cuisine": "donut;coffee_shop"
+   "cuisine": "donut;coffee_shop",
+   "brandWikidata": "Q847743"
   },
   "featured": false,
   "landmark": false,
@@ -124499,7 +124757,8 @@
   "hours": null,
   "attrs": {
    "brand": "Pizza Hut",
-   "cuisine": "pizza"
+   "cuisine": "pizza",
+   "brandWikidata": "Q191615"
   },
   "featured": false,
   "landmark": false,
@@ -125433,6 +125692,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -125539,7 +125799,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -125575,7 +125836,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -126761,7 +127023,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -128062,6 +128325,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -129169,7 +129433,8 @@
   "website": null,
   "hours": "09:00-18:00",
   "attrs": {
-   "brand": "ธนาคารกสิกรไทย"
+   "brand": "ธนาคารกสิกรไทย",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -129512,6 +129777,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -129902,7 +130168,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงเทพ"
+   "brand": "ธนาคารกรุงเทพ",
+   "brandWikidata": "Q806483"
   },
   "featured": false,
   "landmark": false,
@@ -130918,6 +131185,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -130990,6 +131258,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -131161,7 +131430,8 @@
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
    "cuisine": "coffee_shop",
-   "operator": "PTT"
+   "operator": "PTT",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -131197,7 +131467,8 @@
   "hours": null,
   "attrs": {
    "brand": "Subway",
-   "cuisine": "sandwich"
+   "cuisine": "sandwich",
+   "brandWikidata": "Q244457"
   },
   "featured": false,
   "landmark": false,
@@ -131234,7 +131505,8 @@
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
    "cuisine": "coffee_shop",
-   "operator": "PTT"
+   "operator": "PTT",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -131909,6 +132181,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -132847,6 +133120,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "wheelchair": "osm-tag"
@@ -133457,6 +133731,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -133564,6 +133839,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -133970,7 +134246,9 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "wikidata": "Q13021764"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -134178,6 +134456,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -134216,7 +134495,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -134575,6 +134855,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -135306,6 +135587,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -136078,6 +136360,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -136117,7 +136400,8 @@
   "attrs": {
    "brand": "KFC",
    "cuisine": "chicken",
-   "operator": "Kentucky Fried Chicken"
+   "operator": "Kentucky Fried Chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -136188,6 +136472,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -137143,6 +137428,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -137697,7 +137983,8 @@
   "hours": null,
   "attrs": {
    "brand": "Subway",
-   "cuisine": "sandwich"
+   "cuisine": "sandwich",
+   "brandWikidata": "Q244457"
   },
   "featured": false,
   "landmark": false,
@@ -138969,7 +139256,8 @@
   "hours": null,
   "attrs": {
    "brand": "McDonald's",
-   "cuisine": "burger"
+   "cuisine": "burger",
+   "brandWikidata": "Q38076"
   },
   "featured": false,
   "landmark": false,
@@ -139003,7 +139291,9 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "wikidata": "Q1537210"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -140666,7 +140956,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -141040,7 +141331,8 @@
   "hours": null,
   "attrs": {
    "brand": "The Pizza Company",
-   "cuisine": "pizza"
+   "cuisine": "pizza",
+   "brandWikidata": "Q2413520"
   },
   "featured": false,
   "landmark": false,
@@ -145613,7 +145905,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Tiger Mart"
+   "brand": "Tiger Mart",
+   "brandWikidata": "Q57643977"
   },
   "featured": false,
   "landmark": false,
@@ -149509,6 +149802,7 @@
   "hours": "24/7",
   "attrs": {
    "brand": "Lotus's go fresh",
+   "brandWikidata": "Q125937967",
    "facets": {
     "open24": "osm-tag"
    }
@@ -150275,6 +150569,7 @@
   "hours": "24/7",
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -153002,7 +153297,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -153378,6 +153674,7 @@
   "hours": "24/7",
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -153853,7 +154150,8 @@
   "hours": null,
   "attrs": {
    "brand": "Burger King",
-   "cuisine": "burger"
+   "cuisine": "burger",
+   "brandWikidata": "Q177054"
   },
   "featured": false,
   "landmark": false,
@@ -154821,7 +155119,8 @@
   "hours": "24/7",
   "attrs": {
    "brand": "Tom N Toms",
-   "cuisine": "coffee_shop;pretzel;smoothie;tea;bread"
+   "cuisine": "coffee_shop;pretzel;smoothie;tea;bread",
+   "brandWikidata": "Q18142418"
   },
   "featured": false,
   "landmark": false,
@@ -161053,7 +161352,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -162487,7 +162787,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -162624,7 +162925,8 @@
   "hours": null,
   "attrs": {
    "brand": "Hard Rock Cafe",
-   "cuisine": "american"
+   "cuisine": "american",
+   "brandWikidata": "Q918151"
   },
   "featured": false,
   "landmark": false,
@@ -166815,7 +167117,8 @@
   "hours": null,
   "attrs": {
    "brand": "Hard Rock Cafe",
-   "cuisine": "american"
+   "cuisine": "american",
+   "brandWikidata": "Q918151"
   },
   "featured": false,
   "landmark": false,
@@ -168218,7 +168521,8 @@
   "hours": null,
   "attrs": {
    "brand": "Maybank",
-   "operator": "Kim Eng"
+   "operator": "Kim Eng",
+   "brandWikidata": "Q1364018"
   },
   "featured": false,
   "landmark": false,
@@ -170871,7 +171175,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -174651,7 +174956,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -177109,7 +177415,8 @@
   "hours": null,
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -177279,7 +177586,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารทหารไทย"
+   "brand": "ธนาคารทหารไทย",
+   "brandWikidata": "Q1527826"
   },
   "featured": false,
   "landmark": false,
@@ -180069,7 +180377,8 @@
   "hours": null,
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -180105,6 +180414,7 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "toilet": "osm-near"
    }
@@ -180175,7 +180485,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -180348,7 +180659,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -189113,6 +189425,7 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "aircon": "osm-tag",
@@ -190892,7 +191205,8 @@
   "hours": null,
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -195444,7 +195758,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Mini Big C"
+   "brand": "Mini Big C",
+   "brandWikidata": "Q858665"
   },
   "featured": false,
   "landmark": false,
@@ -195546,7 +195861,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -195648,6 +195964,7 @@
   "hours": "Mo-Su 00:00-00:00",
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -195820,6 +196137,7 @@
   "hours": "Mo-Su,PH 00:00-00:00",
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag",
@@ -198827,6 +199145,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -199138,7 +199457,8 @@
   "attrs": {
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -199978,7 +200298,8 @@
   "hours": null,
   "attrs": {
    "brand": "Subway",
-   "cuisine": "sandwich"
+   "cuisine": "sandwich",
+   "brandWikidata": "Q244457"
   },
   "featured": false,
   "landmark": false,
@@ -200315,7 +200636,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -202257,7 +202579,9 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "wikidata": "Q13021744"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -203328,7 +203652,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -203464,7 +203789,8 @@
   "website": null,
   "hours": "Mo-Fr 08:30-15:30",
   "attrs": {
-   "brand": "ธนาคารกรุงเทพ"
+   "brand": "ธนาคารกรุงเทพ",
+   "brandWikidata": "Q806483"
   },
   "featured": false,
   "landmark": false,
@@ -204322,6 +204648,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -204361,6 +204688,7 @@
   "attrs": {
    "brand": "Lotus's go fresh",
    "operator": "Tesco Lotus",
+   "brandWikidata": "Q125937967",
    "facets": {
     "open24": "osm-tag"
    }
@@ -204433,6 +204761,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -204472,6 +204801,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -206745,7 +207075,8 @@
   "hours": null,
   "attrs": {
    "brand": "Subway",
-   "cuisine": "sandwich"
+   "cuisine": "sandwich",
+   "brandWikidata": "Q244457"
   },
   "featured": false,
   "landmark": false,
@@ -206812,7 +207143,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงเทพ"
+   "brand": "ธนาคารกรุงเทพ",
+   "brandWikidata": "Q806483"
   },
   "featured": false,
   "landmark": false,
@@ -206848,7 +207180,8 @@
   "hours": null,
   "attrs": {
    "brand": "McDonald's",
-   "cuisine": "burger"
+   "cuisine": "burger",
+   "brandWikidata": "Q38076"
   },
   "featured": false,
   "landmark": false,
@@ -210355,7 +210688,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -211136,6 +211470,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -211244,7 +211579,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -212173,6 +212509,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -212212,7 +212549,8 @@
   "hours": null,
   "attrs": {
    "brand": "Caltex",
-   "operator": "Caltex"
+   "operator": "Caltex",
+   "brandWikidata": "Q277470"
   },
   "featured": false,
   "landmark": false,
@@ -212281,7 +212619,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -212318,7 +212657,8 @@
   "attrs": {
    "brand": "McDonald's",
    "cuisine": "burger",
-   "operator": "McDonald's"
+   "operator": "McDonald's",
+   "brandWikidata": "Q38076"
   },
   "featured": false,
   "landmark": false,
@@ -212423,6 +212763,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -212497,6 +212838,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "toilet": "osm-near"
    }
@@ -212537,6 +212879,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -213223,6 +213566,7 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -213787,7 +214131,8 @@
   "hours": "Mo-Su 06:00-20:00",
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -214598,6 +214943,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -215399,7 +215745,8 @@
   "hours": null,
   "attrs": {
    "brand": "S&P",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q125872113"
   },
   "featured": false,
   "landmark": false,
@@ -215435,7 +215782,8 @@
   "hours": null,
   "attrs": {
    "brand": "Dunkin'",
-   "cuisine": "donut;coffee_shop"
+   "cuisine": "donut;coffee_shop",
+   "brandWikidata": "Q847743"
   },
   "featured": false,
   "landmark": false,
@@ -215504,7 +215852,8 @@
   "hours": null,
   "attrs": {
    "brand": "Dairy Queen",
-   "cuisine": "ice_cream;burger;chicken"
+   "cuisine": "ice_cream;burger;chicken",
+   "brandWikidata": "Q1141226"
   },
   "featured": false,
   "landmark": false,
@@ -215605,7 +215954,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "MR.DIY"
+   "brand": "MR.DIY",
+   "brandWikidata": "Q105044323"
   },
   "featured": false,
   "landmark": false,
@@ -215674,7 +216024,8 @@
   "hours": null,
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -217664,6 +218015,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -217703,6 +218055,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -217814,6 +218167,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -218465,6 +218819,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag",
@@ -219114,7 +219469,8 @@
   "hours": null,
   "attrs": {
    "brand": "ธนาคารไทยพาณิชย์",
-   "operator": "ธนาคารไทยพาณิชย์"
+   "operator": "ธนาคารไทยพาณิชย์",
+   "brandWikidata": "Q2038986"
   },
   "featured": false,
   "landmark": false,
@@ -219151,6 +219507,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "toilet": "osm-near",
@@ -220858,7 +221215,9 @@
   "website": "https://railway.co.th/Home/Index",
   "hours": null,
   "attrs": {
-   "operator": "การรถไฟแห่งประเทศไทย"
+   "operator": "การรถไฟแห่งประเทศไทย",
+   "wikidata": "Q1884773",
+   "wikipedia": "th:สถานีรถไฟเชียงใหม่"
   },
   "featured": false,
   "landmark": false,
@@ -222620,7 +222979,8 @@
   "hours": null,
   "attrs": {
    "brand": "Burger King",
-   "cuisine": "burger"
+   "cuisine": "burger",
+   "brandWikidata": "Q177054"
   },
   "featured": false,
   "landmark": false,
@@ -223180,7 +223540,8 @@
   "hours": null,
   "attrs": {
    "brand": "Subway",
-   "cuisine": "sandwich"
+   "cuisine": "sandwich",
+   "brandWikidata": "Q244457"
   },
   "featured": false,
   "landmark": false,
@@ -223249,7 +223610,8 @@
   "hours": "Mo-Fr 08:30-15:30",
   "attrs": {
    "brand": "ICBC",
-   "operator": "ICBC (Thai)"
+   "operator": "ICBC (Thai)",
+   "brandWikidata": "Q26463"
   },
   "featured": false,
   "landmark": false,
@@ -223353,7 +223715,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -224004,7 +224367,8 @@
   "hours": "24/7",
   "attrs": {
    "brand": "KFC",
-   "cuisine": "chicken"
+   "cuisine": "chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -224040,7 +224404,8 @@
   "hours": "Mo-Su 06:00-18:00",
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -224141,7 +224506,8 @@
   "hours": null,
   "attrs": {
    "brand": "Burger King",
-   "cuisine": "burger"
+   "cuisine": "burger",
+   "brandWikidata": "Q177054"
   },
   "featured": false,
   "landmark": false,
@@ -224247,7 +224613,8 @@
   "hours": "Mo-Su 06:00-18:00",
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -224600,7 +224967,8 @@
   "hours": "Mo-Su 07:00-23:00",
   "attrs": {
    "brand": "Burger King",
-   "cuisine": "burger"
+   "cuisine": "burger",
+   "brandWikidata": "Q177054"
   },
   "featured": false,
   "landmark": false,
@@ -224636,7 +225004,8 @@
   "hours": "Su-Th 10:00-22:00; Fr-Sa 10:00-00:00",
   "attrs": {
    "brand": "The Pizza Company",
-   "cuisine": "pizza"
+   "cuisine": "pizza",
+   "brandWikidata": "Q2413520"
   },
   "featured": false,
   "landmark": false,
@@ -226777,7 +227146,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "กรุงศรี"
+   "brand": "กรุงศรี",
+   "brandWikidata": "Q782537"
   },
   "featured": false,
   "landmark": false,
@@ -227356,7 +227726,8 @@
   "attrs": {
    "brand": "McDonald's",
    "cuisine": "burger",
-   "operator": "McDonald's"
+   "operator": "McDonald's",
+   "brandWikidata": "Q38076"
   },
   "featured": false,
   "landmark": false,
@@ -230437,7 +230808,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "operator": "Department of National Parks, Wildlife and Plant Conservation"
+   "operator": "Department of National Parks, Wildlife and Plant Conservation",
+   "wikidata": "Q6652851"
   },
   "featured": false,
   "landmark": false,
@@ -230578,7 +230950,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Travelodge"
+   "brand": "Travelodge",
+   "brandWikidata": "Q24997583"
   },
   "featured": false,
   "landmark": false,
@@ -230713,7 +231086,8 @@
   "hours": "We-Su 08:30-17:30",
   "attrs": {
    "street": "ถนนพระปกเกล้า",
-   "postcode": "50200"
+   "postcode": "50200",
+   "wikidata": "Q18808485"
   },
   "featured": false,
   "landmark": false,
@@ -231186,7 +231560,9 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "operator": "Department of National Parks, Wildlife and Plant Conservation"
+   "operator": "Department of National Parks, Wildlife and Plant Conservation",
+   "wikidata": "Q843034",
+   "wikipedia": "en:Doi Suthep–Pui National Park"
   },
   "featured": false,
   "landmark": false,
@@ -231221,7 +231597,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "operator": "Department of National Parks, Wildlife and Plant Conservation"
+   "operator": "Department of National Parks, Wildlife and Plant Conservation",
+   "wikidata": "Q6652763"
   },
   "featured": false,
   "landmark": false,
@@ -231256,7 +231633,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "operator": "Department of National Parks, Wildlife and Plant Conservation"
+   "operator": "Department of National Parks, Wildlife and Plant Conservation",
+   "wikidata": "Q12672859"
   },
   "featured": false,
   "landmark": false,
@@ -231736,7 +232114,9 @@
   "phone": null,
   "website": null,
   "hours": "Mo-Su 08:00-18:00",
-  "attrs": {},
+  "attrs": {
+   "wikidata": "Q20760357"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -231915,7 +232295,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Caltex"
+   "brand": "Caltex",
+   "brandWikidata": "Q277470"
   },
   "featured": false,
   "landmark": false,
@@ -232354,7 +232735,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -232560,6 +232942,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -232946,7 +233329,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -233019,7 +233403,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -233840,7 +234225,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -234040,7 +234426,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -234600,7 +234987,8 @@
   "hours": null,
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -234635,7 +235023,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -235452,7 +235841,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -235558,7 +235948,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "cuisine": "regional"
+   "cuisine": "regional",
+   "wikidata": "Q133455660"
   },
   "featured": false,
   "landmark": false,
@@ -236006,7 +236397,8 @@
   "hours": null,
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -236658,7 +237050,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -236795,6 +237188,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -236968,7 +237362,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "MR.DIY"
+   "brand": "MR.DIY",
+   "brandWikidata": "Q105044323"
   },
   "featured": false,
   "landmark": false,
@@ -237004,6 +237399,7 @@
   "hours": "24/7",
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -237074,7 +237470,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -237212,6 +237609,7 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -237622,7 +238020,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -237658,7 +238057,8 @@
   "hours": null,
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -238513,7 +238913,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Big C Mini"
+   "brand": "Big C Mini",
+   "brandWikidata": "Q858665"
   },
   "featured": false,
   "landmark": false,
@@ -238584,6 +238985,7 @@
   "hours": "24/7",
   "attrs": {
    "brand": "Lotus's go fresh",
+   "brandWikidata": "Q125937967",
    "facets": {
     "open24": "osm-tag"
    }
@@ -238623,6 +239025,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -238662,6 +239065,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -239300,7 +239704,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -239335,7 +239740,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -240298,7 +240704,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -240333,7 +240740,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -240577,7 +240985,8 @@
   "hours": null,
   "attrs": {
    "brand": "KFC",
-   "cuisine": "chicken"
+   "cuisine": "chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -240651,7 +241060,8 @@
   "hours": "PH,Mo-Su 00:00-24:00",
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -241128,7 +241538,8 @@
   "website": "https://www.bigc.co.th/",
   "hours": "Mon-Sun 06:00-23:00",
   "attrs": {
-   "brand": "Mini Big C"
+   "brand": "Mini Big C",
+   "brandWikidata": "Q858665"
   },
   "featured": false,
   "landmark": false,
@@ -241967,6 +242378,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -242244,6 +242656,7 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -242383,7 +242796,8 @@
   "hours": null,
   "attrs": {
    "brand": "บางจาก",
-   "operator": "บางจาก"
+   "operator": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -242484,7 +242898,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -242934,7 +243349,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -243105,7 +243521,8 @@
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
    "cuisine": "coffee_shop",
-   "operator": "PTT"
+   "operator": "PTT",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -243243,6 +243660,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -243966,7 +244384,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -244202,7 +244621,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -244451,7 +244871,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -244909,7 +245330,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -244944,7 +245366,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -244979,7 +245402,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -245014,7 +245438,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -245049,7 +245474,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -245084,7 +245510,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -245119,7 +245546,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -245154,7 +245582,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Lotus's go fresh"
+   "brand": "Lotus's go fresh",
+   "brandWikidata": "Q125937967"
   },
   "featured": false,
   "landmark": false,
@@ -245189,7 +245618,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -245261,7 +245691,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "เชลล์"
+   "brand": "เชลล์",
+   "brandWikidata": "Q110716465"
   },
   "featured": false,
   "landmark": false,
@@ -245296,7 +245727,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -245631,7 +246063,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -245806,7 +246239,8 @@
   "hours": null,
   "attrs": {
    "brand": "KFC",
-   "cuisine": "chicken"
+   "cuisine": "chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -245941,7 +246375,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "เชลล์"
+   "brand": "เชลล์",
+   "brandWikidata": "Q110716465"
   },
   "featured": false,
   "landmark": false,
@@ -246977,7 +247412,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -247270,7 +247706,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารออมสิน"
+   "brand": "ธนาคารออมสิน",
+   "brandWikidata": "Q6579041"
   },
   "featured": false,
   "landmark": false,
@@ -247305,7 +247742,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงเทพ"
+   "brand": "ธนาคารกรุงเทพ",
+   "brandWikidata": "Q806483"
   },
   "featured": false,
   "landmark": false,
@@ -247410,6 +247848,7 @@
   "attrs": {
    "brand": "Lotus's go fresh",
    "operator": "Tesco Lotus",
+   "brandWikidata": "Q125937967",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -247481,7 +247920,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Lotus's go fresh"
+   "brand": "Lotus's go fresh",
+   "brandWikidata": "Q125937967"
   },
   "featured": false,
   "landmark": false,
@@ -247778,6 +248218,7 @@
   "attrs": {
    "brand": "Lotus's go fresh",
    "operator": "Tesco Lotus",
+   "brandWikidata": "Q125937967",
    "facets": {
     "open24": "osm-tag"
    }
@@ -247815,7 +248256,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร"
+   "brand": "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร",
+   "brandWikidata": "Q23043470"
   },
   "featured": false,
   "landmark": false,
@@ -247850,7 +248292,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -248023,7 +248466,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -248091,7 +248535,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -248126,7 +248571,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "MR.DIY"
+   "brand": "MR.DIY",
+   "brandWikidata": "Q105044323"
   },
   "featured": false,
   "landmark": false,
@@ -248444,7 +248890,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -248551,7 +248998,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -248587,6 +249035,7 @@
   "hours": "24/7",
   "attrs": {
    "brand": "Big C Mini",
+   "brandWikidata": "Q858665",
    "facets": {
     "open24": "osm-tag"
    }
@@ -248791,6 +249240,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -249266,7 +249716,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -249367,7 +249818,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -249435,7 +249887,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -249470,7 +249923,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -249642,7 +250096,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงไทย"
+   "brand": "ธนาคารกรุงไทย",
+   "brandWikidata": "Q962865"
   },
   "featured": false,
   "landmark": false,
@@ -249821,7 +250276,9 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "wikidata": "Q139987594"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -249962,7 +250419,8 @@
   "attrs": {
    "houseNumber": "13",
    "streetEn": "Chetupon Road",
-   "postcode": "50000"
+   "postcode": "50000",
+   "wikidata": "Q5095197"
   },
   "featured": false,
   "landmark": false,
@@ -250299,7 +250757,8 @@
   "attrs": {
    "houseNumber": "300",
    "street": "Hang Dong Rd.",
-   "postcode": "50100"
+   "postcode": "50100",
+   "wikidata": "Q6487237"
   },
   "featured": false,
   "landmark": false,
@@ -250475,7 +250934,9 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "wikidata": "Q3272101"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -250616,7 +251077,9 @@
   "hours": null,
   "attrs": {
    "email": "contacts@cmu.ac.th",
-   "facebook": "https://www.facebook.com/cmuofficial/"
+   "facebook": "https://www.facebook.com/cmuofficial/",
+   "wikidata": "Q1071609",
+   "wikipedia": "th:มหาวิทยาลัยเชียงใหม่"
   },
   "featured": false,
   "landmark": false,
@@ -251425,7 +251888,8 @@
   "attrs": {
    "subdistrict": "Chang Phueak",
    "district": "Mueang Chiang Mai",
-   "postcode": "50300"
+   "postcode": "50300",
+   "wikidata": "Q1642767"
   },
   "featured": false,
   "landmark": false,
@@ -252473,7 +252937,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -252979,7 +253444,8 @@
   "website": null,
   "hours": "Mo-Su 06:00-22:00",
   "attrs": {
-   "brand": "แม็คโคร"
+   "brand": "แม็คโคร",
+   "brandWikidata": "Q704606"
   },
   "featured": false,
   "landmark": false,
@@ -253530,7 +253996,10 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "wikidata": "Q5095199",
+   "wikipedia": "en:Chiang Mai Night Bazaar"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -253597,7 +254066,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -254142,7 +254612,8 @@
   "website": null,
   "hours": "Mo-Fr 08:30-15:30",
   "attrs": {
-   "brand": "ธนาคารไทยพาณิชย์"
+   "brand": "ธนาคารไทยพาณิชย์",
+   "brandWikidata": "Q2038986"
   },
   "featured": false,
   "landmark": false,
@@ -254177,7 +254648,8 @@
   "website": null,
   "hours": "Mo-Fr 08:30-15:30",
   "attrs": {
-   "brand": "ธนาคารออมสิน"
+   "brand": "ธนาคารออมสิน",
+   "brandWikidata": "Q6579041"
   },
   "featured": false,
   "landmark": false,
@@ -254379,7 +254851,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -254550,6 +255023,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag",
@@ -254852,7 +255326,9 @@
   "phone": null,
   "website": null,
   "hours": "Mo-Su 05:00-21:00",
-  "attrs": {},
+  "attrs": {
+   "wikidata": "Q16255674"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -255129,6 +255605,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "toilet": "osm-near"
@@ -256075,7 +256552,8 @@
    "moo": "Rama IX Lanna Park,",
    "subdistrict": "Chang Phueak",
    "district": "Mueang Chiang Mai",
-   "postcode": "50300"
+   "postcode": "50300",
+   "wikipedia": "en:Tribal Museum"
   },
   "featured": false,
   "landmark": false,
@@ -256422,7 +256900,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -260412,6 +260891,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -260550,7 +261030,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงไทย"
+   "brand": "ธนาคารกรุงไทย",
+   "brandWikidata": "Q962865"
   },
   "featured": false,
   "landmark": false,
@@ -261501,7 +261982,8 @@
   "hours": null,
   "attrs": {
    "brand": "ป.ต.ท.",
-   "operator": "ปตท"
+   "operator": "ปตท",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -261538,6 +262020,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -261609,7 +262092,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Caltex"
+   "brand": "Caltex",
+   "brandWikidata": "Q277470"
   },
   "featured": false,
   "landmark": false,
@@ -261749,7 +262233,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -262027,7 +262512,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงเทพ"
+   "brand": "ธนาคารกรุงเทพ",
+   "brandWikidata": "Q806483"
   },
   "featured": false,
   "landmark": false,
@@ -263240,7 +263726,9 @@
   "hours": null,
   "attrs": {
    "houseNumber": "234",
-   "street": "Moo 3 Huai Sai"
+   "street": "Moo 3 Huai Sai",
+   "wikidata": "Q7240182",
+   "wikipedia": "en:Prem Tinsulanonda International School"
   },
   "featured": false,
   "landmark": false,
@@ -264198,7 +264686,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -264233,7 +264722,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -264268,7 +264758,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -264955,6 +265446,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -264995,6 +265487,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -265068,6 +265561,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -265108,6 +265602,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -265284,6 +265779,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag",
     "wheelchair": "osm-tag"
@@ -265746,7 +266242,8 @@
   "hours": null,
   "attrs": {
    "brand": "บางจาก",
-   "operator": "บางจาก"
+   "operator": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -265781,7 +266278,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -265816,7 +266314,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -266392,6 +266891,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -266530,7 +267030,8 @@
   "attrs": {
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -266600,7 +267101,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -266670,7 +267172,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Jiffy"
+   "brand": "Jiffy",
+   "brandWikidata": "Q16770436"
   },
   "featured": false,
   "landmark": false,
@@ -266705,7 +267208,8 @@
   "website": "www.pttplc.com",
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -267145,7 +267649,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -267660,7 +268165,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารไทยพาณิชย์"
+   "brand": "ธนาคารไทยพาณิชย์",
+   "brandWikidata": "Q2038986"
   },
   "featured": false,
   "landmark": false,
@@ -268692,7 +269198,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "UOB"
+   "brand": "UOB",
+   "brandWikidata": "Q2064074"
   },
   "featured": false,
   "landmark": false,
@@ -269569,7 +270076,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกรุงไทย"
+   "brand": "ธนาคารกรุงไทย",
+   "brandWikidata": "Q962865"
   },
   "featured": false,
   "landmark": false,
@@ -269974,7 +270482,8 @@
   "attrs": {
    "houseNumber": "202",
    "street": "ถนน ช้างเผือก",
-   "postcode": "50300"
+   "postcode": "50300",
+   "wikidata": "Q1232267"
   },
   "featured": false,
   "landmark": false,
@@ -270473,7 +270982,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -270648,6 +271158,7 @@
   "hours": null,
   "attrs": {
    "brand": "Lotus's go fresh",
+   "brandWikidata": "Q125937967",
    "facets": {
     "wheelchair": "osm-tag"
    }
@@ -271202,7 +271713,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -271442,7 +271954,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -272046,7 +272559,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -272455,7 +272969,8 @@
   "hours": null,
   "attrs": {
    "brand": "KFC",
-   "cuisine": "chicken"
+   "cuisine": "chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -272563,7 +273078,8 @@
   "hours": null,
   "attrs": {
    "brand": "Starbucks",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q37158"
   },
   "featured": false,
   "landmark": false,
@@ -272832,7 +273348,8 @@
   "hours": null,
   "attrs": {
    "brand": "ป.ต.ท.",
-   "operator": "PTT"
+   "operator": "PTT",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -272869,6 +273386,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -273110,7 +273628,8 @@
   "attrs": {
    "brand": "McDonald's",
    "cuisine": "burger",
-   "operator": "McDonald's"
+   "operator": "McDonald's",
+   "brandWikidata": "Q38076"
   },
   "featured": false,
   "landmark": false,
@@ -273782,7 +274301,8 @@
   "hours": null,
   "attrs": {
    "brand": "บางจาก",
-   "operator": "บางจาก"
+   "operator": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -274295,7 +274815,8 @@
   "website": null,
   "hours": "Mo-Fr 08:30-15:30; PH off",
   "attrs": {
-   "brand": "ธนาคารออมสิน"
+   "brand": "ธนาคารออมสิน",
+   "brandWikidata": "Q6579041"
   },
   "featured": false,
   "landmark": false,
@@ -274812,6 +275333,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -276174,7 +276696,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -276946,7 +277469,8 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -277772,7 +278296,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -278386,7 +278911,9 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "wikidata": "Q17637241"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -281840,7 +282367,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -281875,7 +282403,8 @@
   "website": "https://www.caltex.com/",
   "hours": null,
   "attrs": {
-   "brand": "Caltex"
+   "brand": "Caltex",
+   "brandWikidata": "Q277470"
   },
   "featured": false,
   "landmark": false,
@@ -282537,7 +283066,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -282572,7 +283102,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -282908,7 +283439,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกสิกรไทย"
+   "brand": "ธนาคารกสิกรไทย",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -283790,6 +284322,7 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -285036,7 +285569,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Caltex"
+   "brand": "Caltex",
+   "brandWikidata": "Q277470"
   },
   "featured": false,
   "landmark": false,
@@ -285071,7 +285605,8 @@
   "website": null,
   "hours": "Mo-Fr 10:00-16:30",
   "attrs": {
-   "brand": "ธนาคารกสิกรไทย"
+   "brand": "ธนาคารกสิกรไทย",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -286222,7 +286757,8 @@
   "hours": null,
   "attrs": {
    "brand": "Le Méridien",
-   "operator": "Marriot Chiang Mai"
+   "operator": "Marriot Chiang Mai",
+   "brandWikidata": "Q261077"
   },
   "featured": false,
   "landmark": false,
@@ -286663,6 +287199,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -286837,7 +287374,8 @@
   "hours": null,
   "attrs": {
    "brand": "ธนาคารกรุงเทพ",
-   "operator": "Bangkok Bank"
+   "operator": "Bangkok Bank",
+   "brandWikidata": "Q806483"
   },
   "featured": false,
   "landmark": false,
@@ -286940,6 +287478,7 @@
   "attrs": {
    "brand": "Tesco",
    "operator": "Tesco Lotus",
+   "brandWikidata": "Q487494",
    "facets": {
     "open24": "osm-tag",
     "wheelchair": "osm-tag"
@@ -287944,6 +288483,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -289138,7 +289678,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "InterContinental"
+   "brand": "InterContinental",
+   "brandWikidata": "Q1825730"
   },
   "featured": false,
   "landmark": false,
@@ -289739,7 +290280,9 @@
   "phone": null,
   "website": null,
   "hours": "Mo-Fr 08:00-18:00; Sa-Su off",
-  "attrs": {},
+  "attrs": {
+   "wikipedia": "en:Panyaden International School"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -290173,7 +290716,8 @@
   "website": null,
   "hours": "Mo-Su 05:00-22:00",
   "attrs": {
-   "brand": "Big C Mini"
+   "brand": "Big C Mini",
+   "brandWikidata": "Q858665"
   },
   "featured": false,
   "landmark": false,
@@ -291144,6 +291688,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -291252,6 +291797,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -291873,7 +292419,8 @@
   "hours": "24/7",
   "attrs": {
    "street": "ถนนมหิดล",
-   "brand": "Caltex"
+   "brand": "Caltex",
+   "brandWikidata": "Q277470"
   },
   "featured": false,
   "landmark": false,
@@ -292346,7 +292893,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -292654,7 +293202,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -292690,6 +293239,7 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "toilet": "osm-near"
    }
@@ -292728,7 +293278,8 @@
   "hours": null,
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -293670,7 +294221,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -293910,7 +294462,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -293945,7 +294498,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -294586,6 +295140,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "toilet": "osm-near",
     "open24": "osm-tag"
@@ -294660,7 +295215,8 @@
   "hours": null,
   "attrs": {
    "brand": "บางจาก",
-   "operator": "Esso"
+   "operator": "Esso",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -294760,7 +295316,9 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "wikidata": "Q108569537"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -295433,6 +295991,7 @@
    "brand": "7-Eleven",
    "operator": "CP All Public Company Limited",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -299179,7 +299738,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -299792,6 +300352,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -300670,6 +301231,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -301120,7 +301682,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -301156,7 +301719,8 @@
   "hours": null,
   "attrs": {
    "brand": "PT",
-   "operator": "PT"
+   "operator": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -301226,7 +301790,8 @@
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
    "cuisine": "coffee_shop",
-   "operator": "PTT"
+   "operator": "PTT",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -301737,6 +302302,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -302397,6 +302963,7 @@
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -303575,6 +304142,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near"
    }
@@ -304005,6 +304573,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "toilet": "osm-near",
@@ -304674,7 +305243,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -305011,7 +305581,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -305982,7 +306553,8 @@
   "website": null,
   "hours": "24/7",
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -307323,7 +307895,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -307568,7 +308141,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -307706,6 +308280,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "open24": "osm-tag"
    }
@@ -307777,7 +308352,8 @@
   "hours": null,
   "attrs": {
    "brand": "KFC",
-   "cuisine": "chicken"
+   "cuisine": "chicken",
+   "brandWikidata": "Q524757"
   },
   "featured": false,
   "landmark": false,
@@ -307846,7 +308422,8 @@
   "hours": null,
   "attrs": {
    "brand": "The Pizza Company",
-   "cuisine": "pizza"
+   "cuisine": "pizza",
+   "brandWikidata": "Q2413520"
   },
   "featured": false,
   "landmark": false,
@@ -307881,7 +308458,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ป.ต.ท."
+   "brand": "ป.ต.ท.",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -307917,7 +308495,8 @@
   "hours": "Mo-Su 06:30-19:00",
   "attrs": {
    "brand": "คาเฟ่ อเมซอน",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "brandWikidata": "Q43247503"
   },
   "featured": false,
   "landmark": false,
@@ -307992,6 +308571,7 @@
   "hours": "24/7",
   "attrs": {
    "brand": "7-Eleven",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -308274,6 +308854,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -308313,7 +308894,8 @@
   "hours": null,
   "attrs": {
    "brand": "ป.ต.ท.",
-   "operator": "PTT"
+   "operator": "PTT",
+   "brandWikidata": "Q1810389"
   },
   "featured": false,
   "landmark": false,
@@ -308721,7 +309303,8 @@
   "attrs": {
    "brand": "7-Eleven",
    "operator": "Seven & I Holdings",
-   "brandWebsite": "http://www.7eleven.co.th/"
+   "brandWebsite": "http://www.7eleven.co.th/",
+   "brandWikidata": "Q259340"
   },
   "featured": false,
   "landmark": false,
@@ -309069,7 +309652,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "PT"
+   "brand": "PT",
+   "brandWikidata": "Q62298612"
   },
   "featured": false,
   "landmark": false,
@@ -312037,7 +312621,8 @@
   "hours": null,
   "attrs": {
    "brand": "เชลล์",
-   "operator": "Shell"
+   "operator": "Shell",
+   "brandWikidata": "Q110716465"
   },
   "featured": false,
   "landmark": false,
@@ -312209,7 +312794,8 @@
   "hours": null,
   "attrs": {
    "brand": "ธนาคารกรุงเทพ",
-   "operator": "ธนาคารกรุงเทพ"
+   "operator": "ธนาคารกรุงเทพ",
+   "brandWikidata": "Q806483"
   },
   "featured": false,
   "landmark": false,
@@ -312244,7 +312830,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารกสิกรไทย"
+   "brand": "ธนาคารกสิกรไทย",
+   "brandWikidata": "Q276557"
   },
   "featured": false,
   "landmark": false,
@@ -314612,7 +315199,8 @@
    "subdistrict": "หนองหาร",
    "district": "สันทราย",
    "postcode": "50290",
-   "email": "maejo@mju.ac.th"
+   "email": "maejo@mju.ac.th",
+   "wikidata": "Q846382"
   },
   "featured": false,
   "landmark": false,
@@ -315367,7 +315955,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -315989,7 +316578,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "บางจาก"
+   "brand": "บางจาก",
+   "brandWikidata": "Q6579719"
   },
   "featured": false,
   "landmark": false,
@@ -316234,7 +316824,8 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "ธนาคารไทยพาณิชย์"
+   "brand": "ธนาคารไทยพาณิชย์",
+   "brandWikidata": "Q2038986"
   },
   "featured": false,
   "landmark": false,

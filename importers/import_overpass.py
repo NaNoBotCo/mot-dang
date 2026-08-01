@@ -292,6 +292,16 @@ def records(province="cm"):
                     "facebook": t.get("contact:facebook") or t.get("facebook"),
                     "instagram": t.get("contact:instagram") or t.get("instagram"),
                     "brandWebsite": (t.get("brand:website") if not website else None),
+                    # Reference tags, dropped since the first crawl. Small in
+                    # number — 35 wikidata, 10 wikipedia — but they are the only
+                    # links in the whole dataset that lead to a written account
+                    # of the place itself. brand:wikidata is far commoner (697)
+                    # and is a different animal: it describes the chain, not the
+                    # branch, so it is kept under its own key and never
+                    # presented as being about this shop.
+                    "wikidata": t.get("wikidata"),
+                    "wikipedia": t.get("wikipedia"),
+                    "brandWikidata": t.get("brand:wikidata"),
                 }.items() if v},
                 "featured": False, "landmark": False,
                 "sources": [{"type": "osm", "ref": f"{el['type']}/{el['id']}",
