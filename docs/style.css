@@ -62,6 +62,25 @@ border-radius:.5rem;padding:0 .5rem;white-space:nowrap}
 .badge{background:var(--soft);border-radius:.5rem;padding:0 .5rem;font-size:.8rem;white-space:nowrap}
 .badge.pin{background:#F6D9CE;color:var(--ant-dark)}
 .grow{color:var(--ant-dark);font-size:.9rem;font-style:italic}
+/* Plan (route) toggle — a small ring on every listing row, a labelled pill
+   on the place page itself. Same data-plan key drives both. */
+.planbtn{border:1.5px solid var(--warm-border);background:#fff;border-radius:50%;
+width:23px;height:23px;padding:0;margin-left:.35rem;cursor:pointer;
+display:inline-flex;align-items:center;justify-content:center;vertical-align:-6px}
+.planbtn:hover{border-color:var(--ant)}
+.planbtn .planicon{color:var(--gloss);width:14px;height:14px}
+.planbtn.on{background:var(--ant);border-color:var(--ant-dark)}
+.planbtn.on .planicon{color:#fff}
+.planbtn-lg{border-radius:.6rem;width:auto;height:auto;padding:.5rem .95rem;gap:.45rem;
+margin:.5rem 0 .2rem;font:inherit;font-weight:700;border:2px solid var(--ant)}
+.planbtn-lg .planicon{width:18px;height:18px}
+.planbtn-lg:not(.on){color:var(--ant-dark)}
+.planbtn-lg.on{color:#fff}
+.planbtn-lg .off-label,.planbtn-lg.on .on-label{display:inline}
+.planbtn-lg .on-label,.planbtn-lg.on .off-label{display:none}
+.chip .plancount{background:var(--ant);color:#fff;border-radius:1rem;font-size:.72rem;
+font-weight:700;padding:.05rem .42rem;margin-left:-.1rem}
+.chip.dark .plancount{background:var(--gold);color:var(--ink)}
 .subshelf{background:#fff;border:1px solid var(--soft);border-radius:.7rem;
 padding:.6rem 1rem;margin:.6rem 0 1rem}
 .subshelf b a{font-weight:700}
@@ -92,6 +111,33 @@ border:1px solid #DFC98C;background:linear-gradient(180deg,#FDF6E6,#FBF6EE)}
 .honpanel li{margin-bottom:.4rem}
 .honverb,.honsrc{display:block;font-size:.85rem;opacity:.8}
 .honsrc a{font-size:.82rem}
+/* Facets — what this branch of the chain actually has. Solid-bordered when a
+   person confirmed it, dashed when it was joined by distance from a map point:
+   the border IS the provenance, readable before the tooltip is opened. */
+.facets{white-space:normal}
+.facet{display:inline-block;font-size:.72rem;line-height:1.6;margin-left:.3rem;
+padding:0 .45rem;border-radius:999px;vertical-align:.08em;cursor:help;
+background:#E8F0E2;color:#3C5A2E;border:1px solid #C3D8B6}
+.facet.near{border-style:dashed;opacity:.85}
+.facet.field{background:#DCEFD2;border-color:#8FBF77;font-weight:600}
+.facets:not(.small) .facet{font-size:.86rem;line-height:2;margin:.15rem .3rem .15rem 0;
+padding:.1rem .7rem}
+.facetpanel{margin:.9rem 0;padding:.7rem .9rem .8rem;border-radius:.8rem;
+border:1px solid #C3D8B6;background:linear-gradient(180deg,#F3F8EF,#F8FAF5)}
+.facetpanel .facetlede{margin:.15rem 0 .5rem}
+.facetbar{margin-top:.4rem}
+.fchip{cursor:pointer}
+.fchip.on{background:var(--ant);color:#fff;border-color:var(--ant)}
+.fchip.clear{opacity:.7}
+.dir li.fhide{display:none}
+.facetticks{margin:.9rem 0;padding:.6rem .8rem .8rem;border:1px solid #C3D8B6;
+border-radius:.8rem;background:#F7FAF4}
+.facetticks legend{font-weight:700;padding:0 .35rem}
+.facetticks .tick{display:inline-flex;align-items:center;gap:.35rem;
+margin:.2rem .5rem .2rem 0;padding:.25rem .6rem;border:1px solid #C3D8B6;
+border-radius:999px;background:#fff;cursor:pointer;font-size:.9rem}
+.facetticks .tick:has(input:checked){background:#DCEFD2;border-color:#8FBF77;font-weight:600}
+.facetticks input{width:1.05rem;height:1.05rem;accent-color:#5C8A44}
 .lineoa{margin:.9rem 0;padding:.7rem .9rem .8rem;border:1.5px dashed #06C755;border-radius:.8rem;
 background:rgba(6,199,85,.05)}
 .lineoa p{margin:.3rem 0}
@@ -111,6 +157,37 @@ backdrop-filter:blur(6px);box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 2px 10
 .reachlabel{font-size:.9rem;color:var(--ant-dark);font-weight:700;letter-spacing:.02em}
 .reach .tinynote{margin-left:.5rem}
 .tinynote{font-size:.8rem;color:var(--mute)}
+/* Birth chart — the four pillars. Computed in the reader's own browser, so the
+   page has nowhere to send a birth date even if it wanted to. */
+.chartform{display:flex;flex-wrap:wrap;gap:.75rem;align-items:flex-end;margin:1rem 0 .4rem;
+padding:.9rem 1rem;border-radius:.9rem;border:1px solid var(--soft);
+background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.6));
+backdrop-filter:blur(6px);box-shadow:0 2px 12px rgba(42,30,22,.06)}
+.chartform label{display:flex;flex-direction:column;gap:.25rem;font-size:.86rem;color:var(--ant-dark)}
+.chartform input{font:inherit;padding:.42rem .6rem;border:1px solid var(--soft);border-radius:.55rem;
+background:#fff;color:var(--ink)}
+.chartform button{font:inherit;font-weight:600;padding:.5rem 1.3rem;border:2px solid var(--ink);
+border-radius:999px;background:var(--ant);color:#fff;cursor:pointer;
+transition:transform .13s cubic-bezier(.34,1.56,.64,1),box-shadow .13s}
+.chartform button:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(42,30,22,.18)}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(7.5rem,1fr));gap:.7rem;margin:1rem 0}
+.pillar{text-align:center;padding:.85rem .5rem;border-radius:.8rem;border:1px solid var(--soft);
+background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(255,255,255,.65));
+box-shadow:0 2px 10px rgba(42,30,22,.05)}
+.pillar .zh{font-size:2.1rem;line-height:1.15;color:var(--ink)}
+.pillar .pin{font-size:.82rem;color:var(--mute)}
+.pillar .who{font-size:.8rem;color:var(--ant-dark);font-weight:700;letter-spacing:.02em}
+.pillar.unknown{opacity:.55;border-style:dashed}
+.elements{display:flex;flex-wrap:wrap;gap:.45rem;margin:.6rem 0 0}
+.elements span{padding:.28rem .8rem;border-radius:999px;border:1px solid var(--soft);font-size:.86rem}
+.elements .none{opacity:.5}
+.chartnote{margin:.5rem 0 0;font-size:.85rem;color:var(--mute)}
+.chartout[hidden]{display:none}
+/* Privacy — plain rows, no clever layout. Someone reading this wants answers. */
+.privrow{margin:1rem 0;padding:.85rem 1rem;border-radius:.8rem;border:1px solid var(--soft);
+background:rgba(255,255,255,.7)}
+.privrow h3{margin:0 0 .3rem;font-size:1rem;color:var(--ant-dark)}
+.privrow p{margin:.2rem 0}
 .chwrap{display:inline-flex;flex-direction:column;gap:.15rem}
 .reach .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.34rem .9rem;
 border-radius:999px;text-decoration:none;font-size:.9rem;color:#fff;font-weight:500;
@@ -430,6 +507,146 @@ border-radius:.6rem;padding:.15rem .6rem;cursor:pointer;font:inherit;font-size:.
 .evseeall{font-size:.85rem;font-weight:400;margin-left:.4rem}
 .evmapwrap{background:#fff;border:1px solid var(--soft);border-radius:.8rem;padding:.4rem;overflow-x:auto}
 .evmap{display:block;min-width:22rem}
+/* ---- the soi tier: a road, its sois, and what stands on it ----------- */
+.soifig{margin:.8rem 0;background:#fff;border:1px solid var(--soft);border-radius:.8rem;
+padding:.4rem;overflow-x:auto}
+.soimap{display:block;min-width:20rem}
+.soifig figcaption{font-size:.85rem;color:var(--muted);padding:.25rem .5rem .1rem}
+.soisub{color:var(--muted);margin:.1rem 0 .7rem}
+.soilen{white-space:nowrap}
+.soiparent{margin:.2rem 0 .6rem}
+/* The walking order is the point of the page, so the numbers are shown rather
+   than being an invisible property of the list. Counter, not <ol> markers,
+   because the rows already carry the star and the badges. */
+ol.soidir{list-style:none;counter-reset:soi;padding-left:0}
+ol.soidir>li{counter-increment:soi;position:relative;padding-left:2.4rem}
+ol.soidir>li::before{content:counter(soi);position:absolute;left:0;top:.15rem;
+min-width:1.7rem;height:1.7rem;border-radius:50%;background:var(--brand);color:#fff;
+font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;
+justify-content:center;padding:0 .3rem}
+/* A matched-by-position distance is quiet: it is a caveat, not a feature. */
+.soidist{font-size:.75rem;color:var(--muted);margin-left:.4rem;white-space:nowrap}
+.soimethod{font-size:.9rem;color:var(--muted);background:#fff;border:1px solid var(--soft);
+border-radius:.6rem;padding:.5rem .7rem;margin:.5rem 0}
+.soicross,.soialso,.soiabout{margin:1.1rem 0}
+.soicross p,.soialso p{line-height:2}
+.soiindex{list-style:none;padding-left:0;columns:2;column-gap:1.6rem}
+.soiindex li{break-inside:avoid;padding:.3rem .1rem}
+.soikids{display:block;font-size:.85rem;color:var(--muted);margin-left:.9rem;line-height:1.9}
+.soikids a{color:var(--muted)}
+.soiflag{font-size:.8rem}
+.soiabout{background:#fff;border:1px solid var(--soft);border-radius:.8rem;padding:.8rem 1rem}
+/* ---- plan.html: the errand-run planner ------------------------------- */
+/* The hero. This is the best thing on the site, so it gets the space and the
+   words to say what it does rather than a one-line tease. */
+.planhero{border:2px solid var(--ink);border-radius:18px;overflow:hidden;
+margin:1rem 0 1.6rem;background:var(--card);box-shadow:0 4px 0 var(--shadow-dark)}
+.planhero .hh{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;
+padding:.7rem 1.2rem;border-bottom:2px solid var(--ink);
+background:linear-gradient(var(--marigold-a),var(--marigold-b))}
+.planhero .hh h2{margin:0;border:0;padding:0;font-size:1.3rem}
+.planhero .hh .en{font-size:1rem;color:var(--marigold-ink);font-weight:400}
+.planhero .hh .newflag{margin-left:auto;background:var(--ant);color:#fff;font-size:.72rem;
+font-weight:700;border-radius:1rem;padding:.15rem .6rem;letter-spacing:.03em;white-space:nowrap}
+.planhero .hbody{display:flex;gap:1.3rem;padding:1.2rem;flex-wrap:wrap;align-items:flex-start}
+.planhero .hgif{flex:0 0 auto;width:200px;height:200px;border-radius:14px;
+border:1px solid var(--warm-border);background:#FBF6EE}
+.planhero .htext{flex:1 1 17rem;min-width:0}
+.planhero .hlede{margin:0 0 .7rem;font-size:1.02rem;line-height:1.5}
+.planhero ul.hpts{list-style:none;margin:0 0 .9rem;padding:0;font-size:.92rem}
+.planhero ul.hpts li{margin:.3rem 0;padding-left:1.5rem;position:relative;color:var(--ink-soft)}
+.planhero ul.hpts li::before{content:"🐜";position:absolute;left:0;font-size:.85rem}
+.planhero .hnum{background:var(--soft);border-radius:.7rem;padding:.55rem .85rem;
+font-size:.88rem;margin:0 0 .9rem;color:var(--ink)}
+.planhero .hnum .hcap{display:block;font-weight:700;color:var(--ant-dark);margin-bottom:.25rem}
+.planhero .hnum table{border-collapse:collapse;width:100%;max-width:22rem}
+.planhero .hnum td{padding:.1rem .3rem;vertical-align:baseline}
+.planhero .hnum td.hg{width:1.4rem}
+.planhero .hnum td.hv{text-align:right;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.planhero .hnum tr.crow td{color:var(--mute)}
+.planhero .hnum tr.crow td.hv{text-decoration:line-through;font-weight:400}
+.planhero .hnum tr.foot td.hv{color:var(--ant-dark)}
+.planhero .hnum tr.ride td.hv{color:#1c5aa8}
+.planhero .hnum .hwhy{display:block;margin-top:.3rem;font-size:.82rem;color:var(--gloss)}
+.planhero .hcta{display:inline-block;background:var(--ant);color:#fff;border:2px solid var(--ink);
+border-radius:.7rem;padding:.6rem 1.3rem;font-weight:700;text-decoration:none;font-size:1.02rem;
+box-shadow:0 3px 0 var(--shadow-dark)}
+.planhero .hcta:hover{background:var(--ant-dark);text-decoration:none}
+.planhero .hcta:visited{color:#fff}
+.planhero .hfoot{margin:.6rem 0 0;font-size:.82rem;color:var(--gloss)}
+@media (max-width:34rem){
+.planhero .hbody{justify-content:center}
+.planhero .hgif{width:100%;height:auto;max-width:260px}}
+.plantools{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.6rem 0 1rem}
+.plantools button{border:2px solid var(--ant);background:none;color:var(--ant-dark);
+border-radius:.6rem;padding:.35rem .8rem;cursor:pointer;font:inherit;font-size:.9rem}
+.plantools button:hover{background:var(--ant);color:#fff}
+.plantools button.on{background:var(--ant);color:#fff}
+.plantotal{background:var(--card);border:2px solid var(--ink);border-radius:14px;
+padding:.7rem 1rem;margin:0 0 1rem;font-size:.95rem;box-shadow:0 3px 0 var(--shadow-dark)}
+.plantotal b{color:var(--ant-dark)}
+.planbanner{background:var(--marigold-a);border:2px solid var(--gold);border-radius:.8rem;
+padding:.7rem 1rem;margin:0 0 1rem;display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
+.planbanner button{border:2px solid var(--ink);background:var(--ant);color:#fff;
+border-radius:.5rem;padding:.3rem .8rem;font:inherit;font-weight:700;cursor:pointer}
+.planmapwrap{background:#fff;border:1px solid var(--soft);border-radius:.8rem;padding:.4rem;
+overflow-x:auto;margin-bottom:1rem}
+.planmap{display:block;min-width:22rem}
+.planempty{background:var(--soft);border-radius:.8rem;padding:1.2rem;text-align:center;
+color:var(--ink-soft)}
+.plansteps{list-style:none;margin:0 0 1rem;padding:0;display:flex;flex-direction:column;gap:0}
+.planstop{display:flex;gap:.7rem;background:#fff;border:1px solid var(--soft);
+border-radius:.9rem;padding:.7rem .9rem;align-items:flex-start}
+.plannum{flex:0 0 auto;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--ant);
+color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;
+font-size:.95rem}
+.planbody{flex:1;min-width:0}
+.planbody h3{margin:0;font-size:1.02rem;line-height:1.35}
+.planbody h3 a{text-decoration:none} .planbody h3 a:hover{text-decoration:underline}
+.plancat{font-size:.82rem;color:var(--ant-dark)}
+.planaddr{margin:.15rem 0 0;font-size:.85rem;color:var(--gloss)}
+.planchan{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0 0}
+.planchan a{font-size:.78rem;background:var(--soft);border-radius:.5rem;padding:.05rem .45rem;
+text-decoration:none;color:var(--ant-dark)}
+.planacts{flex:0 0 auto;display:flex;flex-direction:column;gap:.2rem;align-items:center}
+.planacts button{border:1px solid var(--warm-border);background:#fff;border-radius:.4rem;
+width:1.9rem;height:1.9rem;cursor:pointer;font-size:.95rem;line-height:1;padding:0}
+.planacts button:hover{border-color:var(--ant)}
+.planacts button:disabled{opacity:.3;cursor:default}
+.planacts .plandel{color:var(--ant-dark)}
+.planleg{display:flex;align-items:center;gap:.6rem;padding:.25rem 0 .25rem 2.55rem;
+font-size:.82rem;color:var(--mute)}
+.planleg::before{content:"";flex:0 0 2px;align-self:stretch;background:var(--dashed);
+min-height:1rem}
+.planvia{display:block;color:#1c5aa8;font-weight:600;margin-top:.1rem;font-size:.85rem}
+.planvia a{color:#1c5aa8}
+/* Two networks, two readings. The mode you picked is the emphatic one; the
+   other stays legible, because the comparison is the useful part. */
+.planmodes{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin:.8rem 0 .2rem}
+.pmlabel{font-size:.9rem;color:var(--ant-dark);font-weight:600;margin-right:.2rem}
+.pmbtn{font:inherit;font-size:.9rem;border:2px solid var(--ink);background:var(--card);
+color:var(--ink);border-radius:.6rem;padding:.32rem .85rem;cursor:pointer;min-height:44px}
+.pmbtn:hover{background:var(--row-hover)}
+.pmbtn.on{background:var(--ink);color:var(--gold-light);border-color:var(--ink)}
+.pleg,.pmode{display:inline-flex;align-items:center;gap:.3rem;margin-right:.7rem;
+font-size:.88rem;white-space:nowrap}
+.pleg.foot,.pmode.foot{color:var(--ant-dark);font-weight:600}
+.pleg.ride,.pmode.ride{color:#1c5aa8;font-weight:600}
+.pleg.none{color:var(--mute);font-weight:400}
+body:not(.mode-ride) .pleg.ride,body:not(.mode-ride) .pmode.ride{font-weight:400;opacity:.72}
+body.mode-ride .pleg.foot,body.mode-ride .pmode.foot{font-weight:400;opacity:.72}
+.planleg.out{color:var(--mute);flex-wrap:wrap}
+.planosm{font-size:.8rem;border:1px solid var(--ant);border-radius:.5rem;
+padding:.05rem .45rem;text-decoration:none;color:var(--ant-dark);white-space:nowrap}
+.planosm:hover{background:var(--ant);color:#fff}
+.plandl{display:inline-block;margin-top:.2rem;font-size:.85rem}
+.plandemo{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin:1rem 0 1.3rem;
+background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:.8rem 1rem;
+box-shadow:0 3px 0 var(--shadow-dark)}
+.plandemo img{flex:0 0 auto;width:200px;height:200px;border-radius:12px;
+border:1px solid var(--warm-border);background:#FBF6EE}
+.plandemo figcaption{flex:1 1 15rem;font-size:.9rem;color:var(--ink-soft);margin:0}
+@media (max-width:34rem){.plandemo{justify-content:center;text-align:center}}
 .evgap{background:var(--soft);border-radius:.8rem;padding:.7rem 1rem;margin:1rem 0}
 .evgaplist{font-weight:600;color:var(--ant-dark)}
 .evpartner{display:flex;align-items:center;gap:.5rem;margin:.8rem 0;flex-wrap:wrap}
@@ -743,6 +960,8 @@ scrollbar-width:none}
 .svcbar::-webkit-scrollbar{display:none}
 .svcbar a{flex:0 0 auto;padding:.2rem 0}
 ul.catrows{grid-template-columns:minmax(0,1fr);padding:.4rem}
+.soiindex li{padding:.5rem .1rem}
+.soikids{display:block;margin-left:0}
 .cardhead{padding:.85rem 1rem}
 .cardhead h2{font-size:1.35rem}
 .pickgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem}

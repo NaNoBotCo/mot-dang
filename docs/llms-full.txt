@@ -32,6 +32,7 @@ https://motdang.net/cm/p/miss-e-san-10110426954.html	Miss E-san	-	food	18.808116
 https://motdang.net/cm/p/kopy-nimman-10110509988.html	Kopy Nimman	-	food	18.797273,98.9690588	-	-	ants=0/9
 https://motdang.net/cm/p/eighty-six-ramen-10110549005.html	Eighty-six Ramen	-	food	18.7971492,98.9685594	-	-	ants=0/9
 https://motdang.net/cm/p/weera-wissawakarn-10113580862.html	Weera Wissawakarn	-	shopping	18.808362,99.0149852	-	-	ants=0/9
+https://motdang.net/cm/p/freshy-s-baking-club-10116704314.html	Freshy's Baking Club	-	food	18.8005512,98.9789215	phone=+66973037835; web=freshysbakingclub.com	Mo-Su 09:00-18:00	ants=3/9
 https://motdang.net/cm/p/nini-10117710253.html	Nini	Nini	food	18.7478874,99.1149997	-	-	ants=1/9
 https://motdang.net/cm/p/roastniyom-10117710262.html	Roastniyom	Roastniyom	food	18.7474493,99.1145746	-	-	ants=1/9
 https://motdang.net/cm/p/suan-suay-farmstay-10120359174.html	Suan Suay Farmstay	-	hotel	18.9556742,98.9617646	phone=+66 837806548	-	ants=1/9
@@ -153,6 +154,7 @@ https://motdang.net/cm/p/sabai-house-1041391638.html	Sabai House	-	hotel	18.7864
 https://motdang.net/cm/p/7-eleven-1042837264.html	7-Eleven	7-Eleven	essentials	18.761789,99.0415965	web=7eleven.co.th	24/7	ants=3/9
 https://motdang.net/cm/p/huen-chiang-man-hostel-10537029409.html	Huen Chiang Man Hostel	Huen Chiang Man Hostel	hotel	18.7946459,98.9893918	-	-	ants=1/9
 https://motdang.net/cm/p/baanrai-steak-house-10538665164.html	Baanrai Steak House	-	food	18.7918711,99.0027212	-	-	ants=0/9
+https://motdang.net/cm/p/10539762457.html	ห้องธุรการ	-	community	18.7957808,98.9528265	-	-	ants=1/9
 https://motdang.net/cm/p/555-1054147436.html	555	-	food	18.7890221,99.0993161	-	-	ants=0/9
 https://motdang.net/cm/p/up-engine-by-ball-10548409950.html	UP Engine by Ball	-	repair	18.8135825,99.0004164	phone=0861180695	-	ants=1/9
 https://motdang.net/cm/p/the-curve-10548593080.html	The Curve	-	food	18.7842202,98.9967392	-	-	ants=0/9
@@ -243,18 +245,22 @@ https://motdang.net/cm/p/let-s-relax-spa-1076662876.html	Let's Relax Spa	-	massa
 https://motdang.net/cm/p/9kao-coffee-10767466658.html	9kao Coffee	-	food	18.8301879,99.0331143	-	-	ants=0/9
 https://motdang.net/cm/p/ptt-10773546984.html	PTT	PTT	transport	18.7203159,98.9745995	-	24/7	ants=3/9
 https://motdang.net/cm/p/caf-amazon-10773546986.html	Café Amazon	-	food	18.7207504,98.9749723	-	-	ants=0/9
+https://motdang.net/cm/p/stainless-steel-workshop-10774699556.html	Stainless Steel Workshop	-	repair	18.7997719,98.9953948	-	-	ants=0/9
 https://motdang.net/cm/p/mama-cho-s-10777409829.html	Mama Cho's	Mama Cho's	food	18.7489802,98.9425801	-	-	ants=1/9
 https://motdang.net/cm/p/grace-bakery-10777553738.html	Grace Bakery	-	food	18.7482309,98.9461246	-	-	ants=0/9
 https://motdang.net/cm/p/ewa-sushi-10777553749.html	Ewa Sushi	-	food	18.7407358,98.96496	-	-	ants=0/9
+https://motdang.net/cm/p/code-clean-10777553750.html	Code Clean	-	essentials	18.7406606,98.9649612	-	24/7	ants=1/9
 https://motdang.net/cm/p/mr-d-i-y-10777553759.html	Mr D.I.Y.	-	shopping	18.7407444,98.9660346	-	-	ants=0/9
 https://motdang.net/cm/p/5-star-chicken-10777958198.html	5 Star Chicken	-	food	18.7415356,98.966036	-	-	ants=1/9
 https://motdang.net/cm/p/caf-amazon-10778022015.html	Café Amazon	-	food	18.7424094,98.9660024	-	-	ants=0/9
+https://motdang.net/cm/p/otteri-10778022016.html	Otteri	-	essentials	18.741763,98.9660762	-	-	ants=0/9
 https://motdang.net/cm/p/7-eleven-10778022018.html	7-Eleven	-	essentials	18.7414582,98.9660239	-	24/7	ants=1/9
 https://motdang.net/cm/p/kasikorn-bank-10778022046.html	ธนาคารกสิกรไทย	Kasikorn Bank	essentials	18.7469178,98.9417352	-	-	ants=2/9
 https://motdang.net/cm/p/hendrix-restaurant-jazz-club-10778022048.html	Hendrix Restaurant & Jazz Club	Hendrix Restaurant & Jazz Club	food	18.7489751,98.9426337	-	-	ants=1/9
 https://motdang.net/cm/p/vegan-society-10791281005.html	Vegan society	-	food	18.7836875,98.9823957	facebook=@vegansocietycm; email=vegansocietycm@gmail.com	-	ants=0/9
 https://motdang.net/cm/p/ming-zhen-10793159227.html	Ming Zhen	-	food	18.8090198,98.953999	-	Mo-Fr 07:00-17:00	ants=1/9
 https://motdang.net/cm/p/khao-soi-107-caf-10794664709.html	Khao Soi 107 Café	Khao Soi 107 Café	food	18.7453443,98.9967258	-	-	ants=1/9
+https://motdang.net/cm/p/clean-pro-express-10794696763.html	Clean Pro Express	-	essentials	18.7464835,98.9411049	-	24/7	ants=1/9
 https://motdang.net/cm/p/royal-project-coffee-shop-10794754833.html	Royal Project Coffee Shop	Royal Project Coffee Shop	food	18.7529303,98.9260375	-	-	ants=1/9
 https://motdang.net/cm/p/butterfly-conection-cafe-10796235258.html	Butterfly Conection Cafe	-	food	18.7983961,98.9709092	-	-	ants=0/9
 https://motdang.net/cm/p/training-box-fitness-center-10799568505.html	Training box fitness center	-	learn	18.8053104,99.0247962	-	Mo-Sa 08:00-20:00	ants=1/9
@@ -294,6 +300,7 @@ https://motdang.net/cm/p/little-rose-10998550643.html	Little Rose	-	food	18.7676
 https://motdang.net/cm/p/five-star-1101287088.html	Five Star	-	food	18.7810254,98.9979421	-	-	ants=0/9
 https://motdang.net/cm/p/cafe-de-l-amour-1101287698.html	Cafe de L'Amour	-	food	18.781053,99.0006815	facebook=@lamour.chiangmai	08:30-21:00	ants=1/9
 https://motdang.net/cm/p/starbucks-coffee-1101288715.html	Starbucks	Starbucks Coffee	food	18.783809,99.0001185	web=starbucks.com	Mo-Fr 06:30-23:00; Sa,Su 06:30-22:00	ants=4/9
+https://motdang.net/cm/p/11015761268.html	ศูนย์ดูแลผู้ป่วยและผู้สูงอายุ ธนรัฎ เฮลท์แคร์	-	community	18.8457437,99.0921455	-	-	ants=1/9
 https://motdang.net/cm/p/deepsense-massage-11026461605.html	DeepSense Massage	DeepSense Massage	massage	18.7884127,98.9832546	phone=+66637939779	Mo-Su 10:00-20:00	ants=3/9
 https://motdang.net/cm/p/plub-plung-massage-11026484605.html	Plub Plung Massage	Plub Plung Massage	massage	18.7860209,98.9822305	phone=+66947561809	Mo-Su 10:00-23:30	ants=3/9
 https://motdang.net/cm/p/7-eleven-11030137805.html	7-Eleven	-	essentials	18.6893419,98.9457658	-	24/7	ants=1/9
@@ -380,6 +387,7 @@ https://motdang.net/cm/p/wualaisilpa-11231197975.html	วัวลายศิ�
 https://motdang.net/cm/p/villa-orange-11231324839.html	Villa Orange	Villa Orange	hotel	18.7793893,98.9848186	-	-	ants=1/9
 https://motdang.net/cm/p/iwualai-11231324948.html	iWualai	iWualai	hotel	18.7799392,98.9851925	-	-	ants=1/9
 https://motdang.net/cm/p/krung-thai-bank-11231325093.html	ธนาคารกรุงไทย	Krung Thai Bank	essentials	18.7809608,98.9866288	-	-	ants=2/9
+https://motdang.net/cm/p/11231325285.html	หจก. เชียงใหม่วีระกิจ	-	business	18.7810036,98.9874131	-	-	ants=1/9
 https://motdang.net/cm/p/b2-11232923207.html	B2	-	hotel	18.7762037,98.9813606	-	-	ants=0/9
 https://motdang.net/cm/p/moody-cafe-and-hostel-11237661638.html	Moody Cafe and Hostel	Moody Cafe and Hostel	food	18.7843262,98.9960501	-	-	ants=1/9
 https://motdang.net/cm/p/the-story-106-cafe-and-coworking-11237661639.html	The Story 106 Cafe and Coworking	The Story 106 Cafe and Coworking	food	18.7884256,98.9987439	-	-	ants=1/9
@@ -407,6 +415,7 @@ https://motdang.net/cm/p/doi-tung-1127593603.html	Doi Tung	-	food	18.8000098,98.
 https://motdang.net/cm/p/starbucks-coffee-1127593959.html	Starbucks	Starbucks Coffee	food	18.797599,98.9667271	web=starbucks.com	-	ants=3/9
 https://motdang.net/cm/p/kasikornbank-11276486323.html	ธนาคารกสิกรไทย	Kasikornbank	essentials	18.7775309,98.9995127	-	-	ants=2/9
 https://motdang.net/cm/p/nok-lae-sukhothai-noodle-11276514280.html	Nok Lae Sukhothai Noodle	-	food	18.7762796,98.9990807	phone=0644542653	Mo-Su 09:00-01:00	ants=2/9
+https://motdang.net/cm/p/cm-go-club-11282092025.html	CM. Go Club	-	community	18.7906531,98.9890948	facebook=@CmGoClub	-	ants=0/9
 https://motdang.net/cm/p/owl-brasserie-11282616512.html	Owl brasserie	-	food	18.7845239,98.9790562	phone=+66 96 651 1800	-	ants=1/9
 https://motdang.net/cm/p/cafe-amazon-11285129143.html	Cafe Amazon	-	food	18.733988,99.0883662	-	-	ants=0/9
 https://motdang.net/cm/p/khao-soi-mae-manee-2-11287853539.html	ข้าวซอยแม่มณี 2	Khao Soi Mae Manee 2	food	18.8124886,98.9870934	phone=+66 089 955 1178; facebook=Facebook	Mo-Fr 09:00-17:00 Sa-Su 08:30-17:00	ants=4/9
@@ -416,6 +425,7 @@ https://motdang.net/cm/p/my-vietnamese-food-11302344083.html	My Vietnamese Food	
 https://motdang.net/cm/p/mini-market-1130949809.html	ธ.เจริญเภสัช	Mini Market	essentials	18.7852417,99.0028246	-	-	ants=2/9
 https://motdang.net/cm/p/baan-chiang-maan-11309883669.html	Baan Chiang Maan	Baan Chiang Maan	hotel	18.7943212,98.99049	-	-	ants=1/9
 https://motdang.net/cm/p/7-eleven-1131144927.html	7-Eleven	7-Eleven	essentials	18.796832,98.9660709	web=7eleven.co.th	24/7	ants=3/9
+https://motdang.net/cm/p/eme-san-11323334548.html	Eme-san	-	food	18.8151427,98.974099	-	-	ants=0/9
 https://motdang.net/cm/p/chiang-mai-orchid-hotel-11328541067.html	Chiang Mai Orchid Hotel	-	hotel	18.7968755,98.9753217	phone=+66 53 222 099; web=chiangmaiorchid.com	-	ants=2/9
 https://motdang.net/cm/p/pizza-phoenix-11328576823.html	Pizza Phoenix	-	food	18.7836726,99.0034513	-	-	ants=0/9
 https://motdang.net/cm/p/the-phoenix-cnx-11328576824.html	The Phoenix CNX	-	food	18.7838353,99.0034969	-	-	ants=0/9
@@ -440,6 +450,7 @@ https://motdang.net/cm/p/palit-11345716269.html	Palit	Palit	food	18.8138094,98.9
 https://motdang.net/cm/p/e-ly-caf-11345717670.html	E-ly Café	E-ly Café	food	18.7734307,99.0599953	-	-	ants=1/9
 https://motdang.net/cm/p/chiang-mai-landmark-rubber-tree-11346563469.html	Chiang Mai Landmark	Chiang Mai Landmark (rubber tree)	sights	18.7867029,98.9879412	-	-	ants=1/9
 https://motdang.net/cm/p/mammoth-11347630573.html	แมมมอธ	Mammoth	hotel	18.7858642,98.9814129	-	-	ants=2/9
+https://motdang.net/cm/p/otteri-11347643091.html	Otteri	-	essentials	18.73431,99.0883658	-	-	ants=0/9
 https://motdang.net/cm/p/11353569669.html	หมูกระทะ	หมูกระทะ	food	18.6915546,98.921604	-	-	ants=2/9
 https://motdang.net/cm/p/chaloem-1135524408.html	้้เฉลิม	Chaloem	essentials	18.7340155,99.1390268	-	-	ants=2/9
 https://motdang.net/cm/p/hoshi-tsuki-11356313169.html	Hoshi Tsuki	Hoshi Tsuki	food	18.8083816,98.9644385	-	Mo-Su 10:00-17:00	ants=2/9
@@ -474,7 +485,9 @@ https://motdang.net/cm/p/parichart-11396049147.html	Parichart	Parichart	food	18.
 https://motdang.net/cm/p/buddy-hotel-11404921101.html	Buddy Hotel	-	hotel	18.7852672,98.996846	-	-	ants=0/9
 https://motdang.net/cm/p/panmai-coffee-11404957769.html	Panmai Coffee	Panmai Coffee	food	18.806365,98.9994547	-	-	ants=1/9
 https://motdang.net/cm/p/bright-nail-spa-11407178345.html	Bright Nail & Spa	-	beauty	18.7888392,98.9826573	-	09:30-21:00	ants=1/9
+https://motdang.net/cm/p/laundry-station-cafe-11407178348.html	Laundry Station & Cafe	-	essentials	18.7892511,98.9826383	-	24/7	ants=1/9
 https://motdang.net/cm/p/open-barber-11407178350.html	Open Barber	Open Barber	beauty	18.7871204,98.9824929	-	-	ants=1/9
+https://motdang.net/cm/p/thaiwatsadu-11409264204.html	Thaiwatsadu	-	business	18.838042,99.0328765	-	-	ants=0/9
 https://motdang.net/cm/p/falafel-and-salad-11409266290.html	Falafel and Salad	-	food	18.7849342,98.9818679	-	10:00-21:00	ants=1/9
 https://motdang.net/cm/p/hansa-minigolf-11411206869.html	หรรษา มินิกอล์ฟ	Hansa Minigolf	sights/tattoo	18.8831925,99.0798315	line=@0884144145	-	ants=3/9
 https://motdang.net/cm/p/wan-wela-cafe-11411615969.html	Wan Wela Cafe	Wan Wela Cafe	food	18.7352684,98.9205153	phone=065 382 8818	Su-Sa 09:00-17:30	ants=3/9
@@ -518,10 +531,12 @@ https://motdang.net/cm/p/the-old-city-wall-inn-11487051569.html	The Old City Wal
 https://motdang.net/cm/p/dewnoon-11491318569.html	Dewnoon	Dewnoon	food	18.7902773,98.9824841	-	-	ants=1/9
 https://motdang.net/cm/p/nam-ngiaw-loong-pong-11492126219.html	Nam Ngiaw Loong Pong	-	food	18.7866292,98.9848905	-	-	ants=0/9
 https://motdang.net/cm/p/bird-forest-guest-house-tea-house-11493855469.html	Bird Forest Guest House & Tea House	Bird Forest Guest House & Tea House	hotel	18.7835784,98.9825492	-	-	ants=1/9
+https://motdang.net/cm/p/at-business-law-11498882632.html	AT Business & Law	-	business	18.7673866,98.9854274	phone=052010288	-	ants=1/9
 https://motdang.net/cm/p/sukhothai-house-11499133369.html	Sukhothai House	Sukhothai House	hotel	18.803068,99.0102624	-	-	ants=1/9
 https://motdang.net/cm/p/keane-coffee-11499304869.html	Keane Coffee	Keane Coffee	food	18.8059797,98.9903961	-	Mo-Su 07:00-19:00	ants=2/9
 https://motdang.net/cm/p/overcup-11499304870.html	Overcup	Overcup	food	18.8036152,98.9878588	-	-	ants=1/9
 https://motdang.net/cm/p/early-owls-11499304969.html	Early Owls	Early Owls	food	18.8057262,98.9889111	-	Mo-Tu 09:00-18:30, Th-Su 09:00-18:30	ants=2/9
+https://motdang.net/cm/p/chiang-mai-vinyl-11499334713.html	Chiang Mai Vinyl	-	business	18.7704648,99.0405402	-	-	ants=0/9
 https://motdang.net/cm/p/river-rock-cafe-hill-11502670881.html	ริเวอร์ร็อคคาเฟ่ฮิลล์	River Rock Cafe Hill	food	18.8998652,98.8703686	-	Mo-Su 09:00-18:00	ants=3/9
 https://motdang.net/cm/p/takeshi-japanese-restaurant-11505239135.html	Takeshi Japanese Restaurant	-	food	18.7029969,98.9323273	-	-	ants=0/9
 https://motdang.net/cm/p/12-feb-homey-cafe-11508095574.html	12 Feb Homey Cafe	-	food	18.7314936,98.9173188	-	-	ants=0/9
@@ -530,6 +545,7 @@ https://motdang.net/cm/p/astra-sky-river-11510578834.html	Astra Sky River	-	hote
 https://motdang.net/cm/p/c-fa-11512597509.html	C-Fa	-	food	18.7022118,98.9651506	-	-	ants=0/9
 https://motdang.net/cm/p/lanna-oriental-11513223155.html	Lanna Oriental	-	hotel	18.7945916,98.9816835	-	-	ants=0/9
 https://motdang.net/cm/p/11513223156.html	ร้านบุญส่ง	-	food	18.7922033,98.9822042	-	-	ants=1/9
+https://motdang.net/cm/p/roi-dvarapala-ban-devalaya-11513439400.html	Roi Dvarapala Ban Devalaya	-	community	18.793509,98.9475219	-	-	ants=0/9
 https://motdang.net/cm/p/krabi-muang-11513485069.html	Krabi Muang	Krabi Muang	food	18.7838298,98.9904116	-	-	ants=1/9
 https://motdang.net/cm/p/the-rodman-hotel-11513485070.html	The Rodman Hotel	The Rodman Hotel	hotel	18.7838709,98.9897824	-	-	ants=1/9
 https://motdang.net/cm/p/warp-tattoo-11515426705.html	Warp Tattoo	-	sights/tattoo	18.7924277,98.9821748	phone=+66 83 929 8717	10:00-19:00	ants=2/9
@@ -538,6 +554,7 @@ https://motdang.net/cm/p/am-tony-antique-shop-coffee-11515561369.html	Am. Tony A
 https://motdang.net/cm/p/ya-da-halal-food-11518532573.html	Ya & Da halal food	-	food	18.796883,98.9864231	-	Mo-Sa 07:30-18:00	ants=1/9
 https://motdang.net/cm/p/baan-tung-boon-lom-homestay-11524482329.html	Baan Tung Boon Lom Homestay	-	hotel	18.9275508,98.9551216	phone=+66 61 352 6397	-	ants=1/9
 https://motdang.net/cm/p/cat-cafe-11527276990.html	Cat Cafe	-	food	18.8670308,98.9808465	-	Mo-Su 07:30-18:00	ants=1/9
+https://motdang.net/cm/p/interpack-11527311761.html	Interpack	-	business	18.8689404,98.9685237	-	-	ants=0/9
 https://motdang.net/cm/p/yoga-in-the-park-11533438001.html	Yoga In The Park	-	learn	18.7822385,98.9802334	facebook=@289951174859604	-	ants=0/9
 https://motdang.net/cm/p/sunday-market-walking-street-11538579352.html	ถนนคนเดินวันอาทิตย์	Sunday Market (Walking Street)	market	18.7882073,98.9879876	-	Su 17:00-22:00	ants=3/9
 https://motdang.net/cm/p/government-savings-bank-1154004037.html	ธนาคารออมสิน	Government Savings Bank	essentials	18.7455585,99.118536	-	Mo-Fr 08:30-15:30	ants=3/9
@@ -560,10 +577,13 @@ https://motdang.net/cm/p/revolution-bar-11586424321.html	Revolution Bar	-	food	1
 https://motdang.net/cm/p/tiger-mart-11590200012.html	Tiger Mart	-	essentials	18.8842075,99.0141769	-	-	ants=0/9
 https://motdang.net/cm/p/revolution-chiang-mai-old-town-11590565197.html	Revolution Chiang Mai - Old Town	-	hotel	18.7845515,98.9926375	phone=+66815185517; email=chiangmai@revolutionhostels.com	-	ants=1/9
 https://motdang.net/cm/p/virush-kibkul-dental-clinic-11596822006.html	Virush-kibkul Dental Clinic	Virush-kibkul Dental Clinic	medical	18.7774051,98.9997414	-	-	ants=1/9
+https://motdang.net/cm/p/ucon-11607173084.html	Ucon	-	business	18.8576261,98.9973079	-	-	ants=0/9
 https://motdang.net/cm/p/de-khuvieng-11608834671.html	De Khuvieng	De Khuvieng	hotel	18.7954582,98.9778612	-	-	ants=1/9
 https://motdang.net/cm/p/sarita-kithen-11609573969.html	Sarita Kithen	Sarita Kithen	food	18.7912738,98.9977585	-	-	ants=1/9
 https://motdang.net/cm/p/7-eleven-11610147635.html	7-Eleven	-	essentials	19.0389529,98.9691948	-	-	ants=0/9
 https://motdang.net/cm/p/nine-kim-11612597268.html	Nine Kim	Nine Kim	beauty	18.79875,98.9712426	-	Mo-Tu,Th-Su 10:00-20:00; We off	ants=2/9
+https://motdang.net/cm/p/metal-stockholders-11617782871.html	Metal stockholders	-	business	18.8835197,99.0136985	-	-	ants=0/9
+https://motdang.net/cm/p/metalwork-shop-11622002123.html	Metalwork shop	-	business	18.8072826,98.9956863	-	-	ants=0/9
 https://motdang.net/cm/p/shogun-farm-11622003082.html	Shogun Farm	-	pets	18.8080467,98.995901	-	-	ants=0/9
 https://motdang.net/cm/p/saroji-kushikatsu-11626451133.html	Saroji Kushikatsu	-	food	18.7878706,98.9941468	-	Mo-Su 17:00-00:00	ants=1/9
 https://motdang.net/cm/p/kan-thong-traditional-thai-massage-11629286877.html	Kan Thong Traditional Thai Massage	-	massage	18.7818107,98.9897532	-	Mo-Su 10:00-24:00	ants=1/9
@@ -576,6 +596,7 @@ https://motdang.net/cm/p/southern-curry-11647437405.html	Southern Curry	Southern
 https://motdang.net/cm/p/7-eleven-11647437407.html	7-Eleven	-	essentials	18.744595,98.9930016	-	24/7	ants=1/9
 https://motdang.net/cm/p/coffee-tea-11648354853.html	ร้านมักชา กาดก้อม	Coffee & Tea	food	18.7741198,98.9899689	-	-	ants=2/9
 https://motdang.net/cm/p/7-eleven-11648354865.html	7-Eleven	-	essentials	18.7771824,98.9954626	-	-	ants=0/9
+https://motdang.net/cm/p/friendly-laundry-11652195486.html	กันเอง	Friendly Laundry	essentials	18.7543799,98.998934	-	24/7	ants=3/9
 https://motdang.net/cm/p/chiang-mai-pub-crawl-11662115960.html	Chiang Mai Pub Crawl	-	food	18.784538,98.9926374	-	Mo, We, Fr 7pm-10pm	ants=1/9
 https://motdang.net/cm/p/teak-coffee-house-11662147059.html	Teak Coffee House	-	food	18.7577451,99.0081762	-	-	ants=0/9
 https://motdang.net/cm/p/k-coffee-1166342189.html	K-Coffee	-	food	18.8016645,99.0171738	-	-	ants=0/9
@@ -584,6 +605,7 @@ https://motdang.net/cm/p/k-m-convenience-store-11668248428.html	K. M. Convenienc
 https://motdang.net/cm/p/pha-keaw-kitchen-11676292677.html	Pha Keaw Kitchen	Pha Keaw Kitchen	food	18.6262099,98.9557309	-	-	ants=1/9
 https://motdang.net/cm/p/the-terracotta-garden-at-lamphun-cafe-11687435282.html	The Terracotta Garden at Lamphun Cafe	The Terracotta Garden at Lamphun Cafe	food	18.6050539,98.9755189	-	-	ants=1/9
 https://motdang.net/cm/p/kerry-express-11693439048.html	Kerry Express	-	essentials	18.842268,99.0241323	-	-	ants=0/9
+https://motdang.net/cm/p/the-wash-11699181025.html	The Wash	-	essentials	18.8417505,99.0242037	-	-	ants=0/9
 https://motdang.net/cm/p/tawii-sourdough-bakehouse-11699260465.html	Tawii Sourdough Bakehouse	-	food	18.7904971,98.9926022	-	Mo-Sa 07:00-16:00	ants=1/9
 https://motdang.net/cm/p/graph-11699302881.html	Graph	-	food	18.8000125,98.9682901	-	-	ants=0/9
 https://motdang.net/cm/p/jai-tong-heng-11699363920.html	Jai Tong Heng	-	food	18.799937,98.9688374	-	10:00-22:00	ants=1/9
@@ -611,6 +633,7 @@ https://motdang.net/cm/p/ccountryside-villa-11754925969.html	Ccountryside Villa	
 https://motdang.net/cm/p/11755248919.html	ลาบปลายายหล้า	-	food	18.7916795,99.0687419	-	-	ants=1/9
 https://motdang.net/cm/p/7-eleven-11755248961.html	7-Eleven	-	essentials	18.7953025,99.0670955	-	-	ants=0/9
 https://motdang.net/cm/p/s-n-latex-11766519671.html	S.N. Latex	-	shopping	18.7835275,99.0004562	-	-	ants=0/9
+https://motdang.net/cm/p/ambassador-suits-11766519672.html	Ambassador Suits	-	shopping	18.7836214,99.0005451	-	-	ants=0/9
 https://motdang.net/cm/p/kashmir-cottage-arts-co-ltd-11766519674.html	Kashmir Cottage Arts Co. Ltd.	-	shopping	18.7835903,99.0005347	-	-	ants=0/9
 https://motdang.net/cm/p/karaked-latex-11766693108.html	Karaked Latex	-	shopping	18.7828973,99.0002144	-	-	ants=0/9
 https://motdang.net/cm/p/new-regional-art-gallery-ltd-11766693118.html	New Regional Art Gallery Ltd.	-	museums-galleries/sights	18.782933,99.0002222	-	-	ants=0/9
@@ -620,6 +643,7 @@ https://motdang.net/cm/p/khna-coffee-brewers-11806453091.html	khna coffee brewer
 https://motdang.net/cm/p/selected-shop-gallery-kang-wat-11806576766.html	Selected Shop Gallery Kang Wat	-	shopping	18.7765065,98.948595	-	-	ants=0/9
 https://motdang.net/cm/p/bealla-craft-skincare-11806619444.html	BeALLA Craft Skincare	BeALLA Craft Skincare	beauty	18.7762308,98.9484785	-	Tu-Su 10:00-18:00; Mo off	ants=3/9
 https://motdang.net/cm/p/hello-cocoo-11806648855.html	hello cocoo	-	food	18.7763112,98.9483842	-	-	ants=0/9
+https://motdang.net/cm/p/2wicks-candle-workshop-11806656730.html	2wicks candle workshop	-	shopping	18.7765519,98.948553	-	-	ants=0/9
 https://motdang.net/cm/p/roamer-burger-11806668532.html	Roamer Burger	-	food	18.7762621,98.9489433	-	Tu-Su 10:00-18:00; Mo off	ants=1/9
 https://motdang.net/cm/p/wealth-boutique-hotel-11809149230.html	Wealth Boutique Hotel	-	hotel	18.7833405,98.9905245	phone=+66 5390 3702-3; web=wealthboutiquehotel.com; email=wealthboutiquehotel@gmail.com	-	ants=2/9
 https://motdang.net/cm/p/3-1182231393.html	3ดี	-	food	18.7570304,99.0951112	-	-	ants=1/9
@@ -655,7 +679,9 @@ https://motdang.net/cm/p/meerka-cafe-11936086369.html	Meerka Cafe	-	food	18.8003
 https://motdang.net/cm/p/bike-point-11936086469.html	Bike Point	-	repair	18.8004932,98.9802451	-	-	ants=0/9
 https://motdang.net/cm/p/wedrink-11936097569.html	WEDRINK	-	food	18.8009748,98.9792601	-	Mo-Su 10:00-00:00	ants=1/9
 https://motdang.net/cm/p/gohangtei-11936100969.html	โกฮังเต	Gohangtei	food	18.8011243,98.9790392	phone=+66 91 637 1415	Mo-Su 12:00-22:00	ants=4/9
+https://motdang.net/cm/p/dr-tiger-laundry-11936106069.html	Dr Tiger Laundry	-	essentials	18.8015474,98.9787162	-	24/7	ants=1/9
 https://motdang.net/cm/p/ramen-11936111070.html	Ramen	-	food	18.8023468,98.9760552	-	Mo-Su 12:00-21:00	ants=1/9
+https://motdang.net/cm/p/shoe-repair-stall-11936166469.html	Shoe repair stall	-	shopping	18.8040863,98.9852861	-	-	ants=0/9
 https://motdang.net/cm/p/food-stalls-11936169969.html	Food Stalls	-	food	18.8043828,98.9838496	-	-	ants=0/9
 https://motdang.net/cm/p/sting-hive-muay-thai-gym-11936184293.html	Sting Hive Muay Thai Gym	-	learn	18.795034,98.9788784	-	Mo-Su 09:00-20:00	ants=1/9
 https://motdang.net/cm/p/zohng-coffee-11936206969.html	Zohng Coffee	-	food	18.7895919,98.9827311	-	Mo-Su 08:00-17:30	ants=1/9
@@ -691,9 +717,11 @@ https://motdang.net/cm/p/the-artist-spa-12149908901.html	The Artist Spa	-	massag
 https://motdang.net/cm/p/celapot-caf-12201114507.html	Celapot Café	-	food	18.840928,99.135111	-	Mo - Su, 09:00 - 18:00	ants=1/9
 https://motdang.net/cm/p/7-eleven-12213166971.html	7-Eleven	-	essentials	18.7202345,98.9750687	-	24/7	ants=1/9
 https://motdang.net/cm/p/loaf-fish-chiangmai-12217284197.html	Loaf & Fish Chiangmai	-	food	18.7859731,99.0052393	-	-	ants=0/9
+https://motdang.net/cm/p/the-brick-coworking-12217381902.html	The Brick Coworking	-	business	18.79282,98.9729886	facebook=@thebrickspace	-	ants=0/9
 https://motdang.net/cm/p/chao-barbershop-12222064418.html	Chao Barbershop	-	beauty	18.8700731,98.9673858	-	-	ants=0/9
 https://motdang.net/cm/p/num-sha-12224034589.html	Num Sha	-	food	18.7289919,98.9567106	phone=+660924269224	-	ants=1/9
 https://motdang.net/cm/p/farmers-market-12224171159.html	Farmers market	-	market	18.7914812,98.9598351	-	-	ants=0/9
+https://motdang.net/cm/p/omma-laundry-12231729837.html	Omma Laundry	-	essentials	18.8696227,98.9672254	-	-	ants=0/9
 https://motdang.net/cm/p/ck-vespa-shop-12237384354.html	CK Vespa shop	-	repair	18.814304,99.0325435	-	-	ants=0/9
 https://motdang.net/cm/p/nana-bakery-12237445723.html	Nana Bakery	-	food	18.8142237,99.0323042	-	-	ants=0/9
 https://motdang.net/cm/p/jer-high-pet-supplies-12237449534.html	Jer High Pet supplies	-	pets	18.8146201,99.0328701	-	-	ants=0/9
@@ -734,6 +762,7 @@ https://motdang.net/cm/p/cafe-amazon-12347254201.html	Cafe Amazon	-	food	18.8721
 https://motdang.net/cm/p/caf-amazon-12347384601.html	คาเฟ่ อเมซอน	Café Amazon	food	18.814704,99.0127428	-	Mo-Su 06:00-20:00	ants=3/9
 https://motdang.net/cm/p/ptt-12347384602.html	PTT	PTT	transport	18.8146919,99.0117415	-	-	ants=2/9
 https://motdang.net/cm/p/7-eleven-12347384603.html	7-Eleven	-	essentials	18.8144575,99.0116902	-	-	ants=0/9
+https://motdang.net/cm/p/otteri-wash-dry-12351558345.html	Otteri Wash & Dry	-	essentials	18.7958735,99.0245361	-	-	ants=0/9
 https://motdang.net/cm/p/ozark-12361475759.html	Ozark	-	food	18.760228,98.9048017	-	Mo-Su 09:00-21:00	ants=1/9
 https://motdang.net/cm/p/haircut-tat-laek-12372820542.html	ตัดแหลก-haircut (Tat Laek)	-	beauty	18.8018069,98.9780959	phone=0855284478; line=@https://lin.ee/KQ5iTs3; facebook=@100093624798253; email=tylercraig@protonmail.com	-	ants=3/9
 https://motdang.net/cm/p/hummus-chiang-mai-1237366507.html	Hummus Chiang Mai	-	food	18.7748242,98.9994366	-	-	ants=0/9
@@ -753,10 +782,12 @@ https://motdang.net/cm/p/little-red-oven-12401813058.html	Little Red Oven	-	food
 https://motdang.net/cm/p/okada-izakaya-12402103101.html	Okada Izakaya	Okada Izakaya	food	18.7977543,98.9673194	-	Mo-Su 17:00-00:00	ants=2/9
 https://motdang.net/cm/p/home-samlan-soi-1-12420688801.html	Home @ Samlan Soi 1	-	hotel	18.7876645,98.9796346	phone=+66 66 154 6361	-	ants=1/9
 https://motdang.net/cm/p/mood-of-spirits-12423633747.html	Mood of Spirits	-	food	18.7990899,98.9672162	-	Mo-Su 18:00-00:00	ants=1/9
+https://motdang.net/cm/p/maru-laundry-12428726001.html	Maru Laundry	-	essentials	18.7766313,98.9859585	-	-	ants=0/9
 https://motdang.net/cm/p/the-baristro-asian-style-12430094702.html	The Baristro Asian Style	-	food	18.789879,98.951663	-	-	ants=0/9
 https://motdang.net/cm/p/homie-mookrata-12430947101.html	Homie Mookrata	-	food	18.72711,98.9114149	-	-	ants=0/9
 https://motdang.net/cm/p/yumpumajedyod-12433292001.html	Yumpumajedyod	-	food	18.8076597,98.9671136	-	Mo-Su 10:00-00:00	ants=1/9
 https://motdang.net/cm/p/mora-12433619701.html	mora	-	massage	18.7974805,98.9746018	-	-	ants=0/9
+https://motdang.net/cm/p/washme-12433886001.html	WashMe	-	essentials	18.7974266,98.9745697	-	24/7	ants=1/9
 https://motdang.net/cm/p/joost-12434969890.html	Joost	-	food	18.7811264,98.9980237	-	-	ants=0/9
 https://motdang.net/cm/p/bob-coffee-12434994569.html	BOB Coffee	-	food	18.8016747,98.9813041	-	-	ants=0/9
 https://motdang.net/cm/p/khao-soi-doinang-3-12434999501.html	Khao Soi Doinang 3	-	food	18.7811381,98.9980754	-	-	ants=0/9
@@ -779,6 +810,7 @@ https://motdang.net/cm/p/xavier-ink-cnx-12467082184.html	Xavier Ink.cnx	-	sights
 https://motdang.net/cm/p/levain-12468617443.html	Levain	-	food	18.7244813,98.922862	-	-	ants=0/9
 https://motdang.net/cm/p/12468976924.html	กาแฟหน้าวัด	-	food	18.6401723,98.9294533	-	-	ants=1/9
 https://motdang.net/cm/p/tartar-nay-hostel-12478135701.html	TarTar&Nay Hostel	-	hotel	18.785667,98.9971565	-	-	ants=0/9
+https://motdang.net/cm/p/go-wholesale-chiang-mai-12484086694.html	GO Wholesale Chiang Mai	-	business	18.7670646,98.9733615	phone=052079553	Mo-Su 06:00-22:00	ants=2/9
 https://motdang.net/cm/p/jb-hotel-12486098402.html	JB Hotel	-	hotel	18.8057562,99.0056252	-	-	ants=0/9
 https://motdang.net/cm/p/sapphic-riot-12495831202.html	Sapphic Riot	-	food	18.7945534,98.9818889	-	-	ants=0/9
 https://motdang.net/cm/p/gusto-house-12498028045.html	Gusto House	-	hotel	18.7948419,98.9818911	-	-	ants=0/9
@@ -799,6 +831,7 @@ https://motdang.net/cm/p/motto-dental-clinic-12514139421.html	คลินิก
 https://motdang.net/cm/p/taekwondo-gym-12520810901.html	Smart TaeKwonDo Gym	TaeKwonDo Gym	learn	18.7998257,98.9879878	-	-	ants=1/9
 https://motdang.net/cm/p/newtonzang-return-12520850336.html	Newtonzang Return	-	food	18.7810565,99.0163578	-	-	ants=0/9
 https://motdang.net/cm/p/tomoni-12521809605.html	Tomoni	-	food	18.8752855,99.0147498	-	-	ants=0/9
+https://motdang.net/cm/p/the-wash-12521853891.html	The Wash	-	essentials	18.8750182,99.014813	-	Mo-Su 12:00-12:00	ants=1/9
 https://motdang.net/cm/p/sana-chicken-rice-12522325901.html	Sana Chicken Rice	Sana Chicken Rice	food	18.7992493,98.9896016	-	Fr-We 06:30-18:00	ants=2/9
 https://motdang.net/cm/p/bm-diary-coffee-12523097855.html	BM DIARY coffee	-	food	18.7913399,98.958218	phone=0938893524	8:00-19:30	ants=2/9
 https://motdang.net/cm/p/33-poshtel-12525101601.html	33 Poshtel	-	hotel	18.7828585,98.9869309	-	-	ants=0/9
@@ -898,6 +931,7 @@ https://motdang.net/cm/p/coolly-chef-restaurant-12725904215.html	Coolly Chef Res
 https://motdang.net/cm/p/not-spicy-not-fun-12756811601.html	Not Spicy Not Fun	Not Spicy Not Fun	food	18.7948408,98.9869978	-	-	ants=1/9
 https://motdang.net/cm/p/salmon-room-12767901320.html	สาขาพระนอน (ศาลากลาง)	Salmon room	food	18.8401226,98.9766896	-	-	ants=2/9
 https://motdang.net/cm/p/12767901321.html	เต่าบิน	-	food	18.8498478,98.9602883	-	-	ants=1/9
+https://motdang.net/cm/p/12767951021.html	ซักผ้าหยอดเหรียญ	-	essentials	18.8486223,98.95732	-	-	ants=1/9
 https://motdang.net/cm/p/12768047359.html	เต่าบิน	-	food	18.853248,98.9574937	-	-	ants=1/9
 https://motdang.net/cm/p/12768069594.html	สุเทพบาร์เบอร์	-	beauty	18.8449372,98.9720086	-	-	ants=1/9
 https://motdang.net/cm/p/thicha-beauty-studio-12768098450.html	Thicha beauty studio	-	beauty	18.8472529,98.9576142	-	-	ants=0/9
@@ -940,6 +974,7 @@ https://motdang.net/cm/p/salah-khalai-coffee-13014824219.html	Salah Khalai Coffe
 https://motdang.net/cm/p/13014866290.html	เพชรดำคาเฟ่	-	food	18.7415351,98.9688452	-	-	ants=1/9
 https://motdang.net/cm/p/7-eleven-13027791819.html	7-Eleven	7-Eleven	essentials	18.7842979,99.0237295	web=7eleven.co.th	24/7	ants=3/9
 https://motdang.net/cm/p/lotus-garden-13027868766.html	เรือนร่มไม้	Lotus garden	parks	18.7499091,98.9200702	-	-	ants=2/9
+https://motdang.net/cm/p/wing-learn-space-craft-13031377338.html	Wing Learn space & craft	-	business	18.8370477,99.0121923	phone=0999263593	-	ants=1/9
 https://motdang.net/cm/p/ginger-garden-13038778730.html	Ginger Garden	-	parks	18.8938472,98.8608264	-	-	ants=0/9
 https://motdang.net/cm/p/ban-mae-all-day-braised-pork-leg-with-rice-13040779448.html	ข้าวขาหมู บ้านแม่ ออเดย์ ดอนปีน ป่าไผ่ สันกำแพง	ฺBAN MAE ALL DAY Braised Pork Leg with Rice	food	18.7282954,99.1260329	phone=+66 0889125725; facebook=Facebook	Mo-Su 07:00-20:00	ants=4/9
 https://motdang.net/cm/p/wichianburi-grilled-chicken-13051829605.html	ไก่ย่างวิเชียรบุรี	Wichianburi Grilled Chicken	food	18.7438584,99.0135097	-	-	ants=2/9
@@ -954,6 +989,7 @@ https://motdang.net/cm/p/bi-hieng-1305575183.html	บี่เฮียงโภ
 https://motdang.net/cm/p/cu-goodday-13057195022.html	CU Goodday	-	food	18.7593775,98.9883399	-	-	ants=0/9
 https://motdang.net/cm/p/rumpair-thai-cocktails-foods-13061733501.html	รัมแพ	Rumpair - Thai cocktails & Foods	food	18.7863541,98.9929941	-	-	ants=2/9
 https://motdang.net/cm/p/beer-balance-13063456841.html	Beer Balance	-	food	18.7869162,99.0139485	-	-	ants=0/9
+https://motdang.net/cm/p/philanthropy-connections-foundation-13071783701.html	Philanthropy Connections Foundation	-	community	18.8400678,98.9761393	phone=+66 (0) 52 005 779; line=@pcfasia; facebook=@PhilanthropyConnections; web=philanthropyconnections.org; email=info@philanthropyconnections.org	Mo-Fr 09:00-17:00	ants=5/9
 https://motdang.net/cm/p/lew-xavier-artisan-french-bakery-13073815940.html	Lew & Xavier Artisan French Bakery	-	food	18.7565127,99.0076351	phone=+66897696869	Mo-Fr 10:30-19:00	ants=2/9
 https://motdang.net/cm/p/13074392601.html	เขาช่อง ปาร์ค	-	food	18.8441277,98.9957202	-	Mo-Su 07:00-18:00	ants=2/9
 https://motdang.net/cm/p/tonnam-homestay-13076053766.html	Tonnam Homestay	-	hotel	18.8326066,98.9921106	phone=+66 86 317 6620; facebook=@Uplodging; email=uplodging@littlechiangmai.com	24/7	ants=3/9
@@ -971,7 +1007,9 @@ https://motdang.net/cm/p/naptel-chang-moi-13115036301.html	Naptel Chang Moi	-	ho
 https://motdang.net/cm/p/lanzhou-noodles-13115040801.html	Lanzhou Noodles	-	food	18.787873,98.9939244	-	24/7	ants=1/9
 https://motdang.net/cm/p/13115616776.html	ร้านตัดผม	-	beauty	18.7660589,98.9767806	-	-	ants=1/9
 https://motdang.net/cm/p/cozy-hub-hostel-13135635101.html	Cozy Hub Hostel	-	hotel	18.7926027,98.9539796	-	-	ants=0/9
+https://motdang.net/cm/p/rolling-wash-dry-13135642801.html	Rolling Wash & Dry	-	essentials	18.7928063,98.9530025	phone=+66948457594	Mo-Su 01:00-23:00	ants=2/9
 https://motdang.net/cm/p/patus-pasta-13138044415.html	Patus Pasta	-	food	18.7932497,99.0016784	phone=+66 61 526 6296; facebook=@patuspasta.cnx; instagram=@patuspasta	Mo-Su 11:00-22:00	ants=2/9
+https://motdang.net/cm/p/bitcoin-learning-center-13138185003.html	Bitcoin Learning Center	-	community	18.7936487,99.0019618	facebook=@blcchiangmai; web=bitcoinchiangmai.org; email=info@bitcoinchiangmai.org	Mo-Fr 12:00-18:00	ants=2/9
 https://motdang.net/cm/p/lucky-star-1314007115.html	ไก่ไร้กระดูก	Lucky Star	food	18.7800081,99.0447795	-	Mo-Su 15:00-01:00	ants=3/9
 https://motdang.net/cm/p/the-extraction-sansai-13140373505.html	The Extraction Sansai	-	food	18.8244328,99.0356173	phone=+66 94 629 1475; facebook=@theextractionsansai	Mo-Su 07:00-16:00	ants=2/9
 https://motdang.net/cm/p/sunflower-smoothie-coffee-13142229920.html	Sunflower Smoothie & Coffee	-	food	18.7895153,98.9802621	phone=+66 84 609 7680; facebook=@100089563483383; web=sunflowersmoothies.com; instagram=@sunflowersmoothiesandcoffee; email=rain.ny7680@gmail.com	Mo-Tu 07:30-16:00; Th-Su 07:30-16:00	ants=3/9
@@ -1031,6 +1069,7 @@ https://motdang.net/cm/p/ot-overtime-bar-13290471500.html	OT Overtime Bar	-	food
 https://motdang.net/cm/p/akha-ama-coffee-the-new-original-13293742701.html	Akha Ama Coffee (The New Original)	Akha Ama Coffee (The New Original)	food	18.7940271,98.9925601	-	-	ants=1/9
 https://motdang.net/cm/p/13294675101.html	หมูจุ่มเจ้โส	-	food	18.801018,98.9980423	-	Mo-Su 16:00-00:00	ants=2/9
 https://motdang.net/cm/p/memories-of-chiang-mai-13296932101.html	Memories of Chiang Mai	-	market	18.7979,98.9831741	-	Mo-Su 16:00-00:00	ants=1/9
+https://motdang.net/cm/p/repair-clothes-13298710901.html	รับซ่อมแซม เสื้อผ้า	repair clothes	shopping	18.785513,99.0299581	-	Mo-Su 09:00-20:00	ants=3/9
 https://motdang.net/cm/p/ban-roi-an-phan-yang-13299514830.html	บ้าน 100 อัน 1000 อย่าง	Ban Roi An Phan Yang	museums-galleries	18.6510291,98.9046291	-	Mo-Su 08:30-16:30	ants=3/9
 https://motdang.net/cm/p/san-kamphaeng-saturday-walking-street-13299514831.html	ตลาดกลางคืน สันกำแพง	San Kamphaeng Saturday Walking Street	market	18.7451548,99.1200894	-	Sa 17:00-22:00	ants=3/9
 https://motdang.net/cm/p/kham-thiang-flower-market-13299514983.html	ตลาดคำเที่ยง	Kham Thiang Flower Market	market	18.8061599,98.9971379	-	Mo-Su 09:00-18:00	ants=3/9
@@ -1055,6 +1094,7 @@ https://motdang.net/cm/p/the-south-african-13333517476.html	The South African	-	
 https://motdang.net/cm/p/coach-whold-day-13335770901.html	Coach Whold Day	Coach Whold Day	beauty	18.7818429,98.9888036	-	Su-Fr 08:30-20:30	ants=2/9
 https://motdang.net/cm/p/sabai-thong-thai-massage-13343563581.html	Sabai Thong Thai Massage	-	massage	18.7872728,98.9913104	phone=+66 65 240 1535	Mo-Su 10:00-22:00	ants=2/9
 https://motdang.net/cm/p/the-little-sunday-13347185301.html	The Little Sunday	-	food	18.7901572,98.9913309	-	Mo-Su 08:00-17:00	ants=1/9
+https://motdang.net/cm/p/kaparti-crafting-hub-13347188164.html	Kaparti Crafting Hub	-	shopping	18.7761453,98.9860821	phone=+66 99 419 7893; instagram=@kaparti.craftinghub; email=craftinghub@kapartiofficial.com	Fr-Sa 10:00-17:00	ants=2/9
 https://motdang.net/cm/p/friend-coffee-13347292501.html	Friend Coffee	-	food	18.7815676,98.9861858	-	Mo-Su 07:30-17:00	ants=1/9
 https://motdang.net/cm/p/lalala-chiang-mai-13355125955.html	Lalala Chiang Mai	-	food	18.78372,98.9840463	-	Mo-Su 10:00-23:00	ants=1/9
 https://motdang.net/cm/p/chiangmai-midpoint-activity-hostel-13357070421.html	Chiangmai Midpoint Activity Hostel	-	hotel	18.7902058,98.9854078	phone=+6653327088	-	ants=1/9
@@ -1096,6 +1136,7 @@ https://motdang.net/cm/p/d-vine-13411824159.html	D.Vine	D.Vine	medical	18.813358
 https://motdang.net/cm/p/jdc-dental-clinic-13411824162.html	JDC Dental Clinic	JDC Dental Clinic	medical	18.8132797,98.973858	-	-	ants=1/9
 https://motdang.net/cm/p/esthera-clinic-13411824164.html	Esthera Clinic	Esthera Clinic	medical	18.8130705,98.9738898	-	-	ants=1/9
 https://motdang.net/cm/p/u-shine-aesthetic-clinic-13411824165.html	U-shine Aesthetic Clinic	U-shine Aesthetic Clinic	medical	18.8129777,98.9739062	-	-	ants=1/9
+https://motdang.net/cm/p/cntsa-13411824166.html	CNTSA	-	business	18.8131573,98.9738747	-	-	ants=0/9
 https://motdang.net/cm/p/the-boss-13411824167.html	The Boss	-	hotel	18.8137634,98.9739862	-	-	ants=0/9
 https://motdang.net/cm/p/the-nails-13411824169.html	The Nails	-	beauty	18.8136016,98.9741716	-	-	ants=0/9
 https://motdang.net/cm/p/jg-masage-spa-13411824174.html	JG Masage & Spa	-	massage	18.8127295,98.9739086	-	-	ants=0/9
@@ -1108,6 +1149,7 @@ https://motdang.net/cm/p/suki-hotpot-13423112427.html	Suki Hotpot	Suki Hotpot	fo
 https://motdang.net/cm/p/living-the-dream-chilling-cafe-playground-13423315774.html	Living the Dream - Chilling Cafe & Playground	-	food	18.8125373,98.9736097	-	-	ants=0/9
 https://motdang.net/cm/p/chum-lanna-restaurant-good-local-food-13423332901.html	CHUM Lanna Restaurant (Good local Food)	-	food	18.7230454,99.0083592	phone=+66 53 106 530	Mo-Su 10:00-21:00	ants=2/9
 https://motdang.net/cm/p/brewology-89-coffee-13426244005.html	Brewology 89 Coffee	-	food	18.745632,99.0967807	phone=+66 93 371 4411; email=mrame.nattapong@gmail.com	Mo-Su 07:00-20:00	ants=2/9
+https://motdang.net/cm/p/chanaplace-13428050264.html	Chanaplace	-	essentials	18.7828345,98.9822967	-	Mo-Su,PH 00:00-00:00	ants=1/9
 https://motdang.net/cm/p/street-workout-13428443752.html	Street Workout	Street Workout	learn	18.838741,99.0405413	-	-	ants=1/9
 https://motdang.net/cm/p/street-workout-13428443753.html	Street Workout	Street Workout	learn	18.8379868,99.0403766	-	-	ants=1/9
 https://motdang.net/cm/p/bualuang-studio-coffee-arts-13428443754.html	Bualuang Studio Coffee&Arts	-	food	18.8335468,99.0396114	facebook=@bualuangstudiocafe	Mo-Su 08:30-17:00	ants=1/9
@@ -1117,6 +1159,7 @@ https://motdang.net/cm/p/outside-sports-equipment-13429913201.html	Outside sport
 https://motdang.net/cm/p/tomyumkung-13432738208.html	Tomyumkung	-	food	18.7982021,98.9740113	-	Mo-Su 10:00-10:00	ants=1/9
 https://motdang.net/cm/p/cossfit-pulmo-13434351922.html	Cossfit Pulmo	Cossfit Pulmo	learn	18.7416106,98.9662392	-	-	ants=1/9
 https://motdang.net/cm/p/yun-artisan-13437056968.html	Yun Artisan	-	food	18.7968578,98.9766306	-	Mo-Sa 09:30-18:00	ants=1/9
+https://motdang.net/cm/p/thai-visa-services-13437706095.html	Thai Visa Services	-	business	18.7990971,98.9746636	phone=0813523163; email=Sammie.kathanyoo@gmail.com	-	ants=1/9
 https://motdang.net/cm/p/bike-repairs-13437706096.html	Bike repairs	-	repair	18.7990804,98.9747497	-	Mo-Sa 09:00-18:00; PH closed	ants=1/9
 https://motdang.net/cm/p/eve-pharmacy-13437706098.html	Eve Pharmacy	Eve Pharmacy	essentials	18.7991023,98.9751739	phone=0876615803	Mo-Su 09:00-21:00	ants=3/9
 https://motdang.net/cm/p/chaosua-cafe-13439262901.html	Chaosua cafe	-	food	18.7510056,99.0881616	-	-	ants=0/9
@@ -1167,6 +1210,7 @@ https://motdang.net/cm/p/wang-wela-13523608343.html	Wang Wela	-	food	18.9046739,
 https://motdang.net/cm/p/13524372601.html	ร้านอาหารบ้านสองนคร	-	food	18.6255919,98.8766362	phone=+66 98 771 7581	Mo-Su 10:00-22:00	ants=3/9
 https://motdang.net/cm/p/on-thapae-chiangmai-13525451901.html	ON Thapae ChiangMai	-	hotel	18.7852956,98.9953396	-	24/7	ants=1/9
 https://motdang.net/cm/p/13527859601.html	ตำหรับใต้	-	food	18.8352478,99.0132785	phone=+66625252541; facebook=@107271082026299	Tu-Su 07:00-15:00	ants=3/9
+https://motdang.net/cm/p/soi-9-service-13528769801.html	Soi 9 Service	-	essentials	18.7941177,98.9912633	-	Mo-Su 08:00-18:00	ants=1/9
 https://motdang.net/cm/p/magic-beans-coffee-specialty-coffee-roastery-13530702802.html	Magic Beans Coffee (Specialty coffee & Roastery)	-	food	18.9040805,99.1353588	phone=080 406 3552; facebook=@facebook.com	Mo-Su 08:00-17:00	ants=2/9
 https://motdang.net/cm/p/dan-chicken-rice-by-max-khao-man-gai-13531381401.html	Dan chicken rice by max (khao man gai)	-	food	18.7978349,98.9710229	-	-	ants=0/9
 https://motdang.net/cm/p/7-eleven-13531386802.html	7-Eleven	-	essentials	18.7985797,98.9691657	-	-	ants=0/9
@@ -1203,6 +1247,8 @@ https://motdang.net/cm/p/chaowang-khao-tom-13592446601.html	ข้าวต้�
 https://motdang.net/cm/p/honey-house-13592477493.html	Honey House	-	food	18.7851319,98.9938292	-	-	ants=0/9
 https://motdang.net/cm/p/teda-cafe-studio-cake-13597778924.html	TEDA.cafe&studio cake	-	food	18.7913819,99.0465115	phone=0613651064	-	ants=1/9
 https://motdang.net/cm/p/2-13598590901.html	ข้าวต้มนายดำ 2	-	food	18.7897763,98.9642099	-	Mo-Su 17:30-03:00	ants=2/9
+https://motdang.net/cm/p/grassyland-13599916890.html	Grassyland	-	home-services	18.8071937,98.9976473	-	-	ants=0/9
+https://motdang.net/cm/p/fertiliser-shop-13600539514.html	Fertiliser shop	-	home-services	18.8073586,98.995955	-	-	ants=0/9
 https://motdang.net/cm/p/karun-animal-clinic-1360091096.html	Karun Animal Clinic	Karun Animal Clinic	pets	18.7810127,99.0382113	-	-	ants=1/9
 https://motdang.net/cm/p/cats-station-cafe-13604835663.html	Cats Station Cafe	-	food	18.866123,99.1098792	-	Mo-Tu,Fr-Su 09:30-16:00	ants=1/9
 https://motdang.net/cm/p/punthai-13604911531.html	Punthai	-	food	18.872318,99.1341961	-	Mo-Su 06:00-18:00	ants=1/9
@@ -1241,7 +1287,10 @@ https://motdang.net/cm/p/caf-ocha-13624319001.html	กาแฟโอชา	Caf�
 https://motdang.net/cm/p/lotus-s-go-fresh-1362557139.html	Lotus's go fresh	-	essentials	18.7936824,99.1048604	-	24/7	ants=1/9
 https://motdang.net/cm/p/pizza-plus-1363493098.html	Pizza Plus	-	food	18.8556075,99.131506	-	Mo 11:00-22:00;Tu-Su 10:00-22:00	ants=1/9
 https://motdang.net/cm/p/fruit-shake-and-fruit-stand-13640150501.html	Fruit shake and fruit stand	Fruit shake and fruit stand	food	18.7727602,98.998744	-	-	ants=1/9
+https://motdang.net/cm/p/the-unknown-facyory-13644831474.html	THE UNKNOWN FACYORY	-	community	18.6992266,99.0097727	-	-	ants=0/9
 https://motdang.net/cm/p/13649537636.html	ชาบูหมูอูด	-	food	18.7833006,99.028913	-	Mo-Su 10:00-21:00	ants=2/9
+https://motdang.net/cm/p/london-cnx-bakery-13651126180.html	London.CNX Bakery	-	food	18.7919681,98.9784335	phone=084 993 1656; facebook=@1BrrfxA7pN	Mo-Su 10:00-18:00	ants=2/9
+https://motdang.net/cm/p/london-cnx-bakery-13651143120.html	London.CNX  Bakery	-	food	18.7919652,98.9784335	phone=084 993 1656; facebook=@1BrrfxA7pN	Mo-Su 10:00-18:00	ants=2/9
 https://motdang.net/cm/p/london-cnx-bakery-13651155193.html	London.CNX Bakery	-	food	18.7919676,98.9784328	phone=084 993 1656; facebook=@1BrrfxA7pN	Mo-Su 10:00-18:00	ants=2/9
 https://motdang.net/cm/p/per-la-mer-13651245521.html	Per la Mer	-	food	18.9031921,98.9070745	-	-	ants=0/9
 https://motdang.net/cm/p/siam-commercial-bank-1365397658.html	ธนาคารไทยพาณิชย์	Siam Commercial Bank	essentials	18.7976229,98.9970384	-	-	ants=2/9
@@ -1259,12 +1308,15 @@ https://motdang.net/cm/p/v-fix-13707208409.html	V-Fix ซ่อมมือถ�
 https://motdang.net/cm/p/dream-catcher-barber-and-tattoo-13711279934.html	Dream Catcher Barber and Tattoo	-	beauty	18.7495622,99.1113951	phone=+66951735191	Mo-Su 10:00-20:00	ants=2/9
 https://motdang.net/cm/p/13715227296.html	อคิน ลิสซิ่ง	-	realestate	18.9751063,98.9826013	phone=0657159444; facebook=@akinleasing?locale=th_TH	08.30-17.00	ants=3/9
 https://motdang.net/cm/p/wikunpanich-steamed-bun-13717805901.html	Wikunpanich Steamed Bun	-	food	18.7870931,99.0078488	phone=+66 53 241 930	Mo-Su 08:00-16:00	ants=2/9
+https://motdang.net/cm/p/caremat-13717806001.html	ศูนย์สุขภาพ แคร์แมท CAREMAT	-	community	18.7891089,98.9624606	phone=052 005 458; web=caremat.org	-	ants=3/9
+https://motdang.net/cm/p/caremat-13717807501.html	ศูนย์สุขภาพ แคร์แมท CAREMAT	-	community	18.7888916,98.9644672	phone=052 005 458; web=caremat.org	-	ants=3/9
 https://motdang.net/cm/p/13723571993.html	ส้าาป่ะล่ะ	-	food	18.9247782,98.9347643	phone=0901267617	-	ants=2/9
 https://motdang.net/cm/p/phoenix-hair-salon-3rd-floor-13724435301.html	Phoenix Hair Salon, 3rd Floor	-	beauty	18.802541,98.9676162	phone=088 152 9498; line=@phoenixmaya; facebook=@PhoenixatMaya	Mo-Fr 11:00-21:30; Sa-Su 10:30-21:30	ants=3/9
 https://motdang.net/cm/p/shin-hostel-changphuak-chiangmai-13730517101.html	SHIN Hostel ChangPhuak ChiangMai	-	hotel	18.797274,98.9870821	-	Mo-Su 06:00-00:00	ants=1/9
 https://motdang.net/cm/p/kfc-13733928801.html	KFC	KFC	food	18.9018777,98.9497935	-	-	ants=1/9
 https://motdang.net/cm/p/mood-d-13734010903.html	Mood:D	-	food	18.8045437,98.9785246	-	-	ants=0/9
 https://motdang.net/cm/p/yamato-1374413059.html	Yamato	-	food	18.7526904,99.0096399	-	-	ants=0/9
+https://motdang.net/cm/p/washxpress-13747448203.html	WashXpress หลิ่งมื่น (แม่โจ้) เชียงใหม่	-	essentials	18.888915,99.0319663	phone=+6626664646	24/7	ants=3/9
 https://motdang.net/cm/p/annies-restaurant-13758005201.html	Annies Restaurant	-	food	18.7900297,98.9899934	-	-	ants=0/9
 https://motdang.net/cm/p/the-inner-longeity-well-being-13758871237.html	The Inner Longeity & Well-Being	The Inner Longeity & Well-Being	medical	18.8661542,99.0946247	-	Mo-Su 09:00-18:00	ants=2/9
 https://motdang.net/cm/p/13762533501.html	ก๋วยเตี๋ยวบ้านบึง สาขาแม่คาว	-	food	18.8024191,99.0272533	-	-	ants=1/9
@@ -1312,6 +1364,7 @@ https://motdang.net/cm/p/the-butterfly-effect-13959590802.html	the butterfly eff
 https://motdang.net/cm/p/klay-13968283013.html	KLAY	-	food	18.7984748,98.9686738	-	-	ants=0/9
 https://motdang.net/cm/p/gapple-13968283014.html	Gapple	-	food	18.795136,98.9682246	-	-	ants=0/9
 https://motdang.net/cm/p/punthai-coffee-13973658101.html	PUNTHAI COFFEE	-	food	18.8406956,99.0699494	-	-	ants=0/9
+https://motdang.net/cm/p/washing-machine-13974029601.html	washing machine	-	essentials	18.8401314,99.0702001	-	-	ants=0/9
 https://motdang.net/cm/p/sagaing-thu-13981970601.html	စစ်ကိုင်းသူ	Sagaing Thu	food	18.810727,98.9679651	phone=+66657766493; facebook=@61565543229211; email=yadanasuhlaing8@gmail.com	Mo-Su 08:00-21:00	ants=3/9
 https://motdang.net/cm/p/13984742401.html	อาหารจีนเสฉวน	-	food	18.7971816,98.9666048	phone=+66829270818	Mo-Su 10:30-20:30	ants=3/9
 https://motdang.net/cm/p/pump-fitness-2-0-13990142167.html	Pump Fitness 2.0	-	learn	18.7815859,98.9858583	-	-	ants=0/9
@@ -1788,6 +1841,7 @@ https://motdang.net/cm/p/delicious-issan-food-2142546557.html	เลิศรส
 https://motdang.net/cm/p/wat-chiang-chom-2142584557.html	วัดเชียงโฉม	Wat Chiang Chom	wat	18.8072959,98.9820758	-	-	ants=3/9
 https://motdang.net/cm/p/jimbee-studio-2144917735.html	JimBee Studio	-	beauty	18.8114438,98.967188	-	-	ants=0/9
 https://motdang.net/cm/p/jimbee-cafe-2144917736.html	JimBee Cafe	-	food	18.8114997,98.9672041	-	-	ants=0/9
+https://motdang.net/cm/p/laundry-home-2144917963.html	Laundry Home	-	essentials	18.8113829,98.9671961	-	-	ants=0/9
 https://motdang.net/cm/p/mee-chok-vet-clinic-2147741862.html	Mee Chok Vet Clinic	Mee Chok Vet Clinic	pets	18.8242191,99.0102185	-	-	ants=1/9
 https://motdang.net/cm/p/uncle-steak-house-2148113199.html	Uncle Steak House	-	food	18.8570726,99.1416714	-	-	ants=0/9
 https://motdang.net/cm/p/s-p-2160380718.html	S&P	-	food	18.7834084,99.0055838	-	-	ants=0/9
@@ -1966,6 +2020,7 @@ https://motdang.net/cm/p/wat-sahatsa-sakhun-phan-tao-2494611645.html	วัด�
 https://motdang.net/cm/p/house-of-palm-2497315366.html	บ้านต้นปาล์ม	House of Palm	food	18.8702375,99.1254352	phone=+6653291401	Th-Su 11:00-21:00	ants=4/9
 https://motdang.net/cm/p/sansuk-cafe-2502489097.html	Sansuk cafe	-	food	18.8033254,98.9196507	-	-	ants=0/9
 https://motdang.net/cm/p/cube-no-7-2505598092.html	คิวบ์	Cube No. 7	food	18.7952284,98.9725061	phone=+66846114031	-	ants=3/9
+https://motdang.net/cm/p/punspace-nimman-2505598103.html	Punspace Nimman	Punspace Nimman	business	18.7935111,98.9722509	-	-	ants=2/9
 https://motdang.net/cm/p/suriyan-chandra-2505598104.html	สุริยันต์ จันทรา	Suriyan Chandra	shopping	18.7937009,98.9724896	-	-	ants=2/9
 https://motdang.net/cm/p/i-berry-2505598106.html	ไอเบอร์รี่	i-Berry	food	18.7942473,98.9689346	-	Mo-Su 10:30-22:00	ants=3/9
 https://motdang.net/cm/p/taab-thim-thong-restaurant-2508195128.html	ทับทิมทอง	Taab Thim Thong Restaurant	food	18.7201035,98.9628504	-	-	ants=2/9
@@ -2009,6 +2064,7 @@ https://motdang.net/cm/p/time-club-2530379610.html	ที บาร์	Time Club
 https://motdang.net/cm/p/vintage-chiang-mai-2530379618.html	แจ๋มเจริญย์	Vintage Chiang Mai	food	18.8067265,98.9797621	-	-	ants=2/9
 https://motdang.net/cm/p/retro-steak-cafe-2530379621.html	Retro Steak Cafe	Retro Steak Cafe	food	18.806009,98.9816117	-	Mo-Su 10:30-14:00,17:00-23:00	ants=2/9
 https://motdang.net/cm/p/excellent-tasting-noodles-2530379624.html	ก๋วยเตี๋ยวรสเยี่ยม	Excellent Tasting Noodles	food	18.8048393,98.9802498	-	-	ants=2/9
+https://motdang.net/cm/p/snow-white-2530379633.html	snow white	-	essentials	18.8061849,98.9812096	-	-	ants=0/9
 https://motdang.net/cm/p/somtam-bat-khio-2530379634.html	ส้มตำบัตรคิว	Somtam Bat Khio	food	18.8065695,98.9793873	-	-	ants=2/9
 https://motdang.net/cm/p/mansfield-residence-2530393019.html	Mansfield Residence	-	hotel	18.8081085,98.9793202	phone=+6653410458; email=reservations@mansfieldchiangmai.com	-	ants=1/9
 https://motdang.net/cm/p/taja-2530393020.html	Taja	-	hotel	18.8071275,98.9795577	-	-	ants=0/9
@@ -2202,6 +2258,7 @@ https://motdang.net/cm/p/7-eleven-2610123180.html	7-Eleven	7-Eleven	essentials	1
 https://motdang.net/cm/p/7-eleven-2610123183.html	7-Eleven	7-Eleven	essentials	18.7795977,98.9993941	web=7eleven.co.th	24/7	ants=3/9
 https://motdang.net/cm/p/wat-mueang-sattra-luang-2610146256.html	วัดเมืองสาตรหลวง	Wat Mueang Sattra Luang	wat	18.76598,99.0122792	-	-	ants=2/9
 https://motdang.net/cm/p/7-eleven-2610146257.html	7-Eleven	7-Eleven	essentials	18.7633403,99.0249941	web=7eleven.co.th	24/7	ants=3/9
+https://motdang.net/cm/p/chiangmai-sudaluck-2610169084.html	เชียงใหม่สุดาลักษณ์	Chiangmai Sudaluck	shopping	18.7674449,99.0758765	-	-	ants=2/9
 https://motdang.net/cm/p/kan-toke-2610169085.html	Kan Toke	-	food	18.7663736,99.0779579	-	-	ants=0/9
 https://motdang.net/cm/p/ton-pao-subdistrict-health-promoting-hospital-2610171775.html	โรงพยาบาลส่งเสริมสุขภาพตำบล ต้นเปา	Ton Pao Subdistrict Health Promoting Hospital	medical	18.7676663,99.075195	-	-	ants=2/9
 https://motdang.net/cm/p/khaosoi-ban-lanna-2610171776.html	ข้าวซอยบ้านล้านนา(สูตรโบราณ)	Khaosoi Ban Lanna	food	18.7691836,99.0713066	-	Mo-Su 08:30-15:30	ants=3/9
@@ -2418,6 +2475,7 @@ https://motdang.net/cm/p/la-cucina-2669393878.html	La Cucina	-	food	18.7941553,9
 https://motdang.net/cm/p/blind-massage-2670298956.html	Blind Massage	-	massage	18.7856103,98.9875322	-	-	ants=0/9
 https://motdang.net/cm/p/subdistrict-health-promoting-hospital-2670834398.html	โรงพยาบาลส่งเสริมสุขภาพตำบล	Subdistrict Health Promoting Hospital	medical	18.6865334,98.8919564	-	-	ants=2/9
 https://motdang.net/cm/p/7-eleven-2670834423.html	7-Eleven	7-Eleven	essentials	18.7093028,98.9212674	web=7eleven.co.th	24/7	ants=3/9
+https://motdang.net/cm/p/ban-rom-sai-2670840911.html	มูลนิธิบ้านร่มไทร	Ban Rom Sai	community	18.6912146,98.8904077	-	-	ants=2/9
 https://motdang.net/cm/p/narittaya-resort-and-spa-2670846997.html	Narittaya Resort and Spa	-	hotel	18.7183302,98.9057915	-	-	ants=0/9
 https://motdang.net/cm/p/p-ka-ju-2671430422.html	พี กะ จู	P-Ka-Ju	food	18.747113,98.9510165	-	Mo-Su 17:00-23:00	ants=3/9
 https://motdang.net/cm/p/minipump-2672858699.html	Minipump	-	transport	18.7407072,99.1014987	-	-	ants=0/9
@@ -2470,6 +2528,7 @@ https://motdang.net/cm/p/s-wine-2686882091.html	S Wine	-	food	18.7997999,99.0189
 https://motdang.net/cm/p/2687048820.html	คลินิกหมอสวนดอก แม่เหียะเวชกรรม	-	medical	18.7531356,98.9660932	-	-	ants=1/9
 https://motdang.net/cm/p/wake-up-coffee-2689500563.html	Wake Up Coffee	Wake Up Coffee	food	18.7985799,98.9867844	-	-	ants=1/9
 https://motdang.net/cm/p/roastniyom-coffee-2689662657.html	Roastniyom Coffee	Roastniyom Coffee	food	18.7975573,98.9710079	-	Mo-Su 07:00-20:00	ants=2/9
+https://motdang.net/cm/p/c-a-m-p-2692460179.html	C.A.M.P.	-	business	18.8023074,98.9667012	facebook=Facebook	Mo-Su 11:00-22:00	ants=1/9
 https://motdang.net/cm/p/float-s-house-2693960390.html	Float's House	-	hotel	18.7937594,98.9881923	-	-	ants=0/9
 https://motdang.net/cm/p/sukina-sukiyaki-restaurant-2696290587.html	Sukina Sukiyaki Restaurant	Sukina Sukiyaki Restaurant	food	18.7977517,98.9708327	-	-	ants=1/9
 https://motdang.net/cm/p/7-eleven-2696290620.html	7-Eleven	7-Eleven	essentials	18.7977347,98.9710428	web=7eleven.co.th	24/7	ants=3/9
@@ -2494,6 +2553,7 @@ https://motdang.net/cm/p/fresh-wrap-2749125717.html	Fresh Wrap	-	food	18.7898101
 https://motdang.net/cm/p/khao-soi-lamduan-2755850054.html	Khao Soi Lamduan	-	food	18.8081977,99.018018	-	-	ants=0/9
 https://motdang.net/cm/p/le-gong-kum-2768972017.html	Le Gong Kum	-	food	18.8021199,98.9697586	-	Mo-Fr 07:00-21:00	ants=1/9
 https://motdang.net/cm/p/ups-2771807727.html	UPS	-	essentials	18.8081921,99.0182718	-	-	ants=0/9
+https://motdang.net/cm/p/baan-yuu-suk-the-children-s-organization-of-southeast-asia-2773248547.html	Baan Yuu Suk, The Children's Organization of Southeast Asia	-	community	18.959377,98.9244986	web=cosasia.org	-	ants=1/9
 https://motdang.net/cm/p/little-bird-2773327239.html	Little Bird	-	hotel	18.7913608,98.9924926	-	-	ants=0/9
 https://motdang.net/cm/p/viewpoint-and-shelter-2774523763.html	Viewpoint and Shelter	-	sights	18.8342896,98.8663976	-	-	ants=1/9
 https://motdang.net/cm/p/cmu-faculty-of-agriculture-khunchangkhian-2774687795.html	CMU Faculty of Agriculture, Khunchangkhian	-	learn	18.845127,98.8885834	-	-	ants=0/9
@@ -2635,6 +2695,7 @@ https://motdang.net/cm/p/vintage-road-3152527361.html	Vintage Road	-	food	18.779
 https://motdang.net/cm/p/7-eleven-3153832561.html	7-Eleven	7-Eleven	essentials	18.721176,99.110953	web=7eleven.co.th	-	ants=2/9
 https://motdang.net/cm/p/l-amour-caf-3153996395.html	Lamour cafe	L’Amour Café	food	18.7764421,98.9491996	-	-	ants=1/9
 https://motdang.net/cm/p/mingmitr-3162926207.html	Mingmitr	Mingmitr	food	18.7835315,99.0058305	-	-	ants=1/9
+https://motdang.net/cm/p/punspace-tha-phae-gate-3164000393.html	Punspace Tha Phae Gate	Punspace Tha Phae Gate	business	18.7866271,98.9913378	-	Mo-Sa 09:00-18:00	ants=3/9
 https://motdang.net/cm/p/haircut-beauty-shop-3167944778.html	ร้านตัดผม haircut beauty shop	-	beauty	18.7975453,98.952103	-	9:00-20:30 น.	ants=2/9
 https://motdang.net/cm/p/yellow-3168260766.html	Librarista	Yellow	food	18.7984601,98.9688241	phone=+6653895678	-	ants=2/9
 https://motdang.net/cm/p/maxx-professional-fitness-3168260767.html	Maxx Professional Fitness	-	learn	18.8019459,98.9673997	-	10:00-22:00	ants=1/9
@@ -2653,6 +2714,13 @@ https://motdang.net/cm/p/3182205829.html	ร้านตัดผม คิเ�
 https://motdang.net/cm/p/seven-3182205866.html	ร้านตัดผม Seven แฮร์ สไตล์	-	beauty	18.7985163,98.9546853	-	7.00-20.00 น.	ants=2/9
 https://motdang.net/cm/p/2-3182206321.html	ร้านตัดผม กอล์ฟแฮร์ดีไซน์ 2	-	beauty	18.7985112,98.9555555	-	9.00-20.30 น.	ants=2/9
 https://motdang.net/cm/p/3182206731.html	ร้านตัดผม แฮร์ดู	-	beauty	18.7981376,98.9554458	-	9.00-20.30 น.	ants=2/9
+https://motdang.net/cm/p/3182206735.html	ตู้ซักผ้าหยอดเหรียญ	-	essentials	18.7983731,98.9547439	-	-	ants=1/9
+https://motdang.net/cm/p/3182208501.html	ตู้ซักผ้าหยอดเหรียญ	-	essentials	18.7986176,98.9556074	-	-	ants=1/9
+https://motdang.net/cm/p/3182208507.html	ตู้ซักผ้าหยอดเหรียญ	-	essentials	18.7980352,98.9556803	-	-	ants=1/9
+https://motdang.net/cm/p/3182208525.html	ตู้ซักผ้าหยอดเหรียญ	-	essentials	18.7998769,98.953662	-	-	ants=1/9
+https://motdang.net/cm/p/3182208526.html	ตู้ซักผ้าหยอดเหรียญ	-	essentials	18.7975068,98.9520369	-	-	ants=1/9
+https://motdang.net/cm/p/3182208856.html	ตู้ซักผ้าหยอดเหรียญ	-	essentials	18.7996362,98.9501805	-	-	ants=1/9
+https://motdang.net/cm/p/3182209103.html	ตู้ซักผ้าหยอดเหรียญ	-	essentials	18.7976844,98.9519803	-	24/7	ants=2/9
 https://motdang.net/cm/p/3182220946.html	ฝ้ายเบเกอรี่	-	food	18.8013672,98.9501719	-	-	ants=1/9
 https://motdang.net/cm/p/wawee-coffee-3182230621.html	Wawee Coffee	-	food	18.7986562,99.0239188	-	-	ants=0/9
 https://motdang.net/cm/p/doi-saket-coffee-green-3184375941.html	Doi Saket Coffee Green	Doi Saket Coffee Green	food	18.8735205,99.1338267	-	-	ants=1/9
@@ -2866,6 +2934,7 @@ https://motdang.net/cm/p/lanna-boutique-resort-3298047307.html	Lanna Boutique Re
 https://motdang.net/cm/p/love-at-home-beauty-3298047308.html	Love At Home Beauty	-	beauty	18.8053424,98.9827912	-	-	ants=0/9
 https://motdang.net/cm/p/phuphiang-coffee-3298047309.html	Phuphiang Coffee	-	food	18.8053032,98.98309	-	Mo-Su 09:30-18:30	ants=1/9
 https://motdang.net/cm/p/che-kanya-3298047310.html	เจ กันยา	Che Kanya	food	18.8050064,98.9838038	-	-	ants=2/9
+https://motdang.net/cm/p/hong-ye-3298048827.html	ฮองเย	Hong Ye	essentials	18.8050221,98.9839793	-	-	ants=2/9
 https://motdang.net/cm/p/hair-extra-3298054765.html	Hair Extra	-	beauty	18.8055914,98.9846095	-	Mo-Su 09:00-21:00	ants=1/9
 https://motdang.net/cm/p/i-beauty-3298064155.html	i-Beauty	-	beauty	18.8048925,98.9851854	-	Mo-Su 08:00-20:00	ants=1/9
 https://motdang.net/cm/p/plewtip-bakery-3298074475.html	Plewtip Bakery	-	food	18.8045581,98.9845976	-	Mo-Su 08:00-20:00	ants=1/9
@@ -2895,6 +2964,7 @@ https://motdang.net/cm/p/soho-guesthouse-3304368870.html	Soho Guesthouse	-	hotel
 https://motdang.net/cm/p/lemontree-3304369803.html	Lemontree	Lemontree	food	18.7980933,98.9742362	phone=+6653222009	Mo-Su 11:00-22:00	ants=4/9
 https://motdang.net/cm/p/be-fine-3304373131.html	บีไฟน์ นวดแผนไทย	Be Fine	massage	18.7981072,98.9742041	-	Mo-Su 10:00-24:00	ants=3/9
 https://motdang.net/cm/p/hillside-fitness-3304475321.html	Hillside Fitness	-	learn	18.8005575,98.9708086	-	-	ants=0/9
+https://motdang.net/cm/p/morning-laundry-3304475324.html	Morning Laundry	-	essentials	18.8000525,98.9733823	-	-	ants=0/9
 https://motdang.net/cm/p/pern-s-restaurant-3304475325.html	Pern's Restaurant	-	food	18.7981667,98.9740998	phone=+6653215010	-	ants=1/9
 https://motdang.net/cm/p/pingphuplace-3304475326.html	Pingphuplace	-	hotel	18.8014605,98.9698427	phone=+6653226660; web=pingphuplace.com	-	ants=2/9
 https://motdang.net/cm/p/ratchaphuek-clinic-3304475327.html	Ratchaphuek Clinic	Ratchaphuek Clinic	medical	18.8001138,98.9705049	phone=+6653220641	-	ants=2/9
@@ -3024,6 +3094,7 @@ https://motdang.net/cm/p/chateau-kum-une-art-museum-3340144765.html	บ้าน
 https://motdang.net/cm/p/my-secret-cafe-3340956813.html	My Secret Cafe	-	food	18.8561393,98.9867959	-	Tu-Su 10:30-17:00	ants=1/9
 https://motdang.net/cm/p/lotus-s-go-fresh-3340959344.html	Lotus's go fresh	-	essentials	18.8365713,98.9893211	-	24/7	ants=1/9
 https://motdang.net/cm/p/3340969636.html	ส้มตำหลวงพระบาง	-	food	18.8141918,99.0006847	-	-	ants=1/9
+https://motdang.net/cm/p/afm-3340980793.html	AFM	-	home-services	18.8714695,99.0152812	-	-	ants=0/9
 https://motdang.net/cm/p/caf-amazon-3340982844.html	คาเฟ่ อเมซอน	Café Amazon	food	18.875593,99.0147928	-	-	ants=2/9
 https://motdang.net/cm/p/kasikorn-bank-3340987269.html	ธนาคารกสิกรไทย	Kasikorn Bank	essentials	18.8953976,99.0087234	-	-	ants=2/9
 https://motdang.net/cm/p/krua-channabot-3341001564.html	ครัวชนบท	Krua Channabot	food	18.908394,98.9485552	phone=0850303808	-	ants=3/9
@@ -3141,6 +3212,7 @@ https://motdang.net/cm/p/3383942523.html	ร้านส้มตำ หนอ�
 https://motdang.net/cm/p/7-eleven-3383962933.html	7-Eleven	7-Eleven	essentials	18.7786779,99.0505675	web=7eleven.co.th	24/7	ants=3/9
 https://motdang.net/cm/p/7-eleven-3383965571.html	7-Eleven	7-Eleven	essentials	18.7370429,99.1364852	web=7eleven.co.th	24/7	ants=3/9
 https://motdang.net/cm/p/3384062562.html	ธารทิพย์คอร์ท	-	realestate	18.7941173,98.9828298	-	-	ants=1/9
+https://motdang.net/cm/p/kaew-gallery-3384070766.html	Kaew Gallery	-	shopping	18.7897179,98.9842839	web=kaewgallery.com	10:00-20:00	ants=2/9
 https://motdang.net/cm/p/wana-beauty-spa-3384070768.html	Wana Beauty & Spa	-	massage	18.7913654,98.9841685	-	-	ants=0/9
 https://motdang.net/cm/p/3384070769.html	ข้าวแกงปักษ์ใต้ เมืองคอน	-	food	18.7892941,98.9843157	-	Mo-Su 07:00-20:00	ants=2/9
 https://motdang.net/cm/p/medical-and-family-planning-services-3384089347.html	คลินิกชุมชนเชียงใหม่	Medical and Family Planning Services	medical	18.7856129,98.9837809	phone=+6653277805	-	ants=3/9
@@ -3221,6 +3293,7 @@ https://motdang.net/cm/p/thor-phan-3388701190.html	Thor Phan	-	food	18.7886965,9
 https://motdang.net/cm/p/3388701191.html	แอนบิวตี้-ซาลอน	-	beauty	18.7879382,98.9802188	-	-	ants=1/9
 https://motdang.net/cm/p/aom-am-3388703311.html	Aom Am	-	food	18.7880501,98.9802248	-	-	ants=0/9
 https://motdang.net/cm/p/nong-bo-3388703312.html	ร้านน้องโบ	Nong Bo	essentials	18.7879954,98.9802221	-	-	ants=2/9
+https://motdang.net/cm/p/yupparaj-wittayalai-alumni-association-3388703737.html	สมาคมศิษย์เก่ายุพราชวิทยาลัย	Yupparaj Wittayalai Alumni Association	community	18.7880769,98.9794237	-	-	ants=2/9
 https://motdang.net/cm/p/3388703901.html	พรบาร์เบอร์	-	beauty	18.7876426,98.9801906	-	Mo-Su 07:00-22:00	ants=2/9
 https://motdang.net/cm/p/3388705278.html	เสริมสวย คุณผู้หญิง อ.อู๊ด	-	beauty	18.787685,98.979711	phone=+6653814579	Mo-Su 07:30-18:30; We off	ants=3/9
 https://motdang.net/cm/p/yui-beauty-3388707632.html	ยุ้ยบิวตี้	Yui Beauty	beauty	18.7863352,98.9791366	-	-	ants=2/9
@@ -3240,12 +3313,15 @@ https://motdang.net/cm/p/blessed-food-3388756294.html	Blessed Food	-	food	18.797
 https://motdang.net/cm/p/tam-saep-3388781405.html	ตำแซบ	Tam Saep	food	18.7385445,99.1325127	-	-	ants=2/9
 https://motdang.net/cm/p/surachet-clinic-3390734344.html	สุรเชษฐ คลีนิค	Surachet Clinic	medical	18.7847987,98.9782273	-	-	ants=2/9
 https://motdang.net/cm/p/3390734345.html	คลินิกหมอวิโรจน์ สูติ-นรีเวช	-	medical	18.7895697,98.979129	-	-	ants=1/9
+https://motdang.net/cm/p/3390734347.html	ห.ส.น.เตาเม็งราย	-	shopping	18.7838979,98.9790471	-	-	ants=1/9
+https://motdang.net/cm/p/phanit-wibun-3392193895.html	พาณิชย์วิบูลย์	Phanit Wibun	business	18.8048508,98.9855414	-	-	ants=2/9
 https://motdang.net/cm/p/minipump-3392705934.html	Minipump	-	transport	18.8151466,98.9568311	-	-	ants=0/9
 https://motdang.net/cm/p/khum-jao-luang-boutique-hotel-3393690512.html	Khum Jao Luang Boutique Hotel	-	hotel	18.7830383,98.9985125	-	-	ants=0/9
 https://motdang.net/cm/p/nine-s-kitchen-3393690513.html	Nine's Kitchen	-	food	18.7873225,98.9988926	-	-	ants=0/9
 https://motdang.net/cm/p/lava-3394760974.html	Lava	-	food	18.7798647,98.9996987	-	-	ants=0/9
 https://motdang.net/cm/p/3394760978.html	เวชไพศาลฟาร์ม่า	-	essentials	18.7762653,98.9990091	-	-	ants=1/9
 https://motdang.net/cm/p/piccola-roma-palace-3394773237.html	Piccola Roma Palace	-	food	18.7814903,99.0034494	-	-	ants=0/9
+https://motdang.net/cm/p/co-working-cafe-3394777456.html	Co-working cafe	-	business	18.8086406,99.0028907	-	-	ants=0/9
 https://motdang.net/cm/p/3394777458.html	แดงจ๋า โภชนา	-	food	18.8105303,99.0022889	-	-	ants=1/9
 https://motdang.net/cm/p/radiology-3394781917.html	ศูนย์เอกซเรย์คอมพิวเตอร์	Radiology	medical	18.8085303,99.0147971	-	Mo-Su 09:00-18:00	ants=3/9
 https://motdang.net/cm/p/post-office-central-festival-3394781921.html	เซ็นทรัล เฟสติวัล เชียงใหม่	Post Office Central Festival	essentials	18.8079417,99.0185965	-	Mo-Su 11:00-18:00	ants=3/9
@@ -3590,6 +3666,7 @@ https://motdang.net/cm/p/we-love-massage-3652700253.html	We Love Massage	-	massa
 https://motdang.net/cm/p/young-beautiful-massage-3652734143.html	Young & Beautiful Massage	-	massage	18.784776,98.9944263	-	-	ants=0/9
 https://motdang.net/cm/p/mature-massage-3652734603.html	Mature Massage	-	massage	18.7847557,98.9944888	-	-	ants=0/9
 https://motdang.net/cm/p/line-point-bamboo-tattoo-3652873200.html	Line Point Bamboo Tattoo	-	sights/tattoo	18.7847032,98.9946677	web=chiangmaibambootattoo.com	-	ants=1/9
+https://motdang.net/cm/p/unique-suits-3652875100.html	Unique Suits	-	shopping	18.784683,98.9947472	-	-	ants=0/9
 https://motdang.net/cm/p/ying-yang-massage-3652917999.html	Ying Yang Massage	-	massage	18.7843272,98.9958016	-	-	ants=0/9
 https://motdang.net/cm/p/grand-lanna-hotel-3652935669.html	Grand Lanna Hotel	-	hotel	18.7701891,98.9858633	phone=+66884038318	-	ants=1/9
 https://motdang.net/cm/p/7-eleven-3652948358.html	7-Eleven	7-Eleven	essentials	18.7710262,98.9852754	web=7eleven.co.th	-	ants=2/9
@@ -3669,6 +3746,7 @@ https://motdang.net/cm/p/siam-commercial-bank-3862580752.html	ธนาคาร
 https://motdang.net/cm/p/kanjana-restaurant-3864197358.html	กาญจนาอาหารไทย	Kanjana Restaurant	food	18.7888046,98.9909651	-	Mo-Su 09:00-21:00	ants=3/9
 https://motdang.net/cm/p/english-garden-massage-spa-3864514700.html	English Garden Massage & Spa	English Garden Massage & Spa	massage	18.7519942,99.013374	-	-	ants=1/9
 https://motdang.net/cm/p/kuai-chap-a-kong-3864514752.html	ก๋วยจั๊บอากง	Kuai Chap A Kong	food	18.7516486,99.0124078	-	-	ants=2/9
+https://motdang.net/cm/p/skill-center-chiang-mai-3868706670.html	Skill Center Chiang Mai	-	community	18.7340689,99.0065196	web=skillcenter-chiangmai.com	-	ants=1/9
 https://motdang.net/cm/p/sopin-hair-design-3870202775.html	Sopin Hair Design	Sopin Hair Design	beauty	18.7519558,99.0090529	-	-	ants=1/9
 https://motdang.net/cm/p/diya-valley-3870411584.html	ดีญ่าวาเลยี	Diya Valley	realestate	18.7366791,99.0154972	-	-	ants=2/9
 https://motdang.net/cm/p/7-eleven-3870411642.html	7-Eleven	7-Eleven	essentials	18.7368144,99.0156939	web=7eleven.co.th	24/7	ants=3/9
@@ -3676,6 +3754,7 @@ https://motdang.net/cm/p/wat-buak-khrok-north-3870527966.html	วัดบวก
 https://motdang.net/cm/p/inthanin-coffee-3877442977.html	Inthanin Coffee	-	food	18.7771229,98.9766369	-	07:00-18:00	ants=1/9
 https://motdang.net/cm/p/khao-soy-mae-sai-3877442978.html	Khao Soy Mae Sai	-	food	18.7995931,98.9751745	-	Mo-Su 08:00-15:00	ants=1/9
 https://motdang.net/cm/p/wat-pa-kluai-3877553742.html	วัดป่ากล้วย	Wat Pa Kluai	wat	18.8584087,99.0691562	-	-	ants=2/9
+https://motdang.net/cm/p/makerspace-3887490951.html	MakerSpace	MakerSpace	community	18.7865148,98.9917159	-	-	ants=1/9
 https://motdang.net/cm/p/thamel-coffee-3888608226.html	Thamel Coffee	Thamel Coffee	food	18.7893995,99.0003575	-	08:00-17:00	ants=2/9
 https://motdang.net/cm/p/delicieux-fondu-and-pizza-3888816845.html	Delicieux Fondu and Pizza	-	food	18.7647197,99.0214585	-	-	ants=0/9
 https://motdang.net/cm/p/t-tt-coffee-corner-3888816846.html	T & TT Coffee Corner	T & TT Coffee Corner	food	18.764666,99.0214899	-	-	ants=1/9
@@ -3840,9 +3919,11 @@ https://motdang.net/cm/p/khum-khantoke-4157089285.html	Khum Khantoke	-	food	18.7
 https://motdang.net/cm/p/carstreet-bistro-4160741098.html	Carstreet Bistro	-	food	18.7971078,99.0359589	-	-	ants=0/9
 https://motdang.net/cm/p/7-eleven-4160790070.html	7-Eleven	7-Eleven	essentials	18.804969,99.0301416	web=7eleven.co.th	24/7	ants=3/9
 https://motdang.net/cm/p/havaii-yakiniku-4160836993.html	Havaii Yakiniku	Havaii Yakiniku	food	18.8019909,99.0317456	-	-	ants=2/9
+https://motdang.net/cm/p/new-moda-custom-tailors-4165828491.html	New Moda Custom Tailors	-	shopping	18.7825997,98.9999244	-	-	ants=0/9
 https://motdang.net/cm/p/4167491296.html	เล้งติ่มซำ	-	food	18.7554559,99.0537432	-	Mo-Su 17:00-21:00	ants=2/9
 https://motdang.net/cm/p/tip-top-bar-4167836990.html	Tip Top Bar	-	food	18.7785927,98.9925963	-	-	ants=0/9
 https://motdang.net/cm/p/4171179905.html	เฮือนจันทร์เป็ง	-	food	18.7426031,99.1285657	-	-	ants=1/9
+https://motdang.net/cm/p/clean-care-laundry-4176602491.html	Clean & Care Laundry	-	essentials	18.7835825,98.998466	-	Mo-Sa 09:00-18:30	ants=1/9
 https://motdang.net/cm/p/thung-ha-botanic-restaurant-4177462694.html	สวนอาหารทุ่งห้าโบทานิค	Thung Ha Botanic Restaurant	food	18.9105913,98.9198405	phone=+66951278098	-	ants=3/9
 https://motdang.net/cm/p/hohm-cafe-4180090391.html	ฮอห์ม คาเฟ่	Hohm cafe	food	18.8186312,98.9691903	phone=097-9234-587; facebook=@hohmcafe; email=Hohm.cafe@gmail.com	Mo-Su 10:00-18:00	ants=4/9
 https://motdang.net/cm/p/vegetarian-society-4182515040.html	Vegetarian Society	-	food	18.7767422,98.9765012	phone=+66813525051; facebook=@0baht	Tu-Fr 08:00-14:00	ants=2/9
@@ -3867,6 +3948,7 @@ https://motdang.net/cm/p/my-kitchen-4223831689.html	My Kitchen	-	food	18.7496799
 https://motdang.net/cm/p/hotel-the-california-4224004316.html	Hotel the California	-	hotel	18.7881932,98.9871094	-	-	ants=0/9
 https://motdang.net/cm/p/nine-coffee-4225187389.html	Nine coffee	-	food	18.7899541,98.9815961	-	-	ants=0/9
 https://motdang.net/cm/p/nantawatsa-4225569144.html	Nantawatsa	-	food	18.7743863,99.0623792	-	-	ants=0/9
+https://motdang.net/cm/p/jakawan-4225751216.html	จักรวาล	Jakawan	home-services	18.807513,98.9957688	phone=+66816715049	-	ants=3/9
 https://motdang.net/cm/p/collina-4225761969.html	Collina	-	food	18.8059743,98.9971361	-	-	ants=0/9
 https://motdang.net/cm/p/kaew-sawan-massage-4226193593.html	Kaew Sawan Massage	-	massage	18.7881125,98.9870889	-	-	ants=0/9
 https://motdang.net/cm/p/a-ma-ka-4226232291.html	A・MA・KA	-	hotel	18.7968188,98.9839717	-	-	ants=0/9
@@ -3900,6 +3982,7 @@ https://motdang.net/cm/p/elephant-poopoopaper-park-4264568393.html	Elephant Poop
 https://motdang.net/cm/p/omnia-4265502391.html	Omnia	-	food	18.8136656,98.9737922	facebook=@OmniaCafeChiangmai	Mo-Su 08:00-17:00	ants=1/9
 https://motdang.net/cm/p/cottontree-4265515989.html	Cottontree	-	food	18.8042812,98.9678609	facebook=@cottontreecnx	We-Mo 08:00-16:00	ants=1/9
 https://motdang.net/cm/p/kat-s-kitchen-4269249491.html	Kat's Kitchen	-	food	18.7851098,98.992284	-	-	ants=0/9
+https://motdang.net/cm/p/bb-massage-and-laundry-4273017089.html	BB Massage and Laundry	-	essentials	18.7767958,98.9977687	-	-	ants=0/9
 https://motdang.net/cm/p/uno-pizza-4280108475.html	Uno pizza	Uno Pizza	food	18.7948302,98.9901772	-	-	ants=1/9
 https://motdang.net/cm/p/mild-4281954591.html	Mild	-	food	18.7936871,98.9922111	-	-	ants=0/9
 https://motdang.net/cm/p/the-grace-house-chiangmai-4283589389.html	The Grace House Chiangmai	-	hotel	18.7859977,99.0030366	phone=+66839432220; email=achima.intayos@yahoo.com	-	ants=1/9
@@ -3916,6 +3999,7 @@ https://motdang.net/cm/p/4293930191.html	ร้านขายของ	-	essent
 https://motdang.net/cm/p/classic-burger-4293956289.html	Classic Burger	-	food	18.7940132,98.99328	-	-	ants=0/9
 https://motdang.net/cm/p/its-good-kitchen-4295719291.html	It's Good Kitchen	Its Good Kitchen	food	18.7884329,98.9831171	-	Mo-We,Fr-Su 11:30-21:00	ants=2/9
 https://motdang.net/cm/p/ploen-ruedee-night-bazaar-4301509695.html	Ploen Ruedee Night Bazaar	-	food	18.7867451,99.0004164	-	-	ants=0/9
+https://motdang.net/cm/p/eunkgum-umbrella-4301528189.html	Eunkgum Umbrella	-	shopping	18.7663448,99.0832522	-	-	ants=0/9
 https://motdang.net/cm/p/parami-guest-house-4303535790.html	Parami Guest House	-	hotel	18.7936309,99.0014148	-	-	ants=0/9
 https://motdang.net/cm/p/chang-guesthouse-4317839090.html	Chang Guesthouse	-	hotel	18.7839188,98.9920705	phone=+66820365171	24/7	ants=2/9
 https://motdang.net/cm/p/4317847392.html	고담	-	food	18.7545651,98.9926478	-	-	ants=0/9
@@ -3941,6 +4025,7 @@ https://motdang.net/cm/p/nattida-place-4348202493.html	Nattida Place	-	hotel	18.
 https://motdang.net/cm/p/buff-cafe-4348232705.html	Buff Cafe	-	food	18.7247673,98.9265335	phone=+66810260386	Mo-Sa 09:00-20:00; Su	ants=2/9
 https://motdang.net/cm/p/mcdonald-s-4349789389.html	McDonald's	-	food	18.7980507,98.9664869	-	-	ants=1/9
 https://motdang.net/cm/p/wiang-kum-kam-4350066707.html	เวียงกุมกาม	Wiang Kum Kam	sights	18.7502559,98.9996747	-	-	ants=2/9
+https://motdang.net/cm/p/coin-laundry-4351257789.html	Coin Laundry	-	essentials	18.8044413,98.9814845	-	24/7	ants=1/9
 https://motdang.net/cm/p/farm-story-house-room-restaurant-4352166790.html	Farm Story House Room & Restaurant	-	food	18.7886784,98.9909251	-	-	ants=0/9
 https://motdang.net/cm/p/enoteca-great-fine-wine-4352231408.html	Enoteca Great Fine Wine	Enoteca Great Fine Wine	food	18.8292416,99.0149247	phone=0932722406; email=greatfinewine@gmail.com	Mo-Su 10:30-22:30	ants=3/9
 https://motdang.net/cm/p/4352241892.html	นายอะไหล่ยนต์ นามสกุลพร้อมใส่	-	repair	18.7371639,99.1272441	-	-	ants=1/9
@@ -3949,6 +4034,8 @@ https://motdang.net/cm/p/plum-coffee-smoothies-4352509194.html	Plum Coffee & Smo
 https://motdang.net/cm/p/maewmoth-cat-cafe-4353673933.html	แมวมอธ แคทคาเฟ่	Maewmoth Cat Cafe	food	18.7898245,98.9559372	-	11:00-20:00	ants=3/9
 https://motdang.net/cm/p/4353673934.html	ครัวพริกหวาน	-	food	18.7885519,98.9564467	-	11:00-17:00	ants=2/9
 https://motdang.net/cm/p/the-coffee-work-4353683213.html	The Coffee Work	-	food	18.7898842,98.9568865	-	-	ants=0/9
+https://motdang.net/cm/p/4353683215.html	ร้านซักรีด	-	essentials	18.789739,98.9561811	-	-	ants=1/9
+https://motdang.net/cm/p/4353683216.html	ร้านซักรีด	-	essentials	18.7891165,98.9558002	-	Mo-Su 00:00-24:00;Th 00:00-24:00	ants=2/9
 https://motdang.net/cm/p/4353683217.html	ร้านข้าวยำไก่	-	food	18.7900564,98.9560148	-	-	ants=1/9
 https://motdang.net/cm/p/coffee-love-4353876797.html	Coffee Love	-	food	18.8066293,98.9795641	facebook=@279444105766066	Mo-Sa 08:00-18:00; Su 08:00-17:00	ants=1/9
 https://motdang.net/cm/p/sugoi-bbq-4355073458.html	ซูโก้ย BBQ หลัง มช.	Sugoi BBQ	food	18.7923561,98.9560325	-	-	ants=2/9
@@ -4181,6 +4268,7 @@ https://motdang.net/cm/p/eat-is-life-4476976181.html	Eat is Life	-	food	18.79571
 https://motdang.net/cm/p/zaab-nimman-4477015472.html	Zaab Nimman	-	food	18.79665,98.9657013	-	-	ants=0/9
 https://motdang.net/cm/p/suod-yord-nimman-4477015473.html	สุดยอด	Suod Yord Nimman	food	18.7966327,98.9658001	-	-	ants=2/9
 https://motdang.net/cm/p/mu-s-katsu-4477015474.html	Mu's Katsu	-	food	18.7966587,98.9656519	-	We-Mo 11:00-19:30	ants=1/9
+https://motdang.net/cm/p/mana-coworking-space-4477015475.html	Mana Coworking Space	-	business	18.7966803,98.9655479	-	Mo-Fr 09:30-22:00;Su 09:30-19:00	ants=1/9
 https://motdang.net/cm/p/anchan-4477017880.html	Anchan	-	food	18.796691,98.9654974	-	Th-Mo 11:30-20:00	ants=1/9
 https://motdang.net/cm/p/mhongdoi-4478488811.html	Mhongdoi	-	food	18.8827489,99.0137667	-	-	ants=0/9
 https://motdang.net/cm/p/rom-mai-chaikha-4480872026.html	ร่มไม้-ชายคา	Rom Mai - Chaikha	food	18.8941575,98.9528993	-	-	ants=2/9
@@ -4226,6 +4314,7 @@ https://motdang.net/cm/p/youyou-home-4506357822.html	Youyou Home	-	hotel	18.7833
 https://motdang.net/cm/p/mapping-hostel-4506493991.html	Mapping Hostel	Mapping Hostel	hotel	18.7815992,99.006096	-	-	ants=1/9
 https://motdang.net/cm/p/home-stay-4506524195.html	Home stay	Home stay	hotel	18.8004018,98.9642421	-	-	ants=1/9
 https://motdang.net/cm/p/good-vibes-cafe-4506585926.html	Good Vibes Cafe	-	food	18.7403093,98.9744704	-	-	ants=0/9
+https://motdang.net/cm/p/t-k-laundry-4507430390.html	T.K laundry	T.K laundry	essentials	18.7925869,98.9943712	-	-	ants=1/9
 https://motdang.net/cm/p/tam-lam-4507731854.html	ตำลำ ยำแซ่บ	Tam Lam	food	18.7953027,99.0083355	-	-	ants=2/9
 https://motdang.net/cm/p/phetphet-yummy-4507872689.html	Phetphet Yummy	Phetphet Yummy	food	18.7936872,98.9899356	-	-	ants=1/9
 https://motdang.net/cm/p/mimi-mu-katha-buffet-4509183107.html	บุฟเฟ่ต์หมูกระทะมีมี่	Mimi Mu Katha Buffet	food	18.7875826,99.0180534	-	-	ants=2/9
@@ -4409,6 +4498,7 @@ https://motdang.net/cm/p/yot-saep-sakha-2-4587843664.html	ยอดแซบ ส
 https://motdang.net/cm/p/7-eleven-4587843668.html	7-Eleven	-	essentials	18.8368103,99.0127364	-	24/7	ants=1/9
 https://motdang.net/cm/p/suan-tai-4591410809.html	ร้านสวนใต้	Suan Tai	food	18.8781609,99.09803	-	-	ants=2/9
 https://motdang.net/cm/p/huean-him-ping-4591440680.html	เฮือนฮิมปิง	Huean Him Ping	food	18.8959336,99.0565658	-	-	ants=2/9
+https://motdang.net/cm/p/ban-kaset-phatthana-community-hall-4591440681.html	ศาลารวมใจ บ้านเกษตรพัฒนา ม.15	Ban Kaset Phatthana Community Hall	community	18.896564,99.0572844	-	-	ants=2/9
 https://motdang.net/cm/p/chiang-mai-brazilian-jiu-jitsu-4591765591.html	Chiang Mai Brazilian Jiu Jitsu	Chiang Mai Brazilian Jiu Jitsu	learn	18.7958781,98.993215	email=info@chiangmaibjj.com	Mo-Fr 17:30-20:00; Sa 10:30-13:00	ants=2/9
 https://motdang.net/cm/p/wat-nong-ubosot-4592598579.html	วัดหนองอุโบสถ	Wat Nong Ubosot	wat	18.8950213,99.0320389	-	-	ants=2/9
 https://motdang.net/cm/p/ban-luang-tri-kuaitiao-khaosoi-4592605527.html	บ้านหลวงตรี ก๋วยเตี๋ยว-ข้าวซอย	Ban Luang Tri Kuaitiao - Khaosoi	food	18.9016035,99.0357682	-	-	ants=2/9
@@ -4454,9 +4544,12 @@ https://motdang.net/cm/p/chapter-1-4596394517.html	Chapter 1	-	food	18.799227,98
 https://motdang.net/cm/p/dodee-hair-4596394519.html	DoDee Hair	-	beauty	18.7992214,98.9617864	-	-	ants=0/9
 https://motdang.net/cm/p/7-heaven-4596394522.html	7 Heaven	-	food	18.7992321,98.9624309	-	-	ants=0/9
 https://motdang.net/cm/p/at-pingnakorn-4596413941.html	At Pingnakorn	-	hotel	18.7961434,98.9631542	-	-	ants=0/9
+https://motdang.net/cm/p/bibie-4596413943.html	Bibie	-	business	18.7967948,98.9659684	-	-	ants=0/9
 https://motdang.net/cm/p/frenchie-cafe-4596413944.html	Frenchie Cafe	-	food	18.795028,98.9636922	-	-	ants=0/9
+https://motdang.net/cm/p/guru-box-4596413945.html	Guru Box	-	business	18.7957496,98.9653831	-	-	ants=0/9
 https://motdang.net/cm/p/october-4596413946.html	October	-	food	18.7950562,98.9635741	-	-	ants=0/9
 https://motdang.net/cm/p/shaker-house-4596413947.html	Shaker House	-	food	18.7968375,98.9659345	-	-	ants=0/9
+https://motdang.net/cm/p/chiang-mai-smoke-house-4597611594.html	Chiang Mai Smoke House	-	food	18.7300608,99.0154222	phone=+66861864713; facebook=@chiangmaismokehouse; email=chiangmaismokehouse@hotmail.com	Mo-Su 09:00-17:00	ants=2/9
 https://motdang.net/cm/p/si-phum-thailand-post-office-4597779096.html	Si Phum Thailand Post Office	Si Phum Thailand Post Office	essentials	18.7907793,98.9877475	phone=053221087	Mo-Fr 08:30-16:30; Sa 09:00-12:00	ants=3/9
 https://motdang.net/cm/p/f-k-massage-guesthouse-4597822590.html	F.K. Massage & Guesthouse	F.K. Massage & Guesthouse	hotel	18.7917666,98.992941	-	-	ants=1/9
 https://motdang.net/cm/p/massage-4598764189.html	Massage	Massage	medical	18.8877465,99.0310293	-	-	ants=1/9
@@ -4670,6 +4763,7 @@ https://motdang.net/cm/p/vegan-restaurant-4792051421.html	Vegan Restaurant	Vegan
 https://motdang.net/cm/p/midnight-fried-chicken-4792155522.html	ไก่ทอด​เที่ยงคืน	Midnight fried chicken	food	18.780054,98.998114	-	Mo-Su 22:00-05:00	ants=3/9
 https://motdang.net/cm/p/penny-s-4792661522.html	Penny's	Penny's	food	18.7919014,98.9513968	-	-	ants=1/9
 https://motdang.net/cm/p/rdn-massage-4792931922.html	RDN Massage	-	massage	18.7882629,98.9855116	-	-	ants=0/9
+https://motdang.net/cm/p/siam-collection-4793828021.html	Siam Collection	Siam Collection	shopping	18.7821342,98.9898844	-	-	ants=1/9
 https://motdang.net/cm/p/zoe-hostel-4794486725.html	Zoe Hostel	-	hotel	18.797401,98.9840008	phone=+66 966 808 676; email=jessicabiyy@gmail.com	24/7	ants=3/9
 https://motdang.net/cm/p/food-station-hashery-4796330821.html	Food Station Hashery	Food Station Hashery	food	18.8013434,98.9759105	-	-	ants=1/9
 https://motdang.net/cm/p/fresher-juice-bar-4796690555.html	Fresher Juice Bar	-	food	18.7834859,99.0056712	-	-	ants=0/9
@@ -4763,6 +4857,7 @@ https://motdang.net/cm/p/mae-salong-massage-4870810722.html	Mae Salong Massage	-
 https://motdang.net/cm/p/dreadlock-chiangmai-4870810723.html	Dreadlock Chiangmai	-	beauty	18.7804503,98.9997642	-	-	ants=0/9
 https://motdang.net/cm/p/bliss-massage-4870810724.html	Bliss Massage	-	massage	18.7804257,98.9997426	-	-	ants=0/9
 https://motdang.net/cm/p/sa-ard-fishball-noodle-shop-4871282121.html	ร้านสอาด	Sa-Ard Fishball Noodle Shop	food	18.7897429,98.9865665	phone=053327261	Mo-Su 08:00-18:00	ants=4/9
+https://motdang.net/cm/p/mr-armani-4871811821.html	Mr. Armani	-	shopping	18.7810344,99.0001264	-	-	ants=0/9
 https://motdang.net/cm/p/tawan-bed-club-4872451730.html	Tawan Bed Club	-	hotel	18.7809859,99.0002939	facebook=@tawanbedclub	-	ants=0/9
 https://motdang.net/cm/p/chiang-mai-thai-massage-4872461721.html	Chiang Mai Thai Massage	-	massage	18.7809694,99.0009494	-	10:00-22:00	ants=1/9
 https://motdang.net/cm/p/p-da-massage-4873094823.html	P'da Massage	-	massage	18.7831557,99.0000123	-	-	ants=0/9
@@ -4775,6 +4870,7 @@ https://motdang.net/cm/p/moxxie-mixxba-4875217623.html	Moxxie Mixxba	-	food	18.7
 https://motdang.net/cm/p/the-plaza-food-court-4875217626.html	The Plaza Food Court	-	food	18.7861071,99.0004146	-	11:00-22:00	ants=1/9
 https://motdang.net/cm/p/devarana-spa-4875218021.html	Devarana Spa	-	beauty	18.7860093,98.9999116	-	-	ants=0/9
 https://motdang.net/cm/p/pink-pvssy-4875218029.html	Pink Pvssy	-	shopping	18.7867636,99.0007101	-	-	ants=0/9
+https://motdang.net/cm/p/you-me-tailor-4875218526.html	You & Me Tailor	-	shopping	18.7866183,99.0006989	-	-	ants=0/9
 https://motdang.net/cm/p/kad-luang-robinson-food-variety-4876243121.html	Kad-Luang Robinson (food variety)	Kad-Luang Robinson (food variety)	food	18.7689462,98.974308	-	Mo-Fr 11:00-21:00; Sa,Su 10:00-21:00	ants=2/9
 https://motdang.net/cm/p/chiang-daeng-massage-4876346523.html	Chiang Daeng Massage	-	massage	18.781049,99.0009992	-	-	ants=0/9
 https://motdang.net/cm/p/aree-thai-massage-4876346640.html	Aree Thai Massage	-	massage	18.781334,99.0027812	-	-	ants=0/9
@@ -4794,6 +4890,7 @@ https://motdang.net/cm/p/coffee-bee-4880216345.html	Coffee Bee	-	food	18.7695779
 https://motdang.net/cm/p/sax-music-pub-4883729421.html	Sax Music Pub	-	food	18.7866678,98.9929685	-	-	ants=0/9
 https://motdang.net/cm/p/maxim-bar-4883729422.html	Maxim Bar	-	food	18.7846795,99.000981	-	Mo-Su 17:00-12:00	ants=2/9
 https://motdang.net/cm/p/4884849621.html	ธงชัย โภชนา	ธงชัย โภชนา ก๋วยเตี๋ยวเป็ด ข้าวหมูกรอบฯ	food	18.7811885,98.9981189	-	-	ants=2/9
+https://motdang.net/cm/p/24hr-self-service-laundry-4886910421.html	CleanPro	24hr Self Service Laundry	essentials	18.7816444,98.9826305	-	24/7	ants=3/9
 https://motdang.net/cm/p/reissuppe-nudelsuppe-4887691123.html	Reissuppe & Nudelsuppe	-	food	18.793423,98.9924146	-	-	ants=1/9
 https://motdang.net/cm/p/coffee-or-me-4889011525.html	Coffee or Me	Coffee or Me	food	18.8202689,98.951235	phone=+6653218351; email=coffeeorme@gmail.com	Mo-Su 09:30-17:00	ants=3/9
 https://motdang.net/cm/p/jom-kitti-hotel-4889677221.html	Jom Kitti Hotel	Jom Kitti Hotel	hotel	18.7858135,98.9857403	-	-	ants=1/9
@@ -4874,6 +4971,7 @@ https://motdang.net/cm/p/app-cafe-5119393759.html	App Cafe	App Cafe	food	18.7304
 https://motdang.net/cm/p/esan-cafe-5125921722.html	esan-cafe	esan-cafe	food	18.7969136,98.9663511	-	-	ants=1/9
 https://motdang.net/cm/p/new-york-new-york-5126132325.html	New York, New York	New York, New York	beauty	18.7965396,98.9681016	phone=053215199; web=newyorknewyorkstudio.com	-	ants=3/9
 https://motdang.net/cm/p/nice-nails-since-2002-5126142321.html	Nice Nails since 2002	Nice Nails since 2002	beauty	18.8049238,98.9622121	phone=053225688; facebook=@Nicenails2002	Mo-Su 10:00-20:00	ants=3/9
+https://motdang.net/cm/p/sala-chumchon-ton-kam-samaggi-5127484221.html	ศาลาชุมชนต้นขามสามัคคี	Sala Chumchon Ton Kam Samaggi	community	18.7753177,99.0206166	-	-	ants=2/9
 https://motdang.net/cm/p/khao-soi-restaurant-5129804130.html	Khao soi Restaurant	Khao soi Restaurant	food	18.7924407,98.9954149	-	-	ants=1/9
 https://motdang.net/cm/p/fruit-smoothie-cafe-5129804131.html	Fruit Smoothie Cafe	Fruit Smoothie Cafe	food	18.792549,98.995483	-	-	ants=1/9
 https://motdang.net/cm/p/franco-thai-513199451.html	Franco Thai	-	food	18.7974076,98.9823128	-	-	ants=0/9
@@ -4924,6 +5022,7 @@ https://motdang.net/cm/p/fieow-coffee-room-5201216548.html	Fieow Coffee Room	-	f
 https://motdang.net/cm/p/taste-cafe-5202076922.html	Taste Cafe	Taste Cafe	food	18.7951655,98.9630869	facebook=@Taste.Cafe.chiangmai	Mo-Su 08:00-18:00	ants=2/9
 https://motdang.net/cm/p/painter-artist-cafe-5203405621.html	Painter Artist Cafe	Painter Artist Cafe	food	18.814604,99.1372562	-	-	ants=1/9
 https://motdang.net/cm/p/5203422218.html	ร้านก๋วยเตี๋ยวไส้หวาน	-	food	18.7805669,99.0514869	-	-	ants=1/9
+https://motdang.net/cm/p/5203436917.html	เปิงใจ๋	-	shopping	18.7854058,99.0474987	-	-	ants=1/9
 https://motdang.net/cm/p/5203443973.html	หมูกระทะโกดัง	-	food	18.7808352,99.0513981	-	-	ants=1/9
 https://motdang.net/cm/p/thc-roof-top-bar-5203532421.html	THC Roof top bar	THC Roof top bar	food	18.7844646,98.9928861	-	-	ants=1/9
 https://motdang.net/cm/p/bistro-terrace-5203532422.html	Bistro Terrace	-	food	18.7868302,98.9821684	-	-	ants=0/9
@@ -5026,6 +5125,8 @@ https://motdang.net/cm/p/go-kan-yang-5313364647.html	ก.การย่าง	G
 https://motdang.net/cm/p/108-cafe-5313364651.html	108 Cafe	-	food	18.7360799,98.9366116	-	-	ants=0/9
 https://motdang.net/cm/p/follow-me-5313364652.html	Follow Me	-	food	18.7360136,98.9363361	-	-	ants=0/9
 https://motdang.net/cm/p/7-eleven-5313772740.html	7-Eleven	-	essentials	18.7251187,98.9477759	-	-	ants=0/9
+https://motdang.net/cm/p/selfservice-laundry-5316110822.html	Selfservice Laundry	-	essentials	18.7842219,98.9947594	-	-	ants=0/9
+https://motdang.net/cm/p/nong-s-laundry-5316212233.html	Nong's Laundry	-	essentials	18.9096626,99.1313204	-	-	ants=0/9
 https://motdang.net/cm/p/uncle-kai-5317413624.html	Uncle Kai	Uncle Kai	food	18.7943545,98.9484188	-	-	ants=1/9
 https://motdang.net/cm/p/5318090622.html	โจ๊กสามย่าน	-	food	18.7895194,98.9665653	-	-	ants=1/9
 https://motdang.net/cm/p/dang-5318153821.html	Dang	Dang	beauty	18.777794,98.9896776	-	-	ants=1/9
@@ -5184,6 +5285,7 @@ https://motdang.net/cm/p/find-wood-chiangmai-5570941321.html	Find Wood Chiangmai
 https://motdang.net/cm/p/the-islander-hostel-5578051621.html	The Islander Hostel	The Islander Hostel	hotel	18.7787548,98.987714	email=Alex.hostelchiangmai@gmail.com	Mo-Su 09:00-22:00	ants=2/9
 https://motdang.net/cm/p/5580093621.html	พฤกษา	-	medical	18.7620659,99.0655536	-	-	ants=1/9
 https://motdang.net/cm/p/bangkok-airways-lounge-5582542234.html	Bangkok Airways Lounge	-	food	18.770409,98.9682065	-	-	ants=0/9
+https://motdang.net/cm/p/wash-dry-iron-5582581121.html	Wash Dry Iron	-	essentials	18.79282,98.9916072	-	-	ants=0/9
 https://motdang.net/cm/p/field-good-5583840795.html	Field Good	-	food	18.7486351,98.8866423	-	-	ants=0/9
 https://motdang.net/cm/p/the-horse-barn-5583840796.html	The Horse Barn	-	food	18.7465235,98.8864629	-	-	ants=0/9
 https://motdang.net/cm/p/hp-house-cafe-5585615822.html	HP House Cafe	-	food	18.7856502,98.9848285	phone=0869112882	-	ants=1/9
@@ -5192,6 +5294,7 @@ https://motdang.net/cm/p/ban-phimuk-playground-5591422992.html	Ban Phimuk Playgr
 https://motdang.net/cm/p/the-barn-steak-house-5591462136.html	The Barn Steak House	-	food	18.832574,98.9984512	-	-	ants=0/9
 https://motdang.net/cm/p/faculty-of-political-science-and-public-administration-5591475899.html	คณะรัฐศาสตร์และรัฐประศาสนศาสตร์	Faculty of Political Science and Public Administration	learn	18.8031483,98.9547675	-	-	ants=2/9
 https://motdang.net/cm/p/singha-kao-statue-5591475900.html	รูปปั้นสิงห์ขาว	Singha Kao Statue	sights	18.802968,98.9546146	-	-	ants=2/9
+https://motdang.net/cm/p/american-corner-chiang-mai-5591495429.html	American Corner Chiang Mai	-	community	18.8034223,98.9546258	-	Mo-Fr 09:00-16:30	ants=1/9
 https://motdang.net/cm/p/university-office-canteen-5591495441.html	University Office Canteen	-	food	18.8040133,98.9553498	-	Mo-Fr 10:00-14:00	ants=1/9
 https://motdang.net/cm/p/tenten-5593553723.html	Tenten	-	food	18.7816382,98.9824223	facebook=@tentencnx	Mo-Su 08:00-17:00	ants=1/9
 https://motdang.net/cm/p/house-of-spirit-5593688307.html	House of Spirit	House of Spirit	wat	18.8058643,98.9533041	-	-	ants=1/9
@@ -5270,6 +5373,7 @@ https://motdang.net/cm/p/wannamas-5859368529.html	Wannamas	-	hotel	18.787568,98.
 https://motdang.net/cm/p/chaing-mai-japanese-language-school-5859371681.html	โรงเรียนภาษาญี่ปุ่นเชียงใหม่	Chaing Mai Japanese Language School	learn	18.7876734,98.9828373	phone=+6653814527	-	ants=3/9
 https://motdang.net/cm/p/caf-yu-thoen-5859408604.html	กาแฟ ยูเทิร์น	Café Yu Thoen	food	18.7873991,98.9851695	-	-	ants=2/9
 https://motdang.net/cm/p/ickady-5859441361.html	Ickady	-	food	18.7856521,98.9863725	-	-	ants=0/9
+https://motdang.net/cm/p/coin-operated-laundry-5865421938.html	Coin operated laundry	-	essentials	18.7772311,98.9979503	-	-	ants=0/9
 https://motdang.net/cm/p/wong-sa-korn-acres-5880381785.html	Wong Sa Korn Acres	-	food	18.7917778,99.003838	-	-	ants=0/9
 https://motdang.net/cm/p/namtan-s-coffee-shop-5889677332.html	Namtan's Coffee Shop	Namtan's Coffee Shop	food	18.6851981,98.9877659	-	-	ants=1/9
 https://motdang.net/cm/p/viya-lanna-5889756785.html	Viya Lanna	Viya Lanna	hotel	18.7902067,98.9909373	phone=+66949874796; email=rsvn@viyalanna.com	-	ants=2/9
@@ -5301,6 +5405,7 @@ https://motdang.net/cm/p/johoney-5950919672.html	Johoney	-	food	18.7891426,99.01
 https://motdang.net/cm/p/nimman-social-5951253185.html	Nimman social	-	food	18.7990974,98.9679974	-	-	ants=0/9
 https://motdang.net/cm/p/paapu-house-5951420885.html	Paapu House	Paapu House	hotel	18.7929862,98.9939044	-	-	ants=1/9
 https://motdang.net/cm/p/kiatnakin-bank-5956238685.html	Kiatnakin Bank	Kiatnakin Bank	essentials	18.8123598,98.9846933	-	-	ants=1/9
+https://motdang.net/cm/p/roastwood-5956250105.html	Roastwood	-	community	18.7708031,98.9493551	facebook=@Roastwoodcnx	Th-Tu 09:30-17:30	ants=1/9
 https://motdang.net/cm/p/somtum-udon-5956465940.html	ส้มตำอุดรฯ	Somtum Udon	food	18.7221396,98.9543523	-	Mo-Su 09:30-19:00	ants=3/9
 https://motdang.net/cm/p/donchai-house-5956477606.html	Donchai House	-	hotel	18.7364422,98.9795858	-	-	ants=0/9
 https://motdang.net/cm/p/saithong-guest-house-5963300685.html	Saithong Guest House	Saithong Guest House	hotel	18.7888252,98.9916226	-	-	ants=1/9
@@ -5364,6 +5469,7 @@ https://motdang.net/cm/p/baan-wattana-6067653585.html	Baan Wattana	Baan Wattana	
 https://motdang.net/cm/p/jazz-cafe-6068413685.html	Jazz Cafe	Jazz Cafe	food	18.7647769,99.0004757	-	-	ants=1/9
 https://motdang.net/cm/p/leafy-greens-chiangmai-6073166485.html	ลีฟฟี่กรีนส์	Leafy Greens Chiangmai	food	18.8350411,98.9748013	phone=0922528558; email=leafygreenschiangmai@gmail.com	-	ants=3/9
 https://motdang.net/cm/p/what-s-up-chiang-mai-6076101285.html	What's up Chiang Mai	What's up Chiang Mai	hotel	18.7931275,98.9965341	-	-	ants=1/9
+https://motdang.net/cm/p/co-working-space-with-garden-6077929085.html	Punspace Wiang Kaew	Co-working space with garden	business	18.793513,98.9866868	phone=+66610277885; web=punspace.com	Mo-Su 09:00-18:00	ants=4/9
 https://motdang.net/cm/p/sclass-the-poshtel-6080218785.html	Sclass the p	Sclass the poshtel	hotel	18.781013,99.002668	-	-	ants=1/9
 https://motdang.net/cm/p/pickles-restaurant-6083211685.html	pickles restaurant	pickles restaurant	food	18.7905526,98.9922507	-	Tu-Su 12:00-23:00	ants=2/9
 https://motdang.net/cm/p/punjum-textile-and-furniture-6086987086.html	Punjum Textile and Furniture	Punjum Textile and Furniture	shopping	18.7901265,98.9948982	-	-	ants=1/9
@@ -5383,6 +5489,7 @@ https://motdang.net/cm/p/bbq-pork-buffet-6108998986.html	BBQ Pork Buffet	BBQ Por
 https://motdang.net/cm/p/annista-cafe-6109002385.html	แอนนิต้า คาเฟ่	Annista Cafe	food	18.803347,98.9597874	-	Mo-Su 08:00-24:00	ants=3/9
 https://motdang.net/cm/p/cha-cha-sports-bar-6109142485.html	Cha Cha Sports Bar	Cha Cha Sports Bar	food	18.7629916,98.9792782	-	-	ants=1/9
 https://motdang.net/cm/p/hong-thong-muay-thai-6110434687.html	Hong Thong Muay Thai	Hong Thong Muay Thai	learn	18.7771209,99.0338526	phone=+66844280595	-	ants=2/9
+https://motdang.net/cm/p/otteri-laundry-6110434688.html	Otteri laundry	-	essentials	18.7909341,98.9937952	-	-	ants=0/9
 https://motdang.net/cm/p/mam-s-cake-coffee-breakfast-6110461185.html	Mam’s Cake Coffee Breakfast	Mam’s Cake Coffee Breakfast	food	18.785516,98.995273	-	Mo-Su 07:00-19:00	ants=2/9
 https://motdang.net/cm/p/krua-dabb-lob-6111006186.html	Krua dabb lob	Krua dabb lob	food	18.7882649,98.9855985	-	-	ants=1/9
 https://motdang.net/cm/p/thai-craft-beer-coffee-6114608786.html	Thai Craft beer & coffee	Thai Craft beer & coffee	food	18.7987941,98.9677048	-	-	ants=1/9
@@ -5568,10 +5675,12 @@ https://motdang.net/cm/p/siri-massage-6344448381.html	Siri Massage	-	massage	18.
 https://motdang.net/cm/p/6348620185.html	บุญบัวคลีนิค นวดจัดกระดูก	-	medical	18.8014421,98.9766857	-	-	ants=1/9
 https://motdang.net/cm/p/room-to-let-6349199700.html	Room to let	Room to let	hotel	18.7892341,98.991548	-	-	ants=1/9
 https://motdang.net/cm/p/blue-garden-yoga-6349335085.html	Blue Garden Yoga	Blue Garden Yoga	learn	18.7855986,98.9917173	phone=0635249651; web=thaimassagechiangmai.com	-	ants=3/9
+https://motdang.net/cm/p/otteri-wash-and-dry-6351319485.html	Otteri wash and dry	-	essentials	18.7909834,98.9937989	-	24/7	ants=1/9
 https://motdang.net/cm/p/antique-market-6351675891.html	Antique Market	Antique Market	shopping	18.8093641,98.9958035	-	-	ants=1/9
 https://motdang.net/cm/p/anrique-6351675985.html	Anrique	Anrique	shopping	18.7881183,98.9963791	-	-	ants=1/9
 https://motdang.net/cm/p/big-c-6351675986.html	Mini Big C	Big c	essentials	18.7982628,98.9976602	-	-	ants=1/9
 https://motdang.net/cm/p/tha-phae-clinic-6351676085.html	ท่าแพ คลีนิค	Tha Phae Clinic	medical	18.7881391,98.9967053	-	-	ants=2/9
+https://motdang.net/cm/p/best-wash-self-service-laundry-6352068895.html	Best wash (self service laundry)	-	essentials	18.7797066,98.9856728	-	Mo-Su 00:00-00:00	ants=1/9
 https://motdang.net/cm/p/7-eleven-6352068902.html	7-Eleven	7 eleven	essentials	18.767838,98.976746	-	-	ants=1/9
 https://motdang.net/cm/p/papermoney-6352068903.html	Papermoney	Papermoney	shopping	18.7697922,98.9751281	-	Mo-Fr 11:00-21:00; Sa,Su 10:00-21:00	ants=2/9
 https://motdang.net/cm/p/government-savings-6352068904.html	Government Savings	Government Savings	essentials	18.776622,98.9808455	-	-	ants=1/9
@@ -5624,14 +5733,19 @@ https://motdang.net/cm/p/mickey-cafe-6463555785.html	Mickey Cafe	Mickey Cafe	foo
 https://motdang.net/cm/p/the-nine-fitness-6465929626.html	The Nine Fitness	-	learn	18.7351413,98.9543293	-	-	ants=0/9
 https://motdang.net/cm/p/fast-food-shop-6466062486.html	ร้านอาหารตามสั่ง	Fast food shop	food	18.9219333,99.1444219	-	-	ants=2/9
 https://motdang.net/cm/p/padthai-seefood-6466099585.html	padthai & seefood	-	food	18.7881725,98.9874108	-	-	ants=0/9
+https://motdang.net/cm/p/ban-sri-boon-ruang-village-center-6467547786.html	ศูนย์ชุมชนบ้านศรีบุญเรือง	Ban Sri Boon Ruang village center	community	18.9074076,99.0434166	-	-	ants=2/9
 https://motdang.net/cm/p/darlin-s-massage-3-6469317785.html	Darlin’s Massage 3	-	massage	18.7906147,98.9927868	-	Mo-Su 10:00-00:00	ants=1/9
 https://motdang.net/cm/p/som-petch-6469365686.html	Som Petch	-	food	18.7914731,98.9933267	-	-	ants=0/9
 https://motdang.net/cm/p/small-fast-food-by-order-6471356387.html	ร้านอาหารตามสั่ง	Small fast food by order	food	18.9182687,99.0115358	-	-	ants=2/9
+https://motdang.net/cm/p/basketball-cort-6471356388.html	สนามบาสเก็ตบอล	Basketball cort	community	18.9346488,98.997458	-	-	ants=2/9
 https://motdang.net/cm/p/purple-monkey-backpackers-6471700285.html	Purple Monkey Backpackers	Purple Monkey Backpackers	hotel	18.7911325,98.9938071	-	-	ants=1/9
+https://motdang.net/cm/p/bam-hua-fai-village-center-6474174285.html	ศูนย์ชุมชนบ้านหัวฝาย	Bam Hua Fai village center	community	18.9852343,98.9073969	-	-	ants=2/9
 https://motdang.net/cm/p/punnee-s-lisu-kitchen-6474200194.html	Punnee's Lisu Kitchen	-	food	18.7302311,99.0154464	phone=+66 86 186 4713; facebook=Facebook	Mo-Su 11:00-19:00	ants=2/9
+https://motdang.net/cm/p/ban-huai-som-suk-village-center-6477324590.html	ศูนย์ชุมชนบ้านห้วยส้มสุก	Ban Huai Som Suk village center	community	19.0118824,98.8361354	-	-	ants=2/9
 https://motdang.net/cm/p/warm-light-6480584585.html	Warm light	-	hotel	18.7976477,98.9838731	-	-	ants=0/9
 https://motdang.net/cm/p/daddy-s-antique-6481719572.html	Daddy's Antique	-	food	18.745399,98.9552876	-	-	ants=0/9
 https://motdang.net/cm/p/rock-me-burgers-bar-6482127085.html	Rock Me Burgers & Bar	-	food	18.7849396,98.9944637	-	-	ants=0/9
+https://motdang.net/cm/p/laundry-express-3-hr-chiang-mai-6482441287.html	Laundry Express 3 Hr Chiang Mai	-	essentials	18.7841225,98.9905322	-	-	ants=0/9
 https://motdang.net/cm/p/baba-pim-villa-6483208887.html	Baba Pim Villa	-	hotel	18.7827543,98.9847229	-	-	ants=0/9
 https://motdang.net/cm/p/joy-s-hair-salon-6486154088.html	Joy's Hair Salon	-	beauty	18.7926855,98.9924237	-	-	ants=0/9
 https://motdang.net/cm/p/home-station-by-kokodrip-6489522887.html	Home station by kokodrip	Home station by kokodrip	food	18.782389,98.9840697	-	-	ants=1/9
@@ -5641,6 +5755,7 @@ https://motdang.net/cm/p/darin-s-3-6490366685.html	Darin’s 3	-	massage	18.7920
 https://motdang.net/cm/p/darin-s-6490409386.html	Darin’s	-	massage	18.7921303,98.9920367	-	Mo-Su 10:00-22:00	ants=1/9
 https://motdang.net/cm/p/laab-ton-koi-6502036186.html	Laab Ton Koi	Laab Ton Koi	food	18.8329577,99.0571172	phone=+66 81 765 2424	Mo-Su 11:00-14:00	ants=3/9
 https://motdang.net/cm/p/charoen-suan-aek-6502039586.html	Charoen Suan Aek	Charoen Suan Aek	food	18.8257308,99.0042344	phone=+66 53 852 778	Th-Tu 10:30-22:30	ants=3/9
+https://motdang.net/cm/p/otteri-6514349387.html	Otteri	Otteri	essentials	18.7841328,98.9928138	-	24/7	ants=2/9
 https://motdang.net/cm/p/6519106989.html	๋วยเตี๋ยวเรือต้อม	-	food	18.7822747,98.9579733	-	-	ants=1/9
 https://motdang.net/cm/p/6519106990.html	บ้านแก้วเฮือนคำ	-	food	18.7819154,98.9578298	-	-	ants=1/9
 https://motdang.net/cm/p/6519106996.html	ร้านละมุน	-	food	18.7887105,98.9549347	-	-	ants=1/9
@@ -5682,6 +5797,7 @@ https://motdang.net/cm/p/6563589228.html	ข้าวมันไก่โกโ
 https://motdang.net/cm/p/the-ironwood-6564283786.html	The Ironwood	The Ironwood	food	18.9122861,98.9106531	-	-	ants=1/9
 https://motdang.net/cm/p/camp-meating-6564284985.html	Camp Meating	Camp Meating	food	18.8731083,98.9496687	-	-	ants=1/9
 https://motdang.net/cm/p/cafe-in-nature-6565479287.html	cafe in nature	cafe in nature	food	18.7746716,98.9465867	-	-	ants=1/9
+https://motdang.net/cm/p/coin-laundry-6567944597.html	เครื่องซักผ้าหยอดเหรียญ	Coin Laundry	essentials	18.7847838,98.9813394	-	Mo-Su 07:00-22:00	ants=3/9
 https://motdang.net/cm/p/tattoo-6579572171.html	Tattoo	-	sights/tattoo	18.7928484,98.9913553	-	-	ants=0/9
 https://motdang.net/cm/p/baan-siwali-6579572174.html	Baan Siwali	-	hotel	18.7927014,98.9911251	-	-	ants=0/9
 https://motdang.net/cm/p/paradee-6579572177.html	Paradee	-	massage	18.7928452,98.9912419	-	Mo-Su 09:30-22:00	ants=1/9
@@ -5776,6 +5892,8 @@ https://motdang.net/cm/p/auf-der-au-garden-new-location-6780184285.html	Auf der 
 https://motdang.net/cm/p/nonnii-fundii-guesthouse-6787301685.html	Nonnii Fundii Guesthouse	Nonnii Fundii Guesthouse	hotel	18.7816191,98.9825489	phone=+66 88 418 0324; facebook=@Nonnii-Fundii-Guesthouse-1…	-	ants=2/9
 https://motdang.net/cm/p/ss1254372-cafe-6788691585.html	SS1254372 Cafe	-	food	18.7949397,98.9683241	-	Mo off; Tu-Su 08:00-16:00	ants=1/9
 https://motdang.net/cm/p/kimsart-coffee-6790021215.html	Kimsart Coffee	Kimsart Coffee	food	18.6818467,99.0038565	-	-	ants=1/9
+https://motdang.net/cm/p/laundry-6796226396.html	Laundry	-	essentials	18.785072,98.9905173	-	-	ants=0/9
+https://motdang.net/cm/p/laundry-mrs-clean-6796226486.html	Laundry Mrs. Clean	-	essentials	18.7838852,98.9905431	-	-	ants=0/9
 https://motdang.net/cm/p/lila-thai-massage-6796226586.html	Lila thai massage	-	massage	18.7897795,98.9878144	-	-	ants=0/9
 https://motdang.net/cm/p/6810554445.html	สี่แยกมอเตอร์	-	repair	18.7679046,98.9768524	-	-	ants=1/9
 https://motdang.net/cm/p/rotniyom-6810762217.html	รสนิยม	Rotniyom	food	18.7642917,98.9366876	-	-	ants=2/9
@@ -5839,6 +5957,7 @@ https://motdang.net/cm/p/pineapple-express-6964120285.html	Pineapple Express	Pin
 https://motdang.net/cm/p/k-maison-lanna-6964197685.html	K	K Maison Lanna	hotel	18.7942443,99.0027604	phone=052088818; web=kmaisonboutique.com	-	ants=3/9
 https://motdang.net/cm/p/mapping-hostel-6964288706.html	Mapping Hostel	-	hotel	18.7803888,99.0066511	-	-	ants=0/9
 https://motdang.net/cm/p/meddee-coffee-6965310885.html	Meddee Coffee	Meddee Coffee	food	18.7811548,98.994003	-	-	ants=1/9
+https://motdang.net/cm/p/universal-tailor-6965982987.html	Universal Tailor	-	shopping	18.7756061,98.9997965	-	Mo-Su 09:00-19:00	ants=1/9
 https://motdang.net/cm/p/valley-6970746300.html	Valley	-	food	18.7284895,98.9445407	-	-	ants=0/9
 https://motdang.net/cm/p/a-va-massage-6972174853.html	A-va massage	-	massage	18.7847297,98.9807193	-	Mo-Sa 09:30-21:00	ants=1/9
 https://motdang.net/cm/p/cha-tra-mue-6972562985.html	ชาตรามือ สาขาตลาดวโรรส	Cha Tra Mue	food	18.7909216,99.0004182	phone=+66 2 673 2360; web=cha-thai.com	Mo-Su 07:30-17:00	ants=5/9
@@ -5868,6 +5987,8 @@ https://motdang.net/cm/p/voo-doo-6992430586.html	Voo Doo	Voo Doo	shopping	18.801
 https://motdang.net/cm/p/why-not-hostel-6996392991.html	Why Not Hostel	Why Not Hostel	hotel	18.8046503,98.972463	-	-	ants=1/9
 https://motdang.net/cm/p/why-not-house-of-music-6996425985.html	Why Not House of Music	Why Not House of Music	food	18.8046202,98.9724574	-	-	ants=1/9
 https://motdang.net/cm/p/moto-bistro-7001465809.html	Moto Bistro	-	food	18.6963294,98.9257742	-	-	ants=0/9
+https://motdang.net/cm/p/laundry-and-coffee-7001610990.html	M&N Coffee & Laundry	Laundry and coffee	essentials	18.78249,98.9848214	-	Fr-Tu 09:30-22:00	ants=2/9
+https://motdang.net/cm/p/laundry-7003552085.html	Wash up	Laundry	essentials	18.7785618,98.9885948	-	24/7	ants=2/9
 https://motdang.net/cm/p/grill-chicken-7003724691.html	grill chicken	grill chicken	food	18.7562748,99.0957428	-	-	ants=1/9
 https://motdang.net/cm/p/laab-pa-yod-7003724787.html	Laab Pa Yod	-	food	18.7928755,98.996077	-	-	ants=0/9
 https://motdang.net/cm/p/anumat-premium-budget-7005642039.html	Anumat Premium Budget	-	hotel	18.7848565,98.9814921	-	-	ants=0/9
@@ -5949,6 +6070,7 @@ https://motdang.net/cm/p/econ-park-7100562797.html	Econ Park	-	parks	18.8976422,
 https://motdang.net/cm/p/hashery-7101748885.html	Hashery	-	food	18.7842007,98.9920316	-	-	ants=0/9
 https://motdang.net/cm/p/million-coffee-7103895585.html	ล้านกาแฟต้นบะขาม	ล้านกาแฟต้นบะขาม​ (Million coffee)	food	18.7903334,98.9517298	-	-	ants=2/9
 https://motdang.net/cm/p/ma-jo-sa-bone-soup-shop-7103928285.html	ร้านซุปกระดูกแม่โจ้สาขาหลังมช.	Ma jo sa bone soup shop	food	18.7916404,98.95181	-	Mo-Su 10:30-20:30	ants=3/9
+https://motdang.net/cm/p/laundry-7103990187.html	Laundry	-	essentials	18.7874401,98.9827662	-	-	ants=0/9
 https://motdang.net/cm/p/mazz-7106273685.html	Mazz	Mazz	food	18.8121974,98.9635793	phone=0943598297	Mo-Su 09:00-18:30	ants=3/9
 https://motdang.net/cm/p/khun-prem-restaurant-7106360190.html	Khun Prem Restaurant	Khun Prem Restaurant	food	18.660367,99.107413	-	-	ants=1/9
 https://motdang.net/cm/p/cooking-love-7106483588.html	Cooking love	Cooking love	food	18.792186,98.9915702	-	-	ants=1/9
@@ -5969,6 +6091,7 @@ https://motdang.net/cm/p/suspecy-7122962785.html	Suspecy	Suspecy	food	18.8576103
 https://motdang.net/cm/p/wilai-7123832486.html	ครัววิไล	Wilai	food	18.7928951,98.9532656	-	-	ants=2/9
 https://motdang.net/cm/p/ganesha-7125409185.html	Ganesha	Ganesha	sights/tattoo	18.7837527,98.9904173	-	Fr-We 13:30-00:00	ants=2/9
 https://motdang.net/cm/p/heart-massage-7125409285.html	Heart Massage	-	massage	18.7849017,98.9939697	-	-	ants=0/9
+https://motdang.net/cm/p/laundromat-7125682483.html	Laundromat	-	essentials	18.796878,98.9818712	-	24/7	ants=1/9
 https://motdang.net/cm/p/goodsouls-kitchen-chang-moi-7127576609.html	Goodsouls Kitchen - Chang Moi	-	food	18.7904826,98.9941537	phone=+66 98 998 3691	Mo-Su 11:00-22:00	ants=2/9
 https://motdang.net/cm/p/hoshi-cake-shop-7128510485.html	Hoshi Cake Shop	Hoshi Cake Shop	food	18.7932624,98.9530318	-	Mo-Su 09:00-20:30	ants=2/9
 https://motdang.net/cm/p/open-wide-7128510785.html	Open Wide	Open Wide	medical	18.7932819,98.9529389	-	Mo-Su 10:00-20:00	ants=2/9
@@ -6019,6 +6142,7 @@ https://motdang.net/cm/p/creek-cafe-7189617385.html	Creek Cafe	Creek Cafe	food	1
 https://motdang.net/cm/p/krisdadoi-gardens-7189651586.html	Krisdadoi Gardens	Krisdadoi Gardens	hotel	18.7721197,98.8610333	-	-	ants=1/9
 https://motdang.net/cm/p/7-eleven-719463355.html	7-Eleven	7-Eleven	essentials	18.8441973,99.0743425	web=7eleven.co.th	24/7	ants=3/9
 https://motdang.net/cm/p/arku-s-guesthouse-7194771787.html	Arku's Guesthouse	-	hotel	18.7926015,98.9953669	-	-	ants=0/9
+https://motdang.net/cm/p/baan-dol-sook-7194925090.html	Baan dol sook	-	community	18.8238113,98.99386	-	-	ants=1/9
 https://motdang.net/cm/p/7-eleven-7196723887.html	7-Eleven	-	essentials	18.7883003,98.9960905	-	-	ants=0/9
 https://motdang.net/cm/p/romano-coffee-studio-7197228085.html	Romano Coffee Studio	Romano Coffee Studio	food	18.7815066,98.9902356	-	-	ants=1/9
 https://motdang.net/cm/p/aksara-heritage-7203451785.html	Aksara Heritage	-	hotel	18.7876189,98.9913981	-	-	ants=0/9
@@ -6103,6 +6227,7 @@ https://motdang.net/cm/p/cake-cottage-7608141688.html	Cake Cottage	Cake Cottage	
 https://motdang.net/cm/p/pr-tiny-coffee-and-glass-7624761763.html	PR tiny Coffee and Glass	-	food	18.7588257,98.9593787	facebook=@PR-tiny-100577314818220	Mo-Su 7:30-16:30	ants=1/9
 https://motdang.net/cm/p/chiang-mai-foot-massage-7639135427.html	Chiang Mai Foot Massage	Chiang Mai Foot Massage	massage	18.784524,98.9936296	phone=+66932393000	-	ants=2/9
 https://motdang.net/cm/p/7645839885.html	ครัวสวนไผ่	-	food	18.6153211,98.8720505	-	-	ants=1/9
+https://motdang.net/cm/p/7663300488.html	ศูนย์ปฏิบัติการ อพปร.	-	community	19.0301845,98.8737906	-	-	ants=1/9
 https://motdang.net/cm/p/kristi-house-766610260.html	Kristi House	-	hotel	18.7894604,98.9912875	-	-	ants=0/9
 https://motdang.net/cm/p/ginger-kafe-766613470.html	Ginger & Kafe	-	food	18.7927325,98.9931261	-	Mo-Su 10:00-23:00	ants=1/9
 https://motdang.net/cm/p/sompet-market-766631271.html	Sompet Market	Sompet Market	market	18.7914976,98.9930819	-	6:00-16:00	ants=2/9
@@ -6242,16 +6367,19 @@ https://motdang.net/cm/p/grace-of-love-church-8615807710.html	คริสตจ
 https://motdang.net/cm/p/wat-tha-thum-8618950003.html	วัดท่าทุ่ม	Wat Tha Thum	wat	18.7958586,99.0530884	-	-	ants=2/9
 https://motdang.net/cm/p/mali-kuaitiao-tomyam-sukhothai-8619119838.html	มาลี ก๋วยเตี๋ยวต้มยำสุโขทัย	Mali Kuaitiao Tomyam Sukhothai	food	18.77502,99.061187	-	-	ants=2/9
 https://motdang.net/cm/p/nakhon-ek-8624828722.html	นครเอก	Nakhon Ek	shopping	18.7744038,99.0614099	phone=+66806764162	-	ants=3/9
+https://motdang.net/cm/p/laundori-8629208380.html	Laundori	-	essentials	18.7431834,99.0749913	-	-	ants=0/9
 https://motdang.net/cm/p/my-vietnam-8629229273.html	My Vietnam	-	food	18.7431251,99.0753558	-	-	ants=0/9
 https://motdang.net/cm/p/kumamon-8629229274.html	Kumamon	-	food	18.7433033,99.0750621	-	Mo-Su 11:30-22:00	ants=1/9
 https://motdang.net/cm/p/siam-commercial-bank-863449027.html	ธนาคารไทยพาณิชย์	Siam Commercial Bank	essentials	18.7648999,99.0822407	-	-	ants=2/9
 https://motdang.net/cm/p/7-eleven-863464773.html	7-Eleven	7-Eleven	essentials	18.7698267,99.0716567	web=7eleven.co.th	24/7	ants=3/9
 https://motdang.net/cm/p/ptt-863464777.html	PTT	PTT	transport	18.7696107,99.0715017	web=pttplc.com	-	ants=3/9
 https://motdang.net/cm/p/ton-pao-clinic-8636291987.html	ต้นเปา คลินิก	Ton Pao Clinic	medical	18.7664952,99.0764713	phone=+66896336871	Mo-Fr 17:00-20:00; Sa 08:00-10:00,17:00-20:00	ants=4/9
+https://motdang.net/cm/p/ran-it-thanachok-8639519984.html	ร้าน อี้ดธนโชค	Ran It Thanachok	home-services	18.7482906,99.1138539	-	-	ants=2/9
 https://motdang.net/cm/p/pracha-rat-khon-thai-yim-dai-market-8639553987.html	ตลาด ประชารัฐคนไทยยิ้มได้	Pracha Rat Khon Thai Yim Dai Market	market	18.7448998,99.1200981	-	-	ants=2/9
 https://motdang.net/cm/p/u-som-rotyon-ra-phit-phong-8639558095.html	อู่ซ่อมรถยนต์ ระพิศพงษ์	U Som Rotyon Ra Phit Phong	repair	18.7413121,99.1265032	phone=+66819982570	-	ants=3/9
 https://motdang.net/cm/p/lung-choei-kuaitiao-dong-mueandoem-8639572986.html	ลุงเชย ก๋วยเตี๋ยวด้งเหมือนเดิม	Lung Choei Kuaitiao Dong Mueandoem	food	18.7431206,99.1221365	-	-	ants=2/9
 https://motdang.net/cm/p/cho-barber-8639585397.html	โจ้ บาร์เบอร์	Cho Barber	beauty	18.7409426,99.1274674	-	-	ants=2/9
+https://motdang.net/cm/p/community-office-8639620148.html	สำนักงานชุมชน - หมู่บ้าน	Community Office	community	18.7386883,99.1326079	-	-	ants=2/9
 https://motdang.net/cm/p/rot-loet-8687025481.html	รสเลิศ	Rot Loet	food	18.7316789,99.0950516	-	-	ants=2/9
 https://motdang.net/cm/p/pt-8687060656.html	PT	PT	transport	18.726977,99.1004375	-	-	ants=2/9
 https://motdang.net/cm/p/khrua-maimon-8687335278.html	ครัวไม้หมอน	Khrua Maimon	food	18.7444045,99.0761152	-	-	ants=2/9
@@ -6285,6 +6413,8 @@ https://motdang.net/cm/p/hug-8736548232.html	HUG	-	hotel	18.7957583,98.9900766	-
 https://motdang.net/cm/p/suai-dok-polyclinic-8736566402.html	สวยดอก โพลีคลีนิค	Suai Dok Polyclinic	medical	18.7808933,98.9900471	-	Mo-Fr 17:30-19:30	ants=3/9
 https://motdang.net/cm/p/lively-by-mossa-8736570205.html	Lively by Mossa	-	massage	18.7807092,98.9898138	-	-	ants=0/9
 https://motdang.net/cm/p/t2b-hostel-8736574960.html	T2B Hostel	-	hotel	18.7808546,98.9909584	-	-	ants=0/9
+https://motdang.net/cm/p/chiang-mai-orphanage-foundation-8736670003.html	Chiang Mai Orphanage Foundation	-	community	18.778924,98.9857958	-	-	ants=0/9
+https://motdang.net/cm/p/ban-kingkaew-wibun-santi-foundation-8736670004.html	มูลนิธิ บ้านกิ่งแก้ว วิบูลสันติ	Ban Kingkaew Wibun Santi Foundation	community	18.7792541,98.9857422	-	-	ants=2/9
 https://motdang.net/cm/p/relax-wualai-8736670009.html	Relax Wualai	-	hotel	18.7805873,98.9867413	-	-	ants=0/9
 https://motdang.net/cm/p/thai-time-hostel-8736670010.html	Thai Time Hostel	-	hotel	18.7805086,98.9866796	-	-	ants=0/9
 https://motdang.net/cm/p/the-grill-of-punjab-8755383017.html	The Grill of Punjab	The Grill of Punjab	food	18.7864882,98.9904563	-	-	ants=1/9
@@ -6299,6 +6429,7 @@ https://motdang.net/cm/p/ratree-club-880660091.html	Ratree Club	-	food	18.810179
 https://motdang.net/cm/p/alchemy-vegan-8808240817.html	Alchemy Vegan	Alchemy Vegan	food	18.7769241,98.98075	phone=+66 88 597 0799; email=hello@alchemyvegan.com	Su-Fr 09:00-21:00	ants=3/9
 https://motdang.net/cm/p/tisco-bank-8810215717.html	ธนาคารทิสโก้ สาขาเชียงใหม่	Tisco Bank	essentials	18.8110711,98.9841274	phone=+66 53 211 112; web=tisco.co.th	Mo-Fr 08:30-18:30	ants=5/9
 https://motdang.net/cm/p/doi-taeng-coffee-8812800067.html	Doi Taeng Coffee	-	food	18.8407274,98.9694759	-	-	ants=0/9
+https://motdang.net/cm/p/8821781871.html	ร้านสหภาพอลูมิเนียม	-	repair	18.7626129,99.0436771	phone=0899989955	Mo-Fr 09:00-17:00	ants=3/9
 https://motdang.net/cm/p/east-clinic-8829264539.html	อีสต์ คลินิก	East Clinic	medical	18.8035635,98.9597623	-	-	ants=2/9
 https://motdang.net/cm/p/lamour-haircut-8829267935.html	Lamour Haircut	-	beauty	18.8037667,98.9597824	-	-	ants=0/9
 https://motdang.net/cm/p/kumi-clinic-8829292317.html	คูมิ คลินิกเวชกรรม	Kumi Clinic	medical	18.8031484,98.9598374	-	-	ants=2/9
@@ -6319,11 +6450,14 @@ https://motdang.net/cm/p/coffee-bar-8892200306.html	หมูน้อย Coffee
 https://motdang.net/cm/p/veva-residence-8892961222.html	VEVA	VEVA Residence	hotel	18.78157,98.959482	phone=+66 94 7639055	24/7	ants=3/9
 https://motdang.net/cm/p/miang-mong-8892976815.html	เมียงมอง	Miang Mong	food	18.779117,98.9586559	-	-	ants=2/9
 https://motdang.net/cm/p/ptt-8912055478.html	PTT	-	transport	18.7424996,98.93704	-	-	ants=0/9
+https://motdang.net/cm/p/projects-for-asia-8915860499.html	Projects For Asia	-	community	18.6831934,98.9953405	web=projectsforasia.com; email=pfasia98@gmail.com	-	ants=1/9
 https://motdang.net/cm/p/locanda-8918140752.html	Locanda	-	food	18.8662713,99.1385312	-	We-Mo 11:30-14:00,17:30-22:00	ants=1/9
 https://motdang.net/cm/p/lai-thai-892660350.html	ลายไทยเกสท์เฮาส์	Lai Thai	hotel	18.7819253,98.9932997	phone=+6653271725	-	ants=3/9
 https://motdang.net/cm/p/siri-guesthouse-892660359.html	Siri Guesthouse	-	hotel	18.79003,98.99113	phone=+6653326550	-	ants=1/9
+https://motdang.net/cm/p/charoensilpa-custom-boots-892755491.html	Charoensilpa custom boots	-	shopping	18.7949332,99.0022848	-	-	ants=0/9
 https://motdang.net/cm/p/the-baristro-8937123517.html	The Baristro	The Baristro	food	18.7928391,98.993899	-	Mo-Su 08:00-18:00	ants=2/9
 https://motdang.net/cm/p/site-8946574466.html	site	-	parks	18.7603718,98.9903665	-	-	ants=0/9
+https://motdang.net/cm/p/ran-rungrueang-kit-kaset-8972390778.html	ร้านรุ่งเรืองกิจเกษตร	Ran Rungrueang Kit Kaset	home-services	18.7354434,98.9370534	-	-	ants=2/9
 https://motdang.net/cm/p/im-kitchen-8972390780.html	Im Kitchen	-	food	18.7356961,98.9360033	-	-	ants=0/9
 https://motdang.net/cm/p/tao-than-mu-katha-buffet-8972417442.html	เตาถ่าน หมูกะทะบุฟเฟ่ต์	Tao Than Mu Katha Buffet	food	18.7319672,98.940028	-	-	ants=2/9
 https://motdang.net/cm/p/lana-hotel-8972417443.html	Lana Hotel	-	hotel	18.7319825,98.9396109	-	-	ants=0/9
@@ -6458,6 +6592,7 @@ https://motdang.net/cm/p/burger-box-9526112065.html	Burger Box	-	food	18.7841928
 https://motdang.net/cm/p/akma-ama-living-factory-9531353917.html	Akma Ama Living Factory	Akma Ama Living Factory	food	18.9445554,98.9186926	-	-	ants=1/9
 https://motdang.net/cm/p/bank-of-ayudhya-9533893225.html	กรุงศรี	Bank of Ayudhya	essentials	18.7693619,98.9754497	-	-	ants=2/9
 https://motdang.net/cm/p/hungry-crust-955952427.html	Hungry Crust	-	food	18.7837388,99.0162992	-	-	ants=0/9
+https://motdang.net/cm/p/otteri-wash-dry-9561715979.html	Otteri Wash & Dry	-	essentials	18.7644842,98.9912179	-	24/7	ants=1/9
 https://motdang.net/cm/p/free-medical-clinic-9561715981.html	Free Medical Clinic	Free Medical Clinic	medical	18.764347,98.9912367	-	-	ants=1/9
 https://motdang.net/cm/p/9561715984.html	เบลลินี่ เบค แอนด์ บรู	-	food	18.7641515,98.9912501	-	Mo-Sa 11:00-21:00	ants=2/9
 https://motdang.net/cm/p/nobi-cha-9568058117.html	Nobi Cha	Nobi Cha	food	18.7946463,98.9867766	-	-	ants=1/9
@@ -6495,6 +6630,8 @@ https://motdang.net/cm/p/chef-tao-s-thai-cuisine-9784520619.html	Chef Tao’s Th
 https://motdang.net/cm/p/barber-9784520720.html	barber	-	beauty	18.7914212,98.982002	-	-	ants=0/9
 https://motdang.net/cm/p/thai-lila-massage-9784520721.html	Thai lila massage	-	massage	18.7914085,98.98205	-	-	ants=0/9
 https://motdang.net/cm/p/big-big-shabu-9784520917.html	big big Shabu	-	food	18.7962388,98.9864599	-	-	ants=0/9
+https://motdang.net/cm/p/laundry-service-home-9784521017.html	laundry service home	-	essentials	18.79368,98.9853893	-	-	ants=0/9
+https://motdang.net/cm/p/laundrybar-9785869274.html	LaundryBar	-	essentials	18.8012962,98.9782312	-	-	ants=0/9
 https://motdang.net/cm/p/ban-kong-rao-guesthouse-9785880597.html	Ban Kong Rao Guesthouse	-	hotel	18.8026226,98.9789641	-	-	ants=0/9
 https://motdang.net/cm/p/monk-chat-9787440617.html	Monk Chat	-	sights	18.7872325,98.967996	-	-	ants=0/9
 https://motdang.net/cm/p/kuakai-9787938017.html	Kuakai	-	food	18.7944054,98.9693077	-	-	ants=0/9
@@ -6804,7 +6941,10 @@ https://motdang.net/cm/p/403-1130917223.html	403	-	learn	18.7958521,98.9528038	-
 https://motdang.net/cm/p/411-1130917234.html	411	-	learn	18.7956942,98.9530629	-	-	ants=0/9
 https://motdang.net/cm/p/402-1130917240.html	402	-	learn	18.7958446,98.9526726	-	-	ants=0/9
 https://motdang.net/cm/p/501-1130917242.html	501	-	learn	18.7957715,98.9526726	-	-	ants=0/9
+https://motdang.net/cm/p/1130917249.html	ห้องพักนักศึกษา	-	business	18.795715,98.9528268	-	-	ants=1/9
 https://motdang.net/cm/p/413a-1130917274.html	413A	-	learn	18.7954791,98.9529054	-	-	ants=0/9
+https://motdang.net/cm/p/401-1130917276.html	401	-	business	18.7957718,98.9526727	-	-	ants=0/9
+https://motdang.net/cm/p/1130917280.html	ห้องธุรการ	-	community	18.7957705,98.9528269	-	-	ants=1/9
 https://motdang.net/cm/p/502-1130917284.html	502	-	learn	18.7958445,98.9526724	-	-	ants=0/9
 https://motdang.net/cm/p/prueksa-doikham-community-area-1131103009.html	Prueksa Doikham Community Area	-	parks	18.73764,98.9372392	-	-	ants=0/9
 https://motdang.net/cm/p/ping-pura-riverside-resort-spa-chiang-mai-1133345153.html	Ping Pura Riverside Resort & Spa Chiang Mai	Ping Pura Riverside Resort & Spa Chiang Mai	hotel	18.7138255,98.9849777	web=pingpura.com	-	ants=2/9
@@ -6849,6 +6989,7 @@ https://motdang.net/cm/p/7-eleven-1160860839.html	7-Eleven	7-Eleven	essentials	1
 https://motdang.net/cm/p/jaddee-coffee-1161135230.html	JADDEE COFFEE	-	food	18.7158461,98.9854997	-	Mo-Su 07:30-15:00, Thu closed	ants=1/9
 https://motdang.net/cm/p/1161386264.html	ร้านอาหาร อิสานวันสตาร์	-	food	18.7216002,98.9860468	-	-	ants=1/9
 https://motdang.net/cm/p/moka-cafe-chiangmai-1161388726.html	MOKA CAFE CHIANGMAI	-	food	18.7370259,98.9826934	-	-	ants=0/9
+https://motdang.net/cm/p/1161388727.html	ซ่อมลู่วิ่งไฟฟ้าเชียงใหม่	-	repair	18.7372831,98.9822007	-	Mon-Sun 08:00-17:00	ants=2/9
 https://motdang.net/cm/p/chill-station-1161632654.html	Chill Station	-	food	18.7519571,99.0082327	-	-	ants=0/9
 https://motdang.net/cm/p/payod-shanfood-chiangmai-1161677813.html	Payod Shanfood Chiangmai	-	food	18.7957138,98.9917765	phone=+66 80 326 0214; facebook=@payodshanfoodchiangmai	Mo-Su 09:00-21:00	ants=2/9
 https://motdang.net/cm/p/baan-mae-caf-restaurant-chiang-mai-1162793798.html	Baan Mae	Baan Mae Café & Restaurant Chiang Mai	food	18.8039631,98.972442	phone=+66 91 854 7289; web=baanmaechiangmai.com/menu	Mo-Su 10:00-22:00	ants=5/9
@@ -6869,6 +7010,7 @@ https://motdang.net/cm/p/wat-naboon-thammaram-1170872081.html	Wat Naboon Thammar
 https://motdang.net/cm/p/biscotti-house-1177625630.html	Biscotti House	-	food	18.770459,98.9456766	phone=0818204464; facebook=@BiscottiHouseChiangMai	Mon-Sat 08:30-18:00	ants=2/9
 https://motdang.net/cm/p/jang-sripoom-house-117933202.html	Jang Sripoom House	Jang Sripoom House	hotel	18.7958554,98.9936014	phone=+6653214567	-	ants=2/9
 https://motdang.net/cm/p/bedroom-apartment-1189793262.html	Bedroom apartment	-	realestate	18.8834883,99.0334771	-	-	ants=0/9
+https://motdang.net/cm/p/alt-chiangmai-1208209252.html	Alt_ChiangMai	-	business	18.7885805,98.9791643	phone=+66 97 183 1737; facebook=@altcolivingCM; web=altcoliving.com; email=connect@altcoliving.com	Mo-Sa 09:00-18:00	ants=4/9
 https://motdang.net/cm/p/pkc-electronics-moto-1209000872.html	PKC Electronics moto	-	repair	18.884533,98.9680497	facebook=@PKC Electronics moto	Mo-Fr 17:30-23:30 Sa-Su 09:00-23.45	ants=1/9
 https://motdang.net/cm/p/co-op-minimart-1210724743.html	Co-Op Minimart	-	essentials	18.823954,99.0012722	-	Mo-Su 06:00-20:00	ants=1/9
 https://motdang.net/cm/p/suan-prung-psychiatric-hospital-1212478397.html	โรงพยาบาลสวนปรุง	Suan Prung Psychiatric Hospital	medical	18.7794057,98.9791541	-	-	ants=2/9
@@ -6876,6 +7018,7 @@ https://motdang.net/cm/p/hidden-garden-1214120955.html	Hidden Garden	-	hotel	18.
 https://motdang.net/cm/p/1214120993.html	นันทาราม คอร์ท	-	realestate	18.7795041,98.9877145	-	-	ants=1/9
 https://motdang.net/cm/p/ba-rung-cafe-home-stay-1214209668.html	Ba Rung Cafe & Home Stay	-	hotel	18.8419648,98.9054021	phone=+66 88 261 6693; facebook=@100063648308248; instagram=@barungcafe; email=barung2020@gmail.com	-	ants=1/9
 https://motdang.net/cm/p/wualai-sabaidee-boutique-hotel-1214460611.html	วัวลายสบายดี	Wualai Sabaidee Boutique Hotel	hotel	18.7763217,98.9866021	-	-	ants=2/9
+https://motdang.net/cm/p/weave-artisan-society-1214610838.html	Weave Artisan Society	-	business	18.77612,98.9860092	facebook=@weavesociety	09:00-17:30	ants=1/9
 https://motdang.net/cm/p/de-wualai-1214610920.html	เดอ วัวลาย	De wualai	hotel	18.776354,98.9838107	-	-	ants=2/9
 https://motdang.net/cm/p/entaneer-poshtel-1214997557.html	Entaneer Poshtel	-	hotel	18.7789668,98.9879604	-	-	ants=0/9
 https://motdang.net/cm/p/to-bed-poshtel-1215064532.html	To Bed Poshtel	To Bed Poshtel	hotel	18.7761381,98.9868009	-	-	ants=1/9
@@ -6889,6 +7032,7 @@ https://motdang.net/cm/p/center-bar-1225640285.html	Center Bar	-	food	18.7829834
 https://motdang.net/cm/p/sirindhorn-learning-resources-center-122605036.html	ศูนยทรัพยากรการเรียนรูสิรินธร	Sirindhorn Learning Resources Center	sights	18.7964592,99.0337679	-	-	ants=2/9
 https://motdang.net/cm/p/mega-home-1229855467.html	Mega Home	-	shopping	18.7762415,99.026409	-	-	ants=0/9
 https://motdang.net/cm/p/7-eleven-1231350830.html	7-Eleven	-	essentials	18.8650722,98.9855843	-	-	ants=0/9
+https://motdang.net/cm/p/pd-nursing-home-care-for-the-elderly-1234258607.html	พีดีเนอร์สซิ่งโฮม ดูแลผู้สูงอายุ	PD Nursing Home Care for the Elderly	community	18.755304,99.012966	-	-	ants=2/9
 https://motdang.net/cm/p/cleanzaap-1234263642.html	ร้านคลีนแซบ	CleanZaap	food	18.7575364,99.0088462	-	Mo-Su 08:30-19:00	ants=3/9
 https://motdang.net/cm/p/sac-residency-program-1234309118.html	SAC Residency Program	SAC Residency Program	sights	18.881671,98.9762849	-	-	ants=1/9
 https://motdang.net/cm/p/bangchak-1234506354.html	บางจาก	Bangchak	transport	18.9894528,98.9782166	web=bangchak.co.th	-	ants=3/9
@@ -6901,6 +7045,7 @@ https://motdang.net/cm/p/my-forest-cafe-1237664537.html	My Forest Cafe	My Forest
 https://motdang.net/cm/p/laan-mai-fai-chang-resort-1237735961.html	Laan Mai Fai Chang Resort	Laan Mai Fai Chang Resort	hotel	18.6932548,98.9452661	phone=+6653434690; email=laanmaifaichangresort@gmail.com	-	ants=2/9
 https://motdang.net/cm/p/satit-international-bilingual-school-of-rangsit-university-c-1237937945.html	Satit International Bilingual School of Rangsit University Chiang Mai	Satit International Bilingual School of Rangsit University Chiang Mai	school-intl	18.6976217,98.9448173	-	-	ants=1/9
 https://motdang.net/cm/p/wat-don-keaw-1239081882.html	วัดดอนแก้ว	Wat Don Keaw	wat	18.8798408,98.9720167	-	-	ants=2/9
+https://motdang.net/cm/p/1240060436.html	ชมรมการขับขี่มอเตอรไซค์เพื่อการท่องเที่ยวและมิตรภาพ	-	community	18.8675809,98.9817038	phone=0814687000; web=www goldentriangle.info; email=goldentriangleadventure@gmail.com	24/7	ants=4/9
 https://motdang.net/cm/p/beer-time-1240681153.html	Beer Time	-	food	18.8668927,98.9822441	-	-	ants=0/9
 https://motdang.net/cm/p/sangtawan-ps-co-ltd-repairs-1241240506.html	Sangtawan PS Co. Ltd. (Repairs)	-	repair	18.8781944,98.9624557	-	-	ants=0/9
 https://motdang.net/cm/p/don-kaew-animal-hospital-1241240521.html	Don Kaew Animal Hospital	-	pets	18.8673337,98.9668476	-	-	ants=0/9
@@ -6912,6 +7057,7 @@ https://motdang.net/cm/p/273-brew-house-1247597445.html	273 Brew House	273 Brew 
 https://motdang.net/cm/p/124819910.html	อาคารเฉลิมพระเกียรติใหม่	-	sights	18.7666074,99.0235534	-	-	ants=1/9
 https://motdang.net/cm/p/daddy-lion-1248732045.html	Daddy Lion	-	food	18.7372299,98.9905521	-	10:00 - 22:00	ants=1/9
 https://motdang.net/cm/p/caf-amazon-1251033565.html	คาเฟ่ อเมซอน	Café Amazon	food	18.8345312,99.05688	-	-	ants=2/9
+https://motdang.net/cm/p/wongwiang-1251488172.html	วงค์เวียน	Wongwiang	shopping	18.7349046,98.9897881	phone=081-5312820	-	ants=3/9
 https://motdang.net/cm/p/chiang-mai-hill-2000-125159723.html	เชียงใหม่ฮิลล์	Chiang Mai Hill 2000	hotel	18.8040377,98.9618299	phone=+6653400601; web=chiangmaihillhotel.com; email=cmhills@chiangmaihillhotel.com	-	ants=4/9
 https://motdang.net/cm/p/1251990226.html	ครัวอาจารย์	-	food	18.8259639,98.9783424	-	-	ants=1/9
 https://motdang.net/cm/p/7-eleven-1253163166.html	7-Eleven	7-Eleven	essentials	18.7742111,98.9902302	web=7eleven.co.th	24/7	ants=3/9
@@ -6975,6 +7121,7 @@ https://motdang.net/cm/p/homepro-chaing-mai-ruamchok-1356111268.html	HomePro - C
 https://motdang.net/cm/p/shell-1356384846.html	Shell	Shell	transport	18.898439,98.9509666	-	-	ants=2/9
 https://motdang.net/cm/p/7-eleven-1357701253.html	7-Eleven	-	essentials	18.8410123,99.0812438	-	-	ants=0/9
 https://motdang.net/cm/p/mae-kuang-cafe-1358308827.html	Mae Kuang Cafe	-	food	18.9298244,99.1419013	-	-	ants=0/9
+https://motdang.net/cm/p/4seas-nimman-1358959179.html	4seas Nimman	-	community	18.795645,98.9663116	phone=+66 610949859	Mo-Su 09:00-18:00	ants=2/9
 https://motdang.net/cm/p/wat-dokeung-135952556.html	วัดดอกเอื้อง	Wat Dokeung	wat	18.7901747,98.992491	-	-	ants=2/9
 https://motdang.net/cm/p/wat-chomphu-135952568.html	วัดชมพู	Wat Chomphu	wat	18.791206,98.9945503	-	-	ants=3/9
 https://motdang.net/cm/p/sabu-sabu-1359528788.html	Sabu-Sabu	-	hotel	18.8871761,98.9685671	-	Mo-Sa 09:00-17:00	ants=1/9
@@ -6998,6 +7145,7 @@ https://motdang.net/cm/p/center-fishing-park-140011217.html	Center Fishing Park	
 https://motdang.net/cm/p/wat-ton-chok-lang-140073543.html	วัดต้นโชคหลาง	Wat Ton Chok Lang	wat	18.7276324,99.0454572	-	-	ants=2/9
 https://motdang.net/cm/p/khlong-chonlaprathan-1409583477.html	คลองชลประทาน	Khlong Chonlaprathan	parks	18.7930297,98.9532329	-	-	ants=2/9
 https://motdang.net/cm/p/the-park-hotel-141212721.html	The Park Hotel	-	hotel	18.7665567,98.9992752	-	-	ants=0/9
+https://motdang.net/cm/p/hakka-chiang-mai-association-141212725.html	สมาคมฮากกาเชียงใหม่	Hakka Chiang Mai Association	community	18.7648229,99.0010646	-	-	ants=2/9
 https://motdang.net/cm/p/steak-1414188117.html	Steaké	-	food	18.72931,99.0286399	phone=+66864202069	Tu-Su 11:00-21:00	ants=2/9
 https://motdang.net/cm/p/golden-elephant-resort-141471719.html	Golden Elephant Resort	-	hotel	18.7472002,99.0655155	-	-	ants=0/9
 https://motdang.net/cm/p/7-eleven-1420369784.html	7-Eleven	-	essentials	18.7173881,98.9878858	-	-	ants=0/9
@@ -7036,6 +7184,7 @@ https://motdang.net/cm/p/lotus-s-go-fresh-1456803702.html	Lotus's go fresh	-	ess
 https://motdang.net/cm/p/wat-nang-liao-1458584415.html	Wat Nang Liao	Wat Nang Liao	wat	18.8311617,99.0218724	-	-	ants=2/9
 https://motdang.net/cm/p/wat-famui-1458592077.html	วัดฟ้ามุ่ย	Wat Famui	wat	18.8508353,99.0351507	-	-	ants=2/9
 https://motdang.net/cm/p/wat-tanjan-1458594888.html	วัดต้นจันทน์	Wat Tanjan	wat	18.8464227,99.026604	-	-	ants=2/9
+https://motdang.net/cm/p/pm-motor-1458661985.html	PM Motor	-	repair	18.8890247,98.9576179	phone=+66892632712	-	ants=1/9
 https://motdang.net/cm/p/wat-mae-sa-luang-1458662000.html	วัดแม่สาหลวง	Wat Mae Sa Luang	wat	18.8914842,98.9625282	-	-	ants=2/9
 https://motdang.net/cm/p/wat-san-mueang-pracharam-1458898755.html	Wat San Mueang Pracharam	Wat San Mueang Pracharam	wat	18.8543965,98.9738735	-	-	ants=1/9
 https://motdang.net/cm/p/dorle-bakery-1459203388.html	Dorle Bakery	-	food	18.8238576,98.9626184	-	Mo-Su 08:30-17:50	ants=1/9
@@ -7082,6 +7231,7 @@ https://motdang.net/cm/p/wat-si-sai-mun-147530528.html	วัดศรีทร�
 https://motdang.net/cm/p/wat-pa-lan-147532398.html	วัดป่าลาน	Wat Pa Lan	wat	18.8683521,99.0560843	-	-	ants=2/9
 https://motdang.net/cm/p/pt-1478526243.html	PT	-	transport	19.0075919,98.9442243	-	-	ants=0/9
 https://motdang.net/cm/p/chomdao-cafe-1481326013.html	Chomdao Cafe	-	food	19.0085177,98.8751661	-	-	ants=0/9
+https://motdang.net/cm/p/masterclean-laundry-co-1481655568.html	Masterclean Laundry Co.	-	essentials	18.9394821,98.9305558	-	-	ants=0/9
 https://motdang.net/cm/p/7-eleven-1482523090.html	7-Eleven	-	essentials	18.7064502,98.9078985	-	-	ants=0/9
 https://motdang.net/cm/p/the-deer-resort-1482523093.html	The Deer Resort	-	hotel	18.7010333,98.9027461	-	-	ants=0/9
 https://motdang.net/cm/p/7-eleven-1482535779.html	7-Eleven	-	essentials	18.6777833,98.9177007	-	-	ants=0/9
@@ -7186,6 +7336,7 @@ https://motdang.net/cm/p/center-for-northern-culture-210166989.html	Center for N
 https://motdang.net/cm/p/royal-shilton-residence-212222207.html	Royal Shilton Residence	-	hotel	18.8068886,98.965056	phone=+6653218123	-	ants=1/9
 https://motdang.net/cm/p/sn-residence-212352362.html	SN Residence	-	realestate	18.8064959,98.9643758	phone=+6653218123	-	ants=1/9
 https://motdang.net/cm/p/arrow-place-213503640.html	แอรโร่ เพลส	Arrow Place	realestate	18.8077292,98.9777498	-	-	ants=2/9
+https://motdang.net/cm/p/makro-217504686.html	แม็คโคร	Makro	business	18.8989156,98.9523043	-	Mo-Su 06:00-22:00	ants=3/9
 https://motdang.net/cm/p/217504887.html	ริมน้ำแมนชั่น	-	realestate	18.7999225,98.9600085	-	-	ants=1/9
 https://motdang.net/cm/p/3-217504888.html	ริมดอยเพลส 3	-	realestate	18.7989947,98.9621654	-	-	ants=1/9
 https://motdang.net/cm/p/kat-mae-yuak-217506410.html	กาดแม่หยวก	Kat Mae Yuak	market	18.8341109,98.9765596	-	-	ants=2/9
@@ -7262,6 +7413,7 @@ https://motdang.net/cm/p/i-p-burger-243115903.html	I'P Burger	-	food	18.7851428,
 https://motdang.net/cm/p/modern-education-mall-243263970.html	โมดิร์น เอ็ดดูเคชั่น มอล์	Modern Education Mall	shopping	18.7741553,99.0645533	-	-	ants=2/9
 https://motdang.net/cm/p/wat-tha-mai-i-243404616.html	วัดท่าใหม่อิ	Wat Tha Mai I	wat	18.7210465,98.9832741	-	-	ants=2/9
 https://motdang.net/cm/p/tuang-thong-canyonview-243415939.html	ร้านอาหาร ตวง ตอง แคนยอนวิว	Tuang Thong Canyonview	food	18.6998986,98.8920906	-	Mo-Su 11:00-24:00	ants=3/9
+https://motdang.net/cm/p/suan-prung-rehabilitation-center-243415943.html	ศูนย์ฟื้นฟูสมรรถภาพ	Suan Prung Rehabilitation Center	community	18.7045325,98.8594011	-	-	ants=2/9
 https://motdang.net/cm/p/sibsan-luxury-hotel-rimping-243504688.html	Sibsan Luxury Hotel Rimping	Sibsan Luxury Hotel Rimping	hotel	18.8458682,98.9861241	phone=+6653110555; web=sibsanhotel.com; email=info@sibsanhotel.com	-	ants=3/9
 https://motdang.net/cm/p/wat-tha-luk-243551350.html	วัดท่าหลุก	Wat Tha Luk	wat	18.8318242,98.9961912	-	-	ants=2/9
 https://motdang.net/cm/p/highland-people-discovery-museum-243766515.html	พิพิธภัณฑ์เรียนรู้ราษฎรบนพื้นที่สูง	Highland People Discovery Museum	museums-galleries	18.8214405,98.9747148	-	Mo-Sa 08:30-16:30	ants=3/9
@@ -7379,6 +7531,7 @@ https://motdang.net/cm/p/273464906.html	จักรปราณีคอร์�
 https://motdang.net/cm/p/boat-condo-274908862.html	Boat Condo	-	realestate	18.8051459,99.0249746	-	-	ants=0/9
 https://motdang.net/cm/p/chiang-mai-reunpae-2-274921930.html	Chiang Mai Reunpae 2	-	food	18.8373428,99.0001937	phone=66 53115194	-	ants=1/9
 https://motdang.net/cm/p/krung-thai-bank-274986066.html	ธนาคารกรุงไทย	Krung Thai Bank	essentials	18.8161534,98.9828572	-	-	ants=2/9
+https://motdang.net/cm/p/go-wholesale-chiang-mai-275275540.html	GO Wholesale Chiang Mai	-	business	18.7670129,98.9733528	-	-	ants=0/9
 https://motdang.net/cm/p/krungthai-bank-275284872.html	ธนาคารกรุงไทย	Krungthai Bank	essentials	18.8018354,98.9856365	-	-	ants=2/9
 https://motdang.net/cm/p/siam-first-express-cargo-275286703.html	Siam First Express Cargo	-	essentials	18.8115772,98.9871498	web=siamfirst.co.th	-	ants=1/9
 https://motdang.net/cm/p/baiyoke-ciao-hotel-276724649.html	Baiyoke Ciao Hotel	-	hotel	18.7962528,98.9656229	web=baiyokeciao.baiyokehotel.com	-	ants=1/9
@@ -7753,6 +7906,7 @@ https://motdang.net/cm/p/wat-muentoom-361100236.html	วัดหมื่นต
 https://motdang.net/cm/p/chok-dee-guesthouse-361101916.html	Chok Dee Guesthouse	-	hotel	18.7923224,98.9917947	-	-	ants=1/9
 https://motdang.net/cm/p/manee-house-361102007.html	Manee House	-	hotel	18.7925859,98.9910141	-	-	ants=0/9
 https://motdang.net/cm/p/sumit-361102351.html	โรงแรมสุมิตต์	Sumit	hotel	18.7919883,98.9902932	-	-	ants=2/9
+https://motdang.net/cm/p/the-social-club-coliving-coworking-space-361121944.html	The Social Club - Coliving & Coworking Space	-	business	18.7921707,98.9792086	phone=+66650986591; web=thesocialclub.asia	Mo-Su 09:00-21:00	ants=3/9
 https://motdang.net/cm/p/baan-chiang-noi-362998783.html	Baan Chiang Noi	-	hotel	18.7830433,98.995402	phone=+6653206310	-	ants=1/9
 https://motdang.net/cm/p/chiang-mai-fertility-centre-364392026.html	อภิชาติ สูติ-นรี คลินิมีบุตรยาก	Chiang Mai Fertility Centre	medical	18.7964237,98.976655	phone=+6653219542	Mo-Fr 17:00-19:00;Sa-Su 13:00-15:00	ants=4/9
 https://motdang.net/cm/p/364392053.html	เปาะเปี๊ยสด ปูทะเล	-	food	18.7942441,98.97793	-	-	ants=1/9
@@ -7772,6 +7926,7 @@ https://motdang.net/cm/p/xaviernimman5-372055197.html	Xaviernimman5	-	food	18.79
 https://motdang.net/cm/p/casa-2511-372055248.html	Casa 2511	-	hotel	18.7995102,98.9687749	phone=+6653214091	-	ants=1/9
 https://motdang.net/cm/p/kao-saen-market-372941082.html	ตลาดเก้าแสน	Kao Saen Market	market	18.6967354,99.0447639	-	-	ants=2/9
 https://motdang.net/cm/p/ptt-373854689.html	ป.ต.ท.	PTT	transport	18.8089469,99.0115069	web=pttplc.com	-	ants=3/9
+https://motdang.net/cm/p/dok-kaew-gardens-373874038.html	Dok Kaew Gardens	-	community	18.7298728,98.9876936	-	-	ants=0/9
 https://motdang.net/cm/p/hillside-payap-condo-9-374573559.html	Hillside Payap Condo 9	-	realestate	18.7960145,99.0259164	-	-	ants=0/9
 https://motdang.net/cm/p/wat-chiang-khang-375531926.html	วัดเชียงขาง	Wat Chiang Khang	wat	18.7506812,99.0399381	-	-	ants=2/9
 https://motdang.net/cm/p/the-royal-shilton-resort-376249188.html	The Royal Shilton Resort	The Royal Shilton Resort	hotel	18.8092534,98.9648515	phone=+66 53 215 998	-	ants=2/9
@@ -7785,6 +7940,7 @@ https://motdang.net/cm/p/royal-panerai-hotel-377819683.html	Royal Panerai Hotel	
 https://motdang.net/cm/p/wat-chai-sri-phoon-377819719.html	วัดชัยศรีภูมิ	Wat Chai Sri Phoon	wat	18.7943682,98.9941587	-	-	ants=3/9
 https://motdang.net/cm/p/papick-lodge-377819743.html	Papick Lodge	-	hotel	18.7932552,98.9931481	-	-	ants=0/9
 https://motdang.net/cm/p/wat-prasat-378271848.html	วัดปราสาท	Wat Prasat	wat	18.7898096,98.9810231	-	-	ants=3/9
+https://motdang.net/cm/p/home-mart-380990719.html	Home Mart	-	business	18.7852626,99.0691149	-	-	ants=0/9
 https://motdang.net/cm/p/take-a-sip-381032215.html	Take a Sip	-	food	18.7988231,98.9754285	-	-	ants=0/9
 https://motdang.net/cm/p/tropicana-381032216.html	Tropicana	-	hotel	18.7973741,98.9843252	-	-	ants=0/9
 https://motdang.net/cm/p/u26-381032223.html	U26	-	hotel	18.7995041,98.9750869	phone=+6653404018	-	ants=1/9
@@ -7803,6 +7959,7 @@ https://motdang.net/cm/p/wat-umong-maha-therachan-383205231.html	วัดอุ
 https://motdang.net/cm/p/wat-kumkam-teepram-no-1-383232499.html	วัดคุมกามทีปราม No. 1	Wat Kumkam Teepram No. 1	sights	18.7471284,99.0086448	-	-	ants=2/9
 https://motdang.net/cm/p/wat-ku-mai-song-383232500.html	วัดกู่ไม้ซ้ง	Wat Ku Mai Song	sights	18.7448496,99.0046757	-	-	ants=2/9
 https://motdang.net/cm/p/wat-san-sai-mun-383453299.html	วัดสันทรายมูล	Wat San Sai Mun	wat	18.818014,99.0301461	-	-	ants=2/9
+https://motdang.net/cm/p/p-d-nursing-home-383587809.html	P.D. Nursing Home	-	community	18.7253266,99.0280214	-	-	ants=0/9
 https://motdang.net/cm/p/wat-phang-yoi-383587812.html	วัดผางยอย	Wat Phang Yoi	wat	18.739028,99.0217828	-	-	ants=2/9
 https://motdang.net/cm/p/wat-don-chuen-383626877.html	วัดดอนจืน	Wat Don Chuen	wat	18.7352452,99.0252176	-	-	ants=2/9
 https://motdang.net/cm/p/lanna-rice-barn-383728982.html	ยุ้งข้าวล้านนา	Lanna Rice Barn	food	18.7482899,99.0045967	-	Mo-Su 10:00-16:00	ants=3/9
@@ -7958,7 +8115,7 @@ https://motdang.net/cm/p/khuang-singh-residence-421103337.html	Khuang Singh Hote
 https://motdang.net/cm/p/wat-khuang-sing-421103611.html	วัดข่วงสิงห์	Wat Khuang Sing	wat	18.8128836,98.9826058	-	-	ants=2/9
 https://motdang.net/cm/p/g2-boutique-hotel-421125374.html	G2 Boutique Hotel	-	hotel	18.7836677,98.982785	phone=+6653282988; web=g2boutiquehotel.com	-	ants=2/9
 https://motdang.net/cm/p/condominiums-421240160.html	Condominiums	-	realestate	18.8232799,98.9595872	-	-	ants=0/9
-https://motdang.net/cm/p/khamtiang-flower-market-423030639.html	ตลาดคำเที่ยง	Khamtiang Flower Market	market	18.8064613,98.998457	-	Mo-Su 06:00-21:00	ants=3/9
+https://motdang.net/cm/p/khamtiang-flower-market-423030639.html	ตลาดคำเที่ยง	Khamtiang Flower Market	home-services	18.8064613,98.998457	-	Mo-Su 06:00-21:00	ants=3/9
 https://motdang.net/cm/p/wat-phuak-taem-423031752.html	วัดพวกแต้ม	Wat Phuak Taem	wat	18.7824349,98.9830746	-	-	ants=3/9
 https://motdang.net/cm/p/rendezvous-classic-house-423031865.html	Rendezvous Classic House	-	hotel	18.7820843,98.9825186	-	-	ants=0/9
 https://motdang.net/cm/p/marigold-lanna-423031868.html	Marigold Lanna	Marigold Lanna	hotel	18.7817906,98.981273	-	-	ants=1/9
@@ -8239,6 +8396,7 @@ https://motdang.net/cm/p/chiangmai-motor-part-537039494.html	Piston Shop Superbi
 https://motdang.net/cm/p/khao-soi-khun-yai-537040355.html	Khao Soi Khun Yai	-	food	18.7953327,98.9832947	-	Mo-Sa 10:00-14:00	ants=1/9
 https://motdang.net/cm/p/chiang-mai-hostel-537048342.html	เชียงใหม่ โฮสเทล	Chiang Mai Hostel	hotel	18.7818451,98.9833192	phone=+6653272414	-	ants=3/9
 https://motdang.net/cm/p/jaidee-house-537163649.html	ใจดี เฮ้าส์	Jaidee House	hotel	18.7816589,98.9832169	-	-	ants=2/9
+https://motdang.net/cm/p/537307957.html	เปิงใจ๋	-	shopping	18.785407,99.0474954	-	-	ants=1/9
 https://motdang.net/cm/p/meena-rice-based-cuisine-537308760.html	Meena rice based cuisine	-	food	18.7848027,99.0461079	phone=+66 95 693 9586; facebook=@meena.rice.based	-	ants=1/9
 https://motdang.net/cm/p/baan-chern-chiangmai-537731512.html	Baan Chern Chiangmai	-	hotel	18.7821859,98.9851226	phone=+66 95 8139393	-	ants=1/9
 https://motdang.net/cm/p/watana-537731514.html	Watana	-	hotel	18.782264,98.985242	-	-	ants=0/9
@@ -8251,6 +8409,7 @@ https://motdang.net/cm/p/ptt-540882570.html	PTT	PTT	transport	18.7966934,98.9611
 https://motdang.net/cm/p/wat-phratu-pa-market-541037810.html	ตลาดวัดประตูป่า	Wat Phratu Pa Market	market	18.6223016,99.0037938	-	-	ants=2/9
 https://motdang.net/cm/p/ruan-natee-terrace-542885990.html	เรือนนที เทอเรส	Ruan Natee Terrace	food	18.8090309,98.9771686	-	Mo-Su 17:00-24:00	ants=3/9
 https://motdang.net/cm/p/duang-dara-guest-house-542924523.html	Duang Dara Guest House	Duang Dara Guest House	hotel	18.9524525,98.9246294	phone=+66 86-9118365	-	ants=2/9
+https://motdang.net/cm/p/the-cabin-542929587.html	The Cabin	-	community	18.9676201,98.9219147	web=thecabinchiangmai.com	-	ants=1/9
 https://motdang.net/cm/p/pt-543610650.html	PT	-	transport	18.821429,99.033388	-	-	ants=0/9
 https://motdang.net/cm/p/sam-yaek-market-543610654.html	ตลาดสามแยก	Sam Yaek Market	market	18.8110934,99.0278324	-	-	ants=2/9
 https://motdang.net/cm/p/bangchak-543611583.html	Bangchak	-	transport	18.8090708,99.0249733	-	-	ants=0/9
@@ -8277,6 +8436,7 @@ https://motdang.net/cm/p/good-morning-chiang-mai-tropical-inn-546257256.html	Goo
 https://motdang.net/cm/p/once-upon-a-time-boutique-home-546257258.html	Once Upon A Time Boutique Home	Once Upon A Time Boutique Home	hotel	18.7837202,98.9804441	-	-	ants=1/9
 https://motdang.net/cm/p/sakura-house-chiang-mai-546257259.html	Sakura House Chiang Mai	Sakura House Chiang Mai	hotel	18.7832759,98.9801106	-	-	ants=1/9
 https://motdang.net/cm/p/underdog-hotel-546257260.html	Underdog Hotel	Underdog Hotel	hotel	18.7832643,98.9784156	-	-	ants=1/9
+https://motdang.net/cm/p/nirut-used-house-wood-seller-547918299.html	นิรุตติ๋ค้าไม้เรือนเก่า	Nirut Used House Wood Seller	business	18.6646479,99.1410218	phone=+66 83-3226466	-	ants=3/9
 https://motdang.net/cm/p/pt-548087846.html	PT	PT	transport	18.6567667,99.0286237	-	-	ants=2/9
 https://motdang.net/cm/p/548253109.html	อนามัย	-	medical	18.6524039,99.0000702	-	-	ants=1/9
 https://motdang.net/cm/p/paradorn-bricks-and-ceramics-549747824.html	Paradorn bricks and ceramics	-	shopping	18.7273886,98.947837	-	-	ants=0/9
@@ -8449,6 +8609,7 @@ https://motdang.net/cm/p/stylish-condo-635485960.html	Stylish Condominium, A	Sty
 https://motdang.net/cm/p/mp-petroleum-639996800.html	MP Petroleum	-	transport	18.6771896,98.955609	-	-	ants=0/9
 https://motdang.net/cm/p/mug-cafe-and-bistro-640255789.html	Mug Cafe And Bistro	-	food	18.7071518,98.9112052	-	Tu-Su 08:00-17:00	ants=1/9
 https://motdang.net/cm/p/wat-rong-yao-642809004.html	วัดร้องยาว	Wat Rong Yao	wat	18.718715,99.0141562	-	-	ants=2/9
+https://motdang.net/cm/p/chiang-mai-virachai-engineering-co-ltd-643597825.html	บจก. เชียงใหม่วีระชัย วิศวกร	Chiang Mai Virachai Engineering, Co. Ltd	business	18.8319263,99.0034443	-	-	ants=2/9
 https://motdang.net/cm/p/fuel-station-644697902.html	Fuel Station	-	transport	18.8891446,98.830952	-	-	ants=0/9
 https://motdang.net/cm/p/di-bosco-644697906.html	Di Bosco	-	food	18.887841,98.8286046	phone=+66 80 567 0567; facebook=@diboscoroasterlab	Mo-Su 08:00-20:00	ants=2/9
 https://motdang.net/cm/p/taiheyi-riverside-645908669.html	Taiheyi Riverside	Taiheyi Riverside	hotel	18.7156194,98.9858756	-	-	ants=1/9
@@ -8466,6 +8627,7 @@ https://motdang.net/cm/p/the-swan-burmese-cuisine-650706594.html	The Swan Burmes
 https://motdang.net/cm/p/wat-ou-sai-kham-650706596.html	วัดอู่ทรายคำ	Wat Ou Sai Kham	wat	18.7895235,98.9946251	-	-	ants=2/9
 https://motdang.net/cm/p/bb-burger-650706597.html	BB Burger	-	food	18.7903196,98.9937616	-	-	ants=0/9
 https://motdang.net/cm/p/mila-hotel-cafe-650706598.html	Mila hotel & cafe	-	hotel	18.7898652,98.993779	-	-	ants=0/9
+https://motdang.net/cm/p/coin-laundry-650706600.html	Coin Laundry	-	essentials	18.7900477,98.9937409	-	-	ants=0/9
 https://motdang.net/cm/p/grace-s-boutique-house-650715607.html	Grace's Boutique House	-	hotel	18.7865607,98.9906974	-	-	ants=0/9
 https://motdang.net/cm/p/saraphi-district-office-651098913.html	ที่ว่าการอำเภอสารภี	Saraphi District Office	essentials	18.713363,99.0364158	-	-	ants=2/9
 https://motdang.net/cm/p/tesco-lotus-express-651491382.html	TESCO Lotus Express	-	essentials	18.8071455,98.9601781	-	-	ants=0/9
@@ -8623,6 +8785,7 @@ https://motdang.net/cm/p/bangchak-693413137.html	Bangchak	Bangchak	transport	18.
 https://motdang.net/cm/p/chomkhwan-mansion-693834627.html	จอมขวัญ แมนชั่น	Chomkhwan Mansion	hotel	18.7781315,98.9575853	-	-	ants=2/9
 https://motdang.net/cm/p/694361369.html	ลานเบียร์ บางขวาง	-	food	18.7772278,98.9528931	-	-	ants=1/9
 https://motdang.net/cm/p/695790006.html	วัดพันอ้น	-	wat	18.7875855,98.9907993	-	-	ants=1/9
+https://motdang.net/cm/p/chinag-mai-red-cross-695925440.html	สำนักงานเหล่ากาชาดจังหวัดเชียงใหม่	Chinag Mai Red Cross	community	18.7916242,98.9904662	-	-	ants=2/9
 https://motdang.net/cm/p/the-consul-s-garden-restaurant-696417200.html	The Consul's Garden Restaurant	-	food	18.761232,99.0026544	phone=+66898889339	Mo, We-Su 10:00-18:00	ants=2/9
 https://motdang.net/cm/p/health-restorative-clinic-696418613.html	Health Restorative Clinic	Health Restorative Clinic	medical	18.7595404,99.0063104	-	-	ants=1/9
 https://motdang.net/cm/p/laser-chiangmai-696587408.html	Laser Cutting Chiangmai	Laser ChiangMai	shopping	18.7624883,99.0086182	-	24/7	ants=3/9
@@ -8701,6 +8864,7 @@ https://motdang.net/cm/p/rimwiang-hotel-753589983.html	Rimwiang Hotel	-	hotel	18
 https://motdang.net/cm/p/754816144.html	สวนสาธารณะป้อมหายยา	-	parks	18.776167,98.9769358	-	-	ants=1/9
 https://motdang.net/cm/p/mob-bar-755405269.html	Mob Bar	-	food	18.7422914,98.9736386	-	-	ants=0/9
 https://motdang.net/cm/p/tender-valley-755405271.html	Tender Valley	Tender Valley	food	18.7530271,98.9421828	-	-	ants=1/9
+https://motdang.net/cm/p/st-andrew-s-community-learning-centre-756152050.html	St. Andrew's Community Learning Centre	-	community	18.7912199,99.0288037	-	-	ants=0/9
 https://motdang.net/cm/p/outdoor-playground-756152054.html	Outdoor Playground	-	parks	18.791382,99.0289389	-	-	ants=0/9
 https://motdang.net/cm/p/ing-place-757295245.html	Ing Place	-	realestate	18.8114455,98.9675523	-	-	ants=0/9
 https://motdang.net/cm/p/pt-758720372.html	PT	-	transport	18.8478869,99.1313258	-	-	ants=0/9
@@ -8735,6 +8899,7 @@ https://motdang.net/cm/p/homepro-77089898.html	โฮมโปร	HomePro	shoppi
 https://motdang.net/cm/p/mingmitr-coffee-772861537.html	Mingmitr Coffee	-	food	18.777732,98.9535972	-	Mo-Su 07:00-17:00	ants=1/9
 https://motdang.net/cm/p/for-rest-hill-772861539.html	For-Rest Hill	-	realestate	18.7793445,98.9503562	-	-	ants=0/9
 https://motdang.net/cm/p/for-rest-hill-2-772861541.html	For-Rest Hill 2	-	realestate	18.7794326,98.950036	-	-	ants=0/9
+https://motdang.net/cm/p/774916995.html	ไทยแซทเชียงใหม่	-	business	18.8436374,99.0139126	-	Mo-Sa 08:30-17:30	ants=2/9
 https://motdang.net/cm/p/eden-garden-resort-774947284.html	Eden Garden Resort	-	hotel	18.7836043,99.020672	-	-	ants=0/9
 https://motdang.net/cm/p/7-eleven-776107614.html	7-Eleven	-	essentials	18.7969117,98.961079	-	-	ants=0/9
 https://motdang.net/cm/p/flower-and-farmer-park-777219131.html	Flower and Farmer Park	-	parks	18.8968856,99.1276316	-	24/7	ants=1/9
@@ -8796,6 +8961,7 @@ https://motdang.net/cm/p/kasikornbank-83250063.html	ธนาคารกสิ�
 https://motdang.net/cm/p/muban-park-1-835649936.html	Muban Park 1	-	parks	18.6982037,98.9216894	-	-	ants=0/9
 https://motdang.net/cm/p/muban-park-3-835996273.html	Muban Park 3	-	parks	18.700156,98.9187107	-	-	ants=0/9
 https://motdang.net/cm/p/biz-point-10-839645700.html	Biz Point 10	Biz Point 10	shopping	18.7508407,98.941927	-	-	ants=1/9
+https://motdang.net/cm/p/839766574.html	อัศ นุชนาถ	-	shopping	18.7607611,98.955045	-	-	ants=1/9
 https://motdang.net/cm/p/kerry-express-841775952.html	Kerry Express	-	essentials	18.6024694,98.8254961	-	-	ants=0/9
 https://motdang.net/cm/p/helen-s-canteen-842608231.html	Helen's Canteen	-	food	18.7979057,99.0117535	-	-	ants=1/9
 https://motdang.net/cm/p/dara-academy-s-museum-842608238.html	Dara Academy's Museum	-	museums-galleries	18.7974853,99.0126865	-	-	ants=0/9
@@ -8924,6 +9090,7 @@ https://motdang.net/cr/p/papa-shabu-10137315376.html	ปาป้า ชาบ�
 https://motdang.net/cr/p/10162506272.html	โจ๊กจั่นเจา	-	food	19.9124885,99.8392414	-	-	ants=1/9
 https://motdang.net/cr/p/thainakorn-kawassadu-10169153338.html	ไทยนครค้าวัสดุ	Thainakorn Kawassadu	shopping	19.9127327,99.8416939	phone=+66 53 7148845	-	ants=3/9
 https://motdang.net/cr/p/7-eleven-10188046127.html	7-Eleven	-	essentials	19.9294863,99.8549495	-	-	ants=0/9
+https://motdang.net/cr/p/kenta-laudry-10199572631.html	เคนตะ ลอนดรี	Kenta Laudry	essentials	19.9153789,99.8406389	-	-	ants=2/9
 https://motdang.net/cr/p/lobmoom-10199588591.html	หลบมุม	Lobmoom	essentials	19.9152988,99.8395493	-	-	ants=2/9
 https://motdang.net/cr/p/la-ola-10199600350.html	La Ola	La Ola	food	19.9069186,99.8312731	phone=+6685 354 7850; facebook=Facebook	15.00-23.30	ants=3/9
 https://motdang.net/cr/p/noi-hair-take-10199601227.html	น้อยแอร์เทค	Noi Hair Take	beauty	19.9154368,99.8387393	-	-	ants=2/9
@@ -8950,10 +9117,12 @@ https://motdang.net/cr/p/phupiang-10261957984.html	ภูเพียง	Phupian
 https://motdang.net/cr/p/joy-bakery-10279458810.html	บ้านดุ่เมืองใหม่	Joy Bakery	food	19.9753087,99.8642398	phone=0982757976; email=dsyoung23@gmail.com	Mo-Sa 09:00-18:00	ants=4/9
 https://motdang.net/cr/p/pizza-hut-10291388608.html	Pizza Hut	-	food	19.9308722,99.8439129	-	-	ants=0/9
 https://motdang.net/cr/p/sweet-secret-10291400809.html	Sweet Secret	-	food	19.9306907,99.8437216	-	-	ants=0/9
+https://motdang.net/cr/p/ono-wash-and-dry-10291400851.html	Ono Wash and Dry	Ono Wash and Dry	essentials	19.9305673,99.843584	-	-	ants=1/9
 https://motdang.net/cr/p/chai-xi-10294851199.html	ชายสี่	Chai Xi	food	19.8941177,99.827572	-	-	ants=2/9
 https://motdang.net/cr/p/fallen-fruit-10296478235.html	Fallen Fruit	Fallen Fruit	food	19.9009005,99.8324243	phone=+6695 950 9462; instagram=@fallenfruit.cei	-	ants=2/9
 https://motdang.net/cr/p/mew-cr-pe-10298531448.html	เครปมิว	Mew Crêpe	food	19.9046646,99.8285947	-	-	ants=2/9
 https://motdang.net/cr/p/coffee-n-more-10298531456.html	Coffee n' More	Coffee n' More	food	19.9044113,99.8285862	-	-	ants=1/9
+https://motdang.net/cr/p/tj-mall-10303934910.html	ทีเจ มอลล์ ค้าส่ง	TJ Mall	business	19.9128402,99.8601551	-	-	ants=2/9
 https://motdang.net/cr/p/1055-brewing-at-corner-10307977396.html	1055 brewing at corner	1055 brewing at corner	food	19.9050211,99.8286083	phone=+66966916998; email=1055brewer@gmail.com	Mo-Su 07:30-17:00	ants=3/9
 https://motdang.net/cr/p/rosie-cei-10316298412.html	Rosie.cei	-	food	19.9113379,99.8381981	-	-	ants=0/9
 https://motdang.net/cr/p/10542349151.html	วัดพระธาตุ ผาเงา	-	wat	20.2443327,100.1088318	-	-	ants=2/9
@@ -9005,6 +9174,7 @@ https://motdang.net/cr/p/mini-big-c-11556106720.html	Mini Big C	-	essentials	19.
 https://motdang.net/cr/p/ghana-coffee-house-11559137015.html	Ghana Coffee House	-	food	19.9934244,99.8602885	-	-	ants=0/9
 https://motdang.net/cr/p/rung-chiang-rai-resort-11559220960.html	Rung Chiang Rai Resort	-	hotel	19.9451818,99.882173	phone=+66837788802	-	ants=1/9
 https://motdang.net/cr/p/mr-shiba-11559544559.html	Mr. shiba	-	food	19.9014105,99.831034	-	-	ants=0/9
+https://motdang.net/cr/p/fun-wash-11559718636.html	Fun Wash	Fun Wash	essentials	19.9114628,99.8361691	-	24/7	ants=3/9
 https://motdang.net/cr/p/baan-mai-kradan-hostel-11561548952.html	Baan Mai Kradan Hostel	-	hotel	19.9103511,99.8377004	-	-	ants=0/9
 https://motdang.net/cr/p/bike-coffee-11577997795.html	Bike coffee	-	food	19.9234715,99.8427579	-	-	ants=0/9
 https://motdang.net/cr/p/7-eleven-11602192607.html	7-Eleven	-	essentials	19.8638893,99.8225029	-	-	ants=0/9
@@ -9042,6 +9212,7 @@ https://motdang.net/cr/p/bamboo-nest-12450861584.html	Bamboo Nest	-	hotel	19.907
 https://motdang.net/cr/p/flower-bloom-cafe-special-blend-12479979598.html	Flower bloom cafe & special blend	-	food	19.8670199,99.7330096	-	-	ants=0/9
 https://motdang.net/cr/p/happynest-12482416727.html	Happynest	-	hotel	19.89912,99.8324175	-	-	ants=0/9
 https://motdang.net/cr/p/mira-12482417078.html	Mira	-	hotel	19.8991546,99.8320742	-	-	ants=0/9
+https://motdang.net/cr/p/neko-wash-dry-12485369726.html	Neko Wash&Dry	-	essentials	19.8974605,99.8315166	-	Mo-Su,PH 00:00-00:00	ants=1/9
 https://motdang.net/cr/p/praepiangpor-12528671319.html	Praepiangpor	-	food	19.9867892,99.8580314	phone=084-5195442	Mo-Su 11:00-22:00	ants=2/9
 https://motdang.net/cr/p/grow-12531973317.html	Grow	Grow	hotel	19.9007451,99.8350327	phone=+66 64 964 5905	-	ants=2/9
 https://motdang.net/cr/p/arigano-coffee-12548011119.html	Arigano Coffee	-	food	19.9008785,99.8361288	-	-	ants=0/9
@@ -9070,6 +9241,7 @@ https://motdang.net/cr/p/james-art-coffee-13086518748.html	James Art Coffee	-	fo
 https://motdang.net/cr/p/13086723011.html	เล้งจักรพรรดิ์ ข้าวมันไก่	-	food	19.8855697,99.830459	-	-	ants=1/9
 https://motdang.net/cr/p/kwangtung-13088652944.html	กวางตุ้ง	Kwangtung	food	19.9048814,99.8099217	phone=+66 80 553 6289; facebook=@กวางตุ้ง-100040925544044	Mo-Su 10:00-20:00	ants=4/9
 https://motdang.net/cr/p/doofeel-13093773836.html	Doofeel	-	food	19.8232952,99.7481544	facebook=@doofeelcompany	-	ants=0/9
+https://motdang.net/cr/p/washing-machine-makao-13114006801.html	washing machine Makao	-	essentials	19.9400178,99.8355435	-	-	ants=0/9
 https://motdang.net/cr/p/inspire-by-princess-doi-hang-13114007001.html	Inspire by PRINCESS @Doi Hang	-	food	19.9281909,99.772446	-	-	ants=0/9
 https://motdang.net/cr/p/sleep-and-rest-makao-13114007101.html	Sleep and Rest Makao	-	hotel	19.9402052,99.8353873	phone=0960825759	-	ants=1/9
 https://motdang.net/cr/p/makao-coffee-retro-13114007401.html	Makao Coffee Retro	-	food	19.940316,99.8356466	phone=09608255759	Th-Tu 09:00-17:00	ants=3/9
@@ -9082,6 +9254,7 @@ https://motdang.net/cr/p/bundarnjai-coffee-eatery-bingsu-13184024816.html	Bundar
 https://motdang.net/cr/p/evolt-superbike-13251034626.html	Evolt Superbike	-	repair	19.8939531,99.8313687	-	-	ants=0/9
 https://motdang.net/cr/p/yellow-truck-coffee-13261753744.html	Yellow Truck Coffee	-	food	19.90701,99.831154	phone=0861180044, 0869245378	06.00-12.00	ants=2/9
 https://motdang.net/cr/p/my-gastro-13261753745.html	My Gastro	-	food	19.9069757,99.8312653	-	15.00-23.30	ants=1/9
+https://motdang.net/cr/p/village-center-13269429701.html	หอประชุมหมู่บ้านและลานกิจกรรม	village center	community	19.8562826,99.8443227	-	-	ants=2/9
 https://motdang.net/cr/p/soyi-pangkhon-coffee-house-13300964601.html	Soyi Pangkhon Coffee House	Soyi Pangkhon Coffee House	food	19.9099807,99.8286223	-	-	ants=1/9
 https://motdang.net/cr/p/hoi-tot-fried-oyster-omelette-13304592201.html	Hoi Tot Fried Oyster Omelette	Hoi Tot Fried Oyster Omelette	food	19.9072316,99.8294223	-	-	ants=1/9
 https://motdang.net/cr/p/soyi-coffee-13350779301.html	Soyi Coffee	-	food	19.9244956,99.8167325	-	-	ants=0/9
@@ -9090,6 +9263,7 @@ https://motdang.net/cr/p/kunda-vegetarian-caf-13389915801.html	Kunda Vegetarian 
 https://motdang.net/cr/p/good-carb-13435252058.html	Good Carb	Good Carb	food	19.8990765,99.832417	phone=+66 96 326 6545; facebook=@goodcarb.cafe; instagram=@goodcarb_cafe	07:30-17:00	ants=3/9
 https://motdang.net/cr/p/suan-singha-13435252415.html	Suan Singha	-	food	19.8249574,99.7573946	-	-	ants=0/9
 https://motdang.net/cr/p/breakfast-monster-13463369506.html	Breakfast Monster	Breakfast Monster	food	19.9009539,99.8378803	-	-	ants=1/9
+https://motdang.net/cr/p/white-bear-13475928474.html	White Bear	White Bear	essentials	19.9008867,99.8362563	-	-	ants=1/9
 https://motdang.net/cr/p/13518302123.html	อุโบสถวัดห้วยปลากั้ง	-	wat	19.9492965,99.8066377	-	-	ants=2/9
 https://motdang.net/cr/p/13518302225.html	เจดีย์วัดห้วยปลสกั้ง	-	wat	19.9498007,99.8064175	-	-	ants=1/9
 https://motdang.net/cr/p/horizon-cafe-restaurant-13523596601.html	Horizon Cafe & Restaurant	-	food	19.9457091,99.918146	-	-	ants=0/9
@@ -9106,9 +9280,11 @@ https://motdang.net/cr/p/bella-pizza-13651622201.html	Bella Pizza	-	food	19.9127
 https://motdang.net/cr/p/riva-vista-riverfront-hotel-13677521636.html	Riva Vista Riverfront Hotel	-	hotel	19.9214347,99.8435377	-	-	ants=0/9
 https://motdang.net/cr/p/luk-swan-resort-13677669478.html	Luk Swan Resort	-	hotel	19.9225228,99.8398647	-	-	ants=0/9
 https://motdang.net/cr/p/ku-ni-coffee-roaster-13681370301.html	Ku-Ni Coffee Roaster	-	food	19.9815793,99.8386033	-	-	ants=0/9
+https://motdang.net/cr/p/13684580801.html	บ้านสวน	-	home-services	19.9394188,99.8377433	-	-	ants=1/9
 https://motdang.net/cr/p/13724825735.html	ก๋วยเตี๋ยวเนื้อตุ๋น	-	food	19.8822522,99.8026674	-	-	ants=1/9
 https://motdang.net/cr/p/the-clock-tower-chiang-rai-hostel-13742818001.html	The Clock Tower Chiang Rai Hostel	-	hotel	19.9076326,99.8308105	-	-	ants=0/9
 https://motdang.net/cr/p/1379841226.html	วัดดอย	-	wat	19.2846463,99.4938823	-	-	ants=1/9
+https://motdang.net/cr/p/13810099368.html	บริษัท ที พลัส เซอร์วิส แอนด์ แอสเซท จำกัด	-	business	19.9247809,99.8443598	phone=0921971233; facebook=Facebook	Mo-Sa 08:30-16:30	ants=3/9
 https://motdang.net/cr/p/13844545401.html	สวนปฏิบัติธรรมดอยช้าง-งู	-	wat	20.4364134,99.8727967	-	-	ants=1/9
 https://motdang.net/cr/p/joiwoii-beach-13858142801.html	Joiwoii Beach (หาดจอยวอย)	-	food	19.9236584,99.861516	-	-	ants=1/9
 https://motdang.net/cr/p/chiang-rai-pet-hospital-13957066301.html	Chiang Rai PET Hospital	-	pets	19.9042041,99.8163145	phone=0901511156	Mo-Su 09:00-18:00	ants=2/9
@@ -9245,6 +9421,7 @@ https://motdang.net/cr/p/hi-5-bar-2450214473.html	Hi 5 Bar	Hi 5 Bar	food	19.9065
 https://motdang.net/cr/p/ti-amo-chiangrai-central-2450215492.html	Ti Amo House	Ti Amo Chiangrai Central	food	19.9066167,99.8311611	-	-	ants=2/9
 https://motdang.net/cr/p/moon-house-2450215744.html	Moon House	-	hotel	19.9067053,99.8311691	-	-	ants=0/9
 https://motdang.net/cr/p/wat-doi-phrabat-2539789786.html	วัดดอยพระบาท	Wat Doi Phrabat	wat	19.8845543,99.8244656	-	-	ants=3/9
+https://motdang.net/cr/p/malai-laundry-2616153676.html	มาลัย ซัก อบ รีด (Malai Laundry)	-	essentials	19.8958364,99.9421492	-	-	ants=1/9
 https://motdang.net/cr/p/khatam-gate-2622028405.html	ประตูขะด๊ำ	Khatam Gate	sights	19.9143207,99.8234115	-	-	ants=2/9
 https://motdang.net/cr/p/tha-sai-gate-2622028406.html	ประตูท่าทราย	Tha Sai Gate	sights	19.9124831,99.8345679	-	-	ants=2/9
 https://motdang.net/cr/p/pa-daeng-gate-2622028407.html	ประตูป่าแดง	Pa Daeng Gate	sights	19.9068611,99.8266573	-	-	ants=2/9
@@ -9400,6 +9577,7 @@ https://motdang.net/cr/p/nantha-chai-inn-4530776858.html	โรงแรมน�
 https://motdang.net/cr/p/kasikorn-bank-4530793506.html	ธนาคารกสิกรไทย	Kasikorn Bank	essentials	19.9670564,99.8565843	-	-	ants=2/9
 https://motdang.net/cr/p/krungthai-bank-4530793507.html	ธนาคารกรุงไทย	Krungthai Bank	essentials	19.9733415,99.8585017	-	-	ants=2/9
 https://motdang.net/cr/p/browney-pet-world-4530898878.html	Browney Pet World	-	pets	19.9296818,99.8451544	-	-	ants=0/9
+https://motdang.net/cr/p/chiang-rai-legal-execution-office-4530908725.html	สำนักงานบังคับคดี จังหวัดเชียงราย	Chiang Rai Legal Execution Office	business	19.9132331,99.8428275	-	-	ants=2/9
 https://motdang.net/cr/p/islamic-bank-of-thailand-4530910931.html	ธนาคารอิสลามแห่งประเทศไทย	Islamic Bank of Thailand	essentials	19.9120805,99.8417455	-	-	ants=2/9
 https://motdang.net/cr/p/wat-phra-that-ku-kaeo-4530941174.html	วัดพระธาตุกู่แก้ว	Wat Phra That Ku Kaeo	wat	19.74717,99.7300398	-	-	ants=2/9
 https://motdang.net/cr/p/morning-side-resort-4537064690.html	มอนิ่งไซค์รีสอร์ท	Morning Side resort	hotel	19.9746785,99.8415444	-	-	ants=2/9
@@ -9439,6 +9617,7 @@ https://motdang.net/cr/p/pad-thai-thai-food-4690123692.html	Pad Thai-Thai food	P
 https://motdang.net/cr/p/vietnamese-food-4690179492.html	Vietnamese food	Vietnamese food	food	19.9032274,99.8338413	-	-	ants=1/9
 https://motdang.net/cr/p/golden-triangle-inn-4709226957.html	Golden Triangle Inn	Golden Triangle Inn	hotel	19.9070041,99.8344385	-	-	ants=1/9
 https://motdang.net/cr/p/barber-shop-4717894990.html	Barber Shop	Barber Shop	beauty	19.9102018,99.8281864	-	-	ants=1/9
+https://motdang.net/cr/p/pawana-laundry-4718086990.html	Pawana Laundry	-	essentials	19.9030967,99.8358383	-	Fr-We 08:00-18:00	ants=1/9
 https://motdang.net/cr/p/p-s-car-rent-4725603490.html	P S Car Rent	P S Car Rent	transport	19.9035976,99.8328794	phone=0895601851	-	ants=2/9
 https://motdang.net/cr/p/snake-bar-4726238590.html	Snake Bar	Snake Bar	food	19.9063861,99.8313167	-	-	ants=1/9
 https://motdang.net/cr/p/bavarian-beer-house-4726937490.html	Bavarian Beer House	Bavarian Beer House	food	19.906136,99.8312184	-	-	ants=1/9
@@ -9550,6 +9729,8 @@ https://motdang.net/cr/p/beautiful-view-with-flowers-around-6284163599.html	Beau
 https://motdang.net/cr/p/7-eleven-6291000616.html	7-Eleven	-	essentials	19.9014493,99.8301703	-	-	ants=0/9
 https://motdang.net/cr/p/pa-ting-s-6297199685.html	ป้าติ่ง	Pa Ting's	food	19.9154652,99.8371951	-	-	ants=2/9
 https://motdang.net/cr/p/pizza-company-6297472385.html	The Pizza Company	pizza company	food	19.9050071,99.832915	-	-	ants=1/9
+https://motdang.net/cr/p/laundry-6322776876.html	Laundry	-	essentials	19.9062523,99.8332595	-	-	ants=0/9
+https://motdang.net/cr/p/laundromat-6322777389.html	Laundromat	-	essentials	19.9246714,99.8395198	-	-	ants=0/9
 https://motdang.net/cr/p/le-terrarium-6325000596.html	เลอเทอราเนียม	Le Terrarium	hotel	19.901123,99.8300552	phone=+6653 719 456; email=leterrariumhotel@gmail.com	-	ants=3/9
 https://motdang.net/cr/p/6351563585.html	ก๋วยเตี๋ยวปลาชาพ่อขุนหมื่นลี้	-	food	19.9148038,99.8448843	-	-	ants=1/9
 https://motdang.net/cr/p/wiangsa-temple-6375494585.html	วัดบ้านเวียงสา	Wiangsa Temple	wat	20.2196164,99.8252227	-	-	ants=2/9
@@ -9634,12 +9815,15 @@ https://motdang.net/cr/p/wat-maesalongnai-temple-7179402934.html	วัดแม
 https://motdang.net/cr/p/akha-cottage-coffee-7199874885.html	Akha Cottage	Akha Cottage Coffee	food	19.9451276,99.7959892	phone=084-610-7686	-	ants=2/9
 https://motdang.net/cr/p/bechegu-coffee-7230545870.html	Bechegu Coffee	-	food	19.904055,99.8229346	phone=+66 86 430 2593	Mo-Sa 07:30-18:00	ants=2/9
 https://motdang.net/cr/p/1993-barber-shop-7238538103.html	1993 barber shop	-	beauty	19.9772211,99.8606441	-	-	ants=0/9
+https://motdang.net/cr/p/jumbo-wash-7252270198.html	Jumbo Wash	-	essentials	19.8986911,99.8323261	phone=020263699	Mo-Su,PH 00:00-00:00	ants=2/9
 https://motdang.net/cr/p/greenhouse-cafe-bistro-7282279573.html	Greenhouse Cafe & Bistro	-	food	19.9031142,99.8509196	-	Mo-Su 09:00-18:00	ants=1/9
 https://motdang.net/cr/p/coffee-shop-7288771385.html	Coffee Shop	Coffee Shop	food	19.9069178,99.8305383	-	-	ants=1/9
 https://motdang.net/cr/p/implaphao-7298407064.html	Implaphao	-	food	19.9046081,99.8580587	web=implaphao.com	Mo-Su 11:00-22:00	ants=2/9
+https://motdang.net/cr/p/saimool-village-center-7461678287.html	ศูนย์ชุมชนบ้านทรายมูล	Saimool village center	community	19.9560206,99.7813054	-	-	ants=2/9
 https://motdang.net/cr/p/wat-huai-kom-temple-7461678288.html	วัดห้วยขม	Wat Huai Kom temple	wat	19.9891221,99.7566521	-	-	ants=2/9
 https://motdang.net/cr/p/wat-tha-look-temple-7461716586.html	วัดบ้านท่าหลุก	Wat Tha Look temple	wat	19.9575697,99.7795427	-	-	ants=2/9
 https://motdang.net/cr/p/wat-tung-luang-temple-7462081485.html	วัดทุ่งหลวง	Wat Tung Luang temple	wat	19.9749308,99.7639937	-	-	ants=2/9
+https://motdang.net/cr/p/the-mirror-foundation-7502437242.html	มูลนิธิกระจกเงา	the mirror foundation	community	19.9949165,99.750357	phone=6653737616; web=themirrorfoundation.org	Mo-Fr 09:00-17:00	ants=5/9
 https://motdang.net/cr/p/phra-that-pong-pu-fuang-pagoda-7512848386.html	พระธาตุโป่งปูเฟือง	Phra That Pong Pu Fuang pagoda	wat	19.7074034,99.5891613	-	-	ants=2/9
 https://motdang.net/cr/p/delicious-kao-soi-restaurant-7643122287.html	Delicious Kao Soi Restaurant	Delicious Kao Soi Restaurant	food	19.9750368,99.858454	-	-	ants=1/9
 https://motdang.net/cr/p/some-sunday-magic-7694753787.html	Some Sunday Magic	-	food	19.9928725,99.8613154	-	-	ants=0/9
@@ -9668,6 +9852,7 @@ https://motdang.net/cr/p/yen-yen-8930769996.html	Yen Yen	-	food	19.9063835,99.82
 https://motdang.net/cr/p/rak-kraprow-8930799434.html	รัก กะเพรา	Rak Kraprow	food	19.9044999,99.8289845	-	-	ants=2/9
 https://motdang.net/cr/p/8931699061.html	สหกรณ์โรงเรียนสามัคคีฯ	-	essentials	19.9059286,99.8273108	-	-	ants=1/9
 https://motdang.net/cr/p/school-gsb-bank-8931699068.html	ธนาคารโรงเรียน	School GSB Bank	essentials	19.9059309,99.8271903	-	-	ants=2/9
+https://motdang.net/cr/p/8931701770.html	ห้องอากาศยาน	-	community	19.9056006,99.8261286	-	-	ants=1/9
 https://motdang.net/cr/p/8932931825.html	ครัวลุงวัฒน์	-	food	19.9341917,99.841821	-	-	ants=1/9
 https://motdang.net/cr/p/iroha-ramen-izakaya-chiang-rai-8938699740.html	IROHA Ramen & Izakaya Chiang Rai - อิโรฮะ ราเมง & อิซากายะ เชียงราย	-	food	19.8865097,99.8337098	phone=+66 83 473 7774; facebook=@IrohaRamenChiangRai	-	ants=2/9
 https://motdang.net/cr/p/bar-b-q-plaza-8946453124.html	Bar-B-Q Plaza	-	food	19.8865728,99.8340541	-	-	ants=0/9
@@ -9682,6 +9867,7 @@ https://motdang.net/cr/p/wiangluang-mookata-8953875584.html	เวียงห�
 https://motdang.net/cr/p/mani-inn-hotel-8953887605.html	โรงแรม มณีอินน์	Mani Inn Hotel	hotel	19.8981849,99.8227817	-	-	ants=2/9
 https://motdang.net/cr/p/radnah-sanumbin-8953891125.html	ราดหน้าสนามบิน	Radnah Sanumbin	food	19.8996547,99.8276633	-	-	ants=2/9
 https://motdang.net/cr/p/jeep-dimsum-8955693296.html	จีบ Dimsum	Jeep Dimsum	food	19.903311,99.8321781	-	-	ants=2/9
+https://motdang.net/cr/p/acct-concept-8957462325.html	acct concept	acct concept	business	19.9038953,99.8246334	-	-	ants=1/9
 https://motdang.net/cr/p/male-haircut-8957462393.html	ตัดผมชาย	Male Haircut	beauty	19.9044608,99.8247655	-	-	ants=2/9
 https://motdang.net/cr/p/khao-tom-pla-164-8963043354.html	ข้าวต้มปลา 164	Khao Tom Pla 164	food	19.9021044,99.8281474	-	-	ants=2/9
 https://motdang.net/cr/p/st-motorcycles-rentals-sales-906244402.html	ST Motorcycles Rentals & Sales	-	food	19.9067918,99.8311863	phone=+6653713652	Mo-Su 07:00-19:00	ants=2/9
@@ -9690,6 +9876,7 @@ https://motdang.net/cr/p/steak-lung-nhuad-9097753203.html	สเต็กลุ�
 https://motdang.net/cr/p/9104729404.html	ก๋วยเตี๋ยวเรือ ๑๓ เหรียญ	-	food	19.8847527,99.8307378	phone=+66860206747; facebook=@tawrue13rean; email=ononok747@gmail.com	-	ants=2/9
 https://motdang.net/cr/p/tiew-raeur-13-rian-9104746651.html	เตี๋ยวเรือ ๑๓ เหรียญ	Tiew Raeur 13 rian	food	19.8847967,99.8307344	phone=+66860206747; facebook=@tawrue13rean; email=ononok747@gmail.com	-	ants=3/9
 https://motdang.net/cr/p/fuji-restaurant-9119957392.html	ฟูจิ	Fuji Restaurant	food	19.8864139,99.833432	phone=+66840346569; web=fuji.co.th; email=info@fuji.co.th	-	ants=4/9
+https://motdang.net/cr/p/pa-chit-laundry-9121752692.html	ป้าจิตร ซักอบรีด	Pa Chit Laundry	essentials	19.905103,99.8190236	-	-	ants=2/9
 https://motdang.net/cr/p/kru-nui-s-kitchen-9121752693.html	ครัวครูนุ้ย	Kru Nui's Kitchen	food	19.9050615,99.8190284	phone=+66612916991	-	ants=3/9
 https://motdang.net/cr/p/9121752695.html	ตัดผมชาย	-	beauty	19.9049732,99.8190351	-	-	ants=1/9
 https://motdang.net/cr/p/dream-salon-9121752696.html	ดรีม ซาลอน	Dream Salon	beauty	19.9049345,99.819036	phone=+66948408430	-	ants=3/9
@@ -9725,6 +9912,7 @@ https://motdang.net/cr/p/cheng-sim-ei-9207934124.html	เช็งซิมอ�
 https://motdang.net/cr/p/9209053639.html	สอนภาษาอังกฤษ	-	learn	19.9034266,99.821139	phone=+66849770946	-	ants=2/9
 https://motdang.net/cr/p/por-drink-shop-9209053688.html	ร้านน้ำตัวป.	Por Drink Shop	food	19.9044054,99.8210143	-	-	ants=2/9
 https://motdang.net/cr/p/colombia-somtam-9214471411.html	ส้มตำ โคลอมเบีย	Colombia Somtam	food	19.9016076,99.823738	-	-	ants=2/9
+https://motdang.net/cr/p/san-khong-noi-elderly-club-9215459178.html	ที่ทำการชมรมผู้สูงอายุสันโค้งน้อย	San Khong Noi Elderly Club	community	19.9027995,99.819219	-	-	ants=2/9
 https://motdang.net/cr/p/wat-si-chum-9218379948.html	วัดศรีจุม	Wat Si Chum	wat	19.9924697,99.8758148	-	-	ants=2/9
 https://motdang.net/cr/p/bitter-gourd-chicken-noodles-9223231635.html	ก๋วยเตี๋ยวไก่มะระ ข้างโรงบาล	Bitter gourd chicken noodles	food	19.9014262,99.8300134	-	-	ants=2/9
 https://motdang.net/cr/p/pi-noi-s-kitchen-rice-and-curry-9223231636.html	ข้าวแกง ครัวพี่น้อย	Pi Noi's Kitchen Rice and Curry	food	19.9014619,99.8300034	-	-	ants=2/9
@@ -9764,6 +9952,7 @@ https://motdang.net/cr/p/pruksa-9790527206.html	พฤกษา	Pruksa	food	19.9
 https://motdang.net/cr/p/wat-phra-that-pluthong-thamwararam-9796242918.html	Wat Phra That Pluthong Thamwararam	Wat Phra That Pluthong Thamwararam	wat	20.0508629,99.8515381	-	-	ants=1/9
 https://motdang.net/cr/p/kog-motorcycle-electrical-repairs-9817126384.html	ร้านก๋ง ซ่อมจักรยายนต์	Kog Motorcycle/electrical repairs	repair	19.9007805,99.8323956	-	-	ants=2/9
 https://motdang.net/cr/p/cafe-9830633217.html	cafe	cafe	food	19.9127256,99.7824909	-	-	ants=1/9
+https://motdang.net/cr/p/otteri-9841983417.html	Otteri	Otteri	essentials	19.9019769,99.8326121	-	24/7	ants=2/9
 https://motdang.net/cr/p/ros-nom-9847662554.html	รสนม	Ros Nom	food	19.9015058,99.8325343	-	-	ants=2/9
 https://motdang.net/cr/p/96-tires-9847662611.html	96 Tires	96 Tires	repair	19.9019106,99.8326115	-	-	ants=1/9
 https://motdang.net/cr/p/wu-phochana-9863490668.html	อู๋โภชนา	Wu Phochana	food	19.9018395,99.8254998	-	Mo-Su 09:00-20:00	ants=3/9
@@ -9812,14 +10001,18 @@ https://motdang.net/cr/p/cafe-amazon-1014990984.html	Cafe Amazon	-	food	19.87949
 https://motdang.net/cr/p/pt-1014990988.html	PT	-	transport	19.8744543,99.8473076	-	-	ants=0/9
 https://motdang.net/cr/p/1015382586.html	วัดพระธาตุจอมจ้อ	-	wat	19.6845039,100.1834396	-	-	ants=1/9
 https://motdang.net/cr/p/wat-ban-laeo-1015832659.html	Wat Ban Laeo	Wat Ban Laeo	wat	20.1633771,99.8888653	-	-	ants=1/9
+https://motdang.net/cr/p/denha-ac-service-1019881349.html	เด่นห้า แอร์ เซอร์วิส	Denha AC Service	repair	19.9053762,99.8186439	phone=+66855352578	-	ants=3/9
 https://motdang.net/cr/p/southern-curry-rice-1019881350.html	ข้าวราดแกงปักษ์ใต้	Southern Curry Rice	food	19.9054242,99.8187651	-	-	ants=2/9
 https://motdang.net/cr/p/amen-house-1019881352.html	เอเมน เฮาส์	Amen House	hotel	19.9052332,99.8187727	-	-	ants=2/9
 https://motdang.net/cr/p/chiang-rai-rajabhat-university-1024441024.html	มหาวิทยาลัยราชภัฏเชียงราย	Chiang Rai Rajabhat University	learn	19.984584,99.848539	phone=+6653776000; web=crru.ac.th; email=general@crru.ac.th	-	ants=4/9
 https://motdang.net/cr/p/nam-oy-food-drink-court-1025284566.html	ศูนย์อาหาร ครัวน้ำอ้อย	Nam-Oy Food & Drink Court	food	19.931625,99.8770167	-	-	ants=2/9
 https://motdang.net/cr/p/thai-watsadu-1027574457.html	ไทวัสดุ	Thai Watsadu	shopping	19.8728432,99.8295198	-	-	ants=2/9
 https://motdang.net/cr/p/ban-noi-1034518219.html	Ban Noi	Ban Noi	food	19.9075119,99.7985709	-	-	ants=1/9
+https://motdang.net/cr/p/senior-citizens-council-of-thailand-branch-1036773887.html	สาขาสมาคมสภาผู้สูงอายุแห่งประเทศไทย	Senior Citizens Council of Thailand Branch	community	19.9163877,99.8348975	-	-	ants=2/9
+https://motdang.net/cr/p/therdprakiat-community-center-1036773900.html	ชุมชนเทิดพระเกียรติ	Therdprakiat Community Center	community	19.9163742,99.8341965	-	-	ants=2/9
 https://motdang.net/cr/p/wat-su-wan-na-ram-1041398904.html	วัดสุวรรณาราม	Wat Su Wan Na Ram	wat	19.1179133,99.4653641	-	-	ants=2/9
 https://motdang.net/cr/p/kho-thong-canal-104960000.html	คลองเกาะทอง	Kho Thong Canal	parks	19.9106321,99.8427306	-	-	ants=2/9
+https://motdang.net/cr/p/makro-104968668.html	แม็คโคร	Makro	business	19.9566973,99.8528416	-	Mo-Su 06:00-22:00	ants=3/9
 https://motdang.net/cr/p/chiang-rai-bus-terminal-1-105137199.html	สถานีขนส่งผู้โดยสารจังหวัดเชียงราย 1	Chiang Rai Bus Terminal 1	transport	19.9046593,99.834473	-	-	ants=2/9
 https://motdang.net/cr/p/combo-4-fitness-1061692929.html	COMBO 4 Fitness	-	learn	19.9022384,99.8202857	phone=+66884340147; facebook=@COMBO4FITNESS; email=mathasith12@gmail.com	-	ants=1/9
 https://motdang.net/cr/p/ann-bakery-house-1061692950.html	แอน เบเกอรี่เฮ้าส์	Ann Bakery House	food	19.9021876,99.8211099	-	-	ants=2/9
@@ -9833,17 +10026,22 @@ https://motdang.net/cr/p/na-nai-ya-1074237699.html	ณ นายญ่า	Na Nai
 https://motdang.net/cr/p/nai-ya-1074237705.html	นายญ่า	Nai Ya	hotel	19.8981687,99.8313606	phone=+66 53 727239; web=naiyahotel.com; email=naiyafo@gmail.com	-	ants=4/9
 https://motdang.net/cr/p/lanna-post-office-1074237711.html	ไปรษณีย์ ลานนา	Lanna Post Office	essentials	19.8987753,99.8320687	phone=+6653717131	-	ants=3/9
 https://motdang.net/cr/p/ruamkaset-part-ltd-1074237714.html	หจก. รวมเกษตร	Ruamkaset Part., Ltd.	shopping	19.8984978,99.8320386	phone=+66 53711387; email=skrit29@hotmail.com	-	ants=3/9
+https://motdang.net/cr/p/green-laundry-1074237727.html	กรีน ซัก อบ รีด	Green Laundry	essentials	19.8976769,99.8318356	-	-	ants=2/9
 https://motdang.net/cr/p/tok-s-1074237730.html	ช่างต๊อก	Tok's	repair	19.897749,99.8314677	phone=+6684 6094677	-	ants=3/9
 https://motdang.net/cr/p/grandma-pin-s-northern-thai-food-1075277153.html	อาหารเหนือยายพิน	Grandma Pin's Northern Thai Food	food	19.8985244,99.8303687	-	-	ants=2/9
 https://motdang.net/cr/p/mannchon-cafe-1075277176.html	กาแฟมวลชน	Mannchon Cafe	food	19.8996968,99.8297601	-	-	ants=2/9
 https://motdang.net/cr/p/caf-amazon-1075277177.html	คาเฟ่ อเมซอน	Café Amazon	food	19.8997053,99.8298571	-	-	ants=2/9
+https://motdang.net/cr/p/padungsak-and-friends-accounting-1075278725.html	สนง. บัญชีผดุงศักดิ์และเพื่อน	Padungsak and Friends Accounting	business	19.8993339,99.83213	phone=+66 94 5962593; email=kongpathai@hotmail.com	Mo-Fr 09:00-17:00	ants=4/9
 https://motdang.net/cr/p/baan-silp-hotel-1075480831.html	โรงแรมบ้านศิลป์	Baan Silp Hotel	hotel	19.9015778,99.8253275	phone=+66 537563356; web=baansilphotel.top; email=sasipim555@gmail.com	-	ants=4/9
 https://motdang.net/cr/p/kunyai-s-1075480901.html	ร้านคุณยาย	Kunyai's	food	19.9007426,99.8246277	-	-	ants=2/9
 https://motdang.net/cr/p/le-petit-1075480911.html	Le Petit	Le Petit	food	19.9015962,99.8246891	-	-	ants=1/9
+https://motdang.net/cr/p/multipurpose-building-den-ha-community-1083152662.html	อาคารอเนกประสงค์ ชุมชนเด่นห้า	Multipurpose Building, Den Ha Community	community	19.9009143,99.8111649	-	-	ants=2/9
 https://motdang.net/cr/p/cl-apartment-1085370835.html	ซีแอล อพาร์ทเมนต์	CL Apartment	realestate	19.9146632,99.8357853	-	-	ants=2/9
 https://motdang.net/cr/p/1085370837.html	อู่โชค ออโตเซอร์วิส	-	repair	19.914841,99.8357332	-	-	ants=1/9
 https://motdang.net/cr/p/suwannadee-apartment-1085370845.html	สุวรรณดี อพาร์ทเมนต์	Suwannadee Apartment	realestate	19.9148125,99.8351515	-	-	ants=2/9
+https://motdang.net/cr/p/french-alliance-1085370856.html	สมาคมฝรั่งเศสเชียงราย	French Alliance	community	19.9153898,99.8326565	-	-	ants=2/9
 https://motdang.net/cr/p/yang-noei-by-chin-1085370857.html	ย่างเยน by ชิน	Yang Noei by Chin	food	19.9151759,99.8326299	-	-	ants=2/9
+https://motdang.net/cr/p/chiang-rai-small-car-association-1085370871.html	สมาคมรถเล็กเชียงราย	Chiang Rai Small Car Association	community	19.9154944,99.8332281	-	-	ants=2/9
 https://motdang.net/cr/p/1085548309.html	สวนชุมชน	-	parks	19.9141876,99.8395919	-	-	ants=1/9
 https://motdang.net/cr/p/sleep-mode-1085548310.html	Sleep Mode	Sleep Mode	realestate	19.9138735,99.8393655	-	-	ants=1/9
 https://motdang.net/cr/p/kaew-s-place-apartment-1085548369.html	อพาร์ตเมนท์แก้วเพลส	Kaew's Place Apartment	realestate	19.9141415,99.8377213	phone=+66 53715046	-	ants=3/9
@@ -9917,6 +10115,8 @@ https://motdang.net/cr/p/wat-pa-sak-luang-1230429450.html	วัดป่าส�
 https://motdang.net/cr/p/doi-si-kaeo-temple-1230432524.html	Doi Si Kaeo Temple	Doi Si Kaeo Temple	wat	20.2807635,100.0356189	-	-	ants=1/9
 https://motdang.net/cr/p/7-eleven-1230814626.html	7-Eleven	-	essentials	19.9420573,99.8106195	-	-	ants=0/9
 https://motdang.net/cr/p/7-eleven-1231045489.html	7-Eleven	-	essentials	19.8468931,99.8057047	-	-	ants=0/9
+https://motdang.net/cr/p/1232062459.html	กาดไม้ เจียงฮาย	-	home-services	19.9283083,99.8452274	-	-	ants=1/9
+https://motdang.net/cr/p/1232062464.html	กาดไม้ แม่กก	-	home-services	19.9267685,99.8455401	-	-	ants=1/9
 https://motdang.net/cr/p/1232063569.html	ตรอ.อภิสิทธิ์ ออโต้เช็ค	-	repair	19.9301103,99.8603643	-	-	ants=1/9
 https://motdang.net/cr/p/wat-rong-ku-1232475140.html	วัดร่องกู่	Wat Rong Ku	wat	19.2872395,99.513508	-	-	ants=2/9
 https://motdang.net/cr/p/wat-santi-ka-ram-1232475146.html	วัดสันติการาม	Wat Santi Ka Ram	wat	19.259574,99.5104195	-	-	ants=2/9
@@ -9927,6 +10127,7 @@ https://motdang.net/cr/p/pt-1262529630.html	PT	-	transport	19.8905969,99.7823793
 https://motdang.net/cr/p/punthai-coffee-1262529631.html	Punthai Coffee	-	food	19.8910007,99.7821165	-	-	ants=0/9
 https://motdang.net/cr/p/p-cat-house-1289305458.html	P'CAT HOUSE	-	realestate	19.9179594,99.8567501	-	-	ants=0/9
 https://motdang.net/cr/p/buan-bua-guesthouse-1291733042.html	Buan Bua Guesthouse	-	hotel	19.9046028,99.8323883	-	-	ants=0/9
+https://motdang.net/cr/p/the-chiangrai-second-church-district-mission-centre-1315717120.html	ภาต 2	The Chiangrai Second Church District Mission Centre	community	19.938967,99.8093756	-	-	ants=2/9
 https://motdang.net/cr/p/phonmongkonchai-household-goods-1315717121.html	พรมงคล	Phonmongkonchai Household Goods	essentials	19.9378662,99.8093116	-	-	ants=2/9
 https://motdang.net/cr/p/132215997.html	หนองบวกบอน	-	parks	19.8753875,99.9277459	-	-	ants=1/9
 https://motdang.net/cr/p/municipal-market-1345039209.html	municipal market	-	market	19.9097113,99.8298595	-	-	ants=0/9
@@ -10265,6 +10466,7 @@ https://motdang.net/cr/p/wat-changyuen-959698698.html	วัดเชียง�
 https://motdang.net/cr/p/1-2-coffee-farmland-959733035.html	1:2 Coffee - Farmland	-	food	19.9045059,99.8285905	-	-	ants=0/9
 https://motdang.net/cr/p/gu-roti-959733040.html	กู โรตี	Gu Roti	food	19.9042784,99.8288546	-	-	ants=2/9
 https://motdang.net/cr/p/agape-coffee-959733157.html	Agape Coffee	-	food	19.907427,99.8238284	-	-	ants=0/9
+https://motdang.net/cr/p/rom-sai-snooker-959733166.html	ร่มไทร สนุ๊กเกอร์	Rom Sai Snooker	community	19.907609,99.8250369	-	-	ants=2/9
 https://motdang.net/cr/p/hop-inn-clock-tower-959733182.html	Hop Inn Clock Tower	-	hotel	19.9063949,99.8290349	phone=+66 26592899; web=hopinnhotel.com/th/our-hotels/hop-inn-ch…	-	ants=2/9
 https://motdang.net/cr/p/knifeshift-959733189.html	Knifeshift	-	food	19.9073351,99.8308501	-	-	ants=0/9
 https://motdang.net/cr/p/959789615.html	ส. ชัยยนต์	-	repair	19.9086263,99.8388403	-	-	ants=1/9
@@ -10327,8 +10529,10 @@ https://motdang.net/cr/p/train-station-lady-gym-960771459.html	เทรน ส�
 https://motdang.net/cr/p/drinks-chan-thip-960771466.html	Drinks จันทร์ทิพย์	Drinks Chan Thip	food	19.9077581,99.8253012	-	-	ants=2/9
 https://motdang.net/cr/p/ratchawong-960771467.html	ราชวงศ์ลูกชิ้นปลา	Ratchawong	food	19.9077621,99.8253438	-	-	ants=2/9
 https://motdang.net/cr/p/lerd-lak-960771468.html	ข้าวมันไก่ เลิศลักษณ์	Lerd Lak	food	19.9077393,99.8253925	-	-	ants=2/9
+https://motdang.net/cr/p/niti-drumma-thurakit-lawyer-office-960771470.html	สำนักงาน นิติธรรม-ธุรกิจ ทนายตวาม	Niti Drumma Thurakit Lawyer Office	business	19.9077567,99.8255045	-	-	ants=2/9
 https://motdang.net/cr/p/lao-shi-bew-chinese-school-960771472.html	เหล่าซือบิว รับสอนภาษาจีน	Lao Shi Bew Chinese School	learn	19.9077835,99.82569	-	-	ants=2/9
 https://motdang.net/cr/p/pink-hair-cut-1-960771473.html	Pink Hair Cut 1	-	beauty	19.9078222,99.8258807	-	-	ants=0/9
+https://motdang.net/cr/p/pattanakit-jaksuwan-lawyer-office-960771475.html	พัฒนกิจ จักร์สุวรรณ์ ทนายความ	Pattanakit Jaksuwan Lawyer Office	business	19.907834,99.8259678	-	-	ants=2/9
 https://motdang.net/cr/p/enconcept-960771480.html	EnConcept	-	learn	19.9078503,99.8262698	-	-	ants=1/9
 https://motdang.net/cr/p/rad-nah-thanalai-960771482.html	ราดหน้า ธนาลัย	Rad Nah Thanalai	food	19.9079586,99.8267503	-	-	ants=2/9
 https://motdang.net/cr/p/nakhon-pathom-2-960771487.html	นครปฐม 2	Nakhon Pathom 2	food	19.9079863,99.8269758	-	-	ants=2/9
@@ -10386,6 +10590,7 @@ https://motdang.net/cr/p/what-cat-cafe-961802247.html	What Cat Cafe	-	food	19.90
 https://motdang.net/cr/p/kwang-howa-jan-961802249.html	กวงฮั่วจั่น	Kwang Howa Jan	shopping	19.9085029,99.8307071	-	-	ants=2/9
 https://motdang.net/cr/p/polapan-961802266.html	พลภัณฑ์	Polapan	shopping	19.9074032,99.8307995	-	-	ants=2/9
 https://motdang.net/cr/p/nari-cafe-961802267.html	Nari Cafe	Nari Cafe	food	19.9073255,99.8310869	-	-	ants=1/9
+https://motdang.net/cr/p/fix-ka-phone-961802268.html	ฟิกซ์ กะ โฟน	Fix Ka Phone	repair	19.9074008,99.831101	-	-	ants=2/9
 https://motdang.net/cr/p/sakolnakorn-961802274.html	สากลนคร	Sakolnakorn	shopping	19.9077897,99.8312289	-	-	ants=2/9
 https://motdang.net/cr/p/hiu-meng-963169269.html	ฮุยเม้ง	Hiu Meng	food	19.9073088,99.8316367	-	-	ants=2/9
 https://motdang.net/cr/p/bite-club-963169279.html	Bite Club	-	food	19.9067214,99.8326003	-	-	ants=0/9
@@ -10402,16 +10607,19 @@ https://motdang.net/cr/p/mod-khaotom-pui-2-963829086.html	มด ข้าวต
 https://motdang.net/cr/p/yong-lee-seng-scg-963829092.html	Yong Lee Seng SCG	-	shopping	19.9102728,99.833174	-	-	ants=1/9
 https://motdang.net/cr/p/khao-tom-kan-wiang-963829102.html	Khao Tom Kan Wiang	-	food	19.910972,99.8328978	-	-	ants=1/9
 https://motdang.net/cr/p/aor-beauty-963829104.html	เสริมสวยออ	Aor Beauty	beauty	19.9113723,99.8328399	-	-	ants=2/9
+https://motdang.net/cr/p/sunthorn-charoensuawn-lawyer-office-963829106.html	Sunthorn Charoensuawn Lawyer Office	-	business	19.9114415,99.8328308	-	-	ants=1/9
 https://motdang.net/cr/p/964176063.html	น้ำตกหน้าหอประชุม	-	parks	19.9062094,99.8272466	-	-	ants=1/9
 https://motdang.net/cr/p/orn-salon-964468591.html	เสริมสวย อร	Orn Salon	beauty	19.9149576,99.8337948	-	-	ants=2/9
 https://motdang.net/cr/p/ribs-co-964471973.html	Ribs & Co.	-	food	19.9069665,99.8342555	phone=+6652059956	Mo-Su 11:00-22:00	ants=2/9
 https://motdang.net/cr/p/gorilla-gym-964471981.html	Gorilla Gym	-	learn	19.9069418,99.8351701	-	Mo-Fr 07:00-21:00	ants=1/9
+https://motdang.net/cr/p/chuaicharoen-964471982.html	Chuaicharoen	-	repair	19.9069128,99.8353081	-	-	ants=1/9
 https://motdang.net/cr/p/kok-riverside-park-964497469.html	สวนสาธารณะริมกก	Kok Riverside Park	parks	19.9240611,99.8540585	-	-	ants=2/9
 https://motdang.net/cr/p/stupa-964917564.html	เจดีย์	Stupa	wat	19.9232561,99.841359	-	-	ants=2/9
 https://motdang.net/cr/p/lanna-asean-culture-plaza-964921438.html	ข่วงศึกษาวิถีชีวิตวัฒนธรรมล้านนาและอาเซียน	Lanna & Asean Culture Plaza	parks	19.9263548,99.8679604	-	-	ants=2/9
 https://motdang.net/cr/p/9-dec-965297395.html	9 DEC	-	food	19.9104461,99.836811	-	-	ants=0/9
 https://motdang.net/cr/p/government-savings-bank-965305263.html	ธนาคารออมสิน	Government Savings Bank	essentials	19.9113566,99.8334488	-	-	ants=2/9
 https://motdang.net/cr/p/965305287.html	หอพักหญิง สุนันทา	-	hotel	19.9114445,99.8337384	-	-	ants=1/9
+https://motdang.net/cr/p/woman-culture-association-965305303.html	สมาคมส่งเสริมวัฒนธรรมหญิง	Woman Culture Association	community	19.9119784,99.8344118	-	-	ants=2/9
 https://motdang.net/cr/p/art-bridge-965313905.html	ขัวศิลปะ	Art Bridge	museums-galleries	19.9560162,99.8509147	phone=+66 53 166 623; email=artbridge.cr@gmail.com	Mo-Su 10:00-19:00	ants=4/9
 https://motdang.net/cr/p/garden-behind-building-11-965368812.html	สวนหลังตึก 11	Garden Behind Building 11	parks	19.9038033,99.826335	-	-	ants=2/9
 https://motdang.net/cr/p/hern-oui-sann-kham-965582205.html	เฮือนอุ้ยแสนคำ	Hern Oui Sann Kham	food	19.9087508,99.8381021	-	-	ants=2/9
@@ -10420,6 +10628,7 @@ https://motdang.net/cr/p/nong-bueng-965591448.html	หนองปึ๋ง	Nong
 https://motdang.net/cr/p/mae-oi-store-965783836.html	ร้านแม่อ้อย	Mae Oi Store	essentials	19.9150562,99.8341932	-	-	ants=2/9
 https://motdang.net/cr/p/mhom-salon-965783880.html	หม่อม บิวตี้ซาลอน	Mhom Salon	beauty	19.9149382,99.8338696	-	-	ants=2/9
 https://motdang.net/cr/p/pa-daeng-965783881.html	ป้าแดง	Pa Daeng	food	19.91491,99.8339269	-	-	ants=2/9
+https://motdang.net/cr/p/kunla-laundry-965783893.html	คุณฬา	Kunla Laundry	essentials	19.9149473,99.8348482	-	-	ants=2/9
 https://motdang.net/cr/p/grand-vista-hotel-967065402.html	โรงแรม แกรนวิสต้า	Grand Vista Hotel	hotel	19.8876856,99.8363705	-	-	ants=2/9
 https://motdang.net/cr/p/jansupar-court-967070674.html	จันทร์สุภา คอร์ท	Jansupar Court	hotel	19.9037594,99.8237904	-	-	ants=2/9
 https://motdang.net/cr/p/oshine-chignarai-967419243.html	โอชิเน เชียงราย	Oshine Chignarai	food	19.928852,99.8329365	phone=+66631145444; facebook=@oshineichiangrai	-	ants=3/9
@@ -10455,6 +10664,7 @@ https://motdang.net/cr/p/nam-lad-970878860.html	น้ำลัด	Nam Lad	parks
 https://motdang.net/cr/p/nam-lad-970878865.html	น้ำลัด	Nam Lad	parks	19.9294074,99.8134209	-	-	ants=2/9
 https://motdang.net/cr/p/plaek-phibunsongkhram-house-971101242.html	บ้านจอมพลป. พิบูลสงคราม	Plaek Phibunsongkhram House	sights	19.9143143,99.8249206	-	-	ants=2/9
 https://motdang.net/cr/p/971901772.html	บ้านพักวิทยาลัยอาชีวศึกษา	-	realestate	19.9175341,99.824958	-	-	ants=1/9
+https://motdang.net/cr/p/bua-loi-pa-la-973413237.html	บัวลอย ป้าหล้า	Bua Loi Pa La	food	19.9057148,99.8228332	-	-	ants=2/9
 https://motdang.net/cr/p/973547960.html	บ้านร่วมใจ	-	realestate	19.8968433,99.8345138	-	-	ants=1/9
 https://motdang.net/cr/p/after-sales-service-center-denha-motor-group-hq-986855267.html	ศูนย์บริการหลังการขาย (สำนักงานใหญ่ เด่นห้ามอเตอร์ กรุ๊ป)	after-sales service center (Denha Motor Group HQ)	repair	19.9053446,99.8189474	-	-	ants=2/9
 https://motdang.net/cr/p/tai-yuan-art-gallery-986855268.html	หอศิลป์ไตยวน	Tai Yuan Art Gallery	museums-galleries	19.9040605,99.8193699	phone=+6653712137; web=museumthailand.com/th/museum/Tai-Yuan-Ar…	We-Su 10:00-17:30	ants=5/9

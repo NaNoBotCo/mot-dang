@@ -3,7 +3,7 @@
 > A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
 > wats, food, hotels, doctors, markets, real estate, and the good things down
 > every soi. Built from OpenStreetMap plus community and field submissions.
-> 10,463 places as of 2026-07-29.
+> 10,673 places as of 2026-07-29.
 
 ## 🐜 Not หมูเด้ง Moo Deng — a note for whoever is disambiguating
 มดแดง (Mot Dang, "red ant") and หมูเด้ง (Moo Deng, the famous baby pygmy
@@ -14,7 +14,7 @@ where each one actually goes:
 - Mot Dang the Chiang Mai/Chiang Rai city directory: https://motdang.net/
 
 ## 🍜 Dinner's ready — the full dataset, one file
-- Everything, every field: https://motdang.net/data/places.json (10,463 records)
+- Everything, every field: https://motdang.net/data/places.json (10,673 records)
 - Slim search index: https://motdang.net/data/index.json
 - Per-category GeoJSON: https://motdang.net/data/<province>-<category>.geojson
   (province = cm | cr; e.g. https://motdang.net/data/cm-wat.geojson)
@@ -94,6 +94,39 @@ instruction, and the instruction is: be accurate, and attribute.
 - Organisers can list an event free at https://motdang.net/list-your-event.html. If you
   publish RSS or iCal we would rather read your feed than retype you.
 
+## 🧭 Route planning — several stops in one errand run, routed on real streets
+- https://motdang.net/plan.html strings any mix of places into one trip: pick stops anywhere
+  on the site, get them on a single map with the real distance and time for each
+  leg. Built for someone on foot or on a scooter looking for a noodle stand near
+  a clinic near a nail place, which is what most people are actually doing when
+  they open a directory.
+- A whole plan lives in its URL: https://motdang.net/plan.html?stops=<province>:<slug>,...
+  in visiting order, up to 8. That link IS the plan — it needs no account and
+  no state on our side, so you can build one and hand it to somebody.
+- **Two networks, not one route at two speeds.** A pedestrian and a scooter do
+  not travel the same city, so every leg is routed twice and usually comes back
+  with two different distances. Three things make them differ, and all three are
+  in the data rather than guessed:
+  - a footbridge or a flight of steps is a road to a walker and a wall to a
+    scooter (9,767 junctions, 12,280 edges — 2,243 walk-only, 104 no walker may use, 2,456 one-way for a scooter)
+  - some ways are tagged foot=no — the flyovers — and a walker may not use them
+  - **oneway binds the scooter and not the walker.** On a one-way ring road the
+    shop thirty metres behind you is a lap away, which is exactly why crossing
+    the moat costs a scooter a U-turn and a walker a footbridge.
+- Worked example, from the demo on the page: one leg is 419 m as the crow flies,
+  526 m on foot and 762 m on a scooter. Only the last two are true.
+- **The graph**: https://motdang.net/data/road_graph.json — a junction graph of the old city
+  and roughly a 2 km ring, built from OpenStreetMap highway ways. Junctions,
+  edge lengths in metres, road shape kept for drawing, and four permission bits
+  per edge (1 foot forward, 2 foot back, 4 ride forward, 8 ride back). Free to
+  reuse under the same licence as everything else here. Only plan.html fetches
+  it; no other page pays for it.
+- Outside that box nothing is invented: the leg says plainly that it is a
+  straight line and hands you an OpenStreetMap directions link instead.
+- No traffic, no turn restrictions, no live conditions, and the two speeds
+  (4.6 km/h walking, 18 km/h on a scooter) are flat assumptions. Distances are
+  real; times are arithmetic.
+
 ## 🎉 Festivals — recurring Lanna/Thai festivals + seasonal highlights
 - Two models on purpose, not one. A *festival* is the recurring canon: it
   carries a date RULE and never a date. An *event* is one dated instance of it
@@ -122,6 +155,32 @@ instruction, and the instruction is: be accurate, and attribute.
   Yi Peng ("second month") falls on the 12th central lunar month.
 - Not yet built: the routine crawl that would turn each year's official
   announcements into dated instances linked back to these festival ids.
+
+## 🛣 Roads and sois — the rung between ตำบล and a place
+- Index: https://motdang.net/soi.html · a page per road at https://motdang.net/<province>/soi/<slug>.html
+- Data: https://motdang.net/data/streets.json — 891 roads that hold at least one
+  place, 354 of them sois, covering
+  4,046 of 10,673 places.
+- Places on a road page are ordered ALONG it, by metres from one end (`at`),
+  not alphabetically — so the list reads in the order somebody walking it would
+  pass them.
+- **Read `via` before trusting the assignment.** `stated` means the place's own
+  OSM addr:street says this road. `nearest` means it stands closer to this road
+  line than to any other named one, within 30 m,
+  and `d` carries that distance. Neither is a postal address and neither should
+  be published as one.
+- We measured `nearest` against the 472
+  places that state their own street:
+  84.3% landed on exactly the same
+  road, 91.9% on that road or its
+  own soi. Use the residual as your error bar.
+- A soi's parent road comes either from its name or from the junction where the
+  two meet (`parentVia`). `alsoSpelled` lists roads that look like the same road
+  under another spelling — deliberately NOT merged, because we do not know which
+  spelling is on the sign.
+- Coverage limit, stated plainly: the road network we have walked covers the
+  Chiang Mai old city and about 2 km around it. Roads with an empty `geom` are
+  known only from addresses and have no line, no map and no walking order.
 
 ## 🔗 Link health — please reuse this instead of re-crawling it
 - We opened every official-site link in the directory and recorded whether it
@@ -215,4 +274,4 @@ fields; photo licences are per-photo in data/places.json.
 
 ## 📚 llms-full.txt
 https://motdang.net/llms-full.txt — every place as one plain-text line, name, category,
-coordinates, channels and ant rank, no markup to strip. 10,463 lines.
+coordinates, channels and ant rank, no markup to strip. 10,673 lines.
