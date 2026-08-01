@@ -57,6 +57,27 @@ const FIELDS = [
   ['note', 500], ['menu', 2000],
 ]
 
+// Facets — what a branch of a chain actually has (a cash machine, a bake-off
+// oven, somewhere to sit). Mirrors data/facets.json; tests/test_facets.py
+// fails the build if the two lists drift apart, because a key the worker does
+// not recognise is silently dropped and the contributor is never told.
+//
+// This is a closed vocabulary, which makes it the NARROWEST field a claim can
+// carry: unlike `note` or `menu`, nothing a submitter types survives contact
+// with it — a value is either one of these thirteen words or it is discarded.
+// So it needs no length cap and no escaping, and the worst case of a bad-faith
+// submission is a wrong tick, never injected content.
+const FACET_KEYS = new Set([
+  'atm', 'bakery', 'coffee', 'seating', 'hotfood', 'toilet', 'parking',
+  'open24', 'wifi', 'aircon', 'wheelchair', 'evcharge', 'twostorey',
+])
+
+function readFacets(v) {
+  if (!Array.isArray(v)) return null
+  const out = [...new Set(v)].filter(k => FACET_KEYS.has(k)).sort()
+  return out.length ? out : []
+}
+
 // Order the LINE chat asks fields in — likeliest-to-matter-to-a-food-cart
 // first. Purely a prompt-ordering list; storage/validation still goes
 // through FIELDS above so the two entry points can never disagree on shape.
@@ -111,6 +132,11 @@ function readFields(body) {
     const v = cap(body?.[key], max)
     if (v) out[key] = v
   }
+  // An empty array is a real answer — "I looked, and it has none of these" —
+  // so it is kept, while an absent key means the submitter never saw the
+  // question. Only null (not an array at all) is treated as "not asked".
+  const f = readFacets(body?.facets)
+  if (f !== null) out.facets = f
   return out
 }
 
@@ -123,7 +149,12 @@ async function applyClaim(env, placeId, fields, opts = {}) {
   if (opts.mode === 'create') {
     if (existing) return { error: 'already claimed — if this is you, use your edit link; '
       + 'if you think this is wrong, tell us on GitHub', status: 409 }
-    if (!Object.keys(fields).length)
+    // Facets alone can never open a claim. Claiming locks the record against
+    // everyone else, so letting a passer-by do it by ticking "has an ATM"
+    // would let a stranger lock a shop out of its own listing — a much worse
+    // outcome than the missing tick. Contributing facets without claiming is
+    // a different door (see the facet checklist on the place page).
+    if (!FIELDS.some(([k]) => fields[k] !== undefined))
       return { error: 'add at least one way to reach you — phone, LINE, a page, a site', status: 400 }
     const token = crypto.randomUUID()
     const now = new Date().toISOString()
@@ -136,7 +167,7 @@ async function applyClaim(env, placeId, fields, opts = {}) {
 
   // edit
   if (!existing) return { error: 'no such claim record', status: 404 }
-  for (const [k] of FIELDS) {
+  for (const [k] of [...FIELDS, ['facets']]) {
     if (opts.clears?.includes(k)) delete existing[k]
     else if (fields[k] !== undefined) existing[k] = fields[k]
   }

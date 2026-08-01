@@ -1,0 +1,129 @@
+{
+  "_comment": "Facets are what makes one branch of a chain different from the next one. The category tree answers 'what kind of place is this'; facets answer 'is it worth walking to THAT one'. Order = display order, on the place page and in the filter-chip row. 'auto' names the importer rule that can fill it without asking a human — everything else waits for someone standing at the door. A facet with no evidence renders as nothing at all: absent is not the same as false, and a directory that guesses 'no ATM' is worse than one that says nothing.",
+
+  "_applies_note": "appliesTo matches record.sub. Convenience stores first because that is where the question is loudest — 386 7-Elevens with identical records — but nothing here is 7-Eleven-specific and the same row will serve pharmacies and fuel stations when their turn comes.",
+
+  "sets": [
+    {
+      "key": "convenience",
+      "appliesTo": ["convenience"],
+      "th": "ที่นี่มีอะไร",
+      "en": "What this branch has",
+      "note_th": "ร้านสะดวกซื้อยี่ห้อเดียวกันก็ไม่เหมือนกัน สาขาไหนมีอะไร มดแดงจดไว้ให้",
+      "note_en": "Two branches of the same chain are not the same shop. This is the difference, written down.",
+      "facets": [
+        {
+          "key": "atm",
+          "icon": "🏧",
+          "th": "ตู้เอทีเอ็ม",
+          "en": "ATM",
+          "ask_th": "มีตู้เอทีเอ็มที่ร้านหรือหน้าร้านไหม",
+          "ask_en": "Is there an ATM at or outside this shop?",
+          "auto": "atm-within-30m"
+        },
+        {
+          "key": "bakery",
+          "icon": "🥐",
+          "th": "ขนมปัง-เบเกอรี่",
+          "en": "Bakery shelf",
+          "ask_th": "มีชั้นขนมปังอบใหม่/เบเกอรี่ไหม",
+          "ask_en": "Is there a bake-off oven or bread shelf?"
+        },
+        {
+          "key": "coffee",
+          "icon": "☕",
+          "th": "กาแฟสด",
+          "en": "Coffee counter",
+          "ask_th": "มีเคาน์เตอร์กาแฟสดไหม",
+          "ask_en": "Is there a fresh-coffee counter?"
+        },
+        {
+          "key": "seating",
+          "icon": "🪑",
+          "th": "มีที่นั่ง",
+          "en": "Seating",
+          "ask_th": "มีโต๊ะเก้าอี้ให้นั่งไหม",
+          "ask_en": "Are there tables or chairs to sit at?"
+        },
+        {
+          "key": "hotfood",
+          "icon": "🍲",
+          "th": "อาหารร้อน",
+          "en": "Hot food",
+          "ask_th": "มีตู้อุ่นอาหารร้อน/ไส้กรอกไหม",
+          "ask_en": "Is there a hot-food counter or toasted sandwiches?"
+        },
+        {
+          "key": "toilet",
+          "icon": "🚻",
+          "th": "ห้องน้ำใกล้",
+          "en": "Toilet nearby",
+          "ask_th": "มีห้องน้ำให้ใช้แถวนี้ไหม",
+          "ask_en": "Is there a toilet you can use around here?",
+          "auto": "toilets-within-30m",
+          "auto_means_near": true
+        },
+        {
+          "key": "parking",
+          "icon": "🏍️",
+          "th": "ที่จอดรถ",
+          "en": "Parking",
+          "ask_th": "จอดรถยนต์ได้ไหม หรือจอดได้แค่มอเตอร์ไซค์",
+          "ask_en": "Can a car park here, or motorbikes only?"
+        },
+        {
+          "key": "open24",
+          "icon": "🕓",
+          "th": "เปิด 24 ชม.",
+          "en": "Open 24h",
+          "ask_th": "เปิด 24 ชั่วโมงไหม",
+          "ask_en": "Is it open around the clock?",
+          "auto": "hours-24-7"
+        },
+        {
+          "key": "wifi",
+          "icon": "📶",
+          "th": "ไวไฟ",
+          "en": "Wi-Fi",
+          "ask_th": "มีไวไฟให้ใช้ไหม",
+          "ask_en": "Is there Wi-Fi for customers?",
+          "auto": "osm-internet-access"
+        },
+        {
+          "key": "aircon",
+          "icon": "❄️",
+          "th": "แอร์เย็น",
+          "en": "Air-conditioned",
+          "ask_th": "ข้างในติดแอร์ไหม",
+          "ask_en": "Is the inside air-conditioned?",
+          "auto": "osm-air-conditioning"
+        },
+        {
+          "key": "wheelchair",
+          "icon": "♿",
+          "th": "เข้าด้วยรถเข็นได้",
+          "en": "Step-free entry",
+          "ask_th": "รถเข็นเข้าได้ไหม มีทางลาดหรือพื้นเสมอ",
+          "ask_en": "Can a wheelchair get in — ramp or level floor?",
+          "auto": "osm-wheelchair"
+        },
+        {
+          "key": "evcharge",
+          "icon": "🔌",
+          "th": "จุดชาร์จไฟฟ้า",
+          "en": "EV charging",
+          "ask_th": "มีจุดชาร์จรถไฟฟ้าหรือมอเตอร์ไซค์ไฟฟ้าไหม",
+          "ask_en": "Is there a charger for an electric car or motorbike?"
+        },
+        {
+          "key": "twostorey",
+          "icon": "🪜",
+          "th": "สองชั้น",
+          "en": "Two floors",
+          "ask_th": "มีชั้นสองให้ขึ้นไปนั่งไหม",
+          "ask_en": "Is there an upstairs you can sit in?"
+        }
+      ]
+    }
+  ]
+}
