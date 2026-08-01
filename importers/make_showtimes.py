@@ -1,18 +1,32 @@
 #!/usr/bin/env python3
 """Bake cinema showtimes for Chiang Mai and Chiang Rai into data/showtimes.json.
 
-How this reaches the site is deliberately not published here.
-
-So this is the site's own AJAX call, made politely and once per cinema-day,
-cached to disk. No headless browser, stdlib only, same snapshot-first shape as
+The chain's own site is the source. It is read politely, once per cinema-day,
+cached to disk — stdlib only, no headless browser, same snapshot-first shape as
 check_links.py.
 
     python3 importers/make_showtimes.py            # fetch what is stale
     python3 importers/make_showtimes.py --days 5   # look further ahead
     python3 importers/make_showtimes.py --refetch  # ignore the cache
 
+HOW IT REACHES THE SITE IS NOT IN THIS REPO. The request recipe — the address,
+the form it takes, and the screen ids — lives in a config file outside the tree
+at ~/.mot-dang-showtimes.json, the same arrangement as the LINE channel token,
+and for the same reason: it is ours to use, not ours to publish. Without that
+file this importer explains itself and exits, and everything else still builds.
+
+The file looks like this, and `python3 importers/make_showtimes.py --template`
+will print it:
+
+    {
+      "endpoint": "https://…",
+      "referer":  "https://…{cinema}…",
+      "form":     {"<field>": "{cinema}", "<field>": "{day}", "<field>": "fixed"},
+      "cinemas":  [{"id": "…", "province": "cm", "th": "…", "en": "…"}]
+    }
+
 SF Cinema is not here: it answers automated requests with 403 and no
-equivalent endpoint was found. Its screens still appear in the catalogue, just
+equivalent route was found. Its screens still appear in the catalogue, just
 without times, which is the correct thing to show rather than a guess.
 """
 import html
@@ -29,24 +43,20 @@ from datetime import date, datetime, timedelta
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(ROOT, "cache", "showtimes")
 OUT = os.path.join(ROOT, "data", "showtimes.json")
-ENDPOINT = "[removed]"
+CONF_FILE = os.path.expanduser("~/.mot-dang-showtimes.json")
 PAUSE = 3.0
 STALE_HOURS = 12
 
-# Major/EGV screens in the two provinces, with the chain's own cinema ids
-# (read from its /home/[removed]/all/ fragment).
-CINEMAS = [
-    {"id": "91", "province": "cm", "th": "เมเจอร์ เซ็นทรัลเฟสติวัล เชียงใหม่",
-     "en": "Major Central Festival Chiang Mai"},
-    {"id": "92", "province": "cm", "th": "ไอแมกซ์ เลเซอร์ เซ็นทรัลเฟสติวัล เชียงใหม่",
-     "en": "IMAX Laser Central Festival Chiang Mai"},
-    {"id": "40", "province": "cm", "th": "เมเจอร์ เชียงใหม่ แอร์พอร์ต",
-     "en": "Major Chiang Mai Airport"},
-    {"id": "61", "province": "cr", "th": "เมเจอร์ เซ็นทรัล เชียงราย",
-     "en": "Major Central Chiang Rai"},
-    {"id": "188", "province": "cr", "th": "เมเจอร์ บิ๊กซี เชียงราย",
-     "en": "Major Big C Chiang Rai"},
-]
+TEMPLATE = {
+    "endpoint": "https://example/the/post/target/",
+    "referer": "https://example/per-cinema/page/{cinema}/",
+    # Real field names go here. {cinema} and {day} are substituted per request;
+    # anything else is sent as written.
+    "form": {"field-that-takes-the-cinema": "{cinema}",
+             "field-that-takes-the-date": "{day}",
+             "any-other-field": "its fixed value"},
+    "cinemas": [{"id": "0", "province": "cm", "th": "ชื่อโรง", "en": "Screen name"}],
+}
 
 HEADERS = {
     "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -56,6 +66,24 @@ HEADERS = {
     "Accept-Language": "th,en;q=0.9",
 }
 
+
+def conf():
+    """The request recipe, or a clear explanation of what is missing."""
+    if not os.path.exists(CONF_FILE):
+        sys.exit(
+            f"No showtime config at {CONF_FILE}.\n\n"
+            "The address this importer posts to, the form it sends, and the\n"
+            "screen ids are deliberately kept out of the repository. Put them\n"
+            "in that file (chmod 600) to run this importer.\n\n"
+            "    python3 importers/make_showtimes.py --template\n\n"
+            "prints the shape it expects. Every other importer works without it.")
+    with open(CONF_FILE) as fh:
+        c = json.load(fh)
+    missing = [k for k in ("endpoint", "form", "cinemas") if not c.get(k)]
+    if missing:
+        sys.exit(f"{CONF_FILE} is missing: {', '.join(missing)}")
+    return c
+
 MOVIE_RE = re.compile(r'bscbbm-cover-title">\s*(.+?)\s*</div>', re.S)
 TIME_RE = re.compile(r'data-showtime="(\d+)"[^>]*>\s*((?:[01]?\d|2[0-3]):[0-5]\d)\s*<')
 BLOCK_RE = re.compile(r'bscbbm-cover-title">')
@@ -63,20 +91,19 @@ DUR_RE = re.compile(r'bscbbm-cover-time">.*?([\d]{2,3})\s*นาที', re.S)
 CATE_RE = re.compile(r'bscbbm-cover-cate">.*?</img>?\s*([^<]{2,80})', re.S)
 
 
-def fetch(cinema_id, day):
-    body = urllib.parse.urlencode({
-        "[removed]": "", "[removed]": cinema_id,
-        "[removed]": "normal", "[removed]": "[removed]",
-        "[removed]": day,
-    }).encode()
+def fetch(c, cinema_id, day):
+    """Post the configured form. {cinema} and {day} are the only placeholders."""
+    form = {k: v.format(cinema=cinema_id, day=day) for k, v in c["form"].items()}
     hdrs = dict(HEADERS)
-    hdrs["Referer"] = f"https://www.majorcineplex.com/booking2/search_showtime/cinema={cinema_id}/"
-    req = urllib.request.Request(ENDPOINT, data=body, headers=hdrs)
+    if c.get("referer"):
+        hdrs["Referer"] = c["referer"].format(cinema=cinema_id)
+    req = urllib.request.Request(c["endpoint"], data=urllib.parse.urlencode(form).encode(),
+                                 headers=hdrs)
     with urllib.request.urlopen(req, timeout=30) as r:
         return r.read().decode("utf-8", "replace")
 
 
-def cached(cinema_id, day, refetch):
+def cached(c, cinema_id, day, refetch):
     os.makedirs(CACHE, exist_ok=True)
     path = os.path.join(CACHE, f"major-{cinema_id}-{day}.json")
     if not refetch and os.path.exists(path):
@@ -84,7 +111,7 @@ def cached(cinema_id, day, refetch):
         if age < STALE_HOURS:
             with open(path) as fh:
                 return json.load(fh)["body"], True
-    body = fetch(cinema_id, day)
+    body = fetch(c, cinema_id, day)
     with open(path, "w") as fh:
         json.dump({"fetched": datetime.now().isoformat(timespec="seconds"), "body": body}, fh)
     time.sleep(PAUSE)
@@ -116,6 +143,11 @@ def parse(markup):
 
 
 def main():
+    if "--template" in sys.argv:
+        print(json.dumps(TEMPLATE, ensure_ascii=False, indent=2))
+        print(f"\nSave as {CONF_FILE} (chmod 600).")
+        return
+    conf_ = conf()
     refetch = "--refetch" in sys.argv
     days = 3
     if "--days" in sys.argv:
@@ -124,11 +156,11 @@ def main():
     dates = [(today + timedelta(days=i)).isoformat() for i in range(days)]
 
     cinemas, failures = [], []
-    for c in CINEMAS:
+    for c in conf_["cinemas"]:
         by_day = {}
         for day in dates:
             try:
-                markup, was_cached = cached(c["id"], day, refetch)
+                markup, was_cached = cached(conf_, c["id"], day, refetch)
                 films = parse(markup)
                 if films:
                     by_day[day] = films
@@ -138,9 +170,11 @@ def main():
                 failures.append((c["id"], day, str(ex)))
                 print(f"   FAIL   {c['en'][:34]:<36} {day}: {ex}")
         if by_day:
+            # The public booking page for that screen — what a reader clicks.
+            # Derived from the configured per-cinema page rather than spelled
+            # out here, so this file names no address at all.
             cinemas.append({**c, "days": by_day,
-                            "url": f"https://www.majorcineplex.com/booking2/"
-                                   f"search_showtime/cinema={c['id']}"})
+                            "url": conf_["referer"].format(cinema=c["id"]).rstrip("/")})
 
     total = sum(len(f["times"]) for c in cinemas for d in c["days"].values() for f in d)
     with open(OUT, "w") as fh:

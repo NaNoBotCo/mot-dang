@@ -442,8 +442,6 @@
    "name": "Major Cineplex — showtimes (CM + CR screens)",
    "kind": "platform",
    "url": "https://www.majorcineplex.com/",
-   "endpoint": "[removed]",
-   "method": "post-form",
    "yields": [
     "events"
    ],
@@ -451,14 +449,7 @@
    "status": "verified",
    "verified_on": "2026-07-29",
    "priority": "high",
-   "cinema_ids": {
-    "91": "Central Festival CM",
-    "92": "IMAX Central Festival CM",
-    "40": "CM Airport",
-    "61": "Central Chiang Rai",
-    "188": "Big C Chiang Rai"
-   },
-   "notes": "SUPERSEDES the earlier 'cinemas are unreachable' verdict. The shape of the request is deliberately not published here. Verified live: 183 screenings across 5 CM/CR screens. Only ~2 days of real schedule — day 3+ lists advance-sale titles only, which is the chain's own behaviour, not a parse failure. Importer: importers/make_showtimes.py"
+   "notes": "SUPERSEDES the earlier 'cinemas are unreachable' verdict — the chain's own site does answer, and 183 screenings across 5 CM/CR screens were verified live. How the request is shaped is deliberately not published here; it lives in a config file outside the repository. Only ~2 days of real schedule are available — day 3+ lists advance-sale titles only, which is the chain's own behaviour, not a parse failure. Importer: importers/make_showtimes.py"
   },
   {
    "id": "open-meteo",

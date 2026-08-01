@@ -33,6 +33,11 @@ Rules that bite:
   are never rendered. Every food mark carries `edition` and the badge prints the
   year, because those lists change annually.
 - data/line.json holds the LINE OA id; empty means the LINE blocks stay hidden.
+- The cinema showtime request recipe — address, form fields, screen ids — lives
+  in `~/.mot-dang-showtimes.json`, never in the repo. Same arrangement as the
+  LINE channel token. `make_showtimes.py --template` prints the shape; without
+  the file that one importer explains itself and exits, and nothing else cares.
+  Do not put it back in `data/sources.json`; it was removed from history once.
 - `/chart.html` computes in the reader's browser and has nowhere to send a birth
   date. Keep it that way. The "email me this" block appears only when
   `data/config.json` gains a `listEndpoint`, the same gate as the LINE blocks —
