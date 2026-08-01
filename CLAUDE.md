@@ -6,7 +6,8 @@ Read `AGENTS.md` first for why the site is shaped this way, and
 Thai-first CM+CR directory. Stdlib Python only. `importers/import_all.py` then
 `build.py` → `docs/` (GitHub Pages). Full spec + roadmap in README.md.
 
-Pipeline order: `importers/import_all.py` → `make_og_cards.py` (optional, needs
+Pipeline order: `importers/import_all.py` → `importers/build_streets.py` (roads
+and sois; needs `cache/roads/`, ~20 s) → `make_og_cards.py` (optional, needs
 Chrome + Pillow, writes `assets/og/`) → `build.py` → push →
 `importers/ping_indexnow.py`.
 
@@ -21,6 +22,12 @@ Rules that bite:
   it, never let an advertiser move it — the whole point is that it is readable
   off the page. The freshness ant needs a human touch, not a bulk crawl.
 - `wat.svg` stands in only for `wat`/`sights`; everything else gets `ant.svg`.
+- Street assignment publishes its method: `via: stated` is the place's own
+  addr:street, `via: nearest` is a match to the closest road line within 30 m
+  with `d` metres attached. Never render a `nearest` match as an address, and
+  never merge two spellings of a road — point them at each other instead.
+- Street slugs are ASCII for the same reason `place_slug` is: git on macOS
+  renormalizes Unicode filenames and the mismatch is a 404 after deploy.
 - `data/curated/honours.json` — royal temple grades and food marks. Nothing goes
   in `royal`/`food` without a fetched source URL; leads live in `unverified` and
   are never rendered. Every food mark carries `edition` and the badge prints the
