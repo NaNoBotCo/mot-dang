@@ -6,7 +6,31 @@ What is waiting to go out, and what shipped last time.
 
 Nothing. The working tree is clean and `main` matches `origin/main`.
 
-## Last push — 2026-08-01, `240a67766`, 11,793 pages
+## Last push — 2026-08-01, `84a7d296c`, 11,807 pages
+
+A gap-closing push rather than a feature one. Two commits.
+
+| Commit | What |
+|---|---|
+| `d73ec33dd` | The four data files `llms.txt` promised and did not serve; `BUILD_DATE` |
+| `84a7d296c` | The rebuild — 906 road pages as the catalog reached 10,673 records |
+
+**What it fixed.** `llms.txt` named `data/streets.json`, `data/weather.json`
+and `data/showtimes.json` under `motdang.net/data/`; all three answered 404,
+because `build.py` never copied them out of `data/`. On a site whose stated
+posture is that crawlers are welcome, a manifest pointing at missing files is
+the one bug that undoes the posture. Every `/data/` URL the file names now
+resolves — worth re-checking whenever a new one is added to `llms.txt`, since
+nothing enforces the pairing yet.
+
+`BUILD_DATE` had sat at 2026-07-29 through the 08-01 push, so all 11,793
+footers dated the site three days before its own rebuild.
+
+All five suites green before pushing: publish gate (11,807 pages, 0 links to
+the 277 dead URLs, 0 path leaks, CNAME intact), facets, routing, moat
+geometry, bazi parity.
+
+## Previous push — 2026-08-01, `240a67766`, 11,793 pages
 
 Two days of work had been sitting local: `origin/main` was last updated
 2026-07-30 20:57, three commits behind with roughly twenty thousand
@@ -55,7 +79,10 @@ Three things that cost time last round, all now rules in `CLAUDE.md`:
 
 ## Backlog
 
-Ordered by what is closest to done.
+Ordered by what is closest to done. Reviewed 2026-08-01 — items 1–4 are all
+blocked on something only Nan can give: a Cloudflare namespace, or the
+go-ahead a network crawl needs under `CLAUDE.md`. Items 5 and 6 need neither
+and are the two that can start cold.
 
 1. **The mailing list.** The chart and the privacy notice have shipped, so the
    blocker is gone; what is left is the collecting half, and it needs
