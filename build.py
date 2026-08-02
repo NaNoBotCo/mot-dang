@@ -8789,12 +8789,15 @@ def build():
         # The map is the DISTANCE FIELD itself, traced as contours — not a
         # tally of catalogued places. Every point in frame gets a value from
         # the branch pins alone, so catalog density can't blank a cell, and
-        # the resolution is whatever the grid affords (~83 m here).
-        # The frame is the CITY, not the countryside: the finding is that in
-        # town you are never far, and a 20 km frame of pale rice fields told
-        # the opposite story to the eye. The moat sits centre.
-        S, N, W, E = 18.735, 18.845, 98.925, 99.045
-        STEP = 0.00075
+        # the resolution is whatever the grid affords (~55 m here).
+        # The frame is the road-crawl area (old city + ~2 km ring): the
+        # street underlay has to cover every inch of the frame, streets exist
+        # on disk only for that box, and the saturation story lives inside it
+        # anyway. The moat sits centre.
+        _rg = json.loads((ROOT / "data" / "road_graph.json").read_text())
+        S, N = _rg["area"]["s"], _rg["area"]["n"]
+        W, E = _rg["area"]["w"], _rg["area"]["e"]
+        STEP = 0.0005
         nx = int(round((E - W) / STEP)) + 1
         ny = int(round((N - S) / STEP)) + 1
         mw, pad = 700, 10
@@ -8889,11 +8892,11 @@ def build():
 
         _mlabel = bi_text(
             "แผนที่เส้นชั้นระยะทางกลางเมืองเชียงใหม่ คำนวณจากตำแหน่งสาขาโดยตรง "
-            "ที่ความละเอียดราว 83 เมตร แบ่ง %d ชั้นตั้งแต่ 100 เมตรถึง 3 กิโลเมตร "
+            "ที่ความละเอียดราว 55 เมตร ทับบนเส้นถนนจากการเก็บของมดแดงเอง แบ่ง %d ชั้นตั้งแต่ 100 เมตรถึง 3 กิโลเมตร "
             "สีเข้มคือใกล้ พร้อมกรอบคูเมืองและตำแหน่งสาขา — วงคูเมืองอยู่ในชั้นเข้มสุดเกือบทั้งวง"
             % len(SEV_BANDS),
             "Contour map of central Chiang Mai computed straight from the branch "
-            "positions at roughly 83 m resolution, in %d layers from 100 m to 3 km "
+            "positions at roughly 55 m resolution over a street underlay from the site's own road crawl, in %d layers from 100 m to 3 km "
             "— dark is near, pale is far — with the moat outline and branch dots. "
             "The moat ring sits almost entirely in the darkest layer."
             % len(SEV_BANDS))
@@ -8903,16 +8906,73 @@ def build():
                  f'height="{mh}"/></clipPath>',
                  f'<g clip-path="url(#sevclip)">',
                  f'<rect x="{pad}" y="{pad}" width="{mw}" height="{mh}" '
-                 f'fill="{SEV_BANDS[-1][1]}"/>']
+                 f'fill="#FAF3E7"/>']
+        # The street underlay, from the site's own road crawl — never a tile
+        # server. Drawn beneath the bands; the bands go translucent so the
+        # streets ghost through them.
+        _rs = _rg["scale"]
+        _rnodes = [(p[0] / _rs, p[1] / _rs) for p in _rg["nodes"]]
+        _road_d = []
+        for e in _rg["edges"]:
+            pts = [_rnodes[e[0]]]
+            deltas = e[4] if len(e) > 4 else []
+            la = ln = 0
+            for k in range(0, len(deltas), 2):
+                if k == 0:
+                    la, ln = deltas[0], deltas[1]
+                else:
+                    la += deltas[k]
+                    ln += deltas[k + 1]
+                pts.append((la / _rs, ln / _rs))
+            pts.append(_rnodes[e[1]])
+            seg, last = [], None
+            for p in pts:
+                x, y = _px(p[0], p[1])
+                x, y = round(x), round(y)
+                if last is None or abs(x - last[0]) + abs(y - last[1]) >= 3:
+                    seg.append((x, y))
+                    last = (x, y)
+            _end = _px(*pts[-1])
+            _end = (round(_end[0]), round(_end[1]))
+            if seg and seg[-1] != _end:
+                seg.append(_end)
+            if len(seg) >= 2:
+                d = [f"M{seg[0][0]} {seg[0][1]}"]
+                for (x0, y0), (x1, y1) in zip(seg, seg[1:]):
+                    d.append(f"l{x1 - x0} {y1 - y0}")
+                _road_d.append("".join(d).replace(" -", "-"))
+        parts.append(f'<path d="{" ".join(_road_d)}" fill="none" stroke="#2A1E16" '
+                     f'stroke-opacity=".38" stroke-width=".7"/>')
+        # Each band is painted exactly ONCE, as the ring between its cut and
+        # the next-nearer cut (even-odd holes) — translucent layers stacked
+        # on top of each other would compound into mud over the city centre.
         _cut_color = {cut: c for cut, c, _t, _e in SEV_BANDS}
-        for T in sorted((cut for cut, _c, _t, _e in SEV_BANDS
-                         if cut != float("inf")), reverse=True):
-            d_attr = " ".join(
-                "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in loop) + " Z"
-                for loop in _band_loops(T))
+        _cuts = sorted(cut for cut, _c, _t, _e in SEV_BANDS if cut != float("inf"))
+        _loops = {T: _band_loops(T) for T in _cuts}
+
+        def _loops_d(loops):
+            out = []
+            for loop in loops:
+                pts = [(round(x), round(y)) for x, y in loop]
+                d = [f"M{pts[0][0]} {pts[0][1]}"]
+                for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+                    if (x1, y1) != (x0, y0):
+                        d.append(f"l{x1 - x0} {y1 - y0}")
+                out.append("".join(d).replace(" -", "-") + "Z")
+            return " ".join(out)
+
+        for i, T in enumerate(_cuts):
+            d_attr = _loops_d(_loops[T])
+            if i:
+                d_attr = (d_attr + " " + _loops_d(_loops[_cuts[i - 1]])).strip()
             if d_attr:
                 parts.append(f'<path d="{d_attr}" fill="{_cut_color[T]}" '
-                             f'fill-rule="evenodd"/>')
+                             f'fill-opacity=".78" fill-rule="evenodd"/>')
+        _frame_d = (f"M{pad} {pad} L{pad + mw} {pad} L{pad + mw} {pad + mh} "
+                    f"L{pad} {pad + mh} Z")
+        parts.append(f'<path d="{_frame_d} {_loops_d(_loops[_cuts[-1]])}" '
+                     f'fill="{SEV_BANDS[-1][1]}" fill-opacity=".78" '
+                     f'fill-rule="evenodd"/>')
         parts.append('</g>')
         if MOAT_POLY:
             pts = " ".join(f"{pad + (ln - W) / (E - W) * mw:.1f},"
@@ -8936,11 +8996,11 @@ def build():
                   + f'<span class="swatch" style="background:#fff;border:2px solid #0E7A4E;border-radius:50%"></span>'
                   + bi("สาขาเซเว่น", "a 7-Eleven branch") + '</p>')
         note = ('<p class="chartcap">'
-                + bi("เส้นชั้นวาดจากตำแหน่งสาขาโดยตรง (ความละเอียดราว 83 เมตร กรอบคือตัวเมือง) "
+                + bi("เส้นชั้นวาดจากตำแหน่งสาขาโดยตรง (ความละเอียดราว 55 เมตร) บนเส้นถนนที่มดแดงเก็บเอง กรอบคือเขตที่เก็บถนนแล้ว — คูเมืองกับวงรอบราว 2 กม. — "
                      "ไม่ได้ขึ้นกับว่าสารบัญเก็บจุดไว้ตรงไหน ทุกตารางนิ้วในกรอบจึงมีค่า — "
                      "แต่สาขาที่ยังไม่มีใน OpenStreetMap จะทำให้บริเวณนั้นดูไกลกว่าจริง",
                      "The contours are traced from the branch positions themselves "
-                     "(about 83 m resolution, framed to the city), not from where the catalog happens to "
+                     "(about 55 m resolution) over streets from the site's own road crawl; the frame is the crawled road area — the old city and a ~2 km ring — not from where the catalog happens to "
                      "hold places — so every spot in frame has a value. A branch "
                      "missing from OpenStreetMap shows up as an overstated distance.")
                 + '</p>')
