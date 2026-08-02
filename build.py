@@ -8769,38 +8769,127 @@ def build():
                  (float("inf"), "#F6DCC8", "เกิน 2 กม.", "beyond 2 km")]
 
     def seven_map():
-        S, N, W, E, CELL = 18.70, 18.88, 98.90, 99.08, 0.005
-        cells = {}
-        n_cm_box = 0
-        for r in _sev_others:
-            la, ln = r["lat"], r["lng"]
-            if not (S <= la < N and W <= ln < E):
-                continue
-            n_cm_box += 1
-            cells.setdefault((int((la - S) / CELL), int((ln - W) / CELL)),
-                             []).append(_sev_dist[r["id"]])
+        # The map is the DISTANCE FIELD itself, traced as contours — not a
+        # tally of catalogued places. Every point in frame gets a value from
+        # the branch pins alone, so catalog density can't blank a cell, and
+        # the resolution is whatever the grid affords (~110 m here).
+        S, N, W, E = 18.70, 18.88, 98.90, 99.08
+        STEP = 0.001
+        nx = int(round((E - W) / STEP)) + 1
+        ny = int(round((N - S) / STEP)) + 1
         mw, mh, pad = 700, 740, 10
-        cw = mw * CELL / (E - W)
-        ch = mh * CELL / (N - S)
-        drawn = {k: _median(v) for k, v in cells.items() if len(v) >= 3}
+
+        def _px(la, ln):
+            return (pad + (ln - W) / (E - W) * mw,
+                    pad + mh - (la - S) / (N - S) * mh)
+
+        _br = [(b[0], b[1], b[1] * _cosla) for b in _sev_pts]
+        BIG = 9e9
+        # One ring of far-away padding around the grid, so every contour
+        # closes and the fill can simply be clipped to the frame.
+        field = [[BIG] * (nx + 2) for _ in range(ny + 2)]
+        for i in range(ny):
+            la = S + i * STEP
+            row = field[i + 1]
+            for j in range(nx):
+                ln = W + j * STEP
+                lns = ln * _cosla
+                best = BIG
+                bla = bln = 0.0
+                for pla, pln, plns in _br:
+                    d = (pla - la) ** 2 + (plns - lns) ** 2
+                    if d < best:
+                        best, bla, bln = d, pla, pln
+                row[j + 1] = _hav_km(la, ln, bla, bln) * 1000
+
+        def _node(r, c):
+            return (S + (r - 1) * STEP, W + (c - 1) * STEP)
+
+        def _band_loops(T):
+            # Marching squares over the padded field at threshold T.
+            segs = []
+            for r in range(ny + 1):
+                for c in range(nx + 1):
+                    v00, v10 = field[r][c], field[r][c + 1]
+                    v01, v11 = field[r + 1][c], field[r + 1][c + 1]
+                    case = ((v00 <= T) | ((v10 <= T) << 1)
+                            | ((v11 <= T) << 2) | ((v01 <= T) << 3))
+                    if case in (0, 15):
+                        continue
+
+                    def _cross(ra, ca, va, rb, cb, vb):
+                        t = (T - va) / (vb - va)
+                        la1, ln1 = _node(ra, ca)
+                        la2, ln2 = _node(rb, cb)
+                        return _px(la1 + (la2 - la1) * t, ln1 + (ln2 - ln1) * t)
+
+                    bot = lambda: _cross(r, c, v00, r, c + 1, v10)
+                    rgt = lambda: _cross(r, c + 1, v10, r + 1, c + 1, v11)
+                    top = lambda: _cross(r + 1, c, v01, r + 1, c + 1, v11)
+                    lft = lambda: _cross(r, c, v00, r + 1, c, v01)
+                    EDGES = {1: [(lft, bot)], 2: [(bot, rgt)], 3: [(lft, rgt)],
+                             4: [(rgt, top)], 5: [(lft, top), (bot, rgt)],
+                             6: [(bot, top)], 7: [(lft, top)], 8: [(top, lft)],
+                             9: [(top, bot)], 10: [(top, rgt), (lft, bot)],
+                             11: [(top, rgt)], 12: [(rgt, lft)],
+                             13: [(rgt, bot)], 14: [(bot, lft)]}
+                    for ea, eb in EDGES[case]:
+                        segs.append((ea(), eb()))
+            adj = {}
+
+            def _key(p):
+                return (round(p[0], 1), round(p[1], 1))
+
+            for a, b in segs:
+                ka, kb = _key(a), _key(b)
+                if ka == kb:
+                    continue
+                adj.setdefault(ka, []).append(kb)
+                adj.setdefault(kb, []).append(ka)
+            loops, used = [], set()
+            for start in list(adj):
+                if start in used:
+                    continue
+                loop, prev, cur = [start], None, start
+                while True:
+                    used.add(cur)
+                    nxt = None
+                    for cand in adj.get(cur, ()):
+                        if cand != prev and cand not in used:
+                            nxt = cand
+                            break
+                    if nxt is None:
+                        break
+                    loop.append(nxt)
+                    prev, cur = cur, nxt
+                if len(loop) > 2:
+                    loops.append(loop)
+            return loops
+
         _mlabel = bi_text(
-            "แผนที่ตารางกลางเมืองเชียงใหม่ %d ช่อง ระบายสีตามระยะมัธยฐานถึงเซเว่นใกล้สุด "
-            "ของจุดในช่องนั้น สีเข้มคือใกล้ สีอ่อนคือไกล พร้อมกรอบคูเมืองและตำแหน่งสาขา — "
-            "ย่านรอบคูเมืองเกือบทั้งหมดอยู่โทนเข้มสุด"
-            % len(drawn),
-            "Grid map of central Chiang Mai, %d cells coloured by the median "
-            "distance from the places in each cell to their nearest 7-Eleven — "
-            "dark is near, pale is far — with the moat outline and branch dots. "
-            "Nearly every cell around the moat sits in the darkest band."
-            % len(drawn))
+            "แผนที่เส้นชั้นระยะทางกลางเมืองเชียงใหม่ คำนวณจากตำแหน่งสาขาโดยตรง "
+            "ที่ความละเอียดราว 110 เมตร แบ่งชั้นที่ 250 500 1000 และ 2000 เมตร "
+            "สีเข้มคือใกล้ พร้อมกรอบคูเมืองและตำแหน่งสาขา — วงคูเมืองอยู่ในชั้นเข้มสุดเกือบทั้งวง",
+            "Contour map of central Chiang Mai computed straight from the branch "
+            "positions at roughly 110 m resolution, layered at 250, 500, 1,000 and "
+            "2,000 m — dark is near, pale is far — with the moat outline and branch "
+            "dots. The moat ring sits almost entirely in the darkest layer.")
         parts = [f'<svg viewBox="0 0 {mw + 2 * pad} {mh + 2 * pad}" width="100%" role="img" '
-                 f'aria-label="{att(_mlabel)}">']
-        for (i, j), med in sorted(drawn.items()):
-            x = pad + j * cw
-            y = pad + mh - (i + 1) * ch
-            color = next(c for cut, c, _t, _e in SEV_BANDS if med <= cut)
-            parts.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{cw:.1f}" height="{ch:.1f}" '
-                         f'fill="{color}"><title>{round(med)} ม.</title></rect>')
+                 f'aria-label="{att(_mlabel)}">',
+                 f'<clipPath id="sevclip"><rect x="{pad}" y="{pad}" width="{mw}" '
+                 f'height="{mh}"/></clipPath>',
+                 f'<g clip-path="url(#sevclip)">',
+                 f'<rect x="{pad}" y="{pad}" width="{mw}" height="{mh}" '
+                 f'fill="{SEV_BANDS[-1][1]}"/>']
+        _cut_color = {cut: c for cut, c, _t, _e in SEV_BANDS}
+        for T in (2000, 1000, 500, 250):
+            d_attr = " ".join(
+                "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in loop) + " Z"
+                for loop in _band_loops(T))
+            if d_attr:
+                parts.append(f'<path d="{d_attr}" fill="{_cut_color[T]}" '
+                             f'fill-rule="evenodd"/>')
+        parts.append('</g>')
         if MOAT_POLY:
             pts = " ".join(f"{pad + (ln - W) / (E - W) * mw:.1f},"
                            f"{pad + mh - (la - S) / (N - S) * mh:.1f}"
@@ -8823,11 +8912,13 @@ def build():
                   + f'<span class="swatch" style="background:#fff;border:2px solid #0E7A4E;border-radius:50%"></span>'
                   + bi("สาขาเซเว่น", "a 7-Eleven branch") + '</p>')
         note = ('<p class="chartcap">'
-                + bi(f"ช่องละราว 550 เมตร ระบายเฉพาะช่องที่มีตั้งแต่ 3 จุดขึ้นไป ({len(drawn):,} ช่อง "
-                     f"จากจุดในกรอบ {n_cm_box:,} จุด) ช่องว่างคือยังเก็บข้อมูลไม่พอ ไม่ใช่ไม่มีอะไรอยู่",
-                     f"Cells are roughly 550 m across; only cells holding 3+ places are coloured "
-                     f"({len(drawn):,} cells over {n_cm_box:,} places in frame). A blank cell means "
-                     f"not enough collected yet — not that nothing is there.")
+                + bi("เส้นชั้นวาดจากตำแหน่งสาขาโดยตรง (ความละเอียดราว 110 เมตร) "
+                     "ไม่ได้ขึ้นกับว่าสารบัญเก็บจุดไว้ตรงไหน ทุกตารางนิ้วในกรอบจึงมีค่า — "
+                     "แต่สาขาที่ยังไม่มีใน OpenStreetMap จะทำให้บริเวณนั้นดูไกลกว่าจริง",
+                     "The contours are traced from the branch positions themselves "
+                     "(about 110 m resolution), not from where the catalog happens to "
+                     "hold places — so every spot in frame has a value. A branch "
+                     "missing from OpenStreetMap shows up as an overstated distance.")
                 + '</p>')
         return legend + parts[0] + "".join(parts[1:]) + note
 
@@ -8864,13 +8955,16 @@ def build():
         f"coordinates.)")
     sev_method_th = (
         f"วิธีวัด: ระยะเส้นตรง (great-circle) ไม่ใช่ระยะเดิน · สาขามาจากป้าย brand ใน OpenStreetMap "
-        f"· วัดจากจุดในสารบัญมดแดงซึ่งเก็บหนาแน่นในเขตเมือง ตัวเลขนี้จึงบรรยายเมือง "
-        f"ไม่ใช่ทั้งสองจังหวัด · ไม่นับสาขาเทียบกันเอง · คำนวณใหม่ทุกครั้งที่สร้างเว็บ")
+        f"· ตัวเลขสถิติวัดจากจุดในสารบัญมดแดงซึ่งเก็บหนาแน่นในเขตเมือง จึงบรรยายเมือง "
+        f"ไม่ใช่ทั้งสองจังหวัด · แผนที่วาดจากสนามระยะทางของตำแหน่งสาขาโดยตรง ทุกจุดในกรอบ "
+        f"ไม่ใช่เฉพาะจุดในสารบัญ · ไม่นับสาขาเทียบกันเอง · คำนวณใหม่ทุกครั้งที่สร้างเว็บ")
     sev_method_en = (
         f"Method: straight-line (great-circle) distance, not a walk. Branches come from the "
-        f"brand tag in OpenStreetMap. Measured from the places in this catalog, which is "
-        f"collected most densely in town — so the number describes the city, not the whole of "
-        f"both provinces. Branches are not measured against each other. Recomputed every build.")
+        f"brand tag in OpenStreetMap. The statistics are measured from the places in this "
+        f"catalog, which is collected most densely in town — so they describe the city, not "
+        f"the whole of both provinces. The map is drawn from the distance field of the branch "
+        f"positions directly, every point in frame, not only catalogued places. Branches are "
+        f"not measured against each other. Recomputed every build.")
 
     (DOCS / "seven.html").write_text(page(
         "ใกล้เซเว่นแค่ไหน",
@@ -8879,7 +8973,7 @@ def build():
         f'{sev_tiles}'
         f'<h2>{bi("การกระจายระยะทาง", "How the distances fall")}</h2>'
         f'{seven_hist()}'
-        f'<h2>{bi("แผนที่กลางเมือง", "The city, cell by cell")}</h2>'
+        f'<h2>{bi("แผนที่เส้นชั้นกลางเมือง", "The city in contours")}</h2>'
         f'{seven_map()}'
         f'<h2>{bi("หมวดไหนเกาะเซเว่น หมวดไหนยืนห่าง (ตั้งแต่ 100 จุดขึ้นไป)", "Which trades keep close (categories of 100+ places)")}</h2>'
         f'{sev_cat_table}'
