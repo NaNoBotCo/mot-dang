@@ -8689,9 +8689,24 @@ def build():
                 or bool(_SEV_RX.search(" ".join(
                     filter(None, (r.get("name"), r.get("nameTh"), r.get("nameEn")))))))
 
-    _sev_pts = [(r["lat"], r["lng"]) for p in PROVINCES for r in data[p["key"]]
+    _sev_raw = [r for p in PROVINCES for r in data[p["key"]]
                 if _is_seven(r) and r.get("lat")]
-    _sev_by_prov = {p["key"]: sum(1 for r in data[p["key"]] if _is_seven(r))
+    # OSM sometimes holds one store twice — a POI node inside its own
+    # building outline (0–5 m apart), or a re-mapped node (~16 m). Merge
+    # records closer than 25 m, preferring the brand-tagged one. 25 m and
+    # not more: two REAL branches 50 m apart is a thing this country does,
+    # and the set has such pairs.
+    _sev_raw.sort(key=lambda r: 0 if r["attrs"].get("brand") == "7-Eleven" else 1)
+    _sev_recs = []
+    for r in _sev_raw:
+        la, ln = r["lat"], r["lng"]
+        if any(abs(la - k["lat"]) < 0.0004 and abs(ln - k["lng"]) < 0.0004
+               and _hav_km(la, ln, k["lat"], k["lng"]) * 1000 < 25
+               for k in _sev_recs):
+            continue
+        _sev_recs.append(r)
+    _sev_pts = [(r["lat"], r["lng"]) for r in _sev_recs]
+    _sev_by_prov = {p["key"]: sum(1 for r in _sev_recs if r["province"] == p["key"])
                     for p in PROVINCES}
     _sev_others = [r for p in PROVINCES for r in data[p["key"]]
                    if not _is_seven(r) and r.get("lat")]
@@ -9089,7 +9104,7 @@ def build():
         f"metres — commerce huddles, temples keep a quieter distance. (An observation from "
         f"coordinates.)")
     sev_method_th = (
-        f"วิธีวัด: ระยะเส้นตรง (great-circle) ไม่ใช่ระยะเดิน · สาขานับจากป้าย brand ใน OpenStreetMap หรือชื่อที่เขียนว่าเซเว่นตรง ๆ (49 สาขามีชื่อแต่ไม่มีป้าย brand) "
+        f"วิธีวัด: ระยะเส้นตรง (great-circle) ไม่ใช่ระยะเดิน · สาขานับจากป้าย brand ใน OpenStreetMap หรือชื่อที่เขียนว่าเซเว่นตรง ๆ (49 สาขามีชื่อแต่ไม่มีป้าย brand) · จุดที่ปักซ้ำในระยะ 25 ม. — จุด POI กับตัวอาคารของร้านเดียวกัน — นับเป็นหนึ่ง "
         f"· ตัวเลขสถิติวัดจากจุดในสารบัญมดแดงซึ่งเก็บหนาแน่นในเขตเมือง จึงบรรยายเมือง "
         f"ไม่ใช่ทั้งสองจังหวัด · แผนที่วาดจากสนามระยะทางของตำแหน่งสาขาโดยตรง ทุกจุดในกรอบ "
         f"ไม่ใช่เฉพาะจุดในสารบัญ · ไม่นับสาขาเทียบกันเอง · คำนวณใหม่ทุกครั้งที่สร้างเว็บ")

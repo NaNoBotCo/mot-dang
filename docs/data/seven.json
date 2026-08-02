@@ -1,9 +1,9 @@
 {
  "generated": "2026-08-02",
  "branches": {
-  "total": 387,
-  "cm": 333,
-  "cr": 54
+  "total": 383,
+  "cm": 331,
+  "cr": 52
  },
  "placesMeasured": 10283,
  "medianM": 225,
@@ -19,12 +19,12 @@
   {
    "fromM": 0,
    "toM": 100,
-   "n": 2023
+   "n": 2021
   },
   {
    "fromM": 100,
    "toM": 250,
-   "n": 3616
+   "n": 3618
   },
   {
    "fromM": 250,
@@ -101,7 +101,7 @@
   {
    "cat": "learn",
    "n": 164,
-   "medianM": 287
+   "medianM": 289
   },
   {
    "cat": "repair",
