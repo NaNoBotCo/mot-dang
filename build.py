@@ -8568,7 +8568,9 @@ def build():
         y = 4
         for e, n, med, _names in rows:
             w = plot_w * med / max_v
-            color = lerp_hex("#F6D9CE", "#8F2E13", min(med / max_v, 1))
+            # Same rule as the seven map: darkest where nearest, so the ink
+            # lands on เชียง — which is the finding.
+            color = lerp_hex("#F6D9CE", "#8F2E13", max(1 - med / max_v, 0))
             parts.append(f'<text x="{left - 10}" y="{y + bar_h - 4}" text-anchor="end" '
                          f'font-size="13" fill="#2A1E16">{esc(e)} (n={n})</text>')
             parts.append(f'<rect x="{left}" y="{y}" width="{max(w, 2):.1f}" height="{bar_h}" rx="4" '
@@ -8758,11 +8760,13 @@ def build():
     # coloured by the median distance of the places inside it. Cells holding
     # fewer than three places are left blank rather than coloured off one
     # point — the blanks are stated on the page.
-    SEV_BANDS = [(250, "#F6DCC8", "ไม่เกิน 250 ม.", "within 250 m"),
-                 (500, "#EFB185", "ไม่เกิน 500 ม.", "within 500 m"),
+    # Darkest where nearest — her call: the ink should sit where the branches
+    # crowd, so the map reads as presence, not absence.
+    SEV_BANDS = [(250, "#8F2E13", "ไม่เกิน 250 ม.", "within 250 m"),
+                 (500, "#B34E1B", "ไม่เกิน 500 ม.", "within 500 m"),
                  (1000, "#E07B3C", "ไม่เกิน 1 กม.", "within 1 km"),
-                 (2000, "#B34E1B", "ไม่เกิน 2 กม.", "within 2 km"),
-                 (float("inf"), "#8F2E13", "เกิน 2 กม.", "beyond 2 km")]
+                 (2000, "#EFB185", "ไม่เกิน 2 กม.", "within 2 km"),
+                 (float("inf"), "#F6DCC8", "เกิน 2 กม.", "beyond 2 km")]
 
     def seven_map():
         S, N, W, E, CELL = 18.70, 18.88, 98.90, 99.08, 0.005
@@ -8781,13 +8785,13 @@ def build():
         drawn = {k: _median(v) for k, v in cells.items() if len(v) >= 3}
         _mlabel = bi_text(
             "แผนที่ตารางกลางเมืองเชียงใหม่ %d ช่อง ระบายสีตามระยะมัธยฐานถึงเซเว่นใกล้สุด "
-            "ของจุดในช่องนั้น สีอ่อนคือใกล้ สีเข้มคือไกล พร้อมกรอบคูเมืองและตำแหน่งสาขา — "
-            "ย่านรอบคูเมืองเกือบทั้งหมดอยู่โทนอ่อนสุด"
+            "ของจุดในช่องนั้น สีเข้มคือใกล้ สีอ่อนคือไกล พร้อมกรอบคูเมืองและตำแหน่งสาขา — "
+            "ย่านรอบคูเมืองเกือบทั้งหมดอยู่โทนเข้มสุด"
             % len(drawn),
             "Grid map of central Chiang Mai, %d cells coloured by the median "
             "distance from the places in each cell to their nearest 7-Eleven — "
-            "pale is near, dark is far — with the moat outline and branch dots. "
-            "Nearly every cell around the moat sits in the palest band."
+            "dark is near, pale is far — with the moat outline and branch dots. "
+            "Nearly every cell around the moat sits in the darkest band."
             % len(drawn))
         parts = [f'<svg viewBox="0 0 {mw + 2 * pad} {mh + 2 * pad}" width="100%" role="img" '
                  f'aria-label="{att(_mlabel)}">']
@@ -8801,22 +8805,22 @@ def build():
             pts = " ".join(f"{pad + (ln - W) / (E - W) * mw:.1f},"
                            f"{pad + mh - (la - S) / (N - S) * mh:.1f}"
                            for la, ln in MOAT_POLY)
-            parts.append(f'<polygon points="{pts}" fill="none" stroke="#2A1E16" '
+            parts.append(f'<polygon points="{pts}" fill="none" stroke="#FAF3E7" '
                          f'stroke-width="2.5" stroke-dasharray="7 4"/>')
             _mx = pad + (_moat_c[1] - W) / (E - W) * mw
             _my = pad + mh - (_moat_c[0] - S) / (N - S) * mh
             parts.append(f'<text x="{_mx:.1f}" y="{_my:.1f}" text-anchor="middle" '
-                         f'font-size="15" font-weight="700" fill="#2A1E16">คูเมือง</text>')
+                         f'font-size="15" font-weight="700" fill="#FAF3E7">คูเมือง</text>')
         for la, ln in _sev_pts:
             if S <= la < N and W <= ln < E:
                 parts.append(f'<circle cx="{pad + (ln - W) / (E - W) * mw:.1f}" '
-                             f'cy="{pad + mh - (la - S) / (N - S) * mh:.1f}" r="2.4" '
-                             f'fill="#0E7A4E" opacity=".85"/>')
+                             f'cy="{pad + mh - (la - S) / (N - S) * mh:.1f}" r="2.2" '
+                             f'fill="#FFFFFF" stroke="#0E7A4E" stroke-width="1"/>')
         parts.append("</svg>")
         legend = ('<p class="chartlegend">'
                   + "".join(f'<span class="swatch" style="background:{c}"></span>{bi(th, en)}&nbsp; &nbsp;'
                             for _cut, c, th, en in SEV_BANDS)
-                  + f'<span class="swatch" style="background:#0E7A4E;border-radius:50%"></span>'
+                  + f'<span class="swatch" style="background:#fff;border:2px solid #0E7A4E;border-radius:50%"></span>'
                   + bi("สาขาเซเว่น", "a 7-Eleven branch") + '</p>')
         note = ('<p class="chartcap">'
                 + bi(f"ช่องละราว 550 เมตร ระบายเฉพาะช่องที่มีตั้งแต่ 3 จุดขึ้นไป ({len(drawn):,} ช่อง "

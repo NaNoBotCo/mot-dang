@@ -4,8 +4,12 @@ What is waiting to go out, and what shipped last time.
 
 ## Waiting
 
-**Two commits, queued 2026-08-02 — the two infographics from the map-ideas
-round, built.** `git push origin main`, then `python3 importers/ping_indexnow.py`.
+**Three commits, queued 2026-08-02 — the two infographics from the map-ideas
+round, built; colour ramp then flipped at Nan's direction (darkest = nearest,
+on both the seven map and the watnames bars — the ink lands where the branches
+crowd, and on เชียง). Moat outline went cream and branch dots white-ringed so
+they read over the now-dark centre.**
+`git push origin main`, then `python3 importers/ping_indexnow.py`.
 
 The two the 2026-08-01 session tested against the data and asked to build
 ("the wat-name morphology and the 7-Eleven distance — pure computation on data
