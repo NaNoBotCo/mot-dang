@@ -20,6 +20,27 @@ seven.json serves total 387, page serves 225 ม. IndexNow 4,285 URLs, 200.
 **Worth keeping: when a distance-to-X analysis looks off, audit the X set
 first** — brand tags undercount; names catch what tags miss.
 
+## Last push — 2026-08-02 (fourth), `74ba13be17`
+
+Four commits, all from her review rounds on the seven map: the street
+underlay from our own road graph (frame snapped to the crawled area; bands
+painted once as even-odd rings so translucency doesn't compound); log bands
++ edge labels + scale bar; the store dedup (records within 25 m count once
+— node-and-building doubles; old city 12 dots → 11 real stores, 387 → 383);
+and the metric change that cured the urticaria — **sum, don't min**: the map
+is now branches-within-a-~10-min-walk (800 m soft count, layers 1/2/4/8/16),
+drawn as organic isopleths instead of per-branch bullseyes. Caption carries
+~14 branches within a walk of the moat centre, edge median ~3, beside the
+nearest-distance medians. Verified live ~60 s after push by cache-busted
+fetch. IndexNow 4,285 URLs, 200.
+
+**Rules worth keeping from this arc:** darkest = nearest/most (her standing
+rule); for distance-to-X audits, audit the X set first (names catch what
+brand tags miss; node+building doubles need a ≤25 m merge); frame a map
+where the finding lives and label what lies beyond the frame; and when a
+nearest-distance map reads as a rash, the cure is a density metric, not a
+palette.
+
 ## Last push — 2026-08-02 (second), `3d7a8fd70f`
 
 The seven map redrawn as the distance field itself, on her "more granular" —
