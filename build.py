@@ -8773,15 +8773,19 @@ def build():
     # Darkest where nearest — her call: the ink should sit where the branches
     # crowd, so the map reads as presence, not absence. Nine levels (also her
     # call), colours interpolated along the one ramp so the gradation is even.
-    _SEV_CUTS = [(100, "ไม่เกิน 100 ม.", "within 100 m"),
+    # Log-spaced (×1.6 a step), fitted to the range the frame actually holds:
+    # in-frame field runs p10 ≈ 113 m to p99 ≈ 1,237 m, so linear cuts to 3 km
+    # crushed the whole city into two look-alike dark bands and read as a
+    # rash. On this ladder the old city (median ~185 ม.) and the frame edge
+    # (median ~400 ม.) sit two full bands apart, which is the true gradient.
+    _SEV_CUTS = [(150, "ไม่เกิน 150 ม.", "within 150 m"),
                  (250, "ไม่เกิน 250 ม.", "within 250 m"),
-                 (500, "ไม่เกิน 500 ม.", "within 500 m"),
-                 (750, "ไม่เกิน 750 ม.", "within 750 m"),
+                 (400, "ไม่เกิน 400 ม.", "within 400 m"),
+                 (650, "ไม่เกิน 650 ม.", "within 650 m"),
                  (1000, "ไม่เกิน 1 กม.", "within 1 km"),
-                 (1500, "ไม่เกิน 1.5 กม.", "within 1.5 km"),
-                 (2000, "ไม่เกิน 2 กม.", "within 2 km"),
-                 (3000, "ไม่เกิน 3 กม.", "within 3 km"),
-                 (float("inf"), "เกิน 3 กม.", "beyond 3 km")]
+                 (1600, "ไม่เกิน 1.6 กม.", "within 1.6 km"),
+                 (2500, "ไม่เกิน 2.5 กม.", "within 2.5 km"),
+                 (float("inf"), "เกิน 2.5 กม.", "beyond 2.5 km")]
     SEV_BANDS = [(cut, lerp_hex("#8F2E13", "#F6DCC8", i / (len(_SEV_CUTS) - 1)), th, en)
                  for i, (cut, th, en) in enumerate(_SEV_CUTS)]
 
@@ -8892,11 +8896,11 @@ def build():
 
         _mlabel = bi_text(
             "แผนที่เส้นชั้นระยะทางกลางเมืองเชียงใหม่ คำนวณจากตำแหน่งสาขาโดยตรง "
-            "ที่ความละเอียดราว 55 เมตร ทับบนเส้นถนนจากการเก็บของมดแดงเอง แบ่ง %d ชั้นตั้งแต่ 100 เมตรถึง 3 กิโลเมตร "
+            "ที่ความละเอียดราว 55 เมตร ทับบนเส้นถนนจากการเก็บของมดแดงเอง แบ่ง %d ชั้นแบบลอการิทึม ตั้งแต่ 150 เมตรถึง 2.5 กิโลเมตร "
             "สีเข้มคือใกล้ พร้อมกรอบคูเมืองและตำแหน่งสาขา — วงคูเมืองอยู่ในชั้นเข้มสุดเกือบทั้งวง"
             % len(SEV_BANDS),
             "Contour map of central Chiang Mai computed straight from the branch "
-            "positions at roughly 55 m resolution over a street underlay from the site's own road crawl, in %d layers from 100 m to 3 km "
+            "positions at roughly 55 m resolution over a street underlay from the site's own road crawl, in %d logarithmic layers from 150 m to 2.5 km "
             "— dark is near, pale is far — with the moat outline and branch dots. "
             "The moat ring sits almost entirely in the darkest layer."
             % len(SEV_BANDS))
@@ -8987,22 +8991,69 @@ def build():
         for la, ln in _sev_pts:
             if S <= la < N and W <= ln < E:
                 parts.append(f'<circle cx="{pad + (ln - W) / (E - W) * mw:.1f}" '
-                             f'cy="{pad + mh - (la - S) / (N - S) * mh:.1f}" r="2.2" '
-                             f'fill="#FFFFFF" stroke="#0E7A4E" stroke-width="1"/>')
+                             f'cy="{pad + mh - (la - S) / (N - S) * mh:.1f}" r="1.7" '
+                             f'fill="#FFFFFF" stroke="#0E7A4E" stroke-width=".8"/>')
+        # A scale bar and the two places people will assume the frame reaches
+        # but it does not — say how far past the edge each one really is.
+        _km_px = 1000 / ((E - W) * _cosla * 111320) * mw
+        _sy = pad + mh - 22
+        parts.append(f'<rect x="{pad + 12}" y="{_sy - 15}" width="{_km_px + 24:.0f}" height="26" '
+                     f'rx="6" fill="#FAF3E7" opacity=".92"/>')
+        parts.append(f'<line x1="{pad + 24}" y1="{_sy}" x2="{pad + 24 + _km_px:.1f}" y2="{_sy}" '
+                     f'stroke="#2A1E16" stroke-width="2.5"/>')
+        parts.append(f'<text x="{pad + 24 + _km_px / 2:.1f}" y="{_sy - 4}" text-anchor="middle" '
+                     f'font-size="12" font-weight="700" fill="#2A1E16">1 กม.</text>')
+        _doi = (18.80446, 98.92165)
+        _skp = (18.74506, 99.11841)
+        _doi_km = round(_hav_km(_doi[0], _doi[1], _doi[0], W))
+        _skp_km = round(_hav_km(_skp[0], _skp[1], _skp[0], E))
+        _wy = min(max(pad + mh - (_doi[0] - S) / (N - S) * mh, pad + 24), pad + mh - 24)
+        _ey = min(max(pad + mh - (_skp[0] - S) / (N - S) * mh, pad + 24), pad + mh - 24)
+        for x, y, anchor, txt in (
+                (pad + 8, _wy, "start", f"← ดอยสุเทพ อีก ~{_doi_km} กม."),
+                (pad + mw - 8, _ey, "end", f"สันกำแพง อีก ~{_skp_km} กม. →")):
+            _tw = len(txt) * 6.4 + 14
+            _rx = x - 4 if anchor == "start" else x - _tw + 4
+            parts.append(f'<rect x="{_rx:.0f}" y="{y - 13:.0f}" width="{_tw:.0f}" height="19" '
+                         f'rx="6" fill="#FAF3E7" opacity=".92"/>')
+            parts.append(f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="{anchor}" '
+                         f'font-size="12" fill="#2A1E16">{esc(txt)}</text>')
         parts.append("</svg>")
         legend = ('<p class="chartlegend">'
                   + "".join(f'<span class="swatch" style="background:{c}"></span>{bi(th, en)}&nbsp; &nbsp;'
                             for _cut, c, th, en in SEV_BANDS)
                   + f'<span class="swatch" style="background:#fff;border:2px solid #0E7A4E;border-radius:50%"></span>'
                   + bi("สาขาเซเว่น", "a 7-Eleven branch") + '</p>')
+        # The even-looking spread is a question worth answering with numbers,
+        # so the caption carries the field's own zone medians every build.
+        _in_moat, _at_edge = [], []
+        _margin = 0.12
+        for i in range(ny):
+            la = S + i * STEP
+            for j in range(nx):
+                ln = W + j * STEP
+                v = field[i + 1][j + 1]
+                if CM_MOAT["s"] <= la <= CM_MOAT["n"] and CM_MOAT["w"] <= ln <= CM_MOAT["e"]:
+                    _in_moat.append(v)
+                if (min(i, ny - 1 - i) < ny * _margin
+                        or min(j, nx - 1 - j) < nx * _margin):
+                    _at_edge.append(v)
+        _m_moat = round(_median(_in_moat)) if _in_moat else 0
+        _m_edge = round(_median(_at_edge)) if _at_edge else 0
         note = ('<p class="chartcap">'
-                + bi("เส้นชั้นวาดจากตำแหน่งสาขาโดยตรง (ความละเอียดราว 55 เมตร) บนเส้นถนนที่มดแดงเก็บเอง กรอบคือเขตที่เก็บถนนแล้ว — คูเมืองกับวงรอบราว 2 กม. — "
-                     "ไม่ได้ขึ้นกับว่าสารบัญเก็บจุดไว้ตรงไหน ทุกตารางนิ้วในกรอบจึงมีค่า — "
-                     "แต่สาขาที่ยังไม่มีใน OpenStreetMap จะทำให้บริเวณนั้นดูไกลกว่าจริง",
-                     "The contours are traced from the branch positions themselves "
-                     "(about 55 m resolution) over streets from the site's own road crawl; the frame is the crawled road area — the old city and a ~2 km ring — not from where the catalog happens to "
-                     "hold places — so every spot in frame has a value. A branch "
-                     "missing from OpenStreetMap shows up as an overstated distance.")
+                + bi(f"ชั้นสีไล่แบบลอการิทึม (คูณ ~1.6 ต่อชั้น) เพื่อให้เห็นความต่างในช่วงที่เมืองต่างกันจริง: "
+                     f"ในคูเมืองมัธยฐาน {_m_moat} ม. ขอบกรอบ {_m_edge} ม. — ใกล้ทั้งคู่ แต่ไม่เท่ากัน "
+                     f"· เส้นชั้นวาดจากตำแหน่งสาขาโดยตรง (ละเอียดราว 55 เมตร) บนถนนที่มดแดงเก็บเอง "
+                     f"· กรอบคือเขตที่เก็บถนนแล้ว ไม่ถึงดอยสุเทพหรือสันกำแพง (ป้ายบอกระยะที่ขอบ) "
+                     f"· สาขาที่ยังไม่มีใน OpenStreetMap จะทำให้บริเวณนั้นดูไกลกว่าจริง",
+                     f"The colour steps are logarithmic (×~1.6 a step) so the range where the city "
+                     f"actually varies is visible: median {_m_moat} m inside the moat, {_m_edge} m "
+                     f"at the frame edge — both near, but not the same. Contours are traced from "
+                     f"the branch positions themselves (~55 m resolution) over streets from the "
+                     f"site's own road crawl. The frame is the crawled road area — it reaches "
+                     f"neither Doi Suthep nor San Kamphaeng; the edge labels say how far each "
+                     f"remains. A branch missing from OpenStreetMap shows up as an overstated "
+                     f"distance.")
                 + '</p>')
         return legend + parts[0] + "".join(parts[1:]) + note
 
