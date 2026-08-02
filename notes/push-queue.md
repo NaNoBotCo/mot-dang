@@ -6,6 +6,20 @@ What is waiting to go out, and what shipped last time.
 
 Nothing. The working tree is clean and `main` matches `origin/main`.
 
+## Last push — 2026-08-02 (third), `96713469db`
+
+Two commits on her review of the map: nine levels (100 m → 3 km, colours
+interpolated on the one darkest-nearest ramp), then the real fix — **the
+branch set was wrong**. 49 records are named 7-Eleven with no OSM brand tag;
+branches now count by tag OR name (338 → 387, median 240 → 225 m, 76% ≤500 ม.,
+87% ≤1 กม.), and the frame tightened to the city (12×12 km, moat centred,
+~83 m grid) because a 20 km frame of pale countryside told the eye the
+opposite of the finding. Verified live by cache-busted fetch (~60 s):
+seven.json serves total 387, page serves 225 ม. IndexNow 4,285 URLs, 200.
+
+**Worth keeping: when a distance-to-X analysis looks off, audit the X set
+first** — brand tags undercount; names catch what tags miss.
+
 ## Last push — 2026-08-02 (second), `3d7a8fd70f`
 
 The seven map redrawn as the distance field itself, on her "more granular" —
