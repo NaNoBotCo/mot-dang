@@ -4,7 +4,35 @@ What is waiting to go out, and what shipped last time.
 
 ## Waiting
 
-Nothing. The working tree is clean and `main` matches `origin/main`.
+**Two commits, queued 2026-08-02 — the two infographics from the map-ideas
+round, built.** `git push origin main`, then `python3 importers/ping_indexnow.py`.
+
+The two the 2026-08-01 session tested against the data and asked to build
+("the wat-name morphology and the 7-Eleven distance — pure computation on data
+already on disk"). Both are now pages, computed fresh every build:
+
+- **`/watnames.html` — ชื่อวัดบอกภูมิประเทศ.** 270 unique Thai wat names in CM
+  read against their coordinates; the leading word predicts the distance from
+  the moat (เชียง 2.1 กม. → ทุ่ง 11.8 กม.). The quick test's numbers moved once
+  the method got proper: leading-element matching only (วัดสันป่าข่อย is a สัน
+  name, not ป่า; วัดสันติธรรม is peace, not a ridge), ำ/ํา unicode folding,
+  name-dedup, and Thai-script resolution. 23 wats carry only romanised names
+  and are excluded — Wat Chiang Man among them, stated on the page.
+- **`/seven.html` — ใกล้เซเว่นแค่ไหน.** Median 240 m from 10,332 places to the
+  nearest of 338 branches; 74% within 500 m, 86% within 1 km. Histogram,
+  per-category medians (massage 151 m → wats 1,560 m), and a ~550 m-cell
+  contour map of central CM with the moat overlaid (374 cells, cells under
+  3 places left blank and the blank stated).
+- Both publish raw numbers (`data/watnames.json`, `data/seven.json`), link each
+  other, hang off stats.html ("เรื่องที่ข้อมูลเล่า") and llms.txt. BUILD_DATE
+  bumped to 2026-08-02. 11,811 pages (+2).
+
+Verified before queueing: all seven suites green, zero `/Users/` leaks, both
+pages DOM-checked through the local server (site chrome, charts, sortable
+tables, moat polygon + 236 branch dots all present), and every class the new
+pages use has a rule — except `.lede`, which has no rule anywhere on the site
+(reach.html ships the same way; a plain paragraph, not an invisible block —
+noted, not fixed, since it predates this work).
 
 ## Last push — 2026-08-01, `4a42b00225`, 11,809 pages
 
