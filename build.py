@@ -9337,116 +9337,151 @@ def build():
                   + bi("จุดบริการ", "a site") + '</p>')
         return legend + "".join(parts) + "</svg>"
 
-    # ATM sites: the fixtures crawl already on disk. Pharmacy sites: their
-    # own point snapshot — the CATALOG holds only 29 pharmacies (a crawl gap,
-    # the main harvest never asked amenity=pharmacy), and a density map drawn
-    # from those would show deserts that are really holes in collection.
+    # The amenity layers, one definition each — a new walking map is one
+    # more entry here. Point sources: the fixtures harvest already on disk
+    # (atm, toilets) and per-layer snapshots fetched for the map (pharmacy,
+    # water) because the CATALOG never collected them — a density map drawn
+    # from catalog gaps would show deserts that are really holes in
+    # collection. A layer whose snapshot is missing is skipped with a notice,
+    # never guessed.
     _fx = json.loads((ROOT / "cache" / "overpass" / "cm" / "fixtures.json").read_text())
-    _atm_pts = _dedup_sites([
-        (el.get("lat") or (el.get("center") or {}).get("lat"),
-         el.get("lon") or (el.get("center") or {}).get("lon"))
-        for el in _fx.get("elements", [])
-        if (el.get("tags") or {}).get("amenity") == "atm"
-        and (el.get("lat") or (el.get("center") or {}).get("lat"))])
-    _ph_path = ROOT / "cache" / "overpass" / "cm" / "pharmacy_points.json"
-    _ph_pts = []
-    if _ph_path.exists():
-        _phd = json.loads(_ph_path.read_text())
-        _ph_pts = _dedup_sites([
-            (el.get("lat") or (el.get("center") or {}).get("lat"),
-             el.get("lon") or (el.get("center") or {}).get("lon"))
-            for el in _phd.get("elements", [])
-            if (el.get("lat") or (el.get("center") or {}).get("lat"))])
-    if _ph_pts:
-        _atm_fld, _atm_ok = _walk_field(_atm_pts)
-        _ph_fld, _ph_ok = _walk_field(_ph_pts)
-        _in_frame = lambda pts: sum(1 for la, ln in pts
-                                    if MAP_S <= la < MAP_N and MAP_W <= ln < MAP_E)
-        _atm_n, _ph_n = _in_frame(_atm_pts), _in_frame(_ph_pts)
-        _atm_moat = round(_fld_at(_atm_fld, *_moat_c))
-        _ph_moat = round(_fld_at(_ph_fld, *_moat_c))
 
-        def _edge_med(fld, ok):
-            vals = []
-            for i in range(MAP_NY):
-                for j in range(MAP_NX):
-                    if (min(i, MAP_NY - 1 - i) < MAP_NY * 0.12
-                            or min(j, MAP_NX - 1 - j) < MAP_NX * 0.12):
-                        if ok[i + 1][j + 1]:
-                            vals.append(fld[i + 1][j + 1])
-            return round(_median(vals), 1) if vals else 0
+    def _el_pts(els, want=None):
+        out = []
+        for el in els:
+            if want and (el.get("tags") or {}).get("amenity") != want:
+                continue
+            la = el.get("lat") or (el.get("center") or {}).get("lat")
+            ln = el.get("lon") or (el.get("center") or {}).get("lon")
+            if la:
+                out.append((la, ln))
+        return out
 
-        _atm_edge, _ph_edge = _edge_med(_atm_fld, _atm_ok), _edge_med(_ph_fld, _ph_ok)
-        _atm_label = bi_text(
-            "แผนที่เส้นชั้นจำนวนตู้เอทีเอ็มในระยะเดินราว 10 นาที เดินตามถนนจริง "
-            "ข้ามคูเมืองได้เฉพาะสะพานและประตูเมือง แบ่งชั้นที่ 1 2 4 8 และ 16 จุด "
-            "สีเข้มคือหลายจุด — ใจกลางคูเมืองถึงราว %d จุด ขอบกรอบราว %s"
-            % (_atm_moat, _atm_edge),
-            "Contour map of how many ATM sites sit within a ~10-minute walk, "
-            "walking along real streets — the moat crossable only at bridges "
-            "and gates — layered at 1, 2, 4, 8 and 16 sites, dark meaning many. "
-            "About %d sites from the moat centre; roughly %s at the frame edge."
-            % (_atm_moat, _atm_edge))
-        _ph_label = bi_text(
-            "แผนที่เส้นชั้นจำนวนร้านยาในระยะเดินราว 10 นาที เดินตามถนนจริง "
-            "ข้ามคูเมืองได้เฉพาะสะพานและประตูเมือง แบ่งชั้นที่ 1 2 4 8 และ 16 ร้าน "
-            "สีเข้มคือหลายร้าน — ใจกลางคูเมืองถึงราว %d ร้าน ขอบกรอบราว %s"
-            % (_ph_moat, _ph_edge),
-            "Contour map of how many pharmacies sit within a ~10-minute walk, "
-            "walking along real streets — the moat crossable only at bridges "
-            "and gates — layered at 1, 2, 4, 8 and 16, dark meaning many. "
-            "About %d pharmacies from the moat centre; roughly %s at the frame "
-            "edge." % (_ph_moat, _ph_edge))
-        walk_tiles = (
-            '<div class="tilerow">'
-            f'<div class="tile"><b>{_atm_n}</b><span>{bi("จุดเอทีเอ็มในกรอบ", "ATM sites in frame")}</span></div>'
-            f'<div class="tile"><b>{_ph_n}</b><span>{bi("ร้านยาในกรอบ", "pharmacies in frame")}</span></div>'
-            f'<div class="tile"><b>{_atm_moat}</b><span>{bi("ตู้ในระยะเดินจากใจกลางคูเมือง", "ATMs a walk from the moat centre")}</span></div>'
-            f'<div class="tile"><b>{_ph_moat}</b><span>{bi("ร้านยาในระยะเดินจากใจกลางคูเมือง", "pharmacies a walk from the moat centre")}</span></div>'
-            '</div>')
+    def _snapshot_pts(fname):
+        p = ROOT / "cache" / "overpass" / "cm" / fname
+        if not p.exists():
+            return None
+        return _el_pts(json.loads(p.read_text()).get("elements", []))
+
+    WALK_LAYERS = [
+        {"key": "atm", "th": "ตู้เอทีเอ็ม", "en": "ATMs",
+         "unit_th": "จุด", "unit_en": "sites",
+         "light": "#F1DFC2", "dark": "#7A5A10", "base": "#F7EEDD",
+         "pts": _el_pts(_fx.get("elements", []), "atm"),
+         "src_th": "ตู้เอทีเอ็มจากการเก็บ amenity=atm",
+         "src_en": "ATMs from the amenity=atm harvest"},
+        {"key": "pharmacy", "th": "ร้านยา", "en": "Pharmacies",
+         "unit_th": "ร้าน", "unit_en": "pharmacies",
+         "light": "#DDE8DF", "dark": "#2F5D46", "base": "#EDF3EE",
+         "pts": _snapshot_pts("pharmacy_points.json"),
+         "src_th": "ร้านยาจากการเก็บ amenity=pharmacy/shop=chemist ใหม่ "
+                   "(ในสารบัญมีแค่ 29 ร้าน เพราะการเก็บรอบหลักไม่เคยถาม)",
+         "src_en": "pharmacies from a fresh amenity=pharmacy/shop=chemist "
+                   "harvest (the catalog holds only 29 — the main crawl "
+                   "never asked)"},
+        {"key": "toilets", "th": "ห้องน้ำสาธารณะ", "en": "Public toilets",
+         "unit_th": "แห่ง", "unit_en": "sites",
+         "light": "#DEE0EE", "dark": "#44508C", "base": "#EEF0F6",
+         "pts": _el_pts(_fx.get("elements", []), "toilets"),
+         "src_th": "ห้องน้ำจากการเก็บ amenity=toilets",
+         "src_en": "toilets from the amenity=toilets harvest"},
+        {"key": "water", "th": "น้ำดื่ม", "en": "Drinking water",
+         "unit_th": "จุด", "unit_en": "points",
+         "light": "#D6E6EA", "dark": "#186E85", "base": "#EAF2F4",
+         "pts": _snapshot_pts("water_points.json"),
+         "src_th": "น้ำดื่มจากการเก็บ amenity=drinking_water/vending=water/"
+                   "amenity=water_point ใหม่",
+         "src_en": "drinking water from a fresh amenity=drinking_water / "
+                   "vending=water / amenity=water_point harvest"},
+    ]
+
+    _built_layers = []
+    for L in WALK_LAYERS:
+        if L["pts"] is None:
+            print(f"  walk.html: layer {L['key']} SKIPPED — snapshot missing "
+                  f"(run importers/fetch_{L['key']}_points.py)")
+            continue
+        sites = _dedup_sites(L["pts"])
+        fld, ok = _walk_field(sites)
+        n_frame = sum(1 for la, ln in sites
+                      if MAP_S <= la < MAP_N and MAP_W <= ln < MAP_E)
+        at_moat = round(_fld_at(fld, *_moat_c))
+        edge_vals = []
+        for i in range(MAP_NY):
+            for j in range(MAP_NX):
+                if (min(i, MAP_NY - 1 - i) < MAP_NY * 0.12
+                        or min(j, MAP_NX - 1 - j) < MAP_NX * 0.12):
+                    if ok[i + 1][j + 1]:
+                        edge_vals.append(fld[i + 1][j + 1])
+        edge_med = round(_median(edge_vals), 1) if edge_vals else 0
+        label = bi_text(
+            "แผนที่เส้นชั้นจำนวน%sในระยะเดินราว 10 นาที เดินตามถนนจริง "
+            "ข้ามคูเมืองได้เฉพาะสะพานและประตูเมือง แบ่งชั้นที่ 1 2 4 8 และ 16 "
+            "สีเข้มคือหลาย%s — ใจกลางคูเมืองถึงราว %d %s ขอบกรอบราว %s"
+            % (L["th"], L["unit_th"], at_moat, L["unit_th"], edge_med),
+            "Contour map of how many %s sit within a ~10-minute walk, walking "
+            "along real streets — the moat crossable only at bridges and gates "
+            "— layered at 1, 2, 4, 8 and 16, dark meaning many. About %d from "
+            "the moat centre; roughly %s at the frame edge."
+            % (L["en"].lower(), at_moat, edge_med))
+        html = (f'<h2>{bi(L["th"], L["en"])}</h2>'
+                + _walk_map(fld, ok, sites, L["light"], L["dark"], L["base"],
+                            L["dark"], f"wkclip-{L['key']}", label))
+        if n_frame < 40:
+            html += ('<p class="chartcap">'
+                     + bi(f"ชั้นข้อมูลนี้ยังบางใน OSM ({n_frame} {L['unit_th']}ในกรอบ) — "
+                          f"ความจางบนแผนที่ส่วนหนึ่งคือช่องว่างการเก็บ ไม่ใช่ของจริงทั้งหมด",
+                          f"This layer is still thin in OSM ({n_frame} in frame) — "
+                          f"some of the paleness is a collection gap, not the city.")
+                     + '</p>')
+        _built_layers.append({"L": L, "sites": sites, "nFrame": n_frame,
+                              "atMoat": at_moat, "edgeMed": edge_med,
+                              "html": html})
+
+    if _built_layers:
+        walk_tiles = ('<div class="tilerow">' + "".join(
+            f'<div class="tile"><b>{b["nFrame"]}</b>'
+            f'<span>{bi(b["L"]["th"] + "ในกรอบ", b["L"]["en"] + " in frame")}</span></div>'
+            for b in _built_layers) + "".join(
+            f'<div class="tile"><b>{b["atMoat"]}</b>'
+            f'<span>{bi(b["L"]["th"] + " ในระยะเดินจากใจกลางคูเมือง", b["L"]["en"] + " a walk from the moat centre")}</span></div>'
+            for b in _built_layers) + '</div>')
         walk_lede_th = (
             "ในเมืองที่มีคูน้ำ ระยะทางเส้นตรงโกหกได้: ข้ามคูเมืองตรง ๆ 242 เมตร "
             "แต่เดินจริงต้องอ้อมไปประตู 562 เมตร แผนที่ชุดนี้จึงวัดอย่างที่เท้าวัด — "
             "เดินตามถนนและทางเท้าที่มดแดงเก็บเอง ข้ามน้ำเฉพาะสะพานและประตูเมือง — "
-            f"แล้วนับว่าแต่ละจุดของเมืองเดินถึงตู้เอทีเอ็มกี่จุด ร้านยากี่ร้าน ในสิบนาที")
+            "แล้วนับว่าแต่ละจุดของเมืองเดินถึงอะไรได้บ้างในสิบนาที: "
+            + " ".join(b["L"]["th"] for b in _built_layers))
         walk_lede_en = (
-            "In a moated city the straight line lies: 242 m across the water is a "
-            "562 m walk around through the gate. These maps measure the way feet "
-            "do — along the streets and paths of the site's own road crawl, "
-            "crossing water only at bridges and city gates — and count how many "
-            "ATM sites and pharmacies each point of the city can walk to in ten "
-            "minutes.")
+            "In a moated city the straight line lies: 242 m across the water is "
+            "a 562 m walk around through the gate. These maps measure the way "
+            "feet do — along the streets and paths of the site\'s own road "
+            "crawl, crossing water only at bridges and city gates — and count "
+            "what each point of the city can walk to in ten minutes: "
+            + ", ".join(b["L"]["en"].lower() for b in _built_layers) + ".")
         walk_method_th = (
             "วิธีวัด: ระยะทางเดินจริงบนโครงข่ายถนน (Dijkstra จากทุกจุดบริการ) ไม่ใช่เส้นตรง "
-            "· นับขอบนุ่ม — จุดที่เดิน 800 ม. พอดีนับครึ่ง · จุดที่ปักซ้ำในระยะ 25 ม. นับเป็นหนึ่ง "
-            "· ตู้เอทีเอ็มจากการเก็บ amenity=atm (353 จุด → 263 หลังรวมตู้ติดกัน) "
-            "· ร้านยาจากการเก็บ amenity=pharmacy/shop=chemist ใหม่ — ในสารบัญมีร้านยาแค่ 29 ร้าน "
-            "เพราะการเก็บรอบหลักไม่เคยถาม จึงเก็บชั้นข้อมูลนี้เพิ่ม (248 ร้าน) "
-            "· พื้นที่ที่ไม่มีถนนที่เก็บในระยะ 250 ม. ไม่ระบายสี ไม่ใช่ศูนย์ "
-            "· จุดที่ยังไม่มีใน OpenStreetMap ทำให้แถวนั้นดูบางกว่าจริง · คำนวณใหม่ทุกครั้งที่สร้างเว็บ")
+            "· นับขอบนุ่ม — จุดที่เดิน 800 ม. พอดีนับครึ่ง · จุดที่ปักซ้ำในระยะ 25 ม. นับเป็นหนึ่ง · "
+            + " · ".join(b["L"]["src_th"] + f" ({b['nFrame']} ในกรอบ)"
+                         for b in _built_layers)
+            + " · พื้นที่ที่ไม่มีถนนที่เก็บในระยะ 250 ม. ไม่ระบายสี ไม่ใช่ศูนย์ "
+            "· จุดที่ยังไม่มีใน OpenStreetMap ทำให้แถวนั้นดูบางกว่าจริง "
+            "· คำนวณใหม่ทุกครั้งที่สร้างเว็บ")
         walk_method_en = (
             "Method: real walking distance on the road network (Dijkstra out of "
             "every site), never a straight line. Soft-edged count — a site at "
             "exactly an 800 m walk counts half. Sites within 25 m merge into one. "
-            "ATMs from the amenity=atm harvest (353 points, 263 after merging "
-            "machines on one wall). Pharmacies from a fresh amenity=pharmacy / "
-            "shop=chemist point harvest — the catalog holds only 29 because the "
-            "main crawl never asked, so this layer was collected for the map "
-            "(248 sites). Ground with no collected road within 250 m is left "
-            "unpainted — that is not-evaluated, not zero. A site missing from "
-            "OpenStreetMap makes its area look thinner than it is. Recomputed "
-            "every build.")
+            + " ".join(b["L"]["src_en"].capitalize() + f" ({b['nFrame']} in frame)."
+                       for b in _built_layers)
+            + " Ground with no collected road within 250 m is left unpainted — "
+            "that is not-evaluated, not zero. A site missing from OpenStreetMap "
+            "makes its area look thinner than it is. Recomputed every build.")
         (DOCS / "walk.html").write_text(page(
             "แผนที่ระยะเดิน",
             f'<h1>🚶 {bi("แผนที่ระยะเดิน", "The city at walking pace")}</h1>'
             f'<p class="lede">{bi(walk_lede_th, walk_lede_en)}</p>'
             f'{walk_tiles}'
-            f'<h2>{bi("ตู้เอทีเอ็ม", "ATMs")}</h2>'
-            + _walk_map(_atm_fld, _atm_ok, _atm_pts, "#F1DFC2", "#7A5A10",
-                        "#F7EEDD", "#7A5A10", "wkclip-atm", _atm_label)
-            + f'<h2>{bi("ร้านยา", "Pharmacies")}</h2>'
-            + _walk_map(_ph_fld, _ph_ok, _ph_pts, "#DDE8DF", "#2F5D46",
-                        "#EDF3EE", "#2F5D46", "wkclip-ph", _ph_label)
+            + "".join(b["html"] for b in _built_layers)
             + f'<h2>{bi("วัดอย่างไร", "How we measured")}</h2>'
             f'<p class="tinynote">{bi(walk_method_th, walk_method_en)}</p>'
             f'<p><a href="data/walk.json">data/walk.json</a> · '
@@ -9458,15 +9493,14 @@ def build():
             "metric": "sites reachable within a soft ~800 m WALK on the foot "
                       "network (moat crossable only at bridges/gates); "
                       "w = 1/(1+(d/800)^6); sites within 25 m merged",
-            "atm": {"sitesInFrame": _atm_n, "sitesTotal": len(_atm_pts),
-                    "atMoatCentre": _atm_moat, "frameEdgeMedian": _atm_edge},
-            "pharmacy": {"sitesInFrame": _ph_n, "sitesTotal": len(_ph_pts),
-                         "atMoatCentre": _ph_moat, "frameEdgeMedian": _ph_edge},
             "cuts": WALK_CUTS,
+            "layers": {b["L"]["key"]: {
+                "sitesInFrame": b["nFrame"], "sitesTotal": len(b["sites"]),
+                "atMoatCentre": b["atMoat"], "frameEdgeMedian": b["edgeMed"],
+            } for b in _built_layers},
         }, ensure_ascii=False, indent=1))
     else:
-        print("  walk.html SKIPPED — cache/overpass/cm/pharmacy_points.json missing "
-              "(run importers/fetch_pharmacy_points.py)")
+        print("  walk.html SKIPPED entirely — no amenity layer had points")
 
     # ---- the full buffet: one JSON dump of every field, for agents --------
     full_dump = []
