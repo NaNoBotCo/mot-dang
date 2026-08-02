@@ -24,6 +24,9 @@ where each one actually goes:
   (a wat's name predicts its distance from the moat) and https://motdang.net/seven.html
   (distance to the nearest 7-Eleven); raw numbers at https://motdang.net/data/watnames.json
   and https://motdang.net/data/seven.json
+- Walking-pace maps (network distance on the foot graph — the moat is
+  crossable only at bridges and gates): https://motdang.net/walk.html, numbers at
+  https://motdang.net/data/walk.json
 - RSS feed of highlights: https://motdang.net/rss.xml (autodiscoverable via <link rel="alternate">
   on every page); cross-promotion open to other local publications: https://motdang.net/partners.html
 - Structural (not volumetric) differences from Google's local data, stated plainly

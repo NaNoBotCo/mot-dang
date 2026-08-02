@@ -10,6 +10,7 @@ on load; outbound links only. OSM attribution stays.
 """
 import base64
 import datetime
+import heapq
 import io
 import json
 import math
@@ -8293,6 +8294,7 @@ def build():
         f'<h2>{bi("เรื่องที่ข้อมูลเล่า", "Stories the data tells")}</h2>'
         f'<p><a href="watnames.html">⛰️ {bi("ชื่อวัดบอกภูมิประเทศ", "A wat’s name tells the landscape")}</a> · '
         f'<a href="seven.html">🏪 {bi("ใกล้เซเว่นแค่ไหน", "How near is the nearest 7-Eleven")}</a> · '
+        f'<a href="walk.html">🚶 {bi("แผนที่ระยะเดิน", "The city at walking pace")}</a> · '
         f'<a href="reach.html">🔗 {bi("ลิงก์ไหนยังเปิดได้จริง", "Which official links still answer")}</a></p>'
         f'{share_block(BASE + "stats.html", "สถิติมดแดง · Mot Dang stats")}',
         depth=0, path="stats.html", desc=stats_th))
@@ -8789,27 +8791,153 @@ def build():
     # crowd, so the map reads as presence, not absence. Nine levels (also her
     # call), colours interpolated along the one ramp so the gradation is even.
 
+    # ---- the shared city-map frame: seven.html and walk.html both draw on
+    # the road-crawl area (old city + ~2 km ring) — the street underlay has
+    # to cover every inch of the frame and streets exist on disk only for
+    # that box. Moat centred. One projection, one road path, one marching-
+    # squares tracer, so three maps cannot drift apart.
+    _rg = json.loads((ROOT / "data" / "road_graph.json").read_text())
+    MAP_S, MAP_N = _rg["area"]["s"], _rg["area"]["n"]
+    MAP_W, MAP_E = _rg["area"]["w"], _rg["area"]["e"]
+    MAP_STEP = 0.0005
+    MAP_NX = int(round((MAP_E - MAP_W) / MAP_STEP)) + 1
+    MAP_NY = int(round((MAP_N - MAP_S) / MAP_STEP)) + 1
+    MAP_MW, MAP_PAD = 700, 10
+    MAP_MH = round(MAP_MW * (MAP_N - MAP_S) / ((MAP_E - MAP_W) * _cosla))
+
+    def _map_px(la, ln):
+        return (MAP_PAD + (ln - MAP_W) / (MAP_E - MAP_W) * MAP_MW,
+                MAP_PAD + MAP_MH - (la - MAP_S) / (MAP_N - MAP_S) * MAP_MH)
+
+    def _road_underlay_d():
+        rs = _rg["scale"]
+        rnodes = [(p[0] / rs, p[1] / rs) for p in _rg["nodes"]]
+        road_d = []
+        for e in _rg["edges"]:
+            pts = [rnodes[e[0]]]
+            deltas = e[4] if len(e) > 4 else []
+            la = ln = 0
+            for k in range(0, len(deltas), 2):
+                if k == 0:
+                    la, ln = deltas[0], deltas[1]
+                else:
+                    la += deltas[k]
+                    ln += deltas[k + 1]
+                pts.append((la / rs, ln / rs))
+            pts.append(rnodes[e[1]])
+            seg, last = [], None
+            for p in pts:
+                x, y = _map_px(p[0], p[1])
+                x, y = round(x), round(y)
+                if last is None or abs(x - last[0]) + abs(y - last[1]) >= 3:
+                    seg.append((x, y))
+                    last = (x, y)
+            end = _map_px(*pts[-1])
+            end = (round(end[0]), round(end[1]))
+            if seg and seg[-1] != end:
+                seg.append(end)
+            if len(seg) >= 2:
+                d = [f"M{seg[0][0]} {seg[0][1]}"]
+                for (x0, y0), (x1, y1) in zip(seg, seg[1:]):
+                    d.append(f"l{x1 - x0} {y1 - y0}")
+                road_d.append("".join(d).replace(" -", "-"))
+        return " ".join(road_d)
+
+    MAP_ROAD_D = _road_underlay_d()
+
+    def _loops_rel_d(loops):
+        out = []
+        for loop in loops:
+            pts = [(round(x), round(y)) for x, y in loop]
+            d = [f"M{pts[0][0]} {pts[0][1]}"]
+            for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+                if (x1, y1) != (x0, y0):
+                    d.append(f"l{x1 - x0} {y1 - y0}")
+            out.append("".join(d).replace(" -", "-") + "Z")
+        return " ".join(out)
+
+
+    def _map_node(r, c):
+        return (MAP_S + (r - 1) * MAP_STEP, MAP_W + (c - 1) * MAP_STEP)
+
+    def _march_loops(fld, T, geq=False):
+        # Marching squares over a padded field at threshold T. geq=True
+        # traces the region where the field is at least T (density);
+        # default traces at-most-T (distance).
+        segs = []
+        for r in range(MAP_NY + 1):
+            for c in range(MAP_NX + 1):
+                v00, v10 = fld[r][c], fld[r][c + 1]
+                v01, v11 = fld[r + 1][c], fld[r + 1][c + 1]
+                if geq:
+                    case = ((v00 >= T) | ((v10 >= T) << 1)
+                            | ((v11 >= T) << 2) | ((v01 >= T) << 3))
+                else:
+                    case = ((v00 <= T) | ((v10 <= T) << 1)
+                            | ((v11 <= T) << 2) | ((v01 <= T) << 3))
+                if case in (0, 15):
+                    continue
+
+                def _cross(ra, ca, va, rb, cb, vb):
+                    t = (T - va) / (vb - va)
+                    la1, ln1 = _map_node(ra, ca)
+                    la2, ln2 = _map_node(rb, cb)
+                    return _map_px(la1 + (la2 - la1) * t, ln1 + (ln2 - ln1) * t)
+
+                bot = lambda: _cross(r, c, v00, r, c + 1, v10)
+                rgt = lambda: _cross(r, c + 1, v10, r + 1, c + 1, v11)
+                top = lambda: _cross(r + 1, c, v01, r + 1, c + 1, v11)
+                lft = lambda: _cross(r, c, v00, r + 1, c, v01)
+                EDGES = {1: [(lft, bot)], 2: [(bot, rgt)], 3: [(lft, rgt)],
+                         4: [(rgt, top)], 5: [(lft, top), (bot, rgt)],
+                         6: [(bot, top)], 7: [(lft, top)], 8: [(top, lft)],
+                         9: [(top, bot)], 10: [(top, rgt), (lft, bot)],
+                         11: [(top, rgt)], 12: [(rgt, lft)],
+                         13: [(rgt, bot)], 14: [(bot, lft)]}
+                for ea, eb in EDGES[case]:
+                    segs.append((ea(), eb()))
+        adj = {}
+
+        def _key(p):
+            return (round(p[0], 1), round(p[1], 1))
+
+        for a, b in segs:
+            ka, kb = _key(a), _key(b)
+            if ka == kb:
+                continue
+            adj.setdefault(ka, []).append(kb)
+            adj.setdefault(kb, []).append(ka)
+        loops, used = [], set()
+        for start in list(adj):
+            if start in used:
+                continue
+            loop, prev, cur = [start], None, start
+            while True:
+                used.add(cur)
+                nxt = None
+                for cand in adj.get(cur, ()):
+                    if cand != prev and cand not in used:
+                        nxt = cand
+                        break
+                if nxt is None:
+                    break
+                loop.append(nxt)
+                prev, cur = cur, nxt
+            if len(loop) > 2:
+                loops.append(loop)
+        return loops
+
+
     def seven_map():
         # The map is the DISTANCE FIELD itself, traced as contours — not a
         # tally of catalogued places. Every point in frame gets a value from
         # the branch pins alone, so catalog density can't blank a cell, and
         # the resolution is whatever the grid affords (~55 m here).
-        # The frame is the road-crawl area (old city + ~2 km ring): the
-        # street underlay has to cover every inch of the frame, streets exist
-        # on disk only for that box, and the saturation story lives inside it
-        # anyway. The moat sits centre.
-        _rg = json.loads((ROOT / "data" / "road_graph.json").read_text())
-        S, N = _rg["area"]["s"], _rg["area"]["n"]
-        W, E = _rg["area"]["w"], _rg["area"]["e"]
-        STEP = 0.0005
-        nx = int(round((E - W) / STEP)) + 1
-        ny = int(round((N - S) / STEP)) + 1
-        mw, pad = 700, 10
-        mh = round(mw * (N - S) / ((E - W) * _cosla))
-
-        def _px(la, ln):
-            return (pad + (ln - W) / (E - W) * mw,
-                    pad + mh - (la - S) / (N - S) * mh)
+        S, N, W, E = MAP_S, MAP_N, MAP_W, MAP_E
+        STEP = MAP_STEP
+        nx, ny = MAP_NX, MAP_NY
+        mw, mh, pad = MAP_MW, MAP_MH, MAP_PAD
+        _px = _map_px
 
         _br = [(b[0], b[1], b[1] * _cosla) for b in _sev_pts]
         BIG = 9e9
@@ -8847,75 +8975,6 @@ def build():
                 frow[j + 1] = _hav_km(la, ln, bla, bln) * 1000
                 drow[j + 1] = acc
 
-        def _node(r, c):
-            return (S + (r - 1) * STEP, W + (c - 1) * STEP)
-
-        def _band_loops(fld, T, geq=False):
-            # Marching squares over a padded field at threshold T. geq=True
-            # traces the region where the field is at least T (density);
-            # default traces at-most-T (distance).
-            segs = []
-            for r in range(ny + 1):
-                for c in range(nx + 1):
-                    v00, v10 = fld[r][c], fld[r][c + 1]
-                    v01, v11 = fld[r + 1][c], fld[r + 1][c + 1]
-                    if geq:
-                        case = ((v00 >= T) | ((v10 >= T) << 1)
-                                | ((v11 >= T) << 2) | ((v01 >= T) << 3))
-                    else:
-                        case = ((v00 <= T) | ((v10 <= T) << 1)
-                                | ((v11 <= T) << 2) | ((v01 <= T) << 3))
-                    if case in (0, 15):
-                        continue
-
-                    def _cross(ra, ca, va, rb, cb, vb):
-                        t = (T - va) / (vb - va)
-                        la1, ln1 = _node(ra, ca)
-                        la2, ln2 = _node(rb, cb)
-                        return _px(la1 + (la2 - la1) * t, ln1 + (ln2 - ln1) * t)
-
-                    bot = lambda: _cross(r, c, v00, r, c + 1, v10)
-                    rgt = lambda: _cross(r, c + 1, v10, r + 1, c + 1, v11)
-                    top = lambda: _cross(r + 1, c, v01, r + 1, c + 1, v11)
-                    lft = lambda: _cross(r, c, v00, r + 1, c, v01)
-                    EDGES = {1: [(lft, bot)], 2: [(bot, rgt)], 3: [(lft, rgt)],
-                             4: [(rgt, top)], 5: [(lft, top), (bot, rgt)],
-                             6: [(bot, top)], 7: [(lft, top)], 8: [(top, lft)],
-                             9: [(top, bot)], 10: [(top, rgt), (lft, bot)],
-                             11: [(top, rgt)], 12: [(rgt, lft)],
-                             13: [(rgt, bot)], 14: [(bot, lft)]}
-                    for ea, eb in EDGES[case]:
-                        segs.append((ea(), eb()))
-            adj = {}
-
-            def _key(p):
-                return (round(p[0], 1), round(p[1], 1))
-
-            for a, b in segs:
-                ka, kb = _key(a), _key(b)
-                if ka == kb:
-                    continue
-                adj.setdefault(ka, []).append(kb)
-                adj.setdefault(kb, []).append(ka)
-            loops, used = [], set()
-            for start in list(adj):
-                if start in used:
-                    continue
-                loop, prev, cur = [start], None, start
-                while True:
-                    used.add(cur)
-                    nxt = None
-                    for cand in adj.get(cur, ()):
-                        if cand != prev and cand not in used:
-                            nxt = cand
-                            break
-                    if nxt is None:
-                        break
-                    loop.append(nxt)
-                    prev, cur = cur, nxt
-                if len(loop) > 2:
-                    loops.append(loop)
-            return loops
 
         DENS_CUTS = [1, 2, 4, 8, 16]
         _dcolor = {T: lerp_hex("#EFC9AC", "#8F2E13", i / (len(DENS_CUTS) - 1))
@@ -8937,68 +8996,26 @@ def build():
                  f'<g clip-path="url(#sevclip)">',
                  f'<rect x="{pad}" y="{pad}" width="{mw}" height="{mh}" '
                  f'fill="#FAF3E7"/>']
-        # The street underlay, from the site's own road crawl — never a tile
-        # server. Drawn beneath the bands; the bands go translucent so the
-        # streets ghost through them.
-        _rs = _rg["scale"]
-        _rnodes = [(p[0] / _rs, p[1] / _rs) for p in _rg["nodes"]]
-        _road_d = []
-        for e in _rg["edges"]:
-            pts = [_rnodes[e[0]]]
-            deltas = e[4] if len(e) > 4 else []
-            la = ln = 0
-            for k in range(0, len(deltas), 2):
-                if k == 0:
-                    la, ln = deltas[0], deltas[1]
-                else:
-                    la += deltas[k]
-                    ln += deltas[k + 1]
-                pts.append((la / _rs, ln / _rs))
-            pts.append(_rnodes[e[1]])
-            seg, last = [], None
-            for p in pts:
-                x, y = _px(p[0], p[1])
-                x, y = round(x), round(y)
-                if last is None or abs(x - last[0]) + abs(y - last[1]) >= 3:
-                    seg.append((x, y))
-                    last = (x, y)
-            _end = _px(*pts[-1])
-            _end = (round(_end[0]), round(_end[1]))
-            if seg and seg[-1] != _end:
-                seg.append(_end)
-            if len(seg) >= 2:
-                d = [f"M{seg[0][0]} {seg[0][1]}"]
-                for (x0, y0), (x1, y1) in zip(seg, seg[1:]):
-                    d.append(f"l{x1 - x0} {y1 - y0}")
-                _road_d.append("".join(d).replace(" -", "-"))
-        parts.append(f'<path d="{" ".join(_road_d)}" fill="none" stroke="#2A1E16" '
+        # The street underlay — shared MAP_ROAD_D, drawn beneath the bands;
+        # the bands are translucent so the streets ghost through them.
+        parts.append(f'<path d="{MAP_ROAD_D}" fill="none" stroke="#2A1E16" '
                      f'stroke-opacity=".38" stroke-width=".7"/>')
         # Each band is painted exactly ONCE, as the ring between its cut and
         # the next-higher cut (even-odd holes) — translucent layers stacked
         # on top of each other would compound into mud over the city centre.
-        _loops = {T: _band_loops(dens, T, geq=True) for T in DENS_CUTS}
+        _loops = {T: _march_loops(dens, T, geq=True) for T in DENS_CUTS}
 
-        def _loops_d(loops):
-            out = []
-            for loop in loops:
-                pts = [(round(x), round(y)) for x, y in loop]
-                d = [f"M{pts[0][0]} {pts[0][1]}"]
-                for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
-                    if (x1, y1) != (x0, y0):
-                        d.append(f"l{x1 - x0} {y1 - y0}")
-                out.append("".join(d).replace(" -", "-") + "Z")
-            return " ".join(out)
 
         for i, T in enumerate(DENS_CUTS):
-            d_attr = _loops_d(_loops[T])
+            d_attr = _loops_rel_d(_loops[T])
             if i + 1 < len(DENS_CUTS):
-                d_attr = (d_attr + " " + _loops_d(_loops[DENS_CUTS[i + 1]])).strip()
+                d_attr = (d_attr + " " + _loops_rel_d(_loops[DENS_CUTS[i + 1]])).strip()
             if d_attr:
                 parts.append(f'<path d="{d_attr}" fill="{_dcolor[T]}" '
                              f'fill-opacity=".78" fill-rule="evenodd"/>')
         _frame_d = (f"M{pad} {pad} L{pad + mw} {pad} L{pad + mw} {pad + mh} "
                     f"L{pad} {pad + mh} Z")
-        parts.append(f'<path d="{_frame_d} {_loops_d(_loops[DENS_CUTS[0]])}" '
+        parts.append(f'<path d="{_frame_d} {_loops_rel_d(_loops[DENS_CUTS[0]])}" '
                      f'fill="#F5E3D0" fill-opacity=".78" fill-rule="evenodd"/>')
         parts.append('</g>')
         if MOAT_POLY:
@@ -9151,7 +9168,8 @@ def build():
         f'<h2>{bi("วัดอย่างไร", "How we measured")}</h2>'
         f'<p class="tinynote">{bi(sev_method_th, sev_method_en)}</p>'
         f'<p><a href="data/seven.json">data/seven.json</a> · '
-        f'<a href="watnames.html">⛰️ {bi("อีกเรื่องจากข้อมูลชุดเดียวกัน: ชื่อวัดบอกภูมิประเทศ", "Same data, another finding: a wat’s name tells the landscape")}</a></p>'
+        f'<a href="watnames.html">⛰️ {bi("อีกเรื่องจากข้อมูลชุดเดียวกัน: ชื่อวัดบอกภูมิประเทศ", "Same data, another finding: a wat’s name tells the landscape")}</a> · '
+        f'<a href="walk.html">🚶 {bi("แผนที่พี่น้อง: ระยะเดินถึงตู้เอทีเอ็มและร้านยา", "Sister maps: ATMs and pharmacies at walking pace")}</a></p>'
         f'{share_block(BASE + "seven.html", "ใกล้เซเว่นแค่ไหน · มดแดง")}',
         depth=0, path="seven.html", desc=sev_lede_th))
     (DOCS / "data" / "seven.json").write_text(json.dumps({
@@ -9171,6 +9189,284 @@ def build():
                   "name; the catalog is densest in town, so this describes the "
                   "city, not the provinces",
     }, ensure_ascii=False, indent=1))
+
+    # ---- walk.html: ATMs and pharmacies at walking pace -------------------
+    # Her spec, kept verbatim as the method: you walk on roads and paths, you
+    # cannot walk on the moat, and you cross it at the gates. That is network
+    # distance on the foot graph — and the topology already encodes the
+    # water: a way crosses only where a bridge or gate exists. Measured
+    # before building: 242 m straight across the south moat costs 562 m on
+    # foot through ประตูเชียงใหม่.
+    _wk_scale = _rg["scale"]
+    _wk_nodes = [(p[0] / _wk_scale, p[1] / _wk_scale) for p in _rg["nodes"]]
+    _wk_adj = [[] for _ in _wk_nodes]
+    for _e in _rg["edges"]:
+        if _e[3] & 3:  # FOOT_FWD | FOOT_BWD — oneway binds ride, never foot
+            _wk_adj[_e[0]].append((_e[1], _e[2]))
+            _wk_adj[_e[1]].append((_e[0], _e[2]))
+    _wk_hash = {}
+    for _i, (_la, _ln) in enumerate(_wk_nodes):
+        _wk_hash.setdefault((int(_la / 0.002), int(_ln / 0.002)), []).append(_i)
+
+    def _wk_snap(la, ln):
+        ci, cj = int(la / 0.002), int(ln / 0.002)
+        best, bi = 1e18, -1
+        for di in (-1, 0, 1):
+            for dj in (-1, 0, 1):
+                for i in _wk_hash.get((ci + di, cj + dj), ()):
+                    nla, nln = _wk_nodes[i]
+                    d = (nla - la) ** 2 + ((nln - ln) * _cosla) ** 2
+                    if d < best:
+                        best, bi = d, i
+        return bi, (math.sqrt(best) * 111320.0 if bi >= 0 else 1e9)
+
+    def _dedup_sites(pts):
+        # Same 25 m rule as the seven branches: a POI node and its building,
+        # or four machines on one wall, count once. Not wider — two real
+        # sites 50 m apart happen.
+        kept = []
+        for la, ln in pts:
+            if not any(abs(la - a) < 0.0004 and abs(ln - b) < 0.0004
+                       and _hav_km(la, ln, a, b) * 1000 < 25 for a, b in kept):
+                kept.append((la, ln))
+        return kept
+
+    def _walk_field(sites):
+        """Soft count of sites within a ~10-min WALK of every grid point.
+
+        Dijkstra out of each site over the foot graph (cutoff 1.6 km, past
+        which the kernel is under 0.02), collecting per-node distance lists;
+        a grid point then reads its nearest node (within 250 m, straight-line
+        approach added) and sums the kernel. Returns the padded field and a
+        walkable mask — a point with no collected road within 250 m is not
+        evaluated, which is different from evaluating to zero.
+        """
+        per_node = [[] for _ in _wk_nodes]
+        for la, ln in sites:
+            src, off = _wk_snap(la, ln)
+            if src < 0 or off > 300:
+                continue
+            dist = {src: off}
+            pq = [(off, src)]
+            while pq:
+                d, u = heapq.heappop(pq)
+                if d > dist.get(u, 1e18) or d > 1600:
+                    continue
+                per_node[u].append(d)
+                for v, L in _wk_adj[u]:
+                    nd = d + L
+                    if nd < dist.get(v, 1e18):
+                        dist[v] = nd
+                        heapq.heappush(pq, (nd, v))
+        fld = [[0.0] * (MAP_NX + 2) for _ in range(MAP_NY + 2)]
+        walkable = [[False] * (MAP_NX + 2) for _ in range(MAP_NY + 2)]
+        for i in range(MAP_NY):
+            la = MAP_S + i * MAP_STEP
+            for j in range(MAP_NX):
+                n, off = _wk_snap(la, MAP_W + j * MAP_STEP)
+                if n < 0 or off > 250:
+                    continue
+                walkable[i + 1][j + 1] = True
+                fld[i + 1][j + 1] = sum(
+                    1.0 / (1.0 + ((off + d) / 800.0) ** 6) for d in per_node[n])
+        return fld, walkable
+
+    def _fld_at(fld, la, ln):
+        i = int(round((la - MAP_S) / MAP_STEP))
+        j = int(round((ln - MAP_W) / MAP_STEP))
+        if 0 <= i < MAP_NY and 0 <= j < MAP_NX:
+            return fld[i + 1][j + 1]
+        return 0.0
+
+    WALK_CUTS = [1, 2, 4, 8, 16]
+
+    def _walk_map(fld, walkable, sites, light, dark, base, dot_stroke,
+                  clip_id, label):
+        colors = {T: lerp_hex(light, dark, i / (len(WALK_CUTS) - 1))
+                  for i, T in enumerate(WALK_CUTS)}
+        parts = [f'<svg viewBox="0 0 {MAP_MW + 2 * MAP_PAD} {MAP_MH + 2 * MAP_PAD}" '
+                 f'width="100%" role="img" aria-label="{att(label)}">',
+                 f'<clipPath id="{clip_id}"><rect x="{MAP_PAD}" y="{MAP_PAD}" '
+                 f'width="{MAP_MW}" height="{MAP_MH}"/></clipPath>',
+                 f'<g clip-path="url(#{clip_id})">',
+                 f'<rect x="{MAP_PAD}" y="{MAP_PAD}" width="{MAP_MW}" height="{MAP_MH}" '
+                 f'fill="#FAF3E7"/>',
+                 f'<path d="{MAP_ROAD_D}" fill="none" stroke="#2A1E16" '
+                 f'stroke-opacity=".38" stroke-width=".7"/>']
+        loops = {T: _march_loops(fld, T, geq=True) for T in WALK_CUTS}
+        for i, T in enumerate(WALK_CUTS):
+            d_attr = _loops_rel_d(loops[T])
+            if i + 1 < len(WALK_CUTS):
+                d_attr = (d_attr + " " + _loops_rel_d(loops[WALK_CUTS[i + 1]])).strip()
+            if d_attr:
+                parts.append(f'<path d="{d_attr}" fill="{colors[T]}" '
+                             f'fill-opacity=".78" fill-rule="evenodd"/>')
+        frame_d = (f"M{MAP_PAD} {MAP_PAD} L{MAP_PAD + MAP_MW} {MAP_PAD} "
+                   f"L{MAP_PAD + MAP_MW} {MAP_PAD + MAP_MH} L{MAP_PAD} {MAP_PAD + MAP_MH} Z")
+        parts.append(f'<path d="{frame_d} {_loops_rel_d(loops[WALK_CUTS[0]])}" '
+                     f'fill="{base}" fill-opacity=".78" fill-rule="evenodd"/>')
+        parts.append('</g>')
+        if MOAT_POLY:
+            pts = " ".join(f"{_map_px(la, ln)[0]:.1f},{_map_px(la, ln)[1]:.1f}"
+                           for la, ln in MOAT_POLY)
+            parts.append(f'<polygon points="{pts}" fill="none" stroke="#FAF3E7" '
+                         f'stroke-width="2.5" stroke-dasharray="7 4"/>')
+            mx, my = _map_px(*_moat_c)
+            parts.append(f'<text x="{mx:.1f}" y="{my:.1f}" text-anchor="middle" '
+                         f'font-size="15" font-weight="700" fill="#FAF3E7">คูเมือง</text>')
+        for la, ln in sites:
+            if MAP_S <= la < MAP_N and MAP_W <= ln < MAP_E:
+                x, y = _map_px(la, ln)
+                parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.7" '
+                             f'fill="#FFFFFF" stroke="{dot_stroke}" stroke-width=".8"/>')
+        km_px = 1000 / ((MAP_E - MAP_W) * _cosla * 111320) * MAP_MW
+        sy = MAP_PAD + MAP_MH - 22
+        parts.append(f'<rect x="{MAP_PAD + 12}" y="{sy - 15}" width="{km_px + 24:.0f}" '
+                     f'height="26" rx="6" fill="#FAF3E7" opacity=".92"/>')
+        parts.append(f'<line x1="{MAP_PAD + 24}" y1="{sy}" x2="{MAP_PAD + 24 + km_px:.1f}" '
+                     f'y2="{sy}" stroke="#2A1E16" stroke-width="2.5"/>')
+        parts.append(f'<text x="{MAP_PAD + 24 + km_px / 2:.1f}" y="{sy - 4}" '
+                     f'text-anchor="middle" font-size="12" font-weight="700" '
+                     f'fill="#2A1E16">1 กม.</text>')
+        legend = ('<p class="chartlegend">'
+                  + f'{bi("จุดบริการในระยะเดิน ~10 นาที:", "sites within a ~10-min walk:")}&nbsp; '
+                  + f'<span class="swatch" style="background:{base}"></span>{bi("ไม่ถึง 1 หรือไม่มีถนนที่เก็บ", "under 1, or no collected road")}&nbsp; &nbsp;'
+                  + "".join(f'<span class="swatch" style="background:{colors[T]}"></span>{T}+&nbsp; &nbsp;'
+                            for T in WALK_CUTS)
+                  + f'<span class="swatch" style="background:#fff;border:2px solid {dot_stroke};border-radius:50%"></span>'
+                  + bi("จุดบริการ", "a site") + '</p>')
+        return legend + "".join(parts) + "</svg>"
+
+    # ATM sites: the fixtures crawl already on disk. Pharmacy sites: their
+    # own point snapshot — the CATALOG holds only 29 pharmacies (a crawl gap,
+    # the main harvest never asked amenity=pharmacy), and a density map drawn
+    # from those would show deserts that are really holes in collection.
+    _fx = json.loads((ROOT / "cache" / "overpass" / "cm" / "fixtures.json").read_text())
+    _atm_pts = _dedup_sites([
+        (el.get("lat") or (el.get("center") or {}).get("lat"),
+         el.get("lon") or (el.get("center") or {}).get("lon"))
+        for el in _fx.get("elements", [])
+        if (el.get("tags") or {}).get("amenity") == "atm"
+        and (el.get("lat") or (el.get("center") or {}).get("lat"))])
+    _ph_path = ROOT / "cache" / "overpass" / "cm" / "pharmacy_points.json"
+    _ph_pts = []
+    if _ph_path.exists():
+        _phd = json.loads(_ph_path.read_text())
+        _ph_pts = _dedup_sites([
+            (el.get("lat") or (el.get("center") or {}).get("lat"),
+             el.get("lon") or (el.get("center") or {}).get("lon"))
+            for el in _phd.get("elements", [])
+            if (el.get("lat") or (el.get("center") or {}).get("lat"))])
+    if _ph_pts:
+        _atm_fld, _atm_ok = _walk_field(_atm_pts)
+        _ph_fld, _ph_ok = _walk_field(_ph_pts)
+        _in_frame = lambda pts: sum(1 for la, ln in pts
+                                    if MAP_S <= la < MAP_N and MAP_W <= ln < MAP_E)
+        _atm_n, _ph_n = _in_frame(_atm_pts), _in_frame(_ph_pts)
+        _atm_moat = round(_fld_at(_atm_fld, *_moat_c))
+        _ph_moat = round(_fld_at(_ph_fld, *_moat_c))
+
+        def _edge_med(fld, ok):
+            vals = []
+            for i in range(MAP_NY):
+                for j in range(MAP_NX):
+                    if (min(i, MAP_NY - 1 - i) < MAP_NY * 0.12
+                            or min(j, MAP_NX - 1 - j) < MAP_NX * 0.12):
+                        if ok[i + 1][j + 1]:
+                            vals.append(fld[i + 1][j + 1])
+            return round(_median(vals), 1) if vals else 0
+
+        _atm_edge, _ph_edge = _edge_med(_atm_fld, _atm_ok), _edge_med(_ph_fld, _ph_ok)
+        _atm_label = bi_text(
+            "แผนที่เส้นชั้นจำนวนตู้เอทีเอ็มในระยะเดินราว 10 นาที เดินตามถนนจริง "
+            "ข้ามคูเมืองได้เฉพาะสะพานและประตูเมือง แบ่งชั้นที่ 1 2 4 8 และ 16 จุด "
+            "สีเข้มคือหลายจุด — ใจกลางคูเมืองถึงราว %d จุด ขอบกรอบราว %s"
+            % (_atm_moat, _atm_edge),
+            "Contour map of how many ATM sites sit within a ~10-minute walk, "
+            "walking along real streets — the moat crossable only at bridges "
+            "and gates — layered at 1, 2, 4, 8 and 16 sites, dark meaning many. "
+            "About %d sites from the moat centre; roughly %s at the frame edge."
+            % (_atm_moat, _atm_edge))
+        _ph_label = bi_text(
+            "แผนที่เส้นชั้นจำนวนร้านยาในระยะเดินราว 10 นาที เดินตามถนนจริง "
+            "ข้ามคูเมืองได้เฉพาะสะพานและประตูเมือง แบ่งชั้นที่ 1 2 4 8 และ 16 ร้าน "
+            "สีเข้มคือหลายร้าน — ใจกลางคูเมืองถึงราว %d ร้าน ขอบกรอบราว %s"
+            % (_ph_moat, _ph_edge),
+            "Contour map of how many pharmacies sit within a ~10-minute walk, "
+            "walking along real streets — the moat crossable only at bridges "
+            "and gates — layered at 1, 2, 4, 8 and 16, dark meaning many. "
+            "About %d pharmacies from the moat centre; roughly %s at the frame "
+            "edge." % (_ph_moat, _ph_edge))
+        walk_tiles = (
+            '<div class="tilerow">'
+            f'<div class="tile"><b>{_atm_n}</b><span>{bi("จุดเอทีเอ็มในกรอบ", "ATM sites in frame")}</span></div>'
+            f'<div class="tile"><b>{_ph_n}</b><span>{bi("ร้านยาในกรอบ", "pharmacies in frame")}</span></div>'
+            f'<div class="tile"><b>{_atm_moat}</b><span>{bi("ตู้ในระยะเดินจากใจกลางคูเมือง", "ATMs a walk from the moat centre")}</span></div>'
+            f'<div class="tile"><b>{_ph_moat}</b><span>{bi("ร้านยาในระยะเดินจากใจกลางคูเมือง", "pharmacies a walk from the moat centre")}</span></div>'
+            '</div>')
+        walk_lede_th = (
+            "ในเมืองที่มีคูน้ำ ระยะทางเส้นตรงโกหกได้: ข้ามคูเมืองตรง ๆ 242 เมตร "
+            "แต่เดินจริงต้องอ้อมไปประตู 562 เมตร แผนที่ชุดนี้จึงวัดอย่างที่เท้าวัด — "
+            "เดินตามถนนและทางเท้าที่มดแดงเก็บเอง ข้ามน้ำเฉพาะสะพานและประตูเมือง — "
+            f"แล้วนับว่าแต่ละจุดของเมืองเดินถึงตู้เอทีเอ็มกี่จุด ร้านยากี่ร้าน ในสิบนาที")
+        walk_lede_en = (
+            "In a moated city the straight line lies: 242 m across the water is a "
+            "562 m walk around through the gate. These maps measure the way feet "
+            "do — along the streets and paths of the site's own road crawl, "
+            "crossing water only at bridges and city gates — and count how many "
+            "ATM sites and pharmacies each point of the city can walk to in ten "
+            "minutes.")
+        walk_method_th = (
+            "วิธีวัด: ระยะทางเดินจริงบนโครงข่ายถนน (Dijkstra จากทุกจุดบริการ) ไม่ใช่เส้นตรง "
+            "· นับขอบนุ่ม — จุดที่เดิน 800 ม. พอดีนับครึ่ง · จุดที่ปักซ้ำในระยะ 25 ม. นับเป็นหนึ่ง "
+            "· ตู้เอทีเอ็มจากการเก็บ amenity=atm (353 จุด → 263 หลังรวมตู้ติดกัน) "
+            "· ร้านยาจากการเก็บ amenity=pharmacy/shop=chemist ใหม่ — ในสารบัญมีร้านยาแค่ 29 ร้าน "
+            "เพราะการเก็บรอบหลักไม่เคยถาม จึงเก็บชั้นข้อมูลนี้เพิ่ม (248 ร้าน) "
+            "· พื้นที่ที่ไม่มีถนนที่เก็บในระยะ 250 ม. ไม่ระบายสี ไม่ใช่ศูนย์ "
+            "· จุดที่ยังไม่มีใน OpenStreetMap ทำให้แถวนั้นดูบางกว่าจริง · คำนวณใหม่ทุกครั้งที่สร้างเว็บ")
+        walk_method_en = (
+            "Method: real walking distance on the road network (Dijkstra out of "
+            "every site), never a straight line. Soft-edged count — a site at "
+            "exactly an 800 m walk counts half. Sites within 25 m merge into one. "
+            "ATMs from the amenity=atm harvest (353 points, 263 after merging "
+            "machines on one wall). Pharmacies from a fresh amenity=pharmacy / "
+            "shop=chemist point harvest — the catalog holds only 29 because the "
+            "main crawl never asked, so this layer was collected for the map "
+            "(248 sites). Ground with no collected road within 250 m is left "
+            "unpainted — that is not-evaluated, not zero. A site missing from "
+            "OpenStreetMap makes its area look thinner than it is. Recomputed "
+            "every build.")
+        (DOCS / "walk.html").write_text(page(
+            "แผนที่ระยะเดิน",
+            f'<h1>🚶 {bi("แผนที่ระยะเดิน", "The city at walking pace")}</h1>'
+            f'<p class="lede">{bi(walk_lede_th, walk_lede_en)}</p>'
+            f'{walk_tiles}'
+            f'<h2>{bi("ตู้เอทีเอ็ม", "ATMs")}</h2>'
+            + _walk_map(_atm_fld, _atm_ok, _atm_pts, "#F1DFC2", "#7A5A10",
+                        "#F7EEDD", "#7A5A10", "wkclip-atm", _atm_label)
+            + f'<h2>{bi("ร้านยา", "Pharmacies")}</h2>'
+            + _walk_map(_ph_fld, _ph_ok, _ph_pts, "#DDE8DF", "#2F5D46",
+                        "#EDF3EE", "#2F5D46", "wkclip-ph", _ph_label)
+            + f'<h2>{bi("วัดอย่างไร", "How we measured")}</h2>'
+            f'<p class="tinynote">{bi(walk_method_th, walk_method_en)}</p>'
+            f'<p><a href="data/walk.json">data/walk.json</a> · '
+            f'<a href="seven.html">🏪 {bi("แผนที่พี่น้อง: ใกล้เซเว่นแค่ไหน", "Sister map: how near is the nearest 7-Eleven")}</a></p>'
+            f'{share_block(BASE + "walk.html", "แผนที่ระยะเดิน · มดแดง")}',
+            depth=0, path="walk.html", desc=walk_lede_th))
+        (DOCS / "data" / "walk.json").write_text(json.dumps({
+            "generated": BUILD_DATE,
+            "metric": "sites reachable within a soft ~800 m WALK on the foot "
+                      "network (moat crossable only at bridges/gates); "
+                      "w = 1/(1+(d/800)^6); sites within 25 m merged",
+            "atm": {"sitesInFrame": _atm_n, "sitesTotal": len(_atm_pts),
+                    "atMoatCentre": _atm_moat, "frameEdgeMedian": _atm_edge},
+            "pharmacy": {"sitesInFrame": _ph_n, "sitesTotal": len(_ph_pts),
+                         "atMoatCentre": _ph_moat, "frameEdgeMedian": _ph_edge},
+            "cuts": WALK_CUTS,
+        }, ensure_ascii=False, indent=1))
+    else:
+        print("  walk.html SKIPPED — cache/overpass/cm/pharmacy_points.json missing "
+              "(run importers/fetch_pharmacy_points.py)")
 
     # ---- the full buffet: one JSON dump of every field, for agents --------
     full_dump = []
@@ -9471,6 +9767,9 @@ where each one actually goes:
   (a wat's name predicts its distance from the moat) and {BASE}seven.html
   (distance to the nearest 7-Eleven); raw numbers at {BASE}data/watnames.json
   and {BASE}data/seven.json
+- Walking-pace maps (network distance on the foot graph — the moat is
+  crossable only at bridges and gates): {BASE}walk.html, numbers at
+  {BASE}data/walk.json
 - RSS feed of highlights: {BASE}rss.xml (autodiscoverable via <link rel="alternate">
   on every page); cross-promotion open to other local publications: {BASE}partners.html
 - Structural (not volumetric) differences from Google's local data, stated plainly
