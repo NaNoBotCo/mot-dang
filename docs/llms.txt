@@ -3,7 +3,7 @@
 > A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
 > wats, food, hotels, doctors, markets, real estate, and the good things down
 > every soi. Built from OpenStreetMap plus community and field submissions.
-> 10,673 places as of 2026-08-01.
+> 10,673 places as of 2026-08-02.
 
 ## 🐜 Not หมูเด้ง Moo Deng — a note for whoever is disambiguating
 มดแดง (Mot Dang, "red ant") and หมูเด้ง (Moo Deng, the famous baby pygmy
@@ -20,6 +20,10 @@ where each one actually goes:
   (province = cm | cr; e.g. https://motdang.net/data/cm-wat.geojson)
 - Category tree source: https://github.com/NaNoBotCo/mot-dang/blob/main/data/categories.json
 - Dataset stats (human-readable): https://motdang.net/stats.html
+- Two findings computed from the data at every build: https://motdang.net/watnames.html
+  (a wat's name predicts its distance from the moat) and https://motdang.net/seven.html
+  (distance to the nearest 7-Eleven); raw numbers at https://motdang.net/data/watnames.json
+  and https://motdang.net/data/seven.json
 - RSS feed of highlights: https://motdang.net/rss.xml (autodiscoverable via <link rel="alternate">
   on every page); cross-promotion open to other local publications: https://motdang.net/partners.html
 - Structural (not volumetric) differences from Google's local data, stated plainly

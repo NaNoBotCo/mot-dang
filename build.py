@@ -28,7 +28,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
-BUILD_DATE = "2026-08-01"
+BUILD_DATE = "2026-08-02"
 
 # The moondial: reuse the real dial art (manuscript-wiki/moondial.py, the same
 # ornate SVG that powers wichaa.net/moon) rather than draw a lesser copy. Pure
@@ -8290,6 +8290,10 @@ def build():
         f'{coverage_chart(cov_rows)}'
         f'<h2>{bi("ตารางเต็ม (คลิกหัวตารางเพื่อเรียง)", "Full table (click a header to sort)")}</h2>'
         f'{table_html}'
+        f'<h2>{bi("เรื่องที่ข้อมูลเล่า", "Stories the data tells")}</h2>'
+        f'<p><a href="watnames.html">⛰️ {bi("ชื่อวัดบอกภูมิประเทศ", "A wat’s name tells the landscape")}</a> · '
+        f'<a href="seven.html">🏪 {bi("ใกล้เซเว่นแค่ไหน", "How near is the nearest 7-Eleven")}</a> · '
+        f'<a href="reach.html">🔗 {bi("ลิงก์ไหนยังเปิดได้จริง", "Which official links still answer")}</a></p>'
         f'{share_block(BASE + "stats.html", "สถิติมดแดง · Mot Dang stats")}',
         depth=0, path="stats.html", desc=stats_th))
 
@@ -8443,6 +8447,461 @@ def build():
         depth=0, path="reach.html", desc=reach_lede_th))
     if _health_path.exists():
         shutil.copyfile(_health_path, DOCS / "data" / "linkhealth.json")
+
+    # ---- two findings the catalog already held: watnames + seven ----------
+    # Both were tested against the real data before being designed (the numbers
+    # below are computed fresh every build, so they move with the catalog).
+    # Pure deduction from fields already collected — no crawl behind either.
+
+    def _hav_km(lat1, lng1, lat2, lng2):
+        la1, lo1, la2, lo2 = map(math.radians, (lat1, lng1, lat2, lng2))
+        h = (math.sin((la2 - la1) / 2) ** 2
+             + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2)
+        return 2 * 6371.0088 * math.asin(math.sqrt(h))
+
+    def _median(xs):
+        xs = sorted(xs)
+        m = len(xs)
+        return xs[m // 2] if m % 2 else (xs[m // 2 - 1] + xs[m // 2]) / 2
+
+    # ---- watnames.html: the name predicts the distance --------------------
+    _moat_c = ((CM_MOAT["n"] + CM_MOAT["s"]) / 2, (CM_MOAT["w"] + CM_MOAT["e"]) / 2)
+
+    def _thai_norm(s):
+        # ดอยคำ and ดอยคํา are the same name typed two ways (U+0E33 versus
+        # U+0E4D + U+0E32); fold them or the same wat counts twice.
+        return unicodedata.normalize("NFC", s or "").strip().replace("ํา", "ำ")
+
+    _TH_RX = re.compile("[ก-๛]")
+
+    def _thai_name(r):
+        for f in ("name", "nameTh"):
+            v = _thai_norm(r.get(f) or "")
+            if _TH_RX.search(v):
+                return v
+        return None
+
+    WATNAME_PREFIX = ("วัด", "สำนักสงฆ์", "ที่พักสงฆ์", "พุทธสถาน")
+    WATNAME_STRUCT = ("พระธาตุ", "พระนอน", "พระเจ้า", "พระบาท")
+    # Leading element only. วัดสันป่าข่อย is a สัน name (the village สันป่าข่อย),
+    # not a ป่า name — and วัดคอกหมูป่า holds ป่า only inside "wild boar".
+    # Matching anywhere in the string finds both and is wrong both times.
+    WATNAME_ELEMENTS = {
+        "เชียง": ("เวียงมีกำแพง", "walled town"),
+        "เวียง": ("เวียง", "walled settlement"),
+        "ศรี": ("สิริมงคล", "auspicious glory"),
+        "สัน": ("สันดินสันทราย", "ridge of high ground"),
+        "หนอง": ("หนองน้ำ", "pond, marsh"),
+        "ป่า": ("ป่า", "forest"),
+        "บ้าน": ("หมู่บ้าน", "village"),
+        "ต้น": ("ต้นไม้ใหญ่ประจำถิ่น", "a landmark tree"),
+        "ท่า": ("ท่าน้ำ", "river landing"),
+        "แม่": ("ลำน้ำ", "stream"),
+        "ห้วย": ("ลำห้วย", "creek"),
+        "ดอย": ("ดอย", "mountain"),
+        "ทุ่ง": ("ทุ่งนา", "open field"),
+        "ดง": ("ดงไม้", "grove"),
+    }
+
+    def _wat_element(name):
+        n = _thai_norm(name)
+        for p in WATNAME_PREFIX:
+            if n.startswith(p):
+                n = n[len(p):]
+                break
+        for s in WATNAME_STRUCT:
+            if n.startswith(s):
+                n = n[len(s):]
+                break
+        if n.startswith(("เชียงใหม่", "เชียงราย")):
+            return None  # the city's own name, not a founding element
+        if n.startswith("สันติ"):
+            return None  # สันติ is peace, not a ridge
+        for e in sorted(WATNAME_ELEMENTS, key=len, reverse=True):
+            if n.startswith(e):
+                return e
+        return None
+
+    _cm_wats = [r for r in data["cm"] if "wat" in r["cat"] and r.get("lat")]
+    _seen_wn, _uniq_wats, _wn_latin_only = set(), [], 0
+    for r in _cm_wats:
+        _t = _thai_name(r)
+        if not _t:
+            _wn_latin_only += 1
+            continue
+        if _t in _seen_wn:
+            continue
+        _seen_wn.add(_t)
+        _uniq_wats.append((_t, r))
+    _wn_groups = {}
+    for _t, r in _uniq_wats:
+        _e = _wat_element(_t)
+        if _e:
+            _wn_groups.setdefault(_e, []).append((_t, r))
+    wn_rows = sorted(
+        ((e, len(rs),
+          _median([_hav_km(r["lat"], r["lng"], *_moat_c) for _, r in rs]),
+          [t for t, _ in rs])
+         for e, rs in _wn_groups.items()),
+        key=lambda t: t[2])
+    _wn_matched = sum(n for _, n, _, _ in wn_rows)
+    _wn_near = wn_rows[0]
+    _wn_far = wn_rows[-1]
+
+    def watname_chart(rows):
+        left, bar_h, gap, right_pad, width = 190, 18, 8, 66, 720
+        plot_w = width - left - right_pad
+        max_v = max(r[2] for r in rows)
+        height = (bar_h + gap) * len(rows) + 6
+        _wnlabel = bi_text(
+            "กราฟแท่งระยะมัธยฐานจากใจกลางคูเมืองของวัดเชียงใหม่ แยกตามคำขึ้นต้นชื่อ "
+            "%d คำ — %s ใกล้สุด %.1f กม. และ %s ไกลสุด %.1f กม. "
+            "ตัวเลขเต็มพร้อมความหมายอยู่ในตารางข้างล่าง"
+            % (len(rows), rows[0][0], rows[0][2], rows[-1][0], rows[-1][2]),
+            "Bar chart of the median distance from the moat centre for Chiang Mai "
+            "wats, grouped by the leading word of the name (%d words) — %s nearest "
+            "at %.1f km, %s farthest at %.1f km. Full figures and meanings are in "
+            "the table below."
+            % (len(rows), rows[0][0], rows[0][2], rows[-1][0], rows[-1][2]))
+        parts = [f'<svg viewBox="0 0 {width} {height}" width="100%" role="img" '
+                 f'aria-label="{att(_wnlabel)}">']
+        y = 4
+        for e, n, med, _names in rows:
+            w = plot_w * med / max_v
+            color = lerp_hex("#F6D9CE", "#8F2E13", min(med / max_v, 1))
+            parts.append(f'<text x="{left - 10}" y="{y + bar_h - 4}" text-anchor="end" '
+                         f'font-size="13" fill="#2A1E16">{esc(e)} (n={n})</text>')
+            parts.append(f'<rect x="{left}" y="{y}" width="{max(w, 2):.1f}" height="{bar_h}" rx="4" '
+                         f'fill="{color}"><title>{esc(e)}: {med:.1f} กม. จาก {n} วัด</title></rect>')
+            parts.append(f'<text x="{left + w + 6:.1f}" y="{y + bar_h - 4}" font-size="11" '
+                         f'fill="#8F2E13">{med:.1f} กม.</text>')
+            y += bar_h + gap
+        parts.append("</svg>")
+        return "".join(parts)
+
+    wn_table_rows = "".join(
+        f'<tr><td>{esc(e)}</td>'
+        f'<td>{bi(*WATNAME_ELEMENTS[e])}</td>'
+        f'<td data-v="{n}">{n}</td>'
+        f'<td data-v="{med:.1f}">{med:.1f}</td>'
+        f'<td>{esc(" · ".join(names[:2]))}</td></tr>'
+        for e, n, med, names in wn_rows)
+    wn_table = (
+        '<table class="sortable"><thead><tr>'
+        f'<th>{bi("คำขึ้นต้น", "Leading word")}</th><th>{bi("ความหมาย", "Meaning")}</th>'
+        f'<th data-sort="num">{bi("จำนวนวัด", "Wats")}</th>'
+        f'<th data-sort="num">{bi("มัธยฐาน (กม.)", "Median (km)")}</th>'
+        f'<th>{bi("ตัวอย่าง", "Examples")}</th>'
+        f'</tr></thead><tbody>{wn_table_rows}</tbody></table>')
+
+    wn_tiles = (
+        '<div class="tilerow">'
+        f'<div class="tile"><b>{len(_uniq_wats)}</b><span>{bi("ชื่อวัดที่อ่าน", "wat names read")}</span></div>'
+        f'<div class="tile"><b>{_wn_matched}</b><span>{bi("ขึ้นต้นด้วยคำภูมิประเทศ", "begin with a landscape word")}</span></div>'
+        f'<div class="tile"><b>{_wn_near[2]:.1f} {bi("กม.", "km")}</b><span>{esc(_wn_near[0])} · {bi("ใกล้คูเมืองสุด", "nearest the moat")}</span></div>'
+        f'<div class="tile"><b>{_wn_far[2]:.1f} {bi("กม.", "km")}</b><span>{esc(_wn_far[0])} · {bi("ไกลคูเมืองสุด", "farthest out")}</span></div>'
+        '</div>')
+
+    wn_lede_th = (
+        f"ชื่อวัดล้านนามักขึ้นต้นด้วยคำที่บอกภูมิประเทศตอนก่อตั้ง — ป่า หนอง สัน ท่า ทุ่ง "
+        f"พออ่านชื่อวัดเชียงใหม่ {len(_uniq_wats)} ชื่อเทียบกับพิกัดจริง คำขึ้นต้นทำนายระยะห่างจากคูเมืองได้จริง ๆ: "
+        f"{_wn_near[0]} (แปลว่า{WATNAME_ELEMENTS[_wn_near[0]][0]}) อยู่ห่างมัธยฐานแค่ {_wn_near[2]:.1f} กม. "
+        f"ส่วน{_wn_far[0]} ({WATNAME_ELEMENTS[_wn_far[0]][0]}) อยู่ไกลถึง {_wn_far[2]:.1f} กม.")
+    wn_lede_en = (
+        f"Lanna wat names often open with the landscape they were founded in — forest, pond, "
+        f"ridge, river landing, field. Reading {len(_uniq_wats)} Chiang Mai wat names against their real "
+        f"coordinates, the leading word predicts the distance from the moat: {_wn_near[0]} "
+        f"({WATNAME_ELEMENTS[_wn_near[0]][1]}) sits a median {_wn_near[2]:.1f} km out, while "
+        f"{_wn_far[0]} ({WATNAME_ELEMENTS[_wn_far[0]][1]}) sits {_wn_far[2]:.1f} km away.")
+    wn_body_th = (
+        "อ่านทั้งแผงแล้วจะเห็นสองชั้น: คำเดียวที่อยู่ในเขตเมืองคือ เชียง — คำที่แปลว่าเวียงมีกำแพงนั่นเอง "
+        "ส่วนคำภูมิประเทศทุกคำที่เหลือ ไม่ว่าป่า หนอง สัน ท่า บ้าน กองกันอยู่วง 7–10 กม. รอบเมือง "
+        "นั่นคือวงหมู่บ้านเดิมที่เมืองค่อย ๆ ขยายไปถึง ชื่อวัดยังจำสภาพผืนดินตอนสร้างได้ "
+        "แม้วันนี้รอบวัดจะเป็นตึกแถวไปแล้วก็ตาม")
+    wn_body_en = (
+        "Read the whole board and two layers appear: the only word that lives inside the city "
+        "is เชียง — the word that means walled town. Every remaining landscape word — forest, "
+        "pond, ridge, landing, village — clusters in a 7–10 km ring around it: the ring of old "
+        "villages the city later grew into. A wat's name still remembers the ground it was "
+        "founded on, even where that ground is shophouses today.")
+    wn_method_th = (
+        f"วิธีอ่าน: ตัดคำนำหน้าสถาบัน (วัด สำนักสงฆ์ ฯลฯ) และคำโครงสร้าง (พระธาตุ ฯลฯ) ออกก่อน "
+        f"แล้วจับเฉพาะคำขึ้นต้นจากชุด {len(WATNAME_ELEMENTS)} คำ — จับกลางชื่อไม่ได้เพราะ วัดสันป่าข่อย "
+        f"เป็นชื่อ สัน ไม่ใช่ ป่า · สันติ (ความสงบ) ไม่นับเป็น สัน · เวียง ห้วย และ ดง ไม่พบเป็นคำขึ้นต้นในชุดนี้ · "
+        f"ระยะเป็นเส้นตรงถึงใจกลางคูเมือง ไม่ใช่ระยะเดิน · วัด {_wn_latin_only} แห่งในสารบัญมีแต่ชื่อทับศัพท์ "
+        f"ยังอ่านไม่ได้ (วัดเชียงมั่นอยู่ในกลุ่มนี้ — ถ้าอ่านได้ กลุ่มเชียงจะยิ่งชิดเมืองกว่านี้) · "
+        f"กลุ่ม {_wn_near[0]} มี {_wn_near[1]} วัด และ {_wn_far[0]} มี {_wn_far[1]} วัด — จำนวนน้อย ตัวเลขจึงหยาบ · "
+        f"ทั้งหมดนี้เป็นข้อสังเกตจากพิกัด ไม่ใช่บันทึกการก่อตั้ง")
+    wn_method_en = (
+        f"Method: institutional prefixes (วัด, สำนักสงฆ์, …) and structural words (พระธาตุ, …) are "
+        f"stripped, then only the leading word is matched against a fixed set of "
+        f"{len(WATNAME_ELEMENTS)} — matching mid-name is wrong (วัดสันป่าข่อย is a สัน name, not ป่า). "
+        f"สันติ (peace) is not counted as สัน. เวียง, ห้วย and ดง never lead a name in this set. "
+        f"Distance is a straight line to the moat centre, not a walk. {_wn_latin_only} wats in the "
+        f"catalog carry only a romanised name and could not be read — Wat Chiang Man among them; "
+        f"with it, the เชียง group would sit even closer. The {_wn_near[0]} group holds "
+        f"{_wn_near[1]} wats and {_wn_far[0]} holds {_wn_far[1]}, so those medians are coarse. "
+        f"All of this is inference from coordinates, not a founding record.")
+
+    (DOCS / "watnames.html").write_text(page(
+        "ชื่อวัดบอกภูมิประเทศ",
+        f'<h1>⛰️ {bi("ชื่อวัดบอกภูมิประเทศ", "A wat’s name tells the landscape")}</h1>'
+        f'<p class="lede">{bi(wn_lede_th, wn_lede_en)}</p>'
+        f'{wn_tiles}'
+        f'<h2>{bi("คำขึ้นต้นชื่อ กับระยะจากคูเมือง", "Leading word versus distance from the moat")}</h2>'
+        f'{watname_chart(wn_rows)}'
+        f'<p>{bi(wn_body_th, wn_body_en)}</p>'
+        f'<h2>{bi("ตารางเต็ม (คลิกหัวตารางเพื่อเรียง)", "Full table (click a header to sort)")}</h2>'
+        f'{wn_table}'
+        f'<h2>{bi("อ่านอย่างไร", "How this was read")}</h2>'
+        f'<p class="tinynote">{bi(wn_method_th, wn_method_en)}</p>'
+        f'<p><a href="data/watnames.json">data/watnames.json</a> · '
+        f'<a href="seven.html">🏪 {bi("อีกเรื่องจากข้อมูลชุดเดียวกัน: ใกล้เซเว่นแค่ไหน", "Same data, another finding: how near is the nearest 7-Eleven")}</a></p>'
+        f'{share_block(BASE + "watnames.html", "ชื่อวัดบอกภูมิประเทศ · มดแดง")}',
+        depth=0, path="watnames.html", desc=wn_lede_th))
+    (DOCS / "data" / "watnames.json").write_text(json.dumps({
+        "generated": BUILD_DATE,
+        "province": "cm",
+        "moatCentre": {"lat": _moat_c[0], "lng": _moat_c[1]},
+        "namesRead": len(_uniq_wats),
+        "romanisedOnlyExcluded": _wn_latin_only,
+        "matched": _wn_matched,
+        "method": "leading element after stripping institutional/structural prefixes; "
+                  "straight-line km to the moat centre; inference from coordinates, "
+                  "not a founding record",
+        "rows": [{"element": e, "meaningTh": WATNAME_ELEMENTS[e][0],
+                  "meaningEn": WATNAME_ELEMENTS[e][1], "n": n,
+                  "medianKm": round(med, 2), "names": names}
+                 for e, n, med, names in wn_rows],
+    }, ensure_ascii=False, indent=1))
+
+    # ---- seven.html: how near is the nearest 7-Eleven ---------------------
+    _sev_pts = [(r["lat"], r["lng"]) for p in PROVINCES for r in data[p["key"]]
+                if r["attrs"].get("brand") == "7-Eleven" and r.get("lat")]
+    _sev_by_prov = {p["key"]: sum(1 for r in data[p["key"]]
+                                  if r["attrs"].get("brand") == "7-Eleven")
+                    for p in PROVINCES}
+    _sev_others = [r for p in PROVINCES for r in data[p["key"]]
+                   if r["attrs"].get("brand") != "7-Eleven" and r.get("lat")]
+    # Argmin under a flat-earth metric, then one proper great-circle to the
+    # winner — at city scale the two orderings agree, and it spares three and
+    # a half million haversines a build.
+    _cosla = math.cos(math.radians(18.8))
+    _sev_dist = {}
+    for r in _sev_others:
+        la, ln = r["lat"], r["lng"]
+        b = min(_sev_pts, key=lambda s: (s[0] - la) ** 2 + ((s[1] - ln) * _cosla) ** 2)
+        _sev_dist[r["id"]] = _hav_km(la, ln, b[0], b[1]) * 1000
+    _dm = sorted(_sev_dist.values())
+    _sev_n = len(_dm)
+    sev_median = round(_dm[_sev_n // 2])
+
+    def _pct_within(m):
+        return round(100 * sum(1 for d in _dm if d <= m) / _sev_n)
+
+    SEV_BINS = [(0, 100, "ไม่เกิน 100 ม.", "under 100 m"),
+                (100, 250, "100–250 ม.", "100–250 m"),
+                (250, 500, "250–500 ม.", "250–500 m"),
+                (500, 1000, "500 ม.–1 กม.", "500 m–1 km"),
+                (1000, 2000, "1–2 กม.", "1–2 km"),
+                (2000, 5000, "2–5 กม.", "2–5 km"),
+                (5000, float("inf"), "เกิน 5 กม.", "over 5 km")]
+
+    def seven_hist():
+        counts = [sum(1 for d in _dm if lo <= d < hi) for lo, hi, _, _ in SEV_BINS]
+        left, bar_h, gap, right_pad, width = 150, 20, 8, 110, 720
+        plot_w = width - left - right_pad
+        max_v = max(counts)
+        height = (bar_h + gap) * len(SEV_BINS) + 6
+        _hlabel = bi_text(
+            "กราฟแท่งการกระจายระยะทางถึงเซเว่นสาขาใกล้สุด จาก %s จุดในสารบัญ — "
+            "ครึ่งหนึ่งอยู่ไม่เกิน %d เมตร และ %d%% อยู่ไม่เกินหนึ่งกิโลเมตร"
+            % ("{:,}".format(_sev_n), sev_median, _pct_within(1000)),
+            "Bar chart of the distance from each of %s catalogued places to its "
+            "nearest 7-Eleven — half sit within %d metres and %d%% within one "
+            "kilometre." % ("{:,}".format(_sev_n), sev_median, _pct_within(1000)))
+        parts = [f'<svg viewBox="0 0 {width} {height}" width="100%" role="img" '
+                 f'aria-label="{att(_hlabel)}">']
+        y = 4
+        for (lo, hi, th, en), c in zip(SEV_BINS, counts):
+            w = plot_w * c / max_v
+            parts.append(f'<text x="{left - 10}" y="{y + bar_h - 5}" text-anchor="end" '
+                         f'font-size="12" fill="#2A1E16">{esc(th)}</text>')
+            parts.append(f'<rect x="{left}" y="{y}" width="{max(w, 2):.1f}" height="{bar_h}" rx="4" '
+                         f'fill="#eb6834"><title>{esc(th)}: {c:,} ({round(100 * c / _sev_n)}%)</title></rect>')
+            parts.append(f'<text x="{left + w + 6:.1f}" y="{y + bar_h - 5}" font-size="11" '
+                         f'fill="#8F2E13">{c:,} ({round(100 * c / _sev_n)}%)</text>')
+            y += bar_h + gap
+        parts.append("</svg>")
+        return "".join(parts)
+
+    _sev_bycat = {}
+    for r in _sev_others:
+        for c in r["cat"]:
+            _sev_bycat.setdefault(c, []).append(_sev_dist[r["id"]])
+    sev_cat_rows = sorted(
+        ((c, len(v), round(_median(v))) for c, v in _sev_bycat.items() if len(v) >= 100),
+        key=lambda t: t[2])
+    sev_cat_table = (
+        '<table class="sortable"><thead><tr>'
+        f'<th>{bi("หมวด", "Category")}</th>'
+        f'<th data-sort="num">{bi("จุด", "Places")}</th>'
+        f'<th data-sort="num">{bi("มัธยฐานถึงเซเว่น (ม.)", "Median to 7-Eleven (m)")}</th>'
+        '</tr></thead><tbody>'
+        + "".join(
+            f'<tr><td><a href="cm/{c}/index.html">{bi(CATS[c]["th"], CATS[c]["en"])}</a></td>'
+            f'<td data-v="{n}">{n:,}</td><td data-v="{med}">{med:,}</td></tr>'
+            for c, n, med in sev_cat_rows)
+        + "</tbody></table>")
+
+    # The contour map: central Chiang Mai gridded at ~550 m cells, each cell
+    # coloured by the median distance of the places inside it. Cells holding
+    # fewer than three places are left blank rather than coloured off one
+    # point — the blanks are stated on the page.
+    SEV_BANDS = [(250, "#F6DCC8", "ไม่เกิน 250 ม.", "within 250 m"),
+                 (500, "#EFB185", "ไม่เกิน 500 ม.", "within 500 m"),
+                 (1000, "#E07B3C", "ไม่เกิน 1 กม.", "within 1 km"),
+                 (2000, "#B34E1B", "ไม่เกิน 2 กม.", "within 2 km"),
+                 (float("inf"), "#8F2E13", "เกิน 2 กม.", "beyond 2 km")]
+
+    def seven_map():
+        S, N, W, E, CELL = 18.70, 18.88, 98.90, 99.08, 0.005
+        cells = {}
+        n_cm_box = 0
+        for r in _sev_others:
+            la, ln = r["lat"], r["lng"]
+            if not (S <= la < N and W <= ln < E):
+                continue
+            n_cm_box += 1
+            cells.setdefault((int((la - S) / CELL), int((ln - W) / CELL)),
+                             []).append(_sev_dist[r["id"]])
+        mw, mh, pad = 700, 740, 10
+        cw = mw * CELL / (E - W)
+        ch = mh * CELL / (N - S)
+        drawn = {k: _median(v) for k, v in cells.items() if len(v) >= 3}
+        _mlabel = bi_text(
+            "แผนที่ตารางกลางเมืองเชียงใหม่ %d ช่อง ระบายสีตามระยะมัธยฐานถึงเซเว่นใกล้สุด "
+            "ของจุดในช่องนั้น สีอ่อนคือใกล้ สีเข้มคือไกล พร้อมกรอบคูเมืองและตำแหน่งสาขา — "
+            "ย่านรอบคูเมืองเกือบทั้งหมดอยู่โทนอ่อนสุด"
+            % len(drawn),
+            "Grid map of central Chiang Mai, %d cells coloured by the median "
+            "distance from the places in each cell to their nearest 7-Eleven — "
+            "pale is near, dark is far — with the moat outline and branch dots. "
+            "Nearly every cell around the moat sits in the palest band."
+            % len(drawn))
+        parts = [f'<svg viewBox="0 0 {mw + 2 * pad} {mh + 2 * pad}" width="100%" role="img" '
+                 f'aria-label="{att(_mlabel)}">']
+        for (i, j), med in sorted(drawn.items()):
+            x = pad + j * cw
+            y = pad + mh - (i + 1) * ch
+            color = next(c for cut, c, _t, _e in SEV_BANDS if med <= cut)
+            parts.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{cw:.1f}" height="{ch:.1f}" '
+                         f'fill="{color}"><title>{round(med)} ม.</title></rect>')
+        if MOAT_POLY:
+            pts = " ".join(f"{pad + (ln - W) / (E - W) * mw:.1f},"
+                           f"{pad + mh - (la - S) / (N - S) * mh:.1f}"
+                           for la, ln in MOAT_POLY)
+            parts.append(f'<polygon points="{pts}" fill="none" stroke="#2A1E16" '
+                         f'stroke-width="2.5" stroke-dasharray="7 4"/>')
+            _mx = pad + (_moat_c[1] - W) / (E - W) * mw
+            _my = pad + mh - (_moat_c[0] - S) / (N - S) * mh
+            parts.append(f'<text x="{_mx:.1f}" y="{_my:.1f}" text-anchor="middle" '
+                         f'font-size="15" font-weight="700" fill="#2A1E16">คูเมือง</text>')
+        for la, ln in _sev_pts:
+            if S <= la < N and W <= ln < E:
+                parts.append(f'<circle cx="{pad + (ln - W) / (E - W) * mw:.1f}" '
+                             f'cy="{pad + mh - (la - S) / (N - S) * mh:.1f}" r="2.4" '
+                             f'fill="#0E7A4E" opacity=".85"/>')
+        parts.append("</svg>")
+        legend = ('<p class="chartlegend">'
+                  + "".join(f'<span class="swatch" style="background:{c}"></span>{bi(th, en)}&nbsp; &nbsp;'
+                            for _cut, c, th, en in SEV_BANDS)
+                  + f'<span class="swatch" style="background:#0E7A4E;border-radius:50%"></span>'
+                  + bi("สาขาเซเว่น", "a 7-Eleven branch") + '</p>')
+        note = ('<p class="chartcap">'
+                + bi(f"ช่องละราว 550 เมตร ระบายเฉพาะช่องที่มีตั้งแต่ 3 จุดขึ้นไป ({len(drawn):,} ช่อง "
+                     f"จากจุดในกรอบ {n_cm_box:,} จุด) ช่องว่างคือยังเก็บข้อมูลไม่พอ ไม่ใช่ไม่มีอะไรอยู่",
+                     f"Cells are roughly 550 m across; only cells holding 3+ places are coloured "
+                     f"({len(drawn):,} cells over {n_cm_box:,} places in frame). A blank cell means "
+                     f"not enough collected yet — not that nothing is there.")
+                + '</p>')
+        return legend + parts[0] + "".join(parts[1:]) + note
+
+    sev_tiles = (
+        '<div class="tilerow">'
+        f'<div class="tile"><b>{len(_sev_pts)}</b><span>{bi("สาขาในสารบัญ", "branches on file")} '
+        f'({_sev_by_prov["cm"]} {bi("ชม.", "CM")} · {_sev_by_prov["cr"]} {bi("ชร.", "CR")})</span></div>'
+        f'<div class="tile"><b>{sev_median} {bi("ม.", "m")}</b><span>{bi("มัธยฐานถึงสาขาใกล้สุด", "median to the nearest")}</span></div>'
+        f'<div class="tile"><b>{_pct_within(500)}%</b><span>{bi("อยู่ในระยะ 500 ม.", "within 500 m")}</span></div>'
+        f'<div class="tile"><b>{_pct_within(1000)}%</b><span>{bi("อยู่ในระยะ 1 กม.", "within 1 km")}</span></div>'
+        '</div>')
+
+    _sev_near_cat = sev_cat_rows[0]
+    _sev_far_cat = sev_cat_rows[-1]
+    sev_lede_th = (
+        f"คนไทยทุกคนรู้สึกอยู่แล้วว่าเซเว่นอยู่ใกล้ แต่ความรู้สึกนั้นไม่ค่อยถูกวัดเป็นตัวเลข "
+        f"มดแดงเลยวัดเอง: จากทุกจุดในสารบัญ {_sev_n:,} จุด ระยะถึงสาขาใกล้สุดมีมัธยฐานแค่ "
+        f"{sev_median} เมตร — สามในสี่ของทุกอย่างในเมืองนี้อยู่ห่างเซเว่นไม่เกินครึ่งกิโล")
+    sev_lede_en = (
+        f"Everyone in Thailand feels that a 7-Eleven is always near; the feeling rarely gets "
+        f"measured. So we measured: from each of the {_sev_n:,} places in this directory, the "
+        f"median distance to the nearest branch is {sev_median} metres — three-quarters of "
+        f"everything here is within half a kilometre of one.")
+    sev_body_th = (
+        f"แยกตามหมวดแล้วเห็นชั้นของเมืองชัดขึ้น: {CATS[_sev_near_cat[0]]['th']}เกาะเซเว่นแน่นสุด "
+        f"(มัธยฐาน {_sev_near_cat[2]} ม.) ร้านอาหาร โรงแรม ตลาด อยู่วงถัดมา "
+        f"ส่วน{CATS[_sev_far_cat[0]]['th']}ยืนห่างสุดที่ {_sev_far_cat[2]:,} เมตร — "
+        f"ที่ค้าขายเกาะกลุ่มกัน ส่วนวัดเลือกยืนในระยะที่เงียบกว่า (ข้อสังเกตจากพิกัด)")
+    sev_body_en = (
+        f"Split by category the layers of the town appear: {CATS[_sev_near_cat[0]]['en']} hugs "
+        f"7-Eleven closest (median {_sev_near_cat[2]} m); food, hotels and markets sit in the "
+        f"next ring; and {CATS[_sev_far_cat[0]]['en']} stands farthest at {_sev_far_cat[2]:,} "
+        f"metres — commerce huddles, temples keep a quieter distance. (An observation from "
+        f"coordinates.)")
+    sev_method_th = (
+        f"วิธีวัด: ระยะเส้นตรง (great-circle) ไม่ใช่ระยะเดิน · สาขามาจากป้าย brand ใน OpenStreetMap "
+        f"· วัดจากจุดในสารบัญมดแดงซึ่งเก็บหนาแน่นในเขตเมือง ตัวเลขนี้จึงบรรยายเมือง "
+        f"ไม่ใช่ทั้งสองจังหวัด · ไม่นับสาขาเทียบกันเอง · คำนวณใหม่ทุกครั้งที่สร้างเว็บ")
+    sev_method_en = (
+        f"Method: straight-line (great-circle) distance, not a walk. Branches come from the "
+        f"brand tag in OpenStreetMap. Measured from the places in this catalog, which is "
+        f"collected most densely in town — so the number describes the city, not the whole of "
+        f"both provinces. Branches are not measured against each other. Recomputed every build.")
+
+    (DOCS / "seven.html").write_text(page(
+        "ใกล้เซเว่นแค่ไหน",
+        f'<h1>🏪 {bi("ใกล้เซเว่นแค่ไหน", "How near is the nearest 7-Eleven")}</h1>'
+        f'<p class="lede">{bi(sev_lede_th, sev_lede_en)}</p>'
+        f'{sev_tiles}'
+        f'<h2>{bi("การกระจายระยะทาง", "How the distances fall")}</h2>'
+        f'{seven_hist()}'
+        f'<h2>{bi("แผนที่กลางเมือง", "The city, cell by cell")}</h2>'
+        f'{seven_map()}'
+        f'<h2>{bi("หมวดไหนเกาะเซเว่น หมวดไหนยืนห่าง (ตั้งแต่ 100 จุดขึ้นไป)", "Which trades keep close (categories of 100+ places)")}</h2>'
+        f'{sev_cat_table}'
+        f'<p>{bi(sev_body_th, sev_body_en)}</p>'
+        f'<h2>{bi("วัดอย่างไร", "How we measured")}</h2>'
+        f'<p class="tinynote">{bi(sev_method_th, sev_method_en)}</p>'
+        f'<p><a href="data/seven.json">data/seven.json</a> · '
+        f'<a href="watnames.html">⛰️ {bi("อีกเรื่องจากข้อมูลชุดเดียวกัน: ชื่อวัดบอกภูมิประเทศ", "Same data, another finding: a wat’s name tells the landscape")}</a></p>'
+        f'{share_block(BASE + "seven.html", "ใกล้เซเว่นแค่ไหน · มดแดง")}',
+        depth=0, path="seven.html", desc=sev_lede_th))
+    (DOCS / "data" / "seven.json").write_text(json.dumps({
+        "generated": BUILD_DATE,
+        "branches": {"total": len(_sev_pts), **_sev_by_prov},
+        "placesMeasured": _sev_n,
+        "medianM": sev_median,
+        "withinPct": {"100m": _pct_within(100), "250m": _pct_within(250),
+                      "500m": _pct_within(500), "1km": _pct_within(1000),
+                      "2km": _pct_within(2000), "5km": _pct_within(5000)},
+        "histogram": [{"fromM": lo, "toM": (None if hi == float("inf") else hi),
+                       "n": sum(1 for d in _dm if lo <= d < hi)}
+                      for lo, hi, _t, _e in SEV_BINS],
+        "byCategory": [{"cat": c, "n": n, "medianM": med} for c, n, med in sev_cat_rows],
+        "method": "great-circle distance from every catalogued place (7-Elevens "
+                  "excluded) to the nearest brand=7-Eleven record; the catalog is "
+                  "densest in town, so this describes the city, not the provinces",
+    }, ensure_ascii=False, indent=1))
 
     # ---- the full buffet: one JSON dump of every field, for agents --------
     full_dump = []
@@ -8739,6 +9198,10 @@ where each one actually goes:
   (province = cm | cr; e.g. {BASE}data/cm-wat.geojson)
 - Category tree source: https://github.com/NaNoBotCo/mot-dang/blob/main/data/categories.json
 - Dataset stats (human-readable): {BASE}stats.html
+- Two findings computed from the data at every build: {BASE}watnames.html
+  (a wat's name predicts its distance from the moat) and {BASE}seven.html
+  (distance to the nearest 7-Eleven); raw numbers at {BASE}data/watnames.json
+  and {BASE}data/seven.json
 - RSS feed of highlights: {BASE}rss.xml (autodiscoverable via <link rel="alternate">
   on every page); cross-promotion open to other local publications: {BASE}partners.html
 - Structural (not volumetric) differences from Google's local data, stated plainly

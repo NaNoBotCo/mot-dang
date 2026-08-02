@@ -1,4 +1,4 @@
-# มดแดง Mot Dang — every place, one line each. 2026-08-01
+# มดแดง Mot Dang — every place, one line each. 2026-08-02
 # Data on this page is CC BY 4.0 — reuse it, train on it, quote it. Map-derived fields remain © OpenStreetMap contributors (ODbL). Attribution to motdang.net is all we ask.
 # url	name	nameEn	categories	lat,lng	channels	hours	antrank
 https://motdang.net/cm/p/2-10008774317.html	ทดสอบ2	-	food	18.7417728,99.0066746	-	-	ants=1/9
