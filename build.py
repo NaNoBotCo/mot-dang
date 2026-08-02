@@ -8761,12 +8761,19 @@ def build():
     # fewer than three places are left blank rather than coloured off one
     # point — the blanks are stated on the page.
     # Darkest where nearest — her call: the ink should sit where the branches
-    # crowd, so the map reads as presence, not absence.
-    SEV_BANDS = [(250, "#8F2E13", "ไม่เกิน 250 ม.", "within 250 m"),
-                 (500, "#B34E1B", "ไม่เกิน 500 ม.", "within 500 m"),
-                 (1000, "#E07B3C", "ไม่เกิน 1 กม.", "within 1 km"),
-                 (2000, "#EFB185", "ไม่เกิน 2 กม.", "within 2 km"),
-                 (float("inf"), "#F6DCC8", "เกิน 2 กม.", "beyond 2 km")]
+    # crowd, so the map reads as presence, not absence. Nine levels (also her
+    # call), colours interpolated along the one ramp so the gradation is even.
+    _SEV_CUTS = [(100, "ไม่เกิน 100 ม.", "within 100 m"),
+                 (250, "ไม่เกิน 250 ม.", "within 250 m"),
+                 (500, "ไม่เกิน 500 ม.", "within 500 m"),
+                 (750, "ไม่เกิน 750 ม.", "within 750 m"),
+                 (1000, "ไม่เกิน 1 กม.", "within 1 km"),
+                 (1500, "ไม่เกิน 1.5 กม.", "within 1.5 km"),
+                 (2000, "ไม่เกิน 2 กม.", "within 2 km"),
+                 (3000, "ไม่เกิน 3 กม.", "within 3 km"),
+                 (float("inf"), "เกิน 3 กม.", "beyond 3 km")]
+    SEV_BANDS = [(cut, lerp_hex("#8F2E13", "#F6DCC8", i / (len(_SEV_CUTS) - 1)), th, en)
+                 for i, (cut, th, en) in enumerate(_SEV_CUTS)]
 
     def seven_map():
         # The map is the DISTANCE FIELD itself, traced as contours — not a
@@ -8868,12 +8875,14 @@ def build():
 
         _mlabel = bi_text(
             "แผนที่เส้นชั้นระยะทางกลางเมืองเชียงใหม่ คำนวณจากตำแหน่งสาขาโดยตรง "
-            "ที่ความละเอียดราว 110 เมตร แบ่งชั้นที่ 250 500 1000 และ 2000 เมตร "
-            "สีเข้มคือใกล้ พร้อมกรอบคูเมืองและตำแหน่งสาขา — วงคูเมืองอยู่ในชั้นเข้มสุดเกือบทั้งวง",
+            "ที่ความละเอียดราว 110 เมตร แบ่ง %d ชั้นตั้งแต่ 100 เมตรถึง 3 กิโลเมตร "
+            "สีเข้มคือใกล้ พร้อมกรอบคูเมืองและตำแหน่งสาขา — วงคูเมืองอยู่ในชั้นเข้มสุดเกือบทั้งวง"
+            % len(SEV_BANDS),
             "Contour map of central Chiang Mai computed straight from the branch "
-            "positions at roughly 110 m resolution, layered at 250, 500, 1,000 and "
-            "2,000 m — dark is near, pale is far — with the moat outline and branch "
-            "dots. The moat ring sits almost entirely in the darkest layer.")
+            "positions at roughly 110 m resolution, in %d layers from 100 m to 3 km "
+            "— dark is near, pale is far — with the moat outline and branch dots. "
+            "The moat ring sits almost entirely in the darkest layer."
+            % len(SEV_BANDS))
         parts = [f'<svg viewBox="0 0 {mw + 2 * pad} {mh + 2 * pad}" width="100%" role="img" '
                  f'aria-label="{att(_mlabel)}">',
                  f'<clipPath id="sevclip"><rect x="{pad}" y="{pad}" width="{mw}" '
@@ -8882,7 +8891,8 @@ def build():
                  f'<rect x="{pad}" y="{pad}" width="{mw}" height="{mh}" '
                  f'fill="{SEV_BANDS[-1][1]}"/>']
         _cut_color = {cut: c for cut, c, _t, _e in SEV_BANDS}
-        for T in (2000, 1000, 500, 250):
+        for T in sorted((cut for cut, _c, _t, _e in SEV_BANDS
+                         if cut != float("inf")), reverse=True):
             d_attr = " ".join(
                 "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in loop) + " Z"
                 for loop in _band_loops(T))
