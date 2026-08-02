@@ -8788,21 +8788,6 @@ def build():
     # Darkest where nearest — her call: the ink should sit where the branches
     # crowd, so the map reads as presence, not absence. Nine levels (also her
     # call), colours interpolated along the one ramp so the gradation is even.
-    # Log-spaced (×1.6 a step), fitted to the range the frame actually holds:
-    # in-frame field runs p10 ≈ 113 m to p99 ≈ 1,237 m, so linear cuts to 3 km
-    # crushed the whole city into two look-alike dark bands and read as a
-    # rash. On this ladder the old city (median ~185 ม.) and the frame edge
-    # (median ~400 ม.) sit two full bands apart, which is the true gradient.
-    _SEV_CUTS = [(150, "ไม่เกิน 150 ม.", "within 150 m"),
-                 (250, "ไม่เกิน 250 ม.", "within 250 m"),
-                 (400, "ไม่เกิน 400 ม.", "within 400 m"),
-                 (650, "ไม่เกิน 650 ม.", "within 650 m"),
-                 (1000, "ไม่เกิน 1 กม.", "within 1 km"),
-                 (1600, "ไม่เกิน 1.6 กม.", "within 1.6 km"),
-                 (2500, "ไม่เกิน 2.5 กม.", "within 2.5 km"),
-                 (float("inf"), "เกิน 2.5 กม.", "beyond 2.5 km")]
-    SEV_BANDS = [(cut, lerp_hex("#8F2E13", "#F6DCC8", i / (len(_SEV_CUTS) - 1)), th, en)
-                 for i, (cut, th, en) in enumerate(_SEV_CUTS)]
 
     def seven_map():
         # The map is the DISTANCE FIELD itself, traced as contours — not a
@@ -8830,33 +8815,56 @@ def build():
         BIG = 9e9
         # One ring of far-away padding around the grid, so every contour
         # closes and the fill can simply be clipped to the frame.
+        # Two fields in one pass. `field` = distance to the nearest branch,
+        # kept for the caption's zone medians. `dens` = soft count of
+        # branches within a ~10-minute walk (800 m; a branch right at 800 m
+        # counts half, w = 1/(1+(d/800)^6)) — and THAT is what the map now
+        # draws. A min() field is a union of cones and its level sets are
+        # bullseyes around every isolated branch — she diagnosed it as
+        # urticaria, photo and all, and the only cure is to sum, not min:
+        # summed kernels merge into organic level sets.
         field = [[BIG] * (nx + 2) for _ in range(ny + 2)]
+        dens = [[0.0] * (nx + 2) for _ in range(ny + 2)]
+        _brm = [(pla * 111320.0, plns * 111320.0, pla, pln)
+                for pla, pln, plns in _br]
         for i in range(ny):
             la = S + i * STEP
-            row = field[i + 1]
+            lam = la * 111320.0
+            frow = field[i + 1]
+            drow = dens[i + 1]
             for j in range(nx):
                 ln = W + j * STEP
-                lns = ln * _cosla
-                best = BIG
+                lnm = ln * _cosla * 111320.0
+                best = 1e30
                 bla = bln = 0.0
-                for pla, pln, plns in _br:
-                    d = (pla - la) ** 2 + (plns - lns) ** 2
-                    if d < best:
-                        best, bla, bln = d, pla, pln
-                row[j + 1] = _hav_km(la, ln, bla, bln) * 1000
+                acc = 0.0
+                for pm, pnm, pla, pln in _brm:
+                    d2 = (pm - lam) ** 2 + (pnm - lnm) ** 2
+                    if d2 < best:
+                        best, bla, bln = d2, pla, pln
+                    if d2 < 6250000.0:  # past 2.5 km the weight is < 0.002
+                        acc += 1.0 / (1.0 + (d2 / 640000.0) ** 3)
+                frow[j + 1] = _hav_km(la, ln, bla, bln) * 1000
+                drow[j + 1] = acc
 
         def _node(r, c):
             return (S + (r - 1) * STEP, W + (c - 1) * STEP)
 
-        def _band_loops(T):
-            # Marching squares over the padded field at threshold T.
+        def _band_loops(fld, T, geq=False):
+            # Marching squares over a padded field at threshold T. geq=True
+            # traces the region where the field is at least T (density);
+            # default traces at-most-T (distance).
             segs = []
             for r in range(ny + 1):
                 for c in range(nx + 1):
-                    v00, v10 = field[r][c], field[r][c + 1]
-                    v01, v11 = field[r + 1][c], field[r + 1][c + 1]
-                    case = ((v00 <= T) | ((v10 <= T) << 1)
-                            | ((v11 <= T) << 2) | ((v01 <= T) << 3))
+                    v00, v10 = fld[r][c], fld[r][c + 1]
+                    v01, v11 = fld[r + 1][c], fld[r + 1][c + 1]
+                    if geq:
+                        case = ((v00 >= T) | ((v10 >= T) << 1)
+                                | ((v11 >= T) << 2) | ((v01 >= T) << 3))
+                    else:
+                        case = ((v00 <= T) | ((v10 <= T) << 1)
+                                | ((v11 <= T) << 2) | ((v01 <= T) << 3))
                     if case in (0, 15):
                         continue
 
@@ -8909,16 +8917,19 @@ def build():
                     loops.append(loop)
             return loops
 
+        DENS_CUTS = [1, 2, 4, 8, 16]
+        _dcolor = {T: lerp_hex("#EFC9AC", "#8F2E13", i / (len(DENS_CUTS) - 1))
+                   for i, T in enumerate(DENS_CUTS)}
         _mlabel = bi_text(
-            "แผนที่เส้นชั้นระยะทางกลางเมืองเชียงใหม่ คำนวณจากตำแหน่งสาขาโดยตรง "
-            "ที่ความละเอียดราว 55 เมตร ทับบนเส้นถนนจากการเก็บของมดแดงเอง แบ่ง %d ชั้นแบบลอการิทึม ตั้งแต่ 150 เมตรถึง 2.5 กิโลเมตร "
-            "สีเข้มคือใกล้ พร้อมกรอบคูเมืองและตำแหน่งสาขา — วงคูเมืองอยู่ในชั้นเข้มสุดเกือบทั้งวง"
-            % len(SEV_BANDS),
-            "Contour map of central Chiang Mai computed straight from the branch "
-            "positions at roughly 55 m resolution over a street underlay from the site's own road crawl, in %d logarithmic layers from 150 m to 2.5 km "
-            "— dark is near, pale is far — with the moat outline and branch dots. "
-            "The moat ring sits almost entirely in the darkest layer."
-            % len(SEV_BANDS))
+            "แผนที่เส้นชั้นความหนาแน่นกลางเมืองเชียงใหม่ — จำนวนสาขาเซเว่นในระยะเดินราว "
+            "10 นาที (800 ม.) จากแต่ละจุด แบ่งชั้นที่ 1 2 4 8 และ 16 สาขา สีเข้มคือหลายสาขา "
+            "ทับบนเส้นถนนจากการเก็บของมดแดงเอง พร้อมกรอบคูเมือง ตำแหน่งสาขา และมาตราส่วน — "
+            "ใจกลางเมืองอยู่ในชั้นเข้มสุด",
+            "Density contour map of central Chiang Mai — how many 7-Eleven branches "
+            "sit within a ~10-minute walk (800 m) of each point, layered at 1, 2, 4, "
+            "8 and 16 branches, dark meaning many, over a street underlay from the "
+            "site's own road crawl, with the moat outline, branch dots and a scale "
+            "bar. The city centre sits in the darkest layer.")
         parts = [f'<svg viewBox="0 0 {mw + 2 * pad} {mh + 2 * pad}" width="100%" role="img" '
                  f'aria-label="{att(_mlabel)}">',
                  f'<clipPath id="sevclip"><rect x="{pad}" y="{pad}" width="{mw}" '
@@ -8963,11 +8974,9 @@ def build():
         parts.append(f'<path d="{" ".join(_road_d)}" fill="none" stroke="#2A1E16" '
                      f'stroke-opacity=".38" stroke-width=".7"/>')
         # Each band is painted exactly ONCE, as the ring between its cut and
-        # the next-nearer cut (even-odd holes) — translucent layers stacked
+        # the next-higher cut (even-odd holes) — translucent layers stacked
         # on top of each other would compound into mud over the city centre.
-        _cut_color = {cut: c for cut, c, _t, _e in SEV_BANDS}
-        _cuts = sorted(cut for cut, _c, _t, _e in SEV_BANDS if cut != float("inf"))
-        _loops = {T: _band_loops(T) for T in _cuts}
+        _loops = {T: _band_loops(dens, T, geq=True) for T in DENS_CUTS}
 
         def _loops_d(loops):
             out = []
@@ -8980,18 +8989,17 @@ def build():
                 out.append("".join(d).replace(" -", "-") + "Z")
             return " ".join(out)
 
-        for i, T in enumerate(_cuts):
+        for i, T in enumerate(DENS_CUTS):
             d_attr = _loops_d(_loops[T])
-            if i:
-                d_attr = (d_attr + " " + _loops_d(_loops[_cuts[i - 1]])).strip()
+            if i + 1 < len(DENS_CUTS):
+                d_attr = (d_attr + " " + _loops_d(_loops[DENS_CUTS[i + 1]])).strip()
             if d_attr:
-                parts.append(f'<path d="{d_attr}" fill="{_cut_color[T]}" '
+                parts.append(f'<path d="{d_attr}" fill="{_dcolor[T]}" '
                              f'fill-opacity=".78" fill-rule="evenodd"/>')
         _frame_d = (f"M{pad} {pad} L{pad + mw} {pad} L{pad + mw} {pad + mh} "
                     f"L{pad} {pad + mh} Z")
-        parts.append(f'<path d="{_frame_d} {_loops_d(_loops[_cuts[-1]])}" '
-                     f'fill="{SEV_BANDS[-1][1]}" fill-opacity=".78" '
-                     f'fill-rule="evenodd"/>')
+        parts.append(f'<path d="{_frame_d} {_loops_d(_loops[DENS_CUTS[0]])}" '
+                     f'fill="#F5E3D0" fill-opacity=".78" fill-rule="evenodd"/>')
         parts.append('</g>')
         if MOAT_POLY:
             pts = " ".join(f"{pad + (ln - W) / (E - W) * mw:.1f},"
@@ -9035,40 +9043,52 @@ def build():
                          f'font-size="12" fill="#2A1E16">{esc(txt)}</text>')
         parts.append("</svg>")
         legend = ('<p class="chartlegend">'
-                  + "".join(f'<span class="swatch" style="background:{c}"></span>{bi(th, en)}&nbsp; &nbsp;'
-                            for _cut, c, th, en in SEV_BANDS)
+                  + f'{bi("สาขาในระยะเดิน ~10 นาที:", "branches within a ~10-min walk:")}&nbsp; '
+                  + f'<span class="swatch" style="background:#F5E3D0"></span>{bi("ไม่ถึง 1", "under 1")}&nbsp; &nbsp;'
+                  + "".join(f'<span class="swatch" style="background:{_dcolor[T]}"></span>{T}+&nbsp; &nbsp;'
+                            for T in DENS_CUTS)
                   + f'<span class="swatch" style="background:#fff;border:2px solid #0E7A4E;border-radius:50%"></span>'
                   + bi("สาขาเซเว่น", "a 7-Eleven branch") + '</p>')
         # The even-looking spread is a question worth answering with numbers,
-        # so the caption carries the field's own zone medians every build.
-        _in_moat, _at_edge = [], []
+        # so the caption carries the fields' own zone figures every build.
+        _in_moat, _at_edge, _dens_edge = [], [], []
         _margin = 0.12
         for i in range(ny):
             la = S + i * STEP
             for j in range(nx):
                 ln = W + j * STEP
-                v = field[i + 1][j + 1]
                 if CM_MOAT["s"] <= la <= CM_MOAT["n"] and CM_MOAT["w"] <= ln <= CM_MOAT["e"]:
-                    _in_moat.append(v)
+                    _in_moat.append(field[i + 1][j + 1])
                 if (min(i, ny - 1 - i) < ny * _margin
                         or min(j, nx - 1 - j) < nx * _margin):
-                    _at_edge.append(v)
+                    _at_edge.append(field[i + 1][j + 1])
+                    _dens_edge.append(dens[i + 1][j + 1])
         _m_moat = round(_median(_in_moat)) if _in_moat else 0
         _m_edge = round(_median(_at_edge)) if _at_edge else 0
+        _d_edge = round(_median(_dens_edge)) if _dens_edge else 0
+        _cm = _moat_c[1] * _cosla * 111320.0
+        _cl = _moat_c[0] * 111320.0
+        _d_moat = round(sum(1.0 / (1.0 + (((pm - _cl) ** 2 + (pnm - _cm) ** 2)
+                                          / 640000.0) ** 3)
+                            for pm, pnm, _a, _b in _brm))
         note = ('<p class="chartcap">'
-                + bi(f"ชั้นสีไล่แบบลอการิทึม (คูณ ~1.6 ต่อชั้น) เพื่อให้เห็นความต่างในช่วงที่เมืองต่างกันจริง: "
-                     f"ในคูเมืองมัธยฐาน {_m_moat} ม. ขอบกรอบ {_m_edge} ม. — ใกล้ทั้งคู่ แต่ไม่เท่ากัน "
-                     f"· เส้นชั้นวาดจากตำแหน่งสาขาโดยตรง (ละเอียดราว 55 เมตร) บนถนนที่มดแดงเก็บเอง "
+                + bi(f"แผนที่นี้นับจำนวน ไม่ใช่ระยะ: กี่สาขาในระยะเดินราว 10 นาที (800 ม. "
+                     f"นับขอบนุ่ม — สาขาที่ 800 ม. พอดีนับครึ่ง) จากแต่ละจุด "
+                     f"· จากใจกลางคูเมืองมีราว {_d_moat} สาขา ขอบกรอบมัธยฐานราว {_d_edge} "
+                     f"(ระยะใกล้สุด: คูเมืองมัธยฐาน {_m_moat} ม. ขอบกรอบ {_m_edge} ม.) "
+                     f"· วาดบนถนนที่มดแดงเก็บเอง (ละเอียดราว 55 เมตร) "
                      f"· กรอบคือเขตที่เก็บถนนแล้ว ไม่ถึงดอยสุเทพหรือสันกำแพง (ป้ายบอกระยะที่ขอบ) "
-                     f"· สาขาที่ยังไม่มีใน OpenStreetMap จะทำให้บริเวณนั้นดูไกลกว่าจริง",
-                     f"The colour steps are logarithmic (×~1.6 a step) so the range where the city "
-                     f"actually varies is visible: median {_m_moat} m inside the moat, {_m_edge} m "
-                     f"at the frame edge — both near, but not the same. Contours are traced from "
-                     f"the branch positions themselves (~55 m resolution) over streets from the "
-                     f"site's own road crawl. The frame is the crawled road area — it reaches "
-                     f"neither Doi Suthep nor San Kamphaeng; the edge labels say how far each "
-                     f"remains. A branch missing from OpenStreetMap shows up as an overstated "
-                     f"distance.")
+                     f"· สาขาที่ยังไม่มีใน OpenStreetMap จะทำให้แถวนั้นดูบางกว่าจริง",
+                     f"This map counts, it does not measure distance: how many branches sit "
+                     f"within a ~10-minute walk (800 m, soft-edged — a branch at exactly 800 m "
+                     f"counts half) of each point. From the moat centre that is about "
+                     f"{_d_moat} branches; the frame-edge median is about {_d_edge}. (Nearest "
+                     f"distance, for the record: median {_m_moat} m in the moat, {_m_edge} m at "
+                     f"the edge.) Drawn over streets from the site's own road crawl at ~55 m "
+                     f"resolution. The frame is the crawled road area — it reaches neither "
+                     f"Doi Suthep nor San Kamphaeng; the edge labels say how far each remains. "
+                     f"A branch missing from OpenStreetMap makes its area look thinner than "
+                     f"it is.")
                 + '</p>')
         return legend + parts[0] + "".join(parts[1:]) + note
 
