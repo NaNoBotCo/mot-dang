@@ -4,7 +4,14 @@ What is waiting to go out, and what shipped last time.
 
 ## Waiting
 
-Nothing. The working tree is clean and `main` matches `origin/main`.
+**One commit, `1ec47f0fee` — toilets + drinking water join /walk.html; the
+section is now a layer list** (a new walking map = one more entry). Toilets
+from the fixtures harvest (329 sites, 118 in frame, ~13 a walk from the moat
+centre — the dark core is the temple district). Water harvested fresh via new
+importers/fetch_water_points.py (169 → 61 in frame, ~9 from the centre;
+snapshot gitignored like all cache). Thin-layer caption triggers under 40
+in-frame sites — neither needed it. walk.html = 4 maps, 940 KB, deliberate.
+`git push origin main`, then `python3 importers/ping_indexnow.py`.
 
 ## Last push — 2026-08-02 (fifth), `8acb54f23e`
 
