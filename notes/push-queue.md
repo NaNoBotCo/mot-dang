@@ -4,7 +4,19 @@ What is waiting to go out, and what shipped last time.
 
 ## Waiting
 
-Nothing. The working tree is clean and `main` matches `origin/main`.
+**One commit, `79e9f86809` — /walk.html, the walking maps.** ATMs and
+pharmacies as sites-within-a-~10-minute-walk, on TRUE network distance
+(Dijkstra on the foot graph; the moat crossable only at bridges/gates —
+verified: 242 m across the south moat = 562 m on foot). ATM sites 263
+(161 in frame, ~18 a walk from the moat centre); pharmacies harvested
+fresh for the map (the catalog held 29 — the main crawl never asked) →
+248 sites, 135 in frame, ~10 from the moat centre. Frame machinery
+hoisted out of seven_map so all three maps share one projection/underlay/
+tracer — seven.html verified byte-identical across the refactor. NOTE:
+`cache/overpass/cm/pharmacy_points.json` is gitignored like all cache —
+a fresh clone must run `importers/fetch_pharmacy_points.py` once or the
+build prints a skip notice for walk.html. All seven suites green.
+`git push origin main`, then `python3 importers/ping_indexnow.py`.
 
 ## Last push — 2026-08-02 (third), `96713469db`
 
