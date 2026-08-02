@@ -8678,13 +8678,23 @@ def build():
     }, ensure_ascii=False, indent=1))
 
     # ---- seven.html: how near is the nearest 7-Eleven ---------------------
+    # A branch is a branch whether or not the OSM mapper filled in the brand
+    # tag: 49 records are plainly NAMED 7-Eleven with no brand tag, 27 of
+    # them in the map frame, and treating them as absent overstated every
+    # distance around them. Identify by tag OR name.
+    _SEV_RX = re.compile(r"7[\s\-–]?(11|eleven)|เซเว่น|seven\s*eleven", re.I)
+
+    def _is_seven(r):
+        return (r["attrs"].get("brand") == "7-Eleven"
+                or bool(_SEV_RX.search(" ".join(
+                    filter(None, (r.get("name"), r.get("nameTh"), r.get("nameEn")))))))
+
     _sev_pts = [(r["lat"], r["lng"]) for p in PROVINCES for r in data[p["key"]]
-                if r["attrs"].get("brand") == "7-Eleven" and r.get("lat")]
-    _sev_by_prov = {p["key"]: sum(1 for r in data[p["key"]]
-                                  if r["attrs"].get("brand") == "7-Eleven")
+                if _is_seven(r) and r.get("lat")]
+    _sev_by_prov = {p["key"]: sum(1 for r in data[p["key"]] if _is_seven(r))
                     for p in PROVINCES}
     _sev_others = [r for p in PROVINCES for r in data[p["key"]]
-                   if r["attrs"].get("brand") != "7-Eleven" and r.get("lat")]
+                   if not _is_seven(r) and r.get("lat")]
     # Argmin under a flat-earth metric, then one proper great-circle to the
     # winner — at city scale the two orderings agree, and it spares three and
     # a half million haversines a build.
@@ -8779,12 +8789,16 @@ def build():
         # The map is the DISTANCE FIELD itself, traced as contours — not a
         # tally of catalogued places. Every point in frame gets a value from
         # the branch pins alone, so catalog density can't blank a cell, and
-        # the resolution is whatever the grid affords (~110 m here).
-        S, N, W, E = 18.70, 18.88, 98.90, 99.08
-        STEP = 0.001
+        # the resolution is whatever the grid affords (~83 m here).
+        # The frame is the CITY, not the countryside: the finding is that in
+        # town you are never far, and a 20 km frame of pale rice fields told
+        # the opposite story to the eye. The moat sits centre.
+        S, N, W, E = 18.735, 18.845, 98.925, 99.045
+        STEP = 0.00075
         nx = int(round((E - W) / STEP)) + 1
         ny = int(round((N - S) / STEP)) + 1
-        mw, mh, pad = 700, 740, 10
+        mw, pad = 700, 10
+        mh = round(mw * (N - S) / ((E - W) * _cosla))
 
         def _px(la, ln):
             return (pad + (ln - W) / (E - W) * mw,
@@ -8875,11 +8889,11 @@ def build():
 
         _mlabel = bi_text(
             "แผนที่เส้นชั้นระยะทางกลางเมืองเชียงใหม่ คำนวณจากตำแหน่งสาขาโดยตรง "
-            "ที่ความละเอียดราว 110 เมตร แบ่ง %d ชั้นตั้งแต่ 100 เมตรถึง 3 กิโลเมตร "
+            "ที่ความละเอียดราว 83 เมตร แบ่ง %d ชั้นตั้งแต่ 100 เมตรถึง 3 กิโลเมตร "
             "สีเข้มคือใกล้ พร้อมกรอบคูเมืองและตำแหน่งสาขา — วงคูเมืองอยู่ในชั้นเข้มสุดเกือบทั้งวง"
             % len(SEV_BANDS),
             "Contour map of central Chiang Mai computed straight from the branch "
-            "positions at roughly 110 m resolution, in %d layers from 100 m to 3 km "
+            "positions at roughly 83 m resolution, in %d layers from 100 m to 3 km "
             "— dark is near, pale is far — with the moat outline and branch dots. "
             "The moat ring sits almost entirely in the darkest layer."
             % len(SEV_BANDS))
@@ -8922,11 +8936,11 @@ def build():
                   + f'<span class="swatch" style="background:#fff;border:2px solid #0E7A4E;border-radius:50%"></span>'
                   + bi("สาขาเซเว่น", "a 7-Eleven branch") + '</p>')
         note = ('<p class="chartcap">'
-                + bi("เส้นชั้นวาดจากตำแหน่งสาขาโดยตรง (ความละเอียดราว 110 เมตร) "
+                + bi("เส้นชั้นวาดจากตำแหน่งสาขาโดยตรง (ความละเอียดราว 83 เมตร กรอบคือตัวเมือง) "
                      "ไม่ได้ขึ้นกับว่าสารบัญเก็บจุดไว้ตรงไหน ทุกตารางนิ้วในกรอบจึงมีค่า — "
                      "แต่สาขาที่ยังไม่มีใน OpenStreetMap จะทำให้บริเวณนั้นดูไกลกว่าจริง",
                      "The contours are traced from the branch positions themselves "
-                     "(about 110 m resolution), not from where the catalog happens to "
+                     "(about 83 m resolution, framed to the city), not from where the catalog happens to "
                      "hold places — so every spot in frame has a value. A branch "
                      "missing from OpenStreetMap shows up as an overstated distance.")
                 + '</p>')
@@ -8964,7 +8978,7 @@ def build():
         f"metres — commerce huddles, temples keep a quieter distance. (An observation from "
         f"coordinates.)")
     sev_method_th = (
-        f"วิธีวัด: ระยะเส้นตรง (great-circle) ไม่ใช่ระยะเดิน · สาขามาจากป้าย brand ใน OpenStreetMap "
+        f"วิธีวัด: ระยะเส้นตรง (great-circle) ไม่ใช่ระยะเดิน · สาขานับจากป้าย brand ใน OpenStreetMap หรือชื่อที่เขียนว่าเซเว่นตรง ๆ (49 สาขามีชื่อแต่ไม่มีป้าย brand) "
         f"· ตัวเลขสถิติวัดจากจุดในสารบัญมดแดงซึ่งเก็บหนาแน่นในเขตเมือง จึงบรรยายเมือง "
         f"ไม่ใช่ทั้งสองจังหวัด · แผนที่วาดจากสนามระยะทางของตำแหน่งสาขาโดยตรง ทุกจุดในกรอบ "
         f"ไม่ใช่เฉพาะจุดในสารบัญ · ไม่นับสาขาเทียบกันเอง · คำนวณใหม่ทุกครั้งที่สร้างเว็บ")
@@ -9007,8 +9021,9 @@ def build():
                       for lo, hi, _t, _e in SEV_BINS],
         "byCategory": [{"cat": c, "n": n, "medianM": med} for c, n, med in sev_cat_rows],
         "method": "great-circle distance from every catalogued place (7-Elevens "
-                  "excluded) to the nearest brand=7-Eleven record; the catalog is "
-                  "densest in town, so this describes the city, not the provinces",
+                  "excluded) to the nearest branch, identified by brand tag or by "
+                  "name; the catalog is densest in town, so this describes the "
+                  "city, not the provinces",
     }, ensure_ascii=False, indent=1))
 
     # ---- the full buffet: one JSON dump of every field, for agents --------
