@@ -4,14 +4,16 @@ What is waiting to go out, and what shipped last time.
 
 ## Waiting
 
-**One commit, `d1c5010ea9`, queued 2026-08-02 — the seven map redrawn as the
-distance field itself.** Her ask was "more granular"; smaller cells were the
-wrong answer because the old map could only speak where the catalog held 3+
-places. Now: marching squares over a ~110 m grid of distance-to-nearest-branch,
-layered at 250/500/1000/2000 m, every point in frame has a value, caveat moved
-from blank-cells to OSM branch coverage. Publish gate + alt-text green, map
-eyeballed in the browser (smooth contours, moat in the darkest pool).
-`git push origin main`, then `python3 importers/ping_indexnow.py`.
+Nothing. The working tree is clean and `main` matches `origin/main`.
+
+## Last push — 2026-08-02 (second), `3d7a8fd70f`
+
+The seven map redrawn as the distance field itself, on her "more granular" —
+marching squares over a ~110 m grid of distance-to-nearest-branch, layered at
+250/500/1000/2000 m; every point in frame has a value, so granularity no
+longer depends on where the catalog holds places. Verified live ~60 s after
+push by cache-busted fetch (the sevclip markup and the เส้นชั้น copy both
+serving). IndexNow 4,285 URLs, 200.
 
 ## Last push — 2026-08-02, `2530aca502`, 11,811 pages
 
