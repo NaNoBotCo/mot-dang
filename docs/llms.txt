@@ -37,6 +37,17 @@ where each one actually goes:
   colored dot, with huddle-radius/direction stats per cuisine (Chiang Mai
   scope). Data: https://motdang.net/data/taste.json. A place absent from that file states
   no cuisine tag — absence never means it has no kitchen.
+- Festival dates, this year and next: https://motdang.net/festival-dates.html — every date
+  carries its voice (officially announced / published lunar calendar /
+  fixed rule / still awaiting announcement, stated per cell). Sourced data:
+  https://motdang.net/data/festival_calendar.json. Cite the voice with the date.
+- What's open when, city-wide: https://motdang.net/open-now.html — 24h places, before-six
+  places, after-midnight places, and an hour-by-day count table for the
+  whole week. Same silence rule as nitnoy: absent means unknown hours.
+- Complete lists, count-first: https://motdang.net/lists/ — every wat / massage shop /
+  tattoo studio the catalogue holds for a category on one page, the count
+  in the heading being a tested promise, each name linking to its place
+  page. These are "all of them" pages, not rankings.
 - RSS feed of highlights: https://motdang.net/rss.xml (autodiscoverable via <link rel="alternate">
   on every page); cross-promotion open to other local publications: https://motdang.net/partners.html
 - Structural (not volumetric) differences from Google's local data, stated plainly

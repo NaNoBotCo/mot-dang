@@ -5,7 +5,151 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:มดแดง — เทศกาลที่มีวันแน่นอน / Mot Dang festivals with dates
 X-WR-TIMEZONE:Asia/Bangkok
-X-WR-CALDESC:Two kinds of entry. Recurring festivals with a fixed Gregorian date\, as yearly rules. And festivals whose dates an official source has actually announced\, as one-off events carrying the announcing body in the description. Lunar and not-yet-announced festivals are deliberately absent: they have a date rule\, not a date. The rules themselves are at https://motdang.net/festivals.html
+X-WR-CALDESC:Three kinds of entry. Recurring festivals with a fixed Gregorian date\, as yearly rules. Festivals whose dates an official source has actually announced\, as one-off events carrying the announcing body in the description. And lunar festivals whose dates a published Thai calendar already carries\, as one-off events naming that calendar. Anything else is deliberately absent: it has a date rule\, not a date. The rules themselves are at https://motdang.net/festivals.html
+BEGIN:VEVENT
+UID:lunar-asalha-bucha-2026-07-29@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260729
+DTEND;VALUE=DATE:20260730
+SUMMARY:อาสาฬหบูชา · Asalha Bucha
+DESCRIPTION:Published Thai lunar-calendar date\, checked against myhora.com Buddhist calendar B.E. 2569. https://myhora.com/calendar/buddhist-2569.aspx
+URL:https://motdang.net/festivals/asalha-bucha.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-asalha-bucha-2027-07-18@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270718
+DTEND;VALUE=DATE:20270719
+SUMMARY:อาสาฬหบูชา · Asalha Bucha
+DESCRIPTION:Published Thai lunar-calendar date\, checked against Kapook calendar of significant days B.E. 2570. https://calendar.kapook.com/2570/important
+URL:https://motdang.net/festivals/asalha-bucha.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-chinese-new-year-2026-02-17@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260217
+DTEND;VALUE=DATE:20260218
+SUMMARY:ตรุษจีน · Chinese New Year
+DESCRIPTION:Published Thai lunar-calendar date\, checked against Wikipedia — Chinese New Year. https://en.wikipedia.org/wiki/Chinese_New_Year
+URL:https://motdang.net/festivals/chinese-new-year.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-chinese-new-year-2027-02-06@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:ตรุษจีน · Chinese New Year
+DESCRIPTION:Published Thai lunar-calendar date\, checked against Wikipedia — Chinese New Year. https://en.wikipedia.org/wiki/Chinese_New_Year
+URL:https://motdang.net/festivals/chinese-new-year.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-khao-phansa-2026-07-30@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260730
+DTEND;VALUE=DATE:20260731
+SUMMARY:เข้าพรรษา · Khao Phansa — start of Buddhist Lent
+DESCRIPTION:Published Thai lunar-calendar date\, checked against myhora.com Buddhist calendar B.E. 2569. https://myhora.com/calendar/buddhist-2569.aspx
+URL:https://motdang.net/festivals/khao-phansa.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-khao-phansa-2027-07-19@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270719
+DTEND;VALUE=DATE:20270720
+SUMMARY:เข้าพรรษา · Khao Phansa — start of Buddhist Lent
+DESCRIPTION:Published Thai lunar-calendar date\, checked against Kapook calendar of significant days B.E. 2570. https://calendar.kapook.com/2570/important
+URL:https://motdang.net/festivals/khao-phansa.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-makha-bucha-2026-03-03@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260303
+DTEND;VALUE=DATE:20260304
+SUMMARY:มาฆบูชา · Makha Bucha
+DESCRIPTION:Published Thai lunar-calendar date\, checked against myhora.com Buddhist calendar B.E. 2569. https://myhora.com/calendar/buddhist-2569.aspx
+URL:https://motdang.net/festivals/makha-bucha.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-makha-bucha-2027-02-21@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:มาฆบูชา · Makha Bucha
+DESCRIPTION:Published Thai lunar-calendar date\, checked against Kapook calendar of significant days B.E. 2570. https://calendar.kapook.com/2570/important
+URL:https://motdang.net/festivals/makha-bucha.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-ok-phansa-2026-10-26@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:ออกพรรษา · Ok Phansa — end of Buddhist Lent
+DESCRIPTION:Published Thai lunar-calendar date\, checked against Kapook calendar of significant days B.E. 2569. https://calendar.kapook.com/2569/important
+URL:https://motdang.net/festivals/ok-phansa.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-ok-phansa-2027-10-15@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271015
+DTEND;VALUE=DATE:20271016
+SUMMARY:ออกพรรษา · Ok Phansa — end of Buddhist Lent
+DESCRIPTION:Published Thai lunar-calendar date\, checked against myhora.com Buddhist calendar B.E. 2570. https://myhora.com/calendar/buddhist-2570.aspx
+URL:https://motdang.net/festivals/ok-phansa.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-visakha-bucha-2026-05-31@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260531
+DTEND;VALUE=DATE:20260601
+SUMMARY:วิสาขบูชา · Visakha Bucha
+DESCRIPTION:Published Thai lunar-calendar date\, checked against myhora.com Buddhist calendar B.E. 2569. https://myhora.com/calendar/buddhist-2569.aspx
+URL:https://motdang.net/festivals/visakha-bucha.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-visakha-bucha-2027-05-20@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270520
+DTEND;VALUE=DATE:20270521
+SUMMARY:วิสาขบูชา · Visakha Bucha
+DESCRIPTION:Published Thai lunar-calendar date\, checked against Kapook calendar of significant days B.E. 2570. https://calendar.kapook.com/2570/important
+URL:https://motdang.net/festivals/visakha-bucha.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-visakha-doi-suthep-walk-2026-05-30@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260530
+DTEND;VALUE=DATE:20260531
+SUMMARY:เตียวขึ้นดอย (คืนก่อนวิสาขบูชา) · Tiao Khuen Doi — the night walk up Doi Suthep
+DESCRIPTION:Published Thai lunar-calendar date\, checked against myhora.com Buddhist calendar B.E. 2569. https://myhora.com/calendar/buddhist-2569.aspx
+URL:https://motdang.net/festivals/visakha-doi-suthep-walk.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-visakha-doi-suthep-walk-2027-05-19@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270519
+DTEND;VALUE=DATE:20270520
+SUMMARY:เตียวขึ้นดอย (คืนก่อนวิสาขบูชา) · Tiao Khuen Doi — the night walk up Doi Suthep
+DESCRIPTION:Published Thai lunar-calendar date\, checked against Kapook calendar of significant days B.E. 2570. https://calendar.kapook.com/2570/important
+URL:https://motdang.net/festivals/visakha-doi-suthep-walk.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-yi-peng-loi-krathong-2026-11-24@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261124
+DTEND;VALUE=DATE:20261126
+SUMMARY:ยี่เป็ง – ลอยกระทง · Yi Peng & Loi Krathong
+DESCRIPTION:Published Thai lunar-calendar date\, checked against Kapook calendar of significant days B.E. 2569. https://calendar.kapook.com/2569/important
+URL:https://motdang.net/festivals/yi-peng-loi-krathong.html
+END:VEVENT
+BEGIN:VEVENT
+UID:lunar-yi-peng-loi-krathong-2027-11-13@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271113
+DTEND;VALUE=DATE:20271115
+SUMMARY:ยี่เป็ง – ลอยกระทง · Yi Peng & Loi Krathong
+DESCRIPTION:Published Thai lunar-calendar date\, checked against myhora.com Buddhist calendar B.E. 2570. https://myhora.com/calendar/buddhist-2570.aspx
+URL:https://motdang.net/festivals/yi-peng-loi-krathong.html
+END:VEVENT
 BEGIN:VEVENT
 UID:festival-songkran-pi-mai-muang@motdang.net
 DTSTAMP:20260101T000000Z
