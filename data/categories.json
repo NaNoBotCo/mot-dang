@@ -439,6 +439,14 @@
      }
     },
     {
+     "key": "pier",
+     "th": "ท่าเรือ",
+     "en": "Piers & Ferries",
+     "match": {
+      "sub": "pier"
+     }
+    },
+    {
      "key": "songthaew",
      "th": "รถแดง-สองแถว",
      "en": "Rot Daeng & Songthaew"

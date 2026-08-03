@@ -197,8 +197,27 @@
       "source": "class-habit"
     },
     {
-      "key": "market",
+      "key": "pier",
       "rank": 7,
+      "emoji": "⛴️",
+      "th": "ท่าเรือ",
+      "en": "Pier",
+      "match": {
+        "sub": [
+          "pier"
+        ]
+      },
+      "access": "public",
+      "cost": "free-or-small",
+      "window": "daylight",
+      "strength": "medium",
+      "basis_th": "ท่าเรือที่มีเรือโดยสารประจำมีห้องน้ำในอาคารผู้โดยสารหรือใกล้ที่ขายตั๋ว ฟรีหรือหยอด ๕ บาท เปิดตามรอบเรือ ซึ่งหยุดตั้งแต่หัวค่ำ",
+      "basis_en": "A pier with scheduled boats keeps a toilet in the waiting hall or beside the ticket window, free or a 5 baht coin, open while the boats run — which stops around dusk.",
+      "source": "class-habit"
+    },
+    {
+      "key": "market",
+      "rank": 8,
       "emoji": "🧺",
       "th": "ตลาด",
       "en": "Market",
@@ -217,7 +236,7 @@
     },
     {
       "key": "museum",
-      "rank": 8,
+      "rank": 9,
       "emoji": "🏛️",
       "th": "พิพิธภัณฑ์-หอศิลป์",
       "en": "Museum or gallery",
@@ -236,7 +255,7 @@
     },
     {
       "key": "university",
-      "rank": 9,
+      "rank": 10,
       "emoji": "🎓",
       "th": "มหาวิทยาลัย",
       "en": "University",
@@ -255,7 +274,7 @@
     },
     {
       "key": "park",
-      "rank": 10,
+      "rank": 11,
       "emoji": "🌳",
       "th": "สวนสาธารณะ",
       "en": "Public park",
@@ -275,7 +294,7 @@
     },
     {
       "key": "sitdown",
-      "rank": 11,
+      "rank": 12,
       "emoji": "🍜",
       "th": "ร้านนั่งกิน",
       "en": "Sit-down food or drink",
@@ -304,7 +323,7 @@
     },
     {
       "key": "hotel",
-      "rank": 12,
+      "rank": 13,
       "emoji": "🏨",
       "th": "โรงแรม",
       "en": "Hotel",

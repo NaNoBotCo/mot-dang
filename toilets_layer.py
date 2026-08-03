@@ -65,6 +65,7 @@ WALK_M_PER_MIN = 80          # 4.8 km/h, an unhurried pace on a flat soi
 TIER_COLOR = {
     "fuel": "#B4341A", "hospital": "#1F7A8C", "mall": "#6E4A9E",
     "wat": "#B8912E", "airport": "#2B5C8A", "terminal": "#3F5AA6",
+    "pier": "#0F6E78",
     "market": "#C0641B", "museum": "#8C6D3F", "university": "#2F6B4F",
     "park": "#3F7F4F", "sitdown": "#7D5A3C", "hotel": "#5B6770",
 }

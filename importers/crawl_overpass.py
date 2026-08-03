@@ -36,21 +36,39 @@ BBOX = {
 # provincial capital. A coach terminal at Mae Sai, the Mekong piers at Chiang
 # Saen and Chiang Khong, an airport out past the ring road — each is a real
 # destination and there are a handful of them in a whole province, so asking
-# province-wide costs one query and no manners. Restaurants and hairdressers
-# stay in the near ring, where the density would otherwise be unkind to
+# province-wide costs a few queries and no manners. Restaurants and
+# hairdressers stay in the near ring, where the density would be unkind to
 # Overpass and to a reader.
-PROVINCE_BBOX = {
-    "cm": "17.30,97.30,20.20,99.35",   # Chiang Mai province, Omkoi up to Mae Ai
-    "cr": "19.10,99.05,20.47,100.60",  # Chiang Rai province, Wiang Pa Pao up to
-                                       # Mae Sai and east to the Mekong at Chiang Khong
+#
+# THE AREA, NOT A RECTANGLE. Chiang Rai's bounding box is not Chiang Rai: the
+# province is wedged against Laos and Myanmar, and a rectangle drawn round it
+# caught Bokeo International Airport and the Houayxay speedboat pier (Laos),
+# the Tha Ton boat landing (Mae Ai, which is Chiang Mai), and the pier out to
+# Wat Tilok Aram (Kwan Phayao, which is Phayao). Filing any of those under
+# "Chiang Rai" would be a plain falsehood about somebody else's province or
+# somebody else's country. ISO 3166-2 names the administrative area exactly and
+# in no particular language, so that is what we ask for.
+PROVINCE_AREA = {
+    "cm": "TH-50",   # เชียงใหม่ Chiang Mai
+    "cr": "TH-57",   # เชียงราย Chiang Rai
 }
-WIDE_GROUPS = {"stations"}
+WIDE_GROUPS = {"stations"}      # these go province-wide in EVERY province
+
+# Provinces crawled province-wide for every group. Chiang Rai is here on Nan's
+# instruction: a directory that only knows Mueang is not a directory for
+# Chiang Rai. Mae Sai, Mae Chan, Chiang Saen, Chiang Khong, Thoeng, Phan,
+# Wiang Pa Pao and Mae Salong are where much of the province actually lives and
+# works, and they were outside a box drawn round the clock tower.
+#
+# Chiang Mai stays on its near ring for now: it is far denser, the ring already
+# holds 9,075 records, and widening it is a much larger crawl that deserves its
+# own decision rather than being carried in on Chiang Rai's coat-tails.
+WIDE_PROVINCES = {"cr"}
 
 
-def bbox_for(province, group):
-    if group in WIDE_GROUPS and province in PROVINCE_BBOX:
-        return PROVINCE_BBOX[province]
-    return BBOX[province]
+def is_wide(province, group):
+    return province in PROVINCE_AREA and (province in WIDE_PROVINCES
+                                          or group in WIDE_GROUPS)
 
 QUERIES = {
     "hotels":     ['nwr["tourism"="hotel"]', 'nwr["tourism"="guest_house"]',
@@ -151,9 +169,15 @@ class OverpassRemark(Exception):
     """
 
 
-def fetch(group, selectors, bbox, timeout=90):
-    q = (f"[out:json][timeout:{timeout}];("
-         + "".join(f"{s}({bbox});" for s in selectors) + ");out center tags;")
+def fetch(group, selectors, scope, timeout=90):
+    """`scope` is either a bbox string or ("area", <ISO 3166-2 code>)."""
+    if isinstance(scope, tuple):
+        pre = f'area["ISO3166-2"="{scope[1]}"]->.a;'
+        clip = "(area.a)"
+    else:
+        pre, clip = "", f"({scope})"
+    q = (f"[out:json][timeout:{timeout}];{pre}("
+         + "".join(f"{s}{clip};" for s in selectors) + ");out center tags;")
     body = ("data=" + urllib.parse.quote(q)).encode()
     last = None
     for attempt in range(6):
@@ -174,18 +198,18 @@ def fetch(group, selectors, bbox, timeout=90):
     raise last
 
 
-def fetch_wide(group, selectors, bbox, timeout=240):
+def fetch_wide(group, selectors, scope, timeout=240):
     """One selector at a time, merged.
 
     A whole province in a single query is what timed out: eight selectors over
-    Chiang Rai from Wiang Pa Pao to Mae Sai is more than Overpass will do in
-    90 seconds, and the answer came back empty with the error tucked in a
-    `remark`. Split, each part is small and finishes; the pause between them
-    is the same politeness the group loop already keeps.
+    Chiang Rai is more than Overpass will do in 90 seconds, and the answer came
+    back empty with the error tucked in a `remark`. Split, each part is small
+    and finishes; the pause between them is the same politeness the group loop
+    already keeps.
     """
     merged, seen = [], set()
     for i, sel in enumerate(selectors):
-        data = fetch(f"{group}[{i + 1}/{len(selectors)}]", [sel], bbox, timeout)
+        data = fetch(f"{group}[{i + 1}/{len(selectors)}]", [sel], scope, timeout)
         for el in data.get("elements", []):
             key = (el.get("type"), el.get("id"))
             if key not in seen:
@@ -194,8 +218,9 @@ def fetch_wide(group, selectors, bbox, timeout=240):
         print(f"    {sel} -> {len(data.get('elements', []))}", flush=True)
         if i < len(selectors) - 1:
             time.sleep(PAUSE)
+    where = f"area {scope[1]}" if isinstance(scope, tuple) else scope
     return {"elements": merged,
-            "note": f"merged from {len(selectors)} per-selector queries over {bbox}"}
+            "note": f"merged from {len(selectors)} per-selector queries over {where}"}
 
 
 def main():
@@ -215,15 +240,19 @@ def main():
             continue
         print(f"{province}: {len(todo)} groups to fetch, {PAUSE}s between each — slow on purpose")
         for i, (group, selectors) in enumerate(todo):
-            box = bbox_for(province, group)
-            if group in WIDE_GROUPS:
-                data = fetch_wide(group, selectors, box)
+            wide = is_wide(province, group)
+            if wide:
+                data = fetch_wide(group, selectors, ("area", PROVINCE_AREA[province]))
             else:
-                data = fetch(group, selectors, box)
+                data = fetch(group, selectors, BBOX[province])
+            # Written the moment a group lands, never at the end: a
+            # province-wide run is hours of somebody else's server time, and a
+            # crash on group 17 must not throw away the first sixteen. Plain
+            # re-run resumes — snapshot-first skips whatever is already cached.
             (cache / f"{group}.json").write_text(json.dumps(data, ensure_ascii=False))
             n = len(data.get("elements", []))
-            wide = " (province-wide)" if group in WIDE_GROUPS else ""
-            print(f"  {province}/{group}: {n} elements{wide}")
+            print(f"  {province}/{group}: {n} elements"
+                  f"{' (province-wide)' if wide else ''}", flush=True)
             if i < len(todo) - 1:
                 time.sleep(PAUSE)
         print(f"{province}: done — cache/overpass/{province}/ is the snapshot; import_all.py folds it in")

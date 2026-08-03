@@ -27,6 +27,25 @@ deleted (FileNotFoundError mid-write, or worse, a silently interleaved docs/).
 
 Rules that bite:
 - Empty categories are hidden by design — don't "fix" that.
+- **An Overpass timeout looks exactly like an empty province.** It answers HTTP
+  200 with valid JSON, an empty `elements` list, and the error in `remark` —
+  and because the crawl is snapshot-first, writing that to cache means the
+  group is never asked again. A shelf sits empty forever with a cached file
+  standing there as proof it was crawled. `fetch()` raises `OverpassRemark` on
+  this now. If a group ever comes back suspiciously empty, check `remark`
+  before you believe it.
+- **A province is an AREA, never a bounding box.** Chiang Rai is wedged against
+  Laos and Myanmar: a rectangle round it returns Bokeo International Airport
+  and the Houayxay speedboat pier (Laos), the Tha Ton boat landing (Mae Ai,
+  which is Chiang Mai) and the pier to Wat Tilok Aram (Kwan Phayao). Filing any
+  of those as "Chiang Rai" is a falsehood about someone else's province or
+  someone else's country. Province-wide groups (`WIDE_GROUPS`) clip to
+  `area["ISO3166-2"=...]` — TH-50 Chiang Mai, TH-57 Chiang Rai — which is exact
+  and language-independent. Ferry terminals went 6 → 2 when this was fixed.
+- Province-wide queries are split ONE SELECTOR PER QUERY (`fetch_wide`) and
+  merged. Eight selectors over a whole province in one query is what timed out
+  above; each on its own finishes comfortably, and the pauses between them keep
+  the same manners the group loop does.
 - `data/curated/` is field truth: never let an importer or crawl overwrite it.
 - No external requests, fonts, or scripts in published pages; OSM attribution stays.
 - Before committing docs/: `grep -rl "/Users/" docs/` must be empty.

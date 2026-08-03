@@ -8597,6 +8597,7 @@ def build():
         f'<a href="seven.html">🏪 {bi("ใกล้เซเว่นแค่ไหน", "How near is the nearest 7-Eleven")}</a> · '
         f'<a href="walk.html">🚶 {bi("แผนที่ระยะเดิน", "The city at walking pace")}</a> · '
         f'<a href="nitnoy.html">🏮 {bi("เมืองหลับนิดหน่อย", "The city that sleeps nitnoy")}</a> · '
+        f'<a href="taste.html">🌶️ {bi("รสเมือง", "The taste of the town")}</a> · '
         f'<a href="reach.html">🔗 {bi("ลิงก์ไหนยังเปิดได้จริง", "Which official links still answer")}</a></p>'
         f'{share_block(BASE + "stats.html", "สถิติมดแดง · Mot Dang stats")}',
         depth=0, path="stats.html", desc=stats_th))
@@ -9805,10 +9806,15 @@ def build():
         print("  walk.html SKIPPED entirely — no amenity layer had points")
 
     # ---- nitnoy.html: เมืองหลับนิดหน่อย — the city hour by hour -----------
-    import nitnoy_layer
-    print("  nitnoy:", nitnoy_layer.emit(globals(), data, dict(
+    _city_frame = dict(
         w=MAP_W, e=MAP_E, s=MAP_S, n=MAP_N, mw=MAP_MW, mh=MAP_MH,
-        pad=MAP_PAD, road_d=MAP_ROAD_D, px=_map_px)))
+        pad=MAP_PAD, road_d=MAP_ROAD_D, px=_map_px)
+    import nitnoy_layer
+    print("  nitnoy:", nitnoy_layer.emit(globals(), data, _city_frame))
+
+    # ---- taste.html: รสเมือง — the cuisine terroir ------------------------
+    import taste_layer
+    print("  taste:", taste_layer.emit(globals(), data, _city_frame))
 
     # ---- the full buffet: one JSON dump of every field, for agents --------
     full_dump = []
@@ -10123,6 +10129,10 @@ where each one actually goes:
   the page says: a place absent from that file has UNKNOWN hours — absence
   never means closed, and a meal curve describes a category's habit, never
   one shop's promise.
+- The cuisine terroir: {BASE}taste.html — every cuisine-tagged place as a
+  colored dot, with huddle-radius/direction stats per cuisine (Chiang Mai
+  scope). Data: {BASE}data/taste.json. A place absent from that file states
+  no cuisine tag — absence never means it has no kitchen.
 - RSS feed of highlights: {BASE}rss.xml (autodiscoverable via <link rel="alternate">
   on every page); cross-promotion open to other local publications: {BASE}partners.html
 - Structural (not volumetric) differences from Google's local data, stated plainly
