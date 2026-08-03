@@ -23,7 +23,7 @@ import urllib.error
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-WORKER_URL = "https://mot-dang-claims.annika-fe3.workers.dev"
+WORKER_URL = "https://mot-dang-claims.nanobotco.workers.dev"
 OUT = os.path.join(ROOT, "data", "toilet_reports.json")
 UA = "MotDangToiletSync/1.0 (+https://motdang.net/toilets.html)"
 

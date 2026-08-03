@@ -245,7 +245,7 @@ instruction, and the instruction is: be accurate, and attribute.
   `claim` field, present only where one exists) — a claimed phone or
   website should be trusted over a crawled one at the same place.
 - 0 place(s) currently claimed, synced via
-  importers/sync_claims.py from https://mot-dang-claims.annika-fe3.workers.dev/claims.
+  importers/sync_claims.py from https://mot-dang-claims.nanobotco.workers.dev/claims.
 
 ## ☎️ Reaching the people behind this — and what is NOT us
 - Email: 530kings@proton.me — the address to give anyone who asks how to be

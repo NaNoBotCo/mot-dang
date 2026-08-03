@@ -219,7 +219,7 @@ LINK_HEALTH_DATE = _health.get("generated", "")
 # /claim.html, publishing instantly via worker/worker.js (Cloudflare KV, no
 # accounts). importers/sync_claims.py pulls the live set into data/claims.json
 # before each build — see that file's docstring for why this is two steps.
-CLAIMS_WORKER_URL = "https://mot-dang-claims.annika-fe3.workers.dev"
+CLAIMS_WORKER_URL = "https://mot-dang-claims.nanobotco.workers.dev"
 _claims_path = ROOT / "data" / "claims.json"
 _claims_doc = json.loads(_claims_path.read_text()) if _claims_path.exists() else {}
 CLAIMS = _claims_doc.get("claims", {})
