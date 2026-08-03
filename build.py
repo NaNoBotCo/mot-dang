@@ -9789,7 +9789,8 @@ def build():
             f'<p><a href="data/walk.json">data/walk.json</a> · '
             f'<a href="seven.html">🏪 {bi("แผนที่พี่น้อง: ใกล้เซเว่นแค่ไหน", "Sister map: how near is the nearest 7-Eleven")}</a></p>'
             f'{share_block(BASE + "walk.html", "แผนที่ระยะเดิน · มดแดง")}',
-            depth=0, path="walk.html", desc=walk_lede_th))
+            depth=0, path="walk.html", desc=walk_lede_th,
+            og="og/walk.png" if "walk" in OG_FILES else None))
         (DOCS / "data" / "walk.json").write_text(json.dumps({
             "generated": BUILD_DATE,
             "metric": "sites reachable within a soft ~800 m WALK on the foot "

@@ -524,9 +524,11 @@ def list_page(g, data, L):
     head = ('<link rel="stylesheet" href="../answers.css">'
             '<script type="application/ld+json">'
             + json.dumps(ld, ensure_ascii=False) + "</script>")
+    og = (f'og/list-{L["slug"]}.png'
+          if (ROOT / "assets" / "og" / f'list-{L["slug"]}.png').exists() else None)
     return g["page"](
         f'รายชื่อ{L["th"]}ทั้งหมด {n} แห่ง (พ.ศ. {int(g["BUILD_DATE"][:4]) + 543})',
-        body, depth=1, path=f'lists/{L["slug"]}.html',
+        body, depth=1, path=f'lists/{L["slug"]}.html', og=og,
         desc=f'รายชื่อ{L["th"]}ครบทั้ง {n} แห่ง เรียง ก→ฮ พร้อมลิงก์ไปหน้าแต่ละแห่ง · '
              f'All {n} {L["en"]} — the complete list, every name a link.',
         extra_head=head,
@@ -549,7 +551,10 @@ def lists_hub(g, data):
         f'<a href="../crawl-request.html">{bi("ส่งมดไปสำรวจ", "request a crawl")}</a></p>'
         + g["share_block"](g["BASE"] + "lists/index.html",
                            "รายชื่อครบทั้งหมวด — มดแดง"))
+    og = ("og/lists.png"
+          if (ROOT / "assets" / "og" / "lists.png").exists() else None)
     return g["page"]("รายชื่อครบทั้งหมวด", body, depth=1, path="lists/index.html",
+                     og=og,
                      desc="รายชื่อครบทั้งหมวดของมดแดง — วัด นวด สัก ครบทุกแห่งที่เราถือข้อมูล หน้าเดียวจบ",
                      extra_head='<link rel="stylesheet" href="../answers.css">',
                      crumbs='<a href="../index.html">มดแดง</a> › '

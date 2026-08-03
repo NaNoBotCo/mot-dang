@@ -206,12 +206,200 @@ def open_now_card():
     ), OG / "open-now.png"
 
 
+# ------------------------------------------------- shared constellation art
+def constellation(points, panel_h=446, moat=True, r=2.6):
+    """Lat/lng points as glowing dots on the dark harbour, percentile-framed
+    (middle 90% + 10% pad) so far-district outliers cannot shrink the city.
+    points = [(lat, lng, color)]; returns (svg, n_in_frame)."""
+    lats = sorted(p[0] for p in points)
+    lngs = sorted(p[1] for p in points)
+    lo, hi = int(len(lats) * 0.05), int(len(lats) * 0.95)
+    pad_la = (lats[hi] - lats[lo]) * 0.10 or 0.01
+    pad_ln = (lngs[hi] - lngs[lo]) * 0.10 or 0.01
+    la0, la1 = lats[lo] - pad_la, lats[hi] + pad_la
+    ln0, ln1 = lngs[lo] - pad_ln, lngs[hi] + pad_ln
+    import math
+    kx = math.cos(math.radians((la0 + la1) / 2))
+    span_x, span_y = (ln1 - ln0) * kx, la1 - la0
+    scale = min(PANEL_W / span_x, panel_h / span_y)
+
+    def pj(la, ln):
+        x = (ln - ln0) * kx * scale + (PANEL_W - span_x * scale) / 2
+        y = (la1 - la) * scale + (panel_h - span_y * scale) / 2
+        return round(x, 1), round(y, 1)
+
+    dots, n_in = [], 0
+    for la, ln, color in points:
+        if not (la0 <= la <= la1 and ln0 <= ln <= ln1):
+            continue
+        n_in += 1
+        x, y = pj(la, ln)
+        dots.append(f'<circle cx="{x}" cy="{y}" r="{r * 2.1:.1f}" '
+                    f'fill="{color}" opacity=".18"/>'
+                    f'<circle cx="{x}" cy="{y}" r="{r}" fill="{color}"/>')
+    moat_svg = ""
+    if moat:
+        ring = json.loads(
+            (ROOT / "docs" / "data" / "toilets.json").read_text())["moat"]
+        if all(la0 <= la <= la1 and ln0 <= ln <= ln1 for la, ln in ring):
+            pts = " ".join("%g,%g" % pj(la, ln) for la, ln in ring)
+            moat_svg = (f'<polygon points="{pts}" fill="none" stroke="#a8c6ee" '
+                        'stroke-width="3" stroke-dasharray="8 6"/>')
+    return (
+        f'<svg viewBox="0 0 {PANEL_W} {panel_h}" '
+        'xmlns="http://www.w3.org/2000/svg">'
+        f'<rect width="{PANEL_W}" height="{panel_h}" fill="#0d1420"/>'
+        + "".join(dots) + moat_svg + "</svg>"), n_in
+
+
+# -------------------------------------------------------------------- taste
+def taste_card():
+    taste = json.loads((ROOT / "data" / "taste.json").read_text())
+    color = {f["key"]: f["color"] for f in taste["families"]}
+    # CM dots only for the art — a frame over both provinces is a rice field
+    # between two specks (the cross-province trap the stats page hit too)
+    points = [(d["la"], d["ln"], color.get(d["f"], "#8f9bab"))
+              for d in taste["dots"] if d["p"] == "cm"]
+    art, n_in = constellation(points, r=2.4)
+    fams = [f for f in taste["families"] if f["key"] != "other"][:4]
+    chips = "".join(
+        chip(f'<i style="color:{f["color"]}">●</i> {f["th"]} {f["n"]}')
+        for f in fams)
+    tokens = len({d["t"] for d in taste["dots"]})
+    return FRAME.format(
+        panel_w=PANEL_W,
+        extra_css=".chip i{font-style:normal;margin-right:2px}",
+        kicker_glyph="🍜",
+        kicker="เชียงใหม่ · เชียงราย — เมืองนี้รสอะไร",
+        h1="รสเมือง",
+        en="The taste of the town — every kitchen a dot of light",
+        nums=num(f"{len(taste['dots']):,}", "ร้านที่บอกแนวรสของตัวเอง<br>"
+                                            "places with a stated cuisine")
+             + num(str(tokens), "แนวรสที่ต่างกัน<br>distinct cuisines"),
+        chips=chips,
+        path="taste",
+        art=art,
+        caption=f"หนึ่งจุด หนึ่งร้าน สีคือสายรส — {n_in:,} จุดในกรอบเมืองเชียงใหม่",
+    ), OG / "taste.png"
+
+
+# --------------------------------------------------------------------- walk
+def walk_card():
+    """The card borrows the page's own ATM contour map — the SVG is lifted
+    straight out of built docs/walk.html, so the preview can never disagree
+    with the page. Portrait map, so the panel narrows to keep the height."""
+    h = (ROOT / "docs" / "walk.html").read_text()
+    i = h.find("ATMs")
+    j = h.find("<svg", i)
+    k = h.find("</svg>", j)
+    if j < 0 or k < 0:
+        raise SystemExit("walk.html has no ATM map svg — run build.py first")
+    art = h[j:k + 6]
+    wj = json.loads((ROOT / "docs" / "data" / "walk.json").read_text())
+    L = wj["layers"]
+    total = sum(x["sitesTotal"] for x in L.values())
+    return FRAME.format(
+        panel_w=386,
+        extra_css=".panel .art{background:#0d1420}",
+        kicker_glyph="🚶",
+        kicker="เชียงใหม่ — เดินตามถนนจริง ข้ามคูเมืองที่สะพาน",
+        h1="แผนที่ระยะเดิน",
+        en="The city at walking pace — real streets, real distances",
+        nums=num(f"{total:,}", "จุดบริการ 4 อย่างทั่วเมือง<br>"
+                               "service points, four kinds")
+             + num("4", "แผนที่เต็มหน้า<br>full-page maps"),
+        chips=chip(f"🏧 ตู้เอทีเอ็ม {L['atm']['sitesTotal']}")
+              + chip(f"💊 ร้านยา {L['pharmacy']['sitesTotal']}")
+              + chip(f"🚻 ห้องน้ำ {L['toilets']['sitesTotal']}")
+              + chip(f"🚰 น้ำดื่ม {L['water']['sitesTotal']}"),
+        path="walk",
+        art=art,
+        caption="แผนที่ตู้เอทีเอ็ม — สีเข้ม = หลายตู้ในระยะเดิน ~10 นาที",
+    ), OG / "walk.png"
+
+
+# -------------------------------------------------------------------- lists
+LIST_COLOR = {"wat-chiang-mai": "#f6b73c", "wat-chiang-rai": "#f6b73c",
+              "massage-chiang-mai": "#ff9fc7", "tattoo-chiang-mai": "#b98bff"}
+LIST_GLYPH = {"wat-chiang-mai": "🛕", "wat-chiang-rai": "🛕",
+              "massage-chiang-mai": "💆", "tattoo-chiang-mai": "🪡"}
+
+
+def _list_records():
+    import answers_layer
+    data = {p: json.loads((ROOT / "data" / "canonical" / f"{p}.json").read_text())
+            for p in ("cm", "cr")}
+    out = []
+    for L in answers_layer.LISTS:
+        recs = [r for r in data[L["prov"]] if L["cat"] in (r.get("cat") or [])]
+        out.append((L, recs))
+    return out
+
+
+def list_cards():
+    cards = []
+    lists = _list_records()
+    for L, recs in lists:
+        color = LIST_COLOR.get(L["slug"], "#f6b73c")
+        pts = [(r["lat"], r["lng"], color) for r in recs
+               if r.get("lat") is not None]
+        art, n_in = constellation(pts, moat=(L["prov"] == "cm"))
+        n = len(recs)
+        cards.append((FRAME.format(
+            panel_w=PANEL_W,
+            extra_css="",
+            kicker_glyph="📜",
+            kicker="รายชื่อครบ — ทุกแห่งที่มดแดงถือข้อมูล",
+            h1=L["th"],
+            en=f"All {n} {L['en']} — the complete list",
+            nums=num(f"{n:,}", "แห่ง ครบทุกชื่อ นับแล้วตรงหน้า<br>"
+                               "of them — the count is a promise")
+                 + num("ก→ฮ", "เรียงตามอักษร ทุกชื่อคือลิงก์<br>"
+                              "alphabetical, every name a link"),
+            chips=chip(f"{LIST_GLYPH.get(L['slug'], '📜')} {L['th']}")
+                  + chip("🐜 OpenStreetMap + เดินเก็บจริง"),
+            path=f"lists/{L['slug']}",
+            art=art,
+            caption=f"ทุกจุดคือหนึ่งชื่อในรายการ — {n_in:,} จุดในกรอบ",
+        ), OG / f"list-{L['slug']}.png"))
+    # the hub: the three Chiang Mai lists as coloured layers of one city
+    pts = []
+    for L, recs in lists:
+        if L["prov"] != "cm":
+            continue
+        color = LIST_COLOR.get(L["slug"], "#f6b73c")
+        pts += [(r["lat"], r["lng"], color) for r in recs
+                if r.get("lat") is not None]
+    art, n_in = constellation(pts)
+    total = sum(len(recs) for _, recs in lists)
+    chips = "".join(
+        chip(f'{LIST_GLYPH.get(L["slug"], "📜")} {L["th"]} {len(recs):,}')
+        for L, recs in lists)
+    cards.append((FRAME.format(
+        panel_w=PANEL_W,
+        extra_css="",
+        kicker_glyph="📜",
+        kicker="เชียงใหม่ · เชียงราย — ไม่ใช่สิบอันดับ แต่ทั้งหมด",
+        h1="รายชื่อครบ",
+        en="The complete lists — not a top ten, everything",
+        nums=num(str(len(lists)), "หมวดที่ทำรายชื่อครบแล้ว<br>complete lists so far")
+             + num(f"{total:,}", "แห่งรวม ทุกชื่อคือลิงก์<br>places, every name a link"),
+        chips=chips,
+        path="lists/",
+        art=art,
+        caption="วัด นวด สัก — สามชั้นของเมืองเดียวกัน สีละหมวด",
+    ), OG / "lists.png"))
+    return cards
+
+
 # ------------------------------------------------------------------- driver
 def main():
     chrome = find_chrome()
     OG.mkdir(parents=True, exist_ok=True)
     tmp = Path(tempfile.mkdtemp(prefix="answercards-"))
-    for html, dest in (festival_card(), open_now_card()):
+    cards = [festival_card(), open_now_card(), taste_card(), walk_card()]
+    cards += list_cards()
+    for html, dest in cards:
         src = tmp / "card.html"
         src.write_text(html, encoding="utf-8")
         subprocess.run([
