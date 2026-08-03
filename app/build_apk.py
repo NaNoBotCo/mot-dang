@@ -31,6 +31,30 @@ PASSFILE = pathlib.Path.home() / ".mot-dang-app.keystore.pass"
 OUT = HERE / "out"
 APK_NAME = "motdang-hongnam.apk"
 
+# The certificate every published copy of the app carries. Safe to keep in a
+# public repo — it is readable off any APK ever shipped (`apksigner verify
+# --print-certs`). It is here so the build can prove it signed with the right
+# key rather than merely with *a* key: sign with a different one and phones
+# refuse the update, which is discovered by a reader failing to install, long
+# after the release. Checked at the end of every build.
+CERT_SHA256 = "7e69294fb9fb7c8cefed8b7658671b507aa476359345a52564f416cfce448200"
+
+BACKUP_HINT = """
+Restore it before building anything. Backups made 2026-08-03:
+  ~/Desktop/Mot Dang app signing key/       (keystore + password + notes)
+  iCloud Drive/Mot Dang app signing key/    (keystore only, by design)
+  the password should also be in your password manager
+
+  cp "<backup>/mot-dang-app.keystore" ~/.mot-dang-app.keystore
+  chmod 600 ~/.mot-dang-app.keystore
+
+A NEW key is not a fix. Android identifies an app by its signature, so a
+fresh key makes a stranger of every copy already installed: no update will
+apply, and each reader would have to uninstall — losing the private visit
+log the app promises to keep — before installing again.
+If the key is truly gone and you accept that, pass --new-key deliberately.
+"""
+
 
 def run(cmd, **kw):
     print("  $", " ".join(str(c) for c in cmd[:4]), "...")
@@ -43,7 +67,12 @@ def ensure_keystore():
     if KEYSTORE.exists():
         sys.exit(f"{KEYSTORE} exists but {PASSFILE} is missing — "
                  "the password went somewhere; find it before rebuilding, "
-                 "or updates will stop installing over old versions.")
+                 "or updates will stop installing over old versions."
+                 + BACKUP_HINT)
+    # An app is published under this key now, so a missing keystore is a
+    # thing to recover, never a thing to replace on the way past.
+    if "--new-key" not in sys.argv:
+        sys.exit(f"no signing key at {KEYSTORE}." + BACKUP_HINT)
     import secrets
     pw = secrets.token_urlsafe(24)
     PASSFILE.write_text(pw + "\n")
@@ -105,8 +134,20 @@ def main():
     run([BT / "apksigner", "sign", "--ks", KEYSTORE,
          "--ks-pass", f"pass:{pw}", "--ks-key-alias", "motdang",
          "--out", final, aligned])
-    run([BT / "apksigner", "verify", "--print-certs", final])
-    print(f"\nAPK: {final}  ({final.stat().st_size / 1e6:.1f} MB)")
+    certs = subprocess.run(
+        [str(BT / "apksigner"), "verify", "--print-certs", str(final)],
+        check=True, capture_output=True, text=True).stdout
+    print(certs.strip())
+    if CERT_SHA256 not in certs.lower():
+        final.unlink()
+        sys.exit(f"\nSIGNED WITH THE WRONG KEY — expected certificate\n"
+                 f"  {CERT_SHA256}\nand got something else. This APK would "
+                 f"not install over the published app, so it has been "
+                 f"deleted rather than left lying about looking finished."
+                 + BACKUP_HINT)
+    print(f"\nAPK: {final}  ({final.stat().st_size / 1e6:.1f} MB)"
+          f"\n     signed with the published key — phones will take it as "
+          f"an update.")
 
 
 if __name__ == "__main__":
