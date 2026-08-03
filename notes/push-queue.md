@@ -4,7 +4,15 @@ What is waiting to go out, and what shipped last time.
 
 ## Waiting
 
-**Uncommitted — /toilets.html, the one question asked under a clock.**
+Nothing. Everything below has shipped.
+
+## Last push — 2026-08-03, `b35205c089`
+
+Two workstreams in one commit: build.py carries both, so splitting by
+file would leave an intermediate commit importing toilets_layer before
+it exists. 22,566 files, 11,813 pages.
+
+**/toilets.html, the one question asked under a clock.**
 /walk.html says how thick the city is with toilets; this says where one is,
 now. Same points, opposite instrument.
 
@@ -50,7 +58,7 @@ landmark fallback, tile square and not overflowing, pin→row tap, and the moat
 appearing at Tha Phae but correctly absent from Chiang Rai. Full build 11,813
 pages; publish gate, facets, alt-text, errands and plan-routes all pass.
 
-**Uncommitted — the plan map now draws the walk it charges for, and the moat
+**the plan map now draws the walk it charges for, and the moat
 names itself.** From an audit of the ten ไหว้พระ ๙ วัด rounds run against the
 shipped `docs/md.js` and the real graph (80 legs, both modes).
 
