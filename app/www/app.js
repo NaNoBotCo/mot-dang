@@ -84,9 +84,13 @@ var pendingReports = lsGet('md_pending', []); // queued when offline
 /* ---------- map state ---------- */
 var canvas = document.getElementById('map');
 var ctx = canvas.getContext('2d');
+// EXT spans both cities, so its midpoint is farmland between them. Open on
+// the first baked city instead and let locate() carry a reader in Chiang Rai
+// to their own — a map that opens on empty fields reads as broken.
+var HOME = (B.extents && B.extents.cm) || EXT;
 var view = lsGet('md_view', null) || {
-  cx: (ux(EXT[3]) + ux(EXT[1])) / 2,
-  cy: (uy(EXT[0]) + uy(EXT[2])) / 2,
+  cx: (ux(HOME[3]) + ux(HOME[1])) / 2,
+  cy: (uy(HOME[0]) + uy(HOME[2])) / 2,
   scale: 0.11
 };
 var dpr = Math.min(window.devicePixelRatio || 1, 2.5);
@@ -108,7 +112,7 @@ function invx (px) { return (px - W / 2) / view.scale + view.cx; }
 function invy (py) { return (H / 2 - py) / view.scale + view.cy; }
 
 function clampView () {
-  view.scale = Math.max(0.012, Math.min(6, view.scale));
+  view.scale = Math.max(0.004, Math.min(6, view.scale));
   var m = 3000; // units of slack beyond the baked extent
   var minx = ux(EXT[1]) - m, maxx = ux(EXT[3]) + m;
   var miny = uy(EXT[0]) - m, maxy = uy(EXT[2]) + m;
@@ -295,7 +299,10 @@ function drawPin (pin, px, py, s) {
   var none = pinReport(pin) === 'toiletnone';
   // Overview zooms get dots, not pins — the city stays readable and the
   // mapped points (the certain ones) stay visible above the habit-tier crowd.
-  var dotUntil = pin.kind === 'mapped' ? 0.1 : (pin.kind === 'tier' ? 0.3 : 1.2);
+  // Mapped points stay a dot until the city has opened up. Drawn as full
+  // pins at overview zoom they overlap into one dark mass over the middle of
+  // Chiang Mai — 344 certainties reading as a smudge helps nobody.
+  var dotUntil = pin.kind === 'mapped' ? 0.18 : (pin.kind === 'tier' ? 0.3 : 1.2);
   if (s < dotUntil && !isSel) {
     if (pin.kind === 'mapped') {
       ctx.fillStyle = T.mappedColor || '#c13a2e';
@@ -391,7 +398,7 @@ function zoomAt (px, py, f) {
   px -= rect.left; py -= rect.top;
   var wx = invx(px), wy = invy(py);
   view.scale *= f;
-  view.scale = Math.max(0.012, Math.min(6, view.scale));
+  view.scale = Math.max(0.004, Math.min(6, view.scale));
   view.cx = wx - (px - W / 2) / view.scale;
   view.cy = wy + (py - H / 2) / view.scale;
   clampView(); dirty = true;
@@ -701,6 +708,36 @@ document.getElementById('sheet-handle').addEventListener('click', function () {
 document.getElementById('btn-zoom-in').onclick = function () { zoomAt(W / 2, H / 2, 1.45); saveView(); };
 document.getElementById('btn-zoom-out').onclick = function () { zoomAt(W / 2, H / 2, 0.69); saveView(); };
 document.getElementById('btn-locate').onclick = locate;
+
+/* ---------- city jump ----------
+   Two cities are 190 km apart. Without this, a reader in Chiang Rai whose
+   phone will not give a fix has no way to reach their own city but to drag
+   the map across the farmland between. The button only exists when more
+   than one city is baked in. */
+var CITY_NAMES = { cm: ["เชียงใหม่", "Chiang Mai"], cr: ["เชียงราย", "Chiang Rai"] };
+var CITY_KEYS = Object.keys(B.extents || {});
+if (CITY_KEYS.length > 1) {
+  var btn = document.createElement('button');
+  btn.className = 'round-btn';
+  btn.id = 'btn-city';
+  btn.textContent = '🏙️';
+  btn.setAttribute('aria-label', 'ไปอีกเมือง');
+  document.querySelector('.map-controls').appendChild(btn);
+  btn.onclick = function () {
+    // whichever city centre is furthest from the view is the one to go to
+    var far = null, farD = -1;
+    CITY_KEYS.forEach(function (k) {
+      var e = B.extents[k];
+      var cx = (ux(e[3]) + ux(e[1])) / 2, cy = (uy(e[0]) + uy(e[2])) / 2;
+      var d = Math.hypot(cx - view.cx, cy - view.cy);
+      if (d > farD) { farD = d; far = { k: k, cx: cx, cy: cy }; }
+    });
+    view.cx = far.cx; view.cy = far.cy; view.scale = 0.11;
+    clampView(); dirty = true; lsSet('md_view', view); refreshList();
+    var nm = CITY_NAMES[far.k] || [far.k, far.k];
+    toast(nm[0] + ' · ' + nm[1]);
+  };
+}
 
 /* ---------- go ---------- */
 resize();

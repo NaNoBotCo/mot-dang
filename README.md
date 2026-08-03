@@ -104,7 +104,7 @@ crawl's clothes.
   notes. All localStorage; Mot Dang follows no one around.
 - **Sorting**: ก→ฮ or 📍 ใกล้ฉัน (client-side geolocation, nothing leaves the device).
 - **Sharing**: pill-button row — native Web Share (mobile), LINE, WhatsApp,
-  Telegram, Facebook, X, copy-link — on every page type; place pages also get
+  Telegram, copy-link — on every page type; place pages also get
   an inline QR code (base64 PNG, zero extra requests) to scan or print by a door.
 - **Photos**: an original hand-drawn wat illustration is the default image
   everywhere a real photo is missing (deliberately — see `build.py`'s `WAT_SVG`).

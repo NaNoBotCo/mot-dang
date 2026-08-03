@@ -27,8 +27,18 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = pathlib.Path(__file__).resolve().parent / "www" / "data"
 
-# Same extent as importers/crawl_roads.py — the moat plus ~2 km each way.
-AREA = {"s": 18.7635, "n": 18.8133, "w": 98.9600, "e": 99.0120}
+# Two city cores, one coordinate system. CM matches importers/crawl_roads.py
+# (the moat plus ~2 km each way); CR runs from the clock tower district down
+# to Central Plaza, because a mall is a toilet anchor. Everything is
+# quantized against CM's south-west corner — the shared origin is what lets
+# one decoder in the app draw both cities.
+AREAS = {
+    "cm": {"s": 18.7635, "n": 18.8133, "w": 98.9600, "e": 99.0120,
+           "roads": "roads", "buildings": "buildings"},
+    "cr": {"s": 19.8620, "n": 19.9320, "w": 99.8000, "e": 99.8600,
+           "roads": "roads-cr", "buildings": "buildings-cr"},
+}
+AREA = AREAS["cm"]  # the origin city
 Q = 1e5  # quantum: 1e-5 degrees ≈ 1.1 m
 
 # Landmark categories, in the order they gain labels as you zoom in.
@@ -82,34 +92,52 @@ def road_class(tag):
 
 
 def build_roads():
-    ways, nodes = {}, {}
-    for tile in sorted((ROOT / "cache" / "roads").glob("*.json")):
-        d = json.loads(tile.read_text())
-        for e in d.get("elements", []):
-            if e["type"] == "node":
-                nodes[e["id"]] = (e["lat"], e["lon"])
-            elif e["type"] == "way":
-                ways[e["id"]] = e
+    """Both cache formats: CM's crawl stored ways + separate node elements;
+    the CR fetch used `out geom`, where each way carries its own geometry."""
     roads = []
-    for w in ways.values():
-        cls = road_class(w.get("tags", {}).get("highway"))
-        if cls is None:
-            continue
-        coords = [nodes[n] for n in w["nodes"] if n in nodes]
-        if len(coords) < 2:
-            continue
-        name = w["tags"].get("name", "")
-        name_en = w["tags"].get("name:en", "")
-        roads.append([cls, name, name_en, pack_line(coords)])
+    for area in AREAS.values():
+        ways, nodes = {}, {}
+        tiles = sorted((ROOT / "cache" / area["roads"]).glob("*.json"))
+        if not tiles:
+            sys.exit(f"no cache/{area['roads']}/*.json — fetch them first")
+        for tile in tiles:
+            d = json.loads(tile.read_text())
+            if d.get("remark"):
+                sys.exit(f"{tile} carries an Overpass remark — refetch it: "
+                         f"{d['remark']}")
+            for e in d.get("elements", []):
+                if e["type"] == "node":
+                    nodes[e["id"]] = (e["lat"], e["lon"])
+                elif e["type"] == "way":
+                    ways[e["id"]] = e
+        for w in ways.values():
+            cls = road_class(w.get("tags", {}).get("highway"))
+            if cls is None:
+                continue
+            if "geometry" in w:
+                coords = [(g["lat"], g["lon"]) for g in w["geometry"]]
+            else:
+                coords = [nodes[n] for n in w["nodes"] if n in nodes]
+            if len(coords) < 2:
+                continue
+            name = w["tags"].get("name", "")
+            name_en = w["tags"].get("name:en", "")
+            roads.append([cls, name, name_en, pack_line(coords)])
     return roads
+
+
+def building_tiles():
+    for area in AREAS.values():
+        tiles = sorted((ROOT / "cache" / area["buildings"]).glob("*.json"))
+        if not tiles:
+            sys.exit(f"no cache/{area['buildings']}/*.json — fetch them first")
+        for t in tiles:
+            yield t
 
 
 def build_buildings():
     seen, polys, named = set(), [], []
-    tiles = sorted((ROOT / "cache" / "buildings").glob("*.json"))
-    if not tiles:
-        sys.exit("no cache/buildings/*.json — fetch them first")
-    for tile in tiles:
+    for tile in building_tiles():
         d = json.loads(tile.read_text())
         if d.get("remark"):
             sys.exit(f"{tile.name} carries an Overpass remark — refetch it: "
@@ -169,9 +197,15 @@ def main():
     roads = build_roads()
     polys, named = build_buildings()
     print(f"roads: {len(roads)}  buildings: {len(polys)}  named: {len(named)}")
+    union = [min(a["s"] for a in AREAS.values()),
+             min(a["w"] for a in AREAS.values()),
+             max(a["n"] for a in AREAS.values()),
+             max(a["e"] for a in AREAS.values())]
     emit("basemap.js", "BASEMAP", {
         "origin": [AREA["s"], AREA["w"]],
-        "extent": [AREA["s"], AREA["w"], AREA["n"], AREA["e"]],
+        "extent": union,
+        "extents": {k: [a["s"], a["w"], a["n"], a["e"]]
+                    for k, a in AREAS.items()},
         "q": Q,
         "roadClasses": [c for c, _ in ROAD_CLASSES],
         "roads": roads,

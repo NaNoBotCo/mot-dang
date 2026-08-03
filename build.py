@@ -918,8 +918,6 @@ border:none;cursor:pointer;font-family:inherit;transition:transform .12s,box-sha
 .share .pill.line{background:#06C755}
 .share .pill.whatsapp{background:#25D366}
 .share .pill.telegram{background:#229ED9}
-.share .pill.facebook{background:#1877F2}
-.share .pill.x{background:#111}
 .share .pill.copy{background:var(--ant-dark)}
 .qrbox{display:flex;align-items:center;gap:.8rem;margin-top:.7rem;background:#fff;
 border:1px solid var(--soft);border-radius:.7rem;padding:.6rem .9rem;max-width:26rem}
@@ -4282,8 +4280,6 @@ def share_block(url, name, qr=False):
             f'<a class="pill line" href="https://social-plugins.line.me/lineit/share?url={u}" rel="noopener">LINE</a>'
             f'<a class="pill whatsapp" href="https://wa.me/?text={t}%20{u}" rel="noopener">WhatsApp</a>'
             f'<a class="pill telegram" href="https://t.me/share/url?url={u}&text={t}" rel="noopener">Telegram</a>'
-            f'<a class="pill facebook" href="https://www.facebook.com/sharer/sharer.php?u={u}" rel="noopener">Facebook</a>'
-            f'<a class="pill x" href="https://twitter.com/intent/tweet?url={u}&text={t}" rel="noopener">X</a>'
             f'<button class="pill copy copylink" data-url="{u}" data-label="🔗 {esc("คัดลอกลิงก์")}" '
             f'data-done="✓ {esc("คัดลอกแล้ว")}">🔗 {esc("คัดลอกลิงก์")}</button>'
             f'</div>{qr_html}</div>')

@@ -68,10 +68,12 @@ def emit(g, data):
 <h1>📱 {bi("แอปห้องน้ำใกล้ฉัน", "The nearest-toilet app")}</h1>
 <div class="app-hero">
   <h2>{esc("แผนที่ทั้งเมือง อยู่ในเครื่อง")}</h2>
-  <p>{esc("ถนน อาคาร วัด ตลาด และห้องน้ำทุกหมุดของหน้าเว็บนี้ ติดตั้งลงเครื่องครั้งเดียว "
-          "ใช้ได้ทั้งวันโดยไม่ต้องมีเน็ต เปิดปุ๊บเรียงให้เลยว่าที่ใกล้ที่สุดอยู่ไหน")}<br>
-  <small>{esc("The whole map — streets, buildings, temples, markets and every toilet pin — "
-              "installs once and works with no signal. Open it and the nearest one is already first.")}</small></p>
+  <p>{esc("ถนน อาคาร วัด ตลาด และห้องน้ำทุกหมุดของหน้าเว็บนี้ — ทั้งเชียงใหม่และเชียงราย — "
+          "ติดตั้งลงเครื่องครั้งเดียว ใช้ได้ทั้งวันโดยไม่ต้องมีเน็ต "
+          "เปิดปุ๊บเรียงให้เลยว่าที่ใกล้ที่สุดอยู่ไหน")}<br>
+  <small>{esc("The whole map — streets, buildings, temples, markets and every toilet pin, "
+              "for both Chiang Mai and Chiang Rai — installs once and works with no "
+              "signal. Open it and the nearest one is already first.")}</small></p>
   <a class="apk-btn" href="app/{APK_NAME}" download>⬇️ {esc("ดาวน์โหลดแอป (Android)")} · {mb:.1f} MB</a>
   <span class="apk-meta">{esc("รุ่น")} {esc(ver)} · SHA-256 {sha[:16]}…</span>
 </div>
@@ -101,6 +103,21 @@ def emit(g, data):
 <div class="app-quiet"><b class="h">🗂️ {bi("บันทึกของคุณเป็นของคุณ", "Your log is yours")}</b>
 {bi("บันทึกว่าใช้ห้องน้ำที่ไหนอยู่ในเครื่องเท่านั้น และปุ่มลบ ลบจริง",
     "The visit log lives on the phone only, and the erase button really erases.")}</div>
+
+<h2>{bi("สองเมือง และสิ่งที่ต่างกัน", "Two cities, and how they differ")}</h2>
+<div class="app-quiet">
+{bi("แผนที่ถนนกับอาคารครอบคลุมใจกลางเชียงใหม่ (รอบคูเมือง + ๒ กม.) และใจกลางเชียงราย "
+    "(หอนาฬิกา ลงมาถึงเซ็นทรัล) — กด 🏙️ ในแอปเพื่อสลับเมือง",
+    "The street-and-building map covers the Chiang Mai core (the moat plus 2 km) and "
+    "the Chiang Rai core (clock tower down to Central). The 🏙️ button switches cities.")}
+<br><br>
+{bi("ข้อต่างที่ควรรู้: ในเชียงรายยังไม่มีใครปักหมุดห้องน้ำไว้ในแผนที่เปิดเลยสักแห่ง "
+    "สิ่งที่แอปแสดงที่นั่นจึงเป็นชั้นของที่พึ่งตามประเภทสถานที่ทั้งหมด "
+    "ใครไปยืนหน้าประตูจริงแล้วกดบอกสักคำ คือคนที่เปลี่ยนเรื่องนี้ได้",
+    "One difference worth knowing: nobody has yet mapped a single toilet point in "
+    "Chiang Rai in OpenStreetMap, so everything the app shows there is class habit. "
+    "The person who stands at a door and taps one word is the one who changes that.")}
+</div>
 
 <p><span class="bi"><span class="th" lang="th">ใช้ไอโฟน หรือยังไม่อยากติดตั้ง —
 <a href="toilets.html">หน้าเว็บห้องน้ำใกล้ฉัน</a>ตอบคำถามเดียวกัน</span>
