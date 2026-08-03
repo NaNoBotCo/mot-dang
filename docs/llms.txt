@@ -33,6 +33,10 @@ where each one actually goes:
   the page says: a place absent from that file has UNKNOWN hours — absence
   never means closed, and a meal curve describes a category's habit, never
   one shop's promise.
+- The cuisine terroir: https://motdang.net/taste.html — every cuisine-tagged place as a
+  colored dot, with huddle-radius/direction stats per cuisine (Chiang Mai
+  scope). Data: https://motdang.net/data/taste.json. A place absent from that file states
+  no cuisine tag — absence never means it has no kitchen.
 - RSS feed of highlights: https://motdang.net/rss.xml (autodiscoverable via <link rel="alternate">
   on every page); cross-promotion open to other local publications: https://motdang.net/partners.html
 - Structural (not volumetric) differences from Google's local data, stated plainly
