@@ -158,9 +158,11 @@ def emit(g, data):
 anything? <a href="toilets.html">The web page</a> answers the same
 question.</span></span></p>
 """
+    _og_card = Path(__file__).resolve().parent / "assets" / "og" / "toilets.png"
     (docs / "app.html").write_text(page(
         "แอปห้องน้ำใกล้ฉัน", body, 0, path="app.html",
         desc="แอปห้องน้ำใกล้ฉัน มดแดง — แผนที่ออฟไลน์ทั้งเมืองเชียงใหม่ ติดตั้งตรงจากมดแดง ไม่ผ่านสโตร์",
+        og="og/toilets.png" if _og_card.exists() else None,
         extra_head=f"<style>{CSS}</style>"))
     return (f"app.html + {APK_NAME} ({mb:.1f} MB, v{ver}) + "
             f"/app/ web app ({web_files} files)")

@@ -965,8 +965,11 @@ def build_page(g, stats, marks):
         + share_block(g["BASE"] + "toilets.html",
                       "ห้องน้ำใกล้ฉัน · Toilets near you · มดแดง"))
 
+    # The flagship gets its own share card (make_toilet_card.py) — the real
+    # pin constellation as a poster. Missing card falls back to the brand one.
+    og = "og/toilets.png" if (ROOT / "assets" / "og" / "toilets.png").exists() else None
     return page("ห้องน้ำใกล้ฉัน", body, depth=0, path="toilets.html",
-                desc=lede_th,
+                desc=lede_th, og=og,
                 extra_head='<link rel="stylesheet" href="toilets.css">'
                            '<script src="toilets.js" defer></script>')
 
