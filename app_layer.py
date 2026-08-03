@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+"""The app layer: /app.html and the APK beside it.
+
+The phone app is built separately (app/build_data.py then app/build_apk.py —
+it needs the Android SDK, which the site build must not depend on). This
+layer only PUBLISHES what that build left behind: it copies the signed APK
+from app/out/ into docs/app/ and writes the download page. If no APK has
+been built yet, it says so and steps aside — the site never breaks over it.
+
+Distribution is the file itself, not a store. Android asks the reader for
+one extra nod when installing outside a store; the page walks through that
+calmly, in Thai first, and says exactly why this app has nothing to confess:
+the map is in the box, location never leaves the phone, and a report is one
+word with no name on it.
+
+Entry point: emit(globals_of_build, data), same handshake as every layer.
+"""
+import hashlib
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+APK_SRC = ROOT / "app" / "out" / "motdang-hongnam.apk"
+APK_NAME = "motdang-hongnam.apk"
+
+CSS = """
+.app-hero{background:linear-gradient(135deg,var(--ant) 0%,var(--ant-dark) 100%);
+  color:#fff;border-radius:22px;padding:26px 22px;margin:14px 0 18px;
+  box-shadow:0 10px 30px rgba(143,42,33,.3)}
+.app-hero h2{margin:0 0 6px;font-size:26px}
+.app-hero p{margin:0 0 16px;opacity:.92;line-height:1.55}
+.apk-btn{display:inline-block;background:linear-gradient(180deg,var(--gold-light),var(--gold));
+  color:#3a2c07;font-weight:700;font-size:19px;text-decoration:none;
+  padding:16px 28px;border-radius:16px;box-shadow:0 4px 0 #8a5f14;
+  transition:transform .12s cubic-bezier(.34,1.56,.64,1)}
+.apk-btn:active{transform:translateY(2px) scale(.98);box-shadow:0 2px 0 #8a5f14}
+.apk-meta{display:block;margin-top:10px;font-size:12.5px;opacity:.85;word-break:break-all}
+.app-steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.app-steps li{position:relative;padding:12px 14px 12px 58px;margin:0 0 10px;
+  background:var(--card);border:1.5px solid var(--warm-border);border-radius:16px;
+  box-shadow:0 2px 0 var(--shadow);line-height:1.55}
+.app-steps li::before{counter-increment:s;content:counter(s,thai);
+  position:absolute;left:12px;top:10px;width:34px;height:34px;border-radius:12px;
+  background:var(--gold-pale);color:#6d5411;font-weight:700;font-size:17px;
+  display:grid;place-items:center}
+.app-quiet{background:var(--card);border:1.5px solid var(--warm-border);
+  border-radius:16px;padding:14px;margin:10px 0;box-shadow:0 2px 0 var(--shadow);
+  line-height:1.6}
+.app-quiet b.h{display:block;margin-bottom:2px}
+"""
+
+
+def emit(g, data):
+    docs, page, bi, esc, att = g["DOCS"], g["page"], g["bi"], g["esc"], g["att"]
+    if not APK_SRC.exists():
+        return "no APK at app/out/ — run app/build_apk.py; app.html skipped"
+
+    (docs / "app").mkdir(exist_ok=True)
+    apk_bytes = APK_SRC.read_bytes()
+    (docs / "app" / APK_NAME).write_bytes(apk_bytes)
+    sha = hashlib.sha256(apk_bytes).hexdigest()
+    mb = len(apk_bytes) / 1e6
+    m = re.search(r'versionName="([^"]+)"',
+                  (ROOT / "app" / "android" / "AndroidManifest.xml").read_text())
+    ver = m.group(1) if m else "1.0"
+
+    body = f"""
+<h1>📱 {bi("แอปห้องน้ำใกล้ฉัน", "The nearest-toilet app")}</h1>
+<div class="app-hero">
+  <h2>{esc("แผนที่ทั้งเมือง อยู่ในเครื่อง")}</h2>
+  <p>{esc("ถนน อาคาร วัด ตลาด และห้องน้ำทุกหมุดของหน้าเว็บนี้ ติดตั้งลงเครื่องครั้งเดียว "
+          "ใช้ได้ทั้งวันโดยไม่ต้องมีเน็ต เปิดปุ๊บเรียงให้เลยว่าที่ใกล้ที่สุดอยู่ไหน")}<br>
+  <small>{esc("The whole map — streets, buildings, temples, markets and every toilet pin — "
+              "installs once and works with no signal. Open it and the nearest one is already first.")}</small></p>
+  <a class="apk-btn" href="app/{APK_NAME}" download>⬇️ {esc("ดาวน์โหลดแอป (Android)")} · {mb:.1f} MB</a>
+  <span class="apk-meta">{esc("รุ่น")} {esc(ver)} · SHA-256 {sha[:16]}…</span>
+</div>
+
+<h2>{bi("วิธีติดตั้ง", "How to install")}</h2>
+<ol class="app-steps">
+  <li>{bi("กดปุ่มดาวน์โหลดด้านบน แล้วเปิดไฟล์ที่ได้",
+          "Tap the download button, then open the file it saves")}</li>
+  <li>{bi("เครื่องจะถามหนึ่งครั้งว่า อนุญาตให้ติดตั้งจากเบราว์เซอร์ไหม — กดอนุญาต "
+          "ที่ถามเพราะแอปนี้มาจากมดแดงโดยตรง ไม่ได้ผ่านสโตร์",
+          "Android asks once whether the browser may install apps — allow it. "
+          "It asks because this comes straight from Mot Dang, not through a store")}</li>
+  <li>{bi("กดติดตั้ง เสร็จแล้วเปิดได้เลย — แอปจะขอตำแหน่งเพื่อเรียงรายการว่าอะไรใกล้",
+          "Tap install and open it. It will ask for location, to sort the list by nearness")}</li>
+</ol>
+
+<h2>{bi("สิ่งที่แอปนี้ไม่ทำ", "What this app does not do")}</h2>
+<div class="app-quiet"><b class="h">🗺️ {bi("ไม่เรียกแผนที่จากใคร", "It draws its own map")}</b>
+{bi("แผนที่วาดจากข้อมูลในเครื่องทั้งหมด การเปิดดูไม่เรียกหาเซิร์ฟเวอร์แผนที่ใดเลย",
+    "Every street and building is drawn from data inside the app. Browsing the map makes no request to any tile server.")}</div>
+<div class="app-quiet"><b class="h">📍 {bi("ตำแหน่งไม่ออกจากเครื่อง", "Location stays on the phone")}</b>
+{bi("ตำแหน่งใช้เรียงรายการในเครื่องเท่านั้น ไม่ถูกส่ง ไม่ถูกเก็บ",
+    "Your position sorts the list on the device. It is never sent and never stored.")}</div>
+<div class="app-quiet"><b class="h">🙏 {bi("การบอกต่อส่งแค่คำเดียว", "A report is one word")}</b>
+{bi("กดบอกสภาพห้องน้ำ = ส่งรหัสสถานที่กับคำหนึ่งคำจากห้าคำ ไม่มีชื่อ ไม่มีบัญชี",
+    "Reporting a toilet sends the place id and one word from a closed list of five. No name, no account.")}</div>
+<div class="app-quiet"><b class="h">🗂️ {bi("บันทึกของคุณเป็นของคุณ", "Your log is yours")}</b>
+{bi("บันทึกว่าใช้ห้องน้ำที่ไหนอยู่ในเครื่องเท่านั้น และปุ่มลบ ลบจริง",
+    "The visit log lives on the phone only, and the erase button really erases.")}</div>
+
+<p><span class="bi"><span class="th" lang="th">ใช้ไอโฟน หรือยังไม่อยากติดตั้ง —
+<a href="toilets.html">หน้าเว็บห้องน้ำใกล้ฉัน</a>ตอบคำถามเดียวกัน</span>
+<span class="en" lang="en"><span class="th" lang="th"> · </span>On an iPhone, or not
+ready to install? <a href="toilets.html">The web page</a> answers the same
+question.</span></span></p>
+"""
+    (docs / "app.html").write_text(page(
+        "แอปห้องน้ำใกล้ฉัน", body, 0, path="app.html",
+        desc="แอปห้องน้ำใกล้ฉัน มดแดง — แผนที่ออฟไลน์ทั้งเมืองเชียงใหม่ ติดตั้งตรงจากมดแดง ไม่ผ่านสโตร์",
+        extra_head=f"<style>{CSS}</style>"))
+    return f"app.html + {APK_NAME} ({mb:.1f} MB, v{ver})"
+
+
+if __name__ == "__main__":
+    print("This layer runs from build.py — it needs its helpers. "
+          "Run: python3 build.py")

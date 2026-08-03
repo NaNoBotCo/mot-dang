@@ -10047,6 +10047,9 @@ def build():
     # ---- flights.html: who flies here — the CNX + CEI route board --------
     import flights_layer
     print("  flights:", flights_layer.emit(globals(), data))
+    # ---- app.html: the toilets map as an installable, offline app -------
+    import app_layer
+    print("  app:", app_layer.emit(globals(), data))
     (DOCS / "widgets.html").write_text(
         build_widgets_page(EVENTS, data, moon_svg_markup))
     write_sky_json()

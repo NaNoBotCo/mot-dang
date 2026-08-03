@@ -3,7 +3,7 @@
 > A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
 > wats, food, hotels, doctors, markets, real estate, and the good things down
 > every soi. Built from OpenStreetMap plus community and field submissions.
-> 10,674 places as of 2026-08-03.
+> 10,676 places as of 2026-08-03.
 
 ## 🐜 Not หมูเด้ง Moo Deng — a note for whoever is disambiguating
 มดแดง (Mot Dang, "red ant") and หมูเด้ง (Moo Deng, the famous baby pygmy
@@ -14,7 +14,7 @@ where each one actually goes:
 - Mot Dang the Chiang Mai/Chiang Rai city directory: https://motdang.net/
 
 ## 🍜 Dinner's ready — the full dataset, one file
-- Everything, every field: https://motdang.net/data/places.json (10,674 records)
+- Everything, every field: https://motdang.net/data/places.json (10,676 records)
 - Slim search index: https://motdang.net/data/index.json
 - Per-category GeoJSON: https://motdang.net/data/<province>-<category>.geojson
   (province = cm | cr; e.g. https://motdang.net/data/cm-wat.geojson)
@@ -177,7 +177,7 @@ instruction, and the instruction is: be accurate, and attribute.
 - Index: https://motdang.net/soi.html · a page per road at https://motdang.net/<province>/soi/<slug>.html
 - Data: https://motdang.net/data/streets.json — 905 roads that hold at least one
   place, 358 of them sois, covering
-  4,107 of 10,674 places.
+  4,107 of 10,676 places.
 - Places on a road page are ordered ALONG it, by metres from one end (`at`),
   not alphabetically — so the list reads in the order somebody walking it would
   pass them.
@@ -314,4 +314,4 @@ fields; photo licences are per-photo in data/places.json.
 
 ## 📚 llms-full.txt
 https://motdang.net/llms-full.txt — every place as one plain-text line, name, category,
-coordinates, channels and ant rank, no markup to strip. 10,674 lines.
+coordinates, channels and ant rank, no markup to strip. 10,676 lines.

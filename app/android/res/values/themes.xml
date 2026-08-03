@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- API 35 enforces edge-to-edge unless a theme opts out; without this the
+       clock floats over the page in white-on-cream. -->
+  <style name="AppTheme" parent="@android:style/Theme.Material.Light.NoActionBar">
+    <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    <item name="android:statusBarColor">#8f2a21</item>
+    <item name="android:navigationBarColor">#fffdf7</item>
+  </style>
+</resources>

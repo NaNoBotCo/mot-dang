@@ -12,3 +12,8 @@ cache/
 # scratch: files moved here for the user to delete (this mount forbids rm)
 _to_delete/
 _incoming/
+
+# app build artifacts — regenerate with app/build_data.py + app/build_apk.py;
+# the signed APK the site serves is the copy in docs/app/
+app/out/
+app/www/data/

@@ -9078,6 +9078,8 @@ https://motdang.net/cm/p/suriwongse-hotel-chiang-mai-99685196.html	Suriwongse Ho
 https://motdang.net/cm/p/dusitd2-chiang-mai-hotel-99685197.html	dusitD2 Chiang Mai Hotel	-	hotel	18.786206,98.9999256	-	-	ants=1/9
 https://motdang.net/cm/p/pantip-plaza-chiang-mai-99685467.html	Pantip Plaza Chiang Mai	-	shopping	18.7817712,98.9995663	-	10:00-22:00	ants=2/9
 https://motdang.net/cm/p/kankanok1-clubhouse-park-99856551.html	Kankanok1 clubhouse park	-	parks	18.7377057,99.0763281	-	-	ants=1/9
+https://motdang.net/cm/p/chiang-mai-international-airport-12410725.html	ท่าอากาศยานนานาชาติเชียงใหม่ · Chiang Mai International Airport	Chiang Mai International Airport	transport	18.7665146,98.9647014	phone=+66 53 922 000; web=chiangmai.airportthai.co.th	-	ants=4/9
+https://motdang.net/cm/p/chiang-mai-international-airport-58309446.html	ท่าอากาศยานนานาชาติเชียงใหม่ · Chiang Mai International Airport	Chiang Mai International Airport	transport	18.7689966,98.9681113	-	-	ants=2/9
 https://motdang.net/cr/p/chiang-rai-clock-tower-crcuratedclocktower.html	หอนาฬิกาเฉลิมพระเกียรติฯ เชียงราย · Chiang Rai Clock Tower	Chiang Rai Clock Tower	sights	19.9074,99.8309	-	-	ants=3/9
 https://motdang.net/cr/p/laila-s-designer-consignment-crcuratedlailasconsignment.html	Laila's Designer Consignment	Laila's Designer Consignment	shopping/sights	-	-	-	ants=2/9
 https://motdang.net/cr/p/laila-s-visa-services-crcuratedlailasvisa.html	Laila's Visa Services	Laila's Visa Services	essentials	-	-	-	ants=2/9

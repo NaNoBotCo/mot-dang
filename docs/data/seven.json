@@ -5,7 +5,7 @@
   "cm": 331,
   "cr": 52
  },
- "placesMeasured": 10284,
+ "placesMeasured": 10286,
  "medianM": 225,
  "withinPct": {
   "100m": 20,
@@ -34,12 +34,12 @@
   {
    "fromM": 500,
    "toM": 1000,
-   "n": 1168
+   "n": 1169
   },
   {
    "fromM": 1000,
    "toM": 2000,
-   "n": 590
+   "n": 591
   },
   {
    "fromM": 2000,
@@ -109,14 +109,14 @@
    "medianM": 313
   },
   {
-   "cat": "transport",
-   "n": 319,
-   "medianM": 394
-  },
-  {
    "cat": "sights",
    "n": 177,
    "medianM": 394
+  },
+  {
+   "cat": "transport",
+   "n": 321,
+   "medianM": 399
   },
   {
    "cat": "parks",
