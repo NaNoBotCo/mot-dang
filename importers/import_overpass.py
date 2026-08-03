@@ -153,8 +153,26 @@ def classify(t):
     # and get the airport, rather than the nearest record with the word in its
     # name — which is how "สนามบินเชียงใหม่ / Airport" once pinned a petrol
     # station two kilometres short of the terminal.
-    if t.get("aeroway") in ("aerodrome", "terminal"):
+    #
+    # An IATA code is the line between an airport and an airstrip, and the
+    # distinction matters because /toilets.html tiers this sub as "free,
+    # signposted, an accessible one, reachable without a ticket". True of a
+    # passenger terminal; nonsense at Chiang Mai Sky Adventure, Chiang Mai
+    # Airsport Airfield and Thong Kwao — three microlight strips that carry
+    # aeroway=aerodrome and nothing else. Only CNX and CEI carry `iata`.
+    # ICAO alone is not enough: the disused military field at Chiang Rai has
+    # one (VTCR) and no scheduled passenger has ever walked into it.
+    #
+    # The strips are real places and Sky Adventure is a genuine attraction —
+    # they are simply not transport, and belong to a leisure query nobody has
+    # written yet rather than to a shelf that would misdescribe them.
+    if t.get("aeroway") == "terminal":
         return "transport", "airport"
+    if t.get("aeroway") == "aerodrome" and (t.get("iata")
+                                            or t.get("aerodrome") == "international"):
+        return "transport", "airport"
+    if t.get("aeroway"):
+        return None
     if a == "ferry_terminal":
         return "transport", "pier"
     if (a == "bus_station" or t.get("railway") in ("station", "halt")

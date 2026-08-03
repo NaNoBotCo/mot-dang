@@ -87,11 +87,13 @@ LANDMARK_SEEDS = [
     ("cm", "ประตูเชียงใหม่", "Chiang Mai Gate", ["ประตูเชียงใหม่", "chiang mai gate"], ("sights", "historic"), None),
     ("cm", "ตลาดวโรรส", "Warorot Market", ["วโรรส", "warorot"], ("market",), None),
     # The Arcade coach terminal, not the railway station: the station itself is
-    # absent from the catalog (only "Railway Park" carries the word). Chiang Mai
-    # has no aeroway record either until the `stations` group is crawled for it,
-    # so there is deliberately no CM airport seed here — an absent landmark is a
-    # smaller error than one pointing at a filling station.
+    # absent from the catalog (only "Railway Park" carries the word).
     ("cm", "สถานีขนส่งอาเขต", "Arcade Bus Terminal", ["อาเขต", "arcade bus"], ("transport",), "station"),
+    # Back, and pinned to CNX this time. The `airport` sub is only given to a
+    # field carrying an IATA code or aerodrome=international, so this can no
+    # longer land on the Shell station on the airport road — nor on any of the
+    # three microlight strips the province-wide crawl also turned up.
+    ("cm", "สนามบินเชียงใหม่", "Chiang Mai Airport", ["ท่าอากาศยาน", "สนามบิน"], ("transport",), "airport"),
     ("cm", "นิมมานเหมินท์", "Nimmanhaemin", ["maya", "มายา", "นิมมาน"], ("shopping",), None),
     ("cr", "หอนาฬิกาเชียงราย", "Clock Tower", ["หอนาฬิกา", "clock tower"], ("sights", "historic"), None),
     ("cr", "ขนส่งเชียงราย", "Bus Terminal", ["ขนส่ง", "bus terminal"], ("transport",), "station"),
@@ -933,6 +935,10 @@ def build_page(g, stats, marks):
         '<button type="button" id="loogo" class="loogo" disabled>'
         + bi("📍 หาห้องน้ำที่ใกล้ที่สุด", "Find the nearest one") + "</button>"
         f'<p id="loostate" class="loostate"></p>'
+        f'<p class="tinynote">📱 <a href="app.html">'
+        + bi("มีแบบแอปด้วย — แผนที่ทั้งเมืองอยู่ในเครื่อง ไม่ต้องมีเน็ต",
+             "Also as an app — the whole map in your pocket, no signal needed")
+        + "</a></p>"
         f'<div id="loomap" class="loomap"></div>'
         f'<div id="loofilters" class="loofilters" hidden role="group" '
         f'aria-label="{att(g["bi_text"]("ตัวกรอง", "Filters"))}">{filters}</div>'

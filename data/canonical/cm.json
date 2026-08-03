@@ -319167,5 +319167,82 @@
   ],
   "confidence": "crawled",
   "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-relation-12410725",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "airport"
+  ],
+  "name": "ท่าอากาศยานนานาชาติเชียงใหม่",
+  "nameTh": "ท่าอากาศยานนานาชาติเชียงใหม่",
+  "nameEn": "Chiang Mai International Airport",
+  "lat": 18.7665146,
+  "lng": 98.9647014,
+  "geoPrecision": "exact",
+  "address": "60 มหิดล ต.สุเทพ อ.เมืองเชียงใหม่ 50200",
+  "phone": "+66 53 922 000",
+  "website": "https://chiangmai.airportthai.co.th/",
+  "hours": null,
+  "attrs": {
+   "houseNumber": "60",
+   "street": "มหิดล",
+   "subdistrict": "สุเทพ",
+   "district": "เมืองเชียงใหม่",
+   "postcode": "50200",
+   "wikidata": "Q1065082",
+   "wikipedia": "en:Chiang Mai International Airport"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "relation/12410725",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-way-58309446",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "airport"
+  ],
+  "name": "ท่าอากาศยานนานาชาติเชียงใหม่",
+  "nameTh": "ท่าอากาศยานนานาชาติเชียงใหม่",
+  "nameEn": "Chiang Mai International Airport",
+  "lat": 18.7689966,
+  "lng": 98.9681113,
+  "geoPrecision": "exact",
+  "address": "60 มหิดล",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "houseNumber": "60",
+   "street": "มหิดล"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/58309446",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
  }
 ]
