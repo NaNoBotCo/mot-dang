@@ -64,29 +64,37 @@ WALK_M_PER_MIN = 80          # 4.8 km/h, an unhurried pace on a flat soi
 # cue for a glance, and the two never disagree because both come from the tier.
 TIER_COLOR = {
     "fuel": "#B4341A", "hospital": "#1F7A8C", "mall": "#6E4A9E",
-    "wat": "#B8912E", "terminal": "#3F5AA6", "market": "#C0641B",
-    "museum": "#8C6D3F", "university": "#2F6B4F", "park": "#3F7F4F",
-    "sitdown": "#7D5A3C", "hotel": "#5B6770",
+    "wat": "#B8912E", "airport": "#2B5C8A", "terminal": "#3F5AA6",
+    "market": "#C0641B", "museum": "#8C6D3F", "university": "#2F6B4F",
+    "park": "#3F7F4F", "sitdown": "#7D5A3C", "hotel": "#5B6770",
 }
 MAPPED_COLOR = "#2A1E16"     # a verified point: the darkest thing on the panel
 
 # Landmarks for the reader who will not, or cannot, share a location. Resolved
 # against the catalog by name so the coordinates carry a source rather than
 # being typed in from memory; anything that does not resolve is dropped.
+#
+# The fifth field is the CATEGORY the record must sit in, and the sixth an
+# optional SUB it must carry. The sub is what stops a name match wandering:
+# "สนามบินเชียงใหม่ / Airport" matched on name alone and pinned "Shell
+# Thongthanaphon - Airport", a petrol station on the airport road two
+# kilometres short of the terminal, which then shipped. A landmark is a
+# promise about where somebody is standing, so it takes the stricter test —
+# and if nothing satisfies it, the seed is dropped rather than approximated.
 LANDMARK_SEEDS = [
-    ("cm", "ประตูท่าแพ", "Tha Phae Gate", ["ท่าแพ", "tha phae"], ("sights", "historic")),
-    ("cm", "ประตูเชียงใหม่", "Chiang Mai Gate", ["ประตูเชียงใหม่", "chiang mai gate"], ("sights", "historic")),
-    ("cm", "ตลาดวโรรส", "Warorot Market", ["วโรรส", "warorot"], ("market",)),
-    # The Arcade coach terminal, not the railway station: the station itself
-    # is absent from the catalog (only "Railway Park" carries the word), and a
-    # seed that resolves to nothing is silently dropped rather than pinned by
-    # hand. Worth a crawl request of its own — a terminal is exactly the kind
-    # of place someone asks this page about.
-    ("cm", "สถานีขนส่งอาเขต", "Arcade Bus Terminal", ["อาเขต", "arcade bus"], ("transport",)),
-    ("cm", "สนามบินเชียงใหม่", "Airport", ["สนามบิน", "airport"], ("transport", "sights")),
-    ("cm", "นิมมานเหมินท์", "Nimmanhaemin", ["maya", "มายา", "นิมมาน"], ("shopping",)),
-    ("cr", "หอนาฬิกาเชียงราย", "Clock Tower", ["หอนาฬิกา", "clock tower"], ("sights", "historic")),
-    ("cr", "ขนส่งเชียงราย", "Bus Terminal", ["ขนส่ง", "bus terminal"], ("transport",)),
+    ("cm", "ประตูท่าแพ", "Tha Phae Gate", ["ท่าแพ", "tha phae"], ("sights", "historic"), None),
+    ("cm", "ประตูเชียงใหม่", "Chiang Mai Gate", ["ประตูเชียงใหม่", "chiang mai gate"], ("sights", "historic"), None),
+    ("cm", "ตลาดวโรรส", "Warorot Market", ["วโรรส", "warorot"], ("market",), None),
+    # The Arcade coach terminal, not the railway station: the station itself is
+    # absent from the catalog (only "Railway Park" carries the word). Chiang Mai
+    # has no aeroway record either until the `stations` group is crawled for it,
+    # so there is deliberately no CM airport seed here — an absent landmark is a
+    # smaller error than one pointing at a filling station.
+    ("cm", "สถานีขนส่งอาเขต", "Arcade Bus Terminal", ["อาเขต", "arcade bus"], ("transport",), "station"),
+    ("cm", "นิมมานเหมินท์", "Nimmanhaemin", ["maya", "มายา", "นิมมาน"], ("shopping",), None),
+    ("cr", "หอนาฬิกาเชียงราย", "Clock Tower", ["หอนาฬิกา", "clock tower"], ("sights", "historic"), None),
+    ("cr", "ขนส่งเชียงราย", "Bus Terminal", ["ขนส่ง", "bus terminal"], ("transport",), "station"),
+    ("cr", "สนามบินเชียงราย", "Chiang Rai Airport", ["ท่าอากาศยาน", "อาคารผู้โดยสาร"], ("transport",), "airport"),
 ]
 
 
@@ -322,10 +330,12 @@ def landmarks(g, data):
     """Resolve the fallback list against the catalog, so a coordinate printed
     here came from the same place every other coordinate on the site did."""
     out = []
-    for prov, th, en, terms, cats in LANDMARK_SEEDS:
+    for prov, th, en, terms, cats, sub in LANDMARK_SEEDS:
         best = None
         for r in data.get(prov) or []:
             if r.get("lat") is None or cat_of(r) not in cats:
+                continue
+            if sub and sub not in (r.get("sub") or []):
                 continue
             name = " ".join(str(r.get(k) or "") for k in ("nameTh", "nameEn", "name")).lower()
             if any(w.lower() in name for w in terms):

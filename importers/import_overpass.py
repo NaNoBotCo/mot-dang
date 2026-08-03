@@ -71,6 +71,33 @@ CRAFT_TO = {
 }
 
 
+def is_gone(t):
+    """True for things that are named on the map but not places you can go.
+
+    OSM keeps a feature after it shuts, marked rather than deleted, and it
+    keeps military ground under the same tags as civil ground. Both were being
+    filed as ordinary destinations: the CR stations crawl brought in
+    "สนามบินเก่าเชียงราย / Old Chiang Rai Airport", which is `disused=yes`,
+    `military=airfield`, `operator=Military of Thailand` — and which the
+    toilets page promptly offered as a free clean toilet open all day. Sending
+    somebody there would be wrong twice over, and worse for a foreigner.
+
+    Deliberately not a judgement call about how busy a place is. Only what the
+    map states outright: it has closed, or it is not civil ground.
+
+    A namespaced `disused:amenity=restaurant` is NOT tested, and that is the
+    point. It marks what a building used to be, and it sits happily beside a
+    live tag when something new opened in the old shell — Xaviernimman5 on
+    Nimman carries `disused:amenity=restaurant` and `amenity=pub`, surveyed
+    2025-03-28, `opening_hours=24/7`. A rule that read the namespaced key would
+    close a pub that is open right now. Where there is no live tag to go with
+    it, classify() returns nothing and the record never arrives anyway.
+    """
+    if t.get("disused") == "yes" or t.get("abandoned") == "yes":
+        return True
+    return bool(t.get("military") or t.get("landuse") == "military")
+
+
 def classify(t):
     """tags -> (cat, sub or None), or None to skip."""
     s, a, tr = t.get("shop"), t.get("amenity"), t.get("tourism")
@@ -121,7 +148,17 @@ def classify(t):
         return "transport", "fuel"
     if a == "car_rental" or s == "motorcycle_rental":
         return "transport", "rental"
-    if a == "bus_station" or t.get("railway") == "station":
+    # An aerodrome is its own thing, not a bus station: it keeps its own sub so
+    # a reader (and the toilets page's landmark list) can ask for the airport
+    # and get the airport, rather than the nearest record with the word in its
+    # name — which is how "สนามบินเชียงใหม่ / Airport" once pinned a petrol
+    # station two kilometres short of the terminal.
+    if t.get("aeroway") in ("aerodrome", "terminal"):
+        return "transport", "airport"
+    if a == "ferry_terminal":
+        return "transport", "pier"
+    if (a == "bus_station" or t.get("railway") in ("station", "halt")
+            or t.get("public_transport") == "station"):
         return "transport", "station"
     if s in ("car_repair", "motorcycle_repair"):
         return "repair", "auto"
@@ -258,6 +295,8 @@ def records(province="cm"):
             t = el.get("tags", {})
             name = t.get("name") or t.get("name:th") or t.get("name:en")
             if not name:
+                continue
+            if is_gone(t):
                 continue
             hit = classify(t)
             if not hit:

@@ -39366,39 +39366,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cr-osm-way-168840620",
-  "province": "cr",
-  "cat": [
-   "shopping"
-  ],
-  "sub": [
-   "mall"
-  ],
-  "name": "ห้างสรรพสินค้าเอดิสัน",
-  "nameTh": "ห้างสรรพสินค้าเอดิสัน",
-  "nameEn": "Edison Department Store",
-  "lat": 19.9057265,
-  "lng": 99.8326939,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {},
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "way/168840620",
-    "fetched": "2026-07-27",
-    "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cr-osm-way-168868302",
   "province": "cr",
   "cat": [
@@ -47067,6 +47034,43 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-593126810",
+  "province": "cr",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "airport"
+  ],
+  "name": "ท่าอากาศยานเชียงราย",
+  "nameTh": "ท่าอากาศยานเชียงราย",
+  "nameEn": "Chiangrai International Airport",
+  "lat": 19.9506465,
+  "lng": 99.8817597,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "houseNumber": "404",
+   "wikidata": "Q969597",
+   "wikipedia": "en:Mae Fah Luang-Chiang Rai International Airport"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/593126810",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-593126843",
   "province": "cr",
   "cat": [
@@ -50158,6 +50162,39 @@
    {
     "type": "osm",
     "ref": "way/837528527",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-87458645",
+  "province": "cr",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "airport"
+  ],
+  "name": "อาคารผู้โดยสาร",
+  "nameTh": "อาคารผู้โดยสาร",
+  "nameEn": "Mae Fah Luang-Chiang Rai International Airport Terminal",
+  "lat": 19.9542993,
+  "lng": 99.8791788,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/87458645",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }

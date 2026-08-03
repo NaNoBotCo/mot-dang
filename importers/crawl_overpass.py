@@ -32,6 +32,26 @@ BBOX = {
     "cr": "19.80,99.70,20.00,99.95",   # Mueang Chiang Rai and the near ring
 }
 
+# Some things are too few, and too far apart, to be found in a ring round the
+# provincial capital. A coach terminal at Mae Sai, the Mekong piers at Chiang
+# Saen and Chiang Khong, an airport out past the ring road — each is a real
+# destination and there are a handful of them in a whole province, so asking
+# province-wide costs one query and no manners. Restaurants and hairdressers
+# stay in the near ring, where the density would otherwise be unkind to
+# Overpass and to a reader.
+PROVINCE_BBOX = {
+    "cm": "17.30,97.30,20.20,99.35",   # Chiang Mai province, Omkoi up to Mae Ai
+    "cr": "19.10,99.05,20.47,100.60",  # Chiang Rai province, Wiang Pa Pao up to
+                                       # Mae Sai and east to the Mekong at Chiang Khong
+}
+WIDE_GROUPS = {"stations"}
+
+
+def bbox_for(province, group):
+    if group in WIDE_GROUPS and province in PROVINCE_BBOX:
+        return PROVINCE_BBOX[province]
+    return BBOX[province]
+
 QUERIES = {
     "hotels":     ['nwr["tourism"="hotel"]', 'nwr["tourism"="guest_house"]',
                    'nwr["tourism"="hostel"]'],
@@ -43,6 +63,24 @@ QUERIES = {
     "transport":  ['nwr["amenity"="fuel"]', 'nwr["amenity"="car_rental"]',
                    'nwr["shop"="motorcycle_rental"]', 'nwr["amenity"="bus_station"]',
                    'nwr["railway"="station"]'],
+    # Terminals, in their own group so it can be fetched without disturbing the
+    # rest of `transport`. `transport` asked only for amenity=bus_station and
+    # railway=station, which left out every airport in both provinces — the
+    # directory's only "Airport" records are a petrol station and a hotel with
+    # the word in their names, and a landmark list built by name-matching
+    # happily pinned one of them. An aerodrome is also exactly the kind of
+    # place /toilets.html is asked about at midnight.
+    #
+    # Nameless is skipped at import anyway, so ["name"] where a nameless hit
+    # would be noise (an aerodrome polygon, a pier) and left off where the
+    # feature is worth having even bare (a bus station).
+    "stations":   ['nwr["aeroway"="aerodrome"]["name"]',
+                   'nwr["aeroway"="terminal"]["name"]',
+                   'nwr["amenity"="bus_station"]',
+                   'nwr["public_transport"="station"]["name"]',
+                   'nwr["railway"="station"]', 'nwr["railway"="halt"]["name"]',
+                   'nwr["amenity"="ferry_terminal"]["name"]',
+                   'nwr["amenity"="taxi"]["name"]'],
     "repair":     ['nwr["shop"="car_repair"]', 'nwr["shop"="motorcycle_repair"]',
                    'nwr["shop"="computer"]', 'nwr["shop"="mobile_phone"]'],
     "beauty":     ['nwr["shop"="hairdresser"]', 'nwr["shop"="beauty"]'],
@@ -101,22 +139,63 @@ QUERIES = {
 }
 
 
-def fetch(group, selectors, bbox):
-    q = "[out:json][timeout:90];(" + "".join(f"{s}({bbox});" for s in selectors) + ");out center tags;"
+class OverpassRemark(Exception):
+    """Overpass answered 200 with an error in `remark` and no elements.
+
+    This is the failure that matters most here, because it does not look like
+    one. A timed-out query returns a perfectly valid JSON document with an
+    empty `elements` list, and the crawler used to write it to cache as though
+    it were an answer — and since the crawl is snapshot-first, that empty file
+    would never be retried. A shelf would simply be empty forever, with a
+    cached file standing there as proof it had been asked.
+    """
+
+
+def fetch(group, selectors, bbox, timeout=90):
+    q = (f"[out:json][timeout:{timeout}];("
+         + "".join(f"{s}({bbox});" for s in selectors) + ");out center tags;")
     body = ("data=" + urllib.parse.quote(q)).encode()
     last = None
     for attempt in range(6):
         api = APIS[attempt % len(APIS)]
         req = urllib.request.Request(api, data=body, headers={"User-Agent": UA})
         try:
-            with urllib.request.urlopen(req, timeout=150) as r:
-                return json.load(r)
+            with urllib.request.urlopen(req, timeout=timeout + 60) as r:
+                data = json.load(r)
+            remark = data.get("remark") or ""
+            if remark and not data.get("elements"):
+                raise OverpassRemark(remark.strip())
+            return data
         except Exception as e:
             last = e
             rest = RETRY_PAUSE * (attempt + 1)
             print(f"  {group}: {e} on {api.split('/')[2]} — resting {rest}s", flush=True)
             time.sleep(rest)
     raise last
+
+
+def fetch_wide(group, selectors, bbox, timeout=240):
+    """One selector at a time, merged.
+
+    A whole province in a single query is what timed out: eight selectors over
+    Chiang Rai from Wiang Pa Pao to Mae Sai is more than Overpass will do in
+    90 seconds, and the answer came back empty with the error tucked in a
+    `remark`. Split, each part is small and finishes; the pause between them
+    is the same politeness the group loop already keeps.
+    """
+    merged, seen = [], set()
+    for i, sel in enumerate(selectors):
+        data = fetch(f"{group}[{i + 1}/{len(selectors)}]", [sel], bbox, timeout)
+        for el in data.get("elements", []):
+            key = (el.get("type"), el.get("id"))
+            if key not in seen:
+                seen.add(key)
+                merged.append(el)
+        print(f"    {sel} -> {len(data.get('elements', []))}", flush=True)
+        if i < len(selectors) - 1:
+            time.sleep(PAUSE)
+    return {"elements": merged,
+            "note": f"merged from {len(selectors)} per-selector queries over {bbox}"}
 
 
 def main():
@@ -136,10 +215,15 @@ def main():
             continue
         print(f"{province}: {len(todo)} groups to fetch, {PAUSE}s between each — slow on purpose")
         for i, (group, selectors) in enumerate(todo):
-            data = fetch(group, selectors, BBOX[province])
+            box = bbox_for(province, group)
+            if group in WIDE_GROUPS:
+                data = fetch_wide(group, selectors, box)
+            else:
+                data = fetch(group, selectors, box)
             (cache / f"{group}.json").write_text(json.dumps(data, ensure_ascii=False))
             n = len(data.get("elements", []))
-            print(f"  {province}/{group}: {n} elements")
+            wide = " (province-wide)" if group in WIDE_GROUPS else ""
+            print(f"  {province}/{group}: {n} elements{wide}")
             if i < len(todo) - 1:
                 time.sleep(PAUSE)
         print(f"{province}: done — cache/overpass/{province}/ is the snapshot; import_all.py folds it in")

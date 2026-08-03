@@ -1,33 +1,79 @@
 {
   "_comment": "Where a person can find a toilet, and how sure we are. Two kinds of knowledge live here and they must never be printed in the same voice. A VERIFIED point is a toilet somebody mapped at a spot: amenity=toilets, 344 in Chiang Mai and 87 in Chiang Rai, and outside the old city that is close to nothing. A TIER is a habit of a class of venue — fuel stations keep a free toilet, temples open theirs in daylight — which is true about the class and is never a claim about the building in front of you. So a tier is always worded as a habit ('stations like this normally have one'), never as a fact, and it always yields to a verified point or a field report at the same spot. The tiers below turn 431 mapped points into roughly two thousand places worth trying, without asserting one thing we were not told.",
   "version": 1,
-
   "_windows": "Rough opening windows for a CLASS, local time, used only to say 'likely open' or 'probably closed'. A record carrying its own hours from OSM outranks these and is marked as stated. We never print a flat 'closed' from a class habit — being wrong about that is what sends somebody walking the wrong way.",
   "windows": {
-    "allday": [0, 24],
-    "late": [5, 24],
-    "mall": [10, 22],
-    "daylight": [6, 18],
-    "daytime": [8, 17],
-    "market": [5, 18],
+    "allday": [
+      0,
+      24
+    ],
+    "late": [
+      5,
+      24
+    ],
+    "mall": [
+      10,
+      22
+    ],
+    "daylight": [
+      6,
+      18
+    ],
+    "daytime": [
+      8,
+      17
+    ],
+    "market": [
+      5,
+      18
+    ],
     "venue": null
   },
-
   "_costs": "Never invented. 'fee-small' is the 5-10 baht coin box that Thai markets and terminals normally keep; of 344 mapped Chiang Mai toilets exactly one recorded its price, so the number here is class knowledge waiting to be replaced by a field report.",
   "costs": {
-    "free": {"th": "ฟรี", "en": "free", "chip_th": "ฟรี", "chip_en": "free"},
-    "fee-small": {"th": "ประมาณ 5–10 บาท", "en": "about 5-10 baht", "chip_th": "5–10 ฿", "chip_en": "5-10 ฿"},
-    "free-or-small": {"th": "ส่วนใหญ่ฟรี บางแห่งเก็บ 5–10 บาท", "en": "usually free, some charge 5-10 baht", "chip_th": "ฟรี/5–10 ฿", "chip_en": "free / 5-10 ฿"},
-    "with-order": {"th": "ซื้อของก่อน", "en": "buy something first", "chip_th": "ลูกค้า", "chip_en": "customers"}
+    "free": {
+      "th": "ฟรี",
+      "en": "free",
+      "chip_th": "ฟรี",
+      "chip_en": "free"
+    },
+    "fee-small": {
+      "th": "ประมาณ 5–10 บาท",
+      "en": "about 5-10 baht",
+      "chip_th": "5–10 ฿",
+      "chip_en": "5-10 ฿"
+    },
+    "free-or-small": {
+      "th": "ส่วนใหญ่ฟรี บางแห่งเก็บ 5–10 บาท",
+      "en": "usually free, some charge 5-10 baht",
+      "chip_th": "ฟรี/5–10 ฿",
+      "chip_en": "free / 5-10 ฿"
+    },
+    "with-order": {
+      "th": "ซื้อของก่อน",
+      "en": "buy something first",
+      "chip_th": "ลูกค้า",
+      "chip_en": "customers"
+    }
   },
-
   "access": {
-    "public": {"th": "ใครเข้าก็ได้", "en": "anyone may use it"},
-    "visitor": {"th": "สำหรับผู้เข้าชม", "en": "for visitors"},
-    "customer": {"th": "เฉพาะลูกค้า", "en": "customers only"},
-    "guest": {"th": "โถงรับรอง สำหรับแขก", "en": "lobby, for guests"}
+    "public": {
+      "th": "ใครเข้าก็ได้",
+      "en": "anyone may use it"
+    },
+    "visitor": {
+      "th": "สำหรับผู้เข้าชม",
+      "en": "for visitors"
+    },
+    "customer": {
+      "th": "เฉพาะลูกค้า",
+      "en": "customers only"
+    },
+    "guest": {
+      "th": "โถงรับรอง สำหรับแขก",
+      "en": "lobby, for guests"
+    }
   },
-
   "_tiers": "Ordered. Rank 1 is what you try first when there is no time to choose. Order is by how dependable the class is, then by how long its doors stay open — not by how nice the room is.",
   "tiers": [
     {
@@ -36,7 +82,11 @@
       "emoji": "⛽",
       "th": "ปั๊มน้ำมัน",
       "en": "Fuel station",
-      "match": {"sub": ["fuel"]},
+      "match": {
+        "sub": [
+          "fuel"
+        ]
+      },
       "access": "public",
       "cost": "free",
       "window": "late",
@@ -51,7 +101,15 @@
       "emoji": "🏥",
       "th": "โรงพยาบาล",
       "en": "Hospital",
-      "match": {"cat": ["medical"], "name_any": ["โรงพยาบาล", "hospital"]},
+      "match": {
+        "cat": [
+          "medical"
+        ],
+        "name_any": [
+          "โรงพยาบาล",
+          "hospital"
+        ]
+      },
       "access": "public",
       "cost": "free",
       "window": "allday",
@@ -66,7 +124,11 @@
       "emoji": "🛍️",
       "th": "ห้างสรรพสินค้า",
       "en": "Shopping mall",
-      "match": {"sub": ["mall"]},
+      "match": {
+        "sub": [
+          "mall"
+        ]
+      },
       "access": "public",
       "cost": "free",
       "window": "mall",
@@ -81,7 +143,11 @@
       "emoji": "🛕",
       "th": "วัด",
       "en": "Temple",
-      "match": {"cat": ["wat"]},
+      "match": {
+        "cat": [
+          "wat"
+        ]
+      },
       "access": "public",
       "cost": "free",
       "window": "daylight",
@@ -93,12 +159,35 @@
       "source_note_en": "Field knowledge from living here (Nan), not from a crawl."
     },
     {
-      "key": "terminal",
+      "key": "airport",
       "rank": 5,
+      "emoji": "✈️",
+      "th": "สนามบิน",
+      "en": "Airport",
+      "match": {
+        "sub": [
+          "airport"
+        ]
+      },
+      "access": "public",
+      "cost": "free",
+      "window": "allday",
+      "strength": "strong",
+      "basis_th": "อาคารผู้โดยสารมีห้องน้ำฟรี สะอาด มีป้ายบอกทาง และมีห้องน้ำผู้พิการ ฝั่งผู้โดยสารขาเข้าและโถงเช็คอินเข้าได้โดยไม่ต้องมีตั๋ว เปิดตามรอบบิน ซึ่งยาวเกือบทั้งวัน",
+      "basis_en": "A passenger terminal keeps free, signposted toilets with an accessible one, and the arrivals hall and check-in concourse are reachable without a ticket. Open as long as the flights run, which is most of the day.",
+      "source": "class-habit"
+    },
+    {
+      "key": "terminal",
+      "rank": 6,
       "emoji": "🚌",
       "th": "สถานีขนส่ง-สถานีรถไฟ",
       "en": "Bus or train station",
-      "match": {"sub": ["station"]},
+      "match": {
+        "sub": [
+          "station"
+        ]
+      },
       "access": "public",
       "cost": "fee-small",
       "window": "late",
@@ -109,11 +198,15 @@
     },
     {
       "key": "market",
-      "rank": 6,
+      "rank": 7,
       "emoji": "🧺",
       "th": "ตลาด",
       "en": "Market",
-      "match": {"cat": ["market"]},
+      "match": {
+        "cat": [
+          "market"
+        ]
+      },
       "access": "public",
       "cost": "fee-small",
       "window": "market",
@@ -124,11 +217,15 @@
     },
     {
       "key": "museum",
-      "rank": 7,
+      "rank": 8,
       "emoji": "🏛️",
       "th": "พิพิธภัณฑ์-หอศิลป์",
       "en": "Museum or gallery",
-      "match": {"cat": ["museums-galleries"]},
+      "match": {
+        "cat": [
+          "museums-galleries"
+        ]
+      },
       "access": "visitor",
       "cost": "free",
       "window": "daytime",
@@ -139,11 +236,15 @@
     },
     {
       "key": "university",
-      "rank": 8,
+      "rank": 9,
       "emoji": "🎓",
       "th": "มหาวิทยาลัย",
       "en": "University",
-      "match": {"sub": ["university"]},
+      "match": {
+        "sub": [
+          "university"
+        ]
+      },
       "access": "public",
       "cost": "free",
       "window": "daytime",
@@ -154,11 +255,16 @@
     },
     {
       "key": "park",
-      "rank": 9,
+      "rank": 10,
       "emoji": "🌳",
       "th": "สวนสาธารณะ",
       "en": "Public park",
-      "match": {"sub": ["park", "garden"]},
+      "match": {
+        "sub": [
+          "park",
+          "garden"
+        ]
+      },
       "access": "public",
       "cost": "free-or-small",
       "window": "daylight",
@@ -169,11 +275,25 @@
     },
     {
       "key": "sitdown",
-      "rank": 10,
+      "rank": 11,
       "emoji": "🍜",
       "th": "ร้านนั่งกิน",
       "en": "Sit-down food or drink",
-      "match": {"sub": ["cafe", "thai", "international", "noodle", "seafood", "vegetarian", "bakery-dessert", "bar-pub", "riverside", "live-music", "made-to-order"]},
+      "match": {
+        "sub": [
+          "cafe",
+          "thai",
+          "international",
+          "noodle",
+          "seafood",
+          "vegetarian",
+          "bakery-dessert",
+          "bar-pub",
+          "riverside",
+          "live-music",
+          "made-to-order"
+        ]
+      },
       "access": "customer",
       "cost": "with-order",
       "window": "venue",
@@ -184,11 +304,15 @@
     },
     {
       "key": "hotel",
-      "rank": 11,
+      "rank": 12,
       "emoji": "🏨",
       "th": "โรงแรม",
       "en": "Hotel",
-      "match": {"sub": ["hotel-full"]},
+      "match": {
+        "sub": [
+          "hotel-full"
+        ]
+      },
       "access": "guest",
       "cost": "free",
       "window": "allday",
@@ -198,7 +322,6 @@
       "source": "class-habit"
     }
   ],
-
   "_excluded": "Classes deliberately given no tier. Writing the reason down is the point: the next person to look at this file should not have to rediscover why the obvious candidate is missing.",
   "excluded": [
     {
@@ -233,13 +356,55 @@
       "why_en": "Some have one, some do not, and the class does not tell you which — so no tier. These wait on a report from someone who went."
     }
   ],
-
   "_reports": "The closed vocabulary a field report may set. Deliberately small: nothing a submitter types survives contact with it, so a bad-faith report can only ever produce a wrong tick, never injected content. Keys are concatenated words with no separator, matching the convention the existing facets already use (hotfood, twostorey, open24) and the pattern worker/worker.js is checked against. A report at a place OUTRANKS its tier, including `toiletnone` — which is the one place this site records an absence rather than staying silent, because a person who stood at the door and found nothing is giving testimony, not making an inference, and it is the only way a wrong guess comes off the map.",
   "reports": [
-    {"key": "toilethere", "emoji": "🚻", "th": "มีห้องน้ำให้ใช้", "en": "There is one you can use", "sets": {}},
-    {"key": "toiletfree", "emoji": "🆓", "th": "ใช้ฟรี", "en": "Free to use", "sets": {"cost": "free", "access": "public"}},
-    {"key": "toiletfee5", "emoji": "🪙", "th": "เก็บ ๕ บาท", "en": "Charges 5 baht", "sets": {"cost": "fee-small", "access": "public", "baht": 5}},
-    {"key": "toiletfee10", "emoji": "🪙", "th": "เก็บ ๑๐ บาท", "en": "Charges 10 baht", "sets": {"cost": "fee-small", "access": "public", "baht": 10}},
-    {"key": "toiletnone", "emoji": "🚫", "th": "ที่นี่ไม่มี", "en": "None here", "sets": {"removes": true}}
+    {
+      "key": "toilethere",
+      "emoji": "🚻",
+      "th": "มีห้องน้ำให้ใช้",
+      "en": "There is one you can use",
+      "sets": {}
+    },
+    {
+      "key": "toiletfree",
+      "emoji": "🆓",
+      "th": "ใช้ฟรี",
+      "en": "Free to use",
+      "sets": {
+        "cost": "free",
+        "access": "public"
+      }
+    },
+    {
+      "key": "toiletfee5",
+      "emoji": "🪙",
+      "th": "เก็บ ๕ บาท",
+      "en": "Charges 5 baht",
+      "sets": {
+        "cost": "fee-small",
+        "access": "public",
+        "baht": 5
+      }
+    },
+    {
+      "key": "toiletfee10",
+      "emoji": "🪙",
+      "th": "เก็บ ๑๐ บาท",
+      "en": "Charges 10 baht",
+      "sets": {
+        "cost": "fee-small",
+        "access": "public",
+        "baht": 10
+      }
+    },
+    {
+      "key": "toiletnone",
+      "emoji": "🚫",
+      "th": "ที่นี่ไม่มี",
+      "en": "None here",
+      "sets": {
+        "removes": true
+      }
+    }
   ]
 }
