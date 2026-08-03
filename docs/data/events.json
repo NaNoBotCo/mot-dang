@@ -1,6 +1,6 @@
 {
  "generated": "2026-08-01",
- "count": 72,
+ "count": 69,
  "events": [
   {
    "source": "payap-lll",
@@ -47,23 +47,6 @@
    "weekday": 5,
    "place": null,
    "richness": 5
-  },
-  {
-   "uid": "event_315844187@meetup.com",
-   "start": "2026-08-02 12:00:00",
-   "all_day": false,
-   "tz": "Asia/Bangkok",
-   "end": "2026-08-02 14:00:00",
-   "title": "Weekend Brunch by Nomads Chiang Mai – Built by Community",
-   "description": "Chiang Mai Professionals, Expats, and Digital Nomads **50 THB for event, plus order food** Please join our whatsapp group for more info, check in comments  ***  **📍 Sunday Brunch Gathering** 🗓 **Sunday** 🕦 **12PM noon** 📍 The Garden Restaurant 💰 **50 THB** (to support event costs and ongoing community fundraising)  ***  **Welcome to Chiang Mai!** Whether you’re new in town or have been here for a while, this is a space to connect, meet new people, and feel part of something. Our Sunday Brunch is organized by the Chiang Mai Professionals, Expats, and Digital Nomads community — bringing together",
-   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315844187/",
-   "source": "meetup-ical",
-   "venue_name": "",
-   "venue_from": "",
-   "recurring": false,
-   "weekday": null,
-   "place": null,
-   "richness": 3
   },
   {
    "uid": "event_315664241@meetup.com",
@@ -120,40 +103,6 @@
     "precision": "approx"
    },
    "richness": 12
-  },
-  {
-   "uid": "event_315665244@meetup.com",
-   "start": "2026-08-02 19:00:00",
-   "all_day": false,
-   "tz": "Asia/Bangkok",
-   "end": "2026-08-02 21:00:00",
-   "title": "All Day Gaming",
-   "description": "Chiang Mai Professionals, Expats, and Digital Nomads Sundays are wild. We will be playing everything from DnD to Splendor to twilight imperium 4th, and if you don’t know what any of that is… no problem we can teach you.  We have always have a scheduled for the old crew and tables open for the new. Just walk in and play.",
-   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315665244/",
-   "source": "meetup-ical",
-   "venue_name": "",
-   "venue_from": "",
-   "recurring": false,
-   "weekday": null,
-   "place": null,
-   "richness": 3
-  },
-  {
-   "uid": "event_315858446@meetup.com",
-   "start": "2026-08-02 19:00:00",
-   "all_day": false,
-   "tz": "Asia/Bangkok",
-   "end": "2026-08-02 22:00:00",
-   "title": "PEACH vs COCONUT: How Digital Nomads Tried to Destroy Malay Sovereignty and Bali",
-   "description": "Chiang Mai Professionals, Expats, and Digital Nomads **ONLINE EVENT** The recent collapse of the heavily funded \"Network School\" in Malaysia, paired with the explosive backlash against a foreigners-only digital nomad running club in Bali—which resulted in two Dutch nationals being deported and banned from re-entry—exposes a fatal flaw in the modern remote-work dream: **you cannot treat a host country like a blank hard drive and install a cultureless, Silicon Valley-style operating system.** When mobility becomes pure escapism, communities become fragile and deeply offensive to locals. We often",
-   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315858446/",
-   "source": "meetup-ical",
-   "venue_name": "",
-   "venue_from": "",
-   "recurring": false,
-   "weekday": null,
-   "place": null,
-   "richness": 3
   },
   {
    "source": "payap-lll",

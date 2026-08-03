@@ -1,4 +1,4 @@
-# มดแดง Mot Dang — every place, one line each. 2026-08-02
+# มดแดง Mot Dang — every place, one line each. 2026-08-03
 # Data on this page is CC BY 4.0 — reuse it, train on it, quote it. Map-derived fields remain © OpenStreetMap contributors (ODbL). Attribution to motdang.net is all we ask.
 # url	name	nameEn	categories	lat,lng	channels	hours	antrank
 https://motdang.net/cm/p/2-10008774317.html	ทดสอบ2	-	food	18.7417728,99.0066746	-	-	ants=1/9
@@ -10172,7 +10172,6 @@ https://motdang.net/cr/p/1533390860.html	วัดพระธาตุรัต
 https://motdang.net/cr/p/municipal-fresh-market-2-168740849.html	ตลาดสดเทศบาล 2 · Municipal Fresh Market 2	Municipal Fresh Market 2	market	19.9055566,99.8360465	-	Mo-Su 05:00-21:00	ants=3/9
 https://motdang.net/cr/p/sport-inn-hotel-168837654.html	Sport Inn Hotel	-	hotel	19.8919163,99.8290881	-	-	ants=1/9
 https://motdang.net/cr/p/sabai-inn-168838007.html	Sabai Inn	-	hotel	19.8943663,99.828103	phone=+6657566001	-	ants=2/9
-https://motdang.net/cr/p/edison-department-store-168840620.html	ห้างสรรพสินค้าเอดิสัน · Edison Department Store	Edison Department Store	shopping	19.9057265,99.8326939	-	-	ants=2/9
 https://motdang.net/cr/p/nong-pa-khrai-168868302.html	หนองป่าไคร้ · Nong Pa Khrai	Nong Pa Khrai	parks	19.9473502,99.8378062	-	-	ants=2/9
 https://motdang.net/cr/p/169204225.html	หนองป่าอั้น	-	parks	19.9456897,99.7888234	-	-	ants=1/9
 https://motdang.net/cr/p/sra-na-169309121.html	สระหน้า · Sra Na	Sra Na	parks	19.8971422,99.8490767	-	-	ants=2/9
@@ -10365,6 +10364,7 @@ https://motdang.net/cr/p/wat-khua-khrae-584176181.html	วัดขัวแค�
 https://motdang.net/cr/p/ptt-584176186.html	ป.ต.ท. · PTT	PTT	transport	19.9294848,99.8547354	-	-	ants=2/9
 https://motdang.net/cr/p/bangchak-station-service-584176188.html	เอสโซ่ · Bangchak Station -service	Bangchak Station -service	transport	19.9377705,99.8447355	web=bangchak.co.th	-	ants=3/9
 https://motdang.net/cr/p/wat-nong-bua-585558233.html	วัดหนองบัว · Wat Nong Bua	Wat Nong Bua	wat	19.2043015,99.5177027	-	-	ants=2/9
+https://motdang.net/cr/p/chiangrai-international-airport-593126810.html	ท่าอากาศยานเชียงราย · Chiangrai International Airport	Chiangrai International Airport	transport	19.9506465,99.8817597	-	-	ants=2/9
 https://motdang.net/cr/p/593126843.html	หนองบัว	-	parks	19.94957,99.8562702	-	-	ants=1/9
 https://motdang.net/cr/p/604179764.html	โรงอาหาร	-	food	19.874898,99.9298368	-	-	ants=1/9
 https://motdang.net/cr/p/wiang-inn-hotel-623835953.html	โรงแรมเวียงอินทร์ · Wiang Inn Hotel	Wiang Inn Hotel	hotel	19.9038356,99.8340698	phone=+66 0-5371-1533; web=wianginn.com; email=wianginn@ksc.th.com	-	ants=4/9
@@ -10445,6 +10445,7 @@ https://motdang.net/cr/p/kvc-computer-772907458.html	KVC Computer	KVC Computer	r
 https://motdang.net/cr/p/1993-barber-shop-775915844.html	1993 barber shop	-	beauty	19.9771865,99.8606415	-	-	ants=1/9
 https://motdang.net/cr/p/shell-829961541.html	เชลล์ · Shell	Shell	transport	19.9450962,99.8466193	web=shell.co.th	-	ants=3/9
 https://motdang.net/cr/p/7-eleven-837528527.html	7-Eleven	-	essentials	19.9101595,99.83816	-	-	ants=1/9
+https://motdang.net/cr/p/mae-fah-luang-chiang-rai-international-airport-terminal-87458645.html	อาคารผู้โดยสาร · Mae Fah Luang-Chiang Rai International Airport Terminal	Mae Fah Luang-Chiang Rai International Airport Terminal	transport	19.9542993,99.8791788	-	-	ants=2/9
 https://motdang.net/cr/p/87915597.html	ลำน้ำเกาะแม่ฟ้า	-	parks	19.9213588,99.8246644	-	-	ants=1/9
 https://motdang.net/cr/p/the-riverie-by-katathani-87918800.html	The Riverie by Katathani	-	hotel	19.9182877,99.8268074	phone=+66 5360 7999; web=theriverie.com	-	ants=3/9
 https://motdang.net/cr/p/nong-khi-buan-88177642.html	หนองขี้บ้วน · Nong Khi Buan	Nong Khi Buan	parks	19.8784069,99.8031137	-	-	ants=2/9

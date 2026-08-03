@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-02",
+ "generated": "2026-08-03",
  "branches": {
   "total": 383,
   "cm": 331,
   "cr": 52
  },
- "placesMeasured": 10283,
+ "placesMeasured": 10284,
  "medianM": 225,
  "withinPct": {
   "100m": 20,
@@ -19,7 +19,7 @@
   {
    "fromM": 0,
    "toM": 100,
-   "n": 2021
+   "n": 2020
   },
   {
    "fromM": 100,
@@ -44,7 +44,7 @@
   {
    "fromM": 2000,
    "toM": 5000,
-   "n": 358
+   "n": 360
   },
   {
    "fromM": 5000,
@@ -95,8 +95,8 @@
   },
   {
    "cat": "shopping",
-   "n": 205,
-   "medianM": 238
+   "n": 204,
+   "medianM": 240
   },
   {
    "cat": "learn",
@@ -110,8 +110,8 @@
   },
   {
    "cat": "transport",
-   "n": 317,
-   "medianM": 391
+   "n": 319,
+   "medianM": 394
   },
   {
    "cat": "sights",
