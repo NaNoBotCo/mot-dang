@@ -1,7 +1,9 @@
 {
   "_comment": "Facets are what makes one branch of a chain different from the next one. The category tree answers 'what kind of place is this'; facets answer 'is it worth walking to THAT one'. Order = display order, on the place page and in the filter-chip row. 'auto' names the importer rule that can fill it without asking a human — everything else waits for someone standing at the door. A facet with no evidence renders as nothing at all: absent is not the same as false, and a directory that guesses 'no ATM' is worse than one that says nothing.",
 
-  "_applies_note": "appliesTo matches record.sub. Convenience stores first because that is where the question is loudest — 386 7-Elevens with identical records — but nothing here is 7-Eleven-specific and the same row will serve pharmacies and fuel stations when their turn comes.",
+  "_applies_note": "appliesTo matches record.sub, and a record takes the FIRST set that claims one of its subs. Convenience stores came first because that is where the question was loudest — 386 7-Elevens with identical records — but nothing there is 7-Eleven-specific and the same row will serve pharmacies and fuel stations when their turn comes.",
+
+  "_toilet_note": "The toilet question is asked twice over, in two different senses, and they must not be confused. On a convenience store `toilet` carries auto_means_near and means 'there is one around here' — a spatial join to a mapped point 30 m away, which is evidence about the street, not about the shop. On a sit-down place `toilethere` means what it says: somebody used the one inside. Thai convenience stores do not normally keep a customer toilet, which is why they get the weaker sentence and no tier on /toilets.html. The sit-down set exists because the toilet question was never asked of 4,153 food records and 398 bars at all — appliesTo listed only 'convenience', so the loudest 'may I use yours' in the city went unrecorded. `toiletnone` is the one facet on this site that records an absence: a person who stood at the door and found nothing is giving testimony, not inferring, and it is the only way a wrong guess comes off the toilets page.",
 
   "sets": [
     {
@@ -122,6 +124,100 @@
           "en": "Two floors",
           "ask_th": "มีชั้นสองให้ขึ้นไปนั่งไหม",
           "ask_en": "Is there an upstairs you can sit in?"
+        }
+      ]
+    },
+    {
+      "key": "sitdown",
+      "appliesTo": ["cafe", "thai", "international", "noodle", "seafood", "vegetarian", "bakery-dessert", "bar-pub", "riverside", "live-music", "made-to-order"],
+      "th": "ที่ร้านมีอะไร",
+      "en": "What this place has",
+      "note_th": "สิ่งที่คนถามก่อนจะนั่งลง — ห้องน้ำ ที่จอดรถ แอร์ ไวไฟ ไม่มีในแผนที่ ต้องมีคนไปนั่งจริงถึงจะรู้",
+      "note_en": "The things people ask before they sit down. None of it is in the map data — somebody has to have sat there.",
+      "facets": [
+        {
+          "key": "toilethere",
+          "icon": "🚻",
+          "th": "มีห้องน้ำให้ใช้",
+          "en": "Toilet for customers",
+          "ask_th": "มีห้องน้ำให้ลูกค้าใช้ไหม",
+          "ask_en": "Is there a toilet customers can use?"
+        },
+        {
+          "key": "toiletfree",
+          "icon": "🆓",
+          "th": "ห้องน้ำใช้ฟรี",
+          "en": "Toilet is free",
+          "ask_th": "ใช้ห้องน้ำได้โดยไม่ต้องซื้ออะไรไหม",
+          "ask_en": "Can you use the toilet without buying anything?"
+        },
+        {
+          "key": "toiletfee5",
+          "icon": "🪙",
+          "th": "ห้องน้ำ ๕ บาท",
+          "en": "Toilet costs 5 baht",
+          "ask_th": "ห้องน้ำเก็บ ๕ บาทไหม",
+          "ask_en": "Does the toilet cost 5 baht?"
+        },
+        {
+          "key": "toiletfee10",
+          "icon": "🪙",
+          "th": "ห้องน้ำ ๑๐ บาท",
+          "en": "Toilet costs 10 baht",
+          "ask_th": "ห้องน้ำเก็บ ๑๐ บาทไหม",
+          "ask_en": "Does the toilet cost 10 baht?"
+        },
+        {
+          "key": "toiletnone",
+          "icon": "🚫",
+          "th": "ไม่มีห้องน้ำ",
+          "en": "No toilet here",
+          "ask_th": "ที่นี่ไม่มีห้องน้ำใช่ไหม (ตอบข้อนี้ก็ช่วยได้มาก)",
+          "ask_en": "Is there genuinely no toilet here? (saying so helps just as much)"
+        },
+        {
+          "key": "parking",
+          "icon": "🏍️",
+          "th": "ที่จอดรถ",
+          "en": "Parking",
+          "ask_th": "จอดรถยนต์ได้ไหม หรือจอดได้แค่มอเตอร์ไซค์",
+          "ask_en": "Can a car park here, or motorbikes only?"
+        },
+        {
+          "key": "aircon",
+          "icon": "❄️",
+          "th": "แอร์เย็น",
+          "en": "Air-conditioned",
+          "ask_th": "ข้างในติดแอร์ไหม",
+          "ask_en": "Is the inside air-conditioned?",
+          "auto": "osm-air-conditioning"
+        },
+        {
+          "key": "wifi",
+          "icon": "📶",
+          "th": "ไวไฟ",
+          "en": "Wi-Fi",
+          "ask_th": "มีไวไฟให้ใช้ไหม",
+          "ask_en": "Is there Wi-Fi for customers?",
+          "auto": "osm-internet-access"
+        },
+        {
+          "key": "wheelchair",
+          "icon": "♿",
+          "th": "เข้าด้วยรถเข็นได้",
+          "en": "Step-free entry",
+          "ask_th": "รถเข็นเข้าได้ไหม มีทางลาดหรือพื้นเสมอ",
+          "ask_en": "Can a wheelchair get in — ramp or level floor?",
+          "auto": "osm-wheelchair"
+        },
+        {
+          "key": "open24",
+          "icon": "🕓",
+          "th": "เปิด 24 ชม.",
+          "en": "Open 24h",
+          "ask_th": "เปิด 24 ชั่วโมงไหม",
+          "ask_en": "Is it open around the clock?",
+          "auto": "hours-24-7"
         }
       ]
     }

@@ -1,0 +1,245 @@
+{
+  "_comment": "Where a person can find a toilet, and how sure we are. Two kinds of knowledge live here and they must never be printed in the same voice. A VERIFIED point is a toilet somebody mapped at a spot: amenity=toilets, 344 in Chiang Mai and 87 in Chiang Rai, and outside the old city that is close to nothing. A TIER is a habit of a class of venue — fuel stations keep a free toilet, temples open theirs in daylight — which is true about the class and is never a claim about the building in front of you. So a tier is always worded as a habit ('stations like this normally have one'), never as a fact, and it always yields to a verified point or a field report at the same spot. The tiers below turn 431 mapped points into roughly two thousand places worth trying, without asserting one thing we were not told.",
+  "version": 1,
+
+  "_windows": "Rough opening windows for a CLASS, local time, used only to say 'likely open' or 'probably closed'. A record carrying its own hours from OSM outranks these and is marked as stated. We never print a flat 'closed' from a class habit — being wrong about that is what sends somebody walking the wrong way.",
+  "windows": {
+    "allday": [0, 24],
+    "late": [5, 24],
+    "mall": [10, 22],
+    "daylight": [6, 18],
+    "daytime": [8, 17],
+    "market": [5, 18],
+    "venue": null
+  },
+
+  "_costs": "Never invented. 'fee-small' is the 5-10 baht coin box that Thai markets and terminals normally keep; of 344 mapped Chiang Mai toilets exactly one recorded its price, so the number here is class knowledge waiting to be replaced by a field report.",
+  "costs": {
+    "free": {"th": "ฟรี", "en": "free", "chip_th": "ฟรี", "chip_en": "free"},
+    "fee-small": {"th": "ประมาณ 5–10 บาท", "en": "about 5-10 baht", "chip_th": "5–10 ฿", "chip_en": "5-10 ฿"},
+    "free-or-small": {"th": "ส่วนใหญ่ฟรี บางแห่งเก็บ 5–10 บาท", "en": "usually free, some charge 5-10 baht", "chip_th": "ฟรี/5–10 ฿", "chip_en": "free / 5-10 ฿"},
+    "with-order": {"th": "ซื้อของก่อน", "en": "buy something first", "chip_th": "ลูกค้า", "chip_en": "customers"}
+  },
+
+  "access": {
+    "public": {"th": "ใครเข้าก็ได้", "en": "anyone may use it"},
+    "visitor": {"th": "สำหรับผู้เข้าชม", "en": "for visitors"},
+    "customer": {"th": "เฉพาะลูกค้า", "en": "customers only"},
+    "guest": {"th": "โถงรับรอง สำหรับแขก", "en": "lobby, for guests"}
+  },
+
+  "_tiers": "Ordered. Rank 1 is what you try first when there is no time to choose. Order is by how dependable the class is, then by how long its doors stay open — not by how nice the room is.",
+  "tiers": [
+    {
+      "key": "fuel",
+      "rank": 1,
+      "emoji": "⛽",
+      "th": "ปั๊มน้ำมัน",
+      "en": "Fuel station",
+      "match": {"sub": ["fuel"]},
+      "access": "public",
+      "cost": "free",
+      "window": "late",
+      "strength": "strong",
+      "basis_th": "ปั๊มใหญ่ — ปตท. บางจาก พีที เชลล์ คาลเท็กซ์ — มีห้องน้ำให้ใช้ฟรีเป็นปกติ ไม่ต้องซื้อของ และหลายแห่งเปิดทั้งคืน เป็นที่พึ่งอันดับแรกของคนไทยเวลารีบ",
+      "basis_en": "The big brands — PTT, Bangchak, PT, Shell, Caltex — normally keep a free toilet, with nothing to buy first, and many stay open all night. This is the first place a Thai driver thinks of.",
+      "source": "class-habit"
+    },
+    {
+      "key": "hospital",
+      "rank": 2,
+      "emoji": "🏥",
+      "th": "โรงพยาบาล",
+      "en": "Hospital",
+      "match": {"cat": ["medical"], "name_any": ["โรงพยาบาล", "hospital"]},
+      "access": "public",
+      "cost": "free",
+      "window": "allday",
+      "strength": "strong",
+      "basis_th": "โรงพยาบาลมีห้องน้ำที่โถงผู้ป่วยนอกและแผนกฉุกเฉิน ฟรี และแผนกฉุกเฉินเปิดตลอด ๒๔ ชั่วโมง",
+      "basis_en": "A hospital keeps toilets in the outpatient hall and by emergency, free to use, and the emergency entrance never closes.",
+      "source": "class-habit"
+    },
+    {
+      "key": "mall",
+      "rank": 3,
+      "emoji": "🛍️",
+      "th": "ห้างสรรพสินค้า",
+      "en": "Shopping mall",
+      "match": {"sub": ["mall"]},
+      "access": "public",
+      "cost": "free",
+      "window": "mall",
+      "strength": "strong",
+      "basis_th": "ห้างมีห้องน้ำฟรีทุกชั้น ป้ายบอกทางชัด และมีห้องน้ำผู้พิการเกือบทุกแห่ง ข้อเสียคือเปิดสายและปิดก่อนเที่ยงคืน",
+      "basis_en": "A mall keeps free toilets on every floor, signposted, and nearly always an accessible one. The catch is the hours — late to open, shut before midnight.",
+      "source": "class-habit"
+    },
+    {
+      "key": "wat",
+      "rank": 4,
+      "emoji": "🛕",
+      "th": "วัด",
+      "en": "Temple",
+      "match": {"cat": ["wat"]},
+      "access": "public",
+      "cost": "free",
+      "window": "daylight",
+      "strength": "strong",
+      "basis_th": "วัดเกือบทุกแห่งมีห้องน้ำให้คนทั่วไปใช้ในเวลาที่วัดเปิด ฟรี — เป็นน้ำใจที่วัดมีให้ผู้มาเยือนมานาน ขอให้แต่งกายสุภาพและถอดรองเท้าตามป้ายในเขตพุทธาวาส หยอดตู้ทำบุญได้ตามศรัทธา",
+      "basis_en": "Almost every temple keeps a toilet open to anyone during temple hours, free — a courtesy temples have long extended to visitors. Dress modestly, follow the shoe signs in the consecrated areas, and drop something in the donation box if you like.",
+      "source": "field",
+      "source_note_th": "ความรู้จากการอยู่จริงในพื้นที่ (นาน) ไม่ใช่จากการเก็บข้อมูล",
+      "source_note_en": "Field knowledge from living here (Nan), not from a crawl."
+    },
+    {
+      "key": "terminal",
+      "rank": 5,
+      "emoji": "🚌",
+      "th": "สถานีขนส่ง-สถานีรถไฟ",
+      "en": "Bus or train station",
+      "match": {"sub": ["station"]},
+      "access": "public",
+      "cost": "fee-small",
+      "window": "late",
+      "strength": "strong",
+      "basis_th": "สถานีขนส่งและสถานีรถไฟมีห้องน้ำแน่นอน เปิดยาวตามรอบรถ ส่วนใหญ่มีตู้เก็บเงิน ๕–๑๐ บาท เตรียมเหรียญไว้",
+      "basis_en": "A terminal always has one, open as long as the coaches run, and usually a 5-10 baht coin box at the door. Keep coins handy.",
+      "source": "class-habit"
+    },
+    {
+      "key": "market",
+      "rank": 6,
+      "emoji": "🧺",
+      "th": "ตลาด",
+      "en": "Market",
+      "match": {"cat": ["market"]},
+      "access": "public",
+      "cost": "fee-small",
+      "window": "market",
+      "strength": "medium",
+      "basis_th": "ตลาดสดส่วนใหญ่มีห้องน้ำรวมอยู่มุมใดมุมหนึ่ง เก็บ ๕–๑๐ บาท มักอยู่หลังแผงหรือใกล้ที่จอดรถ ตลาดเช้าวายก่อนเที่ยง ตลาดเย็นเปิดคนละเวลา",
+      "basis_en": "Most fresh markets keep a block of toilets in one corner for 5-10 baht, usually behind the stalls or by the parking. Morning markets wind down before noon; evening markets keep their own hours.",
+      "source": "class-habit"
+    },
+    {
+      "key": "museum",
+      "rank": 7,
+      "emoji": "🏛️",
+      "th": "พิพิธภัณฑ์-หอศิลป์",
+      "en": "Museum or gallery",
+      "match": {"cat": ["museums-galleries"]},
+      "access": "visitor",
+      "cost": "free",
+      "window": "daytime",
+      "strength": "medium",
+      "basis_th": "พิพิธภัณฑ์และหอศิลป์มีห้องน้ำสะอาดใกล้โถงทางเข้า ปกติเข้าใช้ได้โดยไม่ต้องซื้อบัตร แต่ปิดเร็วและหลายแห่งหยุดวันจันทร์",
+      "basis_en": "Museums and galleries keep clean toilets near the entrance hall, normally reachable without a ticket — but they close early and many shut on Mondays.",
+      "source": "class-habit"
+    },
+    {
+      "key": "university",
+      "rank": 8,
+      "emoji": "🎓",
+      "th": "มหาวิทยาลัย",
+      "en": "University",
+      "match": {"sub": ["university"]},
+      "access": "public",
+      "cost": "free",
+      "window": "daytime",
+      "strength": "medium",
+      "basis_th": "อาคารเรียนมีห้องน้ำฟรีทุกชั้นและไม่มีใครถาม ข้อเสียคือกว่าจะหาอาคารที่ใช่ก็นาน จึงเหมาะเมื่ออยู่ในรั้วอยู่แล้ว",
+      "basis_en": "Teaching buildings keep free toilets on every floor and nobody asks questions. The catch is finding the right building — worth it only if you are already on campus.",
+      "source": "class-habit"
+    },
+    {
+      "key": "park",
+      "rank": 9,
+      "emoji": "🌳",
+      "th": "สวนสาธารณะ",
+      "en": "Public park",
+      "match": {"sub": ["park", "garden"]},
+      "access": "public",
+      "cost": "free-or-small",
+      "window": "daylight",
+      "strength": "medium",
+      "basis_th": "สวนสาธารณะส่วนใหญ่มีอาคารห้องน้ำใกล้ลานจอดรถหรือลานออกกำลังกาย ฟรีหรือหยอด ๕ บาท เปิดตามเวลาสวน",
+      "basis_en": "Most public parks keep a toilet block by the car park or the exercise ground, free or a 5 baht coin, open with the park.",
+      "source": "class-habit"
+    },
+    {
+      "key": "sitdown",
+      "rank": 10,
+      "emoji": "🍜",
+      "th": "ร้านนั่งกิน",
+      "en": "Sit-down food or drink",
+      "match": {"sub": ["cafe", "thai", "international", "noodle", "seafood", "vegetarian", "bakery-dessert", "bar-pub", "riverside", "live-music", "made-to-order"]},
+      "access": "customer",
+      "cost": "with-order",
+      "window": "venue",
+      "strength": "medium",
+      "basis_th": "ร้านที่มีโต๊ะให้นั่งมีห้องน้ำสำหรับลูกค้าเป็นปกติ สั่งน้ำสักแก้วแล้วขอใช้ ได้ผลเกือบทุกครั้ง ยิ่งร้านใหญ่ยิ่งแน่ ร้านรถเข็นและแผงลอยไม่นับ",
+      "basis_en": "A place with tables normally keeps a toilet for customers. Order a drink and ask — it works nearly every time, and the bigger the room the surer it is. Carts and stalls are not in this tier.",
+      "source": "class-habit"
+    },
+    {
+      "key": "hotel",
+      "rank": 11,
+      "emoji": "🏨",
+      "th": "โรงแรม",
+      "en": "Hotel",
+      "match": {"sub": ["hotel-full"]},
+      "access": "guest",
+      "cost": "free",
+      "window": "allday",
+      "strength": "soft",
+      "basis_th": "โรงแรมมีห้องน้ำที่โถงรับรอง เปิดตลอดคืนและมีพนักงานอยู่เสมอ แต่มีไว้สำหรับแขกผู้เข้าพัก ควรทักพนักงานที่เคาน์เตอร์ก่อน อย่าเดินผ่านไปเฉย ๆ",
+      "basis_en": "A hotel has a lobby toilet, staffed and open through the night — but it is there for guests. Ask at the desk rather than walking past it.",
+      "source": "class-habit"
+    }
+  ],
+
+  "_excluded": "Classes deliberately given no tier. Writing the reason down is the point: the next person to look at this file should not have to rediscover why the obvious candidate is missing.",
+  "excluded": [
+    {
+      "key": "convenience",
+      "th": "ร้านสะดวกซื้อ",
+      "en": "Convenience stores",
+      "count_cm": 515,
+      "why_th": "ร้านสะดวกซื้อในไทยไม่ได้มีห้องน้ำให้ลูกค้าใช้เป็นปกติ ต่างจากในต่างประเทศ การใส่ 7-Eleven ๕๑๕ สาขาลงในรายการจะพาคนเดินไปเก้อ — ส่วนแท็ก toilet ที่ร้านสะดวกซื้อมีอยู่แล้วในเว็บนี้ แปลว่า 'แถวนี้มีห้องน้ำ' ไม่ใช่ 'ร้านนี้มี' คนละเรื่องกัน",
+      "why_en": "Thai convenience stores do not normally keep a customer toilet, unlike their counterparts abroad. Listing 515 7-Elevens would send people to a locked door. The `toilet` facet these shops already carry on this site means 'there is one around here', not 'this shop has one' — a different claim entirely."
+    },
+    {
+      "key": "street-food",
+      "th": "รถเข็น-แผงลอย",
+      "en": "Carts and stalls",
+      "count_cm": 181,
+      "why_th": "รถเข็นไม่มีอาคารของตัวเอง จึงไม่มีอะไรจะให้ใช้",
+      "why_en": "A cart has no premises of its own, so there is nothing to offer."
+    },
+    {
+      "key": "lodging-small",
+      "th": "เกสต์เฮาส์-โฮสเทล",
+      "en": "Guesthouses and hostels",
+      "count_cm": 813,
+      "why_th": "มีห้องน้ำแน่นอน แต่มีไว้ให้ผู้เข้าพักเท่านั้น และไม่มีโถงให้คนนอกเดินเข้า",
+      "why_en": "They certainly have toilets, but only for people staying, and there is no lobby for a stranger to walk into."
+    },
+    {
+      "key": "no-habit",
+      "th": "ธนาคาร ฟิตเนส อู่ซ่อม ร้านซักผ้า คอนโด",
+      "en": "Banks, gyms, workshops, laundries, condos",
+      "why_th": "บางแห่งมี บางแห่งไม่มี เดาไม่ได้จากประเภทร้าน จึงไม่ตั้งชั้นให้ รอข้อมูลจากคนที่ไปจริง",
+      "why_en": "Some have one, some do not, and the class does not tell you which — so no tier. These wait on a report from someone who went."
+    }
+  ],
+
+  "_reports": "The closed vocabulary a field report may set. Deliberately small: nothing a submitter types survives contact with it, so a bad-faith report can only ever produce a wrong tick, never injected content. Keys are concatenated words with no separator, matching the convention the existing facets already use (hotfood, twostorey, open24) and the pattern worker/worker.js is checked against. A report at a place OUTRANKS its tier, including `toiletnone` — which is the one place this site records an absence rather than staying silent, because a person who stood at the door and found nothing is giving testimony, not making an inference, and it is the only way a wrong guess comes off the map.",
+  "reports": [
+    {"key": "toilethere", "emoji": "🚻", "th": "มีห้องน้ำให้ใช้", "en": "There is one you can use", "sets": {}},
+    {"key": "toiletfree", "emoji": "🆓", "th": "ใช้ฟรี", "en": "Free to use", "sets": {"cost": "free", "access": "public"}},
+    {"key": "toiletfee5", "emoji": "🪙", "th": "เก็บ ๕ บาท", "en": "Charges 5 baht", "sets": {"cost": "fee-small", "access": "public", "baht": 5}},
+    {"key": "toiletfee10", "emoji": "🪙", "th": "เก็บ ๑๐ บาท", "en": "Charges 10 baht", "sets": {"cost": "fee-small", "access": "public", "baht": 10}},
+    {"key": "toiletnone", "emoji": "🚫", "th": "ที่นี่ไม่มี", "en": "None here", "sets": {"removes": true}}
+  ]
+}

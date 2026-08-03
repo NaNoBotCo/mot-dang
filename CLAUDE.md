@@ -2,6 +2,8 @@
 
 Read `AGENTS.md` first for why the site is shaped this way, and
 `notes/empathy-map.md` for who it is for. This file is only the rules that bite.
+GIS build-out (map layers, breathing map, isochrones): `BOTS.md` is the org
+chart; the live roadmap is on the shared task board.
 
 Thai-first CM+CR directory. Stdlib Python only. `importers/import_all.py` then
 `build.py` → `docs/` (GitHub Pages). Full spec + roadmap in README.md.
@@ -9,7 +11,9 @@ Thai-first CM+CR directory. Stdlib Python only. `importers/import_all.py` then
 Pipeline order: `importers/make_widget_shots.py` (daily — photographs the live
 instruments at wichaa.net; skip it and the sky tile just does not render) →
 `importers/import_all.py` → `importers/build_streets.py` (roads
-and sois; needs `cache/roads/`, ~20 s) → `make_og_cards.py` (optional, needs
+and sois; needs `cache/roads/`, ~20 s) → `importers/sync_claims.py` +
+`importers/sync_toilets.py` (pull what people sent the worker; both keep what
+is on disk if it is unreachable) → `make_og_cards.py` (optional, needs
 Chrome + Pillow, writes `assets/og/`) → `build.py` → push →
 `importers/ping_indexnow.py`.
 
@@ -35,6 +39,52 @@ Rules that bite:
   are never rendered. Every food mark carries `edition` and the badge prints the
   year, because those lists change annually.
 - data/line.json holds the LINE OA id; empty means the LINE blocks stay hidden.
+- **Two kinds of toilet knowledge, never one voice.** `toilets_layer.py` mixes
+  431 mapped points (`amenity=toilets` — certain about the spot, nearly always
+  silent about price) with ~6,600 venues whose CLASS keeps one. A tier is a
+  HABIT: it renders as "stations like this normally have a free toilet" and
+  must never become "this station has a toilet". The sentence we stand behind
+  lives in `data/toilets.json`, in both languages, and is the only wording that
+  should be reused — including by bots, which llms.txt tells so explicitly.
+  A verified point or a field report at the same spot always outranks the tier,
+  `toiletnone` included: it is the one absence this site records, because a
+  person who stood at the door and found nothing is giving testimony, and it is
+  the only way a wrong guess comes off the page.
+- Convenience stores are NOT a toilet tier and that is deliberate — Thai 7-
+  Elevens do not normally keep a customer one. Their existing `toilet` facet
+  means "there is one within 30 m". Different claim, different words; the
+  reasons for every exclusion are written in `data/toilets.json` under
+  `excluded`, and belong there rather than being rediscovered.
+- A toilet report is not a claim. `applyClaim()` refuses to open a claim from
+  ticks alone (a stranger must never be able to lock a shop out of its own
+  listing), so passer-by reports live in the worker's own `toilet:` keyspace
+  via `POST /toilet`, and `importers/sync_toilets.py` snapshots them the same
+  way sync_claims.py does. That sync keeps what is on disk when the worker is
+  unreachable rather than writing an empty file over real reports.
+- **KV list is eventually consistent; KV get is not.** `GET /toilets` uses
+  `KV.list`, so a report just written can be missing from it for up to ~60 s
+  while `wrangler kv key get --remote` already returns it. Do not go bug-
+  hunting in `listPrefix` over this, and do not sync-and-build the instant
+  somebody reports — the next sync catches it.
+- Cleaning up test data in KV: `--remote` or you are editing the local
+  simulation and silently changing nothing real. `wrangler kv key delete` has
+  no `--force` — passing it prints usage and deletes nothing, which looks
+  exactly like a successful run if you do not read the output. Always list the
+  prefix afterwards to confirm.
+- The toilets page sorts by distance and NOTHING else. An earlier version
+  nudged confirmed rows up by 90 m and produced a list reading 80, 120, 270,
+  180 — on a page promising "nearest first" that reads as broken. Confidence
+  belongs in the row's chips, not in the sort.
+- The which-way panel on /toilets.html is drawn in the BROWSER, not at build
+  time, because it centres on wherever the reader is — the one map on this
+  site that has to be. Still no tiles and no library: every shape comes from
+  coordinates in the baked file, and the moat and its nine gates come from
+  `MOAT_POLY` / `_moat_crossings()`, so a gate can never sit in one place on
+  the plan map and somewhere else here. Test whether the ring's BOUNDING BOX
+  overlaps the frame, never whether a corner is inside it: the moat is four
+  points with very long sides, and standing at Tha Phae Gate — on the moat —
+  every corner is off-frame while the side you are standing on runs through
+  the middle. The vertex test drew nothing there.
 - The cinema showtime request recipe — address, form fields, screen ids — lives
   in `~/.mot-dang-showtimes.json`, never in the repo. Same arrangement as the
   LINE channel token. `make_showtimes.py --template` prints the shape; without
@@ -95,6 +145,48 @@ Rules that bite:
 - `importers/routing.py` is a second implementation of the routing in
   `build.py`'s plan JS. They must agree, above all on `oneway` binding ride and
   not foot, and on the snap walk-in being added at both ends.
+- **The line on the plan map is the journey in the number beside it.** A stop
+  snaps part-way along an edge, so a leg starts and ends with a PIECE of a
+  road; `route()` cuts those pieces in (`cutEdge`) and returns a path even when
+  both stops sit on one edge. Draw only the junction chain and a 1.8 km walk
+  comes out as 280 m of road with a straight line over the rest, and a
+  same-edge leg draws nothing at all while still reporting a distance. The
+  `#8a7a62` stub means one thing only: the walk in from the pin to the road.
+- **A stop more than `FAR_FROM_ROAD` (100 m) from any road in the graph is not
+  really on the network** and its leg says so on the page, with a link out to
+  OSM. วัดเมืองลัง is the one on the merit rounds: 450 m from our nearest
+  junction where OSM has a footpath 10 m away, so a 4.3 km walk read as 916 m.
+  Extending the road crawl there is the real fix and needs her go-ahead.
+- **Moat and gates on the plan map, by rule, not by luck.** If a side of the
+  ring crosses the frame it is drawn AND named; every gate or แจ่ง corner
+  inside the frame is drawn AND named, in both languages; a frame wholly inside
+  the walls says so in words. The nine come from `_moat_crossings()` reading
+  the catalogue's own records — never a hand-typed list of gate names.
+- **A place is shown under both its names, never one instead of the other.**
+  `name_pair(r)` resolves the pair — Thai from `nameTh` or from `name` when
+  that is the Thai one, Latin from `nameEn` or from `name` — and everything a
+  reader sees goes through `name_bi()` (markup), `name_text()` (alt, title,
+  aria, share) or `name_th()`/`name_en()` (inside a sentence in one language).
+  `name_of()` stays the single canonical string and must not change shape:
+  `place_slug` reads it, and a slug that moves is a 404 after deploy.
+  A listing row carries `data-n` (both, so either language filters it) and
+  `data-ne` (Latin alone, so ก→ฮ in English-only mode sorts by the name on the
+  screen). `index.json` carries Thai in `n` and Latin in `e`; search matches
+  the two concatenated. JSON-LD keeps one `name` and puts the other in
+  `alternateName`; per-place `.json` publishes the resolved pair as `names`.
+  `bi()` puts `lang=` on each half — the page element says `lang="th"`, so
+  without it every English gloss on the site is read aloud in a Thai voice.
+- `data/curated/names.json` — names a crawl left empty. Same rule as
+  `honours.json`: nothing enters `names` without a fetched source URL, leads
+  wait in `unverified` and are never rendered, and a curated name only ever
+  fills an empty field. No machine transliteration: an absent English name is
+  a smaller error than an invented one. Run `importers/import_all.py` for a
+  change here to reach `data/canonical/`.
+- `importers/build_merit.py` folds a second spelling of a temple only when the
+  looser key and the ground both agree (`loose_name` + `SAME_PLACE_M`). A round
+  of nine that visits one temple twice is eight.
+- `node tests/test_plan_routes.js` after the build, with the others. Set
+  `MD_DOCS` to a scratch build if somebody else is holding `docs/`.
 - Run `tests/test_publish_gate.py` after the build and before `git add docs/`.
 - Every image says what it is FOR, not what it is. `tests/test_alt_text.py`
   fails a missing `alt`, an unlabelled `role="img"`, and a label that is only

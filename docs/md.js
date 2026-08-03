@@ -2,9 +2,11 @@
 // The markup twin of build.py's bi(). Anything the client fills in has to
 // join its two languages the same way the server does, or a gloss hydrated by
 // JS ends up jammed against the Thai ("สีส้มorange") in both-mode.
-function mdBi(th,en){th=th==null?'':th;if(!en)return '<span class="th">'+th+'</span>';
-var sep=/[·—–:-]\s*$/.test(th)?'':'<span class="th"> · </span>';
-return '<span class="bi"><span class="th">'+th+'</span><span class="en">'+sep+en+'</span></span>';}
+function mdBi(th,en){th=th==null?'':th;
+if(!en)return '<span class="th" lang="th">'+th+'</span>';
+var sep=/[·—–:-]\s*$/.test(th)?'':'<span class="th" lang="th"> · </span>';
+return '<span class="bi"><span class="th" lang="th">'+th+'</span>'+
+'<span class="en" lang="en">'+sep+en+'</span></span>';}
 
 // ---- language: Thai, both, or English ---------------------------------
 // Default is both. Someone who reads only one of the two should not have to
@@ -251,12 +253,17 @@ e.preventDefault();const idx=await loadIndex();
 const pick=idx[Math.floor(Math.random()*idx.length)];
 location.href=RROOT+pick.p+'/p/'+pick.s+'.html';});});
 // ---- sort toolbar: name / distance ----------------------------------
+// ก→ฮ sorts by the name the reader can actually see. A row carries both, and
+// in English-only mode sorting by the Thai one puts every list in an order
+// that reads as no order at all.
+function mdSortKey(el){
+return (B.classList.contains('lang-en')&&el.dataset.ne)||el.dataset.n||'';}
 const dirList=document.querySelector('ul.dir[data-sortable]');
 if(dirList){
 const items=[...dirList.children];
 const byName=document.getElementById('sort-name'),byDist=document.getElementById('sort-dist');
 byName&&byName.addEventListener('click',()=>{
-items.sort((a,b)=>(a.dataset.n||'').localeCompare(b.dataset.n||'','th'));
+items.sort((a,b)=>mdSortKey(a).localeCompare(mdSortKey(b),'th'));
 items.forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appendChild(li);});
 document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('on'));
 byName.classList.add('on');});
@@ -282,7 +289,7 @@ const reorder=(btn,cmp)=>{if(!btn)return;btn.addEventListener('click',()=>{
 items.sort(cmp);
 items.forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appendChild(li);});
 btns.forEach(x=>x&&x.classList.remove('on'));btn.classList.add('on');});};
-const nm=(a,b)=>(a.dataset.n||'').localeCompare(b.dataset.n||'','th');
+const nm=(a,b)=>mdSortKey(a).localeCompare(mdSortKey(b),'th');
 const rk=li=>parseInt(li.dataset.rank||'0',10);
 reorder(document.getElementById('sort-rank'),(a,b)=>rk(b)-rk(a)||nm(a,b));
 reorder(document.getElementById('sort-love'),(a,b)=>rk(a)-rk(b)||nm(a,b));
@@ -588,6 +595,11 @@ const MOAT=GEO.moat;
 // side of the water it stands on.
 const POLY=(GEO.poly||[]).map(p=>({lat:p[0],lng:p[1]}));
 const POLY_EDGES=POLY.map((p,i)=>[p,POLY[(i+1)%POLY.length]]);
+// The five gates and the four แจ่ง corners, as the catalogue pins them — the
+// same records build.py routes a moat crossing by. Where a person gets over
+// the water is the thing anybody here gives directions by, so any map showing
+// a stretch of moat names the ways across it that stand on that map.
+const GATES=(GEO.gates||[]).map(g=>({lat:g[0],lng:g[1],th:g[2],en:g[3],kind:g[4]}));
 const elEmpty=document.getElementById('planempty'),elHas=document.getElementById('planhasstops'),
 elTotal=document.getElementById('plantotal'),elMap=document.getElementById('planmap'),
 elBanner=document.getElementById('planbanner');
@@ -699,6 +711,35 @@ if(l<a.length&&a[l][0]<a[m][0])m=l;
 if(r<a.length&&a[r][0]<a[m][0])m=r;
 if(m===i)break;const t=a[m];a[m]=a[i];a[i]=t;i=m;}}
 return top;};
+// ---- cutting a road at a point ----------------------------------------
+// A snapped stop stands part of the way along an edge, not at a junction, so
+// the first and the last stretch of every journey is a PIECE of a road. The
+// junction chain alone leaves those pieces out, and the straight stub then
+// covers them — claiming a hundred metres of real street is "the walk in from
+// the pin". Cut the edge instead and draw the ground that is actually walked.
+function segLen(p,q){const kx=Math.cos((p[0]+q[0])/2*Math.PI/180)*111320,ky=110540;
+return Math.hypot((q[1]-p[1])*kx,(q[0]-p[0])*ky);}
+function edgeLen(pts){let t=0;for(let k=0;k<pts.length-1;k++)t+=segLen(pts[k],pts[k+1]);return t;}
+function atAlong(pts,d){
+let run=0;
+for(let k=0;k<pts.length-1;k++){const L=segLen(pts[k],pts[k+1]);
+if(run+L>=d){const t=L?(d-run)/L:0;
+return [pts[k][0]+(pts[k+1][0]-pts[k][0])*t,pts[k][1]+(pts[k+1][1]-pts[k][1])*t];}
+run+=L;}
+return pts[pts.length-1];}
+// The part of one edge between two distances along it, given in travel order.
+function cutEdge(ei,d0,d1){
+const pts=GRAPH.geom[ei],L=edgeLen(pts);
+const a=Math.max(0,Math.min(L,Math.min(d0,d1))),b=Math.max(0,Math.min(L,Math.max(d0,d1)));
+const out=[atAlong(pts,a)];
+let run=0;
+for(let k=0;k<pts.length-1;k++){run+=segLen(pts[k],pts[k+1]);
+if(run>a+0.01&&run<b-0.01)out.push(pts[k+1]);}
+out.push(atAlong(pts,b));
+return d1<d0?out.reverse():out;}
+function joinLine(line,pts){pts.forEach(pt=>{const last=line[line.length-1];
+if(!last||Math.abs(last[0]-pt[0])>1e-9||Math.abs(last[1]-pt[1])>1e-9)line.push(pt);});
+return line;}
 // Dijkstra from both ends of the start edge to both ends of the goal edge.
 // Directed: an edge is only traversable the way this mode is allowed to take
 // it, which is where oneway earns its keep.
@@ -710,7 +751,8 @@ if(!GRAPH||!from||!to)return null;
 if(from.edge===to.edge){
 const fwd=to.fromA>=from.fromA;
 if(passable(GRAPH.edges[from.edge][3],mode,fwd))
-return {m:Math.abs(to.fromA-from.fromA),path:null,sameEdge:true};}
+return {m:Math.abs(to.fromA-from.fromA),
+path:cutEdge(from.edge,from.fromA,to.fromA),sameEdge:true};}
 const N=GRAPH.nodes.length;
 const cost=new Float64Array(N).fill(Infinity);
 const prevN=new Int32Array(N).fill(-1),prevE=new Int32Array(N).fill(-1);
@@ -739,17 +781,22 @@ if(!passable(flags,mode,fwd===1))continue;
 const nc=c+len;
 if(nc<cost[to2]){cost[to2]=nc;prevN[to2]=n;prevE[to2]=ei;h.push(nc,to2);}}}
 if(bestGoal===null)return null;
-// Stitch the junction chain back into one polyline for drawing.
+// Stitch the whole journey into one polyline: the piece of the first road from
+// the stop out to the junction it leaves by, then the junction chain, then the
+// piece of the last road in to the second stop. Leaving the two end pieces out
+// drew a 1.8 km walk as 280 m of road and a straight line across the rest.
 const chain=[];
 let cur=bestGoal;
 while(cur!==-1&&prevE[cur]!==-1){chain.push([prevE[cur],cur]);cur=prevN[cur];}
 chain.reverse();
 const line=[];
+joinLine(line,cutEdge(from.edge,from.fromA,
+(cur===from.a)?0:edgeLen(GRAPH.geom[from.edge])));
 chain.forEach(([ei,into])=>{
 const e=GRAPH.edges[ei],pts=GRAPH.geom[ei];
-const seq=(e[1]===into)?pts:pts.slice().reverse();
-seq.forEach(pt=>{const last=line[line.length-1];
-if(!last||last[0]!==pt[0]||last[1]!==pt[1])line.push(pt);});});
+joinLine(line,(e[1]===into)?pts:pts.slice().reverse());});
+joinLine(line,cutEdge(to.edge,
+(bestGoal===to.a)?0:edgeLen(GRAPH.geom[to.edge]),to.fromA));
 return {m:bestCost,path:line};}
 // ---- the errand solver -------------------------------------------------
 // Pick a pharmacy, an ATM and som tam by NAME and any tool will route between
@@ -871,8 +918,15 @@ return 'https://www.openstreetmap.org/directions?engine=fossgis_osrm_'+MODES[mod
 '&route='+a.lat.toFixed(5)+'%2C'+a.lng.toFixed(5)+'%3B'+b.lat.toFixed(5)+'%2C'+b.lng.toFixed(5);}
 // One leg, both ways of travelling it. The two modes get different distances
 // because they are genuinely different journeys — that is the whole point.
+// A stop this far from any road we hold is not really on the network, and the
+// straight walk-in charged for it is a guess. วัดเมืองลัง sits 450 m from the
+// nearest junction in the graph while OSM has a footpath 10 m away, and the
+// leg came out 916 m against a real walk of 4.3 km. One stop of the ninety on
+// the merit rounds is in that state — rare enough to name on the page rather
+// than hide, and never to pass off as a measured distance.
+const FAR_FROM_ROAD=100;
 function leg(a,b){
-const out={crow:km(a,b),foot:null,ride:null,routed:false};
+const out={crow:km(a,b),foot:null,ride:null,routed:false,far:0};
 if(GRAPH_STATE!=='ready'||!inArea(a)||!inArea(b))return out;
 for(const mode of ['foot','ride']){
 const s=snap(a,mode),t=snap(b,mode);
@@ -881,7 +935,8 @@ const r=route(s,t,mode);
 if(!r)continue;
 // Add the walk-in from each stop to the road it was snapped to; otherwise a
 // shop set back from the street reads as being on it.
-out[mode]={km:(r.m+s.d+t.d)/1000,path:r.path,snap:Math.round(s.d+t.d)};}
+out[mode]={km:(r.m+s.d+t.d)/1000,path:r.path,snap:Math.round(s.d+t.d)};
+out.far=Math.max(out.far,Math.round(Math.max(s.d,t.d)));}
 out.routed=!!(out.foot||out.ride);
 return out;}
 async function resolve(keys){
@@ -907,6 +962,59 @@ await loadGraph();
 let places=await resolve(stops);
 // Drop anything the index no longer knows, rather than leaving a hole.
 if(places.length!==stops.length&&!incoming){stops=places.map(p=>p.key);planSet(stops);}
+// Is a point inside the moat ring? Ray casting, because the ring is a little
+// out of square and its bounding box puts Suan Dok Gate on the wrong bank.
+function inRing(p){
+if(POLY.length<3)return false;
+let hit=false;
+for(let i=0,j=POLY.length-1;i<POLY.length;j=i++){
+const yi=POLY[i].lat,xi=POLY[i].lng,yj=POLY[j].lat,xj=POLY[j].lng;
+if((xi>p.lng)!==(xj>p.lng)){
+const ty=(yj-yi)*(p.lng-xi)/((xj-xi)||1e-12)+yi;
+if(p.lat<ty)hit=!hit;}}
+return hit;}
+// Liang–Barsky, enough of it to keep a label on the canvas.
+function clipToBox(p,q,W,H){
+let t0=0,t1=1;const dx=q.x-p.x,dy=q.y-p.y;
+const tests=[[-dx,p.x],[dx,W-p.x],[-dy,p.y],[dy,H-p.y]];
+for(let i=0;i<tests.length;i++){
+const pp=tests[i][0],qq=tests[i][1];
+if(pp===0){if(qq<0)return null;continue;}
+const r=qq/pp;
+if(pp<0){if(r>t1)return null;if(r>t0)t0=r;}
+else{if(r<t0)return null;if(r<t1)t1=r;}}
+return [{x:p.x+t0*dx,y:p.y+t0*dy},{x:p.x+t1*dx,y:p.y+t1*dy}];}
+// Where to write "the moat" so the words land on water that is on the page and
+// not on top of a gate that is also naming itself. Pinning the label to the
+// ring's northernmost corner dropped it off the top of the picture on five of
+// the ten merit rounds — drawn water, no name — and putting it at the middle
+// of the longest visible side then landed it on Chang Phueak Gate.
+function moatLabelPoint(X,Y,W,H,taken){
+let best=null,fallback=null;
+POLY_EDGES.forEach(me=>{
+const p={x:X(me[0].lng),y:Y(me[0].lat)},q={x:X(me[1].lng),y:Y(me[1].lat)};
+const c=clipToBox(p,q,W,H);
+if(!c)return;
+const L=Math.hypot(c[1].x-c[0].x,c[1].y-c[0].y);
+if(L<12)return;
+const upright=Math.abs(c[1].y-c[0].y)>Math.abs(c[1].x-c[0].x);
+if(!fallback||L>fallback.L)fallback={L:L,x:(c[0].x+c[1].x)/2,y:(c[0].y+c[1].y)/2,upright:upright};
+[0.5,0.3,0.7,0.15,0.85].forEach(t=>{
+const x=c[0].x+(c[1].x-c[0].x)*t,y=c[0].y+(c[1].y-c[0].y)*t;
+if(x<40||x>W-40||y<18||y>H-14)return;
+let clear=999;
+(taken||[]).forEach(g=>{clear=Math.min(clear,Math.hypot(g[0]-x,g[1]-y));});
+// Long side, well clear of any gate already naming itself.
+const score=L+Math.min(clear,150)*3;
+if(!best||score>best.score)best={score:score,x:x,y:y,upright:upright};});});
+// Water on the page always gets its name, even when only a sliver of one side
+// shows: a clamped label at the edge beats an unnamed blue dashed line.
+const pick=best||fallback;
+if(!pick)return null;
+const py=Math.min(Math.max(pick.y,18),H-14);
+if(pick.upright){const right=pick.x<W/2;   // the words go on whichever side has room
+return [Math.min(Math.max(right?pick.x+8:pick.x-8,6),W-6),py,right?'start':'end'];}
+return [Math.min(Math.max(pick.x,60),W-60),Math.max(py-7,16),'middle'];}
 function svgMap(list,legs){
 if(!list.length)return'';
 // The stops set the frame — never the moat. Framing to the moat as well
@@ -929,31 +1037,57 @@ n+=padLat;s-=padLat;w-=padLng;e+=padLng;
 const kx=Math.cos((n+s)/2*Math.PI/180),W=760;
 const H=Math.max(240,Math.min(520,W*((n-s)/((e-w)*kx||1e-9))));
 const X=lng=>(lng-w)/(e-w)*W,Y=lat=>(n-lat)/(n-s)*H;
-let o=['<svg viewBox="0 0 '+W+' '+Math.round(H)+'" width="100%" class="planmap" role="img" '+
-'aria-label="แผนที่ทริปของคุณ / map of your route">',
-'<rect width="'+W+'" height="'+Math.round(H)+'" fill="#FBF6EE"/>'];
-// The moat, the square everybody here navigates by — but only when a side of
-// it actually falls inside the frame. A run of stops entirely within the old
-// city frames tighter than the moat itself, and drawing the square then puts
-// all four of its sides off-canvas: markup nobody can see. That case gets the
-// one fact it was there to convey, in words.
-if(POLY.length&&list.some(p=>p.p==='cm')){
+// The moat and its gates, worked out before the picture opens so the map can
+// say in its own label what it is showing. The rule does not depend on where
+// the route happens to sit: if a side of the moat crosses this frame it is
+// drawn AND named, and every gate or แจ่ง corner standing inside the frame is
+// drawn AND named. A frame wholly within the walls has no side to draw, so it
+// gets the one fact in words instead.
+const inFrame=p=>p.lat<n&&p.lat>s&&p.lng>w&&p.lng<e;
+const cmHere=POLY.length&&list.some(p=>p.p==='cm');
 const frame=[{lat:n,lng:w},{lat:n,lng:e},{lat:s,lng:e},{lat:s,lng:w}];
 const frameEdges=frame.map((p,i)=>[p,frame[(i+1)%4]]);
-const vertexIn=p=>p.lat<n&&p.lat>s&&p.lng>w&&p.lng<e;
-const shows=POLY.some(vertexIn)||POLY_EDGES.some(me=>frameEdges.some(fe=>segX(me[0],me[1],fe[0],fe[1])));
+const moatShows=!!cmHere&&(POLY.some(inFrame)
+||POLY_EDGES.some(me=>frameEdges.some(fe=>segX(me[0],me[1],fe[0],fe[1]))));
+// Only claim "inside the old city" when the frame really does sit in the ring.
+// A plan out in Hang Dong also fails to show a side of the moat, and telling
+// its reader they are inside the walls would simply be untrue.
+const insideWalls=!!cmHere&&!moatShows&&frame.every(inRing);
+const gatesHere=cmHere?GATES.filter(inFrame):[];
+let aria='แผนที่ทริปของคุณ '+list.length+' จุด · map of your route, '+list.length+' stops';
+if(moatShows)aria+=' — คูเมืองอยู่ในภาพ · the old city moat runs across it';
+else if(insideWalls)aria+=' — ทั้งหมดอยู่ในเวียงเก่า · all of it inside the old city';
+if(gatesHere.length)aria+=' — '+gatesHere.map(g=>g.th+' '+g.en).join(', ');
+let o=['<svg viewBox="0 0 '+W+' '+Math.round(H)+'" width="100%" class="planmap" role="img" '+
+'aria-label="'+H2(aria)+'">',
+'<rect width="'+W+'" height="'+Math.round(H)+'" fill="#FBF6EE"/>'];
+if(moatShows){
 o.push('<path d="'+POLY.map((p,i)=>(i?'L':'M')+X(p.lng).toFixed(1)+' '+Y(p.lat).toFixed(1)).join(' ')+
 'Z" fill="none" stroke="#2a78d6" stroke-width="2" stroke-dasharray="5 4" opacity=".55">'+
 '<title>คูเมืองเชียงใหม่ (เส้นโดยประมาณ จากหมุดแจ่งทั้งสี่) · the old city moat, '+
 'traced from the four แจ่ง corner pins</title></path>');
-// Label above the ring's northernmost point — the ring is ordered by bearing,
-// so no fixed index is "the top".
-if(shows){const top=POLY.reduce((a,b)=>b.lat>a.lat?b:a),ty=Y(top.lat)-8;
-if(ty>14)o.push('<text x="'+Math.min(Math.max(X(top.lng),60),W-60).toFixed(1)+
-'" y="'+ty.toFixed(1)+'" text-anchor="middle" font-size="11" fill="#2a78d6" opacity=".8">'+
-'คูเมือง · the moat</text>');}
-else o.push('<text x="'+(W-12)+'" y="20" text-anchor="end" font-size="11" fill="#2a78d6" '+
-'opacity=".8">ในเวียงเก่า · inside the old city</text>');}
+const lab=moatLabelPoint(X,Y,W,H,gatesHere.map(g=>[X(g.lng),Y(g.lat)]));
+if(lab)o.push('<text x="'+lab[0].toFixed(1)+'" y="'+lab[1].toFixed(1)+'" text-anchor="'+lab[2]+
+'" font-size="11" fill="#2a78d6" opacity=".9">คูเมือง · the moat</text>');}
+else if(insideWalls)o.push('<text x="'+(W-12)+'" y="20" text-anchor="end" font-size="11" '+
+'fill="#2a78d6" opacity=".8">ในเวียงเก่า · inside the old city</text>');
+// A gate is a diamond on the water, named in both languages. Cream-filled so
+// the route line reads through it, and drawn before the legs so a red walking
+// line lies over the landmark rather than under it.
+gatesHere.forEach(g=>{
+const gx=X(g.lng),gy=Y(g.lat);
+o.push('<path d="M'+gx.toFixed(1)+' '+(gy-6).toFixed(1)+'l6 6l-6 6l-6-6Z" fill="#FBF6EE" '+
+'stroke="#2a78d6" stroke-width="2" opacity=".95"><title>'+H2(g.th+' · '+g.en)+
+'</title></path>');
+const gl=g.th+' · '+g.en,half=gl.length*3.1;
+let ga='middle',gxl=gx;
+if(gx-half<4){ga='start';gxl=4;}else if(gx+half>W-4){ga='end';gxl=W-4;}
+// Under the gate normally; over it when a stop is standing where the words
+// would go, since two names in one place is neither name.
+const crowded=list.some(p=>Math.hypot(X(p.lng)-gx,Y(p.lat)-(gy+20))<46);
+const gyl=crowded?Math.max(14,gy-12):Math.min(H-5,gy+20);
+o.push('<text x="'+gxl.toFixed(1)+'" y="'+gyl.toFixed(1)+'" text-anchor="'+ga+
+'" font-size="10" fill="#2a78d6" opacity=".9">'+H2(gl)+'</text>');});
 // Draw the roads the route really follows. Both modes, because they diverge:
 // where the walk and the ride part company is exactly the thing worth seeing.
 // The scooter line goes down first and solid, the walking line over it dashed,
@@ -1044,6 +1178,10 @@ if(L.foot)lines.push('   ↓ เดิน/walk '+dist(L.foot.km)+' — '+mins(L.
 else lines.push('   ↓ เดินไปไม่ได้ / not walkable');
 if(L.ride)lines.push('     ขี่/scooter '+dist(L.ride.km)+' — '+mins(L.ride.km,MODES.ride.kmh)+' นาที/min');
 else lines.push('     ขี่ไปไม่ได้ / no road for a scooter');
+if(L.far>=FAR_FROM_ROAD){
+lines.push('     จุดหนึ่งห่างถนนที่บันทึกไว้ '+L.far+' ม. ระยะจริงน่าจะไกลกว่านี้ / one stop is '+
+L.far+' m from the nearest road on record, so the real distance is probably longer');
+lines.push('     '+osmDirections(p,nx,'foot'));}
 }else{
 lines.push('   ↓ '+dist(L.crow)+' เส้นตรง ยังไม่ได้คิดตามถนน / straight line, not routed');
 lines.push('     '+osmDirections(p,nx,'foot'));}}
@@ -1098,6 +1236,12 @@ let note='';
 if(f&&r&&r.km>f.km*1.25)note='<span class="planvia">↳ '+
 'ขี่ไกลกว่าเดิน '+dist(r.km-f.km)+' — ถนนทางเดียวหรือต้องกลับรถ / '+
 'the ride is '+dist(r.km-f.km)+' longer: one-way, or a U-turn to get across</span>';
+if(L.far>=FAR_FROM_ROAD){const A=places[i],B=places[i+1];
+note+='<span class="planvia">↳ จุดหนึ่งในช่วงนี้อยู่ห่างถนนที่มดบันทึกไว้ '+L.far+
+' ม. ระยะจริงน่าจะไกลกว่านี้ / one stop on this leg is '+L.far+
+' m from the nearest road on record, so the real distance is probably longer '+
+'<a class="planosm" href="'+H2(osmDirections(A,B,'foot'))+'" rel="noopener">'+
+'🚶 ดูเส้นทางจริง/check it ↗</a></span>';}
 legHtml='<li class="planleg">'+rows+note+'</li>';
 }else{
 const A=places[i],B=places[i+1];

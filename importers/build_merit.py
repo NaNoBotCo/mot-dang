@@ -64,6 +64,28 @@ def norm_name(s):
     return re.sub(r"[\s\-–—_.]+", "", s).lower()
 
 
+def loose_name(s):
+    """The same key, blind to a parenthetical and to tone marks.
+
+    วัดปันเส่า and วัดปันเสา(พันเสา) are one temple mapped twice, one tone mark
+    and a bracket apart, with 22 m of ground between the two pins — and the
+    exact key put both on the same round of nine, which then visited eight
+    temples while saying nine. Blunt enough to catch that, so it is only ever
+    trusted together with the distance test below: across the 104 temples in
+    the box it matches that one pair and nothing else, but the catalogue grows
+    and a key this blunt must not be allowed to merge two real temples on its
+    own word.
+    """
+    s = (s or "").strip()
+    s = re.sub(r"^(วัด|Wat)\s*", "", s, flags=re.IGNORECASE)
+    s = re.sub(r"[（(][^）)]*[）)]", "", s)
+    s = re.sub(r"[่-๋]", "", s)
+    return re.sub(r"[\s\-–—_.]+", "", s).lower()
+
+
+SAME_PLACE_M = 100
+
+
 def moat_ring(by_id):
     pts = [by_id.get(MOAT_CORNER_IDS[k]) for k in ("nw", "ne", "se", "sw")]
     if not all(p and p.get("lat") is not None for p in pts):
@@ -161,8 +183,22 @@ def main():
             continue
         seen[k] = True
         wats.append(r)
-    print("temples inside the routable box: %d  (%d duplicate names folded)"
-          % (len(wats), dupes))
+    # Second pass: one temple under two spellings. Both the looser key and the
+    # ground have to agree before anything is folded here.
+    kept, near_dupes = [], 0
+    for r in wats:
+        lk = loose_name(r.get("name"))
+        twin = next((q for q in kept
+                     if loose_name(q.get("name")) == lk
+                     and hav((r["lat"], r["lng"]), (q["lat"], q["lng"])) <= SAME_PLACE_M), None)
+        if twin is not None:
+            near_dupes += 1
+            continue
+        kept.append(r)
+    wats = kept
+    print("temples inside the routable box: %d  (%d duplicate names folded, "
+          "%d second spellings of a temple already listed)"
+          % (len(wats), dupes, near_dupes))
 
     pts = [(w["lat"], w["lng"]) for w in wats]
     print("routing %d temples, both modes..." % len(pts))
@@ -225,6 +261,10 @@ def main():
             "stops": [{
                 "id": wats[i]["id"],
                 "name": wats[i].get("name"),
+                # Both, where the record holds both. A reader of this file gets
+                # what the page gets; the page itself resolves the pair from the
+                # catalogue, so the two cannot disagree.
+                "nameTh": wats[i].get("nameTh"),
                 "nameEn": wats[i].get("nameEn"),
                 "province": wats[i]["province"],
                 "lat": wats[i]["lat"], "lng": wats[i]["lng"],

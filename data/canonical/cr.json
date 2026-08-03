@@ -1287,7 +1287,10 @@
   "website": null,
   "hours": "Mo-Sa 09:00-18:00",
   "attrs": {
-   "email": "dsyoung23@gmail.com"
+   "email": "dsyoung23@gmail.com",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -1459,7 +1462,12 @@
   "phone": "+6695 950 9462",
   "website": "https://instagram.com/fallenfruit.cei",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag",
+    "aircon": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -1595,7 +1603,12 @@
    "houseNumber": "1055",
    "street": "ถนน สนามบิน",
    "postcode": "57000",
-   "email": "1055brewer@gmail.com"
+   "email": "1055brewer@gmail.com",
+   "facets": {
+    "wifi": "osm-tag",
+    "aircon": "osm-tag",
+    "wheelchair": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -1629,7 +1642,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wheelchair": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -2024,7 +2041,10 @@
    "houseNumber": "580",
    "street": "ถนนพหลโยธิน",
    "postcode": "57100",
-   "cuisine": "tea;coffee;bun;croissant"
+   "cuisine": "tea;coffee;bun;croissant",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -3586,7 +3606,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -5015,7 +5039,10 @@
   "website": null,
   "hours": "Mo-su 08:00-18:00",
   "attrs": {
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -5050,7 +5077,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "cuisine": "italian;italian_pizza"
+   "cuisine": "italian;italian_pizza",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -5194,7 +5224,10 @@
    "moo": "5",
    "subdistrict": "รอบเวียง",
    "district": "เมืองเชียงราย",
-   "postcode": "57000"
+   "postcode": "57000",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -5303,7 +5336,11 @@
    "postcode": "57100",
    "cuisine": "steak_house;coffee_shop;burger;sandwich;chicken;asian;thai;cake",
    "email": "jakaphan513457@icloud.com",
-   "facebook": "https://www.facebook.com/share/1CQGmeAbq6/?mibextid=wwXIfr"
+   "facebook": "https://www.facebook.com/share/1CQGmeAbq6/?mibextid=wwXIfr",
+   "facets": {
+    "wifi": "osm-tag",
+    "aircon": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -5876,7 +5913,11 @@
    "subdistrict": "บัวสลี",
    "district": "แม่ลาว",
    "postcode": "57250",
-   "cuisine": "coffee_shop;thai;fine_dining;fusion"
+   "cuisine": "coffee_shop;thai;fine_dining;fusion",
+   "facets": {
+    "wifi": "osm-tag",
+    "aircon": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -5943,7 +5984,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -6012,7 +6057,10 @@
   "attrs": {
    "street": "San tan lueang Soi 2/3",
    "postcode": "57100",
-   "cuisine": "cake"
+   "cuisine": "cake",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -6241,7 +6289,10 @@
    "postcode": "57100",
    "cuisine": "coffee_shop;italian;thai",
    "email": "bundarnjai@gmail.com",
-   "facebook": "http://www.facebook.com/bundarnjai"
+   "facebook": "http://www.facebook.com/bundarnjai",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -6524,7 +6575,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "cuisine": "breakfast"
+   "cuisine": "breakfast",
+   "facets": {
+    "aircon": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -6596,7 +6650,11 @@
   "attrs": {
    "cuisine": "breakfast;soup;sandwich",
    "facebook": "https://www.facebook.com/goodcarb.cafe/",
-   "instagram": "https://www.instagram.com/goodcarb_cafe"
+   "instagram": "https://www.instagram.com/goodcarb_cafe",
+   "facets": {
+    "wifi": "osm-tag",
+    "aircon": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -6664,7 +6722,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "cuisine": "breakfast"
+   "cuisine": "breakfast",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -6830,7 +6891,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -7096,7 +7161,11 @@
   "phone": "+66 90 262 4144",
   "website": null,
   "hours": "Mo-Su 09:00-22:00",
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -7165,7 +7234,10 @@
   "website": null,
   "hours": "Mo-Su 10:00-14:00, 17:00-22:00",
   "attrs": {
-   "cuisine": "pizza"
+   "cuisine": "pizza",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -7590,7 +7662,12 @@
    "street": "ราษฎร์บำรุงซอย2/2",
    "moo": "201/6",
    "district": "เมืองเชียงราย",
-   "postcode": "57000"
+   "postcode": "57000",
+   "facets": {
+    "open24": "osm-tag",
+    "wifi": "osm-tag",
+    "aircon": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -12464,7 +12541,10 @@
   "hours": null,
   "attrs": {
    "cuisine": "thai",
-   "operator": "Yan"
+   "operator": "Yan",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -13268,7 +13348,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "cuisine": "asian;italian;burger"
+   "cuisine": "asian;italian;burger",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -13373,7 +13456,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -14637,7 +14724,12 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag",
+    "wheelchair": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -14950,7 +15042,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -14983,7 +15079,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -15359,7 +15459,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -16044,7 +16147,12 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "facets": {
+    "wifi": "osm-tag",
+    "aircon": "osm-tag",
+    "wheelchair": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -18529,7 +18637,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -18637,7 +18749,10 @@
    "subdistrict": "ริมกก",
    "district": "เมือง",
    "postcode": "57100",
-   "cuisine": "coffee_shop;thai;japanese"
+   "cuisine": "coffee_shop;thai;japanese",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -18747,7 +18862,10 @@
   "attrs": {
    "street": "Doi Pa Bath",
    "cuisine": "tea;coffee_shop",
-   "operator": "Bee"
+   "operator": "Bee",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -18785,7 +18903,10 @@
    "houseNumber": "869/39",
    "street": "ถนนไทยวิวัฒ์",
    "postcode": "57000",
-   "email": "buffbearwhite@gmail.com"
+   "email": "buffbearwhite@gmail.com",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -19102,7 +19223,10 @@
   "attrs": {
    "street": "ถนน สันคอกช้าง",
    "postcode": "57000",
-   "cuisine": "thai"
+   "cuisine": "thai",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -19137,7 +19261,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "street": "ถนน รัตนเขต"
+   "street": "ถนน รัตนเขต",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -19279,7 +19406,11 @@
   "website": null,
   "hours": "Mo-Sa 10:00-22:00; Su off",
   "attrs": {
-   "cuisine": "thai"
+   "cuisine": "thai",
+   "facets": {
+    "wifi": "osm-tag",
+    "wheelchair": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -20079,7 +20210,10 @@
    "houseNumber": "525/2",
    "street": "ถนนพหลโยธิน",
    "postcode": "57100",
-   "cuisine": "noodles;thai;coffee_shop;asian"
+   "cuisine": "noodles;thai;coffee_shop;asian",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -20147,7 +20281,10 @@
   "website": null,
   "hours": "Mo-Su 10:00-22:00",
   "attrs": {
-   "cuisine": "thai"
+   "cuisine": "thai",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -20449,7 +20586,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -20483,7 +20624,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "cuisine": "french;thai"
+   "cuisine": "french;thai",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -20689,7 +20833,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -20841,7 +20989,10 @@
   "website": null,
   "hours": "Mo-Su 10:00-22:00",
   "attrs": {
-   "cuisine": "thai"
+   "cuisine": "thai",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -20909,7 +21060,10 @@
   "website": null,
   "hours": "Mo-Su 09:00-18:00",
   "attrs": {
-   "cuisine": "thai"
+   "cuisine": "thai",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -20947,7 +21101,10 @@
    "houseNumber": "1025/5",
    "street": "ถนนเจ็ดยอด",
    "cuisine": "pizza;burger;sandwich;breakfast",
-   "email": "pethna39@gmail.com"
+   "email": "pethna39@gmail.com",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -20981,7 +21138,12 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag",
+    "wheelchair": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -21014,7 +21176,11 @@
   "phone": null,
   "website": null,
   "hours": "Mo-Su 08:00-17:00",
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -21691,7 +21857,10 @@
   "website": null,
   "hours": "Mo-Sa 11:00-20:30",
   "attrs": {
-   "cuisine": "chinese;thai"
+   "cuisine": "chinese;thai",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -21827,7 +21996,10 @@
   "website": null,
   "hours": "Mo-Su 08:00-20:00",
   "attrs": {
-   "cuisine": "international;coffee_shop;thai"
+   "cuisine": "international;coffee_shop;thai",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -21862,7 +22034,10 @@
   "website": null,
   "hours": "Mo-Su 08:00-23:00",
   "attrs": {
-   "cuisine": "sandwich;breakfast;grill;thai;coffee_shop"
+   "cuisine": "sandwich;breakfast;grill;thai;coffee_shop",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -22433,7 +22608,10 @@
   "website": null,
   "hours": "Mo-Su 09:00-18:00",
   "attrs": {
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -23080,7 +23258,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -23115,7 +23296,10 @@
   "website": null,
   "hours": "Mo-Su 09:00-16:00",
   "attrs": {
-   "operator": "Farm Design"
+   "operator": "Farm Design",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -23387,7 +23571,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -25622,7 +25810,13 @@
   "phone": null,
   "website": null,
   "hours": "Mo-Sa 08:00-17:00",
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag",
+    "aircon": "osm-tag",
+    "wheelchair": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -26000,7 +26194,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -26275,7 +26473,10 @@
    "houseNumber": "544/1",
    "street": "ถนนพหลโยธิน",
    "postcode": "57000",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -27042,7 +27243,10 @@
   "hours": null,
   "attrs": {
    "cuisine": "coffee_shop",
-   "operator": "Singha Park"
+   "operator": "Singha Park",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -27285,7 +27489,10 @@
    "houseNumber": "162",
    "street": "ถนน บรรพปราการ",
    "postcode": "57000",
-   "cuisine": "coffee_shop;thai"
+   "cuisine": "coffee_shop;thai",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -27872,7 +28079,11 @@
   "hours": null,
   "attrs": {
    "brand": "Yayoi",
-   "cuisine": "japanese"
+   "cuisine": "japanese",
+   "facets": {
+    "aircon": "osm-tag",
+    "wheelchair": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -27906,7 +28117,12 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "aircon": "osm-tag",
+    "wheelchair": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -28518,7 +28734,10 @@
   "hours": null,
   "attrs": {
    "cuisine": "noodle",
-   "email": "ononok747@gmail.com"
+   "email": "ononok747@gmail.com",
+   "facets": {
+    "wheelchair": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -28554,7 +28773,10 @@
   "hours": null,
   "attrs": {
    "cuisine": "noodle",
-   "email": "ononok747@gmail.com"
+   "email": "ononok747@gmail.com",
+   "facets": {
+    "wheelchair": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -28591,7 +28813,10 @@
   "attrs": {
    "brand": "Fuji Japanese Restaurant",
    "cuisine": "japanese",
-   "email": "info@fuji.co.th"
+   "email": "info@fuji.co.th",
+   "facets": {
+    "wheelchair": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -28867,7 +29092,10 @@
    "subdistrict": "Wiang",
    "district": "Mueang Chiang Rai",
    "postcode": "57000",
-   "cuisine": "thai;dessert"
+   "cuisine": "thai;dessert",
+   "facets": {
+    "aircon": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -29178,7 +29406,10 @@
   "website": "https://m.facebook.com/salungdaeng/",
   "hours": "10:00-20:00",
   "attrs": {
-   "email": "dressup.jenji@gmail.com"
+   "email": "dressup.jenji@gmail.com",
+   "facets": {
+    "aircon": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -31398,7 +31629,11 @@
   "website": null,
   "hours": "07:00-18:00",
   "attrs": {
-   "facebook": "https://www.facebook.com/akha.hill.coffee"
+   "facebook": "https://www.facebook.com/akha.hill.coffee",
+   "facets": {
+    "wifi": "osm-tag",
+    "aircon": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -36813,7 +37048,10 @@
    "houseNumber": "406",
    "street": "ban du",
    "postcode": "57100",
-   "cuisine": "coffee_shop;thai;cake;dessert"
+   "cuisine": "coffee_shop;thai;cake;dessert",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -42992,7 +43230,10 @@
    "houseNumber": "136/1",
    "street": "หมู่บ้านลดาวัลย์",
    "postcode": "57000",
-   "cuisine": "coffee_shop"
+   "cuisine": "coffee_shop",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -47684,7 +47925,10 @@
   "website": null,
   "hours": "Mo-Su 07:00-19:00",
   "attrs": {
-   "cuisine": "thai"
+   "cuisine": "thai",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -48094,7 +48338,11 @@
   "phone": null,
   "website": null,
   "hours": "Mo-Su 08:00-23:00",
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -49312,7 +49560,10 @@
    "street": "ถนน สนามบิน",
    "cuisine": "coffee_shop",
    "email": "theroasterychiangrai@gmail.com",
-   "facebook": "https://www.facebook.com/theroasterycr/"
+   "facebook": "https://www.facebook.com/theroasterycr/",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -50659,7 +50910,10 @@
    "houseNumber": "94/4",
    "street": "ถนน ราชโยธา",
    "postcode": "57000",
-   "cuisine": "coffee;coffee_shop;tea"
+   "cuisine": "coffee;coffee_shop;tea",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -50762,7 +51016,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "cuisine": "coffee_shop;coffee;bakery;cake;cookie"
+   "cuisine": "coffee_shop;coffee;bakery;cake;cookie",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -51667,7 +51924,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -55190,7 +55451,10 @@
   "hours": "Mo-Su 08:00-21:00",
   "attrs": {
    "cuisine": "tea;crepe;pizza;burger;sandwich;thai;breakfast;bagel;coffee_shop",
-   "email": "hilltribeyoddoi1@gmail.com"
+   "email": "hilltribeyoddoi1@gmail.com",
+   "facets": {
+    "wifi": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -56307,7 +56571,10 @@
   "hours": null,
   "attrs": {
    "brand": "Oshine",
-   "cuisine": "japanese"
+   "cuisine": "japanese",
+   "facets": {
+    "aircon": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -56341,7 +56608,12 @@
   "phone": "+66951378998",
   "website": "https://facebook.com/cafenumberei8ht/",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "wifi": "osm-tag",
+    "aircon": "osm-tag"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [

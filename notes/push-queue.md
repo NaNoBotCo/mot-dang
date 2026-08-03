@@ -4,6 +4,108 @@ What is waiting to go out, and what shipped last time.
 
 ## Waiting
 
+**Uncommitted — /toilets.html, the one question asked under a clock.**
+/walk.html says how thick the city is with toilets; this says where one is,
+now. Same points, opposite instrument.
+
+The finding that shaped it: of 344 mapped toilets in Chiang Mai, **exactly one
+records what it charges**, and only 18 admit a fee at all. The 5-10 baht price
+is not in OSM to be crawled — it is field truth or nothing, which is why three
+report doors ship with the page rather than after it.
+
+Coverage goes from 431 pins to **1,310 places anyone may walk into** (fuel 259,
+wat 591, market 113, park 107, university 69, museum 58, hospital 57, mall 37,
+terminal 19) plus **5,313 that oblige a customer**, from an 11-tier class model
+in `data/toilets.json`. A tier is a habit, worded as one, and always loses to a
+verified point or a field report. Exclusions are written down with reasons —
+convenience stores are not a tier, because Thai 7-Elevens do not keep a
+customer toilet.
+
+Also: the `toilet` facet had `appliesTo: ["convenience"]` only, so the question
+was never once asked of 4,153 food records or 398 bars — new `sitdown` facet
+set fixes that (614 food records picked up facets that previously rendered
+nowhere), and `import_fixtures.py` now filters facets to the keys a record's
+own set defines, which two sets made necessary.
+
+**Worker DEPLOYED 2026-08-03** on her go-ahead — version
+`ed9a38bf-1e20-4748-8d62-302286b21b95`, account annika@pfau.haus. `POST
+/toilet`, `GET /toilets` and the LINE toilet branch are live; `/claims` checked
+unregressed. Tested end to end against the deployed worker: bad report word and
+bad place id both rejected, three real reports written, `seen`/`agrees`
+counters correct, `sync_toilets.py` → build → the row rendered "checked by a
+person · free" where its sit-down tier would have said "buy something". Test
+key then deleted from REMOTE KV and the whole pipeline re-run clean — 0 rows
+carry a report in the shipped build. Add `python3 importers/sync_toilets.py`
+to the pipeline before `build.py`.
+
+Plus a **which-way panel** above the list: your dot centred, the ten nearest as
+tier-coloured emoji pins, labelled range rings, north marker, and the moat and
+its nine gates from `MOAT_POLY`/`_moat_crossings()` when any of it is in frame.
+Tap a pin, its row highlights. Drawn in the browser (it has to centre on the
+reader) but still no tiles and no library.
+
+Verified in a real browser this time (own server on 8873, the 8643 slot was
+held): sort monotonic, four filters, lazy customer file, tick failure path,
+landmark fallback, tile square and not overflowing, pin→row tap, and the moat
+appearing at Tha Phae but correctly absent from Chiang Rai. Full build 11,813
+pages; publish gate, facets, alt-text, errands and plan-routes all pass.
+
+**Uncommitted — the plan map now draws the walk it charges for, and the moat
+names itself.** From an audit of the ten ไหว้พระ ๙ วัด rounds run against the
+shipped `docs/md.js` and the real graph (80 legs, both modes).
+
+Two rendering faults, both in `route()`, neither of which touched a distance:
+the drawn line was only the junction-to-junction chain, so the piece of road
+from a stop out to its first junction was left to a straight stub — **34 of 80
+legs drew under 60% of their own ground, worst 280 m of an 1,846 m walk** — and
+a leg with both stops on one edge returned `path:null`, drawing **nothing at
+all while still reporting a distance** (4 of 80). `cutEdge()` cuts the end
+pieces in; after: 0 and 0, and no distance moved by a metre.
+
+Moat rule as asked: a side crossing the frame is drawn AND named (the label was
+pinned to the ring's north corner, off-canvas on 5 of 10 → water, no name), and
+every gate or แจ่ง corner in frame is drawn AND named bilingually from
+`_moat_crossings()` reading the catalogue's own nine records. 58 gate labels
+across the ten rounds.
+
+One real data gap left, disclosed on the page rather than hidden: **วัดเมืองลัง
+is 450 m from any road in our graph** where OSM has a footpath 10 m away, so a
+4.3 km walk read as 916 m. Needs the road crawl extended at the north-east of
+the box — her go-ahead.
+
+**Names are bilingual everywhere now, not one language instead of the other.**
+`name_pair()` + `name_bi/name_text/name_th/name_en` in build.py; every heading,
+breadcrumb, listing row, card, related link, `<title>`, alt, aria-label, share
+text, RSS item and merit stop shows both where the record holds both. Verified
+in all three reading modes: **ไทย** gives วัดเจดีย์หลวงวรวิหาร, **EN** gives Wat
+Chedi Luang, **ไทย + EN** gives the pair — that temple headed its own page in
+English only until now. Searchable both ways (`index.json` `n` Thai, `e` Latin,
+matched concatenated), sortable by whichever name is on the screen (`data-ne`),
+machine-readable both ways (JSON-LD `alternateName`, a resolved `names` block in
+every per-place `.json`, `nameTh`/`nameEn` in the geojson), and `bi()` now puts
+`lang=` on each half so a screen reader stops reading English in a Thai voice.
+`name_of()` is untouched, so no slug moves.
+
+Also: `data/curated/names.json` (Chedi Luang / Chiang Man / Phan Tao / Si Koet
+had no Thai name at all; each filled from the th.wikipedia title already in its
+own record, with the URL) — this needed `importers/import_all.py`, so
+`data/canonical/*.json` are regenerated: 4 nameTh filled, 0 records added or
+removed, and the rest of that diff is the `facets` attrs the committed files
+predated; `build_merit.py` folds a second spelling of a temple
+(round nine was visiting วัดปันเส่า and วัดปันเสา(พันเสา), 22 m apart, so it
+was eight temples) — `data/merit.json` regenerated, rounds 1–8 unchanged, 9 and
+10 recomposed; `tests/test_plan_routes.js` guards all of it; the plan page's
+"distances are straight-line" caveat was three months stale and now says what
+the page actually does.
+
+Wants a full `build.py` run before it goes out — docs/ is from 21:20 and knows
+none of this. Everything above was verified against a scratch build
+(`build.DOCS` overridden, 11,813 pages, 104 s) because another session held
+docs/: `test_plan_routes.js`, `test_alt_text.py` (21,463 imgs, 0 missing) and
+`test_publish_gate.py` (277 broken URLs on file, 0 linked, 0 path leaks) all
+pass on it, as do `test_routing`, `test_moat_geometry`, `test_errands`,
+`test_facets`. Then `node tests/test_plan_routes.js` with the rest.
+
 **One commit, `1ec47f0fee` — toilets + drinking water join /walk.html; the
 section is now a layer list** (a new walking map = one more entry). Toilets
 from the fixtures harvest (329 sites, 118 in frame, ~13 a walk from the moat

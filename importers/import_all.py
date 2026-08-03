@@ -7,6 +7,7 @@ Sources (all sibling repos under ~/Developer/claude code projects/):
   mueang-map/data/canonical/osm.json               378 CM lens points   -> cm/wat, cm/food, cm/sights
   mueang-map/data/canonical/osm-chiang-rai.json    289 CR wats          -> cr/wat  (wireframe seed)
   data/curated/featured-chiang-rai.json            hand-entered field truth (never overwritten)
+  data/curated/names.json                          names a crawl left empty, each with its source
 
 Output: data/canonical/cm.json, data/canonical/cr.json
 Curated/field records always win over crawled ones with the same source ref.
@@ -113,6 +114,40 @@ def import_mueang_map(fname, province):
     return out
 
 
+def apply_curated_names(records):
+    """Hand-filled names from data/curated/names.json, applied last.
+
+    A crawl can leave a place with a name in one language and nothing in the
+    other. On the ไหว้พระ ๙ วัด rounds that included Wat Chedi Luang, Wat
+    Chiang Man and Wat Phan Tao carrying no Thai at all on a Thai-first site —
+    while the Thai name sat unused in each record's own attrs.summary, the
+    title of the th.wikipedia article already fetched for it.
+
+    Only the `names` block is applied, and only over an empty field: a curated
+    name fills a gap, it never argues with a crawled one. Leads live in
+    `unverified` and are never rendered, for the same reason honours.json keeps
+    its own — a name is the thing on the page that most has to be right.
+    """
+    path = ROOT / "data" / "curated" / "names.json"
+    if not path.exists():
+        return 0
+    fixes = (json.loads(path.read_text()) or {}).get("names") or {}
+    by_id = {r["id"]: r for r in records}
+    n = 0
+    for rid, fix in fixes.items():
+        r = by_id.get(rid)
+        if not r:
+            continue
+        for field in ("nameTh", "nameEn", "name"):
+            if fix.get(field) and not r.get(field):
+                r[field] = fix[field]
+                r.setdefault("sources", []).append(
+                    {"type": "curated", "ref": fix.get("source", ""),
+                     "fetched": "", "via": "data/curated/names.json"})
+                n += 1
+    return n
+
+
 def main():
     import import_overpass
     import import_fixtures
@@ -145,6 +180,9 @@ def main():
         # Facets last, on the merged records: the ATM join needs the final
         # coordinates, and the tag lift needs whichever source ref survived.
         facets = import_fixtures.apply(final, prov)
+        named = apply_curated_names(final)
+        if named:
+            print(f"{prov}: {named} curated name(s) filled in")
         (outdir / f"{prov}.json").write_text(
             json.dumps(final, ensure_ascii=False, indent=1), encoding="utf-8")
         got = sum(1 for r in final if (r.get("attrs") or {}).get("facets"))

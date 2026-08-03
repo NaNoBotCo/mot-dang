@@ -478,6 +478,7 @@ style="position:absolute" xmlns="http://www.w3.org/2000/svg"><defs>
 <g id="i-swap"><path d="M4 8h14l-3.5-3.5"/><path d="M20 16H6l3.5 3.5"/></g>
 <g id="i-moon"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></g>
 <g id="i-route"><circle cx="5" cy="18.5" r="2.3"/><circle cx="19" cy="5.5" r="2.3"/><path d="M6.8 16.8 11 12.5a3 3 0 0 0 .9-2.5c-.15-1.3.4-2.3 1.5-3.2l3.2-2.4" stroke-dasharray="1.8 2.6"/></g>
+<g id="i-loo"><circle cx="6.6" cy="4.6" r="2"/><path d="M6.6 7.2v6M4.2 9.2h4.8M5.4 13.2 4.8 20M7.8 13.2 8.4 20"/><circle cx="17.4" cy="4.6" r="2"/><path d="M14.9 14.4 17.4 7.2l2.5 7.2ZM16.3 14.4 15.9 20M18.5 14.4 18.9 20"/><path d="M12 2.6v18.8" stroke-dasharray="2 2.4"/></g>
 </defs></svg>"""
 
 
@@ -581,6 +582,11 @@ def ld_json(r, path, photo_file):
         "@context": "https://schema.org",
         "@type": SCHEMA_TYPE.get(r["cat"][0], "LocalBusiness"),
         "name": name_of(r),
+        # The other name, where there is one. schema.org `name` takes a single
+        # string, so the second language belongs here rather than jammed into
+        # the first with a separator no consumer agreed to.
+        **({"alternateName": [n for n in name_pair(r) if n and n != name_of(r)]}
+           if [n for n in name_pair(r) if n and n != name_of(r)] else {}),
         "url": BASE + path,
         # Only a real photograph. Publishing the ant or the wat drawing here
         # told every crawler that this shop's picture is a line drawing of a
@@ -667,7 +673,7 @@ def item_list_ld(records, prov_key, limit=100):
     """
     items = [
         {"@type": "ListItem", "position": i + 1,
-         "url": BASE + f"{prov_key}/p/{place_slug(r)}.html", "name": name_of(r)}
+         "url": BASE + f"{prov_key}/p/{place_slug(r)}.html", "name": name_text(r)}
         for i, r in enumerate(records[:limit])
     ]
     obj = {"@context": "https://schema.org", "@type": "ItemList",
@@ -1072,6 +1078,17 @@ overflow-y:auto;z-index:3;display:flex;flex-direction:column;gap:.1rem}
 .tzday{font-size:.7rem;color:var(--mute);min-width:2.2rem}
 .tzshift{font-size:.75rem;display:flex;align-items:center;gap:.3rem;color:var(--mute)}
 .tzshift input{flex:1;accent-color:var(--ant)}
+/* toilets: the tier order, read cold, so it is already known when needed */
+.loowlist{list-style:none;margin:.1rem 0 .5rem;padding:0;flex:1;min-height:0;
+display:flex;flex-direction:column;gap:.18rem;overflow:hidden}
+.loowlist li{display:flex;align-items:center;gap:.35rem;font-size:.82rem;line-height:1.3}
+.loowem{flex:0 0 auto;font-size:1rem}
+.loowcost{margin-left:auto;flex:0 0 auto;font-size:.7rem;padding:.1rem .4rem;
+border-radius:2rem;background:var(--wash);border:1px solid var(--soft);white-space:nowrap}
+.loowgo{display:block;text-align:center;text-decoration:none;font-weight:700;
+font-size:.9rem;padding:.5rem .6rem;border-radius:.6rem;color:#fff;
+background:linear-gradient(160deg,#D4552C,#A8371A)}
+.loowgo:hover{filter:brightness(1.06)}
 /* sky: lunation + jupiter, dark so the discs carry the tile */
 .wtile.sky{background:#0d0a08;border-color:#3a2b20;align-items:center}
 .skyslides{flex:1;position:relative;width:100%;min-height:0}
@@ -2012,9 +2029,11 @@ JS = r"""
 // The markup twin of build.py's bi(). Anything the client fills in has to
 // join its two languages the same way the server does, or a gloss hydrated by
 // JS ends up jammed against the Thai ("สีส้มorange") in both-mode.
-function mdBi(th,en){th=th==null?'':th;if(!en)return '<span class="th">'+th+'</span>';
-var sep=/[·—–:-]\s*$/.test(th)?'':'<span class="th"> · </span>';
-return '<span class="bi"><span class="th">'+th+'</span><span class="en">'+sep+en+'</span></span>';}
+function mdBi(th,en){th=th==null?'':th;
+if(!en)return '<span class="th" lang="th">'+th+'</span>';
+var sep=/[·—–:-]\s*$/.test(th)?'':'<span class="th" lang="th"> · </span>';
+return '<span class="bi"><span class="th" lang="th">'+th+'</span>'+
+'<span class="en" lang="en">'+sep+en+'</span></span>';}
 
 // ---- language: Thai, both, or English ---------------------------------
 // Default is both. Someone who reads only one of the two should not have to
@@ -2261,12 +2280,17 @@ e.preventDefault();const idx=await loadIndex();
 const pick=idx[Math.floor(Math.random()*idx.length)];
 location.href=RROOT+pick.p+'/p/'+pick.s+'.html';});});
 // ---- sort toolbar: name / distance ----------------------------------
+// ก→ฮ sorts by the name the reader can actually see. A row carries both, and
+// in English-only mode sorting by the Thai one puts every list in an order
+// that reads as no order at all.
+function mdSortKey(el){
+return (B.classList.contains('lang-en')&&el.dataset.ne)||el.dataset.n||'';}
 const dirList=document.querySelector('ul.dir[data-sortable]');
 if(dirList){
 const items=[...dirList.children];
 const byName=document.getElementById('sort-name'),byDist=document.getElementById('sort-dist');
 byName&&byName.addEventListener('click',()=>{
-items.sort((a,b)=>(a.dataset.n||'').localeCompare(b.dataset.n||'','th'));
+items.sort((a,b)=>mdSortKey(a).localeCompare(mdSortKey(b),'th'));
 items.forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appendChild(li);});
 document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('on'));
 byName.classList.add('on');});
@@ -2292,7 +2316,7 @@ const reorder=(btn,cmp)=>{if(!btn)return;btn.addEventListener('click',()=>{
 items.sort(cmp);
 items.forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appendChild(li);});
 btns.forEach(x=>x&&x.classList.remove('on'));btn.classList.add('on');});};
-const nm=(a,b)=>(a.dataset.n||'').localeCompare(b.dataset.n||'','th');
+const nm=(a,b)=>mdSortKey(a).localeCompare(mdSortKey(b),'th');
 const rk=li=>parseInt(li.dataset.rank||'0',10);
 reorder(document.getElementById('sort-rank'),(a,b)=>rk(b)-rk(a)||nm(a,b));
 reorder(document.getElementById('sort-love'),(a,b)=>rk(a)-rk(b)||nm(a,b));
@@ -2598,6 +2622,11 @@ const MOAT=GEO.moat;
 // side of the water it stands on.
 const POLY=(GEO.poly||[]).map(p=>({lat:p[0],lng:p[1]}));
 const POLY_EDGES=POLY.map((p,i)=>[p,POLY[(i+1)%POLY.length]]);
+// The five gates and the four แจ่ง corners, as the catalogue pins them — the
+// same records build.py routes a moat crossing by. Where a person gets over
+// the water is the thing anybody here gives directions by, so any map showing
+// a stretch of moat names the ways across it that stand on that map.
+const GATES=(GEO.gates||[]).map(g=>({lat:g[0],lng:g[1],th:g[2],en:g[3],kind:g[4]}));
 const elEmpty=document.getElementById('planempty'),elHas=document.getElementById('planhasstops'),
 elTotal=document.getElementById('plantotal'),elMap=document.getElementById('planmap'),
 elBanner=document.getElementById('planbanner');
@@ -2709,6 +2738,35 @@ if(l<a.length&&a[l][0]<a[m][0])m=l;
 if(r<a.length&&a[r][0]<a[m][0])m=r;
 if(m===i)break;const t=a[m];a[m]=a[i];a[i]=t;i=m;}}
 return top;};
+// ---- cutting a road at a point ----------------------------------------
+// A snapped stop stands part of the way along an edge, not at a junction, so
+// the first and the last stretch of every journey is a PIECE of a road. The
+// junction chain alone leaves those pieces out, and the straight stub then
+// covers them — claiming a hundred metres of real street is "the walk in from
+// the pin". Cut the edge instead and draw the ground that is actually walked.
+function segLen(p,q){const kx=Math.cos((p[0]+q[0])/2*Math.PI/180)*111320,ky=110540;
+return Math.hypot((q[1]-p[1])*kx,(q[0]-p[0])*ky);}
+function edgeLen(pts){let t=0;for(let k=0;k<pts.length-1;k++)t+=segLen(pts[k],pts[k+1]);return t;}
+function atAlong(pts,d){
+let run=0;
+for(let k=0;k<pts.length-1;k++){const L=segLen(pts[k],pts[k+1]);
+if(run+L>=d){const t=L?(d-run)/L:0;
+return [pts[k][0]+(pts[k+1][0]-pts[k][0])*t,pts[k][1]+(pts[k+1][1]-pts[k][1])*t];}
+run+=L;}
+return pts[pts.length-1];}
+// The part of one edge between two distances along it, given in travel order.
+function cutEdge(ei,d0,d1){
+const pts=GRAPH.geom[ei],L=edgeLen(pts);
+const a=Math.max(0,Math.min(L,Math.min(d0,d1))),b=Math.max(0,Math.min(L,Math.max(d0,d1)));
+const out=[atAlong(pts,a)];
+let run=0;
+for(let k=0;k<pts.length-1;k++){run+=segLen(pts[k],pts[k+1]);
+if(run>a+0.01&&run<b-0.01)out.push(pts[k+1]);}
+out.push(atAlong(pts,b));
+return d1<d0?out.reverse():out;}
+function joinLine(line,pts){pts.forEach(pt=>{const last=line[line.length-1];
+if(!last||Math.abs(last[0]-pt[0])>1e-9||Math.abs(last[1]-pt[1])>1e-9)line.push(pt);});
+return line;}
 // Dijkstra from both ends of the start edge to both ends of the goal edge.
 // Directed: an edge is only traversable the way this mode is allowed to take
 // it, which is where oneway earns its keep.
@@ -2720,7 +2778,8 @@ if(!GRAPH||!from||!to)return null;
 if(from.edge===to.edge){
 const fwd=to.fromA>=from.fromA;
 if(passable(GRAPH.edges[from.edge][3],mode,fwd))
-return {m:Math.abs(to.fromA-from.fromA),path:null,sameEdge:true};}
+return {m:Math.abs(to.fromA-from.fromA),
+path:cutEdge(from.edge,from.fromA,to.fromA),sameEdge:true};}
 const N=GRAPH.nodes.length;
 const cost=new Float64Array(N).fill(Infinity);
 const prevN=new Int32Array(N).fill(-1),prevE=new Int32Array(N).fill(-1);
@@ -2749,17 +2808,22 @@ if(!passable(flags,mode,fwd===1))continue;
 const nc=c+len;
 if(nc<cost[to2]){cost[to2]=nc;prevN[to2]=n;prevE[to2]=ei;h.push(nc,to2);}}}
 if(bestGoal===null)return null;
-// Stitch the junction chain back into one polyline for drawing.
+// Stitch the whole journey into one polyline: the piece of the first road from
+// the stop out to the junction it leaves by, then the junction chain, then the
+// piece of the last road in to the second stop. Leaving the two end pieces out
+// drew a 1.8 km walk as 280 m of road and a straight line across the rest.
 const chain=[];
 let cur=bestGoal;
 while(cur!==-1&&prevE[cur]!==-1){chain.push([prevE[cur],cur]);cur=prevN[cur];}
 chain.reverse();
 const line=[];
+joinLine(line,cutEdge(from.edge,from.fromA,
+(cur===from.a)?0:edgeLen(GRAPH.geom[from.edge])));
 chain.forEach(([ei,into])=>{
 const e=GRAPH.edges[ei],pts=GRAPH.geom[ei];
-const seq=(e[1]===into)?pts:pts.slice().reverse();
-seq.forEach(pt=>{const last=line[line.length-1];
-if(!last||last[0]!==pt[0]||last[1]!==pt[1])line.push(pt);});});
+joinLine(line,(e[1]===into)?pts:pts.slice().reverse());});
+joinLine(line,cutEdge(to.edge,
+(bestGoal===to.a)?0:edgeLen(GRAPH.geom[to.edge]),to.fromA));
 return {m:bestCost,path:line};}
 // ---- the errand solver -------------------------------------------------
 // Pick a pharmacy, an ATM and som tam by NAME and any tool will route between
@@ -2881,8 +2945,15 @@ return 'https://www.openstreetmap.org/directions?engine=fossgis_osrm_'+MODES[mod
 '&route='+a.lat.toFixed(5)+'%2C'+a.lng.toFixed(5)+'%3B'+b.lat.toFixed(5)+'%2C'+b.lng.toFixed(5);}
 // One leg, both ways of travelling it. The two modes get different distances
 // because they are genuinely different journeys — that is the whole point.
+// A stop this far from any road we hold is not really on the network, and the
+// straight walk-in charged for it is a guess. วัดเมืองลัง sits 450 m from the
+// nearest junction in the graph while OSM has a footpath 10 m away, and the
+// leg came out 916 m against a real walk of 4.3 km. One stop of the ninety on
+// the merit rounds is in that state — rare enough to name on the page rather
+// than hide, and never to pass off as a measured distance.
+const FAR_FROM_ROAD=100;
 function leg(a,b){
-const out={crow:km(a,b),foot:null,ride:null,routed:false};
+const out={crow:km(a,b),foot:null,ride:null,routed:false,far:0};
 if(GRAPH_STATE!=='ready'||!inArea(a)||!inArea(b))return out;
 for(const mode of ['foot','ride']){
 const s=snap(a,mode),t=snap(b,mode);
@@ -2891,7 +2962,8 @@ const r=route(s,t,mode);
 if(!r)continue;
 // Add the walk-in from each stop to the road it was snapped to; otherwise a
 // shop set back from the street reads as being on it.
-out[mode]={km:(r.m+s.d+t.d)/1000,path:r.path,snap:Math.round(s.d+t.d)};}
+out[mode]={km:(r.m+s.d+t.d)/1000,path:r.path,snap:Math.round(s.d+t.d)};
+out.far=Math.max(out.far,Math.round(Math.max(s.d,t.d)));}
 out.routed=!!(out.foot||out.ride);
 return out;}
 async function resolve(keys){
@@ -2917,6 +2989,59 @@ await loadGraph();
 let places=await resolve(stops);
 // Drop anything the index no longer knows, rather than leaving a hole.
 if(places.length!==stops.length&&!incoming){stops=places.map(p=>p.key);planSet(stops);}
+// Is a point inside the moat ring? Ray casting, because the ring is a little
+// out of square and its bounding box puts Suan Dok Gate on the wrong bank.
+function inRing(p){
+if(POLY.length<3)return false;
+let hit=false;
+for(let i=0,j=POLY.length-1;i<POLY.length;j=i++){
+const yi=POLY[i].lat,xi=POLY[i].lng,yj=POLY[j].lat,xj=POLY[j].lng;
+if((xi>p.lng)!==(xj>p.lng)){
+const ty=(yj-yi)*(p.lng-xi)/((xj-xi)||1e-12)+yi;
+if(p.lat<ty)hit=!hit;}}
+return hit;}
+// Liang–Barsky, enough of it to keep a label on the canvas.
+function clipToBox(p,q,W,H){
+let t0=0,t1=1;const dx=q.x-p.x,dy=q.y-p.y;
+const tests=[[-dx,p.x],[dx,W-p.x],[-dy,p.y],[dy,H-p.y]];
+for(let i=0;i<tests.length;i++){
+const pp=tests[i][0],qq=tests[i][1];
+if(pp===0){if(qq<0)return null;continue;}
+const r=qq/pp;
+if(pp<0){if(r>t1)return null;if(r>t0)t0=r;}
+else{if(r<t0)return null;if(r<t1)t1=r;}}
+return [{x:p.x+t0*dx,y:p.y+t0*dy},{x:p.x+t1*dx,y:p.y+t1*dy}];}
+// Where to write "the moat" so the words land on water that is on the page and
+// not on top of a gate that is also naming itself. Pinning the label to the
+// ring's northernmost corner dropped it off the top of the picture on five of
+// the ten merit rounds — drawn water, no name — and putting it at the middle
+// of the longest visible side then landed it on Chang Phueak Gate.
+function moatLabelPoint(X,Y,W,H,taken){
+let best=null,fallback=null;
+POLY_EDGES.forEach(me=>{
+const p={x:X(me[0].lng),y:Y(me[0].lat)},q={x:X(me[1].lng),y:Y(me[1].lat)};
+const c=clipToBox(p,q,W,H);
+if(!c)return;
+const L=Math.hypot(c[1].x-c[0].x,c[1].y-c[0].y);
+if(L<12)return;
+const upright=Math.abs(c[1].y-c[0].y)>Math.abs(c[1].x-c[0].x);
+if(!fallback||L>fallback.L)fallback={L:L,x:(c[0].x+c[1].x)/2,y:(c[0].y+c[1].y)/2,upright:upright};
+[0.5,0.3,0.7,0.15,0.85].forEach(t=>{
+const x=c[0].x+(c[1].x-c[0].x)*t,y=c[0].y+(c[1].y-c[0].y)*t;
+if(x<40||x>W-40||y<18||y>H-14)return;
+let clear=999;
+(taken||[]).forEach(g=>{clear=Math.min(clear,Math.hypot(g[0]-x,g[1]-y));});
+// Long side, well clear of any gate already naming itself.
+const score=L+Math.min(clear,150)*3;
+if(!best||score>best.score)best={score:score,x:x,y:y,upright:upright};});});
+// Water on the page always gets its name, even when only a sliver of one side
+// shows: a clamped label at the edge beats an unnamed blue dashed line.
+const pick=best||fallback;
+if(!pick)return null;
+const py=Math.min(Math.max(pick.y,18),H-14);
+if(pick.upright){const right=pick.x<W/2;   // the words go on whichever side has room
+return [Math.min(Math.max(right?pick.x+8:pick.x-8,6),W-6),py,right?'start':'end'];}
+return [Math.min(Math.max(pick.x,60),W-60),Math.max(py-7,16),'middle'];}
 function svgMap(list,legs){
 if(!list.length)return'';
 // The stops set the frame — never the moat. Framing to the moat as well
@@ -2939,31 +3064,57 @@ n+=padLat;s-=padLat;w-=padLng;e+=padLng;
 const kx=Math.cos((n+s)/2*Math.PI/180),W=760;
 const H=Math.max(240,Math.min(520,W*((n-s)/((e-w)*kx||1e-9))));
 const X=lng=>(lng-w)/(e-w)*W,Y=lat=>(n-lat)/(n-s)*H;
-let o=['<svg viewBox="0 0 '+W+' '+Math.round(H)+'" width="100%" class="planmap" role="img" '+
-'aria-label="แผนที่ทริปของคุณ / map of your route">',
-'<rect width="'+W+'" height="'+Math.round(H)+'" fill="#FBF6EE"/>'];
-// The moat, the square everybody here navigates by — but only when a side of
-// it actually falls inside the frame. A run of stops entirely within the old
-// city frames tighter than the moat itself, and drawing the square then puts
-// all four of its sides off-canvas: markup nobody can see. That case gets the
-// one fact it was there to convey, in words.
-if(POLY.length&&list.some(p=>p.p==='cm')){
+// The moat and its gates, worked out before the picture opens so the map can
+// say in its own label what it is showing. The rule does not depend on where
+// the route happens to sit: if a side of the moat crosses this frame it is
+// drawn AND named, and every gate or แจ่ง corner standing inside the frame is
+// drawn AND named. A frame wholly within the walls has no side to draw, so it
+// gets the one fact in words instead.
+const inFrame=p=>p.lat<n&&p.lat>s&&p.lng>w&&p.lng<e;
+const cmHere=POLY.length&&list.some(p=>p.p==='cm');
 const frame=[{lat:n,lng:w},{lat:n,lng:e},{lat:s,lng:e},{lat:s,lng:w}];
 const frameEdges=frame.map((p,i)=>[p,frame[(i+1)%4]]);
-const vertexIn=p=>p.lat<n&&p.lat>s&&p.lng>w&&p.lng<e;
-const shows=POLY.some(vertexIn)||POLY_EDGES.some(me=>frameEdges.some(fe=>segX(me[0],me[1],fe[0],fe[1])));
+const moatShows=!!cmHere&&(POLY.some(inFrame)
+||POLY_EDGES.some(me=>frameEdges.some(fe=>segX(me[0],me[1],fe[0],fe[1]))));
+// Only claim "inside the old city" when the frame really does sit in the ring.
+// A plan out in Hang Dong also fails to show a side of the moat, and telling
+// its reader they are inside the walls would simply be untrue.
+const insideWalls=!!cmHere&&!moatShows&&frame.every(inRing);
+const gatesHere=cmHere?GATES.filter(inFrame):[];
+let aria='แผนที่ทริปของคุณ '+list.length+' จุด · map of your route, '+list.length+' stops';
+if(moatShows)aria+=' — คูเมืองอยู่ในภาพ · the old city moat runs across it';
+else if(insideWalls)aria+=' — ทั้งหมดอยู่ในเวียงเก่า · all of it inside the old city';
+if(gatesHere.length)aria+=' — '+gatesHere.map(g=>g.th+' '+g.en).join(', ');
+let o=['<svg viewBox="0 0 '+W+' '+Math.round(H)+'" width="100%" class="planmap" role="img" '+
+'aria-label="'+H2(aria)+'">',
+'<rect width="'+W+'" height="'+Math.round(H)+'" fill="#FBF6EE"/>'];
+if(moatShows){
 o.push('<path d="'+POLY.map((p,i)=>(i?'L':'M')+X(p.lng).toFixed(1)+' '+Y(p.lat).toFixed(1)).join(' ')+
 'Z" fill="none" stroke="#2a78d6" stroke-width="2" stroke-dasharray="5 4" opacity=".55">'+
 '<title>คูเมืองเชียงใหม่ (เส้นโดยประมาณ จากหมุดแจ่งทั้งสี่) · the old city moat, '+
 'traced from the four แจ่ง corner pins</title></path>');
-// Label above the ring's northernmost point — the ring is ordered by bearing,
-// so no fixed index is "the top".
-if(shows){const top=POLY.reduce((a,b)=>b.lat>a.lat?b:a),ty=Y(top.lat)-8;
-if(ty>14)o.push('<text x="'+Math.min(Math.max(X(top.lng),60),W-60).toFixed(1)+
-'" y="'+ty.toFixed(1)+'" text-anchor="middle" font-size="11" fill="#2a78d6" opacity=".8">'+
-'คูเมือง · the moat</text>');}
-else o.push('<text x="'+(W-12)+'" y="20" text-anchor="end" font-size="11" fill="#2a78d6" '+
-'opacity=".8">ในเวียงเก่า · inside the old city</text>');}
+const lab=moatLabelPoint(X,Y,W,H,gatesHere.map(g=>[X(g.lng),Y(g.lat)]));
+if(lab)o.push('<text x="'+lab[0].toFixed(1)+'" y="'+lab[1].toFixed(1)+'" text-anchor="'+lab[2]+
+'" font-size="11" fill="#2a78d6" opacity=".9">คูเมือง · the moat</text>');}
+else if(insideWalls)o.push('<text x="'+(W-12)+'" y="20" text-anchor="end" font-size="11" '+
+'fill="#2a78d6" opacity=".8">ในเวียงเก่า · inside the old city</text>');
+// A gate is a diamond on the water, named in both languages. Cream-filled so
+// the route line reads through it, and drawn before the legs so a red walking
+// line lies over the landmark rather than under it.
+gatesHere.forEach(g=>{
+const gx=X(g.lng),gy=Y(g.lat);
+o.push('<path d="M'+gx.toFixed(1)+' '+(gy-6).toFixed(1)+'l6 6l-6 6l-6-6Z" fill="#FBF6EE" '+
+'stroke="#2a78d6" stroke-width="2" opacity=".95"><title>'+H2(g.th+' · '+g.en)+
+'</title></path>');
+const gl=g.th+' · '+g.en,half=gl.length*3.1;
+let ga='middle',gxl=gx;
+if(gx-half<4){ga='start';gxl=4;}else if(gx+half>W-4){ga='end';gxl=W-4;}
+// Under the gate normally; over it when a stop is standing where the words
+// would go, since two names in one place is neither name.
+const crowded=list.some(p=>Math.hypot(X(p.lng)-gx,Y(p.lat)-(gy+20))<46);
+const gyl=crowded?Math.max(14,gy-12):Math.min(H-5,gy+20);
+o.push('<text x="'+gxl.toFixed(1)+'" y="'+gyl.toFixed(1)+'" text-anchor="'+ga+
+'" font-size="10" fill="#2a78d6" opacity=".9">'+H2(gl)+'</text>');});
 // Draw the roads the route really follows. Both modes, because they diverge:
 // where the walk and the ride part company is exactly the thing worth seeing.
 // The scooter line goes down first and solid, the walking line over it dashed,
@@ -3054,6 +3205,10 @@ if(L.foot)lines.push('   ↓ เดิน/walk '+dist(L.foot.km)+' — '+mins(L.
 else lines.push('   ↓ เดินไปไม่ได้ / not walkable');
 if(L.ride)lines.push('     ขี่/scooter '+dist(L.ride.km)+' — '+mins(L.ride.km,MODES.ride.kmh)+' นาที/min');
 else lines.push('     ขี่ไปไม่ได้ / no road for a scooter');
+if(L.far>=FAR_FROM_ROAD){
+lines.push('     จุดหนึ่งห่างถนนที่บันทึกไว้ '+L.far+' ม. ระยะจริงน่าจะไกลกว่านี้ / one stop is '+
+L.far+' m from the nearest road on record, so the real distance is probably longer');
+lines.push('     '+osmDirections(p,nx,'foot'));}
 }else{
 lines.push('   ↓ '+dist(L.crow)+' เส้นตรง ยังไม่ได้คิดตามถนน / straight line, not routed');
 lines.push('     '+osmDirections(p,nx,'foot'));}}
@@ -3108,6 +3263,12 @@ let note='';
 if(f&&r&&r.km>f.km*1.25)note='<span class="planvia">↳ '+
 'ขี่ไกลกว่าเดิน '+dist(r.km-f.km)+' — ถนนทางเดียวหรือต้องกลับรถ / '+
 'the ride is '+dist(r.km-f.km)+' longer: one-way, or a U-turn to get across</span>';
+if(L.far>=FAR_FROM_ROAD){const A=places[i],B=places[i+1];
+note+='<span class="planvia">↳ จุดหนึ่งในช่วงนี้อยู่ห่างถนนที่มดบันทึกไว้ '+L.far+
+' ม. ระยะจริงน่าจะไกลกว่านี้ / one stop on this leg is '+L.far+
+' m from the nearest road on record, so the real distance is probably longer '+
+'<a class="planosm" href="'+H2(osmDirections(A,B,'foot'))+'" rel="noopener">'+
+'🚶 ดูเส้นทางจริง/check it ↗</a></span>';}
 legHtml='<li class="planleg">'+rows+note+'</li>';
 }else{
 const A=places[i],B=places[i+1];
@@ -3307,21 +3468,24 @@ def bi(th, en, sep=" · "):
     separator hides with the rest of the Thai. Without this a lone gloss opens
     with a stranded "· Chiang Mai".
     """
+    # lang= on each half so a screen reader changes voice at the separator
+    # instead of reading Thai with an English one. The page element says
+    # lang="th"; without this every English gloss on the site inherits it.
     if not th:
-        return f'<span class="en">{esc(en)}</span>' if en else ""
+        return f'<span class="en" lang="en">{esc(en)}</span>' if en else ""
     if not en:
-        return f'<span class="th">{esc(th)}</span>'
+        return f'<span class="th" lang="th">{esc(th)}</span>'
     # Don't double up where the Thai already ends in punctuation of its own.
     s = "" if (not sep or th.rstrip().endswith(("·", "—", "–", ":", "-"))) else sep
-    lead = f'<span class="th">{esc(s)}</span>' if s else ""
+    lead = f'<span class="th" lang="th">{esc(s)}</span>' if s else ""
     # The pair is wrapped so that it counts as ONE child of whatever holds it.
     # Dropped straight into a flex container the two spans would each become a
     # flex item, and a flex item is blockified whatever its display says — which
     # puts the separator alone at the head of its own line. The wrapper takes
     # that blockification instead and the spans stay inline inside it.
     return ('<span class="bi">'
-            f'<span class="th">{esc(th)}</span>'
-            f'<span class="en">{lead}{esc(en)}</span></span>')
+            f'<span class="th" lang="th">{esc(th)}</span>'
+            f'<span class="en" lang="en">{lead}{esc(en)}</span></span>')
 
 
 def bi_text(th, en, sep=" · "):
@@ -3399,6 +3563,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <a class="chip" href="{r}claim.html">{svg_icon("i-claim", 22)}<span>{bi("ยืนยันร้านของคุณ", "Claim your place")}</span></a>
     <a class="chip" href="{r}events.html">{svg_icon("i-lantern", 22)}<span>{bi("งานบุญ-งานเมือง", "What is on")}</span></a>
     <a class="chip dark" href="{r}plan.html">{svg_icon("i-route", 22)}<span>{bi("วางแผนเดินทาง", "Plan a route")}</span><span class="plancount" style="display:none"></span></a>
+    <a class="chip" href="{r}toilets.html">{svg_icon("i-loo", 22)}<span>{bi("ห้องน้ำใกล้ฉัน", "Toilets near you")}</span></a>
     <a class="chip rand" href="#">{svg_icon("i-dice", 22)}<span>{bi("สุ่มพาไป", "Take me somewhere")}</span></a>
   </nav>
   <div class="svcbar">
@@ -3462,7 +3627,58 @@ def matches(r, m):
 
 
 def name_of(r):
+    """The one canonical string. A filename, a sort key and a schema.org
+    `name` each need exactly one, so this never changes shape — see
+    `name_pair` for what a reader is actually shown."""
     return r.get("name") or r.get("nameEn") or r["id"]
+
+
+def name_pair(r):
+    """The place's name in both languages, as far as the record can say.
+
+    Thai is `nameTh` where OSM carries the tag, otherwise `name` itself, which
+    here is usually already Thai. Latin is `nameEn`, or `name` when that is the
+    Latin one. Either may come back empty and neither is ever invented: a shop
+    with one sign has one name, and a transliteration this project made up
+    would be a name nobody uses.
+
+    Everything a reader SEES goes through this or its two renderings, so the
+    page gives whichever language they read, and both when they read both.
+    Before it, a place was shown under a single string picked by the crawl —
+    which is how Wat Chedi Luang came to head its own page in English on a
+    Thai-first site, and how สตาร์บัคส์ was reachable by search only in Latin.
+    """
+    nm = (r.get("name") or "").strip()
+    th = (r.get("nameTh") or "").strip() or (nm if has_thai(nm) else "")
+    en = (r.get("nameEn") or "").strip() or ("" if has_thai(nm) else nm)
+    if th and en and th == en:
+        en = ""
+    return th, en
+
+
+def name_bi(r):
+    """The pair as markup, for anywhere a reader looks at it."""
+    th, en = name_pair(r)
+    return bi(th, en) if (th or en) else esc(name_of(r))
+
+
+def name_text(r):
+    """The pair as plain text, for alt, aria-label, <title> and share text —
+    markup inside an attribute gets read out loud."""
+    th, en = name_pair(r)
+    return bi_text(th, en) if (th or en) else name_of(r)
+
+
+def name_th(r):
+    """For a sentence written in Thai. Falls back rather than leaving a hole."""
+    th, en = name_pair(r)
+    return th or en or name_of(r)
+
+
+def name_en(r):
+    """For a sentence written in English."""
+    th, en = name_pair(r)
+    return en or th or name_of(r)
 
 
 _contact_cache = {}
@@ -3671,10 +3887,12 @@ def ant_bits(r):
     claim = CLAIMS.get(r["id"]) or {}
     live, _ = channels(r)
     kinds = {c["kind"] for c in live}
-    nm, nen = name_of(r), r.get("nameEn")
+    _th, _en = name_pair(r)
     got = {
-        "nameTh": bool(r.get("nameTh") or has_thai(nm)),
-        "nameEn": bool(nen and nen != r.get("nameTh")),
+        # Same resolution the page renders by, so the strip cannot say a name
+        # is missing while the heading is showing it.
+        "nameTh": bool(_th),
+        "nameEn": bool(_en),
         "phone": "phone" in kinds,
         "line": "line" in kinds,
         "hours": bool(claim.get("hours") or r.get("hours")),
@@ -3815,14 +4033,14 @@ def facet_door(r, fs):
     """
     lines = [f'{i + 1}. {f["icon"]} {f["th"]} / {f["en"]}'
              for i, f in enumerate(fs["facets"])]
-    body = (f'{name_of(r)}\n{BASE}{r["province"]}/p/{place_slug(r)}.html\n'
+    body = (f'{name_text(r)}\n{BASE}{r["province"]}/p/{place_slug(r)}.html\n'
             f'[id:{r["id"]}]\n\n'
             "ลบข้อที่สาขานี้ไม่มีออก แล้วส่งได้เลย\n"
             "Delete the lines this branch does NOT have, then send.\n\n"
             + "\n".join(lines)
             + "\n\nอย่างอื่น / Anything else:\n")
     url = ("https://github.com/NaNoBotCo/mot-dang/issues/new?title="
-           + urllib.parse.quote(f"สาขานี้มีอะไร / What this branch has: {name_of(r)}")
+           + urllib.parse.quote(f"สาขานี้มีอะไร / What this branch has: {name_text(r)}")
            + "&body=" + urllib.parse.quote(body))
     return (f'<p class="facetdoor"><a class="pill" href="{att(url)}" rel="noopener">🐜 '
             + bi("บอกมดแดงว่าสาขานี้มีอะไร", "Tell the ants what this branch has")
@@ -3934,7 +4152,7 @@ def plan_toggle_btn(r, big=False):
                 f'aria-pressed="false">{svg_icon("i-route", 18, "planicon")}'
                 f'<span class="off-label">{bi("เพิ่มลงแผนเดินทาง", "Add to my plan")}</span>'
                 f'<span class="on-label">{bi("เอาออกจากแผน", "Remove from plan")}</span></button>')
-    label = f'เพิ่ม {name_of(r)} ลงแผนเดินทาง / add {name_of(r)} to my route plan'
+    label = f'เพิ่ม {name_th(r)} ลงแผนเดินทาง / add {name_en(r)} to my route plan'
     return (f'<button type="button" class="planbtn" data-plan="{key}" aria-pressed="false" '
             f'aria-label="{att(label)}" title="{att(label)}">'
             f'{svg_icon("i-route", 14, "planicon")}</button>')
@@ -3959,16 +4177,25 @@ def entry_li(r, href):
     # opening any of them. That scan is the whole point of the facet layer.
     fb = facet_bits(r)
     fac = f' data-facets="{att(" ".join(sorted(fb)))}"' if fb else ""
-    return (f'<li data-n="{att(name_of(r))}"{lat} data-rank="{rank}" '
+    # data-n carries both names: it is the key the row is sorted and filtered
+    # by in the browser, and a reader typing สตาร์บัคส์ should reach the same
+    # row as one typing Starbucks. data-ne is the Latin form on its own, so
+    # ก→ฮ in English-only mode sorts by the name that is on the screen —
+    # it rides only where the two names really differ.
+    _th, _en = name_pair(r)
+    ne = f' data-ne="{att(_en)}"' if (_th and _en) else ""
+    return (f'<li data-n="{att(name_text(r))}"{ne}{lat} data-rank="{rank}" '
             f'data-upd="{att(upd)}"{keys}{fac}>{star}'
-            f'<a href="{href}">{esc(name_of(r))}</a>{pin}{hon}{facet_pills(r)}{plan}</li>')
+            f'<a href="{href}">{name_bi(r)}</a>{pin}{hon}{facet_pills(r)}{plan}</li>')
 
 
 def geojson(records):
     return {"type": "FeatureCollection", "features": [
         {"type": "Feature",
          "geometry": {"type": "Point", "coordinates": [r["lng"], r["lat"]]},
-         "properties": {"id": r["id"], "name": name_of(r), "cat": r["cat"],
+         "properties": {"id": r["id"], "name": name_of(r),
+                        "nameTh": name_pair(r)[0] or None,
+                        "nameEn": name_pair(r)[1] or None, "cat": r["cat"],
                         "province": r["province"]}}
         for r in records if r.get("lat") is not None]}
 
@@ -4229,6 +4456,11 @@ def place_json(r, photo_file=None):
     live, retired = channels(r)
     rec = dict(r)
     rec["url"] = BASE + f"{r['province']}/p/{place_slug(r)}.html"
+    # `name`, `nameTh` and `nameEn` are kept exactly as the sources gave them;
+    # this is the resolved pair, so a consumer does not have to work out that
+    # a null `nameTh` beside a Thai `name` means the Thai name is right there.
+    _th, _en = name_pair(r)
+    rec["names"] = {"th": _th or None, "en": _en or None}
     rec["antRank"] = ant_rank(r)
     rec["antBits"] = ant_bits(r)
     rec["channels"] = [{"kind": c["kind"], "href": c["href"], "text": c["text"]} for c in live]
@@ -4319,11 +4551,7 @@ def place_title(r, prov_cfg):
     (not just the same string in Latin script already) — half of what people
     search a Thai place by is whichever language they're typing in.
     """
-    name = name_of(r)
-    nen = r.get("nameEn")
-    if nen and nen != r.get("name") and nen != name:
-        name = f"{name} ({nen})"
-    return f"{name} — {_place_cat_label(r)} {prov_cfg['th']}"
+    return f"{name_text(r)} — {_place_cat_label(r)} {prov_cfg['th']}"
 
 
 def place_desc(r, prov_cfg):
@@ -4336,7 +4564,7 @@ def place_desc(r, prov_cfg):
     """
     if r.get("blurb_th"):
         return r["blurb_th"]
-    bits = [name_of(r), _place_cat_label(r)]
+    bits = [name_text(r), _place_cat_label(r)]
     if r.get("address"):
         bits.append(r["address"][:60])
     bits.append(prov_cfg["th"])
@@ -4432,10 +4660,10 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         _kind_en = CATS[r["cat"][0]]["en"] if r.get("cat") else ""
         _photo_alt = bi_text(
             "รูปถ่ายของ %s — %s ใน%s%s"
-            % (name_of(r), _kind_th, prov_cfg["th"],
+            % (name_th(r), _kind_th, prov_cfg["th"],
                (" ถ่ายโดย %s" % _by) if _by else ""),
             "Photograph of %s, %s in %s%s"
-            % (name_of(r), _kind_en, prov_cfg["en"],
+            % (name_en(r), _kind_en, prov_cfg["en"],
                (", by %s" % _by) if _by else ""))
         img_tag = (f'<img class="photo" src="../../photos/{att(photo_file)}" '
                    f'alt="{att(_photo_alt)}" loading="lazy">')
@@ -4452,7 +4680,7 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         # the photograph shows is worth reading whether or not you can see it.
         ci = COMMONS_IMAGES[r["id"]]
         img_tag = (f'<img class="photo" src="{att(ci["thumb"])}" '
-                   f'alt="{att(ci.get("description") or name_of(r))}" loading="lazy">')
+                   f'alt="{att(ci.get("description") or name_text(r))}" loading="lazy">')
         photo_note = (f'<p class="phototag">📷 '
                       f'<a href="{att(ci.get("full") or "#")}" rel="noopener">'
                       f'{esc(ci.get("artist") or "Wikimedia Commons")}</a>'
@@ -4480,7 +4708,7 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         # loud "no photo yet" on every entry advertises a gap instead of the
         # ten thousand things that ARE here.
         photo_note = f'<p class="phototag quiet">{bi(pn_th, pn_en)}</p>'
-        photo_href = mailto("มดแดง: รูป " + name_of(r),
+        photo_href = mailto("มดแดง: รูป " + name_text(r),
                             "แนบรูปมาได้เลย ใส่ชื่อร้านด้วย / Attach the photo and name the place.\n"
                             "ลงเครดิตชื่อว่า / Credit it to:\n")
         photo_cta = (f'<p class="myhint">📷 '
@@ -4496,25 +4724,25 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     fetched = f" · {esc(src['fetched'])}" if src.get("fetched") else ""
     path = f"{r['province']}/p/{place_slug(r)}.html"
     crumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
-              f'<a href="../index.html">{bi(prov_cfg["th"], prov_cfg["en"])}</a> › {esc(name_of(r))}')
+              f'<a href="../index.html">{bi(prov_cfg["th"], prov_cfg["en"])}</a> › {name_bi(r)}')
     bc_ld = breadcrumb_ld([
         ("หน้าแรก", BASE),
         (prov_cfg["th"], BASE + prov_cfg["key"] + "/index.html"),
-        (name_of(r), BASE + path),
+        (name_text(r), BASE + path),
     ])
     related_html = ""
     if related:
         items = "".join(
-            f'<li><a href="{place_slug(x)}.html">{esc(name_of(x))}</a></li>' for x in related)
+            f'<li><a href="{place_slug(x)}.html">{name_bi(x)}</a></li>' for x in related)
         related_html = (f'<div class="related"><h2>'
                          + bi("ที่คล้ายกันแถวนี้", "More like this")
                          + f"</h2><ul>{items}</ul></div>")
     plan_cta = plan_toggle_btn(r, big=True) if r.get("lat") is not None else ""
-    body = (f"<h1>{esc(name_of(r))}</h1>{plan_cta}{honour_panel(r)}{facet_panel(r)}"
+    body = (f"<h1>{name_bi(r)}</h1>{plan_cta}{honour_panel(r)}{facet_panel(r)}"
             f"{ant_panel(r)}{img_tag}{photo_note}{blurb}"
             f"{reach_block(r)}{whatson}<dl>{''.join(rows)}</dl>"
             f"{elsewhere_block(r)}{contact_cta}{photo_cta}"
-            f"{share_block(BASE + path, name_of(r), qr=True)}{ad_box(path, 2)}{related_html}"
+            f"{share_block(BASE + path, name_text(r), qr=True)}{ad_box(path, 2)}{related_html}"
             f'<p class="prov">{prov_line}{fetched}</p>')
     desc = place_desc(r, prov_cfg)
     robots = "index,follow" if place_has_substance(r) else "noindex,follow"
@@ -4702,7 +4930,7 @@ def enrich_events(data, photos):
             pv = prov_of.get(r["id"], PROVINCES[0]["key"])
             live, _retired = channels(r)
             e["place"] = {
-                "id": r["id"], "name": name_of(r), "province": pv,
+                "id": r["id"], "name": name_text(r), "province": pv,
                 "href": f'{pv}/p/{place_slug(r)}.html',
                 "lat": r.get("lat"), "lng": r.get("lng"),
                 "photo": photos.get(r["id"]),
@@ -4824,6 +5052,35 @@ def _moat_ring():
     if not all(p and p.get("lat") is not None for p in pts):
         return None
     return [[p["lat"], p["lng"]] for p in pts]
+
+
+def _moat_crossings():
+    """The five gates and the four แจ่ง corners as the catalogue pins them,
+    for drawing and naming on any map that shows a stretch of moat.
+
+    Names come out of the records, never typed in here: OSM carries both the
+    Thai and the English for all nine, and a gate is the kind of place where a
+    second copy of a name is a second chance to be wrong about it. Anything
+    missing from the catalogue is simply left out rather than filled in from
+    memory — an unnamed gate on a map is a smaller error than a wrong name.
+    """
+    path = ROOT / "data" / "canonical" / "cm.json"
+    if not path.exists():
+        return []
+    by_id = {r["id"]: r for r in json.loads(path.read_text())}
+    corners = set(MOAT_CORNER_IDS.values())
+    out = []
+    for i in MOAT_CROSSING_IDS:
+        r = by_id.get(i)
+        if not r or r.get("lat") is None:
+            continue
+        th = r.get("nameTh") or r.get("name")
+        en = r.get("nameEn")
+        if not th or not en:
+            continue
+        out.append([r["lat"], r["lng"], th, en,
+                    "corner" if i in corners else "gate"])
+    return out
 
 
 MOAT_POLY = _moat_ring()
@@ -5185,6 +5442,37 @@ def widget_clocks():
 
 
 
+def widget_toilets(depth=0):
+    """Where to try first, and what it costs — the tier list at a glance.
+
+    Deliberately NOT a "3 near you" tile: that would ask the whole homepage
+    for a location before anyone had said they wanted one, and this tile is
+    read far more often than it is needed. What it can teach without asking
+    anything is the order — fuel station, hospital, mall, temple — which is
+    the useful part to already know when the moment comes.
+    """
+    p = ROOT / "data" / "toilets.json"
+    if not p.exists():
+        return ""
+    m = json.loads(p.read_text())
+    costs = m["costs"]
+    rows = "".join(
+        f'<li><span class="loowem" aria-hidden="true">{t["emoji"]}</span>'
+        + bi(t["th"], t["en"])
+        + f'<span class="loowcost">' + bi(costs[t["cost"]]["chip_th"],
+                                          costs[t["cost"]]["chip_en"]) + "</span></li>"
+        for t in m["tiers"][:5])
+    r = "../" * depth
+    return (
+        f'<section class="wtile loow" id="w-toilets">'
+        f'<h3>🚻 {bi("ห้องน้ำใกล้ฉัน", "Toilets near you")}</h3>'
+        f'<ol class="loowlist">{rows}</ol>'
+        f'<a class="loowgo" href="{r}toilets.html">'
+        + bi("📍 หาที่ใกล้ที่สุด", "Find the nearest") + "</a>"
+        f'<span class="wfoot">{bi("เรียงตามความแน่นอนของประเภท", "by how dependable the class is")}</span>'
+        f'</section>')
+
+
 def widget_sky(depth=0):
     """Today's sky, photographed off the instruments that actually compute it.
 
@@ -5543,7 +5831,8 @@ def widget_wall(events, data, moon_svg, depth=0, skip=()):
     """The tile wall. `skip` lets a caller take a tile out because it is already
     being shown somewhere better — the homepage lifts the day's fortune into the
     sidebar, and printing the lucky colour twice on one page helps nobody."""
-    tiles = [("events", widget_events(events)), ("fortune", widget_fortune()),
+    tiles = [("events", widget_events(events)), ("toilets", widget_toilets(depth)),
+             ("fortune", widget_fortune()),
              ("sky", widget_sky(depth)), ("siamsi", widget_siamsi()),
              ("katha", widget_katha()), ("horoscope", widget_horoscope()),
              ("weather", widget_weather()), ("divination", widget_divination()),
@@ -5836,7 +6125,7 @@ def line_chat_url(place=None):
     """
     if not (LINE_OA_ID and LINE_ADD_URL):
         return LINE_ADD_URL
-    text = f"ยืนยันร้าน {name_of(place)} [id:{place['id']}]" if place else "สวัสดีค่ะ"
+    text = f"ยืนยันร้าน {name_text(place)} [id:{place['id']}]" if place else "สวัสดีค่ะ"
     return (f"https://line.me/R/oaMessage/{urllib.parse.quote(LINE_OA_ID, safe='')}"
             f"/?{urllib.parse.quote(text, safe='')}")
 
@@ -5851,7 +6140,7 @@ def add_doors(depth=0, place=None):
     developers' side entrance.
     """
     r = "../" * depth
-    what = f" — {name_of(place)}" if place else ""
+    what = f" — {name_text(place)}" if place else ""
     pid = f"?id={place['id']}" if place else ""
     # Built outside the f-string: an f-string expression cannot contain a
     # backslash on Python 3.9, and the mail body needs real newlines.
@@ -6089,7 +6378,7 @@ def build_plan_page(data):
     # everybody here navigates by. It no longer drives any distance: the gates
     # and the footbridges are edges in the road graph now, so which of them a
     # leg uses is the router's answer and not a special case here.
-    geo = {"moat": CM_MOAT, "poly": MOAT_POLY}
+    geo = {"moat": CM_MOAT, "poly": MOAT_POLY, "gates": _moat_crossings()}
     lede_th = ("เลือกร้านก๋วยเตี๋ยว คลินิก ร้านทำเล็บ — จุดไหนก็ได้จากทั่วเว็บนี้ — "
                "แล้วมาดูพร้อมกันในหน้าเดียว รู้ระยะทางแต่ละช่วง เดินก็ได้ ขี่มอไซค์ก็ได้ "
                "แชร์ทริปทั้งหมดเป็นลิงก์เดียว หรือดาวน์โหลดเก็บไว้ก็ได้")
@@ -6101,9 +6390,16 @@ def build_plan_page(data):
               'แล้วกลับมาที่นี่ — เก็บได้สูงสุด 8 จุดต่อทริป')
     how_en = ('Tap "Add to plan" on any place page or listing row, then come back here — '
               'up to 8 stops per trip.')
-    plan_dist_caveat = bi("ระยะทางเป็นเส้นตรง ไม่ใช่เส้นทางจริงบนถนน — ใช้กะเวลาคร่าวๆ เท่านั้นเจ้า",
-                          "Distances are straight-line, not routed along real streets — "
-                          "a rough guide to timing, not turn-by-turn directions.")
+    # The old wording here said the distances were straight-line. They stopped
+    # being straight-line when the road graph arrived, and a caveat that
+    # undersells what the page does is as wrong as one that oversells it.
+    plan_dist_caveat = bi(
+        "ระยะทางคิดตามถนนจริงในเวียงเก่าและรอบ ๆ ราว ๒ กม. ช่วงจากหมุดออกมาถึงถนนคิดเป็นเส้นตรง "
+        "ใช้กะเวลาคร่าว ๆ ไม่ใช่บอกทางเลี้ยวทีละช่วงเจ้า",
+        "Distances follow the real streets inside the old city and about 2 km around it. "
+        "The short hop from a pin out to the road it stands on is measured straight, so a "
+        "place set well back reads a little short. A guide to timing, not turn-by-turn "
+        "directions.")
     plan_moat_caveat = bi(
         "ถ้าช่วงไหนต้องข้ามคูเมือง มดแดงจะคิดระยะอ้อมไปทางประตูหรือแจ่งที่ใกล้ที่สุดให้ "
         "จุดข้ามที่รู้จักคือประตูทั้งห้าและแจ่งทั้งสี่ — อาจมีสะพานอื่นอีกที่ยังไม่ได้บันทึกไว้",
@@ -6678,7 +6974,7 @@ def street_map_svg(st, by_id):
         soft = ' fill-opacity=".85"' if pl.get("via") == "nearest" else ""
         out.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="#eb6834" stroke="#8F2E13" '
                    'stroke-width="1.5"%s><title>%s</title></circle>'
-                   % (cx, cy, rad, soft, att("%d. %s" % (i, name_of(r)))))
+                   % (cx, cy, rad, soft, att("%d. %s" % (i, name_text(r)))))
         if numbered:
             out.append('<text x="%.1f" y="%.1f" text-anchor="middle" font-size="11" '
                        'font-weight="700" fill="#fff">%d</text>' % (cx, cy + 4, i))
@@ -7335,7 +7631,7 @@ def merit_card(route, by_id, depth=0):
             href = "%s%s/p/%s.html" % (r_, rec["province"], place_slug(rec))
             plan_keys.append("%s:%s" % (rec["province"], place_slug(rec)))
             hon = honour_badges(rec)
-            name = esc(name_of(rec))
+            name = name_bi(rec)
         else:
             href, hon, name = None, "", esc(st.get("name") or "")
         inner = ('<a href="%s">%s</a>%s' % (att(href), name, hon)) if href else name
@@ -7539,8 +7835,13 @@ def build():
         for r in records:
             for c in r["cat"]:
                 counts[c] = counts.get(c, 0) + 1
-            idx_entry = {"id": r["id"], "s": place_slug(r), "n": name_of(r),
-                        "e": r.get("nameEn"), "p": key, "pv": p["th"], "c": r["cat"]}
+            # Both names in the search index: `n` is what a result shows, `e`
+            # is appended to it before matching, so either language finds the
+            # place. Reading `nameEn` straight left สตาร์บัคส์ findable only in
+            # Latin, and Wat Chedi Luang only in English.
+            _th, _en = name_pair(r)
+            idx_entry = {"id": r["id"], "s": place_slug(r), "n": _th or _en or name_of(r),
+                        "e": _en or None, "p": key, "pv": p["th"], "c": r["cat"]}
             if r.get("lat") is not None:
                 idx_entry["lat"], idx_entry["lng"] = r["lat"], r["lng"]
             search_index.append(idx_entry)
@@ -7561,7 +7862,7 @@ def build():
         if featured:
             cards = "".join(
                 f'<div class="featured"><span class="star">★</span> '
-                f'<a href="p/{place_slug(r)}.html"><strong>{esc(name_of(r))}</strong></a><br>'
+                f'<a href="p/{place_slug(r)}.html"><strong>{name_bi(r)}</strong></a><br>'
                 f'{bi(r.get("blurb_th") or "", r.get("blurb_en") or "")}</div>'
                 for r in featured)
             feat_html = f'<h2>{bi("ที่น่าไป", "Places to visit")}</h2>{cards}'
@@ -7666,7 +7967,7 @@ def build():
                             whats_on_here(r["id"], EVENTS, depth=2), related=related))
             if photo_file:
                 sitemap_images[f"{key}/p/{slug}.html"] = (
-                    BASE + f"photos/{photo_file}", name_of(r))
+                    BASE + f"photos/{photo_file}", name_text(r))
             # A predictable .json beside every .html. A reader that guesses the
             # URL is right, every time, with no key and no rate limit.
             (pdir / "p" / f"{slug}.json").write_text(
@@ -7760,12 +8061,12 @@ def build():
         # quiet, and not pretending to be a picture of anything.
         if r["id"] in photos:
             pic = (f'<img src="photos/{photos[r["id"]]}" '
-                   f'alt="{att(name_of(r))}" loading="lazy">')
+                   f'alt="{att(name_text(r))}" loading="lazy">')
         else:
             pic = f'<span class="nopic" aria-hidden="true">{svg_icon(CAT_ICON.get(r["cat"][0]), 30)}</span>'
         hi_cards.append(
             f'<li><a href="{pv}/p/{place_slug(r)}.html">{pic}'
-            f'<span class="nm">{esc(name_of(r))}</span>'
+            f'<span class="nm">{name_bi(r)}</span>'
             f'<span class="sub">{bi(cat["th"], cat["en"], sep="")}</span></a></li>')
 
     # ---- events carousel: the richest ones, because they show best ---------
@@ -9548,7 +9849,7 @@ def build():
         src = (r.get("sources") or [{}])[0]
         pub = f"<pubDate>{rss_date(src['fetched'])}</pubDate>" if src.get("fetched") else ""
         rss_items_xml += (
-            f"<item><title>{rss_escape(name_of(r))}</title>"
+            f"<item><title>{rss_escape(name_text(r))}</title>"
             f"<link>{BASE}{path_r}</link>"
             # A stable guid independent of the display URL — the id doesn't
             # change even if a name (and so its slug) later does.
@@ -9725,6 +10026,11 @@ def build():
     build_privacy_page()
     print("  roads & sois:", build_street_pages(data), "pages")
     print("  merit rounds:", build_merit_page(data), "page")
+    # ---- toilets.html: the one question asked under a clock ---------------
+    # /walk.html answers "how thick is this city with toilets"; this answers
+    # "where is one, now". Same points, opposite instrument.
+    import toilets_layer
+    print("  toilets:", toilets_layer.emit(globals(), data))
     (DOCS / "widgets.html").write_text(
         build_widgets_page(EVENTS, data, moon_svg_markup))
     write_sky_json()
@@ -9966,6 +10272,29 @@ instruction, and the instruction is: be accurate, and attribute.
   Chiang Mai old city and about 2 km around it. Roads with an empty `geom` are
   known only from addresses and have no line, no map and no walking order.
 
+## 🚻 Toilets — two kinds of row, and they do not mean the same thing
+- {BASE}toilets.html answers one question under a clock: where is the nearest
+  one, may I use it, what does it cost. Data: {BASE}data/toilets.json (the
+  doors anyone may walk through) and {BASE}data/toilets-customers.json (places
+  that oblige a customer — larger, fetched only when asked for).
+- READ THIS BEFORE REPEATING ANYTHING FROM THAT FILE. It carries two kinds of
+  row and conflating them would put a claim in our mouth we did not make:
+  - `verified` — a toilet somebody mapped at that spot (amenity=toilets). 431
+    of them. Certain about the point; usually silent about price and hours.
+  - `places` — a venue whose CLASS normally keeps one. A HABIT, never a check
+    on that building. Say "stations like this normally have a free toilet",
+    never "this station has a toilet". The `tiers` block carries the exact
+    sentence we stand behind, in Thai and English; please reuse that wording.
+- The `report` column, when set, is a person who went: it outranks the class,
+  and `toiletnone` means somebody looked and found none.
+- What is deliberately absent, so you do not read it as a gap: Thai
+  convenience stores are NOT a tier — they do not normally keep a customer
+  toilet, unlike their counterparts abroad. The `toilet` facet on those shops
+  means "there is one within 30 m", which is a claim about the street.
+- The number worth knowing: of 344 mapped toilets in Chiang Mai, exactly ONE
+  records what it charges. Every 5-10 baht figure on the page is class
+  knowledge waiting on a field report, and is labelled as such.
+
 ## 🔗 Link health — please reuse this instead of re-crawling it
 - We opened every official-site link in the directory and recorded whether it
   still answers: {BASE}data/linkhealth.json (findings written up at {BASE}reach.html).
@@ -10066,7 +10395,7 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
         live, _ = channels(r)
         ch = "; ".join(f"{c['kind']}={c['text']}" for c in live) or "-"
         loc = f"{r['lat']},{r['lng']}" if r.get("lat") is not None else "-"
-        return (f"{BASE}{r['province']}/p/{place_slug(r)}.html\t{name_of(r)}\t"
+        return (f"{BASE}{r['province']}/p/{place_slug(r)}.html\t{name_text(r)}\t"
                 f"{r.get('nameEn') or '-'}\t{'/'.join(r['cat'])}\t{loc}\t"
                 f"{ch}\t{r.get('hours') or '-'}\tants={ant_rank(r)}/{ANT_MAX}")
 

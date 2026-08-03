@@ -65,8 +65,19 @@ def _applies():
     out = {}
     for s in FACETS["sets"]:
         for sub in s.get("appliesTo", []):
-            out[sub] = s["key"]
+            out.setdefault(sub, s["key"])
     return out
+
+
+def _known():
+    """facet set key -> the keys that set actually defines.
+
+    With one set every rule below was valid everywhere. With two, they are
+    not: a restaurant's set asks about its own toilet, not about an ATM 30 m
+    up the road, so writing an `atm` key onto it would store a fact the page
+    is right to never render. Filtering here keeps the stored record and the
+    rendered page saying the same thing."""
+    return {s["key"]: {f["key"] for f in s["facets"]} for s in FACETS["sets"]}
 
 
 def load_fixtures(province):
@@ -108,11 +119,18 @@ def apply(records, province):
     silence.
     """
     applies = _applies()
+    known = _known()
     subjects = [r for r in records
                 if any(s in applies for s in (r.get("sub") or []))
                 and r.get("lat") is not None]
     if not subjects:
         return {}
+
+    def set_of(r):
+        for s in r.get("sub") or []:
+            if s in applies:
+                return applies[s]
+        return None
 
     fixtures = load_fixtures(province)
     tags = load_tags(province)
@@ -131,14 +149,17 @@ def apply(records, province):
         return False
 
     for r in subjects:
+        ours = known.get(set_of(r), set())
         found = dict((r.get("attrs") or {}).get("facets") or {})
-        if near(r, atms, ATM_RADIUS_M):
+        if "atm" in ours and near(r, atms, ATM_RADIUS_M):
             found["atm"] = "osm-near"
-        if near(r, toilets, TOILET_RADIUS_M):
+        if "toilet" in ours and near(r, toilets, TOILET_RADIUS_M):
             found["toilet"] = "osm-near"
         ref = (r.get("sources") or [{}])[0].get("ref")
         t = tags.get(ref, {})
         for key, tag, ok in TAG_RULES:
+            if key not in ours:
+                continue
             v = t.get(tag)
             if v and ok(v):
                 found[key] = "osm-tag"

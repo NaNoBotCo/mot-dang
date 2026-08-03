@@ -67,15 +67,62 @@ const FIELDS = [
 // with it — a value is either one of these thirteen words or it is discarded.
 // So it needs no length cap and no escaping, and the worst case of a bad-faith
 // submission is a wrong tick, never injected content.
+//
+// The five toilet keys are the sit-down set. `toilet` (convenience stores)
+// means "there is one around here" — a 30 m spatial join, evidence about the
+// street. `toilethere` means somebody used the one inside. Different claims,
+// deliberately different words. `toiletnone` is the only key on this site
+// that records an absence, because a person who stood at the door and found
+// nothing is giving testimony rather than inferring.
 const FACET_KEYS = new Set([
   'atm', 'bakery', 'coffee', 'seating', 'hotfood', 'toilet', 'parking',
   'open24', 'wifi', 'aircon', 'wheelchair', 'evcharge', 'twostorey',
+  'toilethere', 'toiletfree', 'toiletfee5', 'toiletfee10', 'toiletnone',
 ])
 
 function readFacets(v) {
   if (!Array.isArray(v)) return null
   const out = [...new Set(v)].filter(k => FACET_KEYS.has(k)).sort()
   return out.length ? out : []
+}
+
+// ---- toilet reports --------------------------------------------------------
+// A passer-by is not an owner, so a toilet report is not a claim and does not
+// live in one. applyClaim() refuses to open a claim from ticks alone, and that
+// guard is right: claiming locks a record against everyone else, and a
+// stranger reporting "there is a toilet here" must never be able to do that to
+// a shop. So reports get their own key, their own endpoint, and no capability
+// token — there is nothing here worth capturing.
+//
+// Worst case of a bad-faith report is one wrong word out of five, on one
+// place, overwritten by the next person who looks. The vocabulary is closed
+// and nothing typed survives it.
+const TOILET_KEYS = ['toilethere', 'toiletfree', 'toiletfee5', 'toiletfee10', 'toiletnone']
+const TOILET_PER_HOUR = 20
+
+const TOILET_LABEL = {
+  toilethere: 'มีห้องน้ำให้ใช้ / there is one you can use',
+  toiletfree: 'ใช้ฟรี / free to use',
+  toiletfee5: 'เก็บ ๕ บาท / costs 5 baht',
+  toiletfee10: 'เก็บ ๑๐ บาท / costs 10 baht',
+  toiletnone: 'ที่นี่ไม่มี / none here',
+}
+
+async function putToiletReport(env, placeId, report, source) {
+  if (!TOILET_KEYS.includes(report)) return { error: 'unknown report', status: 400 }
+  if (!PLACE_ID_RE.test(placeId)) return { error: 'bad place id', status: 400 }
+  const now = new Date().toISOString()
+  const prev = await env.KV.get(`toilet:${placeId}`, 'json')
+  const rec = {
+    placeId, report, source, at: now,
+    firstAt: prev?.firstAt || now,
+    // How many people have said something about this spot. A second report
+    // agreeing with the first is the cheapest confidence this site can buy.
+    seen: (prev?.seen || 0) + 1,
+    agrees: prev?.report === report ? (prev?.agrees || 1) + 1 : 1,
+  }
+  await env.KV.put(`toilet:${placeId}`, JSON.stringify(rec))
+  return { ok: true, ...rec }
 }
 
 // Order the LINE chat asks fields in — likeliest-to-matter-to-a-food-cart
@@ -101,6 +148,8 @@ const SKIP_RE = /^(ไม่มี|ข้าม|skip|-)$/i
 const FINISH_RE = /^(จบ|เสร็จ|done|บันทึก|save)$/i
 const CANCEL_RE = /^(ยกเลิก|cancel|เริ่มใหม่|restart)$/i
 const ID_MARKER_RE = /\[id:((?:cm|cr)-[a-z0-9-]+)\]/
+// Tells a toilet report apart from a claim; both carry the same id marker.
+const TOILET_INTENT_RE = /(ห้องน้ำ|สุขา|ส้วม|toilet|restroom|\bloo\b|\bwc\b)/i
 
 const cap = (v, max) => (typeof v === 'string' ? v.trim().slice(0, max) : '') || ''
 
@@ -352,6 +401,29 @@ async function finalizeSession(env, userId, session, replyToken) {
   await lineReply(env, replyToken, "อัปเดตแล้วค่ะ! ✅ / Updated!")
 }
 
+// One number, one fact, then done — the whole exchange is two messages. A
+// passer-by with a phone in one hand does not get an interview.
+async function handleToilet(env, userId, session, text, replyToken) {
+  const n = parseInt((text.match(/\d+/) || [])[0], 10)
+  const key = TOILET_KEYS[n - 1]
+  if (!key) {
+    await lineReply(env, replyToken,
+      "ขอเป็นตัวเลข ๑–๕ นะคะ / A number from 1 to 5, please\n\n"
+      + TOILET_KEYS.map((k, i) => `${i + 1}. ${TOILET_LABEL[k]}`).join('\n'))
+    return
+  }
+  const res = await putToiletReport(env, session.placeId, key, 'line')
+  await clearSession(env, userId)
+  if (res.error) {
+    await lineReply(env, replyToken, "บันทึกไม่สำเร็จค่ะ ลองใหม่อีกครั้ง / Could not save that — please try again.")
+    return
+  }
+  await lineReply(env, replyToken,
+    `บันทึกแล้วเจ้า ขอบคุณมาก 🐜 — ${TOILET_LABEL[key]}\n`
+    + "Saved, thank you. It will show on motdang.net at the next build.\n\n"
+    + "เจอที่อื่นอีก ส่งมาได้เรื่อย ๆ นะคะ / Found another? Keep them coming.")
+}
+
 async function handleLineEvent(env, ev) {
   const userId = ev.source?.userId
   const replyToken = ev.replyToken
@@ -385,7 +457,22 @@ async function handleLineEvent(env, ev) {
 
   // Deep-link marker always wins, even mid-session — e.g. she tapped a
   // different place's claim button while already mid-chat about another one.
+  //
+  // The toilet door is checked FIRST, because both arrive carrying the same
+  // [id:...] marker and only the leading word tells them apart. Without this
+  // branch someone who tapped "tell the ants about the toilet" would be asked
+  // for their opening hours and their Facebook page — the claim interview,
+  // aimed at an owner, run at a stranger who wanted to answer one question.
   const marker = text.match(ID_MARKER_RE)
+  if (marker && PLACE_ID_RE.test(marker[1]) && TOILET_INTENT_RE.test(text)) {
+    await putSession(env, userId, { step: 'toilet', placeId: marker[1] })
+    await lineReply(env, replyToken,
+      "ขอบคุณเจ้า 🐜 ที่นี่เป็นยังไงคะ? ตอบเป็นตัวเลขได้เลย\n"
+      + "Thank you! What is it like there? Just send the number.\n\n"
+      + TOILET_KEYS.map((k, i) => `${i + 1}. ${TOILET_LABEL[k]}`).join('\n')
+      + "\n\n(พิมพ์ ยกเลิก เพื่อออก / send \"cancel\" to stop)")
+    return
+  }
   if (marker && PLACE_ID_RE.test(marker[1])) {
     await startCollecting(env, userId, marker[1], replyToken)
     return
@@ -393,6 +480,7 @@ async function handleLineEvent(env, ev) {
 
   const session = await getSession(env, userId)
   if (session) {
+    if (session.step === 'toilet') { await handleToilet(env, userId, session, text, replyToken); return }
     if (session.step === 'awaiting_pick') { await handlePick(env, userId, session, text, replyToken); return }
     if (session.step === 'collecting') { await handleCollect(env, userId, session, text, replyToken); return }
   }
@@ -443,6 +531,37 @@ export default {
       return json({ ok: true, placeId: result.placeId, editUrl: `${url.origin}/edit/${result.editToken}` })
     }
 
+    // POST /toilet — a passer-by's answer to one question, at one place. No
+    // token, no claim, nothing locked; see putToiletReport for why this is a
+    // separate door from /claim rather than a facet on one.
+    if (url.pathname === '/toilet' && request.method === 'POST') {
+      const ip = request.headers.get('cf-connecting-ip') || 'unknown'
+      const bucket = `rlt:${ip}:${Math.floor(Date.now() / 3600_000)}`
+      const count = Number((await env.KV.get(bucket)) || 0)
+      if (count >= TOILET_PER_HOUR) return json({ error: 'rate limit — try again later' }, 429)
+
+      const text = await request.text()
+      if (text.length > MAX_BODY) return json({ error: 'body too large' }, 400)
+      let body
+      try { body = JSON.parse(text) } catch { return json({ error: 'invalid json' }, 400) }
+
+      const result = await putToiletReport(env, cap(body?.placeId, 60),
+        cap(body?.report, 20), 'web')
+      if (result.error) return json({ error: result.error }, result.status)
+      await env.KV.put(bucket, String(count + 1), { expirationTtl: 3600 })
+      return json(result)
+    }
+
+    // GET /toilets — public; every report, for importers/sync_toilets.py to
+    // snapshot into the repo before a build. Same two-step pattern as /claims:
+    // the build itself never calls the network.
+    if (url.pathname === '/toilets' && request.method === 'GET') {
+      const all = await listPrefix(env, 'toilet:')
+      const out = {}
+      for (const r of all) out[r.placeId] = r
+      return json({ ok: true, count: all.length, reports: out })
+    }
+
     // GET/POST /edit/:token — the owner's private capability link.
     if (url.pathname.startsWith('/edit/')) {
       const token = url.pathname.slice('/edit/'.length)
@@ -490,6 +609,7 @@ export default {
       return new Response('ok', { status: 200 }) // LINE's console "Verify" sends events:[] and expects 200
     }
 
-    return json({ error: 'not found', endpoints: ['/claim', '/edit/:token', '/claims', '/webhook/line'] }, 404)
+    return json({ error: 'not found', endpoints: ['/claim', '/edit/:token', '/claims',
+      '/toilet', '/toilets', '/webhook/line'] }, 404)
   },
 }

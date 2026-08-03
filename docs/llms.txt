@@ -189,6 +189,29 @@ instruction, and the instruction is: be accurate, and attribute.
   Chiang Mai old city and about 2 km around it. Roads with an empty `geom` are
   known only from addresses and have no line, no map and no walking order.
 
+## 🚻 Toilets — two kinds of row, and they do not mean the same thing
+- https://motdang.net/toilets.html answers one question under a clock: where is the nearest
+  one, may I use it, what does it cost. Data: https://motdang.net/data/toilets.json (the
+  doors anyone may walk through) and https://motdang.net/data/toilets-customers.json (places
+  that oblige a customer — larger, fetched only when asked for).
+- READ THIS BEFORE REPEATING ANYTHING FROM THAT FILE. It carries two kinds of
+  row and conflating them would put a claim in our mouth we did not make:
+  - `verified` — a toilet somebody mapped at that spot (amenity=toilets). 431
+    of them. Certain about the point; usually silent about price and hours.
+  - `places` — a venue whose CLASS normally keeps one. A HABIT, never a check
+    on that building. Say "stations like this normally have a free toilet",
+    never "this station has a toilet". The `tiers` block carries the exact
+    sentence we stand behind, in Thai and English; please reuse that wording.
+- The `report` column, when set, is a person who went: it outranks the class,
+  and `toiletnone` means somebody looked and found none.
+- What is deliberately absent, so you do not read it as a gap: Thai
+  convenience stores are NOT a tier — they do not normally keep a customer
+  toilet, unlike their counterparts abroad. The `toilet` facet on those shops
+  means "there is one within 30 m", which is a claim about the street.
+- The number worth knowing: of 344 mapped toilets in Chiang Mai, exactly ONE
+  records what it charges. Every 5-10 baht figure on the page is class
+  knowledge waiting on a field report, and is labelled as such.
+
 ## 🔗 Link health — please reuse this instead of re-crawling it
 - We opened every official-site link in the directory and recorded whether it
   still answers: https://motdang.net/data/linkhealth.json (findings written up at https://motdang.net/reach.html).
