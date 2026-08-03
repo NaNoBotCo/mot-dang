@@ -291,9 +291,11 @@ def festival_dates_page(g, data):
     head = ('<link rel="stylesheet" href="answers.css">'
             '<script type="application/ld+json">'
             + json.dumps(ld, ensure_ascii=False) + "</script>")
+    og = ("og/festival-dates.png"
+          if (ROOT / "assets" / "og" / "festival-dates.png").exists() else None)
     return g["page"](
         f"วันเทศกาลปี {years[0] + 543}-{years[1] + 543} เชียงใหม่-เชียงราย ยี่เป็ง สงกรานต์ วันพระใหญ่",
-        body, depth=0, path="festival-dates.html",
+        body, depth=0, path="festival-dates.html", og=og,
         desc=f"ยี่เป็ง-ลอยกระทง {years[0] + 543} วันไหน? สงกรานต์ วันพระใหญ่ และเทศกาลทั้ง 33 งาน "
              f"ของเชียงใหม่-เชียงราย ปี {years[0] + 543}-{years[1] + 543} พร้อมที่มาทุกวัน · "
              f"Chiang Mai festival dates {years[0]}-{years[1]}",
@@ -439,9 +441,11 @@ if(lbl)lbl.textContent=['จันทร์','อังคาร','พุธ','�
         + g["share_block"](g["BASE"] + "open-now.html",
                            "ตอนนี้ที่เชียงใหม่เปิดอะไรบ้าง · What's open in Chiang Mai — มดแดง")
         + f"<script>{js}</script>")
+    og = ("og/open-now.png"
+          if (ROOT / "assets" / "og" / "open-now.png").exists() else None)
     return g["page"](
         "ตอนนี้เปิดอะไร เชียงใหม่ — เช้ามืด หลังเที่ยงคืน เปิด 24 ชม.",
-        body, depth=0, path="open-now.html",
+        body, depth=0, path="open-now.html", og=og,
         desc=f"ตีห้าเชียงใหม่มีอะไรเปิด? หลังเที่ยงคืนกินอะไรได้? ร้าน 24 ชั่วโมงอยู่ไหน? "
              f"คำตอบจากเวลาเปิด-ปิดจริง {n:,} แห่ง · What's open in Chiang Mai at 5am, "
              "after midnight, or 24 hours — from real opening hours.",
