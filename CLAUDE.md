@@ -11,11 +11,19 @@ Thai-first CM+CR directory. Stdlib Python only. `importers/import_all.py` then
 Pipeline order: `importers/make_widget_shots.py` (daily — photographs the live
 instruments at wichaa.net; skip it and the sky tile just does not render) →
 `importers/import_all.py` → `importers/build_streets.py` (roads
-and sois; needs `cache/roads/`, ~20 s) → `importers/sync_claims.py` +
+and sois; needs `cache/roads/`, ~20 s) → `importers/build_open_lamps.py`
+(opening hours → lamp schedules for /nitnoy.html; deterministic, contracts in
+`tests/test_nitnoy.py`) → `importers/sync_claims.py` +
 `importers/sync_toilets.py` (pull what people sent the worker; both keep what
 is on disk if it is unreachable) → `make_og_cards.py` (optional, needs
-Chrome + Pillow, writes `assets/og/`) → `build.py` → push →
-`importers/ping_indexnow.py`.
+Chrome + Pillow, writes `assets/og/`) → `importers/make_nitnoy_gif.py`
+(optional, needs Pillow — the nitnoy stop-motion + og poster) → `build.py` →
+push → `importers/ping_indexnow.py`.
+
+ONE build.py AT A TIME: build wipes docs/ at start, and two sessions building
+concurrently means one is writing pages into directories the other just
+deleted (FileNotFoundError mid-write, or worse, a silently interleaved docs/).
+`ps aux | grep build.py` before building; wait, don't race.
 
 Rules that bite:
 - Empty categories are hidden by design — don't "fix" that.

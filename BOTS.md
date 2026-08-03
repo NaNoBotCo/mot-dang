@@ -53,7 +53,8 @@ Gatherer contracts:
 |---|---|---|---|
 | `importers/build_hillshade.py` *(to build)* | `cache/dem/` | `assets/hillshade/` raster tiles | render once, offline; Doi Suthep presses on the west edge |
 | `importers/build_isochrones.py` *(to build)* | `data/road_graph.json` | `data/isochrones.json` | 5/10/15-min walk polygons on a city grid |
-| `importers/build_open_lamps.py` *(to build)* | canonical `hours` fields | `data/open_lamps.json` | parse opening_hours → minute-of-week bitmaps |
+| `importers/build_open_lamps.py` *(LIVE)* | canonical `hours` fields | `data/open_lamps.json` | parse opening_hours → minute-of-week intervals + meal curves + market rhythms; contracts in `tests/test_nitnoy.py` |
+| `importers/make_nitnoy_gif.py` *(LIVE, optional — Pillow)* | `data/open_lamps.json`, road graph | `assets/nitnoy.gif` + `nitnoy_poster.png` | one Saturday in 48 frames; poster = og:image |
 | `importers/build_cuisine_dots.py` *(to build)* | canonical `attrs.cuisine` | `data/cuisine_dots.json` + cuisine→color map | dot layer over the FULL dataset, not a shortlist |
 | `importers/build_basemap.py` *(to build)* | `cache/roads/`, `data/streets.json` | `assets/tiles/*.pmtiles` | the self-hosted vector basemap |
 
@@ -75,7 +76,7 @@ and its hook into `build.py` is ~2 lines. Each new layer follows it.
 | layer module | reads | renders | task |
 |---|---|---|---|
 | `map_shell.py` *(to build)* | vendored MapLibre + pmtiles in `assets/vendor/` | the shared map page all layers mount on | #1 |
-| `breathing_layer.py` *(to build)* | `open_lamps.json`, `sky.json` | time-scrubber lamp map — the flagship | #2 |
+| `nitnoy_layer.py` *(LIVE — /nitnoy.html)* | `open_lamps.json` + shared city frame | เมืองหลับนิดหน่อย: time-scrubber lamp map, meal curves, market rhythm, stop-motion | #2 |
 | `reach_layer.py` *(to build)* | `isochrones.json` | tap-anywhere ink-blot walk-sheds | #4 |
 | `terroir_layer.py` *(to build)* | `cuisine_dots.json` | cuisine dot-painting + legend-as-filter | #5 |
 | `festival_flood.py` *(to build)* | `festival_geo.json`, wat coords, year wheel | when×where animation per festival | #7 |

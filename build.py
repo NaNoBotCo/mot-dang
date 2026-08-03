@@ -29,7 +29,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
-BUILD_DATE = "2026-08-02"
+BUILD_DATE = "2026-08-03"
 
 # The moondial: reuse the real dial art (manuscript-wiki/moondial.py, the same
 # ornate SVG that powers wichaa.net/moon) rather than draw a lesser copy. Pure
@@ -8596,6 +8596,7 @@ def build():
         f'<p><a href="watnames.html">⛰️ {bi("ชื่อวัดบอกภูมิประเทศ", "A wat’s name tells the landscape")}</a> · '
         f'<a href="seven.html">🏪 {bi("ใกล้เซเว่นแค่ไหน", "How near is the nearest 7-Eleven")}</a> · '
         f'<a href="walk.html">🚶 {bi("แผนที่ระยะเดิน", "The city at walking pace")}</a> · '
+        f'<a href="nitnoy.html">🏮 {bi("เมืองหลับนิดหน่อย", "The city that sleeps nitnoy")}</a> · '
         f'<a href="reach.html">🔗 {bi("ลิงก์ไหนยังเปิดได้จริง", "Which official links still answer")}</a></p>'
         f'{share_block(BASE + "stats.html", "สถิติมดแดง · Mot Dang stats")}',
         depth=0, path="stats.html", desc=stats_th))
@@ -9803,6 +9804,12 @@ def build():
     else:
         print("  walk.html SKIPPED entirely — no amenity layer had points")
 
+    # ---- nitnoy.html: เมืองหลับนิดหน่อย — the city hour by hour -----------
+    import nitnoy_layer
+    print("  nitnoy:", nitnoy_layer.emit(globals(), data, dict(
+        w=MAP_W, e=MAP_E, s=MAP_S, n=MAP_N, mw=MAP_MW, mh=MAP_MH,
+        pad=MAP_PAD, road_d=MAP_ROAD_D, px=_map_px)))
+
     # ---- the full buffet: one JSON dump of every field, for agents --------
     full_dump = []
     for p in PROVINCES:
@@ -10110,6 +10117,12 @@ where each one actually goes:
 - Walking-pace maps (network distance on the foot graph — the moat is
   crossable only at bridges and gates): {BASE}walk.html, numbers at
   {BASE}data/walk.json
+- The city hour by hour: {BASE}nitnoy.html — every place with known opening
+  hours as a lamp on a 24-hour map, plus meal-window curves by food category
+  and the market rhythm. Data: {BASE}data/open_lamps.json. Read it the way
+  the page says: a place absent from that file has UNKNOWN hours — absence
+  never means closed, and a meal curve describes a category's habit, never
+  one shop's promise.
 - RSS feed of highlights: {BASE}rss.xml (autodiscoverable via <link rel="alternate">
   on every page); cross-promotion open to other local publications: {BASE}partners.html
 - Structural (not volumetric) differences from Google's local data, stated plainly
