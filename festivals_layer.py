@@ -357,16 +357,44 @@ def venue_places(f, idx, g):
 def festivals_ics(fests, g, year, announced=None):
     """A calendar of the recurring canon.
 
-    Two kinds of entry, and no third. A fixed-date festival gets a VEVENT with a
-    yearly rule. A festival whose dates an official source has actually
-    announced gets a one-off VEVENT for that year. A lunar or not-yet-announced
-    festival has no date to publish and does not get invented one — it simply is
-    not in the feed. Said plainly in the calendar description so nobody
-    subscribes expecting Songkran to bring Yi Peng.
+    Three kinds of entry, and no fourth. A fixed-date festival gets a VEVENT
+    with a yearly rule. A festival whose dates an official source has actually
+    announced gets a one-off VEVENT for that year. And a lunar festival whose
+    date a published Thai calendar already carries — hand-checked into
+    data/festival_calendar.json, one source per row — gets a one-off VEVENT
+    naming that source. A festival with none of the three has no date to
+    publish and does not get invented one — it simply is not in the feed.
+    Said plainly in the calendar description so nobody subscribes expecting
+    the feed to guess.
     """
     esc = g["_ics_esc"]
     body = []
     by_id = {f["id"]: f for f in fests}
+    dated = set()
+    for fid, rows in (announced or {}).items():
+        for r in rows[:2]:
+            dated.add((fid, int(r["date_start"][:4])))
+    import answers_layer
+    cal, cal_src = answers_layer.calendar_rows()
+    for (fid, y), r in sorted(cal.items()):
+        f = by_id.get(fid)
+        # an official announcement for that festival-year outranks the
+        # published-calendar row, so the feed never carries both
+        if not f or y not in (year, year + 1) or (fid, y) in dated:
+            continue
+        start = datetime.date.fromisoformat(r["date_start"])
+        end = datetime.date.fromisoformat(r["date_end"]) + datetime.timedelta(days=1)
+        s = cal_src[r["source"]]
+        body.append(
+            "BEGIN:VEVENT\r\n"
+            f"UID:lunar-{fid}-{r['date_start']}@motdang.net\r\n"
+            f"DTSTAMP:{year}0101T000000Z\r\n"
+            f"DTSTART;VALUE=DATE:{start:%Y%m%d}\r\n"
+            f"DTEND;VALUE=DATE:{end:%Y%m%d}\r\n"
+            f"SUMMARY:{esc(f['name_th'] + ' · ' + f['name_en'])}\r\n"
+            f"DESCRIPTION:{esc('Published Thai lunar-calendar date, checked against ' + s['name_en'] + '. ' + s['url'])}\r\n"
+            f"URL:{esc(g['BASE'] + 'festivals/' + fid + '.html')}\r\n"
+            "END:VEVENT\r\n")
     for fid, rows in (announced or {}).items():
         f = by_id.get(fid)
         if not f:
@@ -411,12 +439,13 @@ def festivals_ics(fests, g, year, announced=None):
             f"URL:{esc(g['BASE'] + 'festivals/' + f['id'] + '.html')}\r\n"
             "END:VEVENT\r\n")
     name = "มดแดง — เทศกาลที่มีวันแน่นอน / Mot Dang festivals with dates"
-    desc = ("Two kinds of entry. Recurring festivals with a fixed Gregorian date, "
-            "as yearly rules. And festivals whose dates an official source has "
+    desc = ("Three kinds of entry. Recurring festivals with a fixed Gregorian date, "
+            "as yearly rules. Festivals whose dates an official source has "
             "actually announced, as one-off events carrying the announcing body in "
-            "the description. Lunar and not-yet-announced festivals are deliberately "
-            "absent: they have a date rule, not a date. The rules themselves are at "
-            "https://motdang.net/festivals.html")
+            "the description. And lunar festivals whose dates a published Thai "
+            "calendar already carries, as one-off events naming that calendar. "
+            "Anything else is deliberately absent: it has a date rule, not a date. "
+            "The rules themselves are at https://motdang.net/festivals.html")
     return ("BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Mot Dang//motdang.net//EN\r\n"
             f"CALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\nX-WR-CALNAME:{esc(name)}\r\n"
             "X-WR-TIMEZONE:Asia/Bangkok\r\n"
@@ -523,8 +552,34 @@ def build_festival_page(f, g, events, idx, prov_of, neighbours):
              f'<div class="festmeta">{"".join(meta)}</div></div>',
              f'<div class="festbody"><p>{bi(f["blurb_th"], f["blurb_en"])}</p>']
 
+    # Hand-checked published lunar dates (data/festival_calendar.json via
+    # answers_layer) — the rule stays first, then the dates the published
+    # calendars already put under that rule, each with its source. A broken
+    # calendar file fails the build here on purpose rather than quietly
+    # dropping dates from 33 pages.
+    import answers_layer
+    _cal, _cal_src = answers_layer.calendar_rows()
+    _today = datetime.date.fromisoformat(g["BUILD_DATE"])
+    cal_rows = [(_cal[(f["id"], y)], _cal_src[_cal[(f["id"], y)]["source"]])
+                for y in (_today.year, _today.year + 1)
+                if (f["id"], y) in _cal]
+
     parts.append(f'<h2>{bi("วันไหน", "When it falls")}</h2>'
                  f'<p>{bi(f["rule_th"], f["rule_en"])}</p>')
+    if cal_rows:
+        lis = []
+        for r, s in cal_rows:
+            th, en = _date_range_text(r, g)
+            note = (f'<br><span class="tinynote">{bi(esc(r.get("note_th", "")), esc(r.get("note_en", "")))}</span>'
+                    if r.get("note_th") else "")
+            lis.append(
+                f'<li><b>{bi(th, en)}</b> '
+                f'<span class="evwhen">🌕 {bi("ตามปฏิทินจันทรคติที่เผยแพร่แล้ว", "published lunar-calendar date")}</span> — '
+                f'<a href="{att(s["url"])}" rel="noopener nofollow">{bi("ที่มา", "source")}</a>{note}</li>')
+        parts.append(
+            f'<ul class="instances">{"".join(lis)}</ul>'
+            f'<p class="tinynote"><a href="../festival-dates.html">'
+            f'{bi("ดูวันเทศกาลทุกงาน ปีนี้และปีหน้า", "All festival dates, this year and next")} →</a></p>')
 
     if f.get("auspicious_th"):
         parts.append(f'<h2>{bi("ความหมายและอานิสงส์", "What the day is for")}</h2>'
@@ -583,7 +638,7 @@ def build_festival_page(f, g, events, idx, prov_of, neighbours):
             for e in inst[:6])
         parts.append(f'<h2>{bi("ปีนี้มีอะไรบ้าง", "Dated instances we have")}</h2>'
                      f'<ul class="instances">{rows}</ul>')
-    elif not ann:
+    elif not ann and not cal_rows:
         nodate = bi(
             "ยังไม่มีวันที่ยืนยันของปีนี้ในระบบ — หน้านี้บอกกฎของวัน ไม่ใช่วันที่เดาเอา "
             "ถ้ารู้วันแล้วบอกมดแดงได้ที่หน้าลงงาน",
@@ -757,7 +812,9 @@ def build_hub(fests, g, today, wheel):
             f'{coming_up(fests, today, depth=0, g=g)}'
             f'<div class="wheelwrap">{wheel}</div>'
             f'<div class="wheelkey">{key}</div>'
-            f'<p class="tinynote">🗓 <a href="festivals.ics">festivals.ics</a> — '
+            f'<p class="tinynote">📅 <a href="festival-dates.html">'
+            f'{bi("วันเทศกาลปีนี้และปีหน้า — ทุกงาน หน้าเดียว", "Festival dates for this year and next, on one page")}</a> · '
+            f'🗓 <a href="festivals.ics">festivals.ics</a> — '
             f'{bi("ปฏิทินเฉพาะงานที่มีวันที่แน่นอน (สมัครรับในปฏิทินได้เลย) · งานตามจันทรคติอยู่ใน events.ics เมื่อยืนยันวันแล้ว", "the fixed-date festivals as a subscribable calendar; lunar and announced ones join events.ics once their dates are confirmed")} · '
             f'<a href="data/festivals.json">festivals.json</a> · '
             f'<a href="festival-wheel.svg">{bi("ดาวน์โหลดวงล้อ", "download the wheel")}</a></p>'

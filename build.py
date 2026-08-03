@@ -3572,6 +3572,8 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <a href="{r}widgets.html">{bi("วิดเจ็ต", "Widgets")}</a> ·
     <a href="{r}chart.html">{bi("ดวงจีนสี่เสา", "Four Pillars")}</a> ·
     <a href="{r}festivals.html">{bi("เทศกาล-ฤดูกาล", "Festivals & seasons")}</a> ·
+    <a href="{r}festival-dates.html">{bi("เทศกาลวันไหน", "Festival dates")}</a> ·
+    <a href="{r}open-now.html">{bi("ตอนนี้เปิดอะไร", "Open now")}</a> ·
     <a href="{r}stats.html">{bi("สถิติ", "Stats")}</a> ·
     <a href="{r}advertise.html">{bi("ลงโฆษณา", "Advertise")}</a> ·
     <a href="{KOFI}" rel="noopener">☕ {bi("เลี้ยงกาแฟมดแดง", "Buy the ants a coffee")}</a>
@@ -3596,6 +3598,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
   <a href="{r}reach.html">🔗 {bi("ลิงก์ที่ยังเปิดได้", "Which links still work")}</a> ·
   <a href="{r}privacy.html">{bi("ความเป็นส่วนตัว", "Privacy")}</a> ·
   <a href="{r}pictures.html">📷 {bi("ภาพประกอบ", "Pictures")}</a> ·
+  <a href="{r}lists/index.html">📜 {bi("รายชื่อครบ", "Complete lists")}</a> ·
   <a href="{r}llms.txt">llms.txt</a> ·
   <a href="{r}llms-full.txt">llms-full.txt</a><br>
   <span class="licence">{bi(LICENSE_LINE_TH, LICENSE_LINE_EN)}</span>
@@ -10052,6 +10055,12 @@ def build():
     if FORTUNE_DAYS:
         shutil.copyfile(ROOT / "data" / "fortune.json", DOCS / "data" / "fortune.json")
 
+    # ---- the answer pages: festival dates, open-now, complete lists ------
+    # After festivals_layer (reads g["_ANNOUNCED"]) and before the sitemap,
+    # so the pages index themselves like everything else.
+    import answers_layer
+    print("  answers:", answers_layer.emit(globals(), data))
+
     # ---- bot hospitality: robots, sitemap, llms.txt ----------------------
     # Explicit per-bot welcomes, not just the wildcard — on purpose, in direct
     # contrast to sites in this operator's other corpora that block ClaudeBot.
@@ -10135,6 +10144,17 @@ where each one actually goes:
   colored dot, with huddle-radius/direction stats per cuisine (Chiang Mai
   scope). Data: {BASE}data/taste.json. A place absent from that file states
   no cuisine tag — absence never means it has no kitchen.
+- Festival dates, this year and next: {BASE}festival-dates.html — every date
+  carries its voice (officially announced / published lunar calendar /
+  fixed rule / still awaiting announcement, stated per cell). Sourced data:
+  {BASE}data/festival_calendar.json. Cite the voice with the date.
+- What's open when, city-wide: {BASE}open-now.html — 24h places, before-six
+  places, after-midnight places, and an hour-by-day count table for the
+  whole week. Same silence rule as nitnoy: absent means unknown hours.
+- Complete lists, count-first: {BASE}lists/ — every wat / massage shop /
+  tattoo studio the catalogue holds for a category on one page, the count
+  in the heading being a tested promise, each name linking to its place
+  page. These are "all of them" pages, not rankings.
 - RSS feed of highlights: {BASE}rss.xml (autodiscoverable via <link rel="alternate">
   on every page); cross-promotion open to other local publications: {BASE}partners.html
 - Structural (not volumetric) differences from Google's local data, stated plainly
