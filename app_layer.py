@@ -17,11 +17,13 @@ Entry point: emit(globals_of_build, data), same handshake as every layer.
 """
 import hashlib
 import re
+import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 APK_SRC = ROOT / "app" / "out" / "motdang-hongnam.apk"
 APK_NAME = "motdang-hongnam.apk"
+WWW = ROOT / "app" / "www"
 
 CSS = """
 .app-hero{background:linear-gradient(135deg,var(--ant) 0%,var(--ant-dark) 100%);
@@ -55,7 +57,20 @@ def emit(g, data):
     if not APK_SRC.exists():
         return "no APK at app/out/ — run app/build_apk.py; app.html skipped"
 
+    # /app/ is the app itself, served on the open web — the same files the
+    # APK carries in its assets. An iPhone has no other way in: Safari's Add
+    # to Home Screen plus the service worker gives a reader there the same
+    # offline map, without an App Store or a developer account in between.
     (docs / "app").mkdir(exist_ok=True)
+    web_files = 0
+    for f in sorted(WWW.rglob("*")):
+        if not f.is_file() or f.name.startswith("."):
+            continue
+        dest = docs / "app" / f.relative_to(WWW)
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(f, dest)
+        web_files += 1
+
     apk_bytes = APK_SRC.read_bytes()
     (docs / "app" / APK_NAME).write_bytes(apk_bytes)
     sha = hashlib.sha256(apk_bytes).hexdigest()
@@ -90,6 +105,24 @@ def emit(g, data):
           "Tap install and open it. It will ask for location, to sort the list by nearness")}</li>
 </ol>
 
+<h2>{bi("ใช้ไอโฟน", "On an iPhone")}</h2>
+<div class="app-hero" style="background:linear-gradient(135deg,#1f6b57,#14483a)">
+  <h2>{esc("ไม่ต้องโหลดไฟล์ ใส่ลงหน้าจอได้เลย")}</h2>
+  <p>{esc("ไอโฟนติดตั้งไฟล์ของแอนดรอยด์ไม่ได้ แต่แอปตัวเดียวกันนี้เปิดในซาฟารีได้ "
+          "แล้วกดใส่ไว้ที่หน้าจอโฮม จากนั้นใช้ได้เหมือนกันทุกอย่าง รวมทั้งตอนไม่มีเน็ต")}<br>
+  <small>{esc("An iPhone cannot install an Android file — but the same app opens in "
+              "Safari, and Add to Home Screen keeps the whole map on the phone. "
+              "It works with no signal after that, exactly like the Android one.")}</small></p>
+  <a class="apk-btn" href="app/">📲 {esc("เปิดแอปในซาฟารี")} · Open in Safari</a>
+</div>
+<ol class="app-steps">
+  <li>{bi("เปิด motdang.net/app/ ในซาฟารี", "Open motdang.net/app/ in Safari")}</li>
+  <li>{bi("กดปุ่มแชร์ข้างล่าง (รูปสี่เหลี่ยมมีลูกศรขึ้น)",
+          "Tap the Share button at the bottom (the square with an arrow)")}</li>
+  <li>{bi("เลื่อนหา “เพิ่มไปยังหน้าจอโฮม” แล้วกดเพิ่ม — ไอคอนมดแดงจะไปอยู่บนหน้าจอ",
+          "Scroll to “Add to Home Screen” and add it — the ant icon lands on your screen")}</li>
+</ol>
+
 <h2>{bi("สิ่งที่แอปนี้ไม่ทำ", "What this app does not do")}</h2>
 <div class="app-quiet"><b class="h">🗺️ {bi("ไม่เรียกแผนที่จากใคร", "It draws its own map")}</b>
 {bi("แผนที่วาดจากข้อมูลในเครื่องทั้งหมด การเปิดดูไม่เรียกหาเซิร์ฟเวอร์แผนที่ใดเลย",
@@ -119,17 +152,18 @@ def emit(g, data):
     "The person who stands at a door and taps one word is the one who changes that.")}
 </div>
 
-<p><span class="bi"><span class="th" lang="th">ใช้ไอโฟน หรือยังไม่อยากติดตั้ง —
+<p><span class="bi"><span class="th" lang="th">ยังไม่อยากติดตั้งอะไรเลย —
 <a href="toilets.html">หน้าเว็บห้องน้ำใกล้ฉัน</a>ตอบคำถามเดียวกัน</span>
-<span class="en" lang="en"><span class="th" lang="th"> · </span>On an iPhone, or not
-ready to install? <a href="toilets.html">The web page</a> answers the same
+<span class="en" lang="en"><span class="th" lang="th"> · </span>Not ready to install
+anything? <a href="toilets.html">The web page</a> answers the same
 question.</span></span></p>
 """
     (docs / "app.html").write_text(page(
         "แอปห้องน้ำใกล้ฉัน", body, 0, path="app.html",
         desc="แอปห้องน้ำใกล้ฉัน มดแดง — แผนที่ออฟไลน์ทั้งเมืองเชียงใหม่ ติดตั้งตรงจากมดแดง ไม่ผ่านสโตร์",
         extra_head=f"<style>{CSS}</style>"))
-    return f"app.html + {APK_NAME} ({mb:.1f} MB, v{ver})"
+    return (f"app.html + {APK_NAME} ({mb:.1f} MB, v{ver}) + "
+            f"/app/ web app ({web_files} files)")
 
 
 if __name__ == "__main__":

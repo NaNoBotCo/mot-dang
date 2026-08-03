@@ -54,12 +54,22 @@ def draw_icon(size):
     return img.resize((size, size), Image.LANCZOS)
 
 
+# The same icon the Android launcher gets, for the iPhone Home Screen and
+# any browser that installs the web app. 180 is the size iOS asks for.
+WEB_ICONS = {"icon-180.png": 180, "icon-192.png": 192, "icon-512.png": 512}
+
+
 def main():
     for dpi, size in DENSITIES.items():
         out = RES / f"mipmap-{dpi}"
         out.mkdir(parents=True, exist_ok=True)
         draw_icon(size).save(out / "ic_launcher.png")
         print(f"  mipmap-{dpi}/ic_launcher.png ({size}px)")
+    web = HERE / "www" / "icons"
+    web.mkdir(parents=True, exist_ok=True)
+    for name, size in WEB_ICONS.items():
+        draw_icon(size).save(web / name)
+        print(f"  www/icons/{name} ({size}px)")
 
 
 if __name__ == "__main__":
