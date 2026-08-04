@@ -282,6 +282,10 @@ def emit(g, data, frame):
     if poster.exists():
         shutil.copyfile(poster, DOCS / "nitnoy_poster.png")
         og = "nitnoy_poster.png"
+    # The framed family card (make_answer_cards.py) supersedes the bare
+    # poster as the share preview; the poster stays the on-page film still.
+    if (ROOT / "assets" / "og" / "nitnoy.png").exists():
+        og = "og/nitnoy.png"
 
     vw = frame["mw"] + 2 * frame["pad"]
     vh = frame["mh"] + 2 * frame["pad"]

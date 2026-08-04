@@ -318,6 +318,52 @@ def walk_card():
     ), OG / "walk.png"
 
 
+# ------------------------------------------------------------------- nitnoy
+# The page's own group palette, so the card and the map speak one language.
+NITNOY_GROUPS = [("food", "#f6b73c", "ร้านอาหาร"), ("cafe", "#f0e3b0", "คาเฟ่"),
+                 ("night", "#b18cff", "บาร์-ผับ"), ("market", "#ff6b5e", "ตลาด"),
+                 ("care", "#ff9fc7", "นวด-ความงาม"),
+                 ("shop", "#7fd8a4", "ของจำเป็น-ช้อป"),
+                 ("other", "#c9d4e0", "อื่น ๆ")]
+
+
+def nitnoy_card():
+    """The lamps as they burn on a Saturday at 19:00 — the same moment the
+    page's film strip freezes for its poster, so the two previews agree."""
+    lamps = json.loads((ROOT / "data" / "open_lamps.json").read_text())
+    scheds = lamps["schedules"]
+    color = {k: c for k, c, _ in NITNOY_GROUPS}
+    t = 5 * 1440 + 19 * 60          # Saturday 19:00, minute-of-week
+    points, lit = [], {}
+    for p in lamps["places"]:
+        if p.get("p") != "cm":
+            continue
+        if not any(a <= t < b for a, b in scheds[p["k"]]):
+            continue
+        lit[p["g"]] = lit.get(p["g"], 0) + 1
+        points.append((p["la"], p["ln"], color.get(p["g"], "#c9d4e0")))
+    art, n_in = constellation(points, r=2.4)
+    chips = "".join(
+        chip(f'<i style="color:{c}">●</i> {th} {lit[k]}')
+        for k, c, th in NITNOY_GROUPS if lit.get(k))
+    return FRAME.format(
+        panel_w=PANEL_W,
+        extra_css="h1{font-size:62px}.chip i{font-style:normal;margin-right:2px}",
+        kicker_glyph="🏮",
+        kicker="เชียงใหม่ — เมืองนี้กำลังทำอะไรอยู่",
+        h1="เมืองหลับนิดหน่อย",
+        en="The city that sleeps nitnoy — its lamps, hour by hour",
+        nums=num(f"{len(lamps['places']):,}",
+                 "โคมทั้งหมด — ร้านที่รู้เวลาเปิดจริง<br>lamps with known hours")
+             + num(f"{len(points):,}",
+                   "ดวงสว่างอยู่ คืนวันเสาร์หนึ่งทุ่ม<br>alight on a Saturday at 19:00"),
+        chips=chips,
+        path="nitnoy",
+        art=art,
+        caption=f"โคมทุกดวงคือร้านจริง สีคือหมวด — {n_in:,} ดวงในกรอบ",
+    ), OG / "nitnoy.png"
+
+
 # -------------------------------------------------------------------- lists
 LIST_COLOR = {"wat-chiang-mai": "#f6b73c", "wat-chiang-rai": "#f6b73c",
               "massage-chiang-mai": "#ff9fc7", "tattoo-chiang-mai": "#b98bff"}
@@ -397,7 +443,8 @@ def main():
     chrome = find_chrome()
     OG.mkdir(parents=True, exist_ok=True)
     tmp = Path(tempfile.mkdtemp(prefix="answercards-"))
-    cards = [festival_card(), open_now_card(), taste_card(), walk_card()]
+    cards = [festival_card(), open_now_card(), taste_card(), walk_card(),
+             nitnoy_card()]
     cards += list_cards()
     for html, dest in cards:
         src = tmp / "card.html"
