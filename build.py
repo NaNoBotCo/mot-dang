@@ -14,6 +14,7 @@ import heapq
 import io
 import json
 import math
+import random
 import re
 import shutil
 import unicodedata
@@ -29,7 +30,14 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
-BUILD_DATE = "2026-08-03"
+BUILD_DATE = "2026-08-04"
+
+# Where the 🎲 chip goes when scripting is off. md.js intercepts the click and
+# rolls fresh each time; this baked pick (seeded by BUILD_DATE, so it rotates
+# with the daily rebuild) is only the no-JS floor — a real somewhere, never a
+# dead "#" that scrolls to the top and calls it a trip. build() fills it in
+# right after load(), before any page is rendered.
+RAND_FALLBACK = "cm/index.html"
 
 # The moondial: reuse the real dial art (manuscript-wiki/moondial.py, the same
 # ornate SVG that powers wichaa.net/moon) rather than draw a lesser copy. Pure
@@ -1530,7 +1538,13 @@ padding:.7rem 1.1rem;border-radius:8px;font-weight:600;z-index:50;text-decoratio
 
 /* --- masthead ---------------------------------------------------------- */
 body.home main{max-width:1280px}
-header.site{border-bottom:0;padding:.9rem 0 0;margin-bottom:0}
+header.site{border-bottom:0;padding:.9rem 0 0;margin-bottom:0;
+/* Morning light on the masthead: a gold pool from the upper right, a faint
+   answering blush of ant-red low on the left. The same warmth the heroglow
+   already casts, arriving one screen earlier. */
+background:
+ radial-gradient(640px 340px at 88% -30%,rgba(243,195,75,.22),transparent 70%),
+ radial-gradient(560px 320px at -6% 130%,rgba(193,58,46,.09),transparent 70%)}
 .masthead{align-items:center;gap:1.1rem}
 .logo{display:flex;align-items:center;gap:.7rem;font-size:1.9rem;line-height:1}
 .logo:hover{text-decoration:none}
@@ -1543,30 +1557,55 @@ display:grid;place-items:center;flex:0 0 auto;font-size:32px;line-height:1}
 .logorom{font-size:.8rem;color:var(--mute);letter-spacing:.18em;font-weight:600}
 
 form.seek{gap:0;margin:.9rem 0 .2rem;border:2px solid var(--ink);border-radius:14px;
-overflow:hidden;background:#fff;min-height:60px;box-shadow:0 2px 0 var(--shadow);max-width:none}
+overflow:hidden;background:#fff;min-height:60px;box-shadow:0 2px 0 var(--shadow);max-width:none;
+transition:box-shadow .25s ease,border-color .25s ease}
+/* The bar answers the touch: a gold ring blooms the moment the field wakes. */
+form.seek:focus-within{border-color:var(--ant);
+box-shadow:0 2px 0 var(--shadow),0 0 0 4px rgba(243,195,75,.4)}
 form.seek input{flex:1;max-width:none;border:0;border-radius:0;background:transparent;
 padding:0 1.1rem;font-size:1.02rem;min-width:0}
 form.seek input:focus{outline:0}
 form.seek button{border:0;border-radius:0;background:var(--ant);color:#fff;font-weight:600;
-padding:0 1.4rem;display:flex;align-items:center;gap:.5rem;font-size:1.02rem}
+padding:0 1.4rem;display:flex;align-items:center;gap:.5rem;font-size:1.02rem;
+transition:background .2s ease}
 form.seek button:hover{background:var(--ant-dark)}
 
-/* Five things people actually came to do get a real target; everything else
-   stays reachable on the quiet row underneath. */
-.chipbar{display:flex;flex-wrap:wrap;gap:.7rem;margin:.9rem 0 .2rem}
-.chip{display:flex;align-items:center;gap:.55rem;min-height:52px;padding:.4rem 1.05rem;
-border:1.5px solid var(--warm-border);border-radius:999px;background:var(--card-alt);
-color:var(--ink);font-weight:600;font-size:.95rem;text-decoration:none}
+/* Seven things people actually came to do get a real target; everything else
+   stays reachable on the quiet row underneath. The pills sit on glass —
+   the masthead's glow reads through them — and answer the hand: lift on
+   approach, a soft squish on press. */
+.chipbar{display:flex;flex-wrap:wrap;gap:.6rem;margin:.9rem 0 .2rem}
+.chip{display:flex;align-items:center;gap:.55rem;min-height:50px;padding:.35rem .95rem;
+border:1.5px solid var(--warm-border);border-radius:999px;
+background:rgba(255,253,247,.58);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+color:var(--ink);font-weight:600;font-size:.93rem;text-decoration:none;
+transition:border-color .18s ease,background .18s ease,box-shadow .18s ease}
 .chip:visited{color:var(--ink)}
 .chip .rowicon{color:var(--ant)}
-.chip:hover{border-color:var(--ant);background:var(--row-hover);text-decoration:none}
+.chip:hover{border-color:var(--ant);background:var(--row-hover);text-decoration:none;
+box-shadow:0 4px 12px rgba(42,30,22,.12)}
 .chip .en{font-weight:400;color:var(--gloss)}
 .chip.dark{background:var(--ink);border-color:var(--ink);color:#fdf3dd}
 .chip.dark:visited{color:#fdf3dd}
 .chip.dark .rowicon{color:var(--gold-light)}
 .chip.dark .en{color:#e8dcc4}
 .chip.dark:hover{background:var(--ant);border-color:var(--ant)}
-.svcbar{font-size:.86rem;margin:.7rem 0 0;color:var(--ant-dark);line-height:2}
+@media (prefers-reduced-motion:no-preference){
+.chip{transition:border-color .18s ease,background .18s ease,box-shadow .18s ease,
+transform .18s cubic-bezier(.34,1.56,.64,1)}
+.chip:hover{transform:translateY(-2px)}
+.chip:active{transform:translateY(0) scale(.96)}
+form.seek button:active{transform:scale(.97)}
+.langbtn:active{transform:scale(.94)}
+}
+/* The quiet row: family it belongs to, not the front door. Warm ink instead
+   of hyperlink blue, bare until the hand arrives — thirteen doors reachable
+   without thirteen shouts. */
+.svcbar{font-size:.84rem;margin:.55rem 0 0;color:var(--mute);line-height:1.9}
+.svcbar a{color:var(--ant-dark);text-decoration:none}
+.svcbar a:visited{color:var(--ant-dark)}
+.svcbar a:hover{color:var(--ant);text-decoration:underline;
+text-decoration-thickness:2px;text-decoration-color:var(--gold)}
 
 /* A band of temple-eave beads, purely decorative. */
 .beadrule{height:10px;margin-top:.9rem;
@@ -1701,13 +1740,28 @@ body.home main{max-width:100%}
 .logomark{width:50px;height:50px;font-size:26px;border-radius:13px}
 .logoth{font-size:1.6rem}
 .masthead{gap:.7rem}
-.langgroup{margin-left:0;width:100%}
-.langbtn{flex:1}
-form.seek{flex-wrap:wrap;min-height:0}
-form.seek input{flex:1 0 100%;min-height:54px;border-bottom:2px solid var(--ink)}
-form.seek button{flex:1 0 100%;min-height:52px;justify-content:center}
-.chipbar{gap:.5rem}
-.chip{flex:1 1 100%;justify-content:flex-start}
+/* The hero eyebrow says the same thing two swipes better; on a phone the
+   tagline's row is worth more than its words. */
+.tagline{display:none}
+.langgroup{margin-left:auto}
+.langbtn{padding:.35rem .55rem;font-size:.85rem}
+/* One row, not three: the field keeps the line and the button folds to its
+   magnifier. Stacked full-width, search alone was two thumbs of chrome. */
+form.seek{min-height:54px}
+form.seek input{min-height:54px;padding:0 .9rem}
+form.seek button{padding:0 1.1rem}
+form.seek button .bi{display:none}
+/* Two abreast instead of seven stacked — the whole rack in four rows, the
+   flagship keeping a full row of its own. This is the difference between a
+   phone arriving on the directory and a phone arriving on furniture. */
+.chipbar{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.chip{min-height:52px;padding:.4rem .75rem;font-size:.88rem;border-radius:16px;
+justify-content:flex-start}
+.chip.dark{grid-column:1/-1;border-radius:999px}
+/* Thai above, English beneath — two even lines instead of a mid-phrase wrap
+   with its separator stranded. Same move the hero title makes. */
+.chip .bi .en{display:block;font-size:.78rem;line-height:1.25}
+.chip .bi .en>.th{display:none}
 /* The secondary links ran to seven stacked lines on a phone, pushing the
    directory itself below two screens of chrome — and a phone is how most
    people arrive, straight off a QR code. One swipeable row instead, the same
@@ -3550,19 +3604,19 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
       <button type="button" class="langbtn" data-lang="en" aria-pressed="false">EN</button>
     </div>
   </div>
-  <form class="seek">
+  <form class="seek" action="{r}search.html" method="get">
     <label class="vh" for="q">{bi("ค้นหา", "Search")}</label>
-    <input id="q" type="search" placeholder="ค้นหาชื่อร้าน วัด คลินิก… / search">
-    <button>{svg_icon("i-search", 22, "rowicon")}{bi("ค้นหา", "Search")}</button>
+    <input id="q" name="q" type="search" placeholder="ค้นหาชื่อร้าน วัด คลินิก… / search">
+    <button aria-label="{att(bi_text("ค้นหา", "Search"))}">{svg_icon("i-search", 22, "rowicon")}{bi("ค้นหา", "Search")}</button>
   </form>
   <nav class="chipbar" aria-label="ทางลัด Shortcuts">
+    <a class="chip dark" href="{r}plan.html">{svg_icon("i-route", 22)}<span>{bi("วางแผนเดินทาง", "Plan a route")}</span><span class="plancount" style="display:none"></span></a>
     <a class="chip" href="{r}my.html">{svg_icon("i-me", 22)}<span>{bi("หน้าแรกของฉัน", "My page")}</span></a>
     <a class="chip" href="{r}add.html">{svg_icon("i-plus", 22)}<span>{bi("เพิ่มข้อมูล", "Add a place")}</span></a>
     <a class="chip" href="{r}claim.html">{svg_icon("i-claim", 22)}<span>{bi("ยืนยันร้านของคุณ", "Claim your place")}</span></a>
     <a class="chip" href="{r}events.html">{svg_icon("i-lantern", 22)}<span>{bi("งานบุญ-งานเมือง", "What is on")}</span></a>
-    <a class="chip dark" href="{r}plan.html">{svg_icon("i-route", 22)}<span>{bi("วางแผนเดินทาง", "Plan a route")}</span><span class="plancount" style="display:none"></span></a>
     <a class="chip" href="{r}toilets.html">{svg_icon("i-loo", 22)}<span>{bi("ห้องน้ำใกล้ฉัน", "Toilets near you")}</span></a>
-    <a class="chip rand" href="#">{svg_icon("i-dice", 22)}<span>{bi("สุ่มพาไป", "Take me somewhere")}</span></a>
+    <a class="chip rand" href="{r}{RAND_FALLBACK}">{svg_icon("i-dice", 22)}<span>{bi("สุ่มพาไป", "Take me somewhere")}</span></a>
   </nav>
   <div class="svcbar">
     <a href="{r}contacts.html">{bi("เติมเบอร์-ไลน์", "Add contacts")}</a> ·
@@ -7818,6 +7872,12 @@ def build():
     global EVENTS
     EVENTS = enrich_events(data, photos)
 
+    global RAND_FALLBACK
+    _every = [(p["key"], r) for p in PROVINCES for r in data[p["key"]]]
+    if _every:
+        _k, _r = random.Random(BUILD_DATE).choice(_every)
+        RAND_FALLBACK = f"{_k}/p/{place_slug(_r)}.html"
+
     home_sections = []
     search_index = []
     pulse = {}
@@ -8026,7 +8086,7 @@ def build():
             f'<a href="https://www.goldtraders.or.th/" rel="noopener">สมาคมค้าทองคำ</a> · {esc(g["asOf"][:16].replace("T"," "))}</p></div>')
     total = len(search_index)
     rand_html = (f'<div class="module" id="m-rand"><h3>{bi("เดินเล่น", "Wander")}</h3>'
-                 f'<p style="margin:.2rem 0"><a href="#" class="rand">🎲 '
+                 f'<p style="margin:.2rem 0"><a href="{RAND_FALLBACK}" class="rand">🎲 '
                  f'{bi(f"สุ่มพาไปที่ใดที่หนึ่งใน {total:,} แห่ง", f"Take me somewhere — {total:,} places")}</a></p></div>')
     persona_html = (
         '<div class="persona" id="persona"><details><summary>⚙ '

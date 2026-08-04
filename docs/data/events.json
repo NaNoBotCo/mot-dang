@@ -1,6 +1,6 @@
 {
  "generated": "2026-08-01",
- "count": 69,
+ "count": 67,
  "events": [
   {
    "source": "payap-lll",
@@ -103,52 +103,6 @@
     "precision": "approx"
    },
    "richness": 12
-  },
-  {
-   "source": "payap-lll",
-   "uid": "273211",
-   "title": "Chiang Mai Photographers – Illusion Images",
-   "start": "2026-08-03 10:00:00",
-   "end": "2026-08-03 12:00:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/chiang-mai-photographers-illusion-images/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": false,
-   "weekday": null,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 8
-  },
-  {
-   "uid": "event_315678205@meetup.com",
-   "start": "2026-08-03 17:00:00",
-   "all_day": false,
-   "tz": "Asia/Bangkok",
-   "end": "2026-08-03 20:00:00",
-   "title": "Sunset Walk: Under-40s CMU Campus & Lake Walk",
-   "description": "Chiang Mai Professionals, Expats, and Digital Nomads Join WHATSAPP GROUP for info Join us for a weekly sunset walk through the beautiful Chiang Mai University (CMU) campus. This is a casual, recurring meetup designed for young people, remote workers, and locals to hang out, share stories, and get some fresh air together.  ### 📍 Event Details  * **When:** Every Monday at **5:00 PM** * **Dates:** June 29th – August 31st * **Who:** Open to anyone under 40 * **Meeting Point:** *Living a Dream* cafe (the biggest hotspot on the CMU campus!)  ### 🥾 What to Expect  We’ll gather at *Living a Dream* bef",
-   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315678205/",
-   "source": "meetup-ical",
-   "venue_name": "",
-   "venue_from": "",
-   "recurring": false,
-   "weekday": null,
-   "place": null,
-   "richness": 3
   },
   {
    "uid": "event_315692349@meetup.com",
