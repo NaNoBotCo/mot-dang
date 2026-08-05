@@ -30,7 +30,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
-BUILD_DATE = "2026-08-04"
+BUILD_DATE = "2026-08-05"
 
 # Where the 🎲 chip goes when scripting is off. md.js intercepts the click and
 # rolls fresh each time; this baked pick (seeded by BUILD_DATE, so it rotates
@@ -752,6 +752,17 @@ h1{font-size:1.6rem;margin:.4rem 0} h2{font-size:1.25rem;border-bottom:2px solid
 padding-bottom:.2rem;margin-top:1.6rem}
 ul.dir{list-style:none;padding:0;column-width:22rem;column-gap:2.5rem}
 ul.dir li{margin:.28rem 0;break-inside:avoid}
+/* 🐜N chips sleep until the reader sorts by completeness (.ranked, set by
+   md.js) — in every other order a score beside a business name would read
+   as a rating of the business. Full listings wear a touch of gold. */
+.antchip{display:none;font-size:.7rem;color:var(--gloss);
+border:1px solid var(--warm-border);border-radius:999px;
+padding:.02rem .42rem;margin-left:.35rem;white-space:nowrap;
+vertical-align:.08rem;background:var(--card)}
+ul.dir.ranked .antchip{display:inline-block}
+.antchip[data-r="8"],.antchip[data-r="9"]{color:var(--marigold-ink);
+border-color:var(--gold-light);background:var(--gold-pale)}
+.antchip[data-r="0"],.antchip[data-r="1"]{border-style:dashed}
 ul.cats{list-style:none;padding:0;column-width:26rem;column-gap:2.5rem}
 ul.cats li{margin:.1rem 0 .8rem;break-inside:avoid}
 ul.cats .teaser{display:block;font-size:.88rem;color:var(--mute)}
@@ -1450,6 +1461,10 @@ padding:.02rem .45rem;margin:.1rem 0}
 .ssverdict.v-good{background:#2f7d4f;color:#fff}
 .ssverdict.v-mid{background:#b98a2a;color:#fff}
 .ssverdict.v-care{background:#a33; color:#fff}
+.ssdoor{display:block;margin-top:.45rem;font-size:.84rem;line-height:1.5;
+color:var(--ant-dark);text-decoration:none;border:1px dashed var(--dashed);
+border-radius:.7rem;padding:.3rem .6rem;background:var(--card)}
+.ssdoor:hover{border-style:solid;background:var(--row-hover)}
 .sstext{margin:.2rem 0 0;font-size:.84rem;line-height:1.4}
 .ssshake{border:none;background:#7a5410;color:#fff;border-radius:.6rem;padding:.28rem .8rem;
 font:inherit;font-size:.85rem;font-weight:700;cursor:pointer;z-index:1;margin-top:.2rem}
@@ -1771,6 +1786,23 @@ padding-bottom:.35rem;line-height:1.5;-webkit-overflow-scrolling:touch;
 scrollbar-width:none}
 .svcbar::-webkit-scrollbar{display:none}
 .svcbar a{flex:0 0 auto;padding:.2rem 0}
+/* Interior pages: the same chips, one swipeable row — the svcbar's own move.
+   Someone tapping a shared LINE link lands a thumb-flick from the place name
+   instead of a screen and a half below it. The hub pages (home, my.html)
+   keep the full two-abreast rack above. */
+.site.slim .chipbar{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:.45rem;
+margin:.55rem 0 .1rem;padding-bottom:.3rem;-webkit-overflow-scrolling:touch;
+scrollbar-width:none}
+.site.slim .chipbar::-webkit-scrollbar{display:none}
+.site.slim .chip{flex:0 0 auto;min-height:42px;padding:.25rem .75rem;font-size:.82rem}
+.site.slim .chip.dark{border-radius:999px}
+/* Matched on body.lang-* like the herotitle rules, so Thai-only mode keeps
+   its right to hide English entirely. The nested .th is the " · " separator,
+   hidden for the two-line chips above but needed again on one line. */
+body.lang-both .site.slim .chip .bi .en,
+body.lang-en .site.slim .chip .bi .en{display:inline;font-size:.78rem}
+body.lang-both .site.slim .chip .bi .en>.th{display:inline}
+.site.slim .tagline{display:none}
 ul.catrows{grid-template-columns:minmax(0,1fr);padding:.4rem}
 .soiindex li{padding:.5rem .1rem}
 .soikids{display:block;margin-left:0}
@@ -2237,6 +2269,8 @@ vd.innerHTML=mdBi(v[0],v[1]);
 vd.className='ssverdict v-'+(s.verdict==='ดี'?'good':s.verdict==='ระวัง'?'care':'mid');
 host.querySelector('[data-ss="text"]').innerHTML=
 mdBi(s.th,s.en);
+// the slip points somewhere in the directory: unhide the door for this verdict
+host.querySelectorAll('.ssdoor').forEach(d=>{d.hidden=d.dataset.ssdoor!==s.verdict;});
 out.hidden=false;},900);});})();
 // ---- widgets: choices live in localStorage, no account, no tracking --
 function wLoad(k,d){try{const v=JSON.parse(localStorage.getItem(k));
@@ -2293,14 +2327,25 @@ if(saved&&[...cnPick.options].some(o=>o.value===saved))cnPick.value=saved;
 cnPick.addEventListener('change',()=>{try{localStorage.setItem('md.cn',cnPick.value);}catch(e){}
 cnDraw();});cnDraw();}
 // --- showtimes: fade the screenings that have already started. Only when the
-// baked sheet really is today's; on any other day nothing is dimmed.
+// baked sheet really is today's; on any other day the tile stops saying
+// "today" — it retitles itself with the day the sheet belongs to and wears
+// the same not-updated note the fortune tiles use. A four-day-old Saturday
+// sheet presented as tonight is the tile lying.
 (()=>{const host=document.getElementById('w-cinema');if(!host)return;
-if(host.dataset.cndate!==MD_TODAY)return;
+if(host.dataset.cndate!==MD_TODAY){
+const h=host.querySelector('h3');
+if(h&&host.dataset.cnth)h.innerHTML='🎬 '+mdBi(host.dataset.cnth,host.dataset.cnen||host.dataset.cnth);
+mdStale('#w-cinema');return;}
 const mark=()=>{const n=new Date(),hm=n.getHours()*60+n.getMinutes();
 host.querySelectorAll('.cnt').forEach(el=>{const p=(el.dataset.t||'').split(':');
 if(p.length!==2)return;
 el.classList.toggle('past',(+p[0])*60+(+p[1])<hm);});};
 mark();setInterval(mark,60000);})();
+// --- weather: the conditions block is a snapshot. The footer already dates
+// it; once the snapshot is not from today, say so where the eye is.
+(()=>{const w=document.getElementById('w-weather');if(!w)return;
+const g=(w.dataset.wxgen||'').slice(0,10);
+if(g&&g!==MD_TODAY)mdStale('#w-weather');})();
 // --- events carousel
 const carousel=document.querySelector('[data-carousel]');
 if(carousel){const slides=[...carousel.querySelectorAll('.evslide')];
@@ -2344,6 +2389,7 @@ const byName=document.getElementById('sort-name'),byDist=document.getElementById
 byName&&byName.addEventListener('click',()=>{
 items.sort((a,b)=>mdSortKey(a).localeCompare(mdSortKey(b),'th'));
 items.forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appendChild(li);});
+dirList.classList.remove('ranked');
 document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('on'));
 byName.classList.add('on');});
 byDist&&byDist.addEventListener('click',()=>{
@@ -2359,19 +2405,25 @@ items.forEach(li=>{let d=li.querySelector('.dist');const km=parseFloat(li.datase
 if(km<1e8){if(!d){d=document.createElement('span');d.className='dist';li.appendChild(d);}
 d.textContent=' · '+(km<1?Math.round(km*1000)+' ม.':km.toFixed(1)+' กม.');}
 dirList.appendChild(li);});
+dirList.classList.remove('ranked');
 document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('on'));
 byDist.classList.add('on');},
 ()=>alert('เปิดตำแหน่งที่ตั้งเพื่อเรียงตามระยะทาง / allow location to sort by distance'));});
 // ---- ant rank sorts: most complete / recently walked / needs love ----
+// The two completeness sorts also reveal the per-row 🐜N chips (.ranked on
+// the list): once the reader has asked "which listings are filled in", the
+// score is the subject and hiding it makes the sort look broken. Every other
+// order puts the chips away again.
 const btns=[...document.querySelectorAll('.toolbar button')];
-const reorder=(btn,cmp)=>{if(!btn)return;btn.addEventListener('click',()=>{
+const reorder=(btn,cmp,ants)=>{if(!btn)return;btn.addEventListener('click',()=>{
 items.sort(cmp);
 items.forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appendChild(li);});
+dirList.classList.toggle('ranked',!!ants);
 btns.forEach(x=>x&&x.classList.remove('on'));btn.classList.add('on');});};
 const nm=(a,b)=>mdSortKey(a).localeCompare(mdSortKey(b),'th');
 const rk=li=>parseInt(li.dataset.rank||'0',10);
-reorder(document.getElementById('sort-rank'),(a,b)=>rk(b)-rk(a)||nm(a,b));
-reorder(document.getElementById('sort-love'),(a,b)=>rk(a)-rk(b)||nm(a,b));
+reorder(document.getElementById('sort-rank'),(a,b)=>rk(b)-rk(a)||nm(a,b),true);
+reorder(document.getElementById('sort-love'),(a,b)=>rk(a)-rk(b)||nm(a,b),true);
 const rw=li=>parseInt(li.dataset.royal||'0',10);
 reorder(document.getElementById('sort-royal'),(a,b)=>rw(b)-rw(a)||nm(a,b));
 reorder(document.getElementById('sort-hon'),
@@ -3563,7 +3615,11 @@ BE_BUILD = int(BUILD_DATE[:4]) + 543
 
 
 def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None,
-         body_class="", robots="index,follow"):
+         body_class="", robots="index,follow", hub=False):
+    # hub=True only on the doorstep pages (home, my.html): they keep the full
+    # quick-action grid. Everywhere else the header wears .slim and the same
+    # chips render as one scrollable row — a reader arriving on a shared place
+    # link should meet the place, not the furniture.
     r = "../" * depth
     url = BASE + path
     tt = esc(title) + " · มดแดง" if title != "มดแดง" else "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"
@@ -3591,7 +3647,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
 <a class="skiplink" href="#content">{bi("ข้ามไปเนื้อหา", "Skip to content")}</a>
 <div class="ribbon" aria-hidden="true"></div>
 <main>
-<header class="site">
+<header class="site{"" if hub else " slim"}">
   <div class="masthead">
     <a class="logo" href="{r}index.html">
       <span class="logomark" aria-hidden="true">🐜</span>
@@ -4222,10 +4278,17 @@ def entry_li(r, href):
     upd = (CLAIMS.get(r["id"]) or {}).get("confirmedAt") or r.get("updatedAt") or ""
     hon = honour_badges(r)
     keys = f' data-royal="{royal_weight(r)}" data-hon="{1 if hon else 0}"'
-    # No visible completeness badge here on purpose — a row of businesses each
-    # showing a "score" out of 9 reads as a ranking of the businesses
-    # themselves. data-rank stays, invisibly, for the sort-by-complete /
-    # needs-love buttons.
+    # The completeness chip renders in the markup but stays hidden while the
+    # list is in its ordinary ก→ฮ / near-me order — a row of businesses each
+    # showing a "score" out of 9 would read as a ranking of the businesses
+    # themselves (see ant_panel's fuller note). The moment the reader sorts by
+    # 🐜 ข้อมูลครบสุด or 💛 ยังขาดข้อมูล, the score IS the thing being asked
+    # about: md.js puts .ranked on the list and the chips appear, so those two
+    # sorts visibly do something and "information is power" is readable right
+    # off the rows. Same data, shown only when it is the subject.
+    chip = (f'<span class="antchip" data-r="{rank}" '
+            f'title="{att(f"ข้อมูลที่มีแล้ว {rank}/9 · details on record {rank}/9")}">'
+            f'🐜{rank}</span>')
     plan = plan_toggle_btn(r) if r.get("lat") is not None else ""
     # data-facets drives the chip filter; the pills render inline so a reader
     # scanning 332 near-identical branch names can see the difference without
@@ -4241,7 +4304,7 @@ def entry_li(r, href):
     ne = f' data-ne="{att(_en)}"' if (_th and _en) else ""
     return (f'<li data-n="{att(name_text(r))}"{ne}{lat} data-rank="{rank}" '
             f'data-upd="{att(upd)}"{keys}{fac}>{star}'
-            f'<a href="{href}">{name_bi(r)}</a>{pin}{hon}{facet_pills(r)}{plan}</li>')
+            f'<a href="{href}">{name_bi(r)}</a>{chip}{pin}{hon}{facet_pills(r)}{plan}</li>')
 
 
 def geojson(records):
@@ -5454,7 +5517,7 @@ def widget_weather():
             f'<span class="wxcond">{bi(th, en)}</span>'
             f'<span class="wxdays">{days}</span></div>')
     return (
-        f'<section class="wtile wx" id="w-weather">'
+        f'<section class="wtile wx" id="w-weather" data-wxgen="{att(WEATHER_DATE)}">'
         f'<h3>🌤 {bi("อากาศ", "Weather")}</h3>'
         f'<div class="wxpanes">{"".join(panes)}</div>'
         f'<button class="wcog" data-wpick="weather" '
@@ -5568,6 +5631,26 @@ def widget_sky(depth=0):
         f'</section>')
 
 
+_TH_WD = ["วันจันทร์", "วันอังคาร", "วันพุธ", "วันพฤหัสบดี",
+          "วันศุกร์", "วันเสาร์", "วันอาทิตย์"]
+_EN_WD = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+_TH_MO = ["", "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.",
+          "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."]
+_EN_MO = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+def _thai_date_label(iso):
+    """'2026-08-01' → ('วันเสาร์ 1 ส.ค.', 'Sat 1 Aug') — for tiles that must
+    name the day their data belongs to when it is not the reader's day."""
+    try:
+        d = datetime.date.fromisoformat(str(iso)[:10])
+    except ValueError:
+        return (str(iso), str(iso))
+    return (f"{_TH_WD[d.weekday()]} {d.day} {_TH_MO[d.month]}",
+            f"{_EN_WD[d.weekday()]} {d.day} {_EN_MO[d.month]}")
+
+
 def widget_cinema(data):
     """Tonight's actual showtimes, per cinema, from data/showtimes.json.
 
@@ -5608,8 +5691,13 @@ def widget_cinema(data):
                            f'<a href="{href}" rel="noopener">{label}</a></li>')
             rows = "".join(lis)
         panes.append(f'<ul class="cnlist" data-cnpane="{c["id"]}" hidden>{rows}</ul>')
+    # Bake the sheet's own date as a ready-made title in both languages.
+    # md.js swaps it in whenever the reader's day is not the sheet's day, so
+    # the tile names the Saturday it holds instead of calling it "today".
+    cnth, cnen = _thai_date_label(SHOWTIME_DATE)
     return (
-        f'<section class="wtile cine" id="w-cinema" data-cndate="{att(SHOWTIME_DATE)}">'
+        f'<section class="wtile cine" id="w-cinema" data-cndate="{att(SHOWTIME_DATE)}" '
+        f'data-cnth="{att("รอบหนัง" + cnth)}" data-cnen="{att("Showtimes for " + cnen)}">'
         f'<h3>🎬 {bi("รอบหนังวันนี้", "Showtimes today")}</h3>'
         f'<select class="cnpick" aria-label="{att("เลือกโรง / choose a cinema")}">{picker}</select>'
         f'{"".join(panes)}'
@@ -5851,6 +5939,24 @@ def widget_siamsi():
     foot = bi("กลไกเป็นของโบราณ ถ้อยคำเป็นของเว็บนี้เอง ไม่ใช่ของวัดใด",
               "The manner is the old one; the words are this site's own, "
               "not any temple's.")
+    # Every slip opens a door into the directory itself — the stick points
+    # somewhere you can actually walk today. All three doors are baked and
+    # hidden; md.js unhides the one matching the drawn verdict, so the 🎲 door
+    # still gets its .rand listener bound at load like every other one.
+    # (This tile only renders at depth 0 — home and /widgets.html.)
+    doors = (
+        f'<a class="ssdoor rand" data-ssdoor="ดี" href="{RAND_FALLBACK}" hidden>🎲 '
+        + bi("วันดีอย่างนี้ ออกไปเจอของดีเจ้า — สุ่มพาไป",
+             "A fine day to wander — let the ants pick a place")
+        + '</a>'
+        f'<a class="ssdoor" data-ssdoor="กลาง" href="merit.html" hidden>🛕 '
+        + bi("ทำบุญแล้วจะโล่งเจ้า — ไหว้พระ ๙ วัด เดินครบใน 2.5 กม.",
+             "Make merit and it lifts — nine temples, one 2.5 km walk")
+        + '</a>'
+        f'<a class="ssdoor" data-ssdoor="ระวัง" href="merit.html" hidden>🛕 '
+        + bi("แวะวัดเติมบุญ เสริมดวงก่อนเจ้า — เส้นทางไหว้พระ ๙ วัด",
+             "Call at a temple and top up the merit first — the nine-temple round")
+        + '</a>')
     return (
         f'<section class="wtile siamsi maha" id="w-siamsi" data-siamsi=\'{att(data)}\'>'
         f'{YANTRA_SVG}'
@@ -5861,7 +5967,7 @@ def widget_siamsi():
         f'<div class="ssout" data-ss="out" hidden>'
         f'<span class="ssnum" data-ss="num"></span>'
         f'<span class="ssverdict" data-ss="verdict"></span>'
-        f'<p class="sstext" data-ss="text"></p></div></div>'
+        f'<p class="sstext" data-ss="text"></p>{doors}</div></div>'
         f'<button class="ssshake" data-ss="shake">🙏 {bi("เขย่า", "Shake")}</button>'
         f'<span class="wfoot">{foot}</span>'
         f'</section>')
@@ -7827,7 +7933,11 @@ def build():
     # on purpose, and it documents the Major Cineplex endpoint down to the
     # trailing-slash trick that makes it answer — whether that stays published
     # is an open question for the user, not something to settle by 404-chasing.
-    for _name in ("streets.json", "weather.json", "showtimes.json"):
+    # festival_calendar.json is in this list because BOTH llms.txt and the
+    # /festival-dates.html provenance line link to it — it 404'd for two days
+    # while the page pointed at it as its own evidence.
+    for _name in ("streets.json", "weather.json", "showtimes.json",
+                  "festival_calendar.json"):
         _src = ROOT / "data" / _name
         if _src.exists():
             shutil.copyfile(_src, DOCS / "data" / _name)
@@ -8237,7 +8347,7 @@ def build():
 
     (DOCS / "index.html").write_text(page(
         "มดแดง", home_html, depth=0, path="", desc=intro_th, body_class="home",
-        extra_head=website_ld()))
+        extra_head=website_ld(), hub=True))
 
     # Written after the homepage, not before: ART_USED only knows which
     # pictures were actually drawn once they have been drawn. Credit follows
@@ -8286,7 +8396,7 @@ def build():
         f"{tick_html}{fx_html}{gold_html}{rand_html}"
         f'<script type="application/json" id="pulse">{json.dumps(pulse, ensure_ascii=False)}</script>')
     (DOCS / "my.html").write_text(page("หน้าแรกของฉัน", my_body, depth=0, path="my.html",
-                                       desc=my_hint_th))
+                                       desc=my_hint_th, hub=True))
 
     # ---- contact drive: the gap, shown plainly and made joinable --------
     all_recs = [r for p in PROVINCES for r in data[p["key"]]]
