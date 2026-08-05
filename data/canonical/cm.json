@@ -29325,6 +29325,72 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-12543091918",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Bus stop to Chiangmai",
+  "nameTh": null,
+  "nameEn": "Bus stop to Chiangmai",
+  "lat": 18.194047,
+  "lng": 98.6115616,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12543091918",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12543091919",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Bus stop from Changmai to DoiTao&BoLuang",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.193891,
+  "lng": 98.6117587,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12543091919",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-12543092002",
   "province": "cm",
   "cat": [
@@ -29486,6 +29552,39 @@
    {
     "type": "osm",
     "ref": "node/12543092109",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12543092112",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Yellow Songthaew stop to BoKaeo & Chiang Mai",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.8474235,
+  "lng": 98.7316881,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12543092112",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -32293,6 +32392,72 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-12754331801",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "yellow songthaew  go to thaton",
+  "nameTh": null,
+  "nameEn": "yellow songthaew  go to thaton",
+  "lat": 19.9155732,
+  "lng": 99.2098645,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12754331801",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12754331901",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "orange songthaew go to ChiangMai",
+  "nameTh": null,
+  "nameEn": "orange songthaew go to ChiangMai",
+  "lat": 19.9149696,
+  "lng": 99.2093821,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12754331901",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-12756811601",
   "province": "cm",
   "cat": [
@@ -32559,6 +32724,72 @@
    {
     "type": "osm",
     "ref": "node/12768187538",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12770228503",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Minibus to go to ChiangMai 140B",
+  "nameTh": null,
+  "nameEn": "Minibus to go to ChiangMai 140B",
+  "lat": 17.8907274,
+  "lng": 98.7310331,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12770228503",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12770419201",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Songthaew stop to go to Bo Luang",
+  "nameTh": null,
+  "nameEn": "Songthaew stop to go to Bo Luang",
+  "lat": 18.1933928,
+  "lng": 98.6113449,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12770419201",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -32908,6 +33139,39 @@
    {
     "type": "osm",
     "ref": "node/12802085797",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12826004202",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Minibus to ChiangMai(from ChiangMai)",
+  "nameTh": null,
+  "nameEn": "Minibus to ChiangMai(from ChiangMai)",
+  "lat": 19.6839843,
+  "lng": 98.6259995,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12826004202",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -41940,6 +42204,39 @@
    {
     "type": "osm",
     "ref": "node/13517068101",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-13518301410",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "yellow songthaew to Tha Ton",
+  "nameTh": null,
+  "nameEn": "yellow songthaew to Tha Ton",
+  "lat": 19.9155564,
+  "lng": 99.2098917,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13518301410",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -71398,6 +71695,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-2520652842",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Chiang Mai-Thaton Bus Line",
+  "nameTh": null,
+  "nameEn": "Chiang Mai-Thaton Bus Line",
+  "lat": 19.9108377,
+  "lng": 99.203863,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2520652842",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-2521798926",
   "province": "cm",
   "cat": [
@@ -81526,6 +81856,39 @@
    {
     "type": "osm",
     "ref": "node/2638748031",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-2639527925",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Doi Suthep red bus station",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.8106533,
+  "lng": 98.9483688,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2639527925",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -136395,6 +136758,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-4160437590",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Songthaew Station",
+  "nameTh": null,
+  "nameEn": "Songthaew Station",
+  "lat": 20.0624355,
+  "lng": 99.364242,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4160437590",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-4160741098",
   "province": "cm",
   "cat": [
@@ -158581,6 +158977,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-4605297757",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "สถานีขนส่งอำเภอพร้าว",
+  "nameTh": "สถานีขนส่งอำเภอพร้าว",
+  "nameEn": "Phrao Bus Terminal",
+  "lat": 19.3694005,
+  "lng": 99.2040848,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4605297757",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-4605693897",
   "province": "cm",
   "cat": [
@@ -180643,6 +181072,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-5384967081",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Yellow Bus",
+  "nameTh": null,
+  "nameEn": "Yellow Bus",
+  "lat": 18.4999439,
+  "lng": 98.365297,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5384967081",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-5391662462",
   "province": "cm",
   "cat": [
@@ -184769,6 +185231,39 @@
    {
     "type": "osm",
     "ref": "node/5632042326",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-563598369",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "pier"
+  ],
+  "name": "ท่าเรือ ท่าตอน",
+  "nameTh": "ท่าเรือ ท่าตอน",
+  "nameEn": "Boat Landing Thaton",
+  "lat": 20.0603967,
+  "lng": 99.3627128,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/563598369",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -192720,6 +193215,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-6189378885",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "songtaew for Chiang Mai or Thaton",
+  "nameTh": null,
+  "nameEn": "songtaew for Chiang Mai or Thaton",
+  "lat": 19.9149973,
+  "lng": 99.2100358,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6189378885",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-6195852485",
   "province": "cm",
   "cat": [
@@ -199541,6 +200069,39 @@
    {
     "type": "osm",
     "ref": "node/6481719572",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6481821785",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Yellow minibus to Chiang Mai",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.84758,
+  "lng": 98.7325762,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6481821785",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -209386,6 +209947,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-7045982885",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Mae malai busstop to chiang dao fang",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.0957686,
+  "lng": 98.9360772,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7045982885",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-7048156487",
   "province": "cm",
   "cat": [
@@ -212679,6 +213273,39 @@
     "ref": "node/7171972891",
     "fetched": "2026-07-14",
     "via": "thai-answers"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7174011185",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Prempracha",
+  "nameTh": null,
+  "nameEn": "Prempracha",
+  "lat": 19.0942198,
+  "lng": 98.9352115,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7174011185",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -232731,6 +233358,47 @@
    {
     "type": "osm",
     "ref": "relation/11636167",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-relation-12410725",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "airport"
+  ],
+  "name": "ท่าอากาศยานนานาชาติเชียงใหม่",
+  "nameTh": "ท่าอากาศยานนานาชาติเชียงใหม่",
+  "nameEn": "Chiang Mai International Airport",
+  "lat": 18.7665146,
+  "lng": 98.9647014,
+  "geoPrecision": "exact",
+  "address": "60 มหิดล ต.สุเทพ อ.เมืองเชียงใหม่ 50200",
+  "phone": "+66 53 922 000",
+  "website": "https://chiangmai.airportthai.co.th/",
+  "hours": null,
+  "attrs": {
+   "houseNumber": "60",
+   "street": "มหิดล",
+   "subdistrict": "สุเทพ",
+   "district": "เมืองเชียงใหม่",
+   "postcode": "50200",
+   "wikidata": "Q1065082",
+   "wikipedia": "en:Chiang Mai International Airport"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "relation/12410725",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -262841,6 +263509,39 @@
    {
     "type": "osm",
     "ref": "way/272514190",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-way-272549351",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Chiang Dao Bus Station",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.3761187,
+  "lng": 98.9668507,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/272549351",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -299565,6 +300266,42 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-way-58309446",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "airport"
+  ],
+  "name": "ท่าอากาศยานนานาชาติเชียงใหม่",
+  "nameTh": "ท่าอากาศยานนานาชาติเชียงใหม่",
+  "nameEn": "Chiang Mai International Airport",
+  "lat": 18.7689966,
+  "lng": 98.9681113,
+  "geoPrecision": "exact",
+  "address": "60 มหิดล",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "houseNumber": "60",
+   "street": "มหิดล"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/58309446",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-way-583749814",
   "province": "cm",
   "cat": [
@@ -303249,6 +303986,41 @@
     "ref": "way/655352975",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-way-656457487",
+  "province": "cm",
+  "cat": [
+   "transport"
+  ],
+  "sub": [
+   "station"
+  ],
+  "name": "Fang Bus Station",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9127128,
+  "lng": 99.2057887,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "operator": "Yanyon Chiang Mai Company, Ltd."
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/656457487",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -319161,83 +319933,6 @@
    {
     "type": "osm",
     "ref": "way/99856551",
-    "fetched": "2026-07-27",
-    "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-relation-12410725",
-  "province": "cm",
-  "cat": [
-   "transport"
-  ],
-  "sub": [
-   "airport"
-  ],
-  "name": "ท่าอากาศยานนานาชาติเชียงใหม่",
-  "nameTh": "ท่าอากาศยานนานาชาติเชียงใหม่",
-  "nameEn": "Chiang Mai International Airport",
-  "lat": 18.7665146,
-  "lng": 98.9647014,
-  "geoPrecision": "exact",
-  "address": "60 มหิดล ต.สุเทพ อ.เมืองเชียงใหม่ 50200",
-  "phone": "+66 53 922 000",
-  "website": "https://chiangmai.airportthai.co.th/",
-  "hours": null,
-  "attrs": {
-   "houseNumber": "60",
-   "street": "มหิดล",
-   "subdistrict": "สุเทพ",
-   "district": "เมืองเชียงใหม่",
-   "postcode": "50200",
-   "wikidata": "Q1065082",
-   "wikipedia": "en:Chiang Mai International Airport"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "relation/12410725",
-    "fetched": "2026-07-27",
-    "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-way-58309446",
-  "province": "cm",
-  "cat": [
-   "transport"
-  ],
-  "sub": [
-   "airport"
-  ],
-  "name": "ท่าอากาศยานนานาชาติเชียงใหม่",
-  "nameTh": "ท่าอากาศยานนานาชาติเชียงใหม่",
-  "nameEn": "Chiang Mai International Airport",
-  "lat": 18.7689966,
-  "lng": 98.9681113,
-  "geoPrecision": "exact",
-  "address": "60 มหิดล",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "houseNumber": "60",
-   "street": "มหิดล"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "way/58309446",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
