@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-04",
+ "generated": "2026-08-05",
  "metric": "sites reachable within a soft ~800 m WALK on the foot network (moat crossable only at bridges/gates); w = 1/(1+(d/800)^6); sites within 25 m merged",
  "cuts": [
   1,

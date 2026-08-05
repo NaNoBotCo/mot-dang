@@ -62,6 +62,17 @@ h1{font-size:1.6rem;margin:.4rem 0} h2{font-size:1.25rem;border-bottom:2px solid
 padding-bottom:.2rem;margin-top:1.6rem}
 ul.dir{list-style:none;padding:0;column-width:22rem;column-gap:2.5rem}
 ul.dir li{margin:.28rem 0;break-inside:avoid}
+/* 🐜N chips sleep until the reader sorts by completeness (.ranked, set by
+   md.js) — in every other order a score beside a business name would read
+   as a rating of the business. Full listings wear a touch of gold. */
+.antchip{display:none;font-size:.7rem;color:var(--gloss);
+border:1px solid var(--warm-border);border-radius:999px;
+padding:.02rem .42rem;margin-left:.35rem;white-space:nowrap;
+vertical-align:.08rem;background:var(--card)}
+ul.dir.ranked .antchip{display:inline-block}
+.antchip[data-r="8"],.antchip[data-r="9"]{color:var(--marigold-ink);
+border-color:var(--gold-light);background:var(--gold-pale)}
+.antchip[data-r="0"],.antchip[data-r="1"]{border-style:dashed}
 ul.cats{list-style:none;padding:0;column-width:26rem;column-gap:2.5rem}
 ul.cats li{margin:.1rem 0 .8rem;break-inside:avoid}
 ul.cats .teaser{display:block;font-size:.88rem;color:var(--mute)}
@@ -760,6 +771,10 @@ padding:.02rem .45rem;margin:.1rem 0}
 .ssverdict.v-good{background:#2f7d4f;color:#fff}
 .ssverdict.v-mid{background:#b98a2a;color:#fff}
 .ssverdict.v-care{background:#a33; color:#fff}
+.ssdoor{display:block;margin-top:.45rem;font-size:.84rem;line-height:1.5;
+color:var(--ant-dark);text-decoration:none;border:1px dashed var(--dashed);
+border-radius:.7rem;padding:.3rem .6rem;background:var(--card)}
+.ssdoor:hover{border-style:solid;background:var(--row-hover)}
 .sstext{margin:.2rem 0 0;font-size:.84rem;line-height:1.4}
 .ssshake{border:none;background:#7a5410;color:#fff;border-radius:.6rem;padding:.28rem .8rem;
 font:inherit;font-size:.85rem;font-weight:700;cursor:pointer;z-index:1;margin-top:.2rem}
@@ -1081,6 +1096,23 @@ padding-bottom:.35rem;line-height:1.5;-webkit-overflow-scrolling:touch;
 scrollbar-width:none}
 .svcbar::-webkit-scrollbar{display:none}
 .svcbar a{flex:0 0 auto;padding:.2rem 0}
+/* Interior pages: the same chips, one swipeable row — the svcbar's own move.
+   Someone tapping a shared LINE link lands a thumb-flick from the place name
+   instead of a screen and a half below it. The hub pages (home, my.html)
+   keep the full two-abreast rack above. */
+.site.slim .chipbar{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:.45rem;
+margin:.55rem 0 .1rem;padding-bottom:.3rem;-webkit-overflow-scrolling:touch;
+scrollbar-width:none}
+.site.slim .chipbar::-webkit-scrollbar{display:none}
+.site.slim .chip{flex:0 0 auto;min-height:42px;padding:.25rem .75rem;font-size:.82rem}
+.site.slim .chip.dark{border-radius:999px}
+/* Matched on body.lang-* like the herotitle rules, so Thai-only mode keeps
+   its right to hide English entirely. The nested .th is the " · " separator,
+   hidden for the two-line chips above but needed again on one line. */
+body.lang-both .site.slim .chip .bi .en,
+body.lang-en .site.slim .chip .bi .en{display:inline;font-size:.78rem}
+body.lang-both .site.slim .chip .bi .en>.th{display:inline}
+.site.slim .tagline{display:none}
 ul.catrows{grid-template-columns:minmax(0,1fr);padding:.4rem}
 .soiindex li{padding:.5rem .1rem}
 .soikids{display:block;margin-left:0}

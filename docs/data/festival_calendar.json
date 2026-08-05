@@ -1,0 +1,195 @@
+{
+  "generated": "2026-08-03",
+  "_comment": "Hand-curated dated instances of the LUNAR festivals in data/festivals.json, for the festival-dates page and the per-festival dates blocks. This file is the third voice beside festivals.json (the rule) and festival_dates.json (harvested announcements): a date the Thai lunar calendar has already published, checked by hand against at least one published calendar source, with that source on every row. Nothing in here is computed by us at build time — a row exists because a person looked the date up and wrote it down with its source. basis=lunar-published means the date comes straight from a published Thai lunar/holiday calendar; basis=derived means it is a fixed offset from a lunar-published row (the derivation is stated in note_en and the parent row is named in derived_from). When a year is not in this file, the site says the window and waits — a rule is not a date.",
+  "sources": {
+    "myhora-2569": {
+      "name_th": "ปฏิทินวันพระ myhora พ.ศ. 2569",
+      "name_en": "myhora.com Buddhist calendar B.E. 2569",
+      "url": "https://myhora.com/calendar/buddhist-2569.aspx"
+    },
+    "myhora-2570": {
+      "name_th": "ปฏิทินวันพระ myhora พ.ศ. 2570",
+      "name_en": "myhora.com Buddhist calendar B.E. 2570",
+      "url": "https://myhora.com/calendar/buddhist-2570.aspx"
+    },
+    "kapook-2569": {
+      "name_th": "ปฏิทินวันสำคัญ Kapook พ.ศ. 2569",
+      "name_en": "Kapook calendar of significant days B.E. 2569",
+      "url": "https://calendar.kapook.com/2569/important"
+    },
+    "kapook-2570": {
+      "name_th": "ปฏิทินวันสำคัญ Kapook พ.ศ. 2570",
+      "name_en": "Kapook calendar of significant days B.E. 2570",
+      "url": "https://calendar.kapook.com/2570/important"
+    },
+    "wikipedia-cny": {
+      "name_th": "วิกิพีเดีย — ตรุษจีน",
+      "name_en": "Wikipedia — Chinese New Year",
+      "url": "https://en.wikipedia.org/wiki/Chinese_New_Year"
+    }
+  },
+  "rows": [
+    {
+      "festival_id": "makha-bucha",
+      "year": 2026,
+      "date_start": "2026-03-03",
+      "date_end": "2026-03-03",
+      "basis": "lunar-published",
+      "source": "myhora-2569",
+      "note_th": "ขึ้น 15 ค่ำ เดือน 4 — วันหยุดราชการ",
+      "note_en": "Full moon of the 4th lunar month; a public holiday"
+    },
+    {
+      "festival_id": "makha-bucha",
+      "year": 2027,
+      "date_start": "2027-02-21",
+      "date_end": "2027-02-21",
+      "basis": "lunar-published",
+      "source": "kapook-2570",
+      "note_th": "ขึ้น 15 ค่ำ เดือน 3 — วันหยุดราชการ (ชดเชยวันจันทร์ที่ 22 ก.พ.)",
+      "note_en": "Full-moon day; public holiday, with a substitution day Monday Feb 22"
+    },
+    {
+      "festival_id": "visakha-bucha",
+      "year": 2026,
+      "date_start": "2026-05-31",
+      "date_end": "2026-05-31",
+      "basis": "lunar-published",
+      "source": "myhora-2569",
+      "note_th": "ขึ้น 15 ค่ำ เดือน 7 — วันหยุดราชการ",
+      "note_en": "Full-moon day; a public holiday"
+    },
+    {
+      "festival_id": "visakha-bucha",
+      "year": 2027,
+      "date_start": "2027-05-20",
+      "date_end": "2027-05-20",
+      "basis": "lunar-published",
+      "source": "kapook-2570",
+      "note_th": "ขึ้น 15 ค่ำ เดือน 6 — วันหยุดราชการ",
+      "note_en": "Full-moon day; a public holiday"
+    },
+    {
+      "festival_id": "visakha-doi-suthep-walk",
+      "year": 2026,
+      "date_start": "2026-05-30",
+      "date_end": "2026-05-30",
+      "basis": "derived",
+      "derived_from": "visakha-bucha",
+      "source": "myhora-2569",
+      "note_th": "คืนก่อนวันวิสาขบูชา ตามธรรมเนียมเดินขึ้นดอยคืนวันที่ 30 พ.ค. เข้าเช้าวันวิสาขะ",
+      "note_en": "The walk is the night before Visakha Bucha, so the night of May 30 into the holy day"
+    },
+    {
+      "festival_id": "visakha-doi-suthep-walk",
+      "year": 2027,
+      "date_start": "2027-05-19",
+      "date_end": "2027-05-19",
+      "basis": "derived",
+      "derived_from": "visakha-bucha",
+      "source": "kapook-2570",
+      "note_th": "คืนก่อนวันวิสาขบูชา (คืนวันที่ 19 พ.ค.)",
+      "note_en": "The night before Visakha Bucha — the night of May 19"
+    },
+    {
+      "festival_id": "asalha-bucha",
+      "year": 2026,
+      "date_start": "2026-07-29",
+      "date_end": "2026-07-29",
+      "basis": "lunar-published",
+      "source": "myhora-2569",
+      "note_th": "ขึ้น 15 ค่ำ เดือน 8-8 (ปีอธิกมาส) — วันหยุดราชการ",
+      "note_en": "Full-moon day; a public holiday"
+    },
+    {
+      "festival_id": "asalha-bucha",
+      "year": 2027,
+      "date_start": "2027-07-18",
+      "date_end": "2027-07-18",
+      "basis": "lunar-published",
+      "source": "kapook-2570",
+      "note_th": "ขึ้น 15 ค่ำ เดือน 8 — วันหยุดราชการ",
+      "note_en": "Full-moon day; a public holiday"
+    },
+    {
+      "festival_id": "khao-phansa",
+      "year": 2026,
+      "date_start": "2026-07-30",
+      "date_end": "2026-07-30",
+      "basis": "lunar-published",
+      "source": "myhora-2569",
+      "note_th": "แรม 1 ค่ำ เดือน 8-8 — วันถัดจากอาสาฬหบูชา",
+      "note_en": "The day after Asalha Bucha"
+    },
+    {
+      "festival_id": "khao-phansa",
+      "year": 2027,
+      "date_start": "2027-07-19",
+      "date_end": "2027-07-19",
+      "basis": "lunar-published",
+      "source": "kapook-2570",
+      "note_th": "แรม 1 ค่ำ เดือน 8 — วันถัดจากอาสาฬหบูชา (วันหยุดชดเชยควบ)",
+      "note_en": "The day after Asalha Bucha; also a substitution holiday"
+    },
+    {
+      "festival_id": "ok-phansa",
+      "year": 2026,
+      "date_start": "2026-10-26",
+      "date_end": "2026-10-26",
+      "basis": "lunar-published",
+      "source": "kapook-2569",
+      "note_th": "ขึ้น 15 ค่ำ เดือน 11",
+      "note_en": "Full moon of the 11th lunar month"
+    },
+    {
+      "festival_id": "ok-phansa",
+      "year": 2027,
+      "date_start": "2027-10-15",
+      "date_end": "2027-10-15",
+      "basis": "lunar-published",
+      "source": "myhora-2570",
+      "note_th": "ขึ้น 15 ค่ำ เดือน 11",
+      "note_en": "Full moon of the 11th lunar month"
+    },
+    {
+      "festival_id": "yi-peng-loi-krathong",
+      "year": 2026,
+      "date_start": "2026-11-24",
+      "date_end": "2026-11-25",
+      "basis": "lunar-published",
+      "source": "kapook-2569",
+      "note_th": "วันเพ็ญเดือน 12 (เดือนยี่เหนือ) ตรงกับ 24 พ.ย. — งานเชียงใหม่ตามธรรมเนียมกินสองคืน กำหนดการจริงรอประกาศเทศบาล",
+      "note_en": "Full moon of the 12th lunar month falls Nov 24; Chiang Mai traditionally celebrates two nights — the official city programme follows the municipality's announcement"
+    },
+    {
+      "festival_id": "yi-peng-loi-krathong",
+      "year": 2027,
+      "date_start": "2027-11-13",
+      "date_end": "2027-11-14",
+      "basis": "lunar-published",
+      "source": "myhora-2570",
+      "note_th": "วันเพ็ญเดือน 12 ตรงกับ 13 พ.ย. — คืนที่สองตามธรรมเนียมงานเชียงใหม่ กำหนดการจริงรอประกาศ",
+      "note_en": "Full moon falls Nov 13; the second night follows Chiang Mai custom — the official programme follows the announcement"
+    },
+    {
+      "festival_id": "chinese-new-year",
+      "year": 2026,
+      "date_start": "2026-02-17",
+      "date_end": "2026-02-17",
+      "basis": "lunar-published",
+      "source": "wikipedia-cny",
+      "note_th": "วันตรุษจีน (ปีมะเมีย) — งานตลาดวโรรสมักคึกคักตั้งแต่วันไหว้ก่อนหน้า",
+      "note_en": "Chinese New Year's Day (Year of the Horse); Warorot Market is lively from the offering days before"
+    },
+    {
+      "festival_id": "chinese-new-year",
+      "year": 2027,
+      "date_start": "2027-02-06",
+      "date_end": "2027-02-06",
+      "basis": "lunar-published",
+      "source": "wikipedia-cny",
+      "note_th": "วันตรุษจีน (ปีมะแม)",
+      "note_en": "Chinese New Year's Day (Year of the Goat)"
+    }
+  ]
+}

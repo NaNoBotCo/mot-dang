@@ -158,6 +158,8 @@ vd.innerHTML=mdBi(v[0],v[1]);
 vd.className='ssverdict v-'+(s.verdict==='ดี'?'good':s.verdict==='ระวัง'?'care':'mid');
 host.querySelector('[data-ss="text"]').innerHTML=
 mdBi(s.th,s.en);
+// the slip points somewhere in the directory: unhide the door for this verdict
+host.querySelectorAll('.ssdoor').forEach(d=>{d.hidden=d.dataset.ssdoor!==s.verdict;});
 out.hidden=false;},900);});})();
 // ---- widgets: choices live in localStorage, no account, no tracking --
 function wLoad(k,d){try{const v=JSON.parse(localStorage.getItem(k));
@@ -214,14 +216,25 @@ if(saved&&[...cnPick.options].some(o=>o.value===saved))cnPick.value=saved;
 cnPick.addEventListener('change',()=>{try{localStorage.setItem('md.cn',cnPick.value);}catch(e){}
 cnDraw();});cnDraw();}
 // --- showtimes: fade the screenings that have already started. Only when the
-// baked sheet really is today's; on any other day nothing is dimmed.
+// baked sheet really is today's; on any other day the tile stops saying
+// "today" — it retitles itself with the day the sheet belongs to and wears
+// the same not-updated note the fortune tiles use. A four-day-old Saturday
+// sheet presented as tonight is the tile lying.
 (()=>{const host=document.getElementById('w-cinema');if(!host)return;
-if(host.dataset.cndate!==MD_TODAY)return;
+if(host.dataset.cndate!==MD_TODAY){
+const h=host.querySelector('h3');
+if(h&&host.dataset.cnth)h.innerHTML='🎬 '+mdBi(host.dataset.cnth,host.dataset.cnen||host.dataset.cnth);
+mdStale('#w-cinema');return;}
 const mark=()=>{const n=new Date(),hm=n.getHours()*60+n.getMinutes();
 host.querySelectorAll('.cnt').forEach(el=>{const p=(el.dataset.t||'').split(':');
 if(p.length!==2)return;
 el.classList.toggle('past',(+p[0])*60+(+p[1])<hm);});};
 mark();setInterval(mark,60000);})();
+// --- weather: the conditions block is a snapshot. The footer already dates
+// it; once the snapshot is not from today, say so where the eye is.
+(()=>{const w=document.getElementById('w-weather');if(!w)return;
+const g=(w.dataset.wxgen||'').slice(0,10);
+if(g&&g!==MD_TODAY)mdStale('#w-weather');})();
 // --- events carousel
 const carousel=document.querySelector('[data-carousel]');
 if(carousel){const slides=[...carousel.querySelectorAll('.evslide')];
@@ -265,6 +278,7 @@ const byName=document.getElementById('sort-name'),byDist=document.getElementById
 byName&&byName.addEventListener('click',()=>{
 items.sort((a,b)=>mdSortKey(a).localeCompare(mdSortKey(b),'th'));
 items.forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appendChild(li);});
+dirList.classList.remove('ranked');
 document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('on'));
 byName.classList.add('on');});
 byDist&&byDist.addEventListener('click',()=>{
@@ -280,19 +294,25 @@ items.forEach(li=>{let d=li.querySelector('.dist');const km=parseFloat(li.datase
 if(km<1e8){if(!d){d=document.createElement('span');d.className='dist';li.appendChild(d);}
 d.textContent=' · '+(km<1?Math.round(km*1000)+' ม.':km.toFixed(1)+' กม.');}
 dirList.appendChild(li);});
+dirList.classList.remove('ranked');
 document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('on'));
 byDist.classList.add('on');},
 ()=>alert('เปิดตำแหน่งที่ตั้งเพื่อเรียงตามระยะทาง / allow location to sort by distance'));});
 // ---- ant rank sorts: most complete / recently walked / needs love ----
+// The two completeness sorts also reveal the per-row 🐜N chips (.ranked on
+// the list): once the reader has asked "which listings are filled in", the
+// score is the subject and hiding it makes the sort look broken. Every other
+// order puts the chips away again.
 const btns=[...document.querySelectorAll('.toolbar button')];
-const reorder=(btn,cmp)=>{if(!btn)return;btn.addEventListener('click',()=>{
+const reorder=(btn,cmp,ants)=>{if(!btn)return;btn.addEventListener('click',()=>{
 items.sort(cmp);
 items.forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appendChild(li);});
+dirList.classList.toggle('ranked',!!ants);
 btns.forEach(x=>x&&x.classList.remove('on'));btn.classList.add('on');});};
 const nm=(a,b)=>mdSortKey(a).localeCompare(mdSortKey(b),'th');
 const rk=li=>parseInt(li.dataset.rank||'0',10);
-reorder(document.getElementById('sort-rank'),(a,b)=>rk(b)-rk(a)||nm(a,b));
-reorder(document.getElementById('sort-love'),(a,b)=>rk(a)-rk(b)||nm(a,b));
+reorder(document.getElementById('sort-rank'),(a,b)=>rk(b)-rk(a)||nm(a,b),true);
+reorder(document.getElementById('sort-love'),(a,b)=>rk(a)-rk(b)||nm(a,b),true);
 const rw=li=>parseInt(li.dataset.royal||'0',10);
 reorder(document.getElementById('sort-royal'),(a,b)=>rw(b)-rw(a)||nm(a,b));
 reorder(document.getElementById('sort-hon'),
