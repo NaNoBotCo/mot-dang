@@ -12,7 +12,7 @@
    "temp": 26.0,
    "humidity": 90,
    "code": 80,
-   "observed": "2026-08-05T15:30",
+   "observed": "2026-08-05T15:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -47,10 +47,10 @@
    "tz": "Asia/Bangkok",
    "lat": 19.9105,
    "lng": 99.8406,
-   "temp": 26.7,
-   "humidity": 85,
+   "temp": 26.6,
+   "humidity": 86,
    "code": 51,
-   "observed": "2026-08-05T15:30",
+   "observed": "2026-08-05T15:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -86,9 +86,9 @@
    "lat": 19.3583,
    "lng": 98.4392,
    "temp": 27.0,
-   "humidity": 87,
+   "humidity": 88,
    "code": 51,
-   "observed": "2026-08-05T15:30",
+   "observed": "2026-08-05T15:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -124,9 +124,9 @@
    "lat": 19.302,
    "lng": 97.9654,
    "temp": 27.3,
-   "humidity": 91,
+   "humidity": 92,
    "code": 53,
-   "observed": "2026-08-05T15:30",
+   "observed": "2026-08-05T15:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -164,7 +164,7 @@
    "temp": 26.8,
    "humidity": 92,
    "code": 81,
-   "observed": "2026-08-05T15:30",
+   "observed": "2026-08-05T15:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -199,10 +199,10 @@
    "tz": "Asia/Bangkok",
    "lat": 13.7563,
    "lng": 100.5018,
-   "temp": 30.5,
-   "humidity": 73,
+   "temp": 30.0,
+   "humidity": 74,
    "code": 53,
-   "observed": "2026-08-05T15:30",
+   "observed": "2026-08-05T15:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -237,10 +237,10 @@
    "tz": "Asia/Bangkok",
    "lat": 7.8804,
    "lng": 98.3923,
-   "temp": 28.9,
-   "humidity": 77,
+   "temp": 29.2,
+   "humidity": 75,
    "code": 3,
-   "observed": "2026-08-05T15:30",
+   "observed": "2026-08-05T15:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -275,10 +275,10 @@
    "tz": "Asia/Bangkok",
    "lat": 17.4138,
    "lng": 102.787,
-   "temp": 27.2,
+   "temp": 27.3,
    "humidity": 88,
    "code": 51,
-   "observed": "2026-08-05T15:30",
+   "observed": "2026-08-05T15:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -313,10 +313,10 @@
    "tz": "Asia/Singapore",
    "lat": 1.3521,
    "lng": 103.8198,
-   "temp": 30.7,
-   "humidity": 68,
+   "temp": 30.8,
+   "humidity": 67,
    "code": 51,
-   "observed": "2026-08-05T16:30",
+   "observed": "2026-08-05T16:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -351,10 +351,10 @@
    "tz": "Asia/Tokyo",
    "lat": 35.6762,
    "lng": 139.6503,
-   "temp": 28.0,
-   "humidity": 70,
+   "temp": 27.8,
+   "humidity": 71,
    "code": 1,
-   "observed": "2026-08-05T17:30",
+   "observed": "2026-08-05T17:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -389,10 +389,10 @@
    "tz": "Europe/London",
    "lat": 51.5072,
    "lng": -0.1276,
-   "temp": 20.5,
-   "humidity": 69,
+   "temp": 20.6,
+   "humidity": 68,
    "code": 3,
-   "observed": "2026-08-05T09:30",
+   "observed": "2026-08-05T09:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -427,10 +427,10 @@
    "tz": "Europe/Berlin",
    "lat": 52.52,
    "lng": 13.405,
-   "temp": 25.7,
-   "humidity": 76,
+   "temp": 25.8,
+   "humidity": 75,
    "code": 3,
-   "observed": "2026-08-05T10:30",
+   "observed": "2026-08-05T10:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -465,10 +465,10 @@
    "tz": "America/New_York",
    "lat": 40.7128,
    "lng": -74.006,
-   "temp": 19.6,
-   "humidity": 81,
+   "temp": 19.4,
+   "humidity": 85,
    "code": 0,
-   "observed": "2026-08-05T04:30",
+   "observed": "2026-08-05T04:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -503,10 +503,10 @@
    "tz": "America/Los_Angeles",
    "lat": 34.0522,
    "lng": -118.2437,
-   "temp": 18.7,
-   "humidity": 93,
+   "temp": 18.5,
+   "humidity": 88,
    "code": 0,
-   "observed": "2026-08-05T01:30",
+   "observed": "2026-08-05T01:45",
    "days": [
     {
      "date": "2026-08-05",
@@ -541,10 +541,10 @@
    "tz": "Australia/Sydney",
    "lat": -33.8688,
    "lng": 151.2093,
-   "temp": 12.7,
-   "humidity": 56,
+   "temp": 12.4,
+   "humidity": 57,
    "code": 0,
-   "observed": "2026-08-05T18:30",
+   "observed": "2026-08-05T18:45",
    "days": [
     {
      "date": "2026-08-05",
