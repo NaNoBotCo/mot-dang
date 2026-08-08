@@ -24,27 +24,60 @@
    "source": "https://th.wikipedia.org/wiki/%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%94_(%E0%B8%AD%E0%B8%B3%E0%B9%80%E0%B8%A0%E0%B8%AD%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88)",
    "via": "th.wikipedia article title, already fetched into this record's attrs.summary",
    "note": "The article title carries the disambiguator '(อำเภอเมืองเชียงใหม่)' because another วัดศรีเกิด exists elsewhere. That is Wikipedia's housekeeping, not part of the name, so it is not stored here."
+  },
+  "cr-osm-way-315250004": {
+   "nameTh": "ศาลสมเด็จพระนเรศวรมหาราช",
+   "source": "https://cbtthailand.dasta.or.th/webapp/relattraction/content/3613/",
+   "via": "dasta CBT page title for the Mae Suai shrine; record already carried the Thai string in `name` but nameTh sat empty",
+   "note": "OSM way 315250004 gives only name (Thai) and name:en."
   }
  },
  "unverified": {
   "_note": "Real gaps on the ไหว้พระ ๙ วัด rounds. Nothing here is rendered. Each wants either a photograph of the signboard or a published source — the kind of thing somebody standing in the street can settle in a minute, and nobody at a keyboard can settle at all.",
   "missing_thai": {
-   "cm-osm-way-467489219": {"nameEn": "Wat Langka", "route": "10, stop 7"},
-   "cm-osm-node-6741683186": {"nameEn": "Buddhist temple", "route": "2, stop 1",
-    "note": "Not a name at all — OSM's generic label. This one leads a round of nine."},
-   "cm-osm-node-13416126895": {"nameEn": "Khuong Singh", "route": "9, stop 7",
-    "note": "Stands ~91 m from วัดข่วงสิงห์, the next stop. Possibly the same place under a romanisation, possibly its shrine. Worth a look on the ground."},
-   "cm-osm-node-6364376085": {"nameEn": "Ganesha Shrine", "route": "10, stop 2"}
+   "cm-osm-way-467489219": {
+    "nameEn": "Wat Langka",
+    "route": "10, stop 7"
+   },
+   "cm-osm-node-6741683186": {
+    "nameEn": "Buddhist temple",
+    "route": "2, stop 1",
+    "note": "Not a name at all — OSM's generic label. This one leads a round of nine."
+   },
+   "cm-osm-node-13416126895": {
+    "nameEn": "Khuong Singh",
+    "route": "9, stop 7",
+    "note": "Stands ~91 m from วัดข่วงสิงห์, the next stop. Possibly the same place under a romanisation, possibly its shrine. Worth a look on the ground."
+   },
+   "cm-osm-node-6364376085": {
+    "nameEn": "Ganesha Shrine",
+    "route": "10, stop 2"
+   }
   },
   "missing_english": {
-   "cm-osm-way-256126140": {"nameTh": "วัดธาตุกลาง", "route": "7, stop 4"},
-   "cm-osm-way-691945180": {"nameTh": "วัดเมธัง", "route": "7, stop 8",
+   "cm-osm-way-256126140": {
+    "nameTh": "วัดธาตุกลาง",
+    "route": "7, stop 4"
+   },
+   "cm-osm-way-691945180": {
+    "nameTh": "วัดเมธัง",
+    "route": "7, stop 8",
     "article": "https://th.wikipedia.org/wiki/%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%A1%E0%B8%98%E0%B8%B1%E0%B8%87",
-    "note": "The Thai article exists; it names no English form, and this project does not invent one."},
-   "cm-osm-node-4537566043": {"nameTh": "สมาคมพุทธภาวนาบุญสถาน", "route": "8, stop 4"},
-   "cm-osm-way-692140717": {"nameTh": "วัดปันเส่า", "route": "9, stop 2",
-    "note": "22 m from cm-osm-way-692140719 วัดปันเสา(พันเสา), the next stop on the same round. Almost certainly one temple mapped twice; see the duplicate note in importers/build_merit.py."},
-   "cm-osm-way-813094863": {"nameTh": "วิหารหลวงพ่อทันใจ พระครูบาเจ้าเทือง นาถสีโล", "route": "9, stop 4"}
+    "note": "The Thai article exists; it names no English form, and this project does not invent one."
+   },
+   "cm-osm-node-4537566043": {
+    "nameTh": "สมาคมพุทธภาวนาบุญสถาน",
+    "route": "8, stop 4"
+   },
+   "cm-osm-way-692140717": {
+    "nameTh": "วัดปันเส่า",
+    "route": "9, stop 2",
+    "note": "22 m from cm-osm-way-692140719 วัดปันเสา(พันเสา), the next stop on the same round. Almost certainly one temple mapped twice; see the duplicate note in importers/build_merit.py."
+   },
+   "cm-osm-way-813094863": {
+    "nameTh": "วิหารหลวงพ่อทันใจ พระครูบาเจ้าเทือง นาถสีโล",
+    "route": "9, stop 4"
+   }
   }
  }
 }

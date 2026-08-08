@@ -1,0 +1,6 @@
+{
+ "_readme": "Duplicate records folded together: {keep_id: [drop_ids]}. The keeper takes the union of shelves, keeps its own field values, fills gaps from the dropped record, and inherits its sources. Merging is a curated decision, never automatic — importers/audit_shelves.py prints same-name-nearby CANDIDATES (221 pairs as of 2026-08-07), but a restaurant inside its hotel or two branches of one chain on one soi are honest separate records. Only pairs a person has looked at belong here.",
+ "merges": {
+  "cm-osm-way-361121944": ["cm-osm-node-11065396205"]
+ }
+}

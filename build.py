@@ -7966,6 +7966,11 @@ def build():
         (DOCS / "og").mkdir(exist_ok=True)
         for _id in OG_FILES:
             shutil.copy(OG_SRC / f"{_id}.png", DOCS / "og" / f"{_id}.png")
+    # The partner one-pager rides every build or the docs wipe eats it.
+    # Regenerate with make_portfolio.py; handed to venues, linked in LINE.
+    _portfolio = ROOT / "assets" / "handouts" / "portfolio.pdf"
+    if _portfolio.exists():
+        shutil.copy(_portfolio, DOCS / "portfolio.pdf")
     # The home-made moon drawings are gone: the sky tile photographs the
     # real instruments at wichaa.net instead. See widget_sky().
     moon_svg_markup = None
@@ -8432,6 +8437,8 @@ def build():
         f'{bi("หรือเติมลง OpenStreetMap โดยตรง", "or add it straight to OpenStreetMap")}</a></p>'
         f'<h2>{bi("หมวดที่ยังขาดมากที่สุด", "Shelves that need it most")}</h2>'
         f'<ul class="dir">{rows_html}</ul>'
+        f'<p class="tinynote"><a href="pins.html">📍 '
+        f'{bi("อีกทางช่วย — ตามหาหมุดให้ที่ที่ยังไม่มีพิกัด", "Another way to help — the pin hunt")}</a></p>'
         f'{share_block(BASE + "contacts.html", "ช่วยเติมข้อมูลติดต่อ · มดแดง")}',
         depth=0, path="contacts.html", desc=drive_th))
 
@@ -10231,6 +10238,9 @@ def build():
     # so the pages index themselves like everything else.
     import answers_layer
     print("  answers:", answers_layer.emit(globals(), data))
+
+    import pins_layer
+    print("  pins:", pins_layer.emit(globals(), data))
 
     # ---- bot hospitality: robots, sitemap, llms.txt ----------------------
     # Explicit per-bot welcomes, not just the wildcard — on purpose, in direct

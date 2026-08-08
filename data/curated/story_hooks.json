@@ -1,0 +1,38 @@
+{
+ "_note": "Story hooks: the one line of history that makes a marquee place legible, filled by hand and never overwritten by an importer. Same rule as names.json: nothing enters `hooks` without a fetched source URL, and a story a chronicle carries but primary documents do not is WORDED as tradition (\"เชื่อกันว่า\" / \"tradition holds\"), never as plain fact. Applied as blurb_th/blurb_en, and only over an empty field — a curated story fills a gap, it never argues with a blurb already on the record.",
+ "_applied_by": "importers/import_all.py (apply_curated_story_hooks), after names",
+ "hooks": {
+  "cm-osm-node-1619287904": {
+   "blurb_th": "พญามังรายทรงเชิญพระสหายร่วมน้ำสาบานสองพระองค์ — พญางำเมืองแห่งพะเยา และพ่อขุนรามคำแหงแห่งสุโขทัย — มาร่วมกันวางผังสร้างเวียงเชียงใหม่เมื่อ พ.ศ. 1839 สามกษัตริย์จึงประทับยืนคู่กันกลางข่วง เป็นหัวใจพิธีของเมืองที่ชาวเชียงใหม่มากราบไหว้สืบมา",
+   "blurb_en": "King Mangrai called on his two sworn friends — Ngam Mueang of Phayao and Ram Khamhaeng of Sukhothai — to help him lay out his new city in 1296. The three kings stand together at the ceremonial heart of Chiang Mai, and offerings are made here still.",
+   "source": "https://th.wikipedia.org/wiki/พระบรมราชานุสาวรีย์สามกษัตริย์",
+   "fetched": "2026-08-08"
+  },
+  "cm-osm-way-691923149": {
+   "blurb_th": "วัดที่พญามังรายทรงสร้างเป็นที่ประดิษฐานเสาอินทขีล เสาหลักเมือง ณ จุดสะดือเมืองเชียงใหม่ ตามคำแนะนำของพญาลัวะแห่งดอยสุเทพ เพื่อให้บ้านเมืองอยู่เย็นเป็นสุข — สมัยพระเจ้ากาวิละจึงอัญเชิญเสาไปประดิษฐานที่วัดเจดีย์หลวงดังทุกวันนี้",
+   "blurb_en": "Founded, tradition holds, by King Mangrai as the home of the Inthakhin city pillar at the very navel of his new city — 'sadue mueang' — on the counsel of the Lawa lords of Doi Suthep, so the city would live cool and content. King Kawila later moved the pillar to Wat Chedi Luang, where it stands today.",
+   "source": "https://th.wikipedia.org/wiki/วัดอินทขีลสะดือเมือง",
+   "fetched": "2026-08-08"
+  },
+  "cm-osm-way-261339003": {
+   "blurb_th": "วัดชื่อมงคล 'ดวงดี' ไม่กี่ก้าวจากอนุสาวรีย์สามกษัตริย์ เชื่อกันว่าเจ้านายเมืองเชียงใหม่สร้างขึ้นหลังพญามังรายสถาปนาเวียงได้ไม่นาน จารึกฐานพระในวิหารระบุ จ.ศ. 859 (พ.ศ. 2039) ครั้งยังชื่อวัดต้นหมากเหนือ งานไม้แกะสลักงดงามจนขึ้นทะเบียนโบราณสถาน",
+   "blurb_en": "The auspiciously named 'Temple of Good Fortune', a few steps from the Three Kings — believed founded by a court noble soon after King Mangrai established the city. A Buddha-base inscription of CS 859 (1496 CE) records its early name, Wat Ton Mak Nuea, and its carved woodwork earned it national-monument listing.",
+   "source": "https://th.wikipedia.org/wiki/วัดดวงดี",
+   "fetched": "2026-08-08"
+  },
+  "cr-osm-way-487642343": {
+   "blurb_th": "บนดอยงำเมืองประดิษฐานกู่พญามังราย — ประเพณีของวัดเล่าว่าพญาไชยสงคราม ราชโอรส ทรงอัญเชิญพระอัฐิพญามังรายจากเชียงใหม่มาบรรจุไว้ที่นี่ เจดีย์ทรงปราสาทยอดบนดอยจึงเป็นที่เคารพของชาวเชียงรายในฐานะที่สถิตแห่งปฐมกษัตริย์ผู้สร้างเมือง",
+   "blurb_en": "On this hilltop stands the Ku Phaya Mangrai. Temple tradition holds that Prince Chaiyasongkhram carried his father King Mangrai's relics home from Chiang Mai and enshrined them here, making the spired chedi Chiang Rai's own memorial to the king who founded the city.",
+   "source": "https://th.wikipedia.org/wiki/วัดดอยงำเมือง",
+   "fetched": "2026-08-08",
+   "note": "The Chaiyasongkhram story is the temple's own transmitted history; th.wikipedia notes it is not found in primary documents, so both blurbs word it as tradition."
+  },
+  "cr-osm-way-315250004": {
+   "blurb_th": "ริมทางหลวงเชียงราย–เชียงใหม่ กม. 129 ข้างโรงพยาบาลแม่สรวย — ตำนานว่าเมื่อสมเด็จพระนเรศวรมหาราชยกทัพไปเมืองหาง ได้ทรงหยุดพักทัพ ณ แม่สรวย ทุกวันที่ 18 มกราคม ชาวอำเภอจึงจัดพิธีบวงสรวงถวายสักการะ โดยมีรูปช้างศึกใหญ่สองเชือกยืนเฝ้าศาล",
+   "blurb_en": "Beside the Chiang Rai–Chiang Mai road at km 129, next to Mae Suai Hospital. Tradition holds that King Naresuan rested his army here on the march toward Mueang Hang; every 18 January the district holds a ceremony in his honour, watched over by two great war-elephant statues.",
+   "source": "https://cbtthailand.dasta.or.th/webapp/relattraction/content/3613/",
+   "fetched": "2026-08-08",
+   "note": "Also documented at cots.go.th travelview id=255 (temporary shrine 1987, foundation stone 1990, bronze image cast 1991 with royal presidence)."
+  }
+ }
+}

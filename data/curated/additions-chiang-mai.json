@@ -1,0 +1,408 @@
+[
+ {
+  "id": "cm-curated-starwork",
+  "province": "cm",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "coworking"
+  ],
+  "name": "StarWork Chiangmai",
+  "nameTh": "สตาร์เวิร์ค เชียงใหม่",
+  "nameEn": "StarWork Chiangmai",
+  "lat": 18.7961617,
+  "lng": 99.0162904,
+  "geoPrecision": "exact",
+  "address": "ถนนทุ่งโฮเต็ล ต.วัดเกต อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50000",
+  "phone": null,
+  "website": null,
+  "hours": "Mo-Fr 09:00-18:00",
+  "attrs": {
+   "kind": "coworking space"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "โคเวิร์กกิ้งย่านวัดเกต มีฟิตเนส ห้องอาบน้ำ และสนามบาสในตัว ผู้ใช้ส่วนใหญ่เป็นคนทำงานท้องถิ่น",
+  "blurb_en": "Wat Ket coworking with an on-site gym, showers and basketball court; mostly a local working crowd.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://northspace.life/co-working-space-เชียงใหม่/",
+    "fetched": "2026-08-07"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.coworker.com/thailand/chiang-mai/starwork",
+    "fetched": "2026-08-07"
+   },
+   {
+    "type": "osm",
+    "ref": "nominatim: Starwork, ถนนทุ่งโฮเต็ล (company)",
+    "fetched": "2026-08-07"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-07"
+ },
+ {
+  "id": "cm-curated-lifespace",
+  "province": "cm",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "coworking"
+  ],
+  "name": "Life Space นิมมาน 15",
+  "nameTh": "ไลฟ์สเปซ นิมมาน 15",
+  "nameEn": "Life Space Nimman 15",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "11 ซอย 15 ถนนนิมมานเหมินท์ ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
+  "phone": "097-923-9000",
+  "website": "https://lifespaceth.com/",
+  "hours": "Mo-Su 09:30-22:00",
+  "attrs": {
+   "kind": "coworking + reading space"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "พื้นที่นั่งทำงาน-อ่านหนังสือ ซอยนิมมาน 15 มีจอคอมพิวเตอร์และโคมไฟอ่านหนังสือให้ใช้ เปิดถึงสี่ทุ่ม",
+  "blurb_en": "Work-and-read space on Nimman Soi 15 — loaner monitors and reading lamps, open till 22:00.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://lifespaceth.com/",
+    "fetched": "2026-08-07"
+   },
+   {
+    "type": "web",
+    "ref": "https://northspace.life/co-working-space-เชียงใหม่/",
+    "fetched": "2026-08-07"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-07"
+ },
+ {
+  "id": "cm-curated-yellow",
+  "province": "cm",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "coworking"
+  ],
+  "name": "Yellow Coworking",
+  "nameTh": "เยลโล่ โคเวิร์กกิ้ง",
+  "nameEn": "Yellow Coworking",
+  "lat": 18.7987754,
+  "lng": 98.9678384,
+  "geoPrecision": "block",
+  "address": "16/2 ถนนนิมมานเหมินท์ ซอย 5 ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
+  "phone": null,
+  "website": "https://www.yellowincubator.com/coworking",
+  "hours": "24/7",
+  "attrs": {
+   "kind": "coworking space"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "โคเวิร์กกิ้งขนาดใหญ่ซอยนิมมาน 5 เปิด 24 ชั่วโมง มีห้องประชุมและล็อกเกอร์ ประตูหลังออกซอย 7",
+  "blurb_en": "Large 24-hour coworking on Nimman Soi 5 with meeting rooms and lockers; back door on Soi 7.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.yellowincubator.com/coworking",
+    "fetched": "2026-08-07"
+   },
+   {
+    "type": "web",
+    "ref": "https://northspace.life/co-working-space-เชียงใหม่/",
+    "fetched": "2026-08-07"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-07"
+ },
+ {
+  "id": "cm-curated-pwork",
+  "province": "cm",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "coworking"
+  ],
+  "name": "P.Work Co-Space",
+  "nameTh": "พี.เวิร์ค โคสเปซ",
+  "nameEn": "P.Work Co-Space",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "ต.หนองหอย อ.เมืองเชียงใหม่ จ.เชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": "Mo-Sa 10:00-19:00",
+  "attrs": {
+   "kind": "coworking space"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "โคสเปซ 4 ชั้นย่านหนองหอย มีห้องหลายขนาด ระบบคีย์การ์ด เครื่องดื่มฟรี มีแพ็กเกจรายวันและรายเดือน",
+  "blurb_en": "Four-floor co-space in Nong Hoi — rooms of many sizes, keycard entry, free drinks, daily and monthly packages.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://northspace.life/co-working-space-เชียงใหม่/",
+    "fetched": "2026-08-07"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-07"
+ },
+ {
+  "id": "cm-curated-codespace",
+  "province": "cm",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "coworking"
+  ],
+  "name": "Code Space",
+  "nameTh": "โค้ดสเปซ",
+  "nameEn": "Code Space",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "ต.ฟ้าฮ่าม อ.เมืองเชียงใหม่ จ.เชียงใหม่ (ย่านรวมโชค)",
+  "phone": null,
+  "website": null,
+  "hours": "Mo-Su 08:00-22:00",
+  "attrs": {
+   "kind": "cafe + coworking",
+   "members": "เข้าได้ 24 ชม."
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "คาเฟ่+โคเวิร์กกิ้งย่านฟ้าฮ่าม สมาชิกเข้าได้ 24 ชั่วโมง มีห้องประชุมพร้อมจอ บรรยากาศเงียบ",
+  "blurb_en": "Café-coworking in Fa Ham; members get 24-hour access, meeting rooms with screens, quiet rooms.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://northspace.life/co-working-space-เชียงใหม่/",
+    "fetched": "2026-08-07"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-07"
+ },
+ {
+  "id": "cm-osm-node-6726115189",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "historic"
+  ],
+  "name": "หอพญามังราย",
+  "nameTh": "หอพญามังราย",
+  "nameEn": "King Mangrai Memorial Shrine",
+  "lat": 18.7882905,
+  "lng": 98.9878427,
+  "geoPrecision": "exact",
+  "address": "สี่แยกกลางเวียง (ถนนราชดำเนิน ตัดถนนพระปกเกล้า) ต.ศรีภูมิ อ.เมืองเชียงใหม่ จ.เชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "kind": "memorial shrine",
+   "altNameTh": "ศาลพญามังราย"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "หอสักการะพญามังราย ปฐมกษัตริย์ล้านนาผู้ทรงสร้างเวียงเชียงใหม่ ณ มุมสี่แยกกลางเวียง — พงศาวดารว่าพระองค์เสด็จสวรรคตด้วยอสนีบาตขณะเสด็จกาดกลางเวียงตรงนี้ (ราว พ.ศ. 1854–1860 ตามแต่ฉบับ) ชาวเมืองจึงตั้งหอไว้กราบไหว้รำลึกพระคุณสืบมา",
+  "blurb_en": "Shrine honouring King Mangrai, founder of Chiang Mai and first king of Lan Na, at the Klang Wiang crossroads. The chronicles tell that here, visiting the old central market, he was struck by lightning and passed from this world (ca. 1311–1317 CE, depending on the chronicle); townspeople have paid their respects at this corner ever since.",
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6726115189",
+    "fetched": "2026-08-08",
+    "via": "nominatim + overpass; the node carries historic=memorial and name:en 'King Mangrai Shrine' only — Thai name and story curated here"
+   },
+   {
+    "type": "web",
+    "ref": "https://th.wikipedia.org/wiki/พญามังราย",
+    "fetched": "2026-08-08",
+    "via": "สวรรคต section: struck by lightning mid-city, พ.ศ. 1854; the Yonok chronicle tradition gives พ.ศ. 1860 — blurb states the range rather than picking a winner"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-08"
+ },
+ {
+  "id": "cm-curated-naresuan-lokmolee",
+  "province": "cm",
+  "cat": [
+   "wat"
+  ],
+  "name": "ศาลสมเด็จพระนเรศวรมหาราช",
+  "nameTh": "ศาลสมเด็จพระนเรศวรมหาราช",
+  "nameEn": "King Naresuan Shrine",
+  "lat": 18.7963,
+  "lng": 98.9829,
+  "geoPrecision": "approx",
+  "address": "ถนนมณีนพรัตน์ ระหว่างวัดโลกโมฬีกับสถานีบริการ ปตท. ริมคูเมืองด้านเหนือ ต.ศรีภูมิ อ.เมืองเชียงใหม่ จ.เชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "kind": "shrine"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ศาลบูชาสมเด็จพระนเรศวรมหาราชริมคูเมืองด้านเหนือ ระหว่างวัดโลกโมฬีกับปั๊ม ปตท. — ศาลใหญ่ที่แผนที่สากลยังหาไม่เจอ ผู้ศรัทธานิยมมาถวายสักการะตามคติบูชาพระนเรศวรฯ ที่มักถวายรูปไก่ชนแด่พระองค์",
+  "blurb_en": "Shrine to King Naresuan the Great on the north moat, between Wat Lok Molee and the PTT station — a sizeable shrine the international map platforms still miss. Devotees pay respects here in the tradition of Naresuan veneration, which favours offerings of fighting-cock figures.",
+  "sources": [
+   {
+    "type": "field",
+    "ref": "site owner report, 2026-08-08",
+    "via": "described as the big Naresuan shrine by the PTT and the moat (Icon IT area); absent from Google Maps, OSM, Nominatim and Longdo — checked all four the same day"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.google.com/maps?layer=c&cbll=18.79580,98.98290",
+    "fetched": "2026-08-08",
+    "via": "Street View (Apr 2024): walled shrine compound visible between Wat Lok Molee and the PTT forecourt; OSM's nearest feature is memorial node 3317904736/3317920530 'ศาลาลายและสวนหย่อม'"
+   },
+   {
+    "type": "field",
+    "ref": "name given in the standard dedication form ศาลสมเด็จพระนเรศวรมหาราช; signboard wording not yet read on site — confirm on a pass-by",
+    "via": "pin is approx for the same reason"
+   }
+  ],
+  "confidence": "field",
+  "updatedAt": "2026-08-08"
+ },
+ {
+  "id": "cm-curated-naresuan-stupa-mueang-ngai",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "historic"
+  ],
+  "name": "พระสถูปเจดีย์สมเด็จพระนเรศวรมหาราชานุสรณ์",
+  "nameTh": "พระสถูปเจดีย์สมเด็จพระนเรศวรมหาราชานุสรณ์",
+  "nameEn": "King Naresuan Memorial Stupa",
+  "lat": 19.22392,
+  "lng": 98.97112,
+  "geoPrecision": "approx",
+  "address": "หมู่ 2 ต.เมืองงาย อ.เชียงดาว จ.เชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "kind": "memorial stupa"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "พระสถูปแปดเหลี่ยมกลางทุ่งเมืองงาย จุดที่ตำนานว่าสมเด็จพระนเรศวรมหาราชทรงตั้งทัพหลวงครั้งสุดท้ายก่อนยกไปเมืองหาง ชาวเมืองงายร่วมกันสร้างเมื่อ พ.ศ. 2502 แล้วเสร็จ พ.ศ. 2514 ในบริเวณมีคุ้มหลวงจำลองให้สักการะและศึกษาประวัติศาสตร์",
+  "blurb_en": "An octagonal memorial stupa in the fields of Mueang Ngai, Chiang Dao — the spot where tradition places King Naresuan's last royal encampment before his final march toward Mueang Hang. Built by the community from 1959, completed 1971, with a replica royal camp (khum luang) on the grounds for veneration and learning.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://th.wikipedia.org/wiki/พระสถูปเจดีย์สมเด็จพระนเรศวรมหาราชานุสรณ์",
+    "fetched": "2026-08-08",
+    "via": "history, build dates, replica royal camp; article gives no coordinates"
+   },
+   {
+    "type": "osm",
+    "ref": "node/6517607485",
+    "fetched": "2026-08-08",
+    "via": "คุ้มหลวงสมเด็จพระนเรศวรมหาราช information node on the same grounds — pin borrowed from it, hence approx"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-08"
+ },
+ {
+  "id": "cm-osm-node-8930933222",
+  "province": "cm",
+  "cat": [
+   "wat"
+  ],
+  "name": "พลับพลาเทิดพระเกียรติ 400 ปี สมเด็จพระนเรศวรมหาราช",
+  "nameTh": "พลับพลาเทิดพระเกียรติ 400 ปี สมเด็จพระนเรศวรมหาราช",
+  "nameEn": "King Naresuan 400th Anniversary Royal Pavilion",
+  "lat": 19.55358,
+  "lng": 98.65091,
+  "geoPrecision": "exact",
+  "address": "อ.เวียงแหง จ.เชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "kind": "royal pavilion shrine"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "พลับพลาที่ชาวเวียงแหงสร้างเทิดพระเกียรติในวาระ 400 ปีแห่งการเสด็จสวรรคตของสมเด็จพระนเรศวรมหาราช (พ.ศ. 2148–2548) — อำเภอชายแดนบนเส้นทางทัพครั้งสุดท้ายของพระองค์ ที่ตำนานท้องถิ่นยังผูกพันกับการเสด็จผ่านแดนเหนือ",
+  "blurb_en": "A royal pavilion raised by the people of Wiang Haeng for the 400th anniversary of King Naresuan's passing (1605–2005). This border district lies on the route of his final campaign, and local tradition keeps his northern passage in living memory.",
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8930933222",
+    "fetched": "2026-08-08",
+    "via": "place_of_worship, buddhist; name and both languages from the node"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.travelfish.org/sight_profile/thailand/northern_thailand/chiang_mai/wiang_haeng/3446",
+    "fetched": "2026-08-08",
+    "via": "documents the Naresuan shrine and memorial presence in Wiang Haeng"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-08"
+ },
+ {
+  "id": "cm-osm-node-6180384686",
+  "province": "cm",
+  "cat": [
+   "wat"
+  ],
+  "name": "ศาลสมเด็จพระนเรศวรมหาราช บ้านร่มไทย",
+  "nameTh": "ศาลสมเด็จพระนเรศวรมหาราช บ้านร่มไทย",
+  "nameEn": "King Naresuan Maharaj Shrine (Ban Rom Thai)",
+  "lat": 20.0643521,
+  "lng": 99.3503282,
+  "geoPrecision": "exact",
+  "address": "ทางหลวง 1314 บ้านร่มไทย ต.ท่าตอน อ.แม่อาย จ.เชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "kind": "shrine"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ศาลสมเด็จพระนเรศวรมหาราชริมทางหลวง 1314 ที่บ้านร่มไทย ชายแดนแม่อาย — แดนเหนือสุดของเชียงใหม่ที่ยังตั้งศาลถวายพระเกียรติแด่พระมหากษัตริย์นักรบผู้เสด็จกรีธาทัพถึงชายขอบล้านนา",
+  "blurb_en": "Shrine to King Naresuan on Route 1314 at Ban Rom Thai, on Mae Ai's border country — Chiang Mai's far north still keeps a shrine honouring the warrior king whose campaigns reached the edge of Lan Na.",
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6180384686",
+    "fetched": "2026-08-08",
+    "via": "place_of_worship with name:en 'King Naresuan Maharaj Shrine' only; Thai name is the same dedication in standard form, village from Nominatim reverse lookup"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-08"
+ }
+]

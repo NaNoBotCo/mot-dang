@@ -1,0 +1,553 @@
+{
+ "_readme": "Extra shelves for places the crawl filed under their OSM primary tag only. OSM allows one primary tag, so a guesthouse that is also a coworking space reaches one shelf and is invisible on the other — Hub 53 sat under hotel/guesthouse while its coworking floor went unlisted. Entries here ADD cat/sub to an existing record by id; they never remove or argue with crawled facts (same discipline as names.json). Each entry names the source that attests the second identity, and that source is appended to the record's provenance.",
+ "shelves": {
+  "cm-osm-way-529378775": {
+   "note": "Hub 53 Coworking & Coliving — coliving crawled as guesthouse; the coworking floor is the other half of the name",
+   "add_cat": [
+    "business"
+   ],
+   "add_sub": [
+    "coworking"
+   ],
+   "source": "https://northspace.life/co-working-space-เชียงใหม่/",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-6160991685": {
+   "note": "Heartwork the Sharing Space — crawled as cafe; tiered coworking pricing, printing house",
+   "add_cat": [
+    "business"
+   ],
+   "add_sub": [
+    "coworking"
+   ],
+   "source": "https://northspace.life/co-working-space-เชียงใหม่/",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-11237661639": {
+   "note": "The Story 106 Cafe and Coworking — crawled as cafe; coworking is in its own name",
+   "add_cat": [
+    "business"
+   ],
+   "add_sub": [
+    "coworking"
+   ],
+   "source": "osm name: The Story 106 Cafe and Coworking",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-way-623146142": {
+   "note": "The Peaberry Cafe & Coworking — crawled as cafe; coworking is in its own name",
+   "add_cat": [
+    "business"
+   ],
+   "add_sub": [
+    "coworking"
+   ],
+   "source": "osm name: The Peaberry Cafe & Coworking",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-5613364523": {
+   "note": "Brain awake coworking space — crawled as cafe; coworking is in its own name",
+   "add_cat": [
+    "business"
+   ],
+   "add_sub": [
+    "coworking"
+   ],
+   "source": "osm name: Brain awake coworking space",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-way-672587607": {
+   "note": "TCDC เชียงใหม่ — crawled as sights; membership includes creative workspace and library desks",
+   "add_cat": [
+    "business"
+   ],
+   "add_sub": [
+    "coworking"
+   ],
+   "source": "https://northspace.life/co-working-space-เชียงใหม่/",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-10168279338": {
+   "note": "ร้านยาสวนดอก — name claims pharmacy; was hospital/medical",
+   "add_cat": [
+    "essentials"
+   ],
+   "add_sub": [],
+   "source": "osm name: ร้านยาสวนดอก",
+   "fetched": "2026-08-07",
+   "set_attrs": {
+    "facilityType": "pharmacy"
+   }
+  },
+  "cm-osm-node-10168498001": {
+   "note": "ร้านขายยา — name claims pharmacy; was hospital/medical",
+   "add_cat": [
+    "essentials"
+   ],
+   "add_sub": [],
+   "source": "osm name: ร้านขายยา",
+   "fetched": "2026-08-07",
+   "set_attrs": {
+    "facilityType": "pharmacy"
+   }
+  },
+  "cm-osm-node-10250155609": {
+   "note": "Bee Friend Hostel — name claims hostel; was hotel/hotel-full",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Bee Friend Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-10744523184": {
+   "note": "Dental Buddy Clinic (เดนทัลบัดดี้คลินิก) — name claims dentist; was hospital/medical",
+   "add_cat": [
+    "medical"
+   ],
+   "add_sub": [],
+   "source": "osm name: Dental Buddy Clinic (เดนทัลบัดดี้คลินิก)",
+   "fetched": "2026-08-07",
+   "set_attrs": {
+    "facilityType": "dentist"
+   }
+  },
+  "cm-osm-node-10801484706": {
+   "note": "Near the park Backpack hostel 2 — name claims hostel; was hotel/hotel-full",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Near the park Backpack hostel 2",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-11065396205": {
+   "note": "The Social Club - coliving & coworking space — name claims coworking; was hotel/hotel-full",
+   "add_cat": [
+    "business"
+   ],
+   "add_sub": [
+    "coworking"
+   ],
+   "source": "osm name: The Social Club - coliving & coworking space",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-11237661638": {
+   "note": "Moody Cafe and Hostel — name claims hostel; was cafe/food",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Moody Cafe and Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-1130949809": {
+   "note": "ธ.เจริญเภสัช — name claims pharmacy; was convenience/essentials",
+   "add_cat": [
+    "essentials"
+   ],
+   "add_sub": [],
+   "source": "osm name: ธ.เจริญเภสัช",
+   "fetched": "2026-08-07",
+   "set_attrs": {
+    "facilityType": "pharmacy"
+   }
+  },
+  "cm-osm-node-11382625121": {
+   "note": "SS Dental Clinic — name claims dentist; was clinic/medical",
+   "add_cat": [
+    "medical"
+   ],
+   "add_sub": [],
+   "source": "osm name: SS Dental Clinic",
+   "fetched": "2026-08-07",
+   "set_attrs": {
+    "facilityType": "dentist"
+   }
+  },
+  "cm-osm-node-11465208469": {
+   "note": "Cieste - Cafe and Hotel — name claims hotel-full; was cafe/food",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hotel-full"
+   ],
+   "source": "osm name: Cieste - Cafe and Hotel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-12092875878": {
+   "note": "Fellowship Cafe & Co-working — name claims coworking; was cafe/food",
+   "add_cat": [
+    "business"
+   ],
+   "add_sub": [
+    "coworking"
+   ],
+   "source": "osm name: Fellowship Cafe & Co-working",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-12464212472": {
+   "note": "Norn Nee Nor Hostel & Cafe — name claims hostel; was hotel/hotel-full",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Norn Nee Nor Hostel & Cafe",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-12514139421": {
+   "note": "คลินิกทันตกรรมมตโตะ เชียงใหม่ — name claims dentist; was clinic/medical",
+   "add_cat": [
+    "medical"
+   ],
+   "add_sub": [],
+   "source": "osm name: คลินิกทันตกรรมมตโตะ เชียงใหม่",
+   "fetched": "2026-08-07",
+   "set_attrs": {
+    "facilityType": "dentist"
+   }
+  },
+  "cm-osm-node-13730517101": {
+   "note": "SHIN Hostel ChangPhuak ChiangMai — name claims hostel; was hotel/hotel-full",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: SHIN Hostel ChangPhuak ChiangMai",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-13859401882": {
+   "note": "Na Non Restaurant, Pool & Gym — name claims gym; was food/thai",
+   "add_cat": [
+    "learn"
+   ],
+   "add_sub": [
+    "gym"
+   ],
+   "source": "osm name: Na Non Restaurant, Pool & Gym",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-1618868157": {
+   "note": "Giant Hostel 2 — name claims hostel; was guesthouse/hotel",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Giant Hostel 2",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-2533128063": {
+   "note": "Ed Hostel Chiang Mai — name claims hostel; was guesthouse/hotel",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Ed Hostel Chiang Mai",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-2655151984": {
+   "note": "ร้านนวด — name claims massage; was bar-pub/food",
+   "add_cat": [
+    "massage"
+   ],
+   "add_sub": [],
+   "source": "osm name: ร้านนวด",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-3285318964": {
+   "note": "Safe and Sound Hostel — name claims hostel; was guesthouse/hotel",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Safe and Sound Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-4273017089": {
+   "note": "BB Massage and Laundry — name claims massage; was essentials/laundry",
+   "add_cat": [
+    "massage"
+   ],
+   "add_sub": [],
+   "source": "osm name: BB Massage and Laundry",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-4427087636": {
+   "note": "The Guest Hotel & Hostel — name claims hostel; was hotel/hotel-full",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: The Guest Hotel & Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-4597822590": {
+   "note": "F.K. Massage & Guesthouse — name claims massage; was guesthouse/hotel",
+   "add_cat": [
+    "massage"
+   ],
+   "add_sub": [],
+   "source": "osm name: F.K. Massage & Guesthouse",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-4598764189": {
+   "note": "Massage — name claims massage; was clinic/medical",
+   "add_cat": [
+    "massage"
+   ],
+   "add_sub": [],
+   "source": "osm name: Massage",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-4706193389": {
+   "note": "Nap Box Hostel — name claims hostel; was hotel/hotel-full",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Nap Box Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-4803916423": {
+   "note": "Mapping Hostel — name claims hostel; was guesthouse/hotel",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Mapping Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-5566673219": {
+   "note": "Hugnur Hostel & Coffee — name claims hostel; was hotel/hotel-full",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Hugnur Hostel & Coffee",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-5924036887": {
+   "note": "Z's Hostel — name claims hostel; was guesthouse/hotel",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Z's Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-6163744787": {
+   "note": "Secret Garden (cafe and massage) — name claims massage; was cafe/food",
+   "add_cat": [
+    "massage"
+   ],
+   "add_sub": [],
+   "source": "osm name: Secret Garden (cafe and massage)",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-node-6824463517": {
+   "note": "คลินิกทันตกรรมเชิงดอย — name claims dentist; was clinic/medical",
+   "add_cat": [
+    "medical"
+   ],
+   "add_sub": [],
+   "source": "osm name: คลินิกทันตกรรมเชิงดอย",
+   "fetched": "2026-08-07",
+   "set_attrs": {
+    "facilityType": "dentist"
+   }
+  },
+  "cm-osm-node-7121399686": {
+   "note": "D Hostel — name claims hostel; was hotel/hotel-full",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: D Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-way-1111381048": {
+   "note": "ร้านขายยา — name claims pharmacy; was hospital/medical",
+   "add_cat": [
+    "essentials"
+   ],
+   "add_sub": [],
+   "source": "osm name: ร้านขายยา",
+   "fetched": "2026-08-07",
+   "set_attrs": {
+    "facilityType": "pharmacy"
+   }
+  },
+  "cm-osm-way-269499252": {
+   "note": "Bodega Party Hostel & Bar — name claims hostel; was guesthouse/hotel",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Bodega Party Hostel & Bar",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-way-319539845": {
+   "note": "Hug Hostel — name claims hostel; was guesthouse/hotel",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Hug Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-way-481724737": {
+   "note": "The Sculpture Hostel — name claims hostel; was hotel/hotel-full",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: The Sculpture Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-way-481815149": {
+   "note": "Squirrel Hostel — name claims hostel; was guesthouse/hotel",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Squirrel Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-way-658994134": {
+   "note": "Bedtime Story Hostel — name claims hostel; was hotel/hotel-full",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Bedtime Story Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cm-osm-way-658996891": {
+   "note": "ธัญญวินตรา บูติค แอนด์ สปา — name claims beauty-spa; was food/international",
+   "add_cat": [
+    "beauty"
+   ],
+   "add_sub": [
+    "beauty-spa"
+   ],
+   "source": "osm name: ธัญญวินตรา บูติค แอนด์ สปา",
+   "fetched": "2026-08-07"
+  },
+  "cr-osm-node-13742818001": {
+   "note": "The Clock Tower Chiang Rai Hostel — name claims hostel; was hotel/hotel-full",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: The Clock Tower Chiang Rai Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cr-osm-node-2193469944": {
+   "note": "Afterglow Hostel — name claims hostel; was guesthouse/hotel",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Afterglow Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cr-osm-node-5731457922": {
+   "note": "Baan Mai Kradan Hostel Chiang Rai — name claims hostel; was hotel/hotel-full",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Baan Mai Kradan Hostel Chiang Rai",
+   "fetched": "2026-08-07"
+  },
+  "cr-osm-node-6119141486": {
+   "note": "Spinomad Hostel — name claims hostel; was beauty/hair",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: Spinomad Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cr-osm-node-6226498085": {
+   "note": "De Wiangrat Hostel — name claims hostel; was guesthouse/hotel",
+   "add_cat": [
+    "hotel"
+   ],
+   "add_sub": [
+    "hostel"
+   ],
+   "source": "osm name: De Wiangrat Hostel",
+   "fetched": "2026-08-07"
+  },
+  "cr-osm-node-7931699285": {
+   "note": "Museflower Retreat and Spa — name claims beauty-spa; was gym/learn",
+   "add_cat": [
+    "beauty"
+   ],
+   "add_sub": [
+    "beauty-spa"
+   ],
+   "source": "osm name: Museflower Retreat and Spa",
+   "fetched": "2026-08-07"
+  },
+  "cr-osm-way-960685090": {
+   "note": "เล็กคิ้วสวย & สปา — name claims beauty-spa; was studio/tattoo",
+   "add_cat": [
+    "beauty"
+   ],
+   "add_sub": [
+    "beauty-spa"
+   ],
+   "source": "osm name: เล็กคิ้วสวย & สปา",
+   "fetched": "2026-08-07"
+  }
+ }
+}

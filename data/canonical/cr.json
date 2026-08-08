@@ -13892,6 +13892,7 @@
    "hotel"
   ],
   "sub": [
+   "hostel",
    "hotel-full"
   ],
   "name": "The Clock Tower Chiang Rai Hostel",
@@ -13913,6 +13914,12 @@
     "ref": "node/13742818001",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "osm name: The Clock Tower Chiang Rai Hostel",
+    "fetched": "2026-08-07",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "crawled",
@@ -27088,7 +27095,8 @@
    "hotel"
   ],
   "sub": [
-   "guesthouse"
+   "guesthouse",
+   "hostel"
   ],
   "name": "Afterglow Hostel",
   "nameTh": null,
@@ -27109,6 +27117,12 @@
     "ref": "node/2193469944",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "osm name: Afterglow Hostel",
+    "fetched": "2026-08-07",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "crawled",
@@ -55132,6 +55146,7 @@
    "hotel"
   ],
   "sub": [
+   "hostel",
    "hotel-full"
   ],
   "name": "Baan Mai Kradan Hostel Chiang Rai",
@@ -55155,6 +55170,12 @@
     "ref": "node/5731457922",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "osm name: Baan Mai Kradan Hostel Chiang Rai",
+    "fetched": "2026-08-07",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "crawled",
@@ -56690,10 +56711,12 @@
   "id": "cr-osm-node-6119141486",
   "province": "cr",
   "cat": [
-   "beauty"
+   "beauty",
+   "hotel"
   ],
   "sub": [
-   "hair"
+   "hair",
+   "hostel"
   ],
   "name": "Spinomad Hostel",
   "nameTh": null,
@@ -56714,6 +56737,12 @@
     "ref": "node/6119141486",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "osm name: Spinomad Hostel",
+    "fetched": "2026-08-07",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "crawled",
@@ -57609,7 +57638,8 @@
    "hotel"
   ],
   "sub": [
-   "guesthouse"
+   "guesthouse",
+   "hostel"
   ],
   "name": "De Wiangrat Hostel",
   "nameTh": null,
@@ -57630,6 +57660,12 @@
     "ref": "node/6226498085",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "osm name: De Wiangrat Hostel",
+    "fetched": "2026-08-07",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "crawled",
@@ -66786,9 +66822,11 @@
   "id": "cr-osm-node-7931699285",
   "province": "cr",
   "cat": [
+   "beauty",
    "learn"
   ],
   "sub": [
+   "beauty-spa",
    "gym"
   ],
   "name": "Museflower Retreat and Spa",
@@ -66814,6 +66852,12 @@
     "ref": "node/7931699285",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "osm name: Museflower Retreat and Spa",
+    "fetched": "2026-08-07",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "crawled",
@@ -88768,7 +88812,7 @@
    "wat"
   ],
   "name": "ศาลสมเด็จพระนเรศวรมหาราช",
-  "nameTh": null,
+  "nameTh": "ศาลสมเด็จพระนเรศวรมหาราช",
   "nameEn": "King Naresuan Shrine",
   "lat": 19.6411505,
   "lng": 99.5284028,
@@ -88793,10 +88837,24 @@
     "ref": "way/315250004",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "curated",
+    "ref": "https://cbtthailand.dasta.or.th/webapp/relattraction/content/3613/",
+    "fetched": "",
+    "via": "data/curated/names.json"
+   },
+   {
+    "type": "curated",
+    "ref": "https://cbtthailand.dasta.or.th/webapp/relattraction/content/3613/",
+    "fetched": "2026-08-08",
+    "via": "data/curated/story_hooks.json"
    }
   ],
   "confidence": "crawled",
-  "updatedAt": "2026-07-27"
+  "updatedAt": "2026-07-27",
+  "blurb_th": "ริมทางหลวงเชียงราย–เชียงใหม่ กม. 129 ข้างโรงพยาบาลแม่สรวย — ตำนานว่าเมื่อสมเด็จพระนเรศวรมหาราชยกทัพไปเมืองหาง ได้ทรงหยุดพักทัพ ณ แม่สรวย ทุกวันที่ 18 มกราคม ชาวอำเภอจึงจัดพิธีบวงสรวงถวายสักการะ โดยมีรูปช้างศึกใหญ่สองเชือกยืนเฝ้าศาล",
+  "blurb_en": "Beside the Chiang Rai–Chiang Mai road at km 129, next to Mae Suai Hospital. Tradition holds that King Naresuan rested his army here on the march toward Mueang Hang; every 18 January the district holds a ceremony in his honour, watched over by two great war-elephant statues."
  },
  {
   "id": "cr-osm-way-315436118",
@@ -94721,10 +94779,18 @@
     "ref": "way/487642343",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "curated",
+    "ref": "https://th.wikipedia.org/wiki/วัดดอยงำเมือง",
+    "fetched": "2026-08-08",
+    "via": "data/curated/story_hooks.json"
    }
   ],
   "confidence": "crawled",
-  "updatedAt": "2026-07-27"
+  "updatedAt": "2026-07-27",
+  "blurb_th": "บนดอยงำเมืองประดิษฐานกู่พญามังราย — ประเพณีของวัดเล่าว่าพญาไชยสงคราม ราชโอรส ทรงอัญเชิญพระอัฐิพญามังรายจากเชียงใหม่มาบรรจุไว้ที่นี่ เจดีย์ทรงปราสาทยอดบนดอยจึงเป็นที่เคารพของชาวเชียงรายในฐานะที่สถิตแห่งปฐมกษัตริย์ผู้สร้างเมือง",
+  "blurb_en": "On this hilltop stands the Ku Phaya Mangrai. Temple tradition holds that Prince Chaiyasongkhram carried his father King Mangrai's relics home from Chiang Mai and enshrined them here, making the spired chedi Chiang Rai's own memorial to the king who founded the city."
  },
  {
   "id": "cr-osm-way-487642776",
@@ -107097,9 +107163,11 @@
   "id": "cr-osm-way-960685090",
   "province": "cr",
   "cat": [
+   "beauty",
    "tattoo"
   ],
   "sub": [
+   "beauty-spa",
    "studio"
   ],
   "name": "เล็กคิ้วสวย & สปา",
@@ -107121,6 +107189,12 @@
     "ref": "way/960685090",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "osm name: เล็กคิ้วสวย & สปา",
+    "fetched": "2026-08-07",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "crawled",
