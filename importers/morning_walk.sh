@@ -60,6 +60,7 @@ fi
 # --- the round: each stop may fail alone --------------------------------
 python3 importers/make_widget_shots.py || say "widget shots kept yesterday's frames"
 python3 importers/make_weather.py      || say "weather kept the snapshot"
+python3 importers/make_air.py          || say "air quality kept the snapshot"
 python3 importers/make_showtimes.py    || say "showtimes kept the snapshot"
 python3 importers/harvest_events.py --refetch || say "events kept the snapshot"
 python3 importers/sync_claims.py       || say "claims sync kept what is on disk"

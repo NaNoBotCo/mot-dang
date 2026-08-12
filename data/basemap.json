@@ -1,0 +1,10 @@
+{
+  "_comment": "The self-hosted basemap. Absence of this file, or an empty url, disables every map surface's tile layer and leaves the drawn SVG in place — a supported state, not a broken one.",
+  "_extract": "pmtiles extract https://build.protomaps.com/20260811.pmtiles assets/tiles/cm-cr.pmtiles --bbox=97.3,17.0,100.6,20.5 --maxzoom=15",
+  "_size": "116 MB. Covers Chiang Mai + Chiang Rai provinces whole, z0-15. The planet build's own max zoom is 15, so 15 is everything there is — MapLibre overzooms past it from z15 data rather than fetching more.",
+  "_hosting": "TOO BIG FOR THE REPO: GitHub rejects files over 100 MB. This must live in R2 (or any host doing HTTP range requests) and the url below must point there before deploy. The relative path is for local verification only.",
+  "url": "",
+  "glyphs": "https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf",
+  "maxzoom": 15,
+  "_enable": "Set url to the R2 public URL to turn the basemap on sitewide. Empty = off: no page loads MapLibre at all and every map keeps its drawn SVG. Kept empty until the 116 MB archive is actually hosted, so map pages do not each pull a megabyte of library and then 404 on the tiles."
+}

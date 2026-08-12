@@ -186,3 +186,17 @@ body{
   padding:12px 20px;border-radius:999px;box-shadow:0 8px 24px rgba(42,30,22,.4);
   animation:pop .2s;white-space:nowrap;max-width:92vw;overflow:hidden;text-overflow:ellipsis;
 }
+
+/* The location pre-prompt. Same veil as the card, with a box on it — plain on
+   purpose: it asks one question and answers "where does this go" in one line,
+   before Android's own dialog appears. */
+.locgate{display:flex;align-items:center;justify-content:center;padding:18px;z-index:80}
+.locgate[hidden]{display:none}
+.locbox{max-width:360px;background:var(--card);border:1.5px solid var(--warm-border);
+  border-radius:24px;padding:20px;box-shadow:0 14px 44px rgba(42,30,22,.35)}
+.locbox b{display:block;font-size:17px;margin-bottom:8px}
+.locbox p{margin:0 0 16px;font-size:15px;line-height:1.5}
+.locacts{display:flex;flex-direction:column;gap:10px}
+.locacts button{width:100%;border:0;border-radius:16px;padding:14px 16px;
+  font-size:16px;font-weight:700;color:#fff;background:var(--ant,#D4552C);cursor:pointer}
+.locacts .ghost{background:transparent;color:var(--ink);border:1.5px solid var(--warm-border)}

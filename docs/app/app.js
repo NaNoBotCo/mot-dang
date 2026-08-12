@@ -622,14 +622,38 @@ function toast (msg) {
   toastT = setTimeout(function () { t.hidden = true; }, 2600);
 }
 
-/* ---------- locate ---------- */
+/* ---------- locate ----------
+   Two steps, deliberately. 📍 opens our own dialog; only its yes button
+   reaches Android's. The map already works without any of this — it opens on
+   the baked city and the list measures from the map centre — so this adds
+   precision rather than unlocking the app, and a reader who says no keeps
+   everything they had. No is remembered: the button goes away rather than
+   sitting there ready to raise the same dialog again. */
+var gpsOff = false;
+
 function locate () {
-  if (!navigator.geolocation) { toast('เครื่องนี้ไม่มีระบบตำแหน่ง'); return; }
-  document.getElementById('btn-locate').classList.add('on');
-  if (watching) { // second press = recentre
+  if (gpsOff) return;
+  if (!navigator.geolocation) { toast('เครื่องนี้ไม่มีระบบตำแหน่ง'); killGps(); return; }
+  if (watching) { // second press = recentre, no dialog
+    document.getElementById('btn-locate').classList.add('on');
     if (me) { view.cx = me.x; view.cy = me.y; if (view.scale < 0.4) view.scale = 0.5; clampView(); dirty = true; }
     return;
   }
+  document.getElementById('loc-gate').hidden = false;
+  document.getElementById('loc-yes').focus();
+}
+
+function killGps () {
+  gpsOff = true;
+  var g = document.getElementById('loc-gate'); if (g) g.hidden = true;
+  var b = document.getElementById('btn-locate');
+  if (b && b.parentNode) b.parentNode.removeChild(b);
+  toast('ไม่ใช้ตำแหน่ง — เลื่อนแผนที่ไปที่ที่คุณอยู่ได้เลย');
+}
+
+function startWatch () {
+  document.getElementById('loc-gate').hidden = true;
+  document.getElementById('btn-locate').classList.add('on');
   watching = true;
   navigator.geolocation.watchPosition(function (pos) {
     var first = !me;
@@ -643,9 +667,12 @@ function locate () {
     }
     dirty = true;
   }, function () {
+    /* Refused at the OS level, or no fix. Either way the map is still a map
+       and the list is still sorted from its centre — so this is a note, and
+       the door closes rather than staying open to ask again. */
     toast('ยังหาตำแหน่งไม่ได้ — เลื่อนแผนที่ไปที่ที่คุณอยู่ได้เลย');
-    document.getElementById('btn-locate').classList.remove('on');
     watching = false;
+    killGps();
   }, { enableHighAccuracy: true, maximumAge: 5000, timeout: 15000 });
 }
 
@@ -708,6 +735,19 @@ document.getElementById('sheet-handle').addEventListener('click', function () {
 document.getElementById('btn-zoom-in').onclick = function () { zoomAt(W / 2, H / 2, 1.45); saveView(); };
 document.getElementById('btn-zoom-out').onclick = function () { zoomAt(W / 2, H / 2, 0.69); saveView(); };
 document.getElementById('btn-locate').onclick = locate;
+document.getElementById('loc-yes').onclick = startWatch;
+document.getElementById('loc-no').onclick = killGps;
+/* Ask Android what it already knows, so 📍 is never offered for a permission
+   the OS has already refused. Unsupported here just leaves the button up. */
+if (navigator.permissions && navigator.permissions.query) {
+  try {
+    navigator.permissions.query({ name: 'geolocation' }).then(function (st) {
+      if (st.state === 'denied') { gpsOff = true;
+        var b = document.getElementById('btn-locate');
+        if (b && b.parentNode) b.parentNode.removeChild(b); }
+    }).catch(function () {});
+  } catch (e) {}
+}
 
 /* ---------- city jump ----------
    Two cities are 190 km apart. Without this, a reader in Chiang Rai whose
@@ -745,5 +785,11 @@ clampView();
 refreshList();
 flushPending();
 frame();
-// Ask for location straight away — finding the nearest toilet is the job.
-locate();
+// NOT locate(). This used to fire on mount, which meant the very first thing
+// a new installer saw was an Android permission dialog stacked over a map
+// they had not looked at yet — the one moment they know least about what
+// they are agreeing to, and the cheapest moment to back out entirely.
+//
+// The map opens on the baked city, the list is already sorted, and 📍 is
+// right there in the toolbar when someone wants it. Finding the nearest
+// toilet is still the job; it just no longer costs a permission up front.

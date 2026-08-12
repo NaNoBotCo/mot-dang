@@ -1,15 +1,44 @@
 /* ห้องน้ำใกล้ฉัน. Everything is baked; the only thing this asks the
    network for is the second, larger file, and only if the reader taps for it.
    The location never leaves the browser — there is nowhere on this site to
-   send it. */
+   send it.
+
+   LOCATION IS NEVER A GATE. The page opens on a working list, sorted from a
+   named landmark, before anything has been asked of anybody. The browser's
+   own permission dialog is the last step of a path the reader chose, never
+   the first thing that happens to them — a stranger's site throwing up a
+   location prompt on contact reads as a risk, and the reader who backs out
+   of it never sees the page at all. Our own dialog goes first, says in one
+   sentence where the coordinate goes (nowhere), and takes no for an answer
+   permanently. */
 (function(){
 var D=null,MORE=null,here=null,filter='all',showCust=false;
 var elBtn=document.getElementById('loogo'),elState=document.getElementById('loostate'),
     elList=document.getElementById('loolist'),elFilters=document.getElementById('loofilters'),
     elMore=document.getElementById('loomore'),elNear=document.getElementById('loonear'),
-    elMap=document.getElementById('loomap');
-if(!elBtn)return;
+    elMap=document.getElementById('loomap'),elGate=document.getElementById('loogate'),
+    elFind=document.getElementById('loofind'),elOrigin=document.getElementById('looorigin');
+if(!elList)return;
 var LANG=document.documentElement;
+
+/* Where the page opens when nobody has told it anything. Two real landmarks
+   people give directions from, not a bounding-box centroid in a rice field. */
+var DEFAULTS={
+  cm:{lat:18.7876,lng:98.9931,th:'ประตูท่าแพ',en:'Tha Phae Gate',src:'default',prov:'cm'},
+  cr:{lat:19.9094,lng:99.8325,th:'หอนาฬิกาเชียงราย',en:'Clock Tower',src:'default',prov:'cr'}
+};
+/* Set once the reader has said no — by tapping "not now", or because the
+   browser already knows the answer is denied. Once true it never goes back
+   to false in this page's life, and every door to the prompt is removed
+   rather than merely disabled. Re-asking is how a site teaches people to
+   refuse it on sight. */
+var GPS_OFF=false;
+var lastTf=null;   // the projection drawMap last used, so taps can be inverted
+
+function store(k,v){try{v===null?localStorage.removeItem(k):
+  localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function recall(k){try{var v=localStorage.getItem(k);return v?JSON.parse(v):null;}
+  catch(e){return null;}}
 
 function bi(th,en){return '<span class="bi"><span class="th">'+esc(th)+'</span>'+
   '<span class="en"><span class="th"> · </span>'+esc(en)+'</span></span>';}
@@ -140,7 +169,11 @@ function passes(x){
 }
 
 function render(){
-  if(!here||!D)return;
+  if(!D)return;
+  /* No origin has ever meant no page. It now means Tha Phae Gate, said out
+     loud in the status line, which is a thing a reader can correct in one
+     tap — unlike a spinner waiting on a permission they did not grant. */
+  if(!here)here=DEFAULTS.cm;
   var rows=normalise().filter(passes);
   rows.forEach(function(x){x.d=hav(here.lat,here.lng,x.lat,x.lng);});
   /* Distance, and nothing else. An earlier version nudged mapped points and
@@ -203,6 +236,14 @@ function render(){
 
 function fmtD(m){return m<1000?Math.round(m/10)*10+' ม.':(m/1000).toFixed(1)+' กม.';}
 
+/* The origin's name in whichever language is showing. Used in alt text and
+   on the map face, where a two-language string would not fit. */
+function originName(){
+  if(!here)return '';
+  if(here.src==='gps')return LANG.classList.contains('lang-en')?'you':'คุณ';
+  return (LANG.classList.contains('lang-en')&&here.en)||here.th||here.en||'';
+}
+
 /* ---- the "which way" panel -------------------------------------------
    A list tells you how far; it cannot tell you which way to turn. This is
    drawn here rather than at build time because it has to be centred on
@@ -210,8 +251,8 @@ function fmtD(m){return m<1000?Math.round(m/10)*10+' ม.':(m/1000).toFixed(1)+'
    refuses both, and every shape below comes from coordinates already in the
    baked file. Equirectangular with a cos(lat) correction is ample over the
    half-kilometre or so this ever covers. */
-function drawMap(rows,el){
-  if(!rows.length){el.innerHTML='';return;}
+function drawMap(rows,host){
+  if(!rows.length){var d0=host.querySelector('.mdmap-draw')||host;d0.innerHTML='';return;}
   var S=300,PAD=26,shown=rows.slice(0,10);
   /* Frame on the tenth result so the pins fill the box, with a floor so a
      cluster of very near ones does not zoom to absurdity. */
@@ -219,6 +260,10 @@ function drawMap(rows,el){
   var cosla=Math.cos(here.lat*Math.PI/180);
   var mPerDegLat=110574,mPerDegLng=111320*cosla;
   var half=S/2-PAD, scale=half/far;                 // px per metre
+  /* Kept so a tap on the picture can be turned back into a coordinate. The
+     projection is only ever inverted at the scale it was drawn at, which is
+     why this is stashed here rather than recomputed from scratch. */
+  lastTf={S:S,scale:scale,mLat:mPerDegLat,mLng:mPerDegLng,lat:here.lat,lng:here.lng};
   function px(la,ln){
     return [S/2+((ln-here.lng)*mPerDegLng)*scale,
             S/2-((la-here.lat)*mPerDegLat)*scale];
@@ -226,14 +271,18 @@ function drawMap(rows,el){
   function inBox(p){return p[0]>-40&&p[0]<S+40&&p[1]>-40&&p[1]<S+40;}
   var p=[];
   p.push('<svg viewBox="0 0 '+S+' '+S+'" class="loomapsvg" role="img" aria-label="'+
-    esc(D.mapAlt||'')+'">');
-  p.push('<rect width="'+S+'" height="'+S+'" rx="14" fill="#FFFDF8" stroke="#E4D8C4"/>');
+    esc(here.src==='gps'?(D.mapAlt||''):
+      (D.mapAltAt||'').replace(/%s/g,originName()))+'">');
+  /* The cream card. Class-tagged because it is the "there is no ground here"
+     state: with a basemap live underneath, map_shell hides it and these same
+     rings and pins land on real streets instead. */
+  p.push('<rect class="mdmap-bg" width="'+S+'" height="'+S+'" rx="14" fill="#FFFDF8" stroke="#E4D8C4"/>');
   /* Range rings, labelled — the cheapest way to read distance off a picture. */
   [0.25,0.5,1].forEach(function(f){
     var r=half*f; if(r<18)return;
     p.push('<circle cx="'+(S/2)+'" cy="'+(S/2)+'" r="'+r.toFixed(1)+'" fill="none" '+
       'stroke="#EADFCB" stroke-dasharray="3 4"/>');
-    p.push('<text x="'+(S/2+3)+'" y="'+(S/2-r+11).toFixed(1)+'" font-size="9" '+
+    p.push('<text x="'+(S/2+3)+'" y="'+(S/2-r+11).toFixed(1)+'" font-size="9" paint-order="stroke" stroke="#FFFDF8" stroke-width="2.5" '+
       'fill="#9C8874">'+esc(fmtD(far*f))+'</text>');
   });
   /* The moat, when any of it is actually in frame. Everyone here navigates by
@@ -254,10 +303,15 @@ function drawMap(rows,el){
     }
     (D.gates||[]).forEach(function(gt){
       var q=px(gt[0],gt[1]); if(!inBox(q))return;
+      /* Several of the landmarks people start from ARE moat gates — Tha Phae
+         is the default origin and the busiest gate on the ring. Drawing both
+         markers put the same name on the picture twice, an inch apart, which
+         reads as two places. The centre ring already names it. */
+      if(Math.abs(q[0]-S/2)<12&&Math.abs(q[1]-S/2)<12)return;
       p.push('<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+
         '" r="3" fill="#8FA5CC"/>');
       p.push('<text x="'+(q[0]+5).toFixed(1)+'" y="'+(q[1]+3.5).toFixed(1)+
-        '" font-size="9" fill="#5E6C8A">'+esc(gt[2])+'</text>');
+        '" font-size="9" paint-order="stroke" stroke="#FFFDF8" stroke-width="2.5" fill="#5E6C8A">'+esc(gt[2])+'</text>');
     });
   }
   /* North, so a rotated phone still reads. */
@@ -278,11 +332,36 @@ function drawMap(rows,el){
     p.push('<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+'" r="2" fill="'+col+'"/>');
     p.push('</g>');
   });
-  /* You, last, so nothing hides you. */
-  p.push('<circle cx="'+(S/2)+'" cy="'+(S/2)+'" r="9" fill="#D4552C" opacity=".18"/>');
-  p.push('<circle cx="'+(S/2)+'" cy="'+(S/2)+'" r="4.5" fill="#D4552C" stroke="#fff" stroke-width="2"/>');
+  /* The centre, last, so nothing hides it — but it is only ever drawn as
+     "you" when the reader actually handed over a fix. Centred on a landmark
+     it gets a hollow ring and the landmark's name, because a solid dot that
+     says "you are here" about Tha Phae Gate is a small lie told to somebody
+     who may be standing in Santitham. */
+  if(here.src==='gps'){
+    p.push('<circle cx="'+(S/2)+'" cy="'+(S/2)+'" r="9" fill="#D4552C" opacity=".18"/>');
+    p.push('<circle cx="'+(S/2)+'" cy="'+(S/2)+'" r="4.5" fill="#D4552C" stroke="#fff" stroke-width="2"/>');
+  }else{
+    p.push('<circle cx="'+(S/2)+'" cy="'+(S/2)+'" r="7" fill="#FFFDF8" stroke="#D4552C" '+
+      'stroke-width="2.5" stroke-dasharray="3 2.5"/>');
+    p.push('<text x="'+(S/2)+'" y="'+(S/2+21)+'" font-size="9.5" text-anchor="middle" paint-order="stroke" stroke="#FFFDF8" stroke-width="2.5" '+
+      'fill="#A8371A">'+esc(originName())+'</text>');
+  }
   p.push('</svg>');
+  /* When map_shell has wrapped this box the drawn picture belongs in its own
+     layer, under the tiles — writing straight into the container would tear
+     out the live map along with it. With no basemap configured there is no
+     wrapper and this is the container, exactly as before. */
+  var el=host.querySelector('.mdmap-draw')||host;
   el.innerHTML=p.join('');
+  /* Put the basemap under the drawing at the drawing's own scale. The SVG is
+     S viewBox units wide shown at whatever width the box actually got, so
+     metres-per-CSS-pixel has to account for both. Without that the streets
+     would be at one zoom and the pins at another, which is worse than no
+     streets at all. */
+  if(window.MDMAP&&MDMAP.live(host)){
+    var shown=host.clientWidth||S;
+    MDMAP.retarget(host,here.lat,here.lng,1/(scale*(shown/S)));
+  }
   el.querySelectorAll('.loopin').forEach(function(g){
     var go=function(){
       var li=elList.children[+g.dataset.pin]; if(!li)return;
@@ -293,33 +372,178 @@ function drawMap(rows,el){
     g.addEventListener('click',go);
     g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
   });
+  /* Tap anywhere else on the picture to move the starting point there. This
+     is the third of the four ways in, and on a phone it is the fastest one:
+     no typing, no list to read, no permission to grant — you point at where
+     you are. */
+  var svg=el.querySelector('svg');
+  if(svg)svg.addEventListener('click',function(e){
+    if(e.target.closest('.loopin')||!lastTf)return;
+    var b=svg.getBoundingClientRect();
+    if(!b.width||!b.height)return;
+    var x=(e.clientX-b.left)/b.width*lastTf.S, y=(e.clientY-b.top)/b.height*lastTf.S;
+    setOrigin({lat:lastTf.lat-((y-lastTf.S/2)/lastTf.scale)/lastTf.mLat,
+               lng:lastTf.lng+((x-lastTf.S/2)/lastTf.scale)/lastTf.mLng,
+               th:'จุดที่คุณแตะไว้',en:'the spot you tapped',src:'tap'});
+  });
 }
 
-function locate(){
-  if(!navigator.geolocation){fail('เครื่องนี้บอกตำแหน่งไม่ได้ · This device cannot share a location');return;}
-  elBtn.disabled=true;
+/* ---- the origin, and the four equal ways to set one -------------------
+   GPS is one of four, not the front door with three consolation prizes
+   behind it. The picker is on the page from the first paint, before anyone
+   has been asked anything, and it stays there afterwards. */
+function setOrigin(o){
+  here=o;
+  /* A GPS fix is never written to disk. The promise on this page is that the
+     coordinate stays in the browser and is never stored; localStorage is
+     storage. Landmarks and dropped pins are the reader's own choice of a
+     public place and persist happily. */
+  if(o.src==='gps')store('md-loo-origin',null);
+  else store('md-loo-origin',{lat:o.lat,lng:o.lng,th:o.th,en:o.en,src:o.src,prov:o.prov||''});
+  elState.className='loostate';
+  elState.innerHTML=o.src==='gps'
+    ? bi('เรียงจากใกล้ที่สุด · ระยะเป็นเส้นตรง เดินจริงไกลกว่านี้',
+         'Nearest first. Distances are straight-line — the walk is longer, especially across the moat.')
+    : bi('เรียงจาก '+(o.th||o.en)+' · แตะแผนที่หรือเลือกที่อื่นเพื่อย้ายจุดตั้งต้น',
+         'Measured from '+(o.en||o.th)+'. Tap the map or pick another spot to move it.');
+  render();
+}
+
+/* Our dialog opens first. One sentence about where the coordinate goes,
+   then the two answers — and "not now" is final. */
+function openGate(){
+  if(GPS_OFF||!elGate)return;
+  elGate.hidden=false;
+  var yes=elGate.querySelector('[data-gate="yes"]');
+  if(yes)yes.focus();
+}
+function closeGate(){if(elGate)elGate.hidden=true;}
+
+/* The only place in this file that touches navigator.geolocation, and it is
+   reachable only from a tap on the dialog's own button. */
+function useLocation(){
+  closeGate();
+  if(!navigator.geolocation){
+    fail('เครื่องนี้บอกตำแหน่งไม่ได้ — เลือกจุดตั้งต้นข้างล่างได้เลย · '+
+         'This device cannot share a location — pick a starting point below');
+    killGps();return;}
+  if(elFind)elFind.disabled=true;
   elState.className='loostate';
   elState.innerHTML=bi('กำลังหาตำแหน่ง…','Finding you…');
   navigator.geolocation.getCurrentPosition(function(p){
-    here={lat:p.coords.latitude,lng:p.coords.longitude};
-    elBtn.disabled=false;
-    elState.innerHTML=bi('เรียงจากใกล้ที่สุด · ระยะเป็นเส้นตรง เดินจริงไกลกว่านี้',
-      'Nearest first. Distances are straight-line — the walk is longer, especially across the moat.');
-    elFilters.hidden=false;elMore.hidden=false;
-    render();
+    if(elFind)elFind.disabled=false;
+    setOrigin({lat:p.coords.latitude,lng:p.coords.longitude,src:'gps'});
   },function(){
-    elBtn.disabled=false;
-    fail('ยังไม่ได้ตำแหน่ง — เลือกจุดใกล้ตัวข้างล่างได้เลย · No location yet — pick a spot below instead');
-    elNear.hidden=false;
+    /* Refused, or the fix timed out. Either way the list already works from
+       wherever it was measuring a moment ago — so this is a note, not an
+       error state, and the page never empties out behind it. */
+    if(elFind)elFind.disabled=false;
+    note('ยังไม่ได้ตำแหน่ง — ยังเรียงจาก '+(here?(here.th||here.en):'จุดตั้งต้น')+' อยู่ เลือกจุดอื่นได้ข้างล่าง',
+         'No location — still measuring from '+(here?(here.en||here.th):'the starting point')+
+         '. Pick another spot below.');
+    killGps();
   },{enableHighAccuracy:true,timeout:10000,maximumAge:60000});
 }
+
+/* Said no once, asked never again. Both doors leave the DOM: a disabled
+   button that still looks tappable is its own small insult, and a hidden one
+   is a thing a later bug can un-hide. */
+function killGps(){
+  GPS_OFF=true;closeGate();
+  if(elFind&&elFind.parentNode)elFind.parentNode.removeChild(elFind);
+  if(elGate&&elGate.parentNode)elGate.parentNode.removeChild(elGate);
+  elFind=null;elGate=null;
+  if(elOrigin)elOrigin.classList.add('sole');
+}
+
 function fail(msg){elState.className='loostate err';
   var p=msg.split(' · ');elState.innerHTML=bi(p[0],p[1]||'');}
+/* Not an error — the page behind it is fine. Different class, so it does not
+   get the red treatment reserved for "this actually broke". */
+function note(th,en){elState.className='loostate soft';elState.innerHTML=bi(th,en);}
+
+/* ---- typing a place name --------------------------------------------
+   The fourth way in. Matched against names already in the baked file rather
+   than sent to a geocoder: the reader typing "where I am" into a stranger's
+   search box should not have that shipped to a third party, and every place
+   worth naming around here is already in this file. It also keeps working
+   with no signal, which the geocoder would not. */
+function gazetteer(){
+  var out=[];
+  if(elNear)elNear.querySelectorAll('a[data-lat]').forEach(function(a){
+    out.push({lat:+a.dataset.lat,lng:+a.dataset.lng,
+      th:a.dataset.th||a.textContent.trim(),en:a.dataset.en||a.textContent.trim(),
+      src:'landmark',prov:a.dataset.prov||''});});
+  if(D)D.places.forEach(function(p){
+    out.push({lat:p[1],lng:p[2],th:p[3],en:p[4]||p[3],src:'place'});});
+  return out;
+}
+function wireSearch(){
+  var box=document.getElementById('loosearch'),out=document.getElementById('loohits');
+  if(!box||!out)return;
+  function run(){
+    var q=box.value.trim().toLowerCase();
+    if(q.length<2){out.innerHTML='';out.hidden=true;return;}
+    var hits=gazetteer().filter(function(o){
+      return (o.th||'').toLowerCase().indexOf(q)>=0||(o.en||'').toLowerCase().indexOf(q)>=0;
+    }).slice(0,8);
+    if(!hits.length){
+      /* Never an empty box with nothing in it. The list behind this is still
+         sorted and still usable; say so rather than looking broken. */
+      out.innerHTML='<li class="loomiss">'+bi('ไม่พบชื่อนี้ — ลองชื่อสั้นลง หรือแตะแผนที่',
+        'No match — try a shorter name, or tap the map')+'</li>';
+      out.hidden=false;return;}
+    out.innerHTML=hits.map(function(o,i){
+      return '<li><button type="button" data-hit="'+i+'">'+bi(o.th,o.en)+'</button></li>';}).join('');
+    out.hidden=false;
+    out.querySelectorAll('button[data-hit]').forEach(function(b){
+      b.addEventListener('click',function(){
+        var o=hits[+b.dataset.hit];
+        setOrigin({lat:o.lat,lng:o.lng,th:o.th,en:o.en,src:'search',prov:o.prov});
+        out.hidden=true;box.value='';});});
+  }
+  box.addEventListener('input',run);
+}
 
 function boot(){
+  /* The origin is settled BEFORE the data arrives and before anything is
+     asked of anybody: a remembered choice if there is one, Tha Phae Gate if
+     not. By the time the list paints it already has somewhere to measure
+     from, which is the whole trick — there is no moment where the page needs
+     a permission in order to be a page. */
+  var saved=recall('md-loo-origin');
+  here=(saved&&typeof saved.lat==='number'&&typeof saved.lng==='number'&&saved.src!=='gps')
+    ? saved : DEFAULTS.cm;
+
+  /* Ask the browser what it already knows, so the button never promises
+     something the OS has already refused. Where this is unsupported the
+     button stays — the dialog in front of it is still the reader's own
+     choice, and a wrongly-hidden control is worse than an honest one. */
+  if(navigator.permissions&&navigator.permissions.query){
+    try{navigator.permissions.query({name:'geolocation'}).then(function(st){
+      if(st.state==='denied')killGps();
+      st.onchange=function(){if(st.state==='denied')killGps();};
+    }).catch(function(){});}catch(e){}
+  }
+
+  /* Tapping the ground on the live basemap does what tapping the drawn
+     picture does. The SVG stops taking pointer events once tiles are under
+     it — otherwise the overlay would swallow every attempt to pan — so the
+     shell reports the tap instead, and only when it was a tap, not a drag. */
+  if(elMap)elMap.addEventListener('mdmap:click',function(e){
+    setOrigin({lat:e.detail.lat,lng:e.detail.lng,
+      th:'จุดที่คุณแตะไว้',en:'the spot you tapped',src:'tap'});});
+
+  if(elFind)elFind.addEventListener('click',openGate);
+  if(elGate){
+    var yes=elGate.querySelector('[data-gate="yes"]'),no=elGate.querySelector('[data-gate="no"]');
+    if(yes)yes.addEventListener('click',useLocation);
+    if(no)no.addEventListener('click',killGps);
+    elGate.addEventListener('keydown',function(e){if(e.key==='Escape')closeGate();});
+  }
+
   fetch('data/toilets.json').then(function(r){return r.json();}).then(function(j){
-    D=j;elBtn.disabled=false;
-    elBtn.addEventListener('click',locate);
+    D=j;
     elFilters.querySelectorAll('button').forEach(function(b){
       b.addEventListener('click',function(){
         filter=b.dataset.f;
@@ -333,12 +557,14 @@ function boot(){
         .catch(function(){btn.disabled=false;});});
     elNear.querySelectorAll('a[data-lat]').forEach(function(a){
       a.addEventListener('click',function(e){e.preventDefault();
-        here={lat:+a.dataset.lat,lng:+a.dataset.lng};
-        elFilters.hidden=false;elMore.hidden=false;
-        elState.className='loostate';
-        elState.innerHTML=bi('เรียงจากจุดที่เลือก · ระยะเป็นเส้นตรง',
-          'Nearest to the spot you picked. Distances are straight-line.');
-        render();});});
+        setOrigin({lat:+a.dataset.lat,lng:+a.dataset.lng,
+          th:a.dataset.th||a.textContent.trim(),en:a.dataset.en||a.textContent.trim(),
+          src:'landmark',prov:a.dataset.prov||''});});});
+    wireSearch();
+    /* Everything on, straight away. These used to wait on a location fix,
+       which is what made a permission dialog the price of admission. */
+    elFilters.hidden=false;elMore.hidden=false;
+    setOrigin(here);
   }).catch(function(){fail('โหลดข้อมูลไม่สำเร็จ ลองรีเฟรช · Could not load the data — try reloading');});
 }
 boot();

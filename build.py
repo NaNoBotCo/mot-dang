@@ -5,8 +5,16 @@ Thai-first, 1997 directory genre studied from the real thing (Yahoo!, April 1997
 search box up top, bold categories with teaser sub-links, counts in parens,
 subcategory shelves, a random link, "how to include your site", and a
 personalizable home (My Yahoo!) with a news ticker. EN is a client-side
-display layer. No tracking, no third-party scripts, no external requests
-on load; outbound links only. OSM attribution stays.
+display layer. No tracking, no analytics, no third-party behaviour scripts;
+outbound links only. OSM attribution stays.
+
+ON EXTERNAL REQUESTS. This used to read "no external requests" flat, and for
+a long time it was true. It is not any more. A page carrying a map fetches the
+vector basemap from our own bucket and its label glyphs from Protomaps' font
+host — see map_shell.py, which is the only module that configures either. A
+page with no map on it still makes no request to anyone. The line that matters
+was never "zero requests" for its own sake; it is that nothing on this site
+reports a reader to anybody, and that has not moved.
 """
 import base64
 import datetime
@@ -22,6 +30,11 @@ import urllib.parse
 import zlib
 from pathlib import Path
 
+# The map shell, at module scope because the drawing functions below call
+# mount() — not just build(). It imports nothing from here, so there is no
+# cycle: map_shell is stdlib-only and reads its own config off disk.
+import map_shell
+
 try:
     import qrcode
     HAVE_QR = True
@@ -30,7 +43,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
-BUILD_DATE = "2026-08-05"
+BUILD_DATE = "2026-08-09"
 
 # Where the 🎲 chip goes when scripting is off. md.js intercepts the click and
 # rolls fresh each time; this baked pick (seeded by BUILD_DATE, so it rotates
@@ -178,7 +191,7 @@ def art(topic=None, mood=None, place=None, season=None, n=1, key="", avoid=(),
     pool = [p for p in SITE_ART if ok(p)]
     # Anything already drawn on this page sinks to the bottom of the shuffle,
     # so the hero and the shelf card below it do not both land on Songkran.
-    # It is a preference, not a ban: with only one honest picture of a subject,
+    # It is a preference, not a ban: with only one genuine picture of a subject,
     # showing it twice still beats showing the wrong one.
     pool.sort(key=lambda p: (p["slug"] in ART_USED,
                              zlib.crc32((key + "|" + p["slug"]).encode())))
@@ -952,6 +965,12 @@ text-transform:uppercase;margin-bottom:.1rem}
 .related ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem .7rem}
 .related li{font-size:.88rem}
 .myhint{background:var(--soft);border-radius:.6rem;padding:.5rem .9rem;font-size:.9rem}
+/* Where a claim on why.html got its evidence. Small and quiet, but present on
+   every claim that rests on someone else's document rather than on this
+   repository — a reader who wants to check should not have to ask. */
+.whysrc{font-size:.8rem;color:var(--gloss);margin:.35rem 0 0}
+.whysrc a{color:var(--gloss);text-decoration:underline dotted}
+.whysrc a:hover{color:var(--ant)}
 #bmform input{font:inherit;font-size:.9rem;padding:.2rem .5rem;border:1.5px solid var(--soft);
 border-radius:.4rem;margin-right:.4rem;max-width:11rem}
 #bmform button{font:inherit;font-size:.9rem;border:1.5px solid var(--ant);background:none;
@@ -1087,6 +1106,16 @@ overflow-y:auto;z-index:3;display:flex;flex-direction:column;gap:.1rem}
 .wxdays{display:flex;gap:.5rem;margin-top:.25rem;font-size:.75rem;color:var(--ant-dark)}
 .wxday b{font-weight:400;margin-right:.1rem}
 .wxmore{font-size:.72rem;color:var(--mute);text-align:center}
+/* air — the band colour is set inline from the PCD scale, so nothing here
+   hard-codes a hue that could drift out of step with the data */
+.airpanes{flex:1;display:flex;flex-direction:column;justify-content:center}
+.airpane{display:flex;flex-direction:column;align-items:center;gap:.05rem}
+.aircity{font-size:.9rem;font-weight:700}
+.airnum{font-size:2.4rem;font-weight:800;line-height:1}
+.airnum sup{font-size:.62rem;font-weight:600;margin-left:.15rem}
+.airband{font-size:.82rem;color:var(--mute);text-align:center}
+.airspark{width:auto;height:36px;margin-top:.35rem;overflow:visible}
+.airtrend{font-size:.72rem;color:var(--ant-dark);margin-top:.1rem}
 /* clocks */
 .tzrows{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.15rem;overflow-y:auto}
 .tzrow{display:flex;align-items:baseline;gap:.4rem;font-size:.88rem}
@@ -1546,6 +1575,33 @@ stroke-linejoin:round;flex:0 0 auto}
 /* Present for a screen reader, absent for everyone else. */
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
 clip-path:inset(50%);white-space:nowrap}
+/* The pre-prompt (MDLOC in md.js). Plain and small on purpose: it asks a
+   question and shows the answer to "where does this go" in one line. It is
+   built by script, so it costs nothing on a page that never raises it. */
+.mdgate{position:fixed;inset:0;z-index:60;display:flex;align-items:center;
+justify-content:center;padding:1.1rem;background:rgba(42,30,22,.45);
+backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.mdgatebox{max-width:24rem;background:var(--paper,#FFFDF8);border:1px solid var(--rule,#E4D8C4);
+border-radius:1rem;padding:1.1rem 1.15rem;box-shadow:0 1rem 2.4rem rgba(42,30,22,.3)}
+.mdgatebox b{display:block;font-size:1.12rem;margin-bottom:.4rem}
+.mdgatebox p{margin:0 0 .9rem;font-size:1rem;line-height:1.45}
+/* Stacked: both labels carry Thai and English, which is wider than half a
+   dialog on a phone — side-by-side ran the primary button off the box. */
+.mdgateacts{display:flex;flex-direction:column;gap:.5rem}
+.mdgateacts button{width:100%;text-align:center}
+.mdgateacts button{border:0;border-radius:.9rem;cursor:pointer;padding:.8rem 1.05rem;
+font:700 1.02rem/1.2 var(--face-th),system-ui,sans-serif;color:#fff;
+background:linear-gradient(160deg,#D4552C,#A8371A);
+box-shadow:0 .35rem .8rem rgba(168,55,26,.24);
+transition:transform .12s ease,filter .12s ease}
+.mdgateacts button:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.mdgateacts button:active{transform:translateY(1px) scale(.985)}
+.mdgateacts .mdgateno{background:#FFF;color:var(--ink,#2A1E16);
+border:1.5px solid var(--rule,#C9B79B);box-shadow:none}
+@media (prefers-reduced-motion:reduce){
+.mdgateacts button{transition:none}
+.mdgateacts button:hover,.mdgateacts button:active{transform:none}}
+
 :focus-visible{outline:3px solid var(--ant);outline-offset:3px;border-radius:6px}
 .skiplink{position:absolute;left:-9999px;top:.5rem;background:var(--ink);color:#fdf3dd;
 padding:.7rem 1.1rem;border-radius:8px;font-weight:600;z-index:50;text-decoration:none}
@@ -1774,8 +1830,12 @@ form.seek button .bi{display:none}
 justify-content:flex-start}
 .chip.dark{grid-column:1/-1;border-radius:999px}
 /* Thai above, English beneath — two even lines instead of a mid-phrase wrap
-   with its separator stranded. Same move the hero title makes. */
-.chip .bi .en{display:block;font-size:.78rem;line-height:1.25}
+   with its separator stranded. Same move the hero title makes. Guarded on
+   body.lang-* like every other .en override: unguarded, display:block beat
+   the base `.en{display:none}` on specificity and left the whole nav reading
+   English to someone who had asked for Thai alone. */
+body.lang-both .chip .bi .en,
+body.lang-en .chip .bi .en{display:block;font-size:.78rem;line-height:1.25}
 .chip .bi .en>.th{display:none}
 /* The secondary links ran to seven stacked lines on a phone, pushing the
    directory itself below two screens of chrome — and a phone is how most
@@ -2119,6 +2179,76 @@ var sep=/[·—–:-]\s*$/.test(th)?'':'<span class="th" lang="th"> · </span>';
 return '<span class="bi"><span class="th" lang="th">'+th+'</span>'+
 '<span class="en" lang="en">'+sep+en+'</span></span>';}
 
+// ---- location: opt-in, never a gate -----------------------------------
+// Every geolocation call on this site goes through here, for one reason: a
+// browser permission prompt fired at a reader who has not asked for it is a
+// hard stop, and in Thailand it is a hard stop that reads as a risk rather
+// than a feature. People who back out of that dialog do not come back to the
+// page — they leave, and nothing in our logs would ever tell us.
+//
+// So: nothing here runs on load. The prompt is reachable only from a tap on
+// a control that says what it does, our own plain-language dialog goes in
+// front of the browser's, and "no" is answered once and kept. Every caller
+// gets a usable coordinate whether or not permission was ever granted,
+// because the fallback is a named landmark, not an empty state.
+const MDLOC=(()=>{
+let OFF=false,gate=null;
+// Two places people actually give directions from. The site spans two
+// provinces, so the caller passes a latitude it already has on the page and
+// gets back the right one — no third request to work out where "here" is.
+const DEF={cm:{lat:18.7876,lng:98.9931,th:'ประตูท่าแพ',en:'Tha Phae Gate',src:'default'},
+           cr:{lat:19.9094,lng:99.8325,th:'หอนาฬิกาเชียงราย',en:'Clock Tower',src:'default'}};
+const near=lat=>(typeof lat==='number'&&lat>19.3)?DEF.cr:DEF.cm;
+// A remembered origin is a place the reader chose, never a fix we were
+// handed: a GPS coordinate is not written to disk anywhere on this site.
+function origin(lat){
+try{const v=JSON.parse(localStorage.getItem('md-origin'));
+if(v&&typeof v.lat==='number'&&v.src!=='gps')return v;}catch(e){}
+return near(lat);}
+function remember(o){if(o&&o.src!=='gps'){
+try{localStorage.setItem('md-origin',JSON.stringify(o));}catch(e){}}return o;}
+// Said no once, asked never again — and the doors go with it, because a
+// control that reopens a dialog the reader already refused is how a site
+// teaches people to distrust it on sight.
+function kill(){OFF=true;close();
+document.querySelectorAll('[data-gps-door]').forEach(el=>el.remove());}
+function close(){if(gate){gate.remove();gate=null;}}
+function build(onYes){
+gate=document.createElement('div');
+gate.className='mdgate';gate.setAttribute('role','dialog');
+gate.setAttribute('aria-modal','true');gate.setAttribute('aria-label',
+'ใช้ตำแหน่งจริงของคุณไหม / Use your real location?');
+gate.innerHTML='<div class="mdgatebox"><b>'+
+mdBi('ใช้ตำแหน่งจริงของคุณไหม','Use your real location?')+'</b><p>'+
+mdBi('ตำแหน่งของคุณอยู่ในเครื่องคุณเท่านั้น ไม่ถูกส่งออกไปไหน และไม่ถูกเก็บไว้ ใช้เพื่อเรียงลำดับในหน้านี้อย่างเดียว',
+'Your location never leaves this device. It is not sent anywhere and not stored — it only sorts this page.')+
+'</p><div class="mdgateacts"><button type="button" data-g="y">'+
+mdBi('📍 ใช้ตำแหน่งของฉัน','Use my location')+'</button>'+
+'<button type="button" data-g="n" class="mdgateno">'+mdBi('ไม่ต้อง','Not now')+
+'</button></div></div>';
+document.body.appendChild(gate);
+gate.querySelector('[data-g="y"]').addEventListener('click',()=>{close();onYes();});
+gate.querySelector('[data-g="n"]').addEventListener('click',kill);
+gate.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+gate.querySelector('[data-g="y"]').focus();}
+// ok(point) on a real fix; nope() every other way this can end — refused,
+// timed out, unsupported, or already denied at the OS level. Callers use
+// nope() to fall back to something that works, never to show an error.
+function ask(ok,nope){
+if(OFF||!navigator.geolocation){nope&&nope();return;}
+build(()=>{navigator.geolocation.getCurrentPosition(
+p=>ok({lat:p.coords.latitude,lng:p.coords.longitude,src:'gps'}),
+()=>{kill();nope&&nope();},
+{enableHighAccuracy:true,timeout:10000,maximumAge:60000});});}
+// Ask the browser what it already knows, so a door is never shown for a
+// permission the OS has already refused.
+if(navigator.permissions&&navigator.permissions.query){
+try{navigator.permissions.query({name:'geolocation'}).then(st=>{
+if(st.state==='denied')kill();
+st.onchange=()=>{if(st.state==='denied')kill();};}).catch(()=>{});}catch(e){}}
+return {ask,origin,remember,kill,near,get off(){return OFF;}};
+})();
+
 // ---- language: Thai, both, or English ---------------------------------
 // Default is both. Someone who reads only one of the two should not have to
 // find a control before the page makes sense to them. An earlier explicit
@@ -2148,7 +2278,7 @@ if(resBox){(async()=>{
 const q=new URLSearchParams(location.search).get('q')||'';
 document.querySelector('form.seek input').value=q;
 const idx=await loadIndex();const needle=q.toLowerCase();
-const hits=q?idx.filter(e=>(e.n+' '+(e.e||'')).toLowerCase().includes(needle)).slice(0,200):[];
+const hits=q?idx.filter(e=>(e.n+' '+(e.e||'')+' '+(e.a||'')).toLowerCase().includes(needle)).slice(0,200):[];
 document.getElementById('rescount').textContent=q?`${hits.length}`:'';
 resBox.innerHTML=hits.map(e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
 `${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
@@ -2297,6 +2427,21 @@ wxBoxes.forEach(b=>{b.checked=wxSel.includes(b.dataset.wxc);
 b.addEventListener('change',()=>{wxSel=wxBoxes.filter(x=>x.checked).map(x=>x.dataset.wxc);
 wSave('md.wx',wxSel);wxDraw();});});
 wxDraw();}
+// --- air: same picker as the weather tile, its own stored choice
+const airPanes=[...document.querySelectorAll('.airpane')];
+if(airPanes.length){
+let airSel=wLoad('md.air',['chiang-mai']);
+const airBoxes=[...document.querySelectorAll('[data-airc]')];
+const airDraw=()=>{if(!airSel.length)airSel=['chiang-mai'];
+airPanes.forEach(p=>{p.hidden=true;});
+let i=0;const show=()=>{const id=airSel[i%airSel.length];
+airPanes.forEach(p=>{p.hidden=p.dataset.airpane!==id;});i++;};
+show();clearInterval(window.__airT);
+if(airSel.length>1)window.__airT=setInterval(show,4000);};
+airBoxes.forEach(b=>{b.checked=airSel.includes(b.dataset.airc);
+b.addEventListener('change',()=>{airSel=airBoxes.filter(x=>x.checked).map(x=>x.dataset.airc);
+wSave('md.air',airSel);airDraw();});});
+airDraw();}
 // --- clocks: Intl does the conversion, so nothing is fetched
 const tzRows=[...document.querySelectorAll('.tzrow')];
 if(tzRows.length){
@@ -2392,13 +2537,15 @@ items.forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appen
 dirList.classList.remove('ranked');
 document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('on'));
 byName.classList.add('on');});
-byDist&&byDist.addEventListener('click',()=>{
-navigator.geolocation.getCurrentPosition(pos=>{
-const{latitude:la,longitude:lo}=pos.coords,R=6371;
+// Sorting by distance from a point the reader granted us. The old version
+// called getCurrentPosition straight off the tap and, when that was refused,
+// raised an alert() — a dead end whose only cause was "no location", which
+// is precisely the screen this site must never show.
+const sortByDist=pt=>{const R=6371;
 items.forEach(li=>{const lat=parseFloat(li.dataset.lat),lng=parseFloat(li.dataset.lng);
 if(isNaN(lat)){li.dataset.km=1e9;return;}
-const dLa=(lat-la)*Math.PI/180,dLo=(lng-lo)*Math.PI/180;
-const h=Math.sin(dLa/2)**2+Math.cos(la*Math.PI/180)*Math.cos(lat*Math.PI/180)*Math.sin(dLo/2)**2;
+const dLa=(lat-pt.lat)*Math.PI/180,dLo=(lng-pt.lng)*Math.PI/180;
+const h=Math.sin(dLa/2)**2+Math.cos(pt.lat*Math.PI/180)*Math.cos(lat*Math.PI/180)*Math.sin(dLo/2)**2;
 li.dataset.km=2*R*Math.asin(Math.sqrt(h));});
 items.sort((a,b)=>a.dataset.km-b.dataset.km);
 items.forEach(li=>{let d=li.querySelector('.dist');const km=parseFloat(li.dataset.km);
@@ -2407,8 +2554,12 @@ d.textContent=' · '+(km<1?Math.round(km*1000)+' ม.':km.toFixed(1)+' กม.')
 dirList.appendChild(li);});
 dirList.classList.remove('ranked');
 document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('on'));
-byDist.classList.add('on');},
-()=>alert('เปิดตำแหน่งที่ตั้งเพื่อเรียงตามระยะทาง / allow location to sort by distance'));});
+byDist&&byDist.classList.add('on');};
+// Refused, or already denied at the OS level. The list still sorts — by name,
+// which is the order it was in — and the distance door removes itself rather
+// than sitting there waiting to ask again.
+const distDeclined=()=>{byName&&byName.click();};
+byDist&&byDist.addEventListener('click',()=>{MDLOC.ask(sortByDist,distDeclined);});
 // ---- ant rank sorts: most complete / recently walked / needs love ----
 // The two completeness sorts also reveal the per-row 🐜N chips (.ranked on
 // the list): once the reader has asked "which listings are filled in", the
@@ -3423,11 +3574,19 @@ document.querySelectorAll('.pmbtn').forEach(x=>{const on=x.dataset.mode===planMo
 x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
 document.getElementById('planclearbtn').addEventListener('click',()=>{
 places=[];planSet([]);incoming=null;elBanner.style.display='none';render();});
-document.getElementById('planlocbtn').addEventListener('click',()=>{
-navigator.geolocation.getCurrentPosition(pos=>{
-here={lat:pos.coords.latitude,lng:pos.coords.longitude};
-document.getElementById('planlocbtn').classList.add('on');render();},
-()=>alert('เปิดตำแหน่งที่ตั้งก่อน / allow location first'));});
+// Where the run starts. With nothing granted the route simply begins at the
+// first stop, which is a complete answer — so this button adds precision, it
+// does not unlock the feature. Declining used to raise an alert() and leave
+// the reader exactly where they were; it now starts the run from the landmark
+// nearest the plan instead, and says which one.
+const planLoc=document.getElementById('planlocbtn');
+planLoc&&planLoc.addEventListener('click',()=>{MDLOC.ask(pt=>{
+here=pt;planLoc.classList.add('on');render();},
+()=>{const o=MDLOC.origin(places.length?places[0].lat:null);
+here={lat:o.lat,lng:o.lng};MDLOC.remember(o);
+planLoc.classList.add('on');
+planLoc.innerHTML='📍 '+mdBi('เริ่มจาก'+o.th,'Starting from '+o.en);
+render();});});
 // Nearest-neighbour from wherever the run starts. Not the optimal tour, and
 // it does not pretend to be — with eight stops it is close enough to save
 // real riding, and it stays legible: "always go to the nearest one next".
@@ -3622,6 +3781,13 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     # link should meet the place, not the furniture.
     r = "../" * depth
     url = BASE + path
+    # MapLibre is a megabyte. It is pulled in only by the pages that actually
+    # carry a map, and that is decided by looking at the finished body rather
+    # than by asking every page builder to remember — a page that mounts a map
+    # and forgets the script tag renders the drawn SVG and no basemap, which
+    # is the silent half-failure this check exists to make impossible.
+    if 'data-mdmap="1"' in body and "maplibre-gl.js" not in extra_head:
+        extra_head = map_shell.head(depth) + extra_head
     tt = esc(title) + " · มดแดง" if title != "มดแดง" else "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"
     d = att(desc or "มดแดง — สารบัญเมืองเชียงใหม่และเชียงราย แบบสมุดหน้าเมือง")
     return f"""<!DOCTYPE html>
@@ -3684,6 +3850,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <a href="{r}festivals.html">{bi("เทศกาล-ฤดูกาล", "Festivals & seasons")}</a> ·
     <a href="{r}festival-dates.html">{bi("เทศกาลวันไหน", "Festival dates")}</a> ·
     <a href="{r}open-now.html">{bi("ตอนนี้เปิดอะไร", "Open now")}</a> ·
+    <a href="{r}asked.html">{bi("ถามมด", "Ask the ants")}</a> ·
     <a href="{r}stats.html">{bi("สถิติ", "Stats")}</a> ·
     <a href="{r}advertise.html">{bi("ลงโฆษณา", "Advertise")}</a> ·
     <a href="{KOFI}" rel="noopener">☕ {bi("เลี้ยงกาแฟมดแดง", "Buy the ants a coffee")}</a>
@@ -3716,6 +3883,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
 </footer>
 </main>
 <div class="ribbon tall" aria-hidden="true"></div>
+<script src="{r}live.js" defer></script>
 <script src="{r}md.js"></script>
 </body></html>"""
 
@@ -4219,7 +4387,7 @@ def facet_chips(records):
         fs = facet_set_of(r)
         if fs:
             sets.setdefault(fs["key"], fs)
-    if len(sets) != 1:      # a mixed shelf has no single honest chip row
+    if len(sets) != 1:      # a mixed shelf has no single truthful chip row
         return ""
     fs = next(iter(sets.values()))
     counts = {}
@@ -4332,7 +4500,11 @@ def toolbar(records=None):
                   + bi("มีเครื่องหมายรับรอง", "Marked first") + "</button>")
     return (f'<div class="toolbar">{bi("เรียงตาม", "Sort by")}: '
             f'<button id="sort-name" class="on">{bi("ก→ฮ ชื่อ", "A→Z name")}</button>'
-            f'<button id="sort-dist">📍 {bi("ใกล้ฉัน", "Near me")}</button>'
+            # "ใกล้ฉัน / Near me" as the name of a sort, not as a claim that
+            # the page needs your position — the list is already sorted and
+            # complete before this is ever tapped. data-gps-door marks it for
+            # removal the moment the reader declines: see MDLOC in md.js.
+            f'<button id="sort-dist" data-gps-door>📍 {bi("เรียงตามระยะ", "Sort by distance")}</button>'
             f'<button id="sort-rank">🐜 {bi("ข้อมูลครบสุด", "Most complete")}</button>'
             f'<button id="sort-fresh">🕘 {bi("เพิ่งอัปเดต", "Recently walked")}</button>'
             f'<button id="sort-love">💛 {bi("ยังขาดข้อมูล", "Needs love")}</button>'
@@ -4468,6 +4640,15 @@ def elsewhere(r):
                     "marked": False,
                     "th": "ข้อมูลวิกิสนเทศของแบรนด์ (ทั้งเครือ ไม่ใช่สาขานี้)",
                     "en": "Wikidata for the chain — the brand, not this branch"})
+    # The temple's own page in the wichaa archive. This directory knows where a
+    # wat stands and when the gate opens; that one holds what is practised
+    # inside it. Matched on name AND position by link_wichaa.py, so this is the
+    # same temple and not merely one with the same name.
+    wl = WICHAA_LINKS.get(r["id"])
+    if wl:
+        out.append({"url": wl["url"], "marked": True, "identity": False,
+                    "th": "วัดนี้ในคลังวิชา — ประวัติ ความเชื่อ และการปฏิบัติ",
+                    "en": "This temple in the wichaa archive — its history and practice"})
     return out
 
 
@@ -4702,6 +4883,205 @@ def place_has_substance(r):
         or bits["photo"] or bits["claimed"] or r.get("address"))
 
 
+# OSM's own vocabulary, glossed. "yes", "no", "limited" and "customers" are
+# four different answers and each is worth reading; anything not in this table
+# is printed as the mapper wrote it rather than guessed at.
+FACT_VALUES = {
+    "yes": ("มี", "yes"),
+    "no": ("ไม่มี", "no"),
+    "limited": ("มีบ้าง", "limited"),
+    "customers": ("เฉพาะลูกค้า", "customers only"),
+    "only": ("รับเฉพาะแบบนี้", "only"),
+    "designated": ("จัดไว้เฉพาะ", "designated"),
+    "free": ("ฟรี", "free"),
+    # the label already says Wi-Fi; glossing wlan as "Wi-Fi" printed it twice
+    "wlan": ("มี", "yes"),
+    "wired": ("ต่อสาย", "wired"),
+    "terminal": ("มีเครื่องให้ใช้", "a terminal to use"),
+    "outside": ("ด้านนอก", "outside"),
+    "outdoor": ("ด้านนอก", "outdoors"),
+    "separated": ("แยกโซน", "a separated area"),
+    "isolated": ("แยกห้อง", "an isolated room"),
+    "private": ("ส่วนตัว", "private"),
+    "permissive": ("เข้าได้", "open to visitors"),
+}
+
+# label, then the attrs keys that answer it. Order is the order they render.
+FACILITY_ROW = [
+    ("wifi", "ไวไฟ", "Wi-Fi"),
+    ("airConditioning", "แอร์", "air conditioning"),
+    ("outdoorSeating", "ที่นั่งด้านนอก", "outdoor seating"),
+    ("indoorSeating", "ที่นั่งด้านใน", "indoor seating"),
+    ("toilets", "ห้องน้ำ", "toilets"),
+    ("wheelchair", "รถเข็นเข้าได้", "wheelchair access"),
+    ("changingTable", "โต๊ะเปลี่ยนผ้าอ้อม", "baby changing table"),
+    ("atmOnSite", "ตู้เอทีเอ็ม", "an ATM on site"),
+    ("smoking", "สูบบุหรี่", "smoking"),
+]
+SERVICE_ROW = [
+    ("takeaway", "สั่งกลับบ้าน", "takeaway"),
+    ("delivery", "ส่งถึงที่", "delivery"),
+    ("driveThrough", "ไดรฟ์ทรู", "drive-through"),
+    ("selfService", "บริการตัวเอง", "self-service"),
+]
+DIET_WORDS = {
+    "vegetarian": ("มังสวิรัติ", "vegetarian"),
+    "vegan": ("วีแกน", "vegan"),
+    "halal": ("ฮาลาล", "halal"),
+    "kosher": ("โคเชอร์", "kosher"),
+    "gluten_free": ("ไม่มีกลูเตน", "gluten-free"),
+    "organic": ("ออร์แกนิก", "organic"),
+    "meat": ("มีเนื้อสัตว์", "meat served"),
+    "plant-based": ("จากพืช", "plant-based"),
+    "healthy": ("อาหารสุขภาพ", "healthy"),
+    "local": ("วัตถุดิบท้องถิ่น", "local produce"),
+}
+FUEL_WORDS = {
+    "diesel": "ดีเซล", "lpg": "แอลพีจี", "cng": "ซีเอ็นจี",
+    "e20": "อี 20", "e85": "อี 85", "biodiesel": "ไบโอดีเซล",
+    "gasohol_91": "แก๊สโซฮอล์ 91", "gasohol_95": "แก๊สโซฮอล์ 95",
+    "octane_91": "เบนซิน 91", "octane_95": "เบนซิน 95",
+    "gasoline_91": "เบนซิน 91", "gasoline_95": "เบนซิน 95",
+}
+PAY_WORDS = {
+    "cash": ("เงินสด", "cash"), "credit": ("บัตรเครดิต", "credit cards"),
+    "debit": ("บัตรเดบิต", "debit cards"), "cards": ("บัตร", "cards"),
+    "qr": ("คิวอาร์", "QR"), "visa": ("วีซ่า", "Visa"),
+    "mastercard": ("มาสเตอร์การ์ด", "Mastercard"),
+}
+LANG_WORDS = {"zh": ("จีน", "Chinese"), "ja": ("ญี่ปุ่น", "Japanese"),
+              "ko": ("เกาหลี", "Korean"), "fr": ("ฝรั่งเศส", "French"),
+              "de": ("เยอรมัน", "German"), "ru": ("รัสเซีย", "Russian"),
+              "es": ("สเปน", "Spanish")}
+
+
+def _fact_value(v):
+    """Gloss one OSM value, or hand it back untouched if we have no word for it."""
+    th, en = FACT_VALUES.get(v, (v, v))
+    return bi(th, en)
+
+
+def known_facts(r):
+    """The tags the crawl already held and nothing ever showed a reader.
+
+    Everything here is stated by a mapper, not deduced. A "no" is printed as
+    plainly as a "yes" — that somebody checked and found no wheelchair ramp is
+    a fact worth carrying, and it is not the same as nobody having looked.
+    """
+    a = r.get("attrs") or {}
+    rows = []
+
+    def listed(spec, source=None):
+        src = source if source is not None else a
+        out = []
+        for key, th, en in spec:
+            v = src.get(key)
+            if not v:
+                continue
+            out.append(bi(th, en) + " " + _fact_value(v))
+        return out
+
+    fac = listed([s for s in FACILITY_ROW if s[0] != "smoking"])
+    # smoking reads backwards in a list of what a place has: "smoking · no" is
+    # the good news, and it is clearer said as the fact it is.
+    smk = a.get("smoking")
+    if smk:
+        smk_th, smk_en = {
+            "no": ("ห้ามสูบบุหรี่", "no smoking"),
+            "yes": ("สูบบุหรี่ได้", "smoking allowed"),
+            "outside": ("สูบได้ด้านนอก", "smoking outside only"),
+            "separated": ("มีโซนสูบบุหรี่แยก", "a separate smoking area"),
+            "isolated": ("มีห้องสูบบุหรี่แยก", "an isolated smoking room"),
+        }.get(smk, ("สูบบุหรี่ " + smk, "smoking: " + smk))
+        fac.append(bi(smk_th, smk_en))
+    fee = a.get("wifiFee")
+    if fee:
+        fee_th, fee_en = {
+            "no": ("ไวไฟฟรี", "Wi-Fi is free"),
+            "customers": ("ไวไฟฟรีสำหรับลูกค้า", "Wi-Fi is free for customers"),
+            "yes": ("ไวไฟมีค่าใช้จ่าย", "Wi-Fi is charged for"),
+        }.get(fee, ("ค่าไวไฟ " + fee, "Wi-Fi fee: " + fee))
+        fac.append(bi(fee_th, fee_en))
+    if fac:
+        rows.append(f"<dt>{bi('สิ่งที่มี', 'What is here')}</dt>"
+                    f"<dd>{' · '.join(fac)}</dd>")
+
+    svc = listed(SERVICE_ROW)
+    if svc:
+        rows.append(f"<dt>{bi('บริการ', 'Service')}</dt><dd>{' · '.join(svc)}</dd>")
+
+    diet = a.get("diet") or {}
+    served = [DIET_WORDS.get(k, (k, k)) for k, v in sorted(diet.items())
+              if v in ("yes", "only")]
+    if served:
+        only = any(v == "only" for v in diet.values())
+        tail_th = " (เฉพาะแบบนี้)" if only else ""
+        tail_en = " (only)" if only else ""
+        rows.append(f"<dt>{bi('อาหาร', 'Food served')}</dt><dd>"
+                    + " · ".join(bi(th, en) for th, en in served)
+                    + bi(tail_th, tail_en) + "</dd>")
+
+    pay = a.get("payment") or {}
+    takes = [PAY_WORDS.get(k, (k, k)) for k, v in sorted(pay.items()) if v == "yes"]
+    refuses = [PAY_WORDS.get(k, (k, k)) for k, v in sorted(pay.items()) if v == "no"]
+    if takes or refuses:
+        bits = []
+        if takes:
+            bits.append(bi("รับ ", "Takes ") + " · ".join(bi(t, e) for t, e in takes))
+        if refuses:
+            bits.append(bi("ไม่รับ ", "Does not take ")
+                        + " · ".join(bi(t, e) for t, e in refuses))
+        rows.append(f"<dt>{bi('การชำระเงิน', 'Payment')}</dt><dd>{'<br>'.join(bits)}</dd>")
+
+    if a.get("crypto"):
+        coins = {"bitcoin": ("บิตคอยน์", "Bitcoin"),
+                 "lightning": ("ไลท์นิ่ง", "Lightning"),
+                 "lightning-contactless": ("ไลท์นิ่งแบบแตะ", "Lightning contactless"),
+                 "on-chain": ("ออนเชน", "on-chain"),
+                 "monero": ("โมเนโร", "Monero")}
+        rows.append(f"<dt>{bi('รับคริปโต', 'Takes crypto')}</dt><dd>"
+                    + " · ".join(bi(*coins.get(c, (c, c))) for c in a["crypto"])
+                    + "</dd>")
+
+    if a.get("fuel"):
+        pumps = [bi(FUEL_WORDS.get(f, f), f.replace("_", " ")) for f in a["fuel"]]
+        rows.append(f"<dt>{bi('น้ำมันที่มี', 'Fuel sold')}</dt>"
+                    f"<dd>{' · '.join(pumps)}</dd>")
+
+    if a.get("stars") or a.get("rooms"):
+        bits = []
+        if a.get("stars"):
+            bits.append(bi(f"{esc(a['stars'])} ดาว", f"{esc(a['stars'])}-star"))
+        if a.get("rooms"):
+            bits.append(bi(f"{esc(a['rooms'])} ห้อง", f"{esc(a['rooms'])} rooms"))
+        rows.append(f"<dt>{bi('ที่พัก', 'The hotel')}</dt><dd>{' · '.join(bits)}</dd>")
+
+    if a.get("level"):
+        lv = esc(str(a["level"]))
+        rows.append(f"<dt>{bi('ชั้น', 'Floor')}</dt><dd>"
+                    + bi(f"ชั้น {lv}", f"level {lv}") + "</dd>")
+
+    # The names people actually say, which until now only the mapper could see.
+    also = list(a.get("altNames") or [])
+    for lang, nm in sorted((a.get("namesOther") or {}).items()):
+        th, en = LANG_WORDS.get(lang, (lang, lang))
+        also.append(f"{nm} ({bi_text(th, en)})")
+    if also:
+        rows.append(f"<dt>{bi('เรียกอีกอย่างว่า', 'Also called')}</dt>"
+                    f"<dd>{esc(' · '.join(also))}</dd>")
+
+    # The liveness signal. A website answering says the domain is paid for;
+    # this says a person stood in front of the place and looked.
+    if a.get("checkedOn"):
+        when = esc(str(a["checkedOn"])[:10])
+        rows.append(f"<dt>{bi('มีคนไปดูล่าสุด', 'Last checked on the ground')}</dt>"
+                    f'<dd>{when} <span class="tinynote">'
+                    + bi("ผู้สำรวจ OpenStreetMap ยืนยันหน้าร้านวันนั้น",
+                         "an OpenStreetMap surveyor confirmed it in person that day")
+                    + "</span></dd>")
+    return rows
+
+
 def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     rows = []
     cats = " · ".join(
@@ -4735,6 +5115,7 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         badge = (f' <span class="chbadge">{bi("ยืนยันโดยเจ้าของ", "owner-confirmed")}</span>'
                  if claim and claim.get("hours") else "")
         rows.append(f"<dt>{bi('เวลาเปิด', 'Hours')}</dt><dd>{esc(hours)}{badge}</dd>")
+    rows.extend(known_facts(r))
     # menu/note come only from a claim (owner's own words, never crawled), so
     # the badge is unconditional whenever present — unlike hours above, which
     # can come from either source.
@@ -5119,9 +5500,11 @@ def ics_data_uri(e):
 
 
 # ----------------------------------------------------------------------- GIS
-# No tiles, no external scripts — the site forbids both. So the map is drawn
-# here, in Python, as inline SVG: venue pins over the old-city moat, which is
-# the reference every local reads a Chiang Mai map by.
+# Drawn here, in Python, as inline SVG: venue pins over the old-city moat,
+# which is the reference every local reads a Chiang Mai map by. This predates
+# the basemap and still earns its place — it prints, it needs no script, and
+# it is what fills the box before any tile arrives. map_shell.mount() can put
+# real ground under it; the drawing does not change either way.
 # The old city moat, taken from the four แจ่ง (corner bastions) as they are
 # pinned in the catalogue rather than typed in by hand. The hand-typed square
 # this replaces had its west side 372 m out — enough to put Suan Dok Gate on
@@ -5242,7 +5625,7 @@ def event_map_svg(events):
         "a bigger dot means more events" % (len(pins), _nev))
     out = [f'<svg viewBox="0 0 {W:.0f} {H:.0f}" width="100%" class="evmap" role="img" '
            f'aria-label="{att(_evlabel)}">',
-           f'<rect width="{W:.0f}" height="{H:.0f}" fill="#FBF6EE"/>']
+           f'<rect class="mdmap-bg" width="{W:.0f}" height="{H:.0f}" fill="#FBF6EE"/>']
     # The moat: a square everyone here navigates by.
     mx, my = X(CM_MOAT["w"]), Y(CM_MOAT["n"])
     mw, mh = X(CM_MOAT["e"]) - mx, Y(CM_MOAT["s"]) - my
@@ -5282,7 +5665,11 @@ def event_map_svg(events):
         out.append(f'<text x="16" y="{by - 5:.1f}" font-size="10" fill="#2A1E16">'
                    f'{bar_km} กม. / km</text>')
     out.append("</svg>")
-    return "".join(out)
+    # Real ground under the venue dots when a basemap is configured. East is
+    # `ee` in this function, not `e` — `e` is the event being looped over.
+    return map_shell.mount(
+        "evmap", "".join(out), lat=midlat, lng=(w + ee) / 2,
+        mpu=(ee - w) * 111320.0 * kx / W)
 
 
 # --------------------------------------------------------------- rendering
@@ -5439,14 +5826,26 @@ def festival_ld_json():
 # Square tiles, because a grid of squares reads as a dashboard and a grid of
 # rectangles reads as a list. Everything a tile needs is baked in at build
 # time — weather from importers/make_weather.py, the moon from the same dial
-# that drives wichaa.net/moon — so a published page still makes no external
-# request. What the reader chooses (which cities, which clocks) lives in
+# that drives wichaa.net/moon — so the widgets themselves fetch nothing at
+# read time. What the reader chooses (which cities, which clocks) lives in
 # localStorage, the same no-accounts way my.html already works.
 
 _wx_path = ROOT / "data" / "weather.json"
 _WX = json.loads(_wx_path.read_text()) if _wx_path.exists() else {}
 WEATHER_CITIES = _WX.get("cities", [])
 WEATHER_DATE = _WX.get("generated", "")
+
+# Temples that also have a page in the wichaa archive. Baked by
+# importers/link_wichaa.py, which decides there and then which wichaa host is
+# actually answering — this site does not hyperlink a URL it has watched fail.
+_wl_path = ROOT / "data" / "wichaa_links.json"
+_WL = json.loads(_wl_path.read_text()) if _wl_path.exists() else {}
+WICHAA_LINKS = _WL.get("links", {})
+
+_air_path = ROOT / "data" / "air.json"
+_AIR = json.loads(_air_path.read_text()) if _air_path.exists() else {}
+AIR_PLACES = _AIR.get("places", [])
+AIR_DATE = _AIR.get("generated", "")
 
 _st_path = ROOT / "data" / "showtimes.json"
 _ST = json.loads(_st_path.read_text()) if _st_path.exists() else {}
@@ -5462,8 +5861,9 @@ _fo_path = ROOT / "data" / "fortune.json"
 _FO = json.loads(_fo_path.read_text()) if _fo_path.exists() else {}
 FORTUNE_DAYS = _FO.get("days", {})
 
-# WMO weather codes -> an emoji and a bilingual word. Emoji because the rule
-# against external requests rules out an icon font.
+# WMO weather codes -> an emoji and a bilingual word. Emoji rather than an
+# icon font: a font is a whole extra asset to ship and shape for one glyph a
+# tile, and the reader's own system already draws these.
 WMO = {
     0: ("☀️", "แดดจ้า", "Clear"), 1: ("🌤", "แดดบางส่วน", "Mainly clear"),
     2: ("⛅", "มีเมฆบางส่วน", "Partly cloudy"), 3: ("☁️", "เมฆมาก", "Overcast"),
@@ -5526,6 +5926,91 @@ def widget_weather():
         f'<p class="wpickhead">{bi("เลือกเมืองที่อยากดู", "Choose the cities you want")}</p>'
         f'{opts}</div>'
         f'<span class="wfoot">{bi("ข้อมูล " + WEATHER_DATE, "as of " + WEATHER_DATE)} · Open-Meteo</span>'
+        f'</section>')
+
+
+def widget_air():
+    """PM2.5 for the northern towns, with the week behind it.
+
+    Deliberately shows the trend and not just the hour: in burning season one
+    reading tells you almost nothing, and whether it is climbing or falling is
+    the thing people actually decide on. The band words and colours are
+    Thailand's own PCD scale, because the reader is standing in Thailand and
+    already reads that scale on every board in town.
+    """
+    if not AIR_PLACES:
+        return ""
+    opts = "".join(
+        f'<label><input type="checkbox" data-airc="{p["id"]}"> {bi(p["th"], p["en"])}</label>'
+        for p in AIR_PLACES)
+    panes = []
+    for p in AIR_PLACES:
+        b = p.get("band") or {}
+        pm = p.get("pm25")
+        val = f"{pm:.0f}" if isinstance(pm, (int, float)) else "—"
+        # Keyed to the day the readings were TAKEN, not to BUILD_DATE. That
+        # constant is hand-maintained and goes stale between rebuilds, and when
+        # it does it silently shortens the week to whatever it still covers —
+        # four bars, looking deliberate.
+        days = [d for d in (p.get("days") or [])
+                if (d.get("date") or "") <= (AIR_DATE or "9999")][-7:]
+        # A bar chart drawn here rather than shipped as numbers for the browser
+        # to plot — same reason as every other drawing on this site.
+        spark = ""
+        if days:
+            top = max(max(d["pm25"] for d in days), 40.0)
+            bars = []
+            for i, d in enumerate(days):
+                h = max(2.0, 34.0 * d["pm25"] / top)
+                col = (d.get("band") or {}).get("colour", "#888")
+                bars.append(f'<rect x="{i * 13}" y="{36 - h:.1f}" width="10" '
+                            f'height="{h:.1f}" rx="2" fill="{col}"></rect>')
+            lo, hi = days[0]["pm25"], days[-1]["pm25"]
+            # A rise from 4 to 6 µg/m³ is arithmetically a rise and means
+            # nothing to a person's day. While the air is in the good bands the
+            # tile says so plainly and leaves the alarm words alone; they are
+            # for the months when they are worth saying.
+            calm = (b.get("key") in ("excellent", "good"))
+            trend_th, trend_en = (
+                ("อากาศดีอยู่", "the air is fine") if calm else
+                ("แย่ลง", "worsening") if hi > lo * 1.25 else
+                ("ดีขึ้น", "improving") if hi < lo * 0.8 else
+                ("ทรงตัว", "steady"))
+            # The alt text describes the drawing, so it gives the real
+            # numbers and the real direction — a reader who cannot see the
+            # bars should not get a softer account than one who can.
+            _dir_th, _dir_en = (("สูงขึ้น", "rising") if hi > lo * 1.25 else
+                                ("ลดลง", "falling") if hi < lo * 0.8 else
+                                ("ทรงตัว", "steady"))
+            alt = bi_text(
+                "กราฟแท่ง พีเอ็ม 2.5 %d วันหลังสุดที่%s จาก %.0f ถึง %.0f ไมโครกรัม "
+                "แนวโน้ม%s ล่าสุด %s" % (len(days), p["th"], lo, hi, _dir_th, val),
+                "Bar chart of PM2.5 over the last %d days in %s, from %.0f to "
+                "%.0f µg/m³, %s — latest %s"
+                % (len(days), p["en"], lo, hi, _dir_en, val))
+            spark = (f'<svg class="airspark" viewBox="0 0 {len(days) * 13} 36" '
+                     f'role="img" aria-label="{att(alt)}">{"".join(bars)}</svg>'
+                     f'<span class="airtrend">{bi(trend_th, trend_en)}</span>')
+        panes.append(
+            f'<div class="airpane" data-airpane="{p["id"]}" hidden>'
+            f'<span class="aircity">{bi(p["th"], p["en"])}</span>'
+            f'<span class="airnum" style="color:{b.get("colour", "#888")}">{val}'
+            f'<sup>µg/m³</sup></span>'
+            f'<span class="airband">{bi(b.get("th", "—"), b.get("en", "—"))}</span>'
+            f'{spark}</div>')
+    honest_th = "ค่าจากแบบจำลอง ไม่ใช่เครื่องวัดในซอยคุณ"
+    honest_en = "a modelled figure, not a monitor in your soi"
+    return (
+        f'<section class="wtile air" id="w-air" data-airgen="{att(AIR_DATE)}">'
+        f'<h3>🌬 {bi("ฝุ่น PM2.5", "The air")}</h3>'
+        f'<div class="airpanes">{"".join(panes)}</div>'
+        f'<button class="wcog" data-wpick="air" '
+        f'aria-label="{att("เลือกเมือง / choose towns")}">⚙</button>'
+        f'<div class="wpick" data-wpickfor="air" hidden>'
+        f'<p class="wpickhead">{bi("เลือกเมืองที่อยากดู", "Choose the towns you want")}</p>'
+        f'{opts}</div>'
+        f'<span class="wfoot">{bi(honest_th, honest_en)} · '
+        f'{bi("ข้อมูล " + AIR_DATE, "as of " + AIR_DATE)} · Open-Meteo</span>'
         f'</section>')
 
 
@@ -5994,7 +6479,8 @@ def widget_wall(events, data, moon_svg, depth=0, skip=()):
              ("fortune", widget_fortune()),
              ("sky", widget_sky(depth)), ("siamsi", widget_siamsi()),
              ("katha", widget_katha()), ("horoscope", widget_horoscope()),
-             ("weather", widget_weather()), ("divination", widget_divination()),
+             ("weather", widget_weather()), ("air", widget_air()),
+             ("divination", widget_divination()),
              ("clocks", widget_clocks()), ("cinema", widget_cinema(data))]
     tiles = [t for name, t in tiles if t and name not in skip]
     return f'<div class="wgrid">{"".join(tiles)}</div>' if tiles else ""
@@ -6311,7 +6797,7 @@ def add_doors(depth=0, place=None):
                     f'<b>💬 {bi("ทักมาทางไลน์", "Message us on LINE")}</b>'
                     f'<span>{bi("พิมพ์บอกเบอร์ เวลาเปิด หรือเมนูก็ได้เลย", "Just type your phone, hours, or menu")}</span></a>')
     else:
-        # No OA yet, so the honest simplest thing on a phone is mail.
+        # No OA yet, so the simplest thing that works on any phone is mail.
         line_btn = (f'<a class="door line" href="{att(mailto("มดแดง: ส่งข้อมูล" + what))}">'
                     f'<b>✉️ {bi("ส่งอีเมลบอกเรา", "Just email us")}</b>'
                     f'<span>{bi("แนบรูปมาก็ได้ ไม่ต้องสมัครอะไร", "Attach a photo if you like — nothing to sign up for")}</span></a>')
@@ -7067,9 +7553,10 @@ def street_href(st, depth):
 def street_map_svg(st, by_id):
     """The road drawn as itself, with its places pinned in walking order.
 
-    No tiles and no Leaflet — the site ships no external scripts — so this is an
-    equirectangular projection with a cosine correction, written straight into
-    the page as SVG. The numbers on the pins are the numbers in the list below,
+    An equirectangular projection with a cosine correction, written straight
+    into the page as SVG — no library, and no tile fetched for this drawing.
+    (A basemap can now sit underneath via map_shell.mount(); these soi pages
+    have not been wired to it yet. The drawing is unaffected when they are.) The numbers on the pins are the numbers in the list below,
     which is what makes the picture usable rather than decorative (and what will
     make it printable when the handout sheets want a map).
     """
@@ -7109,7 +7596,7 @@ def street_map_svg(st, by_id):
         "the list below" % (st["name"], how_long_en, len(pts)))
     out = ['<svg viewBox="0 0 %.0f %.0f" width="100%%" class="soimap" role="img" '
            'aria-label="%s">' % (W, H, att(label)),
-           '<rect width="%.0f" height="%.0f" fill="#FBF6EE"/>' % (W, H)]
+           '<rect class="mdmap-bg" width="%.0f" height="%.0f" fill="#FBF6EE"/>' % (W, H)]
     # The moat, when this road is anywhere near it — it is how everyone here
     # says where they are.
     if MOAT_POLY:
@@ -7148,7 +7635,11 @@ def street_map_svg(st, by_id):
     out.append('<text x="0" y="-5" font-size="11" fill="#2A1E16">%s</text>'
                % (("%d ม./m" % int(bar_km * 1000)) if bar_km < 1 else ("%g กม./km" % bar_km)))
     out.append("</g></svg>")
-    return "".join(out)
+    # 943 soi pages, each one a road drawn as itself. With a basemap live
+    # the numbered pins sit on the actual street rather than on cream.
+    return map_shell.mount(
+        "soimap", "".join(out), lat=(n + s) / 2, lng=(w + e) / 2,
+        mpu=(e - w) * 111320.0 * kx / W)
 
 
 def street_method_note(st):
@@ -7470,12 +7961,18 @@ def clear_docs():
 # reason a shop auntie in Chiang Mai would ever open this page. Those all still
 # sit below, wearing the new clothes.
 #
-# Two other things in the study were deliberately NOT carried over:
+# One thing in the study was deliberately NOT carried over, and stays out:
 #   * its star ratings and review counts. We hold no ratings. Drawing "★ 4.7,
 #     318 reviews" would be inventing them about real, named businesses.
-#   * its Leaflet map on CARTO tiles. Every tile is a request to somebody else's
-#     server from a site that promises it follows no one around. The maps here
-#     stay drawn in Python.
+#
+# Its Leaflet map on CARTO tiles was refused too, for years, on the grounds
+# that every tile is a request to somebody else's server. That reasoning has
+# been overtaken: the site now carries a real basemap (map_shell.py), served
+# as one .pmtiles archive from our own bucket. The objection was never to
+# maps — it was to renting the ground from a company that watches who walks
+# on it. Hosting the tiles ourselves answers that, and a reader standing in
+# Santitham gets streets under the pins instead of a cream rectangle, which
+# is what the drawn-in-Python maps could never give them.
 
 def hero_html(intro_th, intro_en):
     """Masthead art: three pictures, a greeting, and the ways in people use.
@@ -7533,7 +8030,7 @@ def hero_html(intro_th, intro_en):
 
 # Nine, not eight or ten — ก้าว, the same count the highlights already use.
 # Each pairs a real shelf with a picture that is genuinely of that subject; a
-# category with no honest picture is left out rather than given a stand-in.
+# category with no genuine picture is left out rather than given a stand-in.
 # The third item narrows the search where the topic alone is too loose: `mu`
 # holds spirit houses and sak yant together, and a spirit house over the
 # tattoo shelf is a picture of the wrong thing.
@@ -7723,8 +8220,8 @@ MERIT_ROUTES = MERIT.get("routes", [])
 def merit_map_svg(route, by_id):
     """The round as a closed loop, stops numbered in walking order.
 
-    Same equirectangular projection as the soi and event maps, drawn in Python —
-    the site ships no tiles and no Leaflet. The line between stops is drawn
+    Same equirectangular projection as the soi and event maps, drawn in Python
+    with no library. The line between stops is drawn
     straight on purpose: the real route follows the road graph, and pretending
     this sketch is that route would overstate it. The caption says so.
     """
@@ -7757,7 +8254,7 @@ def merit_map_svg(route, by_id):
         % (route.get("area_en", ""), ("%.1f" % (walk / 1000.0)) if walk else "—"))
     out = ['<svg viewBox="0 0 %.0f %.0f" width="100%%" class="meritmap" role="img" '
            'aria-label="%s">' % (W, H, att(label)),
-           '<rect width="%.0f" height="%.0f" fill="#FBF6EE"/>' % (W, H)]
+           '<rect class="mdmap-bg" width="%.0f" height="%.0f" fill="#FBF6EE"/>' % (W, H)]
     if MOAT_POLY:
         mlat = [p[0] for p in MOAT_POLY]
         mlng = [p[1] for p in MOAT_POLY]
@@ -7777,7 +8274,14 @@ def merit_map_svg(route, by_id):
         out.append('<text x="%.1f" y="%.1f" text-anchor="middle" font-size="12" '
                    'font-weight="700" fill="#fff">%d</text>' % (cx, cy + 4, i))
     out.append("</svg>")
-    return "".join(out)
+    # The round drawn over the streets it is actually walked on. The id
+    # carries the route's slug because merit.html renders every round on one
+    # page — a shared id would be ten elements answering to one name, which
+    # is invalid markup and would hand getElementById the wrong map.
+    return map_shell.mount(
+        "meritmap-" + str(route.get("slug") or len(out)), "".join(out),
+        lat=(n + s_) / 2, lng=(w + e) / 2,
+        mpu=(e - w) * 111320.0 * kx / W)
 
 
 def merit_card(route, by_id, depth=0):
@@ -7908,7 +8412,13 @@ def build():
     DOCS.mkdir(exist_ok=True)
     (DOCS / ".nojekyll").write_text("")
     (DOCS / "CNAME").write_text(BASE.split("//")[1].strip("/") + "\n")
-    (DOCS / "style.css").write_text(CSS)
+    # map_shell's rules ship whether or not a basemap is configured: the
+    # .mdmap-draw wrapper is emitted by mount() either way, and unstyled it
+    # would break the stacking the drawn SVG relies on.
+    import map_shell as _map_shell
+    import live_shell as _live_shell
+    (DOCS / "style.css").write_text(
+        CSS + "\n" + _map_shell.CSS + "\n" + _live_shell.CSS)
     (DOCS / "md.js").write_text(JS)
     (DOCS / "data").mkdir(exist_ok=True)
     card = ROOT / "assets" / "card.png"
@@ -7936,7 +8446,7 @@ def build():
     # festival_calendar.json is in this list because BOTH llms.txt and the
     # /festival-dates.html provenance line link to it — it 404'd for two days
     # while the page pointed at it as its own evidence.
-    for _name in ("streets.json", "weather.json", "showtimes.json",
+    for _name in ("streets.json", "weather.json", "showtimes.json", "air.json",
                   "festival_calendar.json"):
         _src = ROOT / "data" / _name
         if _src.exists():
@@ -8016,6 +8526,15 @@ def build():
             _th, _en = name_pair(r)
             idx_entry = {"id": r["id"], "s": place_slug(r), "n": _th or _en or name_of(r),
                         "e": _en or None, "p": key, "pv": p["th"], "c": r["cat"]}
+            # `a` is matched but never shown: the other names a place goes by —
+            # its alt_name, its old name, and the Chinese/Japanese/Korean names
+            # a mapper wrote for visitors who read neither Thai nor Latin. They
+            # were sitting in the tags the whole time and found nothing.
+            _al = (r.get("attrs") or {})
+            _alias = list(_al.get("altNames") or []) + list(
+                (_al.get("namesOther") or {}).values())
+            if _alias:
+                idx_entry["a"] = " ".join(dict.fromkeys(_alias))
             if r.get("lat") is not None:
                 idx_entry["lat"], idx_entry["lng"] = r["lat"], r["lng"]
             search_index.append(idx_entry)
@@ -10059,7 +10578,7 @@ def build():
         f"{rss_items_xml}</channel></rss>")
     (DOCS / "rss.xml").write_text(rss_xml)
 
-    # ---- partners: a standing, honest invitation to two named CM outlets --
+    # ---- partners: a standing, plain-terms invitation to two named CM outlets --
     # Specifics verified by hand before writing them here — City Life's feed
     # is real but hasn't published since 2023 (checked directly, one item,
     # Aug 2023); Steve's is a personal curated weekly email with no feed at
@@ -10068,7 +10587,7 @@ def build():
                    "ไม่มีเงื่อนไขซับซ้อน แค่ลิงก์กลับหากันตรงๆ")
     partners_en = ("Mot Dang now has its own RSS feed and would like to offer a "
                    "straightforward cross-promotion to two Chiang Mai publications — "
-                   "no fine print, just an honest link back both ways.")
+                   "no fine print, just a plain link back both ways.")
     partner_rows = f"""
     <li><b>Chiang Mai City Life</b> — {bi(
         'เจอฟีด RSS ของคุณแล้ว (chiangmaicitylife.com/feed) แต่ดูเหมือนจะไม่ได้อัปเดตตั้งแต่ปี 2023 — '
@@ -10094,106 +10613,289 @@ def build():
         depth=0, path="partners.html", desc=partners_th))
 
     # ---- why.html: factual, verifiable differences from Google, not hype -
+    # Each point is (th_head, en_head, th_body, en_body, sources).
+    #
+    # House rule for this page: a claim either points at something in this
+    # repository that a reader can open, or it carries a link to the document
+    # it rests on. Nothing here is a comparison written from memory. Claims
+    # about coverage say what the coverage actually is today rather than what
+    # it is meant to become — the directory is young and says so everywhere
+    # else, and this page does not get to be the exception.
+    #
+    # Deliberately absent: the ในเวียง/นอกเวียง massage split and the ข้าวซอย
+    # food split that an earlier draft advertised. The category tree has
+    # neither. A page about being checkable cannot describe a directory that
+    # does not exist.
     why_points = [
-        ("ไม่มีการจ่ายเงินเพื่อขึ้นอันดับ",
-         "No pay-to-rank",
-         "ผลของ Google ปนโฆษณาเข้ากับผลค้นหาจริง แต่รายชื่อในมดแดงเรียงตามตัวอักษรเสมอ "
-         "ส่วนโฆษณาที่รับเงินจะติดป้าย ผู้สนับสนุน แยกไว้ชัดเจน และไม่มีวันสลับลำดับสารบัญ",
-         "Google's local results blend paid ads into organic ranking. Mot Dang's category "
-         "listings sort alphabetically, full stop — sponsor boxes are separately labelled "
-         "ผู้สนับสนุน and never reorder the directory itself."),
-        ("ลงร้านได้ฟรีโดยไม่ต้องยืนยันตัวตนกับใคร",
-         "Free listing, no verification hoop",
-         "Google Business Profile ต้องให้เจ้าของร้านสมัครและยืนยันตัวตนเอง (เช่น รอโปสการ์ด) "
-         "ก่อนจะขึ้นเต็มรูปแบบ ร้านเล็กๆ ในเชียงใหม่-เชียงรายจำนวนมากเลยขึ้นไม่ครบหรือไม่ขึ้นเลย "
-         "ส่วนมดแดงลงร้านให้ทันทีที่รู้จัก ไม่ต้องรอเจ้าของร้านทำอะไรก่อน",
-         "A Google Business Profile requires the owner to create and verify it (often via a "
-         "mailed postcard) before it's fully functional — a real barrier that leaves many small "
-         "Northern Thai shops thin or missing. Mot Dang lists a place the moment it's known, no "
-         "owner action required; owners can enrich it for free anytime after."),
-        ("หมวดหมู่คิดแบบคนเชียงใหม่ ไม่ใช่แปลจากหมวดสากล",
-         "Categories built Thai-first, not translated",
-         "นวด-สปาแยก ในเวียงเก่า กับ นอกเวียง อาหารแยก อาหารไทย ข้าวซอย นานาชาติ ตามข้อมูลจริงที่เก็บมา "
-         "ไม่ใช่หมวดสากลของ Google ที่แปลเป็นไทยแบบเดียวกันทั่วโลก",
-         "Massage splits ในเวียงเก่า (inside the old-city moat) from นอกเวียง (outside); food "
-         "splits อาหารไทย from ข้าวซอย from นานาชาติ — drawn from what was actually crawled here, "
-         "not Google's one-size-fits-all global category list machine-translated into Thai."),
-        ("ข้อมูลเปิดให้ดาวน์โหลดจริง",
-         "Open data you can actually download",
-         "ทุกหมวดมีไฟล์ GeoJSON ให้โหลด และข้อมูลทั้งหมดอยู่ในไฟล์เดียวที่ /data/places.json "
-         "ส่วนข้อมูลร้านของ Google อยู่ในระบบปิด มี API จำกัดและมีค่าใช้จ่าย ดาวน์โหลด “ร้านอาหารทุกร้านในเชียงใหม่” "
-         "เป็นไฟล์จาก Google ไม่ได้",
-         "Every category page has a GeoJSON download; the whole dataset is one file at "
-         "/data/places.json. Google's local data lives inside a rate-limited, paid, ToS-"
-         "restricted API — you cannot export \"every restaurant in Chiang Mai\" as a file."),
-        ("ไม่มีการติดตามผู้ใช้เลย",
-         "No tracking, period",
-         "ไม่มีสคริปต์วิเคราะห์ ไม่มีตัวติดตามโฆษณา ไม่มีลายนิ้วมือเบราว์เซอร์ในหน้าไหนเลย — เปิดซอร์สโค้ดตรวจสอบได้เอง "
-         "ต่างจากธุรกิจของ Google ที่วางอยู่บนการเก็บข้อมูลผู้ใช้เป็นหลัก",
-         "No analytics, no ad trackers, no fingerprinting on any page — verifiable by reading "
-         "the source, which is public. Google's core business model runs on tracking; Mot "
-         "Dang's doesn't have one that requires it."),
-        ("เปิดรับบอท AI อย่างตั้งใจ ไม่ใช่กันไว้",
-         "Built for AI agents on purpose",
-         "robots.txt เปิดทางให้ GPTBot, ClaudeBot และบอทอื่นๆ โดยระบุชื่อตรงๆ "
-         "ต่างจาก Google ที่ปิดกั้นบอท AI ส่วนใหญ่ไม่ให้ดึงผลค้นหาของตัวเอง",
-         "robots.txt explicitly names and allows GPTBot, ClaudeBot, and others. Google's own "
-         "robots.txt and terms block or restrict most AI crawlers from its search results."),
-        ("รู้ที่มาของทุกรายการ",
-         "Provenance on every listing",
-         "แต่ละร้านบอกว่าข้อมูลมาจากไหน (OpenStreetMap, ลงพื้นที่จริง, หรือคัดสรรเอง) และเมื่อไหร่ — "
-         "Google ไม่เคยบอกระดับความน่าเชื่อถือของรายการเลยว่าอันไหนสร้างอัตโนมัติ อันไหนเป็นสแปม อันไหนตรวจสอบแล้ว",
-         "Every place states where its data came from (OSM, field visit, curated) and when. "
-         "Google shows no such confidence signal — no way to tell auto-generated, spam, and "
-         "verified listings apart."),
-        ("แก้ไขได้จริง เห็นได้จริง",
-         "A correctable public record",
-         "แจ้งหมุดผิดหรือร้านที่ขาดข้อมูลติดต่อได้ผ่าน GitHub issue สองคลิก เห็นสถานะได้ตลอด "
-         "ต่างจากช่องทางแจ้งแก้ไขของ Google ที่เป็นกล่องดำ ไม่รู้ว่าเรื่องที่ส่งไปถึงไหนแล้ว",
-         "Flag a wrong pin or a missing contact via a two-click, publicly visible GitHub issue. "
-         "Google's correction flow is a black box — no visibility into whether or when it's "
-         "actioned."),
-        ("ชื่อไทยไม่ถูกบังคับทับศัพท์",
-         "Thai names stay Thai, not force-transliterated",
-         "Google Maps มักขึ้นชื่อร้านแบบทับศัพท์ไม่ตรงหรือไม่สม่ำเสมอ และค้นด้วยชื่อไทยล้วนบางทีเจอผลน้อยกว่าค้นด้วยคำอังกฤษ "
-         "มดแดงเก็บชื่อไทยไว้เป็นหลัก ให้ชื่ออังกฤษวิ่งคู่กันไป ไม่มีขั้นตอนแปลงที่ทำให้ข้อมูลเพี้ยน",
-         "Google Maps often shows business names romanized inconsistently or oddly, and a "
-         "search in plain Thai script can surface fewer results than the same search spelled "
-         "out in English. Mot Dang keeps the Thai name canonical and lets English ride "
-         "alongside it — no lossy transliteration step in between."),
-        ("ไล่เก็บข้อมูลเฉพาะสองจังหวัดนี้ สั่งเก็บซ้ำได้ตามต้องการ",
-         "A crawl dedicated to exactly two provinces, rerun on demand",
-         "การไล่เก็บของมดแดงเจาะจงแค่อำเภอเมืองเชียงใหม่กับเชียงราย และสั่งเก็บซ้ำได้ทันทีที่เห็นว่าหมวดไหนยังบาง "
-         "(อย่างที่เพิ่งทำไปสองรอบในเซสชันนี้เอง) ตัวเก็บข้อมูลระดับโลกต้องแบ่งความสนใจไปทั่วโลก "
-         "ตัวเก็บที่โฟกัสแค่สองจังหวัดไม่ต้องแย่งความสนใจนั้น",
-         "Mot Dang's crawl targets only Amphoe Mueang Chiang Mai and Chiang Rai, and can be "
-         "rerun deliberately the moment a category looks thin (as happened twice in this very "
-         "project). A global crawler has to spread its attention across the whole planet; a "
-         "crawl that only covers two provinces isn't competing for that same attention."),
-        ("สร้างมาเพื่อความสนใจเฉพาะพื้นที่จริงๆ",
-         "Built for local interests specifically",
-         "หมวดอย่าง ในเวียงเก่า กับ นอกเวียง หรือการหาคอนโดใกล้หอนาฬิกาเชียงราย เกิดขึ้นเพราะมีคนที่อยู่ที่นี่จริงๆ ร้องขอ "
-         "ส่วน Google ให้หน้าตาแบบเดียวกันไม่ว่าจะค้นจากเชียงใหม่หรือคลีฟแลนด์",
-         "Categories like ในเวียงเก่า (inside the old-city moat) vs นอกเวียง, or a Chiang Rai "
-         "condo-buildings-near-the-clock-tower view, exist because someone who actually lives "
-         "here asked for them. Google's local product serves the same interface to a search "
-         "from Chiang Mai as one from Cleveland."),
+        ("เดินเก็บใหม่ทุกเช้า ไม่ต้องรอให้ใครมาเก็บ",
+         "Walked again every morning, not whenever a crawler comes by",
+         "เมืองนี้ย้ายร้านกันข้ามคืน มดแดงจึงออกเดินทุกเช้าเวลา 07:09 น. — เก็บอากาศ รอบหนัง งานในเมือง "
+         "และสิ่งที่เจ้าของร้านส่งเข้ามาระหว่างคืน แล้วสร้างเว็บใหม่ ตรวจให้ผ่านก่อน ค่อยขึ้นจริง "
+         "วันไหนไม่มีอะไรใหม่ วันที่ท้ายเว็บก็ไม่ขยับ เพราะการขยับวันที่เฉยๆ คือการบอกว่าสดทั้งที่ไม่ได้สด "
+         "และเมื่อขึ้นเสร็จ เราส่งสัญญาณบอกเครื่องค้นหาเองทันที ไม่นั่งรอให้บอทเดินมาเจอ",
+         "Shops here move soi overnight, so the ants walk the same round every morning at 07:09 — "
+         "weather, showtimes, what is on, and whatever owners sent in during the night — then "
+         "rebuild, pass the checks, and only then publish. On a day when nothing changed, the date "
+         "in the footer does not move: bumping it alone would be a claim of freshness that did not "
+         "happen. Once a build lands, the search engines are told directly rather than waited on.",
+         []),
+
+        ("ถ้ายังไม่ได้อัปเดต จะเขียนว่ายังไม่ได้อัปเดต",
+         "A panel that has not been updated says so on its face",
+         "ป้ายอากาศกับรอบหนังจะติดคำว่า “ยังไม่ได้อัปเดตสำหรับวันนี้” เมื่อข้อมูลยังเป็นของเมื่อวาน "
+         "แทนที่จะเอาของเก่ามาแสดงเป็นของวันนี้ และพยากรณ์เลือกวันข้างหน้าจากวันที่จริง "
+         "ไม่ใช่นับตามลำดับในไฟล์ ไฟล์ที่ค้างไว้จึงเอาวันที่ผ่านไปแล้วมาเรียกว่าพยากรณ์ไม่ได้",
+         "The weather and cinema panels label themselves ยังไม่ได้อัปเดตสำหรับวันนี้ — not updated for "
+         "today — when what they hold is yesterday's, instead of dressing old numbers as current. "
+         "The forecast picks days by their date rather than their position in the file, so a file "
+         "that stopped refreshing cannot present days that have already passed as a forecast.",
+         []),
+
+        ("รู้ว่าลิงก์เส้นไหนยังเปิดได้",
+         "We know which links still answer",
+         "มดแดงไล่ตรวจลิงก์ 794 เส้นที่ติดมากับข้อมูล พบว่า 294 เส้นยังตอบ ที่เหลือเป็นโดเมนที่หมดอายุ "
+         "ใบรับรองที่หมดอายุ หน้าที่ถูกจอดทิ้งไว้ หรือเงียบไปเฉยๆ — และ 241 เส้นในนั้น "
+         "มีฉบับที่หอจดหมายเหตุเว็บเก็บไว้ให้กดอ่านต่อได้ สารบัญทั่วไปแสดงเว็บที่ร้านเคยกรอกไว้ "
+         "โดยไม่เคยบอกว่าวันนี้มันยังเปิดได้อยู่ไหม",
+         "Mot Dang walks the 794 links that arrived with the data. 294 still answer; the rest are "
+         "expired domains, expired certificates, parked pages, or silence — and for 241 of those "
+         "there is an archived copy to hand you instead. A directory that simply prints whatever "
+         "web address a shop once filed never tells you whether it opens today.",
+         [("ลิงก์ที่ยังเปิดได้", "which links answer", "reach.html"), ("ผลตรวจดิบ", "the raw check file", "data/linkhealth.json")]),
+
+        ("เจ้าของร้านพูดแล้วทับข้อมูลที่เก็บมา",
+         "What the owner says overwrites what was crawled",
+         "เบอร์โทร ไลน์ เฟซบุ๊ก หรือเวลาเปิดที่เจ้าของร้านยืนยันเข้ามา จะทับค่าที่เก็บมาจากแผนที่ทันที "
+         "เพราะเจ้าของร้านคือคนที่รู้เบอร์ของตัวเองดีที่สุด ทำได้ฟรี ไม่ต้องสมัครสมาชิก ไม่ต้องมีอีเมล "
+         "และขึ้นให้เห็นเลย",
+         "A phone number, LINE id, Facebook page or set of opening hours confirmed by the owner "
+         "overwrites the crawled value outright — the owner is the authority on their own number. "
+         "Free, no account, no email, and it shows straight away.",
+         [("ยืนยันร้านของคุณ", "claim a place", "claim.html")]),
+
+        ("เก็บแค่สองจังหวัด สั่งเดินซ้ำได้ทันที",
+         "A crawl for two provinces only, sent round again on demand",
+         "การไล่เก็บของมดแดงดูแลแค่เชียงใหม่กับเชียงราย และสั่งให้เดินซ้ำได้ทันทีที่เห็นว่าหมวดไหนยังบาง "
+         "ตัวเก็บข้อมูลระดับโลกต้องแบ่งความสนใจไปทั้งโลก ส่วนตัวที่ดูอยู่สองจังหวัด "
+         "ไม่ต้องแย่งความสนใจนั้นกับใครเลย",
+         "Mot Dang's crawl attends to Chiang Mai and Chiang Rai and nothing else, and can be sent "
+         "round again the moment a category looks thin. A global crawler has the whole planet to "
+         "divide its attention across; one that watches two provinces is not competing for that "
+         "attention with anywhere.",
+         []),
+
+        ("ดาวน์โหลดได้ทั้งเมือง",
+         "You can download the whole city",
+         "ทุกหมวดมีไฟล์ GeoJSON ให้โหลด และข้อมูลทั้งชุดอยู่ในไฟล์เดียวที่ /data/places.json "
+         "เอาไปใช้ต่อได้เลยแบบ CC BY 4.0 ส่วนนโยบายของ Google Places เขียนไว้เองว่า "
+         "ห้ามดึงล่วงหน้า ห้ามแคช ห้ามเก็บเนื้อหาไว้ และเงื่อนไขของเขาห้ามส่งออกไปใช้นอกบริการของเขา "
+         "ต่อให้ยอมจ่าย ก็ดาวน์โหลด “ร้านอาหารทุกร้านในเชียงใหม่” ออกมาเป็นไฟล์ไม่ได้",
+         "Every category has a GeoJSON download and the whole dataset is one file at "
+         "/data/places.json, reusable under CC BY 4.0. Google's own Places policy says you must "
+         "not pre-fetch, cache, or store its content, and its terms forbid exporting it for use "
+         "outside Google's services. At any price, “every restaurant in Chiang Mai” is not a file "
+         "you can download.",
+         [("นโยบาย Google Places", "Google Places policies",
+           "https://developers.google.com/maps/documentation/places/web-service/policies"),
+          ("ไฟล์ข้อมูลทั้งชุด", "the whole dataset", "data/places.json")]),
+
+        ("เขียนไว้ให้เครื่องอ่านได้ อย่างตั้งใจ",
+         "Written to be read by machines, on purpose",
+         "robots.txt ของมดแดงเอ่ยชื่อ GPTBot, ClaudeBot, PerplexityBot และตัวอื่นๆ ว่าเข้ามาอ่านได้ "
+         "พร้อมสรุปทั้งเว็บไว้ให้ที่ llms.txt ส่วน robots.txt ของ Google เองสั่งห้ามเก็บ /search และ /maps/ "
+         "ผู้ช่วย AI ที่เคารพกฎจึงอ่านผลค้นหาท้องถิ่นของ Google ไม่ได้เลยสักบรรทัด "
+         "เวลามีคนถาม AI ว่าเชียงใหม่มีอะไร คำตอบย่อมมาจากที่ที่เครื่องเข้าไปอ่านได้จริง",
+         "Mot Dang's robots.txt names GPTBot, ClaudeBot, PerplexityBot and the others and lets them "
+         "in, with a whole-site summary waiting at llms.txt. Google's own robots.txt disallows "
+         "/search and /maps/ — an assistant that respects the rules cannot read a single line of "
+         "Google's local results. When someone asks an AI what there is in Chiang Mai, the answer "
+         "comes from whatever the machine was actually able to read.",
+         [("robots.txt ของเรา", "our robots.txt", "robots.txt"), ("llms.txt", "llms.txt", "llms.txt"),
+          ("robots.txt ของ Google", "Google's own robots.txt", "https://www.google.com/robots.txt")]),
+
+        ("ขึ้นทันทีที่รู้จัก ไม่ต้องรอโปสการ์ด",
+         "Listed the moment it is known — no postcard to wait for",
+         "Google Business Profile ต้องให้เจ้าของร้านยืนยันตัวเองก่อน ด้วยโปสการ์ดที่เอกสารของ Google เอง "
+         "บอกว่าใช้เวลาถึง 14 วันและรหัสหมดอายุใน 30 วัน หรือด้วยวิดีโอสดที่ต้องยืนถ่ายหน้าร้านตัวเอง "
+         "ถ่ายไว้ก่อนแล้วส่งทีหลังไม่ได้ ร้านเล็กๆ จำนวนมากจึงค้างอยู่ตรงขั้นนั้นและไม่เคยขึ้นเต็ม "
+         "มดแดงลงให้ก่อนตั้งแต่รู้จัก แล้วเจ้าของค่อยมาเติมทีหลังได้ฟรี",
+         "A Google Business Profile waits on its owner: a postcard that Google's own documentation "
+         "says can take 14 days, carrying a code that expires in 30 — or a live video walk-through "
+         "of your own shopfront that cannot be recorded in advance. A great many small shops simply "
+         "stop there and never appear in full. Mot Dang lists a place as soon as it is known; the "
+         "owner enriches it afterwards, free.",
+         [("เอกสารยืนยันตัวตนของ Google", "Google's verification docs",
+           "https://support.google.com/business/answer/7107242")]),
+
+        ("ชื่อไทยคือชื่อจริง ไม่ใช่คำทับศัพท์",
+         "The Thai name is the real record, not a romanization of it",
+         "งานวิจัยปี 2024 เอาชื่อไทย 3,305 ชื่อมาถอดเป็นอักษรโรมัน ได้ออกมา 7,243 แบบ "
+         "เพราะภาษาไทยไม่มีมาตรฐานถอดเสียงที่บังคับใช้จริง ร้านเดียวจึงสะกดเป็นอังกฤษได้หลายอย่าง "
+         "และถูกทุกอย่าง มดแดงเก็บชื่อไทยไว้เป็นตัวตั้ง ให้ชื่ออังกฤษวิ่งคู่กันไปเฉยๆ "
+         "ไม่มีขั้นตอนแปลงตรงกลางที่ทำให้ค้นแล้วหล่นหาย",
+         "A 2024 study romanized 3,305 Thai names and got 7,243 distinct spellings back, because "
+         "Thai has no enforced romanization standard — one shop can be Charoen, Jaroen or Jarern "
+         "and all three are correct. Mot Dang keeps ชื่อไทย (chue thai, the Thai-script name) as "
+         "the real record and lets English ride alongside, with no conversion step in the middle "
+         "for a search to fall through.",
+         [("งานวิจัยการถอดอักษร", "the romanization study", "https://arxiv.org/html/2412.03877v1")]),
+
+        ("บอกด้วยว่าหมุดนั้นแม่นแค่ไหน",
+         "Every pin tells you how sure it is",
+         "ที่อยู่ไทยไม่ได้ไล่ไปตามถนน — บ้านเลขที่อย่าง 123/45 มาจากลำดับการออกเลข ไม่ใช่ตำแหน่งบนถนน "
+         "และซอยเส้นเดียวมีสามชื่อได้ งานวิจัยที่ตีพิมพ์พบว่าบริการแปลงที่อยู่ไทยเป็นพิกัด "
+         "“จับคู่ได้” เกิน 90% แต่จับคู่ได้ดีจริงราว 20% เท่านั้น มดแดงจึงติดระดับความแม่นไว้ทุกหมุด — "
+         "ปักตรงจุด ระดับบล็อก ประมาณการ หรือยังไม่ได้ปัก — ดีกว่าเดาแล้วทำเสียงเหมือนรู้",
+         "Thai addresses do not run along a street: a number like 123/45 comes from the order "
+         "numbers were issued, not from where the house sits, and one soi can carry three names at "
+         "once. A peer-reviewed study found geocoding services “matched” over 90% of Thai addresses "
+         "while producing genuinely good matches only about 20% of the time. So every pin here "
+         "carries its own precision — exact, block, approximate, or not yet pinned — which is "
+         "better than guessing and sounding certain.",
+         [("งานวิจัยการแปลงที่อยู่ไทย", "the Thai geocoding study",
+           "https://ph01.tci-thaijo.org/index.php/easr/article/view/140887")]),
+
+        ("เดินกับขี่ คิดคนละแบบ",
+         "Walking and riding are worked out separately",
+         "สะพานคนเดินมอเตอร์ไซค์ขึ้นไม่ได้ และถนนเดินรถทางเดียวแปลว่าต้องอ้อม สองจุดเดียวกันจึงได้ "
+         "419 เมตรถ้าบินตรง 560 เมตรถ้าเดิน และ 817 เมตรถ้าขี่ — คิดตามถนนจริงทุกช่วง "
+         "ขณะที่ Google Maps ยังไม่มีโหมดมอเตอร์ไซค์ในประเทศไทย ทั้งที่คนที่นี่ขี่กันเป็นหลัก",
+         "A footbridge is no use to a scooter, and a one-way street means going round. So the same "
+         "two stops come out at 419 m as the crow flies, 560 m on foot and 817 m on a scooter — "
+         "every leg measured along real streets. Google Maps still offers no motorcycle mode in "
+         "Thailand, in a country that rides.",
+         [("ลองวางแผนดู", "try the planner", "plan.html"),
+          ("กระทู้ของ Google Maps เอง", "the Google Maps forum thread",
+           "https://support.google.com/maps/thread/248840513")]),
+
+        ("ความรู้สองแบบ ไม่พูดด้วยน้ำเสียงเดียวกัน",
+         "Two kinds of knowledge, never spoken in the same voice",
+         "หมุดที่มีคนไปปักไว้จริงคือข้อเท็จจริง ส่วน “ปั๊มน้ำมันมักมีห้องน้ำ” คือนิสัยของสถานที่ประเภทนั้น "
+         "ไม่ใช่คำยืนยันเรื่องตึกที่ยืนอยู่ตรงหน้า มดแดงเขียนสองอย่างนี้คนละน้ำเสียงเสมอ "
+         "และของเฉพาะเจาะจงชนะของทั่วไปทุกครั้ง — “ไม่มีข้อมูล” ไม่เท่ากับ “ไม่มี” "
+         "ส่วนฝั่ง Google ปีเดียวลบโปรไฟล์ปลอมไป 12 ล้านรายการและรีวิวปลอม 170 ล้านรายการ "
+         "โดยหน้าจอไม่เคยบอกผู้อ่านว่ารายการไหนตรวจแล้ว",
+         "A mapped point is a fact. “Fuel stations normally keep a toilet” is a habit of a class of "
+         "place and never a claim about the building in front of you. Mot Dang writes those two in "
+         "different voices, always, and the specific always outranks the general — absent is not "
+         "the same as false. Google removed 12 million fake business profiles and 170 million fake "
+         "reviews in a single year, with nothing on screen to tell a reader which listing had been "
+         "checked.",
+         [("ชั้นข้อมูลห้องน้ำ", "the toilets layer", "toilets.html"),
+          ("ยอดที่ Google ลบทิ้งปี 2023", "Google's 2023 removals",
+           "https://www.androidauthority.com/google-maps-fake-business-profiles-3537504/")]),
+
+        ("เวลาแบบจันทรคติ นับเป็นข้อมูลชั้นหนึ่ง",
+         "Lunar time is first-class data here",
+         "ตานก๋วยสลาก ยี่เป็ง วันพระ — วันเหล่านี้เลื่อนไปตามจันทรคติทุกปี ลองถามเครื่องค้นหาว่า "
+         "ตานก๋วยสลากปีนี้ที่เชียงใหม่ตรงวันไหน แล้วจะได้งานของจังหวัดอื่นกับกำหนดการของปีที่แล้วกลับมา "
+         "มดแดงเก็บปฏิทินเทศกาล 33 งานพร้อมวันที่เลื่อนได้ สีประจำวัน และกำลังพระเคราะห์ "
+         "ไว้เป็นข้อมูลหลักของเว็บ ไม่ใช่ของแถมท้ายหน้า",
+         "ตานก๋วยสลาก (tan kuay salak, the Lanna alms-lottery), ยี่เป็ง (Yi Peng) and วันพระ (wan "
+         "phra, the lunar observance days) move every year with the moon. Ask a search engine which "
+         "day ตานก๋วยสลาก falls on in Chiang Mai this year and back come festivals from other "
+         "provinces and last year's programme. Mot Dang keeps a 33-festival calendar with movable "
+         "dates, the colour of each day and its planetary strength as primary data, not as a "
+         "decoration at the foot of the page.",
+         [("ปฏิทินเทศกาลทั้งปี", "the festival year", "festivals.html")]),
+
+        ("ติดต่อทางช่องที่คนที่นี่ใช้กันจริง",
+         "Contact by the channel this town actually uses",
+         "คนไทย 54 ล้านคนใช้ LINE ราว 80% ของประชากรทั้งประเทศ และมีบัญชีทางการของร้านค้ากับหน่วยงาน "
+         "ราว 6 ล้านบัญชี ร้านที่มีหน้าร้านอยู่บนไลน์ล้วนๆ จึงไม่มีหน้าเว็บให้เครื่องค้นหาจัดอันดับเลยแม้แต่หน้าเดียว "
+         "มดแดงเก็บไลน์ไอดีเป็นช่องข้อมูลปกติ และเรียงช่องทางติดต่อตามที่คนที่นี่ใช้จริง — "
+         "โทรศัพท์ ไลน์ เฟซบุ๊ก แล้วค่อยเว็บไซต์ ตอนนี้เพิ่งเริ่มเก็บไลน์ไอดี "
+         "หน้าเติมเบอร์-ไลน์คือที่ที่ค่อยๆ เติมกันเข้ามา",
+         "54 million people in Thailand use LINE — around 80% of the population — and businesses "
+         "and government offices run some 6 million LINE Official Accounts. A shop whose entire "
+         "storefront is a LINE account produces no web page at all for a search engine to rank. "
+         "Mot Dang treats a LINE id as an ordinary field and orders contacts the way people here "
+         "actually reach someone: a phone, a LINE, a Facebook page, and only then a website. "
+         "Collecting those ids has only just begun — เติมเบอร์-ไลน์ is where they are being filled "
+         "in, a few at a time.",
+         [("หน้าเติมเบอร์-ไลน์", "the add-contacts page", "contacts.html"),
+          ("ตัวเลขจาก LY Corporation", "LY Corporation's figures",
+           "https://www.lycorp.co.jp/en/story/20251205/line_thailand.html")]),
+
+        ("เรียงตามตัวอักษร ไม่มีใครจ่ายเพื่อแซงได้",
+         "Alphabetical, and nobody can pay to jump the queue",
+         "รายชื่อในสารบัญเรียงตามตัวอักษรไทยเสมอ ผู้สนับสนุนอยู่ในกล่องที่ติดป้ายแยกไว้ชัดเจน "
+         "และไม่มีวันสลับลำดับของสารบัญ ส่วนโฆษณาบริการท้องถิ่นของ Google เป็นการจ่ายต่อสายที่วางอยู่เหนือผลค้นหา "
+         "และตั้งแต่ปี 2024 ร้านยังถูกเก็บเงินได้ แม้คนที่ค้นจะพิมพ์ชื่อร้านนั้นมาตรงๆ อยู่แล้ว",
+         "Directory listings sort in Thai alphabetical order, always. Sponsors sit in a separately "
+         "labelled box and never reorder the directory itself. Google's Local Services Ads are "
+         "pay-per-lead placements sitting above the local results, and since 2024 a business can be "
+         "charged for a lead even when the searcher typed that business's own name.",
+         [("บทวิเคราะห์ของ Whitespark", "Whitespark on direct business search",
+           "https://whitespark.ca/blog/can-search-intent-help-you-sidestep-google-local-service-ads-fees/")]),
+
+        ("แก้แล้วเห็นผล และมีวันที่กำกับทุกรายการ",
+         "A record that can be corrected, and carries the date it changed",
+         "ทุกรายการมีวันที่กำกับว่าแตะครั้งล่าสุดเมื่อไหร่ และบอกด้วยว่าค่านั้นมาจากไหน "
+         "เมื่อมีการแก้ วันที่ก็ขยับ และเห็นได้ในไฟล์ข้อมูลที่โหลดไปตรวจเองได้ "
+         "ไม่ใช่ช่องแจ้งแก้แบบปิดที่ส่งเรื่องเข้าไปแล้วไม่มีทางรู้ว่าตอนนี้เรื่องอยู่ตรงไหน",
+         "Every record carries the date it was last touched and says where each value came from. "
+         "When something is corrected the date moves with it, visible in the same data file you "
+         "can download and check — rather than a correction form that swallows a report with no "
+         "way to see where it went.",
+         [("ยืนยันร้านของคุณ", "correct a place", "claim.html"),
+          ("ไฟล์ข้อมูลทั้งชุด", "the whole dataset", "data/places.json")]),
+
+        ("ไม่มีอะไรในหน้านี้เฝ้าดูคุณ",
+         "Nothing on this page is watching you",
+         "ไม่มีสคริปต์วิเคราะห์ ไม่มีตัวติดตามโฆษณา ไม่มีการเก็บลายนิ้วมือเบราว์เซอร์ในหน้าไหนทั้งสิ้น "
+         "กด view-source ที่หน้าไหนก็ได้แล้วนับเองได้เลย ไม่ต้องเชื่อคำของเรา "
+         "โมเดลธุรกิจของ Google ตั้งอยู่บนการเก็บข้อมูลผู้ใช้ ของมดแดงไม่มีส่วนไหนที่ต้องใช้สิ่งนั้น",
+         "No analytics, no ad trackers, no browser fingerprinting on any page. Press view-source on "
+         "any page of this site and count for yourself rather than taking our word for it. Google's "
+         "business model rests on collecting user data; nothing in Mot Dang's needs to.",
+         [("หน้าความเป็นส่วนตัว", "the privacy page", "privacy.html")]),
+
+        ("คิดข้อค้นพบจากข้อมูลตัวเองทุกครั้งที่สร้างใหม่",
+         "It works things out from its own records at every build",
+         "ทุกครั้งที่สร้างเว็บใหม่ มดแดงคำนวณสองเรื่องจากข้อมูลของตัวเอง — ชื่อวัดบอกใบ้ได้ว่าวัดนั้นอยู่ห่างคูเมืองแค่ไหน "
+         "และจากจุดไหนก็ตามในเมือง เซเว่นที่ใกล้ที่สุดอยู่ไกลเท่าไร ตัวเลขดิบเปิดให้โหลดไปตรวจเองได้ด้วย "
+         "รายใหญ่มีข้อมูลพอจะทำแบบนี้มาหลายปีแล้ว แต่ไม่เคยเผยแพร่ให้ใครอ่าน",
+         "At every build the directory computes two findings from its own records: that a wat's "
+         "name predicts how far it sits from the moat, and how far the nearest 7-Eleven is from "
+         "anywhere in town. The raw numbers are downloadable so you can check the working. The big "
+         "directories have had the data to do this for years and have never published any of it.",
+         [("ชื่อวัดกับคูเมือง", "wat names and the moat", "watnames.html"), ("แผนที่เซเว่น", "the 7-Eleven map", "seven.html")]),
     ]
-    why_th = ("มดแดงไม่ได้อยากเป็น Google ฉบับเล็ก — อยากเป็นสิ่งที่ Google เป็นไม่ได้ต่างหาก "
-              "นี่คือความต่างที่จับต้องได้จริง ตรวจสอบได้เอง ไม่ใช่คำโฆษณาลอยๆ")
-    why_en = ("Mot Dang isn't trying to be a smaller Google — it's trying to be something "
-              "Google structurally can't be. These are concrete, checkable differences, not "
-              "marketing copy.")
+    why_th = ("มดแดงไม่ได้อยากเป็น Google ฉบับย่อ — อยากเป็นสิ่งที่ Google เป็นไม่ได้ต่างหาก "
+              "ในเมืองที่ร้านย้ายซอยกันข้ามคืน นี่คือความต่างที่จับต้องได้จริงและตรวจสอบเองได้ "
+              "ไม่ใช่คำโฆษณาลอยๆ ข้อไหนที่อ้างอิงเอกสารของคนอื่น มีลิงก์ให้กดไปดูของจริง")
+    why_en = ("Mot Dang isn't trying to be a smaller Google — it's trying to be the thing Google "
+              "structurally cannot be, in a city where a shop can move soi overnight. These are "
+              "concrete differences you can check yourself, not marketing copy: where a claim "
+              "rests on somebody else's document, the link to it is right there.")
+
+    def _why_srcs(srcs):
+        """The evidence line under a claim. Quiet, but never absent when the
+        claim leans on a document a reader might want to open themselves."""
+        if not srcs:
+            return ""
+        parts = []
+        for th_t, en_t, u in srcs:
+            ext = ' rel="noopener nofollow"' if u.startswith("http") else ""
+            parts.append(f'<a href="{u}"{ext}>{bi(th_t, en_t)}</a>')
+        return f'<p class="whysrc">{bi("ดูเอง", "check it")}: {" · ".join(parts)}</p>'
+
     why_rows = "".join(
-        f'<div class="module"><h3>{bi(th_h, en_h)}</h3><p>{bi(th_b, en_b)}</p></div>'
-        for th_h, en_h, th_b, en_b in why_points)
+        f'<div class="module"><h3>{bi(th_h, en_h)}</h3><p>{bi(th_b, en_b)}</p>'
+        f'{_why_srcs(srcs)}</div>'
+        for th_h, en_h, th_b, en_b, srcs in why_points)
     why_h1_th = "ทำไมมดแดงถึงเหนือกว่า Google ในเชียงใหม่-เชียงราย"
     why_h1_en = "Why Mot Dang beats Google in Chiang Mai and Chiang Rai"
-    why_caveat_th = ("ข้อเดียวที่มดแดงไม่อ้าง: จำนวนร้านทั้งหมด — Google สะสมข้อมูลมาหลายสิบปีและมีมากกว่าจริงในแง่ปริมาณดิบ "
-                     "ความเหนือกว่าของมดแดงอยู่ที่โครงสร้าง ไม่ใช่ปริมาณ")
-    why_caveat_en = ("The one thing Mot Dang won't claim: total listing count. Google has decades of raw "
-                     "scale and genuinely has more places catalogued. Mot Dang's advantage is structural, "
-                     "not volumetric.")
+    why_caveat_th = ("สิ่งที่มดแดงไม่อ้าง: จำนวนรายการทั้งหมด รีวิว รูปถ่าย เมนู และกราฟช่วงเวลาคนแน่น — "
+                     "Google สะสมมาหลายสิบปีและมีมากกว่าจริง ร้านติ่มซำร้านหนึ่งในเชียงใหม่มีรีวิวบน Google "
+                     "สองพันกว่ารายการ ซึ่งมดแดงไม่มีวันตามทัน ความต่างของมดแดงอยู่ที่โครงสร้างและความสด "
+                     "ไม่ใช่ปริมาณ")
+    why_caveat_en = ("What Mot Dang will not claim: total listing count, reviews, photographs, menus, or "
+                     "those busy-hours graphs. Google has decades of accumulation and genuinely holds "
+                     "more — one Chiang Mai dim sum shop carries over two thousand Google reviews, and "
+                     "nothing here will ever catch that. The difference here is structure and freshness, "
+                     "not volume.")
     (DOCS / "why.html").write_text(page(
         "ทำไมมดแดงดีกว่า Google ในเชียงใหม่-เชียงราย",
         f'<h1>🐜 {bi(why_h1_th, why_h1_en)}</h1>'
@@ -10216,6 +10918,21 @@ def build():
     build_privacy_page()
     print("  roads & sois:", build_street_pages(data), "pages")
     print("  merit rounds:", build_merit_page(data), "page")
+    # ---- the basemap shell: one map constructor for the whole site --------
+    # Emits map.js + the vendored libraries ONLY when data/basemap.json names
+    # a real .pmtiles file and assets/vendor/ actually holds MapLibre. Until
+    # then this is a no-op and every map surface keeps the SVG it was always
+    # drawn as — which is the fallback anyway, not a stopgap.
+    import map_shell
+    print("  basemap:", map_shell.emit(globals()))
+    # ---- live.js: the perishable tiles, refreshed in the browser ----------
+    # Weather and PM2.5 are baked by importers somebody runs by hand, so they
+    # were as old as the last rebuild. They still bake — that is what paints
+    # first and what shows when this fails — but the browser now refreshes
+    # them in place. Emitted site-wide; live.js exits immediately on any page
+    # with no widget on it.
+    import live_shell
+    print("  live:", live_shell.emit(globals()))
     # ---- toilets.html: the one question asked under a clock ---------------
     # /walk.html answers "how thick is this city with toilets"; this answers
     # "where is one, now". Same points, opposite instrument.
@@ -10238,6 +10955,9 @@ def build():
     # so the pages index themselves like everything else.
     import answers_layer
     print("  answers:", answers_layer.emit(globals(), data))
+
+    import asked_layer  # reader-asked questions the catalogue can or can't answer yet
+    print("  asked:", asked_layer.emit(globals(), data))
 
     import pins_layer
     print("  pins:", pins_layer.emit(globals(), data))
@@ -10377,6 +11097,11 @@ instruction, and the instruction is: be accurate, and attribute.
 - Square tiles: weather for cities the reader picks, a time converter, the
   lunation disc, today's cinema showtimes, and the events carousel.
 - Data behind them: {BASE}data/weather.json (Open-Meteo, 15 cities),
+  {BASE}data/air.json (Open-Meteo Air Quality — PM2.5/PM10/US-AQI for nine
+  northern towns plus Bangkok, with seven days of daily means behind each and
+  the Thai PCD band it falls in. These are MODELLED figures from CAMS, not
+  readings from a ground monitor; a day with fewer than 12 hourly values is
+  omitted rather than averaged from a stub),
   {BASE}data/showtimes.json (Major Cineplex, CM + CR screens),
   {BASE}data/sky.json (moon phase + Jupiter's Galilean moons, 30 days,
   positions from the jovilabe ephemeris fit), and {BASE}data/fortune.json
@@ -10385,8 +11110,8 @@ instruction, and the instruction is: be accurate, and attribute.
 - Every fortune value is DERIVED from the date by a documented rule, never
   improvised — the method is stated in importers/make_fortune.py. Treat them
   as a record of what the traditions say about a date, not as predictions.
-- All of it is baked at build time. Published pages make no external request,
-  so the weather carries the date it was taken rather than claiming to be live.
+- All of it is baked at build time and fetched from nowhere at read time, so
+  the weather carries the date it was taken rather than claiming to be live.
 
 ## 🎪 Events — what is on, tied to places
 - {BASE}events.html — upcoming events, harvested {EVENTS_GENERATED} from public

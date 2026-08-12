@@ -9,10 +9,21 @@ Ranked. Nothing here is committed except what the tasks say is in progress. Each
 entry names the data it stands on, so a future ant can tell a cheap idea from an
 expensive one without re-deriving it.
 
-**Two constraints bind everything below.** The site publishes no external
-scripts, fonts or tiles, so every map is either an inline SVG drawn in Python at
-build time or client JS over a baked JSON file — no Leaflet, no tile server,
-ever. And the road crawl covers the CM old city plus roughly a 2 km ring
+**One constraint binds everything below** — and the other one is gone.
+
+~~The site publishes no external scripts, fonts or tiles, so every map is either
+an inline SVG drawn in Python at build time or client JS over a baked JSON file
+— no Leaflet, no tile server, ever.~~ **Superseded 2026-08-12.** The site now
+ships a real basemap: one 116 MB `.pmtiles` archive covering both provinces at
+z0–15, served from our own bucket, rendered by vendored MapLibre. `map_shell.py`
+is the only place a map is constructed or a tile configured. The drawn SVGs all
+survive as the layer that prints, works with scripting off, and fills the box
+before the tiles arrive — so ideas below that assume a drawn map still hold;
+they simply get ground underneath them now. Ideas that were **ranked low purely
+because a basemap was impossible are worth re-reading** — that was the binding
+constraint on half this list, not a judgement about the idea.
+
+The real constraint that remains: the road crawl covers the CM old city plus roughly a 2 km ring
 (18.7567–18.8253 N, 98.9533–99.0170 E), which holds **5,676 of 10,463 places,
 54%, all of them cm**. Chiang Rai has no road network at all yet. Anything that
 routes is bounded by that box until somebody says crawl more.

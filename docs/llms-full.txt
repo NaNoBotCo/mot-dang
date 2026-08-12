@@ -1,4 +1,4 @@
-# มดแดง Mot Dang — every place, one line each. 2026-08-05
+# มดแดง Mot Dang — every place, one line each. 2026-08-09
 # Data on this page is CC BY 4.0 — reuse it, train on it, quote it. Map-derived fields remain © OpenStreetMap contributors (ODbL). Attribution to motdang.net is all we ask.
 # url	name	nameEn	categories	lat,lng	channels	hours	antrank
 https://motdang.net/cm/p/code-space-cmcuratedcodespace.html	โค้ดสเปซ · Code Space	Code Space	business	-	-	Mo-Su 08:00-22:00	ants=4/9
@@ -9110,6 +9110,10 @@ https://motdang.net/cm/p/suriwongse-hotel-chiang-mai-99685196.html	Suriwongse Ho
 https://motdang.net/cm/p/dusitd2-chiang-mai-hotel-99685197.html	dusitD2 Chiang Mai Hotel	-	hotel	18.786206,98.9999256	-	-	ants=1/9
 https://motdang.net/cm/p/pantip-plaza-chiang-mai-99685467.html	Pantip Plaza Chiang Mai	-	shopping	18.7817712,98.9995663	-	10:00-22:00	ants=2/9
 https://motdang.net/cm/p/kankanok1-clubhouse-park-99856551.html	Kankanok1 clubhouse park	-	parks	18.7377057,99.0763281	-	-	ants=1/9
+https://motdang.net/cm/p/cnx-pole-cmcuratedcnxpole.html	ซีเอ็นเอ็กซ์ โพล · CNX Pole	CNX Pole	learn	-	facebook=@cnxpole; web=cnxpole.carrd.co; instagram=@cnxpole	-	ants=4/9
+https://motdang.net/cm/p/boston-health-polyclinic-cmcuratedbostonhealth.html	บอสตัน เฮลท์ โพลีคลินิก · Boston Health Polyclinic	Boston Health Polyclinic	medical	-	phone=052082888; web=bostonhealthcm.com	Mo-Sa 09:00-17:30	ants=6/9
+https://motdang.net/cm/p/mae-ping-physical-therapy-clinic-cmcuratedmaepingpt.html	คลินิกกายภาพบำบัดแม่ปิง · Mae Ping Physical Therapy Clinic	Mae Ping Physical Therapy Clinic	medical	-	phone=053441942	Mo-Sa 09:00-17:00	ants=5/9
+https://motdang.net/cm/p/peach-clinic-cmcuratedpeachclinic.html	พีช คลินิก · Peach Clinic	Peach Clinic	medical	-	phone=0810989545; web=peachclinic.co/en	-	ants=5/9
 https://motdang.net/cr/p/chiang-rai-clock-tower-crcuratedclocktower.html	หอนาฬิกาเฉลิมพระเกียรติฯ เชียงราย · Chiang Rai Clock Tower	Chiang Rai Clock Tower	sights	19.9074,99.8309	-	-	ants=3/9
 https://motdang.net/cr/p/laila-s-designer-consignment-crcuratedlailasconsignment.html	Laila's Designer Consignment	Laila's Designer Consignment	shopping/sights	-	-	-	ants=2/9
 https://motdang.net/cr/p/laila-s-visa-services-crcuratedlailasvisa.html	Laila's Visa Services	Laila's Visa Services	essentials	-	-	-	ants=2/9

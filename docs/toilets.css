@@ -1,16 +1,62 @@
 /* ห้องน้ำใกล้ฉัน — read at arm's length, in a hurry, one-handed.
    Type is deliberately larger than the rest of the site and the tap targets
    are deliberately bigger than they need to be on a desktop. */
-.loogo{display:block;width:100%;border:0;border-radius:1.1rem;cursor:pointer;
-  padding:1.15rem 1rem;font:700 1.35rem/1.25 var(--face-th),system-ui,sans-serif;
+/* The starting-point bar. It used to be one enormous button whose only job
+   was to raise a permission dialog; it is now four equal doors, and the page
+   behind it already works. */
+.looorigin{margin:.2rem 0 0;padding:.9rem 1rem .95rem;border:1px solid #E4D8C4;
+  border-radius:1rem;background:linear-gradient(160deg,rgba(255,253,248,.92),rgba(250,244,233,.86));
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  box-shadow:0 .4rem 1rem rgba(107,88,74,.07)}
+.looways{display:flex;flex-wrap:wrap;gap:.5rem;align-items:stretch;margin-top:.5rem}
+.loofind{flex:0 0 auto;border:0;border-radius:.9rem;cursor:pointer;
+  padding:.85rem 1.1rem;font:700 1.08rem/1.2 var(--face-th),system-ui,sans-serif;
   color:#fff;background:linear-gradient(160deg,#D4552C,#A8371A);
-  box-shadow:0 .55rem 1.3rem rgba(168,55,26,.28);letter-spacing:.01em}
-.loogo:hover{filter:brightness(1.06)}
-.loogo:active{transform:translateY(1px)}
-.loogo:focus-visible{outline:3px solid #2A1E16;outline-offset:3px}
-.loogo[disabled]{opacity:.6;cursor:progress}
-.loostate{margin:.6rem 0 0;font-size:1rem;min-height:1.4em}
+  box-shadow:0 .4rem .9rem rgba(168,55,26,.26);letter-spacing:.01em;
+  transition:transform .12s ease,filter .12s ease,box-shadow .12s ease}
+.loofind:hover{filter:brightness(1.06);transform:translateY(-1px);
+  box-shadow:0 .6rem 1.2rem rgba(168,55,26,.32)}
+.loofind:active{transform:translateY(1px) scale(.985)}
+.loofind:focus-visible{outline:3px solid #2A1E16;outline-offset:3px}
+.loofind[disabled]{opacity:.6;cursor:progress}
+.loosearchwrap{flex:1 1 12rem;display:block;min-width:0}
+#loosearch{width:100%;box-sizing:border-box;border:1.5px solid #C9B79B;
+  border-radius:.9rem;padding:.85rem .95rem;background:#FFF;color:#2A1E16;
+  font:500 1.05rem/1.2 var(--face-th),system-ui,sans-serif;
+  transition:border-color .12s ease,box-shadow .12s ease}
+#loosearch:focus{outline:0;border-color:#D4552C;box-shadow:0 0 0 3px rgba(212,85,44,.18)}
+.loohits{margin:.5rem 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.4rem}
+.loohits button{border:1.5px solid #C9B79B;border-radius:2rem;background:#FFF;
+  padding:.45rem .9rem;cursor:pointer;font:600 .98rem/1.2 var(--face-th),system-ui,sans-serif;
+  color:#2A1E16;transition:transform .12s ease,border-color .12s ease}
+.loohits button:hover{border-color:#D4552C;transform:translateY(-1px)}
+.loohits .loomiss{color:#6B584A;font-size:.95rem;padding:.3rem 0}
+.loostate{margin:0;font-size:1rem;min-height:1.4em}
 .loostate.err{color:#8C2A12;font-weight:600}
+/* Not-an-error. The list behind this note is still sorted and still usable,
+   so it must not wear the colour that means something broke. */
+.loostate.soft{color:#6B584A}
+
+/* The pre-prompt. Deliberately small and plain: it is a question, not a
+   marketing interstitial, and it must be readable before it is dismissed. */
+.loogate{position:fixed;inset:0;z-index:60;display:flex;align-items:center;
+  justify-content:center;padding:1.1rem;background:rgba(42,30,22,.45);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.loogate[hidden]{display:none}
+.loogatebox{max-width:24rem;background:#FFFDF8;border:1px solid #E4D8C4;
+  border-radius:1rem;padding:1.1rem 1.15rem;box-shadow:0 1rem 2.4rem rgba(42,30,22,.3)}
+.loogatebox b{display:block;font-size:1.12rem;margin-bottom:.4rem}
+.loogatebox p{margin:0 0 .9rem;font-size:1rem;line-height:1.45}
+/* Stacked, not side-by-side. Both labels carry their Thai and their English,
+   which at 375px is wider than half a dialog — the primary button ran off
+   the edge of the box. Full width also gives the bigger tap target this
+   site's type sizes are already asking for. */
+.loogateacts{display:flex;flex-direction:column;gap:.5rem}
+.loogateacts button{width:100%;text-align:center}
+.loogateno{border:1.5px solid #C9B79B;border-radius:.9rem;background:#FFF;
+  padding:.85rem 1.1rem;cursor:pointer;color:#2A1E16;
+  font:600 1.05rem/1.2 var(--face-th),system-ui,sans-serif}
+.loogateno:hover{border-color:#8C7A63}
 
 /* The which-way panel. Capped so it never eats the results it is there to
    help you reach — direction is a glance, the list is the answer. */
@@ -70,6 +116,13 @@
 .loomore button{cursor:pointer;width:100%;border:1.5px dashed #C9B79B;background:#FFFDF8;
   border-radius:.9rem;padding:.85rem 1rem;font:600 1.05rem/1.3 var(--face-th),system-ui,sans-serif;
   color:#2A1E16}
+/* Nested inside the origin bar now, so it drops the box it used to draw
+   around itself — a card inside a card reads as two unrelated things. */
+.looorigin .loonear{margin:.75rem 0 0;padding:.75rem 0 0;border:0;
+  border-top:1px dashed #E4D8C4;border-radius:0;background:none}
+/* Once the location door is gone for good, the picker is the whole control
+   rather than the alternative to one, and it says so by standing alone. */
+.looorigin.sole .loonear{border-top:0;padding-top:.2rem}
 .loonear{margin:1.2rem 0 0;padding:.9rem 1rem;border:1px solid #E4D8C4;
   border-radius:.9rem;background:#FFFDF8}
 .loonear ul{margin:.5rem 0 0;padding:0;list-style:none;display:flex;
@@ -86,4 +139,7 @@
   .tiertable tr{display:block;border-bottom:1px solid #E4D8C4;padding:.4rem 0}
   .tiertable td{display:block;border:0;padding:.2rem .1rem}
 }
-@media (prefers-reduced-motion:reduce){.loogo:active{transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .loofind,.loohits button{transition:none}
+  .loofind:hover,.loofind:active,.loohits button:hover{transform:none}
+}

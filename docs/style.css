@@ -262,6 +262,12 @@ text-transform:uppercase;margin-bottom:.1rem}
 .related ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem .7rem}
 .related li{font-size:.88rem}
 .myhint{background:var(--soft);border-radius:.6rem;padding:.5rem .9rem;font-size:.9rem}
+/* Where a claim on why.html got its evidence. Small and quiet, but present on
+   every claim that rests on someone else's document rather than on this
+   repository — a reader who wants to check should not have to ask. */
+.whysrc{font-size:.8rem;color:var(--gloss);margin:.35rem 0 0}
+.whysrc a{color:var(--gloss);text-decoration:underline dotted}
+.whysrc a:hover{color:var(--ant)}
 #bmform input{font:inherit;font-size:.9rem;padding:.2rem .5rem;border:1.5px solid var(--soft);
 border-radius:.4rem;margin-right:.4rem;max-width:11rem}
 #bmform button{font:inherit;font-size:.9rem;border:1.5px solid var(--ant);background:none;
@@ -397,6 +403,16 @@ overflow-y:auto;z-index:3;display:flex;flex-direction:column;gap:.1rem}
 .wxdays{display:flex;gap:.5rem;margin-top:.25rem;font-size:.75rem;color:var(--ant-dark)}
 .wxday b{font-weight:400;margin-right:.1rem}
 .wxmore{font-size:.72rem;color:var(--mute);text-align:center}
+/* air — the band colour is set inline from the PCD scale, so nothing here
+   hard-codes a hue that could drift out of step with the data */
+.airpanes{flex:1;display:flex;flex-direction:column;justify-content:center}
+.airpane{display:flex;flex-direction:column;align-items:center;gap:.05rem}
+.aircity{font-size:.9rem;font-weight:700}
+.airnum{font-size:2.4rem;font-weight:800;line-height:1}
+.airnum sup{font-size:.62rem;font-weight:600;margin-left:.15rem}
+.airband{font-size:.82rem;color:var(--mute);text-align:center}
+.airspark{width:auto;height:36px;margin-top:.35rem;overflow:visible}
+.airtrend{font-size:.72rem;color:var(--ant-dark);margin-top:.1rem}
 /* clocks */
 .tzrows{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.15rem;overflow-y:auto}
 .tzrow{display:flex;align-items:baseline;gap:.4rem;font-size:.88rem}
@@ -856,6 +872,33 @@ stroke-linejoin:round;flex:0 0 auto}
 /* Present for a screen reader, absent for everyone else. */
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
 clip-path:inset(50%);white-space:nowrap}
+/* The pre-prompt (MDLOC in md.js). Plain and small on purpose: it asks a
+   question and shows the answer to "where does this go" in one line. It is
+   built by script, so it costs nothing on a page that never raises it. */
+.mdgate{position:fixed;inset:0;z-index:60;display:flex;align-items:center;
+justify-content:center;padding:1.1rem;background:rgba(42,30,22,.45);
+backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.mdgatebox{max-width:24rem;background:var(--paper,#FFFDF8);border:1px solid var(--rule,#E4D8C4);
+border-radius:1rem;padding:1.1rem 1.15rem;box-shadow:0 1rem 2.4rem rgba(42,30,22,.3)}
+.mdgatebox b{display:block;font-size:1.12rem;margin-bottom:.4rem}
+.mdgatebox p{margin:0 0 .9rem;font-size:1rem;line-height:1.45}
+/* Stacked: both labels carry Thai and English, which is wider than half a
+   dialog on a phone — side-by-side ran the primary button off the box. */
+.mdgateacts{display:flex;flex-direction:column;gap:.5rem}
+.mdgateacts button{width:100%;text-align:center}
+.mdgateacts button{border:0;border-radius:.9rem;cursor:pointer;padding:.8rem 1.05rem;
+font:700 1.02rem/1.2 var(--face-th),system-ui,sans-serif;color:#fff;
+background:linear-gradient(160deg,#D4552C,#A8371A);
+box-shadow:0 .35rem .8rem rgba(168,55,26,.24);
+transition:transform .12s ease,filter .12s ease}
+.mdgateacts button:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.mdgateacts button:active{transform:translateY(1px) scale(.985)}
+.mdgateacts .mdgateno{background:#FFF;color:var(--ink,#2A1E16);
+border:1.5px solid var(--rule,#C9B79B);box-shadow:none}
+@media (prefers-reduced-motion:reduce){
+.mdgateacts button{transition:none}
+.mdgateacts button:hover,.mdgateacts button:active{transform:none}}
+
 :focus-visible{outline:3px solid var(--ant);outline-offset:3px;border-radius:6px}
 .skiplink{position:absolute;left:-9999px;top:.5rem;background:var(--ink);color:#fdf3dd;
 padding:.7rem 1.1rem;border-radius:8px;font-weight:600;z-index:50;text-decoration:none}
@@ -1084,8 +1127,12 @@ form.seek button .bi{display:none}
 justify-content:flex-start}
 .chip.dark{grid-column:1/-1;border-radius:999px}
 /* Thai above, English beneath — two even lines instead of a mid-phrase wrap
-   with its separator stranded. Same move the hero title makes. */
-.chip .bi .en{display:block;font-size:.78rem;line-height:1.25}
+   with its separator stranded. Same move the hero title makes. Guarded on
+   body.lang-* like every other .en override: unguarded, display:block beat
+   the base `.en{display:none}` on specificity and left the whole nav reading
+   English to someone who had asked for Thai alone. */
+body.lang-both .chip .bi .en,
+body.lang-en .chip .bi .en{display:block;font-size:.78rem;line-height:1.25}
 .chip .bi .en>.th{display:none}
 /* The secondary links ran to seven stacked lines on a phone, pushing the
    directory itself below two screens of chrome — and a phone is how most
@@ -1417,3 +1464,42 @@ body.lang-both .herotitle .en,body.lang-en .herotitle .en{font-size:.5em}
 transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
 .js-reveal [data-reveal].shown{opacity:1;transform:none}
 }
+
+/* The map box. The drawn SVG and the live tiles occupy the same square;
+   the live one is stacked over it and only becomes visible once it has
+   actually loaded, so there is never a moment of empty grey. */
+.mdmap{position:relative;margin:.9rem 0 .2rem}
+.mdmap-draw{position:relative;z-index:1}
+/* Descendant selector, deliberately: MapLibre's own stylesheet is loaded
+   after this one and sets .maplibregl-map{position:relative}. At equal
+   specificity that wins, the live layer stops being absolutely positioned,
+   inset:0 no longer applies, and the box collapses to zero height — tiles
+   fetch, the map "loads", and nothing is ever visible. Two classes beat one. */
+.mdmap .mdmap-live{position:absolute;inset:0;z-index:2;opacity:0;
+  transition:opacity .35s ease;border-radius:14px;overflow:hidden}
+.mdmap.mdmap-on .mdmap-live{opacity:1}
+/* Once there is real ground, the drawing goes back ON TOP of it — pins over
+   streets is the entire point, and a basemap that buries the pins has just
+   traded one broken map for another. The drawing stops eating pointer events
+   so the map can be panned, except on the pins themselves, which still do
+   what they always did. */
+.mdmap.mdmap-on .mdmap-draw{z-index:3;pointer-events:none}
+.mdmap.mdmap-on .mdmap-draw .loopin{pointer-events:auto}
+/* The drawn cream background and its border are the "no ground" state. With
+   tiles underneath they are exactly what must not be painted. */
+.mdmap.mdmap-on .mdmap-bg{display:none}
+.mdmap .maplibregl-ctrl-attrib{font-size:11px;background:rgba(255,253,248,.88)}
+/* Never let the credit be folded away: ODbL asks for it to be visible, and a
+   collapsed ⓘ on a phone is not visible. */
+.mdmap .maplibregl-ctrl-attrib-button{display:none!important}
+.mdmap .maplibregl-ctrl-attrib.maplibregl-compact-show .maplibregl-ctrl-attrib-inner{
+  display:block!important}
+@media print{.mdmap-live{display:none!important}
+  .mdmap-draw{position:static}}
+@media (prefers-reduced-motion:reduce){.mdmap-live{transition:none}}
+
+/* A tile whose figures came from the network this minute. Deliberately
+   quiet — a small mark on the footer, not a badge: the reader is here for the
+   number, and the freshness only matters when they go looking for it. */
+.wtile.is-live .wfoot{color:#3f7a4a}
+.wtile.is-live .wfoot::before{content:"● ";font-size:.7em;vertical-align:.18em}

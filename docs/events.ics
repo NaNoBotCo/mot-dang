@@ -15,33 +15,6 @@ TZNAME:+07
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:meetup-ical-event_315705997@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260805T170000
-DTEND;TZID=Asia/Bangkok:20260805T190000
-SUMMARY:Loose-Leaf Playground Writing X Poetry Club
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Retro Recess presents: Loose-Leaf Playground\, where writers get to practice.  A relaxed\, welcoming space where words get to play\, and writers get to practice.  Join us to write alongside other writers in a calm\, creative atmosphere. Each gathering offers light prompts\, generous quiet writing time\, and optional sharing. Work on your blogs\, storie
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315705997/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315706461@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260805T180000
-DTEND;TZID=Asia/Bangkok:20260805T230000
-SUMMARY:Catan Wednesdays
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads It’s Catan night baby! Games start about every hour or so. We have base Catan\, Space Catan\, cities & Knights even the newest Catan New Energies. Roll\, trade\, build and race to 10 VP.  If you have never played\, no problem we can teach you.
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315706461/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315847785@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260805T180000
-DTEND;TZID=Asia/Bangkok:20260805T200000
-SUMMARY:Nobody Gets Out Alive: A Conversation on Mortality and Meaning (Free Discussion)
-DESCRIPTION:Questions That Matter (Free Weekly Wed 6pm Meetup Group) Memento mori — "remember that you will die."  Modern life in much of the world is extraordinarily good at helping us not think about death. We've medicalized it\, institutionalized it\, and outsourced it to hospitals and funeral homes so that people in much of the developed world can reach middle age without ever being in the same room as a co
-URL:https://www.meetup.com/questionsthatmatter/events/315847785/
-END:VEVENT
-BEGIN:VEVENT
 UID:payap-lll-10001021@motdang.net
 DTSTAMP:20260101T000000
 DTSTART;TZID=Asia/Bangkok:20260806T110000
@@ -51,44 +24,6 @@ LOCATION:มหาวิทยาลัยพายัพ · Payap University
 URL:https://www.lllpayap.com/event/exploring-the-future/2026-08-06/
 END:VEVENT
 BEGIN:VEVENT
-UID:meetup-ical-event_315958698@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260806T140000
-DTEND;TZID=Asia/Bangkok:20260806T170000
-SUMMARY:Artistic Digital Detox
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Hello all digital nomads:  Here is your opportunity to step away from the screen\, and reconnect with your creative self! Through lightly-guided drawing and painting exercises we will explore our artistic sides together. Perhaps you used to draw and wish to get back into it\, or have never drawn before\, this workshop is designed to help everyone u
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315958698/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315804296@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260806T180000
-DTEND;TZID=Asia/Bangkok:20260806T200000
-SUMMARY:Love in Chiang Mai - Are We Dating—or Just Passing Through?
-LOCATION:Spice Garden
-DESCRIPTION:Beyond Small Talk\, Chiang Mai Is it really possible to find lasting love in Chiang Mai as an expat? Chiang Mai is a city of fresh starts. People arrive after divorces\, career changes\, burnout\, retirement\, heartbreak\, or simply a desire to build a completely different life. And then… we meet someone. Connections can happen quickly. Conversations become deep. Chemistry feels intense. We travel toget
-URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/315804296/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315720961@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260806T180000
-DTEND;TZID=Asia/Bangkok:20260806T230000
-SUMMARY:Strategy Thursdays
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads We will be diving into medium to heavy weight Euro games. No dice just strategy! We change games weekly: some favorite… Terraforming Mars SETI Terra Mystica Ark Nova
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315720961/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315829889@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260806T203000
-DTEND;TZID=Asia/Bangkok:20260806T233000
-SUMMARY:Expat Karaoke Thursdays @ Lecker Cafe & Bistro
-LOCATION:Lecker Cafe & Bistro
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads We’re Chiang Mai’s longest-running karaoke-loving community\, bringing people together for good songs and a relaxed night out. Step away from the keyboard\, bypass the usual polite networking\, and trade your professional persona for an evening of unfiltered fun!  ### How it works  * Choose any song you can find on YouTube\, add your name to the lis
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315829889/
-END:VEVENT
-BEGIN:VEVENT
 UID:payap-lll-10000988@motdang.net
 DTSTAMP:20260101T000000
 DTSTART;TZID=Asia/Bangkok:20260807T130000
@@ -96,43 +31,6 @@ DTEND;TZID=Asia/Bangkok:20260807T143000
 SUMMARY:Caring and Sharing Group
 LOCATION:มหาวิทยาลัยพายัพ · Payap University
 URL:https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-08-07/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315734031@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260807T180000
-DTEND;TZID=Asia/Bangkok:20260807T210000
-SUMMARY:Let’s Build Community — Together Nomad Social Night @ Attika Studio
-LOCATION:Attika Studio
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads **PRICE OF EVENT: order drink** Good chats\, good vibes — and a space for **nomads\, travelers\, and remote professionals** who believe community doesn’t happen by accident 🌿 This isn’t networking. This isn’t small talk. This is about **building a village — slowly\, intentionally\, together**. Whether you’re passing through Chiang Mai or rooted here 
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315734031/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315734121@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260807T180000
-DTEND;TZID=Asia/Bangkok:20260807T230000
-SUMMARY:New Gamers Night
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Light\, silly\, card tossing\, card slapping\, poker style games. Low rules- high fun is what Friday is all about. If you don’t drink this is a perfect place to meet folks and chill. We have great regulars and solo gamers are always welcome. Absolutely no experience is required. Just bring a grin and some cash for food and games.
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315734121/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315941769@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260808T073000
-DTEND;TZID=Asia/Bangkok:20260808T093000
-SUMMARY:Slowcial Running Club CM
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Are you keen to meet other expats and locals while easing yourself into some gentle cardio training?  Join us at 7:30am every Saturday\, for Slow + Social Run starting opposite Living a Dream Cafe on the CMU campus.  We'll enjoy a steady 20–25 minute jog\, followed by coffee and food together afterwards. The pace is suitable for beginners through 
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315941769/
-END:VEVENT
-BEGIN:VEVENT
-UID:payap-lll-10000969@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260808T100000
-DTEND;TZID=Asia/Bangkok:20260808T113000
-SUMMARY:Stretch and Balance – Gentle Exercises for Better Mobility and Balance
-LOCATION:มหาวิทยาลัยพายัพ · Payap University
-URL:https://www.lllpayap.com/event/stretch-and-balance-gentle-exercises-for-better-mobility-and-balance/2026-08-08/
 END:VEVENT
 BEGIN:VEVENT
 UID:meetup-ical-event_gbmpztyjclblb@meetup.com@motdang.net

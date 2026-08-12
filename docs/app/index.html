@@ -52,6 +52,22 @@
   </div>
 </section>
 
+<!-- The location pre-prompt. Shown before Android's own dialog, never after:
+     installing this app is consent to look at a map, not consent to be
+     located, and the two should not be collapsed into one surprise. -->
+<div id="loc-gate" class="veil locgate" hidden role="dialog" aria-modal="true"
+     aria-labelledby="loc-gate-t">
+  <div class="locbox">
+    <b id="loc-gate-t">ใช้ตำแหน่งจริงของคุณไหม · Use your real location?</b>
+    <p>ตำแหน่งของคุณอยู่ในเครื่องคุณเท่านั้น ไม่ถูกส่งออกไปไหน และไม่ถูกเก็บไว้ ·
+       Your location never leaves this device. It is not sent anywhere and not stored.</p>
+    <div class="locacts">
+      <button type="button" id="loc-yes">📍 ใช้ตำแหน่งของฉัน · Use my location</button>
+      <button type="button" id="loc-no" class="ghost">ไม่ต้อง · Not now</button>
+    </div>
+  </div>
+</div>
+
 <div id="card-veil" class="veil" hidden></div>
 <article id="card" class="card" hidden></article>
 

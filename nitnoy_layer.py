@@ -5,8 +5,11 @@ One page, one question: what is this city doing right now? Every place whose
 opening hours we hold becomes a lamp on the night map; drag the day through
 its 24 hours and watch the morning kads ignite before dawn, the cafés catch
 at eight, the bars take over after dark. 2,000-odd lamps, drawn in the
-browser from the baked file — no tiles, no library, same discipline as the
-which-way panel on /toilets.html.
+browser from the baked file — no tiles, no library. The which-way panel on
+/toilets.html was drawn the same way and has since gained a basemap under it
+via map_shell.mount(); this map has not been wired up yet, and the lamps are
+the one drawing where cream may still be the right ground — a night map reads
+as night. Worth a look, not an assumption.
 
 The lamp rule, stated wherever the map is: a lamp we do not draw is a place
 whose hours nobody holds. Unlit is silence, never "closed".

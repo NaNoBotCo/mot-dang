@@ -32,6 +32,8 @@
           "en": "Bo Sang village, San Kamphaeng"
         }
       ],
+      "cost_th": "เข้าฟรี — ถนนในหมู่บ้านคืองาน จ่ายเฉพาะร่มและงานหัตถกรรมที่อยากได้",
+      "cost_en": "Free to enter — the village street is the festival; you pay only for the umbrellas and crafts you want.",
       "merit_th": null,
       "merit_en": null,
       "verify_th": null,
@@ -113,13 +115,19 @@
       "venues": [
         {
           "th": "สวนสาธารณะหนองบวกหาด",
-          "en": "Suan Buak Had Park"
+          "en": "Suan Buak Had Park",
+          "note_th": "นิทรรศการดอกไม้และซุ้มประกวดตลอดงาน",
+          "note_en": "The flower displays and contest pavilions, all festival long"
         },
         {
           "th": "เส้นทางขบวนแห่: สะพานนวรัฐ – คูเมือง",
-          "en": "Parade route: Nawarat Bridge to the moat"
+          "en": "Parade route: Nawarat Bridge to the moat",
+          "note_th": "ขบวนรถบุปผชาติ เช้าวันเสาร์ของงาน",
+          "note_en": "The flower-float parade, on the festival's Saturday morning"
         }
       ],
+      "cost_th": "ฟรีทั้งงาน — ขบวนแห่และสวนหนองบวกหาดไม่มีบัตร ร้านต้นไม้และอาหารจ่ายตามซื้อ",
+      "cost_en": "Free throughout — the parade and Suan Buak Had displays have no ticket; plant and food stalls are pay-as-you-go.",
       "merit_th": null,
       "merit_en": null,
       "verify_th": null,
@@ -155,7 +163,9 @@
       "venues": [
         {
           "th": "กาดหลวง (ตลาดวโรรส) เชียงใหม่",
-          "en": "Warorot Market (Kad Luang), Chiang Mai"
+          "en": "Warorot Market (Kad Luang), Chiang Mai",
+          "note_th": "ถนนคนเดิน การแสดง และเชิดสิงโต",
+          "note_en": "Street stalls, performances and lion dances"
         },
         {
           "th": "ตรอกเล่าโจ๊ว ย่านไชน่าทาวน์เชียงใหม่",
@@ -166,6 +176,8 @@
           "en": "Doi Mae Salong, Chiang Rai"
         }
       ],
+      "cost_th": "งานถนนคนเดินกาดหลวงฟรี — จ่ายเฉพาะของกินของซื้อ",
+      "cost_en": "The Warorot street festival is free — you pay only for what you eat and buy.",
       "merit_th": null,
       "merit_en": null,
       "verify_th": null,
@@ -288,6 +300,8 @@
           "en": "Every wat — candle circumambulation in the evening"
         }
       ],
+      "cost_th": "ฟรีทุกวัด — ชุดดอกไม้ธูปเทียนสำหรับเวียนเทียนมีขายหน้าวัดราว 20–50 บาท หรือนำมาเองก็ได้",
+      "cost_en": "Free at every wat — flower-incense-candle sets for the circumambulation are sold at the gate for about 20–50 baht, or bring your own.",
       "merit_th": "ไปวัดตอนค่ำ รับธูป 3 ดอก เทียน 1 เล่ม ดอกไม้ 1 กำ แล้วเดินเวียนขวารอบอุโบสถ 3 รอบ",
       "merit_en": "Go to any wat at dusk. Take three incense sticks, one candle and a flower, and walk clockwise around the ubosot three times.",
       "verify_th": null,
@@ -451,17 +465,25 @@
       "venues": [
         {
           "th": "ประตูท่าแพ",
-          "en": "Tha Phae Gate"
+          "en": "Tha Phae Gate",
+          "note_th": "เวทีหลักและจุดเล่นน้ำที่หนาแน่นที่สุด",
+          "note_en": "The main stage and the thickest of the water fight"
         },
         {
           "th": "คูเมืองเชียงใหม่",
-          "en": "The city moat"
+          "en": "The city moat",
+          "note_th": "เล่นน้ำรอบคูเมืองครบทั้งสี่ด้าน",
+          "note_en": "The water fight runs the whole way around the moat"
         },
         {
           "th": "วัดพระสิงห์ (ขบวนแห่พระพุทธสิหิงค์)",
-          "en": "Wat Phra Singh — Phra Buddha Sihing procession"
+          "en": "Wat Phra Singh — Phra Buddha Sihing procession",
+          "note_th": "ขบวนแห่และการสรงน้ำพระพุทธสิหิงค์ ด้านประเพณีของงาน",
+          "note_en": "The procession and ritual bathing of the Phra Buddha Sihing image — the ceremonial side of the holiday"
         }
       ],
+      "cost_th": "เล่นน้ำรอบคูเมืองและงานในเมืองฟรีทั้งหมด ไม่มีบัตร — จ่ายแค่อุปกรณ์: ปืนฉีดน้ำ ถัง แว่นกันน้ำ ตามแผงราว 50–300 บาท ส่วนปาร์ตี้เวทีดีเจแบบขายบัตรเป็นงานเอกชนต่างหาก",
+      "cost_en": "The water fight around the moat and the city events are all free, no ticket — you pay only for gear: water guns, buckets and goggles from street stalls, roughly 50–300 baht. The DJ-stage pool-party events with tickets are separate private affairs.",
       "merit_th": "ขนทรายเข้าวัดก่อเจดีย์ทราย สรงน้ำพระ และรดน้ำดำหัวผู้ใหญ่ด้วยน้ำอบน้ำปรุง เตรียมขันน้ำ ดอกไม้ และผ้าขาวม้าหรือของฝากเล็ก ๆ ไปด้วย",
       "merit_en": "Carry sand to the wat for a sand chedi, bathe the Buddha images, and pour scented water over elders' hands. Bring a bowl, flowers, and a small gift or cloth for the elders you visit.",
       "verify_th": null,
@@ -535,9 +557,13 @@
       "venues": [
         {
           "th": "วัดเจดีย์หลวง (หอเสาอินทขีล)",
-          "en": "Wat Chedi Luang — the Sao Inthakhin shrine"
+          "en": "Wat Chedi Luang — the Sao Inthakhin shrine",
+          "note_th": "ถวายขันดอกที่หอเสาอินทขีลและรอบพระวิหาร ช่วงค่ำคนแน่นที่สุด",
+          "note_en": "Flower trays are laid at the pillar shrine and around the viharn; evenings are the busiest"
         }
       ],
+      "cost_th": "เข้าฟรี — ขันดอก (พานดอกไม้) มีขายรอบวัดราว 20–50 บาท หรือจัดดอกไม้มาเองได้",
+      "cost_en": "Free to enter — khan dok flower trays are sold around the wat for about 20–50 baht, or arrange your own flowers and bring them.",
       "merit_th": "ซื้อขันดอกที่หน้าวัด แล้วใส่ขันดอกบูชาเสาอินทขีลทีละหอตามลำดับ เป็นการฝากดวงเมืองไว้กับหลักเมืองอีกหนึ่งปี",
       "merit_en": "Buy a khan dok flower bowl at the gate and place offerings shrine by shrine. You are putting the city's fortune in the pillar's keeping for another year — this is Chiang Mai's own luck rite.",
       "verify_th": null,
@@ -622,6 +648,8 @@
           "en": "Every wat — candle circumambulation in the evening"
         }
       ],
+      "cost_th": "ฟรีทุกวัด — ชุดดอกไม้ธูปเทียนสำหรับเวียนเทียนมีขายหน้าวัดราว 20–50 บาท หรือนำมาเองก็ได้",
+      "cost_en": "Free at every wat — flower-incense-candle sets for the circumambulation are sold at the gate for about 20–50 baht, or bring your own.",
       "merit_th": null,
       "merit_en": null,
       "verify_th": null,
@@ -789,6 +817,8 @@
           "en": "Every wat — candle and rain-robe offerings"
         }
       ],
+      "cost_th": "ฟรีทุกวัด — เทียนพรรษาและผ้าอาบน้ำฝนสำหรับถวายมีขายหน้าวัดและตลาด ราคาแล้วแต่กำลังศรัทธา",
+      "cost_en": "Free at every wat — Lenten candles and rain-robes for offering are sold at wat gates and markets; you give what you wish.",
       "merit_th": "ถวายเทียนพรรษา และตั้งสัจจะอธิษฐานว่าจะงดอะไรตลอดสามเดือน",
       "merit_en": "Offer a Lent candle, and make the vow: name one thing you will give up for the three months.",
       "verify_th": null,
@@ -950,6 +980,8 @@
           "en": "Every wat — and it opens the month-long kathina season"
         }
       ],
+      "cost_th": "ฟรีทุกวัด — ตักบาตรเทโวเช้าวันรุ่งขึ้นเตรียมของใส่บาตรเอง หรือซื้อชุดหน้าวัดได้",
+      "cost_en": "Free at every wat — for the next morning's Devo alms round, bring your own alms or buy a set at the gate.",
       "merit_th": "หลังออกพรรษาคือฤดูกฐิน หนึ่งเดือนที่วัดยังรอเจ้าภาพ — วัดเล็ก ๆ นอกเมืองมักยังไม่มีคนจอง",
       "merit_en": "Ok Phansa opens kathina season — one month in which a wat may still be waiting for a host. The small out-of-town wats are usually the ones still unspoken for.",
       "verify_th": null,
@@ -985,21 +1017,31 @@
       "venues": [
         {
           "th": "แม่น้ำปิง สะพานนวรัฐ",
-          "en": "Ping River at Nawarat Bridge"
+          "en": "Ping River at Nawarat Bridge",
+          "note_th": "จุดลอยกระทงหลักของเมือง ริมน้ำสองฝั่งรอบสะพานคนแน่นที่สุด — ยืนบนสะพานเห็นทั้งกระทงในน้ำและโคมบนฟ้าพร้อมกัน",
+          "note_en": "The city's main krathong bank; both riversides around the bridge are the busiest stretch — from the bridge itself you see krathongs on the water and lanterns overhead at once"
         },
         {
           "th": "ประตูท่าแพ",
-          "en": "Tha Phae Gate"
+          "en": "Tha Phae Gate",
+          "note_th": "เวทีหลัก ขบวนแห่ ซุ้มโคม และการประกวด — จุดถ่ายรูปโคมแขวนที่คึกคักที่สุด",
+          "note_en": "Main stage, parades, lantern arches and contests — the liveliest spot for the hanging-lantern displays"
         },
         {
           "th": "ข่วงอนุสาวรีย์สามกษัตริย์",
-          "en": "Three Kings Monument"
+          "en": "Three Kings Monument",
+          "note_th": "พิธีเปิดและการแสดงวัฒนธรรม บรรยากาศงานเมืองแบบเป็นทางการ",
+          "note_en": "Opening ceremonies and cultural performances — the formal civic side of the festival"
         },
         {
           "th": "ริมแม่น้ำกก เมืองเชียงราย",
-          "en": "Kok River bank, Chiang Rai town"
+          "en": "Kok River bank, Chiang Rai town",
+          "note_th": "จุดลอยกระทงของเชียงราย",
+          "note_en": "Chiang Rai's own krathong bank"
         }
       ],
+      "cost_th": "งานในเมืองเข้าฟรีทั้งหมด — ขบวนแห่ ริมน้ำ โคมที่ประตูเมืองและวัด ไม่มีบัตรผ่านประตู จ่ายเฉพาะของที่ลอยหรือปล่อย: กระทงใบตองตามแผงราว 30–100 บาท (หรือพับเองฟรีที่วัดริมน้ำหลายแห่ง) โคมลอยราว 50–100 บาท ส่วนภาพปล่อยโคมพร้อมกันนับพันลูกที่เห็นในโฆษณา เป็นงานเอกชนขายบัตรนอกเมือง ราคาราว 4,800–15,500 บาท (ราคาปี 2568)",
+      "cost_en": "The city festival itself is free — the parades, the riverbank, the lantern displays at the gates and wats have no entry ticket. You pay only for what you float or release: a banana-leaf krathong runs about 30–100 baht from street stalls (or fold your own free at several riverside wats), a sky lantern about 50–100 baht. The thousand-lanterns-at-once photos are separate privately run ticketed events outside the city, roughly 4,800–15,500 baht (2025 prices).",
       "verify_th": "การปล่อยโคมลอยหมู่ส่วนใหญ่ย้ายไปเป็นงานขายบัตรนอกเมืองแล้ว และในเขตเมืองมีการจำกัดเวลา-พื้นที่ ตามเส้นทางบิน ควรดูประกาศเขตปล่อยโคมของปีนั้น ๆ ก่อน",
       "verify_en": "Mass lantern releases are now mostly ticketed events outside the city, and releasing inside the city is restricted by time and zone around the flight paths — check the official release zones published for that year.",
       "merit_th": "กระทงใบตองย่อยสลายได้ กระทงโฟมไม่ได้ — วัดริมน้ำหลายแห่งแจกใบตองให้ทำเองฟรี",
@@ -1041,6 +1083,8 @@
           "en": "Wat Ket and Charoenrat riverside"
         }
       ],
+      "cost_th": "เดินดูฟรีเกือบทั้งหมด — นิทรรศการส่วนใหญ่ไม่เก็บเงิน เวิร์กช็อปและทอล์กบางรายการขายบัตร ดูโปรแกรมของปีนั้น",
+      "cost_en": "Free to wander for the most part — most exhibitions charge nothing; some workshops and talks are ticketed, so check that year's programme.",
       "confidence": "general-knowledge",
       "merit_th": null,
       "merit_en": null,
@@ -1086,6 +1130,8 @@
           "en": "Municipal grounds behind Chiang Mai City Hall"
         }
       ],
+      "cost_th": "ไม่มีค่าผ่านประตู — เครื่องเล่น เกม และร้านค้าในงานจ่ายเป็นรายการ",
+      "cost_en": "No gate fee — rides, games and stalls inside are paid per go.",
       "merit_th": null,
       "merit_en": null
     },
@@ -1282,13 +1328,19 @@
       "venues": [
         {
           "th": "ประตูท่าแพ เชียงใหม่",
-          "en": "Tha Phae Gate, Chiang Mai"
+          "en": "Tha Phae Gate, Chiang Mai",
+          "note_th": "จุดเคานต์ดาวน์และปล่อยโคมหลักของเชียงใหม่",
+          "note_en": "Chiang Mai's main countdown and lantern spot"
         },
         {
           "th": "หอนาฬิกาเฉลิมพระเกียรติ เชียงราย",
-          "en": "Chiang Rai clock tower"
+          "en": "Chiang Rai clock tower",
+          "note_th": "เคานต์ดาวน์รอบหอนาฬิกาพร้อมแสงสีเสียง",
+          "note_en": "Chiang Rai counts down around the clock tower with its light-and-sound show"
         }
       ],
+      "cost_th": "เคานต์ดาวน์กลางเมืองฟรี — โคมลอยมีขายหน้างาน และใช้กติกาเขตปล่อยโคมเดียวกับยี่เป็ง",
+      "cost_en": "The city countdown is free — lanterns are sold on the spot, under the same release-zone rules as Yi Peng.",
       "confidence": "general-knowledge",
       "merit_th": null,
       "merit_en": null

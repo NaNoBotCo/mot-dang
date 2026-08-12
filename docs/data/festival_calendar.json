@@ -26,6 +26,11 @@
       "name_th": "วิกิพีเดีย — ตรุษจีน",
       "name_en": "Wikipedia — Chinese New Year",
       "url": "https://en.wikipedia.org/wiki/Chinese_New_Year"
+    },
+    "at-chiangmai-inthakhin-2569": {
+      "name_th": "At-Chiangmai.com — งานประเพณีใส่ขันดอกบูชาเสาอินทขิล ประจำปี 2569",
+      "name_en": "At-Chiangmai.com — Sao Inthakhin flower-offering festival, B.E. 2569",
+      "url": "https://www.at-chiangmai.com/%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%9E%E0%B8%93%E0%B8%B5%E0%B9%83%E0%B8%AA%E0%B9%88%E0%B8%82%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%AD%E0%B8%81%E0%B8%9A%E0%B8%B9%E0%B8%8A%E0%B8%B2%E0%B9%80%E0%B8%AA%E0%B8%B2%E0%B8%AD%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%82%E0%B8%B4%E0%B8%A5-%E0%B9%80%E0%B8%AA%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B3%E0%B8%9B%E0%B8%B5-2569/"
     }
   },
   "rows": [
@@ -190,6 +195,16 @@
       "source": "wikipedia-cny",
       "note_th": "วันตรุษจีน (ปีมะแม)",
       "note_en": "Chinese New Year's Day (Year of the Goat)"
+    },
+    {
+      "festival_id": "inthakhin",
+      "year": 2026,
+      "date_start": "2026-05-13",
+      "date_end": "2026-05-20",
+      "basis": "lunar-published",
+      "source": "at-chiangmai-inthakhin-2569",
+      "note_th": "ใส่ขันดอกบูชา 13–19 พ.ค. ทำบุญออกอินทขีล (พิธีปิดงาน) 20 พ.ค. ตรงกับแรม 12 ค่ำ เดือน 8 เหนือ ถึงขึ้น 4 ค่ำ เดือน 9 เหนือ ตามฮีตเดิม",
+      "note_en": "Flower offerings run 13–19 May; the closing “Inthakhin release” rite falls 20 May — the traditional 12th waning day of the 8th Lanna month through the 4th waxing day of the 9th."
     }
   ]
 }

@@ -10,9 +10,11 @@
 > the board is the moving state.
 
 Everything here is stdlib Python, runs locally, and ships static files. Published
-pages make **zero external requests** — anything live reaches the page only through
-our own Cloudflare worker, snapshot-synced to `data/` the way `sync_toilets.py`
-already does. One gatherer at a time, politely; network-heavy fetches are
+pages carry **no tracking and no third-party behaviour scripts** — anything live
+reaches the page only through our own Cloudflare worker, snapshot-synced to
+`data/` the way `sync_toilets.py` already does. The one read-time fetch is the
+basemap on map pages (own bucket for tiles, Protomaps for label glyphs), set up
+in `map_shell.py` and nowhere else; pages without a map fetch nothing. One gatherer at a time, politely; network-heavy fetches are
 manual-trigger and get confirmed with Nan before they run.
 
 ## The pipeline, in one line

@@ -8,6 +8,76 @@ var sep=/[·—–:-]\s*$/.test(th)?'':'<span class="th" lang="th"> · </span>';
 return '<span class="bi"><span class="th" lang="th">'+th+'</span>'+
 '<span class="en" lang="en">'+sep+en+'</span></span>';}
 
+// ---- location: opt-in, never a gate -----------------------------------
+// Every geolocation call on this site goes through here, for one reason: a
+// browser permission prompt fired at a reader who has not asked for it is a
+// hard stop, and in Thailand it is a hard stop that reads as a risk rather
+// than a feature. People who back out of that dialog do not come back to the
+// page — they leave, and nothing in our logs would ever tell us.
+//
+// So: nothing here runs on load. The prompt is reachable only from a tap on
+// a control that says what it does, our own plain-language dialog goes in
+// front of the browser's, and "no" is answered once and kept. Every caller
+// gets a usable coordinate whether or not permission was ever granted,
+// because the fallback is a named landmark, not an empty state.
+const MDLOC=(()=>{
+let OFF=false,gate=null;
+// Two places people actually give directions from. The site spans two
+// provinces, so the caller passes a latitude it already has on the page and
+// gets back the right one — no third request to work out where "here" is.
+const DEF={cm:{lat:18.7876,lng:98.9931,th:'ประตูท่าแพ',en:'Tha Phae Gate',src:'default'},
+           cr:{lat:19.9094,lng:99.8325,th:'หอนาฬิกาเชียงราย',en:'Clock Tower',src:'default'}};
+const near=lat=>(typeof lat==='number'&&lat>19.3)?DEF.cr:DEF.cm;
+// A remembered origin is a place the reader chose, never a fix we were
+// handed: a GPS coordinate is not written to disk anywhere on this site.
+function origin(lat){
+try{const v=JSON.parse(localStorage.getItem('md-origin'));
+if(v&&typeof v.lat==='number'&&v.src!=='gps')return v;}catch(e){}
+return near(lat);}
+function remember(o){if(o&&o.src!=='gps'){
+try{localStorage.setItem('md-origin',JSON.stringify(o));}catch(e){}}return o;}
+// Said no once, asked never again — and the doors go with it, because a
+// control that reopens a dialog the reader already refused is how a site
+// teaches people to distrust it on sight.
+function kill(){OFF=true;close();
+document.querySelectorAll('[data-gps-door]').forEach(el=>el.remove());}
+function close(){if(gate){gate.remove();gate=null;}}
+function build(onYes){
+gate=document.createElement('div');
+gate.className='mdgate';gate.setAttribute('role','dialog');
+gate.setAttribute('aria-modal','true');gate.setAttribute('aria-label',
+'ใช้ตำแหน่งจริงของคุณไหม / Use your real location?');
+gate.innerHTML='<div class="mdgatebox"><b>'+
+mdBi('ใช้ตำแหน่งจริงของคุณไหม','Use your real location?')+'</b><p>'+
+mdBi('ตำแหน่งของคุณอยู่ในเครื่องคุณเท่านั้น ไม่ถูกส่งออกไปไหน และไม่ถูกเก็บไว้ ใช้เพื่อเรียงลำดับในหน้านี้อย่างเดียว',
+'Your location never leaves this device. It is not sent anywhere and not stored — it only sorts this page.')+
+'</p><div class="mdgateacts"><button type="button" data-g="y">'+
+mdBi('📍 ใช้ตำแหน่งของฉัน','Use my location')+'</button>'+
+'<button type="button" data-g="n" class="mdgateno">'+mdBi('ไม่ต้อง','Not now')+
+'</button></div></div>';
+document.body.appendChild(gate);
+gate.querySelector('[data-g="y"]').addEventListener('click',()=>{close();onYes();});
+gate.querySelector('[data-g="n"]').addEventListener('click',kill);
+gate.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+gate.querySelector('[data-g="y"]').focus();}
+// ok(point) on a real fix; nope() every other way this can end — refused,
+// timed out, unsupported, or already denied at the OS level. Callers use
+// nope() to fall back to something that works, never to show an error.
+function ask(ok,nope){
+if(OFF||!navigator.geolocation){nope&&nope();return;}
+build(()=>{navigator.geolocation.getCurrentPosition(
+p=>ok({lat:p.coords.latitude,lng:p.coords.longitude,src:'gps'}),
+()=>{kill();nope&&nope();},
+{enableHighAccuracy:true,timeout:10000,maximumAge:60000});});}
+// Ask the browser what it already knows, so a door is never shown for a
+// permission the OS has already refused.
+if(navigator.permissions&&navigator.permissions.query){
+try{navigator.permissions.query({name:'geolocation'}).then(st=>{
+if(st.state==='denied')kill();
+st.onchange=()=>{if(st.state==='denied')kill();};}).catch(()=>{});}catch(e){}}
+return {ask,origin,remember,kill,near,get off(){return OFF;}};
+})();
+
 // ---- language: Thai, both, or English ---------------------------------
 // Default is both. Someone who reads only one of the two should not have to
 // find a control before the page makes sense to them. An earlier explicit
@@ -37,7 +107,7 @@ if(resBox){(async()=>{
 const q=new URLSearchParams(location.search).get('q')||'';
 document.querySelector('form.seek input').value=q;
 const idx=await loadIndex();const needle=q.toLowerCase();
-const hits=q?idx.filter(e=>(e.n+' '+(e.e||'')).toLowerCase().includes(needle)).slice(0,200):[];
+const hits=q?idx.filter(e=>(e.n+' '+(e.e||'')+' '+(e.a||'')).toLowerCase().includes(needle)).slice(0,200):[];
 document.getElementById('rescount').textContent=q?`${hits.length}`:'';
 resBox.innerHTML=hits.map(e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
 `${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
@@ -186,6 +256,21 @@ wxBoxes.forEach(b=>{b.checked=wxSel.includes(b.dataset.wxc);
 b.addEventListener('change',()=>{wxSel=wxBoxes.filter(x=>x.checked).map(x=>x.dataset.wxc);
 wSave('md.wx',wxSel);wxDraw();});});
 wxDraw();}
+// --- air: same picker as the weather tile, its own stored choice
+const airPanes=[...document.querySelectorAll('.airpane')];
+if(airPanes.length){
+let airSel=wLoad('md.air',['chiang-mai']);
+const airBoxes=[...document.querySelectorAll('[data-airc]')];
+const airDraw=()=>{if(!airSel.length)airSel=['chiang-mai'];
+airPanes.forEach(p=>{p.hidden=true;});
+let i=0;const show=()=>{const id=airSel[i%airSel.length];
+airPanes.forEach(p=>{p.hidden=p.dataset.airpane!==id;});i++;};
+show();clearInterval(window.__airT);
+if(airSel.length>1)window.__airT=setInterval(show,4000);};
+airBoxes.forEach(b=>{b.checked=airSel.includes(b.dataset.airc);
+b.addEventListener('change',()=>{airSel=airBoxes.filter(x=>x.checked).map(x=>x.dataset.airc);
+wSave('md.air',airSel);airDraw();});});
+airDraw();}
 // --- clocks: Intl does the conversion, so nothing is fetched
 const tzRows=[...document.querySelectorAll('.tzrow')];
 if(tzRows.length){
@@ -281,13 +366,15 @@ items.forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appen
 dirList.classList.remove('ranked');
 document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('on'));
 byName.classList.add('on');});
-byDist&&byDist.addEventListener('click',()=>{
-navigator.geolocation.getCurrentPosition(pos=>{
-const{latitude:la,longitude:lo}=pos.coords,R=6371;
+// Sorting by distance from a point the reader granted us. The old version
+// called getCurrentPosition straight off the tap and, when that was refused,
+// raised an alert() — a dead end whose only cause was "no location", which
+// is precisely the screen this site must never show.
+const sortByDist=pt=>{const R=6371;
 items.forEach(li=>{const lat=parseFloat(li.dataset.lat),lng=parseFloat(li.dataset.lng);
 if(isNaN(lat)){li.dataset.km=1e9;return;}
-const dLa=(lat-la)*Math.PI/180,dLo=(lng-lo)*Math.PI/180;
-const h=Math.sin(dLa/2)**2+Math.cos(la*Math.PI/180)*Math.cos(lat*Math.PI/180)*Math.sin(dLo/2)**2;
+const dLa=(lat-pt.lat)*Math.PI/180,dLo=(lng-pt.lng)*Math.PI/180;
+const h=Math.sin(dLa/2)**2+Math.cos(pt.lat*Math.PI/180)*Math.cos(lat*Math.PI/180)*Math.sin(dLo/2)**2;
 li.dataset.km=2*R*Math.asin(Math.sqrt(h));});
 items.sort((a,b)=>a.dataset.km-b.dataset.km);
 items.forEach(li=>{let d=li.querySelector('.dist');const km=parseFloat(li.dataset.km);
@@ -296,8 +383,12 @@ d.textContent=' · '+(km<1?Math.round(km*1000)+' ม.':km.toFixed(1)+' กม.')
 dirList.appendChild(li);});
 dirList.classList.remove('ranked');
 document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('on'));
-byDist.classList.add('on');},
-()=>alert('เปิดตำแหน่งที่ตั้งเพื่อเรียงตามระยะทาง / allow location to sort by distance'));});
+byDist&&byDist.classList.add('on');};
+// Refused, or already denied at the OS level. The list still sorts — by name,
+// which is the order it was in — and the distance door removes itself rather
+// than sitting there waiting to ask again.
+const distDeclined=()=>{byName&&byName.click();};
+byDist&&byDist.addEventListener('click',()=>{MDLOC.ask(sortByDist,distDeclined);});
 // ---- ant rank sorts: most complete / recently walked / needs love ----
 // The two completeness sorts also reveal the per-row 🐜N chips (.ranked on
 // the list): once the reader has asked "which listings are filled in", the
@@ -1312,11 +1403,19 @@ document.querySelectorAll('.pmbtn').forEach(x=>{const on=x.dataset.mode===planMo
 x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
 document.getElementById('planclearbtn').addEventListener('click',()=>{
 places=[];planSet([]);incoming=null;elBanner.style.display='none';render();});
-document.getElementById('planlocbtn').addEventListener('click',()=>{
-navigator.geolocation.getCurrentPosition(pos=>{
-here={lat:pos.coords.latitude,lng:pos.coords.longitude};
-document.getElementById('planlocbtn').classList.add('on');render();},
-()=>alert('เปิดตำแหน่งที่ตั้งก่อน / allow location first'));});
+// Where the run starts. With nothing granted the route simply begins at the
+// first stop, which is a complete answer — so this button adds precision, it
+// does not unlock the feature. Declining used to raise an alert() and leave
+// the reader exactly where they were; it now starts the run from the landmark
+// nearest the plan instead, and says which one.
+const planLoc=document.getElementById('planlocbtn');
+planLoc&&planLoc.addEventListener('click',()=>{MDLOC.ask(pt=>{
+here=pt;planLoc.classList.add('on');render();},
+()=>{const o=MDLOC.origin(places.length?places[0].lat:null);
+here={lat:o.lat,lng:o.lng};MDLOC.remember(o);
+planLoc.classList.add('on');
+planLoc.innerHTML='📍 '+mdBi('เริ่มจาก'+o.th,'Starting from '+o.en);
+render();});});
 // Nearest-neighbour from wherever the run starts. Not the optimal tour, and
 // it does not pretend to be — with eight stops it is close enough to save
 // real riding, and it stays legible: "always go to the nearest one next".

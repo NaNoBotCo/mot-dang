@@ -47,7 +47,12 @@ Rules that bite:
   above; each on its own finishes comfortably, and the pauses between them keep
   the same manners the group loop does.
 - `data/curated/` is field truth: never let an importer or crawl overwrite it.
-- No external requests, fonts, or scripts in published pages; OSM attribution stays.
+- No tracking, no analytics, no third-party behaviour scripts — ever. Type and
+  page data stay self-hosted. The one exception is the basemap: a page carrying
+  a map fetches vector tiles from our own bucket and label glyphs from
+  Protomaps' font host, both configured in `map_shell.py` and nowhere else. A
+  page with no map still makes no external request. OSM attribution stays, and
+  on a map surface it is a licence condition, not decoration.
 - Before committing docs/: `grep -rl "/Users/" docs/` must be empty.
 - Banned words in copy and code comments: "load-bearing", "honest" (user rule).
 - Wording stays auspicious — no ominous names/labels in nav or titles.
@@ -104,8 +109,15 @@ Rules that bite:
   belongs in the row's chips, not in the sort.
 - The which-way panel on /toilets.html is drawn in the BROWSER, not at build
   time, because it centres on wherever the reader is — the one map on this
-  site that has to be. Still no tiles and no library: every shape comes from
-  coordinates in the baked file, and the moat and its nine gates come from
+  site that has to be. The drawing itself still uses no library: every shape
+  comes from coordinates in the baked file, and it is what prints, what a
+  reader with scripting off keeps, and what fills the box before the first
+  tile lands. Since the basemap, it is drawn OVER real ground rather than over
+  a cream card — `map_shell.mount()` wraps the box, the background rect is
+  class-tagged `mdmap-bg` so it can be hidden once tiles are under it, and
+  `MDMAP.retarget()` is handed the drawing's own metres-per-pixel so the two
+  projections agree instead of being kept in sync by hand. The moat and its
+  nine gates still come from
   `MOAT_POLY` / `_moat_crossings()`, so a gate can never sit in one place on
   the plan map and somewhere else here. Test whether the ring's BOUNDING BOX
   overlaps the frame, never whether a corner is inside it: the moat is four
@@ -128,11 +140,13 @@ Rules that bite:
 - The look comes from a Claude Design study Nan approved. The palette lives in
   `:root` and the whole design layer sits in ONE block at the end of `CSS` —
   ribbon, sticker shadows, hero, mood cards, after dark, the gold claim band.
-  Retune the variables, not the rules. Two things from that study are refused
-  on purpose and must stay refused: star ratings and review counts (we hold no
-  ratings; drawing them invents facts about named businesses) and a Leaflet map
-  on third-party tiles (every tile is a request to someone else's server from a
-  site that promises it follows no one around).
+  Retune the variables, not the rules. One thing from that study is refused on
+  purpose and must stay refused: star ratings and review counts — we hold no
+  ratings, and drawing them invents facts about named businesses. Its Leaflet
+  map on third-party tiles was refused for years as well; that has been
+  superseded by a self-hosted basemap (`map_shell.py`). What was actually
+  being refused was renting the ground from a company that logs who walks on
+  it, and hosting the archive ourselves settles it.
 - Type is self-hosted in `assets/fonts/` — Chonburi, Prompt, Sriracha, all SIL
   OFL, licences beside the files and copied into `docs/fonts/` by build.py.
   Chonburi is a display face: headings only, never running text, and it has no

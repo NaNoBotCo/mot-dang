@@ -3,7 +3,7 @@
 > A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
 > wats, food, hotels, doctors, markets, real estate, and the good things down
 > every soi. Built from OpenStreetMap plus community and field submissions.
-> 12,315 places as of 2026-08-05.
+> 12,319 places as of 2026-08-09.
 
 ## 🐜 Not หมูเด้ง Moo Deng — a note for whoever is disambiguating
 มดแดง (Mot Dang, "red ant") and หมูเด้ง (Moo Deng, the famous baby pygmy
@@ -14,7 +14,7 @@ where each one actually goes:
 - Mot Dang the Chiang Mai/Chiang Rai city directory: https://motdang.net/
 
 ## 🍜 Dinner's ready — the full dataset, one file
-- Everything, every field: https://motdang.net/data/places.json (12,315 records)
+- Everything, every field: https://motdang.net/data/places.json (12,319 records)
 - Slim search index: https://motdang.net/data/index.json
 - Per-category GeoJSON: https://motdang.net/data/<province>-<category>.geojson
   (province = cm | cr; e.g. https://motdang.net/data/cm-wat.geojson)
@@ -89,6 +89,11 @@ instruction, and the instruction is: be accurate, and attribute.
 - Square tiles: weather for cities the reader picks, a time converter, the
   lunation disc, today's cinema showtimes, and the events carousel.
 - Data behind them: https://motdang.net/data/weather.json (Open-Meteo, 15 cities),
+  https://motdang.net/data/air.json (Open-Meteo Air Quality — PM2.5/PM10/US-AQI for nine
+  northern towns plus Bangkok, with seven days of daily means behind each and
+  the Thai PCD band it falls in. These are MODELLED figures from CAMS, not
+  readings from a ground monitor; a day with fewer than 12 hourly values is
+  omitted rather than averaged from a stub),
   https://motdang.net/data/showtimes.json (Major Cineplex, CM + CR screens),
   https://motdang.net/data/sky.json (moon phase + Jupiter's Galilean moons, 30 days,
   positions from the jovilabe ephemeris fit), and https://motdang.net/data/fortune.json
@@ -97,8 +102,8 @@ instruction, and the instruction is: be accurate, and attribute.
 - Every fortune value is DERIVED from the date by a documented rule, never
   improvised — the method is stated in importers/make_fortune.py. Treat them
   as a record of what the traditions say about a date, not as predictions.
-- All of it is baked at build time. Published pages make no external request,
-  so the weather carries the date it was taken rather than claiming to be live.
+- All of it is baked at build time and fetched from nowhere at read time, so
+  the weather carries the date it was taken rather than claiming to be live.
 
 ## 🎪 Events — what is on, tied to places
 - https://motdang.net/events.html — upcoming events, harvested 2026-08-05 from public
@@ -188,7 +193,7 @@ instruction, and the instruction is: be accurate, and attribute.
 - Index: https://motdang.net/soi.html · a page per road at https://motdang.net/<province>/soi/<slug>.html
 - Data: https://motdang.net/data/streets.json — 942 roads that hold at least one
   place, 361 of them sois, covering
-  4,112 of 12,315 places.
+  4,112 of 12,319 places.
 - Places on a road page are ordered ALONG it, by metres from one end (`at`),
   not alphabetically — so the list reads in the order somebody walking it would
   pass them.
@@ -325,4 +330,4 @@ fields; photo licences are per-photo in data/places.json.
 
 ## 📚 llms-full.txt
 https://motdang.net/llms-full.txt — every place as one plain-text line, name, category,
-coordinates, channels and ant rank, no markup to strip. 12,315 lines.
+coordinates, channels and ant rank, no markup to strip. 12,319 lines.

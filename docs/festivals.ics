@@ -43,6 +43,15 @@ DESCRIPTION:Published Thai lunar-calendar date\, checked against Wikipedia — C
 URL:https://motdang.net/festivals/chinese-new-year.html
 END:VEVENT
 BEGIN:VEVENT
+UID:lunar-inthakhin-2026-05-13@motdang.net
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260513
+DTEND;VALUE=DATE:20260521
+SUMMARY:อินทขีล (เข้าอินทขีล) · Inthakhin — Chiang Mai City Pillar Festival
+DESCRIPTION:Published Thai lunar-calendar date\, checked against At-Chiangmai.com — Sao Inthakhin flower-offering festival\, B.E. 2569. https://www.at-chiangmai.com/%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%9E%E0%B8%93%E0%B8%B5%E0%B9%83%E0%B8%AA%E0%B9%88%E0%B8%82%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%AD%E0%B8%81%E0%B8%9A%E0%B8%B9%E0%B8%8A%E0%B8%B2%E0%B9%80%E0%B8%AA%E0%B8%B2%E0%B8%AD%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%82%E0%B8%B4%E0%B8%A5-%E0%B9%80%E0%B8%AA%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B3%E0%B8%9B%E0%B8%B5-2569/
+URL:https://motdang.net/festivals/inthakhin.html
+END:VEVENT
+BEGIN:VEVENT
 UID:lunar-khao-phansa-2026-07-30@motdang.net
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260730

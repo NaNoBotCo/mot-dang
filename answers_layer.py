@@ -23,9 +23,9 @@ directory can answer better than anything else.
                        page. The count is a promise: tests fail if the number
                        in the heading drifts from the rows on the page.
 
-House rules as everywhere: Thai canonical with EN as a display layer, no
-external requests from published pages, provenance stated, silence never
-dressed up as "no".
+House rules as everywhere: Thai canonical with EN as a display layer, nothing
+that reports a reader to anybody, provenance stated, silence never dressed up
+as "no". These pages carry no map, so they fetch nothing at read time.
 
 Entry point: emit(globals_of_build, data) — call after festivals_layer.emit
 (it reads g["_ANNOUNCED"]) and before the sitemap step so every page lands in

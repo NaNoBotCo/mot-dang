@@ -499,7 +499,7 @@ def _prov_label(f, g):
 def festival_ld(f, g, places):
     """schema.org for a recurring festival: a Festival with an eventSchedule,
     not an Event with a made-up date. Google reads Event markup directly, and
-    the honest shape of this thing is 'happens every year, roughly then'."""
+    the true shape of this thing is 'happens every year, roughly then'."""
     sched = {"@type": "Schedule", "repeatFrequency": "P1Y",
              "byMonth": (f.get("months") or [f["month"]]),
              "scheduleTimezone": "Asia/Bangkok",
@@ -588,6 +588,13 @@ def build_festival_page(f, g, events, idx, prov_of, neighbours):
         parts.append(f'<div class="merit"><b>🙏 {bi("ไปยังไง เตรียมอะไร", "How to take part")}</b><br>'
                      f'{bi(f["merit_th"], f["merit_en"])}</div>')
 
+    # The question people actually type about the flagship nights: what is
+    # free and what is a ticket. Canon strings arrive HTML-ready, same trust
+    # as blurb/merit above.
+    if f.get("cost_th"):
+        parts.append(f'<h2>{bi("เข้าฟรีไหม", "Do you pay to attend?")}</h2>'
+                     f'<p>{bi(f["cost_th"], f["cost_en"])}</p>')
+
     o = f.get("observance")
     if o:
         marks = []
@@ -611,7 +618,10 @@ def build_festival_page(f, g, events, idx, prov_of, neighbours):
                         link = (f' — <a href="../{pv}/p/{g["place_slug"](r)}.html">'
                                 f'{bi("ดูหน้าสถานที่", "place page")}</a>')
                     break
-            rows.append(f'<li>{bi(v["th"], v.get("en", ""))}{link}</li>')
+            note = (f'<br><span class="tinynote">'
+                    f'{bi(v["note_th"], v.get("note_en", ""))}</span>'
+                    if v.get("note_th") else "")
+            rows.append(f'<li>{bi(v["th"], v.get("en", ""))}{link}{note}</li>')
         parts.append(f'<h2>{bi("จัดที่ไหน", "Where it happens")}</h2>'
                      f'<ul class="venuelist">{"".join(rows)}</ul>')
 

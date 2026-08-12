@@ -38,7 +38,11 @@ build.py still runs fine — QR boxes are just skipped.
 - **Field/curated truth beats crawled truth** — records in `data/curated/` always
   win over a crawl refresh (same discipline as mueang-map).
 - **Provenance on every page** — source type + fetch date shown to readers.
-- **No tracking, no third-party scripts, no external requests** on published pages.
+- **No tracking, no analytics, no third-party behaviour scripts.** Type and page
+  data are self-hosted and baked. One exception, on map pages only: the basemap
+  fetches vector tiles from our own bucket and label glyphs from Protomaps'
+  font host, both configured in `map_shell.py`. A page with no map makes no
+  external request at all. Nothing anywhere reports a reader to anybody.
   Ads, when they come, are flat-rate text + tasteful static cards marked ผู้สนับสนุน.
 - **Never publish local paths**; build output is checked. Publish only as NaNoBotCo.
 
@@ -131,8 +135,9 @@ afternoon.
   can be handed to somebody over LINE. Arriving by a shared link never
   overwrites the reader's own plan silently — a banner offers to keep it.
 - **One map, drawn in Python-free JS** — same inline-SVG approach as the events
-  map (no Leaflet, no tiles, no external requests): numbered pins, both routed
-  lines, a scale bar, a legend, and the moat for orientation.
+  map, no library: numbered pins, both routed lines, a scale bar, a legend, and
+  the moat for orientation. (Not yet wired to the basemap shell; when it is,
+  the drawing stays exactly as it is and gains streets underneath.)
 - **Routed on real streets, per mode.** See below — this is the part worth
   knowing about.
 - **Out**: reorder by hand or by nearest-on-the-network, ⬇ download as a

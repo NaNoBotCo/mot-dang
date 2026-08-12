@@ -17,3 +17,10 @@ _incoming/
 # the signed APK the site serves is the copy in docs/app/
 app/out/
 app/www/data/
+
+# The basemap archive: 116 MB, over GitHub's 100 MB per-file limit and pointless
+# in git anyway (it is a build artifact of a dated Protomaps planet build — the
+# exact command is recorded in data/basemap.json). Lives in R2; regenerate with
+# that command if it is ever lost.
+assets/tiles/*.pmtiles
+docs/tiles/

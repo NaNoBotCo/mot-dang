@@ -38,7 +38,7 @@ Not animation. Not micro-interactions. Not a design system. The site is delibera
 
 **Nothing is for sale except the ad box.** No paid placement, no boosted listings, no lead fees, no commission, no ranking that money can move. Advertising sits in a marked box and never mixes into a listing. If a proposal quietly breaks this, it is not a proposal, it is the end of the project's reason to exist.
 
-**Provenance beats volume.** Another thousand crawled records with no contact details is worth less than a hundred with a dated source. The 0-to-9 distribution is honest and unflattering — most places sit at 0 to 2 — and that is fine. Do not inflate a score to make a page look better.
+**Provenance beats volume.** Another thousand crawled records with no contact details is worth less than a hundred with a dated source. The 0-to-9 distribution is truthful and unflattering — most places sit at 0 to 2 — and that is fine. Do not inflate a score to make a page look better.
 
 **Marks are dated or they are not published.** Michelin, เชลล์ชวนชิม, royal grade: every entry in `data/curated/honours.json` carries `edition`/`sources`, and the badge prints the year. A mark with a year stays true forever. A mark without one rots into a lie. Nothing goes into the verified lists without a URL that was actually fetched; leads live in `unverified` and never render.
 
@@ -87,11 +87,11 @@ In the order they should be paid.
 2. **Unlisted by default for people.** URL and QR reachable; absent from the category index, the sitemap, `places.json` and `llms-full.txt`; `noindex`; opt in to indexing separately. See the fourth persona for why this is not optional.
 3. **`hello@motdang.net`** on the domain, forwarding wherever, replacing the free mailbox in `config.json`.
 4. **The Shan needs a human.** Fifteen minutes of a Shan speaker's time clears the banner.
-5. **The 2026 Michelin roster and the เชลล์ชวนชิม holders** need a real browser — the filter pages render client-side and `shellshuanshim.com` serves an expired certificate. The 2022-edition entries currently on the site are dated and therefore honest, but they are four editions stale.
+5. **The 2026 Michelin roster and the เชลล์ชวนชิม holders** need a real browser — the filter pages render client-side and `shellshuanshim.com` serves an expired certificate. The 2022-edition entries currently on the site are dated and say so, but they are four editions stale.
 6. **Ask whether a sponsor block belongs on a wat page.**
 
 ## Where things live
 
 `build.py` — the whole site generator, stdlib only, `docs/` is the output and is committed. `festivals_layer.py` — festival pages, imported by the build. `make_og_cards.py` — per-place share cards into `assets/og/`, Chrome-rendered because Pillow here cannot shape Thai. `make_handouts.py` — the printed A4s into `assets/handouts/`, same reason plus Shan. `importers/` — everything that touches the network, run deliberately, never during a build. `data/curated/` — hand-kept field truth that no importer may overwrite. `data/config.json` — the channels. `worker/` — the Cloudflare Worker that takes claims.
 
-The build makes no external request. Published pages make no external request. Keep both true.
+The build makes no external request — keep that true; `importers/` is where the network lives, run deliberately and never during a build. Published pages make no external request either, with one exception: a page carrying a map fetches the basemap (tiles from our own bucket, label glyphs from Protomaps). `map_shell.py` is the only module that may configure that, and adding a second place tiles are set up is the thing to refuse. No page, map or not, ever reports a reader to anybody.

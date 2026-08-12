@@ -302,6 +302,144 @@ def address_of(t):
     return line or None, parts
 
 
+# Plain yes/no/qualified tags. The value is kept as the mapper wrote it:
+# "yes", "no", "limited", "customers" and "only" all mean different things and
+# flattening them to a boolean would throw the qualification away.
+FEATURE_TAGS = {
+    "wheelchair": "wheelchair",
+    "outdoor_seating": "outdoorSeating",
+    "indoor_seating": "indoorSeating",
+    "air_conditioning": "airConditioning",
+    "smoking": "smoking",
+    "takeaway": "takeaway",
+    "delivery": "delivery",
+    "drive_through": "driveThrough",
+    "self_service": "selfService",
+    "changing_table": "changingTable",
+    "atm": "atmOnSite",
+    "toilets": "toilets",
+    "toilets:wheelchair": "toiletsWheelchair",
+    "fee": "fee",
+    "access": "access",
+}
+
+# Straight copies. Renamed only where the OSM key would collide with a field
+# this catalogue already uses for something else — addr:province is the
+# postal province, not the record's own `province`, so it keeps its own name.
+SCALAR_TAGS = {
+    "level": "level",
+    "building:levels": "buildingLevels",
+    "stars": "stars",
+    "rooms": "rooms",
+    "capacity": "capacity",
+    "brand:th": "brandTh",
+    "brand:en": "brandEn",
+    "operator:th": "operatorTh",
+    "operator:en": "operatorEn",
+    "brand:wikipedia": "brandWikipedia",
+    "description": "description",
+    "description:en": "descriptionEn",
+    "description:th": "descriptionTh",
+    "addr:city": "city",
+    "addr:province": "addrProvince",
+    "source": "osmSource",
+}
+
+
+def features_of(t):
+    """Facts the crawl already fetched and the first importer never read.
+
+    Same family as the addr:* find — the network cost was paid on the first
+    pass, these keys simply fell on the floor between the cache and the
+    record. Nothing here is inferred: a tag that is absent is left out
+    entirely rather than written as a "no", because on this site silence
+    means nobody has said, not that the answer is no.
+
+    Two things are deliberately NOT taken. `note` and `fixme` are mapper-to-
+    mapper working notes, not facts about the place. `internet_access:password`
+    is somebody's credential — public in OSM does not make it ours to
+    republish beside their phone number.
+    """
+    a = {}
+    for tag, key in FEATURE_TAGS.items():
+        v = (t.get(tag) or "").strip()
+        if v:
+            a[key] = v
+    for tag, key in SCALAR_TAGS.items():
+        v = (t.get(tag) or "").strip()
+        if v:
+            a[key] = v
+
+    # Wi-Fi. `internet_access` is the current tag and by far the commonest;
+    # a bare `wifi` is the older form and still occurs. Whether it costs is a
+    # separate question from whether it exists, so it keeps its own key.
+    net = (t.get("internet_access") or t.get("wifi") or "").strip()
+    if net:
+        a["wifi"] = net
+    for tag, key in (("internet_access:fee", "wifiFee"),
+                     ("internet_access:ssid", "wifiSsid")):
+        v = (t.get(tag) or "").strip()
+        if v:
+            a[key] = v
+
+    # When a person last stood in front of the place. Link health says whether
+    # a website still answers; this is the only first-hand signal in the
+    # dataset that somebody checked the shop itself.
+    for tag in ("check_date", "survey:date"):
+        v = (t.get(tag) or "").strip()
+        if v:
+            a.setdefault("checkedOn", v)
+
+    # The other names people actually use. Never rendered anywhere, but they
+    # are what a reader types into the search box.
+    alts = [v.strip() for v in (t.get("alt_name"), t.get("alt_name:en"),
+                                t.get("short_name"), t.get("old_name"))
+            if v and v.strip()]
+    if alts:
+        a["altNames"] = list(dict.fromkeys(alts))
+    other = {lang: t["name:" + lang].strip()
+             for lang in ("zh", "ja", "ko", "fr", "de", "ru", "es")
+             if (t.get("name:" + lang) or "").strip()}
+    if other:
+        a["namesOther"] = other
+
+    # How you pay. "Cash only" is the fact a reader most wants before setting
+    # out, and OSM states it plainly often enough to be worth carrying.
+    pay = {key: t[tag].strip() for tag, key in (
+        ("payment:cash", "cash"), ("payment:credit_cards", "credit"),
+        ("payment:debit_cards", "debit"), ("payment:cards", "cards"),
+        ("payment:qr_code", "qr"), ("payment:visa", "visa"),
+        ("payment:mastercard", "mastercard"),
+    ) if (t.get(tag) or "").strip()}
+    if pay:
+        a["payment"] = pay
+
+    # A small, real, entirely local cluster that no other directory of this
+    # city carries. Only an outright yes counts — these tags are also used to
+    # record that a place stopped accepting it.
+    crypto = [name for tag, name in (
+        ("currency:XBT", "bitcoin"), ("payment:onchain", "on-chain"),
+        ("payment:lightning", "lightning"),
+        ("payment:lightning_contactless", "lightning-contactless"),
+        ("currency:XMR", "monero"),
+    ) if (t.get(tag) or "").strip() in ("yes", "only")]
+    if crypto:
+        a["crypto"] = crypto
+
+    diet = {k.split(":", 1)[1]: v.strip() for k, v in t.items()
+            if k.startswith("diet:") and (v or "").strip()}
+    if diet:
+        a["diet"] = diet
+
+    # Which pumps. On a town of scooters the question is never "is there a
+    # petrol station" but "does that one have gasohol 91 / E20 / LPG".
+    fuel = sorted(k.split(":", 1)[1] for k, v in t.items()
+                  if k.startswith("fuel:") and (v or "").strip() == "yes")
+    if fuel:
+        a["fuel"] = fuel
+    return a
+
+
 def records(province="cm"):
     out = []
     cache = ROOT / "cache" / "overpass" / province
@@ -342,6 +480,7 @@ def records(province="cm"):
                 "hours": t.get("opening_hours"),
                 "attrs": {k: v for k, v in {
                     **addr_parts,
+                    **features_of(t),
                     "brand": t.get("brand"), "cuisine": t.get("cuisine"),
                     "operator": t.get("operator"), "lineId": line,
                     "email": t.get("email") or t.get("contact:email"),

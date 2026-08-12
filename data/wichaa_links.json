@@ -1,0 +1,4196 @@
+{
+ "generated": "2026-08-09",
+ "host": "https://wichaa.pages.dev",
+ "host_note": "answered",
+ "rule": "exact Thai name AND within 400 m — a name alone is not identity, three provinces hold a วัดสวนดอก",
+ "vault_notes": 1494,
+ "matched": 523,
+ "same_name_elsewhere": 12,
+ "too_close_to_call": 19,
+ "links": {
+  "cm-osm-node-1014323487": {
+   "slug": "wat-ko-klang-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-ko-klang-chiang-mai/",
+   "name_th": "วัดเกาะกลาง",
+   "name_roman": "Wat Ko Klang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-10836850760": {
+   "slug": "wat-phuttharam-ban-waen",
+   "url": "https://wichaa.pages.dev/place/wat-phuttharam-ban-waen/",
+   "name_th": "วัดพุทธารามบ้านแหวน",
+   "name_roman": "Wat Phuttharam Ban Waen",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-1121219664": {
+   "slug": "wat-wari-sutthawat",
+   "url": "https://wichaa.pages.dev/place/wat-wari-sutthawat/",
+   "name_th": "วัดวารีสุทธาวาส",
+   "name_roman": "Wat Wari Sutthawat",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-11226861564": {
+   "slug": "chao-pho-chaeng-katam-shrine",
+   "url": "https://wichaa.pages.dev/place/chao-pho-chaeng-katam-shrine/",
+   "name_th": "ศาลเจ้าพ่อหลักเมืองแจ่งกระต๊ำ",
+   "name_roman": "Chao Pho Chaeng Katam Shrine",
+   "type": "san_chao_pho",
+   "metres": 0
+  },
+  "cm-osm-node-11228426107": {
+   "slug": "wat-san-sai-tohn-gawk",
+   "url": "https://wichaa.pages.dev/place/wat-san-sai-tohn-gawk/",
+   "name_th": "วัดสันทรายต้นกอก",
+   "name_roman": "Wat San Sai Tohn-Gawk",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-1445519684": {
+   "slug": "wat-umong-suan-buddha-dhamma",
+   "url": "https://wichaa.pages.dev/place/wat-umong-suan-buddha-dhamma/",
+   "name_th": "วัดอุโมงค์(สวนพุทธรรม)",
+   "name_roman": "Wat Umong (Suan Buddha Dhamma)",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-1445519685": {
+   "slug": "wat-chiang-yuen",
+   "url": "https://wichaa.pages.dev/place/wat-chiang-yuen/",
+   "name_th": "วัดเชียงยืน",
+   "name_roman": "Wat Chiang Yuen",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-1445519696": {
+   "slug": "wat-pa-pao",
+   "url": "https://wichaa.pages.dev/place/wat-pa-pao/",
+   "name_th": "วัดป่าเป้า",
+   "name_roman": "Wat Pa Pao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-1579489369": {
+   "slug": "wat-kongkaw",
+   "url": "https://wichaa.pages.dev/place/wat-kongkaw/",
+   "name_th": "วดโขงขาว",
+   "name_roman": "Wat Kongkaw",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-1585328678": {
+   "slug": "wat-san-pa-sak-won-urai-thamma-ram",
+   "url": "https://wichaa.pages.dev/place/wat-san-pa-sak-won-urai-thamma-ram/",
+   "name_th": "วัดสันป่าสักวรอุไรธรรมาราม",
+   "name_roman": "Wat San Pa Sak Won Urai Thamma Ram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-1588175232": {
+   "slug": "wat-chimphli-wan",
+   "url": "https://wichaa.pages.dev/place/wat-chimphli-wan/",
+   "name_th": "วัดฉิมพลีวัน",
+   "name_roman": "Wat Chimphli Wan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-1602165380": {
+   "slug": "wat-mai-huay-sai",
+   "url": "https://wichaa.pages.dev/place/wat-mai-huay-sai/",
+   "name_th": "วัดใหม่ห้วยทราย",
+   "name_roman": "Wat Mai Huay Sai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-1618139934": {
+   "slug": "wat-ku-suea",
+   "url": "https://wichaa.pages.dev/place/wat-ku-suea/",
+   "name_th": "วัดกูเสือ",
+   "name_roman": "Wat Ku Suea",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-1684553068": {
+   "slug": "wat-phot-mongkhon",
+   "url": "https://wichaa.pages.dev/place/wat-phot-mongkhon/",
+   "name_th": "วัดโพธิมงคล",
+   "name_roman": "Wat Phot Mongkhon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-1691878426": {
+   "slug": "wat-sima-ram",
+   "url": "https://wichaa.pages.dev/place/wat-sima-ram/",
+   "name_th": "วัดสีมาราม",
+   "name_roman": "Wat Sima Ram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2000801870": {
+   "slug": "wat-prasat-tham",
+   "url": "https://wichaa.pages.dev/place/wat-prasat-tham/",
+   "name_th": "วัดประสาทธรรม",
+   "name_roman": "Wat Prasat Tham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2090560314": {
+   "slug": "wat-don-chai-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-don-chai-chiang-mai/",
+   "name_th": "วัดดอนชัย",
+   "name_roman": "Wat Don Chai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2095750485": {
+   "slug": "wat-banmon",
+   "url": "https://wichaa.pages.dev/place/wat-banmon/",
+   "name_th": "วัดบ้านมอญ",
+   "name_roman": "Wat Banmon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2142584557": {
+   "slug": "wat-chiang-chom",
+   "url": "https://wichaa.pages.dev/place/wat-chiang-chom/",
+   "name_th": "วัดเชียงโฉม",
+   "name_roman": "Wat Chiang Chom",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2494611645": {
+   "slug": "wat-sahatsa-sakhun-phan-tao",
+   "url": "https://wichaa.pages.dev/place/wat-sahatsa-sakhun-phan-tao/",
+   "name_th": "วัดสหัสสคุณ (พันเต้า)",
+   "name_roman": "Wat Sahatsa Sakhun (Phan Tao)",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2518154683": {
+   "slug": "wat-phothi-phichit",
+   "url": "https://wichaa.pages.dev/place/wat-phothi-phichit/",
+   "name_th": "วัดโพธิพิชิต",
+   "name_roman": "Wat Phothi Phichit",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2590245568": {
+   "slug": "wat-pa-daet-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-pa-daet-chiang-mai/",
+   "name_th": "วัดป่าแดด",
+   "name_roman": "Wat Pa Daet",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2597089405": {
+   "slug": "wat-buak-khrok-noi",
+   "url": "https://wichaa.pages.dev/place/wat-buak-khrok-noi/",
+   "name_th": "วัดบวกครกน้อย",
+   "name_roman": "Wat Buak Khrok Noi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2604373946": {
+   "slug": "wat-lak-pan",
+   "url": "https://wichaa.pages.dev/place/wat-lak-pan/",
+   "name_th": "วัดหลักปัน",
+   "name_roman": "Wat Lak Pan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2610146256": {
+   "slug": "wat-mueang-sattra-luang",
+   "url": "https://wichaa.pages.dev/place/wat-mueang-sattra-luang/",
+   "name_th": "วัดเมืองสาตรหลวง",
+   "name_roman": "Wat Mueang Sattra Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2613382446": {
+   "slug": "wat-nong-ubosot",
+   "url": "https://wichaa.pages.dev/place/wat-nong-ubosot/",
+   "name_th": "วัดหนองอุโบสถ",
+   "name_roman": "Wat Nong Ubosot",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2615684340": {
+   "slug": "wat-mae-yoi-luang",
+   "url": "https://wichaa.pages.dev/place/wat-mae-yoi-luang/",
+   "name_th": "วัดแม่ย่อยหลวง",
+   "name_roman": "Wat Mae Yoi Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2638612434": {
+   "slug": "wat-padaeng-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-padaeng-chiang-mai/",
+   "name_th": "วัดป่าแดง",
+   "name_roman": "Wat Padaeng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2648502947": {
+   "slug": "wat-mueang-kai",
+   "url": "https://wichaa.pages.dev/place/wat-mueang-kai/",
+   "name_th": "วัดเมืองกาย",
+   "name_roman": "Wat Mueang Kai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2650399437": {
+   "slug": "wat-nan-tha-ra",
+   "url": "https://wichaa.pages.dev/place/wat-nan-tha-ra/",
+   "name_th": "วัดนันทารา",
+   "name_roman": "Wat Nan Tha Ra",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2650685295": {
+   "slug": "wat-pong-noi",
+   "url": "https://wichaa.pages.dev/place/wat-pong-noi/",
+   "name_th": "วัดโป่งน้อย",
+   "name_roman": "Wat Pong Noi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2660452151": {
+   "slug": "wat-prathan-phon",
+   "url": "https://wichaa.pages.dev/place/wat-prathan-phon/",
+   "name_th": "วัดประทานพร",
+   "name_roman": "Wat Prathan Phon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2660469646": {
+   "slug": "wat-pa-tan-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-pa-tan-chiang-mai/",
+   "name_th": "วัดป่าตัน",
+   "name_roman": "Wat Pa Tan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2682539767": {
+   "slug": "wat-san-kha-yom-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-san-kha-yom-chiang-mai/",
+   "name_th": "วัดสันคะยอม",
+   "name_roman": "Wat San Kha Yom",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2685558600": {
+   "slug": "wat-sai-mun",
+   "url": "https://wichaa.pages.dev/place/wat-sai-mun/",
+   "name_th": "วัดทรายมูล",
+   "name_roman": "Wat Sai Mun",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-2862251170": {
+   "slug": "wat-chai-mongkhon-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-chai-mongkhon-chiang-mai/",
+   "name_th": "วัดไชยมงคล",
+   "name_roman": "Wat Chai Mongkhon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-3152261158": {
+   "slug": "wat-muen-san",
+   "url": "https://wichaa.pages.dev/place/wat-muen-san/",
+   "name_th": "วัดหมื่นสาร",
+   "name_roman": "Wat Muen San",
+   "type": "wat",
+   "metres": 164
+  },
+  "cm-osm-node-3152478761": {
+   "slug": "wat-ku-kham",
+   "url": "https://wichaa.pages.dev/place/wat-ku-kham/",
+   "name_th": "วัดกู่คำ",
+   "name_roman": "Wat Ku Kham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-3205899957": {
+   "slug": "wat-ubosot",
+   "url": "https://wichaa.pages.dev/place/wat-ubosot/",
+   "name_th": "วัดอุโบสถ",
+   "name_roman": "Wat Ubosot",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-3359290469": {
+   "slug": "wat-mongkhon-setthi",
+   "url": "https://wichaa.pages.dev/place/wat-mongkhon-setthi/",
+   "name_th": "วัดมงคลเศรษฐี",
+   "name_roman": "Wat Mongkhon Setthi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-3404898429": {
+   "slug": "wat-rong-sak",
+   "url": "https://wichaa.pages.dev/place/wat-rong-sak/",
+   "name_th": "วัดร้องสัก",
+   "name_roman": "Wat Rong Sak",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-3474437368": {
+   "slug": "wat-nong-phueng",
+   "url": "https://wichaa.pages.dev/place/wat-nong-phueng/",
+   "name_th": "วัดหนองผึ้ง",
+   "name_roman": "Wat Nong Phueng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-3870527966": {
+   "slug": "wat-buak-khrok-north",
+   "url": "https://wichaa.pages.dev/place/wat-buak-khrok-north/",
+   "name_th": "วัดบวกครกเหนือ",
+   "name_roman": "Wat Buak Khrok North",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-3877553742": {
+   "slug": "wat-pa-kluai",
+   "url": "https://wichaa.pages.dev/place/wat-pa-kluai/",
+   "name_th": "วัดป่ากล้วย",
+   "name_roman": "Wat Pa Kluai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-3955781349": {
+   "slug": "wat-san-na-meng",
+   "url": "https://wichaa.pages.dev/place/wat-san-na-meng/",
+   "name_th": "วัดสันนาเม็ง",
+   "name_roman": "Wat San Na Meng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4104051572": {
+   "slug": "wat-buak-khrok-south",
+   "url": "https://wichaa.pages.dev/place/wat-buak-khrok-south/",
+   "name_th": "วัดบวกครกใต้",
+   "name_roman": "Wat Buak Khrok South",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4111339606": {
+   "slug": "wat-weluwan",
+   "url": "https://wichaa.pages.dev/place/wat-weluwan/",
+   "name_th": "วัดเวฬุวัน",
+   "name_roman": "Wat Weluwan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4120901189": {
+   "slug": "wat-huan-kan",
+   "url": "https://wichaa.pages.dev/place/wat-huan-kan/",
+   "name_th": "วัดหวลการณ์",
+   "name_roman": "Wat Huan Kan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4125127496": {
+   "slug": "wat-don-kaeo-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-don-kaeo-chiang-mai/",
+   "name_th": "วัดดอนแก้ว",
+   "name_roman": "Wat Don Kaeo",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4228028194": {
+   "slug": "wat-phra-that-doi-suthep",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-doi-suthep/",
+   "name_th": "วัดพระธาตุดอยสุเทพราชวรวิหาร",
+   "name_roman": "Wat Phra That Doi Suthep",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4237120628": {
+   "slug": "wat-mongkhon-rattana-ram",
+   "url": "https://wichaa.pages.dev/place/wat-mongkhon-rattana-ram/",
+   "name_th": "วัดมงคลรัตนาราม",
+   "name_roman": "Wat Mongkhon Rattana Ram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4418737569": {
+   "slug": "wat-pa-khoi-nuea",
+   "url": "https://wichaa.pages.dev/place/wat-pa-khoi-nuea/",
+   "name_th": "วัดป่าข่อยเหนือ",
+   "name_roman": "Wat Pa Khoi Nuea",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4418737570": {
+   "slug": "wat-si-ping-chai-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-si-ping-chai-chiang-mai/",
+   "name_th": "วัดศรีปิงชัย",
+   "name_roman": "Wat Si Ping Chai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4459060106": {
+   "slug": "wat-changthong",
+   "url": "https://wichaa.pages.dev/place/wat-changthong/",
+   "name_th": "วัดช่างทอง",
+   "name_roman": "Wat Changthong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4496869289": {
+   "slug": "wat-anagami",
+   "url": "https://wichaa.pages.dev/place/wat-anagami/",
+   "name_th": "วัดอนาคามี",
+   "name_roman": "Wat Anagami",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4509361887": {
+   "slug": "wat-saen-luang",
+   "url": "https://wichaa.pages.dev/place/wat-saen-luang/",
+   "name_th": "วัดแสนหลวง",
+   "name_roman": "Wat Saen Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4509503055": {
+   "slug": "wat-ton-hiao",
+   "url": "https://wichaa.pages.dev/place/wat-ton-hiao/",
+   "name_th": "วัดต้นเหียว",
+   "name_roman": "Wat Ton Hiao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4537566043": {
+   "slug": "osm-node-4537566043",
+   "url": "https://wichaa.pages.dev/place/osm-node-4537566043/",
+   "name_th": "สมาคมพุทธภาวนาบุญสถาน",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4592598579": {
+   "slug": "wat-nong-ubosot-4592598579",
+   "url": "https://wichaa.pages.dev/place/wat-nong-ubosot-4592598579/",
+   "name_th": "วัดหนองอุโบสถ",
+   "name_roman": "Wat Nong Ubosot",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4609435362": {
+   "slug": "wat-chet-tha-won-khup",
+   "url": "https://wichaa.pages.dev/place/wat-chet-tha-won-khup/",
+   "name_th": "วัดเชฏฐาวรคุปต์",
+   "name_roman": "Wat Chet Tha Won Khup",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4677874013": {
+   "slug": "sala-phrachao-morakot-niramit",
+   "url": "https://wichaa.pages.dev/place/sala-phrachao-morakot-niramit/",
+   "name_th": "ศาลาพระเจ้ามรกตนิรมิต",
+   "name_roman": "Sala Phrachao Morakot Niramit",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-4763900183": {
+   "slug": "wat-thung-khi-suea",
+   "url": "https://wichaa.pages.dev/place/wat-thung-khi-suea/",
+   "name_th": "วัดทุ่งขี้เสือ",
+   "name_roman": "Wat Thung Khi Suea",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-5257298544": {
+   "slug": "wat-moo-boon",
+   "url": "https://wichaa.pages.dev/place/wat-moo-boon/",
+   "name_th": "วัดหมูบุ่น",
+   "name_roman": "Wat Moo Boon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-624112307": {
+   "slug": "wat-suan-phrik",
+   "url": "https://wichaa.pages.dev/place/wat-suan-phrik/",
+   "name_th": "วัดสวนพริก",
+   "name_roman": "Wat Suan Phrik",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-624114779": {
+   "slug": "wat-ton-kwen",
+   "url": "https://wichaa.pages.dev/place/wat-ton-kwen/",
+   "name_th": "วัดต้นเกว๋น",
+   "name_roman": "Wat Ton Kwen",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-6533745587": {
+   "slug": "osm-node-6533745587",
+   "url": "https://wichaa.pages.dev/place/osm-node-6533745587/",
+   "name_th": "สำนักสงฆ์บ้านขุนช่างเคี่ยน",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-8586256830": {
+   "slug": "ariyasathantham-haeng-panya-foundation",
+   "url": "https://wichaa.pages.dev/place/ariyasathantham-haeng-panya-foundation/",
+   "name_th": "มูลนิธิ อริยสถานธรรม แห่งปัญญา",
+   "name_roman": "Ariyasathantham Haeng Panya Foundation",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-8608392272": {
+   "slug": "wat-mae-khao",
+   "url": "https://wichaa.pages.dev/place/wat-mae-khao/",
+   "name_th": "วัดแม่คาว",
+   "name_roman": "Wat Mae Khao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-8618950003": {
+   "slug": "wat-tha-thum",
+   "url": "https://wichaa.pages.dev/place/wat-tha-thum/",
+   "name_th": "วัดท่าทุ่ม",
+   "name_roman": "Wat Tha Thum",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-node-935358254": {
+   "slug": "grand-pavilion-hor-kham-luang",
+   "url": "https://wichaa.pages.dev/place/grand-pavilion-hor-kham-luang/",
+   "name_th": "หอคำหลวง",
+   "name_roman": "Grand Pavilion (Hor Kham Luang)",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-relation-18882121": {
+   "slug": "wat-pa-phaeng",
+   "url": "https://wichaa.pages.dev/place/wat-pa-phaeng/",
+   "name_th": "วัดป่าแพ่ง",
+   "name_roman": "Wat Pa Phaeng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-relation-8201931": {
+   "slug": "wat-phuak-hong",
+   "url": "https://wichaa.pages.dev/place/wat-phuak-hong/",
+   "name_th": "วัดพวกหงษ์",
+   "name_roman": "Wat Phuak Hong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-relation-8651541": {
+   "slug": "wat-chang-taem",
+   "url": "https://wichaa.pages.dev/place/wat-chang-taem/",
+   "name_th": "วัดช่างแต้ม",
+   "name_roman": "Wat Chang Taem",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-100291611": {
+   "slug": "wat-ban-klang",
+   "url": "https://wichaa.pages.dev/place/wat-ban-klang/",
+   "name_th": "วัดบ้านกลาง",
+   "name_roman": "Wat Ban Klang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1015398858": {
+   "slug": "wat-phra-non-khon-muang",
+   "url": "https://wichaa.pages.dev/place/wat-phra-non-khon-muang/",
+   "name_th": "วัดพระนอนขอนม่วง",
+   "name_roman": "Wat Phra Non Khon Muang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-101927445": {
+   "slug": "wat-phaya-chom-phu",
+   "url": "https://wichaa.pages.dev/place/wat-phaya-chom-phu/",
+   "name_th": "วัดพญาชมภู",
+   "name_roman": "Wat Phaya Chom Phu",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1025083041": {
+   "slug": "wat-phra-chedi",
+   "url": "https://wichaa.pages.dev/place/wat-phra-chedi/",
+   "name_th": "วัดพระเจดีย์",
+   "name_roman": "Wat Phra Chedi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-102687803": {
+   "slug": "wat-buppha",
+   "url": "https://wichaa.pages.dev/place/wat-buppha/",
+   "name_th": "วัดบุปผา",
+   "name_roman": "Wat Buppha",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1028254441": {
+   "slug": "wat-mae-kaet-noi",
+   "url": "https://wichaa.pages.dev/place/wat-mae-kaet-noi/",
+   "name_th": "วัดแม่แก้ดน้อย",
+   "name_roman": "Wat Mae Kaet Noi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1031055148": {
+   "slug": "wat-mae-kuang",
+   "url": "https://wichaa.pages.dev/place/wat-mae-kuang/",
+   "name_th": "วัดแม่กวง",
+   "name_roman": "Wat Mae Kuang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-103287822": {
+   "slug": "wat-tha-duea",
+   "url": "https://wichaa.pages.dev/place/wat-tha-duea/",
+   "name_th": "วัดท่าเดื่อ",
+   "name_roman": "Wat Tha Duea",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-103408214": {
+   "slug": "wat-ton-phueng-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-ton-phueng-chiang-mai/",
+   "name_th": "วัดต้นผึ้ง",
+   "name_roman": "Wat Ton Phueng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-103497273": {
+   "slug": "wat-si-don-mon",
+   "url": "https://wichaa.pages.dev/place/wat-si-don-mon/",
+   "name_th": "วัดศรีดอนม",
+   "name_roman": "Wat Si Don Mon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-104636963": {
+   "slug": "sao-hin-temple",
+   "url": "https://wichaa.pages.dev/place/sao-hin-temple/",
+   "name_th": "วัดเสาหิน",
+   "name_roman": "Sao Hin Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-104668279": {
+   "slug": "wat-si-kham-chom-phu",
+   "url": "https://wichaa.pages.dev/place/wat-si-kham-chom-phu/",
+   "name_th": "วัดสรีคำชมภู",
+   "name_roman": "Wat Si Kham Chom Phu",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-106083741": {
+   "slug": "wat-dao-dueng",
+   "url": "https://wichaa.pages.dev/place/wat-dao-dueng/",
+   "name_th": "วัดดาวดึงส์",
+   "name_roman": "Wat Dao Dueng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-106353156": {
+   "slug": "wat-pong-chang-khot",
+   "url": "https://wichaa.pages.dev/place/wat-pong-chang-khot/",
+   "name_th": "วัดป่งช้างคด",
+   "name_roman": "Wat Pong Chang Khot",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-114651040": {
+   "slug": "wat-phrathat-doi-suthep-racha-worawihan",
+   "url": "https://wichaa.pages.dev/place/wat-phrathat-doi-suthep-racha-worawihan/",
+   "name_th": "วัดพระธาตุดอยสุเทพ",
+   "name_roman": "wat Phrathat Doi Suthep Racha Worawihan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-122483975": {
+   "slug": "wat-mae-sa-lap",
+   "url": "https://wichaa.pages.dev/place/wat-mae-sa-lap/",
+   "name_th": "วัดแม่สะลาบ",
+   "name_roman": "Wat Mae Sa Lap",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1239081882": {
+   "slug": "wat-don-keaw",
+   "url": "https://wichaa.pages.dev/place/wat-don-keaw/",
+   "name_th": "วัดดอนแก้ว",
+   "name_roman": "Wat Don Keaw",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1243096176": {
+   "slug": "wat-chomthong",
+   "url": "https://wichaa.pages.dev/place/wat-chomthong/",
+   "name_th": "วัดจอมทอง",
+   "name_roman": "Wat Chomthong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1257138548": {
+   "slug": "wat-si-wari-sathan",
+   "url": "https://wichaa.pages.dev/place/wat-si-wari-sathan/",
+   "name_th": "วัดศรีวารีสถาน",
+   "name_roman": "Wat Si Wari Sathan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1262057825": {
+   "slug": "wat-doi-pao",
+   "url": "https://wichaa.pages.dev/place/wat-doi-pao/",
+   "name_th": "วัดดอยเปา",
+   "name_roman": "Wat Doi Pao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1268295626": {
+   "slug": "wat-chai-sathit-pa-sao-luang",
+   "url": "https://wichaa.pages.dev/place/wat-chai-sathit-pa-sao-luang/",
+   "name_th": "วัดชัยสถิตย์ (ป่าเสร้าหลวง)",
+   "name_roman": "Wat Chai Sathit (Pa Sao Luang)",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-135952556": {
+   "slug": "wat-dokeung",
+   "url": "https://wichaa.pages.dev/place/wat-dokeung/",
+   "name_th": "วัดดอกเอื้อง",
+   "name_roman": "Wat Dokeung",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-135952568": {
+   "slug": "wat-chomphu",
+   "url": "https://wichaa.pages.dev/place/wat-chomphu/",
+   "name_th": "วัดชมพู",
+   "name_roman": "Wat Chomphu",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-140073543": {
+   "slug": "wat-ton-chok-lang",
+   "url": "https://wichaa.pages.dev/place/wat-ton-chok-lang/",
+   "name_th": "วัดต้นโชคหลาง",
+   "name_roman": "Wat Ton Chok Lang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-144054116": {
+   "slug": "wat-ban-tho",
+   "url": "https://wichaa.pages.dev/place/wat-ban-tho/",
+   "name_th": "วัดบ้านท่อ",
+   "name_roman": "Wat Ban Tho",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-144194426": {
+   "slug": "wat-mueang-khon",
+   "url": "https://wichaa.pages.dev/place/wat-mueang-khon/",
+   "name_th": "วัดเมืองขอน",
+   "name_roman": "Wat Mueang Khon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-145079406": {
+   "slug": "si-song-mueang-temple",
+   "url": "https://wichaa.pages.dev/place/si-song-mueang-temple/",
+   "name_th": "วัดศรีสองเมือง",
+   "name_roman": "Si Song Mueang Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-145080211": {
+   "slug": "wat-nam-cho",
+   "url": "https://wichaa.pages.dev/place/wat-nam-cho/",
+   "name_th": "วัดนำโจ้",
+   "name_roman": "Wat Nam Cho",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-145082486": {
+   "slug": "wat-roi-chan",
+   "url": "https://wichaa.pages.dev/place/wat-roi-chan/",
+   "name_th": "วัดร้อยจันทร์",
+   "name_roman": "Wat Roi Chan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-145401051": {
+   "slug": "wat-chang-kham",
+   "url": "https://wichaa.pages.dev/place/wat-chang-kham/",
+   "name_th": "วัดช้างคำ",
+   "name_roman": "Wat Chang Kham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1458592077": {
+   "slug": "wat-famui",
+   "url": "https://wichaa.pages.dev/place/wat-famui/",
+   "name_th": "วัดฟ้ามุ่ย",
+   "name_roman": "Wat Famui",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1458594888": {
+   "slug": "wat-tanjan",
+   "url": "https://wichaa.pages.dev/place/wat-tanjan/",
+   "name_th": "วัดต้นจันทน์",
+   "name_roman": "Wat Tanjan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1458662000": {
+   "slug": "wat-mae-sa-luang",
+   "url": "https://wichaa.pages.dev/place/wat-mae-sa-luang/",
+   "name_th": "วัดแม่สาหลวง",
+   "name_roman": "Wat Mae Sa Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-1461422069": {
+   "slug": "wat-sopanaram",
+   "url": "https://wichaa.pages.dev/place/wat-sopanaram/",
+   "name_th": "วัดโสภานาราม",
+   "name_roman": "Wat Sopanaram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-146186494": {
+   "slug": "wat-san-ton-kok",
+   "url": "https://wichaa.pages.dev/place/wat-san-ton-kok/",
+   "name_th": "วัดสันต้นกอก",
+   "name_roman": "Wat San Ton Kok",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-146187145": {
+   "slug": "wat-ku-daeng",
+   "url": "https://wichaa.pages.dev/place/wat-ku-daeng/",
+   "name_th": "วัดกู่แดง",
+   "name_roman": "Wat Ku Daeng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-146853054": {
+   "slug": "wat-hong-ao-kham",
+   "url": "https://wichaa.pages.dev/place/wat-hong-ao-kham/",
+   "name_th": "วัดหองเฃาคำ",
+   "name_roman": "Wat Hong Ao Kham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-146853058": {
+   "slug": "wat-khok-mupa",
+   "url": "https://wichaa.pages.dev/place/wat-khok-mupa/",
+   "name_th": "วัดคอกหมูป่า",
+   "name_roman": "Wat Khok Mupa",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-146854911": {
+   "slug": "wat-mueang-wa",
+   "url": "https://wichaa.pages.dev/place/wat-mueang-wa/",
+   "name_th": "วัดเมืองวะ",
+   "name_roman": "Wat Mueang Wa",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-146856828": {
+   "slug": "wat-mueang-len",
+   "url": "https://wichaa.pages.dev/place/wat-mueang-len/",
+   "name_th": "วัดเมืองเล็น",
+   "name_roman": "Wat Mueang Len",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-146900640": {
+   "slug": "wat-pa-bong",
+   "url": "https://wichaa.pages.dev/place/wat-pa-bong/",
+   "name_th": "วัดป่าบง",
+   "name_roman": "Wat Pa Bong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-147020654": {
+   "slug": "wat-chomphunut-wang-pong",
+   "url": "https://wichaa.pages.dev/place/wat-chomphunut-wang-pong/",
+   "name_th": "วัดชมพูนุท (วังป้อง)",
+   "name_roman": "Wat Chomphunut (Wang Pong)",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-147250097": {
+   "slug": "wat-lat-thuan-ramib",
+   "url": "https://wichaa.pages.dev/place/wat-lat-thuan-ramib/",
+   "name_th": "วัดลัฏฐวนรามิb",
+   "name_roman": "Wat Lat Thuan Ramib",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-147251210": {
+   "slug": "wat-thawon-tham",
+   "url": "https://wichaa.pages.dev/place/wat-thawon-tham/",
+   "name_th": "วัดถาวรธรรม",
+   "name_roman": "Wat Thawon Tham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-147530528": {
+   "slug": "wat-si-sai-mun-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-si-sai-mun-chiang-mai/",
+   "name_th": "วัดศรีทรายมูล",
+   "name_roman": "Wat Si Sai Mun",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-147532398": {
+   "slug": "wat-pa-lan",
+   "url": "https://wichaa.pages.dev/place/wat-pa-lan/",
+   "name_th": "วัดป่าลาน",
+   "name_roman": "Wat Pa Lan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-151485480": {
+   "slug": "wat-suphan",
+   "url": "https://wichaa.pages.dev/place/wat-suphan/",
+   "name_th": "วัดสุพรรณ",
+   "name_roman": "Wat Suphan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-185208208": {
+   "slug": "wat-tong-kai",
+   "url": "https://wichaa.pages.dev/place/wat-tong-kai/",
+   "name_th": "วัดตองกาย",
+   "name_roman": "Wat Tong Kai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-189056074": {
+   "slug": "wat-chetupon",
+   "url": "https://wichaa.pages.dev/place/wat-chetupon/",
+   "name_th": "วัดเชตุพน",
+   "name_roman": "Wat Chetupon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-199769536": {
+   "slug": "osm-way-199769536",
+   "url": "https://wichaa.pages.dev/place/osm-way-199769536/",
+   "name_th": "วัดสันพระเนตร",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-205009315": {
+   "slug": "wat-si-soda-phra-aram-luang",
+   "url": "https://wichaa.pages.dev/place/wat-si-soda-phra-aram-luang/",
+   "name_th": "วัดศรีโสดา",
+   "name_roman": "Wat Si Soda (Phra Aram Luang)",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-220573058": {
+   "slug": "wat-ubosot-220573058",
+   "url": "https://wichaa.pages.dev/place/wat-ubosot-220573058/",
+   "name_th": "วัดอุโบสถ",
+   "name_roman": "Wat Ubosot",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-220980844": {
+   "slug": "wat-sri-dornchai",
+   "url": "https://wichaa.pages.dev/place/wat-sri-dornchai/",
+   "name_th": "วัดศรีดอนไชย",
+   "name_roman": "Wat Sri Dornchai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-225234790": {
+   "slug": "wat-san-si",
+   "url": "https://wichaa.pages.dev/place/wat-san-si/",
+   "name_th": "วัดสันศรี",
+   "name_roman": "Wat San Si",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-238829914": {
+   "slug": "wat-muen-ngun-gong",
+   "url": "https://wichaa.pages.dev/place/wat-muen-ngun-gong/",
+   "name_th": "วัดหมื่นเงินกอง",
+   "name_roman": "Wat Muen Ngun Gong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-242929434": {
+   "slug": "wat-pha-bong",
+   "url": "https://wichaa.pages.dev/place/wat-pha-bong/",
+   "name_th": "วัดผาบ่อง",
+   "name_roman": "Wat Pha Bong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-242929634": {
+   "slug": "wat-tung-yu",
+   "url": "https://wichaa.pages.dev/place/wat-tung-yu/",
+   "name_th": "วัดทุงยู",
+   "name_roman": "Wat Tung Yu",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-242930163": {
+   "slug": "wat-chai-phrakiat",
+   "url": "https://wichaa.pages.dev/place/wat-chai-phrakiat/",
+   "name_th": "วัดชัยพระเกียรติ",
+   "name_roman": "Wat Chai Phrakiat",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-243404616": {
+   "slug": "wat-tha-mai-i",
+   "url": "https://wichaa.pages.dev/place/wat-tha-mai-i/",
+   "name_th": "วัดท่าใหม่อิ",
+   "name_roman": "Wat Tha Mai I",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-243551350": {
+   "slug": "wat-tha-luk",
+   "url": "https://wichaa.pages.dev/place/wat-tha-luk/",
+   "name_th": "วัดท่าหลุก",
+   "name_roman": "Wat Tha Luk",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-244378291": {
+   "slug": "wat-rong-o",
+   "url": "https://wichaa.pages.dev/place/wat-rong-o/",
+   "name_th": "วัดร้องอ้อ",
+   "name_roman": "Wat Rong O",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-244650874": {
+   "slug": "wat-sai-moon-myanmar",
+   "url": "https://wichaa.pages.dev/place/wat-sai-moon-myanmar/",
+   "name_th": "วัดทรายมูล (พม่า)",
+   "name_roman": "Wat Sai Moon Myanmar",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-244650927": {
+   "slug": "wat-saimoonmuang",
+   "url": "https://wichaa.pages.dev/place/wat-saimoonmuang/",
+   "name_th": "วัดทรายมูลเมือง",
+   "name_roman": "Wat Saimoonmuang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-245463411": {
+   "slug": "wat-san-sai-luang",
+   "url": "https://wichaa.pages.dev/place/wat-san-sai-luang/",
+   "name_th": "วัดสันทรายหลวง",
+   "name_roman": "Wat San Sai Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-249164672": {
+   "slug": "wat-nong-pa-sae",
+   "url": "https://wichaa.pages.dev/place/wat-nong-pa-sae/",
+   "name_th": "วัดหนองป่าแสะ",
+   "name_roman": "Wat Nong Pa Sae",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-250503384": {
+   "slug": "wat-doi-kaeo",
+   "url": "https://wichaa.pages.dev/place/wat-doi-kaeo/",
+   "name_th": "วัดดอยแก้ว",
+   "name_roman": "Wat Doi Kaeo",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-250690123": {
+   "slug": "thep-montien",
+   "url": "https://wichaa.pages.dev/place/thep-montien/",
+   "name_th": "เทพมณเฑียร",
+   "name_roman": "Thep Montien",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-251360257": {
+   "slug": "wat-mo-kham-tuang",
+   "url": "https://wichaa.pages.dev/place/wat-mo-kham-tuang/",
+   "name_th": "วัดหม้อคำตวง",
+   "name_roman": "Wat Mo Kham Tuang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-251437025": {
+   "slug": "wat-saen-mueang-ma-luang",
+   "url": "https://wichaa.pages.dev/place/wat-saen-mueang-ma-luang/",
+   "name_th": "วัดแสนเมืองมาหลวง",
+   "name_roman": "Wat Saen Mueang Ma Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-251576969": {
+   "slug": "wat-nong-pa-khrang",
+   "url": "https://wichaa.pages.dev/place/wat-nong-pa-khrang/",
+   "name_th": "วัดหนองป่าครั่ง",
+   "name_roman": "Wat Nong Pa Khrang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-251579204": {
+   "slug": "wat-san-pa-khoi",
+   "url": "https://wichaa.pages.dev/place/wat-san-pa-khoi/",
+   "name_th": "วัดสันป่าข่อย",
+   "name_roman": "Wat San Pa Khoi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-253811339": {
+   "slug": "wat-san-pu-loei-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-san-pu-loei-chiang-mai/",
+   "name_th": "วัดสันปูเลย",
+   "name_roman": "Wat San Pu Loei",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-255776862": {
+   "slug": "wat-som-det-doi-noi",
+   "url": "https://wichaa.pages.dev/place/wat-som-det-doi-noi/",
+   "name_th": "วัดสมเด๊จดอยน้อย",
+   "name_roman": "Wat Som Det Doi Noi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-256126140": {
+   "slug": "osm-way-256126140",
+   "url": "https://wichaa.pages.dev/place/osm-way-256126140/",
+   "name_th": "วัดธาตุกลาง",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-256126141": {
+   "slug": "wat-thatkam",
+   "url": "https://wichaa.pages.dev/place/wat-thatkam/",
+   "name_th": "วัดธาตุคำ",
+   "name_roman": "Wat Thatkam",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-257723360": {
+   "slug": "wat-si-photharam",
+   "url": "https://wichaa.pages.dev/place/wat-si-photharam/",
+   "name_th": "วัดสรีโพธาราม",
+   "name_roman": "Wat Si Photharam",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-261336735": {
+   "slug": "wat-bupparam",
+   "url": "https://wichaa.pages.dev/place/wat-bupparam/",
+   "name_th": "วัดบุพพาราม",
+   "name_roman": "Wat Bupparam",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-261339003": {
+   "slug": "wat-duang-di",
+   "url": "https://wichaa.pages.dev/place/wat-duang-di/",
+   "name_th": "วัดดวงดี",
+   "name_roman": "Wat Duang Di",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-261636204": {
+   "slug": "wat-pa-poe",
+   "url": "https://wichaa.pages.dev/place/wat-pa-poe/",
+   "name_th": "วัดป่าเปอะ",
+   "name_roman": "Wat Pa Poe",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-261636339": {
+   "slug": "chedi-liam-temple-261636339",
+   "url": "https://wichaa.pages.dev/place/chedi-liam-temple-261636339/",
+   "name_th": "วัดเจดีย์เหลี่ยม",
+   "name_roman": "Chedi Liam Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-265150050": {
+   "slug": "wat-lam-chang",
+   "url": "https://wichaa.pages.dev/place/wat-lam-chang/",
+   "name_th": "วัดล่ามช้าง",
+   "name_roman": "Wat Lam Chang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-277181489": {
+   "slug": "wat-ku-man-mongkhon-chai",
+   "url": "https://wichaa.pages.dev/place/wat-ku-man-mongkhon-chai/",
+   "name_th": "วัดกู่ม่านมงคลชัย",
+   "name_roman": "Wat Ku Man Mongkhon Chai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-294470220": {
+   "slug": "wat-mueang-mang",
+   "url": "https://wichaa.pages.dev/place/wat-mueang-mang/",
+   "name_th": "วัดเมืองมาง",
+   "name_roman": "Wat Mueang Mang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-297359944": {
+   "slug": "wat-chet-lin-wat-jedlin",
+   "url": "https://wichaa.pages.dev/place/wat-chet-lin-wat-jedlin/",
+   "name_th": "วัดเจ็ดลิน",
+   "name_roman": "Wat Chet Lin - Wat Jedlin",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-297699422": {
+   "slug": "wat-tamnak-suankhwan-sirimangkalajarn",
+   "url": "https://wichaa.pages.dev/place/wat-tamnak-suankhwan-sirimangkalajarn/",
+   "name_th": "วัดตำหนักสวนขวัญศิริมังคลาจารย์",
+   "name_roman": "Wat Tamnak Suankhwan Sirimangkalajarn",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-298150021": {
+   "slug": "osm-way-298150021",
+   "url": "https://wichaa.pages.dev/place/osm-way-298150021/",
+   "name_th": "วัดศรีบุญเรือง",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-301483293": {
+   "slug": "wat-rachamontian",
+   "url": "https://wichaa.pages.dev/place/wat-rachamontian/",
+   "name_th": "วัดราชมณเทียร",
+   "name_roman": "Wat Rachamontian",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-302732571": {
+   "slug": "wat-pha-lat",
+   "url": "https://wichaa.pages.dev/place/wat-pha-lat/",
+   "name_th": "วัดผาลาด",
+   "name_roman": "Wat Pha Lat",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-307423269": {
+   "slug": "wat-muen-san",
+   "url": "https://wichaa.pages.dev/place/wat-muen-san/",
+   "name_th": "วัดหมื่นสาร",
+   "name_roman": "Wat Muen San",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-308548477": {
+   "slug": "wat-cheatawan",
+   "url": "https://wichaa.pages.dev/place/wat-cheatawan/",
+   "name_th": "วัดเชตวัน",
+   "name_roman": "Wat Cheatawan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-308548856": {
+   "slug": "wat-saen-fang",
+   "url": "https://wichaa.pages.dev/place/wat-saen-fang/",
+   "name_th": "วัดแสนฝาง",
+   "name_roman": "Wat Saen Fang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-309886989": {
+   "slug": "wat-sri-suphan",
+   "url": "https://wichaa.pages.dev/place/wat-sri-suphan/",
+   "name_th": "วัดศรีสุพรรณ",
+   "name_roman": "Wat Sri Suphan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-311213404": {
+   "slug": "sala-tham",
+   "url": "https://wichaa.pages.dev/place/sala-tham/",
+   "name_th": "ศาลาธรรม",
+   "name_roman": "Sala Tham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-313040943": {
+   "slug": "wat-phra-that-doi-kham",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-doi-kham/",
+   "name_th": "วัดพระธาตุดอยคำ",
+   "name_roman": "Wat Phra That Doi Kham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-313695337": {
+   "slug": "wat-phratat-doikham",
+   "url": "https://wichaa.pages.dev/place/wat-phratat-doikham/",
+   "name_th": "วัดพระธาตุดอยคํา",
+   "name_roman": "Wat Phratat Doikham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-314697470": {
+   "slug": "wat-jed-yod",
+   "url": "https://wichaa.pages.dev/place/wat-jed-yod/",
+   "name_th": "วัดเจ็ดยอด",
+   "name_roman": "Wat Jed Yod",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-314808535": {
+   "slug": "wat-tonyang-huang",
+   "url": "https://wichaa.pages.dev/place/wat-tonyang-huang/",
+   "name_th": "วัดต้นยางหวง",
+   "name_roman": "Wat Tonyang Huang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-314808635": {
+   "slug": "wat-rong-don-chai",
+   "url": "https://wichaa.pages.dev/place/wat-rong-don-chai/",
+   "name_th": "วัดร้องดอนไชย",
+   "name_roman": "Wat Rong Don Chai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-320601922": {
+   "slug": "wat-fon-soi",
+   "url": "https://wichaa.pages.dev/place/wat-fon-soi/",
+   "name_th": "วัดฟ่อนสร้อย",
+   "name_roman": "Wat Fon Soi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-322604682": {
+   "slug": "wat-suan-dok-monk-chat",
+   "url": "https://wichaa.pages.dev/place/wat-suan-dok-monk-chat/",
+   "name_th": "วัดสวนดอก",
+   "name_roman": "Wat Suan Dok Monk Chat",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-326847544": {
+   "slug": "wat-nong-krai-luang",
+   "url": "https://wichaa.pages.dev/place/wat-nong-krai-luang/",
+   "name_th": "วัดหนองไคร้หลวง",
+   "name_roman": "Wat Nong Krai Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-333979908": {
+   "slug": "thai-lin-foawian",
+   "url": "https://wichaa.pages.dev/place/thai-lin-foawian/",
+   "name_th": "ไท่หลินฝอเอวี้ยน",
+   "name_roman": "Thai Lin Foawian",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-340406121": {
+   "slug": "wat-thao-bun-rueang",
+   "url": "https://wichaa.pages.dev/place/wat-thao-bun-rueang/",
+   "name_th": "วัดท้าวบุญเรือง",
+   "name_roman": "Wat Thao Bun Rueang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-352224619": {
+   "slug": "wat-tha-sa-toi",
+   "url": "https://wichaa.pages.dev/place/wat-tha-sa-toi/",
+   "name_th": "วัดท่าสะต๋อย",
+   "name_roman": "Wat Tha Sa Toi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-352321202": {
+   "slug": "wat-mahawan",
+   "url": "https://wichaa.pages.dev/place/wat-mahawan/",
+   "name_th": "วัดมหาวัน",
+   "name_roman": "Wat Mahawan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-355202854": {
+   "slug": "wat-wut-thi-ra-sot",
+   "url": "https://wichaa.pages.dev/place/wat-wut-thi-ra-sot/",
+   "name_th": "วัดวุทฒิราษฏร์",
+   "name_roman": "Wat Wut Thi Ra Sot",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-355642593": {
+   "slug": "wat-chai-sathan",
+   "url": "https://wichaa.pages.dev/place/wat-chai-sathan/",
+   "name_th": "วัดชัยสถาน",
+   "name_roman": "Wat Chai Sathan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-355863016": {
+   "slug": "wat-san-pa-liang",
+   "url": "https://wichaa.pages.dev/place/wat-san-pa-liang/",
+   "name_th": "วัดสันป่าเลียง",
+   "name_roman": "Wat San Pa Liang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-356063726": {
+   "slug": "wat-chang-kham-356063726",
+   "url": "https://wichaa.pages.dev/place/wat-chang-kham-356063726/",
+   "name_th": "วัดช้างค้ำ",
+   "name_roman": "Wat Chang Kham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-356585930": {
+   "slug": "wat-muen-larn",
+   "url": "https://wichaa.pages.dev/place/wat-muen-larn/",
+   "name_th": "วัดหมื่นล้าน",
+   "name_roman": "Wat Muen Larn",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-356588870": {
+   "slug": "wat-dokkham",
+   "url": "https://wichaa.pages.dev/place/wat-dokkham/",
+   "name_th": "วัดดอกคำ",
+   "name_roman": "Wat Dokkham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-356757957": {
+   "slug": "wat-puak-chang",
+   "url": "https://wichaa.pages.dev/place/wat-puak-chang/",
+   "name_th": "วัดพวกช้าง",
+   "name_roman": "Wat Puak Chang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-360706201": {
+   "slug": "wat-phan-tong",
+   "url": "https://wichaa.pages.dev/place/wat-phan-tong/",
+   "name_th": "วัดพันตอง",
+   "name_roman": "Wat Phan Tong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-360706203": {
+   "slug": "wat-loi-kroh",
+   "url": "https://wichaa.pages.dev/place/wat-loi-kroh/",
+   "name_th": "วัดลอยเคราะห์",
+   "name_roman": "Wat Loi Kroh",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-360854715": {
+   "slug": "wat-chang-kong",
+   "url": "https://wichaa.pages.dev/place/wat-chang-kong/",
+   "name_th": "วัดช่างฆ้อง",
+   "name_roman": "Wat Chang Kong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-360858585": {
+   "slug": "wat-pha-khao",
+   "url": "https://wichaa.pages.dev/place/wat-pha-khao/",
+   "name_th": "วัดผ้าขาว",
+   "name_roman": "Wat Pha Khao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-361100236": {
+   "slug": "wat-muentoom",
+   "url": "https://wichaa.pages.dev/place/wat-muentoom/",
+   "name_th": "วัดหมื่นตุม",
+   "name_roman": "Wat Muentoom",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-366853177": {
+   "slug": "wat-tha-kham-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-tha-kham-chiang-mai/",
+   "name_th": "วัดท่าข้าม",
+   "name_roman": "Wat Tha Kham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-370287903": {
+   "slug": "wat-don-pin",
+   "url": "https://wichaa.pages.dev/place/wat-don-pin/",
+   "name_th": "วัดดอนปิน",
+   "name_roman": "Wat Don Pin",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-370423801": {
+   "slug": "wat-buak-khrok-luang",
+   "url": "https://wichaa.pages.dev/place/wat-buak-khrok-luang/",
+   "name_th": "วัดบวกครกหลวง",
+   "name_roman": "Wat Buak Khrok Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-375531926": {
+   "slug": "wat-chiang-khang",
+   "url": "https://wichaa.pages.dev/place/wat-chiang-khang/",
+   "name_th": "วัดเชียงขาง",
+   "name_roman": "Wat Chiang Khang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-376384261": {
+   "slug": "wat-san-klang-tai",
+   "url": "https://wichaa.pages.dev/place/wat-san-klang-tai/",
+   "name_th": "วัดสันกลางใต้",
+   "name_roman": "Wat San Klang Tai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-376385595": {
+   "slug": "wat-san-klang-nuea",
+   "url": "https://wichaa.pages.dev/place/wat-san-klang-nuea/",
+   "name_th": "วัดสันกลางเหนือ",
+   "name_roman": "Wat San Klang Nuea",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-377819719": {
+   "slug": "wat-chai-sri-phoon",
+   "url": "https://wichaa.pages.dev/place/wat-chai-sri-phoon/",
+   "name_th": "วัดชัยศรีภูมิ",
+   "name_roman": "Wat Chai Sri Phoon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-378271848": {
+   "slug": "wat-prasat",
+   "url": "https://wichaa.pages.dev/place/wat-prasat/",
+   "name_th": "วัดปราสาท",
+   "name_roman": "Wat Prasat",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-382248992": {
+   "slug": "wat-phra-no-pa-ket-thi",
+   "url": "https://wichaa.pages.dev/place/wat-phra-no-pa-ket-thi/",
+   "name_th": "วัดพระนอป่าเก็ดถี",
+   "name_roman": "Wat Phra No Pa Ket Thi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-382365670": {
+   "slug": "wat-san-luang",
+   "url": "https://wichaa.pages.dev/place/wat-san-luang/",
+   "name_th": "วัดสันหลวง",
+   "name_roman": "Wat San Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-382968246": {
+   "slug": "wat-mongkhon-wana-ram",
+   "url": "https://wichaa.pages.dev/place/wat-mongkhon-wana-ram/",
+   "name_th": "วัดมงคลวนาราม",
+   "name_roman": "Wat Mongkhon Wana Ram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-383205227": {
+   "slug": "wat-panping",
+   "url": "https://wichaa.pages.dev/place/wat-panping/",
+   "name_th": "วัดป้านปิง",
+   "name_roman": "Wat Panping",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-383205231": {
+   "slug": "wat-umong-maha-therachan",
+   "url": "https://wichaa.pages.dev/place/wat-umong-maha-therachan/",
+   "name_th": "วัดอุโมงค์มหาเถรจันทร์",
+   "name_roman": "Wat Umong Maha Therachan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-383453299": {
+   "slug": "wat-san-sai-mun",
+   "url": "https://wichaa.pages.dev/place/wat-san-sai-mun/",
+   "name_th": "วัดสันทรายมูล",
+   "name_roman": "Wat San Sai Mun",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-383587812": {
+   "slug": "wat-phang-yoi",
+   "url": "https://wichaa.pages.dev/place/wat-phang-yoi/",
+   "name_th": "วัดผางยอย",
+   "name_roman": "Wat Phang Yoi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-383626877": {
+   "slug": "wat-don-chuen",
+   "url": "https://wichaa.pages.dev/place/wat-don-chuen/",
+   "name_th": "วัดดอนจืน",
+   "name_roman": "Wat Don Chuen",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-385423319": {
+   "slug": "wat-thung-pa-ket",
+   "url": "https://wichaa.pages.dev/place/wat-thung-pa-ket/",
+   "name_th": "วัดทุ่งป่าเก็ด",
+   "name_roman": "Wat Thung Pa Ket",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-387446970": {
+   "slug": "wat-hua-fai-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-hua-fai-chiang-mai/",
+   "name_th": "วัดหัวฝาย",
+   "name_roman": "Wat Hua Fai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-390331056": {
+   "slug": "wat-mueang-sattra-noi",
+   "url": "https://wichaa.pages.dev/place/wat-mueang-sattra-noi/",
+   "name_th": "วัดเมืองสาตรน้อย",
+   "name_roman": "Wat Mueang Sattra Noi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-390377255": {
+   "slug": "wat-si-bun-rueang-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-si-bun-rueang-chiang-mai/",
+   "name_th": "วัดศรีบุญเรือง",
+   "name_roman": "Wat Si Bun Rueang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-390789320": {
+   "slug": "wat-fa-ham",
+   "url": "https://wichaa.pages.dev/place/wat-fa-ham/",
+   "name_th": "วัดฟ้าฮ่าม",
+   "name_roman": "Wat Fa Ham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-392571428": {
+   "slug": "wat-pak-mueang",
+   "url": "https://wichaa.pages.dev/place/wat-pak-mueang/",
+   "name_th": "วัดปากเหมือง",
+   "name_roman": "Wat Pak Mueang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-404528432": {
+   "slug": "wat-pa-khae-yong",
+   "url": "https://wichaa.pages.dev/place/wat-pa-khae-yong/",
+   "name_th": "วัดป่าแคโยง",
+   "name_roman": "Wat Pa Khae Yong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-405079445": {
+   "slug": "wat-don-chai-405079445",
+   "url": "https://wichaa.pages.dev/place/wat-don-chai-405079445/",
+   "name_th": "วัดดอนชัย",
+   "name_roman": "Wat Don Chai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-405674200": {
+   "slug": "wat-san-khue-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-san-khue-chiang-mai/",
+   "name_th": "วัดสันคือ",
+   "name_roman": "Wat San Khue",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-406558246": {
+   "slug": "wat-chaimongkol",
+   "url": "https://wichaa.pages.dev/place/wat-chaimongkol/",
+   "name_th": "วัดชัยมงคล",
+   "name_roman": "Wat Chaimongkol",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-406931128": {
+   "slug": "wat-san-klang",
+   "url": "https://wichaa.pages.dev/place/wat-san-klang/",
+   "name_th": "วัดสันกลาง",
+   "name_roman": "Wat San Klang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-406992814": {
+   "slug": "wat-pa-phrao-nai",
+   "url": "https://wichaa.pages.dev/place/wat-pa-phrao-nai/",
+   "name_th": "วัดป่าพร้าวใน",
+   "name_roman": "Wat Pa Phrao Nai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-406992974": {
+   "slug": "wat-dubphai",
+   "url": "https://wichaa.pages.dev/place/wat-dubphai/",
+   "name_th": "วัดดับภัย",
+   "name_roman": "Wat Dubphai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-421103611": {
+   "slug": "wat-khuang-sing",
+   "url": "https://wichaa.pages.dev/place/wat-khuang-sing/",
+   "name_th": "วัดข่วงสิงห์",
+   "name_roman": "Wat Khuang Sing",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-423031752": {
+   "slug": "wat-phuak-taem",
+   "url": "https://wichaa.pages.dev/place/wat-phuak-taem/",
+   "name_th": "วัดพวกแต้ม",
+   "name_roman": "Wat Phuak Taem",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-437531160": {
+   "slug": "osm-way-437531160",
+   "url": "https://wichaa.pages.dev/place/osm-way-437531160/",
+   "name_th": "วัดท่าเกวียน",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-438102825": {
+   "slug": "wat-san-pa-sak-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-san-pa-sak-chiang-mai/",
+   "name_th": "วัดสันป่าสัก",
+   "name_roman": "Wat San Pa Sak",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-467444127": {
+   "slug": "wat-nantaram-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-nantaram-chiang-mai/",
+   "name_th": "วัดนันทาราม",
+   "name_roman": "Wat Nantaram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-495778859": {
+   "slug": "wat-up-khut",
+   "url": "https://wichaa.pages.dev/place/wat-up-khut/",
+   "name_th": "วัดอุปคุต",
+   "name_roman": "Wat Up Khut",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-525728485": {
+   "slug": "wat-mueang-lang",
+   "url": "https://wichaa.pages.dev/place/wat-mueang-lang/",
+   "name_th": "วัดเมืองลัง",
+   "name_roman": "Wat Mueang Lang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-528019093": {
+   "slug": "wat-ket-karam",
+   "url": "https://wichaa.pages.dev/place/wat-ket-karam/",
+   "name_th": "วัดเกตการาม",
+   "name_roman": "Wat Ket Karam",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-528423948": {
+   "slug": "wat-ban-tho-528423948",
+   "url": "https://wichaa.pages.dev/place/wat-ban-tho-528423948/",
+   "name_th": "วัดบ้านท่อ",
+   "name_roman": "Wat Ban Tho",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-528426354": {
+   "slug": "wat-pa-khoi-tai",
+   "url": "https://wichaa.pages.dev/place/wat-pa-khoi-tai/",
+   "name_th": "วัดป่าข่อยใต้",
+   "name_roman": "Wat Pa Khoi Tai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-532900628": {
+   "slug": "wat-won-wet-wi-sit",
+   "url": "https://wichaa.pages.dev/place/wat-won-wet-wi-sit/",
+   "name_th": "วัดวรเวทย์วิสิษฐ์",
+   "name_roman": "Wat Won Wet Wi Sit",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-535164570": {
+   "slug": "wat-pa-ngio-khru-ba-thanchai",
+   "url": "https://wichaa.pages.dev/place/wat-pa-ngio-khru-ba-thanchai/",
+   "name_th": "วัดป่างิ้ว (ครูบาทันใจ)",
+   "name_roman": "Wat Pa Ngio (Khru Ba Thanchai)",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-535164583": {
+   "slug": "wat-wang-sing-kham",
+   "url": "https://wichaa.pages.dev/place/wat-wang-sing-kham/",
+   "name_th": "วัดวังสิงห์คำ",
+   "name_roman": "Wat Wang Sing Kham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-553253715": {
+   "slug": "wat-nong-si-chaeng",
+   "url": "https://wichaa.pages.dev/place/wat-nong-si-chaeng/",
+   "name_th": "วัดหนองสี่แจ่ง",
+   "name_roman": "Wat Nong Si Chaeng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-563172842": {
+   "slug": "wat-ram-poeng-tapotaram",
+   "url": "https://wichaa.pages.dev/place/wat-ram-poeng-tapotaram/",
+   "name_th": "วัดร่ำเปิง (ตโปทาราม)",
+   "name_roman": "Wat Ram Poeng (Tapotaram)",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-574726989": {
+   "slug": "wat-wang-sing-kham-574726989",
+   "url": "https://wichaa.pages.dev/place/wat-wang-sing-kham-574726989/",
+   "name_th": "วัดวังสิงห์คำ",
+   "name_roman": "Wat Wang Sing Kham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-576783182": {
+   "slug": "wat-chang-kian",
+   "url": "https://wichaa.pages.dev/place/wat-chang-kian/",
+   "name_th": "วัดช่างเคี่ยน",
+   "name_roman": "Wat Chang Kian",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-577423794": {
+   "slug": "wat-nong-faek",
+   "url": "https://wichaa.pages.dev/place/wat-nong-faek/",
+   "name_th": "วัดหนองแฝก",
+   "name_roman": "Wat Nong Faek",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-578867504": {
+   "slug": "wat-khuan-kama",
+   "url": "https://wichaa.pages.dev/place/wat-khuan-kama/",
+   "name_th": "วัดควรค่าม้า",
+   "name_roman": "Wat Khuan Kama",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-594290245": {
+   "slug": "wat-kong-sai",
+   "url": "https://wichaa.pages.dev/place/wat-kong-sai/",
+   "name_th": "วัดกองทราย",
+   "name_roman": "Wat Kong Sai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-642809004": {
+   "slug": "wat-rong-yao",
+   "url": "https://wichaa.pages.dev/place/wat-rong-yao/",
+   "name_th": "วัดร้องยาว",
+   "name_roman": "Wat Rong Yao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-650706596": {
+   "slug": "wat-ou-sai-kham",
+   "url": "https://wichaa.pages.dev/place/wat-ou-sai-kham/",
+   "name_th": "วัดอู่ทรายคำ",
+   "name_roman": "Wat Ou Sai Kham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-653545558": {
+   "slug": "wat-si-ping-mueang-chiang-mai",
+   "url": "https://wichaa.pages.dev/place/wat-si-ping-mueang-chiang-mai/",
+   "name_th": "วัดศรีปิงเมือง",
+   "name_roman": "Wat Si Ping Mueang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-655352968": {
+   "slug": "wat-tham-pradit-sathan",
+   "url": "https://wichaa.pages.dev/place/wat-tham-pradit-sathan/",
+   "name_th": "วัดธรรมประดิษฐ์สถาน",
+   "name_roman": "Wat Tham Pradit Sathan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-655352975": {
+   "slug": "wat-thon-kaew",
+   "url": "https://wichaa.pages.dev/place/wat-thon-kaew/",
+   "name_th": "วัดต้นแก้ว",
+   "name_roman": "Wat Thon Kaew",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-665826690": {
+   "slug": "wat-ku-tao",
+   "url": "https://wichaa.pages.dev/place/wat-ku-tao/",
+   "name_th": "วัดกู่เต้า",
+   "name_roman": "Wat Ku Tao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-668806316": {
+   "slug": "wat-yang-kuang",
+   "url": "https://wichaa.pages.dev/place/wat-yang-kuang/",
+   "name_th": "วัดยางกวง",
+   "name_roman": "Wat Yang Kuang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-675336774": {
+   "slug": "wat-kamphaeng-ngam",
+   "url": "https://wichaa.pages.dev/place/wat-kamphaeng-ngam/",
+   "name_th": "วัดกำแพงงาม",
+   "name_roman": "Wat Kamphaeng Ngam",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-679357231": {
+   "slug": "wat-chang-khoeng",
+   "url": "https://wichaa.pages.dev/place/wat-chang-khoeng/",
+   "name_th": "วัดช่างเคิ่ง",
+   "name_roman": "Wat Chang Khoeng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-679357240": {
+   "slug": "wat-saraphi",
+   "url": "https://wichaa.pages.dev/place/wat-saraphi/",
+   "name_th": "วัดสารภี",
+   "name_roman": "Wat Saraphi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-691917810": {
+   "slug": "wat-phra-chao-meng-rai",
+   "url": "https://wichaa.pages.dev/place/wat-phra-chao-meng-rai/",
+   "name_th": "วัดพระเจ้าเม็งราย",
+   "name_roman": "Wat Phra Chao Meng Rai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-691923149": {
+   "slug": "wat-inthakhin-sadue-muang",
+   "url": "https://wichaa.pages.dev/place/wat-inthakhin-sadue-muang/",
+   "name_th": "วัดอินทขีลสะดือเมือง",
+   "name_roman": "Wat Inthakhin Sadue Muang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-691941076": {
+   "slug": "wat-sam-pao",
+   "url": "https://wichaa.pages.dev/place/wat-sam-pao/",
+   "name_th": "วัดสำเภา",
+   "name_roman": "Wat Sam Pao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-691945180": {
+   "slug": "osm-way-691945180",
+   "url": "https://wichaa.pages.dev/place/osm-way-691945180/",
+   "name_th": "วัดเมธัง",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-691949313": {
+   "slug": "wat-pan-whaen",
+   "url": "https://wichaa.pages.dev/place/wat-pan-whaen/",
+   "name_th": "วัดพันแหวน",
+   "name_roman": "Wat Pan Whaen",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-692137164": {
+   "slug": "wat-lok-molee",
+   "url": "https://wichaa.pages.dev/place/wat-lok-molee/",
+   "name_th": "วัดโลกโมฬี",
+   "name_roman": "Wat Lok Molee",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-692137169": {
+   "slug": "wat-santi-tham",
+   "url": "https://wichaa.pages.dev/place/wat-santi-tham/",
+   "name_th": "วัดสันติธรรม",
+   "name_roman": "Wat Santi Tham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-692140717": {
+   "slug": "osm-way-692140717",
+   "url": "https://wichaa.pages.dev/place/osm-way-692140717/",
+   "name_th": "วัดปันเส่า",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-692140719": {
+   "slug": "wat-pan-sao",
+   "url": "https://wichaa.pages.dev/place/wat-pan-sao/",
+   "name_th": "วัดปันเสา(พันเสา)",
+   "name_roman": "Wat Pan Sao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-692677756": {
+   "slug": "wat-pa-phrao-nok",
+   "url": "https://wichaa.pages.dev/place/wat-pa-phrao-nok/",
+   "name_th": "วัดป่าพร้าวนอก",
+   "name_roman": "Wat Pa Phrao Nok",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-692682522": {
+   "slug": "wat-puak-pia",
+   "url": "https://wichaa.pages.dev/place/wat-puak-pia/",
+   "name_th": "วัดพวกเปีย",
+   "name_roman": "Wat Puak Pia",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-692686707": {
+   "slug": "wat-tha-srikhong",
+   "url": "https://wichaa.pages.dev/place/wat-tha-srikhong/",
+   "name_th": "วัดศรีโขง",
+   "name_roman": "Wat Tha Srikhong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-700635985": {
+   "slug": "osm-way-700635985",
+   "url": "https://wichaa.pages.dev/place/osm-way-700635985/",
+   "name_th": "สุสานปิงห่าง",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-742755533": {
+   "slug": "wat-sawang-ban-thoeng",
+   "url": "https://wichaa.pages.dev/place/wat-sawang-ban-thoeng/",
+   "name_th": "วัดสว่างบรรเทิง",
+   "name_roman": "Wat Sawang Ban Thoeng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-746949625": {
+   "slug": "wat-mae-yuak",
+   "url": "https://wichaa.pages.dev/place/wat-mae-yuak/",
+   "name_th": "วัดแม่หยวก",
+   "name_roman": "Wat Mae Yuak",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-749320828": {
+   "slug": "buddha-dhamma-nonghor-monastery",
+   "url": "https://wichaa.pages.dev/place/buddha-dhamma-nonghor-monastery/",
+   "name_th": "ที่พักสงฆ์พุทธรรมหนองฮ่อ",
+   "name_roman": "Buddha Dhamma Nonghor Monastery",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-786188924": {
+   "slug": "wat-sri-moonrueang",
+   "url": "https://wichaa.pages.dev/place/wat-sri-moonrueang/",
+   "name_th": "วัดศรีมูลเรือง",
+   "name_roman": "Wat Sri Moonrueang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-796430206": {
+   "slug": "wat-ubosot-796430206",
+   "url": "https://wichaa.pages.dev/place/wat-ubosot-796430206/",
+   "name_th": "วัดอุโบสถ",
+   "name_roman": "Wat Ubosot",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-810358530": {
+   "slug": "osm-way-810358530",
+   "url": "https://wichaa.pages.dev/place/osm-way-810358530/",
+   "name_th": "หอสมเด็จพระพุทธปัญญาธรรม",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-813094863": {
+   "slug": "osm-way-813094863",
+   "url": "https://wichaa.pages.dev/place/osm-way-813094863/",
+   "name_th": "วิหารหลวงพ่อทันใจ พระครูบาเจ้าเทือง นาถสีโล",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-818040399": {
+   "slug": "wat-faihin",
+   "url": "https://wichaa.pages.dev/place/wat-faihin/",
+   "name_th": "วัดฝายหิน",
+   "name_roman": "Wat Faihin",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-95480256": {
+   "slug": "wat-san-pa-kha",
+   "url": "https://wichaa.pages.dev/place/wat-san-pa-kha/",
+   "name_th": "วัดสันป่าค่า",
+   "name_roman": "Wat San Pa Kha",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-95953233": {
+   "slug": "wat-tha-ton-kwao",
+   "url": "https://wichaa.pages.dev/place/wat-tha-ton-kwao/",
+   "name_th": "วัดท่าต้นกวาว",
+   "name_roman": "Wat Tha Ton Kwao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-96423038": {
+   "slug": "chiang-mai-buddhist-shrine",
+   "url": "https://wichaa.pages.dev/place/chiang-mai-buddhist-shrine/",
+   "name_th": "พุทธสถานเชียงใหม่",
+   "name_roman": "Chiang Mai Buddhist Shrine",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-96938507": {
+   "slug": "wat-jetiyanusorn",
+   "url": "https://wichaa.pages.dev/place/wat-jetiyanusorn/",
+   "name_th": "วัดเจติยานุสรณ์",
+   "name_roman": "Wat Jetiyanusorn",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-97665874": {
+   "slug": "wat-don-chan",
+   "url": "https://wichaa.pages.dev/place/wat-don-chan/",
+   "name_th": "วัดดอนจั่น",
+   "name_roman": "Wat Don Chan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-98698313": {
+   "slug": "wat-nong-khong",
+   "url": "https://wichaa.pages.dev/place/wat-nong-khong/",
+   "name_th": "วัดหนองโค้ง",
+   "name_roman": "Wat Nong Khong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cm-osm-way-992388613": {
+   "slug": "wat-pa-chi",
+   "url": "https://wichaa.pages.dev/place/wat-pa-chi/",
+   "name_th": "วัดป่าจี้",
+   "name_roman": "Wat Pa Chi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-10542349151": {
+   "slug": "osm-node-10542349151",
+   "url": "https://wichaa.pages.dev/place/osm-node-10542349151/",
+   "name_th": "วัดพระธาตุ ผาเงา",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-11432117226": {
+   "slug": "wat-chedi-luang-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-chedi-luang-chiang-rai/",
+   "name_th": "วัดเจดีย์หลวง",
+   "name_roman": "Wat Chedi Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-11432117354": {
+   "slug": "wat-san-mafaen",
+   "url": "https://wichaa.pages.dev/place/wat-san-mafaen/",
+   "name_th": "วัดสันมะแฟน",
+   "name_roman": "Wat San Mafaen",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-11432552303": {
+   "slug": "wat-si-kham-wiang",
+   "url": "https://wichaa.pages.dev/place/wat-si-kham-wiang/",
+   "name_th": "วัดศรีคำเวียง",
+   "name_roman": "Wat Si Kham Wiang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-11432552490": {
+   "slug": "wat-pa-ngio",
+   "url": "https://wichaa.pages.dev/place/wat-pa-ngio/",
+   "name_th": "วัดป่างิ้ว",
+   "name_roman": "Wat Pa Ngio",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-11432552874": {
+   "slug": "wat-mae-kha-chan",
+   "url": "https://wichaa.pages.dev/place/wat-mae-kha-chan/",
+   "name_th": "วัดแม่ขะจาน",
+   "name_roman": "Wat Mae Kha Chan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-11436344838": {
+   "slug": "osm-node-11436344838",
+   "url": "https://wichaa.pages.dev/place/osm-node-11436344838/",
+   "name_th": "วัดบ้านหนองกล้วย",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-11442253825": {
+   "slug": "osm-node-11442253825",
+   "url": "https://wichaa.pages.dev/place/osm-node-11442253825/",
+   "name_th": "พระเจ้าทันใจ",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-11442436442": {
+   "slug": "wat-phra-that-song-phi-nong",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-song-phi-nong/",
+   "name_th": "วัดพระธาตุสองพี่น้อง",
+   "name_roman": "Wat Phra That Song Phi Nong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-1224687597": {
+   "slug": "wat-prachaoluang",
+   "url": "https://wichaa.pages.dev/place/wat-prachaoluang/",
+   "name_th": "วัดพระเจ้าหลวง",
+   "name_roman": "Wat Prachaoluang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-1226383329": {
+   "slug": "phra-bhoromtharth-buddha-nimit-chedi",
+   "url": "https://wichaa.pages.dev/place/phra-bhoromtharth-buddha-nimit-chedi/",
+   "name_th": "เจดีย์ พระบรมธาตุพุทธนิมิต",
+   "name_roman": "Phra Bhoromtharth Buddha Nimit Chedi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-12278753413": {
+   "slug": "wat-phra-that-doi-qiang-kaew-kruba-boonchum",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-doi-qiang-kaew-kruba-boonchum/",
+   "name_th": "วัดพระธาตุดอยเวียงแก้ว(ครูบาบุญชุ่ม)",
+   "name_roman": "Wat phra That Doi Qiang Kaew (Kruba Boonchum)",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-13172490327": {
+   "slug": "wat-lampoeng",
+   "url": "https://wichaa.pages.dev/place/wat-lampoeng/",
+   "name_th": "วัดลำเปิง",
+   "name_roman": "Wat Lampoeng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-13518302123": {
+   "slug": "osm-node-13518302123",
+   "url": "https://wichaa.pages.dev/place/osm-node-13518302123/",
+   "name_th": "อุโบสถวัดห้วยปลากั้ง",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-13518302225": {
+   "slug": "osm-node-13518302225",
+   "url": "https://wichaa.pages.dev/place/osm-node-13518302225/",
+   "name_th": "เจดีย์วัดห้วยปลสกั้ง",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-1379841226": {
+   "slug": "osm-node-1379841226",
+   "url": "https://wichaa.pages.dev/place/osm-node-1379841226/",
+   "name_th": "วัดดอย",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-13844545401": {
+   "slug": "osm-node-13844545401",
+   "url": "https://wichaa.pages.dev/place/osm-node-13844545401/",
+   "name_th": "สวนปฏิบัติธรรมดอยช้าง-งู",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-1445535116": {
+   "slug": "wat-tham-tu-pu",
+   "url": "https://wichaa.pages.dev/place/wat-tham-tu-pu/",
+   "name_th": "วัดถ้ำตุ๊ปู",
+   "name_roman": "Wat Tham Tu Pu",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-1702530770": {
+   "slug": "wat-si-don-chai-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-si-don-chai-chiang-rai/",
+   "name_th": "วัดศรีดอนชัย",
+   "name_roman": "Wat Si Don Chai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-1702530774": {
+   "slug": "wat-pang-ai-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-pang-ai-chiang-rai/",
+   "name_th": "วัดปางอ่าย",
+   "name_roman": "Wat Pang Ai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2088327624": {
+   "slug": "wat-ban-boonroungnuar-temple",
+   "url": "https://wichaa.pages.dev/place/wat-ban-boonroungnuar-temple/",
+   "name_th": "วัดบ้านบุญเรืองเหนือ",
+   "name_roman": "Wat Ban Boonroungnuar temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2123257435": {
+   "slug": "wat-klang-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-klang-chiang-rai/",
+   "name_th": "วัดกลาง",
+   "name_roman": "Wat Klang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2126897570": {
+   "slug": "wat-mae-hang",
+   "url": "https://wichaa.pages.dev/place/wat-mae-hang/",
+   "name_th": "วัดแม่ห่าง",
+   "name_roman": "Wat Mae Hang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2126924250": {
+   "slug": "wat-thung-luang",
+   "url": "https://wichaa.pages.dev/place/wat-thung-luang/",
+   "name_th": "วัดทุ่งหลวง",
+   "name_roman": "Wat Thung Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2136677526": {
+   "slug": "wat-padaeng-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-padaeng-chiang-rai/",
+   "name_th": "วัดป่าแดง",
+   "name_roman": "Wat Padaeng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2136677527": {
+   "slug": "wat-si-sutthawat",
+   "url": "https://wichaa.pages.dev/place/wat-si-sutthawat/",
+   "name_th": "วัดศรีสุทธาวาส",
+   "name_roman": "Wat Si Sutthawat",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2136689558": {
+   "slug": "wat-si-suphan-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-si-suphan-chiang-rai/",
+   "name_th": "วัดศรีสุพรรณ์ (ม)",
+   "name_roman": "Wat Si Suphan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2136693462": {
+   "slug": "wat-pa-muang",
+   "url": "https://wichaa.pages.dev/place/wat-pa-muang/",
+   "name_th": "วัดป่าม่วง",
+   "name_roman": "Wat Pa Muang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2136718421": {
+   "slug": "wat-pong-nuea",
+   "url": "https://wichaa.pages.dev/place/wat-pong-nuea/",
+   "name_th": "วัดโป่งเหนือ",
+   "name_roman": "Wat Pong Nuea",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2136775762": {
+   "slug": "wat-khiri-rattana-mongkhon",
+   "url": "https://wichaa.pages.dev/place/wat-khiri-rattana-mongkhon/",
+   "name_th": "วัดคีรีรัตนมงคล (ม)",
+   "name_roman": "Wat Khiri Rattana Mongkhon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2136784817": {
+   "slug": "wat-mae-tam",
+   "url": "https://wichaa.pages.dev/place/wat-mae-tam/",
+   "name_th": "วัดแม่ต๋ำ",
+   "name_roman": "Wat Mae Tam",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2136792799": {
+   "slug": "wat-pa-thon",
+   "url": "https://wichaa.pages.dev/place/wat-pa-thon/",
+   "name_th": "วัดป่าถ่อน(ม)",
+   "name_roman": "Wat Pa Thon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2138298548": {
+   "slug": "wat-huai-som",
+   "url": "https://wichaa.pages.dev/place/wat-huai-som/",
+   "name_th": "วัดห้วยส้ม",
+   "name_roman": "Wat Huai Som",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2138306718": {
+   "slug": "wat-pa-tueng-ngam",
+   "url": "https://wichaa.pages.dev/place/wat-pa-tueng-ngam/",
+   "name_th": "วัดป่าตึงงาม",
+   "name_roman": "Wat Pa Tueng Ngam",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2138326067": {
+   "slug": "wat-rong-bong",
+   "url": "https://wichaa.pages.dev/place/wat-rong-bong/",
+   "name_th": "วัดร้องบง(ม)",
+   "name_roman": "Wat Rong Bong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2138354347": {
+   "slug": "wat-san-pu-loei-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-san-pu-loei-chiang-rai/",
+   "name_th": "วัดสันปูเลย(ม)",
+   "name_roman": "Wat San Pu Loei",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2138364962": {
+   "slug": "wat-pong-pu-fueang",
+   "url": "https://wichaa.pages.dev/place/wat-pong-pu-fueang/",
+   "name_th": "วัดโป่งปูเฟือง (ม)",
+   "name_roman": "Wat Pong Pu Fueang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2138372000": {
+   "slug": "wat-huai-san-yao",
+   "url": "https://wichaa.pages.dev/place/wat-huai-san-yao/",
+   "name_th": "วัดห้วยส้านยาว",
+   "name_roman": "Wat Huai San Yao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2138387029": {
+   "slug": "wat-bun-rueang",
+   "url": "https://wichaa.pages.dev/place/wat-bun-rueang/",
+   "name_th": "วัดบุญเรือง",
+   "name_roman": "Wat Bun Rueang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2139485741": {
+   "slug": "wat-wiang-wai",
+   "url": "https://wichaa.pages.dev/place/wat-wiang-wai/",
+   "name_th": "วัดเวียงหวาย",
+   "name_roman": "Wat Wiang Wai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2139500177": {
+   "slug": "wat-suan-dok-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-suan-dok-chiang-rai/",
+   "name_th": "วัดสวนดอก",
+   "name_roman": "Wat Suan Dok",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2139542405": {
+   "slug": "what-fang-min",
+   "url": "https://wichaa.pages.dev/place/what-fang-min/",
+   "name_th": "วัด ฝั่งหมิ่น",
+   "name_roman": "What Fang Min",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2139554545": {
+   "slug": "wat-pang-kok",
+   "url": "https://wichaa.pages.dev/place/wat-pang-kok/",
+   "name_th": "วัดปางกอก",
+   "name_roman": "Wat Pang Kok",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2139567394": {
+   "slug": "wat-pang-rim-kon",
+   "url": "https://wichaa.pages.dev/place/wat-pang-rim-kon/",
+   "name_th": "วัดปางริมกรณ์",
+   "name_roman": "Wat Pang Rim Kon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2140486922": {
+   "slug": "wat-saming-kaeo",
+   "url": "https://wichaa.pages.dev/place/wat-saming-kaeo/",
+   "name_th": "วัดสมิงแก้ว",
+   "name_roman": "Wat Saming Kaeo",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2148546071": {
+   "slug": "wat-suwan-khiri",
+   "url": "https://wichaa.pages.dev/place/wat-suwan-khiri/",
+   "name_th": "วัดสุวรรณคีรี",
+   "name_roman": "Wat Suwan Khiri",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2148549125": {
+   "slug": "wat-si-mongkhon",
+   "url": "https://wichaa.pages.dev/place/wat-si-mongkhon/",
+   "name_th": "วัดศรีมงคล",
+   "name_roman": "Wat Si Mongkhon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2148568038": {
+   "slug": "osm-node-2148568038",
+   "url": "https://wichaa.pages.dev/place/osm-node-2148568038/",
+   "name_th": "วัดทรายมูล",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2148604093": {
+   "slug": "osm-node-2148604093",
+   "url": "https://wichaa.pages.dev/place/osm-node-2148604093/",
+   "name_th": "วัดทุ่งต่าง",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2148624725": {
+   "slug": "wat-huai-mahin-fon",
+   "url": "https://wichaa.pages.dev/place/wat-huai-mahin-fon/",
+   "name_th": "วัดมะหินฝน",
+   "name_roman": "Wat Huai Mahin Fon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2148823053": {
+   "slug": "wat-sak-kawan",
+   "url": "https://wichaa.pages.dev/place/wat-sak-kawan/",
+   "name_th": "วัดสักกวัน",
+   "name_roman": "Wat Sak Kawan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2153682451": {
+   "slug": "wat-pa-ruak",
+   "url": "https://wichaa.pages.dev/place/wat-pa-ruak/",
+   "name_th": "วัดป่ารวก(ม.)",
+   "name_roman": "Wat Pa Ruak",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2153718404": {
+   "slug": "wat-huai-phlu",
+   "url": "https://wichaa.pages.dev/place/wat-huai-phlu/",
+   "name_th": "วัดห้วยพลู",
+   "name_roman": "Wat Huai Phlu",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2153758922": {
+   "slug": "wat-mae-khaotom-tha-sut",
+   "url": "https://wichaa.pages.dev/place/wat-mae-khaotom-tha-sut/",
+   "name_th": "วัดแม่ข้าวต้มท่าสุด",
+   "name_roman": "Wat Mae Khaotom Tha Sut",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2153781726": {
+   "slug": "wat-huai-kian",
+   "url": "https://wichaa.pages.dev/place/wat-huai-kian/",
+   "name_th": "วัดห้วยเคียน",
+   "name_roman": "Wat Huai Kian",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2153792573": {
+   "slug": "wat-bo-thong",
+   "url": "https://wichaa.pages.dev/place/wat-bo-thong/",
+   "name_th": "วัดบ่อทอง",
+   "name_roman": "Wat Bo Thong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2153795314": {
+   "slug": "wat-pong-o",
+   "url": "https://wichaa.pages.dev/place/wat-pong-o/",
+   "name_th": "วัดปงอ้อ",
+   "name_roman": "Wat Pong O",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2171582067": {
+   "slug": "wat-pasang-temple",
+   "url": "https://wichaa.pages.dev/place/wat-pasang-temple/",
+   "name_th": "วัดป่าซาง",
+   "name_roman": "Wat Pasang Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2172175853": {
+   "slug": "wat-si-yang-mun",
+   "url": "https://wichaa.pages.dev/place/wat-si-yang-mun/",
+   "name_th": "วัดศรียางมูล",
+   "name_roman": "Wat Si Yang Mun",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2172194014": {
+   "slug": "wat-san-khue-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-san-khue-chiang-rai/",
+   "name_th": "วัดสันคือ",
+   "name_roman": "Wat San Khue",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2172199209": {
+   "slug": "wat-pa-ha",
+   "url": "https://wichaa.pages.dev/place/wat-pa-ha/",
+   "name_th": "วัดป่าห้า(เบญจพัฒนมงคล)",
+   "name_roman": "Wat Pa Ha",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2172222930": {
+   "slug": "wat-mueang-klang",
+   "url": "https://wichaa.pages.dev/place/wat-mueang-klang/",
+   "name_th": "วัดเหมืองกลาง(ปิตติพุทโธ)",
+   "name_roman": "Wat Mueang Klang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2172382581": {
+   "slug": "wat-mae-kham-lak-chet-temple",
+   "url": "https://wichaa.pages.dev/place/wat-mae-kham-lak-chet-temple/",
+   "name_th": "วัดแม่คำหลักเจ็ด",
+   "name_roman": "Wat Mae Kham Lak Chet temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2172382584": {
+   "slug": "wat-mae-kha",
+   "url": "https://wichaa.pages.dev/place/wat-mae-kha/",
+   "name_th": "วัดแม่ค่า",
+   "name_roman": "Wat Mae Kha",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2172382585": {
+   "slug": "wat-don-mun-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-don-mun-chiang-rai/",
+   "name_th": "วัดดอนมูล",
+   "name_roman": "Wat Don Mun",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2172382588": {
+   "slug": "wat-san-kong",
+   "url": "https://wichaa.pages.dev/place/wat-san-kong/",
+   "name_th": "วัดสันกอง",
+   "name_roman": "Wat San Kong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2172382589": {
+   "slug": "wat-huai-nam-khun",
+   "url": "https://wichaa.pages.dev/place/wat-huai-nam-khun/",
+   "name_th": "วัดห้วยน้ำขุ่น",
+   "name_roman": "Wat Huai Nam Khun",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2172485095": {
+   "slug": "wat-huai-rai",
+   "url": "https://wichaa.pages.dev/place/wat-huai-rai/",
+   "name_th": "วัดห้วยไร่",
+   "name_roman": "Wat Huai Rai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2174022716": {
+   "slug": "wat-huai-khrai-luang",
+   "url": "https://wichaa.pages.dev/place/wat-huai-khrai-luang/",
+   "name_th": "วัดห้วยไคร้หลวง",
+   "name_roman": "Wat Huai Khrai Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2207485393": {
+   "slug": "wat-mankha-ram",
+   "url": "https://wichaa.pages.dev/place/wat-mankha-ram/",
+   "name_th": "วัดมรรคาราม",
+   "name_roman": "Wat Mankha Ram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2207495992": {
+   "slug": "wat-che-ti-ya-ram",
+   "url": "https://wichaa.pages.dev/place/wat-che-ti-ya-ram/",
+   "name_th": "วัดเจติยาราม(สันธาตุ)",
+   "name_roman": "Wat Che Ti Ya Ram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2212554069": {
+   "slug": "wat-pa-sak-noi",
+   "url": "https://wichaa.pages.dev/place/wat-pa-sak-noi/",
+   "name_th": "วัดป่าสักน้อย",
+   "name_roman": "Wat Pa Sak Noi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2326555960": {
+   "slug": "mung-mang-temple-ruin",
+   "url": "https://wichaa.pages.dev/place/mung-mang-temple-ruin/",
+   "name_th": "วัดมุงเมือง",
+   "name_roman": "Mung Mang Temple Ruin",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2327229543": {
+   "slug": "wat-doi-champi",
+   "url": "https://wichaa.pages.dev/place/wat-doi-champi/",
+   "name_th": "วัดดอยจำปี",
+   "name_roman": "Wat Doi Champi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2334819336": {
+   "slug": "wat-chai-mongkhon-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-chai-mongkhon-chiang-rai/",
+   "name_th": "วัดชัยมงคล",
+   "name_roman": "Wat Chai Mongkhon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2337430318": {
+   "slug": "wat-si-yang-chum",
+   "url": "https://wichaa.pages.dev/place/wat-si-yang-chum/",
+   "name_th": "วัดศรียางชุม",
+   "name_roman": "Wat Si Yang Chum",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2423293688": {
+   "slug": "wat-tha-kham-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-tha-kham-chiang-rai/",
+   "name_th": "วัดท่าข้าม",
+   "name_roman": "Wat Tha Kham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2423382937": {
+   "slug": "wat-ammat",
+   "url": "https://wichaa.pages.dev/place/wat-ammat/",
+   "name_th": "วัดอำมาตย์",
+   "name_roman": "Wat Ammat",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2423388608": {
+   "slug": "wat-phra-nak-kaeo",
+   "url": "https://wichaa.pages.dev/place/wat-phra-nak-kaeo/",
+   "name_th": "วัดพระนาคแก้ว",
+   "name_roman": "Wat Phra Nak Kaeo",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2423451993": {
+   "slug": "wat-daen-mueang",
+   "url": "https://wichaa.pages.dev/place/wat-daen-mueang/",
+   "name_th": "วัดแดนเมือง",
+   "name_roman": "Wat Daen Mueang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2423461224": {
+   "slug": "wat-huao-hok",
+   "url": "https://wichaa.pages.dev/place/wat-huao-hok/",
+   "name_th": "วัดห้วยหก",
+   "name_roman": "Wat Huao Hok",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2423479535": {
+   "slug": "wat-muang-chum",
+   "url": "https://wichaa.pages.dev/place/wat-muang-chum/",
+   "name_th": "วัดม่วงชุม",
+   "name_roman": "Wat Muang Chum",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2423482602": {
+   "slug": "wat-tong",
+   "url": "https://wichaa.pages.dev/place/wat-tong/",
+   "name_th": "วัดตอง",
+   "name_roman": "Wat Tong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2423488989": {
+   "slug": "tacharoen-temple",
+   "url": "https://wichaa.pages.dev/place/tacharoen-temple/",
+   "name_th": "วัดบ้านท่าเจริญ",
+   "name_roman": "Tacharoen Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2423518657": {
+   "slug": "thung-ngio-temple",
+   "url": "https://wichaa.pages.dev/place/thung-ngio-temple/",
+   "name_th": "วัดบ้านทุ่งงิ้ว",
+   "name_roman": "Thung ngio Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2539789786": {
+   "slug": "wat-doi-phrabat",
+   "url": "https://wichaa.pages.dev/place/wat-doi-phrabat/",
+   "name_th": "วัดดอยพระบาท",
+   "name_roman": "Wat Doi Phrabat",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2622028410": {
+   "slug": "wat-phra-that-doi-chom-thong",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-doi-chom-thong/",
+   "name_th": "วัดพระธาตุดอยจอมทอง",
+   "name_roman": "Wat Phra That Doi Chom Thong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-2622028414": {
+   "slug": "the-navel-city-pillar-of-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/the-navel-city-pillar-of-chiang-rai/",
+   "name_th": "เสาสะดือเมืองเชียงราย",
+   "name_roman": "The Navel City Pillar of Chiang Rai",
+   "type": "city_pillar",
+   "metres": 5
+  },
+  "cr-osm-node-3286955744": {
+   "slug": "wat-mae-suai-luang",
+   "url": "https://wichaa.pages.dev/place/wat-mae-suai-luang/",
+   "name_th": "วัดแม่สรวยหลวง(ม)",
+   "name_roman": "Wat Mae Suai Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-3480040705": {
+   "slug": "wat-phra-that-phra-maha-chedi",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-phra-maha-chedi/",
+   "name_th": "วัดพระธาตุ พระมหาเจดีย์",
+   "name_roman": "Wat Phra That Phra Maha Chedi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-3517236502": {
+   "slug": "wat-phuttha-utthayan-doi-insi",
+   "url": "https://wichaa.pages.dev/place/wat-phuttha-utthayan-doi-insi/",
+   "name_th": "วัดพุทธอุทยานดอยอินทรีย์",
+   "name_roman": "Wat Phuttha Utthayan Doi Insi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-361376974": {
+   "slug": "wat-santikhiri",
+   "url": "https://wichaa.pages.dev/place/wat-santikhiri/",
+   "name_th": "วัดสันติคีรี",
+   "name_roman": "Wat Santikhiri",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-361391190": {
+   "slug": "phra-that-doi-phu-khao-pu-khao",
+   "url": "https://wichaa.pages.dev/place/phra-that-doi-phu-khao-pu-khao/",
+   "name_th": "พระธาตุดอยภูเข้า (ปูเข้า)",
+   "name_roman": "Phra That Doi Phu Khao (Pu Khao)",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-361391554": {
+   "slug": "biggest-buddha",
+   "url": "https://wichaa.pages.dev/place/biggest-buddha/",
+   "name_th": "พระประธาน",
+   "name_roman": "Biggest Buddha",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-3730218855": {
+   "slug": "pha-teak-temple-chedi",
+   "url": "https://wichaa.pages.dev/place/pha-teak-temple-chedi/",
+   "name_th": "เจดีย์วัดผาแตก",
+   "name_roman": "Pha Teak Temple Chedi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-3752947149": {
+   "slug": "phai-morakot-ashram",
+   "url": "https://wichaa.pages.dev/place/phai-morakot-ashram/",
+   "name_th": "อาศรมไผ่มรกต",
+   "name_roman": "Phai Morakot Ashram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-3758551067": {
+   "slug": "ubosot-phuttha-bucha-maha-parinipphan",
+   "url": "https://wichaa.pages.dev/place/ubosot-phuttha-bucha-maha-parinipphan/",
+   "name_th": "อุโบสถพุทธบูชามหาปรินิพพาน",
+   "name_roman": "Ubosot Phuttha Bucha Maha Parinipphan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-3840465325": {
+   "slug": "wat-tham-pa-acha-thong",
+   "url": "https://wichaa.pages.dev/place/wat-tham-pa-acha-thong/",
+   "name_th": "วัดถ้ำป่าอาชาทอง",
+   "name_roman": "Wat Tham Pa Acha Thong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-3842065883": {
+   "slug": "wat-charoen-mueang",
+   "url": "https://wichaa.pages.dev/place/wat-charoen-mueang/",
+   "name_th": "วัดเจริญเมือง",
+   "name_roman": "Wat Charoen Mueang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-3939947273": {
+   "slug": "wat-tham-phra",
+   "url": "https://wichaa.pages.dev/place/wat-tham-phra/",
+   "name_th": "วัดถ้ำพระ",
+   "name_roman": "Wat Tham Phra",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-3997578209": {
+   "slug": "osm-node-3997578209",
+   "url": "https://wichaa.pages.dev/place/osm-node-3997578209/",
+   "name_th": "พระธาตุศรีโยนนกรัตนมงคล",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4125248307": {
+   "slug": "phrathat-wangsang",
+   "url": "https://wichaa.pages.dev/place/phrathat-wangsang/",
+   "name_th": "พระธาตุวังซาง",
+   "name_roman": "Phrathat Wangsang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4464532046": {
+   "slug": "wat-santi-rat-wana-ram",
+   "url": "https://wichaa.pages.dev/place/wat-santi-rat-wana-ram/",
+   "name_th": "วัดสันติราษฎร์วนาราม",
+   "name_roman": "Wat Santi Rat Wana Ram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4471384959": {
+   "slug": "wat-san-kamphaeng",
+   "url": "https://wichaa.pages.dev/place/wat-san-kamphaeng/",
+   "name_th": "วัดสันกำแพง",
+   "name_roman": "Wat San Kamphaeng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4471384960": {
+   "slug": "wat-tha-rue",
+   "url": "https://wichaa.pages.dev/place/wat-tha-rue/",
+   "name_th": "วัดท่ารือ",
+   "name_roman": "Wat Tha Rue",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4471410505": {
+   "slug": "wat-buak-pla-khao",
+   "url": "https://wichaa.pages.dev/place/wat-buak-pla-khao/",
+   "name_th": "วัดบวกปลาค้าว",
+   "name_roman": "Wat Buak Pla Khao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4472048677": {
+   "slug": "wat-pa-chang",
+   "url": "https://wichaa.pages.dev/place/wat-pa-chang/",
+   "name_th": "วัดป่าชาง",
+   "name_roman": "Wat Pa Chang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4516157248": {
+   "slug": "golden-monk",
+   "url": "https://wichaa.pages.dev/place/golden-monk/",
+   "name_th": "อนุสาวรีย์ครูบาศรีวิชัย",
+   "name_roman": "Golden monk",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4517919142": {
+   "slug": "osm-node-4517919142",
+   "url": "https://wichaa.pages.dev/place/osm-node-4517919142/",
+   "name_th": "วัดฮ่างต่ำเหนือ",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4525283585": {
+   "slug": "wat-hua-tung",
+   "url": "https://wichaa.pages.dev/place/wat-hua-tung/",
+   "name_th": "วัดหัวทุ่ง",
+   "name_roman": "Wat Hua Tung",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4525342513": {
+   "slug": "wat-namlat-wang-sang",
+   "url": "https://wichaa.pages.dev/place/wat-namlat-wang-sang/",
+   "name_th": "วัดน้ำลัดวังซาง",
+   "name_roman": "Wat Namlat Wang Sang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4525375383": {
+   "slug": "wat-san-tan-leang",
+   "url": "https://wichaa.pages.dev/place/wat-san-tan-leang/",
+   "name_th": "วัดสันตาลเหลือง",
+   "name_roman": "Wat San Tan Leang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4527010409": {
+   "slug": "wat-pa-ha-4527010409",
+   "url": "https://wichaa.pages.dev/place/wat-pa-ha-4527010409/",
+   "name_th": "วัดป่าห้า",
+   "name_roman": "Wat Pa Ha",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4527010547": {
+   "slug": "wat-thamaram",
+   "url": "https://wichaa.pages.dev/place/wat-thamaram/",
+   "name_th": "วัดธรรมราม",
+   "name_roman": "Wat Thamaram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4527010751": {
+   "slug": "wat-san-khilek",
+   "url": "https://wichaa.pages.dev/place/wat-san-khilek/",
+   "name_th": "วัดสันขี้เหล็ก",
+   "name_roman": "Wat San Khilek",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4527119253": {
+   "slug": "watkeereepathaya-temple",
+   "url": "https://wichaa.pages.dev/place/watkeereepathaya-temple/",
+   "name_th": "วัดคีรีพัธยา",
+   "name_roman": "Watkeereepathaya Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4527119256": {
+   "slug": "sannayao-village-temple",
+   "url": "https://wichaa.pages.dev/place/sannayao-village-temple/",
+   "name_th": "วัดบ้านสันนายาว",
+   "name_roman": "Sannayao village temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4527119258": {
+   "slug": "wat-san-salee-luang-temple",
+   "url": "https://wichaa.pages.dev/place/wat-san-salee-luang-temple/",
+   "name_th": "วัดสันสลีหลวง",
+   "name_roman": "Wat San Salee Luang temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4527119259": {
+   "slug": "ratch-burana-temple-pasangnoi-temple",
+   "url": "https://wichaa.pages.dev/place/ratch-burana-temple-pasangnoi-temple/",
+   "name_th": "วัดราษฏร์บูรณะ(ป่าซางน้อย)",
+   "name_roman": "Ratch Burana Temple(Pasangnoi Temple)",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4527119264": {
+   "slug": "hnong-aor-temple",
+   "url": "https://wichaa.pages.dev/place/hnong-aor-temple/",
+   "name_th": "วัดหนองอ้อ",
+   "name_roman": "Hnong Aor Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4527145792": {
+   "slug": "hnamjum-tenple",
+   "url": "https://wichaa.pages.dev/place/hnamjum-tenple/",
+   "name_th": "วัดน้ำจำ",
+   "name_roman": "Hnamjum Tenple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4530941174": {
+   "slug": "wat-phra-that-ku-kaeo",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-ku-kaeo/",
+   "name_th": "วัดพระธาตุกู่แก้ว",
+   "name_roman": "Wat Phra That Ku Kaeo",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4781018423": {
+   "slug": "watdoitepnimit",
+   "url": "https://wichaa.pages.dev/place/watdoitepnimit/",
+   "name_th": "วัดดอยเทพนิมิต",
+   "name_roman": "Watdoitepnimit",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-4797959824": {
+   "slug": "wat-phra-that-chedi",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-chedi/",
+   "name_th": "วัดพระธาตุเจดีย์",
+   "name_roman": "Wat Phra That Chedi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-5245080414": {
+   "slug": "wat-phra-that-chom-kitti",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-chom-kitti/",
+   "name_th": "วัดพระธาตุจอมกิตติ",
+   "name_roman": "Wat Phra That Chom Kitti",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-5341286921": {
+   "slug": "pratad-doi-mae-ya-mon-temple",
+   "url": "https://wichaa.pages.dev/place/pratad-doi-mae-ya-mon-temple/",
+   "name_th": "วัดพระธาตุดอยแม่ย่าม่อน",
+   "name_roman": "Pratad Doi Mae Ya Mon Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-6375494585": {
+   "slug": "wiangsa-temple",
+   "url": "https://wichaa.pages.dev/place/wiangsa-temple/",
+   "name_th": "วัดบ้านเวียงสา",
+   "name_roman": "Wiangsa Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-6375494586": {
+   "slug": "papao-temple",
+   "url": "https://wichaa.pages.dev/place/papao-temple/",
+   "name_th": "วัดป่าเปา",
+   "name_roman": "Papao Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-6395095387": {
+   "slug": "sanmaket-temple",
+   "url": "https://wichaa.pages.dev/place/sanmaket-temple/",
+   "name_th": "วัดสันมะเค็ด",
+   "name_roman": "Sanmaket Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-6395095388": {
+   "slug": "hnongbuatong-temple",
+   "url": "https://wichaa.pages.dev/place/hnongbuatong-temple/",
+   "name_th": "วัดหนองบัวตอง",
+   "name_roman": "Hnongbuatong Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-6395095586": {
+   "slug": "seboonyuan-temple",
+   "url": "https://wichaa.pages.dev/place/seboonyuan-temple/",
+   "name_th": "วัดศรีบุญยืน",
+   "name_roman": "Seboonyuan Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-6405412485": {
+   "slug": "pakhup-temple",
+   "url": "https://wichaa.pages.dev/place/pakhup-temple/",
+   "name_th": "วัดบ้านผากุบ",
+   "name_roman": "Pakhup Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-6810567085": {
+   "slug": "watsiripathanaram-temple",
+   "url": "https://wichaa.pages.dev/place/watsiripathanaram-temple/",
+   "name_th": "วัดสิริพัฒนาราม",
+   "name_roman": "Watsiripathanaram temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-6984011485": {
+   "slug": "romklao-khuntan-christian-church",
+   "url": "https://wichaa.pages.dev/place/romklao-khuntan-christian-church/",
+   "name_th": "คริสตจักรร่มเกล้าขุนตาล",
+   "name_roman": "Romklao Khuntan christian church",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-7179402934": {
+   "slug": "wat-maesalongnai-temple",
+   "url": "https://wichaa.pages.dev/place/wat-maesalongnai-temple/",
+   "name_th": "วัดแม่สลองใน",
+   "name_roman": "Wat Maesalongnai temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-7461678288": {
+   "slug": "wat-huai-kom-temple",
+   "url": "https://wichaa.pages.dev/place/wat-huai-kom-temple/",
+   "name_th": "วัดห้วยขม",
+   "name_roman": "Wat Huai Kom temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-7461716586": {
+   "slug": "wat-tha-look-temple",
+   "url": "https://wichaa.pages.dev/place/wat-tha-look-temple/",
+   "name_th": "วัดบ้านท่าหลุก",
+   "name_roman": "Wat Tha Look temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-7462081485": {
+   "slug": "wat-tung-luang-temple",
+   "url": "https://wichaa.pages.dev/place/wat-tung-luang-temple/",
+   "name_th": "วัดทุ่งหลวง",
+   "name_roman": "Wat Tung Luang temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-7512848386": {
+   "slug": "phra-that-pong-pu-fuang-pagoda",
+   "url": "https://wichaa.pages.dev/place/phra-that-pong-pu-fuang-pagoda/",
+   "name_th": "พระธาตุโป่งปูเฟือง",
+   "name_roman": "Phra That Pong Pu Fuang pagoda",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-9218379948": {
+   "slug": "wat-si-chum-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-si-chum-chiang-rai/",
+   "name_th": "วัดศรีจุม",
+   "name_roman": "Wat Si Chum",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-node-9252013856": {
+   "slug": "wat-pa-o-rom-yen",
+   "url": "https://wichaa.pages.dev/place/wat-pa-o-rom-yen/",
+   "name_th": "วัดป่าอ้อร่มเย็น",
+   "name_roman": "Wat Pa O Rom Yen",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-relation-19931461": {
+   "slug": "wat-phra-that-doi-khao-khwai-kaeo",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-doi-khao-khwai-kaeo/",
+   "name_th": "วัดพระธาตุดอยเขาควายแก้ว",
+   "name_roman": "Wat Phra That Doi Khao Khwai Kaeo",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-relation-6666702": {
+   "slug": "wat-than-pla",
+   "url": "https://wichaa.pages.dev/place/wat-than-pla/",
+   "name_th": "วัดถ้ำปลา",
+   "name_roman": "Wat Than Pla",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1013480690": {
+   "slug": "wat-si-chom-rim-lao",
+   "url": "https://wichaa.pages.dev/place/wat-si-chom-rim-lao/",
+   "name_th": "วัดศรีชม ริมลาว",
+   "name_roman": "Wat Si Chom Rim Lao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1013507596": {
+   "slug": "wat-chedi-don-kew",
+   "url": "https://wichaa.pages.dev/place/wat-chedi-don-kew/",
+   "name_th": "วัดเจดีย์ดอนแก้ว",
+   "name_roman": "Wat Chedi Don Kew",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1013720356": {
+   "slug": "wat-phra-that-dong-lan",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-dong-lan/",
+   "name_th": "วัดพระธาตุดงลาน",
+   "name_roman": "Wat Phra That Dong Lan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1013720358": {
+   "slug": "wat-rong-than",
+   "url": "https://wichaa.pages.dev/place/wat-rong-than/",
+   "name_th": "วัดร่องธาร",
+   "name_roman": "Wat Rong Than",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1015382586": {
+   "slug": "osm-way-1015382586",
+   "url": "https://wichaa.pages.dev/place/osm-way-1015382586/",
+   "name_th": "วัดพระธาตุจอมจ้อ",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1041398904": {
+   "slug": "wat-su-wan-na-ram-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-su-wan-na-ram-chiang-rai/",
+   "name_th": "วัดสุวรรณาราม",
+   "name_roman": "Wat Su Wan Na Ram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1102521888": {
+   "slug": "wat-chetuphon-temple-complex",
+   "url": "https://wichaa.pages.dev/place/wat-chetuphon-temple-complex/",
+   "name_th": "วัดเชตุพน",
+   "name_roman": "Wat Chetuphon Temple Complex",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1112440711": {
+   "slug": "wat-phra-that-doi-wao-1112440711",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-doi-wao-1112440711/",
+   "name_th": "วัดพระธาตุดอยเวา",
+   "name_roman": "Wat Phra That Doi Wao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1126136476": {
+   "slug": "wat-luang-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-luang-chiang-rai/",
+   "name_th": "วัดหลวงฯ(ธ)",
+   "name_roman": "Wat Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1230429436": {
+   "slug": "wat-chu-shet",
+   "url": "https://wichaa.pages.dev/place/wat-chu-shet/",
+   "name_th": "วัดเชื้อเจ็ดตน",
+   "name_roman": "Wat chu shet",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1230429450": {
+   "slug": "wat-pa-sak-luang",
+   "url": "https://wichaa.pages.dev/place/wat-pa-sak-luang/",
+   "name_th": "วัดป่าสักหลวง",
+   "name_roman": "Wat Pa Sak Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1232475140": {
+   "slug": "wat-rong-ku",
+   "url": "https://wichaa.pages.dev/place/wat-rong-ku/",
+   "name_th": "วัดร่องกู่",
+   "name_roman": "Wat Rong Ku",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1232475146": {
+   "slug": "wat-santi-ka-ram",
+   "url": "https://wichaa.pages.dev/place/wat-santi-ka-ram/",
+   "name_th": "วัดสันติการาม",
+   "name_roman": "Wat Santi Ka Ram",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1232826836": {
+   "slug": "osm-way-1232826836",
+   "url": "https://wichaa.pages.dev/place/osm-way-1232826836/",
+   "name_th": "วัดหนองป่าก่อ",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1233190520": {
+   "slug": "wat-cho-charoen-sukhumwat",
+   "url": "https://wichaa.pages.dev/place/wat-cho-charoen-sukhumwat/",
+   "name_th": "วัดจอเจริญสุขุมวาส",
+   "name_roman": "Wat Cho Charoen Sukhumwat",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1349665694": {
+   "slug": "wat-nam-lom",
+   "url": "https://wichaa.pages.dev/place/wat-nam-lom/",
+   "name_th": "วัดนำล้อม",
+   "name_roman": "Wat Nam Lom",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1349701378": {
+   "slug": "wat-sansai-luang-temple",
+   "url": "https://wichaa.pages.dev/place/wat-sansai-luang-temple/",
+   "name_th": "วัดสันทรายหลวง",
+   "name_roman": "Wat Sansai Luang temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1349739741": {
+   "slug": "wat-mae-lua",
+   "url": "https://wichaa.pages.dev/place/wat-mae-lua/",
+   "name_th": "วัดแม่ลัว",
+   "name_roman": "Wat Mae Lua",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1357220353": {
+   "slug": "wat-huay-sai-khao",
+   "url": "https://wichaa.pages.dev/place/wat-huay-sai-khao/",
+   "name_th": "วัดห้วยทรายขาว",
+   "name_roman": "Wat Huay Sai Khao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1380456063": {
+   "slug": "sospaeng",
+   "url": "https://wichaa.pages.dev/place/sospaeng/",
+   "name_th": "วัดสบแพง",
+   "name_roman": "Sospaeng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1380459596": {
+   "slug": "wat-phra-that-chedi-luang",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-chedi-luang/",
+   "name_th": "วัดเจดีย์หลวง",
+   "name_roman": "Wat Phra That Chedi Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1381549719": {
+   "slug": "wat-phra-that-pha-ngao-1381549719",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-pha-ngao-1381549719/",
+   "name_th": "วัดพระธาตุผาเงา",
+   "name_roman": "Wat Phra That Pha Ngao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1417670947": {
+   "slug": "wat-ing-doi",
+   "url": "https://wichaa.pages.dev/place/wat-ing-doi/",
+   "name_th": "วัดอิงดอย",
+   "name_roman": "Wat Ing Doi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1417671849": {
+   "slug": "wat-phra-that-chom-wae",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-chom-wae/",
+   "name_th": "วัดพระธาตุจอมแว่",
+   "name_roman": "Wat Phra That Chom Wae",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1428020845": {
+   "slug": "osm-way-1428020845",
+   "url": "https://wichaa.pages.dev/place/osm-way-1428020845/",
+   "name_th": "วัดมงคลธรรมกายาราม",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1428020846": {
+   "slug": "osm-way-1428020846",
+   "url": "https://wichaa.pages.dev/place/osm-way-1428020846/",
+   "name_th": "วัดมงคลธรรมกายาราม",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1428020856": {
+   "slug": "osm-way-1428020856",
+   "url": "https://wichaa.pages.dev/place/osm-way-1428020856/",
+   "name_th": "วัดมงคลธรรมกายาราม",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1456759169": {
+   "slug": "phra-boromathat-chedi",
+   "url": "https://wichaa.pages.dev/place/phra-boromathat-chedi/",
+   "name_th": "พระบรมธาตุเจดีย์",
+   "name_roman": "Phra Boromathat Chedi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1493014289": {
+   "slug": "wat-sri-wang-moon",
+   "url": "https://wichaa.pages.dev/place/wat-sri-wang-moon/",
+   "name_th": "วัดศรีวังมูล",
+   "name_roman": "Wat Sri Wang Moon",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-1533390860": {
+   "slug": "osm-way-1533390860",
+   "url": "https://wichaa.pages.dev/place/osm-way-1533390860/",
+   "name_th": "วัดพระธาตุรัตนศรีเวียงชุม",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-203683640": {
+   "slug": "wat-ka-sa",
+   "url": "https://wichaa.pages.dev/place/wat-ka-sa/",
+   "name_th": "วัดกาสา",
+   "name_roman": "Wat Ka Sa",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-204338367": {
+   "slug": "wat-si-bun-rueang-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-si-bun-rueang-chiang-rai/",
+   "name_th": "วัดศรีบุญเรือง",
+   "name_roman": "Wat Si Bun Rueang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-222735500": {
+   "slug": "phra-that-doi-tung",
+   "url": "https://wichaa.pages.dev/place/phra-that-doi-tung/",
+   "name_th": "พระธาตุน้อยดอยตุง",
+   "name_roman": "Phra That Doi Tung",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-251477455": {
+   "slug": "wat-pongnamron",
+   "url": "https://wichaa.pages.dev/place/wat-pongnamron/",
+   "name_th": "วัดโป่งน้ำร้อน",
+   "name_roman": "Wat Pongnamron",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-256549557": {
+   "slug": "wat-si-koet-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-si-koet-chiang-rai/",
+   "name_th": "วัดศรีเกิด",
+   "name_roman": "Wat Si Koet",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-278616379": {
+   "slug": "wat-sop-pao",
+   "url": "https://wichaa.pages.dev/place/wat-sop-pao/",
+   "name_th": "วัดสบเปา",
+   "name_roman": "Wat Sop Pao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-297707196": {
+   "slug": "muangkaew-temple",
+   "url": "https://wichaa.pages.dev/place/muangkaew-temple/",
+   "name_th": "วัดม่วงแก้ว",
+   "name_roman": "Muangkaew Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-315250004": {
+   "slug": "king-naresuan-shrine",
+   "url": "https://wichaa.pages.dev/place/king-naresuan-shrine/",
+   "name_th": "ศาลสมเด็จพระนเรศวรมหาราช",
+   "name_roman": "King Naresuan Shrine",
+   "type": "san_chao_pho",
+   "metres": 0
+  },
+  "cr-osm-way-330739409": {
+   "slug": "wat-chet-yot",
+   "url": "https://wichaa.pages.dev/place/wat-chet-yot/",
+   "name_th": "วัดเจ็ดยอด",
+   "name_roman": "Wat Chet Yot",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-369030754": {
+   "slug": "tham-pha-chom-temple",
+   "url": "https://wichaa.pages.dev/place/tham-pha-chom-temple/",
+   "name_th": "วัดถ้ำผาจม",
+   "name_roman": "Tham Pha Chom Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-372608929": {
+   "slug": "wat-ban-chong",
+   "url": "https://wichaa.pages.dev/place/wat-ban-chong/",
+   "name_th": "วัดบ้านจ้อง",
+   "name_roman": "Wat Ban Chong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-372704767": {
+   "slug": "wat-paya-si-tuang-kham",
+   "url": "https://wichaa.pages.dev/place/wat-paya-si-tuang-kham/",
+   "name_th": "วัดพญาสี่ตวงคำ",
+   "name_roman": "Wat Paya Si Tuang Kham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-372716639": {
+   "slug": "wat-prom-wihan",
+   "url": "https://wichaa.pages.dev/place/wat-prom-wihan/",
+   "name_th": "วัดพรหมวิหาร",
+   "name_roman": "Wat Prom Wihan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-373624281": {
+   "slug": "wat-khao-lang",
+   "url": "https://wichaa.pages.dev/place/wat-khao-lang/",
+   "name_th": "วัดเก้าหล้ง",
+   "name_roman": "Wat Khao Lang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-374834904": {
+   "slug": "phaya-saen-phu-shrine",
+   "url": "https://wichaa.pages.dev/place/phaya-saen-phu-shrine/",
+   "name_th": "ศาลเจ้าปู่ พญาแสนภู",
+   "name_roman": "Phaya Saen Phu Shrine",
+   "type": "san_chao_pho",
+   "metres": 0
+  },
+  "cr-osm-way-375664608": {
+   "slug": "mueang-daeng-temple",
+   "url": "https://wichaa.pages.dev/place/mueang-daeng-temple/",
+   "name_th": "วัดเหมืองแดง",
+   "name_roman": "Mueang Daeng Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-375707979": {
+   "slug": "wat-wiang-phan",
+   "url": "https://wichaa.pages.dev/place/wat-wiang-phan/",
+   "name_th": "วัดเวียงพาน",
+   "name_roman": "Wat Wiang Phan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-376045443": {
+   "slug": "pha-teak-temple",
+   "url": "https://wichaa.pages.dev/place/pha-teak-temple/",
+   "name_th": "วัดผาแตก",
+   "name_roman": "Pha Teak Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-376095627": {
+   "slug": "mae-sai-city-pillar-shrine",
+   "url": "https://wichaa.pages.dev/place/mae-sai-city-pillar-shrine/",
+   "name_th": "ศาลหลักเมืองแม่สาย",
+   "name_roman": "Mae Sai City Pillar Shrine",
+   "type": "lak_mueang",
+   "metres": 0
+  },
+  "cr-osm-way-376649472": {
+   "slug": "wat-si-sai-mun-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-si-sai-mun-chiang-rai/",
+   "name_th": "วัดศรีทรายมูล",
+   "name_roman": "Wat Si Sai Mun",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-387050904": {
+   "slug": "wat-ming-mueang",
+   "url": "https://wichaa.pages.dev/place/wat-ming-mueang/",
+   "name_th": "วัดมิ่งเมือง",
+   "name_roman": "Wat Ming Mueang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-417036549": {
+   "slug": "wat-huai-khrai-mai",
+   "url": "https://wichaa.pages.dev/place/wat-huai-khrai-mai/",
+   "name_th": "วัดห้วยไคร้ใหม่",
+   "name_roman": "Wat Huai Khrai Mai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-449290469": {
+   "slug": "wat-mae-suai",
+   "url": "https://wichaa.pages.dev/place/wat-mae-suai/",
+   "name_th": "วัดแม่สรวย",
+   "name_roman": "Wat Mae Suai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-458238257": {
+   "slug": "wat-huai-pla-kang-big-buddha",
+   "url": "https://wichaa.pages.dev/place/wat-huai-pla-kang-big-buddha/",
+   "name_th": "วัดห้วยปลากั้ง",
+   "name_roman": "Wat Huai Pla Kang, Big Buddha",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-458258686": {
+   "slug": "wat-rong-suea-ten",
+   "url": "https://wichaa.pages.dev/place/wat-rong-suea-ten/",
+   "name_th": "วัดร่องเสือเต้น",
+   "name_roman": "Wat Rong Suea Ten",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-459093664": {
+   "slug": "wat-chet-wan",
+   "url": "https://wichaa.pages.dev/place/wat-chet-wan/",
+   "name_th": "วัดเชตวัน",
+   "name_roman": "Wat Chet Wan",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-486091457": {
+   "slug": "wat-dong-ma-da",
+   "url": "https://wichaa.pages.dev/place/wat-dong-ma-da/",
+   "name_th": "วัดดงมะดะ",
+   "name_roman": "Wat Dong Ma Da",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-487642343": {
+   "slug": "wat-ngam-muang",
+   "url": "https://wichaa.pages.dev/place/wat-ngam-muang/",
+   "name_th": "วัดดอยงำเมือง",
+   "name_roman": "Wat Ngam Muang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-487642776": {
+   "slug": "wat-phra-kaew",
+   "url": "https://wichaa.pages.dev/place/wat-phra-kaew/",
+   "name_th": "วัดพระแก้ว",
+   "name_roman": "Wat Phra Kaew",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-501089485": {
+   "slug": "rat-chum-pon-temple",
+   "url": "https://wichaa.pages.dev/place/rat-chum-pon-temple/",
+   "name_th": "วัดราษฎร์ชุมพล",
+   "name_roman": "Rat Chum Pon Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-501699875": {
+   "slug": "klang-wiang-temple",
+   "url": "https://wichaa.pages.dev/place/klang-wiang-temple/",
+   "name_th": "วัดกลางเวียง",
+   "name_roman": "Klang Wiang Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-501699876": {
+   "slug": "chai-narai-temple",
+   "url": "https://wichaa.pages.dev/place/chai-narai-temple/",
+   "name_th": "วัดไชยนารายณ์",
+   "name_roman": "Chai Narai Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-541260056": {
+   "slug": "wat-kiang-doi",
+   "url": "https://wichaa.pages.dev/place/wat-kiang-doi/",
+   "name_th": "วัดเกี๋ยงดอย",
+   "name_roman": "Wat Kiang Doi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-542424780": {
+   "slug": "wat-mae-lak",
+   "url": "https://wichaa.pages.dev/place/wat-mae-lak/",
+   "name_th": "วัดแม่ลาก",
+   "name_roman": "Wat Mae Lak",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-543650865": {
+   "slug": "wat-phatthana-tua-yang",
+   "url": "https://wichaa.pages.dev/place/wat-phatthana-tua-yang/",
+   "name_th": "วัดพัฒนาตัวย่าง",
+   "name_roman": "Wat Phatthana Tua Yang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-543860015": {
+   "slug": "wat-san-ton-pao",
+   "url": "https://wichaa.pages.dev/place/wat-san-ton-pao/",
+   "name_th": "วัดสันต้นเปา",
+   "name_roman": "Wat San Ton Pao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-544166249": {
+   "slug": "wat-tham-sao-hin-payanak",
+   "url": "https://wichaa.pages.dev/place/wat-tham-sao-hin-payanak/",
+   "name_th": "วัดถ้ำเสาหินพญานาค",
+   "name_roman": "Wat Tham Sao Hin Payanak",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-544168721": {
+   "slug": "wat-phra-that-doi-wao",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-doi-wao/",
+   "name_th": "วัดพระธาตุดอยเวา",
+   "name_roman": "Wat Phra That Doi Wao",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-545628893": {
+   "slug": "wat-ban-tham-luang",
+   "url": "https://wichaa.pages.dev/place/wat-ban-tham-luang/",
+   "name_th": "วัดบ้านถ้ำหลวง",
+   "name_roman": "Wat Ban Tham Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-547153877": {
+   "slug": "osm-way-547153877",
+   "url": "https://wichaa.pages.dev/place/osm-way-547153877/",
+   "name_th": "พระธาตุดอยแม่ย่าม่อน",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-547154799": {
+   "slug": "wat-don-luang",
+   "url": "https://wichaa.pages.dev/place/wat-don-luang/",
+   "name_th": "วัดดงหลวง",
+   "name_roman": "Wat Don Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-547707053": {
+   "slug": "wat-phra-that-doi-tung",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-doi-tung/",
+   "name_th": "วัดพระธาตุน้อยดอยตุง",
+   "name_roman": "Wat Phra That Doi Tung",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-547707431": {
+   "slug": "phra-that-doi-tung-547707431",
+   "url": "https://wichaa.pages.dev/place/phra-that-doi-tung-547707431/",
+   "name_th": "พระธาตุดอยตุง",
+   "name_roman": "Phra That Doi Tung",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-548642793": {
+   "slug": "wat-pong-sanuk-548642793",
+   "url": "https://wichaa.pages.dev/place/wat-pong-sanuk-548642793/",
+   "name_th": "วัดปงสนุก",
+   "name_roman": "Wat Pong Sanuk",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-548642796": {
+   "slug": "wat-don-thaen",
+   "url": "https://wichaa.pages.dev/place/wat-don-thaen/",
+   "name_th": "วัดดอนแท่น",
+   "name_roman": "Wat Don Thaen",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-548919694": {
+   "slug": "wat-chom-phu",
+   "url": "https://wichaa.pages.dev/place/wat-chom-phu/",
+   "name_th": "วัดชมภู",
+   "name_roman": "Wat Chom Phu",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-548919701": {
+   "slug": "wat-huai-luang-nuea",
+   "url": "https://wichaa.pages.dev/place/wat-huai-luang-nuea/",
+   "name_th": "วัดห้วยหลวงเหนือ",
+   "name_roman": "Wat Huai Luang Nuea",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-548919703": {
+   "slug": "wat-padaeng-548919703",
+   "url": "https://wichaa.pages.dev/place/wat-padaeng-548919703/",
+   "name_th": "วัดป่าแดง",
+   "name_roman": "Wat Padaeng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-549069742": {
+   "slug": "wat-nong-kuang",
+   "url": "https://wichaa.pages.dev/place/wat-nong-kuang/",
+   "name_th": "วัดหนองข่วง",
+   "name_roman": "Wat Nong Kuang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-549948905": {
+   "slug": "wat-phrathat-kha-kham",
+   "url": "https://wichaa.pages.dev/place/wat-phrathat-kha-kham/",
+   "name_th": "วัดกาคำ",
+   "name_roman": "Wat Phrathat Kha Kham",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-551176156": {
+   "slug": "wat-mae-chedi",
+   "url": "https://wichaa.pages.dev/place/wat-mae-chedi/",
+   "name_th": "วัดแม่เจดีย์",
+   "name_roman": "Wat Mae Chedi",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-551266015": {
+   "slug": "chinese-shrine",
+   "url": "https://wichaa.pages.dev/place/chinese-shrine/",
+   "name_th": "ศาลเจ้าจีน บ้านถ้ำปลา",
+   "name_roman": "Chinese shrine",
+   "type": "san_chao",
+   "metres": 0
+  },
+  "cr-osm-way-558431983": {
+   "slug": "wat-pong-sali",
+   "url": "https://wichaa.pages.dev/place/wat-pong-sali/",
+   "name_th": "วัดโป่งสลี",
+   "name_roman": "Wat Pong Sali",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-558747343": {
+   "slug": "wat-phra-that-san-pa-hiang",
+   "url": "https://wichaa.pages.dev/place/wat-phra-that-san-pa-hiang/",
+   "name_th": "วัดพระธาตุสันป่าเหียง",
+   "name_roman": "Wat Phra That San Pa Hiang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-584176181": {
+   "slug": "wat-khua-khrae",
+   "url": "https://wichaa.pages.dev/place/wat-khua-khrae/",
+   "name_th": "วัดขัวแคร่",
+   "name_roman": "Wat Khua Khrae",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-585558233": {
+   "slug": "wat-nong-bua-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-nong-bua-chiang-rai/",
+   "name_th": "วัดหนองบัว",
+   "name_roman": "Wat Nong Bua",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-641234926": {
+   "slug": "wat-nang-lae",
+   "url": "https://wichaa.pages.dev/place/wat-nang-lae/",
+   "name_th": "วัดนางแล",
+   "name_roman": "Wat Nang Lae",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-643002935": {
+   "slug": "wat-tha-krai",
+   "url": "https://wichaa.pages.dev/place/wat-tha-krai/",
+   "name_th": "วัดท่าไคร้",
+   "name_roman": "Wat Tha Krai",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-643045858": {
+   "slug": "wat-pang-sanook",
+   "url": "https://wichaa.pages.dev/place/wat-pang-sanook/",
+   "name_th": "วัดปางสนุก",
+   "name_roman": "Wat Pang Sanook",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-657100916": {
+   "slug": "wat-pa-tueng-chiang-rai",
+   "url": "https://wichaa.pages.dev/place/wat-pa-tueng-chiang-rai/",
+   "name_th": "วัดป่าตึง",
+   "name_roman": "Wat Pa Tueng",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-666389583": {
+   "slug": "wat-san-ku-hong",
+   "url": "https://wichaa.pages.dev/place/wat-san-ku-hong/",
+   "name_th": "วัดสันกู่หอง",
+   "name_roman": "Wat San Ku Hong",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-672876432": {
+   "slug": "wat-si-rattana-mongkhon-sop-pong",
+   "url": "https://wichaa.pages.dev/place/wat-si-rattana-mongkhon-sop-pong/",
+   "name_th": "วัดศรีรัตนมงคล(สบโป่ง)",
+   "name_roman": "Wat Si Rattana Mongkhon (Sop Pong)",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-711075295": {
+   "slug": "wat-pratad-jom-sak",
+   "url": "https://wichaa.pages.dev/place/wat-pratad-jom-sak/",
+   "name_th": "วัดพระธาตุ จอมสัก",
+   "name_roman": "Wat Pratad Jom Sak",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-711268091": {
+   "slug": "osm-way-711268091",
+   "url": "https://wichaa.pages.dev/place/osm-way-711268091/",
+   "name_th": "วัดหนองปึ๋ง",
+   "name_roman": "",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-712045323": {
+   "slug": "wat-phra-sing",
+   "url": "https://wichaa.pages.dev/place/wat-phra-sing/",
+   "name_th": "วัดพระสิงห์",
+   "name_roman": "Wat Phra Sing",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-714021490": {
+   "slug": "wat-chedi-luang-714021490",
+   "url": "https://wichaa.pages.dev/place/wat-chedi-luang-714021490/",
+   "name_th": "วัดเจดีย์หลวง เชียงแสน",
+   "name_roman": "Wat Chedi Luang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-760080779": {
+   "slug": "mae-ao-nai-temple",
+   "url": "https://wichaa.pages.dev/place/mae-ao-nai-temple/",
+   "name_th": "วัดบ้านแม่อ้อใน",
+   "name_roman": "Mae Ao Nai Temple",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-959660479": {
+   "slug": "wat-mung-muang",
+   "url": "https://wichaa.pages.dev/place/wat-mung-muang/",
+   "name_th": "วัดมุงเมือง",
+   "name_roman": "Wat Mung Muang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-959698698": {
+   "slug": "wat-changyuen",
+   "url": "https://wichaa.pages.dev/place/wat-changyuen/",
+   "name_th": "วัดเชียงยืน",
+   "name_roman": "Wat Changyuen",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-960019854": {
+   "slug": "wat-sri-bun-rueang",
+   "url": "https://wichaa.pages.dev/place/wat-sri-bun-rueang/",
+   "name_th": "วัดศรีบุญเรือง",
+   "name_roman": "Wat Sri Bun Rueang",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-964917564": {
+   "slug": "stupa-964917564",
+   "url": "https://wichaa.pages.dev/place/stupa-964917564/",
+   "name_th": "เจดีย์",
+   "name_roman": "Stupa",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-967447589": {
+   "slug": "wat-fangmin",
+   "url": "https://wichaa.pages.dev/place/wat-fangmin/",
+   "name_th": "วัดฝั่งหมิ่น",
+   "name_roman": "Wat Fangmin",
+   "type": "wat",
+   "metres": 0
+  },
+  "cr-osm-way-967447590": {
+   "slug": "stupa-967447590",
+   "url": "https://wichaa.pages.dev/place/stupa-967447590/",
+   "name_th": "เจดีย์",
+   "name_roman": "Stupa",
+   "type": "wat",
+   "metres": 0
+  }
+ }
+}
