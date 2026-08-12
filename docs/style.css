@@ -1485,17 +1485,60 @@ transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
    what they always did. */
 .mdmap.mdmap-on .mdmap-draw{z-index:3;pointer-events:none}
 .mdmap.mdmap-on .mdmap-draw .loopin{pointer-events:auto}
+/* map.js slides the drawing with the ground, so it no longer sits neatly
+   inside its own box — clip it to the same rounded rectangle the tiles use,
+   or a panned picture spills over the corners and past the credit. Promoted
+   to its own layer only while there is a basemap to move it against; a soi
+   page carrying several maps should not hold a compositor layer for each of
+   them when none of them can move. */
+.mdmap.mdmap-on{overflow:hidden;border-radius:14px}
+.mdmap.mdmap-on .mdmap-draw{will-change:transform}
+/* An SVG clips to its viewBox, and that is exactly wrong for a drawing being
+   slid about over a basemap. Two things need to escape it. The corner
+   furniture, which has to move the OPPOSITE way to the pan to stay put, and
+   so goes straight out of the frame the moment anybody drags — a scale bar
+   already at the foot of the viewBox has nowhere to go but past the bottom
+   edge. And the drawn marks themselves, which stop at the frame they were
+   drawn for: letting them out means panning toward a pin reveals it instead
+   of showing bare ground where it should be. The box still clips, so nothing
+   escapes onto the page. Only while a basemap is live — with no tiles the
+   drawing is the whole picture and its frame is the picture's edge. */
+.mdmap.mdmap-on .mdmap-draw svg{overflow:visible}
 /* The drawn cream background and its border are the "no ground" state. With
    tiles underneath they are exactly what must not be painted. */
 .mdmap.mdmap-on .mdmap-bg{display:none}
+/* A drawn scale bar is true at exactly one zoom: the one it was drawn at.
+   Held in the corner it keeps its length while the ground under it grows,
+   and a bar that says 200 m over 400 m of street is worse than no bar — so
+   away it goes until the reader is back at the scale it was measured for. A
+   redraw always retargets, which is what brings it back. This never fires
+   without a basemap, so the printed page and the no-tiles fallback — where
+   the drawing is the only map there is — keep their bar always. */
+.mdmap.mdmap-zoomed .mdmap-scale{display:none}
+/* Lifted out of the map layer by map.js so the drawing can never pan across
+   them. MapLibre's own rules still place them in their corners; all they need
+   here is to sit above the drawing rather than below it. */
+.mdmap>.maplibregl-ctrl-top-left,
+.mdmap>.maplibregl-ctrl-bottom-right{z-index:4}
+/* Out of the live layer, they no longer fade in with it — so they are held
+   back until there is a basemap for them to belong to. A zoom button over a
+   picture that cannot zoom, and a tile credit with no tiles under it, both
+   arrive before the thing they are for. */
+.mdmap:not(.mdmap-on)>.maplibregl-ctrl-top-left,
+.mdmap:not(.mdmap-on)>.maplibregl-ctrl-bottom-right{display:none}
 .mdmap .maplibregl-ctrl-attrib{font-size:11px;background:rgba(255,253,248,.88)}
 /* Never let the credit be folded away: ODbL asks for it to be visible, and a
    collapsed ⓘ on a phone is not visible. */
 .mdmap .maplibregl-ctrl-attrib-button{display:none!important}
 .mdmap .maplibregl-ctrl-attrib.maplibregl-compact-show .maplibregl-ctrl-attrib-inner{
   display:block!important}
+/* On paper the tiles are gone and the drawing is the map again, so it prints
+   from its own origin — never from wherever the reader happened to leave it. */
 @media print{.mdmap-live{display:none!important}
-  .mdmap-draw{position:static}}
+  .mdmap-draw{position:static;transform:none!important}
+  /* And the frame goes back on. On paper there is no panning to escape, so
+     everything the viewBox was cropping would simply spill across the page. */
+  .mdmap-draw svg{overflow:hidden!important}}
 @media (prefers-reduced-motion:reduce){.mdmap-live{transition:none}}
 
 /* A tile whose figures came from the network this minute. Deliberately

@@ -106,6 +106,32 @@ def mount(map_id, fallback_svg="", *, prov="cm", zoom=14,
     the whole fallback story — it is what renders first, what prints, what a
     reader with scripting off keeps, and what fills the box during the moment
     the first tiles are in flight. map.js only ever adds a sibling on top.
+
+    ONE THING THE DRAWING OWES THE SHELL. Once a basemap is live the drawing
+    travels with the ground, zoom included, so every shape in it grows. That
+    is right for anything measured in metres — range rings, the moat, a route,
+    a scale bar's own line — and wrong for anything that is a symbol: a pin
+    stands over one doorway and a label is meant to be read, and neither wants
+    to be four times the size at z+2. Tag those with
+
+        data-mdpin="x,y"      (x,y in viewBox units: the point it pivots on)
+
+    and map.js holds them at the size they were drawn. The attribute may go on
+    the shape itself or on a <g> wrapping a shape and its label. map.js owns
+    the `transform` attribute of whatever carries it, so a mark that already
+    needs a transform of its own gets a wrapper. Tag nothing and the picture
+    still works — it simply zooms as a whole, which is the honest default.
+
+    A third kind is not on the ground at all — a north arrow, a scale bar,
+    anything belonging to the frame rather than the city. Tag those
+
+        data-mdfix="1"        (held where AND as it was drawn)
+
+    and they stay in their corner however far the reader pans. One thing to
+    know before reaching for it: a drawn scale bar is only true at the zoom
+    it was drawn at, so give it class="mdmap-scale" as well and the shell
+    hides it whenever the reader has zoomed away from that. Pinning a bar
+    without that trades a wandering bar for a wrong one.
     """
     c = CENTERS.get(prov) or CENTERS["cm"]
     la = c["lat"] if lat is None else lat
@@ -176,6 +202,9 @@ function style(){
 }
 
 var reg=new WeakMap();
+/* Per-box: the function that re-fixes the drawing to the ground. Kept apart
+   from reg so live() and retarget() keep reading exactly what they read. */
+var anch=new WeakMap();
 
 function build(el){
   var draw=el.querySelector('.mdmap-draw');
@@ -194,11 +223,154 @@ function build(el){
        prompt on this site and it is not a map button — see MDLOC in md.js. */
     dragRotate:false,pitchWithRotate:false,touchPitch:false
   });
-  /* Bottom-left, not top-right: the drawing layers put their north arrow in
-     the top-right corner and the credit sits bottom-right, so this is the
-     one corner nothing else has claimed. No compass — rotation is off. */
-  map.addControl(new maplibregl.NavigationControl({showCompass:false}),'bottom-left');
+  /* Top-LEFT. Three of the four corners are already spoken for: the drawings
+     put their north arrow top-right, the credit sits bottom-right, and the
+     soi and event maps put a scale bar bottom-left. That last collision was
+     invisible while the drawing painted over the controls, and became a
+     zoom button sitting on top of "100 ม./m" the moment the controls were
+     lifted above it. No compass — rotation is off. */
+  map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-left');
+  /* Both bottom corners come out of the map's own layer and up into the
+     container. MapLibre keeps its controls inside the layer that sits UNDER
+     the drawing — which is the right way round for pins over streets, and the
+     wrong way round for these: now that the drawing pans across the whole box,
+     a pin can come to rest on top of the ODbL credit. That credit is a licence
+     condition rather than decoration and nothing may cover it, and a reader
+     cannot use a zoom button they cannot see either. Only the parent changes;
+     MapLibre keeps its own references and still takes these nodes away itself
+     when the map is removed. */
+  ['bottom-right','top-left'].forEach(function(c){
+    var n=live.querySelector('.maplibregl-ctrl-'+c);
+    if(n)el.appendChild(n);
+  });
   reg.set(el,map);
+
+  /* ---- keeping the drawing and the ground in register -------------------
+     The drawn SVG is a picture in screen space. The tiles under it are not.
+     Placed once and then left alone, the ground slid out from under the pins
+     the first moment anybody swiped: the streets moved, the pins stayed
+     nailed to the box, and the reader lost the one thing the basemap was
+     added to give them. A map whose marks do not travel with its ground is
+     not showing two things at once, it is showing two different places.
+
+     So the drawing is re-fixed to the ground on every camera change. With
+     rotation and pitch off, MapLibre's projection across one small box is a
+     plain translate-and-uniform-scale — which is a single CSS transform, no
+     redraw, no reprojection, and no work asked of any drawing layer. Keep
+     the coordinate the drawing was centred on and the zoom it was laid out
+     at; after that the drawing simply goes wherever that coordinate has
+     moved to on screen, at 2^Δzoom the size. */
+  var anchor=null;
+  function sync(){
+    if(!anchor||!draw)return;
+    var p=map.project([anchor.lng,anchor.lat]);
+    var k=Math.pow(2,map.getZoom()-anchor.z);
+    var tx=p.x-k*anchor.x,ty=p.y-k*anchor.y;
+    draw.style.transform='translate('+tx.toFixed(2)+'px,'+ty.toFixed(2)+
+      'px) scale('+k.toFixed(6)+')';
+    marks(k);
+    corner(k,tx,ty);
+    /* One state class, so a layer can style whatever it drew that is only
+       true at the scale it was drawn at. The scale bars use it. */
+    el.classList.toggle('mdmap-zoomed',k!==1);
+    /* Also published for anyone who would rather do their own arithmetic. */
+    el.style.setProperty('--mdmap-k',k.toFixed(6));
+    el.dispatchEvent(new CustomEvent('mdmap:sync',{detail:{k:k}}));
+  }
+  /* ---- what grows with the ground, and what does not -------------------
+     Zooming in makes the ground bigger, and the drawing over it has to grow
+     by the same factor or it stops being the same map. But only half of what
+     is drawn is ground. A range ring is a distance and is right to grow. The
+     moat is a place and is right to grow. A pin is not a distance — it is one
+     symbol standing over one doorway, and blown up four times it becomes a
+     dinner plate covering the street it was meant to point at. Same for every
+     label: text scaled 4× stops being readable and starts being wallpaper.
+
+     So the two are told apart by declaration, since nothing in an SVG says
+     which a shape is. Any element carrying data-mdpin="x,y" is held at the
+     size it was drawn, pivoting on the point it names — so the pin keeps its
+     tip on the doorway while everything under it opens out. Everything else
+     scales, which is the right default: a layer that says nothing gets the
+     honest picture, just larger.
+
+     The transform attribute of a tagged element belongs to this module and
+     will be overwritten. A layer that needs its own placement transform
+     should tag a wrapper <g> instead — see the scale bars in build.py. */
+  var tagged=[],fixt=[],ppu=1,q0x=0,q0y=0;
+  function readMarks(){
+    tagged=[];fixt=[];
+    if(!draw)return;
+    draw.querySelectorAll('[data-mdpin]').forEach(function(g){
+      var v=(g.getAttribute('data-mdpin')||'').split(',');
+      var x=parseFloat(v[0]),y=parseFloat(v[1]);
+      if(isFinite(x)&&isFinite(y))tagged.push([g,x,y]);
+    });
+    /* ---- and the corner furniture ------------------------------------
+       A north arrow is not on the ground at all. It belongs to the frame,
+       and a frame that sails off to the north-east the moment somebody
+       swipes was never a frame. Same for a scale bar. These stay put.
+
+       Two numbers are all that is needed to hold them there, and both are
+       read once, here, while the drawing is still untransformed: how many
+       CSS pixels one viewBox unit is worth, and where the box's own top-left
+       corner falls in viewBox units. Everything after that is arithmetic on
+       numbers sync already has, so a pan costs no measuring — reading layout
+       back on every frame of a drag is how a map starts to stutter. */
+    var root=draw.querySelector('svg');
+    fixt=[].slice.call(draw.querySelectorAll('[data-mdfix]'));
+    if(root&&fixt.length&&root.getScreenCTM){
+      var M=root.getScreenCTM(),b=draw.getBoundingClientRect();
+      /* Both read in the same breath, so the page's own scroll is in both
+         and cancels — this must not shift when the reader scrolls past. */
+      if(M&&M.a&&M.d){ppu=M.a;q0x=(b.left-M.e)/M.a;q0y=(b.top-M.f)/M.d;}
+    }
+  }
+  /* Undo the box's transform exactly, in the SVG's own units: shrink by k
+     about the corner the box scales from, then take back the pan. */
+  function corner(k,tx,ty){
+    for(var i=0;i<fixt.length;i++){
+      if(k===1&&!tx&&!ty){fixt[i].removeAttribute('transform');continue;}
+      fixt[i].setAttribute('transform','translate('+
+        (((k-1)*q0x-tx/ppu)/k).toFixed(3)+' '+(((k-1)*q0y-ty/ppu)/k).toFixed(3)+
+        ') scale('+(1/k).toFixed(6)+')');
+    }
+  }
+  function marks(k){
+    /* At rest the attribute is removed rather than set to an identity
+       transform: this is also what prints, and a printed page should carry
+       the drawing exactly as it was drawn. */
+    for(var i=0;i<tagged.length;i++){
+      var t=tagged[i];
+      if(k===1)t[0].removeAttribute('transform');
+      else t[0].setAttribute('transform','translate('+t[1]+' '+t[2]+') scale('+
+        (1/k).toFixed(6)+') translate('+(-t[1])+' '+(-t[2])+')');
+    }
+  }
+  /* Taken afresh whenever the camera is pointed at the drawing deliberately:
+     once on load, and again on every retarget a layer makes after redrawing
+     itself. Those are the only moments the two pictures are known to agree,
+     so they are the only moments worth measuring. The transform is cleared
+     BEFORE the measurement — anchoring to an already-shifted drawing would
+     bake in the shift and compound it on the next pan. */
+  function anchorNow(){
+    if(!draw)return;
+    draw.style.transformOrigin='0 0';
+    draw.style.transform='none';
+    var c=map.getCenter(),p=map.project(c);
+    anchor={lat:c.lat,lng:c.lng,z:map.getZoom(),x:p.x,y:p.y};
+    /* The only moment the tagged elements can have changed is a redraw, and
+       a redraw is always followed by a retarget, which lands here. So the
+       list is gathered once and reused for every frame of every pan after. */
+    readMarks();
+    marks(1);
+    corner(1,0,0);
+    el.classList.remove('mdmap-zoomed');
+    el.style.setProperty('--mdmap-k','1');
+    el.dispatchEvent(new CustomEvent('mdmap:sync',{detail:{k:1}}));
+  }
+  anch.set(el,anchorNow);
+  map.on('move',sync);
+
   /* A tap on the ground, reported to whichever layer owns this box. MapLibre
      does not fire this after a drag, so panning never moves anybody's
      starting point by accident. */
@@ -220,6 +392,11 @@ function build(el){
       }
     }
     el.classList.add('mdmap-on');
+    /* Whatever camera we have arrived at, that is where the drawing belongs.
+       Harmlessly repeated when the branch above already retargeted — same
+       camera in, same anchor out. It is here for the mounts that pass no
+       scale at all and are simply framed correctly from the start. */
+    anchorNow();
     /* The drawn SVG stays in the DOM — it is what prints, and it is what
        comes back if the tiles ever stop resolving. It is only hidden from
        sight, and only once there is something real underneath. */
@@ -230,7 +407,14 @@ function build(el){
        leave the reader exactly what they had before any of this existed. A
        blank grey canvas would be strictly worse than the picture we drew. */
     el.classList.remove('mdmap-on');
-    if(draw)draw.removeAttribute('aria-hidden');
+    /* The drawing is the whole picture again, so it goes back where it was
+       drawn. A pan inherited from a basemap that is no longer there would
+       leave the fallback sitting crooked in its own box. */
+    if(draw){draw.style.transform='none';draw.removeAttribute('aria-hidden');}
+    marks(1);
+    corner(1,0,0);
+    el.classList.remove('mdmap-zoomed');
+    anchor=null;
     if(live.parentNode)live.parentNode.removeChild(live);
     try{map.remove();}catch(e){}
   });
@@ -290,7 +474,20 @@ window.MDMAP={
     var m=reg.get(el);if(!m)return false;
     var z=Math.log(156543.03392*Math.cos(lat*Math.PI/180)/metresPerCssPx)/Math.LN2;
     m.jumpTo({center:[lng,lat],zoom:Math.max(1,Math.min(22,z))});
+    /* Re-take the anchor. A layer calls this the instant after it has redrawn
+       itself, which makes it the one moment the drawing and the ground are
+       known to line up — and therefore the only moment worth measuring from.
+       It also clears any pan the reader had made, which is right: they have
+       just been handed a new picture, centred somewhere new. */
+    var a=anch.get(el);if(a)a();
     return true;
+  },
+  /* How much bigger the ground is now than when the drawing was laid out.
+     1 until somebody zooms. Companion to the mdmap:sync event, for a layer
+     that would rather ask than listen. */
+  scale:function(el){
+    var v=parseFloat(el.style.getPropertyValue('--mdmap-k'));
+    return v>0?v:1;
   }
 };
 
@@ -339,17 +536,60 @@ CSS = """/* The map box. The drawn SVG and the live tiles occupy the same square
    what they always did. */
 .mdmap.mdmap-on .mdmap-draw{z-index:3;pointer-events:none}
 .mdmap.mdmap-on .mdmap-draw .loopin{pointer-events:auto}
+/* map.js slides the drawing with the ground, so it no longer sits neatly
+   inside its own box — clip it to the same rounded rectangle the tiles use,
+   or a panned picture spills over the corners and past the credit. Promoted
+   to its own layer only while there is a basemap to move it against; a soi
+   page carrying several maps should not hold a compositor layer for each of
+   them when none of them can move. */
+.mdmap.mdmap-on{overflow:hidden;border-radius:14px}
+.mdmap.mdmap-on .mdmap-draw{will-change:transform}
+/* An SVG clips to its viewBox, and that is exactly wrong for a drawing being
+   slid about over a basemap. Two things need to escape it. The corner
+   furniture, which has to move the OPPOSITE way to the pan to stay put, and
+   so goes straight out of the frame the moment anybody drags — a scale bar
+   already at the foot of the viewBox has nowhere to go but past the bottom
+   edge. And the drawn marks themselves, which stop at the frame they were
+   drawn for: letting them out means panning toward a pin reveals it instead
+   of showing bare ground where it should be. The box still clips, so nothing
+   escapes onto the page. Only while a basemap is live — with no tiles the
+   drawing is the whole picture and its frame is the picture's edge. */
+.mdmap.mdmap-on .mdmap-draw svg{overflow:visible}
 /* The drawn cream background and its border are the "no ground" state. With
    tiles underneath they are exactly what must not be painted. */
 .mdmap.mdmap-on .mdmap-bg{display:none}
+/* A drawn scale bar is true at exactly one zoom: the one it was drawn at.
+   Held in the corner it keeps its length while the ground under it grows,
+   and a bar that says 200 m over 400 m of street is worse than no bar — so
+   away it goes until the reader is back at the scale it was measured for. A
+   redraw always retargets, which is what brings it back. This never fires
+   without a basemap, so the printed page and the no-tiles fallback — where
+   the drawing is the only map there is — keep their bar always. */
+.mdmap.mdmap-zoomed .mdmap-scale{display:none}
+/* Lifted out of the map layer by map.js so the drawing can never pan across
+   them. MapLibre's own rules still place them in their corners; all they need
+   here is to sit above the drawing rather than below it. */
+.mdmap>.maplibregl-ctrl-top-left,
+.mdmap>.maplibregl-ctrl-bottom-right{z-index:4}
+/* Out of the live layer, they no longer fade in with it — so they are held
+   back until there is a basemap for them to belong to. A zoom button over a
+   picture that cannot zoom, and a tile credit with no tiles under it, both
+   arrive before the thing they are for. */
+.mdmap:not(.mdmap-on)>.maplibregl-ctrl-top-left,
+.mdmap:not(.mdmap-on)>.maplibregl-ctrl-bottom-right{display:none}
 .mdmap .maplibregl-ctrl-attrib{font-size:11px;background:rgba(255,253,248,.88)}
 /* Never let the credit be folded away: ODbL asks for it to be visible, and a
    collapsed ⓘ on a phone is not visible. */
 .mdmap .maplibregl-ctrl-attrib-button{display:none!important}
 .mdmap .maplibregl-ctrl-attrib.maplibregl-compact-show .maplibregl-ctrl-attrib-inner{
   display:block!important}
+/* On paper the tiles are gone and the drawing is the map again, so it prints
+   from its own origin — never from wherever the reader happened to leave it. */
 @media print{.mdmap-live{display:none!important}
-  .mdmap-draw{position:static}}
+  .mdmap-draw{position:static;transform:none!important}
+  /* And the frame goes back on. On paper there is no panning to escape, so
+     everything the viewBox was cropping would simply spill across the page. */
+  .mdmap-draw svg{overflow:hidden!important}}
 @media (prefers-reduced-motion:reduce){.mdmap-live{transition:none}}
 """
 

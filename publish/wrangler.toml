@@ -1,0 +1,51 @@
+# The site Worker. Separate from worker/ (mot-dang-claims) on purpose: that one
+# holds owner claims in KV and must not be redeployed every time a page changes.
+#
+# FIRST TIME
+#   cd publish
+#   npx wrangler r2 bucket create mot-dang-site
+#   npx wrangler deploy
+#   # then in the dashboard: Workers > mot-dang-site > Settings > Domains
+#   # add motdang.net and www.motdang.net (the zone is already on Cloudflare,
+#   # which is what makes a custom domain possible here at all)
+#
+# EVERY DEPLOY AFTER THAT is just content — python3 publish/deploy.py — and does
+# not touch this Worker at all. The Worker only changes when routing does.
+#
+# LOCAL TEST, no account needed:
+#   npx wrangler dev --local
+#   # --local gives a simulated R2 on disk; seed it with
+#   #   npx wrangler r2 object put mot-dang-site/index.html --file=../docs/index.html --local
+
+name = "mot-dang-site"
+main = "worker.js"
+compatibility_date = "2026-07-01"
+
+# Binding name must stay SITE — worker.js reads env.SITE. Same gotcha the
+# claims worker documents: wrangler's suggested snippet names the binding after
+# the resource, which compiles and then 500s on an undefined binding.
+[[r2_buckets]]
+binding = "SITE"
+bucket_name = "mot-dang-site"
+
+# The live site. Declared here rather than clicked in the dashboard so the
+# domain binding is recorded in the repo — if this Worker ever has to be
+# rebuilt from scratch, the hostname comes back with it.
+#
+# A hostname belongs to exactly one Cloudflare service, so these were detached
+# from the `motdang` Pages project first (2026-08-12). Pages had been serving
+# the site from a GitHub-connected build that stopped updating when the account
+# was suspended.
+# ROUTES, not custom_domain. A custom domain asks Cloudflare to create and own
+# the DNS record, and it refuses when a record already exists — which it does
+# here, left behind by the Pages setup. A route instead intercepts requests to
+# a hostname that is ALREADY proxied through Cloudflare, which those records
+# are. Same result, no DNS surgery, and it works with records this account's
+# deploy token cannot edit.
+[[routes]]
+pattern = "motdang.net/*"
+zone_name = "motdang.net"
+
+[[routes]]
+pattern = "www.motdang.net/*"
+zone_name = "motdang.net"

@@ -24,3 +24,11 @@ app/www/data/
 # that command if it is ever lost.
 assets/tiles/*.pmtiles
 docs/tiles/
+
+# Publishing state and local tool caches. The tooling in publish/ is tracked;
+# what it leaves behind is not. .wrangler/ in particular caches a Cloudflare
+# request trace that carries the coordinates, postcode and ISP of whoever last
+# ran a deploy — a public repo is the wrong home for the deployer's front door.
+# .uploaded.json is a per-machine checksum ledger of the last sync.
+publish/.wrangler/
+publish/.uploaded.json

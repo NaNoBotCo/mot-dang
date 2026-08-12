@@ -282,7 +282,9 @@ function drawMap(rows,host){
     var r=half*f; if(r<18)return;
     p.push('<circle cx="'+(S/2)+'" cy="'+(S/2)+'" r="'+r.toFixed(1)+'" fill="none" '+
       'stroke="#EADFCB" stroke-dasharray="3 4"/>');
-    p.push('<text x="'+(S/2+3)+'" y="'+(S/2-r+11).toFixed(1)+'" font-size="9" paint-order="stroke" stroke="#FFFDF8" stroke-width="2.5" '+
+    /* The ring itself is a distance and grows with the ground. Its label is
+       a label: it rides the ring outward but stays 9px tall. */
+    p.push('<text data-mdpin="'+(S/2+3)+','+(S/2-r+11).toFixed(1)+'" x="'+(S/2+3)+'" y="'+(S/2-r+11).toFixed(1)+'" font-size="9" paint-order="stroke" stroke="#FFFDF8" stroke-width="2.5" '+
       'fill="#9C8874">'+esc(fmtD(far*f))+'</text>');
   });
   /* The moat, when any of it is actually in frame. Everyone here navigates by
@@ -308,20 +310,29 @@ function drawMap(rows,host){
          markers put the same name on the picture twice, an inch apart, which
          reads as two places. The centre ring already names it. */
       if(Math.abs(q[0]-S/2)<12&&Math.abs(q[1]-S/2)<12)return;
+      /* Dot and name as one mark, pivoting on the gate itself — the moat it
+         sits on grows, the gate stays a gate. */
+      p.push('<g data-mdpin="'+q[0].toFixed(1)+','+q[1].toFixed(1)+'">');
       p.push('<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+
         '" r="3" fill="#8FA5CC"/>');
       p.push('<text x="'+(q[0]+5).toFixed(1)+'" y="'+(q[1]+3.5).toFixed(1)+
         '" font-size="9" paint-order="stroke" stroke="#FFFDF8" stroke-width="2.5" fill="#5E6C8A">'+esc(gt[2])+'</text>');
+      p.push('</g>');
     });
   }
-  /* North, so a rotated phone still reads. */
-  p.push('<g opacity=".75"><path d="M'+(S-20)+' '+(PAD-6)+' l5 13 -5-3 -5 3Z" fill="#6B584A"/>'+
+  /* North, so a rotated phone still reads. It belongs to the frame, not to
+     the city: it stays in its corner at its own size however far the ground
+     under it is dragged. Always true here — the basemap cannot be rotated. */
+  p.push('<g data-mdfix="1" opacity=".75"><path d="M'+(S-20)+' '+(PAD-6)+' l5 13 -5-3 -5 3Z" fill="#6B584A"/>'+
     '<text x="'+(S-20)+'" y="'+(PAD+22)+'" font-size="9" fill="#6B584A" text-anchor="middle">N</text></g>');
   /* Pins furthest-first, so the nearest ones land on top of the pile. */
   shown.slice().reverse().forEach(function(x){
     var i=shown.indexOf(x),q=px(x.lat,x.lng);
     var col=x.tier?(x.tier.color||D.mappedColor):D.mappedColor;
-    p.push('<g class="loopin" data-pin="'+i+'" tabindex="0" role="button" aria-label="'+
+    /* Pivoting on the point, not the head of the pin: the tip is the part
+       that means an address, and it is the part that must not move. */
+    p.push('<g class="loopin" data-mdpin="'+q[0].toFixed(1)+','+q[1].toFixed(1)+
+      '" data-pin="'+i+'" tabindex="0" role="button" aria-label="'+
       esc((x.th||x.en)+' — '+fmtD(x.d))+'">');
     p.push('<line x1="'+q[0].toFixed(1)+'" y1="'+q[1].toFixed(1)+'" x2="'+q[0].toFixed(1)+
       '" y2="'+(q[1]-9).toFixed(1)+'" stroke="'+col+'" stroke-width="1.5"/>');
@@ -337,6 +348,10 @@ function drawMap(rows,host){
      it gets a hollow ring and the landmark's name, because a solid dot that
      says "you are here" about Tha Phae Gate is a small lie told to somebody
      who may be standing in Santitham. */
+  /* Held at drawn size like every other mark. The halo is a fixed 9px, not a
+     drawn accuracy radius — it says "here", not "within so many metres" — so
+     growing it with the zoom would be inventing a precision claim. */
+  p.push('<g data-mdpin="'+(S/2)+','+(S/2)+'">');
   if(here.src==='gps'){
     p.push('<circle cx="'+(S/2)+'" cy="'+(S/2)+'" r="9" fill="#D4552C" opacity=".18"/>');
     p.push('<circle cx="'+(S/2)+'" cy="'+(S/2)+'" r="4.5" fill="#D4552C" stroke="#fff" stroke-width="2"/>');
@@ -346,6 +361,7 @@ function drawMap(rows,host){
     p.push('<text x="'+(S/2)+'" y="'+(S/2+21)+'" font-size="9.5" text-anchor="middle" paint-order="stroke" stroke="#FFFDF8" stroke-width="2.5" '+
       'fill="#A8371A">'+esc(originName())+'</text>');
   }
+  p.push('</g>');
   p.push('</svg>');
   /* When map_shell has wrapped this box the drawn picture belongs in its own
      layer, under the tiles — writing straight into the container would tear

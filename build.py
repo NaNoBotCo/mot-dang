@@ -5633,13 +5633,17 @@ def event_map_svg(events):
         out.append(f'<rect x="{mx:.1f}" y="{my:.1f}" width="{mw:.1f}" height="{mh:.1f}" '
                    f'fill="none" stroke="#2a78d6" stroke-width="2" stroke-dasharray="5 4" '
                    f'opacity=".75"><title>คูเมืองเชียงใหม่ · the old city moat</title></rect>')
-        out.append(f'<text x="{mx + mw / 2:.1f}" y="{my - 6:.1f}" text-anchor="middle" '
+        out.append(f'<text data-mdpin="{mx + mw / 2:.1f},{my - 6:.1f}" '
+                   f'x="{mx + mw / 2:.1f}" y="{my - 6:.1f}" text-anchor="middle" '
                    f'font-size="11" fill="#2a78d6">คูเมือง · the moat</text>')
     biggest = max(v["n"] for v in pins.values())
     for v in sorted(pins.values(), key=lambda z: -z["n"]):
         p, cnt = v["p"], v["n"]
         cx, cy = X(p["lng"]), Y(p["lat"])
         rad = 5 + 5 * (cnt / biggest)
+        # Dot and name as one mark held at drawn size — the radius here counts
+        # events, not metres, so it has no business growing with the zoom.
+        out.append(f'<g data-mdpin="{cx:.1f},{cy:.1f}">')
         out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{rad:.1f}" fill="#eb6834" '
                    f'fill-opacity=".8" stroke="#8F2E13" stroke-width="1.5">'
                    f'<title>{esc(p["name"])} — {cnt} งาน</title></circle>')
@@ -5654,16 +5658,21 @@ def event_map_svg(events):
             anchor, lx = "end", W - 4
         out.append(f'<text x="{lx:.1f}" y="{cy - rad - 4:.1f}" text-anchor="{anchor}" '
                    f'font-size="11" fill="#2A1E16">{esc(label)}</text>')
+        out.append('</g>')
     # Scale bar, because a map without one is a picture.
     km_deg = 111.32 * kx
     bar_km = 2
     bar_px = bar_km / km_deg / (ee - w) * W
     if bar_px < W * 0.6:
         by = round(H - 16, 1)
+        # Same bargain as the soi maps: held in its corner, and taken away
+        # rather than left lying about the distance once the reader zooms.
+        out.append('<g class="mdmap-scale" data-mdfix="1">')
         out.append(f'<line x1="16" y1="{by}" x2="{16 + bar_px:.1f}" y2="{by}" '
                    f'stroke="#2A1E16" stroke-width="2"/>')
-        out.append(f'<text x="16" y="{by - 5:.1f}" font-size="10" fill="#2A1E16">'
-                   f'{bar_km} กม. / km</text>')
+        out.append(f'<text x="16" y="{by - 5:.1f}" '
+                   f'font-size="10" fill="#2A1E16">{bar_km} กม. / km</text>')
+        out.append('</g>')
     out.append("</svg>")
     # Real ground under the venue dots when a basemap is configured. East is
     # `ee` in this function, not `e` — `e` is the event being looped over.
@@ -7618,23 +7627,32 @@ def street_map_svg(st, by_id):
         cx, cy = X(r["lng"]), Y(r["lat"])
         rad = 11.0 if numbered else 4.5
         soft = ' fill-opacity=".85"' if pl.get("via") == "nearest" else ""
+        # Disc and number travel together and stay the size they were drawn:
+        # the road under them opens out, the numbered stop stays legible.
+        out.append('<g data-mdpin="%.1f,%.1f">' % (cx, cy))
         out.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="#eb6834" stroke="#8F2E13" '
                    'stroke-width="1.5"%s><title>%s</title></circle>'
                    % (cx, cy, rad, soft, att("%d. %s" % (i, name_text(r)))))
         if numbered:
             out.append('<text x="%.1f" y="%.1f" text-anchor="middle" font-size="11" '
                        'font-weight="700" fill="#fff">%d</text>' % (cx, cy + 4, i))
+        out.append('</g>')
     # A map without a scale bar is a picture.
     km_deg = 111.32 * kx
     for bar_km in (0.1, 0.2, 0.5, 1.0, 2.0):
         bar_px = bar_km / km_deg / (e - w) * W
         if bar_px > 60:
             break
-    out.append('<g transform="translate(14,%.1f)">' % (H - 16))
+    # Frame furniture: it keeps its corner and its size while the ground moves
+    # under it. The outer <g> exists because map.js owns the transform of
+    # whatever carries data-mdfix and the bar's own group already has one. The
+    # class is what lets the shell take the bar away once the reader has
+    # zoomed off the scale it was measured at — see map_shell.
+    out.append('<g class="mdmap-scale" data-mdfix="1"><g transform="translate(14,%.1f)">' % (H - 16))
     out.append('<line x1="0" y1="0" x2="%.1f" y2="0" stroke="#2A1E16" stroke-width="2"/>' % bar_px)
     out.append('<text x="0" y="-5" font-size="11" fill="#2A1E16">%s</text>'
                % (("%d ม./m" % int(bar_km * 1000)) if bar_km < 1 else ("%g กม./km" % bar_km)))
-    out.append("</g></svg>")
+    out.append("</g></g></svg>")
     # 943 soi pages, each one a road drawn as itself. With a basemap live
     # the numbered pins sit on the actual street rather than on cream.
     return map_shell.mount(
@@ -8268,11 +8286,15 @@ def merit_map_svg(route, by_id):
                'stroke-linejoin="round" opacity=".8"/>' % ring)
     for i, st in enumerate(stops, 1):
         cx, cy = X(st["lng"]), Y(st["lat"])
+        # The route between the stops is a walk in metres and grows with the
+        # ground. The stop is a numbered temple and stays a numbered temple.
+        out.append('<g data-mdpin="%.1f,%.1f">' % (cx, cy))
         out.append('<circle cx="%.1f" cy="%.1f" r="12" fill="#C9A227" stroke="#7A5C00" '
                    'stroke-width="1.5"><title>%s</title></circle>'
                    % (cx, cy, att("%d. %s" % (i, st.get("name") or ""))))
         out.append('<text x="%.1f" y="%.1f" text-anchor="middle" font-size="12" '
                    'font-weight="700" fill="#fff">%d</text>' % (cx, cy + 4, i))
+        out.append('</g>')
     out.append("</svg>")
     # The round drawn over the streets it is actually walked on. The id
     # carries the route's slug because merit.html renders every round on one
