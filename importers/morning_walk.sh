@@ -112,9 +112,11 @@ git add -A -- build.py data docs assets
 git commit --quiet -m "Morning walk — $TODAY" \
   --author="NaNoBotCo <skunkhaus@gmail.com>" || stand_down "nothing to commit"
 git push --quiet origin main || say "PUSH FAILED — commit kept locally"
-# The Cloudflare mirror serves readers even when the GitHub side is having a
-# day; wrangler's own OAuth refreshes itself, nothing to mint.
+# WHAT READERS SEE: motdang.net is the mot-dang-site Worker over R2
+# (publish/README.md) — GitHub and Pages are not in the serving path. The R2
+# sync is the deploy; the Pages mirror is a spare door, kept fresh second.
+python3 publish/deploy.py --yes || say "R2 site sync FAILED — readers still see yesterday"
 bash "$HOME/Developer/claude code projects/cloudflare-mirror/deploy.sh" motdang \
-  || say "Cloudflare mirror deploy skipped"
+  || say "Cloudflare Pages mirror skipped"
 python3 importers/ping_indexnow.py || say "IndexNow ping skipped"
 say "== published $TODAY — the ants are home"
