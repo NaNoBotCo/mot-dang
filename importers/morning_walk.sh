@@ -55,6 +55,7 @@ fi
 PUBLISH_HOLD=""
 DIRTY_SOURCE=$(git status --porcelain -- . \
   ':(exclude)data' ':(exclude)docs' ':(exclude)assets' ':(exclude)cache' \
+  ':(exclude).github' \
   | grep -v '^.. build\.py$' || true)
 DIRTY_BUILDPY=$(git status --porcelain -- build.py || true)
 [[ -n "$DIRTY_SOURCE$DIRTY_BUILDPY" ]] && PUBLISH_HOLD="source files are mid-task"
@@ -113,7 +114,7 @@ git commit --quiet -m "Morning walk — $TODAY" \
 git push --quiet origin main || say "PUSH FAILED — commit kept locally"
 # The Cloudflare mirror serves readers even when the GitHub side is having a
 # day; wrangler's own OAuth refreshes itself, nothing to mint.
-zsh "$HOME/Developer/claude code projects/cloudflare-mirror/deploy.sh" motdang \
+bash "$HOME/Developer/claude code projects/cloudflare-mirror/deploy.sh" motdang \
   || say "Cloudflare mirror deploy skipped"
 python3 importers/ping_indexnow.py || say "IndexNow ping skipped"
 say "== published $TODAY — the ants are home"
