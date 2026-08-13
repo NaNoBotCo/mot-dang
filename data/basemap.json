@@ -3,7 +3,8 @@
   "_extract": "pmtiles extract https://build.protomaps.com/20260811.pmtiles assets/tiles/cm-cr.pmtiles --bbox=97.3,17.0,100.6,20.5 --maxzoom=15",
   "_size": "116 MB. Covers Chiang Mai + Chiang Rai provinces whole, z0-15. The planet build's own max zoom is 15, so 15 is everything there is — MapLibre overzooms past it from z15 data rather than fetching more.",
   "_hosting": "TOO BIG FOR THE REPO: GitHub rejects files over 100 MB. This must live in R2 (or any host doing HTTP range requests) and the url below must point there before deploy. The relative path is for local verification only.",
-  "url": "tiles/cm-cr.pmtiles",
+  "url": "https://pub-b9aec74c6c794863bea9c1ce6a1faa3e.r2.dev/tiles/cm-cr.pmtiles",
+  "_url_note": "R2 bucket mot-dang-site, uploaded 2026-08-13, CORS allows motdang.net / www / pages.dev / github.io / localhost dev ports, Range verified 206. The old relative path 'tiles/cm-cr.pmtiles' still works locally via the docs/tiles symlink if this ever needs rolling back.",
   "glyphs": "https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf",
   "maxzoom": 15,
   "_enable": "Live. Served from the same R2 bucket as the site, via publish/worker.js, which passes Range requests straight through to R2 — pmtiles is nothing but ranged reads. Set url to \"\" to switch the basemap off everywhere; every map falls back to its drawn SVG."
