@@ -35,6 +35,22 @@ from pathlib import Path
 # cycle: map_shell is stdlib-only and reads its own config off disk.
 import map_shell
 
+# The basemap for the pictures this file DRAWS rather than mounts — the venue
+# thumbnails. Optional in the same way qrcode is: no Pillow, or no tile
+# archive, and every caller falls back to the drawing it had before.
+try:
+    from PIL import Image
+    import map_ground
+    HAVE_GROUND = True
+except ImportError:
+    HAVE_GROUND = False
+
+    class _NoGround:
+        @staticmethod
+        def shared(night=False):
+            return type("_G", (), {"available": False})()
+    map_ground = _NoGround()
+
 try:
     import qrcode
     HAVE_QR = True
@@ -43,7 +59,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
-BUILD_DATE = "2026-08-09"
+BUILD_DATE = "2026-08-13"
 
 # Where the 🎲 chip goes when scripting is off. md.js intercepts the click and
 # rolls fresh each time; this baked pick (seeded by BUILD_DATE, so it rotates
@@ -204,6 +220,43 @@ def art(topic=None, mood=None, place=None, season=None, n=1, key="", avoid=(),
 def art_one(**kw):
     got = art(n=1, **kw)
     return got[0] if got else None
+
+
+# Which shelves have a genuine picture in Nan's pool. A shelf with no honest
+# match gets no band at all — same rule as the mood tiles: never a stand-in.
+CAT_ART_TOPIC = {"wat": "wat", "food": "food", "market": "market",
+                 "sights": "city", "parks": "nature", "whats-on": "festival",
+                 "museums-galleries": "arts", "tattoo": "mu",
+                 "transport": "transport", "hotel": "stay", "massage": "wellness"}
+
+
+def cat_art_band(cat_key, prov_key, depth=2):
+    """A wide strip of her hand-picked city art across the top of a shelf page.
+
+    Day-salted like the hero, so shelf headers freshen with the morning walk.
+    local=True throughout: a massage parlour in Siem Reap is a fine mood
+    picture and the wrong header for a shelf that says Chiang Mai."""
+    topic = CAT_ART_TOPIC.get(cat_key)
+    if not topic:
+        return ""
+    hint = "yant" if cat_key == "tattoo" else None
+    k = f"catband-{prov_key}-{cat_key}-{BUILD_DATE}"
+    p = None
+    if hint:
+        p = art_one(topic=topic, slug_has=hint, key=k, not_topic=("people",), local=True)
+    if not p:
+        p = art_one(topic=topic, key=k, not_topic=("people",), local=True)
+    if not p:
+        return ""
+    r = "../" * depth
+    alt = art_alt(p)
+    artist = re.sub(r"\s*\(.*?\)\s*", " ", p.get("artist") or "").strip()
+    artist = artist if len(artist) <= 28 else artist[:27] + "…"
+    chip = (f'<a class="herocredit" href="{r}pictures.html">📷 {esc(artist)}</a>'
+            if artist and artist.lower() != "unknown" else "")
+    return (f'<div class="catband"><img src="{r}site/{p["slug"]}.jpg" '
+            f'alt="{att(alt)}" loading="lazy" '
+            f'width="{p.get("width") or 1000}" height="{p.get("height") or 750}">{chip}</div>')
 
 
 def art_alt(p):
@@ -1015,6 +1068,7 @@ color:var(--ant);border-radius:.4rem;padding:.15rem .7rem;cursor:pointer}
 border-radius:.5rem;width:8rem;background:#fff;color:var(--ink)}
 .fxrows{display:grid;grid-template-columns:auto auto;gap:.15rem 1rem;margin:.5rem 0 0;font-size:.95rem}
 .fxrows b{color:var(--ant-dark)}
+.cryptorows{border-top:1px dashed var(--soft);padding-top:.45rem;margin-top:.55rem}
 .goldrow{display:flex;justify-content:space-between;gap:1rem;margin:.15rem 0;font-size:.95rem}
 .goldrow .lbl{color:var(--mute)} .goldrow .val{font-weight:700}
 .goldchange{font-size:.85rem;margin-left:.4rem}
@@ -1029,6 +1083,19 @@ border-radius:999px;padding:0 .55rem;text-decoration:none;white-space:nowrap}
 cursor:pointer;text-decoration:underline;padding:0}
 .prov{color:var(--ant-dark);font-size:.85rem;border-top:1px dashed var(--soft);
 margin-top:1.6rem;padding-top:.5rem}
+.subx{margin:2.4rem 0 0;padding:1.1rem 1.2rem;border:2px solid var(--ant);border-radius:10px;
+      background:var(--card)}
+.subx h2{margin:0 0 .3rem;font-size:1.15rem}
+.subx p{margin:0 0 .7rem;font-size:.92rem}
+.subx form{display:flex;flex-wrap:wrap;gap:.5rem}
+.subx input[type=email]{flex:1 1 15rem;padding:.6rem .7rem;font:inherit;border:1px solid var(--ant);
+      border-radius:7px;background:#fff;color:inherit}
+.subx button{padding:.6rem 1.2rem;font:inherit;font-weight:700;border:0;border-radius:7px;
+      background:var(--ant);color:#fff;cursor:pointer;transition:transform .12s cubic-bezier(.34,1.56,.64,1)}
+.subx button:active{transform:scale(.94)}
+.subx .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.subx .said{margin:.6rem 0 0;font-weight:700}
+.subx .fine{margin:.6rem 0 0;font-size:.8rem;opacity:.75}
 footer{border-top:4px double var(--ant);margin-top:3rem;padding-top:.7rem;font-size:.85rem;
 color:var(--ant-dark);position:relative;overflow:hidden}
 .crumbs{font-size:.9rem;margin-bottom:.4rem}
@@ -1116,6 +1183,18 @@ overflow-y:auto;z-index:3;display:flex;flex-direction:column;gap:.1rem}
 .airband{font-size:.82rem;color:var(--mute);text-align:center}
 .airspark{width:auto;height:36px;margin-top:.35rem;overflow:visible}
 .airtrend{font-size:.72rem;color:var(--ant-dark);margin-top:.1rem}
+/* lottery: the announced draw as public record — numbers big enough to hold
+   a ticket against, and nothing on the tile that reads the future */
+.lotwhen{font-size:.78rem;color:var(--mute);text-align:center;display:block}
+.lotpanes{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.1rem}
+.lotfirst{font-size:2.2rem;font-weight:800;color:var(--ant);line-height:1.1;
+text-align:center;font-variant-numeric:tabular-nums;letter-spacing:.09em}
+.lotfirstlabel{font-size:.75rem;color:var(--mute);text-align:center}
+.lotrows{display:flex;flex-direction:column;gap:.16rem;margin-top:.45rem}
+.lotrow{display:flex;align-items:baseline;gap:.5rem;font-size:.8rem}
+.lotlabel{flex:1;min-width:0}
+.lotnums{display:flex;gap:.5rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lotnums b{font-weight:800;font-size:1.06rem;letter-spacing:.05em}
 /* clocks */
 .tzrows{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.15rem;overflow-y:auto}
 .tzrow{display:flex;align-items:baseline;gap:.4rem;font-size:.88rem}
@@ -1991,6 +2070,34 @@ box-shadow:0 10px 26px rgba(42,30,22,.22)}
 background:var(--gold-light);color:var(--ink);font-family:'Sriracha',cursive;
 font-size:.95rem;padding:.45rem 1.1rem;border-radius:999px;transform:rotate(-5deg);
 box-shadow:0 4px 12px rgba(42,30,22,.18)}
+.herocredit{position:absolute;bottom:6px;right:8px;z-index:2;max-width:88%;
+overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+background:rgba(250,245,234,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+color:var(--ink);font-size:.68rem;padding:.18rem .6rem;border-radius:999px;
+text-decoration:none;border:1px solid rgba(42,30,22,.12)}
+.herocredit:hover{background:rgba(250,245,234,.95)}
+.catband{position:relative;margin:.2rem 0 .9rem;border-radius:14px;overflow:hidden;
+border:2px solid var(--ink);box-shadow:0 6px 18px rgba(42,30,22,.14)}
+.catband img{width:100%;height:clamp(110px,18vw,175px);object-fit:cover;display:block}
+.freshstrip{display:flex;gap:.45rem;flex-wrap:wrap;align-items:center;margin:.7rem 0 .2rem}
+.freshchip{display:inline-flex;gap:.3rem;align-items:center;font-size:.78rem;
+background:var(--card);border:1.5px solid var(--soft);border-radius:999px;padding:.22rem .7rem}
+.freshchip.lead{background:var(--gold-light);border-color:var(--ink)}
+.freshchip .freshrel{color:var(--mute)}
+.freshchip .freshrel:empty{display:none}
+.freshchip.quiet{opacity:.62}
+.freshchip.trust{background:var(--gold-light);border-color:var(--ink);text-decoration:none;color:var(--ink)}
+.doorledger{margin:.35rem 0 0;font-size:.82rem}
+.doorledger a{color:var(--mute);text-decoration:none}
+.doorledger a:hover{color:var(--ink);text-decoration:underline}
+.lede{font-size:1.02rem;max-width:46rem}
+.tablewrap{overflow-x:auto}
+.fixlog{border-collapse:collapse;width:100%;font-size:.92rem;margin:.6rem 0}
+.fixlog th,.fixlog td{border-bottom:1px solid var(--soft);padding:.45rem .6rem;
+text-align:left;vertical-align:top}
+.fixlog th{font-size:.8rem;color:var(--mute);white-space:nowrap}
+.fixlog td:first-child,.fixlog td:nth-child(4),.fixlog td:nth-child(5){white-space:nowrap}
+.fixpage{text-decoration:none}
 @media (prefers-reduced-motion:no-preference){
 .heroart .b{animation:mdfloat 7s ease-in-out infinite}
 @keyframes mdfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
@@ -2120,6 +2227,13 @@ width:100%;text-shadow:none}
    loudest thing on a page whose whole ask is "send us a photograph". */
 .placeholderpic{opacity:.55;filter:saturate(.55)}
 .placeholderpic:hover{opacity:.8;filter:none}
+/* The map standing where a photograph is not. It sits in the picture frame,
+   so it wears the picture frame's shape — same radius, same rule, same width
+   as .photo — and the drawn SVG inside fills it edge to edge. */
+.placemap{margin:.2rem 0 .4rem}
+.placemap .placemapbox{margin:0;border-radius:14px;overflow:hidden;
+border:1px solid var(--soft)}
+.placemap .mdmap-draw svg{display:block;width:100%;height:auto}
 
 /* --- sections, credits, and the note that points at them ---------------- */
 .moodsec{margin:2.4rem 0 0}
@@ -2301,6 +2415,31 @@ if(el.querySelector('.wstale'))return;
 const s=document.createElement('span');s.className='wfoot wstale';
 s.innerHTML=mdBi('ยังไม่ได้อัปเดตสำหรับวันนี้','not updated for today');
 el.appendChild(s);});}
+// --- freshness strip: relative wording computed in the reader's browser,
+// so it cannot rot the way a baked "today" would. Stamps are Thai wall time.
+(function(){const els=document.querySelectorAll('[data-freshts]');if(!els.length)return;
+function mdRel(ts){
+const dateOnly=/^\d{4}-\d{2}-\d{2}$/.test(ts);
+if(dateOnly){const today=MD_TODAY;
+if(ts===today)return ['วันนี้','today'];
+const days=Math.round((new Date(today+'T12:00')-new Date(ts+'T12:00'))/864e5);
+if(days===1)return ['เมื่อวาน','yesterday'];
+if(days>1)return [days+' วันที่แล้ว',days+'d ago'];
+return ['วันนี้','today'];}
+const d=new Date(ts.replace(' ','T'));if(isNaN(d))return null;
+const mins=Math.round((Date.now()-d)/6e4);
+if(mins<2)return ['เมื่อกี้','just now'];
+if(mins<60)return [mins+' นาทีที่แล้ว',mins+'m ago'];
+const h=Math.round(mins/60);
+if(h<24)return [h+' ชม.ที่แล้ว',h+'h ago'];
+const days=Math.round(h/24);
+if(days===1)return ['เมื่อวาน','yesterday'];
+return [days+' วันที่แล้ว',days+'d ago'];}
+els.forEach(el=>{const ts=el.dataset.freshts||'';const r=mdRel(ts);
+const s=el.querySelector('.freshrel');if(!r||!s)return;
+s.innerHTML=mdBi(r[0],r[1]);
+const age=(Date.now()-new Date(ts.replace(' ','T')+(ts.length===10?'T12:00':'')))/864e5;
+if(age>2.2)el.classList.add('quiet');});})();
 // --- sky tile: moon + jupiter, drawn from baked positions
 (async()=>{const host=document.getElementById('w-sky');if(!host)return;
 const doc=await mdJSON('data/sky.json');const day=mdPick(doc);
@@ -2886,6 +3025,10 @@ const elEmpty=document.getElementById('planempty'),elHas=document.getElementById
 elTotal=document.getElementById('plantotal'),elMap=document.getElementById('planmap'),
 elBanner=document.getElementById('planbanner');
 let here=null; // the reader's own position, once they offer it
+// What the last drawing framed: centre and reach, in the drawing's own units.
+// svgMap fills it, render() hands it to the basemap. Null until the first
+// plan is drawn, which is also when there is nothing to point a map at.
+let PLANFRAME=null;
 // A shared link wins over whatever is in this browser, but never silently:
 // the banner says a plan arrived and offers to keep it before it overwrites.
 const shared=new URLSearchParams(location.search).get('stops');
@@ -3340,10 +3483,20 @@ let aria='แผนที่ทริปของคุณ '+list.length+' จ�
 if(moatShows)aria+=' — คูเมืองอยู่ในภาพ · the old city moat runs across it';
 else if(insideWalls)aria+=' — ทั้งหมดอยู่ในเวียงเก่า · all of it inside the old city';
 if(gatesHere.length)aria+=' — '+gatesHere.map(g=>g.th+' '+g.en).join(', ');
+// Hand the frame out so render() can point the basemap at exactly what was
+// drawn. Everything below is in these units; nothing else knows them.
+PLANFRAME={n:n,s:s,e:e,w:w,kx:kx,W:W,H:H};
+const GROUND=!!(window.MDMAP&&elMap&&MDMAP.live(elMap));
 let o=['<svg viewBox="0 0 '+W+' '+Math.round(H)+'" width="100%" class="planmap" role="img" '+
-'aria-label="'+H2(aria)+'">',
-'<rect width="'+W+'" height="'+Math.round(H)+'" fill="#FBF6EE"/>'];
-if(moatShows){
+'aria-label="'+H2(aria)+'">'];
+// The cream rectangle IS the map when there is nothing underneath, and it is
+// a sheet thrown over the map when there is.
+if(!GROUND)o.push('<rect width="'+W+'" height="'+Math.round(H)+'" fill="#FBF6EE"/>');
+// The traced moat is four corner pins joined by straight lines. Over a real
+// basemap that is a wrong shape sitting on a right one — the actual moat is
+// there in the tiles, rounded corners and all — so the tracing gives way and
+// only its name stays.
+if(moatShows&&!GROUND){
 o.push('<path d="'+POLY.map((p,i)=>(i?'L':'M')+X(p.lng).toFixed(1)+' '+Y(p.lat).toFixed(1)).join(' ')+
 'Z" fill="none" stroke="#2a78d6" stroke-width="2" stroke-dasharray="5 4" opacity=".55">'+
 '<title>คูเมืองเชียงใหม่ (เส้นโดยประมาณ จากหมุดแจ่งทั้งสี่) · the old city moat, '+
@@ -3358,6 +3511,9 @@ else if(insideWalls)o.push('<text x="'+(W-12)+'" y="20" text-anchor="end" font-s
 // line lies over the landmark rather than under it.
 gatesHere.forEach(g=>{
 const gx=X(g.lng),gy=Y(g.lat);
+// A gate is a symbol standing over one spot, so it keeps its size when the
+// reader zooms; the moat it stands on is ground and grows.
+o.push('<g data-mdpin="'+gx.toFixed(1)+','+gy.toFixed(1)+'">');
 o.push('<path d="M'+gx.toFixed(1)+' '+(gy-6).toFixed(1)+'l6 6l-6 6l-6-6Z" fill="#FBF6EE" '+
 'stroke="#2a78d6" stroke-width="2" opacity=".95"><title>'+H2(g.th+' · '+g.en)+
 '</title></path>');
@@ -3369,7 +3525,8 @@ if(gx-half<4){ga='start';gxl=4;}else if(gx+half>W-4){ga='end';gxl=W-4;}
 const crowded=list.some(p=>Math.hypot(X(p.lng)-gx,Y(p.lat)-(gy+20))<46);
 const gyl=crowded?Math.max(14,gy-12):Math.min(H-5,gy+20);
 o.push('<text x="'+gxl.toFixed(1)+'" y="'+gyl.toFixed(1)+'" text-anchor="'+ga+
-'" font-size="10" fill="#2a78d6" opacity=".9">'+H2(gl)+'</text>');});
+'" font-size="10" fill="#2a78d6" opacity=".9">'+H2(gl)+'</text>');
+o.push('</g>');});
 // Draw the roads the route really follows. Both modes, because they diverge:
 // where the walk and the ride part company is exactly the thing worth seeing.
 // The scooter line goes down first and solid, the walking line over it dashed,
@@ -3407,10 +3564,16 @@ o.push('<path d="M'+X(a.lng).toFixed(1)+' '+Y(a.lat).toFixed(1)+'L'+X(p.lng).toF
 ' '+Y(p.lat).toFixed(1)+'" fill="none" stroke="#8a7a62" stroke-width="2" '+
 'stroke-dasharray="2 5" opacity=".8"><title>'+
 'เส้นตรง ยังไม่ได้คิดตามถนน / straight line, not routed</title></path>');}});
-if(here){o.push('<circle cx="'+X(here.lng).toFixed(1)+'" cy="'+Y(here.lat).toFixed(1)+
+if(here){o.push('<g data-mdpin="'+X(here.lng).toFixed(1)+','+Y(here.lat).toFixed(1)+
+'"><circle cx="'+X(here.lng).toFixed(1)+'" cy="'+Y(here.lat).toFixed(1)+
 '" r="7" fill="#2a78d6" fill-opacity=".25" stroke="#2a78d6" stroke-width="2">'+
-'<title>ตำแหน่งของคุณ · you are here</title></circle>');}
+'<title>ตำแหน่งของคุณ · you are here</title></circle></g>');}
 list.forEach((p,i)=>{const cx=X(p.lng),cy=Y(p.lat);
+// The pin, its number and its name are one symbol over one doorway. Grown
+// with the ground they would be four times the size two zooms in.
+o.push('<g data-mdpin="'+cx.toFixed(1)+','+cy.toFixed(1)+'">');
+if(GROUND)o.push('<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+
+'" r="16" fill="#FFFCF6"/>');
 o.push('<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="13" fill="#a3231c" '+
 'stroke="#7d1712" stroke-width="2"><title>'+H2(p.n)+'</title></circle>');
 o.push('<text x="'+cx.toFixed(1)+'" y="'+(cy+5).toFixed(1)+'" text-anchor="middle" '+
@@ -3419,21 +3582,29 @@ const label=p.n.length>24?p.n.slice(0,23)+'…':p.n;
 let anchor='middle',lx=cx;const half=label.length*3.6;
 if(cx-half<4){anchor='start';lx=4;}else if(cx+half>W-4){anchor='end';lx=W-4;}
 o.push('<text x="'+lx.toFixed(1)+'" y="'+(cy-18).toFixed(1)+'" text-anchor="'+anchor+
-'" font-size="12" fill="#2A1E16">'+H2(label)+'</text>');});
+'" font-size="12" fill="#2A1E16" stroke="#FFFCF6" stroke-width="3" '+
+'paint-order="stroke">'+H2(label)+'</text>');
+o.push('</g>');});
 const kmDeg=111.32*kx,barKm=(e-w)*kx*111.32>6?2:0.5,barPx=barKm/kmDeg/(e-w)*W;
 if(barPx<W*0.6){const by=Math.round(H-16);
+// Frame furniture: it keeps its corner, and the shell takes the bar away
+// once the reader has zoomed off the scale it was measured at.
+o.push('<g class="mdmap-scale" data-mdfix="1">');
 o.push('<line x1="16" y1="'+by+'" x2="'+(16+barPx).toFixed(1)+'" y2="'+by+
 '" stroke="#2A1E16" stroke-width="2"/>');
-o.push('<text x="16" y="'+(by-5)+'" font-size="10" fill="#2A1E16">'+barKm+' กม./km</text>');}
+o.push('<text x="16" y="'+(by-5)+'" font-size="10" fill="#2A1E16">'+barKm+' กม./km</text>');
+o.push('</g>');}
 // Two lines on one map need saying which is which.
 if(anyRouted||anyStraight){let lx=W-14,ly=H-34;
+o.push('<g data-mdfix="1">');
 const key=(stroke,wd,dash,label)=>{
 o.push('<line x1="'+(lx-26)+'" y1="'+ly+'" x2="'+(lx-6)+'" y2="'+ly+'" stroke="'+stroke+
 '" stroke-width="'+wd+'"'+(dash?' stroke-dasharray="'+dash+'"':'')+' stroke-linecap="round"/>');
 o.push('<text x="'+(lx-32)+'" y="'+(ly+4)+'" text-anchor="end" font-size="10" fill="#2A1E16">'+
 label+'</text>');ly+=14;};
 if(anyRouted){key('#a3231c',2.5,'6 4','🚶 เดิน/walk');key('#1c5aa8',4,'','🛵 มอไซค์/scooter');}
-if(anyStraight)key('#8a7a62',2,'2 5','เส้นตรง/straight');}
+if(anyStraight)key('#8a7a62',2,'2 5','เส้นตรง/straight');
+o.push('</g>');}
 o.push('</svg>');return o.join('');}
 function H2(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function planUrl(){return SITE+'plan.html?stops='+encodeURIComponent(places.map(p=>p.key).join(','));}
@@ -3473,13 +3644,38 @@ return lines.join('\n');}
 // The demo teaches an empty page. Once there are real stops on the map it is
 // just a second animated map competing with the true one, so it steps aside.
 const elDemo=document.getElementById('plandemo');
+// The basemap mounts lazily — map.js waits until the box is on screen, because
+// MapLibre is a megabyte. So the first drawing is made before there is any
+// ground, keeps its cream sheet (which is right: it is what fills the box
+// while the tiles are in flight), and would then sit ON TOP of the streets
+// when they arrive. map.js announces the moment it is ready by dispatching
+// mdmap:sync, so listen once and draw again — this second drawing knows the
+// ground is there, drops the sheet and the traced moat, and points the camera
+// at the plan's own frame.
+if(elMap)elMap.addEventListener('mdmap:sync',function ready(){
+elMap.removeEventListener('mdmap:sync',ready);render();});
 function render(){
 if(elDemo)elDemo.style.display=places.length?'none':'';
 if(!places.length){elEmpty.style.display='';elHas.style.display='none';
 if(incoming)elBanner.style.display='none';return;}
 elEmpty.style.display='none';elHas.style.display='';
 const legs=[];for(let i=1;i<places.length;i++)legs.push(leg(places[i-1],places[i]));
-elMap.innerHTML=svgMap(places,legs);
+// With a basemap live the drawing belongs in its own layer under the tiles;
+// writing straight into the container would tear the live map out with it.
+(elMap.querySelector('.mdmap-draw')||elMap).innerHTML=svgMap(places,legs);
+if(window.MDMAP&&MDMAP.live(elMap)&&PLANFRAME){
+const F=PLANFRAME;
+// Measure the SVG, not its container. The wrapper scrolls sideways and the
+// drawing carries a min-width, so on a narrow phone the box is 300 px wide
+// while the picture inside it is 352 — and a scale taken from the box would
+// put the streets at one zoom and the pins at another.
+const svgEl=elMap.querySelector('.mdmap-draw svg');
+const shown=(svgEl&&svgEl.getBoundingClientRect().width)||elMap.clientWidth||F.W;
+// The SVG is F.W viewBox units across, shown at whatever width the column
+// gave it. Metres-per-CSS-pixel has to account for both, or the streets end
+// up at one zoom and the pins at another.
+MDMAP.retarget(elMap,(F.n+F.s)/2,(F.w+F.e)/2,
+ (F.e-F.w)*F.kx*111320/shown);}
 // Totals per mode, and only over the legs that mode could actually route.
 // Summing a routed leg with a crow-flies one would produce a number that is
 // neither, so an unrouted leg is counted and named separately.
@@ -3773,6 +3969,55 @@ def bi_text(th, en, sep=" · "):
 BE_BUILD = int(BUILD_DATE[:4]) + 543
 
 
+# ---- keeping in touch -------------------------------------------------------
+# Posts to the `nanobot-list` Worker (Nan's own D1, exportable, independent of
+# whatever ends up sending the mail). The Facebook following went in July and
+# GitHub in August; an address given here is the audience nobody else can
+# switch off.
+#
+# ON HUB PAGES ONLY, deliberately. Mot Dang builds 27,581 files, so a footer
+# block on every page would rewrite all of them — an ~800 MB re-upload to R2
+# for a signup form — and would put a newsletter ask under 19,000 place pages
+# where the reader came to find a toilet or a clinic. The doorstep is the right
+# place to ask; the place page is not.
+LIST_ENDPOINT = "https://nanobot-list.nanobotco.workers.dev/subscribe"
+
+
+def subscribe_block(source="motdang"):
+    return f"""
+<section class="subx" id="subx">
+  <h2>{bi("ข่าวมดแดง", "Word from the ants")}</h2>
+  <p>{bi("มีงานบุญ งานประเพณี หรืออะไรใหม่ในเมือง เราจะบอก · นานๆ ที ไม่กวน",
+         "When a festival, a merit-making day or something new in town is worth knowing. Now and then, never often.")}</p>
+  <form novalidate>
+    <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <input type="email" name="email" required autocomplete="email"
+           placeholder="you@example.com" aria-label="{bi('อีเมลของคุณ', 'Your email address')}">
+    <button type="submit">{bi("ส่ง", "Send")}</button>
+  </form>
+  <p class="said" hidden></p>
+  <p class="fine">{bi("เก็บไว้ที่เราเท่านั้น · ยกเลิกได้ทันทีทุกฉบับ",
+                      "Kept by us and nobody else. Every letter has a one-click unsubscribe.")}</p>
+</section>
+<script>(function(){{
+var r=document.getElementById('subx');if(!r)return;
+var f=r.querySelector('form'),s=r.querySelector('.said'),t0=Date.now();
+f.addEventListener('submit',function(e){{e.preventDefault();
+var em=f.email.value.trim();
+if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(em)){{s.hidden=false;s.textContent={json.dumps(bi_text("ที่อยู่อีเมลยังไม่ครบ ลองตรวจดูอีกที", "That address looks incomplete — could you check it?"))};return;}}
+var b=f.querySelector('button');b.disabled=true;
+fetch('{LIST_ENDPOINT}',{{method:'POST',headers:{{'Content-Type':'application/json'}},
+ body:JSON.stringify({{email:em,website:f.website.value,t0:t0,source:'{source}',
+ lang:(navigator.language||'').slice(0,2)}})}})
+.then(function(x){{return x.json()}}).then(function(d){{b.disabled=false;s.hidden=false;
+ s.textContent=d&&d.ok?{json.dumps(bi_text("ขอบคุณเจ้า", "Thank you — you are on the list."))}
+                      :{json.dumps(bi_text("ส่งไม่สำเร็จ ลองอีกครั้งสักครู่", "That did not go through. Please try again in a moment."))};
+ if(d&&d.ok){{f.reset()}}}})
+.catch(function(){{b.disabled=false;s.hidden=false;
+ s.textContent={json.dumps(bi_text("ส่งไม่สำเร็จ ลองอีกครั้งสักครู่", "That did not go through. Please try again in a moment."))};}});
+}});}})();</script>"""
+
+
 def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None,
          body_class="", robots="index,follow", hub=False):
     # hub=True only on the doorstep pages (home, my.html): they keep the full
@@ -3859,7 +4104,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
 <div class="beadrule" aria-hidden="true"></div>
 <span id="content"></span>
 {f'<nav class="crumbs">{crumbs}</nav>' if crumbs else ''}
-{body}
+{body}{subscribe_block() if hub else ''}
 <footer>
   {bi(f"สร้างจากข้อมูลเปิดและการเดินเก็บจริง · ปรับปรุง {BUILD_DATE} (พ.ศ. {BE_BUILD})",
       f"Built from open data and shoe-leather · updated {BUILD_DATE} (B.E. {BE_BUILD})")}<br>
@@ -3874,6 +4119,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
   <a href="{r}why.html">{bi("ทำไมดีกว่า Google", "Why we beat Google")}</a> ·
   <a href="{r}reach.html">🔗 {bi("ลิงก์ที่ยังเปิดได้", "Which links still work")}</a> ·
   <a href="{r}privacy.html">{bi("ความเป็นส่วนตัว", "Privacy")}</a> ·
+  <a href="{r}fixed.html">🛠 {bi("แจ้งปุ๊บ แก้ปั๊บ", "Fix log")}</a> ·
   <a href="{r}pictures.html">📷 {bi("ภาพประกอบ", "Pictures")}</a> ·
   <a href="{r}lists/index.html">📜 {bi("รายชื่อครบ", "Complete lists")}</a> ·
   <a href="{r}llms.txt">llms.txt</a> ·
@@ -4191,6 +4437,337 @@ def ant_bits(r):
 
 def ant_rank(r):
     return sum(1 for v in ant_bits(r).values() if v)
+
+
+# How much ground a place's own map shows, by how well we know where it is.
+# A noodle stall wants the doorway and the two sois that reach it; a wat is
+# looked at from further off, because you navigate to a wat by its compound
+# and not by its gate.
+PLACE_MAP_SPAN = {"exact": 520, "block": 900, "approx": 1200}
+PLACE_MAP_W, PLACE_MAP_H = 640, 300
+
+# Metres on the ground per road class, floored in viewBox units — the same
+# rule map_ground paints by, so the drawn map and the tiles over it agree.
+PLACE_ROADS = [("highway", 20.0, 2.4, "#F7E7CB"),
+               ("major_road", 13.0, 1.7, "#FFFCF4"),
+               ("minor_road", 7.0, 1.1, "#FFFDF8"),
+               ("other", 4.5, 0.9, "#FFFDF8"),
+               ("path", 3.0, 0.7, "#FFFDF8")]
+GREEN_KINDS = ("park", "forest", "garden", "recreation_ground", "pitch",
+               "cemetery", "grass", "nature_reserve", "wood")
+
+# The neighbour index: every place we hold, bucketed into ~110 m cells, so a
+# place page can ask "what else of ours is in this frame" without walking
+# twelve thousand records twelve thousand times.
+_NEIGHBOUR_GRID = {}
+
+
+def _neighbour_grid():
+    if _NEIGHBOUR_GRID:
+        return _NEIGHBOUR_GRID
+    for f in sorted((ROOT / "data" / "canonical").glob("*.json")):
+        for r in json.loads(f.read_text()):
+            if r.get("lat") is None or r.get("lng") is None:
+                continue
+            if (r.get("geoPrecision") or "exact") == "needs-pin":
+                continue
+            _NEIGHBOUR_GRID.setdefault(
+                (round(r["lat"], 3), round(r["lng"], 3)), []).append(r)
+    return _NEIGHBOUR_GRID
+
+
+def neighbours_in(lat, lng, dlat, dlng, exclude_id, limit=7):
+    """Our own places standing inside this frame, nearest first.
+
+    This is the part of the map nobody else can draw. The ground comes from
+    OpenStreetMap and anyone may have it; what is around this doorway — the
+    pharmacy two units down, the wat at the corner, each with a page and a
+    phone number — is the thing the directory spent a year gathering, and it
+    is exactly what a person looks for when they look at a map of a shop.
+    """
+    grid = _neighbour_grid()
+    out = []
+    la0, la1 = lat - dlat / 2, lat + dlat / 2
+    ln0, ln1 = lng - dlng / 2, lng + dlng / 2
+    for gla in range(int(round((la0 - 0.001) * 1000)), int(round((la1 + 0.001) * 1000)) + 1):
+        for gln in range(int(round((ln0 - 0.001) * 1000)), int(round((ln1 + 0.001) * 1000)) + 1):
+            for r in grid.get((gla / 1000.0, gln / 1000.0), ()):
+                if r["id"] == exclude_id:
+                    continue
+                if la0 <= r["lat"] <= la1 and ln0 <= r["lng"] <= ln1:
+                    out.append(r)
+    out.sort(key=lambda r: (r["lat"] - lat) ** 2 + ((r["lng"] - lng) * 0.95) ** 2)
+    return out[:limit]
+
+
+def place_map(r, depth=2):
+    """Where this place is — in the frame the photograph is missing from.
+
+    THE PROBLEM THIS SOLVES. The site holds 12,319 places and 173 photographs.
+    Every one of the other twelve thousand pages carried a hand-drawn temple or
+    a hand-drawn ant in the picture frame: a drawing of a building that is not
+    this building, at the top of a page about this building. It was honest —
+    the caption said so — but it told the reader nothing, and on a directory
+    whose entire promise is knowing every soi, the one picture we can always
+    produce for any place is the ground it stands on.
+
+    So the frame gets a map. Not instead of a photograph — where there is a
+    real photograph it still leads, and this sits under it as a locator — but
+    everywhere else this IS the picture, and it is a picture of something true.
+
+    WHAT IS DRAWN, AND WHY IT IS DRAWN RATHER THAN LEFT TO THE TILES. MapLibre
+    mounts over this and covers it. Everything inside the .mdmap-bg group is
+    therefore a fallback: it prints, it survives scripting off, and it fills
+    the box in the second before the first tile lands. That second is worth
+    the trouble — a pin alone on cream reads as a map that failed to load, and
+    that was the state this whole change set out to leave behind.
+
+    What is NOT in that group stays on top of the live basemap, because it is
+    ours and no tile server has it: the neighbouring places, each a real record
+    with a page of its own. That is the map only this site can draw.
+
+    A place with no coordinate gets nothing at all rather than a map of
+    somewhere; there are ten of those, and they keep the drawn ant.
+    """
+    lat, lng = r.get("lat"), r.get("lng")
+    if lat is None or lng is None:
+        return ""
+    prec = r.get("geoPrecision") or "exact"
+    if prec == "needs-pin":
+        return ""
+    span = 1300 if r.get("landmark") else PLACE_MAP_SPAN.get(prec, 900)
+    W, H = PLACE_MAP_W, PLACE_MAP_H
+    cx, cy = W / 2.0, H / 2.0
+    mpu = span / float(W)                      # metres per viewBox unit
+    exact = prec == "exact"
+    dlat = span / 111320.0 * (H / float(min(W, H)))
+    kx = math.cos(math.radians(lat))
+    dlng = span / (111320.0 * kx) * (W / float(min(W, H)))
+    s_, w_ = lat - dlat / 2, lng - dlng / 2
+    n_, e_ = lat + dlat / 2, lng + dlng / 2
+    box = (-6.0, -6.0, W + 6.0, H + 6.0)
+
+    def xy(la, ln):
+        return ((ln - w_) / (e_ - w_) * W, (n_ - la) / (n_ - s_) * H)
+
+    # Detail scaled to the frame. One viewBox unit is 0.8 m at 520 m and 2 m at
+    # 1300; simplifying in units alone would keep a wide frame as heavy as a
+    # tight one for detail nobody can see at that scale. Footpaths and service
+    # lanes are the texture of a doorway map and clutter on a district one, so
+    # they leave when the frame opens out — which is also where the road data
+    # was costing the most bytes.
+    eps = max(1.0, span / 520.0)
+    kinds = PLACE_ROADS if span <= 700 else [k for k in PLACE_ROADS
+                                             if k[0] not in ("path", "other")]
+    ground, labels = [], []
+    g = map_ground.shared() if HAVE_GROUND else None
+    if g is not None and g.available:
+        data = g.fetch((s_, w_, n_, e_), g.zoom_for((s_, w_, n_, e_), W, 256),
+                       ("roads", "water", "landuse"))
+        # Fills first: green, then water over it, the same order the painter
+        # and the live style use.
+        for colour, feats in (
+                ("#E7EEDC", [f for f in data.get("landuse", [])
+                             if f[1] == 3 and f[0].get("kind") in GREEN_KINDS]),
+                ("#CFDCE8", [f for f in data.get("water", []) if f[1] == 3])):
+            d = []
+            for props, gt, rings in feats:
+                for ring in rings:
+                    pts = map_ground.clip_poly([xy(la, ln) for ln, la in ring], box)
+                    if len(pts) >= 3:
+                        d.append(map_ground.path_d(map_ground.simplify(pts, eps), True))
+            d = "".join(x for x in d if x)
+            if d:
+                ground.append('<path d="%s" fill="%s" fill-rule="evenodd"/>'
+                              % (d, colour))
+
+        roads = [f for f in data.get("roads", []) if f[1] == 2]
+        by_kind = {}
+        for props, gt, rings in roads:
+            by_kind.setdefault(props.get("kind") or "other", []).append((props, rings))
+        defs, casing, fill = [], [], []
+        named = []
+        for i, (kind, metres, floor, colour) in enumerate(kinds):
+            d = []
+            for props, rings in by_kind.get(kind, ()):
+                best = None
+                for ring in rings:
+                    for run in map_ground.clip_line([xy(la, ln) for ln, la in ring],
+                                                    box):
+                        run = map_ground.simplify(run, eps)
+                        if len(run) < 2:
+                            continue
+                        seg = map_ground.path_d(run)
+                        if seg:
+                            d.append(seg)
+                        if props.get("name") and kind in ("major_road", "minor_road"):
+                            ln_ = sum(math.hypot(run[k + 1][0] - run[k][0],
+                                                 run[k + 1][1] - run[k][1])
+                                      for k in range(len(run) - 1))
+                            if best is None or ln_ > best[0]:
+                                best = (ln_, run)
+                if best and best[0] > 95:
+                    named.append((best[0], props["name"], best[1]))
+            d = "".join(d)
+            if not d:
+                continue
+            wpx = max(metres / mpu, floor)
+            defs.append('<path id="pk%d" d="%s"/>' % (i, d))
+            casing.append('<use href="#pk%d" stroke="#E0D2BB" stroke-width="%.1f"/>'
+                          % (i, wpx + 1.8))
+            fill.append('<use href="#pk%d" stroke="%s" stroke-width="%.1f"/>'
+                        % (i, colour, wpx))
+        if defs:
+            ground.append("<defs>" + "".join(defs) + "</defs>")
+            ground.append('<g fill="none" stroke-linecap="round" '
+                          'stroke-linejoin="round">'
+                          + "".join(casing) + "".join(fill) + "</g>")
+
+        # Street names. The archive carries them in Thai — `name` IS the local
+        # name in this bbox — and a map of a shop that names the road it is on
+        # is a map somebody can use to get there. Four at most: this is a
+        # picture 640 units wide, and a fifth name is clutter, not information.
+        named.sort(key=lambda t: -t[0])
+        seen = set()
+        for _len, nm, run in named:
+            if nm in seen or len(seen) >= 4:
+                continue
+            seen.add(nm)
+            mid = run[len(run) // 2]
+            a, b = run[max(0, len(run) // 2 - 1)], run[min(len(run) - 1, len(run) // 2 + 1)]
+            ang = math.degrees(math.atan2(b[1] - a[1], b[0] - a[0]))
+            if ang > 90:
+                ang -= 180
+            elif ang < -90:
+                ang += 180
+            labels.append('<text x="%.0f" y="%.0f" transform="rotate(%.0f %.0f %.0f)" '
+                          'text-anchor="middle" font-size="11" fill="#8A7761" '
+                          'stroke="#FFFDF8" stroke-width="3" paint-order="stroke">'
+                          '%s</text>'
+                          % (mid[0], mid[1] - 3, ang, mid[0], mid[1] - 3, esc(nm)))
+
+    o = [f'<svg viewBox="0 0 {W} {H}" width="100%" height="auto" role="img" '
+         f'aria-label="{att(bi_text("แผนที่ตำแหน่งของ " + name_th(r), "Map showing where %s is" % name_en(r)))}">']
+    # Everything the tiles will replace lives in here.
+    o.append('<g class="mdmap-bg">')
+    o.append(f'<rect width="{W}" height="{H}" fill="#FBF6EC"/>')
+    o += ground
+    o += labels
+    o.append('</g>')
+
+    if not exact:
+        # A block, not a doorway. The disc is drawn to the real radius, so it
+        # grows with the ground like the distance it represents — the one mark
+        # on this map that is measured in metres rather than being a symbol.
+        radius = (120.0 if prec == "block" else 260.0) / mpu
+        o.append(f'<circle cx="{cx}" cy="{cy}" r="{radius:.1f}" fill="#C2401C" '
+                 f'fill-opacity=".12" stroke="#8F2E13" stroke-opacity=".45" '
+                 f'stroke-width="1.5" stroke-dasharray="6 5"/>')
+
+    # The neighbours, over the tiles as well as over the drawing.
+    #
+    # The hard case is the one that matters most: in a dense soi every
+    # neighbour is twenty metres away, which at this scale is twenty pixels,
+    # which is underneath the pin. The first attempt simply dropped anything
+    # that close and so drew NOTHING in exactly the streets where the
+    # directory knows the most — the worst possible place to say nothing.
+    #
+    # So a name that cannot sit beside its own dot is pushed outward along the
+    # line from the pin through it and given a leader back to where it really
+    # stands. Cluttered fans are avoided by trying the natural direction first
+    # and then stepping around; a name that still cannot find clean paper is
+    # left out rather than laid over another one.
+    taken = [(cx - 34, cy - 20, cx + 34, cy + 20)]
+    # Shared paint hoisted onto one group: repeated on every dot and label it
+    # was 1.2 KB a page, and a page is twelve thousand pages.
+    nbs = ['<g class="nbs" font-size="10.5" fill="#5A4838" stroke="#FFFCF6" '
+           'stroke-width="2.6" paint-order="stroke">']
+    for nb in neighbours_in(lat, lng, dlat, dlng, r["id"], limit=9):
+        nx, ny = xy(nb["lat"], nb["lng"])
+        if not (2 < nx < W - 2 and 2 < ny < H - 2):
+            continue
+        nm = name_th(nb) or name_en(nb) or ""
+        if len(nm) > 20:
+            nm = nm[:19] + "…"
+        tw = len(nm) * 6.2 + 12
+        vx, vy = nx - cx, ny - cy
+        base = math.atan2(vy, vx) if (vx or vy) else 0.0
+        dist = math.hypot(vx, vy)
+        slot = None
+        for step in (0, 1, -1, 2, -2, 3, -3, 4, -4):
+            ang = base + math.radians(26 * step)
+            for radius in (max(dist, 46), max(dist, 46) + 26, max(dist, 46) + 52):
+                lx = cx + math.cos(ang) * radius
+                ly = cy + math.sin(ang) * radius
+                right = math.cos(ang) >= -0.25
+                bx0 = (lx + 7) if right else (lx - 7 - tw)
+                bb = (bx0, ly - 8, bx0 + tw, ly + 8)
+                if bb[0] < 3 or bb[2] > W - 3 or bb[1] < 3 or bb[3] > H - 3:
+                    continue
+                if any(bb[0] < q[2] and q[0] < bb[2] and bb[1] < q[3] and q[1] < bb[3]
+                       for q in taken):
+                    continue
+                slot = (lx, ly, right, bb)
+                break
+            if slot:
+                break
+        if not slot:
+            continue
+        lx, ly, right, bb = slot
+        taken.append(bb)
+        nbs.append('<g data-mdpin="%.0f,%.0f">' % (nx, ny))
+        # The leader only appears when the name had to move; a dot with its
+        # own name beside it needs no line drawn to itself.
+        if math.hypot(lx - nx, ly - ny) > 10:
+            nbs.append('<line x1="%.0f" y1="%.0f" x2="%.0f" y2="%.0f" '
+                       'stroke-width="1" stroke="#8F2E13" stroke-opacity=".45"/>'
+                       % (nx, ny, lx, ly))
+        # The tooltip only where the name had to be cut — otherwise it repeats
+        # the words printed beside it.
+        title = ('<title>%s</title>' % att(name_text(nb))) if nm.endswith("…") else ""
+        nbs.append('<circle cx="%.0f" cy="%.0f" r="3.6" fill="#8F2E13" '
+                   'stroke-width="1.4">%s</circle>' % (nx, ny, title))
+        nbs.append('<text x="%.0f" y="%.0f"%s>%s</text>'
+                   % (lx + (7 if right else -7), ly + 3.5,
+                      "" if right else ' text-anchor="end"', esc(nm)))
+        nbs.append('</g>')
+
+    if len(nbs) > 1:
+        nbs.append('</g>')
+        o += nbs
+
+    o.append(f'<g data-mdpin="{cx},{cy}">')
+    o.append(f'<circle cx="{cx}" cy="{cy}" r="13" fill="#FFFCF6"/>')
+    o.append(f'<circle cx="{cx}" cy="{cy}" r="9" fill="#C2401C" stroke="#7D1712" '
+             f'stroke-width="2"><title>{att(name_text(r))}</title></circle>')
+    o.append('</g>')
+
+    # A scale bar, in the corner, taken away by the shell once the reader has
+    # zoomed off the scale it was measured at.
+    bar_m = 100 if span <= 700 else 200
+    bar = bar_m / mpu
+    o.append('<g class="mdmap-scale" data-mdfix="1">')
+    o.append(f'<line x1="16" y1="{H - 18}" x2="{16 + bar:.1f}" y2="{H - 18}" '
+             f'stroke="#6F6353" stroke-width="2"/>')
+    o.append(f'<text x="16" y="{H - 24}" font-size="11" fill="#6F6353">'
+             f'{bar_m} ม. / m</text>')
+    o.append('</g>')
+    # ODbL, on the drawing itself. MapLibre brings its own control when it
+    # mounts; this one belongs to the picture that prints.
+    o.append(f'<text class="mdmap-bg" x="{W - 6}" y="{H - 6}" text-anchor="end" '
+             f'font-size="9.5" fill="#8A7761">© OpenStreetMap</text>')
+    o.append('</svg>')
+
+    note = "" if exact else (
+        f'<p class="phototag quiet">'
+        + bi("ตำแหน่งโดยประมาณ — วงกลมคือช่วงที่เป็นไปได้",
+             "Approximate position — the circle is the range it could be in")
+        + '</p>')
+    return ('<div class="placemap">'
+            + map_shell.mount("placemap", "".join(o), prov=r.get("province") or "cm",
+                              lat=lat, lng=lng, zoom=16, cls="mdmap placemapbox",
+                              mpu=mpu, label=name_text(r))
+            + '</div>' + note)
 
 
 def ant_panel(r):
@@ -5185,17 +5762,22 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
                       f'<br><span class="photodesc">{esc(ci.get("description") or "")[:220]}</span></p>')
         photo_cta = ""
     else:
+        # No photograph. The frame goes to the map instead of to a drawing of
+        # a temple that is not this temple — see place_map(). The hand-drawn
+        # wat and ant survive for the one job they are still good at: a place
+        # with no coordinate, where a map would be a lie and holding the space
+        # is the honest thing.
         ph = placeholder_for(r)
         ph_alt = ("ภาพประกอบวัด (ยังไม่มีรูปจริงของสถานที่นี้) — illustrative wat, no real photo yet"
                   if ph == "wat.svg" else
                   "ยังไม่มีรูปของที่นี่ — มดแดงรออยู่ / no photo yet — the ant is holding the space")
-        # Kept here, and only here. On a place's own page the drawing holds the
-        # frame beside "send us a photograph", which is the whole ask; in a grid
-        # of nine it was just the same temple nine times. Toned down so it reads
-        # as a space waiting to be filled rather than as this shop's picture.
-        img_tag = (f'<img class="photo placeholderpic" src="../../{ph}" '
-                   f'alt="{att(ph_alt)}" loading="lazy">')
-        if ph == "wat.svg":
+        img_tag = place_map(r) or (
+            f'<img class="photo placeholderpic" src="../../{ph}" '
+            f'alt="{att(ph_alt)}" loading="lazy">')
+        if img_tag.startswith('<div class="placemap"'):
+            pn_th = "ยังไม่มีรูปของที่นี่ — นี่คือที่ตั้ง"
+            pn_en = "No photo of this place yet — this is where it stands"
+        elif ph == "wat.svg":
             pn_th = "ยังไม่มีรูปของที่นี่ — ใช้ภาพวัดแทนไปพลางก่อน"
             pn_en = "No real photo of this place yet — a placeholder wat, for now"
         else:
@@ -5234,9 +5816,13 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         related_html = (f'<div class="related"><h2>'
                          + bi("ที่คล้ายกันแถวนี้", "More like this")
                          + f"</h2><ul>{items}</ul></div>")
+    # A photograph shows what it looks like; the map shows where it is, and a
+    # directory owes the reader both. Where the frame is already the map,
+    # adding it twice would be comic.
+    locator = "" if img_tag.startswith('<div class="placemap"') else place_map(r)
     plan_cta = plan_toggle_btn(r, big=True) if r.get("lat") is not None else ""
     body = (f"<h1>{name_bi(r)}</h1>{plan_cta}{honour_panel(r)}{facet_panel(r)}"
-            f"{ant_panel(r)}{img_tag}{photo_note}{blurb}"
+            f"{ant_panel(r)}{img_tag}{photo_note}{locator}{blurb}"
             f"{reach_block(r)}{whatson}<dl>{''.join(rows)}</dl>"
             f"{elsewhere_block(r)}{contact_cta}{photo_cta}"
             f"{share_block(BASE + path, name_text(r), qr=True)}{ad_box(path, 2)}{related_html}"
@@ -5403,13 +5989,83 @@ def event_richness(e):
             + bool(e.get("recurring")) + bool(e.get("venue_name")))
 
 
+def _ev_norm_title(t):
+    """Casefold and strip punctuation/emoji so cross-posted copies compare equal."""
+    t = unicodedata.normalize("NFKC", t or "").casefold()
+    t = re.sub(r"[^\w\s]", " ", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def _ev_pick_richer(a, b):
+    """Between two harvested copies of the same event, keep the fuller one."""
+    def score(e):
+        return (2 * (e.get("venue_from") == "feed") + bool(e.get("venue_name"))
+                + bool(e.get("url")) + bool(e.get("cost"))
+                + len((e.get("description") or "")) / 1000.0)
+    return a if score(a) >= score(b) else b
+
+
+def dedupe_events(raw):
+    """Collapse the harvest to what a reader means by "an event".
+
+    Two collapses, in order:
+    1. the same title at the same moment harvested twice (a Meetup event
+       cross-posted into two groups) becomes one entry;
+    2. a weekly regular that the feed pre-expands into dated instances
+       becomes ONE entry carrying next_dates, instead of one card per week —
+       twenty cards of the same Friday circle taught a reader nothing
+       nineteen times.
+    One-offs that share a title but sit on different dates (a course running
+    as separate sessions) are different afternoons and stay separate.
+    """
+    # -- 1: exact cross-posts ------------------------------------------------
+    by_moment = {}
+    for e in raw:
+        k = (_ev_norm_title(e.get("title")), e.get("start") or "")
+        if k in by_moment:
+            keep = _ev_pick_richer(by_moment[k], e)
+            keep["sources"] = sorted(set(by_moment[k].get("sources", [by_moment[k].get("source")])
+                                         + [e.get("source")]) - {None})
+            by_moment[k] = keep
+        else:
+            e = dict(e)
+            e["sources"] = [e.get("source")] if e.get("source") else []
+            by_moment[k] = e
+    events = list(by_moment.values())
+
+    # -- 2: recurring series -------------------------------------------------
+    out, series = [], {}
+    for e in events:
+        if not (e.get("recurring") and e.get("weekday") is not None):
+            out.append(e)
+            continue
+        k = (_ev_norm_title(e.get("title")), e.get("weekday"))
+        series.setdefault(k, []).append(e)
+    for members in series.values():
+        members.sort(key=lambda x: x.get("start") or "")
+        upcoming = [m for m in members if (m.get("start") or "")[:10] >= BUILD_DATE]
+        rep = dict((upcoming or members[-1:])[0])
+        best = members[0]
+        for m in members[1:]:
+            best = _ev_pick_richer(best, m)
+        for field in ("venue_name", "venue_from", "description", "url", "cost"):
+            if best.get(field) and not rep.get(field):
+                rep[field] = best[field]
+        rep["next_dates"] = sorted({(m.get("start") or "") for m in upcoming})[:8]
+        rep["instances"] = len(members)
+        rep["sources"] = sorted({s for m in members for s in m.get("sources", [])})
+        out.append(rep)
+    out.sort(key=lambda x: (x.get("start") or "", x.get("title") or ""))
+    return out
+
+
 def enrich_events(data, photos):
     """Attach the matched place — and with it a photo, a pin and a phone."""
     idx = _venue_index(data)
     prov_of = {r["id"]: p["key"] for p in PROVINCES for r in data[p["key"]]}
     out = []
     dropped = 0
-    for raw in EVENTS_RAW:
+    for raw in dedupe_events(EVENTS_RAW):
         e = dict(raw)
         e["dt"] = _ev_dt(e.get("start"))
         # A one-off that has already happened is not what is on. Weekly
@@ -5476,6 +6132,9 @@ def event_vevent(e):
         f"DTEND;TZID=Asia/Bangkok:{_ics_stamp(end)}",
         f"SUMMARY:{_ics_esc(e.get('title'))}",
     ]
+    if e.get("recurring") and e.get("weekday") is not None:
+        byday = ["MO", "TU", "WE", "TH", "FR", "SA", "SU"][e["weekday"]]
+        lines.append(f"RRULE:FREQ=WEEKLY;BYDAY={byday}")
     if where:
         lines.append(f"LOCATION:{_ics_esc(where)}")
     if e.get("description"):
@@ -5686,14 +6345,61 @@ WEEK_TH = ["จันทร์", "อังคาร", "พุธ", "พฤห�
 WEEK_EN = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
 
+_VENUE_THUMBS = {}
+
+
+def venue_thumb(p, span_m=700, size=(440, 300)):
+    """A small picture of the ground around a venue, written into docs/evpic/.
+
+    Cheap by construction: one file per venue, cached by rounded coordinate, so
+    six events at the same wat share one picture and the whole page costs a
+    handful of images rather than sixty-three. Returns "" — and the caller
+    keeps its drawing — when there is no archive on the machine or the venue
+    has no usable point.
+    """
+    if not p or p.get("lat") is None or p.get("lng") is None:
+        return ""
+    if p.get("precision") == "needs-pin":
+        return ""
+    # Keyed by size and span as well as position: two call sites asking for the
+    # same corner at different sizes must not be handed each other's picture.
+    key = "%.4f_%.4f_%d_%dx%d" % (p["lat"], p["lng"], span_m, size[0], size[1])
+    if key in _VENUE_THUMBS:
+        return _VENUE_THUMBS[key]
+    g = map_ground.shared()
+    if not g.available:
+        _VENUE_THUMBS[key] = ""
+        return ""
+    im = g.picture((p["lat"], p["lng"]), size, span_m=span_m, scale=False)
+    if im is None:
+        _VENUE_THUMBS[key] = ""
+        return ""
+    from PIL import ImageDraw
+    d = ImageDraw.Draw(im)
+    cx, cy = size[0] / 2, size[1] / 2
+    d.ellipse([cx - 15, cy - 15, cx + 15, cy + 15], fill=(255, 252, 246))
+    d.ellipse([cx - 10, cy - 10, cx + 10, cy + 10], fill=(194, 64, 28),
+              outline=(125, 23, 18), width=2)
+    out = DOCS / "evpic" / (key.replace(".", "").replace("x", "-") + ".png")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    im.quantize(colors=128, dither=Image.Dither.NONE).save(out, optimize=True)
+    rel = "evpic/" + out.name
+    _VENUE_THUMBS[key] = rel
+    return rel
+
+
 def event_when(e):
     dt = e.get("dt")
     if not dt:
         return bi("ยังไม่ระบุเวลา", "time not stated")
     if e.get("recurring") and e.get("weekday") is not None:
         wd = e["weekday"]
-        return bi(f'ทุกวัน{WEEK_TH[wd]} {dt.strftime("%H:%M")} น.',
-                  f'Every {WEEK_EN[wd]} at {dt.strftime("%H:%M")}')
+        nxt_th = nxt_en = ""
+        if dt.date().isoformat() >= BUILD_DATE:
+            nxt_th = f' · ครั้งต่อไป {dt.day} {MONTH_TH[dt.month]}'
+            nxt_en = f' · next on {dt.strftime("%-d %b")}'
+        return bi(f'ทุกวัน{WEEK_TH[wd]} {dt.strftime("%H:%M")} น.{nxt_th}',
+                  f'Every {WEEK_EN[wd]} at {dt.strftime("%H:%M")}{nxt_en}')
     return bi(f'{dt.day} {MONTH_TH[dt.month]} {dt.year + 543} · {dt.strftime("%H:%M")} น.',
               f'{dt.strftime("%-d %B %Y")} · {dt.strftime("%H:%M")}')
 
@@ -5701,9 +6407,18 @@ def event_when(e):
 def event_card(e, depth=0):
     r = "../" * depth
     p = e.get("place")
-    # Picture: the matched place's own photo, else the house wat illustration.
+    # Picture: the matched place's own photo, else the ground the event stands
+    # on. Sixty-three slides all showing the same drawn temple told the reader
+    # nothing about sixty-three different evenings; a map of the venue at least
+    # answers "where is this, and is it near me". A static picture rather than
+    # a mounted map because this page carries dozens of slides at once and
+    # dozens of live maps would be a megabyte each.
+    thumb = venue_thumb(p) if p else ""
     if p and p.get("photo"):
         img = f'<img src="{r}photos/{p["photo"]}" alt="{att(p["name"])}" loading="lazy">'
+    elif thumb:
+        img = (f'<img src="{r}{thumb}" loading="lazy" '
+               f'alt="{att(bi_text("แผนที่ย่านที่จัดงาน " + (p.get("name") or ""), "Map of the area around %s" % (p.get("name") or "the venue")))}">')
     else:
         img = f'<img src="{r}wat.svg" alt="" loading="lazy" class="evplaceholder">'
 
@@ -5861,6 +6576,11 @@ _ST = json.loads(_st_path.read_text()) if _st_path.exists() else {}
 SHOWTIMES = _ST.get("cinemas", [])
 SHOWTIME_DATES = _ST.get("dates", [])
 SHOWTIME_DATE = _ST.get("generated", "")
+
+_lot_path = ROOT / "data" / "lottery.json"
+_LOT = json.loads(_lot_path.read_text()) if _lot_path.exists() else {}
+LOTTERY_DRAW = _LOT.get("draw") or {}
+LOTTERY_GEN = _LOT.get("generated", "")
 
 _sky_path = ROOT / "data" / "sky.json"
 _SKY = json.loads(_sky_path.read_text()) if _sky_path.exists() else {}
@@ -6020,6 +6740,54 @@ def widget_air():
         f'{opts}</div>'
         f'<span class="wfoot">{bi(honest_th, honest_en)} · '
         f'{bi("ข้อมูล " + AIR_DATE, "as of " + AIR_DATE)} · Open-Meteo</span>'
+        f'</section>')
+
+
+def widget_lottery():
+    """ผลสลากกินแบ่งรัฐบาล — the draw as public record, in the almanac register.
+
+    This tile is the record of what the Government Lottery Office announced,
+    the same voice the fortune tile keeps for what the traditions say about a
+    date: a fact with a source and a date on it. Never a prediction, a lucky
+    number, or a hint — and the NEXT draw date is deliberately absent as
+    well, because the official schedule shifts around New Year and royal
+    ceremony days and no GLO endpoint publishes it. A date the source has
+    not confirmed is a date the tile does not print (presence-only, as
+    everywhere). Data: importers/make_lottery.py -> data/lottery.json.
+    """
+    draw = LOTTERY_DRAW
+    prizes = {p.get("id"): p for p in draw.get("prizes") or []}
+    first = prizes.get("first") or {}
+    first_nums = [n for n in first.get("numbers") or [] if n]
+    if not draw.get("date") or not first_nums:
+        return ""
+    first_str = " ".join(first_nums)
+    when_th = "งวด" + (draw.get("date_th") or draw["date"])
+    when_en = "Draw of " + (draw.get("date_en") or draw["date"])
+    rows = []
+    for pid in ("front3", "back3", "last2"):
+        p = prizes.get(pid) or {}
+        nums = [n for n in p.get("numbers") or [] if n]
+        if not nums:
+            continue  # a group the source did not carry is not drawn
+        bolds = "".join(f'<b>{esc(n)}</b>' for n in nums)
+        rows.append(
+            f'<div class="lotrow"><span class="lotlabel">'
+            f'{bi(p.get("th", ""), p.get("en", ""))}</span>'
+            f'<span class="lotnums">{bolds}</span></div>')
+    reg_th = "บันทึกผลตามประกาศทางการ ไม่ใช่คำทำนาย"
+    reg_en = "the announced record, never a prediction"
+    return (
+        f'<section class="wtile lot" id="w-lottery" data-lotdate="{att(draw["date"])}">'
+        f'<h3>🎟 {bi("ผลสลากกินแบ่ง", "Lottery results")}</h3>'
+        f'<span class="lotwhen">{bi(when_th, when_en)}</span>'
+        f'<div class="lotpanes">'
+        f'<span class="lotfirst">{esc(first_str)}</span>'
+        f'<span class="lotfirstlabel">{bi(first.get("th", ""), first.get("en", ""))}</span>'
+        f'<div class="lotrows">{"".join(rows)}</div></div>'
+        f'<span class="wfoot">{bi(reg_th, reg_en)} · '
+        f'{bi("ข้อมูล " + LOTTERY_GEN, "as of " + LOTTERY_GEN)} · '
+        f'<a href="https://www.glo.or.th/" rel="noopener">glo.or.th</a></span>'
         f'</section>')
 
 
@@ -6490,7 +7258,8 @@ def widget_wall(events, data, moon_svg, depth=0, skip=()):
              ("katha", widget_katha()), ("horoscope", widget_horoscope()),
              ("weather", widget_weather()), ("air", widget_air()),
              ("divination", widget_divination()),
-             ("clocks", widget_clocks()), ("cinema", widget_cinema(data))]
+             ("clocks", widget_clocks()), ("cinema", widget_cinema(data)),
+             ("lottery", widget_lottery())]
     tiles = [t for name, t in tiles if t and name not in skip]
     return f'<div class="wgrid">{"".join(tiles)}</div>' if tiles else ""
 
@@ -6784,7 +7553,7 @@ def line_chat_url(place=None):
             f"/?{urllib.parse.quote(text, safe='')}")
 
 
-def add_doors(depth=0, place=None):
+def add_doors(depth=0, place=None, ledger=True):
     """The three things a person actually wants to do, in plain words.
 
     Before this there were six differently-worded calls to action and eight
@@ -6819,7 +7588,7 @@ def add_doors(depth=0, place=None):
         f'<a class="door fix" href="{att(fix_href)}">'
         f'<b>✏️ {bi("ตรงนี้ผิด", "Something here is wrong")}</b>'
         f'<span>{bi("บอกมาสั้นๆ ก็พอ เดี๋ยวมดจัดการ", "A short note is plenty — the ants will sort it")}</span></a>'
-        f'</div>')
+        f'</div>' + (door_ledger_line(depth) if ledger else ""))
 
 
 def line_qr_block(depth=0):
@@ -7110,7 +7879,13 @@ def build_plan_page(data):
         f'⬇ {bi("ดาวน์โหลดเป็นข้อความ", "Download as text")}</a>'
         f'<button type="button" id="planclearbtn">🗑 {bi("ล้างแผนทั้งหมด", "Clear plan")}</button>'
         f'</div>'
-        f'<div class="planmapwrap"><div id="planmap"></div></div>'
+        # The planner's own map, on the same ground as every other map here.
+        # It is drawn in the browser and redrawn on every change, so it mounts
+        # empty and md.js calls MDMAP.retarget after each redraw — the pattern
+        # toilets.js established. Until this, the one page whose whole subject
+        # is "these two routes are not the same route" argued it on cream.
+        f'<div class="planmapwrap">'
+        f'{map_shell.mount("planmap", "", prov="cm", zoom=14)}</div>'
         f'<ul class="plansteps" id="plansteps"></ul>'
         f'<div id="planshare">{share_block(BASE + "plan.html", "แผนเดินทาง · มดแดง")}</div>'
         f'</div>'
@@ -8004,12 +8779,31 @@ def hero_html(intro_th, intro_en):
     asks for the festival, the food and the landmark, and `not_topic` keeps
     people out of it whatever the shuffle throws up.
     """
+    # The three frames rotate DAILY, salted with BUILD_DATE: the morning walk
+    # rebuilds every day, so the masthead greets a returning reader with a
+    # different set of her hand-picked pictures each morning — the hello line
+    # promises "kept up daily" and the header is where that promise shows.
+    # Deterministic within a day (no docs churn between same-day rebuilds).
+    # Each slot draws from a small menu of subjects rather than one fixed
+    # topic, and prefers a picture tagged with the season we are standing in
+    # (สามฤดู: hot / rains / cool) before falling back to any season at all.
+    month = int(BUILD_DATE[5:7])
+    season_now = ("hot" if month in (3, 4, 5)
+                  else "rains" if month in (6, 7, 8, 9, 10) else "cool")
     picked, seen = [], []
-    for want, k in (("festival", "hero-1"), ("food", "hero-2"), ("city", "hero-3")):
-        p = art_one(topic=want, key=k, not_topic=("people",), avoid=tuple(seen))
-        if not p:
-            p = art_one(mood="landmark", key=k + "-alt", not_topic=("people",),
-                        avoid=tuple(seen))
+    slot_menus = (("festival", "mu", "wat"),
+                  ("food", "market"),
+                  ("city", "nature", "transport"))
+    for i, menu in enumerate(slot_menus):
+        want = menu[zlib.crc32((BUILD_DATE + "-slot-" + str(i)).encode()) % len(menu)]
+        k = f"hero-{i + 1}-{BUILD_DATE}"
+        p = (art_one(topic=want, season=season_now, key=k, not_topic=("people",),
+                     local=True, avoid=tuple(seen))
+             or art_one(topic=want, key=k, not_topic=("people",),
+                        local=True, avoid=tuple(seen))
+             or art_one(topic=want, key=k, not_topic=("people",), avoid=tuple(seen))
+             or art_one(mood="landmark", key=k + "-alt", not_topic=("people",),
+                        avoid=tuple(seen)))
         if p:
             seen.append(p["slug"])
             picked.append(p)
@@ -8043,7 +8837,191 @@ def hero_html(intro_th, intro_en):
         '</div>'
         f'<div class="heroart">{"".join(imgs)}'
         f'<span class="herosticker">{bi("ของดีอยู่ในซอย", "the good stuff is down the lane")}</span>'
+        f'{hero_credit(pics)}'
         '</div></section>')
+
+
+def hero_credit(pics):
+    """Name the photographers on the masthead itself, not only on the credits
+    page. These pictures are the community's gift (PD / CC BY / CC BY-SA), and
+    the courteous reading of an attribution licence is credit where the picture
+    stands — the chip links to /pictures.html where the full licence lines live."""
+    names = []
+    for p in pics:
+        a = re.sub(r"\s*\(.*?\)\s*", " ", p.get("artist") or "").strip()
+        a = a if len(a) <= 24 else a[:23] + "…"
+        if a and a.lower() != "unknown" and a not in names:
+            names.append(a)
+    if not names:
+        return ""
+    return (f'<a class="herocredit" href="pictures.html">📷 '
+            f'{esc(", ".join(names))} · {bi("เครดิตภาพทั้งหมด", "all picture credits")}</a>')
+
+
+# ------------------------------------------------------------- trust tokens
+# The receipts behind every "tell the ants" invitation: data/fixes.json is the
+# public ledger of report → fix, and these helpers surface it wherever the
+# site asks a reader to speak up. Two registers on purpose, not a translation
+# pair: the Thai voice is reciprocity (แจ้งปุ๊บ แก้ปั๊บ — you tell us, we sort
+# it, quickly and warmly), the English voice is the changelog culture farang
+# readers actually trust (a dated public log, including the slow entries).
+_fixes_path = ROOT / "data" / "fixes.json"
+FIXES = (json.loads(_fixes_path.read_text()).get("fixes", [])
+         if _fixes_path.exists() else [])
+
+
+def fix_stats():
+    done = [f for f in FIXES if f.get("fixed")]
+    if not done:
+        return None
+    def _d(s):
+        return datetime.date.fromisoformat(s)
+    spans = [(_d(f["fixed"]) - _d(f["reported"])).days
+             for f in done if f.get("reported")]
+    today = _d(BUILD_DATE)
+    return {"total": len(done),
+            "recent": sum(1 for f in done if (today - _d(f["fixed"])).days <= 30),
+            "same_day": sum(1 for s in spans if s == 0),
+            "spanned": len(spans)}
+
+
+def trust_chip(depth=0):
+    """The small token: a claim no bigger than the ledger behind it."""
+    st = fix_stats()
+    if not st:
+        return ""
+    r = "../" * depth
+    th = "แจ้งปุ๊บ แก้ปั๊บ — แก้ตามแจ้งแล้ว %d เรื่อง" % st["total"]
+    en = "you report it, we fix it — %d on the public log" % st["total"]
+    return (f'<a class="freshchip trust" href="{r}fixed.html">🛠 {bi(th, en)}</a>')
+
+
+def door_ledger_line(depth=0):
+    """Under the contribute doors: proof the doors lead somewhere."""
+    st = fix_stats()
+    if not st:
+        return ""
+    r = "../" * depth
+    th = "แจ้งแล้วไม่เงียบเจ้า — มดแก้ตามแจ้งไปแล้ว %d เรื่อง ดูบันทึกได้เลย" % st["total"]
+    en = "Reports here go somewhere: %d fixes on the public log, dates and all" % st["total"]
+    return f'<p class="doorledger"><a href="{r}fixed.html">🛠 {bi(th, en)}</a></p>'
+
+
+def build_fixed_page():
+    """/fixed.html — the ledger itself, spelled out row by row."""
+    st = fix_stats()
+    if not st:
+        return ""
+    lede_th = ("บอกมดคำเดียว มดไปจัดการให้เจ้า — หน้านี้คือบันทึกของจริง "
+               "แจ้งวันไหน ผ่านทางไหน แก้วันไหน ใช้เวลาเท่าไหร่ ดูได้ทุกแถว "
+               "เว็บบ้านนี้ตั้งใจไม่ปล่อยให้เก่า")
+    lede_en = ("Directories rot when reports go nowhere. This is the public fix "
+               "log: what was reported, through which door, what changed, and how "
+               "long it took — the slow entries stay on the record too. Hold us to it.")
+    rows = []
+    for f in sorted(FIXES, key=lambda x: x.get("fixed") or "", reverse=True):
+        rep, fx = f.get("reported", ""), f.get("fixed", "")
+        span = ""
+        if rep and fx:
+            days = (datetime.date.fromisoformat(fx) - datetime.date.fromisoformat(rep)).days
+            span = bi("ภายในวันเดียว", "same day") if days == 0 \
+                else bi("%d วัน" % days, "%d day%s" % (days, "" if days == 1 else "s"))
+        what = bi(esc(f.get("what_th", "")), esc(f.get("what_en", "")))
+        if f.get("page"):
+            what += f' <a class="fixpage" href="{att(f["page"])}">↗</a>'
+        rows.append(f'<tr><td>{esc(rep)}</td><td>{esc(f.get("via", ""))}</td>'
+                    f'<td>{what}</td><td>{esc(fx)}</td><td>{span}</td></tr>')
+    tiles = (f'<div class="tilerow">'
+             f'<div class="tile"><b>{st["total"]}</b><span>{bi("แก้ตามแจ้งแล้ว", "fixed on the record")}</span></div>'
+             f'<div class="tile"><b>{st["recent"]}</b><span>{bi("ใน 30 วันล่าสุด", "in the last 30 days")}</span></div>'
+             f'<div class="tile"><b>{st["same_day"]}/{st["spanned"]}</b><span>{bi("เสร็จภายในวันเดียว", "done same day")}</span></div>'
+             f'</div>')
+    method = bi("แถวที่เขียนว่า “มดเอง” คือของที่มดตรวจเจอเองตอนเดินรอบเช้า — ลงบันทึกเหมือนกัน "
+                "จะได้เห็นจังหวะการดูแลแม้สัปดาห์ที่ไม่มีใครแจ้ง ทุกแถวมีวันที่จริง ไม่มีการแต่งย้อนหลัง",
+                "Rows marked with the ants' own audit were self-caught on the morning walk — logged "
+                "the same way, so the cadence stays visible even in quiet weeks. Every row keeps its "
+                "real dates; nothing is backdated.")
+    body = (f'<h1>🛠 {bi("แจ้งปุ๊บ แก้ปั๊บ", "Fixed, as reported")}</h1>'
+            f'<p class="lede">{bi(lede_th, lede_en)}</p>'
+            f'{tiles}'
+            f'<div class="tablewrap"><table class="fixlog">'
+            f'<thead><tr><th>{bi("แจ้งเมื่อ", "reported")}</th><th>{bi("ผ่านทาง", "via")}</th>'
+            f'<th>{bi("เรื่อง", "what changed")}</th><th>{bi("แก้เมื่อ", "fixed")}</th>'
+            f'<th>{bi("ใช้เวลา", "took")}</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div>'
+            f'<p class="chartcap">{method}</p>'
+            f'<h2>{bi("เจออะไรผิด บอกได้เลย", "Spotted something? Say so")}</h2>'
+            f'{add_doors(depth=0, ledger=False)}'
+            f'{share_block(BASE + "fixed.html", "แจ้งปุ๊บ แก้ปั๊บ — บันทึกแก้ตามแจ้งของมดแดง")}')
+    return page("แจ้งปุ๊บ แก้ปั๊บ — บันทึกแก้ตามแจ้ง", body, depth=0, path="fixed.html",
+                desc="บันทึกสาธารณะ: แจ้งอะไรมา มดแก้อะไรไป ใช้เวลาเท่าไหร่ — " +
+                     "the public fix log of Mot Dang")
+
+
+# ------------------------------------------------------------- freshness strip
+def _fresh_stamp(fname, *keys):
+    """The newest stamp a data file carries, or None — never a guess."""
+    try:
+        d = json.loads((ROOT / "data" / fname).read_text())
+    except (OSError, json.JSONDecodeError):
+        return None
+    for k in keys:
+        v = d
+        for part in k.split("."):
+            v = v.get(part) if isinstance(v, dict) else None
+        if v:
+            return str(v)
+    return None
+
+
+def freshness_data():
+    """Every 'when was this gathered' stamp the site holds, in one place.
+
+    This is the earned half of feeling fresh: the strip below the hero and
+    data/freshness.json both read from here, so the page can only claim what
+    the files actually say. Relative wording happens in the reader's browser
+    (md.js) — a baked 'today' would rot, a computed '3 ชม.ที่แล้ว' cannot."""
+    fin_fx = _fresh_stamp("finance.json", "fx.date")
+    return {
+        "walk": BUILD_DATE,
+        "weather": _fresh_stamp("weather.json", "generated"),
+        "air": _fresh_stamp("air.json", "generated"),
+        "fx": fin_fx,
+        "fxSource": _fresh_stamp("finance.json", "fx.source"),
+        "gold": _fresh_stamp("finance.json", "gold.asOf"),
+        "crypto": _fresh_stamp("finance.json", "crypto.asOf"),
+        "events": _fresh_stamp("events.json", "generated"),
+        "showtimes": _fresh_stamp("showtimes.json", "generated"),
+        "lottery": _fresh_stamp("lottery.json", "draw.date", "generated"),
+        "linkhealth": LINK_HEALTH_DATE or None,
+        "claims": _fresh_stamp("claims.json", "generated"),
+    }
+
+
+def freshness_strip():
+    """หิ้วของสดมาเมื่อไหร่ — one slim row saying when each basket was gathered."""
+    f = freshness_data()
+    chips = []
+    for key, emoji, th, en in (
+            ("weather", "🌦", "อากาศ", "weather"),
+            ("air", "🌬", "ฝุ่น PM2.5", "air"),
+            ("gold", "🥇", "ทอง", "gold"),
+            ("crypto", "🪙", "คริปโต", "crypto"),
+            ("events", "🎪", "งานในเมือง", "events"),
+            ("showtimes", "🎬", "รอบหนัง", "cinema"),
+            ("lottery", "🎟", "ผลสลาก", "lottery")):
+        ts = f.get(key)
+        if not ts:
+            continue
+        chips.append(f'<span class="freshchip" data-freshts="{att(ts)}">'
+                     f'{emoji} {bi(th, en)} <span class="freshrel"></span></span>')
+    if not chips:
+        return ""
+    lead = (f'<span class="freshchip lead" data-freshts="{att(f["walk"])}">'
+            f'🐜 {bi("มดเดินเก็บล่าสุด", "last walk")} <span class="freshrel"></span></span>')
+    return (f'<div class="freshstrip" role="note" '
+            f'aria-label="{att(bi_text("ข้อมูลแต่ละอย่างเก็บมาเมื่อไหร่", "when each thing was gathered"))}">'
+            f'{lead}{"".join(chips)}{trust_chip(0)}</div>')
 
 
 # Nine, not eight or ten — ก้าว, the same count the highlights already use.
@@ -8451,6 +9429,23 @@ def build():
     _demo = ROOT / "assets" / PLAN_DEMO_GIF
     if _demo.exists():
         shutil.copyfile(_demo, DOCS / PLAN_DEMO_GIF)
+    # The tile archive, for looking at the site locally. A symlink, never a
+    # copy: it is 116 MB, it belongs in R2, and docs/tiles/ is gitignored so
+    # this can never ride into the repo. Only when the configured url is a
+    # relative path — an absolute R2 url wants no local file at all.
+    #
+    # It lives here because docs/ is wiped every build, which used to take the
+    # local basemap with it: every map on the machine silently fell back to
+    # its drawn SVG, which is exactly the state this whole change exists to
+    # get out of, and it looked like a bug in the drawing rather than a
+    # missing file.
+    _tiles = ROOT / "assets" / "tiles" / "cm-cr.pmtiles"
+    _url = (_map_shell.config().get("url") or "")
+    if _tiles.exists() and _url and not _url.startswith(("http://", "https://")):
+        _link = DOCS / _url
+        _link.parent.mkdir(parents=True, exist_ok=True)
+        if not _link.exists():
+            _link.symlink_to(_tiles)
     # The road graph: only plan.html ever asks for it, so it is a plain file
     # beside the data rather than anything the other 10,595 pages carry.
     _graph = ROOT / "data" / "road_graph.json"
@@ -8469,7 +9464,8 @@ def build():
     # /festival-dates.html provenance line link to it — it 404'd for two days
     # while the page pointed at it as its own evidence.
     for _name in ("streets.json", "weather.json", "showtimes.json", "air.json",
-                  "festival_calendar.json"):
+                  "festival_calendar.json", "lottery.json", "finance.json",
+                  "fixes.json"):
         _src = ROOT / "data" / _name
         if _src.exists():
             shutil.copyfile(_src, DOCS / "data" / _name)
@@ -8648,7 +9644,8 @@ def build():
                 (cdef["th"], BASE + key + "/" + c + "/index.html"),
             ])
             lis = "".join(entry_li(r, f"../p/{place_slug(r)}.html") for r in in_cat)
-            body = (f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
+            body = (f'{cat_art_band(c, key)}'
+                    f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
                     f'{subshelf}{ad_box(f"{key}/{c}/index.html", 2)}{toolbar(in_cat)}'
                     f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
                     f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"])}')
@@ -8712,16 +9709,40 @@ def build():
         fx = finance["fx"]
         fx_date = fx["date"]
         cur_names = {"USD": "ดอลลาร์สหรัฐ", "EUR": "ยูโร", "GBP": "ปอนด์", "CNY": "หยวน", "JPY": "เยน"}
+        fx_order = [k for k in ("USD", "EUR", "GBP", "CNY", "JPY") if k in fx["rates"]]
         fx_rows = "".join(f'<span class="lbl">{esc(cur_names.get(k, k))}</span>'
-                          f'<span><b class="fxout" data-rate="{v}">{100 * v:,.2f}</b> {esc(k)}</span>'
-                          for k, v in fx["rates"].items())
-        fx_cap_th, fx_cap_en = f"อัตราจาก ECB · {fx_date}", f"ECB reference rate · {fx_date}"
+                          f'<span><b class="fxout" data-rate="{fx["rates"][k]}">{100 * fx["rates"][k]:,.2f}</b> {esc(k)}</span>'
+                          for k in fx_order)
+        if fx.get("source") == "bot":
+            fx_cap_th = f"อัตราอ้างอิง ธนาคารแห่งประเทศไทย · {fx_date}"
+            fx_cap_en = f"Bank of Thailand reference rate · {fx_date}"
+        else:
+            fx_cap_th, fx_cap_en = f"อัตราจาก ECB · {fx_date}", f"ECB reference rate · {fx_date}"
+        crypto_html = ""
+        if finance.get("crypto"):
+            cr = finance["crypto"]
+            glyph = {"BTC": "₿", "ETH": "Ξ", "USDT": "₮"}
+            crows = []
+            for c in cr["coins"]:
+                chg = c.get("chg24") or 0.0
+                arrow = "▲" if chg > 0 else ("▼" if chg < 0 else "―")
+                cls = "up" if chg > 0 else ("down" if chg < 0 else "")
+                price = f'{c["thb"]:,.2f}' if c["thb"] < 100 else f'{c["thb"]:,.0f}'
+                crows.append(
+                    f'<span class="lbl">{esc(glyph.get(c["sym"], ""))} {bi(c.get("nameTh", c["sym"]), c["sym"])}</span>'
+                    f'<span><b>{price}</b> ฿'
+                    f' <span class="goldchange {cls}">{arrow} {abs(chg):.1f}%</span></span>')
+            crypto_html = (f'<div class="fxrows cryptorows">{"".join(crows)}</div>'
+                           f'<p class="financecap">{bi("คริปโต ราคาต่อ 1 เหรียญ", "Crypto, price per coin")} · '
+                           f'<a href="https://www.coingecko.com/" rel="noopener">CoinGecko</a>'
+                           f' · {esc(cr["asOf"])}</p>')
         fx_html = (
             f'<div class="module" id="m-fx"><h3>💱 {bi("แปลงสกุลเงิน", "Currency converter")}</h3>'
             f'<p style="margin:.2rem 0">฿ <input id="fxamount" type="number" value="100" min="0" step="1"> '
             f'{bi("บาท", "Thai baht")} =</p>'
             f'<div class="fxrows" id="fxrows">{fx_rows}</div>'
-            f'<p class="financecap">{bi(fx_cap_th, fx_cap_en)}</p></div>')
+            f'<p class="financecap">{bi(fx_cap_th, fx_cap_en)}</p>'
+            f'{crypto_html}</div>')
     if finance.get("gold"):
         g = finance["gold"]
         chg = g["changeFromPrevDay"]
@@ -8778,7 +9799,14 @@ def build():
             pic = (f'<img src="photos/{photos[r["id"]]}" '
                    f'alt="{att(name_text(r))}" loading="lazy">')
         else:
-            pic = f'<span class="nopic" aria-hidden="true">{svg_icon(CAT_ICON.get(r["cat"][0]), 30)}</span>'
+            # No photograph: the ground it stands on, which is a picture of
+            # something true about this place and not about the other eight.
+            _t = venue_thumb({"lat": r.get("lat"), "lng": r.get("lng"),
+                              "precision": r.get("geoPrecision")},
+                             span_m=520, size=(360, 248))
+            pic = (f'<img src="{_t}" alt="{att(bi_text("แผนที่ย่านของ " + name_th(r), "Map of the block around %s" % name_en(r)))}" loading="lazy">'
+                   if _t else
+                   f'<span class="nopic" aria-hidden="true">{svg_icon(CAT_ICON.get(r["cat"][0]), 30)}</span>')
         hi_cards.append(
             f'<li><a href="{pv}/p/{place_slug(r)}.html">{pic}'
             f'<span class="nm">{name_bi(r)}</span>'
@@ -8867,6 +9895,7 @@ def build():
     # it stays a couple of lines tall and never pushes the almanac off the fold.
     home_html = (
         f'{hero_html(intro_th, intro_en)}'
+        f'{freshness_strip()}'
         f'<div class="goldrule" aria-hidden="true"></div>'
         f'{plan_promo_html}'
         f'<div class="homegrid">'
@@ -8894,12 +9923,19 @@ def build():
     (DOCS / "index.html").write_text(page(
         "มดแดง", home_html, depth=0, path="", desc=intro_th, body_class="home",
         extra_head=website_ld(), hub=True))
+    # The same stamps the strip reads, served for anyone who asks in JSON.
+    (DOCS / "data" / "freshness.json").write_text(
+        json.dumps(freshness_data(), ensure_ascii=False, indent=1))
 
     # Written after the homepage, not before: ART_USED only knows which
     # pictures were actually drawn once they have been drawn. Credit follows
     # use, so the page can never list a photographer whose picture we dropped
     # or miss one we quietly added.
     (DOCS / "pictures.html").write_text(pictures_page())
+
+    fixed_html = build_fixed_page()
+    if fixed_html:
+        (DOCS / "fixed.html").write_text(fixed_html)
 
     # ---- my page: the personal start page, the pre-Google way -----------
     pick_groups = []
@@ -8916,6 +9952,7 @@ def build():
                   "your choices live only on this device. Mot Dang follows no one around.")
     my_body = (
         f'<h1>🏠 {bi("หน้าแรกของฉัน", "My page")}</h1>'
+        f'{freshness_strip()}'
         f'<p class="myhint">💡 {bi(my_hint_th, my_hint_en)}</p>'
         f'<div class="module"><h3>{bi("ของดีวันนี้", "Pick of the day")}</h3>'
         f'<p id="dailypick" style="margin:.2rem 0">…</p></div>'
@@ -9829,6 +10866,45 @@ def build():
         return (MAP_PAD + (ln - MAP_W) / (MAP_E - MAP_W) * MAP_MW,
                 MAP_PAD + MAP_MH - (la - MAP_S) / (MAP_N - MAP_S) * MAP_MH)
 
+    def _city_ground(night=True, buildings=False):
+        """The shared city frame, rendered once as a picture, for the map
+        boxes that are drawn in a CANVAS rather than as SVG.
+
+        nitnoy and taste paint thousands of lamps into a canvas on a dark
+        rectangle. Mounting MapLibre under each would be a megabyte of library
+        per page to sit behind a drawing that never moves — and these frames
+        never move: they are the road-crawl bbox, fixed at build time. So the
+        ground is baked into one PNG at exactly this projection and set as the
+        box's background. It costs one 60 KB file, it works with scripting off,
+        and it prints.
+
+        Painted through _map_px itself, so a lamp and the soi under it are
+        placed by one function.
+        """
+        g = map_ground.shared(night=night)
+        if not g.available:
+            return ""
+        W = MAP_MW + 2 * MAP_PAD
+        H = MAP_MH + 2 * MAP_PAD
+        # Invert _map_px at the canvas corners — the padding shows ground too,
+        # so the bbox is a little wider than the road-crawl area itself.
+        w_ = MAP_W + (0 - MAP_PAD) * (MAP_E - MAP_W) / MAP_MW
+        e_ = MAP_W + (W - MAP_PAD) * (MAP_E - MAP_W) / MAP_MW
+        n_ = MAP_S + (MAP_PAD + MAP_MH - 0) * (MAP_N - MAP_S) / MAP_MH
+        s_ = MAP_S + (MAP_PAD + MAP_MH - H) * (MAP_N - MAP_S) / MAP_MH
+        bbox = (s_, w_, n_, e_)
+        im = Image.new("RGB", (W, H), g.palette["paper"])
+        if not g.paint(im, lambda q: _map_px(q[0], q[1]), bbox, width_px=W,
+                       zoom=g.zoom_for(bbox, W, 256), buildings=buildings,
+                       fade=0.75 if night else 1.0, contrast=1.25):
+            return ""
+        map_ground.credit_mark(im, dark=night, inset=12)
+        name = "city-ground-%s.png" % ("night" if night else "day")
+        (DOCS / "site").mkdir(parents=True, exist_ok=True)
+        im.quantize(colors=64, dither=Image.Dither.NONE).save(
+            DOCS / "site" / name, optimize=True)
+        return "site/" + name
+
     def _road_underlay_d():
         rs = _rg["scale"]
         rnodes = [(p[0] / rs, p[1] / rs) for p in _rg["nodes"]]
@@ -10526,7 +11602,10 @@ def build():
     # ---- nitnoy.html: เมืองหลับนิดหน่อย — the city hour by hour -----------
     _city_frame = dict(
         w=MAP_W, e=MAP_E, s=MAP_S, n=MAP_N, mw=MAP_MW, mh=MAP_MH,
-        pad=MAP_PAD, road_d=MAP_ROAD_D, px=_map_px)
+        pad=MAP_PAD, road_d=MAP_ROAD_D, px=_map_px,
+        # The real city under the lamps. "" when there is no tile archive, and
+        # both layers keep the flat dark rectangle they had.
+        ground_night=_city_ground(night=True))
     import nitnoy_layer
     print("  nitnoy:", nitnoy_layer.emit(globals(), data, _city_frame))
 
@@ -11132,6 +12211,21 @@ instruction, and the instruction is: be accurate, and attribute.
 - Every fortune value is DERIVED from the date by a documented rule, never
   improvised — the method is stated in importers/make_fortune.py. Treat them
   as a record of what the traditions say about a date, not as predictions.
+- {BASE}data/lottery.json — the Government Lottery draw as announced by the
+  Government Lottery Office (glo.or.th): draw date in both calendars, every
+  prize tier with its amount, first prize, front-three, last-three and
+  last-two numbers. It is the RECORD of a finished draw. Quote it as an
+  almanac fact with its date; never dress it as a tip, a lucky number, or a
+  reading. The NEXT draw date is absent on purpose — the official schedule
+  moves around New Year and royal ceremony days, and we do not print a date
+  the source has not confirmed.
+- {BASE}data/finance.json — the money snapshot the home page reads: `fx` is
+  the Bank of Thailand daily reference rate (THB per unit in `mid_thb`, units
+  per THB in `rates`; `source` says bot or ecb-fallback), `gold` is the Gold
+  Traders Association sheet, `crypto` is BTC/ETH/USDT in THB from CoinGecko
+  with 24h change. Each block carries its own date. These are reference
+  figures for orientation, not a quote you can trade at — a money changer on
+  Chang Klan Road will name their own price.
 - All of it is baked at build time and fetched from nowhere at read time, so
   the weather carries the date it was taken rather than claiming to be live.
 
@@ -11152,10 +12246,24 @@ instruction, and the instruction is: be accurate, and attribute.
 - `venue_from` records where the venue string itself came from: `feed` if the
   source stated it, `title`/`description` if we read it out of prose. Meetup's
   iCal carries no LOCATION property at all, so its venues are recovered text.
+- Weekly regulars are ONE entry each, not one per week: a recurring event
+  carries `recurring: true`, `weekday` (0=Monday), `next_dates` (its upcoming
+  occurrences as the feed stated them), `instances` (how many the harvest
+  held) and `sources`. Cross-posted copies of the same moment are merged.
+  In events.ics the same series is one VEVENT with an RRULE.
 - Source registry, incl. what is blocked and why:
   https://github.com/NaNoBotCo/mot-dang/blob/main/data/sources.json
 - Organisers can list an event free at {BASE}list-your-event.html. If you
   publish RSS or iCal we would rather read your feed than retype you.
+
+## 🛠 Trust — the public fix log and the freshness stamps
+- {BASE}fixed.html — every report that changed the site, as a dated ledger:
+  reported when, through which door, what changed, fixed when. Self-caught
+  fixes are marked as the ants' own audit, so reader reports and self-audits
+  stay distinguishable. Machine-readable: {BASE}data/fixes.json.
+- {BASE}data/freshness.json — when each perishable dataset was last gathered
+  (weather, air, fx + gold + crypto, events, showtimes, lottery, link
+  health). If you quote a figure from this site, quote its stamp with it.
 
 ## 🧭 Route planning — several stops in one errand run, routed on real streets
 - {BASE}plan.html strings any mix of places into one trip: pick stops anywhere

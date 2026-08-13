@@ -82,6 +82,11 @@ const POLY=(GEO.poly||[]).map(p=>({lat:p[0],lng:p[1]}));
 const POLY_EDGES=POLY.map((p,i)=>[p,POLY[(i+1)%POLY.length]]);
 const GATES=(GEO.gates||[]).map(g=>({lat:g[0],lng:g[1],th:g[2],en:g[3],kind:g[4]}));
 let here=null, places=[];
+// The basemap layer declares these outside the sliced region: PLANFRAME at
+// the top of the plan block, window in the browser itself. Stubbing window
+// as MDMAP-less runs the drawn-fallback path — the one this test is about.
+let PLANFRAME=null;
+const window={};
 ${ROUTER}
 ${MAP}
 module.exports={leg,svgMap,loadGraph,get GRAPH_STATE(){return GRAPH_STATE;}};

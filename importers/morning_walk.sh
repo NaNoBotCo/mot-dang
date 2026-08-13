@@ -44,17 +44,32 @@ if ps -eo args | grep -E '^python3? .*build\.py' >/dev/null; then
   stand_down "a build.py is already running"
 fi
 
-# a dirty tree means a person (or another session) is mid-task
-if ! git diff --quiet || ! git diff --cached --quiet; then
-  stand_down "the tree has uncommitted work"
-fi
+# Whose edits are in flight? The walk owns its own output — data snapshots,
+# the built docs/ tree, regenerated assets, and build.py's BUILD_DATE line.
+# Anything ELSE dirty means a person is mid-task in the source. The old rule
+# stood the whole walk down for that, and the log then read "ยืนดูเฉย ๆ" eight
+# mornings running while the town's weather froze; the town was never the
+# thing that was busy. Now a busy source only postpones the BUILD — the
+# gathering half always walks, so the next build (whoever runs it) ships
+# this morning's numbers, not last week's.
+PUBLISH_HOLD=""
+DIRTY_SOURCE=$(git status --porcelain -- . \
+  ':(exclude)data' ':(exclude)docs' ':(exclude)assets' ':(exclude)cache' \
+  | grep -v '^.. build\.py$' || true)
+DIRTY_BUILDPY=$(git status --porcelain -- build.py || true)
+[[ -n "$DIRTY_SOURCE$DIRTY_BUILDPY" ]] && PUBLISH_HOLD="source files are mid-task"
 
-git fetch origin --quiet || stand_down "cannot reach origin"
-LOCAL=$(git rev-parse main) REMOTE=$(git rev-parse origin/main)
-if [[ "$LOCAL" != "$REMOTE" ]]; then
-  git merge-base --is-ancestor main origin/main \
-    && git pull --ff-only --quiet \
-    || stand_down "main and origin/main have diverged"
+if git fetch origin --quiet; then
+  LOCAL=$(git rev-parse main) REMOTE=$(git rev-parse origin/main)
+  if [[ "$LOCAL" != "$REMOTE" ]]; then
+    if git merge-base --is-ancestor main origin/main && [[ -z "$PUBLISH_HOLD" ]]; then
+      git pull --ff-only --quiet || PUBLISH_HOLD="pull failed"
+    else
+      [[ -z "$PUBLISH_HOLD" ]] && PUBLISH_HOLD="main and origin/main have diverged"
+    fi
+  fi
+else
+  PUBLISH_HOLD="cannot reach origin"
 fi
 
 # --- the round: each stop may fail alone --------------------------------
@@ -62,12 +77,19 @@ python3 importers/make_widget_shots.py || say "widget shots kept yesterday's fra
 python3 importers/make_weather.py      || say "weather kept the snapshot"
 python3 importers/make_air.py          || say "air quality kept the snapshot"
 python3 importers/make_showtimes.py    || say "showtimes kept the snapshot"
+python3 importers/make_lottery.py      || say "lottery kept the snapshot"
+python3 importers/make_finance.py      || say "finance kept the snapshot"
 python3 importers/harvest_events.py --refetch || say "events kept the snapshot"
 python3 importers/sync_claims.py       || say "claims sync kept what is on disk"
 python3 importers/sync_toilets.py      || say "toilet sync kept what is on disk"
 
-# nothing new gathered -> nothing to say today
-if git diff --quiet; then stand_down "no fresh data — the town is as it was"; fi
+# nothing new gathered -> nothing to say today (fetchers write only data/ + assets/)
+if git diff --quiet -- data assets; then stand_down "no fresh data — the town is as it was"; fi
+
+# a busy source postpones the build, never the gathering
+if [[ -n "$PUBLISH_HOLD" ]]; then
+  stand_down "ข้อมูลสดเก็บแล้ว รอสร้างรอบหน้า — $PUBLISH_HOLD; fresh data is on disk for the next build"
+fi
 
 # today's date onto every footer
 TODAY=$(date +%F)
@@ -83,9 +105,15 @@ if grep -rl "/Users/" docs/ | head -1 | grep -q .; then
 fi
 [[ -f docs/CNAME ]] || { say "docs/CNAME missing — nothing pushed"; exit 1 }
 
-git add -A
+# Only what the walk itself gathered and built — never a sweep of the whole
+# tree, so a session's half-finished work can never ride out in this commit.
+git add -A -- build.py data docs assets
 git commit --quiet -m "Morning walk — $TODAY" \
   --author="NaNoBotCo <skunkhaus@gmail.com>" || stand_down "nothing to commit"
-git push --quiet origin main || { say "PUSH FAILED — commit kept locally"; exit 1 }
+git push --quiet origin main || say "PUSH FAILED — commit kept locally"
+# The Cloudflare mirror serves readers even when the GitHub side is having a
+# day; wrangler's own OAuth refreshes itself, nothing to mint.
+zsh "$HOME/Developer/claude code projects/cloudflare-mirror/deploy.sh" motdang \
+  || say "Cloudflare mirror deploy skipped"
 python3 importers/ping_indexnow.py || say "IndexNow ping skipped"
 say "== published $TODAY — the ants are home"

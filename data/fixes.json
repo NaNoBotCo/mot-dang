@@ -1,0 +1,45 @@
+{
+ "note": "The public fix ledger — the receipts behind 'แจ้งปุ๊บ แก้ปั๊บ'. Append an entry whenever a report (or the ants' own audit) changes the site: reported date, via which door, what changed, fixed date. The dates are the whole token — never backdate, never trim a slow one, and mark self-caught entries via 'มดเอง' so reader reports and self-audits stay distinguishable. Rendered at /fixed.html and summarised wherever the site invites a report.",
+ "fixes": [
+  {
+   "reported": "2026-08-13",
+   "fixed": "2026-08-13",
+   "via": "บอกกันมา / word of mouth",
+   "what_th": "หน้างานในเมืองโชว์งานประจำสัปดาห์ซ้ำหลายใบ — งานเดียวขึ้นถึง 20 ใบ ตอนนี้เหลือใบเดียวพร้อมวันครั้งต่อไป",
+   "what_en": "The events page repeated each weekly regular as its own card — one circle showed 20 times. Now one card per event, with its next date.",
+   "page": "events.html"
+  },
+  {
+   "reported": "2026-08-12",
+   "fixed": "2026-08-12",
+   "via": "reddit r/chiangmai",
+   "what_th": "แผนที่พื้นขาวไม่มีถนน — ตอนนี้ทุกหน้าแผนที่ยืนบนแผนที่จริง เสิร์ฟจากที่เก็บของเราเอง",
+   "what_en": "Maps were pins on a white sheet — every map page now stands on real ground, served from our own bucket.",
+   "page": "wats.html"
+  },
+  {
+   "reported": "2026-08-12",
+   "fixed": "2026-08-12",
+   "via": "reddit r/chiangmai",
+   "what_th": "เว็บขอตำแหน่งทันทีที่เปิด — ตอนนี้ทุกอย่างใช้ได้ก่อน แล้วค่อยถามเมื่อคุณกดเอง และจำคำตอบว่าไม่",
+   "what_en": "The site demanded your location on arrival — now everything works first, asks only when you tap, and remembers a no.",
+   "page": "toilets.html"
+  },
+  {
+   "reported": "2026-08-12",
+   "fixed": "2026-08-12",
+   "via": "reddit r/chiangmai",
+   "what_th": "อากาศและฝุ่นค้างเป็นอาทิตย์ระหว่างรอบเดินเก็บ — ตอนนี้ตัวเลขสดขึ้นเองในเครื่องคุณ พร้อมบอกเวลาที่วัด",
+   "what_en": "Weather and PM2.5 sat a week old between walks — the numbers now refresh live in your browser, stamped with their time.",
+   "page": "widgets.html"
+  },
+  {
+   "reported": "2026-08-05",
+   "fixed": "2026-08-05",
+   "via": "มดเอง / the ants' own audit",
+   "what_th": "แถบโรงหนังเขียนว่า “วันนี้” ทับตารางเก่าสี่วัน — ตอนนี้แถบบอกวันที่ของตารางตรงๆ",
+   "what_en": "The cinema tile said “today” over a four-day-old sheet — the tile now names the sheet's own date.",
+   "page": "widgets.html"
+  }
+ ]
+}
