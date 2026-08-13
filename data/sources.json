@@ -1,6 +1,6 @@
 {
  "_comment": "Source registry for the events + contact-enrichment layer. This is the map, and it is meant to drive routine operations: importers read `endpoint`+`method`, honour `cadence`, and record results per `id`. Derived by reading one issue of the weekly Chiang Mai events newsletter (27 July 2026) exhaustively and then fetching what it points at. `status` is what was actually fetched and confirmed on the `verified_on` date — never what a source claims about itself. Sources marked `unverified` are named in the newsletter but not yet fetched; `blocked` refused a plain fetch; `walled` needs a login we will not use.",
- "_yields_key": "events = dated or recurring happenings. contacts = phone / LINE / email / website / booking url for a place, i.e. fuel for the contact-coverage mission. weather = forecast data for the widget wall.",
+ "_yields_key": "events = dated or recurring happenings. contacts = phone / LINE / email / website / booking url for a place, i.e. fuel for the contact-coverage mission. weather = forecast data for the widget wall. lottery = the Government Lottery draw record for the widget wall — a public record, never a tip.",
  "_cadence_key": "weekly = fast-decaying dated events. monthly = recurring weekly schedules, which change slowly. quarterly = institutional calendars. manual = needs a human.",
  "generated": "2026-07-29",
  "sources": [
@@ -630,6 +630,21 @@
    "verified_on": "2026-07-29",
    "notes": "Returns 200 with only ~59 Thai characters — a client-rendered shell. cr-mu.go.th, the domain first tried, does not resolve. The Chiang Rai municipal equivalent of the Chiang Mai municipality feed is therefore not available to a plain fetch; prd-chiangrai is the fallback.",
    "venue_coverage": "n/a"
+  },
+  {
+   "id": "glo-lottery",
+   "name": "สำนักงานสลากกินแบ่งรัฐบาล — Government Lottery Office, draw results",
+   "kind": "government",
+   "url": "https://www.glo.or.th/",
+   "endpoint": "https://www.glo.or.th/api/lottery/getLatestLottery",
+   "method": "json-post",
+   "yields": [
+    "lottery"
+   ],
+   "cadence": "daily",
+   "status": "verified",
+   "verified_on": "2026-08-12",
+   "notes": "First-party: the office that conducts the draw. POST with an empty JSON body returns the complete latest sheet — date, every prize tier with amounts, and the office's own announcement PDF. The sibling /api/checking/getLotteryResult is the site's per-ticket checker and returns response:null to everything else, and data.go.th CKAN holds no lottery-results dataset at all (searched 2026-08-12, five query terms — the hits are household-income tables). Fetched once per morning walk by importers/make_lottery.py; the record only changes twice a month, and the importer leaves data/lottery.json untouched when the draw is unchanged. No schedule endpoint exists, so the next draw date is never derived — presence-only."
   }
  ]
 }

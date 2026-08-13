@@ -10,6 +10,18 @@ the other, and a one-way soi costs a scooter a lap.
 No text. At 200 px Thai and English both turn to mud, and the two diverging
 lines are the whole argument anyway.
 
+THE GROUND
+----------
+The lines are drawn over the real basemap — the same cm-cr.pmtiles the live
+maps use, decoded and painted by map_ground.py through this script's own
+projector, so the ground and the route cannot drift apart. Before that this was
+two lines on a cream square with a hand-drawn moat, and it read the way every
+pins-on-paper map reads: like something was still loading. The drawn moat is
+gone when the ground is there, because the ground carries the true moat instead
+of a square through four corner nodes. With no archive on disk the old paper
+and the old moat come back exactly as they were, so the picture still builds on
+a machine that has never seen the tiles.
+
     python3 make_plan_demo.py                    # the 200px tile -> assets/plan-demo.gif
     python3 make_plan_demo.py --plan afternoon   # a real errand run, bigger, labelled
 
@@ -28,6 +40,8 @@ from collections import defaultdict
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
+
+import map_ground
 
 ROOT = Path(__file__).resolve().parent
 
@@ -308,6 +322,9 @@ def projector(pts, W, H, pad=0.22):
     def scale_px_per_km():
         return 1.0 / ((e - w) * kx * 111.32) * W
     xy.px_per_km = scale_px_per_km()
+    # What the frame actually covers, so the basemap can be asked for exactly
+    # this ground and no more.
+    xy.bbox = (s, w, n, e)
     return xy
 
 
@@ -377,8 +394,11 @@ def digit_font(size):
     return load_font(size)
 
 
-def pin(d, xy, label, r, font):
+def pin(d, xy, label, r, font, halo=True):
     x, y = xy
+    if halo:
+        h = r + max(2, int(1.6 * SS))
+        d.ellipse([x - h, y - h, x + h, y + h], fill=(255, 252, 246))
     d.ellipse([x - r, y - r, x + r, y + r], fill=ANT, outline=ANT_DARK, width=max(2, int(0.7 * SS)))
     if r > 7 * SS:
         d.text((x, y), str(label), font=font, fill=PAPER, anchor="mm")
@@ -441,29 +461,102 @@ def draw_label(d, slot, font, pad):
     d.text((box[0] + pad - bb[0], box[1] + pad - bb[1]), text, font=font, fill=INK)
 
 
+def base_image(cfg, xy, size):
+    """The unchanging half of every frame: the ground, its credit, its scale.
+
+    Painted once and copied, because it is the same in all forty-odd frames and
+    decoding the tiles once per frame would take the build from a second to a
+    minute for a picture that does not change.
+
+    Returns (image, ground_drawn). ground_drawn False means there is no archive
+    on this machine and the caller should draw the old moat square itself.
+    """
+    W, H = cfg["W"], cfg["H"]
+    im = Image.new("RGB", (W, H), PAPER)
+    g = map_ground.shared()
+    # Zoom is chosen for the size the gif is *seen* at, not the supersampled
+    # canvas: ask at 3x and the 200 px tile fills with driveways that survive
+    # the downsample as noise. Widths are still measured on the big canvas.
+    ok = False
+    if g.available:
+        # Buildings stay on even at 200 px. Tested both ways: without them the
+        # tile is a grid of pale lines that could be any town on earth, and with
+        # them it is visibly a dense old city with a moat down one side. At that
+        # size they are not buildings, they are texture, and the texture is the
+        # part that says "here".
+        ok = g.paint(im, xy, xy.bbox, width_px=W, zoom=g.zoom_for(xy.bbox, size, 256),
+                     buildings=True, fade=0.92)
+    if not ok:
+        return im, False
+
+    # A scale bar, because a map without one only says "somewhere" — and on a
+    # plan whose whole argument is that 400 m of wall costs a scooter a
+    # kilometre, the reader needs the metres. Below about 300 px the bar and its
+    # label eat the picture, so the small tile carries the credit alone.
+    if size >= 300:
+        map_ground.scale_bar(im, xy.px_per_km)
+    map_ground.credit_mark(im)
+
+    d = ImageDraw.Draw(im)
+    # A hairline inside the edge: the ground now runs to the corners, and
+    # without a rule it bleeds into whatever card the gif is sitting in.
+    d.rectangle([0, 0, W - 1, H - 1], outline=(214, 198, 164),
+                width=max(1, int(0.5 * SS)))
+    return im, True
+
+
 def frame(cfg, stops_xy, moat_xy, routes_xy, shown, ride_frac, foot_frac, pin_grow,
           labels_shown=0):
     """One frame. The scooter's line goes down solid and first, the walker's
     dashed over it, so where they agree you read one road and where they part
     company you read two."""
     W, H = cfg["W"], cfg["H"]
-    im = Image.new("RGB", (W, H), PAPER)
+    im = cfg["base"].copy()
     d = ImageDraw.Draw(im)
-    dashed(d, moat_xy + [moat_xy[0]], MOAT, int(2.2 * SS), dash=7 * SS, gap=6 * SS)
+    if not cfg["ground"]:
+        dashed(d, moat_xy + [moat_xy[0]], MOAT, int(2.2 * SS), dash=7 * SS, gap=6 * SS)
+    # Over a real basemap both route lines need a halo. On cream paper a 4 px
+    # blue line was unmistakable; over a street grid drawn in the same family of
+    # warm neutrals it becomes just another road. The halo is what makes the
+    # route sit ON the city rather than in it.
+    halo = (255, 252, 246) if cfg["ground"] else None
     if ride_frac > 0:
         for pth in routes_xy["ride"]:
             seg = walk(pth, ride_frac)
             if len(seg) > 1:
+                if halo:
+                    d.line(seg, fill=halo, width=int(6.6 * SS), joint="curve")
                 d.line(seg, fill=RIDE, width=int(3.8 * SS), joint="curve")
     if foot_frac > 0:
         for pth in routes_xy["foot"]:
             seg = walk(pth, foot_frac)
             if len(seg) > 1:
+                if halo:
+                    dashed(d, seg, halo, int(6.2 * SS), dash=8 * SS, gap=5 * SS)
                 dashed(d, seg, ANT, int(3.2 * SS), dash=8 * SS, gap=5 * SS)
     for i in range(min(labels_shown, len(cfg["slots"]))):
         if cfg["slots"][i]:
             draw_label(d, cfg["slots"][i], cfg["font_label"], cfg["label_pad"])
     return im
+
+
+def pack(frames):
+    """Quantise every frame against ONE palette, with no dithering.
+
+    This is the whole reason a basemap can live in a gif at all. Left to
+    itself Pillow picks a fresh palette per frame and dithers it, so the
+    ground — which is identical in all forty-odd frames — comes out as a
+    different speckle each time, nothing matches its neighbour, and the file
+    goes from under a megabyte to ten. Quantised once against a shared palette
+    with dithering off, the untouched ground is byte-identical frame to frame,
+    which is exactly the case gif's delta frames were built for: the encoder
+    ends up storing the pins and the growing line and nothing else.
+
+    Dithering off costs a little banding on the landcover washes. On flat map
+    fills that is invisible, and it buys a tenfold file.
+    """
+    master = frames[-1].convert("P", palette=Image.ADAPTIVE, colors=128)
+    return [f.quantize(palette=master, dither=Image.Dither.NONE) for f in frames]
 
 
 def write_facts(stops, legs, names):
@@ -536,6 +629,7 @@ def render(plan_name, plan, size=None, out=None):
     _probe = ImageDraw.Draw(Image.new("RGB", (W, H)))
     cfg["slots"], cfg["label_pad"] = plan_label_boxes(
         _probe, stops_xy, cfg["captions"], cfg["font_label"], W, H, cfg["pin_r"])
+    cfg["base"], cfg["ground"] = base_image(cfg, xy, SIZE)
 
     frames, durs = [], []
 
@@ -567,8 +661,9 @@ def render(plan_name, plan, size=None, out=None):
 
     dest = ROOT / (out or plan["out"])
     dest.parent.mkdir(parents=True, exist_ok=True)
+    frames = pack(frames)
     frames[0].save(dest, save_all=True, append_images=frames[1:],
-                   duration=durs, loop=0, optimize=True, disposal=2)
+                   duration=durs, loop=0, optimize=True, disposal=1)
     kb = dest.stat().st_size / 1024
     print(f"{dest.relative_to(ROOT)} — {len(frames)} frames, {SIZE}x{SIZE}, {kb:.0f} KB")
     for i in range(len(legs)):

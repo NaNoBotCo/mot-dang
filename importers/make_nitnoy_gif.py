@@ -104,7 +104,48 @@ def daylight(minute):
     return 19.5 - h
 
 
+def city_ground():
+    """The real city, at night, under the lamps — or None.
+
+    Painted through this file's own px(), so a lamp and the soi under it are
+    placed by one function. Two versions come back: the night ground and a
+    lifted copy for the daylight end of the blend, so dawn brightens the city
+    rather than washing a flat rectangle.
+    """
+    sys.path.insert(0, str(ROOT))
+    try:
+        import map_ground
+    except ImportError:
+        return None, None
+    g = map_ground.shared(night=True)
+    if not g.available:
+        return None, None
+    from PIL import ImageEnhance
+    Wpx, Hpx = PW + 2 * PAD, PH + 2 * PAD
+    w_ = W + (0 - PAD) * (E - W) / PW
+    e_ = W + (Wpx - PAD) * (E - W) / PW
+    n_ = S + (PAD + PH - 0) * (N - S) / PH
+    s_ = S + (PAD + PH - Hpx) * (N - S) / PH
+    bbox = (s_, w_, n_, e_)
+    im = Image.new("RGB", (Wpx, Hpx), g.palette["paper"])
+    if not g.paint(im, lambda q: px(q[0], q[1]), bbox, width_px=Wpx,
+                   zoom=g.zoom_for(bbox, Wpx, 256), buildings=False,
+                   fade=0.8, contrast=1.25):
+        return None, None
+    map_ground.credit_mark(im, dark=True, inset=10)
+    return im, ImageEnhance.Brightness(im).enhance(1.75)
+
+
+def pack(frames):
+    """One palette for all 48, no dithering — see make_plan_demo.pack(). The
+    ground is identical in every frame, so this is the difference between a
+    file that carries a city and a file nobody will wait for."""
+    master = frames[-1].convert("P", palette=Image.ADAPTIVE, colors=128)
+    return [f.quantize(palette=master, dither=Image.Dither.NONE) for f in frames]
+
+
 def main():
+    ground_night, ground_day = city_ground()
     roads = road_lines()
     sprites = {g: glow(c) for g, c in GROUP_RGB.items()}
     places = [(p["la"], p["ln"], p["g"], p["k"]) for p in LAMPS["places"]
@@ -124,10 +165,15 @@ def main():
         t = daylight(minute)
         bg = blend(NIGHT_BG, DAY_BG, t)
         road = blend(ROAD_NIGHT, ROAD_DAY, t)
-        im = Image.new("RGB", (PW + 2 * PAD, PH + 2 * PAD), bg)
-        dr = ImageDraw.Draw(im)
-        for line in roads:
-            dr.line(line, fill=road, width=1)
+        if ground_night is not None:
+            # The ground carries the streets, so the traced ones step aside —
+            # two street networks a hair apart read as a printing error.
+            im = Image.blend(ground_night, ground_day, t)
+        else:
+            im = Image.new("RGB", (PW + 2 * PAD, PH + 2 * PAD), bg)
+            dr = ImageDraw.Draw(im)
+            for line in roads:
+                dr.line(line, fill=road, width=1)
         im = im.convert("RGBA")
         wk = DAY * 1440 + minute
         lit = 0
@@ -150,8 +196,9 @@ def main():
             poster = im.copy()
 
     out = ROOT / "assets" / "nitnoy.gif"
-    frames[0].save(out, save_all=True, append_images=frames[1:],
-                   duration=FRAME_MS, loop=0, optimize=True)
+    packed = pack(frames)
+    packed[0].save(out, save_all=True, append_images=packed[1:],
+                   duration=FRAME_MS, loop=0, optimize=True, disposal=1)
     if poster is not None:
         poster.save(ROOT / "assets" / "nitnoy_poster.png", optimize=True)
     print("nitnoy.gif: %d frames, %dx%d, %.0f KB (+ poster)"

@@ -29,6 +29,9 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+from PIL import Image
+
+import map_ground
 from make_og_cards import find_chrome, crop, SHOT_H
 
 ROOT = Path(__file__).resolve().parent
@@ -228,6 +231,29 @@ def constellation(points, panel_h=446, moat=True, r=2.6):
         y = (la1 - la) * scale + (panel_h - span_y * scale) / 2
         return round(x, 1), round(y, 1)
 
+    # The city under the constellation. Without it these cards showed the
+    # SHAPE of a scatter and nothing about where any of it is — an outsider
+    # could not tell the old city from the airport, and the same picture would
+    # have served for any town on earth. The ground is held well below the
+    # dots: it is the room they stand in, not the subject.
+    ground = ""
+    g = map_ground.shared(night=True)
+    if g.available:
+        # pj() letterboxes, so the panel shows MORE ground than la0..la1 on one
+        # axis. Invert the corners for what is really in frame.
+        w_ln = ln0 + (0 - (PANEL_W - span_x * scale) / 2) / (kx * scale)
+        e_ln = ln0 + (PANEL_W - (PANEL_W - span_x * scale) / 2) / (kx * scale)
+        n_la = la1 - (0 - (panel_h - span_y * scale) / 2) / scale
+        s_la = la1 - (panel_h - (panel_h - span_y * scale) / 2) / scale
+        bbox = (s_la, w_ln, n_la, e_ln)
+        im = Image.new("RGB", (PANEL_W, panel_h), g.palette["paper"])
+        if g.paint(im, lambda p: pj(p[0], p[1]), bbox, width_px=PANEL_W,
+                   zoom=g.zoom_for(bbox, PANEL_W, 256), buildings=False,
+                   fade=0.75, contrast=1.25):
+            map_ground.credit_mark(im, dark=True, inset=14)
+            ground = ('<image x="0" y="0" width="%d" height="%d" href="%s"/>'
+                      % (PANEL_W, panel_h, map_ground.data_uri(im)))
+
     dots, n_in = [], 0
     for la, ln, color in points:
         if not (la0 <= la <= la1 and ln0 <= ln <= ln1):
@@ -249,7 +275,7 @@ def constellation(points, panel_h=446, moat=True, r=2.6):
         f'<svg viewBox="0 0 {PANEL_W} {panel_h}" '
         'xmlns="http://www.w3.org/2000/svg">'
         f'<rect width="{PANEL_W}" height="{panel_h}" fill="#0d1420"/>'
-        + "".join(dots) + moat_svg + "</svg>"), n_in
+        + ground + "".join(dots) + moat_svg + "</svg>"), n_in
 
 
 # -------------------------------------------------------------------- taste

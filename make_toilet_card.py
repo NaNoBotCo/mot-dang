@@ -30,6 +30,9 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+from PIL import Image
+
+import map_ground
 from make_og_cards import find_chrome, crop, W, SHOT_H
 
 ROOT = Path(__file__).resolve().parent
@@ -85,6 +88,45 @@ def project(lat, lng):
     return round(x, 1), round(y, 1)
 
 
+def ground_image():
+    """The city, at night, under the constellation.
+
+    The panel was a dark rectangle with dots on it, which showed the SHAPE of
+    the constellation and nothing about where any of it is: an outsider could
+    not tell the old city from the airport. The same points over the night
+    ground read as a city with a moat in it, and the shape survives, because
+    the ground is held well below the lamps.
+
+    Painted through this file's own project(), so a lamp and the soi under it
+    are placed by one function. Returns an <image> element, or "" when there is
+    no archive and the flat rectangle stands as it always has.
+    """
+    g = map_ground.shared(night=True)
+    if not g.available:
+        return ""
+    kx = math.cos(math.radians((LAT_MIN + LAT_MAX) / 2))
+    span_x = (LNG_MAX - LNG_MIN) * kx
+    span_y = LAT_MAX - LAT_MIN
+    scale = min(MAP_W / span_x, MAP_H / span_y)
+    offx = (MAP_W - span_x * scale) / 2
+    offy = (MAP_H - span_y * scale) / 2
+    # project() letterboxes the frame, so the panel covers MORE ground than
+    # LAT/LNG_MIN..MAX on one axis. Ask for what the panel actually shows by
+    # inverting the corners, or the ground stops short of the edge.
+    w = LNG_MIN + (0 - offx) / (kx * scale)
+    e = LNG_MIN + (MAP_W - offx) / (kx * scale)
+    n = LAT_MAX - (0 - offy) / scale
+    s = LAT_MAX - (MAP_H - offy) / scale
+    im = Image.new("RGB", (MAP_W, MAP_H), g.palette["paper"])
+    if not g.paint(im, lambda p: project(p[0], p[1]), (s, w, n, e),
+                   width_px=MAP_W, zoom=g.zoom_for((s, w, n, e), MAP_W, 256),
+                   buildings=False, fade=0.75, contrast=1.25):
+        return ""
+    map_ground.credit_mark(im, dark=True, inset=14)
+    return ('<image x="0" y="0" width="%d" height="%d" href="%s"/>'
+            % (MAP_W, MAP_H, map_ground.data_uri(im)))
+
+
 def map_svg(model):
     dots, lamps = [], []
     n_in = 0
@@ -108,7 +150,10 @@ def map_svg(model):
     return (
         f'<svg viewBox="0 0 {MAP_W} {MAP_H}" width="{MAP_W}" height="{MAP_H}" '
         'xmlns="http://www.w3.org/2000/svg">'
-        f'<rect width="{MAP_W}" height="{MAP_H}" rx="18" fill="#0d1420"/>'
+        f'<defs><clipPath id="panel"><rect width="{MAP_W}" height="{MAP_H}" rx="18"/>'
+        '</clipPath></defs>'
+        f'<g clip-path="url(#panel)">'
+        f'<rect width="{MAP_W}" height="{MAP_H}" fill="#0d1420"/>{ground_image()}</g>'
         + "".join(dots) + "".join(lamps) +
         f'<polygon points="{moat}" fill="none" stroke="#a8c6ee" '
         'stroke-width="3" stroke-dasharray="8 6"/>'

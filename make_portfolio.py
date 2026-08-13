@@ -14,10 +14,16 @@ regenerate into assets/qr/ if the URLs ever change.
 
     python3 make_portfolio.py
 """
+import base64
+import json
+import math
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from make_handouts import find_chrome
 
@@ -70,12 +76,119 @@ h1 .en { display: block; font-size: 13pt; font-weight: 400; margin-top: 2.5mm;
 .foot { margin-top: 5mm; display: flex; justify-content: space-between;
   align-items: flex-end; font-size: 10pt; }
 .foot .site { font-size: 13pt; font-weight: 700; }
+/* The coverage strip. Print rules the same as the rest of this sheet: it has
+   to survive a black-and-white photocopier, so the ground is washed almost to
+   paper and every place is a solid black dot — the dots are what has to
+   arrive, and they are the only ink that matters here. */
+/* The back of the sheet. The front was already a full A4 — squeezing the map
+   in under the offer pushed the bearer line and the footer off the bottom, and
+   the bearer line is the mechanism the whole sheet runs on. So the map gets a
+   side of its own, which is also the size it deserves. */
+.page { page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+.coverage img { display: block; width: 100%; border: 2px solid #000; }
+.coverage h2 { font-size: 19pt; margin-bottom: 2mm; }
+.coverage h2 .en { font-size: 12pt; font-weight: 400; color: #222;
+  margin-left: 2mm; }
+.coverage .cap { margin-top: 3mm; font-size: 11pt; }
+.coverage .cap .en { display: block; font-size: 9.5pt; color: #222;
+  margin-top: 1mm; }
 """
+
+
+def coverage_strip() -> str:
+    """Every place we hold, printed on the ground it stands on.
+
+    The sheet claims ten thousand places in two provinces. A sentence saying
+    so is a sentence; the same claim as a map is a shape a shopkeeper can
+    recognise — their own town, with the density of it visible — and it is the
+    one picture on this sheet that could not be faked by any small team that
+    had not done the walking. Nothing here is stated that the data does not
+    already say: one dot per record, no smoothing.
+
+    Returns "" without Pillow or a tile archive, and the sheet prints exactly
+    as it did before.
+    """
+    try:
+        from PIL import Image, ImageDraw
+        import map_ground
+    except ImportError:
+        return ""
+    g = map_ground.shared()
+    if not g.available:
+        return ""
+    recs = []
+    for f in sorted((ROOT / "data" / "canonical").glob("*.json")):
+        recs += [r for r in json.loads(f.read_text())
+                 if r.get("lat") is not None and r.get("lng") is not None]
+    if not recs:
+        return ""
+    # A whole side of A4, so the two provinces get room to be two provinces.
+    W, H = 1500, 1000
+    lats = sorted(r["lat"] for r in recs)
+    lngs = sorted(r["lng"] for r in recs)
+    lo, hi = int(len(lats) * 0.01), int(len(lats) * 0.99)
+    s_, n_ = lats[lo], lats[hi]
+    w_, e_ = lngs[lo], lngs[hi]
+    pad_la, pad_ln = (n_ - s_) * 0.06, (e_ - w_) * 0.06
+    s_, n_, w_, e_ = s_ - pad_la, n_ + pad_la, w_ - pad_ln, e_ + pad_ln
+    # Square the frame in projected proportion, or the two provinces come out
+    # sheared and neither city is the shape anybody knows.
+    kx = math.cos(math.radians((s_ + n_) / 2))
+    want = (e_ - w_) * kx / (n_ - s_)
+    have = W / float(H)
+    if want < have:
+        grow = ((n_ - s_) * have / kx - (e_ - w_)) / 2
+        w_, e_ = w_ - grow, e_ + grow
+    else:
+        grow = ((e_ - w_) * kx / have - (n_ - s_)) / 2
+        s_, n_ = s_ - grow, n_ + grow
+    bbox = (s_, w_, n_, e_)
+
+    def xy(p):
+        return ((p[1] - w_) / (e_ - w_) * W, (n_ - p[0]) / (n_ - s_) * H)
+
+    im = Image.new("RGB", (W, H), g.palette["paper"])
+    if not g.paint(im, xy, bbox, width_px=W, zoom=g.zoom_for(bbox, W, 256),
+                   buildings=False, fade=0.42, contrast=1.2):
+        return ""
+    d = ImageDraw.Draw(im)
+    n_in = 0
+    for r in recs:
+        if not (s_ <= r["lat"] <= n_ and w_ <= r["lng"] <= e_):
+            continue
+        n_in += 1
+        x, y = xy((r["lat"], r["lng"]))
+        d.ellipse([x - 1.9, y - 1.9, x + 1.9, y + 1.9], fill=(20, 14, 10))
+    map_ground.scale_bar(im, W / ((e_ - w_) * kx * 111.32))
+    map_ground.credit_mark(im)
+    out = ROOT / "assets" / "portfolio-coverage.png"
+    im.quantize(colors=64, dither=Image.Dither.NONE).save(out, optimize=True)
+    uri = "data:image/png;base64," + base64.b64encode(out.read_bytes()).decode()
+    n = format(n_in, ",")
+    return ('<div class="page coverage">'
+            '<div class="rule"></div>'
+            '<div class="brandrow"><b>NaNoBotCo</b>'
+            '<span>เชียงใหม่ · CHIANG MAI</span></div>'
+            '<h2>ที่เราเดินมาแล้ว<span class="en">where we have already walked'
+            '</span></h2>'
+            '<img src="%s" alt="">'
+            '<div class="cap">ทุกจุดคือหนึ่งแห่งในสารบัญ — %s แห่งในกรอบนี้ '
+            'เชียงใหม่และเชียงราย เก็บทีละซอย'
+            '<span class="en">Every dot is one place on record — %s of them in '
+            'this frame. Chiang Mai and Chiang Rai, gathered one soi at a '
+            'time.</span></div>'
+            '<div class="spacer"></div>'
+            '<div class="foot"><span class="site">motdang.net · defiant.to'
+            '</span><span>530kings@proton.me</span></div>'
+            '<div class="rule"></div></div>'
+            % (uri, n, n))
 
 
 def html() -> str:
     qr_mot = (QR / "motdang_net.svg").read_text(encoding="utf-8")
     qr_def = (QR / "defiant_to.svg").read_text(encoding="utf-8")
+    coverage = coverage_strip()
     return f"""<!doctype html><html><head><meta charset="utf-8">
 <style>{CSS}</style></head><body>
 <div class="page">
@@ -136,7 +249,9 @@ def html() -> str:
   <div class="foot"><span class="site">motdang.net · defiant.to</span>
     <span>530kings@proton.me</span></div>
   <div class="rule"></div>
-</div></body></html>"""
+</div>
+{coverage}
+</body></html>"""
 
 
 def main():

@@ -124,6 +124,59 @@ Rules that bite:
   points with very long sides, and standing at Tha Phae Gate — on the moat —
   every corner is off-frame while the side you are standing on runs through
   the middle. The vertex test drew nothing there.
+- `map_ground.py` is `map_shell.py`'s other half: the basemap for the pictures
+  PYTHON draws — the plan gifs, the share cards, the posters. A browser can
+  fetch a `.pmtiles` over HTTP ranges; Pillow cannot, so this reads
+  `assets/tiles/cm-cr.pmtiles` off disk (PMTiles v3 + MVT, stdlib only) and
+  paints the same ground in the same palette, which it lifts from
+  `data/basemap_style.json` so the two can never drift.
+  - It hands geometry back in lng/lat for the CALLER's own projector rather
+    than stitching tile images and reprojecting. A card whose ground is four
+    pixels off its pins is worse than a card with no ground, because it is
+    wrong in a way that looks deliberate.
+  - Roads are drawn in METRES with a pixel floor (`ROAD_M`), never as a
+    fraction of the picture. The fraction rule put forty metres of ink on a
+    "major road" whenever a frame covered a whole city, which closed both
+    banks of the moat over the water between them and painted out the one
+    shape everybody in Chiang Mai navigates by.
+  - Polygon holes are holes. The moat is a ring; fill its two rings separately
+    and the whole old city is water. `tests/test_ground.py` reads a column
+    down the middle of a rendered frame and insists it crosses water exactly
+    twice.
+  - ODbL says the credit travels with the picture, and a gif gets reposted
+    with no page around it, so `credit_mark()` draws it into the pixels.
+    Every surface that paints ground calls it.
+  - WHERE THE GROUND NOW IS, and why each one is the shape it is:
+    - **Every place page** (12,309 of them) carries `place_map()` — a mounted
+      locator with a drawn pin as its fallback. This replaced the hand-drawn
+      wat/ant that stood in the picture frame on 12,146 pages: the site holds
+      12,319 places and 173 photographs, so a drawing of a temple that is not
+      this temple was the site's most-published image. The drawing survives for
+      the ten places with `geoPrecision: needs-pin`, where a map would be a
+      claim we cannot make.
+    - **Every share card** — brand, per-place, toilets, lists, taste, walk,
+      nitnoy — because the card is what LINE and Facebook show and most people
+      never reach the page.
+    - **The city-frame canvases** (nitnoy, taste) get ONE rendered PNG, made by
+      `_city_ground()` at the shared projection and set as the box background.
+      Not a MapLibre mount: those frames never move, and a megabyte of library
+      to sit behind a fixed drawing is a bad trade. The traced road underlay
+      drops out when the real ground is there — two street networks a hair
+      apart read as a printing error.
+    - **The plan gifs and the nitnoy gif**, which travel with no page around
+      them, so they carry the credit in their pixels.
+    - **Event slides** use `venue_thumb()`, cached by rounded coordinate, so
+      six events at one wat share one picture.
+    - **The partner sheet's back page** — 12,304 dots over both provinces,
+      washed nearly to paper because it has to survive a photocopier.
+    - NOT the LINE rich menu, and it was tried: six opaque button cards leave
+      the ground visible only in the gutters. NOT the recruitment handouts —
+      black on white, no background fills, for the same photocopier.
+  - No archive on the machine is a supported state, exactly as in map_shell:
+    `available` is False and every caller keeps the paper it always had.
+    `build.py` symlinks the archive into `docs/tiles/` (gitignored) each run,
+    because docs/ is wiped every build and used to take the local basemap with
+    it — leaving every map on the machine silently falling back.
 - The cinema showtime request recipe — address, form fields, screen ids — lives
   in `~/.mot-dang-showtimes.json`, never in the repo. Same arrangement as the
   LINE channel token. `make_showtimes.py --template` prints the shape; without

@@ -35,6 +35,13 @@ SITE = "https://motdang.net/"
 W, H, COLS, ROWS = 2500, 1686, 3, 2
 CW, CH = W // COLS, H // ROWS
 
+# NO BASEMAP HERE, and it was tried. The menu is six opaque white cards on a
+# 2500x1686 canvas: a ground behind them shows only in the gutters, which is a
+# rendered file and a second code path for something nobody can see. Making the
+# cards translucent enough to reveal it would cost the legibility of six labels
+# on a phone, and the labels are the entire point of a menu. A basemap belongs
+# where a picture is being served; this surface serves buttons.
+
 # Order must match the cells in make_richmenu.swift — same grid, same reading
 # order, left to right then down.
 ACTIONS = [

@@ -260,6 +260,22 @@ _CSS = """
 """
 
 
+def _ground_css(frame):
+    """The real city, behind the lamps.
+
+    The box was a flat dark rectangle: it showed the SHAPE of the scatter and
+    nothing about where any of it is. build.py renders the shared city frame
+    once, at this exact projection, so the background lines up with the drawing
+    by construction rather than by a number kept in sync by hand. No archive on
+    the machine and this is "" — the flat rectangle stands, as it always did.
+    """
+    g = (frame or {}).get("ground_night")
+    if not g:
+        return ""
+    return ("#%s{background-image:url(%s);background-size:100%% 100%%;"
+            "background-position:center}" % ('nnbox', g))
+
+
 def emit(g, data, frame):
     page, bi, esc = g["page"], g["bi"], g["esc"]
     share_block, BASE, DOCS = g["share_block"], g["BASE"], g["DOCS"]
@@ -306,11 +322,16 @@ def emit(g, data, frame):
                 'stroke-width="2" stroke-dasharray="6 4"/>' % pts)
 
     underlay = (
-        '<svg viewBox="0 0 %d %d" role="img" '
-        'aria-label="แผนที่โคมไฟกลางเมืองเชียงใหม่">'
-        '<rect width="%d" height="%d" fill="#0d1420"/>'
-        '<path d="%s" fill="none" stroke="#22334a" stroke-width="1"/>'
-        '%s</svg>' % (vw, vh, vw, vh, frame["road_d"], moat))
+        ('<svg viewBox="0 0 %d %d" role="img" aria-label="แผนที่โคมไฟกลางเมืองเชียงใหม่">' % (vw, vh))
+        # The dark rectangle and the traced roads are the fallback, and they
+        # step aside when the real ground is behind the box: two street
+        # networks drawn a hair apart read as a printing error. What stays is
+        # the moat, which is the one landmark worth stating twice.
+        + ('' if frame.get("ground_night") else
+           ('<rect width="%d" height="%d" fill="#0d1420"/>'
+            '<path d="%s" fill="none" stroke="#22334a" stroke-width="1"/>'
+            % (vw, vh, frame["road_d"])))
+        + moat + '</svg>')
 
     # ---- category labels for the meal section -----------------------------
     cats = json.loads((ROOT / "data" / "categories.json").read_text())
@@ -507,7 +528,7 @@ def emit(g, data, frame):
     (DOCS / "nitnoy.html").write_text(page(
         "เมืองหลับนิดหน่อย",
         body, depth=0, path="nitnoy.html", desc=lede_th,
-        extra_head="<style>%s</style>" % _CSS, og=og))
+        extra_head="<style>%s%s</style>" % (_CSS, _ground_css(frame)), og=og))
     return ("nitnoy.html — %d lamps (%d in frame), %d meal curves, "
             "%d markets" % (parse["parsed"], in_frame,
                             len(lamps["meals"]["subs"])

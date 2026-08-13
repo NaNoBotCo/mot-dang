@@ -74,13 +74,40 @@ def glow(rgb):
     return im
 
 
+def city_ground():
+    """The night city under the dots, through this file's own px(). None when
+    there is no tile archive, and the traced roads stand as they always did."""
+    sys.path.insert(0, str(ROOT))
+    try:
+        import map_ground
+    except ImportError:
+        return None
+    g = map_ground.shared(night=True)
+    if not g.available:
+        return None
+    Wpx, Hpx = PW + 2 * PAD, PH + 2 * PAD
+    bbox = (S + (PAD + PH - Hpx) * (N - S) / PH,
+            W + (0 - PAD) * (E - W) / PW,
+            S + (PAD + PH - 0) * (N - S) / PH,
+            W + (Wpx - PAD) * (E - W) / PW)
+    im = Image.new("RGB", (Wpx, Hpx), g.palette["paper"])
+    if not g.paint(im, lambda q: px(q[0], q[1]), bbox, width_px=Wpx,
+                   zoom=g.zoom_for(bbox, Wpx, 256), buildings=False,
+                   fade=0.8, contrast=1.25):
+        return None
+    map_ground.credit_mark(im, dark=True, inset=10)
+    return im
+
+
 def main():
     colors = {f["key"]: hex_rgb(f["color"]) for f in TASTE["families"]}
     sprites = {k: glow(c) for k, c in colors.items()}
-    im = Image.new("RGB", (PW + 2 * PAD, PH + 2 * PAD), BG)
-    dr = ImageDraw.Draw(im)
-    for line in road_lines():
-        dr.line(line, fill=ROAD, width=1)
+    im = city_ground()
+    if im is None:
+        im = Image.new("RGB", (PW + 2 * PAD, PH + 2 * PAD), BG)
+        dr = ImageDraw.Draw(im)
+        for line in road_lines():
+            dr.line(line, fill=ROAD, width=1)
     im = im.convert("RGBA")
     for d in TASTE["dots"]:
         if not (S <= d["la"] <= N and W <= d["ln"] <= E):
