@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-05",
+ "generated": "2026-08-13",
  "count": 5,
  "leads": [
   {
@@ -13,15 +13,6 @@
    "city": "Mae Taeng District, Chang Wat"
   },
   {
-   "venue_name": "Bua Bhat Factory",
-   "sources": [
-    "payap-lll"
-   ],
-   "phone": "053 446 291",
-   "address": "134 Tambon Buak Kang, San Kamphaeng District,",
-   "city": "Chiang Mai"
-  },
-  {
    "venue_name": "Chiang Mai National Museum",
    "sources": [
     "payap-lll"
@@ -29,6 +20,15 @@
    "phone": "053221308",
    "address": "Chiang Mai National Museum, 451, Chang Phueak,",
    "city": "Mueang Chiang Mai District"
+  },
+  {
+   "venue_name": "Integrated Tribal Development Foundation",
+   "sources": [
+    "payap-lll"
+   ],
+   "phone": "053 114 583",
+   "website": "https://itdfinternational.org/",
+   "address": "Integrated Tribal Development Foundation,169 หมู่ 3 San Phi Suea, Mueang Chiang Mai District,"
   },
   {
    "venue_name": "Lifelong Learning Payap",

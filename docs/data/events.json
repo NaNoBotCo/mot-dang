@@ -1,207 +1,7 @@
 {
- "generated": "2026-08-05",
- "count": 63,
+ "generated": "2026-08-13",
+ "count": 42,
  "events": [
-  {
-   "source": "payap-lll",
-   "uid": "10001021",
-   "title": "Exploring the Future",
-   "start": "2026-08-06 11:00:00",
-   "end": "2026-08-06 12:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/exploring-the-future/2026-08-06/",
-   "cost": "350฿",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 3,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10000988",
-   "title": "Caring and Sharing Group",
-   "start": "2026-08-07 13:00:00",
-   "end": "2026-08-07 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-08-07/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
-  },
-  {
-   "uid": "event_gbmpztyjclblb@meetup.com",
-   "start": "2026-08-08 18:00:00",
-   "all_day": false,
-   "tz": "Asia/Bangkok",
-   "end": "2026-08-08 22:00:00",
-   "title": "Every Saturday Night Karaoke & Tango at Attika Studio 🎤💃",
-   "description": "Beyond Small Talk, Chiang Mai Join us for a fun Saturday evening filled with music, dancing, laughter, and great company! We’ll begin the evening with **karaoke**, singing our favorite songs and enjoying some beer, wine, and cocktails in a relaxed and friendly atmosphere. Whether you love taking the microphone or prefer cheering everyone on, you’re welcome to join the fun. After karaoke, we’ll continue the evening with a **free tango dance lesson**, perfect for complete beginners and anyone who would like to learn a few basic steps. No dance partner or previous experience is needed. 📅 **Saturd",
-   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/gbmpztyjclblb/",
-   "source": "meetup-ical",
-   "venue_name": "Attika Studio 🎤💃",
-   "venue_from": "title",
-   "recurring": true,
-   "weekday": 5,
-   "place": null,
-   "richness": 5
-  },
-  {
-   "uid": "event_315885186@meetup.com",
-   "start": "2026-08-08 18:00:00",
-   "all_day": false,
-   "tz": "Asia/Bangkok",
-   "end": "2026-08-08 22:00:00",
-   "title": "Every Saturday Night Karaoke & Tango at Attika Studio 🎤💃",
-   "description": "Beyond Small Talk, Chiang Mai Join us for a fun Saturday evening filled with music, dancing, laughter, and great company! We’ll begin the evening with **karaoke**, singing our favorite songs and enjoying some beer, wine, and cocktails in a relaxed and friendly atmosphere. Whether you love taking the microphone or prefer cheering everyone on, you’re welcome to join the fun. After karaoke, we’ll continue the evening with a **free tango dance lesson**, perfect for complete beginners and anyone who would like to learn a few basic steps. No dance partner or previous experience is needed. 📅 **Saturd",
-   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/315885186/",
-   "source": "meetup-ical",
-   "venue_name": "Attika Studio 🎤💃",
-   "venue_from": "title",
-   "recurring": true,
-   "weekday": 5,
-   "place": null,
-   "richness": 5
-  },
-  {
-   "uid": "event_315942990@meetup.com",
-   "start": "2026-08-09 11:30:00",
-   "all_day": false,
-   "tz": "Asia/Bangkok",
-   "end": "2026-08-09 13:30:00",
-   "title": "Weekend Brunch by Nomads Chiang Mai – Built by Community",
-   "description": "Chiang Mai Professionals, Expats, and Digital Nomads **50 THB for event, plus order food** Please join our whatsapp group for more info, check in comments  ***  **📍 Sunday Brunch Gathering** 🗓 **Sunday** 🕦 **11:30 AM** 📍Robert Bake & Brunch 💰 **50 THB** (to support event costs and ongoing community fundraising)  ***  **Welcome to Chiang Mai!** Whether you’re new in town or have been here for a while, this is a space to connect, meet new people, and feel part of something. Our Sunday Brunch is organized by the Chiang Mai Professionals, Expats, and Digital Nomads community — bringing together lo",
-   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315942990/",
-   "source": "meetup-ical",
-   "venue_name": "",
-   "venue_from": "",
-   "recurring": false,
-   "weekday": null,
-   "place": null,
-   "richness": 3
-  },
-  {
-   "uid": "event_315343029@meetup.com",
-   "start": "2026-08-09 17:00:00",
-   "all_day": false,
-   "tz": "Asia/Bangkok",
-   "end": "2026-08-09 19:00:00",
-   "title": "🌅 Sunday Sunset Walk & Connect at CMU",
-   "description": "Beyond Small Talk, Chiang Mai # 🌅 Sunday Sunset Walk & Connect  Looking to meet new people, build meaningful connections, and end your weekend on a positive note?  Join us every Sunday from **5:00 PM – 7:00 PM** for a relaxing sunset walk around the beautiful grounds of Chiang Mai University (CMU). This gathering is designed to help **expats, newcomers, retirees, digital nomads, travelers, and locals** connect in a genuine and authentic way. Moving to a new city can be exciting, but it can also feel isolating at times. Creating a sense of belonging doesn't happen by accident—it happens through",
-   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/315343029/",
-   "source": "meetup-ical",
-   "venue_name": "CMU",
-   "venue_from": "title",
-   "recurring": true,
-   "weekday": 6,
-   "place": {
-    "id": "cm-osm-way-189632187",
-    "name": "มหาวิทยาลัยเชียงใหม่ · Chiang Mai University",
-    "province": "cm",
-    "href": "cm/p/chiang-mai-university-189632187.html",
-    "lat": 18.8009284,
-    "lng": 98.9539181,
-    "photo": null,
-    "cat": "learn",
-    "channels": [
-     {
-      "kind": "phone",
-      "cls": "phone",
-      "th": "โทร",
-      "en": "Phone",
-      "href": "tel:+6653941300",
-      "text": "+66 5394 1300",
-      "badge": null
-     },
-     {
-      "kind": "facebook",
-      "cls": "facebook",
-      "th": "เฟซบุ๊ก",
-      "en": "Facebook",
-      "href": "https://www.facebook.com/cmuofficial/",
-      "text": "@cmuofficial",
-      "badge": null
-     },
-     {
-      "kind": "web",
-      "cls": "web",
-      "th": "เว็บไซต์",
-      "en": "Website",
-      "href": "https://www.cmu.ac.th/",
-      "text": "cmu.ac.th",
-      "badge": null
-     }
-    ],
-    "precision": "approx"
-   },
-   "richness": 12
-  },
-  {
-   "uid": "event_315759467@meetup.com",
-   "start": "2026-08-09 19:00:00",
-   "all_day": false,
-   "tz": "Asia/Bangkok",
-   "end": "2026-08-09 21:00:00",
-   "title": "All Day Gaming",
-   "description": "Chiang Mai Professionals, Expats, and Digital Nomads Sundays are wild. We will be playing everything from DnD to Splendor to twilight imperium 4th, and if you don’t know what any of that is… no problem we can teach you.  We have always have a scheduled for the old crew and tables open for the new. Just walk in and play.",
-   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315759467/",
-   "source": "meetup-ical",
-   "venue_name": "",
-   "venue_from": "",
-   "recurring": false,
-   "weekday": null,
-   "place": null,
-   "richness": 3
-  },
-  {
-   "source": "payap-lll",
-   "uid": "273042",
-   "title": "Eco printing",
-   "start": "2026-08-11 08:00:00",
-   "end": "2026-08-11 15:00:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/eco-printing/",
-   "cost": "1500฿",
-   "venue_name": "Bua Bhat Factory",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": false,
-   "weekday": null,
-   "place": null,
-   "richness": 3
-  },
   {
    "source": "payap-lll",
    "uid": "10001022",
@@ -217,6 +17,14 @@
    "description": "",
    "recurring": true,
    "weekday": 3,
+   "sources": [
+    "payap-lll"
+   ],
+   "next_dates": [
+    "2026-08-13 11:00:00",
+    "2026-08-20 11:00:00"
+   ],
+   "instances": 2,
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -232,6 +40,26 @@
    "richness": 9
   },
   {
+   "uid": "event_316054760@meetup.com",
+   "start": "2026-08-13 14:00:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-13 17:00:00",
+   "title": "Artistic Digital Detox",
+   "description": "Chiang Mai Professionals, Expats, and Digital Nomads Donation based Art Workshop Thursday!  Hello all digital nomads/ travelers/ learners/ explorers/ wanderers; everybody:  Here's an opportunity to step away from the screen, and reconnect with your creative self! Through lightly-guided drawing and painting exercises we will explore our artistic sides together. Perhaps you used to draw and wish to get back into it, or have never drawn before, this workshop is designed to help everyone unlock their inner creativity. Come delight in the gift of spontaneous artistic creation. Allow yourself permis",
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316054760/",
+   "source": "meetup-ical",
+   "venue_name": "",
+   "venue_from": "",
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
+   "place": null,
+   "richness": 3
+  },
+  {
    "uid": "event_315900471@meetup.com",
    "start": "2026-08-13 18:00:00",
    "all_day": false,
@@ -245,8 +73,51 @@
    "venue_from": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
    "place": null,
    "richness": 3
+  },
+  {
+   "uid": "event_315817779@meetup.com",
+   "start": "2026-08-13 18:00:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-13 23:00:00",
+   "title": "Strategy Thursdays",
+   "description": "Chiang Mai Professionals, Expats, and Digital Nomads We will be diving into medium to heavy weight Euro games. No dice just strategy! We change games weekly: some favorite… Terraforming Mars SETI Terra Mystica Ark Nova",
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315817779/",
+   "source": "meetup-ical",
+   "venue_name": "",
+   "venue_from": "",
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
+   "place": null,
+   "richness": 3
+  },
+  {
+   "uid": "event_316043220@meetup.com",
+   "start": "2026-08-13 20:30:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-13 23:30:00",
+   "title": "Expat Karaoke Thursdays @ Extend Bar",
+   "description": "Chiang Mai Professionals, Expats, and Digital Nomads We’re Chiang Mai’s longest-running karaoke-loving community, bringing people together for good songs and a relaxed night out.  ### How it works  * Choose any song you can find on YouTube, add your name to the list, and wait for your turn. * Our karaoke events are an open-bar setup with 2-3 microphones.  ### Come as you are  Sing, dance, cheer someone on, or simply enjoy the show. First-timers, regulars, power-ballad fans, and enthusiastic clappers are all welcome.  ### At the bar  Walk in, order your drink, and join us. Drink and food promos",
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316043220/",
+   "source": "meetup-ical",
+   "venue_name": "Extend Bar",
+   "venue_from": "title",
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
+   "place": null,
+   "richness": 4
   },
   {
    "source": "payap-lll",
@@ -263,6 +134,20 @@
    "description": "",
    "recurring": true,
    "weekday": 4,
+   "sources": [
+    "payap-lll"
+   ],
+   "next_dates": [
+    "2026-08-14 13:00:00",
+    "2026-08-21 13:00:00",
+    "2026-08-28 13:00:00",
+    "2026-09-04 13:00:00",
+    "2026-09-11 13:00:00",
+    "2026-09-18 13:00:00",
+    "2026-09-25 13:00:00",
+    "2026-10-02 13:00:00"
+   ],
+   "instances": 19,
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -278,21 +163,64 @@
    "richness": 9
   },
   {
-   "uid": "event_gbmpztyjclbtb@meetup.com",
-   "start": "2026-08-15 18:00:00",
+   "uid": "event_315831013@meetup.com",
+   "start": "2026-08-14 18:00:00",
    "all_day": false,
    "tz": "Asia/Bangkok",
-   "end": "2026-08-15 22:00:00",
-   "title": "Every Saturday Night Karaoke & Tango at Attika Studio 🎤💃",
-   "description": "Beyond Small Talk, Chiang Mai Join us for a fun Saturday evening filled with music, dancing, laughter, and great company! We’ll begin the evening with **karaoke**, singing our favorite songs and enjoying some beer, wine, and cocktails in a relaxed and friendly atmosphere. Whether you love taking the microphone or prefer cheering everyone on, you’re welcome to join the fun. After karaoke, we’ll continue the evening with a **free tango dance lesson**, perfect for complete beginners and anyone who would like to learn a few basic steps. No dance partner or previous experience is needed. 📅 **Saturd",
-   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/gbmpztyjclbtb/",
+   "end": "2026-08-14 21:00:00",
+   "title": "Let’s Build Community — Together Nomad Social Night @ Attika Studio",
+   "description": "Chiang Mai Professionals, Expats, and Digital Nomads **PRICE OF EVENT: order drink** Good chats, good vibes — and a space for **nomads, travelers, and remote professionals** who believe community doesn’t happen by accident 🌿 This isn’t networking. This isn’t small talk. This is about **building a village — slowly, intentionally, together**. Whether you’re passing through Chiang Mai or rooted here for a season, Friday Social Night is a low-pressure place to meet thoughtful people, share real conversations, and practice connection without performance. ✨ **What to expect:** • Authentic conversati",
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315831013/",
    "source": "meetup-ical",
-   "venue_name": "Attika Studio 🎤💃",
+   "venue_name": "Attika Studio",
    "venue_from": "title",
-   "recurring": true,
-   "weekday": 5,
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
    "place": null,
-   "richness": 5
+   "richness": 4
+  },
+  {
+   "uid": "event_315831098@meetup.com",
+   "start": "2026-08-14 18:00:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-14 23:00:00",
+   "title": "New Gamers Night",
+   "description": "Chiang Mai Professionals, Expats, and Digital Nomads Light, silly, card tossing, card slapping, poker style games. Low rules- high fun is what Friday is all about. If you don’t drink this is a perfect place to meet folks and chill. We have great regulars and solo gamers are always welcome. Absolutely no experience is required. Just bring a grin and some cash for food and games.",
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315831098/",
+   "source": "meetup-ical",
+   "venue_name": "",
+   "venue_from": "",
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
+   "place": null,
+   "richness": 3
+  },
+  {
+   "uid": "event_316039250@meetup.com",
+   "start": "2026-08-15 07:30:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-15 09:30:00",
+   "title": "Slowcial Running Club CM",
+   "description": "Chiang Mai Professionals, Expats, and Digital Nomads Are you keen to meet other expats and locals while easing yourself into some gentle cardio training?  Join us at 7:30am every Saturday, for Slow + Social Run starting opposite Living a Dream Cafe on the CMU campus.  We'll enjoy a steady 20–25 minute jog, followed by coffee and food together afterwards. The pace is suitable for beginners through to more experienced runners, with everyone encouraged to run at their own comfortable pace and distance.  Start your weekend with a fun and friendly social gathering, meet new people, and get some ste",
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316039250/",
+   "source": "meetup-ical",
+   "venue_name": "",
+   "venue_from": "",
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
+   "place": null,
+   "richness": 3
   },
   {
    "uid": "event_315955033@meetup.com",
@@ -300,16 +228,110 @@
    "all_day": false,
    "tz": "Asia/Bangkok",
    "end": "2026-08-15 22:00:00",
-   "title": "Every Saturday Night Karaoke & Tango at Attika Studio 🎤💃",
-   "description": "Beyond Small Talk, Chiang Mai Join us for a fun Saturday evening filled with music, dancing, laughter, and great company! We’ll begin the evening with **karaoke**, singing our favorite songs and enjoying some beer, wine, and cocktails in a relaxed and friendly atmosphere. Whether you love taking the microphone or prefer cheering everyone on, you’re welcome to join the fun. After karaoke, we’ll continue the evening with a **free tango dance lesson**, perfect for complete beginners and anyone who would like to learn a few basic steps. No dance partner or previous experience is needed. 📅 **Saturd",
+   "title": "Every Saturday Night Karaoke & Salsa/ Bachata at Attika Studio 🎤💃",
+   "description": "Beyond Small Talk, Chiang Mai 🎤💃 **Saturday Salsa/Bachata & Karaoke Night at Attika Studio!** 🕺🎶 Join us every Saturday evening for a fun night filled with **dancing, music, laughter, drinks, and great company!** 💃 **6:30 PM–7:00 PM \\| Beginner Salsa or Bachata Lesson** We’ll begin the evening with a **30-minute beginner-level Salsa or Bachata lesson**. No previous dance experience and no partner are needed — just come along, learn a few basic steps, and have fun! 🎤 **After 7:00 PM \\| Karaoke Time\\!** After dancing, we’ll turn up the music and continue the evening with **karaoke**. Sing your f",
    "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/315955033/",
    "source": "meetup-ical",
    "venue_name": "Attika Studio 🎤💃",
    "venue_from": "title",
    "recurring": true,
    "weekday": 5,
+   "sources": [
+    "meetup-ical"
+   ],
+   "next_dates": [
+    "2026-08-15 18:00:00",
+    "2026-08-22 18:00:00",
+    "2026-08-29 18:00:00"
+   ],
+   "instances": 3,
    "place": null,
    "richness": 5
+  },
+  {
+   "uid": "event_316043037@meetup.com",
+   "start": "2026-08-15 18:00:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-15 22:00:00",
+   "title": "Every Saturday Night Karaoke & Tango at Attika Studio 🎤💃",
+   "description": "Beyond Small Talk, Chiang Mai Join us for a fun Saturday evening filled with music, dancing, laughter, and great company! We’ll begin the evening with **karaoke**, singing our favorite songs and enjoying some beer, wine, and cocktails in a relaxed and friendly atmosphere. Whether you love taking the microphone or prefer cheering everyone on, you’re welcome to join the fun. After karaoke, we’ll continue the evening with a **free tango dance lesson**, perfect for complete beginners and anyone who would like to learn a few basic steps. No dance partner or previous experience is needed. 📅 **Saturd",
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316043037/",
+   "source": "meetup-ical",
+   "venue_name": "Attika Studio 🎤💃",
+   "venue_from": "title",
+   "recurring": true,
+   "weekday": 5,
+   "sources": [
+    "meetup-ical"
+   ],
+   "next_dates": [
+    "2026-08-15 18:00:00",
+    "2026-08-22 18:00:00"
+   ],
+   "instances": 2,
+   "place": null,
+   "richness": 5
+  },
+  {
+   "uid": "event_315985476@meetup.com",
+   "start": "2026-08-15 18:45:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-15 20:45:00",
+   "title": "Insightful Dialogues: A Curated Dinner",
+   "description": "Chiang Mai Professionals, Expats, and Digital Nomads **Date:** Saturday, August 15, 2026 **Arrival:** 6:45 PM **Doors Close:** 7:00 PM (Strictly enforced) **Venue:** RINO, Chiang Mai **The Concept** Tired of the standard \"what's your niche?\" small talk? Join us for an evening of rigorous, intellectually honest, and highly insightful conversation designed specifically for Chiang Mai’s professionals, expats, and digital nomads. This curated dinner is an exercise in Socratic inquiry—a dedicated space to dismantle conventional wisdom, explore the realities of modern work, and engage in unfiltered ",
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315985476/",
+   "source": "meetup-ical",
+   "venue_name": "",
+   "venue_from": "",
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
+   "place": null,
+   "richness": 3
+  },
+  {
+   "uid": "event_316051244@meetup.com",
+   "start": "2026-08-16 11:30:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-16 13:30:00",
+   "title": "Weekend Brunch by Nomads Chiang Mai – Built by Community",
+   "description": "Chiang Mai Professionals, Expats, and Digital Nomads **50 THB for event, plus order food** Please join our whatsapp group for more info, check in comments  ***  **📍 Sunday Brunch Gathering** 🗓 **Sunday** 🕦 **11:30 AM** 📍Hideaway 💰 **50 THB** (to support event costs and ongoing community fundraising)  ***  **Welcome to Chiang Mai!** Whether you’re new in town or have been here for a while, this is a space to connect, meet new people, and feel part of something. Our Sunday Brunch is organized by the Chiang Mai Professionals, Expats, and Digital Nomads community — bringing together locals, expats",
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316051244/",
+   "source": "meetup-ical",
+   "venue_name": "",
+   "venue_from": "",
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
+   "place": null,
+   "richness": 3
+  },
+  {
+   "uid": "event_315942727@meetup.com",
+   "start": "2026-08-16 14:00:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-16 18:00:00",
+   "title": "Skate X Create 🛼🎨✨",
+   "description": "Chiang Mai Professionals, Expats, and Digital Nomads 🛼✨ Skate X Create ✨🛼  Join us from 2:00–6:00 pm at Chiang Mai Railway Station Park for a playful afternoon where skaters roll, artists create, and everyone gets to just be. Come spend the day outside with us drawing, painting, skating, resting, laughing, connecting. you can roll through on your skates, sit in the grass with your sketchbook, or simply show up and soak in the vibe. there’s no pressure to perform or produce anything “perfect”, just an open invitation to move, make, and play in whatever way feels good to you. We will play double",
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315942727/",
+   "source": "meetup-ical",
+   "venue_name": "",
+   "venue_from": "",
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
+   "place": null,
+   "richness": 3
   },
   {
    "uid": "event_315856434@meetup.com",
@@ -325,6 +347,14 @@
    "venue_from": "title",
    "recurring": true,
    "weekday": 6,
+   "sources": [
+    "meetup-ical"
+   ],
+   "next_dates": [
+    "2026-08-16 17:00:00",
+    "2026-08-23 17:00:00"
+   ],
+   "instances": 2,
    "place": {
     "id": "cm-osm-way-189632187",
     "name": "มหาวิทยาลัยเชียงใหม่ · Chiang Mai University",
@@ -368,33 +398,24 @@
    "richness": 12
   },
   {
-   "source": "payap-lll",
-   "uid": "10001009",
-   "title": "Qigong for Balance & Self-Empowerment",
-   "start": "2026-08-18 10:00:00",
-   "end": "2026-08-18 11:30:00",
-   "tz": "Asia/Bangkok",
+   "uid": "event_315857525@meetup.com",
+   "start": "2026-08-16 19:00:00",
    "all_day": false,
-   "url": "https://www.lllpayap.com/event/qigong-for-balance-self-empowerment-2/2026-08-18/",
-   "cost": "1800฿",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 1,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-16 21:00:00",
+   "title": "All Day Gaming",
+   "description": "Chiang Mai Professionals, Expats, and Digital Nomads Sundays are wild. We will be playing everything from DnD to Splendor to twilight imperium 4th, and if you don’t know what any of that is… no problem we can teach you.  We have always have a scheduled for the old crew and tables open for the new. Just walk in and play.",
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315857525/",
+   "source": "meetup-ical",
+   "venue_name": "",
+   "venue_from": "",
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
+   "place": null,
+   "richness": 3
   },
   {
    "uid": "event_315949373@meetup.com",
@@ -410,37 +431,11 @@
    "venue_from": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
    "place": null,
    "richness": 3
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001023",
-   "title": "Exploring the Future",
-   "start": "2026-08-20 11:00:00",
-   "end": "2026-08-20 12:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/exploring-the-future/2026-08-20/",
-   "cost": "350฿",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 3,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
   },
   {
    "uid": "event_315901696@meetup.com",
@@ -448,91 +443,61 @@
    "all_day": false,
    "tz": "Asia/Bangkok",
    "end": "2026-08-20 20:00:00",
-   "title": "From Surviving to Thriving: Transform Your Body, Mind & Soul",
-   "description": "Beyond Small Talk, Chiang Mai # From Surviving to Thriving: Transform Your Body, Mind & Soul  Are you ready to feel healthier, stronger, calmer, and more energized? Join us for an inspiring two-hour Meetup exploring practical ways to improve your physical, mental, and emotional well-being. 📅 **Thursday, August 20, 2026** ⏰ **6:00 PM–8:00 PM** 📍 **Spice Garden, Chiang Mai** 🎤 **Guest Speaker: StewArt, Founder of Balance Health** StewArt is a former professional ballet and ballroom dancer, dance-school owner, and university teacher. He created Balance Health to help people live healthier and hap",
+   "title": "The Biggest Mistake I Made After Moving to Chiang Mai",
+   "description": "Beyond Small Talk, Chiang Mai Moving to Chiang Mai can feel like a fresh start — beautiful weather, affordable living, amazing food, endless activities, and people arriving from all over the world.  But starting over in a new country also comes with mistakes. And I made one that affected me far more than I expected. At this Meetup, I’ll share **the biggest mistake I made after moving to Chiang Mai**, what it taught me, and what I would do differently if I were starting again today. Then I want to hear from you.  **What mistakes have you made since moving abroad?** Did you trust the wrong peopl",
    "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/315901696/",
    "source": "meetup-ical",
-   "venue_name": "",
-   "venue_from": "",
+   "venue_name": "Spice Garden, Chiang Mai",
+   "venue_from": "description",
    "recurring": false,
    "weekday": null,
-   "place": null,
-   "richness": 3
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10000990",
-   "title": "Caring and Sharing Group",
-   "start": "2026-08-21 13:00:00",
-   "end": "2026-08-21 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-08-21/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
+   "sources": [
+    "meetup-ical"
+   ],
    "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
+    "id": "cm-osm-way-1005881892",
+    "name": "Spice Garden",
     "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
+    "href": "cm/p/spice-garden-1005881892.html",
+    "lat": 18.7896396,
+    "lng": 98.9924179,
     "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
+    "cat": "hotel",
+    "channels": [
+     {
+      "kind": "phone",
+      "cls": "phone",
+      "th": "โทร",
+      "en": "Phone",
+      "href": "tel:053215011",
+      "text": "053215011",
+      "badge": null
+     },
+     {
+      "kind": "web",
+      "cls": "web",
+      "th": "เว็บไซต์",
+      "en": "Website",
+      "href": "https://spicegarden.co.th/",
+      "text": "spicegarden.co.th",
+      "badge": [
+       "ไปที่ spicegardenchiangmai.com",
+       "now at spicegardenchiangmai.com"
+      ]
+     },
+     {
+      "kind": "email",
+      "cls": "email",
+      "th": "อีเมล",
+      "en": "Email",
+      "href": "mailto:contact@spicegarden.co.th",
+      "text": "contact@spicegarden.co.th",
+      "badge": null
+     }
+    ],
+    "precision": "tokens"
    },
-   "richness": 9
-  },
-  {
-   "uid": "event_gbmpztyjclbdc@meetup.com",
-   "start": "2026-08-22 18:00:00",
-   "all_day": false,
-   "tz": "Asia/Bangkok",
-   "end": "2026-08-22 22:00:00",
-   "title": "Every Saturday Night Karaoke & Tango at Attika Studio 🎤💃",
-   "description": "Beyond Small Talk, Chiang Mai Join us for a fun Saturday evening filled with music, dancing, laughter, and great company! We’ll begin the evening with **karaoke**, singing our favorite songs and enjoying some beer, wine, and cocktails in a relaxed and friendly atmosphere. Whether you love taking the microphone or prefer cheering everyone on, you’re welcome to join the fun. After karaoke, we’ll continue the evening with a **free tango dance lesson**, perfect for complete beginners and anyone who would like to learn a few basic steps. No dance partner or previous experience is needed. 📅 **Saturd",
-   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/gbmpztyjclbdc/",
-   "source": "meetup-ical",
-   "venue_name": "Attika Studio 🎤💃",
-   "venue_from": "title",
-   "recurring": true,
-   "weekday": 5,
-   "place": null,
-   "richness": 5
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001010",
-   "title": "Qigong for Balance & Self-Empowerment",
-   "start": "2026-08-25 10:00:00",
-   "end": "2026-08-25 11:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/qigong-for-balance-self-empowerment-2/2026-08-25/",
-   "cost": "1800฿",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 1,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
+   "richness": 11
   },
   {
    "source": "payap-lll",
@@ -549,6 +514,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -562,6 +530,26 @@
     "precision": "approx"
    },
    "richness": 8
+  },
+  {
+   "uid": "event_316040022@meetup.com",
+   "start": "2026-08-27 18:00:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-27 20:00:00",
+   "title": "Why Is It So Hard to Leave Chiang Mai?",
+   "description": "Beyond Small Talk, Chiang Mai **Why Is It So Hard to Leave Chiang Mai?** **Dinner Discussion at Spice Garden** **Thursday\\, August 27 \\| 6:00 PM**  What is it about Chiang Mai that keeps pulling people back? Some people come for a few weeks and stay for months. Others leave, only to find themselves missing the city and eventually returning. Is it the peaceful energy, the sense of community, the affordability, the freedom, the people, the food, the nature—or something harder to explain? Join us for a relaxed and meaningful dinner discussion at **Spice Garden** as we explore the question: **Why ",
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316040022/",
+   "source": "meetup-ical",
+   "venue_name": "",
+   "venue_from": "",
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
+   "place": null,
+   "richness": 3
   },
   {
    "source": "payap-lll",
@@ -578,6 +566,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-200414775",
     "name": "พิพิธภัณฑ์แห่งชาติ จังหวัดเชียงใหม่ · Chiang Mai National Museum",
@@ -613,64 +604,6 @@
   },
   {
    "source": "payap-lll",
-   "uid": "10000991",
-   "title": "Caring and Sharing Group",
-   "start": "2026-08-28 13:00:00",
-   "end": "2026-08-28 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-08-28/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001011",
-   "title": "Qigong for Balance & Self-Empowerment",
-   "start": "2026-09-01 10:00:00",
-   "end": "2026-09-01 11:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/qigong-for-balance-self-empowerment-2/2026-09-01/",
-   "cost": "1800฿",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 1,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
    "uid": "273197",
    "title": "I Love You So We Will Stay With You",
    "start": "2026-09-02 10:00:00",
@@ -684,6 +617,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -700,19 +636,22 @@
   },
   {
    "source": "payap-lll",
-   "uid": "10000992",
-   "title": "Caring and Sharing Group",
-   "start": "2026-09-04 13:00:00",
-   "end": "2026-09-04 14:30:00",
+   "uid": "273343",
+   "title": "Chiang mai Photographers-Favorite Pictures",
+   "start": "2026-09-03 10:00:00",
+   "end": "2026-09-03 12:00:00",
    "tz": "Asia/Bangkok",
    "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-09-04/",
+   "url": "https://www.lllpayap.com/event/chiang-mai-photographers-favorite-pictures-3/",
    "cost": "Free",
    "venue_name": "Lifelong Learning Payap Center",
    "venue_from": "feed",
    "description": "",
-   "recurring": true,
-   "weekday": 4,
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -725,36 +664,7 @@
     "channels": [],
     "precision": "approx"
    },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001012",
-   "title": "Qigong for Balance & Self-Empowerment",
-   "start": "2026-09-08 10:00:00",
-   "end": "2026-09-08 11:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/qigong-for-balance-self-empowerment-2/2026-09-08/",
-   "cost": "1800฿",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 1,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
+   "richness": 8
   },
   {
    "source": "payap-lll",
@@ -771,6 +681,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -784,64 +697,6 @@
     "precision": "approx"
    },
    "richness": 8
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10000993",
-   "title": "Caring and Sharing Group",
-   "start": "2026-09-11 13:00:00",
-   "end": "2026-09-11 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-09-11/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001013",
-   "title": "Qigong for Balance & Self-Empowerment",
-   "start": "2026-09-15 10:00:00",
-   "end": "2026-09-15 11:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/qigong-for-balance-self-empowerment-2/2026-09-15/",
-   "cost": "1800฿",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 1,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
   },
   {
    "source": "payap-lll",
@@ -858,6 +713,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -874,19 +732,22 @@
   },
   {
    "source": "payap-lll",
-   "uid": "10000994",
-   "title": "Caring and Sharing Group",
-   "start": "2026-09-18 13:00:00",
-   "end": "2026-09-18 14:30:00",
+   "uid": "273339",
+   "title": "Excursion to Daraphirom Palace Museum",
+   "start": "2026-09-18 09:00:00",
+   "end": "2026-09-18 12:00:00",
    "tz": "Asia/Bangkok",
    "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-09-18/",
-   "cost": "Free",
+   "url": "https://www.lllpayap.com/event/excursion-to-daraphirom-palace-museum/",
+   "cost": "400฿",
    "venue_name": "Lifelong Learning Payap Center",
    "venue_from": "feed",
    "description": "",
-   "recurring": true,
-   "weekday": 4,
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -899,36 +760,7 @@
     "channels": [],
     "precision": "approx"
    },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001014",
-   "title": "Qigong for Balance & Self-Empowerment",
-   "start": "2026-09-22 10:00:00",
-   "end": "2026-09-22 11:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/qigong-for-balance-self-empowerment-2/2026-09-22/",
-   "cost": "1800฿",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 1,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
+   "richness": 8
   },
   {
    "source": "payap-lll",
@@ -945,6 +777,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -974,6 +809,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -987,64 +825,6 @@
     "precision": "approx"
    },
    "richness": 8
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10000995",
-   "title": "Caring and Sharing Group",
-   "start": "2026-09-25 13:00:00",
-   "end": "2026-09-25 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-09-25/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10000996",
-   "title": "Caring and Sharing Group",
-   "start": "2026-10-02 13:00:00",
-   "end": "2026-10-02 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-10-02/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
   },
   {
    "source": "payap-lll",
@@ -1061,6 +841,17 @@
    "description": "",
    "recurring": true,
    "weekday": 1,
+   "sources": [
+    "payap-lll"
+   ],
+   "next_dates": [
+    "2026-10-06 13:00:00",
+    "2026-10-20 13:00:00",
+    "2026-10-27 13:00:00",
+    "2026-11-03 13:00:00",
+    "2026-11-10 13:00:00"
+   ],
+   "instances": 5,
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -1074,6 +865,27 @@
     "precision": "approx"
    },
    "richness": 9
+  },
+  {
+   "source": "payap-lll",
+   "uid": "273303",
+   "title": "Traditional Thai Herbal Compress",
+   "start": "2026-10-07 08:00:00",
+   "end": "2026-10-07 13:00:00",
+   "tz": "Asia/Bangkok",
+   "all_day": false,
+   "url": "https://www.lllpayap.com/event/traditional-thai-herbal-compress/",
+   "cost": "1,150฿",
+   "venue_name": "Integrated Tribal Development Foundation",
+   "venue_from": "feed",
+   "description": "",
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
+   "place": null,
+   "richness": 3
   },
   {
    "source": "payap-lll",
@@ -1090,6 +902,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -1103,35 +918,6 @@
     "precision": "approx"
    },
    "richness": 8
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10000997",
-   "title": "Caring and Sharing Group",
-   "start": "2026-10-09 13:00:00",
-   "end": "2026-10-09 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-10-09/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
   },
   {
    "source": "payap-lll",
@@ -1148,6 +934,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -1164,48 +953,27 @@
   },
   {
    "source": "payap-lll",
-   "uid": "10000998",
-   "title": "Caring and Sharing Group",
-   "start": "2026-10-16 13:00:00",
-   "end": "2026-10-16 14:30:00",
+   "uid": "10001041",
+   "title": "Beyond the Smile: Understanding Thai Values and Relationships",
+   "start": "2026-10-20 09:00:00",
+   "end": "2026-10-20 12:00:00",
    "tz": "Asia/Bangkok",
    "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-10-16/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001017",
-   "title": "Portraits in Drawing and Watercolor",
-   "start": "2026-10-20 13:00:00",
-   "end": "2026-10-20 14:00:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/portraits-in-drawing-and-watercolor/2026-10-20/",
-   "cost": "2250฿",
+   "url": "https://www.lllpayap.com/event/beyond-the-smile-understanding-thai-values-and-relationships/2026-10-20/",
+   "cost": "350฿",
    "venue_name": "Lifelong Learning Payap Center",
    "venue_from": "feed",
    "description": "",
    "recurring": true,
    "weekday": 1,
+   "sources": [
+    "payap-lll"
+   ],
+   "next_dates": [
+    "2026-10-20 09:00:00",
+    "2026-10-27 09:00:00"
+   ],
+   "instances": 2,
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -1235,6 +1003,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -1248,64 +1019,6 @@
     "precision": "approx"
    },
    "richness": 8
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10000999",
-   "title": "Caring and Sharing Group",
-   "start": "2026-10-23 13:00:00",
-   "end": "2026-10-23 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-10-23/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001018",
-   "title": "Portraits in Drawing and Watercolor",
-   "start": "2026-10-27 13:00:00",
-   "end": "2026-10-27 14:00:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/portraits-in-drawing-and-watercolor/2026-10-27/",
-   "cost": "2250฿",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 1,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
   },
   {
    "source": "payap-lll",
@@ -1322,6 +1035,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -1335,35 +1051,6 @@
     "precision": "approx"
    },
    "richness": 8
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001000",
-   "title": "Caring and Sharing Group",
-   "start": "2026-10-30 13:00:00",
-   "end": "2026-10-30 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-10-30/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
   },
   {
    "source": "payap-lll",
@@ -1380,66 +1067,32 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": null,
    "richness": 3
   },
   {
    "source": "payap-lll",
-   "uid": "10001019",
-   "title": "Portraits in Drawing and Watercolor",
-   "start": "2026-11-03 13:00:00",
-   "end": "2026-11-03 14:00:00",
+   "uid": "273297",
+   "title": "Mindful Sashiko Hand-Stitching",
+   "start": "2026-11-09 08:00:00",
+   "end": "2026-11-09 16:00:00",
    "tz": "Asia/Bangkok",
    "all_day": false,
-   "url": "https://www.lllpayap.com/event/portraits-in-drawing-and-watercolor/2026-11-03/",
-   "cost": "2250฿",
-   "venue_name": "Lifelong Learning Payap Center",
+   "url": "https://www.lllpayap.com/event/mindful-sashiko-hand-stitching/",
+   "cost": "1550฿",
+   "venue_name": "Integrated Tribal Development Foundation",
    "venue_from": "feed",
    "description": "",
-   "recurring": true,
-   "weekday": 1,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001001",
-   "title": "Caring and Sharing Group",
-   "start": "2026-11-06 13:00:00",
-   "end": "2026-11-06 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-11-06/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
+   "place": null,
+   "richness": 3
   },
   {
    "source": "payap-lll",
@@ -1456,24 +1109,30 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": null,
    "richness": 3
   },
   {
    "source": "payap-lll",
-   "uid": "10001020",
-   "title": "Portraits in Drawing and Watercolor",
-   "start": "2026-11-10 13:00:00",
-   "end": "2026-11-10 14:00:00",
-   "tz": "Asia/Bangkok",
+   "uid": "273347",
+   "title": "Mobile Phone Support Workshop",
+   "start": "2026-11-11 10:00:00",
+   "end": "2026-11-11 12:00:00",
+   "tz": "UTC+7",
    "all_day": false,
-   "url": "https://www.lllpayap.com/event/portraits-in-drawing-and-watercolor/2026-11-10/",
-   "cost": "2250฿",
+   "url": "https://www.lllpayap.com/event/mobile-phone-support-workshop-2-2-2-2-2/",
+   "cost": "Free",
    "venue_name": "Lifelong Learning Payap Center",
    "venue_from": "feed",
    "description": "",
-   "recurring": true,
-   "weekday": 1,
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -1486,7 +1145,7 @@
     "channels": [],
     "precision": "approx"
    },
-   "richness": 9
+   "richness": 8
   },
   {
    "source": "payap-lll",
@@ -1503,6 +1162,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -1516,35 +1178,6 @@
     "precision": "approx"
    },
    "richness": 8
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001002",
-   "title": "Caring and Sharing Group",
-   "start": "2026-11-13 13:00:00",
-   "end": "2026-11-13 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-11-13/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
   },
   {
    "source": "payap-lll",
@@ -1561,6 +1194,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -1574,35 +1210,6 @@
     "precision": "approx"
    },
    "richness": 8
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001003",
-   "title": "Caring and Sharing Group",
-   "start": "2026-11-20 13:00:00",
-   "end": "2026-11-20 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-11-20/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
   },
   {
    "source": "payap-lll",
@@ -1619,6 +1226,9 @@
    "description": "",
    "recurring": false,
    "weekday": null,
+   "sources": [
+    "payap-lll"
+   ],
    "place": {
     "id": "cm-osm-way-122522956",
     "name": "มหาวิทยาลัยพายัพ · Payap University",
@@ -1632,122 +1242,6 @@
     "precision": "approx"
    },
    "richness": 8
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001004",
-   "title": "Caring and Sharing Group",
-   "start": "2026-11-27 13:00:00",
-   "end": "2026-11-27 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-11-27/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001005",
-   "title": "Caring and Sharing Group",
-   "start": "2026-12-04 13:00:00",
-   "end": "2026-12-04 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-12-04/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001006",
-   "title": "Caring and Sharing Group",
-   "start": "2026-12-11 13:00:00",
-   "end": "2026-12-11 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-12-11/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
-  },
-  {
-   "source": "payap-lll",
-   "uid": "10001007",
-   "title": "Caring and Sharing Group",
-   "start": "2026-12-18 13:00:00",
-   "end": "2026-12-18 14:30:00",
-   "tz": "Asia/Bangkok",
-   "all_day": false,
-   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-12-18/",
-   "cost": "Free",
-   "venue_name": "Lifelong Learning Payap Center",
-   "venue_from": "feed",
-   "description": "",
-   "recurring": true,
-   "weekday": 4,
-   "place": {
-    "id": "cm-osm-way-122522956",
-    "name": "มหาวิทยาลัยพายัพ · Payap University",
-    "province": "cm",
-    "href": "cm/p/payap-university-122522956.html",
-    "lat": 18.7961921,
-    "lng": 99.0327199,
-    "photo": null,
-    "cat": "learn",
-    "channels": [],
-    "precision": "approx"
-   },
-   "richness": 9
   }
  ]
 }

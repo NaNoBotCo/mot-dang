@@ -130,6 +130,31 @@ if(el.querySelector('.wstale'))return;
 const s=document.createElement('span');s.className='wfoot wstale';
 s.innerHTML=mdBi('ยังไม่ได้อัปเดตสำหรับวันนี้','not updated for today');
 el.appendChild(s);});}
+// --- freshness strip: relative wording computed in the reader's browser,
+// so it cannot rot the way a baked "today" would. Stamps are Thai wall time.
+(function(){const els=document.querySelectorAll('[data-freshts]');if(!els.length)return;
+function mdRel(ts){
+const dateOnly=/^\d{4}-\d{2}-\d{2}$/.test(ts);
+if(dateOnly){const today=MD_TODAY;
+if(ts===today)return ['วันนี้','today'];
+const days=Math.round((new Date(today+'T12:00')-new Date(ts+'T12:00'))/864e5);
+if(days===1)return ['เมื่อวาน','yesterday'];
+if(days>1)return [days+' วันที่แล้ว',days+'d ago'];
+return ['วันนี้','today'];}
+const d=new Date(ts.replace(' ','T'));if(isNaN(d))return null;
+const mins=Math.round((Date.now()-d)/6e4);
+if(mins<2)return ['เมื่อกี้','just now'];
+if(mins<60)return [mins+' นาทีที่แล้ว',mins+'m ago'];
+const h=Math.round(mins/60);
+if(h<24)return [h+' ชม.ที่แล้ว',h+'h ago'];
+const days=Math.round(h/24);
+if(days===1)return ['เมื่อวาน','yesterday'];
+return [days+' วันที่แล้ว',days+'d ago'];}
+els.forEach(el=>{const ts=el.dataset.freshts||'';const r=mdRel(ts);
+const s=el.querySelector('.freshrel');if(!r||!s)return;
+s.innerHTML=mdBi(r[0],r[1]);
+const age=(Date.now()-new Date(ts.replace(' ','T')+(ts.length===10?'T12:00':'')))/864e5;
+if(age>2.2)el.classList.add('quiet');});})();
 // --- sky tile: moon + jupiter, drawn from baked positions
 (async()=>{const host=document.getElementById('w-sky');if(!host)return;
 const doc=await mdJSON('data/sky.json');const day=mdPick(doc);
@@ -715,6 +740,10 @@ const elEmpty=document.getElementById('planempty'),elHas=document.getElementById
 elTotal=document.getElementById('plantotal'),elMap=document.getElementById('planmap'),
 elBanner=document.getElementById('planbanner');
 let here=null; // the reader's own position, once they offer it
+// What the last drawing framed: centre and reach, in the drawing's own units.
+// svgMap fills it, render() hands it to the basemap. Null until the first
+// plan is drawn, which is also when there is nothing to point a map at.
+let PLANFRAME=null;
 // A shared link wins over whatever is in this browser, but never silently:
 // the banner says a plan arrived and offers to keep it before it overwrites.
 const shared=new URLSearchParams(location.search).get('stops');
@@ -1169,10 +1198,20 @@ let aria='แผนที่ทริปของคุณ '+list.length+' จ�
 if(moatShows)aria+=' — คูเมืองอยู่ในภาพ · the old city moat runs across it';
 else if(insideWalls)aria+=' — ทั้งหมดอยู่ในเวียงเก่า · all of it inside the old city';
 if(gatesHere.length)aria+=' — '+gatesHere.map(g=>g.th+' '+g.en).join(', ');
+// Hand the frame out so render() can point the basemap at exactly what was
+// drawn. Everything below is in these units; nothing else knows them.
+PLANFRAME={n:n,s:s,e:e,w:w,kx:kx,W:W,H:H};
+const GROUND=!!(window.MDMAP&&elMap&&MDMAP.live(elMap));
 let o=['<svg viewBox="0 0 '+W+' '+Math.round(H)+'" width="100%" class="planmap" role="img" '+
-'aria-label="'+H2(aria)+'">',
-'<rect width="'+W+'" height="'+Math.round(H)+'" fill="#FBF6EE"/>'];
-if(moatShows){
+'aria-label="'+H2(aria)+'">'];
+// The cream rectangle IS the map when there is nothing underneath, and it is
+// a sheet thrown over the map when there is.
+if(!GROUND)o.push('<rect width="'+W+'" height="'+Math.round(H)+'" fill="#FBF6EE"/>');
+// The traced moat is four corner pins joined by straight lines. Over a real
+// basemap that is a wrong shape sitting on a right one — the actual moat is
+// there in the tiles, rounded corners and all — so the tracing gives way and
+// only its name stays.
+if(moatShows&&!GROUND){
 o.push('<path d="'+POLY.map((p,i)=>(i?'L':'M')+X(p.lng).toFixed(1)+' '+Y(p.lat).toFixed(1)).join(' ')+
 'Z" fill="none" stroke="#2a78d6" stroke-width="2" stroke-dasharray="5 4" opacity=".55">'+
 '<title>คูเมืองเชียงใหม่ (เส้นโดยประมาณ จากหมุดแจ่งทั้งสี่) · the old city moat, '+
@@ -1187,6 +1226,9 @@ else if(insideWalls)o.push('<text x="'+(W-12)+'" y="20" text-anchor="end" font-s
 // line lies over the landmark rather than under it.
 gatesHere.forEach(g=>{
 const gx=X(g.lng),gy=Y(g.lat);
+// A gate is a symbol standing over one spot, so it keeps its size when the
+// reader zooms; the moat it stands on is ground and grows.
+o.push('<g data-mdpin="'+gx.toFixed(1)+','+gy.toFixed(1)+'">');
 o.push('<path d="M'+gx.toFixed(1)+' '+(gy-6).toFixed(1)+'l6 6l-6 6l-6-6Z" fill="#FBF6EE" '+
 'stroke="#2a78d6" stroke-width="2" opacity=".95"><title>'+H2(g.th+' · '+g.en)+
 '</title></path>');
@@ -1198,7 +1240,8 @@ if(gx-half<4){ga='start';gxl=4;}else if(gx+half>W-4){ga='end';gxl=W-4;}
 const crowded=list.some(p=>Math.hypot(X(p.lng)-gx,Y(p.lat)-(gy+20))<46);
 const gyl=crowded?Math.max(14,gy-12):Math.min(H-5,gy+20);
 o.push('<text x="'+gxl.toFixed(1)+'" y="'+gyl.toFixed(1)+'" text-anchor="'+ga+
-'" font-size="10" fill="#2a78d6" opacity=".9">'+H2(gl)+'</text>');});
+'" font-size="10" fill="#2a78d6" opacity=".9">'+H2(gl)+'</text>');
+o.push('</g>');});
 // Draw the roads the route really follows. Both modes, because they diverge:
 // where the walk and the ride part company is exactly the thing worth seeing.
 // The scooter line goes down first and solid, the walking line over it dashed,
@@ -1236,10 +1279,16 @@ o.push('<path d="M'+X(a.lng).toFixed(1)+' '+Y(a.lat).toFixed(1)+'L'+X(p.lng).toF
 ' '+Y(p.lat).toFixed(1)+'" fill="none" stroke="#8a7a62" stroke-width="2" '+
 'stroke-dasharray="2 5" opacity=".8"><title>'+
 'เส้นตรง ยังไม่ได้คิดตามถนน / straight line, not routed</title></path>');}});
-if(here){o.push('<circle cx="'+X(here.lng).toFixed(1)+'" cy="'+Y(here.lat).toFixed(1)+
+if(here){o.push('<g data-mdpin="'+X(here.lng).toFixed(1)+','+Y(here.lat).toFixed(1)+
+'"><circle cx="'+X(here.lng).toFixed(1)+'" cy="'+Y(here.lat).toFixed(1)+
 '" r="7" fill="#2a78d6" fill-opacity=".25" stroke="#2a78d6" stroke-width="2">'+
-'<title>ตำแหน่งของคุณ · you are here</title></circle>');}
+'<title>ตำแหน่งของคุณ · you are here</title></circle></g>');}
 list.forEach((p,i)=>{const cx=X(p.lng),cy=Y(p.lat);
+// The pin, its number and its name are one symbol over one doorway. Grown
+// with the ground they would be four times the size two zooms in.
+o.push('<g data-mdpin="'+cx.toFixed(1)+','+cy.toFixed(1)+'">');
+if(GROUND)o.push('<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+
+'" r="16" fill="#FFFCF6"/>');
 o.push('<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="13" fill="#a3231c" '+
 'stroke="#7d1712" stroke-width="2"><title>'+H2(p.n)+'</title></circle>');
 o.push('<text x="'+cx.toFixed(1)+'" y="'+(cy+5).toFixed(1)+'" text-anchor="middle" '+
@@ -1248,21 +1297,29 @@ const label=p.n.length>24?p.n.slice(0,23)+'…':p.n;
 let anchor='middle',lx=cx;const half=label.length*3.6;
 if(cx-half<4){anchor='start';lx=4;}else if(cx+half>W-4){anchor='end';lx=W-4;}
 o.push('<text x="'+lx.toFixed(1)+'" y="'+(cy-18).toFixed(1)+'" text-anchor="'+anchor+
-'" font-size="12" fill="#2A1E16">'+H2(label)+'</text>');});
+'" font-size="12" fill="#2A1E16" stroke="#FFFCF6" stroke-width="3" '+
+'paint-order="stroke">'+H2(label)+'</text>');
+o.push('</g>');});
 const kmDeg=111.32*kx,barKm=(e-w)*kx*111.32>6?2:0.5,barPx=barKm/kmDeg/(e-w)*W;
 if(barPx<W*0.6){const by=Math.round(H-16);
+// Frame furniture: it keeps its corner, and the shell takes the bar away
+// once the reader has zoomed off the scale it was measured at.
+o.push('<g class="mdmap-scale" data-mdfix="1">');
 o.push('<line x1="16" y1="'+by+'" x2="'+(16+barPx).toFixed(1)+'" y2="'+by+
 '" stroke="#2A1E16" stroke-width="2"/>');
-o.push('<text x="16" y="'+(by-5)+'" font-size="10" fill="#2A1E16">'+barKm+' กม./km</text>');}
+o.push('<text x="16" y="'+(by-5)+'" font-size="10" fill="#2A1E16">'+barKm+' กม./km</text>');
+o.push('</g>');}
 // Two lines on one map need saying which is which.
 if(anyRouted||anyStraight){let lx=W-14,ly=H-34;
+o.push('<g data-mdfix="1">');
 const key=(stroke,wd,dash,label)=>{
 o.push('<line x1="'+(lx-26)+'" y1="'+ly+'" x2="'+(lx-6)+'" y2="'+ly+'" stroke="'+stroke+
 '" stroke-width="'+wd+'"'+(dash?' stroke-dasharray="'+dash+'"':'')+' stroke-linecap="round"/>');
 o.push('<text x="'+(lx-32)+'" y="'+(ly+4)+'" text-anchor="end" font-size="10" fill="#2A1E16">'+
 label+'</text>');ly+=14;};
 if(anyRouted){key('#a3231c',2.5,'6 4','🚶 เดิน/walk');key('#1c5aa8',4,'','🛵 มอไซค์/scooter');}
-if(anyStraight)key('#8a7a62',2,'2 5','เส้นตรง/straight');}
+if(anyStraight)key('#8a7a62',2,'2 5','เส้นตรง/straight');
+o.push('</g>');}
 o.push('</svg>');return o.join('');}
 function H2(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function planUrl(){return SITE+'plan.html?stops='+encodeURIComponent(places.map(p=>p.key).join(','));}
@@ -1302,13 +1359,38 @@ return lines.join('\n');}
 // The demo teaches an empty page. Once there are real stops on the map it is
 // just a second animated map competing with the true one, so it steps aside.
 const elDemo=document.getElementById('plandemo');
+// The basemap mounts lazily — map.js waits until the box is on screen, because
+// MapLibre is a megabyte. So the first drawing is made before there is any
+// ground, keeps its cream sheet (which is right: it is what fills the box
+// while the tiles are in flight), and would then sit ON TOP of the streets
+// when they arrive. map.js announces the moment it is ready by dispatching
+// mdmap:sync, so listen once and draw again — this second drawing knows the
+// ground is there, drops the sheet and the traced moat, and points the camera
+// at the plan's own frame.
+if(elMap)elMap.addEventListener('mdmap:sync',function ready(){
+elMap.removeEventListener('mdmap:sync',ready);render();});
 function render(){
 if(elDemo)elDemo.style.display=places.length?'none':'';
 if(!places.length){elEmpty.style.display='';elHas.style.display='none';
 if(incoming)elBanner.style.display='none';return;}
 elEmpty.style.display='none';elHas.style.display='';
 const legs=[];for(let i=1;i<places.length;i++)legs.push(leg(places[i-1],places[i]));
-elMap.innerHTML=svgMap(places,legs);
+// With a basemap live the drawing belongs in its own layer under the tiles;
+// writing straight into the container would tear the live map out with it.
+(elMap.querySelector('.mdmap-draw')||elMap).innerHTML=svgMap(places,legs);
+if(window.MDMAP&&MDMAP.live(elMap)&&PLANFRAME){
+const F=PLANFRAME;
+// Measure the SVG, not its container. The wrapper scrolls sideways and the
+// drawing carries a min-width, so on a narrow phone the box is 300 px wide
+// while the picture inside it is 352 — and a scale taken from the box would
+// put the streets at one zoom and the pins at another.
+const svgEl=elMap.querySelector('.mdmap-draw svg');
+const shown=(svgEl&&svgEl.getBoundingClientRect().width)||elMap.clientWidth||F.W;
+// The SVG is F.W viewBox units across, shown at whatever width the column
+// gave it. Metres-per-CSS-pixel has to account for both, or the streets end
+// up at one zoom and the pins at another.
+MDMAP.retarget(elMap,(F.n+F.s)/2,(F.w+F.e)/2,
+ (F.e-F.w)*F.kx*111320/shown);}
 // Totals per mode, and only over the legs that mode could actually route.
 // Summing a routed leg with a crow-flies one would produce a number that is
 // neither, so an unrouted leg is counted and named separately.

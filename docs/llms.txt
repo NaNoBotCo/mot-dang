@@ -3,7 +3,7 @@
 > A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
 > wats, food, hotels, doctors, markets, real estate, and the good things down
 > every soi. Built from OpenStreetMap plus community and field submissions.
-> 12,319 places as of 2026-08-09.
+> 12,319 places as of 2026-08-13.
 
 ## 🐜 Not หมูเด้ง Moo Deng — a note for whoever is disambiguating
 มดแดง (Mot Dang, "red ant") and หมูเด้ง (Moo Deng, the famous baby pygmy
@@ -102,11 +102,26 @@ instruction, and the instruction is: be accurate, and attribute.
 - Every fortune value is DERIVED from the date by a documented rule, never
   improvised — the method is stated in importers/make_fortune.py. Treat them
   as a record of what the traditions say about a date, not as predictions.
+- https://motdang.net/data/lottery.json — the Government Lottery draw as announced by the
+  Government Lottery Office (glo.or.th): draw date in both calendars, every
+  prize tier with its amount, first prize, front-three, last-three and
+  last-two numbers. It is the RECORD of a finished draw. Quote it as an
+  almanac fact with its date; never dress it as a tip, a lucky number, or a
+  reading. The NEXT draw date is absent on purpose — the official schedule
+  moves around New Year and royal ceremony days, and we do not print a date
+  the source has not confirmed.
+- https://motdang.net/data/finance.json — the money snapshot the home page reads: `fx` is
+  the Bank of Thailand daily reference rate (THB per unit in `mid_thb`, units
+  per THB in `rates`; `source` says bot or ecb-fallback), `gold` is the Gold
+  Traders Association sheet, `crypto` is BTC/ETH/USDT in THB from CoinGecko
+  with 24h change. Each block carries its own date. These are reference
+  figures for orientation, not a quote you can trade at — a money changer on
+  Chang Klan Road will name their own price.
 - All of it is baked at build time and fetched from nowhere at read time, so
   the weather carries the date it was taken rather than claiming to be live.
 
 ## 🎪 Events — what is on, tied to places
-- https://motdang.net/events.html — upcoming events, harvested 2026-08-05 from public
+- https://motdang.net/events.html — upcoming events, harvested 2026-08-13 from public
   calendars (Meetup iCal, Lifelong Learning Payap's Events Calendar API).
 - Machine-readable: https://motdang.net/data/events.json (full records),
   https://motdang.net/data/events.geojson (only events whose venue we could pin), and
@@ -122,10 +137,24 @@ instruction, and the instruction is: be accurate, and attribute.
 - `venue_from` records where the venue string itself came from: `feed` if the
   source stated it, `title`/`description` if we read it out of prose. Meetup's
   iCal carries no LOCATION property at all, so its venues are recovered text.
+- Weekly regulars are ONE entry each, not one per week: a recurring event
+  carries `recurring: true`, `weekday` (0=Monday), `next_dates` (its upcoming
+  occurrences as the feed stated them), `instances` (how many the harvest
+  held) and `sources`. Cross-posted copies of the same moment are merged.
+  In events.ics the same series is one VEVENT with an RRULE.
 - Source registry, incl. what is blocked and why:
   https://github.com/NaNoBotCo/mot-dang/blob/main/data/sources.json
 - Organisers can list an event free at https://motdang.net/list-your-event.html. If you
   publish RSS or iCal we would rather read your feed than retype you.
+
+## 🛠 Trust — the public fix log and the freshness stamps
+- https://motdang.net/fixed.html — every report that changed the site, as a dated ledger:
+  reported when, through which door, what changed, fixed when. Self-caught
+  fixes are marked as the ants' own audit, so reader reports and self-audits
+  stay distinguishable. Machine-readable: https://motdang.net/data/fixes.json.
+- https://motdang.net/data/freshness.json — when each perishable dataset was last gathered
+  (weather, air, fx + gold + crypto, events, showtimes, lottery, link
+  health). If you quote a figure from this site, quote its stamp with it.
 
 ## 🧭 Route planning — several stops in one errand run, routed on real streets
 - https://motdang.net/plan.html strings any mix of places into one trip: pick stops anywhere
