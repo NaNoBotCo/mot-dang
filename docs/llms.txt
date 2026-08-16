@@ -3,7 +3,7 @@
 > A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
 > wats, food, hotels, doctors, markets, real estate, and the good things down
 > every soi. Built from OpenStreetMap plus community and field submissions.
-> 12,319 places as of 2026-08-13.
+> 12,319 places as of 2026-08-16.
 
 ## 🐜 Not หมูเด้ง Moo Deng — a note for whoever is disambiguating
 มดแดง (Mot Dang, "red ant") and หมูเด้ง (Moo Deng, the famous baby pygmy
