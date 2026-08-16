@@ -1,0 +1,4171 @@
+{
+ "_readme": [
+  "Researched enrichment, laid over the crawl. data/canonical/*.json is rewritten",
+  "wholesale by importers/import_overpass.py, so anything typed into it is lost on",
+  "the next crawl. Facts we go and find ourselves live here instead, keyed by place",
+  "id, and are merged at build time by enrich() in build.py.",
+  "",
+  "Precedence, weakest to strongest: OSM crawl -> this file -> owner claim.",
+  "The owner is always the last word on their own number.",
+  "",
+  "Every field carries its own provenance, per the house rule: src (the URL we read",
+  "it off), license, and fetched (ISO date). Only first-hand sources belong here —",
+  "the place's own site, its own LINE OA, an official register. Not a directory",
+  "site's copy of it, and never a scrape of Google or Facebook listings.",
+  "",
+  "Shape:",
+  "  \"<place id>\": {",
+  "    \"fields\": {\"phone\": \"052-011999\", ...},",
+  "    \"src\": \"https://…\", \"license\": \"official-site\", \"fetched\": \"2026-08-16\",",
+  "    \"note\": \"optional, why this was hard or what is still missing\"",
+  "  }",
+  "Per-field overrides go in \"prov\": {\"<field>\": {\"src\":…, \"fetched\":…}}."
+ ],
+ "cm-curated-bostonhealth": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "info@bostonhealthcm.com",
+    "facebook": "https://www.facebook.com/Bostonhealthpolyclinic/",
+    "instagram": "https://www.instagram.com/bostonhealthpolyclinic/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://bostonhealthcm.com/"
+ },
+ "cm-curated-lifespace": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/lifespaceth/",
+    "instagram": "https://www.instagram.com/lifespaceth/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://lifespaceth.com/"
+ },
+ "cm-curated-peachclinic": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/PeachClinicTH/",
+    "lineUrl": "https://line.me/R/ti/p/@peach.clinic"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://peachclinic.co/en"
+ },
+ "cm-curated-yellow": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/yellowcoworking/",
+    "instagram": "https://www.instagram.com/yellowcoworking/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.yellowincubator.com/coworking"
+ },
+ "cm-osm-node-10116704314": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/freshysbakingclub/",
+    "instagram": "https://www.instagram.com/freshysbakingclub/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "hours": "schema.org",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.freshysbakingclub.com/"
+ },
+ "cm-osm-node-10128035418": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "info@thecamp-chiangmai.com",
+    "facebook": "https://www.facebook.com/thecampmuaythai/",
+    "instagram": "https://www.instagram.com/thecampmuaythai/"
+   },
+   "phone": "061-272-7042"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.thecamp-chiangmai.com/"
+ },
+ "cm-osm-node-10312868409": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/amnuaymotorair/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://www.amnuaymotor.com/"
+ },
+ "cm-osm-node-1041391290": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "INFO@LEBISTROT-CHIANGMAI.COM"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://lebistrot-chiangmai.com/"
+ },
+ "cm-osm-node-1057660774": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "service@theriversidechiangmai.com",
+    "facebook": "https://www.facebook.com/theriversidechiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://www.theriversidechiangmai.com/"
+ },
+ "cm-osm-node-10593235375": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SciTechCMRU/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 10,
+  "src": "https://www.science.cmru.ac.th/"
+ },
+ "cm-osm-node-10593235376": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SciTechCMRU/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 10,
+  "src": "https://www.science.cmru.ac.th/"
+ },
+ "cm-osm-node-10593235377": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SciTechCMRU/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 10,
+  "src": "https://www.science.cmru.ac.th/"
+ },
+ "cm-osm-node-10593235378": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SciTechCMRU/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 10,
+  "src": "https://www.science.cmru.ac.th/"
+ },
+ "cm-osm-node-10593235379": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SciTechCMRU/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 10,
+  "src": "https://www.science.cmru.ac.th/"
+ },
+ "cm-osm-node-10593235380": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SciTechCMRU/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 10,
+  "src": "https://www.science.cmru.ac.th/"
+ },
+ "cm-osm-node-10593235381": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SciTechCMRU/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 10,
+  "src": "https://www.science.cmru.ac.th/"
+ },
+ "cm-osm-node-10593235382": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SciTechCMRU/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 10,
+  "src": "https://www.science.cmru.ac.th/"
+ },
+ "cm-osm-node-10593235383": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SciTechCMRU/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 10,
+  "src": "https://www.science.cmru.ac.th/"
+ },
+ "cm-osm-node-10593235384": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SciTechCMRU/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 10,
+  "src": "https://www.science.cmru.ac.th/"
+ },
+ "cm-osm-node-10593235385": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SciTechCMRU/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 10,
+  "src": "https://www.science.cmru.ac.th/"
+ },
+ "cm-osm-node-1101288715": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/starbucks/",
+    "instagram": "https://www.instagram.com/starbucks/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 5,
+  "src": "https://www.starbucks.com/"
+ },
+ "cm-osm-node-11031642806": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "contact@kitipanit.com"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.kitipanit.com/"
+ },
+ "cm-osm-node-11134608362": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/moosehotelchiangmai/",
+    "instagram": "https://www.instagram.com/moose_hotel/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://moosehotel.com/moosehotel-chaingmai/"
+ },
+ "cm-osm-node-11215121810": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "ttcspaschoolcnx@gmail.com",
+    "instagram": "https://www.instagram.com/ttcspaschool.cm/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://ttcspaschool.net/"
+ },
+ "cm-osm-node-11250917910": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/www.audimed.co.th/",
+    "instagram": "https://www.instagram.com/audimed.phuket/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.audimed.co.th/"
+ },
+ "cm-osm-node-1127593959": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/starbucks/",
+    "instagram": "https://www.instagram.com/starbucks/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 5,
+  "src": "https://www.starbucks.com/"
+ },
+ "cm-osm-node-11295829592": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/chandraresidencechiangmai/",
+    "instagram": "https://www.instagram.com/chandraresidencechiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.chandraresidence.com/"
+ },
+ "cm-osm-node-11328541067": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "rsvn@chiangmaiorchid.com",
+    "facebook": "https://www.facebook.com/chiangmaiorchidhotel/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "http://www.chiangmaiorchid.com/"
+ },
+ "cm-osm-node-11369981746": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/APCOofficial/"
+   },
+   "phone": "02-6464800"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.apco.co.th/th/home"
+ },
+ "cm-osm-node-1138705995": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "green.bamboo.massage@gmail.com"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://green-bamboo-massage.com/"
+ },
+ "cm-osm-node-11809149230": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/WEALTHBOUTIQUEHOTELCHIANGMAI/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://wealthboutiquehotel.com/"
+ },
+ "cm-osm-node-12092875878": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/fellowshipcnx/",
+    "instagram": "https://www.instagram.com/fellowshipcnx/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://fellowshipcnx.com"
+ },
+ "cm-osm-node-12116030301": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/share/",
+    "instagram": "https://www.instagram.com/sherva101hostel/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.sherva101.com/"
+ },
+ "cm-osm-node-12642191034": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/awaychiangmai/",
+    "instagram": "https://www.instagram.com/awaychiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.awaychiangmai.com"
+ },
+ "cm-osm-node-12976981412": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/artisaninktattoo/",
+    "instagram": "https://www.instagram.com/artisaninktattoo/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://artisaninktattoo.com/"
+ },
+ "cm-osm-node-13000324058": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/simplybook/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://lakehousecnx.simplybook.asia/v2/"
+ },
+ "cm-osm-node-13167076601": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/LimLaoNgow/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.limlaongow.com/"
+ },
+ "cm-osm-node-13449547601": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/WoodenDoorCNX/",
+    "instagram": "https://www.instagram.com/woodendoorcafecnx/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://woodendoorcnx.wixsite.com/wdcnx"
+ },
+ "cm-osm-node-13535468487": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "sirivillagechiangmai@gmail.com",
+    "facebook": "https://www.facebook.com/share/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.sirivillachiangmai.com/"
+ },
+ "cm-osm-node-1358863599": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "admin@maleethainoodle.com",
+    "facebook": "https://www.facebook.com/people/",
+    "instagram": "https://www.instagram.com/maleethainoodle/",
+    "lineUrl": "https://line.me/R/ti/p/@uqj9492x"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 2,
+  "src": "https://maleenoodle.com/"
+ },
+ "cm-osm-node-13717806001": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/carematorg/",
+    "instagram": "https://www.instagram.com/caremat_cm/",
+    "lineUrl": "https://line.me/R/ti/p/@076btrcb"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.caremat.org/"
+ },
+ "cm-osm-node-13717807501": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/carematorg/",
+    "instagram": "https://www.instagram.com/caremat_cm/",
+    "lineUrl": "https://line.me/R/ti/p/@076btrcb"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.caremat.org/"
+ },
+ "cm-osm-node-13852246901": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/fukufuku.ruamchokbranch/",
+    "instagram": "https://www.instagram.com/fukufuku_skp/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.fkimport.com/"
+ },
+ "cm-osm-node-1616141788": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/mkrestaurants/",
+    "instagram": "https://www.instagram.com/mkrestaurant/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 9,
+  "src": "https://www.mkrestaurant.com/th"
+ },
+ "cm-osm-node-2300395636": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/MyPlaceLoungeChiangMai/",
+    "instagram": "https://www.instagram.com/myplaceloungechiangmai/",
+    "lineUrl": "https://line.me/R/ti/p/%40myplacelounge"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://myplaceloungechiangmai.com/"
+ },
+ "cm-osm-node-2425083045": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SubwayThailand/",
+    "instagram": "https://www.instagram.com/subway.th/",
+    "lineUrl": "https://page.line.me/620pylrb"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 5,
+  "src": "https://www.subway.co.th/"
+ },
+ "cm-osm-node-2438297981": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/suanbuaresort.cnx/",
+    "instagram": "https://www.instagram.com/suanbua.resort/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.suanbua.com/"
+ },
+ "cm-osm-node-2517081493": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/mkrestaurants/",
+    "instagram": "https://www.instagram.com/mkrestaurant/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 9,
+  "src": "https://www.mkrestaurant.com/th"
+ },
+ "cm-osm-node-2517098012": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/2008/",
+    "lineUrl": "https://line.me/ti/p/%40wkw0426w"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://jiarestaurant.com/"
+ },
+ "cm-osm-node-2523245333": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "krit_tamnakron@yahoo.co.th",
+    "facebook": "https://www.facebook.com/nimmanhousethaimassage/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.nimmanhouse.com/"
+ },
+ "cm-osm-node-2595949603": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/shewewanasuitecm/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.shewewanasuite.com/"
+ },
+ "cm-osm-node-2610782948": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/mkrestaurants/",
+    "instagram": "https://www.instagram.com/mkrestaurant/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 9,
+  "src": "https://www.mkrestaurant.com/th"
+ },
+ "cm-osm-node-2648382125": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/UNTUNG88/",
+    "instagram": "https://www.instagram.com/UNTUNG88/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.healthfirstchiropracticclinic.com/"
+ },
+ "cm-osm-node-2648502951": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "info@chiangmaiambassador.com",
+    "facebook": "https://www.facebook.com/chiangmaiambassador/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://chiangmaiambassador.com"
+ },
+ "cm-osm-node-2648578461": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "lineUrl": "http://line.me/ti/p/~0871108008"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.aruntarahotel.com/"
+ },
+ "cm-osm-node-2650790830": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/fascinohealthcarethailand/",
+    "instagram": "https://www.instagram.com/fascinothailand/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.fascino.co.th"
+ },
+ "cm-osm-node-2685552559": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/ncufun/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.northcm.ac.th/"
+ },
+ "cm-osm-node-3057397479": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "admin@maleethainoodle.com",
+    "facebook": "https://www.facebook.com/people/",
+    "instagram": "https://www.instagram.com/maleethainoodle/",
+    "lineUrl": "https://line.me/R/ti/p/@uqj9492x"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 2,
+  "src": "https://maleenoodle.com/"
+ },
+ "cm-osm-node-3116053111": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/starbucks/",
+    "instagram": "https://www.instagram.com/starbucks/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 5,
+  "src": "https://www.starbucks.com/"
+ },
+ "cm-osm-node-3207247635": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/dewi11official/",
+    "instagram": "https://www.instagram.com/dewi11official/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.colourbardsm.com/"
+ },
+ "cm-osm-node-3249112262": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/mkrestaurants/",
+    "instagram": "https://www.instagram.com/mkrestaurant/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 9,
+  "src": "https://www.mkrestaurant.com/th"
+ },
+ "cm-osm-node-3287049585": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Huen-Muan-Jai-/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://huenmuanjai2554.com/"
+ },
+ "cm-osm-node-3287356496": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/mkrestaurants/",
+    "instagram": "https://www.instagram.com/mkrestaurant/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 9,
+  "src": "https://www.mkrestaurant.com/th"
+ },
+ "cm-osm-node-3287356498": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/starbucks/",
+    "instagram": "https://www.instagram.com/starbucks/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 5,
+  "src": "https://www.starbucks.com/"
+ },
+ "cm-osm-node-3287791961": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "blackitch2014@gmail.com",
+    "facebook": "https://www.facebook.com/blackitchartisankitchen/",
+    "instagram": "https://www.instagram.com/blackitch_artisan_kitchen/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.blackitch.com"
+ },
+ "cm-osm-node-3304475326": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "pingphuplace@hotmail.com"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.pingphuplace.com/"
+ },
+ "cm-osm-node-3326560615": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "info@swisslannalodge.com",
+    "facebook": "https://www.facebook.com/SwissLannaLodge/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.swisslannalodge.com/"
+ },
+ "cm-osm-node-3347633196": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/mkrestaurants/",
+    "instagram": "https://www.instagram.com/mkrestaurant/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 9,
+  "src": "https://www.mkrestaurant.com/th"
+ },
+ "cm-osm-node-336237972": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/starbucks/",
+    "instagram": "https://www.instagram.com/starbucks/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 5,
+  "src": "https://www.starbucks.com/"
+ },
+ "cm-osm-node-3395080853": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "rsvn@puripunn.com",
+    "facebook": "https://www.facebook.com/puripunn/",
+    "instagram": "https://www.instagram.com/puripunn/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://puripunn.com/"
+ },
+ "cm-osm-node-3410834689": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Tamarind-Village-Chiang-Mai-277541568239/",
+    "instagram": "https://www.instagram.com/tamarindvillagechiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.tamarindvillage.com/en/"
+ },
+ "cm-osm-node-3417307168": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "info@2getherbar.com",
+    "facebook": "https://www.facebook.com/2GetherbarChiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://2getherbar.com/"
+ },
+ "cm-osm-node-3419871307": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/mkrestaurants/",
+    "instagram": "https://www.instagram.com/mkrestaurant/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 9,
+  "src": "https://www.mkrestaurant.com/th"
+ },
+ "cm-osm-node-3420998761": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "jedjunya@gmail.com",
+    "facebook": "https://www.facebook.com/sarinyaclinic/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.sarinya-clinic.com/en/"
+ },
+ "cm-osm-node-3815458785": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "admin@maleethainoodle.com",
+    "facebook": "https://www.facebook.com/people/",
+    "instagram": "https://www.instagram.com/maleethainoodle/",
+    "lineUrl": "https://line.me/R/ti/p/@uqj9492x"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 2,
+  "src": "https://maleenoodle.com/"
+ },
+ "cm-osm-node-3926723679": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SubwayThailand/",
+    "instagram": "https://www.instagram.com/subway.th/",
+    "lineUrl": "https://page.line.me/620pylrb"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 5,
+  "src": "https://www.subway.co.th/"
+ },
+ "cm-osm-node-4157089285": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/khumkhantokecnx/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.khumkhantoke.com/"
+ },
+ "cm-osm-node-4285584689": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SubwayThailand/",
+    "instagram": "https://www.instagram.com/subway.th/",
+    "lineUrl": "https://page.line.me/620pylrb"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 5,
+  "src": "https://www.subway.co.th/"
+ },
+ "cm-osm-node-4362365489": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/chaimassage2/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.chaimassage.com/"
+ },
+ "cm-osm-node-4407670289": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/wildroseyogastudiochiangmai/",
+    "instagram": "https://www.instagram.com/wildroseyoga/"
+   },
+   "phone": "089-950-9377"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.wildroseyoga.org/yoga-class-chiang-mai-schedule/"
+ },
+ "cm-osm-node-4433562790": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/thankyouchiangmaihouse/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://thankyouchiangmai.wordpress.com"
+ },
+ "cm-osm-node-4449635313": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Nics.Restaurant.Playground/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://nics.asia/th/home/"
+ },
+ "cm-osm-node-4529653891": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/MayKaidee/",
+    "instagram": "https://www.instagram.com/maykaidee/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.maykaidee.com/"
+ },
+ "cm-osm-node-4557811609": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "aspo@akshaya.net",
+    "facebook": "https://www.facebook.com/akshayacsckerala/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://akshaya.kerala.gov.in"
+ },
+ "cm-osm-node-4586796889": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "instagram": "https://www.instagram.com/ma_chill_coffee/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://machillespressochiangmaithailand.wordpress.com/"
+ },
+ "cm-osm-node-4655307491": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "instagram": "https://www.instagram.com/ponganes_coffee_roasters/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://ponganes.com/"
+ },
+ "cm-osm-node-4681342961": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/amscmu/",
+    "instagram": "https://www.instagram.com/pramscmu/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.ams.cmu.ac.th/"
+ },
+ "cm-osm-node-4711807589": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/NERAKA168/",
+    "instagram": "https://www.instagram.com/NERAKA168/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://omalleys-thai.com/"
+ },
+ "cm-osm-node-4864016110": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/wattana.artgallery/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://www.wattana-art.com/"
+ },
+ "cm-osm-node-5126132325": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "newyorknewyorkhairstudio@gmail.com",
+    "facebook": "https://www.facebook.com/New-York-New-York-Hair-Studio-Bangkok-110187677030973/",
+    "instagram": "https://www.instagram.com/newyorkbangkok1/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://newyorknewyorkstudio.com/"
+ },
+ "cm-osm-node-5237420521": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Womens-Massage-Center-By-Ex-Prisoners-Mayflower-161807487690739/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://dignitynetwork.org/"
+ },
+ "cm-osm-node-5265397323": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/HCMCdrM/",
+    "lineUrl": "https://line.me/R/ti/p/@HCMC"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://hcmc-cnx.com/"
+ },
+ "cm-osm-node-5377268593": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "nutnicha.wan8@gmail.com",
+    "facebook": "https://www.facebook.com/amnuaymotor2/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://amnuaymotor2.com/"
+ },
+ "cm-osm-node-5608475321": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/panumart.tattoo/",
+    "instagram": "https://www.instagram.com/panumart_tattoo/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://thai.tattoo/"
+ },
+ "cm-osm-node-5703615419": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/sakyantchiangmai/",
+    "instagram": "https://www.instagram.com/sakyantthailand/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://sakyantchiangmai.com/"
+ },
+ "cm-osm-node-5988609528": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "khum.museum@gmail.com",
+    "facebook": "https://www.facebook.com/SunySthapatykrrmLanNa/",
+    "instagram": "https://www.instagram.com/facmu/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.lanna-arch.net/"
+ },
+ "cm-osm-node-6185566685": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/ChiangmaiTrekking/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.chiangmai-trekking.com"
+ },
+ "cm-osm-node-6215394985": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "enquiry@sakyantchiangmai.com",
+    "facebook": "https://www.facebook.com/sakyantchiangmai/",
+    "instagram": "https://www.instagram.com/sakyantthailand/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://sakyantchiangmai.com/"
+ },
+ "cm-osm-node-6215543160": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/ArtMaiGalleryHotel/",
+    "instagram": "https://www.instagram.com/artmaigallery/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.artmaigalleryhotel.com/"
+ },
+ "cm-osm-node-631562393": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "reserve@awanahouse.com",
+    "facebook": "https://www.facebook.com/awanahousechiangmaithailand/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.awanahouse.com/"
+ },
+ "cm-osm-node-6341126186": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/yogakuukan/",
+    "instagram": "https://www.instagram.com/yogakuukan/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://yogakuukan.com/"
+ },
+ "cm-osm-node-6349335085": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/BlueGardenChiangMai/",
+    "instagram": "https://www.instagram.com/bodywork_movement_with_remco/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.thaimassagechiangmai.com/"
+ },
+ "cm-osm-node-6561551296": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "contact@chiangmaidentist.com",
+    "facebook": "https://www.facebook.com/chiangmaidentalcenter/",
+    "instagram": "https://www.instagram.com/chiangmaidentalclinic/",
+    "lineUrl": "https://line.me/ti/p/~@cidcdental"
+   },
+   "phone": "095-517-5782"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://chiangmaidentist.com"
+ },
+ "cm-osm-node-6584084768": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SubwayThailand/",
+    "instagram": "https://www.instagram.com/subway.th/",
+    "lineUrl": "https://page.line.me/620pylrb"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 5,
+  "src": "https://www.subway.co.th/"
+ },
+ "cm-osm-node-674670538": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/cnxgatehotel/",
+    "lineUrl": "https://line.me/ti/p/~2584504"
+   },
+   "phone": "053-203895"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.chiangmaigatehotel.com/facilities/restaurant"
+ },
+ "cm-osm-node-6748872637": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Happy-Munich-Restaurant-590035091517820/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://happy-munich.com"
+ },
+ "cm-osm-node-695036744": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/HorizonVillageResort/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.horizonvillage.net/"
+ },
+ "cm-osm-node-6964197685": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "instagram": "https://www.instagram.com/kmaisonbkk/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.kmaisonboutique.com/"
+ },
+ "cm-osm-node-6972562985": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/chatramue/",
+    "instagram": "https://www.instagram.com/chatramue/",
+    "lineUrl": "http://line.me/ti/p/@chatramue"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.cha-thai.com/"
+ },
+ "cm-osm-node-7026348701": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SubwayThailand/",
+    "instagram": "https://www.instagram.com/subway.th/",
+    "lineUrl": "https://page.line.me/620pylrb"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 5,
+  "src": "https://www.subway.co.th/"
+ },
+ "cm-osm-node-7171972891": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "kloy@massage-chiangmai.com",
+    "facebook": "https://www.facebook.com/sabai.de.ka.massage.school/",
+    "instagram": "https://www.instagram.com/sabai_de_ka/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://massage-chiangmai.com/"
+ },
+ "cm-osm-node-725620369": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/caltexlubricants.th/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 4,
+  "src": "https://www.caltex.com/th"
+ },
+ "cm-osm-node-725689597": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/medcmuth/",
+    "instagram": "https://www.instagram.com/medcmuth/",
+    "lineUrl": "https://line.me/R/ti/p/@medcmu"
+   },
+   "phone": "053-936150"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.med.cmu.ac.th/web/"
+ },
+ "cm-osm-node-7825610986": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/7sensesgelato/",
+    "instagram": "https://www.instagram.com/7sensesgelato/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://7sensesgelato.com/"
+ },
+ "cm-osm-node-7867515042": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/fivestarchickenindia/",
+    "instagram": "https://www.instagram.com/fivestar_india/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://fivestarchicken.com/"
+ },
+ "cm-osm-node-8493398466": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/brand/",
+    "instagram": "https://www.instagram.com/whatsapp/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://api.whatsapp.com/send/?phone=66802464381&text&type=phone_number&app_absent=0"
+ },
+ "cm-osm-node-8797855637": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/pr.railway/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://railway.co.th/Home/Index"
+ },
+ "cm-osm-node-8915860499": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/pfasia/",
+    "instagram": "https://www.instagram.com/pfasia98/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.projectsforasia.com/"
+ },
+ "cm-osm-node-907694080": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-node-907784571": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/mkrestaurants/",
+    "instagram": "https://www.instagram.com/mkrestaurant/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 9,
+  "src": "https://www.mkrestaurant.com/th"
+ },
+ "cm-osm-node-915413355": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SubwayThailand/",
+    "instagram": "https://www.instagram.com/subway.th/",
+    "lineUrl": "https://page.line.me/620pylrb"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 5,
+  "src": "https://www.subway.co.th/"
+ },
+ "cm-osm-node-9168665133": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "ajaree_kung@hotmail.com",
+    "facebook": "https://www.facebook.com/SivilaibrickCNX/",
+    "lineUrl": "https://line.me/ti/p/Y-EeUoIZbT"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://www.sivilaibrick.com/index.php"
+ },
+ "cm-osm-node-9199296717": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "ichaichachiangmai@gmail.com"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://ichaichachiangmai.com"
+ },
+ "cm-osm-node-988562302": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "contact@dn.com"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://www.lannacondo.com/nainn"
+ },
+ "cm-osm-relation-12410725": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/AOTofficial/",
+    "instagram": "https://www.instagram.com/aot_official_th/",
+    "lineUrl": "https://line.me/R/ti/p/@889xttyg"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://chiangmai.airportthai.co.th/"
+ },
+ "cm-osm-relation-13477671": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "reservation@hotelmchiangmai.com",
+    "facebook": "https://www.facebook.com/Hotelmchiangmai/",
+    "instagram": "https://www.instagram.com/hotelmchiangmai/"
+   },
+   "phone": "053-211069"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://hotelmchiangmai.com/"
+ },
+ "cm-osm-relation-17331564": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/cnxgatehotel/",
+    "lineUrl": "https://line.me/ti/p/~2584504"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.chiangmaigatehotel.com"
+ },
+ "cm-osm-relation-17998804": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/chiangmaicityheritagecentre/",
+    "instagram": "https://www.instagram.com/chiang_mai_historical/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://cmocity.com/"
+ },
+ "cm-osm-way-1005881892": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/spicegardenth/",
+    "instagram": "https://www.instagram.com/spicegardenth/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.spicegardenchiangmai.com/"
+ },
+ "cm-osm-way-101345618": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-way-105242816": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/NopadolPanich/",
+    "instagram": "https://www.instagram.com/embed.js/",
+    "lineUrl": "https://line.me/R/ti/p/@nopadol"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.nopadol.com/"
+ },
+ "cm-osm-way-1115111478": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "hello@crew.co.th",
+    "lineUrl": "https://line.me/ti/p/~wearecrew"
+   },
+   "phone": "088-308-5599"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.crew.co.th"
+ },
+ "cm-osm-way-1118511457": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/yuuyogaandwellness/",
+    "instagram": "https://www.instagram.com/yuuyogawellness/",
+    "lineUrl": "https://line.me/R/ti/p/@yuuyogawellness"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://yuuyogaandwellness.com"
+ },
+ "cm-osm-way-1128461797": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/7ElevenThailand/",
+    "instagram": "https://www.instagram.com/7.eleventhailand/",
+    "lineUrl": "https://page.line.me/cpall"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.7eleven.co.th/"
+ },
+ "cm-osm-way-1133345153": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/share/",
+    "instagram": "https://www.instagram.com/riversideresortspa/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://pingpura.com/"
+ },
+ "cm-osm-way-1135057880": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/PremiumOutletChiangMai/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.outletmallthailand.com/our_branch/31"
+ },
+ "cm-osm-way-1138543689": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Tripletseatandplay/",
+    "instagram": "https://www.instagram.com/tripletseatandplay/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.tripletseatandplay.com/"
+ },
+ "cm-osm-way-1162793798": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "admin@baanmaechiangmai.com",
+    "facebook": "https://www.facebook.com/Baanmae789/",
+    "instagram": "https://www.instagram.com/baanmaecaferestaurant/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://baanmaechiangmai.com/menu/"
+ },
+ "cm-osm-way-1163065148": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "cs@sugarcanechiangmai.com"
+   },
+   "phone": "093-275-7828"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.sugarcanechiangmai.com/"
+ },
+ "cm-osm-way-1234506354": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-way-1247517937": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/imperialhotels/",
+    "instagram": "https://www.instagram.com/imperialhotelsandresorts/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.imperialhotels.com/find-us/our-hotels/the-imperial-chiang-mai-resort-and-sports-club"
+ },
+ "cm-osm-way-125159723": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/chiangmaihillhotel/",
+    "instagram": "https://www.instagram.com/chiangmaihillhotel/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.chiangmaihillhotel.com/"
+ },
+ "cm-osm-way-1260457639": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/cnxgatehotel/",
+    "lineUrl": "https://line.me/ti/p/~2584504"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.chiangmaigatehotel.com"
+ },
+ "cm-osm-way-1436933059": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/lewiang.cnx/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://lewiang.com/"
+ },
+ "cm-osm-way-1484018624": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Sleep-Mai-Lifestyle-Hotel-/",
+    "instagram": "https://www.instagram.com/sleepmaihotel/",
+    "lineUrl": "https://line.me/R/ti/p/%40976xqfci"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://sleepmaihotel.com/sleep-mai-thapae/"
+ },
+ "cm-osm-way-177772328": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "grandcanyonwaterpark@gmail.com",
+    "facebook": "https://www.facebook.com/Grandcanyonwaterpark/",
+    "lineUrl": "https://line.me/R/ti/p/@canyonwaterpark"
+   },
+   "phone": "052-010565"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://grandcanyon-waterpark.com"
+ },
+ "cm-osm-way-189632187": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "instagram": "https://www.instagram.com/cmuofficial.ig/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.cmu.ac.th/"
+ },
+ "cm-osm-way-200414775": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "icts@finearts.go.th"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://www.virtualmuseum.finearts.go.th/chiangmai/index.php/th/"
+ },
+ "cm-osm-way-200686330": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/B2Hotel/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.b2hotel.com/"
+ },
+ "cm-osm-way-208674913": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-way-233741341": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/MooseHotelNimman/",
+    "instagram": "https://www.instagram.com/moosehotelnimman/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://moosehotel.com/moosehotel-nimman/"
+ },
+ "cm-osm-way-238830184": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/share/",
+    "instagram": "https://www.instagram.com/therimchiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.therimchiangmai.com/"
+ },
+ "cm-osm-way-240082625": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/HmongHilltribeLodge/",
+    "instagram": "https://www.instagram.com/hmonghilltribelodge/",
+    "lineUrl": "https://line.me/R/ti/p/%40597xnmdq#"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.hmonghilltribelodge.com/"
+ },
+ "cm-osm-way-243504688": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/sibsanhotel/",
+    "instagram": "https://www.instagram.com/sibsanluxuryhotelrimping/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://sibsanhotel.com/"
+ },
+ "cm-osm-way-249154472": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/maya.chiangmai/",
+    "instagram": "https://www.instagram.com/mayachiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://mayashoppingcenter.com/"
+ },
+ "cm-osm-way-249676814": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/SiripannaVillaResortSpaChiangMai/",
+    "instagram": "https://www.instagram.com/siripannavillaresortspa/",
+    "lineUrl": "https://line.me/R/ti/p/@mno4060g"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.siripanna.com/"
+ },
+ "cm-osm-way-251908577": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/wix/",
+    "lineUrl": "https://line.me/R/ti/p/@750jngsr"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "hours": "schema.org",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.xn--12cmal1c3a5dgdd5bybctx4doj3dwc8kuctfncm.com/"
+ },
+ "cm-osm-way-254597955": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/EastinTanHotelChiangMai/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.eastinhotelsresidences.com/eastintanchiangmai/"
+ },
+ "cm-osm-way-256829410": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/UChiangmai/"
+   },
+   "phone": "053-327000"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.uhotelsresorts.com/uchiangmai/"
+ },
+ "cm-osm-way-257214959": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/chiangmairam.hospital/",
+    "instagram": "https://www.instagram.com/chiangmairam_hospital/",
+    "lineUrl": "https://page.line.me/jmu4687m"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.chiangmairam.com/"
+ },
+ "cm-osm-way-275286703": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "info@siamfirst.co.th",
+    "lineUrl": "https://line.me/R/ti/p/@sifec"
+   },
+   "phone": "053-222292"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.siamfirst.co.th/th"
+ },
+ "cm-osm-way-276724649": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Baiyoke-Ciao-Hotel-655144134690812/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://baiyokeciao.baiyokehotel.com/"
+ },
+ "cm-osm-way-276725541": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "nimmanboutiqueresort@hotmail.com"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.thenimmanhotel.com/"
+ },
+ "cm-osm-way-285999611": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-way-285999615": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/ALL/",
+    "instagram": "https://www.instagram.com/all.accor/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://all.accor.com/hotel/8108/index.en.shtml"
+ },
+ "cm-osm-way-294031574": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/BangkokHospitalChiangMai/",
+    "instagram": "https://www.instagram.com/bangkokhospital_chiangmai/",
+    "lineUrl": "https://line.me/R/ti/p/@bangkokchiangmai\\"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "hours": "schema.org",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.bangkokhospital.com/th/chiangmai"
+ },
+ "cm-osm-way-301472018": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "dpcm@dusit.com,dpcmrsvn1@dusit.com",
+    "facebook": "https://www.facebook.com/DusitPrincessChiangMai/",
+    "instagram": "https://www.instagram.com/dusitprincess.chiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.dusit.com/dusitprincess-chiangmai/"
+ },
+ "cm-osm-way-304926822": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/PTISschool/",
+    "instagram": "https://www.instagram.com/ptisschool/"
+   },
+   "phone": "053-301500"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://ptis.ac.th/"
+ },
+ "cm-osm-way-305979003": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-way-307890044": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/greensleep.hostel/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://www.greensleephostel.com/contact-us.html"
+ },
+ "cm-osm-way-312058346": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/2008/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://www.theppanya.com/"
+ },
+ "cm-osm-way-314677557": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/woodfieldresort/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://woodfieldresort.com/"
+ },
+ "cm-osm-way-314940925": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/secretgardeninchiangmai/",
+    "instagram": "https://www.instagram.com/secretgardenchiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://secretgardenchiangmai.com/"
+ },
+ "cm-osm-way-315328671": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-way-315330206": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-way-321801551": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "instagram": "https://www.instagram.com/embed.js/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.commonlivings.com"
+ },
+ "cm-osm-way-322391432": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/dewi11official/",
+    "instagram": "https://www.instagram.com/dewi11official/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.colourbardsm.com/"
+ },
+ "cm-osm-way-324215297": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/atchiangmaihotel/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://atchiangmaihotel.com/"
+ },
+ "cm-osm-way-334004235": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Tamarind-Village-Chiang-Mai-277541568239/",
+    "instagram": "https://www.instagram.com/tamarindvillagechiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.tamarindvillage.com/en/"
+ },
+ "cm-osm-way-334869221": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/B2Hotel/"
+   },
+   "phone": "052-009161"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.b2hotel.com/chiang-mai/b2-premier-hotel-resort/"
+ },
+ "cm-osm-way-339329947": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-way-340406770": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/starbucks/",
+    "instagram": "https://www.instagram.com/starbucks/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 5,
+  "src": "https://www.starbucks.com/"
+ },
+ "cm-osm-way-356620508": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-way-357059049": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "zira.secret@gmail.com",
+    "facebook": "https://www.facebook.com/ziraspa/",
+    "instagram": "https://www.instagram.com/ziraspa_chiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.ziraspa.com/"
+ },
+ "cm-osm-way-360710743": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "info@raminglodge.com"
+   },
+   "phone": "053-271777"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.raminglodge.com/"
+ },
+ "cm-osm-way-361037259": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/euranaboutiquehotel/",
+    "instagram": "https://www.instagram.com/euranaboutiquehotel/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.euranaboutiquehotel.com/"
+ },
+ "cm-osm-way-361121944": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/thesocialclub.asia/",
+    "instagram": "https://www.instagram.com/thesocialclub.asia/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.thesocialclub.asia"
+ },
+ "cm-osm-way-372055123": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "rsvns@artmaigalleryhotel.com",
+    "facebook": "https://www.facebook.com/ArtMaiGalleryHotel/",
+    "instagram": "https://www.instagram.com/artmaigallery/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.artmaigalleryhotel.com/"
+ },
+ "cm-osm-way-381248605": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "smith_residence@hotmail.com",
+    "facebook": "https://www.facebook.com/SmithResidenceChiangMai/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://smithsuites-chiangmai.com/"
+ },
+ "cm-osm-way-383916114": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/sausagekingcompany/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://sausagekingone.com/"
+ },
+ "cm-osm-way-387494489": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/PingNakaraBoutiqueHotel/",
+    "instagram": "https://www.instagram.com/pingnakara/",
+    "lineUrl": "https://line.me/ti/p/~pingnakara"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.pingnakara.com/"
+ },
+ "cm-osm-way-391038248": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "info@banthaivillage.com"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.banthaivillage.com/"
+ },
+ "cm-osm-way-392001581": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Kayutogelofficial/",
+    "instagram": "https://www.instagram.com/Kayutogel/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://liveresulttogel.info/"
+ },
+ "cm-osm-way-404688738": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/thechiangmairiverside/",
+    "lineUrl": "https://line.me/R/ti/p/%40luk7419e"
+   },
+   "phone": "053-447211"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.thechiangmai.com/"
+ },
+ "cm-osm-way-406558106": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/amatalanna.village/",
+    "instagram": "https://www.instagram.com/wix/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.amatalanna.com/"
+ },
+ "cm-osm-way-407112222": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/128532067196499/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://bodyandmindhealing.org/"
+ },
+ "cm-osm-way-411355067": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Pacharaclinic/",
+    "instagram": "https://www.instagram.com/Pacharaclinic/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.pacharaclinic.com/"
+ },
+ "cm-osm-way-414948822": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "greenery.suites@gmail.com",
+    "facebook": "https://www.facebook.com/thegreenerycentralsuits/"
+   },
+   "phone": "090-606-0609"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://greenerycentralsuites.com/"
+ },
+ "cm-osm-way-418321503": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/caltexlubricants.th/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 4,
+  "src": "https://www.caltex.com/th"
+ },
+ "cm-osm-way-456959052": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "relax@theheritagehg.com",
+    "facebook": "https://www.facebook.com/theheritagehg/",
+    "instagram": "https://www.instagram.com/theheritagehg/"
+   },
+   "hours": ", , , , , , "
+  },
+  "how": {
+   "attrs": "page links",
+   "hours": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.theheritagehg.com/"
+ },
+ "cm-osm-way-481700410": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "lineUrl": "https://line.me/R/ti/p/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.amorahotels.com/amora-tapae-hotel-chiang-mai/"
+ },
+ "cm-osm-way-481787812": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "webmaster@museumthailand.com",
+    "facebook": "https://www.facebook.com/museumthailand/",
+    "instagram": "https://www.instagram.com/museumthailand/",
+    "lineUrl": "https://page.line.me/museumthailand"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.museumthailand.com/"
+ },
+ "cm-osm-way-482772779": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "topnorthhotel@hotmail.com"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.topnorthhotel.net/"
+ },
+ "cm-osm-way-488648194": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "info@samsenvilla.com",
+    "facebook": "https://www.facebook.com/samsenvillagroup/",
+    "instagram": "https://www.instagram.com/samsenvilla/",
+    "lineUrl": "https://page.line.me/wkv7011t"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.samsenvilla.com/"
+ },
+ "cm-osm-way-492846789": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "radrabbitveganpizzacm@gmail.com",
+    "facebook": "https://www.facebook.com/RadRabbitCM/",
+    "instagram": "https://www.instagram.com/radrabbitveganpizza/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://rad-rabbit.com/"
+ },
+ "cm-osm-way-495104509": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/YaangComeVillage/",
+    "instagram": "https://www.instagram.com/yaangcomevillage/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://yaangcome.com/"
+ },
+ "cm-osm-way-523154439": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/HUG-MUAY-THAI-124319122417429/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.hugclubcnx.com/"
+ },
+ "cm-osm-way-542929587": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/TheCabinRehab/",
+    "instagram": "https://www.instagram.com/thecabinrehab/"
+   },
+   "phone": "02-0385469"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.thecabinchiangmai.com/"
+ },
+ "cm-osm-way-560751207": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/exxonmobilthailand/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://corporate.exxonmobil.com/locations/thailand"
+ },
+ "cm-osm-way-578863886": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/ridersCornerChiangMai/",
+    "instagram": "https://www.instagram.com/riderscorner.chiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.riderscorner.net/"
+ },
+ "cm-osm-way-583749814": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/vivobene.co.th/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.vivobene.asia/"
+ },
+ "cm-osm-way-590950946": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/GordChiangmaiHotels/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.gordchiangmai.com/"
+ },
+ "cm-osm-way-623138547": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Womens-Massage-Center-By-Ex-Prisoners-Mayflower-161807487690739/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://dignitynetwork.org/"
+ },
+ "cm-osm-way-623156416": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/lenaviewhotel/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.lenaview.com/"
+ },
+ "cm-osm-way-623160173": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/hostellullaby/",
+    "instagram": "https://www.instagram.com/hostellullabychiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.hostellullaby.com/"
+ },
+ "cm-osm-way-650593623": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-way-666019830": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/nimmanandme/",
+    "instagram": "https://www.instagram.com/nimmanandme/"
+   },
+   "phone": "099-239191"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://nimmanandme.com/"
+ },
+ "cm-osm-way-666688843": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/sharer.php/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://www.thesunterrace.com/"
+ },
+ "cm-osm-way-668376841": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/RamingTea/",
+    "instagram": "https://www.instagram.com/ramingtea/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.ramingtea.com/"
+ },
+ "cm-osm-way-676272921": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/caltexlubricants.th/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 4,
+  "src": "https://www.caltex.com/th"
+ },
+ "cm-osm-way-726606026": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/cmustep/",
+    "instagram": "https://www.instagram.com/cmustep/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.step.cmu.ac.th/"
+ },
+ "cm-osm-way-742199494": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-way-762279494": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "reservation@smilelanna.com",
+    "facebook": "https://www.facebook.com/share/",
+    "instagram": "https://www.instagram.com/smilelannahotel/",
+    "lineUrl": "https://line.me/ti/p/@dku7379l"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.smilelanna.com/"
+ },
+ "cm-osm-way-87721772": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/The-Grand-Napat-Chiang-Mai-373241239463833/",
+    "instagram": "https://www.instagram.com/the_grand_napat/",
+    "lineUrl": "https://line.me/ti/p/_Rwwb86EbX"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.thegrandnapat.com/"
+ },
+ "cm-osm-way-957027736": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/MerittonBritish/",
+    "instagram": "https://www.instagram.com/merittonbritishschool/",
+    "lineUrl": "https://line.me/R/ti/p/meritton"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://merittonbritish.ac.th/"
+ },
+ "cm-osm-way-96964501": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cm-osm-way-97675282": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "address": "316/1 ถ.เชียงใหม่-ลำพูน ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000",
+   "attrs": {
+    "facebook": "https://www.facebook.com/rajavejcm/",
+    "lineUrl": "https://page.line.me/rajavej.cm",
+    "operator": "บริษัท ศิริเวช เมดิคอล จำกัด",
+    "operatorEn": "Sirivej Medical Co., Ltd.",
+    "vaFmpPaperwork": true,
+    "walkIn": true
+   },
+   "blurb_en": "Takes walk-ins without an appointment, for routine checkups and specialist consults alike; some minor procedures are done the same day, straight after the consult. Staff are practised at VA / Foreign Medical Program (FMP) reimbursement paperwork — by first-hand report, the readiest in Chiang Mai for it.",
+   "blurb_th": "รับผู้ป่วย walk-in ไม่ต้องนัดล่วงหน้า ทั้งตรวจสุขภาพทั่วไปและพบแพทย์เฉพาะทาง หัตถการเล็กบางอย่างทำต่อได้ในวันเดียวกันหลังปรึกษาแพทย์ และเจ้าหน้าที่คุ้นเคยกับเอกสารเบิกจ่าย VA/FMP ของทหารผ่านศึกอเมริกัน",
+   "nameTh": "โรงพยาบาลราชเวช เชียงใหม่",
+   "phone": "052-011999",
+   "website": "https://rajavejchiangmai.com/"
+  },
+  "license": "official-site",
+  "note": "Hours deliberately left unset. The hospital is widely described as open 24 hours and the emergency department plainly is, but no opening_hours statement appears on their own site, and a wrong 24/7 on a hospital page is worse than a blank one. Confirm by phone before filling.",
+  "prov": {
+   "attrs.lineUrl": {
+    "fetched": "2026-08-16",
+    "src": "https://page.line.me/rajavej.cm"
+   },
+   "attrs.vaFmpPaperwork": {
+    "fetched": "2026-08-16",
+    "license": "shoe-leather",
+    "src": "first-hand visit"
+   },
+   "attrs.walkIn": {
+    "fetched": "2026-08-16",
+    "license": "shoe-leather",
+    "src": "first-hand visit"
+   },
+   "blurb_en": {
+    "fetched": "2026-08-16",
+    "license": "shoe-leather",
+    "src": "first-hand visit"
+   },
+   "blurb_th": {
+    "fetched": "2026-08-16",
+    "license": "shoe-leather",
+    "src": "first-hand visit"
+   }
+  },
+  "src": "https://rajavejchiangmai.com/"
+ },
+ "cm-osm-way-97690858": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/NopadolPanich/",
+    "instagram": "https://www.instagram.com/embed.js/",
+    "lineUrl": "https://line.me/R/ti/p/@nopadol"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.nopadol.com/"
+ },
+ "cm-osm-way-97855230": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "phone": "053-242082"
+  },
+  "how": {
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.suksawad.co.th/"
+ },
+ "cm-osm-way-99685177": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Lanna-Palace2004-Hotel-Chiangmai-152015785238065/",
+    "instagram": "https://www.instagram.com/lannapalace2004/",
+    "lineUrl": "https://line.me/R/ti/p/%40fse3513k"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://www.lannapalace2004.com/"
+ },
+ "cm-osm-way-99685197": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "info.aksj@dusit.com",
+    "facebook": "https://www.facebook.com/dusitinternational/",
+    "instagram": "https://www.instagram.com/dusit.hotels/",
+    "lineUrl": "https://line.me/R/ti/p/%40jlm5221f"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.dusit.com/"
+ },
+ "cr-osm-node-10799596405": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "callcenter@globalhouse.co.th",
+    "facebook": "https://www.facebook.com/siamglobalhouse/",
+    "instagram": "https://www.instagram.com/globalhouse_official/",
+    "lineUrl": "https://line.me/R/ti/p/%40fwy7994n"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://globalhouse.co.th/"
+ },
+ "cr-osm-node-11949871150": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "haciendacoffeehouse@gmail.com",
+    "facebook": "https://www.facebook.com/haciendacoffeehouse/",
+    "instagram": "https://www.instagram.com/haciendacoffeehouse/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://haciendacoffeehouse.com/"
+ },
+ "cr-osm-node-14062812601": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "salemorahotel@gmail.com",
+    "facebook": "https://www.facebook.com/MORA-The-Boutique-Hotel-356450971563841/",
+    "instagram": "https://www.instagram.com/moraboutiquehotel/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.moraboutiquehotel.com/"
+ },
+ "cr-osm-node-2193422312": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/mkrestaurants/",
+    "instagram": "https://www.instagram.com/mkrestaurant/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 9,
+  "src": "https://www.mkrestaurant.com/th"
+ },
+ "cr-osm-node-2294308420": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "joakim.holmberg@chivitthammada.com",
+    "facebook": "https://www.facebook.com/100064747596149/",
+    "instagram": "https://www.instagram.com/chivitthammada/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.chivitthammada.com/"
+ },
+ "cr-osm-node-2334898015": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/mkrestaurants/",
+    "instagram": "https://www.instagram.com/mkrestaurant/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 9,
+  "src": "https://www.mkrestaurant.com/th"
+ },
+ "cr-osm-node-2624604015": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/AkhaRiverHouse/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.akhahill.com/"
+ },
+ "cr-osm-node-361390988": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "instagram": "https://www.instagram.com/sdy/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://ibpripapua.org/visi/"
+ },
+ "cr-osm-node-4528072891": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/tourisinnhotel/",
+    "instagram": "https://www.instagram.com/hotel_tourist_inn_/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.touristinnhotel.com/"
+ },
+ "cr-osm-node-6041626556": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "mai@baansakuna.com",
+    "facebook": "https://www.facebook.com/baansakunaresort/",
+    "instagram": "https://www.instagram.com/baansakunaresort/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.baansakuna.com"
+ },
+ "cr-osm-node-6282957185": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/2008/",
+    "instagram": "https://www.instagram.com/rairuenrom/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://www.rairuenrom.com/"
+ },
+ "cr-osm-node-6546922385": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/101teagreenview/",
+    "instagram": "https://www.instagram.com/101teagreenview/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.101teagreenview.com/"
+ },
+ "cr-osm-node-7298407064": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "implaphao@gmail.com"
+   },
+   "phone": "086-057-8777"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.implaphao.com/"
+ },
+ "cr-osm-node-775981375": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "houseofopium.museum@gmail.com",
+    "facebook": "https://www.facebook.com/HouseOfOpiumMuseum/"
+   },
+   "phone": "053-784060"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://houseofopium.co/"
+ },
+ "cr-osm-node-7931699285": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/musefloweretreat/",
+    "instagram": "https://www.instagram.com/musefloweretreat/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://musefloweretreat.com"
+ },
+ "cr-osm-node-9119957392": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/FujiRestaurant/",
+    "instagram": "https://www.instagram.com/fujirestaurant/",
+    "lineUrl": "http://line.me/ti/p/@fujirestaurant"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.fuji.co.th"
+ },
+ "cr-osm-relation-14447679": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/chiangrai.official/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "http://123.242.164.131/cpwp/"
+ },
+ "cr-osm-way-1014321707": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "crc@up.ac.th",
+    "facebook": "https://www.facebook.com/UPOFCHIANGRAI/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.crc.up.ac.th/"
+ },
+ "cr-osm-way-1024441024": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/CRRUOfficial/",
+    "instagram": "https://www.instagram.com/crru.official/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://crru.ac.th/"
+ },
+ "cr-osm-way-1067053313": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "lineUrl": "http://line.me/ti/p/~Overbrook"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.overbrook-hospital.com/"
+ },
+ "cr-osm-way-1074237705": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/naiyahotelchiangrai/",
+    "instagram": "https://www.instagram.com/naiyahotel/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.naiyahotel.com"
+ },
+ "cr-osm-way-1110932840": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/baanpordeedin/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.baanpordeedin.com/index.php/en/"
+ },
+ "cr-osm-way-1127661764": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Leelawadeerestaurantchiangrai/",
+    "instagram": "https://www.instagram.com/leelawadeerestaurantchiangrai/",
+    "lineUrl": "https://line.me/ti/p/~@dux4521l"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.leelawadeechiangrai.com/"
+ },
+ "cr-osm-way-1127661775": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/people/",
+    "instagram": "https://www.instagram.com/thegrandiose.cei/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.thegrandiosehotel.com/"
+ },
+ "cr-osm-way-132084132": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/MFU2Connect/",
+    "instagram": "https://www.instagram.com/mfuconnect/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://mfu.ac.th/home.html"
+ },
+ "cr-osm-way-137648101": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/MaeFahLuangFoundation/",
+    "instagram": "https://www.instagram.com/MaeFahLuangFoundation/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.maefahluang.org/"
+ },
+ "cr-osm-way-373628738": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/7ElevenThailand/",
+    "instagram": "https://www.instagram.com/7.eleventhailand/",
+    "lineUrl": "https://page.line.me/cpall"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.7eleven.co.th/"
+ },
+ "cr-osm-way-384155064": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/MaeFahLuangFoundation/",
+    "instagram": "https://www.instagram.com/MaeFahLuangFoundation/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.maefahluang.org/mae-fah-luang-art-and-cultural-park/"
+ },
+ "cr-osm-way-391132812": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/lalunahotelandresort/",
+    "lineUrl": "https://line.me/R/ti/p/@256evbag"
+   },
+   "phone": "053-756570"
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.lalunaresortchiangrai.com/"
+ },
+ "cr-osm-way-402084109": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/caltexlubricants.th/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 4,
+  "src": "https://www.caltex.com/th"
+ },
+ "cr-osm-way-449480005": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cr-osm-way-527084449": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cr-osm-way-584176188": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Bangchak/",
+    "instagram": "https://www.instagram.com/bangchak.wow/",
+    "lineUrl": "http://line.me/ti/p/~@bangchak"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 15,
+  "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cr-osm-way-684852276": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/caltexlubricants.th/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 4,
+  "src": "https://www.caltex.com/th"
+ },
+ "cr-osm-way-87918800": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "booking@theriverie.com",
+    "facebook": "https://www.facebook.com/share/",
+    "lineUrl": "http://line.me/ti/p/~@katathani_hotels"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "tel: link"
+  },
+  "license": "official-site",
+  "src": "https://www.theriverie.com/"
+ },
+ "cr-osm-way-959733182": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/hopinnhotel/",
+    "instagram": "https://www.instagram.com/hopinnhotel/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "src": "https://www.hopinnhotel.com/th/our-hotels/hop-inn-chiang-rai-clock-tower"
+ },
+ "cr-osm-way-960019823": {
+  "dropped": [
+   "phone"
+  ],
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "salemorahotel@gmail.com",
+    "facebook": "https://www.facebook.com/MORA-The-Boutique-Hotel-356450971563841/",
+    "instagram": "https://www.instagram.com/moraboutiquehotel/"
+   }
+  },
+  "how": {
+   "attrs": "page links",
+   "phone": "schema.org"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.moraboutiquehotel.com/"
+ },
+ "cr-osm-way-986855268": {
+  "fetched": "2026-08-16",
+  "fields": {
+   "attrs": {
+    "email": "webmaster@museumthailand.com",
+    "facebook": "https://www.facebook.com/museumthailand/",
+    "instagram": "https://www.instagram.com/museumthailand/",
+    "lineUrl": "https://page.line.me/museumthailand"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.museumthailand.com/"
+ }
+}

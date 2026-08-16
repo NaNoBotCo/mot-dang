@@ -15,158 +15,40 @@ TZNAME:+07
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:payap-lll-10001022@motdang.net
+UID:meetup-ical-event_315872108@meetup.com@motdang.net
 DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260813T110000
-DTEND;TZID=Asia/Bangkok:20260813T123000
-SUMMARY:Exploring the Future
-RRULE:FREQ=WEEKLY;BYDAY=TH
-LOCATION:มหาวิทยาลัยพายัพ · Payap University
-URL:https://www.lllpayap.com/event/exploring-the-future/2026-08-13/
+DTSTART;TZID=Asia/Bangkok:20260817T170000
+DTEND;TZID=Asia/Bangkok:20260817T200000
+SUMMARY:Sunset Walk: Under-40s CMU Campus & Lake Walk
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315872108/
 END:VEVENT
 BEGIN:VEVENT
-UID:meetup-ical-event_316054760@meetup.com@motdang.net
+UID:meetup-ical-event_315887479@meetup.com@motdang.net
 DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260813T140000
-DTEND;TZID=Asia/Bangkok:20260813T170000
-SUMMARY:Artistic Digital Detox
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Donation based Art Workshop Thursday!  Hello all digital nomads/ travelers/ learners/ explorers/ wanderers\; everybody:  Here's an opportunity to step away from the screen\, and reconnect with your creative self! Through lightly-guided drawing and painting exercises we will explore our artistic sides together. Perhaps you used to draw and wish to 
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316054760/
+DTSTART;TZID=Asia/Bangkok:20260818T180000
+DTEND;TZID=Asia/Bangkok:20260818T230000
+SUMMARY:Dune Days Tuesdays
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Dune Imperium Uprising is deep strategy game with Deck Building and worker placement. What’s that? No problem\, we can teach you.  We will play some starter games before Dune at 5\, like star realms and Stone Age before we rage war on the dunes.  Teaching table starts at 6:30.  Learn it once play it every week.
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315887479/
 END:VEVENT
 BEGIN:VEVENT
-UID:meetup-ical-event_315900471@meetup.com@motdang.net
+UID:meetup-ical-event_315902143@meetup.com@motdang.net
 DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260813T180000
-DTEND;TZID=Asia/Bangkok:20260813T200000
-SUMMARY:Starting Over Alone in Chiang Mai.
-DESCRIPTION:Beyond Small Talk\, Chiang Mai ## Starting Over Alone: How to Build a Life\, Find Your People & Feel at Home in Chiang Mai 🌿  📅 **Thursday\, August 13** ⏰ **6:00 PM–8:00 PM** 📍 **Spice Garden\, Chiang Mai** Moving to Chiang Mai can feel exciting\, freeing\, and full of possibilities—especially when you are beginning a new chapter. But starting over alone also comes with challenges that people do not alw
-URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/315900471/
+DTSTART;TZID=Asia/Bangkok:20260819T170000
+DTEND;TZID=Asia/Bangkok:20260819T190000
+SUMMARY:Loose-Leaf Playground Writing X Poetry Club
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Retro Recess presents: Loose-Leaf Playground\, where writers get to practice.  A relaxed\, welcoming space where words get to play\, and writers get to practice.  Join us to write alongside other writers in a calm\, creative atmosphere. Each gathering offers light prompts\, generous quiet writing time\, and optional sharing. Work on your blogs\, storie
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315902143/
 END:VEVENT
 BEGIN:VEVENT
-UID:meetup-ical-event_315817779@meetup.com@motdang.net
+UID:meetup-ical-event_315902952@meetup.com@motdang.net
 DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260813T180000
-DTEND;TZID=Asia/Bangkok:20260813T230000
-SUMMARY:Strategy Thursdays
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads We will be diving into medium to heavy weight Euro games. No dice just strategy! We change games weekly: some favorite… Terraforming Mars SETI Terra Mystica Ark Nova
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315817779/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_316043220@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260813T203000
-DTEND;TZID=Asia/Bangkok:20260813T233000
-SUMMARY:Expat Karaoke Thursdays @ Extend Bar
-LOCATION:Extend Bar
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads We’re Chiang Mai’s longest-running karaoke-loving community\, bringing people together for good songs and a relaxed night out.  ### How it works  * Choose any song you can find on YouTube\, add your name to the list\, and wait for your turn. * Our karaoke events are an open-bar setup with 2-3 microphones.  ### Come as you are  Sing\, dance\, cheer so
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316043220/
-END:VEVENT
-BEGIN:VEVENT
-UID:payap-lll-10000989@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260814T130000
-DTEND;TZID=Asia/Bangkok:20260814T143000
-SUMMARY:Caring and Sharing Group
-RRULE:FREQ=WEEKLY;BYDAY=FR
-LOCATION:มหาวิทยาลัยพายัพ · Payap University
-URL:https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-08-14/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315831013@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260814T180000
-DTEND;TZID=Asia/Bangkok:20260814T210000
-SUMMARY:Let’s Build Community — Together Nomad Social Night @ Attika Studio
-LOCATION:Attika Studio
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads **PRICE OF EVENT: order drink** Good chats\, good vibes — and a space for **nomads\, travelers\, and remote professionals** who believe community doesn’t happen by accident 🌿 This isn’t networking. This isn’t small talk. This is about **building a village — slowly\, intentionally\, together**. Whether you’re passing through Chiang Mai or rooted here 
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315831013/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315831098@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260814T180000
-DTEND;TZID=Asia/Bangkok:20260814T230000
-SUMMARY:New Gamers Night
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Light\, silly\, card tossing\, card slapping\, poker style games. Low rules- high fun is what Friday is all about. If you don’t drink this is a perfect place to meet folks and chill. We have great regulars and solo gamers are always welcome. Absolutely no experience is required. Just bring a grin and some cash for food and games.
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315831098/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_316039250@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260815T073000
-DTEND;TZID=Asia/Bangkok:20260815T093000
-SUMMARY:Slowcial Running Club CM
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Are you keen to meet other expats and locals while easing yourself into some gentle cardio training?  Join us at 7:30am every Saturday\, for Slow + Social Run starting opposite Living a Dream Cafe on the CMU campus.  We'll enjoy a steady 20–25 minute jog\, followed by coffee and food together afterwards. The pace is suitable for beginners through 
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316039250/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315955033@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260815T180000
-DTEND;TZID=Asia/Bangkok:20260815T220000
-SUMMARY:Every Saturday Night Karaoke & Salsa/ Bachata at Attika Studio 🎤💃
-RRULE:FREQ=WEEKLY;BYDAY=SA
-LOCATION:Attika Studio 🎤💃
-DESCRIPTION:Beyond Small Talk\, Chiang Mai 🎤💃 **Saturday Salsa/Bachata & Karaoke Night at Attika Studio!** 🕺🎶 Join us every Saturday evening for a fun night filled with **dancing\, music\, laughter\, drinks\, and great company!** 💃 **6:30 PM–7:00 PM \\| Beginner Salsa or Bachata Lesson** We’ll begin the evening with a **30-minute beginner-level Salsa or Bachata lesson**. No previous dance experience and no partner 
-URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/315955033/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_316043037@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260815T180000
-DTEND;TZID=Asia/Bangkok:20260815T220000
-SUMMARY:Every Saturday Night Karaoke & Tango at Attika Studio 🎤💃
-RRULE:FREQ=WEEKLY;BYDAY=SA
-LOCATION:Attika Studio 🎤💃
-DESCRIPTION:Beyond Small Talk\, Chiang Mai Join us for a fun Saturday evening filled with music\, dancing\, laughter\, and great company! We’ll begin the evening with **karaoke**\, singing our favorite songs and enjoying some beer\, wine\, and cocktails in a relaxed and friendly atmosphere. Whether you love taking the microphone or prefer cheering everyone on\, you’re welcome to join the fun. After karaoke\, we’ll con
-URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/316043037/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315985476@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260815T184500
-DTEND;TZID=Asia/Bangkok:20260815T204500
-SUMMARY:Insightful Dialogues: A Curated Dinner
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads **Date:** Saturday\, August 15\, 2026 **Arrival:** 6:45 PM **Doors Close:** 7:00 PM (Strictly enforced) **Venue:** RINO\, Chiang Mai **The Concept** Tired of the standard "what's your niche?" small talk? Join us for an evening of rigorous\, intellectually honest\, and highly insightful conversation designed specifically for Chiang Mai’s professionals
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315985476/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_316051244@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260816T113000
-DTEND;TZID=Asia/Bangkok:20260816T133000
-SUMMARY:Weekend Brunch by Nomads Chiang Mai – Built by Community
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads **50 THB for event\, plus order food** Please join our whatsapp group for more info\, check in comments  ***  **📍 Sunday Brunch Gathering** 🗓 **Sunday** 🕦 **11:30 AM** 📍Hideaway 💰 **50 THB** (to support event costs and ongoing community fundraising)  ***  **Welcome to Chiang Mai!** Whether you’re new in town or have been here for a while\, this is 
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316051244/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315942727@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260816T140000
-DTEND;TZID=Asia/Bangkok:20260816T180000
-SUMMARY:Skate X Create 🛼🎨✨
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads 🛼✨ Skate X Create ✨🛼  Join us from 2:00–6:00 pm at Chiang Mai Railway Station Park for a playful afternoon where skaters roll\, artists create\, and everyone gets to just be. Come spend the day outside with us drawing\, painting\, skating\, resting\, laughing\, connecting. you can roll through on your skates\, sit in the grass with your sketchbook\, or s
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315942727/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315856434@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260816T170000
-DTEND;TZID=Asia/Bangkok:20260816T190000
-SUMMARY:🌅 Sunday Sunset Walk & Connect at CMU
-RRULE:FREQ=WEEKLY;BYDAY=SU
-LOCATION:มหาวิทยาลัยเชียงใหม่ · Chiang Mai University
-DESCRIPTION:Beyond Small Talk\, Chiang Mai # 🌅 Sunday Sunset Walk & Connect  Looking to meet new people\, build meaningful connections\, and end your weekend on a positive note?  Join us every Sunday from **5:00 PM – 7:00 PM** for a relaxing sunset walk around the beautiful grounds of Chiang Mai University (CMU). This gathering is designed to help **expats\, newcomers\, retirees\, digital nomads\, travelers\, and loc
-URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/315856434/
-END:VEVENT
-BEGIN:VEVENT
-UID:meetup-ical-event_315857525@meetup.com@motdang.net
-DTSTAMP:20260101T000000
-DTSTART;TZID=Asia/Bangkok:20260816T190000
-DTEND;TZID=Asia/Bangkok:20260816T210000
-SUMMARY:All Day Gaming
-DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Sundays are wild. We will be playing everything from DnD to Splendor to twilight imperium 4th\, and if you don’t know what any of that is… no problem we can teach you.  We have always have a scheduled for the old crew and tables open for the new. Just walk in and play.
-URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315857525/
+DTSTART;TZID=Asia/Bangkok:20260819T180000
+DTEND;TZID=Asia/Bangkok:20260819T230000
+SUMMARY:Catan Wednesdays
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads It’s Catan night baby! Games start about every hour or so. We have base Catan\, Space Catan\, cities & Knights even the newest Catan New Energies. Roll\, trade\, build and race to 10 VP.  If you have never played\, no problem we can teach you.
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315902952/
 END:VEVENT
 BEGIN:VEVENT
 UID:meetup-ical-event_315949373@meetup.com@motdang.net
@@ -178,6 +60,33 @@ DESCRIPTION:Questions That Matter (Free Weekly Wed 6pm Meetup Group) Fifty years
 URL:https://www.meetup.com/questionsthatmatter/events/315949373/
 END:VEVENT
 BEGIN:VEVENT
+UID:payap-lll-10001023@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260820T110000
+DTEND;TZID=Asia/Bangkok:20260820T123000
+SUMMARY:Exploring the Future
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/exploring-the-future/2026-08-20/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_316111614@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260820T140000
+DTEND;TZID=Asia/Bangkok:20260820T170000
+SUMMARY:Artistic Digital Detox
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Donation based Art Workshop Thursday!  Hello all digital nomads/ travelers/ learners/ explorers/ wanderers\; everybody:  Here's an opportunity to step away from the screen\, and reconnect with your creative self! Through lightly-guided drawing and painting exercises we will explore our artistic sides together. Perhaps you used to draw and wish to 
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316111614/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315918004@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260820T180000
+DTEND;TZID=Asia/Bangkok:20260820T230000
+SUMMARY:Strategy Thursdays
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads We will be diving into medium to heavy weight Euro games. No dice just strategy! We change games weekly: some favorite… Terraforming Mars SETI Terra Mystica Ark Nova
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315918004/
+END:VEVENT
+BEGIN:VEVENT
 UID:meetup-ical-event_315901696@meetup.com@motdang.net
 DTSTAMP:20260101T000000
 DTSTART;TZID=Asia/Bangkok:20260820T180000
@@ -186,6 +95,76 @@ SUMMARY:The Biggest Mistake I Made After Moving to Chiang Mai
 LOCATION:Spice Garden
 DESCRIPTION:Beyond Small Talk\, Chiang Mai Moving to Chiang Mai can feel like a fresh start — beautiful weather\, affordable living\, amazing food\, endless activities\, and people arriving from all over the world.  But starting over in a new country also comes with mistakes. And I made one that affected me far more than I expected. At this Meetup\, I’ll share **the biggest mistake I made after moving to Chiang Mai
 URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/315901696/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315872527@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260820T190000
+DTEND;TZID=Asia/Bangkok:20260820T210000
+SUMMARY:Advanced Ecommerce Seller Dinner
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Join a private dinner for advanced ecommerce sellers generating more than US$50\,000 in monthly revenue. Connect with experienced operators to exchange practical strategies\, share real-world stories and lessons\, and build meaningful relationships with peers who understand the challenges of scaling an ecommerce business.  AA entry: There is no hos
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315872527/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_316053671@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260820T203000
+DTEND;TZID=Asia/Bangkok:20260820T233000
+SUMMARY:Expat Karaoke Thursdays @ Extend Bar
+LOCATION:Extend Bar
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads We’re Chiang Mai’s longest-running karaoke-loving community\, bringing people together for good songs and a relaxed night out.  ### How it works  * Choose any song you can find on YouTube\, add your name to the list\, and wait for your turn. * Our karaoke events are an open-bar setup with 2-3 microphones.  ### Come as you are  Sing\, dance\, cheer so
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316053671/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-10000990@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260821T130000
+DTEND;TZID=Asia/Bangkok:20260821T143000
+SUMMARY:Caring and Sharing Group
+RRULE:FREQ=WEEKLY;BYDAY=FR
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-08-21/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315624959@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260821T180000
+DTEND;TZID=Asia/Bangkok:20260821T210000
+SUMMARY:Let’s Build Community — Together Nomad Social Night @ Attika Studio
+LOCATION:Attika Studio
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads **PRICE OF EVENT: order drink** Good chats\, good vibes — and a space for **nomads\, travelers\, and remote professionals** who believe community doesn’t happen by accident 🌿 This isn’t networking. This isn’t small talk. This is about **building a village — slowly\, intentionally\, together**. Whether you’re passing through Chiang Mai or rooted here 
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315624959/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315931990@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260821T180000
+DTEND;TZID=Asia/Bangkok:20260821T230000
+SUMMARY:New Gamers Night
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Light\, silly\, card tossing\, card slapping\, poker style games. Low rules- high fun is what Friday is all about. If you don’t drink this is a perfect place to meet folks and chill. We have great regulars and solo gamers are always welcome. Absolutely no experience is required. Just bring a grin and some cash for food and games.
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315931990/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_316112121@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260822T183000
+DTEND;TZID=Asia/Bangkok:20260822T213000
+SUMMARY:🎤 Saturday Night Karaoke + Salsa & Bachata at Spice Garden 💃🕺
+RRULE:FREQ=WEEKLY;BYDAY=SA
+LOCATION:Spice Garden
+DESCRIPTION:Beyond Small Talk\, Chiang Mai ## 🎤 Saturday Night Karaoke + Salsa & Bachata 💃🕺  Join us for a lively Saturday evening of **music\, dancing\, karaoke\, drinks\, finger food\, and great company** at **Spice Garden Chiang Mai**! 📅 **Saturday\, 22 August 2026** ⏰ **6:00 PM – 10:00 PM** 📍 **Spice Garden\, Chiang Mai** We’ll begin the evening with some **beginner-friendly Salsa and Bachata dancing**. No experi
+URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/316112121/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315526694@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260823T170000
+DTEND;TZID=Asia/Bangkok:20260823T190000
+SUMMARY:🌅 Sunday Sunset Walk & Connect at CMU
+RRULE:FREQ=WEEKLY;BYDAY=SU
+LOCATION:มหาวิทยาลัยเชียงใหม่ · Chiang Mai University
+DESCRIPTION:Beyond Small Talk\, Chiang Mai # 🌅 Sunday Sunset Walk & Connect  Looking to meet new people\, build meaningful connections\, and end your weekend on a positive note?  Join us every Sunday from **5:00 PM – 7:00 PM** for a relaxing sunset walk around the beautiful grounds of Chiang Mai University (CMU). This gathering is designed to help **expats\, newcomers\, retirees\, digital nomads\, travelers\, and loc
+URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/315526694/
 END:VEVENT
 BEGIN:VEVENT
 UID:payap-lll-273222@motdang.net
@@ -240,6 +219,15 @@ DTEND;TZID=Asia/Bangkok:20260909T120000
 SUMMARY:Thailand’s coral reefs in a warming world with Dr. Chris Carpenter
 LOCATION:มหาวิทยาลัยพายัพ · Payap University
 URL:https://www.lllpayap.com/event/thailands-coral-reefs-in-a-warming-world-with-dr-chris-carpenter/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315956407@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260912T180000
+DTEND;TZID=Asia/Bangkok:20260912T220000
+SUMMARY:Every Saturday Night Karaoke & bachata at spice garden 🎤💃
+DESCRIPTION:Beyond Small Talk\, Chiang Mai Join us for a fun Saturday evening filled with music\, dancing\, laughter\, and great company! We’ll begin the evening with **karaoke**\, singing our favorite songs and enjoying some beer\, wine\, and cocktails in a relaxed and friendly atmosphere. Whether you love taking the microphone or prefer cheering everyone on\, you’re welcome to join the fun. After **free bachata /sa
+URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/315956407/
 END:VEVENT
 BEGIN:VEVENT
 UID:payap-lll-273201@motdang.net

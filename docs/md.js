@@ -106,12 +106,54 @@ async function loadIndex(){const r=await fetch(RROOT+'data/index.json');return r
 if(resBox){(async()=>{
 const q=new URLSearchParams(location.search).get('q')||'';
 document.querySelector('form.seek input').value=q;
-const idx=await loadIndex();const needle=q.toLowerCase();
-const hits=q?idx.filter(e=>(e.n+' '+(e.e||'')+' '+(e.a||'')).toLowerCase().includes(needle)).slice(0,200):[];
+const idx=await loadIndex();
+// Searching used to mean typing the name exactly, in order, spelled our way:
+// the whole query had to appear as one unbroken substring. "rajavej hospital"
+// found nothing, because Rajavej Chiang Mai Hospital keeps two words in the
+// middle — and 5,190 listings carry names three words or longer. So the words
+// are matched one at a time, and when nothing matches all of them the search
+// loosens by steps rather than giving up: most-words-matched first, then near
+// spellings. Thai queries carry no spaces, stay a single term, and are matched
+// as they always were.
+const norm=s=>s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+const needle=norm(q);const terms=needle.split(' ').filter(Boolean);
+// Roman letters get dropped, doubled, or swapped — Thai names come to us
+// through half a dozen romanisations. One edit of slack, and only for words
+// long enough that the slack cannot swallow a different word whole.
+const near=(a,b)=>{if(a===b)return true;const la=a.length,lb=b.length;
+if(Math.abs(la-lb)>1)return false;let i=0,j=0,d=0;
+while(i<la&&j<lb){if(a[i]===b[j]){i++;j++;continue;}
+if(++d>1)return false;if(la>lb)i++;else if(lb>la)j++;else{i++;j++;}}
+return d+(la-i)+(lb-j)<=1;};
+const rows=idx.map(e=>{const h=norm(e.n+' '+(e.e||'')+' '+(e.a||''));
+return{e:e,h:h,w:h.split(' ')};});
+// Whole-phrase and name-start matches float up, so the 200 we keep are the 200
+// worth reading first.
+const rank=r=>(r.h.startsWith(terms[0])?2:0)+(r.h.includes(needle)?1:0);
+let mode='',found=[];
+if(terms.length){
+found=rows.filter(r=>terms.every(t=>r.h.includes(t))).sort((a,b)=>rank(b)-rank(a));
+// A misspelling of the right place beats a clean match on half the words, so
+// near spellings are tried first: "rajavey hospital" should land on Rajavej,
+// not on all 67 hospitals in the province.
+if(!found.length){
+found=rows.filter(r=>terms.every(t=>t.length<4?r.h.includes(t)
+:r.w.some(w=>w.includes(t)||near(w,t)))).sort((a,b)=>rank(b)-rank(a));
+if(found.length)mode='near';}
+if(!found.length&&terms.length>1){
+found=rows.map(r=>[r,terms.filter(t=>r.h.includes(t)).length]).filter(x=>x[1]>0)
+.sort((a,b)=>b[1]-a[1]||rank(b[0])-rank(a[0])).map(x=>x[0]);
+if(found.length)mode='some';}}
+const hits=found.slice(0,200).map(r=>r.e);
 document.getElementById('rescount').textContent=q?`${hits.length}`:'';
-resBox.innerHTML=hits.map(e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
+// Say plainly when the search had to loosen its grip, so nobody reads a near
+// match as an exact one.
+const notes={some:'ไม่ตรงทุกคำ — เรียงตามที่ตรงมากที่สุด / not every word matched — closest first',
+near:'สะกดใกล้เคียง — น่าจะหมายถึงรายการนี้ / near spellings — this is likely what you meant'};
+const note=mode?`<li class="shelf">${notes[mode]}</li>`:'';
+resBox.innerHTML=(hits.length?note+hits.map(e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
 `${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
-` <span class="count">· ${e.pv}</span></li>`).join('')||
+` <span class="count">· ${e.pv}</span></li>`).join(''):'')||
 (q?'<li class="shelf">ไม่พบ — ลองคำอื่น / nothing found, try another word</li>':'');})();}
 // ---- today's sky + fortune, chosen from a month baked at build time ---
 // Nothing is fetched: build.py wrote 30 days into these files, so the page is

@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mot Dang — investor brief</title>
+<meta name="description" content="A Thai-first place-data layer for secondary Southeast Asian cities. 12,315 places live, field-verified, offline-capable — built by a production system that is the actual asset.">
+
+<!-- Not for search engines. This gets forwarded person to person, not found. -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mot Dang">
+<meta property="og:title" content="Mot Dang — price the pipeline, not the snapshot">
+<meta property="og:description" content="12,315 places across Chiang Mai and Chiang Rai. Bootstrapped, field-verified, no tracking. An investor brief.">
+<meta property="og:image" content="https://motdang.net/brief/card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A map of Chiang Mai's old city and moat under a paper wash, titled Mot Dang — price the pipeline, not the snapshot.">
+<meta property="og:url" content="https://motdang.net/brief/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mot Dang — price the pipeline, not the snapshot">
+<meta name="twitter:description" content="12,315 places across Chiang Mai and Chiang Rai. Bootstrapped, field-verified, no tracking.">
+<meta name="twitter:image" content="https://motdang.net/brief/card.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🐜</text></svg>">
+
+<style>
+:root{
+  --paper:#F6F7F4; --ink:#191D1B; --muted:#6E7772; --rule:#DCE0D9;
+  --red:#A32E12; --teal:#2F6D5B; --panel:#FFFFFF; --wash:#EDEFE9;
+  --shadow:0 2px 10px rgba(25,29,27,.10);
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#15181A; --ink:#E7EBE5; --muted:#8D958E; --rule:#2A2F31;
+  --red:#E2734B; --teal:#5EB79C; --panel:#1C2023; --wash:#202527;
+  --shadow:0 2px 10px rgba(0,0,0,.5);
+}}
+:root[data-theme="dark"]{
+  --paper:#15181A; --ink:#E7EBE5; --muted:#8D958E; --rule:#2A2F31;
+  --red:#E2734B; --teal:#5EB79C; --panel:#1C2023; --wash:#202527;
+  --shadow:0 2px 10px rgba(0,0,0,.5);
+}
+:root[data-theme="light"]{
+  --paper:#F6F7F4; --ink:#191D1B; --muted:#6E7772; --rule:#DCE0D9;
+  --red:#A32E12; --teal:#2F6D5B; --panel:#FFFFFF; --wash:#EDEFE9;
+  --shadow:0 2px 10px rgba(25,29,27,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:17px/1.6 -apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  -webkit-font-smoothing:antialiased}
+
+/* ---- reading progress ---- */
+#prog{position:fixed;top:0;left:0;height:2px;background:var(--red);width:0;
+  z-index:60;transition:width .1s linear}
+@media (prefers-reduced-motion:reduce){#prog{transition:none}}
+
+/* ---- top bar ---- */
+#bar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid var(--rule)}
+#bar .in{max-width:1180px;margin:0 auto;padding:9px 20px;display:flex;
+  align-items:center;gap:12px}
+#bar .brand{font:600 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--red);white-space:nowrap}
+#bar .sp{flex:1}
+button.act{font:500 12.5px/1 -apple-system,"Segoe UI",sans-serif;color:var(--ink);
+  background:var(--panel);border:1px solid var(--rule);border-radius:7px;
+  padding:7px 11px;cursor:pointer;white-space:nowrap}
+button.act:hover{border-color:var(--red);color:var(--red)}
+button.act:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+button.act[data-done="1"]{border-color:var(--teal);color:var(--teal)}
+@media(max-width:760px){.hide-sm{display:none}}
+
+/* ---- deep-link notice ---- */
+#jumped{max-width:900px;margin:14px auto 0;padding:11px 16px;background:var(--wash);
+  border:1px solid var(--rule);border-left:3px solid var(--red);border-radius:0 8px 8px 0;
+  font-size:.94rem;display:none;align-items:center;gap:12px}
+#jumped.on{display:flex}
+#jumped a{color:var(--red);font-weight:600}
+
+/* ---- layout ---- */
+.shell{max-width:1180px;margin:0 auto;padding:0 20px;display:grid;
+  grid-template-columns:minmax(0,1fr) 210px;gap:44px;align-items:start}
+@media(max-width:1000px){.shell{grid-template-columns:1fr;gap:0}}
+.deck{max-width:900px;padding-bottom:90px}
+
+/* ---- nav rail ---- */
+nav.rail{position:sticky;top:74px;padding:26px 0 0;font-size:.86rem}
+@media(max-width:1000px){nav.rail{display:none}}
+nav.rail ol{list-style:none;margin:0;padding:0}
+nav.rail li{margin:0}
+nav.rail a{display:grid;grid-template-columns:26px 1fr;gap:6px;
+  padding:5px 8px;color:var(--muted);text-decoration:none;border-left:2px solid var(--rule);
+  border-radius:0 5px 5px 0}
+nav.rail a:hover{color:var(--ink);background:var(--wash)}
+nav.rail a .n{font:600 10.5px/1.5 ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+nav.rail a[aria-current="true"]{color:var(--red);border-left-color:var(--red);font-weight:600}
+nav.rail .cap{font:600 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);padding:0 8px 9px}
+
+/* ---- sections ---- */
+section{padding:62px 0;border-bottom:1px solid var(--rule);position:relative}
+section:last-of-type{border-bottom:none}
+.head{display:flex;align-items:baseline;gap:10px;margin-bottom:18px}
+.num{font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;
+  color:var(--red);text-transform:uppercase}
+.anchor{opacity:0;border:none;background:none;cursor:pointer;color:var(--muted);
+  font:600 11px/1 ui-monospace,Menlo,monospace;padding:2px 6px;border-radius:5px;
+  transition:opacity .15s}
+section:hover .anchor,.anchor:focus-visible{opacity:1}
+.anchor:hover{color:var(--red);background:var(--wash)}
+.anchor:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.anchor[data-done="1"]{color:var(--teal);opacity:1}
+
+h1{font-size:clamp(2.1rem,5.4vw,3.5rem);line-height:1.04;letter-spacing:-.022em;
+  font-weight:700;margin:0 0 18px;text-wrap:balance}
+h2{font-size:clamp(1.5rem,3.4vw,2.1rem);line-height:1.14;letter-spacing:-.018em;
+  font-weight:700;margin:0 0 16px;text-wrap:balance}
+h3{font-size:1.02rem;margin:0 0 6px;font-weight:700}
+p{margin:0 0 15px;max-width:64ch}
+.lede{font-size:1.16rem;color:var(--muted);max-width:60ch}
+.kicker{font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:block}
+em.q{font-style:normal;color:var(--red);font-weight:700}
+
+.cover{padding:56px 0 62px}
+.rule-red{width:56px;height:3px;background:var(--red);margin:0 0 26px}
+.cover .meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px 26px;
+  font:500 13px/1.5 ui-monospace,Menlo,monospace;color:var(--muted)}
+
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0}
+.metrics div{background:var(--panel);padding:17px 16px}
+.metrics b{display:block;font:700 1.72rem/1 ui-monospace,Menlo,monospace;
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-bottom:6px}
+.metrics span{font-size:.83rem;color:var(--muted);line-height:1.35;display:block}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:22px}
+@media(max-width:660px){.cols{grid-template-columns:1fr}}
+.cols h3{color:var(--teal)}
+.owned h3{color:var(--red)}
+.upstream h3{color:var(--muted)}
+ul{margin:0;padding-left:19px}
+li{margin:8px 0;max-width:58ch}
+li::marker{color:var(--muted)}
+
+.tbl{width:100%;border-collapse:collapse;margin:22px 0;font-size:.94rem}
+.tbl th{text-align:left;font:600 10.5px/1 ui-monospace,Menlo,monospace;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  padding:0 12px 9px 0;border-bottom:1px solid var(--rule)}
+.tbl td{padding:11px 12px 11px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.tbl td.n{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;
+  white-space:nowrap;text-align:right;padding-right:0}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .sub{display:block;color:var(--muted);font-size:.86rem;margin-top:2px}
+.scroll{overflow-x:auto}
+
+.poke{border-left:3px solid var(--red);padding:2px 0 2px 18px;margin:20px 0}
+.poke h3{margin-bottom:3px}
+.poke p{color:var(--muted);margin-bottom:0;font-size:.96rem}
+
+.ask{background:var(--panel);border:1px solid var(--rule);padding:26px 26px 10px;margin:24px 0}
+
+.port{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:22px}
+.port div{border-top:2px solid var(--rule);padding-top:12px}
+.port h3{font-size:.95rem}
+.port p{font-size:.9rem;color:var(--muted);margin:0}
+
+footer{padding:38px 0 0;color:var(--muted);font-size:.86rem;max-width:64ch}
+footer a{color:var(--red)}
+.contact{margin-top:22px;padding:18px 20px;background:var(--panel);
+  border:1px solid var(--rule);border-radius:9px;color:var(--ink)}
+.contact b{display:block;margin-bottom:3px}
+
+/* ---- toast ---- */
+#toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(14px);
+  background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:8px;
+  font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;
+  z-index:70;box-shadow:var(--shadow);max-width:90vw;text-align:center}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (prefers-reduced-motion:reduce){#toast{transition:none}}
+
+/* ---- print ---- */
+@media print{
+  #bar,#prog,nav.rail,#toast,#jumped,.anchor{display:none !important}
+  html{scroll-padding-top:0}
+  body{background:#fff;color:#000;font-size:11pt}
+  .shell{display:block;max-width:none;padding:0}
+  .deck{max-width:none;padding:0}
+  section{padding:16pt 0;break-inside:avoid;border-bottom:.5pt solid #ccc}
+  .cover{padding:0 0 16pt}
+  h1{font-size:26pt}h2{font-size:15pt}
+  .metrics{break-inside:avoid}
+  a{color:#000;text-decoration:none}
+  @page{margin:14mm}
+}
+</style>
+</head>
+<body>
+
+<div id="prog" aria-hidden="true"></div>
+
+<div id="bar">
+  <div class="in">
+    <span class="brand">มดแดง · Mot Dang</span>
+    <span class="sp"></span>
+    <button class="act" id="btn-copy">Copy link</button>
+    <button class="act hide-sm" id="btn-brief">Copy summary</button>
+    <button class="act hide-sm" id="btn-mail">Forward</button>
+    <button class="act hide-sm" id="btn-print">PDF</button>
+    <button class="act" id="btn-theme" aria-label="Switch light or dark">◐</button>
+  </div>
+</div>
+
+<div id="jumped" role="status">
+  <span>You've been sent straight to a specific point.</span>
+  <a href="#top">Start from the beginning →</a>
+</div>
+
+<div class="shell">
+<div class="deck" id="top">
+
+<section class="cover" id="s00">
+  <div class="rule-red"></div>
+  <span class="kicker">มดแดง · Mot Dang · Chiang Mai</span>
+  <h1>One operator. A production system. The data it makes.</h1>
+  <p class="lede">A Thai-first place-data layer for secondary Southeast Asian cities — 12,315 places live, offline-capable, field-verified, and built by a pipeline that is the actual asset.</p>
+  <div class="meta">
+    <span>Annika "Nan" Peacock</span><span>NaNoBotCo</span><span>motdang.net</span><span>August 2026</span>
+  </div>
+</section>
+
+<section id="s01" data-title="Thesis">
+  <div class="head"><span class="num">01 / Thesis</span><button class="anchor" data-anchor="s01">copy link</button></div>
+  <h2>Price the pipeline, not the snapshot.</h2>
+  <p>The directory is the visible output. The asset is an operator plus a production system: one person, running a disciplined AI fleet, doing the work of a data team — in languages and markets the incumbents have decided are not worth hand-collecting.</p>
+  <p>I will say the uncomfortable version plainly, because it is the actual investment case. <strong>I am the product.</strong> What is being funded is a repeatable conversion of domain access into structured data, and the three things that make it work do not come apart:</p>
+  <div class="cols" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+    <div><h3>Access</h3><ul><li>Practitioners, temple communities, and dealers talk to me — as a sincere participant, over years, not as a researcher passing through</li></ul></div>
+    <div><h3>Taxonomy</h3><ul><li>A career spent turning folksonomy into curated ontology. The categories here are emic and contested; getting them right is the hard part, not the crawling</li></ul></div>
+    <div><h3>Throughput</h3><ul><li>A fleet discipline that turns that judgment into shipped, verified, edge-served data at a rate that historically took a team</li></ul></div>
+  </div>
+  <p style="margin-top:20px">Money buys the second and third of those faster. It cannot buy the first, and neither can a better-funded competitor — which is the whole reason this is worth looking at. Mot Dang is the flagship proof that the combination works. It is not the only output, and it is not the ceiling.</p>
+</section>
+
+<section id="s02" data-title="The proof, measured">
+  <div class="head"><span class="num">02 / The proof, measured</span><button class="anchor" data-anchor="s02">copy link</button></div>
+  <h2>Chiang Mai and Chiang Rai, live today</h2>
+  <div class="metrics">
+    <div><b>12,315</b><span>places across two provinces</span></div>
+    <div><b>9,107</b><span>in Chiang Mai alone</span></div>
+    <div><b>3,208</b><span>Chiang Rai, expansion in progress</span></div>
+    <div><b>1,310</b><span>toilets, graded by welcome tier</span></div>
+    <div><b>316</b><span>massage venues</span></div>
+    <div><b>258</b><span>women's health facilities</span></div>
+    <div><b>33</b><span>festivals, dated by the real calendar</span></div>
+    <div><b>0</b><span>trackers, third-party scripts, outside capital</span></div>
+  </div>
+  <p>Every place has its own page, its own QR code, and its provenance shown to the reader — crawled or field-verified, never blurred. There is an offline Android app carrying its own basemap, a route planner, a festival layer, and a public contribution pipeline with a moderation queue.</p>
+</section>
+
+<section id="s03" data-title="The moat">
+  <div class="head"><span class="num">03 / The moat</span><button class="anchor" data-anchor="s03">copy link</button></div>
+  <h2>What is actually owned</h2>
+  <p>Being precise here matters more than being impressive, because diligence will check it.</p>
+  <div class="cols">
+    <div class="owned">
+      <h3>Owned outright</h3>
+      <ul>
+        <li>The curated field data — the part collected on foot, not crawled</li>
+        <li>The Thai-canonical taxonomy and facet schema</li>
+        <li>The build system, importers, and deploy discipline</li>
+        <li>The brand, the illustrations, the offline app</li>
+      </ul>
+    </div>
+    <div class="upstream">
+      <h3>Upstream, with licenses</h3>
+      <ul>
+        <li>The crawled fraction — OpenStreetMap under ODbL</li>
+        <li>Commons photography, credited per image</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:20px">The defensible layer is the owned one: field truth folded through a curated Thai taxonomy. That is the part Google cannot crawl and will not hand-collect for a secondary Thai city — not because it is hard, but because the unit economics of doing it their way never close.</p>
+</section>
+
+<section id="s04" data-title="The system">
+  <div class="head"><span class="num">04 / The system</span><button class="anchor" data-anchor="s04">copy link</button></div>
+  <h2>Why one person can hold this much</h2>
+  <div class="cols">
+    <div>
+      <h3>Build discipline</h3>
+      <ul>
+        <li>A route registry is the single source of truth; the build <strong>fails</strong> if data and navigation drift apart</li>
+        <li>Verification gates run before any publish</li>
+        <li>Edge-served from object storage — no server to babysit</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Fleet, not chat</h3>
+      <ul>
+        <li>A tiered pipeline of agents with lanes, locks, and a timed push queue</li>
+        <li>Crawl → extract → taxonomize → verify → publish, each stage inspectable</li>
+        <li>Findings propagate across projects rather than dying in a transcript</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:20px">This is the part that generalizes. The same spine has produced a second directory in an unrelated country and domain, and a 7,000-document searchable manuscript corpus with multilingual semantic search. The city is the demo; the factory is the company.</p>
+</section>
+
+<section id="s05" data-title="It generalizes">
+  <div class="head"><span class="num">05 / It generalizes</span><button class="anchor" data-anchor="s05">copy link</button></div>
+  <h2>Same spine, different continent</h2>
+  <div class="scroll"><table class="tbl">
+    <tr><th>Asset</th><th>What it is</th><th>State</th></tr>
+    <tr><td><strong>Mot Dang</strong><span class="sub">Chiang Mai + Chiang Rai</span></td>
+        <td>Place-data directory, offline app, festival layer<span class="sub">The flagship. Live, public, bootstrapped.</span></td>
+        <td class="n">Live</td></tr>
+    <tr><td><strong>Beeline</strong><span class="sub">North Carolina</span></td>
+        <td>Money-flow directory over nonprofit funding — 762 cells mapped, 88% funder opacity measured<span class="sub">Built from the same pipeline, on US tax filings, in a week. Proof the system is not about Thailand.</span></td>
+        <td class="n">Model built</td></tr>
+    <tr><td><strong>City template</strong><span class="sub">Lampang · Pai · Luang Prabang</span></td>
+        <td>Importers, taxonomy, and build packaged as a deployable kit<span class="sub">License it, or run it.</span></td>
+        <td class="n">Next</td></tr>
+  </table></div>
+  <p>Finishing Chiang Rai is the expansion proof: it is the difference between "a Chiang Mai site" and a platform, and it moves the valuation conversation more than any single feature.</p>
+</section>
+
+<section id="s06" data-title="Second vertical">
+  <div class="head"><span class="num">06 / Second vertical</span><button class="anchor" data-anchor="s06">copy link</button></div>
+  <h2>The corpus, and the register that sits on it</h2>
+  <p>The same taxonomy engine, pointed at Thai sacred material. It is the part of the portfolio people react to first — and the part where the incumbents are furthest from being able to compete, because the categories are emic, the sources are in Northern Thai and Pali, and the market runs on provenance rather than SKUs.</p>
+  <div class="metrics">
+    <div><b>6,990</b><span>manuscripts, searchable</span></div>
+    <div><b>6,203</b><span>joined to a wat registry across separate archives</span></div>
+    <div><b>4,380</b><span>market listings parsed into the taxonomy</span></div>
+    <div><b>4</b><span>facets: วัด × รุ่น × พิมพ์ × เนื้อ</span></div>
+  </div>
+  <div class="cols">
+    <div>
+      <h3>The open layer</h3>
+      <ul>
+        <li>Multilingual semantic search over the corpus — the English-only embedding models are anti-correlated on Thai, so this required its own stack</li>
+        <li>Open by default. The scholarship is not the product and will not be paywalled.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>The commercial layer</h3>
+      <ul>
+        <li>A register of temple, series, mould, and material — the four things a buyer actually authenticates on</li>
+        <li>Dealers pay to <strong>claim and maintain</strong> their entries. Money never moves through the register.</li>
+        <li>Sellers are already arriving through a live intake door; there is not yet a register for them to pay into. That is the build.</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:20px"><strong>Boundaries, stated up front:</strong> no <em class="q">prai</em> material, no tiger, no ivory — permanently excluded, not a policy that flexes for volume. A living tradition treated as living, never as curiosities for tourists. These constraints narrow the market and are not negotiable; they are also why practitioners talk to me at all, which is the only reason the data exists.</p>
+</section>
+
+<section id="s07" data-title="Revenue">
+  <div class="head"><span class="num">07 / Revenue</span><button class="anchor" data-anchor="s07">copy link</button></div>
+  <h2>Lines that exist, and lines that are near</h2>
+  <div class="scroll"><table class="tbl">
+    <tr><th>Line</th><th>Mechanism</th><th>Status</th></tr>
+    <tr><td>Sponsor cards</td><td>Flat monthly rate, no tracking, no auction — 1997-innocent by design<span class="sub">Launch event is the sales floor. 20 sponsors at ฿500–1,000/mo is the first recurring line.</span></td><td class="n">Built, unsold</td></tr>
+    <tr><td>Place API</td><td>Documented, rate-limited per-place JSON for hotels, relocation agents, app builders<span class="sub">Granularity Google does not sell for this city.</span></td><td class="n">Ready to publish</td></tr>
+    <tr><td>Concierge licensing</td><td>White-label neighborhood sheets, QR-coded, refreshed quarterly<span class="sub">Generator is ~80% built.</span></td><td class="n">A quarter out</td></tr>
+    <tr><td>City franchise</td><td>The kit, licensed per city<span class="sub">The raise pays for this.</span></td><td class="n">Design stage</td></tr>
+    <tr><td>Dealer register</td><td>Paid claiming and upkeep of amulet entries<span class="sub">Sellers already arriving through a live intake door; the register itself is unbuilt.</span></td><td class="n">Demand ahead of build</td></tr>
+  </table></div>
+</section>
+
+<section id="s08" data-title="Candor">
+  <div class="head"><span class="num">08 / Candor</span><button class="anchor" data-anchor="s08">copy link</button></div>
+  <h2>What a skeptic pokes first</h2>
+  <p class="lede" style="margin-bottom:24px">Stated plainly, because diligence surfaces all of it eventually, and it is worth more coming from me first.</p>
+
+  <div class="poke"><h3>Zero external revenue to date.</h3>
+    <p>The sponsor system is built and live; nobody has been sold to yet. There is no revenue history to extrapolate from, and I am not going to draw a curve out of nothing.</p></div>
+
+  <div class="poke"><h3>Distribution was destroyed, not earned away.</h3>
+    <p>A twenty-year audience on Facebook and Instagram was suspended in July 2026 with no recourse. The rebuild is an owned mailing list and LINE, days old. Acquisition is the genuine open problem, not the product.</p></div>
+
+  <div class="poke"><h3>Beeline's moat is demonstrated, not finished.</h3>
+    <p>The funder-to-recipient edge is proven for 23 of 757 funders, from one of roughly fifteen annual filing batches. The method holds; the coverage is early.</p></div>
+
+  <div class="poke"><h3>Key-person risk is total — and I am not going to pretend otherwise.</h3>
+    <p>If the thesis is that I am the product, then the concentration risk is the thesis, not a footnote to it. What is written down and reproducible is the pipeline: the build system, the taxonomy, the verification gates. What is not transferable is the access, and no amount of documentation makes it so. An investor who cannot hold that should pass, and I would rather they pass early.</p></div>
+
+  <div class="poke"><h3>The field-verified fraction is smaller than the crawled one.</h3>
+    <p>"Approaching shoe leather" is the honest phrase. It is not there yet. Closing that gap is the single largest line in the use of funds.</p></div>
+
+  <div class="poke"><h3>The register with paying demand is the one I have not built.</h3>
+    <p>Dealers are arriving at an intake door that leads to a page saying the register is still being made. That is a real conversion loss happening now, and the ordering of work is a fair thing to question.</p></div>
+
+  <div class="poke"><h3>The constraints on the sacred material cost money on purpose.</h3>
+    <p>The excluded categories are among the higher-margin ones in that trade. I will not carry them. If an investor needs that revenue in the model, we are the wrong fit, and it is better to find that out on this page than in month nine.</p></div>
+</section>
+
+<section id="s09" data-title="The ask">
+  <div class="head"><span class="num">09 / The ask</span><button class="anchor" data-anchor="s09">copy link</button></div>
+  <h2>What the money buys — and an open question</h2>
+  <div class="ask">
+    <p style="font-size:1.16rem;margin-bottom:14px"><strong>There is deliberately no number on this page.</strong></p>
+    <p>What the money does is settled — the table below is costed and defensible line by line. How much to raise, and on what instrument, is not. Naming a figure to look decisive would be the wrong instinct, and the wrong instinct is an expensive thing to hide in a first conversation.</p>
+    <p style="margin-bottom:20px">So the ask is a conversation rather than a figure: <strong>what would this be worth raising against, and what would need to be true before a first cheque?</strong> "Not yet — come back when the sponsor line has revenue in it" is a legitimate answer, and a useful one.</p>
+  </div>
+  <div class="scroll"><table class="tbl">
+    <tr><th>Use of funds</th><th>What it changes</th></tr>
+    <tr><td><strong>Field-verification corps</strong><span class="sub">A small paid team walking categories on a quarterly cycle, with a local coordinator as first hire</span></td>
+        <td>Turns "approaching shoe leather" into shoe leather, systematized. This is the moat becoming real.</td></tr>
+    <tr><td><strong>Chiang Rai completion</strong></td>
+        <td>The expansion proof. One finished second city converts a site into a platform.</td></tr>
+    <tr><td><strong>Franchise template</strong></td>
+        <td>Packages the pipeline as a deployable kit — the licensable product.</td></tr>
+    <tr><td><strong>API productization</strong></td>
+        <td>Turns 12,310 per-place records into a licensing surface.</td></tr>
+    <tr><td><strong>Runway for the operator</strong></td>
+        <td>The unglamorous line. The system's throughput is currently a function of one person's unpaid time.</td></tr>
+  </table></div>
+</section>
+
+<section id="s10" data-title="On the bench">
+  <div class="head"><span class="num">10 / Also on the bench</span><button class="anchor" data-anchor="s10">copy link</button></div>
+  <h2>The rest of the output</h2>
+  <p>Not part of this raise. Included as evidence of throughput — these are all the same pipeline, pointed somewhere else, and most were built in days rather than quarters.</p>
+  <div class="port">
+    <div><h3>ClubWheel</h3><p>LINE-native club administration — meetings, RSVP, invoicing with QR payment reconciliation. Built, awaiting a first club.</p></div>
+    <div><h3>Offline app stack</h3><p>Basemap, tiles, and PWA/Android packaging, reused across products without modification.</p></div>
+    <div><h3>Thai Roots</h3><p>257 etymological roots across 974 words — a working dictionary of the language layer under the taxonomy.</p></div>
+    <div><h3>Order-ahead, concierge, directories</h3><p>Small commissioned builds for local businesses. They pay slowly, but they keep the pipeline pointed at real users.</p></div>
+  </div>
+
+  <div class="contact">
+    <b>Annika "Nan" Peacock — NaNoBotCo, Chiang Mai</b>
+    <a href="mailto:530kings@proton.me">530kings@proton.me</a> · <a href="https://motdang.net">motdang.net</a>
+  </div>
+
+  <footer>
+    Every figure on these pages is measured from the live dataset, not projected. Bootstrapped, no outside capital.
+    <br><br>
+    This page carries no analytics, no cookies, and no third-party scripts — nothing here reports who opened it or when. That is a standing rule across everything I run, and it applies to this document too: forward it freely, nobody is counting.
+  </footer>
+</section>
+
+</div><!-- /deck -->
+
+<nav class="rail" aria-label="Sections">
+  <div class="cap">Contents</div>
+  <ol id="rail-list"></ol>
+</nav>
+</div><!-- /shell -->
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.documentElement;
+
+  /* ---------- theme ---------- */
+  try{
+    var saved = localStorage.getItem("md-theme");
+    if(saved) root.setAttribute("data-theme", saved);
+  }catch(e){}
+  document.getElementById("btn-theme").addEventListener("click", function(){
+    var cur = root.getAttribute("data-theme");
+    if(!cur) cur = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    var next = cur === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try{ localStorage.setItem("md-theme", next); }catch(e){}
+  });
+
+  /* ---------- toast ---------- */
+  var toastEl = document.getElementById("toast"), toastTimer;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add("on");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove("on"); }, 2200);
+  }
+
+  function copy(text, okMsg, btn){
+    function flash(){
+      toast(okMsg);
+      if(btn){ btn.dataset.done = "1"; setTimeout(function(){ delete btn.dataset.done; }, 1600); }
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(flash, function(){ fallback(text, flash); });
+    } else { fallback(text, flash); }
+  }
+  function fallback(text, done){
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly","");
+    ta.style.cssText = "position:absolute;left:-9999px";
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); done(); }
+    catch(e){ toast("Press ⌘C to copy"); }
+    document.body.removeChild(ta);
+  }
+
+  var base = location.origin + location.pathname;
+
+  /* ---------- sections + nav rail ---------- */
+  var sections = [].slice.call(document.querySelectorAll("section[data-title]"));
+  var list = document.getElementById("rail-list");
+  sections.forEach(function(s, i){
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+    a.href = "#" + s.id;
+    a.innerHTML = '<span class="n">' + String(i+1).padStart(2,"0") + '</span><span>' +
+                  s.dataset.title + '</span>';
+    li.appendChild(a); list.appendChild(li);
+  });
+  var links = [].slice.call(list.querySelectorAll("a"));
+
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var idx = sections.indexOf(en.target);
+        links.forEach(function(a,i){
+          if(i === idx) a.setAttribute("aria-current","true");
+          else a.removeAttribute("aria-current");
+        });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach(function(s){ io.observe(s); });
+  }
+
+  /* ---------- per-slide copy link ---------- */
+  document.querySelectorAll(".anchor").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var id = btn.dataset.anchor;
+      history.replaceState(null, "", "#" + id);
+      copy(base + "#" + id, "Link to this section copied", btn);
+    });
+  });
+
+  /* ---------- top bar actions ---------- */
+  document.getElementById("btn-copy").addEventListener("click", function(){
+    copy(base, "Link copied", this);
+  });
+
+  document.getElementById("btn-print").addEventListener("click", function(){
+    window.print();
+  });
+
+  /* A plain-text brief for pasting into an email — the thing someone
+     actually does when passing a deck along to a colleague. */
+  var BRIEF = [
+    "MOT DANG — investor brief",
+    "Price the pipeline, not the snapshot.",
+    "",
+    "A Thai-first place-data layer for secondary Southeast Asian cities.",
+    "",
+    "  12,315  places across Chiang Mai + Chiang Rai (9,107 CM / 3,208 CR)",
+    "   1,310  toilets graded by welcome tier",
+    "     316  massage venues · 258 women's health facilities",
+    "      33  festivals dated by the real calendar",
+    "   6,990  Lanna manuscripts, searchable (second vertical)",
+    "       0  trackers, third-party scripts, outside capital",
+    "",
+    "The asset is an operator plus a production system: one person running an",
+    "AI fleet, converting domain access into structured data, in languages and",
+    "markets the incumbents have decided are not worth hand-collecting.",
+    "",
+    "Proof it generalizes: the same pipeline built a US nonprofit money-flow",
+    "directory (762 cells, 88% funder opacity measured) on IRS filings.",
+    "",
+    "Open: zero external revenue to date; distribution was suspended in July",
+    "2026 and is being rebuilt on owned channels; key-person risk is total.",
+    "All stated on the page.",
+    "",
+    base
+  ].join("\n");
+
+  document.getElementById("btn-brief").addEventListener("click", function(){
+    copy(BRIEF, "Plain-text summary copied — paste it into an email", this);
+  });
+
+  document.getElementById("btn-mail").addEventListener("click", function(){
+    var subject = "Mot Dang — investor brief";
+    var body = BRIEF + "\n";
+    location.href = "mailto:?subject=" + encodeURIComponent(subject) +
+                    "&body=" + encodeURIComponent(body);
+  });
+
+  /* ---------- reading progress ---------- */
+  var prog = document.getElementById("prog");
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    prog.style.width = Math.max(0, Math.min(100, pct)) + "%";
+  }
+  addEventListener("scroll", onScroll, { passive:true });
+  addEventListener("resize", onScroll);
+  onScroll();
+
+  /* ---------- arriving on a deep link ----------
+     The whole point of per-section links is that someone forwards one. Native
+     fragment scrolling cannot be trusted to deliver that: the sticky bar and
+     smooth-scroll between them cancel the browser's own jump often enough that
+     a forwarded link lands at the top of the deck instead of the section it
+     names. So do it explicitly, without animation, once layout has settled. */
+  var target = null;
+  try{
+    if(location.hash && location.hash !== "#top"){
+      target = document.querySelector(location.hash);
+    }
+  }catch(e){ target = null; }
+
+  if(target){
+    document.getElementById("jumped").classList.add("on");
+    var jump = function(){
+      var prev = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY - 64);
+      root.style.scrollBehavior = prev;
+      onScroll();
+    };
+    if(document.readyState === "complete") jump();
+    else addEventListener("load", jump);
+    setTimeout(jump, 150);   /* after late layout (fonts, tables) settles */
+  }
+
+  /* ---------- keyboard ---------- */
+  addEventListener("keydown", function(e){
+    if(e.metaKey || e.ctrlKey || e.altKey) return;
+    var t = e.target.tagName;
+    if(t === "INPUT" || t === "TEXTAREA") return;
+    var k = e.key;
+    if(k !== "j" && k !== "k" && k !== "ArrowDown" && k !== "ArrowUp") return;
+    var fwd = (k === "j" || k === "ArrowDown");
+    var y = window.scrollY + 80, target = null;
+    if(fwd){
+      for(var i=0;i<sections.length;i++){
+        if(sections[i].offsetTop > y + 4){ target = sections[i]; break; }
+      }
+    } else {
+      for(var j=sections.length-1;j>=0;j--){
+        if(sections[j].offsetTop < y - 4){ target = sections[j]; break; }
+      }
+    }
+    if(target){ e.preventDefault(); target.scrollIntoView({behavior:"smooth"}); }
+  });
+})();
+</script>
+</body>
+</html>

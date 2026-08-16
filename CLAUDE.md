@@ -282,6 +282,16 @@ Rules that bite:
 - `node tests/test_plan_routes.js` after the build, with the others. Set
   `MD_DOCS` to a scratch build if somebody else is holding `docs/`.
 - Run `tests/test_publish_gate.py` after the build and before `git add docs/`.
+- A place can be built, indexed and linked and still be unfindable. The matcher
+  once tested the whole query as one substring, so `rajavej hospital` missed
+  "Rajavej Chiang Mai Hospital" and 5,190 three-word names with it.
+  `tests/test_search.py` lifts the real JS out of build.py and runs it under
+  node against the built index — word gaps, word order, Thai, typos, and the
+  misses that must stay misses. Run it whenever that block is touched.
+- Researched facts go in `data/curated/enrich.json`, never into
+  `data/canonical/*.json` — the crawl rewrites those wholesale and a hand-typed
+  phone number survives exactly until the next `import_overpass.py`.
+  `importers/enrich_sites.py` fills it from each place's own site.
 - Every image says what it is FOR, not what it is. `tests/test_alt_text.py`
   fails a missing `alt`, an unlabelled `role="img"`, and a label that is only
   the medium ("QR code", "map", "chart"). Use `bi_text()` for alt and

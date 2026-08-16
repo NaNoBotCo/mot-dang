@@ -81,8 +81,22 @@ python3 importers/make_showtimes.py    || say "showtimes kept the snapshot"
 python3 importers/make_lottery.py      || say "lottery kept the snapshot"
 python3 importers/make_finance.py      || say "finance kept the snapshot"
 python3 importers/harvest_events.py --refetch || say "events kept the snapshot"
+# Festival dates were gathered once, on 2026-07-29, and then never again — the
+# walk collected events every morning and walked straight past the festivals.
+# A canon of 33 with no way to get a date is a calendar that cannot tell you
+# when anything is. It rides along now; STALE_DAYS keeps it from refetching
+# more often than announcements actually change.
+python3 importers/harvest_festivals.py || say "festival dates kept the snapshot"
 python3 importers/sync_claims.py       || say "claims sync kept what is on disk"
 python3 importers/sync_toilets.py      || say "toilet sync kept what is on disk"
+
+# Count what came home, not just who came home. Every fetcher above can fail
+# by writing today's date over an empty basket and exiting 0 — which is how the
+# site came to publish an events page with no events and a cinema widget with
+# no cinemas, refreshed faithfully every morning, for weeks. This does not stop
+# the walk: yesterday's good data is better than no site, and a bad basket is a
+# thing to be told about, not to halt for.
+python3 importers/watch_data.py || say "⚠️  a source came home empty — see the list above"
 
 # nothing new gathered -> nothing to say today (fetchers write only data/ + assets/)
 if git diff --quiet -- data assets; then stand_down "no fresh data — the town is as it was"; fi
