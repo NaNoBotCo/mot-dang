@@ -3940,6 +3940,28 @@ onScroll();
 """
 
 
+# The scripts are served with a week of cache and have always been served under
+# the same two names, so a reader who came here yesterday keeps yesterday's
+# JavaScript until the cache lets go. That is how a search fix can go live and
+# reach nobody who has visited before: motdang.net publishes the repair, and
+# every returning reader keeps the break for seven more days.
+#
+# A short hash of the file's own contents rides in the query string. Change the
+# script and the URL changes with it; leave it alone and the cache keeps
+# working exactly as it should. Content, not the build date — a fix on a day
+# nobody remembered to bump the date must still reach people.
+def _asset_v(text):
+    return zlib.crc32(text.encode("utf-8")) & 0xFFFFFFFF
+
+
+MD_JS_V = f"{_asset_v(JS):08x}"
+try:
+    import live_shell as _live_shell
+    LIVE_JS_V = f"{_asset_v(_live_shell.JS):08x}"
+except Exception:                       # live.js is optional; never fail the build for it
+    LIVE_JS_V = MD_JS_V
+
+
 # Permission, stated where a reader lands rather than buried in a policy page.
 # Taking this data is not tolerated scraping here; it is the point.
 LICENSE_LINE_TH = ("ข้อมูลในหน้านี้เปิดให้ใช้ต่อได้เลย (CC BY 4.0) — ข้อมูลจากแผนที่ "
@@ -4171,8 +4193,8 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
 </footer>
 </main>
 <div class="ribbon tall" aria-hidden="true"></div>
-<script src="{r}live.js" defer></script>
-<script src="{r}md.js"></script>
+<script src="{r}live.js?v={LIVE_JS_V}" defer></script>
+<script src="{r}md.js?v={MD_JS_V}"></script>
 </body></html>"""
 
 
