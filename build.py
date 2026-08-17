@@ -8993,6 +8993,30 @@ def street_page(st, by_id, prov_cfg):
         lineage.append('<div class="subshelf"><h2>%s</h2>%s</div>'
                        % (bi("ซอยที่แยกจากถนนนี้", "Sois off this road"), links))
 
+    # Where this road MEETS the others. The crossings were computed with the
+    # graph and drawn on the map, and every soi page still ended at its own kerb
+    # — a reader who had walked to the end of it had nowhere to go. Naming the
+    # junctions turns 804 dead ends into a network somebody can walk page to
+    # page, which is how a person actually gives directions here.
+    xs = [STREET_BY_SLUG[s] for s in (st.get("crosses") or [])
+          if s in STREET_BY_SLUG]
+    if xs:
+        xs.sort(key=lambda s: (-len(s["places"]), s["name"]))
+        links = " · ".join(
+            '<a href="%s">%s</a>' % (att(street_href(x, depth)), esc(x["name"]))
+            for x in xs[:24])
+        lineage.append('<div class="subshelf"><h2>%s</h2>%s</div>'
+                       % (bi("ตัดกับถนน", "Crosses"), links))
+
+    # The same road, spelled the other way. Two spellings are never merged —
+    # they are pointed at each other (CLAUDE.md) — so the page says so plainly
+    # rather than leaving a reader wondering which one is the real record.
+    spell = [s for s in (st.get("alsoSpelled") or []) if s]
+    if spell:
+        lineage.append('<p class="tinynote">%s %s</p>'
+                       % (bi("สะกดอีกแบบว่า", "Also spelled"),
+                          esc(" · ".join(spell[:6]))))
+
     # The list, in the order somebody walking it would pass them.
     rows = []
     for i, (pl, r) in enumerate(recs, 1):
@@ -9784,6 +9808,101 @@ def merit_map_svg(route, by_id):
         mpu=(e - w) * 111320.0 * kx / W)
 
 
+def shelf_map(records, cat_key, prov_cfg, depth=2):
+    """A whole shelf on one ground: where these 4,153 places actually are.
+
+    Every category page opened with a wall of names and no sense of place,
+    while the coordinates for the same shelf were already being written out as
+    GeoJSON that nothing on the site drew. This is that file, drawn.
+
+    The dots are one `<path>` rather than N `<circle>`s on purpose: a food shelf
+    is four thousand points, and four thousand circle elements is a quarter of a
+    megabyte of markup to say what 58 KB says. The ten most complete listings
+    get a real circle and their name, because a map of anonymous dots tells a
+    reader where the shelf is but never which door to open first.
+    """
+    pts = [r for r in records
+           if r.get("lat") is not None and r.get("lng") is not None
+           and (r.get("geoPrecision") or "exact") != "needs-pin"]
+    if len(pts) < 8:
+        return ""
+    lats = [r["lat"] for r in pts]
+    lngs = [r["lng"] for r in pts]
+    # Trim the long tail before framing: one temple in a far amphoe would
+    # otherwise shrink the whole city to a smudge in one corner. The trimmed
+    # ones are still in the list under the map — a frame is not a filter.
+    lats.sort(); lngs.sort()
+    lo, hi = int(len(pts) * 0.02), int(len(pts) * 0.98) - 1
+    n, s_ = lats[max(hi, 0)], lats[min(lo, len(lats) - 1)]
+    e, w = lngs[max(hi, 0)], lngs[min(lo, len(lngs) - 1)]
+    if n - s_ < 1e-4 or e - w < 1e-4:
+        return ""
+    pad = max(n - s_, e - w) * 0.08
+    n, s_, w, e = n + pad, s_ - pad, w - pad, e + pad
+    kx = math.cos(math.radians((n + s_) / 2))
+    W = 720.0
+    H = max(240.0, min(520.0, W * ((n - s_) / ((e - w) * kx or 1e-9))))
+
+    def X(lng):
+        return (lng - w) / (e - w) * W
+
+    def Y(lat):
+        return (n - lat) / (n - s_) * H
+
+    inside = [r for r in pts if s_ <= r["lat"] <= n and w <= r["lng"] <= e]
+    label = bi_text(
+        "แผนที่แสดงตำแหน่ง %d แห่งในหมวด%s %s — จุดคือที่ตั้ง ชื่อกำกับคือรายการที่ข้อมูลครบที่สุด"
+        % (len(inside), CATS.get(cat_key, {}).get("th", ""), prov_cfg["th"]),
+        "Where the %d places on the %s shelf in %s stand. Each dot is one "
+        "place; the named ones are the listings with the most details on record."
+        % (len(inside), CATS.get(cat_key, {}).get("en", cat_key), prov_cfg["en"]))
+    out = ['<svg viewBox="0 0 %.0f %.0f" width="100%%" class="shelfmap" role="img" '
+           'aria-label="%s">' % (W, H, att(label)),
+           '<rect class="mdmap-bg" width="%.0f" height="%.0f" fill="#FBF6EE"/>' % (W, H)]
+    if MOAT_POLY and prov_cfg["key"] == "cm":
+        ring = " ".join("%.1f,%.1f" % (X(p[1]), Y(p[0])) for p in MOAT_POLY)
+        out.append('<polygon points="%s" fill="none" stroke="#6E8CA0" '
+                   'stroke-width="2" stroke-dasharray="5 4" opacity=".55">'
+                   '<title>คูเมืองเชียงใหม่ · the old city moat</title></polygon>' % ring)
+    top = sorted(inside, key=lambda r: (-ant_rank(r), name_of(r)))[:10]
+    top_ids = {r["id"] for r in top}
+    d = "".join("M%.1f %.1fh0" % (X(r["lng"]), Y(r["lat"]))
+                for r in inside if r["id"] not in top_ids)
+    if d:
+        out.append('<path d="%s" stroke="#C2401C" stroke-width="4.4" '
+                   'stroke-linecap="round" opacity=".5" fill="none"/>' % d)
+    taken = []
+    for r in top:
+        cx, cy = X(r["lng"]), Y(r["lat"])
+        out.append('<g data-mdpin="%.1f,%.1f">' % (cx, cy))
+        out.append('<a href="%sp/%s.html">' % ("", place_slug(r)))
+        out.append('<circle cx="%.1f" cy="%.1f" r="5.5" fill="#8F2E13" '
+                   'stroke="#FFFCF6" stroke-width="1.6"><title>%s</title></circle>'
+                   % (cx, cy, att(name_text(r))))
+        nm = name_th(r) or name_en(r) or ""
+        if len(nm) > 18:
+            nm = nm[:17] + "…"
+        right = cx < W * 0.62
+        ly = cy - 9
+        # Nudge a label off one already placed rather than letting two names
+        # print through each other — the same rule the place map keeps.
+        for _ in range(6):
+            if not any(abs(ly - t[1]) < 12 and abs(cx - t[0]) < 150 for t in taken):
+                break
+            ly -= 13
+        taken.append((cx, ly))
+        out.append('<text x="%.1f" y="%.1f"%s font-size="11.5" fill="#5A4838" '
+                   'stroke="#FFFCF6" stroke-width="2.6" paint-order="stroke">%s</text>'
+                   % (cx + (8 if right else -8), ly,
+                      "" if right else ' text-anchor="end"', esc(nm)))
+        out.append('</a></g>')
+    out.append("</svg>")
+    return map_shell.mount(
+        "shelfmap-%s-%s" % (prov_cfg["key"], cat_key), "".join(out),
+        lat=(n + s_) / 2, lng=(w + e) / 2,
+        mpu=(e - w) * 111320.0 * kx / W)
+
+
 def merit_card(route, by_id, depth=0):
     r_ = "../" * depth
     stops = route.get("stops") or []
@@ -10177,7 +10296,8 @@ def build():
             lis = "".join(entry_li(r, f"../p/{place_slug(r)}.html") for r in in_cat)
             body = (f'{cat_art_band(c, key)}'
                     f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
-                    f'{subshelf}{ad_box(f"{key}/{c}/index.html", 2)}{toolbar(in_cat)}'
+                    f'{subshelf}{ad_box(f"{key}/{c}/index.html", 2)}'
+                    f'{shelf_map(in_cat, c, p)}{toolbar(in_cat)}'
                     f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
                     f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"])}')
             (pdir / c / "index.html").write_text(page(
