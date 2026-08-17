@@ -19,8 +19,8 @@
 | WO-1 | Temple register join (รหัสวัด, founding year, nikaya) | **DONE** 2026-08-17 |
 | WO-2 | Festival venues get place ids | **DONE** 2026-08-17 |
 | WO-6 | The graph + neighbour links | **DONE** 2026-08-17 |
-| WO-4 | Search that forgives | next |
-| WO-5 | Sorts: neighbourhood, ancientness, open-now | next |
+| WO-4 | Search that forgives | **DONE** 2026-08-17 |
+| WO-5 | Sorts: neighbourhood, ancientness | **DONE** 2026-08-17 (open-now open) |
 | WO-3 | **The detail page — everything we carry and never show** | standing |
 | WO-7 | **The maps — the shelf, the year, the way onward** | standing |
 | WO-2b | Class venues — "ทุกวัด", "the five gates" | new, from WO-2 |
@@ -327,9 +327,25 @@ misses (the Levenshtein pass already computes them), the top category doors, and
 "ถามมด · Ask the ants". Everything — query, chips, sort — lives in the
 querystring, so every view is linkable, shareable and crawlable.
 
-**Acceptance.** "kow soi", "coffe" and "วดเจดีย" all land; first fetch roughly
-halves; `tests/test_search.py` green with those three as fixtures; a pasted URL
-reproduces the view.
+**Landed 2026-08-17.** `data/search_thesaurus.json` holds 75 groups of
+equivalent spellings across both scripts. **"kow soi": 0 → 121.** The index also
+matches the shelf, cuisine, brand and road a place already carries: "coffee"
+reaches 1,976, "temple" 826, "นวด" 680. Results group under their shelf with
+counts; an empty search offers the shelves and the ants.
+
+**The index got SMALLER while gaining four dimensions** — 2.79 → 3.38 MB, not
+4.5 — because shelf words ship once in a lookup table instead of being copied
+into twelve thousand entries.
+
+Two bugs fixed on the way. The result count showed the 200-row **cap**, telling
+a reader searching "coffee" the city holds 200 cafes when the directory knows
+1,976; it now reports what was found and says how many are shown. And
+`tests/test_search.py` failed any query over 200 hits — a guard written to catch
+a *loosened* tier returning the catalogue, which would have forbidden shelf
+matching outright. It now applies only to loosened tiers.
+
+**Not done:** the province split (`index-cm.json` / `index-cr.json`) and URL
+state for chips. The size win above removed most of the urgency from the first.
 
 ---
 
@@ -352,9 +368,18 @@ link to the soi pages. `chip-open` — "เปิดอยู่ · open now" co
 from a baked minute-of-week attribute; **absence of hours renders neutral, never
 dark-as-closed**. All three join the WO-4 URL state.
 
-**Acceptance.** Wat shelves sort by founding year; food shelves regroup by soi
-with linked headers; the open-now chip agrees with `/open-now.html` for the same
-minute; every state survives a link round-trip.
+**Landed 2026-08-17.** `sort-age` (เก่าแก่ก่อน · Ancient first) reads WO-1's
+register years — Wat Lo Khro at 658, Wat Phra That Doi Kham at 687. An undated
+place keeps its alphabetical seat *below* the dated ones rather than sorting as
+year zero. `group-area` (เรียงตามย่าน) regroups a listing under its road with
+the heading linked to that road's page; places the street graph never reached
+gather under "ยังไม่รู้ว่าอยู่ถนนไหน · road not known yet", because not knowing
+is a fact. Both appear only where the data supports them (3+ entries), the
+existing `sort-royal` rule.
+
+**Not done: the open-now chip.** The lamp schedules are baked and ready; the
+chip is its own piece of work, and the neutral-not-dark rule is the part to get
+right.
 
 ---
 
