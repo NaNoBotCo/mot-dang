@@ -352,7 +352,7 @@ def emit(g, data, frame):
         meal_cards.append(
             '<div class="mealcard"><b>%s</b>%s<br>%s'
             '<span class="tinynote">n=%d</span></div>'
-            % (bi(esc(th), esc(en)), _sparkline(m["curve"]),
+            % (bi(th, en), _sparkline(m["curve"]),
                band_chips(m["bands"]), m["n"]))
     cuisine_cards = []
     for m in sorted(lamps["meals"]["cuisines"], key=lambda m: -m["n"]):
@@ -360,7 +360,7 @@ def emit(g, data, frame):
         cuisine_cards.append(
             '<div class="mealcard"><b>%s</b>%s<br>%s'
             '<span class="tinynote">n=%d</span></div>'
-            % (bi(esc(th), esc(m["cuisine"])), _sparkline(m["curve"]),
+            % (bi(th, m["cuisine"]), _sparkline(m["curve"]),
                band_chips(m["bands"]), m["n"]))
 
     # who serves breakfast — the direct answer, ranked

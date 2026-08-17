@@ -4156,12 +4156,17 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     # is the silent half-failure this check exists to make impossible.
     if 'data-mdmap="1"' in body and "maplibre-gl.js" not in extra_head:
         extra_head = map_shell.head(depth) + extra_head
-    tt = esc(title) + " · มดแดง" if title != "มดแดง" else "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"
+    # Kept RAW here and escaped once at each use. It used to arrive
+    # pre-escaped and then go through att() again for og:title, so any
+    # place with an ampersand in its name — "Shaka Laka Bar & Restaurant"
+    # — shared as "Bar &amp; Restaurant" on LINE, Facebook and every other
+    # card. 441 place pages, plus the nitnoy and festival pages.
+    tt = title + " · มดแดง" if title != "มดแดง" else "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"
     d = att(desc or "มดแดง — สารบัญเมืองเชียงใหม่และเชียงราย แบบสมุดหน้าเมือง")
     return f"""<!DOCTYPE html>
 <html lang="th" data-root="{r}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{tt}</title>
+<title>{esc(tt)}</title>
 <meta name="description" content="{d}">
 <meta name="robots" content="{att(robots)}">
 <link rel="canonical" href="{att(url)}">
@@ -4235,7 +4240,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
       "มดแดง = “red ant,” not “Moo Deng” the famous baby hippo — different name, different critter")}
   (<a href="https://en.wikipedia.org/wiki/Moo_Deng" rel="noopener">{bi("ใครคือหมูเด้ง?", "who's Moo Deng?")}</a>)<br>
   © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL) ·
-  <a href="{r}source/">{bi("โค้ดและข้อมูลดิบ", "source &amp; raw data")}</a> ·
+  <a href="{r}source/">{bi("โค้ดและข้อมูลดิบ", "source and raw data")}</a> ·
   <a href="{KOFI}" rel="noopener">Ko-fi</a> ·
   <a href="{r}rss.xml">📡 RSS</a> ·
   <a href="{r}partners.html">{bi("แลกฟีด", "Partners")}</a> ·
@@ -12425,7 +12430,7 @@ def build():
         for f, th, en in named)
     (DOCS / "source" / "index.html").write_text(page(
         "โค้ดและข้อมูลดิบ",
-        f'<h1>{bi("โค้ดและข้อมูลดิบ", "Source &amp; raw data")}</h1>'
+        f'<h1>{bi("โค้ดและข้อมูลดิบ", "Source and raw data")}</h1>'
         f'<p>{bi(src_th, src_en)}</p>'
         f'<p><a class="pill" href="{src["archive"]}">⬇ '
         f'{bi("ดาวน์โหลดทั้งชุด", "Download everything")}</a> '
