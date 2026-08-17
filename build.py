@@ -12421,29 +12421,29 @@ def build():
              ("facets.json", "รายการสิ่งที่สาขามี", "what a branch can have"),
              ("check_links.py", "ตัวตรวจลิงก์", "the link checker")]
     named_rows = "".join(
-        f'<li><a href="source/{f}"><code>{f}</code></a> <span class="count">· {bi(th, en)}</span></li>'
+        f'<li><a href="{f}"><code>{f}</code></a> <span class="count">· {bi(th, en)}</span></li>'
         for f, th, en in named)
-    (DOCS / "source.html").write_text(page(
+    (DOCS / "source" / "index.html").write_text(page(
         "โค้ดและข้อมูลดิบ",
         f'<h1>{bi("โค้ดและข้อมูลดิบ", "Source &amp; raw data")}</h1>'
         f'<p>{bi(src_th, src_en)}</p>'
-        f'<p><a class="pill" href="source/{src["archive"]}">⬇ '
+        f'<p><a class="pill" href="{src["archive"]}">⬇ '
         f'{bi("ดาวน์โหลดทั้งชุด", "Download everything")}</a> '
         f'<span class="count">· {src["mb"]} MB · {src["stamp"]}</span></p>'
         f'<h2>{bi("ไฟล์ที่หน้าอื่นอ้างถึง", "Files the pages name")}</h2>'
         f'<ul class="dir">{named_rows}</ul>'
         f'<h2>{bi("ข้อมูลทั้งหมดเป็นชุด", "The data on its own")}</h2>'
         f'<ul class="dir">'
-        f'<li><a href="data/places.json"><code>data/places.json</code></a> '
+        f'<li><a href="../data/places.json"><code>data/places.json</code></a> '
         f'<span class="count">· {bi("ทุกสถานที่ ทุกฟิลด์", "every place, every field")}</span></li>'
-        f'<li><a href="data/index.json"><code>data/index.json</code></a> '
+        f'<li><a href="../data/index.json"><code>data/index.json</code></a> '
         f'<span class="count">· {bi("ดัชนีค้นหา", "the search index")}</span></li>'
-        f'<li><a href="llms-full.txt"><code>llms-full.txt</code></a> '
+        f'<li><a href="../llms-full.txt"><code>llms-full.txt</code></a> '
         f'<span class="count">· {bi("คำอธิบายสำหรับเครื่อง", "the whole thing, explained for machines")}</span></li>'
         f'</ul>'
         f'<p class="licence">{bi(LICENSE_LINE_TH, LICENSE_LINE_EN)}</p>'
-        f'{share_block(BASE + "source.html", "โค้ดและข้อมูลดิบ · Source and raw data")}',
-        depth=0, path="source.html", desc=src_th))
+        f'{share_block(BASE + "source/", "โค้ดและข้อมูลดิบ · Source and raw data")}',
+        depth=1, path="source/index.html", desc=src_th))
     (DOCS / "llms.txt").write_text(f"""# มดแดง Mot Dang
 
 > A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
