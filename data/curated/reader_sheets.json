@@ -1,0 +1,437 @@
+{
+  "_comment": "Copy for the printed A4 READER sheets — assets/reader/<key>.pdf, made by make_reader_sheets.py. These are not the trade handouts. data/curated/handouts.json holds those: Thai-leading recruitment pitches aimed at a shop owner, front is the pitch and back is the LINE QR. A reader sheet is the other direction — it is for the person standing on the pavement who has to decide something in the next thirty seconds, so English leads the explanation while THAI carries the content and is set large enough to hold up against a shopfront sign. Same print discipline as the handouts: black only, no fills, no grey type, survives a third-generation photocopy, readable standing up at arm's length.",
+  "_generated_by": "hand, 2026-08-17",
+  "_massage_note": "The whole sheet rests on one rule, the same one data/facets.json sets for the site: we say what a place sells and what its own sign and its own licence say, and we never characterise a business or the people working in it. Every term below is a word shops put on their own signage. Nothing on this sheet sorts venues into wholesome and otherwise, and the last block states a fact about which Act a licence is issued under, not an insinuation. If any line of this drifts toward warning the reader about people rather than telling them about services, cut the line.",
+  "_price_note": "SUPERSEDES the earlier note on this key. Sheet massage-expect DOES print baht bands, because a reader cannot tell whether 600 baht is normal without knowing the shape of the market. They are asking prices for Chiang Mai as of August 2026 and they have NOT been walked shop by shop — they are the writer's read of the market, not collected data. make_reader_sheets.py stamps every side of that sheet DRAFT — PRICES NOT YET CHECKED until _pricesVerified is true, the same discipline make_handouts.py applies to the unverified Shan. Do not photocopy it before then. One afternoon of Beer walking three streets — a lane outside the moat, the old city, and Nimman — reading rate boards clears it. When the door survey brings real numbers, these bands become computed spreads and the sheet stops needing the stamp.",
+  "sheets": [
+    {
+      "key": "massage-words",
+      "glyph": "💆",
+      "title_en": "The words on the sign",
+      "title_th": "นวด — คำที่อยู่บนป้าย",
+      "audience_en": "For anyone choosing a massage shop in Chiang Mai",
+      "audience_th": "สำหรับคนที่กำลังเลือกร้านนวดในเชียงใหม่",
+      "lede_en": "A sign that says only MASSAGE is not telling you anything. Thai shops say what they sell, in Thai, on the sign and the door menu. Match the letters — you need not read Thai.",
+      "lede_th": "ป้ายที่เขียนแค่ว่า MASSAGE ไม่ได้บอกอะไรเลย ร้านไทยบอกอยู่แล้วว่าขายอะไร สิบสามคำนี้ครอบคลุมเกือบทั้งหมด",
+      "url": "https://motdang.net/lists/massage-chiang-mai.html",
+      "url_label_en": "Every massage shop we have walked, with what each one sells",
+      "url_label_th": "ร้านนวดทุกร้านที่มดไปเดินมาแล้ว พร้อมบอกว่าร้านไหนขายอะไร",
+      "blocks": [
+        {
+          "heading_th": "ใส่เสื้อผ้า อยู่บนเบาะ",
+          "heading_en": "You keep your clothes on. Floor mat or chair.",
+          "rows": [
+            {
+              "th": "นวดแผนไทย",
+              "th_alt": "นวดแผนโบราณ",
+              "rtgs": "nûat phɛ̌ɛn thai / …boo-raan",
+              "gloss": "แผน “system” · โบราณ “ancient” < Pali purāṇa",
+              "en": "The standard one: thumb pressure and slow stretches, clothed, on a mat, no oil. Older shops use the second word."
+            },
+            {
+              "th": "นวดเชลยศักดิ์",
+              "rtgs": "nûat chá-loei-sàk",
+              "gloss": "“commoner's”",
+              "en": "The village lineage, and what most shops practise. Elbows, knees and forearms are used."
+            },
+            {
+              "th": "นวดราชสำนัก",
+              "rtgs": "nûat râat-chá-sǎm-nàk",
+              "gloss": "“royal court”",
+              "en": "The court lineage: hands only, no elbows or knees, practitioner at a set distance. Ask for it by name."
+            },
+            {
+              "th": "นวดจับเส้น",
+              "rtgs": "nûat càp sên",
+              "gloss": "จับ “seize” · เส้น the sen lines",
+              "en": "Deep work on one complaint. Expect it to hurt — that is the treatment. Say เบา ๆ for less."
+            },
+            {
+              "th": "ตอกเส้น",
+              "rtgs": "tɔ̀ɔk sên",
+              "gloss": "ตอก “to hammer, drive in”",
+              "en": "Northern. A wooden mallet taps a wedge along the sen lines. Sounds far worse than it feels.",
+              "lanna": true
+            },
+            {
+              "th": "ย่ำขาง",
+              "rtgs": "yâm khǎang",
+              "gloss": "ย่ำ “tread” · ขาง N. Thai “ploughshare”",
+              "en": "Northern, now rare. An oiled foot off a heated ploughshare, trodden along your limb.",
+              "lanna": true
+            },
+            {
+              "th": "นวดเท้า · กดจุดฝ่าเท้า",
+              "rtgs": "nûat tháo · kòt cùt fàa tháo",
+              "gloss": "กดจุด “press the point”",
+              "en": "Feet and lower legs, in a chair, shoes off and everything else on. Easiest to walk into cold."
+            },
+            {
+              "th": "นวดประคบสมุนไพร",
+              "rtgs": "nûat prà-khóp sà-mǔn-phrai",
+              "gloss": "ประคบ “poultice” · สมุนไพร “herbs”",
+              "en": "A cloth bundle of steamed herbs pressed on you, hot. Usually added to one of the above."
+            }
+          ]
+        },
+        {
+          "heading_th": "ถอดเสื้อผ้า อยู่บนเตียง",
+          "heading_en": "You undress to some degree. Table, towel, often a curtained or private room.",
+          "note_en": "A private room here is ordinary — oil massage cannot be done in an open row of mats. The licence and the menu say what a shop sells; the room does not.",
+          "note_th": "ห้องส่วนตัวเป็นเรื่องปกติ นวดน้ำมันทำในห้องรวมไม่ได้",
+          "rows": [
+            {
+              "th": "นวดน้ำมัน · อโรมา",
+              "rtgs": "nûat nám-man · à-roo-maa",
+              "gloss": "น้ำมัน “oil”",
+              "en": "Oil, a table, long strokes. Say ไม่ใช้น้ำมัน if you wanted the mat instead."
+            },
+            {
+              "th": "สปา · ขัดผิว · อบไอน้ำ",
+              "rtgs": "sà-paa · khàt phǐu · òp ai-nám",
+              "gloss": "ขัดผิว “scrub” · อบไอน้ำ “steam”",
+              "en": "Scrub, wrap, steam, sauna, in packages of two hours and up. The dearest column on the menu."
+            },
+            {
+              "th": "ครอบแก้ว · กัวซา",
+              "rtgs": "khrɔ̂ɔp kɛ̂ɛo · kua saa",
+              "gloss": "ครอบ “to cap” · แก้ว “glass”",
+              "en": "Cupping and Chinese scraping. Both leave round bruises or red streaks for about a week."
+            }
+          ]
+        },
+        {
+          "heading_th": "เฉพาะทาง — โทรจองก่อน",
+          "heading_en": "Specialist. Telephone first; not a walk-in.",
+          "rows": [
+            {
+              "th": "ทับหม้อเกลือ · อยู่ไฟ",
+              "rtgs": "tháp mɔ̂ɔ klʉa · yùu fai",
+              "gloss": "“press the salt pot” · “stay by the fire”",
+              "en": "Postnatal care for new mothers, over a course of days. A speciality, and shops say so at length."
+            }
+          ],
+          "page": "back"
+        },
+        {
+          "heading_th": "คนละกิจการ คนละใบอนุญาต",
+          "heading_en": "A different trade, under a different Act.",
+          "rows": [
+            {
+              "th": "อาบอบนวด",
+              "rtgs": "àap òp nûat",
+              "gloss": "“bathe · steam · massage”",
+              "en": "Venues use this word on their own signs. Licensed as a สถานบริการ entertainment venue under the Act of B.E. 2509 — not a health establishment like the other twelve. If the sign says this, it has told you."
+            }
+          ],
+          "page": "back"
+        }
+      ],
+      "plaque": {
+        "heading_th": "ใบอนุญาต — ดูที่ผนัง",
+        "heading_en": "The certificate on the wall",
+        "body_en": "Massage and spa businesses are licensed as สถานประกอบการเพื่อสุขภาพ — health establishments — under the Act of B.E. 2559 (2016), in three kinds: นวดเพื่อสุขภาพ health, นวดเพื่อเสริมสวย beauty, สปา spa. The numbered certificate from กรมสนับสนุนบริการสุขภาพ (สบส.) hangs where customers can see it. A different trade holds a different licence under a different Act — paperwork, not a judgement about anybody.",
+        "body_th": "ร้านนวดและสปาขึ้นทะเบียนตาม พ.ร.บ. สถานประกอบการเพื่อสุขภาพ พ.ศ. ๒๕๕๙ ใบอนุญาตมีเลขที่ ติดไว้ให้ลูกค้าเห็น",
+        "words_th": "นวดเพื่อสุขภาพ",
+        "words_rtgs": "nûat phʉ̂a sùk-khà-phâap",
+        "words_en": "massage for health — the words on the certificate"
+      },
+      "look": {
+        "heading_th": "ห้าอย่างที่ดูได้จากหน้าร้าน",
+        "heading_en": "Five things the pavement tells you",
+        "items": [
+          [
+            "ป้ายราคาหน้าร้าน บอกนาทีและชั่วโมง",
+            "A rate board at the door, priced by the half-hour and hour."
+          ],
+          [
+            "มองเห็นเบาะ เก้าอี้ หรือเคาน์เตอร์จากถนน",
+            "Mats, foot-massage chairs or a reception desk visible from the street."
+          ],
+          [
+            "เวลาปิดติดอยู่ที่ประตู",
+            "A closing time on the door. The hour is plain fact either way."
+          ],
+          [
+            "ใบอนุญาตใส่กรอบ มีเลขที่ ติดผนัง",
+            "A framed certificate with a number on it, near the counter."
+          ],
+          [
+            "มีคนยืนหน้าร้าน จับตัวคนเดินผ่าน",
+            "Someone outside who touches you or takes your arm as you pass. Calling out “massage ka” is ordinary; being touched by a stranger is not, anywhere in Thailand."
+          ]
+        ]
+      },
+      "foot_th": "ถ่ายเอกสารแจกต่อได้เลย ไม่ต้องขอ",
+      "foot_en": "Photocopy and hand these out freely — no permission needed."
+    },
+    {
+      "key": "massage-expect",
+      "glyph": "🛏️",
+      "stamp": "prices",
+      "title_en": "What actually happens",
+      "title_th": "ก่อนขึ้นเตียง — จะเจออะไร",
+      "audience_en": "What comes off, where you lie, how long, what it costs",
+      "audience_th": "ถอดอะไร นอนที่ไหน นานแค่ไหน ราคาเท่าไหร่",
+      "lede_en": "The companion to “The words on the sign”. That sheet tells you what a shop sells; this one tells you what the hour is like once you have said yes.",
+      "lede_th": "แผ่นนี้บอกว่าเมื่อตกลงแล้วจะเจออะไร และราคาประมาณเท่าไหร่",
+      "url": "https://motdang.net/lists/massage-chiang-mai.html",
+      "url_label_en": "Every massage shop we have walked, with what each one sells",
+      "url_label_th": "ร้านนวดทุกร้านที่มดไปเดินมาแล้ว พร้อมบอกว่าร้านไหนขายอะไร",
+      "blocks": [
+        {
+          "heading_th": "ใส่เสื้อผ้าไว้",
+          "heading_en": "Clothes stay on",
+          "rows": [
+            {
+              "th": "นวดไทย",
+              "rtgs": "nûat thai",
+              "tags": "clothes on · floor mat · 1–2 hr",
+              "en": "Loose top and trousers, usually lent to you. Thumbs, palms, elbows and knees; they will stretch you and may kneel or stand on you. No oil, so nothing to wash off after."
+            },
+            {
+              "th": "นวดคอ บ่า ไหล่",
+              "rtgs": "nûat khɔɔ bàa lài",
+              "gloss": "“neck, shoulder-yoke, shoulder”",
+              "tags": "clothes on · chair or mat · 30–60 min",
+              "en": "The quick one, and the most-ordered item in the city. Sitting up or face down, fully dressed, no room needed. What to ask for if you have thirty minutes."
+            },
+            {
+              "th": "นวดเท้า",
+              "rtgs": "nûat tháo",
+              "tags": "trousers rolled up · reclining chair · 1 hr",
+              "en": "Feet washed first, then a wooden stick (ไม้กดจุด) and thumbs on the soles — and the whole lower leg to the knee, which is fully half of it. Toes and ankles get stretched. This is NOT Western reflexology: no organ map is being followed, the sen lines of the foot and calf are. Shops that print “reflexology” on the board almost always mean this."
+            },
+            {
+              "th": "กัวซาหน้า",
+              "rtgs": "kua saa nâa",
+              "gloss": "“gua sha, face”",
+              "tags": "clothes on · face up on a table · 30–45 min",
+              "en": "A smooth stone drawn along the face, jaw and neck with light pressure, for puffiness. It should leave NO marks — the red streaks belong to body gua sha, and on a face they mean it was done too hard. Often sold inside a facial."
+            },
+            {
+              "th": "นวดคนท้อง",
+              "rtgs": "nûat khon thɔ́ɔng",
+              "gloss": "“massage, pregnant person”",
+              "tags": "clothes on or draped · side-lying with bolsters · 1 hr",
+              "en": "Side-lying, no pressure on the abdomen, nothing deep. Worth asking outright whether the therapist has trained for it rather than assuming the menu means they have."
+            }
+          ]
+        },
+        {
+          "heading_th": "ต้องถอด",
+          "heading_en": "You undress — to underwear, or fully under a towel",
+          "note_en": "Disposable pants are normally offered; ask if they are not. The towel is moved to uncover one area at a time. A private or curtained room is simply how oil work is done.",
+          "note_th": "ปกติมีกางเกงกระดาษให้ ถ้าไม่มีขอได้",
+          "rows": [
+            {
+              "th": "นวดน้ำมัน",
+              "rtgs": "nûat nám-man",
+              "tags": "underwear or nothing · table · 1–1½ hr · private room",
+              "en": "Oil, long strokes, a table. You leave oily — most shops outside the spa tier have no shower, so plan the rest of the afternoon accordingly."
+            },
+            {
+              "th": "อโรมา",
+              "rtgs": "à-roo-maa",
+              "tags": "as นวดน้ำมัน · + 50–150 ฿",
+              "en": "The same treatment with a scented oil you pick off a tray. Nothing else differs. Swedish, hot-oil and hot-stone are the same hour with another variable changed."
+            },
+            {
+              "th": "นวดน้ำนม",
+              "rtgs": "nûat nám-nom",
+              "gloss": "“milk massage”",
+              "tags": "as นวดน้ำมัน · often sold with a scrub",
+              "en": "Oil massage with a milk-based lotion instead of oil, sold for dry skin. Mind the near-miss: นวดนม without น้ำ means breast massage, and นวดเปิดท่อน้ำนม is duct massage for nursing mothers — a real and quite different service."
+            },
+            {
+              "th": "นวดออฟฟิศซินโดรม",
+              "rtgs": "nûat ɔ́ɔf-fít sin-droom",
+              "tags": "undressed to the waist or fully · table · 1–1½ hr",
+              "en": "The name sounds clinical; the treatment is deep oil work on neck, shoulder blades and upper back, often with a hot compress. Expect to be asked to undress, and expect it to be the most painful item you could have ordered. Say เบา ๆ freely."
+            },
+            {
+              "th": "ขัดผิว · สครับ",
+              "rtgs": "khàt phǐu · sà-kráp",
+              "tags": "disposable pants · wet room or covered table · 45–60 min",
+              "en": "Salt, sugar, coffee, tamarind or turmeric. A rinse or shower afterwards is part of the service — a scrub sold with nowhere to wash is a facilities problem. Skin stays tender; not the morning before a long day in the sun."
+            },
+            {
+              "th": "ครอบแก้ว",
+              "rtgs": "khrɔ̂ɔp kɛ̂ɛo",
+              "tags": "back uncovered · table · 20–30 min, usually added on",
+              "en": "Cupping. Round bruises that stay visible about a week. Body กัวซา leaves red streaks the same way. Both are the intended result, not an injury."
+            }
+          ],
+          "page": "back"
+        }
+      ],
+      "foot_th": "ถ่ายเอกสารแจกต่อได้เลย ไม่ต้องขอ",
+      "foot_en": "Photocopy and hand these out freely — no permission needed."
+    },
+    {
+      "key": "massage-money",
+      "glyph": "฿",
+      "stamp": "prices",
+      "title_en": "What it costs, and the tip",
+      "title_th": "ราคา และทิป",
+      "audience_en": "Price bands by the kind of shop, and what tipping is actually like",
+      "audience_th": "ราคาตามประเภทร้าน และเรื่องทิป",
+      "lede_en": "Six hundred baht is either fair or triple, depending entirely on which door you walked through. This is the shape of the market, so you can tell which.",
+      "lede_th": "หกร้อยบาทถูกหรือแพง ขึ้นกับว่าเดินเข้าร้านแบบไหน แผ่นนี้บอกภาพรวมราคา",
+      "url": "https://motdang.net/lists/massage-chiang-mai.html",
+      "url_label_en": "Every massage shop we have walked, with what each one sells",
+      "url_label_th": "ร้านนวดทุกร้านที่มดไปเดินมาแล้ว พร้อมบอกว่าร้านไหนขายอะไร",
+      "blocks": [],
+      "prices": {
+        "heading_th": "ราคาที่ควรเจอ",
+        "heading_en": "What you should expect to pay",
+        "note_en": "Asking prices from shop rate boards, Chiang Mai, August 2026 — the shape of the market, not a quote. Per-shop prices as the ants walk them are on the site.",
+        "note_th": "ราคาถาม จากป้ายหน้าร้าน เชียงใหม่ สิงหาคม ๒๕๖๙",
+        "cols": [
+          "Thai 1 hr",
+          "Foot 1 hr",
+          "Oil 1 hr"
+        ],
+        "rows": [
+          [
+            "ร้านในซอย นอกเวียง",
+            "Lane shop, outside the moat",
+            "150–250",
+            "150–250",
+            "250–350"
+          ],
+          [
+            "ร้านในเวียง ย่านนักท่องเที่ยว",
+            "Old city, tourist-facing shopfront",
+            "200–300",
+            "200–300",
+            "300–450"
+          ],
+          [
+            "นิมมาน ร้านหน้าสวย",
+            "Nimman, smarter frontage",
+            "300–400",
+            "300–400",
+            "400–600"
+          ],
+          [
+            "ในห้าง แบรนด์เชน",
+            "Mall chain",
+            "400–600",
+            "350–500",
+            "600–900"
+          ],
+          [
+            "สปาโรงแรม รีสอร์ต",
+            "Hotel or resort spa",
+            "1,200+",
+            "800+",
+            "1,500–3,500"
+          ],
+          [
+            "นวดคนตาบอด นวดรักษา",
+            "Blind-massage and therapeutic co-ops",
+            "200–300",
+            "200–300",
+            "—"
+          ]
+        ],
+        "addons": [
+          [
+            "ประคบสมุนไพร",
+            "herbal compress added on",
+            "+100–200"
+          ],
+          [
+            "อโรมา แทนน้ำมันเปล่า",
+            "aroma oil instead of plain",
+            "+50–150"
+          ],
+          [
+            "ขัดผิว เดี่ยว",
+            "body scrub on its own",
+            "400–800"
+          ],
+          [
+            "แพ็กเกจ 2–3 ชั่วโมง",
+            "2–3 hour package",
+            "800–1,500"
+          ],
+          [
+            "กัวซาหน้า ทรีตเมนต์หน้า",
+            "face gua sha, facial",
+            "300–800"
+          ]
+        ],
+        "aob_th": "อาบอบนวด คิดราคาอีกแบบ เป็นค่าเข้า ค่าห้อง ค่าทิป",
+        "aob_en": "อาบอบนวด venues are priced in another order of magnitude and structured as entry, room and tips rather than an hourly rate. They are not on this table.",
+        "page": "front"
+      },
+      "tips": {
+        "heading_th": "ทิป",
+        "heading_en": "Tipping",
+        "items": [
+          [
+            "ไม่บังคับ แต่ให้กันเป็นปกติ",
+            "Not obligatory and not built into the price, but widely given and genuinely expected by now."
+          ],
+          [
+            "ชั่วโมงละ 50–100 บาท",
+            "50–100 ฿ for an hour at a lane or old-city shop. 100 ฿ and up if you asked for deep or therapeutic work, or if the hour was very good."
+          ],
+          [
+            "ปัดขึ้น เช่น 250 → 300",
+            "Rounding up is normal and reads as a tip: a 250 ฿ massage paid as 300 ฿."
+          ],
+          [
+            "ยื่นให้คนนวดเอง ไม่ใช่ที่เคาน์เตอร์",
+            "Hand it to the therapist, not to the till. Some spas provide an envelope. A tip left at the desk does not reliably reach the person who gave you the hour."
+          ],
+          [
+            "สปาที่บวกเซอร์วิสชาร์จแล้ว ทิปตามใจ",
+            "Where a service charge is already added, a tip is optional — that charge is not the therapist's tip."
+          ],
+          [
+            "ทำไมทิปสำคัญ",
+            "At the cheaper end the therapist commonly keeps around half the price on the board. The tip is a real share of what they earn that day, which is why it matters more here than the amount suggests."
+          ]
+        ]
+      },
+      "say": {
+        "heading_th": "ถามก่อนนอนลง",
+        "heading_en": "Four things to say before you lie down",
+        "note_en": "Asking the rate first is completely ordinary here — whether something is แพง, expensive, is normal Thai conversation and no shop is offended by the question.",
+        "note_th": "ถามราคาก่อนนวดเป็นเรื่องปกติ ไม่เสียมารยาท",
+        "items": [
+          [
+            "ชั่วโมงละเท่าไหร่",
+            "chûa-moong lá thâo-rài",
+            "How much per hour?"
+          ],
+          [
+            "ใส่เสื้อผ้าได้ไหม",
+            "sài sʉ̂a-phâa dâi mǎi",
+            "May I keep my clothes on?"
+          ],
+          [
+            "ไม่ใช้น้ำมัน",
+            "mâi chái nám-man",
+            "No oil — the mat, not the table."
+          ],
+          [
+            "ขอผู้หญิงนวดได้ไหม",
+            "khɔ̌ɔ phûu-yǐng nûat dâi mǎi",
+            "May I have a woman therapist?"
+          ]
+        ]
+      },
+      "foot_th": "ถ่ายเอกสารแจกต่อได้เลย ไม่ต้องขอ",
+      "foot_en": "Photocopy and hand these out freely — no permission needed."
+    }
+  ],
+  "_layout_note": "Two sides of one A4, and the copy has to earn its place on them. Blocks carry page: 'back' to move below the fold; the front holds the eleven terms you might walk into by accident, and the back holds the two you would have to seek out or be told about, sitting directly above the licence box that explains the second one. make_reader_sheets.py fails the build if the result is not exactly two pages — when it does, cut words, do not shrink the Thai.",
+  "_say_note": "The phrasebook used to run to eight phrases and cost half the back page. It now carries only what you say BEFORE you lie down — the four that change which shop you choose or what you are booking. เบา ๆ and ไม่ใช้น้ำมัน are things you say on the table, they belong to a different sheet, and both already appear inside the term rows where they matter.",
+  "_tout_note": "The touching-tout line is on the sheet and deliberately NOT a facet in the database. As reader guidance about street behaviour it is fair and useful — being touched by a stranger is genuinely unusual in Thailand, and a reader can act on it in the moment. Attached to a named business as a field it becomes a scarlet letter resting on one passer-by's observation on one afternoon, which is exactly what this project does not publish. Note the nuance the line keeps: staff calling out 'massage ka' from a doorway is completely ordinary and most shops do it. The touch and the following-you-down-the-street are the part that is not.",
+  "_pricesVerified": false,
+  "_set_note": "Three sheets, one job each, so a guesthouse or a shop can photocopy only the one it wants. massage-words = recognition, the words on a sign. massage-expect = what the hour is actually like. massage-money = prices and tipping. They were one sheet, then two; the copy decided the count, not the plan — measured at 87mm and 181mm over, which is a whole side and then some."
+}

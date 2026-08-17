@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 210mm; }
+body {
+  font-family: "Noto Sans Thai", "IBM Plex Sans Thai", "Sarabun", "Thonburi",
+    "Arial Unicode MS", Arial, sans-serif;
+  color: #000; background: #fff; font-size: 11pt; line-height: 1.45;
+}
+.page {
+  width: 210mm; height: 297mm; padding: 13mm 14mm 11mm;
+  position: relative; page-break-after: always;
+  display: flex; flex-direction: column;
+  /* No overflow:hidden here on purpose. Clipping makes an over-long sheet
+     LOOK like it fits — the copy just vanishes off the bottom and the page
+     count still says two. Letting it spill onto a third page is what makes
+     page_count() an actual check. */
+}
+.page:last-child { page-break-after: auto; }
+.rule { border-top: 3px solid #000; border-bottom: 3px solid #000;
+  height: 3px; padding-top: 3px; }
+.brandrow { display: flex; justify-content: space-between; align-items: baseline;
+  margin-top: 3mm; font-size: 10pt; letter-spacing: .04em; }
+.brandrow b { font-size: 14pt; }
+.who { margin-top: 5mm; font-size: 11pt; font-weight: 700; }
+.who .th { display: block; font-weight: 400; font-size: 10.5pt; }
+h1 { font-size: 21pt; line-height: 1.12; margin-top: 1.5mm; font-weight: 700; }
+h1 .th { display: block; font-size: 14pt; font-weight: 700; margin-top: 1.2mm; }
+.lede { margin-top: 2.6mm; font-size: 9.8pt; line-height: 1.34; }
+.lede .th { display: block; margin-top: 1.2mm; font-size: 9.6pt; }
+
+/* ---- the term table: Thai left and large, English right ----
+   Row height is the whole budget on this page: thirteen terms, four block
+   headings and a masthead have to share 273mm. The Thai does not shrink —
+   it is the thing being matched against a shopfront, and the reader may not
+   have good eyes. So the English gets cut instead, and the transcription and
+   the gloss share one line. */
+.block { margin-top: 2.4mm; }
+.page .block:first-of-type { margin-top: 4mm; }
+.bhead { border-top: 2.5px solid #000; border-bottom: 1px solid #000;
+  padding: 1.3mm 0; font-size: 11.5pt; font-weight: 700; }
+.bhead .en { font-weight: 400; font-size: 9.8pt; }
+.bnote { padding: 1mm 0 0; font-size: 9pt; line-height: 1.3; }
+.bnote .th { font-size: 9pt; }
+.row { display: flex; gap: 4mm; padding: 1.1mm 0;
+  border-bottom: 1px dotted #000; page-break-inside: avoid; }
+.row:last-child { border-bottom: none; }
+.term { width: 68mm; flex: 0 0 68mm; }
+.term .th { font-size: 14.5pt; font-weight: 700; line-height: 1.28; }
+.term .alt { display: block; font-size: 12.5pt; font-weight: 700;
+  line-height: 1.28; }
+.term .meta { display: block; font-size: 8pt; margin-top: .5mm;
+  line-height: 1.28; }
+.term .meta i { font-style: italic; }
+.desc { flex: 1; font-size: 9.6pt; line-height: 1.32; }
+.star { font-weight: 700; }
+.lannakey { margin-top: 2.4mm; font-size: 9pt; }
+
+/* ---- back page furniture ---- */
+h2 { font-size: 16pt; margin-top: 5mm; font-weight: 700; }
+h2 .th { display: block; font-size: 12pt; font-weight: 700; margin-top: 1.2mm; }
+.box { border: 3px solid #000; padding: 3.4mm 5mm; margin-top: 3.4mm; }
+.box p { font-size: 10pt; line-height: 1.38; }
+.box .th { display: block; font-size: 10pt; margin-top: 2mm; }
+.plaqueword { margin-top: 2.6mm; border-top: 1px solid #000; padding-top: 2.4mm;
+  text-align: center; }
+.plaqueword b { font-size: 19pt; display: block; line-height: 1.25; }
+.plaqueword i { font-size: 9.6pt; display: block; margin-top: 1mm; }
+.plaqueword span { font-size: 9.8pt; display: block; margin-top: 1mm; }
+ul.look { margin-top: 3.4mm; list-style: none; }
+ul.look li { margin-bottom: 2.6mm; padding-left: 9mm; position: relative;
+  font-size: 11pt; font-weight: 700; }
+ul.look li:before { content: ""; position: absolute; left: 0; top: .8mm;
+  width: 5.5mm; height: 5.5mm; border: 2px solid #000; }
+ul.look .en { display: block; font-size: 9.8pt; font-weight: 400; margin-top: .8mm; }
+table.say { margin-top: 4mm; width: 100%; border-collapse: collapse; }
+table.say td { border-bottom: 1px dotted #000; padding: 2mm 2mm 2mm 0;
+  vertical-align: baseline; }
+table.say .th { font-size: 14.5pt; font-weight: 700; width: 52mm; }
+table.say .rtgs { font-size: 9pt; font-style: italic; width: 42mm; }
+table.say .en { font-size: 10.2pt; }
+.saynote { margin-top: 3mm; font-size: 9.8pt; }
+.saynote .th { display: block; font-size: 9.6pt; margin-top: .8mm; }
+.qrwrap { margin-top: 4mm; display: flex; gap: 5mm; align-items: center;
+  border: 3px solid #000; padding: 3.4mm 4.5mm; }
+.qrwrap img { width: 27mm; height: 27mm; }
+.qrwrap .site { font-size: 15pt; font-weight: 700; letter-spacing: .01em;
+  line-height: 1.25; }
+.qrwrap p { font-size: 10pt; margin-top: 1.5mm; }
+.qrwrap p.th { font-size: 9.8pt; }
+.spacer { flex: 1; }
+.foot { margin-top: 4mm; display: flex; justify-content: space-between;
+  align-items: flex-end; font-size: 9.5pt; }
+.foot .site { font-size: 14pt; font-weight: 700; }
+.cut { margin-top: 3mm; border-top: 1px dashed #000; padding-top: 2mm;
+  font-size: 9pt; }
+</style></head><body><div class="page"><div class="rule"></div><div class="brandrow"><b>🐜 มดแดง Mot Dang</b><span>motdang.net</span></div>
+<div class="who">For anyone choosing a massage shop in Chiang Mai<span class="th">สำหรับคนที่กำลังเลือกร้านนวดในเชียงใหม่</span></div>
+<h1>The words on the sign<span class="th">นวด — คำที่อยู่บนป้าย</span></h1>
+<div class="lede">A sign that says only MASSAGE is not telling you anything. Thai shops say what they sell, in Thai, on the sign and the door menu. Match the letters — you need not read Thai.<span class="th">ป้ายที่เขียนแค่ว่า MASSAGE ไม่ได้บอกอะไรเลย ร้านไทยบอกอยู่แล้วว่าขายอะไร สิบสามคำนี้ครอบคลุมเกือบทั้งหมด</span></div>
+<div class="block"><div class="bhead">ใส่เสื้อผ้า อยู่บนเบาะ — <span class="en">You keep your clothes on. Floor mat or chair.</span></div><div class="row"><div class="term"><span class="th">นวดแผนไทย</span><span class="alt">นวดแผนโบราณ</span><span class="meta"><i>nûat phɛ̌ɛn thai / …boo-raan</i> · แผน “system” · โบราณ “ancient” &lt; Pali purāṇa</span></div><div class="desc">The standard one: thumb pressure and slow stretches, clothed, on a mat, no oil. Older shops use the second word.</div></div><div class="row"><div class="term"><span class="th">นวดเชลยศักดิ์</span><span class="meta"><i>nûat chá-loei-sàk</i> · “commoner's”</span></div><div class="desc">The village lineage, and what most shops practise. Elbows, knees and forearms are used.</div></div><div class="row"><div class="term"><span class="th">นวดราชสำนัก</span><span class="meta"><i>nûat râat-chá-sǎm-nàk</i> · “royal court”</span></div><div class="desc">The court lineage: hands only, no elbows or knees, practitioner at a set distance. Ask for it by name.</div></div><div class="row"><div class="term"><span class="th">นวดจับเส้น</span><span class="meta"><i>nûat càp sên</i> · จับ “seize” · เส้น the sen lines</span></div><div class="desc">Deep work on one complaint. Expect it to hurt — that is the treatment. Say เบา ๆ for less.</div></div><div class="row"><div class="term"><span class="th">ตอกเส้น <span class="star">★</span></span><span class="meta"><i>tɔ̀ɔk sên</i> · ตอก “to hammer, drive in”</span></div><div class="desc">Northern. A wooden mallet taps a wedge along the sen lines. Sounds far worse than it feels.</div></div><div class="row"><div class="term"><span class="th">ย่ำขาง <span class="star">★</span></span><span class="meta"><i>yâm khǎang</i> · ย่ำ “tread” · ขาง N. Thai “ploughshare”</span></div><div class="desc">Northern, now rare. An oiled foot off a heated ploughshare, trodden along your limb.</div></div><div class="row"><div class="term"><span class="th">นวดเท้า · กดจุดฝ่าเท้า</span><span class="meta"><i>nûat tháo · kòt cùt fàa tháo</i> · กดจุด “press the point”</span></div><div class="desc">Feet and lower legs, in a chair, shoes off and everything else on. Easiest to walk into cold.</div></div><div class="row"><div class="term"><span class="th">นวดประคบสมุนไพร</span><span class="meta"><i>nûat prà-khóp sà-mǔn-phrai</i> · ประคบ “poultice” · สมุนไพร “herbs”</span></div><div class="desc">A cloth bundle of steamed herbs pressed on you, hot. Usually added to one of the above.</div></div></div><div class="block"><div class="bhead">ถอดเสื้อผ้า อยู่บนเตียง — <span class="en">You undress to some degree. Table, towel, often a curtained or private room.</span></div><div class="bnote">A private room here is ordinary — oil massage cannot be done in an open row of mats. The licence and the menu say what a shop sells; the room does not. <span class="th">ห้องส่วนตัวเป็นเรื่องปกติ นวดน้ำมันทำในห้องรวมไม่ได้</span></div><div class="row"><div class="term"><span class="th">นวดน้ำมัน · อโรมา</span><span class="meta"><i>nûat nám-man · à-roo-maa</i> · น้ำมัน “oil”</span></div><div class="desc">Oil, a table, long strokes. Say ไม่ใช้น้ำมัน if you wanted the mat instead.</div></div><div class="row"><div class="term"><span class="th">สปา · ขัดผิว · อบไอน้ำ</span><span class="meta"><i>sà-paa · khàt phǐu · òp ai-nám</i> · ขัดผิว “scrub” · อบไอน้ำ “steam”</span></div><div class="desc">Scrub, wrap, steam, sauna, in packages of two hours and up. The dearest column on the menu.</div></div><div class="row"><div class="term"><span class="th">ครอบแก้ว · กัวซา</span><span class="meta"><i>khrɔ̂ɔp kɛ̂ɛo · kua saa</i> · ครอบ “to cap” · แก้ว “glass”</span></div><div class="desc">Cupping and Chinese scraping. Both leave round bruises or red streaks for about a week.</div></div></div>
+<div class="lannakey">★ Northern — a Lanna speciality. You are in the right province for it. ★ ล้านนา — เป็นของทางเหนือ</div>
+<div class="spacer"></div>
+<div class="foot"><span>💆 นวด — คำที่อยู่บนป้าย</span>
+<span class="site">motdang.net</span></div>
+</div><div class="page"><div class="rule"></div><div class="brandrow"><b>🐜 มดแดง Mot Dang</b><span>motdang.net</span></div>
+<div class="block"><div class="bhead">เฉพาะทาง — โทรจองก่อน — <span class="en">Specialist. Telephone first; not a walk-in.</span></div><div class="row"><div class="term"><span class="th">ทับหม้อเกลือ · อยู่ไฟ</span><span class="meta"><i>tháp mɔ̂ɔ klʉa · yùu fai</i> · “press the salt pot” · “stay by the fire”</span></div><div class="desc">Postnatal care for new mothers, over a course of days. A speciality, and shops say so at length.</div></div></div><div class="block"><div class="bhead">คนละกิจการ คนละใบอนุญาต — <span class="en">A different trade, under a different Act.</span></div><div class="row"><div class="term"><span class="th">อาบอบนวด</span><span class="meta"><i>àap òp nûat</i> · “bathe · steam · massage”</span></div><div class="desc">Venues put this word on their own signs. Licensed as a สถานบริการ entertainment venue under the Act of B.E. 2509 — not a health establishment like the twelve above. If the sign says this, it has told you.</div></div></div>
+<h2>The certificate on the wall<span class="th">ใบอนุญาต — ดูที่ผนัง</span></h2>
+<div class="box"><p>Massage and spa businesses are licensed as สถานประกอบการเพื่อสุขภาพ — health establishments — under the Act of B.E. 2559 (2016), in three kinds: นวดเพื่อสุขภาพ health, นวดเพื่อเสริมสวย beauty, สปา spa. The certificate is a numbered, framed sheet from กรมสนับสนุนบริการสุขภาพ (สบส.), hung where customers can see it. Public paperwork, not a judgement about anybody: a different trade holds a different licence under a different Act, and both are on a wall by the door.
+<span class="th">ร้านนวดและสปาขึ้นทะเบียนเป็น “สถานประกอบการเพื่อสุขภาพ” ตาม พ.ร.บ. พ.ศ. ๒๕๕๙ ใบอนุญาตมีเลขที่ ออกโดยกรมสนับสนุนบริการสุขภาพ (สบส.) และติดไว้ให้ลูกค้าเห็น</span></p>
+<div class="plaqueword"><b>นวดเพื่อสุขภาพ</b>
+<i>nûat phʉ̂a sùk-khà-phâap</i><span>massage for health — the words on the certificate</span></div></div>
+<h2>Five things the pavement tells you<span class="th">ห้าอย่างที่ดูได้จากหน้าร้าน</span></h2>
+<ul class="look"><li>ป้ายราคาหน้าร้าน บอกนาทีและชั่วโมง<span class="en">A rate board at the door, priced by the half-hour and hour.</span></li><li>มองเห็นเบาะ เก้าอี้ หรือเคาน์เตอร์จากถนน<span class="en">Mats, foot-massage chairs or a reception desk visible from the street.</span></li><li>เวลาปิดติดอยู่ที่ประตู<span class="en">A closing time written on the door. The hour is plain fact either way.</span></li><li>ใบอนุญาตใส่กรอบ มีเลขที่ ติดผนัง<span class="en">A framed certificate with a number on it, near the counter.</span></li><li>มีคนยืนหน้าร้าน จับตัวคนเดินผ่าน<span class="en">Someone posted outside who touches you or takes your arm as you pass. Calling out “massage ka” from a doorway is ordinary and most shops do it; being touched by a stranger is not ordinary anywhere in Thailand.</span></li></ul>
+
+<div class="qrwrap"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZUAAAGVAQAAAAAeIFGWAAADEUlEQVR42u1cMY7jMBCbrIuUfkKekqclT8tT/ASXKRbRSTOckbO7zTaLI0AVgSFHTYjRkBQVa78eT9MardGav17zsBi3ttnZZx+X/vGyePj0l5cd37q054f9fmjN360BcH10TNt+dgSv2/rEqz5zwquEW5gyYNpr0IHbVsftfu0F61D2Eh4o9xnAfROmZJiOvXggaLbioSPYX6FghSkfpo8B5WnUaQd3eY3y3GpGmHL208GRAkqzjmnsvePV4Ejqp0yYJu8tRvTjg3gvEaY1xt7rW+6YXxo4Uq9ch3LqH/1uBJjujqDX4PLKF6eYaVA3zoSFKU+dhhrt/TTHGuA6NXJwDygLU4o69Q3W9SnUqPtINVMW00BZmHJwpHM4gdk9B3AhYQam0Kdm2nvp+unQp6hTyFKnxGBNa1SutAwHph3BZViC2TQduMVrskzCoE/Sp0QcCQ5DFOOgRhYEeMrSvUSNMKXxHKJpFrjw8PEw9uc0nYSpMfi9OFADuQ3jN838aLVDqIojEWHaJiMyHMd4eZobv0eLSZiS9VN4DjhiMzRWK+MX0lWY0uy9MaBGkzXBG7xB1Igj8ey9cI1axZB2yNLDtnxGMEmYcuhTtxrS+J369A4Pf0pXYUpUp+7lbuv3LTczZvkd9VMWTD8RUCnF6ozIW23B7Q6w6pSF9x6MBXCkjPVGh62TGtUpSz9FDMlqp8VxzP3oDdoiD5+oTvfkP3uR25bWPTgSmLC8QRp96maRxwXLhbDjsek9E7/ykYi0TKaPwu9NKDOGVKJGdUrTT9+E6hgQNS3ySNh7pWX4fKQ8oJn9tG5b+LacM/rdOLIrr9lG46wtcoNbJZR0Jk7WTw8ItplUKSb8ltUXpiSew1sOv2XYrKz7o6gRpgz99FCDbQYevnRYnZ/ScaS8J95wnS3to+OfACi7QuU55D3xZzoMrWU/xbZsMyaq343pTjEC+fnvDen3vrv6wpQL04g3XCuh1Pa8U6zMNm8/jfh9XkSdZr44EiXvRT/1E3CEzZDvrTvFwpRMn+q/wrRGa/7PNf8AKfR1rl8QT90AAAAASUVORK5CYII=" alt="QR code for https://motdang.net/lists/massage-chiang-mai.html">
+<div><span class="site">motdang.net</span>
+<p>Every massage shop we have walked, with what each one sells</p>
+<p class="th">ร้านนวดทุกร้านที่มดไปเดินมาแล้ว พร้อมบอกว่าร้านไหนขายอะไร</p></div></div>
+<div class="spacer"></div>
+<div class="foot"><span>🐜 มดแดง · motdang.net</span>
+<span>สำหรับคนที่กำลังเลือกร้านนวดในเชียงใหม่</span></div>
+<div class="cut">ถ่ายเอกสารแจกต่อได้เลย ไม่ต้องขอ · Photocopy and hand these out freely — no permission needed.</div>
+</div></body></html>

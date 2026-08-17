@@ -1,14 +1,14 @@
 {
  "schema": "motdang-graph/1",
- "nodes": 14130,
- "edges": 63464,
+ "nodes": 14129,
+ "edges": 63457,
  "byKind": {
   "amphoe": 22,
   "brand": 51,
   "category": 23,
   "cuisine": 54,
   "festival": 33,
-  "place": 12319,
+  "place": 12318,
   "street": 942,
   "subcategory": 66,
   "tambon": 98,
@@ -18,17 +18,17 @@
   "branch_of": 1127,
   "hosts_festival": 11,
   "in_amphoe": 346,
-  "in_category": 12385,
+  "in_category": 12383,
   "in_tambon": 346,
-  "near": 29893,
-  "on_street": 4762,
+  "near": 29890,
+  "on_street": 4761,
   "same_wat_as_wichaa": 523,
   "serves_cuisine": 2917,
-  "sub_of": 11154
+  "sub_of": 11153
  },
  "byProvenance": {
   "adjudicated": 523,
-  "computed": 62941
+  "computed": 62934
  },
  "note": "Every edge carries a real count or a distance in metres and a receipt in plain words. Nothing here is inferred from a language model's priors. Provenance: computed = the catalogue's own columns or coordinates; adjudicated = a written rule that fails closed; authored = a person wrote it.",
  "licence": "CC BY 4.0 · map-derived fields © OpenStreetMap contributors (ODbL)"

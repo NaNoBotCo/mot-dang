@@ -9825,19 +9825,19 @@
 {"dst": "cat:food", "ev": "filed on this shelf", "prov": "computed", "src": "place:cm-osm-node-13651126180", "type": "in_category", "w": 1}
 {"dst": "place:cm-osm-node-13651143120", "ev": "0 m apart", "prov": "computed", "src": "place:cm-osm-node-13651126180", "type": "near", "w": 0}
 {"dst": "place:cm-osm-node-13651155193", "ev": "0 m apart", "prov": "computed", "src": "place:cm-osm-node-13651126180", "type": "near", "w": 0}
+{"dst": "place:cm-osm-node-3385502944", "ev": "30 m apart", "prov": "computed", "src": "place:cm-osm-node-13651126180", "type": "near", "w": 30}
 {"dst": "place:cm-osm-node-5703615419", "ev": "19 m apart", "prov": "computed", "src": "place:cm-osm-node-13651126180", "type": "near", "w": 19}
-{"dst": "place:cm-osm-node-6215394985", "ev": "25 m apart", "prov": "computed", "src": "place:cm-osm-node-13651126180", "type": "near", "w": 25}
 {"dst": "street:arak-road-f6389e", "ev": "the place states this road", "prov": "computed", "src": "place:cm-osm-node-13651126180", "type": "on_street", "w": 1}
 {"dst": "sub:bakery-dessert", "ev": "filed on this sub-shelf", "prov": "computed", "src": "place:cm-osm-node-13651126180", "type": "sub_of", "w": 1}
 {"dst": "cat:food", "ev": "filed on this shelf", "prov": "computed", "src": "place:cm-osm-node-13651143120", "type": "in_category", "w": 1}
 {"dst": "place:cm-osm-node-13651155193", "ev": "0 m apart", "prov": "computed", "src": "place:cm-osm-node-13651143120", "type": "near", "w": 0}
+{"dst": "place:cm-osm-node-3385502944", "ev": "29 m apart", "prov": "computed", "src": "place:cm-osm-node-13651143120", "type": "near", "w": 29}
 {"dst": "place:cm-osm-node-5703615419", "ev": "19 m apart", "prov": "computed", "src": "place:cm-osm-node-13651143120", "type": "near", "w": 19}
-{"dst": "place:cm-osm-node-6215394985", "ev": "25 m apart", "prov": "computed", "src": "place:cm-osm-node-13651143120", "type": "near", "w": 25}
 {"dst": "street:arak-road-f6389e", "ev": "the place states this road", "prov": "computed", "src": "place:cm-osm-node-13651143120", "type": "on_street", "w": 1}
 {"dst": "sub:bakery-dessert", "ev": "filed on this sub-shelf", "prov": "computed", "src": "place:cm-osm-node-13651143120", "type": "sub_of", "w": 1}
 {"dst": "cat:food", "ev": "filed on this shelf", "prov": "computed", "src": "place:cm-osm-node-13651155193", "type": "in_category", "w": 1}
+{"dst": "place:cm-osm-node-3385502944", "ev": "30 m apart", "prov": "computed", "src": "place:cm-osm-node-13651155193", "type": "near", "w": 30}
 {"dst": "place:cm-osm-node-5703615419", "ev": "19 m apart", "prov": "computed", "src": "place:cm-osm-node-13651155193", "type": "near", "w": 19}
-{"dst": "place:cm-osm-node-6215394985", "ev": "25 m apart", "prov": "computed", "src": "place:cm-osm-node-13651155193", "type": "near", "w": 25}
 {"dst": "street:arak-road-f6389e", "ev": "the place states this road", "prov": "computed", "src": "place:cm-osm-node-13651155193", "type": "on_street", "w": 1}
 {"dst": "sub:bakery-dessert", "ev": "filed on this sub-shelf", "prov": "computed", "src": "place:cm-osm-node-13651155193", "type": "sub_of", "w": 1}
 {"dst": "cat:food", "ev": "filed on this shelf", "prov": "computed", "src": "place:cm-osm-node-13651245521", "type": "in_category", "w": 1}
@@ -30708,7 +30708,6 @@
 {"dst": "cat:food", "ev": "filed on this shelf", "prov": "computed", "src": "place:cm-osm-node-4646472290", "type": "in_category", "w": 1}
 {"dst": "place:cm-osm-node-4711076389", "ev": "65 m apart", "prov": "computed", "src": "place:cm-osm-node-4646472290", "type": "near", "w": 65}
 {"dst": "place:cm-osm-node-6007376185", "ev": "65 m apart", "prov": "computed", "src": "place:cm-osm-node-4646472290", "type": "near", "w": 65}
-{"dst": "place:cm-osm-node-6215394985", "ev": "64 m apart", "prov": "computed", "src": "place:cm-osm-node-4646472290", "type": "near", "w": 64}
 {"dst": "place:cm-osm-way-692140717", "ev": "57 m apart", "prov": "computed", "src": "place:cm-osm-node-4646472290", "type": "near", "w": 57}
 {"dst": "place:cm-osm-way-692140719", "ev": "36 m apart", "prov": "computed", "src": "place:cm-osm-node-4646472290", "type": "near", "w": 36}
 {"dst": "street:bun-rueang-rit-road-4b4eb0", "ev": "nearest road line, 12 m", "prov": "computed", "src": "place:cm-osm-node-4646472290", "type": "on_street", "w": 12}
@@ -31184,8 +31183,8 @@
 {"dst": "street:singharat-road-50862c", "ev": "nearest road line, 12 m", "prov": "computed", "src": "place:cm-osm-node-4709669589", "type": "on_street", "w": 12}
 {"dst": "sub:thai", "ev": "filed on this sub-shelf", "prov": "computed", "src": "place:cm-osm-node-4709669589", "type": "sub_of", "w": 1}
 {"dst": "cat:food", "ev": "filed on this shelf", "prov": "computed", "src": "place:cm-osm-node-4711076389", "type": "in_category", "w": 1}
+{"dst": "place:cm-osm-node-5703615419", "ev": "46 m apart", "prov": "computed", "src": "place:cm-osm-node-4711076389", "type": "near", "w": 46}
 {"dst": "place:cm-osm-node-6007376185", "ev": "24 m apart", "prov": "computed", "src": "place:cm-osm-node-4711076389", "type": "near", "w": 24}
-{"dst": "place:cm-osm-node-6215394985", "ev": "7 m apart", "prov": "computed", "src": "place:cm-osm-node-4711076389", "type": "near", "w": 7}
 {"dst": "place:cm-osm-way-623146117", "ev": "12 m apart", "prov": "computed", "src": "place:cm-osm-node-4711076389", "type": "near", "w": 12}
 {"dst": "street:arak-road-f6389e", "ev": "nearest road line, 11 m", "prov": "computed", "src": "place:cm-osm-node-4711076389", "type": "on_street", "w": 11}
 {"dst": "sub:cafe", "ev": "filed on this sub-shelf", "prov": "computed", "src": "place:cm-osm-node-4711076389", "type": "sub_of", "w": 1}
@@ -35080,7 +35079,6 @@
 {"dst": "cat:essentials", "ev": "filed on this shelf", "prov": "computed", "src": "place:cm-osm-node-6004761433", "type": "in_category", "w": 1}
 {"dst": "sub:convenience", "ev": "filed on this sub-shelf", "prov": "computed", "src": "place:cm-osm-node-6004761433", "type": "sub_of", "w": 1}
 {"dst": "cat:massage", "ev": "filed on this shelf", "prov": "computed", "src": "place:cm-osm-node-6007376185", "type": "in_category", "w": 1}
-{"dst": "place:cm-osm-node-6215394985", "ev": "30 m apart", "prov": "computed", "src": "place:cm-osm-node-6007376185", "type": "near", "w": 30}
 {"dst": "place:cm-osm-way-623146117", "ev": "16 m apart", "prov": "computed", "src": "place:cm-osm-node-6007376185", "type": "near", "w": 16}
 {"dst": "street:arak-road-f6389e", "ev": "nearest road line, 8 m", "prov": "computed", "src": "place:cm-osm-node-6007376185", "type": "on_street", "w": 8}
 {"dst": "cat:learn", "ev": "filed on this shelf", "prov": "computed", "src": "place:cm-osm-node-6012268592", "type": "in_category", "w": 1}
@@ -35834,11 +35832,6 @@
 {"dst": "place:cm-osm-way-1214997557", "ev": "32 m apart", "prov": "computed", "src": "place:cm-osm-node-6213287885", "type": "near", "w": 32}
 {"dst": "place:cm-osm-way-260358501", "ev": "59 m apart", "prov": "computed", "src": "place:cm-osm-node-6213287885", "type": "near", "w": 59}
 {"dst": "street:nantaram-road-2da644", "ev": "nearest road line, 3 m", "prov": "computed", "src": "place:cm-osm-node-6213287885", "type": "on_street", "w": 3}
-{"dst": "cat:sights", "ev": "filed on this shelf", "prov": "computed", "src": "place:cm-osm-node-6215394985", "type": "in_category", "w": 1}
-{"dst": "cat:tattoo", "ev": "filed on this shelf", "prov": "computed", "src": "place:cm-osm-node-6215394985", "type": "in_category", "w": 1}
-{"dst": "place:cm-osm-way-623146117", "ev": "18 m apart", "prov": "computed", "src": "place:cm-osm-node-6215394985", "type": "near", "w": 18}
-{"dst": "street:arak-road-f6389e", "ev": "nearest road line, 9 m", "prov": "computed", "src": "place:cm-osm-node-6215394985", "type": "on_street", "w": 9}
-{"dst": "sub:studio", "ev": "filed on this sub-shelf", "prov": "computed", "src": "place:cm-osm-node-6215394985", "type": "sub_of", "w": 1}
 {"dst": "cat:hotel", "ev": "filed on this shelf", "prov": "computed", "src": "place:cm-osm-node-6215543160", "type": "in_category", "w": 1}
 {"dst": "place:cm-osm-way-372055123", "ev": "36 m apart", "prov": "computed", "src": "place:cm-osm-node-6215543160", "type": "near", "w": 36}
 {"dst": "place:cm-osm-way-372055248", "ev": "33 m apart", "prov": "computed", "src": "place:cm-osm-node-6215543160", "type": "near", "w": 33}

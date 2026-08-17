@@ -1684,7 +1684,7 @@ https://motdang.net/cm/p/bank-of-ayudhya-1791584104.html	กรุงศรี �
 https://motdang.net/cm/p/jiffy-1795272241.html	Jiffy	-	essentials	18.778968,99.0279998	-	-	ants=1/9
 https://motdang.net/cm/p/harem-1796960588.html	Harem	-	massage	18.7617639,98.9924704	-	-	ants=1/9
 https://motdang.net/cm/p/1796964076.html	โคขุน	-	food	18.765624,98.9894958	phone=+66847606614	-	ants=2/9
-https://motdang.net/cm/p/mont-nomsod-1796984000.html	มนต์ นมสด · Mont Nomsod	Mont Nomsod	food	18.7979101,98.9667403	phone=+66 53 214 410; web=mont-nomsod.com	Mo-Su 12:00-23:00	ants=5/9
+https://motdang.net/cm/p/mont-nomsod-1796984000.html	มนต์ นมสด · Mont Nomsod	Mont Nomsod	food	18.7979101,98.9667403	phone=+66 53 214 410; facebook=@MontNomsod.Issaraphap; web=mont-nomsod.com	Mo-Su 12:00-23:00	ants=5/9
 https://motdang.net/cm/p/ming-muang-1796986984.html	Ming Muang	-	food	18.7977747,98.9666391	-	-	ants=1/9
 https://motdang.net/cm/p/wasabi-1796988594.html	Wasabi	-	food	18.7975767,98.9668721	-	-	ants=1/9
 https://motdang.net/cm/p/wawee-coffee-1796992462.html	Wawee Coffee	-	food	18.7975594,98.9670413	-	-	ants=1/9
@@ -5364,7 +5364,7 @@ https://motdang.net/cm/p/5694361521.html	邻家客栈	-	transport	18.824142,98.9
 https://motdang.net/cm/p/smoothie-shop-5694469226.html	Smoothie shop	-	food	18.7872033,98.9881294	-	-	ants=1/9
 https://motdang.net/cm/p/cutlers-barber-5702387254.html	Cutlers Barber	Cutlers Barber	beauty	18.7834968,98.9815944	-	-	ants=1/9
 https://motdang.net/cm/p/coffee-station-5702387255.html	Coffee Station	Coffee Station	food	18.7835953,98.9816905	-	-	ants=1/9
-https://motdang.net/cm/p/sak-yant-chiang-mai-5703615419.html	Sak Yant Chiang Mai	-	sights/tattoo	18.7918186,98.9785289	phone=+66 080 142 4886; facebook=@sakyantchiangmai; web=sakyantchiangmai.com; instagram=@sakyantthailand; email=bookings@sakyantchiangmai.com	Mo-Sa 08:50-17:30	ants=4/9
+https://motdang.net/cm/p/sak-yant-tatoo-chiang-mai-5703615419.html	Sak Yant Tatoo Chiang Mai	Sak Yant Tatoo Chiang Mai	sights/tattoo	18.7918186,98.9785289	phone=+66 080 142 4886; facebook=@sakyantchiangmai; web=sakyantchiangmai.com; instagram=@sakyantthailand; email=bookings@sakyantchiangmai.com	Mo-Sa 08:50-17:30	ants=4/9
 https://motdang.net/cm/p/khun-mor-fish-ball-noodle-5725272494.html	ก๋วยเตี๋ยวลูกชิ้นปลาคุณหมอ · Khun Mor Fish Ball Noodle	Khun Mor Fish Ball Noodle	food	18.7737088,99.0415971	-	-	ants=2/9
 https://motdang.net/cm/p/happy-green-5725275557.html	Happy Green	-	food	18.7553349,98.9943574	-	-	ants=1/9
 https://motdang.net/cm/p/tanwa-hostel-5727139650.html	Tanwa Hostel	-	hotel	18.7726432,98.985367	-	-	ants=1/9
@@ -5598,7 +5598,6 @@ https://motdang.net/cm/p/pete-caf-6212401385.html	Pete café	Pete café	food	18.
 https://motdang.net/cm/p/tip-cafe-6212785422.html	Tip Cafe	Tip Cafe	food	18.8784396,99.1402592	-	-	ants=1/9
 https://motdang.net/cm/p/ban-chunsongsang-home-stay-6212854285.html	บ้านจันทร์ส่องแสง โฮมสเตย์ · Ban Chunsongsang Home Stay	Ban Chunsongsang Home Stay	hotel	18.8168761,99.0979421	phone=0844808902; email=banchunsongsang@gmail.com	Mo-Su 09:00-23:00	ants=4/9
 https://motdang.net/cm/p/hands-om-massage-6213287885.html	แฮนด์อ้อมมาสสาจ · Hands Om Massage	Hands Om Massage	massage	18.7789649,98.9876584	phone=0989967836	Mo-Su 10:00-00:00	ants=4/9
-https://motdang.net/cm/p/sak-yant-tatoo-chiang-mai-6215394985.html	Sak Yant Tatoo Chiang Mai	Sak Yant Tatoo Chiang Mai	sights/tattoo	18.7921775,98.9785182	phone=095-690-8886; facebook=@sakyantchiangmai; web=sakyantchiangmai.com; instagram=@sakyantthailand; email=enquiry@sakyantchiangmai.com	Mo-Sa 08:50-17:30	ants=4/9
 https://motdang.net/cm/p/art-mai-6215543160.html	Art Mai?	-	hotel	18.79921,98.9687591	phone=+6653894888; facebook=@ArtMaiGalleryHotel; web=artmaigalleryhotel.com; instagram=@artmaigallery; email=enquiry@artmaigalleryhotel.com	-	ants=3/9
 https://motdang.net/cm/p/i-room-6215718785.html	I-room	I-room	hotel	18.7991723,98.9692039	phone=+66896690099	-	ants=2/9
 https://motdang.net/cm/p/the-baristro-at-ping-river-6217558185.html	The Baristro at Ping River	The Baristro at Ping River	food	18.8160328,99.0001583	-	-	ants=1/9
@@ -8112,7 +8111,7 @@ https://motdang.net/cm/p/pastel-406994637.html	Pastel	-	hotel	18.7826435,98.9821
 https://motdang.net/cm/p/body-and-mind-healing-407112222.html	Body and Mind Healing	Body and Mind Healing	learn	18.7818962,98.9827668	phone=0856211374; facebook=@128532067196499; web=bodyandmindhealing.org; email=info@bodyandmindhealing.org	09:00-16:00	ants=4/9
 https://motdang.net/cm/p/lotus-hotel-pang-suan-kaew-407658818.html	Lotus Hotel Pang Suan Kaew	-	hotel	18.7950027,98.9751201	-	-	ants=1/9
 https://motdang.net/cm/p/aom-coffe-house-408595880.html	Aom Coffe House	-	food	18.8028438,98.9785385	-	09:00-22:00	ants=2/9
-https://motdang.net/cm/p/de-lanna-hotel-408595881.html	De Lanna Hotel	-	hotel	18.7898038,98.9831016	web=delannahotel.com	-	ants=2/9
+https://motdang.net/cm/p/de-lanna-hotel-408595881.html	De Lanna Hotel	-	hotel	18.7898038,98.9831016	phone=095-661-4296; facebook=@delanna.chiangmai; web=delannahotel.com; instagram=@delanna_cm	-	ants=3/9
 https://motdang.net/cm/p/paraiso-hotel-chiang-mai-408595883.html	Paraiso Hotel Chiang Mai	-	hotel	18.7898219,98.982653	-	-	ants=1/9
 https://motdang.net/cm/p/the-virgo-408595884.html	The Virgo	-	hotel	18.7885349,98.9976669	-	-	ants=1/9
 https://motdang.net/cm/p/ten-boutique-hotel-408595921.html	Ten Boutique Hotel	Ten Boutique Hotel	hotel	18.7901016,98.9825772	-	-	ants=1/9

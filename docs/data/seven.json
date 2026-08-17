@@ -5,7 +5,7 @@
   "cm": 331,
   "cr": 130
  },
- "placesMeasured": 11843,
+ "placesMeasured": 11842,
  "medianM": 248,
  "withinPct": {
   "100m": 18,
@@ -19,7 +19,7 @@
   {
    "fromM": 0,
    "toM": 100,
-   "n": 2176
+   "n": 2175
   },
   {
    "fromM": 100,
@@ -115,8 +115,8 @@
   },
   {
    "cat": "sights",
-   "n": 281,
-   "medianM": 738
+   "n": 280,
+   "medianM": 739
   },
   {
    "cat": "wat",
