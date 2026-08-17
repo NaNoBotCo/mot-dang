@@ -1,0 +1,405 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mot Dang//motdang.net//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:มดแดง — งานในเมือง / Mot Dang events
+X-WR-TIMEZONE:Asia/Bangkok
+BEGIN:VTIMEZONE
+TZID:Asia/Bangkok
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0700
+TZOFFSETTO:+0700
+TZNAME:+07
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:meetup-ical-event_315872108@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260817T170000
+DTEND;TZID=Asia/Bangkok:20260817T200000
+SUMMARY:Sunset Walk: Under-40s CMU Campus & Lake Walk
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315872108/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315887479@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260818T180000
+DTEND;TZID=Asia/Bangkok:20260818T230000
+SUMMARY:Dune Days Tuesdays
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Dune Imperium Uprising is deep strategy game with Deck Building and worker placement. What’s that? No problem\, we can teach you.  We will play some starter games before Dune at 5\, like star realms and Stone Age before we rage war on the dunes.  Teaching table starts at 6:30.  Learn it once play it every week.
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315887479/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315902143@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260819T170000
+DTEND;TZID=Asia/Bangkok:20260819T190000
+SUMMARY:Loose-Leaf Playground Writing X Poetry Club
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Retro Recess presents: Loose-Leaf Playground\, where writers get to practice.  A relaxed\, welcoming space where words get to play\, and writers get to practice.  Join us to write alongside other writers in a calm\, creative atmosphere. Each gathering offers light prompts\, generous quiet writing time\, and optional sharing. Work on your blogs\, storie
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315902143/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315902952@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260819T180000
+DTEND;TZID=Asia/Bangkok:20260819T230000
+SUMMARY:Catan Wednesdays
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads It’s Catan night baby! Games start about every hour or so. We have base Catan\, Space Catan\, cities & Knights even the newest Catan New Energies. Roll\, trade\, build and race to 10 VP.  If you have never played\, no problem we can teach you.
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315902952/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315949373@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260819T180000
+DTEND;TZID=Asia/Bangkok:20260819T200000
+SUMMARY:Does Enlightenment Care How You Find it? (Free Chiang Mai Discussion Night)
+DESCRIPTION:Questions That Matter (Free Weekly Wed 6pm Meetup Group) Fifty years ago\, Western seekers imported Eastern mysticism as a weapon against empire and capitalism. Today\, those same practices show up as corporate wellness programs\, $29.99 apps\, and executive retreats that promise sharper focus and higher output.  One reading is theft. Strip a practice of its ethics and community\, sell the calm without
+URL:https://www.meetup.com/questionsthatmatter/events/315949373/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-10001023@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260820T110000
+DTEND;TZID=Asia/Bangkok:20260820T123000
+SUMMARY:Exploring the Future
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/exploring-the-future/2026-08-20/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_316111614@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260820T140000
+DTEND;TZID=Asia/Bangkok:20260820T170000
+SUMMARY:Artistic Digital Detox
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Donation based Art Workshop Thursday!  Hello all digital nomads/ travelers/ learners/ explorers/ wanderers\; everybody:  Here's an opportunity to step away from the screen\, and reconnect with your creative self! Through lightly-guided drawing and painting exercises we will explore our artistic sides together. Perhaps you used to draw and wish to 
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316111614/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315918004@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260820T180000
+DTEND;TZID=Asia/Bangkok:20260820T230000
+SUMMARY:Strategy Thursdays
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads We will be diving into medium to heavy weight Euro games. No dice just strategy! We change games weekly: some favorite… Terraforming Mars SETI Terra Mystica Ark Nova
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315918004/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315901696@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260820T180000
+DTEND;TZID=Asia/Bangkok:20260820T200000
+SUMMARY:The Biggest Mistake I Made After Moving to Chiang Mai
+LOCATION:Spice Garden
+DESCRIPTION:Beyond Small Talk\, Chiang Mai Moving to Chiang Mai can feel like a fresh start — beautiful weather\, affordable living\, amazing food\, endless activities\, and people arriving from all over the world.  But starting over in a new country also comes with mistakes. And I made one that affected me far more than I expected. At this Meetup\, I’ll share **the biggest mistake I made after moving to Chiang Mai
+URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/315901696/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315872527@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260820T190000
+DTEND;TZID=Asia/Bangkok:20260820T210000
+SUMMARY:Advanced Ecommerce Seller Dinner
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Join a private dinner for advanced ecommerce sellers generating more than US$50\,000 in monthly revenue. Connect with experienced operators to exchange practical strategies\, share real-world stories and lessons\, and build meaningful relationships with peers who understand the challenges of scaling an ecommerce business.  AA entry: There is no hos
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315872527/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_316053671@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260820T203000
+DTEND;TZID=Asia/Bangkok:20260820T233000
+SUMMARY:Expat Karaoke Thursdays @ Extend Bar
+LOCATION:Extend Bar
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads We’re Chiang Mai’s longest-running karaoke-loving community\, bringing people together for good songs and a relaxed night out.  ### How it works  * Choose any song you can find on YouTube\, add your name to the list\, and wait for your turn. * Our karaoke events are an open-bar setup with 2-3 microphones.  ### Come as you are  Sing\, dance\, cheer so
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316053671/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-10000990@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260821T130000
+DTEND;TZID=Asia/Bangkok:20260821T143000
+SUMMARY:Caring and Sharing Group
+RRULE:FREQ=WEEKLY;BYDAY=FR
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-08-21/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315624959@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260821T180000
+DTEND;TZID=Asia/Bangkok:20260821T210000
+SUMMARY:Let’s Build Community — Together Nomad Social Night @ Attika Studio
+LOCATION:Attika Studio
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads **PRICE OF EVENT: order drink** Good chats\, good vibes — and a space for **nomads\, travelers\, and remote professionals** who believe community doesn’t happen by accident 🌿 This isn’t networking. This isn’t small talk. This is about **building a village — slowly\, intentionally\, together**. Whether you’re passing through Chiang Mai or rooted here 
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315624959/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315931990@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260821T180000
+DTEND;TZID=Asia/Bangkok:20260821T230000
+SUMMARY:New Gamers Night
+DESCRIPTION:Chiang Mai Professionals\, Expats\, and Digital Nomads Light\, silly\, card tossing\, card slapping\, poker style games. Low rules- high fun is what Friday is all about. If you don’t drink this is a perfect place to meet folks and chill. We have great regulars and solo gamers are always welcome. Absolutely no experience is required. Just bring a grin and some cash for food and games.
+URL:https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315931990/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_316112121@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260822T183000
+DTEND;TZID=Asia/Bangkok:20260822T213000
+SUMMARY:🎤 Saturday Night Karaoke + Salsa & Bachata at Spice Garden 💃🕺
+RRULE:FREQ=WEEKLY;BYDAY=SA
+LOCATION:Spice Garden
+DESCRIPTION:Beyond Small Talk\, Chiang Mai ## 🎤 Saturday Night Karaoke + Salsa & Bachata 💃🕺  Join us for a lively Saturday evening of **music\, dancing\, karaoke\, drinks\, finger food\, and great company** at **Spice Garden Chiang Mai**! 📅 **Saturday\, 22 August 2026** ⏰ **6:00 PM – 10:00 PM** 📍 **Spice Garden\, Chiang Mai** We’ll begin the evening with some **beginner-friendly Salsa and Bachata dancing**. No experi
+URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/316112121/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315526694@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260823T170000
+DTEND;TZID=Asia/Bangkok:20260823T190000
+SUMMARY:🌅 Sunday Sunset Walk & Connect at CMU
+RRULE:FREQ=WEEKLY;BYDAY=SU
+LOCATION:มหาวิทยาลัยเชียงใหม่ · Chiang Mai University
+DESCRIPTION:Beyond Small Talk\, Chiang Mai # 🌅 Sunday Sunset Walk & Connect  Looking to meet new people\, build meaningful connections\, and end your weekend on a positive note?  Join us every Sunday from **5:00 PM – 7:00 PM** for a relaxing sunset walk around the beautiful grounds of Chiang Mai University (CMU). This gathering is designed to help **expats\, newcomers\, retirees\, digital nomads\, travelers\, and loc
+URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/315526694/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273222@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260826T100000
+DTEND;TZID=Asia/Bangkok:20260826T233000
+SUMMARY:Seven Steps to a Good/Great Death
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/seven-steps-to-a-good-great-death/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_316143352@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260826T180000
+DTEND;TZID=Asia/Bangkok:20260826T200000
+SUMMARY:Solarpunk: Is It More Than Just A Fantasy? (Free Discussion Night)
+DESCRIPTION:Questions That Matter (Free Weekly Wed 6pm Meetup Group) Lush green towers wrapped in vertical gardens. Solar-powered neighborhoods where people actually know each other. Cities that feel like they were designed for people instead of against them. To some\, this fantasy aesthetic has a name: solarpunk.  Solarpunk is a utopian artistic and social movement that envisions what the future looks like if
+URL:https://www.meetup.com/questionsthatmatter/events/316143352/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_316040022@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260827T180000
+DTEND;TZID=Asia/Bangkok:20260827T200000
+SUMMARY:Why Is It So Hard to Leave Chiang Mai?
+DESCRIPTION:Beyond Small Talk\, Chiang Mai **Why Is It So Hard to Leave Chiang Mai?** **Dinner Discussion at Spice Garden** **Thursday\\\, August 27 \\| 6:00 PM**  What is it about Chiang Mai that keeps pulling people back? Some people come for a few weeks and stay for months. Others leave\, only to find themselves missing the city and eventually returning. Is it the peaceful energy\, the sense of community\, the af
+URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/316040022/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273217@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260828T100000
+DTEND;TZID=Asia/Bangkok:20260828T113000
+SUMMARY:Guided Tour of Chiang Mai National Museum
+LOCATION:พิพิธภัณฑ์แห่งชาติ จังหวัดเชียงใหม่ · Chiang Mai National Museum
+URL:https://www.lllpayap.com/event/guided-tour-of-chiang-mai-national-museum/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273197@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260902T100000
+DTEND;TZID=Asia/Bangkok:20260902T113000
+SUMMARY:I Love You So We Will Stay With You
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/i-love-you-so-we-will-stay-with-you/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273343@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260903T100000
+DTEND;TZID=Asia/Bangkok:20260903T120000
+SUMMARY:Chiang mai Photographers-Favorite Pictures
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/chiang-mai-photographers-favorite-pictures-3/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273235@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260909T100000
+DTEND;TZID=Asia/Bangkok:20260909T120000
+SUMMARY:Thailand’s coral reefs in a warming world with Dr. Chris Carpenter
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/thailands-coral-reefs-in-a-warming-world-with-dr-chris-carpenter/
+END:VEVENT
+BEGIN:VEVENT
+UID:meetup-ical-event_315956407@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260912T180000
+DTEND;TZID=Asia/Bangkok:20260912T220000
+SUMMARY:Every Saturday Night Karaoke & bachata at spice garden 🎤💃
+DESCRIPTION:Beyond Small Talk\, Chiang Mai Join us for a fun Saturday evening filled with music\, dancing\, laughter\, and great company! We’ll begin the evening with **karaoke**\, singing our favorite songs and enjoying some beer\, wine\, and cocktails in a relaxed and friendly atmosphere. Whether you love taking the microphone or prefer cheering everyone on\, you’re welcome to join the fun. After **free bachata /sa
+URL:https://www.meetup.com/beyond-small-talk-chiang-mai/events/315956407/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273201@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260916T100000
+DTEND;TZID=Asia/Bangkok:20260916T113000
+SUMMARY:Stars and Stupas: The Ancient Astronomy of Prathat Doi Suthep
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/stars-and-stupas-the-ancient-astronomy-of-prathat-doi-suthep-2/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273339@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260918T090000
+DTEND;TZID=Asia/Bangkok:20260918T120000
+SUMMARY:Excursion to Daraphirom Palace Museum
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/excursion-to-daraphirom-palace-museum/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273239@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260923T100000
+DTEND;TZID=Asia/Bangkok:20260923T233000
+SUMMARY:Lanna Thai Music: An Interactive Lecture and Live Demonstration with Ajarn Bringkop Vora-urai and colleagues
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/lanna-thai-music-an-interactive-lecture-and-live-demonstration-with-ajarn-bringkop-vora-urai-and-colleagues/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273193@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260924T083000
+DTEND;TZID=Asia/Bangkok:20260924T164500
+SUMMARY:Full Day Excursion to Lamphun: History\, Art\, and a Festival
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/full-day-excursion-to-lamphun-history-art-and-a-festival/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-10001015@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261006T130000
+DTEND;TZID=Asia/Bangkok:20261006T140000
+SUMMARY:Portraits in Drawing and Watercolor
+RRULE:FREQ=WEEKLY;BYDAY=TU
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/portraits-in-drawing-and-watercolor/2026-10-06/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273303@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261007T080000
+DTEND;TZID=Asia/Bangkok:20261007T130000
+SUMMARY:Traditional Thai Herbal Compress
+LOCATION:Integrated Tribal Development Foundation
+URL:https://www.lllpayap.com/event/traditional-thai-herbal-compress/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273228@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261008T100000
+DTEND;TZID=Asia/Bangkok:20261008T113000
+SUMMARY:Data and Cybersecurity: Staying Safe in a Digital World
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/data-and-cybersecurity-staying-safe-in-a-digital-world-2/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273039@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261014T100000
+DTEND;TZID=Asia/Bangkok:20261014T233000
+SUMMARY:Amulets\, Tattoos and Other Sacred Objects in Thai Buddhism
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/amulets-tattoos-and-other-sacred-objects-in-thai-buddhism-2/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-10001041@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261020T090000
+DTEND;TZID=Asia/Bangkok:20261020T120000
+SUMMARY:Beyond the Smile: Understanding Thai Values and Relationships
+RRULE:FREQ=WEEKLY;BYDAY=TU
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/beyond-the-smile-understanding-thai-values-and-relationships/2026-10-20/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273036@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261021T100000
+DTEND;TZID=Asia/Bangkok:20261021T113000
+SUMMARY:Displacement\, Buddhism and Sex Workers
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/displacement-buddhism-and-sex-workers/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273257@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261029T100000
+DTEND;TZID=Asia/Bangkok:20261029T113000
+SUMMARY:The Ho Chi Minh Trail: Then and Today
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/the-ho-chi-minh-trail-then-and-today/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273254@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261103T091500
+DTEND;TZID=Asia/Bangkok:20261103T160000
+SUMMARY:Araksa Tea Tour : Learn and Explore the Beauty of Tea
+LOCATION:Araksa Tea Garden
+URL:https://www.lllpayap.com/event/araksa-tea-tour-learn-and-explore-the-beauty-of-tea-2/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273297@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261109T080000
+DTEND;TZID=Asia/Bangkok:20261109T160000
+SUMMARY:Mindful Sashiko Hand-Stitching
+LOCATION:Integrated Tribal Development Foundation
+URL:https://www.lllpayap.com/event/mindful-sashiko-hand-stitching/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273276@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261109T180000
+DTEND;TZID=Asia/Bangkok:20261109T200000
+SUMMARY:View the Stars with Experts from NARIT Astronomy Park
+LOCATION:NARIT Astronomy Park
+URL:https://www.lllpayap.com/event/view-the-stars-with-experts-from-narit-astronomy-park-4/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273347@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261111T100000
+DTEND;TZID=Asia/Bangkok:20261111T120000
+SUMMARY:Mobile Phone Support Workshop
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/mobile-phone-support-workshop-2-2-2-2-2/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273283@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261112T100000
+DTEND;TZID=Asia/Bangkok:20261112T113000
+SUMMARY:Our Life on an Endless World Cruise
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/our-life-on-an-endless-world-cruise/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273292@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261117T100000
+DTEND;TZID=Asia/Bangkok:20261117T113000
+SUMMARY:The Complete Mobile Photographer: Shoot Smarter\, Edit Better\, Share Faster with Google Photos
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/the-complete-mobile-photographer-shoot-smarter-edit-better-share-faster-with-google-photos/
+END:VEVENT
+BEGIN:VEVENT
+UID:payap-lll-273096@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20261126T090000
+DTEND;TZID=Asia/Bangkok:20261126T120000
+SUMMARY:Many Ways of Knowing: A Biomimicry Journey
+LOCATION:มหาวิทยาลัยพายัพ · Payap University
+URL:https://www.lllpayap.com/event/many-ways-of-knowing-a-biomimicry-journey/
+END:VEVENT
+END:VCALENDAR

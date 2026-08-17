@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>มดแดง — ห้องน้ำใกล้ฉัน</title>
+<!-- Served from the web this page is the iPhone app: Safari's Add to Home
+     Screen plus sw.js gives the same offline map the APK carries. Inside the
+     Android WebView these tags are simply unused. -->
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#8f2a21">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ห้องน้ำใกล้ฉัน">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="ribbon">
+  <div class="brand">
+    <span class="ant-dot">🐜</span>
+    <div class="brand-words">
+      <b>ห้องน้ำใกล้ฉัน</b>
+      <small>มดแดง · Mot Dang</small>
+    </div>
+  </div>
+  <div class="ribbon-actions">
+    <button id="btn-mylog" class="chip-btn" title="บันทึกของฉัน">🗂️</button>
+    <button id="btn-privacy" class="chip-btn" title="ความเป็นส่วนตัว">🕊️</button>
+  </div>
+</header>
+
+<div id="map-wrap">
+  <canvas id="map"></canvas>
+  <div class="map-controls">
+    <button id="btn-zoom-in" class="round-btn" aria-label="ซูมเข้า">＋</button>
+    <button id="btn-zoom-out" class="round-btn" aria-label="ซูมออก">－</button>
+    <button id="btn-locate" class="round-btn locate" aria-label="ตำแหน่งของฉัน">📍</button>
+  </div>
+  <div id="attribution">แผนที่ในเครื่อง · ข้อมูล © OpenStreetMap contributors (ODbL)</div>
+</div>
+
+<section id="sheet" class="sheet">
+  <div class="sheet-handle" id="sheet-handle"><span></span></div>
+  <div id="sheet-body">
+    <div id="near-head" class="near-head">
+      <b>ที่ใกล้ที่สุดก่อน</b> <small>· nearest first</small>
+      <span id="near-from" class="near-from"></span>
+    </div>
+    <ol id="near-list" class="near-list"></ol>
+  </div>
+</section>
+
+<!-- The location pre-prompt. Shown before Android's own dialog, never after:
+     installing this app is consent to look at a map, not consent to be
+     located, and the two should not be collapsed into one surprise. -->
+<div id="loc-gate" class="veil locgate" hidden role="dialog" aria-modal="true"
+     aria-labelledby="loc-gate-t">
+  <div class="locbox">
+    <b id="loc-gate-t">ใช้ตำแหน่งจริงของคุณไหม · Use your real location?</b>
+    <p>ตำแหน่งของคุณอยู่ในเครื่องคุณเท่านั้น ไม่ถูกส่งออกไปไหน และไม่ถูกเก็บไว้ ·
+       Your location never leaves this device. It is not sent anywhere and not stored.</p>
+    <div class="locacts">
+      <button type="button" id="loc-yes">📍 ใช้ตำแหน่งของฉัน · Use my location</button>
+      <button type="button" id="loc-no" class="ghost">ไม่ต้อง · Not now</button>
+    </div>
+  </div>
+</div>
+
+<div id="card-veil" class="veil" hidden></div>
+<article id="card" class="card" hidden></article>
+
+<article id="page" class="page" hidden></article>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="data/basemap.js"></script>
+<script src="data/landmarks.js"></script>
+<script src="data/toilets.js"></script>
+<script src="data/toilets-customers.js"></script>
+<script src="app.js"></script>
+<script>
+/* file:// inside the Android WebView has no service worker and needs none —
+   its assets are already on the device. On the web this is what makes the
+   Home Screen copy work with no signal. */
+if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  });
+}
+</script>
+</body>
+</html>
