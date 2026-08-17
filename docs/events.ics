@@ -176,6 +176,15 @@ LOCATION:มหาวิทยาลัยพายัพ · Payap University
 URL:https://www.lllpayap.com/event/seven-steps-to-a-good-great-death/
 END:VEVENT
 BEGIN:VEVENT
+UID:meetup-ical-event_316143352@meetup.com@motdang.net
+DTSTAMP:20260101T000000
+DTSTART;TZID=Asia/Bangkok:20260826T180000
+DTEND;TZID=Asia/Bangkok:20260826T200000
+SUMMARY:Solarpunk: Is It More Than Just A Fantasy? (Free Discussion Night)
+DESCRIPTION:Questions That Matter (Free Weekly Wed 6pm Meetup Group) Lush green towers wrapped in vertical gardens. Solar-powered neighborhoods where people actually know each other. Cities that feel like they were designed for people instead of against them. To some\, this fantasy aesthetic has a name: solarpunk.  Solarpunk is a utopian artistic and social movement that envisions what the future looks like if
+URL:https://www.meetup.com/questionsthatmatter/events/316143352/
+END:VEVENT
+BEGIN:VEVENT
 UID:meetup-ical-event_316040022@meetup.com@motdang.net
 DTSTAMP:20260101T000000
 DTSTART;TZID=Asia/Bangkok:20260827T180000

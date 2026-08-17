@@ -1,6 +1,6 @@
 {
- "generated": "2026-08-16",
- "count": 41,
+ "generated": "2026-08-17",
+ "count": 42,
  "events": [
   {
    "uid": "event_315872108@meetup.com",
@@ -524,6 +524,26 @@
     "precision": "approx"
    },
    "richness": 8
+  },
+  {
+   "uid": "event_316143352@meetup.com",
+   "start": "2026-08-26 18:00:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-26 20:00:00",
+   "title": "Solarpunk: Is It More Than Just A Fantasy? (Free Discussion Night)",
+   "description": "Questions That Matter (Free Weekly Wed 6pm Meetup Group) Lush green towers wrapped in vertical gardens. Solar-powered neighborhoods where people actually know each other. Cities that feel like they were designed for people instead of against them. To some, this fantasy aesthetic has a name: solarpunk.  Solarpunk is a utopian artistic and social movement that envisions what the future looks like if humanity successfully solves major challenges like climate change and creates sustainable, equitable societies. Unlike sci-fi dystopias that warn us of what might go wrong, Solarpunk focuses on what ",
+   "url": "https://www.meetup.com/questionsthatmatter/events/316143352/",
+   "source": "meetup-ical",
+   "venue_name": "",
+   "venue_from": "",
+   "recurring": false,
+   "weekday": null,
+   "sources": [
+    "meetup-ical"
+   ],
+   "place": null,
+   "richness": 3
   },
   {
    "uid": "event_316040022@meetup.com",

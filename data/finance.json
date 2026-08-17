@@ -26,31 +26,31 @@
   "changeFromPrevDay": 0.0
  },
  "crypto": {
-  "asOf": "2026-08-16 22:55",
+  "asOf": "2026-08-17 07:09",
   "coins": [
    {
     "id": "bitcoin",
     "sym": "BTC",
     "nameTh": "บิตคอยน์",
-    "thb": 2067954,
-    "chg24": -1.03
+    "thb": 2081144,
+    "chg24": -0.35
    },
    {
     "id": "ethereum",
     "sym": "ETH",
     "nameTh": "อีเธอเรียม",
-    "thb": 61706,
-    "chg24": -1.13
+    "thb": 62049,
+    "chg24": -0.49
    },
    {
     "id": "tether",
     "sym": "USDT",
     "nameTh": "เทเธอร์",
-    "thb": 32.76,
-    "chg24": -1.08
+    "thb": 33.09,
+    "chg24": -0.07
    }
   ],
   "source": "coingecko"
  },
- "generated": "2026-08-16"
+ "generated": "2026-08-17"
 }

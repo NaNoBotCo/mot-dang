@@ -59,7 +59,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
-BUILD_DATE = "2026-08-16"
+BUILD_DATE = "2026-08-17"
 
 # Where the 🎲 chip goes when scripting is off. md.js intercepts the click and
 # rolls fresh each time; this baked pick (seeded by BUILD_DATE, so it rotates
