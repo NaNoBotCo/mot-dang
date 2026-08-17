@@ -21,13 +21,16 @@
 | WO-6 | The graph + neighbour links | **DONE** 2026-08-17 |
 | WO-4 | Search that forgives | **DONE** 2026-08-17 |
 | WO-5 | Sorts: neighbourhood, ancientness | **DONE** 2026-08-17 (open-now open) |
-| WO-3 | **The detail page — everything we carry and never show** | standing |
-| WO-7 | **The maps — the shelf, the year, the way onward** | standing |
+| WO-3 | The detail page | **DONE** 2026-08-17 (site crawl running) |
+| WO-7 | The maps | **DONE** 2026-08-17 (shelf maps interactive) |
 | WO-2b | Class venues — "ทุกวัด", "the five gates" | new, from WO-2 |
 
-WO-3 and WO-7 are marked standing rather than sequenced because they are the
-two the reader actually meets. Nothing else on this list is worth shipping if
-the place page and the map stay as thin as the walk found them.
+WO-3 and WO-7 were marked standing because they are the two a reader actually
+meets. Both have now been done, and the rule stays: anything added here is
+weighed against whether the place page and the map get better for it.
+
+**Everything below is built and committed locally. Nothing has been deployed —
+`python3 publish/deploy.py --yes` is Nan's move and always has been.**
 
 ---
 
@@ -97,10 +100,28 @@ the same fields), `importers/enrich_sites.py` (the etiquette header),
    website-bearing places have been read. Batches of 100 (`--limit 100`), fold
    into `morning_walk.sh` only after three clean manual runs.
 
-**Acceptance.** Blurb coverage 23 → 250+ without step 4; cuisine, brand, diet
-and alt-names rows visible wherever the data exists; every borrowed sentence
-carries its credit; `place_json()` publishes each new field; mean ant rank and
-`/stats.html` both move.
+**Landed 2026-08-17.** 2,122 pages say what the kitchen cooks (each cuisine
+linking to the search that now answers with the shelf), 1,477 name the chain a
+branch belongs to, 403 show an email, 236 open with the mapper's own sentence
+credited to OpenStreetMap, and **31 open with an encyclopaedia's**, credited
+CC BY-SA with the article link and revision date. Step 3 turned out to be
+already built — `next_ant()` names the two easiest missing facts as a favour.
+
+**`importers/enrich_wikipedia.py`** reads only the article a place ALREADY
+CITES. Most cite a Wikidata Q-id rather than a title, so the item's sitelinks
+resolve id → article: the Q-id says *which* thing and a name search could not.
+Chains are excluded — the article about 7-Eleven is about the company, and
+printing it under one shop in Chiang Mai would say something untrue about that
+shop.
+
+**A bug worth remembering.** The first cache key replaced every non-ASCII
+character with `_`, so every Thai title of the same LENGTH shared one file:
+อุทยานแห่งชาติแม่ปืม was served มหาวิทยาลัยเชียงใหม่'s article, and Mae Puem
+National Park went out described as a university. On a Thai-first site, a cache
+key that cannot hold Thai is not a cache — it is a way of quietly swapping one
+place's facts for another's. **Any new cache key on this site gets a hash, not a
+sanitised name.** All 31 blurbs were purged, re-fetched and audited one by one
+against their place.
 
 ---
 
@@ -156,11 +177,27 @@ the linked list under it stays, always.
    not what a map is *for*), and the moat crossing the frame drawn AND named
    by rule.
 
-**Acceptance.** Neighbour dots clickable on all 12,309 place maps; 46 category
-maps render dots with top-ten labels and tiles beneath; scripting off still
-shows the drawn dots and the list; soi pages link their crossings; filter chips
-visibly dim dots; `tests/test_ground.py`, `test_moat_geometry.py` and
-`test_alt_text.py` green; no new fetch surface beyond the existing basemap.
+**Landed 2026-08-17.** Neighbour dots are links on all 12,309 place maps.
+**39** category shelves (not 46 — the rest hold fewer than eight placed points,
+and a map of five dots says less than the list does) draw over the real
+basemap, with the ten most complete listings named. 431 soi pages name the roads
+they cross and 62 carry their other spelling.
+
+**And the shelf map answers back.** The dots are one `<path>`, so there is
+nothing to hover: md.js finds the nearest point to the pointer instead — a few
+thousand comparisons, inside one frame, so a 4,013-place shelf responds like a
+40-place one. Hover names the place, click opens it, and the facet chips thin
+the **map** as well as the list.
+
+The packed data is only `[x, y, rowIndex]` — **75 KB on the food shelf, down
+from 357 KB**, because the name, link, facets and rank are already in the list
+below and shipping them twice cost 282 KB to repeat the page to itself.
+Verified: `corr(x, lng) = +1.000000`, `corr(y, lat) = −1.000000` across all 305
+wat points, so every dot answers for its own row.
+
+**Next on this order:** the same treatment for the province index maps, and a
+drawn festival-venue map for Chiang Rai (`event_map_svg` frames itself against
+the Chiang Mai moat, so a CR festival currently keeps its list instead).
 
 ---
 
