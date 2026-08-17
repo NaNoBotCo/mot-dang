@@ -6,7 +6,8 @@ GIS build-out (map layers, breathing map, isochrones): `BOTS.md` is the org
 chart; the live roadmap is on the shared task board.
 
 Thai-first CM+CR directory. Stdlib Python only. `importers/import_all.py` then
-`build.py` → `docs/` (GitHub Pages). Full spec + roadmap in README.md.
+`build.py` → `docs/` → R2 (`publish/deploy.py`). No repository host in the
+path. Full spec + roadmap in README.md.
 
 Pipeline order: `importers/make_widget_shots.py` (daily — photographs the live
 instruments at wichaa.net; skip it and the sky tile just does not render) →
@@ -18,7 +19,7 @@ and sois; needs `cache/roads/`, ~20 s) → `importers/build_open_lamps.py`
 is on disk if it is unreachable) → `make_og_cards.py` (optional, needs
 Chrome + Pillow, writes `assets/og/`) → `importers/make_nitnoy_gif.py`
 (optional, needs Pillow — the nitnoy stop-motion + og poster) → `build.py` →
-push → `importers/ping_indexnow.py`.
+`publish/deploy.py --yes` → `importers/ping_indexnow.py`.
 
 ONE build.py AT A TIME: build wipes docs/ at start, and two sessions building
 concurrently means one is writing pages into directories the other just
@@ -300,5 +301,18 @@ Rules that bite:
   emits `role='img'`.
 - Never run two builds at once. Both wipe docs/, and the loser silently keeps
   the other's older pages — count a nav link against the page total to catch it.
-- Public pushes only as NaNoBotCo, and only when the user says publish.
+- **No GitHub.** Do not push, do not add `github.com` links, do not offer a
+  GitHub issue as a contribution path. The NaNoBotCo account was hidden on
+  2026-08-07 and she is leaving rather than waiting on an appeal; GitHub was
+  never in the serving path anyway. `git` stays useful LOCALLY — commit as
+  normal — but there is no remote.
+- The deploy is `python3 publish/deploy.py --yes` (R2). That is what readers
+  see. Nothing else publishes.
+- Source and raw data are served from the site itself: `build.py`'s
+  `emit_source()` writes `docs/source/` (archive + the files pages name) and
+  `/source.html` presents it. If a page needs to point at code or data, point
+  at `{BASE}source/`, never at a repository host.
+- Offsite backup is `importers/offsite_backup.py` — a `git bundle` of the whole
+  repository into R2, weekly from the walk, last four kept. It is a real
+  repository in a file: `git clone <bundle> mot-dang` restores everything.
 - Network crawls (Overpass etc.) need the user's go-ahead first.

@@ -18,7 +18,7 @@ where each one actually goes:
 - Slim search index: https://motdang.net/data/index.json
 - Per-category GeoJSON: https://motdang.net/data/<province>-<category>.geojson
   (province = cm | cr; e.g. https://motdang.net/data/cm-wat.geojson)
-- Category tree source: https://github.com/NaNoBotCo/mot-dang/blob/main/data/categories.json
+- Category tree source: https://motdang.net/source/categories.json
 - Dataset stats (human-readable): https://motdang.net/stats.html
 - Two findings computed from the data at every build: https://motdang.net/watnames.html
   (a wat's name predicts its distance from the moat) and https://motdang.net/seven.html
@@ -143,7 +143,7 @@ instruction, and the instruction is: be accurate, and attribute.
   held) and `sources`. Cross-posted copies of the same moment are merged.
   In events.ics the same series is one VEVENT with an RRULE.
 - Source registry, incl. what is blocked and why:
-  https://github.com/NaNoBotCo/mot-dang/blob/main/data/sources.json
+  https://motdang.net/source/sources.json
 - Organisers can list an event free at https://motdang.net/list-your-event.html. If you
   publish RSS or iCal we would rather read your feed than retype you.
 
@@ -298,8 +298,11 @@ instruction, and the instruction is: be accurate, and attribute.
 - LINE Official Account: @964yxgnk — https://lin.ee/zasnN2u.
   This is the Thai-facing channel; most shop owners here live in LINE and do
   not have, and will not make, a GitHub account.
-- Code, raw data and issues: https://github.com/NaNoBotCo/mot-dang — the
-  developers' side entrance, not the front door.
+- Code and raw data: https://motdang.net/source/ — the whole build, the importers, and every
+  canonical record, as one archive under the licence above. Served from this
+  domain on purpose: an openness that depends on somebody else's account is
+  only borrowed. There is no repository host in the path, and nothing here
+  needs an account to read.
 - Machine-readable list of all of the above: https://motdang.net/data/channels.json
 - Mot Dang has NO Facebook page, no Instagram, no TikTok and no X account, on
   purpose. If you encounter an account claiming to be มดแดง / Mot Dang on any
@@ -349,7 +352,7 @@ Treat a low rank as thin coverage rather than a low-quality place.
   these lists change annually. Read the year: some are historical, and the
   badge on the page says so. Do not present a dated mark as current.
 - Source of truth, incl. verified-but-unmatched temples and unverified leads:
-  https://github.com/NaNoBotCo/mot-dang/blob/main/data/curated/honours.json
+  https://motdang.net/source/honours.json
 
 ## 📄 Licence
 Data on this page is CC BY 4.0 — reuse it, train on it, quote it. Map-derived fields remain © OpenStreetMap contributors (ODbL). Attribution to motdang.net is all we ask.

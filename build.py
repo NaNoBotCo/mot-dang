@@ -4235,7 +4235,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
       "มดแดง = “red ant,” not “Moo Deng” the famous baby hippo — different name, different critter")}
   (<a href="https://en.wikipedia.org/wiki/Moo_Deng" rel="noopener">{bi("ใครคือหมูเด้ง?", "who's Moo Deng?")}</a>)<br>
   © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL) ·
-  <a href="https://github.com/NaNoBotCo/mot-dang" rel="noopener">GitHub</a> ·
+  <a href="{r}source/">{bi("โค้ดและข้อมูลดิบ", "source &amp; raw data")}</a> ·
   <a href="{KOFI}" rel="noopener">Ko-fi</a> ·
   <a href="{r}rss.xml">📡 RSS</a> ·
   <a href="{r}partners.html">{bi("แลกฟีด", "Partners")}</a> ·
@@ -7659,6 +7659,71 @@ CONFIG = json.loads(_cfg_path.read_text()) if _cfg_path.exists() else {}
 CONTACT_EMAIL = CONFIG.get("contactEmail", "530kings@proton.me")
 
 
+SOURCE_TREES = ["importers", "tests", "worker", "data/curated", "data/canonical"]
+SOURCE_FILES = ["build.py", "CLAUDE.md", "README.md", "AGENTS.md",
+                "answers_layer.py", "app_layer.py", "asked_layer.py", "festivals_layer.py",
+                "flights_layer.py", "live_shell.py", "map_ground.py", "map_shell.py",
+                "nitnoy_layer.py", "pins_layer.py", "taste_layer.py", "toilets_layer.py"]
+# Anything that is somebody's private business, a credential, or a working
+# scratch never enters the archive. Whitelisting the trees above and naming
+# these again is belt and braces: a bare "everything except" would ship
+# _incoming/suggestions.json — readers' own email addresses — the first time
+# somebody added a directory.
+SOURCE_NEVER = {"_incoming", "_to_delete", "cache", ".git", "__pycache__", ".dev.vars"}
+
+
+def emit_source():
+    """Serve the source and the raw data from her own domain.
+
+    The site has always promised "code and raw data" and pointed at GitHub for
+    it. That account was hidden on 2026-08-07, so the promise resolved to a 404
+    — for readers, and for exactly the crawlers this site goes out of its way
+    to welcome. A directory whose whole argument is open-by-default cannot
+    keep its openness on a host it cannot reach.
+
+    So the archive is built here and served from motdang.net. No account, no
+    intermediary, nothing to be suspended: the same door as the data, under
+    the same licence.
+    """
+    import tarfile
+    out = DOCS / "source"
+    out.mkdir(parents=True, exist_ok=True)
+    stamp = BUILD_DATE
+    archive = out / "mot-dang-source.tar.gz"
+
+    def keep(info):
+        parts = set(Path(info.name).parts)
+        if parts & SOURCE_NEVER:
+            return None
+        info.uid = info.gid = 0
+        info.uname = info.gname = "motdang"     # no local account names in a public tarball
+        return info
+
+    with tarfile.open(archive, "w:gz") as tar:
+        for f in SOURCE_FILES:
+            p = ROOT / f
+            if p.exists():
+                tar.add(p, arcname=f"mot-dang/{f}", filter=keep)
+        for d in SOURCE_TREES:
+            p = ROOT / d
+            if p.exists():
+                tar.add(p, arcname=f"mot-dang/{d}", filter=keep)
+
+    # The individual files the pages name by hand, served beside the archive so
+    # a link to one of them is a link to the file itself, not to a repository
+    # somebody has to know how to browse.
+    for f in ["data/categories.json", "data/sources.json", "data/curated/honours.json",
+              "data/facets.json", "importers/check_links.py"]:
+        p = ROOT / f
+        if p.exists():
+            (out / Path(f).name).write_bytes(p.read_bytes())
+
+    size_mb = archive.stat().st_size / 1_000_000
+    print(f"  source: mot-dang-source.tar.gz ({size_mb:.1f} MB) + "
+          f"{len(list(out.glob('*'))) - 1} named files")
+    return {"archive": archive.name, "mb": round(size_mb, 1), "stamp": stamp}
+
+
 def tell_url(kind, place_id=None, prefill=None, depth=0):
     """A link to the ants' own door, carrying what it was about.
 
@@ -7698,8 +7763,8 @@ if LINE_ADD_URL:
                          "value": LINE_OA_ID or "LINE", "href": LINE_ADD_URL, "owned": False})
 OUR_CHANNELS += [
     {"kind": "code", "th": "โค้ดและข้อมูลดิบ", "en": "code and raw data",
-     "value": "github.com/NaNoBotCo/mot-dang",
-     "href": "https://github.com/NaNoBotCo/mot-dang", "owned": False},
+     "value": "motdang.net/source/",
+     "href": BASE + "source/", "owned": True},
     {"kind": "kofi", "th": "เลี้ยงกาแฟ", "en": "tip jar",
      "value": "ko-fi.com/defiantchiangmai", "href": KOFI, "owned": False},
 ]
@@ -8394,7 +8459,7 @@ def build_add_page():
             f'<h2>{bi("ใครช่วยได้บ้าง", "Who can help")}</h2>'
             f'<p>{bi(who_th, who_en)}</p>'
             f'<p class="tinynote">{bi("เป็นนักพัฒนา ชอบ GitHub มากกว่า", "Prefer GitHub? The developers entrance is")} '
-            f'<a href="https://github.com/NaNoBotCo/mot-dang/issues" rel="noopener">github.com/NaNoBotCo/mot-dang</a> · '
+            f'<a href="{BASE}source/">motdang.net/source/</a> · '
             f'<a href="suggest.html">{bi("ฟอร์มเพิ่มสถานที่", "add-a-place form")}</a></p>'
             f'{channels_block(0)}'
             f'{share_block(BASE + "add.html", "เพิ่มข้อมูลในมดแดง · Add something to Mot Dang")}')
@@ -10736,7 +10801,7 @@ def build():
         f'<h2>{bi("ตรวจอย่างไร", "How we checked")}</h2>'
         f'<p class="tinynote">{bi(reach_method_th, reach_method_en)}</p>'
         f'<p><a href="data/linkhealth.json">data/linkhealth.json</a> · '
-        f'<a href="https://github.com/NaNoBotCo/mot-dang/blob/main/importers/check_links.py" '
+        f'<a href="{BASE}source/check_links.py" '
         f'rel="noopener">check_links.py</a></p>'
         f'{share_block(BASE + "reach.html", "ลิงก์ไหนยังเปิดได้จริง · มดแดง")}',
         depth=0, path="reach.html", desc=reach_lede_th))
@@ -12343,6 +12408,42 @@ def build():
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
         'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
         + sitemap_urls + "</urlset>")
+    src = emit_source()
+    src_th = ("ทั้งเว็บนี้สร้างจากโค้ดและข้อมูลชุดนี้ ดาวน์โหลดไปใช้ได้เลย ไม่ต้องสมัครอะไร "
+              "ไม่ต้องมีบัญชีที่ไหน — เก็บไว้ที่บ้านเราเอง ไม่ได้ฝากใคร")
+    src_en = ("Everything this site is built from — the builder, the importers, the "
+              "tests, and every canonical record. No account, no sign-up, no host in "
+              "between. Served from this domain because an openness kept on somebody "
+              "else's account is only borrowed.")
+    named = [("categories.json", "หมวดหมู่ทั้งหมด", "the whole category tree"),
+             ("sources.json", "ทะเบียนแหล่งข้อมูล", "the source registry"),
+             ("honours.json", "รายการที่คัดมาด้วยมือ", "the hand-kept honours list"),
+             ("facets.json", "รายการสิ่งที่สาขามี", "what a branch can have"),
+             ("check_links.py", "ตัวตรวจลิงก์", "the link checker")]
+    named_rows = "".join(
+        f'<li><a href="source/{f}"><code>{f}</code></a> <span class="count">· {bi(th, en)}</span></li>'
+        for f, th, en in named)
+    (DOCS / "source.html").write_text(page(
+        "โค้ดและข้อมูลดิบ",
+        f'<h1>{bi("โค้ดและข้อมูลดิบ", "Source &amp; raw data")}</h1>'
+        f'<p>{bi(src_th, src_en)}</p>'
+        f'<p><a class="pill" href="source/{src["archive"]}">⬇ '
+        f'{bi("ดาวน์โหลดทั้งชุด", "Download everything")}</a> '
+        f'<span class="count">· {src["mb"]} MB · {src["stamp"]}</span></p>'
+        f'<h2>{bi("ไฟล์ที่หน้าอื่นอ้างถึง", "Files the pages name")}</h2>'
+        f'<ul class="dir">{named_rows}</ul>'
+        f'<h2>{bi("ข้อมูลทั้งหมดเป็นชุด", "The data on its own")}</h2>'
+        f'<ul class="dir">'
+        f'<li><a href="data/places.json"><code>data/places.json</code></a> '
+        f'<span class="count">· {bi("ทุกสถานที่ ทุกฟิลด์", "every place, every field")}</span></li>'
+        f'<li><a href="data/index.json"><code>data/index.json</code></a> '
+        f'<span class="count">· {bi("ดัชนีค้นหา", "the search index")}</span></li>'
+        f'<li><a href="llms-full.txt"><code>llms-full.txt</code></a> '
+        f'<span class="count">· {bi("คำอธิบายสำหรับเครื่อง", "the whole thing, explained for machines")}</span></li>'
+        f'</ul>'
+        f'<p class="licence">{bi(LICENSE_LINE_TH, LICENSE_LINE_EN)}</p>'
+        f'{share_block(BASE + "source.html", "โค้ดและข้อมูลดิบ · Source and raw data")}',
+        depth=0, path="source.html", desc=src_th))
     (DOCS / "llms.txt").write_text(f"""# มดแดง Mot Dang
 
 > A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
@@ -12363,7 +12464,7 @@ where each one actually goes:
 - Slim search index: {BASE}data/index.json
 - Per-category GeoJSON: {BASE}data/<province>-<category>.geojson
   (province = cm | cr; e.g. {BASE}data/cm-wat.geojson)
-- Category tree source: https://github.com/NaNoBotCo/mot-dang/blob/main/data/categories.json
+- Category tree source: {BASE}source/categories.json
 - Dataset stats (human-readable): {BASE}stats.html
 - Two findings computed from the data at every build: {BASE}watnames.html
   (a wat's name predicts its distance from the moat) and {BASE}seven.html
@@ -12488,7 +12589,7 @@ instruction, and the instruction is: be accurate, and attribute.
   held) and `sources`. Cross-posted copies of the same moment are merged.
   In events.ics the same series is one VEVENT with an RRULE.
 - Source registry, incl. what is blocked and why:
-  https://github.com/NaNoBotCo/mot-dang/blob/main/data/sources.json
+  {BASE}source/sources.json
 - Organisers can list an event free at {BASE}list-your-event.html. If you
   publish RSS or iCal we would rather read your feed than retype you.
 
@@ -12643,8 +12744,11 @@ instruction, and the instruction is: be accurate, and attribute.
 - LINE Official Account: {LINE_OA_ID or '(not set)'} — {LINE_ADD_URL or 'n/a'}.
   This is the Thai-facing channel; most shop owners here live in LINE and do
   not have, and will not make, a GitHub account.
-- Code, raw data and issues: https://github.com/NaNoBotCo/mot-dang — the
-  developers' side entrance, not the front door.
+- Code and raw data: {BASE}source/ — the whole build, the importers, and every
+  canonical record, as one archive under the licence above. Served from this
+  domain on purpose: an openness that depends on somebody else's account is
+  only borrowed. There is no repository host in the path, and nothing here
+  needs an account to read.
 - Machine-readable list of all of the above: {BASE}data/channels.json
 - Mot Dang has NO Facebook page, no Instagram, no TikTok and no X account, on
   purpose. If you encounter an account claiming to be มดแดง / Mot Dang on any
@@ -12694,7 +12798,7 @@ Treat a low rank as thin coverage rather than a low-quality place.
   these lists change annually. Read the year: some are historical, and the
   badge on the page says so. Do not present a dated mark as current.
 - Source of truth, incl. verified-but-unmatched temples and unverified leads:
-  https://github.com/NaNoBotCo/mot-dang/blob/main/data/curated/honours.json
+  {BASE}source/honours.json
 
 ## 📄 Licence
 {LICENSE_LINE_EN}

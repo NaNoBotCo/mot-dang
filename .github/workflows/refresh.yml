@@ -1,0 +1,95 @@
+# Daily refresh — the part of "never stale" that a browser cannot do for us.
+#
+# Weather and PM2.5 no longer need this: live.js refreshes them in the reader's
+# own browser, so they are current whether or not this workflow ever runs. What
+# is left here is the data that HAS to be baked into 13,514 pages — owner claims,
+# toilet reports, the FX and gold figures — and that used to be as old as the
+# last time somebody sat down and ran a build by hand.
+#
+# WHAT THIS DELIBERATELY DOES NOT DO
+#   * No Overpass or crawl steps. The house rule is one gatherer at a time,
+#     politely, manually triggered — running a province-wide crawl on a timer
+#     is exactly the thing that gets a project rate-limited and deserves to be.
+#     Catalogue refreshes stay a decision somebody makes.
+#   * Nothing hourly. docs/ is committed and the repo is already ~2.8 GB; a
+#     frequent commit loop would balloon it, and after the account flag on
+#     2026-07-29 a high-rate automated push is a risk not worth taking for
+#     numbers that move once a day.
+#   * No commit when nothing changed — see the guard at the end. An empty daily
+#     commit is noise that makes the real ones harder to find.
+#
+# Enable it in the repo's Actions tab. Until then this file does nothing, and
+# `workflow_dispatch` lets it be run by hand once to see what it would do.
+
+name: refresh
+
+on:
+  schedule:
+    # 03:15 Asia/Bangkok = 20:15 UTC. After midnight in Chiang Mai so the day's
+    # date is settled, and off the hour because everyone else picks the hour.
+    - cron: "15 20 * * *"
+  workflow_dispatch:
+
+concurrency:
+  # A slow run must never overlap the next day's. Queue, do not stack.
+  group: refresh
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          # Newer than the 3.9 on the build machine on purpose: the codebase
+          # carries workarounds for 3.9's f-string limits, and this is where
+          # a version bump can be proven safe before it moves locally.
+          python-version: "3.12"
+
+      - name: Refresh the baked-and-perishable data
+        # Each importer runs on its own and is allowed to fail without taking
+        # the build with it: a rebuild on slightly older claims is worth far
+        # more than no rebuild at all, and a source being down for an hour is
+        # not a reason to publish nothing.
+        run: |
+          set -u
+          for step in sync_claims sync_toilets make_finance; do
+            echo "::group::$step"
+            python3 "importers/$step.py" || echo "  $step failed — keeping the data already in the repo"
+            echo "::endgroup::"
+          done
+
+      - name: Build
+        run: python3 build.py
+
+      - name: Check for local paths in the output
+        # The same gate the humans use before committing docs/. A published
+        # page carrying /Users/<name>/ is a privacy leak, not a typo.
+        run: |
+          if grep -rl "/Users/" docs/ >/dev/null 2>&1; then
+            echo "local paths found in docs/ — refusing to publish"; exit 1
+          fi
+
+      - name: Tests
+        run: |
+          for t in tests/test_*.py; do
+            echo "::group::$t"; python3 "$t" || exit 1; echo "::endgroup::"
+          done
+
+      - name: Commit only if something actually changed
+        run: |
+          git config user.name  "NaNoBotCo"
+          git config user.email "noreply@users.noreply.github.com"
+          git add -A data/ docs/
+          if git diff --cached --quiet; then
+            echo "nothing moved today — no commit"
+          else
+            git commit -m "Daily refresh — $(date -u +%Y-%m-%d)"
+            git push
+          fi
