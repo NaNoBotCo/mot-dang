@@ -524,6 +524,60 @@ const rw=li=>parseInt(li.dataset.royal||'0',10);
 reorder(document.getElementById('sort-royal'),(a,b)=>rw(b)-rw(a)||nm(a,b));
 reorder(document.getElementById('sort-hon'),
 (a,b)=>(parseInt(b.dataset.hon||'0',10)-parseInt(a.dataset.hon||'0',10))||rk(b)-rk(a)||nm(a,b));
+// ---- the shelf map, made answerable ----------------------------------
+// The dots are one <path>, so there is nothing to hover. Instead the points
+// are held as plain numbers and the nearest one to the pointer is found on
+// each move — a few thousand comparisons, which is nothing, and it means a
+// four-thousand-place shelf answers as fast as a forty-place one. Everything
+// below degrades to the drawn map if scripting is off, which is the state the
+// page was already in.
+(function(){const box=document.querySelector('.mdmap .shelfmap');if(!box)return;
+const holder=box.closest('.mdmap');
+const tag=holder&&holder.querySelector('.sm-pts');if(!tag)return;
+let RAW=[];try{RAW=JSON.parse(tag.textContent||'[]');}catch(e){return;}
+if(!RAW.length)return;
+// Each point is [x, y, rowIndex]. The row itself holds the name, the link, the
+// facets and the ant rank — read from the DOM at hover time rather than
+// shipped twice.
+const rows=[...dirList.querySelectorAll('li')].filter(li=>li.dataset.n!==undefined);
+const PTS=RAW.map(a=>({x:a[0],y:a[1],li:rows[a[2]]})).filter(p=>p.li);
+const hi=box.querySelector('.sm-hi'),base=box.querySelector('.sm-base');
+const hov=box.querySelector('.sm-hover');
+const hc=hov&&hov.querySelector('circle'),ht=hov&&hov.querySelector('text');
+const vb=(box.getAttribute('viewBox')||'0 0 720 400').split(/\s+/).map(Number);
+let live=PTS,near=null;
+const draw=list=>{if(!hi)return;
+hi.setAttribute('d',list.length===PTS.length?'':list.map(p=>'M'+p.x+' '+p.y+'h0').join(''));
+base&&base.setAttribute('opacity',list.length===PTS.length?'.5':'.16');};
+// Pointer position in the drawing's own coordinates, so it keeps agreeing with
+// the dots after the box is resized or the tiles under it are zoomed.
+const at=ev=>{const r=box.getBoundingClientRect();
+return[(ev.clientX-r.left)/r.width*vb[2],(ev.clientY-r.top)/r.height*vb[3]];};
+box.addEventListener('mousemove',ev=>{const[mx,my]=at(ev);
+let best=null,bd=14*14;
+for(const p of live){const dx=p.x-mx,dy=p.y-my,d=dx*dx+dy*dy;
+if(d<bd){bd=d;best=p;}}
+near=best;
+if(!hov)return;
+if(!best){hov.style.display='none';box.style.cursor='';return;}
+hov.style.display='';box.style.cursor='pointer';
+hc.setAttribute('cx',best.x);hc.setAttribute('cy',best.y);
+const right=best.x<vb[2]*0.62;
+ht.setAttribute('x',best.x+(right?11:-11));ht.setAttribute('y',best.y-10);
+ht.setAttribute('text-anchor',right?'start':'end');
+const rank=best.li.dataset.rank;
+ht.textContent=(best.li.dataset.ne||best.li.dataset.n||'').split(' · ')[0]
++(rank&&rank!=='0'?'  🐜'+rank:'');});
+box.addEventListener('mouseleave',()=>{near=null;if(hov)hov.style.display='none';});
+box.addEventListener('click',()=>{const a=near&&near.li.querySelector('a[href]');
+if(a)location.href=a.getAttribute('href');});
+// A filter chip or a search box narrows the LIST; the map follows it, so the
+// two are one view of one thing rather than two things that disagree.
+window.MDSHELFMAP={filter(pred){live=pred?PTS.filter(pred):PTS;draw(live);},
+byFacet(set){this.filter(set&&set.length?p=>{
+const f=(p.li.dataset.facets||'').split(' ');
+return set.every(x=>f.indexOf(x)>=0);}:null);}};
+draw(PTS);})();
 // ---- ancient first ---------------------------------------------------
 // The founding years the temple register gave us. A place with no year is not
 // young — it is undated, so it keeps its alphabetical place BELOW the dated
@@ -580,7 +634,11 @@ const paint=()=>{let shown=0;
 items.forEach(li=>{const has=new Set((li.dataset.facets||'').split(' ').filter(Boolean));
 const ok=[...on].every(f=>has.has(f));li.classList.toggle('fhide',!ok);if(ok)shown++;});
 fbar.querySelectorAll('.fchip').forEach(b=>b.classList.toggle('on',on.has(b.dataset.f)));
-if(h1c)h1c.textContent='('+shown.toLocaleString()+(shown<total?' / '+total.toLocaleString():'')+')';};
+if(h1c)h1c.textContent='('+shown.toLocaleString()+(shown<total?' / '+total.toLocaleString():'')+')';
+// The map is the same view as the list, so it thins out with it. A reader
+// filtering to "has a toilet" should watch the city thin, not scroll down to
+// find out where the survivors are.
+window.MDSHELFMAP&&window.MDSHELFMAP.byFacet([...on]);};
 fbar.querySelectorAll('.fchip').forEach(b=>b.addEventListener('click',()=>{
 const f=b.dataset.f;if(!f){on.clear();}else if(on.has(f)){on.delete(f);}else{on.add(f);}
 paint();}));}}
