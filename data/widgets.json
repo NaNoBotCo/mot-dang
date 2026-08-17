@@ -2,6 +2,6 @@
   { "id": "flights", "th": "เที่ยวบิน CNX·CEI", "en": "Flights board", "url": "https://motdang.net/widgets/flights.html" },
   { "id": "hun", "th": "หุ่นพยนต์", "en": "Hun Payont", "url": "https://wichaa.net/hun" },
   { "id": "moon", "th": "จันทรคติ", "en": "Moon complication", "url": "https://wichaa.net/moon" },
-  { "id": "skipdjt", "th": "Skip DJT", "en": "Skip DJT", "url": "https://nanobotco.github.io/skipdjt/" },
+  { "id": "skipdjt", "th": "Skip DJT", "en": "Skip DJT", "url": "https://nanobotco-portal.pages.dev/skipdjt/" },
   { "id": "widgets-page", "th": "วิดเจ็ตอื่นๆ ของ wichaa", "en": "Browse all wichaa widgets", "url": "https://wichaa.net/widgets" }
 ]
