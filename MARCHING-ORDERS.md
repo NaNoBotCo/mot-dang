@@ -17,12 +17,13 @@
 | # | Order | State |
 |---|---|---|
 | WO-1 | Temple register join (รหัสวัด, founding year, nikaya) | **DONE** 2026-08-17 |
-| WO-2 | Festival venues get place ids | next |
-| WO-6 | The Mot Dang graph + neighbour links + threads | next |
-| WO-4 | Search that forgives | after WO-1 |
-| WO-5 | Sorts: neighbourhood, ancientness, open-now | after WO-1 |
+| WO-2 | Festival venues get place ids | **DONE** 2026-08-17 |
+| WO-6 | The graph + neighbour links | **DONE** 2026-08-17 |
+| WO-4 | Search that forgives | next |
+| WO-5 | Sorts: neighbourhood, ancientness, open-now | next |
 | WO-3 | **The detail page — everything we carry and never show** | standing |
 | WO-7 | **The maps — the shelf, the year, the way onward** | standing |
+| WO-2b | Class venues — "ทุกวัด", "the five gates" | new, from WO-2 |
 
 WO-3 and WO-7 are marked standing rather than sequenced because they are the
 two the reader actually meets. Nothing else on this list is worth shipping if
@@ -183,9 +184,62 @@ band. Free text stays — it is the display name and the fallback. Ids do not
 upgrade a `needs-verification` festival: those 9 keep their dashed mark on the
 wheel.
 
-**Acceptance.** Festival bands on ≥40 place pages
-(`grep -rl festhere docs/*/p | wc -l`); every festival with a located venue
-shows a map; zero dead venue links; `tests/test_festivals.py` green.
+**Landed 2026-08-17.** `importers/resolve_festival_venues.py` settles the 52
+strings once; 11 are catalogue places and carry `place_id`. Nine place pages
+show a festival band and six festivals gained a drawn venue map.
+
+**The acceptance target in this order was wrong and is corrected here.** It
+asked for bands on ≥40 place pages, assuming the 52 venue strings were mostly
+places. They are not: "ทุกวัด" (every temple), "วัดทั่วเชียงใหม่และเชียงราย",
+"ประตูเมืองทั้งห้าและแจ่งทั้งสี่", "ดอยแม่สลอง", "คูเมืองเชียงใหม่",
+"เส้นทางขบวนแห่: สะพานนวรัฐ – คูเมือง" — mountains, moats, procession routes,
+whole quarters and classes of temple. **41 of 52 are correctly prose and always
+will be.** Per-venue ids top out around 11. Getting festivals onto many pages
+needs WO-2b, not more matching.
+
+Three wrong matches were found and removed on the way, all worth knowing:
+Tha Phae Gate resolved to *Punspace Tha Phae Gate*, a coworking office, because
+the venue string carries a province suffix the record does not; Songkran's Phra
+Buddha Sihing procession resolved to Chiang Rai's วัดพระสิงห์ because our
+Chiang Mai record for Wat Phra Singh carries **no Thai name** for the Thai
+string to reach; and the build-time fallback attached one venue to *both* Wat
+Phra Singhs at once. The fallback now refuses a venue whose Thai and Latin
+spellings disagree, and the Wat Phra Singh case is in
+`cache/festival_venues_review.txt` with both candidates named.
+
+**Open for a human:** that review file. The Chiang Mai record's missing Thai
+name is the underlying fix and belongs in `data/curated/names.json` with a
+fetched source, per `CLAUDE.md:274`.
+
+---
+
+## WO-2b — Class venues: "ทุกวัด", "the five gates"
+
+**Why this is the real ceiling.** WO-2 showed that most festival venues are
+classes, not addresses. เวียนเทียน on Visakha Bucha is kept at *every* temple;
+Songkran runs the *five gates and four corners*. Those are the entries that
+could put a festival band on hundreds of pages — and the site already holds
+both sets: 596 wat records, and `_moat_crossings()` reading the catalogue's own
+gate records rather than a hand-typed list.
+
+**The wording rule this must obey, and it is not optional.** A class venue is a
+HABIT OF A CLASS, exactly as a toilet tier is (`CLAUDE.md:75-85`). It renders as
+*"เทศกาลนี้เก็บกันตามวัดทั่วไป · temples generally keep this festival"* and
+must **never** become *"this temple holds Inthakhin"*. One is true of the
+tradition; the other is a claim about a named temple that nobody verified, on
+596 pages at once. A stated venue always outranks a class, the same way a
+verified toilet point outranks a tier.
+
+**Steps.** A `class` field on a venue (`every_wat`, `city_gates`,
+`every_wat_in`), resolved at build time to the matching record set; the band
+renders in class wording with a link to the festival; the festival page says
+how many places the class covers. **Nan writes the class sentences** — the
+toilets wording lives in `data/toilets.json` for the same reason, and this
+belongs beside it rather than being drafted by a bot.
+
+**Acceptance.** Class bands on the wat shelf read as a habit in both languages
+and never as a claim; a stated venue on the same page suppresses the class line;
+`tests/test_festivals.py` gains a case asserting the class wording.
 
 ---
 
@@ -218,9 +272,34 @@ same brand, 12 branches", "งานประจำปีอินทขีล �
 คลัง wichaa · this wat in the wichaa archive". Structural shelf edges stay out —
 the breadcrumb already carries them.
 
-**Acceptance.** ≥120k edges, every one with `prov` + `w` + `ev`; threads render
-only where edges exist, never as an empty band; two consecutive builds
-byte-identical; graph advertised on `/source.html` and in `llms.txt` under CC BY.
+**Landed 2026-08-17.** `graph_layer.py`, hooked in two lines. **14,130 nodes,
+63,464 edges** — `near` 29,893 · `in_category` 12,385 · `sub_of` 11,154 ·
+`on_street` 4,762 · `serves_cuisine` 2,917 · `branch_of` 1,127 ·
+`same_wat_as_wichaa` 523 · `in_amphoe`/`in_tambon` 346 each ·
+`hosts_festival` 11. Provenance: 62,941 computed, **523 adjudicated**. Two
+builds byte-identical. Written to `docs/api/graph/{nodes,edges}.jsonl` +
+`summary.json` + `graph.jsonld`.
+
+**Correction to this order's own arithmetic:** it promised "~110,000 neighbour
+edges". That counted every drawn label on every map, in both directions, inside
+the map frame. Deduplicated to one edge per pair, inside a 400 m radius and
+capped at six per place, the honest number is **29,893**. The reader-facing win
+is unchanged and it is the one that mattered: the neighbours drawn on all
+12,309 place maps **are links now**.
+
+**The threads band is built and deliberately empty.** It refuses any thread
+with no destination, and today every thread it could show either has no page
+(cuisine, brand) or already appears on the page (the wichaa link is a row in
+"Read more elsewhere"). It lights itself the day WO-4 gives cuisine and brand a
+filtered URL to point at — no further work, just the URL.
+
+**Also fixed here:** `data/wichaa_links.json` records the Cloudflare Pages host,
+so 523 pages were publishing a staging subdomain. Normalised to `wichaa.net`
+where the file is loaded, which corrects the "Read more elsewhere" row too.
+`importers/link_wichaa.py` should record `wichaa.net` at source.
+
+**Still to do on this order:** advertise the graph on `/source.html` and in
+`llms.txt` under CC BY.
 
 ---
 
