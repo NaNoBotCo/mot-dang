@@ -1,32 +1,35 @@
 #!/usr/bin/env python3
-"""Keep the repository somewhere that is not this laptop — without GitHub.
+"""Keep every repository somewhere that is not this laptop — without GitHub.
 
 The one thing GitHub was still genuinely doing was holding a copy off the
-machine. It was doing it badly: a hidden account is a backup you cannot browse,
-cannot share, and cannot be certain will still be there, and two appeal memos
-have gone unanswered. So the copy goes somewhere she owns outright.
+machine, and it was doing it badly: a hidden account is a backup you cannot
+browse, cannot share, and cannot be sure will still be there. Two appeal memos
+have gone unanswered. So the copies go somewhere she owns outright.
 
-`git bundle` is the right shape and is not widely known. It is one file holding
-the COMPLETE repository — every commit, branch and tag — which `git clone`
-opens directly:
+`git bundle` is the right shape and is not widely known. One file holds the
+COMPLETE repository — every commit, branch and tag — and `git clone` opens it
+directly:
 
     git clone mot-dang-2026-08-17.bundle mot-dang
 
-That is not an export or a snapshot of the working tree. It is the repository,
-in a file, in her own bucket. Lose the laptop and the history survives; lose
+That is not an export or a snapshot of a working tree. It is the repository, in
+a file, in her own bucket. Lose the laptop and the history survives; lose
 Cloudflare and the laptop still has it. Neither copy depends on an account
 somebody else can switch off.
 
-Credentials and the rclone plumbing are reused from publish/deploy.py rather
-than reimplemented, so there is exactly one place that knows how to reach R2.
+A SEPARATE BUCKET, AND WHY IT IS NOT NEGOTIABLE
+-----------------------------------------------
+The first version of this wrote into mot-dang-site/backup/. That bucket is the
+published site, and publish/deploy.py syncs docs/ onto it — and `rclone sync`
+deletes whatever is in the destination and not in the source. So the backup
+uploaded cleanly, reported success, and was erased by the next deploy a few
+minutes later. A backup living in a bucket something else syncs is not a backup;
+it is a countdown. Hence nanobotco-backup, which nothing syncs onto.
 
-    python3 importers/offsite_backup.py            # bundle, verify, upload
-    python3 importers/offsite_backup.py --check    # also prove it clones back
-    python3 importers/offsite_backup.py --list     # what is already up there
-
-SIZE: the bundle is ~600 MB because docs/ is committed, so the history carries
-every built page. That is why the morning walk runs this weekly rather than
-daily, and why only the last KEEP bundles are retained.
+    python3 importers/offsite_backup.py                 # this repo
+    python3 importers/offsite_backup.py --all           # every repo in the fleet
+    python3 importers/offsite_backup.py --check         # prove each clones back
+    python3 importers/offsite_backup.py --list          # what is already up there
 """
 import argparse
 import os
@@ -37,76 +40,101 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+FLEET = ROOT.parent                       # ~/Developer/claude code projects
 sys.path.insert(0, str(ROOT / "publish"))
 import deploy  # noqa: E402  — creds() + rclone_env(), the one place that knows R2
 
-BUCKET = "mot-dang-site"
-PREFIX = "backup"
-KEEP = 4        # a month of weeklies
+# NOT mot-dang-site. See the note above; that bucket is swept by every deploy.
+BUCKET = "nanobotco-backup"
+KEEP = 3        # bundles retained per repo
 
 
-def sh(args, **kw):
-    return subprocess.run(args, capture_output=True, text=True, **kw)
+def sh(args, env=None, **kw):
+    return subprocess.run(args, capture_output=True, text=True, env=env, **kw)
+
+
+def repos(all_of_them):
+    if not all_of_them:
+        return [ROOT]
+    out = []
+    for d in sorted(FLEET.iterdir()):
+        if (d / ".git").is_dir():
+            out.append(d)
+    return out
+
+
+def bundle_one(repo, env, today, check):
+    """Bundle one repository, verify it, upload it, prune old copies.
+
+    Returns (name, megabytes) on success, or (name, None) if it was skipped or
+    failed — the caller keeps going either way, because one broken repo must
+    not cost the other forty-three their backup.
+    """
+    name = repo.name
+    if not sh(["git", "-C", str(repo), "rev-parse", "HEAD"]).stdout.strip():
+        print(f"  {name:28} no commits yet — nothing to bundle")
+        return name, None
+
+    with tempfile.TemporaryDirectory() as tmp:
+        bundle = Path(tmp) / f"{name}-{today}.bundle"
+        if sh(["git", "bundle", "create", str(bundle), "--all"], cwd=repo).returncode:
+            print(f"  {name:28} bundle FAILED")
+            return name, None
+        if sh(["git", "bundle", "verify", str(bundle)], cwd=repo).returncode:
+            print(f"  {name:28} bundle did not verify — not uploading")
+            return name, None
+        mb = bundle.stat().st_size / 1_000_000
+
+        if check:
+            dest = Path(tmp) / "roundtrip"
+            if sh(["git", "clone", "--quiet", str(bundle), str(dest)]).returncode:
+                print(f"  {name:28} would NOT clone back — not uploading")
+                return name, None
+
+        r = sh(["rclone", "copyto", str(bundle), f"r2:{BUCKET}/{name}/{bundle.name}",
+                "--s3-chunk-size", "64M"], env=env)
+        if r.returncode:
+            print(f"  {name:28} upload FAILED: {r.stderr.strip()[-120:]}")
+            return name, None
+
+    # Retention runs only after a successful upload — pruning first would trade
+    # a good old backup for a failed new one.
+    listing = sh(["rclone", "lsf", f"r2:{BUCKET}/{name}"], env=env).stdout.split()
+    for old in sorted(f for f in listing if f.endswith(".bundle"))[:-KEEP]:
+        sh(["rclone", "deletefile", f"r2:{BUCKET}/{name}/{old}"], env=env)
+
+    print(f"  {name:28} ✓ {mb:>8.1f} MB")
+    return name, mb
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--check", action="store_true", help="prove the bundle clones back")
-    ap.add_argument("--list", action="store_true", help="list bundles already in the bucket")
+    ap.add_argument("--all", action="store_true", help="every repo in the fleet")
+    ap.add_argument("--check", action="store_true", help="prove each bundle clones back")
+    ap.add_argument("--list", action="store_true", help="what is already in the bucket")
     args = ap.parse_args()
 
     env = deploy.rclone_env(deploy.creds())
-    remote = f"r2:{BUCKET}/{PREFIX}"
 
     if args.list:
-        out = sh(["rclone", "lsl", remote], env=env)
-        print(out.stdout.strip() or "   (nothing up there yet)")
+        out = sh(["rclone", "ls", f"r2:{BUCKET}"], env=env)
+        lines = [l for l in out.stdout.splitlines() if l.strip()]
+        total = sum(int(l.split()[0]) for l in lines) / 1_000_000_000 if lines else 0
+        print("\n".join("  " + l for l in lines) or "  (nothing up there yet)")
+        print(f"\n  {len(lines)} bundle(s), {total:.2f} GB")
         return 0
 
     today = date.today().isoformat()
-    with tempfile.TemporaryDirectory() as tmp:
-        bundle = Path(tmp) / f"mot-dang-{today}.bundle"
-
-        print("🐜 bundling the whole repository…")
-        r = sh(["git", "bundle", "create", str(bundle), "--all"], cwd=ROOT)
-        if r.returncode:
-            print("   bundle failed:", r.stderr.strip()[-300:])
-            return 1
-
-        # A bundle that does not verify is a comfort, not a backup.
-        if sh(["git", "bundle", "verify", str(bundle)], cwd=ROOT).returncode:
-            print("   bundle did not verify — not uploading")
-            return 1
-        mb = bundle.stat().st_size / 1_000_000
-
-        if args.check:
-            print("   proving it clones back…")
-            dest = Path(tmp) / "roundtrip"
-            if sh(["git", "clone", "--quiet", str(bundle), str(dest)]).returncode:
-                print("   ✗ would not clone — not uploading")
-                return 1
-            n = sh(["git", "-C", str(dest), "rev-list", "--count", "HEAD"]).stdout.strip()
-            print(f"   ✓ clones clean ({n} commits)")
-
-        print(f"🐜 uploading {mb:.0f} MB to {remote}/ …")
-        r = sh(["rclone", "copyto", str(bundle), f"{remote}/{bundle.name}",
-                "--s3-chunk-size", "64M"], env=env)
-        if r.returncode:
-            print("   upload failed:", r.stderr.strip()[-300:])
-            return 1
-
-    # Retention, after a successful upload and never before it — pruning first
-    # would trade a good old backup for a failed new one.
-    listing = sh(["rclone", "lsf", remote], env=env).stdout.split()
-    old = sorted(f for f in listing if f.endswith(".bundle"))[:-KEEP]
-    for f in old:
-        sh(["rclone", "deletefile", f"{remote}/{f}"], env=env)
-    if old:
-        print(f"   pruned {len(old)} older bundle(s), keeping {KEEP}")
-
-    print(f"🐜 offsite: {remote}/mot-dang-{today}.bundle")
-    print(f"   restore:  git clone mot-dang-{today}.bundle mot-dang")
-    return 0
+    todo = repos(args.all)
+    print(f"🐜 bundling {len(todo)} repositor{'ies' if len(todo) > 1 else 'y'} "
+          f"-> r2:{BUCKET}/")
+    done = [bundle_one(r, env, today, args.check) for r in todo]
+    ok = [(n, m) for n, m in done if m is not None]
+    failed = [n for n, m in done if m is None]
+    print(f"\n🐜 {len(ok)} bundled, {sum(m for _, m in ok) / 1000:.2f} GB total"
+          + (f" · {len(failed)} skipped: {', '.join(failed)}" if failed else ""))
+    print(f"   restore any of them:  git clone <name>-{today}.bundle <name>")
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":

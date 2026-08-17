@@ -60,18 +60,12 @@ DIRTY_SOURCE=$(git status --porcelain -- . \
 DIRTY_BUILDPY=$(git status --porcelain -- build.py || true)
 [[ -n "$DIRTY_SOURCE$DIRTY_BUILDPY" ]] && PUBLISH_HOLD="source files are mid-task"
 
-if git fetch origin --quiet; then
-  LOCAL=$(git rev-parse main) REMOTE=$(git rev-parse origin/main)
-  if [[ "$LOCAL" != "$REMOTE" ]]; then
-    if git merge-base --is-ancestor main origin/main && [[ -z "$PUBLISH_HOLD" ]]; then
-      git pull --ff-only --quiet || PUBLISH_HOLD="pull failed"
-    else
-      [[ -z "$PUBLISH_HOLD" ]] && PUBLISH_HOLD="main and origin/main have diverged"
-    fi
-  fi
-else
-  PUBLISH_HOLD="cannot reach origin"
-fi
+# No fetch, no pull, no divergence check. There is one copy of this history and
+# it is on this machine; there is nothing to diverge FROM. Leaving the old
+# check in would have been a slow trap: it set PUBLISH_HOLD when it could not
+# reach origin, so the day GitHub stops answering for good, the walk would
+# stand down every morning and quietly publish nothing — while every fetcher
+# above went on succeeding.
 
 # --- the round: each stop may fail alone --------------------------------
 python3 importers/make_widget_shots.py || say "widget shots kept yesterday's frames"
@@ -136,10 +130,17 @@ git commit --quiet -m "Morning walk — $TODAY" \
 # walk that pushed to a suspended account every morning was performing a
 # publish rather than doing one. Commits stay local, which is where the history
 # was all along; the archive below is the copy that leaves this machine.
-# Weekly, not daily: the bundle is ~600 MB because docs/ is committed, so the
-# history carries every built page. Sunday, and only the last four are kept.
+# Weekly, not daily: mot-dang alone bundles to ~600 MB because docs/ is
+# committed, so the history carries every built page. Sunday, whole fleet,
+# last three per repo.
+#
+# It writes to the nanobotco-backup bucket and MUST NOT be pointed at
+# mot-dang-site: deploy.py syncs docs/ onto that bucket, and rclone sync
+# deletes whatever is in the destination and not in the source. The first
+# version of this uploaded into mot-dang-site/backup/, reported success, and
+# was erased by the deploy a few minutes later.
 if [[ $(date +%u) == 7 ]]; then
-  python3 importers/offsite_backup.py || say "offsite backup FAILED — history is only on this machine"
+  python3 importers/offsite_backup.py --all || say "offsite backup FAILED — history is only on this machine"
 fi
 # WHAT READERS SEE: motdang.net is the mot-dang-site Worker over R2
 # (publish/README.md). The R2 sync IS the deploy.

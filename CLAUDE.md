@@ -312,7 +312,13 @@ Rules that bite:
   `emit_source()` writes `docs/source/` (archive + the files pages name) and
   `/source.html` presents it. If a page needs to point at code or data, point
   at `{BASE}source/`, never at a repository host.
-- Offsite backup is `importers/offsite_backup.py` — a `git bundle` of the whole
-  repository into R2, weekly from the walk, last four kept. It is a real
-  repository in a file: `git clone <bundle> mot-dang` restores everything.
+- Offsite backup is `importers/offsite_backup.py --all` — a `git bundle` of
+  every repo in the fleet into R2, weekly from the walk, last three per repo.
+  A bundle is a real repository in a file: `git clone <bundle> <name>` restores
+  everything, branches and tags included.
+- **Backups go in `nanobotco-backup`, NEVER in `mot-dang-site`.** `deploy.py`
+  syncs `docs/` onto the site bucket and `rclone sync` DELETES anything in the
+  destination that is not in the source. A backup written there uploads
+  cleanly, reports success, and is gone at the next deploy — which is exactly
+  what happened the first time. Nothing syncs onto the backup bucket.
 - Network crawls (Overpass etc.) need the user's go-ahead first.
