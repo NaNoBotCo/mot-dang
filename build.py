@@ -929,6 +929,7 @@ background:rgba(6,199,85,.05)}
 .lineoa p{margin:.3rem 0}
 .lineoa .lineid{font-weight:700;color:#06914a;margin-left:.4rem}
 .lineoa .lineqr{margin-top:.4rem;border:1px solid var(--soft);border-radius:.4rem;background:#fff}
+.osmblurb{margin:1rem 0;color:var(--ink)}
 .featured{border:2px solid var(--ant);border-radius:.8rem;padding:.9rem 1.1rem;margin:1rem 0;
 background:#fff;box-shadow:3px 3px 0 var(--soft);transition:transform .18s,box-shadow .18s}
 .featured:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--soft)}
@@ -6010,6 +6011,30 @@ def known_facts(r):
                          "B.E. 2567 edition")
                     + "</span></dd>")
 
+    # What this kitchen cooks — on 2,122 records, and never once on a page.
+    # Each cuisine links to the search for it, which since WO-4 answers with the
+    # whole shelf rather than with names that happen to contain the word.
+    cuis = [c.strip() for c in str(a.get("cuisine") or "").split(";") if c.strip()]
+    if cuis:
+        links = " · ".join(
+            f'<a href="{"../" * 2}search.html?q={att(urllib.parse.quote(c.replace("_", " ")))}">'
+            f'{esc(c.replace("_", " "))}</a>' for c in cuis[:6])
+        rows.append(f'<dt>{bi("อาหารแนว", "Cooks")}</dt><dd>{links}</dd>')
+
+    # The chain a branch belongs to. 1,221 records carry it and a reader
+    # standing outside one of 332 near-identical branches could not tell.
+    chain = a.get("brand") or a.get("operator")
+    if chain:
+        rows.append(f'<dt>{bi("เครือ", "Part of")}</dt><dd>'
+                    f'<a href="{"../" * 2}search.html?q={att(urllib.parse.quote(chain))}">'
+                    f'{esc(chain)}</a></dd>')
+
+    # An address a person can write to, sitting unused on 339 records.
+    if a.get("email"):
+        _em = str(a["email"]).split(";")[0].strip()
+        rows.append(f'<dt>{bi("อีเมล", "Email")}</dt>'
+                    f'<dd><a href="mailto:{att(_em)}">{esc(_em)}</a></dd>')
+
     # The names people actually say, which until now only the mapper could see.
     also = list(a.get("altNames") or [])
     for lang, nm in sorted((a.get("namesOther") or {}).items()):
@@ -6089,6 +6114,18 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     blurb = ""
     if r.get("blurb_th") or r.get("blurb_en"):
         blurb = f'<p class="featured"><span class="star">★</span> {bi(r.get("blurb_th") or "", r.get("blurb_en") or "")}</p>'
+    else:
+        # A sentence we already hold and have never printed. 236 places carry a
+        # mapper's `description` and 102 a `descriptionTh`, while 12,296 pages
+        # open with nothing but a name and a pin. It gets no star — the star
+        # means somebody here chose to recommend the place — and it says where
+        # it came from, because it is a mapper's words and not ours.
+        _a = r.get("attrs") or {}
+        _dth, _den = _a.get("descriptionTh") or "", _a.get("description") or ""
+        if _dth or _den:
+            blurb = (f'<p class="osmblurb">{bi(_dth, _den)} '
+                     f'<span class="tinynote">'
+                     + bi("จาก OpenStreetMap", "from OpenStreetMap") + "</span></p>")
     # Every listing gets the same three plain doors and a concrete next step.
     # This used to be a GitHub issue link shown only when contact was missing —
     # which asked the one person most able to help, the owner, to open a
