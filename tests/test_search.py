@@ -43,6 +43,13 @@ CASES = [
     ("", None, "", "empty query finds nothing rather than everything"),
     ("   ", None, "", "whitespace is not a search"),
     ("zzzzqqq", None, "", "a real miss still misses — fuzziness must not match all"),
+    # WO-4: a reader's spelling is widened through the thesaurus, and the
+    # shelf/cuisine/road a place already carries is matched, not just its name.
+    ("kow soi", None, "", "romanisation drift — signage in this city uses all of them"),
+    ("ข้าวซอย", None, "", "the same dish in Thai finds the same places"),
+    ("coffee", None, "", "the shelf is matched, not only names containing 'coffee'"),
+    ("นวด", None, "", "a Thai shelf word reaches the massage places"),
+    ("temple", None, "", "an English word for a Thai shelf"),
 ]
 
 
@@ -58,8 +65,27 @@ def main():
         print(f"✗ {INDEX} missing — run build.py first")
         return 1
     js = extract_js()
+    # The matcher widens a reader's spelling through data/search_thesaurus.json,
+    # so the test loads the REAL groups. Pointing it at a stub would let a
+    # broken group ship green.
+    thes_path = os.path.join(ROOT, "data", "search_thesaurus.json")
+    thes = json.load(open(thes_path, encoding="utf-8"))["groups"] \
+        if os.path.exists(thes_path) else []
+    # The shelf words live in one table rather than in every entry, so the
+    # harness needs them too — matching on the shelf is half of what WO-4 added.
+    cfg = json.load(open(os.path.join(ROOT, "data", "categories.json"), encoding="utf-8"))
+    catwords = {c["key"]: f'{c["th"]} \u00b7 {c["en"]}' for c in cfg["categories"]}
+    subwords = {}
+    for c in cfg["categories"]:
+        for ch in c.get("children") or []:
+            k = (ch.get("match") or {}).get("sub") or ch.get("key")
+            if k:
+                subwords.setdefault(k, f'{ch.get("th","")} {ch.get("en","")}'.strip())
     harness = (
         "import fs from 'fs';\n"
+        f"const MD_THESAURUS={json.dumps(thes, ensure_ascii=False)};\n"
+        f"const MD_CATWORDS={json.dumps(catwords, ensure_ascii=False)};\n"
+        f"const MD_SUBWORDS={json.dumps(subwords, ensure_ascii=False)};\n"
         f"const idx=JSON.parse(fs.readFileSync({json.dumps(INDEX)},'utf8'));\n"
         "function search(q){\n" + js + "\n"
         "return {mode,n:found.length,ids:hits.map(e=>e.id)};}\n"
@@ -89,10 +115,13 @@ def main():
             ok = r["n"] == 0
         if ok and want_mode is not None:
             ok = r["mode"] == want_mode
-        # A loosened tier that returns the whole catalogue is not a search.
-        if ok and r["n"] > 200:
+        # A LOOSENED tier that returns the whole catalogue is not a search —
+        # that is what this guard was for. A strict match on a shelf word is a
+        # different thing: "coffee" really does reach 1,976 cafes, and capping
+        # the guard at 200 would have forbidden the shelf matching WO-4 added.
+        if ok and r["mode"] and r["n"] > 200:
             ok = False
-            note += " (returned more than the 200 cap)"
+            note += f" (loosened to {r['n']} — a loosened tier must not return the catalogue)"
         print(f"  {'✓' if ok else '✗'} {q!r:22} n={r['n']:<5} mode={r['mode'] or '-':6} {note}")
         bad += not ok
     print(f"\n{'✓ search matcher OK' if not bad else f'✗ {bad} search case(s) failed'}")

@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import json
 import math
+import urllib.parse
 from collections import Counter, defaultdict
 
 CSS = """.threads{margin:1.2rem 0;padding:.8rem 1rem;background:#fff;
@@ -52,6 +53,11 @@ NEAR_M = 400          # a neighbour you can see from the doorway
 NEAR_K = 6            # how many of them are worth carrying
 MIN_CUISINE = 5       # a cuisine node needs a shelf behind it
 MIN_BRAND = 3         # two shops of a name is a coincidence; three is a chain
+
+
+def _q(s):
+    """A search URL that finds this shelf, now that WO-4 indexes it."""
+    return urllib.parse.quote(s)
 
 
 def _haversine(a_lat, a_lng, b_lat, b_lng):
@@ -180,14 +186,20 @@ def build_graph(g, data):
     for c, ids in cuisine_places.items():
         if len(ids) < MIN_CUISINE:
             continue
-        cid = node(f"cuisine:{c}", "cuisine", c)
+        # WO-4 put cuisine in the search index and widened it through the
+        # thesaurus, so a cuisine finally has somewhere to lead: the search for
+        # that word, which now answers with the shelf rather than with names
+        # that happen to contain it.
+        cid = node(f"cuisine:{c}", "cuisine", c.replace("_", " "),
+                   href="search.html?q=" + _q(c.replace("_", " ")))
         for pid in ids:
             edge(f"place:{pid}", cid, "serves_cuisine", "computed", len(ids),
                  f"{len(ids)} places pour this")
     for b, ids in brand_places.items():
         if len(ids) < MIN_BRAND:
             continue
-        bid = node(f"brand:{b}", "brand", b)
+        bid = node(f"brand:{b}", "brand", b,
+                   href="search.html?q=" + _q(b))
         for pid in ids:
             edge(f"place:{pid}", bid, "branch_of", "computed", len(ids),
                  f"{len(ids)} branches on the map")

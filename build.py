@@ -109,6 +109,16 @@ def qr_data_uri(url):
 CFG = json.loads((ROOT / "data" / "categories.json").read_text())
 CATS = {c["key"]: c for c in CFG["categories"]}
 CAT_ORDER = [c["key"] for c in CFG["categories"]]
+# Subcategory display names, flattened by the value a record actually carries
+# in `sub` — the shelf's own words, so search can match the shelf and not only
+# the name. Several categories point different children at one `sub` value; the
+# first spelling wins, which is the one the tree lists first.
+SUB_LABELS = {}
+for _c in CFG["categories"]:
+    for _ch in _c.get("children") or []:
+        _key = (_ch.get("match") or {}).get("sub") or _ch.get("key")
+        if _key:
+            SUB_LABELS.setdefault(_key, _ch)
 PROVINCES = CFG["provinces"]
 
 # One drawn icon per category, keyed to the sprite in ICON_SPRITE. Drawn rather
@@ -2414,7 +2424,19 @@ const idx=await loadIndex();
 // spellings. Thai queries carry no spaces, stay a single term, and are matched
 // as they always were.
 const norm=s=>s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
-const needle=norm(q);const terms=needle.split(' ').filter(Boolean);
+const needle=norm(q);let terms=needle.split(' ').filter(Boolean);
+// There is no single right way to write ข้าวซอย in Latin letters, and the
+// signage in this city uses all of them. So a term is expanded to everything
+// that means the same thing before matching: "kow soi" reaches ข้าวซอย, and
+// "coffee" reaches the 1,705 places whose shelf says กาแฟ. Groups live in
+// data/search_thesaurus.json — a group is added when a real query missed.
+const THES=MD_THESAURUS;
+const expand=t=>{const out=[t];
+for(const g of THES){if(g.some(w=>w===t))for(const w of g)if(w!==t)out.push(w);}
+return out;};
+// A term matches if ANY of its spellings is present; the whole query still has
+// to match every term, so widening a word never widens the search itself.
+const hasTerm=(hay,words,t)=>expand(t).some(v=>v.includes(' ')?hay.includes(v):words.some(w=>w.includes(v))||hay.includes(v));
 // Roman letters get dropped, doubled, or swapped — Thai names come to us
 // through half a dozen romanisations. One edit of slack, and only for words
 // long enough that the slack cannot swallow a different word whole.
@@ -2423,36 +2445,69 @@ if(Math.abs(la-lb)>1)return false;let i=0,j=0,d=0;
 while(i<la&&j<lb){if(a[i]===b[j]){i++;j++;continue;}
 if(++d>1)return false;if(la>lb)i++;else if(lb>la)j++;else{i++;j++;}}
 return d+(la-i)+(lb-j)<=1;};
+// The name is what a result SHOWS, so it alone decides the ranking; `k` — the
+// shelf, the cuisine, the brand, the road — decides only whether a place is
+// findable at all. Kept apart so a search for "coffee" cannot float a place
+// called Coffee Hardware above a cafe.
+// The shelf words come from the tables, not from the entry — the entry carries
+// only its codes. `sw` turns a code list into the words a reader might type.
+const sw=e=>((e.c||[]).map(c=>MD_CATWORDS[c]||c).join(' ')+' '+
+(e.su||[]).map(s=>(MD_SUBWORDS[s]||'')+' '+s.replace(/-/g,' ')).join(' '));
 const rows=idx.map(e=>{const h=norm(e.n+' '+(e.e||'')+' '+(e.a||''));
-return{e:e,h:h,w:h.split(' ')};});
+const k=norm(sw(e)+' '+(e.k||''));const all=k?h+' '+k:h;
+return{e:e,h:h,k:all,w:all.split(' ')};});
 // Whole-phrase and name-start matches float up, so the 200 we keep are the 200
 // worth reading first.
 const rank=r=>(r.h.startsWith(terms[0])?2:0)+(r.h.includes(needle)?1:0);
 let mode='',found=[];
 if(terms.length){
-found=rows.filter(r=>terms.every(t=>r.h.includes(t))).sort((a,b)=>rank(b)-rank(a));
+found=rows.filter(r=>terms.every(t=>hasTerm(r.k,r.w,t))).sort((a,b)=>rank(b)-rank(a));
 // A misspelling of the right place beats a clean match on half the words, so
 // near spellings are tried first: "rajavey hospital" should land on Rajavej,
 // not on all 67 hospitals in the province.
 if(!found.length){
-found=rows.filter(r=>terms.every(t=>t.length<4?r.h.includes(t)
+found=rows.filter(r=>terms.every(t=>t.length<4?r.k.includes(t)
 :r.w.some(w=>w.includes(t)||near(w,t)))).sort((a,b)=>rank(b)-rank(a));
 if(found.length)mode='near';}
 if(!found.length&&terms.length>1){
-found=rows.map(r=>[r,terms.filter(t=>r.h.includes(t)).length]).filter(x=>x[1]>0)
+found=rows.map(r=>[r,terms.filter(t=>hasTerm(r.k,r.w,t)).length]).filter(x=>x[1]>0)
 .sort((a,b)=>b[1]-a[1]||rank(b[0])-rank(a[0])).map(x=>x[0]);
 if(found.length)mode='some';}}
 const hits=found.slice(0,200).map(r=>r.e);
-document.getElementById('rescount').textContent=q?`${hits.length}`:'';
+// The count says how many were FOUND, not how many fit on the page. Showing
+// the capped number told a reader searching "coffee" that the city holds 200
+// cafes when the directory knows 1,976 of them — the one number on this page
+// that has to be true.
+document.getElementById('rescount').textContent=q?`${found.length}`:'';
+const more=found.length>hits.length
+?`<li class="shelf">แสดง ${hits.length} จาก ${found.length} — พิมพ์ให้เจาะจงขึ้นเพื่อแคบลง · showing ${hits.length} of ${found.length}; add a word to narrow it</li>`:'';
 // Say plainly when the search had to loosen its grip, so nobody reads a near
 // match as an exact one.
 const notes={some:'ไม่ตรงทุกคำ — เรียงตามที่ตรงมากที่สุด / not every word matched — closest first',
 near:'สะกดใกล้เคียง — น่าจะหมายถึงรายการนี้ / near spellings — this is likely what you meant'};
 const note=mode?`<li class="shelf">${notes[mode]}</li>`:'';
-resBox.innerHTML=(hits.length?note+hits.map(e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
+const row=e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
 `${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
-` <span class="count">· ${e.pv}</span></li>`).join(''):'')||
-(q?'<li class="shelf">ไม่พบ — ลองคำอื่น / nothing found, try another word</li>':'');})();}
+` <span class="count">· ${e.pv}</span></li>`;
+// Two hundred names in one column is a list nobody reads. Grouped under the
+// shelf each one stands on, with its count, the same result becomes a page you
+// can steer: thirty-three ข้าวซอย places, four of them in Chiang Rai.
+const groups=new Map();
+for(const e of hits){const c=(e.c&&e.c[0])||'other';
+if(!groups.has(c))groups.set(c,[]);groups.get(c).push(e);}
+const ordered=[...groups.entries()].sort((a,b)=>b[1].length-a[1].length);
+const body=ordered.map(([c,list])=>{const lab=MD_CATWORDS[c];
+const head=lab?`<li class="shelf"><a href="${RROOT}${list[0].p}/${c}/">${lab}</a> <span class="count">${list.length}</span></li>`:'';
+return head+list.map(row).join('');}).join('');
+// Nothing found is a fork in the road, not a wall. The shelves are the doors a
+// reader can actually walk through, and the ants are the door for a place the
+// directory does not hold yet.
+const doors=()=>{const top=MD_TOPCATS.map(c=>
+`<li class="shelf"><a href="${RROOT}cm/${c}/">${MD_CATWORDS[c]||c}</a></li>`).join('');
+return '<li class="shelf">ไม่พบคำนี้ — ลองดูตามหมวด หรือบอกมดให้ไปเก็บ · '+
+'nothing under that word — try a shelf, or send the ants to find it</li>'+top+
+`<li class="shelf"><a href="${RROOT}crawl-request.html">ส่งมดไปสำรวจ · Request a crawl</a></li>`;};
+resBox.innerHTML=(hits.length?note+more+body:'')||(q?doors():'');})();}
 // ---- today's sky + fortune, chosen from a month baked at build time ---
 // Nothing is fetched: build.py wrote 30 days into these files, so the page is
 // right every morning without a rebuild and still makes no outside request.
@@ -4012,6 +4067,26 @@ say.textContent='ส่งไม่ได้ตอนนี้ / could not send 
 def _asset_v(text):
     return zlib.crc32(text.encode("utf-8")) & 0xFFFFFFFF
 
+
+# Three tables the search needs and nothing else does, generated rather than
+# typed twice: the thesaurus a reader's spelling is widened through, the shelf
+# names results are grouped under, and the shelves offered when a search finds
+# nothing. Folded into JS BEFORE the asset hash, so a thesaurus edit busts the
+# cache the same as a code edit — otherwise a new group would sit unused behind
+# a year-long immutable cache.
+_THES_PATH = ROOT / "data" / "search_thesaurus.json"
+_THES = json.loads(_THES_PATH.read_text())["groups"] if _THES_PATH.exists() else []
+_CATWORDS = {c["key"]: f'{c["th"]} · {c["en"]}' for c in CFG["categories"]}
+_SUBWORDS = {k: f'{v.get("th","")} {v.get("en","")}'.strip()
+             for k, v in SUB_LABELS.items()}
+# The doors an empty search offers: the shelves a person is most often after,
+# in the tree's own order, and only ones that actually hold something.
+_TOPCATS = [c for c in ("food", "wat", "medical", "essentials", "massage", "hotel")
+            if c in CATS]
+JS = ("const MD_THESAURUS=" + json.dumps(_THES, ensure_ascii=False) + ";\n"
+      + "const MD_CATWORDS=" + json.dumps(_CATWORDS, ensure_ascii=False) + ";\n"
+      + "const MD_SUBWORDS=" + json.dumps(_SUBWORDS, ensure_ascii=False) + ";\n"
+      + "const MD_TOPCATS=" + json.dumps(_TOPCATS) + ";\n" + JS)
 
 MD_JS_V = f"{_asset_v(JS):08x}"
 try:
@@ -9880,6 +9955,30 @@ def build():
                 (_al.get("namesOther") or {}).values())
             if _alias:
                 idx_entry["a"] = " ".join(dict.fromkeys(_alias))
+            # `k` is the rest of what this place already tells us and search
+            # never asked: the shelf it stands on in both languages, what it
+            # cooks, whose chain it belongs to, and the road it is on. Matched,
+            # never displayed — the row still shows the name. A reader typing
+            # "ก๋วยเตี๋ยว" or "coffee" or "Nimmanhaemin" was finding only places
+            # with that word in their NAME, while 2,122 cuisine tags, 1,221
+            # brands and 4,112 road assignments sat unread beside them.
+            # Shelf names are NOT repeated into every entry: twelve thousand
+            # copies of "ร้านอาหาร-ของกิน · Food & Eats" cost 1.7 MB on a
+            # satellite connection to say twenty-three things. The entry carries
+            # its shelf CODES (`c` already, `su` added) and md.js looks the
+            # words up from one table it already has.
+            if r.get("sub"):
+                idx_entry["su"] = r["sub"]
+            _k = []
+            _k.append(str(_al.get("cuisine") or "").replace(";", " ").replace("_", " "))
+            _k.append(_al.get("brand") or "")
+            _k.append(_al.get("operator") or "")
+            _st = STREET_OF.get(r["id"])
+            if _st:
+                _k += [_st[0].get("name") or "", _st[0].get("nameEn") or ""]
+            _k = " ".join(x for x in _k if x)
+            if _k:
+                idx_entry["k"] = _k
             if r.get("lat") is not None:
                 idx_entry["lat"], idx_entry["lng"] = r["lat"], r["lng"]
             search_index.append(idx_entry)

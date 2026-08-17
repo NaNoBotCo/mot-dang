@@ -1,3 +1,7 @@
+const MD_THESAURUS=[["khao", "kow", "kao", "khaw", "ข้าว"], ["soi", "soy", "sauy", "ซอย"], ["khao soi", "kow soi", "kao soi", "khaosoi", "ข้าวซอย"], ["wat", "vat", "temple", "วัด"], ["chedi", "jedi", "stupa", "เจดีย์"], ["viharn", "wihan", "vihara", "วิหาร"], ["doi", "mountain", "ดอย"], ["kad", "kat", "market", "ตลาด", "กาด"], ["talat", "talad", "market", "ตลาด"], ["nimman", "nimmanhaemin", "nimmanhemin", "นิมมาน", "นิมมานเหมินท์"], ["thapae", "tha phae", "thaphae", "ท่าแพ"], ["suthep", "สุเทพ"], ["ping", "แม่ปิง", "mae ping"], ["kuang", "khuang", "ข่วง"], ["mueang", "muang", "mueng", "เมือง"], ["san", "สัน"], ["mae", "แม่"], ["ban", "baan", "บ้าน"], ["nakhon", "nakorn", "นคร"], ["phra", "pra", "พระ"], ["luang", "หลวง"], ["noi", "นอย", "น้อย"], ["coffee", "cafe", "kafe", "coffeeshop", "coffee_shop", "กาแฟ", "คาเฟ่"], ["tea", "ชา"], ["bakery", "cake", "เบเกอรี่", "ขนม"], ["ice cream", "ice_cream", "icecream", "ไอศกรีม", "ไอติม"], ["noodle", "noodles", "ก๋วยเตี๋ยว", "เส้น"], ["seafood", "อาหารทะเล"], ["thai", "ไทย", "อาหารไทย"], ["northern", "lanna", "regional", "local", "เหนือ", "ล้านนา", "พื้นเมือง"], ["japanese", "ญี่ปุ่น", "sushi", "ซูชิ"], ["chinese", "จีน"], ["korean", "เกาหลี"], ["indian", "อินเดีย"], ["italian", "pizza", "pasta", "อิตาเลียน", "พิซซ่า"], ["burger", "american", "เบอร์เกอร์"], ["steak", "steak_house", "สเต็ก"], ["vegetarian", "vegan", "เจ", "มังสวิรัติ"], ["halal", "ฮาลาล", "muslim", "islam", "อิสลาม"], ["breakfast", "อาหารเช้า"], ["massage", "นวด", "spa", "สปา"], ["hospital", "โรงพยาบาล", "รพ"], ["clinic", "คลินิก"], ["pharmacy", "ร้านยา", "เภสัช"], ["dentist", "dental", "ทันตกรรม", "หมอฟัน"], ["hotel", "โรงแรม"], ["guesthouse", "guest house", "เกสต์เฮ้าส์"], ["hostel", "โฮสเทล"], ["condo", "condominium", "คอนโด"], ["school", "โรงเรียน"], ["university", "มหาวิทยาลัย", "มช"], ["bank", "ธนาคาร"], ["atm", "ตู้เอทีเอ็ม", "เอทีเอ็ม"], ["post office", "ไปรษณีย์"], ["petrol", "gas", "fuel", "ปั๊มน้ำมัน", "ปตท"], ["laundry", "ซักรีด", "ซักผ้า"], ["barber", "salon", "hair", "ร้านตัดผม", "เสริมสวย"], ["tattoo", "sak yant", "สักยันต์", "รอยสัก"], ["museum", "พิพิธภัณฑ์"], ["gallery", "หอศิลป์", "แกลเลอรี่"], ["park", "สวนสาธารณะ", "สวน"], ["zoo", "สวนสัตว์"], ["waterfall", "น้ำตก"], ["hot spring", "น้ำพุร้อน"], ["airport", "สนามบิน"], ["bus", "รถบัส", "รถทัวร์"], ["songthaew", "song thaew", "รถแดง", "สองแถว"], ["train", "รถไฟ", "สถานีรถไฟ"], ["toilet", "restroom", "ห้องน้ำ", "สุขา"], ["vet", "veterinary", "สัตวแพทย์", "คลินิกสัตว์"], ["gym", "fitness", "ฟิตเนส", "ยิม"], ["cinema", "movie", "โรงหนัง", "หนัง"], ["shrine", "ศาล", "ศาลเจ้า"], ["7-eleven", "seven eleven", "7 11", "เซเว่น"]];
+const MD_CATWORDS={"wat": "วัด-สิ่งศักดิ์สิทธิ์ · Wats & Sacred Places", "food": "ร้านอาหาร-ของกิน · Food & Eats", "massage": "นวด-สปา · Massage & Spa", "medical": "หมอ-คลินิก-โรงพยาบาล · Doctors & Hospitals", "essentials": "ของจำเป็นประจำเมือง · City Essentials", "hotel": "โรงแรม-ที่พัก · Hotels & Stays", "school-intl": "โรงเรียนนานาชาติ · International Schools", "market": "ตลาด · Markets", "shopping": "ช้อปปิ้ง-ของฝาก · Shopping & Gifts", "realestate": "อสังหาฯ-คอนโด · Real Estate & Condos", "transport": "รถ-เดินทาง · Getting Around", "repair": "ช่าง-ซ่อม · Repairs & Trades", "beauty": "เสริมสวย-ทำผม · Beauty & Hair", "tattoo": "สักยันต์-รอยสัก · Tattoo & Sak Yant", "pets": "สัตว์เลี้ยง · Pets", "learn": "เรียน-กีฬา · Learning & Sport", "home-services": "แม่บ้าน-ช่างสวน-ดูแลบ้าน · Home Services", "community": "ชมรม-สมาคม · Clubs & Community", "business": "ธุรกิจ-ค้าขาย · Doing Business", "whats-on": "หนัง-คอนเสิร์ต-อีเวนต์ · Movies, Concerts & Events", "museums-galleries": "พิพิธภัณฑ์-หอศิลป์ · Museums & Galleries", "parks": "สวน-ที่พักผ่อน · Parks & Green Space", "sights": "ที่เที่ยว-ของดี · Sights & Good Things"};
+const MD_SUBWORDS={"spirit-house": "ศาลพระภูมิ Spirit Houses", "thai": "อาหารไทย Thai", "made-to-order": "ตามสั่ง-ผัดกะเพรา Made-to-order", "noodle": "ข้าวซอย-ก๋วยเตี๋ยว Khao Soi & Noodles", "international": "นานาชาติ International", "seafood": "อาหารทะเล Seafood", "vegetarian": "มังสวิรัติ-เจ Vegetarian & Vegan", "street-food": "สตรีทฟู้ด-ฟาสต์ฟู้ด Street Food & Fast Food", "bakery-dessert": "เบเกอรี่-ของหวาน Bakery & Dessert", "bar-pub": "บาร์-ผับ Bars & Pubs", "cafe": "กาแฟ-คาเฟ่ Coffee & Cafés", "riverside": "ร้านริมน้ำ Riverside", "in-wiang": "ในเวียงเก่า In the Old City", "out-wiang": "นอกเวียง Outside the Moat", "hospital": "โรงพยาบาล Hospitals", "clinic": "คลินิก Clinics", "doctors": "หมอเฉพาะทาง Specialists", "dentist": "หมอฟัน Dentists", "thai-medicine": "แพทย์แผนไทย-สมุนไพร Traditional Thai Medicine", "pharmacy": "ร้านยา Pharmacies", "bank": "ธนาคาร-เอทีเอ็ม Banks & ATMs", "laundry": "ร้านซักรีด-สะดวกซัก Laundry", "post": "ไปรษณีย์-ขนส่ง Post & Parcels", "gov": "ราชการ-เอกสาร Government Offices", "visa": "วีซ่า-ต่ออายุ Visa & Extensions", "convenience": "ร้านสะดวกซื้อ Convenience Stores", "hotel-full": "โรงแรม Hotels", "guesthouse": "เกสต์เฮาส์ Guesthouses", "hostel": "โฮสเทล Hostels", "fresh": "ตลาดสด Fresh Markets", "walking-street": "ถนนคนเดิน Walking Streets", "flea": "ตลาดนัด Flea Markets", "crafts": "ของฝาก-หัตถกรรม Crafts & Gifts", "secondhand": "เสื้อผ้ามือสอง-คัดพิเศษ Consignment & Secondhand", "mall": "ห้าง-มอลล์ Malls", "diy": "DIY-วัสดุก่อสร้าง DIY & Hardware", "tailor": "ตัดเย็บ-ซ่อมเสื้อผ้า Tailors & Alterations", "condo": "อาคารคอนโด Condo Buildings", "moobaan": "หมู่บ้าน-บ้านเช่า Moobaan & Rentals", "agent": "นายหน้า-เอเจนต์ Agents", "rental": "เช่ารถ-มอเตอร์ไซค์ Car & Bike Rental", "station": "สถานี-ท่ารถ Stations & Terminals", "airport": "สนามบิน Airports", "songthaew": "รถแดง-สองแถว Rot Daeng & Songthaew", "fuel": "ปั๊มน้ำมัน Fuel Stations", "auto": "ซ่อมรถ-อู่ Auto & Motorbike", "home": "ช่างบ้าน-ช่างอลูมิเนียม Home Trades", "tech": "มือถือ-คอมพิวเตอร์ Phones & Computers", "hair": "ร้านทำผม Hair Salons", "nails": "ทำเล็บ Nails", "salon": "ร้านเสริมสวย Beauty salons", "beauty-spa": "สปาความงาม Beauty spa", "barber": "ตัดผมชาย Barbers", "sak-yant": "สักยันต์ Sak Yant", "studio": "ร้านสักสมัยใหม่ Modern studios", "piercing": "เจาะ Piercing", "tattoo-removal": "ลบรอยสัก Removal", "vet": "หมอสัตว์ Vets", "grooming": "อาบน้ำ-ตัดขน Grooming", "language": "เรียนภาษา Language Schools", "gym": "มวยไทย-ยิม Muay Thai & Gyms", "university": "มหาวิทยาลัย Universities", "housekeeper": "แม่บ้าน Housekeepers", "handyman": "ช่างซ่อมบ้าน Handymen", "landscaper": "คนสวน-จัดสวน Landscapers", "clubs": "ชมรม-สมาคม Clubs & Societies", "centre": "ศาลาประชาคม-ศูนย์ชุมชน Community Centres", "volunteer": "จิตอาสา Volunteering", "coworking": "โคเวิร์กกิ้งสเปซ Coworking Spaces", "wholesale": "ค้าส่ง-ซัพพลายเออร์ Wholesale & Suppliers", "online-selling": "ขายออนไลน์-ดรอปชิป Online Selling & Dropshipping", "professional": "ทนาย-บัญชี Lawyers & Accountants", "cinema": "โรงหนัง-รอบฉาย Cinemas & Showtimes", "live-music": "ดนตรีสด Live Music", "events-venue": "ที่จัดงาน-อีเวนต์ Event Venues", "museum": "พิพิธภัณฑ์ Museums", "gallery": "หอศิลป์-แกลเลอรี Art Galleries", "park": "สวนสาธารณะ Public parks", "garden": "สวนพฤกษศาสตร์ Gardens", "nature": "เขตอนุรักษ์-อุทยาน Nature reserves", "water": "อ่างเก็บน้ำ-หนองน้ำ Lakes & reservoirs", "playground": "สนามเด็กเล่น Playgrounds", "library": "ห้องสมุด Libraries", "art-studio": "สตูดิโอศิลป์ Art Studios", "historic": "โบราณสถาน-ที่ประวัติศาสตร์ Historic Places", "viewpoint": "จุดชมวิว Viewpoints", "outing": "ทริปวันเดียว Outings & Day Trips"};
+const MD_TOPCATS=["food", "wat", "medical", "essentials", "massage", "hotel"];
 
 // The markup twin of build.py's bi(). Anything the client fills in has to
 // join its two languages the same way the server does, or a gloss hydrated by
@@ -116,7 +120,19 @@ const idx=await loadIndex();
 // spellings. Thai queries carry no spaces, stay a single term, and are matched
 // as they always were.
 const norm=s=>s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
-const needle=norm(q);const terms=needle.split(' ').filter(Boolean);
+const needle=norm(q);let terms=needle.split(' ').filter(Boolean);
+// There is no single right way to write ข้าวซอย in Latin letters, and the
+// signage in this city uses all of them. So a term is expanded to everything
+// that means the same thing before matching: "kow soi" reaches ข้าวซอย, and
+// "coffee" reaches the 1,705 places whose shelf says กาแฟ. Groups live in
+// data/search_thesaurus.json — a group is added when a real query missed.
+const THES=MD_THESAURUS;
+const expand=t=>{const out=[t];
+for(const g of THES){if(g.some(w=>w===t))for(const w of g)if(w!==t)out.push(w);}
+return out;};
+// A term matches if ANY of its spellings is present; the whole query still has
+// to match every term, so widening a word never widens the search itself.
+const hasTerm=(hay,words,t)=>expand(t).some(v=>v.includes(' ')?hay.includes(v):words.some(w=>w.includes(v))||hay.includes(v));
 // Roman letters get dropped, doubled, or swapped — Thai names come to us
 // through half a dozen romanisations. One edit of slack, and only for words
 // long enough that the slack cannot swallow a different word whole.
@@ -125,36 +141,69 @@ if(Math.abs(la-lb)>1)return false;let i=0,j=0,d=0;
 while(i<la&&j<lb){if(a[i]===b[j]){i++;j++;continue;}
 if(++d>1)return false;if(la>lb)i++;else if(lb>la)j++;else{i++;j++;}}
 return d+(la-i)+(lb-j)<=1;};
+// The name is what a result SHOWS, so it alone decides the ranking; `k` — the
+// shelf, the cuisine, the brand, the road — decides only whether a place is
+// findable at all. Kept apart so a search for "coffee" cannot float a place
+// called Coffee Hardware above a cafe.
+// The shelf words come from the tables, not from the entry — the entry carries
+// only its codes. `sw` turns a code list into the words a reader might type.
+const sw=e=>((e.c||[]).map(c=>MD_CATWORDS[c]||c).join(' ')+' '+
+(e.su||[]).map(s=>(MD_SUBWORDS[s]||'')+' '+s.replace(/-/g,' ')).join(' '));
 const rows=idx.map(e=>{const h=norm(e.n+' '+(e.e||'')+' '+(e.a||''));
-return{e:e,h:h,w:h.split(' ')};});
+const k=norm(sw(e)+' '+(e.k||''));const all=k?h+' '+k:h;
+return{e:e,h:h,k:all,w:all.split(' ')};});
 // Whole-phrase and name-start matches float up, so the 200 we keep are the 200
 // worth reading first.
 const rank=r=>(r.h.startsWith(terms[0])?2:0)+(r.h.includes(needle)?1:0);
 let mode='',found=[];
 if(terms.length){
-found=rows.filter(r=>terms.every(t=>r.h.includes(t))).sort((a,b)=>rank(b)-rank(a));
+found=rows.filter(r=>terms.every(t=>hasTerm(r.k,r.w,t))).sort((a,b)=>rank(b)-rank(a));
 // A misspelling of the right place beats a clean match on half the words, so
 // near spellings are tried first: "rajavey hospital" should land on Rajavej,
 // not on all 67 hospitals in the province.
 if(!found.length){
-found=rows.filter(r=>terms.every(t=>t.length<4?r.h.includes(t)
+found=rows.filter(r=>terms.every(t=>t.length<4?r.k.includes(t)
 :r.w.some(w=>w.includes(t)||near(w,t)))).sort((a,b)=>rank(b)-rank(a));
 if(found.length)mode='near';}
 if(!found.length&&terms.length>1){
-found=rows.map(r=>[r,terms.filter(t=>r.h.includes(t)).length]).filter(x=>x[1]>0)
+found=rows.map(r=>[r,terms.filter(t=>hasTerm(r.k,r.w,t)).length]).filter(x=>x[1]>0)
 .sort((a,b)=>b[1]-a[1]||rank(b[0])-rank(a[0])).map(x=>x[0]);
 if(found.length)mode='some';}}
 const hits=found.slice(0,200).map(r=>r.e);
-document.getElementById('rescount').textContent=q?`${hits.length}`:'';
+// The count says how many were FOUND, not how many fit on the page. Showing
+// the capped number told a reader searching "coffee" that the city holds 200
+// cafes when the directory knows 1,976 of them — the one number on this page
+// that has to be true.
+document.getElementById('rescount').textContent=q?`${found.length}`:'';
+const more=found.length>hits.length
+?`<li class="shelf">แสดง ${hits.length} จาก ${found.length} — พิมพ์ให้เจาะจงขึ้นเพื่อแคบลง · showing ${hits.length} of ${found.length}; add a word to narrow it</li>`:'';
 // Say plainly when the search had to loosen its grip, so nobody reads a near
 // match as an exact one.
 const notes={some:'ไม่ตรงทุกคำ — เรียงตามที่ตรงมากที่สุด / not every word matched — closest first',
 near:'สะกดใกล้เคียง — น่าจะหมายถึงรายการนี้ / near spellings — this is likely what you meant'};
 const note=mode?`<li class="shelf">${notes[mode]}</li>`:'';
-resBox.innerHTML=(hits.length?note+hits.map(e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
+const row=e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
 `${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
-` <span class="count">· ${e.pv}</span></li>`).join(''):'')||
-(q?'<li class="shelf">ไม่พบ — ลองคำอื่น / nothing found, try another word</li>':'');})();}
+` <span class="count">· ${e.pv}</span></li>`;
+// Two hundred names in one column is a list nobody reads. Grouped under the
+// shelf each one stands on, with its count, the same result becomes a page you
+// can steer: thirty-three ข้าวซอย places, four of them in Chiang Rai.
+const groups=new Map();
+for(const e of hits){const c=(e.c&&e.c[0])||'other';
+if(!groups.has(c))groups.set(c,[]);groups.get(c).push(e);}
+const ordered=[...groups.entries()].sort((a,b)=>b[1].length-a[1].length);
+const body=ordered.map(([c,list])=>{const lab=MD_CATWORDS[c];
+const head=lab?`<li class="shelf"><a href="${RROOT}${list[0].p}/${c}/">${lab}</a> <span class="count">${list.length}</span></li>`:'';
+return head+list.map(row).join('');}).join('');
+// Nothing found is a fork in the road, not a wall. The shelves are the doors a
+// reader can actually walk through, and the ants are the door for a place the
+// directory does not hold yet.
+const doors=()=>{const top=MD_TOPCATS.map(c=>
+`<li class="shelf"><a href="${RROOT}cm/${c}/">${MD_CATWORDS[c]||c}</a></li>`).join('');
+return '<li class="shelf">ไม่พบคำนี้ — ลองดูตามหมวด หรือบอกมดให้ไปเก็บ · '+
+'nothing under that word — try a shelf, or send the ants to find it</li>'+top+
+`<li class="shelf"><a href="${RROOT}crawl-request.html">ส่งมดไปสำรวจ · Request a crawl</a></li>`;};
+resBox.innerHTML=(hits.length?note+more+body:'')||(q?doors():'');})();}
 // ---- today's sky + fortune, chosen from a month baked at build time ---
 // Nothing is fetched: build.py wrote 30 days into these files, so the page is
 // right every morning without a rebuild and still makes no outside request.

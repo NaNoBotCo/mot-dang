@@ -20,57 +20,57 @@
 {"id": "amphoe:แม่ลาว", "kind": "amphoe", "label": "แม่ลาว"}
 {"id": "amphoe:แม่สรวย", "kind": "amphoe", "label": "แม่สรวย"}
 {"id": "amphoe:แม่สาย", "kind": "amphoe", "label": "แม่สาย"}
-{"id": "brand:7-Eleven", "kind": "brand", "label": "7-Eleven"}
-{"id": "brand:Big C Mini", "kind": "brand", "label": "Big C Mini"}
-{"id": "brand:Budget", "kind": "brand", "label": "Budget"}
-{"id": "brand:Burger King", "kind": "brand", "label": "Burger King"}
-{"id": "brand:CP Fresh Mart", "kind": "brand", "label": "CP Fresh Mart"}
-{"id": "brand:Café Amazon", "kind": "brand", "label": "Café Amazon"}
-{"id": "brand:Caltex", "kind": "brand", "label": "Caltex"}
-{"id": "brand:Cosmo", "kind": "brand", "label": "Cosmo"}
-{"id": "brand:DHL", "kind": "brand", "label": "DHL"}
-{"id": "brand:Dairy Queen", "kind": "brand", "label": "Dairy Queen"}
-{"id": "brand:Doi Chaang", "kind": "brand", "label": "Doi Chaang"}
-{"id": "brand:Dunkin'", "kind": "brand", "label": "Dunkin'"}
-{"id": "brand:Hard Rock Cafe", "kind": "brand", "label": "Hard Rock Cafe"}
-{"id": "brand:Independant", "kind": "brand", "label": "Independant"}
-{"id": "brand:Jiffy", "kind": "brand", "label": "Jiffy"}
-{"id": "brand:KFC", "kind": "brand", "label": "KFC"}
-{"id": "brand:Lotus's go fresh", "kind": "brand", "label": "Lotus's go fresh"}
-{"id": "brand:MK Restaurants", "kind": "brand", "label": "MK Restaurants"}
-{"id": "brand:MR.DIY", "kind": "brand", "label": "MR.DIY"}
-{"id": "brand:McDonald's", "kind": "brand", "label": "McDonald's"}
-{"id": "brand:Mini Big C", "kind": "brand", "label": "Mini Big C"}
-{"id": "brand:PT", "kind": "brand", "label": "PT"}
-{"id": "brand:PTT", "kind": "brand", "label": "PTT"}
-{"id": "brand:Pizza Hut", "kind": "brand", "label": "Pizza Hut"}
-{"id": "brand:S&P", "kind": "brand", "label": "S&P"}
-{"id": "brand:Shell", "kind": "brand", "label": "Shell"}
-{"id": "brand:Starbucks", "kind": "brand", "label": "Starbucks"}
-{"id": "brand:Subway", "kind": "brand", "label": "Subway"}
-{"id": "brand:TESCO Lotus Express", "kind": "brand", "label": "TESCO Lotus Express"}
-{"id": "brand:Tesco", "kind": "brand", "label": "Tesco"}
-{"id": "brand:The Pizza Company", "kind": "brand", "label": "The Pizza Company"}
-{"id": "brand:UOB", "kind": "brand", "label": "UOB"}
-{"id": "brand:กรุงศรี", "kind": "brand", "label": "กรุงศรี"}
-{"id": "brand:คาเฟ่ อเมซอน", "kind": "brand", "label": "คาเฟ่ อเมซอน"}
-{"id": "brand:ซีไอเอ็มบี ไทย", "kind": "brand", "label": "ซีไอเอ็มบี ไทย"}
-{"id": "brand:ธนาคารกรุงศรีอยุธยา", "kind": "brand", "label": "ธนาคารกรุงศรีอยุธยา"}
-{"id": "brand:ธนาคารกรุงเทพ", "kind": "brand", "label": "ธนาคารกรุงเทพ"}
-{"id": "brand:ธนาคารกรุงไทย", "kind": "brand", "label": "ธนาคารกรุงไทย"}
-{"id": "brand:ธนาคารกสิกรไทย", "kind": "brand", "label": "ธนาคารกสิกรไทย"}
-{"id": "brand:ธนาคารทหารไทย", "kind": "brand", "label": "ธนาคารทหารไทย"}
-{"id": "brand:ธนาคารธนชาต", "kind": "brand", "label": "ธนาคารธนชาต"}
-{"id": "brand:ธนาคารออมสิน", "kind": "brand", "label": "ธนาคารออมสิน"}
-{"id": "brand:ธนาคารอาคารสงเคราะห์", "kind": "brand", "label": "ธนาคารอาคารสงเคราะห์"}
-{"id": "brand:ธนาคารอิสลามแห่งประเทศไทย", "kind": "brand", "label": "ธนาคารอิสลามแห่งประเทศไทย"}
-{"id": "brand:ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร ธ.ก.ส.", "kind": "brand", "label": "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร ธ.ก.ส."}
-{"id": "brand:ธนาคารไทยพาณิชย์", "kind": "brand", "label": "ธนาคารไทยพาณิชย์"}
-{"id": "brand:บางจาก", "kind": "brand", "label": "บางจาก"}
-{"id": "brand:ป.ต.ท.", "kind": "brand", "label": "ป.ต.ท."}
-{"id": "brand:สยามแก๊ส", "kind": "brand", "label": "สยามแก๊ส"}
-{"id": "brand:เชลล์", "kind": "brand", "label": "เชลล์"}
-{"id": "brand:เวิลด์แก๊ส", "kind": "brand", "label": "เวิลด์แก๊ส"}
+{"href": "search.html?q=7-Eleven", "id": "brand:7-Eleven", "kind": "brand", "label": "7-Eleven"}
+{"href": "search.html?q=Big%20C%20Mini", "id": "brand:Big C Mini", "kind": "brand", "label": "Big C Mini"}
+{"href": "search.html?q=Budget", "id": "brand:Budget", "kind": "brand", "label": "Budget"}
+{"href": "search.html?q=Burger%20King", "id": "brand:Burger King", "kind": "brand", "label": "Burger King"}
+{"href": "search.html?q=CP%20Fresh%20Mart", "id": "brand:CP Fresh Mart", "kind": "brand", "label": "CP Fresh Mart"}
+{"href": "search.html?q=Caf%C3%A9%20Amazon", "id": "brand:Café Amazon", "kind": "brand", "label": "Café Amazon"}
+{"href": "search.html?q=Caltex", "id": "brand:Caltex", "kind": "brand", "label": "Caltex"}
+{"href": "search.html?q=Cosmo", "id": "brand:Cosmo", "kind": "brand", "label": "Cosmo"}
+{"href": "search.html?q=DHL", "id": "brand:DHL", "kind": "brand", "label": "DHL"}
+{"href": "search.html?q=Dairy%20Queen", "id": "brand:Dairy Queen", "kind": "brand", "label": "Dairy Queen"}
+{"href": "search.html?q=Doi%20Chaang", "id": "brand:Doi Chaang", "kind": "brand", "label": "Doi Chaang"}
+{"href": "search.html?q=Dunkin%27", "id": "brand:Dunkin'", "kind": "brand", "label": "Dunkin'"}
+{"href": "search.html?q=Hard%20Rock%20Cafe", "id": "brand:Hard Rock Cafe", "kind": "brand", "label": "Hard Rock Cafe"}
+{"href": "search.html?q=Independant", "id": "brand:Independant", "kind": "brand", "label": "Independant"}
+{"href": "search.html?q=Jiffy", "id": "brand:Jiffy", "kind": "brand", "label": "Jiffy"}
+{"href": "search.html?q=KFC", "id": "brand:KFC", "kind": "brand", "label": "KFC"}
+{"href": "search.html?q=Lotus%27s%20go%20fresh", "id": "brand:Lotus's go fresh", "kind": "brand", "label": "Lotus's go fresh"}
+{"href": "search.html?q=MK%20Restaurants", "id": "brand:MK Restaurants", "kind": "brand", "label": "MK Restaurants"}
+{"href": "search.html?q=MR.DIY", "id": "brand:MR.DIY", "kind": "brand", "label": "MR.DIY"}
+{"href": "search.html?q=McDonald%27s", "id": "brand:McDonald's", "kind": "brand", "label": "McDonald's"}
+{"href": "search.html?q=Mini%20Big%20C", "id": "brand:Mini Big C", "kind": "brand", "label": "Mini Big C"}
+{"href": "search.html?q=PT", "id": "brand:PT", "kind": "brand", "label": "PT"}
+{"href": "search.html?q=PTT", "id": "brand:PTT", "kind": "brand", "label": "PTT"}
+{"href": "search.html?q=Pizza%20Hut", "id": "brand:Pizza Hut", "kind": "brand", "label": "Pizza Hut"}
+{"href": "search.html?q=S%26P", "id": "brand:S&P", "kind": "brand", "label": "S&P"}
+{"href": "search.html?q=Shell", "id": "brand:Shell", "kind": "brand", "label": "Shell"}
+{"href": "search.html?q=Starbucks", "id": "brand:Starbucks", "kind": "brand", "label": "Starbucks"}
+{"href": "search.html?q=Subway", "id": "brand:Subway", "kind": "brand", "label": "Subway"}
+{"href": "search.html?q=TESCO%20Lotus%20Express", "id": "brand:TESCO Lotus Express", "kind": "brand", "label": "TESCO Lotus Express"}
+{"href": "search.html?q=Tesco", "id": "brand:Tesco", "kind": "brand", "label": "Tesco"}
+{"href": "search.html?q=The%20Pizza%20Company", "id": "brand:The Pizza Company", "kind": "brand", "label": "The Pizza Company"}
+{"href": "search.html?q=UOB", "id": "brand:UOB", "kind": "brand", "label": "UOB"}
+{"href": "search.html?q=%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B8%A8%E0%B8%A3%E0%B8%B5", "id": "brand:กรุงศรี", "kind": "brand", "label": "กรุงศรี"}
+{"href": "search.html?q=%E0%B8%84%E0%B8%B2%E0%B9%80%E0%B8%9F%E0%B9%88%20%E0%B8%AD%E0%B9%80%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%99", "id": "brand:คาเฟ่ อเมซอน", "kind": "brand", "label": "คาเฟ่ อเมซอน"}
+{"href": "search.html?q=%E0%B8%8B%E0%B8%B5%E0%B9%84%E0%B8%AD%E0%B9%80%E0%B8%AD%E0%B9%87%E0%B8%A1%E0%B8%9A%E0%B8%B5%20%E0%B9%84%E0%B8%97%E0%B8%A2", "id": "brand:ซีไอเอ็มบี ไทย", "kind": "brand", "label": "ซีไอเอ็มบี ไทย"}
+{"href": "search.html?q=%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%AD%E0%B8%A2%E0%B8%B8%E0%B8%98%E0%B8%A2%E0%B8%B2", "id": "brand:ธนาคารกรุงศรีอยุธยา", "kind": "brand", "label": "ธนาคารกรุงศรีอยุธยา"}
+{"href": "search.html?q=%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E", "id": "brand:ธนาคารกรุงเทพ", "kind": "brand", "label": "ธนาคารกรุงเทพ"}
+{"href": "search.html?q=%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%84%E0%B8%97%E0%B8%A2", "id": "brand:ธนาคารกรุงไทย", "kind": "brand", "label": "ธนาคารกรุงไทย"}
+{"href": "search.html?q=%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%81%E0%B8%AA%E0%B8%B4%E0%B8%81%E0%B8%A3%E0%B9%84%E0%B8%97%E0%B8%A2", "id": "brand:ธนาคารกสิกรไทย", "kind": "brand", "label": "ธนาคารกสิกรไทย"}
+{"href": "search.html?q=%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B9%84%E0%B8%97%E0%B8%A2", "id": "brand:ธนาคารทหารไทย", "kind": "brand", "label": "ธนาคารทหารไทย"}
+{"href": "search.html?q=%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%98%E0%B8%99%E0%B8%8A%E0%B8%B2%E0%B8%95", "id": "brand:ธนาคารธนชาต", "kind": "brand", "label": "ธนาคารธนชาต"}
+{"href": "search.html?q=%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%AD%E0%B8%A1%E0%B8%AA%E0%B8%B4%E0%B8%99", "id": "brand:ธนาคารออมสิน", "kind": "brand", "label": "ธนาคารออมสิน"}
+{"href": "search.html?q=%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%87%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B2%E0%B8%B0%E0%B8%AB%E0%B9%8C", "id": "brand:ธนาคารอาคารสงเคราะห์", "kind": "brand", "label": "ธนาคารอาคารสงเคราะห์"}
+{"href": "search.html?q=%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%B4%E0%B8%AA%E0%B8%A5%E0%B8%B2%E0%B8%A1%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%97%E0%B8%A8%E0%B9%84%E0%B8%97%E0%B8%A2", "id": "brand:ธนาคารอิสลามแห่งประเทศไทย", "kind": "brand", "label": "ธนาคารอิสลามแห่งประเทศไทย"}
+{"href": "search.html?q=%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%9E%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%81%E0%B8%A9%E0%B8%95%E0%B8%A3%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%AA%E0%B8%AB%E0%B8%81%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%81%E0%B8%A9%E0%B8%95%E0%B8%A3%20%E0%B8%98.%E0%B8%81.%E0%B8%AA.", "id": "brand:ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร ธ.ก.ส.", "kind": "brand", "label": "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร ธ.ก.ส."}
+{"href": "search.html?q=%E0%B8%98%E0%B8%99%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%A3%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B8%9E%E0%B8%B2%E0%B8%93%E0%B8%B4%E0%B8%8A%E0%B8%A2%E0%B9%8C", "id": "brand:ธนาคารไทยพาณิชย์", "kind": "brand", "label": "ธนาคารไทยพาณิชย์"}
+{"href": "search.html?q=%E0%B8%9A%E0%B8%B2%E0%B8%87%E0%B8%88%E0%B8%B2%E0%B8%81", "id": "brand:บางจาก", "kind": "brand", "label": "บางจาก"}
+{"href": "search.html?q=%E0%B8%9B.%E0%B8%95.%E0%B8%97.", "id": "brand:ป.ต.ท.", "kind": "brand", "label": "ป.ต.ท."}
+{"href": "search.html?q=%E0%B8%AA%E0%B8%A2%E0%B8%B2%E0%B8%A1%E0%B9%81%E0%B8%81%E0%B9%8A%E0%B8%AA", "id": "brand:สยามแก๊ส", "kind": "brand", "label": "สยามแก๊ส"}
+{"href": "search.html?q=%E0%B9%80%E0%B8%8A%E0%B8%A5%E0%B8%A5%E0%B9%8C", "id": "brand:เชลล์", "kind": "brand", "label": "เชลล์"}
+{"href": "search.html?q=%E0%B9%80%E0%B8%A7%E0%B8%B4%E0%B8%A5%E0%B8%94%E0%B9%8C%E0%B9%81%E0%B8%81%E0%B9%8A%E0%B8%AA", "id": "brand:เวิลด์แก๊ส", "kind": "brand", "label": "เวิลด์แก๊ส"}
 {"id": "cat:beauty", "kind": "category", "label": "เสริมสวย-ทำผม · Beauty & Hair"}
 {"id": "cat:business", "kind": "category", "label": "ธุรกิจ-ค้าขาย · Doing Business"}
 {"id": "cat:community", "kind": "category", "label": "ชมรม-สมาคม · Clubs & Community"}
@@ -94,60 +94,60 @@
 {"id": "cat:transport", "kind": "category", "label": "รถ-เดินทาง · Getting Around"}
 {"id": "cat:wat", "kind": "category", "label": "วัด-สิ่งศักดิ์สิทธิ์ · Wats & Sacred Places"}
 {"id": "cat:whats-on", "kind": "category", "label": "หนัง-คอนเสิร์ต-อีเวนต์ · Movies, Concerts & Events"}
-{"id": "cuisine:american", "kind": "cuisine", "label": "american"}
-{"id": "cuisine:asian", "kind": "cuisine", "label": "asian"}
-{"id": "cuisine:bagel", "kind": "cuisine", "label": "bagel"}
-{"id": "cuisine:bakery", "kind": "cuisine", "label": "bakery"}
-{"id": "cuisine:barbecue", "kind": "cuisine", "label": "barbecue"}
-{"id": "cuisine:breakfast", "kind": "cuisine", "label": "breakfast"}
-{"id": "cuisine:bubble_tea", "kind": "cuisine", "label": "bubble_tea"}
-{"id": "cuisine:burger", "kind": "cuisine", "label": "burger"}
-{"id": "cuisine:cafe", "kind": "cuisine", "label": "cafe"}
-{"id": "cuisine:cake", "kind": "cuisine", "label": "cake"}
-{"id": "cuisine:chicken", "kind": "cuisine", "label": "chicken"}
-{"id": "cuisine:chinese", "kind": "cuisine", "label": "chinese"}
-{"id": "cuisine:coffee", "kind": "cuisine", "label": "coffee"}
-{"id": "cuisine:coffee_shop", "kind": "cuisine", "label": "coffee_shop"}
-{"id": "cuisine:crepe", "kind": "cuisine", "label": "crepe"}
-{"id": "cuisine:curry", "kind": "cuisine", "label": "curry"}
-{"id": "cuisine:dessert", "kind": "cuisine", "label": "dessert"}
-{"id": "cuisine:donut", "kind": "cuisine", "label": "donut"}
-{"id": "cuisine:european", "kind": "cuisine", "label": "european"}
-{"id": "cuisine:fish", "kind": "cuisine", "label": "fish"}
-{"id": "cuisine:fish_and_chips", "kind": "cuisine", "label": "fish_and_chips"}
-{"id": "cuisine:french", "kind": "cuisine", "label": "french"}
-{"id": "cuisine:german", "kind": "cuisine", "label": "german"}
-{"id": "cuisine:grill", "kind": "cuisine", "label": "grill"}
-{"id": "cuisine:ice_cream", "kind": "cuisine", "label": "ice_cream"}
-{"id": "cuisine:indian", "kind": "cuisine", "label": "indian"}
-{"id": "cuisine:international", "kind": "cuisine", "label": "international"}
-{"id": "cuisine:italian", "kind": "cuisine", "label": "italian"}
-{"id": "cuisine:italian_pizza", "kind": "cuisine", "label": "italian_pizza"}
-{"id": "cuisine:japanese", "kind": "cuisine", "label": "japanese"}
-{"id": "cuisine:juice", "kind": "cuisine", "label": "juice"}
-{"id": "cuisine:korean", "kind": "cuisine", "label": "korean"}
-{"id": "cuisine:local", "kind": "cuisine", "label": "local"}
-{"id": "cuisine:mediterranean", "kind": "cuisine", "label": "mediterranean"}
-{"id": "cuisine:mexican", "kind": "cuisine", "label": "mexican"}
-{"id": "cuisine:middle_eastern", "kind": "cuisine", "label": "middle_eastern"}
-{"id": "cuisine:noodle", "kind": "cuisine", "label": "noodle"}
-{"id": "cuisine:noodles", "kind": "cuisine", "label": "noodles"}
-{"id": "cuisine:pancake", "kind": "cuisine", "label": "pancake"}
-{"id": "cuisine:pasta", "kind": "cuisine", "label": "pasta"}
-{"id": "cuisine:pizza", "kind": "cuisine", "label": "pizza"}
-{"id": "cuisine:regional", "kind": "cuisine", "label": "regional"}
-{"id": "cuisine:salad", "kind": "cuisine", "label": "salad"}
-{"id": "cuisine:sandwich", "kind": "cuisine", "label": "sandwich"}
-{"id": "cuisine:seafood", "kind": "cuisine", "label": "seafood"}
-{"id": "cuisine:smoothie", "kind": "cuisine", "label": "smoothie"}
-{"id": "cuisine:spanish", "kind": "cuisine", "label": "spanish"}
-{"id": "cuisine:steak", "kind": "cuisine", "label": "steak"}
-{"id": "cuisine:steak_house", "kind": "cuisine", "label": "steak_house"}
-{"id": "cuisine:sushi", "kind": "cuisine", "label": "sushi"}
-{"id": "cuisine:tea", "kind": "cuisine", "label": "tea"}
-{"id": "cuisine:thai", "kind": "cuisine", "label": "thai"}
-{"id": "cuisine:vietnamese", "kind": "cuisine", "label": "vietnamese"}
-{"id": "cuisine:western", "kind": "cuisine", "label": "western"}
+{"href": "search.html?q=american", "id": "cuisine:american", "kind": "cuisine", "label": "american"}
+{"href": "search.html?q=asian", "id": "cuisine:asian", "kind": "cuisine", "label": "asian"}
+{"href": "search.html?q=bagel", "id": "cuisine:bagel", "kind": "cuisine", "label": "bagel"}
+{"href": "search.html?q=bakery", "id": "cuisine:bakery", "kind": "cuisine", "label": "bakery"}
+{"href": "search.html?q=barbecue", "id": "cuisine:barbecue", "kind": "cuisine", "label": "barbecue"}
+{"href": "search.html?q=breakfast", "id": "cuisine:breakfast", "kind": "cuisine", "label": "breakfast"}
+{"href": "search.html?q=bubble%20tea", "id": "cuisine:bubble_tea", "kind": "cuisine", "label": "bubble tea"}
+{"href": "search.html?q=burger", "id": "cuisine:burger", "kind": "cuisine", "label": "burger"}
+{"href": "search.html?q=cafe", "id": "cuisine:cafe", "kind": "cuisine", "label": "cafe"}
+{"href": "search.html?q=cake", "id": "cuisine:cake", "kind": "cuisine", "label": "cake"}
+{"href": "search.html?q=chicken", "id": "cuisine:chicken", "kind": "cuisine", "label": "chicken"}
+{"href": "search.html?q=chinese", "id": "cuisine:chinese", "kind": "cuisine", "label": "chinese"}
+{"href": "search.html?q=coffee", "id": "cuisine:coffee", "kind": "cuisine", "label": "coffee"}
+{"href": "search.html?q=coffee%20shop", "id": "cuisine:coffee_shop", "kind": "cuisine", "label": "coffee shop"}
+{"href": "search.html?q=crepe", "id": "cuisine:crepe", "kind": "cuisine", "label": "crepe"}
+{"href": "search.html?q=curry", "id": "cuisine:curry", "kind": "cuisine", "label": "curry"}
+{"href": "search.html?q=dessert", "id": "cuisine:dessert", "kind": "cuisine", "label": "dessert"}
+{"href": "search.html?q=donut", "id": "cuisine:donut", "kind": "cuisine", "label": "donut"}
+{"href": "search.html?q=european", "id": "cuisine:european", "kind": "cuisine", "label": "european"}
+{"href": "search.html?q=fish", "id": "cuisine:fish", "kind": "cuisine", "label": "fish"}
+{"href": "search.html?q=fish%20and%20chips", "id": "cuisine:fish_and_chips", "kind": "cuisine", "label": "fish and chips"}
+{"href": "search.html?q=french", "id": "cuisine:french", "kind": "cuisine", "label": "french"}
+{"href": "search.html?q=german", "id": "cuisine:german", "kind": "cuisine", "label": "german"}
+{"href": "search.html?q=grill", "id": "cuisine:grill", "kind": "cuisine", "label": "grill"}
+{"href": "search.html?q=ice%20cream", "id": "cuisine:ice_cream", "kind": "cuisine", "label": "ice cream"}
+{"href": "search.html?q=indian", "id": "cuisine:indian", "kind": "cuisine", "label": "indian"}
+{"href": "search.html?q=international", "id": "cuisine:international", "kind": "cuisine", "label": "international"}
+{"href": "search.html?q=italian", "id": "cuisine:italian", "kind": "cuisine", "label": "italian"}
+{"href": "search.html?q=italian%20pizza", "id": "cuisine:italian_pizza", "kind": "cuisine", "label": "italian pizza"}
+{"href": "search.html?q=japanese", "id": "cuisine:japanese", "kind": "cuisine", "label": "japanese"}
+{"href": "search.html?q=juice", "id": "cuisine:juice", "kind": "cuisine", "label": "juice"}
+{"href": "search.html?q=korean", "id": "cuisine:korean", "kind": "cuisine", "label": "korean"}
+{"href": "search.html?q=local", "id": "cuisine:local", "kind": "cuisine", "label": "local"}
+{"href": "search.html?q=mediterranean", "id": "cuisine:mediterranean", "kind": "cuisine", "label": "mediterranean"}
+{"href": "search.html?q=mexican", "id": "cuisine:mexican", "kind": "cuisine", "label": "mexican"}
+{"href": "search.html?q=middle%20eastern", "id": "cuisine:middle_eastern", "kind": "cuisine", "label": "middle eastern"}
+{"href": "search.html?q=noodle", "id": "cuisine:noodle", "kind": "cuisine", "label": "noodle"}
+{"href": "search.html?q=noodles", "id": "cuisine:noodles", "kind": "cuisine", "label": "noodles"}
+{"href": "search.html?q=pancake", "id": "cuisine:pancake", "kind": "cuisine", "label": "pancake"}
+{"href": "search.html?q=pasta", "id": "cuisine:pasta", "kind": "cuisine", "label": "pasta"}
+{"href": "search.html?q=pizza", "id": "cuisine:pizza", "kind": "cuisine", "label": "pizza"}
+{"href": "search.html?q=regional", "id": "cuisine:regional", "kind": "cuisine", "label": "regional"}
+{"href": "search.html?q=salad", "id": "cuisine:salad", "kind": "cuisine", "label": "salad"}
+{"href": "search.html?q=sandwich", "id": "cuisine:sandwich", "kind": "cuisine", "label": "sandwich"}
+{"href": "search.html?q=seafood", "id": "cuisine:seafood", "kind": "cuisine", "label": "seafood"}
+{"href": "search.html?q=smoothie", "id": "cuisine:smoothie", "kind": "cuisine", "label": "smoothie"}
+{"href": "search.html?q=spanish", "id": "cuisine:spanish", "kind": "cuisine", "label": "spanish"}
+{"href": "search.html?q=steak", "id": "cuisine:steak", "kind": "cuisine", "label": "steak"}
+{"href": "search.html?q=steak%20house", "id": "cuisine:steak_house", "kind": "cuisine", "label": "steak house"}
+{"href": "search.html?q=sushi", "id": "cuisine:sushi", "kind": "cuisine", "label": "sushi"}
+{"href": "search.html?q=tea", "id": "cuisine:tea", "kind": "cuisine", "label": "tea"}
+{"href": "search.html?q=thai", "id": "cuisine:thai", "kind": "cuisine", "label": "thai"}
+{"href": "search.html?q=vietnamese", "id": "cuisine:vietnamese", "kind": "cuisine", "label": "vietnamese"}
+{"href": "search.html?q=western", "id": "cuisine:western", "kind": "cuisine", "label": "western"}
 {"href": "festivals/akha-swing-festival.html", "id": "festival:akha-swing-festival", "kind": "festival", "label": "ประเพณีโล้ชิงช้าอาข่า (แย้ขู่อาเผ่ว) · Akha Swing Festival"}
 {"href": "festivals/asalha-bucha.html", "id": "festival:asalha-bucha", "kind": "festival", "label": "อาสาฬหบูชา · Asalha Bucha"}
 {"href": "festivals/bo-sang-umbrella.html", "id": "festival:bo-sang-umbrella", "kind": "festival", "label": "งานร่มบ่อสร้าง · Bo Sang Umbrella Festival"}
