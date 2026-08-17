@@ -165,7 +165,9 @@
           "th": "กาดหลวง (ตลาดวโรรส) เชียงใหม่",
           "en": "Warorot Market (Kad Luang), Chiang Mai",
           "note_th": "ถนนคนเดิน การแสดง และเชิดสิงโต",
-          "note_en": "Street stalls, performances and lion dances"
+          "note_en": "Street stalls, performances and lion dances",
+          "place_id": "cm-osm-way-89039067",
+          "place_matched": "exact"
         },
         {
           "th": "ตรอกเล่าโจ๊ว ย่านไชน่าทาวน์เชียงใหม่",
@@ -334,7 +336,9 @@
       "venues": [
         {
           "th": "สิงห์ปาร์ค เชียงราย",
-          "en": "Singha Park, Chiang Rai"
+          "en": "Singha Park, Chiang Rai",
+          "place_id": "cr-osm-way-325727411",
+          "place_matched": "exact"
         }
       ],
       "confidence": "general-knowledge",
@@ -413,11 +417,15 @@
       "venues": [
         {
           "th": "วัดป่าเป้า เชียงใหม่",
-          "en": "Wat Pa Pao, Chiang Mai"
+          "en": "Wat Pa Pao, Chiang Mai",
+          "place_id": "cm-osm-node-1445519696",
+          "place_matched": "exact"
         },
         {
           "th": "วัดกู่เต้า เชียงใหม่",
-          "en": "Wat Ku Tao, Chiang Mai"
+          "en": "Wat Ku Tao, Chiang Mai",
+          "place_id": "cm-osm-way-665826690",
+          "place_matched": "exact"
         },
         {
           "th": "ชุมชนไทใหญ่แถบแม่สาย เชียงราย",
@@ -467,7 +475,9 @@
           "th": "ประตูท่าแพ",
           "en": "Tha Phae Gate",
           "note_th": "เวทีหลักและจุดเล่นน้ำที่หนาแน่นที่สุด",
-          "note_en": "The main stage and the thickest of the water fight"
+          "note_en": "The main stage and the thickest of the water fight",
+          "place_id": "cm-osm-node-1017379824",
+          "place_matched": "exact"
         },
         {
           "th": "คูเมืองเชียงใหม่",
@@ -559,7 +569,9 @@
           "th": "วัดเจดีย์หลวง (หอเสาอินทขีล)",
           "en": "Wat Chedi Luang — the Sao Inthakhin shrine",
           "note_th": "ถวายขันดอกที่หอเสาอินทขีลและรอบพระวิหาร ช่วงค่ำคนแน่นที่สุด",
-          "note_en": "Flower trays are laid at the pillar shrine and around the viharn; evenings are the busiest"
+          "note_en": "Flower trays are laid at the pillar shrine and around the viharn; evenings are the busiest",
+          "place_id": "cm-osm-way-93413945",
+          "place_matched": "exact"
         }
       ],
       "cost_th": "เข้าฟรี — ขันดอก (พานดอกไม้) มีขายรอบวัดราว 20–50 บาท หรือจัดดอกไม้มาเองได้",
@@ -600,7 +612,9 @@
       "venues": [
         {
           "th": "วัดพระธาตุดอยสุเทพราชวรวิหาร",
-          "en": "Wat Phra That Doi Suthep"
+          "en": "Wat Phra That Doi Suthep",
+          "place_id": "cm-osm-node-4228028194",
+          "place_matched": "exact"
         },
         {
           "th": "เชิงดอย ทางขึ้นแถวมหาวิทยาลัยเชียงใหม่และสวนสัตว์",
@@ -1025,13 +1039,17 @@
           "th": "ประตูท่าแพ",
           "en": "Tha Phae Gate",
           "note_th": "เวทีหลัก ขบวนแห่ ซุ้มโคม และการประกวด — จุดถ่ายรูปโคมแขวนที่คึกคักที่สุด",
-          "note_en": "Main stage, parades, lantern arches and contests — the liveliest spot for the hanging-lantern displays"
+          "note_en": "Main stage, parades, lantern arches and contests — the liveliest spot for the hanging-lantern displays",
+          "place_id": "cm-osm-node-1017379824",
+          "place_matched": "exact"
         },
         {
           "th": "ข่วงอนุสาวรีย์สามกษัตริย์",
           "en": "Three Kings Monument",
           "note_th": "พิธีเปิดและการแสดงวัฒนธรรม บรรยากาศงานเมืองแบบเป็นทางการ",
-          "note_en": "Opening ceremonies and cultural performances — the formal civic side of the festival"
+          "note_en": "Opening ceremonies and cultural performances — the formal civic side of the festival",
+          "place_id": "cm-osm-node-1619287904",
+          "place_matched": "exact"
         },
         {
           "th": "ริมแม่น้ำกก เมืองเชียงราย",
@@ -1330,13 +1348,17 @@
           "th": "ประตูท่าแพ เชียงใหม่",
           "en": "Tha Phae Gate, Chiang Mai",
           "note_th": "จุดเคานต์ดาวน์และปล่อยโคมหลักของเชียงใหม่",
-          "note_en": "Chiang Mai's main countdown and lantern spot"
+          "note_en": "Chiang Mai's main countdown and lantern spot",
+          "place_id": "cm-osm-node-1017379824",
+          "place_matched": "exact"
         },
         {
           "th": "หอนาฬิกาเฉลิมพระเกียรติ เชียงราย",
           "en": "Chiang Rai clock tower",
           "note_th": "เคานต์ดาวน์รอบหอนาฬิกาพร้อมแสงสีเสียง",
-          "note_en": "Chiang Rai counts down around the clock tower with its light-and-sound show"
+          "note_en": "Chiang Rai counts down around the clock tower with its light-and-sound show",
+          "place_id": "cr-curated-clock-tower",
+          "place_matched": "tokens"
         }
       ],
       "cost_th": "เคานต์ดาวน์กลางเมืองฟรี — โคมลอยมีขายหน้างาน และใช้กติกาเขตปล่อยโคมเดียวกับยี่เป็ง",

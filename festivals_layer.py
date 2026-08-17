@@ -336,20 +336,45 @@ def instances_of(f, events):
 
 def venue_places(f, idx, g):
     """Festival venues resolved to catalogue records, so a wat page can carry
-    the festival it hosts. Reuses build.py's strict venue matcher — the same
-    rule that keeps a stranger's phone number off someone else's event."""
+    the festival it hosts.
+
+    A venue that carries a `place_id` is a lookup — settled once by
+    importers/resolve_festival_venues.py, with a person looking at the answer,
+    and it does not get re-guessed on every build. Everything else falls back
+    to build.py's strict matcher, the same rule that keeps a stranger's phone
+    number off someone else's event. Free text stays either way: a river bank
+    is a real venue and will never be a catalogue record.
+    """
+    _by_name, _entries, by_id = idx
     out, seen = [], set()
     for v in f.get("venues") or []:
+        pid = v.get("place_id")
+        if pid:
+            r = by_id.get(pid)
+            if r and r["id"] not in seen:
+                seen.add(r["id"])
+                out.append(r)
+            continue
+        # No settled id: match, but refuse to guess. The Thai and Latin
+        # spellings of one venue must land on one record; when they land on
+        # two, that venue is the one the resolver already sent to a human, and
+        # attaching both would say the Phra Buddha Sihing procession happens at
+        # a Chiang Rai temple and a Chiang Mai one on the same afternoon.
+        found = {}
         for raw in (v.get("th"), v.get("en")):
             if not raw:
                 continue
             cleaned = re.split(r"[—(/·]|,", raw)[0].strip()
             for cand in (raw, cleaned):
-                r, how = g["match_venue"](cand, idx)
-                if r and r["id"] not in seen:
-                    seen.add(r["id"])
-                    out.append(r)
+                r, _how = g["match_venue"](cand, idx)
+                if r:
+                    found[r["id"]] = r
                     break
+        if len(found) == 1:
+            r = next(iter(found.values()))
+            if r["id"] not in seen:
+                seen.add(r["id"])
+                out.append(r)
     return out
 
 
@@ -608,22 +633,44 @@ def build_festival_page(f, g, events, idx, prov_of, neighbours):
 
     if f.get("venues"):
         rows = []
+        by_id = {r["id"]: r for r in places}
         pmap = {g["name_of"](r): r for r in places}
+        located = []
         for v in f["venues"]:
             link = ""
-            for nm, r in pmap.items():
-                if nm and (nm in v.get("th", "") or nm in v.get("en", "")):
-                    pv = prov_of.get(r["id"])
-                    if pv:
-                        link = (f' — <a href="../{pv}/p/{g["place_slug"](r)}.html">'
-                                f'{bi("ดูหน้าสถานที่", "place page")}</a>')
-                    break
+            # A settled place_id is the answer. The name sweep behind it is
+            # the fallback for venues nobody has resolved yet, and it stays
+            # only for that.
+            r = by_id.get(v.get("place_id") or "")
+            if r is None:
+                for nm, cand in pmap.items():
+                    if nm and (nm in v.get("th", "") or nm in v.get("en", "")):
+                        r = cand
+                        break
+            if r is not None:
+                pv = prov_of.get(r["id"])
+                if pv:
+                    link = (f' — <a href="../{pv}/p/{g["place_slug"](r)}.html">'
+                            f'{bi("ดูหน้าสถานที่", "place page")}</a>')
+                if r.get("lat") is not None and r.get("lng") is not None:
+                    located.append({"place": {
+                        "id": r["id"], "lat": r["lat"], "lng": r["lng"],
+                        "name": g["name_text"](r)}})
             note = (f'<br><span class="tinynote">'
                     f'{bi(v["note_th"], v.get("note_en", ""))}</span>'
                     if v.get("note_th") else "")
             rows.append(f'<li>{bi(v["th"], v.get("en", ""))}{link}{note}</li>')
         parts.append(f'<h2>{bi("จัดที่ไหน", "Where it happens")}</h2>'
                      f'<ul class="venuelist">{"".join(rows)}</ul>')
+        # The drawn venue map. event_map_svg frames itself against the Chiang
+        # Mai moat, so it is only truthful for a festival gathering in Chiang
+        # Mai; a Chiang Rai venue in the same frame would stretch it across a
+        # hundred kilometres of nothing. A festival that gathers elsewhere
+        # keeps its list, which says everything the map would.
+        if located and all(prov_of.get(p["place"]["id"]) == "cm" for p in located):
+            svg = g["event_map_svg"](located)
+            if svg:
+                parts.append(f'<div class="festmap">{svg}</div>')
 
     ann = (g.get("_ANNOUNCED") or {}).get(f["id"]) or []
     if ann:
