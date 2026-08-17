@@ -12,6 +12,7 @@ Sources (all sibling repos under ~/Developer/claude code projects/):
   data/curated/story_hooks.json                    one line of history per marquee place, each with its source
   data/curated/shelves.json                        extra cat/sub for places OSM's one primary tag hid
   data/curated/merges.json                         duplicate records folded, human-confirmed pairs only
+  data/curated/wat_registry.json                   รหัสวัด + founding year + nikaya, from importers/import_wat_registry.py
 
 Output: data/canonical/cm.json, data/canonical/cr.json
 Curated/field records always win over crawled ones with the same source ref.
@@ -260,6 +261,52 @@ def apply_curated_story_hooks(records):
     return n
 
 
+def apply_wat_registry(records):
+    """The ONAB temple register, joined by importers/import_wat_registry.py.
+
+    Every wat on the shelf reached us as a name and a pin. The register holds
+    what a temple actually is on paper — its permanent รหัสวัด, the year it was
+    founded, its nikaya, its rank, its wisung-khamsima date and the ตำบล/อำเภอ
+    it stands in. That is the whole of the ancientness sort and most of the
+    by-neighbourhood grouping.
+
+    `sect` is the one field the crawl also carries, and it reads "unknown" on
+    all 588 of them, so the register fills rather than argues. Contact fields
+    fill only an empty one, as every curated source does — though the register
+    holds a phone for six temples in the country and none of them are here.
+    """
+    path = ROOT / "data" / "curated" / "wat_registry.json"
+    if not path.exists():
+        return 0
+    joined = (json.loads(path.read_text()) or {}).get("wats") or {}
+    by_id = {r["id"]: r for r in records}
+    fields = (("code", "watCode"), ("rank", "watRank"), ("sect", "sect"),
+              ("founded_be", "foundedBE"), ("founded_ce", "foundedCE"),
+              ("wisung", "wisung"), ("wisung_date", "wisungDate"),
+              ("tambon_th", "tambon"), ("amphoe_th", "amphoe"),
+              ("name_th", "watRegisterName"))
+    n = 0
+    for rid, reg in joined.items():
+        r = by_id.get(rid)
+        if not r:
+            continue
+        attrs = r.setdefault("attrs", {})
+        for src, dest in fields:
+            if reg.get(src) in (None, ""):
+                continue
+            # the crawl's placeholder is not an answer, so it does not defend
+            if attrs.get(dest) in (None, "", "unknown"):
+                attrs[dest] = reg[src]
+        for field in ("phone", "website"):
+            if reg.get(field) and not r.get(field):
+                r[field] = reg[field]
+        r.setdefault("sources", []).append(
+            {"type": "register", "ref": reg["code"], "fetched": "",
+             "via": "data/curated/wat_registry.json", "note": reg.get("matched_how", "")})
+        n += 1
+    return n
+
+
 def main():
     import import_overpass
     import import_fixtures
@@ -302,6 +349,9 @@ def main():
         shelved = apply_curated_shelves(final)
         if shelved:
             print(f"{prov}: {shelved} curated shelf addition(s) applied")
+        registered = apply_wat_registry(final)
+        if registered:
+            print(f"{prov}: {registered} wat(s) stamped from the temple register")
         final, merged = apply_curated_merges(final)
         if merged:
             print(f"{prov}: {merged} duplicate record(s) folded")

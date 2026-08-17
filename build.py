@@ -5825,6 +5825,41 @@ def known_facts(r):
         rows.append(f"<dt>{bi('ชั้น', 'Floor')}</dt><dd>"
                     + bi(f"ชั้น {lv}", f"level {lv}") + "</dd>")
 
+    # What a temple is on paper. Every wat here reached us as a name and a pin;
+    # the National Office of Buddhism register holds the year it was founded,
+    # its nikaya and its standing, under a code that never changes. The year is
+    # given in both reckonings because the register keeps พ.ศ. and the sort
+    # runs on CE.
+    if a.get("foundedCE") or a.get("foundedBE"):
+        be, ce = a.get("foundedBE"), a.get("foundedCE")
+        th = f"พ.ศ. {esc(str(be))}" if be else f"ค.ศ. {esc(str(ce))}"
+        en = f"{esc(str(ce))} CE" if ce else f"B.E. {esc(str(be))}"
+        rows.append(f"<dt>{bi('ก่อตั้ง', 'Founded')}</dt><dd>{bi(th, en)}</dd>")
+    if a.get("sect"):
+        rows.append(f"<dt>{bi('นิกาย', 'Nikaya')}</dt>"
+                    f"<dd>{esc(a['sect'])}</dd>")
+    if a.get("watRank"):
+        rows.append(f"<dt>{bi('ประเภทวัด', 'Standing')}</dt>"
+                    f"<dd>{esc(a['watRank'])}</dd>")
+    if a.get("wisung"):
+        when = a.get("wisungDate")
+        tail = f" · {esc(str(when))}" if when else ""
+        rows.append(f"<dt>{bi('วิสุงคามสีมา', 'Wisung-khamsima')}</dt>"
+                    f"<dd>{esc(a['wisung'])}{tail}</dd>")
+    if a.get("tambon") or a.get("amphoe"):
+        where = " · ".join(x for x in (
+            f"ต.{esc(a['tambon'])}" if a.get("tambon") else "",
+            f"อ.{esc(a['amphoe'])}" if a.get("amphoe") else "") if x)
+        rows.append(f"<dt>{bi('ตำบล-อำเภอ', 'Tambon and amphoe')}</dt>"
+                    f"<dd>{where}</dd>")
+    if a.get("watCode"):
+        rows.append(f"<dt>{bi('รหัสวัด', 'Temple register code')}</dt>"
+                    f'<dd>{esc(a["watCode"])} <span class="tinynote">'
+                    + bi("ทะเบียนวัด สำนักงานพระพุทธศาสนาแห่งชาติ ฉบับ พ.ศ. ๒๕๖๗",
+                         "from the National Office of Buddhism temple register, "
+                         "B.E. 2567 edition")
+                    + "</span></dd>")
+
     # The names people actually say, which until now only the mapper could see.
     also = list(a.get("altNames") or [])
     for lang, nm in sorted((a.get("namesOther") or {}).items()):

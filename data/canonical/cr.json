@@ -2197,7 +2197,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "heritage": "registered Thai historic site",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
@@ -2249,7 +2249,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570801012",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2522,
+   "foundedCE": 1979,
+   "wisung": "ได้รับ",
+   "wisungDate": "23/2/2542",
+   "tambon": "เวียง",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "พระธาตุผาเงา"
   },
   "featured": false,
   "landmark": false,
@@ -2259,6 +2268,13 @@
     "ref": "node/10542349151",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570801012",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -4227,11 +4243,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570802002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2434,
+   "foundedCE": 1891,
+   "wisung": "ได้รับ",
+   "wisungDate": "2514",
+   "tambon": "ป่าสัก",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "ปางหมอปวง"
   },
   "featured": false,
   "landmark": false,
@@ -4241,6 +4266,13 @@
     "ref": "node/11343074369",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570802002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -4990,7 +5022,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "summary": {
     "lang": "th",
@@ -5017,7 +5049,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571007004",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2353,
+   "foundedCE": 1810,
+   "wisung": "ได้รับ",
+   "wisungDate": "2529",
+   "tambon": "เจดีย์หลวง",
+   "amphoe": "แม่สรวย",
+   "watRegisterName": "เจดีย์หลวง"
   },
   "featured": false,
   "landmark": false,
@@ -5027,6 +5068,13 @@
     "ref": "node/11432117226",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571007004",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "district+exact"
    }
   ],
   "confidence": "crawled",
@@ -5127,7 +5175,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "summary": {
     "lang": "th",
@@ -5166,7 +5214,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571102007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2475,
+   "foundedCE": 1932,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "เวียง",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "ศรีคำเวียง"
   },
   "featured": false,
   "landmark": false,
@@ -5176,6 +5233,13 @@
     "ref": "node/11432552303",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571102007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -5313,11 +5377,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571104001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2460,
+   "foundedCE": 1917,
+   "wisung": "ได้รับ",
+   "wisungDate": "2481",
+   "tambon": "ป่างิ้ว",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "ป่างิ้ว"
   },
   "featured": false,
   "landmark": false,
@@ -5327,6 +5400,13 @@
     "ref": "node/11432552490",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571104001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -5388,11 +5468,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571106005",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2451,
+   "foundedCE": 1908,
+   "wisung": "ได้รับ",
+   "wisungDate": "2516",
+   "tambon": "แม่เจดีย์",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "แม่ขะจาน"
   },
   "featured": false,
   "landmark": false,
@@ -5402,6 +5491,13 @@
     "ref": "node/11432552874",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571106005",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -5623,11 +5719,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571803004",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2473,
+   "foundedCE": 1930,
+   "wisung": "ได้รับ",
+   "wisungDate": "1/3/2559",
+   "tambon": "หนองป่าก่อ",
+   "amphoe": "ดอยหลวง",
+   "watRegisterName": "หนองกล้วย"
   },
   "featured": false,
   "landmark": false,
@@ -5637,6 +5742,13 @@
     "ref": "node/11436344838",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571803004",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -5862,7 +5974,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "heritage": "registered Thai historic site",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
@@ -5904,7 +6016,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570801001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 1301,
+   "foundedCE": 758,
+   "wisung": "ได้รับ",
+   "wisungDate": "2/9/2553",
+   "tambon": "เวียง",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "พระธาตุสองพี่น้อง"
   },
   "featured": false,
   "landmark": false,
@@ -5914,6 +6035,13 @@
     "ref": "node/11442436442",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570801001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -7541,12 +7669,21 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "ธรรมยุต",
    "website": "http://www.prachaoluang.com/",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571106011",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2550,
+   "foundedCE": 2007,
+   "wisung": "ได้รับ",
+   "wisungDate": "2/9/2553",
+   "tambon": "แม่เจดีย์",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "พระเจ้าหลวง"
   },
   "featured": false,
   "landmark": false,
@@ -7556,6 +7693,13 @@
     "ref": "node/1224687597",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571106011",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -11072,11 +11216,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570104004",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2458,
+   "foundedCE": 1915,
+   "wisung": "ได้รับ",
+   "wisungDate": "2508",
+   "tambon": "นางแล",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ลำเปิง"
   },
   "featured": false,
   "landmark": false,
@@ -11086,6 +11239,13 @@
     "ref": "node/13172490327",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570104004",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -16032,11 +16192,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570304002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2215,
+   "foundedCE": 1672,
+   "wisung": "ได้รับ",
+   "wisungDate": "2509",
+   "tambon": "บุญเรือง",
+   "amphoe": "เชียงของ",
+   "watRegisterName": "บุญเรืองเหนือ"
   },
   "featured": false,
   "landmark": false,
@@ -16046,6 +16215,13 @@
     "ref": "node/2088327624",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570304002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -16324,11 +16500,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571105005",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2468,
+   "foundedCE": 1925,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "เวียงกาหลง",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "แม่ห่าง"
   },
   "featured": false,
   "landmark": false,
@@ -16338,6 +16523,13 @@
     "ref": "node/2126897570",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571105005",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -16927,7 +17119,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "heritage": "registered Thai historic site",
    "summary": {
@@ -16977,7 +17169,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571102003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2286,
+   "foundedCE": 1743,
+   "wisung": "ได้รับ",
+   "wisungDate": "2427",
+   "tambon": "เวียง",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "ศรีสุทธาวาส"
   },
   "featured": false,
   "landmark": false,
@@ -16987,6 +17188,13 @@
     "ref": "node/2136677527",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571102003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -17351,11 +17559,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571101003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2478,
+   "foundedCE": 1935,
+   "wisung": "ได้รับ",
+   "wisungDate": "9/8/2553",
+   "tambon": "สันสลี",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "โป่งเหนือ"
   },
   "featured": false,
   "landmark": false,
@@ -17365,6 +17582,13 @@
     "ref": "node/2136718421",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571101003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -17425,11 +17649,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571005003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2422,
+   "foundedCE": 1879,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "ท่าก๊อ",
+   "amphoe": "แม่สรวย",
+   "watRegisterName": "แม่ต๋ำ"
   },
   "featured": false,
   "landmark": false,
@@ -17439,6 +17672,13 @@
     "ref": "node/2136784817",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571005003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -17569,11 +17809,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571007003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2484,
+   "foundedCE": 1941,
+   "wisung": "ได้รับ",
+   "wisungDate": "17/1/2551",
+   "tambon": "เจดีย์หลวง",
+   "amphoe": "แม่สรวย",
+   "watRegisterName": "ห้วยส้ม"
   },
   "featured": false,
   "landmark": false,
@@ -17583,6 +17832,13 @@
     "ref": "node/2138298548",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571007003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -17717,11 +17973,19 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571001001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2482,
+   "foundedCE": 1939,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "แม่สรวย",
+   "amphoe": "แม่สรวย",
+   "watRegisterName": "โป่งปูเฟือง"
   },
   "featured": false,
   "landmark": false,
@@ -17731,6 +17995,13 @@
     "ref": "node/2138364962",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571001001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -17754,11 +18025,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571601010",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2476,
+   "foundedCE": 1933,
+   "wisung": "ได้รับ",
+   "wisungDate": "19/3/2550",
+   "tambon": "ดงมะดะ",
+   "amphoe": "แม่ลาว",
+   "watRegisterName": "ห้วยส้านยาว"
   },
   "featured": false,
   "landmark": false,
@@ -17768,6 +18048,13 @@
     "ref": "node/2138372000",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571601010",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -17791,11 +18078,19 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571604002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2402,
+   "foundedCE": 1859,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "ป่าก่อดำ",
+   "amphoe": "แม่ลาว",
+   "watRegisterName": "บุญเรือง"
   },
   "featured": false,
   "landmark": false,
@@ -17805,6 +18100,13 @@
     "ref": "node/2138387029",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571604002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -17960,11 +18262,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570116001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2400,
+   "foundedCE": 1857,
+   "wisung": "ได้รับ",
+   "wisungDate": "12/6/2542",
+   "tambon": "ป่าอ้อดอนชัย",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "เวียงหวาย"
   },
   "featured": false,
   "landmark": false,
@@ -17974,6 +18285,13 @@
     "ref": "node/2139485741",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570116001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -18071,11 +18389,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570111006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2477,
+   "foundedCE": 1934,
+   "wisung": "ได้รับ",
+   "wisungDate": "26/8/2559",
+   "tambon": "แม่กรณ์",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ปางกอก"
   },
   "featured": false,
   "landmark": false,
@@ -18085,6 +18412,13 @@
     "ref": "node/2139554545",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570111006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -18108,11 +18442,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570111007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2482,
+   "foundedCE": 1939,
+   "wisung": "ได้รับ",
+   "wisungDate": "2520",
+   "tambon": "แม่กรณ์",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ปางริมกรณ์"
   },
   "featured": false,
   "landmark": false,
@@ -18122,6 +18465,13 @@
     "ref": "node/2139567394",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570111007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -18180,11 +18530,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570102007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2469,
+   "foundedCE": 1926,
+   "wisung": "ได้รับ",
+   "wisungDate": "2513",
+   "tambon": "รอบเวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ศรีมิ่งแก้ว"
   },
   "featured": false,
   "landmark": false,
@@ -18194,6 +18553,13 @@
     "ref": "node/2140486922",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570102007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -21468,11 +21834,19 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570708007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2483,
+   "foundedCE": 1940,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "ป่าตึง",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "ทุ่งต่าง"
   },
   "featured": false,
   "landmark": false,
@@ -21482,6 +21856,13 @@
     "ref": "node/2148604093",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570708007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -25440,11 +25821,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570114004",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2478,
+   "foundedCE": 1935,
+   "wisung": "ได้รับ",
+   "wisungDate": "2517",
+   "tambon": "ริมกก",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "สักกวัน"
   },
   "featured": false,
   "landmark": false,
@@ -25454,6 +25844,13 @@
     "ref": "node/2148823053",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570114004",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -26195,11 +26592,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570104006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2460,
+   "foundedCE": 1917,
+   "wisung": "ได้รับ",
+   "wisungDate": "2508",
+   "tambon": "นางแล",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ห้วยพลู"
   },
   "featured": false,
   "landmark": false,
@@ -26209,6 +26615,13 @@
     "ref": "node/2153718404",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570104006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -26432,11 +26845,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570104007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2463,
+   "foundedCE": 1920,
+   "wisung": "ได้รับ",
+   "wisungDate": "2529",
+   "tambon": "นางแล",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "แม่ข้าวต้มท่าสุด"
   },
   "featured": false,
   "landmark": false,
@@ -26446,6 +26868,13 @@
     "ref": "node/2153758922",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570104007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -26543,11 +26972,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570122001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2440,
+   "foundedCE": 1897,
+   "wisung": "ได้รับ",
+   "wisungDate": "23/2/2542",
+   "tambon": "ท่าสุด",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "บ่อทอง"
   },
   "featured": false,
   "landmark": false,
@@ -26557,6 +26995,13 @@
     "ref": "node/2153792573",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570122001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -26793,11 +27238,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570704007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2473,
+   "foundedCE": 1930,
+   "wisung": "ได้รับ",
+   "wisungDate": "2529",
+   "tambon": "ป่าซาง",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "ศรียางมูล"
   },
   "featured": false,
   "landmark": false,
@@ -26807,6 +27261,13 @@
     "ref": "node/2172175853",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570704007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -26830,11 +27291,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570704004",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2441,
+   "foundedCE": 1898,
+   "wisung": "ได้รับ",
+   "wisungDate": "2492",
+   "tambon": "ป่าซาง",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "สันคือ"
   },
   "featured": false,
   "landmark": false,
@@ -26844,6 +27314,13 @@
     "ref": "node/2172194014",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570704004",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -27155,11 +27632,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571504001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2481,
+   "foundedCE": 1938,
+   "wisung": "ได้รับ",
+   "wisungDate": "27/12/2545",
+   "tambon": "แม่ฟ้าหลวง",
+   "amphoe": "แม่ฟ้าหลวง",
+   "watRegisterName": "ห้วยน้ำขุ่น"
   },
   "featured": false,
   "landmark": false,
@@ -27169,6 +27655,13 @@
     "ref": "node/2172382589",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571504001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -27413,11 +27906,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570902001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2478,
+   "foundedCE": 1935,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "ห้วยไคร้",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "ห้วยไคร้หลวง"
   },
   "featured": false,
   "landmark": false,
@@ -27427,6 +27929,13 @@
     "ref": "node/2174022716",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570902001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -28564,11 +29073,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570905002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2516,
+   "foundedCE": 1973,
+   "wisung": "ได้รับ",
+   "wisungDate": "2520",
+   "tambon": "ศรีเมืองชุม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มรรคาราม"
   },
   "featured": false,
   "landmark": false,
@@ -28578,6 +29096,13 @@
     "ref": "node/2207485393",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570905002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -28917,7 +29442,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "heritage": "registered Thai historic site",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
@@ -28947,7 +29472,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570801002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 1304,
+   "foundedCE": 761,
+   "wisung": "ได้รับ",
+   "wisungDate": "2508",
+   "tambon": "เวียง",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "ผ้าขาวป้าน"
   },
   "featured": false,
   "landmark": false,
@@ -28957,6 +29491,13 @@
     "ref": "node/2212067430",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570801002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -29141,11 +29682,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570802001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2400,
+   "foundedCE": 1857,
+   "wisung": "ได้รับ",
+   "wisungDate": "2514",
+   "tambon": "ป่าสัก",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "ป่าสักน้อย"
   },
   "featured": false,
   "landmark": false,
@@ -29155,6 +29705,13 @@
     "ref": "node/2212554069",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570802001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -31188,7 +31745,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "district": "เชียงแสน",
    "subdistrict": "เวียง",
@@ -31197,7 +31754,16 @@
     "wat"
    ],
    "postcode": "57150",
-   "addrProvince": "เชียงราย"
+   "addrProvince": "เชียงราย",
+   "watCode": "03570101007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2383,
+   "foundedCE": 1840,
+   "wisung": "ได้รับ",
+   "wisungDate": "3/12/2547",
+   "tambon": "เวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "มุงเมือง"
   },
   "featured": false,
   "landmark": false,
@@ -31207,6 +31773,13 @@
     "ref": "node/2326555960",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "register",
+    "ref": "03570101007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -31366,7 +31939,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "heritage": "registered Thai historic site",
    "description": "Buddhist temple in Chiang Saen district, Chiang Rai province, Thailand",
@@ -31408,7 +31981,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570801006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2040,
+   "foundedCE": 1497,
+   "wisung": "ได้รับ",
+   "wisungDate": "2492",
+   "tambon": "เวียง",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "ปงสนุก"
   },
   "featured": false,
   "landmark": false,
@@ -31418,6 +32000,13 @@
     "ref": "node/2326558992",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570801006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "district+exact"
    }
   ],
   "confidence": "crawled",
@@ -31610,11 +32199,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570802004",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2458,
+   "foundedCE": 1915,
+   "wisung": "ได้รับ",
+   "wisungDate": "2516",
+   "tambon": "ป่าสัก",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "ดอยจำปี"
   },
   "featured": false,
   "landmark": false,
@@ -31624,6 +32222,13 @@
     "ref": "node/2327229543",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570802004",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -32031,11 +32636,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571603003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2461,
+   "foundedCE": 1918,
+   "wisung": "ได้รับ",
+   "wisungDate": "2512",
+   "tambon": "บัวสลี",
+   "amphoe": "แม่ลาว",
+   "watRegisterName": "ศรียางชุม"
   },
   "featured": false,
   "landmark": false,
@@ -32045,6 +32659,13 @@
     "ref": "node/2337430318",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571603003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -32317,7 +32938,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "summary": {
     "lang": "th",
@@ -32344,7 +32965,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570401001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2412,
+   "foundedCE": 1869,
+   "wisung": "ได้รับ",
+   "wisungDate": "2501",
+   "tambon": "เวียง",
+   "amphoe": "เทิง",
+   "watRegisterName": "อำมาตย์"
   },
   "featured": false,
   "landmark": false,
@@ -32354,6 +32984,13 @@
     "ref": "node/2423382937",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570401001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -32377,7 +33014,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "summary": {
     "lang": "th",
@@ -32404,7 +33041,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570401003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2440,
+   "foundedCE": 1897,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "เวียง",
+   "amphoe": "เทิง",
+   "watRegisterName": "พระนาคแก้ว"
   },
   "featured": false,
   "landmark": false,
@@ -32414,6 +33060,13 @@
     "ref": "node/2423388608",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570401003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -32543,11 +33196,19 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570304007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2482,
+   "foundedCE": 1939,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "บุญเรือง",
+   "amphoe": "เชียงของ",
+   "watRegisterName": "แดนเมือง"
   },
   "featured": false,
   "landmark": false,
@@ -32557,6 +33218,13 @@
     "ref": "node/2423451993",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570304007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -32580,11 +33248,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570304005",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2386,
+   "foundedCE": 1843,
+   "wisung": "ได้รับ",
+   "wisungDate": "2514",
+   "tambon": "บุญเรือง",
+   "amphoe": "เชียงของ",
+   "watRegisterName": "ห้วยหก"
   },
   "featured": false,
   "landmark": false,
@@ -32594,6 +33271,13 @@
     "ref": "node/2423461224",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570304005",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -33057,7 +33741,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "street": "ถนนสนามบิน",
    "descriptionTh": "วัดในจังหวัดเชียงราย",
@@ -33086,7 +33770,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570102011",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2517,
+   "foundedCE": 1974,
+   "wisung": "ได้รับ",
+   "wisungDate": "2518",
+   "tambon": "รอบเวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ดอยพระบาท"
   },
   "featured": false,
   "landmark": false,
@@ -33096,6 +33789,13 @@
     "ref": "node/2539789786",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570102011",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -33460,7 +34160,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "openingHours": "Mo-Su 06:30-17:00",
    "province": "Chiang Rai",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
@@ -33542,7 +34242,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570403006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2527,
+   "foundedCE": 1984,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "ปล้อง",
+   "amphoe": "เทิง",
+   "watRegisterName": "พระธาตุจอมทอง"
   },
   "featured": false,
   "landmark": false,
@@ -33552,6 +34261,13 @@
     "ref": "node/2622028410",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570403006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -34562,12 +35278,21 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "district": "Chiang Saen",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570801012",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2522,
+   "foundedCE": 1979,
+   "wisung": "ได้รับ",
+   "wisungDate": "23/2/2542",
+   "tambon": "เวียง",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "พระธาตุผาเงา"
   },
   "featured": false,
   "landmark": false,
@@ -34577,6 +35302,13 @@
     "ref": "node/2876250409",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570801012",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -35627,11 +36359,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571001002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2221,
+   "foundedCE": 1678,
+   "wisung": "ได้รับ",
+   "wisungDate": "3/7/2535",
+   "tambon": "แม่สรวย",
+   "amphoe": "แม่สรวย",
+   "watRegisterName": "แม่สรวยหลวง"
   },
   "featured": false,
   "landmark": false,
@@ -35641,6 +36382,13 @@
     "ref": "node/3286955744",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571001002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -36969,11 +37717,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571504001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2481,
+   "foundedCE": 1938,
+   "wisung": "ได้รับ",
+   "wisungDate": "27/12/2545",
+   "tambon": "แม่ฟ้าหลวง",
+   "amphoe": "แม่ฟ้าหลวง",
+   "watRegisterName": "ห้วยน้ำขุ่น"
   },
   "featured": false,
   "landmark": false,
@@ -36983,6 +37740,13 @@
     "ref": "node/3529547962",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571504001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -38554,11 +39318,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570122003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2480,
+   "foundedCE": 1937,
+   "wisung": "ได้รับ",
+   "wisungDate": "20/9/2542",
+   "tambon": "ท่าสุด",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ถ้ำผาตอง"
   },
   "featured": false,
   "landmark": false,
@@ -38568,6 +39341,13 @@
     "ref": "node/3840465325",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570122003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -38591,7 +39371,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "heritage": "registered Thai historic site",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
@@ -38620,7 +39400,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570507002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2466,
+   "foundedCE": 1923,
+   "wisung": "ได้รับ",
+   "wisungDate": "10/4/2511",
+   "tambon": "เจริญเมือง",
+   "amphoe": "พาน",
+   "watRegisterName": "เจริญเมือง"
   },
   "featured": false,
   "landmark": false,
@@ -38630,6 +39419,13 @@
     "ref": "node/3842065883",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570507002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -43325,11 +44121,19 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570501010",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2523,
+   "foundedCE": 1980,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "สันมะเค็ด",
+   "amphoe": "พาน",
+   "watRegisterName": "ท่าเรือ"
   },
   "featured": false,
   "landmark": false,
@@ -43339,6 +44143,13 @@
     "ref": "node/4471384960",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570501010",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -43362,11 +44173,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570506009",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2470,
+   "foundedCE": 1927,
+   "wisung": "ได้รับ",
+   "wisungDate": "2509",
+   "tambon": "หัวง้ม",
+   "amphoe": "พาน",
+   "watRegisterName": "บวกปลาค้าว"
   },
   "featured": false,
   "landmark": false,
@@ -43376,6 +44196,13 @@
     "ref": "node/4471410505",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570506009",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -44297,12 +45124,21 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "openingHours": "24/7",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571003002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2468,
+   "foundedCE": 1925,
+   "wisung": "ได้รับ",
+   "wisungDate": "13/7/2552",
+   "tambon": "แม่พริก",
+   "amphoe": "แม่สรวย",
+   "watRegisterName": "หัวทุ่ง"
   },
   "featured": false,
   "landmark": false,
@@ -44312,6 +45148,13 @@
     "ref": "node/4525283585",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571003002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -44572,11 +45415,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570114007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2550,
+   "foundedCE": 2007,
+   "wisung": "ได้รับ",
+   "wisungDate": "14/8/2551",
+   "tambon": "ริมกก",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "สันตาลเหลือง"
   },
   "featured": false,
   "landmark": false,
@@ -44586,6 +45438,13 @@
     "ref": "node/4525375383",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570114007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -45147,11 +46006,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570711001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2450,
+   "foundedCE": 1907,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "ศรีค้ำ",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "สันสลีหลวง"
   },
   "featured": false,
   "landmark": false,
@@ -45161,6 +46029,13 @@
     "ref": "node/4527119258",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570711001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -45259,11 +46134,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570904002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2482,
+   "foundedCE": 1939,
+   "wisung": "ได้รับ",
+   "wisungDate": "3/12/2547",
+   "tambon": "โป่งผา",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "น้ำจำ"
   },
   "featured": false,
   "landmark": false,
@@ -45273,6 +46157,13 @@
     "ref": "node/4527145792",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570904002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -49421,7 +50312,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "phone": "0815955951",
    "website": "http://www.watdoitepnimit.net",
    "email": "watdoitepminit@gmail.com",
@@ -49430,7 +50321,16 @@
    "street": "290 หมู่ 10 ต.ป่าซาง อ.แม่จัน",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570116010",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2481,
+   "foundedCE": 1938,
+   "wisung": "ได้รับ",
+   "wisungDate": "29/5/2560",
+   "tambon": "ป่าอ้อดอนชัย",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ดงเทพนิมิต"
   },
   "featured": false,
   "landmark": false,
@@ -49440,6 +50340,13 @@
     "ref": "node/4781018423",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570116010",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -49679,11 +50586,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571107008",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2543,
+   "foundedCE": 2000,
+   "wisung": "ได้รับ",
+   "wisungDate": "20/1/2549",
+   "tambon": "แม่เจดีย์ใหม่",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "พระธาตุแม่เจดีย์"
   },
   "featured": false,
   "landmark": false,
@@ -49693,6 +50609,13 @@
     "ref": "node/4797959824",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571107008",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -52086,7 +53009,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "heritage": "registered Thai historic site",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
@@ -52138,7 +53061,15 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570801003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 1483,
+   "foundedCE": 940,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "เวียง",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "พระธาตุจอมกิตติ"
   },
   "featured": false,
   "landmark": false,
@@ -52148,6 +53079,13 @@
     "ref": "node/5245080414",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570801003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -60437,11 +61375,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570703006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2465,
+   "foundedCE": 1922,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "แม่คำ",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "ป่าเปา"
   },
   "featured": false,
   "landmark": false,
@@ -60451,6 +61398,13 @@
     "ref": "node/6375494586",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570703006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -60715,11 +61669,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570802008",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2482,
+   "foundedCE": 1939,
+   "wisung": "ได้รับ",
+   "wisungDate": "16/6/2549",
+   "tambon": "ป่าสัก",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "หนองบัวตอง"
   },
   "featured": false,
   "landmark": false,
@@ -60729,6 +61692,13 @@
     "ref": "node/6395095388",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570802008",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -60752,7 +61722,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "description": "Buddhist temple in Chiang Saen district, Chiang Rai province, Thailand",
    "descriptionTh": "วัดในอำเภอเชียงแสน จังหวัดเชียงราย",
@@ -60793,7 +61763,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570804002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2475,
+   "foundedCE": 1932,
+   "wisung": "ได้รับ",
+   "wisungDate": "2492",
+   "tambon": "ศรีดอนมูล",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "ศรีบุญยืน"
   },
   "featured": false,
   "landmark": false,
@@ -60803,6 +61782,13 @@
     "ref": "node/6395095586",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570804002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "district+exact"
    }
   ],
   "confidence": "crawled",
@@ -64455,11 +65441,19 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570704013",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2556,
+   "foundedCE": 2013,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "ป่าซาง",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "สิริพัฒนาราม"
   },
   "featured": false,
   "landmark": false,
@@ -64469,6 +65463,13 @@
     "ref": "node/6810567085",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570704013",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -66731,11 +67732,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570704006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2468,
+   "foundedCE": 1925,
+   "wisung": "ได้รับ",
+   "wisungDate": "2511",
+   "tambon": "ป่าซาง",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "แม่สลองใน"
   },
   "featured": false,
   "landmark": false,
@@ -66745,6 +67755,13 @@
     "ref": "node/7179402934",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570704006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -67533,11 +68550,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570106006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2477,
+   "foundedCE": 1934,
+   "wisung": "ได้รับ",
+   "wisungDate": "2543",
+   "tambon": "แม่ยาว",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ห้วยขม"
   },
   "featured": false,
   "landmark": false,
@@ -67547,6 +68573,13 @@
     "ref": "node/7461678288",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570106006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -72635,11 +73668,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570104011",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2555,
+   "foundedCE": 2012,
+   "wisung": "ได้รับ",
+   "wisungDate": "30/3/2558",
+   "tambon": "นางแล",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ป่าอ้อร่มเย็น"
   },
   "featured": false,
   "landmark": false,
@@ -72649,6 +73691,13 @@
     "ref": "node/9252013856",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570104011",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -75864,7 +76913,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
    "summary": {
@@ -75904,7 +76953,15 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909005",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2482,
+   "foundedCE": 1939,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "ถ้ำปลา"
   },
   "featured": false,
   "landmark": false,
@@ -75914,6 +76971,13 @@
     "ref": "relation/6666702",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909005",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -77314,13 +78378,22 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "district": "Phan",
    "subdistrict": "Sai Khao",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570510010",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2558,
+   "foundedCE": 2015,
+   "wisung": "ได้รับ",
+   "wisungDate": "13/7/2559",
+   "tambon": "ทรายขาว",
+   "amphoe": "พาน",
+   "watRegisterName": "พระธาตุดงลาน"
   },
   "featured": false,
   "landmark": false,
@@ -77330,6 +78403,13 @@
     "ref": "way/1013720356",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570510010",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -77936,7 +79016,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "heritage": "registered Thai historic site",
    "summary": {
@@ -77986,7 +79066,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570401017",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2554,
+   "foundedCE": 2011,
+   "wisung": "ได้รับ",
+   "wisungDate": "14/9/2564",
+   "tambon": "เวียง",
+   "amphoe": "เทิง",
+   "watRegisterName": "พระธาตุจอมจ้อ"
   },
   "featured": false,
   "landmark": false,
@@ -77996,6 +79085,13 @@
     "ref": "way/1015382586",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570401017",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -78019,11 +79115,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570705003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2453,
+   "foundedCE": 1910,
+   "wisung": "ได้รับ",
+   "wisungDate": "2484",
+   "tambon": "สันทราย",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "บ้านแหลว"
   },
   "featured": false,
   "landmark": false,
@@ -78033,6 +79138,13 @@
     "ref": "way/1015832659",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570705003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -80086,7 +81198,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
    "descriptionTh": "วัดในอำเภอเมืองเชียงราย จังหวัดเชียงราย",
@@ -80115,7 +81227,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570102005",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2462,
+   "foundedCE": 1919,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "รอบเวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "เชตุพน"
   },
   "featured": false,
   "landmark": false,
@@ -80125,6 +81246,13 @@
     "ref": "way/1102521888",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570102005",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "district+exact"
    }
   ],
   "confidence": "crawled",
@@ -80847,11 +81975,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570906001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2479,
+   "foundedCE": 1936,
+   "wisung": "ได้รับ",
+   "wisungDate": "2501",
+   "tambon": "เวียงพางคำ",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "พระธาตุดอยเวา"
   },
   "featured": false,
   "landmark": false,
@@ -80861,6 +81998,13 @@
     "ref": "way/1112440711",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570906001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -82826,11 +83970,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "ธรรมยุต",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570702009",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2529,
+   "foundedCE": 1986,
+   "wisung": "ได้รับ",
+   "wisungDate": "18/3/2530",
+   "tambon": "จันจว้า",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "เชื้อเจ็ดตน"
   },
   "featured": false,
   "landmark": false,
@@ -82840,6 +83993,13 @@
     "ref": "way/1230429436",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570702009",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -82863,11 +84023,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570712001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2115,
+   "foundedCE": 1572,
+   "wisung": "ได้รับ",
+   "wisungDate": "2484",
+   "tambon": "จันจว้าใต้",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "ป่าสักหลวง"
   },
   "featured": false,
   "landmark": false,
@@ -82877,6 +84046,13 @@
     "ref": "way/1230429450",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570712001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -83110,11 +84286,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571104002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2475,
+   "foundedCE": 1932,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "ป่างิ้ว",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "ร่องกู่"
   },
   "featured": false,
   "landmark": false,
@@ -83124,6 +84309,13 @@
     "ref": "way/1232475140",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571104002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -83147,11 +84339,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571105008",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2479,
+   "foundedCE": 1936,
+   "wisung": "ได้รับ",
+   "wisungDate": "19/3/2550",
+   "tambon": "เวียงกาหลง",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "สันติการาม"
   },
   "featured": false,
   "landmark": false,
@@ -83161,6 +84362,13 @@
     "ref": "way/1232475146",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571105008",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -83217,11 +84425,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571803005",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2469,
+   "foundedCE": 1926,
+   "wisung": "ได้รับ",
+   "wisungDate": "20/9/2542",
+   "tambon": "หนองป่าก่อ",
+   "amphoe": "ดอยหลวง",
+   "watRegisterName": "หนองป่าก่อ"
   },
   "featured": false,
   "landmark": false,
@@ -83231,6 +84448,13 @@
     "ref": "way/1232826836",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571803005",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -84436,11 +85660,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570107003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2453,
+   "foundedCE": 1910,
+   "wisung": "ได้รับ",
+   "wisungDate": "2478",
+   "tambon": "สันทราย",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "สันทรายหลวง"
   },
   "featured": false,
   "landmark": false,
@@ -84450,6 +85683,13 @@
     "ref": "way/1349701378",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570107003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -84473,11 +85713,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570706001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2380,
+   "foundedCE": 1837,
+   "wisung": "ได้รับ",
+   "wisungDate": "2513",
+   "tambon": "ท่าข้าวเปลือก",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "แม่ลัว"
   },
   "featured": false,
   "landmark": false,
@@ -84487,6 +85736,13 @@
     "ref": "way/1349739741",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570706001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -84648,13 +85904,22 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "district": "Mueang Chiang Rai",
    "subdistrict": "Mae Yao",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570121003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2557,
+   "foundedCE": 2014,
+   "wisung": "ได้รับ",
+   "wisungDate": "26/8/2558",
+   "tambon": "ท่าสุด",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ห้วยทรายขาว"
   },
   "featured": false,
   "landmark": false,
@@ -84664,6 +85929,13 @@
     "ref": "way/1357220353",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570121003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85098,11 +86370,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570706006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2481,
+   "foundedCE": 1938,
+   "wisung": "ได้รับ",
+   "wisungDate": "28/2/2563",
+   "tambon": "ท่าข้าวเปลือก",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "สบแพง"
   },
   "featured": false,
   "landmark": false,
@@ -85112,6 +86393,13 @@
     "ref": "way/1380456063",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570706006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85171,12 +86459,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "district": "Chiang Saen",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570801004",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 1833,
+   "foundedCE": 1290,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "เวียง",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "เจดีย์หลวง"
   },
   "featured": false,
   "landmark": false,
@@ -85186,6 +86482,13 @@
     "ref": "way/1380459596",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570801004",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "district+exact"
    }
   ],
   "confidence": "crawled",
@@ -85209,12 +86512,21 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "district": "Chiang Saen",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570801012",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2522,
+   "foundedCE": 1979,
+   "wisung": "ได้รับ",
+   "wisungDate": "23/2/2542",
+   "tambon": "เวียง",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "พระธาตุผาเงา"
   },
   "featured": false,
   "landmark": false,
@@ -85224,6 +86536,13 @@
     "ref": "way/1381549719",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570801012",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85247,11 +86566,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570401002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2436,
+   "foundedCE": 1893,
+   "wisung": "ได้รับ",
+   "wisungDate": "2471",
+   "tambon": "เวียง",
+   "amphoe": "เทิง",
+   "watRegisterName": "พระเกิดคงคาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85261,6 +86589,13 @@
     "ref": "way/1381555098",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570401002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -85358,11 +86693,19 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570512010",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2560,
+   "foundedCE": 2017,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "แม่เย็น",
+   "amphoe": "พาน",
+   "watRegisterName": "อิงดอย"
   },
   "featured": false,
   "landmark": false,
@@ -85372,6 +86715,13 @@
     "ref": "way/1417670947",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570512010",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85395,7 +86745,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "district": "Phan",
    "subdistrict": "Mueang Phan,",
@@ -85466,7 +86816,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570513001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2119,
+   "foundedCE": 1576,
+   "wisung": "ได้รับ",
+   "wisungDate": "2503",
+   "tambon": "เมืองพาน",
+   "amphoe": "พาน",
+   "watRegisterName": "พระธาตุจอมแว่"
   },
   "featured": false,
   "landmark": false,
@@ -85476,6 +86835,13 @@
     "ref": "way/1417671849",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570513001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85499,11 +86865,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85513,6 +86888,13 @@
     "ref": "way/1428020845",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85536,11 +86918,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85550,6 +86941,13 @@
     "ref": "way/1428020846",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85573,11 +86971,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85587,6 +86994,13 @@
     "ref": "way/1428020847",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85610,11 +87024,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85624,6 +87047,13 @@
     "ref": "way/1428020848",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85647,11 +87077,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85661,6 +87100,13 @@
     "ref": "way/1428020849",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85684,11 +87130,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85698,6 +87153,13 @@
     "ref": "way/1428020850",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85721,11 +87183,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85735,6 +87206,13 @@
     "ref": "way/1428020851",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85758,11 +87236,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85772,6 +87259,13 @@
     "ref": "way/1428020852",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85795,11 +87289,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85809,6 +87312,13 @@
     "ref": "way/1428020853",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85832,11 +87342,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85846,6 +87365,13 @@
     "ref": "way/1428020854",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85869,11 +87395,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85883,6 +87418,13 @@
     "ref": "way/1428020855",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85906,11 +87448,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85920,6 +87471,13 @@
     "ref": "way/1428020856",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85943,11 +87501,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85957,6 +87524,13 @@
     "ref": "way/1428020857",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -85980,11 +87554,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -85994,6 +87577,13 @@
     "ref": "way/1428020858",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -86017,11 +87607,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -86031,6 +87630,13 @@
     "ref": "way/1428020859",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -86054,11 +87660,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570909006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2544,
+   "foundedCE": 2001,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/9/2546",
+   "tambon": "โป่งงาม",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "มงคลธรรมกายาราม"
   },
   "featured": false,
   "landmark": false,
@@ -86068,6 +87683,13 @@
     "ref": "way/1428020860",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570909006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -87386,11 +89008,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571603004",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2460,
+   "foundedCE": 1917,
+   "wisung": "ได้รับ",
+   "wisungDate": "2516",
+   "tambon": "บัวสลี",
+   "amphoe": "แม่ลาว",
+   "watRegisterName": "ศรีวังมูล"
   },
   "featured": false,
   "landmark": false,
@@ -87400,6 +89031,13 @@
     "ref": "way/1493014289",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571603004",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -89242,11 +90880,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570902008",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2452,
+   "foundedCE": 1909,
+   "wisung": "ได้รับ",
+   "wisungDate": "2508",
+   "tambon": "ห้วยไคร้",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "พระธาตุดอยตุง"
   },
   "featured": false,
   "landmark": false,
@@ -89256,6 +90903,13 @@
     "ref": "way/222735521",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570902008",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -89576,11 +91230,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571107001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2431,
+   "foundedCE": 1888,
+   "wisung": "ได้รับ",
+   "wisungDate": "5/6/2552",
+   "tambon": "แม่เจดีย์ใหม่",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "โป่งน้ำร้อน"
   },
   "featured": false,
   "landmark": false,
@@ -89590,6 +91253,13 @@
     "ref": "way/251477455",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571107001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -89723,7 +91393,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
    "descriptionTh": "วัดในอำเภอเมืองเชียงราย จังหวัดเชียงราย",
@@ -89752,7 +91422,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570101006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 1983,
+   "foundedCE": 1440,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "เวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ศรีเกิด"
   },
   "featured": false,
   "landmark": false,
@@ -89762,6 +91441,13 @@
     "ref": "way/256549557",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570101006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "district+exact"
    }
   ],
   "confidence": "crawled",
@@ -90073,11 +91759,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571201002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2464,
+   "foundedCE": 1921,
+   "wisung": "ได้รับ",
+   "wisungDate": "2478",
+   "tambon": "แม่เปา",
+   "amphoe": "พญาเม็งราย",
+   "watRegisterName": "สบเปา"
   },
   "featured": false,
   "landmark": false,
@@ -90087,6 +91782,13 @@
     "ref": "way/278616379",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571201002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -90660,14 +92362,23 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "district": "อำเภอเวียงแก่น",
    "subdistrict": "ตำบลม่วงยาย",
    "street": "122",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570410007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2442,
+   "foundedCE": 1899,
+   "wisung": "ได้รับ",
+   "wisungDate": "31/10/2548",
+   "tambon": "หงาว",
+   "amphoe": "เทิง",
+   "watRegisterName": "ม่วงแก้ว"
   },
   "featured": false,
   "landmark": false,
@@ -90677,6 +92388,13 @@
     "ref": "way/297707196",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570410007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -91699,7 +93417,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "openingHours": "06:00-18:00",
    "province": "Chiang Rai",
    "description": "Buddhist Site in Chiang Rai, Thailand",
@@ -91729,7 +93447,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570101008",
+   "watRank": "พระอารามหลวง",
+   "foundedBE": 2383,
+   "foundedCE": 1840,
+   "wisung": "ได้รับ",
+   "wisungDate": "27/9/2481",
+   "tambon": "เวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "เจ็ดยอด"
   },
   "featured": false,
   "landmark": false,
@@ -91739,6 +93466,13 @@
     "ref": "way/330739409",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570101008",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -91950,11 +93684,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571107008",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2543,
+   "foundedCE": 2000,
+   "wisung": "ได้รับ",
+   "wisungDate": "20/1/2549",
+   "tambon": "แม่เจดีย์ใหม่",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "พระธาตุแม่เจดีย์"
   },
   "featured": false,
   "landmark": false,
@@ -91964,6 +93707,13 @@
     "ref": "way/346686210",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571107008",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -92022,7 +93772,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "summary": {
     "lang": "th",
@@ -92049,7 +93799,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570906005",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2526,
+   "foundedCE": 1983,
+   "wisung": "ได้รับ",
+   "wisungDate": "2526",
+   "tambon": "เวียงพางคำ",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "ถ้ำผาจม"
   },
   "featured": false,
   "landmark": false,
@@ -92059,6 +93818,13 @@
     "ref": "way/369030754",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570906005",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -92291,11 +94057,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570904001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2460,
+   "foundedCE": 1917,
+   "wisung": "ได้รับ",
+   "wisungDate": "22/10/2513",
+   "tambon": "โป่งผา",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "บ้านจ้อง"
   },
   "featured": false,
   "landmark": false,
@@ -92305,6 +94080,13 @@
     "ref": "way/372608929",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570904001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -92442,11 +94224,19 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570906006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2526,
+   "foundedCE": 1983,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "เวียงพางคำ",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "พญาสี่ตวงคำ"
   },
   "featured": false,
   "landmark": false,
@@ -92456,6 +94246,13 @@
     "ref": "way/372704767",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570906006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -92479,7 +94276,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "summary": {
     "lang": "th",
@@ -92506,7 +94303,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570906003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2514,
+   "foundedCE": 1971,
+   "wisung": "ได้รับ",
+   "wisungDate": "2514",
+   "tambon": "เวียงพางคำ",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "พรหมวิหาร"
   },
   "featured": false,
   "landmark": false,
@@ -92516,6 +94322,13 @@
     "ref": "way/372716639",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570906003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -93269,11 +95082,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570901002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2469,
+   "foundedCE": 1926,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "แม่สาย",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "เหมืองแดง"
   },
   "featured": false,
   "landmark": false,
@@ -93283,6 +95105,13 @@
     "ref": "way/375664608",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570901002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -93306,11 +95135,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570906002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2457,
+   "foundedCE": 1914,
+   "wisung": "ได้รับ",
+   "wisungDate": "2522",
+   "tambon": "เวียงพางคำ",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "เวียงพาน"
   },
   "featured": false,
   "landmark": false,
@@ -93320,6 +95158,13 @@
     "ref": "way/375707979",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570906002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -93376,11 +95221,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570906007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2482,
+   "foundedCE": 1939,
+   "wisung": "ได้รับ",
+   "wisungDate": "18/12/2557",
+   "tambon": "เวียงพางคำ",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "ผาแตก"
   },
   "featured": false,
   "landmark": false,
@@ -93390,6 +95244,13 @@
     "ref": "way/376045443",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570906007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -93658,7 +95519,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
    "descriptionTh": "วัดในอำเภอเมืองเชียงราย จังหวัดเชียงราย",
@@ -93687,7 +95548,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570102002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2431,
+   "foundedCE": 1888,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "รอบเวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ศรีทรายมูล"
   },
   "featured": false,
   "landmark": false,
@@ -93697,6 +95567,13 @@
     "ref": "way/376649472",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570102002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "district+exact"
    }
   ],
   "confidence": "crawled",
@@ -94719,7 +96596,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "district": "Mueng Chiang Rai",
    "subdistrict": "Wiang",
@@ -94782,7 +96659,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570101011",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2420,
+   "foundedCE": 1877,
+   "wisung": "ได้รับ",
+   "wisungDate": "2513",
+   "tambon": "เวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "มิ่งเมือง"
   },
   "featured": false,
   "landmark": false,
@@ -94792,6 +96678,13 @@
     "ref": "way/387050904",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570101011",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -95536,11 +97429,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570902002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2480,
+   "foundedCE": 1937,
+   "wisung": "ได้รับ",
+   "wisungDate": "2513",
+   "tambon": "ห้วยไคร้",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "ห้วยไคร้ใหม่"
   },
   "featured": false,
   "landmark": false,
@@ -95550,6 +97452,13 @@
     "ref": "way/417036549",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570902002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -95943,11 +97852,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570713002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2460,
+   "foundedCE": 1917,
+   "wisung": "ได้รับ",
+   "wisungDate": "2484",
+   "tambon": "จอมสวรรค์",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "แม่สรวย"
   },
   "featured": false,
   "landmark": false,
@@ -95957,6 +97875,13 @@
     "ref": "way/449290469",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570713002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -96279,11 +98204,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570114008",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2552,
+   "foundedCE": 2009,
+   "wisung": "ได้รับ",
+   "wisungDate": "26/1/2561",
+   "tambon": "ริมกก",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ห้วยปลากั้ง"
   },
   "featured": false,
   "landmark": false,
@@ -96293,6 +98227,13 @@
     "ref": "way/458238257",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570114008",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -96316,7 +98257,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "description": "Buddhist temple in Chiang Rai, Thailand",
    "descriptionTh": "วัดในจังหวัดเชียงราย",
@@ -96408,7 +98349,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570114010",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2558,
+   "foundedCE": 2015,
+   "wisung": "ได้รับ",
+   "wisungDate": "9/9/2559",
+   "tambon": "ริมกก",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ร่องเสือเต้น"
   },
   "featured": false,
   "landmark": false,
@@ -96418,6 +98368,13 @@
     "ref": "way/458258686",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570114010",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -96474,7 +98431,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "summary": {
     "lang": "th",
@@ -96501,7 +98458,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570101009",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2392,
+   "foundedCE": 1849,
+   "wisung": "ได้รับ",
+   "wisungDate": "14/9/2564",
+   "tambon": "รอบเวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "เชตวัน"
   },
   "featured": false,
   "landmark": false,
@@ -96511,6 +98477,13 @@
     "ref": "way/459093664",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570101009",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -97070,11 +99043,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571601001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2410,
+   "foundedCE": 1867,
+   "wisung": "ได้รับ",
+   "wisungDate": "2474",
+   "tambon": "ดงมะดะ",
+   "amphoe": "แม่ลาว",
+   "watRegisterName": "ดงมะดะ"
   },
   "featured": false,
   "landmark": false,
@@ -97084,6 +99066,13 @@
     "ref": "way/486091457",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571601001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -97264,7 +99253,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "heritage": "registered Thai historic site",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
@@ -97306,7 +99295,15 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570101002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 1861,
+   "foundedCE": 1318,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "เวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ดอยงำเมือง"
   },
   "featured": false,
   "landmark": false,
@@ -97322,6 +99319,13 @@
     "ref": "https://th.wikipedia.org/wiki/วัดดอยงำเมือง",
     "fetched": "2026-08-08",
     "via": "data/curated/story_hooks.json"
+   },
+   {
+    "type": "register",
+    "ref": "03570101002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -97678,11 +99682,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570202004",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2472,
+   "foundedCE": 1929,
+   "wisung": "ได้รับ",
+   "wisungDate": "2494",
+   "tambon": "เวียงชัย",
+   "amphoe": "เวียงชัย",
+   "watRegisterName": "ราษฎร์ชุมพล"
   },
   "featured": false,
   "landmark": false,
@@ -97692,6 +99705,13 @@
     "ref": "way/501089485",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570202004",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -97785,11 +99805,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570202003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2480,
+   "foundedCE": 1937,
+   "wisung": "ได้รับ",
+   "wisungDate": "2508",
+   "tambon": "เวียงชัย",
+   "amphoe": "เวียงชัย",
+   "watRegisterName": "ไชยนารายณ์"
   },
   "featured": false,
   "landmark": false,
@@ -97799,6 +99828,13 @@
     "ref": "way/501699876",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570202003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -98090,7 +100126,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "founded": "1489",
    "heritage": "registered Thai historic site",
@@ -98193,7 +100229,15 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570801005",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2032,
+   "foundedCE": 1489,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "เวียง",
+   "amphoe": "เชียงแสน",
+   "watRegisterName": "พระเจ้าล้านทอง"
   },
   "featured": false,
   "landmark": false,
@@ -98203,6 +100247,13 @@
     "ref": "way/527542325",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570801005",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -98911,11 +100962,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570404001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2395,
+   "foundedCE": 1852,
+   "wisung": "ได้รับ",
+   "wisungDate": "2516",
+   "tambon": "แม่ลอย",
+   "amphoe": "เทิง",
+   "watRegisterName": "เกี๋ยงดอย"
   },
   "featured": false,
   "landmark": false,
@@ -98925,6 +100985,13 @@
     "ref": "way/541260056",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570404001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -99053,11 +101120,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570706007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2460,
+   "foundedCE": 1917,
+   "wisung": "ได้รับ",
+   "wisungDate": "29/5/2560",
+   "tambon": "ท่าข้าวเปลือก",
+   "amphoe": "แม่จัน",
+   "watRegisterName": "แม่ลาก"
   },
   "featured": false,
   "landmark": false,
@@ -99067,6 +101143,13 @@
     "ref": "way/542424780",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570706007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -99996,7 +102079,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "heritage": "registered Thai historic site",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
@@ -100048,7 +102131,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570906001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2479,
+   "foundedCE": 1936,
+   "wisung": "ได้รับ",
+   "wisungDate": "2501",
+   "tambon": "เวียงพางคำ",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "พระธาตุดอยเวา"
   },
   "featured": false,
   "landmark": false,
@@ -100058,6 +102150,13 @@
     "ref": "way/544168721",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570906001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -100394,11 +102493,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570308006",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2479,
+   "foundedCE": 1936,
+   "wisung": "ได้รับ",
+   "wisungDate": "7/5/2557",
+   "tambon": "ศรีดอนชัย",
+   "amphoe": "เชียงของ",
+   "watRegisterName": "ดงหลวง"
   },
   "featured": false,
   "landmark": false,
@@ -100408,6 +102516,13 @@
     "ref": "way/547154799",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570308006",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -100431,13 +102546,22 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "district": "Mae Sai",
    "subdistrict": "Huai Khrai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570902008",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2452,
+   "foundedCE": 1909,
+   "wisung": "ได้รับ",
+   "wisungDate": "2508",
+   "tambon": "ห้วยไคร้",
+   "amphoe": "แม่สาย",
+   "watRegisterName": "พระธาตุดอยตุง"
   },
   "featured": false,
   "landmark": false,
@@ -100447,6 +102571,13 @@
     "ref": "way/547707053",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570902008",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+fuzzy"
    }
   ],
   "confidence": "crawled",
@@ -100723,11 +102854,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570403003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2428,
+   "foundedCE": 1885,
+   "wisung": "ได้รับ",
+   "wisungDate": "14/2/2537",
+   "tambon": "ปล้อง",
+   "amphoe": "เทิง",
+   "watRegisterName": "ดอนแท่น"
   },
   "featured": false,
   "landmark": false,
@@ -100737,6 +102877,13 @@
     "ref": "way/548642796",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570403003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -100795,11 +102942,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571403001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2391,
+   "foundedCE": 1848,
+   "wisung": "ได้รับ",
+   "wisungDate": "7/2/2532",
+   "tambon": "ยางฮอม",
+   "amphoe": "ขุนตาล",
+   "watRegisterName": "ชมภู"
   },
   "featured": false,
   "landmark": false,
@@ -100809,6 +102965,13 @@
     "ref": "way/548919694",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571403001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -100906,11 +103069,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570404004",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2417,
+   "foundedCE": 1874,
+   "wisung": "ได้รับ",
+   "wisungDate": "3/10/2543",
+   "tambon": "แม่ลอย",
+   "amphoe": "เทิง",
+   "watRegisterName": "หนองข่วง"
   },
   "featured": false,
   "landmark": false,
@@ -100920,6 +103092,13 @@
     "ref": "way/549069742",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570404004",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -101195,11 +103374,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571107002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2439,
+   "foundedCE": 1896,
+   "wisung": "ได้รับ",
+   "wisungDate": "2529",
+   "tambon": "แม่เจดีย์ใหม่",
+   "amphoe": "เวียงป่าเป้า",
+   "watRegisterName": "แม่เจดีย์"
   },
   "featured": false,
   "landmark": false,
@@ -101209,6 +103397,13 @@
     "ref": "way/551176156",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571107002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -101884,7 +104079,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
    "descriptionTh": "วัดในจังหวัดเชียงราย",
@@ -101913,7 +104108,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570107002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2453,
+   "foundedCE": 1910,
+   "wisung": "ได้รับ",
+   "wisungDate": "2508",
+   "tambon": "สันทราย",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "โป่งสลี"
   },
   "featured": false,
   "landmark": false,
@@ -101923,6 +104127,13 @@
     "ref": "way/558431983",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570107002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -102064,11 +104275,19 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03571005011",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2554,
+   "foundedCE": 2011,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "ท่าก๊อ",
+   "amphoe": "แม่สรวย",
+   "watRegisterName": "พระธาตุสันป่าเหียง"
   },
   "featured": false,
   "landmark": false,
@@ -102078,6 +104297,13 @@
     "ref": "way/558747343",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03571005011",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -102326,7 +104552,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "description": "Buddhist temple in Chiang Rai",
    "descriptionTh": "วัดในจังหวัดเชียงราย",
@@ -102367,7 +104593,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570103002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2439,
+   "foundedCE": 1896,
+   "wisung": "ได้รับ",
+   "wisungDate": "2/9/2553",
+   "tambon": "บ้านดู่",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ขัวแคร่"
   },
   "featured": false,
   "landmark": false,
@@ -102377,6 +104612,13 @@
     "ref": "way/584176181",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570103002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -103160,11 +105402,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570104002",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2445,
+   "foundedCE": 1902,
+   "wisung": "ได้รับ",
+   "wisungDate": "2478",
+   "tambon": "นางแล",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "นางแล"
   },
   "featured": false,
   "landmark": false,
@@ -103174,6 +105425,13 @@
     "ref": "way/641234926",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570104002",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -103421,11 +105679,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570111001",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2399,
+   "foundedCE": 1856,
+   "wisung": "ได้รับ",
+   "wisungDate": "2499",
+   "tambon": "แม่กรณ์",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ท่าไคร้"
   },
   "featured": false,
   "landmark": false,
@@ -103435,6 +105702,13 @@
     "ref": "way/643002935",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570111001",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -103604,11 +105878,20 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570111003",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2450,
+   "foundedCE": 1907,
+   "wisung": "ได้รับ",
+   "wisungDate": "2481",
+   "tambon": "แม่กรณ์",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "ปางสนุก"
   },
   "featured": false,
   "landmark": false,
@@ -103618,6 +105901,13 @@
     "ref": "way/643045858",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570111003",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -105365,7 +107655,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "summary": {
     "lang": "th",
@@ -105392,7 +107682,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570103007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2517,
+   "foundedCE": 1974,
+   "wisung": "ได้รับ",
+   "wisungDate": "2519",
+   "tambon": "บ้านดู่",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "พระธาตุจอมสัก"
   },
   "featured": false,
   "landmark": false,
@@ -105402,6 +107701,13 @@
     "ref": "way/711075295",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570103007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -105462,7 +107768,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "phone": "+6653711735",
    "province": "Chiang Rai",
    "street": "ถนน สิงหไคล",
@@ -105667,7 +107973,15 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570101005",
+   "watRank": "พระอารามหลวง",
+   "foundedBE": 1928,
+   "foundedCE": 1385,
+   "wisung": "ไม่ได้รับ",
+   "tambon": "เวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "พระสิงห์"
   },
   "featured": false,
   "landmark": false,
@@ -105677,6 +107991,13 @@
     "ref": "way/712045323",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570101005",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -108639,7 +110960,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "district": "Mueang Chiang Rai",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
@@ -108669,7 +110990,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570101007",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2383,
+   "foundedCE": 1840,
+   "wisung": "ได้รับ",
+   "wisungDate": "3/12/2547",
+   "tambon": "เวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "มุงเมือง"
   },
   "featured": false,
   "landmark": false,
@@ -108679,6 +111009,13 @@
     "ref": "way/959660479",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570101007",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "province+exact"
    }
   ],
   "confidence": "crawled",
@@ -108768,7 +111105,7 @@
   "hours": null,
   "attrs": {
    "status": "active",
-   "sect": "unknown",
+   "sect": "มหานิกาย",
    "province": "Chiang Rai",
    "description": "Buddhist temple in Chiang Rai province, Thailand",
    "summary": {
@@ -108796,7 +111133,16 @@
    },
    "lens": [
     "wat"
-   ]
+   ],
+   "watCode": "03570101012",
+   "watRank": "วัดราษฎร์",
+   "foundedBE": 2422,
+   "foundedCE": 1879,
+   "wisung": "ได้รับ",
+   "wisungDate": "2489",
+   "tambon": "เวียง",
+   "amphoe": "เมืองเชียงราย",
+   "watRegisterName": "เชียงยืน"
   },
   "featured": false,
   "landmark": false,
@@ -108806,6 +111152,13 @@
     "ref": "way/959698698",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "register",
+    "ref": "03570101012",
+    "fetched": "",
+    "via": "data/curated/wat_registry.json",
+    "note": "district+exact"
    }
   ],
   "confidence": "crawled",

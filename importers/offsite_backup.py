@@ -53,14 +53,44 @@ def sh(args, env=None, **kw):
     return subprocess.run(args, capture_output=True, text=True, env=env, **kw)
 
 
+# Repositories that must never leave this machine, whoever is asking and
+# however private the destination. Medical and court material: the standing
+# rule is LOCAL ONLY, and "her own bucket" is not an exemption from it.
+#
+# This list exists because the first --all run swept every .git directory it
+# could find and shipped tel (seizure telemetry), khwan (the posterity vault)
+# and michael-go-court off the laptop. They were purged, but a denylist alone
+# is a promise; the origin test below is the structure.
+NEVER_LEAVES = {"tel", "khwan", "michael-go-court", "corpus"}
+NEVER_SUBSTRINGS = ("legal", "court", "medical", "seizure")
+
+
+def local_only(d):
+    n = d.name.lower()
+    if n in NEVER_LEAVES or any(k in n for k in NEVER_SUBSTRINGS):
+        return "named local-only"
+    # A repo somebody deliberately never gave a remote is a repo that was
+    # never meant to travel. The point of this script is to replace the
+    # offsite copy GitHub used to hold — so a repo that never had one is out
+    # of scope, and opting it in is her decision, not a default.
+    r = sh(["git", "-C", str(d), "remote", "get-url", "origin"]).stdout.strip()
+    if not r:
+        return "no remote — never left this machine"
+    return None
+
+
 def repos(all_of_them):
     if not all_of_them:
         return [ROOT]
-    out = []
+    out, skipped = [], []
     for d in sorted(FLEET.iterdir()):
-        if (d / ".git").is_dir():
-            out.append(d)
-    return out
+        if not (d / ".git").is_dir():
+            continue
+        why = local_only(d)
+        (skipped if why else out).append((d, why))
+    for d, why in skipped:
+        print(f"  {d.name:28} skipped — {why}")
+    return [d for d, _ in out]
 
 
 def bundle_one(repo, env, today, check):
