@@ -4901,6 +4901,12 @@ def place_map(r, depth=2):
         lx, ly, right, bb = slot
         taken.append(bb)
         nbs.append('<g data-mdpin="%.0f,%.0f">' % (nx, ny))
+        # A neighbour on the map is a place with a page. It was drawn as ink
+        # and read as decoration; every dot here is now the door it always
+        # was. The link wraps the dot, the leader and the name together, so
+        # the whole mark is the target rather than eleven pixels of text.
+        nbs.append('<a href="%s%s/p/%s.html">' % (
+            "../" * depth, nb.get("province") or r.get("province"), place_slug(nb)))
         # The leader only appears when the name had to move; a dot with its
         # own name beside it needs no line drawn to itself.
         if math.hypot(lx - nx, ly - ny) > 10:
@@ -4915,6 +4921,7 @@ def place_map(r, depth=2):
         nbs.append('<text x="%.0f" y="%.0f"%s>%s</text>'
                    % (lx + (7 if right else -7), ly + 3.5,
                       "" if right else ' text-anchor="end"', esc(nm)))
+        nbs.append('</a>')
         nbs.append('</g>')
 
     if len(nbs) > 1:
@@ -6787,6 +6794,15 @@ WEATHER_DATE = _WX.get("generated", "")
 _wl_path = ROOT / "data" / "wichaa_links.json"
 _WL = json.loads(_wl_path.read_text()) if _wl_path.exists() else {}
 WICHAA_LINKS = _WL.get("links", {})
+# The file was generated against the Cloudflare Pages host. wichaa.net serves
+# the same paths and is the name the archive goes by, so that is the one this
+# site sends readers to — a staging subdomain published across 523 pages is
+# the kind of exposure that had to be cleaned up once already. Normalised on
+# the way in so every consumer gets it right; link_wichaa.py should record
+# wichaa.net at source.
+for _wl in WICHAA_LINKS.values():
+    if isinstance(_wl, dict) and _wl.get("url", "").startswith("https://wichaa.pages.dev"):
+        _wl["url"] = _wl["url"].replace("https://wichaa.pages.dev", "https://wichaa.net")
 
 _air_path = ROOT / "data" / "air.json"
 _AIR = json.loads(_air_path.read_text()) if _air_path.exists() else {}
@@ -12350,6 +12366,8 @@ def build():
     build_festivals_page()
     import festivals_layer  # a page per festival, the year wheel, festivals.ics
     print("  festivals:", festivals_layer.emit(globals(), EVENTS, data))
+    import graph_layer
+    print("  graph:", graph_layer.emit(globals(), data))
 
     # ---- events.html + the free listing route -----------------------------
     build_events_page(EVENTS)
