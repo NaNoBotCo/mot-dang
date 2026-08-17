@@ -2828,6 +2828,49 @@ const rw=li=>parseInt(li.dataset.royal||'0',10);
 reorder(document.getElementById('sort-royal'),(a,b)=>rw(b)-rw(a)||nm(a,b));
 reorder(document.getElementById('sort-hon'),
 (a,b)=>(parseInt(b.dataset.hon||'0',10)-parseInt(a.dataset.hon||'0',10))||rk(b)-rk(a)||nm(a,b));
+// ---- ancient first ---------------------------------------------------
+// The founding years the temple register gave us. A place with no year is not
+// young — it is undated, so it keeps its alphabetical place BELOW the dated
+// ones rather than being sorted as though it were founded in year zero.
+// Temples are never ranked against each other here: this is a date, and the
+// page says so.
+const yr=li=>{const v=parseInt(li.dataset.founded||'',10);return isNaN(v)?null:v;};
+reorder(document.getElementById('sort-age'),(a,b)=>{const x=yr(a),y=yr(b);
+if(x===null&&y===null)return nm(a,b);if(x===null)return 1;if(y===null)return -1;
+return x-y||nm(a,b);});
+// ---- by neighbourhood ------------------------------------------------
+// The road graph already knows which places share a road. Grouped under it,
+// a shelf of four thousand names becomes a walk down one soi at a time. The
+// heading links to that road's own page; places the graph never reached keep
+// their names and gather under one plain heading at the end, because "we do
+// not know which road this is on" is a fact and not a failure.
+const areaBtn=document.getElementById('group-area');
+areaBtn&&areaBtn.addEventListener('click',()=>{
+dirList.querySelectorAll('li.areahead').forEach(h=>h.remove());
+const groups=new Map();
+for(const li of items){const a=li.dataset.area||'';
+if(!groups.has(a))groups.set(a,[]);groups.get(a).push(li);}
+const named=[...groups.entries()].filter(([a])=>a).sort((x,y)=>y[1].length-x[1].length);
+const rest=groups.get('')||[];
+for(const [area,list] of named){const h=document.createElement('li');
+h.className='shelf areahead';const slug=list[0].dataset.areaHref;
+// A listing page always sits one level under its province, and the soi pages
+// are its sibling directory — the same relative step the row links already use.
+h.innerHTML=(slug?`<a href="../soi/${slug}.html">${area}</a>`:area)+
+` <span class="count">${list.length}</span>`;
+dirList.appendChild(h);
+list.sort(nm).forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appendChild(li);});}
+if(rest.length){const h=document.createElement('li');h.className='shelf areahead';
+h.innerHTML=mdBi('ยังไม่รู้ว่าอยู่ถนนไหน','road not known yet')+
+` <span class="count">${rest.length}</span>`;
+dirList.appendChild(h);
+rest.sort(nm).forEach(li=>dirList.appendChild(li));}
+dirList.classList.remove('ranked');
+btns.forEach(x=>x&&x.classList.remove('on'));areaBtn.classList.add('on');});
+// Any other sort clears the neighbourhood headings, or they would sit above
+// rows that no longer belong to them.
+btns.forEach(b=>b&&b!==areaBtn&&b.addEventListener('click',()=>{
+dirList.querySelectorAll('li.areahead').forEach(h=>h.remove());}));
 reorder(document.getElementById('sort-fresh'),
 (a,b)=>(b.dataset.upd||'').localeCompare(a.dataset.upd||'')||rk(b)-rk(a)||nm(a,b));
 // ---- facet chips: keep only rows that have ALL the picked things ------
@@ -5292,6 +5335,21 @@ def entry_li(r, href):
     upd = (CLAIMS.get(r["id"]) or {}).get("confirmedAt") or r.get("updatedAt") or ""
     hon = honour_badges(r)
     keys = f' data-royal="{royal_weight(r)}" data-hon="{1 if hon else 0}"'
+    # The founding year from the temple register (WO-1) and the road this place
+    # stands on: two spines to sort and group a shelf by that the catalogue has
+    # always known and the page has never offered. Absent where unknown — a
+    # missing year must sort as missing, never as year zero.
+    _a = r.get("attrs") or {}
+    if _a.get("foundedCE"):
+        keys += f' data-founded="{_a["foundedCE"]}"'
+    _stg = STREET_OF.get(r["id"])
+    if _stg:
+        _sname = _stg[0].get("name") or _stg[0].get("nameEn") or ""
+        if _sname:
+            keys += (f' data-area="{att(_sname)}"'
+                     f' data-area-href="{att(_stg[0].get("slug", ""))}"')
+    elif _a.get("tambon"):
+        keys += f' data-area="{att("ต." + _a["tambon"])}"'
     # The completeness chip renders in the markup but stays hidden while the
     # list is in its ordinary ก→ฮ / near-me order — a row of businesses each
     # showing a "score" out of 9 would read as a ranking of the businesses
@@ -5344,6 +5402,16 @@ def toolbar(records=None):
     if any(FOOD_BY_ID.get(r["id"]) for r in recs):
         extra += (f'<button id="sort-hon">🍽 '
                   + bi("มีเครื่องหมายรับรอง", "Marked first") + "</button>")
+    # Ancientness, wherever the register gave this shelf its founding years.
+    # Three is the floor: a "sort by age" on a shelf where two entries have a
+    # date is a button that barely moves the list.
+    if sum(1 for r in recs if (r.get("attrs") or {}).get("foundedCE")) >= 3:
+        extra += ('<button id="sort-age">🕰 '
+                  + bi("เก่าแก่ก่อน", "Ancient first") + "</button>")
+    # Neighbourhood grouping, wherever the road graph reached enough of them.
+    if sum(1 for r in recs if STREET_OF.get(r["id"])) >= 3:
+        extra += ('<button id="group-area">🛣 '
+                  + bi("เรียงตามย่าน", "By neighbourhood") + "</button>")
     return (f'<div class="toolbar">{bi("เรียงตาม", "Sort by")}: '
             f'<button id="sort-name" class="on">{bi("ก→ฮ ชื่อ", "A→Z name")}</button>'
             # "ใกล้ฉัน / Near me" as the name of a sort, not as a claim that
