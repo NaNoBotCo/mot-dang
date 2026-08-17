@@ -864,6 +864,19 @@ width:100%;max-width:28rem;box-sizing:border-box}
 color:#fff;border-radius:.5rem;padding:.4rem 1.2rem;cursor:pointer}
 .reqform button:hover{background:var(--ant-dark)}
 @media(max-width:600px){body{font-size:18px} ul.dir,ul.cats{column-width:auto}}
+/* แจ้งมด — the suggestion form. Borrows .reqform's shape so the two "tell us"
+   surfaces look like one thing, with fields big enough to read and hit on a
+   phone held one-handed at a roadside. */
+.suggestform label{display:block;margin:.7rem 0 .2rem;font-size:.95rem}
+.suggestform select,.suggestform input,.suggestform textarea{width:100%;font:inherit;
+padding:.5rem .6rem;border:1px solid var(--soft);border-radius:.5rem;background:#fff;color:var(--ink)}
+.suggestform textarea{min-height:7rem;resize:vertical}
+.suggestform button{margin-top:.9rem;font:inherit;border:2px solid var(--ant);background:var(--ant);
+color:#fff;border-radius:.5rem;padding:.5rem 1.3rem;cursor:pointer}
+.suggestform button:hover{background:var(--ant-dark)}
+.suggestform button:disabled{opacity:.6;cursor:progress}
+.suggestabout code{font-size:.85rem;color:var(--muted)}
+.suggestsay{margin:.6rem 0 0;min-height:1.4rem}
 .claimstep{margin-top:1rem}
 .claimpick{list-style:none;padding:0;margin:.4rem 0;max-height:16rem;overflow-y:auto}
 .claimpick li{margin:0}

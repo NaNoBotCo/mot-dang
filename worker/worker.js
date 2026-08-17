@@ -47,6 +47,18 @@
 const MAX_BODY = 20_000
 const MAX_WEBHOOK_BODY = 50_000
 const CLAIM_PER_HOUR = 5
+// Looser than a claim on purpose: a claim edits a listing, a suggestion only
+// asks a human to look at something, and the cost of a wasted read is smaller
+// than the cost of turning away somebody with three corrections to give.
+const SUGGEST_PER_HOUR = 12
+const SUGGEST_KINDS = new Set([
+  'correction',   // something on a page is wrong
+  'missing',      // a place we do not have at all
+  'contact',      // a phone, LINE, or page for a listing with none
+  'photo',        // somebody is offering a picture
+  'crawl',        // a corner of the province worth sending the ants to
+  'other',
+])
 const PLACE_ID_RE = /^(cm|cr)-[a-z0-9-]+$/
 const SESSION_TTL = 900 // 15 minutes between LINE messages before the flow resets
 const OWNER_CAP = 20 // most placeIds remembered per LINE user
@@ -609,7 +621,78 @@ export default {
       return new Response('ok', { status: 200 }) // LINE's console "Verify" sends events:[] and expects 200
     }
 
+    // POST /suggest — the "tell the ants" door, brought in-house.
+    //
+    // Everything a claim deliberately refuses — a name that is wrong, an
+    // address that moved, a place missing entirely, a photo somebody is
+    // offering, a corner of the province worth crawling — used to route to a
+    // GitHub issue. When the account was hidden on 2026-08-07 that link began
+    // returning 404 to every reader, on 5,784 pages, for ten days: the site
+    // went on asking for help through a door that had been locked.
+    //
+    // Unlike a claim, nothing here publishes itself. A claim is a business's
+    // own account of its own contact details, bounded so the worst case is a
+    // wrong phone number. This takes free text about SOMEBODY ELSE'S place
+    // from a stranger, so it can only ever be a queue that a person reads.
+    if (url.pathname === '/suggest' && request.method === 'POST') {
+      const ip = request.headers.get('cf-connecting-ip') || 'unknown'
+      const bucket = `rls:${ip}:${Math.floor(Date.now() / 3600_000)}`
+      const count = Number((await env.KV.get(bucket)) || 0)
+      if (count >= SUGGEST_PER_HOUR) return json({ error: 'rate limit — try again later' }, 429)
+
+      const text = await request.text()
+      if (text.length > MAX_BODY) return json({ error: 'body too large' }, 400)
+      let body
+      try { body = JSON.parse(text) } catch { return json({ error: 'invalid json' }, 400) }
+
+      // A closed vocabulary, for the same reason the facet list is closed:
+      // nothing a submitter types survives contact with it.
+      const kind = SUGGEST_KINDS.has(body?.kind) ? body.kind : 'other'
+      const what = cap(body?.what, 4000)
+      if (!what) return json({ error: 'tell us what to look at' }, 400)
+
+      // placeId is optional — a suggestion may be about a place we do not have
+      // yet — but if given it must be one of ours, so the queue can be sorted
+      // by place rather than by guesswork.
+      const placeId = cap(body?.placeId, 60)
+      if (placeId && !PLACE_ID_RE.test(placeId))
+        return json({ error: 'placeId not a recognized Mot Dang id' }, 400)
+
+      const id = crypto.randomUUID()
+      await env.KV.put(`sug:${id}`, JSON.stringify({
+        id,
+        kind,
+        what,
+        placeId: placeId || null,
+        // Optional and clearly optional on the form: how to reach the person
+        // if we need to ask. Their own contact detail, never published — see
+        // the note on /suggestions below.
+        from: cap(body?.from, 200) || null,
+        page: cap(body?.page, 300) || null,   // where they were standing when they told us
+        lang: body?.lang === 'th' ? 'th' : 'en',
+        status: 'new',
+        createdAt: new Date().toISOString(),
+      }))
+      await env.KV.put(bucket, String(count + 1), { expirationTtl: 3600 })
+      return json({ ok: true, id })
+    }
+
+    // There is deliberately NO public GET for the suggestion queue.
+    //
+    // /claims is public because a claim is meant to be published — it becomes
+    // the shop's listing. A suggestion is the opposite: unmoderated text from
+    // a stranger, often carrying the sender's own phone or email so we can ask
+    // a follow-up question. Serving that openly would publish contributors'
+    // contact details and hand anyone a free anonymous text host on this
+    // domain. The queue is read from the operator's own machine with wrangler
+    // (importers/sync_suggestions.py), which is already authenticated, and
+    // lands in _incoming/ — gitignored, so it can never ride into a commit.
+    if (url.pathname === '/suggestions') {
+      return json({ error: 'the suggestion queue is not public — it carries '
+        + 'contributors\' own contact details. Read it with wrangler.' }, 403)
+    }
+
     return json({ error: 'not found', endpoints: ['/claim', '/edit/:token', '/claims',
-      '/toilet', '/toilets', '/webhook/line'] }, 404)
+      '/toilet', '/toilets', '/suggest', '/webhook/line'] }, 404)
   },
 }

@@ -90,8 +90,11 @@ function reportUrl(name,href,id){
     '\nที่นี่ใช้ได้ไหม เสียเงินเท่าไร / Can it be used, and what does it cost?\n\n'+
     D.reports.map(function(r,i){return (i+1)+'. '+r.emoji+' '+r.th+' / '+r.en;}).join('\n')+
     '\n\nลบข้อที่ไม่ใช่ออก แล้วส่งได้เลย / Delete the lines that do not apply, then send.\n';
-  return 'https://github.com/NaNoBotCo/mot-dang/issues/new?title='+
-    encodeURIComponent('ห้องน้ำ / Toilet: '+name)+'&body='+encodeURIComponent(body);
+  // Was a GitHub issue — the developers' side entrance, which stopped being an
+  // entrance at all when the account was hidden. The ants' own door takes the
+  // same text and needs no account.
+  return 'suggest.html?kind=correction'+(id?'&id='+encodeURIComponent(id):'')+
+    '&t='+encodeURIComponent(body);
 }
 function lineUrl(name,id){
   if(!D.lineOa||!id)return '';

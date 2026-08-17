@@ -89,6 +89,11 @@ python3 importers/harvest_events.py --refetch || say "events kept the snapshot"
 python3 importers/harvest_festivals.py || say "festival dates kept the snapshot"
 python3 importers/sync_claims.py       || say "claims sync kept what is on disk"
 python3 importers/sync_toilets.py      || say "toilet sync kept what is on disk"
+# What readers told the ants overnight. It lands in _incoming/ (gitignored —
+# a suggestion carries the sender's own email so we can ask them a question,
+# and that must never ride into a public commit). Nothing here reaches the
+# site on its own; somebody reads it.
+python3 importers/sync_suggestions.py  || say "suggestion queue not read this morning"
 
 # Count what came home, not just who came home. Every fetcher above can fail
 # by writing today's date over an empty basket and exiting 0 — which is how the

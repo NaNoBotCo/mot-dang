@@ -1620,6 +1620,19 @@ width:100%;max-width:28rem;box-sizing:border-box}
 color:#fff;border-radius:.5rem;padding:.4rem 1.2rem;cursor:pointer}
 .reqform button:hover{background:var(--ant-dark)}
 @media(max-width:600px){body{font-size:18px} ul.dir,ul.cats{column-width:auto}}
+/* แจ้งมด — the suggestion form. Borrows .reqform's shape so the two "tell us"
+   surfaces look like one thing, with fields big enough to read and hit on a
+   phone held one-handed at a roadside. */
+.suggestform label{display:block;margin:.7rem 0 .2rem;font-size:.95rem}
+.suggestform select,.suggestform input,.suggestform textarea{width:100%;font:inherit;
+padding:.5rem .6rem;border:1px solid var(--soft);border-radius:.5rem;background:#fff;color:var(--ink)}
+.suggestform textarea{min-height:7rem;resize:vertical}
+.suggestform button{margin-top:.9rem;font:inherit;border:2px solid var(--ant);background:var(--ant);
+color:#fff;border-radius:.5rem;padding:.5rem 1.3rem;cursor:pointer}
+.suggestform button:hover{background:var(--ant-dark)}
+.suggestform button:disabled{opacity:.6;cursor:progress}
+.suggestabout code{font-size:.85rem;color:var(--muted)}
+.suggestsay{margin:.6rem 0 0;min-height:1.4rem}
 .claimstep{margin-top:1rem}
 .claimpick{list-style:none;padding:0;margin:.4rem 0;max-height:16rem;overflow-y:auto}
 .claimpick li{margin:0}
@@ -2922,11 +2935,11 @@ e.preventDefault();
 const area=crawlForm.area.value.trim(),cat=crawlForm.cat.value.trim(),
 kind=crawlForm.kind.value,note=crawlForm.note.value.trim();
 const title=`crawl request (${kind}): ${area||'?'} — ${cat||'?'}`;
-const body=(note?note+'\n\n':'')+'(ส่งจากฟอร์มในเว็บ / sent from the site form)';
-const url='https://github.com/NaNoBotCo/mot-dang/issues/new?title='+
-encodeURIComponent(title)+'&body='+encodeURIComponent(body);
-window.open(url,'_blank','noopener');
-crawlForm.reset();});}
+const body=title+'\n\n'+(note?note+'\n\n':'');
+// Hands the request to suggest.html with the box already filled, rather than
+// opening a GitHub issue the reader may have no account for — and which, once
+// the account was hidden, was a 404.
+location.href=RROOT+'suggest.html?kind=crawl&t='+encodeURIComponent(body);});}
 // ---- claim.html: find-or-paste an existing place, claim it, or edit it -
 const claimFind=document.getElementById('claim-find');
 if(claimFind){
@@ -3936,6 +3949,52 @@ el.style.transform='translateY('+y.toFixed(1)+'px) '+(el.dataset.mdBase||'');});
 window.addEventListener('scroll',onScroll,{passive:true});
 window.addEventListener('resize',onScroll,{passive:true});
 onScroll();
+})();
+
+// ---- แจ้งมด / tell the ants: the suggestion form -----------------------
+// Every "tell us" link on this site used to open a GitHub issue, which asked
+// a Chiang Mai shopkeeper to hold a GitHub account in order to correct their
+// own phone number — and which, from 2026-08-07, answered 404 to everyone.
+// The form posts to the same Worker the claim flow uses. Nothing here
+// publishes itself; it joins a queue a person reads.
+(function(){
+const form=document.getElementById('suggestform');
+if(!form)return;
+const cfg=JSON.parse(document.getElementById('suggest-cfg').textContent);
+const qs=new URLSearchParams(location.search);
+// A link can arrive carrying what it was about — which place, what kind of
+// thing — so the reader is not asked to retype what they just clicked past.
+if(qs.get('kind'))form.kind.value=qs.get('kind');
+if(qs.get('t')&&!form.what.value)form.what.value=qs.get('t');
+const pid=qs.get('id')||'';
+const where=document.getElementById('suggestwhere');
+if(pid&&where){where.textContent=pid;where.parentElement.hidden=false;}
+const say=document.getElementById('suggestsay');
+form.addEventListener('submit',async e=>{
+e.preventDefault();
+const what=form.what.value.trim();
+if(!what){say.textContent='บอกเราหน่อยว่าเรื่องอะไร / Tell us what to look at';return;}
+const btn=form.querySelector('button');btn.disabled=true;
+say.textContent='กำลังส่ง… / sending…';
+try{
+const res=await fetch(cfg.workerUrl+'/suggest',{method:'POST',
+headers:{'content-type':'application/json'},
+body:JSON.stringify({kind:form.kind.value,what:what,
+placeId:pid||null,from:form.from.value.trim()||null,
+page:qs.get('p')||document.referrer||location.href,
+lang:document.documentElement.lang==='th'?'th':'en'})});
+const out=await res.json();
+if(out.ok){form.hidden=true;
+say.textContent='ขอบคุณเจ้า — มดรับเรื่องแล้ว จะมีคนอ่านทุกข้อ / '
++'Thank you — the ants have it. A person reads every one.';}
+else{say.textContent=(out.error||'ส่งไม่สำเร็จ / could not send')+
+' — ลองใหม่อีกครั้ง / please try again';btn.disabled=false;}
+}catch(err){
+// A failure here must not swallow what they wrote: the text stays in the
+// box, and the fallback address is one they can use without an account.
+say.textContent='ส่งไม่ได้ตอนนี้ / could not send just now — '
++'อีเมลมาก็ได้ / email works too: '+cfg.email;btn.disabled=false;}
+});
 })();
 """
 
@@ -5016,10 +5075,12 @@ def facet_door(r, fs):
             "Delete the lines this branch does NOT have, then send.\n\n"
             + "\n".join(lines)
             + "\n\nอย่างอื่น / Anything else:\n")
-    url = ("https://github.com/NaNoBotCo/mot-dang/issues/new?title="
-           + urllib.parse.quote(f"สาขานี้มีอะไร / What this branch has: {name_text(r)}")
-           + "&body=" + urllib.parse.quote(body))
-    return (f'<p class="facetdoor"><a class="pill" href="{att(url)}" rel="noopener">🐜 '
+    # The checklist rides into the form's own box, so the reader deletes the
+    # lines that do not apply and sends — the same motion as before, minus the
+    # GitHub account it used to demand.
+    url = tell_url("correction", place_id=r["id"], prefill=body,
+                   depth=2)   # rendered from /<province>/p/
+    return (f'<p class="facetdoor"><a class="pill" href="{att(url)}">🐜 '
             + bi("บอกมดแดงว่าสาขานี้มีอะไร", "Tell the ants what this branch has")
             + "</a></p>")
 
@@ -7596,6 +7657,24 @@ def build_events_page(events):
 _cfg_path = ROOT / "data" / "config.json"
 CONFIG = json.loads(_cfg_path.read_text()) if _cfg_path.exists() else {}
 CONTACT_EMAIL = CONFIG.get("contactEmail", "530kings@proton.me")
+
+
+def tell_url(kind, place_id=None, prefill=None, depth=0):
+    """A link to the ants' own door, carrying what it was about.
+
+    Every "tell us" CTA on this site used to open a GitHub issue — which asked
+    a shopkeeper in Chiang Mai to hold a GitHub account before they could
+    correct their own phone number, and which returned 404 to every reader
+    from 2026-08-07. The form on suggest.html posts to the same Worker the
+    claim flow uses, and reads these parameters so nobody retypes what they
+    just clicked past.
+    """
+    q = {"kind": kind}
+    if place_id:
+        q["id"] = place_id
+    if prefill:
+        q["t"] = prefill
+    return ("../" * depth) + "suggest.html?" + urllib.parse.urlencode(q)
 LINE_ADD_URL = CONFIG.get("lineAddUrl", "")
 LINE_OA_ID = CONFIG.get("lineOaId", "")
 LINE_QR = CONFIG.get("lineQr", "")
@@ -8338,19 +8417,18 @@ def build_list_your_event_page():
               ("สถานที่", "Venue"), ("ราคา (ถ้ามี)", "Price, if any"),
               ("ลิงก์", "A link"), ("ประจำทุกสัปดาห์ไหม", "Weekly or one-off?")]
     lis = "".join(f"<li>{bi(a, b)}</li>" for a, b in fields)
-    issue = ("https://github.com/NaNoBotCo/mot-dang/issues/new?title="
-             + urllib.parse.quote("ลงงาน / List an event: ")
-             + "&body=" + urllib.parse.quote(
-                 "ชื่องาน / Event name:\n\nวันและเวลา / Date & time:\n\n"
-                 "สถานที่ / Venue:\n\nราคา / Price:\n\nลิงก์ / Link:\n\n"
-                 "ประจำทุกสัปดาห์ไหม / Weekly or one-off:\n\n"
-                 "อย่างอื่น / Anything else:\n"))
+    issue = tell_url("other", prefill=(
+        "ชื่องาน / Event name:\n\nวันและเวลา / Date & time:\n\n"
+        "สถานที่ / Venue:\n\nราคา / Price:\n\nลิงก์ / Link:\n\n"
+        "ประจำทุกสัปดาห์ไหม / Weekly or one-off:\n\n"
+        "อย่างอื่น / Anything else:\n"))
     body = (f'<h1>📣 {bi("ลงงานของคุณ", "List your event")}</h1>'
             f'<p>{bi(intro_th, intro_en)}</p>'
             f'<h2>{bi("บอกเราแค่นี้", "Just tell us")}</h2><ul class="dir">{lis}</ul>'
-            f'<p><a class="evpartnerbtn" href="{att(issue)}" rel="noopener">'
-            f'{bi("ส่งงานผ่าน GitHub", "Send it via GitHub")}</a></p>'
-            f'<p class="myhint">{bi("ไม่มีบัญชี GitHub ก็ไม่เป็นไร ส่งมาทาง Ko-fi ได้เลยเจ้า", "No GitHub account? Send it via Ko-fi instead and we will add it.")} '
+            f'<p><a class="evpartnerbtn" href="{att(issue)}">'
+            f'{bi("ส่งงานให้มดแดง", "Send it to the ants")}</a></p>'
+            f'<p class="myhint">{bi("ไม่ต้องมีบัญชีอะไร ส่งอีเมลมาก็ได้เจ้า", "No account needed. Email works too.")} '
+            f'<a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> · '
             f'<a href="{KOFI}" rel="noopener">Ko-fi</a></p>'
             f'<h2>{bi("ถึงคนที่ทำปฏิทินอยู่แล้ว", "If you already run a calendar")}</h2>'
             f'<p>{bi(partners_th, partners_en)}</p>'
@@ -10136,7 +10214,7 @@ def build():
         "ช่วยเติมข้อมูลติดต่อ",
         f'<h1>☎️ {bi("ช่วยเติมข้อมูลติดต่อ", "Help fill in the contacts")}</h1>'
         f'<p class="myhint">{bi(drive_th, drive_en)}</p>'
-        f'<p><a href="https://github.com/NaNoBotCo/mot-dang/issues/new" rel="noopener">'
+        f'<p><a href="{att(tell_url("contact"))}">'
         f'<b>{bi("ส่งข้อมูลติดต่อ", "Send a contact")}</b></a> · '
         f'<a href="{KOFI}" rel="noopener">{bi("ทางโคฟาย", "via Ko-fi")}</a> · '
         f'<a href="https://www.openstreetmap.org/" rel="noopener">'
@@ -10159,7 +10237,7 @@ def build():
         f'<li>{bi("โฆษณาไม่มีวันเปลี่ยนลำดับหรือเนื้อหาสารบัญ — สารบัญคือสารบัญ", "Ads never change listing order or content — the directory is the directory")}</li>'
         f'</ul>'
         f'<p>{bi("สนใจ? ทักมาทาง", "Interested? Reach us via")} '
-        f'<a href="https://github.com/NaNoBotCo/mot-dang/issues/new" rel="noopener">GitHub</a> · '
+        f'<a href="{att(tell_url("other"))}">{bi("ทักมาทางฟอร์ม", "the form")}</a> · '
         f'<a href="{KOFI}" rel="noopener">Ko-fi</a></p>')
     (DOCS / "advertise.html").write_text(page("ลงโฆษณา", adv_body, depth=0, path="advertise.html",
                                               desc="ลงโฆษณากับมดแดง — โฆษณาแบบปี 1997 สุภาพ ไม่ตามรอยใคร"))
@@ -10187,6 +10265,13 @@ def build():
                  "ช่วยกันคนละนิด สารบัญเมืองก็ครบขึ้นทุกวัน")
     public_en = ("Just a local or visitor? Know a good place we're missing, or spotted a wrong "
                  "pin? Tell us — every small correction makes the directory more complete.")
+    # Built outside the f-string: this file runs on Python 3.9, where a
+    # multi-line expression inside an f-string is a SyntaxError.
+    privacy_note = bi(
+        "ไม่ต้องมีบัญชีอะไรทั้งนั้น ไม่เก็บคุกกี้ ไม่ตามรอย — "
+        "ที่อยู่ติดต่อที่ใส่มาใช้เพื่อถามกลับเท่านั้น ไม่เผยแพร่",
+        "No account of any kind, no cookie, no tracking. A contact address is "
+        "used only to ask you a question back, and is never published.")
     (DOCS / "suggest.html").write_text(page(
         "แนะนำร้าน",
         f'<h1>{bi("แนะนำร้าน-เพิ่มที่ของคุณ", "Add your place")}</h1>'
@@ -10195,11 +10280,34 @@ def build():
         f'<p>{bi(vendor_th, vendor_en)}</p>'
         f'<p><a href="claim.html">🏪 {bi("ร้านอยู่แล้ว? ยืนยันเลย", "Already listed? Claim it")}</a></p></div>'
         f'<div class="module"><h3>🚶 {bi("สำหรับคนทั่วไป", "For everyone else")}</h3>'
-        f'<p>{bi(public_th, public_en)}</p></div>'
-        f'<p><a href="https://github.com/NaNoBotCo/mot-dang/issues/new" rel="noopener">'
-        f'{bi("ส่งผ่าน GitHub", "Suggest via GitHub")}</a> · '
+        f'<p>{bi(public_th, public_en)}</p>'
+        f'<form id="suggestform" class="suggestform">'
+        f'<p class="suggestabout" hidden>{bi("เกี่ยวกับ", "About")}: '
+        f'<code id="suggestwhere"></code></p>'
+        f'<label>{bi("เรื่องอะไร", "What kind of thing")}<br>'
+        f'<select name="kind">'
+        f'<option value="correction">{bi("มีข้อมูลผิด", "Something is wrong")}</option>'
+        f'<option value="missing">{bi("ยังไม่มีที่นี่ในสารบัญ", "A place you do not have")}</option>'
+        f'<option value="contact">{bi("เบอร์ ไลน์ หรือเพจ", "A phone, LINE or page")}</option>'
+        f'<option value="photo">{bi("มีรูปจะให้", "I have a photo to give")}</option>'
+        f'<option value="crawl">{bi("อยากให้มดไปสำรวจย่านนี้", "Send the ants to an area")}</option>'
+        f'<option value="other">{bi("อย่างอื่น", "Something else")}</option>'
+        f'</select></label>'
+        f'<label>{bi("เล่าให้ฟังหน่อย", "Tell us")}<br>'
+        f'<textarea name="what" rows="5" required '
+        f'placeholder="{bi_text("เขียนภาษาไทยหรืออังกฤษก็ได้เจ้า", "Thai or English, either is fine")}">'
+        f'</textarea></label>'
+        f'<label>{bi("ถ้าอยากให้ติดต่อกลับ (ไม่ใส่ก็ได้)", "If you want a reply (optional)")}<br>'
+        f'<input name="from" maxlength="200" '
+        f'placeholder="{bi_text("อีเมล หรือ ไลน์ไอดี", "Email or LINE id")}"></label>'
+        f'<button>🐜 {bi("ส่งให้มดแดง", "Send it to the ants")}</button>'
+        f'</form><p id="suggestsay" class="suggestsay" role="status" aria-live="polite"></p>'
+        f'<p class="tinynote">{privacy_note}</p></div>'
+        f'<p>{bi("หรือส่งอีเมลมาก็ได้", "Email works too")}: '
+        f'<a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> · '
         f'<a href="{KOFI}" rel="noopener">{bi("ฝากข้อความทาง Ko-fi", "Message us on Ko-fi")}</a></p>'
-        f"<p>{bi('เร็วๆ นี้: ฟอร์มแนะนำในหน้านี้เลย', 'Coming soon: a suggestion form right here.')}</p>",
+        f'<script type="application/json" id="suggest-cfg">'
+        f'{json.dumps({"workerUrl": CLAIMS_WORKER_URL, "email": CONTACT_EMAIL})}</script>',
         depth=0, path="suggest.html", desc=suggest_th))
 
     # ---- claim.html: self-serve, publishes instantly, owner is the authority
@@ -11837,7 +11945,7 @@ def build():
         f'<p><a href="rss.xml">📡 {bi("ฟีด RSS ของมดแดง", "Mot Dang’s RSS feed")}</a></p>'
         f'<ul>{partner_rows}</ul>'
         f'<p>{bi("หรือทักมาทาง", "Or reach us via")} '
-        f'<a href="https://github.com/NaNoBotCo/mot-dang/issues/new" rel="noopener">GitHub</a> · '
+        f'<a href="{att(tell_url("other"))}">{bi("ฟอร์มแจ้งมด", "the form")}</a> · '
         f'<a href="{KOFI}" rel="noopener">Ko-fi</a></p>',
         depth=0, path="partners.html", desc=partners_th))
 

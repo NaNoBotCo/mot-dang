@@ -637,11 +637,11 @@ e.preventDefault();
 const area=crawlForm.area.value.trim(),cat=crawlForm.cat.value.trim(),
 kind=crawlForm.kind.value,note=crawlForm.note.value.trim();
 const title=`crawl request (${kind}): ${area||'?'} — ${cat||'?'}`;
-const body=(note?note+'\n\n':'')+'(ส่งจากฟอร์มในเว็บ / sent from the site form)';
-const url='https://github.com/NaNoBotCo/mot-dang/issues/new?title='+
-encodeURIComponent(title)+'&body='+encodeURIComponent(body);
-window.open(url,'_blank','noopener');
-crawlForm.reset();});}
+const body=title+'\n\n'+(note?note+'\n\n':'');
+// Hands the request to suggest.html with the box already filled, rather than
+// opening a GitHub issue the reader may have no account for — and which, once
+// the account was hidden, was a 404.
+location.href=RROOT+'suggest.html?kind=crawl&t='+encodeURIComponent(body);});}
 // ---- claim.html: find-or-paste an existing place, claim it, or edit it -
 const claimFind=document.getElementById('claim-find');
 if(claimFind){
@@ -1651,4 +1651,50 @@ el.style.transform='translateY('+y.toFixed(1)+'px) '+(el.dataset.mdBase||'');});
 window.addEventListener('scroll',onScroll,{passive:true});
 window.addEventListener('resize',onScroll,{passive:true});
 onScroll();
+})();
+
+// ---- แจ้งมด / tell the ants: the suggestion form -----------------------
+// Every "tell us" link on this site used to open a GitHub issue, which asked
+// a Chiang Mai shopkeeper to hold a GitHub account in order to correct their
+// own phone number — and which, from 2026-08-07, answered 404 to everyone.
+// The form posts to the same Worker the claim flow uses. Nothing here
+// publishes itself; it joins a queue a person reads.
+(function(){
+const form=document.getElementById('suggestform');
+if(!form)return;
+const cfg=JSON.parse(document.getElementById('suggest-cfg').textContent);
+const qs=new URLSearchParams(location.search);
+// A link can arrive carrying what it was about — which place, what kind of
+// thing — so the reader is not asked to retype what they just clicked past.
+if(qs.get('kind'))form.kind.value=qs.get('kind');
+if(qs.get('t')&&!form.what.value)form.what.value=qs.get('t');
+const pid=qs.get('id')||'';
+const where=document.getElementById('suggestwhere');
+if(pid&&where){where.textContent=pid;where.parentElement.hidden=false;}
+const say=document.getElementById('suggestsay');
+form.addEventListener('submit',async e=>{
+e.preventDefault();
+const what=form.what.value.trim();
+if(!what){say.textContent='บอกเราหน่อยว่าเรื่องอะไร / Tell us what to look at';return;}
+const btn=form.querySelector('button');btn.disabled=true;
+say.textContent='กำลังส่ง… / sending…';
+try{
+const res=await fetch(cfg.workerUrl+'/suggest',{method:'POST',
+headers:{'content-type':'application/json'},
+body:JSON.stringify({kind:form.kind.value,what:what,
+placeId:pid||null,from:form.from.value.trim()||null,
+page:qs.get('p')||document.referrer||location.href,
+lang:document.documentElement.lang==='th'?'th':'en'})});
+const out=await res.json();
+if(out.ok){form.hidden=true;
+say.textContent='ขอบคุณเจ้า — มดรับเรื่องแล้ว จะมีคนอ่านทุกข้อ / '
++'Thank you — the ants have it. A person reads every one.';}
+else{say.textContent=(out.error||'ส่งไม่สำเร็จ / could not send')+
+' — ลองใหม่อีกครั้ง / please try again';btn.disabled=false;}
+}catch(err){
+// A failure here must not swallow what they wrote: the text stays in the
+// box, and the fallback address is one they can use without an account.
+say.textContent='ส่งไม่ได้ตอนนี้ / could not send just now — '
++'อีเมลมาก็ได้ / email works too: '+cfg.email;btn.disabled=false;}
+});
 })();
