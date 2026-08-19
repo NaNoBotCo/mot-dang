@@ -139,7 +139,7 @@ CAT_ICON = {
     "tattoo": "i-ink", "pets": "i-pet", "learn": "i-book", "cannabis": "i-leaf",
     "home-services": "i-broom", "community": "i-people", "business": "i-shop",
     "whats-on": "i-film", "museums-galleries": "i-museum", "parks": "i-park",
-    "sights": "i-star",
+    "sights": "i-star", "muaythai": "i-glove", "cooking": "i-khrok",
 }
 
 FESTIVALS = json.loads((ROOT / "data" / "festivals.json").read_text())["festivals"]
@@ -241,7 +241,10 @@ def art_one(**kw):
 CAT_ART_TOPIC = {"wat": "wat", "food": "food", "market": "market",
                  "sights": "city", "parks": "nature", "whats-on": "festival",
                  "museums-galleries": "arts", "tattoo": "mu",
-                 "transport": "transport", "hotel": "stay", "massage": "wellness"}
+                 "transport": "transport", "hotel": "stay", "massage": "wellness",
+                 # Every class on this shelf begins at a market stall; the
+                 # pictures of the market are the true header, not a plate.
+                 "cooking": "market"}
 
 
 EMERGENCY = json.loads((ROOT / "data" / "curated" / "emergency.json").read_text())
@@ -271,6 +274,74 @@ def emergency_band(cat_key):
             f'<strong>{bi("เบอร์ที่ควรเก็บไว้", "Numbers worth keeping")}</strong>'
             f'<div class="row">{rows}</div>'
             f'<div class="who">{who}</div></div>')
+
+
+def muaythai_band(cat_key, depth=2):
+    """One line on the Muay Thai shelf pointing at the fight board.
+
+    The shelf lists places; the board (/muaythai.html, muaythai_layer.py) says
+    which of them fights TONIGHT, what the ticket costs, and what a first-timer
+    is looking at when the music starts. A reader who reached the shelf by the
+    Yahoo row should not have to find the board by luck.
+    """
+    if cat_key != "muaythai":
+        return ""
+    r = "../" * depth
+    return (f'<p class="mtband"><a href="{r}muaythai.html">🥊 '
+            + bi("ดูมวยคืนนี้ — กระดานคืนชกทุกสนาม ราคาตั๋ว และเรื่องที่ควรรู้ก่อนเสียงปี่ดัง",
+                 "Fight board — which stadium fights tonight, what a ticket costs, and what to know before the pipes start")
+            + " →</a></p>")
+
+
+def cooking_band(cat_key, depth=2):
+    """One line on the cooking shelf pointing at the class board.
+
+    The shelf lists schools; the board (/cooking.html, cooking_layer.py) says
+    which of them runs a class TODAY, morning or evening, what it posts as
+    the price, and what a first-timer is looking at when the pestle comes
+    out. Same reason as muaythai_band: a reader who reached the shelf by the
+    Yahoo row should not have to find the board by luck.
+    """
+    if cat_key != "cooking":
+        return ""
+    r = "../" * depth
+    return (f'<p class="mtband"><a href="{r}cooking.html">🍳 '
+            + bi("กระดานคลาสทำอาหาร — โรงเรียนไหนมีคลาสวันนี้ เช้าหรือเย็น ราคาที่ประกาศ และเรื่องที่ควรรู้ก่อนจับครก",
+                 "Class board — which school runs a class today, morning or evening, what it posts as the price, and what to know before you lift the pestle")
+            + " →</a></p>")
+
+
+def yant_band(cat_key):
+    """The tattoo shelf's porch: what wichaa's yant pages ARE to this shelf.
+
+    Mot Dang lists where a yant is done and what it costs; wichaa holds the
+    designs themselves, read from the Lanna manuscripts. The join is stated
+    from this side with the fact that makes it true (WO-14): the paired-bird
+    นกคู่ sold on Arak Road is the ยันต์สาริกาคู่ of manuscript 6985, a century
+    apart; a single na — the cheapest line on a สำนัก's menu — is the smallest
+    unit of the whole art, and /na holds 142 of them. Three things are sold
+    under one word here, so the band ends with the sentence that separates
+    them at the door. No prices in the band; the record carries those.
+    """
+    if cat_key != "tattoo":
+        return ""
+    return (
+        '<div class="yantband">'
+        f'<b>{bi("ก่อนเลือกลาย — ลายที่เลือกได้ไม่ใช่ของใหม่", "Before you choose — what you choose from is not new")}</b>'
+        f'<p><a href="https://wichaa.net/yant" rel="noopener">wichaa.net/yant</a> — '
+        + bi("ลายยันต์ล้านนา 36 ลายจากใบลาน จัดตามสรรพคุณ: นกคู่ที่ขายบนถนนอารักษ์คือ ยันต์สาริกาคู่ ในเล่ม 6985 ห่างกันราวร้อยปี",
+             "36 Lanna yant designs from the manuscripts, by what each is for — the paired-bird นกคู่ sold on Arak Road is the ยันต์สาริกาคู่ of manuscript 6985, a century apart")
+        + '</p><p><a href="https://wichaa.net/na" rel="noopener">wichaa.net/na</a> — '
+        + bi("นะ 142 ตัว: นะตัวเดียวคือของถูกสุดในเมนูของสำนัก และเป็นหน่วยเล็กสุดของทั้งวิชา",
+             "the 142 na — a single na is the cheapest line on a สำนัก's menu and the smallest unit of the whole art")
+        + '</p><p><a href="https://sak-yant.nanobotco.workers.dev/" rel="noopener">'
+        + bi("ยันต์ของคุณบอกอะไร", "What does your sak yant mean") + "</a> — "
+        + bi("อ่านอักขระขอม ตัวเลข และสัตว์บนผิวของคุณ — บทความจากคลังใบลานเดียวกัน",
+             "reading the Khom letters, the numerals and the animals already on your skin — from the same manuscript corpus")
+        + "</p><p>"
+        + bi("คำเดียวขายสามอย่าง: สำนักที่อาจารย์ลงคาถา · ร้านสักลาย · ร้านสักคิ้ว-สักปาก — ประโยคถามหน้าร้าน: ที่นี่มีอาจารย์ลงคาถาให้ไหมคะ/ครับ หรือสักลายอย่างเดียว",
+             "One word, three trades: a สำนัก where an ajarn gives the katha · a studio that inks the design · a brow-and-lip shop — the sentence for the door: is there an ajarn here who gives the katha, or is it the design only?")
+        + "</p></div>")
 
 
 def cat_art_band(cat_key, prov_key, depth=2):
@@ -577,6 +648,8 @@ style="position:absolute" xmlns="http://www.w3.org/2000/svg"><defs>
 <g id="i-tools"><path d="M14.5 5.5a4 4 0 0 0 5 5L21 9v2.5a5.5 5.5 0 0 1-7.6 5.1L8 21.5 4 17.5l5-5.4A5.5 5.5 0 0 1 14.4 4.5Z"/><path d="m6.5 17.5.5.5"/></g>
 <g id="i-beauty"><circle cx="6" cy="18" r="2.6"/><circle cx="18" cy="18" r="2.6"/><path d="M8 16 18 4M16 16 6 4"/></g>
 <g id="i-ink"><path d="M15.5 3.5 20.5 8.5 9 20H4v-5Z"/><path d="m13 6 5 5"/><path d="M4 20.5h16"/></g>
+<g id="i-glove"><path d="M7.5 12.5V9a5 5 0 0 1 10 0v4.5a5 5 0 0 1-5 5h-2"/><path d="M7.5 12.5c-2.2 0-3.5 1.2-3.5 2.8S5.3 18 7.5 18h3"/><path d="M9 18.5v2.5h8.5v-3"/><path d="M13.5 9.5v4"/></g>
+<g id="i-khrok"><path d="M5.5 10.5h13l-1.6 8.2a2 2 0 0 1-2 1.8H9.1a2 2 0 0 1-2-1.8Z"/><path d="M4.5 10.5h15"/><path d="M10 10.5 15.8 4.7"/><circle cx="16.9" cy="3.6" r="1.6"/></g>
 <g id="i-pet"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="18" cy="9" rx="2" ry="2.6"/><ellipse cx="9.8" cy="5.4" rx="2" ry="2.6"/><ellipse cx="14.2" cy="5.4" rx="2" ry="2.6"/><path d="M12 12c3 0 5 2.2 5 4.6 0 2-1.6 3.4-3.4 3.4-.9 0-1.2-.4-1.6-.4s-.7.4-1.6.4C8.6 20 7 18.6 7 16.6 7 14.2 9 12 12 12Z"/></g>
 <g id="i-book"><path d="M12 6.5C10 4.8 7.5 4.2 4 4.5v13c3.5-.3 6 .3 8 2 2-1.7 4.5-2.3 8-2v-13c-3.5-.3-6 .3-8 2Z"/><path d="M12 6.5v13"/></g>
 <g id="i-broom"><path d="M14.5 3 10 12"/><path d="M6 21c-1.4-2.9.4-6 3.4-7.5s6.4-1.4 8.1 1.4c-2 2-4 3.1-6 3.6S8 20.4 6 21Z"/><path d="M11.8 13.6 9.4 19M14.6 14.2 12.6 19.8"/></g>
@@ -723,6 +796,15 @@ SCHEMA_TYPE = {
     # at all. The children that are a different kind of institution take a
     # narrower type through SCHEMA_TYPE_SUB below.
     "school": "School",
+    # schema.org's own subtype of LocalBusiness for places where a sport is
+    # practised. A stadium is narrower than that and a gear shop is a shop;
+    # both take their own type through SCHEMA_TYPE_SUB.
+    "muaythai": "SportsActivityLocation",
+    # A cooking school is a school; schema.org has no narrower word and the
+    # places on this shelf call themselves schools in their own names. A
+    # hotel's cooking studio keeps School too — the record is the class, not
+    # the hotel, which has its own LodgingBusiness record on the hotel shelf.
+    "cooking": "School",
 }
 
 # Where a child of a shelf is a different KIND of thing from its parent, not
@@ -732,6 +814,8 @@ SCHEMA_TYPE_SUB = {
     "university": "CollegeOrUniversity",
     "college": "CollegeOrUniversity",
     "kindergarten": "Preschool",
+    "stadium": "StadiumOrArena",
+    "gear": "SportingGoodsStore",
 }
 
 
@@ -1113,6 +1197,14 @@ border-radius:.6rem;background:var(--paper);text-decoration:none;border:1px soli
 .emerg a.tel b{font-size:1.15rem;letter-spacing:.02em}
 .emerg .lbl{font-size:.82rem;color:var(--ant-dark)}
 .emerg .who{font-size:.78rem;color:var(--ant-dark);margin-top:.45rem;opacity:.85}
+.mtband{margin:.5rem 0 .9rem;padding:.55rem .8rem;border-radius:.7rem;background:var(--soft);font-size:.95rem}
+.mtband a{text-decoration:none;color:var(--ant-dark)}
+.mtband a:hover{text-decoration:underline;color:var(--ant)}
+.yantband{margin:.5rem 0 .9rem;padding:.6rem .85rem;border-radius:.7rem;background:var(--soft);font-size:.93rem}
+.yantband p{margin:.25rem 0}
+.yantband b{display:block;margin-bottom:.15rem}
+.yantband a{text-decoration:none;color:var(--ant-dark);font-weight:600}
+.yantband a:hover{text-decoration:underline;color:var(--ant)}
 .share{margin-top:1.2rem}
 .share .sharelabel{font-size:.9rem;color:var(--ant-dark);font-weight:600;display:block;margin-bottom:.4rem}
 .share .row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
@@ -1375,9 +1467,77 @@ font-variant-numeric:tabular-nums}
 /* katha */
 .kacards{flex:1;display:flex;align-items:center;z-index:1;min-height:0}
 .kacard{width:100%}
-.kath{margin:0;font-size:1.02rem;font-weight:700;line-height:1.55}
+.kath{margin:0;font-size:1rem;font-weight:700;line-height:1.5}
 .karom{margin:.25rem 0 0;font-size:.78rem;font-style:italic;color:#8a6a24}
 .kagloss{margin:.3rem 0 0;font-size:.78rem;line-height:1.4}
+.kath.small{font-size:.86rem;line-height:1.45}
+.kagloss.en-only{color:#5a4638}
+@media (min-width:34rem){.kacards.shbody{display:grid;grid-template-columns:1fr 1fr;gap:.15rem .9rem;align-content:start}
+.kacards.shbody .kath{grid-column:1}.kacards.shbody .karom{grid-column:2;margin-top:0;align-self:start}
+.kacards.shbody .kagloss,.kacards.shbody .kawhen{grid-column:1/-1}}
+.psbody{column-width:16rem;column-gap:1.2rem}.psv{break-inside:avoid}
+.kawhen{margin:.25rem 0 0;font-size:.74rem;color:#8a6a24}
+/* shuffles: a verse needs room — these three tiles take two columns, half
+   the height of a square each, and fall back to a square on a phone. */
+.wtile.katha,.wtile.psalms,.wtile.eightball{grid-column:span 2;aspect-ratio:2/1}
+@media (max-width:34rem){.wtile.katha,.wtile.psalms,.wtile.eightball{grid-column:span 1;aspect-ratio:auto;min-height:16rem}}
+.wtile.katha .wfoot,.wtile.psalms .wfoot,.wtile.eightball .wfoot{font-size:.66rem;line-height:1.25}
+/* shuffles: bead counter, reference, the "another" bead */
+.shbead{margin-left:auto;font-size:.68rem;font-weight:500;color:#8a6a24;background:rgba(255,255,255,.55);
+border-radius:999px;padding:.05rem .45rem;font-variant-numeric:tabular-nums}
+.shwanphra{font-size:.7rem;color:#7a5410;margin:-.2rem 0 .2rem;display:block}
+.shbody{flex:1;overflow-y:auto;min-height:0;z-index:1;transition:opacity .26s,transform .26s}
+.wtile.turning .shbody{opacity:0;transform:translateY(4px)}
+.shfoot{display:flex;align-items:center;justify-content:space-between;gap:.4rem;margin-top:.35rem;z-index:1;flex:none}
+.sharef{font-size:.72rem;color:#7a5410;font-weight:600}
+.shnext{border:1px solid rgba(122,84,16,.35);background:rgba(255,255,255,.6);border-radius:999px;
+font:inherit;font-size:.72rem;padding:.12rem .55rem;cursor:pointer;color:#7a5410;white-space:nowrap;
+transition:transform .18s cubic-bezier(.34,1.56,.64,1),box-shadow .18s}
+.shnext:hover,.shnext:focus-visible{transform:scale(1.06);box-shadow:0 3px 10px rgba(122,84,16,.2);outline:none}
+.shnext:active{transform:scale(.95)}
+/* psalms: deep indigo vellum, serif verse */
+.wtile.psalms{background:linear-gradient(160deg,#1d1a2e 0%,#2b2445 60%,#3a2f57 100%);color:#f3ecdd;border-color:#4a3d6b}
+.wtile.psalms h3{color:#e8d9a8;border-left-color:#c9a227}
+.wtile.psalms .shbead{background:rgba(255,255,255,.1);color:#d9c88f}
+.wtile.psalms .sharef,.wtile.psalms .shfoot .bi{color:#e8d9a8;font-size:.74rem}
+.wtile.psalms .shnext{background:rgba(255,255,255,.08);color:#e8d9a8;border-color:rgba(232,217,168,.4)}
+.wtile.psalms .wfoot{color:#a99bc4}
+.psbody{font-family:Georgia,"Times New Roman",serif;font-size:.9rem;line-height:1.5}
+.psv{margin:.2rem 0}
+.psv sup{font-size:.62em;color:#c9a227;margin-right:.28rem;font-family:inherit}
+/* 8-ball */
+.wtile.eightball{background:radial-gradient(120% 90% at 30% 0%,#3a3a44 0%,#15151a 60%,#0b0b0e 100%);color:#f1e8d8;border-color:#2a2a33}
+.wtile.eightball h3{color:#f1e8d8;border-left-color:#c9a227}
+.wtile.eightball .wfoot{color:#9a93a8}
+.ebbody{flex:1;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"ball hint" "ball btn" "ball out";
+align-items:center;column-gap:1rem;row-gap:.3rem;min-height:0}
+.ebball{grid-area:ball}.ebhint{grid-area:hint}.ebshake{grid-area:btn;justify-self:start}.ebout{grid-area:out;text-align:left}
+.wtile.eightball.answered .ebhint{display:none}
+@media (max-width:34rem){.ebbody{grid-template-columns:1fr;grid-template-areas:"ball" "hint" "btn" "out";justify-items:center}
+.ebshake{justify-self:center}.ebout{text-align:center}}
+.ebball{width:7.2rem;height:7.2rem;border-radius:50%;position:relative;flex:none;
+background:radial-gradient(circle at 32% 28%,#5a5a66 0%,#1c1c22 35%,#050506 100%);
+box-shadow:inset -8px -10px 18px rgba(0,0,0,.7),inset 6px 8px 14px rgba(255,255,255,.06),0 10px 24px rgba(0,0,0,.55);
+transform-origin:50% 50%}
+.ebball.shaking{animation:ebshake .9s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes ebshake{10%,90%{transform:translate(-2px,0) rotate(-3deg)}20%,80%{transform:translate(3px,0) rotate(3deg)}
+30%,50%,70%{transform:translate(-5px,1px) rotate(-5deg)}40%,60%{transform:translate(5px,-1px) rotate(5deg)}}
+.ebwindow{position:absolute;left:50%;top:50%;width:3.9rem;height:3.9rem;transform:translate(-50%,-50%);border-radius:50%;
+background:radial-gradient(circle at 50% 40%,#1b2a5e 0%,#0c1437 55%,#060a22 100%);overflow:hidden;
+box-shadow:inset 0 0 10px rgba(0,0,0,.8),inset 0 -3px 6px rgba(60,90,200,.25)}
+.ebtri{position:absolute;left:50%;top:50%;width:3.2rem;height:3.2rem;transform:translate(-50%,40%) scale(.6);opacity:0;
+clip-path:polygon(50% 0%,100% 100%,0% 100%);background:#1f3fa8;display:flex;align-items:flex-end;justify-content:center;
+transition:transform .9s cubic-bezier(.22,1,.36,1),opacity .6s ease-out}
+.ebtri.up{transform:translate(-50%,-50%) scale(1);opacity:1}
+.ebtri.v-good{background:#2f7d4f}.ebtri.v-mid{background:#b98a2a}.ebtri.v-care{background:#a33}
+.ebface{font-size:.42rem;line-height:1.15;color:#fff;text-align:center;padding:0 .35rem .45rem;display:flex;flex-direction:column;width:100%}
+.ebface .eben{opacity:.85;font-size:.9em}
+.ebshake{font-size:.8rem;padding:.3rem .9rem}
+.ebhint{margin:0;color:#9a93a8;text-align:center}
+.ebout{margin:.1rem 0 0;font-size:.9rem;font-weight:600;line-height:1.35}
+.ebout.v-good{color:#8fd9a8}.ebout.v-mid{color:#e9c96a}.ebout.v-care{color:#f09a9a}
+@media (prefers-reduced-motion:reduce){.ebball.shaking{animation:none}.ebtri{transition:none}.shbody{transition:none}
+.shnext:hover{transform:none}}
 /* horoscope */
 .hotabs{display:flex;gap:.25rem;margin-bottom:.35rem}
 .hotab{border:1px solid var(--soft);background:none;border-radius:.45rem;padding:.1rem .45rem;
@@ -2830,13 +2990,7 @@ document.querySelectorAll('.hotab').forEach(b=>{b.addEventListener('click',()=>{
 document.querySelectorAll('.hotab').forEach(x=>x.classList.remove('on'));b.classList.add('on');
 document.querySelectorAll('.hopane').forEach(p=>{p.hidden=p.dataset.hopane!==b.dataset.hotab;});});});
 })();
-// --- katha carousel
-(()=>{const cards=[...document.querySelectorAll('[data-kacard]')];
-const dots=[...document.querySelectorAll('[data-kadot]')];if(!cards.length)return;let ki=0;
-const go=i=>{ki=(i+cards.length)%cards.length;cards.forEach((c,n)=>{c.hidden=n!==ki;});
-dots.forEach((d,n)=>d.classList.toggle('on',n===ki));};
-dots.forEach(d=>d.addEventListener('click',()=>{go(+d.dataset.kadot);clearInterval(window.__kaT);}));
-if(cards.length>1)window.__kaT=setInterval(()=>go(ki+1),9000);})();
+// --- katha + psalms + 8-ball live in shuffle.js (per-bead cycle, not a carousel)
 // --- เซียมซี: shake, a stick falls, read the slip
 (()=>{const host=document.getElementById('w-siamsi');if(!host)return;
 let sticks=[];try{sticks=JSON.parse(host.dataset.siamsi||'[]');}catch(e){return;}
@@ -4463,7 +4617,12 @@ try:
     HORO_JS_V = f'{_asset_v((ROOT / "assets" / "horo.js").read_text()):08x}'
 except OSError:
     HORO_JS_V = "0"
-HORO_HEAD = f'<script src="horo.js?v={HORO_JS_V}" defer></script>'
+try:
+    SHUFFLE_JS_V = f'{_asset_v((ROOT / "assets" / "shuffle.js").read_text()):08x}'
+except OSError:
+    SHUFFLE_JS_V = "0"
+HORO_HEAD = (f'<script src="horo.js?v={HORO_JS_V}" defer></script>'
+             f'<script src="shuffle.js?v={SHUFFLE_JS_V}" defer></script>')
 try:
     import live_shell as _live_shell
     LIVE_JS_V = f"{_asset_v(_live_shell.JS):08x}"
@@ -4682,6 +4841,8 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <a href="{r}chart.html">{bi("ดวงจีนสี่เสา", "Four Pillars")}</a> ·
     <a href="{r}festivals.html">{bi("เทศกาล-ฤดูกาล", "Festivals & seasons")}</a> ·
     <a href="{r}festival-dates.html">{bi("เทศกาลวันไหน", "Festival dates")}</a> ·
+    <a href="{r}muaythai.html">{bi("ดูมวยคืนนี้", "Muay Thai tonight")}</a> ·
+    <a href="{r}cooking.html">{bi("เรียนทำอาหาร", "Cooking classes")}</a> ·
     <a href="{r}open-now.html">{bi("ตอนนี้เปิดอะไร", "Open now")}</a> ·
     <a href="{r}asked.html">{bi("ถามมด", "Ask the ants")}</a> ·
     <a href="{r}stats.html">{bi("สถิติ", "Stats")}</a> ·
@@ -6650,6 +6811,84 @@ def known_facts(r):
 
     # The chain a branch belongs to. 1,221 records carry it and a reader
     # standing outside one of 332 near-identical branches could not tell.
+    # What a muay thai venue says about itself — fight nights, the price
+    # board, whether a walk-in can train. Each value is the venue's own
+    # statement (or a named listing's, and then it says so), never this
+    # site's reading of the place; the price line carries the same unwalked
+    # DRAFT mark the reader sheets do until somebody reads the board at the
+    # door. See muaythai_layer.py for the page that collects these.
+    if a.get("fightNights"):
+        via = a.get("fightNightsVia")
+        rows.append(f"<dt>{bi('คืนชกมวย', 'Fight nights')}</dt>"
+                    f"<dd>{esc(str(a['fightNights']))}"
+                    + (f' <span class="tinynote">({esc(str(via))})</span>' if via else "")
+                    + "</dd>")
+    if a.get("fightNightsReported"):
+        rows.append(f"<dt>{bi('วันที่รายชื่ออื่นบอก', 'Nights as others list them')}</dt>"
+                    f"<dd>{esc(str(a['fightNightsReported']))}</dd>")
+    if a.get("ticketPrices"):
+        draft = ("" if a.get("_pricesVerified") else
+                 ' <span class="tinynote">'
+                 + bi("ยังไม่ได้เทียบกับป้ายหน้าสนาม", "not yet checked at the door") + "</span>")
+        rows.append(f"<dt>{bi('ราคาตั๋ว', 'Tickets')}</dt>"
+                    f"<dd>{esc(str(a['ticketPrices']))}{draft}</dd>")
+    if a.get("training"):
+        rows.append(f"<dt>{bi('ฝึกซ้อม-เรียนมวย', 'Training')}</dt>"
+                    f"<dd>{esc(str(a['training']))}</dd>")
+    # A venue's own published price board, in its own framing — the sak yant
+    # rate card is the first (WO-14): per design, by size and by hour, in-house
+    # and at the temple stated side by side and never welded into one number.
+    # `priceCardTh` / `priceCardEn` carry the board as the venue frames it;
+    # `priceCardVia` says where it was read and when. Same unwalked mark as the
+    # ticket line until somebody reads the board at the door.
+    if a.get("priceCardTh") or a.get("priceCardEn"):
+        _pc_via = a.get("priceCardVia")
+        draft = ("" if a.get("_pricesVerified") else
+                 ' <span class="tinynote">'
+                 + bi("ตามที่ร้านประกาศเอง ยังไม่ได้เทียบที่หน้าร้าน", "as the venue publishes it — not yet checked at the door") + "</span>")
+        rows.append(f"<dt>{bi('ราคาที่ประกาศ', 'Published prices')}</dt>"
+                    f"<dd>{bi(str(a.get('priceCardTh') or a.get('priceCardEn')), str(a.get('priceCardEn') or a.get('priceCardTh')))}"
+                    + (f' <span class="prov">{esc(str(_pc_via))}</span>' if _pc_via else "")
+                    + f"{draft}</dd>")
+    if a.get("phone2"):
+        _p2 = str(a["phone2"]).strip()
+        rows.append(f'<dt>{bi("เบอร์ที่สอง", "Second phone")}</dt>'
+                    f'<dd><a href="tel:{att(re.sub(r"[^0-9+]", "", _p2))}">{esc(_p2)}</a></dd>')
+    # What a cooking school says about itself — when the classes run, what it
+    # posts as the price, whether it fetches you, how many stand at the
+    # stoves, what the menu can become. Each value is the school's own
+    # statement (and says via what), never this site's reading; the price
+    # line carries the same unwalked DRAFT mark as the reader sheets until
+    # somebody reads the board at the door. cooking_layer.py collects these
+    # for the board on /cooking.html.
+    if a.get("classSessions"):
+        via = a.get("classSessionsVia")
+        rows.append(f"<dt>{bi('รอบเรียน', 'Class sessions')}</dt>"
+                    f"<dd>{esc(str(a['classSessions']))}"
+                    + (f' <span class="tinynote">({esc(str(via))})</span>' if via else "")
+                    + "</dd>")
+    if a.get("classPrices"):
+        draft = ("" if a.get("_pricesVerified") else
+                 ' <span class="tinynote">'
+                 + bi("ราคาที่ประกาศ — ยังไม่ได้เทียบกับป้ายหน้าโรงเรียน", "as posted — not yet checked at the door") + "</span>")
+        rows.append(f"<dt>{bi('ค่าเรียน', 'Class price')}</dt>"
+                    f"<dd>{esc(str(a['classPrices']))}{draft}</dd>")
+    if a.get("pickup"):
+        rows.append(f"<dt>{bi('รถรับ-ส่ง', 'Pickup')}</dt>"
+                    f"<dd>{esc(str(a['pickup']))}</dd>")
+    if a.get("groupSize"):
+        rows.append(f"<dt>{bi('ขนาดกลุ่ม', 'Group size')}</dt>"
+                    f"<dd>{esc(str(a['groupSize']))}</dd>")
+    if a.get("menuNote"):
+        rows.append(f"<dt>{bi('เมนู-จานที่ทำ', 'Menu')}</dt>"
+                    f"<dd>{esc(str(a['menuNote']))}</dd>")
+    if a.get("teachLang"):
+        rows.append(f"<dt>{bi('ภาษาที่สอน', 'Taught in')}</dt>"
+                    f"<dd>{esc(str(a['teachLang']))}</dd>")
+    if a.get("pinNote"):
+        rows.append(f"<dt>{bi('เรื่องหมุด', 'About the pin')}</dt>"
+                    f"<dd>{esc(str(a['pinNote']))}</dd>")
+
     chain = a.get("brand") or a.get("operator")
     if chain:
         rows.append(f'<dt>{bi("เครือ", "Part of")}</dt><dd>'
@@ -6970,6 +7209,17 @@ def cat_shelf_html(prov_key, cat, live, count, teasers=True, muted_ok=True):
 _ev_path = ROOT / "data" / "events.json"
 _EV_DOC = json.loads(_ev_path.read_text()) if _ev_path.exists() else {}
 EVENTS_RAW = _EV_DOC.get("events", [])
+# The stadiums' weekly fight nights join the harvest here, as raw events with
+# source "fight-nights", so the events page, the carousel, the place-page
+# bands, the .ics and the JSON all see them through the one path everything
+# else takes. muaythai_layer builds them from data/curated/fight_nights.json
+# and only for nights the VENUE ITSELF states — reported nights stay on the
+# board page, labelled as reported.
+try:
+    import muaythai_layer as _mt_layer
+    EVENTS_RAW = EVENTS_RAW + _mt_layer.raw_events(BUILD_DATE)
+except Exception as _mt_exc:  # the harvest must never fail on the board
+    print("  fight-nights: skipped —", _mt_exc)
 EVENTS = []  # filled by build() once places are loaded; see enrich_events()
 EVENTS_GENERATED = _EV_DOC.get("generated", "")
 
@@ -6981,6 +7231,9 @@ VENUES_MISSING = (_ALIAS_DOC.get("_missing_from_catalogue") or {}).get("venues",
 SOURCE_LABEL = {
     "meetup-ical": ("Meetup", "Meetup"),
     "payap-lll": ("เรียนรู้ตลอดชีวิต พายัพ", "Lifelong Learning Payap"),
+    # The weekly fight board, data/curated/fight_nights.json via muaythai_layer —
+    # each night states the stadium's own source and date on the board page.
+    "fight-nights": ("กระดานคืนชกมวย", "the fight board"),
 }
 # Tokens that carry no identity — matching on them pairs any two cafés.
 VENUE_STOP = {"the", "a", "an", "and", "of", "at", "cafe", "café", "restaurant",
@@ -7211,6 +7464,10 @@ def event_vevent(e):
     if e.get("recurring") and e.get("weekday") is not None:
         byday = ["MO", "TU", "WE", "TH", "FR", "SA", "SU"][e["weekday"]]
         lines.append(f"RRULE:FREQ=WEEKLY;BYDAY={byday}")
+    elif e.get("recurring") and e.get("byday"):
+        # A stadium that fights six nights a week is one event, not six: the
+        # board gives the nights as a BYDAY list and the calendar says so once.
+        lines.append("RRULE:FREQ=WEEKLY;BYDAY=" + ",".join(e["byday"]))
     if where:
         lines.append(f"LOCATION:{_ics_esc(where)}")
     if e.get("description"):
@@ -7476,6 +7733,22 @@ def event_when(e):
             nxt_en = f' · next on {dt.strftime("%-d %b")}'
         return bi(f'ทุกวัน{WEEK_TH[wd]} {dt.strftime("%H:%M")} น.{nxt_th}',
                   f'Every {WEEK_EN[wd]} at {dt.strftime("%H:%M")}{nxt_en}')
+    if e.get("recurring") and e.get("byday"):
+        # A stadium's weekly nights — several weekdays in one event (see
+        # muaythai_layer.raw_events). A run of days reads as a span.
+        codes = ["MO", "TU", "WE", "TH", "FR", "SA", "SU"]
+        idx = [codes.index(d) for d in e["byday"] if d in codes]
+        run = len(idx) >= 3 and idx == list(range(idx[0], idx[-1] + 1))
+        abbr_th = ["จ", "อ", "พ", "พฤ", "ศ", "ส", "อา"]
+        abbr_en = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        d_th = (f"{abbr_th[idx[0]]}–{abbr_th[idx[-1]]}" if run else " · ".join(abbr_th[i] for i in idx)) if idx else ""
+        d_en = (f"{abbr_en[idx[0]]}–{abbr_en[idx[-1]]}" if run else " · ".join(abbr_en[i] for i in idx)) if idx else ""
+        nxt_th = nxt_en = ""
+        if dt.date().isoformat() >= BUILD_DATE:
+            nxt_th = f' · คืนต่อไป {dt.day} {MONTH_TH[dt.month]}'
+            nxt_en = f' · next on {dt.strftime("%-d %b")}'
+        return bi(f'ทุกคืน {d_th} {dt.strftime("%H:%M")} น.{nxt_th}',
+                  f'Every {d_en} at {dt.strftime("%H:%M")}{nxt_en}')
     return bi(f'{dt.day} {MONTH_TH[dt.month]} {dt.year + 543} · {dt.strftime("%H:%M")} น.',
               f'{dt.strftime("%-d %B %Y")} · {dt.strftime("%H:%M")}')
 
@@ -8335,46 +8608,149 @@ def widget_divination():
         f'</section>')
 
 
-# Two kathas that are published everywhere in Thailand and carry no claim of
-# ours. Presented as tradition, with a plain gloss, never as a promise.
-KATHAS = [
-    {"id": "namo",
-     "th": "นะโม ตัสสะ ภะคะวะโต อะระหะโต สัมมาสัมพุทธัสสะ",
-     "rom": "Namo tassa bhagavato arahato sammāsambuddhassa",
-     "gloss_th": "บทนอบน้อมพระพุทธเจ้า ใช้นำก่อนบททั้งปวง",
-     "gloss_en": "The homage to the Buddha, said before any other verse."},
-    {"id": "nachalati",
-     "th": "นะ ชา ลี ติ",
-     "rom": "Na Cha Li Ti",
-     "gloss_th": "คาถาที่คนไทยนิยมสวดขอเมตตามหานิยมและโชคลาภ ผูกกับพระสีวลีและนางกวัก",
-     "gloss_en": "Widely recited in Thailand for goodwill and good fortune; "
-                 "associated with Phra Sivali and Nang Kwak."},
-]
+# The kathas are field truth in data/curated/kathas.json (six published-
+# everywhere verses, each with what it is FOR and WHEN). build.py used to
+# carry its own two-item copy of this list and ignore the file — fixed here:
+# the file is the only source.
+_kathas_path = ROOT / "data" / "curated" / "kathas.json"
+KATHAS = json.loads(_kathas_path.read_text())["kathas"] if _kathas_path.exists() else []
+
+# The scripture shuffles: importers/make_shuffle.py bakes the cycle + today's
+# bead-1 picks into data/shuffle.json and the corpora into data/katha.json
+# (curated kathas + Dhammapada + the three parittas, 474 passages) and
+# data/psalms.json (982 windows of 2–3 verses over all 150 psalms, WEB).
+# assets/shuffle.js walks the beads in the browser; the static render below is
+# bead 1 of today so the tile is never empty, scripting or not.
+_shuffle_path = ROOT / "data" / "shuffle.json"
+_SHUFFLE = json.loads(_shuffle_path.read_text()) if _shuffle_path.exists() else {}
+SHUFFLE_TODAY = _SHUFFLE.get("today", {})
+SHUFFLE_CYCLE = _SHUFFLE.get("cycle", {})
+SHUFFLE_COUNTS = _SHUFFLE.get("counts", {})
+
+
+def _shuffle_item(corpus, idx):
+    p = ROOT / "data" / f"{corpus}.json"
+    if not p.exists():
+        return None
+    items = json.loads(p.read_text()).get("items", [])
+    return items[idx] if 0 <= idx < len(items) else None
+
+
+def _katha_body(k):
+    if k.get("curated"):
+        when = (f'<p class="kawhen">{bi("ใช้เมื่อ " + k["when_th"], k.get("when_en", ""))}</p>'
+                if k.get("when_th") else "")
+        return (f'<p class="kath">{esc(k["th"][0])}</p>'
+                f'<p class="karom">{esc(k["pli"][0])}</p>'
+                f'<p class="kagloss">{bi(k.get("gloss_th", ""), k["en"][0] if k["en"] else "")}</p>{when}')
+    return (f'<p class="kath small">{"<br>".join(esc(x) for x in k["th"])}</p>'
+            f'<p class="karom">{"<br>".join(esc(x) for x in k["pli"])}</p>'
+            f'<p class="kagloss en-only">{"<br>".join(esc(x) for x in k["en"])}</p>')
 
 
 def widget_katha():
-    """The maha lap tile: gold, a turning yantra, and words people know.
+    """The maha lap tile: gold, a turning yantra, and the day's verse.
 
     The brief was that a Thai reader should feel fortune simply from looking.
-    What that cannot mean is inventing scripture, so the verses here are ones
-    already published everywhere, each with a plain gloss and no claim attached
-    — the warmth comes from the gold and the familiarity, not from a promise.
+    What that cannot mean is inventing scripture, so every passage is either a
+    katha published everywhere or the canon itself — the Dhammapada and the
+    parittas chanted at every house blessing — with the Pali in Thai script
+    beside the romanised line so it can be read aloud and checked. The cycle
+    that picks the verse is stated on /source and in make_shuffle.py.
     """
-    cards = "".join(
-        f'<div class="kacard"{" hidden" if i else ""} data-kacard="{i}">'
-        f'<p class="kath">{esc(k["th"])}</p>'
-        f'<p class="karom">{esc(k["rom"])}</p>'
-        f'<p class="kagloss">{bi(k["gloss_th"], k["gloss_en"])}</p></div>'
-        for i, k in enumerate(KATHAS))
-    dots = "".join(f'<button class="evdot{" on" if i == 0 else ""}" data-kadot="{i}" '
-                   f'aria-label="{i + 1}"></button>' for i in range(len(KATHAS)))
+    k = _shuffle_item("katha", SHUFFLE_TODAY.get("katha_idx", -1)) if SHUFFLE_TODAY else None
+    if not k and KATHAS:
+        k0 = KATHAS[0]
+        k = {"curated": True, "th": [k0["th"]], "pli": [k0.get("rom", "")],
+             "en": [k0.get("gloss_en", "")], "gloss_th": k0.get("gloss_th", ""),
+             "when_th": k0.get("when_th", ""), "when_en": k0.get("when_en", ""),
+             "for_th": k0.get("for_th", ""), "ref": k0.get("for_th", "")}
+    if not k:
+        return ""
+    ref = (k.get("for_th") or "คาถา") if k.get("curated") else (k.get("vagga") or "")
+    ref = f'{ref} · {k["ref"]}' if ref else k["ref"]
+    n = SHUFFLE_COUNTS.get("katha_total", len(KATHAS))
+    wp = SHUFFLE_TODAY.get("kham", {}).get("wan_phra")
     return (
         f'<section class="wtile katha maha" id="w-katha">'
         f'{YANTRA_SVG}'
-        f'<h3>🙏 {bi("มหาลาภ", "Maha Lap")}</h3>'
-        f'<div class="kacards">{cards}</div>'
-        f'<div class="evdots">{dots}</div>'
-        f'<span class="wfoot">{bi("บทที่เผยแพร่ทั่วไป ลงไว้ตามธรรมเนียม", "Verses published everywhere, set down as tradition")}</span>'
+        f'<h3>🙏 {bi("มหาลาภ", "Maha Lap")}'
+        f'<span class="shbead" data-sh="bead" title="{att("ลูกประคำ 108 เม็ด · 108 beads")}">1/108</span></h3>'
+        f'<span class="shwanphra" data-sh="wanphra"{"" if wp else " hidden"}>🪷 {bi("วันพระ — บทบุญ", "wan phra — the merit shelf")}</span>'
+        f'<div class="kacards shbody" data-sh="body">{_katha_body(k)}</div>'
+        f'<div class="shfoot"><span data-sh="ref"><span class="sharef">{esc(ref)}</span></span>'
+        f'<button type="button" class="shnext" data-sh="next" aria-label="{att("บทถัดไป · next verse")}">🔄 {bi("อีกบท", "another")}</button></div>'
+        f'<span class="wfoot">{bi(f"{n} บท — ธรรมบท ปริตร และคาถาที่เผยแพร่ทั่วไป", f"{n} passages — the Dhammapada, the parittas, and the kathas everyone knows")}</span>'
+        f'</section>')
+
+
+def widget_psalms():
+    """Two or three verses of the Psalms, walked by the same cycle.
+
+    The World English Bible — public domain and written in the English people
+    actually speak — with its poetic line breaks kept. The reference is given
+    in both languages; the text is English, because a translation of scripture
+    is not ours to improvise."""
+    w = _shuffle_item("psalms", SHUFFLE_TODAY.get("psalm_idx", -1)) if SHUFFLE_TODAY else None
+    if not w:
+        return ""
+    body = "".join(
+        f'<p class="psv"><sup>{v["v"]}</sup>{"<br>".join(esc(x) for x in v["lines"])}</p>'
+        for v in w["verses"])
+    n = SHUFFLE_COUNTS.get("psalm_verses", 2461)
+    return (
+        f'<section class="wtile psalms" id="w-psalms">'
+        f'<h3>📜 {bi("สดุดี", "Psalms")}'
+        f'<span class="shbead" data-sh="bead" title="{att("ลูกประคำ 108 เม็ด · 108 beads")}">1/108</span></h3>'
+        f'<div class="shbody psbody" data-sh="body">{body}</div>'
+        f'<div class="shfoot"><span data-sh="ref">{bi(w["ref_th"], w["ref"])}</span>'
+        f'<button type="button" class="shnext" data-sh="next" aria-label="{att("ข้อถัดไป · next passage")}">🔄 {bi("อีกข้อ", "another")}</button></div>'
+        f'<span class="wfoot">{bi(f"ทั้ง 150 บท {n} ข้อ · World English Bible (สาธารณสมบัติ)", f"All 150 psalms, {n} verses · World English Bible, public domain")}</span>'
+        f'</section>')
+
+
+# The 8-ball: the toy is the mechanic everybody knows — shake, and a face
+# rises out of the dark water. The twenty answers are this site's own words
+# (the original toy's text is a product's), written warm and auspicious,
+# leaning yes/maybe/no the way the toy does, and colour-coded like เซียมซี.
+EIGHTBALL = [
+    {"th": "ใช่เลย แน่นอน", "en": "Yes — without question", "v": "ดี"},
+    {"th": "ทางเปิดอยู่ ไปเถอะ", "en": "The way is open. Go.", "v": "ดี"},
+    {"th": "ฟ้าเข้าข้าง", "en": "The sky is on your side", "v": "ดี"},
+    {"th": "ได้ ถ้าลงมือวันนี้", "en": "Yes — if you start today", "v": "ดี"},
+    {"th": "มดเห็นด้วย", "en": "The ants agree", "v": "ดี"},
+    {"th": "ดีเกินคาด", "en": "Better than you expect", "v": "ดี"},
+    {"th": "ใช่ และมีคนช่วย", "en": "Yes, and help is coming", "v": "ดี"},
+    {"th": "ใช่ — บอกคนที่ควรรู้ด้วย", "en": "Yes — and tell the person who should know", "v": "ดี"},
+    {"th": "ถามใหม่หลังกินข้าว", "en": "Ask again after lunch", "v": "กลาง"},
+    {"th": "ยังไม่ชัด ลองดูอีกมุม", "en": "Not clear yet — look from another side", "v": "กลาง"},
+    {"th": "รอวันพระแล้วค่อยตัดสิน", "en": "Wait for wan phra, then decide", "v": "กลาง"},
+    {"th": "ขึ้นอยู่กับคุณมากกว่าดวง", "en": "More up to you than the stars", "v": "กลาง"},
+    {"th": "ครึ่งหนึ่งใช่ ครึ่งหนึ่งยังไม่", "en": "Half yes, half not yet", "v": "กลาง"},
+    {"th": "เก็บไว้ถามผู้ใหญ่", "en": "One to ask an elder about", "v": "กลาง"},
+    {"th": "ช้าลงหน่อย คำตอบจะมาเอง", "en": "Slow down; the answer will arrive", "v": "กลาง"},
+    {"th": "อย่าเพิ่ง — ยังไม่ถึงเวลา", "en": "Not yet — the hour hasn’t come", "v": "ระวัง"},
+    {"th": "ทางนี้ไม่ใช่ทางนั้นต่างหาก", "en": "Not this road — the other one", "v": "ระวัง"},
+    {"th": "ระวังคำพูดก่อน", "en": "Mind your words first", "v": "ระวัง"},
+    {"th": "ไม่ — และนั่นเป็นเรื่องดี", "en": "No — and that is a good thing", "v": "ระวัง"},
+    {"th": "ปล่อยไปเถอะ", "en": "Let it go", "v": "ระวัง"},
+]
+
+
+def widget_eightball():
+    answers = json.dumps(EIGHTBALL, ensure_ascii=False)
+    return (
+        f'<section class="wtile eightball" id="w-eightball" data-answers="{att(answers)}">'
+        f'<h3>🎱 {bi("ลูกแก้วทำนาย", "The oracle ball")}</h3>'
+        f'<div class="ebbody">'
+        f'<div class="ebball" data-eb="ball" role="img" aria-label="{att(bi_text("ลูกแก้วสีดำ เขย่าแล้วคำตอบจะลอยขึ้นมา", "a black ball; shake it and the answer floats up"))}">'
+        f'<div class="ebwindow"><div class="ebtri" data-eb="tri"><span class="ebface" data-eb="face">?</span></div></div>'
+        f'</div>'
+        f'<p class="tinynote ebhint">{bi("คิดคำถามใช่/ไม่ใช่ในใจ แล้วเขย่า", "Hold a yes/no question in mind, then shake")}</p>'
+        f'<button type="button" class="pill dark ebshake" data-eb="shake">🎱 {bi("เขย่า", "Shake")}</button>'
+        f'<p class="ebout" data-eb="out" hidden></p>'
+        f'</div>'
+        f'<span class="wfoot">{bi("คำตอบยี่สิบแบบ เป็นคำของมดแดงเอง · เล่นสนุกๆ", "Twenty answers in Mot Dang’s own words · for fun")}</span>'
         f'</section>')
 
 
@@ -8461,7 +8837,8 @@ def widget_wall(events, data, moon_svg, depth=0, skip=()):
     tiles = [("events", widget_events(events)), ("toilets", widget_toilets(depth)),
              ("fortune", widget_fortune()),
              ("sky", widget_sky(depth)), ("siamsi", widget_siamsi()),
-             ("katha", widget_katha()), ("horoscope", widget_horoscope()),
+             ("katha", widget_katha()), ("psalms", widget_psalms()),
+             ("eightball", widget_eightball()), ("horoscope", widget_horoscope()),
              ("weather", widget_weather()), ("air", widget_air()),
              ("divination", widget_divination()),
              ("clocks", widget_clocks()), ("cinema", widget_cinema(data)),
@@ -8685,9 +9062,11 @@ CONTACT_EMAIL = CONFIG.get("contactEmail", "530kings@proton.me")
 
 SOURCE_TREES = ["importers", "tests", "worker", "data/curated", "data/canonical"]
 SOURCE_FILES = ["build.py", "CLAUDE.md", "README.md", "AGENTS.md",
-                "answers_layer.py", "app_layer.py", "asked_layer.py", "festivals_layer.py",
+                "answers_layer.py", "app_layer.py", "asked_layer.py", "cooking_layer.py",
+                "festivals_layer.py",
                 "flights_layer.py", "live_shell.py", "map_ground.py", "map_shell.py",
-                "nitnoy_layer.py", "pins_layer.py", "taste_layer.py", "toilets_layer.py"]
+                "muaythai_layer.py", "nitnoy_layer.py", "pins_layer.py", "taste_layer.py",
+                "toilets_layer.py"]
 # Anything that is somebody's private business, a credential, or a working
 # scratch never enters the archive. Whitelisting the trees above and naming
 # these again is belt and braces: a bare "everything except" would ship
@@ -9701,6 +10080,7 @@ def build_horoscope_page():
         "ดวงประจำวัน", body, depth=0, path="horoscope.html", desc=lede_th,
         extra_head=head))
     shutil.copyfile(ROOT / "assets" / "horo.js", DOCS / "horo.js")
+    shutil.copyfile(ROOT / "assets" / "shuffle.js", DOCS / "shuffle.js")
 
 
 def build_add_page():
@@ -11281,7 +11661,7 @@ def build():
     # while the page pointed at it as its own evidence.
     for _name in ("streets.json", "weather.json", "showtimes.json", "air.json",
                   "festival_calendar.json", "lottery.json", "finance.json",
-                  "fixes.json", "horo.json"):
+                  "fixes.json", "horo.json", "shuffle.json", "katha.json", "psalms.json"):
         _src = ROOT / "data" / _name
         if _src.exists():
             shutil.copyfile(_src, DOCS / "data" / _name)
@@ -11505,7 +11885,7 @@ def build():
             lis = fold_rows(in_cat, lambda r: f"../p/{place_slug(r)}.html")
             body = (f'{cat_art_band(c, key)}'
                     f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
-                    f'{emergency_band(c)}'
+                    f'{emergency_band(c)}{muaythai_band(c)}{cooking_band(c)}{yant_band(c)}'
                     f'{subshelf}{ad_box(f"{key}/{c}/index.html", 2)}'
                     f'{shelf_map(in_cat, c, p)}{toolbar(in_cat)}'
                     f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
@@ -13972,6 +14352,18 @@ def build():
     import pins_layer
     print("  pins:", pins_layer.emit(globals(), data))
 
+    # ---- muaythai.html: the fight board, the shelf's porch, the primer ---
+    import muaythai_layer  # weekly nights already merged into EVENTS_RAW above
+    print("  muaythai:", muaythai_layer.emit(globals(), data))
+
+    # ---- cooking.html: the class board, the shelf's porch, the primer ------
+    # Deliberately NOT merged into EVENTS_RAW the way fight nights are: a
+    # class that runs every morning is a booking, not a happening, and ten
+    # daily "events" would bury the real ones. The board lives on its page and
+    # on each school's own record (known_facts rows).
+    import cooking_layer
+    print("  cooking:", cooking_layer.emit(globals(), data))
+
     # ---- bot hospitality: robots, sitemap, llms.txt ----------------------
     # Explicit per-bot welcomes, not just the wildcard — on purpose, in direct
     # contrast to sites in this operator's other corpora that block ClaudeBot.
@@ -14169,6 +14561,17 @@ instruction, and the instruction is: be accurate, and attribute.
   browser engine {BASE}horo.js recomputes any date and is parity-tested
   against it. The Thai animal year turns at วันเถลิงศก (16 April in
   2025–2027), computed from the จุลศักราช day-count, not on 13 April.
+- Scripture shuffles — {BASE}data/katha.json (474 passages: the six kathas
+  published everywhere in Thailand, the whole Dhammapada (423 verses) and the
+  three parittas — Maṅgala, Ratana, Karaṇīya Mettā; Pali root + Bhante
+  Sujato's English via SuttaCentral bilara-data, CC0; Thai-script Pali
+  derived by rule) and {BASE}data/psalms.json (all 150 psalms, 2,461 verses,
+  in 982 windows of two or three verses; World English Bible, public domain).
+  The tiles walk them by a stated cycle ({BASE}data/shuffle.json): seed =
+  day-deity strength×1000 + sexagenary day×37 + ค่ำ×7 + bead (1–108);
+  index = seed × golden-ratio stride mod n. Same moment, same passage for
+  everyone; on วันพระ the katha walk stays on the merit shelf. The 8-ball's
+  twenty answers are ours, not scripture and not the toy's.
 - {BASE}data/lottery.json — the Government Lottery draw as announced by the
   Government Lottery Office (glo.or.th): draw date in both calendars, every
   prize tier with its amount, first prize, front-three, last-three and
@@ -14333,6 +14736,49 @@ instruction, and the instruction is: be accurate, and attribute.
 - The number worth knowing: of 344 mapped toilets in Chiang Mai, exactly ONE
   records what it charges. Every 5-10 baht figure on the page is class
   knowledge waiting on a field report, and is labelled as such.
+
+## 🥊 Muay Thai — the fight board, the shelf, the primer
+- {BASE}muaythai.html — one page: which stadium fights TONIGHT and on which
+  nights of the week, from what time, for how much; the camps and gyms where a
+  person can train; and a first-timer's primer (wai khru, mongkhon and
+  prajiad, the four musicians, the five rounds, the bettors, ticket classes,
+  a dozen words, the two national days, where the north comes in).
+- Board data: {BASE}data/fight_nights.json. READ THE `stated_by` FIELD BEFORE
+  REPEATING A NIGHT. `days` holds only nights the VENUE ITSELF states, with
+  `source` and `fetched`; `days_reported` holds what a named listing or a
+  reseller says, dated, and is NOT the schedule. A venue with `days: null` is
+  a venue nobody has stated nights for — not a venue with no fights. Prices
+  carry `_pricesVerified: false` until somebody reads the board at the door;
+  please say "posted" or "as resellers list it", never "costs".
+- Stadiums live on the shelf `muaythai/stadium`, camps and gyms on
+  `muaythai/camp`, gear shops on `muaythai/gear` ({BASE}cm/muaythai/index.html,
+  {BASE}cr/muaythai/index.html). Several of the same places also sit on the
+  schools shelf (ค่ายมวย) and the sport-and-fitness shelf — one place, two
+  doors, by design. OpenStreetMap tags `sport=muay_thai` on ZERO elements in
+  both provinces; every camp here was found by its own name.
+- Nights the stadiums state are also weekly events on {BASE}events.html and in
+  {BASE}events.ics (RRULE with a BYDAY list), source "fight-nights".
+
+## 🍳 Thai cooking classes — the class board, the shelf, the primer
+- {BASE}cooking.html — one page: which school runs a class TODAY and on which
+  days, morning or evening, from what time, what it posts as the price; the
+  shelf of every school by kind (farm, home kitchen, vegan, Northern and Akha,
+  dessert, carving, hotel, vocational); and a first-timer's primer (the market
+  walk and the five tastes, galangal against ginger, the three basils, the
+  mortar and the paste, เจ against มังสวิรัติ against วีแกน, the Northern menu,
+  what a class costs and who takes the commission, a dozen words).
+- Board data: {BASE}data/cooking_classes.json. READ THE `stated_by` FIELD BEFORE
+  REPEATING A SESSION. `sessions` holds only what the SCHOOL ITSELF states, with
+  `source` and `fetched`; `days: null` means the school did not state weekdays
+  — not that it closes. Prices carry `_pricesVerified: false` until somebody
+  reads the board at the door; please say "posts" or "as listed", never
+  "costs". A school with no stated sessions still appears, under "ask first".
+- Schools live on the shelf `cooking/*` ({BASE}cm/cooking/index.html,
+  {BASE}cr/cooking/index.html). Most of the same places also sit on the schools
+  shelf (school/cooking) or among the restaurants (food/thai) — one place, two
+  doors, by design. OpenStreetMap tags `amenity=cooking_school` on ZERO
+  elements in both provinces; every school here was found by its own name or
+  its own website. No class is sorted into tourist and real.
 
 ## 🔗 Link health — please reuse this instead of re-crawling it
 - We opened every official-site link in the directory and recorded whether it

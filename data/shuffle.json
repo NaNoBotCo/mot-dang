@@ -1,0 +1,100 @@
+{
+ "generated": "2026-08-19",
+ "cycle": {
+  "rule": "seed = strength*1000 + day_pillar*37 + kham*7 + bead; index = (seed*stride) mod n",
+  "katha": {
+   "n": 474,
+   "stride": 293,
+   "merit_shelf": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50
+   ]
+  },
+  "psalms": {
+   "n": 982,
+   "stride": 607
+  },
+  "beads": 108
+ },
+ "licence": {
+  "katha_canon": "Pali root: Mahāsaṅgīti Tipiṭaka; English: Bhante Sujato — both via SuttaCentral bilara-data, CC0 1.0. Thai script derived by rule from the romanised Pali.",
+  "katha_curated": "data/curated/kathas.json — verses published everywhere in Thailand, set down as tradition.",
+  "psalms": "World English Bible (WEB), public domain — ebible.org."
+ },
+ "counts": {
+  "curated": 6,
+  "paritta": 45,
+  "dhammapada": 423,
+  "katha_total": 474,
+  "psalm_windows": 982,
+  "psalm_verses": 2461
+ },
+ "sha": {
+  "katha": "61cfbf929fb6a669",
+  "psalms": "2670a564d0e900a0"
+ },
+ "today": {
+  "date": "2026-08-19",
+  "seed": 17087,
+  "kham": {
+   "day": 7,
+   "waning": false,
+   "wan_phra": false
+  },
+  "katha_idx": 103,
+  "psalm_idx": 907
+ },
+ "files": {
+  "katha": "data/katha.json",
+  "psalms": "data/psalms.json"
+ }
+}

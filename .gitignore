@@ -32,3 +32,8 @@ docs/tiles/
 # .uploaded.json is a per-machine checksum ledger of the last sync.
 publish/.wrangler/
 publish/.uploaded.json
+
+# The Hugging Face dataset repo: a build artifact of the canonical data, the
+# same way docs/ is. make_hf_dataset.py is tracked; its 12 MB of output is not.
+publish/hf-dataset/
+cache/scripture/

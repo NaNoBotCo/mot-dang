@@ -94,6 +94,7 @@ python3 importers/make_showtimes.py    || say "showtimes kept the snapshot"
 python3 importers/make_lottery.py      || say "lottery kept the snapshot"
 python3 importers/make_finance.py      || say "finance kept the snapshot"
 python3 importers/make_horo.py         || say "horoscope kept the previous bake"
+python3 importers/make_shuffle.py      || say "scripture shuffle kept the previous bake"
 python3 importers/harvest_events.py --refetch || say "events kept the snapshot"
 # Festival dates were gathered once, on 2026-07-29, and then never again — the
 # walk collected events every morning and walked straight past the festivals.
