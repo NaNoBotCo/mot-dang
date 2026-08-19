@@ -114,7 +114,8 @@
   function gcd(a, b) { while (b) { var t = b; b = a % b; a = t; } return a; }
 
   // ---- katha tile --------------------------------------------------------
-  function renderKatha(host, bead) {
+  function renderKatha(pane, bead) {
+    var host = pane;
     var s = seedFor(new Date(), bead);
     var res = pick('katha', bead, s.kham.wanPhra);
     var k = CORPUS.katha.items[res.idx];
@@ -139,7 +140,8 @@
   }
 
   // ---- psalms tile -------------------------------------------------------
-  function renderPsalms(host, bead) {
+  function renderPsalms(pane, bead) {
+    var host = pane;
     var res = pick('psalms', bead, false);
     var w = CORPUS.psalms.items[res.idx];
     var html = w.verses.map(function (v) {
@@ -150,14 +152,17 @@
     host.querySelector('[data-sh="bead"]').textContent = bead + '/108';
   }
 
-  function wireShuffle(id, corpus, file, render) {
-    var host = document.getElementById(id);
-    if (!host) return;
-    var btn = host.querySelector('[data-sh="next"]');
+  // One tile, one pane per shelf. Each shelf keeps its own bead on the same
+  // cycle, and its corpus is fetched the first time its tab is opened — so a
+  // reader who never opens the Psalms never downloads them.
+  function wireShelf(pane, corpus, file, render) {
+    if (!pane || pane.dataset.wired) return;
+    pane.dataset.wired = '1';
+    var btn = pane.querySelector('[data-sh="next"]');
     var go = function () {
       var bead = beadOf(corpus);
-      render(host, bead);
-      host.classList.remove('turning');
+      render(pane, bead);
+      pane.classList.remove('turning');
     };
     getJSON(file).then(function (j) {
       CORPUS[corpus] = j;
@@ -165,10 +170,40 @@
       if (btn) btn.addEventListener('click', function () {
         var b = beadOf(corpus) % 108 + 1;
         setBead(corpus, b);
-        host.classList.add('turning');
+        pane.classList.add('turning');
         setTimeout(go, 260);
       });
     }).catch(function () { /* the baked passage stays */ });
+  }
+
+  var SHELVES = {
+    katha: { file: 'data/katha.json', render: renderKatha },
+    psalms: { file: 'data/psalms.json', render: renderPsalms }
+  };
+
+  function wireTile() {
+    var host = document.getElementById('w-katha');
+    if (!host) return;
+    var open = function (key) {
+      var pane = host.querySelector('[data-shpane="' + key + '"]');
+      if (!pane) return;
+      var sh = SHELVES[key];
+      if (sh) wireShelf(pane, key, sh.file, sh.render);
+    };
+    // the shelf on top when the page opens
+    var first = host.querySelector('.shpane:not([hidden])');
+    if (first) open(first.dataset.shpane);
+    var tabs = [].slice.call(host.querySelectorAll('[data-shtab]'));
+    tabs.forEach(function (b) {
+      b.addEventListener('click', function () {
+        tabs.forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+        [].slice.call(host.querySelectorAll('.shpane')).forEach(function (p) {
+          p.hidden = p.dataset.shpane !== b.dataset.shtab;
+        });
+        open(b.dataset.shtab);
+      });
+    });
   }
 
   // ---- 8-ball ------------------------------------------------------------
@@ -207,12 +242,11 @@
 
   function init() {
     wireEightBall();
-    if (!document.getElementById('w-katha') && !document.getElementById('w-psalms')) return;
+    if (!document.getElementById('w-katha')) return;
     getJSON('data/sky.json').then(function (j) { SKY = j.days || null; }).catch(function () {})
     .then(function () { return getJSON('data/shuffle.json'); }).then(function (j) {
       CYCLE = j.cycle;
-      wireShuffle('w-katha', 'katha', 'data/katha.json', renderKatha);
-      wireShuffle('w-psalms', 'psalms', 'data/psalms.json', renderPsalms);
+      wireTile();
     }).catch(function () {});
   }
 

@@ -1479,32 +1479,32 @@ font-variant-numeric:tabular-nums}
 .kawhen{margin:.25rem 0 0;font-size:.74rem;color:#8a6a24}
 /* shuffles: a verse needs room — these three tiles take two columns, half
    the height of a square each, and fall back to a square on a phone. */
-.wtile.katha,.wtile.psalms,.wtile.eightball{grid-column:span 2;aspect-ratio:2/1}
-@media (max-width:34rem){.wtile.katha,.wtile.psalms,.wtile.eightball{grid-column:span 1;aspect-ratio:auto;min-height:16rem}}
-.wtile.katha .wfoot,.wtile.psalms .wfoot,.wtile.eightball .wfoot{font-size:.66rem;line-height:1.25}
+.wtile.katha,.wtile.eightball{grid-column:span 2;aspect-ratio:2/1}
+@media (max-width:34rem){.wtile.katha,.wtile.eightball{grid-column:span 1;aspect-ratio:auto;min-height:16rem}}
+.wtile.katha .wfoot,.wtile.eightball .wfoot{font-size:.66rem;line-height:1.25}
+.shtabs{display:flex;gap:.25rem;margin:-.1rem 0 .3rem;z-index:1;flex:none}
+.shpane{flex:1;display:flex;flex-direction:column;min-height:0;z-index:1}
+.shpane[hidden]{display:none}
 /* shuffles: bead counter, reference, the "another" bead */
-.shbead{margin-left:auto;font-size:.68rem;font-weight:500;color:#8a6a24;background:rgba(255,255,255,.55);
+.shbead{font-size:.68rem;font-weight:500;color:#8a6a24;background:rgba(255,255,255,.55);
 border-radius:999px;padding:.05rem .45rem;font-variant-numeric:tabular-nums}
 .shwanphra{font-size:.7rem;color:#7a5410;margin:-.2rem 0 .2rem;display:block}
 .shbody{flex:1;overflow-y:auto;min-height:0;z-index:1;transition:opacity .26s,transform .26s}
 .wtile.turning .shbody{opacity:0;transform:translateY(4px)}
-.shfoot{display:flex;align-items:center;justify-content:space-between;gap:.4rem;margin-top:.35rem;z-index:1;flex:none}
+.shfoot{display:flex;align-items:center;gap:.4rem;margin-top:.35rem;z-index:1;flex:none}
+.shfoot [data-sh="ref"]{flex:1;min-width:0}
+.shfoot .shbead{margin-left:auto}
 .sharef{font-size:.72rem;color:#7a5410;font-weight:600}
 .shnext{border:1px solid rgba(122,84,16,.35);background:rgba(255,255,255,.6);border-radius:999px;
 font:inherit;font-size:.72rem;padding:.12rem .55rem;cursor:pointer;color:#7a5410;white-space:nowrap;
 transition:transform .18s cubic-bezier(.34,1.56,.64,1),box-shadow .18s}
 .shnext:hover,.shnext:focus-visible{transform:scale(1.06);box-shadow:0 3px 10px rgba(122,84,16,.2);outline:none}
 .shnext:active{transform:scale(.95)}
-/* psalms: deep indigo vellum, serif verse */
-.wtile.psalms{background:linear-gradient(160deg,#1d1a2e 0%,#2b2445 60%,#3a2f57 100%);color:#f3ecdd;border-color:#4a3d6b}
-.wtile.psalms h3{color:#e8d9a8;border-left-color:#c9a227}
-.wtile.psalms .shbead{background:rgba(255,255,255,.1);color:#d9c88f}
-.wtile.psalms .sharef,.wtile.psalms .shfoot .bi{color:#e8d9a8;font-size:.74rem}
-.wtile.psalms .shnext{background:rgba(255,255,255,.08);color:#e8d9a8;border-color:rgba(232,217,168,.4)}
-.wtile.psalms .wfoot{color:#a99bc4}
-.psbody{font-family:Georgia,"Times New Roman",serif;font-size:.9rem;line-height:1.5}
+/* the Psalms shelf: a serif page inside the gold tile */
+.psbody{font-family:Georgia,"Times New Roman",serif;font-size:.88rem;line-height:1.5;
+background:rgba(255,255,255,.42);border-radius:.5rem;padding:.4rem .6rem}
 .psv{margin:.2rem 0}
-.psv sup{font-size:.62em;color:#c9a227;margin-right:.28rem;font-family:inherit}
+.psv sup{font-size:.62em;color:#8a6a24;margin-right:.28rem;font-family:inherit;font-weight:700}
 /* 8-ball */
 .wtile.eightball{background:radial-gradient(120% 90% at 30% 0%,#3a3a44 0%,#15151a 60%,#0b0b0e 100%);color:#f1e8d8;border-color:#2a2a33}
 .wtile.eightball h3{color:#f1e8d8;border-left-color:#c9a227}
@@ -6444,6 +6444,44 @@ def place_slug(r):
     return f"{slug}-{numeric}" if slug else numeric
 
 
+def write_moved_stubs():
+    """Pages whose address changed — a stub at the old path that forwards.
+
+    place_slug() is the Latin name plus the OSM id, so correcting a name moves
+    the page, and CLAUDE.md is plain about what that is: a 404 after deploy.
+    The first case was Sak Yant Chiang Mai (WO-14) — OSM's name:en carried the
+    typo "Tatoo", a curated record gave the business its own name back, and
+    the page a reader may have pasted into a group three weeks earlier would
+    have died. data/curated/moved.json holds {old_path: new_path}; each old
+    path gets a small page with a meta refresh and a canonical link to the
+    new one. Stubs are noindex and never in the sitemap — the new page is the
+    record. A stub is only written where the new page exists, so a typo in
+    moved.json cannot forward a reader into a 404.
+    """
+    path = ROOT / "data" / "curated" / "moved.json"
+    if not path.exists():
+        return 0
+    moved = (json.loads(path.read_text()) or {}).get("moved") or {}
+    n = 0
+    for old, new in moved.items():
+        old, new = old.lstrip("/"), new.lstrip("/")
+        if old == new or not (DOCS / new).exists():
+            continue
+        target = BASE + new
+        out = DOCS / old
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(
+            '<!doctype html><html lang="th"><head><meta charset="utf-8">'
+            '<meta name="robots" content="noindex">'
+            f'<link rel="canonical" href="{att(target)}">'
+            f'<meta http-equiv="refresh" content="0; url={att(target)}">'
+            '<title>ย้ายแล้ว · moved</title></head><body>'
+            f'<p>หน้านี้ย้ายไปที่ <a href="{att(target)}">{esc(target)}</a> · '
+            'This page has moved.</p></body></html>\n')
+        n += 1
+    return n
+
+
 def _place_cat_label(r):
     """The most specific category name on record: subcategory if matched,
     else the parent category. Shared by place_title and place_desc so the
@@ -8649,14 +8687,16 @@ def _katha_body(k):
 
 
 def widget_katha():
-    """The maha lap tile: gold, a turning yantra, and the day's verse.
+    """One scripture tile, two shelves: the kathas and canon on one tab, the
+    Psalms on the other.
 
     The brief was that a Thai reader should feel fortune simply from looking.
     What that cannot mean is inventing scripture, so every passage is either a
-    katha published everywhere or the canon itself — the Dhammapada and the
-    parittas chanted at every house blessing — with the Pali in Thai script
-    beside the romanised line so it can be read aloud and checked. The cycle
-    that picks the verse is stated on /source and in make_shuffle.py.
+    katha published everywhere, the canon those chant chains are built from
+    (the Dhammapada and the parittas), or the Psalms in a public-domain
+    translation — with the Pali in Thai script beside the romanised line so it
+    can be read aloud and checked. Each shelf keeps its own bead on the same
+    108-bead cycle, which is stated in make_shuffle.py and in llms.txt.
     """
     k = _shuffle_item("katha", SHUFFLE_TODAY.get("katha_idx", -1)) if SHUFFLE_TODAY else None
     if not k and KATHAS:
@@ -8669,43 +8709,47 @@ def widget_katha():
         return ""
     ref = (k.get("for_th") or "คาถา") if k.get("curated") else (k.get("vagga") or "")
     ref = f'{ref} · {k["ref"]}' if ref else k["ref"]
-    n = SHUFFLE_COUNTS.get("katha_total", len(KATHAS))
+    nk = SHUFFLE_COUNTS.get("katha_total", len(KATHAS))
     wp = SHUFFLE_TODAY.get("kham", {}).get("wan_phra")
+
+    w = _shuffle_item("psalms", SHUFFLE_TODAY.get("psalm_idx", -1)) if SHUFFLE_TODAY else None
+    nv = SHUFFLE_COUNTS.get("psalm_verses", 2461)
+    ps_pane = ""
+    if w:
+        ps_body = "".join(
+            f'<p class="psv"><sup>{v["v"]}</sup>{"<br>".join(esc(x) for x in v["lines"])}</p>'
+            for v in w["verses"])
+        ps_pane = (
+            f'<div class="shpane" data-shpane="psalms" hidden>'
+            f'<div class="shbody psbody" data-sh="body">{ps_body}</div>'
+            f'<div class="shfoot"><span data-sh="ref">{bi(w["ref_th"], w["ref"])}</span>'
+            f'<span class="shbead" data-sh="bead">1/108</span>'
+            f'<button type="button" class="shnext" data-sh="next" aria-label="{att("ข้อถัดไป · next passage")}">🔄 {bi("อีกข้อ", "another")}</button></div>'
+            f'<span class="wfoot">{bi(f"ทั้ง 150 บท {nv} ข้อ · World English Bible (สาธารณสมบัติ)", f"All 150 psalms, {nv} verses · World English Bible, public domain")}</span>'
+            f'</div>')
+
+    tabs = [("katha", "คาถา-ธรรมบท", "Katha & Dhamma")]
+    if ps_pane:
+        tabs.append(("psalms", "สดุดี", "Psalms"))
+    tabbar = ("" if len(tabs) < 2 else
+              '<div class="shtabs">' + "".join(
+                  f'<button class="hotab{" on" if i == 0 else ""}" data-shtab="{key}">{bi(a, b)}</button>'
+                  for i, (key, a, b) in enumerate(tabs)) + '</div>')
+
     return (
         f'<section class="wtile katha maha" id="w-katha">'
         f'{YANTRA_SVG}'
-        f'<h3>🙏 {bi("มหาลาภ", "Maha Lap")}'
-        f'<span class="shbead" data-sh="bead" title="{att("ลูกประคำ 108 เม็ด · 108 beads")}">1/108</span></h3>'
+        f'<h3>🙏 {bi("มหาลาภ", "Maha Lap")}</h3>'
+        f'{tabbar}'
+        f'<div class="shpane" data-shpane="katha">'
         f'<span class="shwanphra" data-sh="wanphra"{"" if wp else " hidden"}>🪷 {bi("วันพระ — บทบุญ", "wan phra — the merit shelf")}</span>'
         f'<div class="kacards shbody" data-sh="body">{_katha_body(k)}</div>'
         f'<div class="shfoot"><span data-sh="ref"><span class="sharef">{esc(ref)}</span></span>'
+        f'<span class="shbead" data-sh="bead">1/108</span>'
         f'<button type="button" class="shnext" data-sh="next" aria-label="{att("บทถัดไป · next verse")}">🔄 {bi("อีกบท", "another")}</button></div>'
-        f'<span class="wfoot">{bi(f"{n} บท — ธรรมบท ปริตร และคาถาที่เผยแพร่ทั่วไป", f"{n} passages — the Dhammapada, the parittas, and the kathas everyone knows")}</span>'
-        f'</section>')
-
-
-def widget_psalms():
-    """Two or three verses of the Psalms, walked by the same cycle.
-
-    The World English Bible — public domain and written in the English people
-    actually speak — with its poetic line breaks kept. The reference is given
-    in both languages; the text is English, because a translation of scripture
-    is not ours to improvise."""
-    w = _shuffle_item("psalms", SHUFFLE_TODAY.get("psalm_idx", -1)) if SHUFFLE_TODAY else None
-    if not w:
-        return ""
-    body = "".join(
-        f'<p class="psv"><sup>{v["v"]}</sup>{"<br>".join(esc(x) for x in v["lines"])}</p>'
-        for v in w["verses"])
-    n = SHUFFLE_COUNTS.get("psalm_verses", 2461)
-    return (
-        f'<section class="wtile psalms" id="w-psalms">'
-        f'<h3>📜 {bi("สดุดี", "Psalms")}'
-        f'<span class="shbead" data-sh="bead" title="{att("ลูกประคำ 108 เม็ด · 108 beads")}">1/108</span></h3>'
-        f'<div class="shbody psbody" data-sh="body">{body}</div>'
-        f'<div class="shfoot"><span data-sh="ref">{bi(w["ref_th"], w["ref"])}</span>'
-        f'<button type="button" class="shnext" data-sh="next" aria-label="{att("ข้อถัดไป · next passage")}">🔄 {bi("อีกข้อ", "another")}</button></div>'
-        f'<span class="wfoot">{bi(f"ทั้ง 150 บท {n} ข้อ · World English Bible (สาธารณสมบัติ)", f"All 150 psalms, {n} verses · World English Bible, public domain")}</span>'
+        f'<span class="wfoot">{bi(f"{nk} บท — ธรรมบท ปริตร และคาถาที่เผยแพร่ทั่วไป", f"{nk} passages — the Dhammapada, the parittas, and the kathas everyone knows")}</span>'
+        f'</div>'
+        f'{ps_pane}'
         f'</section>')
 
 
@@ -8837,7 +8881,7 @@ def widget_wall(events, data, moon_svg, depth=0, skip=()):
     tiles = [("events", widget_events(events)), ("toilets", widget_toilets(depth)),
              ("fortune", widget_fortune()),
              ("sky", widget_sky(depth)), ("siamsi", widget_siamsi()),
-             ("katha", widget_katha()), ("psalms", widget_psalms()),
+             ("katha", widget_katha()),
              ("eightball", widget_eightball()), ("horoscope", widget_horoscope()),
              ("weather", widget_weather()), ("air", widget_air()),
              ("divination", widget_divination()),
@@ -14351,6 +14395,8 @@ def build():
 
     import pins_layer
     print("  pins:", pins_layer.emit(globals(), data))
+
+    print("  moved:", write_moved_stubs())
 
     # ---- muaythai.html: the fight board, the shelf's porch, the primer ---
     import muaythai_layer  # weekly nights already merged into EVENTS_RAW above
