@@ -34,13 +34,32 @@ stand_down() { say "ยืนดูเฉย ๆ วันนี้ — $1"; exi
 
 say "== เดินเก็บตอนเช้า begins"
 
-# one walk at a time
-LOCK=/tmp/motdang-morning-walk.lock
+# one walk at a time — SHARED WITH standing_walk.sh, which does the publishing
+# half of this same job every twenty minutes. The two must never be halfway
+# through each other: this walk rewrites data/ while that one would be reading
+# it to build. Same lock, so whoever arrives second waits for the next round.
+LOCK=/tmp/motdang-walk.lock
 if ! mkdir "$LOCK" 2>/dev/null; then stand_down "another walk holds the lock"; fi
 trap 'rmdir "$LOCK" 2>/dev/null' EXIT
 
-# one build at a time (CLAUDE.md rule) — precise match, no self-match
-if ps -eo args | grep -E '^python3? .*build\.py' >/dev/null; then
+# one build at a time (CLAUDE.md rule)
+#
+# ASK THE LOCK, NOT ps. This used to match `^python3? .*build\.py`, and ps
+# prints the resolved interpreter — `/Library/.../MacOS/Python build.py` — so
+# that anchor could never match and the check passed every morning without
+# looking at anything. build.take_build_lock() writes the holder's pid to
+# cache/build.lock and is the mechanism the project actually trusts; a lock
+# whose process is gone is stale by that function's own rule and ignored here
+# exactly as build.py would ignore it.
+if [[ -f cache/build.lock ]]; then
+  HOLDER=$(head -1 cache/build.lock 2>/dev/null | tr -d '[:space:]')
+  if [[ -n "$HOLDER" ]] && kill -0 "$HOLDER" 2>/dev/null; then
+    stand_down "cache/build.lock is held by live pid $HOLDER"
+  fi
+fi
+# Anchored at the END, because a shell wrapper whose command line merely
+# CONTAINS the words "build.py" is a session that ran a build, not a build.
+if ps -eo args | grep -E '[b]uild\.py$' >/dev/null; then
   stand_down "a build.py is already running"
 fi
 
@@ -74,6 +93,7 @@ python3 importers/make_air.py          || say "air quality kept the snapshot"
 python3 importers/make_showtimes.py    || say "showtimes kept the snapshot"
 python3 importers/make_lottery.py      || say "lottery kept the snapshot"
 python3 importers/make_finance.py      || say "finance kept the snapshot"
+python3 importers/make_horo.py         || say "horoscope kept the previous bake"
 python3 importers/harvest_events.py --refetch || say "events kept the snapshot"
 # Festival dates were gathered once, on 2026-07-29, and then never again — the
 # walk collected events every morning and walked straight past the festivals.
@@ -109,11 +129,20 @@ fi
 TODAY=$(date +%F)
 sed -i '' -E "s/^BUILD_DATE = \"[0-9-]+\"/BUILD_DATE = \"$TODAY\"/" build.py
 
+# Shelf and question cards first — signature-based, so only what changed is
+# drawn. Soft: it needs Chrome, and a missing card falls back to the brand.
+python3 make_shelf_cards.py || say "shelf cards kept — missing ones fall back to the brand card"
 python3 build.py || { say "BUILD FAILED — nothing pushed"; exit 1 }
 
 # the pre-push sequence, same as by hand
 python3 tests/test_publish_gate.py || { say "publish gate FAILED — nothing pushed"; exit 1 }
 node tests/test_plan_routes.js     || { say "route tests FAILED — nothing pushed"; exit 1 }
+# A published reader question must have its records, its page, its card and
+# a reply that fills. Hard: a broken one is a wrong answer with the site's
+# name on it. A half-answered question carries draft:true and is skipped.
+python3 tests/test_asked.py         || { say "asked gate FAILED — nothing pushed"; exit 1 }
+# Advisory: its NO CARD mode fires legitimately when Chrome was away.
+python3 tests/test_shelf_cards.py   || say "⚠️  shelf cards advisory — some list pages share as the brand card"
 if grep -rl "/Users/" docs/ | head -1 | grep -q .; then
   say "path leak in docs/ — nothing pushed"; exit 1
 fi
@@ -144,6 +173,13 @@ if [[ $(date +%u) == 7 ]]; then
 fi
 # WHAT READERS SEE: motdang.net is the mot-dang-site Worker over R2
 # (publish/README.md). The R2 sync IS the deploy.
-python3 publish/deploy.py --yes || say "R2 site sync FAILED — readers still see yesterday"
+# Through the tower, on the cloudflare-deploy lane, so a morning publish can
+# never land on top of the wichaa nightly, the crawler's publish step, or a
+# standing_walk.sh round. Waits rather than stepping back: unlike the standing
+# walk there is no next round for twenty-four hours, so patience is the right
+# manner here.
+python3 "/Users/annikapeacock/Developer/claude code projects/bot-tower/tower.py" \
+  wrap cloudflare-deploy --patience 20 -- python3 publish/deploy.py --yes \
+  || say "R2 site sync FAILED — readers still see yesterday"
 python3 importers/ping_indexnow.py || say "IndexNow ping skipped"
 say "== published $TODAY — the ants are home"

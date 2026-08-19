@@ -178,14 +178,30 @@ WUXING_REL = {
 }
 
 
+def thaloengsok_jd(cs):
+    """JD (00:00 UT) of วันเถลิงศก, the day จุลศักราช year `cs` opens — the
+    horakhun day-count of the สุริยยาตร์: 1954167.5 + (292207·cs + 373)//800.
+    Lands 16 April for 2025–2027, as the published almanacs print; the fixed
+    "13 April" folk shortcut is a day to three early. Shared with
+    importers/make_horo.py, and asserted there."""
+    return 1954167.5 + (292207 * cs + 373) // 800
+
+
 def thai_zodiac_year(d):
-    """The Thai animal year turns at Songkran, not on 1 January.
+    """The Thai animal year turns at วันเถลิงศก, not on 1 January and not on
+    the first day of the Songkran holiday either.
 
     Counting straight from the Gregorian year makes January to mid-April wrong
     by one animal — the kind of quiet off-by-one that makes an almanac useless.
+    Counting from 13 April was wrong for the 13th–15th for the same reason.
     """
-    y = d.year if (d.month, d.day) >= (4, 13) else d.year - 1
-    return THAI_ZODIAC[(y - 4) % 12]
+    jd = 2440587.5 + (d - date(1970, 1, 1)).days
+    cs = d.year - 638
+    if jd < thaloengsok_jd(cs):
+        cs -= 1
+    elif jd >= thaloengsok_jd(cs + 1):
+        cs += 1
+    return THAI_ZODIAC[(cs + 10) % 12]
 
 
 def build_day(d, oracle_ok):

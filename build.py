@@ -16,18 +16,22 @@ page with no map on it still makes no request to anyone. The line that matters
 was never "zero requests" for its own sake; it is that nothing on this site
 reports a reader to anybody, and that has not moved.
 """
+import atexit
 import base64
 import datetime
 import heapq
 import io
 import json
 import math
+import os
 import random
 import re
 import shutil
+import time
 import unicodedata
 import urllib.parse
 import zlib
+from collections import Counter
 from pathlib import Path
 
 # The map shell, at module scope because the drawing functions below call
@@ -59,7 +63,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
-BUILD_DATE = "2026-08-17"
+BUILD_DATE = "2026-08-19"
 
 # Where the 🎲 chip goes when scripting is off. md.js intercepts the click and
 # rolls fresh each time; this baked pick (seeded by BUILD_DATE, so it rotates
@@ -132,7 +136,7 @@ CAT_ICON = {
     "essentials": "i-bank", "hotel": "i-bed", "school-intl": "i-school",
     "market": "i-market", "shopping": "i-gift", "realestate": "i-home2",
     "transport": "i-ride", "repair": "i-tools", "beauty": "i-beauty",
-    "tattoo": "i-ink", "pets": "i-pet", "learn": "i-book",
+    "tattoo": "i-ink", "pets": "i-pet", "learn": "i-book", "cannabis": "i-leaf",
     "home-services": "i-broom", "community": "i-people", "business": "i-shop",
     "whats-on": "i-film", "museums-galleries": "i-museum", "parks": "i-park",
     "sights": "i-star",
@@ -240,6 +244,35 @@ CAT_ART_TOPIC = {"wat": "wat", "food": "food", "market": "market",
                  "transport": "transport", "hotel": "stay", "massage": "wellness"}
 
 
+EMERGENCY = json.loads((ROOT / "data" / "curated" / "emergency.json").read_text())
+
+
+def emergency_band(cat_key):
+    """The four numbers, on the medical shelf and nowhere else.
+
+    This site listed 514 state health facilities and several hundred clinics
+    and did not say, anywhere, how to call an ambulance. Somebody who reaches
+    the medical shelf at three in the morning is the exact person who needs
+    1669 before they need a list of dentists, and a `tel:` link on a phone is
+    one tap.
+
+    Numbers only. No triage and no advice — data/curated/emergency.json says
+    why, and each number names the agency that issues it.
+    """
+    if cat_key != "medical":
+        return ""
+    rows = "".join(
+        f'<a class="tel" href="tel:{n["tel"]}">'
+        f'<b>{n["tel"]}</b>'
+        f'<span class="lbl">{bi(n["th"], n["en"])}</span></a>'
+        for n in EMERGENCY["numbers"])
+    who = " · ".join(sorted({n["issuer"] for n in EMERGENCY["numbers"]}))
+    return (f'<div class="emerg">'
+            f'<strong>{bi("เบอร์ที่ควรเก็บไว้", "Numbers worth keeping")}</strong>'
+            f'<div class="row">{rows}</div>'
+            f'<div class="who">{who}</div></div>')
+
+
 def cat_art_band(cat_key, prov_key, depth=2):
     """A wide strip of her hand-picked city art across the top of a shelf page.
 
@@ -312,10 +345,12 @@ CLAIMS = _claims_doc.get("claims", {})
 # data/facets.json is the whole schema — labels, icons, and the question to ask
 # a passer-by. importers/import_fixtures.py fills what evidence allows; the rest
 # arrives by claim. Keyed by record.sub, so a shelf of convenience stores gets
-# the convenience row and nothing else does.
+# the convenience row and nothing else does — or by record.cat, for a category
+# whose crawl yields no subs at all to key on. See _applies_note in the schema.
 _facets_doc = json.loads((ROOT / "data" / "facets.json").read_text())
 FACET_SETS = _facets_doc["sets"]
 FACET_SET_BY_SUB = {sub: s for s in FACET_SETS for sub in s.get("appliesTo", [])}
+FACET_SET_BY_CAT = {cat: s for s in FACET_SETS for cat in s.get("appliesToCat", [])}
 FACET_DEF = {s["key"]: {f["key"]: f for f in s["facets"]} for s in FACET_SETS}
 
 # Verdicts that mean: do not send a person here.
@@ -551,6 +586,7 @@ style="position:absolute" xmlns="http://www.w3.org/2000/svg"><defs>
 <g id="i-museum"><path d="M3 9 12 4l9 5"/><path d="M6 11v7M10 11v7M14 11v7M18 11v7"/><path d="M3.5 18.5h17M2.5 21h19"/></g>
 <g id="i-park"><path d="M12 3 7 10h3l-3.5 5h11L14 10h3Z"/><path d="M12 15v6"/><path d="M9 21h6"/></g>
 <g id="i-star"><path d="m12 3.5 2.7 5.5 6 .9-4.35 4.2 1.03 6L12 17.3l-5.38 2.8 1.03-6L3.3 9.9l6-.9Z"/></g>
+<g id="i-leaf"><path d="M12 21v-9.5"/><path d="M12 11.5C12 6.8 15 3.5 20 3.5c0 4.7-3 8-8 8Z"/><path d="M12 15.5c-4 0-6.5-2.6-6.5-6.6 4 0 6.5 2.6 6.5 6.6Z"/></g>
 <g id="i-search" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4.5 4.5"/></g>
 <g id="i-me"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></g>
 <g id="i-plus" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></g>
@@ -649,6 +685,27 @@ def collect_photos():
 PHOTO_FILES = collect_photos()
 OG_FILES = {f.stem for f in OG_SRC.glob("*.png")} if OG_SRC.exists() else set()
 
+
+def shelf_og(*parts):
+    """The share card for a list page — a province, a category, a sub-shelf.
+
+    A per-place card answers "what is this place"; these answer "who does
+    THIS", which is the question a link gets shared to settle. Drawn by
+    make_shelf_cards.py; missing cards fall back to the brand card, so a build
+    never waits on the generator.
+    """
+    stem = "-".join(("shelf",) + parts)
+    return f"og/{stem}.png" if stem in OG_FILES else None
+
+# One list, not two: the speciality labels come from the importer that assigns
+# them, so a name added there appears on the page without a second edit.
+import importlib.util as _ilu
+_spec_spec = _ilu.spec_from_file_location(
+    "_md_specialty", str(ROOT / "importers" / "specialty.py"))
+_md_specialty = _ilu.module_from_spec(_spec_spec)
+_spec_spec.loader.exec_module(_md_specialty)
+SPECIALTY_LABELS = _md_specialty.LABELS
+
 SCHEMA_TYPE = {
     "wat": "TouristAttraction", "hotel": "LodgingBusiness", "food": "Restaurant",
     "massage": "HealthAndBeautyBusiness", "medical": "MedicalBusiness",
@@ -658,13 +715,32 @@ SCHEMA_TYPE = {
     "learn": "EducationalOrganization", "museums-galleries": "TouristAttraction",
     "sights": "TouristAttraction", "whats-on": "EntertainmentBusiness",
     "home-services": "LocalBusiness", "community": "Organization", "business": "LocalBusiness",
+    # schema.org has no cannabis type and inventing one helps nobody. A
+    # dispensary is a shop, so Store is the true statement; the คลินิกกัญชา
+    # child is the exception and takes MedicalBusiness through SCHEMA_TYPE_SUB.
+    "cannabis": "Store",
+    # schema.org's own word, and the reason the shelf can be read by a machine
+    # at all. The children that are a different kind of institution take a
+    # narrower type through SCHEMA_TYPE_SUB below.
+    "school": "School",
+}
+
+# Where a child of a shelf is a different KIND of thing from its parent, not
+# just a narrower one. Checked before the category map.
+SCHEMA_TYPE_SUB = {
+    "clinic": "MedicalBusiness",
+    "university": "CollegeOrUniversity",
+    "college": "CollegeOrUniversity",
+    "kindergarten": "Preschool",
 }
 
 
 def ld_json(r, path, photo_file):
     obj = {
         "@context": "https://schema.org",
-        "@type": SCHEMA_TYPE.get(r["cat"][0], "LocalBusiness"),
+        "@type": next((SCHEMA_TYPE_SUB[s] for s in (r.get("sub") or [])
+                       if s in SCHEMA_TYPE_SUB),
+                      SCHEMA_TYPE.get(r["cat"][0], "LocalBusiness")),
         "name": name_of(r),
         # The other name, where there is one. schema.org `name` takes a single
         # string, so the second language belongs here rather than jammed into
@@ -845,6 +921,33 @@ ul.cats .teaser{display:block;font-size:.88rem;color:var(--mute)}
 .count{color:var(--ant-dark);font-size:.9rem}
 .shelf{color:var(--mute)} .shelf .soon{font-size:.8rem;background:var(--soft);
 border-radius:.5rem;padding:0 .5rem;white-space:nowrap}
+/* A chain folded into one shelf. The summary is the whole click target and
+   says how many are behind it, so the reader chooses to open 330 rows rather
+   than being handed them. Both :has() rules are courtesies — where they are
+   not understood the shelf still opens and still reads, only less tidily. */
+/* Shut, a shelf is one line and should not be split off its own heading. */
+.brandshelf:has(>details:not([open])){break-inside:avoid}
+/* Open, it is 330 rows: let it out of its 22rem column and across the page,
+   or the browser drives a single 15,000px ribbon down one column and the rest
+   of the letters of the alphabet end up somewhere off the bottom of it. */
+.brandshelf:has(>details[open]){column-span:all;break-inside:auto}
+.brandshelf>details>summary{cursor:pointer;font-weight:600;padding:.12rem 0;
+list-style:none;display:block}
+.brandshelf>details>summary::-webkit-details-marker{display:none}
+.brandshelf>details>summary::before{content:"▸";color:var(--ant-dark);
+display:inline-block;width:1em;transition:transform .15s ease}
+.brandshelf>details[open]>summary::before{transform:rotate(90deg)}
+.brandshelf>details>summary:focus-visible{outline:2px solid var(--ant-dark);
+outline-offset:2px;border-radius:.2rem}
+.brandshelf ul.dir.sub{column-width:16rem;column-gap:2rem;
+margin:.15rem 0 .5rem 1em;padding-left:.6rem;border-left:2px solid var(--soft)}
+/* A road keeps its own shops: never a heading at the foot of one column with
+   its branches at the head of the next. */
+.brandshelf ul.dir.sub li{break-inside:avoid}
+.brandshelf ul.dir.sub li.areahead{break-after:avoid;font-weight:600;
+margin-top:.45rem}
+@media(prefers-reduced-motion:reduce){.brandshelf>details>summary::before{
+transition:none}}
 .badge{background:var(--soft);border-radius:.5rem;padding:0 .5rem;font-size:.8rem;white-space:nowrap}
 .badge.pin{background:#F6D9CE;color:var(--ant-dark)}
 .grow{color:var(--ant-dark);font-size:.9rem;font-style:italic}
@@ -1002,6 +1105,14 @@ border:1px dashed var(--soft);background:rgba(234,223,206,.35);font-size:.88rem}
 .oldsite{color:var(--mute);text-decoration:line-through;text-decoration-thickness:1px}
 .ofrecord{margin:.5rem 0;padding:.55rem .9rem;border-radius:.7rem;font-size:.9rem;
 background:var(--soft)}
+.emerg{margin:.6rem 0 1rem;padding:.7rem .9rem;border-radius:.7rem;background:var(--soft);
+border:1px solid rgba(0,0,0,.07)}
+.emerg .row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.45rem}
+.emerg a.tel{display:inline-flex;align-items:baseline;gap:.4rem;padding:.35rem .7rem;
+border-radius:.6rem;background:var(--paper);text-decoration:none;border:1px solid rgba(0,0,0,.08)}
+.emerg a.tel b{font-size:1.15rem;letter-spacing:.02em}
+.emerg .lbl{font-size:.82rem;color:var(--ant-dark)}
+.emerg .who{font-size:.78rem;color:var(--ant-dark);margin-top:.45rem;opacity:.85}
 .share{margin-top:1.2rem}
 .share .sharelabel{font-size:.9rem;color:var(--ant-dark);font-weight:600;display:block;margin-bottom:.4rem}
 .share .row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
@@ -1015,6 +1126,7 @@ border:none;cursor:pointer;font-family:inherit;transition:transform .12s,box-sha
 .share .pill.whatsapp{background:#25D366}
 .share .pill.telegram{background:#229ED9}
 .share .pill.copy{background:var(--ant-dark)}
+.share .pill.poster{background:#3B5A4A}
 .qrbox{display:flex;align-items:center;gap:.8rem;margin-top:.7rem;background:#fff;
 border:1px solid var(--soft);border-radius:.7rem;padding:.6rem .9rem;max-width:26rem}
 .qrbox img{width:76px;height:76px;image-rendering:pixelated;flex-shrink:0}
@@ -1271,12 +1383,104 @@ font-variant-numeric:tabular-nums}
 .hotab{border:1px solid var(--soft);background:none;border-radius:.45rem;padding:.1rem .45rem;
 font:inherit;font-size:.76rem;cursor:pointer;color:var(--ant-dark)}
 .hotab.on{background:var(--ant);color:#fff;border-color:var(--ant)}
-.hopane{flex:1;overflow-y:auto;font-size:.85rem;line-height:1.45}
+.hopane{flex:1;overflow-y:auto;font-size:.85rem;line-height:1.45;display:flex;flex-direction:column;min-height:0}
 .hopane p{margin:.25rem 0}
-.hopick{width:100%;font:inherit;font-size:.78rem;padding:.15rem .3rem;border-radius:.4rem;
-border:1px solid var(--soft);margin-bottom:.3rem}
-.hoaspect{font-weight:700;color:var(--ant-dark)}
-.hopillar{font-size:1.1rem;font-weight:700;color:var(--ant-dark)}
+/* per-sign chips: one tap per sign, glassy, squishy, remembered locally */
+.hochips{display:flex;gap:.28rem;overflow-x:auto;padding:.15rem .1rem .3rem;scrollbar-width:none;
+flex:none;-webkit-overflow-scrolling:touch}
+.hochips::-webkit-scrollbar{display:none}
+.hochips.wrap{flex-wrap:wrap;overflow:visible}
+.hochip{flex:none;display:inline-flex;align-items:center;gap:.28rem;border:1px solid rgba(143,46,19,.22);
+background:rgba(255,255,255,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+border-radius:999px;padding:.18rem .58rem .18rem .4rem;font:inherit;font-size:.76rem;line-height:1.3;
+color:var(--ant-dark);cursor:pointer;white-space:nowrap;
+transition:transform .18s cubic-bezier(.34,1.56,.64,1),box-shadow .18s,background .18s}
+.hochip:hover,.hochip:focus-visible{transform:translateY(-1px) scale(1.04);
+box-shadow:0 4px 12px rgba(42,30,22,.14);outline:none}
+.hochip:active{transform:scale(.96)}
+.hochip.on{background:linear-gradient(135deg,var(--ant),var(--ant-dark,#8F2E13));color:#fff;
+border-color:transparent;box-shadow:0 3px 10px rgba(143,46,19,.32)}
+.hochip.on .hodot{box-shadow:0 0 0 2px #fff}
+.hodot{width:.7rem;height:.7rem;border-radius:50%;flex:none;border:1px solid rgba(0,0,0,.12)}
+.hodot.big{width:1rem;height:1rem}
+.hoemoji{font-size:.95rem;line-height:1}
+.hoglyph{font-size:1.05rem;line-height:1;font-weight:400}
+.horead{flex:1;min-height:0;overflow-y:auto;padding-top:.15rem}
+.horeadline{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
+.horeadline b{font-size:.95rem}
+.hocolours{color:var(--muted);font-size:.78rem;display:flex;align-items:center;flex-wrap:wrap;gap:.2rem .6rem}
+.hocol{display:inline-flex;align-items:center;gap:.28rem;white-space:nowrap}
+.hocol .bi{white-space:normal}
+.hoswatch{display:inline-block;width:.85rem;height:.85rem;border-radius:.25rem;vertical-align:-.15rem;
+border:1px solid rgba(0,0,0,.15)}
+.hoswatch.hoavoid{border-radius:50%;opacity:.7}
+.hoyearrel{border-top:1px dashed var(--soft);padding-top:.3rem;margin-top:.35rem!important;font-size:.8rem}
+.holink{display:block;margin-top:.3rem;text-decoration:none;color:var(--ant-dark);font-weight:600}
+.holink:hover{text-decoration:underline}
+/* /horoscope.html */
+.holede{font-size:1.05rem;max-width:44rem}
+.hodate{color:var(--muted);margin:.2rem 0 1rem}
+.hofinder{background:rgba(255,255,255,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+border:1px solid var(--soft);border-radius:1rem;padding:.9rem 1.1rem;margin:0 0 1.4rem;
+box-shadow:0 6px 24px rgba(42,30,22,.07)}
+.hofinder label{display:block;margin-bottom:.4rem}
+.hofindrow{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.hofindrow input[type=date]{font:inherit;padding:.4rem .6rem;border-radius:.6rem;border:1px solid var(--soft);
+background:#fff;min-width:11rem}
+.hofoundrow{font-size:1rem;margin:.6rem 0 .2rem;line-height:1.7}
+.horosec{position:relative;border:1px solid var(--soft);border-radius:1.1rem;padding:1.1rem 1.2rem 1rem;
+margin:0 0 1.5rem;background:#fff;overflow:hidden}
+.horosec::before{content:"";position:absolute;inset:0;pointer-events:none;
+background:radial-gradient(60% 40% at 100% 0%,rgba(201,162,39,.16),transparent 70%)}
+.horosec>*{position:relative}
+.horosec h2{margin:0 0 .3rem}
+.horosec.dark{background:#15110e;color:#f1e8d8;border-color:#3a2b20}
+.horosec.dark::before{background:radial-gradient(60% 45% at 100% 0%,rgba(120,100,200,.25),transparent 70%)}
+.horosec.dark .hochip{background:rgba(255,255,255,.08);color:#f1e8d8;border-color:rgba(255,255,255,.18)}
+.horosec.dark .hochip.on{background:linear-gradient(135deg,#c9a227,#8f6a12);color:#15110e}
+.horosec.dark .tinynote,.horosec.dark .hocolours{color:#c9bca7}
+.horosec.dark .hocard{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
+.horosec.dark a{color:#e8c66a}
+.horow{display:grid;grid-template-columns:minmax(12rem,15rem) 1fr;gap:1rem 1.4rem;align-items:start;margin:.6rem 0 .8rem}
+@media (max-width:40rem){.horow{grid-template-columns:1fr}.howheel{max-width:16rem;margin:0 auto}}
+.horowside .horead{overflow:visible;font-size:.95rem}
+.hoyearline{font-size:.92rem;background:rgba(201,162,39,.12);border-left:3px solid #C9A227;
+padding:.45rem .7rem;border-radius:.4rem;margin:.6rem 0 1rem}
+.hoyearline table{width:100%;font-size:.85rem;border-collapse:collapse;margin:.4rem 0}
+.hoyearline th,.hoyearline td{text-align:left;padding:.15rem .4rem;border-bottom:1px solid rgba(0,0,0,.08)}
+.hoingress summary{cursor:pointer;font-weight:600}
+.hocardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.7rem;margin:.6rem 0 .5rem}
+.hocard{border:1px solid var(--soft);border-radius:.85rem;padding:.65rem .8rem;background:rgba(255,255,255,.7);
+font-size:.86rem;line-height:1.45;transition:transform .2s,box-shadow .2s}
+.hocard:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(42,30,22,.1)}
+.hocard p{margin:.25rem 0}
+.hocardhead{display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem;font-size:.95rem}
+.hozh{color:var(--muted);font-size:.85rem}
+.dayart.small{max-width:8rem;margin:.2rem auto .6rem;text-align:center;font-size:.72rem}
+/* wheels: drawn in Python, re-pointed by horo.js */
+.howheel{width:100%;max-width:15rem;height:auto;display:block}
+.hwring{fill:none;stroke:rgba(143,46,19,.45);stroke-width:1.2}
+.hwring.faint{stroke:rgba(143,46,19,.18);stroke-width:.8}
+.hwtoday{fill:rgba(201,162,39,.32);stroke:none;transition:transform .6s cubic-bezier(.34,1.3,.64,1);transform-box:view-box}
+.hwkk{fill:none;stroke:#a33;stroke-width:3;stroke-linecap:round;opacity:.75;transition:transform .6s;transform-box:view-box}
+.hwday{font-size:10px;font-weight:700;fill:var(--ant-dark);text-anchor:middle;font-family:inherit}
+.hwst{font-size:8px;fill:#7a6350;text-anchor:middle;font-family:inherit}
+.cwanimal{font-size:15px;text-anchor:middle}
+.cwsanhe{fill:rgba(47,125,79,.08);stroke:rgba(47,125,79,.35);stroke-width:1;stroke-dasharray:3 3}
+.cwrel{stroke-width:2.5;stroke-linecap:round;stroke:#b98a2a}
+.cwrel-chong{stroke:#a33;stroke-width:3.2}
+.cwrel-liuhe,.cwrel-sanhe{stroke:#2f7d4f}
+.cwrel-plain{stroke:rgba(0,0,0,.2);stroke-dasharray:3 3}
+.cwday{fill:#C9A227;stroke:#fff;stroke-width:1.5}
+.cwyou{fill:var(--ant);stroke:#fff;stroke-width:2}
+.howheel.dark .hwring{stroke:rgba(255,255,255,.35)}
+.howheel.dark .hwring.faint{stroke:rgba(255,255,255,.14)}
+.zwyou{fill:rgba(201,162,39,.28);transition:transform .6s cubic-bezier(.34,1.3,.64,1);transform-box:view-box}
+.zwsign{font-size:11px;fill:#c9bca7;text-anchor:middle}
+.zwplanet{font-size:14px;fill:#ffe9a8;text-anchor:middle;font-weight:700;
+filter:drop-shadow(0 0 3px rgba(255,220,120,.6))}
+@media (prefers-reduced-motion:reduce){.hochip,.hocard,.hwtoday,.hwkk,.zwyou{transition:none}
+.hochip:hover,.hocard:hover{transform:none}}
 /* hexagram */
 .hxlines{display:flex;flex-direction:column;gap:.22rem;align-items:center;margin:.3rem 0 .4rem}
 .hxline{display:block;width:4.4rem;height:.4rem;border-radius:1px;position:relative}
@@ -1630,7 +1834,11 @@ width:100%;max-width:28rem;box-sizing:border-box}
 .reqform button{margin-top:.9rem;font:inherit;border:2px solid var(--ant);background:var(--ant);
 color:#fff;border-radius:.5rem;padding:.4rem 1.2rem;cursor:pointer}
 .reqform button:hover{background:var(--ant-dark)}
-@media(max-width:600px){body{font-size:18px} ul.dir,ul.cats{column-width:auto}}
+@media(max-width:600px){body{font-size:18px} ul.dir,ul.cats{column-width:auto}
+/* Named after ul.dir so it outranks the shelf's own column-width, which is
+   more specific than the bare ul.dir above and would otherwise hold two
+   columns of shop names open on a phone. */
+.brandshelf ul.dir.sub{column-width:auto;margin-left:.5rem}}
 /* แจ้งมด — the suggestion form. Borrows .reqform's shape so the two "tell us"
    surfaces look like one thing, with fields big enough to read and hit on a
    phone held one-handed at a roadside. */
@@ -2424,69 +2632,91 @@ const idx=await loadIndex();
 // loosens by steps rather than giving up: most-words-matched first, then near
 // spellings. Thai queries carry no spaces, stay a single term, and are matched
 // as they always were.
-const norm=s=>s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
-const needle=norm(q);let terms=needle.split(' ').filter(Boolean);
-// There is no single right way to write ข้าวซอย in Latin letters, and the
-// signage in this city uses all of them. So a term is expanded to everything
-// that means the same thing before matching: "kow soi" reaches ข้าวซอย, and
-// "coffee" reaches the 1,705 places whose shelf says กาแฟ. Groups live in
-// data/search_thesaurus.json — a group is added when a real query missed.
-const THES=MD_THESAURUS;
-const expand=t=>{const out=[t];
-for(const g of THES){if(g.some(w=>w===t))for(const w of g)if(w!==t)out.push(w);}
-return out;};
-// A term matches if ANY of its spellings is present; the whole query still has
-// to match every term, so widening a word never widens the search itself.
-const hasTerm=(hay,words,t)=>expand(t).some(v=>v.includes(' ')?hay.includes(v):words.some(w=>w.includes(v))||hay.includes(v));
-// Roman letters get dropped, doubled, or swapped — Thai names come to us
-// through half a dozen romanisations. One edit of slack, and only for words
-// long enough that the slack cannot swallow a different word whole.
-const near=(a,b)=>{if(a===b)return true;const la=a.length,lb=b.length;
-if(Math.abs(la-lb)>1)return false;let i=0,j=0,d=0;
-while(i<la&&j<lb){if(a[i]===b[j]){i++;j++;continue;}
-if(++d>1)return false;if(la>lb)i++;else if(lb>la)j++;else{i++;j++;}}
-return d+(la-i)+(lb-j)<=1;};
-// The name is what a result SHOWS, so it alone decides the ranking; `k` — the
-// shelf, the cuisine, the brand, the road — decides only whether a place is
-// findable at all. Kept apart so a search for "coffee" cannot float a place
-// called Coffee Hardware above a cafe.
+// The matching itself lives in searchcore.js, shared with wichaa's router and
+// with the Python that builds both indexes, so one query means one thing across
+// the fleet. What used to be here was a substring filter that had grown a
+// thesaurus and an edit of slack; what it could never do was read Thai. Thai is
+// written without spaces, so ร้านกาแฟนิมมาน arrived as a single token that
+// matched nothing at all — and 12,353 listings in this directory are named in it.
+//
+// The tables are FETCHED, not baked into md.js. Mining them took the thesaurus
+// from 76 groups to 2,290 and added a 7,355-word segmentation dictionary, which
+// inlined would have put ~60 KB of vocabulary on the ticker, the map and every
+// place page to serve a box that only search.html has. Now every other page is
+// lighter than it was and the cost falls where the feature is.
+const [thesDoc,segText,shelfDoc]=await Promise.all([
+mdJSON('data/search_thesaurus.json'),
+fetch(RROOT+'data/search_segdict.txt').then(r=>r.ok?r.text():'').catch(()=>''),
+mdJSON('data/search_shelves.json')]);
+const SEG=segText.split('\n').filter(l=>l&&l[0]!=='#');
+const SHELVES=(shelfDoc&&shelfDoc.shelves)||{};
+const core=new SEARCHCORE.SearchCore((thesDoc&&thesDoc.groups)||[],SEG);
+// The name is what a result SHOWS, so it alone should decide the order; the
+// shelf, the cuisine, the brand and the road decide only whether a listing is
+// findable at all. Kept apart so "coffee" cannot float a shop called Coffee
+// Hardware above a cafe. `a` — alt names, old names, the Chinese and Japanese
+// names a mapper left in the tags — is matched and never shown.
 // The shelf words come from the tables, not from the entry — the entry carries
-// only its codes. `sw` turns a code list into the words a reader might type.
+// only its codes, because twelve thousand copies of "ร้านอาหาร-ของกิน · Food &
+// Eats" would cost 1.7 MB on a satellite connection to say twenty-three things.
 const sw=e=>((e.c||[]).map(c=>MD_CATWORDS[c]||c).join(' ')+' '+
 (e.su||[]).map(s=>(MD_SUBWORDS[s]||'')+' '+s.replace(/-/g,' ')).join(' '));
-const rows=idx.map(e=>{const h=norm(e.n+' '+(e.e||'')+' '+(e.a||''));
-const k=norm(sw(e)+' '+(e.k||''));const all=k?h+' '+k:h;
-return{e:e,h:h,k:all,w:all.split(' ')};});
-// Whole-phrase and name-start matches float up, so the 200 we keep are the 200
-// worth reading first.
-const rank=r=>(r.h.startsWith(terms[0])?2:0)+(r.h.includes(needle)?1:0);
-let mode='',found=[];
-if(terms.length){
-found=rows.filter(r=>terms.every(t=>hasTerm(r.k,r.w,t))).sort((a,b)=>rank(b)-rank(a));
-// A misspelling of the right place beats a clean match on half the words, so
-// near spellings are tried first: "rajavey hospital" should land on Rajavej,
-// not on all 67 hospitals in the province.
-if(!found.length){
-found=rows.filter(r=>terms.every(t=>t.length<4?r.k.includes(t)
-:r.w.some(w=>w.includes(t)||near(w,t)))).sort((a,b)=>rank(b)-rank(a));
-if(found.length)mode='near';}
-if(!found.length&&terms.length>1){
-found=rows.map(r=>[r,terms.filter(t=>hasTerm(r.k,r.w,t)).length]).filter(x=>x[1]>0)
-.sort((a,b)=>b[1]-a[1]||rank(b[0])-rank(a[0])).map(x=>x[0]);
-if(found.length)mode='some';}}
-const hits=found.slice(0,200).map(r=>r.e);
-// The count says how many were FOUND, not how many fit on the page. Showing
-// the capped number told a reader searching "coffee" that the city holds 200
-// cafes when the directory knows 1,976 of them — the one number on this page
-// that has to be true.
+const index=new SEARCHCORE.Index(core);
+for(const e of idx){index.add(e,{
+name:[[e.n,e.e,e.a].filter(Boolean).join(' '),1.0],
+shelf:[sw(e)+' '+(e.k||''),0.45]});}
+index.finalize();
+// The index is the mending dictionary too: ราชเวช is in no Thai dictionary, but
+// it is very much a word in a directory that lists the hospital, so a query one
+// letter wrong is repaired against what this corpus actually contains.
+const an=core.analyze(q,index);
+let found=an.terms.length?index.search(an,0):[];
+// A word that names a shelf is a reader telling us where to look, not just what
+// to match — "coworking" and "ตอกเส้น" each belong to one shelf out of
+// twenty-four. Applied as a lift rather than a filter: narrowing hard would
+// turn a shelf word that also appears in a shop's name into an empty page.
+const wantShelves=new Set();
+for(const t of an.terms){for(const k of(SHELVES[t.raw]||[]))wantShelves.add(k);}
+for(const ph of an.intent.phrases){for(const k of(SHELVES[ph]||[]))wantShelves.add(k);}
+if(wantShelves.size){for(const r of found){
+const e=r.doc,on=(e.c||[]).some(c=>wantShelves.has(c))||(e.su||[]).some(s=>wantShelves.has(s));
+if(on)r.score+=0.5;}
+found.sort((a,b)=>b.score-a.score);}
+// Loosen by STEPS, never all at once. A reader who typed two words meant both,
+// so listings matching all of them are the answer and listings matching one are
+// a fallback offered only when there is no answer. Keeping them mixed in also
+// made the count lie: ร้านกาแฟนิมมาน reported 2,247 finds, which was every cafe
+// in the directory plus everything on that road — and the count is the one
+// number on this page that has to be true.
+const whole=found.filter(r=>r.coverage>=1);
+if(whole.length)found=whole;
+const hits=found.slice(0,200).map(r=>r.doc);
+// The count says how many were FOUND, not how many fit on the page. Showing the
+// capped number told a reader searching "coffee" that the city holds 200 cafes
+// when the directory knows 1,976 of them — the one number on this page that has
+// to be true.
 document.getElementById('rescount').textContent=q?`${found.length}`:'';
 const more=found.length>hits.length
 ?`<li class="shelf">แสดง ${hits.length} จาก ${found.length} — พิมพ์ให้เจาะจงขึ้นเพื่อแคบลง · showing ${hits.length} of ${found.length}; add a word to narrow it</li>`:'';
-// Say plainly when the search had to loosen its grip, so nobody reads a near
-// match as an exact one.
-const notes={some:'ไม่ตรงทุกคำ — เรียงตามที่ตรงมากที่สุด / not every word matched — closest first',
-near:'สะกดใกล้เคียง — น่าจะหมายถึงรายการนี้ / near spellings — this is likely what you meant'};
-const note=mode?`<li class="shelf">${notes[mode]}</li>`:'';
+// Say plainly how the match was made. A reader shown a near-spelling match
+// without being told it was one has been quietly misled about how well the
+// search understood them — and a reader who sees ร้านกาแฟนิมมาน reported as
+// ร้านกาแฟ + นิมมาน can tell at a glance whether the split was the one they meant.
+const worst=found.length?found[0].tier:null;
+const says=[];
+if(an.notes.indexOf('mended')>=0)says.push(['สะกดใกล้เคียง — น่าจะหมายถึงคำนี้','near spelling — this looks like the word you meant']);
+if(an.notes.indexOf('segmented')>=0)says.push(['แยกคำเป็น '+an.terms.map(t=>t.raw).join(' + '),'read as '+an.terms.map(t=>t.raw).join(' + ')]);
+if(worst==='thesaurus')says.push(['รวมคำที่ความหมายเดียวกัน','including words that mean the same thing']);
+if(worst==='loose')says.push(['สะกดใกล้เคียง — เรียงตามที่ใกล้ที่สุด','near spellings — closest first']);
+if(worst==='partial')says.push(['ไม่ตรงทุกคำ — เรียงตามที่ตรงมากที่สุด','not every word matched — closest first']);
+// Constraints the box understood but this page has no column to filter on. Said
+// out loud, because a filter silently dropped is worse than one politely declined.
+const CANFILTER={};
+const asked=Object.keys(an.intent.filters||{}).filter(k=>!CANFILTER[k]);
+if(asked.length&&found.length)says.push(
+['อ่านคำขอได้ แต่หน้านี้ยังกรองตามนั้นไม่ได้ — ดูรายละเอียดในหน้าร้าน',
+'understood, but this page cannot filter on that yet — check the listing']);
+const note=says.map(s=>`<li class="shelf">${mdBi(s[0],s[1])}</li>`).join('');
 const row=e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
 `${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
 ` <span class="count">· ${e.pv}</span></li>`;
@@ -2571,7 +2801,7 @@ dots.forEach(d=>d.addEventListener('click',()=>{go(+d.dataset.skydot);clearInter
 if(slides.length>1)window.__skyT=setInterval(()=>go(si+1),6000);})();
 // --- fortune, horoscope, hexagram, and the day's colour
 (async()=>{const doc=await mdJSON('data/fortune.json');const day=mdPick(doc);
-if(!day){mdStale('#w-fortune,#w-horoscope,#w-divination');return;}
+if(!day){mdStale('#w-fortune,#w-divination');return;}
 const t=day.thai;
 // สีประจำวัน: the whole page borrows the day's colour
 if(t&&t.hex)document.documentElement.style.setProperty('--day',t.hex);
@@ -2584,33 +2814,10 @@ bl('[data-fo="colour"]',t.colour_th,t.colour_en);
 bl('[data-fo="buddha"]',t.buddha_th,t.buddha_en);
 bl('[data-fo="planet"]',t.planet_th,t.planet_en);
 bl('[data-fo="how"]',t.lucky.how_th,t.lucky.how_en);
-setF('nums',t.lucky.two.join(' ')+' · '+t.lucky.three);
-const thl=document.querySelector('[data-ho="th_line"]');
-// Through mdBi, not hand-built spans: the " · " that separates the two
-// languages lives inside the English span and is itself marked Thai, so
-// hand-rolling the markup ran the sentences together in ไทย + EN mode.
-if(thl)thl.innerHTML=mdBi(
-'วันนี้เป็น'+t.th+' สีประจำวันคือ'+t.colour_th+
-' พระประจำวันคือ'+t.buddha_th+' กำลังพระเคราะห์ '+t.strength,
-'Today is '+t.en+'. Its colour is '+t.colour_en+', its image is '+
-t.buddha_en+', and its planetary strength is '+t.strength+'.');}
-// european: reader picks a sign, choice is remembered
-const eu=day.european;const pick=document.querySelector('[data-ho="signpick"]');
-if(eu&&pick){const saved=localStorage.getItem('md.sign');
-if(saved!==null&&eu.signs[+saved])pick.value=saved;
-const drawEU=()=>{const s=eu.signs[+pick.value];if(!s)return;
-const a=document.querySelector('[data-ho="eu_aspect"]'),l=document.querySelector('[data-ho="eu_line"]'),
-m=document.querySelector('[data-ho="eu_moon"]');
-if(a)a.innerHTML=mdBi(s.aspect_th,s.aspect_en);
-if(l)l.innerHTML=mdBi(s.line_th,s.line_en);
-if(m)m.innerHTML=mdBi('ดวงจันทร์อยู่'+eu.moon_sign_th,'The Moon is in '+eu.moon_sign_en);};
-pick.addEventListener('change',()=>{try{localStorage.setItem('md.sign',pick.value);}catch(e){}drawEU();});
-drawEU();}
-// chinese
-const cn=day.chinese;
-if(cn){const p=document.querySelector('[data-ho="cn_pillar"]'),l=document.querySelector('[data-ho="cn_line"]');
-if(p)p.textContent=cn.pillar+' · '+cn.animal;
-if(l)l.innerHTML=mdBi(cn.relation_th||'',cn.relation_en||'');}
+setF('nums',t.lucky.two.join(' ')+' · '+t.lucky.three);}
+// The horoscope tile is horo.js's now — per-sign, computed live from
+// data/horo.json, no baked window to fall off. Only the tab chrome and the
+// day colour above still belong to this file.
 // hexagram: draw the six lines from the king wen number
 const hx=day.hexagram;
 if(hx&&hx.number){const box=document.querySelector('[data-hx="lines"]');
@@ -2779,7 +2986,17 @@ function mdSortKey(el){
 return (B.classList.contains('lang-en')&&el.dataset.ne)||el.dataset.n||'';}
 const dirList=document.querySelector('ul.dir[data-sortable]');
 if(dirList){
-const items=[...dirList.children];
+// Place rows carry data-n; the brand shelves and road headings around them do
+// not. Asking for the rows themselves rather than for the list's children is
+// what lets a row live inside a folded <details> and still be sorted, filtered
+// and counted with all the others.
+const items=[...dirList.querySelectorAll('li[data-n]')];
+// Any explicit sort or filter abandons the fold: the reader has asked for one
+// order across everything, and rows still tucked behind a closed triangle
+// would be an answer they cannot see. Rows come up to the top level and the
+// empty shelves go.
+const unfold=()=>{items.forEach(li=>dirList.appendChild(li));
+dirList.querySelectorAll('li.brandshelf,li.areahead').forEach(h=>h.remove());};
 const byName=document.getElementById('sort-name'),byDist=document.getElementById('sort-dist');
 byName&&byName.addEventListener('click',()=>{
 items.sort((a,b)=>mdSortKey(a).localeCompare(mdSortKey(b),'th'));
@@ -2901,7 +3118,7 @@ return x-y||nm(a,b);});
 // not know which road this is on" is a fact and not a failure.
 const areaBtn=document.getElementById('group-area');
 areaBtn&&areaBtn.addEventListener('click',()=>{
-dirList.querySelectorAll('li.areahead').forEach(h=>h.remove());
+unfold();
 const groups=new Map();
 for(const li of items){const a=li.dataset.area||'';
 if(!groups.has(a))groups.set(a,[]);groups.get(a).push(li);}
@@ -2922,10 +3139,9 @@ dirList.appendChild(h);
 rest.sort(nm).forEach(li=>dirList.appendChild(li));}
 dirList.classList.remove('ranked');
 btns.forEach(x=>x&&x.classList.remove('on'));areaBtn.classList.add('on');});
-// Any other sort clears the neighbourhood headings, or they would sit above
-// rows that no longer belong to them.
-btns.forEach(b=>b&&b!==areaBtn&&b.addEventListener('click',()=>{
-dirList.querySelectorAll('li.areahead').forEach(h=>h.remove());}));
+// Any other sort clears the neighbourhood headings and the brand shelves, or
+// they would sit above rows that no longer belong to them.
+btns.forEach(b=>b&&b!==areaBtn&&b.addEventListener('click',()=>unfold()));
 reorder(document.getElementById('sort-fresh'),
 (a,b)=>(b.dataset.upd||'').localeCompare(a.dataset.upd||'')||rk(b)-rk(a)||nm(a,b));
 // ---- facet chips: keep only rows that have ALL the picked things ------
@@ -2946,6 +3162,11 @@ if(h1c)h1c.textContent='('+shown.toLocaleString()+(shown<total?' / '+total.toLoc
 window.MDSHELFMAP&&window.MDSHELFMAP.byFacet([...on]);};
 fbar.querySelectorAll('.fchip').forEach(b=>b.addEventListener('click',()=>{
 const f=b.dataset.f;if(!f){on.clear();}else if(on.has(f)){on.delete(f);}else{on.add(f);}
+// Narrowing to "has a cash machine" has to reach inside the shelves too. Rows
+// that survive the filter while still folded away behind a shut triangle are
+// an answer the reader cannot see, and the count above would promise places
+// the page appears not to hold.
+if(on.size)unfold();
 paint();}));}}
 // ---- copy link --------------------------------------------------------
 document.querySelectorAll('.copylink').forEach(b=>{b.addEventListener('click',async()=>{
@@ -3085,7 +3306,7 @@ return asc?String(A).localeCompare(String(Bv),'th'):String(Bv).localeCompare(Str
 rows.forEach(r=>tbody.appendChild(r));
 tbl.querySelectorAll('th').forEach(h=>h.classList.remove('sorted','asc'));
 th.classList.add('sorted');if(asc)th.classList.add('asc');asc=!asc;});});});
-// ---- crawl-request form: build a GitHub issue, no backend needed ------
+// ---- crawl-request form: hand the request to suggest.html, prefilled ---
 const crawlForm=document.getElementById('crawlform');
 if(crawlForm){crawlForm.addEventListener('submit',e=>{
 e.preventDefault();
@@ -3106,9 +3327,18 @@ const FIELDS=['phone','lineId','facebook','instagram','whatsapp','email','websit
 // Facet ticks travel as an array, not as FIELDS entries — an empty array is a
 // real answer ("I looked; it has none of these"), which a blank text input
 // cannot express.
-const getTicks=form=>[...form.querySelectorAll('input[name="facet"]:checked')].map(c=>c.value);
+// Only the shown fieldset is read. Every set is in the page, so reading them
+// all would let a hidden 7-Eleven question ride along on a massage shop.
+const getTicks=form=>[...form.querySelectorAll('fieldset[data-facetticks]:not([hidden]) input[name="facet"]:checked')].map(c=>c.value);
 const setTicks=(form,vals)=>{const on=new Set(vals||[]);
 form.querySelectorAll('input[name="facet"]').forEach(c=>{c.checked=on.has(c.value);});};
+// Which tick-list this place answers to. `fx` comes from the search index; a
+// place with no set shows no fieldset at all, which is the right answer for
+// the 6,249 records nobody has written questions for yet.
+const showTicks=(form,fx)=>{let shown=null;
+form.querySelectorAll('fieldset[data-facetticks]').forEach(fs=>{
+const on=!!fx&&fs.dataset.facetticks===fx;fs.hidden=!on;if(on)shown=fs;});
+return shown;};
 const params=new URLSearchParams(location.search);
 const stepFind=claimFind,stepConfirm=document.getElementById('claim-confirm'),
 stepSuccess=document.getElementById('claim-success'),stepEdit=document.getElementById('claim-edit');
@@ -3122,6 +3352,12 @@ const res=await fetch(WORKER+'/edit/'+encodeURIComponent(editToken));
 const data=await res.json();
 if(!res.ok)throw new Error(data.error||'ลิงก์ใช้ไม่ได้ / invalid link');
 FIELDS.forEach(f=>{if(data.claim[f])editForm[f].value=data.claim[f];});
+// The worker returns placeId at the top level; the stored claim carries a
+// copy of it, so fall back to that rather than to nothing.
+const pid=data.placeId||(data.claim&&data.claim.placeId);
+const idx=await loadIndex();
+const me=pid&&idx.find(x=>x.id===pid);
+showTicks(editForm,me&&me.fx);
 setTicks(editForm,data.claim.facets);
 }catch(err){editErr.textContent=err.message;}})();
 editForm.addEventListener('submit',async e=>{
@@ -3144,6 +3380,7 @@ const results=document.getElementById('claimresults'),search=document.getElement
 urlPaste=document.getElementById('claimurlpaste'),findErr=document.getElementById('claimfinderror');
 function slugFromUrl(v){const m=v.trim().match(/\/(cm|cr)\/p\/([a-z0-9-]+)\.html/i);return m?m[2]:null;}
 function pick(e){picked=e;
+showTicks(document.getElementById('claimform'),e.fx);
 document.getElementById('claimwhoname').textContent=e.n;
 document.getElementById('claimwhoprov').textContent='· '+e.pv;
 document.getElementById('claimwholink').href=SITE+e.p+'/p/'+e.s+'.html';
@@ -4166,6 +4403,31 @@ say.textContent='ส่งไม่ได้ตอนนี้ / could not send 
 # script and the URL changes with it; leave it alone and the cache keeps
 # working exactly as it should. Content, not the build date — a fix on a day
 # nobody remembered to bump the date must still reach people.
+def searchcore_js():
+    """The shared matcher, read from assets/ where search-core/sync.py put it.
+
+    Folded into md.js BEFORE the asset hash, so a change to the matching rules
+    busts the cache exactly like a change to any other code — otherwise a fixed
+    Thai homophone class would sit unused behind a year-long immutable cache.
+    Missing is a hard failure: a search page whose matcher silently vanished
+    looks like a directory that has forgotten everything it knows.
+    """
+    path = ROOT / "assets" / "searchcore.js"
+    if not path.exists():
+        raise SystemExit(
+            "assets/searchcore.js is missing — run search-core/sync.py")
+    text = path.read_text()
+    # A stale copy is the quiet failure: the site keeps building and keeps
+    # serving matching rules that were fixed somewhere else weeks ago. Warned
+    # rather than fatal, because the authoritative gate is `sync.py --check` and
+    # a publish should not be blocked by a sibling checkout being absent.
+    canon = ROOT.parent / "search-core" / "searchcore.js"
+    if canon.exists() and canon.read_text() not in text:
+        print("  ! assets/searchcore.js is STALE against search-core/ — "
+              "run search-core/sync.py, then rebuild")
+    return text
+
+
 def _asset_v(text):
     return zlib.crc32(text.encode("utf-8")) & 0xFFFFFFFF
 
@@ -4185,12 +4447,23 @@ _SUBWORDS = {k: f'{v.get("th","")} {v.get("en","")}'.strip()
 # in the tree's own order, and only ones that actually hold something.
 _TOPCATS = [c for c in ("food", "wat", "medical", "essentials", "massage", "hotel")
             if c in CATS]
-JS = ("const MD_THESAURUS=" + json.dumps(_THES, ensure_ascii=False) + ";\n"
-      + "const MD_CATWORDS=" + json.dumps(_CATWORDS, ensure_ascii=False) + ";\n"
+# The thesaurus is NO LONGER inlined. Mining took it from 76 groups to 2,290 —
+# 101 KB — and md.js is loaded by the ticker, the map and all 12,353 place pages,
+# none of which have a search box. It is fetched by search.html instead, together
+# with the segmentation dictionary, so every other page is now lighter than it
+# was and the cost of a bigger vocabulary falls where the vocabulary is used.
+JS = ("const MD_CATWORDS=" + json.dumps(_CATWORDS, ensure_ascii=False) + ";\n"
       + "const MD_SUBWORDS=" + json.dumps(_SUBWORDS, ensure_ascii=False) + ";\n"
-      + "const MD_TOPCATS=" + json.dumps(_TOPCATS) + ";\n" + JS)
+      + "const MD_TOPCATS=" + json.dumps(_TOPCATS) + ";\n"
+      + searchcore_js() + "\n" + JS)
 
 MD_JS_V = f"{_asset_v(JS):08x}"
+# assets/horo.js ships verbatim; version by content so a deploy busts caches.
+try:
+    HORO_JS_V = f'{_asset_v((ROOT / "assets" / "horo.js").read_text()):08x}'
+except OSError:
+    HORO_JS_V = "0"
+HORO_HEAD = f'<script src="horo.js?v={HORO_JS_V}" defer></script>'
 try:
     import live_shell as _live_shell
     LIVE_JS_V = f"{_asset_v(_live_shell.JS):08x}"
@@ -4218,7 +4491,7 @@ def att(s):
     return esc(s).replace('"', "&quot;").replace("'", "&#39;")
 
 
-def bi(th, en, sep=" · "):
+def bi(th, en, sep=" · ", raw=False):
     """Thai first, English gloss after it.
 
     The joining " · " sits inside the English span but is itself marked Thai,
@@ -4226,14 +4499,23 @@ def bi(th, en, sep=" · "):
     whole English span (separator included) is hidden; read English-only and the
     separator hides with the rest of the Thai. Without this a lone gloss opens
     with a stranded "· Chiang Mai".
+
+    `raw=True` passes the halves through unescaped, for the few callers that
+    have already built a link inside the sentence. Escaping is the right
+    default and stays the default — but a caller that hands bi() an anchor gets
+    it back as VISIBLE `&lt;a href=…&gt;` text, which is how the weed.th
+    provenance line shipped a literal HTML tag onto 658 pages while every
+    structural check passed. Escape whatever comes from data yourself before
+    passing it in; only the markup you wrote should ride on raw.
     """
+    e = (lambda s: s if s is not None else "") if raw else esc
     # lang= on each half so a screen reader changes voice at the separator
     # instead of reading Thai with an English one. The page element says
     # lang="th"; without this every English gloss on the site inherits it.
     if not th:
-        return f'<span class="en" lang="en">{esc(en)}</span>' if en else ""
+        return f'<span class="en" lang="en">{e(en)}</span>' if en else ""
     if not en:
-        return f'<span class="th" lang="th">{esc(th)}</span>'
+        return f'<span class="th" lang="th">{e(th)}</span>'
     # Don't double up where the Thai already ends in punctuation of its own.
     s = "" if (not sep or th.rstrip().endswith(("·", "—", "–", ":", "-"))) else sep
     lead = f'<span class="th" lang="th">{esc(s)}</span>' if s else ""
@@ -4243,8 +4525,8 @@ def bi(th, en, sep=" · "):
     # puts the separator alone at the head of its own line. The wrapper takes
     # that blockification instead and the spans stay inline inside it.
     return ('<span class="bi">'
-            f'<span class="th" lang="th">{esc(th)}</span>'
-            f'<span class="en" lang="en">{lead}{esc(en)}</span></span>')
+            f'<span class="th" lang="th">{e(th)}</span>'
+            f'<span class="en" lang="en">{lead}{e(en)}</span></span>')
 
 
 def bi_text(th, en, sep=" · "):
@@ -4396,6 +4678,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <a href="{r}merit.html">{bi("ไหว้พระ ๙ วัด", "Nine temples")}</a> ·
     <a href="{r}crawl-request.html">{bi("ส่งมดไปสำรวจ", "Request a crawl")}</a> ·
     <a href="{r}widgets.html">{bi("วิดเจ็ต", "Widgets")}</a> ·
+    <a href="{r}horoscope.html">{bi("ดวงประจำวัน", "Horoscopes")}</a> ·
     <a href="{r}chart.html">{bi("ดวงจีนสี่เสา", "Four Pillars")}</a> ·
     <a href="{r}festivals.html">{bi("เทศกาล-ฤดูกาล", "Festivals & seasons")}</a> ·
     <a href="{r}festival-dates.html">{bi("เทศกาลวันไหน", "Festival dates")}</a> ·
@@ -5179,9 +5462,19 @@ def ant_panel(r):
 # 410 lack one, and a directory that implies it would be lying quietly.
 
 def facet_set_of(r):
+    """The one facet row this record gets, or None.
+
+    A sub is a more specific claim than a cat, so subs are tried first and the
+    order is the record's own — which means a café that also gives massages
+    keeps the café row, and that is right: it is a café with a mat in the back,
+    and the questions worth asking of it are a café's.
+    """
     for s in r.get("sub") or []:
         if s in FACET_SET_BY_SUB:
             return FACET_SET_BY_SUB[s]
+    for c in r.get("cat") or []:
+        if c in FACET_SET_BY_CAT:
+            return FACET_SET_BY_CAT[c]
     return None
 
 
@@ -5299,28 +5592,37 @@ def facet_panel(r):
             + body + facet_door(r, fs) + "</section>")
 
 
-def facet_ticks(set_key="convenience"):
-    """The tick-list, for the claim and edit forms.
+def facet_ticks():
+    """The tick-lists, for the claim and edit forms — one fieldset per set.
 
     Checkboxes rather than free text because this is the one contribution
     format a person will actually finish while standing in a queue — and
     because a closed vocabulary is the narrowest possible field: nothing a
     submitter types can survive it.
+
+    Every set is emitted and all of them start hidden; the form shows the one
+    that matches the place once a place is picked, keyed off `fx` in the search
+    index. This used to render the convenience set and only that, which meant a
+    massage shop's owner was asked about ATMs and bakery shelves and had no way
+    to say what their own shop was like — and the sit-down toilet questions
+    were unaskable too, on 5,052 records. A tick-list for the wrong trade is
+    not a smaller version of the right one; it collects nothing.
     """
-    fs = next((s for s in FACET_SETS if s["key"] == set_key), None)
-    if not fs:
-        return ""
-    boxes = "".join(
-        f'<label class="tick"><input type="checkbox" name="facet" value="{f["key"]}"> '
-        f'{f["icon"]} ' + bi(f["th"], f["en"]) + "</label>"
-        for f in fs["facets"])
-    return (f'<fieldset class="facetticks" data-facetticks><legend>'
+    out = []
+    for fs in FACET_SETS:
+        boxes = "".join(
+            f'<label class="tick"><input type="checkbox" name="facet" value="{f["key"]}"> '
+            f'{f["icon"]} ' + bi(f["th"], f["en"]) + "</label>"
+            for f in fs["facets"])
+        out.append(
+            f'<fieldset class="facetticks" data-facetticks="{fs["key"]}" hidden><legend>'
             + bi(fs["th"], fs["en"]) + "</legend>"
-            + f'<p class="tinynote">'
+            + '<p class="tinynote">'
             + bi("ติ๊กเฉพาะที่มีจริง ที่ไม่ได้ติ๊กแปลว่ายังไม่รู้ ไม่ได้แปลว่าไม่มี",
                  "Tick only what's really there. Unticked means we don't know — "
                  "not that it's missing.")
             + f"</p>{boxes}</fieldset>")
+    return "".join(out)
 
 
 def facet_chips(records):
@@ -5438,6 +5740,180 @@ def entry_li(r, href):
             f'<a href="{href}">{name_bi(r)}</a>{chip}{pin}{hon}{facet_pills(r)}{plan}</li>')
 
 
+# ---- brand shelves --------------------------------------------------------
+# A chain is not 329 listings because it has 329 shops. The name is the one
+# thing those rows do not differ by, and it was the only thing set in link
+# blue — so 328 rows reading "7-Eleven" stacked up under a single heading and
+# the page said nothing about any of them. The name is now stated once, at the
+# head of a shelf, and the rows underneath carry where each shop stands.
+#
+# Folded with <details>, which needs no script: the disclosure triangle is the
+# browser's own, it opens under keyboard, and a reader on a satellite link with
+# JS off gets exactly the same shelf. Every row still ships in the HTML, so
+# find-in-page, the crawler and the no-JS reader all still see all 911.
+FOLD_MIN = 5
+
+
+def _norm_brand(s):
+    """Match key for a chain's name. Accents and case are spelling, not
+    identity — Café Amazon and Cafe Amazon are one chain and must not become
+    two shelves."""
+    s = unicodedata.normalize("NFKD", (s or "").strip())
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    return re.sub(r"\s+", " ", s).casefold()
+
+
+def _brand_index(records):
+    """Which of these rows are the same chain, on the corpus's own say-so.
+
+    OSM writes the chain on most branches (`brand`, `brand:th`, `brand:en`) and
+    leaves it off the rest, so 35 records say ธนาคารกรุงเทพ / Bangkok Bank while
+    4 more are simply named "Bangkok Bank" and carry no brand tag at all. Those
+    four are the same bank, and the corpus is what says so.
+
+    Spellings that appear together on one record are the same chain, so they
+    are unioned: มินิบิ๊กซี and Mini Big C ride together on the branches that
+    carry both tags, and that is what pulls in the branches carrying only one.
+    Nothing is hand-typed and nothing is guessed — two spellings are joined
+    only where some record in this shelf states both of them, and a name
+    nothing else recognises stays its own shelf.
+
+    Scoped to the shelf being drawn, so a coincidence of names between two
+    categories can never merge across them.
+    """
+    parent = {}
+
+    def find(x):
+        parent.setdefault(x, x)
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    def union(a, b):
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[ra] = rb
+
+    seen = {}
+    for r in records:
+        a = r.get("attrs") or {}
+        spellings = [s.strip() for s in
+                     (a.get("brand"), a.get("brandTh"), a.get("brandEn")) if s and s.strip()]
+        keys = []
+        for s in spellings:
+            k = _norm_brand(s)
+            if not k:
+                continue
+            seen.setdefault(k, Counter())[s] += 1
+            keys.append(k)
+        for k in keys[1:]:
+            union(keys[0], k)
+
+    # Both names per chain, and the commonest spelling of each where it varies.
+    # A shelf heading is read by the same two readers every other name on this
+    # site is: a Thai-only heading disappears into Thai for somebody in
+    # English-only mode, which is the very thing name_pair exists to prevent.
+    forms = {}
+    for k, counts in seen.items():
+        forms.setdefault(find(k), Counter()).update(counts)
+    label = {}
+    for root, counts in forms.items():
+        thai = Counter({s: n for s, n in counts.items() if has_thai(s)})
+        latin = Counter({s: n for s, n in counts.items() if not has_thai(s)})
+        label[root] = (thai.most_common(1)[0][0] if thai else "",
+                       latin.most_common(1)[0][0] if latin else "")
+    return {k: label[find(k)] for k in seen}
+
+
+def fold_key(r, alias):
+    """The pair of names a reader watches repeat down the page.
+
+    Always a (thai, latin) tuple, either half possibly empty, so it groups and
+    sorts as one key and renders through bi() like every other name here.
+    """
+    a = r.get("attrs") or {}
+    for s in (a.get("brandTh"), a.get("brand"), a.get("brandEn")):
+        if s and s.strip():
+            hit = alias.get(_norm_brand(s))
+            if hit:
+                return hit
+            s = s.strip()
+            return (s, "") if has_thai(s) else ("", s)
+    nm = (r.get("name") or "").strip() or name_of(r)
+    return alias.get(_norm_brand(nm)) or ((nm, "") if has_thai(nm) else ("", nm))
+
+
+def area_label(r):
+    """Where this one stands, as far as the road graph and the record agree.
+
+    Same two sources the row's own `data-area` uses, so the heading a reader
+    sees folded matches the heading they get from 🛣 เรียงตามย่าน. Absent is
+    absent: a place the graph never reached gathers under a heading that says
+    so, and is never filed under a road it might be on.
+    """
+    st = STREET_OF.get(r["id"])
+    if st:
+        return st[0].get("name") or st[0].get("nameEn") or ""
+    tambon = (r.get("attrs") or {}).get("tambon")
+    return ("ต." + tambon) if tambon else ""
+
+
+def fold_rows(records, href_of):
+    """Rows for a listing, with repeated names folded into shelves.
+
+    Featured places never fold — they are hand-picked and belong at the top of
+    the shelf they were picked for, not behind a triangle.
+    """
+    alias = _brand_index(records)
+    groups = {}
+    for r in records:
+        groups.setdefault("" if is_featured(r) else fold_key(r, alias), []).append(r)
+
+    out = []
+    for r in groups.pop("", []):
+        out.append(entry_li(r, href_of(r)))
+    # Shelves take their place in the alphabet alongside the single rows rather
+    # than being stacked in front of them by size. A directory is looked up,
+    # not read down: 7-Eleven belongs under 7 and ธนาคารกรุงเทพ under ธ, where
+    # a reader goes to look for them. Ordering the chains biggest-first would
+    # also rank them against each other on the page, which is not this page's
+    # business — the same reason the 🐜 chips sleep outside their own sort.
+    shelved = []
+    for key, rs in groups.items():
+        if len(rs) < FOLD_MIN:
+            shelved.extend((name_of(r), entry_li(r, href_of(r))) for r in rs)
+            continue
+        by_area = {}
+        for r in rs:
+            by_area.setdefault(area_label(r), []).append(r)
+        unknown = by_area.pop("", [])
+        blocks = []
+        for area, in_area in sorted(by_area.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+            in_area.sort(key=name_of)
+            blocks.append(
+                f'<li class="areahead shelf">{esc(area)} '
+                f'<span class="count">{len(in_area):,}</span></li>'
+                + "".join(entry_li(r, href_of(r)) for r in in_area))
+        if unknown:
+            unknown.sort(key=name_of)
+            blocks.append(
+                f'<li class="areahead shelf">'
+                + bi("ยังไม่รู้ว่าอยู่ถนนไหน", "road not known yet")
+                + f' <span class="count">{len(unknown):,}</span></li>'
+                + "".join(entry_li(r, href_of(r)) for r in unknown))
+        # A count in the summary, so the size of the shelf is legible while it
+        # is still shut — the reader decides whether to open it knowing what is
+        # behind it.
+        shelved.append((key[0] or key[1],
+            f'<li class="brandshelf"><details><summary>{bi(key[0], key[1])} '
+            f'<span class="count">({len(rs):,})</span></summary>'
+            f'<ul class="dir sub">{"".join(blocks)}</ul></details></li>'))
+    shelved.sort(key=lambda kv: kv[0])
+    out.extend(html for _, html in shelved)
+    return "".join(out)
+
+
 def geojson(records):
     return {"type": "FeatureCollection", "features": [
         {"type": "Feature",
@@ -5492,19 +5968,20 @@ def toolbar(records=None):
 
 
 def listing_page(title_th, title_en, records, depth, prov, crumbs, path, extra_top="",
-                  extra_head="", seo_title=None):
-    lis = "".join(entry_li(r, "../" * (depth - 1) + f"p/{place_slug(r)}.html") for r in records)
+                  extra_head="", seo_title=None, og=None):
+    lis = fold_rows(records, lambda r: "../" * (depth - 1) + f"p/{place_slug(r)}.html")
     body = (f"<h1>{bi(title_th, title_en)} "
             f'<span class="count">({len(records):,})</span></h1>'
             f"{extra_top}{ad_box(path, depth)}{toolbar(records)}{facet_chips(records)}"
             f'<ul class="dir" data-sortable>{lis}</ul>'
-            f"{share_block(BASE + path, title_th)}")
+            f"{share_block(BASE + path, title_th, card=og)}")
     # seo_title carries province context into <title>/og:title without
     # touching the h1 — a subcategory name alone repeats verbatim between
     # provinces (e.g. "กาแฟ-คาเฟ่" in both cm and cr), which is a duplicate
     # <title> at exactly the granularity Search Console flags.
     return page(seo_title or title_th, body, depth, crumbs=crumbs, path=path,
-                desc=f"{title_th} — {len(records)} แห่ง · มดแดง", extra_head=extra_head)
+                desc=f"{title_th} — {len(records)} แห่ง · มดแดง", extra_head=extra_head,
+                og=og)
 
 
 ADS = json.loads((ROOT / "data" / "ads.json").read_text())
@@ -5522,7 +5999,7 @@ def ad_box(path, depth):
             + bi("ลงโฆษณาที่นี่", "advertise here") + "</a></div>")
 
 
-def share_block(url, name, qr=False):
+def share_block(url, name, qr=False, card=None):
     u, t = att(url), att(name)
     qr_html = ""
     if qr:
@@ -5538,6 +6015,14 @@ def share_block(url, name, qr=False):
             qr_html = (f'<div class="qrbox"><img src="{data_uri}" alt="{att(qr_alt)}" '
                       f'width="76" height="76">'
                       f'<p>{bi(qr_th, qr_en)}</p></div>')
+    # The picture itself, not just a link that unfurls into it. A link
+    # pasted into a Facebook comment does not unfurl at all, and the
+    # answer to "who does this" is more useful as the poster than as a
+    # URL somebody has to trust. Same file the og:image points at.
+    card_html = ""
+    if card:
+        card_html = (f'<a class="pill poster" href="{att(BASE + card)}" download>'
+                     f'🖼 {bi("บันทึกการ์ด", "Save card")}</a>')
     return (f'<div class="share"><span class="sharelabel">{bi("บอกต่อ", "Share")}</span>'
             f'<div class="row">'
             f'<button class="pill native" data-native data-url="{u}" data-title="{t}" style="display:none">'
@@ -5547,7 +6032,7 @@ def share_block(url, name, qr=False):
             f'<a class="pill telegram" href="https://t.me/share/url?url={u}&text={t}" rel="noopener">Telegram</a>'
             f'<button class="pill copy copylink" data-url="{u}" data-label="🔗 {esc("คัดลอกลิงก์")}" '
             f'data-done="✓ {esc("คัดลอกแล้ว")}">🔗 {esc("คัดลอกลิงก์")}</button>'
-            f'</div>{qr_html}</div>')
+            f'{card_html}</div>{qr_html}</div>')
 
 
 CHANNEL_ICON = {"phone": "☎️", "line": "💬", "facebook": "f", "web": "🌐",
@@ -5955,6 +6440,22 @@ def known_facts(r):
         return out
 
     fac = listed([s for s in FACILITY_ROW if s[0] != "smoking"])
+    # State or private, which is the difference between a visit that costs
+    # nothing on บัตรทอง and one that does not. Printed ONLY where we know it:
+    # the CITIZENinfo register states it by construction, because that register
+    # IS the state list. A crawled clinic says nothing about its sector and so
+    # nothing is printed — silence here, as everywhere on this site, means
+    # nobody has said, not that the answer is no.
+    if a.get("sector") == "state":
+        # Two registers now state a sector, and they are registers of different
+        # things. The OBEC school list marks its schools `state` by exactly the
+        # same construction CITIZENinfo marks its clinics, so an ungated label
+        # told every government school in two provinces that it was a state
+        # HEALTH FACILITY. True of neither, and printed on 1,292 pages.
+        if "school" in (r.get("cat") or []):
+            fac.append(bi("โรงเรียนของรัฐ", "a state school"))
+        else:
+            fac.append(bi("สถานพยาบาลของรัฐ", "state health facility"))
     # smoking reads backwards in a list of what a place has: "smoking · no" is
     # the good news, and it is clearer said as the fact it is.
     smk = a.get("smoking")
@@ -6034,6 +6535,56 @@ def known_facts(r):
         rows.append(f"<dt>{bi('ชั้น', 'Floor')}</dt><dd>"
                     + bi(f"ชั้น {lv}", f"level {lv}") + "</dd>")
 
+    # What a school is on paper. Two registers say it: สพฐ. holds the levels a
+    # school teaches, the education service area it answers to and how many
+    # children are enrolled; the private-school licence register holds its
+    # official type, who holds the licence and the year it opened. Before this
+    # existed, the whole of both registers reached the page as a phone number
+    # and nothing else.
+    #
+    # ENROLMENT IS A FACT AND NEVER A SORT. A twelve-pupil school on a ridge
+    # and a three-thousand-pupil school in town are different places, and a
+    # parent reading one page deserves to know which they are looking at. The
+    # rule that temples are never ranked against each other holds here with
+    # more force rather than less: these are children's schools, and a number
+    # that becomes a league table has stopped being a fact about a place.
+    if a.get("levels"):
+        rows.append(f"<dt>{bi('ระดับชั้นที่เปิดสอน', 'Levels taught')}</dt>"
+                    f"<dd>{esc(str(a['levels']))}</dd>")
+    if a.get("eduArea"):
+        rows.append(f"<dt>{bi('สังกัดเขตพื้นที่', 'Education area')}</dt>"
+                    f"<dd>{esc(str(a['eduArea']))}</dd>")
+    if a.get("officialType"):
+        rows.append(f"<dt>{bi('ประเภทตามใบอนุญาต', 'Licensed as')}</dt>"
+                    f"<dd>{esc(str(a['officialType']))}</dd>")
+    if a.get("licensee"):
+        rows.append(f"<dt>{bi('ผู้รับใบอนุญาต', 'Licence held by')}</dt>"
+                    f"<dd>{esc(str(a['licensee']))}</dd>")
+    if isinstance(a.get("students"), int):
+        n = a["students"]
+        bits = [bi(f"นักเรียน {n:,} คน", f"{n:,} pupils")]
+        if isinstance(a.get("classrooms"), int) and a["classrooms"]:
+            c = a["classrooms"]
+            bits.append(bi(f"{c:,} ห้องเรียน", f"{c:,} classrooms"))
+        rows.append(f"<dt>{bi('ขนาดโรงเรียน', 'School size')}</dt>"
+                    f"<dd>{' · '.join(bits)}</dd>")
+    # The ones the register marks and nobody else records. A school on the ดอย
+    # is a different journey and a different school, and ขยายโอกาส is the whole
+    # reason a village's children can finish ม.3 without leaving home.
+    standing = []
+    if a.get("highland"):
+        standing.append(bi("โรงเรียนพื้นที่สูง", "stands in the highlands"))
+    if a.get("borderland"):
+        standing.append(bi("อยู่ในพื้นที่ชายแดน", "stands in the borderlands"))
+    if a.get("expandOpportunity"):
+        standing.append(bi("โรงเรียนขยายโอกาส",
+                           "an opportunity-expansion school"))
+    if a.get("branchSchool"):
+        standing.append(bi("เป็นโรงเรียนสาขา", "a branch school"))
+    if standing:
+        rows.append(f"<dt>{bi('ที่ตั้งและลักษณะ', 'Where it stands')}</dt>"
+                    f"<dd>{' · '.join(standing)}</dd>")
+
     # What a temple is on paper. Every wat here reached us as a name and a pin;
     # the National Office of Buddhism register holds the year it was founded,
     # its nikaya and its standing, under a code that never changes. The year is
@@ -6078,6 +6629,24 @@ def known_facts(r):
             f'<a href="{"../" * 2}search.html?q={att(urllib.parse.quote(c.replace("_", " ")))}">'
             f'{esc(c.replace("_", " "))}</a>' for c in cuis[:6])
         rows.append(f'<dt>{bi("อาหารแนว", "Cooks")}</dt><dd>{links}</dd>')
+
+    # What a clinic says it does. Same shape as `cuisine` directly above,
+    # because a speciality is the same kind of thing: a browse axis hiding in a
+    # field. importers/specialty.py explains why this is a field and not a
+    # shelf tree — Thai clinics are named after their doctor, so it is stated
+    # on 116 of 467 and the other 351 rightly say nothing.
+    spec = [s for s in (a.get("specialty") or []) if s in SPECIALTY_LABELS]
+    if spec:
+        via = a.get("specialtyVia")
+        how = (("จากชื่อของสถานพยาบาลเอง", "from the place's own name")
+               if via == "name" else
+               ("จากป้ายข้อมูลใน OpenStreetMap", "tagged in OpenStreetMap"))
+        links = " · ".join(
+            f'<a href="{"../" * 2}search.html?q='
+            f'{att(urllib.parse.quote(SPECIALTY_LABELS[s][0]))}">'
+            f'{bi(*SPECIALTY_LABELS[s])}</a>' for s in spec)
+        rows.append(f'<dt>{bi("ให้บริการ", "Treats")}</dt><dd>{links} '
+                    f'<span class="prov">{bi(*how)}</span></dd>')
 
     # The chain a branch belongs to. 1,221 records carry it and a reader
     # standing outside one of 332 near-identical branches could not tell.
@@ -6287,6 +6856,26 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
                  "field": bi("ข้อมูลเก็บภาคสนาม", "Field-collected data"),
                  "curated": bi("ข้อมูลคัดสรรโดยทีมมดแดง", "Curated by the Mot Dang team")}.get(
         src.get("type"), bi("ข้อมูลเปิด", "Open data"))
+    # A directory that took a name from another directory says so, by name and
+    # with a link back. "Open data" is what this used to print for those, which
+    # is vague where it should be specific: somebody else wrote that shop down
+    # first, and a reader who wants to check has a right to know where to look.
+    if src.get("type") == "directory" and src.get("via"):
+        who = esc(src["via"])
+        link = f'<a href="{att(src["ref"])}" rel="nofollow noopener">{who}</a>' \
+            if str(src.get("ref", "")).startswith("http") else who
+        prov_line = bi(f"ชื่อและที่อยู่จาก {link}", f"Name and address from {link}", raw=True)
+    # A register says who published it, by name. "Open data" was what these
+    # printed, and it is vague exactly where a reader most needs specifics:
+    # CITIZENinfo is CC-BY and naming it is a LICENCE CONDITION rather than a
+    # courtesy, and the two school registers state no licence at all — which
+    # makes saying whose list this is the least a reader needs in order to
+    # weigh the fact. Every such source already carries `credit`.
+    elif src.get("credit"):
+        who = esc(src["credit"])
+        link = (f'<a href="{att(src["ref"])}" rel="nofollow noopener">{who}</a>'
+                if str(src.get("ref", "")).startswith("http") else who)
+        prov_line = bi(f"ข้อมูลจาก {link}", f"Data from {link}", raw=True)
     fetched = f" · {esc(src['fetched'])}" if src.get("fetched") else ""
     path = f"{r['province']}/p/{place_slug(r)}.html"
     crumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
@@ -7086,6 +7675,18 @@ _fo_path = ROOT / "data" / "fortune.json"
 _FO = json.loads(_fo_path.read_text()) if _fo_path.exists() else {}
 FORTUNE_DAYS = _FO.get("days", {})
 
+# The per-sign horoscope engine's bake: bilingual tables shared with
+# assets/horo.js, exact year boundaries (ตรุษจีน / 立春 / เถลิงศก), today's
+# readings as indices, and this year's solar ingresses. importers/make_horo.py
+# writes it; the page builders below only read.
+_ho_path = ROOT / "data" / "horo.json"
+_HORO = json.loads(_ho_path.read_text()) if _ho_path.exists() else {}
+HORO_T = _HORO.get("tables", {})
+HORO_TODAY = _HORO.get("today", {})
+HORO_YEARS = _HORO.get("years", {})
+HORO_INGRESS = _HORO.get("ingress", {})
+HORO_DAYS = _HORO.get("days", {})
+
 # WMO weather codes -> an emoji and a bilingual word. Emoji rather than an
 # icon font: a font is a whole extra asset to ship and shape for one glyph a
 # tile, and the reader's own system already draws these.
@@ -7552,46 +8153,155 @@ def widget_fortune():
         f'</section>')
 
 
-def widget_horoscope():
-    """Three traditions, side by side, each read the way its own almanac reads.
+# ---- per-sign horoscopes -----------------------------------------------
+# The words below come from data/horo.json (importers/make_horo.py), the same
+# file assets/horo.js reads, so the static render and the live one cannot
+# disagree. Python composes today's card from baked indices; the JS recomputes
+# any later day in the reader's browser, which is why these tiles have no
+# staleness cliff.
 
-    Tabs rather than a blend: a Thai day-reading, a Chinese day-pillar and a
-    European Moon transit are not three translations of one thing, and pushing
-    them into a single sentence would flatten all three.
+def _ho_verdict(v):
+    meta = HORO_T["verdicts"][v]
+    return f'<span class="ssverdict v-{meta["cls"]}">{bi(v, meta["en"])}</span>'
+
+
+def _ho_default(sys):
+    """The sign each pane opens on before a reader has picked her own:
+    today's day, this year's animal, the sign the Sun stands in."""
+    if sys == "th":
+        return HORO_TODAY.get("slot", 0)
+    if sys == "cn":
+        return HORO_TODAY.get("chinese", {}).get("year_branch", 0)
+    d = HORO_DAYS.get(HORO_TODAY.get("date", ""), {})
+    lon = (d.get("lon") or [0])[0]
+    return int(lon // 30) % 12
+
+
+def _ho_chips(sys, active, wrap=False):
+    """One tappable chip per sign — the whole point of the layer is that every
+    sign is on the page, not behind a dropdown."""
+    chips = []
+    if sys == "th":
+        for i, day in enumerate(HORO_T["thai"]["days"]):
+            label = day["th"].replace("วัน", "", 1)
+            chips.append(
+                f'<button type="button" class="hochip{" on" if i == active else ""}" '
+                f'data-hchip="{i}" aria-pressed="{"true" if i == active else "false"}" '
+                f'aria-label="{att(bi_text("เกิด" + day["th"], "born on a " + day["en"]))}">'
+                f'<span class="hodot" style="background:{day["hex"]}"></span>{esc(day["abbr"])}</button>')
+    elif sys == "cn":
+        for i, b in enumerate(HORO_T["chinese"]["branches"]):
+            chips.append(
+                f'<button type="button" class="hochip{" on" if i == active else ""}" '
+                f'data-hchip="{i}" aria-pressed="{"true" if i == active else "false"}" '
+                f'aria-label="{att(bi_text("ปี" + b["th"], "year of the " + b["en"]))}">'
+                f'<span class="hoemoji">{b["emoji"]}</span>{esc(b["th"])}</button>')
+    else:
+        for i, s in enumerate(HORO_T["west"]["signs"]):
+            short = s["th"].replace("ราศี", "")
+            chips.append(
+                f'<button type="button" class="hochip{" on" if i == active else ""}" '
+                f'data-hchip="{i}" aria-pressed="{"true" if i == active else "false"}" '
+                f'aria-label="{att(bi_text("ราศี" + short, s["en"]))}">'
+                f'<span class="hoglyph">{s["glyph"]}</span>{esc(short)}</button>')
+    return (f'<div class="hochips{" wrap" if wrap else ""}" data-hchips="{sys}" '
+            f'role="group" aria-label="{att(bi_text("เลือกของคุณ", "pick yours"))}">'
+            f'{"".join(chips)}</div>')
+
+
+def _ho_thai_read(slot):
+    """Today's มหาทักษา station for one birth day, worded exactly as
+    horo.js words it."""
+    T = HORO_T["thai"]
+    st = T["stations"][HORO_TODAY["thai"]["station"][slot]]
+    me = T["days"][slot]
+    today_day = T["days"][HORO_TODAY["slot"]]
+    wheel = T["wheel"]
+    kk = T["days"][wheel[(wheel.index(slot) + 7) % 8]]
+    return (
+        f'<p class="horeadline">{_ho_verdict(st["v"])} '
+        f'<b>{bi(st["th"], st["en"])}</b> — {bi(st["mean_th"], st["mean_en"])}</p>'
+        f'<p>{bi(st["line_th"], st["line_en"])}</p>'
+        f'<p class="tinynote">{bi("วันนี้" + today_day["th"] + " อยู่ตำแหน่ง" + st["th"] + "ของคนเกิด" + me["th"], "Today, " + today_day["en"] + ", stands at " + st["en"] + " on the wheel of a " + me["en"] + " child")}</p>'
+        f'<p class="hocolours"><span class="hocol"><span class="hoswatch" style="background:{me["hex"]}"></span>'
+        f'{bi("สีของคุณ " + me["colour_th"], "your colour: " + me["colour_en"])}</span>'
+        f'<span class="hocol"><span class="hoswatch hoavoid" style="background:{kk["hex"]}"></span>'
+        f'{bi("เลี่ยง" + kk["colour_th"] + " (สีกาลกิณี)", "ease off " + kk["colour_en"] + " (the กาลกิณี colour)")}</span>'
+        f'<span class="hocol">{bi("กำลังวัน " + str(me["strength"]), "day strength " + str(me["strength"]))}</span></p>')
+
+
+def _ho_cn_read(branch):
+    """Today's branch relations for one animal year, matching horo.js."""
+    T = HORO_T["chinese"]
+    tc = HORO_TODAY["chinese"]
+    br = T["branches"]
+    day_b, day_s = tc["dp"] % 12, tc["dp"] % 10
+    dr = T["day_rel"][tc["day_rel"][branch]]
+    yr = T["year_rel"][tc["year_rel"][branch]]
+    pillar = T["stems"][day_s] + br[day_b]["zh"]
+    rel_tag = (dr["zh"] + " " + dr["th"]) if dr["zh"] else dr["th"]
+    return (
+        f'<p class="horeadline">{_ho_verdict(dr["v"])} '
+        f'<b>{bi("วันนี้" + rel_tag + "กับปี" + br[branch]["th"], "today is " + dr["en"] + " for the " + br[branch]["en"] + " year")}</b></p>'
+        f'<p>{bi(dr["line_th"], dr["line_en"])}</p>'
+        f'<p class="tinynote">{bi("เสาวันนี้ " + pillar + " (วัน" + br[day_b]["th"] + ")", "day pillar " + pillar + " — a " + br[day_b]["en"] + " day")}</p>'
+        f'<p class="hoyearrel">{_ho_verdict(yr["v"])} '
+        f'{bi(yr["th"] + " — " + yr["line_th"], yr["en"] + " — " + yr["line_en"])}</p>')
+
+
+def _ho_eu_read(sign):
+    """Today's whole-sign transits for one sun sign, matching horo.js."""
+    T = HORO_T["west"]
+    r = HORO_TODAY["west"]["readings"][sign]
+    s = T["signs"][sign]
+    parts = [f'<p class="horeadline">{_ho_verdict(r["verdict"])} '
+             f'<b>{bi("ราศี" + s["th"].replace("ราศี", ""), s["en"])}</b> '
+             f'<span class="hoglyph">{s["glyph"]}</span></p>']
+    if r["moon_aspect"]:
+        ma = T["aspects"][r["moon_aspect"]]
+        tail = "เด่นชัดมาก" if r["moon_aspect"] == "conj" else "ขยับตาม"
+        parts.append(f'<p>{bi("ดวงจันทร์" + ma["th"] + " — อารมณ์และเรื่องใกล้ตัว" + tail, "the Moon " + ma["line_en"])}</p>')
+    else:
+        parts.append(f'<p>{bi("ดวงจันทร์ไม่ทำมุมวันนี้ ใจนิ่งดี เหมาะงานต้องสมาธิ", "no Moon aspect today — a settled mind, good for quiet work")}</p>')
+    if r["top"]:
+        pl = T["planets"][r["top"][0]]
+        ak = T["aspects"][r["top"][1]]
+        parts.append(f'<p>{bi("ดาว" + pl["th"] + ak["th"] + " — " + pl["theme_th"] + " " + ak["line_th"], pl["en"] + " " + ak["line_en"] + " — the theme is " + pl["theme_en"])}</p>')
+    parts.append(f'<p class="tinynote">{bi("ดวงจันทร์อยู่ราศี" + T["signs"][r["moon_sign"]]["th"].replace("ราศี", ""), "the Moon is in " + T["signs"][r["moon_sign"]]["en"])}</p>')
+    return "".join(parts)
+
+
+def widget_horoscope():
+    """Three traditions, each divided out by its own signs.
+
+    Tabs rather than a blend: a ทักษา day-station, a branch relation over the
+    sexagenary day and a whole-sign transit are not three translations of one
+    thing, and pushing them into a single sentence would flatten all three.
+    Every pane carries a chip per sign; the tile opens on today's own sign and
+    a tap (remembered locally, like every choice on this site) makes it yours.
     """
-    if not FORTUNE_DAYS:
+    if not HORO_T or not HORO_TODAY:
         return ""
-    first = FORTUNE_DAYS[sorted(FORTUNE_DAYS)[0]]
-    eu = first.get("european") or {}
-    cn = first.get("chinese") or {}
-    sign_opts = "".join(f'<option value="{i}">{esc(s["th"])} · {esc(s["en"])}</option>'
-                        for i, s in enumerate(eu.get("signs", [])))
-    tabs = [("th", "ไทย", "Thai"), ("eu", "สากล", "European")]
-    if cn:
-        tabs.append(("cn", "จีน", "Chinese"))
+    tabs = [("th", "ไทย", "Thai"), ("cn", "จีน", "Chinese"), ("eu", "สากล", "Western")]
     tabbar = "".join(
         f'<button class="hotab{" on" if i == 0 else ""}" data-hotab="{k}">{bi(a, b)}</button>'
         for i, (k, a, b) in enumerate(tabs))
-    th_pane = (f'<div class="hopane" data-hopane="th">'
-               f'<p data-ho="th_line"></p>'
-               f'<p class="tinynote">{bi("อ่านจากวันประจำสัปดาห์ สี และกำลังพระเคราะห์", "Read from the weekday, its colour and its planetary strength")}</p>'
-               f'</div>')
-    eu_pane = (f'<div class="hopane" data-hopane="eu" hidden>'
-               f'<select class="hopick" data-ho="signpick" aria-label="{att("เลือกราศี / choose your sign")}">{sign_opts}</select>'
-               f'<p class="hoaspect" data-ho="eu_aspect"></p>'
-               f'<p data-ho="eu_line"></p>'
-               f'<p class="tinynote" data-ho="eu_moon"></p></div>')
-    cn_pane = ""
-    if cn:
-        cn_pane = (f'<div class="hopane" data-hopane="cn" hidden>'
-                   f'<p class="hopillar" data-ho="cn_pillar"></p>'
-                   f'<p data-ho="cn_line"></p>'
-                   f'<p class="tinynote">{bi("จากเสาวันในปฏิทินจีน 60 วัน", "From the sexagenary day pillar")}</p></div>')
+    panes = []
+    for i, (k, _, _unused) in enumerate(tabs):
+        d = _ho_default(k)
+        read = {"th": _ho_thai_read, "cn": _ho_cn_read, "eu": _ho_eu_read}[k](d)
+        panes.append(
+            f'<div class="hopane" data-hopane="{k}"{"" if i == 0 else " hidden"}>'
+            f'{_ho_chips(k, d)}'
+            f'<div class="horead" data-hread="{k}">{read}</div>'
+            f'</div>')
     return (
         f'<section class="wtile horo" id="w-horoscope">'
         f'<h3>🔮 {bi("ดวงวันนี้", "The reading today")}</h3>'
         f'<div class="hotabs">{tabbar}</div>'
-        f'{th_pane}{eu_pane}{cn_pane}'
+        f'{"".join(panes)}'
+        f'<a class="wfoot holink" href="horoscope.html">'
+        f'{bi("ครบทุกราศี ทุกปี พร้อมวงล้อ", "every sign, every year, with the wheels")} →</a>'
         f'</section>')
 
 
@@ -7803,7 +8513,7 @@ def build_widgets_page(events, data, moon_svg):
         f'<a href="events.html">{bi("งานในเมือง", "What is on")}</a> · '
         f'<a href="festivals.html">{bi("เทศกาล", "Festivals")}</a></p>'
         f'{share_block(BASE + "widgets.html", "วิดเจ็ตมดแดง · Mot Dang widgets")}',
-        depth=0, path="widgets.html", desc=lede_th)
+        depth=0, path="widgets.html", desc=lede_th, extra_head=HORO_HEAD)
 
 
 def build_events_page(events):
@@ -8027,7 +8737,7 @@ def emit_source():
     # a link to one of them is a link to the file itself, not to a repository
     # somebody has to know how to browse.
     for f in ["data/categories.json", "data/sources.json", "data/curated/honours.json",
-              "data/facets.json", "importers/check_links.py"]:
+              "data/facets.json", "data/asked.json", "importers/check_links.py"]:
         p = ROOT / f
         if p.exists():
             (out / Path(f).name).write_bytes(p.read_bytes())
@@ -8734,6 +9444,265 @@ def build_chart_page():
     shutil.copyfile(ROOT / "data" / "solar_terms.json", DOCS / "data" / "solar_terms.json")
 
 
+# ---- /horoscope.html: the three systems, every sign on the page ----------
+def _ho_polar(r, deg):
+    rad = math.radians(deg)
+    return (110 + r * math.cos(rad), 110 - r * math.sin(rad))
+
+
+def _ho_wedge(r0, r1, d0, d1, attrs):
+    """A ring sector from angle d0 to d1 (math degrees, d0 > d1 sweeps
+    clockwise on screen)."""
+    x1, y1 = _ho_polar(r0, d0)
+    x2, y2 = _ho_polar(r1, d0)
+    x3, y3 = _ho_polar(r1, d1)
+    x4, y4 = _ho_polar(r0, d1)
+    return (f'<path {attrs} d="M {x1:.1f} {y1:.1f} L {x2:.1f} {y2:.1f} '
+            f'A {r1} {r1} 0 0 1 {x3:.1f} {y3:.1f} L {x4:.1f} {y4:.1f} '
+            f'A {r0} {r0} 0 0 0 {x1:.1f} {y1:.1f} Z"/>')
+
+
+def _ho_wheel_thai():
+    """The ทักษา wheel: eight fixed deity seats; the station ring turns with
+    the reader's birth day (horo.js rewrites the hwst-* texts), the gold
+    wedge rests on today's deity."""
+    T = HORO_T["thai"]
+    wheel = T["wheel"]
+    default = _ho_default("th")
+    bp = wheel.index(default)
+    today_seat = wheel.index(HORO_TODAY["slot"])
+    parts = [f'<svg viewBox="0 0 220 220" class="howheel" id="howheel-th" role="img" '
+             f'aria-label="{att(bi_text("วงล้อมหาทักษา แปดตำแหน่งรอบวันเกิด", "the Mahathaksa wheel — eight stations round the birth day"))}">']
+    # Both movable marks are DRAWN at seat 0 (top) and PLACED by transform, so
+    # the Python placement and horo.js's re-pointing use one rule.
+    parts.append(_ho_wedge(40, 104, 90 + 22.5, 90 - 22.5,
+                           f'id="hw-today" class="hwtoday" transform="rotate({45 * today_seat} 110 110)"'))
+    parts.append('<circle cx="110" cy="110" r="104" class="hwring"/>')
+    parts.append('<circle cx="110" cy="110" r="40" class="hwring faint"/>')
+    for k in range(8):
+        d0 = 90 + 22.5 - 45 * k
+        x1, y1 = _ho_polar(40, d0)
+        x2, y2 = _ho_polar(104, d0)
+        parts.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" class="hwring faint"/>')
+    for k in range(8):
+        deg = 90 - 45 * k
+        day = T["days"][wheel[k]]
+        cx, cy = _ho_polar(96, deg)
+        tx, ty = _ho_polar(82, deg)
+        sx, sy = _ho_polar(58, deg)
+        st = T["stations"][(k - bp) % 8]
+        parts.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="5" fill="{day["hex"]}"/>')
+        parts.append(f'<text x="{tx:.1f}" y="{ty + 3:.1f}" class="hwday">{esc(day["abbr"])}</text>')
+        parts.append(f'<text x="{sx:.1f}" y="{sy + 3:.1f}" class="hwst" id="hwst-{k}">{esc(st["th"])}</text>')
+    kk_seat = (bp + 7) % 8
+    xa, ya = _ho_polar(109, 90 + 20)
+    xb, yb = _ho_polar(109, 90 - 20)
+    parts.append(f'<path id="hw-kk" class="hwkk" d="M {xa:.1f} {ya:.1f} A 109 109 0 0 1 {xb:.1f} {yb:.1f}" '
+                 f'transform="rotate({45 * kk_seat} 110 110)"/>')
+    parts.append('</svg>')
+    return "".join(parts)
+
+
+def _ho_wheel_cn():
+    """Twelve branch seats on a circle; the chord is today against the
+    reader's year, the faint triangle is her สามฮะ triad."""
+    T = HORO_T["chinese"]
+    tc = HORO_TODAY["chinese"]
+    you = _ho_default("cn")
+    day_b = tc["dp"] % 12
+    rel = tc["day_rel"][you]
+    parts = [f'<svg viewBox="0 0 220 220" class="howheel" id="howheel-cn" role="img" '
+             f'aria-label="{att(bi_text("วงนักษัตรสิบสองกิ่ง เส้นเชื่อมวันนี้กับปีของคุณ", "the twelve-branch circle, a chord joining today to your year"))}">']
+    parts.append('<circle cx="110" cy="110" r="104" class="hwring"/>')
+    parts.append('<circle cx="110" cy="110" r="68" class="hwring faint"/>')
+    tri = " ".join("%.1f,%.1f" % _ho_polar(86, 90 - 30 * b)
+                   for b in (you, (you + 4) % 12, (you + 8) % 12))
+    parts.append(f'<polygon id="cw-sanhe" class="cwsanhe" points="{tri}"/>')
+    if day_b != you:
+        x1, y1 = _ho_polar(86, 90 - 30 * day_b)
+        x2, y2 = _ho_polar(86, 90 - 30 * you)
+        parts.append(f'<line id="cw-rel" class="cwrel cwrel-{rel}" '
+                     f'x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}"/>')
+    else:
+        parts.append('<line id="cw-rel" class="cwrel" x1="0" y1="0" x2="0" y2="0" style="display:none"/>')
+    for b in range(12):
+        deg = 90 - 30 * b
+        ex, ey = _ho_polar(97, deg)
+        parts.append(f'<text x="{ex:.1f}" y="{ey + 4:.1f}" class="cwanimal">{T["branches"][b]["emoji"]}</text>')
+    dx, dy = _ho_polar(86, 90 - 30 * day_b)
+    ux, uy = _ho_polar(86, 90 - 30 * you)
+    parts.append(f'<circle id="cw-day" class="cwday" cx="{dx:.1f}" cy="{dy:.1f}" r="6"/>')
+    parts.append(f'<circle id="cw-you" class="cwyou" cx="{ux:.1f}" cy="{uy:.1f}" r="8"/>')
+    parts.append('</svg>')
+    return "".join(parts)
+
+
+def _ho_wheel_eu():
+    """The zodiac ring with the seven classical bodies at their computed
+    longitudes — เมษ on the left, wheeling counterclockwise, as a chart is
+    drawn. horo.js re-places the glyphs each day."""
+    T = HORO_T["west"]
+    d = HORO_DAYS.get(HORO_TODAY.get("date", ""), {})
+    lons = d.get("lon") or [0] * 7
+    you = _ho_default("eu")
+    parts = [f'<svg viewBox="0 0 220 220" class="howheel dark" id="howheel-eu" role="img" '
+             f'aria-label="{att(bi_text("จักรราศีกับตำแหน่งดาวจริงวันนี้", "the zodiac ring with the planets at their computed positions today"))}">']
+    parts.append(_ho_wedge(46, 104, 210, 180,
+                           f'id="zw-you" class="zwyou" transform="rotate({-30 * you} 110 110)"'))
+    parts.append('<circle cx="110" cy="110" r="104" class="hwring"/>')
+    parts.append('<circle cx="110" cy="110" r="88" class="hwring faint"/>')
+    parts.append('<circle cx="110" cy="110" r="46" class="hwring faint"/>')
+    for s in range(12):
+        d0 = 180 + 30 * s
+        x1, y1 = _ho_polar(46, d0)
+        x2, y2 = _ho_polar(104, d0)
+        parts.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" class="hwring faint"/>')
+        gx, gy = _ho_polar(96, 195 + 30 * s)
+        parts.append(f'<text x="{gx:.1f}" y="{gy + 4:.1f}" class="zwsign">{T["signs"][s]["glyph"]}</text>')
+    for pi, lon in enumerate(lons):
+        px, py = _ho_polar(74, 180 + lon)
+        parts.append(f'<text id="zw-p{pi}" x="{px:.1f}" y="{py + 4:.1f}" class="zwplanet">{T["planets"][pi]["glyph"]}</text>')
+    parts.append('</svg>')
+    return "".join(parts)
+
+
+def _ho_cardgrid(sys):
+    """Every sign's card, rendered — the divided-out layer itself. horo.js
+    refreshes these when its own date has moved past the baked one."""
+    reads = {"th": (_ho_thai_read, HORO_T["thai"]["days"]),
+             "cn": (_ho_cn_read, HORO_T["chinese"]["branches"]),
+             "eu": (_ho_eu_read, HORO_T["west"]["signs"])}
+    fn, rows = reads[sys]
+    cards = []
+    for i, row in enumerate(rows):
+        if sys == "th":
+            head = (f'<span class="hodot big" style="background:{row["hex"]}"></span>'
+                    f'<b>{bi(row["th"], row["en"])}</b>')
+        elif sys == "cn":
+            head = (f'<span class="hoemoji">{row["emoji"]}</span>'
+                    f'<b>{bi("ปี" + row["th"], row["en"])}</b> <span class="hozh">{row["zh"]}</span>')
+        else:
+            head = (f'<span class="hoglyph">{row["glyph"]}</span>'
+                    f'<b>{bi("ราศี" + row["th"].replace("ราศี", ""), row["en"])}</b>')
+        cards.append(f'<div class="hocard" data-hocard="{sys}:{i}">'
+                     f'<div class="hocardhead">{head}</div>{fn(i)}</div>')
+    return f'<div class="hocardgrid">{"".join(cards)}</div>'
+
+
+def build_horoscope_page():
+    """ดวงประจำวัน: the three systems side by side, every sign divided out,
+    the boundaries printed, and the arithmetic done where the reader stands.
+    Like /chart.html, the page has nowhere to send a birth date."""
+    if not HORO_T or not HORO_TODAY:
+        return
+    T = HORO_T
+    today_iso = HORO_TODAY["date"]
+    yy, mm, dd = (int(x) for x in today_iso.split("-"))
+    be = yy + 543
+    months_th = ["", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
+                 "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"]
+    months_ab = ["", "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.",
+                 "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."]
+    date_th = f"{dd} {months_th[mm]} {be}"
+    tc = HORO_TODAY["chinese"]
+    cs = HORO_TODAY["thai"]["cs"]
+    animal = T["thai"]["zodiac"][HORO_TODAY["thai"]["animal"]]
+    ybranch = T["chinese"]["branches"][tc["year_branch"]]
+    ystem = (tc["gy"] - 4) % 10
+    yelem_i = T["chinese"]["stem_element"][ystem]
+    cny = HORO_YEARS.get("cny", {}).get(str(tc["gy"]), "")
+    lichun = HORO_YEARS.get("lichun", {}).get(str(tc["gy"]), "")
+    tls = HORO_YEARS.get("thaloengsok", {}).get(str(yy), "")
+
+    def dmy(iso):
+        if not iso:
+            return ""
+        y2, m2, d2 = (int(x) for x in iso.split("-"))
+        return f"{d2} {months_ab[m2]}"
+
+    lede_th = ("ดวงสามตำรา แบ่งครบทุกราศี ทุกปีนักษัตร ทุกวันเกิด — คำนวณจริงจากวงล้อทักษา "
+               "วัฏจักร 60 วัน และตำแหน่งดาวบนฟ้า ไม่มีการสุ่ม เลขทุกตัวตรวจได้")
+    lede_en = ("Three systems, every sign divided out — computed from the Thaksa wheel, "
+               "the sixty-day cycle and the actual positions of the planets. Nothing is "
+               "random; every number can be checked.")
+
+    finder = (
+        f'<form id="horofind" class="hofinder">'
+        f'<label for="hofinddate"><b>{bi("หาราศีจากวันเกิด", "Find your signs from a birthday")}</b> '
+        f'{bi("ใส่วันเดียว ได้ครบทั้งสามตำรา", "one date gives all three")}</label>'
+        f'<div class="hofindrow"><input type="date" id="hofinddate" min="1920-01-01" max="2030-12-31">'
+        f'<button type="submit" class="pill dark">{bi("หาเลย", "Find")}</button></div>'
+        f'<div data-hfound hidden></div>'
+        f'<p class="tinynote">{bi("คำนวณในเครื่องของคุณ ไม่มีอะไรถูกส่งไปไหน", "Computed on your own machine; nothing is sent anywhere.")}</p>'
+        f'<noscript><p class="tinynote">{bi("ปิดสคริปต์อยู่ก็ใช้ได้ ทุกราศีเรียงอยู่ข้างล่างครบแล้ว", "Scripts off? Every sign is laid out in full below.")}</p></noscript>'
+        f'</form>')
+
+    ing_rows = []
+    for r in sorted(HORO_INGRESS.get(str(yy), []), key=lambda r: r["date"]):
+        s = T["west"]["signs"][r["sign"]]
+        y2, m2, d2 = (int(x) for x in r["date"].split("-"))
+        ing_rows.append(f'<tr><td>{s["glyph"]} {bi("ราศี" + s["th"].replace("ราศี", ""), s["en"])}</td>'
+                        f'<td>{d2} {months_ab[m2]}</td><td>{r["time_ict"]} น.</td></tr>')
+    ingress_tbl = (
+        f'<details class="hoingress"><summary>{bi("อาทิตย์ย้ายราศีวันไหนปีนี้ (" + str(be) + ")", "when the Sun changes sign this year")}</summary>'
+        f'<table><thead><tr><th>{bi("ราศี", "sign")}</th><th>{bi("วันที่", "date")}</th>'
+        f'<th>{bi("เวลาไทย", "Thai time")}</th></tr></thead><tbody>{"".join(ing_rows)}</tbody></table>'
+        f'<p class="tinynote">{bi("คำนวณจากลองจิจูดดวงอาทิตย์จริง จึงตรงกว่าตารางช่วงวันที่แบบตายตัว", "Computed from the actual solar longitude — finer than a fixed date-range table.")}</p></details>')
+
+    rahu_img = day_art_img("rahu", cls="dayart small") if DAY_ART.get("rahu") else ""
+
+    body = (
+        f'<h1>🔮 {bi("ดวงประจำวัน", "The day, divided by sign")}</h1>'
+        f'<p class="holede">{bi(lede_th, lede_en)}</p>'
+        f'<p class="hodate" data-hodate>{bi("อ่านสำหรับวัน" + T["thai"]["days"][HORO_TODAY["slot"]]["th"].replace("วัน", "") + "ที่ " + date_th, "read for " + today_iso)}</p>'
+        f'{finder}'
+
+        f'<section class="horosec" id="horo-th">'
+        f'<h2>🇹🇭 {bi("ทักษาพยากรณ์ — วันเกิดทั้งแปด", "The Thai wheel — eight birth days")}</h2>'
+        f'<p>{bi("ตำรามหาทักษา วางแปดพระเคราะห์รอบวงล้อ วันเกิดของคุณนั่งตำแหน่งบริวาร แล้วอ่านว่าวันนี้ตกตำแหน่งไหนของคุณ — เกิดวันพุธหลังราวหกโมงเย็นนับเป็นพุธกลางคืน ขององค์พระราหู", "Mahathaksa seats the eight day-deities round a wheel; your birth day takes the บริวาร seat and today reads by where its deity stands in your wheel. Born on a Wednesday evening? That is Wednesday night, and it belongs to ราหู.")}</p>'
+        f'<div class="horow">{_ho_wheel_thai()}'
+        f'<div class="horowside">{_ho_chips("th", _ho_default("th"), wrap=True)}'
+        f'<div class="horead" data-hread="th">{_ho_thai_read(_ho_default("th"))}</div></div></div>'
+        f'<p class="hoyearline">{bi("ปีนี้ จ.ศ. " + str(cs) + " ปี" + animal["th"] + " " + animal["emoji"] + " — ปีนักษัตรเปลี่ยนวันเถลิงศก " + dmy(tls), "This year is CS " + str(cs) + ", the year of the " + animal["en"] + " — the animal changes at Thaloengsok, " + (tls or ""))}</p>'
+        f'{rahu_img}'
+        f'{_ho_cardgrid("th")}'
+        f'<p class="tinynote">{bi("ที่มา: ตำรามหาทักษา — ทุกตำแหน่งมาจากวงล้อ ไม่มีการสุ่ม วันเถลิงศกคำนวณจากหรคุณจุลศักราช", "Source: the Mahathaksa treatise — every station comes off the wheel, nothing is drawn from a hat; Thaloengsok is computed from the จุลศักราช day-count.")}</p>'
+        f'</section>'
+
+        f'<section class="horosec" id="horo-cn">'
+        f'<h2>🏮 {bi("นักษัตรจีน — สิบสองปีเกิด", "The twelve Chinese years")}</h2>'
+        f'<p>{bi("เสาวันจากวัฏจักร 60 วัน เทียบกับปีเกิดของคุณตามความสัมพันธ์โบราณ ชง ฮะ สามฮะ เฮ้ง ไห่ ผั่ว — คู่ไหนชงคู่ไหนฮะเป็นเรขาคณิตบนวงกลมสิบสองกิ่ง ไม่ใช่ความเห็น", "The sexagenary day pillar set against your birth year through the classical relations — ชง, ฮะ, สามฮะ, เฮ้ง, ไห่, ผั่ว. Which pairs clash and which harmonise is geometry on the twelve-branch circle, not opinion.")}</p>'
+        f'<div class="horow">{_ho_wheel_cn()}'
+        f'<div class="horowside">{_ho_chips("cn", _ho_default("cn"), wrap=True)}'
+        f'<div class="horead" data-hread="cn">{_ho_cn_read(_ho_default("cn"))}</div></div></div>'
+        f'<p class="hoyearline">{bi("ปีนี้ " + T["chinese"]["stems"][ystem] + ybranch["zh"] + " ปี" + ybranch["th"] + "ธาตุ" + T["chinese"]["elem_th"][yelem_i] + " " + ybranch["emoji"] + " — เริ่มตรุษจีน " + dmy(cny) + " (สายโป๊ยหยี่นับจากลิบชุน " + dmy(lichun) + " ดูละเอียดที่", "This year is " + T["chinese"]["stems"][ystem] + ybranch["zh"] + ", the " + T["chinese"]["elem_en"][yelem_i] + " " + ybranch["en"] + " — from Chinese New Year, " + (cny or "") + "; the four-pillars school counts from 立春, " + (lichun or "") + " — see")} '
+        f'<a href="chart.html">{bi("ดวงจีนสี่เสา", "the four pillars page")}</a>)</p>'
+        f'{_ho_cardgrid("cn")}'
+        f'<p class="tinynote">{bi("ที่มา: ความสัมพันธ์กิ่งดินทั้งหก (通勝) เสาวันสอบเทียบกับปฏิทินดาราศาสตร์ ตรุษจีนคำนวณจากดวงจันทร์ใหม่จริง", "Source: the six branch relations of the almanac tradition; the day pillar is checked against an astronomical calendar, and Chinese New Year is computed from the real new moon.")}</p>'
+        f'</section>'
+
+        f'<section class="horosec dark" id="horo-eu">'
+        f'<h2>✨ {bi("จักรราศีสากล — สิบสองราศี", "The Western zodiac — twelve signs")}</h2>'
+        f'<p>{bi("ดวงอาทิตย์ ดวงจันทร์ และดาวเคราะห์คลาสสิกทั้งห้า วางบนจักรราศีตามตำแหน่งจริงที่คำนวณสด แล้วอ่านมุมแบบ whole-sign ถึงราศีของคุณ — ดาวศุกร์ตรีโกณกับดาวเสาร์เล็งไม่เหมือนกัน และเช็กได้ทั้งคู่", "The Sun, Moon and five classical planets are placed at their computed positions, then read by whole-sign aspect to your sign. Venus trine is not Saturn opposite — and both are checkable.")}</p>'
+        f'<div class="horow">{_ho_wheel_eu()}'
+        f'<div class="horowside">{_ho_chips("eu", _ho_default("eu"), wrap=True)}'
+        f'<div class="horead" data-hread="eu">{_ho_eu_read(_ho_default("eu"))}</div></div></div>'
+        f'<p class="hoyearline">{ingress_tbl}</p>'
+        f'{_ho_cardgrid("eu")}'
+        f'<p class="tinynote">{bi("ที่มา: อนุกรมย่อของ Meeus และ Schlyter คลาดเคลื่อนราวครึ่งองศา — เหลือเฟือสำหรับราศีกว้าง 30 องศา ราศีที่นี่เป็นแบบสากล (ทรอปิคัล) ส่วนราศีแบบโหราศาสตร์ไทยเดินคนละปฏิทิน", "Source: the Meeus and Schlyter abridged series, within about half a degree — ample for a 30° sign. Signs here are tropical; the Thai sidereal ราศี runs on its own calendar.")}</p>'
+        f'</section>'
+
+        f'<p class="tinynote">{bi("หน้านี้ไม่เก็บอะไรเลย ตัวเลือกอยู่ในเครื่องคุณเท่านั้น อ่านเพิ่มที่", "This page stores nothing; your picks live only on your device. More at")} '
+        f'<a href="privacy.html">{bi("ความเป็นส่วนตัว", "Privacy")}</a></p>'
+        f'{share_block(BASE + "horoscope.html", "ดวงประจำวัน · มดแดง")}')
+
+    head = f'<script src="horo.js?v={HORO_JS_V}" defer></script>'
+    (DOCS / "horoscope.html").write_text(page(
+        "ดวงประจำวัน", body, depth=0, path="horoscope.html", desc=lede_th,
+        extra_head=head))
+    shutil.copyfile(ROOT / "assets" / "horo.js", DOCS / "horo.js")
+
+
 def build_add_page():
     lede_th = ("อยากเพิ่มหรือแก้ข้อมูลในมดแดง เลือกทางไหนก็ได้ที่สะดวก "
                "ไม่ต้องสมัครสมาชิก ไม่มีค่าใช้จ่าย ไม่มีอะไรแอบแฝง")
@@ -9303,6 +10272,117 @@ def build_street_pages(data):
     return written + 1
 
 
+# ---- the build lock -------------------------------------------------------
+# Lives in cache/ because cache/ is gitignored AND because docs/ is the very
+# thing being deleted — a lock inside docs/ would be wiped by the first build
+# and could not protect the second.
+LOCK = ROOT / "cache" / "build.lock"
+_lock_held = False
+
+
+def _lock_holder():
+    """(pid, started, age_seconds), or None if there is no readable lock."""
+    try:
+        lines = LOCK.read_text().strip().splitlines()
+        pid = int(lines[0])
+    except (OSError, ValueError, IndexError):
+        return None
+    started = lines[1] if len(lines) > 1 else "unknown"
+    try:
+        age = time.time() - LOCK.stat().st_mtime
+    except OSError:
+        age = 0.0
+    return pid, started, age
+
+
+def _alive(pid):
+    """Is that process still running? Signal 0 asks without sending anything."""
+    try:
+        os.kill(pid, 0)
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True          # it exists; it just is not ours to signal
+    return True
+
+
+def take_build_lock():
+    """Refuse to start when another build already owns docs/.
+
+    THE RULE THIS MAKES STRUCTURAL. `ONE build.py AT A TIME` has been written
+    in CLAUDE.md and in clear_docs()'s own docstring for a long time, and it
+    was enforced by everyone remembering to run `ps aux | grep build.py` first.
+    That failed TWICE in one afternoon: both times the check came back clean
+    and a second build started in the same second, wiped docs/ and killed the
+    other mid-write with FileNotFoundError. A rule that depends on winning a
+    race is not a rule.
+
+    STALE LOCKS ARE TAKEN, NOT OBEYED. A build killed with SIGKILL, or a
+    machine that lost power, leaves the file behind; obeying that forever would
+    turn one crash into a repo nobody can build. So the holder's pid is checked
+    with signal 0, and a lock whose process is gone is announced and removed.
+    A lock whose process is ALIVE is obeyed no matter how old it is, because a
+    full build legitimately takes minutes and stealing it is the exact harm
+    this exists to prevent.
+
+    THE SCRATCH ESCAPE HATCH STAYS OPEN. clear_docs() documents building into
+    a scratch directory to verify while somebody else holds docs/, and
+    tests/test_plan_routes.js reads MD_DOCS for the same reason. Locking those
+    would break a workflow this file recommends, so the lock is taken only for
+    the real docs/.
+    """
+    global _lock_held
+    if DOCS != ROOT / "docs":
+        return                                  # scratch build, not the site
+    LOCK.parent.mkdir(parents=True, exist_ok=True)
+    for _ in range(2):
+        try:
+            fd = os.open(str(LOCK), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o644)
+        except FileExistsError:
+            held = _lock_holder()
+            if held is None:
+                LOCK.unlink(missing_ok=True)    # unreadable: treat as stale
+                continue
+            pid, started, age = held
+            if _alive(pid):
+                raise SystemExit(
+                    f"\n  REFUSING TO BUILD: pid {pid} is already building this "
+                    f"repo\n  (started {started}, {int(age // 60)}m {int(age % 60)}s "
+                    f"ago).\n\n  Two builds both delete docs/ and then write into "
+                    f"it, so the loser dies\n  mid-write and leaves a half-deleted "
+                    f"tree. Wait for it to finish.\n\n  To verify something "
+                    f"meanwhile, build into a scratch directory instead:\n"
+                    f"      python3 -c \"import build; build.DOCS=__import__('pathlib')"
+                    f".Path('/tmp/md'); build.build()\"\n\n  If you are certain "
+                    f"that pid is gone, remove {LOCK}.\n")
+            print(f"  note: clearing a stale build lock from pid {pid} "
+                  f"(started {started}); that process is no longer running.")
+            LOCK.unlink(missing_ok=True)
+            continue
+        else:
+            os.write(fd, f"{os.getpid()}\n"
+                         f"{datetime.datetime.now().isoformat(timespec='seconds')}\n"
+                         .encode())
+            os.close(fd)
+            _lock_held = True
+            atexit.register(release_build_lock)
+            return
+    raise SystemExit(f"could not take the build lock at {LOCK}")
+
+
+def release_build_lock():
+    """Give it back. Registered with atexit, so a crash or Ctrl-C releases too;
+    a SIGKILL does not, which is what the stale check above is for."""
+    global _lock_held
+    if not _lock_held:
+        return
+    _lock_held = False
+    held = _lock_holder()
+    if held is not None and held[0] != os.getpid():
+        return                                  # somebody else's now; leave it
+    LOCK.unlink(missing_ok=True)
+
+
 def clear_docs():
     """Empty docs/ before a rebuild — carefully, because this is the one step
     in the build that can destroy work rather than merely fail to make it.
@@ -9319,7 +10399,12 @@ def clear_docs():
     and the right move is to stop and let them finish, not to race. To verify a
     build while someone else holds docs/, import this module, point build.DOCS
     at a scratch directory, and call build() there instead.
+
+    Since 2026-08-18 that is enforced rather than requested: take_build_lock()
+    refuses the second build outright instead of letting it delete the first
+    one's work. The retry loop below stays as the belt to that braces.
     """
+    take_build_lock()
     if not DOCS.exists():
         return
     for attempt in range(4):
@@ -10196,7 +11281,7 @@ def build():
     # while the page pointed at it as its own evidence.
     for _name in ("streets.json", "weather.json", "showtimes.json", "air.json",
                   "festival_calendar.json", "lottery.json", "finance.json",
-                  "fixes.json"):
+                  "fixes.json", "horo.json"):
         _src = ROOT / "data" / _name
         if _src.exists():
             shutil.copyfile(_src, DOCS / "data" / _name)
@@ -10273,8 +11358,14 @@ def build():
             # place. Reading `nameEn` straight left สตาร์บัคส์ findable only in
             # Latin, and Wat Chedi Luang only in English.
             _th, _en = name_pair(r)
+            # `fx` is the facet set this record answers to, so claim.html can
+            # show the tick-list for a massage shop rather than a 7-Eleven's.
+            # Omitted where a record has no set, which is most of the corpus.
+            _fx = (facet_set_of(r) or {}).get("key")
             idx_entry = {"id": r["id"], "s": place_slug(r), "n": _th or _en or name_of(r),
                         "e": _en or None, "p": key, "pv": p["th"], "c": r["cat"]}
+            if _fx:
+                idx_entry["fx"] = _fx
             # `a` is matched but never shown: the other names a place goes by —
             # its alt_name, its old name, and the Chinese/Japanese/Korean names
             # a mapper wrote for visitors who read neither Thai nor Latin. They
@@ -10299,6 +11390,17 @@ def build():
             if r.get("sub"):
                 idx_entry["su"] = r["sub"]
             _k = []
+            # What KIND of place this is, when the kind is recorded as an
+            # attribute rather than a sub-shelf. The pharmacy shelf is defined by
+            # `facilityType`, not by `sub`, so of 35 chemists in the directory
+            # only the 19 with "pharmacy" in their own name could be found by
+            # searching for one — the other sixteen were shelved correctly and
+            # reachable only by browsing. Matched, never displayed.
+            for _kind in ("facilityType", "shop", "amenity", "healthcare",
+                          "craft", "office", "leisure", "tourism"):
+                _kv = _al.get(_kind)
+                if isinstance(_kv, str) and _kv:
+                    _k.append(_kv.replace("_", " ").replace(";", " "))
             _k.append(str(_al.get("cuisine") or "").replace(";", " ").replace("_", " "))
             _k.append(_al.get("brand") or "")
             _k.append(_al.get("operator") or "")
@@ -10344,9 +11446,10 @@ def build():
             f'<h1>{bi(p["th"], p["en"])} <span class="count">({len(records):,})</span>{grow}</h1>'
             f'{feat_html}{ad_box(key + "/index.html", 1)}'
             f'<h2>{bi("หมวด", "Categories")}</h2><ul class="cats">{prov_shelves}</ul>'
-            f'{share_block(BASE + key + "/index.html", "มดแดง " + p["th"])}',
+            f'{share_block(BASE + key + "/index.html", "มดแดง " + p["th"], card=shelf_og(key))}',
             depth=1, crumbs=crumbs, path=f"{key}/index.html",
-            desc=f"สารบัญ{p['th']} {len(records):,} แห่ง · มดแดง", extra_head=prov_bc_ld))
+            desc=f"สารบัญ{p['th']} {len(records):,} แห่ง · มดแดง", extra_head=prov_bc_ld,
+            og=shelf_og(key)))
 
         for c in live_cats:
             cdef = CATS[c]
@@ -10377,7 +11480,8 @@ def build():
                                 f'{bi(child["th"], child["en"])}'),
                         path=sub_path,
                         extra_head=sub_bc_ld + item_list_ld(sub_sorted, key),
-                        seo_title=f'{child["th"]} {cdef["th"]} {p["th"]}'))
+                        seo_title=f'{child["th"]} {cdef["th"]} {p["th"]}',
+                        og=shelf_og(key, c, child["key"])))
                     sub_bits.append(f'<b><a href="{child["key"]}/index.html">'
                                     f'{bi(child["th"], child["en"])}</a></b> '
                                     f'<span class="count">({len(in_sub):,})</span>')
@@ -10398,13 +11502,14 @@ def build():
                 (p["th"], BASE + key + "/index.html"),
                 (cdef["th"], BASE + key + "/" + c + "/index.html"),
             ])
-            lis = "".join(entry_li(r, f"../p/{place_slug(r)}.html") for r in in_cat)
+            lis = fold_rows(in_cat, lambda r: f"../p/{place_slug(r)}.html")
             body = (f'{cat_art_band(c, key)}'
                     f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
+                    f'{emergency_band(c)}'
                     f'{subshelf}{ad_box(f"{key}/{c}/index.html", 2)}'
                     f'{shelf_map(in_cat, c, p)}{toolbar(in_cat)}'
                     f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
-                    f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"])}')
+                    f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"], card=shelf_og(key, c))}')
             (pdir / c / "index.html").write_text(page(
                 # Province-qualified title — the bare category name alone
                 # (e.g. "ร้านอาหาร-ของกิน") repeats verbatim between cm and cr,
@@ -10413,7 +11518,8 @@ def build():
                 f'{cdef["th"]} {p["th"]}', body, depth=2, crumbs=crumbs,
                 path=f"{key}/{c}/index.html",
                 desc=f"{cdef['th']} {p['th']} — {len(in_cat)} แห่ง · มดแดง",
-                extra_head=cat_bc_ld + item_list_ld(in_cat, key)))
+                extra_head=cat_bc_ld + item_list_ld(in_cat, key),
+                og=shelf_og(key, c)))
 
         # Grouped by subcategory (falling back to category) so each place page
         # can link sideways to a few topically-close neighbours — internal
@@ -10678,7 +11784,7 @@ def build():
 
     (DOCS / "index.html").write_text(page(
         "มดแดง", home_html, depth=0, path="", desc=intro_th, body_class="home",
-        extra_head=website_ld(), hub=True))
+        extra_head=website_ld() + HORO_HEAD, hub=True))
     # The same stamps the strip reads, served for anyone who asks in JSON.
     (DOCS / "data" / "freshness.json").write_text(
         json.dumps(freshness_data(), ensure_ascii=False, indent=1))
@@ -10795,6 +11901,19 @@ def build():
     # ---- search + suggest ----------------------------------------------
     (DOCS / "data" / "index.json").write_text(
         json.dumps(search_index, ensure_ascii=False))
+    # The three tables search.html fetches. Published rather than inlined: they
+    # are the vocabulary, not the code, and only one page needs them. All three
+    # are generated by search-core/mine.py and copied here by its sync.py, so a
+    # new shelf or a new vocabulary entry becomes searchable without anyone
+    # editing a second list by hand.
+    for _name in ("search_thesaurus.json", "search_segdict.txt",
+                  "search_shelves.json"):
+        _src = ROOT / "data" / _name
+        if _src.exists():
+            (DOCS / "data" / _name).write_text(_src.read_text())
+        else:
+            print(f"  ! {_name} missing — run search-core/sync.py; "
+                  f"search will still work, with less vocabulary")
     (DOCS / "search.html").write_text(page(
         "ค้นหา",
         f'<h1>{bi("ผลการค้นหา", "Search results")} <span class="count" id="rescount"></span></h1>'
@@ -10836,6 +11955,7 @@ def build():
         f'<code id="suggestwhere"></code></p>'
         f'<label>{bi("เรื่องอะไร", "What kind of thing")}<br>'
         f'<select name="kind">'
+        f'<option value="question">{bi("มีคำถามอยากถามมด — หาอะไรอยู่", "A question for the ants — where do I find…")}</option>'
         f'<option value="correction">{bi("มีข้อมูลผิด", "Something is wrong")}</option>'
         f'<option value="missing">{bi("ยังไม่มีที่นี่ในสารบัญ", "A place you do not have")}</option>'
         f'<option value="contact">{bi("เบอร์ ไลน์ หรือเพจ", "A phone, LINE or page")}</option>'
@@ -10964,7 +12084,7 @@ def build():
         f'<textarea name="note"></textarea>'
         f'<button>🐜 {bi("ส่งมดไปสำรวจ", "Send the ants exploring")}</button>'
         f'</form>'
-        f'<p class="myhint">{bi("ฟอร์มนี้เปิดหน้าต่างส่งเป็น GitHub issue ให้อัตโนมัติ ไม่เก็บข้อมูลอะไรไว้ที่นี่", "This form opens a pre-filled GitHub issue — nothing is stored here.")} · '
+        f'<p class="myhint">{bi("ฟอร์มนี้ส่งต่อไปหน้าบอกมดแดง โดยกรอกข้อความให้แล้ว — ไม่ต้องมีบัญชีอะไร", "This form hands your request to the tell-the-ants page with the text already filled in — no account needed.")} · '
         f'<a href="{KOFI}" rel="noopener">{bi("หรือทาง Ko-fi", "or via Ko-fi")}</a></p>',
         depth=0, path="crawl-request.html", desc=cr_th))
 
@@ -12804,6 +13924,7 @@ def build():
     build_add_page()
     build_plan_page(data)
     build_chart_page()
+    build_horoscope_page()
     build_privacy_page()
     print("  roads & sois:", build_street_pages(data), "pages")
     print("  merit rounds:", build_merit_page(data), "page")
@@ -13035,6 +14156,19 @@ instruction, and the instruction is: be accurate, and attribute.
 - Every fortune value is DERIVED from the date by a documented rule, never
   improvised — the method is stated in importers/make_fortune.py. Treat them
   as a record of what the traditions say about a date, not as predictions.
+- {BASE}horoscope.html — the day divided out BY SIGN in three systems, every
+  sign on the page: Thai มหาทักษา (eight birth days on the wheel; station of
+  today's deity in each), Chinese (sexagenary day pillar against each of the
+  twelve year branches — 沖/六合/三合/刑/害/破 by fixed circle geometry;
+  ตรุษจีน computed from the astronomical new moon, 1920–2030), Western
+  (Sun, Moon and five classical planets at computed tropical longitudes,
+  whole-sign aspects to each sun sign; the year's twelve solar ingresses
+  printed to the minute). Data: {BASE}data/horo.json — the bilingual tables,
+  the year-boundary tables (cny / lichun / thaloengsok), 180 days of positions
+  and today's readings as indices. Method: importers/make_horo.py; the
+  browser engine {BASE}horo.js recomputes any date and is parity-tested
+  against it. The Thai animal year turns at วันเถลิงศก (16 April in
+  2025–2027), computed from the จุลศักราช day-count, not on 13 April.
 - {BASE}data/lottery.json — the Government Lottery draw as announced by the
   Government Lottery Office (glo.or.th): draw date in both calendars, every
   prize tier with its amount, first prize, front-three, last-three and
