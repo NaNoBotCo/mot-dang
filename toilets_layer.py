@@ -1316,7 +1316,10 @@ def build_page(g, stats, marks):
         + f'<h2>{bi("ช่วยบอกหน่อย", "Help us get this right")}</h2>'
         + doors
         + f'<h2>{bi("รู้ได้ยังไง", "How we know")}</h2>'
-        f'<p class="tinynote">{bi(method_th, method_en)}</p>'
+        # raw: both halves carry a hand-written <a> to walk.html, and bi()
+        # escapes by default — which printed the tag at the reader instead of
+        # linking it. Nothing here comes from data.
+        f'<p class="tinynote">{bi(method_th, method_en, raw=True)}</p>'
         f'<p><a href="data/toilets.json">data/toilets.json</a> · '
         f'<a href="walk.html">🚶 {bi("แผนที่ระยะเดิน", "The city at walking pace")}</a></p>'
         + share_block(g["BASE"] + "toilets.html",
@@ -1325,8 +1328,9 @@ def build_page(g, stats, marks):
     # The flagship gets its own share card (make_toilet_card.py) — the real
     # pin constellation as a poster. Missing card falls back to the brand one.
     og = "og/toilets.png" if (ROOT / "assets" / "og" / "toilets.png").exists() else None
-    return page("ห้องน้ำใกล้ฉัน", body, depth=0, path="toilets.html",
-                desc=lede_th, og=og,
+    return page("ห้องน้ำใกล้ฉัน · Toilets near me, Chiang Mai", body, depth=0,
+                path="toilets.html",
+                desc=f"{lede_th} · {lede_en}", og=og,
                 # No map_shell.head() here: page() adds it to any page whose
                 # body actually mounts a map, so it cannot be forgotten and
                 # cannot be added twice.
