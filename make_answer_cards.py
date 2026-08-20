@@ -26,6 +26,7 @@ import json
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 
@@ -344,6 +345,76 @@ def walk_card():
     ), OG / "walk.png"
 
 
+# -------------------------------------------------------------------- reach
+# The page's own three colours, so the card and the chart under it speak one
+# language. BROKEN is copied from build.py deliberately rather than imported —
+# importing build.py runs a build — and tests/test_reach_card.py fails if the
+# two ever drift, because a card that counts "broken" differently from the page
+# it previews is the same defect as a price welded to the wrong duration.
+REACH_OK, REACH_BROKEN, REACH_SOCIAL = "#3B5A4A", "#8F2E13", "#1877F2"
+BROKEN = {"tls", "dns", "down", "timeout", "gone", "http-error", "server-error",
+          "parked", "empty", "error"}
+
+
+def dotfield(working, broken, social, cols=33, cell=14.2, r=4.6):
+    """Every checked link as one dot, grouped in reading order. The bar on the
+    page says the same thing in three rectangles; here you can count the dead
+    ones, which is the whole argument."""
+    runs = [(working, REACH_OK), (broken, REACH_BROKEN), (social, REACH_SOCIAL)]
+    total = working + broken + social
+    rows = -(-total // cols)
+    w, h = cols * cell, rows * cell
+    out = [f'<svg viewBox="0 0 {w:.0f} {h:.0f}" width="100%">',
+           f'<rect width="{w:.0f}" height="{h:.0f}" fill="#FBF6EE"/>']
+    i = 0
+    for n, colour in runs:
+        for _ in range(n):
+            cx = (i % cols) * cell + cell / 2
+            cy = (i // cols) * cell + cell / 2
+            out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r}" fill="{colour}"/>')
+            i += 1
+    out.append("</svg>")
+    return "".join(out)
+
+
+def reach_card():
+    lh = json.loads((ROOT / "data" / "linkhealth.json").read_text())
+    tally = {}
+    for v in lh["links"].values():
+        tally[v.get("status", "?")] = tally.get(v.get("status", "?"), 0) + 1
+    n_links = sum(tally.values())
+    n_social = tally.get("social", 0)
+    n_sites = n_links - n_social
+    n_broken = sum(tally.get(k, 0) for k in BROKEN)
+    n_working = n_sites - n_broken
+    pct = round(100 * n_broken / n_sites) if n_sites else 0
+    # Named failure modes, biggest first — "broken" as a single word invites the
+    # reader to assume we mean 404s, and the truth is mostly lapsed domains.
+    labels = {"dns": "โดเมนหายไป", "gone": "หน้าหายไป 404",
+              "http-error": "ขึ้นข้อผิดพลาด",
+              "timeout": "ไม่ตอบสนอง", "tls": "ใบรับรองเสีย", "empty": "หน้าว่าง",
+              "parked": "ประกาศขาย", "server-error": "เครื่องมีปัญหา",
+              "error": "ลิงก์เสีย", "down": "ไม่รับการเชื่อมต่อ"}
+    top = sorted(((tally.get(k, 0), k) for k in BROKEN), reverse=True)[:4]
+    return FRAME.format(
+        panel_w=PANEL_W,
+        extra_css=".panel .art{background:#FBF6EE;padding:10px}",
+        kicker_glyph="🔗",
+        kicker=f"เชียงใหม่ · เชียงราย — เปิดจริงทีละลิงก์ {lh['generated']}",
+        h1="ลิงก์ที่เปิดไม่ได้",
+        en=f"Of the {n_sites:,} genuine business websites in this "
+           f"directory, {n_broken:,} ({pct}%) no longer answer.",
+        nums=num(f"{pct}%", "ของเว็บทางการที่เปิดไม่ได้แล้ว<br>"
+                            "of official sites are broken")
+             + num(f"{n_links:,}", "ลิงก์ที่เปิดตรวจจริง<br>links opened by hand"),
+        # "404 31" read as one number; every chip keeps a separator now.
+        chips="".join(chip(f"{labels.get(k, k)} · {n}") for n, k in top if n),
+        path="reach",
+        art=dotfield(n_working, n_broken, n_social),
+        caption="หนึ่งจุด = หนึ่งลิงก์ · แดง = เปิดไม่ได้ · ฟ้า = เป็นเพจ ไม่ใช่เว็บ",
+    ), OG / "reach.png"
+
+
 # ------------------------------------------------------------------- nitnoy
 # The page's own group palette, so the card and the map speak one language.
 NITNOY_GROUPS = [("food", "#f6b73c", "ร้านอาหาร"), ("cafe", "#f0e3b0", "คาเฟ่"),
@@ -465,13 +536,29 @@ def list_cards():
 
 
 # ------------------------------------------------------------------- driver
+MAKERS = {"festival-dates": festival_card, "open-now": open_now_card,
+          "taste": taste_card, "walk": walk_card, "nitnoy": nitnoy_card,
+          "reach": reach_card}
+
+
 def main():
+    # --only <name>[,<name>] draws one card. Several of these read built pages
+    # out of docs/, which another build wipes and rewrites, so redrawing one
+    # card should not require the whole set to be buildable at that moment.
+    argv = sys.argv[1:]
+    want = None
+    if "--only" in argv:
+        want = {n.strip() for n in argv[argv.index("--only") + 1].split(",")}
+        unknown = want - set(MAKERS) - {"lists"}
+        if unknown:
+            raise SystemExit("unknown card(s): %s — have: %s, lists"
+                             % (", ".join(sorted(unknown)), ", ".join(sorted(MAKERS))))
     chrome = find_chrome()
     OG.mkdir(parents=True, exist_ok=True)
     tmp = Path(tempfile.mkdtemp(prefix="answercards-"))
-    cards = [festival_card(), open_now_card(), taste_card(), walk_card(),
-             nitnoy_card()]
-    cards += list_cards()
+    cards = [fn() for name, fn in MAKERS.items() if want is None or name in want]
+    if want is None or "lists" in want:
+        cards += list_cards()
     for html, dest in cards:
         src = tmp / "card.html"
         src.write_text(html, encoding="utf-8")

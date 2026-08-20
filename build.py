@@ -13432,8 +13432,12 @@ def build():
         "for existence, and the returned page read for domain-for-sale and default-server markers. Last run "
         f"{LINK_HEALTH_DATE or BUILD_DATE}. The checker is importers/check_links.py and the full raw results "
         "are downloadable.")
+    # This page is the one outsiders cite, so its title and description carry
+    # the finding in both languages and the number keeps its denominator —
+    # "47% of business websites are dead" is a bigger claim than we measured.
+    reach_card = "og/reach.png" if "reach" in OG_FILES else None
     (DOCS / "reach.html").write_text(page(
-        "ลิงก์ที่ยังเปิดได้",
+        "ลิงก์ไหนยังเปิดได้จริง · Which official links still answer",
         f'<h1>🔗 {bi("ลิงก์ไหนยังเปิดได้จริง", "Which official links still answer")}</h1>'
         f'<p class="lede">{bi(reach_lede_th, reach_lede_en)}</p>'
         f'{reach_tiles}'
@@ -13454,8 +13458,9 @@ def build():
         f'<p><a href="data/linkhealth.json">data/linkhealth.json</a> · '
         f'<a href="{BASE}source/check_links.py" '
         f'rel="noopener">check_links.py</a></p>'
-        f'{share_block(BASE + "reach.html", "ลิงก์ไหนยังเปิดได้จริง · มดแดง")}',
-        depth=0, path="reach.html", desc=reach_lede_th))
+        f'{share_block(BASE + "reach.html", "ลิงก์ไหนยังเปิดได้จริง · มดแดง", card=reach_card)}',
+        depth=0, path="reach.html", og=reach_card,
+        desc=f"{reach_lede_th} · {reach_lede_en}"))
     if _health_path.exists():
         shutil.copyfile(_health_path, DOCS / "data" / "linkhealth.json")
 
