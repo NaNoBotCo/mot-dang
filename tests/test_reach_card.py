@@ -24,6 +24,7 @@ Run: python3 tests/test_reach_card.py
 """
 import ast
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -112,7 +113,12 @@ except ImportError as e:            # Pillow absent on this machine
     print("skip make_answer_cards import (%s) — the drawing checks need it" % e)
 
 # ------------------------------------------------------------------ 5. the page
-built = ROOT / "docs" / "reach.html"
+# MD_DOCS points at a scratch build when somebody else is holding docs/ — the
+# same escape hatch tests/test_plan_routes.js takes. Without it these checks
+# skip for the whole length of another session's build, which is most of the
+# time on a busy afternoon, and a check that is always skipped is not a check.
+DOCS = Path(os.environ.get("MD_DOCS") or (ROOT / "docs"))
+built = DOCS / "reach.html"
 card = ROOT / "assets" / "og" / "reach.png"
 if built.exists():
     html = built.read_text(encoding="utf-8")
