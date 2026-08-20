@@ -9,7 +9,12 @@
 > House discipline, no exceptions: stdlib Python, local, static, no tracking.
 > Curated outranks crawled. Provenance travels with every fact. Ambiguity goes
 > to a review file, never to a coin flip. Bilingual ไทย · EN or it does not
-> ship. **Bots build and test; Nan publishes.** No order below ends in a deploy.
+> ship. **Bots build and test; the standing walk publishes.** No order below
+> ends in a deploy because none of them has to: `importers/standing_walk.sh`
+> goes round every twenty minutes and ships whatever has cleared the gates.
+> Finish your order, leave it on disk, and say what you built — do not deploy
+> it, do not ask whether to, and do not report that you have not. To hold the
+> site still on purpose, `cache/walk-rest`.
 > Network fetches are manual-trigger and confirmed with Nan before they run.
 
 ## Status board
@@ -24,6 +29,21 @@
 | WO-3 | The detail page | **DONE** 2026-08-17 (site crawl running) |
 | WO-7 | The maps | **DONE** 2026-08-17 (shelf maps interactive) |
 | WO-2b | Class venues — "ทุกวัด", "the five gates" | new, from WO-2 |
+| WO-8 | กัญชา-กระท่อม shelf — crawl, classify, facets, lamps | **BUILT** 2026-08-17 |
+| WO-9 | The medical shelf — the one that had never been crawled | **BUILT** 2026-08-18 |
+| WO-10 | หอสมุด·หอศิลป์·หัตถกรรม — the culture shelf | **BUILDING** 2026-08-18 — B+C done, A crawling |
+| WO-11 | The schools shelf — โรงเรียน-สถานศึกษา, every school not just the international ones | **BUILT** 2026-08-18 — 14 → 2,416 schools |
+| WO-12 | มวยไทย — events, locations, culture: the fight board, the shelf, the primer | **BUILT** 2026-08-19 — 20 records on two shelves → a shelf, a board, /muaythai.html |
+| WO-13 | รถ-เดินทาง — the transport layer: bus + train boards beside the flights board, the station split, the red-truck card, /transport.html | **PROPOSED** 2026-08-19 — `notes/transport-proposal-2026-08-19.md`; flights board exists and is orphaned; bus and train boards do not exist; awaiting go (steps 1–2 need no fetch) |
+| WO-14 | เรียนทำอาหารไทย — Thai cooking classes, all kinds: the class board, the nine-child shelf, the primer, /cooking.html | **BUILT** 2026-08-19 — 25 records on seven shelves → a shelf, a board, a calendar day, a sheet, /cooking.html |
+| WO-14 | สักยันต์-รอยสัก — the tattoo shelf: the สำนัก, the studios, the brow shops, the prices, the join to wichaa | **BUILDING** 2026-08-19 — `notes/sakyant-proposal-2026-08-19.md`; zero-network steps in hand; the two สำนัก and the brow/removal records await a light web check (Nan's go) |
+| WO-15 | 🏷 Tags — the cross-shelf layer (vegan · bitcoin · wifi · wheelchair · 24 h · old city · brands · honours …), tag pages per province, `/tags.html`, pills on place pages | **BUILT** 2026-08-19 — `data/tags.json` (73 tags / 13 families, one rule each) + 47 brand tags generated; `tags_layer.py`; 182 tag pages + 163 tag×shelf pages; 5,483 records tagged; `tests/test_tags.py` PASS; zero network. Section below. |
+| WO-16 | Open lists from data.go.th — the ONAB temple fold · bus routes · CR attractions w/ phones · police w/ phones · Thai SELECT · ธงฟ้า · LPG · SAT boxing camps · FDA pharmacy yardstick | **BUILT** 2026-08-20 — 18 sources harvested (`importers/harvest_datagoth.py`), **2,366 records folded** (`importers/import_opendata.py`): temples +2,009 (register on disk, both provinces), CR sights +238, ธงฟ้า +34, police +40 (all with phones), LPG +28, SAT camps +17; 5 Thai SELECT honours; 7 yardsticks on /stats.html; `data/bus_routes.json` (674) for WO-13; catalogue 16,272 → **18,666**. Section below. |
+| WO-17 | Thailand Tourism Directory (กระทรวงการท่องเที่ยวและกีฬา) — ≈28,500 national listings with phone · LINE · hours · coords via its official keyed API; hotel/food/spa/sights/stores | **PROPOSED** 2026-08-19 — same note §2; step 0 = Nan registers for the API key; enrichment policy is decision 4 in the note |
+| WO-18 | Brand locators — 7-Eleven · PTT · Bangchak · Café Amazon · the big banks, per-branch link to the brand's own page | **PARKED** 2026-08-19 — same note §5; after WO-15–17; per-brand robots/terms check first |
+| WO-20 | แผนที่มีชีวิต — the living maps: touch that answers, gestures that behave, ground with ink in it | **PHASE 1 + 2e–f BUILT** 2026-08-20 — `notes/maps-gemba-2026-08-20.md`; the pointer-events regression that had made every neighbour link on 12,309 place maps untouchable whenever tiles were on, cooperative gestures + rotation lock + rails + ◎ + full screen, the MDCARD tap-sheet on every map, tiles and label glyphs both same-origin (last third-party request gone), contrast retune, gate anchors, key, and an 11 px type floor for phones. Phase 3 (/map.html, the nav door, my-map, shareable views) NOT started |
+| WO-21 | วิว-น้ำตก — views & photo spots: the shelf, the measurements, the doors the data is behind | **ZERO-NETWORK HALF BUILT** 2026-08-20 — `notes/views-proposal-2026-08-20.md`; `importers/audit_views.py`; `views_hit()` rides the WO-19 fence and files **18 waterfalls + 2 viewpoints** the attraction dragnet had already caught (แม่สา, บัวตอง, the Inthanon set, ขุนกรณ์, the CR skywalk); `sights` gains a น้ำตก child; JSON-LD `Waterfall`; `direction`/`ele` kept at import and rendered (หันไปทาง · Faces / Elevation); claims census 54 → `cache/views_claims_*.txt`; scratch build 20,371 pages, all gates PASS. **The doors await Nan's numbered go** (note §doors): wide `views` group · Commons uncapped re-run · TTD key · WO-16 lists · DNP fee/hours reads · the `view` tag · her own picks |
+| WO-19 | ช้าง — the elephant shelf, the register of what each camp states, the city's elephant names, /chang.html, and the wichaa article | **BUILT** 2026-08-19, crawl folded 2026-08-20 — `notes/elephant-proposal-2026-08-19.md` (+ postscript); 0 camps → 18 curated → **30 on the shelf** after the `elephants` Overpass group (zoo·theme_park·attraction, fenced: 290 non-elephant elements to `cache/elephant_review_*.txt`); 8 merges onto surveyed pins; needs-pin 6→3; Ruammit CR entered; register with `stated`/`unstated`; wichaa `entity_chang` 31 witnesses; CR zoo selector `incomplete`, re-run when Overpass is calmer |
 
 WO-3 and WO-7 were marked standing because they are the two a reader actually
 meets. Both have now been done, and the rule stays: anything added here is
@@ -417,6 +437,890 @@ existing `sort-royal` rule.
 **Not done: the open-now chip.** The lamp schedules are baked and ready; the
 chip is its own piece of work, and the neutral-not-dark rule is the part to get
 right.
+
+---
+
+## WO-8 — the กัญชา-กระท่อม shelf · BUILT 2026-08-17
+
+A whole trade was invisible. The Overpass crawl had never once asked for
+`shop=cannabis`, so of 12,318 records the catalogue held exactly three, and all
+three were filed somewhere else: a dispensary under `sights/historic`, a
+cannabis cafe under `food/thai`, a kratom shop under `medical/thai-medicine`.
+
+**Built:** a `cannabis` crawl group (province-wide in both provinces, in
+`WIDE_GROUPS`), `cannabis_hit()` in `import_overpass.py`, a five-child category
+in `categories.json`, a fourteen-row facet set, `i-leaf` in the sprite, and a
+night lamp in `build_open_lamps.py`.
+
+**The hut guard.** Kratom has no OSM tag of its own, so it is found by name or
+not at all — and bare กระท่อม is the ordinary word for a hut. Only ใบกระท่อม,
+น้ำกระท่อม, ร้านกระท่อม and the Latin spellings are matched, or every
+กระท่อมริมน้ำ resort in two provinces arrives as a kratom bar. `\bweed\b` and
+never a bare `weed`, for the seaweed shops.
+
+**Ambiguity goes to a person.** Where the NAME says cannabis and the TAGS say
+something else, the place keeps the shelf its tags earned and the disagreement
+is written to `cache/cannabis_review_<province>.txt`. This caught a real one
+immediately: "Weed leaf" in Chiang Rai is `historic=monument` — a monument named
+for the leaf, not a shop, and a rule that trusted the name would have put a
+statue on the dispensary shelf. Verdicts live in `data/curated/cannabis.json`
+and survive a re-crawl. The review file says out loud that the answer is often
+BOTH, and points at `shelves.json` rather than forcing a binary.
+
+**The facets are the point.** OSM says a shop exists and sometimes when it
+opens. It never says whether the ฿/gram is posted where you can read it before
+asking, whether you can sit down, whether anyone behind the counter can tell you
+what you are buying. Those are asked, not inferred. What the crawl CAN answer
+now fills automatically: `open-late` reads closing times past 22:00 including
+past midnight, `crypto` reads the Lightning tags, `card`, `seating`, `delivery`.
+
+**Landed:** 36 on the shelf. Chiang Mai 30 — 26 ร้านกัญชา, 3 คาเฟ่, 1
+ร้านน้ำใบกระท่อม. Chiang Rai 6 — 3 ร้านกัญชา, 2 คาเฟ่, 1 ร้านน้ำใบกระท่อม.
+Fourteen carry hours, eight a phone, six a website, one a LINE id, and **four
+take Bitcoin over Lightning**, which is a genuinely local fact no other
+directory of this city holds. Both provinces have a shelf map and a
+`<province>-cannabis.geojson`; `weed`, `ganja` and `dispensary` now expand to
+กัญชา in the search thesaurus, and `kratom` to ใบกระท่อม — bare กระท่อม stays out
+of that group for the same hut reason.
+
+**Two bugs found on the way, neither of them cannabis's.**
+`enrich_sites.py` crashed with a bare `ValueError` on any OSM `website` written
+without a scheme — `www.stuffchiangmai.com` — and its catch-all filed that as
+"unreadable", which reads like a malformed page. **57 of the 1,003 places that
+carry a website were being counted as visited-and-broken without ever being
+asked.** `as_url()` now assumes `http://`, matching what check_links.py already
+stored, and the first shop it unblocked gave up a Facebook and an Instagram.
+Rendering was never affected — the site emits no relative hrefs from these.
+Separately, `fetch_wide()` raised when any one selector gave up, throwing away
+every element the earlier selectors had already fetched; it now keeps them and
+marks the group `incomplete` in the cache file and on screen, because the thing
+to fear was never a failure, it was a cache file that looks whole.
+
+**The coverage gap, stated plainly because it is the whole story.** OSM is
+where this shelf comes from and OSM is thin here: 28 `shop=cannabis` in the
+whole of Chiang Mai. The trade is far bigger than that. The register that would
+settle it — DTAM's Medical Cannabis GIS — is recorded in `data/sources.json` as
+`dtam-mcgis` with status `walled`: its own terms scope it to authorised
+officials, forbid copying or republication, and forbid commercial use. An
+unauthenticated endpoint is not a licence. So coverage grows the way this site
+has always grown it — owners claiming their own listing, and people who walked
+past telling the ants. Same department publishes the Bangkok equivalent as open
+data, which makes "would you publish Chiang Mai and Chiang Rai on those terms
+too" a real letter worth writing, not a fantasy.
+
+**Open for a human:** the review file; whether the licensed-shop COUNT (an
+aggregate, not the data) belongs on the shelf page as an honest "we hold N of
+roughly M" line — that is Nan's call, not a bot's, and nothing was published.
+
+---
+
+## WO-9 — the medical shelf · BUILT 2026-08-18
+
+**The finding, and it is the worst one this site has had.** `crawl_overpass.py`
+had no selector for a clinic, a hospital, a dentist, a doctor or a pharmacy,
+and `classify()` had no rule to file one. Every medical record on the site had
+arrived sideways from the `cm-womens-health` import — a women's-health slice,
+not a medical directory. **Chiang Rai held three medical records for the whole
+province.** Four records in the entire catalogue carried an address. On a
+directory people open when they are ill, the clinics had never been asked for.
+
+**Two sources, and the good one is open.**
+- `importers/import_citizeninfo.py` — ข้อมูลพิกัดสถานพยาบาลของรัฐ (CITIZENinfo),
+  published by DGA on data.go.th under **Creative Commons Attribution**. 10,715
+  state facilities nationwide, every one with coordinates the state surveyed;
+  **514 in our provinces (cm 286, cr 228) — 469 รพ.สต. and 45 โรงพยาบาล.** This
+  single file is why Chiang Rai stops being empty. Dated 2020-03-14 by its
+  publisher and that date rides on every record: a รพ.สต. does not move, but it
+  can close, and a six-year-old pin sold as current is a claim we have not
+  earned. The credit is a licence condition and travels per record.
+- The new `medical` crawl group, province-wide in both. **Chiang Mai: 667
+  elements → 749 records** (376 pharmacies, 107 clinics, 90 doctors, 86
+  dentists, 82 hospitals).
+
+**Three gaps found on the way, none of them the one I was looking for.**
+1. `shop=chemist` had NO rule in `classify()`, so 32 Chiang Mai chemists were
+   classified as nothing and dropped at import — silently, for as long as the
+   crawl has run.
+2. Pharmacies were shelved under `essentials` ONLY, so somebody browsing for
+   medicine never met one. A ร้านขายยา is where most people here go first with
+   a fever. They now carry both categories, which is what they always were.
+3. **The site listed 500+ medical places and did not say, anywhere, how to call
+   an ambulance.** `data/curated/emergency.json` + `emergency_band()` put 1669,
+   191, 199 and 1155 at the top of the medical shelf as `tel:` links, each
+   naming the agency that issues it. Numbers only — no triage, no advice. A
+   directory is not a clinician.
+
+**The facets are the shelf.** OSM says a clinic exists; it never says whether
+บัตรทอง or ประกันสังคม is honoured there, which is the difference between a visit
+that costs nothing and one that costs a week's wages, and no directory of this
+city states it. Thirteen rows: bathong, sosec, priceboard, **foreigninsure**
+(VA/FMP/CHAMPVA and travel cover — the expat question nobody answers), openlate,
+open24, weekend, walkin, english, chinese, **kammuang**, parking, wheelchair.
+NOTHING is inferred from category: a state hospital is not assumed to take the
+gold card and a private clinic is not assumed to refuse it. That rule bites
+harder here than anywhere else on the site, because a wrong "no" sends a sick
+person to the wrong door or stops them going.
+
+**`sector` is printed only where it is known.** The register states it by
+construction; a crawled clinic says nothing about whether it is state or
+private, so nothing is printed. โรงพยาบาลนครพิงค์ and a private clinic carry the
+same `amenity=hospital`, and guessing would have been wrong both ways.
+
+**Duplicates are proposed, never folded.** The two sources cannot merge
+themselves — `cm-moph-<code>` and `cm-osm-node-<id>` are different ids — so the
+big hospitals arrive twice. `importers/audit_medical_dupes.py` writes
+`cache/medical_dupes_<prov>.txt` with a ready-to-paste `merges.json` line and
+says what each side carries, because which id to keep is a real choice: OSM
+usually holds the phone and the hours, the register holds the government code
+and the state's own pin.
+
+**Open for a human:** the duplicate pairs; and the facets themselves, which by
+design cannot be filled by any crawl — บัตรทอง and ประกันสังคม are a question for
+somebody at the counter. สสจ.เชียงราย's own open figure is **628 clinics of all
+types (2564)**, and that is the number this shelf should be read against.
+
+---
+
+## WO-10 — หอสมุด · หอศิลป์ · หัตถกรรม · PLANNED 2026-08-18
+
+Full design note: **`notes/culture-shelf-proposal-2026-08-18.md`**. Read it
+before touching any of this; the reasoning is there and is not repeated here.
+
+Six domains Nan asked for in two passes — libraries, museums, bookshops, then
+art galleries, culturally important handicraft places and studios. They are in
+three different conditions and want three different fixes.
+
+**The measurement.**
+
+| Domain | Records | State |
+|---|---|---|
+| Museums | 58 | crawled, one undifferentiated `sub` |
+| Galleries | 14 | crawled, and conflated with studios |
+| Art studios | 14 (lens) | 7 are the same records as the galleries |
+| Handicrafts | 85 (`shopping/crafts`) | a `craft=*`+gift dragnet |
+| Libraries | 20 (lens) | **never crawled**; 17 are CMU faculty libraries |
+| Bookshops | **0** | **never crawled, and no shelf to be empty on** |
+
+`amenity=library`, `shop=books` and `shop=stationery` appear nowhere in
+`importers/crawl_overpass.py:QUERIES`. This is the home-services/community/
+business failure again, which that file already documents in its own comment —
+"a reader saw *the ants are still collecting* where the truth was that no ant
+was ever sent." Bookshops are a step past that: they were never given the shelf.
+
+**The rule this shelf runs on.** Massage's rule was *never infer respectability*.
+Here it is **never infer whether a reader is allowed in, and never infer what
+something costs.** A university library is not marked closed to the public until
+somebody asks at the desk. A wrong "no" stops a person going; a wrong "public"
+sends them across town to a locked faculty door.
+
+And: **"culturally important" is not a facet.** Importance reads off the
+register — OTOP tier, GI, ครูศิลป์ของแผ่นดิน, ครูช่าง — dated and sourced, the
+same way the สบส. licence works on the massage shelf. This site does not award
+it. No authenticity sort either: *is anyone making anything here today* is
+visible from the pavement and is a door question; deserving is not one we ask.
+
+**BUILT — step C.** `importers/audit_culture.py`, zero network, read-only,
+`--emit` prints `shelves.json`-ready entries. Same contract as
+`audit_massage.py`. Five reports, 59 entries proposed over 191 candidates:
+LIBRARY 15/20 · MUSEUM 26/72 · CRAFT 13/85 · BOOKS 5 found under other tags ·
+STRAYS 8/85. It reads names, OSM's own `museum=*` subtag (recovered from
+`cache/overpass/`, where import drops it), and nothing else.
+
+**Four findings that stand on their own, whatever happens to the rest:**
+
+1. **บ้านถวาย is filed as `market/fresh`.** The woodcarving village is in this
+   directory as a wet market, and that one record is all the village has.
+2. **เครื่องเขิน, แกะสลักไม้, ตุงล้านนา and จักสาน read ZERO.** Four Lanna crafts,
+   none of which any crawl can currently see.
+3. **Two of the twenty "libraries" are buildings** — อาคารเฉลิมพระเกียรติใหม่ and
+   อาคารพาวเวอร์ส ฮอลล์, mis-lensed by the mueang-map import.
+4. **Three stationery shops sit on three different wrong shelves** (`food/thai`,
+   `shopping/diy`, `essentials/convenience`) because there is no right one.
+
+**Two regex traps, found and fenced — both are house-style warnings:**
+`(?<!ห)วัด`, because **จังหวัด ends in the letters วัด** and made every
+"พิพิธภัณฑสถานแห่งชาติ จังหวัด…" a temple museum; and `\bse-ed\b`, because an
+optional-separator SE-ED matches the English word **"Seed"** and filed
+Liberated Seed Roasters as a bookshop.
+
+**BUILT — step B, the tree.** Two new cats and ten new museum children, **purely
+additive: 276 lines in, nothing removed, nothing re-keyed.**
+
+- `read` — อ่าน-หนังสือ · Books & Libraries, 11 children
+- `crafts` — หัตถกรรม-งานฝีมือ · Handicrafts & Makers, 11 children
+- `museums-galleries` — +10 children; `museum` and `gallery` STAY at the head as
+  the catch-alls that hold all 72 records today
+
+**`shopping/crafts` and `sights/library` were not touched and keep every record
+and every URL they have.** A record reaches the new cats by gaining a SECOND
+cat through `shelves.json` — the move the coworking sweep used to put Hub 53 on
+the business shelf without taking it off the hotel one. Nothing 404s.
+`audit_culture.py --emit` now derives `add_cat` by READING the tree
+(`sub_to_cat()`), so the two cannot drift; it currently proposes `read` on 20
+records and `crafts` on 13, with no sub lacking a shelf.
+
+**BUILT — the import rules.** `import_overpass.py:classify()` learns
+`amenity=library`, `shop=books` (honouring OSM's own `second_hand=*`),
+`shop=stationery`, `shop=newsagent`, `shop=art` and `shop=pottery`.
+**`amenity=library` deliberately gets NO sub** — OSM never says whether a
+library is the district public one or a faculty's, and that is the difference
+that decides whether a reader may walk in. `shop=fabric`,
+`shop=musical_instrument` and `shop=antiques` are crawled but left unclassified
+on purpose: they have no honest shelf yet, and writing a rule for data nobody
+has looked at is the guess this file exists to prevent.
+
+**RUNNING — step A, the crawl.** Two new groups in `crawl_overpass.py`:
+
+- `reading` — `amenity=library`, `shop=books`, `shop=stationery`,
+  `shop=newsagent`, and a Thai name selector for ร้านหนังสือ|เครื่องเขียน|ห้องสมุด
+- `making` — `shop=art|pottery|fabric|musical_instrument|antiques`, plus name
+  selectors for the crafts. **Every Thai term is a compound.** Bare ตุง, เงิน,
+  แกะ and ร่ม are ordinary words and none is asked for — ร่ม alone matches
+  รพ.สต. ร่มเกล้า, and วัวลาย is a ROAD as well as the silver quarter. Same
+  discipline as the hut guard on กระท่อม. `shop=jewelry` is deliberately NOT
+  asked: here it is carried by the ร้านทอง gold traders, a different trade.
+
+**Both are in `WIDE_GROUPS`**, and the reason is structural rather than a
+preference: **ห้องสมุดประชาชนอำเภอ is one per อำเภอ by construction**, so a box
+round the clock tower can only ever hold Mueang's — which is exactly why the
+shelf reads as CMU's internal libraries. And the craft villages are villages:
+Ban Tawai and Bo Sang sit within a few hundredths of a degree of the CM box
+edge, which is luck, not coverage.
+
+**The crawl was QUEUED, not raced.** A `--group schools --fetch` crawl was
+already in flight when the go came, and a second concurrent crawl would have
+doubled our request rate against Overpass under a User-Agent that calls itself
+a gentle one-off harvest. WO-10's crawl waits on that PID and starts when it
+exits. Likewise `categories.json` was not written until `cache/build.lock`
+cleared.
+- **D — the `reading` facet set**, `appliesToCat` on all three cats, every facet
+  carrying `ask_th`/`ask_en` as the door survey's script.
+- **E — KNOWN_EMPTY** with a reason per shelf, after A and C report.
+- **F — the join.** Temple libraries (หอไตร) can carry `attrs.holdsManuscripts`
+  and link to that wat's holdings on wichaa.net: **6,990 manuscripts already
+  stamped with รหัสวัด, and 596 wat records keyed the same way.**
+  `importers/link_wichaa.py` is the pattern. This is the highest-value item
+  here and the one nobody else can build.
+- **G — a `craft-words` reader sheet.** Waits. The copy decides the count.
+
+**Open for a human:** whether galleries split commercial/artist-run at all —
+OSM cannot say who sells the work on a wall, and both shelves start empty.
+
+---
+
+## WO-11 — the schools shelf · BUILDING 2026-08-18
+
+**The gap, and it is the worst one found yet.** A directory for two provinces
+held **fourteen schools**, and every one of them was international — because
+`crawl_overpass.py` asked for `amenity=school` only where the name matched
+`International|นานาชาติ`. One regex, written at launch and never revisited,
+decided that the only schools worth crawling were the ones a foreigner might
+attend. `classify()` then filed anything tagged `amenity=school` as
+`school-intl`, so the moment that filter came off it would have labelled 800
+village schools international.
+
+Nan's brief: honour, map and differentiate **all** schools — language schools,
+muay thai schools, religious schools included — with particular care for the
+multilingual and farang-facing ones, because those are what people search for.
+
+**Four registers found, all state-published, all free, no key.**
+- `OBEC_SCHOOL_007` (สพฐ.) — **1,302 government schools** in the two provinces,
+  with coordinates, class levels, enrolment, education service area, and a
+  **telephone for 88% of them**. On a site whose overall contactable figure is
+  about 19%, this one file is the largest deposit the directory has ever taken.
+  424 of the schools stand on the ดอย.
+- `gdpublish-cer` (สช.) — the private-school licences: **225 private schools,
+  of which 25 are international** against OSM's 14. Carries the official type,
+  the levels, the founding year and who holds the licence — five of them are
+  licensed to a **wat**.
+- `68_113` (ONAB) — โรงเรียนพระปริยัติธรรม, the monastic schools. Catalogued,
+  Open Data Common, **not yet fetched**. Worth doing next because it joins the
+  wat register: these schools sit inside named temples and รหัสวัด reaches them.
+- `univ_uni_11_03` (MHESI) — the university list. Catalogued, not yet fetched.
+
+**Built.** `importers/import_obec.py`, `importers/import_opec.py`, a widened
+`schools` crawl group (14 selectors, now in `WIDE_GROUPS` so Chiang Mai is
+covered province-wide like the register is), `school_sub()` in
+`import_overpass.py` with the guards below, a 20-child `school` shelf in
+`categories.json`, a 15-facet `school` set, schema.org types, and
+`audit_medical_dupes.py` generalised to audit either register against the crawl.
+
+**Guards that earned their keep, each caught by a dry run before it shipped.**
+- มหาวิทยาลัย **contains** วิทยาลัย — Chiang Mai Rajabhat University arrived as
+  a vocational college. Bare เทคนิค is worse: เทคนิคการแพทย์ is *medical
+  technology*, and CMU's faculty of it was filed as a trade school.
+- Bare มวย cannot be matched: **หมวย is an ordinary nickname** and ร้านหมวย is
+  Muay's shop. Only มวยไทย, ค่ายมวย, สนามมวย, ยิมมวย and Latin `\bmuay\b`.
+- A campus is full of buildings that are not schools. 37 records —
+  ภาควิชาเคมี, โรงอาหารคณะครุศาสตร์ — were on the universities shelf, so
+  "universities in Chiang Mai" answered with a canteen. They keep their own
+  child rather than being dropped.
+- **`international` is also what `food_sub()` returns for international
+  cuisine.** An unguarded dual-shelf test on the sub alone put **579
+  restaurants on the international-schools shelf**. Gated on the category now.
+- An id must carry digits: `place_slug()` takes the digits out of an id for the
+  filename and falls back to the id with punctuation stripped, so Thai-script
+  slugs gave all 220 private-school records the stem `cmopec` and they would
+  have overwritten one another's page. The register's own ลำดับ is used.
+
+**The pins, measured rather than assumed.** Thai mappers on the OSM forum
+report ~6% bad GPS in government sources of this kind. Against the register's
+own geography it is **5 wrong pins in 1,302 — 0.38%**: two in other provinces
+(one in Bangkok, one past Khon Kaen), three tens of kilometres from every other
+school in their own district. The test is two-stage and deliberately not a flat
+number — **อมก๋อย reaches the Tak border and its schools sit 45 km from their
+district median while being exactly where they should be**, so a flat 25 km
+rule would have thrown away 104 highland schools, which are precisely the
+schools this shelf exists to carry. Refused pins keep their record.
+
+**A measured dead end, so nobody looks twice.** The สช. *นอกระบบ* (non-formal)
+export holds 134 rows nationwide and **zero** in either province — so the
+register that ought to list this city's language schools, muay thai camps,
+cooking schools and driving schools is empty in the published copy. Those
+shelves are filled from the crawl and by name, the way kratom had to be.
+
+**Where it stands.** The crawl landed clean — Chiang Mai 86 → **749** elements,
+Chiang Rai 12 → **368**, neither incomplete. The shelf now reads **2,416
+schools** (1,463 cm / 953 cr) against the fourteen it held this morning, **1,203
+with a phone**, 174 awaiting a pin. **Nineteen of the twenty children are
+populated**, cooking, dance and massage-school among them, all three filled from
+names alone.
+
+**`sport=muay_thai` returned ZERO across both provinces** — and the false-zero
+recheck asked twice before believing it, so that is real, not a failed query. All
+**14 ค่ายมวย** on the shelf, Buakaw Banchamek's gym and Kawila Boxing Stadium
+included, were found by name. The หมวย guard is the whole reason that worked.
+
+**311 duplicate pairs** (169 cm / 142 cr) — a school mapped in OSM and listed in
+the register arrives as `<prov>-osm-…` and `<prov>-obec-…` and no merge on id can
+see they are one place. `cache/school_dupes_<prov>.txt` has a paste-ready
+merges.json line for each. **138 of them (44%) have an identical name and sit
+within 50 m of each other**, which is the obvious first batch; the other 173 need
+an eye. Nothing is merged automatically and nothing should be — the house rule is
+human-confirmed pairs only.
+
+**The one empty shelf is monastic**, and it is on `KNOWN_EMPTY` with its reason:
+OSM has no tag for a โรงเรียนพระปริยัติธรรม, and the ONAB register that names
+them has not been fetched. That is a known next step, not a hope.
+
+
+**Two bugs only a browser found, after every structural gate was green.**
+- **`sector: "state"` is set by two registers now**, and build.py printed the
+  one label it had: every government school in both provinces was captioned
+  **"สถานพยาบาลของรัฐ · state health facility"**. 1,292 pages. The check is
+  gated on the category now and a state school is called one.
+- **None of the register facts reached the page.** Levels, education area,
+  enrolment, highland, ขยายโอกาส — all imported, all carried in `attrs`, none
+  rendered, because attrs only appear where build.py names them (the gemba
+  count was 86 keys carried, ~20 rendered). A school block was added beside the
+  temple one. `foundedBE`/`foundedCE` are reused rather than a new key invented,
+  so the private register's founding years render through the row the wat
+  register already had — and sort-by-ancientness reaches schools for free.
+
+**A third bug, older than this order, found by chasing the second.** `bi()`
+escapes both halves — so a caller that hands it a sentence with a link in it
+gets the anchor back as VISIBLE `&lt;a href=…&gt;` text. Three callers were
+doing it, and only one was mine:
+- the **weed.th provenance line** (WO-8b) — the "name and address from weed.th"
+  credit has been shipping as a literal HTML tag on all **658** dispensary
+  pages, so the link back that the attribution depends on was never a link;
+- `/toilets.html`'s method note, where "see the walking-pace maps" printed its
+  own tag at the reader;
+- the register credit added here.
+
+`bi()` takes `raw=True` now, escaping still the default, with the reason in its
+docstring. **grep-based gates cannot catch this** — they look for the URL, and
+the URL is there, inside escaped text. Verified after the fix by counting
+escaped anchors across all 17,514 pages rather than by reading one.
+
+Structural checks pass a page that says the wrong thing in perfectly valid
+HTML. Both of these were invisible to publish_gate, alt_text and facets.
+
+**Open, in order.** Settle `cache/school_dupes_<prov>.txt` into `merges.json`,
+starting with the 138 exact matches · fetch the ONAB monastic register and join
+it through รหัสวัด to the temples these schools sit inside · fetch the MHESI
+university list so the universities shelf stops depending on how a mapper felt ·
+walk the 174 pinless schools onto `/pins.html` · deploy the worker so owners can
+tick the 13 new facet keys.
+
+## WO-12 — มวยไทย: events, locations, culture · BUILT 2026-08-19
+
+Full design note: **`notes/muay-thai-proposal-2026-08-19.md`**. Read it before
+touching any of this; the measurement and the rule are there.
+
+**The gap, in one line.** Muay thai was twenty records on two shelves, split
+by how a mapper tagged the door — thirteen ค่ายมวย under `school/muaythai`
+(found by NAME: `sport=muay_thai` is tagged on ZERO elements in both
+provinces), six under `learn/gym` between the fitness centres, one stadium
+(Kawila) filed as a camp — and **no stadium shelf, no Thapae, no Loi Kroh, no
+Chiangmai Boxing Stadium, no event, no festival day, no primer.** Nan's brief:
+"muuuuuuccch richer and deeper — events, locations, and culture."
+
+**The rule.** The venue states its own nights, prices and door rules, or the
+page says nobody has stated them; and no ranking of rings into real and
+touristic. `data/curated/fight_nights.json` carries `days` only for nights the
+VENUE states (`stated_by`, `source`, `fetched`); a listing's word goes in
+`days_reported`, dated, and renders as reported. Prices keep
+`_pricesVerified: false` until read at the door.
+
+**BUILT — locations.** Top-level cat `muaythai` (stadium · camp · gear),
+additive; `importers/audit_muaythai.py` (names + the crawl's own sub, zero
+network, `--emit` → 20 shelves.json entries, applied); three curated stadiums
+from their own sites, dated, with pins that say what they are (Thaphae = the
+gate, `approx`; Loi Kroh = the middle of Lane 3, `approx`; Chiangmai Boxing
+Stadium = `needs-pin`, on /pins.html); `known_facts()` renders fight nights,
+tickets (unwalked mark), training, second phone, pin note; facet set
+`muaythai` (15, sits BEFORE the school set); `muaythai/gear` in KNOWN_EMPTY;
+search re-mined so สนามมวย and "fight" narrow to the shelf; glove icon,
+schema.org types, svcbar chip `ดูมวยคืนนี้`.
+
+**BUILT — events.** `muaythai_layer.raw_events()` merges venue-stated nights
+into `EVENTS_RAW` as ONE weekly event per stadium with a BYDAY list (the
+`.ics` RRULE gained a BYDAY-list branch); source "fight-nights". Two national
+days in `festivals.json` — วันมวยไทย 6 Feb, วันนายขนมต้ม / World Wai Khru 17 Mar
+— canon 33 → 35, test bumped on purpose.
+
+**BUILT — culture.** `/muaythai.html`: who fights tonight (the reader's own
+weekday), the weekly board, a card per venue with source and date, the
+unconfirmed rings (Kalare, Anusarn, Pavilion) and the Chiang Rai line, the
+shelf's porch with every camp and its reach, and the primer from the seat —
+wai khru, mongkhon/prajiad, the four musicians, the five rounds, the bettors,
+tickets and the free-pickup commission, fourteen words with script/RTGS/tone,
+the word มวย, the two days, the north (เจิง, ตบมะผาบ, มวยท่าเสา, temple-fair
+cards) — and the joins to wichaa stated from this side (/yant, /waikhru,
+/thairoots). llms.txt tells a bot to read `stated_by` before repeating a night.
+
+**NOT done, by design.** No crawl (Nan's go); no Facebook scrape of nightly
+cards; no fighters, results or rankings; no real-vs-touristic sort; no
+children's-bouts law paragraph on a fight board.
+
+**Open, in order.** The door survey (15 asks, 19 camps, 6 contactable) · three
+pins (Chiangmai Boxing Stadium, Loi Kroh's ring, Thaphae's door) · three
+boards read to clear the price mark · gear shops by name and by walk · camps by
+name (Team Quest, Chay Yai, Siam No.1, Manop's, Kiatbusaba…) each from its own
+page, dated · reader sheets (`muay-words` first; `muay-money` waits on walked
+prices) · the wichaa article (เจิง, the ram muay as wai khru, the
+mongkhon/prajiad/yant chain — *where* on wichaa, not *whether*) · Loi Kroh's
+weekdays by their own event pages.
+
+---
+
+## WO-13 — รถ-เดินทาง: the transport layer · PROPOSED 2026-08-19
+
+Full design note: **`notes/transport-proposal-2026-08-19.md`**. The
+measurement, the rule and the sequence are there and are not repeated here.
+
+**The gap, in one line.** Nan asked "do we have a flights widget yet? bus
+widget? train widget?" — **flights yes** (`flights_layer.py` → `/flights.html`
++ `widgets/flights.html`, live, 34 routes, `as_of 2026-08-02`, Aviasales marker
+declared) **but reachable only from `my.html`'s gallery** — not the transport
+shelf, not `/widgets.html`, not the svcbar; **bus no; train no.** The
+`transport` shelf is 536 records, 435 of them fuel pumps; its 53 "stations" are
+OSM scraps with zero phones and zero hours, the railway station among them
+under the name "เชียงใหม่"; the songthaew child has no `match` and no
+KNOWN_EMPTY reason; `pier` is an orphan sub; five `amenity=taxi` ranks sit in
+`cache/overpass/*/stations.json` and are dropped at `import_overpass.py:431`.
+
+**The rule.** The operator states its own timetable, fare and terminal —
+dated, by name — or the page says nobody has. A board is a season, never a
+departures screen. No ranking of ways to move; no tourist sorting; fares carry
+`_pricesVerified: false` until read at a window. Bakes flat like the flights
+board; referral links declared; nothing enters on memory.
+
+**Sequence.** (1) repair the orphan — link the flights board from the shelf
+band, `/widgets.html` and a svcbar chip, half an hour, no data; (2) the
+zero-network split of `station` into train · bus-terminal · songthaew · pier ·
+taxi from the tags already in cache; (3) the fetch list, Nan's go, one dated
+manual run — SRT, Green Bus, Nakhonchai Air, Sombat Tour, บขส., AOT CNX/CEI,
+DLT terminal pages, Travelpayouts marketplace for the bus/rail partner;
+(4) `buses.json` · `trains.json` · `songthaew.json` → `/buses.html` ·
+`/trains.html` · `/transport.html` + two mini-boards; (5) curated terminals and
+the airport card; (6) the door survey at five terminals; (7) reader sheets;
+(8) the first `asked.json` question — airport to the old city, how and for how
+much. Steps 1–2 need no network and could ship on the next walk.
+
+---
+
+## WO-14 — สักยันต์-รอยสัก: the tattoo shelf · BUILDING 2026-08-19
+
+Full design note: **`notes/sakyant-proposal-2026-08-19.md`**. Read it before
+touching any of this; the measurement and the rule are there.
+
+**The gap, in one line.** Thirty-four `shop=tattoo` points, all filed as
+"Modern studios"; **สักยันต์, เจาะ and ลบรอยสัก empty on the live site** — the
+สักยันต์ rule matched a lens no record has ever carried, so the shelf said
+*Chiang Mai has no sak yant* while wichaa.net/yant, the 209-entry photo index
+and a 52-page price book sat on the same machine, unlinked. Phone 6/30, website
+6/30, blurbs 0, prices 0; a minigolf on the shelf; every studio also riding the
+sights shelf through a lens mapping older than the category. Nan's question:
+*"can the already pretty great information be even more enriched?"* — the
+great part was on wichaa; Mot Dang had none of it.
+
+**The rule.** Three things are sold under one word and the shelf keeps them
+apart: a สำนัก or ajarn charges a yant with a katha (สักยันต์), a studio inks
+designs yant-shaped or not (ร้านสักสมัยใหม่), a beauty shop tattoos brows and
+lips (สักคิ้ว-สักปาก). A studio named after a yant is a studio until its own
+page says an ajarn works there. Two price sources — the FAQ's hourly framing
+and the design book's per-design rate card — are stated separately, each with
+its date and `_pricesVerified: false`; the temple figure is transport and
+interpreting, the monk's offering is named as separate and never folded in.
+No screenshot is republished; no authenticity sort; สักขาลาย is its own
+tradition and not a section here.
+
+**BUILT — zero network, 2026-08-19.** `categories.json`: สักยันต์ matches
+`sub: sak-yant` like its siblings; fifth child สักคิ้ว-สักปาก · Cosmetic
+tattoo (`sub: cosmetic-tattoo`). `LENS_TO_CAT["tattoo"]` → `["tattoo"]` (all 31
+mueang-map points are inside the Overpass crawl, so nothing is lost and the
+studios leave sights). `importers/audit_tattoo.py` (names + the crawl's own
+sub, review lists, `--emit`). `data/curated/retags.json` — a new, deliberately
+small layer for an OSM tag a person has read against the door and found
+wrong, evidence line required; first entry the minigolf. Sak Yant Chiang Mai
+as a curated record in `additions-chiang-mai.json` (same id, tier curated):
+`sub: sak-yant`, rate card, FAQ framing, second phone, resident ajarns, the
+five-precepts doctrine, blurbs ไทย · EN, dated sources; `known_facts()` gained
+a generic `priceCardTh/En/Via` row ("ราคาที่ประกาศ · Published prices", unwalked
+mark) so a venue's own board renders anywhere. `yant_band()` on the
+shelf page — what wichaa.net/yant, /na and the article ARE to this shelf, with
+the fact that makes the join true (the นกคู่ on Arak Road is ms 6985's
+ยันต์สาริกาคู่, a century apart), ending in the door sentence. `asked.json`
+`sak-yant` drafted with `asked_new.py`, `draft: true`, lead/notes/links filled;
+`notes/asked-sak-yant-2026-08-19.md` carries the leads. Search tables re-mined
+(`search-core/mine.py motdang` + `sync.py`): สักคิ้ว-สักปาก / brow / lip /
+cosmetic tattoo now narrow to the shelf. **New: `data/curated/moved.json` +
+`write_moved_stubs()`** — correcting nameEn moved the SYCM page from
+`…tatoo…` to `…chiang-mai…`; the old path now forwards (meta refresh +
+canonical, noindex), written only where the new page exists. Fix-ledger
+entries under มดเอง. Verified in a scratch build (`build.DOCS` redirected):
+tattoo shelf 29 + สักยันต์ (1) + Chiang Rai สักคิ้ว-สักปาก (1), band renders,
+SYCM page shows the board, minigolf on sights, draft unpublished;
+`test_facets`, `test_asked`, `test_publish_gate`, `test_plan_routes.js` pass.
+
+**NOT done, by design.** No crawl; no scrape of Google Maps or Facebook for
+สำนัก; no plates from the design book; Gao Yord / the bamboo studios not
+shelved under สักยันต์ on their names; no facet yet; no `/sakyant.html` yet
+(the asked page carries the core).
+
+**Open, in order.** (1) the two สำนัก from their own pages — อาจารย์ไก่
+บารมีนาคราช, Spiritual Sak Yant / Ajarn Vee — → records → delete `draft` →
+card → `make_post.py sak-yant`; (2) the brow shop (photo-mine #4) and the
+Chiang Rai removal clinic (#5) — pin + source → `removal` off KNOWN_EMPTY;
+(3) `/sakyant.html` and the lineage card on the SYCM page; (4) the three
+yant-named studios from their own pages; (5) the door sentence is written —
+three places, then the facet; (6) tell OpenStreetMap about the minigolf and
+the "Tatoo" name:en; (7) `tests/test_search.py` looks for a `const norm=`
+marker that left build.py when the core moved to search-core — it fails
+before it tests anything and is in neither walk; retire or repoint it.
+
+---
+
+## WO-14 — เรียนทำอาหารไทย: the class board, the shelf, the primer · BUILT 2026-08-19
+
+Full design note: **`notes/cooking-classes-proposal-2026-08-19.md`**. Read it
+before touching any of this; the measurement and the rule are there.
+
+**The gap, in one line.** Thai cooking classes were twenty-five records on
+seven shelves, split by how a mapper tagged the door — nine on `school/cooking`
+(found by NAME: `amenity=cooking_school` is on ZERO elements in both provinces),
+nine among the restaurants on `food/thai`, two on `food/vegetarian`, three on
+`school/training`, one on `school/music-art` (the "art school" rule beat
+"culinary"), one on `repair/auto` — **with no axis of kind, no session, no
+price, no pickup radius, no calendar day, no primer, and zero records in Chiang
+Rai.** Nan's brief: "similar to muay thai — Thai cooking classes (all kinds)."
+
+**The rule.** The school states its own sessions, prices and pickup radius, or
+the page says nobody has; and no sorting of kitchens into tourist and real.
+`data/curated/cooking_classes.json` carries `sessions` only as the SCHOOL
+states them (`stated_by`, `source`, `fetched`); `days` is BYDAY codes only
+when the school states weekdays and null when it does not — null means NOT
+STATED, never closed. Prices keep `_pricesVerified: false` until read at the
+door. Nothing on the board becomes an event: a daily class is a booking.
+
+**BUILT — locations.** Top-level cat `cooking` with nine children (class ·
+farm · home · vegan · northern · dessert · carving · hotel · vocational),
+additive; `importers/audit_cooking.py` (names + the crawl's own sub, zero
+network, `--emit` → 22 shelves.json entries, applied, plus three hand entries
+from the schools' own pages); classifier fix for "Culinary Art School" and
+`amenity=cooking_school` mapped; two merges (Thai Secret node+way, the two
+Thai Kitchen Cookery Centre nodes); four curated schools from their own sites
+— Mama Noi, Grandma's Home (CM), Suwannee, Akha Kitchen (CR) — all
+`needs-pin`, on /pins.html; eight records enriched from their own sites
+(`enrich.json`); `known_facts()` renders sessions, price (unwalked mark),
+pickup, group size, menu, language, pin note; facet set `cooking` (23, sits
+BEFORE the school set; two licence facets, positive only); `cooking/vocational`
+in KNOWN_EMPTY with its reason; search re-mined so สอนทำอาหาร and "cooking"
+narrow to the shelf without hijacking "hotel", "market", "vegan", "northern";
+mortar-and-pestle icon; schema.org School; svcbar chip `เรียนทำอาหาร`.
+
+**BUILT — the board and the day.** Twelve schools on the board (four state
+weekdays, eight state sessions only), one row untied (Thai Akha Kitchen — one
+shared token is not a match; `maybe_place` for a person), three unread sites
+named and dated, four unconfirmed names, a Chiang Rai line. กินเจ added to
+`festivals.json` — canon 35 → 36, test bumped on purpose.
+
+**BUILT — culture.** `/cooking.html`: which class today (the reader's own
+weekday), the weekly board, a card per school with source and date, the shelf's
+porch with every school and its reach, nine primer cards (the market and the
+five tastes · galangal is not ginger · the mortar · the wok · the Northern menu
+and sticky rice · เจ-มังสวิรัติ-วีแกน · money and the commission · twenty words ·
+the paper on the wall) and the joins (wichaa /thairoots, /taste, /festivals/
+kin-je, the markets shelf). llms.txt 🍳 section. Reader sheet `cooking-words`
+(two sides, measured); `cooking-money` deliberately not written. Fix ledger
+entry (มดเอง).
+
+**NOT done, by design.** No crawl (Nan's go); no booking-platform scrape; no
+rankings or reviews; no tie on one shared token; no vocational record on
+memory.
+
+**Open, in order.** The door survey (23 asks, 25 schools) · four pins (Mama
+Noi, Grandma's, Suwannee, Akha Kitchen) · three boards read to clear the price
+mark and ship `cooking-money` · Thai Akha Kitchen ↔ Thai Akha Cooking School
+at the door · the vocational shelf by each institution's own page
+(Polytechnic, DSD 19, CMRU คหกรรม, the อาชีวะ colleges) · names with no readable
+site (Thai Orchid, Galangal, Basil, Smart Cook, the town's first school) ·
+hotel studios beyond Four Seasons · more Chiang Rai · the first `asked.json`
+question · the wichaa article on the Northern kitchen (*where*, not
+*whether*).
+
+---
+
+## WO-19 — ช้าง: the register, the shelf, the city's elephant names · BUILT 2026-08-19
+
+Full design note: **`notes/elephant-proposal-2026-08-19.md`**. Read it before
+touching any of this; the measurement and the rule are there.
+
+**The gap, in one line.** Of 16,268 records, 66 carried ช้าง or "elephant"
+in the name and **not one was an elephant camp** — `crawl_overpass.py` has
+never asked for `tourism=zoo`, `attraction` or `theme_park`, so Maesa, ENP,
+Patara and the whole Mae Taeng / Mae Wang / Mae Chaem valley were never
+fetched; no hospital, no elephant day, no primer; and the manuscript
+catalogue held **31 elephant witnesses** (a ลักขณะช้าง marks treatise, two
+สู่ขวัญช้าง, the Chaddanta jataka ×4, the local white-elephant jatakas) that no
+article had ever looked at. Nan's brief: "an enrichment on elephant-related
+topics for Motdang AND wichaa."
+
+**The rule.** The venue states what happens with its elephants — riding,
+bathing, shows, hands-off, how many — or the page says nobody has stated it;
+the law says what is registered; and no camp is ever ranked into ethical and
+unethical, sanctuary and show. "sanctuary" and "ethical" are the venue's
+words, quoted, dated. `data/curated/elephants.json` carries `stated` with the
+value **`unstated`** where the pages read did not say — neither a no nor a
+yes. Prices are the posted spread, `_pricesVerified: false`. No facet is ever
+ticked from a name, a shelf or a website.
+
+**BUILT — the shelf.** Top-level cat `chang` (camp · care · craft) after
+`cooking`, additive; `importers/audit_elephant.py` (names + tags, zero
+network, five reports, `--emit`; fences for ช้างเผือก / ช้างคลาน / ดอยช้าง /
+ลุงช้าง / โรงพยาบาลช้าง(?!เผือก)); **16 curated records** in
+`additions-chiang-mai.json` from their own sites, dated, pins at the
+precision earned (5 from the venues' own map embeds or JSON-LD, 5 from the
+gazetteer's road/tambon tiers, 6 `needs-pin` on /pins.html); Poopoopaper →
+craft by name; the Anantara resort (CR) by its own name + the GTAEF page;
+`known_facts()` renders selfDescription / ridingStated / elephantProgram /
+elephantsStated; facet set `chang` (16, unticked); icon `i-chang`;
+`TouristAttraction` / `VeterinaryCare` / `Store`; svcbar chip `ช้าง`; shelf
+band; llms.txt 🐘 section.
+
+**BUILT — the register.** `/chang.html` (`elephant_layer.py`): the table
+(riding · bathing · shows · hands-off · elephants · posted; bold = stated in
+words, italic = unstated), a card per venue with its self-description in
+quotation and its source, the unreachable by name (Chai Lai Orchid 403,
+Maetaman, Ran-Tong, Elephant Rescue Park 403, FAE 403, Anantara 403, Four
+Seasons 403), the unconfirmed (Elephant Valley Thailand), the shelf's porch
+with every camp and its reach, the two laws and the certifying bodies named
+as what they are, Lampang's institute and hospital with phones, fourteen
+landmark cards on the city's elephant names (*tradition holds*) plus the
+live list of every record carrying the elephant in its name, and the primer
+(ปาง, the mahout and the hook, the white elephant's marks, money from the
+register, five questions at the gate, fifteen words, the roots, the national
+day). Joins to wichaa stated from this side.
+
+**BUILT — calendar.** วันช้างไทย 13 March in `festivals.json` (national,
+fixed, general-knowledge); canon 36 → 37, test bumped on purpose.
+
+**BUILT — wichaa.** `content/entity-chang.md` + the `chang` row in
+`ENTITIES` / `ENTITY_HOOKS` / glossary / thesaurus in `wiki.py`; aliases are
+compounds verified witness by witness (never bare `cang` — Bojjhaṅga; never
+`chang` — ตำนานช้างแส่น is Chiang Saen).
+
+**NOT done, by design.** No Facebook / Google / TripAdvisor scrape; no
+welfare verdict, no ranking, no recommended list, no sort by hands-off; no
+invented Thai names; no Lampang records. ~~No Overpass crawl~~ — run
+2026-08-20 on Nan's go: `elephants` group (zoo · theme_park · attraction),
+WIDE both provinces, FENCED (only elephant-declaring names enter, via
+`chang_hit()` borrowing audit_elephant's rules; 212 CM + 78 CR other
+attractions → `cache/elephant_review_<prov>.txt`, the menu for a future
+attractions order). CM 21 camps, CR 1 (Ruammit); 8 merges keep the curated
+ids and adopt surveyed pins (Maesa, ENP, Patara, TEH, HEH, Chiang Dao ETC;
+EJS keeps its office pin; `elephant Freedom` deliberately NOT merged with
+EFV — 2.7 km apart, door survey settles it); shelf 18 → 30, needs-pin 6 → 3.
+
+**Open, in order.** CR's `tourism=zoo` selector (`crawl_overpass.py cr
+--fetch --group elephants` on a calmer day — cache says `incomplete`) · the
+three pins (BEES, ChangChill, Kindred Spirit) and the White Elephant
+Monument · the thirteen no-register-row camps' own pages read → register rows (Anantara, Doiinthanon,
+Elephant retirement park, New Elephant Home, Kanta, Hug, Adventure, Pride,
+Camp Chi, Ghok Dee, Jamlearn, elephant Freedom, Ruammit) · the door survey
+(the 16 facets are its script; `elephant Freedom` vs EFV is its first
+question) · one gate read to clear a price · the unreachable by phone or
+LINE · reader sheets · the shelf card on the next `make_shelf_cards.py` run ·
+ms 538 (ลักขณะช้าง) read leaf by leaf.
+
+---
+
+## WO-15 — 🏷 Tags: the cross-shelf layer · BUILT 2026-08-19
+
+Design note: **`notes/aggregators-and-tags-proposal-2026-08-19.md` §4** (the
+Quora move, translated). Nan's go: "go on WO-15 tags, zero network."
+
+**The finding.** The records held 140 distinct `attrs` keys and the site
+rendered about twenty. `cuisine` on 2,125 records, `diet` on 213, `payment`
+on 142, `wifi` on 1,229, `wheelchair` on 404, `brand` on 1,238, `crypto` on 45
+— all of it readable on one place page at a time and reachable by nothing
+else: no page for "vegan", no page for "bitcoin", no page for "7-Eleven",
+and search found them only when the word was in the NAME. A shelf says what
+kind of place this is; nothing said what a place *also* is.
+
+**Built — zero network, everything from what was on disk:**
+- `data/tags.json` — **73 tags in 13 families** (cuisine 34 · diet 5 · pay 4 ·
+  comfort 10 · hours 2 · access 2 · place 1 · honours 3 · school 2 · medical 4
+  · fuel 4 · wat 2), each with Thai/EN, a glyph and **exactly one rule** over
+  a field the record carries (`attr` · `attr-dict` · `attr-list` · `attr-true`
+  · `facet` · `moat` · `royal` · `food-award`). No tag without a rule, no rule
+  without a source field; the vocabulary was mined first (≥10 records each)
+  and nothing was invented. Thresholds: `min_tag` 3 (a page), `tag_shelf_min`
+  8 (a tag×shelf page), `brand_min` 5.
+- **Brand tags generated per chain** from `attrs.brand` through the same
+  `_brand_index` the brand shelves fold by — **47 chains** (7-Eleven 330/129,
+  PT, บางจาก, PTT, Café Amazon, the banks, KFC, Lotus's, Cosmo (CR only) …),
+  slugs ASCII with accents folded (cafe-amazon).
+- `tags_layer.py` — `assign()` right after `load()` (every place page already
+  wears its pills), `pills()`, `search_words()`, `emit()` before the sitemap.
+  `build.py`: the four hooks, `tag_pills()` after `facet_panel()`, tag words
+  folded into the search index's `k`, 🏷 in the svcbar, a marigold pill style,
+  `tags` + `tagVia` on every tagged record in `data/places.json`, a `## 🏷 Tags`
+  section in llms.txt, `shelf_map(label_th=, label_en=)`.
+- **Pages:** `/<prov>/tag/<slug>.html` — grouped by shelf with a heading per
+  shelf (each record once, under its first shelf), the shelf map, the toolbar,
+  GeoJSON + JSON downloads, an "also catalogued by" line (HappyCow · BTC Map ·
+  Wheelmap · CICOT · the MICHELIN Guide, `rel=nofollow`), ItemList + breadcrumb
+  JSON-LD; `/<prov>/tag/<slug>--<shelf>.html` where a shelf holds 8+ (membership
+  = ANY shelf the record stands on, so an open-late pharmacy filed under
+  essentials still reaches open-late--medical); `/tags.html` — *Tag (count)* by
+  family, both provinces, Yahoo-style; `/data/tags.json`, `/data/tags/<prov>-
+  <slug>.json`, `/data/<prov>-tag-<slug>.geojson`.
+- **Landed (scratch build, 223 s, 17,933 pages):** **182 tag pages + 163
+  tag×shelf pages** (CM 117 tags with a page, CR 65), **5,483 records tagged**
+  (CM 4,298 of 11,677 · CR 1,185 of 4,595). Biggest: old-city 1,313 (computed from the pin and
+  `MOAT_POLY`, never typed) · wifi 931/273 · 7-Eleven 330/129 · open-24h
+  251/49 · outdoor seating 214/46 · wheelchair 174/21 · vegetarian 131/21 ·
+  vegan 85/17 · bitcoin 30/15 · michelin 14 · royal temples 7/3. Empty on
+  purpose and listed as such: ngv (one CNG pump).
+- `tests/test_tags.py` — the contract (rule/th/en/family/kind), **a defined
+  rule that matches nothing anywhere FAILS** unless named in KNOWN_EMPTY with
+  a reason, page exists ⇔ count ≥ threshold, h1 = rows = tags.json =
+  places.json, no tag×shelf page under 8 and none missing over it, every
+  assignment carries a known `tagVia`, pills on tagged place pages link only to
+  pages that exist, untagged pages show none, sitemap membership, no /Users/.
+  **PASS.** Added to `standing_walk.sh` as an advisory (a wrong count is not a
+  broken site). `README.md` gained a 🏷 Tags section beside Facets.
+
+**Two bugs found in passing, both in `shelf_map`, both fixed:**
+1. The ten named pins on every shelf page linked `p/<slug>.html` — from
+   `/cm/food/index.html` that is `/cm/food/p/…`, a **404** (confirmed live).
+   The JS click handler follows the nearest ROW's link, so mouse users never
+   saw it; keyboard, no-JS and crawlers did. Now `"../" * (depth-1) + "p/"`.
+2. The dots are packed with **row indexes** that md.js resolves against the
+   DOM's `li[data-n]`, but `fold_rows` folds brand rows into `<details>`
+   shelves and so reorders the DOM. Measured: on food (20 brand folds) the dot
+   positions correlated **0.11** with the rows they pointed at; on wat (no
+   folds) 1.00 — hovering a food dot named the wrong shop and clicking it opened
+   it. `fold_rows(order_out=)` now reports the emitted order and the cat page
+   draws the map from it (verified: 0 mismatches over 1,085 essentials rows).
+   Tag×shelf pages deliberately carry no map for the same reason.
+
+**Not done, on purpose:** OG cards for tag pages (`make_shelf_cards.py` does
+not know them → brand card fallback, as designed); my.html pin-a-tag; tag words
+in the search *thesaurus* (those files are the search-core session's — tags
+ride in `k` instead and are found); `data/curated/tags_curated.json` (the
+door exists, documented in README and the layer; nothing in it yet — 9
+วัดนามมงคล from WO-16 is the first candidate).
+
+**Scratch-built, not committed, not deployed.** The standing walk is resting
+(`cache/walk-rest`, another session's, until 21:43) and ships the next quiet
+round. Note for whoever builds next: `build.py` currently imports
+`elephant_layer` (WO-19) whose file was not on disk during this build; the
+scratch run stubbed it in-process to reach the tags hook.
+
+---
+
+## WO-16 — Open lists from data.go.th · BUILT 2026-08-20
+
+Design note: `notes/aggregators-and-tags-proposal-2026-08-19.md` §3/§5.
+Nan's go: "go on WO-16 open lists" (2026-08-20) — the confirmation the
+fetches needed. 18 datasets harvested by **`importers/harvest_datagoth.py`**
+(snapshot-first into `cache/datagoth/`, 3 s pauses, **UA without the word
+"bot"** — the gdcatalog WAF's word list, measured 2026-08-19; CR files are
+cp874; XLSX read with a stdlib zip+XML parser) → `data/curated/datagoth.json`.
+Folded by **`importers/import_opendata.py`** (wired into import_all), proven
+deterministic AND idempotent-after-landing by running it against a canonical
+that already contained its own output — the import_weedth trap, tested this
+time. Catalogue: **16,272 → 18,666 records**.
+
+**The big one — the temple register fold (+2,009).** The ONAB register
+already on disk from WO-1 (wat-registry/registry.db) holds 1,486 CM + 1,092
+CR registered temples; the shelf held 596 records, 346 matched. The unmatched
+register rows are now records: **CM wat 307 → 1,468, CR 289 → 1,137**, each
+with รหัสวัด, rank, nikaya, founding year (→ the ancientness sort), wisung,
+ตำบล/อำเภอ, postcode, credited to ONAB per record. Matching kept WO-1's
+discipline (thairom.matchkey; a row any unstamped held record might be went
+to review, 252 lines, never to a coin flip). Pins from our own ground:
+~1,050 postcode/tambon-amphoe centroids with stated uncertainty, ~911
+needs-pin. **CORRECTION to the note:** the provincial CSV's "4,462 temples"
+is the same ~1,487 temples stacked three years deep (1,489 unique — measured)
+— the register and the province agree; the CSV is the cross-check.
+
+**The rest:**
+- **CR sights +238** — the eco list (38, **with phone numbers**: สิงห์ปาร์ค
+  053 160 636 …), religious/arts (127, dedup'd against the temple fold
+  in-run), community-tourism villages (119). Cross-source dedup: ดอยแม่สลอง
+  appears on two lists and lands once.
+- **CM police +40, all 40 with a phone** (essentials/gov, `facilityType:
+  police`); **LPG shops +28** (`attrs.fuel: [lpg]` → the LPG tag carries
+  them); **ธงฟ้า +34** CR budget restaurants (`attrs.thongfah` = grade; the
+  operator's PERSONAL name deliberately not taken); **SAT camps +17** (CM 4,
+  CR 13 — the CR muay thai shelf held ONE record; `satStandard` carries the
+  star level; the source's District/SubDistrict columns are swapped and its
+  ภาค 5 rows carry no address at all, both measured).
+- **Thai SELECT → honours.json**: 5 confident exact-name matches as food
+  marks (award `thai-select`, edition 2563, source URL per entry — the
+  honours rule), 17 names as unverified leads; `FOOD_AWARD` gained
+  ไทยซีเล็กต์ 🍚. Tags added: `thai-select` (food-award rule), `thongfah` 🚩,
+  `sat-camp` 🥊 — all derived, zero new mechanism.
+- **7 yardsticks on /stats.html** ("ที่ทางการนับ กับที่มดแดงถือ") — official
+  counts beside what we hold, each linking its dataset: hotels certified CM
+  1,670 (2567) · stays CM 1,011 (2568) · tour operators CM 1,128 (2567 —
+  the note's 872 was the 2565 figure) · CR clinics 887 (2568, was 547/2563)
+  · OTOP outlets 2,670 · **retail-pharmacy licences CM 702 / CR 230** vs the
+  catalogue's ~202/~20 — the FDA registry names ~3× the pharmacies we hold
+  (`cache/fda_pharmacy_compare.txt`; folding the licence register is a
+  possible next order, NOT part of this one).
+- **`data/bus_routes.json` (674 routes)** — the provincial register (641) +
+  27 numbered category-1/4 + city routes; no timetables exist in the source
+  and none were invented. Copied into docs/data/, named in llms.txt, waiting
+  for WO-13's board.
+- **The pin hunt grew honest folds** — pins_layer now groups by
+  province+shelf (`<details>`, small errands first) because the fold took it
+  ~265 → ~1,500 rows, most of them register temples.
+
+**Review for a human:** `cache/opendata_review.txt` (320 lines) — the
+252 temple rows a held record might already be, and every non-temple fold
+beside its similar-named neighbours; settle with eyes and merges.json.
+
+**Not done, deliberately:** no enrichment of held records' contact fields
+from any list (decision 4 in the note is still Nan's); no fold of the FDA
+pharmacy names; ONAB CR temples ARE folded though the order named CM's rows
+— same register, same code path, and a CR temple is not less real for the
+note having counted CM's CSV; flagged here rather than assumed silently.
 
 ---
 

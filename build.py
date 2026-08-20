@@ -6432,6 +6432,13 @@ def fold_rows(records, href_of, order_out=None):
     return "".join(out)
 
 
+# How many points each shelf's GeoJSON actually holds, filled as those files
+# are written and read by explore_layer to label the chips on /map.html.
+# Module-level because the writing happens deep inside the province loop and
+# the reading happens after it.
+_EXPLORE_COUNTS = {}
+
+
 def geojson(records):
     """The shelf as points. Published for anyone who wants the data, and since
     /map.html the file the explore map itself reads — which is why `slug` and
@@ -12463,6 +12470,12 @@ def build():
             gj = geojson(in_cat)
             gj_name = f"{key}-{c}.geojson"
             (DOCS / "data" / gj_name).write_text(json.dumps(gj, ensure_ascii=False))
+            # What /map.html's chip for this shelf will actually draw. Counted
+            # from the file itself rather than from len(in_cat) so the number
+            # on the chip is the number of dots that appear — a shelf holds
+            # places with no pin, and a chip promising more than it paints is
+            # a small lie the reader can see.
+            _EXPLORE_COUNTS[(key, c)] = len(gj["features"])
             dl = (f'<p class="prov"><a href="../../data/{gj_name}">⬇ GeoJSON</a> '
                   f'({len(gj["features"]):,} {bi("จุด", "points")})</p>')
             crumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
