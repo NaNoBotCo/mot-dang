@@ -34,16 +34,19 @@
 | WO-10 | หอสมุด·หอศิลป์·หัตถกรรม — the culture shelf | **BUILDING** 2026-08-18 — B+C done, A crawling |
 | WO-11 | The schools shelf — โรงเรียน-สถานศึกษา, every school not just the international ones | **BUILT** 2026-08-18 — 14 → 2,416 schools |
 | WO-12 | มวยไทย — events, locations, culture: the fight board, the shelf, the primer | **BUILT** 2026-08-19 — 20 records on two shelves → a shelf, a board, /muaythai.html |
-| WO-13 | รถ-เดินทาง — the transport layer: bus + train boards beside the flights board, the station split, the red-truck card, /transport.html | **PROPOSED** 2026-08-19 — `notes/transport-proposal-2026-08-19.md`; flights board exists and is orphaned; bus and train boards do not exist; awaiting go (steps 1–2 need no fetch) |
+| WO-13 | รถ-เดินทาง — the transport layer: the station split, the bus board, /transport.html, the orphaned flights board adopted | **BUILT** 2026-08-20 — `transport_layer.py` + the `classify()` split (train · bus · songthaew · taxi · funicular · pier): songthaew 0 → 20, taxi 0 → 5 (they were being DROPPED), train/funicular no longer one word; 674 licensed routes on the board; flights board finally linked. Section below. |
 | WO-14 | เรียนทำอาหารไทย — Thai cooking classes, all kinds: the class board, the nine-child shelf, the primer, /cooking.html | **BUILT** 2026-08-19 — 25 records on seven shelves → a shelf, a board, a calendar day, a sheet, /cooking.html |
 | WO-14 | สักยันต์-รอยสัก — the tattoo shelf: the สำนัก, the studios, the brow shops, the prices, the join to wichaa | **BUILDING** 2026-08-19 — `notes/sakyant-proposal-2026-08-19.md`; zero-network steps in hand; the two สำนัก and the brow/removal records await a light web check (Nan's go) |
 | WO-15 | 🏷 Tags — the cross-shelf layer (vegan · bitcoin · wifi · wheelchair · 24 h · old city · brands · honours …), tag pages per province, `/tags.html`, pills on place pages | **BUILT** 2026-08-19 — `data/tags.json` (73 tags / 13 families, one rule each) + 47 brand tags generated; `tags_layer.py`; 182 tag pages + 163 tag×shelf pages; 5,483 records tagged; `tests/test_tags.py` PASS; zero network. Section below. |
 | WO-16 | Open lists from data.go.th — the ONAB temple fold · bus routes · CR attractions w/ phones · police w/ phones · Thai SELECT · ธงฟ้า · LPG · SAT boxing camps · FDA pharmacy yardstick | **BUILT** 2026-08-20 — 18 sources harvested (`importers/harvest_datagoth.py`), **2,366 records folded** (`importers/import_opendata.py`): temples +2,009 (register on disk, both provinces), CR sights +238, ธงฟ้า +34, police +40 (all with phones), LPG +28, SAT camps +17; 5 Thai SELECT honours; 7 yardsticks on /stats.html; `data/bus_routes.json` (674) for WO-13; catalogue 16,272 → **18,666**. Section below. |
-| WO-17 | Thailand Tourism Directory (กระทรวงการท่องเที่ยวและกีฬา) — ≈28,500 national listings with phone · LINE · hours · coords via its official keyed API; hotel/food/spa/sights/stores | **PROPOSED** 2026-08-19 — same note §2; step 0 = Nan registers for the API key; enrichment policy is decision 4 in the note |
+| WO-17 | Thailand Tourism Directory (กระทรวงการท่องเที่ยวและกีฬา) — ≈28,500 national listings with phone · LINE · hours · coords via its official keyed API; hotel/food/spa/sights/stores | **PINNED** (Nan, 2026-08-20 — awaiting her API key) · was PROPOSED 2026-08-19 — same note §2; step 0 = Nan registers for the API key; enrichment policy is decision 4 in the note |
 | WO-18 | Brand locators — 7-Eleven · PTT · Bangchak · Café Amazon · the big banks, per-branch link to the brand's own page | **PARKED** 2026-08-19 — same note §5; after WO-15–17; per-brand robots/terms check first |
 | WO-20 | แผนที่มีชีวิต — the living maps: touch that answers, gestures that behave, ground with ink in it | **PHASE 1 + 2e–f BUILT** 2026-08-20 — `notes/maps-gemba-2026-08-20.md`; the pointer-events regression that had made every neighbour link on 12,309 place maps untouchable whenever tiles were on, cooperative gestures + rotation lock + rails + ◎ + full screen, the MDCARD tap-sheet on every map, tiles and label glyphs both same-origin (last third-party request gone), contrast retune, gate anchors, key, and an 11 px type floor for phones. Phase 3 (/map.html, the nav door, my-map, shareable views) NOT started |
 | WO-21 | วิว-น้ำตก — views & photo spots: the shelf, the measurements, the doors the data is behind | **ZERO-NETWORK HALF BUILT** 2026-08-20 — `notes/views-proposal-2026-08-20.md`; `importers/audit_views.py`; `views_hit()` rides the WO-19 fence and files **18 waterfalls + 2 viewpoints** the attraction dragnet had already caught (แม่สา, บัวตอง, the Inthanon set, ขุนกรณ์, the CR skywalk); `sights` gains a น้ำตก child; JSON-LD `Waterfall`; `direction`/`ele` kept at import and rendered (หันไปทาง · Faces / Elevation); claims census 54 → `cache/views_claims_*.txt`; scratch build 20,371 pages, all gates PASS. **The doors await Nan's numbered go** (note §doors): wide `views` group · Commons uncapped re-run · TTD key · WO-16 lists · DNP fee/hours reads · the `view` tag · her own picks |
 | WO-19 | ช้าง — the elephant shelf, the register of what each camp states, the city's elephant names, /chang.html, and the wichaa article | **BUILT** 2026-08-19, crawl folded 2026-08-20 — `notes/elephant-proposal-2026-08-19.md` (+ postscript); 0 camps → 18 curated → **30 on the shelf** after the `elephants` Overpass group (zoo·theme_park·attraction, fenced: 290 non-elephant elements to `cache/elephant_review_*.txt`); 8 merges onto surveyed pins; needs-pin 6→3; Ruammit CR entered; register with `stated`/`unstated`; wichaa `entity_chang` 31 witnesses; CR zoo selector `incomplete`, re-run when Overpass is calmer |
+| WO-22 | เสริมสวย-ตัดผม — the barber correction, the words to ask with, and the census of the silence | **ZERO-NETWORK HALF BUILT** 2026-08-20, Nan's ask (afro-textured hair · americana/british barbers · extensions · braids · updos · digital perms · high-tech studios · house calls) — `notes/beauty-proposal-2026-08-20.md`; `importers/audit_beauty.py`; **barber 6 → 62** and **salon 0 → 62** off the shops' own signs (126 shelf corrections); `beauty/extensions` child; the **30-facet `beauty` set** covering all eight axes; `male`/`female`/`unisex` rescued from the import (26 shops now state who they cut for); `beauty_layer.py` → **/beauty.html** — 22 words with RTGS/tone/root, 5 whole sentences, both shelves, and a printed census showing **0 of 18,686** records name a perm, an updo, textured hair or a house call. **The doors await Nan's numbered go**: wide `beauty` group (hairdresser_supply · wig · cosmetics · craft) · the 18-shop read queue · the door survey · TTD key |
+| WO-23 | น้ำพุร้อน — hot springs, the whole north: the shelf CM held zero of, the seventeen-province register, /namphuron.html | **BUILT** 2026-08-20/21, Nan's go ("BIGLY… the whole north is ok") — `notes/hotsprings-proposal-2026-08-20.md`; CM **0 → 16 records** (สันกำแพง w/ its own site's posted prices, โป่งเดือด, เทพพนม, ฝาง, ดอยสะเก็ด, มะลิกา…), CR 3 → 9 (แม่ขะจาน's four faces merged to one, ผาเสริฐ, โป่งพระบาท, ห้วยหมากเลี่ยม); register `data/hotsprings.json` **98 springs / 14 provinces, 63 with measured temperatures** — OSM area-clipped per ISO province (`hotsprings` group WIDE + `harvest_hotsprings.py`), the **DMR inventory read whole** (66 northern rows, temp+pH), DNP park list + MHS's own hot-spring CSV (pins), curated stated-facts w/ fetched sources; `springs_hit()`/`audit_hotsprings.py` one-copy rules (bare โป่ง never matched; village/school/temple/office/campsite/bus-stop fences all witnessed by real catches); generic-key guard after a bare-worded spring folded 60 km wrong; /namphuron.html = drawn no-tile map (54 pins) + stated-register + primer; `sights` น้ำพุร้อน child; thesaurus ring widened; phichit asked short (1 selector, said on the page; `--fetch` when mirrors calm); scratch build 21,402 pp, all gates PASS |
+| WO-24 | คำตอบก่อนลิงก์ — search rich doors + the namesake split: a curated card over the rows for topics the site keeps a page for, and ชื่อพ้อง filed behind their own header | **BUILT** 2026-08-20, Nan's ask after typing "elephant" ("pre-stage some rich information… place names with Chang in them are not differentiated… might be systemic") — `notes/search-doors-2026-08-20.md`; `data/curated/search_panels.json` (10 panels: chang · muaythai · cooking · beauty · womens-health · toilets · festivals · flights · massage · wat; build.py refuses a malformed pair); triggers by lifted shelf / term variants / query substring, first to speak wins, panel shelves join the +0.5 lift; on-shelf rows split from namesakes whenever the query names a shelf — systemic, not elephant-special; `tests/test_search.py` REPAIRED (its extraction markers predated search-core and the whole file failed at HEAD) and extended to 26 queries + a door-href walk; searchcore/mined tables untouched, no parity run needed |
 
 WO-3 and WO-7 were marked standing because they are the two a reader actually
 meets. Both have now been done, and the rule stays: anything added here is
@@ -1324,6 +1327,104 @@ note having counted CM's CSV; flagged here rather than assumed silently.
 
 ---
 
+## WO-13 — รถ-เดินทาง: the transport layer · BUILT 2026-08-20
+
+Note: `notes/transport-proposal-2026-08-19.md`. Nan's go 2026-08-20 ("2 go").
+Zero network — every tag this uses was fetched on 2026-07-27 and then thrown
+away at import.
+
+**THE FINDING, and it was a branch not a crawl.** `import_overpass.classify()`
+folded `amenity=bus_station`, `railway=station|halt` and
+`public_transport=station` into ONE sub named `station`, and had **no branch at
+all for `amenity=taxi`** — so five taxi ranks, one of them with a phone, were
+dropped before the canonical file every single run. The Chiang Mai railway
+station sat under ช among songthaew stops; the two Doi Suthep "stations" are
+the temple funicular's ends and the shelf could not say so; `songthaew` had
+been a child of the tree since the tree was written **with no `match` rule at
+all**, so it rendered as "the ants haven't collected this yet" while 33 stops
+sat in the cache.
+
+**The split.** `train` · `bus` · `songthaew` · `taxi` · `funicular` · `pier`,
+each a child of the shelf now. Landed, after the merge deduplicates elements that appear in more than one
+cache file: **bus 28 · songthaew 20 · taxi 5 · train 3 · pier 3 · funicular 2** (fuel 435 and rental 40 unchanged). Chiang Rai
+has no railway station in the catalogue and the page says exactly that rather
+than explaining why. **The songthaew rule reads the NAME on purpose and only
+here**: OSM has no tag for a red-truck route, so mappers wrote the destination
+into the name ("Songthaew Stop from Chiangmai to Samoeng", "ท่ารถสองแถวกิ่วสไต") —
+33 elements in the cache, 20 distinct places once merged
+— reading it is the only way that child can ever fill, and the page says the
+line is a mapper's note, not a timetable.
+
+**`/transport.html`** — the bus board from `data/bus_routes.json` (WO-16's
+register: 4 city routes with vehicle counts, 28 numbered หมวด 1/4 routes, and **28
+provincial routes folded back out of 642 register rows** — the register writes
+one row per district a route passes through, so เชียงใหม่-ฮอด-ดอยเต่า alone
+fills 72 of them; the board prints each route once with the อำเภอ it runs through), then a section per split sub linking its shelf child, then
+the **flights board — which existed since 2026-08-02 and was reachable from
+nowhere**, now adopted. A porch band on the transport shelf points at it and
+🚌 sits in the services bar.
+
+**What it refuses:** no fare, no departure time, no journey length, anywhere.
+The register lists routes, not times, and the page says so above the fold
+before a reader can be misled — "the people who know that are at the terminal,
+linked below."
+
+---
+
+## WO-16b — the pharmacy register, the temple verdicts, enrichment, follow · BUILT 2026-08-20
+
+Nan, 2026-08-20: "1, 2 go. pin in 3. sure use government directories. your
+call on follow vs no. Pls check 5." This is 1, 4, 5 and the follow call;
+WO-13 above is 2; **WO-17 (Thailand Tourism Directory) is PINNED at her word,
+not dropped** — it still needs her API-key registration.
+
+**1 · The FDA pharmacy fold (+907).** The licence register named ~3× the
+pharmacies the crawl had found. Retail licences only — `ขายยาแผนปัจจุบัน`, the
+ordinary ขย.1; the บรรจุเสร็จ variants are limited licences and the
+วัตถุออกฤทธิ์ / ยาเสพติด ones are permissions a pharmacy holds ON TOP of that,
+not extra shops — and only where the licence is `คงอยู่`. **CM 202 → 882, CR
+20 → 247.** Each record carries the shop's name, the district it is licensed
+in, its licence number and the date it issued; dual-shelved essentials+medical
+per WO-9. It states **no phone and no hours**, because the register has none.
+
+**5 · The temple review, checked as asked** — `importers/audit_temple_review.py`.
+The 252 held-out rows were all one shape: N register temples sharing a name
+across DIFFERENT อำเภอ against ONE held record, so at most one per group is a
+duplicate and the rest are missing temples. The tool **refutes, never picks**
+(WO-1's rule stands): a row is released when the held record's own surveyed pin
+is >12 km from every pin we know to stand in that row's district. The threshold
+is measured, not chosen — over 2,050 ground pins in 59 districts, the distance
+to the nearest same-district pin has p99 = 8.2 km (cm) / 5.9 km (cr), so 12 km
+misjudges **0.27% / 0.54%**, printed by `--validate`. **75 rows released and
+folded as the separate temples they are; 177 remain for a person** (107 of them
+have no surveyed pin to test at all) in `cache/temple_shortlist.txt`, ranked
+closest-to-settled first. Verdicts + evidence per code:
+`data/curated/temple_verdicts.json`.
+
+**4 · Government-directory enrichment — approved and wired.** `import_opendata.
+enrich()` lets an open government list fill **phone / website / hours that a
+held record leaves EMPTY**, never over a value already there, matched on exact
+normalised name inside one province; an owner's claim still wins because claims
+are applied later at build time. Small today (2 Chiang Rai records gained a
+phone from the tourism list) and that is fine: **this is the mechanism WO-17
+needs the day the TTD key exists**, tested before it is load-bearing.
+
+**Follow vs nofollow — my call, made.** A per-host allowlist in
+`build.credit_rel()`: **followed** for the publishers whose data is on the page
+— every `.go.th`, OpenStreetMap, Wikidata/Wikipedia/Wikimedia, and weed.th, the
+one private directory this site actually took names and addresses from (658
+attributed links). **nofollow stays** for everything else: a place's own site, a
+social page, the "also catalogued by" courtesy links. The rule behind it is who
+we OWE, not who we like — linking to a .go.th register cannot hurt this site
+and does help theirs, which was the whole bargain.
+
+**Also:** the similar-name review test now strips trade words before comparing
+(`ร้านขายยา`, `เภสัช`, `ฟาร์มาซี`…), because every one of 907 pharmacies matched
+a held record literally named ร้านขายยา — the weed.th lesson, hit again:
+740 → 353 review lines.
+
+---
+
 ## Standing contracts
 
 - **Curated over crawled.** Researched facts go to `data/curated/`, never to
@@ -1346,3 +1447,89 @@ note having counted CM's CSV; flagged here rather than assumed silently.
 - **No GitHub** (`CLAUDE.md:304`). Source is served from `/source/`.
 - **Publishing is Nan's move**: `python3 publish/deploy.py --yes`, dry-run by
   default, `FLOOR = 20000`.
+
+## WO-22 — เสริมสวย-ตัดผม: the barber correction, the words · ZERO-NETWORK HALF BUILT 2026-08-20
+
+Nan's ask, verbatim: *"Do whatever you can to enrich mot dang for beauty/barbers.
+particularly interested in afro textured hair, americana/british style barber shops
+with hipsters, hair extensions, braids, updos, digital perms, high tech hair studios,
+and people who make house calls."* Full note: `notes/beauty-proposal-2026-08-20.md`.
+
+**Two shelves were lying, and the lie was readable in Thai the whole time.**
+
+The barber shelf held **six** shops in a city with **sixty-two**. OpenStreetMap
+sets `hairdresser=barber` on 6 of the 371 hairdresser/beauty points, so 6 is what
+the classifier filed; fifty-three more shops put BARBER on their own shopfront —
+สุเทพบาร์เบอร์, Sweeney Todds, Backstreet, Cutlers, เมืองใหม่บาร์เบอร์, Rebel House,
+ปุ๊ บาร์เบอร์ — and sat on ร้านทำผม, indistinguishable from a blow-dry counter.
+
+The salon shelf held **none of sixty-two**, and was on `KNOWN_EMPTY` with the
+reason *"no OSM signal separates a salon from a hairdresser"*. True about the tags,
+false about the shops: **เสริมสวย is THE Thai word for a women's salon** and it was
+in sixty-two names. **Before a shelf is declared unfillable, read the names — in
+the language the shop wrote them.** That line is now in `tests/test_facets.py`
+where the wrong reason used to be.
+
+**The four zeros are the other half of the finding, and they are honest.** Across
+all 18,686 records in both provinces, **not one shopfront says perm, updo, afro,
+textured or house call**. There is no name rule waiting to be written. Those axes
+are answered by the shop stating it, an owner ticking their own facets, or a person
+at the door — and by nothing else. `audit_beauty.py` prints all four counts every
+run so the hole cannot quietly disappear (same discipline as GEAR in
+`audit_muaythai.py`).
+
+**The เปีย guard.** เปีย alone is a braid, and a bare rule files fifteen places as
+braiding salons: บ้านเปียง / ยางเปียง / เปียงหลวง are village names, so it catches five
+health stations, four temples, three schools and a bakery. Only ถักเปีย is ever a
+rule. Strays print every run — same shape as the หมวย/มวย guard.
+
+Built, all zero-network: `audit_beauty.py` (8 reports + `--emit`) · 126 shelf
+corrections into `shelves.json`, each sourced `osm name: <the shop's own sign>` ·
+`beauty/extensions` child · the 30-facet `beauty` set covering every one of the
+eight axes · `male`/`female`/`unisex` rescued from the import (the ONLY three
+things OSM knows about a hair shop, thrown away on every previous run; 26 shops
+now state who they cut for; only `yes` counts, because this layer cannot render an
+absence) · `data/curated/beauty.json` (register shape, empty and saying so) ·
+`beauty_layer.py` → `/beauty.html` · 20 new facet keys in `worker/worker.js`.
+
+**What /beauty.html refuses to do.** It does not sort barbers into the hip ones and
+the ordinary ones, the farang ones and the Thai ones. All sixty-two are one
+alphabetical unranked list, exactly like the elephant camps. Nan's
+"americana/british with hipsters" is real and findable, and the honest way to serve
+it is the shop's own name plus the facets it states — `razorshave`, `fade`, `beard`,
+`priceboard` — never a vibe verdict attached to somebody's livelihood. And it does
+not guess at textured hair: a wrong yes sends somebody with tightly coiled hair to
+a chair where nobody has handled it before, which is worse than an honest silence.
+
+**The words are the deliverable the crawl could never supply.** Five of the eight
+axes are served today, with no network at all, by a person who can say ดัดดิจิตอล
+(dàt dì-jì-tôn), ถักเปียแถว (thàk pia thɛ̌ɛo), เกล้าผม (glâo phǒm, เกล้า = to bind up
+on the head), ต่อผม (tɔ̀ɔ phǒm) and ไปทำถึงที่ (bpai tham thʉ̌ng thîi). Those services
+exist all over this city in shops that simply never wrote them down. A haircut you
+cannot name is a haircut you do not get.
+
+**Five reader questions** (`data/asked.json` → `/asked/*.html`), because these
+are exactly the long-tail queries that reach a directory and exactly the ones it
+was answering worst: `afro-textured-hair` (gap) · `braids-extensions` (1 shop, and
+says so) · `digital-perm` (gap) · `hair-house-call` (gap) · `barbershop-shave`
+(47 CM shops, 10 phoned). The three gaps carry no share card, per the 2026-08-19
+decision that a poster reading "nobody does this" is the one card that travels
+further than the sentence under it. Each gap page carries the Thai sentence to
+ask with and a way to send the answer back, so the question closes by somebody
+answering it rather than by us guessing.
+
+**In the agent brief** (`/brief`): a 💈 section stating the number — 0 of 18,686
+name a perm, an updo, textured hair or a house call — and asking any model
+reading it NOT to name a shop for those services from this data. That is the
+whole safety surface of this WO: the failure mode is a confident answer, not a
+missing one.
+
+**Doors awaiting Nan's numbered go** (note §3): 1. widen the `beauty` Overpass
+group — `hairdresser_supply`, `wig`, `cosmetics`, `craft=hairdresser` (the last is
+likely zero here; worth one run to close the question) · 2. read the 18 shops that
+already carry a website/Facebook/LINE — the first 18 register rows · 3. **the door
+survey**, the only door that ever answers textured hair, digital perms and house
+calls at scale · 4. TTD spa/beauty, blocked on WO-17's key. Also noted, no go
+needed: `Akshaya E Centre` sits on `beauty/hair` with an Indian state government
+website — a bad OSM record wanting a `retags.json` receipt.
+

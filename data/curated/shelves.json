@@ -539,15 +539,2024 @@
    "fetched": "2026-08-07"
   },
   "cr-osm-way-960685090": {
-   "note": "เล็กคิ้วสวย & สปา — name claims beauty-spa; was studio/tattoo",
+   "note": "เล็กคิ้วสวย & สปา — name claims beauty-spa; was studio/tattoo. WO-14: its Thai name says eyebrows (คิ้ว) and its English name says tattoo parlour, so it also stands on สักคิ้ว-สักปาก",
    "add_cat": [
     "beauty"
    ],
    "add_sub": [
-    "beauty-spa"
+    "beauty-spa",
+    "cosmetic-tattoo"
    ],
-   "source": "osm name: เล็กคิ้วสวย & สปา",
-   "fetched": "2026-08-07"
+   "source": "osm name: เล็กคิ้วสวย & สปา / name:en Lek Tattoo Parlor and Spa (cache/overpass/cr/tattoo.json)",
+   "fetched": "2026-08-07",
+   "via": "by hand 2026-08-07; cosmetic-tattoo via importers/audit_tattoo.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-1062056795": {
+   "note": "Anusarn Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Anusarn Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-11113053680": {
+   "note": "RYU Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: RYU Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-11209305650": {
+   "note": "Wadee Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Wadee Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-11227905197": {
+   "note": "Getthawha Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Getthawha Thai Massage Getthawha Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-11337283096": {
+   "note": "Getthawha Changkhang Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Getthawha Changkhang Thai Massage Getthawha Changkhang Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-11629286877": {
+   "note": "Kan Thong Traditional Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Kan Thong Traditional Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-12602962950": {
+   "note": "Malinda Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Malinda Thai Massage Malinda Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-13287729301": {
+   "note": "Karina Thai massage 2 — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Karina Thai massage 2",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-13343563581": {
+   "note": "Sabai Thong Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Sabai Thong Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-13407014801": {
+   "note": "Reun hattha Pirom Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Reun hattha Pirom Thai Massage Reun hattha Pirom Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-13624221576": {
+   "note": "Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-1441783421": {
+   "note": "ใบโพธิ์นวดแผนโบราณ — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: ใบโพธิ์นวดแผนโบราณ Bodhi Tree",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-1477511033": {
+   "note": "Lanna Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Lanna Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-1491262464": {
+   "note": "Moonlight Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Moonlight Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-1491289917": {
+   "note": "Nuad Thai House — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Nuad Thai House",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-1491298175": {
+   "note": "Nokbin Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Nokbin Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-1598988241": {
+   "note": "Somsri Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Somsri Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-1685433774": {
+   "note": "Le Best Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Le Best Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-1797049147": {
+   "note": "Misa Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Misa Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-2039954464": {
+   "note": "C&R Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: C&R Thai Massage C & R massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-2523245333": {
+   "note": "Nimman House — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Nimman House Nimman House Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-2655182614": {
+   "note": "D2 Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: D2 Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-2655274605": {
+   "note": "นวดแผนไทย — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: นวดแผนไทย Pranorm Thai Massage Healthy Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-2670298956": {
+   "note": "Blind Massage — modality read off the shop's own name",
+   "add_sub": [
+    "blind-massage"
+   ],
+   "source": "osm name: Blind Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-2712302348": {
+   "note": "Blind Massage — modality read off the shop's own name",
+   "add_sub": [
+    "blind-massage"
+   ],
+   "source": "osm name: Blind Massage Blind Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-3211596960": {
+   "note": "Kanchaya Thai massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Kanchaya Thai massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-3211599912": {
+   "note": "Herbal Steam House — modality read off the shop's own name",
+   "add_sub": [
+    "spa-body"
+   ],
+   "source": "osm name: Herbal Steam House",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-3304373131": {
+   "note": "บีไฟน์ นวดแผนไทย — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: บีไฟน์ นวดแผนไทย Be Fine",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-3385473030": {
+   "note": "Lila Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Lila Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-3417032449": {
+   "note": "Sabai Arom — modality read off the shop's own name",
+   "add_sub": [
+    "oil",
+    "thai-traditional"
+   ],
+   "source": "osm name: Sabai Arom Sabai Aroma Thai massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-3417311099": {
+   "note": "My Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: My Thai Massage My Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-3426418559": {
+   "note": "ลานนา นวดแผนไทย — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: ลานนา นวดแผนไทย Lanna Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-4476976172": {
+   "note": "Mae Chan Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Mae Chan Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-4739105821": {
+   "note": "Thai Massage Conservation Club — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Thai Massage Conservation Club Thai Massage Conservation Club",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-4744477771": {
+   "note": "Mayuree Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Mayuree Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-4872461721": {
+   "note": "Chiang Mai Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Chiang Mai Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-4876346640": {
+   "note": "Aree Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Aree Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-5149373641": {
+   "note": "นวดแผนไทย — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: นวดแผนไทย Nuat Phaen Thai Massage Spa",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-5221557421": {
+   "note": "Somphet Thai Massage 2 — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Somphet Thai Massage 2 Somphet Thai Massage 2",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-5344068222": {
+   "note": "Lila Thai Massage Ex Inmate Employment Center — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Lila Thai Massage Ex Inmate Employment Center",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-5497970822": {
+   "note": "Arya Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Arya Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-5754257022": {
+   "note": "Lannan Thai Massage Traditional Medical School — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Lannan Thai Massage Traditional Medical School",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-5773125554": {
+   "note": "supatra thai massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: supatra thai massage supatra thai massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-6062941385": {
+   "note": "Chiang Mai Foot Massage — modality read off the shop's own name",
+   "add_sub": [
+    "foot"
+   ],
+   "source": "osm name: Chiang Mai Foot Massage Chiang Mai Foot Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-6237761488": {
+   "note": "Welcome Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Welcome Thai Massage Welcome Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-6323105745": {
+   "note": "Dang Beauty Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Dang Beauty Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-6579664125": {
+   "note": "Chotika Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Chotika Thai Massage Chotika Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-6796226586": {
+   "note": "Lila thai massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Lila thai massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-7416623838": {
+   "note": "Lila Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Lila Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-7426451876": {
+   "note": "Apinya Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Apinya Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-7639135427": {
+   "note": "Chiang Mai Foot Massage — modality read off the shop's own name",
+   "add_sub": [
+    "foot"
+   ],
+   "source": "osm name: Chiang Mai Foot Massage Chiang Mai Foot Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-8578957024": {
+   "note": "Ramphueng Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Ramphueng Thai Massage Ramphueng Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-9289259317": {
+   "note": "Wat Pan Waen Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Wat Pan Waen Thai Massage Wat Pan Waen Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-way-1160323327": {
+   "note": "Lila Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Lila Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-way-481723935": {
+   "note": "Sainapa Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Sainapa Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-way-482768718": {
+   "note": "Thip Thai Massage — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Thip Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-way-793145645": {
+   "note": "Lila Thai Massage马杀鸡 — modality read off the shop's own name",
+   "add_sub": [
+    "thai-traditional"
+   ],
+   "source": "osm name: Lila Thai Massage马杀鸡 Lila Thai Massage",
+   "fetched": "2026-07-27"
+  },
+  "cm-osm-node-10128035418": {
+   "note": "The Camp Muay Thai — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-11936184293": {
+   "note": "Sting Hive Muay Thai Gym — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-12338688901": {
+   "note": "Wildcat Muay Thai — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-12339355501": {
+   "note": "Thaphae Muay Thai — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-13392625201": {
+   "note": "Boon Lanna Muay Thay Boxing Camp — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-2556168468": {
+   "note": "มวยไทยเม้าท์เท็นแค้มป์ — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-2726547911": {
+   "note": "Kawila Boxing Stadium — a stadium, read off its own name",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "stadium"
+   ],
+   "source": "osm name: Kawila Boxing Stadium Kawila Boxing Stadium",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-4497798295": {
+   "note": "Lanna Muay Thai — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-4856648622": {
+   "note": "Por Silaphai Muay Thai Gym — muay thai / boxing read off its own name",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm name: Por Silaphai Muay Thai Gym Por Silaphai Muay Thai Gym",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-6110434687": {
+   "note": "Hong Thong Muay Thai — muay thai / boxing read off its own name",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm name: Hong Thong Muay Thai Hong Thong Muay Thai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-7062102385": {
+   "note": "Santai Muay Thai — muay thai / boxing read off its own name",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm name: Santai Muay Thai Santai Muay Thai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-9281934917": {
+   "note": "Wildcat Muay Thai — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-9331216417": {
+   "note": "Stingclub — muay thai / boxing read off its own name",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm name: Stingclub ค่ายมวยไทย สติง คลับ",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-9348144119": {
+   "note": "ค่ายมวย สิงห์คำ — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-9430506618": {
+   "note": "Heavy Hit Boxing Gym — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-way-1113305906": {
+   "note": "CNX Boxing — muay thai / boxing read off its own name",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm name: CNX Boxing",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-way-452420473": {
+   "note": "Lanna Muay Thai Boxing Camp — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-way-523154439": {
+   "note": "Hug Gym Fitness & Boxing — muay thai / boxing read off its own name",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm name: Hug Gym Fitness & Boxing Hug Gym Fitness & Boxing",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-way-846138300": {
+   "note": "Buakaw Banchamek Muay Thai Gym — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cr-osm-way-960685102": {
+   "note": "The Underdog Muay Thai Gym — the crawl's own sub muaythai",
+   "add_cat": [
+    "muaythai"
+   ],
+   "add_sub": [
+    "camp"
+   ],
+   "source": "osm sub: muaythai",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_muaythai.py --emit, 2026-08-19"
+  },
+  "cm-osm-node-12500290176": {
+   "note": "May Kaidee vegan cooking classes — a cooking class, read off its own name — vegan by name — dessert: the school's own course list names a Thai Desserts course",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class",
+    "dessert",
+    "vegan"
+   ],
+   "source": "osm name: May Kaidee vegan cooking classes · dessert: https://www.maykaidee.com/cooking-school",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-2292084254": {
+   "note": "Gap-s Thai Culinary Art School — a cooking class, read off its own name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class"
+   ],
+   "source": "osm name: Gap-s Thai Culinary Art School",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-3015620954": {
+   "note": "Asia Scenic Thai Cooking School — the crawl's own sub cooking — farm and carving: the school's own site lists a full course at its farm and a fruit-and-vegetable carving course",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "carving",
+    "class",
+    "farm"
+   ],
+   "source": "osm sub: cooking · farm: https://www.asiascenic.com/full-course-at-farm-only-morning.html · carving: https://www.asiascenic.com/carving-full-course.html",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-3087773650": {
+   "note": "Thai Cooking Class & Organic Garden Farm — the crawl's own sub cooking — farm by name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class",
+    "farm"
+   ],
+   "source": "osm sub: cooking",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-3326560612": {
+   "note": "Pum Thai Restaurant & Cooking School — the crawl's own sub cooking",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class"
+   ],
+   "source": "osm sub: cooking",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-3337859200": {
+   "note": "Pantawan Cooking — a cooking class, read off its own name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class"
+   ],
+   "source": "osm name: Pantawan Cooking",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-3385473023": {
+   "note": "Cooking Love — a cooking class, read off its own name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class"
+   ],
+   "source": "osm name: Cooking Love",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-3416932288": {
+   "note": "Thai Kirtchen Cookery Centre — the crawl's own sub cooking",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class"
+   ],
+   "source": "osm sub: cooking",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-3440864916": {
+   "note": "Cooking@home — a cooking class, read off its own name — home by name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class",
+    "home"
+   ],
+   "source": "osm name: Cooking@home",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-3864197357": {
+   "note": "Baan Thai Cookery School — the crawl's own sub cooking",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class"
+   ],
+   "source": "osm sub: cooking",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-4233633591": {
+   "note": "Thai Akha Cooking School — a cooking class, read off its own name — northern by name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class",
+    "northern"
+   ],
+   "source": "osm name: Thai Akha Cooking School",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-4391653340": {
+   "note": "Thai Farm Cooking Class — the crawl's own sub cooking — farm by name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class",
+    "farm"
+   ],
+   "source": "osm sub: cooking",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-4515456789": {
+   "note": "Sammy's Organic Thai Cooking — a cooking class, read off its own name — farm by name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class",
+    "farm"
+   ],
+   "source": "osm name: Sammy's Organic Thai Cooking Sammy's Organic Thai Cooking",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-4529653891": {
+   "note": "May Kaidee's Restaurant & Cooking School (Thai Vegetarian, Vegan Food) — a cooking class, read off its own name — vegan by name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class",
+    "vegan"
+   ],
+   "source": "osm name: May Kaidee's Restaurant & Cooking School (Thai Vegetarian, Vegan Food) May Kaidee's Restaurant & Cooking School (Thai Vegetarian, Vegan Food)",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-4573410090": {
+   "note": "สยามการ์เด้นคุ้กกิ้งสคูล — a cooking class, read off its own name — farm by name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class",
+    "farm"
+   ],
+   "source": "osm name: สยามการ์เด้นคุ้กกิ้งสคูล Siam Garden Cooking School",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-4664813189": {
+   "note": "Siam Rice - Thai cookery school — a cooking class, read off its own name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class"
+   ],
+   "source": "osm name: Siam Rice - Thai cookery school Siam Rice - Thai cookery school",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-5382558821": {
+   "note": "Chang cooking & restaurant — a cooking class, read off its own name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class"
+   ],
+   "source": "osm name: Chang cooking & restaurant Chang cooking & restaurant",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-5640397222": {
+   "note": "BaanThai Cookery School — the crawl's own sub cooking",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class"
+   ],
+   "source": "osm sub: cooking",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-6303089086": {
+   "note": "Thaï kitchen cookery center — the crawl's own sub cooking",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class"
+   ],
+   "source": "osm sub: cooking",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-7106483588": {
+   "note": "Cooking love — a cooking class, read off its own name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class"
+   ],
+   "source": "osm name: Cooking love Cooking love",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-way-623146079": {
+   "note": "Zabb-E-Lee Thai Cooking School — a cooking class, read off its own name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class"
+   ],
+   "source": "osm name: Zabb-E-Lee Thai Cooking School Zabb-E-Lee Thai Cooking School",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-way-961802207": {
+   "note": "Thai Secret Cooking School & Organic Garden Farm — the crawl's own sub cooking — farm by name",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "class",
+    "farm"
+   ],
+   "source": "osm sub: cooking",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-way-305818862": {
+   "note": "Four Seasons Resort Chiang Mai — crawled as a hotel; its own site states a cooking studio, Rim Tai Kitchen, with morning, afternoon and kids' classes",
+   "add_cat": [
+    "cooking"
+   ],
+   "add_sub": [
+    "hotel"
+   ],
+   "source": "https://www.fourseasons.com/chiangmai/dining/restaurants/rim-tai-kitchen/",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-4264568393": {
+   "note": "Elephant Poopoopaper Park — of the elephant, read off its own name",
+   "add_cat": [
+    "chang"
+   ],
+   "add_sub": [
+    "elephant-craft"
+   ],
+   "source": "osm name: Elephant Poopoopaper Park",
+   "fetched": "2026-07-27",
+   "via": "importers/audit_elephant.py --emit, 2026-08-19"
+  },
+  "cr-osm-way-206806372": {
+   "note": "Anantara Golden Triangle and Elephant Sanctuary — the resort's own name carries its camp; the Golden Triangle Asian Elephant Foundation (GTAEF) on site says it rescues elephants and mahouts and provides forest, fodder, shelter and vet care",
+   "add_cat": [
+    "chang"
+   ],
+   "add_sub": [
+    "elephant-camp"
+   ],
+   "source": "osm name: Anantara Golden Triangle and Elephant Sanctuary · https://www.helpingelephants.org/ (GTAEF) read 2026-08-19; the resort's own site answered 403",
+   "fetched": "2026-08-19",
+   "via": "WO-19 hand entry, 2026-08-19"
+  },
+  "cm-osm-node-10104752317": {
+   "note": "56 Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: 56 Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-10137413217": {
+   "note": "Samlaan Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Samlaan Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-10313079209": {
+   "note": "Krai barber Krai barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Krai barber Krai barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-10726995205": {
+   "note": "Robin Beauty & Barber — filed beauty-spa by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Robin Beauty & Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-11135208805": {
+   "note": "OH Barber Shop OH Barber Shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: OH Barber Shop OH Barber Shop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-11135208905": {
+   "note": "Don's Barber Shop Don's Barber Shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Don's Barber Shop Don's Barber Shop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-11407178350": {
+   "note": "Open Barber Open Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Open Barber Open Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-12222064418": {
+   "note": "Chao Barbershop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Chao Barbershop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-12240544619": {
+   "note": "hair beauty and barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: hair beauty and barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-13584277801": {
+   "note": "By. Paiwanbarber By. Paiwanbarber — filed beauty-spa by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: By. Paiwanbarber By. Paiwanbarber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-13991350701": {
+   "note": "Barber Shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Barber Shop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-1541935063": {
+   "note": "Bosang Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Bosang Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-2655280744": {
+   "note": "ตัดผมชาย บรรจงเกศา — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: ตัดผมชาย บรรจงเกศา",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3240859775": {
+   "note": "Porn Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Porn Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3304475328": {
+   "note": "Skill Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Skill Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3317900349": {
+   "note": "นครเชียงใหม่บาร์เบอร์ — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: นครเชียงใหม่บาร์เบอร์",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3385473022": {
+   "note": "Beauty & Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Beauty & Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3388703901": {
+   "note": "พรบาร์เบอร์ — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: พรบาร์เบอร์",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3421207457": {
+   "note": "ชุ่ม บาร์เบอร์ — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: ชุ่ม บาร์เบอร์",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3897646558": {
+   "note": "TCC Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: TCC Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4356144483": {
+   "note": "สวนดอกบาร์เบอร์ Suan Dok Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: สวนดอกบาร์เบอร์ Suan Dok Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4402122096": {
+   "note": "Loft Barber shop Loft Barber shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Loft Barber shop Loft Barber shop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4438827793": {
+   "note": "เอกบาร์เบอร์ช็อป Eak Barbershop — filed beauty-spa by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: เอกบาร์เบอร์ช็อป Eak Barbershop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4536308809": {
+   "note": "เมืองใหม่บาร์เบอร์ เมืองใหม่บาร์เบอร์ — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: เมืองใหม่บาร์เบอร์ เมืองใหม่บาร์เบอร์",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4542031824": {
+   "note": "วัตรดอยสะเก็ดบาร์เบอร์ วัตรดอยสะเก็ดบาร์เบอร์ — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: วัตรดอยสะเก็ดบาร์เบอร์ วัตรดอยสะเก็ดบาร์เบอร์",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4574417289": {
+   "note": "BarberShop BarberShop — filed beauty-spa by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: BarberShop BarberShop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4813290121": {
+   "note": "Barber Barber — filed beauty-spa by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Barber Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4846822621": {
+   "note": "ChiangMai Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: ChiangMai Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4974709127": {
+   "note": "Barber Barber — filed beauty-spa by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Barber Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-5197377721": {
+   "note": "Kung - Robin Beauty & Barber Kung - Robin Beauty & Barber — filed beauty-spa by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Kung - Robin Beauty & Barber Kung - Robin Beauty & Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-5328427821": {
+   "note": "Barber by DON'S — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Barber by DON'S",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-5531545448": {
+   "note": "Barber Shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Barber Shop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-5702387254": {
+   "note": "Cutlers Barber Cutlers Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Cutlers Barber Cutlers Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-6290121274": {
+   "note": "Barber Shot Barber Shot — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Barber Shot Barber Shot",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-7033502869": {
+   "note": "Backstreet Barber Shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Backstreet Barber Shop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-7183656885": {
+   "note": "Sweeney Todds - Barber Shop Sweeney Todds - Barber Shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Sweeney Todds - Barber Shop Sweeney Todds - Barber Shop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-7232781086": {
+   "note": "Men' Barbershop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Men' Barbershop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-7295643885": {
+   "note": "Backstreet Barber Shop Backstreet Barber Shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Backstreet Barber Shop Backstreet Barber Shop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-7295644585": {
+   "note": "Sweeney Todd‘s Barber Shop Sweeney Todd‘s Barber Shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Sweeney Todd‘s Barber Shop Sweeney Todd‘s Barber Shop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-8639585397": {
+   "note": "โจ้ บาร์เบอร์ โจ้ บาร์เบอร์ Cho Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: โจ้ บาร์เบอร์ โจ้ บาร์เบอร์ Cho Barber",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-9784520720": {
+   "note": "barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: barber",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-2148622829": {
+   "note": "ตัดผมชาย — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: ตัดผมชาย",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-2148650353": {
+   "note": "ตัดผมชาย — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: ตัดผมชาย",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-4717894990": {
+   "note": "Barber Shop Barber Shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Barber Shop Barber Shop",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-4736153522": {
+   "note": "Lemme 184 Barbershop Gentlemen only Lemme 184 Barbershop Gentlemen only — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Lemme 184 Barbershop Gentlemen only Lemme 184 Barbershop Gentlemen only",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-6635204799": {
+   "note": "Man Smiles Cut barbershop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Man Smiles Cut barbershop",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-7012871586": {
+   "note": "Barber Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Barber Barber",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-7238538103": {
+   "note": "1993 barber shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: 1993 barber shop",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-8957462393": {
+   "note": "ตัดผมชาย ตัดผมชาย Male Haircut — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: ตัดผมชาย ตัดผมชาย Male Haircut",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-9121752695": {
+   "note": "ตัดผมชาย ตัดผมชาย — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: ตัดผมชาย ตัดผมชาย",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-9166322478": {
+   "note": "ตัดผมชาย ตัดผมชาย men's haircut — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: ตัดผมชาย ตัดผมชาย men's haircut",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-406795422": {
+   "note": "ปุ๊ บาร์เบอร์ — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: ปุ๊ บาร์เบอร์",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-775915844": {
+   "note": "1993 barber shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: 1993 barber shop",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-960685166": {
+   "note": "8@9 Barber — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: 8@9 Barber",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-960771435": {
+   "note": "ตัดผมชาย Tud Phom Chai — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: ตัดผมชาย Tud Phom Chai",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-960934923": {
+   "note": "Rebel House Barber Shop — filed hair by the crawl; the shop's own sign says barber",
+   "add_sub": [
+    "barber"
+   ],
+   "source": "osm name: Rebel House Barber Shop",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-10766218621": {
+   "note": "เสริมสวยดาว — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวยดาว",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-12709479901": {
+   "note": "Again Hair Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Again Hair Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-13724435301": {
+   "note": "Phoenix Hair Salon, 3rd Floor — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Phoenix Hair Salon, 3rd Floor",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-1491430102": {
+   "note": "เสริมสวย — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวย",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-2655193276": {
+   "note": "POLA ร้านเสริมสวย — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: POLA ร้านเสริมสวย",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3207146917": {
+   "note": "Pon Beauty Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Pon Beauty Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3298106603": {
+   "note": "ป๊อปแป๊ป ซาลอน ป๊อปแป๊ป ซาลอน — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: ป๊อปแป๊ป ซาลอน ป๊อปแป๊ป ซาลอน",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3385473027": {
+   "note": "Fai Beauty Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Fai Beauty Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3388698122": {
+   "note": "เสริมสวยอิงอร — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวยอิงอร",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3388700580": {
+   "note": "หนุ่ยซาลอน หนุ่ยซาลอน Nui Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: หนุ่ยซาลอน หนุ่ยซาลอน Nui Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3388701191": {
+   "note": "แอนบิวตี้-ซาลอน — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: แอนบิวตี้-ซาลอน",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3388705278": {
+   "note": "เสริมสวย คุณผู้หญิง อ.อู๊ด — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวย คุณผู้หญิง อ.อู๊ด",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3395098032": {
+   "note": "CNX Professional Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: CNX Professional Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3412084439": {
+   "note": "เสริมสวย ดาราวรรณ เสริมสวย ดาราวรรณ — filed beauty-spa by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวย ดาราวรรณ เสริมสวย ดาราวรรณ",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3416934974": {
+   "note": "The Best Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: The Best Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3417022297": {
+   "note": "Plaza Hair Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Plaza Hair Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3418938994": {
+   "note": "เสริมสวย ฉัตรสุฎา — filed beauty-spa by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวย ฉัตรสุฎา",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3727889754": {
+   "note": "Chanok Beauty Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Chanok Beauty Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4358577151": {
+   "note": "เสริมสวย บิวตี้ & ซาลอน — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวย บิวตี้ & ซาลอน",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4360062574": {
+   "note": "Oops! Hair Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Oops! Hair Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4360073026": {
+   "note": "H Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: H Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4536308807": {
+   "note": "Beauty Point บิวตี้ซาลอน — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Beauty Point บิวตี้ซาลอน",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4594071059": {
+   "note": "เสริมสวย ศิริภรณ์ เสริมสวย ศิริภรณ์ Soemsuai Siri Phon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวย ศิริภรณ์ เสริมสวย ศิริภรณ์ Soemsuai Siri Phon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4596374049": {
+   "note": "ณัฏฐ์บิวตี้ซาลอน ณัฏฐ์บิวตี้ซาลอน Nat Beauty Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: ณัฏฐ์บิวตี้ซาลอน ณัฏฐ์บิวตี้ซาลอน Nat Beauty Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4608401656": {
+   "note": "เสริมสวยมาลี เสริมสวยมาลี Mali Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวยมาลี เสริมสวยมาลี Mali Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-5006956034": {
+   "note": "Nine Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Nine Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-5859346225": {
+   "note": "เสริมสวย อารีย์ เสริมสวย อารีย์ Ari — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวย อารีย์ เสริมสวย อารีย์ Ari",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-6486154088": {
+   "note": "Joy's Hair Salon — filed beauty-spa by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Joy's Hair Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-6915364985": {
+   "note": "B-begin salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: B-begin salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-7183745585": {
+   "note": "Ju's nail salon Ju's nail salon — filed beauty-spa by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon",
+    "nails"
+   ],
+   "source": "osm name: Ju's nail salon Ju's nail salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-820812644": {
+   "note": "Be 1st Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Be 1st Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-8715552308": {
+   "note": "นิตยา บิ้วตี้ ซาลอน นิตยา บิ้วตี้ ซาลอน Nitaya Beauty Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: นิตยา บิ้วตี้ ซาลอน นิตยา บิ้วตี้ ซาลอน Nitaya Beauty Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-way-406928384": {
+   "note": "มะซาลอน มะซาลอน Ma Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: มะซาลอน มะซาลอน Ma Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-way-582870947": {
+   "note": "Do D Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Do D Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-way-701980383": {
+   "note": "Salon Nails Spa & Massage — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon",
+    "nails"
+   ],
+   "source": "osm name: Salon Nails Spa & Massage",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-10099999778": {
+   "note": "เสริมสวย ชฎา เสริมสวย ชฎา Shada — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวย ชฎา เสริมสวย ชฎา Shada",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-10223255057": {
+   "note": "เก๋ บิวตี้ซาลอน เก๋ บิวตี้ซาลอน Kai's Beauty — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เก๋ บิวตี้ซาลอน เก๋ บิวตี้ซาลอน Kai's Beauty",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-12344841301": {
+   "note": "่่่่่KLEEM Beauty Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: ่่่่่KLEEM Beauty Salon",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-2147430780": {
+   "note": "ร้านเสริมสวย — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: ร้านเสริมสวย",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-2148548983": {
+   "note": "ร้านเสริมสวย — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: ร้านเสริมสวย",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-2148609273": {
+   "note": "คำมูล เสริมสวย — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: คำมูล เสริมสวย",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-2148615704": {
+   "note": "ฐิติรัตน์ เสริมสวย — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: ฐิติรัตน์ เสริมสวย",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-2148622840": {
+   "note": "เสริมสวยน้องพิมพ์ — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวยน้องพิมพ์",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-2148624723": {
+   "note": "ร้านเสริมสวย บ้านน้อง — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: ร้านเสริมสวย บ้านน้อง",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-2148627193": {
+   "note": "เสริมสวย อารียา — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวย อารียา",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-2148634181": {
+   "note": "เสริมสวย — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวย",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-5260290180": {
+   "note": "Ton Aoi Beauty Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Ton Aoi Beauty Salon",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-5293902422": {
+   "note": "The winning salon hairdresser The winning salon hairdresser — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: The winning salon hairdresser The winning salon hairdresser",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-7608659185": {
+   "note": "Beauty Salon & Spring Rolls Beauty Salon & Spring Rolls — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Beauty Salon & Spring Rolls Beauty Salon & Spring Rolls",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-9121752696": {
+   "note": "ดรีม ซาลอน ดรีม ซาลอน Dream Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: ดรีม ซาลอน ดรีม ซาลอน Dream Salon",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-node-9166322479": {
+   "note": "เสริมสวยน้องโบว์ เสริมสวยน้องโบว์ Nong Bow Beautify — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวยน้องโบว์ เสริมสวยน้องโบว์ Nong Bow Beautify",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-204877689": {
+   "note": "เสริมสวยจันทร์บิวตี้ — filed beauty-spa by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวยจันทร์บิวตี้",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-204879780": {
+   "note": "ร้านเสริมสวยน้อย — filed beauty-spa by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: ร้านเสริมสวยน้อย",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-960625752": {
+   "note": "ร้านเสริมสวย ชฎา Shada Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: ร้านเสริมสวย ชฎา Shada Salon",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-960625760": {
+   "note": "น้ำ เสริมสวย Nam Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: น้ำ เสริมสวย Nam Salon",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-960685063": {
+   "note": "เสริมสวย กาสะลอง Kasalong Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวย กาสะลอง Kasalong Salon",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-960685078": {
+   "note": "เสริทสวย แฮร์พัส Haie pleased Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริทสวย แฮร์พัส Haie pleased Salon",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-960771433": {
+   "note": "Pink Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Pink Salon",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-960934940": {
+   "note": "Meow Salon เสริมสวยเหมียว — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: Meow Salon เสริมสวยเหมียว",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-963829104": {
+   "note": "เสริมสวยออ เสริมสวยออ Aor Beauty — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวยออ เสริมสวยออ Aor Beauty",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-964468591": {
+   "note": "เสริมสวย อร Orn Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: เสริมสวย อร Orn Salon",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-965783880": {
+   "note": "หม่อม บิวตี้ซาลอน Mhom Salon — filed hair by the crawl; the shop's own sign says salon",
+   "add_sub": [
+    "salon"
+   ],
+   "source": "osm name: หม่อม บิวตี้ซาลอน Mhom Salon",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4870810723": {
+   "note": "Dreadlock Chiangmai — filed hair by the crawl; the shop's own sign says extensions",
+   "add_sub": [
+    "extensions"
+   ],
+   "source": "osm name: Dreadlock Chiangmai",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-1797031150": {
+   "note": "Alina nail spa — filed beauty-spa by the crawl; the shop's own sign says nails",
+   "add_sub": [
+    "nails"
+   ],
+   "source": "osm name: Alina nail spa",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-2466299697": {
+   "note": "City Nail Chiangmai — filed beauty-spa by the crawl; the shop's own sign says nails",
+   "add_sub": [
+    "nails"
+   ],
+   "source": "osm name: City Nail Chiangmai",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-2655161208": {
+   "note": "Love's Nail — filed beauty-spa by the crawl; the shop's own sign says nails",
+   "add_sub": [
+    "nails"
+   ],
+   "source": "osm name: Love's Nail",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-3476187593": {
+   "note": "City Nail — filed beauty-spa by the crawl; the shop's own sign says nails",
+   "add_sub": [
+    "nails"
+   ],
+   "source": "osm name: City Nail",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-4784119225": {
+   "note": "Nails & Brows by Ying — filed beauty-spa by the crawl; the shop's own sign says nails",
+   "add_sub": [
+    "nails"
+   ],
+   "source": "osm name: Nails & Brows by Ying",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-5126142321": {
+   "note": "Nice Nails since 2002 Nice Nails since 2002 — filed beauty-spa by the crawl; the shop's own sign says nails",
+   "add_sub": [
+    "nails"
+   ],
+   "source": "osm name: Nice Nails since 2002 Nice Nails since 2002",
+   "fetched": "2026-08-20"
+  },
+  "cm-osm-node-7416638349": {
+   "note": "The Nail & Massage — filed beauty-spa by the crawl; the shop's own sign says nails",
+   "add_sub": [
+    "nails"
+   ],
+   "source": "osm name: The Nail & Massage",
+   "fetched": "2026-08-20"
+  },
+  "cr-osm-way-1254815337": {
+   "note": "สวนสาธารณะน้ำพุร้อนทุ่งเทวี — crawled as a park (leisure=park), and the park IS the developed spring: the element's own name states it, and the hot-spring shelf is the door a soaking reader opens (WO-23)",
+   "add_cat": [
+    "sights"
+   ],
+   "add_sub": [
+    "hot-spring"
+   ],
+   "source": "https://www.openstreetmap.org/way/1254815337",
+   "fetched": "2026-08-20"
   }
  }
 }

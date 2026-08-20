@@ -63,7 +63,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
-BUILD_DATE = "2026-08-20"
+BUILD_DATE = "2026-08-21"
 
 # Where the 🎲 chip goes when scripting is off. md.js intercepts the click and
 # rolls fresh each time; this baked pick (seeded by BUILD_DATE, so it rotates
@@ -313,6 +313,24 @@ def chang_band(cat_key, depth=2):
             + " →</a></p>")
 
 
+def springs_band(cat_key, depth=2):
+    """One line on the sights shelf pointing at the hot-springs register.
+
+    The shelf holds the two provinces' springs among its sights; the board
+    (/namphuron.html, hotspring_layer.py) holds the whole north — the map,
+    what each spring states, the words. Same reason as the bands above: a
+    reader who reached the shelf by the Yahoo row should not have to find
+    the register by luck.
+    """
+    if cat_key != "sights":
+        return ""
+    r = "../" * depth
+    return (f'<p class="mtband"><a href="{r}namphuron.html">♨️ '
+            + bi("น้ำพุร้อนทั้งภาคเหนือ — แผนที่ ทะเบียนทุกบ่อ อุณหภูมิและค่าเข้าตามที่ประกาศ",
+                 "Hot springs of the whole north — the map, every spring's register, temperatures and fees as posted")
+            + " →</a></p>")
+
+
 def cooking_band(cat_key, depth=2):
     """One line on the cooking shelf pointing at the class board.
 
@@ -329,6 +347,46 @@ def cooking_band(cat_key, depth=2):
             + bi("กระดานคลาสทำอาหาร — โรงเรียนไหนมีคลาสวันนี้ เช้าหรือเย็น ราคาที่ประกาศ และเรื่องที่ควรรู้ก่อนจับครก",
                  "Class board — which school runs a class today, morning or evening, what it posts as the price, and what to know before you lift the pestle")
             + " →</a></p>")
+
+
+def womens_health_band(cat_key, depth=2):
+    """One line on the medical shelf pointing at the women's-health page.
+
+    The shelf lists every clinic and hospital; /womens-health.html says which of
+    them state a สูตินรีเวช service, which are general hospitals where the
+    department is likely but unconfirmed, where a board certification can be
+    checked, and what the Thai on the clinic sign means. Same reason as
+    muaythai_band: a reader who reached the shelf by the Yahoo row should not
+    have to find the page by luck — and this reader in particular arrived
+    typing English at a shelf of 469 Thai-named health stations.
+    """
+    if cat_key != "medical":
+        return ""
+    r = "../" * depth
+    return (f'<p class="mtband"><a href="{r}womens-health.html">⚕ '
+            + bi("สุขภาพผู้หญิง — ที่ไหนบอกเองว่ามีสูตินรีเวช ที่ไหนยังไม่ยืนยัน ตรวจใบวุฒิบัตรที่ไหน และคำบนป้ายแปลว่าอะไร",
+                 "Women's health — which places state an OB-GYN service, which are unconfirmed, where to check a board certification, and what the words on the sign mean")
+            + " →</a></p>")
+
+
+def beauty_band(cat_key, depth=2):
+    """One line on the beauty shelf pointing at the words.
+
+    The shelf lists shops; /beauty.html (beauty_layer.py) carries the thing a
+    crawl can never hold — the Thai for a digital perm, a fade, cornrows, an
+    updo, a house call — plus a printed count of the five questions no
+    shopfront in either province answers. Same reason as muaythai_band: a
+    reader who reached the shelf by the Yahoo row should not have to find the
+    words by luck, and here the words are the whole point. A person who cannot
+    say ดัดดิจิตอล does not get a digital perm, however long this shelf is.
+    """
+    if cat_key != "beauty":
+        return ""
+    r = "../" * depth
+    return ('<p class="mtband"><a href="' + r + 'beauty.html">\U0001F488 '
+            + bi("คำที่ต้องพูด — ตัดเฟด ดัดดิจิตอล ต่อผม ถักเปีย เกล้าผม และไปทำถึงที่ พร้อมเสียงอ่าน และร้านที่มี",
+                 "The word to ask for — a fade, a digital perm, extensions, cornrows, an updo, a house call, with the sounds; and the shops")
+            + " \u2192</a></p>")
 
 
 def yant_band(cat_key):
@@ -693,6 +751,7 @@ style="position:absolute" xmlns="http://www.w3.org/2000/svg"><defs>
 <g id="i-moon"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></g>
 <g id="i-route"><circle cx="5" cy="18.5" r="2.3"/><circle cx="19" cy="5.5" r="2.3"/><path d="M6.8 16.8 11 12.5a3 3 0 0 0 .9-2.5c-.15-1.3.4-2.3 1.5-3.2l3.2-2.4" stroke-dasharray="1.8 2.6"/></g>
 <g id="i-loo"><circle cx="6.6" cy="4.6" r="2"/><path d="M6.6 7.2v6M4.2 9.2h4.8M5.4 13.2 4.8 20M7.8 13.2 8.4 20"/><circle cx="17.4" cy="4.6" r="2"/><path d="M14.9 14.4 17.4 7.2l2.5 7.2ZM16.3 14.4 15.9 20M18.5 14.4 18.9 20"/><path d="M12 2.6v18.8" stroke-dasharray="2 2.4"/></g>
+<g id="i-map"><path d="M2.6 5.8 8.6 3.4v14.8l-6 2.4Z"/><path d="M8.6 3.4l6.8 2.6v14.8L8.6 18.2Z"/><path d="M15.4 6l6-2.6v14.8l-6 2.6Z"/><circle cx="12" cy="9.6" r="1.6"/></g>
 </defs></svg>"""
 
 
@@ -799,6 +858,7 @@ _spec_spec = _ilu.spec_from_file_location(
 _md_specialty = _ilu.module_from_spec(_spec_spec)
 _spec_spec.loader.exec_module(_md_specialty)
 SPECIALTY_LABELS = _md_specialty.LABELS
+OBGYN_GRADE = _md_specialty.obgyn_grade
 
 SCHEMA_TYPE = {
     "wat": "TouristAttraction", "hotel": "LodgingBusiness", "food": "Restaurant",
@@ -846,11 +906,49 @@ SCHEMA_TYPE_SUB = {
     # schema.org has a real Waterfall type (BodyOfWater > Waterfall) — a
     # TouristAttraction fallback would be less true than the thing itself.
     "waterfall": "Waterfall",
+    # No HotSpring type exists in schema.org, so the spring takes the parent
+    # BodyOfWater — still truer than TouristAttraction for a thing the
+    # ground made (WO-23).
+    "hot-spring": "BodyOfWater",
     # A hotel that also hosts a cooking studio (Four Seasons, WO-14) carries
     # cat ['cooking', 'hotel'] after the additive move, and alphabetical order
     # would make the resort a School. The hotel's own sub says what it is.
     "hotel-full": "LodgingBusiness",
 }
+
+
+# ---- credit links: who gets a followed link -------------------------------
+# The polite backlink was the point of the whole aggregation move — "help our
+# site grow and their site grow" — but every credit link on this site has
+# carried rel="nofollow", which passes no standing at all. So: a per-source
+# allowlist, and the rule behind it is who we OWE.
+#
+# FOLLOWED — the publishers whose data is on the page a reader is reading:
+# Thailand's open-data hosts and the departments that publish through them,
+# and the one private directory this site actually took names and addresses
+# from (weed.th, which invited crawlers and got 658 attributed links). Linking
+# to a .go.th register cannot hurt this site's standing and does help theirs,
+# which is the whole bargain.
+#
+# NOFOLLOW — everything else, unchanged: a place's own website, a social page,
+# an "also catalogued by" courtesy link to a directory we did not take from.
+# Those are links we publish for the reader's sake, not endorsements we can
+# vouch for, and a followed link to a domain that later turns into something
+# else is a promise we cannot keep.
+FOLLOW_HOSTS = (
+    ".go.th",            # every Thai government host, incl. data.go.th + gdcatalog
+    "data.go.th", "gdcatalog.go.th",
+    "openstreetmap.org", "wikidata.org", "wikipedia.org", "wikimedia.org",
+    "weed.th",           # the aggregator we took names and addresses from
+)
+
+
+def credit_rel(url):
+    """rel for a SOURCE-CREDIT link. Followed for the publishers we owe."""
+    host = urllib.parse.urlsplit(url or "").netloc.lower().split(":")[0]
+    if host and any(host == h.lstrip(".") or host.endswith(h) for h in FOLLOW_HOSTS):
+        return ' rel="noopener"'
+    return ' rel="nofollow noopener"'
 
 
 def ld_json(r, path, photo_file):
@@ -1039,6 +1137,29 @@ ul.cats .teaser{display:block;font-size:.88rem;color:var(--mute)}
 .count{color:var(--ant-dark);font-size:.9rem}
 .shelf{color:var(--mute)} .shelf .soon{font-size:.8rem;background:var(--soft);
 border-radius:.5rem;padding:0 .5rem;white-space:nowrap}
+/* The rich door: one curated card over the result rows when a query names a
+   topic the site keeps a page for. Spans the columns so it reads as the
+   answer, not as the first row; the namesake header spans them the same way
+   further down, where the places that merely CARRY the word begin. */
+.richdoor{column-span:all;background:var(--card);border:1px solid var(--warm-border);
+border-radius:.8rem;padding:.7rem .95rem;margin:.25rem 0 .9rem;color:var(--ink)}
+.richdoor .rdhead{margin:0;font-size:1.08rem}
+.richdoor .rdlead{margin:.3rem 0 0;color:var(--ink-soft);font-size:.92rem}
+.richdoor .rdfacts{margin:.4rem 0 0}
+.richdoor .rdfact{display:inline-block;font-size:.78rem;color:var(--gloss);
+border:1px dashed var(--dashed);border-radius:999px;padding:.05rem .55rem;
+margin:.1rem .25rem 0 0;background:var(--paper)}
+.richdoor .rddoors{margin:.5rem 0 0}
+.richdoor .pdoor{display:inline-block;border:1px solid var(--warm-border);
+border-radius:.55rem;padding:.16rem .6rem;margin:.14rem .3rem 0 0;
+background:var(--paper);text-decoration:none;
+transition:transform .12s ease,background .12s ease}
+.richdoor .pdoor:hover{background:var(--row-hover);transform:translateY(-1px)}
+.richdoor .pdmain{background:var(--gold-pale);border-color:var(--gold-light);
+font-weight:600}
+.richdoor .rddelight{margin:.5rem 0 0;font-size:.85rem;color:var(--gloss)}
+li.namesake{column-span:all;border-top:1px dashed var(--dashed);
+padding-top:.55rem;margin-top:.8rem}
 /* A chain folded into one shelf. The summary is the whole click target and
    says how many are behind it, so the reader chooses to open 330 rows rather
    than being handed them. Both :has() rules are courtesies — where they are
@@ -1130,6 +1251,13 @@ margin:.5rem 0 .2rem;font:inherit;font-weight:700;border:2px solid var(--ant)}
    follows the reader's own type size, and cannot be dropped by the drawing's
    collision pass the way SVG type can. Wraps to as many rows as it needs on
    a phone and sits on one line on a desktop. */
+/* The map on the doorstep. Short — it is a postcard and a door, and the
+   almanac and the shelves under it must not be pushed off the fold for it. */
+.homemap{margin:0 0 1rem}
+.homemapbody{padding:0 1.25rem 1rem}
+.homemapbox{height:190px;margin:.7rem 0 .4rem}
+@media (min-width:760px){.homemapbox{height:260px}}
+.homemapbox .mdmap-draw,.homemapbox .homemapsvg{height:100%}
 .mdkey{list-style:none;display:flex;flex-wrap:wrap;gap:.15rem .95rem;
   margin:.35rem 0 .6rem;padding:0;font-size:.82rem;color:var(--ink-soft)}
 .mdkey li{display:flex;align-items:center;gap:.3rem}
@@ -2908,10 +3036,11 @@ const idx=await loadIndex();
 // inlined would have put ~60 KB of vocabulary on the ticker, the map and every
 // place page to serve a box that only search.html has. Now every other page is
 // lighter than it was and the cost falls where the feature is.
-const [thesDoc,segText,shelfDoc]=await Promise.all([
+const [thesDoc,segText,shelfDoc,panelDoc]=await Promise.all([
 mdJSON('data/search_thesaurus.json'),
 fetch(RROOT+'data/search_segdict.txt').then(r=>r.ok?r.text():'').catch(()=>''),
-mdJSON('data/search_shelves.json')]);
+mdJSON('data/search_shelves.json'),
+mdJSON('data/search_panels.json')]);
 const SEG=segText.split('\n').filter(l=>l&&l[0]!=='#');
 const SHELVES=(shelfDoc&&shelfDoc.shelves)||{};
 const core=new SEARCHCORE.SearchCore((thesDoc&&thesDoc.groups)||[],SEG);
@@ -2942,9 +3071,22 @@ let found=an.terms.length?index.search(an,0):[];
 const wantShelves=new Set();
 for(const t of an.terms){for(const k of(SHELVES[t.raw]||[]))wantShelves.add(k);}
 for(const ph of an.intent.phrases){for(const k of(SHELVES[ph]||[]))wantShelves.add(k);}
+// A topic the site keeps a whole page for answers with that page, not only
+// with rows — the rich door, curated in data/curated/search_panels.json.
+// Picked BEFORE the lift so a panel's shelf joins the lift too: วัด reaches
+// the wat shelf even though no mined table carries the bare word. Triggered
+// by a lifted shelf, by a word a term expanded to (so จ๊าง arrives through
+// ช้าง), or by a phrase of the whole query; first panel to speak wins.
+const nq=SEARCHCORE.norm(q);
+const PANELS=(panelDoc&&panelDoc.panels)||[];
+const panel=PANELS.find(p=>
+(p.shelves||[]).some(s=>wantShelves.has(s))||
+(p.variants||[]).some(v=>an.terms.some(t=>t.variants.indexOf(v)!==-1))||
+(p.query||[]).some(s=>nq&&nq.indexOf(SEARCHCORE.norm(s))!==-1))||null;
+if(panel)for(const s of(panel.shelves||[]))wantShelves.add(s);
+const onShelf=e=>(e.c||[]).some(c=>wantShelves.has(c))||(e.su||[]).some(s=>wantShelves.has(s));
 if(wantShelves.size){for(const r of found){
-const e=r.doc,on=(e.c||[]).some(c=>wantShelves.has(c))||(e.su||[]).some(s=>wantShelves.has(s));
-if(on)r.score+=0.5;}
+if(onShelf(r.doc))r.score+=0.5;}
 found.sort((a,b)=>b.score-a.score);}
 // Loosen by STEPS, never all at once. A reader who typed two words meant both,
 // so listings matching all of them are the answer and listings matching one are
@@ -2955,6 +3097,14 @@ found.sort((a,b)=>b.score-a.score);}
 const whole=found.filter(r=>r.coverage>=1);
 if(whole.length)found=whole;
 const hits=found.slice(0,200).map(r=>r.doc);
+// ช้าง answers twice in this city: the camps, and the gates, roads and noodle
+// shops that carry the elephant in their NAME — ช้างเผือก, ช้างคลาน, ดอยช้าง.
+// Mixed together the second kind buries the first; split, both read true.
+// On-shelf rows are the answer; namesakes file behind their own header below.
+// The split happens only when the query named a shelf at all — a plain name
+// search stays one list, exactly as it was.
+const onHits=wantShelves.size?hits.filter(onShelf):hits;
+const nameHits=wantShelves.size?hits.filter(e=>!onShelf(e)):[];
 // The count says how many were FOUND, not how many fit on the page. Showing the
 // capped number told a reader searching "coffee" that the city holds 200 cafes
 // when the directory knows 1,976 of them — the one number on this page that has
@@ -2966,6 +3116,9 @@ const more=found.length>hits.length
 // without being told it was one has been quietly misled about how well the
 // search understood them — and a reader who sees ร้านกาแฟนิมมาน reported as
 // ร้านกาแฟ + นิมมาน can tell at a glance whether the split was the one they meant.
+// Did this query ask after women's health at all? The marker rides on the
+// speciality's own vocabulary, so the test is whether any term expanded to it.
+const obAsked=an.terms.some(t=>t.variants.some(v=>v==='obgyn'||v==='นรีเวช'||v==='สูตินรีเวช'));
 const worst=found.length?found[0].tier:null;
 const says=[];
 if(an.notes.indexOf('mended')>=0)says.push(['สะกดใกล้เคียง — น่าจะหมายถึงคำนี้','near spelling — this looks like the word you meant']);
@@ -2981,19 +3134,44 @@ if(asked.length&&found.length)says.push(
 ['อ่านคำขอได้ แต่หน้านี้ยังกรองตามนั้นไม่ได้ — ดูรายละเอียดในหน้าร้าน',
 'understood, but this page cannot filter on that yet — check the listing']);
 const note=says.map(s=>`<li class="shelf">${mdBi(s[0],s[1])}</li>`).join('');
+// A place carrying `ob` answered a women's-health query on the strength of
+// being a general hospital, which is not the same as anybody having confirmed
+// an OB-GYN department there. The cm-womens-health harvester graded it
+// `hospital-likely` for exactly that reason, so the row grades it too. Said in
+// the row rather than in a footnote: a reader scanning forty-nine names should
+// be able to see which five are stated and which forty-four are inferred,
+// without reading anything above the list.
 const row=e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
 `${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
-` <span class="count">· ${e.pv}</span></li>`;
+` <span class="count">· ${e.pv}</span>`+
+`${e.ob&&obAsked?' <span class="prov">'+mdBi('โรงพยาบาลทั่วไป — ยังไม่ได้ยืนยันว่ามีแผนกสูตินรีเวช','general hospital — an OB-GYN department is not confirmed')+'</span>':''}`+
+`</li>`;
 // Two hundred names in one column is a list nobody reads. Grouped under the
 // shelf each one stands on, with its count, the same result becomes a page you
 // can steer: thirty-three ข้าวซอย places, four of them in Chiang Rai.
-const groups=new Map();
-for(const e of hits){const c=(e.c&&e.c[0])||'other';
+const groupHtml=list=>{const groups=new Map();
+for(const e of list){const c=(e.c&&e.c[0])||'other';
 if(!groups.has(c))groups.set(c,[]);groups.get(c).push(e);}
-const ordered=[...groups.entries()].sort((a,b)=>b[1].length-a[1].length);
-const body=ordered.map(([c,list])=>{const lab=MD_CATWORDS[c];
-const head=lab?`<li class="shelf"><a href="${RROOT}${list[0].p}/${c}/">${lab}</a> <span class="count">${list.length}</span></li>`:'';
-return head+list.map(row).join('');}).join('');
+return [...groups.entries()].sort((a,b)=>b[1].length-a[1].length)
+.map(([c,shelf])=>{const lab=MD_CATWORDS[c];
+const head=lab?`<li class="shelf"><a href="${RROOT}${shelf[0].p}/${c}/">${lab}</a> <span class="count">${shelf.length}</span></li>`:'';
+return head+shelf.map(row).join('');}).join('');};
+// The rich door itself. Its count is taken from the index the page just
+// loaded, so it is the directory's own number today, never a baked one.
+const pdoor=d=>{const ext=/^https?:/i.test(d.href);
+return `<a class="pdoor${d.main?' pdmain':''}" href="${ext?d.href:RROOT+d.href}"${ext?' rel="noopener"':''}>${mdBi(d.label[0],d.label[1])}</a>`;};
+const pcodes=(panel&&panel.count&&panel.count.codes)||[];
+const pcount=pcodes.length?idx.filter(e=>(e.c||[]).some(c=>pcodes.indexOf(c)!==-1)||(e.su||[]).some(s=>pcodes.indexOf(s)!==-1)).length:0;
+const panelHtml=panel?`<li class="richdoor">`+
+`<p class="rdhead">${panel.glyph?panel.glyph+' ':''}<b>${mdBi(panel.title[0],panel.title[1])}</b>${pcount?` <span class="count">${pcount}</span>`:''}</p>`+
+`<p class="rdlead">${mdBi(panel.lead[0],panel.lead[1])}</p>`+
+((panel.facts&&panel.facts.length)?`<p class="rdfacts">${panel.facts.map(f=>`<span class="rdfact">${mdBi(f[0],f[1])}</span>`).join(' ')}</p>`:'')+
+`<p class="rddoors">${(panel.doors||[]).map(pdoor).join(' ')}</p>`+
+(panel.delight?`<p class="rddelight">${mdBi(panel.delight[0],panel.delight[1])}</p>`:'')+
+`</li>`:'';
+// The namesake shelf reads as its own find, not as noise pushed down: the
+// header says WHY these rows answered, and the count beside it stays true.
+const divider=(wantShelves.size&&nameHits.length)?`<li class="shelf namesake">${mdBi('ชื่อพ้อง — ที่ซึ่งชื่อมีคำนี้อยู่','namesakes — places carrying the word in their name')} <span class="count">${nameHits.length}</span></li>`:'';
 // Nothing found is a fork in the road, not a wall. The shelves are the doors a
 // reader can actually walk through, and the ants are the door for a place the
 // directory does not hold yet.
@@ -3002,7 +3180,7 @@ const doors=()=>{const top=MD_TOPCATS.map(c=>
 return '<li class="shelf">ไม่พบคำนี้ — ลองดูตามหมวด หรือบอกมดให้ไปเก็บ · '+
 'nothing under that word — try a shelf, or send the ants to find it</li>'+top+
 `<li class="shelf"><a href="${RROOT}crawl-request.html">ส่งมดไปสำรวจ · Request a crawl</a></li>`;};
-resBox.innerHTML=(hits.length?note+more+body:'')||(q?doors():'');})();}
+resBox.innerHTML=(hits.length?panelHtml+note+more+groupHtml(onHits)+divider+groupHtml(nameHits):(q?panelHtml+doors():''));})();}
 // ---- today's sky + fortune, chosen from a month baked at build time ---
 // Nothing is fetched: build.py wrote 30 days into these files, so the page is
 // right every morning without a rebuild and still makes no outside request.
@@ -3665,7 +3843,24 @@ return `<div class="topicwidget"><button class="unpin" data-pc="${pc}" title="�
 `<h4><a href="${pv}/${cat}/index.html">${H(m.t)}</a> `+
 `<span class="count">(${m.n.toLocaleString()}) · ${H(m.v)}</span>${fresh}</h4>`+
 `<ul class="preview">${preview}</ul></div>`;}).join('');
-shelf.querySelectorAll('.unpin').forEach(b=>b.addEventListener('click',()=>unpin(b.dataset.pc)));}
+shelf.querySelectorAll('.unpin').forEach(b=>b.addEventListener('click',()=>unpin(b.dataset.pc)));
+myMapLink();}
+// ---- my shelves, as my map -------------------------------------------
+// The explore map takes its entire view from the address bar, so "my map" is
+// that page opened at the shelves this reader pinned — no second map, no
+// second filter, nothing stored anywhere but their own browser. Six is the
+// cap the map itself keeps (a reader cannot hold more colours apart than
+// that), so a heavily-pinned page sends the first six and says so rather
+// than quietly dropping the rest.
+function myMapLink(){
+const go=document.getElementById('mymapgo'),note=document.getElementById('mymapnote');
+if(!go)return;
+const keys=[...pins].map(pc=>pc.replace('/','-'));
+const six=keys.slice(0,6);
+go.href='map.html'+(six.length?'#12.4/18.78760/98.99310/'+six.join(','):'');
+if(!note)return;
+note.textContent=!keys.length?'ปักหมวดไว้ก่อน แล้วหมวดนั้นจะขึ้นบนแผนที่ · pin a shelf and it appears on the map'
+:(keys.length>6?'แผนที่แสดงได้ทีละ ๖ หมวด · the map shows six shelves at a time':'');}
 pinpick.querySelectorAll('input').forEach(cb=>{cb.checked=pins.has(cb.dataset.pc);
 cb.addEventListener('change',()=>{cb.checked?pins.add(cb.dataset.pc):pins.delete(cb.dataset.pc);
 localStorage.setItem('md-pins',JSON.stringify([...pins]));renderPins();});});
@@ -5115,6 +5310,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <button aria-label="{att(bi_text("ค้นหา", "Search"))}">{svg_icon("i-search", 22, "rowicon")}{bi("ค้นหา", "Search")}</button>
   </form>
   <nav class="chipbar" aria-label="ทางลัด Shortcuts">
+    <a class="chip dark" href="{r}map.html">{svg_icon("i-map", 22)}<span>{bi("แผนที่เมือง", "The city map")}</span></a>
     <a class="chip dark" href="{r}plan.html">{svg_icon("i-route", 22)}<span>{bi("วางแผนเดินทาง", "Plan a route")}</span><span class="plancount" style="display:none"></span></a>
     <a class="chip" href="{r}my.html">{svg_icon("i-me", 22)}<span>{bi("หน้าแรกของฉัน", "My page")}</span></a>
     <a class="chip" href="{r}add.html">{svg_icon("i-plus", 22)}<span>{bi("เพิ่มข้อมูล", "Add a place")}</span></a>
@@ -5127,6 +5323,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <a href="{r}contacts.html">{bi("เติมเบอร์-ไลน์", "Add contacts")}</a> ·
     <a href="{r}soi.html">{bi("ถนนและซอย", "Roads & sois")}</a> ·
     <a href="{r}tags.html">🏷 {bi("ป้ายกำกับ", "Tags")}</a> ·
+    <a href="{r}transport.html">🚌 {bi("รถ-เดินทาง", "Getting around")}</a> ·
     <a href="{r}merit.html">{bi("ไหว้พระ ๙ วัด", "Nine temples")}</a> ·
     <a href="{r}crawl-request.html">{bi("ส่งมดไปสำรวจ", "Request a crawl")}</a> ·
     <a href="{r}widgets.html">{bi("วิดเจ็ต", "Widgets")}</a> ·
@@ -5137,6 +5334,8 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <a href="{r}muaythai.html">{bi("ดูมวยคืนนี้", "Muay Thai tonight")}</a> ·
     <a href="{r}cooking.html">{bi("เรียนทำอาหาร", "Cooking classes")}</a> ·
     <a href="{r}chang.html">{bi("ช้าง", "Elephants")}</a> ·
+    <a href="{r}namphuron.html">{bi("น้ำพุร้อน", "Hot springs")}</a> ·
+    <a href="{r}beauty.html">{bi("ตัดผม-ทำผม", "Hair & barbers")}</a> ·
     <a href="{r}open-now.html">{bi("ตอนนี้เปิดอะไร", "Open now")}</a> ·
     <a href="{r}asked.html">{bi("ถามมด", "Ask the ants")}</a> ·
     <a href="{r}stats.html">{bi("สถิติ", "Stats")}</a> ·
@@ -6092,6 +6291,14 @@ def tag_pills(r):
     Each pill's tooltip says how it was earned."""
     import tags_layer as _tl
     return _tl.pills(globals(), r)
+
+
+def transport_band(cat_key):
+    """The porch on the transport shelf. The board (/transport.html,
+    transport_layer.py) is where routes, trains, red trucks and flights meet;
+    the shelf is where the individual stops live."""
+    import transport_layer as _t
+    return _t.band(globals(), cat_key)
 
 
 def facet_ticks():
@@ -7165,6 +7372,17 @@ def known_facts(r):
             metres = "{:,.0f}".format(float(m_ele.group(1).replace(",", "")))
             rows.append(f"<dt>{bi('ความสูงจากระดับน้ำทะเล', 'Elevation')}</dt>"
                         f"<dd>{esc(metres)} " + bi("เมตร", "metres") + "</dd>")
+    # A spring's stated water temperature (WO-23) — rendered as the
+    # measurement it is, degrees kept as given. Same posture as the bearing
+    # above: a value that is not a clean reading renders nothing rather than
+    # something almost right, and no superlative is minted from a number.
+    if a.get("temperature"):
+        m_temp = re.match(r"^\s*(\d{1,3}(?:[.,]\d+)?)\s*°?\s*C?\s*$",
+                          str(a["temperature"]), re.I)
+        if m_temp:
+            deg = m_temp.group(1).replace(",", ".")
+            rows.append(f"<dt>{bi('อุณหภูมิน้ำ', 'Water temperature')}</dt>"
+                        f"<dd>{esc(deg)} °C</dd>")
 
     # What a school is on paper. Two registers say it: สพฐ. holds the levels a
     # school teaches, the education service area it answers to and how many
@@ -7593,7 +7811,7 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     # first, and a reader who wants to check has a right to know where to look.
     if src.get("type") == "directory" and src.get("via"):
         who = esc(src["via"])
-        link = f'<a href="{att(src["ref"])}" rel="nofollow noopener">{who}</a>' \
+        link = f'<a href="{att(src["ref"])}"{credit_rel(src["ref"])}>{who}</a>' \
             if str(src.get("ref", "")).startswith("http") else who
         prov_line = bi(f"ชื่อและที่อยู่จาก {link}", f"Name and address from {link}", raw=True)
     # A register says who published it, by name. "Open data" was what these
@@ -7604,7 +7822,7 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     # weigh the fact. Every such source already carries `credit`.
     elif src.get("credit"):
         who = esc(src["credit"])
-        link = (f'<a href="{att(src["ref"])}" rel="nofollow noopener">{who}</a>'
+        link = (f'<a href="{att(src["ref"])}"{credit_rel(src["ref"])}>{who}</a>'
                 if str(src.get("ref", "")).startswith("http") else who)
         prov_line = bi(f"ข้อมูลจาก {link}", f"Data from {link}", raw=True)
     fetched = f" · {esc(src['fetched'])}" if src.get("fetched") else ""
@@ -9563,8 +9781,8 @@ SOURCE_FILES = ["build.py", "CLAUDE.md", "README.md", "AGENTS.md",
                 "answers_layer.py", "app_layer.py", "asked_layer.py", "cooking_layer.py",
                 "festivals_layer.py",
                 "flights_layer.py", "live_shell.py", "map_ground.py", "map_shell.py",
-                "muaythai_layer.py", "nitnoy_layer.py", "pins_layer.py", "taste_layer.py",
-                "toilets_layer.py", "elephant_layer.py"]
+                "beauty_layer.py", "muaythai_layer.py", "nitnoy_layer.py", "pins_layer.py", "taste_layer.py",
+                "toilets_layer.py", "elephant_layer.py", "womens_health_layer.py"]
 # Anything that is somebody's private business, a credential, or a working
 # scratch never enters the archive. Whitelisting the trees above and naming
 # these again is belt and braces: a bare "everything except" would ship
@@ -9806,6 +10024,59 @@ ROAD_GRAPH_AREA = _road_graph_area()
 PLAN_DEMO_GIF = "plan-demo.gif"
 _pd_path = ROOT / "assets" / "plan-demo.json"
 PLAN_DEMO = json.loads(_pd_path.read_text()) if _pd_path.exists() else None
+
+
+def home_map_box():
+    """The postcard of the city on the front page.
+
+    Not a small copy of the explore map: no chips, no shelves fetched, nothing
+    to filter. Its whole job is that the doorstep of a directory of two
+    provinces should SHOW those provinces, and then hand the reader to the map
+    that can be worked. So it draws the one shape everybody here navigates by,
+    puts real ground under it, and gets out of the way.
+
+    Its own drawing is the moat and the named gates, which is also what it
+    keeps with no tiles and on paper.
+    """
+    if not MOAT_POLY:
+        return ""
+    W, H = 720.0, 300.0
+    lat = [p[0] for p in MOAT_POLY]
+    lng = [p[1] for p in MOAT_POLY]
+    s_, n_ = min(lat), max(lat)
+    w_, e_ = min(lng), max(lng)
+    # Room around the walls: the old city is the anchor, not the whole frame.
+    pad = max(n_ - s_, e_ - w_) * 0.85
+    s_, n_, w_, e_ = s_ - pad, n_ + pad, w_ - pad, e_ + pad
+    kx = math.cos(math.radians((n_ + s_) / 2))
+
+    def X(ln):
+        return (ln - w_) / (e_ - w_) * W
+
+    def Y(la):
+        return (n_ - la) / (n_ - s_) * H
+
+    o = ['<svg viewBox="0 0 %.0f %.0f" width="100%%" class="homemapsvg" role="img" '
+         'aria-label="%s">' % (W, H, att(bi_text(
+             "แผนที่เวียงเชียงใหม่ กดเพื่อเปิดแผนที่เมืองทั้งเมือง",
+             "The old city of Chiang Mai — open the full city map"))),
+         '<rect class="mdmap-bg" width="%.0f" height="%.0f" fill="#FBF6EE"/>' % (W, H),
+         '<polygon class="mdmap-bg" points="%s" fill="none" stroke="#6E8CA0" '
+         'stroke-width="2.2" stroke-dasharray="5 4"/>'
+         % " ".join("%.1f,%.1f" % (X(p[1]), Y(p[0])) for p in MOAT_POLY)]
+    for glat, glng, gth, gen, gkind in _moat_crossings():
+        if not (s_ <= glat <= n_ and w_ <= glng <= e_):
+            continue
+        gx, gy = X(glng), Y(glat)
+        o.append('<g data-mdpin="%.1f,%.1f"><title>%s</title>'
+                 '<path d="M%.1f %.1fl4.6 4.6-4.6 4.6-4.6-4.6z" fill="#FFFCF6" '
+                 'stroke="#4A6373" stroke-width="1.7"/></g>'
+                 % (gx, gy, att(bi_text(gth, gen)), gx, gy - 4.6))
+    o.append('</svg>')
+    return map_shell.mount("homemap", "".join(o), prov="cm", zoom=13.2,
+                           lat=(n_ + s_) / 2, lng=(w_ + e_) / 2,
+                           cls="mdmap homemapbox",
+                           mpu=(e_ - w_) * 111320.0 * kx / W)
 
 
 def plan_hero_html(depth=0):
@@ -12375,6 +12646,33 @@ def build():
             _k.append(str(_al.get("cuisine") or "").replace(";", " ").replace("_", " "))
             _k.append(_al.get("brand") or "")
             _k.append(_al.get("operator") or "")
+            # What a clinic says it TREATS, in both languages. The place page has
+            # rendered this since importers/specialty.py landed and every label
+            # links to a search — but the word was never put in the index those
+            # links search, so "Women's health" on a place page led to a page
+            # that could not find that place. 125 records state a speciality;
+            # only the ones with it spelled out in their own name were findable.
+            for _sp in (_al.get("specialty") or []):
+                if _sp in SPECIALTY_LABELS:
+                    _k.append(" ".join(SPECIALTY_LABELS[_sp]) + " " + _sp)
+            # The graded OB-GYN signal the cm-womens-health harvester left here.
+            # It has been carried in places.json all along and read by nothing —
+            # not the index, not a page. `tagged` is a mapper's statement and is
+            # indexed with the speciality's own words. `hospital-likely` means
+            # "general hospital, nobody has confirmed an OB-GYN department", so
+            # it is indexed under its own marker word and the result row says so
+            # out loud rather than letting a guess pass as an answer.
+            # Filtered, not taken raw — the harvester's `hospital-likely` is
+            # generous by design and had landed on three ร้านยา, a neurological
+            # hospital, a child-health institute and a thalassaemia screening
+            # centre. importers/specialty.py:obgyn_grade is the single place
+            # that decides; this page and /womens-health.html both ask it, so
+            # the search and the list can never disagree about who qualifies.
+            _ob = OBGYN_GRADE(_al, _th, _en)
+            if _ob:
+                _k.append(" ".join(SPECIALTY_LABELS["obgyn"]) + " obgyn")
+                if _ob == "hospital-likely":
+                    idx_entry["ob"] = 1
             # 🏷 Both names of every tag the place earned — "vegan" finds the
             # cafés that only say so in a diet tag, "บิตคอยน์" the shops that
             # only say so in a payment list. Matched, never displayed.
@@ -12493,7 +12791,7 @@ def build():
                             order_out=dom_order)
             body = (f'{cat_art_band(c, key)}'
                     f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
-                    f'{emergency_band(c)}{muaythai_band(c)}{cooking_band(c)}{chang_band(c)}{yant_band(c)}'
+                    f'{emergency_band(c)}{muaythai_band(c)}{cooking_band(c)}{chang_band(c)}{springs_band(c)}{beauty_band(c)}{womens_health_band(c)}{transport_band(c)}{yant_band(c)}'
                     f'{subshelf}{ad_box(f"{key}/{c}/index.html", 2)}'
                     f'{shelf_map(dom_order or in_cat, c, p)}{toolbar(in_cat)}'
                     f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
@@ -12713,6 +13011,25 @@ def build():
 
     plan_promo_html = plan_hero_html()
 
+    # ---- the map, on the doorstep ---------------------------------------
+    # The front page opened with a wall of category names and never showed the
+    # city it is a directory of. This is a live map of it, at the size of a
+    # postcard, and its whole job is to be touched: it opens the explore map at
+    # whatever the reader was looking at. Deliberately NOT a second copy of the
+    # explore map's machinery — no chips, no fetching of shelves, one drawn
+    # frame with real ground under it and one door out.
+    home_map_html = (
+        f'<section class="card homemap" aria-labelledby="h-map">'
+        f'<div class="cardhead" style="background:var(--card-alt)">'
+        f'<h2 id="h-map">{svg_icon("i-map", 22)} {bi("เมืองทั้งเมือง", "The whole city")}</h2>'
+        f'<a href="map.html">{bi("เปิดแผนที่", "Open the map")} →</a></div>'
+        f'<div class="homemapbody">'
+        f'{home_map_box()}'
+        f'<p class="quiet">'
+        + bi("แตะเพื่อเปิดแผนที่เมือง เลือกชั้นที่อยากดู แล้วส่งมุมที่เห็นให้เพื่อนได้",
+             "Open the city map, switch on the shelves you want, and send the view to a friend.")
+        + f'</p></div></section>')
+
     picks_html = ""
     if hi_cards:
         picks_html = (
@@ -12752,7 +13069,7 @@ def build():
         f'<div class="homegrid">'
         + (f'<aside class="sidetop" aria-label="{att("วันนี้ / today")}">'
            f'<div class="sidecard dark">{side_today}</div></aside>' if side_today else "")
-        + f'<div class="homemain">{"".join(home_sections)}{picks_html}</div>'
+        + f'<div class="homemain">{home_map_html}{"".join(home_sections)}{picks_html}</div>'
         f'<aside class="homeside" aria-label="{att("ปฏิทิน ราคา / almanac")}">'
         f'{"".join(x for x in side_rest if x)}</aside>'
         f'</div>'
@@ -12811,7 +13128,15 @@ def build():
         f'<div class="module"><h3>{bi("หมวดที่ปักไว้", "Pinned shelves")}</h3>'
         f'<ul class="dir" id="myshelf"></ul>'
         f'<details id="pinpick"><summary>📌 {bi("เลือกหมวดมาปัก", "Choose shelves to pin")}</summary>'
-        f'{"".join(pick_groups)}</details></div>'
+        f'{"".join(pick_groups)}</details>'
+        # The shelves this reader pinned, as a MAP of them. No second engine:
+        # /map.html already takes its whole view from the address, so a
+        # personal map is that page opened at the shelves they chose. The
+        # link is built in the browser because the pins live there and
+        # nowhere else — this site has no idea who anybody is.
+        f'<p class="mymapline"><a class="hcta" id="mymapgo" href="map.html">'
+        f'{bi("🗺 ดูหมวดของฉันบนแผนที่", "See my shelves on the map")} →</a> '
+        f'<span class="quiet" id="mymapnote"></span></p></div>'
         f'<div class="module"><h3>{bi("ลิงก์ของฉัน", "My links")}</h3>'
         f'<form id="bmform"><input name="n" placeholder="ชื่อ / name">'
         f'<input name="u" placeholder="https://…"><button>{bi("เพิ่ม", "Add")}</button></form>'
@@ -12904,6 +13229,33 @@ def build():
         else:
             print(f"  ! {_name} missing — run search-core/sync.py; "
                   f"search will still work, with less vocabulary")
+    # The rich doors search.html lays over its rows — WO-24, curated field
+    # truth in data/curated/, one card per topic the site keeps a page for.
+    # Shape-checked here so a malformed pair fails the BUILD, loudly, instead
+    # of quietly blanking the panel for every reader.
+    _panels_src = ROOT / "data" / "curated" / "search_panels.json"
+    if _panels_src.exists():
+        _pdoc = json.loads(_panels_src.read_text())
+        _pids = set()
+        for _p in _pdoc.get("panels", []):
+            for _k in ("id", "title", "lead", "doors"):
+                if _k not in _p:
+                    raise SystemExit(
+                        f"search_panels.json: panel {_p.get('id', '?')!r} is missing {_k!r}")
+            if _p["id"] in _pids:
+                raise SystemExit(f"search_panels.json: duplicate panel id {_p['id']!r}")
+            _pids.add(_p["id"])
+            _pairs = [_p["title"], _p["lead"]] + [d.get("label") for d in _p["doors"]] \
+                + list(_p.get("facts") or []) \
+                + ([_p["delight"]] if _p.get("delight") else [])
+            for _pair in _pairs:
+                if not (isinstance(_pair, list) and len(_pair) == 2
+                        and all(isinstance(_s, str) and _s for _s in _pair)):
+                    raise SystemExit(
+                        f"search_panels.json: {_p['id']}: every reader-facing string "
+                        f"is a [th, en] pair — got {_pair!r}")
+        (DOCS / "data" / "search_panels.json").write_text(
+            json.dumps(_pdoc, ensure_ascii=False))
     (DOCS / "search.html").write_text(page(
         "ค้นหา",
         f'<h1>{bi("ผลการค้นหา", "Search results")} <span class="count" id="rescount"></span></h1>'
@@ -15011,6 +15363,11 @@ def build():
     # ---- app.html: the toilets map as an installable, offline app -------
     import app_layer
     print("  app:", app_layer.emit(globals(), data))
+    # ---- map.html: the city as a way IN, not only as an illustration -----
+    # After the province loop, because it labels its chips with the point
+    # counts those GeoJSON files actually came out at.
+    import explore_layer
+    print("  explore:", explore_layer.emit(globals()))
     (DOCS / "widgets.html").write_text(
         build_widgets_page(EVENTS, data, moon_svg_markup))
     write_sky_json()
@@ -15042,6 +15399,15 @@ def build():
     import elephant_layer
     print("  chang:", elephant_layer.emit(globals(), data))
 
+    # ---- namphuron.html: the whole north's hot springs — the register, the
+    # drawn map, the primer (WO-23). The one board whose frame is wider than
+    # the two provinces: CM/CR springs are full records, the other fifteen
+    # provinces of ภาคเหนือ ride data/hotsprings.json, harvested area-clipped
+    # per province. Springs are never merged into EVENTS_RAW — a soak is a
+    # place, not a happening.
+    import hotspring_layer
+    print("  namphuron:", hotspring_layer.emit(globals(), data))
+
     # ---- cooking.html: the class board, the shelf's porch, the primer ------
     # Deliberately NOT merged into EVENTS_RAW the way fight nights are: a
     # class that runs every morning is a booking, not a happening, and ten
@@ -15049,6 +15415,32 @@ def build():
     # on each school's own record (known_facts rows).
     import cooking_layer
     print("  cooking:", cooking_layer.emit(globals(), data))
+
+    # ---- beauty.html: the words, the shelves, the census of the silence ---
+    # No board and no register rows yet, deliberately: WO-22 was zero-network
+    # and no shop's own page has been read. What the page DOES carry is the
+    # thing a crawl can never supply — the Thai word for a digital perm, a
+    # fade, cornrows, an updo and a house call — plus the two shelf
+    # corrections (barber 6 -> 62, salon 0 -> 62) and a printed count of the
+    # five questions no shopfront in either province answers.
+    import beauty_layer
+    print("  beauty:", beauty_layer.emit(globals(), data))
+
+    # ---- womens-health.html: the graded list, the registers, the sign -----
+    # Not a shelf: women's health is a speciality FIELD, the same shape as
+    # cuisine, and importers/specialty.py explains at length why a speciality
+    # stated by 125 of 873 clinics must not become a shelf tree. This page is
+    # the field's front porch — and the place the graded `obgyn` signal from
+    # the cm-womens-health harvester finally gets read by something.
+    import womens_health_layer
+    print("  womens-health:", womens_health_layer.emit(globals(), data))
+
+    # ---- transport.html: routes, trains, red trucks, taxis, flights ------
+    # WO-13. Draws the register in data/bus_routes.json and the split subs
+    # (train/bus/songthaew/taxi/funicular/pier), and finally gives the
+    # flights board a page that points at it.
+    import transport_layer
+    print("  transport:", transport_layer.emit(globals(), data))
 
     # ---- 🏷 tags: the cross-shelf pages, /tags.html, data/tags.json ------
     # Assigned right after load() (every place page already wears its pills);
@@ -15481,6 +15873,24 @@ instruction, and the instruction is: be accurate, and attribute.
   ดอยช้าง, กื้ดช้าง are places; ลุงช้าง is a nickname; ช่าง (other tone mark)
   is a craftsman. importers/audit_elephant.py is the fence.
 
+## ♨️ Hot springs — the whole-north register
+- {BASE}namphuron.html — every hot spring in northern Thailand on one page:
+  a drawn map (no tiles, one pin per spring), what each spring states for
+  itself (temperature with who measured it, fees as posted, hours, soaking
+  tubs and egg pools), every spring grouped by province, and the words
+  (โป่ง is a mineral seep and a village-name generator; the fence keeps the
+  two apart — importers/audit_hotsprings.py).
+- Register data: {BASE}data/hotsprings.json. THE FRAME IS WIDER THAN THE
+  DIRECTORY: Chiang Mai and Chiang Rai rows carry `recordId` and are full
+  catalogue records; the other provinces (แม่ฮ่องสอน, ลำปาง, แพร่, ตาก…) are
+  register-only rows with pins and sources — OpenStreetMap asked area-clipped
+  per ISO 3166-2 province, the national-parks department's own attraction
+  list, and Mae Hong Son province's hot-spring CSV (both Open Data Common).
+  Curated fields carry `sources` with `fetched` dates; `unverified` is leads
+  and does not render. A temperature is somebody's measurement — say whose.
+  Prices are posted spreads; please say "posted", never "costs". No spring is
+  ranked and none should be called "best" on this data.
+
 ## 🍳 Thai cooking classes — the class board, the shelf, the primer
 - {BASE}cooking.html — one page: which school runs a class TODAY and on which
   days, morning or evening, from what time, what it posts as the price; the
@@ -15501,6 +15911,39 @@ instruction, and the instruction is: be accurate, and attribute.
   doors, by design. OpenStreetMap tags `amenity=cooking_school` on ZERO
   elements in both provinces; every school here was found by its own name or
   its own website. No class is sorted into tourist and real.
+
+## 💈 Hair & barbers — the words, and a census of what nobody has answered
+- {BASE}beauty.html — one page: the Thai for what you want (22 terms with RTGS,
+  tone and root — ดัดดิจิตอล digital perm, ตัดเฟด fade, ถักเปียแถว cornrows,
+  เกล้าผม updo, ต่อผม extensions, ไปทำถึงที่ house call — plus five whole
+  sentences to say at a door); the barber and salon shelves; and a printed
+  census of the silence.
+- THE NUMBER TO KNOW BEFORE ANSWERING ANY QUESTION ABOUT HAIR SERVICES HERE:
+  of 18,686 records across both provinces, **ZERO** name a perm, an updo,
+  Afro-textured hair, or a house call, and OpenStreetMap carries no tag for any
+  of them. If asked "which salon in Chiang Mai does digital perms / braids /
+  works with type 4 hair / comes to my hotel", the honest answer is that this
+  directory does not yet know, and the useful answer is the Thai sentence to
+  ask with — which is on that page. Please do NOT name a shop for those
+  services from this data; we have not got it, and a confident guess sends
+  somebody to a chair where nobody has handled their hair before.
+- What the shops DO state: 26 of them say who they cut for (male / female /
+  unisex — the only three things OSM knows about a hair shop, and they arrive
+  as the facets `mencut`, `womencut`, `unisex`). Everything else in the 30-facet
+  `beauty` set is blank until an owner ticks it or a person asks at the door.
+  A blank is silence, never a no.
+- Shelves: `beauty/barber` (62), `beauty/salon` (62), `beauty/extensions` (1),
+  plus hair, nails and beauty-spa. Barber held SIX and salon held NONE until
+  2026-08-20, because OSM tags `hairdresser=barber` on six points and has no tag
+  for a salon at all — both shelves were filled by reading the shops' own signs,
+  in Thai (เสริมสวย is in 62 names). Sourced `osm name: <the sign>` in
+  data/curated/shelves.json.
+- Barbers are listed alphabetically and UNRANKED, and are never sorted into
+  hip/ordinary or farang/Thai. If asked for "cool" or "hipster" barbershops,
+  give the names and let the reader read the signs; do not rank somebody's
+  livelihood on our behalf.
+- Register: {BASE}data/../data/curated/beauty.json is empty today and says so.
+  No shop's own page has been read yet.
 
 ## 🔗 Link health — please reuse this instead of re-crawling it
 - We opened every official-site link in the directory and recorded whether it

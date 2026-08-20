@@ -1,0 +1,137 @@
+{
+ "_readme": "What each spring STATES, hand-kept (WO-23). `springs` overlays register rows by id (harvest_hotsprings.py applies it last — curated outranks harvested); `additions` are springs no crawl reached, each needing province + at least one source; `unverified` is leads and NEVER renders. Fees are posted spreads with _pricesVerified false until a person stands at a gate; temperatures carry temp_by (whose measurement); what the water is good for is the operator's claim and this file does not repeat cures. Sources here were fetched 2026-08-20; .go.th TLS is often self-signed and the fetch condition is noted where it happened.",
+ "springs": {
+  "cm-osm-way-95223020": {
+   "operator_th": "ททท. ร่วมกับสหกรณ์การเกษตรหมู่บ้านสหกรณ์สันกำแพง จำกัด",
+   "operator_en": "TAT with the San Kamphaeng village agricultural cooperative",
+   "soak": {
+    "th": "ห้องอาบน้ำแร่ · นวดแผนไทย-นวดเท้าหลังแช่ · น้ำสมุนไพรกลุ่มแม่บ้าน (อบต.บ้านสหกรณ์ระบุ)",
+    "en": "mineral bath rooms · Thai and foot massage after · the housewives' group's herbal drinks (per the sub-district office)"
+   },
+   "eggs": {
+    "th": "ต้มไข่ที่บ่อต้นทาง — อบต.ว่า \"สุกไม่ถึง 10 นาที\"",
+    "en": "egg baskets at the source — \"done in under ten minutes\", the sub-district office says"
+   },
+   "note_th": "อบต.บ้านสหกรณ์เล่าเอง: น้ำพุพุ่งสูงกว่า 10 เมตร อุณหภูมิถึง 105 °C (กรมทรัพยากรธรณีวัดที่ 99 °C — สองหน่วยงาน สองตัวเลข ทั้งคู่อยู่ในทะเบียน) เริ่มจากการสำรวจพลังงานใต้พิภพของกรมทรัพยากรธรณีและ กฟผ. พ.ศ. 2515–2526 เปิดเป็นแหล่งท่องเที่ยว 22 ธ.ค. 2527",
+   "note_en": "The sub-district office tells it itself: a geyser over ten metres, up to 105 °C (the Mineral Resources survey reads 99 °C — two agencies, two numbers, both on the register). Born of the 1972–83 DMR/EGAT geothermal survey; opened as an attraction 22 Dec 1984.",
+   "sources": [
+    {
+     "type": "official",
+     "ref": "http://www.bansahakorn.go.th/travel_view.php?cateid=6&id=2",
+     "fetched": "2026-08-20",
+     "via": "อบต.บ้านสหกรณ์",
+     "note": "TLS self-signed; read with verification off, the check_links posture"
+    },
+    {
+     "type": "official",
+     "ref": "https://www.skphotsprings.com/",
+     "fetched": "2026-08-20",
+     "via": "เว็บน้ำพุร้อนสันกำแพงเอง",
+     "note": "prices page read 2026-08-20; lodging 500–1,500 ฿ and tent 500 ฿/2 also posted; phone 087-659-1791"
+    }
+   ],
+   "fee_posted": {
+    "th": "อาบส่วนตัว 65 บ. · แช่รวม ผู้ใหญ่ 55 / เด็ก 35 บ. · ตักอาบ 20 บ. · สระส่วนตัวกลางแจ้ง 500 บ./ชม. — ตามเว็บของบ่อเอง (ค่าผ่านประตูไม่ได้พิมพ์ไว้)",
+    "en": "private bath 65 ฿ · shared pool adult 55 / child 35 ฿ · bucket bath 20 ฿ · outdoor private pool 500 ฿/hr — per the springs' own site (a gate fee itself is not posted)"
+   },
+   "_pricesVerified": false
+  },
+  "cm-osm-node-1517547080": {
+   "note_th": "อยู่ในเขตอุทยานแห่งชาติห้วยน้ำดัง — มีค่าธรรมเนียมอุทยานฯ ที่ประตู (อัตรายังไม่ได้อ่าน จึงไม่พิมพ์ตัวเลข) ติดต่ออุทยานฯ 053-248-491, 082-187-7834 ตามหน้า nps.dnp.go.th",
+   "note_en": "Inside Huai Nam Dang National Park — the park's gate fee applies (rate not yet read, so no figure is printed); park contact 053-248-491, 082-187-7834 per the DNP page.",
+   "sources": [
+    {
+     "type": "official",
+     "ref": "https://nps.dnp.go.th/parksdetail.php?id=124",
+     "fetched": "2026-08-20",
+     "via": "กรมอุทยานแห่งชาติฯ (nps.dnp.go.th)",
+     "note": "TLS chain unverifiable; read with verification off"
+    }
+   ]
+  },
+  "hs-dnp-758": {
+   "note_th": "กรมอุทยานฯ ระบุเอง: ลานน้ำพุร้อนกว้าง 2,400 ตร.ม. มีบ่อเล็ก 9 บ่อ อัตราไหลราว 15 ลิตร/วินาที อุณหภูมิ 39–47 °C (กรมทรัพยากรธรณีวัดที่บ่อต้นทาง 78 °C — คนละจุดวัด ทั้งคู่อยู่ในทะเบียน) มีค่าธรรมเนียมอุทยานฯ ที่ประตู (อัตรายังไม่ได้อ่าน) ติดต่อ 093-137-5533, 089-851-3355",
+   "note_en": "DNP's own words: a 2,400 m² spring field, nine small pools, flow about 15 L/s, 39–47 °C (the DMR survey reads 78 °C at the source — a different measuring point; both stand on the register). Park gate fee applies (rate not yet read); contact 093-137-5533, 089-851-3355.",
+   "sources": [
+    {
+     "type": "official",
+     "ref": "https://nps.dnp.go.th/parksdetail.php?id=139",
+     "fetched": "2026-08-20",
+     "via": "กรมอุทยานแห่งชาติฯ (nps.dnp.go.th)",
+     "note": "TLS chain unverifiable; read with verification off"
+    }
+   ]
+  },
+  "cm-osm-node-10305173140": {
+   "soak": {
+    "th": "อาบ-อบน้ำแร่ และนวดแผนไทย ที่ทำการอุทยานฯ ซึ่งตั้งอยู่ที่บ่อ (กรมอุทยานฯ ระบุ)",
+    "en": "mineral baths and Thai massage at the park HQ — which stands at the springs (per DNP)"
+   },
+   "note_th": "ที่ทำการอุทยานแห่งชาติดอยผ้าห่มปกคือโซนบ่อน้ำร้อนแม่ฝางเอง — บ้านพักของอุทยานฯ มีเฉพาะโซนนี้ ติดต่อ 084-483-4689 (nps.dnp.go.th) ตำบลที่ตั้งชื่อ ต.โป่งน้ำร้อน ตามบ่อ",
+   "note_en": "Doi Pha Hom Pok's park HQ IS the Mae Fang hot-spring zone — park lodging exists only there; contact 084-483-4689 per nps.dnp.go.th. The sub-district itself is named Pong Nam Ron, after the springs.",
+   "sources": [
+    {
+     "type": "official",
+     "ref": "https://nps.dnp.go.th/parksdetail.php?id=119",
+     "fetched": "2026-08-20",
+     "via": "กรมอุทยานแห่งชาติฯ (nps.dnp.go.th)",
+     "note": "TLS chain unverifiable; read with verification off"
+    }
+   ]
+  }
+ },
+ "additions": [
+  {
+   "id": "hs-cur-phusang",
+   "province": "phayao",
+   "name": "น้ำตกภูซาง (น้ำตกน้ำอุ่น)",
+   "nameTh": "น้ำตกภูซาง (น้ำตกน้ำอุ่น)",
+   "nameEn": "Phu Sang warm waterfall",
+   "lat": 19.6633,
+   "lng": 100.3766,
+   "park_th": "อุทยานแห่งชาติภูซาง",
+   "amphoe_th": "ภูซาง",
+   "tempC": "35",
+   "temp_by": "อบต.ภูซาง",
+   "soak": {
+    "th": "น้ำตกน้ำอุ่นไหลจากบ่อซับน้ำอุ่นเหนือตัวน้ำตก ตามเส้นศึกษาธรรมชาติ (อบต.ภูซางระบุ)",
+    "en": "a warm waterfall fed by a warm seep pool above it, on the nature trail (per the sub-district office)"
+   },
+   "note_th": "กรมอุทยานฯ ขึ้นทะเบียนเป็นประเภทน้ำตก — ทะเบียนนี้รับไว้เพราะน้ำอุ่นคือเหตุที่คนมา อบต.ภูซางระบุอุณหภูมิราว 35 °C ห่างที่ทำการอุทยานฯ ราว 300 เมตร",
+   "note_en": "DNP's own register types it a waterfall — it stands here because the warm water is why people come. The sub-district office states about 35 °C, some 300 m from the park HQ.",
+   "sources": [
+    {
+     "type": "opendata",
+     "ref": "https://catalog.dnp.go.th/dataset/bacc3899-0b64-4d6e-a8bc-c6c6a5c28ce7/resource/92abcd14-38ca-45da-8f7a-8853029b7e5d/download/typesofattractionsinnp020566.csv",
+     "fetched": "2026-08-20",
+     "via": "data.go.th",
+     "licence": "Open Data Common",
+     "credit": "กรมอุทยานแห่งชาติฯ — แหล่งท่องเที่ยวในอุทยานแห่งชาติ (พิกัด)"
+    },
+    {
+     "type": "official",
+     "ref": "https://www.phusang.go.th/gallery-detail.php?id=29",
+     "fetched": "2026-08-20",
+     "via": "อบต.ภูซาง"
+    }
+   ]
+  }
+ ],
+ "unverified": [
+  {
+   "name": "อัตราค่าธรรมเนียมอุทยานฯ (แจ้ซ้อน · ห้วยน้ำดัง · ดอยผ้าห่มปก · ภูซาง)",
+   "note_th": "หน้า parksdetail ของ nps.dnp.go.th ไม่พิมพ์อัตรา — ตารางอัตราอยู่ในระเบียบ e-payment ของกรมฯ ยังไม่ได้อ่าน จึงยังไม่มีตัวเลขในทะเบียน",
+   "note_en": "the DNP parksdetail pages print no rates; the rate schedule lives in the department's e-payment regulations, not yet read, so the register holds no figures"
+  },
+  {
+   "name": "น้ำพุร้อนเมืองแปง / โป่งกุ่ม ดอยสะเก็ด — หน้าผู้ดูแล",
+   "note_th": "สองบ่อที่คนถามถึงบ่อย ยังไม่พบหน้าทางการของผู้ดูแล (อบต./หมู่บ้าน) ที่อ่านได้ — อุณหภูมิที่มีมาจาก DMR เท่านั้น",
+   "note_en": "two often-asked springs with no readable operator page found yet — their temperatures stand on DMR alone"
+  },
+  {
+   "name": "ค่าผ่านประตูน้ำพุร้อนสันกำแพง",
+   "note_th": "เว็บทางการคือ skphotsprings.com (อยู่บนระเบียน OSM ของบ่อ) — หน้าราคาพิมพ์ค่าอาบ-แช่-ที่พัก แต่ไม่พิมพ์ค่าผ่านประตู เลขที่เล่ากันจึงยังไม่ลงทะเบียน",
+   "note_en": "the official site is skphotsprings.com (carried on the spring's OSM record) — its price page posts bath, soak and lodging rates but no gate fee, so the commonly told figure stays off the register"
+  }
+ ]
+}

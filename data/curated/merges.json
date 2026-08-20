@@ -6,6 +6,55 @@
   ],
   "cm-osm-node-5703615419": [
    "cm-osm-node-6215394985"
+  ],
+  "cm-osm-way-961802207": [
+   "cm-osm-node-3087773650"
+  ],
+  "cm-osm-node-6303089086": [
+   "cm-osm-node-3416932288"
+  ],
+  "cm-curated-maesa-elephant-camp": [
+   "cm-osm-node-1013055448"
+  ],
+  "cm-curated-elephant-nature-park": [
+   "cm-osm-way-1322052747",
+   "cm-osm-way-1322052748"
+  ],
+  "cm-curated-patara-elephant-farm": [
+   "cm-osm-node-2588753265",
+   "cm-osm-node-13301666393"
+  ],
+  "cm-curated-thai-elephant-home": [
+   "cm-osm-way-375640514"
+  ],
+  "cm-curated-happy-elephant-home": [
+   "cm-osm-node-4339643289"
+  ],
+  "cm-curated-elephant-jungle-sanctuary": [
+   "cm-osm-node-13352536389"
+  ],
+  "cm-curated-chiang-dao-elephant-training-centre": [
+   "cm-osm-way-348496839"
+  ],
+  "cm-osm-node-5794209153": [
+   "cm-osm-node-5794234254"
+  ],
+  "cm-osm-way-95223020": [
+   "cm-osm-node-1290216088"
+  ],
+  "cm-osm-node-5327124402": [
+   "cm-osm-node-2674836217"
+  ],
+  "cr-osm-node-2121910374": [
+   "cr-osm-node-6369388397",
+   "cr-dgth-eco-2900847136",
+   "cr-dgth-religious-3762813316"
+  ],
+  "cr-dgth-eco-0910080694": [
+   "cr-dgth-religious-0250909676"
+  ],
+  "cm-osm-node-1290217002": [
+   "cm-osm-node-3216657253"
   ]
  }
 }

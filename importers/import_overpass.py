@@ -179,6 +179,10 @@ import audit_elephant as _chang_rules
 # Same arrangement for the view rules (WO-21): audit_views owns the compounds
 # and the fences, this file borrows them. One copy.
 import audit_views as _views_rules
+# And for the springs (WO-23): audit_hotsprings owns the compounds and the
+# fences — bare โป่ง never matched, the village and the school and the bus
+# stop that wear a spring's name kept off the shelf — this file borrows them.
+import audit_hotsprings as _spring_rules
 
 
 def chang_hit(t):
@@ -252,6 +256,28 @@ def views_hit(t):
     if hits(_views_rules.VIEWPOINT_RULES):
         return "viewpoint"
     return None
+
+
+def springs_hit(t):
+    """(sub) if an element declares a hot spring, else None. Consulted for
+    cache/overpass/<prov>/hotsprings.json (WO-23's own dragnet, fenced the
+    same way the elephants file is) and — after chang and views — for the
+    WO-19 elephants file, whose dragnet had already caught สันกำแพง,
+    โป่งเดือด and เทพพนม and left them on the menu.
+
+    The rules live in audit_hotsprings.py (one copy): `natural=hot_spring`
+    states the thing itself; the fence keeps the resort, the school, the
+    temple, the village and the bus stop that wear a spring's name on the
+    shelves their tags earned; bare โป่ง is never matched — บ้านโป่ง and
+    โป่งแยง are villages, not soaks.
+    """
+    name = " ".join(v for v in (t.get("name"), t.get("name:th"), t.get("name:en"),
+                                t.get("alt_name")) if v)
+    if not name:
+        return None
+    if re.search(r"\(\s*closed\b|ปิดถาวร|ปิดกิจการ", name, re.I):
+        return None
+    return _spring_rules.spring_hit_tags(t, name)
 
 
 def cannabis_hit(t, ref=""):
@@ -400,6 +426,11 @@ SCHOOL_TAG_SUB = {
 }
 
 
+# สองแถว / rot daeng, written in the name because OSM has no tag for it.
+# Latin spellings vary as much as the trucks do: songthaew, songtaew, song thaew.
+SONGTHAEW_NAME = re.compile(r"สองแถว|รถแดง|song ?t[ha]?aew|songtaew|rot daeng", re.I)
+
+
 def school_sub(t, name):
     """Which kind of school this is, or None if it is not one.
 
@@ -526,9 +557,31 @@ def classify(t):
         return None
     if a == "ferry_terminal":
         return "transport", "pier"
-    if (a == "bus_station" or t.get("railway") in ("station", "halt")
-            or t.get("public_transport") == "station"):
-        return "transport", "station"
+    # WO-13, the station split. All of this arrived on 2026-07-27 and was
+    # thrown away at import: bus terminal, railway station, taxi rank and the
+    # Doi Suthep funicular were folded into ONE sub called "station", and
+    # amenity=taxi had no branch at all, so five taxi ranks — one with a phone
+    # — were dropped before the canonical file. The tags were on disk the whole
+    # time; this is a branch, not a crawl.
+    if a == "taxi":
+        return "transport", "taxi"
+    # The funicular before the railway test, because it carries railway=station
+    # too: the two "stations" at Doi Suthep are the top and bottom of the
+    # temple's cable car, and a reader looking for a train must not meet them.
+    if t.get("station") == "funicular" or t.get("railway") == "funicular":
+        return "transport", "funicular"
+    # The name outranks the tag here, deliberately and only here. A สองแถว
+    # stop is not a bus station in any sense a reader means, and OSM has no tag
+    # for one — so mappers write it in the name, 21 times across the two
+    # provinces: "Songthaew Stop from Chiangmai to Samoeng", "ท่ารถสองแถวกิ่วสไต".
+    # Reading that is the only way this shelf child can ever fill.
+    if SONGTHAEW_NAME.search(" ".join(
+            str(t.get(k) or "") for k in ("name", "name:th", "name:en", "description"))):
+        return "transport", "songthaew"
+    if t.get("railway") in ("station", "halt"):
+        return "transport", "train"
+    if a == "bus_station" or t.get("public_transport") == "station":
+        return "transport", "bus"
     if s in ("car_repair", "motorcycle_repair"):
         return "repair", "auto"
     if s in ("computer", "mobile_phone"):
@@ -843,6 +896,9 @@ def records(province="cm"):
     # sights alike) — the 2026-08-20 fetch, restamped below so provenance
     # tells the truth about when its group was actually asked.
     out, review, ele_review, fetched_0820 = [], [], [], set()
+    # spring_review / fetched_hs: the hotsprings group's own fence and its
+    # own restamp set (WO-23) — same arrangement, its own date.
+    spring_review, fetched_hs = [], set()
     cache = ROOT / "cache" / "overpass" / province
     if not cache.exists():
         return out
@@ -870,16 +926,42 @@ def records(province="cm"):
             if f.stem == "elephants":
                 ele_sub = chang_hit(t)
                 view_sub = None if ele_sub else views_hit(t)
-                if not ele_sub and not view_sub:
+                spring_sub = None if (ele_sub or view_sub) else springs_hit(t)
+                if not ele_sub and not view_sub and not spring_sub:
                     ele_review.append((ref, name, dict(t)))
                     continue
                 # WO-21 rides the same fence: a name that declares a waterfall
                 # or a viewpoint files onto sights, and everything else still
                 # goes to the review file, which stays the menu for whatever
                 # attractions order comes next. classify() remains unreachable
-                # from this file either way.
-                hit = ("chang", ele_sub) if ele_sub else ("sights", view_sub)
+                # from this file either way. WO-23 rides it the same way for
+                # the springs the dragnet had already caught — สันกำแพง,
+                # โป่งเดือด, เทพพนม — and takes nothing off the menu that is
+                # not a spring.
+                hit = (("chang", ele_sub) if ele_sub
+                       else ("sights", view_sub or spring_sub))
                 fetched_0820.add(f"{province}-osm-{el['type']}-{el['id']}")
+            elif f.stem == "hotsprings":
+                # THE HOTSPRINGS FILE IS FENCED THE SAME WAY (WO-23). Its
+                # name selectors are a dragnet too: schools, temples and
+                # whole villages wear a spring's name, and a bus stop called
+                # น้ำพุร้อนสันกำแพง is where you get off FOR the spring —
+                # filing it would pin the spring to the roadside. Only an
+                # element that states the spring files (springs_hit; rules in
+                # audit_hotsprings.py, one copy); everything else goes to
+                # cache/hotspring_review_<prov>.txt where a person can see
+                # it, and classify() is unreachable from this file. An
+                # element the WO-19 fence already filed this run (สันกำแพง is
+                # tourism=attraction AND answers the name selectors) keeps
+                # its elephants-file lineage rather than arriving twice.
+                if f"{province}-osm-{el['type']}-{el['id']}" in fetched_0820:
+                    continue
+                spring_sub = springs_hit(t)
+                if not spring_sub:
+                    spring_review.append((ref, name, dict(t)))
+                    continue
+                hit = ("sights", spring_sub)
+                fetched_hs.add(f"{province}-osm-{el['type']}-{el['id']}")
             else:
                 # The cannabis shelf is asked first, because the tag that puts a
                 # place on it (`shop=cannabis`) sits happily beside a tag that
@@ -977,6 +1059,11 @@ def records(province="cm"):
                     # open at dusk is the venue's or the door survey's to say.
                     "direction": t.get("direction"),
                     "ele": t.get("ele"),
+                    # A spring's stated water temperature (WO-23) — the
+                    # mapper's or the operator's measurement, kept as given
+                    # and rendered as a measurement, never rounded into
+                    # "very hot".
+                    "temperature": t.get("temperature"),
                     # Reference tags, dropped since the first crawl. Small in
                     # number — 35 wikidata, 10 wikipedia — but they are the only
                     # links in the whole dataset that lead to a written account
@@ -1003,8 +1090,18 @@ def records(province="cm"):
             for src in r.get("sources", []):
                 if src.get("type") == "osm":
                     src["fetched"] = "2026-08-20"
+    # Same truth-telling for the hotsprings group (WO-23), fetched
+    # 2026-08-20 on Nan's go: its records carry the date their group was
+    # actually asked, not the constructor's default.
+    for r in out:
+        if r["id"] in fetched_hs:
+            r["updatedAt"] = "2026-08-20"
+            for src in r.get("sources", []):
+                if src.get("type") == "osm":
+                    src["fetched"] = "2026-08-20"
     _write_cannabis_review(province, review)
     _write_elephant_review(province, ele_review)
+    _write_hotspring_review(province, spring_review)
     return out
 
 
@@ -1043,6 +1140,44 @@ def _write_elephant_review(province, rows):
     ]
     for ref, name, t in sorted(unique, key=lambda r: r[1].lower()):
         kind = (t.get("tourism") or t.get("historic") or t.get("leisure") or "?")
+        lines.append(f"{ref:<22} [{kind}] {name}")
+    out.write_text("\n".join(lines) + "\n")
+
+
+def _write_hotspring_review(province, rows):
+    """What the hotsprings dragnet caught that does NOT state a spring.
+
+    The same posture as the elephant review: not errors and not discards.
+    The name selectors reach schools, temples, villages, bus stops and
+    resorts wearing a spring's name, and amenity=public_bath reaches shower
+    blocks; each is fenced here where a person can see it. A real spring
+    hiding under a name the rules don't read enters through
+    data/curated/hotsprings.json or a curated addition, with a source —
+    never a wider regex on a guess.
+    """
+    out = ROOT / "cache" / f"hotspring_review_{province}.txt"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    seen, unique = set(), []
+    for row in rows:
+        if row[0] not in seen:
+            seen.add(row[0])
+            unique.append(row)
+    if not unique:
+        out.write_text(f"# {province}: the hotsprings group is not in cache, or "
+                       f"held nothing beyond the springs.\n")
+        return
+    lines = [
+        f"# {province}: {len(unique)} elements from the hotsprings crawl group",
+        "# (natural=hot_spring / amenity=public_bath / the น้ำพุร้อน name",
+        "# family, fetched 2026-08-20) that do NOT state a hot spring, filed",
+        "# here instead of onto a shelf. A real spring hiding under another",
+        "# name enters through data/curated/hotsprings.json or a curated",
+        "# addition, with a source.",
+        "#",
+    ]
+    for ref, name, t in sorted(unique, key=lambda r: r[1].lower()):
+        kind = (t.get("natural") or t.get("amenity") or t.get("tourism")
+                or t.get("place") or t.get("highway") or "?")
         lines.append(f"{ref:<22} [{kind}] {name}")
     out.write_text("\n".join(lines) + "\n")
 
