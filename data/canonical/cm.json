@@ -142585,6 +142585,43 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-10083790350",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกมณฑาธาร",
+  "nameTh": "น้ำตกมณฑาธาร",
+  "nameEn": "Mon Tha Than Waterfalls",
+  "lat": 18.8175239,
+  "lng": 98.9238652,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "altNames": [
+    "Nam Tok Monthathan"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/10083790350",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-10091315302",
   "province": "cm",
   "cat": [
@@ -145599,6 +145636,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-10245741611",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Royal Project",
+  "nameTh": null,
+  "nameEn": "Royal Project",
+  "lat": 18.3963136,
+  "lng": 98.5054315,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/10245741611",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-10250155609",
   "province": "cm",
   "cat": [
@@ -148553,6 +148623,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-10567130317",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "อ่างเก็บน้ำแม่มาว",
+  "nameTh": null,
+  "nameEn": "Mai Sap Chue Reservoir Viewpoint",
+  "lat": 19.9819669,
+  "lng": 99.0998228,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/10567130317",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-10575974496",
   "province": "cm",
   "cat": [
@@ -150852,6 +150955,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-10708195377",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยลาง",
+  "nameTh": "ดอยลาง",
+  "nameEn": "Doi Lang",
+  "lat": 20.1054822,
+  "lng": 99.1314934,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "2148"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/10708195377",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-10723897686",
   "province": "cm",
   "cat": [
@@ -150977,6 +151115,41 @@
     "ref": "osm name: Robin Beauty & Barber",
     "fetched": "2026-08-20",
     "via": "data/curated/shelves.json"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-10729724122",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยช้าง",
+  "nameTh": "ดอยช้าง",
+  "nameEn": "Doi Chang",
+  "lat": 19.3539347,
+  "lng": 98.5953698,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1961"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/10729724122",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -153249,6 +153422,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-10880112379",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยเลี่ยม",
+  "nameTh": null,
+  "nameEn": "Doi Pui",
+  "lat": 18.1607158,
+  "lng": 98.4875081,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/10880112379",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-10881109985",
   "province": "cm",
   "cat": [
@@ -154245,6 +154451,39 @@
    {
     "type": "osm",
     "ref": "node/11032795792",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-11035295605",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Old tower viewpoint",
+  "nameTh": null,
+  "nameEn": "Old tower viewpoint",
+  "lat": 18.8534497,
+  "lng": 98.7962081,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/11035295605",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -156236,6 +156475,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-11212152358",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "ดอยม่อนล้าน",
+  "nameTh": null,
+  "nameEn": "Doi Mon Lan Viewpoint",
+  "lat": 19.5335315,
+  "lng": 99.1522413,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/11212152358",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-1121219664",
   "province": "cm",
   "cat": [
@@ -156267,6 +156539,74 @@
     "ref": "node/1121219664",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-11212240039",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "ออบหลวง",
+  "nameTh": null,
+  "nameEn": "Ob Luang",
+  "lat": 18.2241447,
+  "lng": 98.4839382,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "direction": "80"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/11212240039",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-11212240040",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "ฐานปฏิบัติการกิ่วฮุง",
+  "nameTh": null,
+  "nameEn": "Doi Kiew Hung Viewpoint",
+  "lat": 20.0774732,
+  "lng": 99.3078223,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/11212240040",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -169662,6 +170002,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-12135223450",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยม่อนต้อม",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.8655,
+  "lng": 99.1547169,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12135223450",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-12149897104",
   "province": "cm",
   "cat": [
@@ -172894,6 +173267,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-12446804740",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "Gola",
+  "nameTh": "ฝรั่ง",
+  "nameEn": "Gola",
+  "lat": 18.7899151,
+  "lng": 98.2800958,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1286"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12446804740",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-12452640001",
   "province": "cm",
   "cat": [
@@ -175423,6 +175831,43 @@
    {
     "type": "osm",
     "ref": "node/12573495524",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12574571560",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยโป่งสะแยน",
+  "nameTh": null,
+  "nameEn": "Doi Pong Sa Yaen",
+  "lat": 18.9659795,
+  "lng": 98.1706656,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "description": "Doi Pong Sanyan or Pong Sayaen is a high summit on the border of Khun Yuam & Mae Chaem districts which is suitable for hiking or camping on foot only via primarily a 4 km trail from a forest park in ban mai huai wai.\nThe elevation is estimated around 2005",
+   "osmSource": "https://mapcarta.com/14576762",
+   "ele": "2005"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12574571560",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -178167,6 +178612,284 @@
    {
     "type": "osm",
     "ref": "node/12731348809",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12733634701",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Larn Sadat Waterfall viewpoint",
+  "nameTh": null,
+  "nameEn": "Larn Sadat Waterfall viewpoint",
+  "lat": 18.5576863,
+  "lng": 98.4814492,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12733634701",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12736602903",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยด่นฟาก",
+  "nameTh": "ดอยด่นฟาก",
+  "nameEn": "Doi Dan Fak",
+  "lat": 19.764047,
+  "lng": 99.0489992,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1682"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12736602903",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12736602904",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1662",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7830478,
+  "lng": 99.0398751,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1662"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12736602904",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12736602905",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1470",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8051612,
+  "lng": 99.0475052,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1470"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12736602905",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12736602906",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1410",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8165337,
+  "lng": 99.0472907,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1410"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12736602906",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12736602908",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1711",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8449968,
+  "lng": 99.0519749,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1711"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12736602908",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12736602909",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1770",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.86219,
+  "lng": 99.0488453,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1770"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12736602909",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-12736602910",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1762",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9126373,
+  "lng": 99.0542534,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1762"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/12736602910",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -182218,6 +182941,72 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-13197000309",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยเลี่ยม",
+  "nameTh": null,
+  "nameEn": "Doi Liam",
+  "lat": 18.1751509,
+  "lng": 98.4856328,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13197000309",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-13197000313",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Doi Pui Viewpoint",
+  "nameTh": null,
+  "nameEn": "Doi Pui Viewpoint",
+  "lat": 18.1607119,
+  "lng": 98.4863374,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13197000313",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-1319907792",
   "province": "cm",
   "cat": [
@@ -184051,6 +184840,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-13296114729",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยม่อนล้าน",
+  "nameTh": null,
+  "nameEn": "Doi Mon Lan",
+  "lat": 19.5334743,
+  "lng": 99.1520545,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1016"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13296114729",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-13296567495",
   "province": "cm",
   "cat": [
@@ -184147,6 +184971,41 @@
    {
     "type": "osm",
     "ref": "node/13298710901",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-13299378758",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "จุดชมวิวดอยผาช้าง",
+  "nameTh": null,
+  "nameEn": "Doi Pha Chang Viewpoint",
+  "lat": 18.2266339,
+  "lng": 98.4846391,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "direction": "180"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13299378758",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -184715,6 +185574,39 @@
    {
     "type": "osm",
     "ref": "node/13312688028",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-13312829279",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกม่อนหินไหล",
+  "nameTh": null,
+  "nameEn": "Mon Hin Lai Waterfall",
+  "lat": 19.2628118,
+  "lng": 99.1024883,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13312829279",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -196056,6 +196948,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-14027942401",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "ทะเลสาบดอยเต่า (ปักหมุดโดยที่ทำการปกครองอำเภอดอยเต่า)",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 17.9548906,
+  "lng": 98.6584443,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "checkedOn": "2026-07-20"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/14027942401",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-14038578829",
   "province": "cm",
   "cat": [
@@ -196217,6 +197144,72 @@
    {
     "type": "osm",
     "ref": "node/14048187501",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-14048971101",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "View on the rice field",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.5366169,
+  "lng": 98.5373338,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/14048971101",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-14055729876",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "Phalad waterfall (น้ำตกผา ลาด)",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.7755183,
+  "lng": 98.9005133,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/14055729876",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -202369,6 +203362,76 @@
    {
     "type": "osm",
     "ref": "node/1590324312",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-1595547756",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "ผาเงิบ",
+  "nameTh": "ผาเงิบ",
+  "nameEn": "Pha Ngerb",
+  "lat": 18.8125289,
+  "lng": 98.9385749,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/1595547756",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-1595547758",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกห้วยแก้ว",
+  "nameTh": "น้ำตกห้วยแก้ว",
+  "nameEn": "Huay Kaew Waterfall",
+  "lat": 18.8114333,
+  "lng": 98.9435487,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "namesOther": {
+    "de": "Huai Kaeo Wasserfall"
+   }
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/1595547758",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -210769,6 +211832,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-1974692901",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "ประกาส",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.8235993,
+  "lng": 98.948324,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/1974692901",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-1974754623",
   "province": "cm",
   "cat": [
@@ -212951,6 +214047,120 @@
    {
     "type": "osm",
     "ref": "node/2080149739",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-2082718893",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยสุเทพ",
+  "nameTh": "ดอยสุเทพ",
+  "nameEn": "Doi Suthep",
+  "lat": 18.8166077,
+  "lng": 98.89236,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "DEM (SRTM)",
+   "namesOther": {
+    "zh": "素贴山",
+    "fr": "Doi Suthep"
+   },
+   "ele": "1600",
+   "wikidata": "Q669271",
+   "wikipedia": "en:Doi Suthep"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2082718893",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-2082723400",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยพีระมิด",
+  "nameTh": "ดอยพีระมิด",
+  "nameEn": "Doi Pyramid",
+  "lat": 19.399722,
+  "lng": 98.876667,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "2175"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2082723400",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-2082739154",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยปุย",
+  "nameTh": "ดอยปุย",
+  "nameEn": "Doi Pui",
+  "lat": 18.8317571,
+  "lng": 98.8885403,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "description": "The highest summit of Doi Suthep-Pui mountain national park.",
+   "ele": "1685",
+   "wikidata": "Q31616955"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2082739154",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -215631,6 +216841,39 @@
    {
     "type": "osm",
     "ref": "node/2211037641",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-2226179757",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "กิ่วฝิ่น",
+  "nameTh": "กิ่วฝิ่น",
+  "nameEn": "Kew Fin viewpoint",
+  "lat": 18.8544114,
+  "lng": 99.3665283,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2226179757",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -220250,6 +221493,46 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-245227907",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Chaloem Phra Kiat Pavilion Viewpoint",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.7914102,
+  "lng": 98.933245,
+  "geoPrecision": "exact",
+  "address": "ถนนห้วยแก้ว 50300",
+  "phone": null,
+  "website": null,
+  "hours": "24/7",
+  "attrs": {
+   "street": "ถนนห้วยแก้ว",
+   "postcode": "50300",
+   "wheelchair": "yes",
+   "city": "Chiang Mai",
+   "addrProvince": "Chiang Mai",
+   "osmSource": "survey"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/245227907",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-2453749219",
   "province": "cm",
   "cat": [
@@ -221998,6 +223281,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-2484540504",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Waterfall (top)",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.7753139,
+  "lng": 98.6763533,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2484540504",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-2489198445",
   "province": "cm",
   "cat": [
@@ -223128,6 +224444,39 @@
    {
     "type": "osm",
     "ref": "node/2520652842",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-2521797663",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Viewpoint of Samoeng forest",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.8726229,
+  "lng": 98.7816733,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2521797663",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -226849,6 +228198,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-2570894392",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "จุดชมวิวม่อนสน",
+  "nameTh": "จุดชมวิวม่อนสน",
+  "nameEn": "Mon Son Viewpoint",
+  "lat": 19.863477,
+  "lng": 99.051774,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2570894392",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-2574360774",
   "province": "cm",
   "cat": [
@@ -228596,6 +229978,52 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-259288817",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยอินทนนท์, Doi Inthanon",
+  "nameTh": "ดอยอินทนนท์",
+  "nameEn": "Doi Inthanon",
+  "lat": 18.5884834,
+  "lng": 98.4874637,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wheelchair": "no",
+   "descriptionEn": "The highest point in Thailand.",
+   "altNames": [
+    "Doi Intanon"
+   ],
+   "namesOther": {
+    "de": "Doi Inthanon",
+    "ru": "Дои Интанон"
+   },
+   "ele": "2565",
+   "wikidata": "Q1140075",
+   "wikipedia": "en:Doi Inthanon"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/259288817",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-259288820",
   "province": "cm",
   "cat": [
@@ -228926,6 +230354,41 @@
     "fetched": "",
     "via": "data/curated/wat_registry.json",
     "note": "province+exact"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-259745325",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Sirithan Waterfall viewing platform",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.5429673,
+  "lng": 98.5802119,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wheelchair": "no"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/259745325",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -231472,6 +232935,39 @@
    {
     "type": "osm",
     "ref": "node/2607657480",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-2609444756",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกไทรย้อย",
+  "nameTh": "น้ำตกไทรย้อย",
+  "nameEn": "Sai Yoi Waterfall",
+  "lat": 18.8182055,
+  "lng": 98.9177929,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2609444756",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -245611,6 +247107,44 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-2705579835",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยถ้ำ",
+  "nameTh": "ดอยถ้ำ",
+  "nameEn": "Doi Tham",
+  "lat": 18.7843437,
+  "lng": 99.2367508,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "altNames": [
+    "Crazy Horse"
+   ],
+   "wikidata": "Q31653324"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2705579835",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-2706621155",
   "province": "cm",
   "cat": [
@@ -249359,6 +250893,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-2955539177",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "จุดสูงสุดดอยม่อนจอง",
+  "nameTh": null,
+  "nameEn": "Doi Mon Chong",
+  "lat": 17.4545801,
+  "lng": 98.527983,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2955539177",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-2963931133",
   "province": "cm",
   "cat": [
@@ -249928,6 +251495,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-3016508867",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "Tat Yoi Waterfall",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.7772474,
+  "lng": 98.8549394,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3016508867",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-3020442320",
   "province": "cm",
   "cat": [
@@ -250320,6 +251920,119 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-3081236838",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกห้วยทรายเหลือง",
+  "nameTh": "น้ำตกห้วยทรายเหลือง",
+  "nameEn": "Huai Sai Lueang Waterfall",
+  "lat": 18.5236875,
+  "lng": 98.4571101,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "namesOther": {
+    "de": "Huai Sai Lueang Wasserfall",
+    "es": "Cascada Huai Sai Lueang"
+   },
+   "wikidata": "Q34846221"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3081236838",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3081240275",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "นาขั้นบันไดป่าปงเปียง",
+  "nameTh": null,
+  "nameEn": "Pa Bong Piang Rice Terraces",
+  "lat": 18.5326737,
+  "lng": 98.4479008,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "namesOther": {
+    "fr": "rizières en collines"
+   }
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3081240275",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3081240276",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "นาขั้นบันไดป่าปงเปียง",
+  "nameTh": null,
+  "nameEn": "Pa Bong Piang Rice Terraces",
+  "lat": 18.5398323,
+  "lng": 98.4432751,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "namesOther": {
+    "fr": "rizières en collines"
+   }
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3081240276",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-3084821279",
   "province": "cm",
   "cat": [
@@ -250347,6 +252060,72 @@
    {
     "type": "osm",
     "ref": "node/3084821279",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3085526467",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "สวนป่าแม่แจ่ม",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.3022095,
+  "lng": 98.363073,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3085526467",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3085530205",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "มนต์เมืองแจ่ม",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.4600204,
+  "lng": 98.378583,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3085530205",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -253818,6 +255597,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-3202969498",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "จุดชมวิวดอยม่อนล้าน",
+  "nameTh": "จุดชมวิวดอยม่อนล้าน",
+  "nameEn": "Viewpoint",
+  "lat": 19.4314835,
+  "lng": 99.3001382,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "Mapbox"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3202969498",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-3204460962",
   "province": "cm",
   "cat": [
@@ -256825,6 +258639,43 @@
    {
     "type": "osm",
     "ref": "node/3266843183",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3268327048",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยแม่แงะ",
+  "nameTh": null,
+  "nameEn": "Doi Mae Ngae",
+  "lat": 19.02053,
+  "lng": 99.01806,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "http://www.geonames.org/1116794/doi-mae-ngae.html",
+   "ele": "672",
+   "wikidata": "Q31614151"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3268327048",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -265615,6 +267466,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-3317922444",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Rest area",
+  "nameTh": null,
+  "nameEn": "Rest area",
+  "lat": 18.7075732,
+  "lng": 98.2620371,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3317922444",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-3318014990",
   "province": "cm",
   "cat": [
@@ -271623,6 +273507,39 @@
    {
     "type": "osm",
     "ref": "node/3369623290",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3370073729",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Waterfall view",
+  "nameTh": null,
+  "nameEn": "Waterfall view",
+  "lat": 18.7042284,
+  "lng": 98.6334626,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3370073729",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -288100,6 +290017,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-3559972393",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Ban Kob Dong view point",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9268724,
+  "lng": 99.0527597,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3559972393",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-3562442293",
   "province": "cm",
   "cat": [
@@ -290428,6 +292378,39 @@
    {
     "type": "osm",
     "ref": "node/3708969931",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3713133900",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Waterfall (base)",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.7753811,
+  "lng": 98.6775374,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3713133900",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -295378,6 +297361,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-3929076677",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "Tad Luang Waterfall",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.1014077,
+  "lng": 99.2492545,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "local_knowledge"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3929076677",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-3931470331",
   "province": "cm",
   "cat": [
@@ -296521,6 +298539,524 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-3997821653",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยปุกก้นไก่",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.9412142,
+  "lng": 98.7045023,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "929",
+   "wikidata": "Q31653856"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997821653",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997821654",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผาจอก",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.92716,
+  "lng": 98.6358928,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wikidata": "Q31653956"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997821654",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997821655",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผานกยาง",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.8924921,
+  "lng": 98.7020777,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wikidata": "Q31653974"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997821655",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997821656",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยสันกิ่วสูง",
+  "nameTh": null,
+  "nameEn": "Doi San Gew Soong",
+  "lat": 18.9090114,
+  "lng": 98.7487715,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wikidata": "Q31653606"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997821656",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997876063",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยกิ่วป่าคา",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.6044716,
+  "lng": 98.7380059,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wikidata": "Q31655311"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997876063",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997876064",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยถ้ำบริจินดา",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.5111047,
+  "lng": 98.6918187,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wikidata": "Q31655342"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997876064",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997876065",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผาไล",
+  "nameTh": null,
+  "nameEn": "Doi Pha Lai",
+  "lat": 18.5993004,
+  "lng": 98.6224061,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wikidata": "Q31655359"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997876065",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997876066",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยม่อนฆ้อง",
+  "nameTh": null,
+  "nameEn": "Doi Mon Khong",
+  "lat": 18.5345346,
+  "lng": 98.6954319,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wikidata": "Q31655501"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997876066",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997876067",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยห้วยแรด",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.5701725,
+  "lng": 98.7030755,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wikidata": "Q31655614"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997876067",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997963039",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "ดอยคำ",
+  "nameTh": null,
+  "nameEn": "Doi Liam Viewpoint",
+  "lat": 18.1742722,
+  "lng": 98.4847619,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997963039",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997963040",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยปุยกลาง",
+  "nameTh": null,
+  "nameEn": "Doi Pui Klang",
+  "lat": 18.1543589,
+  "lng": 98.4918947,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997963040",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997963041",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผาเลียบ",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.2636966,
+  "lng": 98.5535285,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997963041",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997963042",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผาโยง",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.2413035,
+  "lng": 98.5626774,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997963042",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997963043",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยยาว",
+  "nameTh": null,
+  "nameEn": "Doi Yao",
+  "lat": 18.171995,
+  "lng": 98.4567044,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wikidata": "Q31657075"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997963043",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-3997963044",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยเกี๊ยะ",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.1097086,
+  "lng": 98.5754532,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wikidata": "Q31612396"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/3997963044",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-4009513093",
   "province": "cm",
   "cat": [
@@ -296765,6 +299301,77 @@
    {
     "type": "osm",
     "ref": "node/4019010220",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-4021008376",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยกิ่วลม",
+  "nameTh": "ดอยกิ่วลม",
+  "nameEn": "Doi Kiew Lom",
+  "lat": 19.3885377,
+  "lng": 98.8912257,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "2138"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4021008376",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-4021010779",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยหลวงเชียงดาว",
+  "nameTh": "ดอยหลวงเชียงดาว",
+  "nameEn": "Doi Luang Chiang Dao",
+  "lat": 19.3971089,
+  "lng": 98.8894202,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "description": "Summit",
+   "ele": "2200"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4021010779",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -297817,6 +300424,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-4084359757",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "View Point",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.5536788,
+  "lng": 98.8084482,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4084359757",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-4086130433",
   "province": "cm",
   "cat": [
@@ -298434,6 +301074,39 @@
    {
     "type": "osm",
     "ref": "node/4111432291",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-4113164151",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกแม่หาด",
+  "nameTh": "น้ำตกแม่หาด",
+  "nameEn": "Mae Hat Waterfall",
+  "lat": 19.6291462,
+  "lng": 98.574836,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4113164151",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -308584,6 +311257,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-4401893191",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "จุดชมวิวดอยกิ่วลม",
+  "nameTh": "จุดชมวิวดอยกิ่วลม",
+  "nameEn": "Doi Kiew Lom Viewpoint",
+  "lat": 19.3137737,
+  "lng": 98.6041098,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4401893191",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-4402122096",
   "province": "cm",
   "cat": [
@@ -314013,6 +316719,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-4483494819",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "Sagee Waterfall",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.2237017,
+  "lng": 98.8415989,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4483494819",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-4484769089",
   "province": "cm",
   "cat": [
@@ -317878,6 +320617,39 @@
    {
     "type": "osm",
     "ref": "node/4537138866",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-4537316612",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ม่อนแจ่ม",
+  "nameTh": null,
+  "nameEn": "Mon Jam",
+  "lat": 18.9484215,
+  "lng": 98.794487,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4537316612",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -321948,6 +324720,42 @@
    {
     "type": "osm",
     "ref": "node/4582158291",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-4582307163",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ยอดดอยจอมหด",
+  "nameTh": "ยอดดอยจอมหด",
+  "nameEn": "Doi Chom Hot",
+  "lat": 19.281696,
+  "lng": 99.0921214,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "description": "highest point of SriLanna National Park",
+   "ele": "1713"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4582307163",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -331531,6 +334339,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-4742951922",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Misty Mountain Viewpoint",
+  "nameTh": null,
+  "nameEn": "Misty Mountain Viewpoint",
+  "lat": 18.785769,
+  "lng": 98.1586776,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4742951922",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-4743290222",
   "province": "cm",
   "cat": [
@@ -332527,6 +335368,39 @@
    {
     "type": "osm",
     "ref": "node/4780360121",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-4782251623",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "San Chu View Point",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.11294,
+  "lng": 99.1275522,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4782251623",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -336661,6 +339535,39 @@
    {
     "type": "osm",
     "ref": "node/4871811821",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-4871841621",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกตาดครก",
+  "nameTh": "น้ำตกตาดครก",
+  "nameEn": "Tat Krok Waterfall",
+  "lat": 18.7818318,
+  "lng": 98.8563187,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4871841621",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -340892,7 +343799,13 @@
    "street": "ถนนนิมมานเหมินทร์ ซอย 13",
    "wifi": "wlan",
    "facets": {
-    "wifi": "osm-tag"
+    "wifi": "osm-tag",
+    "colour": "site",
+    "digiperm": "site",
+    "keratin": "site",
+    "rebond": "site",
+    "treatment": "site",
+    "updo": "site"
    }
   },
   "featured": false,
@@ -341803,6 +344716,39 @@
    {
     "type": "osm",
     "ref": "node/5156653722",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-5158436330",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกผาดอกเสี้ยว",
+  "nameTh": null,
+  "nameEn": "Pha Dok Siew Waterfall",
+  "lat": 18.5383759,
+  "lng": 98.5358915,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5158436330",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -344497,6 +347443,72 @@
    {
     "type": "osm",
     "ref": "node/5258746823",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-5259239921",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Suspension Bridge",
+  "nameTh": null,
+  "nameEn": "Suspension Bridge",
+  "lat": 18.396012,
+  "lng": 98.2797192,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5259239921",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-5259613621",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Start of Single Trail",
+  "nameTh": null,
+  "nameEn": "Start of Single Trail",
+  "lat": 18.3941129,
+  "lng": 98.2736891,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5259613621",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -348390,6 +351402,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-5351922721",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกซางเคี่ยน",
+  "nameTh": "น้ำตกซางเคี่ยน",
+  "nameEn": "Chang Kian Waterfall",
+  "lat": 18.8221352,
+  "lng": 98.9407137,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5351922721",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-5358848510",
   "province": "cm",
   "cat": [
@@ -348518,6 +351563,39 @@
    {
     "type": "osm",
     "ref": "node/5360772821",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-5362750626",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Great View",
+  "nameTh": null,
+  "nameEn": "Great View",
+  "lat": 19.7368404,
+  "lng": 98.9066235,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5362750626",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -349673,6 +352751,39 @@
    {
     "type": "osm",
     "ref": "node/5392544398",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-5398226922",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Sighting birds",
+  "nameTh": null,
+  "nameEn": "Sighting birds",
+  "lat": 20.1226201,
+  "lng": 99.1741092,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5398226922",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -352486,6 +355597,43 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-5565754723",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "อ่างเก็บน้ำแม่ออกฮู",
+  "nameTh": null,
+  "nameEn": "Reservoir Mae Ok Hu",
+  "lat": 18.547885,
+  "lng": 98.383257,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "namesOther": {
+    "de": "Wasserbecken Mae Ok Hu"
+   }
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5565754723",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-5566673219",
   "province": "cm",
   "cat": [
@@ -352742,6 +355890,72 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-5578153821",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Green fields of glory",
+  "nameTh": null,
+  "nameEn": "Green fields of glory",
+  "lat": 19.8329372,
+  "lng": 99.1005893,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5578153821",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-5578153822",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Spectacular green fields",
+  "nameTh": null,
+  "nameEn": "Spectacular green fields",
+  "lat": 19.82855,
+  "lng": 99.1034297,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5578153822",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-5580093621",
   "province": "cm",
   "cat": [
@@ -352839,6 +356053,72 @@
    {
     "type": "osm",
     "ref": "node/5582581121",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-5583479422",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Point of view and drink",
+  "nameTh": null,
+  "nameEn": "Point of view and drink",
+  "lat": 19.4162998,
+  "lng": 98.8455195,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5583479422",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-5583479423",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Viewpoint",
+  "nameTh": null,
+  "nameEn": "Viewpoint",
+  "lat": 19.4173242,
+  "lng": 98.8456653,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5583479423",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -355605,6 +358885,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-5780917867",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกไทรลอดบ่วง",
+  "nameTh": "น้ำตกไทรลอดบ่วง",
+  "nameEn": "Say Lod Buang Waterfall",
+  "lat": 19.3178983,
+  "lng": 98.8732956,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5780917867",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-5781768257",
   "province": "cm",
   "cat": [
@@ -357816,6 +361129,42 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-5960566986",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยม่อนล้าน",
+  "nameTh": "ดอยม่อนล้าน",
+  "nameEn": "Doi Mon Lan",
+  "lat": 19.4262493,
+  "lng": 99.3125789,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1677",
+   "wikidata": "Q31668470"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5960566986",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-5963300685",
   "province": "cm",
   "cat": [
@@ -359196,6 +362545,42 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-6034005653",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยหลอ",
+  "nameTh": "ดอยหลอ",
+  "nameEn": "Doi Lo",
+  "lat": 19.2782797,
+  "lng": 98.9125945,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1078",
+   "wikidata": "Q31652722"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6034005653",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-6035864686",
   "province": "cm",
   "cat": [
@@ -359632,6 +363017,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-6059187985",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "high point 1500m",
+  "nameTh": null,
+  "nameEn": "high point 1500m",
+  "lat": 18.7709328,
+  "lng": 98.1593233,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6059187985",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-6059577985",
   "province": "cm",
   "cat": [
@@ -360048,6 +363466,39 @@
    {
     "type": "osm",
     "ref": "node/6068413685",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6072292185",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "viewpoint over valley",
+  "nameTh": null,
+  "nameEn": "viewpoint over valley",
+  "lat": 18.7076603,
+  "lng": 98.5576986,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6072292185",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -361144,6 +364595,74 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-6124409192",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Tat Pow Waterfall",
+  "nameTh": null,
+  "nameEn": "Tat Pow Waterfall",
+  "lat": 19.1010858,
+  "lng": 98.8071113,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "Sign"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6124409192",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6124409274",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "Mok Fa",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.1014787,
+  "lng": 98.808868,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6124409274",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-6124476077",
   "province": "cm",
   "cat": [
@@ -361566,6 +365085,42 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-6149697689",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยส้นกิ่วคมพร้า",
+  "nameTh": "ดอยส้นกิ่วคมพร้า",
+  "nameEn": "Doi San Kio Khom Phra",
+  "lat": 19.4797152,
+  "lng": 98.9075117,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1132",
+   "wikidata": "Q31699001"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6149697689",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-6149705420",
   "province": "cm",
   "cat": [
@@ -361593,6 +365148,41 @@
    {
     "type": "osm",
     "ref": "node/6149705420",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6149713879",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยส้นคมพร้า",
+  "nameTh": "ดอยส้นคมพร้า",
+  "nameEn": "Doi San Khom Phra",
+  "lat": 19.4972802,
+  "lng": 98.8743626,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1397"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6149713879",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -362590,6 +366180,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-6174016586",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "viewpoint and camp ground",
+  "nameTh": null,
+  "nameEn": "viewpoint and camp ground",
+  "lat": 20.0806468,
+  "lng": 99.2964722,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6174016586",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-6174927887",
   "province": "cm",
   "cat": [
@@ -363022,6 +366645,255 @@
    {
     "type": "osm",
     "ref": "node/6189378885",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6195178612",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยส้นหลังปาง",
+  "nameTh": "ดอยส้นหลังปาง",
+  "nameEn": "Doi San Lang Pang",
+  "lat": 19.3731065,
+  "lng": 98.8839912,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1217"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6195178612",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6195181751",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1120m",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.3612505,
+  "lng": 98.8694365,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1120"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6195181751",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6195184651",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยกิ่วลม",
+  "nameTh": "ดอยกิ่วลม",
+  "nameEn": "Doi Kio Lom",
+  "lat": 19.3488165,
+  "lng": 98.8752324,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1214",
+   "wikidata": "Q31652356"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6195184651",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6195190464",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยลิ่วลม",
+  "nameTh": "ดอยลิ่วลม",
+  "nameEn": "Doi Lio Lom",
+  "lat": 19.3332718,
+  "lng": 98.911281,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "856",
+   "wikidata": "Q31652671"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6195190464",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6195205653",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยปางแป",
+  "nameTh": "ดอยปางแป",
+  "nameEn": "Doi Pang Pae",
+  "lat": 19.3118244,
+  "lng": 98.8933975,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "993",
+   "wikidata": "Q31652639"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6195205653",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6195212211",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยกิ่คอหมา",
+  "nameTh": "ดอยกิ่คอหมา",
+  "nameEn": "Doi Kio Kho Ma",
+  "lat": 19.2994848,
+  "lng": 98.8816557,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wikidata": "Q31652557"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6195212211",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6195229710",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยกู",
+  "nameTh": "ดอยกู",
+  "nameEn": "Doi Ku",
+  "lat": 19.292929,
+  "lng": 98.9526302,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "639",
+   "wikidata": "Q31652372"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6195229710",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -364120,6 +367992,42 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-6217810009",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผ้าขาวน้อย",
+  "nameTh": null,
+  "nameEn": "Doi Pha Khao Noi",
+  "lat": 18.3984139,
+  "lng": 98.4867312,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "description": "Average GPS data from my visit at the peak 6th July 2024",
+   "ele": "1588"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6217810009",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-6217907797",
   "province": "cm",
   "cat": [
@@ -364152,6 +368060,42 @@
    {
     "type": "osm",
     "ref": "node/6217907797",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6217983541",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยหัวเสือ",
+  "nameTh": "ดอยหัวเสือ",
+  "nameEn": "Doi Hua Suea",
+  "lat": 18.4990354,
+  "lng": 98.5557662,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1855",
+   "wikidata": "Q31656486"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6217983541",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -367018,6 +370962,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-6312356485",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Sunset viewpoint",
+  "nameTh": null,
+  "nameEn": "Sunset viewpoint",
+  "lat": 18.5539331,
+  "lng": 98.4789947,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6312356485",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-631562391",
   "province": "cm",
   "cat": [
@@ -368658,6 +372635,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-6355860017",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Waterfall view to East",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.5460191,
+  "lng": 98.5218451,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6355860017",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-6356351495",
   "province": "cm",
   "cat": [
@@ -369432,6 +373442,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-6425234985",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "ดอยม่อนหมาก",
+  "nameTh": "Doi mon hmak",
+  "nameEn": "Doi mon hmak",
+  "lat": 18.4612528,
+  "lng": 98.3500174,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6425234985",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-6426201141",
   "province": "cm",
   "cat": [
@@ -369716,6 +373759,39 @@
    {
     "type": "osm",
     "ref": "node/6454037985",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6461623501",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "grass cut for elephants",
+  "nameTh": null,
+  "nameEn": "grass cut for elephants",
+  "lat": 18.6589712,
+  "lng": 98.6872435,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6461623501",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -375064,6 +379140,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-6615630185",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "น้ำตกแม่กลาง",
+  "nameTh": null,
+  "nameEn": "Mae Klang Waterfall",
+  "lat": 18.4971307,
+  "lng": 98.667649,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6615630185",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-6618295885",
   "province": "cm",
   "cat": [
@@ -375308,6 +379417,42 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-6694798414",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "จุดชมวิวน้ำตกแม่ยะ",
+  "nameTh": null,
+  "nameEn": "Mae Yai Waterfall Viewpoint",
+  "lat": 18.4400977,
+  "lng": 98.5930465,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "descriptionEn": "View of Mae Yai Waterfall",
+   "direction": "NW"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6694798414",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-6700467244",
   "province": "cm",
   "cat": [
@@ -375445,6 +379590,41 @@
    {
     "type": "osm",
     "ref": "node/6717751395",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-6718236685",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกแม่สะป๊อก",
+  "nameTh": null,
+  "nameEn": "Mae Sapok Waterfall (Very slippy)",
+  "lat": 18.6693039,
+  "lng": 98.6173818,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "description": "Very slippy"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6718236685",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -381937,6 +386117,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-7045559285",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Sunrise viewpoint",
+  "nameTh": null,
+  "nameEn": "Sunrise viewpoint",
+  "lat": 18.5249464,
+  "lng": 98.3118727,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7045559285",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-7045982885",
   "province": "cm",
   "cat": [
@@ -382154,6 +386367,270 @@
    {
     "type": "osm",
     "ref": "node/7053774548",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7054937424",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "8",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.2194886,
+  "lng": 98.8548861,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7054937424",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7054937446",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "5",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.2193372,
+  "lng": 98.853851,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7054937446",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7054937457",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "3",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.2203584,
+  "lng": 98.8533454,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7054937457",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7054937467",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "2",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.2202702,
+  "lng": 98.8540097,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7054937467",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7054937471",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "1",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.2198318,
+  "lng": 98.8540963,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7054937471",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7055020995",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "6",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.2183298,
+  "lng": 98.8537563,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7055020995",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7055020996",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "4",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.2188573,
+  "lng": 98.853175,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7055020996",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7055020997",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "7",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.2178717,
+  "lng": 98.8545022,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7055020997",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -383499,6 +387976,72 @@
    {
     "type": "osm",
     "ref": "node/7106360190",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7106473486",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Mae Pan Waterfall Viewpoint",
+  "nameTh": null,
+  "nameEn": "Mae Pan Waterfall Viewpoint",
+  "lat": 18.5302872,
+  "lng": 98.4582422,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7106473486",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7106473487",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "vieuwpoint",
+  "nameTh": null,
+  "nameEn": "vieuwpoint",
+  "lat": 18.7451086,
+  "lng": 98.2136989,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7106473487",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -386653,6 +391196,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-7238616686",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Viewpoint 360",
+  "nameTh": "Viewpoint",
+  "nameEn": null,
+  "lat": 18.4699603,
+  "lng": 98.3455387,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7238616686",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-7241572468",
   "province": "cm",
   "cat": [
@@ -387552,6 +392128,77 @@
   "updatedAt": "2026-08-20"
  },
  {
+  "id": "cm-osm-node-7263900618",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยลาง",
+  "nameTh": "ดอยลาง",
+  "nameEn": "Doi Lang",
+  "lat": 20.1240876,
+  "lng": 99.146282,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "2082"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7263900618",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7263900623",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยสันจุ๊",
+  "nameTh": null,
+  "nameEn": "Doi San Ju",
+  "lat": 20.0904504,
+  "lng": 99.0960413,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1606",
+   "wikidata": "Q31641440"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7263900623",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-7272750385",
   "province": "cm",
   "cat": [
@@ -387656,6 +392303,39 @@
    {
     "type": "osm",
     "ref": "node/7278858085",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7294302085",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Shady Big Tree",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.2409454,
+  "lng": 98.4289063,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7294302085",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -387912,6 +392592,72 @@
    {
     "type": "osm",
     "ref": "node/7366072736",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7377518787",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "หัว",
+  "nameTh": null,
+  "nameEn": "Sj",
+  "lat": 19.0939453,
+  "lng": 98.8559286,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7377518787",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7377546985",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "หัว",
+  "nameTh": null,
+  "nameEn": "Sj",
+  "lat": 19.0986434,
+  "lng": 98.8444018,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7377546985",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -388989,6 +393735,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-7528233998",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยกำผา",
+  "nameTh": "ดอยกําพา",
+  "nameEn": "Doi Kham Fah",
+  "lat": 19.5534834,
+  "lng": 98.8055639,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1794"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7528233998",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-7555174587",
   "province": "cm",
   "cat": [
@@ -389552,6 +394333,183 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-7660810579",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผาสามเหลี่ยม",
+  "nameTh": "ดอยผาสามเหลี่ยม",
+  "nameEn": "Doi Pha Sam Liam",
+  "lat": 19.2728455,
+  "lng": 98.840711,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1642"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7660810579",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7660823742",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1335m",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.2566691,
+  "lng": 98.8502272,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1335"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7660823742",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7660826082",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยขุนแมแมะ",
+  "nameTh": "ดอยขุนแมแมะ",
+  "nameEn": "Doi Khun Mae Mae",
+  "lat": 19.2958753,
+  "lng": 98.8365699,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1753",
+   "wikidata": "Q31652389"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7660826082",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7660833048",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผาแดง",
+  "nameTh": "ดอยผาแดง",
+  "nameEn": "Doi Pha Daeng",
+  "lat": 19.2697356,
+  "lng": 98.8458299,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1615",
+   "wikidata": "Q31614099"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7660833048",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7660854561",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1215m",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.2462696,
+  "lng": 98.8520624,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1215"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7660854561",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-7663300488",
   "province": "cm",
   "cat": [
@@ -389577,6 +394535,42 @@
    {
     "type": "osm",
     "ref": "node/7663300488",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7663954585",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผาดอกเอึ้อง",
+  "nameTh": "ดอยผาดอกเอึ้อง",
+  "nameEn": "Doi Pha Dok Ueang",
+  "lat": 19.3732044,
+  "lng": 99.0795905,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1225",
+   "wikidata": "Q31652189"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7663954585",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -389680,6 +394674,42 @@
    {
     "type": "osm",
     "ref": "node/766631271",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7666566691",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยสันกลางห้วยนก",
+  "nameTh": "ดอยสันกลางห้วยนก",
+  "nameEn": "Doi San Klang Huai Nok",
+  "lat": 19.2857312,
+  "lng": 99.049219,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "877",
+   "wikidata": "Q31652207"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7666566691",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -389794,6 +394824,113 @@
    {
     "type": "osm",
     "ref": "node/7681920769",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7682009401",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยโป่ง",
+  "nameTh": "ดอยโป่ง",
+  "nameEn": "Doi Pong",
+  "lat": 19.4068846,
+  "lng": 98.7796408,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1098"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7682009401",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7682089268",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยบี",
+  "nameTh": "ดอยบี",
+  "nameEn": "Doi Bee",
+  "lat": 19.3925994,
+  "lng": 98.7571665,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1305",
+   "wikidata": "Q31652441"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7682089268",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7684880423",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผาสามเส้า",
+  "nameTh": "ดอยผาสามเส้า",
+  "nameEn": "Doi Pha Sam Sao",
+  "lat": 19.292105,
+  "lng": 99.0551055,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "916",
+   "wikidata": "Q31614062"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7684880423",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -390095,6 +395232,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-7726163685",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "จุดชมวิวรักจัง",
+  "nameTh": null,
+  "nameEn": "Rak Jung view point",
+  "lat": 19.2510401,
+  "lng": 98.6380885,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7726163685",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-7726180085",
   "province": "cm",
   "cat": [
@@ -390120,6 +395290,41 @@
    {
     "type": "osm",
     "ref": "node/7726180085",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7726206586",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "จุดชมวิวโค้งงาม",
+  "nameTh": null,
+  "nameEn": "Kong Gnam view point",
+  "lat": 19.2236261,
+  "lng": 98.6732774,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "wheelchair": "no"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7726206586",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -390457,6 +395662,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-7777760791",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยเลาวู",
+  "nameTh": "ดอยเลาวู",
+  "nameEn": "Doi Lao Wu",
+  "lat": 19.5016275,
+  "lng": 98.745527,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1561"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7777760791",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-7794425963",
   "province": "cm",
   "cat": [
@@ -390557,6 +395797,42 @@
    {
     "type": "osm",
     "ref": "node/7825610986",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-7829089579",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยนาง",
+  "nameTh": "ดอยนาง",
+  "nameEn": "Doi Nang",
+  "lat": 19.4220028,
+  "lng": 98.9178278,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "785",
+   "wikidata": "Q31652405"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7829089579",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -392024,6 +397300,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-7994185564",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยม่อนเงาะ",
+  "nameTh": "ดอยม่อนเงาะ",
+  "nameEn": "Doi Mon Ngo",
+  "lat": 19.1754923,
+  "lng": 98.7724389,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1475"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7994185564",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-8005586823",
   "province": "cm",
   "cat": [
@@ -393239,6 +398550,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-8223548656",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกวังทอง",
+  "nameTh": null,
+  "nameEn": "Wang Tong Waterfall",
+  "lat": 19.0594335,
+  "lng": 99.0829997,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8223548656",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-822570080",
   "province": "cm",
   "cat": [
@@ -393304,6 +398648,76 @@
    {
     "type": "osm",
     "ref": "node/822570174",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8234404337",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1413",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4885973,
+  "lng": 98.8506734,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1413"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8234404337",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8244761629",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยลังกาน้อย",
+  "nameTh": "ดอยลังกาน้อย",
+  "nameEn": "Doi Lanka Noi",
+  "lat": 18.9652708,
+  "lng": 99.3763645,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1756"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8244761629",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -393495,6 +398909,78 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-8293866213",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยมอนสินคู้",
+  "nameTh": "ดอยมอนสินคู้",
+  "nameEn": "Doi Mon Sin Khu",
+  "lat": 18.6954851,
+  "lng": 98.7312165,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1093",
+   "wikidata": "Q31655516"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8293866213",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8293945646",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยขุนห้วยขนุน",
+  "nameTh": "ดอยขุนห้วยขนุน",
+  "nameEn": "Doi Khun Huai Khanun",
+  "lat": 18.7042648,
+  "lng": 98.7389018,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "983",
+   "wikidata": "Q31655327"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8293945646",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-8305114873",
   "province": "cm",
   "cat": [
@@ -393641,6 +399127,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-8345385873",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยส้นคมพร้า",
+  "nameTh": "ดอยส้นคมพร้า",
+  "nameEn": "Doi San Khom Phra",
+  "lat": 19.3729147,
+  "lng": 98.8889521,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1060"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8345385873",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-838775340",
   "province": "cm",
   "cat": [
@@ -393764,6 +399285,113 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-8401428787",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยหลักแต่ง",
+  "nameTh": "ดอยหลักแต่ง",
+  "nameEn": "Doi Lak Taeng",
+  "lat": 20.1190435,
+  "lng": 99.2250282,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1601",
+   "wikidata": "Q31641467"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8401428787",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8401473515",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผา้ห่มปก",
+  "nameTh": "ดอยผา้ห่มปก",
+  "nameEn": "Doi Pha Hom Pok",
+  "lat": 20.1300063,
+  "lng": 99.2080648,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1443"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8401473515",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8401532315",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยป่าคา",
+  "nameTh": null,
+  "nameEn": "Doi Pa Kha",
+  "lat": 20.076494,
+  "lng": 99.193973,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1442",
+   "wikidata": "Q31641386"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8401532315",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-840185269",
   "province": "cm",
   "cat": [
@@ -393838,6 +399466,75 @@
    {
     "type": "osm",
     "ref": "node/840185285",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8403720271",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "Doi Radar",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.0513448,
+  "lng": 99.3815008,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8403720271",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8403723106",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยสันยาว",
+  "nameTh": "ดอยสันยาว",
+  "nameEn": "Doi San Yao",
+  "lat": 19.0496705,
+  "lng": 99.382455,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1415",
+   "wikidata": "Q31668687"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8403723106",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -393994,6 +399691,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-842907350",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกตาดเหมย",
+  "nameTh": null,
+  "nameEn": "Tard Muey Waterfall",
+  "lat": 18.8177463,
+  "lng": 99.2991874,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/842907350",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-8442468985",
   "province": "cm",
   "cat": [
@@ -394023,6 +399753,108 @@
    {
     "type": "osm",
     "ref": "node/8442468985",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8444331140",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยเหล้กจี",
+  "nameTh": "ดอยเหล้กจี",
+  "nameEn": "Doi Lek Chi",
+  "lat": 19.6506777,
+  "lng": 98.8670644,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1419",
+   "wikidata": "Q31611878"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8444331140",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8444534429",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกห้วยหก",
+  "nameTh": "น้ำตกห้วยหก",
+  "nameEn": "Huai Hok Waterfall",
+  "lat": 19.6295231,
+  "lng": 98.8593732,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8444534429",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8444655298",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1679",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.6129086,
+  "lng": 98.8074619,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8444655298",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -394105,6 +399937,600 @@
    {
     "type": "osm",
     "ref": "node/8448819717",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965693",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1150",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7678896,
+  "lng": 98.8647016,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965693",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965694",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1210",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7665714,
+  "lng": 98.8774875,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965694",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965696",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1590",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7992218,
+  "lng": 98.8514611,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965696",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965697",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1710",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8094575,
+  "lng": 98.8452973,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965697",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965699",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1650",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.804714,
+  "lng": 98.8302381,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965699",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965700",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1670",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7958442,
+  "lng": 98.8299265,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965700",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965701",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1270",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7802252,
+  "lng": 98.8483921,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965701",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965702",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1590",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7839274,
+  "lng": 98.817478,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965702",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965703",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1470",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7629309,
+  "lng": 98.818578,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965703",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965704",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1470",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.76594,
+  "lng": 98.8130742,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965704",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965705",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1690",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.777498,
+  "lng": 98.8061808,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965705",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965707",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1557",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7670256,
+  "lng": 98.7912046,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965707",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965708",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1530",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7593642,
+  "lng": 98.7967372,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965708",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965709",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1290",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7456542,
+  "lng": 98.7872159,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965709",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965710",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1490",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7535188,
+  "lng": 98.8027653,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965710",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965711",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1394",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7410176,
+  "lng": 98.8071557,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965711",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965712",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1290",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7290259,
+  "lng": 98.7994398,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965712",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8448965713",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1364",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.7322914,
+  "lng": 98.8144665,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8448965713",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -394497,6 +400923,42 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-8530568542",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยปุกผักกา",
+  "nameTh": "ดอยปุกผักกา",
+  "nameEn": "Doi Puk Phak Ka",
+  "lat": 19.629275,
+  "lng": 98.7962566,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1642",
+   "wikidata": "Q31609033"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8530568542",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-856566123",
   "province": "cm",
   "cat": [
@@ -394586,6 +401048,42 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-8568750443",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "บ้านแสงตะวัน @ เชียงดาว",
+  "nameTh": null,
+  "nameEn": "Ban Saeng Tawan @ Chiang Dao",
+  "lat": 19.4145154,
+  "lng": 98.8438185,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "description": "The entire Doi Luang mountain with its several peaks is visible from here.",
+   "direction": "SE"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8568750443",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-8568782929",
   "province": "cm",
   "cat": [
@@ -394614,6 +401112,42 @@
    {
     "type": "osm",
     "ref": "node/8568782929",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-8571267032",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยนาง",
+  "nameTh": null,
+  "nameEn": "Doi Nang",
+  "lat": 19.447227,
+  "lng": 98.907639,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1589",
+   "wikidata": "Q31652606"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8571267032",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -396695,6 +403229,39 @@
    {
     "type": "osm",
     "ref": "node/8699303565",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-870148099",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Phaphung",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.8391844,
+  "lng": 99.1775319,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/870148099",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -399209,6 +405776,39 @@
   "updatedAt": "2026-08-08"
  },
  {
+  "id": "cm-osm-node-8930933458",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "兴龙山展望台",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.6894818,
+  "lng": 98.618613,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/8930933458",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-8937123517",
   "province": "cm",
   "cat": [
@@ -399764,6 +406364,284 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-9035063202",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "943",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4011978,
+  "lng": 98.7343726,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "943"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9035063202",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9035063203",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "984",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4078361,
+  "lng": 98.7406007,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "984"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9035063203",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9035063204",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยแดง",
+  "nameTh": "ดอยแดง",
+  "nameEn": "Doi Daeng",
+  "lat": 19.3927745,
+  "lng": 98.7313558,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "828"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9035063204",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9035063205",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยแดง",
+  "nameTh": "ดอยแดง",
+  "nameEn": "Doi Daeng",
+  "lat": 19.4105325,
+  "lng": 98.7523406,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "884"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9035063205",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9035063206",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยแดง",
+  "nameTh": "ดอยแดง",
+  "nameEn": "Doi Daeng",
+  "lat": 19.420376,
+  "lng": 98.7482894,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1003"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9035063206",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9035063207",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1118",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4268759,
+  "lng": 98.7589496,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9035063207",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9035063208",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยยาว",
+  "nameTh": "ดอยยาว",
+  "nameEn": "Doi Yao",
+  "lat": 19.4424569,
+  "lng": 98.7646316,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1163"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9035063208",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9035063209",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1022",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4385719,
+  "lng": 98.7843126,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1022"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9035063209",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-9037455361",
   "province": "cm",
   "cat": [
@@ -399897,6 +406775,39 @@
    {
     "type": "osm",
     "ref": "node/9060250098",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9069544066",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยนางเมาะ",
+  "nameTh": "ดอยนางเมาะ",
+  "nameEn": "Doi Nang Mo",
+  "lat": 18.7243832,
+  "lng": 99.2507724,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9069544066",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -400502,6 +407413,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-9097939165",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยขุนฝาง",
+  "nameTh": "ดอยขุนฝาง",
+  "nameEn": "Doi Khun Fang",
+  "lat": 19.6211765,
+  "lng": 99.229699,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1389"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9097939165",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-9119623415",
   "province": "cm",
   "cat": [
@@ -400948,6 +407894,278 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-9176158000",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผาสามเส้า",
+  "nameTh": "ดอยผาสามเส้า",
+  "nameEn": "Doi Pha Sam Sao",
+  "lat": 19.259541,
+  "lng": 98.8879369,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1303"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9176158000",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9178053664",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1079",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.3082289,
+  "lng": 98.7550841,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9178053664",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9178073317",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยทุ่งยั๊วะ",
+  "nameTh": "ดอยทุ่งยั๊วะ",
+  "nameEn": "Doi Thung Yua",
+  "lat": 19.3086005,
+  "lng": 98.7721809,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1053"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9178073317",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9178967843",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1484",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.2792519,
+  "lng": 98.8128372,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9178967843",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9179012154",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยสามเหลี่ยม",
+  "nameTh": "ดอยสามเหลี่ยม",
+  "nameEn": "Doi Sam Liam",
+  "lat": 19.2609815,
+  "lng": 98.8087444,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1388"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9179012154",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9179047649",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "นำต้กตาดหมอก",
+  "nameTh": "นำต้กตาดหมอก",
+  "nameEn": "Tad Hak Waterfall",
+  "lat": 19.2426242,
+  "lng": 98.8185709,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9179047649",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9190426046",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1309",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.475997,
+  "lng": 98.8628958,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9190426046",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9190437203",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยแม่คอง",
+  "nameTh": "ดอยแม่คอง",
+  "nameEn": "Doi Mae Khong",
+  "lat": 19.4644423,
+  "lng": 98.8336494,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1417"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9190437203",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-9199296717",
   "province": "cm",
   "cat": [
@@ -401190,6 +408408,45 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-9259617985",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผ้าห่มปก",
+  "nameTh": "ดอยผ้าห่มปก",
+  "nameEn": "Doi Pha Hom Pok",
+  "lat": 20.0706641,
+  "lng": 99.1416769,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "altNames": [
+    "Huamereng",
+    "Doi Pha Luang"
+   ],
+   "ele": "2285"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9259617985",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-9266719212",
   "province": "cm",
   "cat": [
@@ -401215,6 +408472,41 @@
    {
     "type": "osm",
     "ref": "node/9266719212",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9269283458",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยหัวหมู",
+  "nameTh": "ดอยหัวหมู",
+  "nameEn": "Doi Hua Mu",
+  "lat": 18.8367703,
+  "lng": 98.8893216,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1620"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9269283458",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -403378,6 +410670,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-9422147919",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "จุดชมวิวเหยียบเมฆา",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.9545423,
+  "lng": 98.4397531,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9422147919",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-9429858017",
   "province": "cm",
   "cat": [
@@ -403488,6 +410813,340 @@
     "ref": "osm sub: muaythai",
     "fetched": "2026-07-27",
     "via": "data/curated/shelves.json"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9430999160",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผาแดง",
+  "nameTh": "ดอยผาแดง",
+  "nameEn": "Doi Pha Daeng",
+  "lat": 19.5083351,
+  "lng": 99.1205595,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1241"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9430999160",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9430999161",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1060",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.5020533,
+  "lng": 99.1335935,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9430999161",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9430999162",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1208",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4976794,
+  "lng": 99.1246387,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9430999162",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9430999163",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1038",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4879075,
+  "lng": 99.1179643,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9430999163",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9430999164",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1341",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4850268,
+  "lng": 99.1023342,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9430999164",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9430999165",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "846",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4891643,
+  "lng": 99.0727241,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9430999165",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9430999166",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "991",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4694984,
+  "lng": 99.1068852,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9430999166",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9430999167",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยผาแดง",
+  "nameTh": "ดอยผาแดง",
+  "nameEn": "Doi Pha Daeng",
+  "lat": 19.4628995,
+  "lng": 99.0767128,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "ele": "1242"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9430999167",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9430999168",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "1144",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4492784,
+  "lng": 99.0678971,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9430999168",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9430999169",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "679",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4692406,
+  "lng": 99.055902,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9430999169",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -403619,6 +411278,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-9441224017",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Viewpoint",
+  "nameTh": null,
+  "nameEn": "Viewpoint",
+  "lat": 18.5898278,
+  "lng": 98.4873499,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9441224017",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-9441621562",
   "province": "cm",
   "cat": [
@@ -403729,6 +411421,47 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-9444644428",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยอ่างขาง",
+  "nameTh": "ดอยอ่างขาง",
+  "nameEn": "Doi Angkhan",
+  "lat": 19.8692444,
+  "lng": 99.0550219,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "gps",
+   "namesOther": {
+    "zh": "安康山"
+   },
+   "ele": "1928",
+   "wikidata": "Q13014798",
+   "wikipedia": "th:ดอยอ่างขาง"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9444644428",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-9455440417",
   "province": "cm",
   "cat": [
@@ -403789,6 +411522,43 @@
    {
     "type": "osm",
     "ref": "node/9458502619",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9459654917",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "จุดชมวิวผาช่อ",
+  "nameTh": null,
+  "nameEn": "Phachor View Point",
+  "lat": 18.5176636,
+  "lng": 98.7393355,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "altNames": [
+    "Pha Cho View Point"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9459654917",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -404256,6 +412026,78 @@
    {
     "type": "osm",
     "ref": "node/9504137326",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9508089511",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "peak"
+  ],
+  "name": "ดอยม่อนล่อง",
+  "nameTh": "ดอยม่อนล่อง",
+  "nameEn": "Doi Mon Long",
+  "lat": 18.9200572,
+  "lng": 98.8352842,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "altNames": [
+    "ดอยม่อนคว่ำหล้อง",
+    "Doi Mon Kuam Long"
+   ],
+   "ele": "1434"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9508089511",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9518433407",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "viewpoint"
+  ],
+  "name": "Mon Lan Viewpoint",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.4275109,
+  "lng": 99.3074811,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9518433407",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -405835,6 +413677,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-9784520722",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกบ้านห้วยหอย(น้ำตกแม่ป๋วย)",
+  "nameTh": null,
+  "nameEn": "Baan Huai Hoi Waterfall (Mae Puai Waterfall)",
+  "lat": 18.6320133,
+  "lng": 98.6620965,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9784520722",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-9784520917",
   "province": "cm",
   "cat": [
@@ -406245,6 +414120,72 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cm-osm-node-9790585720",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกแม่เตี๊ยะ",
+  "nameTh": null,
+  "nameEn": "Mae Tia waterfall",
+  "lat": 18.3829243,
+  "lng": 98.5761213,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9790585720",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9790670418",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกดอยแก้ว",
+  "nameTh": null,
+  "nameEn": "Doi Kaeo Waterfall",
+  "lat": 18.401028,
+  "lng": 98.6037783,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9790670418",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cm-osm-node-9796145718",
   "province": "cm",
   "cat": [
@@ -406384,6 +414325,39 @@
    {
     "type": "osm",
     "ref": "node/9810743217",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9817141961",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "ขุนนำอู",
+  "nameTh": "ขุนนำอู",
+  "nameEn": "Khun Nam Hoo",
+  "lat": 19.4304002,
+  "lng": 98.9378468,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9817141961",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -406718,6 +414692,39 @@
    {
     "type": "osm",
     "ref": "node/9848101517",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-node-9850710592",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "Hidden waterfall",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.8323343,
+  "lng": 98.9058348,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/9850710592",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -509971,6 +517978,39 @@
    {
     "type": "osm",
     "ref": "way/857178911",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cm-osm-way-857566002",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "waterfall"
+  ],
+  "name": "น้ำตกผาดำ",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 18.6071073,
+  "lng": 98.5301774,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/857566002",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }

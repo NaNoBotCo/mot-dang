@@ -120,7 +120,14 @@ class Graph(object):
         fwd, bwd, _ = MODES[mode]
         return (flags & (fwd if forward else bwd)) != 0
 
-    def snap(self, p, mode):
+    def snap(self, p, mode, allow=None):
+        """Nearest point on the nearest edge this mode may use.
+
+        `allow` narrows which edges count — a predicate on the edge index. It
+        defaults to None, which is every edge, so every existing caller is
+        unaffected. It exists so a lap can be confined to the roads round the
+        moat instead of being free to snap onto a lane through the middle.
+        """
         fwd, bwd, _ = MODES[mode]
         best = None
         for ring in (1, 2, 4):
@@ -128,6 +135,8 @@ class Graph(object):
             for dy in range(-ring, ring + 1):
                 for dx in range(-ring, ring + 1):
                     for (i, k) in self.grid.get((cy0 + dy, cx0 + dx), ()):
+                        if allow is not None and not allow(i):
+                            continue
                         flags = self.edges[i][3]
                         if not (flags & (fwd | bwd)):
                             continue
@@ -217,6 +226,155 @@ class Graph(object):
             return None
         c = self.cost_to(self.costs_from(sa, mode), sb, mode)
         return None if c is None else c + sa.d + sb.d
+
+    # ---- the line, not just the number -----------------------------------
+    #
+    # `costs_from` keeps no predecessors, so until now this side could say how
+    # far a journey was and not where it went. Anything that draws a route, or
+    # tests one against a rule about direction, needs the line.
+    #
+    # This is a third copy of a search that already exists twice, so it is
+    # deliberately kept apart from `costs_from` rather than folded into it: the
+    # matrix path is the hot one and every caller of it is happy with costs.
+    # Nothing above this comment changed when this was added.
+    #
+    # It mirrors `route()` in build.py's plan JS, including the two things that
+    # method exists for — the same-edge case falling through to the search when
+    # the mode may not travel that way, and both end PIECES of road being cut
+    # in rather than left to a straight stub.
+    #
+    # ONE DIFFERENCE FROM THE JS, ON PURPOSE. The JS measures every length with
+    # the flat projection and is consistent with itself. `snap()` here measures
+    # its running total with `hav` and only the partial segment flat, so the
+    # cutting below uses `hav` too — a cut has to land where the snap that
+    # produced the distance said it was. Over the whole graph the two measures
+    # differ by about 0.22% (676.15 km against 674.66 km), which is a gap that
+    # predates this method; matching the snap is what keeps the line and the
+    # metres attached to it describing the same journey.
+
+    def _edge_len(self, ei):
+        pts = self.geom[ei]
+        return sum(hav(pts[j], pts[j + 1]) for j in range(len(pts) - 1))
+
+    def _at_along(self, ei, d):
+        """The point d metres along an edge, from its a end."""
+        pts = self.geom[ei]
+        run = 0.0
+        for k in range(len(pts) - 1):
+            L = hav(pts[k], pts[k + 1])
+            if run + L >= d:
+                t = (d - run) / L if L else 0.0
+                return [pts[k][0] + (pts[k + 1][0] - pts[k][0]) * t,
+                        pts[k][1] + (pts[k + 1][1] - pts[k][1]) * t]
+            run += L
+        return list(pts[-1])
+
+    def _cut_edge(self, ei, d0, d1):
+        """The part of one edge between two distances along it, in travel order."""
+        pts = self.geom[ei]
+        L = self._edge_len(ei)
+        a = max(0.0, min(L, min(d0, d1)))
+        b = max(0.0, min(L, max(d0, d1)))
+        out = [self._at_along(ei, a)]
+        run = 0.0
+        for k in range(len(pts) - 1):
+            run += hav(pts[k], pts[k + 1])
+            if a + 0.01 < run < b - 0.01:
+                out.append(list(pts[k + 1]))
+        out.append(self._at_along(ei, b))
+        return out[::-1] if d1 < d0 else out
+
+    @staticmethod
+    def _join(line, pts):
+        for p in pts:
+            if not line or abs(line[-1][0] - p[0]) > 1e-9 or abs(line[-1][1] - p[1]) > 1e-9:
+                line.append([p[0], p[1]])
+        return line
+
+    def route(self, a, b, mode, allow=None):
+        """Journey from a to b: metres, and the line actually travelled.
+
+        Returns None when there is no way through — an unreachable pair is not
+        a journey of zero and must never be able to look like one.
+
+        `allow` confines the journey to a subset of edges, by index. With it the
+        search cannot leave a corridor, which is how a lap is kept on the roads
+        round the moat rather than being handed the diagonal it would otherwise
+        be right to prefer. Left as None nothing is confined.
+        """
+        s, t = self.snap(a, mode, allow), self.snap(b, mode, allow)
+        if not s or not t:
+            return None
+
+        if s.edge == t.edge:
+            fwd = t.to_a >= s.to_a
+            if self.passable(self.edges[s.edge][3], mode, fwd):
+                return {"m": abs(t.to_a - s.to_a) + s.d + t.d,
+                        "path": self._cut_edge(s.edge, s.to_a, t.to_a),
+                        "same_edge": True, "snap_in_m": [s.d, t.d]}
+
+        INF = float("inf")
+        n = len(self.nodes)
+        cost = [INF] * n
+        prev_n = [-1] * n
+        prev_e = [-1] * n
+        heap = []
+        if self.passable(self.edges[s.edge][3], mode, False) or s.a == s.b:
+            cost[s.a] = s.to_a
+            heappush(heap, (s.to_a, s.a))
+        if self.passable(self.edges[s.edge][3], mode, True) and s.to_b < cost[s.b]:
+            cost[s.b] = s.to_b
+            heappush(heap, (s.to_b, s.b))
+
+        goals = {}
+        if self.passable(self.edges[t.edge][3], mode, True):
+            goals[t.a] = t.to_a
+        if self.passable(self.edges[t.edge][3], mode, False):
+            goals[t.b] = t.to_b
+        if not goals:
+            return None
+
+        best_goal, best_cost = None, INF
+        while heap:
+            c, node = heappop(heap)
+            if c > cost[node]:
+                continue
+            if c >= best_cost:
+                break
+            if node in goals and c + goals[node] < best_cost:
+                best_cost, best_goal = c + goals[node], node
+            for (to, length, flags, ei, forward) in self.adj[node]:
+                if allow is not None and not allow(ei):
+                    continue
+                if not self.passable(flags, mode, forward):
+                    continue
+                nc = c + length
+                if nc < cost[to]:
+                    cost[to] = nc
+                    prev_n[to], prev_e[to] = node, ei
+                    heappush(heap, (nc, to))
+
+        if best_goal is None:
+            return None
+
+        chain = []
+        cur = best_goal
+        while cur != -1 and prev_e[cur] != -1:
+            chain.append((prev_e[cur], cur))
+            cur = prev_n[cur]
+        chain.reverse()
+
+        line = []
+        self._join(line, self._cut_edge(
+            s.edge, s.to_a, 0.0 if cur == s.a else self._edge_len(s.edge)))
+        for ei, into in chain:
+            pts = self.geom[ei]
+            self._join(line, pts if self.edges[ei][1] == into else list(reversed(pts)))
+        self._join(line, self._cut_edge(
+            t.edge, 0.0 if best_goal == t.a else self._edge_len(t.edge), t.to_a))
+
+        return {"m": best_cost + s.d + t.d, "path": line,
+                "same_edge": False, "snap_in_m": [s.d, t.d]}
 
 
 def order_loop(matrix):

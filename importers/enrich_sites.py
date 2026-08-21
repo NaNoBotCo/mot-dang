@@ -225,7 +225,36 @@ def harvest(html, page_url):
 
 # ---- the pass -------------------------------------------------------------
 
+def as_url(v):
+    """OSM's `website` is free text, and 57 of the 1,003 that carry one arrive
+    with no scheme — "www.stuffchiangmai.com", "facebook.com/paperplanecnx".
+
+    urllib raises ValueError on those before a single byte is fetched. That
+    landed in this importer's catch-all as "unreadable", which reads exactly
+    like a malformed page, so 57 places were counted as visited-and-broken
+    without ever having been asked. check_links.py already assumes http:// for
+    the same values; matching it means one place's website is the same string
+    in both files rather than two spellings of one address.
+    """
+    v = (v or "").strip()
+    if v and not re.match(r"^[a-z][a-z0-9+.-]*://", v, re.I):
+        return "http://" + v
+    return v
+
+
 def first_hand(url):
+    """Is this the place's own domain, rather than somebody's listing of it?
+
+    A URL WITH NO SCHEME HAS NO NETLOC. urlparse("m.facebook.com") puts the
+    whole thing in `path` and leaves `netloc` empty, so the blocklist matched
+    nothing and this returned True — a Facebook page passed as a first-hand
+    source. Two records in the beauty shelf carry exactly that shape (WO-22,
+    2026-08-21), and the mistake is silent in the one place this repo is least
+    willing to be wrong about: where a fact came from. A missing scheme is
+    assumed to be https, which is what every other reader of these fields does.
+    """
+    if "//" not in url:
+        url = "https://" + url.lstrip("/")
     host = urllib.parse.urlparse(url).netloc.lower()
     return not any(b in host for b in NOT_FIRST_HAND)
 
@@ -295,15 +324,20 @@ def main():
     ap.add_argument("--dry-run", action="store_true", help="print, write nothing")
     ap.add_argument("--refresh", action="store_true", help="revisit places already enriched")
     ap.add_argument("--only", help="one place id, for testing")
+    ap.add_argument("--cat", help="one category key, e.g. cannabis — walk that "
+                                  "shelf's sites and leave the rest of the "
+                                  "queue for another day")
     args = ap.parse_args()
 
     doc = json.load(open(OUT, encoding="utf-8")) if os.path.exists(OUT) else {}
     recs = load_records()
-    queue = [r for r in recs if wants(r) and first_hand(r["website"])]
+    queue = [r for r in recs if wants(r) and first_hand(as_url(r["website"]))]
     if args.only:
         queue = [r for r in recs if r["id"] == args.only and r.get("website")]
     elif not args.refresh:
         queue = [r for r in queue if r["id"] not in doc]
+    if args.cat:
+        queue = [r for r in queue if args.cat in (r.get("cat") or [])]
     if args.limit:
         queue = queue[:args.limit]
 
@@ -313,7 +347,7 @@ def main():
     filled, blank, refused, broke = 0, 0, 0, 0
 
     for i, r in enumerate(queue, 1):
-        url = r["website"]
+        url = as_url(r["website"])
         name = r.get("nameEn") or r.get("name") or r["id"]
         try:
             if not allowed(url):

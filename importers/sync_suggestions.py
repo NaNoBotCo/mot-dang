@@ -16,6 +16,13 @@ into a public commit by accident.
     python3 importers/sync_suggestions.py            # fetch new ones
     python3 importers/sync_suggestions.py --all      # including ones already seen
     python3 importers/sync_suggestions.py --done ID  # mark one handled
+    python3 importers/sync_suggestions.py --offline --kind question
+                                                     # triage from the file on
+                                                     # disk, no wrangler round-trip
+
+The `question` kind is the ถามมด intake (asked_layer.py): a reader asking where
+to find something. Triage prints the question and whether a reply address was
+left — never the address itself, for the same reason the file is gitignored.
 
 WRANGLER GOTCHA: every kv command needs --remote. Without it wrangler talks to
 a LOCAL simulated namespace and silently succeeds against nothing — the same
@@ -46,6 +53,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--all", action="store_true", help="include ones already marked handled")
     ap.add_argument("--done", metavar="ID", help="mark a suggestion handled")
+    ap.add_argument("--kind", help="show only this kind (e.g. question)")
+    ap.add_argument("--offline", action="store_true",
+                    help="read _incoming/suggestions.json instead of KV")
     args = ap.parse_args()
 
     if args.done:
@@ -58,28 +68,46 @@ def main():
         print(f"🐜 {args.done} marked handled")
         return 0
 
-    listing = json.loads(wrangler("kv", "key", "list", "--prefix", "sug:"))
-    rows = []
-    for k in listing:
-        try:
-            rows.append(json.loads(wrangler("kv", "key", "get", k["name"])))
-        except Exception as e:
-            print(f"   could not read {k['name']}: {e}")
+    if args.offline:
+        if not os.path.exists(OUT):
+            sys.exit(f"nothing on disk yet — run without --offline first ({OUT})")
+        with open(OUT, encoding="utf-8") as fh:
+            rows = json.load(fh).get("suggestions", [])
+    else:
+        listing = json.loads(wrangler("kv", "key", "list", "--prefix", "sug:"))
+        rows = []
+        for k in listing:
+            try:
+                rows.append(json.loads(wrangler("kv", "key", "get", k["name"])))
+            except Exception as e:
+                print(f"   could not read {k['name']}: {e}")
+        if not args.all:
+            rows = [r for r in rows if r.get("status") != "done"]
+        rows.sort(key=lambda r: r.get("createdAt") or "")
+
+        os.makedirs(OUT_DIR, exist_ok=True)
+        with open(OUT, "w", encoding="utf-8") as fh:
+            json.dump({"fetched": len(rows), "suggestions": rows}, fh,
+                      ensure_ascii=False, indent=1)
+
+    if args.kind:
+        rows = [r for r in rows if r.get("kind") == args.kind]
     if not args.all:
         rows = [r for r in rows if r.get("status") != "done"]
-    rows.sort(key=lambda r: r.get("createdAt") or "")
-
-    os.makedirs(OUT_DIR, exist_ok=True)
-    with open(OUT, "w", encoding="utf-8") as fh:
-        json.dump({"fetched": len(rows), "suggestions": rows}, fh,
-                  ensure_ascii=False, indent=1)
 
     print(f"🐜 {len(rows)} suggestion(s) waiting -> {OUT}")
-    for r in rows[:20]:
-        where = r.get("placeId") or "(no place)"
-        print(f"   [{r.get('kind','?'):10}] {where:28} {(r.get('what') or '')[:60]}")
-    if len(rows) > 20:
-        print(f"   … and {len(rows) - 20} more")
+    for r in rows[:40]:
+        if r.get("kind") == "question":
+            # the triage line for ถามมด: id to pass to asked_new.py, when,
+            # language, the question — and whether we CAN reply, never to whom
+            print(f"   {r.get('id','')[:8]}  {(r.get('createdAt') or '')[:10]}  "
+                  f"{r.get('lang','?'):2}  reply-to: {'yes' if r.get('from') else 'no '}  "
+                  f"{(r.get('what') or '')[:100]}")
+        else:
+            where = r.get("placeId") or "(no place)"
+            print(f"   [{r.get('kind','?'):10}] {where:28} {(r.get('what') or '')[:60]}")
+    if len(rows) > 40:
+        print(f"   … and {len(rows) - 40} more")
     return 0
 
 

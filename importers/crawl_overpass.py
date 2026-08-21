@@ -80,7 +80,7 @@ PROVINCE_AREA = {
 # is where the ground made it, which is never the near ring. Seven of the
 # eight belong to whole districts the box has never seen.
 WIDE_GROUPS = {"stations", "cannabis", "medical", "schools", "reading", "making",
-               "elephants", "hotsprings"}
+               "elephants", "hotsprings", "views"}
 
 # Provinces crawled province-wide for every group. Chiang Rai is here on Nan's
 # instruction: a directory that only knows Mueang is not a directory for
@@ -171,7 +171,40 @@ QUERIES = {
                    'nwr["amenity"="taxi"]["name"]'],
     "repair":     ['nwr["shop"="car_repair"]', 'nwr["shop"="motorcycle_repair"]',
                    'nwr["shop"="computer"]', 'nwr["shop"="mobile_phone"]'],
-    "beauty":     ['nwr["shop"="hairdresser"]', 'nwr["shop"="beauty"]'],
+    # WO-22, widened 2026-08-21 on Nan's go. Two selectors held this group from
+    # the first crawl, and between them they cannot see the trades she actually
+    # asked after. `hairdresser_supply` is where extensions and wigs are SOLD
+    # (a different shop from the one that fits them, and the shop that knows
+    # who does); `wig` is its own tag; `craft=hairdresser` is how a stylist
+    # working out of their own front room gets mapped, which is the closest
+    # thing OSM has to the house-call question. `cosmetics` is queried to close
+    # the question rather than in hope — ร้านเครื่องสำอาง is retail, not a chair,
+    # and nothing is filed from it unless the answer says otherwise.
+    #
+    # ANSWERED 2026-08-21, and the answer is worth keeping so nobody re-runs
+    # this experiment hoping for a different one:
+    #     hairdresser_supply   0 in CM, 0 in CR (asked twice each)
+    #     wig                  0 in CM, 0 in CR (asked twice each)
+    #     craft=hairdresser    0 in CM, 0 in CR (asked twice each)
+    #     cosmetics           33 in CM, 8 in CR — and NOT filed, see below
+    # Zero new hair shops of any kind. The extension-and-wig supply trade and
+    # the stylist working from her own front room are simply not in
+    # OpenStreetMap here, so the house-call and extensions questions cannot be
+    # answered by crawling at all — only by a shop stating it or a person
+    # asking at a door. That is a question closed, not a crawl that failed.
+    #
+    # The cosmetics haul is deliberately left in the cache and filed NOWHERE.
+    # ร้านเครื่องสำอาง is retail, not a chair, and this shelf is called
+    # เสริมสวย-ทำผม; putting 41 shops that sell lipstick on it would break the
+    # promise the shelf's own name makes. The answer also came back dirty —
+    # more than half unnamed, and several are massage venues wearing a
+    # cosmetics tag ("Sense Massage & Spa", "massage by ex-prisoners", "Jera
+    # Thai massage school"), which would have arrived as name-duplicates of
+    # places the massage group already holds. If a cosmetics shelf is ever
+    # wanted it belongs under shopping, as its own decision.
+    "beauty":     ['nwr["shop"="hairdresser"]', 'nwr["shop"="beauty"]',
+                   'nwr["shop"="hairdresser_supply"]', 'nwr["shop"="wig"]',
+                   'nwr["shop"="cosmetics"]', 'nwr["craft"="hairdresser"]'],
     "pets":       ['nwr["amenity"="veterinary"]', 'nwr["shop"="pet"]',
                    'nwr["shop"="pet_grooming"]'],
     "fitness":    ['nwr["leisure"="fitness_centre"]'],
@@ -199,6 +232,26 @@ QUERIES = {
                    'nwr["leisure"="playground"]["name"]', 'nwr["natural"="water"]["name"]'],
     # 41 tattoo records were sitting in 'sights' with no rule; crawl them properly.
     "tattoo":     ['nwr["shop"="tattoo"]', 'nwr["shop"="piercing"]'],
+    # WO-21, Nan's go 2026-08-21. The viewpoint shelf read CM 31 / CR 74, and
+    # the imbalance was this file's geometry rather than the two provinces:
+    # CR is in WIDE_PROVINCES and was asked province-wide, while `culture` —
+    # which is where tourism=viewpoint has always lived — has only ever been
+    # asked on Chiang Mai's near ring. The views of Chiang Mai are on the doi
+    # by construction, so the near ring is the one place they cannot be. Same
+    # shape as the elephants: a near-ring ask for a mountain viewpoint is
+    # asking the moat.
+    #
+    # Waterfalls and peaks have NEVER been asked for by any group, in either
+    # province. The famous falls only reached the catalogue at all because
+    # WO-19's attraction dragnet happened to catch them.
+    #
+    # Named only, for the two natural features: an unnamed contour bump is
+    # not a place anyone looks up, and nameless is skipped at import anyway.
+    # tourism=viewpoint keeps its bare form — a จุดชมวิว with no name is still
+    # somewhere a mapper stood, and the same rule drops it downstream.
+    "views":      ['nwr["tourism"="viewpoint"]',
+                   'nwr["waterway"="waterfall"]["name"]',
+                   'nwr["natural"="peak"]["name"]'],
     # Fixtures, not destinations. Nobody looks up an ATM by name, so these never
     # become directory records — import_fixtures.py joins them by distance onto
     # the shops they sit at. OSM maps an ATM as its own node beside the store,

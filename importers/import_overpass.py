@@ -663,6 +663,25 @@ def classify(t):
         return "parks", "water"
     if tr == "viewpoint":
         return "sights", "viewpoint"
+    # WO-21, after the crawl of 2026-08-21 and not before it. Both of these
+    # are written against elements that have now been fetched and counted
+    # (cm 42 waterfalls / 132 named peaks, cr 17 / 36) rather than against a
+    # guess about what the north holds — the same discipline that left
+    # shop=fabric and shop=antiques deliberately unclassified in WO-10.
+    #
+    # They sit BELOW natural=water on purpose. A waterfall is very often
+    # mapped with the stream it falls down, and filing น้ำตกแม่สา as a body of
+    # water rather than as the falls would bury the thing people travel for.
+    # Reaching this line means the element said waterfall in its own tag.
+    if t.get("waterway") == "waterfall":
+        return "sights", "waterfall"
+    # `natural=peak` is the summit itself. 79 of Chiang Mai's 131 carry `ele`,
+    # so the elevation row lights up for most of them — and ดอยอินทนนท์ at
+    # 2,565 m is the roof of the kingdom, which the directory did not hold in
+    # any form until today. Named only (the selector says so): an unnamed
+    # contour bump is not a place anyone looks up.
+    if t.get("natural") == "peak":
+        return "sights", "peak"
     if "historic" in t:
         return "sights", "historic"
     if s in ("doityourself", "hardware"):

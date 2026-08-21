@@ -193,39 +193,64 @@ def band(title, note=""):
 
 
 def report_shelf(recs):
-    vp = [r for r in recs if "viewpoint" in (r.get("sub") or [])]
-    band("SHELF", "sub=viewpoint today")
-    for prov in ("cm", "cr"):
-        rows = [r for r in vp if r.get("province") == prov]
-        contact = sum(1 for r in rows if r.get("phone") or r.get("website"))
-        photo = sum(1 for r in rows if r.get("photo"))
-        hours = sum(1 for r in rows if r.get("hours"))
-        bare = sum(1 for r in rows if re.fullmatch(
-            r"จุดชมวิว|viewpoint|sunset", (r.get("name") or "").strip(), re.I))
-        print(f"  {prov}: {len(rows)} records — contactable {contact}, "
-              f"photo {photo}, hours {hours}, bare-named {bare}")
-    print("  The imbalance is crawl geometry: cr is in WIDE_PROVINCES (asked"
-          "\n  province-wide); cm's culture group has only ever been asked on"
-          "\n  the near ring, and the views of Chiang Mai are on the doi.")
-    return vp
+    band("SHELF", "the three view shelves today")
+    for sub in ("viewpoint", "waterfall", "peak"):
+        rows_all = [r for r in recs if sub in (r.get("sub") or [])]
+        print(f"  {sub}  ({len(rows_all)})")
+        for prov in ("cm", "cr"):
+            rows = [r for r in rows_all if r.get("province") == prov]
+            if not rows:
+                continue
+            photo = sum(1 for r in rows if r.get("photo"))
+            ele = sum(1 for r in rows if (r.get("attrs") or {}).get("ele"))
+            face = sum(1 for r in rows if (r.get("attrs") or {}).get("direction"))
+            bare = sum(1 for r in rows if re.fullmatch(
+                r"จุดชมวิว|viewpoint|sunset|waterfall", (r.get("name") or "").strip(),
+                re.I))
+            print(f"    {prov}: {len(rows):4d} — photo {photo}, elevation {ele}, "
+                  f"bearing {face}, bare-named {bare}")
+    print("\n  The imbalance this file was written to explain is GONE. It read"
+          "\n  cm 31 / cr 74 because cr is in WIDE_PROVINCES while cm's culture"
+          "\n  group had only ever been asked on the near ring — and the views"
+          "\n  of Chiang Mai are on the doi, which is the one place a near ring"
+          "\n  cannot reach. The wide `views` group (2026-08-21, Nan's go) asked"
+          "\n  properly: cm now leads on all three shelves.")
+    return [r for r in recs if "viewpoint" in (r.get("sub") or [])]
 
 
 def report_dropped():
-    band("DROPPED", "tags on cached tourism=viewpoint elements import does not keep")
-    for prov, els in cached_elements("culture").items():
-        vps = [e for e in els if (e.get("tags") or {}).get("tourism") == "viewpoint"]
+    band("DROPPED", "tags on cached view elements that import does not keep")
+    culture, views = cached_elements("culture"), cached_elements("views")
+    for prov in ("cm", "cr"):
+        # BOTH caches, deduplicated by ref. tourism=viewpoint lives in the
+        # near-ring `culture` group AND in the province-wide `views` group,
+        # and reading only the first undercounted Chiang Mai four-fold.
+        byref = {}
+        for e in (culture.get(prov) or []) + (views.get(prov) or []):
+            byref[f"{e.get('type')}/{e.get('id')}"] = e
+        els = list(byref.values())
+        vps = [e for e in els if (e.get("tags") or {}).get("tourism") == "viewpoint"
+               or (e.get("tags") or {}).get("waterway") == "waterfall"
+               or (e.get("tags") or {}).get("natural") == "peak"]
         named = [e for e in vps if element_name(e.get("tags", {}))]
         keys = {}
         for e in vps:
             for k in ("direction", "ele", "description", "description:en", "wikidata"):
                 if k in (e.get("tags") or {}):
                     keys[k] = keys.get(k, 0) + 1
-        print(f"  {prov}: {len(vps)} viewpoint elements cached, {len(named)} named "
+        print(f"  {prov}: {len(vps)} view elements cached, {len(named)} named "
               f"({len(vps) - len(named)} nameless — skipped by the "
-              f"no-shelf-for-the-nameless rule)")
+              f"no-shelf-for-the-nameless rule; a map could still draw them, "
+              f"which is a live question for WO-20)")
         if keys:
-            print(f"      recoverable: " + ", ".join(
+            print(f"      carried: " + ", ".join(
                 f"{k} ×{n}" for k, n in sorted(keys.items())))
+            print("      All of these reach the record: direction and ele are"
+                  "\n      kept and rendered since WO-21, description since WO-3"
+                  "\n      (as the mapper's own sentence, credited to OSM). The"
+                  "\n      wikidata ids are the live one — 67 view records cite"
+                  "\n      an article, which is exactly what enrich_wikipedia.py"
+                  "\n      reads, and it has never been run over this shelf.")
 
 
 def report_menu():

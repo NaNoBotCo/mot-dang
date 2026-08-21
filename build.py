@@ -923,6 +923,7 @@ SCHEMA_TYPE_SUB = {
     # schema.org has a real Waterfall type (BodyOfWater > Waterfall) — a
     # TouristAttraction fallback would be less true than the thing itself.
     "waterfall": "Waterfall",
+    "peak": "Mountain",
     # No HotSpring type exists in schema.org, so the spring takes the parent
     # BodyOfWater — still truer than TouristAttraction for a thing the
     # ground made (WO-23).
@@ -3161,7 +3162,7 @@ const note=says.map(s=>`<li class="shelf">${mdBi(s[0],s[1])}</li>`).join('');
 const row=e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
 `${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
 ` <span class="count">· ${e.pv}</span>`+
-`${e.ob&&obAsked?' <span class="prov">'+mdBi('โรงพยาบาลทั่วไป — ยังไม่ได้ยืนยันว่ามีแผนกสูตินรีเวช','general hospital — an OB-GYN department is not confirmed')+'</span>':''}`+
+`${e.ob&&obAsked?' <span class="prov">'+(e.ob===2?mdBi('รพ.สต. — สถานีอนามัยประจำตำบล ฝากครรภ์และวางแผนครอบครัวเป็นงานประจำ','รพ.สต. — the local primary-care station; antenatal care and family planning are routine'):mdBi('โรงพยาบาลทั่วไป — ยังไม่ได้ยืนยันว่ามีแผนกสูตินรีเวช','general hospital — an OB-GYN department is not confirmed'))+'</span>':''}`+
 `</li>`;
 // Two hundred names in one column is a list nobody reads. Grouped under the
 // shelf each one stands on, with its count, the same result becomes a page you
@@ -6206,6 +6207,12 @@ FACET_SRC_NOTE = {
     "field": ("มีคนไปดูมาเอง", "checked by a person"),
     "osm-near": ("จากแผนที่ OpenStreetMap ที่ปักไว้ใกล้ร้าน", "an OpenStreetMap point beside the shop"),
     "osm-tag": ("จากป้ายข้อมูลใน OpenStreetMap", "tagged in OpenStreetMap"),
+    # WO-22. A shop stating a service on its OWN site, read by
+    # importers/read_beauty_sites.py, which stores the sentence it came from
+    # beside the claim. Stronger than a mapper's tag (the shop is the authority
+    # on what the shop does) and weaker than somebody standing at the door
+    # (a page can be years stale), so it sits between them and says which it is.
+    "site": ("ร้านบอกไว้บนเว็บของตัวเอง", "stated on the shop’s own site"),
 }
 
 
@@ -10875,6 +10882,17 @@ def build_horoscope_page():
         "ดวงประจำวัน", body, depth=0, path="horoscope.html", desc=lede_th,
         extra_head=head))
     shutil.copyfile(ROOT / "assets" / "horo.js", DOCS / "horo.js")
+    # WO-22. The printed word sheets have always been print-only assets, made
+    # for a photocopier and a guesthouse noticeboard rather than for the site.
+    # This one is published because /beauty.html links it: the words ARE the
+    # answer to five of the eight things asked about hair here, and a sheet
+    # that only exists on one laptop answers nobody. The other four sheets stay
+    # print-only until somebody decides otherwise — that is their WO's call,
+    # not this one's.
+    _sheet = ROOT / "assets" / "reader" / "hair-words.pdf"
+    if _sheet.exists():
+        (DOCS / "reader").mkdir(exist_ok=True)
+        shutil.copyfile(_sheet, DOCS / "reader" / "hair-words.pdf")
     shutil.copyfile(ROOT / "assets" / "shuffle.js", DOCS / "shuffle.js")
 
 
@@ -12697,8 +12715,15 @@ def build():
             _ob = OBGYN_GRADE(_al, _th, _en)
             if _ob:
                 _k.append(" ".join(SPECIALTY_LABELS["obgyn"]) + " obgyn")
+                # 1 = general hospital, department not confirmed.
+                # 2 = รพ.สต., a different kind of place entirely — the local
+                # primary-care station, where ฝากครรภ์ is routine and free or
+                # near-free. Calling it a general hospital would be wrong in
+                # both directions, so the row says which it is.
                 if _ob == "hospital-likely":
                     idx_entry["ob"] = 1
+                elif _ob == "health-station":
+                    idx_entry["ob"] = 2
             # 🏷 Both names of every tag the place earned — "vegan" finds the
             # cafés that only say so in a diet tag, "บิตคอยน์" the shops that
             # only say so in a payment list. Matched, never displayed.

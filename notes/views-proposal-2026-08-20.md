@@ -164,6 +164,73 @@ the wrong trade. Either the claim becomes an `attr` with provenance (`viewClaim`
 the way `brand` works) and the existing `attr` rule reads it, or the tag waits.
 Nan's call; the census keeps in `cache/views_claims_<prov>.txt` (55).
 
+## Door 1 WALKED, 2026-08-21 — the wide `views` crawl
+
+Nan: "go on 1 and 2." The `views` group (`tourism=viewpoint` ·
+`waterway=waterfall["name"]` · `natural=peak["name"]`) went into `WIDE_GROUPS`
+and was fetched province-wide in both provinces, one selector per query, 12 s
+apart, snapshot-first. **Neither province came back `incomplete`** — Chiang Mai
+500 elements (326 · 42 · 132), Chiang Rai 231 (179 · 17 · 36).
+
+| shelf | before | after | note |
+|---|---|---|---|
+| viewpoint | 103 (cm 31 / cr 74) | **178** (cm 104 / cr 74) | Chiang Mai more than tripled |
+| waterfall | 18 | **61** (cm 43 / cr 18) | was 0 before WO-21 |
+| peak | — | **168** (cm 132 / cr 36) | new shelf; **110 carry an elevation** |
+
+**The imbalance this note was written to explain is gone**, and it was never
+about the two provinces: Chiang Rai is in `WIDE_PROVINCES` and had been asked
+properly all along, while Chiang Mai's viewpoints live in the `culture` group,
+which has only ever been asked on the near ring. The views of Chiang Mai are on
+the doi — the one place a near ring cannot reach. `audit_views.py` says so in
+its own SHELF report now rather than repeating the old reasoning.
+
+**ดอยอินทนนท์ at 2,565 m — the roof of the kingdom — was not in this directory
+in any form until today.** Nor was ดอยสุเทพ as a summit, ผาช่อ, or
+ดอยหลวงเชียงดาว. ภูชี้ฟ้า is now on a view shelf instead of being two unpinned
+register rows. Still absent and honestly so: กิ่วแม่ปาน (a nature trail, not a
+viewpoint node) and ห้วยน้ำดัง (its viewpoint is mapped as ดอยกิ่วลม).
+
+**Rules written only after the elements were counted**, the WO-10 discipline:
+`waterway=waterfall` → `sights/waterfall`, placed BELOW `natural=water` because
+a falls is usually mapped with the stream it falls down and filing น้ำตกแม่สา as
+a body of water buries the thing people travel for; `natural=peak` →
+`sights/peak`, a new `ดอย-ยอดเขา · Peaks & Mountains` child. schema.org gets the
+true types, `Waterfall` and `Mountain`. Sixteen elements arriving as
+`tourism=attraction` turned out to be the famous falls plus Doi Inthanon —
+`classify()` had no rule for any of them and would have dropped all sixteen.
+
+**222 + 107 nameless viewpoint elements** are still skipped by the
+no-shelf-for-the-nameless rule. That remains right for a directory and remains
+a live question for WO-20: a map may draw what a directory does not name.
+
+**And a new door opened by the crawl itself: 67 view records cite a Wikidata
+id.** `enrich_wikipedia.py` reads only the article a place ALREADY cites,
+resolving the Q-id to the right article rather than searching a name, and has
+never been run over this shelf. That is a lead paragraph, in two languages,
+CC BY-SA with the revision date, for the peaks and falls people actually search.
+It needs Nan's go like any fetch.
+
+## Door 2, 2026-08-21 — and a correction to this note
+
+**The area sweep does not exist.** This note promised "both passes" on
+`harvest_commons.py` because its docstring describes two — by place, and a grid
+sweep over both provinces showing which unlisted subjects are well
+photographed. Only the by-place pass is implemented in `main()`. The docstring
+was read as a description of the code and it is a description of the intent.
+The sweep is worth building — it is the actual photo-op instrument, the one
+that answers "where do people stand and shoot" — but it was not run, because
+it is not there.
+
+**The by-place pass was aimed, not uncapped.** All 18,332 placed records at the
+script's own `PAUSE = 0.6` is 3.1 hours of requests to Wikimedia, most of it
+asking whether anyone has photographed a noodle stall. The script's own
+docstring says to aim it — "wats and landmarks are photographed and named, a
+noodle stall is neither" — so it ran over `wat,sights,parks,museums-galleries,
+chang,hotsprings`: **2,529 records, ~25 minutes**, which now includes every new
+peak, falls and viewpoint. Merging, not replacing: a narrow run never discards
+a wide one.
+
 ## Open for a human
 
 - **The Siriphum cluster**: OSM holds three nodes around the same falls

@@ -28,7 +28,12 @@ LENS_TO_CAT = {
     "wat": ["wat"],
     "spirit-house": ["wat"],
     "pad-krapow": ["food"],
-    "tattoo": ["sights"],
+    # "tattoo" mapped to sights from before the tattoo category existed; the
+    # Overpass crawl then filed the same 31 points under tattoo/studio, so
+    # every studio rode both shelves (WO-14, 2026-08-19). All 31 mueang-map
+    # tattoo points are inside cache/overpass/cm/tattoo.json, so pointing the
+    # lens at its own category loses nothing and empties nothing.
+    "tattoo": ["tattoo"],
     "library": ["sights"],
     "art-studio": ["sights"],
     "views": ["sights"],
@@ -77,7 +82,12 @@ def import_womens_health():
     for r in data:
         a = r.get("attrs", {})
         ftype = a.get("facilityType") or "clinic"
-        cat = ["essentials"] if ftype == "pharmacy" else ["medical"]
+        # A ร้านขายยา is on both shelves and always was. It is where most
+        # people here go FIRST with a fever — medical — and it is also one of
+        # the handful of shops a neighbourhood cannot do without, beside the
+        # bank and the post office. It used to be filed under essentials only,
+        # which meant somebody browsing for medicine never met one.
+        cat = ["essentials", "medical"] if ftype == "pharmacy" else ["medical"]
         src = (r.get("sources") or [{}])[0]
         ref = src.get("ref", f"cmwh/{r['id']}")
         if not (r.get("nameTh") or r.get("name") or r.get("nameEn")):
@@ -119,6 +129,34 @@ def import_mueang_map(fname, province):
     return out
 
 
+def apply_specialty(records, province):
+    """Fill attrs.specialty on medical records, from the tag or the sign.
+
+    Run after the merge so it sees every source at once — a CITIZENinfo
+    hospital and a crawled clinic get read the same way. See
+    importers/specialty.py for why this is a field and not a shelf tree.
+    """
+    import specialty as _sp
+    tags = {}
+    cache = ROOT / "cache" / "overpass" / province
+    if cache.exists():
+        for f in sorted(cache.glob("*.json")):
+            for el in json.loads(f.read_text()).get("elements", []):
+                if el.get("tags"):
+                    tags[f"{el['type']}/{el['id']}"] = el["tags"]
+    n = 0
+    for r in records:
+        if "medical" not in (r.get("cat") or []):
+            continue
+        ref = (r.get("sources") or [{}])[0].get("ref", "")
+        got, how = _sp.of(r, tags.get(ref))
+        if got:
+            r.setdefault("attrs", {})["specialty"] = got
+            r["attrs"]["specialtyVia"] = how
+            n += 1
+    return n
+
+
 def apply_curated_shelves(records):
     """Extra shelves from data/curated/shelves.json, applied after the merge.
 
@@ -153,6 +191,58 @@ def apply_curated_shelves(records):
             r.setdefault("sources", []).append(
                 {"type": "curated", "ref": fix.get("source", ""),
                  "fetched": fix.get("fetched", ""), "via": "data/curated/shelves.json"})
+            n += 1
+    return n
+
+
+def apply_curated_retags(records):
+    """Shelves taken away from a record, from data/curated/retags.json.
+
+    shelves.json only ever adds, and that is right for what it is — a second
+    identity OSM's one primary tag could not hold. This file is the other,
+    rarer case: the primary tag itself is wrong about the door. หรรษา
+    มินิกอล์ฟ / Hansa Minigolf is mapped shop=tattoo and sat on the tattoo
+    shelf for three weeks with its name saying minigolf in three languages.
+    A curated reading outranks a crawled tag (the tier rule), but only with a
+    receipt: every entry names the evidence a person read, the date, and the
+    shelves it removes — nothing is taken away silently, and the fix ledger
+    (data/fixes.json) carries the same correction for readers. Fix upstream in
+    OSM as well when you can; this file is the interim, not the answer.
+
+    {
+      "retags": {
+        "<id>": {"drop_cat": [...], "drop_sub": [...],
+                 "evidence": "…", "fetched": "YYYY-MM-DD", "note": "…"}
+      }
+    }
+    """
+    path = ROOT / "data" / "curated" / "retags.json"
+    if not path.exists():
+        return 0
+    fixes = (json.loads(path.read_text()) or {}).get("retags") or {}
+    by_id = {r["id"]: r for r in records}
+    n = 0
+    for rid, fix in fixes.items():
+        r = by_id.get(rid)
+        if not r:
+            continue
+        if not fix.get("evidence"):
+            raise SystemExit(f"retags.json: {rid} has no evidence line — "
+                             "a shelf is not removed without one")
+        before = (set(r.get("cat") or []), set(r.get("sub") or []))
+        cats = (set(r.get("cat") or []) - set(fix.get("drop_cat") or [])) | set(fix.get("add_cat") or [])
+        if not cats:
+            # A record is never left shelfless by a correction; name the
+            # shelf it should stand on, or do not drop the last one.
+            raise SystemExit(f"retags.json: {rid} would be left with no "
+                             "category — add add_cat or drop less")
+        r["cat"] = sorted(cats)
+        r["sub"] = sorted(set(r.get("sub") or []) - set(fix.get("drop_sub") or []))
+        after = (set(r["cat"]), set(r["sub"]))
+        if after != before:
+            r.setdefault("sources", []).append(
+                {"type": "curated", "ref": fix.get("evidence", ""),
+                 "fetched": fix.get("fetched", ""), "via": "data/curated/retags.json"})
             n += 1
     return n
 
@@ -310,22 +400,77 @@ def apply_wat_registry(records):
 def main():
     import import_overpass
     import import_fixtures
+    import import_weedth
+    import import_citizeninfo
+    import import_obec
+    import import_opec
+    import import_opendata
     cm, cr = [], []
+    # Names and addresses of cannabis shops the map has never held, with a pin
+    # inferred from the address where one could be — and none where it could
+    # not. See importers/harvest_weedth.py for what was taken and what was
+    # refused, and importers/geocode_local.py for how sure a pin is.
+    weedth = import_weedth.records()
+    # The state's own health facilities, with the state's own pins — 469 รพ.สต.
+    # and 45 hospitals that no crawl had ever asked for. This is the single
+    # biggest thing the medical shelf was missing, and it is the whole reason
+    # Chiang Rai had three medical records. CC-BY, credited per record.
+    moph = import_citizeninfo.records()
+    print(f"citizeninfo: {len(moph)} state health facilities "
+          f"(cm {sum(1 for r in moph if r['province']=='cm')}, "
+          f"cr {sum(1 for r in moph if r['province']=='cr')})")
+    cm += [r for r in moph if r["province"] == "cm"]
+    cr += [r for r in moph if r["province"] == "cr"]
+    # The state's register of its own schools — 1,302 across the two
+    # provinces, against the FOURTEEN the directory held before it, all of
+    # them international because that is the only kind the crawl asked for.
+    # 87% carry a telephone, which makes this the most contactable shelf on
+    # the site by a distance. See importers/import_obec.py for the pin test
+    # and why a flat distance rule would have thrown away the highland
+    # schools it exists to protect.
+    obec = import_obec.records()
+    print(f"obec: {len(obec)} government schools "
+          f"(cm {sum(1 for r in obec if r['province']=='cm')}, "
+          f"cr {sum(1 for r in obec if r['province']=='cr')})")
+    cm += [r for r in obec if r["province"] == "cm"]
+    cr += [r for r in obec if r["province"] == "cr"]
     cm += import_thai_answers()
     cm += import_womens_health()
     cm += import_mueang_map("osm.json", "cm")
     cm += import_overpass.records("cm")
     cm += json.loads((ROOT / "data" / "curated" / "additions-chiang-mai.json").read_text())
+    cm += [r for r in weedth if r["province"] == "cm"]
     cr += import_mueang_map("osm-chiang-rai.json", "cr")
     cr += import_overpass.records("cr")
     cr += json.loads((ROOT / "data" / "curated" / "featured-chiang-rai.json").read_text())
+    cr += [r for r in weedth if r["province"] == "cr"]
+    # WO-16's open lists: the ONAB temple register fold (the wat-shelf move
+    # that schools and medical already made), Chiang Rai's attraction lists
+    # with their phone numbers, the police stations, the LPG shops, the
+    # SAT-certified camps. Derived fresh each run from data/curated/
+    # datagoth.json + the register on disk; dedup and review rules in
+    # importers/import_opendata.py.
+    odata = import_opendata.records()
+    cm += [r for r in odata if r["province"] == "cm"]
+    cr += [r for r in odata if r["province"] == "cr"]
 
     outdir = ROOT / "data" / "canonical"
     outdir.mkdir(parents=True, exist_ok=True)
     for prov, records in (("cm", cm), ("cr", cr)):
         # field/curated truth wins over crawled truth; same place from two
         # sources keeps the stronger record and unions its shelves
-        tier = {"crawled": 0, "curated": 1, "field": 2}
+        # A third-party directory is the weakest witness here and sorts below
+        # our own crawl: it is somebody else's account of a shop, taken on
+        # trust, with no pin of its own. Where it and OpenStreetMap describe
+        # the same id, OSM's surveyed record wins every field.
+        # `official` is a government register — CITIZENinfo's state health
+        # facilities, with the state's own surveyed coordinates. It outranks
+        # our crawl on the facilities it covers, because on those it IS the
+        # authority; it still sits below anything a person curated or walked
+        # to, because a register knows what was true when it was published and
+        # a person knows what is true at the door.
+        tier = {"third-party": -1, "crawled": 0, "official": 1,
+                "curated": 2, "field": 3}
         by_id = {}
         for r in sorted(records, key=lambda r: tier[r["confidence"]]):
             ex = by_id.get(r["id"])
@@ -337,6 +482,18 @@ def main():
                 r["attrs"] = {**ex.get("attrs", {}), **r.get("attrs", {})}
             by_id[r["id"]] = r
         final = sorted(by_id.values(), key=lambda r: r["id"])
+        # The private-school licence register, applied on the MERGED list
+        # because it joins by name and needs to see everything we hold before
+        # it decides a school is missing. It stamps what we have — official
+        # type, who holds the licence, the levels, the founding year — and
+        # returns only the schools nobody has mapped, pinless and saying so.
+        # This is where the international schools come from: 25 of them in the
+        # register against the 14 the crawl could find.
+        stamped, unmapped = import_opec.apply(final, prov)
+        if stamped or unmapped:
+            print(f"{prov}: {stamped} school(s) stamped from the private "
+                  f"register, {len(unmapped)} named there but not held")
+            final = sorted(final + unmapped, key=lambda r: r["id"])
         # Facets last, on the merged records: the ATM join needs the final
         # coordinates, and the tag lift needs whichever source ref survived.
         facets = import_fixtures.apply(final, prov)
@@ -349,9 +506,24 @@ def main():
         shelved = apply_curated_shelves(final)
         if shelved:
             print(f"{prov}: {shelved} curated shelf addition(s) applied")
+        retagged = apply_curated_retags(final)
+        if retagged:
+            print(f"{prov}: {retagged} curated retag(s) applied — a shelf taken away, with its receipt")
+        specialised = apply_specialty(final, prov)
+        if specialised:
+            print(f"{prov}: {specialised} medical record(s) state a specialty")
         registered = apply_wat_registry(final)
         if registered:
             print(f"{prov}: {registered} wat(s) stamped from the temple register")
+        satted = import_opendata.apply(final, prov)
+        if satted:
+            print(f"{prov}: {satted} muay thai camp(s) stamped SAT-certified")
+        # Government lists filling contacts a held record leaves empty —
+        # Nan's call 2026-08-20. Phone/website/hours only, never over a value
+        # already there; an owner's claim still wins at build time.
+        enriched = import_opendata.enrich(final, prov)
+        if enriched:
+            print(f"{prov}: {enriched} record(s) gained a contact from a government list")
         final, merged = apply_curated_merges(final)
         if merged:
             print(f"{prov}: {merged} duplicate record(s) folded")

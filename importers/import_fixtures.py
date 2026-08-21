@@ -49,7 +49,74 @@ TAG_RULES = [
     ("aircon", "air_conditioning", lambda v: v == "yes"),
     ("aircon", "airconditioned", lambda v: v == "yes"),
     ("wheelchair", "wheelchair", lambda v: v in ("yes", "limited")),
+    # Somewhere to sit. Two tags, one facet: OSM records the terrace and the
+    # room separately and a reader asking "can I sit down" does not care which.
+    ("seating", "outdoor_seating", lambda v: v == "yes"),
+    ("seating", "indoor_seating", lambda v: v == "yes"),
+    ("delivery", "delivery", lambda v: v in ("yes", "only")),
+    # Cards. Any one of these saying yes answers the question; none of them
+    # saying anything leaves it unanswered, which is not the same as cash-only.
+    ("card", "payment:cards", lambda v: v == "yes"),
+    ("card", "payment:credit_cards", lambda v: v == "yes"),
+    ("card", "payment:debit_cards", lambda v: v == "yes"),
+    ("card", "payment:visa", lambda v: v == "yes"),
+    ("card", "payment:mastercard", lambda v: v == "yes"),
+    # A small, real, entirely local cluster: four of the thirty-two cannabis
+    # shops in the Chiang Mai snapshot take Lightning. Same tags the record's
+    # `crypto` attr already reads — this only lifts them into the facet row so
+    # they can be filtered on.
+    ("crypto", "currency:XBT", lambda v: v in ("yes", "only")),
+    ("crypto", "payment:onchain", lambda v: v in ("yes", "only")),
+    ("crypto", "payment:lightning", lambda v: v in ("yes", "only")),
+    ("crypto", "payment:lightning_contactless", lambda v: v in ("yes", "only")),
+    ("openlate", "opening_hours", lambda v: _open_late(v)),
+    # WO-22. Who the chair is for. male/female/unisex are the ONLY three
+    # things OpenStreetMap knows about a hair shop beyond its existence, and
+    # until now the import threw all three away: 15 shops in Chiang Mai say
+    # male=yes, 14 say female=yes, 3 say unisex=yes, and every one of them
+    # arrived on the shelf saying nothing. A barber shop that has already
+    # answered "do you cut men's hair" should not be asked again at the door.
+    #
+    # Only `yes` counts. male=no is a real and different statement — a shop
+    # declaring it does NOT cut men's hair — and this facet layer has no way
+    # to render an absence, so recording it as a blank is the honest handling.
+    # The women-only salon is not thereby called a men's shop; it is left
+    # silent, and the door survey is what fills it in.
+    ("mencut", "male", lambda v: v == "yes"),
+    ("womencut", "female", lambda v: v == "yes"),
+    ("unisex", "unisex", lambda v: v == "yes"),
 ]
+
+
+def _open_late(v):
+    """True when the stated hours run past 22:00 — including past midnight.
+
+    The question behind the facet is "is it still open when I want it", asked
+    at an hour when being wrong means a wasted ride. So the test is on the
+    CLOSING time of any range: 22:00 or later, or a wrap past midnight, where
+    an end earlier than its own start means the shutters come down tomorrow
+    ("18:00-02:00"). An end of exactly 00:00 is midnight tonight and counts.
+
+    Deliberately shallow. opening_hours is a whole grammar — holidays,
+    seasons, "Su off" — and this reads clock ranges out of it and nothing
+    else. Being unsure renders as silence, which costs a reader nothing; the
+    facet only ever appears when the hours plainly say late.
+    """
+    import re as _re
+    v = (v or "").strip()
+    if not v:
+        return False
+    if v.replace(" ", "") in ("24/7", "Mo-Su00:00-24:00", "Mo-Su00:00-00:00"):
+        return True
+    for start, end in _re.findall(r"(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})", v):
+        sh, sm = (int(x) for x in start.split(":"))
+        eh, em = (int(x) for x in end.split(":"))
+        s, e = sh * 60 + sm, eh * 60 + em
+        if e <= s:            # wraps past midnight
+            return True
+        if e >= 22 * 60:
+            return True
+    return False
 
 
 def haversine(lat1, lng1, lat2, lng2):
@@ -110,6 +177,23 @@ def load_tags(province):
     return out
 
 
+def _beauty_stated():
+    """place id -> the services its own site states (WO-22, door 2).
+
+    Read once. An absent file is normal — this is curated data that only
+    exists once somebody has run the reader — and an absent file must never
+    be an error, only an empty dict.
+    """
+    f = ROOT / "data" / "curated" / "beauty.json"
+    if not f.exists():
+        return {}
+    doc = json.loads(f.read_text())
+    return {s["place"]: (s.get("stated") or {}) for s in doc.get("shops", [])}
+
+
+BEAUTY_STATED = _beauty_stated()
+
+
 def apply(records, province):
     """Set attrs.facets on every record a facet set applies to. Mutates in place.
 
@@ -163,6 +247,14 @@ def apply(records, province):
             v = t.get(tag)
             if v and ok(v):
                 found[key] = "osm-tag"
+        # WO-22, door 2. What the shop states on its OWN site outranks a
+        # mapper's tag — the shop is the authority on what the shop does — so
+        # the register is merged last and wins any key it names. Every claim in
+        # that file carries the sentence it was read from; see
+        # importers/read_beauty_sites.py.
+        for key in (BEAUTY_STATED.get(r["id"]) or {}):
+            if key in ours:
+                found[key] = "site"
         if found:
             r.setdefault("attrs", {})["facets"] = found
             for k in found:

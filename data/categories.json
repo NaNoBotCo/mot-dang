@@ -1450,6 +1450,14 @@
      }
     },
     {
+     "key": "peak",
+     "th": "ดอย-ยอดเขา",
+     "en": "Peaks & Mountains",
+     "match": {
+      "sub": "peak"
+     }
+    },
+    {
      "key": "hot-spring",
      "th": "น้ำพุร้อน",
      "en": "Hot Springs",

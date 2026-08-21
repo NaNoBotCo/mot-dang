@@ -199,8 +199,13 @@ def _group(r):
         if "cafe" in subs:
             return "cafe"
         return "food"
-    if cat in ("massage", "beauty"):
+    if cat in ("massage", "beauty", "medical"):
         return "care"
+    # A dispensary burns a night lamp for the same reason a bar does: the hour
+    # anybody checks it is the hour it might already be shut. A คลินิกกัญชา is
+    # the other thing entirely — it keeps clinic hours and belongs with care.
+    if cat == "cannabis":
+        return "care" if "clinic" in subs else "night"
     if cat in ("essentials", "shopping"):
         return "shop"
     return "other"
