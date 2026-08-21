@@ -80,7 +80,13 @@ PROVINCE_AREA = {
 # is where the ground made it, which is never the near ring. Seven of the
 # eight belong to whole districts the box has never seen.
 WIDE_GROUPS = {"stations", "cannabis", "medical", "schools", "reading", "making",
-               "elephants", "hotsprings", "views"}
+               "elephants", "hotsprings", "views",
+               # WO-27: all three residential/government doors are province-
+               # wide. The Land Office branches are in the amphoes, Mae Jo's
+               # dorms are outside Chiang Mai's near ring, and a housing
+               # estate is suburban by definition — a ring drawn round the
+               # moat would miss the whole point of each.
+               "government", "dormitory", "moobaan"}
 
 # Provinces crawled province-wide for every group. Chiang Rai is here on Nan's
 # instruction: a directory that only knows Mueang is not a directory for
@@ -210,6 +216,27 @@ QUERIES = {
     "fitness":    ['nwr["leisure"="fitness_centre"]'],
     "essentials": ['nwr["amenity"="bank"]', 'nwr["amenity"="post_office"]',
                    'nwr["shop"="convenience"]', 'nwr["amenity"="townhall"]'],
+    # WO-27 door 2. The government offices, and the reason is one of them:
+    # the catalogue held ZERO สำนักงานที่ดิน while every chanote transfer in
+    # the north walks through one. `amenity=townhall` was the only government
+    # selector this crawl ever had, and a Land Office is not a townhall.
+    # Province-wide (WIDE_GROUPS) because the branch offices are in the
+    # amphoes — a สาขา in Hang Dong or Mae Rim is exactly where the transfer
+    # for a house out there happens. Named only: an unnamed government
+    # polygon tells a reader nothing and is skipped at import anyway.
+    "government": ['nwr["office"="government"]["name"]'],
+    # WO-27 door 4. Student housing that OSM tags on the BUILDING rather than
+    # in the name — the dorm shelf could otherwise only ever hold the ones
+    # that wrote หอพัก on the sign. One selector, one run, and the question
+    # is closed either way.
+    "dormitory": ['nwr["building"="dormitory"]["name"]'],
+    # WO-27 door 3. Named residential areas — the housing estates, IF they
+    # are here at all. FENCED HARD at import (import_overpass.moobaan_hit):
+    # in this province a named residential area is nearly always a village,
+    # and filing somebody's village as a gated development is a falsehood
+    # about where they live. Only จัดสรร or a developer's own name files;
+    # the rest goes to cache/moobaan_review_<prov>.txt for a person to read.
+    "moobaan": ['nwr["landuse"="residential"]["name"]'],
     "culture":    ['nwr["tourism"="museum"]', 'nwr["tourism"="gallery"]',
                    'nwr["tourism"="viewpoint"]', 'nwr["historic"]["name"]'],
     "shopping":   ['nwr["shop"="doityourself"]', 'nwr["shop"="hardware"]',

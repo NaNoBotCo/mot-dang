@@ -183,6 +183,10 @@ import audit_views as _views_rules
 # fences — bare โป่ง never matched, the village and the school and the bus
 # stop that wear a spring's name kept off the shelf — this file borrows them.
 import audit_hotsprings as _spring_rules
+# And for the housing estates (WO-27 door 3): audit_realestate owns the fence
+# — จัดสรร or a named developer, never bare หมู่บ้าน, which is the ordinary
+# word for a village and would file somebody's home as a gated estate.
+import audit_realestate as _estate_rules
 
 
 def chang_hit(t):
@@ -278,6 +282,20 @@ def springs_hit(t):
     if re.search(r"\(\s*closed\b|ปิดถาวร|ปิดกิจการ", name, re.I):
         return None
     return _spring_rules.spring_hit_tags(t, name)
+
+
+def moobaan_hit(t):
+    """'moobaan' if a landuse=residential element declares a housing ESTATE,
+    else None. Consulted for cache/overpass/<prov>/moobaan.json only.
+
+    The rules live in audit_realestate.py (one copy): จัดสรร — the word for
+    an allotted development — or a developer's own name on the arch. Bare
+    หมู่บ้าน is never matched and never will be: it is the ordinary word for
+    a village, this catalogue already holds eighteen real ones wearing it,
+    and a village filed as a gated estate is a falsehood about where people
+    live. An element the mapper already called a village keeps that.
+    """
+    return _estate_rules.moobaan_hit(t)
 
 
 def cannabis_hit(t, ref=""):
@@ -524,6 +542,22 @@ def classify(t):
         return "business", "professional"
     if t.get("office") in ("ngo", "charity") or a == "social_facility":
         return "community", "volunteer"
+    # WO-27 door 2. A government office is an essentials record — the shelf
+    # already holds townhalls under `gov` and this is the same door. It is
+    # here for the สำนักงานที่ดิน above all: every chanote transfer in the
+    # north walks through one and the catalogue held ZERO, which was the
+    # buying question's biggest hole. The land offices are surfaced again on
+    # /realestate.html by NAME (realestate_layer), not by a sub of their own:
+    # a Land Office is a government office that happens to answer a property
+    # question, and filing it anywhere else would hide it from the reader
+    # looking for แขวง/อำเภอ offices.
+    if t.get("office") == "government":
+        return "essentials", "gov"
+    # WO-27 door 4. Student housing OSM tags on the building itself rather
+    # than in the name. building=apartments never reaches these, so the dorm
+    # shelf could only ever hold the ones that wrote หอพัก on the sign.
+    if t.get("building") == "dormitory":
+        return "realestate", "dorm"
     if t.get("club") or t.get("office") == "association":
         return "community", "clubs"
     if a == "community_centre":
@@ -952,6 +986,10 @@ def records(province="cm"):
     # spring_review / fetched_hs: the hotsprings group's own fence and its
     # own restamp set (WO-23) — same arrangement, its own date.
     spring_review, fetched_hs = [], set()
+    # estate_review: the moobaan group's own fence (WO-27 door 3) — every
+    # named residential area that does NOT declare an estate, which in this
+    # province is nearly all of them, because they are villages.
+    estate_review = []
     cache = ROOT / "cache" / "overpass" / province
     if not cache.exists():
         return out
@@ -994,6 +1032,24 @@ def records(province="cm"):
                 hit = (("chang", ele_sub) if ele_sub
                        else ("sights", view_sub or spring_sub))
                 fetched_0820.add(f"{province}-osm-{el['type']}-{el['id']}")
+            elif f.stem == "moobaan":
+                # THE MOOBAAN FILE IS FENCED THE SAME WAY (WO-27 door 3).
+                # `landuse=residential["name"]` returns every named
+                # residential area in the province, and here that is mostly
+                # VILLAGES — บ้านสันทราย, หมู่บ้านป่าไผ่ — not gated estates.
+                # Only an element whose own name says จัดสรร or names a
+                # developer files (moobaan_hit; rules in audit_realestate.py,
+                # one copy); everything else goes to
+                # cache/moobaan_review_<prov>.txt for a person. classify() is
+                # unreachable from this file: a generic rule catching a
+                # province-wide landuse element would widen the crawl's scope
+                # silently, and the thing being widened over is where people
+                # live.
+                estate_sub = moobaan_hit(t)
+                if not estate_sub:
+                    estate_review.append((ref, name, dict(t)))
+                    continue
+                hit = ("realestate", estate_sub)
             elif f.stem == "hotsprings":
                 # THE HOTSPRINGS FILE IS FENCED THE SAME WAY (WO-23). Its
                 # name selectors are a dragnet too: schools, temples and
@@ -1155,6 +1211,7 @@ def records(province="cm"):
     _write_cannabis_review(province, review)
     _write_elephant_review(province, ele_review)
     _write_hotspring_review(province, spring_review)
+    _write_moobaan_review(province, estate_review)
     return out
 
 
@@ -1231,6 +1288,45 @@ def _write_hotspring_review(province, rows):
     for ref, name, t in sorted(unique, key=lambda r: r[1].lower()):
         kind = (t.get("natural") or t.get("amenity") or t.get("tourism")
                 or t.get("place") or t.get("highway") or "?")
+        lines.append(f"{ref:<22} [{kind}] {name}")
+    out.write_text("\n".join(lines) + "\n")
+
+
+def _write_moobaan_review(province, rows):
+    """What the moobaan dragnet caught that is NOT a housing estate.
+
+    The same posture as the elephant and spring reviews, and the stakes are
+    higher: `landuse=residential["name"]` over a province returns the places
+    people LIVE, and nearly all of them here are villages — บ้านสันทราย,
+    หมู่บ้านป่าไผ่ — mapped with the ordinary Thai word that also appears on
+    an estate's arch. Filing one as a gated development is a falsehood about
+    somebody's home address, so only จัดสรร or a developer's own name files
+    and everything else waits here for a person. A real estate hiding under
+    a name these rules do not read enters through a curated addition with a
+    source — never a wider regex on a guess.
+    """
+    out = ROOT / "cache" / f"moobaan_review_{province}.txt"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    seen, unique = set(), []
+    for row in rows:
+        if row[0] not in seen:
+            seen.add(row[0])
+            unique.append(row)
+    if not unique:
+        out.write_text(f"# {province}: the moobaan group is not in cache, or "
+                       f"held nothing beyond the estates.\n")
+        return
+    lines = [
+        f"# {province}: {len(unique)} named residential areas that do NOT",
+        "# declare a housing estate (landuse=residential[name]). Villages,",
+        "# quarters and neighbourhoods — where people live, not developments",
+        "# somebody is selling. Kept here rather than filed. A real estate",
+        "# under a name the rules do not read enters through a curated",
+        "# addition, with a source.",
+        "#",
+    ]
+    for ref, name, t in sorted(unique, key=lambda r: r[1].lower()):
+        kind = (t.get("place") or t.get("landuse") or "?")
         lines.append(f"{ref:<22} [{kind}] {name}")
     out.write_text("\n".join(lines) + "\n")
 

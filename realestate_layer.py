@@ -12,17 +12,26 @@ they ask them, on one page (/realestate.html):
      word — including why the cheapest buildings in the city are called
      Mansion and Court in English.
   2. WHICH BUILDINGS — the shelves after the 2026-08-21 split: condominiums
-     (53, the buildings whose own name says so), apartments-mansions-courts
-     (242, the monthly trade), dormitories (22), agents (5). Until that
+     (the buildings whose own name says so), apartments-mansions-courts (the
+     monthly trade), dormitories, housing estates and agents. Until that
      split every one of them was filed as a condo, which was the barber
-     shelf's lie wearing a different sign.
+     shelf's lie wearing a different sign. The dorm, estate and Land Office
+     shelves were then filled by three crawl doors that had never been asked
+     — a dorm is tagged on the BUILDING, not in the name; an estate is a
+     named residential AREA; and no selector had ever asked for a government
+     office at all.
   3. WHAT NOBODY HAS ASKED THEM — the census. Across all records in both
-     provinces, ZERO building names say furnished, ZERO post a rate, and the
-     catalogue holds not one สำนักงานที่ดิน. Printed every build from
-     audit_realestate's own rules so the numbers cannot drift.
-  4. THE REGISTER — what buildings state about themselves once anybody has
-     read them. Empty today and saying so, with the 12-building first-hand
-     read queue the records themselves generate.
+     provinces, ZERO building names say furnished and ZERO post a rate.
+     Printed every build from audit_realestate's own rules so the numbers
+     cannot drift.
+  4. THE REGISTERS, two of them and they are different things. What buildings
+     state about THEMSELVES (data/curated/realestate.json, read from their
+     own sites), and what the TREASURY states about them
+     (data/curated/condo_register.json — the official อาคารชุด register with
+     an assessed value per m², which is the basis for transfer fees and is
+     never a market price). The second one also measures the first: the
+     government counts 366 registered condominium buildings in Chiang Mai
+     against the 53 this catalogue holds by name.
 
 WHAT THIS PAGE REFUSES TO DO. It does not rank buildings, name a good
 neighbourhood, sort the farang buildings from the Thai ones, or give
@@ -37,11 +46,13 @@ beauty layer. Emits realestate.html + realestate.css; prints the counts.
 """
 import json
 import math
+import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 REG = ROOT / "data" / "curated" / "realestate.json"
+CONDO_REG = ROOT / "data" / "curated" / "condo_register.json"
 sys.path.insert(0, str(ROOT / "importers"))
 import audit_realestate  # noqa: E402  (zero network; the หมู่บ้าน guard)
 
@@ -155,6 +166,51 @@ def load_reg():
     return {"buildings": [], "verified_on": None}
 
 
+def load_condo_reg():
+    """The Treasury's own register (importers/harvest_condo_register.py).
+    Absent is a supported state: the section simply does not render."""
+    if CONDO_REG.exists():
+        return json.loads(CONDO_REG.read_text())
+    return {"buildings": [], "counts": {}, "source": {}}
+
+
+def _norm(s):
+    """A building name reduced to the part that identifies it — case, spacing,
+    punctuation and the word 'condominium' itself removed, since the register
+    writes it and a shopfront usually does not."""
+    s = (s or "").lower()
+    s = re.sub(r"[\s\-–—_.,()\"']", "", s)
+    for w in ("คอนโดมิเนียม", "คอนโด", "condominium", "condo", "อาคารชุด"):
+        s = s.replace(w, "")
+    return s
+
+
+def join_register(reg_buildings, records):
+    """(matched, unmatched) — register rows joined to catalogue records BY
+    EXACT normalized name, and nothing looser.
+
+    Substring matching was tried on 2026-08-21 and REJECTED, for the same
+    reason the events layer rejected it: it matched นครพิงค์คอนโดมิเนียม to
+    เพชรนครพิงค์ — a different building — and folded two separate registered
+    buildings onto one record called บ้านสวน. An assessed valuation on the
+    wrong building is a false statement about somebody's property, so a
+    no-match is the correct default. Sixteen loose matches became eight true
+    ones, and the other 377 rows are a discovery list rather than a guess.
+    """
+    idx = {}
+    for r in records:
+        for nm in (r.get("name"), r.get("nameTh"), r.get("nameEn")):
+            k = _norm(nm)
+            if len(k) >= 4:
+                idx.setdefault(k, r)
+    matched, unmatched = [], []
+    for e in reg_buildings:
+        k = _norm(e.get("name"))
+        r = idx.get(k) if len(k) >= 4 else None
+        (matched.append((e, r)) if r else unmatched.append(e))
+    return matched, unmatched
+
+
 def _hav(lat1, lng1, lat2, lng2):
     p = math.pi / 180
     x = (math.sin((lat2 - lat1) * p / 2) ** 2
@@ -190,6 +246,7 @@ def emit(g, data):
         return sorted(out, key=lambda r: (r.get("name") or "").lower())
 
     condos, apartments, dorms, agents = on("condo"), on("apartment"), on("dorm"), on("agent")
+    moobaans = on("moobaan")
 
     def listing(recs):
         """Alphabetical, unranked, with the reach the directory holds.
@@ -278,14 +335,85 @@ def emit(g, data):
         + note("บรรทัดแรก ๆ เป็นศูนย์ และตั้งใจพิมพ์ไว้ให้เห็น: ไม่มีกฎชื่อตึกไหนรอเขียนอยู่ ราคา เฟอร์ ค่าไฟ สัตว์เลี้ยง ตอบได้ทางเดียวคือตึกบอกเอง เจ้าของติ๊กเอง หรือมีคนไปถามหน้าโต๊ะ",
                "The zeros are printed rather than hidden: no name rule is waiting to be written. Rates, furniture, deposits and pets are answered by the building stating it, an owner ticking their own facets, or a person at the desk — and by nothing else."))
 
-    gap_html = (
-        "<div class=\"re-gap\"><b>&#127968; "
-        + bi("สำนักงานที่ดิน — ศูนย์ทั้งสารบัญ",
-             "The Land Office — zero, in the whole catalogue")
-        + "</b><p>"
-        + bi("การโอนโฉนดทุกครั้งในภาคเหนือเดินผ่านสำนักงานที่ดิน และสารบัญนี้ยังไม่มีสักแห่ง — ไม่ใช่เพราะไม่มีจริง แต่เพราะการเก็บข้อมูลไม่เคยถามหา (office=government) พิมพ์ไว้ตรงนี้ทุกครั้งที่สร้างหน้า จนกว่าประตูนั้นจะได้ไฟเขียว",
-             "Every chanote transfer in the north walks through a Land Office, and this catalogue holds none — not because they do not exist, but because the crawl never asked (office=government). Printed here on every build until that door gets its go.")
-        + "</p></div>")
+    # The Land Offices, once the door was opened. Before 2026-08-21 this block
+    # printed a zero and said why; it now prints what the crawl found AND what
+    # it still does not have, because a partial fill announced as a full one is
+    # the failure this page exists to avoid.
+    if landoffices:
+        lrows = "".join(
+            "<div><a href=\"" + href(r) + "\">" + name_bi(r) + "</a>"
+            + ("" if prov_of[r["id"]] == "cm" else " <small>&middot;&#3594;&#3619;</small>")
+            + "</div>" for r, _ in sorted(landoffices, key=lambda x: x[1]))
+        gap_html = (
+            "<div class=\"re-gap\"><b>&#127968; "
+            + bi("สำนักงานที่ดิน — ที่ที่การโอนโฉนดเกิดขึ้นจริง",
+                 "The Land Office — where a chanote transfer actually happens")
+            + "</b><p>"
+            + bi("การโอนโฉนดทุกครั้งในภาคเหนือเดินผ่านสำนักงานที่ดิน และจนถึง 21 ส.ค. สารบัญนี้ไม่มีสักแห่ง เพราะการเก็บข้อมูลไม่เคยถามหา ตอนนี้ถามแล้ว (office=government) และได้มาเท่านี้",
+                 "Every chanote transfer in the north walks through a Land Office, and until 21 August this catalogue held none — the crawl had never asked. It has now (office=government), and this is what came back.")
+            + "</p><div class=\"re-ct\">" + lrows + "</div><p class=\"re-note\">"
+            + bi("และนี่คือส่วนที่ยังขาด: แผนที่เปิดถือสาขาของเชียงใหม่ไว้สองสาขา แต่ไม่มีสำนักงานที่ดินจังหวัดเชียงใหม่ (สาขาเมือง) ซึ่งเป็นแห่งที่คนไปกันมากที่สุด การไม่เจอในแผนที่ไม่ได้แปลว่าไม่มี — แปลว่ายังไม่มีใครปักหมุดไว้ โทรถามสำนักงานจังหวัดก่อนเดินทางเสมอ",
+                 "And here is what is still missing: the open map holds two Chiang Mai branch offices but not สำนักงานที่ดินจังหวัดเชียงใหม่ itself, the Mueang seat, which is the one most people go to. Absent from a map is not absent from the world — it means nobody has pinned it. Ring the provincial office before travelling either way.")
+            + "</p></div>")
+    else:
+        gap_html = (
+            "<div class=\"re-gap\"><b>&#127968; "
+            + bi("สำนักงานที่ดิน — ศูนย์ทั้งสารบัญ",
+                 "The Land Office — zero, in the whole catalogue")
+            + "</b><p>"
+            + bi("การโอนโฉนดทุกครั้งในภาคเหนือเดินผ่านสำนักงานที่ดิน และสารบัญนี้ยังไม่มีสักแห่ง — ไม่ใช่เพราะไม่มีจริง แต่เพราะการเก็บข้อมูลไม่เคยถามหา (office=government)",
+                 "Every chanote transfer in the north walks through a Land Office, and this catalogue holds none — not because they do not exist, but because the crawl never asked (office=government).")
+            + "</p></div>")
+
+    # ---- the Treasury's own register --------------------------------------
+    creg = load_condo_reg()
+    cbuild = creg.get("buildings") or []
+    creg_html = ""
+    if cbuild:
+        matched, unmatched = join_register(cbuild, mine)
+        csrc = creg.get("source") or {}
+        edition = csrc.get("edition") or creg.get("generated") or ""
+        cm_n = sum(1 for e in cbuild if e["province"] == "cm")
+        cr_n = sum(1 for e in cbuild if e["province"] == "cr")
+
+        def baht(e):
+            lo, hi = e.get("assessed_low"), e.get("assessed_high")
+            if not lo:
+                return "—"
+            if hi and hi != lo:
+                return f"{lo:,}–{hi:,}"
+            return f"{lo:,}"
+
+        mrows = "".join(
+            "<div><a href=\"" + href(r) + "\">" + name_bi(r) + "</a> <span class=\"m\">"
+            + baht(e) + " " + bi("บาท/ตร.ม.", "B/m²") + "</span></div>"
+            for e, r in sorted(matched, key=lambda x: (x[0].get("name") or "")))
+        creg_html = (
+            h2("ทะเบียนอาคารชุดของกรมธนารักษ์", "The Treasury's condominium register",
+               len(cbuild))
+            + "<div class=\"re-rule\"><b>&#129534; "
+            + bi("ราคาประเมิน ไม่ใช่ราคาตลาด", "An assessed value is not a market price")
+            + "</b>"
+            + bi("ตัวเลขนี้คือราคาประเมินของกรมธนารักษ์ ซึ่งใช้คิดค่าธรรมเนียมการโอนและภาษี ไม่ใช่ราคาซื้อขาย ไม่ใช่ราคาที่ประกาศ และตามปกติจะต่ำกว่าทั้งสองอย่างมาก อาคารหนึ่งมีหลายบรรทัดตามประเภทการใช้และชั้น จึงแสดงเป็นช่วง ไม่ใช่ตัวเลขเดียว",
+                 "This is the Treasury's assessed value — the figure transfer fees and taxes are reckoned from. It is not a sale price, not an asking price, and normally well below both. A building carries a row per use category and floor band, so it is shown as a spread and never as one welded number.")
+            + "</div>"
+            + note("ทะเบียนราชการนับอาคารชุดจดทะเบียนในเชียงใหม่ " + f"{cm_n:,}" + " แห่ง และเชียงราย "
+                   + f"{cr_n:,}" + " แห่ง ส่วนสารบัญนี้ถือรายการที่ชื่อบอกว่าเป็นคอนโด " + str(len(condos))
+                   + " แห่ง ช่องว่างนี้คือสิ่งที่การเก็บข้อมูลจากแผนที่เปิดมองไม่เห็น และเป็นรายการงานที่รออยู่ · ฉบับ " + esc(edition),
+                   "The government register counts " + f"{cm_n:,}" + " registered condominium buildings in Chiang Mai and "
+                   + f"{cr_n:,}" + " in Chiang Rai. This catalogue holds " + str(len(condos))
+                   + " whose own name says condominium. That gap is what a crawl of the open map cannot see, and it is a work-list · edition " + esc(edition))
+            + "<h3>" + bi("ที่จับคู่กับรายการในสารบัญได้", "Matched to a record here")
+            + " <span class=\"re-count\">(" + str(len(matched)) + ")</span></h3>"
+            + note("จับคู่ด้วยชื่อที่ตรงกันเท่านั้น ไม่ใช้การจับคู่แบบใกล้เคียง — การจับแบบหลวมเคยจับ นครพิงค์คอนโดมิเนียม ไปหา เพชรนครพิงค์ ซึ่งคนละอาคาร การเอาราคาประเมินไปแปะผิดอาคารคือการพูดผิดเรื่องทรัพย์สินของคนอื่น",
+                   "Joined by exact name only, never by a near match — a loose join put นครพิงค์คอนโดมิเนียม onto เพชรนครพิงค์, a different building. An assessed valuation attached to the wrong building is a false statement about somebody's property.")
+            + "<div class=\"re-ct\">" + mrows + "</div>"
+            + note("อีก " + f"{len(unmatched):,}" + " อาคารในทะเบียนยังไม่มีรายการในสารบัญ (หรือใช้ชื่อที่ไม่ตรงกัน) — เป็นรายการตั้งต้นสำหรับการเดินสำรวจ ไม่ใช่การเดา ตัวทะเบียนเต็มอยู่ที่ data/curated/condo_register.json",
+                   f"The other {len(unmatched):,} registered buildings have no record here yet (or carry a different name) — a starting list for a walk, not a guess. The full register is at data/curated/condo_register.json.")
+            + note("ที่มา: " + esc(csrc.get("publisher") or "กรมธนารักษ์") + " · "
+                   + esc(csrc.get("licence") or "") + " · data.go.th",
+                   "Source: " + esc(csrc.get("publisher") or "the Treasury Department") + " · "
+                   + esc(csrc.get("licence") or "") + " · data.go.th"))
 
     # ---- the register (empty, and saying so) ------------------------------
     stated_rows = [x for x in (reg.get("buildings") or []) if x.get("stated")]
@@ -395,9 +523,14 @@ def emit(g, data):
                "Thickest around the universities; the signs state who they house — หอพักหญิง women's, หอพักชาย men's")
         + listing(dorms)
 
+        + "<h3>" + bi("หมู่บ้านจัดสรร", "Housing estates") + " <span class=\"re-count\">(" + str(len(moobaans)) + ")</span></h3>"
+        + note("ชั้นนี้ว่างเปล่าจนถึง 21 ส.ค. เพราะการเก็บข้อมูลไม่เคยถามหาพื้นที่อยู่อาศัยที่มีชื่อ ตอนนี้ถามแล้ว และเข้าเฉพาะที่ชื่อบอกเองว่าเป็นโครงการ — จัดสรร หรือชื่อผู้พัฒนาบนซุ้มทางเข้า ส่วนพื้นที่อยู่อาศัยที่มีชื่ออีก 590 แห่งถูกกันไว้ เพราะเป็นหมู่บ้านจริงที่คนอยู่อาศัย ไม่ใช่โครงการที่ใครขาย คำว่า หมู่บ้าน เฉย ๆ ไม่เคยเป็นกฎ",
+               "This shelf was empty until 21 August: the crawl had never asked for named residential areas. It has now, and only names that declare a development enter — จัดสรร, or a developer's name on the entrance arch. Another 590 named residential areas were held back, because they are villages where people live rather than projects somebody is selling. Bare หมู่บ้าน is never a rule.")
+        + listing(moobaans)
+
         + "<h3>" + bi("นายหน้า-เอเจนต์", "Agents & agencies") + " <span class=\"re-count\">(" + str(len(agents)) + ")</span></h3>"
-        + note("ห้าราย และหน้านี้บอกว่าห้าราย — OpenStreetMap ของสองจังหวัดมีเท่านี้ วงการนายหน้าที่นี่อยู่บน LINE กับเฟซบุ๊ก ไม่ได้อยู่บนแผนที่ การเติมชั้นนี้เป็นงานภาคสนามและระเบียนที่คัดด้วยมือพร้อมแหล่งอ้างอิง ไม่ใช่การขยายการเก็บข้อมูล",
-               "Five, and this page says five — that is all OpenStreetMap holds across both provinces. The brokerage trade here lives on LINE and Facebook, not on the map. Growing this shelf is door work and hand-curated records with sources, never a wider crawl.")
+        + note("ห้าราย และหน้านี้บอกว่าห้าราย — OpenStreetMap ของสองจังหวัดมีเท่านี้ วงการนายหน้าที่นี่อยู่บน LINE กับเฟซบุ๊ก ไม่ได้อยู่บนแผนที่ และเว็บของบริษัทนายหน้าเองก็อ่านด้วยเครื่องไม่ได้ (ลองแล้ว 21 ส.ค.: รายหนึ่งตอบ 403 อีกรายหน้าเว็บว่างเปล่าเพราะเรนเดอร์ด้วยสคริปต์) ที่เหลือในผลค้นหาคือเว็บรวมประกาศ ซึ่งเป็นรายการที่คนอื่นทำถึงนายหน้า ไม่ใช่คำของนายหน้าเอง การเติมชั้นนี้จึงเป็นงานภาคสนามและความสัมพันธ์จริง",
+               "Five, and this page says five — that is all OpenStreetMap holds across both provinces. The brokerage trade here lives on LINE and Facebook, not on the map, and the agencies' own sites cannot be read by machine either (tried 21 August: one answers 403, another renders its page with scripts and hands a reader nothing). Everything else in a search result is a listings portal — somebody else's listing OF an agency, not the agency speaking. Filling this shelf is field work and real relationships.")
         + listing(agents)
 
         + "<h3>" + bi("อพาร์ตเมนต์-แมนชั่น-คอร์ท", "Apartments, mansions & courts") + " <span class=\"re-count\">(" + str(len(apartments)) + ")</span></h3>"
@@ -419,6 +552,8 @@ def emit(g, data):
 
         + h2("ทะเบียน — ตึกบอกเองว่าอะไร", "The register — what each building states")
         + reg_html
+
+        + creg_html
 
         + h2("ชั้นอื่นที่เกี่ยวข้อง", "The rest of the shelf")
         + "<ul class=\"re-queue\">"
@@ -448,6 +583,7 @@ def emit(g, data):
         extra_head="<link rel=\"stylesheet\" href=\"realestate.css\">", og=og, crumbs=crumbs))
     return {"page": 1, "words": len(WORDS), "sentences": len(SAYINGS),
             "condo": len(condos), "apartment": len(apartments), "dorm": len(dorms),
-            "agent": len(agents), "defaulted": split["defaulted"],
+            "agent": len(agents), "moobaan": len(moobaans), "defaulted": split["defaulted"],
             "read_queue": len(queue), "hotelside": len(hotelside),
-            "landoffice": len(landoffices), "neartower": ct_html and 1 or 0}
+            "landoffice": len(landoffices), "neartower": ct_html and 1 or 0,
+            "official_register": len(cbuild), "register_matched": len(matched) if cbuild else 0}

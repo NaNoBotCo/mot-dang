@@ -103509,6 +103509,42 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-10206980917",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์พัฒนาโครงการหลวงห้วยน้ำริน",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.0636951,
+  "lng": 99.4639413,
+  "geoPrecision": "exact",
+  "address": "136 หมู่ 8 57260",
+  "phone": null,
+  "website": null,
+  "hours": "Mo-Fr 08:00-17:00",
+  "attrs": {
+   "houseNumber": "136 หมู่ 8",
+   "postcode": "57260"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/10206980917",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-10223255057",
   "province": "cr",
   "cat": [
@@ -105380,6 +105416,39 @@
    {
     "type": "osm",
     "ref": "node/10568067509",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-10600949205",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "Immigration office",
+  "nameTh": null,
+  "nameEn": "Immigration office (Заболотин)",
+  "lat": 20.3447568,
+  "lng": 100.0836321,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/10600949205",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -110441,6 +110510,43 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-11652971569",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สะพานมิตรภาพไทย-ลาว แห่งที่ 4",
+  "nameTh": "สะพานมิตรภาพไทย-ลาว แห่งที่ 4",
+  "nameEn": "Thai–Lao Friendship Bridge",
+  "lat": 20.2145805,
+  "lng": 100.4501912,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "namesOther": {
+    "fr": "Frontière thai laos bridge 4"
+   }
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/11652971569",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-11726714538",
   "province": "cr",
   "cat": [
@@ -114297,6 +114403,46 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-13040722650",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "องค์การบริหารส่วนตำบลเจดีย์หลวง",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.5957336,
+  "lng": 99.5121331,
+  "geoPrecision": "exact",
+  "address": "113 หมู่ 12 ต.เจดีย์หลวง อ.แม่สรวย 57180",
+  "phone": "0979201060",
+  "website": "https://www.chediluanglocal.go.th/",
+  "hours": "Mo-Fr 08:30-16:30",
+  "attrs": {
+   "houseNumber": "113",
+   "moo": "12",
+   "subdistrict": "เจดีย์หลวง",
+   "district": "แม่สรวย",
+   "postcode": "57180",
+   "addrProvince": "เชียงราย"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13040722650",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-13040769261",
   "province": "cr",
   "cat": [
@@ -115549,6 +115695,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-13238539301",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "หมวดทางหลวงแม่สรวย",
+  "nameTh": null,
+  "nameEn": "Mae Suai Highway depot",
+  "lat": 19.5096692,
+  "lng": 99.4781365,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13238539301",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-13248931301",
   "province": "cr",
   "cat": [
@@ -115685,6 +115864,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-13261073201",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานองค์การบริหารส่วนตำบลแม่เย็น",
+  "nameTh": null,
+  "nameEn": "Maeyen subdistrict administration office",
+  "lat": 19.4533167,
+  "lng": 99.7565356,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13261073201",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-13261075101",
   "province": "cr",
   "cat": [
@@ -115710,6 +115922,39 @@
    {
     "type": "osm",
     "ref": "node/13261075101",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-13261167501",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานองค์การบริหารส่วนตำบลม่วงคำ",
+  "nameTh": null,
+  "nameEn": "Moung Kam subdistrict administration office",
+  "lat": 19.5014199,
+  "lng": 99.7464591,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13261167501",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -116005,6 +116250,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-13264620502",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์เรียนรู้การพัฒนาสตรีและครอบครัวเชียงราย",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.6720943,
+  "lng": 99.7321656,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13264620502",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-13269429701",
   "province": "cr",
   "cat": [
@@ -116038,6 +116316,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-13269449001",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานสาธารณสุขจังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8490666,
+  "lng": 99.8613292,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13269449001",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-13269612201",
   "province": "cr",
   "cat": [
@@ -116063,6 +116374,39 @@
    {
     "type": "osm",
     "ref": "node/13269612201",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-13273410501",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานองค์การบริหารส่วนตำบลแม่เปา",
+  "nameTh": null,
+  "nameEn": "Mae Pao subdistrict administration office",
+  "lat": 19.892341,
+  "lng": 100.1001214,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13273410501",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -116205,6 +116549,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-13290274201",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานเทศบาลตำบลครึ่ง",
+  "nameTh": null,
+  "nameEn": "Krueng subdistrict municipal office",
+  "lat": 20.0350726,
+  "lng": 100.3778753,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13290274201",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-13290279101",
   "province": "cr",
   "cat": [
@@ -116278,6 +116655,39 @@
    {
     "type": "osm",
     "ref": "node/13294498796",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-13296047402",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "กองร้อยทหารพรานที่ 3101",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.1910688,
+  "lng": 100.4055898,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13296047402",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -116490,6 +116900,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-13312453302",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "หมวดทางหลวงเชียงแสน",
+  "nameTh": null,
+  "nameEn": "Chiangsaen highway depot",
+  "lat": 20.2222628,
+  "lng": 100.1380066,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13312453302",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-13318492401",
   "province": "cr",
   "cat": [
@@ -116581,6 +117024,39 @@
    {
     "type": "osm",
     "ref": "node/13323496101",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-13325257201",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานองค์การบริหารส่วนตำบลศรีเมืองชุม",
+  "nameTh": null,
+  "nameEn": "Sri Muang Chum subdistrict administration office",
+  "lat": 20.3679751,
+  "lng": 99.9873666,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13325257201",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -116921,6 +117397,39 @@
    {
     "type": "osm",
     "ref": "node/13360754833",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-13373180201",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานเทศบาลตำบลห้วยซ้อ",
+  "nameTh": null,
+  "nameEn": "Huai Sor subdistrict municipaly office",
+  "lat": 20.0364767,
+  "lng": 100.2892395,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13373180201",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -119834,6 +120343,39 @@
    {
     "type": "osm",
     "ref": "node/14030800418",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-14030817310",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานเทศบาลตำบลเชียงเคี่ยน",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.5988742,
+  "lng": 99.9638998,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": "https://www.chiangkiean.go.th/",
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/14030817310",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -128206,6 +128748,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-2148569034",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "อบต แม่จัน",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.1330779,
+  "lng": 99.8629148,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2148569034",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-2148569036",
   "province": "cr",
   "cat": [
@@ -128759,6 +129334,39 @@
     "ref": "osm name: คำมูล เสริมสวย",
     "fetched": "2026-08-20",
     "via": "data/curated/shelves.json"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-2148609274",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ด่านตรวจศุลกากรแม่จัน",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.1358469,
+  "lng": 99.8595309,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2148609274",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -132687,6 +133295,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-2148676958",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักสาธารณะสุขอำเภอแม่จัน",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.146769,
+  "lng": 99.8537174,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2148676958",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-2148682483",
   "province": "cr",
   "cat": [
@@ -133797,6 +134438,39 @@
    {
     "type": "osm",
     "ref": "node/2153746712",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-2153746715",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ที่ทำการ องค์การบริหารส่วนตำบลท่าสุด",
+  "nameTh": "กู้ชีพท่าสุด",
+  "nameEn": "Tha Sut Tambon Administrative Authority",
+  "lat": 20.0646138,
+  "lng": 99.8749117,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2153746715",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -135163,6 +135837,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-2174005760",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานเทศบาลตำบลห้วยไคร้",
+  "nameTh": "สำนักงานเทศบาลตำบลห้วยไคร้",
+  "nameEn": "Huai Khrai District Office",
+  "lat": 20.2748766,
+  "lng": 99.8625788,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2174005760",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-2174005761",
   "province": "cr",
   "cat": [
@@ -135714,6 +136421,39 @@
    {
     "type": "osm",
     "ref": "node/2193469947",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-2193469948",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ตรวจคนเข้าเมืองจังหวัดเชียงราย",
+  "nameTh": "ตรวจคนเข้าเมืองจังหวัดเชียงราย",
+  "nameEn": "Mae Sai Immigration Office",
+  "lat": 20.4303108,
+  "lng": 99.8842255,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/2193469948",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -156401,6 +157141,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-4530910930",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์ราชการกระทรวงการคลัง",
+  "nameTh": "ศูนย์ราชการกระทรวงการคลัง",
+  "nameEn": "Ministry of Finance Chiangrai Province",
+  "lat": 19.912839,
+  "lng": 99.8412509,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4530910930",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-4530910931",
   "province": "cr",
   "cat": [
@@ -159676,6 +160449,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-4734380922",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ด่านชายแดนเชียงของ",
+  "nameTh": "ด่านชายแดนเชียงของ",
+  "nameEn": "Chiang Khong Border.",
+  "lat": 20.2159436,
+  "lng": 100.4354688,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "checkedOn": "2026-01-08"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4734380922",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-4735682449",
   "province": "cr",
   "cat": [
@@ -160949,6 +161757,39 @@
    {
     "type": "osm",
     "ref": "node/4910860121",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-4914731420",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ที่ว่าการอำเภอเวียงชัย",
+  "nameTh": "ที่ว่าการอำเภอเวียงชัย",
+  "nameEn": "Wiang Chai District Office",
+  "lat": 19.883132,
+  "lng": 99.9328323,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/4914731420",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -172060,6 +172901,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-6403856385",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ที่ทำการส่วนปกครองบ้านหาดบ้าย",
+  "nameTh": null,
+  "nameEn": "Hadbai Administrative office",
+  "lat": 20.3654152,
+  "lng": 100.2496222,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6403856385",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-6403856387",
   "province": "cr",
   "cat": [
@@ -172196,6 +173070,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-6405431386",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานวนอุทยานแห่งชาติห้วยทรานมาน",
+  "nameTh": "สำนักงานวนอุทยานแห่งชาติห้วยทรายมาน",
+  "nameEn": "Huai Sai Man National Park Office",
+  "lat": 20.3960735,
+  "lng": 100.321684,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6405431386",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-6405731085",
   "province": "cr",
   "cat": [
@@ -172221,6 +173128,39 @@
    {
     "type": "osm",
     "ref": "node/6405731085",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6405731185",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ที่ทำการองค์การบริหารส่วนตำบลริมโขง",
+  "nameTh": null,
+  "nameEn": "Rimkhong sub district administrative office",
+  "lat": 20.3728894,
+  "lng": 100.3525091,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6405731185",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -172328,6 +173268,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-6406114887",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ฐานปฏิบัติการ ชุดปฏิบัติการทหารพราน(จุดเฝ้าตรวจลำน้ำโขง) กองร้อยทหารพรานที่ 310",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.3314064,
+  "lng": 100.3763397,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6406114887",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-6407886687",
   "province": "cr",
   "cat": [
@@ -172353,6 +173326,72 @@
    {
     "type": "osm",
     "ref": "node/6407886687",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6408829785",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานประปาเชียงของ",
+  "nameTh": null,
+  "nameEn": "Chiangkhong Water Supply Office",
+  "lat": 20.2457636,
+  "lng": 100.4023599,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6408829785",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6408864986",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "โรงพยาบาลส่งเสริมสุขภาพตำบลบ้านน้ำแพร่",
+  "nameTh": null,
+  "nameEn": "Namphrae Health Promotion Hospital",
+  "lat": 19.9577167,
+  "lng": 100.3131391,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6408864986",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -172537,6 +173576,39 @@
    {
     "type": "osm",
     "ref": "node/6411088986",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6418673685",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "องค์การบริหารส่วนตำบลปอ",
+  "nameTh": null,
+  "nameEn": "Por sub-district Administrator office",
+  "lat": 20.0028232,
+  "lng": 100.4855626,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6418673685",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -173174,6 +174246,171 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-6429560487",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "โรงพยาบาลส่งเสริมสุขภาพตำบลเชียงเคี่ยน",
+  "nameTh": null,
+  "nameEn": "Chiang Kian Subdistric Health Promotion Hospital",
+  "lat": 19.6056251,
+  "lng": 99.9873695,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6429560487",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6456998387",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "หน่วยป้องกันและพัฒนาป่าไม้เวียงป่าเป้า",
+  "nameTh": "หน่วยป้องกันรักษาป่าไม้ที่ ชร.3",
+  "nameEn": "Forest Protection Unit at Chiang Rai 3",
+  "lat": 19.1282334,
+  "lng": 99.4912715,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6456998387",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6457099586",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ควบคุมไฟป่าอุทยานแห่งชาติขุนแจ",
+  "nameTh": "หน่วยควบคุมไฟป่าอุทยานแห่งชาติขุนแจ",
+  "nameEn": "Forest fire control unit of Khun Jae nation park",
+  "lat": 19.0951826,
+  "lng": 99.4391686,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6457099586",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6457099587",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ป้อมยามตำรวจบริการประชาชนโป่งน้ำร้อน",
+  "nameTh": null,
+  "nameEn": "Police service point Ping Nam Ron",
+  "lat": 19.1141836,
+  "lng": 99.4617237,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6457099587",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6457099592",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สวนรุกขชาติ 80 พรรษามหาราชินี",
+  "nameTh": null,
+  "nameEn": "Arboretum 80 years Queen",
+  "lat": 19.0887395,
+  "lng": 99.4177906,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6457099592",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-6484265985",
   "province": "cr",
   "cat": [
@@ -173338,6 +174575,39 @@
    {
     "type": "osm",
     "ref": "node/6534645885",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6536248685",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "โครงการพัฒนาป่าไม้ ตามแนวพระราชดำริ บ้านสันติสุข",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.1027772,
+  "lng": 99.5743139,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6536248685",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -173737,6 +175007,39 @@
    {
     "type": "osm",
     "ref": "node/6631508913",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6631508918",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานเทศบาลตำบลเมืองพาน",
+  "nameTh": "สำนักงานเทศบาลตำบลเมืองพาน",
+  "nameEn": "Municipal office",
+  "lat": 19.5480806,
+  "lng": 99.745714,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6631508918",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -176535,6 +177838,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-6919366990",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานเทศบาลตำบลดอยลาน",
+  "nameTh": null,
+  "nameEn": "Doilan administrative office",
+  "lat": 19.6841408,
+  "lng": 99.926506,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6919366990",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-6919495008",
   "province": "cr",
   "cat": [
@@ -176603,6 +177939,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-6934058485",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนัหงานการไฟฟ้าส่วนภูมิภาค สาขาเทิง",
+  "nameTh": "สำนักงานการไฟฟ้าส่วนภูมิภาค สาขาเทิง",
+  "nameEn": "Provincial Electricity Authority, Thoeng branch",
+  "lat": 19.6960791,
+  "lng": 100.2060844,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6934058485",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-6947416488",
   "province": "cr",
   "cat": [
@@ -176630,6 +177999,171 @@
    {
     "type": "osm",
     "ref": "node/6947416488",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6947448286",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานเกษตรอำเภอขุนตาล",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8423458,
+  "lng": 100.2673034,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6947448286",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6947452187",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานเทศบาลตำบลยางฮอม",
+  "nameTh": null,
+  "nameEn": "Yanghom municipal office",
+  "lat": 19.9218242,
+  "lng": 100.3057946,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6947452187",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6947452385",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ที่ว่าการอำเภอขุนตาล",
+  "nameTh": null,
+  "nameEn": "Khuntan distric office",
+  "lat": 19.843637,
+  "lng": 100.2679094,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6947452385",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6947452386",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์ส่งเสริมการศึกษา ศาสนา และวัฒนธรรม ตำบลยางฮอม",
+  "nameTh": null,
+  "nameEn": "Center for the Promotion of Education, Religion, and Culture",
+  "lat": 19.8816169,
+  "lng": 100.2927377,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6947452386",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6947452785",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์การศึกษานอกโรงเรียนขุนตาล(กศน.ขุนตาล)",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8421718,
+  "lng": 100.2681004,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6947452785",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -176704,6 +178238,72 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-6951279896",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สถานีควบคุมไฟป่าภูชีฟ้า",
+  "nameTh": null,
+  "nameEn": "Control forest fire station office , Phuchifa branch",
+  "lat": 19.8578353,
+  "lng": 100.4338648,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6951279896",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6951292685",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์การศึกษานอกโรงเรียน(กศน.)ตำบลยางฮอม",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9491303,
+  "lng": 100.31246,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6951292685",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-6951292690",
   "province": "cr",
   "cat": [
@@ -176762,6 +178362,39 @@
    {
     "type": "osm",
     "ref": "node/6951292886",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6956272687",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์ปฏิบัติการโครงการอันเนื่องมาจากพระราชดำริ",
+  "nameTh": null,
+  "nameEn": "Working center from the king project",
+  "lat": 19.845885,
+  "lng": 100.442628,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6956272687",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -176861,6 +178494,39 @@
    {
     "type": "osm",
     "ref": "node/6956800095",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6957068087",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "หน่วยบำรุงทางภูชีฟ้า แขวงการทางเชียงราย 2",
+  "nameTh": "หน่วยบำรุงทางภูชี้ฟ้า แขวงการทางเชียงราย 2",
+  "nameEn": "Phuchifah road management office (Chiangrai hiway 2)",
+  "lat": 19.7918989,
+  "lng": 100.408617,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6957068087",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -177125,6 +178791,39 @@
    {
     "type": "osm",
     "ref": "node/6984010691",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-6984010692",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานเทศบาลตำบลบุญเรือง",
+  "nameTh": null,
+  "nameEn": "Tambon Boon Ruang principal office",
+  "lat": 19.990317,
+  "lng": 100.3328893,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/6984010692",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -178072,6 +179771,44 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-7048709015",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ฝ่ายการสารวัตร มณฑลทหารบกที่ ๓๗",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.9169261,
+  "lng": 99.8225,
+  "geoPrecision": "exact",
+  "address": "ฝ่ายการสารวัตร มณฑลทหารบกที่ ๓๗256 หมู่15 ถนน ไกรสรสิทธิ์ 57000",
+  "phone": "053711200 ต่อ 71742",
+  "website": null,
+  "hours": "Mo-Fr 08:00-16:30",
+  "attrs": {
+   "houseNumber": "ฝ่ายการสารวัตร มณฑลทหารบกที่ ๓๗256 หมู่15",
+   "street": "ถนน ไกรสรสิทธิ์",
+   "postcode": "57000",
+   "city": "รอบเวียง"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7048709015",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-7057535387",
   "province": "cr",
   "cat": [
@@ -178872,6 +180609,39 @@
    {
     "type": "osm",
     "ref": "node/7170939886",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-7179402813",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สถานีวิทยุทหารอากาศ 015 เชียงราย",
+  "nameTh": null,
+  "nameEn": "015 chiangrai Air force radio station",
+  "lat": 19.8122127,
+  "lng": 99.7596075,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7179402813",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -180148,6 +181918,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-node-7504985085",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานเทศบาลตำบลสันทราย",
+  "nameTh": null,
+  "nameEn": "Sansai municipal office",
+  "lat": 19.8568674,
+  "lng": 99.8155712,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7504985085",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-node-7512848386",
   "province": "cr",
   "cat": [
@@ -180243,6 +182046,39 @@
    {
     "type": "osm",
     "ref": "node/7547790385",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-7547792485",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "เทศบาลตำบลแม่สรวย",
+  "nameTh": null,
+  "nameEn": "Mae Suai municipal office",
+  "lat": 19.6516192,
+  "lng": 99.5394008,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7547792485",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -180375,6 +182211,39 @@
    {
     "type": "osm",
     "ref": "node/7553078691",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-node-7553079985",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานจัดการป่าไม้บ้านปางไม้",
+  "nameTh": null,
+  "nameEn": "Pang Mai forest management office",
+  "lat": 19.726685,
+  "lng": 99.3693969,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/7553079985",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -188719,6 +190588,81 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-relation-13706588",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ที่ว่าการอำเภอเมืองเชียงราย",
+  "nameTh": null,
+  "nameEn": "Mueang Chiang Rai District Office",
+  "lat": 19.9287708,
+  "lng": 99.8651105,
+  "geoPrecision": "exact",
+  "address": "525 หมู่6 อำเภอเมืองเชียงราย ถนน เวียงบูรพา 57100",
+  "phone": "+6653160903",
+  "website": null,
+  "hours": "Mo-Fr 08:00-16:30",
+  "attrs": {
+   "houseNumber": "525 หมู่6 อำเภอเมืองเชียงราย",
+   "street": "ถนน เวียงบูรพา",
+   "postcode": "57100",
+   "city": "Chiang Rai"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "relation/13706588",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-relation-13706594",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานประมงจังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": "ChiangRai Fisheries Office",
+  "lat": 19.9266068,
+  "lng": 99.8657406,
+  "geoPrecision": "exact",
+  "address": "419 หมู่ 6 ตำบลริมกก อำเภอเมืองเชียงราย 57100",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "houseNumber": "419 หมู่ 6 ตำบลริมกก อำเภอเมืองเชียงราย",
+   "postcode": "57100",
+   "city": "เชียงราย"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "relation/13706594",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-relation-13779275",
   "province": "cr",
   "cat": [
@@ -192166,6 +194110,245 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1023629189",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "องค์การบริหารส่วนจังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": "Chiang Rai Provincial Administrative Organization",
+  "lat": 19.9298929,
+  "lng": 99.8652721,
+  "geoPrecision": "exact",
+  "address": "521 หมู่ที่ 6 ถนนศูนย์ราชการ ตำบลริมกก อำเภอเมืองเชียงราย 57100",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "houseNumber": "521 หมู่ที่ 6 ถนนศูนย์ราชการ ตำบลริมกก อำเภอเมืองเชียงราย",
+   "postcode": "57100",
+   "city": "เชียงราย"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1023629189",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1023629201",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สถานกักพืชเชียงราย",
+  "nameTh": null,
+  "nameEn": "ChiangRai Plant Quarantine Station",
+  "lat": 19.9304693,
+  "lng": 99.8644754,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1023629201",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1023629213",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์บริหารการทะเบียนภาค สาขาเชียงราย",
+  "nameTh": null,
+  "nameEn": "Bureau Of Registration Administration ChiangRai Branch Office",
+  "lat": 19.9283591,
+  "lng": 99.866177,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "+6653152124",
+  "website": "http://mai.dynns.com/",
+  "hours": "Mo-Fr 08:30-16:30",
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1023629213",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1023629217",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานสวัสดิการและคุ้มครองแรงงานจังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": "Chiang Rai Provincial Labor Protection and Welfare Office",
+  "lat": 19.9306066,
+  "lng": 99.8657894,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "+6653750515",
+  "website": "https://chiangrai.labour.go.th/",
+  "hours": "Mo-Fr 08:30-16:30",
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1023629217",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1023629218",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์ราชการกระทรวงแรงงาน",
+  "nameTh": null,
+  "nameEn": "Ministry of Labor Government Center",
+  "lat": 19.9302943,
+  "lng": 99.8660705,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "+6653152067",
+  "website": "https://chiangrai.mol.go.th/",
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1023629218",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1023905216",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานคณะกรรมการการเลือกตั้งประจำจังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": "Election Commission of ChiangRai Province",
+  "lat": 19.9253976,
+  "lng": 99.869248,
+  "geoPrecision": "exact",
+  "address": "528 หมู่ 6 ศูนย์ราชการฝั่งหมิ่น 57100",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "houseNumber": "528 หมู่ 6 ศูนย์ราชการฝั่งหมิ่น",
+   "postcode": "57100",
+   "city": "Chiang Rai"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1023905216",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1023905218",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานคุมประพฤติจังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": "ChiangRai Probation Office",
+  "lat": 19.9301166,
+  "lng": 99.8673786,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "+6653152069",
+  "website": "https://www.probation.go.th/viewmap.php?id=63",
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1023905218",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1023905220",
   "province": "cr",
   "cat": [
@@ -192191,6 +194374,179 @@
    {
     "type": "osm",
     "ref": "way/1023905220",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1023905222",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานที่ดินจังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": "ChiangRai Provincial Land Office",
+  "lat": 19.9275107,
+  "lng": 99.869167,
+  "geoPrecision": "exact",
+  "address": "522 หมู่ที่ 6 ถนนศูนย์ราชการ ตำบลริมกก อำเภอเมืองเชียงราย 57100",
+  "phone": "+6653152078",
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "houseNumber": "522 หมู่ที่ 6 ถนนศูนย์ราชการ ตำบลริมกก อำเภอเมืองเชียงราย",
+   "postcode": "57100",
+   "city": "Chiang Rai"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1023905222",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1023905244",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานขนส่งจังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": "Chiang Rai Provincial Land Transport Office",
+  "lat": 19.9283116,
+  "lng": 99.8735516,
+  "geoPrecision": "exact",
+  "address": "405 หมู่ 6 ริมกก อำเภอ เมืองเชียงราย 57100",
+  "phone": "+6653152034",
+  "website": "https://www.dlt.go.th/site/chiangrai/",
+  "hours": null,
+  "attrs": {
+   "houseNumber": "405 หมู่ 6 ริมกก อำเภอ เมืองเชียงราย",
+   "postcode": "57100",
+   "city": "Chiang Rai"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1023905244",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1023906208",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานโยธาธิการและผังเมืองจังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": "ChiangRai Office of Public Works and Town & Country Planning",
+  "lat": 19.9290947,
+  "lng": 99.8702038,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "+6653152038",
+  "website": null,
+  "hours": "Mo-Fr 08:00-17:00",
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1023906208",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1023906209",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานทางหลวงชนบทที่ 17 (เชียงราย)",
+  "nameTh": null,
+  "nameEn": "Bureau of Rural Roads 17 Office (ChiangRai)",
+  "lat": 19.9290431,
+  "lng": 99.8709939,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "+6653152135",
+  "website": "https://drr17.drr.go.th/",
+  "hours": "Mo-Fr 08:00-17:00",
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1023906209",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1023906210",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานพลังงานจังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": "Chiang Rai Provincial Energy Office",
+  "lat": 19.9276049,
+  "lng": 99.8701637,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "+6653751110",
+  "website": "https://m.facebook.com/pages/category/Government-Organization/%E0%B8%AA%E0%B8%B3%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%9E%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%88%E0%B8%B1%E0%B8%87%E0%B8%AB%E0%B8%A7%E0%B8%B1%E0%",
+  "hours": "Mo-Fr 08:00-17:00",
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1023906210",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -192725,6 +195081,77 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1037270065",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "หอพัก ซันเดย์",
+  "nameTh": "หอพัก ซันเดย์",
+  "nameEn": "Sunday Dormitory",
+  "lat": 19.9159524,
+  "lng": 99.8330863,
+  "geoPrecision": "exact",
+  "address": "401/9 Moo 21 เทิดพระเกียรติ ซอย 2 57000",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "houseNumber": "401/9 Moo 21",
+   "street": "เทิดพระเกียรติ ซอย 2",
+   "postcode": "57000",
+   "city": "Chiang Rai"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1037270065",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1041398897",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ที่ทำการอุทยานแห่งชาติขุนแจ",
+  "nameTh": null,
+  "nameEn": "Khun Jae National Park office",
+  "lat": 19.0772393,
+  "lng": 99.3990441,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1041398897",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1041398904",
   "province": "cr",
   "cat": [
@@ -192853,6 +195280,72 @@
    {
     "type": "osm",
     "ref": "way/1043700629",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1046112943",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "F4",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0486407,
+  "lng": 99.892682,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1046112943",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1047190780",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "moobaan"
+  ],
+  "name": "กัลปพฤกษ์ แกรนด์ พาร์ค",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8765092,
+  "lng": 99.8321723,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1047190780",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -192999,6 +195492,82 @@
    {
     "type": "osm",
     "ref": "way/105137199",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1058734757",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานทรัพยากรธรรมชาติและสิ่งแวดล้อมจังหวัดเชียงราย",
+  "nameTh": "สำนักงานทรัพยากรธรรมชาติและสิ่งแวดล้อมจังหวัดเชียงราย",
+  "nameEn": "Provincial Office of Natural Resource and Environment Chiang Rai",
+  "lat": 19.9096683,
+  "lng": 99.8233013,
+  "geoPrecision": "exact",
+  "address": "74 ถนน ประตูเชียงใหม่ 57000",
+  "phone": "+6653600816",
+  "website": "https://chiangrai.mnre.go.th/th/index",
+  "hours": null,
+  "attrs": {
+   "houseNumber": "74",
+   "street": "ถนน ประตูเชียงใหม่",
+   "postcode": "57000",
+   "city": "เชียงราย",
+   "email": "chiangrai.org@mnre.mail.go.th"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1058734757",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-106085064",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ที่ว่าการอำเภอแม่สาย",
+  "nameTh": null,
+  "nameEn": "Mae Sai District Office",
+  "lat": 20.4281139,
+  "lng": 99.8832078,
+  "geoPrecision": "exact",
+  "address": "ถนนพหลโยธิน 57130",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57130",
+   "city": "แม่สาย"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/106085064",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -194208,6 +196777,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1085370859",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "หอพักเกรด A",
+  "nameTh": "หอพักเกรด A",
+  "nameEn": "Grade A Dormitory",
+  "lat": 19.915199,
+  "lng": 99.8328205,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1085370859",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1085370871",
   "province": "cr",
   "cat": [
@@ -194467,6 +197069,39 @@
    {
     "type": "osm",
     "ref": "way/1086651688",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1086651716",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "บ้านบุญศิรี",
+  "nameTh": "บ้านบุญศิรี",
+  "nameEn": "Boon Siri House",
+  "lat": 19.9149725,
+  "lng": 99.8378137,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1086651716",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -195244,6 +197879,42 @@
    {
     "type": "osm",
     "ref": "way/1109542746",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1109547398",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "แขวงทางหลวงเชียงรายที่ 1",
+  "nameTh": "แขวงทางหลวงเชียงรายที่ 1",
+  "nameEn": "1st Chang Rai Highway District Office",
+  "lat": 19.9179191,
+  "lng": 99.8456609,
+  "geoPrecision": "exact",
+  "address": "429 ถนนพหลโยธิน",
+  "phone": "+6653-711138",
+  "website": "https://chiangrai1.doh.go.th/chiangrai1",
+  "hours": null,
+  "attrs": {
+   "houseNumber": "429",
+   "street": "ถนนพหลโยธิน"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1109547398",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -197429,6 +200100,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1127708668",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "กรมสรรพากรพื้นที่สาขาเมืองเชียงราย",
+  "nameTh": "กรมสรรพากรพื้นที่สาขาเมืองเชียงราย",
+  "nameEn": "The Revenue Dept. (Mueang Chaingrai Bureau)",
+  "lat": 19.9094794,
+  "lng": 99.8256502,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1127708668",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1157124935",
   "province": "cr",
   "cat": [
@@ -198319,6 +201023,39 @@
     "fetched": "",
     "via": "data/curated/wat_registry.json",
     "note": "province+exact"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1232808811",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ด่านตรวจคนเข้าเมือง",
+  "nameTh": "ด่านตรวจคนเข้าเมือง",
+  "nameEn": "Chiang Saen Immigration Office",
+  "lat": 20.2737706,
+  "lng": 100.084854,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1232808811",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -199344,6 +202081,171 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1285536822",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "L5",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0576988,
+  "lng": 99.8978783,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536822",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536823",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "L4",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0581939,
+  "lng": 99.8983797,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536823",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536824",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "L2",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0585862,
+  "lng": 99.8989991,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536824",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536825",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "L3",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0578791,
+  "lng": 99.8987004,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536825",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536826",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "L1",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0581308,
+  "lng": 99.8993777,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536826",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1285536827",
   "province": "cr",
   "cat": [
@@ -199410,6 +202312,105 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1285536832",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "F2",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0484142,
+  "lng": 99.8940162,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536832",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536833",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "F1",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0482492,
+  "lng": 99.8944615,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536833",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536834",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "F3",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0498556,
+  "lng": 99.8938469,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536834",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1285536839",
   "province": "cr",
   "cat": [
@@ -199435,6 +202436,270 @@
    {
     "type": "osm",
     "ref": "way/1285536839",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536888",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "F5",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.049969,
+  "lng": 99.8920231,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536888",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536889",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "F6",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0504234,
+  "lng": 99.8920354,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536889",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536890",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "Boonsong-Piengjai (Harnpanich) Asavabhokin International Dormitory 2",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0514259,
+  "lng": 99.8920252,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536890",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536891",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "Prasert-Tassanee Poongkumarn International Dormitory 1",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0509504,
+  "lng": 99.8920781,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536891",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536892",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "Police General Pow Sarasin International Dormitory",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0506564,
+  "lng": 99.8925578,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536892",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536893",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "Sakthong Dormitory 2",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0501809,
+  "lng": 99.8929989,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536893",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536894",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "Sakthong Dormitory 3",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0506698,
+  "lng": 99.893133,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536894",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1285536895",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "Sakthing Dormitory 1",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0497952,
+  "lng": 99.8929725,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1285536895",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -200223,6 +203488,44 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1352012396",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "moobaan"
+  ],
+  "name": "ที่ดินจัดสรร ฮักเจียงฮาย",
+  "nameTh": "ฮักเจียงฮาย ที่ดินจัดสรร",
+  "nameEn": "Hug Chiangrai",
+  "lat": 19.9478563,
+  "lng": 99.8609216,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": "https://hugcei.com",
+  "hours": null,
+  "attrs": {
+   "description": "Hug Chiangrai land allotment ฮักเจียงฮาย ที่ดินจัดสรร สาธารณูปโภคพร้อม เพื่อสร้างบ้านในฝัน",
+   "altNames": [
+    "ฮักเจียงฮาย"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1352012396",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1356060541",
   "province": "cr",
   "cat": [
@@ -200719,6 +204022,43 @@
    {
     "type": "osm",
     "ref": "way/1368610345",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1368610347",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "M2",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.6827326,
+  "lng": 99.7331326,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "smoking": "separated",
+   "buildingLevels": "2",
+   "operator": "อ้ายหนุ่ย"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1368610347",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -202330,6 +205670,76 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1455958814",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "moobaan"
+  ],
+  "name": "ศุภาลัย พาร์ควิลล์ แม่กรณ์-เชียงราย",
+  "nameTh": "ศุภาลัย พาร์ควิลล์ แม่กรณ์-เชียงราย",
+  "nameEn": "Supalai Park Ville Mae Korn-Chiang Rai",
+  "lat": 19.8615423,
+  "lng": 99.8330251,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "Bing"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1455958814",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1455961732",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "moobaan"
+  ],
+  "name": "ศุภาลัย เบลล่า แม่กรณ์-เชียงราย",
+  "nameTh": "ศุภาลัย เบลล่า แม่กรณ์-เชียงราย",
+  "nameEn": "Supalai Bella Mae Korn-Chiang Rai",
+  "lat": 19.8641828,
+  "lng": 99.8322079,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "Bing"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1455961732",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1456759169",
   "province": "cr",
   "cat": [
@@ -202400,6 +205810,41 @@
    {
     "type": "osm",
     "ref": "way/1456759802",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1456852609",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "moobaan"
+  ],
+  "name": "ศุภาลัย การ์เด้นวิลล์ นางแล-เชียงราย",
+  "nameTh": "ศุภาลัย การ์เด้นวิลล์ นางแล-เชียงราย",
+  "nameEn": "Supalai Garden Ville Nanglae-Chiangrai",
+  "lat": 19.9956665,
+  "lng": 99.8679898,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "Bing"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1456852609",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -202627,6 +206072,72 @@
    {
     "type": "osm",
     "ref": "way/1459699543",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1459699544",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานขนส่งจังหวัดเชียงราย",
+  "nameTh": "สำนักงานขนส่งจังหวัดเชียงราย",
+  "nameEn": "Chiang Rai Provice Transportation Office",
+  "lat": 19.2965416,
+  "lng": 99.5124808,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1459699544",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1459699548",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "การไฟฟ้าส่วนภูมิภาค",
+  "nameTh": "การไฟฟ้าส่วนภูมิภาค",
+  "nameEn": "Provincial Electricity Authority",
+  "lat": 19.2817851,
+  "lng": 99.5120251,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1459699548",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -203049,6 +206560,39 @@
    {
     "type": "osm",
     "ref": "way/1469683070",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1471703487",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานเทศบาลตำบลท่าสาย",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 19.8509407,
+  "lng": 99.8586001,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1471703487",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -203909,6 +207453,92 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-1533386962",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ที่ทำการองค์การบริหารส่วนตำบลเทอดไทย",
+  "nameTh": "ที่ทำการองค์การบริหารส่วนตำบลเทอดไทย",
+  "nameEn": null,
+  "lat": 20.2438665,
+  "lng": 99.6641231,
+  "geoPrecision": "exact",
+  "address": "ต.เทอดไทย อ.แม่ฟ้าหลวง 57240",
+  "phone": null,
+  "website": "https://www.therdthai.go.th/",
+  "hours": null,
+  "attrs": {
+   "subdistrict": "เทอดไทย",
+   "district": "แม่ฟ้าหลวง",
+   "postcode": "57240",
+   "addrProvince": "เชียงราย",
+   "altNames": [
+    "อบต.เทอดไทย"
+   ],
+   "facebook": "https://www.facebook.com/doisang1"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1533386962",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1533389701",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "องค์การบริหารส่วนตำบลแม่สลองใน",
+  "nameTh": "องค์การบริหารส่วนตำบลแม่สลองใน",
+  "nameEn": null,
+  "lat": 20.25,
+  "lng": 99.6504368,
+  "geoPrecision": "exact",
+  "address": "207 หมู่ 1 ต.แม่สลองใน อ.แม่ฟ้าหลวง 57110",
+  "phone": null,
+  "website": "https://www.maesalongnai.go.th/",
+  "hours": null,
+  "attrs": {
+   "houseNumber": "207",
+   "moo": "1",
+   "subdistrict": "แม่สลองใน",
+   "district": "แม่ฟ้าหลวง",
+   "postcode": "57110",
+   "addrProvince": "เชียงราย",
+   "altNames": [
+    "อบต.แม่สลองใน"
+   ],
+   "facebook": "https://www.facebook.com/xbt.m.sl.xng.n.m.fa.hlwng.cheiyngray/"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1533389701",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-1533390860",
   "province": "cr",
   "cat": [
@@ -203942,6 +207572,43 @@
     "ref": "way/1533390860",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-1533406568",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ด่านศุลกากรแม่สาย (ด่านพรมแดนแม่สายแห่งที่ 2)",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.444829,
+  "lng": 99.9063826,
+  "geoPrecision": "exact",
+  "address": "ต.แม่สาย อ.แม่สาย",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "subdistrict": "แม่สาย",
+   "district": "แม่สาย",
+   "addrProvince": "เชียงราย"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/1533406568",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -205788,6 +209455,44 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-223086360",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ด่านพรมแดนแม่สายแห่งที่ 1",
+  "nameTh": "ด่านพรมแดนแม่สายแห่งที่ 1",
+  "nameEn": "Mae Sai Border Crossing Point",
+  "lat": 20.4437076,
+  "lng": 99.8808171,
+  "geoPrecision": "exact",
+  "address": "ต.แม่สาย อ.แม่สาย",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "subdistrict": "แม่สาย",
+   "district": "แม่สาย",
+   "addrProvince": "เชียงราย",
+   "osmSource": "Bing"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/223086360",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-223086364",
   "province": "cr",
   "cat": [
@@ -206155,6 +209860,42 @@
    {
     "type": "osm",
     "ref": "way/253151697",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-255982902",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "Chiang Khong Boundary Post",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.2160491,
+  "lng": 100.435339,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "sign",
+   "checkedOn": "2026-01-08"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/255982902",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -208717,6 +212458,53 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-329991356",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "กองกำกับการ 12 กองบังคับการตำรวจน้ำ",
+  "nameTh": "กองกำกับการ 12 กองบังคับการตำรวจน้ำ",
+  "nameEn": "SUB-DB-DIVISION 12 , Marine Police Division",
+  "lat": 20.2663947,
+  "lng": 100.0894428,
+  "geoPrecision": "exact",
+  "address": "ต.เวียง อ.เชียงแสน 57150",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "subdistrict": "เวียง",
+   "district": "เชียงแสน",
+   "postcode": "57150",
+   "operatorTh": "ตำรวจแห่งชาติ",
+   "operatorEn": "Royal Thai Police",
+   "addrProvince": "เชียงราย",
+   "osmSource": "GPS",
+   "altNames": [
+    "กองบังคับการตำรวจน้ำ",
+    "Thai Marine Police Division",
+    "ตำรวจน้ำ"
+   ],
+   "operator": "ตำรวจแห่งชาติ"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/329991356",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-330739408",
   "province": "cr",
   "cat": [
@@ -209024,6 +212812,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-332407834",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานขนส่ง จังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": "Chiang Rai Provincial Land Transport Office",
+  "lat": 19.9287528,
+  "lng": 99.8734332,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/332407834",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-342465614",
   "province": "cr",
   "cat": [
@@ -209141,6 +212962,41 @@
    {
     "type": "osm",
     "ref": "way/354676850",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-354681036",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์ราชการกระทรวงแรงงาน จังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": "Ministry of Labor Government Center Chiang Rai",
+  "lat": 19.9300013,
+  "lng": 99.8663424,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "Bing"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/354681036",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -209419,6 +213275,44 @@
    {
     "type": "osm",
     "ref": "way/371233879",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-371297190",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานสาธารณสุขอำเภอแม่สาย",
+  "nameTh": null,
+  "nameEn": "Mae Sai District Public Health Office",
+  "lat": 20.4273549,
+  "lng": 99.8833927,
+  "geoPrecision": "exact",
+  "address": "99 ม. 10 ถนนพหลโยธิน 57130",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "houseNumber": "99 ม. 10",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57130",
+   "city": "แม่สาย"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/371297190",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -210093,6 +213987,39 @@
    {
     "type": "osm",
     "ref": "way/373429873",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-373614900",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานวนอุทยานดอยหัวแม่คำ",
+  "nameTh": "สำนักงานวนอุทยานดอยหัวแม่คำ",
+  "nameEn": "Doi Hua Mae Kham Forest Park Headquarter",
+  "lat": 20.3792786,
+  "lng": 99.475767,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/373614900",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -212891,6 +216818,42 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-401955473",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานหนังสือเดินทาง เชียงราย",
+  "nameTh": null,
+  "nameEn": "Chiang Rai Passport Office\n(Immigration)",
+  "lat": 19.9300453,
+  "lng": 99.8652225,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": "Mo-Fr 08:30-16:30",
+  "attrs": {
+   "houseNumber": "Changrai Immigration",
+   "city": "Chiang Rai"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/401955473",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-402066155",
   "province": "cr",
   "cat": [
@@ -214790,6 +218753,46 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-484139940",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานสหกรณ์จังหวัดเชียงราย",
+  "nameTh": "สำนักงานสหกรณ์จังหวัดเชียงราย",
+  "nameEn": "Chiang Rai Provincial Cooperative Office",
+  "lat": 19.9027817,
+  "lng": 99.8324818,
+  "geoPrecision": "exact",
+  "address": "899 ถนนพหลโยธิน 57000",
+  "phone": "+66 53711178",
+  "website": "https://web.cpd.go.th/chiangrai/",
+  "hours": null,
+  "attrs": {
+   "houseNumber": "899",
+   "street": "ถนนพหลโยธิน",
+   "postcode": "57000",
+   "city": "Chiang Rai",
+   "osmSource": "Bing",
+   "email": "chiangrai_cpd@cpd.go.th"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/484139940",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-484139941",
   "province": "cr",
   "cat": [
@@ -215841,6 +219844,39 @@
    {
     "type": "osm",
     "ref": "way/500984584",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-501089461",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ที่ทำการองค์การบริหารส่วนตำบลเวียงชัย",
+  "nameTh": "ที่ทำการองค์การบริหารส่วนตำบลเวียงชัย",
+  "nameEn": "Wiang Chai Subdistrict Administrative Organization Office",
+  "lat": 19.8673139,
+  "lng": 99.8898659,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/501089461",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -218711,6 +222747,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-544295158",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "หอพัก จิราภา",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.3240162,
+  "lng": 99.881282,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/544295158",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-544295298",
   "province": "cr",
   "cat": [
@@ -218942,6 +223011,41 @@
    {
     "type": "osm",
     "ref": "way/547058922",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-547058928",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ด่านศุลกากรเชียงของ",
+  "nameTh": "ด่านศุลกากรเชียงของ",
+  "nameEn": "Chiang Khong Customs House",
+  "lat": 20.2638649,
+  "lng": 100.4074106,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "GPS survey"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/547058928",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -219231,6 +223335,39 @@
    {
     "type": "osm",
     "ref": "way/547710571",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-547711351",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ที่ทำการกำนัน",
+  "nameTh": null,
+  "nameEn": "Village Headman",
+  "lat": 20.3253634,
+  "lng": 99.8749752,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/547711351",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -220556,6 +224693,39 @@
    {
     "type": "osm",
     "ref": "way/552752883",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-552937869",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์วิจัยพืชสวนเชียงราย",
+  "nameTh": "ศูนย์วิจัยพืชสวนเชียงราย",
+  "nameEn": "Chiang Rai Agricultural Research Center",
+  "lat": 19.8734326,
+  "lng": 99.7795163,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/552937869",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -222014,6 +226184,39 @@
    {
     "type": "osm",
     "ref": "way/604179764",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-623835073",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานปศุสัตว์จังหวัดเชียงราย",
+  "nameTh": null,
+  "nameEn": "Chiangrai Provincial Livestock Office",
+  "lat": 19.9038217,
+  "lng": 99.8327132,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/623835073",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -223974,6 +228177,76 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-657760601",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "L7",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.0562766,
+  "lng": 99.8976044,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "DigitalGlobe-Premium"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/657760601",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-657760624",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "L6",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.056943,
+  "lng": 99.8974188,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "DigitalGlobe-Premium"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/657760624",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-657809125",
   "province": "cr",
   "cat": [
@@ -224870,6 +229143,72 @@
    {
     "type": "osm",
     "ref": "way/702969689",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-702971302",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "องค์การบริหารส่วนตำบลโป่งงาม",
+  "nameTh": null,
+  "nameEn": null,
+  "lat": 20.3302796,
+  "lng": 99.8645146,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/702971302",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-702972260",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "Mae Sai Highway Division",
+  "nameTh": "หมวดการทางแม่สาย",
+  "nameEn": null,
+  "lat": 20.3264885,
+  "lng": 99.884958,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/702972260",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -227289,6 +231628,41 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-760190398",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "องค์การบริหารส่วนตำบลตับเต่า",
+  "nameTh": null,
+  "nameEn": "Tab Tao Sub-district Administration office",
+  "lat": 19.7842528,
+  "lng": 100.3342505,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "osmSource": "Bing"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/760190398",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-760190400",
   "province": "cr",
   "cat": [
@@ -227934,6 +232308,44 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-776879400",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "เทศบาลตำบลแม่ขะจาน",
+  "nameTh": "เทศบาลตำบลแม่ขะจาน",
+  "nameEn": "Thetsaban Tambon Mae Kha Chan",
+  "lat": 19.2117992,
+  "lng": 99.5262097,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "altNames": [
+    "Tambon Mae Kha Chan Municipal Offices"
+   ],
+   "wikidata": "Q56811296"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/776879400",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-776879402",
   "province": "cr",
   "cat": [
@@ -228413,6 +232825,43 @@
    {
     "type": "osm",
     "ref": "way/924525714",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-93026769",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ด่านพรมแดน ศุลกากรแม่สาย",
+  "nameTh": null,
+  "nameEn": "Mae Sai Customs Boundary Post",
+  "lat": 20.4435798,
+  "lng": 99.8802836,
+  "geoPrecision": "exact",
+  "address": "ต.แม่สาย อ.แม่สาย",
+  "phone": null,
+  "website": "https://maesai.customs.go.th/",
+  "hours": null,
+  "attrs": {
+   "subdistrict": "แม่สาย",
+   "district": "แม่สาย",
+   "addrProvince": "เชียงราย"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/93026769",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -229454,6 +233903,39 @@
    {
     "type": "osm",
     "ref": "way/959984408",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-959984427",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานส่งเสริมการศึกษานอกระบบและการศึกษาตามอัธยาศัยจังหวัดเชียงราย (กศน.)",
+  "nameTh": null,
+  "nameEn": "Chiang Rai Provincial Office of the Non-Formal and Informal Education (NFE.)",
+  "lat": 19.9135721,
+  "lng": 99.8310221,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/959984427",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -234613,6 +239095,74 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-963893765",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์ป้องกันและบรรเทาสาธารณภัยเขต 15 เชียงราย (ปภ.)",
+  "nameTh": "ศูนย์ป้องกันและบรรเทาสาธารณภัยเขต 15 เชียงราย (ปภ.)",
+  "nameEn": "Chiang Rai Disaster Prevention and Mitigation Center Area 15 (DPMCR15)",
+  "lat": 19.9091783,
+  "lng": 99.8224488,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "+66536027589",
+  "website": "https://dpmrc15.disaster.go.th/in.DPMRC15-4.19/",
+  "hours": null,
+  "attrs": {
+   "email": "ddpmrc15@hotmail.co.th"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/963893765",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-963893766",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ศูนย์อาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร) เขต 15",
+  "nameTh": "ศูนย์อาสาสมัครป้องกันภัยฝ่ายพลเรือน (อปพร) เขต 15",
+  "nameEn": "Local Environment Volunteer Network Center Area 15",
+  "lat": 19.9096877,
+  "lng": 99.8223874,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/963893766",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-964176063",
   "province": "cr",
   "cat": [
@@ -234854,6 +239404,39 @@
     "ref": "way/964917564",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-964921426",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานคณะกรรมการการเลือกตั้งประจำจังหวัดเชียงราย",
+  "nameTh": "สำนักงานคณะกรรมการการเลือกตั้งประจำจังหวัดเชียงราย",
+  "nameEn": "Office of the Provincial Election Commission of Chiangrai",
+  "lat": 19.9254438,
+  "lng": 99.8692871,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": "https://www.ect.go.th/chiangrai/main.php?filename=index",
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/964921426",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
    }
   ],
   "confidence": "crawled",
@@ -236682,6 +241265,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-971101255",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "การประปาส่วนภูมิภาค สาขาเชียงราย",
+  "nameTh": "การประปาส่วนภูมิภาค สาขาเชียงราย",
+  "nameEn": "Provincial Waterworks Authority",
+  "lat": 19.9148267,
+  "lng": 99.8258873,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/971101255",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-971313080",
   "province": "cr",
   "cat": [
@@ -237303,6 +241919,138 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-997332340",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "พลอยพิศา",
+  "nameTh": "พลอยพิศา",
+  "nameEn": "Ploy Phisa",
+  "lat": 19.9036392,
+  "lng": 99.8211794,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "+66869138938",
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/997332340",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-997332344",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "หอพักหญิงใจดี",
+  "nameTh": "หอพักหญิงใจดี",
+  "nameEn": "Jaidee female dormitory",
+  "lat": 19.9040849,
+  "lng": 99.8212096,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/997332344",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-997332348",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "บ้านพักรื่นรมย์",
+  "nameTh": null,
+  "nameEn": "Ruen Rome Dormitory",
+  "lat": 19.9043392,
+  "lng": 99.8212896,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/997332348",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-997641682",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "ห้องเช่า เริ่มอรุณ",
+  "nameTh": "ห้องเช่า เริ่มอรุณ",
+  "nameEn": "Rerm Arun",
+  "lat": 19.9032561,
+  "lng": 99.8213976,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": "+66894328955",
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/997641682",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-997641687",
   "province": "cr",
   "cat": [
@@ -237374,6 +242122,39 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-osm-way-997955927",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "หอพักมณีรัตน์",
+  "nameTh": "หอพักมณีรัตน์",
+  "nameEn": "Maneerat",
+  "lat": 19.9017487,
+  "lng": 99.8236668,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/997955927",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
   "id": "cr-osm-way-997955933",
   "province": "cr",
   "cat": [
@@ -237434,6 +242215,72 @@
    {
     "type": "osm",
     "ref": "way/998068499",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-998068518",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "หอพักพุทธแก้ว",
+  "nameTh": "หอพักพุทธแก้ว",
+  "nameEn": "Phuttha Kaew",
+  "lat": 19.9031392,
+  "lng": 99.81971,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/998068518",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-07-27"
+ },
+ {
+  "id": "cr-osm-way-998068519",
+  "province": "cr",
+  "cat": [
+   "realestate"
+  ],
+  "sub": [
+   "dorm"
+  ],
+  "name": "หอพักพุทธแก้ว",
+  "nameTh": "หอพักพุทธแก้ว",
+  "nameEn": "Phuttha Kaew",
+  "lat": 19.9029642,
+  "lng": 99.819792,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {},
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "way/998068519",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }

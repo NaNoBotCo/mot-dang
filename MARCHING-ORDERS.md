@@ -48,8 +48,10 @@
 | WO-23 | น้ำพุร้อน — hot springs, the whole north: the shelf CM held zero of, the seventeen-province register, /namphuron.html | **BUILT** 2026-08-20/21, Nan's go ("BIGLY… the whole north is ok") — `notes/hotsprings-proposal-2026-08-20.md`; CM **0 → 16 records** (สันกำแพง w/ its own site's posted prices, โป่งเดือด, เทพพนม, ฝาง, ดอยสะเก็ด, มะลิกา…), CR 3 → 9 (แม่ขะจาน's four faces merged to one, ผาเสริฐ, โป่งพระบาท, ห้วยหมากเลี่ยม); register `data/hotsprings.json` **98 springs / 14 provinces, 63 with measured temperatures** — OSM area-clipped per ISO province (`hotsprings` group WIDE + `harvest_hotsprings.py`), the **DMR inventory read whole** (66 northern rows, temp+pH), DNP park list + MHS's own hot-spring CSV (pins), curated stated-facts w/ fetched sources; `springs_hit()`/`audit_hotsprings.py` one-copy rules (bare โป่ง never matched; village/school/temple/office/campsite/bus-stop fences all witnessed by real catches); generic-key guard after a bare-worded spring folded 60 km wrong; /namphuron.html = drawn no-tile map (54 pins) + stated-register + primer; `sights` น้ำพุร้อน child; thesaurus ring widened; phichit asked short (1 selector, said on the page; `--fetch` when mirrors calm); scratch build 21,402 pp, all gates PASS |
 | WO-24 | คำตอบก่อนลิงก์ — search rich doors + the namesake split: a curated card over the rows for topics the site keeps a page for, and ชื่อพ้อง filed behind their own header | **BUILT** 2026-08-20, Nan's ask after typing "elephant" ("pre-stage some rich information… place names with Chang in them are not differentiated… might be systemic") — `notes/search-doors-2026-08-20.md`; `data/curated/search_panels.json` (10 panels: chang · muaythai · cooking · beauty · womens-health · toilets · festivals · flights · massage · wat; build.py refuses a malformed pair); triggers by lifted shelf / term variants / query substring, first to speak wins, panel shelves join the +0.5 lift; on-shelf rows split from namesakes whenever the query names a shelf — systemic, not elephant-special; `tests/test_search.py` REPAIRED (its extraction markers predated search-core and the whole file failed at HEAD) and extended to 26 queries + a door-href walk; searchcore/mined tables untouched, no parity run needed |
 | WO-25 | ดูแลต่อเนื่อง — ongoing care: the care register (hospital departments · US-insurance/FMP paperwork · คลินิกพิเศษ), /care.html, the desk sheet | **BUILT — ALL SEVEN DOORS WALKED** 2026-08-21, Nan's own case walked through her own site, then her go ("start with 1 and move down the list") — `notes/ongoing-care-proposal-2026-08-21.md`. **The gemba**: cardiologist/menopause/insurance/FMP/DTV all **0 results**; `clinic → chang` in the mined shelf table sent every clinic query to the ELEPHANT door; corpus held **zero** menopause/hormone/endocrine/internal-med/checkup records and **154 hospitals nearly all contactless** (Rajavej: a name and a pin). **Door 1** `importers/read_care_sites.py` + `data/curated/care_targets.json` — verifies before it believes (a candidate is the hospital's site only if the page carries its own name); 49/77 fetches, **13/20 targets verified** → `data/curated/care.json`: **7 hospitals, 38 stated facts, 11 recorded unread**, every claim with its sentence + url + date. **THE FIND: Rajavej publishes its own TRICARE-and-FMP page** with a named desk, email and extension — and states **คลินิกโรคหัวใจ** (Tue/Sat) and **คลินิกต่อมไร้ท่อ** (Mon eve): the `heart` key in specialty.py had **zero members corpus-wide**. **คลินิกพิเศษ/นอกเวลา** surfaced as a whole tier (CR Prachanukroh SMC 16.00–20.00, Suan Dok's own lines, Chiangmai Hospital's roster). **Door 2 BLOCKED and published**: all three official DTV sources unreadable to a fetch (React shells; MFA path = nav only, "DTV" appears 0×) — **no visa rules recorded**, the attempts printed instead. **Door 3** va.gov FMP read first-hand (page states last-updated 2026-08-06): benefits letter → hand to provider → provider files; Thailand not on the toll-free list. **Door 4** desk contacts recovered incl. Rajavej's; 2 stored "official sites" found wrong. **Door 5** zero-network hygiene: **27 merge pairs + 4 retags** — Bangkok ×2, Fang ×4, Lanna's 3 buildings, Chiang Khong ×3 + 20 district hospitals doubled by OSM/MOPH; the **café filed as a hospital** (its own description: "First aid room"); **3 vets** off the people-medicine shelf. **Door 6 fixed at the root**: `GENERIC_PREMISES` in search-core `mine.py` drops bare premises words mined from English teaser prose (`clinic` came out of "…the elephant clinic…"), 5 wrong turns gone incl. `schools → cooking+learn+school`; **7 ongoing-care groups added to hand.thesaurus.json** — a thesaurus term is never segmented — taking **โรคหัวใจ 641 → 0 rows, อายุรกรรม 2,558 → 0, ใบรับรองแพทย์ 2,076 → 0** with the door answering; parity 528/528 clean. **Door 7** `/reader/care-words.pdf` — the seven desk questions (itemised receipt · เวชระเบียน · after-hours · "have you filed FMP before?"), linked from the page. `care_layer.py` → **/care.html**; `care` search panel; **test_search 26 → 43 green**; publish gate + alt-text PASS |
-| WO-27 | อสังหาฯ-ที่พัก — the residential split, the words before the deposit, /realestate.html, and the farang door | **ZERO-NETWORK BUILT** 2026-08-21, Nan's thesis ("the farang SEO crowd… is going to come thru the door of real estate… enrich deeply, while leaving room for interstitial expansion") — `notes/realestate-proposal-2026-08-21.md`; the condo shelf held **316** buildings and the names say condominium on **53** (the barber lie again, read off the signs): `realestate_sub()` splits **condo 53 · apartment 242 · dorm 22** at classify(), the moobaan child kept as a NAMED SLOT without a match rule (wiring was tried; test_facets refused a rule matching zero records, correctly — one line wires it when the landuse door lands), Sunshine Apartment agent→apartment by retag receipt (`add_sub` taught to the applier); `importers/audit_realestate.py` — agents printed whole (5 is ALL OSM holds; is Sara + อคิน ลิสซิ่ง flagged for a person), จัดสรร appears only in VILLAGE names, **0 สำนักงานที่ดิน in the whole catalogue**, hotel-side 60 counted never re-filed; register `data/curated/realestate.json` empty-and-saying-so with the 12-site first-hand read queue; 12-key `realestate` facet set + worker keys (worker redeploy is Nan's move; new keys filter harmlessly until then); `/realestate.html` — the words w/ RTGS/tone/root (ค่าไฟหน่วยละ first; why a Mansion is cheap; เซ้ง), six desk sentences (TM30 and the quota asked as questions pointed at the desk and the นิติบุคคล — no statute recited unfetched), the four shelves, ใกล้หอนาฬิกาเชียงราย (metres from catalogue coords, method stated), the census of silences; `realestate` search panel by variants/query ONLY (the mined table sends หมู่บ้าน + "buildings" here — a village name must not be doored; test_search holds หมู่บ้านป่าไผ่), แมนชั่น + mansion widen the thesaurus ring; asked `monthly-apartment` + `student-dorm`. **Doors await Nan's numbered go** (note §3): 1. the 12 site reads · 2. Land-Office selector (office=government) · 3. moobaan landuse crawl · 4. dormitory selector · 5. curated agents (the Laila / Perfect Homes interstice — see note §6) · 6. data.go.th ids (Treasury assessed prices, condo-juristic registry) · 7. TTD |
+| WO-27 | อสังหาฯ-ที่พัก — the residential split, the words before the deposit, /realestate.html, and the farang door | **ZERO-NETWORK BUILT** 2026-08-21, Nan's thesis ("the farang SEO crowd… is going to come thru the door of real estate… enrich deeply, while leaving room for interstitial expansion") — `notes/realestate-proposal-2026-08-21.md`; the condo shelf held **316** buildings and the names say condominium on **53** (the barber lie again, read off the signs): `realestate_sub()` splits **condo 53 · apartment 242 · dorm 22** at classify(), the moobaan child kept as a NAMED SLOT without a match rule (wiring was tried; test_facets refused a rule matching zero records, correctly — one line wires it when the landuse door lands), Sunshine Apartment agent→apartment by retag receipt (`add_sub` taught to the applier); `importers/audit_realestate.py` — agents printed whole (5 is ALL OSM holds; is Sara + อคิน ลิสซิ่ง flagged for a person), จัดสรร appears only in VILLAGE names, **0 สำนักงานที่ดิน in the whole catalogue**, hotel-side 60 counted never re-filed; register `data/curated/realestate.json` empty-and-saying-so with the 12-site first-hand read queue; 12-key `realestate` facet set + worker keys (worker redeploy is Nan's move; new keys filter harmlessly until then); `/realestate.html` — the words w/ RTGS/tone/root (ค่าไฟหน่วยละ first; why a Mansion is cheap; เซ้ง), six desk sentences (TM30 and the quota asked as questions pointed at the desk and the นิติบุคคล — no statute recited unfetched), the four shelves, ใกล้หอนาฬิกาเชียงราย (metres from catalogue coords, method stated), the census of silences; `realestate` search panel by variants/query ONLY (the mined table sends หมู่บ้าน + "buildings" here — a village name must not be doored; test_search holds หมู่บ้านป่าไผ่), แมนชั่น + mansion widen the thesaurus ring; asked `monthly-apartment` + `student-dorm`. **ALL SIX RUNNABLE DOORS RUN 2026-08-21** (Nan: "go ahead on everything you can") — land offices 0→4 · dorms 22→84 · estates 0→22 with 590 villages fenced out · 6 building sites read (2 speak; a Booking.com affiliate redirect caught masquerading as a building own-site) · agents = a closed question (403s and JS shells; portals are not sources) · the Treasury condominium register harvested (385 northern buildings; 366 CM vs our 53) and land-valuation recorded UNUSABLE (cadastral keys only). Door 7 TTD still blocked on WO-17 key |
 | WO-28 | โรงเรียนพระปริยัติธรรม + สถาบันอุดมศึกษา — the two registers the schools shelf was still waiting on | **BUILT** 2026-08-21 — the last empty child on the school tree filled: **27 monastic schools**, 13 of them pinned at the temple the register says they stand in, and the temple's own page now names the school it hosts; **7 higher-education institutions** the crawl never had, incl. both Buddhist universities. `KNOWN_EMPTY` entry retired with its receipt. |
+| WO-30 | ใครเลี้ยงมด — the page that says a person makes this, the English half of the description, and the nod ledger | **BUILT** 2026-08-21 — `/who.html` (footer + llms.txt + sitemap, `meta name=author` + JSON-LD `Person`), the no-desc fallback made a full sentence in BOTH languages + `og:locale:alternate`, and `heard.py` — the recognition ledger, which is NOT part of the site and is fenced out of both publish paths. Scratch build 21,703 pp; publish gate + alt-text + asked all PASS. Section below. |
+| WO-29 | ฉีดน้ำเลี้ยงข้อเข่า — the knee-injection question: the ortho silence, the words, the twelve calls | **PROPOSED** 2026-08-21, a stranger's Facebook question Nan brought to the site ("Who can provide me with a knee viscosupplementation injection in Chiang Mai?") — `notes/knee-injection-proposal-2026-08-21.md` + the call sheet at `notes/knee-call-sheet-2026-08-21.md`. **The census: 0 records in 19,980 carry viscosupplementation, hyaluronan, osteoarthritis or PRP in any spelling; 2 carry orthopaedics at all; 1 of those 3 ortho records has a phone.** Widening the `ortho` pattern was tested and gains ZERO — the silence is the naming custom (a Thai clinic is named after its doctor), not a mapping bug. Door 1 is zero-network and needs only a telephone. |
 
 WO-3 and WO-7 were marked standing because they are the two a reader actually
 meets. Both have now been done, and the rule stays: anything added here is
@@ -1678,15 +1680,206 @@ rule — a partner's inventory would be marked ผู้สนับสนุน
 and the register's readme fixes the foreign-quota shape (dated juristic
 statement, never a facet) before the first row exists.
 
-**Doors awaiting Nan's numbered go** (note §3): 1. read the 12 first-hand
-building sites into the register · 2. the Land-Office selector
-(office=government, both provinces) · 3. the moobaan door
-(landuse=residential["name"] WIDE) · 4. the dormitory selector
-(building=dormitory["name"], one run closes the question) · 5. curated agent
-records with sources — door work and Nan's relationships (the Laila /
-Perfect Homes conversation is note §6: what the site can offer a partner is a
-claimed listing, marked sponsor cards, and the register as a shared
-instrument; placement, exclusivity and lead capture are the parts the
-constitution already refuses) · 6. data.go.th dataset ids (Treasury assessed
-land prices; the Land Department's condominium-juristic registry) · 7. TTD,
-pinned on WO-17's key.
+**ALL SIX RUNNABLE DOORS RUN 2026-08-21** — Nan's go: *"go ahead on
+everything you can!"* Door 7 (TTD) stays shut, blocked on WO-17's key. Full
+account in the note's postscript. What they were worth:
+
+- **Door 1, the site reads — 6 read, 2 speak, one defect in my own reader.**
+  Five domains no longer resolve, one refuses robots. Ping View (furnished ·
+  lift · pool) and Smith Suites (furnished · pool) state services, each with
+  the sentence it came from. **The catch: Life in Town's own domain now 302s
+  into a Booking.com affiliate redirector**, and `first_hand()` was being
+  checked BEFORE the redirects — so an OTA page passed as the building's own
+  site and its silence would have shipped as the building's silence.
+  `read_one()` re-checks the FINAL url now; row deleted and refetched. Same
+  class as the beauty reader's scheme-less URL. `page_chars` added: a
+  building that "states nothing" out of 56 characters was visited, not read.
+- **Door 2, the Land Office — 0 → 4.** `office=government` had never been in
+  any selector (`amenity=townhall` was the only government rule, and a Land
+  Office is not a townhall): 165 CM + 108 CR offices onto `essentials/gov`,
+  including สาขาสันทราย, สาขาเชียงดาว, กรมที่ดิน and CR's provincial office.
+  The page names what is still missing — the open map holds two Chiang Mai
+  branches but not the Mueang seat.
+- **Door 3, the estates — 0 → 22, with 590 villages fenced OUT.** The door
+  with something to lose: `landuse=residential["name"]` returns where people
+  LIVE, and nearly all of it is villages wearing หมู่บ้าน. Only จัดสรร or a
+  developer's name files (`audit_realestate.moobaan_hit`, one copy, borrowed
+  by the importer like the elephant and spring fences); all 22 that passed
+  are real developments (Supalai ×8, Pruksa ×4, Quality Houses, Perfect
+  Place, กัลปพฤกษ์, one ที่ดินจัดสรร). The 590 sit in
+  `cache/moobaan_review_<prov>.txt`. Shelf wired the same day it had records.
+- **Door 4, dormitories — 22 → 84.** `building=dormitory` tags student
+  housing on the building, not in the name. One selector, question closed.
+- **Door 5, the agents — a closed question, not a yield.** The trade cannot
+  be read first-hand: Perfect Homes answers **403**, RE/MAX's branch page
+  renders client-side and returns **one character**, and every other search
+  result is a PORTAL — somebody's listing OF an agency, not the agency
+  speaking. No record was invented from a third-party directory. Five stays
+  five, the page says why, and this door is Nan's relationships as described.
+- **Door 6, data.go.th — one unusable, one that changes the page.** Both ids
+  found, both in `data/sources.json` so neither is re-found hopefully.
+  `land-valuation` is real, current, per-province and **UNUSABLE**: 41 MB,
+  1,060,644 parcels keyed by cadastral map sheet + parcel number, no address,
+  no coordinate, unjoinable without parcel geometry that is not open.
+  `condominium-valuation` **is** joinable →
+  `importers/harvest_condo_register.py` → **385 registered condominium
+  buildings (366 CM, 19 CR)** with the Treasury's assessed value per m².
+  Traps, both measured and both in the importer: the CSV is **cp874** (as
+  UTF-8 a search for เชียงใหม่ returns ZERO rows rather than failing), and
+  the north sits at the END of a 122,112-row national file, so any
+  size-capped read (the shared harvester caps at 6 MB) returns no Chiang Mai
+  at all. **The government counts 366 condominium buildings in Chiang Mai;
+  this catalogue holds 53** — that gap is now a measured work-list on the
+  page. Eight rows join a record by EXACT name; a substring join was tried
+  and rejected (it put นครพิงค์คอนโดมิเนียม onto เพชรนครพิงค์, a different
+  building, and folded two registers onto one บ้านสวน). Every line states
+  that ราคาประเมิน is the transfer-fee basis, never a market price.
+
+## WO-29 — ฉีดน้ำเลี้ยงข้อเข่า: the knee-injection question · PROPOSED 2026-08-21
+
+Not Nan's own question this time — a stranger's, on Facebook: *"Who can provide
+me with a knee viscosupplementation injection in Chiang Mai?"* She brought it to
+the site and asked whether มดแดง could answer it. Full note:
+`notes/knee-injection-proposal-2026-08-21.md`. Call sheet:
+`notes/knee-call-sheet-2026-08-21.md`.
+
+**It cannot, and the census says exactly how far short.** All 19,980 canonical
+records, both provinces, zero network: **0** carry viscosupplementation ·
+hyaluronan · osteoarthritis · ข้อเข่าเสื่อม · PRP · stem cell in any spelling.
+**1** carries the word knee — วัดพระธาตุดอยสุเทพ, whose blurb mentions the climb.
+**2** carry orthopaedics at all. The whole city's ortho supply, as this
+catalogue holds it, is **three records**: Tanawat Clinic Orthopaedics (a mobile
+number, no hours, no site), Clinic กระดูกและข้อ (a pin and nothing else), and
+Chanakan Clinic (ortho by OSM tag, hours only, no phone). **One of the three can
+be phoned.**
+
+**The silence is the naming custom, not a mapping bug** — and this was tested,
+not assumed. A widened `ortho` pattern (หมอกระดูก · ศัลยกรรมกระดูก · ข้อเข่า ·
+เวชศาสตร์การกีฬา · sports medicine) run across all 19,980 records returns **zero
+new records**. `importers/specialty.py` said why in its own docstring two orders
+ago: a Thai clinic is named after its doctor, and a speciality is on the sign for
+116 of 467 records with 72 of those dental. Five records in the corpus contain
+กระดูก and three are food — ไก่ไร้กระดูก, ซุปกระดูก — which is why bare กระดูก
+stays out of the pattern.
+
+**Two fences already standing, recorded so nobody removes them.** `\bortho(?!dont)`
+plus `OSM_SPECIALITY[orthodontics] → dental` means **M-Brace Orthodontic Clinic
+is braces, not knees** and the specialty layer knows it: any knee selector
+written by name-matching alone re-opens that hole. And `บุญบัวคลีนิค นวดจัดกระดูก`
+(bone-setting massage, filed `thai-medicine`) must never be returned as an
+answer to this question — it is a real thing, it is not this thing, and the
+distinction belongs on the page in both languages.
+
+**The rule, inherited whole from WO-25 because it was written for this: the desk
+states, the register records, nobody advises.** No brand, no dosage, no whether
+it works, no whether to have it, no ranking. New source type for the calls —
+`{"type": "call", "ref": <number dialled>, "asked": …, "said": …, "fetched": …}` —
+same discipline as every fetched page: a spoken claim is dated and attributed or
+it does not exist. Absent stays silence, never a "no".
+
+**Two decisions the build needs** (note §4): (1) a **register, not a facet** —
+fold `services` blocks into the seven entries `care.json` already carries rather
+than asking 2,038 medical records a question twelve can answer, feeding the
+index the way `TRANSHEALTH_ROWS` does; (2) `_match()` in `asked_layer.py` tests
+`attr` for truthiness, so `specialty: ["ortho"]` is unselectable — **one `spec`
+clause** is the smallest honest fix, and the name-matching alternative both
+misses Chanakan and re-opens the orthodontic hole. `show: "phone"` cannot carry
+this card: it would render one row.
+
+**Search measurement is OUTSTANDING** — `docs/data/index.json` was mid-rebuild
+during the walk (two builds live, lock held 17:27), so the shipped block could
+not be run. The probe is standing at `notes/knee-search-probe.py`, built on the same
+extracted JS `tests/test_search.py` uses. Run it and paste the table into note
+§2 before door 1.
+
+**Doors awaiting Nan's numbered go** (note §5): 1. **the twelve calls** —
+zero-network, one telephone, an afternoon, and the whole substance of this
+order · 2. `read_care_sites.py` pointed at the seven verified hospitals' own
+department pages plus Bangkok/Theppanya/Lanna/McCormick · 3. **Sriphat retried**
+(CMU's private wing, on `care.json`'s `unread` list, likeliest holder of a named
+orthopaedic clinic, one fetch) · 4. a wide `healthcare=*` re-pull to see whether
+more speciality tags have landed since 2026-07-27 · 5. the pin, sign and number
+for Clinic กระดูกและข้อ and for Chanakan — 1.5 km apart, one survey run · 6. TTD, pinned on
+WO-17's key.
+
+**If the calls come back empty, that is also publishable** — the census of the
+silence, the way /beauty.html prints that 0 of 18,686 records name a house call.
+A question closed is worth as much as a question answered.
+
+---
+
+## WO-30 — ใครเลี้ยงมด: the page that says a person makes this · BUILT 2026-08-21
+
+*Numbered 30, not 29: another session minted WO-29 for the knee-injection
+question the same day, and it was in the file first. Theirs stands.*
+
+Nan's ask 2026-08-20: *"I want to start telling people 'you've heard of
+motdang.net? then you've seen my work.'"* The recognition plan is
+`notes/heard-of-it-proposal-2026-08-20.md`; this order closes the two gaps the
+survey behind it found, and nothing else in the plan touches the codebase.
+
+**The site had no author, anywhere, in 21,703 pages.** No about page, no
+byline, no `meta name="author"`, no Person in any JSON-LD. `/brief` says it and
+is `noindex` and written for an investor. So a stranger told "I make that site"
+had no way to check, a machine summarising this corpus had nobody to credit —
+and the sentence Nan wants to say had nothing on the site to land against.
+
+`/who.html` — **ใครเลี้ยงมด · Who keeps the ants**. The institutional voice
+stays: the register is the ants', not a CV. The ants do the walking; one person
+feeds them. Four modules — who (named, with the config email, never a second
+copy), how the ants walk (stdlib, static, the twenty-minute round, the source
+downloadable from the site itself), what will not change (the no-tracking /
+no-ranking / no-stars promises, restated where somebody checking up on us
+actually looks), and what happens when it is wrong (the city changes daily and
+one person keeps this, so every fact is dated and the fix log is public). Then
+`channels_block()`, which already existed and already names the accounts that
+are NOT us — the thing that makes an impostor page expensive.
+
+It is linked from the **footer on every page**, named in **llms.txt** as the
+attribution for anyone summarising the corpus, and it is in the **sitemap**.
+`/who` resolves too — the Worker already appends `.html`.
+
+**The English half of the description was missing on every page that does not
+pass its own.** `og:locale` is `th_TH` and the fallback was Thai with a short
+English tail, so an English search result showed a snippet an English reader
+could not read. Both halves are full sentences now, and `og:locale:alternate`
+says the English exists.
+
+**A LINK INSIDE `bi()` IS TWO LINKS.** The "read on" row was first written as
+`bi("…<a href=…>…", "…<a href=…>…")`. `bi()` returns one lang-tagged span per
+language, so that emits the anchor **twice**, once inside each — and it was the
+only call in build.py shaped that way, which was the tell. Links go outside,
+`bi()` carries the label: `<a href="…">{bi(th, en)}</a>`, the footer's own idiom.
+
+## The nod ledger — `heard.py`, and why it is not part of the site
+
+The plan is measured, and the site carries no analytics and never will, so
+there was no number anywhere that could answer *has anyone heard of this?*
+`heard.py` is a numbered-menu CLI ([[user_accessibility]]): one keypress per
+person Nan tells — **1** didn't know it · **2** knew the site · **3** knew it
+was hers — plus an optional coarse room, appended to `data/heard.jsonl`.
+`--report` prints the monthly rate against the plan's staged targets and which
+rooms earn nods; `--undo` takes back a mis-keyed entry.
+
+It counts **conversations Nan had, not readers**. It is a diary, not a tracker,
+it never leaves the machine, and **no name of the other person is ever stored**
+— a private log of who did not recognise her work is not a thing worth keeping.
+
+**Fenced out of both publish paths, and checked rather than assumed.** `data/`
+is copied into `docs/` by an explicit allowlist and `heard.jsonl` is not on it;
+`SOURCE_TREES` carries `data/curated` and `data/canonical`, not `data/`. It is
+named in `SOURCE_NEVER` anyway, so it stays out if `data/` is ever added as a
+tree — the same belt-and-braces that comment already argues for `_incoming`.
+Verified against the scratch build: 0 files under `docs/` mention it, and
+`tar tzf` on the published archive returns 0 hits.
+
+**Verification.** Scratch build (docs/ was held by another session, so
+`build.DOCS` pointed at a scratch tree — the documented escape hatch):
+**21,703 pages**. `test_publish_gate` PASS (7/7 essential, 0 links to the 325
+known-broken URLs, 0 `/Users/` leaks, CNAME right), `test_alt_text` PASS
+(21,706 files, 0 missing), `test_asked` PASS. who.html renders in both
+languages with the live catalogue count (19,980 places) in its description.
+
+**Not done, deliberately: `/who.html` does not link `/brief`.** The deck is
+`noindex` and is an investor document with a candour slide on it. Putting it
+one click from a public page aimed at readers is Nan's call, not a default.

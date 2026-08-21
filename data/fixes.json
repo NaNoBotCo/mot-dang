@@ -85,8 +85,8 @@
    "reported": "2026-08-21",
    "fixed": "2026-08-21",
    "via": "มดเอง / the ants' own audit",
-   "what_th": "ชั้น “อาคารคอนโด” ถือ 316 รายการ แต่ชื่อบนตึกบอกว่าเป็นคอนโดจริง 53 — ที่เหลือคือแมนชั่น คอร์ท อพาร์ตเมนต์ และหอพัก ซึ่งคนหาห้องรายเดือนมองไม่เห็นใต้ป้ายคอนโด ตอนนี้แยกตามคำบนป้ายของตึกเอง: อาคารชุด-คอนโด · อพาร์ตเมนต์-แมนชั่น-คอร์ท · หอพัก · ส่วนชั้นหมู่บ้านจัดสรรยังตั้งชื่อรอไว้โดยไม่ต่อกฎจับคู่ — กฎที่จับคู่ศูนย์ระเบียนคือบั๊กแบบเดียวกับชั้นคาเฟ่ที่เคยเงียบหาย และ test_facets ห้ามไว้แล้ว จะต่อกฎหนึ่งบรรทัดเมื่อประตู landuse นำระเบียนมาถึง",
-   "what_en": "The Condo Buildings shelf held 316 records; the buildings' own names say condominium on 53. The rest are mansions, courts, apartments and dorms — invisible under a condo label to anyone hunting a monthly room. Now split by the word on each building's own sign: Condominiums · Apartments, Mansions & Courts · Dormitories · and the Moobaan shelf kept as a named slot WITHOUT a match rule on purpose — a rule matching zero records is the silently-empty-cafe bug, test_facets now forbids it, and the one-line wiring waits for the landuse door to bring records.",
+   "what_th": "ชั้น “อาคารคอนโด” ถือ 316 รายการ แต่ชื่อบนตึกบอกว่าเป็นคอนโดจริง 53 — ที่เหลือคือแมนชั่น คอร์ท อพาร์ตเมนต์ และหอพัก ซึ่งคนหาห้องรายเดือนมองไม่เห็นใต้ป้ายคอนโด ตอนนี้แยกตามคำบนป้ายของตึกเอง: อาคารชุด-คอนโด · อพาร์ตเมนต์-แมนชั่น-คอร์ท · หอพัก · ส่วนชั้นหมู่บ้านจัดสรรต่อกฎจับคู่แล้วในวันเดียวกัน หลังประตู landuse นำระเบียนจริงมา 22 แห่ง",
+   "what_en": "The Condo Buildings shelf held 316 records; the buildings' own names say condominium on 53. The rest are mansions, courts, apartments and dorms — invisible under a condo label to anyone hunting a monthly room. Now split by the word on each building's own sign: Condominiums · Apartments, Mansions & Courts · Dormitories · and the Moobaan shelf wired the same day, once the landuse door brought it 22 real housing estates.",
    "page": "cm/realestate/index.html"
   },
   {
@@ -96,6 +96,14 @@
    "what_th": "Sunshine Apartment ถูกจัดเป็นนายหน้าตั้งแต่การเก็บข้อมูล 27 ก.ค. เพราะป้าย OSM เขียน office=estate_agent — แต่คำเดียวที่ระเบียนถือคือชื่ออาคาร ตอนนี้ย้ายไปชั้นอพาร์ตเมนต์ พร้อมใบเสร็จใน retags.json",
    "what_en": "Sunshine Apartment had been filed among the agents since the 27 July crawl because OSM tags it office=estate_agent — but the only word the record carries names a building. Moved to the apartment shelf, receipt in retags.json.",
    "page": "cm/realestate/apartment/index.html"
+  },
+  {
+   "reported": "2026-08-21",
+   "fixed": "2026-08-21",
+   "via": "มดเอง / the ants' own audit",
+   "what_th": "เปิดประตูเก็บข้อมูลสามบานที่ไม่เคยถามมาก่อน: สำนักงานที่ดิน — ที่ที่การโอนโฉนดทุกครั้งเดินผ่าน — สารบัญเคยมีศูนย์แห่ง ตอนนี้มีสี่ (สองสาขาของเชียงใหม่ กรมที่ดิน และสำนักงานจังหวัดเชียงราย ส่วนสาขาเมืองเชียงใหม่ยังไม่มีใครปักหมุดในแผนที่เปิด) · หอพัก 22 → 84 แห่ง เพราะแผนที่ติดป้ายหอพักไว้ที่ตัวอาคาร ไม่ใช่ในชื่อ · หมู่บ้านจัดสรร 0 → 22 แห่ง จากพื้นที่อยู่อาศัยที่มีชื่อ โดยกันหมู่บ้านจริง 590 แห่งไว้ไม่ให้ถูกจัดเป็นโครงการจัดสรร",
+   "what_en": "Three crawl doors that had never been asked: the Land Office — where every chanote transfer happens — went from ZERO in the catalogue to four (two Chiang Mai branches, the Land Department, and Chiang Rai's provincial office; nobody has pinned Chiang Mai's Mueang seat on the open map yet) · dormitories 22 → 84, because the map tags a dorm on the building rather than in the name · housing estates 0 → 22 from named residential areas, with 590 real villages fenced OUT so that nobody's home address is filed as a development somebody is selling.",
+   "page": "realestate.html"
   }
  ]
 }

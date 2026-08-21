@@ -120,6 +120,93 @@ building=apartments (sport courts carry it too).
 7. **TTD** (pinned on WO-17's key) — lodging-heavy, probably thin here; listed
    so the question stays closed rather than reopened hopefully.
 
+## 3b. POSTSCRIPT — all six runnable doors run, 2026-08-21
+
+Nan's go, same day: *"go ahead on everything you can!"* Door 7 (TTD) stayed
+shut — it needs an account only she can make. What the other six were worth:
+
+**Door 1 — the site reads: 6 read, 2 speak, and one defect found in my own
+reader.** Of the 12 first-hand links, five domains no longer resolve
+(Airport Home Condominium, both Hinokï towers, The Iris Chotana) and one
+refuses robots (The Mirror). Six were read; **two state anything at all** —
+Ping View (furnished, lift, pool) and Smith Suites (furnished, pool), each
+with the sentence it came from. The defect: **Life in Town's own domain now
+302s to `rogotravel.com/red.php?url=…booking.com…`**, an affiliate
+redirector into an OTA. The first-hand rule was being checked BEFORE the
+redirects, so that page passed as "the building's own site" and its silence
+would have been published as the building's own silence. `read_one()` now
+re-checks `first_hand()` on the FINAL url; the row was deleted and refetched.
+A lapsed domain pointed at an affiliate farm is the commonest way this goes
+wrong, and it is the same class of bug as the beauty reader's scheme-less
+URL. Also added: `page_chars`, because a building that "states nothing" out
+of 56 characters has not been read, it has been visited.
+
+**Door 2 — the Land Office: 0 → 4, and the gap named.** `office=government`
+had never been asked for by any selector (`amenity=townhall` was the only
+government rule, and a Land Office is not a townhall). 165 CM + 108 CR
+offices folded onto `essentials/gov`; among them
+**สำนักงานที่ดินจังหวัดเชียงใหม่ สาขาสันทราย, สาขาเชียงดาว, กรมที่ดิน and
+สำนักงานที่ดินจังหวัดเชียงราย**. What is still missing is on the page in
+words: the open map has two Chiang Mai BRANCHES and not the Mueang seat,
+which is the one most people go to.
+
+**Door 3 — the estates: 0 → 22, with 590 villages fenced OUT.** This was the
+door with something to lose. `landuse=residential["name"]` returns where
+people LIVE — 531 named areas in CM, 81 in CR — and nearly all of them are
+villages wearing หมู่บ้าน, the ordinary word. Only จัดสรร or a developer's
+own name on the arch files a record (`audit_realestate.moobaan_hit`, one
+copy, borrowed by the importer the way the elephant and spring fences are).
+22 passed and every one is a real development — Supalai ×8, Pruksa ×4,
+Quality Houses, Perfect Place, กัลปพฤกษ์, and one that says ที่ดินจัดสรร
+outright. The other **590 are in `cache/moobaan_review_<prov>.txt`** where a
+person can read them. Filing somebody's village as a gated development is a
+falsehood about their home address, and that is why bare หมู่บ้าน is not a
+rule and never will be.
+
+**Door 4 — dormitories: 22 → 84.** `building=dormitory` tags student housing
+on the building rather than in the name, so the shelf had only ever held the
+ones that wrote หอพัก on the sign. 62 more, one selector, question closed.
+
+**Door 5 — the agents: a closed question, not a yield.** The brokerage trade
+cannot be read first-hand today. Perfect Homes answers **403** to an
+announced reader; RE/MAX's branch page renders client-side and hands back
+**one character**. Everything else a search returns — ddproperty,
+thailand-property, lazudi, chiangmailocator, northernthailand — is a PORTAL,
+somebody else's listing of an agency rather than the agency speaking, which
+this repo does not treat as a source. So no agent record was invented from a
+third-party directory of unknown vintage. The shelf stays at five and the
+page now says why in both languages. **This door is Nan's relationships and
+always was** — Laila's own details are hers to give, and a partner's record
+should come from the partner.
+
+**Door 6 — data.go.th: one dataset unusable, one that changes the page.**
+Both ids found and both recorded in `data/sources.json` so neither is
+re-discovered hopefully:
+- `land-valuation` (กรมธนารักษ์, Open Data Common, edition 2026-06-25) is
+  real, current and per-province — and **UNUSABLE**: 41 MB, 1,060,644 CM
+  parcels keyed by `UTMMAP1-4 + LAND_NO`, the cadastral map sheet and parcel
+  number, with no address, no district and no coordinate. It cannot be joined
+  to anything without the cadastral geometry, which is neither open nor here.
+- `condominium-valuation` **is** joinable and is now harvested by
+  `importers/harvest_condo_register.py` → `data/curated/condo_register.json`:
+  **385 registered condominium buildings in the north (366 CM, 19 CR)** with
+  the Treasury's assessed value per m². Two traps, both measured and both
+  written into the importer: the CSV is **cp874**, and read as UTF-8 a search
+  for เชียงใหม่ returns ZERO rows rather than failing; and the file is one
+  national 122,112-row export ordered by province code with **the north at
+  the END**, so any size-capped read (the shared harvester stops at 6 MB)
+  comes back with no Chiang Mai in it at all.
+
+  What it changes: the government counts **366 condominium buildings in
+  Chiang Mai; this catalogue holds 53** by name. That gap is now on the page
+  as a measured work-list. **Eight** register rows join a record by EXACT
+  normalized name and carry their assessed spread. A substring join was tried
+  and **rejected** — it matched นครพิงค์คอนโดมิเนียม to เพชรนครพิงค์, a
+  different building, and folded two registered buildings onto one record
+  called บ้านสวน. Sixteen loose matches became eight true ones. And every
+  line says what ราคาประเมิน is: the basis for transfer fees, not a market
+  price, normally well below one.
+
 ## 4. The interstitial room, by design
 
 - **Sub slots named, not stubbed**: `serviced`, `developer`,

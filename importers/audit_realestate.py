@@ -83,7 +83,20 @@ ROOT = Path(__file__).resolve().parent.parent
 CANON = ROOT / "data" / "canonical"
 
 sys.path.insert(0, str(ROOT / "importers"))
-import import_overpass as _io  # noqa: E402  (classify's own realestate_sub)
+
+
+def _io():
+    """classify()'s own realestate_sub, imported LAZILY.
+
+    import_overpass imports this module for the moobaan fence, so importing
+    it back at module level makes a cycle: it happens to work (Python hands
+    back the half-built module and nothing here touches it at import time),
+    but it works by luck, and a future line at module scope would turn that
+    luck into an AttributeError nobody expects. Imported inside the one
+    function that needs it instead.
+    """
+    import import_overpass
+    return import_overpass
 
 # Thai needs no word boundary; Latin does. Compounds only, per the guards.
 RES_WORDS = re.compile(
@@ -98,6 +111,54 @@ SILENCE = {
     "rate": re.compile(r"ค่าไฟหน่วยละ|ค่าส่วนกลาง|\bcommon\s*fee\b", re.I),
 }
 STRAY_RE = re.compile(r"หมู่บ้าน|เช่ารถ|ให้เช่า|คอร์ท")
+
+
+# --- the moobaan fence (WO-27 door 3) --------------------------------------
+# `landuse=residential["name"]` is a dragnet: in this province the named
+# residential areas are overwhelmingly VILLAGES (บ้านสันทราย, บ้านป่าไผ่ —
+# หมู่บ้าน is the ordinary word for one), and filing a village as a gated
+# housing estate is a falsehood about where somebody lives. So only two
+# things declare an estate, and both are the developer's own word:
+#
+#   จัดสรร   — "allotted", the legal/administrative word for a housing
+#              development. Not a word a village wears.
+#   a named developer — the brands that build them here, each of which puts
+#              its own name on the entrance arch.
+#
+# Everything else goes to cache/moobaan_review_<prov>.txt where a person can
+# read it, exactly as the elephants and springs dragnets are fenced. A real
+# estate hiding under a name these rules do not read enters through a curated
+# addition with a source — never a wider regex on a guess.
+DEVELOPERS = re.compile(
+    r"ศุภาลัย|พฤกษา|แลนด์\s*แอนด์\s*เฮ้าส์|แสนสิริ|ควอลิตี้\s*เฮ้าส์|เอพี\s|"
+    r"อารียา|ลลิล|สิวารมณ์|กัลปพฤกษ์|เดอะ\s*คอนเนค|"
+    r"\b(supalai|pruksa|land\s*(and|&)\s*houses?|sansiri|quality\s*houses?|"
+    r"areeya|lalin|sivarom|perfect\s*(place|park)|the\s*connect)\b", re.I)
+ESTATE_WORD = re.compile(r"จัดสรร")
+
+
+def moobaan_hit(t):
+    """'moobaan' if a landuse=residential element declares a housing ESTATE
+    by its own name, else None. Only ever consulted for elements of
+    cache/overpass/<prov>/moobaan.json — see the fence in records().
+
+    หมู่บ้าน alone is never a rule here and never will be: it is the ordinary
+    Thai word for a village, and this catalogue already holds eighteen real
+    villages wearing it (audit_realestate's STRAYS report prints them every
+    run). The เปีย guard's shape, applied to somebody's home address.
+    """
+    name = " ".join(v for v in (t.get("name"), t.get("name:th"), t.get("name:en"),
+                                t.get("alt_name")) if v)
+    if not name:
+        return None
+    # A village mapped as an administrative place is a village whatever its
+    # name says — the mapper's other tag wins, the same way the elephant
+    # fence lets a hotel keep its hotel record.
+    if t.get("place") in ("village", "hamlet", "neighbourhood", "suburb", "quarter"):
+        return None
+    if ESTATE_WORD.search(name) or DEVELOPERS.search(name):
+        return "moobaan"
+    return None
 
 
 def load():
@@ -133,10 +194,11 @@ def split_census(recs=None):
     mine = [r for r in recs if is_re(r)]
     out = {s: len(on(mine, s)) for s in ("condo", "apartment", "dorm", "agent", "moobaan")}
     defaulted = []
+    io = _io()
     for r in on(mine, "apartment"):
         t = {"name:th": r.get("nameTh"), "name:en": r.get("nameEn"),
              "description": (r.get("attrs") or {}).get("description")}
-        if _io.realestate_sub(t, r.get("name") or "") == "apartment" \
+        if io.realestate_sub(t, r.get("name") or "") == "apartment" \
                 and not RES_WORDS.search(name_of(r)):
             defaulted.append(r)
     out["defaulted"] = len(defaulted)
@@ -199,11 +261,12 @@ def rep_moobaan():
     print(f"\n=== MOOBAAN — names saying จัดสรร across the whole catalogue: {len(hits)}")
     for r, n in hits[:8]:
         print(f"      {n[:56]:58} [{','.join(r.get('cat') or [])}]")
-    print("    The shelf is a named slot without a match rule, on purpose: a rule")
-    print("    matching zero records is the silently-empty-cafe bug, and test_facets")
-    print("    forbids it. The estate trade here does not put จัดสรร on OSM points,")
-    print("    and the crawl never asked for landuse=residential — one line wires the")
-    print("    shelf the day that door lands records.")
+    print("    Note what this report does NOT count: the shelf is filled from named")
+    print("    landuse=residential areas (the 2026-08-21 door), fenced by developer")
+    print("    name or จัดสรร — and 590 named residential areas were held back as the")
+    print("    villages they are. The three rows above are the จัดสรร word appearing")
+    print("    in a health station's and a school's village NAME, which is exactly why")
+    print("    bare หมู่บ้าน is never a rule here.")
 
 
 def rep_hotelside():

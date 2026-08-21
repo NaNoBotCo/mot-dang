@@ -792,7 +792,10 @@
     {
      "key": "moobaan",
      "th": "หมู่บ้านจัดสรร",
-     "en": "Moobaan (Housing Estates)"
+     "en": "Moobaan (Housing Estates)",
+     "match": {
+      "sub": "moobaan"
+     }
     },
     {
      "key": "agent",
