@@ -1,6 +1,6 @@
 {
  "checker": "MotDangLinkCheck/1.0 (+https://motdang.net/reach.html; link health for a local directory)",
- "generated": "2026-07-28",
+ "generated": "2026-08-21",
  "links": {
   "http://123.242.164.131/cpwp/": {
    "checkedAt": "2026-07-28",
@@ -46,12 +46,30 @@
    "status": "ok",
    "url": "http://amnuaymotor.com"
   },
+  "http://arch.rmutl.ac.th/v2/html/home.php": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://arch.rmutl.ac.th/v2/html/home.php",
+   "wayback": {
+    "timestamp": "20180512113141",
+    "url": "https://web.archive.org/web/20180512113141/http://arch.rmutl.ac.th:80/v2/html/home.php"
+   }
+  },
   "http://atchiangmaihotel.com/": {
    "checkedAt": "2026-07-28",
    "code": 200,
    "final": "http://atchiangmaihotel.com/",
    "status": "ok",
    "url": "http://atchiangmaihotel.com/"
+  },
+  "http://bamboonestcr.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://bamboonestcr.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "http://bamboonestcr.com/"
   },
   "http://banchunsongsang.com": {
    "checkedAt": "2026-07-28",
@@ -160,6 +178,16 @@
     "url": "https://web.archive.org/web/20190222110337/http://chiangmai-whitehouse.com:80/"
    }
   },
+  "http://chiangmaiarchery.com/ChiangmaiArchery/English.html": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://chiangmaiarchery.com/ChiangmaiArchery/English.html",
+   "wayback": {
+    "timestamp": "20210507042704",
+    "url": "https://web.archive.org/web/20210507042704/http://chiangmaiarchery.com/ChiangmaiArchery/English.html"
+   }
+  },
   "http://chiangmaivista.com": {
    "checkedAt": "2026-07-28",
    "code": 444,
@@ -236,6 +264,13 @@
    "status": "dns",
    "url": "http://derpsensemassage.com",
    "wayback": {}
+  },
+  "http://doisaket.ac.th": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "http://doisaket.ac.th",
+   "status": "ok",
+   "url": "http://doisaket.ac.th"
   },
   "http://empresshotels.com": {
    "checkedAt": "2026-07-28",
@@ -384,6 +419,14 @@
     "url": "https://web.archive.org/web/20210730053334/http://kamalasguesthousechiangmai.com/"
    }
   },
+  "http://moraboutiquehotel.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.moraboutiquehotel.com/",
+   "hops": 2,
+   "status": "ok",
+   "url": "http://moraboutiquehotel.com"
+  },
   "http://muaythaigymhongthong.com/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -440,6 +483,17 @@
     "url": "https://web.archive.org/web/20141218053459/http://peppermint-chiangmai.com/"
    }
   },
+  "http://phumaketawanresort.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 403,
+   "final": "http://phumaketawanresort.com/",
+   "status": "http-error",
+   "url": "http://phumaketawanresort.com/",
+   "wayback": {
+    "timestamp": "20260118233420",
+    "url": "https://web.archive.org/web/20260118233420/http://www.phumaketawanresort.com/"
+   }
+  },
   "http://pingview.com/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -475,12 +529,27 @@
     "url": "https://web.archive.org/web/20240117041233/http://rabiengnamaerim.com/"
    }
   },
+  "http://rairuenrom.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "http://www.rairuenrom.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "http://rairuenrom.com"
+  },
   "http://rasaboutiquehotelchiangrai.com/": {
    "checkedAt": "2026-07-28",
    "code": 200,
    "final": "http://rasaboutiquehotelchiangrai.com/",
    "status": "ok",
    "url": "http://rasaboutiquehotelchiangrai.com/"
+  },
+  "http://rattikanchanaresort.com/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://rattikanchanaresort.com/",
+   "wayback": {}
   },
   "http://sausagekingone.com/": {
    "checkedAt": "2026-07-28",
@@ -527,6 +596,13 @@
     "timestamp": "20170528133229",
     "url": "https://web.archive.org/web/20170528133229/http://suandok.med.cmu.ac.th:80/"
    }
+  },
+  "http://th.bambuhboutiqe.com": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://th.bambuhboutiqe.com",
+   "wayback": {}
   },
   "http://thaifarmerhouse.com/": {
    "checkedAt": "2026-07-28",
@@ -580,6 +656,12 @@
     "timestamp": "20240302084823",
     "url": "https://web.archive.org/web/20240302084823/https://www.viengmantra.com/"
    }
+  },
+  "http://www goldentriangle.info": {
+   "checkedAt": "2026-08-21",
+   "detail": "InvalidURL: URL can't contain control characters. 'www goldentriangle.info' (found at least ' ')",
+   "status": "error",
+   "url": "http://www goldentriangle.info"
   },
   "http://www parcborough.com": {
    "checkedAt": "2026-07-28",
@@ -717,6 +799,15 @@
    "status": "ok",
    "url": "http://www.baac.or.th"
   },
+  "http://www.baandindeeresort.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.phucome.com/",
+   "hops": 4,
+   "status": "redirect-offsite",
+   "to": "phucome.com",
+   "url": "http://www.baandindeeresort.com/"
+  },
   "http://www.baangongkham.com": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -804,6 +895,26 @@
    "to": "bangkokhospital.com",
    "url": "http://www.bangkokhospital-chiangmai.com"
   },
+  "http://www.barnya.com": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.facebook.com/Saraphi.Pharmacy",
+   "hops": 2,
+   "note": "the site now just forwards to a social page",
+   "status": "moved-social",
+   "url": "http://www.barnya.com"
+  },
+  "http://www.barnya.com/": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.facebook.com/Saraphi.Pharmacy",
+   "hops": 2,
+   "note": "the site now just forwards to a social page",
+   "status": "moved-social",
+   "url": "http://www.barnya.com/"
+  },
   "http://www.bbhostel.com": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -850,6 +961,23 @@
    "url": "http://www.changmaiyha.org",
    "wayback": {}
   },
+  "http://www.changphuakdriving.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "http://www.changphuakdriving.com",
+   "status": "ok",
+   "url": "http://www.changphuakdriving.com"
+  },
+  "http://www.chiangmaibambootattoo.com/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.chiangmaibambootattoo.com/",
+   "wayback": {
+    "timestamp": "20211128171156",
+    "url": "https://web.archive.org/web/20211128171156/http://chiangmaibambootattoo.com/"
+   }
+  },
   "http://www.chiangmaiorchid.com/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -886,6 +1014,23 @@
     "url": "https://web.archive.org/web/20260214124514/http://www.chiangrai.ru.ac.th/"
    }
   },
+  "http://www.chiangrai2.com/E/rooms_rai_saeng_arun_resort_chiang_rai.php": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.chiangrai2.com/E/rooms_rai_saeng_arun_resort_chiang_rai.php",
+   "wayback": {}
+  },
+  "http://www.cmsafedrive.com/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.cmsafedrive.com/",
+   "wayback": {
+    "timestamp": "20230830075720",
+    "url": "https://web.archive.org/web/20230830075720/http://cmsafedrive.com/"
+   }
+  },
   "http://www.comedara.com/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -896,6 +1041,13 @@
     "url": "https://web.archive.org/web/20241002112530/https://www.comedara.com/"
    }
   },
+  "http://www.cookingathome-chiangmai.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "http://www.cookingathome-chiangmai.com/",
+   "status": "ok",
+   "url": "http://www.cookingathome-chiangmai.com/"
+  },
   "http://www.cst-residence.com/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -905,6 +1057,14 @@
     "timestamp": "20160111203643",
     "url": "https://web.archive.org/web/20160111203643/http://cst-residence.com/"
    }
+  },
+  "http://www.dara.ac.th": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.dara.ac.th/",
+   "hops": 1,
+   "status": "ok",
+   "url": "http://www.dara.ac.th"
   },
   "http://www.dechaihotel.com/de_chai_the_colonial/": {
    "checkedAt": "2026-07-28",
@@ -952,6 +1112,16 @@
     "url": "https://web.archive.org/web/20251117103013/http://www.derachamanka.com/"
    }
   },
+  "http://www.deriverresort.com/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.deriverresort.com/",
+   "wayback": {
+    "timestamp": "20251006064644",
+    "url": "https://web.archive.org/web/20251006064644/https://deriverresort.com/"
+   }
+  },
   "http://www.dewiangkumkam.com": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -981,6 +1151,33 @@
    "wayback": {
     "timestamp": "20190719185834",
     "url": "https://web.archive.org/web/20190719185834/http://doikhamresort.com/"
+   }
+  },
+  "http://www.doimaesalongcoffee.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "http://www.doimaesalongcoffee.com",
+   "status": "ok",
+   "url": "http://www.doimaesalongcoffee.com"
+  },
+  "http://www.doitung.org/tourism_attraction.php": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.doitung.org/tourism_attraction.php",
+   "wayback": {
+    "timestamp": "20240117033232",
+    "url": "https://web.archive.org/web/20240117033232/http://www.doitung.org/tourism_attraction.php"
+   }
+  },
+  "http://www.doitungview.com": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.doitungview.com",
+   "wayback": {
+    "timestamp": "20191001001702",
+    "url": "https://web.archive.org/web/20191001001702/http://www.doitungview.com:80/"
    }
   },
   "http://www.donpim.com/": {
@@ -1021,6 +1218,17 @@
    "to": "holidayroyalway.com",
    "url": "http://www.elegantlanna.com/"
   },
+  "http://www.elephant-pride.com": {
+   "checkedAt": "2026-08-21",
+   "code": 404,
+   "final": "http://www.elephant-pride.com",
+   "status": "gone",
+   "url": "http://www.elephant-pride.com",
+   "wayback": {
+    "timestamp": "20240301182531",
+    "url": "https://web.archive.org/web/20240301182531/https://elephant-pride.com/"
+   }
+  },
   "http://www.empirenimman.com": {
    "checkedAt": "2026-07-28",
    "detail": "no response in 15s",
@@ -1038,6 +1246,12 @@
    "status": "ok",
    "url": "http://www.empresshotels.com"
   },
+  "http://www.facebook.com / cafeathomechiangrai": {
+   "checkedAt": "2026-08-21",
+   "detail": "InvalidURL: URL can't contain control characters. 'www.facebook.com ' (found at least ' ')",
+   "status": "error",
+   "url": "http://www.facebook.com / cafeathomechiangrai"
+  },
   "http://www.facebook.com/Jackyshowrestaurant": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
@@ -1051,6 +1265,13 @@
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "http://www.facebook.com/PR-tiny-100577314818220/"
+  },
+  "http://www.facebook.com/PakPingRimKhong": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "http://www.facebook.com/PakPingRimKhong"
   },
   "http://www.facebook.com/amici.cei": {
    "channel": "facebook",
@@ -1111,6 +1332,15 @@
     "url": "https://web.archive.org/web/20240812083152/https://www.fajitaschiangmai.com/"
    }
   },
+  "http://www.fortmengraihospital.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://fortmengraihospital.rta.mi.th/homepage.php",
+   "hops": 1,
+   "status": "redirect-offsite",
+   "to": "rta.mi.th",
+   "url": "http://www.fortmengraihospital.com"
+  },
   "http://www.fun-dhostel.com": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -1165,6 +1395,16 @@
    "status": "ok",
    "url": "http://www.greenerycentralsuites.com/"
   },
+  "http://www.greensafe-pharmacy.com/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.greensafe-pharmacy.com/",
+   "wayback": {
+    "timestamp": "20150801162005",
+    "url": "https://web.archive.org/web/20150801162005/http://greensafe-pharmacy.com/"
+   }
+  },
   "http://www.greensleephostel.com/contact-us.html": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -1200,6 +1440,14 @@
     "timestamp": "20211205040404",
     "url": "https://web.archive.org/web/20211205040404/http://homestay-chiangmai.com/"
    }
+  },
+  "http://www.homprang.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.homprang.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "http://www.homprang.com"
   },
   "http://www.hotelchiangmailatitude.com": {
    "checkedAt": "2026-07-28",
@@ -1428,6 +1676,14 @@
     "url": "https://web.archive.org/web/20220127092606/http://maddogchiangmai.com/"
    }
   },
+  "http://www.maefahluang.org": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.maefahluang.org/",
+   "hops": 1,
+   "status": "ok",
+   "url": "http://www.maefahluang.org"
+  },
   "http://www.maerimlodgeresort.info/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -1436,6 +1692,23 @@
    "wayback": {
     "timestamp": "20161027032808",
     "url": "https://web.archive.org/web/20161027032808/http://www.maerimlodgeresort.info/"
+   }
+  },
+  "http://www.maesai.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "http://www.maesai.ac.th/",
+   "status": "ok",
+   "url": "http://www.maesai.ac.th/"
+  },
+  "http://www.maesalonglittlehome.com": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.maesalonglittlehome.com",
+   "wayback": {
+    "timestamp": "20241207084616",
+    "url": "https://web.archive.org/web/20241207084616/http://www.maesalonglittlehome.com/"
    }
   },
   "http://www.maiiam.com/": {
@@ -1514,6 +1787,14 @@
     "url": "https://web.archive.org/web/20220818035809/https://www.mccormick.in.th/"
    }
   },
+  "http://www.mcthai.co.th": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.mcthai.co.th/",
+   "hops": 1,
+   "status": "ok",
+   "url": "http://www.mcthai.co.th"
+  },
   "http://www.med.cmu.ac.th/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -1529,6 +1810,15 @@
    "hops": 2,
    "status": "ok",
    "url": "http://www.merittonbritish.ac.th/"
+  },
+  "http://www.metro.ac.th": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://ccc.ac.th",
+   "hops": 1,
+   "status": "redirect-offsite",
+   "to": "ccc.ac.th",
+   "url": "http://www.metro.ac.th"
   },
   "http://www.mingmitrcoffee.com": {
    "checkedAt": "2026-07-28",
@@ -1578,6 +1868,16 @@
    "url": "http://www.mythaimassagethailand.com",
    "wayback": {}
   },
+  "http://www.namkhongriverside.com": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.namkhongriverside.com",
+   "wayback": {
+    "timestamp": "20230204032823",
+    "url": "https://web.archive.org/web/20230204032823/http://www.namkhongriverside.com/"
+   }
+  },
   "http://www.nics.asia": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -1585,6 +1885,16 @@
    "hops": 2,
    "status": "ok",
    "url": "http://www.nics.asia"
+  },
+  "http://www.nuttybeauty.com": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.nuttybeauty.com",
+   "wayback": {
+    "timestamp": "20201207014443",
+    "url": "https://web.archive.org/web/20201207014443/http://www.nuttybeauty.com/"
+   }
   },
   "http://www.onpointhostel.com": {
    "checkedAt": "2026-07-28",
@@ -1641,6 +1951,13 @@
     "url": "https://web.archive.org/web/20240517121550/https://pm-guesthouse.com/"
    }
   },
+  "http://www.poondentalclinic.com/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.poondentalclinic.com/",
+   "wayback": {}
+  },
   "http://www.poonpetch-hotel.com/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -1676,6 +1993,13 @@
    "hops": 1,
    "status": "ok",
    "url": "http://www.raminglodge.com/"
+  },
+  "http://www.riverhillresort.com/Home_Page.html": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "http://www.riverhillresort.com/Home_Page.html",
+   "status": "ok",
+   "url": "http://www.riverhillresort.com/Home_Page.html"
   },
   "http://www.romyengardenresort.com/": {
    "checkedAt": "2026-07-28",
@@ -1754,6 +2078,24 @@
    "status": "ok",
    "url": "http://www.salamaerim.com"
   },
+  "http://www.samakkee.net/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.samakkee.net/",
+   "wayback": {
+    "timestamp": "20200808083028",
+    "url": "https://web.archive.org/web/20200808083028/http://www.samakkee.net/"
+   }
+  },
+  "http://www.samakkhi.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://samakkhi.ac.th/",
+   "hops": 1,
+   "status": "ok",
+   "url": "http://www.samakkhi.ac.th/"
+  },
   "http://www.samyanseafood.com/": {
    "checkedAt": "2026-07-28",
    "code": 404,
@@ -1764,6 +2106,13 @@
     "timestamp": "20250713113428",
     "url": "https://web.archive.org/web/20250713113428/http://samyanseafood.com/"
    }
+  },
+  "http://www.sangkaew.com": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.sangkaew.com",
+   "wayback": {}
   },
   "http://www.sanpareni.com/": {
    "checkedAt": "2026-07-28",
@@ -1793,6 +2142,14 @@
     "timestamp": "20230204090136",
     "url": "https://web.archive.org/web/20230204090136/http://www.sathuboutique.com/"
    }
+  },
+  "http://www.sereneatchiangrai.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://sereneatchiangrai.com/",
+   "hops": 2,
+   "status": "ok",
+   "url": "http://www.sereneatchiangrai.com/"
   },
   "http://www.shivaraks.com/": {
    "checkedAt": "2026-07-28",
@@ -1868,6 +2225,16 @@
     "url": "https://web.archive.org/web/20071018002435/http://sripoomhouse.com:80/"
    }
   },
+  "http://www.srithana.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.srithana.ac.th/",
+   "wayback": {
+    "timestamp": "20220307204544",
+    "url": "https://web.archive.org/web/20220307204544/http://www.srithana.ac.th/"
+   }
+  },
   "http://www.starbuckscard.in.th": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -1876,6 +2243,25 @@
    "wayback": {
     "timestamp": "20101118083257",
     "url": "https://web.archive.org/web/20101118083257/http://www.starbuckscard.in.th:80/"
+   }
+  },
+  "http://www.stuffchiangmai.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.chandraresidence.com/stuff",
+   "hops": 1,
+   "status": "redirect-offsite",
+   "to": "chandraresidence.com",
+   "url": "http://www.stuffchiangmai.com"
+  },
+  "http://www.suanthipresort.com/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "http://www.suanthipresort.com/",
+   "wayback": {
+    "timestamp": "20251013122510",
+    "url": "https://web.archive.org/web/20251013122510/http://suanthipresort.com/"
    }
   },
   "http://www.sumalaithaimassage.com/": {
@@ -2060,6 +2446,14 @@
     "url": "https://web.archive.org/web/20250711215113/http://topgarden-chiangmai.com/"
    }
   },
+  "http://www.touristinnhotel.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.touristinnhotel.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "http://www.touristinnhotel.com"
+  },
   "http://www.treespacechiangmai.com/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -2128,6 +2522,13 @@
    "status": "ok",
    "url": "http://www.virtualmuseum.finearts.go.th/chiangmai/index.php"
   },
+  "http://www.vividdancestudios.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "http://www.vividdancestudios.com/",
+   "status": "ok",
+   "url": "http://www.vividdancestudios.com/"
+  },
   "http://www.vivobene.co.th": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -2195,6 +2596,14 @@
    "status": "ok",
    "url": "http://www.wilacha.com/"
   },
+  "http://www.wix.com/noinaartstudio/noina": {
+   "checkedAt": "2026-08-21",
+   "code": 404,
+   "final": "http://www.wix.com/noinaartstudio/noina",
+   "status": "gone",
+   "url": "http://www.wix.com/noinaartstudio/noina",
+   "wayback": {}
+  },
   "http://www.wualai-Hostel.com": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -2255,12 +2664,25 @@
     "url": "https://web.archive.org/web/20190402014855/http://www2.bot.or.th/museum/eng/index.asp"
    }
   },
+  "http://ร้านยารักษ์สุขภาพ 053 717 405 https://maps.app.goo.gl/PR1GJ233F8Qte9sf6?g_st=ic": {
+   "checkedAt": "2026-08-21",
+   "detail": "InvalidURL: URL can't contain control characters. 'ร้านยารักษ์สุขภาพ 053 717 405 https' (found at least ' ')",
+   "status": "error",
+   "url": "http://ร้านยารักษ์สุขภาพ 053 717 405 https://maps.app.goo.gl/PR1GJ233F8Qte9sf6?g_st=ic"
+  },
   "https://7sensesgelato.com/": {
    "checkedAt": "2026-07-28",
    "code": 200,
    "final": "https://7sensesgelato.com/",
    "status": "ok",
    "url": "https://7sensesgelato.com/"
+  },
+  "https://abcm.ac.th": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://abcm.ac.th",
+   "status": "ok",
+   "url": "https://abcm.ac.th"
   },
   "https://aioun.business.site/": {
    "checkedAt": "2026-07-28",
@@ -2279,6 +2701,20 @@
    "final": "https://akshaya.kerala.gov.in",
    "status": "ok",
    "url": "https://akshaya.kerala.gov.in"
+  },
+  "https://alpineoutpost.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://alpineoutpost.com/",
+   "status": "ok",
+   "url": "https://alpineoutpost.com/"
+  },
+  "https://amcr.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://amcr.ac.th/",
+   "status": "ok",
+   "url": "https://amcr.ac.th/"
   },
   "https://amm.uniquehms.com/": {
    "aliveBehindCert": false,
@@ -2338,12 +2774,12 @@
    "status": "ok",
    "url": "https://baiyokeciao.baiyokehotel.com/"
   },
-  "https://bamboonestcr.com/": {
-   "checkedAt": "2026-07-28",
+  "https://bamboonest-chiangrai.com/": {
+   "checkedAt": "2026-08-21",
    "code": 200,
-   "final": "https://bamboonestcr.com/",
+   "final": "https://bamboonest-chiangrai.com/",
    "status": "ok",
-   "url": "https://bamboonestcr.com/"
+   "url": "https://bamboonest-chiangrai.com/"
   },
   "https://bannarairiverguest.wixsite.com/bannarai": {
    "checkedAt": "2026-07-28",
@@ -2365,6 +2801,13 @@
     "timestamp": "20240618124830",
     "url": "https://web.archive.org/web/20240618124830/https://bavarian-garden.com/"
    }
+  },
+  "https://bcd.ac.th": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://bcd.ac.th",
+   "status": "ok",
+   "url": "https://bcd.ac.th"
   },
   "https://bodyandmindhealing.org/": {
    "checkedAt": "2026-07-28",
@@ -2390,6 +2833,13 @@
    "status": "ok",
    "url": "https://book-directonline.com/properties/yellowfellowhostel"
   },
+  "https://bostonhealthcm.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://bostonhealthcm.com/",
+   "status": "ok",
+   "url": "https://bostonhealthcm.com/"
+  },
   "https://butterisbetterbakery.com": {
    "checkedAt": "2026-07-28",
    "detail": "no response in 15s",
@@ -2411,12 +2861,26 @@
     "url": "https://web.archive.org/web/20240118064009/https://caramellow.business.site/"
    }
   },
+  "https://celebrityinktattoochiangmai.com/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "https://celebrityinktattoochiangmai.com/",
+   "wayback": {}
+  },
   "https://chiangmai-artinparadise.com": {
    "checkedAt": "2026-07-28",
    "code": 200,
    "final": "https://chiangmai-artinparadise.com",
    "status": "ok",
    "url": "https://chiangmai-artinparadise.com"
+  },
+  "https://chiangmai.airportthai.co.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://chiangmai.airportthai.co.th/",
+   "status": "ok",
+   "url": "https://chiangmai.airportthai.co.th/"
   },
   "https://chiangmaiambassador.com": {
    "checkedAt": "2026-07-28",
@@ -2449,6 +2913,13 @@
    "status": "ok",
    "url": "https://chiangmaismithres.com/"
   },
+  "https://chiangsaenhospital.go.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://chiangsaenhospital.go.th/",
+   "status": "ok",
+   "url": "https://chiangsaenhospital.go.th/"
+  },
   "https://chianhousethailand.webs.com/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -2472,6 +2943,34 @@
    "final": "https://cmocity.com/",
    "status": "ok",
    "url": "https://cmocity.com/"
+  },
+  "https://cnxpole.carrd.co/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://cnxpole.carrd.co/",
+   "status": "ok",
+   "url": "https://cnxpole.carrd.co/"
+  },
+  "https://cosasia.org/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "https://cosasia.org/",
+   "wayback": {}
+  },
+  "https://data.bopp-obec.info/web/home.php?School_ID=1057120629": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "https://data.bopp-obec.info/web/home.php?School_ID=1057120629",
+   "wayback": {}
+  },
+  "https://depdcblog.wordpress.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://depdcblog.wordpress.com/",
+   "status": "ok",
+   "url": "https://depdcblog.wordpress.com/"
   },
   "https://edhostel.com/": {
    "checkedAt": "2026-07-28",
@@ -2525,6 +3024,13 @@
    "status": "social",
    "url": "https://facebook.com/khumhmonsomm"
   },
+  "https://facebook.com/thebrickspace/": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://facebook.com/thebrickspace/"
+  },
   "https://fellowshipcnx.com": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -2564,6 +3070,13 @@
    "status": "ok",
    "url": "https://gategaavillage.com/"
   },
+  "https://globalhouse.co.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://globalhouse.co.th/",
+   "status": "ok",
+   "url": "https://globalhouse.co.th/"
+  },
   "https://goo.gl/maps/14XZUXbVJRF2": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -2584,6 +3097,24 @@
     "url": "https://web.archive.org/web/20251219153109/https://goodsoulskitchen.com/"
    }
   },
+  "https://grandcanyon-waterpark.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://grandcanyon-waterpark.com",
+   "status": "ok",
+   "url": "https://grandcanyon-waterpark.com"
+  },
+  "https://gymbangarang.com": {
+   "checkedAt": "2026-08-21",
+   "code": 403,
+   "final": "https://gymbangarang.com",
+   "status": "http-error",
+   "url": "https://gymbangarang.com",
+   "wayback": {
+    "timestamp": "20251008101525",
+    "url": "https://web.archive.org/web/20251008101525/http://www.gymbangarang.com/"
+   }
+  },
   "https://happyespresso.net/": {
    "checkedAt": "2026-07-28",
    "code": 404,
@@ -2595,6 +3126,13 @@
     "url": "https://web.archive.org/web/20251228032611/https://happyespresso.net/"
    }
   },
+  "https://highspeed420.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://highspeed420.com",
+   "status": "ok",
+   "url": "https://highspeed420.com"
+  },
   "https://hotelisty.com/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -2604,6 +3142,13 @@
     "timestamp": "20220110124642",
     "url": "https://web.archive.org/web/20220110124642/https://hotelisty.com/"
    }
+  },
+  "https://houseofopium.co/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://houseofopium.co/",
+   "status": "ok",
+   "url": "https://houseofopium.co/"
   },
   "https://huankawin.wixsite.com": {
    "checkedAt": "2026-07-28",
@@ -2672,6 +3217,13 @@
     "url": "https://web.archive.org/web/20240117041631/https://jaymaijamjay-vegetarian-vegan-food.business.site/"
    }
   },
+  "https://kerchorelephant.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://kerchorelephant.com/",
+   "status": "ok",
+   "url": "https://kerchorelephant.com/"
+  },
   "https://khumhomcafe.com/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -2688,6 +3240,14 @@
    "final": "https://kong-garden-view-resort.chiangraihotelspage.com/en/",
    "status": "ok",
    "url": "https://kong-garden-view-resort.chiangraihotelspage.com/en/"
+  },
+  "https://lailagroup.rezio.shop/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://lailagroup.rezio.shop/th",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://lailagroup.rezio.shop/"
   },
   "https://laithai.com/": {
    "checkedAt": "2026-07-28",
@@ -2748,6 +3308,13 @@
    "status": "ok",
    "url": "https://lewiang.com/"
   },
+  "https://lifespaceth.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://lifespaceth.com/",
+   "status": "ok",
+   "url": "https://lifespaceth.com/"
+  },
   "https://line.me/ti/p/OJtOw9uIOu": {
    "channel": "line",
    "checkedAt": "2026-07-28",
@@ -2775,6 +3342,13 @@
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "https://m.facebook.com/@Alicesorganic"
+  },
+  "https://m.facebook.com/Addmintakeaway/": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://m.facebook.com/Addmintakeaway/"
   },
   "https://m.facebook.com/Blue-Cafe-Chiang-mai-933362510162726/": {
    "channel": "facebook",
@@ -2958,6 +3532,13 @@
    "status": "ok",
    "url": "https://madmonkeyhostels.com/"
   },
+  "https://maechanhospital.go.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://maechanhospital.go.th/",
+   "status": "ok",
+   "url": "https://maechanhospital.go.th/"
+  },
   "https://maisonmaisoncafe.com/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -2978,6 +3559,13 @@
    "status": "timeout",
    "url": "https://medium.com/@jourdanarenson/thai-vintage-railroad-warning-signs-be1b514d856c?sk=0cc0d62378ed0484b9d74e516f6fd846",
    "wayback": {}
+  },
+  "https://mfu.ac.th/home.html": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://mfu.ac.th/home.html",
+   "status": "ok",
+   "url": "https://mfu.ac.th/home.html"
   },
   "https://miladawellness.com": {
    "checkedAt": "2026-07-28",
@@ -3014,6 +3602,13 @@
    "final": "https://musefloweretreat.com",
    "status": "ok",
    "url": "https://musefloweretreat.com"
+  },
+  "https://newelephanthome.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://newelephanthome.com/",
+   "status": "ok",
+   "url": "https://newelephanthome.com/"
   },
   "https://night-bazaar-inn.chiangmaihotelspage.com/en/": {
    "checkedAt": "2026-07-28",
@@ -3058,6 +3653,13 @@
     "url": "https://web.archive.org/web/20170922032231/http://oldcitychiangmai.net/"
    }
   },
+  "https://omkoi.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://omkoi.ac.th/",
+   "status": "ok",
+   "url": "https://omkoi.ac.th/"
+  },
   "https://pakorns-kitchen.business.site": {
    "checkedAt": "2026-07-28",
    "code": 404,
@@ -3068,6 +3670,14 @@
     "timestamp": "20210928010535",
     "url": "https://web.archive.org/web/20210928010535/https://pakorns-kitchen.business.site/"
    }
+  },
+  "https://papaemeditation.org/thailand/": {
+   "checkedAt": "2026-08-21",
+   "code": 525,
+   "final": "https://papaemeditation.org/thailand/",
+   "status": "server-error",
+   "url": "https://papaemeditation.org/thailand/",
+   "wayback": {}
   },
   "https://past-tense-hostel.chiangmaihotelspage.com/": {
    "checkedAt": "2026-07-28",
@@ -3084,6 +3694,13 @@
    "status": "ok",
    "url": "https://payap.net/nobita"
   },
+  "https://peachclinic.co/en": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://peachclinic.co/en",
+   "status": "ok",
+   "url": "https://peachclinic.co/en"
+  },
   "https://pharmacyeve.business.site": {
    "checkedAt": "2026-07-28",
    "code": 404,
@@ -3094,6 +3711,14 @@
     "timestamp": "20240117071504",
     "url": "https://web.archive.org/web/20240117071504/https://pharmacyeve.business.site/"
    }
+  },
+  "https://philanthropyconnections.org": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.philanthropyconnections.org/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://philanthropyconnections.org"
   },
   "https://pingpura.com/": {
    "checkedAt": "2026-07-28",
@@ -3111,6 +3736,21 @@
     "timestamp": "20250410182238",
     "url": "https://web.archive.org/web/20250410182238/https://playgroundchiangmai.com/"
    }
+  },
+  "https://pongpha.go.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://pongpha.go.th/",
+   "status": "ok",
+   "url": "https://pongpha.go.th/"
+  },
+  "https://projectsforasia.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.projectsforasia.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://projectsforasia.com/"
   },
   "https://puripunn.com/": {
    "checkedAt": "2026-07-28",
@@ -3179,6 +3819,30 @@
     "timestamp": "20260117164058",
     "url": "https://web.archive.org/web/20260117164058/http://sansailuang.go.th/"
    }
+  },
+  "https://sawanpot.com/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "https://sawanpot.com/",
+   "wayback": {
+    "timestamp": "20231001123211",
+    "url": "https://web.archive.org/web/20231001123211/https://sawanpot.com/"
+   }
+  },
+  "https://school-for-life.org/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://school-for-life.org/",
+   "status": "ok",
+   "url": "https://school-for-life.org/"
+  },
+  "https://sclc.mfu.ac.th/sclc-home.html": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://sclc.mfu.ac.th/sclc-home.html",
+   "status": "ok",
+   "url": "https://sclc.mfu.ac.th/sclc-home.html"
   },
   "https://secretgardenchiangmai.com/": {
    "checkedAt": "2026-07-28",
@@ -3296,6 +3960,20 @@
    "status": "ok",
    "url": "https://tawansycnx.github.io/"
   },
+  "https://tbsk1.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://tbsk1.ac.th/",
+   "status": "ok",
+   "url": "https://tbsk1.ac.th/"
+  },
+  "https://tesaban6.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://tesaban6.ac.th/",
+   "status": "ok",
+   "url": "https://tesaban6.ac.th/"
+  },
   "https://th-th.facebook.com/RanXaharHluLaCheiyngray/": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
@@ -3351,6 +4029,13 @@
    "status": "ok",
    "url": "https://thankyouchiangmai.wordpress.com"
   },
+  "https://thaphaeboxingstadium.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://thaphaeboxingstadium.com/",
+   "status": "ok",
+   "url": "https://thaphaeboxingstadium.com/"
+  },
   "https://thawan-duchanee.com/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -3368,6 +4053,13 @@
    "status": "ok",
    "url": "https://thebaristro.co.th/menu/"
   },
+  "https://thehomemassageandspa.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://thehomemassageandspa.com/",
+   "status": "ok",
+   "url": "https://thehomemassageandspa.com/"
+  },
   "https://thehousethailand.com/": {
    "checkedAt": "2026-07-28",
    "detail": "no response in 15s",
@@ -3377,6 +4069,13 @@
     "timestamp": "20250429100922",
     "url": "https://web.archive.org/web/20250429100922/https://thehousethailand.com/"
    }
+  },
+  "https://themirrorfoundation.org/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://themirrorfoundation.org/",
+   "status": "ok",
+   "url": "https://themirrorfoundation.org/"
   },
   "https://theriverrehab.com": {
    "aliveBehindCert": true,
@@ -3481,12 +4180,37 @@
    "status": "social",
    "url": "https://web.facebook.com/groups/289951174859604"
   },
+  "https://web.facebook.com/morethan.quote/?view_public_for=181096499294033": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://web.facebook.com/morethan.quote/?view_public_for=181096499294033"
+  },
   "https://web.facebook.com/rolfcoffee": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "https://web.facebook.com/rolfcoffee"
+  },
+  "https://web.rpg15.ac.th/": {
+   "aliveBehindCert": true,
+   "checkedAt": "2026-08-21",
+   "detail": "unable to get local issuer certificate",
+   "status": "tls",
+   "url": "https://web.rpg15.ac.th/",
+   "wayback": {
+    "timestamp": "20260209234100",
+    "url": "https://web.archive.org/web/20260209234100/https://web.rpg15.ac.th/"
+   }
+  },
+  "https://weed.th": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://weed.th",
+   "status": "ok",
+   "url": "https://weed.th"
   },
   "https://wherestheduke.com/": {
    "checkedAt": "2026-07-28",
@@ -3509,12 +4233,46 @@
     "url": "https://web.archive.org/web/20250714203127/http://wiangkumkamresort.com/"
    }
   },
+  "https://wkhos.go.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 403,
+   "final": "https://wkhos.go.th/",
+   "status": "http-error",
+   "url": "https://wkhos.go.th/",
+   "wayback": {
+    "timestamp": "20240607093534",
+    "url": "https://web.archive.org/web/20240607093534/http://wkhos.go.th/"
+   }
+  },
+  "https://wongnai.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.wongnai.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://wongnai.com/"
+  },
   "https://woodendoorcnx.wixsite.com/wdcnx": {
    "checkedAt": "2026-07-28",
    "code": 200,
    "final": "https://woodendoorcnx.wixsite.com/wdcnx",
    "status": "ok",
    "url": "https://woodendoorcnx.wixsite.com/wdcnx"
+  },
+  "https://wvsthailand.org": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://wvsthailand.org/th/",
+   "hops": 2,
+   "status": "ok",
+   "url": "https://wvsthailand.org"
+  },
+  "https://www.101teagreenview.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.101teagreenview.com/",
+   "status": "ok",
+   "url": "https://www.101teagreenview.com/"
   },
   "https://www.1112.com/": {
    "checkedAt": "2026-07-28",
@@ -3571,6 +4329,31 @@
    "status": "ok",
    "url": "https://www.airbnb.com/rooms/6020019"
   },
+  "https://www.akhahill.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.akhahill.com/",
+   "status": "ok",
+   "url": "https://www.akhahill.com/"
+  },
+  "https://www.akhakitchen.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.akhakitchen.com/",
+   "status": "ok",
+   "url": "https://www.akhakitchen.com/"
+  },
+  "https://www.altcoliving.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 403,
+   "final": "https://www.altcoliving.com/",
+   "status": "http-error",
+   "url": "https://www.altcoliving.com/",
+   "wayback": {
+    "timestamp": "20251129095531",
+    "url": "https://web.archive.org/web/20251129095531/https://www.altcoliving.com/"
+   }
+  },
   "https://www.amarinresortchiangrai.com/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -3602,6 +4385,17 @@
    "status": "ok",
    "url": "https://www.ams.cmu.ac.th/"
   },
+  "https://www.anubancr.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 500,
+   "final": "https://www.anubancr.ac.th/",
+   "status": "server-error",
+   "url": "https://www.anubancr.ac.th/",
+   "wayback": {
+    "timestamp": "20250323091351",
+    "url": "https://web.archive.org/web/20250323091351/https://www.anubancr.ac.th/"
+   }
+  },
   "https://www.apco.co.th/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -3609,6 +4403,14 @@
    "hops": 2,
    "status": "ok",
    "url": "https://www.apco.co.th/"
+  },
+  "https://www.artisaninktattoo.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://artisaninktattoo.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.artisaninktattoo.com/"
   },
   "https://www.artmaigalleryhotel.com/": {
    "checkedAt": "2026-07-28",
@@ -3656,6 +4458,14 @@
     "url": "https://web.archive.org/web/20230128194521/https://b2hotel.com/detail.php?id=33"
    }
   },
+  "https://www.baanchangelephantpark.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://baanchangelephantpark.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.baanchangelephantpark.com/"
+  },
   "https://www.baandantawannuea.thailandhotels.site/": {
    "aliveBehindCert": false,
    "checkedAt": "2026-07-28",
@@ -3682,6 +4492,21 @@
    "status": "ok",
    "url": "https://www.baanpordeedin.com"
   },
+  "https://www.baansakuna.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.baansakuna.com",
+   "status": "ok",
+   "url": "https://www.baansakuna.com"
+  },
+  "https://www.baanthaicookery.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://baanthaicookery.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.baanthaicookery.com/"
+  },
   "https://www.bangchak.co.th/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -3706,6 +4531,13 @@
     "timestamp": "20191111203324",
     "url": "https://web.archive.org/web/20191111203324/http://www.beastburgercafe.com/"
    }
+  },
+  "https://www.bees-elesanctuary.org/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.bees-elesanctuary.org/",
+   "status": "ok",
+   "url": "https://www.bees-elesanctuary.org/"
   },
   "https://www.bellevillaresort.com/chiangmai/": {
    "checkedAt": "2026-07-28",
@@ -3733,6 +4565,14 @@
    "status": "http-error",
    "url": "https://www.bigc.co.th/",
    "wayback": {}
+  },
+  "https://www.bitcoinchiangmai.org/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.bitcoinchiangmai.org/th",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.bitcoinchiangmai.org/"
   },
   "https://www.blackitch.com": {
    "checkedAt": "2026-07-28",
@@ -3804,6 +4644,13 @@
     "url": "https://web.archive.org/web/20211207174948/https://www.britishcouncil.or.th/en/english/schools/chiang-mai"
    }
   },
+  "https://www.bskcr.ac.th": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.bskcr.ac.th",
+   "status": "ok",
+   "url": "https://www.bskcr.ac.th"
+  },
   "https://www.burgerking.co.th/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -3818,6 +4665,13 @@
    "hops": 1,
    "status": "ok",
    "url": "https://www.caltex.com/"
+  },
+  "https://www.caremat.org/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.caremat.org/",
+   "status": "ok",
+   "url": "https://www.caremat.org/"
   },
   "https://www.carpcafe.com/": {
    "aliveBehindCert": true,
@@ -3839,6 +4693,13 @@
     "timestamp": "20110224215733",
     "url": "https://web.archive.org/web/20110224215733/http://casa-vespa.com/"
    }
+  },
+  "https://www.ccvc.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.ccvc.ac.th/",
+   "status": "ok",
+   "url": "https://www.ccvc.ac.th/"
   },
   "https://www.cdmh365.com": {
    "checkedAt": "2026-07-28",
@@ -3875,12 +4736,35 @@
    "status": "ok",
    "url": "https://www.chandraresidence.com/"
   },
+  "https://www.changchill.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://changchill.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.changchill.com/"
+  },
   "https://www.changpuakboutiquehouse.com/": {
    "checkedAt": "2026-07-28",
    "code": 200,
    "final": "https://www.changpuakboutiquehouse.com/",
    "status": "ok",
    "url": "https://www.changpuakboutiquehouse.com/"
+  },
+  "https://www.chiang-mai-cooking-school.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.chiang-mai-cooking-school.com/",
+   "status": "ok",
+   "url": "https://www.chiang-mai-cooking-school.com/"
+  },
+  "https://www.chiangdaoelephantcamp.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://chiangdaoelephantcamp.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.chiangdaoelephantcamp.com/"
   },
   "https://www.chiangmai-homestay.nl/": {
    "checkedAt": "2026-07-28",
@@ -3975,6 +4859,32 @@
    "status": "ok",
    "url": "https://www.chivitthammada.com/"
   },
+  "https://www.chongfah.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://chongfah.ac.th/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.chongfah.ac.th/"
+  },
+  "https://www.chouifongtea.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.chouifongtea.com/",
+   "status": "ok",
+   "url": "https://www.chouifongtea.com/"
+  },
+  "https://www.ckhos.go.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.ckhos.go.th/",
+   "status": "empty",
+   "url": "https://www.ckhos.go.th/",
+   "wayback": {
+    "timestamp": "20221129205348",
+    "url": "https://web.archive.org/web/20221129205348/https://ckhos.go.th/"
+   }
+  },
   "https://www.cmu.ac.th/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -4003,6 +4913,27 @@
    "status": "ok",
    "url": "https://www.crew.co.th"
   },
+  "https://www.crhospital.org/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.crhospital.org/",
+   "status": "ok",
+   "url": "https://www.crhospital.org/"
+  },
+  "https://www.crms2.ac.th": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.crms2.ac.th",
+   "status": "ok",
+   "url": "https://www.crms2.ac.th"
+  },
+  "https://www.crms4.ac.th": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.crms4.ac.th",
+   "status": "ok",
+   "url": "https://www.crms4.ac.th"
+  },
   "https://www.crru.ac.th/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -4010,6 +4941,20 @@
    "hops": 1,
    "status": "ok",
    "url": "https://www.crru.ac.th/"
+  },
+  "https://www.ctc.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.ctc.ac.th/",
+   "status": "ok",
+   "url": "https://www.ctc.ac.th/"
+  },
+  "https://www.cvk.ac.th": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.cvk.ac.th",
+   "status": "ok",
+   "url": "https://www.cvk.ac.th"
   },
   "https://www.daengbooth.com": {
    "checkedAt": "2026-07-28",
@@ -4050,6 +4995,23 @@
    "url": "https://www.divaguesthouse.com/",
    "wayback": {}
   },
+  "https://www.doiin-elephantpk.com/": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "https://www.doiin-elephantpk.com/",
+   "wayback": {
+    "timestamp": "20240829135813",
+    "url": "https://web.archive.org/web/20240829135813/https://www.doiin-elephantpk.com/"
+   }
+  },
+  "https://www.dsd.go.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.dsd.go.th/",
+   "status": "ok",
+   "url": "https://www.dsd.go.th/"
+  },
   "https://www.dusit.com/dusitd2/chiangmai": {
    "checkedAt": "2026-07-28",
    "code": 403,
@@ -4076,6 +5038,45 @@
    "status": "ok",
    "url": "https://www.eaglehouse.com/"
   },
+  "https://www.elephantfreedomvillage.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://elephantfreedomvillage.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.elephantfreedomvillage.com/"
+  },
+  "https://www.elephantjunglesanctuary.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://elephantjunglesanctuary.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.elephantjunglesanctuary.com/"
+  },
+  "https://www.elephantnaturepark.org/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://elephantnaturepark.org/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.elephantnaturepark.org/"
+  },
+  "https://www.elephantparade.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.elephantparade.com/",
+   "status": "ok",
+   "url": "https://www.elephantparade.com/"
+  },
+  "https://www.elephantretirementpark.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://elephantretirementpark.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.elephantretirementpark.com"
+  },
   "https://www.esso.co.th/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -4099,6 +5100,13 @@
    "status": "social",
    "url": "https://www.facebook.com/%E0%B8%81%E0%B9%8B%E0%B8%A7%E0%B8%A2%E0%B9%80%E0%B8%95%E0%B8%B5%E0%B9%8B%E0%B8%A2%E0%B8%A7%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B8%95%E0%B8%B8%E0%B9%8B%E0%B8%99-9-104716175013434/"
   },
+  "https://www.facebook.com/%E0%B8%A2%E0%B8%B4%E0%B9%89%E0%B8%A1%E0%B8%88%E0%B8%B4%E0%B9%89%E0%B8%A1%E0%B8%88%E0%B8%B8%E0%B9%88%E0%B8%A1-By-Yimsangharn%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%AA%E0%B8%B2%E0%B8%A2-100996621862098": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/%E0%B8%A2%E0%B8%B4%E0%B9%89%E0%B8%A1%E0%B8%88%E0%B8%B4%E0%B9%89%E0%B8%A1%E0%B8%88%E0%B8%B8%E0%B9%88%E0%B8%A1-By-Yimsangharn%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%AA%E0%B8%B2%E0%B8%A2-100996621862098"
+  },
   "https://www.facebook.com/1678Cafe": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
@@ -4112,6 +5120,13 @@
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "https://www.facebook.com/Aiya-Cafe-%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%A2%E0%B8%8B%E0%B8%AD%E0%B8%A2%E0%B8%A5%E0%B8%B6%E0%B8%81-391648561023180/"
+  },
+  "https://www.facebook.com/AquaBeautyandSpa": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/AquaBeautyandSpa"
   },
   "https://www.facebook.com/AuangkhamMarket/": {
    "channel": "facebook",
@@ -4140,6 +5155,13 @@
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "https://www.facebook.com/Baannukanong"
+  },
+  "https://www.facebook.com/BalancedBean": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/BalancedBean"
   },
   "https://www.facebook.com/BiscottiHouseChiangMai/": {
    "channel": "facebook",
@@ -4197,6 +5219,20 @@
    "status": "social",
    "url": "https://www.facebook.com/ChiangmaiHijack/"
   },
+  "https://www.facebook.com/ChiangmaiSpeedkart": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/ChiangmaiSpeedkart"
+  },
+  "https://www.facebook.com/ChiangraiMusicStation": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/ChiangraiMusicStation"
+  },
   "https://www.facebook.com/ChickenEmbassyChiangMai": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
@@ -4239,6 +5275,13 @@
    "status": "social",
    "url": "https://www.facebook.com/GLYNCHIANGMAI/"
   },
+  "https://www.facebook.com/GOGYMCHIANGMAI/": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/GOGYMCHIANGMAI/"
+  },
   "https://www.facebook.com/GordChiangmaiHotels/": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
@@ -4259,6 +5302,13 @@
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "https://www.facebook.com/HomemadeCornerChiangmai"
+  },
+  "https://www.facebook.com/Honda-Safety-Riding-Park-Chiang-Mai-1733561466926527/": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/Honda-Safety-Riding-Park-Chiang-Mai-1733561466926527/"
   },
   "https://www.facebook.com/Iceloveyou/": {
    "channel": "facebook",
@@ -4526,6 +5576,13 @@
    "status": "social",
    "url": "https://www.facebook.com/aroygarden"
   },
+  "https://www.facebook.com/at.spa.by.shewanan": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/at.spa.by.shewanan"
+  },
   "https://www.facebook.com/baankhunkrub": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
@@ -4546,6 +5603,13 @@
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "https://www.facebook.com/bannkwunkiangdao"
+  },
+  "https://www.facebook.com/banraksin/": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/banraksin/"
   },
   "https://www.facebook.com/bebibeepizza/": {
    "channel": "facebook",
@@ -4575,6 +5639,13 @@
    "status": "social",
    "url": "https://www.facebook.com/chiangmaihorumon/"
   },
+  "https://www.facebook.com/chiangmaismokehouse": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/chiangmaismokehouse"
+  },
   "https://www.facebook.com/cmulibrarycoffee": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
@@ -4588,6 +5659,13 @@
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "https://www.facebook.com/coffeelamdeecm"
+  },
+  "https://www.facebook.com/comcrtech/": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/comcrtech/"
   },
   "https://www.facebook.com/damacafe": {
    "channel": "facebook",
@@ -4617,12 +5695,26 @@
    "status": "social",
    "url": "https://www.facebook.com/graspespressobar?mibextid=ZbWKwL"
   },
+  "https://www.facebook.com/happyhousemaesalong": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/happyhousemaesalong"
+  },
   "https://www.facebook.com/heartworknevergetshard/": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "https://www.facebook.com/heartworknevergetshard/"
+  },
+  "https://www.facebook.com/hpkhospital": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/hpkhospital"
   },
   "https://www.facebook.com/hungrywolfs": {
    "channel": "facebook",
@@ -4715,6 +5807,13 @@
    "status": "social",
    "url": "https://www.facebook.com/mamaninaskitchen/"
   },
+  "https://www.facebook.com/maruaymobile": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/maruaymobile"
+  },
   "https://www.facebook.com/masumispachiangmai": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
@@ -4757,6 +5856,13 @@
    "status": "social",
    "url": "https://www.facebook.com/oshineichiangrai/"
   },
+  "https://www.facebook.com/p/บ้านรังสราญ-Nature-100063900973481/": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/p/บ้านรังสราญ-Nature-100063900973481/"
+  },
   "https://www.facebook.com/pages/%E0%B8%8A%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%9C%E0%B8%B7%E0%B8%AD%E0%B8%81%E0%B8%AD%E0%B8%9E%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%97%E0%B9%80%E0%B8%A1%E0%B9%89%E0%B8%99%E0%B8%97%E0%B9%8C/229566013730915": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
@@ -4777,6 +5883,13 @@
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "https://www.facebook.com/pages/Baan-Thai-Chiang-Mai-Nimmanhemin/421699511223418"
+  },
+  "https://www.facebook.com/pages/Banoffee-Coffee/119552678092073": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/pages/Banoffee-Coffee/119552678092073"
   },
   "https://www.facebook.com/pages/Chawla-Hotel/197968080239278": {
    "channel": "facebook",
@@ -4827,12 +5940,26 @@
    "status": "social",
    "url": "https://www.facebook.com/pages/Nordells-Restaurang/251054418395692"
   },
+  "https://www.facebook.com/pages/PlayBot-Robotics-Academy/138655032999022": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/pages/PlayBot-Robotics-Academy/138655032999022"
+  },
   "https://www.facebook.com/pages/Smoothie-Blues/279831533600": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "https://www.facebook.com/pages/Smoothie-Blues/279831533600"
+  },
+  "https://www.facebook.com/pages/Villa-Darakorn-and-its-Botanical-Garden/103644619712433": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/pages/Villa-Darakorn-and-its-Botanical-Garden/103644619712433"
   },
   "https://www.facebook.com/pages/saiyuts-kitchen/2049972901943119": {
    "channel": "facebook",
@@ -4869,6 +5996,13 @@
    "status": "social",
    "url": "https://www.facebook.com/people/%E0%B8%95%E0%B8%A5%E0%B8%B2%E0%B8%94%E0%B8%95%E0%B9%89%E0%B8%99%E0%B8%A5%E0%B8%B3%E0%B9%84%E0%B8%A2Tonlamyai-Market-%E0%B8%81%E0%B8%B2%E0%B8%94%E0%B9%80%E0%B8%81%E0%B9%8A%E0%B8%B2%E0%B8%A5%E0%B8%B3%E0%B9%84%E0%B8%A2-%E0%B8%"
   },
+  "https://www.facebook.com/people/Kratom-Chiang-Mai/pfbid02qMmXXFtUAvmfWtbpWmDzpfwVCciMoBWmZub5yHRw6iMJeBWPkCq4jPLYvh1aSUePl": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/people/Kratom-Chiang-Mai/pfbid02qMmXXFtUAvmfWtbpWmDzpfwVCciMoBWmZub5yHRw6iMJeBWPkCq4jPLYvh1aSUePl"
+  },
   "https://www.facebook.com/peunchiangmai": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
@@ -4904,6 +6038,13 @@
    "status": "social",
    "url": "https://www.facebook.com/profile.php?id=100063611283405"
   },
+  "https://www.facebook.com/profile.php?id=100063653855955": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/profile.php?id=100063653855955"
+  },
   "https://www.facebook.com/profile.php?id=100063718060076": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
@@ -4938,6 +6079,20 @@
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "https://www.facebook.com/profile.php?id=61563808474369"
+  },
+  "https://www.facebook.com/profile.php?id=61569165560230": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/profile.php?id=61569165560230"
+  },
+  "https://www.facebook.com/profile.php?id=61575473221220": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/profile.php?id=61575473221220"
   },
   "https://www.facebook.com/profile.php?id=61588821246887": {
    "channel": "facebook",
@@ -5016,6 +6171,13 @@
    "status": "social",
    "url": "https://www.facebook.com/udomsukhomecafe"
   },
+  "https://www.facebook.com/weavesociety/": {
+   "channel": "facebook",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.facebook.com/weavesociety/"
+  },
   "https://www.facebook.com/wowshabuu": {
    "channel": "facebook",
    "checkedAt": "2026-07-28",
@@ -5071,6 +6233,13 @@
     "timestamp": "20260710065052",
     "url": "https://web.archive.org/web/20260710065052/https://www.fourseasons.com/chiangmai/"
    }
+  },
+  "https://www.freshysbakingclub.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.freshysbakingclub.com/",
+   "status": "ok",
+   "url": "https://www.freshysbakingclub.com/"
   },
   "https://www.fuji.co.th": {
    "checkedAt": "2026-07-28",
@@ -5140,6 +6309,13 @@
    "status": "ok",
    "url": "https://www.google.com/maps?q=%E0%B8%82%E0%B8%99%E0%B8%A1%E0%B9%81%E0%B8%A1%E0%B9%88+Kanom-Mae%2C+Mueang%2C+Amphoe+Mueang+Chiang+Mai%2C+Chiang+Mai+50200%2C+Thailand"
   },
+  "https://www.grandmascookingschool.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.grandmascookingschool.com/",
+   "status": "ok",
+   "url": "https://www.grandmascookingschool.com/"
+  },
   "https://www.graphdream.com/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -5147,6 +6323,14 @@
    "hops": 1,
    "status": "ok",
    "url": "https://www.graphdream.com/"
+  },
+  "https://www.haciendacoffeehouse.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://haciendacoffeehouse.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.haciendacoffeehouse.com"
   },
   "https://www.haikincnx.com/": {
    "checkedAt": "2026-07-28",
@@ -5171,6 +6355,13 @@
    "final": "https://www.hangdongminigolf.com/",
    "status": "ok",
    "url": "https://www.hangdongminigolf.com/"
+  },
+  "https://www.happyelephanthome.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.happyelephanthome.com/",
+   "status": "ok",
+   "url": "https://www.happyelephanthome.com/"
   },
   "https://www.hichiangrai.com/": {
    "checkedAt": "2026-07-28",
@@ -5253,12 +6444,28 @@
    "to": "imperialhotels.com",
    "url": "https://www.imperialchiangmai.com/"
   },
+  "https://www.imperialgoldentriangleresort.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://ibpripapua.org/visi/",
+   "hops": 2,
+   "status": "redirect-offsite",
+   "to": "ibpripapua.org",
+   "url": "https://www.imperialgoldentriangleresort.com"
+  },
   "https://www.implaphao.com/": {
    "checkedAt": "2026-07-28",
    "code": 200,
    "final": "https://www.implaphao.com/",
    "status": "ok",
    "url": "https://www.implaphao.com/"
+  },
+  "https://www.instagram.com/greenhill.thailand?igsh=MWZhYWdtY2ExcjZiYQ%3D%3D&utm_source=qr": {
+   "channel": "instagram",
+   "checkedAt": "2026-08-21",
+   "note": "walled garden — reachable for people, not verifiable by a crawler",
+   "status": "social",
+   "url": "https://www.instagram.com/greenhill.thailand?igsh=MWZhYWdtY2ExcjZiYQ%3D%3D&utm_source=qr"
   },
   "https://www.instagram.com/hopefullycafe/": {
    "channel": "instagram",
@@ -5280,6 +6487,24 @@
    "note": "walled garden — reachable for people, not verifiable by a crawler",
    "status": "social",
    "url": "https://www.instagram.com/thekhomchiangmai"
+  },
+  "https://www.intothewildelephantcamp.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.intothewildelephantcamp.com/",
+   "status": "ok",
+   "url": "https://www.intothewildelephantcamp.com/"
+  },
+  "https://www.kaewgallery.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 403,
+   "final": "https://www.kaewgallery.com/",
+   "status": "http-error",
+   "url": "https://www.kaewgallery.com/",
+   "wayback": {
+    "timestamp": "20260220131815",
+    "url": "https://web.archive.org/web/20260220131815/http://www.kaewgallery.com/"
+   }
   },
   "https://www.karinthipvillage.com/": {
    "checkedAt": "2026-07-28",
@@ -5307,6 +6532,14 @@
    "final": "https://www.khumkhantoke.com/",
    "status": "ok",
    "url": "https://www.khumkhantoke.com/"
+  },
+  "https://www.kidothailand.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.kidothailand.com/index.php/th/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.kidothailand.com/"
   },
   "https://www.kitipanit.com/": {
    "checkedAt": "2026-07-28",
@@ -5341,6 +6574,13 @@
     "timestamp": "20260510075850",
     "url": "https://web.archive.org/web/20260510075850/https://krisdadoi.com/"
    }
+  },
+  "https://www.kselephantsanctuary.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.kselephantsanctuary.com/",
+   "status": "ok",
+   "url": "https://www.kselephantsanctuary.com/"
   },
   "https://www.lalunaresortchiangrai.com/": {
    "checkedAt": "2026-07-28",
@@ -5381,6 +6621,13 @@
     "url": "https://web.archive.org/web/20260330065510/https://www.lannaist.ac.th/"
    }
   },
+  "https://www.lannamuaythai.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.lannamuaythai.com/",
+   "status": "ok",
+   "url": "https://www.lannamuaythai.com/"
+  },
   "https://www.lannaresort.com/": {
    "checkedAt": "2026-07-28",
    "detail": "no response in 15s",
@@ -5390,6 +6637,13 @@
     "timestamp": "20260121041251",
     "url": "https://web.archive.org/web/20260121041251/http://lannaresort.com/"
    }
+  },
+  "https://www.lavalleethailand.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.lavalleethailand.com/",
+   "status": "ok",
+   "url": "https://www.lavalleethailand.com/"
   },
   "https://www.lecoqdorchiangmai.com/": {
    "checkedAt": "2026-07-28",
@@ -5427,6 +6681,17 @@
     "url": "https://web.archive.org/web/20230315023951/http://www.lilu-hotel.com/"
    }
   },
+  "https://www.limeleaf-thailand.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 403,
+   "final": "https://www.limeleaf-thailand.com/",
+   "status": "http-error",
+   "url": "https://www.limeleaf-thailand.com/",
+   "wayback": {
+    "timestamp": "20260307034448",
+    "url": "https://web.archive.org/web/20260307034448/https://limeleaf-thailand.com/"
+   }
+  },
   "https://www.limlaongow.com/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -5445,12 +6710,50 @@
     "url": "https://web.archive.org/web/20260409012400/https://liveslumberparty.com/"
    }
   },
+  "https://www.loikrohboxingth.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.loikrohboxingth.com/",
+   "status": "ok",
+   "url": "https://www.loikrohboxingth.com/"
+  },
   "https://www.luxhotelchiangmai.com/": {
    "checkedAt": "2026-07-28",
    "code": 200,
    "final": "https://www.luxhotelchiangmai.com/",
    "status": "ok",
    "url": "https://www.luxhotelchiangmai.com/"
+  },
+  "https://www.maefahluang.org/mae-fah-luang-art-and-cultural-park/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.maefahluang.org/mae-fah-luang-art-and-cultural-park/",
+   "status": "ok",
+   "url": "https://www.maefahluang.org/mae-fah-luang-art-and-cultural-park/"
+  },
+  "https://www.maesaelephantcamp.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://maesaelephantcamp.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.maesaelephantcamp.com/"
+  },
+  "https://www.maesaihospital.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.maesaihospital.com/mom.php",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.maesaihospital.com/"
+  },
+  "https://www.maetaengelephantpark.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://maetaengelephantpark.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.maetaengelephantpark.com/"
   },
   "https://www.maleenoodle.com/": {
    "checkedAt": "2026-07-28",
@@ -5459,6 +6762,20 @@
    "hops": 1,
    "status": "ok",
    "url": "https://www.maleenoodle.com/"
+  },
+  "https://www.mamanoicookingschool.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.mamanoicookingschool.com/",
+   "status": "ok",
+   "url": "https://www.mamanoicookingschool.com/"
+  },
+  "https://www.mareerukchiangrai.net/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.mareerukchiangrai.net/",
+   "status": "ok",
+   "url": "https://www.mareerukchiangrai.net/"
   },
   "https://www.maykaidee.com/": {
    "checkedAt": "2026-07-28",
@@ -5485,6 +6802,13 @@
     "url": "https://web.archive.org/web/20231014002301/https://www.memorizebrownie.com/"
    }
   },
+  "https://www.mflhospital.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.mflhospital.com/",
+   "status": "ok",
+   "url": "https://www.mflhospital.com/"
+  },
   "https://www.mju.ac.th/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -5506,6 +6830,13 @@
    "final": "https://www.monocerosresort.com/",
    "status": "ok",
    "url": "https://www.monocerosresort.com/"
+  },
+  "https://www.montfort.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.montfort.ac.th/",
+   "status": "ok",
+   "url": "https://www.montfort.ac.th/"
   },
   "https://www.montha-hotel.com/": {
    "checkedAt": "2026-07-28",
@@ -5550,6 +6881,23 @@
    "status": "ok",
    "url": "https://www.museumthailand.com/th/museum/Tai-Yuan-Art-Gallery"
   },
+  "https://www.my3wella.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.my3wella.com/",
+   "status": "ok",
+   "url": "https://www.my3wella.com/"
+  },
+  "https://www.myplacemaesalong.com": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "https://www.myplacemaesalong.com",
+   "wayback": {
+    "timestamp": "20180119171358",
+    "url": "https://web.archive.org/web/20180119171358/https://www.myplacemaesalong.com/"
+   }
+  },
   "https://www.naiyahotel.com": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -5571,6 +6919,13 @@
    "status": "tls",
    "url": "https://www.neathostel.thailandhotels.site/",
    "wayback": {}
+  },
+  "https://www.newvisionhome.org/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.newvisionhome.org/",
+   "status": "ok",
+   "url": "https://www.newvisionhome.org/"
   },
   "https://www.newyorknewyorkstudio.com/": {
    "checkedAt": "2026-07-28",
@@ -5630,6 +6985,13 @@
    "to": "forkalehouse.com",
    "url": "https://www.ohkajhuorganic.com/en/"
   },
+  "https://www.originbeancoffee.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.originbeancoffee.com/",
+   "status": "ok",
+   "url": "https://www.originbeancoffee.com/"
+  },
   "https://www.oubkhammuseum.com/": {
    "checkedAt": "2026-07-28",
    "detail": "no response in 15s",
@@ -5685,6 +7047,13 @@
     "url": "https://web.archive.org/web/20160313205359/http://parasolinn.com/"
    }
   },
+  "https://www.pataraelephantfarm.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.pataraelephantfarm.com/",
+   "status": "ok",
+   "url": "https://www.pataraelephantfarm.com/"
+  },
   "https://www.patsklangviang.com/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -5701,6 +7070,13 @@
    "final": "https://www.pattaraplace.com/",
    "status": "ok",
    "url": "https://www.pattaraplace.com/"
+  },
+  "https://www.pcccr.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.pcccr.ac.th/",
+   "status": "ok",
+   "url": "https://www.pcccr.ac.th/"
   },
   "https://www.pdacr.org/": {
    "checkedAt": "2026-07-28",
@@ -5719,6 +7095,16 @@
     "url": "https://web.archive.org/web/20240529171200/http://www.pernsfood.com/"
    }
   },
+  "https://www.phtpschool.ac.th": {
+   "checkedAt": "2026-08-21",
+   "detail": "[Errno 8] nodename nor servname provided, or not known",
+   "status": "dns",
+   "url": "https://www.phtpschool.ac.th",
+   "wayback": {
+    "timestamp": "20240117103644",
+    "url": "https://web.archive.org/web/20240117103644/https://www.phtpschool.ac.th/"
+   }
+  },
   "https://www.phucome.com/": {
    "checkedAt": "2026-07-28",
    "code": 530,
@@ -5729,6 +7115,13 @@
     "timestamp": "20231129012604",
     "url": "https://web.archive.org/web/20231129012604/https://phucome.com/"
    }
+  },
+  "https://www.phufatara.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.phufatara.com/",
+   "status": "ok",
+   "url": "https://www.phufatara.com/"
   },
   "https://www.phujaya.com/": {
    "checkedAt": "2026-07-28",
@@ -5780,6 +7173,13 @@
     "url": "https://web.archive.org/web/20250519115320/https://www.porhotel.com/"
    }
   },
+  "https://www.prc.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.prc.ac.th/",
+   "status": "ok",
+   "url": "https://www.prc.ac.th/"
+  },
   "https://www.proudphufah.com/home.html": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -5804,6 +7204,13 @@
    "hops": 1,
    "status": "ok",
    "url": "https://www.ptis.ac.th/"
+  },
+  "https://www.punspace.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.punspace.com/",
+   "status": "ok",
+   "url": "https://www.punspace.com/"
   },
   "https://www.rad-rabbit.com/": {
    "checkedAt": "2026-07-28",
@@ -5921,6 +7328,14 @@
     "url": "https://web.archive.org/web/20231130173727/https://www.sakornresidence.com/"
    }
   },
+  "https://www.sakyantchiangmai.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://sakyantchiangmai.com/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.sakyantchiangmai.com/"
+  },
   "https://www.salacafe.org/": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -6029,6 +7444,20 @@
    "status": "ok",
    "url": "https://www.sirivillachiangmai.com/"
   },
+  "https://www.skillcenter-chiangmai.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.skillcenter-chiangmai.com/",
+   "status": "ok",
+   "url": "https://www.skillcenter-chiangmai.com/"
+  },
+  "https://www.skphotsprings.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.skphotsprings.com/",
+   "status": "ok",
+   "url": "https://www.skphotsprings.com/"
+  },
   "https://www.sleepguesthouse.com/": {
    "checkedAt": "2026-07-28",
    "code": 200,
@@ -6048,6 +7477,13 @@
     "url": "https://web.archive.org/web/20180227110331/http://www.soc.cmu.ac.th:80/en"
    }
   },
+  "https://www.soryingarena.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.soryingarena.com/",
+   "status": "ok",
+   "url": "https://www.soryingarena.com/"
+  },
   "https://www.spicyhostels.com/Spicythai-Backpackers.html": {
    "checkedAt": "2026-07-28",
    "code": 404,
@@ -6066,6 +7502,13 @@
    "final": "https://www.starbucks.com/",
    "status": "ok",
    "url": "https://www.starbucks.com/"
+  },
+  "https://www.step.cmu.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.step.cmu.ac.th/",
+   "status": "ok",
+   "url": "https://www.step.cmu.ac.th/"
   },
   "https://www.suanbua.com/": {
    "checkedAt": "2026-07-28",
@@ -6103,6 +7546,13 @@
    "final": "https://www.suksawad.co.th/",
    "status": "ok",
    "url": "https://www.suksawad.co.th/"
+  },
+  "https://www.sunshine-massage-school.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.sunshine-massage-school.com/",
+   "status": "ok",
+   "url": "https://www.sunshine-massage-school.com/"
   },
   "https://www.sunshinehousecm.com/": {
    "checkedAt": "2026-07-28",
@@ -6171,6 +7621,35 @@
    "status": "ok",
    "url": "https://www.tawancourt.com/"
   },
+  "https://www.tesaban7.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.tesaban7.ac.th/",
+   "status": "ok",
+   "url": "https://www.tesaban7.ac.th/"
+  },
+  "https://www.thai.tattoo/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://thai.tattoo/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.thai.tattoo/"
+  },
+  "https://www.thaicookingclasschiangrai.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.thaicookingclasschiangrai.com/",
+   "status": "ok",
+   "url": "https://www.thaicookingclasschiangrai.com/"
+  },
+  "https://www.thaielephanthome.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.thaielephanthome.com/",
+   "status": "ok",
+   "url": "https://www.thaielephanthome.com/"
+  },
   "https://www.thailandbiennale.org/en/venues/chiang-rai-tobacco-office": {
    "checkedAt": "2026-07-28",
    "code": 429,
@@ -6192,6 +7671,13 @@
     "timestamp": "20260716060459",
     "url": "https://web.archive.org/web/20260716060459/https://www.thailandpost.co.th/"
    }
+  },
+  "https://www.thecabinchiangmai.com/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.thecabinchiangmai.com/",
+   "status": "ok",
+   "url": "https://www.thecabinchiangmai.com/"
   },
   "https://www.thecamp-chiangmai.com/": {
    "checkedAt": "2026-07-28",
@@ -6296,12 +7782,12 @@
     "url": "https://web.archive.org/web/20231112201212/http://theroasterybyroj.com/"
    }
   },
-  "https://www.thesocialclub.asia/": {
-   "checkedAt": "2026-07-28",
+  "https://www.thesocialclub.asia": {
+   "checkedAt": "2026-08-21",
    "code": 200,
-   "final": "https://www.thesocialclub.asia/",
+   "final": "https://www.thesocialclub.asia",
    "status": "ok",
-   "url": "https://www.thesocialclub.asia/"
+   "url": "https://www.thesocialclub.asia"
   },
   "https://www.topnorthhotel.net/": {
    "checkedAt": "2026-07-28",
@@ -6317,6 +7803,14 @@
    "status": "ok",
    "url": "https://www.torlarphern.com/copy-of-gallery-seescape"
   },
+  "https://www.tourismthailand.org/Attraction/Pong-Dueat-Hot-Spring--4436": {
+   "checkedAt": "2026-08-21",
+   "code": 403,
+   "final": "https://www.tourismthailand.org/Attraction/Pong-Dueat-Hot-Spring--4436",
+   "status": "http-error",
+   "url": "https://www.tourismthailand.org/Attraction/Pong-Dueat-Hot-Spring--4436",
+   "wayback": {}
+  },
   "https://www.tourismthailand.org/Attraction/wat-phra-that-doi-suthep": {
    "checkedAt": "2026-07-28",
    "code": 403,
@@ -6327,13 +7821,6 @@
     "timestamp": "20260724154909",
     "url": "https://web.archive.org/web/20260724154909/https://www.tourismthailand.org/Attraction/wat-phra-that-doi-suthep"
    }
-  },
-  "https://www.touristinnhotel.com/": {
-   "checkedAt": "2026-07-28",
-   "code": 200,
-   "final": "https://www.touristinnhotel.com/",
-   "status": "ok",
-   "url": "https://www.touristinnhotel.com/"
   },
   "https://www.trigong.com/": {
    "checkedAt": "2026-07-28",
@@ -6355,6 +7842,14 @@
     "timestamp": "20210506201736",
     "url": "https://web.archive.org/web/20210506201736/https://www.tripadvisor.com/Restaurant_Review-g293917-d14790933-Reviews-Khaokhaeng_Muang_Chon-Chiang_Mai.html"
    }
+  },
+  "https://www.tupcr.ac.th/": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://tupcr.ac.th/",
+   "hops": 1,
+   "status": "ok",
+   "url": "https://www.tupcr.ac.th/"
   },
   "https://www.uhotelsresorts.com/uchiangmai/": {
    "checkedAt": "2026-07-28",
@@ -6387,6 +7882,14 @@
    "status": "ok",
    "url": "https://www.viewdoimansion.com/"
   },
+  "https://www.volunteers-without-borders.org/": {
+   "checkedAt": "2026-08-21",
+   "code": 403,
+   "final": "https://www.volunteers-without-borders.org/",
+   "status": "http-error",
+   "url": "https://www.volunteers-without-borders.org/",
+   "wayback": {}
+  },
   "https://www.vresidencechiangmai.com/": {
    "aliveBehindCert": true,
    "checkedAt": "2026-07-28",
@@ -6397,6 +7900,13 @@
     "timestamp": "20250823174430",
     "url": "https://web.archive.org/web/20250823174430/http://www.vresidencechiangmai.com/"
    }
+  },
+  "https://www.webythebrain.com": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.webythebrain.com",
+   "status": "ok",
+   "url": "https://www.webythebrain.com"
   },
   "https://www.weterminalhotel.com/": {
    "aliveBehindCert": true,
@@ -6458,6 +7968,47 @@
    "status": "ok",
    "url": "https://www.woodfieldresort.com/"
   },
+  "https://www.world-of-waterfalls.com/asia-mae-ya-waterfall.html": {
+   "checkedAt": "2026-08-21",
+   "code": 403,
+   "final": "https://www.world-of-waterfalls.com/asia-mae-ya-waterfall.html",
+   "status": "http-error",
+   "url": "https://www.world-of-waterfalls.com/asia-mae-ya-waterfall.html",
+   "wayback": {
+    "timestamp": "20171002044458",
+    "url": "https://web.archive.org/web/20171002044458/http://www.world-of-waterfalls.com:80/asia-mae-ya-waterfall.html"
+   }
+  },
+  "https://www.world-of-waterfalls.com/asia-mork-fa-waterfall.html": {
+   "checkedAt": "2026-08-21",
+   "code": 403,
+   "final": "https://www.world-of-waterfalls.com/asia-mork-fa-waterfall.html",
+   "status": "http-error",
+   "url": "https://www.world-of-waterfalls.com/asia-mork-fa-waterfall.html",
+   "wayback": {
+    "timestamp": "20170909104303",
+    "url": "https://web.archive.org/web/20170909104303/http://www.world-of-waterfalls.com:80/asia-mork-fa-waterfall.html"
+   }
+  },
+  "https://www.world-of-waterfalls.com/waterfalls/asia-mae-klang-waterfall/": {
+   "checkedAt": "2026-08-21",
+   "code": 403,
+   "final": "https://www.world-of-waterfalls.com/waterfalls/asia-mae-klang-waterfall/",
+   "status": "http-error",
+   "url": "https://www.world-of-waterfalls.com/waterfalls/asia-mae-klang-waterfall/",
+   "wayback": {
+    "timestamp": "20250907230603",
+    "url": "https://web.archive.org/web/20250907230603/https://www.world-of-waterfalls.com/waterfalls/asia-mae-klang-waterfall/"
+   }
+  },
+  "https://www.world-of-waterfalls.com/waterfalls/asia-wachirathan-waterfall/": {
+   "checkedAt": "2026-08-21",
+   "code": 403,
+   "final": "https://www.world-of-waterfalls.com/waterfalls/asia-wachirathan-waterfall/",
+   "status": "http-error",
+   "url": "https://www.world-of-waterfalls.com/waterfalls/asia-wachirathan-waterfall/",
+   "wayback": {}
+  },
   "https://www.wualaisabaidee.com": {
    "checkedAt": "2026-07-28",
    "detail": "[Errno 8] nodename nor servname provided, or not known",
@@ -6474,6 +8025,13 @@
    "final": "https://www.xn--12cmal1c3a5dgdd5bybctx4doj3dwc8kuctfncm.com/",
    "status": "ok",
    "url": "https://www.xn--12cmal1c3a5dgdd5bybctx4doj3dwc8kuctfncm.com/"
+  },
+  "https://www.yellowincubator.com/coworking": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.yellowincubator.com/coworking",
+   "status": "ok",
+   "url": "https://www.yellowincubator.com/coworking"
   },
   "https://www.yogakuukan.com/": {
    "checkedAt": "2026-07-28",
@@ -6492,6 +8050,13 @@
     "timestamp": "20250813220833",
     "url": "https://web.archive.org/web/20250813220833/http://yourhouseguesthouse.com/"
    }
+  },
+  "https://www.yupparaj.ac.th": {
+   "checkedAt": "2026-08-21",
+   "code": 200,
+   "final": "https://www.yupparaj.ac.th",
+   "status": "ok",
+   "url": "https://www.yupparaj.ac.th"
   },
   "https://www.ziraspa.com/": {
    "checkedAt": "2026-07-28",
@@ -6553,10 +8118,22 @@
     "id": "cm-osm-node-10312868409"
    }
   ],
+  "http://arch.rmutl.ac.th/v2/html/home.php": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-4743290222"
+   }
+  ],
   "http://atchiangmaihotel.com/": [
    {
     "field": "website",
     "id": "cm-osm-way-324215297"
+   }
+  ],
+  "http://bamboonestcr.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-12450861584"
    }
   ],
   "http://banchunsongsang.com": [
@@ -6625,6 +8202,12 @@
     "id": "cm-osm-node-4430154454"
    }
   ],
+  "http://chiangmaiarchery.com/ChiangmaiArchery/English.html": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-3263019821"
+   }
+  ],
   "http://chiangmaivista.com": [
    {
     "field": "website",
@@ -6675,6 +8258,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-11026461605"
+   }
+  ],
+  "http://doisaket.ac.th": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-13808285971"
    }
   ],
   "http://empresshotels.com": [
@@ -6795,6 +8384,16 @@
     "id": "cm-osm-way-312083671"
    }
   ],
+  "http://moraboutiquehotel.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-14062812601"
+   },
+   {
+    "field": "website",
+    "id": "cr-osm-way-960019823"
+   }
+  ],
   "http://muaythaigymhongthong.com/": [
    {
     "field": "website",
@@ -6831,6 +8430,12 @@
     "id": "cm-osm-node-2055855118"
    }
   ],
+  "http://phumaketawanresort.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-3292273432"
+   }
+  ],
   "http://pingview.com/": [
    {
     "field": "website",
@@ -6855,10 +8460,22 @@
     "id": "cm-osm-way-551650301"
    }
   ],
+  "http://rairuenrom.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-6282957185"
+   }
+  ],
   "http://rasaboutiquehotelchiangrai.com/": [
    {
     "field": "website",
     "id": "cr-osm-way-643043417"
+   }
+  ],
+  "http://rattikanchanaresort.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-424306811"
    }
   ],
   "http://sausagekingone.com/": [
@@ -6891,6 +8508,12 @@
     "id": "cm-osm-way-189618479"
    }
   ],
+  "http://th.bambuhboutiqe.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-10651317905"
+   }
+  ],
   "http://thaifarmerhouse.com/": [
    {
     "field": "website",
@@ -6919,6 +8542,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-2533128065"
+   }
+  ],
+  "http://www goldentriangle.info": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-1240060436"
    }
   ],
   "http://www parcborough.com": [
@@ -7770,7 +9399,59 @@
    },
    {
     "field": "brandWebsite",
+    "id": "cr-osm-node-13506750321"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2078690887"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2123248677"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2136711248"
+   },
+   {
+    "field": "brandWebsite",
     "id": "cr-osm-node-2140653246"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2153737321"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2153746716"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2193469992"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2193469993"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2193469995"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2206759336"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2212067448"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2295433547"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2319580775"
    },
    {
     "field": "brandWebsite",
@@ -7778,7 +9459,55 @@
    },
    {
     "field": "brandWebsite",
+    "id": "cr-osm-node-2337598535"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2476374701"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-2831790117"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-361377599"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-3840319436"
+   },
+   {
+    "field": "brandWebsite",
     "id": "cr-osm-node-3993176464"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-4099352339"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-4214740989"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-node-4359090290"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-way-1013494820"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-way-1112600960"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-way-1459493692"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-way-248181188"
    },
    {
     "field": "brandWebsite",
@@ -7786,7 +9515,23 @@
    },
    {
     "field": "brandWebsite",
+    "id": "cr-osm-way-374815117"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-way-376357756"
+   },
+   {
+    "field": "brandWebsite",
     "id": "cr-osm-way-391457076"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-way-537568599"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-way-543650858"
    },
    {
     "field": "brandWebsite",
@@ -7798,7 +9543,19 @@
    },
    {
     "field": "brandWebsite",
+    "id": "cr-osm-way-643046393"
+   },
+   {
+    "field": "brandWebsite",
     "id": "cr-osm-way-684872824"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-way-760181681"
+   },
+   {
+    "field": "brandWebsite",
+    "id": "cr-osm-way-760186587"
    },
    {
     "field": "brandWebsite",
@@ -7881,6 +9638,12 @@
     "id": "cm-osm-node-3243798862"
    }
   ],
+  "http://www.baandindeeresort.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1013746243"
+   }
+  ],
   "http://www.baangongkham.com": [
    {
     "field": "website",
@@ -7939,6 +9702,18 @@
     "id": "cm-osm-way-294031574"
    }
   ],
+  "http://www.barnya.com": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-2207833035"
+   }
+  ],
+  "http://www.barnya.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-163021936"
+   }
+  ],
   "http://www.bbhostel.com": [
    {
     "field": "website",
@@ -7969,6 +9744,18 @@
     "id": "cm-osm-node-5894246425"
    }
   ],
+  "http://www.changphuakdriving.com": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-202149021"
+   }
+  ],
+  "http://www.chiangmaibambootattoo.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-3652873200"
+   }
+  ],
   "http://www.chiangmaiorchid.com/": [
    {
     "field": "website",
@@ -7993,16 +9780,40 @@
     "id": "cr-osm-way-1014321706"
    }
   ],
+  "http://www.chiangrai2.com/E/rooms_rai_saeng_arun_resort_chiang_rai.php": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-902150001"
+   }
+  ],
+  "http://www.cmsafedrive.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-5599660472"
+   }
+  ],
   "http://www.comedara.com/": [
    {
     "field": "website",
     "id": "cm-osm-node-2638475274"
    }
   ],
+  "http://www.cookingathome-chiangmai.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-3440864916"
+   }
+  ],
   "http://www.cst-residence.com/": [
    {
     "field": "website",
     "id": "cm-osm-way-388787455"
+   }
+  ],
+  "http://www.dara.ac.th": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-854880239"
    }
   ],
   "http://www.dechaihotel.com/de_chai_the_colonial/": [
@@ -8035,6 +9846,12 @@
     "id": "cm-osm-node-3384170895"
    }
   ],
+  "http://www.deriverresort.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-2327148020"
+   }
+  ],
   "http://www.dewiangkumkam.com": [
    {
     "field": "website",
@@ -8051,6 +9868,24 @@
    {
     "field": "website",
     "id": "cm-osm-node-1551393883"
+   }
+  ],
+  "http://www.doimaesalongcoffee.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-6150676190"
+   }
+  ],
+  "http://www.doitung.org/tourism_attraction.php": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-560906826"
+   }
+  ],
+  "http://www.doitungview.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-11023694705"
    }
   ],
   "http://www.donpim.com/": [
@@ -8077,6 +9912,12 @@
     "id": "cm-osm-way-492846742"
    }
   ],
+  "http://www.elephant-pride.com": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-5794209153"
+   }
+  ],
   "http://www.empirenimman.com": [
    {
     "field": "website",
@@ -8093,6 +9934,12 @@
     "id": "cm-osm-node-6897483076"
    }
   ],
+  "http://www.facebook.com / cafeathomechiangrai": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-9292232344"
+   }
+  ],
   "http://www.facebook.com/Jackyshowrestaurant": [
    {
     "field": "website",
@@ -8103,6 +9950,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-7624761763"
+   }
+  ],
+  "http://www.facebook.com/PakPingRimKhong": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-542525064"
    }
   ],
   "http://www.facebook.com/amici.cei": [
@@ -8153,6 +10006,12 @@
     "id": "cm-osm-way-764322511"
    }
   ],
+  "http://www.fortmengraihospital.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-991657339"
+   }
+  ],
   "http://www.fun-dhostel.com": [
    {
     "field": "website",
@@ -8189,6 +10048,12 @@
     "id": "cm-osm-way-414948822"
    }
   ],
+  "http://www.greensafe-pharmacy.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-3243798861"
+   }
+  ],
   "http://www.greensleephostel.com/contact-us.html": [
    {
     "field": "website",
@@ -8211,6 +10076,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-316656713"
+   }
+  ],
+  "http://www.homprang.com": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-728336993"
    }
   ],
   "http://www.hotelchiangmailatitude.com": [
@@ -8367,10 +10238,28 @@
     "id": "cm-osm-node-964686601"
    }
   ],
+  "http://www.maefahluang.org": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-137648101"
+   }
+  ],
   "http://www.maerimlodgeresort.info/": [
    {
     "field": "website",
     "id": "cm-osm-way-309186915"
+   }
+  ],
+  "http://www.maesai.ac.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-371215803"
+   }
+  ],
+  "http://www.maesalonglittlehome.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-1014203038"
    }
   ],
   "http://www.maiiam.com/": [
@@ -8421,6 +10310,12 @@
     "id": "cm-osm-way-102807715"
    }
   ],
+  "http://www.mcthai.co.th": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-2334898016"
+   }
+  ],
   "http://www.med.cmu.ac.th/": [
    {
     "field": "website",
@@ -8431,6 +10326,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-957027736"
+   }
+  ],
+  "http://www.metro.ac.th": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-362997939"
    }
   ],
   "http://www.mingmitrcoffee.com": [
@@ -8469,10 +10370,22 @@
     "id": "cm-osm-node-3417311099"
    }
   ],
+  "http://www.namkhongriverside.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-283763993"
+   }
+  ],
   "http://www.nics.asia": [
    {
     "field": "website",
     "id": "cm-osm-node-4449635313"
+   }
+  ],
+  "http://www.nuttybeauty.com": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-3864514701"
    }
   ],
   "http://www.onpointhostel.com": [
@@ -8509,6 +10422,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-4059564674"
+   }
+  ],
+  "http://www.poondentalclinic.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-4480934053"
    }
   ],
   "http://www.poonpetch-hotel.com/": [
@@ -8566,6 +10485,14 @@
    },
    {
     "field": "website",
+    "id": "cr-osm-node-2153746712"
+   },
+   {
+    "field": "website",
+    "id": "cr-osm-way-1112600965"
+   },
+   {
+    "field": "website",
     "id": "cr-osm-way-391457069"
    },
    {
@@ -8585,6 +10512,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-360710743"
+   }
+  ],
+  "http://www.riverhillresort.com/Home_Page.html": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-322457618"
    }
   ],
   "http://www.romyengardenresort.com/": [
@@ -8635,10 +10568,28 @@
     "id": "cm-osm-node-5374601734"
    }
   ],
+  "http://www.samakkee.net/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-2039961809"
+   }
+  ],
+  "http://www.samakkhi.ac.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-623837097"
+   }
+  ],
   "http://www.samyanseafood.com/": [
    {
     "field": "website",
     "id": "cm-osm-node-2371283718"
+   }
+  ],
+  "http://www.sangkaew.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-13520932101"
    }
   ],
   "http://www.sanpareni.com/": [
@@ -8657,6 +10608,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-269499251"
+   }
+  ],
+  "http://www.sereneatchiangrai.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-2210520856"
    }
   ],
   "http://www.shivaraks.com/": [
@@ -8707,6 +10664,12 @@
     "id": "cm-osm-way-291771627"
    }
   ],
+  "http://www.srithana.ac.th/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-97705962"
+   }
+  ],
   "http://www.starbuckscard.in.th": [
    {
     "field": "website",
@@ -8715,6 +10678,18 @@
    {
     "field": "website",
     "id": "cm-osm-node-3347633205"
+   }
+  ],
+  "http://www.stuffchiangmai.com": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-11295824999"
+   }
+  ],
+  "http://www.suanthipresort.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-1693500369"
    }
   ],
   "http://www.sumalaithaimassage.com/": [
@@ -8837,6 +10812,12 @@
     "id": "cm-osm-way-492846863"
    }
   ],
+  "http://www.touristinnhotel.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-4528072891"
+   }
+  ],
   "http://www.treespacechiangmai.com/": [
    {
     "field": "website",
@@ -8883,6 +10864,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-200414775"
+   }
+  ],
+  "http://www.vividdancestudios.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-10830080651"
    }
   ],
   "http://www.vivobene.co.th": [
@@ -8933,6 +10920,12 @@
     "id": "cr-osm-node-4525371848"
    }
   ],
+  "http://www.wix.com/noinaartstudio/noina": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-5391744621"
+   }
+  ],
   "http://www.wualai-Hostel.com": [
    {
     "field": "website",
@@ -8975,10 +10968,22 @@
     "id": "cm-osm-way-103286175"
    }
   ],
+  "http://ร้านยารักษ์สุขภาพ 053 717 405 https://maps.app.goo.gl/PR1GJ233F8Qte9sf6?g_st=ic": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-10682393305"
+   }
+  ],
   "https://7sensesgelato.com/": [
    {
     "field": "website",
     "id": "cm-osm-node-7825610986"
+   }
+  ],
+  "https://abcm.ac.th": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-1371049880"
    }
   ],
   "https://aioun.business.site/": [
@@ -8991,6 +10996,18 @@
    {
     "field": "website",
     "id": "cm-osm-node-4557811609"
+   }
+  ],
+  "https://alpineoutpost.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-13116075801"
+   }
+  ],
+  "https://amcr.ac.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1108105254"
    }
   ],
   "https://amm.uniquehms.com/": [
@@ -9035,10 +11052,10 @@
     "id": "cm-osm-way-276724649"
    }
   ],
-  "https://bamboonestcr.com/": [
+  "https://bamboonest-chiangrai.com/": [
    {
     "field": "website",
-    "id": "cr-osm-node-12450861584"
+    "id": "cr-osm-node-3509419919"
    }
   ],
   "https://bannarairiverguest.wixsite.com/bannarai": [
@@ -9051,6 +11068,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-5515633961"
+   }
+  ],
+  "https://bcd.ac.th": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-388713704"
    }
   ],
   "https://bodyandmindhealing.org/": [
@@ -9071,6 +11094,12 @@
     "id": "cm-osm-node-12112351717"
    }
   ],
+  "https://bostonhealthcm.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-bostonhealth"
+   }
+  ],
   "https://butterisbetterbakery.com": [
    {
     "field": "website",
@@ -9083,10 +11112,22 @@
     "id": "cm-osm-node-9354595439"
    }
   ],
+  "https://celebrityinktattoochiangmai.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-5535316272"
+   }
+  ],
   "https://chiangmai-artinparadise.com": [
    {
     "field": "website",
     "id": "cm-osm-node-10806603405"
+   }
+  ],
+  "https://chiangmai.airportthai.co.th/": [
+   {
+    "field": "website",
+    "id": "cm-osm-relation-12410725"
    }
   ],
   "https://chiangmaiambassador.com": [
@@ -9113,6 +11154,12 @@
     "id": "cm-osm-way-260358501"
    }
   ],
+  "https://chiangsaenhospital.go.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-527539157"
+   }
+  ],
   "https://chianhousethailand.webs.com/": [
    {
     "field": "website",
@@ -9129,6 +11176,30 @@
    {
     "field": "website",
     "id": "cm-osm-relation-17998804"
+   }
+  ],
+  "https://cnxpole.carrd.co/": [
+   {
+    "field": "website",
+    "id": "cm-curated-cnxpole"
+   }
+  ],
+  "https://cosasia.org/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-2773248547"
+   }
+  ],
+  "https://data.bopp-obec.info/web/home.php?School_ID=1057120629": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1126713332"
+   }
+  ],
+  "https://depdcblog.wordpress.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-375366265"
    }
   ],
   "https://edhostel.com/": [
@@ -9173,6 +11244,12 @@
     "id": "cm-osm-node-13271816104"
    }
   ],
+  "https://facebook.com/thebrickspace/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-12217381902"
+   }
+  ],
   "https://fellowshipcnx.com": [
    {
     "field": "website",
@@ -9203,6 +11280,12 @@
     "id": "cm-osm-node-6622141185"
    }
   ],
+  "https://globalhouse.co.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-10799596405"
+   }
+  ],
   "https://goo.gl/maps/14XZUXbVJRF2": [
    {
     "field": "website",
@@ -9215,16 +11298,40 @@
     "id": "cm-osm-way-623140246"
    }
   ],
+  "https://grandcanyon-waterpark.com": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-177772328"
+   }
+  ],
+  "https://gymbangarang.com": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-3316431815"
+   }
+  ],
   "https://happyespresso.net/": [
    {
     "field": "website",
     "id": "cm-osm-node-3384152432"
    }
   ],
+  "https://highspeed420.com": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-1098454510"
+   }
+  ],
   "https://hotelisty.com/": [
    {
     "field": "website",
     "id": "cm-osm-way-668372298"
+   }
+  ],
+  "https://houseofopium.co/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-775981375"
    }
   ],
   "https://huankawin.wixsite.com": [
@@ -9275,6 +11382,12 @@
     "id": "cm-osm-node-8891761479"
    }
   ],
+  "https://kerchorelephant.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-kerchor-elephant-eco-park"
+   }
+  ],
   "https://khumhomcafe.com/": [
    {
     "field": "website",
@@ -9285,6 +11398,12 @@
    {
     "field": "website",
     "id": "cr-osm-way-1376968719"
+   }
+  ],
+  "https://lailagroup.rezio.shop/": [
+   {
+    "field": "website",
+    "id": "cr-curated-laila-group-tours"
    }
   ],
   "https://laithai.com/": [
@@ -9329,6 +11448,12 @@
     "id": "cm-osm-way-1436933059"
    }
   ],
+  "https://lifespaceth.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-lifespace"
+   }
+  ],
   "https://line.me/ti/p/OJtOw9uIOu": [
    {
     "field": "website",
@@ -9355,6 +11480,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-3416948044"
+   }
+  ],
+  "https://m.facebook.com/Addmintakeaway/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-10199620588"
    }
   ],
   "https://m.facebook.com/Blue-Cafe-Chiang-mai-933362510162726/": [
@@ -9517,6 +11648,12 @@
     "id": "cm-osm-node-5792140253"
    }
   ],
+  "https://maechanhospital.go.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-447735125"
+   }
+  ],
   "https://maisonmaisoncafe.com/": [
    {
     "field": "website",
@@ -9533,6 +11670,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-12508989857"
+   }
+  ],
+  "https://mfu.ac.th/home.html": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-132084132"
    }
   ],
   "https://miladawellness.com": [
@@ -9563,6 +11706,12 @@
    {
     "field": "website",
     "id": "cr-osm-node-7931699285"
+   }
+  ],
+  "https://newelephanthome.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-13579977701"
    }
   ],
   "https://night-bazaar-inn.chiangmaihotelspage.com/en/": [
@@ -9599,10 +11748,22 @@
     "id": "cm-osm-node-4259747302"
    }
   ],
+  "https://omkoi.ac.th/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-256142710"
+   }
+  ],
   "https://pakorns-kitchen.business.site": [
    {
     "field": "website",
     "id": "cm-osm-node-6261439685"
+   }
+  ],
+  "https://papaemeditation.org/thailand/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-10740464706"
    }
   ],
   "https://past-tense-hostel.chiangmaihotelspage.com/": [
@@ -9617,10 +11778,22 @@
     "id": "cm-osm-node-5000148487"
    }
   ],
+  "https://peachclinic.co/en": [
+   {
+    "field": "website",
+    "id": "cm-curated-peachclinic"
+   }
+  ],
   "https://pharmacyeve.business.site": [
    {
     "field": "website",
     "id": "cm-osm-node-11359736106"
+   }
+  ],
+  "https://philanthropyconnections.org": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-13071783701"
    }
   ],
   "https://pingpura.com/": [
@@ -9633,6 +11806,18 @@
    {
     "field": "website",
     "id": "cm-osm-way-659294962"
+   }
+  ],
+  "https://pongpha.go.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-372608928"
+   }
+  ],
+  "https://projectsforasia.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-8915860499"
    }
   ],
   "https://puripunn.com/": [
@@ -9681,6 +11866,24 @@
    {
     "field": "attrs.website",
     "id": "cm-osm-node-10307371816"
+   }
+  ],
+  "https://sawanpot.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-9983193657"
+   }
+  ],
+  "https://school-for-life.org/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-190044892"
+   }
+  ],
+  "https://sclc.mfu.ac.th/sclc-home.html": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-924525714"
    }
   ],
   "https://secretgardenchiangmai.com/": [
@@ -9777,6 +11980,18 @@
     "id": "cm-osm-node-13307552701"
    }
   ],
+  "https://tbsk1.ac.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1000088089"
+   }
+  ],
+  "https://tesaban6.ac.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-relation-13779275"
+   }
+  ],
   "https://th-th.facebook.com/RanXaharHluLaCheiyngray/": [
    {
     "field": "website",
@@ -9813,6 +12028,12 @@
     "id": "cm-osm-node-4433562790"
    }
   ],
+  "https://thaphaeboxingstadium.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-thaphae-boxing-stadium"
+   }
+  ],
   "https://thawan-duchanee.com/": [
    {
     "field": "website",
@@ -9825,6 +12046,12 @@
     "id": "cm-osm-node-11786207667"
    }
   ],
+  "https://thehomemassageandspa.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-thehomemassage-ragang"
+   }
+  ],
   "https://thehousethailand.com/": [
    {
     "field": "website",
@@ -9833,6 +12060,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-766613470"
+   }
+  ],
+  "https://themirrorfoundation.org/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-7502437242"
    }
   ],
   "https://theriverrehab.com": [
@@ -9917,10 +12150,32 @@
     "id": "cm-osm-node-11533438001"
    }
   ],
+  "https://web.facebook.com/morethan.quote/?view_public_for=181096499294033": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-7931685056"
+   }
+  ],
   "https://web.facebook.com/rolfcoffee": [
    {
     "field": "website",
     "id": "cm-osm-way-621074736"
+   }
+  ],
+  "https://web.rpg15.ac.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1232817676"
+   }
+  ],
+  "https://weed.th": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-13303153000"
+   },
+   {
+    "field": "website",
+    "id": "cm-osm-node-13303176356"
    }
   ],
   "https://wherestheduke.com/": [
@@ -9943,10 +12198,34 @@
     "id": "cm-osm-way-621074737"
    }
   ],
+  "https://wkhos.go.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-555852772"
+   }
+  ],
+  "https://wongnai.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-4652853462"
+   }
+  ],
   "https://woodendoorcnx.wixsite.com/wdcnx": [
    {
     "field": "website",
     "id": "cm-osm-node-13449547601"
+   }
+  ],
+  "https://wvsthailand.org": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-1799458066"
+   }
+  ],
+  "https://www.101teagreenview.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-6546922385"
    }
   ],
   "https://www.1112.com/": [
@@ -10003,6 +12282,10 @@
    {
     "field": "website",
     "id": "cm-osm-way-1128461797"
+   },
+   {
+    "field": "website",
+    "id": "cr-osm-way-373628738"
    }
   ],
   "https://www.agoda.com/heyuan-h28162725/hotel/chiang-mai-th.html": [
@@ -10021,6 +12304,24 @@
    {
     "field": "website",
     "id": "cm-osm-node-4067950593"
+   }
+  ],
+  "https://www.akhahill.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-2624604015"
+   }
+  ],
+  "https://www.akhakitchen.com/": [
+   {
+    "field": "website",
+    "id": "cr-curated-akha-kitchen"
+   }
+  ],
+  "https://www.altcoliving.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-1208209252"
    }
   ],
   "https://www.amarinresortchiangrai.com/": [
@@ -10047,10 +12348,26 @@
     "id": "cm-osm-node-4681342961"
    }
   ],
+  "https://www.anubancr.ac.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1022604700"
+   },
+   {
+    "field": "website",
+    "id": "cr-osm-way-967034890"
+   }
+  ],
   "https://www.apco.co.th/": [
    {
     "field": "website",
     "id": "cm-osm-node-11369981746"
+   }
+  ],
+  "https://www.artisaninktattoo.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-12976981412"
    }
   ],
   "https://www.artmaigalleryhotel.com/": [
@@ -10093,6 +12410,12 @@
     "id": "cm-osm-way-317342480"
    }
   ],
+  "https://www.baanchangelephantpark.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-baanchang-elephant-park"
+   }
+  ],
   "https://www.baandantawannuea.thailandhotels.site/": [
    {
     "field": "website",
@@ -10109,6 +12432,18 @@
    {
     "field": "website",
     "id": "cr-osm-way-1110932840"
+   }
+  ],
+  "https://www.baansakuna.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-6041626556"
+   }
+  ],
+  "https://www.baanthaicookery.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-5640397222"
    }
   ],
   "https://www.bangchak.co.th/": [
@@ -10166,6 +12501,14 @@
    },
    {
     "field": "website",
+    "id": "cr-osm-way-449480005"
+   },
+   {
+    "field": "website",
+    "id": "cr-osm-way-527084449"
+   },
+   {
+    "field": "website",
     "id": "cr-osm-way-584176188"
    }
   ],
@@ -10179,6 +12522,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-4328044391"
+   }
+  ],
+  "https://www.bees-elesanctuary.org/": [
+   {
+    "field": "website",
+    "id": "cm-curated-bees-elephant-sanctuary"
    }
   ],
   "https://www.bellevillaresort.com/chiangmai/": [
@@ -10197,6 +12546,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-1168325528"
+   }
+  ],
+  "https://www.bitcoinchiangmai.org/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-13138185003"
    }
   ],
   "https://www.blackitch.com": [
@@ -10253,6 +12608,12 @@
     "id": "cm-osm-way-367745510"
    }
   ],
+  "https://www.bskcr.ac.th": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-551524403"
+   }
+  ],
   "https://www.burgerking.co.th/": [
    {
     "field": "website",
@@ -10282,7 +12643,21 @@
    },
    {
     "field": "website",
+    "id": "cr-osm-way-402084109"
+   },
+   {
+    "field": "website",
     "id": "cr-osm-way-684852276"
+   }
+  ],
+  "https://www.caremat.org/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-13717806001"
+   },
+   {
+    "field": "website",
+    "id": "cm-osm-node-13717807501"
    }
   ],
   "https://www.carpcafe.com/": [
@@ -10295,6 +12670,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-818995047"
+   }
+  ],
+  "https://www.ccvc.ac.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-624811876"
    }
   ],
   "https://www.cdmh365.com": [
@@ -10321,10 +12702,28 @@
     "id": "cm-osm-node-11295829592"
    }
   ],
+  "https://www.changchill.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-changchill"
+   }
+  ],
   "https://www.changpuakboutiquehouse.com/": [
    {
     "field": "website",
     "id": "cm-osm-node-3312186402"
+   }
+  ],
+  "https://www.chiang-mai-cooking-school.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-961802207"
+   }
+  ],
+  "https://www.chiangdaoelephantcamp.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-chiang-dao-elephant-training-centre"
    }
   ],
   "https://www.chiangmai-homestay.nl/": [
@@ -10403,6 +12802,24 @@
     "id": "cr-osm-node-2294308420"
    }
   ],
+  "https://www.chongfah.ac.th/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-283883230"
+   }
+  ],
+  "https://www.chouifongtea.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-3968871249"
+   }
+  ],
+  "https://www.ckhos.go.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-283761802"
+   }
+  ],
   "https://www.cmu.ac.th/": [
    {
     "field": "website",
@@ -10427,10 +12844,40 @@
     "id": "cm-osm-way-1115111478"
    }
   ],
+  "https://www.crhospital.org/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-483841193"
+   }
+  ],
+  "https://www.crms2.ac.th": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1000188135"
+   }
+  ],
+  "https://www.crms4.ac.th": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1000190724"
+   }
+  ],
   "https://www.crru.ac.th/": [
    {
     "field": "website",
     "id": "cr-osm-way-1024441024"
+   }
+  ],
+  "https://www.ctc.ac.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-992102964"
+   }
+  ],
+  "https://www.cvk.ac.th": [
+   {
+    "field": "website",
+    "id": "cr-osm-relation-15585246"
    }
   ],
   "https://www.daengbooth.com": [
@@ -10461,6 +12908,18 @@
     "id": "cm-osm-node-2636161836"
    }
   ],
+  "https://www.doiin-elephantpk.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-4933896022"
+   }
+  ],
+  "https://www.dsd.go.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1023905220"
+   }
+  ],
   "https://www.dusit.com/dusitd2/chiangmai": [
    {
     "field": "website",
@@ -10477,6 +12936,36 @@
    {
     "field": "website",
     "id": "cm-osm-node-1491409296"
+   }
+  ],
+  "https://www.elephantfreedomvillage.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-elephant-freedom-village"
+   }
+  ],
+  "https://www.elephantjunglesanctuary.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-elephant-jungle-sanctuary"
+   }
+  ],
+  "https://www.elephantnaturepark.org/": [
+   {
+    "field": "website",
+    "id": "cm-curated-elephant-nature-park"
+   }
+  ],
+  "https://www.elephantparade.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-elephant-parade-house"
+   }
+  ],
+  "https://www.elephantretirementpark.com": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-4154575589"
    }
   ],
   "https://www.esso.co.th/": [
@@ -10497,6 +12986,12 @@
     "id": "cm-osm-node-8507228126"
    }
   ],
+  "https://www.facebook.com/%E0%B8%A2%E0%B8%B4%E0%B9%89%E0%B8%A1%E0%B8%88%E0%B8%B4%E0%B9%89%E0%B8%A1%E0%B8%88%E0%B8%B8%E0%B9%88%E0%B8%A1-By-Yimsangharn%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%AA%E0%B8%B2%E0%B8%A2-100996621862098": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-8164174679"
+   }
+  ],
   "https://www.facebook.com/1678Cafe": [
    {
     "field": "website",
@@ -10507,6 +13002,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-4648351833"
+   }
+  ],
+  "https://www.facebook.com/AquaBeautyandSpa": [
+   {
+    "field": "website",
+    "id": "cm-curated-aquabeauty"
    }
   ],
   "https://www.facebook.com/AuangkhamMarket/": [
@@ -10531,6 +13032,16 @@
    {
     "field": "website",
     "id": "cr-osm-node-3426154627"
+   }
+  ],
+  "https://www.facebook.com/BalancedBean": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-6632634295"
+   },
+   {
+    "field": "website",
+    "id": "cr-osm-way-1389426325"
    }
   ],
   "https://www.facebook.com/BiscottiHouseChiangMai/": [
@@ -10581,6 +13092,18 @@
     "id": "cm-osm-way-478772321"
    }
   ],
+  "https://www.facebook.com/ChiangmaiSpeedkart": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-396336492"
+   }
+  ],
+  "https://www.facebook.com/ChiangraiMusicStation": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-9166322476"
+   }
+  ],
   "https://www.facebook.com/ChickenEmbassyChiangMai": [
    {
     "field": "website",
@@ -10617,6 +13140,12 @@
     "id": "cm-osm-way-1300133896"
    }
   ],
+  "https://www.facebook.com/GOGYMCHIANGMAI/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-202149024"
+   }
+  ],
   "https://www.facebook.com/GordChiangmaiHotels/": [
    {
     "field": "website",
@@ -10633,6 +13162,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-13542339943"
+   }
+  ],
+  "https://www.facebook.com/Honda-Safety-Riding-Park-Chiang-Mai-1733561466926527/": [
+   {
+    "field": "website",
+    "id": "cm-osm-relation-7915165"
    }
   ],
   "https://www.facebook.com/Iceloveyou/": [
@@ -10871,6 +13406,12 @@
     "id": "cm-osm-node-2479866664"
    }
   ],
+  "https://www.facebook.com/at.spa.by.shewanan": [
+   {
+    "field": "website",
+    "id": "cm-curated-atspa-scrub"
+   }
+  ],
   "https://www.facebook.com/baankhunkrub": [
    {
     "field": "website",
@@ -10887,6 +13428,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-2431664842"
+   }
+  ],
+  "https://www.facebook.com/banraksin/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1075277188"
    }
   ],
   "https://www.facebook.com/bebibeepizza/": [
@@ -10913,6 +13460,12 @@
     "id": "cm-osm-node-2783314232"
    }
   ],
+  "https://www.facebook.com/chiangmaismokehouse": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-4597611594"
+   }
+  ],
   "https://www.facebook.com/cmulibrarycoffee": [
    {
     "field": "website",
@@ -10923,6 +13476,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-5561163722"
+   }
+  ],
+  "https://www.facebook.com/comcrtech/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-961275500"
    }
   ],
   "https://www.facebook.com/damacafe": [
@@ -10949,10 +13508,22 @@
     "id": "cm-osm-node-4557856199"
    }
   ],
+  "https://www.facebook.com/happyhousemaesalong": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-6017393486"
+   }
+  ],
   "https://www.facebook.com/heartworknevergetshard/": [
    {
     "field": "website",
     "id": "cm-osm-node-6160991685"
+   }
+  ],
+  "https://www.facebook.com/hpkhospital": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1330359921"
    }
   ],
   "https://www.facebook.com/hungrywolfs": [
@@ -11033,6 +13604,12 @@
     "id": "cm-osm-node-5470461801"
    }
   ],
+  "https://www.facebook.com/maruaymobile": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-6280656585"
+   }
+  ],
   "https://www.facebook.com/masumispachiangmai": [
    {
     "field": "website",
@@ -11073,6 +13650,12 @@
     "id": "cr-osm-way-967419243"
    }
   ],
+  "https://www.facebook.com/p/บ้านรังสราญ-Nature-100063900973481/": [
+   {
+    "field": "website",
+    "id": "cm-curated-baanrangsaran"
+   }
+  ],
   "https://www.facebook.com/pages/%E0%B8%8A%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%9C%E0%B8%B7%E0%B8%AD%E0%B8%81%E0%B8%AD%E0%B8%9E%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%97%E0%B9%80%E0%B8%A1%E0%B9%89%E0%B8%99%E0%B8%97%E0%B9%8C/229566013730915": [
    {
     "field": "website",
@@ -11089,6 +13672,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-233741339"
+   }
+  ],
+  "https://www.facebook.com/pages/Banoffee-Coffee/119552678092073": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-2174080831"
    }
   ],
   "https://www.facebook.com/pages/Chawla-Hotel/197968080239278": [
@@ -11133,10 +13722,22 @@
     "id": "cm-osm-node-3573715993"
    }
   ],
+  "https://www.facebook.com/pages/PlayBot-Robotics-Academy/138655032999022": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-3476191593"
+   }
+  ],
   "https://www.facebook.com/pages/Smoothie-Blues/279831533600": [
    {
     "field": "website",
     "id": "cm-osm-node-1628665650"
+   }
+  ],
+  "https://www.facebook.com/pages/Villa-Darakorn-and-its-Botanical-Garden/103644619712433": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-2139580189"
    }
   ],
   "https://www.facebook.com/pages/saiyuts-kitchen/2049972901943119": [
@@ -11169,6 +13770,12 @@
     "id": "cm-osm-way-385577703"
    }
   ],
+  "https://www.facebook.com/people/Kratom-Chiang-Mai/pfbid02qMmXXFtUAvmfWtbpWmDzpfwVCciMoBWmZub5yHRw6iMJeBWPkCq4jPLYvh1aSUePl": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-1168325529"
+   }
+  ],
   "https://www.facebook.com/peunchiangmai": [
    {
     "field": "website",
@@ -11197,6 +13804,12 @@
    {
     "field": "website",
     "id": "cr-osm-node-10199600350"
+   }
+  ],
+  "https://www.facebook.com/profile.php?id=100063653855955": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-2692460179"
    }
   ],
   "https://www.facebook.com/profile.php?id=100063718060076": [
@@ -11229,6 +13842,18 @@
     "id": "cr-osm-node-12422032176"
    }
   ],
+  "https://www.facebook.com/profile.php?id=61569165560230": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-12467082184"
+   }
+  ],
+  "https://www.facebook.com/profile.php?id=61575473221220": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-13810099368"
+   }
+  ],
   "https://www.facebook.com/profile.php?id=61588821246887": [
    {
     "field": "website",
@@ -11242,6 +13867,14 @@
    }
   ],
   "https://www.facebook.com/share/1BrrfxA7pN/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-13651126180"
+   },
+   {
+    "field": "website",
+    "id": "cm-osm-node-13651143120"
+   },
    {
     "field": "website",
     "id": "cm-osm-node-13651155193"
@@ -11295,6 +13928,12 @@
     "id": "cm-osm-way-1338800615"
    }
   ],
+  "https://www.facebook.com/weavesociety/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-1214610838"
+   }
+  ],
   "https://www.facebook.com/wowshabuu": [
    {
     "field": "website",
@@ -11335,6 +13974,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-305818862"
+   }
+  ],
+  "https://www.freshysbakingclub.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-10116704314"
    }
   ],
   "https://www.fuji.co.th": [
@@ -11385,10 +14030,22 @@
     "id": "cm-osm-node-9455440417"
    }
   ],
+  "https://www.grandmascookingschool.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-grandmas-home-cooking-school"
+   }
+  ],
   "https://www.graphdream.com/": [
    {
     "field": "website",
     "id": "cm-osm-way-492846792"
+   }
+  ],
+  "https://www.haciendacoffeehouse.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-11949871150"
    }
   ],
   "https://www.haikincnx.com/": [
@@ -11407,6 +14064,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-13533499755"
+   }
+  ],
+  "https://www.happyelephanthome.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-happy-elephant-home"
    }
   ],
   "https://www.hichiangrai.com/": [
@@ -11469,10 +14132,22 @@
     "id": "cm-osm-way-1247517937"
    }
   ],
+  "https://www.imperialgoldentriangleresort.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-361390988"
+   }
+  ],
   "https://www.implaphao.com/": [
    {
     "field": "website",
     "id": "cr-osm-node-7298407064"
+   }
+  ],
+  "https://www.instagram.com/greenhill.thailand?igsh=MWZhYWdtY2ExcjZiYQ%3D%3D&utm_source=qr": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-12836625438"
    }
   ],
   "https://www.instagram.com/hopefullycafe/": [
@@ -11491,6 +14166,18 @@
    {
     "field": "website",
     "id": "cm-osm-way-793933940"
+   }
+  ],
+  "https://www.intothewildelephantcamp.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-into-the-wild-elephant-camp"
+   }
+  ],
+  "https://www.kaewgallery.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-3384070766"
    }
   ],
   "https://www.karinthipvillage.com/": [
@@ -11554,6 +14241,10 @@
    },
    {
     "field": "website",
+    "id": "cr-osm-node-2193422313"
+   },
+   {
+    "field": "website",
     "id": "cr-osm-node-2334898014"
    },
    {
@@ -11565,6 +14256,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-4157089285"
+   }
+  ],
+  "https://www.kidothailand.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-13448064201"
    }
   ],
   "https://www.kitipanit.com/": [
@@ -11589,6 +14286,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-2548920953"
+   }
+  ],
+  "https://www.kselephantsanctuary.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-kindred-spirit-elephant-sanctuary"
    }
   ],
   "https://www.lalunaresortchiangrai.com/": [
@@ -11625,6 +14328,12 @@
     "id": "cm-osm-way-574736174"
    }
   ],
+  "https://www.lannamuaythai.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-452420473"
+   }
+  ],
   "https://www.lannaresort.com/": [
    {
     "field": "website",
@@ -11633,6 +14342,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-9482831717"
+   }
+  ],
+  "https://www.lavalleethailand.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-4920242721"
    }
   ],
   "https://www.lecoqdorchiangmai.com/": [
@@ -11659,6 +14374,12 @@
     "id": "cm-osm-way-495915600"
    }
   ],
+  "https://www.limeleaf-thailand.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-4787554123"
+   }
+  ],
   "https://www.limlaongow.com/": [
    {
     "field": "website",
@@ -11671,10 +14392,40 @@
     "id": "cm-osm-node-11182410615"
    }
   ],
+  "https://www.loikrohboxingth.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-loikroh-boxing-stadium"
+   }
+  ],
   "https://www.luxhotelchiangmai.com/": [
    {
     "field": "website",
     "id": "cm-osm-way-220984686"
+   }
+  ],
+  "https://www.maefahluang.org/mae-fah-luang-art-and-cultural-park/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-384155064"
+   }
+  ],
+  "https://www.maesaelephantcamp.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-maesa-elephant-camp"
+   }
+  ],
+  "https://www.maesaihospital.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-371233866"
+   }
+  ],
+  "https://www.maetaengelephantpark.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-maetaeng-elephant-park"
    }
   ],
   "https://www.maleenoodle.com/": [
@@ -11689,6 +14440,18 @@
    {
     "field": "website",
     "id": "cm-osm-node-3815458785"
+   }
+  ],
+  "https://www.mamanoicookingschool.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-mama-noi-cooking-school"
+   }
+  ],
+  "https://www.mareerukchiangrai.net/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-967419266"
    }
   ],
   "https://www.maykaidee.com/": [
@@ -11737,16 +14500,18 @@
    {
     "field": "website",
     "id": "cm-osm-way-347940513"
-   },
-   {
-    "field": "website",
-    "id": "cr-osm-node-2334898016"
    }
   ],
   "https://www.memorizebrownie.com/": [
    {
     "field": "website",
     "id": "cm-osm-way-451377000"
+   }
+  ],
+  "https://www.mflhospital.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-549948901"
    }
   ],
   "https://www.mju.ac.th/": [
@@ -11790,6 +14555,10 @@
    },
    {
     "field": "website",
+    "id": "cr-osm-node-2193422312"
+   },
+   {
+    "field": "website",
     "id": "cr-osm-node-2334898015"
    }
   ],
@@ -11797,6 +14566,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-3751056345"
+   }
+  ],
+  "https://www.montfort.ac.th/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-244949505"
    }
   ],
   "https://www.montha-hotel.com/": [
@@ -11833,6 +14608,18 @@
     "id": "cr-osm-way-986855268"
    }
   ],
+  "https://www.my3wella.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-12629910948"
+   }
+  ],
+  "https://www.myplacemaesalong.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-3291978474"
+   }
+  ],
   "https://www.naiyahotel.com": [
    {
     "field": "website",
@@ -11849,6 +14636,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-6204649738"
+   }
+  ],
+  "https://www.newvisionhome.org/": [
+   {
+    "field": "website",
+    "id": "cr-osm-node-12292303440"
    }
   ],
   "https://www.newyorknewyorkstudio.com/": [
@@ -11893,6 +14686,12 @@
     "id": "cm-osm-way-322391432"
    }
   ],
+  "https://www.originbeancoffee.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-540188568"
+   }
+  ],
   "https://www.oubkhammuseum.com/": [
    {
     "field": "website",
@@ -11929,6 +14728,12 @@
     "id": "cm-osm-node-1618892756"
    }
   ],
+  "https://www.pataraelephantfarm.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-patara-elephant-farm"
+   }
+  ],
   "https://www.patsklangviang.com/": [
    {
     "field": "website",
@@ -11939,6 +14744,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-1616141789"
+   }
+  ],
+  "https://www.pcccr.ac.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-316042457"
    }
   ],
   "https://www.pdacr.org/": [
@@ -11953,10 +14764,22 @@
     "id": "cm-osm-node-3304475325"
    }
   ],
+  "https://www.phtpschool.ac.th": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1233206060"
+   }
+  ],
   "https://www.phucome.com/": [
    {
     "field": "website",
     "id": "cm-osm-relation-6562499"
+   }
+  ],
+  "https://www.phufatara.com/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1013421997"
    }
   ],
   "https://www.phujaya.com/": [
@@ -11995,6 +14818,12 @@
     "id": "cm-osm-way-1259365259"
    }
   ],
+  "https://www.prc.ac.th/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-189054411"
+   }
+  ],
   "https://www.proudphufah.com/home.html": [
    {
     "field": "website",
@@ -12011,6 +14840,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-304926822"
+   }
+  ],
+  "https://www.punspace.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-6077929085"
    }
   ],
   "https://www.rad-rabbit.com/": [
@@ -12089,6 +14924,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-528019094"
+   }
+  ],
+  "https://www.sakyantchiangmai.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-5703615419"
    }
   ],
   "https://www.salacafe.org/": [
@@ -12235,6 +15076,18 @@
     "id": "cm-osm-node-13535468487"
    }
   ],
+  "https://www.skillcenter-chiangmai.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-3868706670"
+   }
+  ],
+  "https://www.skphotsprings.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-95223020"
+   }
+  ],
   "https://www.sleepguesthouse.com/": [
    {
     "field": "website",
@@ -12245,6 +15098,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-6012268592"
+   }
+  ],
+  "https://www.soryingarena.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-chiangmai-boxing-stadium"
    }
   ],
   "https://www.spicyhostels.com/Spicythai-Backpackers.html": [
@@ -12277,6 +15136,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-340406770"
+   }
+  ],
+  "https://www.step.cmu.ac.th/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-726606026"
    }
   ],
   "https://www.suanbua.com/": [
@@ -12323,6 +15188,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-97855230"
+   }
+  ],
+  "https://www.sunshine-massage-school.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-5810127834"
    }
   ],
   "https://www.sunshinehousecm.com/": [
@@ -12379,6 +15250,30 @@
     "id": "cm-osm-node-3417311373"
    }
   ],
+  "https://www.tesaban7.ac.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-550986950"
+   }
+  ],
+  "https://www.thai.tattoo/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-5608475321"
+   }
+  ],
+  "https://www.thaicookingclasschiangrai.com/": [
+   {
+    "field": "website",
+    "id": "cr-curated-suwannee-thai-cooking-class"
+   }
+  ],
+  "https://www.thaielephanthome.com/": [
+   {
+    "field": "website",
+    "id": "cm-curated-thai-elephant-home"
+   }
+  ],
   "https://www.thailandbiennale.org/en/venues/chiang-rai-tobacco-office": [
    {
     "field": "website",
@@ -12393,6 +15288,12 @@
    {
     "field": "website",
     "id": "cr-osm-way-1074237711"
+   }
+  ],
+  "https://www.thecabinchiangmai.com/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-542929587"
    }
   ],
   "https://www.thecamp-chiangmai.com/": [
@@ -12473,10 +15374,10 @@
     "id": "cr-osm-way-751059215"
    }
   ],
-  "https://www.thesocialclub.asia/": [
+  "https://www.thesocialclub.asia": [
    {
     "field": "website",
-    "id": "cm-osm-node-11065396205"
+    "id": "cm-osm-way-361121944"
    }
   ],
   "https://www.topnorthhotel.net/": [
@@ -12491,6 +15392,12 @@
     "id": "cm-osm-node-4493523289"
    }
   ],
+  "https://www.tourismthailand.org/Attraction/Pong-Dueat-Hot-Spring--4436": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-1517547080"
+   }
+  ],
   "https://www.tourismthailand.org/Attraction/wat-phra-that-doi-suthep": [
    {
     "field": "attrs.website",
@@ -12499,12 +15406,6 @@
    {
     "field": "attrs.website",
     "id": "cm-osm-way-114651040"
-   }
-  ],
-  "https://www.touristinnhotel.com/": [
-   {
-    "field": "website",
-    "id": "cr-osm-node-4528072891"
    }
   ],
   "https://www.trigong.com/": [
@@ -12517,6 +15418,12 @@
    {
     "field": "website",
     "id": "cm-osm-node-6054003512"
+   }
+  ],
+  "https://www.tupcr.ac.th/": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1103996779"
    }
   ],
   "https://www.uhotelsresorts.com/uchiangmai/": [
@@ -12543,10 +15450,22 @@
     "id": "cm-osm-node-2509993173"
    }
   ],
+  "https://www.volunteers-without-borders.org/": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-385562938"
+   }
+  ],
   "https://www.vresidencechiangmai.com/": [
    {
     "field": "website",
     "id": "cm-osm-way-200686321"
+   }
+  ],
+  "https://www.webythebrain.com": [
+   {
+    "field": "website",
+    "id": "cr-osm-way-1073509621"
    }
   ],
   "https://www.weterminalhotel.com/": [
@@ -12591,6 +15510,30 @@
     "id": "cm-osm-way-314677557"
    }
   ],
+  "https://www.world-of-waterfalls.com/asia-mae-ya-waterfall.html": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-2262154851"
+   }
+  ],
+  "https://www.world-of-waterfalls.com/asia-mork-fa-waterfall.html": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-2933521303"
+   }
+  ],
+  "https://www.world-of-waterfalls.com/waterfalls/asia-mae-klang-waterfall/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-2472084332"
+   }
+  ],
+  "https://www.world-of-waterfalls.com/waterfalls/asia-wachirathan-waterfall/": [
+   {
+    "field": "website",
+    "id": "cm-osm-node-1268227488"
+   }
+  ],
   "https://www.wualaisabaidee.com": [
    {
     "field": "website",
@@ -12603,6 +15546,12 @@
     "id": "cm-osm-way-251908577"
    }
   ],
+  "https://www.yellowincubator.com/coworking": [
+   {
+    "field": "website",
+    "id": "cm-curated-yellow"
+   }
+  ],
   "https://www.yogakuukan.com/": [
    {
     "field": "website",
@@ -12613,6 +15562,12 @@
    {
     "field": "website",
     "id": "cm-osm-way-324214989"
+   }
+  ],
+  "https://www.yupparaj.ac.th": [
+   {
+    "field": "website",
+    "id": "cm-osm-way-272979974"
    }
   ],
   "https://www.ziraspa.com/": [
