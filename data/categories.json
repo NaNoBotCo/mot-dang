@@ -762,26 +762,42 @@
    "key": "realestate",
    "th": "อสังหาฯ-คอนโด",
    "en": "Real Estate & Condos",
-   "teaser_th": "คอนโด หมู่บ้าน นายหน้า...",
-   "teaser_en": "Condo buildings, moobaan, agents...",
+   "teaser_th": "คอนโด อพาร์ตเมนต์-แมนชั่น หอพัก หมู่บ้าน นายหน้า...",
+   "teaser_en": "Condos, apartments & mansions, dorms, moobaan, agents...",
    "children": [
     {
      "key": "condo",
-     "th": "อาคารคอนโด",
-     "en": "Condo Buildings",
+     "th": "อาคารชุด-คอนโด",
+     "en": "Condominiums",
      "match": {
       "sub": "condo"
      }
     },
     {
+     "key": "apartment",
+     "th": "อพาร์ตเมนต์-แมนชั่น-คอร์ท",
+     "en": "Apartments, Mansions & Courts",
+     "match": {
+      "sub": "apartment"
+     }
+    },
+    {
+     "key": "dorm",
+     "th": "หอพัก",
+     "en": "Dormitories",
+     "match": {
+      "sub": "dorm"
+     }
+    },
+    {
      "key": "moobaan",
-     "th": "หมู่บ้าน-บ้านเช่า",
-     "en": "Moobaan & Rentals"
+     "th": "หมู่บ้านจัดสรร",
+     "en": "Moobaan (Housing Estates)"
     },
     {
      "key": "agent",
      "th": "นายหน้า-เอเจนต์",
-     "en": "Agents",
+     "en": "Agents & Agencies",
      "match": {
       "sub": "agent"
      }

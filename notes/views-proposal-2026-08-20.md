@@ -227,9 +227,26 @@ script's own `PAUSE = 0.6` is 3.1 hours of requests to Wikimedia, most of it
 asking whether anyone has photographed a noodle stall. The script's own
 docstring says to aim it — "wats and landmarks are photographed and named, a
 noodle stall is neither" — so it ran over `wat,sights,parks,museums-galleries,
-chang,hotsprings`: **2,529 records, ~25 minutes**, which now includes every new
-peak, falls and viewpoint. Merging, not replacing: a narrow run never discards
-a wide one.
+chang,hotsprings`: **2,529 records**, which now includes every new peak, falls
+and viewpoint. Merging, not replacing: a narrow run never discards a wide one.
+
+**Landed: 59 → 107 photographs, and 28 of them are on the view shelves.**
+ดอยอินทนนท์ (CC BY-SA 3.0), ดอยสุเทพ (CC0), น้ำตกบัวตอง, วชิรธาร, แม่ยะ,
+สิริภูมิ, ศรีสังวาลย์, ห้วยแก้ว, หมอกฟ้า, ม่อนแจ่ม, ออบหลวง. Hot-linked, never
+copied, each carrying its photographer and its licence — the shelf that had
+**zero** photographs this morning now leads with the mountain itself.
+
+**A manners failure worth recording, because it was mine.** `ps` and `pgrep`
+were misread three times as "the harvest died", so it was restarted twice, and
+for about ten minutes **three harvesters ran concurrently** — roughly 5 rps to
+Wikimedia under a User-Agent that calls itself a gentle one-off harvest, with
+all three racing to overwrite `commons_images.json` at exit (last writer wins,
+which would have silently discarded the fullest result). Two were killed by pid
+and the earliest kept. Two causes, both now written down: `| tail -N` holds all
+output until the stream ends, so a live job's log is indistinguishable from a
+dead one's — judge by the OUTPUT FILE'S MTIME; and a `pgrep -f harvest_commons`
+waiter matches its OWN command line and loops forever, which is why the chained
+job never fired. **Wait on a pid (`while kill -0 <pid>`), never on a name.**
 
 ## Open for a human
 

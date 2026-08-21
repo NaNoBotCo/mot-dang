@@ -63,6 +63,9 @@ MAX_CHARS = 420
 # chain is deliberately excluded: the article about 7-Eleven is about the
 # company, and printing it under one shop in Chiang Mai would say something
 # untrue about that shop.
+# An article whose title announces it is a LIST is about a set, never about
+# one member of it. See extract_of for the case that found this.
+LIST_TITLE = re.compile(r"^(รายชื่อ|รายการ|Lists? of\b)", re.I)
 WANTED_CATS = {"wat", "sights", "museums-galleries", "parks", "market",
                "learn", "community", "transport"}
 
@@ -119,8 +122,20 @@ def extract_of(doc):
 
     A disambiguation page is not a description of anywhere, and neither is an
     article we reached by a redirect we cannot verify points at this place.
+
+    NEITHER IS A LIST. Found 2026-08-21: สถานีรถไฟสารภี cites a Wikidata item
+    whose Thai sitelink is รายชื่อสถานีรถไฟ สายเหนือ — "List of railway
+    stations, Northern Line" — so the station's Thai blurb described the LINE,
+    on a page named for one station. Its English sitelink is the station's own
+    article, which is what makes this the same animal as the chain exclusion
+    above: the article is real, and it is about something larger than the
+    place. A list cannot be a description of one of its entries, so it is
+    refused in whichever language it arrives, and the other language still
+    stands on its own.
     """
     if not doc or doc.get("type") == "disambiguation":
+        return None
+    if LIST_TITLE.match((doc.get("title") or "").strip()):
         return None
     text = (doc.get("extract") or "").strip()
     if len(text) < 40:

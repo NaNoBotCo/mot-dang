@@ -970,6 +970,50 @@
   "updatedAt": "2026-08-20"
  },
  {
+  "id": "cm-curated-hugsa-klang-wiang",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "ฮักษา กลางเวียง",
+  "nameTh": "ฮักษา กลางเวียง",
+  "nameEn": "Hugsa Medical (Klang Wiang)",
+  "lat": 18.773119,
+  "lng": 98.998828,
+  "geoPrecision": "approx",
+  "address": "77/7 ถ.คชสาร ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
+  "phone": "093-309-9988",
+  "website": "https://hugsamedical.com/branch-chiang-mai/",
+  "hours": "Mo-Su 10:00-18:00",
+  "attrs": {
+   "kind": "general clinic",
+   "pinVia": "address-street-match",
+   "pinUncertaintyM": "1666",
+   "pinFrom": "Changklan Road"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "คลินิกเวชกรรมกลางเวียง เปิดทุกวัน — ตรวจสุขภาพ ตรวจเลือด คัดกรองโรคติดต่อทางเพศสัมพันธ์ และระบุระบบต่อมไร้ท่อไว้ในกลุ่มโรคที่ดูแล",
+  "blurb_en": "A general clinic in the old city, open daily — health checks, blood tests, STI screening, and it names endocrine conditions among what it treats.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://hugsamedical.com/branch-chiang-mai/",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://thaisisterhood.com/resources/clinics",
+    "fetched": "2026-08-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-21"
+ },
+ {
   "id": "cm-curated-into-the-wild-elephant-camp",
   "province": "cm",
   "cat": [
@@ -1433,6 +1477,55 @@
   "updatedAt": "2026-08-19"
  },
  {
+  "id": "cm-curated-mplus-chiangmai",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "มูลนิธิเอ็มพลัส เชียงใหม่",
+  "nameTh": "มูลนิธิเอ็มพลัส เชียงใหม่",
+  "nameEn": "M Plus Foundation Chiang Mai",
+  "lat": 18.773948,
+  "lng": 98.98659,
+  "geoPrecision": "approx",
+  "address": "142 หมู่ 1 ถ.เชียงใหม่-ฮอด ต.ป่าแดด อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
+  "phone": "053-283108",
+  "website": "https://www.mplusthailand.com/",
+  "hours": "Mo-Fr 12:00-19:00",
+  "attrs": {
+   "kind": "community sexual-health clinic (มูลนิธิ)",
+   "pinVia": "postcode-centroid",
+   "pinUncertaintyM": "4059",
+   "pinFrom": "50100"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "คลินิกชุมชนของมูลนิธิเอ็มพลัส — ตรวจเอชไอวีและโรคติดต่อทางเพศสัมพันธ์ ยาเพร็พ-เป๊ป และตรวจวัดระดับฮอร์โมนสำหรับหญิงข้ามเพศและชายข้ามเพศ มีคลินิกพิเศษอาทิตย์สุดท้ายของเดือน",
+  "blurb_en": "M Plus Foundation's community clinic — HIV/STI testing, PrEP and PEP, and hormone-level testing for trans women and trans men, with a special clinic on the last Sunday of each month.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.mplusthailand.com/en/m-plus-chiangmai/",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.mplusthailand.com/en/contact-us/",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://thaisisterhood.com/resources/clinics",
+    "fetched": "2026-08-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-21"
+ },
+ {
   "id": "cm-curated-naresuan-lokmolee",
   "province": "cm",
   "cat": [
@@ -1624,6 +1717,94 @@
   ],
   "confidence": "curated",
   "updatedAt": "2026-08-10"
+ },
+ {
+  "id": "cm-curated-piman-clinic",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "พิมาน คลินิก",
+  "nameTh": "พิมาน คลินิก",
+  "nameEn": "Piman Clinic (RIHES CMU)",
+  "lat": 18.794357,
+  "lng": 98.970735,
+  "geoPrecision": "approx",
+  "address": "7/2-3 ซอยกรรไกรทอง ถ.ศิริมังคลาจารย์ ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
+  "phone": null,
+  "website": "https://pimanclinic.rihes.cmu.ac.th/",
+  "hours": "Mo-Fr 10:00-18:00",
+  "attrs": {
+   "kind": "HIV testing & counselling clinic (สถาบันวิจัยวิทยาศาสตร์สุขภาพ มช.)",
+   "pinVia": "address-street-match",
+   "pinUncertaintyM": "582",
+   "pinFrom": "Sirimangkalajarn Road"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "คลินิกของสถาบันวิจัยวิทยาศาสตร์สุขภาพ มหาวิทยาลัยเชียงใหม่ ตั้งแต่ปี 2551 — ตรวจเอชไอวีแบบรู้ผลเร็ว และให้คำปรึกษาโรคติดต่อทางเพศสัมพันธ์ (เจาะเลือดถึง 15:00)",
+  "blurb_en": "A clinic of CMU's Research Institute for Health Sciences, running since 2008 — rapid HIV testing and STI counselling (blood draws until 15:00).",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://pimanclinic.rihes.cmu.ac.th/",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://thaisisterhood.com/resources/clinics",
+    "fetched": "2026-08-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-21"
+ },
+ {
+  "id": "cm-curated-prep-by-cwc",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "PrEP by CWC",
+  "nameTh": null,
+  "nameEn": "PrEP by CWC",
+  "lat": 18.789665,
+  "lng": 98.996415,
+  "geoPrecision": "approx",
+  "address": "429/1-3 ถ.วิชยานนท์ ต.ช้างม่อย อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50300",
+  "phone": "084-152-6496",
+  "website": "https://www.prepclinicchiangmai.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "sexual-health clinic",
+   "pinVia": "tambon-centroid",
+   "pinUncertaintyM": "273",
+   "pinFrom": "ช้างม่อย"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "คลินิกสุขภาพทางเพศย่านช้างม่อย — เพร็พและเป๊ป (รวมชนิดฉีด) ตรวจเอชไอวีและโรคติดต่อทางเพศสัมพันธ์ แล็บในคลินิก รู้ผลวันเดียว เปิดทุกวัน",
+  "blurb_en": "A Chang Moi sexual-health clinic — PrEP and PEP (including injectable), same-day HIV/STI testing with an in-house lab, open daily.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.prepclinicchiangmai.com/",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://thaisisterhood.com/resources/clinics",
+    "fetched": "2026-08-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-21"
  },
  {
   "id": "cm-curated-pwork",
@@ -2386,7 +2567,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -2403,8 +2584,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2011-01-24",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -2432,7 +2613,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -2449,8 +2630,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2004-12-02",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -2524,7 +2705,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -2541,8 +2722,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2022-04-05",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -3024,7 +3205,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -3041,8 +3222,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2022-04-27",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -3251,7 +3432,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -3268,8 +3449,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2004-11-19",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -3563,7 +3744,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -3580,8 +3761,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2011-01-24",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -4060,7 +4241,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -4077,8 +4258,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2013-09-16",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -5020,7 +5201,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -5037,8 +5218,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2018-05-31",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -5112,7 +5293,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -5129,8 +5310,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2024-02-14",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -5158,7 +5339,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -5175,8 +5356,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2017-09-14",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -5204,7 +5385,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -5221,8 +5402,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2019-02-15",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -5250,7 +5431,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -5267,8 +5448,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2004-10-01",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -6301,7 +6482,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -6318,8 +6499,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2021-04-21",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -6393,7 +6574,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -6410,8 +6591,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2023-07-27",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -7034,7 +7215,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -7051,8 +7232,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2017-04-25",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -7080,7 +7261,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -7097,8 +7278,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2013-11-18",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -8583,7 +8764,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -8600,8 +8781,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2016-08-18",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -8718,7 +8899,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -8735,8 +8916,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2014-02-04",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -9086,7 +9267,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -9103,8 +9284,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2004-11-30",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -10588,7 +10769,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -10605,8 +10786,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2014-01-17",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -11036,7 +11217,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -11053,8 +11234,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2017-01-23",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -11174,7 +11355,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -11191,8 +11372,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2015-05-14",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -11677,7 +11858,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -11694,8 +11875,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2022-06-20",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -11861,7 +12042,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -11878,8 +12059,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2022-02-17",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -12824,7 +13005,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -12841,8 +13022,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2014-02-25",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -13741,7 +13922,7 @@
    "amphoe": "กัลยาณิวัฒนา",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -13758,8 +13939,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2022-02-10",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -13968,7 +14149,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -13985,8 +14166,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2011-08-09",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -14336,7 +14517,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300",
    "specialty": [
     "lab"
@@ -14357,8 +14538,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2024-03-18",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -15708,7 +15889,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -15725,8 +15906,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2018-02-28",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -15984,7 +16165,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -16001,8 +16182,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2023-08-15",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -16260,7 +16441,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -16277,8 +16458,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2009-04-30",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -16398,7 +16579,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -16415,8 +16596,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2013-11-12",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -18088,7 +18269,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -18105,8 +18286,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2023-08-29",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -18450,7 +18631,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -18467,8 +18648,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2020-07-14",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -18496,7 +18677,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -18513,8 +18694,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2010-10-11",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -19137,7 +19318,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -19154,8 +19335,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2018-03-12",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -19367,7 +19548,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -19384,8 +19565,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2022-01-11",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -21050,7 +21231,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -21067,8 +21248,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2004-11-29",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -22053,7 +22234,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -22070,8 +22251,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2020-03-17",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -22099,7 +22280,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -22116,8 +22297,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2021-06-15",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -22602,7 +22783,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -22619,8 +22800,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2020-03-06",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -22648,7 +22829,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -22665,8 +22846,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2019-01-22",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -22878,7 +23059,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -22895,8 +23076,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2022-06-07",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -22970,7 +23151,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -22987,8 +23168,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2012-01-11",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -23016,7 +23197,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -23033,8 +23214,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2020-05-28",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -23108,7 +23289,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -23125,8 +23306,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2014-04-02",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -23338,7 +23519,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -23355,8 +23536,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2016-08-25",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -24298,7 +24479,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -24315,8 +24496,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2017-09-04",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -25202,7 +25383,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -25219,8 +25400,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2019-05-22",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -26665,7 +26846,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -26682,8 +26863,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2019-07-11",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -27214,7 +27395,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -27231,8 +27412,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2010-09-13",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -27306,7 +27487,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -27323,8 +27504,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2023-03-09",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -28122,7 +28303,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -28139,8 +28320,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2010-06-18",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -28214,7 +28395,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -28231,8 +28412,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2004-12-17",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -28398,7 +28579,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -28415,8 +28596,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2560-12-12",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -29082,7 +29263,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -29099,8 +29280,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2015-06-23",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -31084,7 +31265,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -31101,8 +31282,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2021-02-16",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -31590,7 +31771,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -31607,8 +31788,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2021-08-11",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -32234,7 +32415,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -32251,8 +32432,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2010-10-15",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -32599,7 +32780,7 @@
    "amphoe": "เมืองเชียงใหม่",
    "postcode": "50300",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -32616,8 +32797,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2022-04-05",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -34072,6 +34253,1379 @@
     "type": "opendata",
     "ref": "https://data.go.th/dataset/69_139",
     "fetched": "2026-08-20",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-mhesi-1233088976",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "university"
+  ],
+  "name": "มหาวิทยาลัยรามคำแหง สาขาวิทยบริการเฉลิมพระเกียรติจังหวัดเชียงใหม่",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "higher-education",
+   "mhesiRegistered": true,
+   "yearBE": "2563"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "register",
+    "ref": "https://data.go.th/dataset/univ_uni_11_03",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "License not specified",
+    "credit": "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-mhesi-1708227000",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "university"
+  ],
+  "name": "มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาเขตเชียงใหม่",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "higher-education",
+   "mhesiRegistered": true,
+   "yearBE": "2563"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "register",
+    "ref": "https://data.go.th/dataset/univ_uni_11_03",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "License not specified",
+    "credit": "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-mhesi-2467126305",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "university"
+  ],
+  "name": "มหาวิทยาลัยการกีฬาแห่งชาติ วิทยาเขตเชียงใหม่",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "higher-education",
+   "mhesiRegistered": true,
+   "yearBE": "2563"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "register",
+    "ref": "https://data.go.th/dataset/univ_uni_11_03",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "License not specified",
+    "credit": "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-mhesi-2540112049",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "university"
+  ],
+  "name": "มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา วิทยาเขตภาคพายัพจังหวัดเชียงใหม่",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "higher-education",
+   "mhesiRegistered": true,
+   "yearBE": "2563"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "register",
+    "ref": "https://data.go.th/dataset/univ_uni_11_03",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "License not specified",
+    "credit": "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-mhesi-3563239785",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "university"
+  ],
+  "name": "มหาวิทยาลัยมหามกุฏราชวิทยาลัย วิทยาเขตล้านนา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "higher-education",
+   "mhesiRegistered": true,
+   "yearBE": "2563"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "register",
+    "ref": "https://data.go.th/dataset/univ_uni_11_03",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "License not specified",
+    "credit": "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-monastic-0024435810",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนบาลีสาธิตศึกษา มจร. วิทยาเขตเชียงใหม่",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลสุเทพ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดสวนดอก พระอารามหลวง",
+   "tambon": "สุเทพ",
+   "amphoe": "เมืองเชียงใหม่",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "150",
+   "pinFrom": "วัดสวนดอก",
+   "watId": "cm-osm-way-322604682",
+   "watPinPrecision": "block"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.7881559,
+  "lng": 98.9677831,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-0474154629",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนวัดพุทธนิมิตรวิทยา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลสบเตี๊ยะ อำเภอจอมทอง จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดพุทธนิมิตร",
+   "tambon": "สบเตี๊ยะ",
+   "amphoe": "จอมทอง"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-monastic-0747265010",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนวัดวิเวกวนาราม",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลหนองหาร อำเภอสันทราย จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดวิเวกวนาราม",
+   "tambon": "หนองหาร",
+   "amphoe": "สันทราย",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "5325",
+   "pinFrom": "วัดวิเวกวนาราม",
+   "watId": "cm-onab-03501408008",
+   "watPinPrecision": "approx"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.9041,
+  "lng": 99.006836,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-1146218711",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนวัดฉิมพลีวิทยา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลมืดกา อำเภอดอยเต่า จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดฉิมพลีวุฒาราม",
+   "tambon": "มืดกา",
+   "amphoe": "ดอยเต่า"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-monastic-1470327610",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนเขื่อนผากวิทยา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลเขื่อนผาก อำเภอพร้าว จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดเขื่อนผาก",
+   "tambon": "เขื่อนผาก",
+   "amphoe": "พร้าว"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-monastic-1662370456",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนวัดพระบาทอุดม",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลเวียง อำเภอฝาง จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดพระบาทอุดม",
+   "tambon": "เวียง",
+   "amphoe": "ฝาง"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-monastic-1821015360",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนดอยสะเก็ดผดุงศาสน์",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลเชียงดอย อำเภอดอยสะเก็ด จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดปทุมสราราม (หนองบัว)",
+   "tambon": "เชียงดอย",
+   "amphoe": "ดอยสะเก็ด"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-monastic-1907244623",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนสัพพัญญูวิทยา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลดอนเปา อำเภอแม่วาง จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดดอยสัพพัญญู",
+   "tambon": "ดอนเปา",
+   "amphoe": "แม่วาง"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-monastic-1926000508",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนเชตุพนศึกษา (ในพระสังฆราชูปถัมภ์)",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลวัดเกต อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดเชตุพน",
+   "tambon": "วัดเกต",
+   "amphoe": "เมืองเชียงใหม่",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "150",
+   "pinFrom": "วัดเชตุพน",
+   "watId": "cm-osm-way-189056074",
+   "watPinPrecision": "block"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.7975465,
+  "lng": 99.0036226,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-2358527988",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนสมเด็จพระพุทธชินวงศ์",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลสุเทพ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดศรีโสดา พระอารามหลวง",
+   "tambon": "สุเทพ",
+   "amphoe": "เมืองเชียงใหม่",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "150",
+   "pinFrom": "วัดศรีโสดา",
+   "watId": "cm-osm-way-205009315",
+   "watPinPrecision": "block"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.8139176,
+  "lng": 98.9460034,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-2371718491",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนฝางธรรมศึกษา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลสันทราย อำเภอฝาง จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดศรีบุญเรือง",
+   "tambon": "สันทราย",
+   "amphoe": "ฝาง",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "150",
+   "pinFrom": "วัดศรีบุญเรือง",
+   "watId": "cm-osm-way-298150021",
+   "watPinPrecision": "block"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.7369718,
+  "lng": 99.0425877,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-2546210838",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนสันป่าตองศึกษา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลยุหว่า อำเภอสันป่าตอง จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดศรีปันเงิน",
+   "tambon": "ยุหว่า",
+   "amphoe": "สันป่าตอง",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "2701",
+   "pinFrom": "วัดศรีปันเงิน",
+   "watId": "cm-onab-03501201014",
+   "watPinPrecision": "approx"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.643108,
+  "lng": 98.890936,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-2769145063",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนวัดสะเมิงวิทยา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลสะเมิงใต้ อำเภอสะเมิง จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดสะเมิง",
+   "tambon": "สะเมิงใต้",
+   "amphoe": "สะเมิง"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-monastic-2776068173",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนสารภีปริยัติศึกษา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลยางเนิ้ง อำเภอสารภี จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดพระนอนป่าเก็ดถี่",
+   "tambon": "ยางเนิ้ง",
+   "amphoe": "สารภี",
+   "pinVia": "tambon-amphoe-centroid",
+   "pinUncertaintyM": "1742",
+   "pinFrom": "ยางเนิ้ง / สารภี"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.710881,
+  "lng": 99.035654,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-2870117873",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนพระปริยัติธรรมวัดท่าตอน",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลท่าตอน อำเภอแม่อาย จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดท่าตอน",
+   "tambon": "ท่าตอน",
+   "amphoe": "แม่อาย",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "7632",
+   "pinFrom": "วัดท่าตอน",
+   "watId": "cm-onab-03501005001",
+   "watPinPrecision": "approx"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 20.037332,
+  "lng": 99.31524,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-2899690019",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนวัดแม่ริมวิทยา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลริมใต้ อำเภอแม่ริม จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดแม่ริม",
+   "tambon": "ริมใต้",
+   "amphoe": "แม่ริม",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "6381",
+   "pinFrom": "วัดแม่ริม",
+   "watId": "cm-onab-03500701003",
+   "watPinPrecision": "approx"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.914792,
+  "lng": 98.923199,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-3208799144",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนอภัยอริยศึกษา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลศรีภูมิ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดดับภัย",
+   "tambon": "ศรีภูมิ",
+   "amphoe": "เมืองเชียงใหม่",
+   "pinVia": "tambon-amphoe-centroid",
+   "pinUncertaintyM": "250",
+   "pinFrom": "ศรีภูมิ / เมืองเชียงใหม่"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.796164,
+  "lng": 98.990569,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-3284692535",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนธรรมเมธีศึกษา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลพระสิงห์ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดพันเตา",
+   "tambon": "พระสิงห์",
+   "amphoe": "เมืองเชียงใหม่",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "150",
+   "pinFrom": "Wat Phan Tao",
+   "watId": "cm-osm-way-243018378",
+   "watPinPrecision": "block"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.7876922,
+  "lng": 98.9874529,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-3541880565",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนพระปริยัติธรรมวัดป่าไม้แดง",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลหนองบัว อำเภอไชยปราการ จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดป่าไม้แดง",
+   "tambon": "หนองบัว",
+   "amphoe": "ไชยปราการ",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "2701",
+   "pinFrom": "วัดป่าไม้แดง",
+   "watId": "cm-onab-03501208006",
+   "watPinPrecision": "approx"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.643108,
+  "lng": 98.890936,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-3619678762",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนแม่แจ่มปริยัติศึกษา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลช่างเคิ่ง อำเภอแม่แจ่ม จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดกู่",
+   "tambon": "ช่างเคิ่ง",
+   "amphoe": "แม่แจ่ม"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-monastic-3624024621",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนพระปริยัติธรรมแม่แตงวิทยา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลขี้เหล็ก อำเภอแม่แตง จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดหนองโค้ง",
+   "tambon": "ขี้เหล็ก",
+   "amphoe": "แม่แตง",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "150",
+   "pinFrom": "วัดหนองโค้ง",
+   "watId": "cm-osm-way-98698313",
+   "watPinPrecision": "block"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.76401,
+  "lng": 99.0749913,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-3800655391",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนหางดงสังฆราษฎร์อุปถัมภ์",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลหางดง อำเภอหางดง จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดกำแพงงาม",
+   "tambon": "หางดง",
+   "amphoe": "หางดง",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "150",
+   "pinFrom": "วัดกำแพงงาม",
+   "watId": "cm-osm-way-675336774",
+   "watPinPrecision": "block"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.6875584,
+  "lng": 98.9206235,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-3860355525",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนวัดอินทารามวิทยา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลเชียงดาว อำเภอเชียงดาว จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดอินทาราม",
+   "tambon": "เชียงดาว",
+   "amphoe": "เชียงดาว"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-monastic-3881168368",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนวัดเจดีย์งามปริยัติวิทยา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลเวียง อำเภอฝาง จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดเจดีย์งาม",
+   "tambon": "เวียง",
+   "amphoe": "ฝาง"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-monastic-3988959436",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนวัดโขงขาววิทยา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลบ้านแหวน อำเภอหางดง จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดโขงขาว",
+   "tambon": "บ้านแหวน",
+   "amphoe": "หางดง",
+   "pinVia": "at-the-temple-the-school-belongs-to",
+   "pinUncertaintyM": "12523",
+   "pinFrom": "วัดโขงขาว",
+   "watId": "cm-onab-03501507005",
+   "watPinPrecision": "approx"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": 18.738453,
+  "lng": 98.916398,
+  "geoPrecision": "approx"
+ },
+ {
+  "id": "cm-dgth-monastic-4117417154",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนเวียงแหงปริยัติศึกษา",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลเมืองแหง อำเภอเวียงแหง จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดกองลม",
+   "tambon": "เมืองแหง",
+   "amphoe": "เวียงแหง"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "Open Data Common",
+    "credit": "สำนักงานจังหวัดเชียงใหม่"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cm-dgth-monastic-4216323769",
+  "province": "cm",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "monastic"
+  ],
+  "name": "โรงเรียนวัดบ้านขุนเตรียมพุทธศาสตร์",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "ตำบลบ่อหลวง อำเภอฮอด จังหวัดเชียงใหม่",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "monastic",
+   "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "watName": "วัดบ้านขุน",
+   "tambon": "บ่อหลวง",
+   "amphoe": "ฮอด"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/68_113",
+    "fetched": "2026-08-21",
     "via": "data.go.th",
     "licence": "Open Data Common",
     "credit": "สำนักงานจังหวัดเชียงใหม่"
@@ -35842,45 +37396,6 @@
   "updatedAt": "2020-03-14"
  },
  {
-  "id": "cm-moph-8899210200023",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลจอมทอง",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.406815,
-  "lng": 98.674409,
-  "geoPrecision": "exact",
-  "address": "259 ม.2 ถ.เชียงใหม่-ฮอด หมู่ 2 ต.ดอยแก้ว อ.จอมทอง จ.เชียงใหม่ 50160",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200023",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
   "id": "cm-moph-8899210200024",
   "province": "cm",
   "cat": [
@@ -35998,240 +37513,6 @@
   "updatedAt": "2020-03-14"
  },
  {
-  "id": "cm-moph-8899210200027",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลดอยสะเก็ด",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.869617346,
-  "lng": 99.129685596,
-  "geoPrecision": "exact",
-  "address": "2 ม.8 ถ.เชียงใหม่-ดอยสะเก็ด หมู่ 8 ต.เชิงดอย อ.ดอยสะเก็ด จ.เชียงใหม่ 50220",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200027",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cm-moph-8899210200028",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลนครพิงค์",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.852270956,
-  "lng": 98.967648363,
-  "geoPrecision": "exact",
-  "address": "159 ถ.โชตินา หมู่ 4 ต.แม่สา อ.แม่ริม จ.เชียงใหม่ 50000",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200028",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cm-moph-8899210200029",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลฝาง",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 19.913197,
-  "lng": 99.206513,
-  "geoPrecision": "exact",
-  "address": "30 ม.4 ถ.โชตนา หมู่ 4 ต.เวียง อ.ฝาง จ.เชียงใหม่ 50110",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200029",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cm-moph-8899210200030",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลพร้าว",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 19.3674459348523,
-  "lng": 99.2002406451886,
-  "geoPrecision": "exact",
-  "address": "181 ม.4 หมู่ 4 ต.เวียง อ.พร้าว จ.เชียงใหม่ 50190",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200030",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cm-moph-8899210200031",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลแม่แตง",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 19.137218698,
-  "lng": 98.959672253,
-  "geoPrecision": "exact",
-  "address": "300 หมู่ 7 ต.สันมหาพน อ.แม่แตง จ.เชียงใหม่ 50150",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200031",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cm-moph-8899210200032",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลดอยหล่อ",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.47806235,
-  "lng": 98.78067255,
-  "geoPrecision": "exact",
-  "address": "หมู่ 5 ต.ดอยหล่อ อ.ดอยหล่อ จ.เชียงใหม่ 50160",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200032",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
   "id": "cm-moph-8899210200033",
   "province": "cm",
   "cat": [
@@ -36241,8 +37522,8 @@
    "hospital"
   ],
   "name": "โรงพยาบาลแม่ออน",
-  "nameTh": null,
-  "nameEn": null,
+  "nameTh": "โรงพยาบานแม่ออน",
+  "nameEn": "Mae On Hospital",
   "lat": 18.7432357880087,
   "lng": 99.2217348691954,
   "geoPrecision": "exact",
@@ -36265,6 +37546,18 @@
     "via": "CITIZENinfo (DGA)",
     "licence": "CC-BY (data.go.th)",
     "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "osm",
+    "ref": "way/969653472",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-osm-way-969653472",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "official",
@@ -36427,45 +37720,6 @@
   "updatedAt": "2020-03-14"
  },
  {
-  "id": "cm-moph-8899210200038",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลสะเมิง",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.743223032045222,
-  "lng": 99.2215347290039,
-  "geoPrecision": "exact",
-  "address": "ทางหลวงแผ่นดินหมายเลข 1006 ต.บ้านสหกรณ์ อ.แม่ออน จ.เชียงใหม่ 50130",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200038",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
   "id": "cm-moph-8899210200039",
   "province": "cm",
   "cat": [
@@ -36475,8 +37729,8 @@
    "hospital"
   ],
   "name": "โรงพยาบาลสันกำแพง",
-  "nameTh": null,
-  "nameEn": null,
+  "nameTh": "โรงพยาบานสันกำแพง",
+  "nameEn": "San Kamphaeng Hospital",
   "lat": 18.71558062,
   "lng": 99.122690965,
   "geoPrecision": "exact",
@@ -36486,6 +37740,8 @@
   "hours": null,
   "attrs": {
    "facilityType": "hospital",
+   "obgyn": "hospital-likely",
+   "operator": null,
    "mophCode": "8899210200039",
    "sector": "state"
   },
@@ -36499,6 +37755,18 @@
     "via": "CITIZENinfo (DGA)",
     "licence": "CC-BY (data.go.th)",
     "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "osm",
+    "ref": "way/475225586",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-osm-way-475225586",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "official",
@@ -36526,84 +37794,6 @@
   "attrs": {
    "facilityType": "hospital",
    "mophCode": "8899210200040",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cm-moph-8899210200041",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลสันป่าตอง",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.595409,
-  "lng": 98.884807,
-  "geoPrecision": "exact",
-  "address": "149 ถ.เชียงใหม่-ฮอด หมู่ 9 ต.ยุหว่า อ.สันป่าตอง จ.เชียงใหม่ 50120",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200041",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cm-moph-8899210200042",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลสารภี",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.68085289001465,
-  "lng": 99.04305267333984,
-  "geoPrecision": "exact",
-  "address": "147 หมู่ 3 ต.สารภี อ.สารภี จ.เชียงใหม่ 50140",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200042",
    "sector": "state"
   },
   "featured": false,
@@ -36682,45 +37872,6 @@
   "attrs": {
    "facilityType": "hospital",
    "mophCode": "8899210200044",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cm-moph-8899210200045",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลฮอด",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.179315386,
-  "lng": 98.611245779,
-  "geoPrecision": "exact",
-  "address": "294 หมู่ 10 ต.หางดง อ.ฮอด จ.เชียงใหม่ 50240",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200045",
    "sector": "state"
   },
   "featured": false,
@@ -95098,7 +96249,9 @@
    "watRegisterName": "แม่ริม",
    "pinVia": "postcode-centroid",
    "pinUncertaintyM": "6381",
-   "pinFrom": "50180"
+   "pinFrom": "50180",
+   "monasticSchool": "โรงเรียนวัดแม่ริมวิทยา",
+   "monasticSchoolId": "cm-dgth-monastic-2899690019"
   },
   "featured": false,
   "landmark": false,
@@ -104403,7 +105556,9 @@
    "watRegisterName": "ท่าตอน",
    "pinVia": "postcode-centroid",
    "pinUncertaintyM": "7632",
-   "pinFrom": "50280"
+   "pinFrom": "50280",
+   "monasticSchool": "โรงเรียนพระปริยัติธรรมวัดท่าตอน",
+   "monasticSchoolId": "cm-dgth-monastic-2870117873"
   },
   "featured": false,
   "landmark": false,
@@ -109543,7 +110698,9 @@
    "watRegisterName": "ศรีปันเงิน",
    "pinVia": "postcode-centroid",
    "pinUncertaintyM": "2701",
-   "pinFrom": "50120"
+   "pinFrom": "50120",
+   "monasticSchool": "โรงเรียนสันป่าตองศึกษา",
+   "monasticSchoolId": "cm-dgth-monastic-2546210838"
   },
   "featured": false,
   "landmark": false,
@@ -112516,7 +113673,9 @@
    "watRegisterName": "ป่าไม้แดง",
    "pinVia": "postcode-centroid",
    "pinUncertaintyM": "2701",
-   "pinFrom": "50120"
+   "pinFrom": "50120",
+   "monasticSchool": "โรงเรียนพระปริยัติธรรมวัดป่าไม้แดง",
+   "monasticSchoolId": "cm-dgth-monastic-3541880565"
   },
   "featured": false,
   "landmark": false,
@@ -118024,7 +119183,9 @@
    "watRegisterName": "วิเวกวนาราม",
    "pinVia": "postcode-centroid",
    "pinUncertaintyM": "5325",
-   "pinFrom": "50290"
+   "pinFrom": "50290",
+   "monasticSchool": "โรงเรียนวัดวิเวกวนาราม",
+   "monasticSchoolId": "cm-dgth-monastic-0747265010"
   },
   "featured": false,
   "landmark": false,
@@ -120707,7 +121868,9 @@
    "watRegisterName": "โขงขาว",
    "pinVia": "postcode-centroid",
    "pinUncertaintyM": "12523",
-   "pinFrom": "50230"
+   "pinFrom": "50230",
+   "monasticSchool": "โรงเรียนวัดโขงขาววิทยา",
+   "monasticSchoolId": "cm-dgth-monastic-3988959436"
   },
   "featured": false,
   "landmark": false,
@@ -136364,7 +137527,7 @@
    "watRegisterName": "เจดีย์ปล่อง",
    "regType": "ยกวัดร้าง",
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": "3699",
+   "pinUncertaintyM": "3758",
    "pinFrom": "50300"
   },
   "featured": false,
@@ -136381,8 +137544,8 @@
   ],
   "confidence": "official",
   "updatedAt": "2024-01-01",
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx"
  },
  {
@@ -158303,47 +159466,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-node-11270924469",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "Bangkok Hospital Chiang Mai",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7884908,
-  "lng": 99.0262035,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "obgyn": "hospital-likely",
-   "operator": null,
-   "wheelchair": "yes",
-   "facets": {
-    "wheelchair": "osm-tag"
-   }
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "node/11270924469",
-    "fetched": "2026-07-27",
-    "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-node-1127348098",
   "province": "cm",
   "cat": [
@@ -180052,13 +181174,15 @@
   "lat": 18.4065761,
   "lng": 98.6742731,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "259 ม.2 ถ.เชียงใหม่-ฮอด หมู่ 2 ต.ดอยแก้ว อ.จอมทอง จ.เชียงใหม่ 50160",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "GPS; sign",
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200023",
+   "sector": "state",
+   "osmSource": "GPS; sign"
   },
   "featured": false,
   "landmark": false,
@@ -180068,6 +181192,20 @@
     "ref": "node/1287571763",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-moph-8899210200023",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -199733,7 +200871,7 @@
    "realestate"
   ],
   "sub": [
-   "agent"
+   "apartment"
   ],
   "name": "Sunshine Apartment",
   "nameTh": null,
@@ -199754,6 +200892,12 @@
     "ref": "node/1484554967",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "OSM node 1484554967's own tags: name=Sunshine Apartment on office=estate_agent, and nothing else — no agency word anywhere on the record. Filed as an agent it hands a brokerage-hunter a building's front desk; filed as an apartment it is what its own sign says (cache/overpass/cm/realestate.json, crawled 2026-07-27)",
+    "fetched": "2026-08-21",
+    "via": "data/curated/retags.json"
    }
   ],
   "confidence": "crawled",
@@ -216403,12 +217547,14 @@
   "lat": 19.3675861,
   "lng": 99.2000517,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "181 ม.4 หมู่ 4 ต.เวียง อ.พร้าว จ.เชียงใหม่ 50190",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200030",
+   "sector": "state"
   },
   "featured": false,
   "landmark": false,
@@ -216418,6 +217564,20 @@
     "ref": "node/2178385466",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-moph-8899210200030",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -225272,7 +226432,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เอ็มแอนด์ดี แมนชั่น",
   "nameTh": "เอ็มแอนด์ดี แมนชั่น",
@@ -225794,7 +226954,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "คาราเมล แมนชั่น",
   "nameTh": "คาราเมล แมนชั่น",
@@ -229189,7 +230349,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ปฏิญญา คอร์ท",
   "nameTh": "ปฏิญญา คอร์ท",
@@ -238762,7 +239922,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เมอร์คิวรี่คอร์ท",
   "nameTh": "เมอร์คิวรี่คอร์ท",
@@ -240316,7 +241476,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Petchatarana Court",
   "nameTh": null,
@@ -246202,12 +247362,14 @@
   "lat": 18.5953558,
   "lng": 98.8850241,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "149 ถ.เชียงใหม่-ฮอด หมู่ 9 ต.ยุหว่า อ.สันป่าตอง จ.เชียงใหม่ 50120",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
    "facilityType": "hospital",
+   "mophCode": "8899210200041",
+   "sector": "state",
    "wikidata": "Q30270346"
   },
   "featured": false,
@@ -246218,6 +247380,20 @@
     "ref": "node/2685457463",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-moph-8899210200041",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -251065,7 +252241,8 @@
    "wifiFee": "no",
    "facets": {
     "wifi": "osm-tag"
-   }
+   },
+   "lgbtq": "primary"
   },
   "featured": false,
   "landmark": false,
@@ -260996,7 +262173,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Sujphakit House",
   "nameTh": null,
@@ -266638,7 +267815,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ไชยวุฒิ แมนชั่น",
   "nameTh": "ไชยวุฒิ แมนชั่น",
@@ -266674,7 +267851,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "รินทอง คอร์ท",
   "nameTh": "รินทอง คอร์ท",
@@ -268767,7 +269944,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านเชียงรุ้ง",
   "nameTh": "บ้านเชียงรุ้ง",
@@ -274429,7 +275606,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ธารทิพย์คอร์ท",
   "nameTh": null,
@@ -276723,7 +277900,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "นงนภัส คอร์ท",
   "nameTh": null,
@@ -277231,7 +278408,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านเอกชัย",
   "nameTh": "บ้านเอกชัย",
@@ -278824,7 +280001,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Lucky Home",
   "nameTh": null,
@@ -303926,7 +305103,9 @@
    "wifi": "wlan",
    "facets": {
     "wifi": "osm-tag"
-   }
+   },
+   "lgbtq": "welcome",
+   "lgbtqTrans": "welcome"
   },
   "featured": false,
   "landmark": false,
@@ -320388,7 +321567,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เมืองใหม่ซิตี้โฮม",
   "nameTh": "เมืองใหม่ซิตี้โฮม",
@@ -322739,7 +323918,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักเสกสรรค์2",
   "nameTh": null,
@@ -327017,7 +328196,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านทิวสุเทพ",
   "nameTh": "บ้านทิวสุเทพ",
@@ -353170,10 +354349,10 @@
   "id": "cm-osm-node-5416625723",
   "province": "cm",
   "cat": [
-   "medical"
+   "pets"
   ],
   "sub": [
-   "hospital"
+   "vet"
   ],
   "name": "animal hospital",
   "nameTh": null,
@@ -353196,6 +354375,12 @@
     "ref": "node/5416625723",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "The record's own name is 'animal hospital'. A veterinary hospital answers pets, not people-medicine — the pets/vet shelf is where every other vet in the catalogue stands.",
+    "fetched": "",
+    "via": "data/curated/retags.json"
    }
   ],
   "confidence": "crawled",
@@ -376278,10 +377463,10 @@
   "id": "cm-osm-node-6553804156",
   "province": "cm",
   "cat": [
-   "medical"
+   "pets"
   ],
   "sub": [
-   "doctors"
+   "vet"
   ],
   "name": "คำเที่ยง รักษาสัตว์",
   "nameTh": null,
@@ -376304,6 +377489,12 @@
     "ref": "node/6553804156",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "รักษาสัตว์ on the sign — treats animals. Same correction as the other vets on this date.",
+    "fetched": "",
+    "via": "data/curated/retags.json"
    }
   ],
   "confidence": "crawled",
@@ -417207,7 +418398,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "สกายบรีซ",
   "nameTh": null,
@@ -417521,7 +418712,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Rim Tara Residence Patan",
   "nameTh": null,
@@ -418258,12 +419449,15 @@
   "lat": 19.9133825,
   "lng": 99.2065151,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "30 ม.4 ถ.โชตนา หมู่ 4 ต.เวียง อ.ฝาง จ.เชียงใหม่ 50110",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200029",
+   "sector": "state",
+   "osmSource": "DigitalGlobe-Standard"
   },
   "featured": false,
   "landmark": false,
@@ -418273,6 +419467,44 @@
     "ref": "relation/9189199",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "osm",
+    "ref": "way/344196857",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-osm-way-344196857",
+    "fetched": "",
+    "via": "data/curated/merges.json"
+   },
+   {
+    "type": "osm",
+    "ref": "way/660847073",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-osm-way-660847073",
+    "fetched": "",
+    "via": "data/curated/merges.json"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-moph-8899210200029",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -418660,7 +419892,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ศรีฟ้า",
   "nameTh": "ศรีฟ้า",
@@ -419557,44 +420789,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-way-1017825075",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "Lanna Hospital - New Building",
-  "nameTh": null,
-  "nameEn": "Lanna Hospital - New Building",
-  "lat": 18.8153686,
-  "lng": 98.9940893,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "obgyn": "hospital-likely",
-   "operator": null,
-   "osmSource": "Bing"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "way/1017825075",
-    "fetched": "2026-07-27",
-    "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-way-1017831205",
   "province": "cm",
   "cat": [
@@ -420350,7 +421544,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Life in Town",
   "nameTh": null,
@@ -420951,7 +422145,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ห้องพัก",
   "nameTh": null,
@@ -421380,7 +422574,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Hillside 4",
   "nameTh": null,
@@ -421933,7 +423127,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "แสงสุขคอร์ท",
   "nameTh": "แสงสุขคอร์ท",
@@ -421968,7 +423162,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "อิมพาล่า แมนชั่น",
   "nameTh": "อิมพาล่า แมนชั่น",
@@ -423999,7 +425193,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Beacon House",
   "nameTh": null,
@@ -424034,7 +425228,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Sunny House",
   "nameTh": null,
@@ -424300,7 +425494,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building A",
   "nameTh": null,
@@ -424336,7 +425530,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building B",
   "nameTh": null,
@@ -424410,7 +425604,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "B",
   "nameTh": null,
@@ -424445,7 +425639,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "E",
   "nameTh": null,
@@ -424480,7 +425674,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "C",
   "nameTh": null,
@@ -424515,7 +425709,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "A",
   "nameTh": null,
@@ -424550,7 +425744,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "D",
   "nameTh": null,
@@ -425959,7 +427153,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "SP Palace",
   "nameTh": null,
@@ -425996,7 +427190,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักบ้านเราแมนชั่น",
   "nameTh": null,
@@ -426437,12 +427631,14 @@
   "lat": 18.8517985,
   "lng": 98.9664221,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "159 ถ.โชตินา หมู่ 4 ต.แม่สา อ.แม่ริม จ.เชียงใหม่ 50000",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
    "facilityType": "hospital",
+   "mophCode": "8899210200028",
+   "sector": "state",
    "obgyn": "hospital-likely",
    "operator": null,
    "wikidata": "Q30270107"
@@ -426455,6 +427651,20 @@
     "ref": "way/1115985031",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-moph-8899210200028",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -427740,7 +428950,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Happy House",
   "nameTh": null,
@@ -427922,7 +429132,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ดี ฮิมดอย อพาร์ตเมนต์",
   "nameTh": null,
@@ -427960,7 +429170,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ธนภัส อพาร์ตเมนต์",
   "nameTh": null,
@@ -428249,10 +429459,10 @@
   "id": "cm-osm-way-1148815104",
   "province": "cm",
   "cat": [
-   "medical"
+   "pets"
   ],
   "sub": [
-   "hospital"
+   "vet"
   ],
   "name": "โรงพยาบาลสัตว์แม่ออน",
   "nameTh": null,
@@ -428275,6 +429485,12 @@
     "ref": "way/1148815104",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "โรงพยาบาลสัตว์ names the thing itself: an animal hospital. Filed with the vets where a reader looking for one will find it.",
+    "fetched": "",
+    "via": "data/curated/retags.json"
    }
   ],
   "confidence": "crawled",
@@ -428362,7 +429578,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Top Mansion",
   "nameTh": null,
@@ -428395,7 +429611,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Top Mansion",
   "nameTh": null,
@@ -428428,7 +429644,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Royal Nimman Palm Springs",
   "nameTh": null,
@@ -428463,7 +429679,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Phoenix Nimman Palm Springs",
   "nameTh": null,
@@ -428498,7 +429714,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Parlor Nimman Palm Springs",
   "nameTh": null,
@@ -428536,7 +429752,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Fountain Nimman Palm Springs",
   "nameTh": null,
@@ -428571,7 +429787,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Palm Springs Nimman Areca",
   "nameTh": null,
@@ -428639,7 +429855,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "หอ SP.คอร์ท",
   "nameTh": null,
@@ -430352,7 +431568,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Bedroom apartment",
   "nameTh": null,
@@ -430620,7 +431836,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "นันทาราม คอร์ท",
   "nameTh": null,
@@ -430880,7 +432096,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "แฮปปี้เรสซิเด้นซ์",
   "nameTh": "แฮปปี้เรสซิเด้นซ์",
@@ -437276,7 +438492,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Ping Wali",
   "nameTh": null,
@@ -438879,7 +440095,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "The Base",
   "nameTh": null,
@@ -440886,7 +442102,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Doi Ping Mansion",
   "nameTh": "ดอยปิง แมนชั่น",
@@ -442457,7 +443673,9 @@
    "wisungDate": "2475",
    "tambon": "วัดเกต",
    "amphoe": "เมืองเชียงใหม่",
-   "watRegisterName": "เชตุพน"
+   "watRegisterName": "เชตุพน",
+   "monasticSchool": "โรงเรียนเชตุพนศึกษา (ในพระสังฆราชูปถัมภ์)",
+   "monasticSchoolId": "cm-dgth-monastic-1926000508"
   },
   "featured": false,
   "landmark": false,
@@ -443002,7 +444220,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ขวัญศรี แมนชั่น",
   "nameTh": null,
@@ -443157,7 +444375,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "พรเพ็ญเพลส",
   "nameTh": "พรเพ็ญเพลส",
@@ -443190,7 +444408,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "สันติธรรมพลาซ่า แมนชั่น",
   "nameTh": "สันติธรรมพลาซ่า แมนชั่น",
@@ -443258,7 +444476,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Punna Residence",
   "nameTh": null,
@@ -443365,7 +444583,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Freshy Resident",
   "nameTh": null,
@@ -443819,7 +445037,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "One+ Jed Yod",
   "nameTh": null,
@@ -443889,7 +445107,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Lawa Fame",
   "nameTh": null,
@@ -444506,7 +445724,9 @@
    "wisungDate": "2522",
    "tambon": "สุเทพ",
    "amphoe": "เมืองเชียงใหม่",
-   "watRegisterName": "ศรีโสดา"
+   "watRegisterName": "ศรีโสดา",
+   "monasticSchool": "โรงเรียนสมเด็จพระพุทธชินวงศ์",
+   "monasticSchoolId": "cm-dgth-monastic-2358527988"
   },
   "featured": false,
   "landmark": false,
@@ -445024,7 +446244,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "พี.พี.แมนชั่น",
   "nameTh": "พี.พี.แมนชั่น",
@@ -445355,7 +446575,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "SN Residence",
   "nameTh": null,
@@ -445390,7 +446610,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "แอรโร่ เพลส",
   "nameTh": "แอรโร่ เพลส",
@@ -445498,7 +446718,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ริมน้ำแมนชั่น",
   "nameTh": null,
@@ -445533,7 +446753,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ริมดอยเพลส 3",
   "nameTh": "ริมดอยเพลส 3",
@@ -445995,7 +447215,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "แฟลต 1/6",
   "nameTh": null,
@@ -446448,7 +447668,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "O2 450 Apartments",
   "nameTh": null,
@@ -446483,7 +447703,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Punna Residence",
   "nameTh": null,
@@ -446516,7 +447736,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "The Unique",
   "nameTh": null,
@@ -446551,7 +447771,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Baan Thai",
   "nameTh": null,
@@ -446667,7 +447887,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Touch Hill 1",
   "nameTh": null,
@@ -447693,12 +448913,14 @@
   "lat": 18.868359,
   "lng": 99.1286921,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "2 ม.8 ถ.เชียงใหม่-ดอยสะเก็ด หมู่ 8 ต.เชิงดอย อ.ดอยสะเก็ด จ.เชียงใหม่ 50220",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
    "facilityType": "hospital",
+   "mophCode": "8899210200027",
+   "sector": "state",
    "obgyn": "hospital-likely",
    "operator": null
   },
@@ -447710,6 +448932,20 @@
     "ref": "way/239970155",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-moph-8899210200027",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -448069,12 +449305,14 @@
   "lat": 18.8468139,
   "lng": 98.7325457,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ทางหลวงแผ่นดินหมายเลข 1006 ต.บ้านสหกรณ์ อ.แม่ออน จ.เชียงใหม่ 50130",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200038",
+   "sector": "state"
   },
   "featured": false,
   "landmark": false,
@@ -448084,6 +449322,20 @@
     "ref": "way/242009865",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-moph-8899210200038",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -448606,7 +449858,9 @@
    "wisungDate": "13/7/2563",
    "tambon": "พระสิงห์",
    "amphoe": "เมืองเชียงใหม่",
-   "watRegisterName": "พันเตา"
+   "watRegisterName": "พันเตา",
+   "monasticSchool": "โรงเรียนธรรมเมธีศึกษา",
+   "monasticSchoolId": "cm-dgth-monastic-3284692535"
   },
   "featured": false,
   "landmark": false,
@@ -450047,7 +451301,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Umong Place",
   "nameTh": null,
@@ -450086,7 +451340,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Huaykaew Residence",
   "nameTh": null,
@@ -450198,7 +451452,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เอ็มโพเรียม เรสซิเด้นท์",
   "nameTh": "เอ็มโพเรียม เรสซิเด้นท์",
@@ -450268,7 +451522,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ไชยแมนชั่น",
   "nameTh": "ไชยแมนชั่น",
@@ -452495,7 +453749,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ซิตี้ เฮ้าส์",
   "nameTh": "ซิตี้ เฮ้าส์",
@@ -453161,7 +454415,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Twin Peaks",
   "nameTh": null,
@@ -453196,7 +454450,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Twin Peaks",
   "nameTh": null,
@@ -453497,7 +454751,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านศรีมงคล",
   "nameTh": null,
@@ -453598,7 +454852,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักสตรีร้อยดวง",
   "nameTh": null,
@@ -455236,7 +456490,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "จักรปราณีคอร์ท",
   "nameTh": "จักรปราณีคอร์ท",
@@ -455662,7 +456916,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักบ้านเราเรสซิเดนส์",
   "nameTh": null,
@@ -455952,7 +457206,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "7",
   "nameTh": null,
@@ -455985,7 +457239,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "5",
   "nameTh": null,
@@ -456018,7 +457272,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "4",
   "nameTh": null,
@@ -456051,7 +457305,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "6",
   "nameTh": null,
@@ -456084,7 +457338,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "3",
   "nameTh": null,
@@ -456117,7 +457371,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "1",
   "nameTh": null,
@@ -456150,7 +457404,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "2",
   "nameTh": null,
@@ -456417,43 +457671,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-way-282620306",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "Lanna Hospital Extension",
-  "nameTh": null,
-  "nameEn": "Lanna Hospital Extension",
-  "lat": 18.8154891,
-  "lng": 98.9937203,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "obgyn": "hospital-likely",
-   "operator": null
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "way/282620306",
-    "fetched": "2026-07-27",
-    "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-way-282659844",
   "province": "cm",
   "cat": [
@@ -456529,7 +457746,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เชิงดอยเพลสตึกA",
   "nameTh": null,
@@ -457125,13 +458342,14 @@
    "facilityType": "hospital",
    "obgyn": "hospital-likely",
    "operator": null,
-   "houseNumber": "88/8",
-   "osmSource": "http://www.mapillary.com/map/im/BKmoVPHSJvKfGBq2Z4Uw5g",
-   "email": "info@bangkokhospital.com",
+   "wheelchair": "yes",
    "facets": {
     "open24": "osm-tag",
     "openlate": "osm-tag"
-   }
+   },
+   "houseNumber": "88/8",
+   "osmSource": "http://www.mapillary.com/map/im/BKmoVPHSJvKfGBq2Z4Uw5g",
+   "email": "info@bangkokhospital.com"
   },
   "featured": false,
   "landmark": false,
@@ -457141,6 +458359,18 @@
     "ref": "way/294031574",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "osm",
+    "ref": "node/11270924469",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-osm-node-11270924469",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -457541,7 +458771,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านชบา",
   "nameTh": null,
@@ -457576,7 +458806,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "โฮม พี.ซี. แมนชั่น",
   "nameTh": null,
@@ -457611,7 +458841,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักกรีนเฮาส์",
   "nameTh": null,
@@ -457741,7 +458971,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักทองคำ",
   "nameTh": null,
@@ -457774,7 +459004,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักทองคำ",
   "nameTh": null,
@@ -457869,7 +459099,9 @@
    "province": "Chiang Mai",
    "lens": [
     "wat"
-   ]
+   ],
+   "monasticSchool": "โรงเรียนฝางธรรมศึกษา",
+   "monasticSchoolId": "cm-dgth-monastic-2371718491"
   },
   "featured": false,
   "landmark": false,
@@ -457931,7 +459163,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Sahataya Mansion",
   "nameTh": null,
@@ -458073,7 +459305,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ใหม่แมนชั่น",
   "nameTh": "ใหม่แมนชั่น",
@@ -459744,7 +460976,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพัก 40 ปี",
   "nameTh": null,
@@ -460417,7 +461649,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Cholthida Place 1",
   "nameTh": null,
@@ -460452,7 +461684,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Cholthida Place 2",
   "nameTh": null,
@@ -461883,7 +463115,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "สวนสุขภาพ เรสซิเด้นท์",
   "nameTh": "สวนสุขภาพ เรสซิเด้นท์",
@@ -461916,7 +463148,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "MP Place",
   "nameTh": null,
@@ -461982,7 +463214,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "DD Park",
   "nameTh": null,
@@ -463074,7 +464306,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "The Gallery Hill",
   "nameTh": null,
@@ -463109,7 +464341,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เชิงดอยเพลสตึกB",
   "nameTh": null,
@@ -463385,12 +464617,14 @@
   "lat": 18.6808651,
   "lng": 99.0431754,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "147 หมู่ 3 ต.สารภี อ.สารภี จ.เชียงใหม่ 50140",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
    "facilityType": "hospital",
+   "mophCode": "8899210200042",
+   "sector": "state",
    "obgyn": "hospital-likely",
    "operator": null
   },
@@ -463402,6 +464636,20 @@
     "ref": "way/319556306",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-moph-8899210200042",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -463871,7 +465119,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Cleo Place",
   "nameTh": null,
@@ -463904,7 +465152,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "สยามล้านนาแกรนด์",
   "nameTh": "สยามล้านนาแกรนด์",
@@ -463937,7 +465185,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "พี เพลส",
   "nameTh": "พี เพลส",
@@ -464018,7 +465266,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ชาวไทยแมนชั่น",
   "nameTh": "ชาวไทยแมนชั่น",
@@ -464051,7 +465299,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ทิพย์รัตน์ เพลส",
   "nameTh": "ทิพย์รัตน์ เพลส",
@@ -464150,7 +465398,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "One+",
   "nameTh": null,
@@ -464530,7 +465778,9 @@
    "wisungDate": "1962",
    "tambon": "สุเทพ",
    "amphoe": "เมืองเชียงใหม่",
-   "watRegisterName": "สวนดอก"
+   "watRegisterName": "สวนดอก",
+   "monasticSchool": "โรงเรียนบาลีสาธิตศึกษา มจร. วิทยาเขตเชียงใหม่",
+   "monasticSchoolId": "cm-dgth-monastic-0024435810"
   },
   "featured": false,
   "landmark": false,
@@ -464592,7 +465842,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "d'vieng Santitham",
   "nameTh": null,
@@ -464625,7 +465875,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "d'vieng Santitham",
   "nameTh": null,
@@ -464700,7 +465950,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักอุ่นแสง",
   "nameTh": "หอพักอุ่นแสง",
@@ -464847,7 +466097,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Baibua Apartment",
   "nameTh": "บ้านใบบัว",
@@ -465100,7 +466350,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านทอฉัตร",
   "nameTh": null,
@@ -465133,7 +466383,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านแตงกวา",
   "nameTh": "บ้านแตงกวา",
@@ -465166,7 +466416,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ป้าแต๋ว อพาร์ทเม้นท์",
   "nameTh": "ป้าแต๋ว อพาร์ทเม้นท์",
@@ -465199,7 +466449,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เพนนี2",
   "nameTh": "เพนนี2",
@@ -465232,7 +466482,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เพนนี เพลส",
   "nameTh": "เพนนี เพลส",
@@ -465265,7 +466515,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "มงคลแมนชั่น",
   "nameTh": null,
@@ -465331,7 +466581,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านอัมพวัน2",
   "nameTh": "บ้านอัมพวัน2",
@@ -465364,7 +466614,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "รัชกร อพาร์ทเม้นท์",
   "nameTh": "รัชกร อพาร์ทเม้นท์",
@@ -465400,7 +466650,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักเทวฤทธิ์",
   "nameTh": null,
@@ -465433,7 +466683,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านสถิตสถาพร",
   "nameTh": "บ้านสถิตสถาพร",
@@ -465466,7 +466716,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เอ็มเพรส",
   "nameTh": "เอ็มเพรส",
@@ -465499,7 +466749,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Promt",
   "nameTh": null,
@@ -465567,7 +466817,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ภาน์ฝันดี",
   "nameTh": "ภาน์ฝันดี",
@@ -465711,7 +466961,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Punna Resident",
   "nameTh": null,
@@ -465907,7 +467157,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Nara Apartment",
   "nameTh": null,
@@ -466669,7 +467919,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านสายดี",
   "nameTh": "บ้านสายดี",
@@ -466702,7 +467952,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักเสรี",
   "nameTh": null,
@@ -466735,7 +467985,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักเฮือนคำ",
   "nameTh": null,
@@ -467035,7 +468285,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ภูเทพเรสซิเดนซ์",
   "nameTh": null,
@@ -467186,7 +468436,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "อรอนงค์แมนชั่น",
   "nameTh": "อรอนงค์แมนชั่น",
@@ -468239,7 +469489,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "วีระชัยคอร์ต",
   "nameTh": "วีระชัยคอร์ต",
@@ -468409,7 +469659,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "The Living Hills",
   "nameTh": null,
@@ -468869,7 +470119,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักไพพนา",
   "nameTh": null,
@@ -468902,7 +470152,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Ping View",
   "nameTh": null,
@@ -469177,7 +470427,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านสดุดี",
   "nameTh": null,
@@ -469739,42 +470989,6 @@
    {
     "type": "osm",
     "ref": "way/344187093",
-    "fetched": "2026-07-27",
-    "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-way-344196857",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลฝาง",
-  "nameTh": "โรงพยาบาลฝาง",
-  "nameEn": "Fang Hospital",
-  "lat": 19.9133825,
-  "lng": 99.2065151,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "osmSource": "DigitalGlobe-Standard",
-   "facilityType": "hospital"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "way/344196857",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -472924,7 +474138,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Residence SG",
   "nameTh": null,
@@ -473673,7 +474887,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "B.B. แมนชั่น",
   "nameTh": "B.B. แมนชั่น",
@@ -473708,7 +474922,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Smith Suites",
   "nameTh": null,
@@ -475145,7 +476359,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เชียงใหม่คำดารา",
   "nameTh": null,
@@ -475951,7 +477165,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "The Iris Chotana",
   "nameTh": null,
@@ -476124,7 +477338,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Le Siri",
   "nameTh": null,
@@ -476905,7 +478119,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "BP Grand",
   "nameTh": null,
@@ -477140,7 +478354,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Ban Jed Yod",
   "nameTh": null,
@@ -477576,7 +478790,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพัก V.K.",
   "nameTh": null,
@@ -478249,7 +479463,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Tree Boutique",
   "nameTh": null,
@@ -478998,7 +480212,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Tree Retro",
   "nameTh": null,
@@ -480210,7 +481424,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Chiangmai Residence",
   "nameTh": null,
@@ -480998,7 +482212,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Hillcrest Apartments",
   "nameTh": null,
@@ -481573,7 +482787,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักในกำกับ หอสีชมพู",
   "nameTh": null,
@@ -481682,7 +482896,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ศุภฤกษ์ 2",
   "nameTh": "ศุภฤกษ์ 2",
@@ -481750,7 +482964,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "The Impress",
   "nameTh": null,
@@ -481849,7 +483063,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ณาดา เฮ้าส์",
   "nameTh": "ณาดา เฮ้าส์",
@@ -481882,7 +483096,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Liv@Nimman",
   "nameTh": null,
@@ -482091,12 +483305,14 @@
   "lat": 18.179207,
   "lng": 98.611231,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "294 หมู่ 10 ต.หางดง อ.ฮอด จ.เชียงใหม่ 50240",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200045",
+   "sector": "state"
   },
   "featured": false,
   "landmark": false,
@@ -482106,6 +483322,20 @@
     "ref": "way/431830403",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-moph-8899210200045",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -482243,7 +483473,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ฐิติกรเพลส",
   "nameTh": null,
@@ -482282,7 +483512,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "TheBNCResidence",
   "nameTh": null,
@@ -482391,7 +483621,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เพชรนครพิงค์",
   "nameTh": null,
@@ -482424,7 +483654,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักอิงฟ้า",
   "nameTh": null,
@@ -482457,7 +483687,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักบัณฑิต",
   "nameTh": null,
@@ -482490,7 +483720,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักเคียงดอยคอร์ท",
   "nameTh": null,
@@ -482523,7 +483753,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "อพาร์ทเม้นท์ ธารทองเพลสเชียงใหม่",
   "nameTh": null,
@@ -482556,7 +483786,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เลิศรัตน อพาร์ทเมนท์",
   "nameTh": null,
@@ -482589,7 +483819,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักเพชรเหนือเรสซิเด้นท์",
   "nameTh": null,
@@ -482622,7 +483852,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "หอต้นรังเพลส",
   "nameTh": null,
@@ -482655,7 +483885,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เนาวลลักษณ์แมนชั่น",
   "nameTh": null,
@@ -482740,7 +483970,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักอิงภู",
   "nameTh": null,
@@ -482773,7 +484003,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เชียงใหม่อุดมเลิศคอร์ท",
   "nameTh": null,
@@ -482843,7 +484073,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Sa-nguan Malee Mansion",
   "nameTh": null,
@@ -482950,7 +484180,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "พัชรเพลส",
   "nameTh": null,
@@ -482983,7 +484213,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เอกวนา คอร์ท",
   "nameTh": null,
@@ -483052,7 +484282,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "หอลิลลี่ คอร์ท",
   "nameTh": null,
@@ -483085,7 +484315,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "One+",
   "nameTh": null,
@@ -483205,7 +484435,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Phufa Place",
   "nameTh": null,
@@ -483759,7 +484989,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Wood Building",
   "nameTh": null,
@@ -483794,7 +485024,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Stone Building",
   "nameTh": null,
@@ -484315,7 +485545,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านสวน",
   "nameTh": null,
@@ -484416,7 +485646,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "MS Place",
   "nameTh": null,
@@ -484451,7 +485681,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Adam 1971 Mansion",
   "nameTh": null,
@@ -485062,7 +486292,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านบุษบา 2",
   "nameTh": "บ้านบุษบา 2",
@@ -485390,7 +486620,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "N Nimmanhaemin",
   "nameTh": null,
@@ -485423,7 +486653,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "กาญจน์ศิริเพลส",
   "nameTh": "กาญจน์ศิริเพลส",
@@ -485929,7 +487159,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "หอ 3 หญิง",
   "nameTh": null,
@@ -485962,7 +487192,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "หอ 1 หญิง",
   "nameTh": null,
@@ -486122,43 +487352,6 @@
    {
     "type": "osm",
     "ref": "way/474402351",
-    "fetched": "2026-07-27",
-    "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-way-475225586",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบานสันกำแพง",
-  "nameTh": "โรงพยาบานสันกำแพง",
-  "nameEn": "San Kamphaeng Hospital",
-  "lat": 18.7161131,
-  "lng": 99.1222671,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "obgyn": "hospital-likely",
-   "operator": null
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "way/475225586",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -490588,7 +491781,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "รัตนาคิร์ท",
   "nameTh": "รัตนาคิร์ท",
@@ -491603,7 +492796,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building C",
   "nameTh": null,
@@ -491639,7 +492832,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building A",
   "nameTh": null,
@@ -491675,7 +492868,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building B",
   "nameTh": null,
@@ -491711,7 +492904,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building A",
   "nameTh": null,
@@ -491763,6 +492956,7 @@
    "facilityType": "hospital",
    "obgyn": "hospital-likely",
    "operator": null,
+   "osmSource": "Bing",
    "namesOther": {
     "ru": "Госпиталь Ланна"
    }
@@ -491775,6 +492969,30 @@
     "ref": "way/529099381",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "osm",
+    "ref": "way/1017825075",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-osm-way-1017825075",
+    "fetched": "",
+    "via": "data/curated/merges.json"
+   },
+   {
+    "type": "osm",
+    "ref": "way/282620306",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-osm-way-282620306",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -491983,7 +493201,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "The Y-residence",
   "nameTh": null,
@@ -492285,7 +493503,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "The People Park Hill Resident",
   "nameTh": null,
@@ -494879,7 +496097,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Grand Parano",
   "nameTh": null,
@@ -495392,7 +496610,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Sukhasem Residence",
   "nameTh": null,
@@ -496206,7 +497424,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "The Star Hill",
   "nameTh": null,
@@ -496614,7 +497832,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Home and Hill",
   "nameTh": null,
@@ -496649,7 +497867,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Anunyaphum Apartments",
   "nameTh": null,
@@ -498917,7 +500135,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ธนิษฐาอพาร์ทเมนต์",
   "nameTh": null,
@@ -500128,7 +501346,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านอารักษ์",
   "nameTh": null,
@@ -500833,7 +502051,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "อาคารบ้านพักศรีสุนันท์",
   "nameTh": null,
@@ -502980,12 +504198,14 @@
   "lat": 18.4775923,
   "lng": 98.7801904,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "หมู่ 5 ต.ดอยหล่อ อ.ดอยหล่อ จ.เชียงใหม่ 50160",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200032",
+   "sector": "state"
   },
   "featured": false,
   "landmark": false,
@@ -502995,6 +504215,20 @@
     "ref": "way/658048981",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-moph-8899210200032",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -503376,42 +504610,6 @@
    {
     "type": "osm",
     "ref": "way/659294962",
-    "fetched": "2026-07-27",
-    "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-way-660847073",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลฝาง",
-  "nameTh": "โรงพยาบาลฝาง",
-  "nameEn": "Fang Hospital",
-  "lat": 19.9136592,
-  "lng": 99.2062247,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "osmSource": "DigitalGlobe-Standard",
-   "facilityType": "hospital"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "way/660847073",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
    }
@@ -503833,7 +505031,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Nimman and Me",
   "nameTh": null,
@@ -504718,7 +505916,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Airy Apartments",
   "nameTh": null,
@@ -504987,7 +506185,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านร่มเย็น",
   "nameTh": "บ้านร่มเย็น",
@@ -506251,7 +507449,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Hilltania",
   "nameTh": null,
@@ -506684,7 +507882,9 @@
    "wisungDate": "2494",
    "tambon": "หางดง",
    "amphoe": "หางดง",
-   "watRegisterName": "กำแพงงาม"
+   "watRegisterName": "กำแพงงาม",
+   "monasticSchool": "โรงเรียนหางดงสังฆราษฎร์อุปถัมภ์",
+   "monasticSchoolId": "cm-dgth-monastic-3800655391"
   },
   "featured": false,
   "landmark": false,
@@ -506779,7 +507979,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "My Place Apartments",
   "nameTh": null,
@@ -507721,7 +508921,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านสุขสมบูรณ์",
   "nameTh": null,
@@ -507795,7 +508995,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "The Wing",
   "nameTh": null,
@@ -507931,7 +509131,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "La Residencia",
   "nameTh": "สา เรสซิเดนเซีย",
@@ -507966,7 +509166,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "แกรนด์ฮิลล์ เพลส",
   "nameTh": null,
@@ -508002,7 +509202,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Airada Apartment",
   "nameTh": null,
@@ -508072,7 +509272,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Ton Moke",
   "nameTh": null,
@@ -508105,7 +509305,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Top Mansion",
   "nameTh": null,
@@ -509058,7 +510258,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "แสงรัชณีเฮ้าส์",
   "nameTh": null,
@@ -509091,7 +510291,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักศรีเมืองฟ้า",
   "nameTh": null,
@@ -510419,7 +511619,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "The Mirror",
   "nameTh": null,
@@ -510849,7 +512049,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building A",
   "nameTh": null,
@@ -510885,7 +512085,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building D",
   "nameTh": null,
@@ -510921,7 +512121,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building C",
   "nameTh": null,
@@ -510957,7 +512157,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building B",
   "nameTh": null,
@@ -510993,7 +512193,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building B",
   "nameTh": null,
@@ -511029,7 +512229,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building C",
   "nameTh": null,
@@ -511065,7 +512265,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Building D",
   "nameTh": null,
@@ -511284,7 +512484,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านปทุมวัน มช.",
   "nameTh": null,
@@ -511322,7 +512522,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "แทนตะวันเพลส",
   "nameTh": "แทนตะวันเพลส",
@@ -512691,7 +513891,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "อพาร์ทเม้นท์บ้านริมคลอง",
   "nameTh": null,
@@ -513303,7 +514503,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Ing Place",
   "nameTh": null,
@@ -513706,12 +514906,14 @@
   "lat": 19.1371694,
   "lng": 98.9603616,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "300 หมู่ 7 ต.สันมหาพน อ.แม่แตง จ.เชียงใหม่ 50150",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200031",
+   "sector": "state"
   },
   "featured": false,
   "landmark": false,
@@ -513721,6 +514923,20 @@
     "ref": "way/761165593",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-moph-8899210200031",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -513986,7 +515202,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "changphuak residenc",
   "nameTh": null,
@@ -514022,7 +515238,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ช้างเผือกเรสซิเด้นท์",
   "nameTh": "ช้างเผือกเรสซิเด้นท์",
@@ -514749,7 +515965,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "For-Rest Hill",
   "nameTh": null,
@@ -514784,7 +516000,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "For-Rest Hill 2",
   "nameTh": null,
@@ -516054,7 +517270,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Prestige Chiang Mai",
   "nameTh": null,
@@ -517146,10 +518362,10 @@
   "id": "cm-osm-way-834549399",
   "province": "cm",
   "cat": [
-   "medical"
+   "food"
   ],
   "sub": [
-   "hospital"
+   "cafe"
   ],
   "name": "Kew Mar Pan Café",
   "nameTh": null,
@@ -517173,6 +518389,12 @@
     "ref": "way/834549399",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "The record's own crawled description reads 'First aid room' — a first-aid point at a mountain-road café (18.5554, 98.4819, Mae Chaem side), typed healthcare on the wrong door. The name is the café's; nothing about the place is a hospital. The first-aid description stays on the record.",
+    "fetched": "",
+    "via": "data/curated/retags.json"
    }
   ],
   "confidence": "crawled",
@@ -518561,7 +519783,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Puncha Place",
   "nameTh": null,
@@ -518841,7 +520063,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านสบาย",
   "nameTh": "บ้านสบาย",
@@ -519139,7 +520361,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Flash Express -แฟลช โฮม สาขาสุเทพ",
   "nameTh": null,
@@ -520138,7 +521360,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ชาโต เชียงใหม่",
   "nameTh": "ชาโต เชียงใหม่",
@@ -520171,7 +521393,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "สุเทพวิว แมนชั่น",
   "nameTh": "สุเทพวิว แมนชั่น",
@@ -520715,41 +521937,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-way-969653472",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบานแม่ออน",
-  "nameTh": "โรงพยาบานแม่ออน",
-  "nameEn": "Mae On Hospital",
-  "lat": 18.7445028,
-  "lng": 99.2211443,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "way/969653472",
-    "fetched": "2026-07-27",
-    "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-way-974931697",
   "province": "cm",
   "cat": [
@@ -521248,7 +522435,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Sakulchai Place",
   "nameTh": "สกุลชัยเพลส",
@@ -521281,7 +522468,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "The Empire Residence",
   "nameTh": null,
@@ -521316,7 +522503,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ห้วยแก้วเพลส",
   "nameTh": "ห้วยแก้วเพลส",
@@ -521816,7 +523003,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "P. T. Residence",
   "nameTh": null,
@@ -521923,7 +523110,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ภูสรวง เพลส",
   "nameTh": "ภูสรวง เพลส",
@@ -521958,7 +523145,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านบุญญรัตน์",
   "nameTh": null,
@@ -522057,7 +523244,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ดี-ทาวน์อินน์",
   "nameTh": null,
@@ -522229,7 +523416,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "แฟลตข้าราชการ 8/6",
   "nameTh": null,
@@ -522264,7 +523451,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "แฟลตแพทย์ 5/6",
   "nameTh": null,
@@ -522454,7 +523641,9 @@
    "province": "Chiang Mai",
    "lens": [
     "wat"
-   ]
+   ],
+   "monasticSchool": "โรงเรียนพระปริยัติธรรมแม่แตงวิทยา",
+   "monasticSchoolId": "cm-dgth-monastic-3624024621"
   },
   "featured": false,
   "landmark": false,
@@ -524861,8 +526050,8 @@
   "name": "Impala64 Santitham (Rebranding : Octagram) Cannabis Dispensary Shop ร้านกัญชาเชียงใหม่ 大麻",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "27 Changphuak Soi 2, เมือง Chiang Mai 50300, Thailand",
   "phone": null,
@@ -524870,7 +526059,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/3058b65562328f8914941ca5077b1cac/original"
   },
@@ -525467,8 +526656,8 @@
   "name": "ร้านกัญชา​ BUDSTOP2 Cannabis Dispensary",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "Wong waen 3, Tha rua, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -525476,7 +526665,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/f68f3b3d9f2025150711a100bdad520c/original"
   },
@@ -525621,8 +526810,8 @@
   "name": "HYBRID",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "223/18 moo.1 Chang Phueak Subdistrict, ตำบลช้างเผือก Mueang, เชียงใหม่ 50300, Thailand",
   "phone": null,
@@ -525630,7 +526819,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/224b44c6293a5675f65f197dbbddcede/original"
   },
@@ -526117,8 +527306,8 @@
   "name": "Superbud Living Room Weedshop 24hrs 大麻",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "45, 6 Santisuk Soi 5, Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -526126,7 +527315,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/b4ed533554890e9639c08a93b7dc8695/original"
   },
@@ -526267,8 +527456,8 @@
   "name": "Uncle Thor cannabis",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "RX4H+MV5, Chang Phueak, Mueang Chiang Mai District, Chiang Mai 50300, Thailand",
   "phone": null,
@@ -526276,7 +527465,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/placeholder-missing.svg"
   },
@@ -528812,8 +530001,8 @@
   "name": "Mary Jane CNX",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "หัสดีเสวี, Tambon Chang Phueak, เมือง, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -528821,7 +530010,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/6a4527c53f643cb2109fec45dd2e42e7/original"
   },
@@ -529189,8 +530378,8 @@
   "name": "HIGHZONE CANNABIS",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "2, 6 Thanon Santiluk, Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -529198,7 +530387,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/28a1185648216e9f817e359998c4bbc1/original"
   },
@@ -529378,8 +530567,8 @@
   "name": "High Zone cannabis&weed 420",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "2 6 Thanon Santiluk, Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -529387,7 +530576,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/daa3994bcccd8fc0c4441cfc5c46e8b3/original"
   },
@@ -530746,8 +531935,8 @@
   "name": "The jungle bar น้ำกระท่อม กัญชาเชียงใหม่",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "30/9 ถ Thanon Charoensuk, Tambon Chang Phueak, เมือง Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -530755,7 +531944,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/f8f07099977a19e9bfa0d19e54c69702/original"
   },
@@ -530862,8 +532051,8 @@
   "name": "Weed Candy - Weed Shop Open24hr ร้านกัญชา24ชั่วโมง Cannabis Store",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "24 Soi Ratchaphuek, Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -530871,7 +532060,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/e372707b98d53fe10f6775f17514d3d8/original"
   },
@@ -530900,8 +532089,8 @@
   "name": "ผึ้งน้อย คาเฟ่ เชียงใหม่",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "RX6Q+H77, Chang Phueak, Mueang Chiang Mai District, Chiang Mai 50300, Thailand",
   "phone": null,
@@ -530909,7 +532098,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/d9f3cdec032b5a69adb3d6ab10ca39a0/original"
   },
@@ -531207,8 +532396,8 @@
   "name": "The green Sky cannabis weed",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "ใกล้ 12 Huay Kaew Rd, Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -531216,7 +532405,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/d2e3ff6c24cf269b5be2ce50530e6dea/original"
   },
@@ -531738,8 +532927,8 @@
   "name": "Weed Candy - Weed Shop Open24hr ร้านกัญชา24ชั่วโมง Cannabis Store",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "8 5 Soi Ratchaphuek, Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -531747,7 +532936,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/d60a7ac16e4f7c1f5d799be078cf347a/original"
   },
@@ -533136,8 +534325,8 @@
   "name": "Weed Em Boyz Cannabis Dispensary 大麻 Marijuanas",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "33/2 Sirithorn Rd, Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -533145,7 +534334,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/6c630dea9e32a27b76d55784965f1f45/original"
   },
@@ -533852,8 +535041,8 @@
   "name": "Green Bean - Cannabis Cafe",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "20/2 Huay Kaew Rd, Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -533861,7 +535050,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/2916faf4119e00da5ae155b1fe647a2d/original"
   },
@@ -535628,8 +536817,8 @@
   "name": "HighFactory. cannabis / weed / dispensary",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "22 Thanon Santitham, Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -535637,7 +536826,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/b629ce5f6b49c0bc74cc1f5457ae9fd1/original"
   },
@@ -535933,8 +537122,8 @@
   "name": "Yun UP Studio",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "ร้านกัญชาข้างร้านซ่อมมอเตอร์ไซค์ ข้างร้านเบ็ดข้างร้านมอเตอร์ไซค์ Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -535942,7 +537131,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/f3859e5449e79654c8ed7429f4d41931/original"
   },
@@ -536048,8 +537237,8 @@
   "name": "ก้าวแก้ว Ganja",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "RX3H+C3H, Chang Phueak, Mueang Chiang Mai District, Chiang Mai 50300, Thailand",
   "phone": null,
@@ -536057,7 +537246,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/8f118add05b5f6852ce03b4bb499b367/original"
   },
@@ -537158,8 +538347,8 @@
   "name": "Hightown High Peace Cannabis สันติยัน Santiyun 大麻 ( ร้านกัญชาเชียงใหม่ Cannabis Shop ) ขายส่งกัญชาอันดับหนึ่งเชียงใหม่",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "30/9 Thanon Charoensuk, Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -537167,7 +538356,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/85423fd1f5064182ba19965e40cc299a/original"
   },
@@ -538583,8 +539772,8 @@
   "name": "Green Way 420 CNX – Weed Shop Santitham Chiang Mai",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "14 14/1 Santisuk Soi 1, Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -538592,7 +539781,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://cdn.filestackcontent.com/resize=width:1000/Anb5YK4jTvWuiLP9fNU9"
   },
@@ -541235,8 +542424,8 @@
   "name": "Selling Bai Kratom and Cannabis",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "17/3 Thanon Charoensuk, Tambon Chang Phueak, เมือง Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -541244,7 +542433,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/2c5e15e8ca7c10e8442578622773d47d/original"
   },
@@ -541612,8 +542801,8 @@
   "name": "Weed Shops Green Crack - Cannabis Dispensary 泰国大麻 marijuana марихуана",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "30, 1 Soi Mu Ban Sun Forest Village, Tambon Pa Daet, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -541621,7 +542810,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/fde0a840dde0eabd37a2044084591fca/original"
   },
@@ -541876,8 +543065,8 @@
   "name": "กัญชา กัญเอง กาดมาลิน",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "RX54+FM, Chang Phueak, Mueang Chiang Mai District, Chiang Mai 50300, Thailand",
   "phone": null,
@@ -541885,7 +543074,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/f26c261268167ad9c891bb22e4a94a24/original"
   },
@@ -542181,8 +543370,8 @@
   "name": "Cannabis near me cnx",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "122 5 เมือง Chiang Mai 50300, Thailand",
   "phone": null,
@@ -542190,7 +543379,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/41d5671e0af9233d852fb28a788e7391/original"
   },
@@ -542786,8 +543975,8 @@
   "name": "HIGHZONE CANNABIS",
   "nameTh": null,
   "nameEn": null,
-  "lat": 18.810466,
-  "lng": 98.981189,
+  "lat": 18.8103,
+  "lng": 98.980772,
   "geoPrecision": "approx",
   "address": "2 6 Thanon Santiluk, Tambon Chang Phueak, Amphoe Mueang Chiang Mai, Chang Wat Chiang Mai 50300, Thailand",
   "phone": null,
@@ -542795,7 +543984,7 @@
   "hours": null,
   "attrs": {
    "pinVia": "postcode-centroid",
-   "pinUncertaintyM": 3699,
+   "pinUncertaintyM": 3758,
    "pinFrom": "50300",
    "photoRefExternal": "https://i.weed.th/ii/d679f93ec76c30899cfc0c42222ab332/original"
   },

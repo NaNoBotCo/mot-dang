@@ -453,6 +453,20 @@
   "shared_with": 5,
   "src": "https://www.starbucks.com/"
  },
+ "cm-osm-node-11295824999": {
+  "fetched": "2026-08-17",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/chandraresidencechiangmai/",
+    "instagram": "https://www.instagram.com/chandraresidencechiangmai/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.chandraresidence.com/stuff"
+ },
  "cm-osm-node-11295829592": {
   "fetched": "2026-08-16",
   "fields": {
@@ -552,6 +566,28 @@
   "license": "official-site",
   "src": "https://www.sherva101.com/"
  },
+ "cm-osm-node-12500290176": {
+  "fetched": "2026-08-19",
+  "fields": {
+   "attrs": {
+    "classSessions": "โรงเรียนเปิด 9:00–18:00 จันทร์–เสาร์ หยุดวันอาทิตย์ (เวลาเริ่มคลาสไม่อยู่บนหน้าเว็บ) · school open 9:00–18:00 Monday–Saturday, closed Sunday (class start times not on the page)",
+    "classSessionsVia": "school website",
+    "email": "reservations@maykaidee.com",
+    "menuNote": "คอร์ส: Thai Cooking · Express · ทำเต้าหู้ · ทำพริกแกง · 3 / 5 / 10 วัน · ขนมไทย — วีแกนทั้งหมด · courses: Thai Cooking, Express Thai Cooking, How to Make Tofu, How to Make Chili Paste, 3-, 5- and 10-day courses, Thai Desserts — all vegan",
+    "phone2": "+66 99 105 6446"
+   },
+   "hours": "Mo-Sa 09:00-18:00",
+   "phone": "+66 86 398 4808",
+   "website": "https://www.maykaidee.com/cooking-school"
+  },
+  "how": {
+   "attrs": "cooking-school page",
+   "hours": "Chiang Mai page",
+   "phone": "Chiang Mai page"
+  },
+  "license": "official-site",
+  "src": "https://www.maykaidee.com/cooking-school"
+ },
  "cm-osm-node-12642191034": {
   "fetched": "2026-08-16",
   "fields": {
@@ -565,6 +601,26 @@
   },
   "license": "official-site",
   "src": "https://www.awaychiangmai.com"
+ },
+ "cm-osm-node-1268227488": {
+  "blurb": {
+   "en": {
+    "revision": "2026-07-02",
+    "text": "Wachirathan Falls are waterfalls in the Chom Thong district in the province of Chiang Mai, Thailand.",
+    "title": "Wachirathan Falls",
+    "url": "https://en.wikipedia.org/wiki/Wachirathan_Falls"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-05-04",
+    "text": "น้ำตกวชิรธาร (หรือน้ำตกตาดฆ้องโยง) เป็นน้ำตกแห่งหนึ่งในอำเภอจอมทอง จังหวัดเชียงใหม่",
+    "title": "น้ำตกวชิรธาร",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%95%E0%B8%81%E0%B8%A7%E0%B8%8A%E0%B8%B4%E0%B8%A3%E0%B8%98%E0%B8%B2%E0%B8%A3"
+   }
+  }
  },
  "cm-osm-node-12976981412": {
   "fetched": "2026-08-16",
@@ -722,6 +778,26 @@
   "shared_with": 9,
   "src": "https://www.mkrestaurant.com/th"
  },
+ "cm-osm-node-1619287904": {
+  "blurb": {
+   "en": {
+    "revision": "2026-06-02",
+    "text": "Three Kings Monument is a royal monument dedicated to Phaya Mangrai, Pho Khun Ramkhamhaeng, and Phaya Ngammueang, considered the founding fathers of Lanna Kingdom. It is located in the center of Chiang Mai and was designed and cast by national artist Kaimook Chuto to commemorate the founding of the city. The monument was completed in 1983 and officially opened in 1984.",
+    "title": "Three Kings Monument",
+    "url": "https://en.wikipedia.org/wiki/Three_Kings_Monument"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-03-10",
+    "text": "พระบรมราชานุสาวรีย์สามกษัตริย์ หรือ อนุสาวรีย์สามกษัตริย์ เป็นพระบรมราชานุสาวรีย์ของพระมหากษัตริย์สามพระองค์ผู้สร้างเวียงเชียงใหม่ ประกอบด้วย พญามังรายแห่งหิรัญนครเงินยางเชียงลาว พญางำเมืองแห่งนครรัฐพะเยา และพ่อขุนรามคำแหงมหาราชแห่งอาณาจักรสุโขทัย",
+    "title": "พระบรมราชานุสาวรีย์สามกษัตริย์",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%A3%E0%B8%A1%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%B2%E0%B8%99%E0%B8%B8%E0%B8%AA%E0%B8%B2%E0%B8%A7%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%AA%E0%B8%B2%E0%B8%A1%E0%B8%81%E0%B8%A9%E0%B8%B1%E0%B8%95%E0%B8%A3%E0%B8%B4%E0%B8%A2%E0%B9%8C"
+   }
+  }
+ },
  "cm-osm-node-1796984000": {
   "fetched": "2026-08-17",
   "fields": {
@@ -734,6 +810,61 @@
   },
   "license": "official-site",
   "src": "http://www.mont-nomsod.com/"
+ },
+ "cm-osm-node-2082718893": {
+  "blurb": {
+   "en": {
+    "revision": "2026-08-12",
+    "text": "Doi Suthep (ดอยสุเทพ), is a mountain (\"doi\") west of Chiang Mai, Thailand. It is 1,676 metres (5,499 ft) in elevation and is one of the twin peaks of a granite mountain. The other peak is known as Doi Pui and is slightly higher.",
+    "title": "Doi Suthep",
+    "url": "https://en.wikipedia.org/wiki/Doi_Suthep"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-05-16",
+    "text": "ดอยสุเทพ เป็นภูเขาสำคัญตั้งอยู่ทางทิศตะวันตกของตัวเมืองเชียงใหม่ อยู่ในพื้นที่อุทยานแห่งชาติดอยสุเทพ-ปุย และยังเป็นที่ตั้งของวัดพระธาตุดอยสุเทพราชวรวิหาร ภายในวัดมีพระธาตุดอยสุเทพเป็นพระเจดีย์สีทอง ด้านในพระเจดีย์บรรจุพระบรมสารีริกธาตุของพระโคตมพุทธเจ้า ดอยสุเทพเป็นส่วนหนึ่งของทิวเขาถนนธงชัยด้านใต้สุด มีความสูงจากระดับน้ำทะเล 1,676 เมตร",
+    "title": "ดอยสุเทพ",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%AA%E0%B8%B8%E0%B9%80%E0%B8%97%E0%B8%9E"
+   }
+  }
+ },
+ "cm-osm-node-2082739154": {
+  "blurb": {
+   "en": {
+    "revision": "2026-08-12",
+    "text": "Doi Pui is a mountain (\"doi\") west of Chiang Mai, Thailand. It is 1,685 metres (5,528 ft) in elevation and is one of the twin peaks of a granite mountain. The other peak, known as Doi Suthep, is slightly lower at 1,676 metres (5,499 ft), where the archaeological site of San Ku (สันกู่) temple, a Buddhist temple dating to approximately 800 years old, is located. The peak is situated in a protected area of Doi…",
+    "title": "Doi Pui",
+    "url": "https://en.wikipedia.org/wiki/Doi_Pui"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-04-05",
+    "text": "ดอยปุย เป็นดอยแบ่งเขตตำบลสุเทพและตำบลช้างเผือก อำเภอเมืองเชียงใหม่ กับตำบลดอนแก้ว อำเภอแม่ริม จังหวัดเชียงใหม่ สูง 1,697 เมตร",
+    "title": "ดอยปุย",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%9B%E0%B8%B8%E0%B8%A2"
+   }
+  }
+ },
+ "cm-osm-node-2207833035": {
+  "fetched": "2026-08-18",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Saraphi.Pharmacy/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.facebook.com/Saraphi.Pharmacy"
  },
  "cm-osm-node-2300395636": {
   "fetched": "2026-08-16",
@@ -749,6 +880,53 @@
   },
   "license": "official-site",
   "src": "https://myplaceloungechiangmai.com/"
+ },
+ "cm-osm-node-2300400256": {
+  "fetched": "2026-08-19",
+  "fields": {
+   "address": "69 ถนนลอยเคราะห์ ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
+   "attrs": {
+    "alsoKnownAs": "Oriental Garden Chiang Mai — the sign over the door reads Garden Restaurant & Guest House",
+    "art": "เจ้าของสะสมงานศิลป์และรูปปั้นไว้เต็มตัวอาคาร — เดินดูได้รอบ",
+    "bar": "บาร์มีโต๊ะพูล บรรยากาศบ่กวนใคร",
+    "facebook": "https://www.facebook.com/gardenloycm/",
+    "garden": "ห้องพักอยู่ลึกเข้าไปในสวนหลังร้าน เงียบกว่าถนนหลายเท่า",
+    "houseNumber": "69",
+    "kind": "garden restaurant, bar & guest house",
+    "kitchen": "อาหารไทย จานกระเบื้องลายน้ำเงิน กล้วยไม้วางบนผัก · มีอาหารดัตช์ให้เลือกสองสามอย่าง",
+    "songkran": "สงกรานต์: นั่งโต๊ะหน้าร้านได้ตลอด ๑๓–๑๕ เมษา น้ำสาดถึงที่ กิ๋นข้าวไปเปียกไป บ่ต้องยืนแย่งกับใครเจ้า",
+    "street": "ถนนลอยเคราะห์",
+    "subdistrict": "Chang Khlan"
+   },
+   "blurb_en": "A garden restaurant and guest house on Loi Kroh — blue-and-white porcelain, orchids laid on the greens, chicken folded in pandan with sweet chilli. At Songkran you keep your table and still get thoroughly, joyfully soaked.",
+   "blurb_th": "สวนอาหารและเกสต์เฮาส์กลางถนนลอยเคราะห์ จานกระเบื้องลายน้ำเงิน กล้วยไม้วางบนผัก ไก่ห่อใบเตยจิ้มน้ำหวาน — สงกรานต์เฮามานั่งตี้นี้ทุกปี เปียกครบแต่ยังได้กิ๋นข้าวสบาย ๆ น่อ",
+   "cat": [
+    "food",
+    "hotel",
+    "sights"
+   ],
+   "confidence": "field",
+   "featured": true,
+   "geoPrecision": "exact",
+   "lat": 18.78419,
+   "lng": 98.99727,
+   "name": "The Garden Restaurant & Guest House",
+   "nameEn": "The Garden Restaurant & Guest House",
+   "nameTh": "เดอะการ์เด้น ร้านอาหารและเกสต์เฮาส์",
+   "sub": [
+    "thai",
+    "guesthouse"
+   ]
+  },
+  "how": {
+   "address": "house number 69 as given on Loi Kroh; OSM's 36 on this node is the older reading and is what we are replacing",
+   "attrs": "our own photographs and video of the room, the street at Songkran, and the owner's art; houseNumber and subdistrict corrected from OSM's 36 / Chang Moi to 69 / Chang Khlan, the subdistrict our own EXIF reverse-geocodes to on all 41 frames",
+   "lat": "EXIF from 41 of our own photographs and videos taken at the tables, Dec 2025 – Jul 2026 (tight cluster, ±8 m)",
+   "name": "read off the shop's own sign in our photograph, 23 June 2026"
+  },
+  "license": "field",
+  "note": "Phone left null on purpose. Their own site (orientalgardenchiangmai.com) no longer resolves and directory copies disagree — two candidates seen in the wild are 053-276742 / 085-722-3084, and one older listing says 053-206267. The owner is the last word on her own number: ask her, then record it as an owner claim. Also still wanted: a still frame of the art collection (we have it only on video, IMG_2241.MOV, 23 June 2026), and the house number confirmed off the doorplate.",
+  "src": "own photographs and field visits, Chiang Mai"
  },
  "cm-osm-node-2425083045": {
   "fetched": "2026-08-16",
@@ -825,6 +1003,26 @@
   },
   "license": "official-site",
   "src": "https://www.nimmanhouse.com/"
+ },
+ "cm-osm-node-259288817": {
+  "blurb": {
+   "en": {
+    "revision": "2026-08-12",
+    "text": "Doi Inthanon is the highest mountain in Thailand. It is in Chom Thong District, Chiang Mai Province. This mountain is an ultra prominent peak, known in the past as Doi Luang Ang Ga or meaning the 'crow's pond top'. Near the mountain's base was a pond where many crows gathered. The name Doi Inthanon was given in honour of Inthawichayanon, Grand Prince of Chiang Mai, who was concerned about the forests in the north…",
+    "title": "Doi Inthanon",
+    "url": "https://en.wikipedia.org/wiki/Doi_Inthanon"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-08-18",
+    "text": "ดอยอินทนนท์ เป็นยอดเขาที่สูงที่สุดในประเทศไทย ตั้งอยู่ที่อำเภอจอมทอง จังหวัดเชียงใหม่ เดิมมีชื่อว่า \"ดอยหลวง\" หรือ \"ดอยหลวงอ่างกา\" ชื่อของ ดอยอินทนนท์ เป็นชื่อของกษัตริย์พระนามว่าพระเจ้าอินทวิชยานนท์ เจ้าผู้ครองนครเชียงใหม่ ทรงเป็นผู้ที่ห่วงใยในป่าทางภาคเหนือ และพยายามรักษาไว้ ภายหลังเสด็จพิราลัย พระอัฐิส่วนหนึ่งได้เชิญไปประดิษฐาน ณ พระสถูปบนยอดดอยหลวง และเปลี่ยนชื่อเพื่อเป็นเกียรติ​",
+    "title": "ดอยอินทนนท์",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%AD%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%99%E0%B8%99%E0%B8%97%E0%B9%8C"
+   }
+  }
  },
  "cm-osm-node-2595949603": {
   "fetched": "2026-08-16",
@@ -924,6 +1122,29 @@
   },
   "license": "official-site",
   "src": "https://www.northcm.ac.th/"
+ },
+ "cm-osm-node-3015620954": {
+  "fetched": "2026-08-19",
+  "fields": {
+   "address": "31 ถนนราชดำเนิน ซอย 5 ต.ศรีภูมิ อ.เมืองเชียงใหม่ 50200",
+   "attrs": {
+    "_pricesVerified": false,
+    "classPrices": "เมืองเก่า เช้าหรือเย็น 1,000 · ฟาร์ม 1,200 · แกะสลักเต็มคอร์ส 2,000 (+ผู้ติดตาม 300) บาท/คน · old city, morning or evening 1,000 · farm 1,200 · carving full course 2,000 (+300 per visitor) baht per person",
+    "classSessions": "ในเมืองเก่า: เช้า (เวลาไม่อยู่บนหน้าที่อ่าน) · เย็น 16:00–20:30 รับ 15:20–15:50 · ที่ฟาร์ม: เช้าเท่านั้น 9:00–15:30 รับ 8:20–8:50 · แกะสลักผักผลไม้เต็มคอร์ส 9:00–14:30 · เว็บไม่ระบุวัน · old city: morning (time not on the page read) · evening 16:00–20:30, pickup 15:20–15:50 · farm: morning only 9:00–15:30, pickup 8:20–8:50 · carving full course 9:00–14:30 · weekdays not stated",
+    "classSessionsVia": "school website",
+    "menuNote": "เลือก 6 จาน · เดินตลาด · สมุดสูตรพิมพ์เล่ม · ทุกเมนูทำเจ วีแกน ฮาลาล ไร้กลูเตนได้ · มีคอร์สขั้นสูง และคอร์สแกะสลักผักผลไม้ (ลายดอกไม้จากแครอท มันฝรั่ง แตงกวา · ผลไม้ทรงรี เช่น แตงโม มะละกอ · แถมมีดแกะสลัก) · choose 6 dishes · market walk · printed cookbook · whole menu available vegetarian, vegan, halal, gluten-free · an advanced course, and a fruit-and-vegetable carving course (flower patterns in carrot, potato and cucumber; oval fruit such as watermelon and papaya; carving knife included)",
+    "pickup": "รถรับในเขตเมืองเก่า · pickup within the old city",
+    "priceVia": "school website"
+   },
+   "phone": "+66 53 418 657",
+   "website": "https://www.asiascenic.com/"
+  },
+  "how": {
+   "attrs": "course pages",
+   "phone": "site footer"
+  },
+  "license": "official-site",
+  "src": "https://www.asiascenic.com/"
  },
  "cm-osm-node-3057397479": {
   "dropped": [
@@ -1234,6 +1455,20 @@
   "shared_with": 5,
   "src": "https://www.subway.co.th/"
  },
+ "cm-osm-node-4087526293": {
+  "blurb": {
+   "en": {
+    "revision": "2024-08-21",
+    "text": "Saraphi railway station is a railway station located in Yang Noeng Subdistrict, Saraphi District, Chiang Mai. It is a class 3 railway station located 742.788 km (461.5 mi) from Bangkok railway station.",
+    "title": "Saraphi railway station",
+    "url": "https://en.wikipedia.org/wiki/Saraphi_railway_station"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia"
+  }
+ },
  "cm-osm-node-4157089285": {
   "fetched": "2026-08-16",
   "fields": {
@@ -1265,6 +1500,26 @@
   "shared_with": 5,
   "src": "https://www.subway.co.th/"
  },
+ "cm-osm-node-4350066707": {
+  "blurb": {
+   "en": {
+    "revision": "2026-07-22",
+    "text": "Wiang Kum Kam is an historic settlement and archaeological site along the Ping River, which was built by King Mangrai the Great as his capital before he moved it to Chiang Mai. It was flooded and abandoned more than 700 years ago; that move became more understandable in 2005, when the ancient city was flooded three separate times as the river overflowed its banks in that area of Chiang Mai.",
+    "title": "Wiang Kum Kam",
+    "url": "https://en.wikipedia.org/wiki/Wiang_Kum_Kam"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-08-06",
+    "text": "เวียงกุมกาม เป็นอดีตเมืองหลวงของอาณาจักรล้านนา ที่พญามังรายโปรดให้สร้างขึ้นเมื่อ พ.ศ. 1829 โดยโปรดให้ขุดคูเวียงทั้ง 4 ด้าน ไขน้ำแม่ปิงให้ขังไว้ ในคูเมืองโบราณสถานที่ปรากฏอยู่ในเวียงกุมกามและใกล้เคียง เป็นเวียงทดลองที่สร้างขึ้น ก่อนที่จะมาเป็นเมืองเชียงใหม่ ตั้งอยู่ที่ ตำบลท่าวังตาล อำเภอสารภี จังหวัดเชียงใหม่ โดยมีระยะห่างจากตัวเมืองเชียงใหม่ไปทางทิศตะวันออกเฉียงใต้ประมาณ 5 กิโลเมตร",
+    "title": "เวียงกุมกาม",
+    "url": "https://th.wikipedia.org/wiki/%E0%B9%80%E0%B8%A7%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%81%E0%B8%B8%E0%B8%A1%E0%B8%81%E0%B8%B2%E0%B8%A1"
+   }
+  }
+ },
  "cm-osm-node-4362365489": {
   "fetched": "2026-08-16",
   "fields": {
@@ -1277,6 +1532,31 @@
   },
   "license": "official-site",
   "src": "https://www.chaimassage.com/"
+ },
+ "cm-osm-node-4391653340": {
+  "fetched": "2026-08-19",
+  "fields": {
+   "attrs": {
+    "_pricesVerified": false,
+    "classPrices": "เต็มวัน 1,500 · ครึ่งวันเย็น 1,200 บาท/คน · full day 1,500 · evening half-day 1,200 baht per person",
+    "classSessions": "เต็มวัน รับ 8:30–9:00 กลับ 16:00–16:30 · ครึ่งวันเย็น รับ 15:00–15:30 กลับราว 21:00 · ครึ่งวันเช้า (มี เวลาไม่ระบุ) · เว็บไม่ระบุวัน · full day: pickup 8:30–9:00, back 16:00–16:30 · evening half-day: pickup 15:00–15:30, back about 21:00 · morning half-day (exists, times not stated) · weekdays not stated",
+    "classSessionsVia": "school website",
+    "email": "thaifarmcooking@gmail.com",
+    "menuNote": "พริกแกง แกง ต้ม ผัด เส้น ขนม — 6 หมวด เลือกเอง · ตลาดก่อน แล้วฟาร์มออร์แกนิกห่างเมืองราว 17 กม. · ทุกเมนูทำเป็นมังสวิรัติ วีแกน ฮาลาล หรือไร้กลูเตนได้ · เตาและครกของตัวเอง · อีบุ๊กสูตรสี · curry paste, curry, soup, stir-fry, noodles, dessert — 6 categories of your choosing · the market first, then the organic farm about 17 km out · the whole menu can be vegetarian, vegan, halal or gluten-free · own station · colour e-recipe book",
+    "pickup": "รถตู้แอร์ในเขตรับ-ส่งตัวเมือง · นอกเขตนัดที่ออฟฟิศหรือตลาดรวมโชค · air-conditioned minivan within the city pickup zone; otherwise meet at the office or Ruamchok market",
+    "pinNote": "หมุดคือจุดในเมืองที่ OSM ระบุไว้ — ฟาร์มอยู่นอกเมืองราว 17 กม. ตามคำของเว็บโรงเรียน · the pin is the in-town point OpenStreetMap holds; the farm itself is about 17 km out, in the school's own words",
+    "priceVia": "school website",
+    "teachLang": "สอนเป็นภาษาอังกฤษโดยครูไทย · taught in English by a Thai teacher"
+   },
+   "phone": "+66 81 288 5989",
+   "website": "https://www.thaifarmcooking.net/"
+  },
+  "how": {
+   "attrs": "class pages",
+   "phone": "contact page"
+  },
+  "license": "official-site",
+  "src": "https://www.thaifarmcooking.net/full-day-cooking-class/"
  },
  "cm-osm-node-4407670289": {
   "fetched": "2026-08-16",
@@ -1325,13 +1605,35 @@
   "fields": {
    "attrs": {
     "facebook": "https://www.facebook.com/MayKaidee/",
-    "instagram": "https://www.instagram.com/maykaidee/"
-   }
+    "instagram": "https://www.instagram.com/maykaidee/",
+    "menuNote": "ร้านอาหารวีแกน — เมนูกรุงเทพฯ บวกอาหารเหนือ · หยุดวันเสาร์ · โรงเรียนสอนทำอาหารอยู่อีกที่หนึ่ง (ดูระเบียน May Kaidee vegan cooking classes) · vegan restaurant — the Bangkok menu plus Northern dishes · closed Saturdays · the cooking school is at a separate address (see the May Kaidee vegan cooking classes record)",
+    "phone2": "+66 99 105 6446"
+   },
+   "hours": "Mo-Fr,Su 11:00-20:30",
+   "phone": "+66 90 250 4571"
   },
   "how": {
    "attrs": "page links"
   },
   "license": "official-site",
+  "prov": {
+   "attrs.menuNote": {
+    "fetched": "2026-08-19",
+    "src": "https://www.maykaidee.com/restaurants/chiang-mai"
+   },
+   "attrs.phone2": {
+    "fetched": "2026-08-19",
+    "src": "https://www.maykaidee.com/restaurants/chiang-mai"
+   },
+   "hours": {
+    "fetched": "2026-08-19",
+    "src": "https://www.maykaidee.com/restaurants/chiang-mai"
+   },
+   "phone": {
+    "fetched": "2026-08-19",
+    "src": "https://www.maykaidee.com/restaurants/chiang-mai"
+   }
+  },
   "src": "https://www.maykaidee.com/"
  },
  "cm-osm-node-4557811609": {
@@ -1348,6 +1650,25 @@
   },
   "license": "official-site",
   "src": "https://akshaya.kerala.gov.in"
+ },
+ "cm-osm-node-4573410090": {
+  "fetched": "2026-08-19",
+  "fields": {
+   "attrs": {
+    "classSessions": "เว็บบอกว่า “มีคลาสทุกวัน 365 วัน” — เวลาเรียนและราคาไม่อยู่บนหน้าแรก · the site says “Classes Running 365 Days a Year” — session times and prices are not on the front page",
+    "classSessionsVia": "school website",
+    "lineId": "fonnie1974",
+    "menuNote": "เดินตลาดและเดินสวน · market and garden tour",
+    "phone2": "+66 90 948 3378"
+   },
+   "hours": "Mo-Su 08:00-21:00"
+  },
+  "how": {
+   "attrs": "front page",
+   "hours": "site footer"
+  },
+  "license": "official-site",
+  "src": "https://www.siamgardencookingschool.com/"
  },
  "cm-osm-node-4586796889": {
   "fetched": "2026-08-16",
@@ -1490,6 +1811,26 @@
   },
   "license": "official-site",
   "src": "https://thai.tattoo/"
+ },
+ "cm-osm-node-5640397222": {
+  "fetched": "2026-08-19",
+  "fields": {
+   "attrs": {
+    "_pricesVerified": false,
+    "classPrices": "1,100 บาท/คน ทั้งสองรอบ · 1,100 baht per person, either session",
+    "classSessions": "เช้า 9:30–14:00 · เย็น 16:00–20:30 (เว็บไม่ระบุวัน) · morning 9:30–14:00 · evening 16:00–20:30 (weekdays not stated)",
+    "classSessionsVia": "school website",
+    "email": "booking@baanthaicookery.com",
+    "menuNote": "4 จาน + ตำพริกแกงเอง · เดินตลาด 30–45 นาที · สมุดสูตรกว่า 30 สูตร · ข้าวเหนียวมะม่วง · 4 dishes, curry paste from scratch, a 30–45 minute market walk, a recipe book of 30+ recipes, mango sticky rice to finish",
+    "pickup": "รับ-ส่งในรัศมี 3 กม. จากเมืองเก่า · pickup and drop-off within 3 km of the old city",
+    "priceVia": "school website"
+   }
+  },
+  "how": {
+   "attrs": "course page"
+  },
+  "license": "official-site",
+  "src": "https://www.baanthaicookery.com/courses/morning"
  },
  "cm-osm-node-5703615419": {
   "fetched": "2026-08-16",
@@ -1646,6 +1987,20 @@
   "scope": "brand",
   "shared_with": 5,
   "src": "https://www.subway.co.th/"
+ },
+ "cm-osm-node-674670498": {
+  "blurb": {
+   "en": {
+    "revision": "2024-08-21",
+    "text": "Pa Sao railway station is a railway station located in Umong Subdistrict, Lamphun City, Lamphun. It is a class 3 railway station located 734.645 km (456.5 mi) from Bangkok railway station.",
+    "title": "Pa Sao railway station",
+    "url": "https://en.wikipedia.org/wiki/Pa_Sao_railway_station"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia"
+  }
  },
  "cm-osm-node-674670538": {
   "fetched": "2026-08-16",
@@ -1948,6 +2303,26 @@
   "license": "official-site",
   "src": "https://ichaichachiangmai.com"
  },
+ "cm-osm-node-9444644428": {
+  "blurb": {
+   "en": {
+    "revision": "2026-08-12",
+    "text": "Doi Ang Khang is a mountain in Fang District, Chiang Mai Province, Thailand. It is part of the Daen Lao Range that straddles both sides of the Burmese-Thai border. It is the site of an agricultural station, the first research station set up by King Bhumibol Adulyadej in 1969. The peak of Doi Ang Khang is 1,928 metres (6,325 ft) above sea level, and the agricultural station covers an area of 1,989 rai.",
+    "title": "Doi Ang Khang",
+    "url": "https://en.wikipedia.org/wiki/Doi_Ang_Khang"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2025-09-22",
+    "text": "ดอยอ่างขาง ตั้งอยู่บนทิวเขาแดนลาว ตำบลแม่งอน อำเภอฝาง จังหวัดเชียงใหม่ มีความสูงโดยค่าเฉลี่ย 1,400 เมตรจากระดับน้ำทะเล และมียอดดอยสูงสุดถึง 1,928 เมตร เป็นที่ตั้งของสถานีเกษตรหลวงอ่างขาง ซึ่งเป็นสถานีวิจัยแห่งแรกของโครงการหลวง เริ่มดำเนินงานเมื่อปี พ.ศ. 2512 ตามแนวพระราชดำริในพระบาทสมเด็จพระบรมชนกาธิเบศร มหาภูมิพลอดุลยเดชมหาราช บรมนาถบพิตร ที่ว่า “ให้เขาช่วยตัวเอง”…",
+    "title": "ดอยอ่างขาง",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%AD%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%82%E0%B8%B2%E0%B8%87"
+   }
+  }
+ },
  "cm-osm-node-988562302": {
   "fetched": "2026-08-16",
   "fields": {
@@ -1960,6 +2335,20 @@
   },
   "license": "official-site",
   "src": "http://www.lannacondo.com/nainn"
+ },
+ "cm-osm-relation-11577997": {
+  "blurb": {
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2023-01-28",
+    "text": "อุทยานแห่งชาติแม่ตะไคร้ ตั้งอยู่ในท้องที่ของอำเภอสันกำแพง อำเภอดอยสะเก็ด อำเภอแม่ออน จังหวัดเชียงใหม่ และอำเภอบ้านธิ อำเภอเมืองลำพูน จังหวัดลำพูน\nอุทยานแห่งชาติแม่ตะไคร้ มีเนื้อที่ทั้งหมดประมาณ 1,229.8 ตารางกิโลเมตร หรือ 768,625 ไร่",
+    "title": "อุทยานแห่งชาติแม่ตะไคร้",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B8%B0%E0%B9%84%E0%B8%84%E0%B8%A3%E0%B9%89"
+   }
+  }
  },
  "cm-osm-relation-12410725": {
   "blurb": {
@@ -2041,6 +2430,66 @@
   },
   "license": "official-site",
   "src": "https://cmocity.com/"
+ },
+ "cm-osm-relation-5944548": {
+  "blurb": {
+   "en": {
+    "revision": "2026-07-05",
+    "text": "Doi Suthep–Pui National Park is a national park in Chiang Mai Province in Thailand. It includes Wat Phra That Doi Suthep, a Buddhist temple, and Bhubing Palace, the winter residence of the Thai royal family. The park is a protected area for flora, fauna, and habitat.",
+    "title": "Doi Suthep–Pui National Park",
+    "url": "https://en.wikipedia.org/wiki/Doi_Suthep%E2%80%93Pui_National_Park"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-03-09",
+    "text": "อุทยานแห่งชาติดอยสุเทพ-ปุย เป็นอุทยานแห่งชาติที่ตั้งอยู่ในเขตอำเภอเมืองเชียงใหม่ อำเภอแม่ริม และอำเภอหางดง ของจังหวัดเชียงใหม่ มีพื้นที่ทั้งหมด 163,162.5 ไร่ หรือประมาณ 261 ตารางกิโลเมตร จุดสูงสุดของอุทยานแห่งชาติอยู่บริเวณที่เรียกว่า ดอยปุย ซึ่งสูงกว่าระดับน้ำทะเล 1,685 เมตร อุทยานแห่งชาติแห่งนี้ประกอบด้วยป่าที่อุดมสมบูรณ์ แม้ว่าจะตั้งอยู่ใกล้ตัวเมืองเชียงใหม่มาก แต่ป่าส่วนใหญ่อยู่บนภูเขาสูงสลับซับซ้อน ภูเขาสำคัญ…",
+    "title": "อุทยานแห่งชาติดอยสุเทพ-ปุย",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%AA%E0%B8%B8%E0%B9%80%E0%B8%97%E0%B8%9E-%E0%B8%9B%E0%B8%B8%E0%B8%A2"
+   }
+  }
+ },
+ "cm-osm-relation-5963190": {
+  "blurb": {
+   "en": {
+    "revision": "2026-07-06",
+    "text": "Khun Khan National Park is a national park in Thailand's Chiang Mai Province. This mountainous park is home to forests, waterfalls and cliff-top viewpoints.",
+    "title": "Khun Khan National Park",
+    "url": "https://en.wikipedia.org/wiki/Khun_Khan_National_Park"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2023-10-07",
+    "text": "อุทยานแห่งชาติขุนขาน ตั้งอยู่ในลุ่มน้ำแม่ขานและลุ่มน้ำแม่แจ่ม ท้องที่อำเภอสะเมิง จังหวัดเชียงใหม่ มีเนื้อที่ 130,583.45 ไร่ หรือ 208.93 ตารางกิโลเมตร",
+    "title": "อุทยานแห่งชาติขุนขาน",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B8%82%E0%B8%B8%E0%B8%99%E0%B8%82%E0%B8%B2%E0%B8%99"
+   }
+  }
+ },
+ "cm-osm-relation-5964088": {
+  "blurb": {
+   "en": {
+    "revision": "2026-07-06",
+    "text": "Si Lanna National Park is a national park in Chiang Mai Province, Thailand. Home to waterfalls, caves and springs, this mountainous park is the source of numerous tributaries of the Ping River.",
+    "title": "Si Lanna National Park",
+    "url": "https://en.wikipedia.org/wiki/Si_Lanna_National_Park"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2023-01-28",
+    "text": "อุทยานแห่งชาติศรีลานนา เป็นอุทยานแห่งชาติลำดับที่ 60 ของประเทศไทย มีเนื้อที่ประมาณ 878,750 ไร่ หรือ 1,406 ตารางกิโลเมตร เป็นแหล่งต้นลำน้ำหลายสาขาของแม่น้ำปิง มีเนื้อที่ใหญ่เป็นอันดับ 2 ของภาคเหนือ หรือใหญ่เป็นอันดับ 8 ของประเทศ มีพื้นที่ครอบคลุม 3 อำเภอในจังหวัดเชียงใหม่ คือ อำเภอแม่แตง อำเภอเชียงดาว อำเภอพร้าว มีแหล่งท่องเที่ยวทางธรรมชาติ เช่น น้ำตกม่อนหินไหลอ่างเก็บน้ำของเขื่อนแม่งัดสมบูรณ์ชล และเป็นหนึ่งใน 5…",
+    "title": "อุทยานแห่งชาติศรีลานนา",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A5%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B8%B2"
+   }
+  }
  },
  "cm-osm-way-1005881892": {
   "fetched": "2026-08-16",
@@ -2305,6 +2754,21 @@
   "license": "official-site",
   "src": "https://sleepmaihotel.com/sleep-mai-thapae/"
  },
+ "cm-osm-way-163021936": {
+  "fetched": "2026-08-18",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Saraphi.Pharmacy/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "scope": "brand",
+  "shared_with": 1,
+  "src": "https://www.facebook.com/Saraphi.Pharmacy"
+ },
  "cm-osm-way-177772328": {
   "fetched": "2026-08-16",
   "fields": {
@@ -2321,6 +2785,26 @@
   },
   "license": "official-site",
   "src": "https://grandcanyon-waterpark.com"
+ },
+ "cm-osm-way-186782433": {
+  "blurb": {
+   "en": {
+    "revision": "2026-05-09",
+    "text": "The Royal Flora Ratchaphruek was an international horticultural exposition held 1 November, 2006 to 31 January, 2007 at Mae Hia, Chiang Mai Province, Thailand that drew 3,781,624 visitors. Recognised by the Bureau International des Expositions (BIE), it was one of the grand celebrations hosted by the Royal Thai Government in honor of King Bhumibol, the world's longest reigning monarch.",
+    "title": "Royal Flora Ratchaphruek 2006",
+    "url": "https://en.wikipedia.org/wiki/Royal_Flora_Ratchaphruek_2006"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2025-12-03",
+    "text": "มหกรรมพืชสวนโลกเฉลิมพระเกียรติฯ ราชพฤกษ์ 2549 หรือเรียกโดยย่อว่า ราชพฤกษ์ 2549 เป็นงานมหกรรมจัดแสดงด้านพืชสวนกลางแจ้ง จัดขึ้นระหว่างวันที่ 1 พฤศจิกายน 2549 – 28 กุมภาพันธ์ 2550 ณ ศูนย์วิจัยเกษตรหลวงเชียงใหม่ ตำบลแม่เหียะ อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่",
+    "title": "มหกรรมพืชสวนโลกเฉลิมพระเกียรติฯ ราชพฤกษ์ 2549",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%A1%E0%B8%AB%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%9E%E0%B8%B7%E0%B8%8A%E0%B8%AA%E0%B8%A7%E0%B8%99%E0%B9%82%E0%B8%A5%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%A5%E0%B8%B4%E0%B8%A1%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B8%A2%E0%B8%A3%E0%B8%95%E0%B8%B4%E0%B8%AF_%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%9E%E0%B8%A4%E0%B8%81%E0%B8%A9%E0%B9%8C_2549"
+   }
+  }
  },
  "cm-osm-way-189632187": {
   "blurb": {
@@ -2415,6 +2899,20 @@
   "shared_with": 15,
   "src": "https://www.bangchak.co.th/en/home"
  },
+ "cm-osm-way-22981272": {
+  "blurb": {
+   "en": {
+    "revision": "2024-10-31",
+    "text": "Chiang Mai Night Bazaar or just Night Bazaar is directly east of the city moat, between it and the Ping River, on Chang Khlan Road, between Tha Phae and Sridonchai Roads. It is known for its handicrafts and portrait paintings. There are also jewelry, toys, clothing, and technology such as CDs and DVDs. The market is one of the most popular tourist attractions in Chiang Mai. At first, the market was owned by Chinese…",
+    "title": "Chiang Mai Night Bazaar",
+    "url": "https://en.wikipedia.org/wiki/Chiang_Mai_Night_Bazaar"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia"
+  }
+ },
  "cm-osm-way-233741341": {
   "fetched": "2026-08-16",
   "fields": {
@@ -2444,6 +2942,20 @@
   "license": "official-site",
   "src": "https://www.therimchiangmai.com/"
  },
+ "cm-osm-way-23973788": {
+  "blurb": {
+   "en": {
+    "revision": "2026-02-19",
+    "text": "Nong Buak Hat Park, commonly called Suan Buak Hat Park, is a 12 rai (1.92-hectare public park located in the southwest corner of Chiang Mai’s old city. It is open every day from 05.00 - 21.00.",
+    "title": "Suan Buak Hat Park",
+    "url": "https://en.wikipedia.org/wiki/Suan_Buak_Hat_Park"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia"
+  }
+ },
  "cm-osm-way-240082625": {
   "fetched": "2026-08-16",
   "fields": {
@@ -2472,6 +2984,20 @@
   },
   "license": "official-site",
   "src": "https://sibsanhotel.com/"
+ },
+ "cm-osm-way-243766515": {
+  "blurb": {
+   "en": {
+    "revision": "2026-08-13",
+    "text": "The Highland People Discovery Museum, formerly known as the Tribal Museum, is an ethnographic museum in the Mueang Chiang Mai District of Chiang Mai province, northern Thailand, showing the life of Thailand's minority hill tribes.",
+    "title": "Highland People Discovery Museum",
+    "url": "https://en.wikipedia.org/wiki/Highland_People_Discovery_Museum"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia"
+  }
  },
  "cm-osm-way-249154472": {
   "fetched": "2026-08-16",
@@ -2684,6 +3210,26 @@
   },
   "license": "official-site",
   "src": "https://ptis.ac.th/"
+ },
+ "cm-osm-way-305818862": {
+  "fetched": "2026-08-19",
+  "fields": {
+   "attrs": {
+    "_pricesVerified": false,
+    "classPrices": "กลุ่ม 7,500 · ส่วนตัว 8,500 · เด็ก 4,250 บาท/คน บวกค่าบริการ 10% และภาษี · group class 7,500 · private 8,500 · kids 4,250 baht per person, plus 10% service charge and tax",
+    "classSessions": "Rim Tai Kitchen: คลาสเช้า 9:00–12:00 · คลาสบ่าย 14:00–17:00 · คลาสเด็ก (6–11 ปี) 10:00–12:00 · Thai Kitchen Live 19:00–21:00 · ต้องจองล่วงหน้า · morning class 9:00–12:00 · afternoon class 14:00–17:00 · kids' class (ages 6–11) 10:00–12:00 · Thai Kitchen Live 19:00–21:00 · advance reservation required",
+    "classSessionsVia": "resort website",
+    "menuNote": "เริ่มในสวนสมุนไพรของเชฟ แล้วเข้าครัวเรือนไม้สัก Rim Tai Kitchen (ออกแบบโดย Bill Bensley) · เมนูเด็ก 3 จาน · แจ้งแพ้อาหารตอนจอง · starts in the chef's garden, then the teak-house Rim Tai Kitchen (Bill Bensley) · three dishes on the kids' menu · state allergies when reserving",
+    "phone2": "66 2 207-8900 (จอง · reservations)",
+    "priceVia": "resort website"
+   }
+  },
+  "how": {
+   "attrs": "Rim Tai Kitchen page"
+  },
+  "license": "official-site",
+  "note": "The resort's site refuses non-browser fetches (HTTP 403); the page was read in a browser on 2026-08-19.",
+  "src": "https://www.fourseasons.com/chiangmai/dining/restaurants/rim-tai-kitchen/"
  },
  "cm-osm-way-305979003": {
   "fetched": "2026-08-16",
@@ -3038,6 +3584,26 @@
   },
   "license": "official-site",
   "src": "https://www.pingnakara.com/"
+ },
+ "cm-osm-way-390400502": {
+  "blurb": {
+   "en": {
+    "revision": "2025-10-21",
+    "text": "Wat I Khang is a ruined 16th or 17th century temple in the Wiang Kum Kam archaeological complex near modern Chiang Mai in northern Thailand.",
+    "title": "Wat I Khang",
+    "url": "https://en.wikipedia.org/wiki/Wat_I_Khang"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2025-02-04",
+    "text": "วัดอีก้าง หรือ วัดอีค่าง เป็นโบราณสถานร้างที่ได้รับการขุดแต่งแล้ว ตั้งอยู่ในเขตกึ่งกลางของเวียงกุมกาม ห่างจากวัดปู่เปี้ยออกมาทางทิศตะวันออกประมาณ 250 เมตร ห่างจากแม่น้ำปิงมาทางตะวันออกประมาณ 700 เมตร ในตำบลท่าวังตาล อำเภอสารภี จังหวัดเชียงใหม่",
+    "title": "วัดอีก้าง",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%B5%E0%B8%81%E0%B9%89%E0%B8%B2%E0%B8%87"
+   }
+  }
  },
  "cm-osm-way-391038248": {
   "fetched": "2026-08-16",
@@ -3559,6 +4125,24 @@
   "license": "official-site",
   "src": "https://merittonbritish.ac.th/"
  },
+ "cm-osm-way-961802207": {
+  "fetched": "2026-08-19",
+  "fields": {
+   "attrs": {
+    "_pricesVerified": false,
+    "classPrices": "ครึ่งเมนู 1,000 · เต็มเมนู 1,200 บาท/คน · half menu 1,000 · full menu 1,200 baht per person",
+    "classSessions": "ครึ่งเมนู 8:30–13:30 · เต็มเมนู 8:30–15:30 · หยุดวันอาทิตย์ · วันละหนึ่งคลาส สอนโดยเชฟเมย์ · half menu 8:30–13:30 · full menu 8:30–15:30 · closed Sundays · one class a day, taught by Chef May",
+    "classSessionsVia": "school website",
+    "menuNote": "ตลาดสามแยก แล้วเก็บผักในสวนออร์แกนิก · แกง ผัด น้ำพริก ยำ ขนม อาหารข้างทาง อาหารเหนือ · Sam Yaek market, then the organic garden; curries, stir-fries, relishes, salads, desserts, street food, Northern dishes",
+    "pickup": "รับ-ส่งจากตัวเมือง ถ้าที่พักอยู่นอกเขตนัดที่ประตูท่าแพ · round trip from downtown; outside the pickup zone, meet at Tha Phae Gate",
+    "priceVia": "school website"
+   },
+   "website": "https://www.chiang-mai-cooking-school.com/"
+  },
+  "license": "official-site",
+  "note": "Two OSM records stood at 58 Moo 1 T. Pa Phai — the node carried the site, the way the right name; merges.json folds the node in.",
+  "src": "https://www.chiang-mai-cooking-school.com/"
+ },
  "cm-osm-way-96964501": {
   "fetched": "2026-08-16",
   "fields": {
@@ -3714,6 +4298,26 @@
   "license": "official-site",
   "src": "https://haciendacoffeehouse.com/"
  },
+ "cr-osm-node-1227377722": {
+  "blurb": {
+   "en": {
+    "revision": "2026-08-15",
+    "text": "Phu Chi Fa, also Phu Chee Fah, is a mountain area and national forest park in Thailand. It is located at the northeastern end of the Phi Pan Nam Range, 12 km to the southwest of Doi Pha Tang at the eastern edge of Tap Tao in Thoeng district, Chiang Rai province.",
+    "title": "Phu Chi Fa",
+    "url": "https://en.wikipedia.org/wiki/Phu_Chi_Fa"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-01-16",
+    "text": "อุทยานแห่งชาติภูชี้ฟ้า ตั้งอยู่ที่ตำบลตับเต่า อำเภอเทิง จังหวัดเชียงราย เป็นสถานที่ท่องเที่ยวที่มีชื่อเสียงในจังหวัดเชียงราย อยู่ในเขตป่าสงวนแห่งชาติ ป่าแม่อิงฝั่งขวาและป่าแม่งาว ฟ้าทอง มีพื้นที่ประมาณ 58,069 ไร่ ใน 4 อำเภอ ของ จังหวัดเชียงราย ได้แก่ อำเภอเชียงของ อำเภอเวียงแก่น อำเภอขุนตาลและอำเภอเทิงโดยกรมป่าไม้ได้มีคำสั่งจัดตั้งเป็นวนอุทยาน เมื่อวันที่ 6 กุมภาพันธ์ พ.ศ. 2541…",
+    "title": "อุทยานแห่งชาติภูชี้ฟ้า",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B8%A0%E0%B8%B9%E0%B8%8A%E0%B8%B5%E0%B9%89%E0%B8%9F%E0%B9%89%E0%B8%B2"
+   }
+  }
+ },
  "cr-osm-node-14062812601": {
   "fetched": "2026-08-16",
   "fields": {
@@ -3731,6 +4335,66 @@
   "scope": "brand",
   "shared_with": 1,
   "src": "https://www.moraboutiquehotel.com/"
+ },
+ "cr-osm-node-2082739153": {
+  "blurb": {
+   "en": {
+    "revision": "2026-08-12",
+    "text": "Doi Mae Tho, also known as Doi Langka Luang (ดอยลังกาหลวง) or Doi Lang Ka (ดอยลังกา), is a mountain in Thailand, part of the Khun Tan Range.",
+    "title": "Doi Mae Tho",
+    "url": "https://en.wikipedia.org/wiki/Doi_Mae_Tho"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2024-09-27",
+    "text": "ดอยแม่โถ หรือที่รู้จักกันในชื่อ ดอยลังกาหลวง หรือ ดอยลังกา เป็นภูเขาในประเทศไทย ซึ่งเป็นส่วนหนึ่งของทิวเขาขุนตาล",
+    "title": "ดอยแม่โถ",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B9%82%E0%B8%96"
+   }
+  }
+ },
+ "cr-osm-node-2082753284": {
+  "blurb": {
+   "en": {
+    "revision": "2026-08-12",
+    "text": "Doi Nang Non is a mountain range in the Thai highlands in Chiang Rai Province, Thailand. It is a karstic formation with numerous waterfalls and caves rising at the southern end of the Daen Lao Range. Part of its area is managed as the Tham Luang–Khun Nam Nang Non Forest Park.",
+    "title": "Doi Nang Non",
+    "url": "https://en.wikipedia.org/wiki/Doi_Nang_Non"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-03-04",
+    "text": "ดอยนางนอน เป็นทิวเขาในตำบลโป่งงาม ตำบลโป่งผา และตำบลเวียงพางคำ อำเภอแม่สาย จังหวัดเชียงราย บางส่วนของดอยนางนอนอยู่ในการดูแลของวนอุทยานถ้ำหลวง-ขุนน้ำนางนอน",
+    "title": "ดอยนางนอน",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%99%E0%B8%B2%E0%B8%87%E0%B8%99%E0%B8%AD%E0%B8%99"
+   }
+  }
+ },
+ "cr-osm-node-2082753285": {
+  "blurb": {
+   "en": {
+    "revision": "2026-08-12",
+    "text": "Doi Tung (ดอยตุง) is a mountain in the Thai highlands of Mae Fa Luang District, Chiang Rai Province, Thailand.",
+    "title": "Doi Tung",
+    "url": "https://en.wikipedia.org/wiki/Doi_Tung"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-05-18",
+    "text": "ดอยตุง เป็นภูเขาในเขตอำเภอแม่ฟ้าหลวง จังหวัดเชียงราย เป็นส่วนหนึ่งของทิวเขาแดนลาว มีผืนป่าธรรมชาติประมาณ 93,515 ไร่ มีความสูงจากระดับน้ำทะเลปานกลางประมาณ 1,630 เมตร ทางด้านธรณีวิทยา ชั้นหินที่สำคัญในแนวนี้ประกอบด้วยหินยุคไซลูเรียน-ดีโวเนียน-คาร์บอนิเฟอรัส",
+    "title": "ดอยตุง",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%95%E0%B8%B8%E0%B8%87"
+   }
+  }
  },
  "cr-osm-node-2193422312": {
   "fetched": "2026-08-16",
@@ -3780,6 +4444,26 @@
   "shared_with": 9,
   "src": "https://www.mkrestaurant.com/th"
  },
+ "cr-osm-node-2622028414": {
+  "blurb": {
+   "en": {
+    "revision": "2025-05-23",
+    "text": "The Navel City Pillar of Chiang Rai is a city pillar of Chiang Rai province, located in Wat Phra That Doi Chom Thong temple complex. It was constructed in 1987 on the occasion of the 60th birthday of King Bhumibol Adulyadej and the 725th anniversary of the City of Chiang Rai in northern Thailand.",
+    "title": "Navel City Pillar of Chiang Rai",
+    "url": "https://en.wikipedia.org/wiki/Navel_City_Pillar_of_Chiang_Rai"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-08-13",
+    "text": "เสาสะดือเมืองเชียงราย (เสาหลักเมือง) เป็นเครื่องหมายหรือสัญลักษณ์ของการก่อตั้งชุมชนและเมือง สำหรับจังหวัดเชียงรายจะเรียกเสาหลักเมืองว่าเสาสะดือเมือง จากหลักฐานทางประวัติศาสตร์ระบุว่า เมื่อครั้งการสร้างเมืองครั้งแรกใช้คำว่า \"เสาสะดือเมือง\" ไม่ใช้คำว่าเสาหลักเมือง",
+    "title": "เสาสะดือเมืองเชียงราย",
+    "url": "https://th.wikipedia.org/wiki/%E0%B9%80%E0%B8%AA%E0%B8%B2%E0%B8%AA%E0%B8%B0%E0%B8%94%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2"
+   }
+  }
+ },
  "cr-osm-node-2624604015": {
   "fetched": "2026-08-16",
   "fields": {
@@ -3793,6 +4477,20 @@
   "license": "official-site",
   "src": "https://www.akhahill.com/"
  },
+ "cr-osm-node-3201494143": {
+  "blurb": {
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2025-06-11",
+    "text": "ดอยผาตั้ง เป็นสถานที่ท่องเที่ยวที่มีชื่อเสียงแห่งหนึ่งในจังหวัดเชียงราย อยู่ในเขตตำบลปอ อำเภอเวียงแก่น จังหวัดเชียงราย ดอยผาตั้งเป็นยอดดอยอยู่ในเทือกเขาหลวงพระบาง สันปันน้ำเป็นจุดแบ่งอาณาเขตระหว่างประเทศไทย-ลาว เป็นสถานที่ท่องเที่ยวที่ขึ้นชื่อสำหรับชมพระอาทิตย์ขึ้นและทะเลหมอกในตอนเช้าและชมพระอาทิตย์ตกในเวลาเย็น มีความสูงจากระดับน้ำทะเลประมาณ 1,800 เมตร…",
+    "title": "ดอยผาตั้ง",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%9C%E0%B8%B2%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87"
+   }
+  }
+ },
  "cr-osm-node-361390988": {
   "fetched": "2026-08-16",
   "fields": {
@@ -3805,6 +4503,26 @@
   },
   "license": "official-site",
   "src": "https://ibpripapua.org/visi/"
+ },
+ "cr-osm-node-361391252": {
+  "blurb": {
+   "en": {
+    "revision": "2026-08-02",
+    "text": "The Golden Triangle is a large, mountainous region of approximately 200,000 km2 (77,000 sq mi) in northeastern Myanmar, Northern Thailand and northern Laos, centered on the confluence of the Ruak and Mekong rivers. The name \"Golden Triangle\" was coined by Marshall Green, a U.S. State Department official, in 1971 in a press conference on the opium trade. Today, the Thai side of the river confluence, Sop Ruak, has…",
+    "title": "Golden Triangle (Southeast Asia)",
+    "url": "https://en.wikipedia.org/wiki/Golden_Triangle_(Southeast_Asia)"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2025-12-16",
+    "text": "สามเหลี่ยมทองคำ ป็นพื้นที่ขนาดใหญ่ประมาณ 200,000 ตารางกิโลเมตร เป็นพื้นที่พรมแดนระหว่างประเทศไทย ประเทศพม่า และประเทศลาว จุดบรรจบระหว่างแม่น้ำรวกกับแม่น้ำโขง คำว่า \"สามเหลี่ยมทองคำ\" ถูกคิดขึ้นโดยมาร์แชลล์ กรีนเจ้าหน้าที่กระทรวงการต่างประเทศสหรัฐอเมริกา พ.ศ. 2514 ในงานแถลงข่าวเกี่ยวกับการค้าฝิ่น ปัจจุบันฝั่งไทยจุดบรรจบกันของแม่น้ำหรือ \"สบรวก\" ได้กลายเป็นแหล่งท่องเที่ยว โดยมีพิพิธภัณฑ์บ้านฝิ่น…",
+    "title": "สามเหลี่ยมทองคำ (เอเชียตะวันออกเฉียงใต้)",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%AA%E0%B8%B2%E0%B8%A1%E0%B9%80%E0%B8%AB%E0%B8%A5%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A1%E0%B8%97%E0%B8%AD%E0%B8%87%E0%B8%84%E0%B8%B3_(%E0%B9%80%E0%B8%AD%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%95%E0%B8%B0%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%AD%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%95%E0%B9%89)"
+   }
+  }
  },
  "cr-osm-node-4528072891": {
   "fetched": "2026-08-16",
@@ -3938,6 +4656,80 @@
   },
   "license": "official-site",
   "src": "http://123.242.164.131/cpwp/"
+ },
+ "cr-osm-relation-5944643": {
+  "blurb": {
+   "en": {
+    "revision": "2026-07-05",
+    "text": "Doi Luang National Park is one of the biggest national parks in Northern Thailand.",
+    "title": "Doi Luang National Park",
+    "url": "https://en.wikipedia.org/wiki/Doi_Luang_National_Park"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2023-10-07",
+    "text": "อุทยานแห่งชาติดอยหลวง มีอาณาเขตครอบคลุมพื้นที่รอยต่อของ 3 จังหวัด คือ จังหวัดเชียงราย จังหวัดลำปาง และ จังหวัดพะเยา เป็นอุทยานแห่งชาติที่ได้ยกฐานะมาจาก(วนอุทยานน้ำตกปูแกง, วนอุทยานน้ำตกผาเกล็ดนาค, แกงวนอุทยานน้ำตกจำปาทอง, และวนอุทยานน้ำตกวังแก้ว) รวม 4 แห่ง ที่มีพื้นที่ติดต่อเป็นผืนเดียวกัน มีสภาพธรรมชาติและจุดเด่นเป็นแหล่งท่องเที่ยวที่มีความสวยงามมากแห่งหนึ่งของภาคเหนือ มีเนื้อที่ทั้งหมดประมาณ 731,250 ไร่ หรือ…",
+    "title": "อุทยานแห่งชาติดอยหลวง",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%AB%E0%B8%A5%E0%B8%A7%E0%B8%87"
+   }
+  }
+ },
+ "cr-osm-relation-5944645": {
+  "blurb": {
+   "en": {
+    "revision": "2026-07-06",
+    "text": "Khun Chae National Park is a national park in Chiang Rai Province, Thailand. This rugged park is home to high mountains and waterfalls.",
+    "title": "Khun Chae National Park",
+    "url": "https://en.wikipedia.org/wiki/Khun_Chae_National_Park"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2025-05-30",
+    "text": "อุทยานแห่งชาติขุนแจ ตั้งอยู่ในท้องที่อำเภอเวียงป่าเป้า จังหวัดเชียงราย ห่างจากตัวเมืองจังหวัดเชียงใหม่ 62 กิโลเมตรตามทางหลวงสายเชียงใหม่-เชียงราย จัดตั้งเป็นอุทยานแห่งชาติเมื่อปี พ.ศ. 2538 เป็นแหล่งต้นน้ำสำคัญครอบคลุมพื้นที่ประมาณ 280 ตารางกิโลเมตร ภายในอุทยานมีสัตว์ป่านานาชนิด มีน้ำตกและทิวทัศน์ที่สวยงาม และเป็นถิ่นที่อยู่ของชาวเขามานานกว่า 100 ปี",
+    "title": "อุทยานแห่งชาติขุนแจ",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B8%82%E0%B8%B8%E0%B8%99%E0%B9%81%E0%B8%88"
+   }
+  }
+ },
+ "cr-osm-relation-5944648": {
+  "blurb": {
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-01-16",
+    "text": "อุทยานแห่งชาติแม่ปืม มีอาณาเขตไม่มากนัก แต่ป่าเบญจพรรณและป่าเต็งรังที่ปกคลุมพื้นที่ส่วนใหญ่ของอุทยานแห่งชาติก็เป็นจุดเด่นที่สร้างสีสันงดงามในยามหน้าแล้งที่ผืนป่าพากันเปลี่ยนสี อุทยานแห่งชาติมีพื้นที่ประกอบด้วย 2 ส่วน คือ ป่าดอยปุย และป่าแม่ปืม ป่าดอยปุยอยู่ในเขตอำเภอพานและอำเภอเมือง จังหวัดเชียงราย ป่าแม่ปืมอยู่ในพื้นที่อำเภอพานและอำเภอป่าแดด จังหวัดเชียงราย และอำเภอแม่ใจ จังหวัดพะเยา พื้นที่ประมาณ 222,500 ไร่ หรือ…",
+    "title": "อุทยานแห่งชาติแม่ปืม",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%9B%E0%B8%B7%E0%B8%A1"
+   }
+  }
+ },
+ "cr-osm-relation-6004123": {
+  "blurb": {
+   "en": {
+    "revision": "2026-07-06",
+    "text": "Phu Sang National Park is a national park in Northern Thailand.",
+    "title": "Phu Sang National Park",
+    "url": "https://en.wikipedia.org/wiki/Phu_Sang_National_Park"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-08-16",
+    "text": "อุทยานแห่งชาติภูซาง อยู่ในเขตอำเภอภูซาง จังหวัดพะเยา และอำเภอเทิง จังหวัดเชียงรายเป็นอุทยานแห่งชาติที่มีอาณาเขตติดต่อประเทศลาว และเป็นพื้นที่มีความอุดมสมบูรณ์ของทรัพยากรป่าไม้และสัตว์ป่า",
+    "title": "อุทยานแห่งชาติภูซาง",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B8%A0%E0%B8%B9%E0%B8%8B%E0%B8%B2%E0%B8%87"
+   }
+  }
  },
  "cr-osm-way-1014321707": {
   "fetched": "2026-08-16",
@@ -4097,6 +4889,40 @@
   "license": "official-site",
   "src": "https://www.maefahluang.org/"
  },
+ "cr-osm-way-1380457904": {
+  "blurb": {
+   "en": {
+    "revision": "2026-07-30",
+    "text": "Wat Pa Sak is a wat in Chiang Saen District, Chiang Rai Province, Thailand. Located just outside the city's old walls, the temple derives its name from the 300 teaks planted on the site around the time of its foundation. Wat Pa Sak's origins date back to the 13th or 14th centuries.",
+    "title": "Wat Pa Sak",
+    "url": "https://en.wikipedia.org/wiki/Wat_Pa_Sak"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2023-07-24",
+    "text": "วัดป่าสัก จังหวัดเชียงราย เป็นวัดและกลุ่มโบราณสถานในอำเภอเชียงแสน จังหวัดเชียงราย ซึ่งก่อสร้างโดยพระเจ้าแสนภู ในปีพ.ศ. 1838 เพื่อประดิษฐานพระบรมสารีริกธาตุ \"โคปผกะธาตุ\" (พระธาตุกระดูกตาตุ่มข้างขวาของพระพุทธเจ้า) และโปรดเกล้าฯ ให้ปลูกต้นสักจำนวน 300 ต้นทั่วบริเวณ จึงเป็นที่มาของชื่อวัดป่าสัก",
+    "title": "วัดป่าสัก (อำเภอเชียงแสน)",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9B%E0%B9%88%E0%B8%B2%E0%B8%AA%E0%B8%B1%E0%B8%81_(%E0%B8%AD%E0%B8%B3%E0%B9%80%E0%B8%A0%E0%B8%AD%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%81%E0%B8%AA%E0%B8%99)"
+   }
+  }
+ },
+ "cr-osm-way-222739926": {
+  "blurb": {
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2025-09-06",
+    "text": "พระตำหนักดอยตุง ตั้งอยู่ที่ หมู่ที่ 7 บ้านอาข่าป่ากล้วย ตำบลแม่ฟ้าหลวง อำเภอแม่ฟ้าหลวง จังหวัดเชียงราย บริเวณสันเขาของเทือกดอยนางนอน ระดับความสูงประมาณ 1,200 ม. เป็นส่วนหนึ่งของโครงการพัฒนาดอยตุง เป็นที่ที่น่าเที่ยว",
+    "title": "พระตำหนักดอยตุง",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B3%E0%B8%AB%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%95%E0%B8%B8%E0%B8%87"
+   }
+  }
+ },
  "cr-osm-way-373628738": {
   "dropped": [
    "phone"
@@ -4148,6 +4974,20 @@
   "license": "official-site",
   "src": "https://www.lalunaresortchiangrai.com/"
  },
+ "cr-osm-way-393447653": {
+  "blurb": {
+   "en": {
+    "revision": "2026-07-30",
+    "text": "Baan Dam Museum, also known to foreigners as the Black House Museum, is a private art museum comprising a mixture of traditional northern Thai buildings with unconventional and contemporary architecture, designed by Thawan Duchanee.",
+    "title": "Baan Dam Museum",
+    "url": "https://en.wikipedia.org/wiki/Baan_Dam_Museum"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia"
+  }
+ },
  "cr-osm-way-402084109": {
   "fetched": "2026-08-16",
   "fields": {
@@ -4179,6 +5019,19 @@
   "scope": "brand",
   "shared_with": 15,
   "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cr-osm-way-483841193": {
+  "fetched": "2026-08-18",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/CRHOfficialCenter/"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://www.crhospital.org/"
  },
  "cr-osm-way-527084449": {
   "fetched": "2026-08-16",
@@ -4213,6 +5066,26 @@
   "scope": "brand",
   "shared_with": 15,
   "src": "https://www.bangchak.co.th/en/home"
+ },
+ "cr-osm-way-593126810": {
+  "blurb": {
+   "en": {
+    "revision": "2026-07-07",
+    "text": "Mae Fah Luang – Chiang Rai International Airport is in Ban Du subdistrict, Mueang Chiang Rai district, Chiang Rai province in northern Thailand. The airport is about 8 km from the city center. Since 1998, it has been managed by the Airports of Thailand Public Company Limited (AOT). In 2013, the airport handled over 1,000,000 passengers and 7,000 passenger flights. The airport had international flight facilities and…",
+    "title": "Chiang Rai International Airport",
+    "url": "https://en.wikipedia.org/wiki/Chiang_Rai_International_Airport"
+   },
+   "fetched": "2026-08-21",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "wikipedia",
+   "th": {
+    "revision": "2026-08-14",
+    "text": "ท่าอากาศยานแม่ฟ้าหลวง เชียงราย หรือ สนามบินเชียงราย อักษรย่อ ทชร.(อังกฤษ: Mae Fah Luang – Chiang Rai International Airport) ตั้งอยู่เลขที่ 404 หมู่ 10 บ้านปางลาว ตำบลบ้านดู่ อำเภอเมืองเชียงราย จังหวัดเชียงราย ห่างจากถนนพหลโยธิน ทางทิศตะวันออกประมาณ 2.6 กิโลเมตร และห่างจากตัวเมืองเชียงราย ประมาณ 8 กิโลเมตร โดยมีเส้นทางหลักคือทางหลวงแผ่นดินหมายเลข 1418 มีพื้นที่ทั้งหมด ประมาณ 3,042 ไร่…",
+    "title": "ท่าอากาศยานแม่ฟ้าหลวง เชียงราย",
+    "url": "https://th.wikipedia.org/wiki/%E0%B8%97%E0%B9%88%E0%B8%B2%E0%B8%AD%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A8%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%AB%E0%B8%A5%E0%B8%A7%E0%B8%87_%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2"
+   }
+  }
  },
  "cr-osm-way-684852276": {
   "fetched": "2026-08-16",
@@ -4298,5 +5171,19 @@
   "scope": "brand",
   "shared_with": 1,
   "src": "https://www.museumthailand.com/"
+ },
+ "cr-osm-way-991657339": {
+  "fetched": "2026-08-18",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/Fortmengraihospital/",
+    "lineUrl": "https://line.me/R/ti/p/@327mjtxn"
+   }
+  },
+  "how": {
+   "attrs": "page links"
+  },
+  "license": "official-site",
+  "src": "https://fortmengraihospital.rta.mi.th/homepage.php"
  }
 }

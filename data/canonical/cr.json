@@ -194,6 +194,50 @@
   "updatedAt": "2026-07-27"
  },
  {
+  "id": "cr-curated-mplus-chiangrai",
+  "province": "cr",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "มูลนิธิเอ็มพลัส เชียงราย",
+  "nameTh": "มูลนิธิเอ็มพลัส เชียงราย",
+  "nameEn": "M Plus Foundation Chiang Rai",
+  "lat": 19.882879,
+  "lng": 99.809911,
+  "geoPrecision": "approx",
+  "address": "997/5 ถ.สถานพยาบาล ต.รอบเวียง อ.เมืองเชียงราย จ.เชียงราย 57000",
+  "phone": "052-026357",
+  "website": "https://www.mplusthailand.com/",
+  "hours": "Mo-Fr 11:00-19:00",
+  "attrs": {
+   "kind": "community sexual-health clinic (มูลนิธิ)",
+   "pinVia": "tambon-amphoe-centroid",
+   "pinUncertaintyM": "1533",
+   "pinFrom": "รอบเวียง / เมืองเชียงราย"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "สาขาเชียงรายของมูลนิธิเอ็มพลัส — ตรวจเอชไอวีและโรคติดต่อทางเพศสัมพันธ์ ยาเพร็พ-เป๊ป และงานสุขภาพชุมชนแนวเดียวกับสำนักงานใหญ่เชียงใหม่",
+  "blurb_en": "The Chiang Rai clinic of the M Plus Foundation — HIV/STI testing, PrEP and PEP, and the same line of community health work as the Chiang Mai head office.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.mplusthailand.com/en/contact-us/",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://thaisisterhood.com/resources/clinics",
+    "fetched": "2026-08-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-21"
+ },
+ {
   "id": "cr-curated-river-tavern",
   "province": "cr",
   "cat": [
@@ -4752,43 +4796,6 @@
   "lat": 19.843269,
   "lng": 99.672835,
   "geoPrecision": "approx"
- },
- {
-  "id": "cr-dgth-eco-0842209073",
-  "province": "cr",
-  "cat": [
-   "sights"
-  ],
-  "sub": [],
-  "name": "ภูชี้ฟ้า",
-  "nameTh": null,
-  "nameEn": null,
-  "address": "43/1 หมู่ที่ 24 ตำบลตับเต่า อำเภอเทิง จังหวัดเชียงราย",
-  "phone": "0848079848",
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "kind": "แหล่งท่องเที่ยวเชิงนิเวศ",
-   "tambon": "ตับเต่า",
-   "amphoe": "เทิง"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/eco",
-    "fetched": "2026-08-20",
-    "via": "data.go.th",
-    "licence": "Open Data Common",
-    "credit": "สำนักงานการท่องเที่ยวและกีฬาจังหวัดเชียงราย"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2026-08-21",
-  "lat": null,
-  "lng": null,
-  "geoPrecision": "needs-pin"
  },
  {
   "id": "cr-dgth-eco-0910080694",
@@ -16273,6 +16280,84 @@
   "geoPrecision": "needs-pin"
  },
  {
+  "id": "cr-dgth-mhesi-2622549088",
+  "province": "cr",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "university"
+  ],
+  "name": "มหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย วิทยาลัยสงฆ์เชียงราย",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "จังหวัดเชียงราย",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "higher-education",
+   "mhesiRegistered": true,
+   "yearBE": "2563"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "register",
+    "ref": "https://data.go.th/dataset/univ_uni_11_03",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "License not specified",
+    "credit": "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
+  "id": "cr-dgth-mhesi-3266045007",
+  "province": "cr",
+  "cat": [
+   "school"
+  ],
+  "sub": [
+   "college"
+  ],
+  "name": "วิทยาลัยเชียงราย",
+  "nameTh": null,
+  "nameEn": null,
+  "address": "จังหวัดเชียงราย",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "schoolSector": "higher-education",
+   "mhesiRegistered": true,
+   "yearBE": "2563"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "register",
+    "ref": "https://data.go.th/dataset/univ_uni_11_03",
+    "fetched": "2026-08-21",
+    "via": "data.go.th",
+    "licence": "License not specified",
+    "credit": "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม"
+   }
+  ],
+  "confidence": "official",
+  "updatedAt": "2026-08-21",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin"
+ },
+ {
   "id": "cr-dgth-religious-0085093934",
   "province": "cr",
   "cat": [
@@ -17497,42 +17582,6 @@
   "geoPrecision": "needs-pin"
  },
  {
-  "id": "cr-dgth-religious-1569875438",
-  "province": "cr",
-  "cat": [
-   "sights"
-  ],
-  "sub": [],
-  "name": "ดอยตุง",
-  "nameTh": null,
-  "nameEn": null,
-  "address": "อำเภอแม่ฟ้าหลวง จังหวัดเชียงราย",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "kind": "แหล่งท่องเที่ยวเชิงศาสนา ศิลปะ วัฒนธรรม",
-   "amphoe": "แม่ฟ้าหลวง"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/dataset_20_19",
-    "fetched": "2026-08-20",
-    "via": "data.go.th",
-    "licence": "Open Data Common",
-    "credit": "สำนักงานวัฒนธรรมจังหวัดเชียงราย"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2026-08-21",
-  "lat": null,
-  "lng": null,
-  "geoPrecision": "needs-pin"
- },
- {
   "id": "cr-dgth-religious-1602538155",
   "province": "cr",
   "cat": [
@@ -17873,42 +17922,6 @@
   "attrs": {
    "kind": "แหล่งท่องเที่ยวเชิงศาสนา ศิลปะ วัฒนธรรม",
    "amphoe": "เชียงแสน"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/dataset_20_19",
-    "fetched": "2026-08-20",
-    "via": "data.go.th",
-    "licence": "Open Data Common",
-    "credit": "สำนักงานวัฒนธรรมจังหวัดเชียงราย"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2026-08-21",
-  "lat": null,
-  "lng": null,
-  "geoPrecision": "needs-pin"
- },
- {
-  "id": "cr-dgth-religious-2191594308",
-  "province": "cr",
-  "cat": [
-   "sights"
-  ],
-  "sub": [],
-  "name": "ดอยผาตั้ง",
-  "nameTh": null,
-  "nameEn": null,
-  "address": "อำเภอเวียงแก่น จังหวัดเชียงราย",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "kind": "แหล่งท่องเที่ยวเชิงศาสนา ศิลปะ วัฒนธรรม",
-   "amphoe": "เวียงแก่น"
   },
   "featured": false,
   "landmark": false,
@@ -21039,45 +21052,6 @@
   "geoPrecision": "approx"
  },
  {
-  "id": "cr-moph-8899210200005",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลเชียงรายประชานุเคราะห์",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 19.9016582993946,
-  "lng": 99.8292191900409,
-  "geoPrecision": "exact",
-  "address": "1039 ถ.สถานพยาบาล ต.เวียง อ.เมืองเชียงราย จ.เชียงราย 57000",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200005",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
   "id": "cr-moph-8899210200006",
   "province": "cr",
   "cat": [
@@ -21099,396 +21073,6 @@
   "attrs": {
    "facilityType": "hospital",
    "mophCode": "8899210200006",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cr-moph-8899210200007",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลแม่สาย",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 20.4290739084099,
-  "lng": 99.8789674021547,
-  "geoPrecision": "exact",
-  "address": "101 หมู่ 10 ต.เวียงพางคำ อ.แม่สาย จ.เชียงราย 57130",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200007",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cr-moph-8899210200008",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลเทิง",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 19.6900784409487,
-  "lng": 100.176684259444,
-  "geoPrecision": "exact",
-  "address": "146 ม.20 หมู่ 20 ต.เวียง อ.เทิง จ.เชียงราย 57160",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200008",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cr-moph-8899210200009",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลพาน",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 19.5206370195425,
-  "lng": 99.744579029221,
-  "geoPrecision": "exact",
-  "address": "516 ม.1 บ้านม่วงคำ หมู่ 1 ต.ม่วงคำ อ.พาน จ.เชียงราย 57120",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200009",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cr-moph-8899210200010",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลเวียงป่าเป้า",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 19.3527046934531,
-  "lng": 99.5096573802872,
-  "geoPrecision": "exact",
-  "address": "131 บ้านใหม่พัฒนา หมู่ 11 ต.เวียง อ.เวียงป่าเป้า จ.เชียงราย 57170",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200010",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cr-moph-8899210200011",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลสมเด็จพระยุพราชเชียงของ",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 20.2401956276976,
-  "lng": 100.410088485938,
-  "geoPrecision": "exact",
-  "address": "351 หมู่ 10 ต.เวียง อ.เชียงของ จ.เชียงราย 57140",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200011",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cr-moph-8899210200012",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลขุนตาล",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 19.9120651682574,
-  "lng": 100.297944907968,
-  "geoPrecision": "exact",
-  "address": "208 บ้านยางฮอมใหม่ หมู่ 12 ต.ต้า อ.ขุนตาล จ.เชียงราย 57340",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200012",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cr-moph-8899210200013",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลเชียงแสน",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 20.2712587927532,
-  "lng": 100.077411676665,
-  "geoPrecision": "exact",
-  "address": "104 ม.6 หมู่ 6 ต.เวียง อ.เชียงแสน จ.เชียงราย 57150",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200013",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cr-moph-8899210200014",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลป่าแดด",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 19.50751450563,
-  "lng": 99.990933536221,
-  "geoPrecision": "exact",
-  "address": "196 ม.4 หมู่ 4 ต.ป่าแดด อ.ป่าแดด จ.เชียงราย 57190",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200014",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cr-moph-8899210200015",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลพญาเม็งราย",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 19.8502831580182,
-  "lng": 100.145506918737,
-  "geoPrecision": "exact",
-  "address": "156 บ้านสันเชียงใหม่ หมู่ 10 ต.แม่เปา อ.พญาเม็งราย จ.เชียงราย 57290",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200015",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cr-moph-8899210200016",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลแม่ฟ้าหลวง",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 20.2501734112008,
-  "lng": 99.6513826695263,
-  "geoPrecision": "exact",
-  "address": "200 บ้านห้วยหยวกหินแตก หมู่ 1 ต.แม่สลองใน อ.แม่ฟ้าหลวง จ.เชียงราย 57240",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200016",
    "sector": "state"
   },
   "featured": false,
@@ -21567,45 +21151,6 @@
   "attrs": {
    "facilityType": "hospital",
    "mophCode": "8899210200018",
-   "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cr-moph-8899210200019",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลเวียงแก่น",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 20.0689845334877,
-  "lng": 100.508181449712,
-  "geoPrecision": "exact",
-  "address": "115 บ้านไทยสามัคคี หมู่ 6 ต.ม่วงยาย อ.เวียงแก่น จ.เชียงราย 57310",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "8899210200019",
    "sector": "state"
   },
   "featured": false,
@@ -141754,12 +141299,14 @@
   "lat": 19.9118906,
   "lng": 100.2983165,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "208 บ้านยางฮอมใหม่ หมู่ 12 ต.ต้า อ.ขุนตาล จ.เชียงราย 57340",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200012",
+   "sector": "state"
   },
   "featured": false,
   "landmark": false,
@@ -141769,6 +141316,20 @@
     "ref": "node/2423444737",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-moph-8899210200012",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -181294,12 +180855,14 @@
   "lat": 19.8505393,
   "lng": 100.1458579,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "156 บ้านสันเชียงใหม่ หมู่ 10 ต.แม่เปา อ.พญาเม็งราย จ.เชียงราย 57290",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200015",
+   "sector": "state"
   },
   "featured": false,
   "landmark": false,
@@ -181309,41 +180872,20 @@
     "ref": "node/7856667790",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cr-osm-node-7856667792",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาลแม่ฟ้าหลวง",
-  "nameTh": null,
-  "nameEn": "Mae Fa Luang Hospital",
-  "lat": 20.249691,
-  "lng": 99.651103,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
+   },
    {
-    "type": "osm",
-    "ref": "node/7856667792",
-    "fetched": "2026-07-27",
-    "via": "mot-dang overpass"
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-moph-8899210200015",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -189150,7 +188692,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Heritage Hotel",
   "nameTh": null,
@@ -190714,12 +190256,14 @@
   "lat": 19.3523815,
   "lng": 99.5108965,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "131 บ้านใหม่พัฒนา หมู่ 11 ต.เวียง อ.เวียงป่าเป้า จ.เชียงราย 57170",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200010",
+   "sector": "state"
   },
   "featured": false,
   "landmark": false,
@@ -190729,6 +190273,20 @@
     "ref": "way/1013293666",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-moph-8899210200010",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -194454,7 +194012,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ซีแอล อพาร์ทเมนต์",
   "nameTh": null,
@@ -194553,7 +194111,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "สุวรรณดี อพาร์ทเมนต์",
   "nameTh": "สุวรรณดี อพาร์ทเมนต์",
@@ -194722,7 +194280,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "Sleep Mode",
   "nameTh": null,
@@ -194755,7 +194313,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "อพาร์ตเมนท์แก้วเพลส",
   "nameTh": "อพาร์ตเมนท์แก้วเพลส",
@@ -194887,7 +194445,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "dorm"
   ],
   "name": "หอพักโชคดี",
   "nameTh": "หอพักโชคดี",
@@ -195518,7 +195076,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "เรจิน่าเพลส",
   "nameTh": "เรจิน่าเพลส",
@@ -195844,7 +195402,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "ศรินเพลส",
   "nameTh": "ศรินเพลส",
@@ -196394,7 +195952,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านกาญจนา",
   "nameTh": "บ้านกาญจนา",
@@ -199891,7 +199449,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "P'CAT HOUSE",
   "nameTh": null,
@@ -200784,12 +200342,14 @@
   "lat": 19.5213903,
   "lng": 99.7441275,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "516 ม.1 บ้านม่วงคำ หมู่ 1 ต.ม่วงคำ อ.พาน จ.เชียงราย 57120",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200009",
+   "sector": "state"
   },
   "featured": false,
   "landmark": false,
@@ -200799,6 +200359,20 @@
     "ref": "way/1356386079",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-moph-8899210200009",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -203317,7 +202891,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "แฟลตเจ้าหน้าที่ 1",
   "nameTh": "แฟลตเจ้าหน้าที่ 1",
@@ -203350,7 +202924,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "แฟลตเจ้าหน้าที่ 2",
   "nameTh": "แฟลตเจ้าหน้าที่ 2",
@@ -203383,7 +202957,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านพักเจ้าหน้าที่ 1",
   "nameTh": "บ้านพักเจ้าหน้าที่ 1",
@@ -203416,7 +202990,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านพักเจ้าหน้าที่ 2",
   "nameTh": "บ้านพักเจ้าหน้าที่ 2",
@@ -207363,17 +206937,19 @@
   "website": "https://www.ckhos.go.th/",
   "hours": null,
   "attrs": {
+   "facilityType": "hospital",
+   "mophCode": "8899210200011",
+   "sector": "state",
+   "osmSource": "Bing",
    "houseNumber": "354",
    "moo": "10",
    "subdistrict": "เวียง",
    "district": "เชียงของ",
    "postcode": "57140",
    "addrProvince": "เชียงราย",
-   "osmSource": "Bing",
    "altNames": [
     "โรงพยาบาลเชียงของ"
-   ],
-   "facilityType": "hospital"
+   ]
   },
   "featured": false,
   "landmark": false,
@@ -207383,42 +206959,32 @@
     "ref": "way/283761802",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cr-osm-way-283761810",
-  "province": "cr",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "โรงพยาบาล สมเด็จพระยุพราชเชียงของ",
-  "nameTh": null,
-  "nameEn": "Somdet Phra Yuphrarat Chiangkhong Hospital",
-  "lat": 20.2395941,
-  "lng": 100.4102579,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "osmSource": "Bing",
-   "facilityType": "hospital"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
+   },
    {
     "type": "osm",
     "ref": "way/283761810",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-osm-way-283761810",
+    "fetched": "",
+    "via": "data/curated/merges.json"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-moph-8899210200011",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -209787,14 +209353,16 @@
   "website": "https://www.maesaihospital.com/",
   "hours": null,
   "attrs": {
+   "facilityType": "hospital",
+   "mophCode": "8899210200007",
+   "sector": "state",
    "houseNumber": "101",
    "moo": "10",
    "subdistrict": "เวียงพางคำ",
    "district": "แม่สาย",
    "postcode": "57130",
    "city": "แม่สาย",
-   "addrProvince": "เชียงราย",
-   "facilityType": "hospital"
+   "addrProvince": "เชียงราย"
   },
   "featured": false,
   "landmark": false,
@@ -209804,6 +209372,20 @@
     "ref": "way/371233866",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-moph-8899210200007",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -214986,6 +214568,9 @@
   "website": "https://www.crhospital.org/",
   "hours": null,
   "attrs": {
+   "facilityType": "hospital",
+   "mophCode": "8899210200005",
+   "sector": "state",
    "houseNumber": "1039",
    "street": "ถนนสถานพยาบาล",
    "subdistrict": "เวียง",
@@ -214995,7 +214580,6 @@
    "altNames": [
     "โรงพยาบาลเชียงรายประชานุเคราะห์"
    ],
-   "facilityType": "hospital",
    "wikidata": "Q30269628"
   },
   "featured": false,
@@ -215006,6 +214590,20 @@
     "ref": "way/483841193",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-moph-8899210200005",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -216817,6 +216415,9 @@
   "website": "https://chiangsaenhospital.go.th/",
   "hours": null,
   "attrs": {
+   "facilityType": "hospital",
+   "mophCode": "8899210200013",
+   "sector": "state",
    "houseNumber": "104",
    "street": "ถนนพหลโยธิน",
    "moo": "6",
@@ -216824,7 +216425,6 @@
    "district": "เชียงแสน",
    "postcode": "57150",
    "addrProvince": "เชียงราย",
-   "facilityType": "hospital",
    "facebook": "https://www.facebook.com/ChiangSaenHospital/"
   },
   "featured": false,
@@ -216835,6 +216435,20 @@
     "ref": "way/527539157",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-moph-8899210200013",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -219748,12 +219362,14 @@
   "lat": 19.5075,
   "lng": 99.9903482,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "196 ม.4 หมู่ 4 ต.ป่าแดด อ.ป่าแดด จ.เชียงราย 57190",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200014",
+   "sector": "state"
   },
   "featured": false,
   "landmark": false,
@@ -219763,6 +219379,20 @@
     "ref": "way/548552723",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-moph-8899210200014",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -220266,11 +219896,13 @@
   "website": "https://www.mflhospital.com/",
   "hours": null,
   "attrs": {
+   "facilityType": "hospital",
+   "mophCode": "8899210200016",
+   "sector": "state",
    "subdistrict": "แม่สลองใน",
    "district": "แม่ฟ้าหลวง",
    "postcode": "57110",
-   "addrProvince": "เชียงราย",
-   "facilityType": "hospital"
+   "addrProvince": "เชียงราย"
   },
   "featured": false,
   "landmark": false,
@@ -220280,6 +219912,32 @@
     "ref": "way/549948901",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "osm",
+    "ref": "node/7856667792",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-osm-node-7856667792",
+    "fetched": "",
+    "via": "data/curated/merges.json"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-moph-8899210200016",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -221033,13 +220691,15 @@
   "website": "https://wkhos.go.th/",
   "hours": null,
   "attrs": {
+   "facilityType": "hospital",
+   "mophCode": "8899210200019",
+   "sector": "state",
    "houseNumber": "115",
    "street": "อำเภอเวียงแก่น",
    "moo": "6",
    "subdistrict": "ม่วงยาย",
    "district": "เวียงแก่น",
    "addrProvince": "เชียงราย",
-   "facilityType": "hospital",
    "operator": "Ministry of Public Health of Thailand",
    "facebook": "https://www.facebook.com/wkhhos/?"
   },
@@ -221051,6 +220711,20 @@
     "ref": "way/555852772",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-moph-8899210200019",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -227431,12 +227105,14 @@
   "lat": 19.6896305,
   "lng": 100.176419,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "146 ม.20 หมู่ 20 ต.เวียง อ.เทิง จ.เชียงราย 57160",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "mophCode": "8899210200008",
+   "sector": "state"
   },
   "featured": false,
   "landmark": false,
@@ -227446,6 +227122,20 @@
     "ref": "way/760183807",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cr-moph-8899210200008",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -237064,7 +236754,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านพักวิทยาลัยอาชีวศึกษา",
   "nameTh": "บ้านพักวิทยาลัยอาชีวศึกษา",
@@ -237229,7 +236919,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "บ้านร่วมใจ",
   "nameTh": null,
@@ -237401,7 +237091,7 @@
    "realestate"
   ],
   "sub": [
-   "condo"
+   "apartment"
   ],
   "name": "จันทร์ฉาย อพาร์ทเม้นท์",
   "nameTh": "จันทร์ฉาย อพาร์ทเม้นท์",
