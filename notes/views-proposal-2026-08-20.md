@@ -248,6 +248,35 @@ dead one's — judge by the OUTPUT FILE'S MTIME; and a `pgrep -f harvest_commons
 waiter matches its OWN command line and loops forever, which is why the chained
 job never fired. **Wait on a pid (`while kill -0 <pid>`), never on a name.**
 
+## Door 3, 2026-08-21 — the encyclopaedia, and a new rule
+
+Nan's go on the Wikidata lead that the crawl itself opened. **33 blurbs from
+100 candidates**, and the shortfall is the finding: most of the new peaks carry
+an auto-generated Wikidata item (Q316…) with **no Wikipedia article in any
+language**, so nothing was written for them. Absent is not false, and a peak
+with no article keeps its name, its pin and its elevation.
+
+What did land is the part people search for: **ดอยอินทนนท์, ดอยสุเทพ, ดอยปุย,
+ดอยอ่างขาง, ภูชี้ฟ้า, ดอยตุง, ดอยนางนอน, ดอยผาตั้ง, ดอยแม่โถ, น้ำตกวชิรธาร**,
+the Golden Triangle, and the national parks — อินทนนท์'s own page now opens
+*"ดอยอินทนนท์ เป็นยอดเขาที่สูงที่สุดในประเทศไทย…"* in Thai and English, credited
+CC BY-SA with the article link and the date, above a Commons photograph.
+
+**A LIST IS NOT A DESCRIPTION — the new rule, and it was caught by reading the
+output rather than trusting it.** สถานีรถไฟสารภี cites a Wikidata item whose
+Thai sitelink is **รายชื่อสถานีรถไฟ สายเหนือ**, "List of railway stations,
+Northern Line". Its English sitelink is the station's own article, which is
+what makes this the same animal as the chain exclusion the script already made:
+the article is real, and it is about something much larger than the place. The
+Thai blurb was describing an entire rail line on a page named for one station.
+`extract_of()` now refuses a title beginning รายชื่อ / รายการ / List(s) of, in
+whichever language it arrives, and the other language stands on its own — so
+Saraphi keeps its correct English sentence. The one already written was removed
+from `enrich.json` so the shipped data matches the guard.
+
+Build 21,701 pages; publish_gate, asked, alt_text, facets, festivals and
+plan_routes all pass; no `/Users/` leaks.
+
 ## Open for a human
 
 - **The Siriphum cluster**: OSM holds three nodes around the same falls
