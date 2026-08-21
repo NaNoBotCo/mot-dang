@@ -42,9 +42,9 @@
 | WO-17 | Thailand Tourism Directory (กระทรวงการท่องเที่ยวและกีฬา) — ≈28,500 national listings with phone · LINE · hours · coords via its official keyed API; hotel/food/spa/sights/stores | **PINNED** (Nan, 2026-08-20 — awaiting her API key) · was PROPOSED 2026-08-19 — same note §2; step 0 = Nan registers for the API key; enrichment policy is decision 4 in the note |
 | WO-18 | Brand locators — 7-Eleven · PTT · Bangchak · Café Amazon · the big banks, per-branch link to the brand's own page | **PARKED** 2026-08-19 — same note §5; after WO-15–17; per-brand robots/terms check first |
 | WO-20 | แผนที่มีชีวิต — the living maps: touch that answers, gestures that behave, ground with ink in it | **PHASE 1 + 2e–f BUILT** 2026-08-20 — `notes/maps-gemba-2026-08-20.md`; the pointer-events regression that had made every neighbour link on 12,309 place maps untouchable whenever tiles were on, cooperative gestures + rotation lock + rails + ◎ + full screen, the MDCARD tap-sheet on every map, tiles and label glyphs both same-origin (last third-party request gone), contrast retune, gate anchors, key, and an 11 px type floor for phones. Phase 3 (/map.html, the nav door, my-map, shareable views) NOT started |
-| WO-21 | วิว-น้ำตก — views & photo spots: the shelf, the measurements, the doors the data is behind | **ZERO-NETWORK HALF BUILT** 2026-08-20 — `notes/views-proposal-2026-08-20.md`; `importers/audit_views.py`; `views_hit()` rides the WO-19 fence and files **18 waterfalls + 2 viewpoints** the attraction dragnet had already caught (แม่สา, บัวตอง, the Inthanon set, ขุนกรณ์, the CR skywalk); `sights` gains a น้ำตก child; JSON-LD `Waterfall`; `direction`/`ele` kept at import and rendered (หันไปทาง · Faces / Elevation); claims census 54 → `cache/views_claims_*.txt`; scratch build 20,371 pages, all gates PASS. **The doors await Nan's numbered go** (note §doors): wide `views` group · Commons uncapped re-run · TTD key · WO-16 lists · DNP fee/hours reads · the `view` tag · her own picks |
+| WO-21 | วิว-น้ำตก — views & photo spots: the shelf, the measurements, the doors the data is behind | **ZERO-NETWORK HALF BUILT** 2026-08-20 — `notes/views-proposal-2026-08-20.md`; `importers/audit_views.py`; `views_hit()` rides the WO-19 fence and files **18 waterfalls + 2 viewpoints** the attraction dragnet had already caught (แม่สา, บัวตอง, the Inthanon set, ขุนกรณ์, the CR skywalk); `sights` gains a น้ำตก child; JSON-LD `Waterfall`; `direction`/`ele` kept at import and rendered (หันไปทาง · Faces / Elevation); claims census 54 → `cache/views_claims_*.txt`; scratch build 20,371 pages, all gates PASS. **The doors await Nan's numbered go** (note §doors): wide `views` group · Commons uncapped re-run · TTD key · WO-16 lists · DNP fee/hours reads · the `view` tag · her own picks | · **2026-08-21 postscript**: seed list replaced by a full-breadth mine per [[feedback_known_empty_can_be_wrong]] — HIDING 11 sorted spot/container/station + 9 toponym strays guarded (`cache/views_review_*.txt`); the roll now reports **findable** vs **present** after ภูชี้ฟ้า read green while being 2 unpinned register rows on no view shelf; 1 real dupe pair (`views_dupes_cm.txt`); **261 sights records match no child** (cr 234, mostly `dgth`, incl. ภูชี้ฟ้า and the CR clock tower) — the eco register's single type field cannot sort them, nothing auto-shelved; the `view` tag deliberately NOT shipped (tags.json derives nothing from names — needs an attr or Nan's call)
 | WO-19 | ช้าง — the elephant shelf, the register of what each camp states, the city's elephant names, /chang.html, and the wichaa article | **BUILT** 2026-08-19, crawl folded 2026-08-20 — `notes/elephant-proposal-2026-08-19.md` (+ postscript); 0 camps → 18 curated → **30 on the shelf** after the `elephants` Overpass group (zoo·theme_park·attraction, fenced: 290 non-elephant elements to `cache/elephant_review_*.txt`); 8 merges onto surveyed pins; needs-pin 6→3; Ruammit CR entered; register with `stated`/`unstated`; wichaa `entity_chang` 31 witnesses; CR zoo selector `incomplete`, re-run when Overpass is calmer |
-| WO-22 | เสริมสวย-ตัดผม — the barber correction, the words to ask with, and the census of the silence | **ZERO-NETWORK HALF BUILT** 2026-08-20, Nan's ask (afro-textured hair · americana/british barbers · extensions · braids · updos · digital perms · high-tech studios · house calls) — `notes/beauty-proposal-2026-08-20.md`; `importers/audit_beauty.py`; **barber 6 → 62** and **salon 0 → 62** off the shops' own signs (126 shelf corrections); `beauty/extensions` child; the **30-facet `beauty` set** covering all eight axes; `male`/`female`/`unisex` rescued from the import (26 shops now state who they cut for); `beauty_layer.py` → **/beauty.html** — 22 words with RTGS/tone/root, 5 whole sentences, both shelves, and a printed census showing **0 of 18,686** records name a perm, an updo, textured hair or a house call. **The doors await Nan's numbered go**: wide `beauty` group (hairdresser_supply · wig · cosmetics · craft) · the 18-shop read queue · the door survey · TTD key |
+| WO-22 | เสริมสวย-ตัดผม — the barber correction, the words to ask with, and the census of the silence | **ZERO-NETWORK HALF BUILT** 2026-08-20, Nan's ask (afro-textured hair · americana/british barbers · extensions · braids · updos · digital perms · high-tech studios · house calls) — `notes/beauty-proposal-2026-08-20.md`; `importers/audit_beauty.py`; **barber 6 → 62** and **salon 0 → 62** off the shops' own signs (126 shelf corrections); `beauty/extensions` child; the **30-facet `beauty` set** covering all eight axes; `male`/`female`/`unisex` rescued from the import (26 shops now state who they cut for); `beauty_layer.py` → **/beauty.html** — 22 words with RTGS/tone/root, 5 whole sentences, both shelves, and a printed census showing **0 of 18,686** records name a perm, an updo, textured hair or a house call. **All four doors run 2026-08-21** on Nan's go: door 1 wide crawl → **0 supply shops, 0 wigs, 0 home stylists** (a question closed; 41 cosmetics filed nowhere) · door 2 site reads → only **8 of 18** links were first-hand, 3 domains dead, **4 read, 1 states six services** (New York, New York — `digiperm` and `updo` go 0 → 1) · door 3 → the survey instrument is built and published (`/reader/hair-words.pdf`), the walk is Nan's · door 4 → **blocked**, TTD needs an account only Nan can make, and it is spa not hair anyway |
 | WO-23 | น้ำพุร้อน — hot springs, the whole north: the shelf CM held zero of, the seventeen-province register, /namphuron.html | **BUILT** 2026-08-20/21, Nan's go ("BIGLY… the whole north is ok") — `notes/hotsprings-proposal-2026-08-20.md`; CM **0 → 16 records** (สันกำแพง w/ its own site's posted prices, โป่งเดือด, เทพพนม, ฝาง, ดอยสะเก็ด, มะลิกา…), CR 3 → 9 (แม่ขะจาน's four faces merged to one, ผาเสริฐ, โป่งพระบาท, ห้วยหมากเลี่ยม); register `data/hotsprings.json` **98 springs / 14 provinces, 63 with measured temperatures** — OSM area-clipped per ISO province (`hotsprings` group WIDE + `harvest_hotsprings.py`), the **DMR inventory read whole** (66 northern rows, temp+pH), DNP park list + MHS's own hot-spring CSV (pins), curated stated-facts w/ fetched sources; `springs_hit()`/`audit_hotsprings.py` one-copy rules (bare โป่ง never matched; village/school/temple/office/campsite/bus-stop fences all witnessed by real catches); generic-key guard after a bare-worded spring folded 60 km wrong; /namphuron.html = drawn no-tile map (54 pins) + stated-register + primer; `sights` น้ำพุร้อน child; thesaurus ring widened; phichit asked short (1 selector, said on the page; `--fetch` when mirrors calm); scratch build 21,402 pp, all gates PASS |
 | WO-24 | คำตอบก่อนลิงก์ — search rich doors + the namesake split: a curated card over the rows for topics the site keeps a page for, and ชื่อพ้อง filed behind their own header | **BUILT** 2026-08-20, Nan's ask after typing "elephant" ("pre-stage some rich information… place names with Chang in them are not differentiated… might be systemic") — `notes/search-doors-2026-08-20.md`; `data/curated/search_panels.json` (10 panels: chang · muaythai · cooking · beauty · womens-health · toilets · festivals · flights · massage · wat; build.py refuses a malformed pair); triggers by lifted shelf / term variants / query substring, first to speak wins, panel shelves join the +0.5 lift; on-shelf rows split from namesakes whenever the query names a shelf — systemic, not elephant-special; `tests/test_search.py` REPAIRED (its extraction markers predated search-core and the whole file failed at HEAD) and extended to 26 queries + a door-href walk; searchcore/mined tables untouched, no parity run needed |
 
@@ -1523,6 +1523,51 @@ name a perm, an updo, textured hair or a house call — and asking any model
 reading it NOT to name a shop for those services from this data. That is the
 whole safety surface of this WO: the failure mode is a confident answer, not a
 missing one.
+
+**ALL FOUR DOORS RUN 2026-08-21** — Nan's go: *"go on all four doors."* Full
+account in the note's postscript. What they were worth:
+
+- **Door 1, the wide crawl — a closed question, not a yield.** `hairdresser_supply`,
+  `wig` and `craft=hairdresser` returned **zero in both provinces**, each asked
+  twice. The extension-and-wig supply trade and the stylist working from her own
+  front room are not in OpenStreetMap here at all, so extensions and house calls
+  cannot be answered by crawling — only by a shop stating it or a person at a
+  door. `cosmetics` returned 41 and is filed NOWHERE: it is retail, this shelf is
+  called เสริมสวย-ทำผม, half the rows are unnamed, and several are massage venues
+  wearing a cosmetics tag that would have arrived as name-duplicates. The finding
+  sits in the crawler beside the selectors so nobody re-runs it hoping.
+- **Door 2, the site reads — one real row, and a number of mine corrected.**
+  `importers/read_beauty_sites.py`, same manners and the same first-hand rule as
+  `enrich_sites.py`. That rule cut the queue: **only 8 of the 18 links are the
+  shop's own domain**; ten are Facebook/LINE, and a login wall is not a statement
+  by a shop. My "18 shops to read" was overstated by more than half — the same
+  class of error as the barber shelf. Of the 8: three domains dead, one timeout,
+  one robots-refused, **four read**. **New York, New York states six services in
+  its own words** (digital perm, Japanese straightening, colour, keratin, hair
+  treatment, wedding hair), each stored with the sentence it came from — taking
+  **`digiperm` and `updo` from 0 to 1**. Provenance `site` now sits between an OSM
+  tag and a person at the door in `FACET_SRC_NOTE`. Fixed in passing:
+  `enrich_sites.first_hand()` returned True for a scheme-less URL, so a Facebook
+  link passed as a first-hand source — silent, and in the one place this repo is
+  least willing to be wrong.
+- **Door 3, the survey — the instrument is built; the walk is Nan's.**
+  `assets/reader/hair-words.pdf`, two measured A4 sides, published at
+  `/reader/hair-words.pdf` and linked from /beauty.html. Front: the chemical
+  words nobody can improvise. Back: braids, updos, the coiled-hair question and
+  its follow-up, the house-call phrase — and **what the door tells you before you
+  ask**: the price board, the digital perm machine visible from the street, the
+  photo wall. The other four sheets stay print-only; that is their WO's call.
+- **Door 4, TTD — blocked, and always the weakest.** No TTD key on this machine,
+  and the aggregators note already settled whose job that is: *"Accounts are yours
+  to create, not mine."* The open alternative (MOTS's "รายการสปา" on data.go.th,
+  Open Data Common) is real but its dataset id was never recorded and the key's
+  base serves portal HTML at the CKAN paths; the unblock is one id, then one line
+  in `harvest_datagoth.SOURCES`. Worth saying anyway: TTD spa is **406 listings
+  nationally and it is spa, not hair** — it would grow `beauty-spa` and answer
+  none of the eight axes.
+
+**What remains, and it is now a short list:** the walk (door 3), Nan's TTD
+account (door 4), and the one data-quality receipt below.
 
 **Doors awaiting Nan's numbered go** (note §3): 1. widen the `beauty` Overpass
 group — `hairdresser_supply`, `wig`, `cosmetics`, `craft=hairdresser` (the last is

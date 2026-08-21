@@ -108,6 +108,62 @@ number. (1) and (2) are the big ones and both are gentle.
    rules posted, sunrise/sunset AS STATED — wants her wording the same way
    the toilets sentences and the WO-2b class sentences do.
 
+## Postscript, 2026-08-21 — the seed list was the wrong instrument
+
+The NEVER report above asked a **fifteen-name seed list** whether it was
+present. That is the pattern [[feedback_known_empty_can_be_wrong]] and
+[[feedback_mine_full_breadth]] both warn about, written into the README ground
+rules the same day this note was, so the audit was rebuilt to read every
+record's own name instead. Three things fell out, none of them visible before.
+
+**1. The roll was giving a false green.** ภูชี้ฟ้า — the most famous sea-of-mist
+viewpoint in Chiang Rai — read `present`. It is present: as **two register rows,
+neither with a pin, neither on any view shelf.** A reader who searches the name
+finds it; a reader browsing viewpoints never does. The report now separates
+`findable` (on a view shelf AND pinned) from `present`, and names what is
+missing. ดอยตุง (6 records) and ผาฮี้ (5) read the same way. **Present is not
+findable** and this file said otherwise for a day.
+
+**2. HIDING — 11 declaring names on shelves a view-seeker never opens**, and the
+useful part is that they are three different things, now sorted rather than
+lumped: **SPOT** (5 — candidates, incl. แก่งผาได and a จุดชมวิว filed under no
+child), **CONTAINER** (5 — วนอุทยานน้ำตกบัวตอง is the forest park that *holds*
+the falls; moving it onto the waterfall shelf would say a park is a waterfall),
+**STATION** (1 — ชุมชนบ้านแม่ต๋ำน้ำตก is a village named for the falls). Plus 9
+STRAYS held out by the toponym guard: โรงเรียนบ้านน้ำตกแม่กลาง is a school,
+วัดน้ำตกแม่กลาง a temple, บ้านถ้ำ a cave *village*. Bare ดอย, ม่อน, ผา and ยอด are
+never matched at all — ดอยเต่า and ดอยสะเก็ด are อำเภอ, ผาสุก means wellbeing.
+→ `cache/views_review_<prov>.txt`. Deliberately **not** a shelves.json `--emit`:
+every other audit here can emit because a shop's sign states its trade, but a
+falls is a place in the landscape and the same name sits on the park around it,
+the ranger office at its gate and the village down the road.
+
+**3. The register door is already open, and half-used.** `cr-dgth-eco-*` records
+are in the catalogue — **35 Chiang Rai attractions, every one with a phone**,
+harvested by the WO-23 hot-springs session. Only the hot springs were given a
+sub. **261 records sit on the sights shelf matching no child** (cm 27, cr 234),
+including ภูชี้ฟ้า, ภูชี้ดาว, ถ้ำเสาหินพญานาค, สิงห์ปาร์ค and **Nan's own
+Chiang Rai clock tower**. The register's one type field says
+`แหล่งท่องเที่ยวเชิงนิเวศ` for all of them, so it cannot sort them and nothing
+was auto-shelved.
+
+**And the cross-source pairs are complementary, not duplicates.** น้ำตกขุนกรณ์:
+the eco row holds the **phone** and no pin, the OSM node holds the **pin** and no
+phone. สิงห์ปาร์ค the same. This is the school/medical dupes pattern with the
+sides swapped — worth settling by hand, never by id.
+
+**Also written:** `cache/views_dupes_cm.txt` — one real pair on the waterfall
+shelf itself (Siribhume Waterfall / น้ำตกสิริภูมิ, 205 m). Proposed, never
+folded; which id survives is a real choice.
+
+**The `view` tag (door 6) did not ship, on purpose.** `data/tags.json` derives
+every one of its 76 tags from an attribute, a facet or geometry, and derives
+**none** from a name — its own comment says so in words. A name-claimed view
+would be the first, and overturning that quietly in order to ship a tag is
+the wrong trade. Either the claim becomes an `attr` with provenance (`viewClaim`,
+the way `brand` works) and the existing `attr` rule reads it, or the tag waits.
+Nan's call; the census keeps in `cache/views_claims_<prov>.txt` (55).
+
 ## Open for a human
 
 - **The Siriphum cluster**: OSM holds three nodes around the same falls
