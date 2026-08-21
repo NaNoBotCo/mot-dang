@@ -42,11 +42,14 @@
 | WO-17 | Thailand Tourism Directory (กระทรวงการท่องเที่ยวและกีฬา) — ≈28,500 national listings with phone · LINE · hours · coords via its official keyed API; hotel/food/spa/sights/stores | **PINNED** (Nan, 2026-08-20 — awaiting her API key) · was PROPOSED 2026-08-19 — same note §2; step 0 = Nan registers for the API key; enrichment policy is decision 4 in the note |
 | WO-18 | Brand locators — 7-Eleven · PTT · Bangchak · Café Amazon · the big banks, per-branch link to the brand's own page | **PARKED** 2026-08-19 — same note §5; after WO-15–17; per-brand robots/terms check first |
 | WO-20 | แผนที่มีชีวิต — the living maps: touch that answers, gestures that behave, ground with ink in it | **PHASE 1 + 2e–f BUILT** 2026-08-20 — `notes/maps-gemba-2026-08-20.md`; the pointer-events regression that had made every neighbour link on 12,309 place maps untouchable whenever tiles were on, cooperative gestures + rotation lock + rails + ◎ + full screen, the MDCARD tap-sheet on every map, tiles and label glyphs both same-origin (last third-party request gone), contrast retune, gate anchors, key, and an 11 px type floor for phones. Phase 3 (/map.html, the nav door, my-map, shareable views) NOT started |
-| WO-21 | วิว-น้ำตก — views & photo spots: the shelf, the measurements, the doors the data is behind | **ZERO-NETWORK HALF BUILT** 2026-08-20 — `notes/views-proposal-2026-08-20.md`; `importers/audit_views.py`; `views_hit()` rides the WO-19 fence and files **18 waterfalls + 2 viewpoints** the attraction dragnet had already caught (แม่สา, บัวตอง, the Inthanon set, ขุนกรณ์, the CR skywalk); `sights` gains a น้ำตก child; JSON-LD `Waterfall`; `direction`/`ele` kept at import and rendered (หันไปทาง · Faces / Elevation); claims census 54 → `cache/views_claims_*.txt`; scratch build 20,371 pages, all gates PASS. **The doors await Nan's numbered go** (note §doors): wide `views` group · Commons uncapped re-run · TTD key · WO-16 lists · DNP fee/hours reads · the `view` tag · her own picks | · **2026-08-21 postscript**: seed list replaced by a full-breadth mine per [[feedback_known_empty_can_be_wrong]] — HIDING 11 sorted spot/container/station + 9 toponym strays guarded (`cache/views_review_*.txt`); the roll now reports **findable** vs **present** after ภูชี้ฟ้า read green while being 2 unpinned register rows on no view shelf; 1 real dupe pair (`views_dupes_cm.txt`); **261 sights records match no child** (cr 234, mostly `dgth`, incl. ภูชี้ฟ้า and the CR clock tower) — the eco register's single type field cannot sort them, nothing auto-shelved; the `view` tag deliberately NOT shipped (tags.json derives nothing from names — needs an attr or Nan's call) · **DOOR 1 WALKED 2026-08-21** (Nan's go): wide `views` group (viewpoint · named waterfalls · named peaks) province-wide both provinces, neither `incomplete` — cm 500 / cr 231 elements. **viewpoint 103→178 · waterfall 18→61 · peak 0→168 (110 with elevations)**; ดอยอินทนนท์ 2,565 m was absent from the directory in every form until today, now schema.org `Mountain`. Rules written only after counting; `waterway=waterfall` sits below `natural=water`. Build 21,688 pp, all gates PASS. **Door 2 correction: harvest_commons' AREA SWEEP DOES NOT EXIST** (docstring describes two passes, `main()` implements one) — by-place pass aimed per the script's own advice rather than 3.1 h of uncapped requests
+| WO-21 | วิว-น้ำตก — views & photo spots: the shelf, the measurements, the doors the data is behind | **ZERO-NETWORK HALF BUILT** 2026-08-20 — `notes/views-proposal-2026-08-20.md`; `importers/audit_views.py`; `views_hit()` rides the WO-19 fence and files **18 waterfalls + 2 viewpoints** the attraction dragnet had already caught (แม่สา, บัวตอง, the Inthanon set, ขุนกรณ์, the CR skywalk); `sights` gains a น้ำตก child; JSON-LD `Waterfall`; `direction`/`ele` kept at import and rendered (หันไปทาง · Faces / Elevation); claims census 54 → `cache/views_claims_*.txt`; scratch build 20,371 pages, all gates PASS. **The doors await Nan's numbered go** (note §doors): wide `views` group · Commons uncapped re-run · TTD key · WO-16 lists · DNP fee/hours reads · the `view` tag · her own picks | · **2026-08-21 postscript**: seed list replaced by a full-breadth mine per [[feedback_known_empty_can_be_wrong]] — HIDING 11 sorted spot/container/station + 9 toponym strays guarded (`cache/views_review_*.txt`); the roll now reports **findable** vs **present** after ภูชี้ฟ้า read green while being 2 unpinned register rows on no view shelf; 1 real dupe pair (`views_dupes_cm.txt`); **261 sights records match no child** (cr 234, mostly `dgth`, incl. ภูชี้ฟ้า and the CR clock tower) — the eco register's single type field cannot sort them, nothing auto-shelved; the `view` tag deliberately NOT shipped (tags.json derives nothing from names — needs an attr or Nan's call) · **DOOR 1 WALKED 2026-08-21** (Nan's go): wide `views` group (viewpoint · named waterfalls · named peaks) province-wide both provinces, neither `incomplete` — cm 500 / cr 231 elements. **viewpoint 103→178 · waterfall 18→61 · peak 0→168 (110 with elevations)**; ดอยอินทนนท์ 2,565 m was absent from the directory in every form until today, now schema.org `Mountain`. Rules written only after counting; `waterway=waterfall` sits below `natural=water`. Build 21,688 pp, all gates PASS. **Door 2 correction: harvest_commons' AREA SWEEP DOES NOT EXIST** (docstring describes two passes, `main()` implements one) — by-place pass aimed per the script's own advice rather than 3.1 h of uncapped requests · **DOORS 2+3 WALKED 2026-08-21**: Commons **59→107 photographs, 28 on the view shelves** (Doi Inthanon, Doi Suthep, บัวตอง, วชิรธาร, แม่ยะ, สิริภูมิ, หมอกฟ้า, ม่อนแจ่ม, ออบหลวง), hot-linked with photographer+licence; `enrich_wikipedia` **33 blurbs** over 100 candidates (most peaks have a Wikidata item but no article) — Inthanon/Suthep/Pui/อ่างขาง/ภูชี้ฟ้า/ดอยตุง/นางนอน/ผาตั้ง + the national parks, bilingual, CC BY-SA. **New guard: a LIST is not a description** — สารภี station's Thai sitelink is รายชื่อสถานีรถไฟ สายเหนือ, so its blurb described the whole line; refused in either language, the other still stands. Build 21,701 pp, all gates PASS
 | WO-19 | ช้าง — the elephant shelf, the register of what each camp states, the city's elephant names, /chang.html, and the wichaa article | **BUILT** 2026-08-19, crawl folded 2026-08-20 — `notes/elephant-proposal-2026-08-19.md` (+ postscript); 0 camps → 18 curated → **30 on the shelf** after the `elephants` Overpass group (zoo·theme_park·attraction, fenced: 290 non-elephant elements to `cache/elephant_review_*.txt`); 8 merges onto surveyed pins; needs-pin 6→3; Ruammit CR entered; register with `stated`/`unstated`; wichaa `entity_chang` 31 witnesses; CR zoo selector `incomplete`, re-run when Overpass is calmer |
 | WO-22 | เสริมสวย-ตัดผม — the barber correction, the words to ask with, and the census of the silence | **ZERO-NETWORK HALF BUILT** 2026-08-20, Nan's ask (afro-textured hair · americana/british barbers · extensions · braids · updos · digital perms · high-tech studios · house calls) — `notes/beauty-proposal-2026-08-20.md`; `importers/audit_beauty.py`; **barber 6 → 62** and **salon 0 → 62** off the shops' own signs (126 shelf corrections); `beauty/extensions` child; the **30-facet `beauty` set** covering all eight axes; `male`/`female`/`unisex` rescued from the import (26 shops now state who they cut for); `beauty_layer.py` → **/beauty.html** — 22 words with RTGS/tone/root, 5 whole sentences, both shelves, and a printed census showing **0 of 18,686** records name a perm, an updo, textured hair or a house call. **All four doors run 2026-08-21** on Nan's go: door 1 wide crawl → **0 supply shops, 0 wigs, 0 home stylists** (a question closed; 41 cosmetics filed nowhere) · door 2 site reads → only **8 of 18** links were first-hand, 3 domains dead, **4 read, 1 states six services** (New York, New York — `digiperm` and `updo` go 0 → 1) · door 3 → the survey instrument is built and published (`/reader/hair-words.pdf`), the walk is Nan's · door 4 → **blocked**, TTD needs an account only Nan can make, and it is spa not hair anyway |
 | WO-23 | น้ำพุร้อน — hot springs, the whole north: the shelf CM held zero of, the seventeen-province register, /namphuron.html | **BUILT** 2026-08-20/21, Nan's go ("BIGLY… the whole north is ok") — `notes/hotsprings-proposal-2026-08-20.md`; CM **0 → 16 records** (สันกำแพง w/ its own site's posted prices, โป่งเดือด, เทพพนม, ฝาง, ดอยสะเก็ด, มะลิกา…), CR 3 → 9 (แม่ขะจาน's four faces merged to one, ผาเสริฐ, โป่งพระบาท, ห้วยหมากเลี่ยม); register `data/hotsprings.json` **98 springs / 14 provinces, 63 with measured temperatures** — OSM area-clipped per ISO province (`hotsprings` group WIDE + `harvest_hotsprings.py`), the **DMR inventory read whole** (66 northern rows, temp+pH), DNP park list + MHS's own hot-spring CSV (pins), curated stated-facts w/ fetched sources; `springs_hit()`/`audit_hotsprings.py` one-copy rules (bare โป่ง never matched; village/school/temple/office/campsite/bus-stop fences all witnessed by real catches); generic-key guard after a bare-worded spring folded 60 km wrong; /namphuron.html = drawn no-tile map (54 pins) + stated-register + primer; `sights` น้ำพุร้อน child; thesaurus ring widened; phichit asked short (1 selector, said on the page; `--fetch` when mirrors calm); scratch build 21,402 pp, all gates PASS |
 | WO-24 | คำตอบก่อนลิงก์ — search rich doors + the namesake split: a curated card over the rows for topics the site keeps a page for, and ชื่อพ้อง filed behind their own header | **BUILT** 2026-08-20, Nan's ask after typing "elephant" ("pre-stage some rich information… place names with Chang in them are not differentiated… might be systemic") — `notes/search-doors-2026-08-20.md`; `data/curated/search_panels.json` (10 panels: chang · muaythai · cooking · beauty · womens-health · toilets · festivals · flights · massage · wat; build.py refuses a malformed pair); triggers by lifted shelf / term variants / query substring, first to speak wins, panel shelves join the +0.5 lift; on-shelf rows split from namesakes whenever the query names a shelf — systemic, not elephant-special; `tests/test_search.py` REPAIRED (its extraction markers predated search-core and the whole file failed at HEAD) and extended to 26 queries + a door-href walk; searchcore/mined tables untouched, no parity run needed |
+| WO-25 | ดูแลต่อเนื่อง — ongoing care: the care register (hospital departments · US-insurance/FMP/CHAMPVA paperwork · medical-DTV letters · คลินิกพิเศษ), /care.html, and the desk sheet | **ZERO-NETWORK HALF BUILT** 2026-08-21, Nan's own case walked through her own site ("can my search and GIS find me specialized ongoing care… enrich throughout from this lens") — `notes/ongoing-care-proposal-2026-08-21.md`; gemba measured: cardiologist/menopause/insurance/FMP/DTV all **0 results**, `clinic → chang` in the mined shelf table sent clinic queries to the ELEPHANT door (fixed: `shelf_stops` per-word guard, filed for search-core's rollout lane), วัยทอง reached only an edit-distance temple; corpus holds **zero** menopause/hormone/endocrine/internal-med/checkup/insurance records and **154 hospitals nearly all contactless** (Rajavej: name and pin only); women's-health door now answers menopause · วัยทอง · hormone (panel + glossary คลินิกวัยทอง · ฮอร์โมนทดแทน); test_search 26 → 31 green; asked drafts `us-insurance-paperwork` + `dtv-medical` staged. **Doors await Nan's numbered go** (note §doors): ~18 hospital site reads · DTV official page · VA FMP docs · contact-vigor on care anchors · medical dupes/café-as-hospital hygiene · search-core mend · the desk sheet |
+| WO-27 | อสังหาฯ-ที่พัก — the residential split, the words before the deposit, /realestate.html, and the farang door | **ZERO-NETWORK BUILT** 2026-08-21, Nan's thesis ("the farang SEO crowd… is going to come thru the door of real estate… enrich deeply, while leaving room for interstitial expansion") — `notes/realestate-proposal-2026-08-21.md`; the condo shelf held **316** buildings and the names say condominium on **53** (the barber lie again, read off the signs): `realestate_sub()` splits **condo 53 · apartment 242 · dorm 22** at classify(), the moobaan child kept as a NAMED SLOT without a match rule (wiring was tried; test_facets refused a rule matching zero records, correctly — one line wires it when the landuse door lands), Sunshine Apartment agent→apartment by retag receipt (`add_sub` taught to the applier); `importers/audit_realestate.py` — agents printed whole (5 is ALL OSM holds; is Sara + อคิน ลิสซิ่ง flagged for a person), จัดสรร appears only in VILLAGE names, **0 สำนักงานที่ดิน in the whole catalogue**, hotel-side 60 counted never re-filed; register `data/curated/realestate.json` empty-and-saying-so with the 12-site first-hand read queue; 12-key `realestate` facet set + worker keys (worker redeploy is Nan's move; new keys filter harmlessly until then); `/realestate.html` — the words w/ RTGS/tone/root (ค่าไฟหน่วยละ first; why a Mansion is cheap; เซ้ง), six desk sentences (TM30 and the quota asked as questions pointed at the desk and the นิติบุคคล — no statute recited unfetched), the four shelves, ใกล้หอนาฬิกาเชียงราย (metres from catalogue coords, method stated), the census of silences; `realestate` search panel by variants/query ONLY (the mined table sends หมู่บ้าน + "buildings" here — a village name must not be doored; test_search holds หมู่บ้านป่าไผ่), แมนชั่น + mansion widen the thesaurus ring; asked `monthly-apartment` + `student-dorm`. **Doors await Nan's numbered go** (note §3): 1. the 12 site reads · 2. Land-Office selector (office=government) · 3. moobaan landuse crawl · 4. dormitory selector · 5. curated agents (the Laila / Perfect Homes interstice — see note §6) · 6. data.go.th ids (Treasury assessed prices, condo-juristic registry) · 7. TTD |
+| WO-28 | โรงเรียนพระปริยัติธรรม + สถาบันอุดมศึกษา — the two registers the schools shelf was still waiting on | **BUILT** 2026-08-21 — the last empty child on the school tree filled: **27 monastic schools**, 13 of them pinned at the temple the register says they stand in, and the temple's own page now names the school it hosts; **7 higher-education institutions** the crawl never had, incl. both Buddhist universities. `KNOWN_EMPTY` entry retired with its receipt. |
 
 WO-3 and WO-7 were marked standing because they are the two a reader actually
 meets. Both have now been done, and the rule stays: anything added here is
@@ -1425,6 +1428,62 @@ a held record literally named ร้านขายยา — the weed.th lesson
 
 ---
 
+## WO-28 — the monastic schools and the universities · BUILT 2026-08-21
+
+Nan's go 2026-08-21 ("let's do 1, 2"). Two fetches, both verified live first:
+`68_113` (Open Data Common, สำนักงานจังหวัดเชียงใหม่) and MHESI's
+`univ_uni_11_03`. Added to `harvest_datagoth.py`'s approved list; folded by
+`import_opendata.py`.
+
+**The last empty shelf on the school tree is filled, and it filled the way
+the code predicted it would.** `school/monastic` sat in `test_facets.KNOWN_EMPTY`
+with a written reason: OSM has no tag for a โรงเรียนพระปริยัติธรรม, and the
+register that names them had not been fetched — "when it is, it joins through
+รหัสวัด to the temples these schools sit inside, which is a thing no other
+directory of either province can express."
+
+That is now true. The register carries **วัด** — the temple each school stands
+in — and **50 of its 56 rows matched a temple we hold. Four of those matches
+are to `cm-onab-*` records that did not exist before Wednesday's ONAB fold.**
+Landed: **27 monastic schools**, 13 pinned at their own temple, and
+`apply_monastic()` writes the link back so the TEMPLE's page names the school
+it hosts. Both halves render in `known_facts()` as ตั้งอยู่ในวัด and
+โรงเรียนพระปริยัติธรรมในวัดนี้, each linking the other's page.
+
+**A BORROWED PIN INHERITS THE LENDER'S ERROR BAR — caught before it shipped.**
+The first cut stamped every temple-pinned school at ±150 m (a temple compound).
+But วัดโขงขาว is itself placed by postcode centroid at **±12.5 km**, so its
+school would have declared a twelve-kilometre guess as a hundred-and-fifty-metre
+fact. The uncertainty is now `max(150, the temple's own)`; 150 m is the floor,
+never the answer, and `watPinPrecision` records what kind of pin was borrowed.
+
+**Universities (+7).** Name and province only — no address, no coordinates in
+the register — so they land pinless and say so, the `import_opec` posture. The
+gap they fill is real: both Buddhist universities (มจร วิทยาเขตเชียงใหม่, มจร
+วิทยาลัยสงฆ์เชียงราย, มมร วิทยาเขตล้านนา), the national sports university's
+Chiang Mai campus, วิทยาลัยเชียงราย. **The trap, caught:** the register files
+"มหาวิทยาลัยรามคำแหง สาขาวิทยบริการฯ **จังหวัดแพร่**" under เชียงใหม่ — a row
+whose NAME names another province is about that province whatever the column
+says (the rule `import_citizeninfo` already keeps for addresses). It is
+refused, with the reason, to the review file.
+
+**A new gate, because nothing else could have caught this.** `tests/test_pins.py`
+— a borrowed pin never claims to be surer than the record it was copied from;
+an `exact` pin never names a `pinVia`, because a surveyed pin is derived from
+nothing. Hard-fails on both. It also counts approx pins that state no error bar
+at all — **12 of them, all hand-placed curated records** — and reports rather
+than fails there: a person put those dots down on purpose, and restating
+somebody's field truth as a number they did not choose would be the worse
+error. Added to the standing walk as an advisory. Run against the pre-fix data
+it caught all six violations; after the fix, PASS.
+
+**The stale KNOWN_EMPTY came out with its receipt.** The README's own WO-22
+lesson is that a written-down reason can stop being true and nothing checks it.
+This one stopped being true today, so it was removed the same day, with a
+comment saying what replaced it.
+
+---
+
 ## Standing contracts
 
 - **Curated over crawled.** Researched facts go to `data/curated/`, never to
@@ -1578,3 +1637,56 @@ calls at scale · 4. TTD spa/beauty, blocked on WO-17's key. Also noted, no go
 needed: `Akshaya E Centre` sits on `beauty/hair` with an Indian state government
 website — a bad OSM record wanting a `retags.json` receipt.
 
+
+## WO-27 — อสังหาฯ-ที่พัก: the split, the words, the register, the farang door · ZERO-NETWORK BUILT 2026-08-21
+
+Nan's ask, verbatim: *"I'm thinking if the farang SEO crowd is going to show ANY
+interest in motdang, it's going to come thru the door of real estate. Real estate
+on motdang is extremely underdeveloped. I might partner with someone like Laila,
+who has a real estate side gig, or maybe perfect homes CM (although I don't think
+our interests 100% align). Let's enrich deeply, while leaving room for
+intestitial expansion."* Full note: `notes/realestate-proposal-2026-08-21.md`.
+
+**The condo shelf was the barber shelf again.** Every named `building=apartments`
+in both provinces — 316 of them — was filed as sub "condo" under a label reading
+Condo Buildings. The buildings' own signs say condominium on **53**. The rest are
+แมนชั่น, คอร์ท, อพาร์ตเมนต์ and หอพัก: the city's monthly housing, invisible to
+the reader hunting a ห้องเช่า and misleading to the reader hunting a condo. The
+split now lives in `classify()` itself (`realestate_sub()` — dorm, then condo,
+then apartment as the tag's own default word), receipted in data/fixes.json.
+
+**The farang door is a page, not a mechanic.** AGENTS.md's no-growth-mechanics
+rule stands untouched: what was built is a bilingual board whose English half
+actually answers the queries that arrive (condo · apartment · dormitory · the
+per-unit electric rate · the quota question), plus two asked pages shaped like
+the real long-tail. The same page serves the Thai monthly renter first — the
+words are the deliverable, ค่าไฟหน่วยละเท่าไร above all.
+
+**What the page refuses.** No rankings, no neighbourhood verdicts, no
+farang-building/Thai-building sorting, no investment advice — and no statute
+recited from memory: the foreign quota and the chanote transfer are given as
+the QUESTION plus the office that answers it (นิติบุคคล · สำนักงานที่ดิน). Of
+which the catalogue holds **zero** — printed on the page and in the audit every
+run until the office=government door gets its go.
+
+**The interstitial room** (note §4): sub slots named not stubbed (serviced ·
+developer · property-management · juristic — an empty child is hidden, so the
+note holds the shape); the 60 hotel-side monthly-worded venues counted every
+build and re-shelved only one-by-one with receipts (the Hub 53 pattern); the
+facet set as the owner-claim growth surface; listings kept OUT per the launch
+rule — a partner's inventory would be marked ผู้สนับสนุน cards, never records,
+and the register's readme fixes the foreign-quota shape (dated juristic
+statement, never a facet) before the first row exists.
+
+**Doors awaiting Nan's numbered go** (note §3): 1. read the 12 first-hand
+building sites into the register · 2. the Land-Office selector
+(office=government, both provinces) · 3. the moobaan door
+(landuse=residential["name"] WIDE) · 4. the dormitory selector
+(building=dormitory["name"], one run closes the question) · 5. curated agent
+records with sources — door work and Nan's relationships (the Laila /
+Perfect Homes conversation is note §6: what the site can offer a partner is a
+claimed listing, marked sponsor cards, and the register as a shared
+instrument; placement, exclusivity and lead capture are the parts the
+constitution already refuses) · 6. data.go.th dataset ids (Treasury assessed
+land prices; the Land Department's condominium-juristic registry) · 7. TTD,
+pinned on WO-17's key.
