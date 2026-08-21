@@ -188,7 +188,7 @@ its own SHELF report now rather than repeating the old reasoning.
 **ดอยอินทนนท์ at 2,565 m — the roof of the kingdom — was not in this directory
 in any form until today.** Nor was ดอยสุเทพ as a summit, ผาช่อ, or
 ดอยหลวงเชียงดาว. ภูชี้ฟ้า is now on a view shelf instead of being two unpinned
-register rows. Still absent and honestly so: กิ่วแม่ปาน (a nature trail, not a
+register rows. Still absent, and correctly so: กิ่วแม่ปาน (a nature trail, not a
 viewpoint node) and ห้วยน้ำดัง (its viewpoint is mapped as ดอยกิ่วลม).
 
 **Rules written only after the elements were counted**, the WO-10 discipline:
