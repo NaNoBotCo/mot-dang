@@ -17,14 +17,55 @@ and sois; needs `cache/roads/`, ~20 s) → `importers/build_open_lamps.py`
 `tests/test_nitnoy.py`) → `importers/sync_claims.py` +
 `importers/sync_toilets.py` (pull what people sent the worker; both keep what
 is on disk if it is unreachable) → `make_og_cards.py` (optional, needs
-Chrome + Pillow, writes `assets/og/`) → `importers/make_nitnoy_gif.py`
+Chrome + Pillow, writes `assets/og/`) → `make_shelf_cards.py` (same, one
+card per list page AND per reader question in `data/asked.json`; redraws only
+what changed, so it is cheap enough to run every time) → `importers/make_nitnoy_gif.py`
 (optional, needs Pillow — the nitnoy stop-motion + og poster) → `build.py` →
 `publish/deploy.py --yes` → `importers/ping_indexnow.py`.
+
+**A reader question is a data record — `data/asked.json` — and nothing else.**
+Questions arrive two ways: Nan brings them from the groups, and readers type
+them into the site (`suggest.html`, kind `question`; triage with
+`python3 importers/sync_suggestions.py --offline --kind question`, which
+prints the queue id, the question, and whether a reply address exists —
+never the address). The day's loop:
+
+1. `python3 asked_new.py <key> --q-th … --q-en … [--from-suggestion ID | --via facebook]`
+   — writes a **draft** entry plus `notes/asked-<key>-<date>.md`.
+2. names into `_incoming/asked-<key>-names.txt` → `importers/reconcile_names.py`;
+   light web checks; records into `data/curated/additions-*.json` with dated
+   sources and `_pricesVerified: false` on any price → `importers/import_all.py`.
+   A shelf child in `categories.json` and a facet (three places + `ask_th`/
+   `ask_en`) only when the trade has a name of its own — `asked_new.py` prints
+   where they go and deliberately does not stub them.
+3. `python3 asked_check.py <key>` — every source URL through `check_links`,
+   provenance flags per record, and the note's unresolved leads.
+4. fill `find` / `lead` / `notes`, **delete `"draft"`**, then
+   `make_shelf_cards.py --only asked-<key>` → `build.py` → `tests/test_asked.py`.
+5. `python3 make_post.py <key>` prints the reply to paste;
+   `sync_suggestions.py --done <ID>` closes the queue item.
+
+`draft: true` is the valve: a drafted question renders nowhere and `make_post`
+refuses it, so a half-answered question cannot hold the walk — and
+`tests/test_asked.py` is a HARD gate in both walks, because a published
+question missing its records, page, card or a filled sentence is a wrong
+answer with this site's name on it. A `gap: true` question gets its page and
+its note but **no share card**: a poster reading "nobody does this" travels
+further than the sentence under it. Do not hand-write a card in asked_layer.py,
+and do not hand-type a reply — the typed reply was wrong the day the first
+price was walked.
 
 ONE build.py AT A TIME: build wipes docs/ at start, and two sessions building
 concurrently means one is writing pages into directories the other just
 deleted (FileNotFoundError mid-write, or worse, a silently interleaved docs/).
-`ps aux | grep build.py` before building; wait, don't race.
+**This is now enforced, not requested** — `build.take_build_lock()` holds
+`cache/build.lock` and the second build refuses with the holder's pid. Checking
+`ps aux | grep build.py` first is still polite but it is no longer what keeps
+you safe: it came back clean twice in one afternoon while another build started
+in the same second. A lock whose process is dead is announced and taken, so a
+SIGKILLed build cannot brick the repo; a lock whose process is alive is obeyed
+however old it is. Building into a scratch DOCS takes no lock, so the
+verify-while-someone-else-holds-docs workflow still works. `tests/test_build_lock.py`.
 
 Rules that bite:
 - Empty categories are hidden by design — don't "fix" that.
@@ -292,7 +333,17 @@ Rules that bite:
 - Researched facts go in `data/curated/enrich.json`, never into
   `data/canonical/*.json` — the crawl rewrites those wholesale and a hand-typed
   phone number survives exactly until the next `import_overpass.py`.
-  `importers/enrich_sites.py` fills it from each place's own site.
+  `importers/enrich_sites.py` fills it from each place's own site, and
+  `importers/enrich_wayback.py` from the ARCHIVED copy of a site that has since
+  died — the only first-hand contact fact left for most of the 325 places whose
+  domain lapsed. That one reads plain text as well as markup, because the sites
+  it visits predate `tel:` links, so it is anchored instead: a number must
+  follow a contact label, a web-designer credit disqualifies it, and an email
+  counts only at the site's own domain. **Everything it writes is licensed
+  `archived-official-site` and carries `archivedOn`, and `channels()` turns
+  that into a dated badge on the page.** A recovered number that renders like a
+  fresh one is the failure this was built to avoid: it is a lead, not a promise.
+  `tests/test_enrich_wayback.py` holds all of it, fixtures only, no network.
 - Every image says what it is FOR, not what it is. `tests/test_alt_text.py`
   fails a missing `alt`, an unlabelled `role="img"`, and a label that is only
   the medium ("QR code", "map", "chart"). Use `bi_text()` for alt and
@@ -308,6 +359,21 @@ Rules that bite:
   normal — but there is no remote.
 - The deploy is `python3 publish/deploy.py --yes` (R2). That is what readers
   see. Nothing else publishes.
+- **Maker bots do not publish, and do not raise it.** `importers/standing_walk.sh`
+  goes round every twenty minutes and ships whatever is finished; the morning
+  walk gathers the daily sources ahead of it. So if you are building something
+  here, build it, test it, leave it on disk, and say what you built. Do not run
+  the deploy, do not ask whether to publish, and do not close a report by
+  noting that you have not pushed. It is not a held-back step and it is not
+  news — it is somebody else's job and it already happened. The only threads
+  where publishing is the subject are ones about the walks themselves.
+  The question "should this go out?" is answered by the gates, not by asking:
+  build succeeds, publish gate passes, route tests pass, no `/Users/` paths,
+  CNAME present, docs/ over 20,000 files. Work that clears those goes out.
+- To hold the site still — a risky refactor, a half-imported shelf you do not
+  want seen — create `cache/walk-rest`. Empty rests until you remove it; an ISO
+  timestamp inside rests until then and clears itself. That is the ONLY way to
+  stop publishing, and it is a deliberate act, not a default.
 - Source and raw data are served from the site itself: `build.py`'s
   `emit_source()` writes `docs/source/` (archive + the files pages name) and
   `/source.html` presents it. If a page needs to point at code or data, point

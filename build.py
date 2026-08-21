@@ -618,12 +618,29 @@ def channels(r):
                 claim_web = cu
             claimed_kinds.add(k or "web")
 
+    # A fact recovered from the archived copy of a site that has since died is
+    # true as of the snapshot, not as of today, and it must not sit on the page
+    # looking like a number somebody just answered. enrich_wayback.py stamps
+    # `archivedOn` per field; this turns that into the words a reader needs.
+    archived = {}
+    for _f, _p in (r.get("enrichedFields") or {}).items():
+        if (_p or {}).get("license") == "archived-official-site" and _p.get("archivedOn"):
+            _when = _p["archivedOn"][:4]
+            _kind = {"phone": "phone", "attrs.lineUrl": "line", "attrs.email": "email",
+                     "attrs.facebook": "facebook", "attrs.instagram": "instagram",
+                     "attrs.whatsapp": "whatsapp"}.get(_f)
+            if _kind:
+                archived[_kind] = _when
+
     def add(kind, label_th, label_en, href, text, badge=None, cls=None):
         if href in seen:
             return
         seen.add(href)
         if kind in claimed_kinds and badge is None:
             badge = ("ยืนยันโดยเจ้าของ", "owner-confirmed")
+        elif kind in archived and badge is None:
+            badge = (f"จากเว็บเดิม เก็บถาวรปี {archived[kind]}",
+                     f"from their old site, archived {archived[kind]}")
         live.append({"kind": kind, "cls": cls or kind, "th": label_th, "en": label_en,
                      "href": href, "text": text, "badge": badge})
 
@@ -7664,6 +7681,15 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     if hours:
         badge = (f' <span class="chbadge">{bi("ยืนยันโดยเจ้าของ", "owner-confirmed")}</span>'
                  if claim and claim.get("hours") else "")
+        # Opening hours off a dead site's archived copy get the same dating as
+        # its phone does in channels() — a 2021 timetable is a lead, not a promise.
+        if not badge:
+            _hp = (r.get("enrichedFields") or {}).get("hours") or {}
+            if _hp.get("license") == "archived-official-site" and _hp.get("archivedOn"):
+                _yr = _hp["archivedOn"][:4]
+                badge = (f' <span class="chbadge">'
+                         f'{bi(f"จากเว็บเดิม เก็บถาวรปี {_yr}", f"from their old site, archived {_yr}")}'
+                         f'</span>')
         rows.append(f"<dt>{bi('เวลาเปิด', 'Hours')}</dt><dd>{esc(hours)}{badge}</dd>")
     rows.extend(known_facts(r))
     # menu/note come only from a claim (owner's own words, never crawled), so
