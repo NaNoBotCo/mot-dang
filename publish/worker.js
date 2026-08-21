@@ -44,6 +44,11 @@ const TYPES = {
   pdf: "application/pdf",
   apk: "application/vnd.android.package-archive",
   pmtiles: "application/octet-stream",
+  /* Label glyphs for the basemap, self-hosted since 2026-08-20 so that a page
+   * carrying a map asks nobody but us for anything. They would already serve
+   * as octet-stream by the fallback below; named here so the type is stated
+   * rather than defaulted. */
+  pbf: "application/x-protobuf",
 };
 
 /* Pages are rebuilt often and must never be served stale from a CDN edge after

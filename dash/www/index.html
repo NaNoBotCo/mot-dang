@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<title>เวียนขวา</title>
+<link rel="stylesheet" href="dash.css">
+</head>
+<body>
+
+<!-- The arrow is the product. Everything else on this screen is smaller than
+     the arrow on purpose: at riding speed a rider gets one glance, and one
+     glance reads a shape, not a sentence. -->
+<main id="dash" class="waiting">
+
+  <div id="arrowbox">
+    <svg id="arrow" viewBox="-50 -50 100 100" aria-hidden="true">
+      <path d="M0,-38 L30,26 L0,10 L-30,26 Z"/>
+    </svg>
+    <div id="turnword" lang="th">—</div>
+  </div>
+
+  <div id="readout">
+    <div id="dist"><span id="distnum">—</span><span id="distunit">m</span></div>
+    <div id="street">
+      <div id="street-th" lang="th"></div>
+      <div id="street-en" lang="en"></div>
+    </div>
+  </div>
+
+  <div id="status">
+    <span id="fix">รอสัญญาณ · waiting for a fix</span>
+    <span id="speed"></span>
+    <span id="left"></span>
+    <!-- Which way a lap runs, stated rather than discovered at the first
+         junction. It carries a mark when a standing rule was set aside on
+         purpose, because a choice made months ago should still be legible. -->
+    <span id="kind"></span>
+  </div>
+
+  <div id="alert" hidden>
+    <div id="alert-th" lang="th"></div>
+    <div id="alert-en" lang="en"></div>
+  </div>
+
+</main>
+
+<script src="data/ride.js"></script>
+<script src="dash.js"></script>
+</body>
+</html>

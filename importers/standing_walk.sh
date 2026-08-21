@@ -261,6 +261,10 @@ python3 tests/test_shelf_cards.py || say "⚠️  shelf cards advisory — some 
 # Advisory: the 🏷 tag layer's counts, thresholds and pills (tests/test_tags.py).
 # A drift here is a wrong count on a tag page, not a broken site — say so, ship.
 python3 tests/test_tags.py >/dev/null 2>&1 || say "⚠️  tags advisory — tests/test_tags.py failed; tag pages may disagree with places.json"
+# Advisory: a borrowed pin must never claim to be surer than the record it
+# was copied from (tests/test_pins.py). A wrong error bar is a quiet wrong
+# answer, not a broken page — say it, ship it.
+python3 tests/test_pins.py >/dev/null 2>&1 || say "⚠️  pins advisory — a borrowed pin claims more precision than its source"
 node tests/test_plan_routes.js     || { say "route tests FAILED — nothing published"; note "failed" "route tests"; exit 1 }
 if grep -rl "/Users/" docs/ | head -1 | grep -q .; then
   say "path leak in docs/ — nothing published"; note "failed" "path leak in docs/"; exit 1

@@ -1,0 +1,1275 @@
+{
+ "_comment": "🏷 Tags — the cross-shelf layer (WO-15). A shelf says what KIND of place this is; a facet says whether THAT branch is worth walking to; a tag says what a place ALSO is, across every shelf: vegan, bitcoin, wifi, wheelchair, open 24 h, inside the moat, 7-Eleven, royal temple. Every tag here is DERIVED by exactly one rule from a field the record already carries — nothing is typed onto a place, nothing is inferred from a name or a category except where the rule says so in so many words. The vocabulary was MINED from the catalogue (16,270 records, 140 attrs keys, 2026-08-19): a tag is defined below only where the data already answers for it. tags_layer.py reads this file; `tags` + `tagVia` land on each record in data/places.json; pages are /<prov>/tag/<slug>.html and /tags.html. Curated tags (a person's own list) go in data/curated/tags_curated.json, and curated outranks derived.",
+ "_rule_kinds": {
+  "attr": "attrs[key] is a string (or ';'-joined string): tag when any token is in `values`. `values` are compared casefolded.",
+  "attr-dict": "attrs[key] is a dict (diet, payment): tag when attrs[key][sub] is in `values`.",
+  "attr-list": "attrs[key] is a list (crypto, fuel, specialty): tag when any item is in `values`.",
+  "attr-true": "attrs[key] is boolean true (inOldCity, highland, borderland).",
+  "facet": "the record's facet dict (attrs.facets, OSM-derived) or an owner's tick in claims.json carries this facet key. Provenance rides along: osm-tag / osm-near / field.",
+  "moat": "Chiang Mai only — the pin lies inside the old-city moat quadrilateral (build.MOAT_POLY), or the record already says inOldCity. Computed, never typed.",
+  "royal": "build.royal_of(r) — the temple is on the hand-kept royal list in data/curated/honours.json (every entry has a fetched source URL).",
+  "food-award": "build.FOOD_BY_ID — a food mark in honours.json whose award key starts with `prefix`.",
+  "brand": "generated at build from attrs.brand / brandTh / brandEn via build._brand_index (the corpus's own say-so), one tag per chain with at least brand_min branches in the province. Not listed below one by one — 144 chains would go stale the day a new one is crawled."
+ },
+ "min_tag": 3,
+ "tag_shelf_min": 8,
+ "brand_min": 5,
+ "families": [
+  {
+   "key": "cuisine",
+   "th": "อาหาร-เครื่องดื่ม",
+   "en": "Cuisine",
+   "glyph": "🍜"
+  },
+  {
+   "key": "diet",
+   "th": "อาหารเฉพาะทาง",
+   "en": "Diet",
+   "glyph": "🌱"
+  },
+  {
+   "key": "pay",
+   "th": "การจ่ายเงิน",
+   "en": "Paying",
+   "glyph": "💳"
+  },
+  {
+   "key": "comfort",
+   "th": "สิ่งอำนวยความสะดวก",
+   "en": "Comforts",
+   "glyph": "🛋"
+  },
+  {
+   "key": "hours",
+   "th": "เวลาเปิด",
+   "en": "Hours",
+   "glyph": "🕓"
+  },
+  {
+   "key": "access",
+   "th": "การเข้าถึง",
+   "en": "Access",
+   "glyph": "♿"
+  },
+  {
+   "key": "place",
+   "th": "ทำเล",
+   "en": "Where it stands",
+   "glyph": "📍"
+  },
+  {
+   "key": "brand",
+   "th": "เครือ-แบรนด์",
+   "en": "Chains & brands",
+   "glyph": "🏪"
+  },
+  {
+   "key": "honours",
+   "th": "เกียรติ-รางวัล",
+   "en": "Honours",
+   "glyph": "🏅"
+  },
+  {
+   "key": "school",
+   "th": "โรงเรียน",
+   "en": "Schools",
+   "glyph": "🏫"
+  },
+  {
+   "key": "medical",
+   "th": "การแพทย์",
+   "en": "Medical",
+   "glyph": "🩺"
+  },
+  {
+   "key": "fuel",
+   "th": "น้ำมัน-เชื้อเพลิง",
+   "en": "Fuel",
+   "glyph": "⛽"
+  },
+  {
+   "key": "wat",
+   "th": "วัด",
+   "en": "Temples",
+   "glyph": "🛕"
+  }
+ ],
+ "tags": [
+  {
+   "slug": "japanese",
+   "family": "cuisine",
+   "th": "อาหารญี่ปุ่น",
+   "en": "Japanese",
+   "glyph": "🍣",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "japanese"
+    ]
+   }
+  },
+  {
+   "slug": "pizza",
+   "family": "cuisine",
+   "th": "พิซซ่า",
+   "en": "Pizza",
+   "glyph": "🍕",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "pizza",
+     "italian_pizza"
+    ]
+   }
+  },
+  {
+   "slug": "tea",
+   "family": "cuisine",
+   "th": "ร้านชา",
+   "en": "Tea",
+   "glyph": "🍵",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "tea"
+    ]
+   }
+  },
+  {
+   "slug": "breakfast",
+   "family": "cuisine",
+   "th": "อาหารเช้า",
+   "en": "Breakfast",
+   "glyph": "🍳",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "breakfast"
+    ]
+   }
+  },
+  {
+   "slug": "burgers",
+   "family": "cuisine",
+   "th": "เบอร์เกอร์",
+   "en": "Burgers",
+   "glyph": "🍔",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "burger"
+    ]
+   }
+  },
+  {
+   "slug": "italian",
+   "family": "cuisine",
+   "th": "อาหารอิตาเลียน",
+   "en": "Italian",
+   "glyph": "🍝",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "italian"
+    ]
+   }
+  },
+  {
+   "slug": "pasta",
+   "family": "cuisine",
+   "th": "พาสต้า",
+   "en": "Pasta",
+   "glyph": "🍝",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "pasta"
+    ]
+   }
+  },
+  {
+   "slug": "cake",
+   "family": "cuisine",
+   "th": "เค้ก",
+   "en": "Cake",
+   "glyph": "🍰",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "cake"
+    ]
+   }
+  },
+  {
+   "slug": "dessert",
+   "family": "cuisine",
+   "th": "ของหวาน",
+   "en": "Dessert",
+   "glyph": "🍮",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "dessert"
+    ]
+   }
+  },
+  {
+   "slug": "sandwiches",
+   "family": "cuisine",
+   "th": "แซนด์วิช",
+   "en": "Sandwiches",
+   "glyph": "🥪",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "sandwich"
+    ]
+   }
+  },
+  {
+   "slug": "asian",
+   "family": "cuisine",
+   "th": "อาหารเอเชีย",
+   "en": "Asian",
+   "glyph": "🥢",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "asian"
+    ]
+   }
+  },
+  {
+   "slug": "chinese",
+   "family": "cuisine",
+   "th": "อาหารจีน",
+   "en": "Chinese",
+   "glyph": "🥟",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "chinese"
+    ]
+   }
+  },
+  {
+   "slug": "chicken",
+   "family": "cuisine",
+   "th": "ไก่",
+   "en": "Chicken",
+   "glyph": "🍗",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "chicken"
+    ]
+   }
+  },
+  {
+   "slug": "noodles",
+   "family": "cuisine",
+   "th": "ก๋วยเตี๋ยว",
+   "en": "Noodles",
+   "glyph": "🍜",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "noodle",
+     "noodles"
+    ]
+   }
+  },
+  {
+   "slug": "ice-cream",
+   "family": "cuisine",
+   "th": "ไอศกรีม",
+   "en": "Ice cream",
+   "glyph": "🍨",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "ice_cream"
+    ]
+   }
+  },
+  {
+   "slug": "american",
+   "family": "cuisine",
+   "th": "อาหารอเมริกัน",
+   "en": "American",
+   "glyph": "🍔",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "american"
+    ]
+   }
+  },
+  {
+   "slug": "korean",
+   "family": "cuisine",
+   "th": "อาหารเกาหลี",
+   "en": "Korean",
+   "glyph": "🍲",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "korean"
+    ]
+   }
+  },
+  {
+   "slug": "indian",
+   "family": "cuisine",
+   "th": "อาหารอินเดีย",
+   "en": "Indian",
+   "glyph": "🍛",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "indian"
+    ]
+   }
+  },
+  {
+   "slug": "steak",
+   "family": "cuisine",
+   "th": "สเต๊ก",
+   "en": "Steak",
+   "glyph": "🥩",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "steak",
+     "steak_house"
+    ]
+   }
+  },
+  {
+   "slug": "regional",
+   "family": "cuisine",
+   "th": "อาหารพื้นเมือง-ท้องถิ่น",
+   "en": "Regional & local",
+   "glyph": "🌾",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "regional",
+     "local"
+    ]
+   }
+  },
+  {
+   "slug": "vietnamese",
+   "family": "cuisine",
+   "th": "อาหารเวียดนาม",
+   "en": "Vietnamese",
+   "glyph": "🍜",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "vietnamese"
+    ]
+   }
+  },
+  {
+   "slug": "french",
+   "family": "cuisine",
+   "th": "อาหารฝรั่งเศส",
+   "en": "French",
+   "glyph": "🥐",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "french"
+    ]
+   }
+  },
+  {
+   "slug": "barbecue",
+   "family": "cuisine",
+   "th": "ปิ้งย่าง-บาร์บีคิว",
+   "en": "Barbecue & grill",
+   "glyph": "🍖",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "barbecue",
+     "grill",
+     "bbq"
+    ]
+   }
+  },
+  {
+   "slug": "salad",
+   "family": "cuisine",
+   "th": "สลัด",
+   "en": "Salad",
+   "glyph": "🥗",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "salad"
+    ]
+   }
+  },
+  {
+   "slug": "mexican",
+   "family": "cuisine",
+   "th": "อาหารเม็กซิกัน",
+   "en": "Mexican",
+   "glyph": "🌮",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "mexican"
+    ]
+   }
+  },
+  {
+   "slug": "sushi",
+   "family": "cuisine",
+   "th": "ซูชิ",
+   "en": "Sushi",
+   "glyph": "🍣",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "sushi"
+    ]
+   }
+  },
+  {
+   "slug": "juice",
+   "family": "cuisine",
+   "th": "น้ำผลไม้",
+   "en": "Juice",
+   "glyph": "🧃",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "juice"
+    ]
+   }
+  },
+  {
+   "slug": "bubble-tea",
+   "family": "cuisine",
+   "th": "ชานมไข่มุก",
+   "en": "Bubble tea",
+   "glyph": "🧋",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "bubble_tea"
+    ]
+   }
+  },
+  {
+   "slug": "pancakes",
+   "family": "cuisine",
+   "th": "แพนเค้ก",
+   "en": "Pancakes",
+   "glyph": "🥞",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "pancake"
+    ]
+   }
+  },
+  {
+   "slug": "german",
+   "family": "cuisine",
+   "th": "อาหารเยอรมัน",
+   "en": "German",
+   "glyph": "🥨",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "german"
+    ]
+   }
+  },
+  {
+   "slug": "curry",
+   "family": "cuisine",
+   "th": "แกง",
+   "en": "Curry",
+   "glyph": "🍛",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "curry"
+    ]
+   }
+  },
+  {
+   "slug": "fish-and-chips",
+   "family": "cuisine",
+   "th": "ฟิชแอนด์ชิปส์",
+   "en": "Fish & chips",
+   "glyph": "🐟",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "fish_and_chips"
+    ]
+   }
+  },
+  {
+   "slug": "crepes",
+   "family": "cuisine",
+   "th": "เครป",
+   "en": "Crêpes",
+   "glyph": "🥞",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "crepe"
+    ]
+   }
+  },
+  {
+   "slug": "european",
+   "family": "cuisine",
+   "th": "อาหารยุโรป",
+   "en": "European",
+   "glyph": "🍽",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "european"
+    ]
+   }
+  },
+  {
+   "slug": "vegetarian",
+   "family": "diet",
+   "th": "มีอาหารมังสวิรัติ",
+   "en": "Vegetarian options",
+   "glyph": "🥬",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "diet",
+    "sub": "vegetarian",
+    "values": [
+     "yes",
+     "only"
+    ]
+   },
+   "also": [
+    {
+     "name": "HappyCow",
+     "url": "https://www.happycow.net/asia/thailand/chiang_mai/"
+    }
+   ]
+  },
+  {
+   "slug": "vegan",
+   "family": "diet",
+   "th": "มีอาหารวีแกน",
+   "en": "Vegan options",
+   "glyph": "🌱",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "diet",
+    "sub": "vegan",
+    "values": [
+     "yes",
+     "only"
+    ]
+   },
+   "also": [
+    {
+     "name": "HappyCow",
+     "url": "https://www.happycow.net/asia/thailand/chiang_mai/"
+    }
+   ]
+  },
+  {
+   "slug": "halal",
+   "family": "diet",
+   "th": "ฮาลาล",
+   "en": "Halal",
+   "glyph": "☪️",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "diet",
+    "sub": "halal",
+    "values": [
+     "yes",
+     "only"
+    ]
+   },
+   "also": [
+    {
+     "name": "สำนักงานคณะกรรมการกลางอิสลามแห่งประเทศไทย · CICOT",
+     "url": "https://www.cicot.or.th/"
+    }
+   ]
+  },
+  {
+   "slug": "gluten-free",
+   "family": "diet",
+   "th": "ปลอดกลูเตน",
+   "en": "Gluten-free",
+   "glyph": "🌾",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "diet",
+    "sub": "gluten_free",
+    "values": [
+     "yes",
+     "only"
+    ]
+   }
+  },
+  {
+   "slug": "organic",
+   "family": "diet",
+   "th": "ออร์แกนิก",
+   "en": "Organic",
+   "glyph": "🍃",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "diet",
+    "sub": "organic",
+    "values": [
+     "yes",
+     "only"
+    ]
+   }
+  },
+  {
+   "slug": "cards",
+   "family": "pay",
+   "th": "รับบัตร",
+   "en": "Cards accepted",
+   "glyph": "💳",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "payment",
+    "any": {
+     "credit": [
+      "yes"
+     ],
+     "debit": [
+      "yes"
+     ],
+     "cards": [
+      "yes"
+     ],
+     "visa": [
+      "yes"
+     ],
+     "mastercard": [
+      "yes"
+     ]
+    }
+   }
+  },
+  {
+   "slug": "cash-only",
+   "family": "pay",
+   "th": "เงินสดเท่านั้น",
+   "en": "Cash only",
+   "glyph": "💵",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "payment",
+    "any": {
+     "cash": [
+      "only"
+     ],
+     "cards": [
+      "no"
+     ]
+    },
+    "unless": {
+     "qr": [
+      "yes"
+     ],
+     "promptpay": [
+      "yes"
+     ],
+     "credit": [
+      "yes"
+     ],
+     "debit": [
+      "yes"
+     ],
+     "visa": [
+      "yes"
+     ],
+     "mastercard": [
+      "yes"
+     ]
+    }
+   }
+  },
+  {
+   "slug": "qr-promptpay",
+   "family": "pay",
+   "th": "สแกนจ่าย-พร้อมเพย์",
+   "en": "QR & PromptPay",
+   "glyph": "📱",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "payment",
+    "any": {
+     "qr": [
+      "yes"
+     ],
+     "promptpay": [
+      "yes"
+     ]
+    }
+   }
+  },
+  {
+   "slug": "bitcoin",
+   "family": "pay",
+   "th": "รับบิตคอยน์",
+   "en": "Bitcoin & Lightning",
+   "glyph": "₿",
+   "rule": {
+    "kind": "attr-list",
+    "key": "crypto",
+    "values": [
+     "bitcoin",
+     "lightning",
+     "lightning-contactless",
+     "on-chain"
+    ],
+    "or_facet": "crypto"
+   },
+   "also": [
+    {
+     "name": "BTC Map",
+     "url": "https://btcmap.org/"
+    }
+   ]
+  },
+  {
+   "slug": "wifi",
+   "family": "comfort",
+   "th": "มีไวไฟ",
+   "en": "Wi-Fi",
+   "glyph": "📶",
+   "rule": {
+    "kind": "attr",
+    "key": "wifi",
+    "values": [
+     "wlan",
+     "yes",
+     "free",
+     "customers"
+    ],
+    "or_facet": "wifi"
+   }
+  },
+  {
+   "slug": "free-wifi",
+   "family": "comfort",
+   "th": "ไวไฟฟรี",
+   "en": "Free Wi-Fi",
+   "glyph": "📶",
+   "rule": {
+    "kind": "attr",
+    "key": "wifiFee",
+    "values": [
+     "no"
+    ]
+   }
+  },
+  {
+   "slug": "air-con",
+   "family": "comfort",
+   "th": "ติดแอร์",
+   "en": "Air-conditioned",
+   "glyph": "❄️",
+   "rule": {
+    "kind": "attr",
+    "key": "airConditioning",
+    "values": [
+     "yes"
+    ],
+    "or_facet": "aircon"
+   }
+  },
+  {
+   "slug": "outdoor-seating",
+   "family": "comfort",
+   "th": "นั่งนอกร้านได้",
+   "en": "Outdoor seating",
+   "glyph": "🌤",
+   "rule": {
+    "kind": "attr",
+    "key": "outdoorSeating",
+    "values": [
+     "yes",
+     "street",
+     "terrace",
+     "veranda",
+     "garden",
+     "patio",
+     "balcony",
+     "roof"
+    ]
+   }
+  },
+  {
+   "slug": "takeaway",
+   "family": "comfort",
+   "th": "ซื้อกลับบ้านได้",
+   "en": "Takeaway",
+   "glyph": "🥡",
+   "rule": {
+    "kind": "attr",
+    "key": "takeaway",
+    "values": [
+     "yes",
+     "only"
+    ]
+   }
+  },
+  {
+   "slug": "delivery",
+   "family": "comfort",
+   "th": "ส่งถึงบ้าน",
+   "en": "Delivery",
+   "glyph": "🛵",
+   "rule": {
+    "kind": "attr",
+    "key": "delivery",
+    "not_values": [
+     "no",
+     ""
+    ],
+    "contains_any": [
+     "yes",
+     "panda",
+     "grab",
+     "line",
+     "only",
+     "robinhood",
+     ":"
+    ]
+   }
+  },
+  {
+   "slug": "smoking-area",
+   "family": "comfort",
+   "th": "มีที่สูบบุหรี่",
+   "en": "Smoking area",
+   "glyph": "🚬",
+   "rule": {
+    "kind": "attr",
+    "key": "smoking",
+    "values": [
+     "outside",
+     "separated",
+     "isolated",
+     "yes",
+     "dedicated"
+    ]
+   }
+  },
+  {
+   "slug": "no-smoking",
+   "family": "comfort",
+   "th": "ปลอดบุหรี่",
+   "en": "No smoking",
+   "glyph": "🚭",
+   "rule": {
+    "kind": "attr",
+    "key": "smoking",
+    "values": [
+     "no"
+    ]
+   }
+  },
+  {
+   "slug": "drive-through",
+   "family": "comfort",
+   "th": "ไดรฟ์ทรู",
+   "en": "Drive-through",
+   "glyph": "🚗",
+   "rule": {
+    "kind": "attr",
+    "key": "driveThrough",
+    "values": [
+     "yes"
+    ]
+   }
+  },
+  {
+   "slug": "atm-on-site",
+   "family": "comfort",
+   "th": "มีตู้เอทีเอ็มในร้าน",
+   "en": "ATM on site",
+   "glyph": "🏧",
+   "rule": {
+    "kind": "attr",
+    "key": "atmOnSite",
+    "values": [
+     "yes"
+    ]
+   }
+  },
+  {
+   "slug": "open-24h",
+   "family": "hours",
+   "th": "เปิด 24 ชั่วโมง",
+   "en": "Open 24 hours",
+   "glyph": "🕓",
+   "rule": {
+    "kind": "facet",
+    "key": "open24"
+   }
+  },
+  {
+   "slug": "open-late",
+   "family": "hours",
+   "th": "เปิดดึก",
+   "en": "Open late",
+   "glyph": "🌙",
+   "rule": {
+    "kind": "facet",
+    "key": "openlate"
+   }
+  },
+  {
+   "slug": "wheelchair",
+   "family": "access",
+   "th": "รถเข็นเข้าได้",
+   "en": "Wheelchair accessible",
+   "glyph": "♿",
+   "rule": {
+    "kind": "attr",
+    "key": "wheelchair",
+    "values": [
+     "yes",
+     "designated"
+    ],
+    "or_facet": "wheelchair"
+   },
+   "also": [
+    {
+     "name": "Wheelmap",
+     "url": "https://wheelmap.org/"
+    }
+   ]
+  },
+  {
+   "slug": "wheelchair-limited",
+   "family": "access",
+   "th": "รถเข็นเข้าได้บางส่วน",
+   "en": "Wheelchair — partly",
+   "glyph": "♿",
+   "rule": {
+    "kind": "attr",
+    "key": "wheelchair",
+    "values": [
+     "limited"
+    ]
+   }
+  },
+  {
+   "slug": "old-city",
+   "family": "place",
+   "th": "ในเวียง-ในคูเมือง",
+   "en": "Inside the old city moat",
+   "glyph": "🏯",
+   "rule": {
+    "kind": "moat"
+   }
+  },
+  {
+   "slug": "royal-temple",
+   "family": "honours",
+   "th": "พระอารามหลวง",
+   "en": "Royal temples",
+   "glyph": "🛕",
+   "rule": {
+    "kind": "royal"
+   }
+  },
+  {
+   "slug": "michelin",
+   "family": "honours",
+   "th": "มิชลินไกด์",
+   "en": "MICHELIN Guide",
+   "glyph": "🍽",
+   "rule": {
+    "kind": "food-award",
+    "prefix": "michelin"
+   },
+   "also": [
+    {
+     "name": "MICHELIN Guide — Chiang Mai",
+     "url": "https://guide.michelin.com/th/en/chiang-mai-region/chiang-mai/restaurants"
+    }
+   ]
+  },
+  {
+   "slug": "historic-site",
+   "family": "honours",
+   "th": "โบราณสถานขึ้นทะเบียน",
+   "en": "Registered historic site",
+   "glyph": "🏛",
+   "rule": {
+    "kind": "attr",
+    "key": "heritage",
+    "values": [
+     "registered thai historic site"
+    ]
+   }
+  },
+  {
+   "slug": "highland-school",
+   "family": "school",
+   "th": "โรงเรียนพื้นที่สูง",
+   "en": "Highland schools",
+   "glyph": "⛰",
+   "rule": {
+    "kind": "attr-true",
+    "key": "highland"
+   }
+  },
+  {
+   "slug": "borderland-school",
+   "family": "school",
+   "th": "โรงเรียนพื้นที่ชายแดน",
+   "en": "Borderland schools",
+   "glyph": "🛂",
+   "rule": {
+    "kind": "attr-true",
+    "key": "borderland"
+   }
+  },
+  {
+   "slug": "skin-clinic",
+   "family": "medical",
+   "th": "คลินิกผิวหนัง-ความงาม",
+   "en": "Skin & aesthetic clinics",
+   "glyph": "✨",
+   "rule": {
+    "kind": "attr-list",
+    "key": "specialty",
+    "values": [
+     "skin"
+    ]
+   }
+  },
+  {
+   "slug": "eye-clinic",
+   "family": "medical",
+   "th": "คลินิกตา",
+   "en": "Eye clinics",
+   "glyph": "👁",
+   "rule": {
+    "kind": "attr-list",
+    "key": "specialty",
+    "values": [
+     "eye"
+    ]
+   }
+  },
+  {
+   "slug": "mental-health",
+   "family": "medical",
+   "th": "จิตเวช-สุขภาพจิต",
+   "en": "Mental health",
+   "glyph": "🧠",
+   "rule": {
+    "kind": "attr-list",
+    "key": "specialty",
+    "values": [
+     "psych"
+    ]
+   }
+  },
+  {
+   "slug": "chinese-medicine",
+   "family": "medical",
+   "th": "แพทย์แผนจีน",
+   "en": "Chinese medicine",
+   "glyph": "☯",
+   "rule": {
+    "kind": "attr-list",
+    "key": "specialty",
+    "values": [
+     "chinese-med"
+    ]
+   }
+  },
+  {
+   "slug": "lpg",
+   "family": "fuel",
+   "th": "มีแอลพีจี",
+   "en": "LPG",
+   "glyph": "⛽",
+   "rule": {
+    "kind": "attr-list",
+    "key": "fuel",
+    "values": [
+     "lpg"
+    ]
+   }
+  },
+  {
+   "slug": "e85",
+   "family": "fuel",
+   "th": "มีอี85",
+   "en": "E85",
+   "glyph": "⛽",
+   "rule": {
+    "kind": "attr-list",
+    "key": "fuel",
+    "values": [
+     "e85"
+    ]
+   }
+  },
+  {
+   "slug": "e20",
+   "family": "fuel",
+   "th": "มีอี20",
+   "en": "E20",
+   "glyph": "⛽",
+   "rule": {
+    "kind": "attr-list",
+    "key": "fuel",
+    "values": [
+     "e20"
+    ]
+   }
+  },
+  {
+   "slug": "ngv",
+   "family": "fuel",
+   "th": "มีเอ็นจีวี",
+   "en": "NGV (CNG)",
+   "glyph": "⛽",
+   "rule": {
+    "kind": "attr-list",
+    "key": "fuel",
+    "values": [
+     "cng",
+     "ngv"
+    ]
+   }
+  },
+  {
+   "slug": "maha-nikaya",
+   "family": "wat",
+   "th": "มหานิกาย",
+   "en": "Maha Nikaya",
+   "glyph": "🛕",
+   "rule": {
+    "kind": "attr",
+    "key": "sect",
+    "values": [
+     "มหานิกาย"
+    ]
+   }
+  },
+  {
+   "slug": "dhammayut",
+   "family": "wat",
+   "th": "ธรรมยุต",
+   "en": "Dhammayut",
+   "glyph": "🛕",
+   "rule": {
+    "kind": "attr",
+    "key": "sect",
+    "values": [
+     "ธรรมยุต",
+     "ธรรมยุติกนิกาย"
+    ]
+   }
+  },
+  {
+   "slug": "thai-select",
+   "family": "honours",
+   "th": "ไทยซีเล็กต์",
+   "en": "Thai SELECT",
+   "glyph": "🍚",
+   "rule": {
+    "kind": "food-award",
+    "prefix": "thai-select"
+   },
+   "also": [
+    {
+     "name": "กรมส่งเสริมการค้าระหว่างประเทศ (DITP) · Thai SELECT",
+     "url": "https://www.thaiselect.com/"
+    }
+   ]
+  },
+  {
+   "slug": "thongfah",
+   "family": "honours",
+   "th": "ร้านธงฟ้าราคาประหยัด",
+   "en": "Thong Fah budget restaurants",
+   "glyph": "🚩",
+   "rule": {
+    "kind": "attr",
+    "key": "thongfah",
+    "values": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "yes"
+    ]
+   }
+  },
+  {
+   "slug": "sat-camp",
+   "family": "honours",
+   "th": "ค่ายมวยมาตรฐาน กกท.",
+   "en": "SAT-certified muay thai camps",
+   "glyph": "🥊",
+   "rule": {
+    "kind": "attr-true",
+    "key": "satCertified"
+   }
+  }
+ ]
+}

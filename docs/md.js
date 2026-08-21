@@ -1,7 +1,895 @@
-const MD_THESAURUS=[["khao", "kow", "kao", "khaw", "ข้าว"], ["soi", "soy", "sauy", "ซอย"], ["khao soi", "kow soi", "kao soi", "khaosoi", "ข้าวซอย"], ["wat", "vat", "temple", "วัด"], ["chedi", "jedi", "stupa", "เจดีย์"], ["viharn", "wihan", "vihara", "วิหาร"], ["doi", "mountain", "ดอย"], ["kad", "kat", "market", "ตลาด", "กาด"], ["talat", "talad", "market", "ตลาด"], ["nimman", "nimmanhaemin", "nimmanhemin", "นิมมาน", "นิมมานเหมินท์"], ["thapae", "tha phae", "thaphae", "ท่าแพ"], ["suthep", "สุเทพ"], ["ping", "แม่ปิง", "mae ping"], ["kuang", "khuang", "ข่วง"], ["mueang", "muang", "mueng", "เมือง"], ["san", "สัน"], ["mae", "แม่"], ["ban", "baan", "บ้าน"], ["nakhon", "nakorn", "นคร"], ["phra", "pra", "พระ"], ["luang", "หลวง"], ["noi", "นอย", "น้อย"], ["coffee", "cafe", "kafe", "coffeeshop", "coffee_shop", "กาแฟ", "คาเฟ่"], ["tea", "ชา"], ["bakery", "cake", "เบเกอรี่", "ขนม"], ["ice cream", "ice_cream", "icecream", "ไอศกรีม", "ไอติม"], ["noodle", "noodles", "ก๋วยเตี๋ยว", "เส้น"], ["seafood", "อาหารทะเล"], ["thai", "ไทย", "อาหารไทย"], ["northern", "lanna", "regional", "local", "เหนือ", "ล้านนา", "พื้นเมือง"], ["japanese", "ญี่ปุ่น", "sushi", "ซูชิ"], ["chinese", "จีน"], ["korean", "เกาหลี"], ["indian", "อินเดีย"], ["italian", "pizza", "pasta", "อิตาเลียน", "พิซซ่า"], ["burger", "american", "เบอร์เกอร์"], ["steak", "steak_house", "สเต็ก"], ["vegetarian", "vegan", "เจ", "มังสวิรัติ"], ["halal", "ฮาลาล", "muslim", "islam", "อิสลาม"], ["breakfast", "อาหารเช้า"], ["massage", "นวด", "spa", "สปา"], ["hospital", "โรงพยาบาล", "รพ"], ["clinic", "คลินิก"], ["pharmacy", "ร้านยา", "เภสัช"], ["dentist", "dental", "ทันตกรรม", "หมอฟัน"], ["hotel", "โรงแรม"], ["guesthouse", "guest house", "เกสต์เฮ้าส์"], ["hostel", "โฮสเทล"], ["condo", "condominium", "คอนโด"], ["school", "โรงเรียน"], ["university", "มหาวิทยาลัย", "มช"], ["bank", "ธนาคาร"], ["atm", "ตู้เอทีเอ็ม", "เอทีเอ็ม"], ["post office", "ไปรษณีย์"], ["petrol", "gas", "fuel", "ปั๊มน้ำมัน", "ปตท"], ["laundry", "ซักรีด", "ซักผ้า"], ["barber", "salon", "hair", "ร้านตัดผม", "เสริมสวย"], ["tattoo", "sak yant", "สักยันต์", "รอยสัก"], ["museum", "พิพิธภัณฑ์"], ["gallery", "หอศิลป์", "แกลเลอรี่"], ["park", "สวนสาธารณะ", "สวน"], ["zoo", "สวนสัตว์"], ["waterfall", "น้ำตก"], ["hot spring", "น้ำพุร้อน"], ["airport", "สนามบิน"], ["bus", "รถบัส", "รถทัวร์"], ["songthaew", "song thaew", "รถแดง", "สองแถว"], ["train", "รถไฟ", "สถานีรถไฟ"], ["toilet", "restroom", "ห้องน้ำ", "สุขา"], ["vet", "veterinary", "สัตวแพทย์", "คลินิกสัตว์"], ["gym", "fitness", "ฟิตเนส", "ยิม"], ["cinema", "movie", "โรงหนัง", "หนัง"], ["shrine", "ศาล", "ศาลเจ้า"], ["7-eleven", "seven eleven", "7 11", "เซเว่น"]];
-const MD_CATWORDS={"wat": "วัด-สิ่งศักดิ์สิทธิ์ · Wats & Sacred Places", "food": "ร้านอาหาร-ของกิน · Food & Eats", "massage": "นวด-สปา · Massage & Spa", "medical": "หมอ-คลินิก-โรงพยาบาล · Doctors & Hospitals", "essentials": "ของจำเป็นประจำเมือง · City Essentials", "hotel": "โรงแรม-ที่พัก · Hotels & Stays", "school-intl": "โรงเรียนนานาชาติ · International Schools", "market": "ตลาด · Markets", "shopping": "ช้อปปิ้ง-ของฝาก · Shopping & Gifts", "realestate": "อสังหาฯ-คอนโด · Real Estate & Condos", "transport": "รถ-เดินทาง · Getting Around", "repair": "ช่าง-ซ่อม · Repairs & Trades", "beauty": "เสริมสวย-ทำผม · Beauty & Hair", "tattoo": "สักยันต์-รอยสัก · Tattoo & Sak Yant", "pets": "สัตว์เลี้ยง · Pets", "learn": "เรียน-กีฬา · Learning & Sport", "home-services": "แม่บ้าน-ช่างสวน-ดูแลบ้าน · Home Services", "community": "ชมรม-สมาคม · Clubs & Community", "business": "ธุรกิจ-ค้าขาย · Doing Business", "whats-on": "หนัง-คอนเสิร์ต-อีเวนต์ · Movies, Concerts & Events", "museums-galleries": "พิพิธภัณฑ์-หอศิลป์ · Museums & Galleries", "parks": "สวน-ที่พักผ่อน · Parks & Green Space", "sights": "ที่เที่ยว-ของดี · Sights & Good Things"};
-const MD_SUBWORDS={"spirit-house": "ศาลพระภูมิ Spirit Houses", "thai": "อาหารไทย Thai", "made-to-order": "ตามสั่ง-ผัดกะเพรา Made-to-order", "noodle": "ข้าวซอย-ก๋วยเตี๋ยว Khao Soi & Noodles", "international": "นานาชาติ International", "seafood": "อาหารทะเล Seafood", "vegetarian": "มังสวิรัติ-เจ Vegetarian & Vegan", "street-food": "สตรีทฟู้ด-ฟาสต์ฟู้ด Street Food & Fast Food", "bakery-dessert": "เบเกอรี่-ของหวาน Bakery & Dessert", "bar-pub": "บาร์-ผับ Bars & Pubs", "cafe": "กาแฟ-คาเฟ่ Coffee & Cafés", "riverside": "ร้านริมน้ำ Riverside", "in-wiang": "ในเวียงเก่า In the Old City", "out-wiang": "นอกเวียง Outside the Moat", "hospital": "โรงพยาบาล Hospitals", "clinic": "คลินิก Clinics", "doctors": "หมอเฉพาะทาง Specialists", "dentist": "หมอฟัน Dentists", "thai-medicine": "แพทย์แผนไทย-สมุนไพร Traditional Thai Medicine", "pharmacy": "ร้านยา Pharmacies", "bank": "ธนาคาร-เอทีเอ็ม Banks & ATMs", "laundry": "ร้านซักรีด-สะดวกซัก Laundry", "post": "ไปรษณีย์-ขนส่ง Post & Parcels", "gov": "ราชการ-เอกสาร Government Offices", "visa": "วีซ่า-ต่ออายุ Visa & Extensions", "convenience": "ร้านสะดวกซื้อ Convenience Stores", "hotel-full": "โรงแรม Hotels", "guesthouse": "เกสต์เฮาส์ Guesthouses", "hostel": "โฮสเทล Hostels", "fresh": "ตลาดสด Fresh Markets", "walking-street": "ถนนคนเดิน Walking Streets", "flea": "ตลาดนัด Flea Markets", "crafts": "ของฝาก-หัตถกรรม Crafts & Gifts", "secondhand": "เสื้อผ้ามือสอง-คัดพิเศษ Consignment & Secondhand", "mall": "ห้าง-มอลล์ Malls", "diy": "DIY-วัสดุก่อสร้าง DIY & Hardware", "tailor": "ตัดเย็บ-ซ่อมเสื้อผ้า Tailors & Alterations", "condo": "อาคารคอนโด Condo Buildings", "moobaan": "หมู่บ้าน-บ้านเช่า Moobaan & Rentals", "agent": "นายหน้า-เอเจนต์ Agents", "rental": "เช่ารถ-มอเตอร์ไซค์ Car & Bike Rental", "station": "สถานี-ท่ารถ Stations & Terminals", "airport": "สนามบิน Airports", "songthaew": "รถแดง-สองแถว Rot Daeng & Songthaew", "fuel": "ปั๊มน้ำมัน Fuel Stations", "auto": "ซ่อมรถ-อู่ Auto & Motorbike", "home": "ช่างบ้าน-ช่างอลูมิเนียม Home Trades", "tech": "มือถือ-คอมพิวเตอร์ Phones & Computers", "hair": "ร้านทำผม Hair Salons", "nails": "ทำเล็บ Nails", "salon": "ร้านเสริมสวย Beauty salons", "beauty-spa": "สปาความงาม Beauty spa", "barber": "ตัดผมชาย Barbers", "sak-yant": "สักยันต์ Sak Yant", "studio": "ร้านสักสมัยใหม่ Modern studios", "piercing": "เจาะ Piercing", "tattoo-removal": "ลบรอยสัก Removal", "vet": "หมอสัตว์ Vets", "grooming": "อาบน้ำ-ตัดขน Grooming", "language": "เรียนภาษา Language Schools", "gym": "มวยไทย-ยิม Muay Thai & Gyms", "university": "มหาวิทยาลัย Universities", "housekeeper": "แม่บ้าน Housekeepers", "handyman": "ช่างซ่อมบ้าน Handymen", "landscaper": "คนสวน-จัดสวน Landscapers", "clubs": "ชมรม-สมาคม Clubs & Societies", "centre": "ศาลาประชาคม-ศูนย์ชุมชน Community Centres", "volunteer": "จิตอาสา Volunteering", "coworking": "โคเวิร์กกิ้งสเปซ Coworking Spaces", "wholesale": "ค้าส่ง-ซัพพลายเออร์ Wholesale & Suppliers", "online-selling": "ขายออนไลน์-ดรอปชิป Online Selling & Dropshipping", "professional": "ทนาย-บัญชี Lawyers & Accountants", "cinema": "โรงหนัง-รอบฉาย Cinemas & Showtimes", "live-music": "ดนตรีสด Live Music", "events-venue": "ที่จัดงาน-อีเวนต์ Event Venues", "museum": "พิพิธภัณฑ์ Museums", "gallery": "หอศิลป์-แกลเลอรี Art Galleries", "park": "สวนสาธารณะ Public parks", "garden": "สวนพฤกษศาสตร์ Gardens", "nature": "เขตอนุรักษ์-อุทยาน Nature reserves", "water": "อ่างเก็บน้ำ-หนองน้ำ Lakes & reservoirs", "playground": "สนามเด็กเล่น Playgrounds", "library": "ห้องสมุด Libraries", "art-studio": "สตูดิโอศิลป์ Art Studios", "historic": "โบราณสถาน-ที่ประวัติศาสตร์ Historic Places", "viewpoint": "จุดชมวิว Viewpoints", "outing": "ทริปวันเดียว Outings & Day Trips"};
+const MD_CATWORDS={"wat": "วัด-สิ่งศักดิ์สิทธิ์ · Wats & Sacred Places", "food": "ร้านอาหาร-ของกิน · Food & Eats", "massage": "นวด-สปา · Massage & Spa", "medical": "หมอ-คลินิก-โรงพยาบาล · Doctors & Hospitals", "cannabis": "กัญชา-กระท่อม · Cannabis & Kratom", "essentials": "ของจำเป็นประจำเมือง · City Essentials", "hotel": "โรงแรม-ที่พัก · Hotels & Stays", "school": "โรงเรียน-สถานศึกษา · Schools & Education", "school-intl": "โรงเรียนนานาชาติ · International Schools", "market": "ตลาด · Markets", "shopping": "ช้อปปิ้ง-ของฝาก · Shopping & Gifts", "realestate": "อสังหาฯ-คอนโด · Real Estate & Condos", "transport": "รถ-เดินทาง · Getting Around", "repair": "ช่าง-ซ่อม · Repairs & Trades", "beauty": "เสริมสวย-ทำผม · Beauty & Hair", "tattoo": "สักยันต์-รอยสัก · Tattoo & Sak Yant", "pets": "สัตว์เลี้ยง · Pets", "learn": "กีฬา-ฟิตเนส · Sport & Fitness", "muaythai": "มวยไทย · Muay Thai", "cooking": "เรียนทำอาหารไทย · Thai Cooking Classes", "chang": "ช้าง · Elephants", "home-services": "แม่บ้าน-ช่างสวน-ดูแลบ้าน · Home Services", "community": "ชมรม-สมาคม · Clubs & Community", "business": "ธุรกิจ-ค้าขาย · Doing Business", "whats-on": "หนัง-คอนเสิร์ต-อีเวนต์ · Movies, Concerts & Events", "museums-galleries": "พิพิธภัณฑ์-หอศิลป์ · Museums & Galleries", "parks": "สวน-ที่พักผ่อน · Parks & Green Space", "sights": "ที่เที่ยว-ของดี · Sights & Good Things"};
+const MD_SUBWORDS={"spirit-house": "ศาลพระภูมิ Spirit Houses", "thai": "อาหารไทย Thai", "made-to-order": "ตามสั่ง-ผัดกะเพรา Made-to-order", "noodle": "ข้าวซอย-ก๋วยเตี๋ยว Khao Soi & Noodles", "international": "นานาชาติ International", "seafood": "อาหารทะเล Seafood", "vegetarian": "มังสวิรัติ-เจ Vegetarian & Vegan", "street-food": "สตรีทฟู้ด-ฟาสต์ฟู้ด Street Food & Fast Food", "bakery-dessert": "เบเกอรี่-ของหวาน Bakery & Dessert", "bar-pub": "บาร์-ผับ Bars & Pubs", "cafe": "กาแฟ-คาเฟ่ Coffee & Cafés", "riverside": "ร้านริมน้ำ Riverside", "thai-traditional": "นวดแผนไทย-แผนโบราณ Thai Traditional", "foot": "นวดเท้า-กดจุดฝ่าเท้า Foot", "oil": "นวดน้ำมัน-อโรมา Oil & Aroma", "prakhop": "ประคบสมุนไพร Herbal Compress", "chap-sen": "นวดจับเส้น Deep Sen Work", "tok-sen": "ตอกเส้น Tok Sen (Lanna)", "yam-khang": "ย่ำขาง Yam Khang (Lanna)", "ratchasamnak": "นวดราชสำนัก Royal Court Style", "office-syndrome": "นวดออฟฟิศซินโดรม Office Syndrome", "spa-body": "สปา-ขัดผิว-อบไอน้ำ Spa, Scrub & Steam", "khat-khi-khlai": "ขัดขี้ไคล-ระเบิดขี้ไคล Dead-Skin Scrub", "face": "นวดหน้า-กัวซาหน้า Facial & Face Gua Sha", "cupping": "ครอบแก้ว Cupping", "postpartum": "ทับหม้อเกลือ-อยู่ไฟ Postnatal Care", "prenatal": "นวดคนท้อง Prenatal", "blind-massage": "นวดโดยคนตาบอด Blind Massage", "ap-ob-nuat": "อาบอบนวด Ap Ob Nuat", "hospital": "โรงพยาบาล Hospitals", "clinic": "คลินิก Clinics", "doctors": "หมอเฉพาะทาง Specialists", "dentist": "หมอฟัน Dentists", "pharmacy": "ร้านขายยา Pharmacies", "health-station": "รพ.สต.-สถานีอนามัย Health stations (รพ.สต.)", "laboratory": "แล็บ-ตรวจเลือด Labs & testing", "physio": "กายภาพบำบัด Physiotherapy", "optometrist": "ร้านแว่น-วัดสายตา Eyes & optometry", "thai-medicine": "แพทย์แผนไทย-สมุนไพร Traditional Thai Medicine", "dispensary": "ร้านกัญชา Dispensaries", "cannabis-cafe": "คาเฟ่กัญชา Cannabis cafés", "kratom": "ร้านน้ำใบกระท่อม Kratom", "farm": "ฟาร์ม-วิสาหกิจชุมชน Farms & growers", "bank": "ธนาคาร-เอทีเอ็ม Banks & ATMs", "laundry": "ร้านซักรีด-สะดวกซัก Laundry", "post": "ไปรษณีย์-ขนส่ง Post & Parcels", "gov": "ราชการ-เอกสาร Government Offices", "visa": "วีซ่า-ต่ออายุ Visa & Extensions", "convenience": "ร้านสะดวกซื้อ Convenience Stores", "hotel-full": "โรงแรม Hotels", "guesthouse": "เกสต์เฮาส์ Guesthouses", "hostel": "โฮสเทล Hostels", "government": "โรงเรียนรัฐบาล Government schools", "private": "โรงเรียนเอกชน Private schools", "kindergarten": "อนุบาล-เตรียมอนุบาล Kindergartens & nurseries", "university": "มหาวิทยาลัย Universities", "college": "วิทยาลัย-อาชีวศึกษา Colleges & vocational", "campus": "คณะ-อาคารในมหาวิทยาลัย Faculties & campus buildings", "monastic": "โรงเรียนพระปริยัติธรรม Monastic schools", "religious": "โรงเรียนการกุศล-ศาสนา Faith-founded schools", "special": "การศึกษาพิเศษ Special education", "welfare": "ศึกษาสงเคราะห์ Welfare schools", "language": "โรงเรียนสอนภาษา Language schools", "muaythai": "ค่ายมวย-มวยไทย Muay Thai camps", "cooking": "โรงเรียนสอนทำอาหาร Cooking schools", "massage-school": "โรงเรียนสอนนวด Massage schools", "music-art": "โรงเรียนดนตรี-ศิลปะ Music & art schools", "dance": "โรงเรียนสอนเต้น-รำ Dance schools", "tutoring": "กวดวิชา Tutoring", "driving": "โรงเรียนสอนขับรถ Driving schools", "training": "ศูนย์ฝึกอบรม Training centres", "fresh": "ตลาดสด Fresh Markets", "walking-street": "ถนนคนเดิน Walking Streets", "flea": "ตลาดนัด Flea Markets", "crafts": "ของฝาก-หัตถกรรม Crafts & Gifts", "secondhand": "เสื้อผ้ามือสอง-คัดพิเศษ Consignment & Secondhand", "mall": "ห้าง-มอลล์ Malls", "diy": "DIY-วัสดุก่อสร้าง DIY & Hardware", "tailor": "ตัดเย็บ-ซ่อมเสื้อผ้า Tailors & Alterations", "condo": "อาคารชุด-คอนโด Condominiums", "apartment": "อพาร์ตเมนต์-แมนชั่น-คอร์ท Apartments, Mansions & Courts", "dorm": "หอพัก Dormitories", "moobaan": "หมู่บ้านจัดสรร Moobaan (Housing Estates)", "agent": "นายหน้า-เอเจนต์ Agents & Agencies", "rental": "เช่ารถ-มอเตอร์ไซค์ Car & Bike Rental", "train": "สถานีรถไฟ Train Stations", "bus": "สถานีขนส่ง-ท่ารถ Bus Terminals", "songthaew": "รถแดง-สองแถว Rot Daeng & Songthaew", "taxi": "แท็กซี่-คิวรถ Taxi Ranks", "funicular": "รถรางขึ้นดอย The Doi Suthep Funicular", "pier": "ท่าเรือ Piers & Boat Landings", "airport": "สนามบิน Airports", "fuel": "ปั๊มน้ำมัน Fuel Stations", "auto": "ซ่อมรถ-อู่ Auto & Motorbike", "home": "ช่างบ้าน-ช่างอลูมิเนียม Home Trades", "tech": "มือถือ-คอมพิวเตอร์ Phones & Computers", "hair": "ร้านทำผม Hair Salons", "extensions": "ต่อผม-ถักเปีย Extensions & braids", "nails": "ทำเล็บ Nails", "salon": "ร้านเสริมสวย Beauty salons", "beauty-spa": "สปาความงาม Beauty spa", "barber": "ตัดผมชาย Barbers", "sak-yant": "สักยันต์ Sak Yant", "studio": "ร้านสักสมัยใหม่ Modern studios", "cosmetic-tattoo": "สักคิ้ว-สักปาก Cosmetic tattoo", "piercing": "เจาะ Piercing", "tattoo-removal": "ลบรอยสัก Removal", "vet": "หมอสัตว์ Vets", "grooming": "อาบน้ำ-ตัดขน Grooming", "gym": "มวยไทย-ยิม Muay Thai & Gyms", "stadium": "สนามมวย-ดูมวย Stadiums & Fight Nights", "camp": "ค่ายมวย-ยิมมวยไทย Camps & Gyms", "gear": "ร้านอุปกรณ์มวย Gear Shops", "class": "โรงเรียนสอนทำอาหารไทย Cooking Schools & Classes", "vegan": "อาหารเจ-มังสวิรัติ-วีแกน Vegetarian & Vegan Classes", "northern": "อาหารเหนือ-ล้านนา-อาข่า-ไทใหญ่ Northern, Lanna, Akha & Shan Cuisine", "dessert": "ขนมไทย Thai Dessert Classes", "carving": "แกะสลักผักผลไม้ Fruit & Vegetable Carving", "hotel": "คลาสในโรงแรม-รีสอร์ต Hotel & Resort Cooking Schools", "vocational": "หลักสูตรอาชีพ-สารพัดช่าง-อาชีวะ Vocational & Professional Courses", "elephant-camp": "ปางช้าง-ศูนย์ช้าง Camps & Sanctuaries", "elephant-care": "คลินิกช้าง-โรงพยาบาลช้าง Elephant Clinics & Hospitals", "elephant-craft": "ของช้าง-กระดาษมูลช้าง-รูปปั้น Of the Elephant — paper, statues, craft", "housekeeper": "แม่บ้าน Housekeepers", "handyman": "ช่างซ่อมบ้าน Handymen", "landscaper": "คนสวน-จัดสวน Landscapers", "clubs": "ชมรม-สมาคม Clubs & Societies", "centre": "ศาลาประชาคม-ศูนย์ชุมชน Community Centres", "volunteer": "จิตอาสา Volunteering", "coworking": "โคเวิร์กกิ้งสเปซ Coworking Spaces", "wholesale": "ค้าส่ง-ซัพพลายเออร์ Wholesale & Suppliers", "online-selling": "ขายออนไลน์-ดรอปชิป Online Selling & Dropshipping", "professional": "ทนาย-บัญชี Lawyers & Accountants", "cinema": "โรงหนัง-รอบฉาย Cinemas & Showtimes", "live-music": "ดนตรีสด Live Music", "events-venue": "ที่จัดงาน-อีเวนต์ Event Venues", "museum": "พิพิธภัณฑ์ Museums", "gallery": "หอศิลป์-แกลเลอรี Art Galleries", "park": "สวนสาธารณะ Public parks", "garden": "สวนพฤกษศาสตร์ Gardens", "nature": "เขตอนุรักษ์-อุทยาน Nature reserves", "water": "อ่างเก็บน้ำ-หนองน้ำ Lakes & reservoirs", "playground": "สนามเด็กเล่น Playgrounds", "library": "ห้องสมุด Libraries", "art-studio": "สตูดิโอศิลป์ Art Studios", "historic": "โบราณสถาน-ที่ประวัติศาสตร์ Historic Places", "viewpoint": "จุดชมวิว Viewpoints", "waterfall": "น้ำตก Waterfalls", "peak": "ดอย-ยอดเขา Peaks & Mountains", "hot-spring": "น้ำพุร้อน Hot Springs", "outing": "ทริปวันเดียว Outings & Day Trips"};
 const MD_TOPCATS=["food", "wat", "medical", "essentials", "massage", "hotel"];
+// GENERATED FILE — do not edit here.
+// Source: search-core/searchcore.js. Regenerate with search-core/sync.py.
+// Edits made here are silently overwritten and escape parity.py, which is
+// the one thing keeping the two runtimes agreeing on what a query means.
+// searchcore.js — the JS half of the fleet's forgiving search.
+//
+// A line-for-line twin of searchcore.py, because the same query has to mean the
+// same thing in three places: Mot Dang's client-side search, the wichaa router
+// Worker's re-rank, and the Python that builds both indexes. Two
+// implementations of one set of rules will drift, so parity.py runs a few
+// thousand queries through both and fails the build when they disagree. If you
+// change a rule here, change it there, and run parity.
+//
+// No imports, no build step, no framework. It is pasted into a page by build.py
+// and imported by the Worker, and it has to work on a five-year-old phone on a
+// satellite connection.
+
+'use strict';
+
+// ---- layer 0: normalization ------------------------------------------------
+
+const SARA_AM = 'ํา';        // ํ + า, the decomposed spelling of ำ
+const RE_TONE_NIKHAHIT_AA = /([่-๋])ํา/g;
+const RE_NIKHAHIT_AA = /ํา/g;
+const RE_ZERO_WIDTH = /[​-‏‪-‮﻿]/g;
+const RE_THAI = /[฀-๿]/;
+// The Thai block is whitelisted explicitly, and it has to be. Thai vowels and
+// tone marks are Unicode category Mn — MARKS, not letters — so \p{L}\p{N} alone
+// does not match them and ก๋วยเตี๋ยว came out of normalization as "ก วยเต ยว",
+// shredded into fragments that could match nothing. Caught by parity.py against
+// the Python side, which had the whitelist from the start.
+const RE_NONWORD = /(?:[^\p{L}\p{N}฀-๿]|_)+/gu;
+
+function hasThai(s) { return RE_THAI.test(s || ''); }
+
+// Drop accents from Latin letters; leave every Thai mark alone. "Café de Nimman"
+// and "cafe" are the same shop. Thai must be exempt: its vowels and tone marks
+// ARE combining characters, so stripping them would delete the word.
+function stripLatinMarks(s) {
+  // eslint-disable-next-line no-control-regex
+  if (!/[^ -]/.test(s)) return s;
+  const out = [];
+  for (const ch of s.normalize('NFD')) {
+    if (/\p{M}/u.test(ch)) {
+      const base = out.length ? out[out.length - 1] : '';
+      if (base && /[a-zA-Z]/.test(base)) continue;
+    }
+    out.push(ch);
+  }
+  return out.join('').normalize('NFC');
+}
+
+function norm(s) {
+  if (!s) return '';
+  s = s.normalize('NFC').replace(RE_ZERO_WIDTH, '');
+  s = s.replace(RE_TONE_NIKHAHIT_AA, '$1ำ').replace(RE_NIKHAHIT_AA, 'ำ');
+  s = stripLatinMarks(s);
+  return s.toLowerCase().replace(RE_NONWORD, ' ').trim();
+}
+
+// Thai homophone classes: several letters share one sound because they arrived
+// from Sanskrit or Pali with their spelling intact, so a reader who knows how a
+// word sounds but not which of the four /t/ letters it takes is reporting a real
+// ambiguity in the script rather than making a mistake.
+const TH_CLASSES = {
+  'ก': 'ก', 'ขฃคฅฆ': 'ค', 'ง': 'ง', 'จ': 'จ', 'ฉชฌ': 'ช', 'ซศษส': 'ส',
+  'ญย': 'ย', 'ฎด': 'ด', 'ฏต': 'ต', 'ฐฑฒถทธ': 'ท', 'ณน': 'น', 'บ': 'บ',
+  'ป': 'ป', 'ผพภ': 'พ', 'ฝฟ': 'ฟ', 'ม': 'ม', 'ร': 'ร', 'ลฬ': 'ล', 'ว': 'ว',
+  'หฮ': 'ห', 'อ': 'อ', 'ฤ': 'ร', 'ฦ': 'ล',
+};
+const TH_MAP = {};
+for (const cls in TH_CLASSES) for (const ch of cls) TH_MAP[ch] = TH_CLASSES[cls];
+
+const TH_VOWELS = {
+  'ี': 'ิ', 'ิ': 'ิ', 'ื': 'ึ', 'ึ': 'ึ', 'ู': 'ุ', 'ุ': 'ุ',
+  'ั': 'ะ', 'ะ': 'ะ', '็': 'ะ', 'ใ': 'ไ', 'ไ': 'ไ', 'ๅ': 'า', 'า': 'า',
+};
+// ็ (mai taikhu) belongs here, and its absence was a live parity failure: the
+// Python side dropped it while JS mapped it to ะ, so เมล็ดกาแฟ produced two
+// different phonetic keys and coffee-bean shops were findable from one runtime
+// and not the other.
+const TH_DROP = new Set(['่', '้', '๊', '๋', '์', 'ฺ', '๎', 'ๆ', '็']);
+
+// Thai reaches Latin letters through at least six romanisation habits, so one
+// shop is Rajavej, Rachawet and Ratchavej on three different signs.
+const LATIN_DIGRAPHS = [
+  ['tch', 'c'], ['dch', 'c'],
+  ['kh', 'k'], ['ph', 'p'], ['th', 't'], ['ch', 'c'], ['gh', 'k'], ['ng', 'g'],
+  ['ee', 'i'], ['ii', 'i'], ['ie', 'i'],
+  ['oo', 'u'], ['uu', 'u'], ['ou', 'u'], ['ue', 'u'], ['eu', 'u'],
+  ['ae', 'e'], ['oe', 'e'], ['ei', 'i'],
+  ['ai', 'i'], ['ay', 'i'],
+  ['aw', 'o'], ['au', 'o'], ['or', 'o'], ['ao', 'o'],
+  ['ua', 'u'], ['uo', 'u'],
+];
+const LATIN_SINGLES = {
+  g: 'k', j: 'c', q: 'k', x: 's', z: 's', v: 'w',
+  b: 'p', d: 't', f: 'p', l: 'r', y: 'i', h: '',
+};
+
+// A phonetic key: two spellings of one sound collapse to one string. Compared
+// with bounded edit distance rather than instead of it — the key removes the
+// systematic differences, the distance absorbs the ordinary slips left over.
+function loose(tok) {
+  tok = norm(tok);
+  if (!tok) return '';
+  let key;
+  if (hasThai(tok)) {
+    let out = '';
+    for (const ch of tok) {
+      if (TH_DROP.has(ch)) continue;
+      const v = TH_VOWELS[ch] || ch;
+      out += (TH_MAP[v] || v);
+    }
+    key = out;
+  } else {
+    key = tok;
+    for (const [a, b] of LATIN_DIGRAPHS) key = key.split(a).join(b);
+    let out = '';
+    for (const c of key) out += (c in LATIN_SINGLES ? LATIN_SINGLES[c] : c);
+    key = out;
+  }
+  let dedup = '';
+  for (const ch of key) if (dedup[dedup.length - 1] !== ch) dedup += ch;
+  return dedup;
+}
+
+// Damerau-Levenshtein, abandoned once it passes `cap`. Transposition counts as
+// one edit: swapped adjacent letters are the commonest typo there is, and the
+// commonest disagreement between two romanisations of one syllable.
+function edits(a, b, cap) {
+  const la = a.length, lb = b.length;
+  if (Math.abs(la - lb) > cap) return cap + 1;
+  if (a === b) return 0;
+  let prev2 = [], prev = [], cur = [];
+  for (let j = 0; j <= lb; j++) prev.push(j);
+  for (let i = 1; i <= la; i++) {
+    cur = new Array(lb + 1).fill(cap + 1);
+    cur[0] = i;
+    const lo = Math.max(1, i - cap), hi = Math.min(lb, i + cap);
+    for (let j = lo; j <= hi; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      let v = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + cost);
+      if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+        v = Math.min(v, prev2[j - 2] + 1);
+      }
+      cur[j] = v;
+    }
+    let best = cap + 1;
+    for (let j = lo; j <= hi; j++) if (cur[j] < best) best = cur[j];
+    if (best > cap) return cap + 1;
+    prev2 = prev; prev = cur;
+  }
+  return prev[lb];
+}
+
+// How much misspelling a token has earned. One edit turns ยา into ยาย and มา
+// into หมา, so short words get no slack at all.
+//
+// Two edits start at EIGHT characters, and the extra character was bought with a
+// real miss: `pharmacy` reduces to the key `parmaci` and `palace` to `parace`,
+// two edits apart, so a search for a chemist returned thirteen hotels with
+// Palace in the name. Two edits out of seven is a quarter of the word. The ratio
+// is what matters, not the count.
+function slack(tok) {
+  const n = tok.length;
+  if (n <= 3) return 0;
+  if (n <= 7) return 1;
+  return 2;
+}
+
+// ---- layer 2: Thai segmentation -------------------------------------------
+// Dictionary longest-match. The dictionary is the point: a general wordlist
+// segments grammar, a wordlist drawn from the corpus being searched segments the
+// things a reader is looking for. NOT character n-grams — boosting the syllable
+// ภัย is what once made ยันต์กันภัย return ภัยยะราด.
+
+class Segmenter {
+  constructor(words) {
+    this.words = new Set();
+    this.maxlen = 1;
+    for (let w of words || []) {
+      w = norm(w);
+      if (w.length >= 2 && hasThai(w)) {
+        this.words.add(w);
+        if (w.length > this.maxlen) this.maxlen = w.length;
+      }
+    }
+    this.maxlen = Math.min(this.maxlen, 30);
+    // Loose key -> the dictionary words sharing it, bucketed by key length, for
+    // repairing a misspelled chunk before anything tries to split it.
+    this.byLoose = new Map();
+    this.looseByLen = new Map();
+    for (const w of this.words) {
+      const k = loose(w);
+      if (!k) continue;
+      if (!this.byLoose.has(k)) {
+        this.byLoose.set(k, []);
+        if (!this.looseByLen.has(k.length)) this.looseByLen.set(k.length, []);
+        this.looseByLen.get(k.length).push(k);
+      }
+      this.byLoose.get(k).push(w);
+    }
+  }
+
+  // The dictionary word a misspelled chunk was probably meant to be.
+  //
+  // Segmentation and misspelling fight each other, and segmentation wins by
+  // default in the worst way: ราชเวส is in no dictionary, but ราช and เวส both
+  // are, so a hospital's name was shredded into two real three-character words —
+  // too short to earn any edit slack — and ราชเวช became unreachable. A name
+  // misspelled by one letter has to be recognised as a name BEFORE it is split.
+  nearest(chunk) {
+    chunk = norm(chunk);
+    if (!chunk || !hasThai(chunk) || this.words.has(chunk)) return null;
+    const key = loose(chunk);
+    if (!key) return null;
+    const pick = (words) => words.slice().sort((a, b) =>
+      Math.abs(a.length - chunk.length) - Math.abs(b.length - chunk.length)
+      || (a < b ? -1 : a > b ? 1 : 0))[0];
+    if (this.byLoose.has(key)) return pick(this.byLoose.get(key));
+    const cap = slack(key);
+    if (!cap) return null;
+    let best = null, bestD = cap + 1;
+    for (let L = key.length - cap; L <= key.length + cap; L++) {
+      for (const k of (this.looseByLen.get(L) || [])) {
+        const d = edits(key, k, cap);
+        if (d < bestD) { best = k; bestD = d; if (d === 1) break; }
+      }
+      if (bestD === 1) break;
+    }
+    return best === null ? null : pick(this.byLoose.get(best));
+  }
+
+  // Dynamic programming, minimising token count then preferring the longer
+  // split — which beats greedy left-to-right on exactly the compounds that
+  // matter, where greedy takes a long wrong prefix and strands the rest.
+  split(s) {
+    s = norm(s);
+    if (!s || !hasThai(s) || !this.words.size) return s ? [s] : [];
+    const n = s.length;
+    const cost = new Array(n + 1).fill(Infinity);
+    const len = new Array(n + 1).fill(0);
+    const back = new Array(n + 1).fill(-1);
+    const known = new Array(n + 1).fill(false);
+    cost[0] = 0; len[0] = 0;
+    const better = (i, c, l) => c < cost[i] || (c === cost[i] && l > len[i]);
+    for (let i = 0; i < n; i++) {
+      if (cost[i] === Infinity) continue;
+      let hit = false;
+      for (let L = Math.min(this.maxlen, n - i); L > 1; L--) {
+        if (this.words.has(s.substr(i, L))) {
+          hit = true;
+          const c = cost[i] + 1, l = len[i] + L;
+          if (better(i + L, c, l)) {
+            cost[i + L] = c; len[i + L] = l; back[i + L] = i; known[i + L] = true;
+          }
+        }
+      }
+      if (!hit) {
+        // An unknown run costs the same as a word, so the segmenter prefers to
+        // explain a string with known words but never refuses one it cannot.
+        const c = cost[i] + 1, l = len[i];
+        if (better(i + 1, c, l)) {
+          cost[i + 1] = c; len[i + 1] = l; back[i + 1] = i; known[i + 1] = false;
+        }
+      }
+    }
+    if (cost[n] === Infinity) return [s];
+    const parts = [];
+    let j = n;
+    while (j > 0) { const i = back[j]; parts.push([s.slice(i, j), known[j]]); j = i; }
+    parts.reverse();
+    const out = [];
+    for (const [text, isKnown] of parts) {
+      if (isKnown || !out.length || out[out.length - 1][1]) out.push([text, isKnown]);
+      else out[out.length - 1][0] += text;
+    }
+    return out.map(x => x[0]).filter(t => t.trim());
+  }
+}
+
+// ---- layer 1: intent -------------------------------------------------------
+// A search box is the only place most readers will ever tell a site what they
+// want, and they do not phrase it as keywords. Read as filters, four of the five
+// words in "cheap dentist open now" stop competing with the one that matters.
+
+const INTENT_RULES = [
+  ['open', 'now', ['open now', 'opennow', 'whats open', 'what is open',
+    'เปิดอยู่', 'เปิดตอนนี้', 'เปิดไหม', 'ตอนนี้เปิด', 'เปิดยัง']],
+  ['open', 'late', ['open late', 'late night', 'after midnight', '24 hours',
+    '24hr', '24h', 'all night', 'เปิดดึก', 'ดึก', 'กลางคืน', '24 ชม', '24ชม',
+    'ตลอดคืน', 'เปิด 24']],
+  ['open', 'early', ['open early', 'breakfast time', 'เปิดเช้า', 'ตอนเช้า', 'เช้ามาก']],
+  ['open', 'sunday', ['open sunday', 'on sunday', 'sundays', 'เปิดวันอาทิตย์',
+    'วันอาทิตย์']],
+  ['open', 'weekend', ['weekend', 'on saturday', 'open saturday', 'สุดสัปดาห์',
+    'เสาร์อาทิตย์', 'วันเสาร์']],
+  ['near', 'me', ['near me', 'nearby', 'near here', 'close to me', 'around here',
+    'walking distance', 'ใกล้ฉัน', 'ใกล้ๆ', 'ใกล้นี่', 'แถวนี้', 'ใกล้เคียง',
+    'เดินไปได้']],
+  ['price', 'low', ['cheap', 'cheapest', 'budget', 'affordable', 'low price',
+    'inexpensive', 'ถูก', 'ถูกๆ', 'ราคาถูก', 'งบน้อย', 'ไม่แพง', 'ประหยัด',
+    'ราคาย่อมเยา']],
+  ['price', 'high', ['expensive', 'high end', 'luxury', 'premium', 'upscale',
+    'แพง', 'หรู', 'ระดับพรีเมียม', 'ไฮเอนด์']],
+  ['rank', 'best', ['best', 'top', 'recommended', 'highest rated', 'good',
+    'favourite', 'favorite', 'ดีที่สุด', 'แนะนำ', 'ยอดนิยม', 'เด็ด', 'ร้านดัง',
+    'ขึ้นชื่อ']],
+  ['diet', 'vegetarian', ['vegetarian', 'veggie', 'meatless', 'no meat',
+    'มังสวิรัติ', 'ไม่ใส่เนื้อ', 'ไม่กินเนื้อ']],
+  ['diet', 'vegan', ['vegan', 'เจ', 'อาหารเจ', 'กินเจ']],
+  ['diet', 'halal', ['halal', 'muslim food', 'ฮาลาล', 'อาหารมุสลิม']],
+  ['access', 'wheelchair', ['wheelchair', 'wheelchair accessible', 'step free',
+    'accessible', 'รถเข็น', 'วีลแชร์', 'ทางลาด', 'ไม่มีบันได']],
+  ['access', 'parking', ['parking', 'car park', 'with parking', 'ที่จอดรถ',
+    'จอดรถได้', 'ลานจอดรถ']],
+  ['access', 'english', ['english speaking', 'speaks english', 'in english',
+    'พูดอังกฤษ', 'พูดภาษาอังกฤษ', 'มีภาษาอังกฤษ']],
+  ['kids', 'yes', ['with kids', 'for kids', 'child friendly', 'kid friendly',
+    'family friendly', 'พาเด็ก', 'เด็กเล่น', 'ครอบครัว', 'เหมาะกับเด็ก']],
+  ['pets', 'yes', ['dog friendly', 'pet friendly', 'with my dog',
+    'พาสัตว์เลี้ยง', 'พาหมาได้', 'สัตว์เลี้ยงเข้าได้']],
+  ['wifi', 'yes', ['wifi', 'wi fi', 'internet', 'work from', 'laptop friendly',
+    'ไวไฟ', 'นั่งทำงาน', 'นั่งทำงานได้']],
+  ['delivery', 'yes', ['delivery', 'delivers', 'takeaway', 'take away',
+    'ส่งถึงบ้าน', 'เดลิเวอรี', 'สั่งกลับบ้าน', 'ใส่กล่อง']],
+  ['appointment', 'walkin', ['walk in', 'walkin', 'no appointment',
+    'without appointment', 'วอล์กอิน', 'ไม่ต้องนัด', 'เดินเข้าไปได้']],
+];
+
+// The words a person wraps a question in. They carry the intent to ASK, which
+// the search box already knew.
+const QUESTION_SCAFFOLD = [
+  'where can i find', 'where can i', 'where do i', 'where is the', 'where is',
+  'where are the', 'where are', 'is there a', 'is there any', 'is there',
+  'are there any', 'are there', 'how do i find', 'how do i', 'i am looking for',
+  'im looking for', 'i need a', 'i need', 'i want a', 'i want', 'looking for',
+  'show me the', 'show me', 'find me a', 'find me', 'any good', 'what is the',
+  'whats the', 'somewhere to', 'some place to', 'a place to', 'place to',
+  'can i get', 'who does', 'who sells', 'does anyone',
+  'ที่ไหน', 'อยู่ไหน', 'มีไหม', 'มีที่ไหน', 'หาที่ไหน', 'แนะนำร้าน', 'อยากหา',
+  'อยากได้', 'ช่วยหา', 'หา', 'ขอ', 'ที่ใด',
+];
+
+// Function words. Left in, each becomes a term in its own right, and a term
+// costs coverage: "a restaurant" demanded a match on both words and scored
+// every result at half coverage for the privilege.
+const STOPWORDS = new Set([
+  'a', 'an', 'the', 'of', 'in', 'on', 'at', 'to', 'for', 'and', 'or', 'with',
+  'without', 'is', 'are', 'am', 'be', 'was', 'were', 'do', 'does', 'did',
+  'my', 'me', 'i', 'we', 'you', 'it', 'its', 'this', 'that', 'these', 'those',
+  'there', 'here', 'some', 'any', 'get', 'got', 'go', 'goes', 'can', 'could',
+  'would', 'should', 'will', 'shall', 'have', 'has', 'had', 'please', 'thanks',
+  'about', 'around', 'from', 'by', 'as', 'so', 'too', 'very', 'just', 'also',
+  'ที่', 'ของ', 'และ', 'หรือ', 'ใน', 'กับ', 'แล้ว', 'ครับ', 'ค่ะ', 'คะ', 'นะ',
+  'จะ', 'ได้', 'ให้', 'เป็น', 'อยู่', 'มี', 'ไป', 'มา', 'ด้วย', 'ก็', 'แบบ',
+  'อะ', 'อ่ะ', 'หน่อย', 'บ้าง', 'ไหน', 'ไหม', 'มั้ย', 'อยาก', 'ช่วย',
+  // The English possessive, left behind when norm flattens the apostrophe to a
+  // space. It is not a word and it was being treated as a required term: a
+  // search for "women's health" asked for women AND s AND health, no listing in
+  // the directory answered all three, and the page fell back to
+  // most-words-matched — which is every place with "health" or "สุขภาพ" in its
+  // name, i.e. all 469 subdistrict health stations. Dropping it lets the pair
+  // rule see "women health" and read it as the one thing the reader asked for.
+  's',
+]);
+
+// The captured word must include the Thai block for the same reason norm does:
+// Thai vowels are marks, so \p{L}\p{N} alone captured เน out of ไม่เอาเนื้อ and
+// excluded a fragment while leaving the rest of the word in the query.
+const RE_NEG = /(?:\bnot\b|\bno\b|\bwithout\b|\bexcept\b|-\s*|ไม่เอา|ไม่ใช่|ยกเว้น|ไม่มี)\s*([\p{L}\p{N}฀-๿]+)/gu;
+
+function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+function stripPhrase(hay, phrase) {
+  if (!phrase) return [hay, false];
+  if (hasThai(phrase)) {
+    if (hay.indexOf(phrase) !== -1) return [hay.split(phrase).join(' '), true];
+    return [hay, false];
+  }
+  // No lookbehind: Safari shipped it late and these pages run on old phones.
+  const re = new RegExp('(^|[^\\p{L}\\p{N}])' + escapeRe(phrase) +
+                        '(?![\\p{L}\\p{N}])', 'gu');
+  let hit = false;
+  const out = hay.replace(re, (m, p1) => { hit = true; return p1 + ' '; });
+  return [out, hit];
+}
+
+function parseIntent(q, rules) {
+  rules = rules || INTENT_RULES;
+  const filters = {}, exclude = [], phrases = [];
+  let hay = ' ' + norm(q) + ' ';
+
+  RE_NEG.lastIndex = 0;
+  let m;
+  while ((m = RE_NEG.exec(hay)) !== null) {
+    const w = m[1];
+    if (w && w !== 'open' && w !== 'near' && w !== 'เปิด') exclude.push(w);
+  }
+  if (exclude.length) hay = hay.replace(RE_NEG, ' ');
+
+  // Longest patterns first, so "open late" is not eaten by "open".
+  const flat = [];
+  for (const [name, value, pats] of rules) {
+    for (const p of pats) flat.push([p.length, name, value, norm(p)]);
+  }
+  flat.sort((a, b) => b[0] - a[0]);
+  for (const [, name, value, p] of flat) {
+    const [next, hit] = stripPhrase(hay, p);
+    hay = next;
+    if (hit) {
+      (filters[name] = filters[name] || new Set()).add(value);
+      phrases.push(p);
+    }
+  }
+  const scaffold = QUESTION_SCAFFOLD.slice().sort((a, b) => b.length - a.length);
+  for (const p of scaffold) hay = stripPhrase(hay, norm(p))[0];
+
+  const out = {};
+  for (const k in filters) out[k] = Array.from(filters[k]).sort();
+  return { filters: out, exclude, phrases,
+           residual: hay.replace(/\s+/g, ' ').trim() };
+}
+
+// ---- layer 3: thesaurus ----------------------------------------------------
+// Synonymy across languages, and nothing else. Spelling variants are pointedly
+// absent — those are the phonetic key's job — which keeps this table small
+// enough that a wrong entry is visible rather than buried.
+
+class Thesaurus {
+  constructor(groups) {
+    this.groups = [];
+    this.index = new Map();
+    this.looseIndex = new Map();
+    for (const g of groups || []) {
+      const members = Array.from(new Set((g || []).map(norm).filter(Boolean))).sort();
+      if (members.length < 2) continue;
+      const gid = this.groups.length;
+      this.groups.push(members);
+      for (const mem of members) {
+        if (!this.index.has(mem)) this.index.set(mem, new Set());
+        this.index.get(mem).add(gid);
+        const lk = loose(mem);
+        if (lk) {
+          if (!this.looseIndex.has(lk)) this.looseIndex.set(lk, new Set());
+          this.looseIndex.get(lk).add(gid);
+        }
+      }
+    }
+  }
+
+  // The key must be long enough to be about a word rather than a syllable:
+  // "with" reduces to `wit`, which collided with a real group and handed a
+  // stopword seventeen synonyms.
+  expand(tok, useLoose) {
+    tok = norm(tok);
+    if (!tok) return [];
+    let gids = new Set(this.index.get(tok) || []);
+    if ((useLoose !== false) && !gids.size) {
+      const lk = loose(tok);
+      if (lk.length >= 4) gids = new Set(this.looseIndex.get(lk) || []);
+    }
+    const out = [tok], seen = new Set([tok]);
+    for (const gid of Array.from(gids).sort((a, b) => a - b)) {
+      for (const mem of this.groups[gid]) {
+        if (!seen.has(mem)) { seen.add(mem); out.push(mem); }
+      }
+    }
+    return out;
+  }
+}
+
+// ---- putting it together ---------------------------------------------------
+
+const TIER_EXACT = 'exact', TIER_THESAURUS = 'thesaurus',
+      TIER_LOOSE = 'loose', TIER_PARTIAL = 'partial';
+const TIER_WEIGHT = { exact: 1.0, thesaurus: 0.8, loose: 0.55, partial: 0.3 };
+const TIER_ORDER = [TIER_EXACT, TIER_THESAURUS, TIER_LOOSE, TIER_PARTIAL];
+
+class SearchCore {
+  constructor(thesaurus, segdict, rules) {
+    this.thes = thesaurus instanceof Thesaurus ? thesaurus
+      : new Thesaurus(thesaurus || []);
+    this.seg = segdict instanceof Segmenter ? segdict
+      : new Segmenter(segdict || []);
+    this.rules = rules || INTENT_RULES;
+    // A corpus of 12,353 listings holds only ~15,000 distinct words, and both
+    // expensive operations — the phonetic key and Thai segmentation — depend on
+    // nothing but the word. Memoised per word rather than per occurrence, which
+    // is what makes building this index in a phone browser reasonable at all.
+    this.looseMemo = new Map();
+    this.segMemo = new Map();
+  }
+
+  _loose(w) {
+    let v = this.looseMemo.get(w);
+    if (v === undefined) { v = loose(w); this.looseMemo.set(w, v); }
+    return v;
+  }
+
+  _split(w) {
+    let v = this.segMemo.get(w);
+    if (v === undefined) { v = this.seg.split(w); this.segMemo.set(w, v); }
+    return v;
+  }
+
+  // `oracle` is anything with .nearest(chunk) — pass an index when you have one,
+  // since the corpus knows words the language dictionary does not.
+  analyze(q, oracle) {
+    oracle = oracle || this.seg;
+    const intent = parseIntent(q, this.rules);
+    const notes = new Set();
+    let rawTokens = [];
+    for (const chunk of intent.residual.split(/\s+/)) {
+      if (!chunk) continue;
+      if (hasThai(chunk)) {
+        // A word the THESAURUS knows is never split. ร้านยา is a pharmacy, and
+        // it is also ร้าน + ยา — two perfectly good words the dictionary is
+        // delighted to find — so the segmenter took the Thai for "chemist" apart
+        // into "shop" and "medicine", neither of which expands to anything, and
+        // a search for ร้านยา returned none of the directory's thirty-five
+        // pharmacies. The thesaurus lists terms that mean something WHOLE.
+        if (this.thes.index.has(norm(chunk))) { rawTokens.push(norm(chunk)); continue; }
+        // Repair before splitting: a name one letter wrong is still a name, and
+        // splitting it destroys the only thing that could have matched it.
+        const mend = oracle.nearest ? oracle.nearest(chunk) : null;
+        if (mend) { notes.add('mended'); rawTokens.push(mend); continue; }
+        const pieces = this.seg.split(chunk);
+        if (pieces.length > 1) notes.add('segmented');
+        rawTokens = rawTokens.concat(pieces);
+      } else rawTokens.push(chunk);
+    }
+    const kept = rawTokens.filter(t => !STOPWORDS.has(t));
+    if (kept.length && kept.length !== rawTokens.length) {
+      rawTokens = kept; notes.add('stopwords');
+    }
+    const terms = [];
+    let i = 0;
+    while (i < rawTokens.length) {
+      // A two-word phrase can itself be a thesaurus entry ("khao soi", "love
+      // charm"), so pairs get a look-up before the words are taken separately.
+      let pair = null;
+      if (i + 1 < rawTokens.length) {
+        const cand = rawTokens[i] + ' ' + rawTokens[i + 1];
+        if (this.thes.index.has(cand)) pair = cand;
+      }
+      const raw = pair || rawTokens[i];
+      const variants = this.thes.expand(raw);
+      if (variants.length > 1) notes.add('widened');
+      terms.push({
+        raw,
+        variants,
+        looseVariants: Array.from(new Set(variants.map(loose).filter(Boolean))).sort(),
+        // The key for what the reader actually TYPED, kept apart from its
+        // synonyms' keys: only this one is worth hunting misspellings for, since
+        // the synonyms come from a table and are spelled right by construction.
+        looseOwn: loose(raw),
+      });
+      i += pair ? 2 : 1;
+    }
+    if (Object.keys(intent.filters).length) notes.add('intent');
+    return { query: q, terms, intent, notes: Array.from(notes).sort() };
+  }
+
+  termTier(term, hay, words, hayLoose, wordsLoose) {
+    const first = term.variants.length ? term.variants[0] : '';
+    if (first && (hay.indexOf(first) !== -1 || words.indexOf(first) !== -1)) {
+      return TIER_EXACT;
+    }
+    for (let k = 1; k < term.variants.length; k++) {
+      const v = term.variants[k];
+      if (v && (hay.indexOf(v) !== -1 || words.indexOf(v) !== -1)) {
+        return TIER_THESAURUS;
+      }
+    }
+    for (const lv of term.looseVariants) {
+      if (!lv) continue;
+      if (hayLoose.indexOf(lv) !== -1 || wordsLoose.indexOf(lv) !== -1) {
+        return TIER_LOOSE;
+      }
+      const cap = slack(lv);
+      if (cap) {
+        for (const w of wordsLoose) {
+          if (w && Math.abs(w.length - lv.length) <= cap
+              && edits(lv, w, cap) <= cap) return TIER_LOOSE;
+        }
+      }
+    }
+    // A prefix is what a reader still typing has given you.
+    if (first && first.length >= 3) {
+      for (const w of words) if (w.indexOf(first) === 0) return TIER_PARTIAL;
+      const fl = loose(first);
+      if (fl.length >= 3) {
+        for (const w of wordsLoose) if (w.indexOf(fl) === 0) return TIER_PARTIAL;
+      }
+    }
+    return null;
+  }
+
+  prepare(text) {
+    const h = norm(text);
+    const base = h.split(/\s+/).filter(Boolean);
+    // The DOCUMENT is segmented too, not just the query, and that is why Thai
+    // misspellings work at all: โรงพยาบาลราชเวช is one 15-character token, so
+    // ราชเวส — six characters, one letter wrong — failed the length guard and
+    // matched nothing. Pieces are added ALONGSIDE the whole word so an exact
+    // match on the full name still out-ranks a match on one piece of it.
+    let words = base;
+    const pieces = [];
+    for (const w of base) {
+      if (hasThai(w) && w.length > 4) {
+        const parts = this._split(w);
+        if (parts.length > 1) for (const p of parts) pieces.push(p);
+      }
+    }
+    if (pieces.length) words = base.concat(pieces);
+    const hl = words.map(w => this._loose(w)).join(' ');
+    const wl = hl.split(/\s+/).filter(Boolean);
+    return [h, words, hl, wl];
+  }
+
+  // Prepared once when the index loads, never per keystroke: these pages are
+  // read on old phones on satellite connections, and the document side is by far
+  // the expensive half.
+  prepareDoc(fields) {
+    const out = {};
+    for (const name in fields) {
+      out[name] = { prep: this.prepare(fields[name][0]), weight: fields[name][1] };
+    }
+    return out;
+  }
+
+  scoreDoc(an, preparedDoc) {
+    if (!an.terms.length) return null;
+    let total = 0, matched = 0, worst = TIER_EXACT;
+    for (const term of an.terms) {
+      let bestTier = null, bestWeight = 0;
+      for (const name in preparedDoc) {
+        const { prep, weight } = preparedDoc[name];
+        const tier = this.termTier(term, prep[0], prep[1], prep[2], prep[3]);
+        if (tier === null) continue;
+        const value = TIER_WEIGHT[tier] * weight;
+        if (value > bestWeight) { bestTier = tier; bestWeight = value; }
+      }
+      if (bestTier === null) continue;
+      matched++;
+      total += bestWeight;
+      if (TIER_ORDER.indexOf(bestTier) > TIER_ORDER.indexOf(worst)) worst = bestTier;
+    }
+    if (!matched) return null;
+    // Every term matching is worth far more than one term matching well — a
+    // reader who typed three words meant all three.
+    const coverage = matched / an.terms.length;
+    if (coverage < 1) worst = TIER_PARTIAL;
+    return { score: total * coverage * coverage, tier: worst, matched,
+             terms: an.terms.length, coverage };
+  }
+
+  score(an, fields) { return this.scoreDoc(an, this.prepareDoc(fields)); }
+}
+
+// ---- an index, for corpora too big to compare one document at a time -------
+// Fuzzy matching is a question about the VOCABULARY, not about the documents.
+// There are ~14,000 distinct words in this directory and two or three in a
+// query; resolve the query against the vocabulary once and every document
+// holding a surviving word is a dictionary look-up away. The first version
+// compared each term against every word of every document and took six seconds
+// for ร้านกาแฟนิมมาน, which is not a search anybody waits for — least of all on
+// the connections these pages are read on.
+
+class Index {
+  constructor(core) {
+    this.core = core;
+    this.fields = new Map();
+    this.postings = new Map();       // field -> Map(word -> Set(docid))
+    this.loosePostings = new Map();  // field -> Map(looseWord -> Set(docid))
+    this.docs = [];
+  }
+
+  add(doc, fields) {
+    const did = this.docs.length;
+    this.docs.push(doc);
+    for (const name in fields) {
+      const [text, weight] = fields[name];
+      if (!this.fields.has(name)) this.fields.set(name, weight);
+      if (!this.postings.has(name)) this.postings.set(name, new Map());
+      if (!this.loosePostings.has(name)) this.loosePostings.set(name, new Map());
+      const prep = this.core.prepare(text);
+      const post = this.postings.get(name), lpost = this.loosePostings.get(name);
+      for (const w of new Set(prep[1])) {
+        if (!post.has(w)) post.set(w, new Set());
+        post.get(w).add(did);
+      }
+      for (const w of new Set(prep[3])) {
+        if (!lpost.has(w)) lpost.set(w, new Set());
+        lpost.get(w).add(did);
+      }
+    }
+    return did;
+  }
+
+  finalize() {
+    // Loose keys bucketed by length: a string more than `cap` characters longer
+    // or shorter cannot be `cap` edits away, so only these bands are ever walked.
+    this.looseByLen = new Map();
+    for (const [name, lpost] of this.loosePostings) {
+      const buckets = new Map();
+      for (const w of lpost.keys()) {
+        if (!buckets.has(w.length)) buckets.set(w.length, []);
+        buckets.get(w.length).push(w);
+      }
+      this.looseByLen.set(name, buckets);
+    }
+    // A mending dictionary drawn from the corpus itself. Names are what readers
+    // misspell, so only the name field contributes, and only Thai words — Latin
+    // slips are already handled by the phonetic key, which does not need the
+    // query kept whole to work.
+    this.mend = new Map();
+    this.mendByLen = new Map();
+    for (const w of (this.postings.get('name') || new Map()).keys()) {
+      if (!hasThai(w) || w.length < 3) continue;
+      const k = this.core._loose(w);
+      if (!k) continue;
+      if (!this.mend.has(k)) {
+        this.mend.set(k, []);
+        if (!this.mendByLen.has(k.length)) this.mendByLen.set(k.length, []);
+        this.mendByLen.get(k.length).push(k);
+      }
+      this.mend.get(k).push(w);
+    }
+    return this;
+  }
+
+  // The corpus word a misspelled chunk was probably meant to be. Consulted
+  // before segmentation, because splitting a misspelled name into two correctly
+  // spelled short words destroys it.
+  nearest(chunk) {
+    chunk = norm(chunk);
+    if (!chunk || !hasThai(chunk)) return this.core.seg.nearest(chunk);
+    if ((this.postings.get('name') || new Map()).has(chunk)) return null;
+    const key = this.core._loose(chunk);
+    if (!key) return null;
+    const pick = (words) => words.slice().sort((a, b) =>
+      Math.abs(a.length - chunk.length) - Math.abs(b.length - chunk.length)
+      || (a < b ? -1 : a > b ? 1 : 0))[0];
+    if (this.mend.has(key)) return pick(this.mend.get(key));
+    const cap = slack(key);
+    let best = null, bestD = cap + 1;
+    if (cap) {
+      for (let L = key.length - cap; L <= key.length + cap; L++) {
+        for (const k of (this.mendByLen.get(L) || [])) {
+          const d = edits(key, k, cap);
+          if (d < bestD) { best = k; bestD = d; if (d === 1) break; }
+        }
+        if (bestD === 1) break;
+      }
+    }
+    if (best !== null) return pick(this.mend.get(best));
+    return this.core.seg.nearest(chunk);
+  }
+
+  // {docid: tier} for one term in one field — each document's OWN tier.
+  // Returning one tier for the whole set was wrong: it stopped at the cheapest
+  // tier that produced anything, so "coffe" reached `coffee` by key and stopped,
+  // and Café de Nimman never appeared for "nimman coffe" while thirteen cafés
+  // merely ON Nimman road ranked above it.
+  _resolve(term, name, extraSlack) {
+    const post = this.postings.get(name) || new Map();
+    const lpost = this.loosePostings.get(name) || new Map();
+    const tiers = new Map();
+    const mark = (ids, tier) => {
+      const rank = TIER_ORDER.indexOf(tier);
+      for (const did of ids) {
+        const prev = tiers.get(did);
+        if (prev === undefined || rank < TIER_ORDER.indexOf(prev)) {
+          tiers.set(did, tier);
+        }
+      }
+    };
+    const first = term.variants.length ? term.variants[0] : '';
+    if (first && post.has(first)) mark(post.get(first), TIER_EXACT);
+    for (let k = 1; k < term.variants.length; k++) {
+      const v = term.variants[k];
+      if (post.has(v)) mark(post.get(v), TIER_THESAURUS);
+    }
+    for (const lv of term.looseVariants) {
+      if (lpost.has(lv)) mark(lpost.get(lv), TIER_LOOSE);
+    }
+    // UNGATED, and every attempt to gate it was a bug — first skipping it when
+    // any cheaper tier matched, then when the term matched exactly, which one
+    // listing literally named "Coffe" was enough to trigger for everybody. This
+    // tier ranks below exact and thesaurus by construction, so scanning can only
+    // ADD candidates underneath the good ones.
+    const lv = term.looseOwn;
+    const cap = lv ? slack(lv) + (extraSlack || 0) : 0;
+    if (cap) {
+      const byLen = this.looseByLen.get(name) || new Map();
+      for (let L = lv.length - cap; L <= lv.length + cap; L++) {
+        for (const w of (byLen.get(L) || [])) {
+          if (edits(lv, w, cap) <= cap) mark(lpost.get(w), TIER_LOOSE);
+        }
+      }
+    }
+    if (!tiers.size && first && first.length >= 3) {
+      for (const [w, ids] of post) {
+        if (w.indexOf(first) === 0 || w.indexOf(first) !== -1) mark(ids, TIER_PARTIAL);
+      }
+    }
+    return tiers;
+  }
+
+  search(an, limit) {
+    if (!an.terms.length) return [];
+    const resolveAll = (term, extra) => {
+      const best = new Map();
+      for (const [name, weight] of this.fields) {
+        for (const [did, tier] of this._resolve(term, name, extra)) {
+          const value = TIER_WEIGHT[tier] * weight;
+          const prev = best.get(did);
+          if (prev === undefined || value > prev[0]) best.set(did, [value, tier]);
+        }
+      }
+      return best;
+    };
+    const resolved = an.terms.map(t => resolveAll(t, 0));
+
+    // CONTEXTUAL SLACK. A three-character Thai token earns no edit slack,
+    // because one edit turns ยา into ยาย — and that rule, right on its own, kept
+    // ราชเวส from reaching ราชเวช: the corpus splits the hospital's name into
+    // โรงพยาบาล + ราช + เวช, so the query's เวส had three characters and no
+    // licence to be wrong. But its neighbour ราช matched exactly, and a term
+    // beside an exact match is not a wild guess. So a term that found nothing is
+    // retried with one more edit — and ONLY when some other term landed exactly.
+    let anchored = false;
+    for (const r of resolved) {
+      for (const [, tier] of r) {
+        if (tier === TIER_EXACT || tier === TIER_THESAURUS) { anchored = true; break; }
+      }
+      if (anchored) break;
+    }
+    if (anchored) {
+      for (let i = 0; i < an.terms.length; i++) {
+        if (!resolved[i].size) resolved[i] = resolveAll(an.terms[i], 1);
+      }
+    }
+
+    const acc = new Map();
+    for (const best of resolved) {
+      for (const [did, [value, tier]] of best) {
+        let row = acc.get(did);
+        if (!row) { row = [0, TIER_EXACT, 0]; acc.set(did, row); }
+        row[0] += value;
+        row[2] += 1;
+        if (TIER_ORDER.indexOf(tier) > TIER_ORDER.indexOf(row[1])) row[1] = tier;
+      }
+    }
+    const n = an.terms.length;
+    const out = [];
+    for (const [did, [total, worst, matched]] of acc) {
+      const coverage = matched / n;
+      out.push({
+        doc: this.docs[did],
+        score: total * coverage * coverage,
+        tier: coverage < 1 ? TIER_PARTIAL : worst,
+        coverage,
+      });
+    }
+    out.sort((a, b) => b.score - a.score);
+    // LOOSEN BY STEPS, never all at once. A reader who typed two words meant
+    // both, so documents matching all the terms are the answer and documents
+    // matching some are a fallback, offered only when there is no answer.
+    // Mixing them also made the count lie: ร้านกาแฟนิมมาน reported 2,247 finds —
+    // every café in the directory plus everything else on that road.
+    const whole = out.filter(r => r.coverage >= 1);
+    const kept = whole.length ? whole : out;
+    return limit ? kept.slice(0, limit) : kept;
+  }
+}
+
+const SEARCHCORE = {
+  norm, loose, edits, slack, hasThai, Segmenter, Thesaurus, SearchCore,
+  Index, parseIntent, INTENT_RULES, QUESTION_SCAFFOLD, STOPWORDS,
+  TIER_EXACT, TIER_THESAURUS, TIER_LOOSE, TIER_PARTIAL, TIER_ORDER, TIER_WEIGHT,
+};
+
+if (typeof module !== 'undefined' && module.exports) module.exports = SEARCHCORE;
+if (typeof globalThis !== 'undefined') globalThis.SEARCHCORE = SEARCHCORE;
+
 
 // The markup twin of build.py's bi(). Anything the client fills in has to
 // join its two languages the same way the server does, or a gloss hydrated by
@@ -24,6 +912,9 @@ return '<span class="bi"><span class="th" lang="th">'+th+'</span>'+
 // front of the browser's, and "no" is answered once and kept. Every caller
 // gets a usable coordinate whether or not permission was ever granted,
 // because the fallback is a named landmark, not an empty state.
+/* Exposed on window so a page-specific layer can use the SAME door to the
+   permission prompt rather than opening a second one. There is exactly one
+   place on this site that may ask a reader where they are, and this is it. */
 const MDLOC=(()=>{
 let OFF=false,gate=null;
 // Two places people actually give directions from. The site spans two
@@ -81,6 +972,7 @@ if(st.state==='denied')kill();
 st.onchange=()=>{if(st.state==='denied')kill();};}).catch(()=>{});}catch(e){}}
 return {ask,origin,remember,kill,near,get off(){return OFF;}};
 })();
+window.MDLOC=MDLOC;
 
 // ---- language: Thai, both, or English ---------------------------------
 // Default is both. Someone who reads only one of the two should not have to
@@ -119,82 +1011,160 @@ const idx=await loadIndex();
 // loosens by steps rather than giving up: most-words-matched first, then near
 // spellings. Thai queries carry no spaces, stay a single term, and are matched
 // as they always were.
-const norm=s=>s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
-const needle=norm(q);let terms=needle.split(' ').filter(Boolean);
-// There is no single right way to write ข้าวซอย in Latin letters, and the
-// signage in this city uses all of them. So a term is expanded to everything
-// that means the same thing before matching: "kow soi" reaches ข้าวซอย, and
-// "coffee" reaches the 1,705 places whose shelf says กาแฟ. Groups live in
-// data/search_thesaurus.json — a group is added when a real query missed.
-const THES=MD_THESAURUS;
-const expand=t=>{const out=[t];
-for(const g of THES){if(g.some(w=>w===t))for(const w of g)if(w!==t)out.push(w);}
-return out;};
-// A term matches if ANY of its spellings is present; the whole query still has
-// to match every term, so widening a word never widens the search itself.
-const hasTerm=(hay,words,t)=>expand(t).some(v=>v.includes(' ')?hay.includes(v):words.some(w=>w.includes(v))||hay.includes(v));
-// Roman letters get dropped, doubled, or swapped — Thai names come to us
-// through half a dozen romanisations. One edit of slack, and only for words
-// long enough that the slack cannot swallow a different word whole.
-const near=(a,b)=>{if(a===b)return true;const la=a.length,lb=b.length;
-if(Math.abs(la-lb)>1)return false;let i=0,j=0,d=0;
-while(i<la&&j<lb){if(a[i]===b[j]){i++;j++;continue;}
-if(++d>1)return false;if(la>lb)i++;else if(lb>la)j++;else{i++;j++;}}
-return d+(la-i)+(lb-j)<=1;};
-// The name is what a result SHOWS, so it alone decides the ranking; `k` — the
-// shelf, the cuisine, the brand, the road — decides only whether a place is
-// findable at all. Kept apart so a search for "coffee" cannot float a place
-// called Coffee Hardware above a cafe.
+// The matching itself lives in searchcore.js, shared with wichaa's router and
+// with the Python that builds both indexes, so one query means one thing across
+// the fleet. What used to be here was a substring filter that had grown a
+// thesaurus and an edit of slack; what it could never do was read Thai. Thai is
+// written without spaces, so ร้านกาแฟนิมมาน arrived as a single token that
+// matched nothing at all — and 12,353 listings in this directory are named in it.
+//
+// The tables are FETCHED, not baked into md.js. Mining them took the thesaurus
+// from 76 groups to 2,290 and added a 7,355-word segmentation dictionary, which
+// inlined would have put ~60 KB of vocabulary on the ticker, the map and every
+// place page to serve a box that only search.html has. Now every other page is
+// lighter than it was and the cost falls where the feature is.
+const [thesDoc,segText,shelfDoc,panelDoc]=await Promise.all([
+mdJSON('data/search_thesaurus.json'),
+fetch(RROOT+'data/search_segdict.txt').then(r=>r.ok?r.text():'').catch(()=>''),
+mdJSON('data/search_shelves.json'),
+mdJSON('data/search_panels.json')]);
+const SEG=segText.split('\n').filter(l=>l&&l[0]!=='#');
+const SHELVES=(shelfDoc&&shelfDoc.shelves)||{};
+const core=new SEARCHCORE.SearchCore((thesDoc&&thesDoc.groups)||[],SEG);
+// The name is what a result SHOWS, so it alone should decide the order; the
+// shelf, the cuisine, the brand and the road decide only whether a listing is
+// findable at all. Kept apart so "coffee" cannot float a shop called Coffee
+// Hardware above a cafe. `a` — alt names, old names, the Chinese and Japanese
+// names a mapper left in the tags — is matched and never shown.
 // The shelf words come from the tables, not from the entry — the entry carries
-// only its codes. `sw` turns a code list into the words a reader might type.
+// only its codes, because twelve thousand copies of "ร้านอาหาร-ของกิน · Food &
+// Eats" would cost 1.7 MB on a satellite connection to say twenty-three things.
 const sw=e=>((e.c||[]).map(c=>MD_CATWORDS[c]||c).join(' ')+' '+
 (e.su||[]).map(s=>(MD_SUBWORDS[s]||'')+' '+s.replace(/-/g,' ')).join(' '));
-const rows=idx.map(e=>{const h=norm(e.n+' '+(e.e||'')+' '+(e.a||''));
-const k=norm(sw(e)+' '+(e.k||''));const all=k?h+' '+k:h;
-return{e:e,h:h,k:all,w:all.split(' ')};});
-// Whole-phrase and name-start matches float up, so the 200 we keep are the 200
-// worth reading first.
-const rank=r=>(r.h.startsWith(terms[0])?2:0)+(r.h.includes(needle)?1:0);
-let mode='',found=[];
-if(terms.length){
-found=rows.filter(r=>terms.every(t=>hasTerm(r.k,r.w,t))).sort((a,b)=>rank(b)-rank(a));
-// A misspelling of the right place beats a clean match on half the words, so
-// near spellings are tried first: "rajavey hospital" should land on Rajavej,
-// not on all 67 hospitals in the province.
-if(!found.length){
-found=rows.filter(r=>terms.every(t=>t.length<4?r.k.includes(t)
-:r.w.some(w=>w.includes(t)||near(w,t)))).sort((a,b)=>rank(b)-rank(a));
-if(found.length)mode='near';}
-if(!found.length&&terms.length>1){
-found=rows.map(r=>[r,terms.filter(t=>hasTerm(r.k,r.w,t)).length]).filter(x=>x[1]>0)
-.sort((a,b)=>b[1]-a[1]||rank(b[0])-rank(a[0])).map(x=>x[0]);
-if(found.length)mode='some';}}
-const hits=found.slice(0,200).map(r=>r.e);
-// The count says how many were FOUND, not how many fit on the page. Showing
-// the capped number told a reader searching "coffee" that the city holds 200
-// cafes when the directory knows 1,976 of them — the one number on this page
-// that has to be true.
+const index=new SEARCHCORE.Index(core);
+for(const e of idx){index.add(e,{
+name:[[e.n,e.e,e.a].filter(Boolean).join(' '),1.0],
+shelf:[sw(e)+' '+(e.k||''),0.45]});}
+index.finalize();
+// The index is the mending dictionary too: ราชเวช is in no Thai dictionary, but
+// it is very much a word in a directory that lists the hospital, so a query one
+// letter wrong is repaired against what this corpus actually contains.
+const an=core.analyze(q,index);
+let found=an.terms.length?index.search(an,0):[];
+// A word that names a shelf is a reader telling us where to look, not just what
+// to match — "coworking" and "ตอกเส้น" each belong to one shelf out of
+// twenty-four. Applied as a lift rather than a filter: narrowing hard would
+// turn a shelf word that also appears in a shop's name into an empty page.
+const wantShelves=new Set();
+// shelf_stops: a word the mined table maps to a shelf it does not NAME —
+// 'clinic' reached chang through the elephant-hospital child's English name,
+// and a reader typing it means people-medicine. Suppressed per word, per
+// shelf, so "elephant clinic" still lands: ช้าง lifts chang on its own.
+const STOPS=(panelDoc&&panelDoc.shelf_stops)||{};
+const lift=w=>{for(const k of(SHELVES[w]||[]))if((STOPS[w]||[]).indexOf(k)===-1)wantShelves.add(k);};
+for(const t of an.terms)lift(t.raw);
+for(const ph of an.intent.phrases)lift(ph);
+// A topic the site keeps a whole page for answers with that page, not only
+// with rows — the rich door, curated in data/curated/search_panels.json.
+// Picked BEFORE the lift so a panel's shelf joins the lift too: วัด reaches
+// the wat shelf even though no mined table carries the bare word. Triggered
+// by a lifted shelf, by a word a term expanded to (so จ๊าง arrives through
+// ช้าง), or by a phrase of the whole query; first panel to speak wins.
+const nq=SEARCHCORE.norm(q);
+const PANELS=(panelDoc&&panelDoc.panels)||[];
+const panel=PANELS.find(p=>
+(p.shelves||[]).some(s=>wantShelves.has(s))||
+(p.variants||[]).some(v=>an.terms.some(t=>t.variants.indexOf(v)!==-1))||
+(p.query||[]).some(s=>nq&&nq.indexOf(SEARCHCORE.norm(s))!==-1))||null;
+if(panel)for(const s of(panel.shelves||[]))wantShelves.add(s);
+const onShelf=e=>(e.c||[]).some(c=>wantShelves.has(c))||(e.su||[]).some(s=>wantShelves.has(s));
+if(wantShelves.size){for(const r of found){
+if(onShelf(r.doc))r.score+=0.5;}
+found.sort((a,b)=>b.score-a.score);}
+// Loosen by STEPS, never all at once. A reader who typed two words meant both,
+// so listings matching all of them are the answer and listings matching one are
+// a fallback offered only when there is no answer. Keeping them mixed in also
+// made the count lie: ร้านกาแฟนิมมาน reported 2,247 finds, which was every cafe
+// in the directory plus everything on that road — and the count is the one
+// number on this page that has to be true.
+const whole=found.filter(r=>r.coverage>=1);
+if(whole.length)found=whole;
+const hits=found.slice(0,200).map(r=>r.doc);
+// ช้าง answers twice in this city: the camps, and the gates, roads and noodle
+// shops that carry the elephant in their NAME — ช้างเผือก, ช้างคลาน, ดอยช้าง.
+// Mixed together the second kind buries the first; split, both read true.
+// On-shelf rows are the answer; namesakes file behind their own header below.
+// The split happens only when the query named a shelf at all — a plain name
+// search stays one list, exactly as it was.
+const onHits=wantShelves.size?hits.filter(onShelf):hits;
+const nameHits=wantShelves.size?hits.filter(e=>!onShelf(e)):[];
+// The count says how many were FOUND, not how many fit on the page. Showing the
+// capped number told a reader searching "coffee" that the city holds 200 cafes
+// when the directory knows 1,976 of them — the one number on this page that has
+// to be true.
 document.getElementById('rescount').textContent=q?`${found.length}`:'';
 const more=found.length>hits.length
 ?`<li class="shelf">แสดง ${hits.length} จาก ${found.length} — พิมพ์ให้เจาะจงขึ้นเพื่อแคบลง · showing ${hits.length} of ${found.length}; add a word to narrow it</li>`:'';
-// Say plainly when the search had to loosen its grip, so nobody reads a near
-// match as an exact one.
-const notes={some:'ไม่ตรงทุกคำ — เรียงตามที่ตรงมากที่สุด / not every word matched — closest first',
-near:'สะกดใกล้เคียง — น่าจะหมายถึงรายการนี้ / near spellings — this is likely what you meant'};
-const note=mode?`<li class="shelf">${notes[mode]}</li>`:'';
+// Say plainly how the match was made. A reader shown a near-spelling match
+// without being told it was one has been quietly misled about how well the
+// search understood them — and a reader who sees ร้านกาแฟนิมมาน reported as
+// ร้านกาแฟ + นิมมาน can tell at a glance whether the split was the one they meant.
+// Did this query ask after women's health at all? The marker rides on the
+// speciality's own vocabulary, so the test is whether any term expanded to it.
+const obAsked=an.terms.some(t=>t.variants.some(v=>v==='obgyn'||v==='นรีเวช'||v==='สูตินรีเวช'));
+const worst=found.length?found[0].tier:null;
+const says=[];
+if(an.notes.indexOf('mended')>=0)says.push(['สะกดใกล้เคียง — น่าจะหมายถึงคำนี้','near spelling — this looks like the word you meant']);
+if(an.notes.indexOf('segmented')>=0)says.push(['แยกคำเป็น '+an.terms.map(t=>t.raw).join(' + '),'read as '+an.terms.map(t=>t.raw).join(' + ')]);
+if(worst==='thesaurus')says.push(['รวมคำที่ความหมายเดียวกัน','including words that mean the same thing']);
+if(worst==='loose')says.push(['สะกดใกล้เคียง — เรียงตามที่ใกล้ที่สุด','near spellings — closest first']);
+if(worst==='partial')says.push(['ไม่ตรงทุกคำ — เรียงตามที่ตรงมากที่สุด','not every word matched — closest first']);
+// Constraints the box understood but this page has no column to filter on. Said
+// out loud, because a filter silently dropped is worse than one politely declined.
+const CANFILTER={};
+const asked=Object.keys(an.intent.filters||{}).filter(k=>!CANFILTER[k]);
+if(asked.length&&found.length)says.push(
+['อ่านคำขอได้ แต่หน้านี้ยังกรองตามนั้นไม่ได้ — ดูรายละเอียดในหน้าร้าน',
+'understood, but this page cannot filter on that yet — check the listing']);
+const note=says.map(s=>`<li class="shelf">${mdBi(s[0],s[1])}</li>`).join('');
+// A place carrying `ob` answered a women's-health query on the strength of
+// being a general hospital, which is not the same as anybody having confirmed
+// an OB-GYN department there. The cm-womens-health harvester graded it
+// `hospital-likely` for exactly that reason, so the row grades it too. Said in
+// the row rather than in a footnote: a reader scanning forty-nine names should
+// be able to see which five are stated and which forty-four are inferred,
+// without reading anything above the list.
 const row=e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
 `${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
-` <span class="count">· ${e.pv}</span></li>`;
+` <span class="count">· ${e.pv}</span>`+
+`${e.ob&&obAsked?' <span class="prov">'+(e.ob===2?mdBi('รพ.สต. — สถานีอนามัยประจำตำบล ฝากครรภ์และวางแผนครอบครัวเป็นงานประจำ','รพ.สต. — the local primary-care station; antenatal care and family planning are routine'):mdBi('โรงพยาบาลทั่วไป — ยังไม่ได้ยืนยันว่ามีแผนกสูตินรีเวช','general hospital — an OB-GYN department is not confirmed'))+'</span>':''}`+
+`</li>`;
 // Two hundred names in one column is a list nobody reads. Grouped under the
 // shelf each one stands on, with its count, the same result becomes a page you
 // can steer: thirty-three ข้าวซอย places, four of them in Chiang Rai.
-const groups=new Map();
-for(const e of hits){const c=(e.c&&e.c[0])||'other';
+const groupHtml=list=>{const groups=new Map();
+for(const e of list){const c=(e.c&&e.c[0])||'other';
 if(!groups.has(c))groups.set(c,[]);groups.get(c).push(e);}
-const ordered=[...groups.entries()].sort((a,b)=>b[1].length-a[1].length);
-const body=ordered.map(([c,list])=>{const lab=MD_CATWORDS[c];
-const head=lab?`<li class="shelf"><a href="${RROOT}${list[0].p}/${c}/">${lab}</a> <span class="count">${list.length}</span></li>`:'';
-return head+list.map(row).join('');}).join('');
+return [...groups.entries()].sort((a,b)=>b[1].length-a[1].length)
+.map(([c,shelf])=>{const lab=MD_CATWORDS[c];
+const head=lab?`<li class="shelf"><a href="${RROOT}${shelf[0].p}/${c}/">${lab}</a> <span class="count">${shelf.length}</span></li>`:'';
+return head+shelf.map(row).join('');}).join('');};
+// The rich door itself. Its count is taken from the index the page just
+// loaded, so it is the directory's own number today, never a baked one.
+const pdoor=d=>{const ext=/^https?:/i.test(d.href);
+return `<a class="pdoor${d.main?' pdmain':''}" href="${ext?d.href:RROOT+d.href}"${ext?' rel="noopener"':''}>${mdBi(d.label[0],d.label[1])}</a>`;};
+const pcodes=(panel&&panel.count&&panel.count.codes)||[];
+const pcount=pcodes.length?idx.filter(e=>(e.c||[]).some(c=>pcodes.indexOf(c)!==-1)||(e.su||[]).some(s=>pcodes.indexOf(s)!==-1)).length:0;
+const panelHtml=panel?`<li class="richdoor">`+
+`<p class="rdhead">${panel.glyph?panel.glyph+' ':''}<b>${mdBi(panel.title[0],panel.title[1])}</b>${pcount?` <span class="count">${pcount}</span>`:''}</p>`+
+`<p class="rdlead">${mdBi(panel.lead[0],panel.lead[1])}</p>`+
+((panel.facts&&panel.facts.length)?`<p class="rdfacts">${panel.facts.map(f=>`<span class="rdfact">${mdBi(f[0],f[1])}</span>`).join(' ')}</p>`:'')+
+`<p class="rddoors">${(panel.doors||[]).map(pdoor).join(' ')}</p>`+
+(panel.delight?`<p class="rddelight">${mdBi(panel.delight[0],panel.delight[1])}</p>`:'')+
+`</li>`:'';
+// The namesake shelf reads as its own find, not as noise pushed down: the
+// header says WHY these rows answered, and the count beside it stays true.
+const divider=(wantShelves.size&&nameHits.length)?`<li class="shelf namesake">${mdBi('ชื่อพ้อง — ที่ซึ่งชื่อมีคำนี้อยู่','namesakes — places carrying the word in their name')} <span class="count">${nameHits.length}</span></li>`:'';
 // Nothing found is a fork in the road, not a wall. The shelves are the doors a
 // reader can actually walk through, and the ants are the door for a place the
 // directory does not hold yet.
@@ -203,7 +1173,7 @@ const doors=()=>{const top=MD_TOPCATS.map(c=>
 return '<li class="shelf">ไม่พบคำนี้ — ลองดูตามหมวด หรือบอกมดให้ไปเก็บ · '+
 'nothing under that word — try a shelf, or send the ants to find it</li>'+top+
 `<li class="shelf"><a href="${RROOT}crawl-request.html">ส่งมดไปสำรวจ · Request a crawl</a></li>`;};
-resBox.innerHTML=(hits.length?note+more+body:'')||(q?doors():'');})();}
+resBox.innerHTML=(hits.length?panelHtml+note+more+groupHtml(onHits)+divider+groupHtml(nameHits):(q?panelHtml+doors():''));})();}
 // ---- today's sky + fortune, chosen from a month baked at build time ---
 // Nothing is fetched: build.py wrote 30 days into these files, so the page is
 // right every morning without a rebuild and still makes no outside request.
@@ -266,7 +1236,7 @@ dots.forEach(d=>d.addEventListener('click',()=>{go(+d.dataset.skydot);clearInter
 if(slides.length>1)window.__skyT=setInterval(()=>go(si+1),6000);})();
 // --- fortune, horoscope, hexagram, and the day's colour
 (async()=>{const doc=await mdJSON('data/fortune.json');const day=mdPick(doc);
-if(!day){mdStale('#w-fortune,#w-horoscope,#w-divination');return;}
+if(!day){mdStale('#w-fortune,#w-divination');return;}
 const t=day.thai;
 // สีประจำวัน: the whole page borrows the day's colour
 if(t&&t.hex)document.documentElement.style.setProperty('--day',t.hex);
@@ -279,33 +1249,10 @@ bl('[data-fo="colour"]',t.colour_th,t.colour_en);
 bl('[data-fo="buddha"]',t.buddha_th,t.buddha_en);
 bl('[data-fo="planet"]',t.planet_th,t.planet_en);
 bl('[data-fo="how"]',t.lucky.how_th,t.lucky.how_en);
-setF('nums',t.lucky.two.join(' ')+' · '+t.lucky.three);
-const thl=document.querySelector('[data-ho="th_line"]');
-// Through mdBi, not hand-built spans: the " · " that separates the two
-// languages lives inside the English span and is itself marked Thai, so
-// hand-rolling the markup ran the sentences together in ไทย + EN mode.
-if(thl)thl.innerHTML=mdBi(
-'วันนี้เป็น'+t.th+' สีประจำวันคือ'+t.colour_th+
-' พระประจำวันคือ'+t.buddha_th+' กำลังพระเคราะห์ '+t.strength,
-'Today is '+t.en+'. Its colour is '+t.colour_en+', its image is '+
-t.buddha_en+', and its planetary strength is '+t.strength+'.');}
-// european: reader picks a sign, choice is remembered
-const eu=day.european;const pick=document.querySelector('[data-ho="signpick"]');
-if(eu&&pick){const saved=localStorage.getItem('md.sign');
-if(saved!==null&&eu.signs[+saved])pick.value=saved;
-const drawEU=()=>{const s=eu.signs[+pick.value];if(!s)return;
-const a=document.querySelector('[data-ho="eu_aspect"]'),l=document.querySelector('[data-ho="eu_line"]'),
-m=document.querySelector('[data-ho="eu_moon"]');
-if(a)a.innerHTML=mdBi(s.aspect_th,s.aspect_en);
-if(l)l.innerHTML=mdBi(s.line_th,s.line_en);
-if(m)m.innerHTML=mdBi('ดวงจันทร์อยู่'+eu.moon_sign_th,'The Moon is in '+eu.moon_sign_en);};
-pick.addEventListener('change',()=>{try{localStorage.setItem('md.sign',pick.value);}catch(e){}drawEU();});
-drawEU();}
-// chinese
-const cn=day.chinese;
-if(cn){const p=document.querySelector('[data-ho="cn_pillar"]'),l=document.querySelector('[data-ho="cn_line"]');
-if(p)p.textContent=cn.pillar+' · '+cn.animal;
-if(l)l.innerHTML=mdBi(cn.relation_th||'',cn.relation_en||'');}
+setF('nums',t.lucky.two.join(' ')+' · '+t.lucky.three);}
+// The horoscope tile is horo.js's now — per-sign, computed live from
+// data/horo.json, no baked window to fall off. Only the tab chrome and the
+// day colour above still belong to this file.
 // hexagram: draw the six lines from the king wen number
 const hx=day.hexagram;
 if(hx&&hx.number){const box=document.querySelector('[data-hx="lines"]');
@@ -318,13 +1265,7 @@ document.querySelectorAll('.hotab').forEach(b=>{b.addEventListener('click',()=>{
 document.querySelectorAll('.hotab').forEach(x=>x.classList.remove('on'));b.classList.add('on');
 document.querySelectorAll('.hopane').forEach(p=>{p.hidden=p.dataset.hopane!==b.dataset.hotab;});});});
 })();
-// --- katha carousel
-(()=>{const cards=[...document.querySelectorAll('[data-kacard]')];
-const dots=[...document.querySelectorAll('[data-kadot]')];if(!cards.length)return;let ki=0;
-const go=i=>{ki=(i+cards.length)%cards.length;cards.forEach((c,n)=>{c.hidden=n!==ki;});
-dots.forEach((d,n)=>d.classList.toggle('on',n===ki));};
-dots.forEach(d=>d.addEventListener('click',()=>{go(+d.dataset.kadot);clearInterval(window.__kaT);}));
-if(cards.length>1)window.__kaT=setInterval(()=>go(ki+1),9000);})();
+// --- katha + psalms + 8-ball live in shuffle.js (per-bead cycle, not a carousel)
 // --- เซียมซี: shake, a stick falls, read the slip
 (()=>{const host=document.getElementById('w-siamsi');if(!host)return;
 let sticks=[];try{sticks=JSON.parse(host.dataset.siamsi||'[]');}catch(e){return;}
@@ -473,8 +1414,174 @@ location.href=RROOT+pick.p+'/p/'+pick.s+'.html';});});
 function mdSortKey(el){
 return (B.classList.contains('lang-en')&&el.dataset.ne)||el.dataset.n||'';}
 const dirList=document.querySelector('ul.dir[data-sortable]');
+// ---- MDCARD: what a touch on a map is worth ---------------------------
+// Every map on this site could be touched and only one of them answered —
+// the toilets page, which moves your starting point. Everywhere else a tap
+// on the ground reached a listener nobody had written, and a tap on a
+// neighbour's dot either did nothing or teleported the reader to another
+// page with no warning and no way back but the back button.
+//
+// So: one card, opened by any map, saying what was touched and offering the
+// two things a reader wants next — go there, or keep it for the errand run.
+// The rules it is built on:
+//   * The first touch NEVER navigates. A finger is 44 px wide and a dot is
+//     four; on a shelf of four thousand places the wrong page is one pixel
+//     away, and on cell data a wrong page is a real cost. Touch names it,
+//     the button opens it.
+//   * It is a sheet at the bottom of the SCREEN, not a bubble over the pin.
+//     A bubble over a pin covers the neighbours you are comparing it with,
+//     and on a 360-wide phone there is nowhere for it to go.
+//   * It never invents. Name, shelf and rank are read off the row or the
+//     mark that was touched; the distance is only shown when the map knows
+//     both ends of it.
+// Nothing here is required for a map to work: with scripting off the drawn
+// links are still links, and that is still the fallback.
+const MDCARD=(()=>{
+let el=null,btnClose=null,elName=null,elSub=null,elMeta=null,elOpen=null,elPlan=null;
+let lastFocus=null,cur=null;
+const build=()=>{
+if(el)return el;
+el=document.createElement('div');
+el.className='mdcard';el.hidden=true;
+el.setAttribute('role','dialog');
+el.setAttribute('aria-label','จุดที่เลือกบนแผนที่ · the place you touched on the map');
+el.innerHTML='<div class="mdcard-in">'+
+'<button type="button" class="mdcard-x" aria-label="ปิด · Close">×</button>'+
+'<p class="mdcard-name"></p><p class="mdcard-sub"></p><p class="mdcard-meta"></p>'+
+'<div class="mdcard-do"><a class="mdcard-open" href="#"></a>'+
+'<button type="button" class="mdcard-plan planbtn" aria-pressed="false"></button>'+
+'</div></div>';
+document.body.appendChild(el);
+btnClose=el.querySelector('.mdcard-x');elName=el.querySelector('.mdcard-name');
+elSub=el.querySelector('.mdcard-sub');elMeta=el.querySelector('.mdcard-meta');
+elOpen=el.querySelector('.mdcard-open');elPlan=el.querySelector('.mdcard-plan');
+btnClose.addEventListener('click',()=>hide());
+// A tap on the ground outside the card puts it away, the way a sheet should.
+// Inside it, nothing closes but the buttons.
+document.addEventListener('click',ev=>{
+if(el.hidden||el.contains(ev.target))return;
+if(ev.target.closest&&ev.target.closest('.mdmap'))return;   // the map speaks for itself
+hide();},true);
+document.addEventListener('keydown',ev=>{if(ev.key==='Escape'&&!el.hidden)hide();});
+elPlan.addEventListener('click',()=>{
+if(!cur||!cur.plan)return;
+const list=planGet(),i=list.indexOf(cur.plan);
+if(i>-1)list.splice(i,1);
+else if(list.length>=PLAN_MAX){
+alert('แผนหนึ่งเก็บได้ '+PLAN_MAX+' จุด / a plan holds '+PLAN_MAX+' stops');return;}
+else list.push(cur.plan);
+planSet(list);          // repaints every ring on the page, this one included
+paintPlan();});
+return el;};
+const paintPlan=()=>{
+if(!cur)return;
+if(!cur.plan){elPlan.hidden=true;return;}
+elPlan.hidden=false;
+const on=planGet().indexOf(cur.plan)>-1;
+elPlan.classList.toggle('on',on);
+elPlan.setAttribute('aria-pressed',on?'true':'false');
+elPlan.innerHTML=on?mdBi('เอาออกจากแผน','Remove from plan')
+:mdBi('🧭 เพิ่มลงแผน','Add to my plan');};
+const hide=()=>{
+if(!el||el.hidden)return;
+el.hidden=true;cur=null;
+if(lastFocus&&lastFocus.focus){try{lastFocus.focus();}catch(e){}}
+lastFocus=null;};
+// item: {name, nameEn, sub, href, plan, rank, dist}
+const show=(item,opener)=>{
+if(!item||!item.name)return;
+build();cur=item;
+lastFocus=opener||document.activeElement;
+elName.textContent=item.name;
+elSub.textContent=item.sub||'';elSub.hidden=!item.sub;
+const bits=[];
+if(item.rank)bits.push('🐜'+item.rank);
+if(item.dist)bits.push(item.dist);
+elMeta.textContent=bits.join('  ·  ');elMeta.hidden=!bits.length;
+if(item.href){elOpen.hidden=false;elOpen.href=item.href;
+elOpen.innerHTML=mdBi('เปิดหน้านี้','Open this page');}
+else elOpen.hidden=true;
+paintPlan();
+el.hidden=false;
+// Focus the card itself, not its first button: a reader arriving here has
+// not chosen to leave the page yet, and the name is what they asked for.
+elName.setAttribute('tabindex','-1');
+try{elName.focus({preventScroll:true});}catch(e){}};
+return{show,hide,
+// How far apart two coordinates are, in the words this site uses for it.
+// Lives here because three different maps needed the same sentence.
+gap:(a,b)=>{const R=6371000,dLa=(b.lat-a.lat)*Math.PI/180,dLo=(b.lng-a.lng)*Math.PI/180;
+const h=Math.sin(dLa/2)**2+Math.cos(a.lat*Math.PI/180)*Math.cos(b.lat*Math.PI/180)*Math.sin(dLo/2)**2;
+const m=2*R*Math.asin(Math.sqrt(h));
+return m<950?Math.round(m/10)*10+' ม./m':(m/1000).toFixed(1)+' กม./km';}};
+})();
+window.MDCARD=MDCARD;
+
+// ---- neighbours on a place map answer with a card ---------------------
+// They are real links and they stay real links — this only steps in front of
+// a plain left click. Middle-click, ctrl/cmd-click and "open in new tab" all
+// pass through untouched, and with scripting off the link is the whole
+// feature. What it buys: the wrong dot costs a glance instead of a page load,
+// and the right dot can go straight into the errand run without opening it.
+(function(){
+const holder=document.querySelector('.mdmap[data-lat]');if(!holder)return;
+const nbs=[...holder.querySelectorAll('.nbs a[data-n]')];
+if(!nbs.length)return;
+const here={lat:parseFloat(holder.dataset.lat),lng:parseFloat(holder.dataset.lng)};
+const open=(a,by)=>{
+const la=parseFloat(a.dataset.lat),ln=parseFloat(a.dataset.lng);
+MDCARD.show({name:a.dataset.n,sub:a.dataset.sub||'',href:a.getAttribute('href'),
+plan:a.dataset.plan||'',rank:a.dataset.rank||'',
+dist:isFinite(la)&&isFinite(ln)&&isFinite(here.lat)
+?MDCARD.gap(here,{lat:la,lng:ln})+' จากที่นี่ · from here':''},by);};
+nbs.forEach(a=>{a.addEventListener('click',ev=>{
+if(ev.metaKey||ev.ctrlKey||ev.shiftKey||ev.altKey||ev.button)return;
+ev.preventDefault();open(a,a);});});
+// The near miss, and the tap on bare ground. The disc drawn round each dot
+// is a margin, not a fingertip — the rest of the tolerance is here, where
+// the reader's real pixels can be measured: whatever was touched, the
+// nearest dot within about a fingertip answers. Below that it was a tap on
+// the city, and the city is allowed to say nothing.
+const nearest=(cx,cy)=>{
+let best=null,bd=34*34;                    // ~a fingertip's radius, in CSS px
+for(const a of nbs){
+const r=a.getBoundingClientRect();
+if(!r.width&&!r.height)continue;           // omitted or off-frame
+const dx=r.left+r.width/2-cx,dy=r.top+r.height/2-cy,d=dx*dx+dy*dy;
+if(d<bd){bd=d;best=a;}}
+return best;};
+holder.addEventListener('click',ev=>{
+if(ev.target.closest&&ev.target.closest('.nbs a'))return;   // already answered
+const a=nearest(ev.clientX,ev.clientY);
+if(a)open(a,holder);});
+// And the same question asked by the basemap itself, which reports taps in
+// coordinates rather than pixels — the event that had one listener on this
+// whole site until now.
+holder.addEventListener('mdmap:click',ev=>{
+const p=ev.detail;if(!p)return;
+let best=null,bd=Infinity;
+for(const a of nbs){
+const la=parseFloat(a.dataset.lat),ln=parseFloat(a.dataset.lng);
+if(!isFinite(la)||!isFinite(ln))continue;
+const d=(la-p.lat)*(la-p.lat)+(ln-p.lng)*(ln-p.lng);
+if(d<bd){bd=d;best=a;}}
+// About 60 m at this latitude, in squared degrees — a tap has to land on
+// something, not merely nearer one dot than another across a whole frame.
+if(best&&bd<3e-7)open(best,holder);});
+})();
+
 if(dirList){
-const items=[...dirList.children];
+// Place rows carry data-n; the brand shelves and road headings around them do
+// not. Asking for the rows themselves rather than for the list's children is
+// what lets a row live inside a folded <details> and still be sorted, filtered
+// and counted with all the others.
+const items=[...dirList.querySelectorAll('li[data-n]')];
+// Any explicit sort or filter abandons the fold: the reader has asked for one
+// order across everything, and rows still tucked behind a closed triangle
+// would be an answer they cannot see. Rows come up to the top level and the
+// empty shelves go.
+const unfold=()=>{items.forEach(li=>dirList.appendChild(li));
+dirList.querySelectorAll('li.brandshelf,li.areahead').forEach(h=>h.remove());};
 const byName=document.getElementById('sort-name'),byDist=document.getElementById('sort-dist');
 byName&&byName.addEventListener('click',()=>{
 items.sort((a,b)=>mdSortKey(a).localeCompare(mdSortKey(b),'th'));
@@ -553,14 +1660,32 @@ base&&base.setAttribute('opacity',list.length===PTS.length?'.5':'.16');};
 // the dots after the box is resized or the tiles under it are zoomed.
 const at=ev=>{const r=box.getBoundingClientRect();
 return[(ev.clientX-r.left)/r.width*vb[2],(ev.clientY-r.top)/r.height*vb[3]];};
-box.addEventListener('mousemove',ev=>{const[mx,my]=at(ev);
-let best=null,bd=14*14;
+// How many drawing units a CSS pixel is worth, right now. The drawing is laid
+// out at whatever width the column gives it and then scaled again by the
+// basemap under it, so a radius written as a constant in viewBox units is a
+// different size in the reader's hand on every page. A finger is about the
+// same 44 px everywhere; the arithmetic goes the other way instead.
+const perPx=()=>{const r=box.getBoundingClientRect();
+return r.width?vb[2]/r.width:1;};
+const pick=(ev,cssR)=>{const[mx,my]=at(ev),lim=cssR*perPx();
+let best=null,bd=lim*lim;
 for(const p of live){const dx=p.x-mx,dy=p.y-my,d=dx*dx+dy*dy;
 if(d<bd){bd=d;best=p;}}
+return best;};
+const rowName=li=>(li.dataset.n||li.dataset.ne||'').split(' · ')[0];
+// The listeners go on the HOLDER, not on the drawing. Once a basemap mounts,
+// the drawing is handed pointer-events:none so the map underneath can be
+// panned — which also took every one of these events away, so the hover names
+// and the clicks on this map worked only until the tiles arrived. The holder
+// is above both and hears everything; the coordinates are still read from the
+// drawing's own rectangle, which is what keeps the dots agreeing with the
+// ground after a pan or a zoom.
+holder.addEventListener('mousemove',ev=>{
+const best=pick(ev,18);
 near=best;
 if(!hov)return;
-if(!best){hov.style.display='none';box.style.cursor='';return;}
-hov.style.display='';box.style.cursor='pointer';
+if(!best){hov.style.display='none';holder.style.cursor='';return;}
+hov.style.display='';holder.style.cursor='pointer';
 hc.setAttribute('cx',best.x);hc.setAttribute('cy',best.y);
 const right=best.x<vb[2]*0.62;
 ht.setAttribute('x',best.x+(right?11:-11));ht.setAttribute('y',best.y-10);
@@ -568,9 +1693,18 @@ ht.setAttribute('text-anchor',right?'start':'end');
 const rank=best.li.dataset.rank;
 ht.textContent=(best.li.dataset.ne||best.li.dataset.n||'').split(' · ')[0]
 +(rank&&rank!=='0'?'  🐜'+rank:'');});
-box.addEventListener('mouseleave',()=>{near=null;if(hov)hov.style.display='none';});
-box.addEventListener('click',()=>{const a=near&&near.li.querySelector('a[href]');
-if(a)location.href=a.getAttribute('href');});
+holder.addEventListener('mouseleave',()=>{near=null;if(hov)hov.style.display='none';});
+// A tap names the place; the card's own button opens it. The radius is a
+// fingertip rather than the pointer's 18 px, because this is the gesture a
+// phone makes and a near-miss used to open a stranger's page.
+holder.addEventListener('click',ev=>{
+const best=pick(ev,30)||near;
+if(!best)return;
+const li=best.li,a=li.querySelector('a[href]'),btn=li.querySelector('.planbtn[data-plan]');
+const rank=li.dataset.rank;
+MDCARD.show({name:rowName(li),sub:li.dataset.area||'',
+href:a?a.getAttribute('href'):'',plan:btn?btn.dataset.plan:'',
+rank:(rank&&rank!=='0')?rank:''},holder);});
 // A filter chip or a search box narrows the LIST; the map follows it, so the
 // two are one view of one thing rather than two things that disagree.
 window.MDSHELFMAP={filter(pred){live=pred?PTS.filter(pred):PTS;draw(live);},
@@ -596,7 +1730,7 @@ return x-y||nm(a,b);});
 // not know which road this is on" is a fact and not a failure.
 const areaBtn=document.getElementById('group-area');
 areaBtn&&areaBtn.addEventListener('click',()=>{
-dirList.querySelectorAll('li.areahead').forEach(h=>h.remove());
+unfold();
 const groups=new Map();
 for(const li of items){const a=li.dataset.area||'';
 if(!groups.has(a))groups.set(a,[]);groups.get(a).push(li);}
@@ -617,10 +1751,9 @@ dirList.appendChild(h);
 rest.sort(nm).forEach(li=>dirList.appendChild(li));}
 dirList.classList.remove('ranked');
 btns.forEach(x=>x&&x.classList.remove('on'));areaBtn.classList.add('on');});
-// Any other sort clears the neighbourhood headings, or they would sit above
-// rows that no longer belong to them.
-btns.forEach(b=>b&&b!==areaBtn&&b.addEventListener('click',()=>{
-dirList.querySelectorAll('li.areahead').forEach(h=>h.remove());}));
+// Any other sort clears the neighbourhood headings and the brand shelves, or
+// they would sit above rows that no longer belong to them.
+btns.forEach(b=>b&&b!==areaBtn&&b.addEventListener('click',()=>unfold()));
 reorder(document.getElementById('sort-fresh'),
 (a,b)=>(b.dataset.upd||'').localeCompare(a.dataset.upd||'')||rk(b)-rk(a)||nm(a,b));
 // ---- facet chips: keep only rows that have ALL the picked things ------
@@ -641,6 +1774,11 @@ if(h1c)h1c.textContent='('+shown.toLocaleString()+(shown<total?' / '+total.toLoc
 window.MDSHELFMAP&&window.MDSHELFMAP.byFacet([...on]);};
 fbar.querySelectorAll('.fchip').forEach(b=>b.addEventListener('click',()=>{
 const f=b.dataset.f;if(!f){on.clear();}else if(on.has(f)){on.delete(f);}else{on.add(f);}
+// Narrowing to "has a cash machine" has to reach inside the shelves too. Rows
+// that survive the filter while still folded away behind a shut triangle are
+// an answer the reader cannot see, and the count above would promise places
+// the page appears not to hold.
+if(on.size)unfold();
 paint();}));}}
 // ---- copy link --------------------------------------------------------
 document.querySelectorAll('.copylink').forEach(b=>{b.addEventListener('click',async()=>{
@@ -698,7 +1836,24 @@ return `<div class="topicwidget"><button class="unpin" data-pc="${pc}" title="�
 `<h4><a href="${pv}/${cat}/index.html">${H(m.t)}</a> `+
 `<span class="count">(${m.n.toLocaleString()}) · ${H(m.v)}</span>${fresh}</h4>`+
 `<ul class="preview">${preview}</ul></div>`;}).join('');
-shelf.querySelectorAll('.unpin').forEach(b=>b.addEventListener('click',()=>unpin(b.dataset.pc)));}
+shelf.querySelectorAll('.unpin').forEach(b=>b.addEventListener('click',()=>unpin(b.dataset.pc)));
+myMapLink();}
+// ---- my shelves, as my map -------------------------------------------
+// The explore map takes its entire view from the address bar, so "my map" is
+// that page opened at the shelves this reader pinned — no second map, no
+// second filter, nothing stored anywhere but their own browser. Six is the
+// cap the map itself keeps (a reader cannot hold more colours apart than
+// that), so a heavily-pinned page sends the first six and says so rather
+// than quietly dropping the rest.
+function myMapLink(){
+const go=document.getElementById('mymapgo'),note=document.getElementById('mymapnote');
+if(!go)return;
+const keys=[...pins].map(pc=>pc.replace('/','-'));
+const six=keys.slice(0,6);
+go.href='map.html'+(six.length?'#12.4/18.78760/98.99310/'+six.join(','):'');
+if(!note)return;
+note.textContent=!keys.length?'ปักหมวดไว้ก่อน แล้วหมวดนั้นจะขึ้นบนแผนที่ · pin a shelf and it appears on the map'
+:(keys.length>6?'แผนที่แสดงได้ทีละ ๖ หมวด · the map shows six shelves at a time':'');}
 pinpick.querySelectorAll('input').forEach(cb=>{cb.checked=pins.has(cb.dataset.pc);
 cb.addEventListener('change',()=>{cb.checked?pins.add(cb.dataset.pc):pins.delete(cb.dataset.pc);
 localStorage.setItem('md-pins',JSON.stringify([...pins]));renderPins();});});
@@ -780,7 +1935,7 @@ return asc?String(A).localeCompare(String(Bv),'th'):String(Bv).localeCompare(Str
 rows.forEach(r=>tbody.appendChild(r));
 tbl.querySelectorAll('th').forEach(h=>h.classList.remove('sorted','asc'));
 th.classList.add('sorted');if(asc)th.classList.add('asc');asc=!asc;});});});
-// ---- crawl-request form: build a GitHub issue, no backend needed ------
+// ---- crawl-request form: hand the request to suggest.html, prefilled ---
 const crawlForm=document.getElementById('crawlform');
 if(crawlForm){crawlForm.addEventListener('submit',e=>{
 e.preventDefault();
@@ -801,9 +1956,18 @@ const FIELDS=['phone','lineId','facebook','instagram','whatsapp','email','websit
 // Facet ticks travel as an array, not as FIELDS entries — an empty array is a
 // real answer ("I looked; it has none of these"), which a blank text input
 // cannot express.
-const getTicks=form=>[...form.querySelectorAll('input[name="facet"]:checked')].map(c=>c.value);
+// Only the shown fieldset is read. Every set is in the page, so reading them
+// all would let a hidden 7-Eleven question ride along on a massage shop.
+const getTicks=form=>[...form.querySelectorAll('fieldset[data-facetticks]:not([hidden]) input[name="facet"]:checked')].map(c=>c.value);
 const setTicks=(form,vals)=>{const on=new Set(vals||[]);
 form.querySelectorAll('input[name="facet"]').forEach(c=>{c.checked=on.has(c.value);});};
+// Which tick-list this place answers to. `fx` comes from the search index; a
+// place with no set shows no fieldset at all, which is the right answer for
+// the 6,249 records nobody has written questions for yet.
+const showTicks=(form,fx)=>{let shown=null;
+form.querySelectorAll('fieldset[data-facetticks]').forEach(fs=>{
+const on=!!fx&&fs.dataset.facetticks===fx;fs.hidden=!on;if(on)shown=fs;});
+return shown;};
 const params=new URLSearchParams(location.search);
 const stepFind=claimFind,stepConfirm=document.getElementById('claim-confirm'),
 stepSuccess=document.getElementById('claim-success'),stepEdit=document.getElementById('claim-edit');
@@ -817,6 +1981,12 @@ const res=await fetch(WORKER+'/edit/'+encodeURIComponent(editToken));
 const data=await res.json();
 if(!res.ok)throw new Error(data.error||'ลิงก์ใช้ไม่ได้ / invalid link');
 FIELDS.forEach(f=>{if(data.claim[f])editForm[f].value=data.claim[f];});
+// The worker returns placeId at the top level; the stored claim carries a
+// copy of it, so fall back to that rather than to nothing.
+const pid=data.placeId||(data.claim&&data.claim.placeId);
+const idx=await loadIndex();
+const me=pid&&idx.find(x=>x.id===pid);
+showTicks(editForm,me&&me.fx);
 setTicks(editForm,data.claim.facets);
 }catch(err){editErr.textContent=err.message;}})();
 editForm.addEventListener('submit',async e=>{
@@ -839,6 +2009,7 @@ const results=document.getElementById('claimresults'),search=document.getElement
 urlPaste=document.getElementById('claimurlpaste'),findErr=document.getElementById('claimfinderror');
 function slugFromUrl(v){const m=v.trim().match(/\/(cm|cr)\/p\/([a-z0-9-]+)\.html/i);return m?m[2]:null;}
 function pick(e){picked=e;
+showTicks(document.getElementById('claimform'),e.fx);
 document.getElementById('claimwhoname').textContent=e.n;
 document.getElementById('claimwhoprov').textContent='· '+e.pv;
 document.getElementById('claimwholink').href=SITE+e.p+'/p/'+e.s+'.html';

@@ -32,16 +32,21 @@ or put them in ~/.mot-dang-r2.json as {"accountId":…,"accessKeyId":…,"secret
 the same arrangement as ~/.mot-dang-showtimes.json and the LINE channel token.
 """
 
+import atexit
+import datetime
 import json
 import os
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 TILES = ROOT / "assets" / "tiles" / "cm-cr.pmtiles"
 BUCKET = "mot-dang-site"
+BUILD_LOCK = ROOT / "cache" / "build.lock"
+_lock_held = False
 
 # A healthy build is ~27,577 files. Anything much under this is a broken or
 # half-finished build, and syncing it would delete most of the site.
@@ -66,6 +71,94 @@ def creds():
         sys.exit("missing R2 credentials: %s\n(see the docstring at the top of "
                  "this file)" % ", ".join(missing))
     return c
+
+
+def _lock_holder():
+    """(pid, started) from cache/build.lock, or None if it is unreadable."""
+    try:
+        lines = BUILD_LOCK.read_text().splitlines()
+        return int(lines[0].strip()), (lines[1].strip() if len(lines) > 1 else "?")
+    except (OSError, ValueError, IndexError):
+        return None
+
+
+def _alive(pid):
+    try:
+        os.kill(pid, 0)
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True
+    return True
+
+
+def hold_docs(patience_s=600):
+    """Take build.py's OWN lock for the length of the mirror.
+
+    WHY A PUBLISH TAKES THE *BUILD* LOCK. `rclone sync` is a mirror: it reads
+    docs/ as it goes and deletes from the bucket whatever has stopped existing
+    locally. build.py opens by wiping docs/. Those two together are how the
+    site went to 2,479 objects on 2026-08-19 — a build started at 11:56:34
+    while a sync fired at 11:50:41 was still walking the tree, and rclone
+    faithfully mirrored the disappearance of 25,000 pages.
+
+    build.take_build_lock() already refuses to start when cache/build.lock is
+    held by a live pid, and already treats a lock whose process is gone as
+    stale. So holding that same file, in that same format, is all it takes:
+    a build launched mid-publish now refuses itself, by its own existing rule,
+    with no change to build.py at all.
+
+    The standing walk's own guards are not enough here — they serialise walk
+    ROUNDS against each other, and the build that did the damage was run
+    directly, outside any walk.
+    """
+    global _lock_held
+    BUILD_LOCK.parent.mkdir(parents=True, exist_ok=True)
+    deadline = time.time() + patience_s
+    while True:
+        try:
+            fd = os.open(str(BUILD_LOCK), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o644)
+        except FileExistsError:
+            held = _lock_holder()
+            if held is None:
+                BUILD_LOCK.unlink(missing_ok=True)   # unreadable: stale
+                continue
+            pid, started = held
+            if not _alive(pid):
+                print("  note: clearing a stale build lock from pid %s (started %s)"
+                      % (pid, started))
+                BUILD_LOCK.unlink(missing_ok=True)
+                continue
+            if time.time() > deadline:
+                sys.exit("REFUSING: pid %s has been building since %s. Publishing "
+                         "now would mirror a half-written docs/ onto the bucket "
+                         "and delete the live site. Wait for that build."
+                         % (pid, started))
+            print("  waiting for pid %s to finish building (started %s)…"
+                  % (pid, started))
+            time.sleep(10)
+        else:
+            os.write(fd, ("%d\n%s\n" % (
+                os.getpid(),
+                datetime.datetime.now().isoformat(timespec="seconds"))).encode())
+            os.close(fd)
+            _lock_held = True
+            atexit.register(release_docs)
+            print("  docs/ held for the mirror (build lock, pid %d)" % os.getpid())
+            return
+
+
+def release_docs():
+    """atexit, so Ctrl-C and a crash both give it back; SIGKILL does not, which
+    is what the stale check above is for."""
+    global _lock_held
+    if not _lock_held:
+        return
+    _lock_held = False
+    held = _lock_holder()
+    if held is not None and held[0] != os.getpid():
+        return                                   # somebody else's now; leave it
+    BUILD_LOCK.unlink(missing_ok=True)
 
 
 def gate():
@@ -152,6 +245,11 @@ def main():
         print("\n  (lines above marked 'Skipped' are what would happen)")
         return
 
+    hold_docs()
+    n_after = sum(1 for p in DOCS.rglob("*") if p.is_file())
+    if n_after < FLOOR:
+        sys.exit("REFUSING: docs/ fell to %s files while taking the lock — "
+                 "something wiped it. Rebuild, then try again." % f"{n_after:,}")
     print("\n  syncing…")
     run(["rclone", "sync", str(DOCS), dest] + common, env)
     print("  site synced")

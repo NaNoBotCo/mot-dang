@@ -1,0 +1,478 @@
+{
+  "_readme": [
+    "ดูแลต่อเนื่อง — the ongoing-care register. WO-25, built 2026-08-21 from",
+    "door 1: each hospital's OWN site, fetched by importers/read_care_sites.py,",
+    "snapshots in cache/care/, verdicts in cache/care/manifest.json.",
+    "",
+    "THE RULE: the desk states; the paper carries its date; nothing is awarded.",
+    "A `clinics` key is written ONLY where the hospital's own page names that",
+    "department, and `evidence` carries the phrase it was read from. A page that",
+    "does not mention a service produces NOTHING for it — absent is silence,",
+    "never a 'no'. No rankings, no 'best for', no medical advice. Hours are the",
+    "hospital's own posted hours and go stale like any posted hours: `fetched`",
+    "is on every block so a reader can see how old the claim is.",
+    "",
+    "PRICES: none are recorded. The package pages that carry them belong to",
+    "chains and tag their prices to other branches (see kasemrad-sriburin's",
+    "note); a price that is not this branch's is worse than no price. Any price",
+    "that ever lands here carries `_pricesVerified: false` until a person has",
+    "stood at the counter, the same as every other price in this repo.",
+    "",
+    "CHAIN SITES ARE NOT BRANCH EVIDENCE. kasemrad.co.th lists 73 centres across",
+    "ten branches behind a client-side branch picker; reading that list as the",
+    "Sriburin branch's departments would invent facts about a named hospital.",
+    "Where that is the situation it is written down as `chain_site_only` and no",
+    "clinic claim is made at all.",
+    "",
+    "Fields per entry:",
+    "  placeIds   — catalogue records this entry describes (post-merge ids)",
+    "  clinics    — {key: {th, en, hours?, evidence, src, fetched}} — keys shared",
+    "               with importers/specialty.py so search, page and place band",
+    "               cannot disagree about who qualifies",
+    "  paperwork  — us_claims / insurance / records / intl_desk, same shape",
+    "  continuity — after_hours, telemed: the things that decide whether a",
+    "               lifelong condition is manageable, not whether a visit is",
+    "  contacts   — published desk contacts for the paperwork itself",
+    "  unread     — what could not be read, by name, with the reason",
+    "",
+    "The official-paper entries (fmp, dtv) are not places; they carry what the",
+    "government's own page states, with its own last-updated date where it",
+    "prints one."
+  ],
+  "generated": "2026-08-21",
+  "entries": {
+    "rajavej": {
+      "placeIds": ["cm-osm-way-97675282"],
+      "name_th": "โรงพยาบาลราชเวช เชียงใหม่",
+      "name_en": "Rajavej Chiang Mai Hospital",
+      "site": "https://rajavejchiangmai.com/",
+      "note": "The stored crawl carried no website at all for this hospital; www.rajavej.com does not resolve. rajavejchiangmai.com verified by its own name in the page.",
+      "clinics": {
+        "heart": {
+          "th": "คลินิกโรคหัวใจ", "en": "Heart clinic",
+          "hours": "วันอังคาร 17.00–19.00 น. · วันเสาร์ 13.00–15.00 น.",
+          "evidence": "คลินิกโรคหัวใจ วันอังคาร 17.00 – 19.00 น. วันเสาร์ 13.00 – 15.00 น.",
+          "src": "https://rajavejchiangmai.com/บริการทางการแพทย์/", "fetched": "2026-08-21"
+        },
+        "endocrine": {
+          "th": "คลินิกต่อมไร้ท่อ", "en": "Endocrine clinic",
+          "hours": "วันจันทร์ 17.00–19.00 น.",
+          "evidence": "คลินิกต่อมไร้ท่อ วันจันทร์ 17.00 -19.00 น.",
+          "src": "https://rajavejchiangmai.com/บริการทางการแพทย์/", "fetched": "2026-08-21"
+        },
+        "internal-med": {
+          "th": "อายุรกรรมทั่วไป", "en": "General internal medicine",
+          "hours": "ทุกวัน 08.00–20.00 น.",
+          "evidence": "อายุรกรรมทั่วไป ทุกวัน 08.00 – 20.00น.",
+          "src": "https://rajavejchiangmai.com/บริการทางการแพทย์/", "fetched": "2026-08-21"
+        },
+        "obgyn": {
+          "th": "สูติ – นรีเวช", "en": "Obstetrics & gynaecology",
+          "hours": "วันอาทิตย์–ศุกร์ 09.00–16.00 น. · วันเสาร์ 09.00–12.00 น.",
+          "evidence": "สูติ – นรีเวช วันอาทิตย์ – วันศุกร์ 09.00 – 16.00น. วันเสาร์ 09.00 – 12.00น.",
+          "src": "https://rajavejchiangmai.com/บริการทางการแพทย์/", "fetched": "2026-08-21"
+        },
+        "neuro": {
+          "th": "ระบบประสาทและสมอง", "en": "Brain & nervous system",
+          "hours": "วันจันทร์ 10.00–16.00 น. · วันพุธ 13.00–16.00 น. · วันศุกร์ 10.00–16.00 น.",
+          "evidence": "ระบบประสาทและสมอง วันจันทร์ 10.00 – 16.00 น. วันพุธ 13.00 – 16.00 น. วันศุกร์ 10.00 – 16.00 น.",
+          "src": "https://rajavejchiangmai.com/บริการทางการแพทย์/", "fetched": "2026-08-21"
+        },
+        "physio": {
+          "th": "แผนกกายภาพบำบัด/ฟื้นฟู", "en": "Physiotherapy & rehabilitation",
+          "hours": "วันจันทร์–ศุกร์ 08.00–18.00 น. · วันเสาร์–อาทิตย์ 08.00–16.00 น.",
+          "evidence": "แผนกกายภาพบำบัด/ฟื้นฟู วันจันทร์-วันศุกร์ 8.00 – 18.00 น. วันเสาร์ วันอาทิตย์ 8.00 – 16.00 น.",
+          "src": "https://rajavejchiangmai.com/บริการทางการแพทย์/", "fetched": "2026-08-21"
+        },
+        "checkup": {
+          "th": "แผนกตรวจสุขภาพ", "en": "Health check-up department",
+          "hours": "ทุกวัน 08.00–16.00 น.",
+          "evidence": "แผนกตรวจสุขภาพ เปิดบริการทุกวัน 08.00 – 16.00 น.",
+          "src": "https://rajavejchiangmai.com/บริการทางการแพทย์/", "fetched": "2026-08-21"
+        },
+        "kidney": {
+          "th": "แผนกฟอกไต", "en": "Dialysis",
+          "hours": "วันจันทร์–เสาร์ 06.00–20.00 น.",
+          "evidence": "แผนกฟอกไต วันจันทร์ – วันเสาร์ 06.00 -20.00 น.",
+          "src": "https://rajavejchiangmai.com/บริการทางการแพทย์/", "fetched": "2026-08-21"
+        }
+      },
+      "paperwork": {
+        "us_claims": {
+          "th": "โครงการ TRICARE และ FMP — โรงพยาบาลมีหน้าเว็บของตัวเองสำหรับเรื่องนี้",
+          "en": "TRICARE and FMP programs — the hospital keeps its own page for this",
+          "evidence": "โครงการสำหรับ สมาชิกกองทัพสหรัฐอเมริกา ผู้เกษียณอายุ ทหารผ่านศึก และครอบครัว … สามารถเข้ารับบริการทางการแพทย์ได้ผ่านโครงการ TRICARE and FMP Programs ณ โรงพยาบาลราชเวช เชียงใหม่ … โรงพยาบาลมีผู้เชี่ยวชาญให้คำปรึกษาเกี่ยวกับโครงการ TRICARE และ FMP",
+          "src": "https://rajavejchiangmai.com/tricare-and-fmp-programs/", "fetched": "2026-08-21"
+        },
+        "insurance": {
+          "th": "บริการดูแลลูกค้าประกัน · สิทธิประกันสังคม",
+          "en": "Insurance-customer service; Thai social-security (ประกันสังคม) entitlement",
+          "evidence": "สิทธิประกันสังคม … บริการดูแลลูกค้าประกัน",
+          "src": "https://rajavejchiangmai.com/", "fetched": "2026-08-21"
+        }
+      },
+      "continuity": {
+        "after_hours": {
+          "th": "หลายคลินิกเฉพาะทางเปิดรอบเย็น 17.00–19.00 น.",
+          "en": "Several specialist clinics run evening rounds, 17.00–19.00",
+          "evidence": "คลินิกโรคหัวใจ วันอังคาร 17.00 – 19.00 น. … คลินิกต่อมไร้ท่อ วันจันทร์ 17.00 -19.00 น.",
+          "src": "https://rajavejchiangmai.com/บริการทางการแพทย์/", "fetched": "2026-08-21"
+        },
+        "telemed": {
+          "th": "Telehealth Appointment (ระบุไว้บนหน้าเว็บ)",
+          "en": "Telehealth appointment, named on the hospital's own page",
+          "evidence": "Telehealth Appointment",
+          "src": "https://rajavejchiangmai.com/tricare-and-fmp-programs/", "fetched": "2026-08-21"
+        }
+      },
+      "contacts": {
+        "phone": "052-011999",
+        "us_claims_desk": {
+          "th": "สอบถามโครงการ TRICARE/FMP — โทร 052-011-999 ต่อ 121",
+          "en": "TRICARE/FMP enquiries — 052-011-999 ext. 121",
+          "email": "chairat.n@rajavejchiangmai.com",
+          "role_th": "ผู้ให้คำปรึกษาโครงการ TRICARE และ FMP (อดีตทหารกองทัพบกสหรัฐฯ เกษียณอายุ ประสบการณ์กว่า 11 ปี — ตามที่โรงพยาบาลระบุ)",
+          "role_en": "The hospital states this desk is staffed by a retired US Army member with over 11 years advising on TRICARE and FMP in Thailand",
+          "src": "https://rajavejchiangmai.com/tricare-and-fmp-programs/", "fetched": "2026-08-21"
+        },
+        "address_th": "316/1 ถ.เชียงใหม่-ลำพูน ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000",
+        "address_en": "316/1 Chiang Mai–Lamphun Road, Wat Ket, Mueang, Chiang Mai 50000",
+        "src": "https://rajavejchiangmai.com/", "fetched": "2026-08-21"
+      }
+    },
+    "chiangmai-hospital": {
+      "placeIds": ["cm-osm-way-103561795"],
+      "name_th": "โรงพยาบาลเชียงใหม่ ฮอสพิทอล",
+      "name_en": "Chiangmai Hospital",
+      "site": "https://www.chiangmai-hospital.com/",
+      "clinics": {
+        "internal-med": {
+          "th": "คลินิกพิเศษอายุรกรรมทั่วไป", "en": "Special clinic — general internal medicine",
+          "evidence": "คลินิกพิเศษ คลินิกพิเศษอายุรกรรมทั่วไป",
+          "src": "https://www.chiangmai-hospital.com/th/our-services", "fetched": "2026-08-21"
+        },
+        "neuro": {
+          "th": "คลินิกพิเศษอายุรกรรมระบบประสาทและสมอง", "en": "Special clinic — neurology",
+          "evidence": "คลินิกพิเศษอายุรกรรมระบบประสาทและสมอง",
+          "src": "https://www.chiangmai-hospital.com/th/our-services", "fetched": "2026-08-21"
+        },
+        "obgyn": {
+          "th": "คลินิกพิเศษสูตินรีเวชกรรม", "en": "Special clinic — obstetrics & gynaecology",
+          "evidence": "คลินิกพิเศษสูตินรีเวชกรรม",
+          "src": "https://www.chiangmai-hospital.com/th/our-services", "fetched": "2026-08-21"
+        },
+        "physio": {
+          "th": "แผนกกายภาพบำบัด", "en": "Physiotherapy department",
+          "evidence": "แผนกกายภาพบำบัด … โปรแกรมกายภาพบำบัด",
+          "src": "https://www.chiangmai-hospital.com/th/our-services", "fetched": "2026-08-21"
+        },
+        "checkup": {
+          "th": "ศูนย์ตรวจสุขภาพ", "en": "Health check-up centre",
+          "evidence": "ศูนย์ตรวจสุขภาพ … โปรแกรมตรวจสุขภาพ",
+          "src": "https://www.chiangmai-hospital.com/th/our-services", "fetched": "2026-08-21"
+        },
+        "kidney": {
+          "th": "แผนกไตเทียม", "en": "Dialysis department",
+          "evidence": "แผนกไตเทียม",
+          "src": "https://www.chiangmai-hospital.com/th/our-services", "fetched": "2026-08-21"
+        }
+      },
+      "paperwork": {
+        "insurance": {
+          "th": "หน้าเว็บของโรงพยาบาลอธิบายขั้นตอนใช้สิทธิประกันสุขภาพภาคเอกชนเป็นขั้น ๆ",
+          "en": "The hospital's own page sets out, step by step, how to use private health insurance there",
+          "evidence": "ขั้นตอนที่ 1 สำหรับผู้ที่มีประกันสุขภาพภาคเอกชน … ทําให้สามารถเข้ารักษาพยาบาลด้วยสิทธิประกันชีวิตหรือประกันอุบัติเหตุที่ตนเองมี",
+          "src": "https://www.chiangmai-hospital.com/th/insurance", "fetched": "2026-08-21"
+        },
+        "records": {
+          "th": "ลงนามใบยินยอมที่เวชระเบียนก่อนรับบริการ ส่วนเกินสิทธิผู้ป่วยชำระเอง",
+          "en": "Consent is signed at เวชระเบียน (medical records) before an outpatient visit; anything above the insured amount is paid by the patient",
+          "evidence": "ผู้ป่วยลงนามในเอกสารใบยินยอมก่อนเข้ารับบริการที่เวชระเบียน กรณีมีค่าบริการส่วนเกินผู้ป่วยจะต้องทำการชำระเอง",
+          "src": "https://www.chiangmai-hospital.com/th/insurance", "fetched": "2026-08-21"
+        }
+      },
+      "continuity": {
+        "after_hours": {
+          "th": "คลินิกพิเศษ — รายการคลินิกเฉพาะทางนอกเวลาของโรงพยาบาลเอง",
+          "en": "คลินิกพิเศษ — the hospital's own list of specialist after-hours clinics",
+          "evidence": "คลินิกพิเศษ คลินิกพิเศษอายุรกรรมทั่วไป คลินิกพิเศษศัลยกรรมทั่วไป … คลินิกพิเศษสูตินรีเวชกรรม",
+          "src": "https://www.chiangmai-hospital.com/th/our-services", "fetched": "2026-08-21"
+        }
+      },
+      "contacts": {
+        "phone": "053-225222",
+        "email": "info@chiangmai-hospital.com",
+        "src": "https://www.chiangmai-hospital.com/", "fetched": "2026-08-21"
+      }
+    },
+    "nakornping": {
+      "placeIds": ["cm-osm-way-1115985031"],
+      "name_th": "โรงพยาบาลนครพิงค์",
+      "name_en": "Nakornping Hospital",
+      "site": "https://www.nkp-hospital.go.th/",
+      "note": "The province's general hospital. Its clinic pages name each consulting room by its own number, which is what a person is told at the desk.",
+      "clinics": {
+        "internal-med": {
+          "th": "ห้องตรวจอายุรกรรมทั่วไป M380", "en": "General internal medicine, room M380",
+          "evidence": "ห้องตรวจอายุรกรรมทั่วไป M380 โรคทางอายุรกรรมรักษาด้วยการใช้ยาเป็นหลัก",
+          "src": "https://www.nkp-hospital.go.th/th/clinic.php", "fetched": "2026-08-21"
+        },
+        "heart": {
+          "th": "อายุรกรรมเฉพาะโรค — โรคหัวใจและหลอดเลือด (นัดเท่านั้น)",
+          "en": "Specialist internal medicine — cardiovascular; by appointment only",
+          "evidence": "อายุรกรรมเฉพาะโรค ที่ไม่ฉุกเฉินในเวลาราชการ รับเฉพาะนัดเท่านั้นได้แก่ โรคเบาหวาน โรคความดันโลหิตสูง โรคหัวใจและหลอดเลือด โรคไตและไตเรื้อรัง โรคโลหิตวิทยา",
+          "src": "https://www.nkp-hospital.go.th/th/clinic2.php", "fetched": "2026-08-21"
+        },
+        "endocrine": {
+          "th": "อายุรกรรมเฉพาะโรค — โรคเบาหวาน (นัดเท่านั้น)",
+          "en": "Specialist internal medicine — diabetes; by appointment only",
+          "evidence": "รับเฉพาะนัดเท่านั้นได้แก่ โรคเบาหวาน โรคความดันโลหิตสูง",
+          "src": "https://www.nkp-hospital.go.th/th/clinic2.php", "fetched": "2026-08-21"
+        },
+        "obgyn": {
+          "th": "ห้องตรวจสูติ-นรีเวชกรรม G210", "en": "Obstetrics & gynaecology, room G210",
+          "evidence": "ห้องตรวจสูติ-นรีเวชกรรม G210 สาขาสูติ-นรีเวชกรรม ให้บริการตรวจรักษาพยาบาลผู้ป่วยเด็กหญิงและสตรี",
+          "src": "https://www.nkp-hospital.go.th/th/clinic.php", "fetched": "2026-08-21"
+        },
+        "physio": {
+          "th": "คลินิกเวชกรรมฟื้นฟู · งานกายภาพบำบัด · ศูนย์สาธิตอุปกรณ์เครื่องช่วยคนพิการ",
+          "en": "Rehabilitation clinic, physiotherapy, and a demonstration centre for disability aids",
+          "evidence": "คลินิกเวชกรรมฟื้นฟู งานกายภาพบำบัด งานกิจกรรมบำบัด งานกายอุปกรณ์ และศูนย์สาธิตอุปกรณ์เครื่องช่วยคนพิการ",
+          "src": "https://www.nkp-hospital.go.th/th/clinic.php", "fetched": "2026-08-21"
+        },
+        "checkup": {
+          "th": "คลินิกตรวจสุขภาพ", "en": "Health check-up clinic",
+          "evidence": "คลินิกตรวจสุขภาพ",
+          "src": "https://www.nkp-hospital.go.th/", "fetched": "2026-08-21"
+        }
+      },
+      "paperwork": {
+        "records": {
+          "th": "ออกใบรับรองแพทย์ทุกชนิด ยกเว้นรับรองความพิการ รับรองความเจ็บป่วย และนิติเวช — จันทร์–ศุกร์ 08.00–12.00 น.",
+          "en": "Issues medical certificates of every kind EXCEPT disability, sickness and forensic certification; Mon–Fri 08.00–12.00",
+          "evidence": "ออกใบรับรองแพทย์ทุกชนิด ยกเว้น รับรองความพิการ,รับรองความเจ็บป่วย, รับรองทางด้านนิติเวช … เวลาทำการ : วันจันทร์ – ศุกร์ เวลา 8.00 – 12.00 น.",
+          "src": "https://www.nkp-hospital.go.th/th/department/occupational/", "fetched": "2026-08-21"
+        },
+        "insurance": {
+          "th": "เครือข่ายประกันสังคม · โครงการเบิกจ่ายตรง",
+          "en": "Thai social-security network and the direct-billing (เบิกจ่ายตรง) scheme",
+          "evidence": "เครือข่ายประกันสังคม โครงการเบิกจ่ายตรง",
+          "src": "https://www.nkp-hospital.go.th/", "fetched": "2026-08-21"
+        }
+      },
+      "continuity": {
+        "after_hours": {
+          "th": "ห้องตรวจคลินิกพิเศษอายุรกรรม M360",
+          "en": "Special internal-medicine clinic, room M360",
+          "evidence": "ห้องตรวจคลินิกพิเศษอายุรกรรม M360 คลินิกพิเศษทางอายุรกรรม",
+          "src": "https://www.nkp-hospital.go.th/th/clinic.php", "fetched": "2026-08-21"
+        }
+      },
+      "contacts": {
+        "phone": "053-999200",
+        "email": "info@nkp-hospital.go.th",
+        "src": "https://www.nkp-hospital.go.th/th/contactus/contactDirect.php", "fetched": "2026-08-21"
+      }
+    },
+    "maharaj-suandok": {
+      "placeIds": ["cm-osm-way-189618479"],
+      "name_th": "โรงพยาบาลมหาราชนครเชียงใหม่ (สวนดอก)",
+      "name_en": "Maharaj Nakorn Chiang Mai Hospital (Suan Dok)",
+      "site": "https://www.med.cmu.ac.th/",
+      "note": "The university teaching hospital. suandok.med.cmu.ac.th did not resolve; the faculty site answered and carries the hospital's own switchboard directory, which is where these lines come from.",
+      "continuity": {
+        "after_hours": {
+          "th": "คลินิกเฉพาะทางนอกเวลาราชการ 053-935740, 053-935751 · คลินิกนอกเวลาทั่วไป 053-935750",
+          "en": "Specialist after-hours clinic 053-935740 / 053-935751; general after-hours clinic 053-935750",
+          "evidence": "คลินิกเฉพาะทางนอกเวลาราชการ 053-935740, 053-935751 คลินิกนอกเวลาทั่วไป 053-935750",
+          "src": "https://www.med.cmu.ac.th/web/contact-medcmu/", "fetched": "2026-08-21"
+        }
+      },
+      "paperwork": {
+        "records": {
+          "th": "งานเวชระเบียน 053-935636",
+          "en": "Medical records office — 053-935636",
+          "evidence": "งานเวชระเบียน 053-935636",
+          "src": "https://www.med.cmu.ac.th/web/contact-medcmu/", "fetched": "2026-08-21"
+        },
+        "insurance": {
+          "th": "ติดต่อเกี่ยวกับประกันชีวิต 053-936193 · หน่วยประกันสังคม 053-935170 · ศูนย์ประสานสิทธิ์",
+          "en": "Life-insurance desk 053-936193; social-security unit 053-935170; an entitlement-coordination centre (ศูนย์ประสานสิทธิ์)",
+          "evidence": "ติดต่อเกี่ยวกับประกันชีวิต 053-936193 … หน่วยประกันสังคม 053-935170 … ศูนย์ประสานสิทธิ์ (ผู้ป่วยใน)",
+          "src": "https://www.med.cmu.ac.th/web/contact-medcmu/", "fetched": "2026-08-21"
+        }
+      }
+    },
+    "cr-prachanukroh": {
+      "placeIds": ["cr-osm-way-483841193"],
+      "name_th": "โรงพยาบาลเชียงรายประชานุเคราะห์",
+      "name_en": "Chiangrai Prachanukroh Hospital",
+      "site": "https://www.crhospital.org/",
+      "note": "Chiang Rai's provincial general hospital.",
+      "clinics": {
+        "heart": {
+          "th": "ศูนย์ความเป็นเลิศด้านโรคหัวใจ", "en": "Centre of excellence for heart disease",
+          "evidence": "ศูนย์ความเป็นเลิศ ด้านโรคหัวใจ",
+          "src": "https://www.crhospital.org/", "fetched": "2026-08-21"
+        },
+        "internal-med": {
+          "th": "กลุ่มงานอายุรกรรม", "en": "Internal medicine department",
+          "evidence": "กลุ่มงานอายุรกรรม",
+          "src": "https://www.crhospital.org/index.php?p=department", "fetched": "2026-08-21"
+        },
+        "obgyn": {
+          "th": "กลุ่มงานสูติ-นรีเวชกรรม", "en": "Obstetrics & gynaecology department",
+          "evidence": "กลุ่มงานสูติ-นรีเวชกรรม",
+          "src": "https://www.crhospital.org/index.php?p=department", "fetched": "2026-08-21"
+        },
+        "checkup": {
+          "th": "Package ตรวจสุขภาพ", "en": "Health check-up packages",
+          "evidence": "Package ตรวจสุขภาพ",
+          "src": "https://www.crhospital.org/", "fetched": "2026-08-21"
+        }
+      },
+      "continuity": {
+        "after_hours": {
+          "th": "คลินิกพิเศษเฉพาะทางนอกเวลา (SMC) — จันทร์–ศุกร์ 16.00–20.00 น. · เสาร์–อาทิตย์ 08.00 น. เป็นต้นไป",
+          "en": "SMC, the specialist after-hours clinic — Mon–Fri 16.00–20.00, Sat–Sun from 08.00",
+          "evidence": "ตารางให้บริการแพทย์คลินิกพิเศษเฉพาะทาง นอกเวลา (SMC) ให้บริการ วันจันทร์-วันศุกร์ เวลา 16.00-20.00 น. และ วันเสาร์-วันอาทิตย์ เวลา 08.00",
+          "src": "https://www.crhospital.org/index.php?p=doctor-schedule", "fetched": "2026-08-21"
+        }
+      },
+      "contacts": {
+        "phone": "053-910600",
+        "src": "https://www.crhospital.org/", "fetched": "2026-08-21"
+      }
+    },
+    "chiangmairam": {
+      "placeIds": ["cm-osm-way-257214959"],
+      "name_th": "โรงพยาบาลเชียงใหม่ราม",
+      "name_en": "Chiangmai Ram Hospital",
+      "site": "https://www.chiangmairam.com/",
+      "clinics": {
+        "heart": {
+          "th": "ศูนย์หัวใจ", "en": "Heart centre",
+          "evidence": "ศูนย์การแพทย์ทางสมอง ศูนย์หัวใจ ศูนย์ศัลยกรรมกระดูกและข้อ",
+          "src": "https://www.chiangmairam.com/centeronly", "fetched": "2026-08-21"
+        },
+        "neuro": {
+          "th": "ศูนย์การแพทย์ทางสมอง", "en": "Brain medicine centre",
+          "evidence": "ศูนย์การแพทย์ทางสมอง",
+          "src": "https://www.chiangmairam.com/centeronly", "fetched": "2026-08-21"
+        }
+      },
+      "paperwork": {
+        "intl_desk": {
+          "th": "ศูนย์บริการผู้ป่วยต่างชาติ",
+          "en": "International patient service centre",
+          "evidence": "ศูนย์บริการผู้ป่วยต่างชาติ",
+          "src": "https://www.chiangmairam.com/service", "fetched": "2026-08-21"
+        }
+      },
+      "contacts": {
+        "phone": "052-004601",
+        "email": "chiangmairam@chiangmairam.com",
+        "src": "https://www.chiangmairam.com/", "fetched": "2026-08-21"
+      }
+    },
+    "overbrook": {
+      "placeIds": ["cr-osm-relation-7165835"],
+      "name_th": "โรงพยาบาลโอเวอร์บรุ๊ค",
+      "name_en": "Overbrook Hospital",
+      "site": "https://www.overbrook-hospital.com/",
+      "note": "The stored crawl had a phone but no website; overbrookhospital.com does not resolve, the hyphenated domain does.",
+      "clinics": {
+        "heart": {
+          "th": "ศูนย์หัวใจ", "en": "Heart centre",
+          "evidence": "ศูนย์สุขภาพ ศูนย์หัวใจ ศูนย์เต้านม",
+          "src": "https://www.overbrook-hospital.com/", "fetched": "2026-08-21"
+        },
+        "endocrine": {
+          "th": "ศูนย์เบาหวาน", "en": "Diabetes centre",
+          "evidence": "ศูนย์ทันตกรรม ศูนย์เบาหวาน",
+          "src": "https://www.overbrook-hospital.com/", "fetched": "2026-08-21"
+        },
+        "physio": {
+          "th": "ศูนย์เวชศาสตร์ฟื้นฟู", "en": "Rehabilitation medicine centre",
+          "evidence": "ศูนย์เวชศาสตร์ฟื้นฟู",
+          "src": "https://www.overbrook-hospital.com/", "fetched": "2026-08-21"
+        }
+      },
+      "continuity": {
+        "after_hours": {
+          "th": "คลินิกนอกเวลา",
+          "en": "After-hours clinic",
+          "evidence": "คลินิกนอกเวลา อัตราค่าบริการ",
+          "src": "https://www.overbrook-hospital.com/", "fetched": "2026-08-21"
+        }
+      },
+      "contacts": {
+        "phone": "053-711366",
+        "src": "data/canonical (OSM crawl, 2026-07-27)", "fetched": "2026-07-27"
+      }
+    }
+  },
+  "official": {
+    "fmp": {
+      "name_th": "VA Foreign Medical Program (FMP)",
+      "name_en": "VA Foreign Medical Program (FMP)",
+      "src": "https://www.va.gov/health-care/foreign-medical-program/",
+      "fetched": "2026-08-21",
+      "page_last_updated": "2026-08-06",
+      "states": [
+        {
+          "th": "ครอบคลุมเฉพาะการรักษาที่จำเป็นทางการแพทย์ สำหรับภาวะที่ VA รับรองว่าเกี่ยวเนื่องกับการรับราชการทหาร (service-connected) หรือภาวะที่ทำให้ภาวะนั้นแย่ลง",
+          "en": "Covers medically necessary care for a VA-rated service-connected disability, or a condition associated with one that makes it worse — and care under the VR&E programme.",
+          "evidence": "we can only cover the cost of services that are medically necessary and meet at least 1 of these descriptions: The services are for a VA-rated, service-connected disability"
+        },
+        {
+          "th": "ใช้ได้เฉพาะการรักษาที่เกิดนอกสหรัฐฯ เท่านั้น",
+          "en": "FMP is only for care received in a foreign country; care or supplies from the US or its territories are not covered.",
+          "evidence": "You can use FMP only for care you get in a foreign country."
+        },
+        {
+          "th": "กระดาษสำคัญคือ FMP benefits letter — ดาวน์โหลดจากบัญชี VA.gov (Letters → Benefit letters and documents) แล้วมอบให้สถานพยาบาล และขอให้สถานพยาบาลยื่นเคลมแทน",
+          "en": "The paper that matters is the FMP benefits letter: get it from your VA.gov account under Letters → Benefit letters and documents, share it with your provider, and ask them to file the FMP claim for you.",
+          "evidence": "Share the letter with your provider and ask them to file an FMP claim for you. Here's how to get your FMP benefits letter: Sign in to your VA.gov account Select Letters from the My VA main menu"
+        },
+        {
+          "th": "ถ้าสถานพยาบาลไม่ยื่นให้ ผู้ป่วยยื่นเคลมเองได้",
+          "en": "If the provider does not file, you can file the FMP claim yourself and submit supporting documents.",
+          "evidence": "If you've already received care or your provider doesn't file a claim for you You can file an FMP claim and submit documents to support your claim."
+        },
+        {
+          "th": "เลือกสถานพยาบาลที่มีใบอนุญาตแห่งใดก็ได้ในประเทศที่อยู่",
+          "en": "You may choose any licensed healthcare provider in the foreign country where you live or travel — within what FMP does and does not cover.",
+          "evidence": "You can choose any licensed healthcare provider in the foreign country where you live or travel."
+        }
+      ],
+      "note_th": "หน้าเว็บของ VA มีสายด่วนฟรีเฉพาะบางประเทศ — ไม่มีสายของไทยอยู่ในรายการนั้น ติดต่อผ่าน Ask VA ทางออนไลน์ได้",
+      "note_en": "The VA page lists toll-free FMP lines for a handful of countries and Thailand is NOT among them; it points elsewhere to Ask VA online. Recorded as read, not as advice."
+    },
+    "dtv": {
+      "name_th": "วีซ่า DTV — สายการรักษาพยาบาล",
+      "name_en": "Destination Thailand Visa — medical stream",
+      "status": "unread",
+      "tried": [
+        {"url": "https://www.thaievisa.go.th/", "verdict": "client-rendered React shell — a plain fetch returns 117 characters of fallback text and no requirements", "fetched": "2026-08-21"},
+        {"url": "https://consular.mfa.go.th/", "verdict": "same — 55 characters, the page builds itself in the browser", "fetched": "2026-08-21"},
+        {"url": "https://www.mfa.go.th/en/content/destination-thailand-visa", "verdict": "answered, but the body is site navigation only: the words Destination, DTV and medical appear zero times", "fetched": "2026-08-21"}
+      ],
+      "note_th": "ยังอ่านไม่ได้จากต้นทางราชการโดยตรง จึงไม่บันทึกเงื่อนไขใด ๆ ไว้ที่นี่",
+      "note_en": "Not readable first-hand from the government's own pages, so NO requirements are recorded here. This register does not carry visa rules it has not read. The reader is sent to the official portal to read it in a browser, and the attempt is published so the gap is visible rather than filled in from memory."
+    }
+  },
+  "unread": [
+    {"key": "mccormick", "name": "โรงพยาบาลแมคคอร์มิค / McCormick Hospital", "url": "https://www.mccormick.in.th/", "reason": "The site stored in the crawl no longer resolves (URLError). A well-known hospital with no readable site — worth a human turn.", "fetched": "2026-08-21"},
+    {"key": "sriphat", "name": "ศูนย์ศรีพัฒน์ / Sriphat Medical Center", "url": "https://sriphat.med.cmu.ac.th/", "reason": "Did not resolve on the day. Sriphat is the CMU faculty's private wing and the likeliest holder of a named menopause clinic — the first target to retry.", "fetched": "2026-08-21"},
+    {"key": "central-memorial", "name": "โรงพยาบาลเซ็นทรัลเชียงใหม่เมโมเรียล", "url": "https://www.centralchiangmaimemorial.com/", "reason": "Neither the apex nor the www domain resolves; no site is stored in the crawl either.", "fetched": "2026-08-21"},
+    {"key": "klaimor", "name": "โรงพยาบาลเชียงใหม่ใกล้หมอ / Chiangmai Klaimor Hospital", "url": "https://www.klaimor.com/", "reason": "klaimor.com answers but is NOT this hospital — the page carries none of its names, so the candidate was rejected rather than read. The other two guesses do not resolve.", "fetched": "2026-08-21"},
+    {"key": "cmc", "name": "โรงพยาบาลเชียงใหม่เมดิคอลเซ็นเตอร์", "url": "https://www.chiangmaimedicalcenter.com/", "reason": "Guessed domain does not resolve; no site in the crawl.", "fetched": "2026-08-21"},
+    {"key": "mfl-community", "name": "โรงพยาบาลแม่ฟ้าหลวง (ชุมชน)", "url": "https://www.mflhospital.com/", "reason": "The stored site answers but does not carry the hospital's name — it is somebody else's page now, so nothing was read from it. The link-health layer should see this too.", "fetched": "2026-08-21"},
+    {"key": "kasemrad-sriburin", "name": "โรงพยาบาลเกษมราษฎร์ ศรีบุรินทร์", "url": "https://www.kasemrad.co.th/", "reason": "chain_site_only — sriburin.kasemrad.co.th does not resolve; the chain site answered and lists 73 centres across ten branches behind a client-side branch picker, and its package prices are tagged to other branches (ปทุมธานี). A chain's centre list is not evidence about this branch, so no clinic claim is made.", "fetched": "2026-08-21"},
+    {"key": "bangkok-cm", "name": "โรงพยาบาลกรุงเทพเชียงใหม่", "url": "https://www.bangkokhospital-chiangmai.com/", "reason": "The site answered and verified as itself, but its content builds in the browser — a plain fetch found none of the department words. Readable only with a browser.", "fetched": "2026-08-21"},
+    {"key": "cmneuro", "name": "โรงพยาบาลประสาทเชียงใหม่", "url": "https://www.cmneuro.go.th/", "reason": "Verified as itself, but the home page carried no department list a fetch could read. The neurological hospital is a real ongoing-care anchor and deserves a second look at its inner pages.", "fetched": "2026-08-21"},
+    {"key": "lanna", "name": "โรงพยาบาลลานนา / Lanna Hospital", "url": "https://www.lanna-hospital.com/", "reason": "Verified as itself; the home page yields switchboard numbers (052-134-777, 052-134-789) but no readable department list. One of its own links carries a space in the URL and cannot be fetched as published.", "fetched": "2026-08-21"},
+    {"key": "mfu-medcenter", "name": "โรงพยาบาลศูนย์การแพทย์ มฟล.", "url": "https://hospital.mfu.ac.th/", "reason": "Verified and read, but the pages fetched carry the university's general contacts rather than a clinic roster.", "fetched": "2026-08-21"}
+  ]
+}

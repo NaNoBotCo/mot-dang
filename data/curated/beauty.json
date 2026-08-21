@@ -1,0 +1,158 @@
+{
+ "_readme": "The services register — what each shop STATES it can do, in its own words, with the source and the date somebody read it. Same discipline as data/curated/elephants.json: a row is a shop's own claim, never the ants' opinion, and 'unstated' is a value meaning the pages read did not say — it is not a no. Nothing here ranks one shop against another, and nothing here sorts shops by who their customers look like.\n\nWHY THIS FILE EXISTS. OpenStreetMap holds 371 hairdresser and beauty points across both provinces and not one of them carries a tag saying what the shop can do. Three tags exist at all — male, female, unisex, on 29 shops between them — and WO-22 lifted those into the facet row. Everything a person actually wants to know (does anyone here cut tightly coiled hair, do you braid, do you have a digital perm machine, will you come to my hotel) has no tag, no register, and no crawl. It is stated by the shop or it is not known. audit_beauty.py proved the other half of this: across all 18,686 records in the catalogue, ZERO names say perm, updo, afro, textured or house call. There is no name rule waiting to be written. This file, an owner ticking their own facets, and a walk down the soi are the only three ways any of it is ever answered.\n\nFields per shop: `place` (record id), `stated` (facet key -> yes | unstated, exactly the keys in the `beauty` set of data/facets.json), `prices_th`/`prices_en` as posted, `note_th`/`note_en`, `source`, `fetched`, `stated_by`. A shop that was read and said nothing about a service gets `unstated`, which is how the page can tell 'we asked and it was silent' from 'nobody has looked'.",
+ "_doors": "Nothing in `shops` yet, and that is the true state, not an oversight — no shop's own page has been read, because reading them is network work and WO-22's build was zero-network. The queue is ready: 18 beauty records already carry a website, a Facebook page or a LINE link, and they are the first 18 reads the moment Nan says go. See notes/beauty-proposal-2026-08-20.md for the numbered doors.",
+ "verified_on": "2026-08-21",
+ "shops": [
+  {
+   "place": "cm-osm-node-4557811609",
+   "name": "Akshaya E Centre",
+   "stated": {},
+   "evidence": {},
+   "source": "https://akshaya.kerala.gov.in",
+   "fetched": "2026-08-21",
+   "stated_by": "the shop's own site"
+  },
+  {
+   "place": "cm-osm-node-11369981746",
+   "name": "Asian Phytoceuticals Public Company Limited",
+   "stated": {},
+   "evidence": {},
+   "source": "https://www.apco.co.th/th/home",
+   "fetched": "2026-08-21",
+   "stated_by": "the shop's own site"
+  },
+  {
+   "place": "cr-osm-node-7931699285",
+   "name": "Museflower Retreat and Spa",
+   "stated": {},
+   "evidence": {},
+   "source": "https://musefloweretreat.com",
+   "fetched": "2026-08-21",
+   "stated_by": "the shop's own site"
+  },
+  {
+   "place": "cm-osm-node-5126132325",
+   "name": "New York, New York",
+   "stated": {
+    "colour": "yes",
+    "digiperm": "yes",
+    "keratin": "yes",
+    "rebond": "yes",
+    "treatment": "yes",
+    "updo": "yes"
+   },
+   "evidence": {
+    "colour": "scissor and razor hair cuts, permanent, semi permanent hair color, Japanese straightening, digital perm (body wave), Ker",
+    "digiperm": "nt, semi permanent hair color, Japanese straightening, digital perm (body wave), Keratin hair treatment, Brazilian blowout",
+    "keratin": "lor, Japanese straightening, digital perm (body wave), Keratin hair treatment, Brazilian blowout, special occasion, w",
+    "rebond": "razor hair cuts, permanent, semi permanent hair color, Japanese straightening, digital perm (body wave), Keratin hair treatment, Bra",
+    "treatment": "anese straightening, digital perm (body wave), Keratin hair treatment, Brazilian blowout, special occasion, wedding hair ser",
+    "updo": "n hair treatment, Brazilian blowout, special occasion, wedding hair service, makeup application, and waxing. Haircuts Hair"
+   },
+   "source": "https://newyorknewyorkstudio.com/",
+   "fetched": "2026-08-21",
+   "stated_by": "the shop's own site"
+  }
+ ],
+ "read_queue_note": "Generated fresh each build by beauty_layer.py from the records themselves — not kept here, so it can never go stale against the catalogue.",
+ "could_not_read": [
+  {
+   "place": "cm-osm-node-2638748031",
+   "name": "Absolute Care Clinic",
+   "url": "http://skincarechiangmai.com/",
+   "why": "URLError: <urlopen error [Errno 8] nodename nor servname provided, or ",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cm-osm-node-6915364985",
+   "name": "B-begin salon",
+   "url": "https://www.facebook.com/B-Begin-Hair-Salon-2168697323381537/",
+   "why": "social or messaging link — not a first-hand source (enrich_sites.NOT_FIRST_HAND); a login wall is not a statement about the shop",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cm-osm-node-10726988005",
+   "name": "Chiang Mai",
+   "url": "https://m.facebook.com/100063472814028/",
+   "why": "social or messaging link — not a first-hand source (enrich_sites.NOT_FIRST_HAND); a login wall is not a statement about the shop",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cm-osm-node-10865560108",
+   "name": "Ck perfect",
+   "url": "https://line.me/ti/p/OJtOw9uIOu",
+   "why": "robots.txt says no",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cm-osm-node-2144917735",
+   "name": "JimBee Studio",
+   "url": "http://www.jimbeestudio.com",
+   "why": "URLError: <urlopen error [Errno 8] nodename nor servname provided, or ",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cm-osm-node-2985729443",
+   "name": "Masumi Spa",
+   "url": "https://www.facebook.com/masumispachiangmai",
+   "why": "social or messaging link — not a first-hand source (enrich_sites.NOT_FIRST_HAND); a login wall is not a statement about the shop",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cm-osm-node-4784119225",
+   "name": "Nails & Brows by Ying",
+   "url": "https://m.facebook.com/yingapple88/",
+   "why": "social or messaging link — not a first-hand source (enrich_sites.NOT_FIRST_HAND); a login wall is not a statement about the shop",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cm-osm-node-5126142321",
+   "name": "Nice Nails since 2002",
+   "url": "https://m.facebook.com/Nicenails2002/",
+   "why": "social or messaging link — not a first-hand source (enrich_sites.NOT_FIRST_HAND); a login wall is not a statement about the shop",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cm-osm-node-13724435301",
+   "name": "Phoenix Hair Salon, 3rd Floor",
+   "url": "https://www.facebook.com/PhoenixatMaya/",
+   "why": "social or messaging link — not a first-hand source (enrich_sites.NOT_FIRST_HAND); a login wall is not a statement about the shop",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cm-osm-node-10726995205",
+   "name": "Robin Beauty & Barber",
+   "url": "https://m.facebook.com/100063472814028/",
+   "why": "social or messaging link — not a first-hand source (enrich_sites.NOT_FIRST_HAND); a login wall is not a statement about the shop",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cm-osm-node-12372820542",
+   "name": "ตัดแหลก-haircut (Tat Laek)",
+   "url": "https://www.facebook.com/people/%E0%B8%95%E0%B8%B1%E0%B8%94%E0%B9%81%E0%B8%AB%E0%B8%A5%E0%B8%81-haircut-chiangmai/100093624798253/",
+   "why": "social or messaging link — not a first-hand source (enrich_sites.NOT_FIRST_HAND); a login wall is not a statement about the shop",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cm-osm-way-658996891",
+   "name": "ธัญญวินตรา บูติค แอนด์ สปา",
+   "url": "http://www.thanyawintra.com",
+   "why": "URLError: <urlopen error timed out>",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cr-osm-node-13637594601",
+   "name": "นุ้ยหนุ่ย แว๊กซ์ขน และ สปา",
+   "url": "m.facebook.com",
+   "why": "social or messaging link — not a first-hand source (enrich_sites.NOT_FIRST_HAND); a login wall is not a statement about the shop",
+   "checked": "2026-08-21"
+  },
+  {
+   "place": "cm-osm-node-4438827793",
+   "name": "เอกบาร์เบอร์ช็อป",
+   "url": "https://www.facebook.com/eakbarbershop",
+   "why": "social or messaging link — not a first-hand source (enrich_sites.NOT_FIRST_HAND); a login wall is not a statement about the shop",
+   "checked": "2026-08-21"
+  }
+ ]
+}

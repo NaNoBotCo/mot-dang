@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17",
+ "generated": "2026-08-21",
  "_comment": "Dated instances of the recurring festivals in data/festivals.json, harvested from official announcements. status=announced means a canon festival matched AND a date parsed out of an official source, and only those are shown on the site, always with the source link. status=candidate is held for human review and is never published. Nothing here is inferred from the lunar calendar — a rule is not a date.",
  "sources": [
   {
@@ -61,7 +61,7 @@
    "date_start": "2026-08-12",
    "date_end": "2026-08-12",
    "status": "candidate",
-   "first_seen": "2026-08-17"
+   "first_seen": "2026-08-21"
   },
   {
    "festival_id": "cm-design-week",
@@ -76,7 +76,7 @@
    "date_start": "2026-12-05",
    "date_end": "2026-12-13",
    "status": "candidate",
-   "first_seen": "2026-08-17"
+   "first_seen": "2026-08-21"
   },
   {
    "festival_id": null,
@@ -91,7 +91,7 @@
    "date_start": null,
    "date_end": null,
    "status": "candidate",
-   "first_seen": "2026-08-17"
+   "first_seen": "2026-08-21"
   },
   {
    "festival_id": null,
@@ -106,7 +106,7 @@
    "date_start": null,
    "date_end": null,
    "status": "candidate",
-   "first_seen": "2026-08-17"
+   "first_seen": "2026-08-21"
   },
   {
    "festival_id": "visakha-bucha",
@@ -121,7 +121,7 @@
    "date_start": null,
    "date_end": null,
    "status": "candidate",
-   "first_seen": "2026-08-17"
+   "first_seen": "2026-08-21"
   },
   {
    "festival_id": null,
@@ -136,7 +136,7 @@
    "date_start": null,
    "date_end": null,
    "status": "candidate",
-   "first_seen": "2026-08-17"
+   "first_seen": "2026-08-21"
   },
   {
    "festival_id": null,
@@ -151,7 +151,7 @@
    "date_start": null,
    "date_end": null,
    "status": "candidate",
-   "first_seen": "2026-08-17"
+   "first_seen": "2026-08-21"
   },
   {
    "festival_id": "mothers-day",
@@ -166,7 +166,7 @@
    "date_start": null,
    "date_end": null,
    "status": "candidate",
-   "first_seen": "2026-08-17"
+   "first_seen": "2026-08-21"
   },
   {
    "festival_id": null,
@@ -181,7 +181,7 @@
    "date_start": null,
    "date_end": null,
    "status": "candidate",
-   "first_seen": "2026-08-17"
+   "first_seen": "2026-08-21"
   },
   {
    "festival_id": null,
@@ -196,7 +196,7 @@
    "date_start": null,
    "date_end": null,
    "status": "candidate",
-   "first_seen": "2026-08-17"
+   "first_seen": "2026-08-21"
   }
  ]
 }

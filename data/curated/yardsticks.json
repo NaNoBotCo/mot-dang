@@ -1,0 +1,115 @@
+{
+ "_comment": "Official counts for /stats.html — what the province counts beside what the catalogue holds. Owned wholesale by importers/harvest_datagoth.py; every row names its publisher, dataset and fetch date.",
+ "generated": "2026-08-21",
+ "yardsticks": [
+  {
+   "key": "cm-hotels-cert",
+   "th": "ธุรกิจโรงแรมที่ได้รับการรับรองมาตรฐาน (เชียงใหม่)",
+   "en": "Hotels certified to standard (Chiang Mai)",
+   "official": 1670,
+   "unit_th": "แห่ง",
+   "unit_en": "places",
+   "year_be": 2567,
+   "ours": {
+    "cat": "hotel",
+    "prov": "cm"
+   },
+   "source_name": "สำนักงานจังหวัดเชียงใหม่",
+   "source_url": "https://data.go.th/dataset/_67_76",
+   "fetched": "2026-08-20"
+  },
+  {
+   "key": "cm-tour-ops",
+   "th": "ธุรกิจนำเที่ยวที่ได้รับใบอนุญาต (เชียงใหม่)",
+   "en": "Licensed tour operators (Chiang Mai)",
+   "official": 1128,
+   "unit_th": "ราย",
+   "unit_en": "operators",
+   "year_be": 2567,
+   "ours": null,
+   "source_name": "สำนักงานจังหวัดเชียงใหม่",
+   "source_url": "https://data.go.th/dataset/dataset_10_344",
+   "fetched": "2026-08-20"
+  },
+  {
+   "key": "cr-clinics",
+   "th": "คลินิกทุกประเภท (เชียงราย)",
+   "en": "Clinics of all types (Chiang Rai)",
+   "official": 887,
+   "unit_th": "แห่ง",
+   "unit_en": "clinics",
+   "year_be": 2568,
+   "ours": {
+    "cat": "medical",
+    "sub": "clinic",
+    "prov": "cr"
+   },
+   "source_name": "สำนักงานจังหวัดเชียงราย",
+   "source_url": "https://data.go.th/dataset/dataset50_77",
+   "fetched": "2026-08-20"
+  },
+  {
+   "key": "cm-otop",
+   "th": "แหล่งจำหน่ายของฝาก-OTOP (เชียงใหม่ ทุกอำเภอ)",
+   "en": "OTOP & gift outlets (Chiang Mai, all amphoes)",
+   "official": 2670,
+   "unit_th": "แห่ง",
+   "unit_en": "outlets",
+   "year_be": 2567,
+   "ours": null,
+   "source_name": "สำนักงานจังหวัดเชียงใหม่",
+   "source_url": "https://data.go.th/dataset/_67_83",
+   "fetched": "2026-08-20"
+  },
+  {
+   "key": "cm-stays",
+   "th": "สถานที่พักแรมทุกประเภท (เชียงใหม่)",
+   "en": "Places to stay, all types (Chiang Mai)",
+   "official": 1011,
+   "unit_th": "แห่ง",
+   "unit_en": "places",
+   "year_be": 2568,
+   "ours": {
+    "cat": "hotel",
+    "prov": "cm"
+   },
+   "source_name": "สำนักงานจังหวัดเชียงใหม่",
+   "source_url": "https://data.go.th/dataset/69_158",
+   "fetched": "2026-08-20"
+  },
+  {
+   "key": "cm-pharmacies-licensed",
+   "th": "ใบอนุญาตขายยาแผนปัจจุบัน (เชียงใหม่)",
+   "en": "Retail-pharmacy licences (Chiang Mai)",
+   "official": 702,
+   "unit_th": "ใบอนุญาต",
+   "unit_en": "licences",
+   "year_be": 2567,
+   "ours": {
+    "cat": "medical",
+    "sub": "pharmacy",
+    "prov": "cm"
+   },
+   "source_name": "สำนักงานคณะกรรมการอาหารและยา",
+   "source_url": "https://data.go.th/dataset/drug-location",
+   "fetched": "2026-08-20"
+  },
+  {
+   "key": "cr-pharmacies-licensed",
+   "th": "ใบอนุญาตขายยาแผนปัจจุบัน (เชียงราย)",
+   "en": "Retail-pharmacy licences (Chiang Rai)",
+   "official": 230,
+   "unit_th": "ใบอนุญาต",
+   "unit_en": "licences",
+   "year_be": 2567,
+   "ours": {
+    "cat": "medical",
+    "sub": "pharmacy",
+    "prov": "cr"
+   },
+   "source_name": "สำนักงานคณะกรรมการอาหารและยา",
+   "source_url": "https://data.go.th/dataset/drug-location",
+   "fetched": "2026-08-20"
+  }
+ ]
+}

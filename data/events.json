@@ -1,23 +1,8 @@
 {
- "generated": "2026-08-17",
+ "generated": "2026-08-18",
  "count": 69,
  "recurring": 32,
  "events": [
-  {
-   "uid": "event_315872108@meetup.com",
-   "start": "2026-08-17 17:00:00",
-   "all_day": false,
-   "tz": "Asia/Bangkok",
-   "end": "2026-08-17 20:00:00",
-   "title": "Sunset Walk: Under-40s CMU Campus & Lake Walk",
-   "description": "Chiang Mai Professionals, Expats, and Digital Nomads",
-   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315872108/",
-   "source": "meetup-ical",
-   "venue_name": "",
-   "venue_from": "",
-   "recurring": false,
-   "weekday": null
-  },
   {
    "uid": "event_315887479@meetup.com",
    "start": "2026-08-18 18:00:00",
@@ -209,6 +194,21 @@
    "title": "New Gamers Night",
    "description": "Chiang Mai Professionals, Expats, and Digital Nomads Light, silly, card tossing, card slapping, poker style games. Low rules- high fun is what Friday is all about. If you don’t drink this is a perfect place to meet folks and chill. We have great regulars and solo gamers are always welcome. Absolutely no experience is required. Just bring a grin and some cash for food and games.",
    "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315931990/",
+   "source": "meetup-ical",
+   "venue_name": "",
+   "venue_from": "",
+   "recurring": false,
+   "weekday": null
+  },
+  {
+   "uid": "event_315944031@meetup.com",
+   "start": "2026-08-22 07:30:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-08-22 09:30:00",
+   "title": "Slowcial Running Club CM",
+   "description": "Chiang Mai Professionals, Expats, and Digital Nomads Are you keen to meet other expats and locals while easing yourself into some gentle cardio training?  Join us at 7:30am every Saturday, for Slow + Social Run starting opposite Living a Dream Cafe on the CMU campus.  We'll enjoy a steady 20–25 minute jog, followed by coffee and food together afterwards. The pace is suitable for beginners through to more experienced runners, with everyone encouraged to run at their own comfortable pace and distance.  Start your weekend with a fun and friendly social gathering, meet new people, and get some ste",
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315944031/",
    "source": "meetup-ical",
    "venue_name": "",
    "venue_from": "",
@@ -417,14 +417,14 @@
    "weekday": 5
   },
   {
-   "uid": "event_phqfztyjcmbjb@meetup.com",
+   "uid": "event_316151862@meetup.com",
    "start": "2026-09-06 17:00:00",
    "all_day": false,
    "tz": "Asia/Bangkok",
    "end": "2026-09-06 19:00:00",
    "title": "🌅 Sunday Sunset Walk & Connect at CMU",
    "description": "Beyond Small Talk, Chiang Mai # 🌅 Sunday Sunset Walk & Connect  Looking to meet new people, build meaningful connections, and end your weekend on a positive note?  Join us every Sunday from **5:00 PM – 7:00 PM** for a relaxing sunset walk around the beautiful grounds of Chiang Mai University (CMU). This gathering is designed to help **expats, newcomers, retirees, digital nomads, travelers, and locals** connect in a genuine and authentic way. Moving to a new city can be exciting, but it can also feel isolating at times. Creating a sense of belonging doesn't happen by accident—it happens through",
-   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/phqfztyjcmbjb/",
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316151862/",
    "source": "meetup-ical",
    "venue_name": "CMU",
    "venue_from": "title",

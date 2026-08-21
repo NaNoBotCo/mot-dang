@@ -398,18 +398,18 @@ def emit(g, data):
                  "This is the Treasury's assessed value — the figure transfer fees and taxes are reckoned from. It is not a sale price, not an asking price, and normally well below both. A building carries a row per use category and floor band, so it is shown as a spread and never as one welded number.")
             + "</div>"
             + note("ทะเบียนราชการนับอาคารชุดจดทะเบียนในเชียงใหม่ " + f"{cm_n:,}" + " แห่ง และเชียงราย "
-                   + f"{cr_n:,}" + " แห่ง ส่วนสารบัญนี้ถือรายการที่ชื่อบอกว่าเป็นคอนโด " + str(len(condos))
-                   + " แห่ง ช่องว่างนี้คือสิ่งที่การเก็บข้อมูลจากแผนที่เปิดมองไม่เห็น และเป็นรายการงานที่รออยู่ · ฉบับ " + esc(edition),
+                   + f"{cr_n:,}" + " แห่ง ก่อนหน้านี้สารบัญนี้ถือแค่ 53 แห่งที่ชื่อบอกเองว่าเป็นคอนโด เพราะแผนที่เปิดรู้เท่านั้น ตอนนี้ชั้นคอนโดมี " + str(len(condos))
+                   + " แห่ง · ฉบับ " + esc(edition),
                    "The government register counts " + f"{cm_n:,}" + " registered condominium buildings in Chiang Mai and "
-                   + f"{cr_n:,}" + " in Chiang Rai. This catalogue holds " + str(len(condos))
-                   + " whose own name says condominium. That gap is what a crawl of the open map cannot see, and it is a work-list · edition " + esc(edition))
-            + "<h3>" + bi("ที่จับคู่กับรายการในสารบัญได้", "Matched to a record here")
+                   + f"{cr_n:,}" + " in Chiang Rai. This catalogue held 53 — the ones whose own name says condominium, which is all the open map knows. The condo shelf now holds " + str(len(condos))
+                   + " · edition " + esc(edition))
+            + "<h3>" + bi("ทะเบียนนี้กลายเป็นรายการในสารบัญแล้ว", "The register is now in the catalogue")
             + " <span class=\"re-count\">(" + str(len(matched)) + ")</span></h3>"
-            + note("จับคู่ด้วยชื่อที่ตรงกันเท่านั้น ไม่ใช้การจับคู่แบบใกล้เคียง — การจับแบบหลวมเคยจับ นครพิงค์คอนโดมิเนียม ไปหา เพชรนครพิงค์ ซึ่งคนละอาคาร การเอาราคาประเมินไปแปะผิดอาคารคือการพูดผิดเรื่องทรัพย์สินของคนอื่น",
-                   "Joined by exact name only, never by a near match — a loose join put นครพิงค์คอนโดมิเนียม onto เพชรนครพิงค์, a different building. An assessed valuation attached to the wrong building is a false statement about somebody's property.")
+            + note("อาคารที่จดทะเบียนทุกหลังมีหน้าของตัวเองแล้ว ค้นเจอด้วยชื่อ และอยู่ในชั้นคอนโดของอำเภอตัวเอง แบบเดียวกับที่ทะเบียนวัดของสำนักพุทธฯ เติมชั้นวัดเมื่อก่อน · จับคู่กับรายการเดิมด้วยชื่อที่ตรงกันเท่านั้น ไม่เคยใช้การจับแบบใกล้เคียง — การจับแบบหลวมเคยจับ นครพิงค์คอนโดมิเนียม ไปหา เพชรนครพิงค์ ซึ่งคนละอาคาร การเอาราคาประเมินไปแปะผิดอาคารคือการพูดผิดเรื่องทรัพย์สินของคนอื่น ชื่อที่ใกล้เคียงกันถูกเขียนไว้ให้คนอ่านตัดสิน ไม่รวมให้เอง",
+                   "Every registered building now has its own page, is findable by name, and stands on its amphoe's condo shelf — the same way the Sangha's temple register filled the wat shelf. Joined to existing records by exact name only, never by a near match: a loose join put นครพิงค์คอนโดมิเนียม onto เพชรนครพิงค์, a different building, and an assessed valuation on the wrong building is a false statement about somebody's property. Near-misses are written down for a person to settle, never merged automatically.")
             + "<div class=\"re-ct\">" + mrows + "</div>"
-            + note("อีก " + f"{len(unmatched):,}" + " อาคารในทะเบียนยังไม่มีรายการในสารบัญ (หรือใช้ชื่อที่ไม่ตรงกัน) — เป็นรายการตั้งต้นสำหรับการเดินสำรวจ ไม่ใช่การเดา ตัวทะเบียนเต็มอยู่ที่ data/curated/condo_register.json",
-                   f"The other {len(unmatched):,} registered buildings have no record here yet (or carry a different name) — a starting list for a walk, not a guess. The full register is at data/curated/condo_register.json.")
+            + note("สิ่งที่ยังขาดคือหมุดกับเบอร์โทร ไม่ใช่ตัวรายการ ทะเบียนไม่มีพิกัดสักแห่ง อาคารที่มาจากทะเบียนจึงขึ้นว่า ยังไม่มีหมุด และอยู่ในหน้า ตามหาหมุด รอคนไปปักให้ ทะเบียนเต็มอยู่ที่ data/curated/condo_register.json",
+                   "What is missing now is pins and phone numbers, not records: the register carries no coordinate at all, so every building that arrived from it says needs-pin and waits on the pin hunt for somebody to place it. The full register is at data/curated/condo_register.json.")
             + note("ที่มา: " + esc(csrc.get("publisher") or "กรมธนารักษ์") + " · "
                    + esc(csrc.get("licence") or "") + " · data.go.th",
                    "Source: " + esc(csrc.get("publisher") or "the Treasury Department") + " · "

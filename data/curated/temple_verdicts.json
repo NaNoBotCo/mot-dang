@@ -1,0 +1,756 @@
+{
+ "_comment": "Machine-settled verdicts on the temple review pile, by importers/audit_temple_review.py. A `released` code is a register row PROVEN not to be the record we already hold — its อำเภอ is more than 12 km from every pin we know to stand there — so import_opendata folds it as the separate temple it is. This file never says which row a held record IS; that stays a person's call (cache/temple_shortlist.txt). Rewritten wholesale on every run; hand corrections belong in another curated file. Measured false-refutation rate at this threshold: 0.27% cm, 0.54% cr (--validate reprints it).",
+ "refute_m": 12000,
+ "released": {
+  "03500302003": {
+   "name_th": "ป่าแดด",
+   "province": "cm",
+   "tambon": "ท่าผา",
+   "amphoe": "แม่แจ่ม",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2590245568",
+   "km_from_that_amphoe": 56.0,
+   "ground_pins_in_amphoe": 65
+  },
+  "03500401017": {
+   "name_th": "ป่าแดง",
+   "province": "cm",
+   "tambon": "เชียงดาว",
+   "amphoe": "เชียงดาว",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2638612434",
+   "km_from_that_amphoe": 51.1,
+   "ground_pins_in_amphoe": 56
+  },
+  "03500402001": {
+   "name_th": "เวฬุวัน",
+   "province": "cm",
+   "tambon": "เมืองนะ",
+   "amphoe": "เชียงดาว",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-4111339606",
+   "km_from_that_amphoe": 59.3,
+   "ground_pins_in_amphoe": 56
+  },
+  "03500403004": {
+   "name_th": "ชัยมงคล",
+   "province": "cm",
+   "tambon": "เมืองงาย",
+   "amphoe": "เชียงดาว",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2862251170",
+   "km_from_that_amphoe": 57.7,
+   "ground_pins_in_amphoe": 56
+  },
+  "03500605005": {
+   "name_th": "สันนาเม็ง",
+   "province": "cm",
+   "tambon": "แม่หอพระ",
+   "amphoe": "แม่แตง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-3955781349",
+   "km_from_that_amphoe": 27.0,
+   "ground_pins_in_amphoe": 56
+  },
+  "03500610003": {
+   "name_th": "เมืองก๋าย",
+   "province": "cm",
+   "tambon": "เมืองก๋าย",
+   "amphoe": "แม่แตง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2648502947",
+   "km_from_that_amphoe": 32.2,
+   "ground_pins_in_amphoe": 56
+  },
+  "03500613002": {
+   "name_th": "หนองผึ้ง",
+   "province": "cm",
+   "tambon": "อินทขิล",
+   "amphoe": "แม่แตง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-3474437368",
+   "km_from_that_amphoe": 36.0,
+   "ground_pins_in_amphoe": 56
+  },
+  "03500710001": {
+   "name_th": "ดอนแก้ว",
+   "province": "cm",
+   "tambon": "ดอนแก้ว",
+   "amphoe": "แม่ริม",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-4125127496",
+   "km_from_that_amphoe": 12.8,
+   "ground_pins_in_amphoe": 47
+  },
+  "03500801008": {
+   "name_th": "ป่ากล้วย",
+   "province": "cm",
+   "tambon": "สะเมิงใต้",
+   "amphoe": "สะเมิง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-3877553742",
+   "km_from_that_amphoe": 30.9,
+   "ground_pins_in_amphoe": 31
+  },
+  "03500901015": {
+   "name_th": "ป่าแดง",
+   "province": "cm",
+   "tambon": "เวียง",
+   "amphoe": "ฝาง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2638612434",
+   "km_from_that_amphoe": 110.8,
+   "ground_pins_in_amphoe": 65
+  },
+  "03501001001": {
+   "name_th": "ดอนชัย",
+   "province": "cm",
+   "tambon": "แม่อาย",
+   "amphoe": "แม่อาย",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2090560314",
+   "km_from_that_amphoe": 124.1,
+   "ground_pins_in_amphoe": 49
+  },
+  "03501004003": {
+   "name_th": "ชัยมงคล",
+   "province": "cm",
+   "tambon": "แม่นาวาง",
+   "amphoe": "แม่อาย",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2862251170",
+   "km_from_that_amphoe": 134.4,
+   "ground_pins_in_amphoe": 49
+  },
+  "03501006003": {
+   "name_th": "ป่าแดง",
+   "province": "cm",
+   "tambon": "บ้านหลวง",
+   "amphoe": "แม่อาย",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2638612434",
+   "km_from_that_amphoe": 129.1,
+   "ground_pins_in_amphoe": 49
+  },
+  "03501110015": {
+   "name_th": "ผาแดง",
+   "province": "cm",
+   "tambon": "แม่ปั๋ง",
+   "amphoe": "พร้าว",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2638612434",
+   "km_from_that_amphoe": 40.1,
+   "ground_pins_in_amphoe": 41
+  },
+  "03501111002": {
+   "name_th": "สันนาเม็ง",
+   "province": "cm",
+   "tambon": "โหล่งขอด",
+   "amphoe": "พร้าว",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-3955781349",
+   "km_from_that_amphoe": 29.0,
+   "ground_pins_in_amphoe": 41
+  },
+  "03501201006": {
+   "name_th": "กู่คำ",
+   "province": "cm",
+   "tambon": "ยุหว่า",
+   "amphoe": "สันป่าตอง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-3152478761",
+   "km_from_that_amphoe": 20.9,
+   "ground_pins_in_amphoe": 43
+  },
+  "03501201009": {
+   "name_th": "หนองปึ๋ง",
+   "province": "cm",
+   "tambon": "ยุหว่า",
+   "amphoe": "สันป่าตอง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-3474437368",
+   "km_from_that_amphoe": 15.5,
+   "ground_pins_in_amphoe": 43
+  },
+  "03501203006": {
+   "name_th": "ดอนชัย",
+   "province": "cm",
+   "tambon": "ท่าวังพร้าว",
+   "amphoe": "สันป่าตอง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2090560314",
+   "km_from_that_amphoe": 25.1,
+   "ground_pins_in_amphoe": 43
+  },
+  "03501204011": {
+   "name_th": "สันคะยอม",
+   "province": "cm",
+   "tambon": "มะขามหลวง",
+   "amphoe": "สันป่าตอง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2682539767",
+   "km_from_that_amphoe": 24.8,
+   "ground_pins_in_amphoe": 43
+  },
+  "03501704004": {
+   "name_th": "ศรีพิงค์ชัย",
+   "province": "cm",
+   "tambon": "บ้านแอ่น",
+   "amphoe": "ดอยเต่า",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-4418737570",
+   "km_from_that_amphoe": 85.9,
+   "ground_pins_in_amphoe": 34
+  },
+  "03502103003": {
+   "name_th": "ฉิมพลีวัน",
+   "province": "cm",
+   "tambon": "แม่ทะลบ",
+   "amphoe": "ไชยปราการ",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-1588175232",
+   "km_from_that_amphoe": 98.8,
+   "ground_pins_in_amphoe": 30
+  },
+  "03502103004": {
+   "name_th": "ป่าแดง",
+   "province": "cm",
+   "tambon": "แม่ทะลบ",
+   "amphoe": "ไชยปราการ",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2638612434",
+   "km_from_that_amphoe": 90.2,
+   "ground_pins_in_amphoe": 30
+  },
+  "03502201002": {
+   "name_th": "ป่าแดด",
+   "province": "cm",
+   "tambon": "บ้านกาด",
+   "amphoe": "แม่วาง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2590245568",
+   "km_from_that_amphoe": 34.3,
+   "ground_pins_in_amphoe": 30
+  },
+  "03502202004": {
+   "name_th": "ดอนแก้ว",
+   "province": "cm",
+   "tambon": "ทุ่งปี๊",
+   "amphoe": "แม่วาง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-4125127496",
+   "km_from_that_amphoe": 18.8,
+   "ground_pins_in_amphoe": 30
+  },
+  "03502205002": {
+   "name_th": "ชัยมงคล",
+   "province": "cm",
+   "tambon": "ดอนเปา",
+   "amphoe": "แม่วาง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2862251170",
+   "km_from_that_amphoe": 19.4,
+   "ground_pins_in_amphoe": 30
+  },
+  "03502305003": {
+   "name_th": "ดอนชัย",
+   "province": "cm",
+   "tambon": "แม่ทา",
+   "amphoe": "แม่ออน",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2090560314",
+   "km_from_that_amphoe": 18.1,
+   "ground_pins_in_amphoe": 18
+  },
+  "03502401005": {
+   "name_th": "สันคะยอม",
+   "province": "cm",
+   "tambon": "ดอยหล่อ",
+   "amphoe": "ดอยหล่อ",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2682539767",
+   "km_from_that_amphoe": 36.4,
+   "ground_pins_in_amphoe": 23
+  },
+  "03502403004": {
+   "name_th": "ดอนชัย",
+   "province": "cm",
+   "tambon": "ยางคราม",
+   "amphoe": "ดอยหล่อ",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2090560314",
+   "km_from_that_amphoe": 36.2,
+   "ground_pins_in_amphoe": 23
+  },
+  "03570118001": {
+   "name_th": "ศรีดอนชัย",
+   "province": "cr",
+   "tambon": "ท่าสาย",
+   "amphoe": "เมืองเชียงราย",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-1702530770",
+   "km_from_that_amphoe": 74.3,
+   "ground_pins_in_amphoe": 140
+  },
+  "03570202001": {
+   "name_th": "ดอนมูล",
+   "province": "cr",
+   "tambon": "เวียงชัย",
+   "amphoe": "เวียงชัย",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2172382585",
+   "km_from_that_amphoe": 35.5,
+   "ground_pins_in_amphoe": 29
+  },
+  "03570206009": {
+   "name_th": "ศรีดอนชัย",
+   "province": "cr",
+   "tambon": "ดอนศิลา",
+   "amphoe": "เวียงชัย",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-1702530770",
+   "km_from_that_amphoe": 89.2,
+   "ground_pins_in_amphoe": 29
+  },
+  "03570208001": {
+   "name_th": "เมืองชุม",
+   "province": "cr",
+   "tambon": "เมืองชุม",
+   "amphoe": "เวียงชัย",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2423479535",
+   "km_from_that_amphoe": 40.7,
+   "ground_pins_in_amphoe": 29
+  },
+  "03570301003": {
+   "name_th": "ศรีดอนชัย",
+   "province": "cr",
+   "tambon": "เวียง",
+   "amphoe": "เชียงของ",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-1702530770",
+   "km_from_that_amphoe": 127.4,
+   "ground_pins_in_amphoe": 59
+  },
+  "03570402007": {
+   "name_th": "สวนดอก",
+   "province": "cr",
+   "tambon": "งิ้ว",
+   "amphoe": "เทิง",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2139500177",
+   "km_from_that_amphoe": 12.7,
+   "ground_pins_in_amphoe": 71
+  },
+  "03570412004": {
+   "name_th": "ป่าตึงงาม",
+   "province": "cr",
+   "tambon": "ศรีดอนไชย",
+   "amphoe": "เทิง",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2138306718",
+   "km_from_that_amphoe": 47.5,
+   "ground_pins_in_amphoe": 71
+  },
+  "03570413002": {
+   "name_th": "ดอนมูล",
+   "province": "cr",
+   "tambon": "หนองแรด",
+   "amphoe": "เทิง",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2172382585",
+   "km_from_that_amphoe": 37.1,
+   "ground_pins_in_amphoe": 71
+  },
+  "03570501003": {
+   "name_th": "สันมะเค็ด",
+   "province": "cr",
+   "tambon": "สันมะเค็ด",
+   "amphoe": "พาน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-6395095387",
+   "km_from_that_amphoe": 70.6,
+   "ground_pins_in_amphoe": 83
+  },
+  "03570503001": {
+   "name_th": "สันมะแฟน",
+   "province": "cr",
+   "tambon": "ธารทอง",
+   "amphoe": "พาน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-11432117354",
+   "km_from_that_amphoe": 18.2,
+   "ground_pins_in_amphoe": 83
+  },
+  "03570511002": {
+   "name_th": "ผาแดง",
+   "province": "cr",
+   "tambon": "สันกลาง",
+   "amphoe": "พาน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2136677526",
+   "km_from_that_amphoe": 13.7,
+   "ground_pins_in_amphoe": 83
+  },
+  "03570511003": {
+   "name_th": "ศรีชุม",
+   "province": "cr",
+   "tambon": "สันกลาง",
+   "amphoe": "พาน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-9218379948",
+   "km_from_that_amphoe": 33.9,
+   "ground_pins_in_amphoe": 83
+  },
+  "03570511008": {
+   "name_th": "สันโค้ง",
+   "province": "cr",
+   "tambon": "สันกลาง",
+   "amphoe": "พาน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2172382588",
+   "km_from_that_amphoe": 63.5,
+   "ground_pins_in_amphoe": 83
+  },
+  "03570512004": {
+   "name_th": "สันกอง",
+   "province": "cr",
+   "tambon": "แม่เย็น",
+   "amphoe": "พาน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2172382588",
+   "km_from_that_amphoe": 63.5,
+   "ground_pins_in_amphoe": 83
+  },
+  "03570513005": {
+   "name_th": "ป่าซาง",
+   "province": "cr",
+   "tambon": "เมืองพาน",
+   "amphoe": "พาน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2171582067",
+   "km_from_that_amphoe": 53.2,
+   "ground_pins_in_amphoe": 83
+  },
+  "03570513007": {
+   "name_th": "ม่วงชุม",
+   "province": "cr",
+   "tambon": "เมืองพาน",
+   "amphoe": "พาน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2423479535",
+   "km_from_that_amphoe": 73.0,
+   "ground_pins_in_amphoe": 83
+  },
+  "03570513010": {
+   "name_th": "ทรายมูล",
+   "province": "cr",
+   "tambon": "เมืองพาน",
+   "amphoe": "พาน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2148568038",
+   "km_from_that_amphoe": 49.3,
+   "ground_pins_in_amphoe": 83
+  },
+  "03570513012": {
+   "name_th": "ชัยมงคล",
+   "province": "cr",
+   "tambon": "เมืองพาน",
+   "amphoe": "พาน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2334819336",
+   "km_from_that_amphoe": 53.9,
+   "ground_pins_in_amphoe": 83
+  },
+  "03570601002": {
+   "name_th": "ป่าสัก",
+   "province": "cr",
+   "tambon": "ป่าแดด",
+   "amphoe": "ป่าแดด",
+   "why": "refuted",
+   "held_candidate": "cr-osm-way-1380457904",
+   "km_from_that_amphoe": 78.6,
+   "ground_pins_in_amphoe": 17
+  },
+  "03570704005": {
+   "name_th": "ป่าห้า",
+   "province": "cr",
+   "tambon": "ป่าซาง",
+   "amphoe": "แม่จัน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-4527010409",
+   "km_from_that_amphoe": 16.5,
+   "ground_pins_in_amphoe": 67
+  },
+  "03570707001": {
+   "name_th": "ห้วยไร่",
+   "province": "cr",
+   "tambon": "ปงน้อย",
+   "amphoe": "ดอยหลวง",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2172485095",
+   "km_from_that_amphoe": 23.1,
+   "ground_pins_in_amphoe": 20
+  },
+  "03570712005": {
+   "name_th": "ม่วงชุม",
+   "province": "cr",
+   "tambon": "จันจว้าใต้",
+   "amphoe": "แม่จัน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2423479535",
+   "km_from_that_amphoe": 36.4,
+   "ground_pins_in_amphoe": 67
+  },
+  "03570803005": {
+   "name_th": "สวนดอก",
+   "province": "cr",
+   "tambon": "บ้านแซว",
+   "amphoe": "เชียงแสน",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2139500177",
+   "km_from_that_amphoe": 54.4,
+   "ground_pins_in_amphoe": 58
+  },
+  "03571003008": {
+   "name_th": "ปางอ้อย",
+   "province": "cr",
+   "tambon": "แม่พริก",
+   "amphoe": "แม่สรวย",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-1702530774",
+   "km_from_that_amphoe": 37.2,
+   "ground_pins_in_amphoe": 74
+  },
+  "03571005004": {
+   "name_th": "ป่าสัก",
+   "province": "cr",
+   "tambon": "ท่าก๊อ",
+   "amphoe": "แม่สรวย",
+   "why": "refuted",
+   "held_candidate": "cr-osm-way-1380457904",
+   "km_from_that_amphoe": 68.1,
+   "ground_pins_in_amphoe": 74
+  },
+  "03571104005": {
+   "name_th": "ป่าสัก",
+   "province": "cr",
+   "tambon": "ป่างิ้ว",
+   "amphoe": "เวียงป่าเป้า",
+   "why": "refuted",
+   "held_candidate": "cr-osm-way-1380457904",
+   "km_from_that_amphoe": 32.2,
+   "ground_pins_in_amphoe": 59
+  },
+  "03571105002": {
+   "name_th": "สันขี้เหล็ก",
+   "province": "cr",
+   "tambon": "เวียงกาหลง",
+   "amphoe": "เวียงป่าเป้า",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-4527010751",
+   "km_from_that_amphoe": 45.0,
+   "ground_pins_in_amphoe": 59
+  },
+  "03571105003": {
+   "name_th": "สันมะเค็ด",
+   "province": "cr",
+   "tambon": "เวียงกาหลง",
+   "amphoe": "เวียงป่าเป้า",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-6395095387",
+   "km_from_that_amphoe": 38.1,
+   "ground_pins_in_amphoe": 59
+  },
+  "03571201010": {
+   "name_th": "สันติคีรี",
+   "province": "cr",
+   "tambon": "แม่เปา",
+   "amphoe": "พญาเม็งราย",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-361376974",
+   "km_from_that_amphoe": 57.9,
+   "ground_pins_in_amphoe": 32
+  },
+  "03571202003": {
+   "name_th": "ป่าม่วง",
+   "province": "cr",
+   "tambon": "แม่ต๋ำ",
+   "amphoe": "พญาเม็งราย",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2136693462",
+   "km_from_that_amphoe": 75.5,
+   "ground_pins_in_amphoe": 32
+  },
+  "03571202007": {
+   "name_th": "พระธาตุกู่แก้ว",
+   "province": "cr",
+   "tambon": "แม่ต๋ำ",
+   "amphoe": "พญาเม็งราย",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-4530941174",
+   "km_from_that_amphoe": 39.7,
+   "ground_pins_in_amphoe": 32
+  },
+  "03571203012": {
+   "name_th": "ชัยมงคล",
+   "province": "cr",
+   "tambon": "ไม้ยา",
+   "amphoe": "พญาเม็งราย",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2334819336",
+   "km_from_that_amphoe": 35.8,
+   "ground_pins_in_amphoe": 32
+  },
+  "03571205004": {
+   "name_th": "สุวรรณคีรี",
+   "province": "cr",
+   "tambon": "ตาดควัน",
+   "amphoe": "พญาเม็งราย",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2148546071",
+   "km_from_that_amphoe": 33.7,
+   "ground_pins_in_amphoe": 32
+  },
+  "03571302002": {
+   "name_th": "กลาง",
+   "province": "cr",
+   "tambon": "ปอ",
+   "amphoe": "เวียงแก่น",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2123257435",
+   "km_from_that_amphoe": 117.7,
+   "ground_pins_in_amphoe": 33
+  },
+  "03571303001": {
+   "name_th": "ท่าข้าม",
+   "province": "cr",
+   "tambon": "หล่ายงาว",
+   "amphoe": "เวียงแก่น",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2423293688",
+   "km_from_that_amphoe": 27.3,
+   "ground_pins_in_amphoe": 33
+  },
+  "03571304003": {
+   "name_th": "ท่าข้าม",
+   "province": "cr",
+   "tambon": "ท่าข้าม",
+   "amphoe": "เวียงแก่น",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2423293688",
+   "km_from_that_amphoe": 27.3,
+   "ground_pins_in_amphoe": 33
+  },
+  "03571401008": {
+   "name_th": "ชัยมงคล",
+   "province": "cr",
+   "tambon": "ต้า",
+   "amphoe": "ขุนตาล",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2334819336",
+   "km_from_that_amphoe": 51.2,
+   "ground_pins_in_amphoe": 23
+  },
+  "03571403006": {
+   "name_th": "ป่าแดง",
+   "province": "cr",
+   "tambon": "ยางฮอม",
+   "amphoe": "ขุนตาล",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2136677526",
+   "km_from_that_amphoe": 88.7,
+   "ground_pins_in_amphoe": 23
+  },
+  "03571602006": {
+   "name_th": "ป่าแดง",
+   "province": "cr",
+   "tambon": "จอมหมอกแก้ว",
+   "amphoe": "แม่ลาว",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2136677526",
+   "km_from_that_amphoe": 44.6,
+   "ground_pins_in_amphoe": 30
+  },
+  "03571604001": {
+   "name_th": "ทรายมูล",
+   "province": "cr",
+   "tambon": "ป่าก่อดำ",
+   "amphoe": "แม่ลาว",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2148568038",
+   "km_from_that_amphoe": 36.0,
+   "ground_pins_in_amphoe": 30
+  },
+  "03571701008": {
+   "name_th": "ห้วยเคียน",
+   "province": "cr",
+   "tambon": "ทุ่งก่อ",
+   "amphoe": "เวียงเชียงรุ้ง",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2153781726",
+   "km_from_that_amphoe": 13.1,
+   "ground_pins_in_amphoe": 21
+  },
+  "03571703003": {
+   "name_th": "ชัยมงคล",
+   "province": "cr",
+   "tambon": "ป่าซาง",
+   "amphoe": "เวียงเชียงรุ้ง",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2334819336",
+   "km_from_that_amphoe": 18.1,
+   "ground_pins_in_amphoe": 21
+  },
+  "03571703004": {
+   "name_th": "ศรีดอนชัย",
+   "province": "cr",
+   "tambon": "ป่าซาง",
+   "amphoe": "เวียงเชียงรุ้ง",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-1702530770",
+   "km_from_that_amphoe": 102.9,
+   "ground_pins_in_amphoe": 21
+  },
+  "03571801003": {
+   "name_th": "สันติคีรี",
+   "province": "cr",
+   "tambon": "ปงน้อย",
+   "amphoe": "ดอยหลวง",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-361376974",
+   "km_from_that_amphoe": 43.6,
+   "ground_pins_in_amphoe": 20
+  },
+  "03571801005": {
+   "name_th": "ป่าแดง",
+   "province": "cr",
+   "tambon": "ปงน้อย",
+   "amphoe": "ดอยหลวง",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2136677526",
+   "km_from_that_amphoe": 100.1,
+   "ground_pins_in_amphoe": 20
+  },
+  "03571803001": {
+   "name_th": "สุวรรณคีรี",
+   "province": "cr",
+   "tambon": "หนองป่าก่อ",
+   "amphoe": "ดอยหลวง",
+   "why": "refuted",
+   "held_candidate": "cr-osm-node-2148546071",
+   "km_from_that_amphoe": 18.9,
+   "ground_pins_in_amphoe": 20
+  },
+  "62150090001": {
+   "name_th": "ไชยมงคล",
+   "province": "cm",
+   "tambon": "โป่งน้ำร้อน",
+   "amphoe": "ฝาง",
+   "why": "refuted",
+   "held_candidate": "cm-osm-node-2862251170",
+   "km_from_that_amphoe": 116.8,
+   "ground_pins_in_amphoe": 65
+  }
+ }
+}

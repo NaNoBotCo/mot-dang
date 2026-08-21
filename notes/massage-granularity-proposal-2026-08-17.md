@@ -1,6 +1,6 @@
 # นวด — making the massage shelf granular enough to walk into
 
-Proposal, 2026-08-17. Status: draft for reaction, nothing built.
+Proposal, 2026-08-17. Status: **D, A and B built the same day** — see *What shipped* at the foot of this note. C still open.
 
 ## Where we stand
 
@@ -15,11 +15,12 @@ café). The category tree gives the shelf two children, ในเวียง / 
 which `build.py` already notes is a split the tree does not really have.
 So today the shelf answers exactly one question: *is it inside the moat*.
 
-Name-mining test over all 294 (script in this note's commit message):
-36% of names declare anything at all — 53 say some form of "Thai massage",
-36 say "spa", 12 say "health", 2 say "blind", 2 "herbal", 2 "oil", 2 "foot",
-0 say ตอกเส้น. Names are a seed, not an answer. The fill has to come from
-somebody standing at the door.
+Name-mining test over all 294: a first loose pass scored 36%, but it counted
+"spa" as a modality and spa is a tier, not a treatment. The measured figure
+from `importers/audit_massage.py` is **57 of 294, 19%** — 52 say some form of
+"Thai massage", 2 "blind", 2 "foot", 1 "oil", 1 scrub-or-steam, and **none say
+ตอกเส้น**. Names are a seed, not an answer. The fill has to come from somebody
+standing at the door.
 
 ## The mistake we are actually preventing
 
@@ -183,6 +184,8 @@ Each chip is a positive fact. Nothing is filtered *out* by innuendo.
 
 ## Sequencing (conservative-scoping rule)
 
+Built 2026-08-17: **D then A**, in that order, on Nan's call.
+
 - **A.** Add the thirteen Axis-1 children to `categories.json`; run name
   mining; ship whatever it finds. Empty children render as wireframe shelves,
   which the tree already supports and which is the correct look for "we know
@@ -191,10 +194,11 @@ Each chip is a positive fact. Nothing is filtered *out* by innuendo.
   door-survey `ask_th` / `ask_en` written on every facet, as that file's
   convention requires.
 - **C.** The one-line summary and the chip row.
-- **D.** A one-page handout — *how to read a massage sign in Chiang Mai* —
-  replacing `assets/handouts/massage.pdf`. Arguably the highest-value item
-  here: someone in a hurry is on the pavement, not on the site, and thirteen
-  Thai words on one printed page solve the problem where it actually occurs.
+- **D.** Printed reader sheets. NOT a replacement for
+  `assets/handouts/massage.pdf` — an earlier draft of this note said that and
+  was wrong. That sheet is the owner-recruitment pitch, Thai-leading, ending in
+  a LINE QR; its audience is a shop. These are the other direction, and they
+  live in `assets/reader/` behind their own generator.
 
 ## What this proposal refuses to build
 
@@ -205,3 +209,98 @@ Each chip is a positive fact. Nothing is filtered *out* by innuendo.
 The claim of this design is narrower and stronger than a safety label: a
 reader who can see the thirteen words, the frame, and the plaque does not
 need us to tell them anything.
+
+
+---
+
+## What shipped, 2026-08-17
+
+**D — three reader sheets**, `assets/reader/`, built by `make_reader_sheets.py`
+from `data/curated/reader_sheets.json`. One job each, so a guesthouse can
+photocopy only the one it wants:
+
+| sheet | front | back |
+|---|---|---|
+| `massage-words` | the eleven terms you might walk into by accident | the two you seek out, the สบส. certificate, five things the pavement tells you |
+| `massage-expect` | five treatments where clothes stay on | six where they come off — tag strip gives clothes / where / how long |
+| `massage-money` | price bands by kind of shop, plus add-ons | tipping, and four things to say before you lie down |
+
+Three notes on how they came out:
+
+* **Two sides of one A4 is enforced, not hoped for.** `page_count()` fails the
+  build on a third page, and `--measure` reports per-side overflow in mm so a
+  copy edit is one edit rather than six. The first `overflow: hidden` version
+  of that guard was a false pass — it clipped the spill and still reported two
+  pages, which is how the phrasebook and the QR went missing without a word.
+* **The sheets carry unwalked baht bands, and say so in black on every side.**
+  `_pricesVerified: false` in the data file stamps `DRAFT — PRICES NOT YET
+  CHECKED` across both sides of `massage-expect` and `massage-money`, exactly
+  as `make_handouts.py` stamps the unverified Shan. One afternoon of reading
+  rate boards on three streets — a lane outside the moat, the old city, Nimman
+  — clears it. Do not photocopy before then.
+* **The touching-tout signal is on a sheet and deliberately not a facet.** As
+  reader guidance about street behaviour it is fair and actionable. As a field
+  on a named business it is a scarlet letter resting on one passer-by's
+  afternoon. The line also keeps the nuance: calling out "massage ka" from a
+  doorway is ordinary and most shops do it.
+
+**A — sixteen children on the massage shelf**, replacing ในเวียง/นอกเวียง
+(`inOldCity` is still an attr and still filters; it was never a *kind* of
+massage, and `build.py` had already noted that split should not be advertised).
+
+`importers/audit_massage.py` reads modality off the shops' own names — same
+read-only-then-`--emit` contract as `audit_shelves.py`, every proposal sourced
+as `osm name: <name>`, which `shelves.json` already accepts. Yield measured:
+**57 of 294**, and 237 names decline to say anything. An earlier loose pass
+scored 36% by counting "spa" as a modality; it is a tier, not a treatment, and
+the real figure is 19%.
+
+Live off names today: `thai-traditional` 52, `blind-massage` 2, `foot` 2,
+`oil` 1, `spa-body` 1. The other eleven render as wireframe shelves and are
+listed in `tests/test_facets.py` KNOWN_EMPTY with a per-shelf reason, because
+that file's rule is right: forgetting one is a bug, so each is a decision. Two
+of the eleven are ตอกเส้น and ย่ำขาง — offered in this city, named by nobody,
+and the clearest argument for the door survey there is.
+
+### B — the facet set, Axes 2 and 3
+
+One set, `massage`, 26 facets in `data/facets.json`: thirteen for the frame
+(`clothed` `undress` `mat` `table` `chair` `sharedroom` `privateroom`
+`priceboard` `womantherapist` `mantherapist` `walkin` `booking` `shower`), nine
+for the register (`hsscert` `ttmclinic` `ttmlicensed` `blindop` `exprisoner`
+`hospitalttm` `hotelspa` `homeshop` `school`), and four ordinary amenities
+reusing the existing keys and questions so an OSM tag already collected shows
+up instead of going to waste. Every one carries its `ask_th` / `ask_en`, which
+is the door-survey script the file's convention asks for.
+
+*Addendum 2026-08-19:* a fourteenth frame facet, `scrubglove` 🧤, joined the
+set (27) with the ขัดขี้ไคล shelf — whether the scrub is done with a mitt or with
+bare hands. See `notes/khat-khi-khlai-2026-08-19.md`.
+
+Three things that had to be built or decided around it:
+
+* **`appliesToCat`.** Facet sets matched on `record.sub` only, and 237 of 294
+  massage records carry no sub — so the row would have been reachable only for
+  shops already sorted into a modality, while the visit that sorts them is the
+  same visit that ticks the facets. A set can now claim a whole category, subs
+  still win when both apply, and the two genuinely mixed venues (a bar and a
+  café that also give massages) keep their own row. 292 of 294 records can now
+  hold a facet; before this, none could. The same hole was open for any
+  category whose crawl yields no subs.
+* **No "no certificate seen" facet**, despite `toiletnone` setting a precedent
+  for recording an absence. A toilet is there or it is not. A licence can sit
+  behind a counter or in an office, so "none seen" is one person's afternoon
+  rather than testimony, and it lands on a named business. `hsscert` is a
+  positive fact or it is nothing.
+* **The tick-list was the wrong trade's, for everyone.** `facet_ticks()` was
+  hardcoded to the convenience set, so a massage owner claiming their listing
+  was asked about ATMs and bakery shelves — and the sit-down toilet questions
+  were unaskable on 5,052 records too. All sets are now emitted hidden, `fx` in
+  the search index says which one a place answers to, and the form shows that
+  one. `getTicks` reads only the shown fieldset, verified by force-checking a
+  hidden `atm` box on a massage shop and confirming it stays out of the
+  payload.
+
+**Still open:** the one-line summary and the chip row (C), and the door survey
+that fills all of it. The tree has somewhere to put what the survey brings
+back, and now so does the record.

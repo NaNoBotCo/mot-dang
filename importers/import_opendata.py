@@ -583,6 +583,173 @@ def records():
                       f"(register lists {len(rows)} extant retail licences)")
                 out += recs
 
+    # --- โรงเรียนพระปริยัติธรรม — the monastic schools, and the temple each
+    # --- one stands in ------------------------------------------------------
+    # The shelf child `school/monastic` has been deliberately empty since the
+    # schools shelf was built, with a written reason: OSM has no tag for a
+    # monastic school, and the register that names them had not been fetched.
+    # This is that register. It carries the one column that makes it worth
+    # more than a list of names — **วัด**, the temple the school stands in —
+    # so a school can be pinned AT ITS TEMPLE and the temple can say which
+    # school it hosts. That join only became possible when the ONAB fold
+    # landed 2,600 temples three days ago; four of the matches below are to
+    # records that did not exist before it.
+    #
+    # The file stacks two academic years (2568 and 2569) of the same ~28
+    # schools, exactly like the provincial temple CSV stacks three. Only the
+    # newest year is taken.
+    mon = data.get("cm-monastic")
+    if mon and mon.get("rows"):
+        MH = {h: i for i, h in enumerate(mon["rows"][0])}
+        need = ("ชื่อโรงเรียน", "วัด", "อำเภอ", "ตำบล", "ปีการศึกษา")
+        if all(k in MH for k in need):
+            body = [r for r in mon["rows"][1:] if len(r) > max(MH[k] for k in need)]
+            years = [r[MH["ปีการศึกษา"]] for r in body if r[MH["ปีการศึกษา"]]]
+            newest = max(years) if years else None
+            seen_m = set()
+            rows = []
+            for r in body:
+                if newest and r[MH["ปีการศึกษา"]] != newest:
+                    continue
+                name = r[MH["ชื่อโรงเรียน"]].strip()
+                if not name or _norm(name) in seen_m:
+                    continue
+                seen_m.add(_norm(name))
+                rows.append({"name": name, "wat": r[MH["วัด"]].strip(),
+                             "amphoe": r[MH["อำเภอ"]].strip(),
+                             "tambon": r[MH["ตำบล"]].strip(), "year": newest})
+            # Temples we hold, by name — including the ones the ONAB fold added.
+            wat_idx = {}
+            for rec in canonical["cm"]:
+                if "wat" not in (rec.get("cat") or []):
+                    continue
+                for n in (rec.get("name"), rec.get("nameTh")):
+                    if n:
+                        wat_idx.setdefault(_norm(n), rec)
+
+            def _wat_of(written):
+                """The register writes the temple's FULL ceremonial name —
+                'วัดเจดีย์หลวง วรวิหาร' — while the catalogue holds 'วัดเจดีย์หลวง'.
+                The rank suffix is a rank, not part of the name, so it comes
+                off before matching and nothing else is touched."""
+                base = re.sub(r"\s*(ราชวรมหาวิหาร|ราชวรวิหาร|วรมหาวิหาร|วรวิหาร|"
+                              r"พระอารามหลวง).*$", "", written).strip()
+                return wat_idx.get(_norm(base)) or wat_idx.get(_norm(written))
+
+            def mk(row):
+                w = _wat_of(row["wat"])
+                addr = " ".join(x for x in (
+                    f"ตำบล{row['tambon']}" if row["tambon"] else "",
+                    f"อำเภอ{row['amphoe']}" if row["amphoe"] else "",
+                    "จังหวัดเชียงใหม่") if x)
+                attrs = {"schoolSector": "monastic", "officialType": "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+                         "watName": row["wat"]}
+                if row["tambon"]:
+                    attrs["tambon"] = row["tambon"]
+                if row["amphoe"]:
+                    attrs["amphoe"] = row["amphoe"]
+                rec = {"id": _sid("cm", "monastic", row["name"], row["wat"]),
+                       "province": "cm", "cat": ["school"], "sub": ["monastic"],
+                       "name": row["name"], "nameTh": None, "nameEn": None,
+                       "address": addr or None, "phone": None, "website": None,
+                       "hours": None, "attrs": attrs,
+                       "featured": False, "landmark": False,
+                       "sources": [src_meta("cm-monastic")],
+                       "confidence": "official",
+                       "updatedAt": today}
+                if w and w.get("lat") is not None:
+                    # AT the temple, because that is what the register says —
+                    # a far better pin than a tambon centroid, and still not a
+                    # surveyed pin of the school's own gate.
+                    #
+                    # A BORROWED PIN INHERITS THE LENDER'S ERROR BAR. Caught
+                    # before it shipped: วัดโขงขาว is itself placed by postcode
+                    # centroid at ±12.5 km, and stamping its school ±150 m
+                    # would have declared a twelve-kilometre guess as a
+                    # hundred-and-fifty-metre fact. The grounds of a temple are
+                    # ~150 m across, so that is the FLOOR, never the answer.
+                    wa = w.get("attrs") or {}
+                    try:
+                        lender = int(wa.get("pinUncertaintyM") or 0)
+                    except (TypeError, ValueError):
+                        lender = 0
+                    if not lender:
+                        # exact = surveyed; block = a building outline, ~120 m
+                        # by this site's own map scale (build.PLACE_MAP_SPAN).
+                        lender = 120 if w.get("geoPrecision") == "block" else 0
+                    rec["lat"], rec["lng"] = w["lat"], w["lng"]
+                    rec["geoPrecision"] = "approx"
+                    attrs["pinVia"] = "at-the-temple-the-school-belongs-to"
+                    attrs["pinUncertaintyM"] = str(max(150, lender))
+                    attrs["pinFrom"] = w.get("name") or row["wat"]
+                    attrs["watId"] = w["id"]
+                    attrs["watPinPrecision"] = w.get("geoPrecision") or "exact"
+                    return rec
+                return _pin(rec, addr, "cm")
+            recs, held = _fold_rows("cm-monastic", rows, "cm", mk, canonical, review,
+                                    run_keys=run_keys)
+            pinned = sum(1 for r in recs if (r.get("attrs") or {}).get("watId"))
+            print(f"opendata: monastic schools — {len(recs)} new, {held} already held; "
+                  f"{pinned} pinned at their own temple")
+            out += recs
+
+    # --- สถาบันอุดมศึกษา — the higher-education register --------------------
+    # Name and province and nothing else (2563 edition, and the year rides on
+    # every record). Only the institutions nobody has mapped are added, and
+    # they are added PINLESS and saying so — the import_opec posture.
+    #
+    # THE TRAP, caught before it landed: the register files
+    # "มหาวิทยาลัยรามคำแหง สาขาวิทยบริการฯ จังหวัดแพร่" under เชียงใหม่. A row
+    # whose NAME names a different จังหวัด is about that province, whatever
+    # the column says — the same rule import_citizeninfo keeps for addresses.
+    uni = data.get("universities")
+    if uni and uni.get("rows"):
+        UH = {h: i for i, h in enumerate(uni["rows"][0])}
+        if "UNIV_NAME" in UH and "PROVINCE_UNIV_NAME_TH" in UH:
+            body = [r for r in uni["rows"][1:] if len(r) > max(UH.values())]
+            yrs = [r[UH["ACADEMIC_YEAR"]] for r in body] if "ACADEMIC_YEAR" in UH else []
+            newest = max(yrs) if yrs else None
+            for prov_th, prov in (("เชียงใหม่", "cm"), ("เชียงราย", "cr")):
+                rows = []
+                for r in body:
+                    if newest and "ACADEMIC_YEAR" in UH and r[UH["ACADEMIC_YEAR"]] != newest:
+                        continue
+                    if r[UH["PROVINCE_UNIV_NAME_TH"]] != prov_th:
+                        continue
+                    nm = re.sub(r"\s+", " ", r[UH["UNIV_NAME"]]).strip()
+                    if not nm:
+                        continue
+                    other = re.search(r"จังหวัด([ก-๙]+)", nm)
+                    if other and other.group(1) != prov_th:
+                        review.append(f"[universities] {prov} {nm} — filed under {prov_th} "
+                                      f"but its name says จังหวัด{other.group(1)}; not added")
+                        continue
+                    rows.append({"name": nm, "year": newest})
+
+                def mk(row, _prov=prov, _th=prov_th):
+                    sub = "college" if row["name"].startswith("วิทยาลัย") else "university"
+                    rec = {"id": _sid(_prov, "mhesi", row["name"]),
+                           "province": _prov, "cat": ["school"], "sub": [sub],
+                           "name": row["name"], "nameTh": None, "nameEn": None,
+                           "address": f"จังหวัด{_th}", "phone": None, "website": None,
+                           "hours": None,
+                           "attrs": {"schoolSector": "higher-education",
+                                     "mhesiRegistered": True,
+                                     **({"yearBE": row["year"]} if row["year"] else {})},
+                           "featured": False, "landmark": False,
+                           "sources": [src_meta("universities", "register")],
+                           "confidence": "official", "updatedAt": today}
+                    # Province only — the register carries no address at all,
+                    # so there is nothing to geocode and nothing is invented.
+                    rec["lat"] = rec["lng"] = None
+                    rec["geoPrecision"] = "needs-pin"
+                    return rec
+                recs, held = _fold_rows("universities", rows, prov, mk, canonical, review,
+                                        run_keys=run_keys)
+                print(f"opendata: {prov} higher-education — {len(recs)} new, "
+                      f"{held} already held (register lists {len(rows)})")
+                out += recs
+
     # --- SAT-certified muay thai camps not on the shelf --------------------
     sat = data.get("sat-camps")
     if sat and sat.get("rows"):
@@ -695,6 +862,38 @@ def enrich(final, prov):
              "licence": m.get("licence") or "not specified",
              "credit": m.get("publisher") or "data.go.th",
              "note": "contact filled from the open list; the record is otherwise ours"})
+        n += 1
+    return n
+
+
+def apply_monastic(final, prov):
+    """Tell the TEMPLE which monastic school it hosts.
+
+    The register names the wat for every โรงเรียนพระปริยัติธรรม, so the link
+    runs both ways and only one direction was being used. A temple that
+    teaches the ordinary curriculum to its novices is a fact about that
+    temple — and it is the fact no other directory of either province can
+    state, because nothing else holds the temples and the schools together.
+    Nan's 2026-08-20 rule covers it: a government register may fill a field a
+    held record leaves empty; it never overwrites one.
+    """
+    if prov != "cm":
+        return 0                       # the register is Chiang Mai's
+    n = 0
+    by_id = {r["id"]: r for r in final}
+    for r in final:
+        a = r.get("attrs") or {}
+        wid = a.get("watId")
+        if not wid or "monastic" not in (r.get("sub") or []):
+            continue
+        w = by_id.get(wid)
+        if not w:
+            continue
+        wa = w.setdefault("attrs", {})
+        if wa.get("monasticSchool"):
+            continue
+        wa["monasticSchool"] = r.get("name")
+        wa["monasticSchoolId"] = r["id"]
         n += 1
     return n
 

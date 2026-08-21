@@ -146,6 +146,9 @@ CASES = [
      "must not be doored to a health page"),
     ("ฮอร์โมน", {"id_in": "cm-curated-mplus-chiangmai"},
      "hormone in Thai lands on the places that state hormone care"),
+    ("แปลงเพศ", {"panel": "trans-health", "id_in": "cm-curated-drwimon-clinic"},
+     "the one CM place that states operative care — surgery words are indexed "
+     "only for rows carrying surgery:true, so no clinic answers this by accident"),
     # WO-27 — realestate (2026-08-21). The panel triggers by variants and
     # query substring only, NEVER by the mined shelves table: that table
     # sends หมู่บ้าน and "buildings" to the realestate shelf, and a person

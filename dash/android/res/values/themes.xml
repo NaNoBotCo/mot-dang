@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Dark, because the view is committed single-theme night and a light theme
+       flashing black for a moment at launch is the one frame a rider sees
+       before the arrow. API 35 enforces edge-to-edge unless a theme opts out;
+       here the window is black anyway, so the enforcement is welcome and the
+       Activity goes immersive on top of it. -->
+  <style name="AppTheme" parent="@android:style/Theme.Material.NoActionBar">
+    <item name="android:windowBackground">#000000</item>
+    <item name="android:statusBarColor">#000000</item>
+    <item name="android:navigationBarColor">#000000</item>
+  </style>
+</resources>

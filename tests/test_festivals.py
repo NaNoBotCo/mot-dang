@@ -18,13 +18,15 @@ test has to keep:
 Run after build.py (or a standalone festivals_layer.py pass):
 
     python3 tests/test_festivals.py
+    MD_DOCS=/path/to/scratch python3 tests/test_festivals.py
 """
 import json
+import os
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCS = ROOT / "docs"
+DOCS = Path(os.environ.get("MD_DOCS") or (ROOT / "docs"))
 
 failures = []
 
@@ -44,7 +46,9 @@ built = {p.stem for p in (DOCS / "festivals").glob("*.html")}
 ids = {f["id"] for f in canon}
 check("every canon entry has a page", ids <= built, str(ids - built))
 check("no orphan festival pages", built <= ids, str(built - ids))
-check("canon holds 33 festivals", len(canon) == 33, str(len(canon)))
+# 33 + the two muay thai days (วันมวยไทย 6 Feb, วันนายขนมต้ม 17 Mar), added
+# 2026-08-19 with WO-12. Bump this deliberately, never to make it pass.
+check("canon holds 37 festivals", len(canon) == 37, str(len(canon)))  # 35 → 36 กินเจ (WO-14), → 37 วันช้างไทย (WO-15), both 2026-08-19, on purpose
 
 # ---- 2. bilingual fields travel in pairs ----------------------------------
 PAIRED = ["name", "window", "blurb", "rule", "auspicious", "merit", "verify",

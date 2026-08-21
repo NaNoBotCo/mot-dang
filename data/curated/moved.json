@@ -1,0 +1,6 @@
+{
+ "_readme": "Pages whose address changed: {old_path: new_path}, both relative to the site root. build.py write_moved_stubs() puts a tiny forwarding page (meta refresh + canonical, noindex, not in the sitemap) at each old path, and only where the new page exists. place_slug() is the Latin name plus the OSM id, so a corrected name moves a page; this is how a link pasted into a group last month still lands. Add a line whenever a curated record changes a published nameEn.",
+ "moved": {
+  "cm/p/sak-yant-tatoo-chiang-mai-5703615419.html": "cm/p/sak-yant-chiang-mai-5703615419.html"
+ }
+}

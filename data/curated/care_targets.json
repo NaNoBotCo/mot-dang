@@ -1,0 +1,180 @@
+{
+  "_readme": [
+    "WO-25 door 1 — the care-anchor roster: hospitals whose OWN sites get read",
+    "for what each states (clinic rosters, insurance/international desks,",
+    "checkup packages), plus the two official paper sources (DTV, VA FMP).",
+    "Read by importers/read_care_sites.py, which verifies before it believes:",
+    "a candidate URL counts as the hospital's own site only when the fetched",
+    "page carries one of the `expect` tokens — a guessed domain that fails",
+    "verification is recorded as unresolved, never read as the hospital.",
+    "urls[] are CANDIDATES in preference order, stored ones first (from the",
+    "crawl or linkhealth), guesses after. placeIds bind the target to the",
+    "catalogue records (dupes listed; merges are door 5's job).",
+    "Snapshots land in cache/care/<key>/, verdicts in cache/care/manifest.json.",
+    "Nothing here writes to data/curated/care.json — the register is curated",
+    "by hand from the snapshots, every claim carrying src + fetched."
+  ],
+  "targets": [
+    {
+      "key": "rajavej",
+      "name_th": "โรงพยาบาลราชเวช เชียงใหม่",
+      "name_en": "Rajavej Chiang Mai Hospital",
+      "placeIds": ["cm-osm-way-97675282"],
+      "urls": ["https://www.rajavej.com/", "https://rajavejchiangmai.com/", "https://www.rajavej.co.th/"],
+      "expect": ["ราชเวช", "rajavej"],
+      "expect_also": ["เชียงใหม่", "chiang mai", "chiangmai"]
+    },
+    {
+      "key": "bangkok-cm",
+      "name_th": "โรงพยาบาลกรุงเทพเชียงใหม่",
+      "name_en": "Bangkok Hospital Chiang Mai",
+      "placeIds": ["cm-osm-way-294031574", "cm-osm-node-11270924469"],
+      "urls": ["https://www.bangkokhospital-chiangmai.com/"],
+      "expect": ["กรุงเทพเชียงใหม่", "bangkok hospital chiang mai", "bangkokhospital-chiangmai"]
+    },
+    {
+      "key": "chiangmairam",
+      "name_th": "โรงพยาบาลเชียงใหม่ราม",
+      "name_en": "Chiangmai Ram Hospital",
+      "placeIds": ["cm-osm-way-257214959", "cm-osm-way-1111972742", "cm-osm-way-461273738"],
+      "urls": ["https://www.chiangmairam.com/"],
+      "expect": ["เชียงใหม่ราม", "chiangmai ram", "chiangmairam"]
+    },
+    {
+      "key": "lanna",
+      "name_th": "โรงพยาบาลลานนา",
+      "name_en": "Lanna Hospital",
+      "placeIds": ["cm-osm-way-529099381", "cm-osm-way-1017825075", "cm-osm-way-282620306"],
+      "urls": ["https://www.lanna-hospital.com/"],
+      "expect": ["โรงพยาบาลลานนา", "lanna hospital"]
+    },
+    {
+      "key": "mccormick",
+      "name_th": "โรงพยาบาลแมคคอร์มิค",
+      "name_en": "McCormick Hospital",
+      "placeIds": ["cm-osm-way-102807715"],
+      "urls": ["https://www.mccormick.in.th/"],
+      "expect": ["แมคคอร์มิค", "mccormick"]
+    },
+    {
+      "key": "sriphat",
+      "name_th": "ศูนย์ศรีพัฒน์ คณะแพทยศาสตร์ มช.",
+      "name_en": "Sriphat Medical Center",
+      "placeIds": ["cm-osm-way-1103996217", "cm-osm-node-3369589473"],
+      "urls": ["https://sriphat.med.cmu.ac.th/"],
+      "expect": ["ศรีพัฒน์", "sriphat"]
+    },
+    {
+      "key": "maharaj-suandok",
+      "name_th": "โรงพยาบาลมหาราชนครเชียงใหม่ (สวนดอก)",
+      "name_en": "Maharaj Nakorn Chiang Mai Hospital",
+      "placeIds": ["cm-osm-way-189618479"],
+      "urls": ["https://suandok.med.cmu.ac.th/", "https://www.med.cmu.ac.th/"],
+      "expect": ["มหาราชนคร", "สวนดอก", "suandok", "maharaj"]
+    },
+    {
+      "key": "cmneuro",
+      "name_th": "โรงพยาบาลประสาทเชียงใหม่",
+      "name_en": "Chiang Mai Neurological Hospital",
+      "placeIds": ["cm-osm-node-725689588"],
+      "urls": ["https://www.cmneuro.go.th/"],
+      "expect": ["ประสาทเชียงใหม่", "neurological"]
+    },
+    {
+      "key": "nakornping",
+      "name_th": "โรงพยาบาลนครพิงค์",
+      "name_en": "Nakornping Hospital",
+      "placeIds": ["cm-osm-way-1115985031", "cm-osm-way-356428393", "cm-moph-8899210200028"],
+      "urls": ["https://www.nkp-hospital.go.th/"],
+      "expect": ["นครพิงค์", "nakornping"]
+    },
+    {
+      "key": "central-memorial",
+      "name_th": "โรงพยาบาลเซ็นทรัลเชียงใหม่เมโมเรียล",
+      "name_en": "Central Chiang Mai Memorial Hospital",
+      "placeIds": ["cm-osm-node-1628665577"],
+      "urls": ["https://www.centralchiangmaimemorial.com/", "https://centralchiangmaimemorial.com/"],
+      "expect": ["เซ็นทรัลเชียงใหม่", "central chiang mai memorial", "central chiangmai memorial"]
+    },
+    {
+      "key": "chiangmai-hospital",
+      "name_th": "โรงพยาบาลเชียงใหม่",
+      "name_en": "Chiangmai Hospital",
+      "placeIds": ["cm-osm-way-103561795"],
+      "urls": ["https://www.chiangmai-hospital.com/", "https://www.chiangmaihospital.com/"],
+      "expect": ["โรงพยาบาลเชียงใหม่"]
+    },
+    {
+      "key": "klaimor",
+      "name_th": "โรงพยาบาลเชียงใหม่ใกล้หมอ",
+      "name_en": "Chiangmai Klaimor Hospital",
+      "placeIds": ["cm-osm-way-1111038755"],
+      "urls": ["https://www.klaimor.com/", "https://www.chiangmaiklaimor.com/", "https://www.klaimorhospital.com/"],
+      "expect": ["ใกล้หมอ", "klaimor"]
+    },
+    {
+      "key": "cmc",
+      "name_th": "โรงพยาบาลเชียงใหม่เมดิคอลเซ็นเตอร์",
+      "name_en": "Chiangmai Medical Center",
+      "placeIds": ["cm-osm-way-1267912392"],
+      "urls": ["https://www.chiangmaimedicalcenter.com/"],
+      "expect": ["เมดิคอลเซ็นเตอร์", "medical center"]
+    },
+    {
+      "key": "overbrook",
+      "name_th": "โรงพยาบาลโอเวอร์บรุ๊ค",
+      "name_en": "Overbrook Hospital",
+      "placeIds": ["cr-osm-relation-7165835"],
+      "urls": ["https://www.overbrookhospital.com/", "https://www.overbrook-hospital.com/"],
+      "expect": ["โอเวอร์บรุ๊ค", "overbrook"]
+    },
+    {
+      "key": "kasemrad-sriburin",
+      "name_th": "โรงพยาบาลเกษมราษฎร์ ศรีบุรินทร์",
+      "name_en": "Kasemrad Sriburin Hospital",
+      "placeIds": ["cr-osm-node-1741228095"],
+      "urls": ["https://sriburin.kasemrad.co.th/", "https://www.kasemrad.co.th/"],
+      "expect": ["ศรีบุรินทร์", "sriburin"]
+    },
+    {
+      "key": "cr-prachanukroh",
+      "name_th": "โรงพยาบาลเชียงรายประชานุเคราะห์",
+      "name_en": "Chiangrai Prachanukroh Hospital",
+      "placeIds": ["cr-osm-way-483841193", "cr-moph-8899210200005"],
+      "urls": ["https://www.crhospital.org/"],
+      "expect": ["ประชานุเคราะห์", "prachanukroh"]
+    },
+    {
+      "key": "mfu-medcenter",
+      "name_th": "โรงพยาบาลศูนย์การแพทย์มหาวิทยาลัยแม่ฟ้าหลวง",
+      "name_en": "Mae Fah Luang University Medical Center Hospital",
+      "placeIds": ["cr-osm-node-9582553929"],
+      "urls": ["https://hospital.mfu.ac.th/"],
+      "expect": ["แม่ฟ้าหลวง", "mae fah luang"]
+    },
+    {
+      "key": "mfl-community",
+      "name_th": "โรงพยาบาลแม่ฟ้าหลวง (ชุมชน)",
+      "name_en": "Mae Fah Luang Hospital",
+      "placeIds": ["cr-osm-way-549948901", "cr-moph-8899210200016"],
+      "urls": ["https://www.mflhospital.com/"],
+      "expect": ["แม่ฟ้าหลวง"]
+    },
+    {
+      "key": "dtv-official",
+      "kind": "official",
+      "name_th": "วีซ่า DTV (ทางการ)",
+      "name_en": "Destination Thailand Visa — official requirements",
+      "urls": ["https://www.thaievisa.go.th/", "https://consular.mfa.go.th/", "https://www.mfa.go.th/en/content/destination-thailand-visa"],
+      "expect": ["destination thailand", "dtv"]
+    },
+    {
+      "key": "fmp-official",
+      "kind": "official",
+      "name_th": "VA Foreign Medical Program (ทางการ)",
+      "name_en": "VA Foreign Medical Program — provider and claim paper",
+      "urls": ["https://www.va.gov/health-care/foreign-medical-program/", "https://www.va.gov/resources/the-foreign-medical-program-fmp/", "https://www.va.gov/COMMUNITYCARE/programs/veterans/fmp/index.asp"],
+      "expect": ["foreign medical program"]
+    }
+  ]
+}

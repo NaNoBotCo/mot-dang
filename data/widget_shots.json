@@ -1,12 +1,12 @@
 {
  "note": "Photographs of the live instruments at wichaa.net, taken daily. build.py renders these and links each back to the page it came from; it never fetches anything itself.",
- "generated": "2026-08-17 07:09",
+ "generated": "2026-08-21 07:09",
  "shots": [
   {
    "id": "moon",
    "file": "widgets/moon.png",
    "url": "https://wichaa.net/moon/",
-   "taken": "2026-08-17",
+   "taken": "2026-08-21",
    "th": "ข้างขึ้นข้างแรม",
    "en": "The moon complication",
    "cap_th": "หน้าปัดจริงจาก wichaa.net/moon",
@@ -16,7 +16,7 @@
    "id": "jovilabe",
    "file": "widgets/jovilabe.png",
    "url": "https://wichaa.net/jovilabe/",
-   "taken": "2026-08-17",
+   "taken": "2026-08-21",
    "th": "ดวงจันทร์ของพฤหัสบดี",
    "en": "Jupiter's four moons",
    "cap_th": "โจวิลาบจาก wichaa.net/jovilabe",
@@ -26,7 +26,7 @@
    "id": "redspot",
    "file": "widgets/redspot.png",
    "url": "https://wichaa.net/redspot/",
-   "taken": "2026-08-17",
+   "taken": "2026-08-21",
    "th": "มองจากจุดแดงใหญ่",
    "en": "From inside the Great Red Spot",
    "cap_th": "หน้าปัดจุดแดงจาก wichaa.net/redspot",

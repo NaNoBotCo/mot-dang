@@ -1,0 +1,116 @@
+/* เวียนขวา — the dash view.
+ *
+ * Committed single-theme night: true #000 ground, no light palette at all.
+ * An OLED black pixel is an off pixel, which saves range on a long ride, and
+ * high contrast is what a low-vision rider needs in daylight as much as at
+ * dusk. Same rule as the Cockpit page, and it applies to everything built for
+ * the bike.
+ *
+ * Sizes are in vmin so the layout holds on a phone in a pocket mount and on an
+ * eight-inch dash, which are very different rectangles. Nothing here is sized
+ * in pixels except the hairlines. */
+
+:root {
+  --bg:      #000000;
+  --ink:     #FFFFFF;
+  --dim:     #8C8C8C;
+  --amber:   #FFB020;   /* the record tell-tale colour, carried over */
+  --go:      #4ADE80;
+  --hold:    #FF6B6B;
+  --sans: ui-sans-serif, -apple-system, "Helvetica Neue", Roboto, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0; height: 100%;
+  background: var(--bg); color: var(--ink);
+  font-family: var(--sans);
+  overscroll-behavior: none;
+  -webkit-user-select: none; user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* The arrow, the number and the road name are ONE object and have to read as
+ * one at a glance. A grid that stretched them to the corners looked composed on
+ * a wide dash and fell apart on a tall phone — a void opened between the arrow
+ * and the number, and the eye stopped treating them as related. So the group is
+ * centred as a block on any aspect, and only the thin status row is pinned to
+ * the bottom edge where it belongs and where nobody reads it at speed. */
+#dash {
+  height: 100%;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+           env(safe-area-inset-bottom) env(safe-area-inset-left);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4vmin;
+}
+
+/* ---- the arrow ---- */
+#arrowbox { position: relative; display: grid; place-items: center; width: 100%; }
+
+#arrow {
+  width: min(52vmin, 58vh);
+  height: min(52vmin, 58vh);
+  display: block;
+  /* No transition while a fix is live: an eased arrow lies about where you are
+     pointing for as long as the ease lasts. It only animates on the settle
+     from one cue to the next, which dash.js drives by adding .settling. */
+  transform: rotate(0deg);
+}
+#arrow path { fill: var(--amber); }
+
+#dash.frozen #arrow path { fill: var(--dim); }
+#dash.waiting #arrow path { fill: #2A2A2A; }
+#arrowbox.settling #arrow { transition: transform .28s ease-out; }
+
+#turnword {
+  position: absolute;
+  bottom: -1vmin;
+  font-size: 4.4vmin;
+  letter-spacing: .04em;
+  color: var(--dim);
+}
+
+/* ---- the numbers ---- */
+#readout { display: grid; justify-items: center; gap: .4vmin; width: 100%; }
+
+#dist {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  display: flex; align-items: baseline; gap: .8vmin;
+}
+#distnum { font-size: 17vmin; font-weight: 700; }
+#distunit { font-size: 5.5vmin; color: var(--dim); }
+
+#street { text-align: center; max-width: 92vw; }
+#street-th { font-size: 5.6vmin; line-height: 1.15; }
+#street-en { font-size: 3.4vmin; color: var(--dim); line-height: 1.2; }
+
+/* ---- the thin row nobody reads at speed ---- */
+#status {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: calc(1.5vmin + env(safe-area-inset-bottom));
+  display: flex; flex-wrap: wrap; gap: 0 3vmin; justify-content: center;
+  font-family: var(--mono); font-size: 2.5vmin; color: var(--dim);
+}
+
+/* ---- the one thing allowed to shout ---- */
+#alert {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  background: var(--hold); color: #140605;
+  padding: 2.4vmin 3vmin;
+  text-align: center;
+}
+#alert[hidden] { display: none; }
+#alert-th { font-size: 4.6vmin; font-weight: 700; }
+#alert-en { font-size: 3vmin; }
+
+@media (prefers-reduced-motion: reduce) {
+  #arrowbox.settling #arrow { transition: none; }
+}

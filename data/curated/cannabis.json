@@ -1,0 +1,10 @@
+{
+ "_comment": "Field truth for the กัญชา-กระท่อม shelf. Curated outranks crawled: an importer never writes here, and nothing a person settles here is undone by the next crawl. Keyed by OSM ref so a verdict survives re-crawling.",
+ "_how": "cache/cannabis_review_<province>.txt lists every place whose NAME says cannabis or kratom while its TAGS say something else. Each one is a question about a real shop. Settle it here and it leaves the review file for good.",
+ "_verdicts": {
+  "cannabis": "belongs on the shelf. Give it a sub: dispensary | cannabis-cafe | kratom | clinic | farm.",
+  "no": "does not belong. It keeps whatever shelf its own tags earned — a noodle shop stays in food, a monument stays in sights."
+ },
+ "_rule": "Nothing enters `settled` without a reason written in `why`. A guess from a desk is not a settlement: the whole point of this file is that somebody looked. Where the answer needs a walk past the door, leave it in the review file until somebody walks past the door.",
+ "settled": {}
+}

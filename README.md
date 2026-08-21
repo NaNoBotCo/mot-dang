@@ -29,6 +29,21 @@ build.py still runs fine — QR boxes are just skipped.
   fails on a rule that matches nothing and on records that reach no shelf;
   shelves deliberately awaiting data are listed in `KNOWN_EMPTY`, so leaving one
   empty is a decision someone wrote down rather than an accident.
+- **A `KNOWN_EMPTY` reason can be wrong, and nothing checks it.** `beauty/salon`
+  sat on that list with the reason *"no OSM signal separates a salon from a
+  hairdresser"* — true about the tags, false about the shops. เสริมสวย is THE
+  Thai word for a women's salon and it was in **sixty-two** names the whole
+  time; the barber shelf next to it showed 6 of the city's 62 for the same
+  reason. Both were fixed by reading the names, in Thai, in one afternoon
+  (WO-22, `importers/audit_beauty.py`). A written-down decision still put two
+  lying shelves in front of readers for months, because the test can only ask
+  "is this shelf empty on purpose", never "is the purpose still true". **Before
+  a shelf is declared unfillable, read the names — in the language the shop
+  wrote them.** The corollary holds too: when the names genuinely say nothing,
+  say so with a number. Across all 18,686 records not one shopfront names a
+  perm, an updo, textured hair or a house call, and `audit_beauty.py` prints
+  those four zeros every run so the hole stays visible instead of being
+  mistaken for a rule nobody got round to writing.
 - **A shelf's name is a promise.** `repair/home` was called ช่างบ้าน-**ประปา-ไฟ**
   and held no plumbers and no electricians, because OSM maps none here — so it
   was renamed to what it actually holds. Likewise `community/intl-clubs` read
@@ -98,6 +113,39 @@ crawl's clothes.
   else, so letting a passer-by claim by ticking a box would let a stranger lock
   a shop out of its own listing. A claim still needs a real way to reach the
   shop; ticks only ride along.
+
+## 🏷 Tags — what a place ALSO is, across every shelf
+
+A shelf says what *kind* of place this is (one branch of the tree); a facet
+says whether *that* branch is worth walking to; a tag says what the place also
+is, across every shelf — vegan, bitcoin, wifi, wheelchair, open 24 h, inside
+the moat, a 7-Eleven, a royal temple. Each tag is a page a reader lands on for
+"vegan chiang mai": the exhaustive-list queries the tree cannot answer.
+
+- **[data/tags.json](data/tags.json) is the schema** — ~70 tags in 13
+  families, Thai/EN, a glyph, and exactly ONE rule over a field the record
+  already carries (an attrs value, a facet key, the honours list, the moat
+  polygon). No tag without a rule; no rule without a source field; nothing
+  inferred from a name. The vocabulary was mined from the catalogue first
+  (140 attrs keys over 16k records) — a tag exists only where the data already
+  answers for it. Brand tags are generated per chain from `attrs.brand`
+  through the same `_brand_index` the brand shelves use.
+- **Provenance travels.** `tags_layer.py` assigns once after `load()`; each
+  record in `data/places.json` carries `tags` + `tagVia` (attr:<key> ·
+  facet:<source>:<key> · moat · honours:<kind> · brand · curated:<list>), and
+  the pill's tooltip on the place page says the same in words.
+- **Empty is hidden by design.** A tag page (`/<prov>/tag/<slug>.html`) needs
+  `min_tag` records in that province; a tag×shelf page (`<slug>--<shelf>.html`)
+  needs `tag_shelf_min`. Counts are per province and never merged. Index at
+  `/tags.html`, Yahoo-style *Tag (count)* by family; the search index matches
+  both names of every tag a place earned.
+- **Curated outranks derived.** `data/curated/tags_curated.json` —
+  `{"tags": {"<slug>": {"th","en","glyph","family","ids":[…]}}}` — for a
+  person's own list; applied first, provenance `curated:<slug>`.
+- [tests/test_tags.py](tests/test_tags.py) fails if a defined rule matches
+  nothing anywhere (unless named in KNOWN_EMPTY with a reason), if a page's
+  count disagrees with places.json, if a page exists below threshold, or if a
+  tagged place page has no pills.
 
 ## The 1997 layer
 

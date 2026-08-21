@@ -2,6 +2,38 @@
  "note": "The public fix ledger — the receipts behind 'แจ้งปุ๊บ แก้ปั๊บ'. Append an entry whenever a report (or the ants' own audit) changes the site: reported date, via which door, what changed, fixed date. The dates are the whole token — never backdate, never trim a slow one, and mark self-caught entries via 'มดเอง' so reader reports and self-audits stay distinguishable. Rendered at /fixed.html and summarised wherever the site invites a report.",
  "fixes": [
   {
+   "reported": "2026-08-19",
+   "fixed": "2026-08-19",
+   "via": "มดเอง / the ants' own audit",
+   "what_th": "ชั้นสักยันต์ว่างมาตั้งแต่เปิดไซต์ ทั้งที่มีร้านรับจองสักยันต์อยู่ในสารบัญ — กฎของชั้นมองหาป้ายที่ไม่มีรายการไหนถือ ตอนนี้ชั้นสักยันต์มีรายการ พร้อมราคาที่ร้านประกาศเอง (ที่ร้าน / ที่วัด แยกสองคอลัมน์ ยังไม่ได้เทียบหน้าร้าน) และลิงก์ไปลายยันต์ล้านนา 36 ลาย กับนะ 142 ตัวบน wichaa เพิ่มชั้น สักคิ้ว-สักปาก ที่ไม่เคยมี",
+   "what_en": "The สักยันต์ shelf had been empty since launch while a sak yant booking service sat in the directory — the shelf's rule looked for a label no record carried. It now holds its listing, with the venue's own published prices (in-house / at temple as two columns, not yet checked at the door) and the join to the 36 Lanna yant designs and 142 na on wichaa. A สักคิ้ว-สักปาก (cosmetic tattoo) shelf that never existed is added.",
+   "page": "cm/tattoo/index.html"
+  },
+  {
+   "reported": "2026-08-19",
+   "fixed": "2026-08-19",
+   "via": "มดเอง / the ants' own audit",
+   "what_th": "หรรษา มินิกอล์ฟ (Hansa Minigolf) อยู่บนชั้นร้านสัก เพราะแผนที่เปิดติดป้ายร้านสักไว้ ชื่อบอกว่ามินิกอล์ฟทั้งสามภาษา ย้ายไปชั้นที่เที่ยว พร้อมใบเสร็จใน data/curated/retags.json — ควรแก้ที่ OpenStreetMap ด้วย",
+   "what_en": "หรรษา มินิกอล์ฟ / Hansa Minigolf sat on the tattoo shelf because OpenStreetMap tags it shop=tattoo; the name says minigolf in three languages. Moved to the sights shelf with its receipt in data/curated/retags.json — worth correcting upstream in OSM too.",
+   "page": "cm/tattoo/index.html"
+  },
+  {
+   "reported": "2026-08-19",
+   "fixed": "2026-08-19",
+   "via": "มดเอง / the ants' own audit",
+   "what_th": "ร้านสักในเชียงใหม่ทั้ง 30 ร้านโผล่บนชั้นที่เที่ยวด้วย เพราะกฎแปลงป้ายเก่าที่ตั้งไว้ก่อนจะมีชั้นร้านสัก ตอนนี้ร้านสักอยู่ชั้นเดียวของมัน",
+   "what_en": "All 30 Chiang Mai tattoo studios also appeared on the sights shelf through a lens mapping older than the tattoo category. They now sit on their own shelf only.",
+   "page": "cm/sights/index.html"
+  },
+  {
+   "reported": "2026-08-19",
+   "fixed": "2026-08-19",
+   "via": "มดเอง / the ants' own audit",
+   "what_th": "สนามมวยกาวิละถูกจัดเป็นค่ายมวยบนชั้นโรงเรียน และทั้งเมืองไม่มีชั้นสนามมวยเลย — สนามท่าแพ ลอยเคราะห์ สนามมวยเชียงใหม่ ไม่อยู่ในสารบัญ ตอนนี้มีชั้นมวยไทย (สนาม · ค่าย · ร้านอุปกรณ์) กระดานคืนชกรายสัปดาห์ และหน้า /muaythai.html",
+   "what_en": "Kawila Boxing Stadium was filed as a camp on the schools shelf and the site had no stadium shelf at all — Thaphae, Loi Kroh and Chiangmai Boxing Stadium were not in the directory. Now a Muay Thai shelf (stadiums · camps · gear), the weekly fight board, and /muaythai.html.",
+   "page": "muaythai.html"
+  },
+  {
    "reported": "2026-08-13",
    "fixed": "2026-08-13",
    "via": "บอกกันมา / word of mouth",
@@ -40,6 +72,38 @@
    "what_th": "แถบโรงหนังเขียนว่า “วันนี้” ทับตารางเก่าสี่วัน — ตอนนี้แถบบอกวันที่ของตารางตรงๆ",
    "what_en": "The cinema tile said “today” over a four-day-old sheet — the tile now names the sheet's own date.",
    "page": "widgets.html"
+  },
+  {
+   "reported": "2026-08-19",
+   "fixed": "2026-08-19",
+   "via": "มดเอง / the ants' own audit",
+   "what_th": "โรงเรียนสอนทำอาหารกระจายอยู่เจ็ดชั้นตามป้ายที่คนทำแผนที่ติด — Siam Rice Thai cookery school อยู่ชั้นอู่ซ่อมรถ, Gap's Thai Culinary Art School อยู่ชั้นโรงเรียนศิลปะ (กฎ “art school” จับก่อน “culinary”), โรงเรียนเก้าแห่งอยู่ปนกับร้านอาหาร — ตอนนี้ทุกแห่งได้ชั้นเรียนทำอาหารเป็นชั้นที่สอง (ชั้นเดิมยังอยู่) และกฎจำแนกคำว่า culinary art school แก้แล้ว",
+   "what_en": "Cooking schools sat on seven shelves by whatever tag a mapper chose — Siam Rice Thai cookery school on the auto-repair shelf, Gap's Thai Culinary Art School among the art schools (the “art school” rule fired before “culinary”), nine more between the restaurants. Every one now gains the cooking shelf as a second shelf (the old one stays), and the classifier's culinary-art-school rule is fixed.",
+   "page": "cooking.html"
+  },
+  {
+   "reported": "2026-08-21",
+   "fixed": "2026-08-21",
+   "via": "มดเอง / the ants' own audit",
+   "what_th": "ชั้น “อาคารคอนโด” ถือ 316 รายการ แต่ชื่อบนตึกบอกว่าเป็นคอนโดจริง 53 — ที่เหลือคือแมนชั่น คอร์ท อพาร์ตเมนต์ และหอพัก ซึ่งคนหาห้องรายเดือนมองไม่เห็นใต้ป้ายคอนโด ตอนนี้แยกตามคำบนป้ายของตึกเอง: อาคารชุด-คอนโด · อพาร์ตเมนต์-แมนชั่น-คอร์ท · หอพัก · ส่วนชั้นหมู่บ้านจัดสรรต่อกฎจับคู่แล้วในวันเดียวกัน หลังประตู landuse นำระเบียนจริงมา 22 แห่ง",
+   "what_en": "The Condo Buildings shelf held 316 records; the buildings' own names say condominium on 53. The rest are mansions, courts, apartments and dorms — invisible under a condo label to anyone hunting a monthly room. Now split by the word on each building's own sign: Condominiums · Apartments, Mansions & Courts · Dormitories · and the Moobaan shelf wired the same day, once the landuse door brought it 22 real housing estates.",
+   "page": "cm/realestate/index.html"
+  },
+  {
+   "reported": "2026-08-21",
+   "fixed": "2026-08-21",
+   "via": "มดเอง / the ants' own audit",
+   "what_th": "Sunshine Apartment ถูกจัดเป็นนายหน้าตั้งแต่การเก็บข้อมูล 27 ก.ค. เพราะป้าย OSM เขียน office=estate_agent — แต่คำเดียวที่ระเบียนถือคือชื่ออาคาร ตอนนี้ย้ายไปชั้นอพาร์ตเมนต์ พร้อมใบเสร็จใน retags.json",
+   "what_en": "Sunshine Apartment had been filed among the agents since the 27 July crawl because OSM tags it office=estate_agent — but the only word the record carries names a building. Moved to the apartment shelf, receipt in retags.json.",
+   "page": "cm/realestate/apartment/index.html"
+  },
+  {
+   "reported": "2026-08-21",
+   "fixed": "2026-08-21",
+   "via": "มดเอง / the ants' own audit",
+   "what_th": "เปิดประตูเก็บข้อมูลสามบานที่ไม่เคยถามมาก่อน: สำนักงานที่ดิน — ที่ที่การโอนโฉนดทุกครั้งเดินผ่าน — สารบัญเคยมีศูนย์แห่ง ตอนนี้มีสี่ (สองสาขาของเชียงใหม่ กรมที่ดิน และสำนักงานจังหวัดเชียงราย ส่วนสาขาเมืองเชียงใหม่ยังไม่มีใครปักหมุดในแผนที่เปิด) · หอพัก 22 → 84 แห่ง เพราะแผนที่ติดป้ายหอพักไว้ที่ตัวอาคาร ไม่ใช่ในชื่อ · หมู่บ้านจัดสรร 0 → 22 แห่ง จากพื้นที่อยู่อาศัยที่มีชื่อ โดยกันหมู่บ้านจริง 590 แห่งไว้ไม่ให้ถูกจัดเป็นโครงการจัดสรร",
+   "what_en": "Three crawl doors that had never been asked: the Land Office — where every chanote transfer happens — went from ZERO in the catalogue to four (two Chiang Mai branches, the Land Department, and Chiang Rai's provincial office; nobody has pinned Chiang Mai's Mueang seat on the open map yet) · dormitories 22 → 84, because the map tags a dorm on the building rather than in the name · housing estates 0 → 22 from named residential areas, with 590 real villages fenced OUT so that nobody's home address is filed as a development somebody is selling.",
+   "page": "realestate.html"
   }
  ]
 }

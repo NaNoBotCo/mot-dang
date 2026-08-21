@@ -207,6 +207,48 @@ re-discovered hopefully:
   line says what ราคาประเมิน is: the basis for transfer fees, not a market
   price, normally well below one.
 
+## 3c. POSTSCRIPT 2 — the register folded as records, same day
+
+Nan: *"go ahead and further enrich."* The register was sitting in
+`data/curated/` being *counted* on the page while the shelf it measured stayed
+at 53. So it was folded, on exactly the terms the ONAB temple register was
+(`import_opec.apply`'s contract, and its precedent: **1,644 records in this
+catalogue already have no coordinate**, 943 of them register temples).
+
+`importers/import_condo_register.py` — runs on the MERGED list, so it sees
+everything held before deciding a building is missing:
+
+- **The condo shelf goes 53 → 426.** 354 CM + 19 CR registered buildings
+  arrive as records, each with its amphoe, its tambon where the register has
+  one, its use categories, the Treasury's assessed spread and the edition it
+  was read from.
+- **10 buildings already held were STAMPED** with the assessed spread rather
+  than duplicated — the register is the authority on its own valuation, and
+  they keep every other field they had.
+- **376 of the 426 now carry an official assessed value.** Every one is a
+  spread (`assessedLow`–`assessedHigh`), labelled in both languages as the
+  transfer-fee basis and never a market price, on the record itself so no
+  renderer can lose the caveat.
+- **373 are `needs-pin` and say so.** The register has no coordinate at all.
+  They land on the existing pin hunt where the register temples already are.
+  What is missing now is pins and phone numbers, not records.
+
+Two defects found and fixed while doing it, both in my own new code:
+
+- **Idempotency.** A name that normalises to fewer than four characters
+  (ตุง คอนโด → ตุง) is created but can never be MATCHED, so a second import
+  would have made it again — the same id twice in the file. The guard is now
+  on the id itself, not on name matching, and a re-run creates 0.
+- **Near-miss noise.** The review file's containment rule matched every
+  building with เชียงใหม่ in its name against a record literally called
+  เชียงใหม่ — 53 pairs no person needed to see. Requiring comparable lengths
+  (≥ 0.6) took it to 0, so a real near-miss will now stand out instead of
+  being buried.
+
+Near-misses are still never merged automatically: a loose join put
+นครพิงค์คอนโดมิเนียม onto เพชรนครพิงค์, a different building, so pairs go to
+`cache/condo_register_review_<prov>.txt` for `merges.json`, human-confirmed.
+
 ## 4. The interstitial room, by design
 
 - **Sub slots named, not stubbed**: `serviced`, `developer`,

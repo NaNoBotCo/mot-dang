@@ -1,0 +1,224 @@
+{
+  "_readme": [
+    "WO-31 — the ADHD register behind /adhd.html (adhd_layer.py).",
+    "Measured first (2026-08-21): across all 20,327 records in both provinces,",
+    "ZERO names state ADHD in any spelling, either language — no สมาธิสั้น, no",
+    "ADHD, no เมทิลเฟนิเดต, no จิตเวช. FIVE records carry psychiatry or child",
+    "development at all, and two of those five are the same hospital twice.",
+    "So every row here is curated research with dated sources, the same bar as",
+    "additions-*.json: the place's OWN statement, read on its own site, quoted",
+    "in its own terms. The grade is the point and goes on every row:",
+    "  stated      the place itself names สมาธิสั้น / ADHD in its services or",
+    "              its own published material, on its own site.",
+    "  psychiatry  the place's own SIGN says จิตเวช / psychiatry — the door this",
+    "              care goes through here — but it has NOT said ADHD. Printed as",
+    "              exactly that much and no more.",
+    "  route       a hospital where the department is standard for its class,",
+    "              NOT confirmed for this building. Ring first.",
+    "  unread      a target whose own page this machine could not read. The",
+    "              ATTEMPT is published instead of a guess — feedback rule:",
+    "              never hallucinate a rule, print the block.",
+    "THE THREE THINGS READERS CONFLATE, kept apart on the page by design:",
+    "  1. the SCHEDULE a molecule sits in — fixed, checkable, and the checker is",
+    "     a live official tool we link rather than a table we copy;",
+    "  2. what the NATIONAL LIST actually stocks — บัญชี ค, tab 10 mg only;",
+    "  3. what a DESK will do — mutable, varies by desk, and therefore written",
+    "     as questions to ask, never as a rule recited.",
+    "molecules[] give the LEGAL CLASS of a substance, which is a fact about",
+    "import and supply. They are not a recommendation and carry no dose. The",
+    "site holds no view on what anyone should take, and says so on the page.",
+    "unverified[] are leads a person still has to run down. They render nowhere.",
+    "build.py reads rows[] for index keywords so search and page cannot disagree."
+  ],
+  "fetched": "2026-08-21",
+  "corpus": {
+    "records": 20327,
+    "naming_this_care": 0,
+    "naming_psychiatry": 5,
+    "note_th": "ค้นทุกชื่อในสารบัญทั้งสองจังหวัด ไม่มีที่ไหนเขียนคำว่าสมาธิสั้นหรือ ADHD ไว้บนป้ายของตัวเองเลย",
+    "note_en": "A scan of every name in both provinces found no place stating ADHD on its own sign, in either language."
+  },
+  "molecules": [
+    {
+      "key": "amphetamine",
+      "generic_en": "amphetamine · dexamfetamine · lisdexamfetamine",
+      "generic_th": "แอมเฟตามีน · เดกซ์แอมเฟตามีน · ลิสเดกซ์แอมเฟตามีน",
+      "known_as": "Adderall · Vyvanse · Elvanse · Dexedrine",
+      "class_th": "ยาเสพติดให้โทษประเภท 1",
+      "class_en": "narcotic drug, category 1",
+      "carry": "prohibited",
+      "carry_th": "นำเข้าประเทศไทยไม่ได้ และไม่มีใบอนุญาตประเภทใดที่ขอได้",
+      "carry_en": "Cannot be brought into Thailand, and there is no permit that covers it — the traveller scheme reaches narcotic categories 2 and 3 only.",
+      "quote_en": "The importation of narcotic drugs of category 1, 4, or 5 is prohibited.",
+      "quote_src": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index",
+      "sources": [
+        {"ref": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index", "fetched": "2026-08-21"},
+        {"ref": "https://narcotic.fda.moph.go.th/information-about-drugs/detail-ps", "fetched": "2026-08-21"}
+      ]
+    },
+    {
+      "key": "methylphenidate",
+      "generic_en": "methylphenidate",
+      "generic_th": "เมทิลเฟนิเดต",
+      "known_as": "Ritalin · Concerta · Medikinet · Equasym",
+      "class_th": "วัตถุออกฤทธิ์ประเภท 2",
+      "class_en": "psychotropic substance, category 2",
+      "carry": "permitted-limited",
+      "carry_th": "พกเข้ามาได้ไม่เกิน 30 วันพร้อมใบสั่งแพทย์ · เกิน 30 วันถึง 90 วัน ต้องขออนุญาต อย. ล่วงหน้าอย่างน้อย 15 วัน",
+      "carry_en": "May be carried in for personal use up to a 30-day supply with the prescribing doctor's certificate or prescription; a 31–90 day supply needs an FDA permit applied for at least 15 days before travel.",
+      "quote_th": "กฎหมายห้ามมิให้ผู้ใด ผลิต ขาย นำเข้า หรือส่งออก ซึ่งวัตถุออกฤทธิ์ในประเภท 2 ยกเว้นกระทรวงสาธารณสุข หรือผู้ซึ่งได้รับมอบหมายจากกระทรวงสาธารณสุข",
+      "quote_en": "No one may produce, sell, import or export a category-2 psychotropic substance except the Ministry of Public Health, or a party the Ministry has authorised.",
+      "quote_src": "https://narcotic.fda.moph.go.th/information-about-drugs/detail-ps",
+      "nlem_th": "บัญชี ค · รูปแบบ tab (เฉพาะ 10 mg) · เงื่อนไข: ใช้สำหรับ Attention-Deficit Hyperactivity Disorder (ADHD) และ narcolepsy",
+      "nlem_en": "On the National List of Essential Medicines under บัญชี ค, as a tablet in the 10 mg strength only, with ADHD and narcolepsy named as its conditions of use.",
+      "nlem_src": "https://ndi.fda.moph.go.th/drug_national_detail/index/13775",
+      "sources": [
+        {"ref": "https://narcotic.fda.moph.go.th/information-about-drugs/detail-ps", "fetched": "2026-08-21"},
+        {"ref": "https://narcotic.fda.moph.go.th/detail-psycho-new1/category/detail-psychrotrophic1", "fetched": "2026-08-21"},
+        {"ref": "https://ndi.fda.moph.go.th/drug_national_detail/index/13775", "fetched": "2026-08-21"},
+        {"ref": "https://en.fda.moph.go.th/entrepreneurs-narcotic-drugs-and-psychotropic-substances/category/guidance-for-travelers-under-treatment-carrying-personal-medications-containing-narcotic-drugs-into-/", "fetched": "2026-08-21"}
+      ]
+    },
+    {
+      "key": "atomoxetine",
+      "generic_en": "atomoxetine",
+      "generic_th": "อะโตม็อกซีทีน",
+      "known_as": "Strattera",
+      "class_th": "ยาแผนปัจจุบัน ไม่ได้เป็นวัตถุออกฤทธิ์หรือยาเสพติดให้โทษ",
+      "class_en": "an ordinary prescription medicine — not scheduled as a psychotropic substance or a narcotic drug",
+      "carry": "permitted",
+      "carry_th": "ไม่ต้องขออนุญาต หากไม่เกิน 30 วันและมีใบสั่งแพทย์",
+      "carry_en": "No permit needed for a personal supply of up to 30 days with a prescription — the tool files it under Medical Preparation (non-controlled).",
+      "sources": [
+        {"ref": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index", "fetched": "2026-08-21"}
+      ]
+    }
+  ],
+  "travel": {
+    "tool_url": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index",
+    "permit_url": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/",
+    "guidance_url": "https://en.fda.moph.go.th/entrepreneurs-narcotic-drugs-and-psychotropic-substances/category/guidance-for-travelers-under-treatment-carrying-personal-medications-containing-narcotic-drugs-into-/",
+    "search_by_th": "ค้นด้วยชื่อสามัญทางยา ไม่ใช่ชื่อการค้า",
+    "search_by_en": "It searches on the generic name (active substance), not the brand on the box — look at the small print, not the big print.",
+    "lead_time_days": 15,
+    "processing_days": 3,
+    "psychotropic_days_no_permit": 30,
+    "psychotropic_days_permit": 90,
+    "narcotic_days_permit": 90,
+    "customs_th": "แสดงยาและเอกสารที่ช่องตรวจศุลกากรสีแดง",
+    "customs_en": "Declare the medicine and its papers at the red channel in customs on arrival.",
+    "sources": [
+      {"ref": "https://en.fda.moph.go.th/entrepreneurs-narcotic-drugs-and-psychotropic-substances/category/guidance-for-travelers-under-treatment-carrying-personal-medications-containing-narcotic-drugs-into-/", "fetched": "2026-08-21"},
+      {"ref": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index", "fetched": "2026-08-21"}
+    ]
+  },
+  "rows": [
+    {
+      "key": "ricd",
+      "place": "cm-osm-way-1115112650",
+      "grade": "stated",
+      "adhd": true,
+      "child_only": true,
+      "name_th": "สถาบันพัฒนาการเด็กราชนครินทร์",
+      "name_en": "Rajanagarindra Institute of Child Development (RICD)",
+      "states_th": "สถาบันในสังกัดกรมสุขภาพจิต กระทรวงสาธารณสุข · เผยแพร่คู่มือความรู้ความเข้าใจเกี่ยวกับโรคสมาธิสั้นไว้บนเว็บของตนเอง · เว็บของสถาบันลิงก์ไปเว็บ adhdthailand.com",
+      "states_en": "An institute of the Department of Mental Health · it publishes its own handbook on ADHD on its own website · and its site carries a standing link out to adhdthailand.com",
+      "reach_th": "196 หมู่ 10 ต.ดอนแก้ว อ.แม่ริม จ.เชียงใหม่ 50180 · โทร 053-908-300 – 49",
+      "reach_en": "196 Moo 10, Don Kaeo, Mae Rim, Chiang Mai 50180 · tel 053-908-300 – 49",
+      "sources": [
+        {"ref": "https://thaichilddevelopment.com/contact.php", "fetched": "2026-08-21"},
+        {"ref": "https://www.thaichilddevelopment.com/", "fetched": "2026-08-21"},
+        {"ref": "https://www.ricd.go.th/", "fetched": "2026-08-21"}
+      ]
+    },
+    {
+      "key": "suanprung",
+      "place": "cm-osm-way-1212478397",
+      "grade": "psychiatry",
+      "adhd": false,
+      "name_th": "โรงพยาบาลสวนปรุง",
+      "name_en": "Suan Prung Psychiatric Hospital",
+      "states_th": "คลินิกจิตเวชเด็กและวัยรุ่น — เด็กและวัยรุ่น (อายุไม่เกิน 18 ปี) · วันจันทร์ วันพุธ และวันศุกร์ เวลา 08.00-16.00 น. · วันอังคาร เวลา 08.00-12.00 น. · ที่อยู่ 131 ถ.ช่างหล่อ ต.หายยา อ.เมือง จ.เชียงใหม่ 50100 · โทร +66 53 90 8500",
+      "states_en": "Its own service page names a child and adolescent psychiatric clinic for ages up to 18, sitting Monday, Wednesday and Friday 08.00–16.00 and Tuesday 08.00–12.00. It is the region's Department of Mental Health psychiatric hospital and it treats adults — but it does not name ADHD anywhere, and it names no adult ADHD service.",
+      "reach_th": "131 ถ.ช่างหล่อ ต.หายยา อ.เมือง จ.เชียงใหม่ 50100 · โทร +66 53 90 8500",
+      "reach_en": "131 Chang Lo Rd, Haiya, Mueang, Chiang Mai 50100 · tel +66 53 90 8500",
+      "sources": [
+        {"ref": "https://www.suanprung.go.th/SP2025/service.php", "fetched": "2026-08-21"},
+        {"ref": "https://www.suanprung.go.th/SP2025/contact_us.php", "fetched": "2026-08-21"}
+      ]
+    },
+    {
+      "key": "jamlong",
+      "place": "cm-osm-node-3385521309",
+      "grade": "psychiatry",
+      "adhd": false,
+      "name_th": "คลินิกนายแพทย์จำลอง ดิษยวณิช",
+      "name_en": "Dr Jamlong Disayavanish Psychiatric Clinic",
+      "states_th": "ป้ายของคลินิกเองบอกว่าเป็นคลินิกจิตเวช — ยังไม่มีใครยืนยันเรื่องสมาธิสั้นที่นี่",
+      "states_en": "The clinic's own sign says psychiatric clinic. Nothing about ADHD is confirmed here — this row exists because a private psychiatric door in this city is worth knowing about, and because clinics here are named after their doctors, which is why the directory could not find them by trade.",
+      "sources": [
+        {"ref": "https://www.openstreetmap.org/node/3385521309", "fetched": "2026-08-21"}
+      ]
+    },
+    {
+      "key": "kittiwan",
+      "place": "cm-osm-node-3388717543",
+      "grade": "psychiatry",
+      "adhd": false,
+      "name_th": "คลินิกหมอกิตติวรรณ",
+      "name_en": "Dr Kittiwan Psychiatric Clinic",
+      "states_th": "ป้ายของคลินิกเองบอกว่าเป็นคลินิกจิตเวช — ยังไม่มีใครยืนยันเรื่องสมาธิสั้นที่นี่",
+      "states_en": "The clinic's own sign says psychiatric clinic. Nothing about ADHD is confirmed here.",
+      "sources": [
+        {"ref": "https://www.openstreetmap.org/node/3388717543", "fetched": "2026-08-21"}
+      ]
+    },
+    {
+      "key": "maharaj",
+      "place": "cm-osm-way-189618479",
+      "grade": "route",
+      "adhd": false,
+      "name_th": "โรงพยาบาลมหาราชนครเชียงใหม่ (สวนดอก)",
+      "name_en": "Maharaj Nakorn Chiang Mai Hospital (Suan Dok)",
+      "states_th": "โรงพยาบาลมหาวิทยาลัย — ภาควิชาจิตเวชศาสตร์เป็นแผนกปกติของโรงพยาบาลชั้นนี้ แต่ยังไม่ได้ยืนยันคลินิกที่นี่ · โทรถามแผนกก่อน · โทร 053936150",
+      "states_en": "A university teaching hospital, where a department of psychiatry is standard for the class — but no clinic here has been confirmed for this, and the faculty's psychiatry page did not resolve from this machine on 2026-08-21. Ring the department first; Thai hospital switchboards answer this routinely.",
+      "reach_th": "โทร 053936150",
+      "reach_en": "tel 053936150",
+      "sources": [
+        {"ref": "http://suandok.med.cmu.ac.th/", "fetched": "2026-08-21"}
+      ]
+    },
+    {
+      "key": "nakornping",
+      "place": "cm-osm-way-1115985031",
+      "grade": "route",
+      "adhd": false,
+      "name_th": "โรงพยาบาลนครพิงค์",
+      "name_en": "Nakornping Hospital",
+      "states_th": "โรงพยาบาลศูนย์ประจำจังหวัด — เส้นทางปกติของผู้ป่วยนอกในระบบ แต่ยังไม่ได้ยืนยันคลินิกที่นี่",
+      "states_en": "The province's regional hospital — the ordinary outpatient route inside the public system, but no clinic here has been confirmed for this.",
+      "sources": []
+    },
+    {
+      "key": "cr-prachanukroh",
+      "place": "cr-osm-way-483841193",
+      "grade": "unread",
+      "adhd": false,
+      "name_th": "โรงพยาบาลเชียงรายประชานุเคราะห์",
+      "name_en": "Chiangrai Prachanukroh Hospital",
+      "states_th": "หน้าคลินิกพิเศษของกลุ่มงานกุมารเวชกรรมตอบกลับ 403 กับเครื่องนี้เมื่อ 21 ส.ค. 2569 — จึงยังไม่บันทึกว่ามีบริการอะไร โทรถามเอง",
+      "states_en": "Chiang Rai's main hospital. Its paediatric special-clinic page refused this machine with an HTTP 403 on 2026-08-21, so nothing about its services is recorded here — the attempt is printed instead of a guess. Ring and ask.",
+      "unread_url": "https://ped.crhospital.org/?group=opd_special&page=service",
+      "sources": [
+        {"ref": "https://www.crhospital.org/", "fetched": "2026-08-21"}
+      ]
+    }
+  ],
+  "unverified": [
+    "adhdthailand.com — Thailand's own ADHD site, linked from RICD's website. Its TLS handshake failed from this machine on 2026-08-21 (TLSV1_ALERT_INTERNAL_ERROR), so it is named on the page as a lead and NOT linked as a register.",
+    "dmh.go.th/service/pdf/6pat.pdf and /8sp.pdf — the Department of Mental Health's own per-institution service schedules for RICD and Suan Prung. Blocked at fetch time; worth reading by browser and folding into rows[].",
+    "cm-moph-0114210800027 'กรมสุขภาพจิต โรงพยาบาลสวนปรุง' is the same hospital as cm-osm-way-1212478397 under its MOPH record — a merge pair for data/curated/merges.json, same shape as the 27 pairs WO-25 adjudicated.",
+    "Chiangrai Prachanukroh paediatrics: a secondary summary describes an ASD/ADHD/LD service for under-6s with referral to a child psychiatrist over 6. NOT recorded as fact — the hospital's own page was unreadable.",
+    "Private hospital psychiatry desks (Bangkok CM, Chiang Mai Ram, Rajavej, Lanna) — none read for this topic yet; WO-25 found several render client-side."
+  ]
+}

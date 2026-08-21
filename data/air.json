@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17",
+ "generated": "2026-08-21",
  "source": "Open-Meteo Air Quality (open-meteo.com), CC-BY 4.0",
  "model": "CAMS — modelled, not a monitor at street level",
  "scale": "Thailand PCD PM2.5 bands (µg/m³)",
@@ -10,61 +10,17 @@
    "en": "Chiang Mai",
    "lat": 18.7883,
    "lng": 98.9853,
-   "pm25": 9.6,
-   "pm10": 11.5,
-   "usAqi": 50,
+   "pm25": 10.2,
+   "pm10": 10.5,
+   "usAqi": 49,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-17T07:00",
+   "observed": "2026-08-21T22:00",
    "days": [
-    {
-     "date": "2026-08-10",
-     "pm25": 7.9,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-11",
-     "pm25": 12.5,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-12",
-     "pm25": 9.4,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-13",
-     "pm25": 13.9,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
     {
      "date": "2026-08-14",
      "pm25": 12.3,
@@ -100,7 +56,7 @@
     },
     {
      "date": "2026-08-17",
-     "pm25": 11.2,
+     "pm25": 11.5,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -111,7 +67,29 @@
     },
     {
      "date": "2026-08-18",
-     "pm25": 11.6,
+     "pm25": 16.8,
+     "hours": 24,
+     "band": {
+      "key": "good",
+      "th": "ดี",
+      "en": "Good",
+      "colour": "#4caf50"
+     }
+    },
+    {
+     "date": "2026-08-19",
+     "pm25": 15.2,
+     "hours": 24,
+     "band": {
+      "key": "good",
+      "th": "ดี",
+      "en": "Good",
+      "colour": "#4caf50"
+     }
+    },
+    {
+     "date": "2026-08-20",
+     "pm25": 10.0,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -121,8 +99,30 @@
      }
     },
     {
-     "date": "2026-08-19",
-     "pm25": 12.0,
+     "date": "2026-08-21",
+     "pm25": 7.9,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-22",
+     "pm25": 5.9,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-23",
+     "pm25": 7.0,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -139,61 +139,17 @@
    "en": "Chiang Rai",
    "lat": 19.9105,
    "lng": 99.8406,
-   "pm25": 9.3,
-   "pm10": 10.6,
-   "usAqi": 46,
+   "pm25": 7.2,
+   "pm10": 7.2,
+   "usAqi": 40,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-17T07:00",
+   "observed": "2026-08-21T22:00",
    "days": [
-    {
-     "date": "2026-08-10",
-     "pm25": 6.8,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-11",
-     "pm25": 7.4,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-12",
-     "pm25": 7.0,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-13",
-     "pm25": 9.6,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
     {
      "date": "2026-08-14",
      "pm25": 6.8,
@@ -229,7 +185,7 @@
     },
     {
      "date": "2026-08-17",
-     "pm25": 7.5,
+     "pm25": 7.9,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -240,7 +196,7 @@
     },
     {
      "date": "2026-08-18",
-     "pm25": 6.4,
+     "pm25": 10.8,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -251,7 +207,51 @@
     },
     {
      "date": "2026-08-19",
-     "pm25": 5.5,
+     "pm25": 9.6,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-20",
+     "pm25": 9.8,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-21",
+     "pm25": 5.8,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-22",
+     "pm25": 4.5,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-23",
+     "pm25": 3.8,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -268,61 +268,17 @@
    "en": "Pai",
    "lat": 19.3583,
    "lng": 98.4392,
-   "pm25": 0.4,
-   "pm10": 0.8,
-   "usAqi": 17,
+   "pm25": 1.8,
+   "pm10": 2.5,
+   "usAqi": 28,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-17T07:00",
+   "observed": "2026-08-21T22:00",
    "days": [
-    {
-     "date": "2026-08-10",
-     "pm25": 1.1,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-11",
-     "pm25": 1.6,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-12",
-     "pm25": 2.2,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-13",
-     "pm25": 2.7,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
     {
      "date": "2026-08-14",
      "pm25": 4.5,
@@ -358,7 +314,7 @@
     },
     {
      "date": "2026-08-17",
-     "pm25": 1.2,
+     "pm25": 3.4,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -369,7 +325,7 @@
     },
     {
      "date": "2026-08-18",
-     "pm25": 1.5,
+     "pm25": 4.3,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -380,7 +336,51 @@
     },
     {
      "date": "2026-08-19",
-     "pm25": 1.6,
+     "pm25": 4.0,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-20",
+     "pm25": 2.6,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-21",
+     "pm25": 2.9,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-22",
+     "pm25": 1.1,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-23",
+     "pm25": 1.1,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -397,61 +397,17 @@
    "en": "Mae Hong Son",
    "lat": 19.302,
    "lng": 97.9654,
-   "pm25": 0.9,
-   "pm10": 1.6,
-   "usAqi": 20,
+   "pm25": 3.3,
+   "pm10": 4.6,
+   "usAqi": 30,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-17T07:00",
+   "observed": "2026-08-21T22:00",
    "days": [
-    {
-     "date": "2026-08-10",
-     "pm25": 1.5,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-11",
-     "pm25": 2.1,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-12",
-     "pm25": 2.2,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-13",
-     "pm25": 3.1,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
     {
      "date": "2026-08-14",
      "pm25": 5.1,
@@ -487,7 +443,7 @@
     },
     {
      "date": "2026-08-17",
-     "pm25": 1.8,
+     "pm25": 4.0,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -498,7 +454,7 @@
     },
     {
      "date": "2026-08-18",
-     "pm25": 2.2,
+     "pm25": 5.0,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -509,7 +465,51 @@
     },
     {
      "date": "2026-08-19",
-     "pm25": 2.2,
+     "pm25": 6.0,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-20",
+     "pm25": 3.7,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-21",
+     "pm25": 2.5,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-22",
+     "pm25": 1.1,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-23",
+     "pm25": 1.2,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -526,61 +526,17 @@
    "en": "Lamphun",
    "lat": 18.5744,
    "lng": 99.0087,
-   "pm25": 5.4,
-   "pm10": 6.9,
-   "usAqi": 26,
+   "pm25": 5.6,
+   "pm10": 6.4,
+   "usAqi": 29,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-17T07:00",
+   "observed": "2026-08-21T22:00",
    "days": [
-    {
-     "date": "2026-08-10",
-     "pm25": 3.6,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-11",
-     "pm25": 4.4,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-12",
-     "pm25": 4.8,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-13",
-     "pm25": 6.4,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
     {
      "date": "2026-08-14",
      "pm25": 5.5,
@@ -616,7 +572,7 @@
     },
     {
      "date": "2026-08-17",
-     "pm25": 4.9,
+     "pm25": 6.6,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -627,7 +583,7 @@
     },
     {
      "date": "2026-08-18",
-     "pm25": 3.9,
+     "pm25": 7.6,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -638,7 +594,51 @@
     },
     {
      "date": "2026-08-19",
-     "pm25": 3.9,
+     "pm25": 7.0,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-20",
+     "pm25": 4.7,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-21",
+     "pm25": 5.0,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-22",
+     "pm25": 3.8,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-23",
+     "pm25": 2.3,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -655,61 +655,17 @@
    "en": "Lampang",
    "lat": 18.2888,
    "lng": 99.4909,
-   "pm25": 5.2,
-   "pm10": 6.5,
-   "usAqi": 27,
+   "pm25": 4.5,
+   "pm10": 5.9,
+   "usAqi": 28,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-17T07:00",
+   "observed": "2026-08-21T22:00",
    "days": [
-    {
-     "date": "2026-08-10",
-     "pm25": 4.2,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-11",
-     "pm25": 4.5,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-12",
-     "pm25": 5.5,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-13",
-     "pm25": 7.1,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
     {
      "date": "2026-08-14",
      "pm25": 6.1,
@@ -745,7 +701,7 @@
     },
     {
      "date": "2026-08-17",
-     "pm25": 4.9,
+     "pm25": 6.6,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -756,7 +712,7 @@
     },
     {
      "date": "2026-08-18",
-     "pm25": 4.2,
+     "pm25": 9.0,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -767,7 +723,51 @@
     },
     {
      "date": "2026-08-19",
-     "pm25": 3.8,
+     "pm25": 6.7,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-20",
+     "pm25": 5.1,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-21",
+     "pm25": 4.9,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-22",
+     "pm25": 4.6,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-23",
+     "pm25": 2.8,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -784,61 +784,17 @@
    "en": "Mae Sai",
    "lat": 20.4293,
    "lng": 99.8814,
-   "pm25": 12.5,
-   "pm10": 14.6,
-   "usAqi": 51,
+   "pm25": 9.4,
+   "pm10": 9.5,
+   "usAqi": 40,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-17T07:00",
+   "observed": "2026-08-21T22:00",
    "days": [
-    {
-     "date": "2026-08-10",
-     "pm25": 6.1,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-11",
-     "pm25": 7.2,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-12",
-     "pm25": 7.4,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-13",
-     "pm25": 9.6,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
     {
      "date": "2026-08-14",
      "pm25": 6.1,
@@ -874,7 +830,7 @@
     },
     {
      "date": "2026-08-17",
-     "pm25": 9.0,
+     "pm25": 9.1,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -885,7 +841,7 @@
     },
     {
      "date": "2026-08-18",
-     "pm25": 8.0,
+     "pm25": 11.8,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -896,7 +852,51 @@
     },
     {
      "date": "2026-08-19",
-     "pm25": 5.4,
+     "pm25": 11.3,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-20",
+     "pm25": 9.9,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-21",
+     "pm25": 5.1,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-22",
+     "pm25": 4.9,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-23",
+     "pm25": 4.4,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -913,61 +913,17 @@
    "en": "Doi Inthanon",
    "lat": 18.5885,
    "lng": 98.4867,
-   "pm25": 0.8,
-   "pm10": 1.1,
-   "usAqi": 14,
+   "pm25": 3.3,
+   "pm10": 5.0,
+   "usAqi": 24,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-17T07:00",
+   "observed": "2026-08-21T22:00",
    "days": [
-    {
-     "date": "2026-08-10",
-     "pm25": 1.3,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-11",
-     "pm25": 1.2,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-12",
-     "pm25": 1.7,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-13",
-     "pm25": 2.0,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
     {
      "date": "2026-08-14",
      "pm25": 3.2,
@@ -1003,7 +959,7 @@
     },
     {
      "date": "2026-08-17",
-     "pm25": 1.5,
+     "pm25": 3.1,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -1014,7 +970,7 @@
     },
     {
      "date": "2026-08-18",
-     "pm25": 1.5,
+     "pm25": 3.4,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -1025,7 +981,51 @@
     },
     {
      "date": "2026-08-19",
+     "pm25": 2.8,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-20",
      "pm25": 1.5,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-21",
+     "pm25": 2.1,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-22",
+     "pm25": 1.2,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-23",
+     "pm25": 1.0,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -1042,61 +1042,17 @@
    "en": "Bangkok",
    "lat": 13.7563,
    "lng": 100.5018,
-   "pm25": 3.9,
-   "pm10": 4.4,
-   "usAqi": 29,
+   "pm25": 3.4,
+   "pm10": 4.1,
+   "usAqi": 32,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-17T07:00",
+   "observed": "2026-08-21T22:00",
    "days": [
-    {
-     "date": "2026-08-10",
-     "pm25": 3.8,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-11",
-     "pm25": 5.0,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-12",
-     "pm25": 8.2,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
-    {
-     "date": "2026-08-13",
-     "pm25": 8.2,
-     "hours": 24,
-     "band": {
-      "key": "excellent",
-      "th": "ดีมาก",
-      "en": "Very good",
-      "colour": "#3bb2d0"
-     }
-    },
     {
      "date": "2026-08-14",
      "pm25": 7.1,
@@ -1132,7 +1088,7 @@
     },
     {
      "date": "2026-08-17",
-     "pm25": 6.7,
+     "pm25": 9.8,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -1143,7 +1099,7 @@
     },
     {
      "date": "2026-08-18",
-     "pm25": 6.7,
+     "pm25": 13.5,
      "hours": 24,
      "band": {
       "key": "excellent",
@@ -1154,7 +1110,51 @@
     },
     {
      "date": "2026-08-19",
-     "pm25": 6.7,
+     "pm25": 5.5,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-20",
+     "pm25": 3.8,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-21",
+     "pm25": 5.7,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-22",
+     "pm25": 3.0,
+     "hours": 24,
+     "band": {
+      "key": "excellent",
+      "th": "ดีมาก",
+      "en": "Very good",
+      "colour": "#3bb2d0"
+     }
+    },
+    {
+     "date": "2026-08-23",
+     "pm25": 3.1,
      "hours": 24,
      "band": {
       "key": "excellent",

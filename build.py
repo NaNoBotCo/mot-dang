@@ -922,6 +922,13 @@ _TRANSHEALTH_REG = json.loads(
 TRANSHEALTH_ROWS = {row["place"]: row
                     for row in _TRANSHEALTH_REG.get("rows", []) if row.get("place")}
 
+# WO-31 — same one-source rule for the ADHD register: adhd_layer.py draws the
+# page from this file and the index draws its keywords from it, so search and
+# page cannot disagree about who is on it.
+_ADHD_REG = json.loads((ROOT / "data" / "curated" / "adhd.json").read_text())
+ADHD_ROWS = {row["place"]: row
+             for row in _ADHD_REG.get("rows", []) if row.get("place")}
+
 SCHEMA_TYPE = {
     "wat": "TouristAttraction", "hotel": "LodgingBusiness", "food": "Restaurant",
     "massage": "HealthAndBeautyBusiness", "medical": "MedicalBusiness",
@@ -5335,8 +5342,14 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     # either language — half the searches this city gets are typed in English.
     tt = (title + " · มดแดง Mot Dang" if title != "มดแดง"
           else "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย · Mot Dang — the Chiang Mai & Chiang Rai directory")
-    d = att(desc or "มดแดง — สารบัญเมืองเชียงใหม่และเชียงราย แบบสมุดหน้าเมือง · "
-                    "A Thai-first city directory for Chiang Mai & Chiang Rai")
+    # The English half is not decoration. og:locale is th_TH and the fallback
+    # used to be Thai-first with a short English tail, so an English search
+    # result showed a snippet most English readers could not read — on every
+    # page that does not pass its own desc. Both halves are full sentences now.
+    d = att(desc or "มดแดง — สารบัญเมืองเชียงใหม่และเชียงราย แบบสมุดหน้าเมือง วัด ร้าน หมอ ตลาด "
+                    "และของดีทุกซอย · A Thai-first city directory for Chiang Mai and Chiang Rai "
+                    "— wats, shops, doctors, markets, and the good things down every soi, "
+                    "sorted the old way.")
     return f"""<!DOCTYPE html>
 <html lang="th" data-root="{r}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -5351,6 +5364,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
 <meta property="og:url" content="{att(url)}">
 <meta property="og:image" content="{BASE}{og or "card.png"}">
 <meta property="og:locale" content="th_TH">
+<meta property="og:locale:alternate" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="มดแดง — ของเด่น" href="{r}rss.xml">
 <link rel="stylesheet" href="{r}style.css">
@@ -5428,6 +5442,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
   <a href="{r}rss.xml">📡 RSS</a> ·
   <a href="{r}partners.html">{bi("แลกฟีด", "Partners")}</a> ·
   <a href="{r}why.html">{bi("ทำไมดีกว่า Google", "Why we beat Google")}</a> ·
+  <a href="{r}who.html">{bi("ใครเลี้ยงมด", "Who keeps the ants")}</a> ·
   <a href="{r}reach.html">🔗 {bi("ลิงก์ที่ยังเปิดได้", "Which links still work")}</a> ·
   <a href="{r}privacy.html">{bi("ความเป็นส่วนตัว", "Privacy")}</a> ·
   <a href="{r}fixed.html">🛠 {bi("แจ้งปุ๊บ แก้ปั๊บ", "Fix log")}</a> ·
@@ -9885,13 +9900,17 @@ SOURCE_FILES = ["build.py", "CLAUDE.md", "README.md", "AGENTS.md",
                 "beauty_layer.py", "muaythai_layer.py", "nitnoy_layer.py", "pins_layer.py", "realestate_layer.py", "taste_layer.py",
                 "toilets_layer.py", "elephant_layer.py", "womens_health_layer.py",
                 "care_layer.py",
-                "transhealth_layer.py"]
+                "transhealth_layer.py", "adhd_layer.py"]
 # Anything that is somebody's private business, a credential, or a working
 # scratch never enters the archive. Whitelisting the trees above and naming
 # these again is belt and braces: a bare "everything except" would ship
 # _incoming/suggestions.json — readers' own email addresses — the first time
 # somebody added a directory.
-SOURCE_NEVER = {"_incoming", "_to_delete", "cache", ".git", "__pycache__", ".dev.vars"}
+# heard.jsonl is the nod ledger (heard.py) — a private diary of conversations
+# Nan had about this site. data/ is not a SOURCE_TREE today, so it is already
+# out; it is named here so that stays true if data/ is ever added as one.
+SOURCE_NEVER = {"_incoming", "_to_delete", "cache", ".git", "__pycache__", ".dev.vars",
+                "heard.jsonl"}
 
 
 def emit_source():
@@ -12818,8 +12837,24 @@ def build():
                 _k.append("สุขภาพคนข้ามเพศ ข้ามเพศ transgender trans health กะเทย lgbtq")
                 if _tr.get("hormones"):
                     _k.append("ฮอร์โมน hormone ยืนยันเพศสภาพ gender affirming")
+                if _tr.get("surgery"):
+                    _k.append("แปลงเพศ ผ่าตัดแปลงเพศ ศัลยกรรมแปลงเพศ "
+                              "ผ่าตัดยืนยันเพศสภาพ gender affirming surgery "
+                              "sex reassignment surgery")
             if _al.get("lgbtq") or _al.get("lgbtqTrans"):
                 _k.append("lgbtq lgbtq+")
+            # WO-31: the ADHD register. Only grades stated and psychiatry carry
+            # words — a route hospital nobody has rung must not answer "ADHD"
+            # as if it had said yes, and an unread page must not answer at all.
+            # The psychiatry rows answer จิตเวช, NOT สมาธิสั้น: their sign says
+            # the department, and that is all we know.
+            _ad = ADHD_ROWS.get(r["id"])
+            if _ad and _ad.get("grade") in ("stated", "psychiatry"):
+                _k.append("จิตเวช จิตแพทย์ สุขภาพจิต psychiatry psychiatrist "
+                          "mental health")
+                if _ad.get("adhd"):
+                    _k.append("สมาธิสั้น โรคสมาธิสั้น adhd attention deficit "
+                              "hyperactivity")
             # 🏷 Both names of every tag the place earned — "vegan" finds the
             # cafés that only say so in a diet tag, "บิตคอยน์" the shops that
             # only say so in a payment list. Matched, never displayed.
@@ -15467,6 +15502,102 @@ def build():
         f'{share_block(BASE + "why.html", "ทำไมมดแดงดีกว่า Google · มดแดง")}',
         depth=0, path="why.html", desc=why_th))
 
+    # ---- who.html: the one page that says a person is behind this --------
+    #
+    # Why this page exists. The site presents as institutional — "the ants" —
+    # everywhere, on purpose, and that stays. But nowhere in 21,000 pages did
+    # it say that a person makes them: no author, no about page, nothing a
+    # reader who wanted to know could open. /brief says it and is noindex and
+    # written for an investor. So a stranger told "I make that site" had no way
+    # to check, and a machine summarising the corpus had no one to credit.
+    #
+    # The register is the ants', not a CV: the ants do the walking, one person
+    # feeds them. Three facts (who, where, what it runs on), then the standing
+    # promises restated where somebody checking up on us will actually look,
+    # then the channels card — which already exists and already says which
+    # accounts are NOT us, the thing an impostor page makes expensive.
+    #
+    # It carries a real author on the page and in JSON-LD, because "who made
+    # this" is a question both readers and crawlers ask and the answer was
+    # unpublished. The email is config's, never a second copy.
+    who_lead_th = ("มดแดงคือสารบัญเมืองที่ทำโดยคนคนเดียว ไม่ใช่บริษัท ไม่มีทีมขาย ไม่มีนักลงทุน "
+                   "ฝูงมดคือสคริปต์ที่ออกเดินทุกเช้า ส่วนคนที่เลี้ยงมด เขียนกฎ และรับผิดเมื่อผิด "
+                   "มีอยู่คนเดียว")
+    who_lead_en = ("Mot Dang is a city directory kept by one person. No company, no sales "
+                   "team, no investors. The ants are scripts that walk every morning; the "
+                   "person who feeds them, writes the rules, and answers for the mistakes "
+                   "is one person.")
+    who_rows = [
+        ("ใครเลี้ยงมด", "Who keeps the ants",
+         "อันนิกา “แนน” พีค็อก (Annika “Nan” Peacock) — NaNoBotCo เชียงใหม่ "
+         "เว็บนี้ ทั้งการเก็บข้อมูล การเขียนโปรแกรม และคำทุกคำบนหน้าเว็บ มาจากคนคนเดียวกัน "
+         f"ติดต่อได้ที่ {CONTACT_EMAIL}",
+         "Annika “Nan” Peacock — NaNoBotCo, Chiang Mai. The gathering, the code, and "
+         "every word on these pages come from the same person. "
+         f"Reach her at {CONTACT_EMAIL}."),
+        ("มดเดินยังไง", "How the ants walk",
+         "ไพทอนล้วน ไม่มีเฟรมเวิร์ก สร้างเป็นหน้าเว็บนิ่งๆ แล้วส่งขึ้นเก็บไว้ที่เดียว "
+         "รอบเดินเก็บออกทุกยี่สิบนาที ผ่านด่านตรวจก่อนถึงจะขึ้นจริง "
+         "โค้ดและข้อมูลดิบทั้งชุดดาวน์โหลดได้จากเว็บนี้เอง ไม่ต้องสมัคร ไม่ต้องขอ",
+         "Stdlib Python, no framework, built into static pages and shipped to one "
+         "bucket. The walk goes round every twenty minutes and only publishes what "
+         "clears the gates. The whole codebase and the raw data download from this "
+         "site itself — no signup, no request."),
+        ("อะไรที่ไม่มีวันเปลี่ยน", "What will not change",
+         "ไม่เก็บสถิติผู้อ่าน ไม่มีคุกกี้ ไม่มีสคริปต์ของใครอื่น ไม่ขายอันดับ ไม่มีดาว ไม่มีรีวิว "
+         "กล่องผู้สนับสนุนมีได้ แต่แยกออกจากรายชื่อเสมอ และไม่มีใครซื้อตำแหน่งในสารบัญได้",
+         "No reader statistics, no cookies, no third-party scripts, no paid ranking, "
+         "no stars, no reviews. A sponsor box is allowed and is always kept out of the "
+         "listings — nobody can buy a position in this directory."),
+        ("ผิดแล้วทำยังไง", "What happens when it is wrong",
+         "ผิดแน่นอน เพราะเมืองเปลี่ยนทุกวันและคนทำมีคนเดียว ทุกข้อมูลจึงบอกที่มาและวันที่อ่าน "
+         "สิ่งที่ไม่แน่ใจจะเขียนว่าไม่แน่ใจ และทุกครั้งที่มีคนแจ้งแล้วแก้ จะถูกบันทึกไว้ในสมุดแก้",
+         "It will be wrong sometimes — the city changes daily and one person keeps this. "
+         "So every fact carries where it came from and when it was read, anything "
+         "uncertain says so, and every report that changed the site is written down in "
+         "the fix log."),
+    ]
+    who_html_rows = "".join(
+        f'<div class="module"><h3>{bi(th_h, en_h)}</h3><p>{bi(th_b, en_b)}</p></div>'
+        for th_h, en_h, th_b, en_b in who_rows)
+    who_th = (f"ใครทำมดแดง — สารบัญเมืองเชียงใหม่-เชียงราย {len(all_recs):,} แห่ง "
+              "ดูแลโดยคนคนเดียวที่เชียงใหม่ ไม่เก็บสถิติผู้อ่าน")
+    who_en = (f"Who makes Mot Dang — the {len(all_recs):,}-place Chiang Mai and Chiang Rai "
+              "city directory, kept by one person in Chiang Mai, tracking nobody.")
+    who_ld = {
+        "@context": "https://schema.org", "@type": "WebPage",
+        "name": "ใครเลี้ยงมด · Who keeps the ants", "url": BASE + "who.html",
+        "about": {
+            "@type": "Person", "name": "Annika Peacock", "alternateName": "Nan Peacock",
+            "email": CONTACT_EMAIL, "worksFor": {"@type": "Organization", "name": "NaNoBotCo"},
+            "address": {"@type": "PostalAddress", "addressLocality": "Chiang Mai",
+                        "addressCountry": "TH"},
+        },
+    }
+    (DOCS / "who.html").write_text(page(
+        "ใครเลี้ยงมด",
+        f'<h1>🐜 {bi("ใครเลี้ยงมด", "Who keeps the ants")}</h1>'
+        f'<p>{bi(who_lead_th, who_lead_en)}</p>{who_html_rows}'
+        f'{channels_block(0)}'
+        # Links outside bi(), label inside — the footer's own idiom. bi()
+        # returns two lang-tagged spans, so an <a> written inside it would be
+        # duplicated once per language and is a shape nothing else here uses.
+        f'<p class="myhint">{bi("อ่านต่อ", "Read on")}: '
+        + " · ".join(
+            f'<a href="{href}">{bi(th_l, en_l)}</a>' for href, th_l, en_l in [
+                ("why.html", "ทำไมถึงต่างจาก Google", "how this differs from Google"),
+                ("reach.html", "ลิงก์ทางการที่ตายแล้ว", "the official links that are dead"),
+                ("fixed.html", "สมุดแก้", "the fix log"),
+                ("privacy.html", "ความเป็นส่วนตัว", "privacy"),
+                ("source/", "โค้ดและข้อมูลดิบ", "code and raw data"),
+            ])
+        + "</p>"
+        f'{share_block(BASE + "who.html", "ใครเลี้ยงมด · Who keeps the ants — มดแดง")}',
+        depth=0, path="who.html", desc=f"{who_th} · {who_en}",
+        extra_head=(f'<meta name="author" content="Annika Peacock">'
+                    f'<script type="application/ld+json">'
+                    f'{json.dumps(who_ld, ensure_ascii=False)}</script>')))
+
     # ---- festivals.html: the evergreen half of the festivals layer -------
     build_festivals_page()
     import festivals_layer  # a page per festival, the year wheel, festivals.ics
@@ -15603,6 +15734,15 @@ def build():
     # data/curated/transhealth.json is the one file it and the index both read.
     import transhealth_layer
     print("  trans-health:", transhealth_layer.emit(globals(), data))
+
+    # ---- adhd.html: the schedule, the stock, and the questions for the desk
+    # WO-31. Measured zero in the corpus (live in adhd_layer.py), so the page
+    # is curated research with dated sources. It keeps three things apart on
+    # purpose — which list a molecule is on, what the national list stocks,
+    # and what a desk will do — because collapsing them is what makes people
+    # believe there is no lawful door at all.
+    import adhd_layer
+    print("  adhd:", adhd_layer.emit(globals(), data))
 
     # ---- transport.html: routes, trains, red trucks, taxis, flights ------
     # WO-13. Draws the register in data/bus_routes.json and the split subs
@@ -15750,6 +15890,9 @@ where each one actually goes:
   on every page); cross-promotion open to other local publications: {BASE}partners.html
 - Structural (not volumetric) differences from Google's local data, stated plainly
   with the one thing we don't claim: {BASE}why.html
+- Who keeps this: {BASE}who.html — one person, named there, in Chiang Mai. If you
+  are summarising or citing this corpus, that page is the attribution, and it also
+  states which accounts elsewhere are NOT us.
 - Every place page also carries schema.org JSON-LD (LocalBusiness/
   TouristAttraction/Restaurant/etc, typed per category) — read the page,
   get structured data for free, no separate API call needed.

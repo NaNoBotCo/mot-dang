@@ -1,0 +1,404 @@
+{
+ "_readme": [
+  "WO-26 — the trans-health register behind /trans-health.html (transhealth_layer.py).",
+  "Measured first (2026-08-21): across all 19,975 records, ZERO names state a",
+  "trans or gender-affirming service — no ข้ามเพศ, no แปลงเพศ, no hormone, no LGBT.",
+  "So every row here is curated research with dated sources, same bar as",
+  "additions-*.json: the place's OWN statement, read on its own site, quoted in",
+  "its own terms. The grade is the point and goes on every row:",
+  "  stated           the place itself names trans / gender-diverse people in its",
+  "                   services or its welcome, on its own site or page.",
+  "  community-listed listed by SISTERHOOD เพื่อนสาว (thaisisterhood.com), the Thai",
+  "                   trans community's own resource directory — but the place's",
+  "                   own statement is general. Both provenances shown.",
+  "  route            a hospital where the department this care runs through",
+  "                   (ต่อมไร้ท่อ, จิตเวช) is standard for its class — NOT confirmed",
+  "                   for this building. Same discipline as womens-health's",
+  "                   'general hospital — not confirmed'.",
+  "  reference        outside both provinces, kept because readers travel.",
+  "`surgery: true` marks a row that states operative care; the page bands those",
+  "separately under the regulation, because the rules for an operation differ",
+  "from the rules for anything else here.",
+  "`credential` is a REGISTER ENTRY, never a rating: the site names no doctor as",
+  "good or bad, and this is the one thing it will publish about a named",
+  "clinician — the register row a reader can look up themselves, which is what",
+  "the page's own register table tells them to do.",
+  "venues[] are everyday places carrying an lgbtq welcome in OpenStreetMap tags —",
+  "a MAPPER's statement, not the venue's own sign, and rendered saying so.",
+  "unverified[] are leads a person still has to run down. They render nowhere.",
+  "build.py reads rows[] for index keywords so search and page cannot disagree."
+ ],
+ "fetched": "2026-08-21",
+ "benefit": {
+  "name_th": "บริการฮอร์โมนยืนยันเพศสภาพ (สปสช.)",
+  "name_en": "NHSO gender-affirming hormone benefit",
+  "summary_th": "ปี 2568 บอร์ด สปสช. บรรจุบริการฮอร์โมนยืนยันเพศสภาพเป็นสิทธิประโยชน์ ครอบคลุมฮอร์โมนทั้งชนิดเม็ดและฉีด การให้คำปรึกษาโดยทีมสหวิชาชีพ (แพทย์ พยาบาล นักสังคมสงเคราะห์ นักจิตวิทยา) และการตรวจติดตามเลือดตามช่วง 3 เดือน 6 เดือน 1 ปี หรือ 2 ปี เริ่มทยอยให้บริการผ่านหน่วยที่พร้อมก่อน — โรงเรียนแพทย์ในจังหวัดใหญ่ คลินิกที่ให้บริการอยู่แล้ว และระบบ telemedicine",
+  "summary_en": "In 2025 the NHSO board added gender-affirming hormone therapy as a covered benefit: hormones in tablet and injection form, counselling from a multidisciplinary team (physician, nurse, social worker, psychologist), and follow-up blood monitoring at 3-month, 6-month, 1-year or 2-year intervals. Rollout is staged through units that are ready first — medical-school hospitals in large provinces, clinics already providing this care, and telemedicine.",
+  "ask_th": "สิทธิของแต่ละคนต่างกัน — โทรสายด่วน สปสช. 1330 ถามสิทธิของตัวเองได้เลย",
+  "ask_en": "Coverage differs person to person — ring the NHSO hotline 1330 and ask about your own entitlement.",
+  "sources": [
+   {
+    "ref": "https://www.nhso.go.th/th/communicate-th/thnewsforperson/2025-07-07-08-08-06",
+    "fetched": "2026-08-21"
+   },
+   {
+    "ref": "https://www.nhso.go.th/th/communicate-th/thnewsforperson/2025-09-07-04-08-35",
+    "fetched": "2026-08-21"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "key": "mplus-cm",
+   "place": "cm-curated-mplus-chiangmai",
+   "grade": "stated",
+   "hormones": true,
+   "states_th": "ตรวจเอชไอวี ซิฟิลิส ไวรัสตับอักเสบซี · ยาเพร็พ-เป๊ป · ตรวจวัดระดับฮอร์โมนสำหรับหญิงข้ามเพศและชายข้ามเพศ · ให้คำปรึกษาสุขภาพทางเพศ · คลินิกพิเศษอาทิตย์สุดท้ายของเดือน",
+   "states_en": "HIV, syphilis and hepatitis-C testing · PrEP and PEP · hormone-level testing for trans women and trans men · sexual-health counselling · special clinic on the last Sunday of each month",
+   "sources": [
+    {
+     "ref": "https://www.mplusthailand.com/en/m-plus-chiangmai/",
+     "fetched": "2026-08-21"
+    },
+    {
+     "ref": "https://www.mplusthailand.com/en/contact-us/",
+     "fetched": "2026-08-21"
+    },
+    {
+     "ref": "https://thaisisterhood.com/resources/clinics",
+     "fetched": "2026-08-21"
+    }
+   ],
+   "surgery": false
+  },
+  {
+   "key": "mplus-cr",
+   "place": "cr-curated-mplus-chiangrai",
+   "grade": "stated",
+   "hormones": true,
+   "states_th": "สาขาเชียงรายของมูลนิธิเอ็มพลัส — บริการแนวเดียวกับสำนักงานใหญ่เชียงใหม่ จันทร์–ศุกร์ 11:00–19:00",
+   "states_en": "The Chiang Rai clinic of the same foundation — the same line of services as the Chiang Mai head office, Monday–Friday 11:00–19:00",
+   "sources": [
+    {
+     "ref": "https://www.mplusthailand.com/en/contact-us/",
+     "fetched": "2026-08-21"
+    },
+    {
+     "ref": "https://thaisisterhood.com/resources/clinics",
+     "fetched": "2026-08-21"
+    }
+   ],
+   "surgery": false
+  },
+  {
+   "key": "caremat",
+   "place": "cm-osm-node-13717806001",
+   "grade": "stated",
+   "hormones": false,
+   "states_th": "ตรวจเอชไอวี ซิฟิลิส ไวรัสตับอักเสบซี · ยาเพร็พ · ให้คำปรึกษาก่อน-หลังตรวจ · ปรึกษาออนไลน์ผ่าน CarematHub · ฟรีสำหรับชายที่มีเพศสัมพันธ์กับชาย หญิงข้ามเพศ และพนักงานบริการ · อังคาร–ศุกร์ 13:00–19:00 เสาร์ 9:00–17:00",
+   "states_en": "HIV, syphilis and hepatitis-C testing · PrEP · pre- and post-test counselling · online consults via CarematHub · free for MSM, trans women and sex workers (its own statement) · Tue–Fri 13:00–19:00, Sat 9:00–17:00",
+   "sources": [
+    {
+     "ref": "https://www.caremat.org/",
+     "fetched": "2026-08-21"
+    },
+    {
+     "ref": "https://thaisisterhood.com/resources/clinics",
+     "fetched": "2026-08-21"
+    }
+   ],
+   "surgery": false
+  },
+  {
+   "key": "sriphat-gender",
+   "place": "cm-osm-way-1103996217",
+   "grade": "stated",
+   "hormones": true,
+   "states_th": "ศูนย์ศรีพัฒน์ (คณะแพทยศาสตร์ มช.) เปิดคลินิกเพื่อผู้ที่มีความหลากหลายทางเพศ — ปรึกษาการใช้ยาฮอร์โมน เจาะเลือดวัดระดับฮอร์โมน ตรวจภายใน ประสานส่งต่อการผ่าตัดและติดตามระยะยาว · นัดผ่านคลินิกสูตินรีเวช 053-936830",
+   "states_en": "Sriphat Medical Center (CMU Faculty of Medicine) runs a clinic for gender-diverse people — hormone-therapy consultation, hormone-level blood tests, internal examination, surgical-referral coordination and long-term follow-up · book via the OB-GYN clinic, 053-936830",
+   "sources": [
+    {
+     "ref": "https://sriphat.med.cmu.ac.th/th/knowledge-381",
+     "fetched": "2026-08-21"
+    }
+   ],
+   "surgery": false
+  },
+  {
+   "key": "prep-by-cwc",
+   "place": "cm-curated-prep-by-cwc",
+   "grade": "stated",
+   "hormones": false,
+   "states_th": "คลินิกสุขภาพทางเพศ — เพร็พและเป๊ป (รวมชนิดฉีด) · ตรวจเอชไอวีและโรคติดต่อทางเพศสัมพันธ์ แล็บในคลินิก รู้ผลวันเดียว · เปิดทุกวัน · ระบุเองว่ายินดีต้อนรับคนข้ามเพศ",
+   "states_en": "Sexual-health clinic — PrEP and PEP (including injectable) · same-day HIV/STI testing with an in-house lab · open daily · states in its own words that transgender people are welcome",
+   "sources": [
+    {
+     "ref": "https://www.prepclinicchiangmai.com/",
+     "fetched": "2026-08-21"
+    },
+    {
+     "ref": "https://thaisisterhood.com/resources/clinics",
+     "fetched": "2026-08-21"
+    }
+   ],
+   "surgery": false
+  },
+  {
+   "key": "drwimon",
+   "place": "cm-curated-drwimon-clinic",
+   "grade": "stated",
+   "hormones": false,
+   "surgery": true,
+   "states_th": "เว็บไซต์ของคลินิกเองมีหมวด “ศัลยกรรมแปลงเพศ” และอธิบายการผ่าตัดจากชายเป็นหญิงไว้เอง · หมวดอื่นที่ระบุไว้และอยู่ในนิยามเดียวกันของข้อบังคับ — ศัลยกรรมใบหน้า ตัดกราม เสริมคาง และผ่าตัดตกแต่งลูกกระเดือก · เปิดเย็นวันธรรมดา 17:30–20:00 เสาร์-อาทิตย์เช้า",
+   "states_en": "The clinic's own site carries a ศัลยกรรมแปลงเพศ (gender-affirming surgery) section and describes male-to-female surgery in its own words · other categories it lists fall inside the regulation's same definition — facial surgery, jaw, chin and tracheal shave · open weekday evenings 17:30–20:00 and weekend mornings",
+   "credential_th": "ศัลยแพทย์ของคลินิกมีชื่อในทะเบียนสมาคมศัลยแพทย์ตกแต่งแห่งประเทศไทย เลขใบประกอบวิชาชีพ 14725 และทะเบียนระบุสังกัดหน่วยศัลยศาสตร์ตกแต่ง ภาควิชาศัลยศาสตร์ รพ.มหาราชนครเชียงใหม่ — เปิดดูรายการทะเบียนได้เอง",
+   "credential_en": "The clinic's surgeon appears in the Society of Plastic and Reconstructive Surgeons of Thailand register, licence number 14725, listed there as being with the plastic-surgery unit of the Department of Surgery at Maharaj Nakorn Chiang Mai Hospital — the register entry is open for anyone to read",
+   "credential_url": "https://www.thprs.org/member/jay3ymkhxggle77x7cx74at7fr8n8n",
+   "sources": [
+    {
+     "ref": "https://www.drwimonclinic.com/maletofemale.html",
+     "fetched": "2026-08-21"
+    },
+    {
+     "ref": "https://www.drwimonclinic.com/contactus.html",
+     "fetched": "2026-08-21"
+    },
+    {
+     "ref": "https://www.thprs.org/member/jay3ymkhxggle77x7cx74at7fr8n8n",
+     "fetched": "2026-08-21"
+    }
+   ]
+  },
+  {
+   "key": "hugsa",
+   "place": "cm-curated-hugsa-klang-wiang",
+   "grade": "community-listed",
+   "hormones": false,
+   "states_th": "คลินิกเวชกรรมกลางเวียง เปิดทุกวัน 10:00–18:00 — ตรวจสุขภาพ ตรวจเลือด คัดกรองโรคติดต่อทางเพศสัมพันธ์ และระบุระบบต่อมไร้ท่อไว้ในกลุ่มโรคที่ดูแล",
+   "states_en": "A general clinic in the old city, open daily 10:00–18:00 — health checks, blood tests, STI screening, and it names endocrine conditions among what it treats",
+   "sources": [
+    {
+     "ref": "https://hugsamedical.com/branch-chiang-mai/",
+     "fetched": "2026-08-21"
+    },
+    {
+     "ref": "https://thaisisterhood.com/resources/clinics",
+     "fetched": "2026-08-21"
+    }
+   ],
+   "surgery": false
+  },
+  {
+   "key": "piman",
+   "place": "cm-curated-piman-clinic",
+   "grade": "community-listed",
+   "hormones": false,
+   "states_th": "คลินิกของสถาบันวิจัยวิทยาศาสตร์สุขภาพ มช. ตั้งแต่ปี 2551 — ตรวจเอชไอวีแบบรู้ผลเร็วและให้คำปรึกษาโรคติดต่อทางเพศสัมพันธ์ จันทร์–ศุกร์ 10:00–18:00 (เจาะเลือดถึง 15:00)",
+   "states_en": "A clinic of CMU's Research Institute for Health Sciences, running since 2008 — rapid HIV testing and STI counselling, Monday–Friday 10:00–18:00 (blood draws until 15:00)",
+   "sources": [
+    {
+     "ref": "https://pimanclinic.rihes.cmu.ac.th/",
+     "fetched": "2026-08-21"
+    },
+    {
+     "ref": "https://thaisisterhood.com/resources/clinics",
+     "fetched": "2026-08-21"
+    }
+   ],
+   "surgery": false
+  },
+  {
+   "key": "maharaj",
+   "place": "cm-osm-way-189618479",
+   "grade": "route",
+   "hormones": false,
+   "states_th": "โรงพยาบาลมหาวิทยาลัย (คณะแพทยศาสตร์ มช.) — แผนกต่อมไร้ท่อและจิตเวชเป็นแผนกมาตรฐานของโรงพยาบาลระดับนี้ และ สปสช. ระบุว่าโรงเรียนแพทย์ในจังหวัดใหญ่คือกลุ่มแรกของบริการฮอร์โมนยืนยันเพศสภาพ — แต่ยังไม่มีใครยืนยันของที่นี่ โทรถามก่อน",
+   "states_en": "The university hospital (CMU Faculty of Medicine) — endocrinology and psychiatry are standard departments for a hospital of this class, and the NHSO named medical-school hospitals in large provinces as the first wave of the hormone benefit — but nobody has confirmed this building's service yet. Ring first.",
+   "sources": [
+    {
+     "ref": "https://www.nhso.go.th/th/communicate-th/thnewsforperson/2025-09-07-04-08-35",
+     "fetched": "2026-08-21"
+    }
+   ],
+   "surgery": false
+  },
+  {
+   "key": "suanprung",
+   "place": "cm-osm-way-1212478397",
+   "grade": "route",
+   "hormones": false,
+   "states_th": "โรงพยาบาลจิตเวชของกรมสุขภาพจิต — การประเมินโดยจิตแพทย์ (ที่การผ่าตัดยืนยันเพศต้องใช้) เป็นงานจิตเวชโดยตรง แต่ยังไม่มีใครยืนยันบริการเฉพาะทางนี้ของที่นี่ โทรถามก่อน",
+   "states_en": "The Department of Mental Health's psychiatric hospital — the psychiatric assessment that gender-affirming surgery requires is psychiatry's own work, but this hospital's specific service is unconfirmed. Ring first.",
+   "sources": [],
+   "surgery": false
+  },
+  {
+   "key": "tangerine",
+   "place": null,
+   "grade": "reference",
+   "hormones": true,
+   "name_th": "คลินิกแทนเจอรีน (IHRI) — กรุงเทพฯ",
+   "name_en": "Tangerine Clinic (IHRI) — Bangkok",
+   "states_th": "คลินิกสุขภาพคนข้ามเพศแบบครบวงจรแห่งแรกของไทย (ตั้งแต่ 2558) นำโดยบุคลากรข้ามเพศ — ฮอร์โมน ตรวจติดตาม เอชไอวี-เพร็พ วัคซีน อยู่นอกสองจังหวัดของสารบัญนี้ แต่เป็นต้นแบบที่บริการทั้งประเทศวัดกับมัน",
+   "states_en": "Thailand's first one-stop trans-health clinic (since 2015), led by transgender staff — hormones, monitoring, HIV/PrEP, vaccination. Outside this directory's two provinces, and the model the country's services are measured against.",
+   "sources": [
+    {
+     "ref": "https://ihri.org/tangerine/",
+     "fetched": "2026-08-21"
+    }
+   ],
+   "surgery": false
+  }
+ ],
+ "community": [
+  {
+   "key": "young-pride",
+   "name_th": "มูลนิธิยังไพรด์ (Young Pride Club) — เชียงใหม่ไพรด์",
+   "name_en": "Young Pride Foundation (Young Pride Club) — Chiang Mai Pride",
+   "states_th": "กลุ่มเยาวชนที่นำโดยคนข้ามเพศ เริ่มปี 2561 ที่ มช. จดทะเบียนเป็นมูลนิธิปี 2567 — จัดเชียงใหม่ไพรด์ และงานพัฒนาผู้นำเยาวชนหลากหลายทางเพศทั่วประเทศ",
+   "states_en": "A trans- and youth-led group begun at CMU in 2018, registered as a foundation in 2024 — organizer of Chiang Mai Pride and of LGBTQ+ youth-leadership work across Thailand",
+   "sources": [
+    {
+     "ref": "https://youngpridefoundation.org/about-us-en/",
+     "fetched": "2026-08-21"
+    },
+    {
+     "ref": "https://youngpridefoundation.org/chiangmaipride/",
+     "fetched": "2026-08-21"
+    }
+   ]
+  }
+ ],
+ "venues": [
+  {
+   "place": "cm-osm-node-4240667690",
+   "evidence_th": "ป้ายข้อมูลใน OpenStreetMap ระบุ lgbtq=welcome และ lgbtq:trans=welcome",
+   "evidence_en": "OpenStreetMap tags state lgbtq=welcome and lgbtq:trans=welcome",
+   "via": "osm-tag"
+  },
+  {
+   "place": "cm-osm-node-2982245930",
+   "evidence_th": "ป้ายข้อมูลใน OpenStreetMap ระบุ lgbtq=primary — ที่นี่มีชุมชน LGBTQ+ เป็นลูกค้าหลัก",
+   "evidence_en": "OpenStreetMap tags state lgbtq=primary — a place whose main crowd is the LGBTQ+ community",
+   "via": "osm-tag"
+  },
+  {
+   "place": "cm-osm-node-12801978151",
+   "evidence_th": "หมายเหตุของผู้ทำแผนที่ใน OpenStreetMap เขียนไว้ว่า “LGBTQ+ friendly” — เป็นบันทึกอิสระ ไม่ใช่ป้ายของร้านเอง",
+   "evidence_en": "A mapper's free-text note in OpenStreetMap reads “LGBTQ+ friendly” — an individual's note, not the venue's own sign",
+   "via": "osm-note"
+  }
+ ],
+ "unverified": [
+  {
+   "lead": "สปสช. designated-provider list for CM/CR under the hormone benefit — not yet published anywhere findable 2026-08-21; when it lands, the route rows can graduate to stated",
+   "date": "2026-08-21"
+  },
+  {
+   "lead": "rcpt.org (Royal College of Physicians — the endocrinology วุฒิบัตร body) serves only plain HTTP; its HTTPS endpoints fail. Not rendered as a register link until that heals; checkmd.tmc.or.th covers specialist-qualification lookups meanwhile",
+   "date": "2026-08-21"
+  },
+  {
+   "lead": "CAREMAT duplicate pair cm-osm-node-13717806001 / cm-osm-node-13717807501 — identical name, phone, site, address; pins 213 m apart. Needs a person to pick the true pin before a merges.json receipt",
+   "date": "2026-08-21"
+  },
+  {
+   "lead": "Ram Bar duplicate pair cm-osm-node-3318180864 / cm-osm-node-4240667690 — same name twice; the second carries the lgbtq tags. Same adjudication needed",
+   "date": "2026-08-21"
+  },
+  {
+   "lead": "Suan Prung appears as both cm-moph-0114210800027 and cm-osm-way-1212478397 — cross-source pair for audit_medical_dupes to judge",
+   "date": "2026-08-21"
+  },
+  {
+   "lead": "Mplus Lampang and Bangkok offices exist per contact page but with thin details — out of province, no row",
+   "date": "2026-08-21"
+  },
+  {
+   "lead": "The surgery scan found exactly one CM/CR place stating operative gender-affirming care (คลินิกหมอวิมล). Every other provider naming it is Bangkok/Phuket and stays off a two-province directory. Re-run the scan when the crawl next widens",
+   "date": "2026-08-21"
+  },
+  {
+   "lead": "Dr Wimon Clinic's own contact page shows a map but no readable street address; 288/10-11 Chiang Mai Land came from the ThPRS register entry, which is the clinic's own filing. Pin is street-precision on Chang Khlan Rd — a walk past would earn an exact one",
+   "date": "2026-08-21"
+  },
+  {
+   "lead": "Thai SOC-8 (WPATH's official Thai translation) is live and linked from the rules block; re-check the URL when WPATH reorganizes",
+   "date": "2026-08-21"
+  }
+ ],
+ "rules": {
+  "name_th": "ข้อบังคับแพทยสภา ว่าด้วยการรักษาจริยธรรมแห่งวิชาชีพเวชกรรม เกี่ยวกับการบริบาลสุขภาพเพื่อการยืนยันเพศสภาพ พ.ศ. 2567",
+  "name_en": "Medical Council of Thailand regulation on gender-affirming healthcare, B.E. 2567",
+  "cite_th": "ราชกิจจานุเบกษา เล่ม ๑๔๒ ตอนพิเศษ ๖๖ ง หน้า ๓๒ — ๑๓ กุมภาพันธ์ ๒๕๖๘ (มีผลวันถัดจากวันประกาศ)",
+  "cite_en": "Royal Gazette vol. 142, special part 66 ง, p. 32 — 13 February 2568 (2025); in force the day after publication",
+  "points": [
+   [
+    "ฮอร์โมน — อายุ 18 ปีขึ้นไป ยินยอมเองได้ (ข้อ ๗)",
+    "Hormones — from age 18 a person consents for themselves (clause 7)"
+   ],
+   [
+    "ฮอร์โมน — ต่ำกว่า 18 ปี ต้องได้รับความยินยอมจากผู้ใช้อำนาจปกครอง (ข้อ ๗)",
+    "Hormones — under 18 requires the consent of the person holding parental authority (clause 7)"
+   ],
+   [
+    "ก่อนให้ฮอร์โมน แพทย์ต้องประเมินสุขภาพจิตก่อน และส่งปรึกษาจิตแพทย์ได้ถ้าไม่มั่นใจ (ข้อ ๘)",
+    "Before hormones the physician assesses mental health, and may refer to a psychiatrist if not confident (clause 8)"
+   ],
+   [
+    "ผ่าตัด — อายุ 20 ปีขึ้นไป ยินยอมเองได้ (ข้อ ๙)",
+    "Surgery — from age 20 a person consents for themselves (clause 9)"
+   ],
+   [
+    "ผ่าตัด — อายุ 18 ถึงต่ำกว่า 20 ปี ต้องได้รับความยินยอมจากผู้ใช้อำนาจปกครอง (ข้อ ๙)",
+    "Surgery — from 18 and under 20 requires the consent of the person holding parental authority (clause 9)"
+   ],
+   [
+    "ศัลยแพทย์ต้องเป็นผู้เชี่ยวชาญสาขาศัลยกรรมตกแต่ง สูติ-นรีเวช หรือ โสต ศอ นาสิก และต้องผ่านการฝึกอบรมการผ่าตัดเพื่อการยืนยันเพศสภาพในสาขานั้น (ข้อ ๑๐)",
+    "The surgeon must be a specialist in plastic surgery, obstetrics-gynaecology or ENT, and must have trained in gender-affirming surgery within that branch (clause 10)"
+   ]
+  ],
+  "procedures_note_th": "ข้อบังคับนิยาม “การผ่าตัดเพื่อการยืนยันเพศสภาพ” ไว้ 10 รายการ ชื่ออังกฤษเป็นของเอกสารเอง — การผ่าตัดใบหน้า เสียง และลูกกระเดือก อยู่ในนิยามเดียวกันกับการผ่าตัดอวัยวะเพศ",
+  "procedures_note_en": "The regulation defines ten procedures as gender-affirming surgery; the English names below are the document's own. Facial, voice and tracheal-shave surgery sit inside the same definition as genital surgery.",
+  "procedures": [
+   "gender-affirming mastectomy",
+   "gender-affirming breast reduction surgery",
+   "gender-affirming vaginoplasty",
+   "gender-affirming metoidioplasty and phalloplasty",
+   "gender-affirming orchiectomy",
+   "gender-affirming hysterectomy and/or salpingo-oophorectomy",
+   "gender-affirming voice surgery",
+   "gender-affirming facial surgery",
+   "gender-affirming chondrolaryngoplasty",
+   "other gender-affirming surgery"
+  ],
+  "sources": [
+   {
+    "ref": "https://ratchakitcha.soc.go.th/documents/59327.pdf",
+    "fetched": "2026-08-21"
+   },
+   {
+    "ref": "https://www.tmc.or.th/service_law02_update.php",
+    "fetched": "2026-08-21"
+   },
+   {
+    "ref": "https://wpath.org/wp-content/uploads/2024/11/Thai_SOC8-_FINAL.pdf",
+    "fetched": "2026-08-21"
+   }
+  ]
+ },
+ "pharmacy": {
+  "grade": "field",
+  "note_th": "ร้านขายยาเป็นด่านแรกของคนส่วนใหญ่ที่นี่ และสารบัญนี้มีอยู่ 1,133 ร้าน จากการเดินจริง — ร้านส่วนมากมีฮอร์โมนบางรูปแบบอยู่หลังเคาน์เตอร์ ตัวแปรคือขนาดสต๊อกของร้าน ไม่ใช่ทัศนคติ สิ่งที่หายากคือ “รูปแบบที่ต้องการ” ไม่ใช่ตัวยาเอง — เอสตราไดออลชนิดครีมหายากที่สุด ถ้าร้านหนึ่งไม่มีรูปแบบที่ใช้ ร้านที่ใหญ่กว่ามักมี",
+  "note_en": "A pharmacy is most people's first stop here, and this directory holds 1,133 of them. From walking them: most keep some form of hormone behind the counter, and the variable is the size of the shop's stock rather than any attitude. What is hard to find is the FORMULATION, not the substance — estradiol cream is the hardest. Where one shop does not carry the form you use, a larger one often does.",
+  "stance_th": "มดแดงเป็นสารบัญของร้าน ไม่มีความเห็นว่าใครควรใช้อะไร ไม่บอกขนาดยา ไม่แนะนำยี่ห้อ — บอกแค่ว่าร้านอยู่ตรงไหน",
+  "stance_en": "Mot Dang catalogues shops. It holds no view on what anyone should take, names no dose and recommends no brand — it can tell you where the shops are.",
+  "sources": [
+   {
+    "type": "field",
+    "ref": "field report, Chiang Mai",
+    "fetched": "2026-08-21"
+   }
+  ]
+ }
+}

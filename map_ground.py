@@ -64,15 +64,15 @@ TILES = ROOT / "assets" / "tiles" / "cm-cr.pmtiles"
 # and are kept in sync by tests/test_ground.py.
 PALETTE = {
     "paper":      (251, 246, 236),      # #FBF6EC
-    "green":      (231, 238, 220),      # #E7EEDC
-    "built":      (245, 238, 225),      # #F5EEE1
-    "water":      (207, 220, 232),      # #CFDCE8
-    "water_line": (191, 208, 224),      # #BFD0E0
-    "building":   (239, 230, 214),      # #EFE6D6
-    "casing":     (224, 210, 187),      # #E0D2BB
+    "green":      (192, 210, 163),      # #C0D2A3
+    "built":      (230, 213, 180),      # #E6D5B4
+    "water":      (143, 174, 201),      # #8FAEC9
+    "water_line": (97, 139, 178),      # #618BB2
+    "building":   (212, 188, 144),      # #D4BC90
+    "casing":     (179, 144, 88),      # #B39058
     "minor":      (255, 253, 248),      # #FFFDF8
     "major":      (255, 252, 244),      # #FFFCF4
-    "highway":    (247, 231, 203),      # #F7E7CB
+    "highway":    (232, 184, 102),      # #E8B866
 }
 
 

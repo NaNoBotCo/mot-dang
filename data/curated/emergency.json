@@ -1,0 +1,43 @@
+{
+ "_comment": "The four numbers worth knowing before you need them. The site now lists 500+ medical places and did not, anywhere, say how to call an ambulance — a gap that costs nothing to close and matters at an hour when nobody is browsing a directory.",
+ "_rule": "Numbers only, and only nationally-issued ones that have been stable for years. No triage, no advice, no 'what to do if' — this site says where things are and what they are, and a directory is not a clinician. Each entry names the agency that issues it so a reader can check us.",
+ "_wording": "Framed as what to keep by you, not as what might go wrong. The auspicious-wording rule applies here as everywhere: a phone number is a preparation, not an omen.",
+ "numbers": [
+  {
+   "tel": "1669",
+   "th": "เจ็บป่วยฉุกเฉิน · รถพยาบาล",
+   "en": "Medical emergency · ambulance",
+   "note_th": "โทรฟรีทุกเครือข่าย ตลอด 24 ชั่วโมง",
+   "note_en": "Free from any network, 24 hours",
+   "issuer": "สถาบันการแพทย์ฉุกเฉินแห่งชาติ (สพฉ.)",
+   "issuer_url": "https://www.niems.go.th/"
+  },
+  {
+   "tel": "191",
+   "th": "ตำรวจ",
+   "en": "Police",
+   "note_th": "เหตุด่วนเหตุร้าย",
+   "note_en": "General emergencies",
+   "issuer": "สำนักงานตำรวจแห่งชาติ",
+   "issuer_url": "https://www.royalthaipolice.go.th/"
+  },
+  {
+   "tel": "199",
+   "th": "ดับเพลิง · กู้ภัย",
+   "en": "Fire · rescue",
+   "note_th": "",
+   "note_en": "",
+   "issuer": "กรมป้องกันและบรรเทาสาธารณภัย",
+   "issuer_url": "https://www.disaster.go.th/"
+  },
+  {
+   "tel": "1155",
+   "th": "ตำรวจท่องเที่ยว",
+   "en": "Tourist police",
+   "note_th": "มีเจ้าหน้าที่พูดภาษาอังกฤษ",
+   "note_en": "English-speaking officers",
+   "issuer": "กองบัญชาการตำรวจท่องเที่ยว",
+   "issuer_url": "https://tourist.police.go.th/"
+  }
+ ]
+}

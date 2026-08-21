@@ -1,0 +1,1759 @@
+{
+  "ok": false,
+  "rideable": true,
+  "kind": "lap",
+  "mode": "ride",
+  "direction": "anticlockwise",
+  "metres": 6069.3,
+  "km": 6.07,
+  "perimeter_km": 5.98,
+  "turn_deg": -360.0,
+  "stops": [
+    [
+      18.7954331,
+      98.9865942
+    ]
+  ],
+  "waypoints": 40,
+  "hops_skipped": 8,
+  "corridor_m": 60.0,
+  "corridor_edges": 933,
+  "moat_crossings": 0,
+  "line": [
+    [
+      18.795208,
+      98.986732
+    ],
+    [
+      18.79528,
+      98.98669
+    ],
+    [
+      18.7953,
+      98.98665
+    ],
+    [
+      18.79533,
+      98.98658
+    ],
+    [
+      18.79534,
+      98.9865
+    ],
+    [
+      18.79536,
+      98.98609
+    ],
+    [
+      18.79537,
+      98.98572
+    ],
+    [
+      18.79537,
+      98.98564
+    ],
+    [
+      18.79537,
+      98.98562
+    ],
+    [
+      18.79538,
+      98.98547
+    ],
+    [
+      18.79534,
+      98.98546
+    ],
+    [
+      18.795205,
+      98.985442
+    ],
+    [
+      18.79534,
+      98.98546
+    ],
+    [
+      18.79538,
+      98.98547
+    ],
+    [
+      18.7954,
+      98.98507
+    ],
+    [
+      18.79544,
+      98.98428
+    ],
+    [
+      18.79544,
+      98.98423
+    ],
+    [
+      18.79544,
+      98.98412
+    ],
+    [
+      18.79539,
+      98.98412
+    ],
+    [
+      18.795246,
+      98.984106
+    ],
+    [
+      18.79539,
+      98.98412
+    ],
+    [
+      18.79544,
+      98.98412
+    ],
+    [
+      18.79545,
+      98.984
+    ],
+    [
+      18.79545,
+      98.98394
+    ],
+    [
+      18.79546,
+      98.98351
+    ],
+    [
+      18.79546,
+      98.98337
+    ],
+    [
+      18.79547,
+      98.98328
+    ],
+    [
+      18.79548,
+      98.98302
+    ],
+    [
+      18.79549,
+      98.98272
+    ],
+    [
+      18.79549,
+      98.98265
+    ],
+    [
+      18.79549,
+      98.98262
+    ],
+    [
+      18.79544,
+      98.98262
+    ],
+    [
+      18.795294,
+      98.982606
+    ],
+    [
+      18.79544,
+      98.98262
+    ],
+    [
+      18.79549,
+      98.98262
+    ],
+    [
+      18.7955,
+      98.98248
+    ],
+    [
+      18.79551,
+      98.98191
+    ],
+    [
+      18.79552,
+      98.98173
+    ],
+    [
+      18.79551,
+      98.98149
+    ],
+    [
+      18.79552,
+      98.98137
+    ],
+    [
+      18.79546,
+      98.98135
+    ],
+    [
+      18.79552,
+      98.98137
+    ],
+    [
+      18.79554,
+      98.98055
+    ],
+    [
+      18.79555,
+      98.9804
+    ],
+    [
+      18.795561,
+      98.97995
+    ],
+    [
+      18.794162,
+      98.97958
+    ],
+    [
+      18.79416,
+      98.97958
+    ],
+    [
+      18.79415,
+      98.97957
+    ],
+    [
+      18.79415,
+      98.9795
+    ],
+    [
+      18.79413,
+      98.97948
+    ],
+    [
+      18.79411,
+      98.97946
+    ],
+    [
+      18.793514,
+      98.97946
+    ],
+    [
+      18.790826,
+      98.979437
+    ],
+    [
+      18.79081,
+      98.97923
+    ],
+    [
+      18.79079,
+      98.97919
+    ],
+    [
+      18.79075,
+      98.97917
+    ],
+    [
+      18.79055,
+      98.97915
+    ],
+    [
+      18.79049,
+      98.97914
+    ],
+    [
+      18.789967,
+      98.979095
+    ],
+    [
+      18.784508,
+      98.97848
+    ],
+    [
+      18.78454,
+      98.97812
+    ],
+    [
+      18.78455,
+      98.97807
+    ],
+    [
+      18.78416,
+      98.97805
+    ],
+    [
+      18.78408,
+      98.97804
+    ],
+    [
+      18.78403,
+      98.97804
+    ],
+    [
+      18.78311,
+      98.978
+    ],
+    [
+      18.78312,
+      98.97805
+    ],
+    [
+      18.78312,
+      98.9781
+    ],
+    [
+      18.783125,
+      98.978303
+    ],
+    [
+      18.78312,
+      98.9781
+    ],
+    [
+      18.78312,
+      98.97805
+    ],
+    [
+      18.78311,
+      98.978
+    ],
+    [
+      18.78274,
+      98.97799
+    ],
+    [
+      18.78238,
+      98.97797
+    ],
+    [
+      18.78212,
+      98.97797
+    ],
+    [
+      18.78204,
+      98.97798
+    ],
+    [
+      18.78194,
+      98.978
+    ],
+    [
+      18.78186,
+      98.97804
+    ],
+    [
+      18.78181,
+      98.978082
+    ],
+    [
+      18.78179,
+      98.9781
+    ],
+    [
+      18.78175,
+      98.9782
+    ],
+    [
+      18.78173,
+      98.97839
+    ],
+    [
+      18.78172,
+      98.97848
+    ],
+    [
+      18.78172,
+      98.97856
+    ],
+    [
+      18.78171,
+      98.97893
+    ],
+    [
+      18.781685,
+      98.979568
+    ],
+    [
+      18.78168,
+      98.97971
+    ],
+    [
+      18.78168,
+      98.97976
+    ],
+    [
+      18.78166,
+      98.98051
+    ],
+    [
+      18.781643,
+      98.981021
+    ],
+    [
+      18.78164,
+      98.98111
+    ],
+    [
+      18.78163,
+      98.98146
+    ],
+    [
+      18.78163,
+      98.9815
+    ],
+    [
+      18.78163,
+      98.9816
+    ],
+    [
+      18.78162,
+      98.98169
+    ],
+    [
+      18.78161,
+      98.98195
+    ],
+    [
+      18.78159,
+      98.98249
+    ],
+    [
+      18.781705,
+      98.982518
+    ],
+    [
+      18.78159,
+      98.98249
+    ],
+    [
+      18.78156,
+      98.98312
+    ],
+    [
+      18.78156,
+      98.98324
+    ],
+    [
+      18.78153,
+      98.98396
+    ],
+    [
+      18.781672,
+      98.983965
+    ],
+    [
+      18.78153,
+      98.98396
+    ],
+    [
+      18.78152,
+      98.9842
+    ],
+    [
+      18.78151,
+      98.98436
+    ],
+    [
+      18.78151,
+      98.9846
+    ],
+    [
+      18.78149,
+      98.98502
+    ],
+    [
+      18.78149,
+      98.98527
+    ],
+    [
+      18.78148,
+      98.98529
+    ],
+    [
+      18.78148,
+      98.985385
+    ],
+    [
+      18.78148,
+      98.9854
+    ],
+    [
+      18.78148,
+      98.98556
+    ],
+    [
+      18.78148,
+      98.98577
+    ],
+    [
+      18.781462,
+      98.986837
+    ],
+    [
+      18.78146,
+      98.98698
+    ],
+    [
+      18.78145,
+      98.9874
+    ],
+    [
+      18.78144,
+      98.98813
+    ],
+    [
+      18.78144,
+      98.988291
+    ],
+    [
+      18.78144,
+      98.98842
+    ],
+    [
+      18.78144,
+      98.98867
+    ],
+    [
+      18.78144,
+      98.98893
+    ],
+    [
+      18.78145,
+      98.98898
+    ],
+    [
+      18.78146,
+      98.98902
+    ],
+    [
+      18.78146,
+      98.98908
+    ],
+    [
+      18.78145,
+      98.98921
+    ],
+    [
+      18.781421,
+      98.989739
+    ],
+    [
+      18.78142,
+      98.98976
+    ],
+    [
+      18.78141,
+      98.99003
+    ],
+    [
+      18.78139,
+      98.99081
+    ],
+    [
+      18.78138,
+      98.99105
+    ],
+    [
+      18.78138,
+      98.99116
+    ],
+    [
+      18.78143,
+      98.99116
+    ],
+    [
+      18.781465,
+      98.99116
+    ],
+    [
+      18.78143,
+      98.99116
+    ],
+    [
+      18.78138,
+      98.99116
+    ],
+    [
+      18.78136,
+      98.99177
+    ],
+    [
+      18.78136,
+      98.99181
+    ],
+    [
+      18.78136,
+      98.99186
+    ],
+    [
+      18.78135,
+      98.99241
+    ],
+    [
+      18.78136,
+      98.99248
+    ],
+    [
+      18.78138,
+      98.99253
+    ],
+    [
+      18.78141,
+      98.99259
+    ],
+    [
+      18.78144,
+      98.99262
+    ],
+    [
+      18.781447,
+      98.992629
+    ],
+    [
+      18.78148,
+      98.99267
+    ],
+    [
+      18.78156,
+      98.99272
+    ],
+    [
+      18.78163,
+      98.99274
+    ],
+    [
+      18.78174,
+      98.99276
+    ],
+    [
+      18.78191,
+      98.99277
+    ],
+    [
+      18.78197,
+      98.99277
+    ],
+    [
+      18.78219,
+      98.99279
+    ],
+    [
+      18.78247,
+      98.99282
+    ],
+    [
+      18.78251,
+      98.99282
+    ],
+    [
+      18.78262,
+      98.99283
+    ],
+    [
+      18.78272,
+      98.99284
+    ],
+    [
+      18.78274,
+      98.99284
+    ],
+    [
+      18.78281,
+      98.99284
+    ],
+    [
+      18.78281,
+      98.99279
+    ],
+    [
+      18.784131,
+      98.992926
+    ],
+    [
+      18.78461,
+      98.99296
+    ],
+    [
+      18.78466,
+      98.99296
+    ],
+    [
+      18.78487,
+      98.99298
+    ],
+    [
+      18.78498,
+      98.99299
+    ],
+    [
+      18.78526,
+      98.99301
+    ],
+    [
+      18.785487,
+      98.993025
+    ],
+    [
+      18.78619,
+      98.99307
+    ],
+    [
+      18.78649,
+      98.99308
+    ],
+    [
+      18.78656,
+      98.99308
+    ],
+    [
+      18.78684,
+      98.99309
+    ],
+    [
+      18.786841,
+      98.99309
+    ],
+    [
+      18.78693,
+      98.9931
+    ],
+    [
+      18.78771,
+      98.99315
+    ],
+    [
+      18.78778,
+      98.99315
+    ],
+    [
+      18.788199,
+      98.993184
+    ],
+    [
+      18.7884,
+      98.9932
+    ],
+    [
+      18.78871,
+      98.99323
+    ],
+    [
+      18.78906,
+      98.99326
+    ],
+    [
+      18.78922,
+      98.99327
+    ],
+    [
+      18.78927,
+      98.99327
+    ],
+    [
+      18.78939,
+      98.99328
+    ],
+    [
+      18.7894,
+      98.99322
+    ],
+    [
+      18.789408,
+      98.993101
+    ],
+    [
+      18.7894,
+      98.99322
+    ],
+    [
+      18.78939,
+      98.99328
+    ],
+    [
+      18.78991,
+      98.99332
+    ],
+    [
+      18.79012,
+      98.99333
+    ],
+    [
+      18.7902,
+      98.99333
+    ],
+    [
+      18.79022,
+      98.99333
+    ],
+    [
+      18.79043,
+      98.99334
+    ],
+    [
+      18.79064,
+      98.99336
+    ],
+    [
+      18.7907,
+      98.99337
+    ],
+    [
+      18.79093,
+      98.99338
+    ],
+    [
+      18.79093,
+      98.99332
+    ],
+    [
+      18.790933,
+      98.993191
+    ],
+    [
+      18.79093,
+      98.99332
+    ],
+    [
+      18.79093,
+      98.99338
+    ],
+    [
+      18.79154,
+      98.99343
+    ],
+    [
+      18.79158,
+      98.99343
+    ],
+    [
+      18.79163,
+      98.99343
+    ],
+    [
+      18.79203,
+      98.99346
+    ],
+    [
+      18.79227,
+      98.99347
+    ],
+    [
+      18.79238,
+      98.99348
+    ],
+    [
+      18.79247,
+      98.99348
+    ],
+    [
+      18.79258,
+      98.99349
+    ],
+    [
+      18.79259,
+      98.99343
+    ],
+    [
+      18.79262,
+      98.99324
+    ],
+    [
+      18.79231,
+      98.99321
+    ],
+    [
+      18.793633,
+      98.993532
+    ],
+    [
+      18.79387,
+      98.99354
+    ],
+    [
+      18.79393,
+      98.99354
+    ],
+    [
+      18.79423,
+      98.99356
+    ],
+    [
+      18.79448,
+      98.99356
+    ],
+    [
+      18.79463,
+      98.99357
+    ],
+    [
+      18.7947,
+      98.99356
+    ],
+    [
+      18.79479,
+      98.99354
+    ],
+    [
+      18.79487,
+      98.99351
+    ],
+    [
+      18.79493,
+      98.99346
+    ],
+    [
+      18.794993,
+      98.993412
+    ],
+    [
+      18.79501,
+      98.9934
+    ],
+    [
+      18.79505,
+      98.99334
+    ],
+    [
+      18.79509,
+      98.99328
+    ],
+    [
+      18.79513,
+      98.99317
+    ],
+    [
+      18.79513,
+      98.99315
+    ],
+    [
+      18.79513,
+      98.99313
+    ],
+    [
+      18.79515,
+      98.99306
+    ],
+    [
+      18.79517,
+      98.99283
+    ],
+    [
+      18.79518,
+      98.99246
+    ],
+    [
+      18.795196,
+      98.992081
+    ],
+    [
+      18.7952,
+      98.99199
+    ],
+    [
+      18.7952,
+      98.99197
+    ],
+    [
+      18.79521,
+      98.99183
+    ],
+    [
+      18.79521,
+      98.9917
+    ],
+    [
+      18.79522,
+      98.99142
+    ],
+    [
+      18.79524,
+      98.99096
+    ],
+    [
+      18.79525,
+      98.990735
+    ],
+    [
+      18.79527,
+      98.99025
+    ],
+    [
+      18.79527,
+      98.99022
+    ],
+    [
+      18.79527,
+      98.99008
+    ],
+    [
+      18.79527,
+      98.98994
+    ],
+    [
+      18.795282,
+      98.989382
+    ],
+    [
+      18.79529,
+      98.98903
+    ],
+    [
+      18.7953,
+      98.98879
+    ],
+    [
+      18.7953,
+      98.9887
+    ],
+    [
+      18.795324,
+      98.988038
+    ],
+    [
+      18.79534,
+      98.9876
+    ],
+    [
+      18.79533,
+      98.987
+    ],
+    [
+      18.79529,
+      98.98688
+    ],
+    [
+      18.79527,
+      98.98686
+    ],
+    [
+      18.79524,
+      98.98682
+    ],
+    [
+      18.79517,
+      98.9868
+    ],
+    [
+      18.79509,
+      98.9868
+    ],
+    [
+      18.795208,
+      98.986732
+    ]
+  ],
+  "cues": [
+    {
+      "at_m": 0.0,
+      "point": [
+        18.795208,
+        98.986732
+      ],
+      "turn": "straight",
+      "delta_deg": 0.0,
+      "street_th": "ถนนพระปกเกล้า",
+      "street_en": "Prapokkloa Road",
+      "street_slug": "prapokkloa-road-628ca9",
+      "say_th": "ตรงไป เข้าถนนพระปกเกล้า",
+      "say_en": "straight on onto Prapokkloa Road"
+    },
+    {
+      "at_m": 22.0,
+      "point": [
+        18.79533,
+        98.98658
+      ],
+      "turn": "left",
+      "delta_deg": -37.6,
+      "street_th": "ถนนศรีภูมิ",
+      "street_en": "Sri Poom Road",
+      "street_slug": "sri-poom-road-9cc3ff",
+      "say_th": "เลี้ยวซ้าย เข้าถนนศรีภูมิ",
+      "say_en": "left onto Sri Poom Road"
+    },
+    {
+      "at_m": 112.7,
+      "point": [
+        18.79537,
+        98.98572
+      ],
+      "turn": "straight",
+      "delta_deg": -0.4,
+      "street_th": "ถนนศรีภูมิ ซอย 5",
+      "street_en": "Sri Poom Lane 5",
+      "street_slug": "sri-poom-lane-5-748e3a",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ ซอย 5",
+      "say_en": "straight on onto Sri Poom Lane 5"
+    },
+    {
+      "at_m": 121.1,
+      "point": [
+        18.79537,
+        98.98564
+      ],
+      "turn": "straight",
+      "delta_deg": -12.1,
+      "street_th": "ถนนศรีภูมิ",
+      "street_en": "Sri Poom Road",
+      "street_slug": "sri-poom-road-9cc3ff",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ",
+      "say_en": "straight on onto Sri Poom Road"
+    },
+    {
+      "at_m": 220.6,
+      "point": [
+        18.7954,
+        98.98507
+      ],
+      "turn": "left",
+      "delta_deg": -26.4,
+      "street_th": "ถนนศรีภูมิ ซอย6",
+      "street_en": "Sripoom Road Soi 6",
+      "street_slug": "sripoom-road-soi-6-7ddf80",
+      "say_th": "เลี้ยวซ้าย เข้าถนนศรีภูมิ ซอย6",
+      "say_en": "left onto Sripoom Road Soi 6"
+    },
+    {
+      "at_m": 303.8,
+      "point": [
+        18.79544,
+        98.98428
+      ],
+      "turn": "straight",
+      "delta_deg": -23.4,
+      "street_th": "ถนนศรีภูมิ",
+      "street_en": "Sri Poom Road",
+      "street_slug": "sri-poom-road-9cc3ff",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ",
+      "say_en": "straight on onto Sri Poom Road"
+    },
+    {
+      "at_m": 320.7,
+      "point": [
+        18.79544,
+        98.98412
+      ],
+      "turn": "left",
+      "delta_deg": -92.5,
+      "street_th": "ถนนศรีภูมิ ซอย7",
+      "street_en": "Sripoom Road Soi 7",
+      "street_slug": "sripoom-road-soi-7-7aef16",
+      "say_th": "เลี้ยวซ้าย เข้าถนนศรีภูมิ ซอย7",
+      "say_en": "left onto Sripoom Road Soi 7"
+    },
+    {
+      "at_m": 376.6,
+      "point": [
+        18.79545,
+        98.984
+      ],
+      "turn": "left",
+      "delta_deg": -62.9,
+      "street_th": "ถนนศรีภูมิ",
+      "street_en": "Sri Poom Road",
+      "street_slug": "sri-poom-road-9cc3ff",
+      "say_th": "เลี้ยวซ้าย เข้าถนนศรีภูมิ",
+      "say_en": "left onto Sri Poom Road"
+    },
+    {
+      "at_m": 443.0,
+      "point": [
+        18.79546,
+        98.98337
+      ],
+      "turn": "straight",
+      "delta_deg": 1.8,
+      "street_th": "ถนนศรีภูมิ ซอย 8",
+      "street_en": "Sripoom Road Soi 8",
+      "street_slug": "sripoom-road-soi-8-c5f287",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ ซอย 8",
+      "say_en": "straight on onto Sripoom Road Soi 8"
+    },
+    {
+      "at_m": 452.5,
+      "point": [
+        18.79547,
+        98.98328
+      ],
+      "turn": "straight",
+      "delta_deg": 0.1,
+      "street_th": "ถนนศรีภูมิ",
+      "street_en": "Sri Poom Road",
+      "street_slug": "sri-poom-road-9cc3ff",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ",
+      "say_en": "straight on onto Sri Poom Road"
+    },
+    {
+      "at_m": 543.9,
+      "point": [
+        18.795294,
+        98.982606
+      ],
+      "turn": "right",
+      "delta_deg": 137.9,
+      "street_th": "ถนนศรีภูมิ ซอย10",
+      "street_en": "Sripoom Road Soi 10",
+      "street_slug": "sripoom-road-soi-10-99b719",
+      "say_th": "เลี้ยวขวา เข้าถนนศรีภูมิ ซอย10",
+      "say_en": "right onto Sripoom Road Soi 10"
+    },
+    {
+      "at_m": 560.2,
+      "point": [
+        18.79544,
+        98.98262
+      ],
+      "turn": "right",
+      "delta_deg": 95.9,
+      "street_th": "ถนนศรีภูมิ",
+      "street_en": "Sri Poom Road",
+      "street_slug": "sri-poom-road-9cc3ff",
+      "say_th": "เลี้ยวขวา เข้าถนนศรีภูมิ",
+      "say_en": "right onto Sri Poom Road"
+    },
+    {
+      "at_m": 1021.4,
+      "point": [
+        18.794162,
+        98.97958
+      ],
+      "turn": "right",
+      "delta_deg": 47.4,
+      "street_th": "ถนนอารักษ์ ซอย 1",
+      "street_en": "Arrak Road Soi 1",
+      "street_slug": "arrak-road-soi-1-9958d2",
+      "say_th": "เลี้ยวขวา เข้าถนนอารักษ์ ซอย 1",
+      "say_en": "right onto Arrak Road Soi 1"
+    },
+    {
+      "at_m": 1103.0,
+      "point": [
+        18.793514,
+        98.97946
+      ],
+      "turn": "straight",
+      "delta_deg": 2.0,
+      "street_th": "ถนนอารักษ์ ซอย 2",
+      "street_en": "Arrug Road Soi 2",
+      "street_slug": "arrug-road-soi-2-900968",
+      "say_th": "ตรงไป เข้าถนนอารักษ์ ซอย 2",
+      "say_en": "straight on onto Arrug Road Soi 2"
+    },
+    {
+      "at_m": 1401.9,
+      "point": [
+        18.790826,
+        98.979437
+      ],
+      "turn": "right",
+      "delta_deg": 72.6,
+      "street_th": "ถนนอารักษ์ ซอย 4ก",
+      "street_en": "Arak Road Soi 4a",
+      "street_slug": "arak-road-soi-4a-62736c",
+      "say_th": "เลี้ยวขวา เข้าถนนอารักษ์ ซอย 4ก",
+      "say_en": "right onto Arak Road Soi 4a"
+    },
+    {
+      "at_m": 2131.3,
+      "point": [
+        18.784508,
+        98.97848
+      ],
+      "turn": "right",
+      "delta_deg": 43.5,
+      "street_th": "ซอยจันทรวิโรจน์",
+      "street_en": "Soi Chan Thon Wirot",
+      "street_slug": "soi-chan-thon-wirot-110b04",
+      "say_th": "เลี้ยวขวา เข้าซอยจันทรวิโรจน์",
+      "say_en": "right onto Soi Chan Thon Wirot"
+    },
+    {
+      "at_m": 2174.7,
+      "point": [
+        18.78455,
+        98.97807
+      ],
+      "turn": "straight",
+      "delta_deg": -7.0,
+      "street_th": "ถนนอารักษ์",
+      "street_en": "Arak Road",
+      "street_slug": "arak-road-f6389e",
+      "say_th": "ตรงไป เข้าถนนอารักษ์",
+      "say_en": "straight on onto Arak Road"
+    },
+    {
+      "at_m": 2218.1,
+      "point": [
+        18.78416,
+        98.97805
+      ],
+      "turn": "left",
+      "delta_deg": -46.9,
+      "street_th": "ถนนสามล้าน ซอย 6",
+      "street_en": "Samlan Road Soi 6",
+      "street_slug": "samlan-road-soi-6-676f05",
+      "say_th": "เลี้ยวซ้าย เข้าถนนสามล้าน ซอย 6",
+      "say_en": "left onto Samlan Road Soi 6"
+    },
+    {
+      "at_m": 2227.1,
+      "point": [
+        18.78408,
+        98.97804
+      ],
+      "turn": "straight",
+      "delta_deg": -9.9,
+      "street_th": "ถนนอารักษ์",
+      "street_en": "Arak Road",
+      "street_slug": "arak-road-f6389e",
+      "say_th": "ตรงไป เข้าถนนอารักษ์",
+      "say_en": "straight on onto Arak Road"
+    },
+    {
+      "at_m": 2340.4,
+      "point": [
+        18.78312,
+        98.97805
+      ],
+      "turn": "left",
+      "delta_deg": -89.4,
+      "street_th": "ถนนอารักษ์ ซอย 8",
+      "street_en": null,
+      "street_slug": "8-45e076",
+      "say_th": "เลี้ยวซ้าย เข้าถนนอารักษ์ ซอย 8",
+      "say_en": "left"
+    },
+    {
+      "at_m": 2399.0,
+      "point": [
+        18.78311,
+        98.978
+      ],
+      "turn": "left",
+      "delta_deg": -85.4,
+      "street_th": "ถนนอารักษ์",
+      "street_en": "Arak Road",
+      "street_slug": "arak-road-f6389e",
+      "say_th": "เลี้ยวซ้าย เข้าถนนอารักษ์",
+      "say_en": "left onto Arak Road"
+    },
+    {
+      "at_m": 2580.9,
+      "point": [
+        18.78173,
+        98.97839
+      ],
+      "turn": "straight",
+      "delta_deg": -13.2,
+      "street_th": "ถนนบำรุงบุรี",
+      "street_en": "Bumrung Buri Road",
+      "street_slug": "bumrung-buri-road-d75d5f",
+      "say_th": "ตรงไป เข้าถนนบำรุงบุรี",
+      "say_en": "straight on onto Bumrung Buri Road"
+    },
+    {
+      "at_m": 2919.0,
+      "point": [
+        18.78163,
+        98.9816
+      ],
+      "turn": "straight",
+      "delta_deg": 1.5,
+      "street_th": "ถนนสามล้าน",
+      "street_en": "Samlan Road",
+      "street_slug": "samlan-road-4a6cc1",
+      "say_th": "ตรงไป เข้าถนนสามล้าน",
+      "say_en": "straight on onto Samlan Road"
+    },
+    {
+      "at_m": 2928.6,
+      "point": [
+        18.78162,
+        98.98169
+      ],
+      "turn": "straight",
+      "delta_deg": -8.8,
+      "street_th": "ถนนบำรุงบุรี",
+      "street_en": "Bumrung Buri Road",
+      "street_slug": "bumrung-buri-road-d75d5f",
+      "say_th": "ตรงไป เข้าถนนบำรุงบุรี",
+      "say_en": "straight on onto Bumrung Buri Road"
+    },
+    {
+      "at_m": 3012.8,
+      "point": [
+        18.78159,
+        98.98249
+      ],
+      "turn": "straight",
+      "delta_deg": 0.2,
+      "street_th": "ถนนบำรุงบุรี ซอย1",
+      "street_en": "Bumrungburi Road Soi 1",
+      "street_slug": "bumrungburi-road-soi-1-6d17ef",
+      "say_th": "ตรงไป เข้าถนนบำรุงบุรี ซอย1",
+      "say_en": "straight on onto Bumrungburi Road Soi 1"
+    },
+    {
+      "at_m": 3105.4,
+      "point": [
+        18.78156,
+        98.98312
+      ],
+      "turn": "straight",
+      "delta_deg": -10.9,
+      "street_th": "ถนนบำรุงบุรี",
+      "street_en": "Bumrung Buri Road",
+      "street_slug": "bumrung-buri-road-d75d5f",
+      "say_th": "ตรงไป เข้าถนนบำรุงบุรี",
+      "say_en": "straight on onto Bumrung Buri Road"
+    },
+    {
+      "at_m": 3118.0,
+      "point": [
+        18.78156,
+        98.98324
+      ],
+      "turn": "straight",
+      "delta_deg": -9.4,
+      "street_th": "ถนนบำรุงบุรี ซอย 2",
+      "street_en": "Bumrung Buri Road Soi 2",
+      "street_slug": "bumrung-buri-road-soi-2-644655",
+      "say_th": "ตรงไป เข้าถนนบำรุงบุรี ซอย 2",
+      "say_en": "straight on onto Bumrung Buri Road Soi 2"
+    },
+    {
+      "at_m": 3193.9,
+      "point": [
+        18.78153,
+        98.98396
+      ],
+      "turn": "straight",
+      "delta_deg": 0.1,
+      "street_th": "ถนนบำรุงบุรี",
+      "street_en": "Bumrung Buri Road",
+      "street_slug": "bumrung-buri-road-d75d5f",
+      "say_th": "ตรงไป เข้าถนนบำรุงบุรี",
+      "say_en": "straight on onto Bumrung Buri Road"
+    },
+    {
+      "at_m": 3416.5,
+      "point": [
+        18.78148,
+        98.98577
+      ],
+      "turn": "straight",
+      "delta_deg": 1.1,
+      "street_th": "ถนนบำรุงบุรี ซอย 4",
+      "street_en": "Bumrung Buri Road Soi 4",
+      "street_slug": "bumrung-buri-road-soi-4-07e360",
+      "say_th": "ตรงไป เข้าถนนบำรุงบุรี ซอย 4",
+      "say_en": "straight on onto Bumrung Buri Road Soi 4"
+    },
+    {
+      "at_m": 3528.8,
+      "point": [
+        18.781462,
+        98.986837
+      ],
+      "turn": "straight",
+      "delta_deg": 0.3,
+      "street_th": "ถนนบำรุงบุรี",
+      "street_en": "Bumrung Buri Road",
+      "street_slug": "bumrung-buri-road-d75d5f",
+      "say_th": "ตรงไป เข้าถนนบำรุงบุรี",
+      "say_en": "straight on onto Bumrung Buri Road"
+    },
+    {
+      "at_m": 3865.5,
+      "point": [
+        18.78141,
+        98.99003
+      ],
+      "turn": "straight",
+      "delta_deg": -1.3,
+      "street_th": "ถนนราชภาคินัย",
+      "street_en": "Ratchaphakhinai Road",
+      "street_slug": "ratchaphakhinai-road-ae5c39",
+      "say_th": "ตรงไป เข้าถนนราชภาคินัย",
+      "say_en": "straight on onto Ratchaphakhinai Road"
+    },
+    {
+      "at_m": 3947.6,
+      "point": [
+        18.78139,
+        98.99081
+      ],
+      "turn": "straight",
+      "delta_deg": -8.6,
+      "street_th": "ถนนบำรุงบุรี",
+      "street_en": "Bumrung Buri Road",
+      "street_slug": "bumrung-buri-road-d75d5f",
+      "say_th": "ตรงไป เข้าถนนบำรุงบุรี",
+      "say_en": "straight on onto Bumrung Buri Road"
+    },
+    {
+      "at_m": 4142.5,
+      "point": [
+        18.78136,
+        98.99248
+      ],
+      "turn": "left",
+      "delta_deg": -31.1,
+      "street_th": "ถนนมูลเมือง",
+      "street_en": "Moon Muang Road",
+      "street_slug": "moon-muang-road-99d29e",
+      "say_th": "เลี้ยวซ้าย เข้าถนนมูลเมือง",
+      "say_en": "left onto Moon Muang Road"
+    },
+    {
+      "at_m": 4322.2,
+      "point": [
+        18.78281,
+        98.99279
+      ],
+      "turn": "right",
+      "delta_deg": 32.7,
+      "street_th": "ถนนมูลเมือง ซอย 1",
+      "street_en": "Moonmuang Road Soi 1",
+      "street_slug": "moonmuang-road-soi-1-de3cde",
+      "say_th": "เลี้ยวขวา เข้าถนนมูลเมือง ซอย 1",
+      "say_en": "right onto Moonmuang Road Soi 1"
+    },
+    {
+      "at_m": 4469.8,
+      "point": [
+        18.784131,
+        98.992926
+      ],
+      "turn": "straight",
+      "delta_deg": 0.6,
+      "street_th": "ถนนมูลเมือง",
+      "street_en": "Moon Muang Road",
+      "street_slug": "moon-muang-road-99d29e",
+      "say_th": "ตรงไป เข้าถนนมูลเมือง",
+      "say_en": "straight on onto Moon Muang Road"
+    },
+    {
+      "at_m": 4740.5,
+      "point": [
+        18.78656,
+        98.99308
+      ],
+      "turn": "straight",
+      "delta_deg": 0.1,
+      "street_th": "ถนนมูลเมือง ซอย 3",
+      "street_en": "Moonmuang Road Soi 3",
+      "street_slug": "moonmuang-road-soi-3-d05df2",
+      "say_th": "ตรงไป เข้าถนนมูลเมือง ซอย 3",
+      "say_en": "straight on onto Moonmuang Road Soi 3"
+    },
+    {
+      "at_m": 4771.6,
+      "point": [
+        18.78684,
+        98.99309
+      ],
+      "turn": "straight",
+      "delta_deg": 2.1,
+      "street_th": "ถนนมูลเมือง",
+      "street_en": "Moon Muang Road",
+      "street_slug": "moon-muang-road-99d29e",
+      "say_th": "ตรงไป เข้าถนนมูลเมือง",
+      "say_en": "straight on onto Moon Muang Road"
+    },
+    {
+      "at_m": 5383.3,
+      "point": [
+        18.79163,
+        98.99343
+      ],
+      "turn": "straight",
+      "delta_deg": -0.3,
+      "street_th": "ถนนมูลเมือง ซอย 6",
+      "street_en": "Moonmuang Road Soi 6",
+      "street_slug": "moonmuang-road-soi-6-baa97d",
+      "say_th": "ตรงไป เข้าถนนมูลเมือง ซอย 6",
+      "say_en": "straight on onto Moonmuang Road Soi 6"
+    },
+    {
+      "at_m": 5427.9,
+      "point": [
+        18.79203,
+        98.99346
+      ],
+      "turn": "straight",
+      "delta_deg": -0.9,
+      "street_th": "ถนนมูลเมือง",
+      "street_en": "Moon Muang Road",
+      "street_slug": "moon-muang-road-99d29e",
+      "say_th": "ตรงไป เข้าถนนมูลเมือง",
+      "say_en": "straight on onto Moon Muang Road"
+    },
+    {
+      "at_m": 5495.6,
+      "point": [
+        18.79259,
+        98.99343
+      ],
+      "turn": "straight",
+      "delta_deg": 18.0,
+      "street_th": "ถนนมูลเมือง ซอย 7",
+      "street_en": "Moonmuang Road Soi 7",
+      "street_slug": "moonmuang-road-soi-7-bd99eb",
+      "say_th": "ตรงไป เข้าถนนมูลเมือง ซอย 7",
+      "say_en": "straight on onto Moonmuang Road Soi 7"
+    },
+    {
+      "at_m": 5701.4,
+      "point": [
+        18.793633,
+        98.993532
+      ],
+      "turn": "straight",
+      "delta_deg": -2.7,
+      "street_th": "ถนนมูลเมือง",
+      "street_en": "Moon Muang Road",
+      "street_slug": "moon-muang-road-99d29e",
+      "say_th": "ตรงไป เข้าถนนมูลเมือง",
+      "say_en": "straight on onto Moon Muang Road"
+    },
+    {
+      "at_m": 5734.4,
+      "point": [
+        18.79393,
+        98.99354
+      ],
+      "turn": "straight",
+      "delta_deg": -8.6,
+      "street_th": "ถนนมูลเมือง ซอย 9",
+      "street_en": "Moonmuang Road Soi 9",
+      "street_slug": "moonmuang-road-soi-9-05b4ec",
+      "say_th": "ตรงไป เข้าถนนมูลเมือง ซอย 9",
+      "say_en": "straight on onto Moonmuang Road Soi 9"
+    },
+    {
+      "at_m": 5767.9,
+      "point": [
+        18.79423,
+        98.99356
+      ],
+      "turn": "straight",
+      "delta_deg": -2.6,
+      "street_th": "ถนนมูลเมือง",
+      "street_en": "Moon Muang Road",
+      "street_slug": "moon-muang-road-99d29e",
+      "say_th": "ตรงไป เข้าถนนมูลเมือง",
+      "say_en": "straight on onto Moon Muang Road"
+    },
+    {
+      "at_m": 5923.4,
+      "point": [
+        18.79517,
+        98.99283
+      ],
+      "turn": "straight",
+      "delta_deg": -5.4,
+      "street_th": "ถนนศรีภูมิ",
+      "street_en": "Sri Poom Road",
+      "street_slug": "sri-poom-road-9cc3ff",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ",
+      "say_en": "straight on onto Sri Poom Road"
+    },
+    {
+      "at_m": 6071.9,
+      "point": [
+        18.79522,
+        98.99142
+      ],
+      "turn": "straight",
+      "delta_deg": 0.4,
+      "street_th": "ถนนศรีภูมิ ซอย 2",
+      "street_en": "Sripoom Road Soi 2",
+      "street_slug": "sripoom-road-soi-2-101b99",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ ซอย 2",
+      "say_en": "straight on onto Sripoom Road Soi 2"
+    },
+    {
+      "at_m": 6120.4,
+      "point": [
+        18.79524,
+        98.99096
+      ],
+      "turn": "straight",
+      "delta_deg": 0.4,
+      "street_th": "ถนนศรีภูมิ",
+      "street_en": "Sri Poom Road",
+      "street_slug": "sri-poom-road-9cc3ff",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ",
+      "say_en": "straight on onto Sri Poom Road"
+    },
+    {
+      "at_m": 6323.7,
+      "point": [
+        18.79529,
+        98.98903
+      ],
+      "turn": "straight",
+      "delta_deg": 0.9,
+      "street_th": "ถนนศรีภูมิ ซอย3",
+      "street_en": "Sri Poom Road Soi 3",
+      "street_slug": "sri-poom-road-soi-3-172b0f",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ ซอย3",
+      "say_en": "straight on onto Sri Poom Road Soi 3"
+    },
+    {
+      "at_m": 6349.0,
+      "point": [
+        18.7953,
+        98.98879
+      ],
+      "turn": "straight",
+      "delta_deg": 0.5,
+      "street_th": "ถนนศรีภูมิ",
+      "street_en": "Sri Poom Road",
+      "street_slug": "sri-poom-road-9cc3ff",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ",
+      "say_en": "straight on onto Sri Poom Road"
+    },
+    {
+      "at_m": 6550.9,
+      "point": [
+        18.79529,
+        98.98688
+      ],
+      "turn": "left",
+      "delta_deg": -56.0,
+      "street_th": "ถนนพระปกเกล้า",
+      "street_en": "Prapokkloa Road",
+      "street_slug": "prapokkloa-road-628ca9",
+      "say_th": "เลี้ยวซ้าย เข้าถนนพระปกเกล้า",
+      "say_en": "left onto Prapokkloa Road"
+    }
+  ],
+  "rules": {
+    "ok": false,
+    "stops": 1,
+    "line_points": 253,
+    "findings": [
+      {
+        "rule": "turning",
+        "index": 0,
+        "turn_degrees": -360.0,
+        "why_th": "เส้นทางเวียนซ้าย ไม่ใช่เวียนขวา",
+        "why_en": "the lap turns anticlockwise; เวียนขวา is clockwise"
+      }
+    ],
+    "first_finding": {
+      "rule": "turning",
+      "index": 0,
+      "turn_degrees": -360.0,
+      "why_th": "เส้นทางเวียนซ้าย ไม่ใช่เวียนขวา",
+      "why_en": "the lap turns anticlockwise; เวียนขวา is clockwise"
+    },
+    "centre": [
+      18.788407,
+      98.986034
+    ]
+  },
+  "alternative": {
+    "direction": "clockwise",
+    "km": 8.4,
+    "complete": false,
+    "turn_deg": 232.1,
+    "hops_skipped": 28,
+    "hops": 40,
+    "moat_crossings": 1
+  },
+  "named_from": "data/streets.json"
+}

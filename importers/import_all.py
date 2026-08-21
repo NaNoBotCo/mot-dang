@@ -14,6 +14,7 @@ Sources (all sibling repos under ~/Developer/claude code projects/):
   data/curated/shelves.json                        extra cat/sub for places OSM's one primary tag hid
   data/curated/merges.json                         duplicate records folded, human-confirmed pairs only
   data/curated/wat_registry.json                   รหัสวัด + founding year + nikaya, from importers/import_wat_registry.py
+  data/curated/condo_register.json                 the Treasury's registered อาคารชุด + assessed value, from importers/harvest_condo_register.py
 
 Output: data/canonical/cm.json, data/canonical/cr.json
 Curated/field records always win over crawled ones with the same source ref.
@@ -532,6 +533,19 @@ def main():
             print(f"{prov}: {stamped} school(s) stamped from the private "
                   f"register, {len(unmapped)} named there but not held")
             final = sorted(final + unmapped, key=lambda r: r["id"])
+        # The Treasury's condominium register, on the same terms and for the
+        # same reason (WO-27): it joins by name, so it must see everything we
+        # hold first. It stamps the assessed spread onto buildings we already
+        # have — the register IS the authority on its own valuation — and
+        # returns the registered buildings nobody has mapped, pinless and
+        # saying so. 53 condominium buildings were held against 366 the
+        # government registers in Chiang Mai alone.
+        import import_condo_register
+        c_stamped, c_unmapped = import_condo_register.apply(final, prov)
+        if c_stamped or c_unmapped:
+            print(f"{prov}: {c_stamped} condo(s) stamped from the Treasury "
+                  f"register, {len(c_unmapped)} registered but not held")
+            final = sorted(final + c_unmapped, key=lambda r: r["id"])
         # Facets last, on the merged records: the ATM join needs the final
         # coordinates, and the tag lift needs whichever source ref survived.
         facets = import_fixtures.apply(final, prov)

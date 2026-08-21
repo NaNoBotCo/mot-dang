@@ -1,5 +1,5 @@
 {
-  "_comment": "Mot Dang basemap style over the Protomaps v4 vector schema. Muted ground, high-contrast pins drawn ON TOP by each layer module — nothing in here competes with a pin. Palette is the site's: cream paper #FBF6EC, rule #E4D8C4, moat blue #8FA5CC, ant red #D4552C. Source id is 'p', set by map_shell.py. Symbol (label) layers are dropped automatically when no self-hosted glyph URL is configured — see map_shell.emit().",
+  "_comment": "Mot Dang basemap style over the Protomaps v4 vector schema. Muted ground, high-contrast pins drawn ON TOP by each layer module — nothing in here competes with a pin. Palette is the site's: cream paper #FBF6EC, rule #BCA070, moat blue #8FA5CC, ant red #D4552C. Source id is 'p', set by map_shell.py. Symbol (label) layers are dropped automatically when no self-hosted glyph URL is configured — see map_shell.emit().",
   "_labels": "Thai first, Latin second, on two lines. NOTE: the Protomaps v4 schema carries no name:th — verified against the built archive. 'name' IS the local name, which in this bbox is the Thai one, and 'name:en' is the Latin. Asking for name:th returns nothing and every label silently falls through to English, which on a Thai-first site is exactly backwards.",
   "layers": [
     {
@@ -15,11 +15,11 @@
       "paint": {
         "fill-color": [
           "match", ["get", "kind"],
-          "grassland", "#EFF2E4",
-          "forest", "#E6EDDB",
-          "scrub", "#EDF0E2",
-          "farmland", "#F4F1E2",
-          "#F2EEE2"
+          "grassland", "#DCE4C8",
+          "forest", "#CFDCAF",
+          "scrub", "#DAE2C6",
+          "farmland", "#E7E2C6",
+          "#E2DCC4"
         ],
         "fill-opacity": 0.55
       }
@@ -30,7 +30,7 @@
       "source": "p",
       "source-layer": "landuse",
       "filter": ["in", ["get", "kind"], ["literal", ["park", "forest", "garden", "recreation_ground", "pitch", "cemetery", "grass"]]],
-      "paint": { "fill-color": "#E7EEDC" }
+      "paint": { "fill-color": "#C0D2A3" }
     },
     {
       "id": "landuse-built",
@@ -38,14 +38,16 @@
       "source": "p",
       "source-layer": "landuse",
       "filter": ["in", ["get", "kind"], ["literal", ["school", "university", "hospital", "industrial", "commercial", "retail"]]],
-      "paint": { "fill-color": "#F5EEE1" }
+      "paint": { "fill-color": "#E6D5B4" }
     },
     {
       "id": "water",
       "type": "fill",
       "source": "p",
       "source-layer": "water",
-      "paint": { "fill-color": "#CFDCE8" }
+      "_note": "THE FILTER IS REQUIRED, not decoration — deleting it puts the Ping 600 m wide again. Rivers, streams and canals live in this same source-layer as LineStrings (see water-line below), and a MapLibre fill layer does NOT skip non-polygon geometry: it treats each line as a ring, closes it, and fills the lobe between the meander and its own closing chord. Measured 2026-08-21 over a 13 km frame at z14: 8.73 km2 of real water, 19.34 km2 of phantom. map_ground.py guards the same thing with 'if gt == 3'. Safe as plain equality because a vector-tile feature carries a numeric type, so geometry-type only ever returns Point/LineString/Polygon — never MultiPolygon.",
+      "filter": ["==", ["geometry-type"], "Polygon"],
+      "paint": { "fill-color": "#8FAEC9" }
     },
     {
       "id": "water-line",
@@ -53,9 +55,12 @@
       "source": "p",
       "source-layer": "water",
       "_note": "There is no physical_line layer in this schema — rivers, streams and canals are line features inside 'water' alongside the polygons. The Ping and the moat's feeder canals come through here.",
-      "filter": ["in", ["get", "kind"], ["literal", ["river", "stream", "canal"]]],
+      "filter": ["all",
+        ["==", ["geometry-type"], "LineString"],
+        ["in", ["get", "kind"], ["literal", ["river", "stream", "canal"]]]
+      ],
       "paint": {
-        "line-color": "#BFD0E0",
+        "line-color": "#618BB2",
         "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.6, 15, 2.6]
       }
     },
@@ -66,8 +71,8 @@
       "source-layer": "buildings",
       "minzoom": 14,
       "paint": {
-        "fill-color": "#EFE6D6",
-        "fill-outline-color": "#E4D8C4",
+        "fill-color": "#D4BC90",
+        "fill-outline-color": "#BCA070",
         "fill-opacity": ["interpolate", ["linear"], ["zoom"], 14, 0, 15.2, 0.85]
       }
     },
@@ -79,7 +84,7 @@
       "minzoom": 11,
       "layout": { "line-cap": "round", "line-join": "round" },
       "paint": {
-        "line-color": "#E0D2BB",
+        "line-color": "#B39058",
         "line-width": [
           "interpolate", ["exponential", 1.5], ["zoom"],
           11, ["match", ["get", "kind"], "highway", 2.4, "major_road", 1.6, 0.6],
@@ -120,7 +125,7 @@
       "filter": ["==", ["get", "kind"], "highway"],
       "layout": { "line-cap": "round", "line-join": "round" },
       "paint": {
-        "line-color": "#F7E7CB",
+        "line-color": "#E8B866",
         "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 9, 1.2, 17, 13]
       }
     },
@@ -130,7 +135,7 @@
       "source": "p",
       "source-layer": "boundaries",
       "paint": {
-        "line-color": "#C9B79B",
+        "line-color": "#A38B62",
         "line-width": 0.9,
         "line-dasharray": [3, 2.5]
       }
@@ -148,7 +153,7 @@
           "\n", {},
           ["coalesce", ["get", "name:en"], ""], { "font-scale": 0.82 }
         ],
-        "text-font": ["Noto Sans Regular"],
+        "text-font": ["NotoSans"],
         "text-size": ["interpolate", ["linear"], ["zoom"], 10, 11, 15, 14],
         "text-anchor": "center",
         "text-max-width": 8
@@ -169,7 +174,7 @@
       "layout": {
         "symbol-placement": "line",
         "text-field": ["coalesce", ["get", "name"], ["get", "name:en"]],
-        "text-font": ["Noto Sans Regular"],
+        "text-font": ["NotoSans"],
         "text-size": 11
       },
       "paint": {

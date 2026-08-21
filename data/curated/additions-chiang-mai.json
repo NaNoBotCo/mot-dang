@@ -559,5 +559,1655 @@
   ],
   "confidence": "curated",
   "updatedAt": "2026-08-10"
+ },
+ {
+  "id": "cm-curated-darinhealth",
+  "province": "cm",
+  "cat": [
+   "massage"
+  ],
+  "sub": [
+   "spa-body",
+   "khat-khi-khlai"
+  ],
+  "name": "Darin Health Massage",
+  "nameTh": "ดาริน เฮลท์ มาสสาจ",
+  "nameEn": "Darin Health Massage",
+  "lat": 18.8001669,
+  "lng": 99.0188447,
+  "geoPrecision": "exact",
+  "address": "8/22 ถนนซุปเปอร์ไฮเวย์ ลำปาง-เชียงใหม่ (โครงการสตาร์เอวีนิว หลังแมคโดนัลด์ ข้างเซ็นทรัลเฟสติวัล) ต.วัดเกต อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50000",
+  "phone": "095-881-6363",
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "scrubService": "ระเบิดขี้ไคล",
+   "scrubTool": "glove",
+   "scrubToolVia": "reader-review",
+   "priceHeard": "ระเบิดขี้ไคล + สปาน้ำมัน รวม 1.5 ชม. 700 บาท",
+   "_pricesVerified": false
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ร้านนวดย่านวัดเกตที่มีคอร์สระเบิดขี้ไคล — รีวิวผู้ใช้ (ก.ค. 2567) บอกว่าขัดด้วยถุงมือขัดผิว ราคาที่รีวิวไว้คือ 700 บาท รวมสปาน้ำมัน 1.5 ชั่วโมง (ยังไม่ได้เดินเช็กราคาเอง) ห้องมีฉากกั้น จองล่วงหน้าทางโทรศัพท์หรือเฟซบุ๊ก",
+  "blurb_en": "A Wat Ket massage shop with a ระเบิดขี้ไคล (rá-bèet khîi khlai, 'blow the dead skin off') course. A reader review from July 2024 says the scrub is done with an exfoliating mitt (ถุงมือขัดผิว) — the one detail this question turns on — and quotes 700 baht for the scrub plus an oil spa, 1.5 hours in total. We have not walked in to check that price ourselves. Partitioned rooms; book by phone or Facebook.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/maps/place/Darin+Health+Massage/@18.8001669,99.0188447,17z",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.lemon8-app.com/@marixpingping/7389524221786964497",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.lemon8-app.com/@yuedover.cnx/7516944623542026759",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-atspa-scrub",
+  "province": "cm",
+  "cat": [
+   "massage"
+  ],
+  "sub": [
+   "spa-body",
+   "khat-khi-khlai"
+  ],
+  "name": "ร้าน At Spa ขัดผิวเชียงใหม่",
+  "nameTh": "ร้าน At Spa ขัดผิวเชียงใหม่",
+  "nameEn": "At Spa by Shewanan",
+  "lat": 18.7678031,
+  "lng": 99.0063766,
+  "geoPrecision": "exact",
+  "address": "403/20 ถนนเชียงใหม่-ลำพูน ต.วัดเกต อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50000",
+  "phone": "081-783-7792",
+  "website": "https://www.facebook.com/at.spa.by.shewanan",
+  "hours": null,
+  "attrs": {
+   "scrubService": "ขัดขี้ไคล 3 ขั้นตอน",
+   "scrubTool": "unstated",
+   "priceHeard": "สครับผิว + นวดออย 1 ชม. 399 บาท (โปรฯ จำกัดสิทธิ์)",
+   "_pricesVerified": false,
+   "womenOwned": true
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ร้านขัดผิวถนนเชียงใหม่-ลำพูน ตั้งชื่อร้านด้วยคำว่าขัดผิวเอง เปิดเช้าตั้งแต่ 8 โมง มีแพ็กเกจขัดขี้ไคลแบบ 3 ขั้นตอน 60 นาที เพจร้านเคยลงโปรฯ สครับผิว + นวดออย 1 ชั่วโมง 399 บาท เจ้าของเป็นผู้หญิง",
+  "blurb_en": "A scrub shop on the Chiang Mai–Lamphun road that puts ขัดผิว (khàt phǐu, 'polish the skin') in its own name. Opens at 08:00. A three-step ขัดขี้ไคล package runs 60 minutes; the shop's page has advertised scrub plus oil massage for 399 baht an hour. Women-owned. Whether the scrub uses a mitt or bare hands is not stated anywhere we can read — worth asking when you book.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/maps/place/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99+At+Spa/@18.7678031,99.0063766,17z",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.facebook.com/at.spa.by.shewanan",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.lemon8-app.com/@yuedover.cnx/7516944623542026759",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-aquabeauty",
+  "province": "cm",
+  "cat": [
+   "massage"
+  ],
+  "sub": [
+   "spa-body",
+   "khat-khi-khlai"
+  ],
+  "name": "Aqua Beauty & Massage",
+  "nameTh": "อควา บิ้วตี้ แอนด์ มาสสาจ",
+  "nameEn": "Aqua Beauty & Massage",
+  "lat": 18.8020299,
+  "lng": 99.0245423,
+  "geoPrecision": "exact",
+  "address": "ชั้น 3 แผนกสปา โรงแรมบริค (Brique Hotel) ต.หนองป่าครั่ง อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50000",
+  "phone": "062-636-1119",
+  "website": "https://www.facebook.com/AquaBeautyandSpa",
+  "hours": null,
+  "attrs": {
+   "scrubService": "ขัดขี้ไคล + โดมอบไอน้ำสมุนไพร",
+   "scrubTool": "unstated",
+   "_pricesVerified": false
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "สปาชั้น 3 ของโรงแรมบริค ที่เรียกตัวเองว่าสปาขัดขี้ไคลตรงๆ ในชื่อเพจ ขัดผิวเป็นเซ็ต 3 วิตามินคู่กับโดมอบไอน้ำสมุนไพร 60 นาที (ไอน้ำก่อนช่วยให้ขี้ไคลหลุดง่ายขึ้น) มีนวดศีรษะอินเดียและนวดหน้ากัวซาด้วย เปิด 10 โมง",
+  "blurb_en": "A third-floor spa at the Brique Hotel whose own page calls it a สปาขัดขี้ไคล — a dead-skin-scrub spa, in its own words. The scrub comes as a three-vitamin set paired with a herbal steam dome, 60 minutes; the steam first is what loosens the khîi khlai. Indian head massage and gua sha facials too. Opens 10:00. The instrument is not stated — ask.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/maps/place/Aqua+Beauty+%26+massge/@18.8020299,99.0245423,17z",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.facebook.com/2088506224606036/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.lemon8-app.com/@yuedover.cnx/7516944623542026759",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-baanrangsaran",
+  "province": "cm",
+  "cat": [
+   "massage"
+  ],
+  "sub": [
+   "spa-body",
+   "khat-khi-khlai"
+  ],
+  "name": "บ้านรังสราญ",
+  "nameTh": "บ้านรังสราญ",
+  "nameEn": "Baan Rang Saran",
+  "lat": 18.7879023,
+  "lng": 98.9724625,
+  "geoPrecision": "exact",
+  "address": "7/42 ซอยเชียงคำ (ตรงข้ามโรงพยาบาลมหาราชนครเชียงใหม่ สวนดอก) ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
+  "phone": "065-192-3236",
+  "website": "https://www.facebook.com/p/บ้านรังสราญ-Nature-100063900973481/",
+  "hours": null,
+  "attrs": {
+   "scrubService": "ขัดขี้ไคล",
+   "scrubTool": "unstated",
+   "booking": "จองล่วงหน้าเท่านั้น",
+   "_pricesVerified": false
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "สปาบ้านเดี่ยวในซอยเชียงคำ ตรงข้ามสวนดอก ชื่อร้านบอกงานที่ทำเอง — สปาหน้า ขัดขี้ไคล นวดศีรษะ รับคิวแบบส่วนตัว ต้องจองล่วงหน้า เปิด 10 โมง (แผนที่กูเกิลจัดร้านนี้ไว้ในหมวดร้านทำผม ซึ่งไม่ตรงกับสิ่งที่ร้านบอกว่าตัวเองทำ)",
+  "blurb_en": "A house-spa in Soi Chiang Kham opposite Suan Dok hospital; the shop's own name lists the work — facials, ขัดขี้ไคล, head massage. Private booking only, opens 10:00. (Google files it under hair salons, which is not what the shop says it does — one reason a directory that reads shop names beats one that reads categories.) Instrument not stated.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/maps/place/%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%A3%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%A3%E0%B8%B2%E0%B8%8D/@18.7879023,98.9724625,17z",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.facebook.com/p/%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%A3%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%A3%E0%B8%B2%E0%B8%8D-Nature-100063900973481/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.lemon8-app.com/@yuedover.cnx/7516944623542026759",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-thehomemassage-ragang",
+  "province": "cm",
+  "cat": [
+   "massage"
+  ],
+  "sub": [
+   "spa-body",
+   "khat-khi-khlai"
+  ],
+  "name": "The Home Massage and Spa (ระแกง)",
+  "nameTh": "เดอะโฮมมาสสาจ แอนด์ สปา (ระแกง)",
+  "nameEn": "The Home Massage and Spa (Ragang)",
+  "lat": 18.7796592,
+  "lng": 98.9940414,
+  "geoPrecision": "exact",
+  "address": "17 ถนนระแกง ต.หายยา อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
+  "phone": "088-151-8884",
+  "website": "https://thehomemassageandspa.com/",
+  "hours": "Mo-Su 10:00-22:00",
+  "attrs": {
+   "scrubService": "ขัดผิว (Scrub Bomb)",
+   "scrubTool": "unstated",
+   "priceBoard": "ขัดผิว 45 นาที 900 บาท · ขัดผิวทองคำ 45 นาที 1,200 บาท · เสริมขัดผิว 60 นาที 700 บาท",
+   "_pricesVerified": false,
+   "branches": "อีกสาขาที่ 96/2-3 ถนนราชเชียงแสน ต.หายยา"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ร้านนวดถนนระแกง ราคาขัดผิวติดอยู่บนเว็บของร้านเอง: 45 นาที 900 บาท ขัดผิวทองคำ 1,200 บาท และเสริมขัดผิว 60 นาที 700 บาท เปิดทุกวัน 10:00-22:00 (รับออร์เดอร์สุดท้าย 21:00) มีอีกสาขาที่ถนนราชเชียงแสน",
+  "blurb_en": "A Ragang Road shop that posts its scrub prices on its own site: 900 baht for 45 minutes, 1,200 for the gold scrub, 700 for a 60-minute scrub add-on. Daily 10:00–22:00, last booking 21:00; a second branch sits on Rat Chiang Saen Road. Reader posts name the product it uses (a 'Scrub Bomb' gel) but nothing says glove or hand.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://thehomemassageandspa.com/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.google.com/maps/place/The+Home+Massage+and+Spa/@18.7796592,98.9940414,17z",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.lemon8-app.com/@yuedover.cnx/7516944623542026759",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-bhuraonsen",
+  "province": "cm",
+  "cat": [
+   "massage"
+  ],
+  "sub": [
+   "spa-body"
+  ],
+  "name": "Bhura Onsen บุห์รา ออนเซ็น",
+  "nameTh": "บุห์รา ออนเซ็น เชียงใหม่",
+  "nameEn": "Bhura Onsen Chiang Mai",
+  "lat": 18.8232322,
+  "lng": 98.9641952,
+  "geoPrecision": "exact",
+  "address": "233 ซอยช้างเผือก 2 ต.ช้างเผือก อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50300",
+  "phone": "065-995-0252",
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "kind": "โรงอาบน้ำ-ออนเซ็น",
+   "womenOnly": true,
+   "priceHeard": "แช่ 250 บาท ไม่จำกัดเวลา",
+   "_pricesVerified": false,
+   "scrubService": "none-declared",
+   "tattooFriendly": true
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "โรงอาบน้ำ-ออนเซ็นหญิงล้วน ซอยช้างเผือก 2 เพจร้านลงราคาไว้ที่ 250 บาท แช่ได้ไม่จำกัดเวลา มีซาวน่าเกลือหิมาลายันและบ่อน้ำเย็น รอยสักเข้าได้ เปิด 9 โมง — ไม่มีบริการขัดขี้ไคลประกาศไว้ ที่นี่คือครึ่งแรกของขั้นตอน (แช่ให้ผิวนุ่มก่อนขัด)",
+  "blurb_en": "A women-only bathhouse-onsen on Chang Phueak Soi 2 — the shop's page quotes 250 baht for an unlimited soak, with a Himalayan-salt sauna and a cold plunge, tattoos welcome, opens 09:00. No scrub service is advertised. It matters to this question anyway: the long hot soak is the first half of the Korean and Turkish sequence, the part that softens the skin before anyone scrubs it.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/maps/place/Bhura+Onsen/@18.8232322,98.9641952,17z",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.facebook.com/BhuraOnsen",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-thaphae-boxing-stadium",
+  "province": "cm",
+  "cat": [
+   "muaythai"
+  ],
+  "sub": [
+   "stadium"
+  ],
+  "name": "Thaphae Boxing Stadium",
+  "nameTh": "สนามมวยท่าแพ",
+  "nameEn": "Thaphae Boxing Stadium",
+  "lat": 18.7877625,
+  "lng": 98.9932697,
+  "geoPrecision": "approx",
+  "address": "ถนนมูลเมือง ติดประตูท่าแพ ต.พระสิงห์ อ.เมืองเชียงใหม่ จ.เชียงใหม่",
+  "phone": null,
+  "website": "https://thaphaeboxingstadium.com/",
+  "hours": "Mo-Sa 21:00-23:45",
+  "attrs": {
+   "kind": "สนามมวย",
+   "pinNote": "หมุดคือประตูท่าแพ — สนามอยู่ติดประตู ตามคำของเว็บสนามเอง · pin is Tha Phae Gate; the stadium adjoins it, in the venue's own words",
+   "fightNights": "ทุกวันจันทร์–เสาร์ โชว์ 21:00–23:45 น. · every Monday–Saturday, show 21:00–23:45",
+   "fightNightsVia": "venue website",
+   "ticketPrices": "ที่นั่งสนาม 600 · ริงไซด์ 1,000 · VIP 1,500 บาท (แถมเครื่องดื่ม 1 แก้ว) · stadium seat 600 · ringside 1,000 · VIP 1,500 baht (a drink included)",
+   "priceVia": "venue website",
+   "_pricesVerified": false,
+   "lineId": "ticketmuaythai",
+   "whatsapp": "+66613315333",
+   "email": "ticketmuaythai@gmail.com",
+   "altNames": [
+    "Thapae Boxing Stadium",
+    "Tha Phae Boxing Stadium"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "สนามมวยติดประตูท่าแพ ถนนมูลเมือง — เว็บสนามระบุเองว่ามีมวยทุกวันจันทร์ถึงเสาร์ โชว์ 21:00–23:45 น. และลงราคาตั๋วไว้: ที่นั่งสนาม 600 · ริงไซด์ 1,000 · VIP 1,500 บาท (แถมเครื่องดื่ม) จองทาง LINE หรือ WhatsApp ชื่อ ticketmuaythai",
+  "blurb_en": "The stadium beside Tha Phae Gate on Moon Muang Road. Its own site says fights every Monday to Saturday, show 21:00–23:45, and posts its prices: stadium seat 600, ringside 1,000, VIP 1,500 baht (a drink included). Tickets by LINE or WhatsApp, both under the name ticketmuaythai.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://thaphaeboxingstadium.com/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-loikroh-boxing-stadium",
+  "province": "cm",
+  "cat": [
+   "muaythai"
+  ],
+  "sub": [
+   "stadium"
+  ],
+  "name": "Loi Kroh Boxing Stadium",
+  "nameTh": "สนามมวยลอยเคราะห์",
+  "nameEn": "Loi Kroh Boxing Stadium",
+  "lat": 18.782749,
+  "lng": 98.996852,
+  "geoPrecision": "approx",
+  "address": "96-98 ซอยลอยเคราะห์ 3 ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
+  "phone": "098-261-9499",
+  "website": "https://www.loikrohboxingth.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "สนามมวย",
+   "pinNote": "หมุดคือกลางซอยลอยเคราะห์ 3 (±180 ม.) จากที่อยู่ที่สนามระบุ — ยังไม่มีใครยืนหน้าประตูกับแผนที่ · pin is the middle of Loi Kroh Lane 3 (±180 m) from the stadium's stated address; nobody has stood at the door with a map yet",
+   "fightNights": "ทุกสัปดาห์ คืนชกเริ่ม 21:00 น. — วันในสัปดาห์ไม่ได้ระบุบนเว็บสนาม · weekly, fight nights from 21:00 — weekdays not stated on the stadium's own site",
+   "fightNightsVia": "venue website (dates listed one night at a time)",
+   "fightNightsReported": "muaythaichiangmai.com (2026-06-08): จ·พ·ศ Mon·Wed·Fri · ticket resellers: จ–ส Mon–Sat",
+   "ticketPrices": "ตั๋วธรรมดา 600 · ริงไซด์ 1,000 บาท (ตามตัวแทนขายตั๋ว) · standard 600 · ringside 1,000 baht (as resellers list it)",
+   "priceVia": "ticket resellers, not the venue",
+   "_pricesVerified": false,
+   "phone2": "063-242-4614",
+   "lineUrl": "https://lin.ee/cC0TNN0",
+   "email": "loikrohboxingth@gmail.com",
+   "training": "เปิดสอนกลางวัน walk-in ไม่ต้องจอง (ตามเว็บสนาม) · daytime training, walk-ins welcome, no booking (venue's own words)",
+   "altNames": [
+    "Loikroh Boxing Stadium",
+    "สนามมวยลอยเคราะห์"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "เวทีมวยในซอยลอยเคราะห์ 3 กลางย่านบาร์ลอยเคราะห์ เว็บสนามบอกว่าเปิดมากว่า 25 ปี มีมวยทุกสัปดาห์ คืนชกเริ่ม 21:00 น. และลงโปรแกรมทีละคืน ไม่ได้ระบุวันประจำ — รายชื่อภายนอกบอกไม่ตรงกัน ตั้งแต่ จ·พ·ศ ไปจนถึง จ–ส จึงควรโทรหรือ LINE ถามก่อนไป ราคาที่ตัวแทนขายตั๋วลงไว้ 600 บาท ริงไซด์ 1,000 บาท ยังไม่ได้เทียบกับหน้าสนาม กลางวันเปิดสอนแบบ walk-in",
+  "blurb_en": "The ring in Loi Kroh Road Lane 3, in the middle of the Loi Kroh bar strip. Its own site says it has run for over 25 years, holds fights every week from 21:00, and lists each night as its own event rather than stating fixed weekdays — outside listings disagree, from Mon·Wed·Fri to Mon–Sat, so phone or LINE before you go. Resellers quote 600 baht standard and 1,000 ringside; not yet checked at the door. Walk-in training by day, no booking.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.loikrohboxingth.com/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.loikrohboxingth.com/event-details/monday-27th-april-2026-fight-night-loi-kroh-boxing-stadium-chiang-mai",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://muaythaichiangmai.com/fight-schedule",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-chiangmai-boxing-stadium",
+  "province": "cm",
+  "cat": [
+   "muaythai"
+  ],
+  "sub": [
+   "stadium"
+  ],
+  "name": "Chiangmai Boxing Stadium",
+  "nameTh": "สนามมวยเชียงใหม่",
+  "nameEn": "Chiangmai Boxing Stadium",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "177 ถนนช้างเผือก ต.ศรีภูมิ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
+  "phone": "081-594-4151",
+  "website": "https://www.soryingarena.com/",
+  "hours": "Mo-Sa 21:00-23:30",
+  "attrs": {
+   "kind": "สนามมวย",
+   "fightNights": "จันทร์–เสาร์ 21:00–23:30 น. · Monday–Saturday 21:00–23:30",
+   "fightNightsVia": "venue website (dated fight list)",
+   "ticketPrices": "เริ่ม 600 บาท · from 600 baht",
+   "priceVia": "venue website",
+   "_pricesVerified": false,
+   "phone2": "090-574-9666",
+   "email": "Cmboxingstadium@gmail.com",
+   "training": "ตั๋วชก 1 ใบ แถมคลาสมวยไทยฟรี 1 ครั้ง จำกัดจำนวนต่อวัน (ตามเว็บสนาม) · every fight ticket includes one free Muay Thai class, limited places daily (venue's own words)",
+   "altNames": [
+    "Sorying Arena",
+    "Chiang Mai Boxing Stadium",
+    "สนามมวยเชียงใหม่ ช้างเผือก"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "สนามมวยเชียงใหม่ (ใช้ชื่อ Sorying Arena ด้วย) เลขที่ 177 ถนนช้างเผือก — เว็บสนามลงโปรแกรมชกจันทร์ถึงเสาร์ 21:00–23:30 น. ตั๋วเริ่ม 600 บาท และบอกว่าตั๋วชกหนึ่งใบแถมคลาสมวยไทยฟรีหนึ่งครั้ง (จำกัดจำนวนต่อวัน) ยังไม่มีหมุดแน่นอน — ขึ้นรถแดงแล้วบอกว่า 'สนามมวยเชียงใหม่ ช้างเผือก'",
+  "blurb_en": "Chiangmai Boxing Stadium, also styled Sorying Arena, at 177 Chang Phueak Road. Its own site lists fights Monday to Saturday, 21:00–23:30, tickets from 600 baht, and says a fight ticket includes one free Muay Thai class (limited places each day). No surveyed pin yet — tell a songthaew driver 'Chiang Mai Boxing Stadium, Chang Phueak'.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.soryingarena.com/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.soryingarena.com/contact",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-osm-node-5703615419",
+  "province": "cm",
+  "cat": [
+   "tattoo"
+  ],
+  "sub": [
+   "sak-yant",
+   "studio"
+  ],
+  "name": "Sak Yant Chiang Mai",
+  "nameTh": null,
+  "nameEn": "Sak Yant Chiang Mai",
+  "lat": 18.7918186,
+  "lng": 98.9785289,
+  "geoPrecision": "exact",
+  "address": "27/11 ถนนอารักษ์ (ริมคูเมืองด้านตะวันตก) อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
+  "phone": "080-142-4886",
+  "website": "https://www.sakyantchiangmai.com/",
+  "hours": "Mo-Sa 08:50-17:30",
+  "attrs": {
+   "kind": "บริการจองสักยันต์ — อาจารย์ประจำสักที่ร้าน และพาไปสักกับพระที่วัด (ตามคำอธิบายของร้านเอง)",
+   "phone2": "095-690-8886",
+   "priceCardTh": "1 ชม. ที่ร้าน 3,500–4,500 / ที่วัด 6,000–7,000 · 2 ชม. 6,500 / 8,500 · 3 ชม. 8,500–9,500 / 10,500–11,500 · นะตัวเดียว 2,000 / 5,000 · ลายเล็กสุด 6×8 ซม. 2,500 / 5,000 บาท — ราคาตามเวลาและขนาด",
+   "priceCardEn": "1 h in-house 3,500–4,500 / at temple 6,000–7,000 · 2 h 6,500 / 8,500 · 3 h 8,500–9,500 / 10,500–11,500 · a single na 2,000 / 5,000 · smallest piece 6×8 cm 2,500 / 5,000 baht — priced by time and size",
+   "priceCardVia": "สมุดลายพร้อมราคาของร้าน (heyzine) 37 ลายที่ลงราคา อ่าน 2026-08-17 · the venue's own design-and-price book, 37 priced designs, read 2026-08-17",
+   "priceBook": "https://heyzine.com/flip-book/c90a912dc3.html",
+   "faq": "https://sakyantchiangmai.com/sak-yant-tattoo-faq/",
+   "masters": "https://sakyantchiangmai.com/sak-yant-masters-in-chiang-mai/",
+   "mastersListed": {
+    "ajarn": 12,
+    "monk": 5,
+    "fetched": "2026-08-17"
+   },
+   "maintenanceTh": "ร้านเขียนเองว่า อาจารย์เป็นผู้ลงคาถาให้ยันต์มีฤทธิ์ ส่วนการรักษาฤทธิ์นั้นคือผู้สักถือศีลห้า",
+   "maintenanceEn": "In the operation's own words: the ajarn charges the yant with the katha; keeping its power is the wearer keeping the five precepts",
+   "_pricesVerified": false
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "บริการจองสักยันต์บนถนนอารักษ์ ริมคูเมืองด้านตะวันตก เปิด จ.–ส. 08:50–17:30 — มีอาจารย์ประจำสักให้ที่ร้าน และพาไปสักกับพระที่วัดได้ หน้าอาจารย์ในเว็บของร้านเองมี 17 ท่าน (อาจารย์ 12 พระ 5) บอกครู สำนัก และปีในผ้าเหลืองไว้ครบ สมุดลายพร้อมราคาของร้านตั้งราคาตามเวลาและขนาด ไม่ใช่ตามฤทธิ์ของลาย: งาน 1 ชั่วโมง ที่ร้าน 3,500–4,500 / ที่วัด 6,000–7,000 · 2 ชั่วโมง 6,500 / 8,500 · 3 ชั่วโมง 8,500–9,500 / 10,500–11,500 · นะตัวเดียว 2,000 / 5,000 ร้านแยกราคาที่ร้านกับที่วัดไว้สองคอลัมน์ — ถามให้ชัดตอนจองว่าราคาที่วัดรวมอะไรบ้าง (ค่ารถ ล่าม และค่าบูชาครูถวายพระ) ร้านเขียนเองว่า อาจารย์ลงคาถาให้ ส่วนการรักษาฤทธิ์คือผู้สักถือศีลห้า",
+  "blurb_en": "A sak yant booking service on Arak Road along the west moat of the old city, open Mon–Sat 08:50–17:30 — resident ajarns tattoo in-house, and temple visits sit you with a monk. Its own masters page lists 17 practitioners (12 ajarn, 5 monks) with teachers, สำนัก and years in the robe. Its design-and-price book prices by time and size, not by a design's power: a one-hour piece 3,500–4,500 in-house / 6,000–7,000 at the temple · two hours 6,500 / 8,500 · three hours 8,500–9,500 / 10,500–11,500 · a single na 2,000 / 5,000. In-house and temple are two columns — ask when booking what the temple figure includes (transport, interpreting, the offering to the monk). In the operation's own words, the ajarn charges the yant with the katha; keeping its power is the wearer keeping the five precepts.",
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/5703615419",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass — name, address, hours, phone, website, email, payment"
+   },
+   {
+    "type": "osm",
+    "ref": "node/6215394985",
+    "fetched": "2026-07-27",
+    "via": "second OSM node for the same door (folded by data/curated/merges.json) — second phone 095-690-8886"
+   },
+   {
+    "type": "web",
+    "ref": "https://heyzine.com/flip-book/c90a912dc3.html",
+    "fetched": "2026-08-17",
+    "via": "the venue's own design-and-price book, read from the owner's screenshots and indexed in photo-mine/out/sakyant/read_index.jsonl (#23–#196): 37 priced designs, in-house and at-temple columns; canonical URL given by the operation in its own message (#138)"
+   },
+   {
+    "type": "web",
+    "ref": "https://sakyantchiangmai.com/sak-yant-masters-in-chiang-mai/",
+    "fetched": "2026-08-17",
+    "via": "the venue's own masters page — 17 practitioners, recorded as data in manuscript-wiki/data/yant_practitioners.json; self-reported, years and generations are claims"
+   },
+   {
+    "type": "web",
+    "ref": "https://sakyantchiangmai.com/sak-yant-tattoo-faq/",
+    "fetched": "",
+    "via": "linked by the operation in its own message (photo-mine #138); its hourly framing not re-read in this pass — see notes/asked-sak-yant-2026-08-19.md"
+   },
+   {
+    "type": "field",
+    "ref": "the operation's own message to a client, 2026-08 (photo-mine #138)",
+    "via": "the five-precepts maintenance statement, paraphrased — not a screenshot, not reproduced"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-mama-noi-cooking-school",
+  "province": "cm",
+  "cat": [
+   "cooking"
+  ],
+  "sub": [
+   "class",
+   "farm"
+  ],
+  "name": "Mama Noi Cooking School",
+  "nameTh": "โรงเรียนสอนทำอาหารมาม่าน้อย",
+  "nameEn": "Mama Noi Cooking School",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "45/41 ต้นขาม ซอย 2 อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50000 (ตามเว็บโรงเรียน)",
+  "phone": "+66 83 641 6464",
+  "website": "https://www.mamanoicookingschool.com/",
+  "hours": "Mo-Su 09:00-20:00",
+  "attrs": {
+   "kind": "โรงเรียนสอนทำอาหาร",
+   "classSessions": "เช้า 9:00 · บ่าย 15:30 · เปิดทุกวัน · ราว 3–4 ชั่วโมง · morning 9:00 · afternoon 15:30 · open daily · about 3–4 hours",
+   "classSessionsVia": "school website",
+   "classPrices": "1,000 บาท/คน · ห้องแอร์ 1,399 · 1,000 baht per person · air-conditioned room 1,399",
+   "priceVia": "school website",
+   "_pricesVerified": false,
+   "pickup": "รับ-ส่งฟรีในรัศมี 5 กม. จากเมืองเก่า · free pickup and drop-off within 5 km of the old city",
+   "menuNote": "3 จาน + ขนม + ชาไทย · เดินตลาด · มีเมนูมังสวิรัติทุกจาน · สวนออร์แกนิก · 3 dishes plus dessert and Thai tea · market walk · a vegetarian version of every dish · organic garden",
+   "pinNote": "ยังไม่มีหมุด — ที่อยู่ตามเว็บโรงเรียนคือ 45/41 ต้นขาม ซอย 2 ซึ่งสารบัญถนนของเรายังหาไม่เจอ อยู่ในรายการรอหมุด · no pin yet — the school's own address, 45/41 Ton Kham Soi 2, is not in our road gazetteer; on the pins list",
+   "altNames": [
+    "Mama Noi Thai Cookery School",
+    "มาม่าน้อย"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "โรงเรียนสอนทำอาหารที่เว็บของตัวเองบอกว่าเปิดทุกวัน รอบเช้า 9:00 และรอบบ่าย 15:30 ราว 3–4 ชั่วโมง ทำ 3 จานกับขนมและชาไทย มีเดินตลาดและสวนออร์แกนิก ราคาที่ประกาศ 1,000 บาท (ห้องแอร์ 1,399) รับ-ส่งฟรีในรัศมี 5 กม. จากเมืองเก่า — ยังไม่ได้เทียบราคาหน้าประตู และยังไม่มีหมุด",
+  "blurb_en": "A cooking school whose own site says it opens daily, with a 9:00 morning and a 15:30 afternoon session of about 3–4 hours: three dishes plus dessert and Thai tea, a market walk and an organic garden. Posted price 1,000 baht (1,399 for the air-conditioned room), free pickup within 5 km of the old city. Price not yet checked at the door; no pin yet.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.mamanoicookingschool.com/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-grandmas-home-cooking-school",
+  "province": "cm",
+  "cat": [
+   "cooking"
+  ],
+  "sub": [
+   "class",
+   "farm",
+   "home",
+   "northern"
+  ],
+  "name": "Grandma's Home Cooking School",
+  "nameTh": "โรงเรียนสอนทำอาหารบ้านยาย (Grandma's Home)",
+  "nameEn": "Grandma's Home Cooking School",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "172/7 หมู่ 8 ต.สารภี อ.สารภี จ.เชียงใหม่ 50140",
+  "phone": "+66 82 850 9999",
+  "website": "https://www.grandmascookingschool.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "โรงเรียนสอนทำอาหาร",
+   "classSessions": "เต็มวัน · คอร์สอาหารเหนือเต็มวัน · ครึ่งวัน เช้า / บ่าย / เย็น (เวลาและวันไม่อยู่บนหน้าเว็บ) · full day · a Northern Thai full-day course · half day morning, afternoon or evening (times and weekdays not on the page)",
+   "classSessionsVia": "school website",
+   "pickup": "รับ-ส่งในรัศมี 10 กม. จากตัวเมือง · pickup and drop-off within 10 km of downtown",
+   "menuNote": "เริ่มที่ตลาด แล้วเก็บผักในฟาร์มออร์แกนิก · คอร์สอาหารเหนือ 6 จาน เช่น ไส้อั่ว ขนมครก (ตามคำเว็บ: Northern Thai Sausage, Thai coconut pancakes) · มีมังสวิรัติ ฮาลาล ไร้กลูเตน · market first, then the organic farm · the Northern course is 6 dishes — Northern sausage, coconut pancakes · vegetarian, halal and gluten-free available",
+   "phone2": "+66 92 998 9424",
+   "email": "rsvn.cooking@grandmasvillagefarm.com",
+   "pinNote": "ยังไม่มีหมุด — ที่อยู่คือ 172/7 หมู่ 8 ต.สารภี อ.สารภี ซึ่งสารบัญของเรามีแต่จุดกึ่งกลางตำบลข้างเคียง ไม่ใช่หมุด · no pin yet — 172/7 Moo 8, Tambon Saraphi, Amphoe Saraphi; our gazetteer offers only a neighbouring tambon centroid, which is not a pin"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "โรงเรียนสอนทำอาหารในฟาร์มออร์แกนิกที่สารภี ศาลาแบบล้านนา — เว็บของตัวเองบอกว่ามีคอร์สเต็มวัน คอร์สอาหารเหนือเต็มวัน (6 จาน) และครึ่งวันเช้า/บ่าย/เย็น เริ่มที่ตลาดแล้วเก็บผักในฟาร์ม รับ-ส่งในรัศมี 10 กม. มีมังสวิรัติ ฮาลาล ไร้กลูเตน ราคาไม่อยู่บนหน้าเว็บ (จองผ่านระบบของโรงเรียน) ยังไม่มีหมุด",
+  "blurb_en": "A cooking school on an organic farm in Saraphi with Lanna-style pavilions. Its own site lists a full-day course, a Northern Thai full-day course of six dishes, and half days morning, afternoon or evening — the market first, then the farm; pickup within 10 km; vegetarian, halal and gluten-free available. Prices are not on the page (booking is through the school's own system). No pin yet.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.grandmascookingschool.com/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-elephant-nature-park",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "Elephant Nature Park",
+  "nameTh": null,
+  "nameEn": "Elephant Nature Park",
+  "lat": 19.214789,
+  "lng": 98.861487,
+  "geoPrecision": "exact",
+  "address": "สำนักงานจอง 1 ถนนราชมรรคา ต.พระสิงห์ อ.เมืองเชียงใหม่ 50200 — ตัวปางอยู่นอกเมือง ออกรถจากโรงแรมหรือสำนักงาน · booking office 1 Ratmakka (Ratchamanka) Road, Phra Sing; the park is out of town, pickups from hotels or the office",
+  "phone": "+66 82 557 3380",
+  "website": "https://www.elephantnaturepark.org/",
+  "hours": "Office 07:00-17:00 daily",
+  "attrs": {
+   "kind": "ปางช้าง",
+   "phone2": "+66 53 270 855",
+   "selfDescription": "“ศูนย์ช่วยเหลือและฟื้นฟูช้าง” ก่อตั้งโดยแสงเดือน (เล็ก) ชัยเลิศ — คำของปางเอง · “an elephant rescue and rehabilitation center”, founded by Saengduean (Lek) Chailert — the site's own words",
+   "elephantProgram": "ดูโขลงช้างที่เลือกอยู่กันเอง · โครงการ Hands Off · ดูช้างลงอาบน้ำเองตอนเย็น (ไม่รับประกัน) · ครึ่งวันเช้า เต็มวัน ค้างคืน และโปรแกรมรายสัปดาห์ · observe the herd living in their chosen groups; a ‘Hands Off’ project; watch the elephants bathe on their own toward evening (never guaranteed); half-day morning, full-day, overnight and weekly programs",
+   "ridingStated": "ไม่มีขี่ช้าง — เว็บปางบอกว่าเลิกขี่มาเกือบสิบปีแล้ว (แบบ Saddle Off) · no riding — the site says riding stopped almost a decade ago (the Saddle Off model)",
+   "elephantsStated": "มากกว่า 75 เชือก (ตามเว็บ 2026-08-19) · more than 75 (as stated 2026-08-19)",
+   "programVia": "venue website, read 2026-08-19",
+   "priceCardTh": "2,500–15,000 บาท ตามโปรแกรม (ครึ่งวันถึงรายสัปดาห์) · เด็ก 3–11 ปีครึ่งราคาในบางโปรแกรม บางโปรแกรมไม่รับเด็ก",
+   "priceCardEn": "2,500–15,000 baht by program (half-day to weekly) · children 3–11 half price on some programs, some programs take no children",
+   "priceCardVia": "the spread as posted on the venue's site 2026-08-19 — not welded to any one program",
+   "_pricesVerified": false,
+   "pickup": "รถรับจากโรงแรมในเมือง 07:30–08:00 หรือจากสำนักงาน 07:30 (คำของเว็บ) · pickup from city hotels 07:30–08:00 or from the office 07:30 (the site's words)",
+   "pinNote": "หมุดคือตัวปางที่ ต.กื้ดช้าง อ.แม่แตง จากการสำรวจ OpenStreetMap (way/1322052747 — OSM วาดพื้นที่ติดกันสองแปลง) สำนักงานจองอยู่ 1 ถนนราชมรรคาในเมือง · pin is the park itself at Kuet Chang, Mae Taeng, from the OpenStreetMap survey (way/1322052747; OSM maps two adjacent areas); the booking office is 1 Ratchamanka Road in town",
+   "altNames": [
+    "ENP",
+    "Elephant Nature Park Sanctuary"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ปางที่เรียกตัวเองว่าศูนย์ช่วยเหลือและฟื้นฟูช้าง ก่อตั้งโดยแสงเดือน (เล็ก) ชัยเลิศ — เว็บของปางเองบอกว่ามีช้างมากกว่า 75 เชือก เลิกขี่ช้างมาเกือบสิบปี มีโครงการดูอย่างเดียวไม่สัมผัส (Hands Off) โปรแกรมตั้งแต่ครึ่งวันถึงรายสัปดาห์ ราคาที่ลงไว้ 2,500–15,000 บาทตามโปรแกรม จองที่สำนักงานถนนราชมรรคาหรือทางเว็บ รถรับจากโรงแรมในเมือง",
+  "blurb_en": "The park that calls itself an elephant rescue and rehabilitation center, founded by Saengduean (Lek) Chailert. Its own site says more than 75 elephants, that riding stopped almost a decade ago, a Hands Off observation project, and programs from a half day to a week, posted at 2,500–15,000 baht by program. Book at the Ratchamanka Road office or online; pickups leave from city hotels.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.elephantnaturepark.org/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.elephantnaturepark.org/contact-us/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-20"
+ },
+ {
+  "id": "cm-curated-maesa-elephant-camp",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "Maesa Elephant Camp",
+  "nameTh": "ปางช้างแม่สา",
+  "nameEn": "Maesa Elephant Camp",
+  "lat": 18.899798,
+  "lng": 98.875489,
+  "geoPrecision": "exact",
+  "address": "101 หมู่ 9 ต.แม่แรม อ.แม่ริม จ.เชียงใหม่ 50180 · 101 Moo 9, Mae Ram, Mae Rim",
+  "phone": "+66 53 206 247",
+  "website": "https://www.maesaelephantcamp.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "phone2": "+66 53 206 248",
+   "email": "info@maesaelephantcamp.com",
+   "selfDescription": "ปางช้างแม่สา — และ The Chang Chiang Mai (เดิมคือ Thai Elephant Care Center เปลี่ยนชื่อ พ.ย. 2019) บ้านของช้าง 14 เชือก ส่วนใหญ่สูงวัย ที่เดียวกัน · the camp — and The Chang Chiang Mai (formerly the Thai Elephant Care Center, renamed November 2019), home to 14 mostly elderly elephants, at the same address",
+   "elephantProgram": "ค่าเข้ารวมตะกร้าผลไม้ป้อนช้าง · The Chang (จองล่วงหน้า ครึ่งวัน/เต็มวัน): เรียนสมุนไพรช้าง เตรียมอาหาร ดูโครงกระดูกช้าง เดินป่ากับช้าง ดูช้างในลำธารและแอ่งโคลน · admission includes a fruit basket to feed; The Chang (by appointment, half or full day): elephant herbs, food prep, a skeleton lesson, a forest walk with the elephants, watching them in the stream and the mud pits",
+   "ridingStated": "“No Elephant Riding. No Elephant Show.” — ตามที่หน้าแรกของเว็บปางประกาศ · as the venue's homepage states",
+   "elephantsStated": "14 เชือกที่ The Chang ส่วนใหญ่สูงวัย (ตามเว็บ) · 14 at The Chang, mostly elderly (as stated)",
+   "programVia": "venue website, read 2026-08-19",
+   "priceCardTh": "ค่าเข้า ต่างชาติ 300 · คนไทย 150 บาท (รวมตะกร้าผลไม้) · อุปถัมภ์ช้าง 50 / 250 / 500 บาทต่อเดือน",
+   "priceCardEn": "Admission: foreign visitor 300 · Thai citizen 150 baht (fruit basket included) · sponsor an elephant 50 / 250 / 500 baht a month",
+   "priceCardVia": "venue website, read 2026-08-19",
+   "_pricesVerified": false,
+   "pinNote": "หมุดจากการสำรวจ OpenStreetMap (node/1013055448 ป้าย ปางช้างแม่สา) — The Chang อยู่ที่เดียวกัน · pin from the OpenStreetMap survey (node/1013055448, signed ปางช้างแม่สา); The Chang shares the grounds",
+   "altNames": [
+    "Mae Sa Elephant Camp",
+    "The Chang Chiang Mai",
+    "Thai Elephant Care Center"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ปางช้างแม่สาที่แม่ริม — หน้าแรกของเว็บปางเองประกาศว่า ไม่มีขี่ช้าง ไม่มีโชว์ช้าง ค่าเข้า 300 บาท (คนไทย 150) พร้อมตะกร้าผลไม้ป้อนช้าง และที่เดียวกันคือ The Chang Chiang Mai (เดิม Thai Elephant Care Center) บ้านของช้าง 14 เชือกส่วนใหญ่สูงวัย เปิดให้เข้าชมแบบจองล่วงหน้า เดินป่ากับช้าง ดูช้างในลำธารและแอ่งโคลน",
+  "blurb_en": "The Mae Sa camp in Mae Rim. Its own homepage states No Elephant Riding, No Elephant Show, admission 300 baht (Thai citizens 150) with a fruit basket to feed the elephants — and at the same address, The Chang Chiang Mai (formerly the Thai Elephant Care Center), home to 14 mostly elderly elephants, visited by appointment: a forest walk with the elephants, watching them in the stream and the mud pits.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.maesaelephantcamp.com/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.maesaelephantcamp.com/contact",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-20"
+ },
+ {
+  "id": "cm-curated-patara-elephant-farm",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "Patara Elephant Farm",
+  "nameTh": null,
+  "nameEn": "Patara Elephant Farm",
+  "lat": 18.800678,
+  "lng": 98.844154,
+  "geoPrecision": "exact",
+  "address": "ต.บ้านปง อ.หางดง จ.เชียงใหม่ (เว็บระบุแค่ตำบล-อำเภอ) · T. Ban Pong, A. Hang Dong (the site gives only the subdistrict and district)",
+  "phone": "+66 81 992 2551",
+  "website": "https://www.pataraelephantfarm.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "email": "pataraelephantfarm@hotmail.com",
+   "selfDescription": "“elephant farm” — โปรแกรมชื่อ Elephant Owner For A Day (ชื่อตามเว็บ) · an elephant farm whose program is called Elephant Owner For A Day (the site's name for it)",
+   "elephantProgram": "Elephant Owner For A Day — หน้าเว็บที่อ่านได้ไม่ลงรายละเอียดกิจกรรม ถามปางโดยตรง · Elephant Owner For A Day — the pages read carry no activity detail; ask the farm",
+   "ridingStated": "ไม่ได้ระบุบนหน้าที่อ่าน · not stated on the pages read",
+   "programVia": "venue website, read 2026-08-19",
+   "pinNote": "หมุดจากการสำรวจ OpenStreetMap (node/2588753265) — OSM มีอีกจุดชื่อเดียวกันห่างไป ~2.5 กม. (node/13301666393) ถามฟาร์มว่านัดพบที่จุดไหน · pin from the OpenStreetMap survey (node/2588753265); OSM maps a second point of the same name ~2.5 km west (node/13301666393) — ask the farm which site your day meets at"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ปางที่เรียกตัวเองว่าฟาร์มช้างในตำบลบ้านปง อำเภอหางดง โปรแกรมชื่อ Elephant Owner For A Day — หน้าเว็บที่อ่านได้มีแค่ชื่อโปรแกรม เบอร์โทร และอีเมล รายละเอียดกิจกรรมและที่ตั้งแน่นอนต้องถามปาง",
+  "blurb_en": "The farm in Ban Pong, Hang Dong, whose program is called Elephant Owner For A Day. The pages that could be read give the program's name, a phone and an email — activity detail and the exact location are questions for the farm.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.pataraelephantfarm.com/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-20"
+ },
+ {
+  "id": "cm-curated-elephant-jungle-sanctuary",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "Elephant Jungle Sanctuary",
+  "nameTh": null,
+  "nameEn": "Elephant Jungle Sanctuary",
+  "lat": 18.788325,
+  "lng": 98.998672,
+  "geoPrecision": "approx",
+  "address": "สำนักงาน 119/10 ถนนท่าแพ ต.ช้างคลาน อ.เมืองเชียงใหม่ 50100 — ปางอยู่นอกเมือง รถรับจากสำนักงาน-โรงแรม · office 119/10 Tha Phae Road, Chang Khlan; the camps are out of town, pickups from the office and hotels",
+  "phone": "+66 53 273 415",
+  "website": "https://www.elephantjunglesanctuary.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "phone2": "+66 62 295 6566",
+   "selfDescription": "“ethical elephant sanctuary” ที่มีปางหลายแห่งใน 4 จังหวัด — คำของเว็บเอง · “an ethical elephant sanctuary” with camps in four provinces — the site's own words",
+   "elephantProgram": "ครึ่งวัน เต็มวัน ค้างคืน: ป้อนอาหาร อาบน้ำ สปาโคลน เล่นกับช้าง (คำของเว็บ) · โปรแกรม Watch Me ดูช้างจากระยะห่าง · โปรแกรม 3 วันทำงานกับทีมสัตวแพทย์ · Elephant Jungle Cafe ป้อนช้าง + เวิร์กช็อปกระดาษมูลช้าง · half-day, full-day and overnight: feed, bathe, mud spa and play with the elephants (the site's words); a Watch Me program observing from a distance; a 3-day program alongside the vet team; the Elephant Jungle Cafe with feeding and a poo-paper workshop",
+   "ridingStated": "ไม่ได้ระบุคำว่าขี่บนหน้าที่อ่าน — เว็บเรียกตัวเองว่า ethical sanctuary · riding not stated in those words on the pages read — the site calls itself an ethical sanctuary",
+   "programVia": "venue website, read 2026-08-19",
+   "priceCardTh": "เริ่ม 690 · 1,900 · 2,800 · 5,900 · 7,900 บาท ตามโปรแกรม (ราคาเริ่มต้นที่เว็บลง)",
+   "priceCardEn": "from 690 · 1,900 · 2,800 · 5,900 · 7,900 baht by program (starting prices as posted)",
+   "priceCardVia": "the spread as posted 2026-08-19 — not welded to any one program",
+   "_pricesVerified": false,
+   "pinNote": "หมุดคือสำนักงานบนถนนท่าแพ (จุดกลางถนน ±550 ม.) ตามบล็อกที่อยู่ของเว็บ — ตัวปางอยู่ในหุบเขานอกเมือง · pin is the Tha Phae Road office (road midpoint, ±550 m) from the site's address block; the camps are in the hills out of town",
+   "altNames": [
+    "EJS"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "เครือปางที่เรียกตัวเองว่า ethical elephant sanctuary มีปางในสี่จังหวัด สำนักงานเชียงใหม่อยู่ถนนท่าแพ — เว็บของปางบอกว่าโปรแกรมครึ่งวัน/เต็มวัน/ค้างคืน ได้ป้อนอาหาร อาบน้ำ สปาโคลน เล่นกับช้าง มีโปรแกรม Watch Me สำหรับคนที่อยากดูจากระยะห่าง และโปรแกรม 3 วันกับทีมสัตวแพทย์ ราคาเริ่มต้นที่ลงไว้ 690 ถึง 7,900 บาทตามโปรแกรม",
+  "blurb_en": "A group that calls itself an ethical elephant sanctuary with camps in four provinces; the Chiang Mai office is on Tha Phae Road. Its site says half-day, full-day and overnight programs with feeding, bathing, a mud spa and play, a Watch Me program for observing from a distance, and a 3-day program with the vet team, with starting prices posted from 690 to 7,900 baht by program.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.elephantjunglesanctuary.com/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.elephantjunglesanctuary.com/chiang-mai/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-maetaeng-elephant-park",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp",
+   "elephant-care"
+  ],
+  "name": "Maetaeng Elephant Park & Clinic",
+  "nameTh": null,
+  "nameEn": "Maetaeng Elephant Park & Clinic",
+  "lat": 19.198246,
+  "lng": 98.886583,
+  "geoPrecision": "approx",
+  "address": "ต.กื้ดช้าง อ.แม่แตง จ.เชียงใหม่ — ริมแม่น้ำแม่แตง หุบเขาแม่ตะมาน ราว 50 กม. เหนือเมือง (คำของเว็บ) · Kued Chang, Mae Taeng — on the Mae Taeng river in the Maetaman valley, about 50 km north of the city (the site's words)",
+  "phone": "+66 81 594 1110",
+  "website": "https://www.maetaengelephantpark.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "phone2": "+66 89 755 5451",
+   "selfDescription": "“Elephant Park & Clinic” ของครอบครัวชัยเลิศ — คลินิกช้างรักษาฟรีให้ช้างทุกเชือกในพื้นที่ มีสัตวแพทย์ประจำ ค่าใช้จ่ายจากรายได้ของปางและการขายสินค้า (คำของเว็บ) · the Chailert family's “Elephant Park & Clinic” — the clinic offers free treatment to all elephants in the area, full-time vets financed by the park and product sales (the site's words)",
+   "elephantProgram": "The Mahout Elephant Experience · ล่องแพไม้ไผ่ · นั่งเกวียนวัว · วิถีชนบท · ภาพวาดฝีมือช้างมีจำหน่าย (คำของเว็บ) · the Mahout Elephant Experience, bamboo rafting, ox-cart rides, rural life; paintings by the elephants are sold (the site's words)",
+   "ridingStated": "ไม่ได้ระบุคำว่าขี่ช้างบนหน้าที่อ่าน — มี Mahout Elephant Experience ถามปางว่าคืออะไร · riding not stated in those words on the pages read — there is a Mahout Elephant Experience; ask the park what it involves",
+   "programVia": "venue website, read 2026-08-19",
+   "pinNote": "พิกัดจากแผนที่ที่ฝังบนหน้าติดต่อของเว็บปางเอง · coordinates from the map embedded on the venue's own contact page",
+   "altNames": [
+    "Mae Taeng Elephant Park",
+    "Maetaman Valley elephant park"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ปางช้างและคลินิกช้างริมแม่น้ำแม่แตงในหุบเขาแม่ตะมาน ตำบลกื้ดช้าง — เว็บของปางบอกว่าคลินิกรักษาฟรีให้ช้างทุกเชือกในพื้นที่ด้วยสัตวแพทย์ประจำ จากรายได้ของปาง กิจกรรมที่ลงไว้คือ Mahout Elephant Experience ล่องแพไม้ไผ่ นั่งเกวียน และมีภาพวาดฝีมือช้างจำหน่าย",
+  "blurb_en": "An elephant park and elephant clinic on the Mae Taeng river in the Maetaman valley, Kuet Chang. Its own site says the clinic treats any elephant in the area free, with full-time vets paid for from the park's income; the posted activities are the Mahout Elephant Experience, bamboo rafting and ox-cart rides, and paintings by the elephants are sold.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.maetaengelephantpark.com/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.maetaengelephantpark.com/contact/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-baanchang-elephant-park",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "Baanchang Elephant Park",
+  "nameTh": null,
+  "nameEn": "Baanchang Elephant Park",
+  "lat": 18.788226,
+  "lng": 98.990285,
+  "geoPrecision": "approx",
+  "address": "สำนักงาน 200 ถนนราชภาคินัย อ.เมืองเชียงใหม่ 50200 — ตัวปางอยู่นอกเมือง · office 200 Ratchaphakhinai Road; the park itself is out of town",
+  "phone": "+66 53 814 174",
+  "website": "https://www.baanchangelephantpark.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "phone2": "+66 86 924 1245",
+   "selfDescription": "ปางช้างที่เว็บประกาศ No Elephant Riding Activity — ครึ่งวันจัดในชื่อ Kanta Elephant Sanctuary; “ครอบครัวเราดูแลช้างมากว่า 30 ปี” (คำของเว็บ) · an elephant park whose site states No Elephant Riding Activity; its half-day runs as Kanta Elephant Sanctuary; “our family has cared for elephants for over 30 years” (its words)",
+   "elephantProgram": "ครึ่งวัน: ป้อนอาหาร ทำอาหารสมุนไพร เดินกับช้างในทุ่ง อาบน้ำกับช้าง เล่นกับลูกช้าง · เต็มวัน Elephant's Day Care · half-day: feed, cook herbal food, roam the field with the elephants, bathe with them, play with the babies; a full-day Elephant's Day Care",
+   "ridingStated": "ไม่มี — เว็บประกาศว่า “agree to no longer offer elephant riding activity” · none — the site announces it no longer offers riding",
+   "programVia": "venue website, read 2026-08-19",
+   "pinNote": "หมุดคือสำนักงานบนถนนราชภาคินัย (จุดกลางถนน ±790 ม.) ตามที่อยู่ท้ายเว็บปาง — ตัวปางอยู่นอกเมือง · pin is the Ratchaphakhinai Road office (road midpoint, ±790 m) from the site's footer; the park is out of town · สายข้อมูลอีกเบอร์ +66 89 635 5206",
+   "altNames": [
+    "Baan Chang Elephant Park",
+    "Kanta Elephant Sanctuary"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ปางช้างที่เว็บของตัวเองประกาศว่าเลิกกิจกรรมขี่ช้างแล้ว ครอบครัวดูแลช้างมากว่า 30 ปี — โปรแกรมครึ่งวันจัดในชื่อ Kanta Elephant Sanctuary ได้ป้อนอาหาร ทำอาหารสมุนไพร เดินกับช้าง อาบน้ำ เล่นกับลูกช้าง เต็มวันคือ Elephant's Day Care สำนักงานจองอยู่ถนนราชภาคินัยในเมือง",
+  "blurb_en": "An elephant park whose own site announces it no longer offers riding, run by a family that says it has cared for elephants for over 30 years. The half-day runs under the name Kanta Elephant Sanctuary — feeding, herbal food, a walk, a bath, the babies — and the full day is the Elephant's Day Care. The booking office is on Ratchaphakhinai Road in town.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.baanchangelephantpark.com/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-thai-elephant-home",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "Thai Elephant Home",
+  "nameTh": null,
+  "nameEn": "Thai Elephant Home",
+  "lat": 19.203473,
+  "lng": 98.888886,
+  "geoPrecision": "exact",
+  "address": "120/1 หมู่ 2 ต.กื้ดช้าง อ.แม่แตง จ.เชียงใหม่ 50150 · 120/1 Moo 2, Kuet Chang, Mae Taeng",
+  "phone": "+66 89 434 2047",
+  "website": "https://www.thaielephanthome.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "whatsapp": "+66895545547",
+   "email": "thaielephanthome@yahoo.com",
+   "selfDescription": "“Healthy Elephants & Eco-Friendly Tourism” — คำโปรยของเว็บ; ช้างแต่ละเชือกมีควาญประจำ · the site's own tagline; each elephant has its own mahout",
+   "elephantProgram": "เดินกับช้าง 2 ชม. / 1 วัน · ขี่ช้าง 2 ชม. / 1 วัน · Trail of the Dinosaur กับการขี่ · ค้างคืน · อาสาสมัคร · Walking With Elephants 2 h / 1 day · Elephant Riding 2 h / 1 day · a Trail of the Dinosaur with riding · overnight · volunteering",
+   "ridingStated": "มี — เว็บระบุว่าขี่หลังเปล่า ไม่ใช้แหย่ง/เก้าอี้ แขกหนึ่งคนต่อช้างหนึ่งเชือกต่อวัน (คำของปางเอง) · yes — the site says bareback, no chair or basket, one guest per elephant per day (the venue's own words)",
+   "programVia": "venue website, read 2026-08-19",
+   "priceCardTh": "เริ่ม 2,000 ถึง 14,900 บาท ตามโปรแกรม (ตัวเลข “From” ที่เว็บลง)",
+   "priceCardEn": "from 2,000 to 14,900 baht by program (the “From” figures as posted)",
+   "priceCardVia": "the spread as posted 2026-08-19 — not welded to any one program",
+   "_pricesVerified": false,
+   "pinNote": "หมุดจากการสำรวจ OpenStreetMap (way/375640514) ต.กื้ดช้าง · pin from the OpenStreetMap survey (way/375640514), Kuet Chang"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ปางในตำบลกื้ดช้าง แม่แตง — เว็บของปางลงโปรแกรมทั้งเดินกับช้างและขี่ช้าง และบอกเองว่าขี่แบบหลังเปล่าไม่ใช้แหย่ง แขกหนึ่งคนต่อช้างหนึ่งเชือกต่อวัน ช้างแต่ละเชือกมีควาญประจำ มีค้างคืนและอาสาสมัคร ราคาเริ่มต้นที่ลงไว้ 2,000–14,900 บาทตามโปรแกรม",
+  "blurb_en": "A camp in Kuet Chang, Mae Taeng. Its own site lists both walking with the elephants and riding them, and says the riding is bareback, without a chair, one guest per elephant per day, each elephant with its own mahout; there are overnight and volunteer programs, with posted starting prices of 2,000–14,900 baht by program.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.thaielephanthome.com/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-20"
+ },
+ {
+  "id": "cm-curated-changchill",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "ChangChill",
+  "nameTh": null,
+  "nameEn": "ChangChill",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "45/2 หมู่ 19 บ้านประตูเมือง ต.แม่วิน อ.แม่วาง จ.เชียงใหม่ 50360 · 45/2 Moo 19, Ban Pratu Mueang, Mae Win, Mae Wang",
+  "phone": "+66 86 329 3380",
+  "website": "https://www.changchill.com/",
+  "hours": "09:00-17:00 daily",
+  "attrs": {
+   "kind": "ปางช้าง",
+   "selfDescription": "ChangChill — เดิมเป็นปางที่มีขี่ช้างในแม่วาง เลิกขี่ ตั้งเป็น Happy Elephant Care Valley แล้วปรับเป็น ChangChill ร่วมกับ World Animal Protection และบริษัททัวร์ ตั้งใจเป็นแบบอย่างของปางสวัสดิภาพสูง (คำของเว็บ) · formerly a riding camp in Mae Wang; riding discontinued, became Happy Elephant Care Valley, then ChangChill with World Animal Protection and travel companies; meant as a model of a high-welfare venue (the site's account)",
+   "elephantProgram": "ช้างประจำ 4 เชือก กินหญ้า อาบน้ำ อยู่กันเอง — ผู้มาเยือนฟังประวัติช้าง ดูช้างในที่อยู่ตามธรรมชาติ พบควาญ · ครึ่งวันเช้าและเต็มวัน ที่ Hillside และ View Doi · four resident elephants graze, bathe and socialise; visitors learn their histories, observe them in their habitat and meet the mahouts; half-day morning and full-day visits at Hillside and View Doi",
+   "ridingStated": "ไม่มี — เว็บเล่าว่าเลิกขี่ช้างไปแล้ว · none — the site says riding was discontinued",
+   "elephantsStated": "4 เชือก (ตามเว็บ) · 4 (as stated)",
+   "programVia": "venue website, read 2026-08-19",
+   "pinNote": "ยังไม่มีหมุด — ที่อยู่ตามเว็บ แม่วิน แม่วาง · no pin yet — address per the site, Mae Win, Mae Wang"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ปางเล็กในตำบลแม่วิน อำเภอแม่วาง ที่เว็บของตัวเองเล่าว่าเคยมีขี่ช้าง เลิกแล้ว และปรับเป็นปางดูช้างร่วมกับ World Animal Protection — ช้างประจำ 4 เชือก ผู้มาเยือนดูช้างกินหญ้า อาบน้ำ อยู่กันเอง และพบควาญ มีครึ่งวันเช้าและเต็มวันสองจุด Hillside กับ View Doi",
+  "blurb_en": "A small venue in Mae Win, Mae Wang, whose own site tells how it once offered riding, stopped, and remade itself as an observation venue with World Animal Protection — four resident elephants that graze, bathe and socialise while visitors watch and meet the mahouts; half-day morning and full-day visits at two sites, Hillside and View Doi.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.changchill.com/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.changchill.com/contact/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-kerchor-elephant-eco-park",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "Kerchor Elephant Eco Park",
+  "nameTh": null,
+  "nameEn": "Kerchor Elephant Eco Park",
+  "lat": 18.655296,
+  "lng": 98.682614,
+  "geoPrecision": "approx",
+  "address": "บ้านสบวิน ต.แม่วิน อ.แม่วาง จ.เชียงใหม่ 50360 · Ban Sob Win, Mae Win, Mae Wang",
+  "phone": "+66 93 135 7705",
+  "website": "https://kerchorelephant.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "email": "info@kerchorelephant.com",
+   "selfDescription": "ปางช้างเชิงนิเวศของชุมชนกะเหรี่ยงบ้านสบวิน — “a sustainable, community-run elephant eco park managed by the Karen people” (คำของเว็บ) · its own words",
+   "elephantProgram": "ไม่มีโชว์ ไม่มีการแสดง ไม่มีขี่ช้าง (เว็บใช้คำว่า strictly) · ป้อนอาหาร ทำลูกสมุนไพร เดินป่า สปาโคลนและอาบน้ำกับช้าง · โปรแกรม 5 / 6 / 8–9 ชม. รวมอาหารกลางวัน · รถรับ 07:00–07:30 และ 13:00–13:30 · no shows, no performances, no riding (the site says strictly); feed, make herbal balls, walk, mud spa and bathe with the elephants; 5 / 6 / 8–9-hour programs with lunch; pickups 07:00–07:30 and 13:00–13:30",
+   "ridingStated": "ไม่มี — “a strict no-riding policy” (FAQ ของปาง) · none — “a strict no-riding policy” (the park's FAQ)",
+   "programVia": "venue website, read 2026-08-19",
+   "pinNote": "พิกัดจาก JSON-LD บนเว็บปางเอง · coordinates from the venue's own JSON-LD",
+   "altNames": [
+    "Kerchor Eco Elephant Park"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ปางช้างเชิงนิเวศที่บ้านสบวิน ตำบลแม่วิน ซึ่งเว็บบอกว่าชุมชนกะเหรี่ยงดูแลกันเอง — ไม่มีโชว์ ไม่มีการแสดง ไม่มีขี่ช้าง (คำว่า strictly เป็นของเว็บ) กิจกรรมคือป้อนอาหาร ทำลูกสมุนไพร เดินป่า สปาโคลนและอาบน้ำกับช้าง โปรแกรม 5 ถึง 9 ชั่วโมงรวมอาหารกลางวัน มีรถรับเช้าและบ่าย",
+  "blurb_en": "An eco park at Ban Sob Win, Mae Win, that its site describes as run by the Karen community — no shows, no performances, no riding (the word ‘strictly’ is the site's); the activities are feeding, making herbal balls, a walk, a mud spa and a bathe with the elephants, in programs of five to nine hours with lunch, pickups morning and afternoon.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://kerchorelephant.com/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://kerchorelephant.com/faqs/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-into-the-wild-elephant-camp",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "Into the Wild Elephant Camp",
+  "nameTh": null,
+  "nameEn": "Into the Wild Elephant Camp",
+  "lat": 18.803861,
+  "lng": 98.985529,
+  "geoPrecision": "approx",
+  "address": "สำนักงาน 52/1-2 ถนนช้างเผือก ต.ศรีภูมิ อ.เมืองเชียงใหม่ 50200 — ตัวปางอยู่นอกเมือง · office 52/1-2 Chang Phueak Road, Si Phum; the camp is out of town",
+  "phone": null,
+  "website": "https://www.intothewildelephantcamp.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "whatsapp": "+66834850888",
+   "selfDescription": "elephant camp — โปรแกรม “ethical” ครึ่งวันและเต็มวัน (คำของเว็บ) · an elephant camp with “ethical” half-day and full-day programs (its own words)",
+   "elephantProgram": "ครึ่งวัน: พบช้าง ฟังประวัติและพฤติกรรม ดูช้างใช้เวลาช่วงเช้าในที่อยู่ของมัน · เต็มวัน · ไกด์พูดอังกฤษ · half-day: meet the elephants, their history and behaviour, observe their morning in their habitat; full-day; English-speaking guide",
+   "ridingStated": "ไม่ได้ระบุบนหน้าที่อ่าน · not stated on the pages read",
+   "programVia": "venue website, read 2026-08-19",
+   "priceCardTh": "ครึ่งวัน ผู้ใหญ่ 1,700 · เด็ก 4–9 ปี 1,200 · เต็มวัน ผู้ใหญ่ 2,400 · เด็ก 1,700 บาท",
+   "priceCardEn": "half-day adult 1,700 · child 4–9 1,200 · full-day adult 2,400 · child 1,700 baht",
+   "priceCardVia": "venue website, read 2026-08-19",
+   "_pricesVerified": false,
+   "pinNote": "หมุดคือสำนักงานบนถนนช้างเผือก (จุดกลางถนน ±880 ม.) ตามที่อยู่ท้ายเว็บ — ตัวปางอยู่นอกเมือง · pin is the Chang Phueak Road office (road midpoint, ±880 m) from the site's footer; the camp is out of town"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ปางที่มีสำนักงานจองบนถนนช้างเผือกในเมือง — เว็บของปางลงโปรแกรมครึ่งวัน (ผู้ใหญ่ 1,700 เด็ก 1,200 บาท) และเต็มวัน (2,400 / 1,700) พบช้าง ฟังประวัติ ดูช้างใช้ชีวิตช่วงเช้า ไกด์พูดอังกฤษ ติดต่อทาง WhatsApp",
+  "blurb_en": "A camp with its booking office on Chang Phueak Road in town. Its site posts a half-day (adult 1,700, child 1,200 baht) and a full day (2,400 / 1,700): meet the elephants, hear their histories, watch their morning, with an English-speaking guide; contact by WhatsApp.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.intothewildelephantcamp.com/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-kindred-spirit-elephant-sanctuary",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "Kindred Spirit Elephant Sanctuary",
+  "nameTh": null,
+  "nameEn": "Kindred Spirit Elephant Sanctuary",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "บ้านนาคลาง หมู่ 2 ต.แม่ศึก อ.แม่แจ่ม จ.เชียงใหม่ 50270 · Ban Na Klang, Moo 2, Mae Suek, Mae Chaem",
+  "phone": null,
+  "website": "https://www.kselephantsanctuary.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "selfDescription": "มูลนิธิ/องค์กรไม่แสวงกำไร ที่เว็บบอกว่าคืนช้างสู่ป่าแบบกึ่งธรรมชาติร่วมกับชุมชน · a non-profit foundation returning elephants to a semi-wild forest life with the local community (its words)",
+   "elephantProgram": "เดินป่าไปหาช้างและสังเกตพฤติกรรม (ตามคำอธิบาย ไม่มีกิจกรรมสัมผัส) · โปรแกรม 2 วัน / 3 วัน / 3 วัน+ชะนี · ฝึกงาน 1–8 สัปดาห์ · hike into the forest to find and observe the elephants (as described, no hands-on activity); 2-day / 3-day / 3-day-with-gibbons programs; 1–8-week internships",
+   "ridingStated": "ไม่ปรากฏคำว่าขี่ — โปรแกรมเป็นการเดินไปดู · riding does not appear; the programs are hikes to observe",
+   "programVia": "venue website, read 2026-08-19",
+   "priceCardTh": "2 วัน 10,000 บาท (คนเดียว) / 5,300 ต่อคน (2 คนขึ้นไป) · 3 วัน 11,500 / 7,500 · 3 วัน+ชะนี 15,000 ต่อคน (2 คนขึ้นไป)",
+   "priceCardEn": "2 days 10,000 baht (solo) / 5,300 pp (2+) · 3 days 11,500 / 7,500 · 3 days with gibbons 15,000 pp (2+)",
+   "priceCardVia": "venue website, read 2026-08-19",
+   "_pricesVerified": false,
+   "pinNote": "ยังไม่มีหมุด — ที่อยู่ตามเว็บ บ้านนาคลาง แม่ศึก แม่แจ่ม ติดต่อทางฟอร์มบนเว็บ · no pin yet — address per the site, Ban Na Klang, Mae Suek, Mae Chaem; contact through the site's form"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "มูลนิธิที่แม่แจ่ม ซึ่งเว็บบอกว่าคืนช้างสู่ป่าแบบกึ่งธรรมชาติร่วมกับชุมชน — ผู้มาเยือนเดินป่าไปหาช้างและสังเกตพฤติกรรม โปรแกรม 2 วัน (10,000 บาทคนเดียว / 5,300 ต่อคนเมื่อไป 2 คนขึ้นไป) 3 วัน และ 3 วันพ่วงชะนี มีฝึกงาน 1–8 สัปดาห์",
+  "blurb_en": "A foundation in Mae Chaem whose site says it returns elephants to a semi-wild forest life with the local community — visitors hike into the forest to find and observe them, on 2-day (10,000 baht solo / 5,300 each for two or more), 3-day and 3-day-with-gibbons programs, with internships of one to eight weeks.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.kselephantsanctuary.com/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.kselephantsanctuary.com/contact",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-bees-elephant-sanctuary",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "BEES — Burm and Emily's Elephant Sanctuary",
+  "nameTh": null,
+  "nameEn": "BEES — Burm and Emily's Elephant Sanctuary",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "อ.แม่แจ่ม จ.เชียงใหม่ (เว็บไม่ระบุที่อยู่) · Mae Chaem District (no street address on the site)",
+  "phone": null,
+  "website": "https://www.bees-elesanctuary.org/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "selfDescription": "“a safe, natural home for elephants to just BE elephants” — “Pioneers in hands off”; ธุรกิจครอบครัว ช้างเกษียณจากงานไม้และงานท่องเที่ยว (คำของเว็บ) · the site's own words; family-owned; retired elephants from logging and tourism",
+   "elephantProgram": "โปรแกรม 2 / 4 / 7 วัน พักในชุมชน ดูช้างแบบ hands-off ไม่สัมผัส ช้างเดินป่า-ทุ่ง-ลำธารเอง · มีหมาแมวที่ช่วยมาในโครงการด้วย · 2-, 4- and 7-day programs living in the community; hands-off, observation-based, the elephants roaming forest, field and stream; rescued dogs and cats on the project too",
+   "ridingStated": "ไม่มี — hands-off ตลอด (คำของเว็บ) · none — hands-off throughout (its words)",
+   "programVia": "venue website, read 2026-08-19",
+   "pinNote": "ยังไม่มีหมุด — เว็บระบุเพียงอำเภอแม่แจ่ม ถามเมื่อจอง · no pin yet — the site names only Mae Chaem district; ask when booking",
+   "altNames": [
+    "BEES Sanctuary",
+    "Burm and Emily's Elephant Sanctuary"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ปางที่แม่แจ่ม ซึ่งเว็บเรียกตัวเองว่า “บ้านที่ช้างได้เป็นแค่ช้าง” และ “ผู้บุกเบิกการดูแบบไม่สัมผัส” — ธุรกิจครอบครัว ช้างเกษียณจากงานไม้และท่องเที่ยว ผู้มาเยือนพัก 2, 4 หรือ 7 วันในชุมชน เฝ้าดูช้างเดินป่าเดินทุ่งลงลำธารโดยไม่สัมผัส",
+  "blurb_en": "A sanctuary in Mae Chaem that calls itself “a safe, natural home for elephants to just BE elephants” and “pioneers in hands off” — family-run, elephants retired from logging and tourism; visitors stay 2, 4 or 7 days in the community and watch the elephants roam forest, field and stream without touching them.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.bees-elesanctuary.org/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-elephant-freedom-village",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "Elephant Freedom Village",
+  "nameTh": null,
+  "nameEn": "Elephant Freedom Village",
+  "lat": 18.658645,
+  "lng": 98.561368,
+  "geoPrecision": "approx",
+  "address": "ต.แม่วิน อ.แม่วาง จ.เชียงใหม่ 50360 — หมู่บ้านกะเหรี่ยง · Mae Win, Mae Wang 50360 — a Karen village",
+  "phone": "+66 95 491 0916",
+  "website": "https://www.elephantfreedomvillage.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "phone2": "+66 84 039 8987",
+   "whatsapp": "+66961632854",
+   "selfDescription": "หมู่บ้านช้างของครอบครัวชาวกะเหรี่ยง — เว็บบอกว่าชีวิตของชุมชนผูกกับช้างมาหลายชั่วคน · an elephant village of Karen families whose lives, the site says, have been entangled with elephants for generations",
+   "elephantProgram": "ไม่มีขี่ช้าง (เว็บระบุ) · ครึ่งวัน/เต็มวัน: ป้อนอาหาร เดินป่า ลงน้ำกับช้าง อาหารพื้นบ้าน · ค้างคืนในหมู่บ้าน · โปรแกรม Following Elephants แบบ hands-off — ไม่สัมผัส ไม่ป้อน ไม่อาบน้ำ เดินตามดูอย่างเดียว · no riding (the site says so); half and full day: feeding, hiking, swimming with the elephants, local lunch; overnight in the village; a ‘Following Elephants’ hands-off program — no touching, feeding or bathing, only following and observing",
+   "ridingStated": "ไม่มี — “without any riding activities” (เว็บปาง) · none — “without any riding activities” (the site)",
+   "programVia": "venue website, read 2026-08-19",
+   "pinNote": "พิกัดจากแผนที่ที่ฝังบนหน้าติดต่อของเว็บปางเอง · LINE และ WhatsApp ที่ +66 96 163 2854 · coordinates from the map embedded on the venue's own contact page; LINE and WhatsApp on +66 96 163 2854"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "หมู่บ้านช้างของครอบครัวกะเหรี่ยงในตำบลแม่วิน แม่วาง — เว็บของหมู่บ้านบอกว่าไม่มีกิจกรรมขี่ช้าง มีครึ่งวันและเต็มวันที่ได้ป้อนอาหาร เดินป่า ลงน้ำกับช้าง ค้างคืนในหมู่บ้านได้ และมีโปรแกรม Following Elephants สำหรับคนที่อยากแค่เดินตามดูโดยไม่สัมผัส ไม่ป้อน ไม่อาบน้ำ",
+  "blurb_en": "A Karen family elephant village in Mae Win, Mae Wang. Its site says there is no riding; half- and full-day visits feed, hike and swim with the elephants, you can sleep in the village, and a ‘Following Elephants’ program is there for anyone who wants only to follow and watch — no touching, feeding or bathing.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.elephantfreedomvillage.com/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.elephantfreedomvillage.com/contact/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-happy-elephant-home",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "Happy Elephant Home",
+  "nameTh": null,
+  "nameEn": "Happy Elephant Home",
+  "lat": 19.206908,
+  "lng": 98.85564,
+  "geoPrecision": "exact",
+  "address": "74/1 ต.กื้ดช้าง อ.แม่แตง จ.เชียงใหม่ 50150 — ราวหนึ่งชั่วโมงจากเมือง (คำของเว็บ) · 74/1 Kuet Chang, Mae Taeng — about an hour from the city (the site's words)",
+  "phone": null,
+  "website": "https://www.happyelephanthome.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "selfDescription": "“บ้านของโขลงช้างที่ช่วยมาจากการท่องเที่ยว” — คำของเว็บ · “home to a herd of elephants who have been rescued from the tourist trade” — its own words",
+   "elephantProgram": "เว็บบอกว่าช้างใช้ชีวิตอิสระที่นี่ และมีช้าง 4 เชือกให้เลือกอุปถัมภ์ — รายละเอียดโปรแกรมเยี่ยมชมไม่อยู่บนหน้าที่อ่าน ถามปาง · the site says the elephants live free here and names four to sponsor — visit-program detail is not on the pages read; ask",
+   "ridingStated": "ไม่ได้ระบุบนหน้าที่อ่าน · not stated on the pages read",
+   "elephantsStated": "4 เชือกที่เปิดให้อุปถัมภ์ (ตามเว็บ) · four named for sponsorship (as stated)",
+   "programVia": "venue website, read 2026-08-19",
+   "pinNote": "หมุดจากการสำรวจ OpenStreetMap (node/4339643289) — ห่างจากหมุดบนแผนที่ของเว็บปางเอง 59 ม. สองแหล่งตรงกัน · pin from the OpenStreetMap survey (node/4339643289), 59 m from the venue's own map embed — the two sources agree"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ปางในตำบลกื้ดช้าง แม่แตง ที่เว็บเรียกตัวเองว่าบ้านของโขลงช้างที่ช่วยมาจากการท่องเที่ยว และบอกว่าช้างใช้ชีวิตอิสระที่นี่ มีช้างสี่เชือกให้อุปถัมภ์ — รายละเอียดโปรแกรมเยี่ยมชมและเบอร์โทรไม่อยู่บนหน้าที่อ่าน ติดต่อทาง LINE บนเว็บ",
+  "blurb_en": "A camp in Kuet Chang, Mae Taeng, whose site calls it home to a herd rescued from the tourist trade and says the elephants live free here, with four named for sponsorship — visit-program detail and a phone are not on the pages read; contact is by the LINE button on the site.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.happyelephanthome.com/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-20"
+ },
+ {
+  "id": "cm-curated-chiang-dao-elephant-training-centre",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-camp"
+  ],
+  "name": "Elephant Training Center Chiang Dao",
+  "nameTh": "ศูนย์ฝึกช้างเชียงดาว",
+  "nameEn": "Elephant Training Center Chiang Dao",
+  "lat": 19.24778,
+  "lng": 98.969058,
+  "geoPrecision": "exact",
+  "address": "อ.เชียงดาว จ.เชียงใหม่ (เว็บไม่ระบุที่อยู่และเบอร์) · Chiang Dao district (no address or phone on the page read)",
+  "phone": null,
+  "website": "https://www.chiangdaoelephantcamp.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ปางช้าง",
+   "selfDescription": "ศูนย์ฝึกช้าง — “eco tourism” ที่แสดงวิถีดั้งเดิมของช้างไทยกับคนเลี้ยง ช้างทุกเชือกมีควาญประจำ (คำของเว็บ) · an elephant training centre — “eco tourism” showing the traditional ways of life of Thailand's elephants and their human companions; each elephant has its own mahout (the site's words)",
+   "elephantProgram": "ไม่ลงรายละเอียดกิจกรรมหรือราคาบนหน้าที่อ่าน — ถามศูนย์ · no activity or price detail on the page read — ask the centre",
+   "ridingStated": "ไม่ได้ระบุบนหน้าที่อ่าน · not stated on the page read",
+   "programVia": "venue website, read 2026-08-19",
+   "pinNote": "หมุดจากการสำรวจ OpenStreetMap (way/348496839 ป้าย ศูนย์ฝึกช้างเชียงดาว) · pin from the OpenStreetMap survey (way/348496839, signed ศูนย์ฝึกช้างเชียงดาว)",
+   "altNames": [
+    "Chiang Dao Elephant Camp",
+    "Chiang Dao Elephant Training Centre"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ศูนย์ฝึกช้างที่เชียงดาว — เว็บของศูนย์บอกว่าเป็นอีโคทัวร์ที่แสดงวิถีดั้งเดิมของช้างกับควาญ ช้างทุกเชือกมีควาญประจำ แต่ไม่ลงที่อยู่ เบอร์โทร กิจกรรม หรือราคาบนหน้าที่อ่านได้",
+  "blurb_en": "An elephant training centre at Chiang Dao. Its site describes eco tourism showing the traditional ways of elephants and their mahouts, each elephant with its own mahout — but the page read gives no address, phone, activity list or prices.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.chiangdaoelephantcamp.com/",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-20"
+ },
+ {
+  "id": "cm-curated-elephant-parade-house",
+  "province": "cm",
+  "cat": [
+   "chang"
+  ],
+  "sub": [
+   "elephant-craft"
+  ],
+  "name": "Elephant Parade House",
+  "nameTh": null,
+  "nameEn": "Elephant Parade House",
+  "lat": 18.870689,
+  "lng": 98.992251,
+  "geoPrecision": "approx",
+  "address": "180/9 หมู่ 7 ต.สันผีเสื้อ อ.เมืองเชียงใหม่ 50300 · 180/9 Moo 7, San Phi Suea, Mueang Chiang Mai",
+  "phone": "+66 53 115 266",
+  "website": "https://www.elephantparade.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "ร้าน-สตูดิโอรูปปั้นช้าง",
+   "email": "info@elephantparade.com",
+   "selfDescription": "Elephant Parade — รูปปั้นช้างลงสี ของตกแต่ง และฟิกเกอรีนที่ศิลปินวาดมือ (คำของเว็บ); บ้านของบริษัทที่สันผีเสื้อ · painted elephant statues, decor and figurines hand-painted by artists (the site's words); the company's house at San Phi Suea",
+   "programVia": "venue website, read 2026-08-19",
+   "pinNote": "หมุดคือจุดกลางตำบลสันผีเสื้อ (±600 ม.) จากที่อยู่บนเว็บ · pin is the San Phi Suea tambon centroid (±600 m) from the site's address",
+   "altNames": [
+    "Elephant Parade"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "บ้านของ Elephant Parade ที่สันผีเสื้อ — รูปปั้นช้างลงสี ของตกแต่ง และฟิกเกอรีนที่เว็บบอกว่าศิลปินวาดด้วยมือ ของช้างแต่ไม่ได้อยู่กับช้าง จึงอยู่ชั้น “ของช้าง” ไม่ใช่ชั้นปาง",
+  "blurb_en": "The Elephant Parade house at San Phi Suea — painted elephant statues, decor and figurines that the site says its artists hand-paint. Of the elephant rather than with it, so it sits on the craft shelf, not among the camps.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.elephantparade.com/",
+    "fetched": "2026-08-19"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.elephantparade.com/pages/elephant-parade-house",
+    "fetched": "2026-08-19"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-mplus-chiangmai",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "มูลนิธิเอ็มพลัส เชียงใหม่",
+  "nameTh": "มูลนิธิเอ็มพลัส เชียงใหม่",
+  "nameEn": "M Plus Foundation Chiang Mai",
+  "lat": 18.773948,
+  "lng": 98.98659,
+  "geoPrecision": "approx",
+  "address": "142 หมู่ 1 ถ.เชียงใหม่-ฮอด ต.ป่าแดด อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
+  "phone": "053-283108",
+  "website": "https://www.mplusthailand.com/",
+  "hours": "Mo-Fr 12:00-19:00",
+  "attrs": {
+   "kind": "community sexual-health clinic (มูลนิธิ)",
+   "pinVia": "postcode-centroid",
+   "pinUncertaintyM": "4059",
+   "pinFrom": "50100"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "คลินิกชุมชนของมูลนิธิเอ็มพลัส — ตรวจเอชไอวีและโรคติดต่อทางเพศสัมพันธ์ ยาเพร็พ-เป๊ป และตรวจวัดระดับฮอร์โมนสำหรับหญิงข้ามเพศและชายข้ามเพศ มีคลินิกพิเศษอาทิตย์สุดท้ายของเดือน",
+  "blurb_en": "M Plus Foundation's community clinic — HIV/STI testing, PrEP and PEP, and hormone-level testing for trans women and trans men, with a special clinic on the last Sunday of each month.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.mplusthailand.com/en/m-plus-chiangmai/",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.mplusthailand.com/en/contact-us/",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://thaisisterhood.com/resources/clinics",
+    "fetched": "2026-08-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-21"
+ },
+ {
+  "id": "cm-curated-hugsa-klang-wiang",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "ฮักษา กลางเวียง",
+  "nameTh": "ฮักษา กลางเวียง",
+  "nameEn": "Hugsa Medical (Klang Wiang)",
+  "lat": 18.773119,
+  "lng": 98.998828,
+  "geoPrecision": "approx",
+  "address": "77/7 ถ.คชสาร ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
+  "phone": "093-309-9988",
+  "website": "https://hugsamedical.com/branch-chiang-mai/",
+  "hours": "Mo-Su 10:00-18:00",
+  "attrs": {
+   "kind": "general clinic",
+   "pinVia": "address-street-match",
+   "pinUncertaintyM": "1666",
+   "pinFrom": "Changklan Road"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "คลินิกเวชกรรมกลางเวียง เปิดทุกวัน — ตรวจสุขภาพ ตรวจเลือด คัดกรองโรคติดต่อทางเพศสัมพันธ์ และระบุระบบต่อมไร้ท่อไว้ในกลุ่มโรคที่ดูแล",
+  "blurb_en": "A general clinic in the old city, open daily — health checks, blood tests, STI screening, and it names endocrine conditions among what it treats.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://hugsamedical.com/branch-chiang-mai/",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://thaisisterhood.com/resources/clinics",
+    "fetched": "2026-08-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-21"
+ },
+ {
+  "id": "cm-curated-piman-clinic",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "พิมาน คลินิก",
+  "nameTh": "พิมาน คลินิก",
+  "nameEn": "Piman Clinic (RIHES CMU)",
+  "lat": 18.794357,
+  "lng": 98.970735,
+  "geoPrecision": "approx",
+  "address": "7/2-3 ซอยกรรไกรทอง ถ.ศิริมังคลาจารย์ ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
+  "phone": null,
+  "website": "https://pimanclinic.rihes.cmu.ac.th/",
+  "hours": "Mo-Fr 10:00-18:00",
+  "attrs": {
+   "kind": "HIV testing & counselling clinic (สถาบันวิจัยวิทยาศาสตร์สุขภาพ มช.)",
+   "pinVia": "address-street-match",
+   "pinUncertaintyM": "582",
+   "pinFrom": "Sirimangkalajarn Road"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "คลินิกของสถาบันวิจัยวิทยาศาสตร์สุขภาพ มหาวิทยาลัยเชียงใหม่ ตั้งแต่ปี 2551 — ตรวจเอชไอวีแบบรู้ผลเร็ว และให้คำปรึกษาโรคติดต่อทางเพศสัมพันธ์ (เจาะเลือดถึง 15:00)",
+  "blurb_en": "A clinic of CMU's Research Institute for Health Sciences, running since 2008 — rapid HIV testing and STI counselling (blood draws until 15:00).",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://pimanclinic.rihes.cmu.ac.th/",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://thaisisterhood.com/resources/clinics",
+    "fetched": "2026-08-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-21"
+ },
+ {
+  "id": "cm-curated-prep-by-cwc",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "PrEP by CWC",
+  "nameTh": null,
+  "nameEn": "PrEP by CWC",
+  "lat": 18.789665,
+  "lng": 98.996415,
+  "geoPrecision": "approx",
+  "address": "429/1-3 ถ.วิชยานนท์ ต.ช้างม่อย อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50300",
+  "phone": "084-152-6496",
+  "website": "https://www.prepclinicchiangmai.com/",
+  "hours": null,
+  "attrs": {
+   "kind": "sexual-health clinic",
+   "pinVia": "tambon-centroid",
+   "pinUncertaintyM": "273",
+   "pinFrom": "ช้างม่อย"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "คลินิกสุขภาพทางเพศย่านช้างม่อย — เพร็พและเป๊ป (รวมชนิดฉีด) ตรวจเอชไอวีและโรคติดต่อทางเพศสัมพันธ์ แล็บในคลินิก รู้ผลวันเดียว เปิดทุกวัน",
+  "blurb_en": "A Chang Moi sexual-health clinic — PrEP and PEP (including injectable), same-day HIV/STI testing with an in-house lab, open daily.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.prepclinicchiangmai.com/",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://thaisisterhood.com/resources/clinics",
+    "fetched": "2026-08-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-21"
+ },
+ {
+  "id": "cm-curated-drwimon-clinic",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "คลินิกหมอวิมล",
+  "nameTh": "คลินิกหมอวิมล",
+  "nameEn": "Dr Wimon Clinic (plastic surgery)",
+  "lat": 18.773119,
+  "lng": 98.998828,
+  "geoPrecision": "approx",
+  "address": "288/10-11 หมู่บ้านเชียงใหม่แลนด์ ถ.ช้างคลาน ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
+  "phone": "053-272756",
+  "website": "https://www.drwimonclinic.com/",
+  "hours": "Mo-Fr 17:30-20:00; Sa-Su 09:00-12:00",
+  "attrs": {
+   "kind": "plastic surgery clinic",
+   "specialty": [
+    "skin"
+   ],
+   "specialtyVia": "name",
+   "pinVia": "address-street-match",
+   "pinUncertaintyM": "1666",
+   "pinFrom": "Changklan Road"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "คลินิกศัลยกรรมตกแต่งย่านช้างคลาน เปิดเย็นวันธรรมดาและเช้าวันหยุด — เว็บไซต์ของคลินิกเองระบุศัลยกรรมแปลงเพศไว้เป็นหมวดบริการ พร้อมศัลยกรรมใบหน้าและลูกกระเดือก แพทย์ของคลินิกมีชื่ออยู่ในทะเบียนสมาคมศัลยแพทย์ตกแต่งแห่งประเทศไทย",
+  "blurb_en": "A Chang Khlan plastic-surgery clinic, open weekday evenings and weekend mornings — its own site lists ศัลยกรรมแปลงเพศ (gender-affirming surgery) among its service categories, alongside facial and tracheal-shave surgery. Its surgeon is listed in the Society of Plastic and Reconstructive Surgeons of Thailand register.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.drwimonclinic.com/maletofemale.html",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.drwimonclinic.com/contactus.html",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.thprs.org/member/jay3ymkhxggle77x7cx74at7fr8n8n",
+    "fetched": "2026-08-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-21"
  }
 ]

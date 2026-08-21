@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- เวียนขวา — the dash view.
+
+     ONE permission. Location is the whole input: it turns the arrow and counts
+     the metres down, and it never leaves the phone. There is deliberately no
+     INTERNET permission at all — the ride is baked into assets and the app has
+     nothing to send anywhere and nowhere to send it. A navigation app that
+     cannot phone home is a promise the manifest keeps rather than one the
+     privacy page makes.
+
+     Both orientations are allowed and none is locked: this runs on a phone in a
+     pocket mount and, projected, on an eight-inch dash, which are different
+     rectangles held different ways. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.motdang.dash"
+    android:versionCode="1"
+    android:versionName="1.0">
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+  <application
+      android:label="เวียนขวา"
+      android:icon="@mipmap/ic_launcher"
+      android:theme="@style/AppTheme"
+      android:allowBackup="false">
+    <activity android:name=".MainActivity"
+        android:exported="true"
+        android:screenOrientation="fullSensor"
+        android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize|density">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+  </application>
+</manifest>

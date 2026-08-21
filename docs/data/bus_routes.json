@@ -1,0 +1,4700 @@
+{
+ "_comment": "Chiang Mai bus routes from the provincial open lists — the register of WO-13's future bus board. Route names + areas passed; no timetables (the register carries none).",
+ "generated": "2026-08-21",
+ "sources": {
+  "cm-bus-routes": {
+   "key": "cm-bus-routes",
+   "dataset": "_67_70",
+   "dataset_url": "https://data.go.th/dataset/_67_70",
+   "why": "เส้นทางเดินรถโดยสารประจำทาง — 641 routes with amphoe/tambon passed",
+   "resource_url": "https://chiangmai.gdcatalog.go.th/dataset/eb37c24e-156b-4c0d-b415-87a8efd9f93d/resource/47e09833-8e89-49a8-82ed-4f5028742273/download/00005-14-1.csv",
+   "licence": "Open Data Common",
+   "publisher": "สำนักงานจังหวัดเชียงใหม่",
+   "fetched": "2026-08-20"
+  },
+  "cm-bus-cat14": {
+   "key": "cm-bus-cat14",
+   "dataset": "dataset_10_238",
+   "dataset_url": "https://data.go.th/dataset/dataset_10_238",
+   "why": "เส้นทางหมวด 1 และ 4 — 27 numbered routes",
+   "resource_url": "https://chiangmai.gdcatalog.go.th/dataset/09dea04b-a612-4021-9d24-dddcd5d4ccb9/resource/e146da77-7c3c-4096-b2ef-10580d477e2e/download/dataset_10_23.csv",
+   "licence": "License not specified",
+   "publisher": "สำนักงานจังหวัดเชียงใหม่",
+   "fetched": "2026-08-20"
+  },
+  "cm-bus-city": {
+   "key": "cm-bus-city",
+   "dataset": "69_148",
+   "dataset_url": "https://data.go.th/dataset/69_148",
+   "why": "รถโดยสารในเขตเมืองเชียงใหม่ — the city routes",
+   "resource_url": "https://chiangmai.gdcatalog.go.th/dataset/6a88bdaa-098e-43de-9e16-ea9963c00d33/resource/5a749ae6-0390-4387-a95c-c8b713b53a44/download/untitled.csv",
+   "licence": "Open Data Common",
+   "publisher": "สำนักงานจังหวัดเชียงใหม่",
+   "fetched": "2026-08-20"
+  }
+ },
+ "routes": [
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างม่อย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "หายยา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "พระสิงห์",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "แม่เหียะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ป่าแดด",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "น้ำแพร่",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "สันผักหวาน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "หารแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "บ้านแหวน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "หนองควย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ยุหว่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "มะขามหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "สันกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "บ้านกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ท่าวังพร้าว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ทุ่มต้อม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "สันติสุข",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "ดอยหล่อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "ข่วงเปา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "สบเตี๊ยะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "ดอยแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "แม่สอย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "บ้านแปะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "ฮอด",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "ฮอด",
+   "tambon": "บ้านตาล",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "ฮอด",
+   "tambon": "บ่อหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "ฮอด",
+   "tambon": "นาคอเรือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "ดอยเต่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "โปงทุ่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "ท่าเดื่อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "มืดกา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "บงตัน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "บ้านแอ่น",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างม่อย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "หายยา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "พระสิงห์",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "แม่เหียะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ป่าแดด",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "น้ำแพร่",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "สันผักหวาน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "หารแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "บ้านแหวน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "หนองควย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ยุหว่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "มะขามหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "สันกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "บ้านกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ท่าวังพร้าว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ทุ่มต้อม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "สันติสุข",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "ดอยหล่อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "ข่วงเปา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "สบเตี๊ยะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "ดอยแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "แม่สอย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "บ้านแปะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เวียงแหง - บ้านจอง - บ้านเมืองนะ",
+   "year_be": 2567,
+   "amphoe": "เวียงแหง",
+   "tambon": "เปียงหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เวียงแหง - บ้านจอง - บ้านเมืองนะ",
+   "year_be": 2567,
+   "amphoe": "เวียงแหง",
+   "tambon": "แสนไห",
+   "kind": "provincial"
+  },
+  {
+   "name": "เวียงแหง - บ้านจอง - บ้านเมืองนะ",
+   "year_be": 2567,
+   "amphoe": "เวียงแหง",
+   "tambon": "เมืองแหง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เวียงแหง - บ้านจอง - บ้านเมืองนะ",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "เมืองนะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "ท่าตอน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "แม่สาว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "แม่อาย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "มะลิกา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "ไชยปราการ",
+   "tambon": "ศรีดงเย็น",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "ไชยปราการ",
+   "tambon": "หนองบัว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "ไชยปราการ",
+   "tambon": "ปงตำ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "แม่ข่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "แม่สูน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "สันทราย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "เวียง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "แม่นะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "เชียงดาว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "ปิงโค้ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "สันมหาพน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "อินทขิล",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ดอนแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "แม่สา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "สันโป่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมใต้",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ดอนแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "แม่สา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "สันโป่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "สันมหาพน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "อินทขิล",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "แม่นะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "เชียงดาว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "ปิงโค้ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "แม่แฝก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "หนองหาร",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "เมืองเล็น",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "หนองจ๊อม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "วัดเกต",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ป่าตัน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ฟ้าฮ่าม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "สันผีเสื้อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง (อำเภอแม่ออน)",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง (อำเภอแม่ออน)",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "วัดเกต",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง (อำเภอแม่ออน)",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ท่าศาลา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง (อำเภอแม่ออน)",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "หนองหอย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง (อำเภอแม่ออน)",
+   "year_be": 2567,
+   "amphoe": "สันกำแพง",
+   "tambon": "แช่ช้าง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง (อำเภอแม่ออน)",
+   "year_be": 2567,
+   "amphoe": "แม่ออน",
+   "tambon": "บ้านสหกรณ์",
+   "kind": "provincial"
+  },
+  {
+   "name": "บ้านแม่มาลัย - บ้านสบกาย",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "แม่แตง",
+   "kind": "provincial"
+  },
+  {
+   "name": "บ้านแม่มาลัย - บ้านสบกาย",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "สันมหาพน",
+   "kind": "provincial"
+  },
+  {
+   "name": "บ้านแม่มาลัย - บ้านสบกาย",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "กึ๊ดช้าง",
+   "kind": "provincial"
+  },
+  {
+   "name": "บ้านแม่มาลัย - บ้านสบกาย",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "เมืองก๋าย",
+   "kind": "provincial"
+  },
+  {
+   "name": "บ้านแม่มาลัย - บ้านสบกาย",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "year_be": 2567,
+   "amphoe": "ฮอด",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "year_be": 2567,
+   "amphoe": "ฮอด",
+   "tambon": "บ่อหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "year_be": 2567,
+   "amphoe": "แม่แจ่ม",
+   "tambon": "กองแขก",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "year_be": 2567,
+   "amphoe": "แม่แจ่ม",
+   "tambon": "ท่าผา",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "year_be": 2567,
+   "amphoe": "แม่แจ่ม",
+   "tambon": "ช่างเคิ่น",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "year_be": 2567,
+   "amphoe": "แม่แจ่ม",
+   "tambon": "แม่นาจร",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "เวียงแหง",
+   "tambon": "เปียงหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "เวียงแหง",
+   "tambon": "เมืองแหง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "เวียงแหง",
+   "tambon": "แสนไห",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "แม่นะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "เชียงดาว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "ปิงโค้ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "เมืองงาย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "ทุ้งข้าวพวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "สันมหาพน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "อินทขิล",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ดอนแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "แม่สา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมใต้",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "สันโป่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ท่าศาลา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "สันกำแพง",
+   "tambon": "สันกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "สันกำแพง",
+   "tambon": "ต้นเปา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "สันกำแพง",
+   "tambon": "ห้วยทราย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "สันกำแพง",
+   "tambon": "ร้องวัวแดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "สันกำแพง",
+   "tambon": "ออนใต้",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "สารภี",
+   "tambon": "ป่าบง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "สารภี",
+   "tambon": "ชมพู",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ตลาดใหญ่",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "สง่าบ้าน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ป่าป้อง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "เชิงดอย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ป่าเมี้ยง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "แม่ออน",
+   "tambon": "ห้วยแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "แม่ออน",
+   "tambon": "ออนกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "แม่ออน",
+   "tambon": "ออนเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2567,
+   "amphoe": "แม่ออน",
+   "tambon": "บ้านสหกรณ์",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมใต้",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "สันโป่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "สันมหาพน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "ช่อแล",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "แม่หอพระ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "อินทขิล",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "บ้านเป้า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "บ้านช้าง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "กึ๊ดช้าง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "สบเปิง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "ป่าแป๋",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "เมืองก๋าย",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2567,
+   "amphoe": "ฮอด",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2567,
+   "amphoe": "ฮอด",
+   "tambon": "บ้านตาล",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "บ้านแอ่น",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "บงตัน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "ท่าเดื่อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "ดอยเต่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "โปงทุ่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "โปงตัน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2567,
+   "amphoe": "ดอยเต่า",
+   "tambon": "มืดกา",
+   "kind": "provincial"
+  },
+  {
+   "name": "จอมทอง - ดอยอิทนนท์",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "ข่วงเปา",
+   "kind": "provincial"
+  },
+  {
+   "name": "จอมทอง - ดอยอิทนนท์",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "บ้านหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ป่าตัน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "วัดเกต",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "สันทรายน้อย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "สันนาเม็ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "ป่าไผ่",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "เชิงดอย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ป่าเมี่ยง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างม่อย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "วัดเกต",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "สันทรายหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "สันทรายน้อย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "สันป่าเปา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "หนองแหย่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "สันพระเนตร",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "สันปูเลย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ตลาดขวัญ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ป่าป้อง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "แม่โป่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "เชิงดอย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ลวงเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2567,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "สง่าบ้าน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "พระสิงห์",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "สุเทพ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "หายยา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ป่าแดด",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "น้ำบ่อหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "สันกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ยุหว่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ทุ่งต้อม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "มะขามหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "บ้านกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "บ้านแม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ท่าวังพร้าว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "หนองตอง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "บ้านปง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "สันผักหวาน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "สองแคว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "ดอยหล่อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "สันติสุข",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "บ้านหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "จอมทอง",
+   "tambon": "ข่วงเปา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "แม่วาง",
+   "tambon": "แม่วิน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2567,
+   "amphoe": "แม่วาง",
+   "tambon": "บ้านกาด",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านแม่สลัก",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "เวียง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านแม่สลัก",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "สันต้นหมื้อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านแม่สลัก",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "แม่นาวาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านแม่สลัก",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "บ้านหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "สันทราย",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "แม่สูน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "แม่งอน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "แม่ข่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2567,
+   "amphoe": "ไชยปราการ",
+   "tambon": "ศรีดงเย็น",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2567,
+   "amphoe": "ไชยปราการ",
+   "tambon": "แม่ทะลบ",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2567,
+   "amphoe": "ไชยปราการ",
+   "tambon": "หนองบัว",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2567,
+   "amphoe": "พร้าว",
+   "tambon": "สันทราย",
+   "kind": "provincial"
+  },
+  {
+   "name": "บ้านท่าตอน - บ้านห้วยหลุ",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "ท่าตอน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - เขื่อนพลังงานไฟฟ้า, น้ำแม่มาว - บ้านคุ้ม (อ่างข่าง)",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "ม่อนปิ่น",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - เขื่อนพลังงานไฟฟ้า, น้ำแม่มาว - บ้านคุ้ม (อ่างข่าง)",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "เวียง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "เชียงดาว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "เมืองงาย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "ทุ่งข้าวพวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "เมืองนะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2567,
+   "amphoe": "เชียงดาว",
+   "tambon": "เมืองคอง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2567,
+   "amphoe": "ไชยปราการ",
+   "tambon": "หนองบัว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "แม่งอน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "เวียง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "แม่อาย",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "แม่สาว",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "มะลิกา",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "ท่าตอน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "year_be": 2567,
+   "amphoe": "แม่อาย",
+   "tambon": "สันต้นหมื้อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "กัลยาณิวัฒนา",
+   "tambon": "บ้านจันทร์",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "กัลยาณิวัฒนา",
+   "tambon": "แจ่มหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "สะเมิง",
+   "tambon": "บ่อแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "สะเมิง",
+   "tambon": "แม่สาบ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "สะเมิง",
+   "tambon": "ยั้งเมิน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "สะเมิง",
+   "tambon": "สะเมิงใต้",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "สะเมิง",
+   "tambon": "สะเมิงเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "สะเมิง",
+   "tambon": "บ่อแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "สะลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "แม่แรม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "โป่งแยง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "สันโป่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "แม่ริม",
+   "tambon": "ห้วยทราย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "สบเปิง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "สันป่ายาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านคุ้ม",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "แม่งอน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านคุ้ม",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "แม่ข่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านคุ้ม",
+   "year_be": 2567,
+   "amphoe": "ฝาง",
+   "tambon": "เวียง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2567,
+   "amphoe": "อมก๋อย",
+   "tambon": "แม่ตื่น",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2567,
+   "amphoe": "อมก๋อย",
+   "tambon": "ม่อนจอง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2567,
+   "amphoe": "อมก๋อย",
+   "tambon": "ยางเปียง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2567,
+   "amphoe": "อมก๋อย",
+   "tambon": "อมก๋อย",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2567,
+   "amphoe": "ฮอด",
+   "tambon": "บ่อหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2567,
+   "amphoe": "ฮอด",
+   "tambon": "ฮอด",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2567,
+   "amphoe": "ฮอด",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "หายยา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "สุเทพ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ป่าแดด",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "แม่เหียะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "สันผักหวาน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "บ้านแหวน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "ขุนคง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "หางดง",
+   "tambon": "สบแม่ข่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "สารภี",
+   "tambon": "ขัวมุง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "สารภี",
+   "tambon": "ดอนแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "สารภี",
+   "tambon": "หนองผึ้ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2567,
+   "amphoe": "สารภี",
+   "tambon": "ยางเนิ้ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2567,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ฟ้าฮ่าม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "หนองจ๊อม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "หนองหาร",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "แม่แฝกใหม่",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2567,
+   "amphoe": "สันทราย",
+   "tambon": "แม่แฝก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2567,
+   "amphoe": "แม่แตง",
+   "tambon": "แม่หอพระ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2567,
+   "amphoe": "พร้าว",
+   "tambon": "โหล่องขอด",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2567,
+   "amphoe": "พร้าว",
+   "tambon": "แม่ปั๋ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2567,
+   "amphoe": "พร้าว",
+   "tambon": "แม่แวน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างม่อย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "หายยา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "พระสิงห์",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "แม่เหียะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ป่าแดด",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "น้ำแพร่",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "สันผักหวาน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "หารแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "บ้านแหวน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "หนองควย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ยุหว่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "มะขามหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "สันกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "บ้านกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ท่าวังพร้าว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ทุ่มต้อม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "สันติสุข",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "ดอยหล่อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "ข่วงเปา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "สบเตี๊ยะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "ดอยแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "แม่สอย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "บ้านแปะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "ฮอด",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "ฮอด",
+   "tambon": "บ้านตาล",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "ฮอด",
+   "tambon": "บ่อหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "ฮอด",
+   "tambon": "นาคอเรือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "ดอยเต่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "โปงทุ่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "ท่าเดื่อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "มืดกา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "บงตัน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด- ดอยเต่า",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "บ้านแอ่น",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างม่อย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "หายยา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "พระสิงห์",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "แม่เหียะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ป่าแดด",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "น้ำแพร่",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "สันผักหวาน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "หารแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "บ้านแหวน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "หนองควย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ยุหว่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "มะขามหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "สันกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "บ้านกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ท่าวังพร้าว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ทุ่มต้อม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "สันติสุข",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "ดอยหล่อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "ข่วงเปา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "สบเตี๊ยะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "ดอยแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "แม่สอย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "บ้านแปะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เวียงแหง - บ้านจอง - บ้านเมืองนะ",
+   "year_be": 2568,
+   "amphoe": "เวียงแหง",
+   "tambon": "เปียงหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เวียงแหง - บ้านจอง - บ้านเมืองนะ",
+   "year_be": 2568,
+   "amphoe": "เวียงแหง",
+   "tambon": "แสนไห",
+   "kind": "provincial"
+  },
+  {
+   "name": "เวียงแหง - บ้านจอง - บ้านเมืองนะ",
+   "year_be": 2568,
+   "amphoe": "เวียงแหง",
+   "tambon": "เมืองแหง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เวียงแหง - บ้านจอง - บ้านเมืองนะ",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "เมืองนะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "ท่าตอน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "แม่สาว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "แม่อาย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "มะลิกา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "ไชยปราการ",
+   "tambon": "ศรีดงเย็น",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "ไชยปราการ",
+   "tambon": "หนองบัว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "ไชยปราการ",
+   "tambon": "ปงตำ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "แม่ข่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "แม่สูน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "สันทราย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "เวียง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "แม่นะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "เชียงดาว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "ปิงโค้ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "สันมหาพน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "อินทขิล",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ดอนแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "แม่สา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "สันโป่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมใต้",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ดอนแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "แม่สา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "สันโป่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "สันมหาพน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "อินทขิล",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "แม่นะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "เชียงดาว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "ปิงโค้ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "แม่แฝก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "หนองหาร",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "เมืองเล็น",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "หนองจ๊อม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "วัดเกต",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ป่าตัน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ฟ้าฮ่าม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "สันผีเสื้อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง (อำเภอแม่ออน)",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง (อำเภอแม่ออน)",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "วัดเกต",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง (อำเภอแม่ออน)",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ท่าศาลา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง (อำเภอแม่ออน)",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "หนองหอย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง (อำเภอแม่ออน)",
+   "year_be": 2568,
+   "amphoe": "สันกำแพง",
+   "tambon": "แช่ช้าง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง (อำเภอแม่ออน)",
+   "year_be": 2568,
+   "amphoe": "แม่ออน",
+   "tambon": "บ้านสหกรณ์",
+   "kind": "provincial"
+  },
+  {
+   "name": "บ้านแม่มาลัย - บ้านสบกาย",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "แม่แตง",
+   "kind": "provincial"
+  },
+  {
+   "name": "บ้านแม่มาลัย - บ้านสบกาย",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "สันมหาพน",
+   "kind": "provincial"
+  },
+  {
+   "name": "บ้านแม่มาลัย - บ้านสบกาย",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "กึ๊ดช้าง",
+   "kind": "provincial"
+  },
+  {
+   "name": "บ้านแม่มาลัย - บ้านสบกาย",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "เมืองก๋าย",
+   "kind": "provincial"
+  },
+  {
+   "name": "บ้านแม่มาลัย - บ้านสบกาย",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "year_be": 2568,
+   "amphoe": "ฮอด",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "year_be": 2568,
+   "amphoe": "ฮอด",
+   "tambon": "บ่อหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "year_be": 2568,
+   "amphoe": "แม่แจ่ม",
+   "tambon": "กองแขก",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "year_be": 2568,
+   "amphoe": "แม่แจ่ม",
+   "tambon": "ท่าผา",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "year_be": 2568,
+   "amphoe": "แม่แจ่ม",
+   "tambon": "ช่างเคิ่น",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "year_be": 2568,
+   "amphoe": "แม่แจ่ม",
+   "tambon": "แม่นาจร",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "เวียงแหง",
+   "tambon": "เปียงหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "เวียงแหง",
+   "tambon": "เมืองแหง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "เวียงแหง",
+   "tambon": "แสนไห",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "แม่นะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "เชียงดาว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "ปิงโค้ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "เมืองงาย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "ทุ้งข้าวพวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "สันมหาพน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "อินทขิล",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ดอนแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "แม่สา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมใต้",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "สันโป่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ท่าศาลา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "สันกำแพง",
+   "tambon": "สันกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "สันกำแพง",
+   "tambon": "ต้นเปา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "สันกำแพง",
+   "tambon": "ห้วยทราย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "สันกำแพง",
+   "tambon": "ร้องวัวแดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "สันกำแพง",
+   "tambon": "ออนใต้",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "สารภี",
+   "tambon": "ป่าบง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "สารภี",
+   "tambon": "ชมพู",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ตลาดใหญ่",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "สง่าบ้าน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ป่าป้อง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "เชิงดอย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ป่าเมี้ยง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "แม่ออน",
+   "tambon": "ห้วยแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "แม่ออน",
+   "tambon": "ออนกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "แม่ออน",
+   "tambon": "ออนเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "year_be": 2568,
+   "amphoe": "แม่ออน",
+   "tambon": "บ้านสหกรณ์",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมใต้",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "สันโป่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "สันมหาพน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "ช่อแล",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "แม่หอพระ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "อินทขิล",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "บ้านเป้า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "บ้านช้าง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "กึ๊ดช้าง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "สบเปิง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "ป่าแป๋",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "เมืองก๋าย",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2568,
+   "amphoe": "ฮอด",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2568,
+   "amphoe": "ฮอด",
+   "tambon": "บ้านตาล",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "บ้านแอ่น",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "บงตัน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "ท่าเดื่อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "ดอยเต่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "โปงทุ่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "โปงตัน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "year_be": 2568,
+   "amphoe": "ดอยเต่า",
+   "tambon": "มืดกา",
+   "kind": "provincial"
+  },
+  {
+   "name": "จอมทอง - ดอยอิทนนท์",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "ข่วงเปา",
+   "kind": "provincial"
+  },
+  {
+   "name": "จอมทอง - ดอยอิทนนท์",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "บ้านหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ป่าตัน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "วัดเกต",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "สันทรายน้อย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "สันนาเม็ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "ป่าไผ่",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "เชิงดอย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ป่าเมี่ยง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างม่อย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "วัดเกต",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "สันทรายหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "สันทรายน้อย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "สันป่าเปา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "หนองแหย่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "สันพระเนตร",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "สันปูเลย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ตลาดขวัญ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ป่าป้อง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "แม่โป่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "เชิงดอย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "ลวงเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "year_be": 2568,
+   "amphoe": "ดอยสะเก็ด",
+   "tambon": "สง่าบ้าน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "พระสิงห์",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "สุเทพ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "หายยา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ป่าแดด",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "น้ำบ่อหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "สันกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ยุหว่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ทุ่งต้อม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "มะขามหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "บ้านกลาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "บ้านแม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "สันป่าตอง",
+   "tambon": "ท่าวังพร้าว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "หนองตอง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "บ้านปง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "สันผักหวาน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "สองแคว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "ดอยหล่อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "ดอยหล่อ",
+   "tambon": "สันติสุข",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "บ้านหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "จอมทอง",
+   "tambon": "ข่วงเปา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "แม่วาง",
+   "tambon": "แม่วิน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "year_be": 2568,
+   "amphoe": "แม่วาง",
+   "tambon": "บ้านกาด",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านแม่สลัก",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "เวียง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านแม่สลัก",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "สันต้นหมื้อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านแม่สลัก",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "แม่นาวาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านแม่สลัก",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "บ้านหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "สันทราย",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "แม่สูน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "แม่งอน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "แม่ข่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2568,
+   "amphoe": "ไชยปราการ",
+   "tambon": "ศรีดงเย็น",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2568,
+   "amphoe": "ไชยปราการ",
+   "tambon": "แม่ทะลบ",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2568,
+   "amphoe": "ไชยปราการ",
+   "tambon": "หนองบัว",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "year_be": 2568,
+   "amphoe": "พร้าว",
+   "tambon": "สันทราย",
+   "kind": "provincial"
+  },
+  {
+   "name": "บ้านท่าตอน - บ้านห้วยหลุ",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "ท่าตอน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - เขื่อนพลังงานไฟฟ้า, น้ำแม่มาว - บ้านคุ้ม (อ่างข่าง)",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "ม่อนปิ่น",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - เขื่อนพลังงานไฟฟ้า, น้ำแม่มาว - บ้านคุ้ม (อ่างข่าง)",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "เวียง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "เชียงดาว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "เมืองงาย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "ทุ่งข้าวพวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "เมืองนะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2568,
+   "amphoe": "เชียงดาว",
+   "tambon": "เมืองคอง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2568,
+   "amphoe": "ไชยปราการ",
+   "tambon": "หนองบัว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "แม่งอน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "เวียง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "แม่อาย",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "แม่สาว",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "มะลิกา",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "ท่าตอน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "year_be": 2568,
+   "amphoe": "แม่อาย",
+   "tambon": "สันต้นหมื้อ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "กัลยาณิวัฒนา",
+   "tambon": "บ้านจันทร์",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "กัลยาณิวัฒนา",
+   "tambon": "แจ่มหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "สะเมิง",
+   "tambon": "บ่อแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "สะเมิง",
+   "tambon": "แม่สาบ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "สะเมิง",
+   "tambon": "ยั้งเมิน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "สะเมิง",
+   "tambon": "สะเมิงใต้",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "สะเมิง",
+   "tambon": "สะเมิงเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "สะเมิง",
+   "tambon": "บ่อแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "สะลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "แม่แรม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ริมเหนือ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "โป่งแยง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "สันโป่ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ขี้เหล็ก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "แม่ริม",
+   "tambon": "ห้วยทราย",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "สบเปิง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "สันป่ายาง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านคุ้ม",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "แม่งอน",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านคุ้ม",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "แม่ข่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฝาง - บ้านคุ้ม",
+   "year_be": 2568,
+   "amphoe": "ฝาง",
+   "tambon": "เวียง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2568,
+   "amphoe": "อมก๋อย",
+   "tambon": "แม่ตื่น",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2568,
+   "amphoe": "อมก๋อย",
+   "tambon": "ม่อนจอง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2568,
+   "amphoe": "อมก๋อย",
+   "tambon": "ยางเปียง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2568,
+   "amphoe": "อมก๋อย",
+   "tambon": "อมก๋อย",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2568,
+   "amphoe": "ฮอด",
+   "tambon": "บ่อหลวง",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2568,
+   "amphoe": "ฮอด",
+   "tambon": "ฮอด",
+   "kind": "provincial"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "year_be": 2568,
+   "amphoe": "ฮอด",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ช้างเผือก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "หายยา",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "สุเทพ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ป่าแดด",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "แม่เหียะ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "สันผักหวาน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "บ้านแหวน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "หางดง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "ขุนคง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "หางดง",
+   "tambon": "สบแม่ข่า",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "สารภี",
+   "tambon": "ขัวมุง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "สารภี",
+   "tambon": "ดอนแก้ว",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "สารภี",
+   "tambon": "หนองผึ้ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "year_be": 2568,
+   "amphoe": "สารภี",
+   "tambon": "ยางเนิ้ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ศรีภูมิ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2568,
+   "amphoe": "เมืองเชียงใหม่",
+   "tambon": "ฟ้าฮ่าม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "หนองจ๊อม",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "หนองหาร",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "แม่แฝกใหม่",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2568,
+   "amphoe": "สันทราย",
+   "tambon": "แม่แฝก",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2568,
+   "amphoe": "แม่แตง",
+   "tambon": "แม่หอพระ",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2568,
+   "amphoe": "พร้าว",
+   "tambon": "โหล่องขอด",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2568,
+   "amphoe": "พร้าว",
+   "tambon": "แม่ปั๋ง",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว (ใต้)",
+   "year_be": 2568,
+   "amphoe": "พร้าว",
+   "tambon": "แม่แวน",
+   "kind": "provincial"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านถวาย - อำเภอสารภี",
+   "route_no": "2524",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - พร้าว(ใต้)",
+   "route_no": "2201 ก",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "ฮอด - อมก๋อย - บ้านแม่ตื่น",
+   "route_no": "2220",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "ฝาง - บ้านคุ้ม",
+   "route_no": "2284",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เวียงแหง - บ้านจอง - บ้านเมืองนะ",
+   "route_no": "2283",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - น้ำพุร้อนสันกำแพง",
+   "route_no": "2345",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - ท่าตอน",
+   "route_no": "1231 ก",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - ฮอด - ดอยเต่า",
+   "route_no": "1232 ก",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - จอมทอง",
+   "route_no": "1232 ข",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - เชียงดาว",
+   "route_no": "1231 ข",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - ร่มหลวง",
+   "route_no": "1234 ข",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "จอมทอง - ดอยอินทนนท์",
+   "route_no": "2429",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "ฝาง - บ้านผาหงษ์ - พร้าว",
+   "route_no": "2427",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงดาว - ไชยปราการ",
+   "route_no": "2434",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านวัดจันทร์",
+   "route_no": "2428",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - สันกำแพง - บ้านโป่งกุ่ม",
+   "route_no": "2586",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านเป้า",
+   "route_no": "2587",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "บ้านแม่มาลัย - บ้านสบก๋าย",
+   "route_no": "2588",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยสะเก็ด",
+   "route_no": "2552",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - บ้านแท่นคำ",
+   "route_no": "2553",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - ดอยนางแก้ว",
+   "route_no": "2556",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "ฮอด - บ้านแม่นาจร",
+   "route_no": "2555",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "ฮอด - ดอยเต่า - บ้านกองวะ",
+   "route_no": "2554",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "เชียงใหม่ - เปียงหลวง - บ้านหลักแต่ง (หลักเขตแดนไทย)",
+   "route_no": "2314",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "ฝาง - บ้านท่าตอน",
+   "route_no": "2551",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "ฝาง -เขื่อนพลังงานไฟฟ้าน้ำแม่มาว - บ้านคุ้ม (อ่างขาง)",
+   "route_no": "2561",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "ฝาง - บ้านแม่สลัก",
+   "route_no": "2558",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "บ้านท่าตอน - บ้านห้วยหลุ",
+   "route_no": "2557",
+   "kind": "category-1-4"
+  },
+  {
+   "name": "รอบเมืองเชียงใหม่ (วนซ้าย,วนขวา)",
+   "route_no": "6",
+   "route_class": "หมวด 1",
+   "vehicles": 1,
+   "kind": "city"
+  },
+  {
+   "name": "ท่าอากาศยานนานาชาติเชียงใหม่-ตลาดไนท์บาซาร์",
+   "route_no": "12",
+   "route_class": "หมวด 1",
+   "vehicles": 9,
+   "kind": "city"
+  },
+  {
+   "name": "สวนสัตว์เชียงใหม่-ตลาดวโรรส-ห้างเซ็นทรัลเฟสติวัลเชียงใหม่",
+   "route_no": "22",
+   "route_class": "หมวด 1",
+   "vehicles": 5,
+   "kind": "city"
+  },
+  {
+   "name": "ท่าอากาศยานนานาชาติเชียงใหม่-ถนนนิมมานเหมินทร์-ประตูท่าแพ",
+   "route_no": "24",
+   "route_class": "หมวด 1",
+   "vehicles": 5,
+   "kind": "city"
+  }
+ ]
+}

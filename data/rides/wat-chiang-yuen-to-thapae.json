@@ -1,0 +1,495 @@
+{
+  "ok": true,
+  "mode": "ride",
+  "metres": 2062.4,
+  "km": 2.06,
+  "stops": [
+    [
+      18.7963246,
+      98.9887797
+    ],
+    [
+      18.7877625,
+      98.9932697
+    ]
+  ],
+  "legs": [
+    {
+      "from": [
+        18.7963246,
+        98.9887797
+      ],
+      "to": [
+        18.7877625,
+        98.9932697
+      ],
+      "m": 2062.4,
+      "points": 63,
+      "same_edge": false
+    }
+  ],
+  "line": [
+    [
+      18.79626,
+      98.98878
+    ],
+    [
+      18.79626,
+      98.98864
+    ],
+    [
+      18.79575,
+      98.98862
+    ],
+    [
+      18.7957,
+      98.98861
+    ],
+    [
+      18.79566,
+      98.98958
+    ],
+    [
+      18.79565,
+      98.98996
+    ],
+    [
+      18.79564,
+      98.99014
+    ],
+    [
+      18.79563,
+      98.99021
+    ],
+    [
+      18.79561,
+      98.99086
+    ],
+    [
+      18.79558,
+      98.99163
+    ],
+    [
+      18.79557,
+      98.99175
+    ],
+    [
+      18.79553,
+      98.99179
+    ],
+    [
+      18.79551,
+      98.9918
+    ],
+    [
+      18.79549,
+      98.99181
+    ],
+    [
+      18.79538,
+      98.9918
+    ],
+    [
+      18.79526,
+      98.9918
+    ],
+    [
+      18.79524,
+      98.99178
+    ],
+    [
+      18.79522,
+      98.99175
+    ],
+    [
+      18.79521,
+      98.9917
+    ],
+    [
+      18.79522,
+      98.99142
+    ],
+    [
+      18.79524,
+      98.99096
+    ],
+    [
+      18.79527,
+      98.99025
+    ],
+    [
+      18.79527,
+      98.99022
+    ],
+    [
+      18.79527,
+      98.99008
+    ],
+    [
+      18.79521,
+      98.99008
+    ],
+    [
+      18.79481,
+      98.99007
+    ],
+    [
+      18.79449,
+      98.99003
+    ],
+    [
+      18.79412,
+      98.99
+    ],
+    [
+      18.79378,
+      98.98997
+    ],
+    [
+      18.79331,
+      98.98999
+    ],
+    [
+      18.79321,
+      98.99
+    ],
+    [
+      18.79279,
+      98.99006
+    ],
+    [
+      18.79227,
+      98.9901
+    ],
+    [
+      18.79222,
+      98.9901
+    ],
+    [
+      18.79178,
+      98.99011
+    ],
+    [
+      18.7916,
+      98.99012
+    ],
+    [
+      18.79142,
+      98.99012
+    ],
+    [
+      18.79114,
+      98.99013
+    ],
+    [
+      18.79087,
+      98.99014
+    ],
+    [
+      18.79075,
+      98.99015
+    ],
+    [
+      18.79027,
+      98.99012
+    ],
+    [
+      18.79024,
+      98.99011
+    ],
+    [
+      18.78981,
+      98.99012
+    ],
+    [
+      18.78924,
+      98.99019
+    ],
+    [
+      18.78907,
+      98.99022
+    ],
+    [
+      18.7886,
+      98.99028
+    ],
+    [
+      18.78798,
+      98.99029
+    ],
+    [
+      18.78795,
+      98.99061
+    ],
+    [
+      18.78794,
+      98.99081
+    ],
+    [
+      18.78792,
+      98.99108
+    ],
+    [
+      18.7879,
+      98.99132
+    ],
+    [
+      18.78713,
+      98.99122
+    ],
+    [
+      18.78673,
+      98.99122
+    ],
+    [
+      18.78644,
+      98.99123
+    ],
+    [
+      18.78643,
+      98.99187
+    ],
+    [
+      18.78659,
+      98.99253
+    ],
+    [
+      18.7866,
+      98.99265
+    ],
+    [
+      18.78657,
+      98.99303
+    ],
+    [
+      18.78656,
+      98.99308
+    ],
+    [
+      18.78684,
+      98.99309
+    ],
+    [
+      18.78693,
+      98.9931
+    ],
+    [
+      18.78771,
+      98.99315
+    ],
+    [
+      18.787762,
+      98.99315
+    ]
+  ],
+  "cues": [
+    {
+      "at_m": 71.5,
+      "point": [
+        18.79575,
+        98.98862
+      ],
+      "turn": "straight",
+      "delta_deg": 0.0,
+      "street_th": "ถนนมณีนพรัตน์",
+      "street_en": "Mani Noppharat Road",
+      "street_slug": "mani-noppharat-road-c597a7",
+      "say_th": "ตรงไป เข้าถนนมณีนพรัตน์",
+      "say_en": "straight on onto Mani Noppharat Road"
+    },
+    {
+      "at_m": 431.4,
+      "point": [
+        18.79538,
+        98.9918
+      ],
+      "turn": "straight",
+      "delta_deg": 20.1,
+      "street_th": "ถนนศรีภูมิ",
+      "street_en": "Sri Poom Road",
+      "street_slug": "sri-poom-road-9cc3ff",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ",
+      "say_en": "straight on onto Sri Poom Road"
+    },
+    {
+      "at_m": 486.5,
+      "point": [
+        18.79522,
+        98.99142
+      ],
+      "turn": "straight",
+      "delta_deg": 5.9,
+      "street_th": "ถนนศรีภูมิ ซอย 2",
+      "street_en": "Sripoom Road Soi 2",
+      "street_slug": "sripoom-road-soi-2-101b99",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ ซอย 2",
+      "say_en": "straight on onto Sripoom Road Soi 2"
+    },
+    {
+      "at_m": 535.0,
+      "point": [
+        18.79524,
+        98.99096
+      ],
+      "turn": "straight",
+      "delta_deg": 0.5,
+      "street_th": "ถนนศรีภูมิ",
+      "street_en": "Sri Poom Road",
+      "street_slug": "sri-poom-road-9cc3ff",
+      "say_th": "ตรงไป เข้าถนนศรีภูมิ",
+      "say_en": "straight on onto Sri Poom Road"
+    },
+    {
+      "at_m": 634.4,
+      "point": [
+        18.79521,
+        98.99008
+      ],
+      "turn": "left",
+      "delta_deg": -65.6,
+      "street_th": "ถนนราชภาคินัย",
+      "street_en": "Ratchaphakhinai Road",
+      "street_slug": "ratchaphakhinai-road-ae5c39",
+      "say_th": "เลี้ยวซ้าย เข้าถนนราชภาคินัย",
+      "say_en": "left onto Ratchaphakhinai Road"
+    },
+    {
+      "at_m": 904.5,
+      "point": [
+        18.79279,
+        98.99006
+      ],
+      "turn": "straight",
+      "delta_deg": 2.2,
+      "street_th": "ถนนมูลเมือง ซอย 7",
+      "street_en": "Moonmuang Road Soi 7",
+      "street_slug": "moonmuang-road-soi-7-bd99eb",
+      "say_th": "ตรงไป เข้าถนนมูลเมือง ซอย 7",
+      "say_en": "straight on onto Moonmuang Road Soi 7"
+    },
+    {
+      "at_m": 962.5,
+      "point": [
+        18.79227,
+        98.9901
+      ],
+      "turn": "straight",
+      "delta_deg": 4.1,
+      "street_th": "ถนนมูลเมือง ซอย 6",
+      "street_en": "Moonmuang Road Soi 6",
+      "street_slug": "moonmuang-road-soi-6-baa97d",
+      "say_th": "ตรงไป เข้าถนนมูลเมือง ซอย 6",
+      "say_en": "straight on onto Moonmuang Road Soi 6"
+    },
+    {
+      "at_m": 968.0,
+      "point": [
+        18.79222,
+        98.9901
+      ],
+      "turn": "straight",
+      "delta_deg": 4.1,
+      "street_th": "ถนนราชภาคินัย",
+      "street_en": "Ratchaphakhinai Road",
+      "street_slug": "ratchaphakhinai-road-ae5c39",
+      "say_th": "ตรงไป เข้าถนนราชภาคินัย",
+      "say_en": "straight on onto Ratchaphakhinai Road"
+    },
+    {
+      "at_m": 1300.2,
+      "point": [
+        18.78924,
+        98.99019
+      ],
+      "turn": "straight",
+      "delta_deg": -0.6,
+      "street_th": "ถนนพระปกเกล้า ซอย 12",
+      "street_en": "Prapokklao Road Soi 12",
+      "street_slug": "prapokklao-road-soi-12-364b53",
+      "say_th": "ตรงไป เข้าถนนพระปกเกล้า ซอย 12",
+      "say_en": "straight on onto Prapokklao Road Soi 12"
+    },
+    {
+      "at_m": 1319.4,
+      "point": [
+        18.78907,
+        98.99022
+      ],
+      "turn": "straight",
+      "delta_deg": -13.2,
+      "street_th": "ถนนราชภาคินัย",
+      "street_en": "Ratchaphakhinai Road",
+      "street_slug": "ratchaphakhinai-road-ae5c39",
+      "say_th": "ตรงไป เข้าถนนราชภาคินัย",
+      "say_en": "straight on onto Ratchaphakhinai Road"
+    },
+    {
+      "at_m": 1474.8,
+      "point": [
+        18.78795,
+        98.99061
+      ],
+      "turn": "left",
+      "delta_deg": -67.5,
+      "street_th": "ถนนราชดำเนิน",
+      "street_en": "Rachadamnoen Road",
+      "street_slug": "rachadamnoen-road-82685d",
+      "say_th": "เลี้ยวซ้าย เข้าถนนราชดำเนิน",
+      "say_en": "left onto Rachadamnoen Road"
+    },
+    {
+      "at_m": 1636.0,
+      "point": [
+        18.78713,
+        98.99122
+      ],
+      "turn": "straight",
+      "delta_deg": -15.7,
+      "street_th": "ถนนราชดำเนิน ซอย 4",
+      "street_en": "Rachadamnoen Road Soi 4",
+      "street_slug": "rachadamnoen-road-soi-4-6b4e01",
+      "say_th": "ตรงไป เข้าถนนราชดำเนิน ซอย 4",
+      "say_en": "straight on onto Rachadamnoen Road Soi 4"
+    },
+    {
+      "at_m": 1712.8,
+      "point": [
+        18.78644,
+        98.99123
+      ],
+      "turn": "left",
+      "delta_deg": -100.1,
+      "street_th": "ถนนมูลเมือง ซอย 3",
+      "street_en": "Moonmuang Road Soi 3",
+      "street_slug": "moonmuang-road-soi-3-d05df2",
+      "say_th": "เลี้ยวซ้าย เข้าถนนมูลเมือง ซอย 3",
+      "say_en": "left onto Moonmuang Road Soi 3"
+    },
+    {
+      "at_m": 1941.2,
+      "point": [
+        18.78684,
+        98.99309
+      ],
+      "turn": "left",
+      "delta_deg": -56.5,
+      "street_th": "ถนนมูลเมือง",
+      "street_en": "Moon Muang Road",
+      "street_slug": "moon-muang-road-99d29e",
+      "say_th": "เลี้ยวซ้าย เข้าถนนมูลเมือง",
+      "say_en": "left onto Moon Muang Road"
+    }
+  ],
+  "rules": {
+    "ok": true,
+    "stops": 2,
+    "line_points": 63,
+    "findings": [],
+    "first_finding": null,
+    "centre": [
+      18.788407,
+      98.986034
+    ]
+  },
+  "named_from": "data/streets.json"
+}
