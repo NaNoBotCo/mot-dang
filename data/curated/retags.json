@@ -1,0 +1,98 @@
+{
+ "_readme": "Shelves TAKEN AWAY from a crawled record, by id — the rare case where OpenStreetMap's primary tag is wrong about the door. shelves.json only ever adds (a second identity the one primary tag could not hold); this file removes, and only with a receipt. Each entry names the evidence a person read, the date, the shelves dropped, and the shelf the record should stand on instead — a correction never leaves a place shelfless. Applied by importers/import_all.py apply_curated_retags() after shelves.json. Every entry here also gets a fix-ledger line in data/fixes.json under มดเอง, and is worth fixing upstream in OSM when somebody has an editor open. Keep this file short: a long retags.json is a crawl that needs a rule, not a person with a list.",
+ "retags": {
+  "cm-osm-node-11411206869": {
+   "note": "หรรษา มินิกอล์ฟ / Hansa Minigolf — mapped shop=tattoo, sat on the tattoo shelf from the 2026-07-27 crawl until WO-14",
+   "drop_cat": [
+    "tattoo"
+   ],
+   "drop_sub": [
+    "studio"
+   ],
+   "add_cat": [
+    "sights"
+   ],
+   "evidence": "OSM node 11411206869's own tags: name=หรรษา มินิกอล์ฟ, name:en=Hansa Minigolf, name:de=Hansa Minigolf — minigolf in three languages, no tattoo attribute beyond the shop tag (cache/overpass/cm/tattoo.json, crawled 2026-07-27)",
+   "fetched": "2026-08-19"
+  },
+  "cm-osm-node-1484554967": {
+   "note": "Sunshine Apartment — mapped office=estate_agent, filed among the agents since the 2026-07-27 crawl; the one word the record carries names a building, not a brokerage",
+   "drop_sub": [
+    "agent"
+   ],
+   "add_sub": [
+    "apartment"
+   ],
+   "evidence": "OSM node 1484554967's own tags: name=Sunshine Apartment on office=estate_agent, and nothing else — no agency word anywhere on the record. Filed as an agent it hands a brokerage-hunter a building's front desk; filed as an apartment it is what its own sign says (cache/overpass/cm/realestate.json, crawled 2026-07-27)",
+   "fetched": "2026-08-21"
+  },
+  "cm-osm-way-834549399": {
+   "note": "Kew Mar Pan Café — filed as a hospital on the medical shelf since the 2026-07-27 crawl; found on the WO-25 ongoing-care walk",
+   "drop_cat": [
+    "medical"
+   ],
+   "drop_sub": [
+    "hospital"
+   ],
+   "add_cat": [
+    "food"
+   ],
+   "add_sub": [
+    "cafe"
+   ],
+   "evidence": "The record's own crawled description reads 'First aid room' — a first-aid point at a mountain-road café (18.5554, 98.4819, Mae Chaem side), typed healthcare on the wrong door. The name is the café's; nothing about the place is a hospital. The first-aid description stays on the record.",
+   "date": "2026-08-21"
+  },
+  "cm-osm-node-5416625723": {
+   "note": "'animal hospital' (unnamed) — a vet standing on the people-medicine shelf; every 'hospital' search interleaved it",
+   "drop_cat": [
+    "medical"
+   ],
+   "drop_sub": [
+    "hospital"
+   ],
+   "add_cat": [
+    "pets"
+   ],
+   "add_sub": [
+    "vet"
+   ],
+   "evidence": "The record's own name is 'animal hospital'. A veterinary hospital answers pets, not people-medicine — the pets/vet shelf is where every other vet in the catalogue stands.",
+   "date": "2026-08-21"
+  },
+  "cm-osm-node-6553804156": {
+   "note": "คำเที่ยง รักษาสัตว์ — animal care filed under medical/doctors",
+   "drop_cat": [
+    "medical"
+   ],
+   "drop_sub": [
+    "doctors"
+   ],
+   "add_cat": [
+    "pets"
+   ],
+   "add_sub": [
+    "vet"
+   ],
+   "evidence": "รักษาสัตว์ on the sign — treats animals. Same correction as the other vets on this date.",
+   "date": "2026-08-21"
+  },
+  "cm-osm-way-1148815104": {
+   "note": "โรงพยาบาลสัตว์แม่ออน — Mae On ANIMAL hospital, on the people-medicine shelf",
+   "drop_cat": [
+    "medical"
+   ],
+   "drop_sub": [
+    "hospital"
+   ],
+   "add_cat": [
+    "pets"
+   ],
+   "add_sub": [
+    "vet"
+   ],
+   "evidence": "โรงพยาบาลสัตว์ names the thing itself: an animal hospital. Filed with the vets where a reader looking for one will find it.",
+   "date": "2026-08-21"
+  }
+ }
+}

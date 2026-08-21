@@ -468,6 +468,40 @@ def school_sub(t, name):
     return None
 
 
+_RE_DORM = re.compile(r"\bdorm(itor(y|ies))?s?\b", re.I)
+_RE_CONDO = re.compile(r"\bcondo(minium)?s?\b", re.I)
+
+
+def realestate_sub(t, name):
+    """building=apartments -> the residential shelf the building's own words
+    put it on: dorm, condo, or apartment.
+
+    Until 2026-08-21 every named building=apartments was filed as "condo"
+    and the shelf label read Condo Buildings. The shelf held 316; the names
+    held 53 condos. The rest are แมนชั่น, คอร์ท, อพาร์ตเมนต์ and หอพัก —
+    monthly buildings a reader hunting a condominium does not mean, and the
+    readers hunting those buildings could not see them under a condo label.
+    Same class of error as the barber shelf (6 of 62): the truth was on the
+    buildings' own signs, most of it in Thai.
+
+    Order matters. หอพัก first — student housing is its own trade with its
+    own price shape and its own asker. Then คอนโด, where a mapper's
+    description=condo counts too: it is the mapper stating the building's
+    kind, the same voice as the tag. A name that states nothing files as
+    apartment, because that is the word the tag itself uses —
+    building=apartments — and it claims less than "condo" did. "Condotel"
+    stays off the condo shelf by the word boundary: a condotel sells nights,
+    and its building files by the rest of its name.
+    """
+    n = " ".join(filter(None, [name, t.get("name:th"), t.get("name:en")]))
+    if "หอพัก" in n or _RE_DORM.search(n):
+        return "dorm"
+    desc = t.get("description") or ""
+    if "คอนโด" in n or "คอนโด" in desc or _RE_CONDO.search(n) or _RE_CONDO.search(desc):
+        return "condo"
+    return "apartment"
+
+
 def classify(t):
     """tags -> (cat, sub or None), or None to skip."""
     s, a, tr = t.get("shop"), t.get("amenity"), t.get("tourism")
@@ -525,7 +559,7 @@ def classify(t):
     if t.get("office") == "estate_agent":
         return "realestate", "agent"
     if t.get("building") == "apartments":
-        return "realestate", "condo"
+        return "realestate", realestate_sub(t, t.get("name") or "")
     if a == "fuel":
         return "transport", "fuel"
     if a == "car_rental" or s == "motorcycle_rental":

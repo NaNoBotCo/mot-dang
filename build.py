@@ -369,6 +369,24 @@ def womens_health_band(cat_key, depth=2):
             + " →</a></p>")
 
 
+def trans_health_band(cat_key, depth=2):
+    """One line on the medical shelf pointing at the trans-health page.
+
+    Same reason as womens_health_band, and the same measured shape of gap:
+    across all 19,975 records not one place names this care, so a reader
+    typing "transgender" at the shelf would otherwise be answered by luck.
+    /trans-health.html carries the curated register (transhealth_layer.py),
+    the NHSO hormone benefit, the credential registers and the sign glossary.
+    """
+    if cat_key != "medical":
+        return ""
+    r = "../" * depth
+    return (f'<p class="mtband"><a href="{r}trans-health.html">⚧ '
+            + bi("สุขภาพคนข้ามเพศ — ที่ไหนบอกเองว่าดูแล สิทธิฮอร์โมนยืนยันเพศสภาพ และตรวจใบวุฒิบัตรที่ไหน",
+                 "Trans health — which places state this care themselves, the gender-affirming hormone benefit, and where to check a credential")
+            + " →</a></p>")
+
+
 def beauty_band(cat_key, depth=2):
     """One line on the beauty shelf pointing at the words.
 
@@ -387,6 +405,25 @@ def beauty_band(cat_key, depth=2):
             + bi("คำที่ต้องพูด — ตัดเฟด ดัดดิจิตอล ต่อผม ถักเปีย เกล้าผม และไปทำถึงที่ พร้อมเสียงอ่าน และร้านที่มี",
                  "The word to ask for — a fade, a digital perm, extensions, cornrows, an updo, a house call, with the sounds; and the shops")
             + " \u2192</a></p>")
+
+
+def realestate_band(cat_key, depth=2):
+    """One line on the realestate shelf pointing at the words and the split.
+
+    The shelf lists buildings; /realestate.html (realestate_layer.py) carries
+    what a crawl can never hold — the Thai for the per-unit electric rate,
+    the deposit, the minimum contract — plus the printed count of what no
+    building's sign says. Same reason as beauty_band: the words are the
+    whole point. A person who cannot ask ค่าไฟหน่วยละเท่าไร signs a lease
+    without knowing what the room actually costs.
+    """
+    if cat_key != "realestate":
+        return ""
+    r = "../" * depth
+    return ('<p class="mtband"><a href="' + r + 'realestate.html">\U0001F3E0 '
+            + bi("คำที่ต้องถามก่อนวางมัดจำ — ค่าไฟหน่วยละ เฟอร์ครบ สัญญากี่เดือน พร้อมเสียงอ่าน · ชั้นคอนโด อพาร์ตเมนต์ หอพัก และสิ่งที่ยังไม่มีใครถามตึกเลย",
+                 "What to ask before the deposit — the per-unit electric rate, furnished, the minimum contract, with the sounds; the condo, apartment and dorm shelves; and what nobody has asked the buildings yet")
+            + " →</a></p>")
 
 
 def yant_band(cat_key):
@@ -876,6 +913,14 @@ _md_specialty = _ilu.module_from_spec(_spec_spec)
 _spec_spec.loader.exec_module(_md_specialty)
 SPECIALTY_LABELS = _md_specialty.LABELS
 OBGYN_GRADE = _md_specialty.obgyn_grade
+
+# WO-26: the trans-health register behind /trans-health.html. One file feeds
+# the page AND the index, so search and page cannot disagree about who is on
+# it — the same one-source rule as the OB-GYN grade above.
+_TRANSHEALTH_REG = json.loads(
+    (ROOT / "data" / "curated" / "transhealth.json").read_text())
+TRANSHEALTH_ROWS = {row["place"]: row
+                    for row in _TRANSHEALTH_REG.get("rows", []) if row.get("place")}
 
 SCHEMA_TYPE = {
     "wat": "TouristAttraction", "hotel": "LodgingBusiness", "food": "Restaurant",
@@ -3087,8 +3132,14 @@ let found=an.terms.length?index.search(an,0):[];
 // twenty-four. Applied as a lift rather than a filter: narrowing hard would
 // turn a shelf word that also appears in a shop's name into an empty page.
 const wantShelves=new Set();
-for(const t of an.terms){for(const k of(SHELVES[t.raw]||[]))wantShelves.add(k);}
-for(const ph of an.intent.phrases){for(const k of(SHELVES[ph]||[]))wantShelves.add(k);}
+// shelf_stops: a word the mined table maps to a shelf it does not NAME —
+// 'clinic' reached chang through the elephant-hospital child's English name,
+// and a reader typing it means people-medicine. Suppressed per word, per
+// shelf, so "elephant clinic" still lands: ช้าง lifts chang on its own.
+const STOPS=(panelDoc&&panelDoc.shelf_stops)||{};
+const lift=w=>{for(const k of(SHELVES[w]||[]))if((STOPS[w]||[]).indexOf(k)===-1)wantShelves.add(k);};
+for(const t of an.terms)lift(t.raw);
+for(const ph of an.intent.phrases)lift(ph);
 // A topic the site keeps a whole page for answers with that page, not only
 // with rows — the rich door, curated in data/curated/search_panels.json.
 // Picked BEFORE the lift so a panel's shelf joins the lift too: วัด reaches
@@ -7457,6 +7508,23 @@ def known_facts(r):
     if standing:
         rows.append(f"<dt>{bi('ที่ตั้งและลักษณะ', 'Where it stands')}</dt>"
                     f"<dd>{' · '.join(standing)}</dd>")
+    # WO-28: the two halves of the monastic-school join, each printed on the
+    # page it belongs to. A โรงเรียนพระปริยัติธรรม stands INSIDE a temple, and
+    # until the ONAB register was fetched neither page could say so.
+    if a.get("watName"):
+        wid = a.get("watId")
+        where = esc(a["watName"])
+        if wid and wid in PLACE_HREF:
+            where = (f'<a href="../../{PLACE_HREF[wid]}.html">{esc(a["watName"])}</a>')
+        rows.append(f"<dt>{bi('ตั้งอยู่ในวัด', 'Stands in the temple')}</dt>"
+                    f"<dd>{where}</dd>")
+    if a.get("monasticSchool"):
+        sid = a.get("monasticSchoolId")
+        who = esc(a["monasticSchool"])
+        if sid and sid in PLACE_HREF:
+            who = f'<a href="../../{PLACE_HREF[sid]}.html">{esc(a["monasticSchool"])}</a>'
+        rows.append(f"<dt>{bi('โรงเรียนพระปริยัติธรรมในวัดนี้', 'Monastic school here')}</dt>"
+                    f"<dd>{who}</dd>")
 
     # What a temple is on paper. Every wat here reached us as a name and a pin;
     # the National Office of Buddhism register holds the year it was founded,
@@ -9814,8 +9882,10 @@ SOURCE_FILES = ["build.py", "CLAUDE.md", "README.md", "AGENTS.md",
                 "answers_layer.py", "app_layer.py", "asked_layer.py", "cooking_layer.py",
                 "festivals_layer.py",
                 "flights_layer.py", "live_shell.py", "map_ground.py", "map_shell.py",
-                "beauty_layer.py", "muaythai_layer.py", "nitnoy_layer.py", "pins_layer.py", "taste_layer.py",
-                "toilets_layer.py", "elephant_layer.py", "womens_health_layer.py"]
+                "beauty_layer.py", "muaythai_layer.py", "nitnoy_layer.py", "pins_layer.py", "realestate_layer.py", "taste_layer.py",
+                "toilets_layer.py", "elephant_layer.py", "womens_health_layer.py",
+                "care_layer.py",
+                "transhealth_layer.py"]
 # Anything that is somebody's private business, a credential, or a working
 # scratch never enters the archive. Whitelisting the trees above and naming
 # these again is belt and braces: a bare "everything except" would ship
@@ -10889,10 +10959,14 @@ def build_horoscope_page():
     # that only exists on one laptop answers nobody. The other four sheets stay
     # print-only until somebody decides otherwise — that is their WO's call,
     # not this one's.
-    _sheet = ROOT / "assets" / "reader" / "hair-words.pdf"
-    if _sheet.exists():
-        (DOCS / "reader").mkdir(exist_ok=True)
-        shutil.copyfile(_sheet, DOCS / "reader" / "hair-words.pdf")
+    # WO-25 publishes care-words.pdf on the same reasoning: /care.html links it,
+    # and the seven questions on it are the instrument that turns one desk visit
+    # — anybody's — into a dated public fact on that hospital's page.
+    for _name in ("hair-words.pdf", "care-words.pdf"):
+        _sheet = ROOT / "assets" / "reader" / _name
+        if _sheet.exists():
+            (DOCS / "reader").mkdir(exist_ok=True)
+            shutil.copyfile(_sheet, DOCS / "reader" / _name)
     shutil.copyfile(ROOT / "assets" / "shuffle.js", DOCS / "shuffle.js")
 
 
@@ -11044,6 +11118,8 @@ STREET_BY_SLUG = {s["slug"]: s for s in STREETS}
 # Each place lands on exactly one street, so this is a plain lookup rather than
 # a list — build_streets.py stops at the first assignment on purpose.
 STREET_OF = {}
+# Filled in build(); empty here so a page rendered outside a build still works.
+PLACE_HREF = {}
 for _s in STREETS:
     for _e in _s["places"]:
         STREET_OF.setdefault(_e["id"], (_s, _e))
@@ -12604,6 +12680,14 @@ def build():
 
     data = load()
 
+    # WO-28: id -> "<prov>/p/<slug>" for the handful of places that link to
+    # ANOTHER place by id — a monastic school and the temple it stands in.
+    # Built once from the loaded data; place_slug is deterministic, so this
+    # cannot disagree with the filename the page is actually written to.
+    global PLACE_HREF
+    PLACE_HREF = {r["id"]: f'{p["key"]}/p/{place_slug(r)}'
+                  for p in PROVINCES for r in data[p["key"]]}
+
     # 🏷 Tags, worked out once for every record before any page is drawn —
     # the place pages wear them as pills, the search index matches on them,
     # places.json carries them, and tags_layer.emit() draws their pages later.
@@ -12724,6 +12808,18 @@ def build():
                     idx_entry["ob"] = 1
                 elif _ob == "health-station":
                     idx_entry["ob"] = 2
+            # WO-26: the trans-health register and the map's lgbtq welcome
+            # tags. Only grades stated and community-listed carry the topic
+            # words — an unconfirmed hospital must not answer "transgender"
+            # as if it had said yes; the route rows live on the page, where
+            # their grade is printed beside them.
+            _tr = TRANSHEALTH_ROWS.get(r["id"])
+            if _tr and _tr.get("grade") in ("stated", "community-listed"):
+                _k.append("สุขภาพคนข้ามเพศ ข้ามเพศ transgender trans health กะเทย lgbtq")
+                if _tr.get("hormones"):
+                    _k.append("ฮอร์โมน hormone ยืนยันเพศสภาพ gender affirming")
+            if _al.get("lgbtq") or _al.get("lgbtqTrans"):
+                _k.append("lgbtq lgbtq+")
             # 🏷 Both names of every tag the place earned — "vegan" finds the
             # cafés that only say so in a diet tag, "บิตคอยน์" the shops that
             # only say so in a payment list. Matched, never displayed.
@@ -12842,7 +12938,7 @@ def build():
                             order_out=dom_order)
             body = (f'{cat_art_band(c, key)}'
                     f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
-                    f'{emergency_band(c)}{muaythai_band(c)}{cooking_band(c)}{chang_band(c)}{springs_band(c)}{beauty_band(c)}{womens_health_band(c)}{transport_band(c)}{yant_band(c)}'
+                    f'{emergency_band(c)}{muaythai_band(c)}{cooking_band(c)}{chang_band(c)}{springs_band(c)}{beauty_band(c)}{realestate_band(c)}{womens_health_band(c)}{trans_health_band(c)}{transport_band(c)}{yant_band(c)}'
                     f'{subshelf}{ad_box(f"{key}/{c}/index.html", 2)}'
                     f'{shelf_map(dom_order or in_cat, c, p)}{toolbar(in_cat)}'
                     f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
@@ -13280,7 +13376,7 @@ def build():
         else:
             print(f"  ! {_name} missing — run search-core/sync.py; "
                   f"search will still work, with less vocabulary")
-    # The rich doors search.html lays over its rows — WO-24, curated field
+    # The rich doors search.html lays over its rows — WO-28, curated field
     # truth in data/curated/, one card per topic the site keeps a page for.
     # Shape-checked here so a malformed pair fails the BUILD, loudly, instead
     # of quietly blanking the panel for every reader.
@@ -15477,6 +15573,13 @@ def build():
     import beauty_layer
     print("  beauty:", beauty_layer.emit(globals(), data))
 
+    # ---- realestate.html: the words before the deposit, the split shelves,
+    # the census of what no building has been asked, the register (WO). The
+    # one board whose biggest number is a silence: zero Land Offices, zero
+    # posted rates, and it says so.
+    import realestate_layer
+    print("  realestate:", realestate_layer.emit(globals(), data))
+
     # ---- womens-health.html: the graded list, the registers, the sign -----
     # Not a shelf: women's health is a speciality FIELD, the same shape as
     # cuisine, and importers/specialty.py explains at length why a speciality
@@ -15485,6 +15588,21 @@ def build():
     # the cm-womens-health harvester finally gets read by something.
     import womens_health_layer
     print("  womens-health:", womens_health_layer.emit(globals(), data))
+
+    # ---- care.html: departments, after-hours clinics, the paperwork ------
+    # WO-25. The corpus holds buildings; ongoing care lives in DEPARTMENTS, so
+    # this reads data/curated/care.json — what each hospital's own site states,
+    # every claim carrying its sentence, its url and its date — and prints the
+    # silences beside the answers.
+    import care_layer
+    print("  care:", care_layer.emit(globals(), data))
+
+    # ---- trans-health.html: the curated register, the benefit, the sign ---
+    # WO-26. The corpus states nothing here (measured in transhealth_layer.py,
+    # live at build time), so the page is curated research with dated sources;
+    # data/curated/transhealth.json is the one file it and the index both read.
+    import transhealth_layer
+    print("  trans-health:", transhealth_layer.emit(globals(), data))
 
     # ---- transport.html: routes, trains, red trucks, taxis, flights ------
     # WO-13. Draws the register in data/bus_routes.json and the split subs

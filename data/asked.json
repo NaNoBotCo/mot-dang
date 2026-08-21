@@ -1,0 +1,699 @@
+{
+ "asked": [
+  {
+   "key": "pap-smear",
+   "q": {
+    "th": "ตรวจแปปสเมียร์ที่ไหนได้บ้าง",
+    "en": "Where can I get a pap smear?"
+   },
+   "asked_on": "2026-08-12",
+   "via": "facebook",
+   "find": {
+    "prov": "cm",
+    "attr": "obgyn"
+   },
+   "show": "phone",
+   "lead": [
+    {
+     "th": "เท่าที่มดแดงถือข้อมูลอยู่ตอนนี้ เชียงใหม่มี {n} แห่งที่ทำเรื่องสูติ-นรีเวชได้ — โรงพยาบาลใหญ่ทุกแห่งมีแผนกนี้ คลินิกสูติ-นรีเวชเฉพาะทางอีกสองสามแห่ง และคลินิกผู้หญิงโดยตรงอีกแห่ง {phoned} แห่งข้างล่างนี้มีเบอร์โทรที่เรายืนยันได้แล้ว",
+     "en": "The catalogue currently holds {n} Chiang Mai facilities with obstetrics-gynaecology capacity — every major hospital runs one, a few dedicated OB-GYN clinics, plus a standalone clinic for women. The {phoned} below carry a phone number we can confirm."
+    }
+   ],
+   "notes": [
+    {
+     "th": "อีก {rest} แห่งอยู่ในหมวดหมอ-คลินิกด้วยเช่นกัน แต่ยังไม่มีเบอร์โทรที่ยืนยันได้ — ดูทั้งหมดที่",
+     "en": "{rest} more sit in the doctors & hospitals shelf but without a confirmed phone number yet — see all of them at",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "cm/medical/index.html",
+       "th": "หมอ-คลินิก-โรงพยาบาล เชียงใหม่",
+       "en": "Doctors & Hospitals, Chiang Mai"
+      }
+     ]
+    },
+    {
+     "th": "เชียงรายยังไม่มีแห่งไหนติดธงนี้ในข้อมูลของเรา — ไม่ได้แปลว่าไม่มีบริการจริง แค่ยังไม่มีใครยืนยันให้มดแดง",
+     "en": "Chiang Rai has zero facilities flagged for this yet in our data — that means unconfirmed, not unavailable.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "crawl-request.html",
+       "th": "ส่งมดไปสำรวจ",
+       "en": "request a crawl"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "khat-khi-khlai",
+   "q": {
+    "th": "ขัดขี้ไคลด้วยถุงมือ (แบบเกาหลี ฮัมมัมตุรกี โมร็อกโก) มีที่ไหน",
+    "en": "Korean scrub, Turkish hammam, Moroccan-style — a full-body exfoliation done with a glove?"
+   },
+   "asked_on": "2026-08-18",
+   "via": "facebook",
+   "find": {
+    "prov": "cm",
+    "sub": "khat-khi-khlai"
+   },
+   "first": [
+    "cm-curated-darinhealth"
+   ],
+   "shelf": "cm/massage/khat-khi-khlai/",
+   "lead": [
+    {
+     "th": "คำที่ใช้ค้นคือคำตอบครึ่งหนึ่ง ร้านในเชียงใหม่ไม่ได้ขายบริการนี้ว่าแบบเกาหลีหรือแบบตุรกี แต่ขายว่า ขัดขี้ไคล (ขัด คือถู ขี้ไคล คือคราบผิวที่ลอกออกมา) หรือ ระเบิดขี้ไคล ค้นเป็นภาษาอังกฤษได้ศูนย์ร้าน ค้นด้วยคำไทยคำนี้ได้ทั้งย่าน — มดแดงเลยเปิดชั้นของมันเอง",
+     "en": "The word is half the answer. No shop here sells this as Korean or Turkish; the trade word is ขัดขี้ไคล — khàt khîi khlai, khàt to scour, khîi khlai the grime that rolls off skin — or ระเบิดขี้ไคล, rá-bèet khîi khlai, blow the khîi khlai off. Searched in English, Chiang Mai returns nothing. Searched in that word, it returns a whole trade, which now has a shelf of its own."
+    }
+   ],
+   "notes": [
+    {
+     "th": "เรื่องถุงมือ ตอบตรงๆ ในห้าร้านนี้มีร้านเดียวที่มีหลักฐานลงวันที่ว่าขัดด้วยถุงมือ คือ Darin Health Massage (รีวิวผู้ใช้ ก.ค. 2567 ระบุถุงมือขัดผิว) อีกสี่ร้านบอกว่าทำขัดขี้ไคล แต่ไม่ได้บอกว่าใช้ถุงมือ ผ้า หรือมือเปล่า และมดแดงจะไม่เดาแทนร้าน ประโยคที่ใช้ถามตอนโทรจองคือ ขัดด้วยถุงมือไหมคะ/ครับ และจะเอาถุงมือไปเองก็ถามได้เหมือนกัน",
+     "en": "On the glove, plainly: of these five, one carries dated evidence of a mitt — Darin Health Massage, from a July 2024 reader review naming ถุงมือขัดผิว. The other four name the treatment and not the instrument, and we do not guess on behalf of a business. The sentence to use when you book is ขัดด้วยถุงมือไหมคะ/ครับ (khàt dûai thǔng-mʉʉ mǎi) — do you scrub with a mitt? Asking to bring your own is an ordinary request too.",
+     "cls": "tinynote"
+    },
+    {
+     "th": "อยากได้ลำดับแบบจิมจิลบัง คือแช่ให้ผิวนุ่มก่อนแล้วค่อยขัด: บุห์รา ออนเซ็น ซอยช้างเผือก 2 หญิงล้วน แช่ 250 บาท ไม่จำกัดเวลา ไม่มีบริการขัดให้ ต้องขัดเอง ส่วนถุงมือขัดผิวมีขายที่ อีฟแอนด์บอย วัตสัน บู๊ทส์ ในห้างเชียงใหม่ และสั่งออนไลน์ได้",
+     "en": "For the jjimjilbang order of operations — long hot soak first, scrub second — Bhura Onsen on Chang Phueak Soi 2 is women-only, 250 baht for an unlimited soak, and scrubs nobody: you would bring your own mitt. Exfoliating gloves are sold at Eveandboy, Watsons and Boots in the Chiang Mai malls, and online.",
+     "cls": "tinynote"
+    },
+    {
+     "th": "ฮัมมัมเต็มรูปแบบ (นอนบนหินอุ่น ขัดด้วยถุงมือเคสซ่า สบู่ดำ นวดฟอง) เท่าที่ตรวจวันนี้ยังไม่มีในเชียงใหม่ ห้องฮัมมัมของจริงในจังหวัดนี้อยู่ที่เทวาสปา ดาราเทวี ซึ่งกำลังทยอยเปิดกลับมา โทรถามก่อนไปที่ 053-888-888 ส่วนพิธีฮัมมัมแบบครบในไทยตอนนี้อยู่ที่สปาโรงแรมในกรุงเทพฯ และวิลล่ามาร็อค ปราณบุรี",
+     "en": "A full hammam — warm marble, a kessa mitt, black soap, a foam massage — is not something this check found anywhere in Chiang Mai. The one set of hammam chambers in the province sits inside the Dheva Spa at Dhara Dhevi, which is reopening in stages; phone 053-888-888 before making the trip. Complete hammam rituals in Thailand run at Bangkok hotel spas and at Villa Maroc in Pranburi.",
+     "cls": "tinynote"
+    },
+    {
+     "th": "ช่องว่างที่เหลือคือคำถามเดียว และเดินไปถามก็ตอบได้: ร้านไหนขัดด้วยถุงมือ ตอนนี้มีช่อง 🧤 ขัดขี้ไคลด้วยถุงมือ รออยู่ในแบบสำรวจหน้าร้านแล้ว เจ้าของร้านยืนยันร้านตัวเองแล้วติ๊กได้เลย หรือถ้าคุณเพิ่งไปมา บอกมดแดงได้",
+     "en": "The gap left is one question, and walking in answers it: which of these use a mitt. A 🧤 facet — scrub done with a mitt — now waits in the door survey. Owners can tick it when they claim their listing, and if you have just been, tell us.",
+     "cls": "myhint",
+     "links": [
+      {
+       "href": "claim.html",
+       "th": "ยืนยันร้านของคุณ",
+       "en": "claim your place"
+      },
+      {
+       "href": "add.html",
+       "th": "เพิ่มข้อมูล",
+       "en": "add a place"
+      },
+      {
+       "href": "cm/massage/khat-khi-khlai/index.html",
+       "th": "ชั้นขัดขี้ไคล",
+       "en": "the khat khi khlai shelf"
+      }
+     ]
+    }
+   ],
+   "ask_at_the_door": {
+    "th": "ขัดด้วยถุงมือไหมคะ/ครับ",
+    "en": "do you scrub with a mitt?"
+   }
+  },
+  {
+   "key": "physio",
+   "q": {
+    "th": "หมอกายภาพบำบัดแบบตะวันตก (นวดบนเตียง) มีที่ไหน",
+    "en": "Western-style physiotherapists who work on a table?"
+   },
+   "asked_on": "2026-08-12",
+   "via": "facebook",
+   "find": {
+    "prov": "cm",
+    "cat": "medical",
+    "any": [
+     {
+      "attr": "physio"
+     },
+     {
+      "name": "physical therapy"
+     },
+     {
+      "name": "กายภาพบำบัด"
+     }
+    ]
+   },
+   "lead": [
+    {
+     "th": "เท่าที่มดแดงถือข้อมูลอยู่ตอนนี้มี {n} แห่งที่ระบุชัดว่าเป็นกายภาพบำบัด — สองแห่งจากการสำรวจแผนที่ อีกสองแห่งเช็กจากเว็บของคลินิกเอง — บวกกับแผนกกายภาพบำบัด-เวชศาสตร์ฟื้นฟูของโรงพยาบาลใหญ่ ซึ่งทำงานบนเตียงตรวจแบบตะวันตกเป็นปกติอยู่แล้ว: โรงพยาบาลแมคคอมิก เชียงใหม่ราม กรุงเทพ และมหาราชนครเชียงใหม่ (สวนดอก)",
+     "en": "The catalogue currently holds {n} places named specifically as physiotherapy — two from the map survey, two more checked against the clinics own websites — plus the physiotherapy/rehabilitation departments at the major hospitals, which work on a Western-style table as a matter of course: McCormick, Chiang Mai Ram, Bangkok Hospital, and Maharaj Nakorn (Suan Dok)."
+    }
+   ],
+   "notes": [
+    {
+     "th": "หมวดนวด-สปาของเรามี 294 แห่งในเชียงใหม่ แต่ยังไม่มีข้อมูลแยกว่าร้านไหนนวดแผนไทยแบบนั่งพื้น ร้านไหนนวดบนเตียงแบบตะวันตก — คลินิกกายภาพจริงๆ อาจซ่อนอยู่ในนั้นโดยไม่มีป้ายบอก การแก้ที่ตรงจุดคือให้เจ้าของร้านยืนยันร้านของตัวเองแล้วบอกสไตล์การนวด",
+     "en": "The massage & spa shelf holds 294 Chiang Mai places, but nothing in the data distinguishes floor-seated Thai massage from Western table work — a real physio practice could be sitting in there unlabelled. The right fix belongs to the owner: claim your place and tell us your style.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "claim.html",
+       "th": "ยืนยันร้านของคุณ",
+       "en": "claim your place"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "shibari",
+   "q": {
+    "th": "ชิบาริ (มัดเชือกแบบญี่ปุ่น) เรียนหรือหาผู้สอนได้ที่ไหน",
+    "en": "Where can I find shibari (Japanese rope) instructors or practice space?"
+   },
+   "asked_on": "2026-08-12",
+   "via": "facebook",
+   "gap": true,
+   "lead": [
+    {
+     "th": "ไม่มีในสารบัญเลยสักแห่ง แต่ไม่ใช่เพราะไม่มีอยู่จริง — สื่อสิ่งพิมพ์เคยเขียนถึงผู้สอนมัดเชือกที่ย้ายมาอยู่เชียงใหม่และสอนจริงในเมืองนี้ แปลว่าวงการนี้มีอยู่ ไม่ใช่ความว่างเปล่า",
+     "en": "Nothing in the catalogue, but not because it does not exist — press coverage has profiled a rope teacher who relocated to Chiang Mai and taught here for real. So the scene is real, not a blank."
+    },
+    {
+     "th": "สิ่งที่มดแดงจะไม่ทำ: ขุดชื่อคนจากบทความเก่าที่ต้องเสียเงินอ่าน แล้วเอาชื่อ-ตัวตนของใครสักคนในวงการที่อ่อนไหวแบบนี้มาลงหน้าสารบัญสาธารณะโดยเขาไม่ได้ยินยอม ต่อให้มีแหล่งอ้างอิงก็ตาม การหาแบบเดินสำรวจหน้าร้านก็ไม่มีทางเจอวงการที่รวมตัวกันแบบปิดอยู่แล้วเป็นปกติ — ผ่านกลุ่มไลน์ เทเลแกรม หรือ FetLife ไม่ใช่ป้ายร้าน",
+     "en": "What Mot Dang will not do: pull a name out of an old, paywalled article and publish the identity of someone in a sensitive practice on a public directory without their consent, citable source or not. And storefront-survey methods were never going to find a scene that organises privately in the first place — closed LINE or Telegram groups, FetLife — not a shop sign."
+    }
+   ],
+   "notes": [
+    {
+     "th": "จะช่วยได้ยังไง: ถ้าคุณเป็นผู้สอนหรือรู้จักผู้จัดที่เปิดรับคนนอกกลุ่ม ส่งข้อมูลติดต่อ (ไม่จำเป็นต้องมีที่อยู่ร้าน) มาทางหน้าเพิ่มข้อมูลได้เลย — ลงเฉพาะสิ่งที่มีคนตั้งใจส่งมาให้เท่านั้น ไม่ใช่สิ่งที่เราไปขุดมาเอง",
+     "en": "How to help close this: if you teach, or know an organiser who welcomes newcomers, send a contact channel (no shop address needed) through Add a place — listed only from what someone hands us on purpose, never from what we dig up ourselves.",
+     "cls": "myhint",
+     "links": [
+      {
+       "href": "add.html",
+       "th": "เพิ่มข้อมูล",
+       "en": "add a place"
+      }
+     ]
+    }
+   ],
+   "panel": {
+    "th": "ยังไม่มีในสารบัญ — โดยตั้งใจ",
+    "en": "not in the catalogue — on purpose"
+   }
+  },
+  {
+   "key": "pole-dance",
+   "q": {
+    "th": "เรียนโพลแดนซ์ (pole dance) ได้ที่ไหน",
+    "en": "Where can I take pole dancing classes?"
+   },
+   "asked_on": "2026-08-12",
+   "via": "facebook",
+   "find": {
+    "ids": [
+     "cm-curated-cnxpole"
+    ]
+   },
+   "lead": [
+    {
+     "th": "หมวดเรียน-กีฬาของเชียงใหม่มี 149 แห่งจากการสำรวจแผนที่เปิด — ยิม โยคะ มวยไทย เต็มไปหมด — แต่ไม่มีสตูดิโอโพลแดนซ์เลยสักแห่ง เพราะข้อมูลแผนที่เปิดมักไม่แยกสตูดิโอแบบนี้ออกจากฟิตเนสทั่วไป ตามหาทางเว็บแทนแล้วเจอสตูดิโอที่เปิดสอนจริง เพิ่มเข้าสารบัญให้แล้วด้านล่าง",
+     "en": "Chiang Mai learning & sport shelf holds 149 places from the open-map survey — gyms, yoga, Muay Thai — but zero pole studios, because open-map data rarely distinguishes one from generic fitness. A web check instead turned up a real, currently-teaching studio, added to the catalogue below."
+    }
+   ],
+   "notes": [
+    {
+     "th": "มีอีกสตูดิโอหนึ่งที่หาเจอชื่อ (Vivid Dance Studio) แต่เว็บไซต์ของเขาใบรับรอง TLS หมดอายุตอนที่เราเช็ก ยืนยันเนื้อหาไม่ได้จริงๆ เลยยังไม่ใส่ในสารบัญ — ยืนยันได้เมื่อไรจะเพิ่มให้",
+     "en": "One more studio surfaced by name — Vivid Dance Studio — but its website TLS certificate had expired when we checked, so we could not actually verify its content and have not added it yet. It will go in once confirmable.",
+     "cls": "tinynote"
+    },
+    {
+     "th": "รู้จักสตูดิโอไหนอยู่แล้ว บอกชื่อ-ย่านมาทางหน้าส่งมดไปสำรวจ หรือเพิ่มเข้าไปเองที่หน้าเพิ่มข้อมูลได้เลย",
+     "en": "Know another studio? Name it and its area on Request a crawl, or add it yourself on Add a place.",
+     "cls": "myhint",
+     "links": [
+      {
+       "href": "crawl-request.html",
+       "th": "ส่งมดไปสำรวจ",
+       "en": "request a crawl"
+      },
+      {
+       "href": "add.html",
+       "th": "เพิ่มข้อมูล",
+       "en": "add a place"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "sak-yant",
+   "q": {
+    "th": "สักยันต์ที่เชียงใหม่ ไปสักที่ไหน ราคาเท่าไหร่ ที่ร้านกับที่วัดต่างกันยังไง",
+    "en": "Where do you get a sak yant in Chiang Mai, what does it cost, and what is the difference between the studio and the temple?"
+   },
+   "asked_on": "2026-08-19",
+   "via": "walk",
+   "draft": true,
+   "find": {
+    "prov": "cm",
+    "sub": "sak-yant"
+   },
+   "show": "phone",
+   "lead": [
+    {
+     "th": "คำว่า สักยันต์ ในเมืองนี้ขายกันสามแบบ และชั้นนี้แยกไว้ให้: สำนักหรืออาจารย์ที่ลงคาถาให้ยันต์มีฤทธิ์ (สักยันต์ตามครูบาอาจารย์ — คำสัญญาของชั้นนี้) · ร้านสักสมัยใหม่ที่สักลายยันต์ได้เหมือนลายอื่น · และร้านสักคิ้ว-สักปาก ราคาในสมุดลายของร้านที่รับจองตั้งตามเวลาและขนาดของงาน ไม่ใช่ตามฤทธิ์ของลาย — นะตัวเดียว 2,000 บาท งาน 1 ชั่วโมงราว 3,500–4,500 ที่ร้าน และแพงขึ้นเมื่อไปสักที่วัด ส่วนต่างนั้นถามให้ชัดตอนจองว่ารวมค่ารถ ล่าม และค่าบูชาครูถวายพระหรือไม่ สิ่งที่ร้านเขียนเองและมดแดงขอทวนไว้ตรงนี้: อาจารย์เป็นผู้ลงคาถา แต่ฤทธิ์อยู่ได้ด้วยผู้สักถือศีลห้า — ยันต์ไม่ใช่ของที่ซื้อแล้วจบ",
+     "en": "The word sak yant is sold three ways in this town, and the shelf keeps them apart: a สำนัก or an ajarn who charges the yant with a katha (สักยันต์ตามครูบาอาจารย์ — the shelf's promise) · a modern studio that will ink a yant design like any other · and the brow-and-lip shops. The prices in the booking service's own design book go by time and size, not by a design's power — a single na 2,000 baht, a one-hour piece about 3,500–4,500 in-house, and more at the temple; ask when booking whether that difference covers transport, interpreting and the offering to the monk. And the thing the operation writes itself, repeated here: the ajarn charges the yant, but its power holds only while the wearer keeps the five precepts — a yant is not a purchase you finish."
+    }
+   ],
+   "notes": [
+    {
+     "th": "วันนี้ชั้นสักยันต์มีรายการเดียว คือบริการรับจองบนถนนอารักษ์ ซึ่งหน้าเว็บของร้านเองบอกอาจารย์ประจำไว้ 17 ท่าน (อาจารย์ 12 พระ 5) พร้อมครู สำนัก และปีในผ้าเหลือง มดแดงรู้ชื่อสำนักในเชียงใหม่อีกอย่างน้อยสองแห่ง แต่ยังไม่ได้อ่านจากหน้าเพจของเขาเอง จึงยังไม่ลงเป็นรายการ — ชื่อจากแผนที่ของคนอื่นไม่ใช่คำของเจ้าของสำนัก",
+     "en": "Today the สักยันต์ shelf holds one listing — the booking service on Arak Road, whose own masters page names 17 resident practitioners (12 ajarn, 5 monks) with their teachers, สำนัก and years in the robe. The ants know the names of at least two more สำนัก in Chiang Mai and have not yet read their own pages, so they are not listed — a name on somebody else's map is not the สำนัก's own word.",
+     "cls": "tinynote"
+    },
+    {
+     "th": "เรื่องราคา ถ้าอยากรู้ก่อนโทร: สมุดลายของร้านแยกสองคอลัมน์ ที่ร้าน / ที่วัด งาน 1 ชั่วโมง 3,500–4,500 / 6,000–7,000 · 2 ชั่วโมง 6,500 / 8,500 · 3 ชั่วโมง 8,500–9,500 / 10,500–11,500 · นะตัวเดียว 2,000 / 5,000 · ลายเล็กสุด 6×8 ซม. 2,500 / 5,000 — เต่าเพื่ออายุยืนกับนารายณ์เพื่ออำนาจ ขนาดเท่ากันราคาเท่ากัน เพราะจ่ายค่างาน ไม่ได้จ่ายค่าฤทธิ์ ราคาทั้งหมดยังไม่ได้เทียบที่หน้าร้าน",
+     "en": "On price, for whoever wants it before they phone: the book runs two columns, in-house / at the temple — 1 hour 3,500–4,500 / 6,000–7,000 · 2 hours 6,500 / 8,500 · 3 hours 8,500–9,500 / 10,500–11,500 · a single na 2,000 / 5,000 · the smallest piece, 6×8 cm, 2,500 / 5,000. A turtle for longevity and a Narai for kingship cost the same at the same size, because you pay for the work and not for the power. None of it has been checked at the door yet.",
+     "cls": "tinynote"
+    },
+    {
+     "th": "ลายที่เลือกได้ไม่ใช่ของใหม่ — นกคู่ที่ขายบนถนนอารักษ์คือ ยันต์สาริกาคู่ ในใบลานเล่ม 6985 ห่างกันราวร้อยปี และนะตัวเดียวที่เป็นของถูกสุดในเมนูคือหน่วยเล็กสุดของทั้งวิชา wichaa เก็บลายยันต์ล้านนาไว้ 36 ลายตามสรรพคุณ และนะ 142 ตัว ไปอ่านก่อนเลือกได้ ส่วนยันต์ที่สักมาแล้วบอกอะไรบ้าง มีบทความแยกไว้",
+     "en": "What you choose from is not new — the นกคู่ paired-bird design sold on Arak Road is the ยันต์สาริกาคู่ of manuscript 6985, a century apart, and the single na at the bottom of the menu is the smallest unit of the whole art. wichaa holds 36 Lanna yant designs by what each is for and 142 na; read before you choose. What a yant already on your skin is saying has its own article.",
+     "cls": "myhint",
+     "links": [
+      {
+       "href": "https://wichaa.net/yant",
+       "th": "ลายยันต์ล้านนา 36 ลาย",
+       "en": "the 36 yant designs"
+      },
+      {
+       "href": "https://wichaa.net/na",
+       "th": "นะ 142 ตัว",
+       "en": "the 142 na"
+      },
+      {
+       "href": "https://sak-yant.nanobotco.workers.dev/",
+       "th": "ยันต์ของคุณบอกอะไร",
+       "en": "what does your sak yant mean"
+      },
+      {
+       "href": "cm/tattoo/sak-yant/index.html",
+       "th": "ชั้นสักยันต์",
+       "en": "the สักยันต์ shelf"
+      },
+      {
+       "href": "claim.html",
+       "th": "ยืนยันสำนักของคุณ",
+       "en": "claim your สำนัก"
+      }
+     ]
+    }
+   ],
+   "first": [
+    "cm-osm-node-5703615419"
+   ],
+   "shelf": "cm/tattoo/sak-yant/",
+   "ask_at_the_door": {
+    "th": "ที่นี่มีอาจารย์ลงคาถาให้ไหมคะ/ครับ หรือสักลายอย่างเดียว",
+    "en": "Is there an ajarn here who gives the katha, or is it the design only?"
+   }
+  },
+  {
+   "key": "afro-textured-hair",
+   "q": {
+    "th": "ทำผมหยิกฝอย-ผมแอฟโฟร ที่เชียงใหม่ ไปร้านไหนได้",
+    "en": "Where can I get Afro-textured or tightly coiled hair cut and styled in Chiang Mai?"
+   },
+   "asked_on": "2026-08-20",
+   "via": "nan",
+   "gap": true,
+   "lead": [
+    {
+     "th": "ไม่มีร้านไหนในสารบัญบอกเลยว่าทำผมหยิกฝอยได้ — ศูนย์ จาก 18,686 ระเบียนของสองจังหวัด และนี่คือตัวเลขที่นับจริง ไม่ใช่การเดา แต่ “ไม่มีร้านไหนบอก” กับ “ไม่มีร้านไหนทำได้” เป็นคนละเรื่องกัน เชียงใหม่มีคนแอฟริกัน คนแอฟริกัน-อเมริกัน และคนผมหยิกอาศัยและเรียนอยู่จริง และคนเหล่านั้นก็ตัดผมกันอยู่ทุกเดือน ร้านมีอยู่ แต่ไม่มีใครเขียนไว้บนป้าย",
+     "en": "Not one shop in the catalogue states that it works with tightly coiled hair — zero out of 18,686 records across both provinces, and that is a counted number, not a hunch. But “no shop has said so” and “no shop can” are different sentences. Chiang Mai has African, African-American and mixed-heritage residents and students who get their hair cut every month. The chairs exist; nobody has written it on a sign."
+    },
+    {
+     "th": "มดแดงจะไม่เดาชื่อร้านให้ เพราะการเดาผิดครั้งเดียวคือการส่งคนไปนั่งเก้าอี้ที่ช่างไม่เคยจับผมแบบนั้นมาก่อน ซึ่งจบลงด้วยผมที่เสียจริง ๆ ไม่ใช่แค่ทรงที่ไม่ถูกใจ",
+     "en": "The ants will not guess a shop name here. One wrong guess puts somebody in a chair where the stylist has never handled that hair before, and that ends in real damage, not merely a cut you dislike."
+    }
+   ],
+   "notes": [
+    {
+     "th": "ประโยคที่ใช้ถามหน้าร้าน — ช่างเคยทำผมหยิกฝอยไหมคะ / ครับ · châang khəəi tham phǒm yìk fɔ̌ɔi mǎi ká / kráp · ถามต่อว่า ตัดแห้งหรือตัดเปียก คำตอบ “ตัดแห้ง” มักแปลว่าช่างเคยทำมาจริง",
+     "en": "The sentence to ask at the door — ช่างเคยทำผมหยิกฝอยไหมคะ / ครับ (châang khəəi tham phǒm yìk fɔ̌ɔi mǎi ká / kráp), “has the stylist ever worked with tightly coiled hair?” Then ask whether they cut it dry or wet. A confident “dry” usually means they really have.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "beauty.html",
+       "th": "คำที่ต้องพูด — เสริมสวย-ตัดผม",
+       "en": "Hair — the word to ask for"
+      }
+     ]
+    },
+    {
+     "th": "จะช่วยปิดช่องนี้ได้ยังไง: ถ้าคุณเจอร้านที่ทำได้จริง — หรือคุณเป็นช่างคนนั้นเอง — บอกมดแดงมาได้ คำตอบจะขึ้นเป็นป้าย 🌀 บนหน้าร้านนั้น และเป็นของสาธารณะให้คนถัดไปใช้ตลอดไป คำถามนี้ตอบได้ทางเดียวคือมีคนบอก",
+     "en": "How to close this: if you find a shop that genuinely does it — or you are that stylist — tell the ants. It becomes a 🌀 mark on that shop’s page, public for good, for whoever asks next. This question has exactly one way of being answered: somebody says so.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "crawl-request.html",
+       "th": "ส่งมดไปสำรวจ",
+       "en": "request a crawl"
+      }
+     ]
+    },
+    {
+     "th": "ร้านถักเปีย-เดรดล็อคที่สารบัญมีอยู่หนึ่งร้าน ซึ่งเป็นคนละคำถาม แต่มักเป็นร้านที่คุ้นกับผมหยิกมากกว่าร้านทั่วไป",
+     "en": "The catalogue holds one braiding and dreadlock shop. That is a different question, but such a shop is likelier than most to be at home with coiled hair.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "cm/beauty/extensions/",
+       "th": "ต่อผม-ถักเปีย",
+       "en": "Extensions & braids"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "braids-extensions",
+   "q": {
+    "th": "ถักเปีย ต่อผม เดรดล็อค ที่เชียงใหม่ทำที่ไหนได้",
+    "en": "Where can I get braids, cornrows, locs or hair extensions in Chiang Mai?"
+   },
+   "asked_on": "2026-08-20",
+   "via": "nan",
+   "find": {
+    "prov": "cm",
+    "sub": "extensions"
+   },
+   "lead": [
+    {
+     "th": "สารบัญมีร้านที่เขียนคำนี้ไว้บนป้ายตัวเอง {n} ร้าน — และหน้านี้บอกตรง ๆ ว่าเท่านั้นจริง ๆ การถักเปียแถวและการต่อผมทำกันในร้านเสริมสวยทั่วเมือง แต่แทบไม่มีร้านไหนเขียนไว้หน้าร้าน มันเป็นบริการในเมนู ไม่ใช่ชื่อร้าน",
+     "en": "The catalogue holds {n} shop that says so on its own sign — and this page says plainly that this is all there is. Cornrowing and extensions are done in salons across this city; almost none writes it on the shopfront. It is a line on the menu, not the name of the shop."
+    }
+   ],
+   "notes": [
+    {
+     "th": "คำที่ต้องพูด: ถักเปีย thàk pia คือถักเปีย · ถักเปียแถว thàk pia thɛ̌ɛo คือ cornrows (แปลตรงตัวว่า ถักเป็นแถว) · ต่อผม tɔ̀ɔ phǒm คือต่อผม · เดรดล็อค drèet-lɔ́k · ถามด้วยว่า คิดเป็นชั่วโมงหรือเป็นหัว และ ผมแท้หรือผมเทียม",
+     "en": "The words: ถักเปีย (thàk pia) a braid · ถักเปียแถว (thàk pia thɛ̌ɛo) cornrows, literally “braided in rows” · ต่อผม (tɔ̀ɔ phǒm) extensions · เดรดล็อค (drèet-lɔ́k) locs. Also ask whether it is priced by the hour or by the head, and whether the hair is human or synthetic.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "beauty.html",
+       "th": "คำที่ต้องพูด — เสริมสวย-ตัดผม",
+       "en": "Hair — the word to ask for"
+      }
+     ]
+    },
+    {
+     "th": "รู้จักร้านที่ถักเปียเป็น บอกมดแดงได้ — ร้านที่ทำได้แต่ไม่ได้เขียนป้าย คือร้านที่คนหาไม่เจอ",
+     "en": "Know a shop that braids? Tell the ants. A shop that can do it but never wrote it down is a shop nobody can find.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "crawl-request.html",
+       "th": "ส่งมดไปสำรวจ",
+       "en": "request a crawl"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "digital-perm",
+   "q": {
+    "th": "ดัดดิจิตอลที่เชียงใหม่ ร้านไหนทำได้",
+    "en": "Which salon in Chiang Mai does digital perms?"
+   },
+   "asked_on": "2026-08-20",
+   "via": "nan",
+   "gap": true,
+   "lead": [
+    {
+     "th": "ไม่มีร้านไหนในสองจังหวัดเขียนคำว่า ดัดดิจิตอล ไว้ในชื่อร้าน — ศูนย์ จาก 18,686 ระเบียน แต่คำถามนี้ต่างจากเรื่องผมหยิกฝอยตรงที่ ดัดดิจิตอลเป็นบริการมาตรฐานของร้านผมไทยจำนวนมาก ร้านที่ทำได้มีอยู่เยอะ เพียงแต่ไม่มีร้านไหนตั้งชื่อร้านตัวเองตามเครื่องดัดผม",
+     "en": "No shop in either province puts ดัดดิจิตอล in its name — zero out of 18,686 records. But this differs from the textured-hair question: a digital perm is standard in a great many Thai salons. Plenty of shops do it. None of them named the shop after the machine."
+    },
+    {
+     "th": "วิธีที่ได้ผลจริงคือพูดคำให้ถูก ถ้าพูดว่า “ดัดผม” เฉย ๆ อาจได้ดัดเย็นกลับบ้าน ซึ่งเป็นคนละอย่างและคนละราคา",
+     "en": "What actually works is saying the right word. Ask for ดัดผม alone and you may go home with a cold perm — a different process at a different price."
+    }
+   ],
+   "notes": [
+    {
+     "th": "ดัดดิจิตอล dàt dì-jì-tôn คือดัดด้วยแกนร้อน · ดัดวอลลุ่ม dàt wɔn-lûm คือดัดเฉพาะโคนผม · ยืดผม yʉ̂ʉt phǒm คือยืด และ รีบอนดิ้ง rii-bɔɔn-dîng คือระบบยืดถาวร · ถามเวลาที่ใช้ก่อนนั่ง สามถึงสี่ชั่วโมงเป็นเรื่องปกติ",
+     "en": "ดัดดิจิตอล (dàt dì-jì-tôn) is the heated-rod perm · ดัดวอลลุ่ม (dàt wɔn-lûm) lifts the roots only · ยืดผม (yʉ̂ʉt phǒm) is straightening and รีบอนดิ้ง (rii-bɔɔn-dîng) is the rebonding system. Ask how many hours before you sit down; three to four is normal.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "beauty.html",
+       "th": "คำที่ต้องพูด — เสริมสวย-ตัดผม",
+       "en": "Hair — the word to ask for"
+      }
+     ]
+    },
+    {
+     "th": "ถ้าคุณดัดดิจิตอลมาแล้วและร้านทำได้ดี บอกชื่อร้านมาได้ — คำตอบจะขึ้นเป็นป้าย 🌡️ บนหน้าร้านนั้น",
+     "en": "If you have had a digital perm done well here, name the shop. It becomes a 🌡️ mark on that shop’s page.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "crawl-request.html",
+       "th": "ส่งมดไปสำรวจ",
+       "en": "request a crawl"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "hair-house-call",
+   "q": {
+    "th": "ช่างทำผมไปทำถึงบ้าน-ถึงโรงแรมได้ไหม",
+    "en": "Can a hairdresser come to my house or hotel in Chiang Mai?"
+   },
+   "asked_on": "2026-08-20",
+   "via": "nan",
+   "gap": true,
+   "lead": [
+    {
+     "th": "ไม่มีร้านไหนในสารบัญเขียนไว้ — ศูนย์ จาก 18,686 ระเบียน และแผนที่ก็ไม่มีป้ายข้อมูลสำหรับเรื่องนี้เลย ช่างผมไทยจำนวนมากออกไปทำถึงที่จริง โดยเฉพาะงานแต่ง งานบวช และงานที่ต้องเกล้าผม แต่รับงานผ่านไลน์และการบอกต่อ ไม่ใช่ผ่านป้ายหน้าร้าน",
+     "en": "No shop in the catalogue states it — zero out of 18,686 records, and OpenStreetMap has no tag for it at all. Plenty of Thai stylists do travel to you, especially for weddings, ordinations and anything needing an updo. They take that work through LINE and word of mouth, never through a shopfront."
+    }
+   ],
+   "notes": [
+    {
+     "th": "ประโยคที่ใช้ถาม — ช่างไปทำถึงที่พักได้ไหม ค่าเดินทางเท่าไร · châang bpai tham thʉ̌ng thîi-phák dâi mǎi · khâa dəən-thaang thâo-rài · คำที่ร้านใช้เรียกงานแบบนี้เองคือ นอกสถานที่ nɔ̂ɔk sà-thǎan-thîi แปลว่า นอกร้าน",
+     "en": "The sentence to ask — ช่างไปทำถึงที่พักได้ไหม ค่าเดินทางเท่าไร (châang bpai tham thʉ̌ng thîi-phák dâi mǎi, khâa dəən-thaang thâo-rài): “can the stylist come to where I am staying, and what is the travel charge?” The shops’ own word for this work is นอกสถานที่ (nɔ̂ɔk sà-thǎan-thîi), “off premises”.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "beauty.html",
+       "th": "คำที่ต้องพูด — เสริมสวย-ตัดผม",
+       "en": "Hair — the word to ask for"
+      }
+     ]
+    },
+    {
+     "th": "ถามร้านที่อยู่ใกล้ที่พักคุณก่อน ร้านเล็กในซอยมักตกลงง่ายกว่าร้านใหญ่ และถ้าเจอช่างที่ไปถึงที่ บอกมดแดงได้ — จะขึ้นเป็นป้าย 🛵",
+     "en": "Ask the shops nearest where you are staying first; a small shop down a soi usually says yes more readily than a large one. If you find a stylist who travels, tell the ants — it becomes a 🛵 mark.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "crawl-request.html",
+       "th": "ส่งมดไปสำรวจ",
+       "en": "request a crawl"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "barbershop-shave",
+   "q": {
+    "th": "ร้านตัดผมชายแบบบาร์เบอร์ ตัดเฟด โกนหน้าด้วยมีดโกน อยู่ไหนบ้าง",
+    "en": "Where are the proper barbershops — fades, beard work, a straight-razor shave?"
+   },
+   "asked_on": "2026-08-20",
+   "via": "nan",
+   "find": {
+    "prov": "cm",
+    "sub": "barber"
+   },
+   "lead": [
+    {
+     "th": "สารบัญมีร้านที่เขียนว่าบาร์เบอร์หรือตัดผมชายไว้บนป้ายตัวเอง {n} ร้านในเชียงใหม่ {phoned} ร้านมีเบอร์โทร จนถึงวันที่ 20 สิงหาคม 2569 ชั้นนี้เคยมีอยู่ 6 ร้าน เพราะแผนที่ติดป้าย hairdresser=barber ไว้แค่ 6 จุด ส่วนที่เหลือเขียนคำว่า บาร์เบอร์ ไว้บนป้ายร้านตัวเองมาตลอด และไม่มีใครอ่าน",
+     "en": "The catalogue holds {n} shops in Chiang Mai that put barber or ตัดผมชาย on their own sign, {phoned} of them with a phone number. Until 20 August 2026 this shelf showed six, because OpenStreetMap tags hairdresser=barber on six points. The rest had written BARBER on their own shopfront all along and nobody had read it."
+    }
+   ],
+   "notes": [
+    {
+     "th": "เรียงตามตัวอักษร ไม่จัดอันดับ และไม่แยกว่าร้านไหนของฝรั่งร้านไหนของไทย ป้ายหน้าร้านอ่านเองได้ ชื่อร้านบอกเรื่องของมันเองอยู่แล้ว",
+     "en": "Alphabetical and unranked, and never sorted into farang shops and Thai shops. A reader can read a shopfront, and these names tell their own story.",
+     "cls": "tinynote"
+    },
+    {
+     "th": "คำที่ต้องพูด: ตัดเฟด tàt fèet คือ fade · สกินเฟด sa-kin-fèet คือเฟดถึงหนัง · โกนหน้า koon nâa คือโกนหน้าด้วยมีดโกน · กันขอบ gan khɔ̀ɔp คือแต่งขอบระหว่างรอบตัด ซึ่งถูกและเร็ว",
+     "en": "The words: ตัดเฟด (tàt fèet) a fade · สกินเฟด (sa-kin-fèet) down to skin · โกนหน้า (koon nâa) a straight-razor face shave · กันขอบ (gan khɔ̀ɔp) the line-up between cuts, which is cheap and quick.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "beauty.html",
+       "th": "คำที่ต้องพูด — เสริมสวย-ตัดผม",
+       "en": "Hair — the word to ask for"
+      }
+     ]
+    },
+    {
+     "th": "ร้านไหนมีผ้าร้อนกับมีดโกนพับจริง ๆ ยังไม่มีใครไปดู ถ้าคุณไปมาแล้ว บอกมดแดงได้ — จะขึ้นเป็นป้าย 🪒",
+     "en": "Which of them keep hot towels and a real folding razor is something nobody has checked yet. If you have been, tell the ants — it becomes a 🪒 mark.",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "crawl-request.html",
+       "th": "ส่งมดไปสำรวจ",
+       "en": "request a crawl"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "us-insurance-paperwork",
+   "q": {
+    "th": "โรงพยาบาลไหนในเชียงใหม่ออกใบเสร็จภาษาอังกฤษแบบแยกรายการ และช่วยกรอกแบบฟอร์มเบิกประกันสหรัฐฯ (FMP / CHAMPVA) ให้ผู้ป่วยได้เอง",
+    "en": "Which Chiang Mai hospitals issue itemized English receipts and will complete US insurance and VA claim forms (FMP, CHAMPVA) with little or no help from the patient?"
+   },
+   "asked_on": "2026-08-21",
+   "via": "walk",
+   "draft": true,
+   "find": {
+    "prov": "cm"
+   },
+   "show": "phone",
+   "lead": [
+    {
+     "th": "",
+     "en": ""
+    }
+   ],
+   "notes": []
+  },
+  {
+   "key": "dtv-medical",
+   "q": {
+    "th": "ขอแผนการรักษา ประวัติการนัด และหนังสือรับรองจากโรงพยาบาลสำหรับวีซ่า DTV สายรักษาพยาบาล ได้ที่ไหน และมีใครดูแลเอกสารต่อเนื่องให้บ้าง",
+    "en": "Where can I get the treatment plan, appointment records and hospital letters a medical DTV needs — and who will keep that paperwork current for extensions?"
+   },
+   "asked_on": "2026-08-21",
+   "via": "walk",
+   "draft": true,
+   "find": {
+    "prov": "cm"
+   },
+   "show": "phone",
+   "lead": [
+    {
+     "th": "",
+     "en": ""
+    }
+   ],
+   "notes": []
+  },
+  {
+   "key": "monthly-apartment",
+   "q": {
+    "th": "หาห้องเช่ารายเดือนในเชียงใหม่ยังไง",
+    "en": "How do I find a monthly room in Chiang Mai?"
+   },
+   "asked_on": "2026-08-21",
+   "via": "walk",
+   "find": {
+    "prov": "cm",
+    "sub": "apartment"
+   },
+   "show": "phone",
+   "shelf": "cm/realestate/apartment/",
+   "lead": [
+    {
+     "th": "เท่าที่มดแดงถือข้อมูลอยู่ เชียงใหม่มีตึกรายเดือน {n} หลังบนชั้นอพาร์ตเมนต์-แมนชั่น-คอร์ท — {phoned} หลังมีเบอร์ให้โทรถามห้องว่างได้เลย วิธีที่ได้ผลจริงในเมืองนี้คือเลือกย่านก่อน แล้วเดินหรือขี่รถถามทีละตึก เพราะตึกส่วนใหญ่ไม่ลงประกาศที่ไหนเลย",
+     "en": "The catalogue holds {n} monthly buildings on the Chiang Mai apartments-mansions-courts shelf — {phoned} carry a phone number you can call about a vacant room today. The method that actually works in this city: pick the area first, then walk or ride it building by building — most of these buildings never advertise anywhere."
+    }
+   ],
+   "notes": [
+    {
+     "th": "อีก {rest} หลังยังไม่มีเบอร์ยืนยัน — ดูทั้งชั้นที่",
+     "en": "{rest} more sit on the shelf without a confirmed phone yet — see all of them at",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "cm/realestate/apartment/index.html",
+       "th": "อพาร์ตเมนต์-แมนชั่น-คอร์ท เชียงใหม่",
+       "en": "Apartments, Mansions & Courts, Chiang Mai"
+      }
+     ]
+    },
+    {
+     "th": "คำที่ต้องถามก่อนวางมัดจำ — ค่าไฟหน่วยละ มัดจำ สัญญาขั้นต่ำ พร้อมเสียงอ่าน — อยู่ที่",
+     "en": "The words to ask before the deposit — the per-unit electric rate, the deposit, the minimum contract, with the sounds — live at",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "realestate.html",
+       "th": "อสังหาฯ-ที่พัก มดแดง",
+       "en": "the Mot Dang real-estate page"
+      }
+     ]
+    }
+   ],
+   "ask_at_the_door": {
+    "th": "ค่าไฟหน่วยละเท่าไรคะ/ครับ",
+    "en": "what is the electric rate per unit?"
+   }
+  },
+  {
+   "key": "student-dorm",
+   "q": {
+    "th": "หอพักใกล้มหาวิทยาลัยหายังไง",
+    "en": "How do I find a student dorm near the universities?"
+   },
+   "asked_on": "2026-08-21",
+   "via": "walk",
+   "find": {
+    "prov": "cm",
+    "sub": "dorm"
+   },
+   "shelf": "cm/realestate/dorm/",
+   "lead": [
+    {
+     "th": "ชั้นหอพักเพิ่งแยกออกจากชั้นคอนโดวันนี้ — สารบัญมีหอพักเชียงใหม่ {n} แห่ง เกาะกลุ่มรอบมหาวิทยาลัย ป้ายหอบอกเองว่ารับใคร: หอพักหญิง หอพักชาย ส่วนหอในคือหอของมหาวิทยาลัยเอง ยังไม่มีหอไหนมีเบอร์โทรยืนยันในสารบัญเลย — วิธีที่ได้ผลจริงคือปักหมุดจากรายชื่อข้างล่าง แล้วไปถามหน้าหอทีละแห่ง",
+     "en": "The dorm shelf split out of the condo shelf today — the catalogue holds {n} Chiang Mai dorms, clustered around the universities. The signs state who each takes: หอพักหญิง women's, หอพักชาย men's; หอใน is the university's own housing. Not one carries a confirmed phone yet — the method that actually works is to pin them from the list below and ask at each door."
+    }
+   ],
+   "notes": [
+    {
+     "th": "ทั้งชั้นอยู่ที่",
+     "en": "The whole shelf lives at",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "cm/realestate/dorm/index.html",
+       "th": "หอพัก เชียงใหม่",
+       "en": "Dormitories, Chiang Mai"
+      }
+     ]
+    },
+    {
+     "th": "คำเช่าห้อง ค่าไฟหน่วยละ มัดจำ — พร้อมเสียงอ่าน — อยู่ที่",
+     "en": "The renting words — the per-unit electric rate, the deposit — with the sounds, live at",
+     "cls": "tinynote",
+     "links": [
+      {
+       "href": "realestate.html",
+       "th": "อสังหาฯ-ที่พัก มดแดง",
+       "en": "the Mot Dang real-estate page"
+      }
+     ]
+    }
+   ],
+   "ask_at_the_door": {
+    "th": "มีห้องว่างเทอมนี้ไหมคะ/ครับ",
+    "en": "any rooms free this term?"
+   }
+  }
+ ]
+}

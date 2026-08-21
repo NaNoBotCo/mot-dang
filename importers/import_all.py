@@ -8,6 +8,7 @@ Sources (all sibling repos under ~/Developer/claude code projects/):
   mueang-map/data/canonical/osm-chiang-rai.json    289 CR wats          -> cr/wat  (wireframe seed)
   data/curated/featured-chiang-rai.json            hand-entered field truth (never overwritten)
   data/curated/additions-chiang-mai.json           CM places no crawl carries, each with dated sources
+  data/curated/additions-chiang-rai.json           CR places no crawl carries, same bar as the CM file
   data/curated/names.json                          names a crawl left empty, each with its source
   data/curated/story_hooks.json                    one line of history per marquee place, each with its source
   data/curated/shelves.json                        extra cat/sub for places OSM's one primary tag hid
@@ -157,6 +158,40 @@ def apply_specialty(records, province):
     return n
 
 
+def apply_lgbtq(records, province):
+    """Carry lgbtq welcome tags from the crawl into attrs.
+
+    OpenStreetMap lets a mapper state that a venue welcomes or primarily
+    serves the LGBTQ+ community (lgbtq=welcome/primary, lgbtq:trans=welcome).
+    The crawl has held a few of these all along and import dropped them —
+    found while building /trans-health.html (WO-26), which is what reads
+    them. A tag is a MAPPER's statement, not the venue's own sign, and the
+    page says which. Same cache read as apply_specialty; any category, since
+    a bar or a cafe is exactly where the tag lives.
+    """
+    tags = {}
+    cache = ROOT / "cache" / "overpass" / province
+    if cache.exists():
+        for f in sorted(cache.glob("*.json")):
+            for el in json.loads(f.read_text()).get("elements", []):
+                if el.get("tags"):
+                    tags[f"{el['type']}/{el['id']}"] = el["tags"]
+    n = 0
+    for r in records:
+        ref = (r.get("sources") or [{}])[0].get("ref", "")
+        t = tags.get(ref) or {}
+        got = False
+        if t.get("lgbtq"):
+            r.setdefault("attrs", {})["lgbtq"] = t["lgbtq"]
+            got = True
+        if t.get("lgbtq:trans"):
+            r.setdefault("attrs", {})["lgbtqTrans"] = t["lgbtq:trans"]
+            got = True
+        if got:
+            n += 1
+    return n
+
+
 def apply_curated_shelves(records):
     """Extra shelves from data/curated/shelves.json, applied after the merge.
 
@@ -212,6 +247,7 @@ def apply_curated_retags(records):
     {
       "retags": {
         "<id>": {"drop_cat": [...], "drop_sub": [...],
+                 "add_cat": [...], "add_sub": [...],
                  "evidence": "…", "fetched": "YYYY-MM-DD", "note": "…"}
       }
     }
@@ -237,7 +273,8 @@ def apply_curated_retags(records):
             raise SystemExit(f"retags.json: {rid} would be left with no "
                              "category — add add_cat or drop less")
         r["cat"] = sorted(cats)
-        r["sub"] = sorted(set(r.get("sub") or []) - set(fix.get("drop_sub") or []))
+        r["sub"] = sorted((set(r.get("sub") or []) - set(fix.get("drop_sub") or []))
+                          | set(fix.get("add_sub") or []))
         after = (set(r["cat"]), set(r["sub"]))
         if after != before:
             r.setdefault("sources", []).append(
@@ -443,6 +480,7 @@ def main():
     cr += import_mueang_map("osm-chiang-rai.json", "cr")
     cr += import_overpass.records("cr")
     cr += json.loads((ROOT / "data" / "curated" / "featured-chiang-rai.json").read_text())
+    cr += json.loads((ROOT / "data" / "curated" / "additions-chiang-rai.json").read_text())
     cr += [r for r in weedth if r["province"] == "cr"]
     # WO-16's open lists: the ONAB temple register fold (the wat-shelf move
     # that schools and medical already made), Chiang Rai's attraction lists
@@ -512,6 +550,9 @@ def main():
         specialised = apply_specialty(final, prov)
         if specialised:
             print(f"{prov}: {specialised} medical record(s) state a specialty")
+        welcomed = apply_lgbtq(final, prov)
+        if welcomed:
+            print(f"{prov}: {welcomed} place(s) carry an lgbtq welcome tag from the map")
         registered = apply_wat_registry(final)
         if registered:
             print(f"{prov}: {registered} wat(s) stamped from the temple register")
@@ -521,6 +562,9 @@ def main():
         # Government lists filling contacts a held record leaves empty —
         # Nan's call 2026-08-20. Phone/website/hours only, never over a value
         # already there; an owner's claim still wins at build time.
+        hosted = import_opendata.apply_monastic(final, prov)
+        if hosted:
+            print(f"{prov}: {hosted} temple(s) now name the monastic school they host")
         enriched = import_opendata.enrich(final, prov)
         if enriched:
             print(f"{prov}: {enriched} record(s) gained a contact from a government list")

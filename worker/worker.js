@@ -57,6 +57,7 @@ const SUGGEST_KINDS = new Set([
   'contact',      // a phone, LINE, or page for a listing with none
   'photo',        // somebody is offering a picture
   'crawl',        // a corner of the province worth sending the ants to
+  'question',     // a reader question for asked.html — where do I find X
   'other',
 ])
 const PLACE_ID_RE = /^(cm|cr)-[a-z0-9-]+$/
@@ -86,10 +87,77 @@ const FIELDS = [
 // deliberately different words. `toiletnone` is the only key on this site
 // that records an absence, because a person who stood at the door and found
 // nothing is giving testimony rather than inferring.
+// The massage keys, added 2026-08-17, are the frame and the register: what
+// comes off, what you lie on, who else is in the room, whose licence is on the
+// wall. `hsscert` is a positive fact only — there is deliberately no
+// "no-certificate-seen" key, because unlike a toilet a licence can sit behind
+// a counter, so an absence there is one person's afternoon rather than
+// testimony, and it would land on a named business.
 const FACET_KEYS = new Set([
   'atm', 'bakery', 'coffee', 'seating', 'hotfood', 'toilet', 'parking',
   'open24', 'wifi', 'aircon', 'wheelchair', 'evcharge', 'twostorey',
   'toilethere', 'toiletfree', 'toiletfee5', 'toiletfee10', 'toiletnone',
+  'clothed', 'undress', 'scrubglove', 'mat', 'table', 'chair', 'sharedroom',
+  'privateroom',
+  'priceboard', 'womantherapist', 'mantherapist', 'walkin', 'booking', 'shower',
+  'hsscert', 'ttmclinic', 'ttmlicensed', 'blindop', 'exprisoner', 'hospitalttm',
+  'hotelspa', 'homeshop', 'school',
+  // เสริมสวย-ตัดผม (WO-22). `priceboard`, `walkin`, `booking`, `english`,
+  // `parking`, `wheelchair`, `aircon`, `wifi` and `card` are already above and
+  // mean the same thing in a hair shop. These are the ones that do not exist
+  // anywhere else on the site — and they matter because OpenStreetMap holds
+  // NOTHING about what a hair shop can do. `mencut`/`womencut`/`unisex` are
+  // the only three it knows, and they arrive from the importer; every other
+  // key here can only ever be set by the shop itself or by a person at the
+  // door, which is exactly what this endpoint is for.
+  'mencut', 'womencut', 'unisex', 'kids',
+  'textured', 'braids', 'extensions', 'wigs', 'updo',
+  'digiperm', 'rebond', 'colour', 'bleach',
+  'fade', 'razorshave', 'beard',
+  'scalpcheck', 'treatment', 'keratin',
+  'housecall', 'latenight',
+  // กัญชา-กระท่อม. `priceboard`, `seating`, `open24`, `wifi`, `parking` and
+  // `wheelchair` are already above and mean the same thing on this shelf.
+  'openlate', 'smokingok', 'delivery', 'advice', 'english', 'kratomdrink',
+  'card', 'crypto',
+  // Clinics. `priceboard`, `openlate`, `open24`, `english`, `parking` and
+  // `wheelchair` are already above and mean the same thing at a clinic door.
+  'bathong', 'sosec', 'foreigninsure', 'weekend', 'walkin', 'chinese',
+  'kammuang',
+  // Schools. `priceboard` is not reused here — a school's fee is a term's
+  // fee and `feeposted` says so in the words a parent uses. `parking` and
+  // `wheelchair` are already above and mean the same thing at a school gate.
+  'engmedium', 'epmep', 'bilingual', 'chineseprog', 'foreignstudents',
+  'edvisa', 'dropin', 'feeposted', 'scholarship', 'busservice', 'boarding',
+  'lunch', 'halal',
+  // มวยไทย. `dropin`, `edvisa`, `boarding`, `priceboard`, `english`,
+  // `shower`, `parking` and `wheelchair` are already above and mean the
+  // same thing at a camp door or a stadium gate.
+  'beginner', 'womentrain', 'kids', 'privateclass', 'fighters', 'fightnights',
+  'gearsold',
+  // เรียนทำอาหาร. `kids`, `privateclass`, `english`, `halal`, `edvisa`,
+  // `priceboard`, `aircon`, `parking` and `wheelchair` are already above and
+  // mean the same thing at a cooking-school door.
+  'sameday', 'eveningclass', 'halfday', 'markettour', 'pickupfree',
+  'ownstation', 'vegoption', 'allergyok', 'thaitaught', 'recipebook',
+  'certgiven', 'multiday', 'opeclicence', 'tourlicence',
+  // ช้าง. `priceboard` and `kids` are already above and mean the same thing
+  // at a camp gate. Each of these is a statement the camp makes about itself
+  // (no riding, a hands-off option, no hook, unchained at night, a vet,
+  // papers shown…); nothing here is ever inferred from a name or a shelf.
+  'noride', 'ride', 'bathe', 'feed', 'observe', 'noshow', 'nohook',
+  'nightfree', 'vet', 'tuaruppaphan', 'mahoutday', 'overnight', 'volunteer',
+  'pickup',
+  // อสังหาฯ-ที่พัก (WO realestate, 2026-08-21). `aircon`, `wifi`, `parking`,
+  // `wheelchair` and `open24` are already above and mean the same thing at a
+  // building's desk. These are the ones that decide whether a person takes
+  // the room and exist nowhere in OSM — the per-unit electric rate most of
+  // all. Each is a policy the building states about itself; nothing here is
+  // ever inferred from a name, and the foreign-quota number is deliberately
+  // NOT a key (it changes with every transfer — a dated statement in
+  // data/curated/realestate.json is the only shape it may take).
+  'monthly', 'daily', 'furnished', 'lift', 'pool', 'gym', 'keycard', 'pets',
+  'laundry', 'rateboard', 'shortok', 'guard',
 ])
 
 function readFacets(v) {
