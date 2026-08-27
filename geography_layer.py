@@ -41,6 +41,7 @@ META = ROOT / "data" / "terrain_meta.json"
 PROFILE = ROOT / "data" / "terrain_profile.json"
 PROFILE_CR = ROOT / "data" / "terrain_profile_cr.json"
 PLACES = ROOT / "data" / "terrain_places.json"
+HEIGHTS = ROOT / "data" / "terrain_heights.json"
 OG_DOI = ROOT / "assets" / "og" / "doi.png"
 
 CSS = """/* /doi.html — the land under the directory. */
@@ -324,6 +325,8 @@ def emit(g, data):
     prof_cr = json.loads(PROFILE_CR.read_text()) if PROFILE_CR.exists() else None
     tplaces = (json.loads(PLACES.read_text()) if PLACES.exists()
                else {"places": []})
+    n_heights = (len(json.loads(HEIGHTS.read_text()).get("heights", {}))
+                 if HEIGHTS.exists() else 0)
 
     (DOCS / "doi.css").write_text(CSS)
     terrain_cfg = map_shell.config().get("terrain") or {}
@@ -574,6 +577,16 @@ def emit(g, data):
             + '<div class="doi-sect">' + svg_cr + "</div>" + method_cr) if svg_cr else "")
         + "<h2>" + bi("อ่านแผ่นดินจากชื่อบ้าน", "Reading the land through its names") + "</h2>"
         + '<ul class="doi-words">' + words + "</ul>" + roots
+        + (('<p class="doi-note">'
+            + bi("หมุดที่บอกความสูงแล้ว (%d ที่ อ่านจากแบบจำลองเดียวกัน): " % n_heights,
+                 "Pins that now carry their height (%d of them, read from this "
+                 "same model): " % n_heights)
+            + '<a href="cm/sights/peak/index.html">' + bi("ยอดดอย เชียงใหม่", "peaks CM") + "</a> · "
+            + '<a href="cr/sights/peak/index.html">' + bi("เชียงราย", "CR") + "</a> — "
+            + '<a href="cm/sights/viewpoint/index.html">' + bi("จุดชมวิว เชียงใหม่", "viewpoints CM") + "</a> · "
+            + '<a href="cr/sights/viewpoint/index.html">' + bi("เชียงราย", "CR") + "</a> — "
+            + '<a href="cm/sights/waterfall/index.html">' + bi("น้ำตก เชียงใหม่", "waterfalls CM") + "</a> · "
+            + '<a href="cr/sights/waterfall/index.html">' + bi("เชียงราย", "CR") + "</a></p>") if n_heights else "")
         + '<p class="doi-note">'
         + bi("ไปต่อ: ", "Onward: ")
         + '<a href="namphuron.html">♨️ ' + bi("น้ำพุร้อน — โป่งทั้งภาคเหนือ", "hot springs — the north's pong") + "</a> · "

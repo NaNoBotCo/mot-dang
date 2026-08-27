@@ -534,6 +534,39 @@ def read_back():
                        "lat": round(la_, 5), "lng": round(ln_, 5),
                        "ele": round(sample(la_, ln_))})
 
+    # Every pin on the peak, viewpoint and waterfall shelves, read the same
+    # way (WO-37c). The reading is the MEDIAN OF THE NINE CELLS around the
+    # pin — one void-spiked cell under a pin would print a lie with a place's
+    # name on it, and the median shrugs a single liar off. What this measures
+    # is the ground at the pin: a mapper's own `ele` on the record is a
+    # person's measurement at the spot and outranks this everywhere it
+    # exists (build.py's known_facts renders that precedence).
+    def median9(la_, ln_):
+        n_ = 1 << MAX_Z
+        fx = (ln_ + 180.0) / 360.0 * n_
+        fy = (1.0 - math.asinh(math.tan(math.radians(la_))) / math.pi) / 2.0 * n_
+        gx, gy = int(fx * 256), int(fy * 256)
+        vals = sorted(cell_ele(gx + dx, gy + dy)
+                      for dx in (-1, 0, 1) for dy in (-1, 0, 1))
+        return vals[4]
+
+    SHELVES = ("viewpoint", "peak", "waterfall")
+    heights = {}
+    for prov in ("cm", "cr"):
+        for r in canon.get(prov, []):
+            sub = r.get("sub") or []
+            sub = sub if isinstance(sub, list) else [sub]
+            if not any(s in SHELVES for s in sub):
+                continue
+            if not (r.get("lat") and r.get("lng")):
+                continue
+            if r.get("geoPrecision") == "needs-pin":
+                continue
+            la_, ln_ = float(r["lat"]), float(r["lng"])
+            if not (FENCE[0] <= ln_ <= FENCE[2] and FENCE[1] <= la_ <= FENCE[3]):
+                continue
+            heights[r["id"]] = round(median9(la_, ln_))
+
     today = date.today().isoformat()
     META.write_text(json.dumps({
         "read": today,
@@ -573,10 +606,20 @@ def read_back():
                 "name, never typed",
         "places": places,
     }, ensure_ascii=False, indent=1))
+    (ROOT / "data" / "terrain_heights.json").write_text(json.dumps({
+        "read": today,
+        "source": "Terrain Tiles (Mapzen) on AWS Open Data — SRTM (NASA/USGS)",
+        "method": "median of the nine z12 cells around the pin; ground height "
+                  "at the pin, the model's reading — a mapper's own ele on "
+                  "the record outranks this",
+        "shelves": list(SHELVES),
+        "heights": heights,
+    }, ensure_ascii=False, indent=1))
     return {"highest": round(ele), "at": (round(lat, 4), round(lng, 4)),
             "spikes_rejected": spikes,
             "tha_phae": moat["ele"], "cr_tick": tick_cr,
             "above_1000": round(share_1000, 3), "places": len(places),
+            "shelf_heights": len(heights),
             "profile_points": (len(line), len(line_cr))}
 
 
