@@ -22,6 +22,8 @@
   "lng": 98.9931,
   "ele": 313
  },
+ "above_1000_share": 0.1823,
+ "above_1000_note": "share of THIS RECTANGULAR FRAME above 1,000 m, cos(lat)-weighted at z10 — the frame holds slivers of neighbouring provinces; this is not a statement about the two provinces' borders",
  "method": {
   "highest_cell": "candidates above 2400 m, highest first; a cell more than 300 m above all eight neighbours is a void-fill artifact and is skipped (3 skipped this read)",
   "profile": "median of three along the line"

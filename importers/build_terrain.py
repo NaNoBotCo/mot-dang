@@ -431,18 +431,108 @@ def read_back():
     # ประตูท่าแพ — the same coordinate every map on this site opens on.
     moat = {"lat": 18.7876, "lng": 98.9931, "ele": round(sample(18.7876, 98.9931))}
 
-    # The west–east line through the gate: Doi Pui's ridge, the basin floor,
-    # the eastern rim, one height every ~260 m. Median-of-three, for the same
-    # reason the summit gets a neighbour test: one spiked sample would put a
-    # needle on the drawing, and the drawing is the page's on-paper map.
+    def profile_line(lat0, lon_a, lon_b, step=0.0025):
+        """A west–east line of heights, median-of-three despiked — for the
+        same reason the summit gets a neighbour test: one spiked sample puts
+        a needle on the drawing, and the drawing is the page's on-paper map."""
+        raw = []
+        lng_i = lon_a
+        while lng_i <= lon_b + 1e-9:
+            raw.append(sample(lat0, lng_i))
+            lng_i += step
+        return [round(sorted(raw[max(0, i - 1):i + 2])
+                      [len(raw[max(0, i - 1):i + 2]) // 2], 1)
+                for i in range(len(raw))]
+
     lat0, lon_a, lon_b, step = 18.7876, 98.55, 99.45, 0.0025
-    raw = []
-    lng_i = lon_a
-    while lng_i <= lon_b + 1e-9:
-        raw.append(sample(lat0, lng_i))
-        lng_i += step
-    line = [round(sorted(raw[max(0, i - 1):i + 2])[len(raw[max(0, i - 1):i + 2]) // 2], 1)
-            for i in range(len(raw))]
+    line = profile_line(lat0, lon_a, lon_b, step)
+
+    # Chiang Rai gets the same cut through its own centre — the clock tower,
+    # the coordinate map_shell gives every CR map. Parity is the point: two
+    # provinces, two basins, one instrument.
+    CR = {"lat": 19.9094, "lng": 99.8325}
+    line_cr = profile_line(CR["lat"], 99.40, 100.30, step)
+    tick_cr = round(sample(CR["lat"], CR["lng"]))
+
+    # How much of the frame stands above 1,000 m — counted at z10, each tile
+    # weighted by cos(latitude) so a northern tile does not vote heavier than
+    # the ground it covers. THE FRAME IS A RECTANGLE, NOT A BORDER: the box
+    # holds slivers of Lamphun, Lampang, Phayao and Tak, and the page must say
+    # "of this frame", never "of the two provinces" — the same falsehood the
+    # ferry-terminal bbox once told, avoided in words this time.
+    zx0, zx1, zy0, zy1 = _tile_range(10, FENCE)
+    w_above = w_total = 0.0
+    for x in range(zx0, zx1 + 1):
+        for y in range(zy0, zy1 + 1):
+            im = decode(10, x, y)
+            n10 = 1 << 10
+            lat_c = math.degrees(math.atan(math.sinh(
+                math.pi * (1 - 2 * (y + 0.5) / n10))))
+            wgt = math.cos(math.radians(lat_c))
+            r, g, b = im.split()
+            above = 0
+            for rv, gv in zip(r.getdata(), g.getdata()):
+                if (rv << 8) + gv >= 33768:      # 1,000 m + 32,768 offset
+                    above += 1
+            w_above += wgt * above
+            w_total += wgt * 65536
+    share_1000 = w_above / w_total if w_total else 0.0
+
+    # Nine places, nine heights — the directory's own pins, read by the same
+    # instrument. Candidates in preference order, first nine found win; a
+    # name is matched against the catalogue rather than typed in, so a place
+    # that moves or folds simply drops off rather than going wrong. More than
+    # nine candidates on purpose: the crawl owes nobody a complete set.
+    # A name alone is not enough — 'วัดพระสิงห์' finds a pharmacy branch and
+    # 'ท่าอากาศยาน' finds the chemist in the terminal before the airport
+    # (the ช้าง place-name lesson, again). So every candidate carries the
+    # shelf it must sit on, and among fits the shortest starts-with name wins:
+    # ดอยแม่สลอง the sight beats the shrine ON Doi Mae Salong.
+    SIGHT = ("wat", "sights")
+    CANDS = [
+        ("cm", "วัดพระธาตุดอยสุเทพ", SIGHT), ("cr", "ดอยตุง", SIGHT),
+        ("cm", "ม่อนแจ่ม", SIGHT), ("cr", "ภูชี้ฟ้า", SIGHT),
+        ("cm", "ดอยอ่างขาง", SIGHT), ("cr", "วัดร่องขุ่น", SIGHT),
+        ("cm", "ห้วยตึงเฒ่า", ("parks", "sights")),
+        ("cr", "หอนาฬิกา", SIGHT), ("cm", "วัดพระธาตุดอยคำ", SIGHT),
+        ("cm", "ท่าอากาศยานนานาชาติเชียงใหม่", ("transport",)),
+        ("cm", "น้ำตกแม่สา", SIGHT),
+    ]
+    canon = {}
+    for prov in ("cm", "cr"):
+        p = ROOT / "data" / "canonical" / ("%s.json" % prov)
+        canon[prov] = json.loads(p.read_text()) if p.exists() else []
+
+    def find_place(prov, frag, cats):
+        fits = []
+        for r in canon.get(prov, []):
+            nm = r.get("nameTh") or r.get("name") or ""
+            cat = r.get("cat") or []
+            cat = cat if isinstance(cat, list) else [cat]
+            if frag not in nm or not (r.get("lat") and r.get("lng")):
+                continue
+            if r.get("geoPrecision") == "needs-pin":
+                continue
+            if not any(c in cats for c in cat):
+                continue
+            fits.append((0 if nm.startswith(frag) else 1, len(nm), r))
+        return min(fits, key=lambda t: (t[0], t[1]))[2] if fits else None
+
+    places = []
+    for prov, frag, cats in CANDS:
+        if len(places) >= 9:
+            break
+        r = find_place(prov, frag, cats)
+        if not r:
+            continue
+        la_, ln_ = float(r["lat"]), float(r["lng"])
+        if not (FENCE[0] <= ln_ <= FENCE[2] and FENCE[1] <= la_ <= FENCE[3]):
+            continue
+        places.append({"id": r["id"], "prov": prov,
+                       "nameTh": r.get("nameTh") or r.get("name") or "",
+                       "nameEn": r.get("nameEn") or "",
+                       "lat": round(la_, 5), "lng": round(ln_, 5),
+                       "ele": round(sample(la_, ln_))})
 
     today = date.today().isoformat()
     META.write_text(json.dumps({
@@ -455,6 +545,11 @@ def read_back():
         "highest_cell": {"ele": round(ele), "lat": round(lat, 5),
                          "lng": round(lng, 5)},
         "tha_phae": moat,
+        "above_1000_share": round(share_1000, 4),
+        "above_1000_note": "share of THIS RECTANGULAR FRAME above 1,000 m, "
+                           "cos(lat)-weighted at z10 — the frame holds slivers "
+                           "of neighbouring provinces; this is not a statement "
+                           "about the two provinces' borders",
         "method": {"highest_cell": "candidates above %d m, highest first; a cell "
                                    "more than %d m above all eight neighbours is a "
                                    "void-fill artifact and is skipped (%d skipped "
@@ -463,11 +558,26 @@ def read_back():
     }, ensure_ascii=False, indent=1))
     PROFILE.write_text(json.dumps({
         "read": today, "lat": lat0, "lon_a": lon_a, "lon_b": lon_b,
-        "step": step, "method": "median3", "ele": line,
+        "step": step, "method": "median3",
+        "tick": {"lng": moat["lng"], "ele": moat["ele"]}, "ele": line,
     }, ensure_ascii=False, separators=(",", ":")))
+    (ROOT / "data" / "terrain_profile_cr.json").write_text(json.dumps({
+        "read": today, "lat": CR["lat"], "lon_a": 99.40, "lon_b": 100.30,
+        "step": step, "method": "median3",
+        "tick": {"lng": CR["lng"], "ele": tick_cr}, "ele": line_cr,
+    }, ensure_ascii=False, separators=(",", ":")))
+    (ROOT / "data" / "terrain_places.json").write_text(json.dumps({
+        "read": today,
+        "note": "the directory's own pins, elevation read from the z12 cache "
+                "by importers/build_terrain.py; matched from canonical by "
+                "name, never typed",
+        "places": places,
+    }, ensure_ascii=False, indent=1))
     return {"highest": round(ele), "at": (round(lat, 4), round(lng, 4)),
             "spikes_rejected": spikes,
-            "tha_phae": moat["ele"], "profile_points": len(line)}
+            "tha_phae": moat["ele"], "cr_tick": tick_cr,
+            "above_1000": round(share_1000, 3), "places": len(places),
+            "profile_points": (len(line), len(line_cr))}
 
 
 # ----------------------------------------------------------------------- cli

@@ -39,6 +39,9 @@ import map_shell
 ROOT = Path(__file__).resolve().parent
 META = ROOT / "data" / "terrain_meta.json"
 PROFILE = ROOT / "data" / "terrain_profile.json"
+PROFILE_CR = ROOT / "data" / "terrain_profile_cr.json"
+PLACES = ROOT / "data" / "terrain_places.json"
+OG_DOI = ROOT / "assets" / "og" / "doi.png"
 
 CSS = """/* /doi.html — the land under the directory. */
 .doimap{height:min(70vh,600px);margin:.5rem 0 .2rem}
@@ -72,6 +75,12 @@ CSS = """/* /doi.html — the land under the directory. */
 .doi-words{margin:.2rem 0;padding-left:1.1rem}
 .doi-words li{margin:.26rem 0}
 .doi-note{color:var(--mute);font-size:.9rem}
+.doi-reg{width:100%;border-collapse:collapse;margin:.6rem 0 .4rem;font-size:.95rem}
+.doi-reg th,.doi-reg td{padding:.45rem .4rem;border-bottom:1px solid rgba(0,0,0,.08);
+  text-align:left;vertical-align:top}
+.doi-reg td.ele,.doi-reg th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.doi-reg .venue a{text-decoration:none;color:inherit}
+.doi-reg .venue a:hover{text-decoration:underline}
 /* One ink set, no dark fork: the site's paper stays cream in every mode, so
    a media-query palette here painted half the drawing for a night that never
    comes. Fixed inks, like every other drawn map on this site. */
@@ -142,13 +151,53 @@ MDMAP.ready(box,function(map){
   }
   if(b3)b3.addEventListener('click',function(){set3d(!on);});
 
+  /* Where the sun actually is over the basin, right now — no library, no
+     request, fifteen lines of spherical arithmetic on the reader's own
+     clock. Coarse on purpose (no equation of time, ±3° or so), which for a
+     light direction is indistinguishable. Below the horizon the map light
+     stands in: the hillshade never pretends the sun is up at night. */
+  function sunAz(){
+    var d=new Date(),rad=Math.PI/180,lat=18.79,lng=98.99;
+    var start=Date.UTC(d.getUTCFullYear(),0,0);
+    var day=(Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate())-start)/864e5;
+    var decl=-23.44*Math.cos(rad*(360/365)*(day+10));
+    var solarT=d.getUTCHours()+d.getUTCMinutes()/60+lng/15;
+    var H=(solarT-12)*15*rad,la=lat*rad,de=decl*rad;
+    var alt=Math.asin(Math.sin(la)*Math.sin(de)+Math.cos(la)*Math.cos(de)*Math.cos(H));
+    if(alt<0)return 335;
+    var az=Math.acos((Math.sin(de)-Math.sin(alt)*Math.sin(la))/
+                     (Math.cos(alt)*Math.cos(la)));
+    if(Math.sin(H)>0)az=2*Math.PI-az;
+    return az/rad;
+  }
   var seg=[].slice.call(document.querySelectorAll('#doibar .doilight'));
   seg.forEach(function(b){b.addEventListener('click',function(){
+    var az=b.dataset.az==='now'?sunAz():(parseFloat(b.dataset.az)||335);
     if(map.getLayer('doi-hills'))
-      map.setPaintProperty('doi-hills','hillshade-illumination-direction',
-        parseFloat(b.dataset.az)||335);
+      map.setPaintProperty('doi-hills','hillshade-illumination-direction',az);
     seg.forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});
   });});
+
+  /* Colour by height — a hypsometric tint the style spec only recently
+     learned. Tried, never assumed: if this MapLibre cannot draw the layer
+     type, the catch keeps the button hidden and the page has simply never
+     offered it. The palette is the paper's own, basin cream to summit pale. */
+  var tint=document.getElementById('doitint');
+  if(tint)try{
+    map.addLayer({id:'doi-tint',type:'color-relief',source:'doidem',paint:{
+      'color-relief-opacity':0.55,
+      'color-relief-color':['interpolate',['linear'],['elevation'],
+        300,'#F3EBD9',600,'#E8D9B4',1000,'#D9C08C',
+        1500,'#C09E6B',2000,'#9C7B50',2600,'#FFFDF4']
+    }},'doi-hills');
+    map.setLayoutProperty('doi-tint','visibility','none');
+    tint.hidden=false;
+    tint.addEventListener('click',function(){
+      var on=tint.getAttribute('aria-pressed')==='true';
+      map.setLayoutProperty('doi-tint','visibility',on?'none':'visible');
+      tint.setAttribute('aria-pressed',on?'false':'true');
+    });
+  }catch(e){/* older engine: no tint, no button, nothing missing */}
 
   /* The one flight on the page, and the reader books it. The coordinate is
      the instrument's own — data-lat/lng come from terrain_meta.json through
@@ -170,11 +219,14 @@ def _fmt(n):
     return "{:,.0f}".format(float(n))
 
 
-def _profile_svg(prof, meta, bi_text, esc):
-    """The basin, cut west to east through ประตูท่าแพ and drawn to be read:
-    a metres axis, the ridge and the rim named, the gate marked, the vertical
-    stretch stated. This is the page's on-paper, no-script picture — the one
-    frame here the live map cannot draw."""
+def _profile_svg(prof, names, bi_text, esc):
+    """A basin, cut west to east and drawn to be read: a metres axis, the
+    ridge and the rim named, the centre marked, the vertical stretch stated.
+    This is the page's on-paper, no-script picture — the one frame here the
+    live map cannot draw. `names` carries what this particular cut calls its
+    parts: west/east label + threshold longitudes, the basin word, the tick's
+    name (the tick itself — position and height — rides in prof["tick"],
+    written by the importer so drawing and data cannot drift)."""
     ele = prof["ele"]
     lon_a, lon_b, step = prof["lon_a"], prof["lon_b"], prof["step"]
     lat0 = prof["lat"]
@@ -208,30 +260,31 @@ def _profile_svg(prof, meta, bi_text, esc):
                 % (PADL - 44, PADT - 8))
 
     # The two heights the drawing names are found in the data, never typed.
-    iw = max((i for i in range(n) if lons[i] < 98.95),
+    iw = max((i for i in range(n) if lons[i] < names["west_below"]),
              key=lambda i: ele[i])
-    ie = max((i for i in range(n) if lons[i] > 99.18),
+    ie = max((i for i in range(n) if lons[i] > names["east_above"]),
              key=lambda i: ele[i])
     marks = []
     marks.append('<text class="doi-lab2" x="%.1f" y="%.1f" text-anchor="middle">'
-                 'ดอยปุย–ดอยสุเทพ</text>' % (X(lons[iw]) + 26, Y(ele[iw]) - 18))
+                 '%s</text>' % (X(lons[iw]) + 26, Y(ele[iw]) - 18,
+                                esc(names["west"])))
     marks.append('<text class="doi-lab" x="%.1f" y="%.1f" text-anchor="middle">'
                  '%s ม.</text>' % (X(lons[iw]) + 26, Y(ele[iw]) - 5, _fmt(ele[iw])))
     marks.append('<text class="doi-lab2" x="%.1f" y="%.1f" text-anchor="middle">'
-                 'ขอบตะวันออก</text>' % (X(lons[ie]), Y(ele[ie]) - 18))
+                 '%s</text>' % (X(lons[ie]), Y(ele[ie]) - 18, esc(names["east"])))
     marks.append('<text class="doi-lab" x="%.1f" y="%.1f" text-anchor="middle">'
                  '%s ม.</text>' % (X(lons[ie]), Y(ele[ie]) - 5, _fmt(ele[ie])))
 
-    tp = meta.get("tha_phae") or {}
-    xg = X(float(tp.get("lng", 98.9931)))
+    tp = prof.get("tick") or {}
+    xg = X(float(tp.get("lng", (lon_a + lon_b) / 2)))
     marks.append('<line class="doi-tick" x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>'
                  % (xg, base, xg, base - 16))
     marks.append('<text class="doi-lab" x="%.1f" y="%.1f" text-anchor="middle">'
-                 'ประตูท่าแพ %s ม.</text>'
-                 % (xg, base - 21, _fmt(tp.get("ele", 0))))
+                 '%s %s ม.</text>'
+                 % (xg, base - 21, esc(names["tick"]), _fmt(tp.get("ele", 0))))
     marks.append('<text class="doi-lab" x="%.1f" y="%.1f" text-anchor="middle" '
-                 'opacity=".75">แอ่งเชียงใหม่</text>'
-                 % ((X(98.99) + X(99.16)) / 2, Y(0) - 46))
+                 'opacity=".75">%s</text>'
+                 % (xg + 40, Y(0) - 46, esc(names["basin"])))
 
     # A bar that is true at this drawing's own scale, and the stretch printed
     # beside it rather than hidden: the picture says how it was made.
@@ -243,11 +296,7 @@ def _profile_svg(prof, meta, bi_text, esc):
            '<text class="doi-axis" x="%d" y="%d">10 กม. · km</text></g>'
            % (PADL, H - 10, PADL + km10, H - 10, PADL, H - 16))
 
-    label = bi_text(
-        "ภาพตัดความสูงตะวันตก–ตะวันออกผ่านประตูท่าแพ: สันดอยปุย–ดอยสุเทพ "
-        "แอ่งเมืองเชียงใหม่ และขอบดอยด้านตะวันออก",
-        "West to east height profile through Tha Phae Gate: the Doi Pui and "
-        "Doi Suthep ridge, the Chiang Mai basin, and the eastern rim")
+    label = bi_text(names["aria_th"], names["aria_en"])
     return ('<svg role="img" aria-label="%s" viewBox="0 0 %d %d" '
             'xmlns="http://www.w3.org/2000/svg">%s%s'
             '<path class="doi-area" d="%s"/>'
@@ -262,12 +311,19 @@ def emit(g, data):
     share_block = g["share_block"]
     shelf_og = g.get("shelf_og")
     bi_text = g.get("bi_text") or (lambda th, en: th + " · " + en)
+    place_slug, name_bi = g["place_slug"], g["name_bi"]
+    PROVINCES = g["PROVINCES"]
 
     if not (META.exists() and PROFILE.exists()):
         return {"page": 0,
                 "skipped": "no terrain readings — run importers/build_terrain.py"}
     meta = json.loads(META.read_text())
     prof = json.loads(PROFILE.read_text())
+    # The CR cut and the nine heights arrived later than the page; either
+    # absent is the usual supported state, and the page simply says less.
+    prof_cr = json.loads(PROFILE_CR.read_text()) if PROFILE_CR.exists() else None
+    tplaces = (json.loads(PLACES.read_text()) if PLACES.exists()
+               else {"places": []})
 
     (DOCS / "doi.css").write_text(CSS)
     terrain_cfg = map_shell.config().get("terrain") or {}
@@ -279,6 +335,12 @@ def emit(g, data):
         json.dumps(meta, ensure_ascii=False, indent=1))
     (DOCS / "data" / "terrain_profile.json").write_text(
         json.dumps(prof, ensure_ascii=False, separators=(",", ":")))
+    if prof_cr:
+        (DOCS / "data" / "terrain_profile_cr.json").write_text(
+            json.dumps(prof_cr, ensure_ascii=False, separators=(",", ":")))
+    if tplaces.get("places"):
+        (DOCS / "data" / "terrain_places.json").write_text(
+            json.dumps(tplaces, ensure_ascii=False, indent=1))
 
     hi = meta["highest_cell"]
     tp = meta["tha_phae"]
@@ -286,7 +348,27 @@ def emit(g, data):
     src = meta.get("source", {})
     drop = float(hi["ele"]) - float(tp["ele"])
 
-    svg, vx = _profile_svg(prof, meta, bi_text, esc)
+    svg, vx = _profile_svg(prof, {
+        "west": "ดอยปุย–ดอยสุเทพ", "west_below": 98.95,
+        "east": "ขอบตะวันออก", "east_above": 99.18,
+        "tick": "ประตูท่าแพ", "basin": "แอ่งเชียงใหม่",
+        "aria_th": "ภาพตัดความสูงตะวันตก–ตะวันออกผ่านประตูท่าแพ: สันดอยปุย–ดอยสุเทพ "
+                   "แอ่งเมืองเชียงใหม่ และขอบดอยด้านตะวันออก",
+        "aria_en": "West to east height profile through Tha Phae Gate: the Doi Pui "
+                   "and Doi Suthep ridge, the Chiang Mai basin, and the eastern rim",
+    }, bi_text, esc)
+    svg_cr = vx_cr = None
+    if prof_cr:
+        svg_cr, vx_cr = _profile_svg(prof_cr, {
+            "west": "ขอบตะวันตก", "west_below": 99.72,
+            "east": "ขอบตะวันออก", "east_above": 100.02,
+            "tick": "หอนาฬิกา", "basin": "ที่ราบเชียงราย",
+            "aria_th": "ภาพตัดความสูงตะวันตก–ตะวันออกผ่านหอนาฬิกาเชียงราย: "
+                       "ขอบดอยตะวันตก ที่ราบแม่น้ำกก และขอบดอยตะวันออก",
+            "aria_en": "West to east height profile through the Chiang Rai clock "
+                       "tower: the western rim, the Kok river plain, and the "
+                       "eastern rim",
+        }, bi_text, esc)
 
     intro = bi(
         "เมืองนี้ตั้งอยู่ก้นแอ่ง — พื้นราว %s เมตรเหนือระดับน้ำทะเล มีสันดอยล้อมทุกด้าน "
@@ -317,7 +399,11 @@ def emit(g, data):
         '<button type="button" class="doibtn doilight" data-az="335" aria-pressed="true">'
         + bi("แสงแผนที่", "map light") + "</button>"
         '<button type="button" class="doibtn doilight" data-az="270" aria-pressed="false">'
-        + bi("แสงเย็น", "evening light") + "</button></span>"
+        + bi("แสงเย็น", "evening light") + "</button>"
+        '<button type="button" class="doibtn doilight" data-az="now" aria-pressed="false">'
+        + bi("แสงตอนนี้", "light right now") + "</button></span>"
+        '<button type="button" id="doitint" class="doibtn" aria-pressed="false" hidden>'
+        + bi("สีตามความสูง", "colour by height") + "</button>"
         '<button type="button" id="doitop" class="doibtn" data-lat="%s" data-lng="%s">'
         % (hi["lat"], hi["lng"])
         + bi("ไปยอดสูงสุด", "to the highest cell") + "</button></div>")
@@ -354,17 +440,71 @@ def emit(g, data):
         '<div class="doi-fact"><span class="big">%s</span>' % esc(read)
         + bi("วันที่อ่าน · แหล่ง: ", "read on this date · source: ")
         + '<a href="%s">%s</a>' % (esc(src.get("url", "")), esc(src.get("name", "")))
-        + "</div></div>")
+        + "</div>"
+        + (('<div class="doi-fact"><span class="big">%d%%</span>' % round(
+                meta["above_1000_share"] * 100)
+            + bi("ของกรอบแผนที่นี้สูงเกิน 1,000 เมตร — นับที่ z10 ถ่วงตามละติจูด · "
+                 "กรอบเป็นสี่เหลี่ยม มีชายขอบจังหวัดเพื่อนบ้านติดมาด้วย จึงเป็นตัวเลขของกรอบ "
+                 "ไม่ใช่ของเส้นเขตจังหวัด",
+                 "of this map frame stands above 1,000 metres — counted at z10, "
+                 "weighted by latitude · the frame is a rectangle carrying slivers "
+                 "of neighbouring provinces, so this is the frame's number, not a "
+                 "statement about provincial borders")
+            + "</div>") if meta.get("above_1000_share") else "")
+        + "</div>")
 
-    method = ('<p class="doi-method">'
-              + bi("เส้นตัดที่ละติจูดของประตูท่าแพ (%.4f°N) จาก %.2f° ถึง %.2f° ตะวันออก — "
-                   "แกนตั้งยืดราว %d เท่าเพื่อให้อ่านได้ ภาพจึงชันกว่าดอยจริง · อ่านเมื่อ %s"
-                   % (prof["lat"], prof["lon_a"], prof["lon_b"], round(vx), read),
-                   "Cut at Tha Phae Gate latitude (%.4f°N), %.2f° to %.2f°E — the vertical "
-                   "axis is stretched about %d× to be readable, so the picture is steeper "
-                   "than the doi · read %s"
-                   % (prof["lat"], prof["lon_a"], prof["lon_b"], round(vx), read))
-              + "</p>")
+    def method_p(pr, vx_, who_th, who_en):
+        return ('<p class="doi-method">'
+                + bi("เส้นตัดที่ละติจูดของ%s (%.4f°N) จาก %.2f° ถึง %.2f° ตะวันออก — "
+                     "แกนตั้งยืดราว %d เท่าเพื่อให้อ่านได้ ภาพจึงชันกว่าดอยจริง · อ่านเมื่อ %s"
+                     % (who_th, pr["lat"], pr["lon_a"], pr["lon_b"], round(vx_), read),
+                     "Cut at the %s latitude (%.4f°N), %.2f° to %.2f°E — the vertical "
+                     "axis is stretched about %d× to be readable, so the picture is "
+                     "steeper than the doi · read %s"
+                     % (who_en, pr["lat"], pr["lon_a"], pr["lon_b"], round(vx_), read))
+                + "</p>")
+
+    method = method_p(prof, vx, "ประตูท่าแพ", "Tha Phae Gate")
+    method_cr = (method_p(prof_cr, vx_cr, "หอนาฬิกาเชียงราย",
+                          "Chiang Rai clock tower") if prof_cr else "")
+
+    # ---- nine places, nine heights ---------------------------------------
+    # The directory's own pins, read by the same instrument as the map. The
+    # order is the metres, stated as such — a measurement's order, not an
+    # award: nothing here is best, things are simply as tall as they are.
+    by_id, prov_of = {}, {}
+    for p in PROVINCES:
+        for r in data.get(p["key"], []):
+            by_id[r["id"]] = r
+            prov_of[r["id"]] = p["key"]
+    PROV_TH = {"cm": "เชียงใหม่", "cr": "เชียงราย"}
+    rows = []
+    for pl in sorted(tplaces.get("places", []), key=lambda x: -x["ele"]):
+        r = by_id.get(pl["id"])
+        if r is not None:
+            nm = ('<a href="%s/p/%s.html">%s</a>'
+                  % (prov_of[pl["id"]], place_slug(r), name_bi(r)))
+        else:
+            nm = bi(pl["nameTh"], pl.get("nameEn") or "")
+        rows.append('<tr><td class="venue">%s</td><td>%s</td>'
+                    '<td class="ele">%s</td></tr>'
+                    % (nm, esc(PROV_TH.get(pl["prov"], pl["prov"])),
+                       _fmt(pl["ele"])))
+    heights_html = ""
+    if rows:
+        heights_html = (
+            "<h2>" + bi("เก้าที่ เก้าความสูง", "Nine places, nine heights") + "</h2>"
+            + '<p class="doi-note">'
+            + bi("หมุดของสารบัญเอง อ่านความสูงจากแบบจำลองเดียวกับแผนที่ · เรียงตามเมตรที่อ่านได้ "
+                 "ไม่ใช่อันดับความสำคัญ · กดชื่อเข้าหน้าของแต่ละที่ได้",
+                 "The directory's own pins, heights read from the same model the map "
+                 "draws · ordered by the metres read, not by importance · every name "
+                 "opens its own page")
+            + "</p>"
+            + '<table class="doi-reg"><thead><tr><th>'
+            + bi("ที่", "place") + "</th><th>" + bi("จังหวัด", "province")
+            + "</th><th>" + bi("เมตร", "m") + "</th></tr></thead><tbody>"
+            + "".join(rows) + "</tbody></table>")
 
     words = "".join("<li>%s</li>" % bi(th, en) for th, en in [
         ("ดอย (doi) — ภูเขา ในคำเมือง: ดอยสุเทพ ดอยอินทนนท์ · ไทยกลางว่า ภูเขา · ร่วมเชื้อกับ “loi” ของไทใหญ่",
@@ -402,14 +542,18 @@ def emit(g, data):
         "dateModified": read,
         "isBasedOn": src.get("url", ""),
         "distribution": [
-            {"@type": "DataDownload", "contentUrl": BASE + "data/terrain_meta.json",
-             "encodingFormat": "application/json"},
-            {"@type": "DataDownload", "contentUrl": BASE + "data/terrain_profile.json",
-             "encodingFormat": "application/json"},
+            {"@type": "DataDownload", "contentUrl": BASE + "data/" + n,
+             "encodingFormat": "application/json"}
+            for n in (["terrain_meta.json", "terrain_profile.json"]
+                      + (["terrain_profile_cr.json"] if prof_cr else [])
+                      + (["terrain_places.json"] if tplaces.get("places") else []))
         ],
     }
 
-    og = shelf_og("cm", "sights") if shelf_og else None
+    # The page's own card when the generator has drawn one; the sights shelf
+    # card, then the brand ant, behind it — a build never waits on a picture.
+    og = ("og/doi.png" if OG_DOI.exists()
+          else (shelf_og("cm", "sights") if shelf_og else None))
     body = (
         '<h1>⛰ ' + bi("ดอย — แผ่นดินเชียงใหม่ · เชียงราย",
                       "The doi — the shape of the land") + "</h1>"
@@ -423,8 +567,11 @@ def emit(g, data):
              "when the ground is ready") + "</p>"
         + "<h2>" + bi("ตัวเลขที่เครื่องอ่านได้", "What the instrument read") + "</h2>"
         + facts
-        + "<h2>" + bi("แอ่งเชียงใหม่ — ภาพตัดขวาง", "The basin, in cross-section") + "</h2>"
+        + heights_html
+        + "<h2>" + bi("แอ่งเชียงใหม่ — ภาพตัดขวาง", "The Chiang Mai basin, in cross-section") + "</h2>"
         + '<div class="doi-sect">' + svg + "</div>" + method
+        + (("<h2>" + bi("ที่ราบเชียงราย — ภาพตัดขวาง", "The Chiang Rai plain, in cross-section") + "</h2>"
+            + '<div class="doi-sect">' + svg_cr + "</div>" + method_cr) if svg_cr else "")
         + "<h2>" + bi("อ่านแผ่นดินจากชื่อบ้าน", "Reading the land through its names") + "</h2>"
         + '<ul class="doi-words">' + words + "</ul>" + roots
         + '<p class="doi-note">'
@@ -455,4 +602,8 @@ def emit(g, data):
         crumbs='<a href="index.html">' + bi("หน้าแรก", "Home") + "</a> › "
                + bi("ดอย", "The doi")))
     return {"page": 1, "highest": hi["ele"], "tha_phae": tp["ele"],
-            "profile_points": len(prof["ele"]), "terrain_cfg": bool(terrain_cfg)}
+            "cuts": 1 + (1 if svg_cr else 0),
+            "heights": len(tplaces.get("places", [])),
+            "above_1000": meta.get("above_1000_share"),
+            "card": bool(OG_DOI.exists()),
+            "terrain_cfg": bool(terrain_cfg)}
