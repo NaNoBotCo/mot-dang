@@ -119,6 +119,7 @@ def version():
         {"url": cfg.get("url"), "glyphs": cfg.get("glyphs"),
          "bounds": cfg.get("bounds") or BOUNDS,
          "minZoom": cfg.get("minZoom") or MIN_ZOOM,
+         "terrain": cfg.get("terrain"),
          "style": _style_layers_raw()},
         sort_keys=True, ensure_ascii=False)
     return "%08x" % (zlib.crc32(payload.encode("utf-8")) & 0xFFFFFFFF)
@@ -982,7 +983,12 @@ def emit(g):
     runtime = {"url": cfg["url"], "attribution": ATTRIBUTION,
                "glyphs": glyphs, "layers": layers,
                "bounds": cfg.get("bounds") or BOUNDS,
-               "minZoom": cfg.get("minZoom") or MIN_ZOOM}
+               "minZoom": cfg.get("minZoom") or MIN_ZOOM,
+               # The elevation archive, passed through verbatim for the one
+               # page that reads it (doi.js). Configured beside the basemap
+               # url above so this module stays the only place tiles are set
+               # up; map.js itself never touches it.
+               "terrain": cfg.get("terrain")}
     (docs / "map.js").write_text(
         "window.MDMAP_CFG=" + json.dumps(runtime, ensure_ascii=False,
                                          separators=(",", ":")) + ";\n" + JS)
