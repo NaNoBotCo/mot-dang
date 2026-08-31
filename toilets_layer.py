@@ -631,7 +631,7 @@ function tickRow(id,name){
       bi('หรือบอกทางไลน์','or tell us on LINE')+'</a>':'')+
     '<span class="lookthx" hidden>'+bi('ขอบคุณเจ้า 🐜','thank you 🐜')+'</span>'+
     '<span class="lookerr" hidden>'+bi('ส่งไม่สำเร็จ ลองอีกครั้ง หรือใช้ทางอื่นด้านล่าง',
-      'That did not send — try again, or use another door below')+'</span></div>';
+      'That did not send — try again, or use another way below')+'</span></div>';
 }
 function wireTicks(){
   elList.querySelectorAll('.looticks').forEach(function(box){
@@ -1229,9 +1229,9 @@ def build_page(g, stats, marks):
         door_bits.append(
             '<div class="module"><h3>' + bi("ไลน์ — ยังไม่เปิด", "LINE — not open yet")
             + "</h3><p>" + bi(
-                "ประตูทางไลน์สร้างเสร็จแล้วทั้งฝั่งเว็บและฝั่งบอท รอเพียงเปิดบัญชี "
+                "ช่องทางไลน์สร้างเสร็จแล้วทั้งฝั่งเว็บและฝั่งบอท รอเพียงเปิดบัญชี "
                 "LINE Official Account จริงแล้วใส่ไอดีลงใน data/line.json ปุ่มจะขึ้นเองทุกหน้า",
-                "The LINE door is built on both sides, web and bot. It waits only "
+                "The LINE channel is built on both sides, web and bot. It waits only "
                 "on a real Official Account: put its id in data/line.json and the "
                 "buttons appear by themselves.") + "</p></div>")
     doors = "".join(door_bits)
@@ -1246,8 +1246,8 @@ def build_page(g, stats, marks):
 
     order_note = bi(
         "เรียงตามความแน่นอนของประเภท แล้วจึงตามเวลาที่เปิด ไม่ได้เรียงตามความสวยงามของห้อง",
-        "Ordered by how dependable the class is, then by how long its doors "
-        "stay open — not by how nice the room is.")
+        "Ordered by how dependable the class is, then by how long it "
+        "stays open — not by how nice the room is.")
 
     body = (
         # "ห้องน้ำใกล้ฉัน" promised the page needed to know where "ฉัน" was.

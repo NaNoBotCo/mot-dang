@@ -77,7 +77,7 @@ table.care-gloss td.rtgs{color:var(--care-quiet);font-style:italic;white-space:n
 GLOSSARY = [
     ("อายุรกรรม", "ayurakam", "internal medicine — the department that manages "
      "long-term illness with medicine rather than surgery. If you have one "
-     "lifelong condition and do not know which door, this is usually it."),
+     "lifelong condition and do not know which department, this is usually it."),
     ("อายุรกรรมเฉพาะโรค", "ayurakam chapho rok", "specialist internal medicine — "
      "the sub-clinics (heart, kidney, diabetes) inside อายุรกรรม, usually by "
      "appointment only."),

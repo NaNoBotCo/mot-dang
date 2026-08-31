@@ -494,7 +494,7 @@ def longcare_band(cat_key, depth=2):
     r = "../" * depth
     return (f'<p class="mtband"><a href="{r}longcare.html">🛏 '
             + bi("ดูแลระยะยาว — บ้านพักคนชรา พักฟื้น บำบัด และคำบนป้ายพวกนี้",
-                 "Long-term care — nursing homes, convalescence, addiction medicine, and the words on these doors")
+                 "Long-term care — nursing homes, convalescence, addiction medicine, and the words on these signs")
             + " →</a></p>")
 
 
@@ -566,7 +566,7 @@ def yant_band(cat_key):
              "reading the Khom letters, the numerals and the animals already on your skin — from the same manuscript corpus")
         + "</p><p>"
         + bi("คำเดียวขายสามอย่าง: สำนักที่อาจารย์ลงคาถา · ร้านสักลาย · ร้านสักคิ้ว-สักปาก — ประโยคถามหน้าร้าน: ที่นี่มีอาจารย์ลงคาถาให้ไหมคะ/ครับ หรือสักลายอย่างเดียว",
-             "One word, three trades: a สำนัก where an ajarn gives the katha · a studio that inks the design · a brow-and-lip shop — the sentence for the door: is there an ajarn here who gives the katha, or is it the design only?")
+             "One word, three trades: a สำนัก where an ajarn gives the katha · a studio that inks the design · a brow-and-lip shop — the sentence to ask at the shop: is there an ajarn here who gives the katha, or is it the design only?")
         + "</p></div>")
 
 
@@ -7905,7 +7905,7 @@ def known_facts(r):
     if a.get("ticketPrices"):
         draft = ("" if a.get("_pricesVerified") else
                  ' <span class="tinynote">'
-                 + bi("ยังไม่ได้เทียบกับป้ายหน้าสนาม", "not yet checked at the door") + "</span>")
+                 + bi("ยังไม่ได้เทียบกับป้ายหน้าสนาม", "not yet checked against the board at the stadium") + "</span>")
         rows.append(f"<dt>{bi('ราคาตั๋ว', 'Tickets')}</dt>"
                     f"<dd>{esc(str(a['ticketPrices']))}{draft}</dd>")
     if a.get("training"):
@@ -7921,7 +7921,7 @@ def known_facts(r):
         _pc_via = a.get("priceCardVia")
         draft = ("" if a.get("_pricesVerified") else
                  ' <span class="tinynote">'
-                 + bi("ตามที่ร้านประกาศเอง ยังไม่ได้เทียบที่หน้าร้าน", "as the venue publishes it — not yet checked at the door") + "</span>")
+                 + bi("ตามที่ร้านประกาศเอง ยังไม่ได้เทียบที่หน้าร้าน", "as the venue publishes it — not yet checked at the shop itself") + "</span>")
         rows.append(f"<dt>{bi('ราคาที่ประกาศ', 'Published prices')}</dt>"
                     f"<dd>{bi(str(a.get('priceCardTh') or a.get('priceCardEn')), str(a.get('priceCardEn') or a.get('priceCardTh')))}"
                     + (f' <span class="prov">{esc(str(_pc_via))}</span>' if _pc_via else "")
@@ -7968,7 +7968,7 @@ def known_facts(r):
     if a.get("classPrices"):
         draft = ("" if a.get("_pricesVerified") else
                  ' <span class="tinynote">'
-                 + bi("ราคาที่ประกาศ — ยังไม่ได้เทียบกับป้ายหน้าโรงเรียน", "as posted — not yet checked at the door") + "</span>")
+                 + bi("ราคาที่ประกาศ — ยังไม่ได้เทียบกับป้ายหน้าโรงเรียน", "as posted — not yet checked against the school's own board") + "</span>")
         rows.append(f"<dt>{bi('ค่าเรียน', 'Class price')}</dt>"
                     f"<dd>{esc(str(a['classPrices']))}{draft}</dd>")
     if a.get("pickup"):
@@ -12396,7 +12396,7 @@ def build_fixed_page():
                "แจ้งวันไหน ผ่านทางไหน แก้วันไหน ใช้เวลาเท่าไหร่ ดูได้ทุกแถว "
                "เว็บบ้านนี้ตั้งใจไม่ปล่อยให้เก่า")
     lede_en = ("Directories rot when reports go nowhere. This is the public fix "
-               "log: what was reported, through which door, what changed, and how "
+               "log: what was reported, through which channel, what changed, and how "
                "long it took — the slow entries stay on the record too. Hold us to it.")
     rows = []
     for f in sorted(FIXES, key=lambda x: x.get("fixed") or "", reverse=True):
@@ -12571,7 +12571,7 @@ def boards_html(data):
         ("🥊", "มวยไทย", "Muay Thai", "muaythai.html",
          fights, "เวทีคืนชก", "fight-night venues",
          "คืนไหนชก กี่โมง ราคาจากป้าย",
-         "which nights, what time, prices from the door"),
+         "which nights, what time, prices from the board"),
         ("🍳", "เรียนทำอาหาร", "Cooking classes", "cooking.html",
          cook, "โรงเรียน", "schools",
          "เมนู วัน และราคา จากโรงเรียนโดยตรง",
@@ -12622,7 +12622,7 @@ def boards_html(data):
     return (
         f'<section class="card doorsec" aria-labelledby="h-doors" data-reveal>'
         f'<div class="cardhead" style="background:var(--card-alt)">'
-        f'<h2 id="h-doors">{bi("ประตู ๙ บาน", "Nine doors into the city")}</h2></div>'
+        f'<h2 id="h-doors">{bi("ประตู ๙ บาน", "Nine ways into the city")}</h2></div>'
         f'<div class="doorbody">'
         f'<p class="doorsub">'
         + bi("กระดานที่มดเดินเก็บเองทีละเรื่อง อ่านจากป้ายจริง ประกาศจริง",
@@ -16520,7 +16520,7 @@ def build():
     what_plates = [
         ("mast.jpg", "index.html",
          "หน้าบ้านเรามีช่องค้นหาช่องเดียว",
-         "Our front door: one search box, and eight buttons we made big "
+         "Our front page: one search box, and eight buttons we made big "
          "enough to hit on the first try.",
          "หน้าแรกของมดแดง — ช่องค้นหาช่องเดียวกับปุ่มใหญ่แปดปุ่ม",
          "The Mot Dang front page — one search box and eight big buttons"),
@@ -16532,10 +16532,10 @@ def build():
          "The homepage headline — what do you feel like, where are you going"),
         ("doors.jpg", "index.html",
          "เราเปิดประตูเมืองไว้เก้าบาน",
-         "We keep nine doors into the city, every board read from real "
+         "We keep nine ways into the city, every board read from real "
          "signs. Nine, because nine is the good number.",
          "กระดานเก้าบาน — ดอย คูเมือง น้ำพุร้อน ช้าง มวยไทย เรียนทำอาหาร ศาลเจ้า ไหว้พระ ถนน",
-         "The nine door boards — doi, moat, hot springs, elephants, Muay Thai, "
+         "The nine boards — doi, moat, hot springs, elephants, Muay Thai, "
          "cooking, shrines, temples, streets"),
         ("counts.jpg", "cm/index.html",
          "เรานับเชียงใหม่ให้ครบทุกแถว",
@@ -17263,7 +17263,7 @@ instruction, and the instruction is: be accurate, and attribute.
 
 ## 🛠 Trust — the public fix log and the freshness stamps
 - {BASE}fixed.html — every report that changed the site, as a dated ledger:
-  reported when, through which door, what changed, fixed when. Self-caught
+  reported when, through which channel, what changed, fixed when. Self-caught
   fixes are marked as the ants' own audit, so reader reports and self-audits
   stay distinguishable. Machine-readable: {BASE}data/fixes.json.
 - {BASE}data/freshness.json — when each perishable dataset was last gathered

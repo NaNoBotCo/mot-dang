@@ -116,7 +116,7 @@ function tickRow(id,name){
       bi('หรือบอกทางไลน์','or tell us on LINE')+'</a>':'')+
     '<span class="lookthx" hidden>'+bi('ขอบคุณเจ้า 🐜','thank you 🐜')+'</span>'+
     '<span class="lookerr" hidden>'+bi('ส่งไม่สำเร็จ ลองอีกครั้ง หรือใช้ทางอื่นด้านล่าง',
-      'That did not send — try again, or use another door below')+'</span></div>';
+      'That did not send — try again, or use another way below')+'</span></div>';
 }
 function wireTicks(){
   elList.querySelectorAll('.looticks').forEach(function(box){

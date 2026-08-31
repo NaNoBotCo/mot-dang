@@ -562,7 +562,7 @@
    "name_th": "โรงพยาบาลสวนปรุง",
    "name_en": "Suan Prung Psychiatric Hospital",
    "site": "https://www.suanprung.go.th/",
-   "note": "The Department of Mental Health's psychiatric hospital for the region — the reference door for ongoing mental-health care here. Appears twice in the catalogue (OSM + MOPH record), the merge pair WO-31 flagged.",
+   "note": "The Department of Mental Health's psychiatric hospital for the region — the reference point for ongoing mental-health care here. Appears twice in the catalogue (OSM + MOPH record), the merge pair WO-31 flagged.",
    "clinics": {
     "psych": {
      "th": "คลินิกจิตเวชเด็กและวัยรุ่น (อายุ 12–18 ปี) · บริการให้คำปรึกษา · บริการผู้ป่วยในจิตเวชและยาเสพติดที่บ้าน (PHW) ซึ่งระบุการบำบัดทางความคิดและพฤติกรรม (CBT) ไว้ในบริการ",

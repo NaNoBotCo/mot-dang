@@ -449,7 +449,7 @@ def emit(g, data):
             + "<p class=\"re-note\">"
             + bi("โครงของทะเบียนอยู่ใน", "The register's shape is in")
             + " <code>data/curated/realestate.json</code> &middot; "
-            + bi("ประตูที่รอไฟเขียว", "the doors awaiting a go")
+            + bi("ขั้นตอนที่รอไฟเขียว", "the steps awaiting a go")
             + " <code>notes/realestate-proposal-2026-08-21.md</code></p>")
 
     # ---- near the Chiang Rai clock tower ----------------------------------

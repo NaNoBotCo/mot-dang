@@ -176,7 +176,7 @@ instruction, and the instruction is: be accurate, and attribute.
 
 ## 🛠 Trust — the public fix log and the freshness stamps
 - https://motdang.net/fixed.html — every report that changed the site, as a dated ledger:
-  reported when, through which door, what changed, fixed when. Self-caught
+  reported when, through which channel, what changed, fixed when. Self-caught
   fixes are marked as the ants' own audit, so reader reports and self-audits
   stay distinguishable. Machine-readable: https://motdang.net/data/fixes.json.
 - https://motdang.net/data/freshness.json — when each perishable dataset was last gathered

@@ -100,7 +100,7 @@ GLOSSARY = [
 
 GRADE_LABEL = {
     "mapped": ("ตามแผนที่", "mapped"),
-    "route": ("ประตูที่ใช้ประจำ", "the usual door"),
+    "route": ("ทางที่ใช้ประจำ", "the usual route"),
     "stated": ("บอกเอง", "stated"),
 }
 
@@ -198,8 +198,8 @@ def emit(g, data):
     # ---- convalescence: a census, not a register ---------------------------
     conv_html = (
         f'<h2 class="lc-h">{bi("พักฟื้น — ช่องว่างระหว่างออกจากโรงพยาบาลกับหายดี", "Convalescence — the gap between discharge and well")}</h2>'
-        f'<p class="lc-intro">{bi("นับแล้วตรง ๆ: ในระเบียน 20,700 แห่งของสองจังหวัด ไม่มีชื่อไหนเขียนคำว่า พักฟื้น เลยแม้แต่แห่งเดียว ไม่ใช่ว่าการพักฟื้นไม่มีอยู่ — แต่มันวิ่งผ่านประตูอื่น: แผนกกายภาพบำบัด คลินิกต่อเนื่องของโรงพยาบาล และคนดูแลที่บ้าน ซึ่งไม่มีป้ายให้แผนที่เก็บ", "Counted plainly: across 20,700 records in both provinces, not one name carries the word พักฟื้น. Convalescent care is not absent — it runs through other doors: the physiotherapy shelf, a hospital’s own continuing-care clinics, and carers who come to the house, who have no sign for a map to hold.")}</p>'
-        f'<p class="lc-note">{bi("สามประตูที่มีจริงวันนี้", "The three doors that exist today")}: '
+        f'<p class="lc-intro">{bi("นับแล้วตรง ๆ: ในระเบียน 20,700 แห่งของสองจังหวัด ไม่มีชื่อไหนเขียนคำว่า พักฟื้น เลยแม้แต่แห่งเดียว ไม่ใช่ว่าการพักฟื้นไม่มีอยู่ — แต่มันวิ่งผ่านช่องทางอื่น: แผนกกายภาพบำบัด คลินิกต่อเนื่องของโรงพยาบาล และคนดูแลที่บ้าน ซึ่งไม่มีป้ายให้แผนที่เก็บ", "Counted plainly: across 20,700 records in both provinces, not one name carries the word พักฟื้น. Convalescent care is not absent — it runs through other channels: the physiotherapy shelf, a hospital’s own continuing-care clinics, and carers who come to the house, who have no sign for a map to hold.")}</p>'
+        f'<p class="lc-note">{bi("สามทางที่มีจริงวันนี้", "The three ways in that exist today")}: '
         f'<a href="cm/medical/physio/index.html">{bi("ชั้นกายภาพบำบัด", "the physiotherapy shelf")}</a> · '
         f'<a href="care.html">{bi("ดูแลต่อเนื่อง — แผนกและคลินิกนอกเวลาที่โรงพยาบาลบอกเอง", "ongoing care — the departments hospitals state themselves")}</a> · '
         f'{bi("และคำที่ต้องใช้ถามเคาน์เตอร์ก่อนออกจากโรงพยาบาล: ผู้ป่วยติดเตียง · ญาติเฝ้า · ผู้ดูแล (ดูตาราง)", "and the words to ask a desk with before discharge: ผู้ป่วยติดเตียง · ญาติเฝ้า · ผู้ดูแล (see the table)")}.</p>')
@@ -231,7 +231,7 @@ def emit(g, data):
         f'<tr><td class="th">{esc(th)}</td><td class="rtgs">{esc(rtgs)}</td>'
         f'<td>{esc(en)}</td></tr>' for th, rtgs, en in GLOSSARY)
     gloss_html = (
-        f'<h2 class="lc-h">{bi("คำบนประตูพวกนี้", "The words on these doors")}</h2>'
+        f'<h2 class="lc-h">{bi("คำบนป้ายพวกนี้", "The words on these signs")}</h2>'
         f'<p class="lc-note">{bi("อักษรไทย · คำอ่านแบบ RTGS · ความหมายและรากศัพท์ — เทียบรูปคำกับป้ายได้แม้อ่านไทยไม่ออก", "Thai script · RTGS spelling · the meaning and the root — enough to match a word against a sign by its shape, without reading Thai.")}</p>'
         f'<div class="lc-tablewrap">'
         f'<table class="lc-tab lc-gloss"><tbody>{gl_rows}</tbody></table></div>')
@@ -240,14 +240,14 @@ def emit(g, data):
         "สี่คำถามที่คนมักพิมพ์รวมเป็นคำเดียว — หาที่อยู่ให้พ่อแม่สูงวัย หาที่พักฟื้นหลังออกจาก"
         "โรงพยาบาล หาทางออกจากการติดสุราหรือสารเสพติด และหาชีวิตวัยเกษียณที่ยังแข็งแรง — "
         "หน้านี้แยกทั้งสี่ออกจากกัน เพราะการปนกันทำให้คนที่ต้องการเตียงคืนนี้ได้บทความไลฟ์สไตล์แทน "
-        "ทุกแถวมีเกรดกำกับว่าใครเป็นคนพูด: แผนที่ ประตูที่ใช้ประจำ หรือสถานที่พูดเอง "
+        "ทุกแถวมีเกรดกำกับว่าใครเป็นคนพูด: แผนที่ ทางที่ใช้ประจำ หรือสถานที่พูดเอง "
         "ไม่จัดอันดับ ไม่แนะนำ ไม่ใช่คำแนะนำทางการแพทย์ ที่ไหนไม่ได้พูด = เงียบ ไม่ใช่ 'ไม่มี'",
         "Four questions people type as one — a place for an ageing parent, somewhere "
-        "to recover after a hospital, a door out of an addiction, and a retirement "
+        "to recover after a hospital, a way out of an addiction, and a retirement "
         "that is a life and not a bed. This page keeps the four apart, because "
         "folding them together is how the family that needs a bed tonight gets a "
         "lifestyle article instead. Every row carries a grade naming who is "
-        "speaking: a map, the usual door, or the place itself. No rankings, no "
+        "speaking: a map, the usual route, or the place itself. No rankings, no "
         "recommendations, no medical advice. Where a place says nothing, that is "
         "silence — never a 'no'.")
 
@@ -297,7 +297,7 @@ def emit(g, data):
             "แยกสี่คำถามออกจากกัน ทุกแถวบอกว่าใครเป็นคนพูด พร้อมคำไทยบนป้าย",
             "Nursing homes, convalescence, addiction medicine and retirement in "
             "Chiang Mai and Chiang Rai — four questions kept apart, every row "
-            "naming who is speaking, with the Thai words on the doors."),
+            "naming who is speaking, with the Thai words from the signs."),
         extra_head=head, og=og))
     n_by = {}
     for r in rows:

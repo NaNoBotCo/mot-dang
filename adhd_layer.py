@@ -262,8 +262,8 @@ def emit(g, data):
                    ("ที่นี่พูดถึงสมาธิสั้นไว้เองในช่องทางของตัวเอง",
                     "this place names ADHD in its own published material")),
         "psychiatry": ("psych", "ป้ายบอกว่าจิตเวช", "sign says psychiatry",
-                   ("ป้ายของที่นี่บอกว่าเป็นจิตเวช ซึ่งเป็นประตูของเรื่องนี้ — แต่ยังไม่ได้บอกเรื่องสมาธิสั้น",
-                    "its own sign says psychiatry — the door this goes through — but it has not said ADHD")),
+                   ("ป้ายของที่นี่บอกว่าเป็นจิตเวช ซึ่งเป็นแผนกที่เรื่องนี้เดินผ่าน — แต่ยังไม่ได้บอกเรื่องสมาธิสั้น",
+                    "its own sign says psychiatry — the department this goes through — but it has not said ADHD")),
         "route": ("route", "เส้นทางโรงพยาบาล — ยังไม่ยืนยัน", "hospital route — not confirmed",
                    ("แผนกนี้เป็นแผนกมาตรฐานของโรงพยาบาลระดับนี้ แต่ยังไม่มีใครยืนยันของที่นี่ — โทรถามก่อน",
                     "the department is standard for this class of hospital, but nobody has confirmed this one — ring first")),
@@ -439,13 +439,13 @@ def emit(g, data):
             "สามเรื่องที่มักถูกรวบเป็นเรื่องเดียว: ยาตัวไหนอยู่ในบัญชีอะไร (แน่นอน ตรวจได้) · "
             "ระบบสาธารณสุขมีรูปแบบยาอะไรจริง ๆ (จำกัดกว่าที่คิด) · "
             "และเคาน์เตอร์ตรงหน้าจะทำอะไรให้ (เปลี่ยนไปตามที่ ตามวัน — จึงเป็นคำถามที่ต้องถาม ไม่ใช่กฎที่ท่องได้) "
-            "เมื่อรวบสามเรื่องนี้เป็นเรื่องเดียว คนจะสรุปว่าไม่มีประตูเลย ทั้งที่มี",
+            "เมื่อรวบสามเรื่องนี้เป็นเรื่องเดียว คนจะสรุปว่าไม่มีช่องทางเลย ทั้งที่มี",
             "Three things get folded into one rumour. Which list a molecule sits in — "
             "settled, and checkable. What the health system actually stocks — narrower "
             "than people expect. And what the desk in front of you will do — which varies "
             "by desk and by day, and is therefore a question to ask rather than a rule to "
-            "recite. Folded together, they read as no door at all. Kept apart, there is a "
-            "door.")
+            "recite. Folded together, they read as no way in at all. Kept apart, there is "
+            "one.")
         + "</p>"
 
         + "<h2>" + bi("ยาของคุณอยู่ในบัญชีไหน", "Which list your medicine is on") + "</h2>"
@@ -464,14 +464,14 @@ def emit(g, data):
             "ยากลุ่มแอมเฟตามีนที่หมอที่บ้านสั่งให้ทุกวัน อยู่ในบัญชีเดียวกับยาบ้าในสายตากฎหมายไทย "
             "ขณะที่ยาบ้าเป็นของที่หาได้ง่ายและถูกกว่าในตลาดมืด "
             "ช่องทางที่ถูกกฎหมายจึงแคบกว่าที่คนคาด และช่องทางที่ผิดกฎหมายกว้างกว่าที่ควร "
-            "ความไม่สมดุลนี้คือสิ่งที่หน้านี้พยายามแก้ด้วยข้อมูล — รู้ว่าประตูที่ถูกต้องอยู่ตรงไหน มีค่ามาก",
+            "ความไม่สมดุลนี้คือสิ่งที่หน้านี้พยายามแก้ด้วยข้อมูล — รู้ว่าทางที่ถูกกฎหมายอยู่ตรงไหน มีค่ามาก",
             "The distance between the first two rows is the reason this page exists. The "
             "amphetamine-family medicine a doctor at home prescribes as a matter of routine "
             "sits, in Thai law, on the same list as the street tablet — while the street "
             "tablet is the cheap and available thing. So the lawful channel is narrower "
             "than people expect and the unlawful one is wider than it should be. That "
-            "asymmetry is what information can actually fix. Knowing where the lawful door "
-            "is, and that there is one, is worth a great deal.")
+            "asymmetry is what information can actually fix. Knowing where that lawful "
+            "channel runs, and that it exists, is worth a great deal.")
         + "</p>"
 
         + "<h2>" + bi("พกยาของตัวเองเข้ามา", "Bringing your own") + "</h2>"
@@ -532,8 +532,8 @@ def emit(g, data):
               "อ่านจากเว็บของแต่ละที่เอง ยกมาตามคำของเขา พร้อมวันที่",
               "Read on each place's own site and quoted in its own terms, with the date.",
               sections["stated"])
-        + sec("ประตูจิตเวช — ป้ายบอกแค่นี้ และเราบอกแค่นี้",
-              "The psychiatric door — what the sign says, and no more",
+        + sec("จิตเวช — ป้ายบอกแค่นี้ และเราบอกแค่นี้",
+              "Psychiatry — what the sign says, and no more",
               "ที่เหล่านี้บอกว่าเป็นจิตเวช ซึ่งเป็นแผนกที่เรื่องนี้เดินผ่านที่นี่ แต่ยังไม่มีใครยืนยันเรื่องสมาธิสั้น — โทรถามก่อน",
               "These state psychiatry, which is the department this care runs through here. "
               "None of them has been confirmed for ADHD specifically — ring first, and ask "

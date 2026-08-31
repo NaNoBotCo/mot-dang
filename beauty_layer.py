@@ -330,7 +330,7 @@ def emit(g, data):
              sum(len(x.get("stated") or {}) for x in (reg.get("shops") or [])))
         + "</ul>"
         + note("สามบรรทัดแรกเป็นศูนย์ และตั้งใจพิมพ์ไว้ให้เห็น: ไม่มีกฎชื่อร้านไหนที่รอเขียนอยู่ ทั้งสามข้อตอบได้ทางเดียวคือร้านบอกเอง หรือมีคนไปยืนถามหน้าร้าน",
-               "The first three lines are zero, and are printed rather than hidden: there is no name rule waiting to be written. Those three are answered by the shop stating it, or by somebody standing at the door — and by nothing else."))
+               "The first three lines are zero, and are printed rather than hidden: there is no name rule waiting to be written. Those three are answered by the shop stating it, or by somebody asking at the shop — and by nothing else."))
 
     # ---- the register (empty, and saying so) ------------------------------
     stated_shops = [x for x in (reg.get("shops") or []) if x.get("stated")]
@@ -386,7 +386,7 @@ def emit(g, data):
             + "<p class=\"bt-note\">"
             + bi("โครงของทะเบียนอยู่ใน", "The register’s shape is in")
             + " <code>data/curated/beauty.json</code> &middot; "
-            + bi("ประตูที่รอไฟเขียว", "the doors awaiting a go")
+            + bi("ขั้นตอนที่รอไฟเขียว", "the steps awaiting a go")
             + " <code>notes/beauty-proposal-2026-08-20.md</code></p>")
 
     # ---- assemble ---------------------------------------------------------
@@ -412,7 +412,7 @@ def emit(g, data):
                "A haircut you cannot name is a haircut you do not get. Shops all over this city do digital perms — but ask for ดัดผม alone and you may go home with a cold perm.")
         + words_html
 
-        + h2("ประโยคที่ใช้ได้จริงหน้าร้าน", "Sentences that work at the door")
+        + h2("ประโยคที่ใช้ได้จริงหน้าร้าน", "Sentences that work at the counter")
         + say_html
 
         + note("พกไปด้วยได้ — แผ่น A4 พิมพ์ขาวดำ ตัวไทยใหญ่พอที่จะชี้ให้ช่างดูหน้าร้าน ถ่ายเอกสารแจกต่อได้เลย",
@@ -437,12 +437,12 @@ def emit(g, data):
 
         + h2("ต่อผม-ถักเปีย", "Extensions & braids", len(exts))
         + note("ร้านเดียว และหน้านี้บอกว่าร้านเดียว การถักเปียแถวและการต่อผมทำกันในร้านทั่วเมือง แต่แทบไม่มีร้านไหนเขียนไว้บนป้าย — จึงเป็นคำถามหน้าร้าน ไม่ใช่กฎชื่อร้าน",
-               "One shop, and this page says one shop. Cornrowing and extensions are done in salons all over this city; almost none writes it on the sign — so it is a door question, not a name rule.")
+               "One shop, and this page says one shop. Cornrowing and extensions are done in salons all over this city; almost none writes it on the sign — so it is a question for the shopfront, not a name rule.")
         + listing(exts)
 
         + h2("ร้านบอกเองว่าตัดให้ใคร", "Who the shops state they cut for", len(stated))
-        + note("สามป้ายเดียวที่ OpenStreetMap รู้เรื่องร้านผม — male, female, unisex — และการนำเข้าเคยทิ้งทั้งสามไปทุกครั้ง ตอนนี้ขึ้นเป็นป้ายบนหน้าร้าน ร้านที่ตอบไปแล้วไม่ควรถูกถามซ้ำหน้าประตู",
-               "The only three things OpenStreetMap knows about a hair shop — male, female, unisex — and the import threw all three away on every run until now. They are facet marks on the shop’s own page now: a shop that has already answered should not be asked again at the door.")
+        + note("สามป้ายเดียวที่ OpenStreetMap รู้เรื่องร้านผม — male, female, unisex — และการนำเข้าเคยทิ้งทั้งสามไปทุกครั้ง ตอนนี้ขึ้นเป็นป้ายบนหน้าร้าน ร้านที่ตอบไปแล้วไม่ควรถูกถามซ้ำหน้าร้าน",
+               "The only three things OpenStreetMap knows about a hair shop — male, female, unisex — and the import threw all three away on every run until now. They are facet marks on the shop’s own page now: a shop that has already answered should not be asked again in person.")
         + listing(stated)
 
         + h2("ทะเบียนบริการ — ร้านบอกเองว่าอะไร", "The services register — what each shop states")

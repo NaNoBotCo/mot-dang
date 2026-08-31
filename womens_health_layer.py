@@ -304,7 +304,7 @@ def emit(g, data):
         f'<h2>{bi("ความเก่งคือใบวุฒิบัตร — ตรวจได้ที่นี่", "Competence is a credential — here is where to check it")}</h2>'
         f'<p class="wh-note">{bi("ทุกแห่งเป็นทะเบียนทางการ ตรวจแล้วว่าเข้าถึงได้เมื่อ 19 ก.ค. 2569", "Every one of these is an official register, verified reachable 2026-07-19")}</p>'
         f'{reg_html}'
-        f'<h2>{bi("อ่านป้ายหน้าคลินิก — คำที่ควรรู้", "Reading the sign — the words on the door")}</h2>'
+        f'<h2>{bi("อ่านป้ายหน้าคลินิก — คำที่ควรรู้", "Reading the clinic sign — the words to know")}</h2>'
         f'<p class="wh-note">{bi("อักษรไทย · คำอ่านแบบ RTGS · ความหมาย — เทียบรูปคำกับป้ายได้เลยแม้อ่านไทยไม่ออก", "Thai script · RTGS spelling · what it means — enough to match a word against a sign by its shape, without reading Thai")}</p>'
         f'{gloss_html}'
         f'<p class="wh-note">{bi("มดแดงเป็นสารบัญของสถานที่ ไม่ใช่คำแนะนำทางการแพทย์ ไม่ใช่การส่งต่อคนไข้ และไม่ใช่การรับรองคุณภาพ ข้อมูลสถานพยาบาลบางส่วนมาจาก OpenStreetMap (ODbL 1.0)", "Mot Dang is a directory of places. It is not medical advice, not a referral, and not a quality guarantee. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors.")}</p>'

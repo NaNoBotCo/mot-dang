@@ -181,7 +181,7 @@ def _tickets_line(v, bi):
         note = " — " + bi(v.get("tickets_note_th") or "", v.get("tickets_note_en") or "")
     via = v.get("price_via") or ""
     draft = ("" if v.get("_pricesVerified") else
-             f' <span class="draft">({bi("ยังไม่ได้เทียบกับป้ายหน้าสนาม", "not yet checked at the door")}'
+             f' <span class="draft">({bi("ยังไม่ได้เทียบกับป้ายหน้าสนาม", "not yet checked against the board at the stadium")}'
              + (f" · {via}" if via else "") + ")</span>")
     return f'<p><b>{bi("ตั๋ว", "Tickets")}:</b> {s}{note}{draft}</p>'
 

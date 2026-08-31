@@ -372,7 +372,7 @@ def emit(g, data):
             f'<li>{f.get("icon", "")} ' + bi(f.get("ask_th", f["th"]), f.get("ask_en", f["en"])) + "</li>"
             for f in conv_set["facets"])
         asks_html = (
-            f'<h2>{bi("คำถามหน้าประตู — ช่วยมดดูสาขาที่คุณผ่าน", "The door questions — survey the branch you pass")}</h2>'
+            f'<h2>{bi("คำถามหน้าร้าน — ช่วยมดดูสาขาที่คุณผ่าน", "The shopfront questions — survey the branch you pass")}</h2>'
             f'<p class="sv-lede">'
             + bi("นี่คือคำถามที่แยกสาขาหนึ่งจากอีกสาขา — ผ่านร้านไหน กดปุ่ม 🐜 ในหน้าสาขานั้นแล้วตอบเท่าที่เห็น",
                  "These are the questions that tell one branch from the next. Pass a branch, open its "
@@ -392,9 +392,9 @@ def emit(g, data):
     # ---- the held door, said plainly -----------------------------------
     held_html = (
         '<p class="sv-note">'
-        + bi("ชื่อสาขาจริง (“สาขาศิริมังคลาจารย์”) อยู่กับ CP All และประตูนั้น (WO-18) ยังไม่เปิด — "
+        + bi("ชื่อสาขาจริง (“สาขาศิริมังคลาจารย์”) อยู่กับ CP All และแหล่งนั้น (WO-18) ยังไม่เปิด — "
              "ระหว่างนี้ สาขาบนเว็บนี้เรียกตามเพื่อนบ้านของมัน วัดจากหมุดของเราเอง",
-             "The real branch names live with CP All, and that door (WO-18) is not yet open — until "
+             "The real branch names live with CP All, and that source (WO-18) is not yet open — until "
              "it is, a branch here goes by its neighbours, measured from our own pins.")
         + "</p>")
 

@@ -140,7 +140,7 @@ def _prices_line(v, bi):
     s = " · ".join(parts) + " " + bi("บาท/คน", "baht per person")
     via = v.get("price_via") or ""
     draft = ("" if v.get("_pricesVerified") else
-             f' <span class="draft">({bi("ราคาที่ประกาศ — ยังไม่ได้เทียบกับป้ายหน้าโรงเรียน", "as posted — not yet checked at the door")}'
+             f' <span class="draft">({bi("ราคาที่ประกาศ — ยังไม่ได้เทียบกับป้ายหน้าโรงเรียน", "as posted — not yet checked against the board at the school")}'
              + (f" · {via}" if via else "") + ")</span>")
     return f'<p><b>{bi("ค่าเรียน", "Price")}:</b> {s}{draft}</p>'
 
@@ -222,7 +222,7 @@ def emit(g, data):
     data_attrs = " ".join(f'data-{i}="{att(today_sentence(i))}"' for i in range(7))
     today_html = (f'<div class="ck-today"><b>🍳 {bi("วันนี้เรียนที่ไหนได้", "Which class today")}</b>'
                   f'<span id="ck-today" {data_attrs}>{esc(today_sentence(built_i))}</span>'
-                  f'<div class="ck-note">{bi("โรงเรียนบอกรอบเรียนของตัวเอง มดแดงแค่จดไว้ — จองล่วงหน้าสักวัน ส่วนใหญ่มารับถึงที่พัก", "Each school states its own sessions; the ants only write them down — book a day ahead, most will come to your door")}</div></div>')
+                  f'<div class="ck-note">{bi("โรงเรียนบอกรอบเรียนของตัวเอง มดแดงแค่จดไว้ — จองล่วงหน้าสักวัน ส่วนใหญ่มารับถึงที่พัก", "Each school states its own sessions; the ants only write them down — book a day ahead, most will pick you up at your accommodation")}</div></div>')
     today_js = ("<script>(function(){try{var d=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Bangkok'})).getDay();"
                 "var i=(d+6)%7;document.querySelectorAll('[data-day=\"'+i+'\"]').forEach(function(c){c.classList.add('today')});"
                 "var t=document.getElementById('ck-today');if(t&&t.getAttribute('data-'+i)){t.textContent=t.getAttribute('data-'+i)}}catch(e){}})();</script>")
@@ -373,7 +373,7 @@ def emit(g, data):
          f'<a href="festivals/kin-je.html">{bi("เทศกาลกินเจ — เก้าวันเดือนเก้าจีน (ราวกันยายน–ตุลาคม) ธงเหลืองทั้งเมือง", "The Vegetarian Festival — nine days of the ninth Chinese month, about September–October, yellow flags across town")} →</a>')
     card("เงิน — ค่าเรียน รถรับ และค่านายหน้า", "Money — the fee, the van and the commission",
          bi("ราคาที่โรงเรียนในเมืองประกาศเอง (ดูกระดาน) อยู่ราว 1,000–1,500 บาทต่อคนสำหรับครึ่งวันหรือเต็มวัน รวมรถรับ ตลาด วัตถุดิบ สูตรกลับบ้าน และอาหารที่ทำ · คลาสในโรงแรมคิดเป็นพันหลายพันบวกค่าบริการ · ทุกตัวเลขบนกระดานมีที่มาและวันที่ และยังไม่มีตัวไหนเทียบกับป้ายหน้าประตู",
-            "What the town's schools post themselves (see the board) runs about 1,000–1,500 baht a person for a half or full day, with the van, the market, the ingredients, the recipes and the meal you made; hotel studios charge several thousand plus service. Every number on the board carries its source and date, and none has yet been read at a door."),
+            "What the town's schools post themselves (see the board) runs about 1,000–1,500 baht a person for a half or full day, with the van, the market, the ingredients, the recipes and the meal you made; hotel studios charge several thousand plus service. Every number on the board carries its source and date, and none has yet been checked against the sign at the school's entrance."),
          bi("จองผ่านที่พัก เอเจนซี่ หรือแอปจอง มักมีค่านายหน้าอยู่ในราคา — ไม่ผิดอะไร แค่รู้ไว้ ราคาที่เว็บหรือ LINE ของโรงเรียนคือราคาของโรงเรียน เทียบได้ · ถามสามอย่างก่อนโอน: รวมรถรับไหม รัศมีกี่กิโล และยกเลิกได้ถึงเมื่อไหร่",
             "A booking through a guesthouse, an agency or a booking app usually carries a commission inside the price — nothing wrong with it, just know it; the price on the school's own site or LINE is the school's price, and it can be compared. Three questions before you transfer: is the pickup included, within what radius, and until when can I cancel?"))
     card("คำที่จะได้ยิน", "Words you will hear",

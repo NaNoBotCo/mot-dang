@@ -507,7 +507,7 @@ def emit(g, data):
              "Every one is an official register or body, verified reachable 2026-08-21")
         + "</p>" + reg_html
         + "<h2>" + bi("อ่านป้ายหน้าคลินิก — คำที่ควรรู้",
-                      "Reading the sign — the words on the door") + "</h2>"
+                      "Reading the clinic sign — the words to know") + "</h2>"
         + '<p class="gx-note">'
         + bi("อักษรไทย · คำอ่านแบบ RTGS · ความหมาย — เทียบรูปคำกับป้ายได้เลยแม้อ่านไทยไม่ออก",
              "Thai script · RTGS spelling · what it means — enough to match a word against a sign by its shape, without reading Thai")

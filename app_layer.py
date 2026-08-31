@@ -149,7 +149,7 @@ def emit(g, data):
     "ใครไปยืนหน้าประตูจริงแล้วกดบอกสักคำ คือคนที่เปลี่ยนเรื่องนี้ได้",
     "One difference worth knowing: nobody has yet mapped a single toilet point in "
     "Chiang Rai in OpenStreetMap, so everything the app shows there is class habit. "
-    "The person who stands at a door and taps one word is the one who changes that.")}
+    "The person who stands at the real door and taps one word is the one who changes that.")}
 </div>
 
 <p><span class="bi"><span class="th" lang="th">ยังไม่อยากติดตั้งอะไรเลย —

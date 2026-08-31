@@ -86,7 +86,7 @@
     },
     {
      "th": "ช่องว่างที่เหลือคือคำถามเดียว และเดินไปถามก็ตอบได้: ร้านไหนขัดด้วยถุงมือ ตอนนี้มีช่อง 🧤 ขัดขี้ไคลด้วยถุงมือ รออยู่ในแบบสำรวจหน้าร้านแล้ว เจ้าของร้านยืนยันร้านตัวเองแล้วติ๊กได้เลย หรือถ้าคุณเพิ่งไปมา บอกมดแดงได้",
-     "en": "The gap left is one question, and walking in answers it: which of these use a mitt. A 🧤 facet — scrub done with a mitt — now waits in the door survey. Owners can tick it when they claim their listing, and if you have just been, tell us.",
+     "en": "The gap left is one question, and walking in answers it: which of these use a mitt. A 🧤 facet — scrub done with a mitt — now waits in the survey questions. Owners can tick it when they claim their listing, and if you have just been, tell us.",
      "cls": "myhint",
      "links": [
       {
@@ -333,7 +333,7 @@
    "notes": [
     {
      "th": "ประโยคที่ใช้ถามหน้าร้าน — ช่างเคยทำผมหยิกฝอยไหมคะ / ครับ · châang khəəi tham phǒm yìk fɔ̌ɔi mǎi ká / kráp · ถามต่อว่า ตัดแห้งหรือตัดเปียก คำตอบ “ตัดแห้ง” มักแปลว่าช่างเคยทำมาจริง",
-     "en": "The sentence to ask at the door — ช่างเคยทำผมหยิกฝอยไหมคะ / ครับ (châang khəəi tham phǒm yìk fɔ̌ɔi mǎi ká / kráp), “has the stylist ever worked with tightly coiled hair?” Then ask whether they cut it dry or wet. A confident “dry” usually means they really have.",
+     "en": "The sentence to ask at the shop — ช่างเคยทำผมหยิกฝอยไหมคะ / ครับ (châang khəəi tham phǒm yìk fɔ̌ɔi mǎi ká / kráp), “has the stylist ever worked with tightly coiled hair?” Then ask whether they cut it dry or wet. A confident “dry” usually means they really have.",
      "cls": "tinynote",
      "links": [
       {
@@ -727,8 +727,8 @@
      "cls": "tinynote"
     },
     {
-     "th": "อีกสามที่คือประตูจิตเวชที่ป้ายของเขาเองบอกว่าจิตเวช แต่ยังไม่ได้เขียนคำว่า CBT ที่ไหน — ห้องตรวจจิตเวชโรงพยาบาลนครพิงค์ (อาคาร 16 อาคารสีฟ้า ชั้น 1 จันทร์–ศุกร์ 08.00–16.00 น. โทร 053-999200 ต่อ 2801, 2809 มีนักจิตวิทยาคลินิก) และคลินิกจิตแพทย์เอกชนสองแห่ง มดแดงพิมพ์เท่าที่ป้ายบอก ไม่เดาแทนหมอ ประโยคที่ใช้ถามตอนโทรคือ มีบริการบำบัดแบบ CBT ไหมคะ/ครับ",
-     "en": "The other three are psychiatric doors whose own signs say จิตเวช but nowhere yet say CBT — Nakornping Hospital's psychiatric clinic (building 16, the blue building, floor 1, Mon–Fri 08.00–16.00, tel 053-999200 ext 2801/2809, with clinical psychologists on staff) and two private psychiatrists' clinics. We print what the sign states and do not guess on a doctor's behalf; the sentence to ask on the phone is มีบริการบำบัดแบบ CBT ไหมคะ/ครับ — do you offer CBT?",
+     "th": "อีกสามที่คือคลินิกจิตเวชที่ป้ายของเขาเองบอกว่าจิตเวช แต่ยังไม่ได้เขียนคำว่า CBT ที่ไหน — ห้องตรวจจิตเวชโรงพยาบาลนครพิงค์ (อาคาร 16 อาคารสีฟ้า ชั้น 1 จันทร์–ศุกร์ 08.00–16.00 น. โทร 053-999200 ต่อ 2801, 2809 มีนักจิตวิทยาคลินิก) และคลินิกจิตแพทย์เอกชนสองแห่ง มดแดงพิมพ์เท่าที่ป้ายบอก ไม่เดาแทนหมอ ประโยคที่ใช้ถามตอนโทรคือ มีบริการบำบัดแบบ CBT ไหมคะ/ครับ",
+     "en": "The other three are psychiatric clinics whose own signs say จิตเวช but nowhere yet say CBT — Nakornping Hospital's psychiatric clinic (building 16, the blue building, floor 1, Mon–Fri 08.00–16.00, tel 053-999200 ext 2801/2809, with clinical psychologists on staff) and two private psychiatrists' clinics. We print what the sign states and do not guess on a doctor's behalf; the sentence to ask on the phone is มีบริการบำบัดแบบ CBT ไหมคะ/ครับ — do you offer CBT?",
      "cls": "tinynote"
     },
     {
@@ -778,14 +778,14 @@
    },
    "lead": [
     {
-     "th": "คำแรกที่ควรรู้: เมืองไทยไม่มี โนตารีพับลิค แบบประเทศฝรั่ง — คนที่ถือตรานี้คือ ทนายความผู้ทำคำรับรองลายมือชื่อและเอกสาร ที่ขึ้นทะเบียนกับสภาทนายความ กวาดชื่อทั้งสารบัญ 20,700 รายการแล้ว ไม่มีที่ไหนเขียนคำว่าโนตารีไว้บนป้ายของตัวเองเลยสักแห่ง — แต่ประตูมีจริง {n} แห่งข้างล่างนี้อ่านมาจากหน้าเว็บของแต่ละที่เอง พร้อมวันที่ที่อ่าน",
-     "en": "The word first: Thailand keeps no notary public in the western sense — the seal belongs to a Notarial Services Attorney (ทนายความผู้ทำคำรับรองลายมือชื่อและเอกสาร, thá-naai-khwaam phûu tham kham-ráp-rɔɔng laai-mʉʉ-chʉ̂ʉ láe èek-kà-sǎan — the lawyer who certifies signatures and documents), registered with the Lawyers Council of Thailand. A sweep of all 20,700 names in the catalogue finds no place with โนตารี on its own sign in either language — yet the doors are real. The {n} below were read from each place's own page, with the date each was read."
+     "th": "คำแรกที่ควรรู้: เมืองไทยไม่มี โนตารีพับลิค แบบประเทศฝรั่ง — คนที่ถือตรานี้คือ ทนายความผู้ทำคำรับรองลายมือชื่อและเอกสาร ที่ขึ้นทะเบียนกับสภาทนายความ กวาดชื่อทั้งสารบัญ 20,700 รายการแล้ว ไม่มีที่ไหนเขียนคำว่าโนตารีไว้บนป้ายของตัวเองเลยสักแห่ง — แต่ช่องทางมีจริง {n} แห่งข้างล่างนี้อ่านมาจากหน้าเว็บของแต่ละที่เอง พร้อมวันที่ที่อ่าน",
+     "en": "The word first: Thailand keeps no notary public in the western sense — the seal belongs to a Notarial Services Attorney (ทนายความผู้ทำคำรับรองลายมือชื่อและเอกสาร, thá-naai-khwaam phûu tham kham-ráp-rɔɔng laai-mʉʉ-chʉ̂ʉ láe èek-kà-sǎan — the lawyer who certifies signatures and documents), registered with the Lawyers Council of Thailand. A sweep of all 20,700 names in the catalogue finds no place with โนตารี on its own sign in either language — yet the routes are real. The {n} below were read from each place's own page, with the date each was read."
     }
    ],
    "notes": [
     {
-     "th": "เอกสารจะไปที่ไหน เลือกประตูตามนั้น — เอกสารไทยไปต่างประเทศ: แปลก่อน แล้วรับรองนิติกรณ์ที่โต๊ะกรมการกงสุล ชั้น 5 เซ็นทรัลแอร์พอร์ต ตราละ 200 บาท รับใน 2 วันทำการ (ด่วน 400 ยื่นเช้า) เอกสารที่จะใช้ในสหรัฐฯ: นัดแผนกโนตารีกงสุลอเมริกัน ตราละ 50 ดอลลาร์ หรือใช้ทนายโนตารีก็ได้ เอกสารเอกชนทั่วไปทั้งสองทาง: ทนายโนตารียื่นเช้ามักเสร็จวันเดียว ค่าบริการแล้วแต่ชนิดเอกสาร ถามพร้อมเอกสารในมือ — ราคาทุกตัวตามหน้าประกาศ ยังไม่ยืนยันที่เคาน์เตอร์",
-     "en": "Pick the door by where the paper is going. A Thai document heading abroad: translate first, then the MFA legalization desk on floor 5 of Central Airport — 200 baht a seal in two working days, 400 express handed in before mid-morning. A document for use in the United States: the US Consulate's notarial window at US$50 a seal, or a notarial attorney. Private papers in either direction: a notarial attorney, morning submissions normally done the same day, the fee depending on the document — every price here is as published, not yet confirmed at the counter.",
+     "th": "เอกสารจะไปที่ไหน เลือกช่องทางตามนั้น — เอกสารไทยไปต่างประเทศ: แปลก่อน แล้วรับรองนิติกรณ์ที่โต๊ะกรมการกงสุล ชั้น 5 เซ็นทรัลแอร์พอร์ต ตราละ 200 บาท รับใน 2 วันทำการ (ด่วน 400 ยื่นเช้า) เอกสารที่จะใช้ในสหรัฐฯ: นัดแผนกโนตารีกงสุลอเมริกัน ตราละ 50 ดอลลาร์ หรือใช้ทนายโนตารีก็ได้ เอกสารเอกชนทั่วไปทั้งสองทาง: ทนายโนตารียื่นเช้ามักเสร็จวันเดียว ค่าบริการแล้วแต่ชนิดเอกสาร ถามพร้อมเอกสารในมือ — ราคาทุกตัวตามหน้าประกาศ ยังไม่ยืนยันที่เคาน์เตอร์",
+     "en": "Pick the route by where the paper is going. A Thai document heading abroad: translate first, then the MFA legalization desk on floor 5 of Central Airport — 200 baht a seal in two working days, 400 express handed in before mid-morning. A document for use in the United States: the US Consulate's notarial window at US$50 a seal, or a notarial attorney. Private papers in either direction: a notarial attorney, morning submissions normally done the same day, the fee depending on the document — every price here is as published, not yet confirmed at the counter.",
      "cls": "tinynote"
     },
     {
@@ -805,7 +805,7 @@
     },
     {
      "th": "เรื่องเอกสารข้างเคียง ดูต่อได้ที่",
-     "en": "For the paperwork next door, see",
+     "en": "For the paperwork alongside this, see",
      "cls": "tinynote",
      "links": [
       {
@@ -851,7 +851,7 @@
    "show": "phone",
    "lead": [
     {
-     "th": "คำแรกที่ควรรู้: ยากลุ่มนี้ภาษาไทยเรียก ยาชีววัตถุ และโรคในคำถามคือ โรคสะเก็ดเงิน กวาดชื่อทั้งสารบัญ 20,702 รายการแล้ว ไม่มีที่ไหนเขียนสองคำนี้ไว้บนป้ายของตัวเองเลยสักแห่ง — แต่ยามีในเมืองไทยจริง ขึ้นทะเบียนกับ อย. แล้วหลายตัว และเดินทางผ่านโรงพยาบาลกับคลินิกเฉพาะทางเท่านั้น ไม่วางบนชั้นร้านขายยา {n} แห่งข้างล่างคือประตูโรงพยาบาลที่โทรถามได้ก่อนใคร",
+     "th": "คำแรกที่ควรรู้: ยากลุ่มนี้ภาษาไทยเรียก ยาชีววัตถุ และโรคในคำถามคือ โรคสะเก็ดเงิน กวาดชื่อทั้งสารบัญ 20,702 รายการแล้ว ไม่มีที่ไหนเขียนสองคำนี้ไว้บนป้ายของตัวเองเลยสักแห่ง — แต่ยามีในเมืองไทยจริง ขึ้นทะเบียนกับ อย. แล้วหลายตัว และเดินทางผ่านโรงพยาบาลกับคลินิกเฉพาะทางเท่านั้น ไม่วางบนชั้นร้านขายยา {n} แห่งข้างล่างคือโรงพยาบาลที่โทรถามได้ก่อนใคร",
      "en": "The word first: Thai calls this class ยาชีววัตถุ (yaa chii-wá-wát-thù — biological medicine), and the disease in the question is โรคสะเก็ดเงิน (rôok sà-kèt ngoen — the silver-scale disease, psoriasis). A sweep of all 20,702 names in the catalogue finds neither word on any place's own sign — yet the medicine is really in Thailand, much of it registered with the Thai FDA, and it moves only through hospitals and specialty clinics, never the pharmacy shelf. The {n} hospitals below are the ones to phone first."
     }
    ],
@@ -872,7 +872,7 @@
      "cls": "tinynote"
     },
     {
-     "th": "มดแดงยังไม่ได้อ่านหน้าเว็บโรงพยาบาลเชียงใหม่เรื่องนี้ทีละแห่ง — ประตูข้างบนเลือกจากทะเบียนโรงพยาบาลที่เรามีอยู่แล้ว ไม่ใช่จากป้ายที่เขียนคำว่ายาชีววัตถุ อีกประตูที่ควรโทรคือศูนย์ศรีพัฒน์ ปีกเอกชนของคณะแพทย์ มช. โทร 053-934613 (เบอร์ตามหน้าเว็บของศูนย์เอง) ใครโทรแล้วได้คำตอบ (มี/ไม่มี ราคาเท่าไหร่) บอกมดแดงด้วย จะได้พิมพ์ให้คนถัดไป เรื่องยาข้ามพรมแดนกับแผนกโรงพยาบาลอื่นๆ ดูต่อได้ที่",
+     "th": "มดแดงยังไม่ได้อ่านหน้าเว็บโรงพยาบาลเชียงใหม่เรื่องนี้ทีละแห่ง — โรงพยาบาลข้างบนเลือกจากทะเบียนที่เรามีอยู่แล้ว ไม่ใช่จากป้ายที่เขียนคำว่ายาชีววัตถุ อีกที่ที่ควรโทรคือศูนย์ศรีพัฒน์ ปีกเอกชนของคณะแพทย์ มช. โทร 053-934613 (เบอร์ตามหน้าเว็บของศูนย์เอง) ใครโทรแล้วได้คำตอบ (มี/ไม่มี ราคาเท่าไหร่) บอกมดแดงด้วย จะได้พิมพ์ให้คนถัดไป เรื่องยาข้ามพรมแดนกับแผนกโรงพยาบาลอื่นๆ ดูต่อได้ที่",
      "en": "We have not yet read each Chiang Mai hospital's own page on this — the hospitals above are chosen from the hospital register we already keep, not from a sign that says ยาชีววัตถุ. One more worth the call: Sriphat Medical Center, the university faculty's private wing — 053-934613, the number its own site publishes. If you phone and get an answer (yes or no, and a price), tell the ants so the next asker gets it in print. For medicine across the border and the wider hospital map, see",
      "cls": "tinynote",
      "links": [

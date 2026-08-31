@@ -1,12 +1,12 @@
 {
- "note": "The public fix ledger — the receipts behind 'แจ้งปุ๊บ แก้ปั๊บ'. Append an entry whenever a report (or the ants' own audit) changes the site: reported date, via which door, what changed, fixed date. The dates are the whole token — never backdate, never trim a slow one, and mark self-caught entries via 'มดเอง' so reader reports and self-audits stay distinguishable. Rendered at /fixed.html and summarised wherever the site invites a report.",
+ "note": "The public fix ledger — the receipts behind 'แจ้งปุ๊บ แก้ปั๊บ'. Append an entry whenever a report (or the ants' own audit) changes the site: reported date, through which channel, what changed, fixed date. The dates are the whole token — never backdate, never trim a slow one, and mark self-caught entries via 'มดเอง' so reader reports and self-audits stay distinguishable. Rendered at /fixed.html and summarised wherever the site invites a report.",
  "fixes": [
   {
    "reported": "2026-08-19",
    "fixed": "2026-08-19",
    "via": "มดเอง / the ants' own audit",
    "what_th": "ชั้นสักยันต์ว่างมาตั้งแต่เปิดไซต์ ทั้งที่มีร้านรับจองสักยันต์อยู่ในสารบัญ — กฎของชั้นมองหาป้ายที่ไม่มีรายการไหนถือ ตอนนี้ชั้นสักยันต์มีรายการ พร้อมราคาที่ร้านประกาศเอง (ที่ร้าน / ที่วัด แยกสองคอลัมน์ ยังไม่ได้เทียบหน้าร้าน) และลิงก์ไปลายยันต์ล้านนา 36 ลาย กับนะ 142 ตัวบน wichaa เพิ่มชั้น สักคิ้ว-สักปาก ที่ไม่เคยมี",
-   "what_en": "The สักยันต์ shelf had been empty since launch while a sak yant booking service sat in the directory — the shelf's rule looked for a label no record carried. It now holds its listing, with the venue's own published prices (in-house / at temple as two columns, not yet checked at the door) and the join to the 36 Lanna yant designs and 142 na on wichaa. A สักคิ้ว-สักปาก (cosmetic tattoo) shelf that never existed is added.",
+   "what_en": "The สักยันต์ shelf had been empty since launch while a sak yant booking service sat in the directory — the shelf's rule looked for a label no record carried. It now holds its listing, with the venue's own published prices (in-house / at temple as two columns, not yet checked at the venue) and the join to the 36 Lanna yant designs and 142 na on wichaa. A สักคิ้ว-สักปาก (cosmetic tattoo) shelf that never existed is added.",
    "page": "cm/tattoo/index.html"
   },
   {
@@ -86,7 +86,7 @@
    "fixed": "2026-08-21",
    "via": "มดเอง / the ants' own audit",
    "what_th": "ชั้น “อาคารคอนโด” ถือ 316 รายการ แต่ชื่อบนตึกบอกว่าเป็นคอนโดจริง 53 — ที่เหลือคือแมนชั่น คอร์ท อพาร์ตเมนต์ และหอพัก ซึ่งคนหาห้องรายเดือนมองไม่เห็นใต้ป้ายคอนโด ตอนนี้แยกตามคำบนป้ายของตึกเอง: อาคารชุด-คอนโด · อพาร์ตเมนต์-แมนชั่น-คอร์ท · หอพัก · ส่วนชั้นหมู่บ้านจัดสรรต่อกฎจับคู่แล้วในวันเดียวกัน หลังประตู landuse นำระเบียนจริงมา 22 แห่ง",
-   "what_en": "The Condo Buildings shelf held 316 records; the buildings' own names say condominium on 53. The rest are mansions, courts, apartments and dorms — invisible under a condo label to anyone hunting a monthly room. Now split by the word on each building's own sign: Condominiums · Apartments, Mansions & Courts · Dormitories · and the Moobaan shelf wired the same day, once the landuse door brought it 22 real housing estates.",
+   "what_en": "The Condo Buildings shelf held 316 records; the buildings' own names say condominium on 53. The rest are mansions, courts, apartments and dorms — invisible under a condo label to anyone hunting a monthly room. Now split by the word on each building's own sign: Condominiums · Apartments, Mansions & Courts · Dormitories · and the Moobaan shelf wired the same day, once the landuse source brought it 22 real housing estates.",
    "page": "cm/realestate/index.html"
   },
   {
@@ -101,8 +101,8 @@
    "reported": "2026-08-21",
    "fixed": "2026-08-21",
    "via": "มดเอง / the ants' own audit",
-   "what_th": "เปิดประตูเก็บข้อมูลสามบานที่ไม่เคยถามมาก่อน: สำนักงานที่ดิน — ที่ที่การโอนโฉนดทุกครั้งเดินผ่าน — สารบัญเคยมีศูนย์แห่ง ตอนนี้มีสี่ (สองสาขาของเชียงใหม่ กรมที่ดิน และสำนักงานจังหวัดเชียงราย ส่วนสาขาเมืองเชียงใหม่ยังไม่มีใครปักหมุดในแผนที่เปิด) · หอพัก 22 → 84 แห่ง เพราะแผนที่ติดป้ายหอพักไว้ที่ตัวอาคาร ไม่ใช่ในชื่อ · หมู่บ้านจัดสรร 0 → 22 แห่ง จากพื้นที่อยู่อาศัยที่มีชื่อ โดยกันหมู่บ้านจริง 590 แห่งไว้ไม่ให้ถูกจัดเป็นโครงการจัดสรร",
-   "what_en": "Three crawl doors that had never been asked: the Land Office — where every chanote transfer happens — went from ZERO in the catalogue to four (two Chiang Mai branches, the Land Department, and Chiang Rai's provincial office; nobody has pinned Chiang Mai's Mueang seat on the open map yet) · dormitories 22 → 84, because the map tags a dorm on the building rather than in the name · housing estates 0 → 22 from named residential areas, with 590 real villages fenced OUT so that nobody's home address is filed as a development somebody is selling.",
+   "what_th": "เปิดช่องทางเก็บข้อมูลสามช่องที่ไม่เคยถามมาก่อน: สำนักงานที่ดิน — ที่ที่การโอนโฉนดทุกครั้งเดินผ่าน — สารบัญเคยมีศูนย์แห่ง ตอนนี้มีสี่ (สองสาขาของเชียงใหม่ กรมที่ดิน และสำนักงานจังหวัดเชียงราย ส่วนสาขาเมืองเชียงใหม่ยังไม่มีใครปักหมุดในแผนที่เปิด) · หอพัก 22 → 84 แห่ง เพราะแผนที่ติดป้ายหอพักไว้ที่ตัวอาคาร ไม่ใช่ในชื่อ · หมู่บ้านจัดสรร 0 → 22 แห่ง จากพื้นที่อยู่อาศัยที่มีชื่อ โดยกันหมู่บ้านจริง 590 แห่งไว้ไม่ให้ถูกจัดเป็นโครงการจัดสรร",
+   "what_en": "Three crawl sources that had never been asked: the Land Office — where every chanote transfer happens — went from ZERO in the catalogue to four (two Chiang Mai branches, the Land Department, and Chiang Rai's provincial office; nobody has pinned Chiang Mai's Mueang seat on the open map yet) · dormitories 22 → 84, because the map tags a dorm on the building rather than in the name · housing estates 0 → 22 from named residential areas, with 590 real villages fenced OUT so that nobody's home address is filed as a development somebody is selling.",
    "page": "realestate.html"
   }
  ]
