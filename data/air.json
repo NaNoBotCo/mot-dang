@@ -10,8 +10,8 @@
    "en": "Chiang Mai",
    "lat": 18.7883,
    "lng": 98.9853,
-   "pm25": 6.6,
-   "pm10": 7.6,
+   "pm25": 6.4,
+   "pm10": 7.2,
    "usAqi": 47,
    "band": {
     "key": "excellent",
@@ -19,7 +19,7 @@
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-31T09:00",
+   "observed": "2026-08-31T10:00",
    "days": [
     {
      "date": "2026-08-24",
@@ -141,14 +141,14 @@
    "lng": 99.8406,
    "pm25": 2.3,
    "pm10": 2.5,
-   "usAqi": 27,
+   "usAqi": 26,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-31T09:00",
+   "observed": "2026-08-31T10:00",
    "days": [
     {
      "date": "2026-08-24",
@@ -268,16 +268,16 @@
    "en": "Pai",
    "lat": 19.3583,
    "lng": 98.4392,
-   "pm25": 0.3,
-   "pm10": 0.4,
-   "usAqi": 19,
+   "pm25": 0.5,
+   "pm10": 0.7,
+   "usAqi": 20,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-31T09:00",
+   "observed": "2026-08-31T10:00",
    "days": [
     {
      "date": "2026-08-24",
@@ -398,7 +398,7 @@
    "lat": 19.302,
    "lng": 97.9654,
    "pm25": 0.8,
-   "pm10": 0.9,
+   "pm10": 1.2,
    "usAqi": 23,
    "band": {
     "key": "excellent",
@@ -406,7 +406,7 @@
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-31T09:00",
+   "observed": "2026-08-31T10:00",
    "days": [
     {
      "date": "2026-08-24",
@@ -526,8 +526,8 @@
    "en": "Lamphun",
    "lat": 18.5744,
    "lng": 99.0087,
-   "pm25": 3.2,
-   "pm10": 4.4,
+   "pm25": 2.9,
+   "pm10": 4.0,
    "usAqi": 18,
    "band": {
     "key": "excellent",
@@ -535,7 +535,7 @@
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-31T09:00",
+   "observed": "2026-08-31T10:00",
    "days": [
     {
      "date": "2026-08-24",
@@ -655,16 +655,16 @@
    "en": "Lampang",
    "lat": 18.2888,
    "lng": 99.4909,
-   "pm25": 3.4,
-   "pm10": 4.6,
-   "usAqi": 25,
+   "pm25": 3.5,
+   "pm10": 4.5,
+   "usAqi": 24,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-31T09:00",
+   "observed": "2026-08-31T10:00",
    "days": [
     {
      "date": "2026-08-24",
@@ -784,16 +784,16 @@
    "en": "Mae Sai",
    "lat": 20.4293,
    "lng": 99.8814,
-   "pm25": 3.6,
-   "pm10": 4.2,
-   "usAqi": 33,
+   "pm25": 3.3,
+   "pm10": 3.9,
+   "usAqi": 32,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-31T09:00",
+   "observed": "2026-08-31T10:00",
    "days": [
     {
      "date": "2026-08-24",
@@ -914,15 +914,15 @@
    "lat": 18.5885,
    "lng": 98.4867,
    "pm25": 0.5,
-   "pm10": 0.6,
-   "usAqi": 17,
+   "pm10": 0.7,
+   "usAqi": 16,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-31T09:00",
+   "observed": "2026-08-31T10:00",
    "days": [
     {
      "date": "2026-08-24",
@@ -1042,16 +1042,16 @@
    "en": "Bangkok",
    "lat": 13.7563,
    "lng": 100.5018,
-   "pm25": 5.9,
-   "pm10": 7.5,
-   "usAqi": 26,
+   "pm25": 5.2,
+   "pm10": 6.7,
+   "usAqi": 27,
    "band": {
     "key": "excellent",
     "th": "ดีมาก",
     "en": "Very good",
     "colour": "#3bb2d0"
    },
-   "observed": "2026-08-31T09:00",
+   "observed": "2026-08-31T10:00",
    "days": [
     {
      "date": "2026-08-24",

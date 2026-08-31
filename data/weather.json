@@ -9,10 +9,10 @@
    "tz": "Asia/Bangkok",
    "lat": 18.7883,
    "lng": 98.9853,
-   "temp": 25.7,
+   "temp": 25.8,
    "humidity": 87,
    "code": 53,
-   "observed": "2026-08-31T09:45",
+   "observed": "2026-08-31T10:30",
    "days": [
     {
      "date": "2026-08-31",
@@ -47,10 +47,10 @@
    "tz": "Asia/Bangkok",
    "lat": 19.9105,
    "lng": 99.8406,
-   "temp": 26.9,
-   "humidity": 78,
+   "temp": 27.5,
+   "humidity": 77,
    "code": 3,
-   "observed": "2026-08-31T09:45",
+   "observed": "2026-08-31T10:30",
    "days": [
     {
      "date": "2026-08-31",
@@ -85,10 +85,10 @@
    "tz": "Asia/Bangkok",
    "lat": 19.3583,
    "lng": 98.4392,
-   "temp": 25.5,
-   "humidity": 94,
-   "code": 51,
-   "observed": "2026-08-31T09:45",
+   "temp": 25.4,
+   "humidity": 95,
+   "code": 55,
+   "observed": "2026-08-31T10:30",
    "days": [
     {
      "date": "2026-08-31",
@@ -123,10 +123,10 @@
    "tz": "Asia/Bangkok",
    "lat": 19.302,
    "lng": 97.9654,
-   "temp": 26.3,
-   "humidity": 93,
+   "temp": 27.4,
+   "humidity": 86,
    "code": 51,
-   "observed": "2026-08-31T09:45",
+   "observed": "2026-08-31T10:30",
    "days": [
     {
      "date": "2026-08-31",
@@ -161,10 +161,10 @@
    "tz": "Asia/Bangkok",
    "lat": 18.2888,
    "lng": 99.4909,
-   "temp": 25.4,
-   "humidity": 90,
+   "temp": 26.5,
+   "humidity": 86,
    "code": 51,
-   "observed": "2026-08-31T09:45",
+   "observed": "2026-08-31T10:30",
    "days": [
     {
      "date": "2026-08-31",
@@ -199,10 +199,10 @@
    "tz": "Asia/Bangkok",
    "lat": 13.7563,
    "lng": 100.5018,
-   "temp": 28.5,
-   "humidity": 75,
-   "code": 3,
-   "observed": "2026-08-31T09:45",
+   "temp": 28.7,
+   "humidity": 77,
+   "code": 53,
+   "observed": "2026-08-31T10:30",
    "days": [
     {
      "date": "2026-08-31",
@@ -237,10 +237,10 @@
    "tz": "Asia/Bangkok",
    "lat": 7.8804,
    "lng": 98.3923,
-   "temp": 30.8,
-   "humidity": 62,
+   "temp": 31.3,
+   "humidity": 61,
    "code": 3,
-   "observed": "2026-08-31T09:45",
+   "observed": "2026-08-31T10:30",
    "days": [
     {
      "date": "2026-08-31",
@@ -275,10 +275,10 @@
    "tz": "Asia/Bangkok",
    "lat": 17.4138,
    "lng": 102.787,
-   "temp": 26.1,
-   "humidity": 91,
-   "code": 55,
-   "observed": "2026-08-31T09:45",
+   "temp": 26.9,
+   "humidity": 90,
+   "code": 53,
+   "observed": "2026-08-31T10:30",
    "days": [
     {
      "date": "2026-08-31",
@@ -313,10 +313,10 @@
    "tz": "Asia/Singapore",
    "lat": 1.3521,
    "lng": 103.8198,
-   "temp": 30.4,
-   "humidity": 66,
+   "temp": 31.1,
+   "humidity": 63,
    "code": 1,
-   "observed": "2026-08-31T10:45",
+   "observed": "2026-08-31T11:30",
    "days": [
     {
      "date": "2026-08-31",
@@ -351,10 +351,10 @@
    "tz": "Asia/Tokyo",
    "lat": 35.6762,
    "lng": 139.6503,
-   "temp": 27.7,
-   "humidity": 68,
+   "temp": 28.2,
+   "humidity": 66,
    "code": 1,
-   "observed": "2026-08-31T11:45",
+   "observed": "2026-08-31T12:30",
    "days": [
     {
      "date": "2026-08-31",
@@ -389,16 +389,16 @@
    "tz": "Europe/London",
    "lat": 51.5072,
    "lng": -0.1276,
-   "temp": 15.9,
-   "humidity": 88,
-   "code": 3,
-   "observed": "2026-08-31T03:45",
+   "temp": 15.5,
+   "humidity": 84,
+   "code": 1,
+   "observed": "2026-08-31T04:30",
    "days": [
     {
      "date": "2026-08-31",
      "max": 21.4,
-     "min": 15.0,
-     "code": 81
+     "min": 14.8,
+     "code": 80
     },
     {
      "date": "2026-09-01",
@@ -427,10 +427,10 @@
    "tz": "Europe/Berlin",
    "lat": 52.52,
    "lng": 13.405,
-   "temp": 17.9,
-   "humidity": 69,
+   "temp": 17.8,
+   "humidity": 68,
    "code": 3,
-   "observed": "2026-08-31T04:45",
+   "observed": "2026-08-31T05:30",
    "days": [
     {
      "date": "2026-08-31",
@@ -465,21 +465,21 @@
    "tz": "America/New_York",
    "lat": 40.7128,
    "lng": -74.006,
-   "temp": 23.3,
-   "humidity": 84,
+   "temp": 23.1,
+   "humidity": 81,
    "code": 3,
-   "observed": "2026-08-30T22:45",
+   "observed": "2026-08-30T23:30",
    "days": [
     {
      "date": "2026-08-30",
      "max": 26.1,
      "min": 18.0,
-     "code": 3
+     "code": 51
     },
     {
      "date": "2026-08-31",
      "max": 24.7,
-     "min": 20.6,
+     "min": 20.3,
      "code": 3
     },
     {
@@ -503,21 +503,21 @@
    "tz": "America/Los_Angeles",
    "lat": 34.0522,
    "lng": -118.2437,
-   "temp": 23.1,
-   "humidity": 69,
+   "temp": 23.0,
+   "humidity": 71,
    "code": 0,
-   "observed": "2026-08-30T19:45",
+   "observed": "2026-08-30T20:30",
    "days": [
     {
      "date": "2026-08-30",
      "max": 32.4,
-     "min": 21.1,
+     "min": 21.3,
      "code": 3
     },
     {
      "date": "2026-08-31",
-     "max": 30.5,
-     "min": 18.0,
+     "max": 30.3,
+     "min": 18.3,
      "code": 3
     },
     {
@@ -541,10 +541,10 @@
    "tz": "Australia/Sydney",
    "lat": -33.8688,
    "lng": 151.2093,
-   "temp": 18.7,
-   "humidity": 75,
+   "temp": 18.9,
+   "humidity": 72,
    "code": 0,
-   "observed": "2026-08-31T12:45",
+   "observed": "2026-08-31T13:30",
    "days": [
     {
      "date": "2026-08-31",
