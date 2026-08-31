@@ -76,6 +76,7 @@ CSS = """
 .ad-flag.no{color:#8a3a2a}
 .ad-flag.limited{color:#7a5a12}
 .ad-flag.ok{color:#1c6b3a}
+.ad-flag.ask{color:#4a4a52}
 .ad-grade{display:inline-block;font-size:.72rem;padding:.08rem .42rem;border-radius:.7rem;
   border:1px solid currentColor;opacity:.85;vertical-align:.08em;white-space:nowrap}
 .ad-grade.stated{color:#1c6b3a}
@@ -87,6 +88,8 @@ CSS = """
 .ad-list .states{display:block;font-size:.84rem;opacity:.82}
 .ad-list .reach{font-size:.8rem;opacity:.7}
 .ad-list .srcs{font-size:.76rem;opacity:.65}
+.ad-dead{text-decoration:underline dotted;text-underline-offset:.18em;
+  opacity:.72;cursor:help}
 .ad-three{margin:.5rem 0 .2rem;padding-left:1.1rem;font-size:.94rem;line-height:1.6;
   max-width:46rem}
 .ad-ask{margin:.4rem 0 .2rem;padding-left:1.1rem;font-size:.94rem;line-height:1.6;
@@ -187,6 +190,39 @@ def emit(g, data):
     share_block, channels = g["share_block"], g["channels"]
     shelf_og = g.get("shelf_og")
     bi_text = g.get("bi_text") or (lambda th, en: f"{th} · {en}")
+    verdict, BROKEN = g["verdict"], g["BROKEN"]
+    BROKEN_WHY = g["BROKEN_WHY"]
+    LINK_HEALTH_DATE = g.get("LINK_HEALTH_DATE") or ""
+
+    def out_a(url, label, cls=""):
+        """One outbound link — or the address of one that has stopped answering.
+
+        A source that no longer resolves is still evidence: it says what was
+        tried and on what day, and several sentences on this page lean on
+        exactly that. But nothing here sends a reader into a dead end, and
+        tests/test_publish_gate.py is right to refuse an href to a URL
+        link-health has buried — one such ref held the whole site unpublished
+        from 2026-08-21 to 2026-08-22. So a dead ref keeps its number and its
+        address, carries the verdict and the date of the check in its tooltip,
+        and stops being a door. Same rule for a ref with no address at all.
+        """
+        url = (url or "").strip()
+        v = verdict(url)
+        st = v.get("status")
+        if url and st not in BROKEN:
+            return ('<a href="' + att(url) + '" rel="noopener"'
+                    + (' class="' + cls + '"' if cls else "") + ">" + label + "</a>")
+        if url:
+            why_th, why_en = BROKEN_WHY.get(
+                st, ("เปิดไม่ได้", "the link could not be opened"))
+            when = v.get("checkedAt") or LINK_HEALTH_DATE
+            tip = url + " — " + bi_text(
+                why_th + " ตรวจเมื่อ " + when, why_en + ", checked " + when)
+        else:
+            tip = bi_text("ไม่มีที่อยู่เก็บไว้", "no address on file")
+        return ('<span class="ad-dead' + ((" " + cls) if cls else "")
+                + '" title="' + att(tip) + '">' + label + "</span>")
+
 
     (DOCS / "adhd.css").write_text(CSS)
 
@@ -238,7 +274,7 @@ def emit(g, data):
 
     def srcs_html(row):
         return "".join(
-            ' <a href="' + att(s["ref"]) + '" rel="noopener">[' + str(i + 1) + "]</a>"
+            " " + out_a(s["ref"], "[" + str(i + 1) + "]")
             for i, s in enumerate(row.get("sources") or []))
 
     def row_html(row):
@@ -286,24 +322,27 @@ def emit(g, data):
         "prohibited": ("no", "นำเข้าไม่ได้", "cannot be brought in"),
         "permitted-limited": ("limited", "พกเข้ามาได้ มีเงื่อนไข", "may be carried in, with papers"),
         "permitted": ("ok", "พกเข้ามาได้", "may be carried in"),
+        # A molecule nobody has ruled on. The default below points HERE and not
+        # at permitted-limited, because a missing verdict rendered as "may be
+        # carried in, with papers" would be this page inventing the one fact it
+        # exists to keep honest.
+        "unstated": ("ask", "ยังไม่มีคำตัดสิน", "no verdict on file"),
     }
     mol_rows = []
     for m in reg.get("molecules") or []:
-        fcls, fth, fen = CARRY_FLAG.get(m.get("carry"), CARRY_FLAG["permitted-limited"])
+        fcls, fth, fen = CARRY_FLAG.get(m.get("carry"), CARRY_FLAG["unstated"])
         flag = ('<span class="ad-flag ' + fcls + '">' + bi(fth, fen) + "</span>")
         quote = ""
         if m.get("quote_th") or m.get("quote_en"):
             q = bi(m.get("quote_th") or "", m.get("quote_en") or "")
             if m.get("quote_src"):
-                q += (' <a href="' + att(m["quote_src"]) + '" rel="noopener">'
-                      + bi("ที่มา", "source") + "</a>")
+                q += " " + out_a(m["quote_src"], bi("ที่มา", "source"))
             quote = '<span class="quote">' + q + "</span>"
         nlem = ""
         if m.get("nlem_th") or m.get("nlem_en"):
             n = bi(m.get("nlem_th") or "", m.get("nlem_en") or "")
             if m.get("nlem_src"):
-                n += (' <a href="' + att(m["nlem_src"]) + '" rel="noopener">'
-                      + bi("บัญชียาหลักแห่งชาติ", "national list") + "</a>")
+                n += " " + out_a(m["nlem_src"], bi("บัญชียาหลักแห่งชาติ", "national list"))
             nlem = '<span class="quote">' + n + "</span>"
         mol_rows.append(
             "<li><span class=\"gen\">" + bi(m.get("generic_th") or "", m.get("generic_en") or "")
@@ -327,10 +366,12 @@ def emit(g, data):
             "The Thai FDA runs an online checker that will tell you which class your own "
             "medicine falls in and whether it may be carried into Thailand. It searches on "
             "the generic name — the small print on the box, not the big print.")
-        + "</p><p><a href=\"" + att(tv.get("tool_url") or "") + "\" rel=\"noopener\">"
-        + bi("เปิดเครื่องมือตรวจสอบยา (อย.)", "Open the FDA drug checker") + "</a>"
-        + " · <a href=\"" + att(tv.get("permit_url") or "") + "\" rel=\"noopener\">"
-        + bi("ระบบขออนุญาตพกยา", "the traveller permit system") + "</a></p>"
+        + "</p><p>"
+        + out_a(tv.get("tool_url"),
+                bi("เปิดเครื่องมือตรวจสอบยา (อย.)", "Open the FDA drug checker"))
+        + " · "
+        + out_a(tv.get("permit_url"), bi("ระบบขออนุญาตพกยา", "the traveller permit system"))
+        + "</p>"
         + '<p class="ad-note">' + bi(
             "มดแดงลิงก์เครื่องมือแทนที่จะคัดตารางมาเอง เพราะตารางจะเก่า ส่วนเครื่องมือคือคำตอบของหน่วยงานเอง ณ วันที่คุณกด",
             "Mot Dang links the tool rather than copying its table: a copied table goes "
@@ -338,8 +379,7 @@ def emit(g, data):
         + "</p></div>")
 
     reg_html = ('<table class="ad-reg"><tbody>' + "".join(
-        "<tr><th>" + bi(q_th, q_en) + "</th><td><a href=\"" + att(url)
-        + "\" rel=\"noopener\">" + bi(n_th, n_en) + "</a><br>"
+        "<tr><th>" + bi(q_th, q_en) + "</th><td>" + out_a(url, bi(n_th, n_en)) + "<br>"
         + '<span class="ad-note">' + bi(d_th, d_en) + "</span></td></tr>"
         for q_th, q_en, n_th, n_en, url, d_th, d_en in REGISTERS) + "</tbody></table>")
 
@@ -461,8 +501,8 @@ def emit(g, data):
             "ที่มา: หน้าคำแนะนำสำหรับผู้เดินทางของ อย. อ่านเมื่อ 21 ส.ค. 2569",
             "Source: the Thai FDA's own guidance page for travellers under treatment, read "
             "2026-08-21.")
-        + ' <a href="' + att(tv.get("guidance_url") or "") + '" rel="noopener">'
-        + bi("อ่านต้นทาง", "read it at the source") + "</a></p>"
+        + " " + out_a(tv.get("guidance_url"), bi("อ่านต้นทาง", "read it at the source"))
+        + "</p>"
 
         + "<h2>" + bi("รูปแบบยาคือของหายาก ไม่ใช่ตัวยา",
                       "The scarce thing is the formulation, not the substance") + "</h2>"

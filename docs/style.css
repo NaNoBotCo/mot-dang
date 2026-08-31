@@ -9,10 +9,17 @@
    red like everything else; this is a directory, and which shelves you have
    already opened is information the reader is owed. */
 :root{--paper:#faf5ea;--ink:#2a1e16;--ant:#c13a2e;--ant-dark:#8f2a21;
---link:#14479b;--visited:#6B3FA0;--soft:#e3d5bc;--mute:#a08b6c;
+--link:#14479b;--visited:#6B3FA0;--soft:#e3d5bc;--mute:#7d6b51;
 --day:#c13a2e;
---card:#fffdf7;--card-alt:#f8f0dd;--ink-soft:#544636;--gloss:#8a755b;
+--card:#fffdf7;--card-alt:#f8f0dd;--ink-soft:#544636;--gloss:#685845;
 --gold:#c08a2d;--gold-light:#f3c34b;--gold-pale:#f9e2a4;
+/* --gold is the BEAD colour: rules, borders, the dot after a band label,
+   the watermark on the dark card. At 2.8:1 on the paper it was never a
+   text colour, and it was being used as one — the hero's hello line and
+   the counts on the nine doors and the care shelf. --gold-ink is the same
+   38-degree hue carried down to 4.5:1 on every light surface, so gold can
+   go on saying gold where it decorates and still be read where it speaks. */
+--gold-ink:#8e6621;
 --marigold-a:#f9dc93;--marigold-b:#f3c34b;--marigold-ink:#6d5411;
 --jade-a:#cfe3d2;--jade-b:#b8d4bd;--jade-ink:#26402c;--jade:#1f6b57;
 --warm-border:#e3d5bc;--dashed:#c4b28d;--row-hover:#fcf3dc;
@@ -70,6 +77,12 @@ border:1px solid var(--warm-border);border-radius:999px;
 padding:.02rem .42rem;margin-left:.35rem;white-space:nowrap;
 vertical-align:.08rem;background:var(--card)}
 ul.dir.ranked .antchip{display:inline-block}
+/* The metres beside a doi's name (WO-37c). Same quiet pill as the ant chip
+   but always visible: metres are a measurement, not a score, so there is no
+   sort to wait for. Data-scoped — only rows the terrain file names wear it. */
+.elechip{font-size:.7rem;color:var(--mute);border:1px solid var(--warm-border);
+border-radius:999px;padding:.02rem .42rem;margin-left:.35rem;
+white-space:nowrap;vertical-align:.08rem;background:var(--card)}
 .antchip[data-r="8"],.antchip[data-r="9"]{color:var(--marigold-ink);
 border-color:var(--gold-light);background:var(--gold-pale)}
 .antchip[data-r="0"],.antchip[data-r="1"]{border-style:dashed}
@@ -212,6 +225,12 @@ font-weight:700;padding:.05rem .42rem;margin-left:-.1rem}
 .subshelf{background:#fff;border:1px solid var(--soft);border-radius:.7rem;
 padding:.6rem 1rem;margin:.6rem 0 1rem}
 .subshelf b a{font-weight:700}
+/* The hub shelf: when a category outgrows one page, the index becomes its
+   children — a line each, count in parens, three doors as a taste. */
+.hubkids li{padding:.45rem .1rem;border-bottom:1px dashed var(--soft)}
+.hubkids b a{font-weight:700;font-size:1.05rem}
+.hubkids .eg{color:var(--mute);font-size:.9em}
+.hubkids .eg a{color:var(--ant-dark)}
 .toolbar{display:flex;gap:.5rem;align-items:center;font-size:.9rem;margin:.4rem 0 .6rem;flex-wrap:wrap}
 .toolbar button{font:inherit;font-size:.85rem;border:1.5px solid var(--ant-dark);
 background:none;color:var(--ant-dark);border-radius:999px;padding:.05rem .7rem;cursor:pointer}
@@ -221,6 +240,9 @@ background:none;color:var(--ant-dark);border-radius:999px;padding:.05rem .7rem;c
    visible count or bar next to a business's name; see build.py ant_panel(). */
 .antlegend{margin:-.3rem 0 .7rem;opacity:.75}
 .antgap{margin:.6rem 0 0;font-size:.9rem}
+/* WO-38: the branch's neighbours in words, under the facet row. */
+.sevenband{display:block;margin:.8rem 0}
+.sevenband p{margin:.3rem 0}
 .licence{display:block;margin:.35rem 0 .2rem;opacity:.7;font-size:.82rem}
 .ourchannels{margin:1rem 0;padding:.7rem .9rem .8rem;border:1px solid var(--soft);
 border-radius:.8rem;background:#fff}
@@ -1314,6 +1336,12 @@ form.seek button:active{transform:scale(.97)}
    of hyperlink blue, bare until the hand arrives — thirteen doors reachable
    without thirteen shouts. */
 .svcbar{font-size:.84rem;margin:.55rem 0 0;color:var(--mute);line-height:1.9}
+/* Five families, not twenty-one strangers: each cluster keeps its own line on
+   a wide screen, opened by a small warm word that is a label, not a door. */
+.svcgrp{display:block}
+.svclbl{color:var(--mute);font-size:.78em;letter-spacing:.06em;
+text-transform:uppercase;margin-right:.35rem}
+.svclbl::after{content:" ‧";color:var(--gold)}
 .svcbar a{color:var(--ant-dark);text-decoration:none}
 .svcbar a:visited{color:var(--ant-dark)}
 .svcbar a:hover{color:var(--ant);text-decoration:underline;
@@ -1487,6 +1515,11 @@ padding-bottom:.35rem;line-height:1.5;-webkit-overflow-scrolling:touch;
 scrollbar-width:none}
 .svcbar::-webkit-scrollbar{display:none}
 .svcbar a{flex:0 0 auto;padding:.2rem 0}
+/* On the swipeable row the clusters stay inline and their labels ride along
+   as milestones — a thumb learns where it is without a map. */
+.svcgrp{display:inline;flex:0 0 auto}
+.svclbl{margin-left:.4rem}
+.svcgrp:first-child .svclbl{margin-left:0}
 /* Interior pages: the same chips, one swipeable row — the svcbar's own move.
    Someone tapping a shared LINE link lands a thumb-flick from the place name
    instead of a screen and a half below it. The hub pages (home, my.html)
@@ -1568,14 +1601,14 @@ var(--gold) 52px 60px,var(--gap) 60px 68px)}
    on everything. Held to cards you can actually click. */
 .card,.sidecard,.sponsorcard,.planhero{box-shadow:5px 5px 0 var(--shadow)}
 .sidecard.dark{box-shadow:5px 5px 0 var(--shadow-dark)}
-.hicard,.wtile,.moodcard,.pickgrid a,.chip,.citychip{
+.hicard,.wtile,.moodcard,.pickgrid a,.chip,.citychip,.doorcard,.careshelf a{
 box-shadow:4px 4px 0 var(--shadow)}
 @media (prefers-reduced-motion:no-preference){
-.hicard,.wtile,.moodcard,.pickgrid a,.chip,.citychip{
+.hicard,.wtile,.moodcard,.pickgrid a,.chip,.citychip,.doorcard,.careshelf a{
 transition:transform .15s ease,box-shadow .15s ease}
-.hicard:hover,.wtile:hover,.moodcard:hover,.pickgrid a:hover,.chip:hover,.citychip:hover{
+.hicard:hover,.wtile:hover,.moodcard:hover,.pickgrid a:hover,.chip:hover,.citychip:hover,.doorcard:hover,.careshelf a:hover{
 transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--gold-light)}
-.hicard:active,.moodcard:active,.chip:active,.citychip:active{
+.hicard:active,.moodcard:active,.chip:active,.citychip:active,.doorcard:active,.careshelf a:active{
 transform:translate(1px,1px);box-shadow:2px 2px 0 var(--shadow)}
 }
 .chip.dark:hover,.wtile:hover{box-shadow:7px 7px 0 var(--gold)}
@@ -1598,7 +1631,7 @@ background:radial-gradient(circle,rgba(243,195,75,.42),rgba(243,195,75,0) 68%)}
 .heroglow.b{bottom:-120px;left:-160px;width:460px;height:460px;
 background:radial-gradient(circle,rgba(193,58,46,.14),rgba(193,58,46,0) 70%)}
 .herocopy{position:relative;z-index:1;min-width:0}
-.heroeyebrow{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);
+.heroeyebrow{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold-ink);
 font-size:1rem;margin-bottom:.5rem}
 .heroeyebrow::before{content:"";width:8px;height:8px;border-radius:50%;
 background:var(--ant);flex:0 0 auto}
@@ -1619,6 +1652,14 @@ color:var(--ant-dark)}
    just a stray dot. */
 body.lang-both .herotitle .en>.th,body.lang-en .herotitle .en>.th{display:none}
 .herosub{color:var(--gloss);margin:0 0 1.1rem;font-size:1.02rem}
+/* The orientation line: quieter than the sub it follows, with the only door
+   on it carrying the gold underline the header's own links use. */
+.herostart{color:var(--ink-soft);margin:0 0 1.1rem;font-size:.92rem;line-height:1.5}
+/* No nowrap: the door's words are a bilingual pair, and held on one line they
+   push a 320 px phone into sideways scroll. */
+.herostart a{color:var(--ant-dark);font-weight:600;text-decoration:none;
+border-bottom:2px solid var(--gold);padding-bottom:1px}
+.herostart a:hover,.herostart a:focus-visible{border-bottom-color:var(--ant-dark)}
 .heroart{position:relative;height:min(62vw,430px);z-index:1;min-width:0}
 .heroart img{position:absolute;object-fit:cover;border:3px solid var(--card);
 border-radius:18px;background:var(--card-alt);display:block}
@@ -1823,6 +1864,7 @@ table.credits td,table.credits th{padding:.4rem .3rem}
 body.lang-both .herotitle .en,body.lang-en .herotitle .en{font-size:.5em}
 .heroeyebrow{font-size:.86rem;margin-bottom:.3rem}
 .herosub{font-size:.94rem;margin-bottom:.6rem}
+.herostart{font-size:.86rem;margin-bottom:.7rem}
 .heroart{height:150px}
 .heroart .b,.heroart .c{display:none}
 .heroart .a{width:100%;height:100%;transform:none}
@@ -1833,6 +1875,62 @@ body.lang-both .herotitle .en,body.lang-en .herotitle .en{font-size:.5em}
 .afterdark .inner{padding:2rem 1rem 1.6rem}
 .adcard img{height:200px}
 }
+
+/* --- the nine doors + the care shelf ------------------------------------
+   Text-forward cards on purpose: these are boards, and a board's picture is
+   its words. No images, so the grid costs nothing on a slow connection, and
+   nothing here can make scenery of a stranger. Sticker shadows and the
+   squishy hover come from the shared lists above. */
+.doorbody{padding:1rem 1.15rem 1.25rem}
+.doorsub{margin:0 0 .9rem;font-size:.88rem;color:var(--gloss)}
+.doorgrid{list-style:none;margin:0;padding:0;display:grid;gap:.7rem;
+grid-template-columns:repeat(auto-fill,minmax(164px,1fr))}
+.doorcard{display:flex;flex-direction:column;gap:.18rem;height:100%;
+background:var(--card);border:1px solid var(--warm-border);border-radius:14px;
+padding:.7rem .8rem .8rem;color:var(--ink);text-decoration:none}
+.doorcard .glyph{font-size:1.45rem;line-height:1.15}
+.doorcard b{font-size:1.02rem;line-height:1.35}
+.doorcard .en{font-size:.8rem;color:var(--gloss)}
+.doorcard .n{font-size:.85rem;font-weight:600;color:var(--gold-ink)}
+.doorcard .why{font-size:.78rem;color:var(--ink-soft);line-height:1.5}
+.doorcard:hover b{text-decoration:underline;text-decoration-color:var(--ant)}
+.boardmore{margin:1rem 0 0;font-size:.87rem;line-height:2;color:var(--gloss)}
+.boardmore .count{color:var(--mute)}
+.caresec{margin:1.8rem 0}
+.carenote{margin:.2rem 0 1rem;font-size:.88rem;color:var(--gloss)}
+.careshelf{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;
+grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.careshelf a{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .65rem;
+min-height:44px;background:var(--card);border:1px solid var(--warm-border);
+border-radius:12px;padding:.55rem .8rem;color:var(--ink);text-decoration:none}
+.careshelf .em{font-size:1.25rem;line-height:1}
+.careshelf .lbl{flex:1 1 11rem;min-width:0}
+.careshelf b{font-size:.97rem}
+.careshelf .lbl .en{font-size:.78rem;color:var(--gloss)}
+body.lang-both .careshelf .lbl .en,body.lang-en .careshelf .lbl .en{display:block}
+.careshelf .n{font-size:.82rem;font-weight:600;color:var(--gold-ink);white-space:nowrap}
+.careshelf a:hover b{text-decoration:underline;text-decoration-color:var(--ant)}
+@media (max-width:700px){
+.doorgrid{grid-template-columns:repeat(2,1fr);gap:.55rem}
+.careshelf{grid-template-columns:1fr 1fr}
+}
+
+/* --- the missing soi ------------------------------------------------------
+   404.html. The worker serves it at whatever address came up empty, so this
+   is furniture for an arrival, not a warning sign: one card, the search box,
+   doors onward. Links on that page are root-absolute (page(root="/")) for
+   the same reason. Sticker shadow and squishy chips come from the shared
+   rules above; only the card itself is new. */
+.nfhall{max-width:44rem;margin:1.6rem auto 2.4rem;padding:1.3rem 1.4rem 1.5rem;
+background:var(--card);border:1px solid var(--warm-border);border-radius:18px;
+box-shadow:6px 6px 0 var(--shadow)}
+.nfhall h1{margin:.1rem 0 .5rem}
+.nflede{margin:.2rem 0 .9rem;color:var(--ink-soft)}
+.nfwhere{word-break:break-all}
+.nfwhere code{background:var(--card-alt);border:1px dashed var(--dashed);
+border-radius:6px;padding:.08rem .4rem}
+.nfhall form.seek{margin:.9rem 0}
+.nfhall .chipbar{margin:.7rem 0 .2rem}
 
 /* --- motion -------------------------------------------------------------
    md.js reveals these on scroll. The rule is scoped to .js-reveal, a class

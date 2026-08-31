@@ -16821,6 +16821,48 @@
   "updatedAt": "2026-08-21"
  },
  {
+  "id": "cm-curated-aphiwat-bualoi-law",
+  "province": "cm",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "professional"
+  ],
+  "name": "Aphiwat Bualoi Law Office",
+  "nameEn": "Aphiwat Bualoi Law Office",
+  "lat": 18.8016,
+  "lng": 98.9663,
+  "geoPrecision": "approx",
+  "address": "ห้อง 3i ชั้น 3 เลขที่ 191 ถนนห้วยแก้ว ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200 (ตรงข้ามกาดริมโขงและเมญ่า)",
+  "phone": "064-932-1365",
+  "website": "https://aphiwatlaw.com/notary-chiang-mai/",
+  "hours": "",
+  "attrs": {
+   "kind": "law office — notarial services attorney",
+   "notaryVia": "own-site",
+   "facets": {
+    "notary": true
+   },
+   "pinVia": "anchor-match",
+   "pinFrom": "MAYA (cm-osm-node-2717002069)",
+   "pinUncertaintyM": "200"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "สำนักงานกฎหมายบนถนนห้วยแก้ว ตรงข้ามเมญ่า (ห้อง 3i ชั้น 3 เลขที่ 191 มีที่จอดรถฟรี) หน้าเว็บของเขาเองระบุงานโนตารี — รับรองลายมือชื่อและรับรองสำเนาถูกต้อง เอกสารวีซ่า สำเนาพาสปอร์ต หนังสือมอบอำนาจ หนังสือรับรองการมีชีวิต วุฒิการศึกษา เอกสารบริษัท — ทั้งไทยและอังกฤษ พร้อมแขวนใบทะเบียนทนายความผู้ทำคำรับรองฯ ของสภาทนายความ (พ.ศ. 2566) ในสำนักงาน เอกสารที่ยื่นช่วงเช้ามักเสร็จในวันเดียว ค่าบริการขึ้นกับชนิดเอกสารและจำนวนลายมือชื่อ — ถามพร้อมเอกสารในมือ โทร 064-932-1365 อีเมล info@aphiwatlaw.com",
+  "blurb_en": "A law office on Huay Kaew Road opposite MAYA and Kad Rincome (room 3i, floor 3, no. 191, free parking) whose own page states notarial work — certifying signatures and true copies: visa papers, passport copies, powers of attorney, life certificates, degrees, company documents — in English and Thai, with the Lawyers Council notarial-services registration (B.E. 2566) displayed in the office. Papers brought in the morning are normally finished the same day; the fee depends on the document and the number of signatures, so ask with the document in hand. Tel 064-932-1365, info@aphiwatlaw.com.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://aphiwatlaw.com/notary-chiang-mai/",
+    "fetched": "2026-08-28"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-28"
+ },
+ {
   "id": "cm-curated-aquabeauty",
   "province": "cm",
   "cat": [
@@ -17312,10 +17354,51 @@
   "updatedAt": "2026-08-19"
  },
  {
+  "id": "cm-curated-chiangmai-holistic",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "Chiang Mai Holistic",
+  "nameEn": "Chiang Mai Holistic",
+  "lat": 18.802174,
+  "lng": 98.961286,
+  "geoPrecision": "approx",
+  "address": "17/8 ถ.คลองชลประทาน ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
+  "website": "https://www.chiangmaiholistic.com/outpatient-counselling-chiang-mai.php",
+  "hours": "Mo-Sa 09:00-21:00; Su 12:00-21:00",
+  "attrs": {
+   "kind": "counselling practice",
+   "specialty": [
+    "psych"
+   ],
+   "specialtyVia": "own-site",
+   "pinVia": "address-street-match",
+   "pinUncertaintyM": "3607",
+   "pinFrom": "Khlong Chonlaprathan Road"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ศูนย์บำบัดบนถนนคลองชลประทาน หน้าเว็บของเขาเองระบุ CBT (Cognitive Behavioural Therapy) ไว้ในรายการวิธีบำบัด มีนักบำบัดสองภาษา ไทย–อังกฤษ สำหรับพบตัวจริง และภาษาอื่นทางออนไลน์ เปิดจันทร์–เสาร์ 9 โมงเช้าถึง 3 ทุ่ม อาทิตย์เที่ยงถึง 3 ทุ่ม ติดต่อทางอีเมลหรือ WhatsApp",
+  "blurb_en": "A therapy centre on Canal Road — its own page lists CBT (cognitive behavioural therapy) among its modalities, with bilingual Thai–English therapists in person and more languages online. Monday–Saturday 9am–9pm, Sunday noon–9pm; contact is by email or WhatsApp.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.chiangmaiholistic.com/outpatient-counselling-chiang-mai.php",
+    "fetched": "2026-08-26"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-26"
+ },
+ {
   "id": "cm-curated-cnxpole",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "dance"
@@ -17390,6 +17473,49 @@
   ],
   "confidence": "curated",
   "updatedAt": "2026-08-07"
+ },
+ {
+  "id": "cm-curated-counselling-thailand",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "Counselling Thailand",
+  "nameEn": "Counselling Thailand — Chiang Mai",
+  "lat": 18.802174,
+  "lng": 98.961286,
+  "geoPrecision": "approx",
+  "address": "53 ถ.ชลประทาน ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
+  "phone": "098-776-8857",
+  "website": "https://counsellingthailand.com/therapy-chiang-mai/",
+  "hours": "Mo-Sa 08:00-20:00",
+  "attrs": {
+   "kind": "counselling practice",
+   "specialty": [
+    "psych"
+   ],
+   "specialtyVia": "own-site",
+   "pinVia": "address-street-match",
+   "pinUncertaintyM": "3607",
+   "pinFrom": "Khlong Chonlaprathan Road"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "สำนักงานให้คำปรึกษาเอกชนบนถนนชลประทาน หน้าเว็บของเขาเองระบุ CBT (Cognitive Behavioural Therapy) ไว้ในรายการวิธีบำบัด รับทั้งภาษาไทยและอังกฤษ นัดได้จันทร์–เสาร์ 8 โมงเช้าถึง 2 ทุ่ม หน้าเว็บแจ้งราคา 2,675 บาท/60 นาที และ 3,745 บาท/90 นาที (ยังไม่ได้ยืนยันที่เคาน์เตอร์)",
+  "blurb_en": "A private counselling office on Chonpratan Road — its own page lists CBT (cognitive behavioural therapy) among its methods, works in Thai and English, and sits Monday–Saturday 8am–8pm. Its page states 2,675 baht for 60 minutes and 3,745 for 90 (not yet confirmed at the counter).",
+  "_pricesVerified": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://counsellingthailand.com/therapy-chiang-mai/",
+    "fetched": "2026-08-26"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-26"
  },
  {
   "id": "cm-curated-darinhealth",
@@ -17870,8 +17996,8 @@
   },
   "featured": false,
   "landmark": false,
-  "blurb_th": "คลินิกเวชกรรมกลางเวียง เปิดทุกวัน — ตรวจสุขภาพ ตรวจเลือด คัดกรองโรคติดต่อทางเพศสัมพันธ์ และระบุระบบต่อมไร้ท่อไว้ในกลุ่มโรคที่ดูแล",
-  "blurb_en": "A general clinic in the old city, open daily — health checks, blood tests, STI screening, and it names endocrine conditions among what it treats.",
+  "blurb_th": "คลินิกเวชกรรมกลางเวียง เปิดทุกวัน — ตรวจสุขภาพ ตรวจเลือด คัดกรองโรคติดต่อทางเพศสัมพันธ์ และมีคลินิกเบาหวาน ไทรอยด์ ต่อมไร้ท่อ ตามหน้าเว็บของคลินิกเอง",
+  "blurb_en": "A general clinic in the old city, open daily — health checks, blood tests, STI screening, and its own page states a diabetes–thyroid–endocrine clinic.",
   "sources": [
    {
     "type": "web",
@@ -17882,10 +18008,15 @@
     "type": "web",
     "ref": "https://thaisisterhood.com/resources/clinics",
     "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://hugsamedical.com/คลินิกเบาหวาน/",
+    "fetched": "2026-08-26"
    }
   ],
   "confidence": "curated",
-  "updatedAt": "2026-08-21"
+  "updatedAt": "2026-08-26"
  },
  {
   "id": "cm-curated-into-the-wild-elephant-camp",
@@ -18351,6 +18482,53 @@
   "updatedAt": "2026-08-19"
  },
  {
+  "id": "cm-curated-mfa-legalization-desk",
+  "province": "cm",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานหนังสือเดินทางฯ เชียงใหม่ (งานรับรองนิติกรณ์เอกสาร)",
+  "nameEn": "MFA Passport Office Chiang Mai — Legalization Desk",
+  "nameTh": "สำนักงานหนังสือเดินทางฯ เชียงใหม่ (งานรับรองนิติกรณ์เอกสาร)",
+  "lat": 18.768963,
+  "lng": 98.975343,
+  "geoPrecision": "approx",
+  "address": "ศูนย์การค้าเซ็นทรัล เชียงใหม่ แอร์พอร์ต ชั้น 5 (ฝั่งโรบินสัน) อ.เมืองเชียงใหม่ จ.เชียงใหม่",
+  "phone": "053-112-748",
+  "website": "https://consular.mfa.go.th/th/publicservice/%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%A3%E0%B8%AD%E0%B8%87%E0%B8%99%E0%B8%B4%E0%B8%95%E0%B8%B4%E0%B8%81%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B9%80%E0%B8%AD%E0%B8%81%E0%B8%AA%E0%B8%B2%E0%B8%A3",
+  "hours": "Mo-Fr 09:00-16:00",
+  "attrs": {
+   "kind": "government desk — MFA legalization (นิติกรณ์)",
+   "queueUrl": "https://qlegal.consular.go.th",
+   "priceHeard": "ตราละ 200 บาท รับใน 2 วันทำการ · แบบด่วน 400 บาท ยื่นเช้ารับวันเดียวกัน (เอกสารบางประเภท)",
+   "_pricesVerified": false,
+   "pinVia": "anchor-match",
+   "pinFrom": "เซ็นทรัล เชียงใหม่ แอร์พอร์ต (cm-osm-way-87710118)",
+   "pinUncertaintyM": "120"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "โต๊ะรับรองนิติกรณ์เอกสาร (ní-tì-kɔɔn — การรับรองเอกสารราชการเพื่อใช้ข้ามประเทศ) ของกรมการกงสุล กระทรวงการต่างประเทศ ประจำภาคเหนือ อยู่ในสำนักงานหนังสือเดินทางฯ เชียงใหม่ ชั้น 5 เซ็นทรัล เชียงใหม่ แอร์พอร์ต ฝั่งโรบินสัน จันทร์–ศุกร์ 09:00–16:00 ต้องจองคิวออนไลน์ที่ qlegal.consular.go.th ก่อนเข้า ค่าธรรมเนียมตามคู่มือราชการ ตราละ 200 บาท รับใน 2 วันทำการ หรือแบบด่วน 400 บาท ยื่นช่วงเช้ารับวันเดียวกันสำหรับเอกสารบางประเภท (ยังไม่ยืนยันที่เคาน์เตอร์) เอกสารไทยที่จะไปต่างประเทศมักต้องแปลก่อนแล้วนำมารับรองที่นี่ โทร 053-112-748",
+  "blurb_en": "The Ministry of Foreign Affairs' northern legalization desk (นิติกรณ์, ní-tì-kɔɔn — certification of documents for cross-border use) sits inside the MFA passport office, floor 5 of Central Chiang Mai Airport on the Robinson side. Monday–Friday 09:00–16:00, online queue at qlegal.consular.go.th before you come. The government manual's fee is 200 baht a seal returned in two working days, or 400 baht express handed in before mid-morning and returned the same day for some document types — not yet confirmed at the counter. A Thai document heading abroad is normally translated first, then sealed here. Tel 053-112-748.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://consular.mfa.go.th/th/publicservice/%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%A3%E0%B8%AD%E0%B8%87%E0%B8%99%E0%B8%B4%E0%B8%95%E0%B8%B4%E0%B8%81%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B9%80%E0%B8%AD%E0%B8%81%E0%B8%AA%E0%B8%B2%E0%B8%A3",
+    "fetched": "2026-08-28"
+   },
+   {
+    "type": "web",
+    "ref": "https://info.go.th/procedure/94e56d14-f82f-4203-8916-a84631e0af15/view",
+    "fetched": "2026-08-28"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-28"
+ },
+ {
   "id": "cm-curated-mplus-chiangmai",
   "province": "cm",
   "cat": [
@@ -18438,10 +18616,19 @@
     "type": "field",
     "ref": "name given in the standard dedication form ศาลสมเด็จพระนเรศวรมหาราช; signboard wording not yet read on site — confirm on a pass-by",
     "via": "pin is approx for the same reason"
+   },
+   {
+    "type": "curated",
+    "ref": "osm name: ศาลสมเด็จพระนเรศวรมหาราช",
+    "fetched": "2026-08-27",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "field",
-  "updatedAt": "2026-08-08"
+  "updatedAt": "2026-08-08",
+  "sub": [
+   "shrine"
+  ]
  },
  {
   "id": "cm-curated-naresuan-stupa-mueang-ngai",
@@ -18920,6 +19107,50 @@
   ],
   "confidence": "curated",
   "updatedAt": "2026-08-19"
+ },
+ {
+  "id": "cm-curated-us-consulate-chiangmai",
+  "province": "cm",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สถานกงสุลใหญ่สหรัฐอเมริกา เชียงใหม่",
+  "nameEn": "U.S. Consulate General Chiang Mai",
+  "nameTh": "สถานกงสุลใหญ่สหรัฐอเมริกา เชียงใหม่",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "131 หมู่ 4 ถนนซุปเปอร์ไฮเวย์เชียงใหม่–ลำปาง ต.หนองป่าครั่ง อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50000",
+  "website": "https://th.usembassy.gov/acs-chiang-mai/",
+  "hours": "",
+  "attrs": {
+   "kind": "consulate — American Citizen Services (notarials by appointment)",
+   "acsEmail": "acschn@state.gov",
+   "priceHeard": "US$50 per notarial seal — dollars, baht or card",
+   "_pricesVerified": false,
+   "movedNote": "OSM and most maps still pin the old Wichayanon Rd compound (checked 2026-08-28); the consulate's own contact page states the superhighway address — go by the address, not an old pin"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ฝ่ายบริการพลเมืองอเมริกัน (ACS) รับรองเอกสารแบบโนตารีสำหรับเอกสารที่จะใช้ในสหรัฐฯ — คำให้การ หนังสือมอบอำนาจ รับรองสำเนาพาสปอร์ตสหรัฐฯ — เฉพาะนัดหมายล่วงหน้าผ่านหน้า ACS ของสถานทูตเท่านั้น ไม่รับ walk-in ค่าธรรมเนียมตามหน้าประกาศของสถานทูตเอง ตราละ 50 ดอลลาร์ จ่ายเป็นดอลลาร์ บาท หรือบัตรได้ (ยังไม่ยืนยันที่เคาน์เตอร์) ที่ทำการย้ายไปอาคารใหม่ริมซุปเปอร์ไฮเวย์ ต.หนองป่าครั่ง แล้ว — แผนที่ส่วนใหญ่ยังปักหมุดที่ถนนวิชยานนท์ที่เดิม ให้ไปตามที่อยู่ ไม่ใช่ตามหมุดเก่า อีเมล acschn@state.gov",
+  "blurb_en": "American Citizen Services notarizes documents bound for the United States — affidavits, acknowledgements, powers of attorney, certified copies of US passports — by appointment only through the consulate's ACS pages; no walk-ins. The consulate's own published fee is US$50 a seal, payable in dollars, baht or by card (not yet confirmed at the counter). The consulate has moved to its new compound on the Chiang Mai–Lampang Superhighway in Nong Pa Khrang — most maps still pin the old Wichayanon Road compound, so go by the address, not an old pin. Carrying US federal-benefit paperwork? Say so when booking. Email acschn@state.gov.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://th.usembassy.gov/acs-chiang-mai/",
+    "fetched": "2026-08-28"
+   },
+   {
+    "type": "web",
+    "ref": "https://th.usembassy.gov/acs-service-fees/",
+    "fetched": "2026-08-28"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-28"
  },
  {
   "id": "cm-curated-yellow",
@@ -50035,7 +50266,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50075,7 +50306,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50115,7 +50346,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50155,7 +50386,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50195,7 +50426,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50235,7 +50466,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50278,7 +50509,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.756752,
   "lng": 99.010231,
   "geoPrecision": "approx"
@@ -50321,7 +50552,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.84217,
   "lng": 99.065507,
   "geoPrecision": "approx"
@@ -50361,7 +50592,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50401,7 +50632,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50441,7 +50672,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50484,7 +50715,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.796164,
   "lng": 98.990569,
   "geoPrecision": "approx"
@@ -50524,7 +50755,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50567,7 +50798,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.710881,
   "lng": 99.035654,
   "geoPrecision": "approx"
@@ -50607,7 +50838,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50647,7 +50878,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50690,7 +50921,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.775994,
   "lng": 98.997593,
   "geoPrecision": "approx"
@@ -50730,7 +50961,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50770,7 +51001,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50810,7 +51041,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50853,7 +51084,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.787543,
   "lng": 99.029894,
   "geoPrecision": "approx"
@@ -50893,7 +51124,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50933,7 +51164,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -50973,7 +51204,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51013,7 +51244,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51056,7 +51287,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.775714,
   "lng": 98.943794,
   "geoPrecision": "approx"
@@ -51096,7 +51327,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51136,7 +51367,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51175,7 +51406,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51214,7 +51445,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51253,7 +51484,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51292,7 +51523,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51331,7 +51562,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51377,7 +51608,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.7881559,
   "lng": 98.9677831,
   "geoPrecision": "approx"
@@ -51418,7 +51649,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51464,7 +51695,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.915606,
   "lng": 99.000645,
   "geoPrecision": "approx"
@@ -51505,7 +51736,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51546,7 +51777,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51587,7 +51818,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51628,7 +51859,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51669,7 +51900,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51715,7 +51946,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.7975465,
   "lng": 99.0036226,
   "geoPrecision": "approx"
@@ -51761,7 +51992,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.8139176,
   "lng": 98.9460034,
   "geoPrecision": "approx"
@@ -51807,7 +52038,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.7369718,
   "lng": 99.0425877,
   "geoPrecision": "approx"
@@ -51853,7 +52084,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.643108,
   "lng": 98.890936,
   "geoPrecision": "approx"
@@ -51894,7 +52125,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -51938,7 +52169,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.710881,
   "lng": 99.035654,
   "geoPrecision": "approx"
@@ -51984,7 +52215,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 20.034538,
   "lng": 99.302744,
   "geoPrecision": "approx"
@@ -52030,7 +52261,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.914792,
   "lng": 98.923199,
   "geoPrecision": "approx"
@@ -52074,7 +52305,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.796164,
   "lng": 98.990569,
   "geoPrecision": "approx"
@@ -52120,7 +52351,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.7876922,
   "lng": 98.9874529,
   "geoPrecision": "approx"
@@ -52166,7 +52397,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.643108,
   "lng": 98.890936,
   "geoPrecision": "approx"
@@ -52207,7 +52438,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -52253,7 +52484,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.76401,
   "lng": 99.0749913,
   "geoPrecision": "approx"
@@ -52299,7 +52530,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.6875584,
   "lng": 98.9206235,
   "geoPrecision": "approx"
@@ -52340,7 +52571,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -52381,7 +52612,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -52427,7 +52658,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": 18.738453,
   "lng": 98.916398,
   "geoPrecision": "approx"
@@ -52468,7 +52699,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -52509,7 +52740,7 @@
    }
   ],
   "confidence": "official",
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-31",
   "lat": null,
   "lng": null,
   "geoPrecision": "needs-pin"
@@ -54213,49 +54444,6 @@
    "facilityType": "hospital",
    "mophCode": "0114210300023",
    "sector": "state"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "opendata",
-    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
-    "fetched": "2020-03-14",
-    "via": "CITIZENinfo (DGA)",
-    "licence": "CC-BY (data.go.th)",
-    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
-   }
-  ],
-  "confidence": "official",
-  "updatedAt": "2020-03-14"
- },
- {
-  "id": "cm-moph-0114210800027",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "hospital"
-  ],
-  "name": "กรมสุขภาพจิต โรงพยาบาลสวนปรุง",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.78073966925075,
-  "lng": 98.97915333509445,
-  "geoPrecision": "exact",
-  "address": "ตำบลหายยา อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่ 50100",
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "facilityType": "hospital",
-   "mophCode": "0114210800027",
-   "sector": "state",
-   "specialty": [
-    "psych"
-   ],
-   "specialtyVia": "name"
   },
   "featured": false,
   "landmark": false,
@@ -160509,7 +160697,7 @@
   "id": "cm-osm-node-10067776661",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -166088,7 +166276,8 @@
    "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
-    "open24": "osm-tag"
+    "open24": "osm-tag",
+    "slurpee": "osm-tag"
    }
   },
   "featured": false,
@@ -168252,7 +168441,9 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "https://www.mapillary.com/app/?pKey=924182918736053"
+   "osmSource": "https://www.mapillary.com/app/?pKey=924182918736053",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
   },
   "featured": false,
   "landmark": false,
@@ -170288,6 +170479,7 @@
    ],
    "brand": "7-Eleven",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -170647,7 +170839,7 @@
   "id": "cm-osm-node-10799568505",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -170792,7 +170984,7 @@
   "id": "cm-osm-node-10801488605",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -170825,7 +171017,7 @@
   "id": "cm-osm-node-10801495606",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -172199,10 +172391,10 @@
   "id": "cm-osm-node-11015761268",
   "province": "cm",
   "cat": [
-   "community"
+   "medical"
   ],
   "sub": [
-   "volunteer"
+   "long-care"
   ],
   "name": "ศูนย์ดูแลผู้ป่วยและผู้สูงอายุ ธนรัฎ เฮลท์แคร์",
   "nameTh": null,
@@ -172220,6 +172412,7 @@
    "postcode": "50220",
    "wheelchair": "yes",
    "city": "ตลาดขวัญ",
+   "facilityType": "long-care",
    "operator": "ธนรัฎ เฮลท์แคร์"
   },
   "featured": false,
@@ -173581,7 +173774,10 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -174872,10 +175068,19 @@
     "ref": "node/11226861564",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "curated",
+    "ref": "osm name: ศาลเจ้าพ่อหลักเมืองแจ่งกระต๊ำ",
+    "fetched": "2026-08-27",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "crawled",
-  "updatedAt": "2026-07-27"
+  "updatedAt": "2026-07-27",
+  "sub": [
+   "shrine"
+  ]
  },
  {
   "id": "cm-osm-node-11227905197",
@@ -176030,7 +176235,7 @@
   "id": "cm-osm-node-11250853010",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -179546,7 +179751,10 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -181881,7 +182089,7 @@
   "id": "cm-osm-node-11533438001",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -182272,6 +182480,8 @@
   "hours": "24/7",
   "attrs": {
    "level": "0",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "facets": {
     "toilet": "osm-near",
     "open24": "osm-tag"
@@ -182391,6 +182601,7 @@
    "brand": "7-Eleven",
    "facets": {
     "toilet": "osm-near",
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -182656,7 +182867,10 @@
   "hours": null,
   "attrs": {
    "brand": "Tiger Mart",
-   "brandWikidata": "Q57643977"
+   "brandWikidata": "Q57643977",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -184607,7 +184821,8 @@
   "hours": null,
   "attrs": {
    "facets": {
-    "atm": "osm-near"
+    "atm": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -184889,7 +185104,10 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWikidata": "Q259340"
+   "brandWikidata": "Q259340",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -186407,7 +186625,7 @@
   "id": "cm-osm-node-11915089171",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -186457,7 +186675,8 @@
   "hours": null,
   "attrs": {
    "facets": {
-    "toilet": "osm-near"
+    "toilet": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -188190,7 +188409,10 @@
   "website": null,
   "hours": "24/7",
   "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -189427,7 +189649,7 @@
   "id": "cm-osm-node-12311208026",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -189950,7 +190172,10 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWikidata": "Q259340"
+   "brandWikidata": "Q259340",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -189969,7 +190194,7 @@
   "id": "cm-osm-node-12348261959",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -191969,6 +192194,8 @@
   "website": null,
   "hours": null,
   "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "facets": {
     "atm": "osm-near"
    }
@@ -192531,7 +192758,7 @@
   "id": "cm-osm-node-12520810901",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -192922,7 +193149,7 @@
   "id": "cm-osm-node-12530836201",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -192990,7 +193217,7 @@
   "id": "cm-osm-node-12543091903",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -193023,7 +193250,7 @@
   "id": "cm-osm-node-12543091904",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -193225,7 +193452,7 @@
   "id": "cm-osm-node-12543092102",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -193423,7 +193650,7 @@
   "id": "cm-osm-node-12543092202",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -193497,7 +193724,7 @@
   "id": "cm-osm-node-12543092301",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -193530,7 +193757,7 @@
   "id": "cm-osm-node-12543092302",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -195329,7 +195556,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "postcode": "50230"
+   "postcode": "50230",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -199040,6 +199270,7 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -200305,7 +200536,7 @@
   "id": "cm-osm-node-13116075801",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -200959,7 +201190,7 @@
   "id": "cm-osm-node-13185778901",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -200992,7 +201223,7 @@
   "id": "cm-osm-node-13185779001",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -202067,7 +202298,7 @@
   "id": "cm-osm-node-13253265273",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -202645,7 +202876,8 @@
    "street": "ถนนเชียงใหม่-ลำพูน",
    "postcode": "50000",
    "facets": {
-    "atm": "osm-near"
+    "atm": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -203737,7 +203969,7 @@
   "id": "cm-osm-node-13322176959",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -204682,7 +204914,7 @@
   "id": "cm-osm-node-13367335901",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -204924,7 +205156,7 @@
   "id": "cm-osm-node-13388087101",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -206286,7 +206518,7 @@
   "id": "cm-osm-node-13428443752",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -206319,7 +206551,7 @@
   "id": "cm-osm-node-13428443753",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -206458,7 +206690,7 @@
   "id": "cm-osm-node-13429913201",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -206527,7 +206759,7 @@
   "id": "cm-osm-node-13434351922",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -207112,7 +207344,10 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -207889,7 +208124,10 @@
    ],
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
-   "brandWikidata": "Q259340"
+   "brandWikidata": "Q259340",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -208102,7 +208340,10 @@
     "debit": "yes"
    },
    "brand": "7-Eleven",
-   "brandWikidata": "Q259340"
+   "brandWikidata": "Q259340",
+   "facets": {
+    "card": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -208674,7 +208915,10 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -208793,6 +209037,7 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -213245,7 +213490,7 @@
   "province": "cm",
   "cat": [
    "food",
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym",
@@ -214575,7 +214820,7 @@
   "id": "cm-osm-node-13990142167",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -221035,7 +221280,8 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
-    "atm": "osm-near"
+    "atm": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -223044,6 +223290,7 @@
    "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -226952,7 +227199,8 @@
   "hours": null,
   "attrs": {
    "facets": {
-    "atm": "osm-near"
+    "atm": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -229440,6 +229688,7 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -229485,6 +229734,7 @@
    "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -239505,7 +239755,8 @@
    "brand": "Jiffy",
    "brandWikidata": "Q16770436",
    "facets": {
-    "toilet": "osm-near"
+    "toilet": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -254792,7 +255043,7 @@
   "id": "cm-osm-node-2632210802",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -257642,6 +257893,7 @@
   "attrs": {
    "facets": {
     "toilet": "osm-near",
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -262607,7 +262859,8 @@
   "hours": null,
   "attrs": {
    "facets": {
-    "toilet": "osm-near"
+    "toilet": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -265514,7 +265767,8 @@
    "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
-    "open24": "osm-tag"
+    "open24": "osm-tag",
+    "card": "osm-tag"
    }
   },
   "featured": false,
@@ -269794,7 +270048,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "GPS"
+   "osmSource": "GPS",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -271588,7 +271845,11 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "facilityType": "hospital"
+   "facilityType": "hospital",
+   "specialty": [
+    "addiction"
+   ],
+   "specialtyVia": "name"
   },
   "featured": false,
   "landmark": false,
@@ -272311,7 +272572,7 @@
   "id": "cm-osm-node-3168260767",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -272347,7 +272608,7 @@
   "id": "cm-osm-node-3168268450",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -277852,7 +278113,7 @@
   "id": "cm-osm-node-3283544623",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -281197,6 +281458,7 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -282933,7 +283195,7 @@
   "id": "cm-osm-node-3304475321",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -285205,7 +285467,7 @@
   "id": "cm-osm-node-3316431815",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -285913,7 +286175,8 @@
   "attrs": {
    "brand": "Jiffy",
    "facets": {
-    "toilet": "osm-near"
+    "toilet": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -292282,7 +292545,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "atstation": "osm-near"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -299731,7 +299998,7 @@
   "id": "cm-osm-node-3416985808",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -303371,7 +303638,7 @@
   "id": "cm-osm-node-3419871302",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -319863,6 +320130,7 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -323914,7 +324182,7 @@
   "id": "cm-osm-node-4301381598",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -324449,7 +324717,7 @@
   "id": "cm-osm-node-4333483391",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -327182,7 +327450,7 @@
   "id": "cm-osm-node-4359143768",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -328517,7 +328785,7 @@
   "id": "cm-osm-node-4360103857",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -329293,7 +329561,9 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "local_knowledge"
+   "osmSource": "local_knowledge",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
   },
   "featured": false,
   "landmark": false,
@@ -330228,7 +330498,7 @@
   "id": "cm-osm-node-4407670289",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -331355,6 +331625,8 @@
   "website": null,
   "hours": null,
   "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "facets": {
     "atm": "osm-near"
    }
@@ -332816,6 +333088,10 @@
     "cash": "yes",
     "credit": "yes",
     "debit": "yes"
+   },
+   "facets": {
+    "atstation": "osm-near",
+    "card": "osm-tag"
    }
   },
   "featured": false,
@@ -332852,7 +333128,10 @@
   "hours": null,
   "attrs": {
    "brand": "Tiger Mart",
-   "brandWikidata": "Q57643977"
+   "brandWikidata": "Q57643977",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -335538,6 +335817,8 @@
   "website": null,
   "hours": "24/7",
   "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "facets": {
     "open24": "osm-tag"
    }
@@ -340933,7 +341214,7 @@
   "id": "cm-osm-node-4548468066",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -343709,6 +343990,7 @@
    "street": "ถนนมหิดล",
    "facets": {
     "toilet": "osm-near",
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -344460,6 +344742,7 @@
   "attrs": {
    "brand": "7-Eleven",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -344612,7 +344895,7 @@
   "id": "cm-osm-node-4591765591",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -348462,7 +348745,7 @@
   "id": "cm-osm-node-4617577292",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -350757,7 +351040,7 @@
   "id": "cm-osm-node-4680102955",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -350790,7 +351073,7 @@
   "id": "cm-osm-node-4680102956",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -352225,7 +352508,7 @@
   "id": "cm-osm-node-4696405889",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -357659,8 +357942,8 @@
   "id": "cm-osm-node-4856648622",
   "province": "cm",
   "cat": [
-   "learn",
-   "muaythai"
+   "muaythai",
+   "sport"
   ],
   "sub": [
    "camp",
@@ -359443,6 +359726,8 @@
   "website": null,
   "hours": null,
   "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "facets": {
     "atm": "osm-near"
    }
@@ -359812,7 +360097,7 @@
   "id": "cm-osm-node-4880216347",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -360767,7 +361052,7 @@
   "id": "cm-osm-node-4932233521",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -361595,7 +361880,7 @@
   "id": "cm-osm-node-5009181282",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -362173,7 +362458,7 @@
   "id": "cm-osm-node-5038026622",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -362206,7 +362491,7 @@
   "id": "cm-osm-node-5038027221",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -368908,7 +369193,10 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -369654,7 +369942,7 @@
   "id": "cm-osm-node-5336756048",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -369705,7 +369993,11 @@
   "attrs": {
    "facilityType": "clinic",
    "obgyn": null,
-   "operator": null
+   "operator": null,
+   "specialty": [
+    "addiction"
+   ],
+   "specialtyVia": "name"
   },
   "featured": false,
   "landmark": false,
@@ -370588,7 +370880,10 @@
    "altNames": [
     "7-11"
    ],
-   "brand": "7-Eleven"
+   "brand": "7-Eleven",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -373230,7 +373525,8 @@
    "brand": "7-Eleven",
    "brandWikidata": "Q259340",
    "facets": {
-    "toilet": "osm-near"
+    "toilet": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -376756,7 +377052,7 @@
   "id": "cm-osm-node-5639983125",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -380862,6 +381158,8 @@
   "website": null,
   "hours": "24/7",
   "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "facets": {
     "open24": "osm-tag"
    }
@@ -383412,7 +383710,10 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -383601,8 +383902,8 @@
   "id": "cm-osm-node-6110434687",
   "province": "cm",
   "cat": [
-   "learn",
-   "muaythai"
+   "muaythai",
+   "sport"
   ],
   "sub": [
    "camp",
@@ -383850,7 +384151,8 @@
    "facets": {
     "atm": "osm-near",
     "aircon": "osm-tag",
-    "wheelchair": "osm-tag"
+    "wheelchair": "osm-tag",
+    "card": "osm-tag"
    }
   },
   "featured": false,
@@ -384367,7 +384669,7 @@
   "id": "cm-osm-node-6142715340",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -385809,10 +386111,19 @@
     "ref": "node/6180384686",
     "fetched": "2026-08-08",
     "via": "place_of_worship with name:en 'King Naresuan Maharaj Shrine' only; Thai name is the same dedication in standard form, village from Nominatim reverse lookup"
+   },
+   {
+    "type": "curated",
+    "ref": "osm name: ศาลสมเด็จพระนเรศวรมหาราช บ้านร่มไทย",
+    "fetched": "2026-08-27",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "curated",
-  "updatedAt": "2026-08-08"
+  "updatedAt": "2026-08-08",
+  "sub": [
+   "shrine"
+  ]
  },
  {
   "id": "cm-osm-node-6180577690",
@@ -388556,7 +388867,7 @@
   "id": "cm-osm-node-6251318200",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -388746,7 +389057,10 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -389074,6 +389388,8 @@
   "hours": "24/7",
   "attrs": {
    "checkedOn": "2024-04-10",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "facets": {
     "atm": "osm-near",
     "open24": "osm-tag"
@@ -390900,7 +391216,7 @@
   "id": "cm-osm-node-6341126186",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -391143,7 +391459,7 @@
   "id": "cm-osm-node-6349335085",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -392230,10 +392546,19 @@
     "ref": "node/6364376085",
     "fetched": "2026-07-21",
     "via": "mueang-map"
+   },
+   {
+    "type": "curated",
+    "ref": "osm name: Ganesha Shrine",
+    "fetched": "2026-08-27",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "crawled",
-  "updatedAt": "2026-07-27"
+  "updatedAt": "2026-07-27",
+  "sub": [
+   "shrine"
+  ]
  },
  {
   "id": "cm-osm-node-6369674085",
@@ -393257,7 +393582,7 @@
   "id": "cm-osm-node-6465929626",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -399301,10 +399626,12 @@
   "id": "cm-osm-node-6726115189",
   "province": "cm",
   "cat": [
-   "sights"
+   "sights",
+   "wat"
   ],
   "sub": [
-   "historic"
+   "historic",
+   "shrine"
   ],
   "name": "หอพญามังราย",
   "nameTh": "หอพญามังราย",
@@ -399336,6 +399663,12 @@
     "ref": "https://th.wikipedia.org/wiki/พญามังราย",
     "fetched": "2026-08-08",
     "via": "สวรรคต section: struck by lightning mid-city, พ.ศ. 1854; the Yonok chronicle tradition gives พ.ศ. 1860 — blurb states the range rather than picking a winner"
+   },
+   {
+    "type": "curated",
+    "ref": "osm name: หอพญามังราย",
+    "fetched": "2026-08-27",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "curated",
@@ -400220,7 +400553,7 @@
   "id": "cm-osm-node-6780130285",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -405548,6 +405881,8 @@
   "hours": null,
   "attrs": {
    "osmSource": "https://www.mapillary.com/map/im/FoM_zsMmIpd4RiPzdId3Qw",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "facets": {
     "atm": "osm-near"
    }
@@ -405944,7 +406279,11 @@
    "facets": {
     "open24": "osm-tag",
     "openlate": "osm-tag"
-   }
+   },
+   "specialty": [
+    "addiction"
+   ],
+   "specialtyVia": "name"
   },
   "featured": false,
   "landmark": false,
@@ -405954,47 +406293,18 @@
     "ref": "node/7053637677",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
-  "id": "cm-osm-node-7053774548",
-  "province": "cm",
-  "cat": [
-   "medical"
-  ],
-  "sub": [
-   "clinic"
-  ],
-  "name": "The River Rehab",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.8186898,
-  "lng": 98.999663,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": "+66 95 687 1017",
-  "website": "https://theriverrehab.com",
-  "hours": "24/7",
-  "attrs": {
-   "facilityType": "clinic",
-   "obgyn": null,
-   "operator": null,
-   "facets": {
-    "open24": "osm-tag",
-    "openlate": "osm-tag"
-   }
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
+   },
    {
     "type": "osm",
     "ref": "node/7053774548",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-osm-node-7053774548",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -406755,8 +407065,8 @@
   "id": "cm-osm-node-7062102385",
   "province": "cm",
   "cat": [
-   "learn",
-   "muaythai"
+   "muaythai",
+   "sport"
   ],
   "sub": [
    "camp",
@@ -408143,7 +408453,7 @@
   "id": "cm-osm-node-7121412085",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -410377,7 +410687,10 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -410577,7 +410890,7 @@
   "id": "cm-osm-node-7227798385",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -411293,7 +411606,8 @@
    "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
-    "open24": "osm-tag"
+    "open24": "osm-tag",
+    "slurpee": "osm-tag"
    }
   },
   "featured": false,
@@ -411580,7 +411894,8 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
-    "atm": "osm-near"
+    "atm": "osm-near",
+    "card": "osm-tag"
    }
   },
   "featured": false,
@@ -411616,7 +411931,10 @@
   "website": null,
   "hours": "Mo-Su 06:00-00:00",
   "attrs": {
-   "operator": "Tesco Lotus"
+   "operator": "Tesco Lotus",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -415945,7 +416263,9 @@
   "attrs": {
    "altNames": [
     "7-11"
-   ]
+   ],
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
   },
   "featured": false,
   "landmark": false,
@@ -422149,6 +422469,7 @@
    "facets": {
     "atm": "osm-near",
     "toilet": "osm-near",
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -428149,8 +428470,11 @@
   "website": null,
   "hours": null,
   "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "facets": {
-    "atm": "osm-near"
+    "atm": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -428522,7 +428846,10 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -429813,8 +430140,8 @@
   "id": "cm-osm-node-9331216417",
   "province": "cm",
   "cat": [
-   "learn",
-   "muaythai"
+   "muaythai",
+   "sport"
   ],
   "sub": [
    "camp",
@@ -432220,6 +432547,7 @@
    ],
    "brand": "7-Eleven",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -432256,7 +432584,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "brand": "Fresh Mart"
+   "brand": "Fresh Mart",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -438715,7 +439046,7 @@
   "id": "cm-osm-relation-9250994",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -439492,7 +439823,10 @@
   "attrs": {
    "osmSource": "Bing",
    "brand": "7-Eleven",
-   "brandWikidata": "Q259340"
+   "brandWikidata": "Q259340",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -440333,7 +440667,10 @@
    ],
    "brand": "7-Eleven",
    "brandWebsite": "http://www.7eleven.co.th/",
-   "brandWikidata": "Q259340"
+   "brandWikidata": "Q259340",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -440555,7 +440892,9 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "Bing"
+   "osmSource": "Bing",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
   },
   "featured": false,
   "landmark": false,
@@ -440590,7 +440929,9 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "Bing"
+   "osmSource": "Bing",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
   },
   "featured": false,
   "landmark": false,
@@ -440789,7 +441130,9 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "Bing"
+   "osmSource": "Bing",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
   },
   "featured": false,
   "landmark": false,
@@ -441331,7 +441674,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "Bing"
+   "osmSource": "Bing",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -441998,8 +442344,11 @@
   "attrs": {
    "houseNumber": "129/6",
    "osmSource": "Bing",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "facets": {
     "atm": "osm-near",
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -443146,7 +443495,11 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facets": {
+    "atstation": "osm-near"
+   }
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -445352,7 +445705,7 @@
   "id": "cm-osm-way-1106554068",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -445419,7 +445772,8 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
-    "open24": "osm-tag"
+    "open24": "osm-tag",
+    "card": "osm-tag"
    }
   },
   "featured": false,
@@ -446474,8 +446828,8 @@
   "id": "cm-osm-way-1113305906",
   "province": "cm",
   "cat": [
-   "learn",
-   "muaythai"
+   "muaythai",
+   "sport"
   ],
   "sub": [
    "camp",
@@ -447215,7 +447569,7 @@
   "id": "cm-osm-way-1118511457",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -447383,6 +447737,8 @@
    "altNames": [
     "7-11"
    ],
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "operator": "Seven & I Holdings"
   },
   "featured": false,
@@ -447422,6 +447778,7 @@
    "brand": "Lotus's go fresh",
    "brandWikidata": "Q125937967",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -449759,7 +450116,7 @@
   "id": "cm-osm-way-1159988644",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -451343,21 +451700,23 @@
   "lat": 18.7794057,
   "lng": 98.9791541,
   "geoPrecision": "exact",
-  "address": null,
+  "address": "ตำบลหายยา อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่ 50100",
   "phone": null,
   "website": null,
   "hours": null,
   "attrs": {
    "facilityType": "hospital",
+   "mophCode": "0114210800027",
+   "sector": "state",
+   "specialty": [
+    "psych"
+   ],
+   "specialtyVia": "osm-tag",
    "obgyn": null,
    "operator": null,
    "namesOther": {
     "ja": "スアンプルン精神科病院"
-   },
-   "specialty": [
-    "psych"
-   ],
-   "specialtyVia": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -451367,6 +451726,20 @@
     "ref": "way/1212478397",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "opendata",
+    "ref": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+    "fetched": "2020-03-14",
+    "via": "CITIZENinfo (DGA)",
+    "licence": "CC-BY (data.go.th)",
+    "credit": "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-moph-0114210800027",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -452158,10 +452531,10 @@
   "id": "cm-osm-way-1234258607",
   "province": "cm",
   "cat": [
-   "community"
+   "medical"
   ],
   "sub": [
-   "volunteer"
+   "long-care"
   ],
   "name": "พีดีเนอร์สซิ่งโฮม ดูแลผู้สูงอายุ",
   "nameTh": null,
@@ -452173,7 +452546,14 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "osmSource": "Bing",
+   "facilityType": "long-care",
+   "specialty": [
+    "geriatric"
+   ],
+   "specialtyVia": "name"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -452182,6 +452562,18 @@
     "ref": "way/1234258607",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "osm",
+    "ref": "way/383587809",
+    "fetched": "2026-07-27",
+    "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "merged duplicate cm-osm-way-383587809",
+    "fetched": "",
+    "via": "data/curated/merges.json"
    }
   ],
   "confidence": "crawled",
@@ -453811,7 +454203,10 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -455488,7 +455883,10 @@
   "hours": null,
   "attrs": {
    "brand": "7-Eleven",
-   "brandWikidata": "Q259340"
+   "brandWikidata": "Q259340",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -457509,7 +457907,7 @@
   "id": "cm-osm-way-1414752785",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -457786,7 +458184,7 @@
   "id": "cm-osm-way-1420846456",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -462771,7 +463169,7 @@
   "id": "cm-osm-way-1539368877",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -464254,7 +464652,10 @@
    "street": "ถนนห้วยแก้ว",
    "postcode": "50200",
    "city": "Chiang Mai",
-   "osmSource": "Bing;osm notes;gps"
+   "osmSource": "Bing;osm notes;gps",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -465693,7 +466094,7 @@
   "id": "cm-osm-way-202149024",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -468875,7 +469276,7 @@
   "id": "cm-osm-way-237479465",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -469737,7 +470138,7 @@
   "id": "cm-osm-way-241437803",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -469865,7 +470266,8 @@
    "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
-    "toilet": "osm-near"
+    "toilet": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -470915,10 +471317,10 @@
   "id": "cm-osm-way-243415943",
   "province": "cm",
   "cat": [
-   "community"
+   "medical"
   ],
   "sub": [
-   "volunteer"
+   "long-care"
   ],
   "name": "ศูนย์ฟื้นฟูสมรรถภาพ",
   "nameTh": "ศูนย์ฟื้นฟูสมรรถภาพ",
@@ -470930,7 +471332,13 @@
   "phone": null,
   "website": null,
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facilityType": "long-care",
+   "specialty": [
+    "physio"
+   ],
+   "specialtyVia": "name"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -476429,7 +476837,7 @@
   "id": "cm-osm-way-264910429",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -477018,7 +477426,7 @@
   "id": "cm-osm-way-272383284",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -478509,6 +478917,7 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -482386,7 +482795,7 @@
   "id": "cm-osm-way-313513917",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -482455,7 +482864,7 @@
   "id": "cm-osm-way-313552110",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -484778,7 +485187,10 @@
    "brandTh": "จิฟฟี่",
    "brandEn": "Jiffy",
    "brand": "Jiffy",
-   "brandWikidata": "Q16770436"
+   "brandWikidata": "Q16770436",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -484986,7 +485398,7 @@
   "id": "cm-osm-way-317894479",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -489001,7 +489413,10 @@
   "attrs": {
    "osmSource": "Bing",
    "brand": "7-Eleven",
-   "brandWikidata": "Q259340"
+   "brandWikidata": "Q259340",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -491571,7 +491986,7 @@
   "id": "cm-osm-way-341730386",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -491848,6 +492263,7 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -494342,6 +494758,7 @@
    "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -494395,7 +494812,7 @@
   "id": "cm-osm-way-367745511",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -495014,10 +495431,10 @@
   "id": "cm-osm-way-373874038",
   "province": "cm",
   "cat": [
-   "community"
+   "medical"
   ],
   "sub": [
-   "volunteer"
+   "long-care"
   ],
   "name": "Dok Kaew Gardens",
   "nameTh": null,
@@ -495031,6 +495448,7 @@
   "hours": null,
   "attrs": {
    "osmSource": "Bing",
+   "facilityType": "long-care",
    "operator": "McKean Rehabiltation Center"
   },
   "featured": false,
@@ -496709,41 +497127,6 @@
   "updatedAt": "2026-07-27"
  },
  {
-  "id": "cm-osm-way-383587809",
-  "province": "cm",
-  "cat": [
-   "community"
-  ],
-  "sub": [
-   "volunteer"
-  ],
-  "name": "P.D. Nursing Home",
-  "nameTh": null,
-  "nameEn": null,
-  "lat": 18.7253266,
-  "lng": 99.0280214,
-  "geoPrecision": "exact",
-  "address": null,
-  "phone": null,
-  "website": null,
-  "hours": null,
-  "attrs": {
-   "osmSource": "Bing"
-  },
-  "featured": false,
-  "landmark": false,
-  "sources": [
-   {
-    "type": "osm",
-    "ref": "way/383587809",
-    "fetched": "2026-07-27",
-    "via": "mot-dang overpass"
-   }
-  ],
-  "confidence": "crawled",
-  "updatedAt": "2026-07-27"
- },
- {
   "id": "cm-osm-way-383587811",
   "province": "cm",
   "cat": [
@@ -497078,7 +497461,8 @@
    },
    "facets": {
     "atm": "osm-near",
-    "toilet": "osm-near"
+    "toilet": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -497098,10 +497482,12 @@
   "id": "cm-osm-way-38487629",
   "province": "cm",
   "cat": [
-   "sights"
+   "sights",
+   "wat"
   ],
   "sub": [
-   "historic"
+   "historic",
+   "shrine"
   ],
   "name": "Kuan Imm Palace",
   "nameTh": null,
@@ -497122,6 +497508,12 @@
     "ref": "way/38487629",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "osm historic=wayside_shrine (way/38487629)",
+    "fetched": "2026-08-27",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "crawled",
@@ -499685,7 +500077,7 @@
   "id": "cm-osm-way-396336492",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -501017,7 +501409,7 @@
   "id": "cm-osm-way-406416411",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -501985,7 +502377,7 @@
   "id": "cm-osm-way-407112222",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -503963,7 +504355,10 @@
   "attrs": {
    "osmSource": "Bing",
    "brand": "7-Eleven",
-   "brandWikidata": "Q259340"
+   "brandWikidata": "Q259340",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -505233,7 +505628,11 @@
   "attrs": {
    "facilityType": "hospital",
    "obgyn": null,
-   "operator": null
+   "operator": null,
+   "specialty": [
+    "geriatric"
+   ],
+   "specialtyVia": "name"
   },
   "featured": false,
   "landmark": false,
@@ -506257,6 +506656,9 @@
    "osmSource": "Bing",
    "namesOther": {
     "zh": "Big C超市"
+   },
+   "facets": {
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -506827,7 +507229,7 @@
   "id": "cm-osm-way-448275553",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -508554,7 +508956,7 @@
   "id": "cm-osm-way-474173674",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -510967,7 +511369,7 @@
   "id": "cm-osm-way-488582156",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -512960,8 +513362,8 @@
   "id": "cm-osm-way-523154439",
   "province": "cm",
   "cat": [
-   "learn",
-   "muaythai"
+   "muaythai",
+   "sport"
   ],
   "sub": [
    "camp",
@@ -513280,7 +513682,10 @@
     "credit": "yes"
    },
    "brand": "Big C Mini",
-   "brandWikidata": "Q858665"
+   "brandWikidata": "Q858665",
+   "facets": {
+    "card": "osm-tag"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -513474,7 +513879,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "Bing"
+   "osmSource": "Bing",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -513709,6 +514117,10 @@
     "cash": "yes",
     "credit": "yes",
     "debit": "yes"
+   },
+   "facets": {
+    "atstation": "osm-near",
+    "card": "osm-tag"
    }
   },
   "featured": false,
@@ -515963,10 +516375,10 @@
   "id": "cm-osm-way-542929587",
   "province": "cm",
   "cat": [
-   "community"
+   "medical"
   ],
   "sub": [
-   "volunteer"
+   "long-care"
   ],
   "name": "The Cabin",
   "nameTh": null,
@@ -515978,7 +516390,9 @@
   "phone": null,
   "website": "https://www.thecabinchiangmai.com/",
   "hours": null,
-  "attrs": {},
+  "attrs": {
+   "facilityType": "long-care"
+  },
   "featured": false,
   "landmark": false,
   "sources": [
@@ -516268,7 +516682,8 @@
    "brand": "7-Eleven",
    "brandWikidata": "Q259340",
    "facets": {
-    "toilet": "osm-near"
+    "toilet": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -516589,7 +517004,8 @@
    },
    "facets": {
     "open24": "osm-tag",
-    "aircon": "osm-tag"
+    "aircon": "osm-tag",
+    "card": "osm-tag"
    }
   },
   "featured": false,
@@ -516645,7 +517061,7 @@
   "id": "cm-osm-way-544954946",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -517664,7 +518080,10 @@
   "attrs": {
    "osmSource": "DigitalGlobe-Standard",
    "brand": "7-Eleven",
-   "brandWikidata": "Q259340"
+   "brandWikidata": "Q259340",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -518494,6 +518913,7 @@
    "brandWikidata": "Q259340",
    "facets": {
     "toilet": "osm-near",
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -518611,7 +519031,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "DigitalGlobe-Standard"
+   "osmSource": "DigitalGlobe-Standard",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -521701,7 +522124,8 @@
    "osmSource": "DigitalGlobe-Standard",
    "brand": "Jiffy",
    "facets": {
-    "toilet": "osm-near"
+    "toilet": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -525705,6 +526129,7 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -526231,7 +526656,7 @@
   "id": "cm-osm-way-659294962",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -529213,6 +529638,9 @@
   "attrs": {
    "namesOther": {
     "zh": "Big C超市"
+   },
+   "facets": {
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -529358,7 +529786,8 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
-    "atm": "osm-near"
+    "atm": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -529872,6 +530301,7 @@
    "facets": {
     "atm": "osm-near",
     "toilet": "osm-near",
+    "atstation": "osm-near",
     "open24": "osm-tag",
     "wheelchair": "osm-tag"
    }
@@ -534256,7 +534686,7 @@
   "id": "cm-osm-way-701944389",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -534529,7 +534959,7 @@
   "id": "cm-osm-way-704138132",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -535738,7 +536168,10 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "Bing"
+   "osmSource": "Bing",
+   "facets": {
+    "atstation": "osm-near"
+   }
   },
   "featured": false,
   "landmark": false,
@@ -535822,6 +536255,7 @@
    "brandWebsite": "http://www.7eleven.co.th/",
    "brandWikidata": "Q259340",
    "facets": {
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -536145,6 +536579,7 @@
    "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -536245,7 +536680,7 @@
   "id": "cm-osm-way-742755531",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -536608,6 +537043,7 @@
    "brandWikidata": "Q259340",
    "facets": {
     "atm": "osm-near",
+    "atstation": "osm-near",
     "open24": "osm-tag"
    }
   },
@@ -537166,7 +537602,9 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "Bing"
+   "osmSource": "Bing",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
   },
   "featured": false,
   "landmark": false,
@@ -537278,7 +537716,9 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "Bing"
+   "osmSource": "Bing",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
   },
   "featured": false,
   "landmark": false,
@@ -537637,7 +538077,9 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "GPS"
+   "osmSource": "GPS",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
   },
   "featured": false,
   "landmark": false,
@@ -538946,7 +539388,7 @@
   "id": "cm-osm-way-765950854",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -539319,8 +539761,11 @@
   "hours": null,
   "attrs": {
    "osmSource": "Bing",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name",
    "facets": {
-    "toilet": "osm-near"
+    "toilet": "osm-near",
+    "atstation": "osm-near"
    }
   },
   "featured": false,
@@ -539389,7 +539834,9 @@
   "website": null,
   "hours": null,
   "attrs": {
-   "osmSource": "GPS"
+   "osmSource": "GPS",
+   "brand": "7-Eleven",
+   "brandFrom": "osm-name"
   },
   "featured": false,
   "landmark": false,
@@ -540271,10 +540718,12 @@
   "id": "cm-osm-way-793933943",
   "province": "cm",
   "cat": [
-   "sights"
+   "sights",
+   "wat"
   ],
   "sub": [
-   "historic"
+   "historic",
+   "shrine"
   ],
   "name": "พิฆเนศวรเทวาลัย",
   "nameTh": null,
@@ -540297,6 +540746,12 @@
     "ref": "way/793933943",
     "fetched": "2026-07-27",
     "via": "mot-dang overpass"
+   },
+   {
+    "type": "curated",
+    "ref": "osm historic=wayside_shrine (way/793933943)",
+    "fetched": "2026-08-27",
+    "via": "data/curated/shelves.json"
    }
   ],
   "confidence": "crawled",
@@ -544264,7 +544719,7 @@
   "id": "cm-osm-way-92839161",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -544504,7 +544959,7 @@
   "id": "cm-osm-way-938078035",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -545028,7 +545483,7 @@
   "id": "cm-osm-way-957030359",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -545258,7 +545713,7 @@
   "id": "cm-osm-way-961380714",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"
@@ -546123,7 +546578,7 @@
   "id": "cm-osm-way-97699140",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "gym"

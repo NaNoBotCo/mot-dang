@@ -369,7 +369,7 @@ Rules that bite:
   where publishing is the subject are ones about the walks themselves.
   The question "should this go out?" is answered by the gates, not by asking:
   build succeeds, publish gate passes, route tests pass, no `/Users/` paths,
-  CNAME present, docs/ over 20,000 files. Work that clears those goes out.
+  docs/ over 20,000 files. Work that clears those goes out.
 - To hold the site still — a risky refactor, a half-imported shelf you do not
   want seen — create `cache/walk-rest`. Empty rests until you remove it; an ISO
   timestamp inside rests until then and clears itself. That is the ONLY way to

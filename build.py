@@ -63,7 +63,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
-BUILD_DATE = "2026-08-21"
+BUILD_DATE = "2026-08-31"
 
 # Where the 🎲 chip goes when scripting is off. md.js intercepts the click and
 # rolls fresh each time; this baked pick (seeded by BUILD_DATE, so it rotates
@@ -71,6 +71,62 @@ BUILD_DATE = "2026-08-21"
 # dead "#" that scrolls to the top and calls it a trip. build() fills it in
 # right after load(), before any page is rendered.
 RAND_FALLBACK = "cm/index.html"
+
+# A shelf bigger than this cannot be one page: the cm food index reached
+# 4.2 MB, a minute of download on the connections this site is for, while ten
+# sub-shelves stood built beside it. Past this many rows — and only when the
+# children actually cover ≥90% of the shelf, so nobody's record goes unlisted
+# — the index becomes a hub of its sub-shelves and the full roll moves to
+# all.html, one click deeper, its weight printed on the door.
+# 1,400 (was 2,500 for one build): Nan's numbered go — essentials, medical,
+# school and hotel were 1.5–2.3 MB pages sitting just under the first bar.
+HUB_MAX_ROWS = 1400
+
+# A CHILD past this many rows splits again, along ย่าน — the named parts of
+# town people say out loud (data/curated/zones.json). The road graph was
+# measured first and failed the job: it reaches 52% of the food shelf across
+# ~300 streets holding three places each. Zones are curated boxes (the moat
+# rectangle and its named quarters) and circles (the amphoe seats), each
+# holding a named anchor from our own records; check_zone_anchors refuses the
+# build if an anchor has drifted out of its zone. A record inside no zone
+# lands on the รอบนอก fallback page — "we have not named this zone yet" is a
+# fact, not a failure, the road graph's own rule.
+CHILD_SPLIT_ROWS = 1000
+_zones_path = ROOT / "data" / "curated" / "zones.json"
+ZONES = {k: v for k, v in
+         (json.loads(_zones_path.read_text()) if _zones_path.exists() else {}).items()
+         if not k.startswith("_")}
+
+
+def zone_of(r, prov_key):
+    z = ZONES.get(prov_key)
+    if not z or r.get("lat") is None or r.get("lng") is None:
+        return None
+    la, ln = r["lat"], r["lng"]
+    for b in z["boxes"]:
+        if b["lat"][0] <= la <= b["lat"][1] and b["lng"][0] <= ln <= b["lng"][1]:
+            return b
+    for c in z["circles"]:
+        if math.hypot((la - c["lat"]) * 111.0, (ln - c["lng"]) * 105.0) <= c["r_km"]:
+            return c
+    return None
+
+
+def check_zone_anchors(records, prov_key):
+    """Every zone's anchors must land in that zone, measured against our own
+    records — the moat rectangle proven by วัดพระสิงห์ standing inside it."""
+    z = ZONES.get(prov_key)
+    if not z:
+        return
+    for b in z["boxes"]:
+        for a in b.get("anchors", []):
+            hits = [r for r in records if a in (r.get("name") or "")
+                    and r.get("lat") is not None]
+            if hits and not any((zone_of(r, prov_key) or {}).get("key") == b["key"]
+                                for r in hits):
+                raise SystemExit(
+                    f"zones.json: anchor {a!r} no longer falls in zone "
+                    f"{b['key']!r} — fix the bounds before building")
 
 # The moondial: reuse the real dial art (manuscript-wiki/moondial.py, the same
 # ornate SVG that powers wichaa.net/moon) rather than draw a lesser copy. Pure
@@ -136,7 +192,7 @@ CAT_ICON = {
     "essentials": "i-bank", "hotel": "i-bed", "school-intl": "i-school",
     "market": "i-market", "shopping": "i-gift", "realestate": "i-home2",
     "transport": "i-ride", "repair": "i-tools", "beauty": "i-beauty",
-    "tattoo": "i-ink", "pets": "i-pet", "learn": "i-book", "cannabis": "i-leaf",
+    "tattoo": "i-ink", "pets": "i-pet", "sport": "i-fit", "cannabis": "i-leaf",
     "home-services": "i-broom", "community": "i-people", "business": "i-shop",
     "whats-on": "i-film", "museums-galleries": "i-museum", "parks": "i-park",
     "sights": "i-star", "muaythai": "i-glove", "cooking": "i-khrok",
@@ -331,6 +387,42 @@ def springs_band(cat_key, depth=2):
             + " →</a></p>")
 
 
+def shrines_band(cat_key, depth=2):
+    """One line on the wat shelf pointing at the shrine register (WO-39).
+
+    The shelf lists the sacred places among the temples; the register
+    (/san.html, shrine_layer.py) holds the kinds, the map, the rites and
+    the words. Same reason as the bands above: a reader who reached the
+    วัด-สิ่งศักดิ์สิทธิ์ shelf by the Yahoo row should not have to find the
+    register by luck.
+    """
+    if cat_key != "wat":
+        return ""
+    r = "../" * depth
+    return (f'<p class="mtband"><a href="{r}san.html">🏮 '
+            + bi("ศาล-ศาลเจ้า-หลักเมือง — ทะเบียน แผนที่ และคำที่จะได้เจอ",
+                 "Shrines & city pillars — the register, the map, the words")
+            + " →</a></p>")
+
+
+def doi_band(cat_key, depth=2):
+    """One line on the sights shelf pointing at the land itself.
+
+    The shelf holds the doi, the viewpoints and the waterfalls as rows; the
+    doi page (/doi.html, geography_layer.py, WO-37) holds the ground they
+    stand on — the relief map, the 3D mode, the basin cut open. Same reason
+    as the springs band above it: a reader who reached the shelf by the
+    Yahoo row should not have to find the mountain by luck.
+    """
+    if cat_key != "sights":
+        return ""
+    r = "../" * depth
+    return (f'<p class="mtband"><a href="{r}doi.html">⛰ '
+            + bi("ดอย-แผ่นดิน — แผนที่นูนสามมิติ ภาพตัดแอ่ง และความสูงที่อ่านได้ของทุกหมุด",
+                 "The doi — the land in 3D relief, the basin in cross-section, and a read height at every pin")
+            + " →</a></p>")
+
+
 def cooking_band(cat_key, depth=2):
     """One line on the cooking shelf pointing at the class board.
 
@@ -384,6 +476,25 @@ def trans_health_band(cat_key, depth=2):
     return (f'<p class="mtband"><a href="{r}trans-health.html">⚧ '
             + bi("สุขภาพคนข้ามเพศ — ที่ไหนบอกเองว่าดูแล สิทธิฮอร์โมนยืนยันเพศสภาพ และตรวจใบวุฒิบัตรที่ไหน",
                  "Trans health — which places state this care themselves, the gender-affirming hormone benefit, and where to check a credential")
+            + " →</a></p>")
+
+
+def longcare_band(cat_key, depth=2):
+    """One line on the medical shelf pointing at the long-term-care page.
+
+    Same measured shape of gap as the two bands above (WO-32): across 20,700
+    records not one name says บ้านพักคนชรา, พักฟื้น or detox, and the records
+    that existed stood on the volunteer shelf until the social_facility rule
+    was mended. /longcare.html (longcare_layer.py) keeps the four questions
+    apart — the bed for a parent, the recovery after a hospital, the door out
+    of an addiction, the retirement that is a life — with a grade on every row.
+    """
+    if cat_key != "medical":
+        return ""
+    r = "../" * depth
+    return (f'<p class="mtband"><a href="{r}longcare.html">🛏 '
+            + bi("ดูแลระยะยาว — บ้านพักคนชรา พักฟื้น บำบัด และคำบนป้ายพวกนี้",
+                 "Long-term care — nursing homes, convalescence, addiction medicine, and the words on these doors")
             + " →</a></p>")
 
 
@@ -517,6 +628,18 @@ _health_path = ROOT / "data" / "linkhealth.json"
 _health = json.loads(_health_path.read_text()) if _health_path.exists() else {}
 LINK_HEALTH = _health.get("links", {})
 LINK_HEALTH_DATE = _health.get("generated", "")
+
+# Ground heights at the pins of the peak, viewpoint and waterfall shelves,
+# read from the elevation archive by importers/build_terrain.py (WO-37c) —
+# median of the nine cells around each pin, the model's reading, dated.
+# A mapper's own `ele` on a record is a person's measurement at the spot and
+# outranks this wherever it exists (known_facts renders that precedence).
+# Absence of the file is the usual supported state: no chip, no line, no gap.
+_terrain_h_path = ROOT / "data" / "terrain_heights.json"
+_terrain_h = (json.loads(_terrain_h_path.read_text())
+              if _terrain_h_path.exists() else {})
+TERRAIN_HEIGHTS = _terrain_h.get("heights", {})
+TERRAIN_HEIGHTS_DATE = _terrain_h.get("read", "")
 
 # The claiming layer: an owner enters their own contact facts free at
 # /claim.html, publishing instantly via worker/worker.js (Cloudflare KV, no
@@ -785,6 +908,7 @@ style="position:absolute" xmlns="http://www.w3.org/2000/svg"><defs>
 <g id="i-khrok"><path d="M5.5 10.5h13l-1.6 8.2a2 2 0 0 1-2 1.8H9.1a2 2 0 0 1-2-1.8Z"/><path d="M4.5 10.5h15"/><path d="M10 10.5 15.8 4.7"/><circle cx="16.9" cy="3.6" r="1.6"/></g>
 <g id="i-pet"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="18" cy="9" rx="2" ry="2.6"/><ellipse cx="9.8" cy="5.4" rx="2" ry="2.6"/><ellipse cx="14.2" cy="5.4" rx="2" ry="2.6"/><path d="M12 12c3 0 5 2.2 5 4.6 0 2-1.6 3.4-3.4 3.4-.9 0-1.2-.4-1.6-.4s-.7.4-1.6.4C8.6 20 7 18.6 7 16.6 7 14.2 9 12 12 12Z"/></g>
 <g id="i-book"><path d="M12 6.5C10 4.8 7.5 4.2 4 4.5v13c3.5-.3 6 .3 8 2 2-1.7 4.5-2.3 8-2v-13c-3.5-.3-6 .3-8 2Z"/><path d="M12 6.5v13"/></g>
+<g id="i-fit"><path d="M7 8.5v7M17 8.5v7M4 10v4M20 10v4M7 12h10"/></g>
 <g id="i-broom"><path d="M14.5 3 10 12"/><path d="M6 21c-1.4-2.9.4-6 3.4-7.5s6.4-1.4 8.1 1.4c-2 2-4 3.1-6 3.6S8 20.4 6 21Z"/><path d="M11.8 13.6 9.4 19M14.6 14.2 12.6 19.8"/></g>
 <g id="i-people"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20.5a5.5 5.5 0 0 1 11 0"/><circle cx="17.2" cy="9.6" r="2.5"/><path d="M15 15.6a4.9 4.9 0 0 1 6.5 4.9"/></g>
 <g id="i-shop"><rect x="2.5" y="7.5" width="19" height="12.5" rx="2"/><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"/><path d="M2.5 13h19"/></g>
@@ -935,7 +1059,7 @@ SCHEMA_TYPE = {
     "essentials": "LocalBusiness", "school-intl": "School", "market": "LocalBusiness",
     "shopping": "Store", "realestate": "RealEstateAgent", "transport": "LocalBusiness",
     "repair": "LocalBusiness", "beauty": "HealthAndBeautyBusiness", "pets": "LocalBusiness",
-    "learn": "EducationalOrganization", "museums-galleries": "TouristAttraction",
+    "sport": "SportsActivityLocation", "museums-galleries": "TouristAttraction",
     "sights": "TouristAttraction", "whats-on": "EntertainmentBusiness",
     "home-services": "LocalBusiness", "community": "Organization", "business": "LocalBusiness",
     # schema.org has no cannabis type and inventing one helps nobody. A
@@ -1137,10 +1261,17 @@ CSS = """
    red like everything else; this is a directory, and which shelves you have
    already opened is information the reader is owed. */
 :root{--paper:#faf5ea;--ink:#2a1e16;--ant:#c13a2e;--ant-dark:#8f2a21;
---link:#14479b;--visited:#6B3FA0;--soft:#e3d5bc;--mute:#a08b6c;
+--link:#14479b;--visited:#6B3FA0;--soft:#e3d5bc;--mute:#7d6b51;
 --day:#c13a2e;
---card:#fffdf7;--card-alt:#f8f0dd;--ink-soft:#544636;--gloss:#8a755b;
+--card:#fffdf7;--card-alt:#f8f0dd;--ink-soft:#544636;--gloss:#685845;
 --gold:#c08a2d;--gold-light:#f3c34b;--gold-pale:#f9e2a4;
+/* --gold is the BEAD colour: rules, borders, the dot after a band label,
+   the watermark on the dark card. At 2.8:1 on the paper it was never a
+   text colour, and it was being used as one — the hero's hello line and
+   the counts on the nine doors and the care shelf. --gold-ink is the same
+   38-degree hue carried down to 4.5:1 on every light surface, so gold can
+   go on saying gold where it decorates and still be read where it speaks. */
+--gold-ink:#8e6621;
 --marigold-a:#f9dc93;--marigold-b:#f3c34b;--marigold-ink:#6d5411;
 --jade-a:#cfe3d2;--jade-b:#b8d4bd;--jade-ink:#26402c;--jade:#1f6b57;
 --warm-border:#e3d5bc;--dashed:#c4b28d;--row-hover:#fcf3dc;
@@ -1198,6 +1329,12 @@ border:1px solid var(--warm-border);border-radius:999px;
 padding:.02rem .42rem;margin-left:.35rem;white-space:nowrap;
 vertical-align:.08rem;background:var(--card)}
 ul.dir.ranked .antchip{display:inline-block}
+/* The metres beside a doi's name (WO-37c). Same quiet pill as the ant chip
+   but always visible: metres are a measurement, not a score, so there is no
+   sort to wait for. Data-scoped — only rows the terrain file names wear it. */
+.elechip{font-size:.7rem;color:var(--mute);border:1px solid var(--warm-border);
+border-radius:999px;padding:.02rem .42rem;margin-left:.35rem;
+white-space:nowrap;vertical-align:.08rem;background:var(--card)}
 .antchip[data-r="8"],.antchip[data-r="9"]{color:var(--marigold-ink);
 border-color:var(--gold-light);background:var(--gold-pale)}
 .antchip[data-r="0"],.antchip[data-r="1"]{border-style:dashed}
@@ -1340,6 +1477,12 @@ font-weight:700;padding:.05rem .42rem;margin-left:-.1rem}
 .subshelf{background:#fff;border:1px solid var(--soft);border-radius:.7rem;
 padding:.6rem 1rem;margin:.6rem 0 1rem}
 .subshelf b a{font-weight:700}
+/* The hub shelf: when a category outgrows one page, the index becomes its
+   children — a line each, count in parens, three doors as a taste. */
+.hubkids li{padding:.45rem .1rem;border-bottom:1px dashed var(--soft)}
+.hubkids b a{font-weight:700;font-size:1.05rem}
+.hubkids .eg{color:var(--mute);font-size:.9em}
+.hubkids .eg a{color:var(--ant-dark)}
 .toolbar{display:flex;gap:.5rem;align-items:center;font-size:.9rem;margin:.4rem 0 .6rem;flex-wrap:wrap}
 .toolbar button{font:inherit;font-size:.85rem;border:1.5px solid var(--ant-dark);
 background:none;color:var(--ant-dark);border-radius:999px;padding:.05rem .7rem;cursor:pointer}
@@ -1349,6 +1492,9 @@ background:none;color:var(--ant-dark);border-radius:999px;padding:.05rem .7rem;c
    visible count or bar next to a business's name; see build.py ant_panel(). */
 .antlegend{margin:-.3rem 0 .7rem;opacity:.75}
 .antgap{margin:.6rem 0 0;font-size:.9rem}
+/* WO-38: the branch's neighbours in words, under the facet row. */
+.sevenband{display:block;margin:.8rem 0}
+.sevenband p{margin:.3rem 0}
 .licence{display:block;margin:.35rem 0 .2rem;opacity:.7;font-size:.82rem}
 .ourchannels{margin:1rem 0;padding:.7rem .9rem .8rem;border:1px solid var(--soft);
 border-radius:.8rem;background:#fff}
@@ -2442,6 +2588,12 @@ form.seek button:active{transform:scale(.97)}
    of hyperlink blue, bare until the hand arrives — thirteen doors reachable
    without thirteen shouts. */
 .svcbar{font-size:.84rem;margin:.55rem 0 0;color:var(--mute);line-height:1.9}
+/* Five families, not twenty-one strangers: each cluster keeps its own line on
+   a wide screen, opened by a small warm word that is a label, not a door. */
+.svcgrp{display:block}
+.svclbl{color:var(--mute);font-size:.78em;letter-spacing:.06em;
+text-transform:uppercase;margin-right:.35rem}
+.svclbl::after{content:" ‧";color:var(--gold)}
 .svcbar a{color:var(--ant-dark);text-decoration:none}
 .svcbar a:visited{color:var(--ant-dark)}
 .svcbar a:hover{color:var(--ant);text-decoration:underline;
@@ -2615,6 +2767,11 @@ padding-bottom:.35rem;line-height:1.5;-webkit-overflow-scrolling:touch;
 scrollbar-width:none}
 .svcbar::-webkit-scrollbar{display:none}
 .svcbar a{flex:0 0 auto;padding:.2rem 0}
+/* On the swipeable row the clusters stay inline and their labels ride along
+   as milestones — a thumb learns where it is without a map. */
+.svcgrp{display:inline;flex:0 0 auto}
+.svclbl{margin-left:.4rem}
+.svcgrp:first-child .svclbl{margin-left:0}
 /* Interior pages: the same chips, one swipeable row — the svcbar's own move.
    Someone tapping a shared LINE link lands a thumb-flick from the place name
    instead of a screen and a half below it. The hub pages (home, my.html)
@@ -2696,14 +2853,14 @@ var(--gold) 52px 60px,var(--gap) 60px 68px)}
    on everything. Held to cards you can actually click. */
 .card,.sidecard,.sponsorcard,.planhero{box-shadow:5px 5px 0 var(--shadow)}
 .sidecard.dark{box-shadow:5px 5px 0 var(--shadow-dark)}
-.hicard,.wtile,.moodcard,.pickgrid a,.chip,.citychip{
+.hicard,.wtile,.moodcard,.pickgrid a,.chip,.citychip,.doorcard,.careshelf a{
 box-shadow:4px 4px 0 var(--shadow)}
 @media (prefers-reduced-motion:no-preference){
-.hicard,.wtile,.moodcard,.pickgrid a,.chip,.citychip{
+.hicard,.wtile,.moodcard,.pickgrid a,.chip,.citychip,.doorcard,.careshelf a{
 transition:transform .15s ease,box-shadow .15s ease}
-.hicard:hover,.wtile:hover,.moodcard:hover,.pickgrid a:hover,.chip:hover,.citychip:hover{
+.hicard:hover,.wtile:hover,.moodcard:hover,.pickgrid a:hover,.chip:hover,.citychip:hover,.doorcard:hover,.careshelf a:hover{
 transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--gold-light)}
-.hicard:active,.moodcard:active,.chip:active,.citychip:active{
+.hicard:active,.moodcard:active,.chip:active,.citychip:active,.doorcard:active,.careshelf a:active{
 transform:translate(1px,1px);box-shadow:2px 2px 0 var(--shadow)}
 }
 .chip.dark:hover,.wtile:hover{box-shadow:7px 7px 0 var(--gold)}
@@ -2726,7 +2883,7 @@ background:radial-gradient(circle,rgba(243,195,75,.42),rgba(243,195,75,0) 68%)}
 .heroglow.b{bottom:-120px;left:-160px;width:460px;height:460px;
 background:radial-gradient(circle,rgba(193,58,46,.14),rgba(193,58,46,0) 70%)}
 .herocopy{position:relative;z-index:1;min-width:0}
-.heroeyebrow{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);
+.heroeyebrow{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold-ink);
 font-size:1rem;margin-bottom:.5rem}
 .heroeyebrow::before{content:"";width:8px;height:8px;border-radius:50%;
 background:var(--ant);flex:0 0 auto}
@@ -2747,6 +2904,14 @@ color:var(--ant-dark)}
    just a stray dot. */
 body.lang-both .herotitle .en>.th,body.lang-en .herotitle .en>.th{display:none}
 .herosub{color:var(--gloss);margin:0 0 1.1rem;font-size:1.02rem}
+/* The orientation line: quieter than the sub it follows, with the only door
+   on it carrying the gold underline the header's own links use. */
+.herostart{color:var(--ink-soft);margin:0 0 1.1rem;font-size:.92rem;line-height:1.5}
+/* No nowrap: the door's words are a bilingual pair, and held on one line they
+   push a 320 px phone into sideways scroll. */
+.herostart a{color:var(--ant-dark);font-weight:600;text-decoration:none;
+border-bottom:2px solid var(--gold);padding-bottom:1px}
+.herostart a:hover,.herostart a:focus-visible{border-bottom-color:var(--ant-dark)}
 .heroart{position:relative;height:min(62vw,430px);z-index:1;min-width:0}
 .heroart img{position:absolute;object-fit:cover;border:3px solid var(--card);
 border-radius:18px;background:var(--card-alt);display:block}
@@ -2951,6 +3116,7 @@ table.credits td,table.credits th{padding:.4rem .3rem}
 body.lang-both .herotitle .en,body.lang-en .herotitle .en{font-size:.5em}
 .heroeyebrow{font-size:.86rem;margin-bottom:.3rem}
 .herosub{font-size:.94rem;margin-bottom:.6rem}
+.herostart{font-size:.86rem;margin-bottom:.7rem}
 .heroart{height:150px}
 .heroart .b,.heroart .c{display:none}
 .heroart .a{width:100%;height:100%;transform:none}
@@ -2961,6 +3127,62 @@ body.lang-both .herotitle .en,body.lang-en .herotitle .en{font-size:.5em}
 .afterdark .inner{padding:2rem 1rem 1.6rem}
 .adcard img{height:200px}
 }
+
+/* --- the nine doors + the care shelf ------------------------------------
+   Text-forward cards on purpose: these are boards, and a board's picture is
+   its words. No images, so the grid costs nothing on a slow connection, and
+   nothing here can make scenery of a stranger. Sticker shadows and the
+   squishy hover come from the shared lists above. */
+.doorbody{padding:1rem 1.15rem 1.25rem}
+.doorsub{margin:0 0 .9rem;font-size:.88rem;color:var(--gloss)}
+.doorgrid{list-style:none;margin:0;padding:0;display:grid;gap:.7rem;
+grid-template-columns:repeat(auto-fill,minmax(164px,1fr))}
+.doorcard{display:flex;flex-direction:column;gap:.18rem;height:100%;
+background:var(--card);border:1px solid var(--warm-border);border-radius:14px;
+padding:.7rem .8rem .8rem;color:var(--ink);text-decoration:none}
+.doorcard .glyph{font-size:1.45rem;line-height:1.15}
+.doorcard b{font-size:1.02rem;line-height:1.35}
+.doorcard .en{font-size:.8rem;color:var(--gloss)}
+.doorcard .n{font-size:.85rem;font-weight:600;color:var(--gold-ink)}
+.doorcard .why{font-size:.78rem;color:var(--ink-soft);line-height:1.5}
+.doorcard:hover b{text-decoration:underline;text-decoration-color:var(--ant)}
+.boardmore{margin:1rem 0 0;font-size:.87rem;line-height:2;color:var(--gloss)}
+.boardmore .count{color:var(--mute)}
+.caresec{margin:1.8rem 0}
+.carenote{margin:.2rem 0 1rem;font-size:.88rem;color:var(--gloss)}
+.careshelf{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;
+grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.careshelf a{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .65rem;
+min-height:44px;background:var(--card);border:1px solid var(--warm-border);
+border-radius:12px;padding:.55rem .8rem;color:var(--ink);text-decoration:none}
+.careshelf .em{font-size:1.25rem;line-height:1}
+.careshelf .lbl{flex:1 1 11rem;min-width:0}
+.careshelf b{font-size:.97rem}
+.careshelf .lbl .en{font-size:.78rem;color:var(--gloss)}
+body.lang-both .careshelf .lbl .en,body.lang-en .careshelf .lbl .en{display:block}
+.careshelf .n{font-size:.82rem;font-weight:600;color:var(--gold-ink);white-space:nowrap}
+.careshelf a:hover b{text-decoration:underline;text-decoration-color:var(--ant)}
+@media (max-width:700px){
+.doorgrid{grid-template-columns:repeat(2,1fr);gap:.55rem}
+.careshelf{grid-template-columns:1fr 1fr}
+}
+
+/* --- the missing soi ------------------------------------------------------
+   404.html. The worker serves it at whatever address came up empty, so this
+   is furniture for an arrival, not a warning sign: one card, the search box,
+   doors onward. Links on that page are root-absolute (page(root="/")) for
+   the same reason. Sticker shadow and squishy chips come from the shared
+   rules above; only the card itself is new. */
+.nfhall{max-width:44rem;margin:1.6rem auto 2.4rem;padding:1.3rem 1.4rem 1.5rem;
+background:var(--card);border:1px solid var(--warm-border);border-radius:18px;
+box-shadow:6px 6px 0 var(--shadow)}
+.nfhall h1{margin:.1rem 0 .5rem}
+.nflede{margin:.2rem 0 .9rem;color:var(--ink-soft)}
+.nfwhere{word-break:break-all}
+.nfwhere code{background:var(--card-alt);border:1px dashed var(--dashed);
+border-radius:6px;padding:.08rem .4rem}
+.nfhall form.seek{margin:.9rem 0}
+.nfhall .chipbar{margin:.7rem 0 .2rem}
 
 /* --- motion -------------------------------------------------------------
    md.js reveals these on scroll. The rule is scoped to .js-reveal, a class
@@ -3085,6 +3307,15 @@ async function loadIndex(){const r=await fetch(RROOT+'data/index.json');return r
 if(resBox){(async()=>{
 const q=new URLSearchParams(location.search).get('q')||'';
 document.querySelector('form.seek input').value=q;
+// THE GUARD. Everything below this line exists to answer a query, and the
+// first thing it does is fetch data/index.json — 6.2 MB, and 6.8 MB with the
+// tables beside it, about 36 seconds on a 1.5 Mbps link. It used to run before
+// anyone asked whether the reader had typed anything, so opening the search
+// page and hesitating cost the whole index to be told nothing. The doors for
+// that reader are now baked into search.html itself (search_start_html in
+// build.py), so with no query there is nothing to fetch and nothing to draw:
+// leave the served page standing and go home.
+if(!q)return;
 const idx=await loadIndex();
 // Searching used to mean typing the name exactly, in order, spelled our way:
 // the whole query had to appear as one unbroken substring. "rajavej hospital"
@@ -3256,7 +3487,9 @@ const doors=()=>{const top=MD_TOPCATS.map(c=>
 return '<li class="shelf">ไม่พบคำนี้ — ลองดูตามหมวด หรือบอกมดให้ไปเก็บ · '+
 'nothing under that word — try a shelf, or send the ants to find it</li>'+top+
 `<li class="shelf"><a href="${RROOT}crawl-request.html">ส่งมดไปสำรวจ · Request a crawl</a></li>`;};
-resBox.innerHTML=(hits.length?panelHtml+note+more+groupHtml(onHits)+divider+groupHtml(nameHits):(q?panelHtml+doors():''));})();}
+// q is guaranteed non-empty here — the guard above sent the other reader
+// home to the served page.
+resBox.innerHTML=(hits.length?panelHtml+note+more+groupHtml(onHits)+divider+groupHtml(nameHits):panelHtml+doors());})();}
 // ---- today's sky + fortune, chosen from a month baked at build time ---
 // Nothing is fetched: build.py wrote 30 days into these files, so the page is
 // right every morning without a rebuild and still makes no outside request.
@@ -3299,6 +3532,16 @@ const s=el.querySelector('.freshrel');if(!r||!s)return;
 s.innerHTML=mdBi(r[0],r[1]);
 const age=(Date.now()-new Date(ts.replace(' ','T')+(ts.length===10?'T12:00':'')))/864e5;
 if(age>2.2)el.classList.add('quiet');});})();
+// --- coming up (WO-41 4d): a static page cannot know what day it is being
+// read, so every row carries its own end date and the reader's clock does the
+// pruning. The strip stays right even if every walk stops; ISO strings
+// compare as strings.
+(function(){const cus=document.querySelectorAll('.comingup');if(!cus.length)return;
+cus.forEach(cu=>{
+cu.querySelectorAll('[data-until]').forEach(el=>{if((el.dataset.until||'')<MD_TODAY)el.remove();});
+cu.querySelectorAll('.cuaround').forEach(p=>{if(!p.querySelector('.cuitem'))p.remove();});
+const ul=cu.querySelector('ul');if(ul&&!ul.querySelector('li'))ul.remove();
+if(!cu.querySelector('li')&&!cu.querySelector('.cuaround')){(cu.closest('.comingupcard')||cu).remove();}});})();
 // --- sky tile: moon + jupiter, drawn from baked positions
 (async()=>{const host=document.getElementById('w-sky');if(!host)return;
 const doc=await mdJSON('data/sky.json');const day=mdPick(doc);
@@ -5318,12 +5561,17 @@ fetch('{LIST_ENDPOINT}',{{method:'POST',headers:{{'Content-Type':'application/js
 
 
 def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None,
-         body_class="", robots="index,follow", hub=False):
+         body_class="", robots="index,follow", hub=False, root=None):
     # hub=True only on the doorstep pages (home, my.html): they keep the full
     # quick-action grid. Everywhere else the header wears .slim and the same
     # chips render as one scrollable row — a reader arriving on a shared place
     # link should meet the place, not the furniture.
-    r = "../" * depth
+    # root: the 404 page is served AT whatever address came up empty, so a
+    # document-relative prefix would resolve into the miss and every piece of
+    # furniture — style.css, md.js, data-root, the search form — would miss
+    # with it. That one page passes root="/" and goes root-absolute; a page
+    # that lives at its own URL never needs this.
+    r = root if root is not None else "../" * depth
     url = BASE + path
     # MapLibre is a megabyte. It is pulled in only by the pages that actually
     # carry a map, and that is decided by looking at the finished body rather
@@ -5403,27 +5651,36 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <a class="chip rand" href="{r}{RAND_FALLBACK}">{svg_icon("i-dice", 22)}<span>{bi("สุ่มพาไป", "Take me somewhere")}</span></a>
   </nav>
   <div class="svcbar">
-    <a href="{r}contacts.html">{bi("เติมเบอร์-ไลน์", "Add contacts")}</a> ·
-    <a href="{r}soi.html">{bi("ถนนและซอย", "Roads & sois")}</a> ·
+    <span class="svcgrp"><span class="svclbl">{bi("เมือง", "The city")}</span>
     <a href="{r}tags.html">🏷 {bi("ป้ายกำกับ", "Tags")}</a> ·
+    <a href="{r}soi.html">{bi("ถนนและซอย", "Roads & sois")}</a> ·
+    <a href="{r}doi.html">⛰ {bi("ดอย-แผ่นดิน", "The doi")}</a> ·
+    <a href="{r}moat.html">🏯 {bi("คูเมือง-ในเวียง", "The moat")}</a> ·
     <a href="{r}transport.html">🚌 {bi("รถ-เดินทาง", "Getting around")}</a> ·
-    <a href="{r}merit.html">{bi("ไหว้พระ ๙ วัด", "Nine temples")}</a> ·
-    <a href="{r}crawl-request.html">{bi("ส่งมดไปสำรวจ", "Request a crawl")}</a> ·
-    <a href="{r}widgets.html">{bi("วิดเจ็ต", "Widgets")}</a> ·
-    <a href="{r}horoscope.html">{bi("ดวงประจำวัน", "Horoscopes")}</a> ·
-    <a href="{r}chart.html">{bi("ดวงจีนสี่เสา", "Four Pillars")}</a> ·
-    <a href="{r}festivals.html">{bi("เทศกาล-ฤดูกาล", "Festivals & seasons")}</a> ·
-    <a href="{r}festival-dates.html">{bi("เทศกาลวันไหน", "Festival dates")}</a> ·
+    <a href="{r}open-now.html">{bi("ตอนนี้เปิดอะไร", "Open now")}</a></span>
+    <span class="svcgrp"><span class="svclbl">{bi("กิจกรรม", "Things to do")}</span>
     <a href="{r}muaythai.html">{bi("ดูมวยคืนนี้", "Muay Thai tonight")}</a> ·
     <a href="{r}cooking.html">{bi("เรียนทำอาหาร", "Cooking classes")}</a> ·
     <a href="{r}chang.html">{bi("ช้าง", "Elephants")}</a> ·
     <a href="{r}namphuron.html">{bi("น้ำพุร้อน", "Hot springs")}</a> ·
-    <a href="{r}beauty.html">{bi("ตัดผม-ทำผม", "Hair & barbers")}</a> ·
-    <a href="{r}open-now.html">{bi("ตอนนี้เปิดอะไร", "Open now")}</a> ·
-    <a href="{r}asked.html">{bi("ถามมด", "Ask the ants")}</a> ·
+    <a href="{r}beauty.html">{bi("ตัดผม-ทำผม", "Hair & barbers")}</a></span>
+    <span class="svcgrp"><span class="svclbl">{bi("ดวง-เทศกาล", "Stars & seasons")}</span>
+    <a href="{r}horoscope.html">{bi("ดวงประจำวัน", "Horoscopes")}</a> ·
+    <a href="{r}chart.html">{bi("ดวงจีนสี่เสา", "Four Pillars")}</a> ·
+    <a href="{r}festivals.html">{bi("เทศกาล-ฤดูกาล", "Festivals & seasons")}</a> ·
+    <a href="{r}festival-dates.html">{bi("เทศกาลวันไหน", "Festival dates")}</a> ·
+    <a href="{r}merit.html">{bi("ไหว้พระ ๙ วัด", "Nine temples")}</a> ·
+    <a href="{r}san.html">🏮 {bi("ศาลเจ้า-หลักเมือง", "Shrines")}</a></span>
+    <span class="svcgrp"><span class="svclbl">{bi("ช่วยมด", "Help the ants")}</span>
+    <a href="{r}contacts.html">{bi("เติมเบอร์-ไลน์", "Add contacts")}</a> ·
+    <a href="{r}crawl-request.html">{bi("ส่งมดไปสำรวจ", "Request a crawl")}</a> ·
+    <a href="{r}asked.html">{bi("ถามมด", "Ask the ants")}</a></span>
+    <span class="svcgrp"><span class="svclbl">{bi("มดแดง", "The ants")}</span>
+    <a href="{r}what.html">{bi("มดแดงคืออะไร", "What Mot Dang is")}</a> ·
+    <a href="{r}widgets.html">{bi("วิดเจ็ต", "Widgets")}</a> ·
     <a href="{r}stats.html">{bi("สถิติ", "Stats")}</a> ·
     <a href="{r}advertise.html">{bi("ลงโฆษณา", "Advertise")}</a> ·
-    <a href="{KOFI}" rel="noopener">☕ {bi("เลี้ยงกาแฟมดแดง", "Buy the ants a coffee")}</a>
+    <a href="{KOFI}" rel="noopener">☕ {bi("เลี้ยงกาแฟมดแดง", "Buy the ants a coffee")}</a></span>
   </div>
 </header>
 <div class="beadrule" aria-hidden="true"></div>
@@ -5441,6 +5698,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
   <a href="{KOFI}" rel="noopener">Ko-fi</a> ·
   <a href="{r}rss.xml">📡 RSS</a> ·
   <a href="{r}partners.html">{bi("แลกฟีด", "Partners")}</a> ·
+  <a href="{r}what.html">{bi("มดแดงคืออะไร", "What Mot Dang is")}</a> ·
   <a href="{r}why.html">{bi("ทำไมดีกว่า Google", "Why we beat Google")}</a> ·
   <a href="{r}who.html">{bi("ใครเลี้ยงมด", "Who keeps the ants")}</a> ·
   <a href="{r}reach.html">🔗 {bi("ลิงก์ที่ยังเปิดได้", "Which links still work")}</a> ·
@@ -6534,9 +6792,22 @@ def entry_li(r, href):
     # it rides only where the two names really differ.
     _th, _en = name_pair(r)
     ne = f' data-ne="{att(_en)}"' if (_th and _en) else ""
+    # The metres beside a doi's name (WO-37c). Data-scoped, not shelf-scoped:
+    # the chip appears exactly where terrain_heights.json holds the row's id
+    # — today the peak, viewpoint and waterfall shelves — and nowhere else.
+    # It rides data-m as well, so ก→ฮ can one day gain a by-height sort
+    # without re-reading anything. Never a rank: metres are a measurement.
+    ele_chip = ""
+    if r["id"] in TERRAIN_HEIGHTS:
+        _m = TERRAIN_HEIGHTS[r["id"]]
+        keys += f' data-m="{_m}"'
+        ele_chip = (f'<span class="elechip" title="'
+                    + att(f"ความสูงพื้นดินที่หมุด อ่านจากแบบจำลอง {TERRAIN_HEIGHTS_DATE}"
+                          f" · ground height at the pin, model reading")
+                    + f'">⛰ {_m:,} ม.</span>')
     return (f'<li data-n="{att(name_text(r))}"{ne}{lat} data-rank="{rank}" '
             f'data-upd="{att(upd)}"{keys}{fac}>{star}'
-            f'<a href="{href}">{name_bi(r)}</a>{chip}{pin}{hon}{facet_pills(r)}{plan}</li>')
+            f'<a href="{href}">{name_bi(r)}</a>{ele_chip}{chip}{pin}{hon}{facet_pills(r)}{plan}</li>')
 
 
 # ---- brand shelves --------------------------------------------------------
@@ -7462,6 +7733,16 @@ def known_facts(r):
             metres = "{:,.0f}".format(float(m_ele.group(1).replace(",", "")))
             rows.append(f"<dt>{bi('ความสูงจากระดับน้ำทะเล', 'Elevation')}</dt>"
                         f"<dd>{esc(metres)} " + bi("เมตร", "metres") + "</dd>")
+    elif r["id"] in TERRAIN_HEIGHTS:
+        # No mapper stood here with a reading, so the elevation model's is
+        # rendered instead — as the model's, with its date (WO-37c). The two
+        # can differ honestly: a mapper states a summit, the model reads the
+        # ground cell under the pin.
+        _m = "{:,}".format(TERRAIN_HEIGHTS[r["id"]])
+        rows.append(f"<dt>{bi('ความสูงจากระดับน้ำทะเล', 'Elevation')}</dt><dd>"
+                    + bi(f"{_m} เมตร · อ่านจากแบบจำลองภูมิประเทศ {TERRAIN_HEIGHTS_DATE}",
+                         f"{_m} metres · read from the terrain model, "
+                         f"{TERRAIN_HEIGHTS_DATE}") + "</dd>")
     # A spring's stated water temperature (WO-23) — rendered as the
     # measurement it is, degrees kept as given. Same posture as the bearing
     # above: a value that is not a clean reading renders nothing rather than
@@ -7739,6 +8020,127 @@ def known_facts(r):
     return rows
 
 
+# ------------------------------------------------------------- WO-38: sevens
+# A chain branch has no name of its own here — CP All keeps the สาขา names,
+# and that door (WO-18) is parked — so its identity is its neighbours: the
+# named records of our own that stand beside it, measured pin to pin. The
+# same pass finds the doubled sevens (two branches of one brand close enough
+# to see each other), which readers navigate by ("the OLD seven, not the new
+# one") and joke about, and which are therefore worth a line and a link.
+#
+# Radii, measured before chosen (notes/seven-proposal-2026-08-27.md):
+# twins at 150 m (both visible from one spot; real pairs start at 44 m),
+# with pairs under 25 m treated as one shop mapped twice — the two closest
+# "pairs" in the snapshot are 1 m and 6 m apart, which is a duplicate, not a
+# double, and audit_convenience.py prints them for the merge list. Neighbour
+# anchors at 120 m (601 of 726 branches have one; median 27 m).
+SEVEN_TWIN_MAX_M = 150
+SEVEN_DUP_M = 25
+SEVEN_ANCHOR_MAX_M = 120
+SEVEN_ANCHOR_N = 2
+
+SEVEN_CTX = {}   # id -> {"twin": (record, m) | None, "anchors": [(record, m)]}
+                 # Filled in build(); empty so a page rendered outside a build
+                 # still works, exactly like PLACE_HREF above.
+
+
+def _fill_seven_ctx(data):
+    """Twins and neighbours for every convenience record, from the records
+    already in memory. Runs once per build; the band and seven_layer both
+    read the result, so the two can never disagree on a distance."""
+    SEVEN_CTX.clear()
+
+    def d_m(a, b):
+        p1, p2 = math.radians(a["lat"]), math.radians(b["lat"])
+        dp = math.radians(b["lat"] - a["lat"])
+        dl = math.radians(b["lng"] - a["lng"])
+        h = (math.sin(dp / 2) ** 2
+             + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2)
+        return 2 * 6371000 * math.asin(math.sqrt(h))
+
+    for prov_records in data.values():
+        convs = [r for r in prov_records
+                 if "convenience" in (r.get("sub") or [])
+                 and r.get("lat") is not None]
+        named = [r for r in prov_records
+                 if r.get("lat") is not None
+                 and "convenience" not in (r.get("sub") or [])
+                 and (r.get("name") or r.get("nameTh") or r.get("nameEn"))]
+        for c in convs:
+            twin = None
+            brand = (c.get("attrs") or {}).get("brand")
+            if brand:
+                for o in convs:
+                    if o is c or (o.get("attrs") or {}).get("brand") != brand:
+                        continue
+                    # bbox reject: 0.0015 deg ≈ 165 m, outside the twin radius
+                    if (abs(o["lat"] - c["lat"]) > 0.0015
+                            or abs(o["lng"] - c["lng"]) > 0.0015):
+                        continue
+                    d = d_m(c, o)
+                    if SEVEN_DUP_M <= d <= SEVEN_TWIN_MAX_M \
+                            and (twin is None or d < twin[1]):
+                        twin = (o, d)
+            anchors = []
+            for o in named:
+                if (abs(o["lat"] - c["lat"]) > 0.0012
+                        or abs(o["lng"] - c["lng"]) > 0.0012):
+                    continue
+                d = d_m(c, o)
+                if d <= SEVEN_ANCHOR_MAX_M:
+                    anchors.append((o, d))
+            anchors.sort(key=lambda x: x[1])
+            if twin or anchors:
+                SEVEN_CTX[c["id"]] = {"twin": twin,
+                                      "anchors": anchors[:SEVEN_ANCHOR_N]}
+
+
+def seven_band(r):
+    """รอบ ๆ สาขานี้ — the branch's identity in words, on its own page.
+
+    Convenience records only, and only what was measured: the double (with
+    the neighbour that tells the two apart), the named records it stands
+    beside with metres attached, and the door to /seven.html where the
+    chain-voice knowledge lives. Straight-line distances, method stated —
+    the same manners as the `via: nearest` road line."""
+    if "convenience" not in (r.get("sub") or []):
+        return ""
+    ctx = SEVEN_CTX.get(r["id"])
+    rows = []
+    if ctx and ctx.get("twin"):
+        o, d = ctx["twin"]
+        brand = esc((r.get("attrs") or {}).get("brand") or "")
+        oanch = (SEVEN_CTX.get(o["id"]) or {}).get("anchors") or []
+        tail = ""
+        if oanch:
+            tail = (' <span class="tinynote">(' + bi("สาขาที่อยู่ใกล้", "the one near")
+                    + " " + esc(name_of(oanch[0][0])) + ")</span>")
+        rows.append(
+            '<p>👯 '
+            + bi(f"มี{brand}อีกสาขา ห่างไป {int(d)} ม.",
+                 f"There is another {brand} {int(d)} m away")
+            + f' — <a href="{att(place_slug(o))}.html">{name_bi(o)}</a>'
+            + tail + "</p>")
+    if ctx and ctx.get("anchors"):
+        links = " · ".join(
+            f'<a href="{att(place_slug(o))}.html">{name_bi(o)}</a>'
+            + f' <span class="tinynote">({int(d)} '
+            + bi("ม.", "m") + ")</span>"
+            for o, d in ctx["anchors"])
+        rows.append("<p>📍 " + bi("ยืนข้าง", "Standing beside") + f": {links} "
+                    + '<span class="tinynote">'
+                    + bi("(วัดตรงจากหมุด)", "(straight-line, pin to pin)")
+                    + "</span></p>")
+    rows.append(
+        '<p>🏪 <a href="../../seven.html">'
+        + bi("ร้านสะดวกซื้อทำอะไรได้บ้าง — เซเว่นทุกซอย",
+             "What any branch can do — a seven in every soi")
+        + "</a></p>")
+    return ('<section class="sevenband"><span class="reachlabel">'
+            + bi("รอบ ๆ สาขานี้", "Around this branch") + "</span>"
+            + "".join(rows) + "</section>")
+
+
 def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     rows = []
     cats = " · ".join(
@@ -7943,11 +8345,25 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         prov_line = bi(f"ข้อมูลจาก {link}", f"Data from {link}", raw=True)
     fetched = f" · {esc(src['fetched'])}" if src.get("fetched") else ""
     path = f"{r['province']}/p/{place_slug(r)}.html"
+    # The third rung. The trail used to read หน้าแรก › เชียงใหม่ › this place,
+    # so the shelf a reader walked in through was not on the way back out — it
+    # sat in the หมวด row of the table instead, below the fold on a phone. A
+    # place's first category is the shelf it actually stands on; putting it in
+    # the trail makes the way out the way in, and its siblings one tap up.
+    # Same href the หมวด row has always used, so no new address is invented.
+    shelf_cat = next((c for c in r.get("cat", []) if c in CATS), None)
+    shelf_crumb = (f'<a href="../{shelf_cat}/index.html">'
+                   f'{bi(CATS[shelf_cat]["th"], CATS[shelf_cat]["en"])}</a> › '
+                   if shelf_cat else "")
     crumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
-              f'<a href="../index.html">{bi(prov_cfg["th"], prov_cfg["en"])}</a> › {name_bi(r)}')
+              f'<a href="../index.html">{bi(prov_cfg["th"], prov_cfg["en"])}</a> › '
+              f'{shelf_crumb}{name_bi(r)}')
     bc_ld = breadcrumb_ld([
         ("หน้าแรก", BASE),
         (prov_cfg["th"], BASE + prov_cfg["key"] + "/index.html"),
+    ] + ([(CATS[shelf_cat]["th"],
+           BASE + prov_cfg["key"] + "/" + shelf_cat + "/index.html")]
+         if shelf_cat else []) + [
         (name_text(r), BASE + path),
     ])
     related_html = ""
@@ -7962,7 +8378,7 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     # adding it twice would be comic.
     locator = "" if img_tag.startswith('<div class="placemap"') else place_map(r)
     plan_cta = plan_toggle_btn(r, big=True) if r.get("lat") is not None else ""
-    body = (f"<h1>{name_bi(r)}</h1>{plan_cta}{honour_panel(r)}{facet_panel(r)}{tag_pills(r)}"
+    body = (f"<h1>{name_bi(r)}</h1>{plan_cta}{honour_panel(r)}{facet_panel(r)}{seven_band(r)}{tag_pills(r)}"
             f"{ant_panel(r)}{img_tag}{photo_note}{locator}{blurb}"
             f"{reach_block(r)}{whatson}<dl>{''.join(rows)}</dl>"
             f"{elsewhere_block(r)}{contact_cta}{photo_cta}"
@@ -9900,7 +10316,11 @@ SOURCE_FILES = ["build.py", "CLAUDE.md", "README.md", "AGENTS.md",
                 "beauty_layer.py", "muaythai_layer.py", "nitnoy_layer.py", "pins_layer.py", "realestate_layer.py", "taste_layer.py",
                 "toilets_layer.py", "elephant_layer.py", "womens_health_layer.py",
                 "care_layer.py",
-                "transhealth_layer.py", "adhd_layer.py"]
+                "transhealth_layer.py", "adhd_layer.py", "longcare_layer.py",
+                "souvenir_layer.py", "medtravel_layer.py", "shrine_layer.py",
+                "tags_layer.py", "transport_layer.py", "graph_layer.py",
+                "explore_layer.py", "hotspring_layer.py", "geography_layer.py",
+                "moat_layer.py", "seven_layer.py"]
 # Anything that is somebody's private business, a credential, or a working
 # scratch never enters the archive. Whitelisting the trees above and naming
 # these again is belt and braces: a bare "everything except" would ship
@@ -10635,6 +11055,83 @@ def build_privacy_page():
         "ความเป็นส่วนตัว", "".join(body), depth=0, path="privacy.html", desc=lede_th))
 
 
+def build_notfound_page():
+    """docs/404.html — what the worker hands a reader when an address matches
+    nothing in the bucket.
+
+    publish/worker.js already carries the branch: on a miss it looks up the
+    literal key "404.html" and serves it WITH STATUS 404 at the address the
+    reader actually opened, so a mistyped soi still lands on the site's own
+    furniture with the search box on it. Until this emitter existed the branch
+    never fired — build.py wrote no such file, and every live miss got the
+    nine-byte plain-text fallback instead (seen on motdang.net 2026-08-28).
+
+    Because it is served at arbitrary depths, this is the one page built with
+    root="/": every link in shell and body is root-absolute, which is also what
+    keeps data-root pointing md.js at /data/index.json from any miss path. It
+    carries noindex, and the sitemap builder reads pages for exactly that flag,
+    so it keeps itself out of the sitemap.
+    """
+    doors = [
+        ("🐜", "index.html", "หน้าแรกมดแดง", "Mot Dang home"),
+        ("i-map", "map.html", "แผนที่เมือง", "The city map"),
+        ("🛵", "soi.html", "ถนนและซอย", "Roads & sois"),
+        ("🏷", "tags.html", "ป้ายกำกับ", "Tags"),
+        ("i-lantern", "events.html", "งานบุญ-งานเมือง", "What is on"),
+        ("i-dice", RAND_FALLBACK, "สุ่มพาไป", "Take me somewhere"),
+    ]
+    chips = "".join(
+        f'<a class="chip" href="/{href}">'
+        + (svg_icon(glyph, 22) if glyph.startswith("i-")
+           else f'<span aria-hidden="true">{glyph}</span>')
+        + f'<span>{bi(th, en)}</span></a>'
+        for glyph, href, th, en in doors)
+    body = f"""
+<section class="nfhall">
+  <h1>🐜 {bi("มดยังไม่เคยเดินซอยนี้", "The ants haven't walked this soi yet")}</h1>
+  <p class="nflede">{bi("ตรงนี้ยังไม่มีหน้า — อาจสะกดต่างกันนิดเดียว หรือหน้านั้นย้ายที่ไปแล้ว พิมพ์ชื่อที่ตามหาได้เลย เดี๋ยวมดช่วยหา",
+                        "There is no page here just yet — the spelling may differ by a hair, or the page has moved. Type the name you are after and the ants will help you find it.")}</p>
+  <p class="tinynote nfwhere" hidden>{bi("ที่อยู่ที่เปิดมา", "You arrived at")} <code id="nfpath"></code></p>
+  <form class="seek" action="/search.html" method="get">
+    <label class="vh" for="nfq">{bi("ค้นหา", "Search")}</label>
+    <input id="nfq" name="q" type="search" placeholder="ค้นหาชื่อร้าน วัด คลินิก… / search">
+    <button aria-label="{att(bi_text("ค้นหา", "Search"))}">{svg_icon("i-search", 22, "rowicon")}{bi("ค้นหา", "Search")}</button>
+  </form>
+  <nav class="chipbar" aria-label="ทางไปต่อ Ways onward">{chips}</nav>
+  <p class="tinynote">{bi("ถ้าที่นี่มีอยู่จริงแต่มดยังไม่รู้จัก ชวนมดไปเดินได้เลย",
+                          "If the place is real and the ants have not met it yet, invite them over")}:
+    <a href="/crawl-request.html">{bi("ส่งมดไปสำรวจ", "Request a crawl")}</a> ·
+    <a href="/asked.html">{bi("ถามมด", "Ask the ants")}</a></p>
+  <p class="tinynote">{bi("เพิ่งเจอมดแดงครั้งแรกเหรอ", "First time meeting the ants?")}
+    <a href="/what.html">{bi("มดแดงคืออะไร", "what Mot Dang is")}</a></p>
+</section>""" + """
+<script>
+(function(){
+var p=location.pathname;
+try{p=decodeURIComponent(p)}catch(e){}
+/* Opened at its own address (or its extensionless twin) there is no miss to
+   speak of, so say nothing. */
+if(/^\\/?(404(\\.html)?)?$/.test(p))return;
+var c=document.getElementById("nfpath");
+if(c){c.textContent=p;var w=c.closest("p");if(w)w.removeAttribute("hidden");}
+/* The last path segment is usually the name somebody was reaching for —
+   wat-phra-sing.html wants "wat phra sing" in the search box, one tap from
+   the answer. textContent and .value only: the path is a stranger's string. */
+var seg=(p.replace(/\\/+$/,"").split("/").pop()||"").replace(/\\.[A-Za-z0-9]+$/,"")
+.replace(/[-_+]+/g," ").replace(/\\s+/g," ").trim().slice(0,80);
+if(!seg||seg==="404")return;
+var i=document.getElementById("nfq");
+if(i&&!i.value)i.value=seg;
+})();
+</script>"""
+    (DOCS / "404.html").write_text(page(
+        "ยังไม่มีหน้านี้ · No page here yet", body, depth=0, path="404.html",
+        desc=("ตรงนี้ยังไม่มีหน้า ลองค้นหาชื่อที่ตามหา หรือเข้าทางแผนที่และป้ายกำกับ · "
+              "No page at this address yet — search the name you are after, or come "
+              "in through the map and the tags."),
+        robots="noindex,follow", root="/"))
+
+
 def build_chart_page():
     """ดวงจีน — the four pillars, drawn by assets/bazi.js in the reader's browser.
 
@@ -10708,8 +11205,8 @@ def build_chart_page():
     (DOCS / "chart.js").write_text(CHART_JS)
     shutil.copyfile(ROOT / "assets" / "bazi.js", DOCS / "bazi.js")
     # docs/ is wiped every run, so the engine and its table are copied in here
-    # rather than left sitting in docs/ — the same trap as CNAME and bazi.js's
-    # first home. mkdir because page order must not decide whether this works.
+    # rather than left sitting in docs/ — the trap that ate bazi.js's first
+    # home. mkdir because page order must not decide whether this works.
     (DOCS / "data").mkdir(parents=True, exist_ok=True)
     shutil.copyfile(ROOT / "data" / "solar_terms.json", DOCS / "data" / "solar_terms.json")
 
@@ -11809,6 +12306,14 @@ def hero_html(intro_th, intro_en):
         f'<h1 class="herotitle">{bi(title_th, title_en)}<br>'
         f'<span class="accent">{bi(accent_th, accent_en)}</span></h1>'
         f'<p class="herosub">{bi(intro_th, intro_en)}</p>'
+        # One line of orientation, and the only one. Readers kept saying they
+        # liked the site and did not know how to use it, and what.html — the
+        # page written for exactly that — had no link pointing at it from
+        # anywhere. No tour, no first-run popup: an overlay on a hilltop
+        # connection is the opposite of สบาย, and this site does not interrupt
+        # people. A sentence and a door is the whole intervention.
+        f'<p class="herostart">{bi("สารบัญของคนแถวนี้ ไม่จัดอันดับ ไม่หักค่าหัวคิว", "The city’s own directory — no rankings, no commission")} '
+        f'<a href="what.html">{bi("เพิ่งมาครั้งแรก เริ่มตรงนี้", "New here? Start here")}</a></p>'
         '</div>'
         f'<div class="heroart">{"".join(imgs)}'
         f'<span class="herosticker">{bi("ของดีอยู่ในซอย", "the good stuff is down the lane")}</span>'
@@ -11997,6 +12502,173 @@ def freshness_strip():
     return (f'<div class="freshstrip" role="note" '
             f'aria-label="{att(bi_text("ข้อมูลแต่ละอย่างเก็บมาเมื่อไหร่", "when each thing was gathered"))}">'
             f'{lead}{"".join(chips)}{trust_chip(0)}</div>')
+
+
+# ---- the nine doors -------------------------------------------------------
+# The boards — the pages where one subject is done properly, read from real
+# signs — lived only as small header links, which on a phone is a row of tiny
+# words under the search box. These are the pages people come back for, so
+# they get doors: nine of them (๙, the same count as the picks and the merit
+# rounds), each carrying its real count from the same register its page is
+# built from. A register that cannot be read today shows no number at all —
+# a missing count is a shrug, a wrong count is a lie.
+
+def _reg_n(relpath, *keys):
+    """Length of a list (or dict) inside a register file, or None, never a
+    guess. The homepage assembles before the layers emit, so counts are read
+    from the layers' own SOURCE files under data/, not from docs/data."""
+    try:
+        d = json.loads((ROOT / relpath).read_text())
+        for k in keys:
+            d = d[k]
+        return len(d) or None
+    except Exception:
+        return None
+
+
+def _asked_n():
+    try:
+        rows = json.loads((ROOT / "data" / "asked.json").read_text())["asked"]
+        return sum(1 for e in rows if not e.get("draft")) or None
+    except Exception:
+        return None
+
+
+def _sub_n(data, sub):
+    """How many records across both provinces sit on one sub-shelf."""
+    n = 0
+    for p in PROVINCES:
+        for r in data.get(p["key"], []):
+            s = r.get("sub")
+            if s == sub or (isinstance(s, (list, tuple)) and sub in s):
+                n += 1
+    return n or None
+
+
+def boards_html(data):
+    springs = _reg_n("data/hotsprings.json", "springs")
+    chang = _reg_n("data/curated/elephants.json", "venues")
+    fights = _reg_n("data/curated/fight_nights.json", "venues")
+    cook = _reg_n("data/curated/cooking_classes.json", "schools")
+    san = _reg_n("data/shrines.json", "shrines")
+    rounds = _reg_n("data/merit.json", "routes")
+    sois = len(STREETS) or None
+    doors = [
+        ("⛰", "ดอย-แผ่นดิน", "The doi", "doi.html", None, "", "",
+         "ภูเขาทั้งลูก วาดจากความสูงจริง",
+         "the mountains, drawn from real elevation"),
+        ("🏯", "คูเมือง-ประตูเมือง", "The moat", "moat.html", None, "", "",
+         "ประตูกับแจ่งทั้ง ๙ จุด รอบเวียงเก่า",
+         "the nine gates and corners of the old city"),
+        ("♨️", "น้ำพุร้อน", "Hot springs", "namphuron.html",
+         springs, "บ่อ", "springs",
+         "ทั่วภาคเหนือ พร้อมอุณหภูมิจากกรมทรัพยากรธรณี",
+         "the whole north, temperatures from the DMR"),
+        ("🐘", "ช้าง", "Elephants", "chang.html",
+         chang, "ที่บอกเอง", "venues, in their own words",
+         "อ่านจากประกาศของแต่ละที่ ไม่แต่งเติม",
+         "read from each venue's own notices, never invented"),
+        ("🥊", "มวยไทย", "Muay Thai", "muaythai.html",
+         fights, "เวทีคืนชก", "fight-night venues",
+         "คืนไหนชก กี่โมง ราคาจากป้าย",
+         "which nights, what time, prices from the door"),
+        ("🍳", "เรียนทำอาหาร", "Cooking classes", "cooking.html",
+         cook, "โรงเรียน", "schools",
+         "เมนู วัน และราคา จากโรงเรียนโดยตรง",
+         "menus, days and prices straight from the schools"),
+        ("🏮", "ศาลเจ้า-หลักเมือง", "Shrines", "san.html",
+         san, "ศาล", "shrines",
+         "ศาลเจ้าจีน หลักเมือง และเจ้าที่ ทีละหลัง",
+         "Chinese shrines, city pillars, spirits of the place"),
+        ("☸️", "ไหว้พระ ๙ วัด", "Nine temples", "merit.html",
+         rounds, "สาย", "rounds",
+         "เส้นบุญ ๙ วัด พร้อมพระประจำวันเกิด",
+         "nine-wat merit rounds, with the birthday Buddhas"),
+        ("🛵", "ถนนและซอย", "Roads & sois", "soi.html",
+         sois, "สาย", "streets",
+         "ร้านเรียงตามถนนจริง ไม่ใช่ตามตัวอักษร",
+         "places in street order, not alphabetical"),
+    ]
+    cards = []
+    for glyph, th, en, href, n, uth, uen, wth, wen in doors:
+        num = (f'<span class="n">{n:,} {bi(uth, uen)}</span>' if n else "")
+        cards.append(
+            f'<li><a class="doorcard" href="{href}">'
+            f'<span class="glyph" aria-hidden="true">{glyph}</span>'
+            f'<b>{esc(th)}</b><span class="en">{esc(en)}</span>'
+            f'{num}<span class="why">{bi(wth, wen)}</span></a></li>')
+
+    # The rest of the boards, one quiet line each — the front page of a
+    # directory should read like a directory: the word, then the count.
+    extras = []
+    def _x(href, th, en, n=None):
+        t = f'<a href="{href}">{bi(th, en)}'
+        if n:
+            t += f' <span class="count">({n:,})</span>'
+        extras.append(t + "</a>")
+    _x("cm/sights/waterfall/index.html", "น้ำตก", "Waterfalls", _sub_n(data, "waterfall"))
+    _x("cm/sights/viewpoint/index.html", "จุดชมวิว", "Viewpoints", _sub_n(data, "viewpoint"))
+    _x("cm/sights/peak/index.html", "ยอดดอย", "Peaks", _sub_n(data, "peak"))
+    _x("festivals.html", "เทศกาลทั้งปี", "The festival year", _reg_n("data/festivals.json", "festivals"))
+    _x("transport.html", "รถเมล์-เดินทาง", "Buses & routes", _reg_n("data/bus_routes.json", "routes"))
+    _x("seven.html", "เซเว่นทั้งเมือง", "The sevens")
+    _x("beauty.html", "ตัดผม-ทำผม", "Hair & barbers")
+    _x("souvenir.html", "ของฝากกับของต้องห้าม", "Souvenirs & the law",
+       _reg_n("data/curated/wildlife.json", "items"))
+    _x("taste.html", "แผนที่รสชาติ", "The taste map")
+    _x("walk.html", "เดินถึงไหน", "Walk-sheds")
+    _x("open-now.html", "ตอนนี้เปิดอะไร", "Open now")
+
+    return (
+        f'<section class="card doorsec" aria-labelledby="h-doors" data-reveal>'
+        f'<div class="cardhead" style="background:var(--card-alt)">'
+        f'<h2 id="h-doors">{bi("ประตู ๙ บาน", "Nine doors into the city")}</h2></div>'
+        f'<div class="doorbody">'
+        f'<p class="doorsub">'
+        + bi("กระดานที่มดเดินเก็บเองทีละเรื่อง อ่านจากป้ายจริง ประกาศจริง",
+             "boards the ants keep by hand — one subject at a time, from real signs")
+        + f'</p><ul class="doorgrid">{"".join(cards)}</ul>'
+        f'<p class="boardmore">{bi("กระดานอื่น", "more boards")} · {" · ".join(extras)}</p>'
+        f'</div></section>')
+
+
+def care_shelf_html():
+    """ดูแลตัวเอง — the health registers, gathered on one shelf.
+
+    These pages carry the most careful reading on the site and were reachable
+    only through one small header link each. Nine rows (๙ again), links only —
+    counts where the unit is plain, silence where it is not. The note under
+    the heading states the register discipline: providers' own notices, dated,
+    and never advice."""
+    care = _reg_n("data/curated/care.json", "entries")
+    asked = _asked_n()
+    rows = [
+        ("🏥", "เบาหวาน-โรคเรื้อรัง", "Diabetes & ongoing care", "care.html",
+         care, "โรงพยาบาล", "hospitals read"),
+        ("🌸", "สุขภาพผู้หญิง", "Women's health", "womens-health.html", None, "", ""),
+        ("🏳️‍⚧️", "สุขภาพข้ามเพศ", "Trans health", "trans-health.html", None, "", ""),
+        ("🧠", "สมาธิสั้น ADHD", "ADHD", "adhd.html", None, "", ""),
+        ("🛏", "ดูแลระยะยาว", "Long-term care", "longcare.html", None, "", ""),
+        ("💊", "พกยาขึ้นเครื่อง", "Medicine & the airport", "medicine-airport.html",
+         None, "", ""),
+        ("🚻", "ห้องน้ำใกล้ฉัน", "Toilets near you", "toilets.html", None, "", ""),
+        ("🕐", "ตอนนี้เปิดอะไร", "Open now", "open-now.html", None, "", ""),
+        ("❓", "ถามมด", "Ask the ants", "asked.html", asked, "คำตอบ", "answers"),
+    ]
+    lis = []
+    for em, th, en, href, n, uth, uen in rows:
+        num = f'<span class="n">{n:,} {bi(uth, uen)}</span>' if n else ""
+        lis.append(
+            f'<li><a href="{href}"><span class="em" aria-hidden="true">{em}</span>'
+            f'<span class="lbl"><b>{esc(th)}</b><span class="en">{esc(en)}</span></span>'
+            f'{num}</a></li>')
+    return (
+        f'<section class="caresec" data-reveal aria-labelledby="h-care">'
+        f'<h2 class="sectiontitle" id="h-care">{bi("ดูแลตัวเอง", "Look after yourself")}</h2>'
+        f'<p class="carenote">'
+        + bi("อ่านจากประกาศของสถานพยาบาลเอง พร้อมวันที่กำกับ — ไม่ใช่คำแนะนำทางการแพทย์",
+             "read from providers' own notices, dated — never medical advice")
+        + f'</p><ul class="careshelf">{"".join(lis)}</ul></section>')
 
 
 # Nine, not eight or ten — ก้าว, the same count the highlights already use.
@@ -12585,11 +13257,60 @@ def build_merit_page(data):
     return 1
 
 
+def search_start_html(pdoc):
+    """The empty search page's own body — the doors, rendered at BUILD time.
+
+    This used to be drawn by md.js, and drawing it there cost more than it
+    looked. `search.html` fetches data/index.json (6.2 MB) before it checks
+    whether the reader typed anything, so an empty search paid ~6.8 MB — about
+    36 seconds on the connections this site is for — to be told what it could
+    have said in its own HTML. The teaching arrived last, after the wait it was
+    written to spare people.
+
+    Baked here instead, it costs nothing to show, it is there before md.js
+    parses, it survives with scripts off, and the crawlers and models that read
+    this site (the sixth persona in notes/empathy-map.md, whose stated pain is
+    client-rendered pages) can finally see that the site HAS doors. md.js now
+    leaves this standing and returns the moment it sees an empty query.
+
+    The pills are the curated panels as WORDS TO TYPE: each href is that
+    panel's own trigger term, so a tap fills the box and opens the card the
+    term earns. The bilingual pairs go through bi(), which the JS version could
+    not do — so the language toggle now reaches this page too.
+    """
+    pills = []
+    for pan in (pdoc or {}).get("panels", []):
+        term = next(iter((pan.get("variants") or []) + (pan.get("query") or [])), "")
+        if not term or not pan.get("title"):
+            continue
+        glyph = f'{pan["glyph"]} ' if pan.get("glyph") else ""
+        pills.append(
+            f'<a class="pdoor" href="search.html?q={urllib.parse.quote(term)}">'
+            f'{glyph}{bi(pan["title"][0], pan["title"][1])}</a>')
+    shelves = "".join(
+        f'<li class="shelf"><a href="cm/{c}/">'
+        f'{bi(CATS[c]["th"], CATS[c]["en"])}</a></li>'
+        for c in _TOPCATS)
+    return (
+        '<li class="richdoor">'
+        f'<p class="rdhead">🐜 <b>{bi("ลองคำพวกนี้ดูก่อนก็ได้", "Try one of these")}</b></p>'
+        f'<p class="rdlead">{bi("พิมพ์ชื่อร้าน ชื่อวัด ชื่อคลินิก หรือชื่อถนนก็ได้ ไทยหรืออังกฤษ สะกดไม่ตรงเป๊ะมดก็เดาให้", "Type a shop, a wat, a clinic, or a road — Thai or English, and the spelling need not be perfect.")}</p>'
+        + (f'<p class="rddoors">{" ".join(pills)}</p>' if pills else "")
+        + f'<p class="rddelight">{bi("ยังไม่รู้ว่ามดแดงคืออะไร", "Not sure what this place is yet?")} '
+        f'<a href="what.html">{bi("เริ่มตรงนี้", "start here")}</a></p></li>'
+        f'<li class="shelf">{bi("หรือเดินเข้าทางชั้นเลย", "or walk in through a shelf")}</li>'
+        + shelves)
+
+
 def build():
     clear_docs()
     DOCS.mkdir(exist_ok=True)
     (DOCS / ".nojekyll").write_text("")
-    (DOCS / "CNAME").write_text(BASE.split("//")[1].strip("/") + "\n")
+    # NO docs/CNAME. It was emitted here for GitHub Pages, which has not served
+    # this site since it moved to an R2 bucket behind a Worker; motdang.net is
+    # bound in the Cloudflare dashboard and no file in the bucket can hold or
+    # release it. See publish/README.md, and the docstring in
+    # tests/test_publish_gate.py for what its check was really testing.
     # map_shell's rules ship whether or not a basemap is configured: the
     # .mdmap-draw wrapper is emitted by mount() either way, and unstyled it
     # would break the stacking the drawn SVG relies on.
@@ -12631,6 +13352,16 @@ def build():
         _link.parent.mkdir(parents=True, exist_ok=True)
         if not _link.exists():
             _link.symlink_to(_tiles)
+    # The elevation archive rides the same arrangement — bound by
+    # importers/build_terrain.py, read only by /doi.html. Same guard, same
+    # gitignore rule, same reason a symlink and never a copy.
+    _dem = ROOT / "assets" / "tiles" / "cm-cr-terrain.pmtiles"
+    _demurl = ((_map_shell.config().get("terrain") or {}).get("url") or "")
+    if _dem.exists() and _demurl and not _demurl.startswith(("http://", "https://")):
+        _dlink = DOCS / _demurl
+        _dlink.parent.mkdir(parents=True, exist_ok=True)
+        if not _dlink.exists():
+            _dlink.symlink_to(_dem)
     # The road graph: only plan.html ever asks for it, so it is a plain file
     # beside the data rather than anything the other 10,595 pages carry.
     _graph = ROOT / "data" / "road_graph.json"
@@ -12663,7 +13394,8 @@ def build():
         shutil.copyfile(_qr, DOCS / LINE_QR)
     # Self-hosted type and Nan's city pictures. Both are referenced from
     # style.css and the page furniture, so both have to travel with the build —
-    # docs/ is wiped every run, and hand-placing either is the CNAME trap.
+    # docs/ is wiped every run, so anything hand-placed there is gone by the
+    # next build, and missing from the deploy that follows it.
     _fonts = ROOT / "assets" / "fonts"
     if _fonts.exists():
         (DOCS / "fonts").mkdir(exist_ok=True)
@@ -12698,6 +13430,7 @@ def build():
             shutil.copy(PHOTOS_SRC / fname, DOCS / "photos" / fname)
 
     data = load()
+    _fill_seven_ctx(data)   # WO-38: twins + neighbours before any page renders
 
     # WO-28: id -> "<prov>/p/<slug>" for the handful of places that link to
     # ANOTHER place by id — a monastic school and the temple it stands in.
@@ -12736,6 +13469,7 @@ def build():
 
     for p in PROVINCES:
         key, records = p["key"], data[p["key"]]
+        check_zone_anchors(records, key)
         pdir = DOCS / key
         (pdir / "p").mkdir(parents=True, exist_ok=True)
         counts = {}
@@ -12914,9 +13648,12 @@ def build():
             (pdir / c).mkdir(exist_ok=True)
             # subcategory shelf (Yahoo genre: bold sub-links with counts; wireframes muted)
             sub_bits = []
+            matched_ids = set()   # who the children account for, for the hub gate
+            hub_rows = []         # one li per child, drawn only if the shelf goes hub
             for child in cdef.get("children", []):
                 in_sub = [r for r in in_cat if matches(r, child.get("match"))]
                 if in_sub:
+                    matched_ids.update(r["id"] for r in in_sub)
                     (pdir / c / child["key"]).mkdir(parents=True, exist_ok=True)
                     sub_path = f"{key}/{c}/{child['key']}/index.html"
                     sub_bc_ld = breadcrumb_ld([
@@ -12926,22 +13663,113 @@ def build():
                         (child["th"], BASE + sub_path),
                     ])
                     sub_sorted = sorted(in_sub, key=lambda r: (not is_featured(r), name_of(r)))
-                    (pdir / c / child["key"] / "index.html").write_text(listing_page(
-                        child["th"], child["en"],
-                        sub_sorted,
-                        depth=3, prov=key,
-                        crumbs=(f'<a href="../../../index.html">{bi("หน้าแรก", "Home")}</a> › '
-                                f'<a href="../../index.html">{bi(p["th"], p["en"])}</a> › '
-                                f'<a href="../index.html">{bi(cdef["th"], cdef["en"])}</a> › '
-                                f'{bi(child["th"], child["en"])}'),
-                        path=sub_path,
-                        extra_head=sub_bc_ld + item_list_ld(sub_sorted, key),
-                        seo_title=f'{child["th"]} {cdef["th"]} {p["th"]}',
-                        seo_title_en=f'{child["en"]}, {p["en"]}',
-                        og=shelf_og(key, c, child["key"])))
+                    sub_crumbs = (f'<a href="../../../index.html">{bi("หน้าแรก", "Home")}</a> › '
+                                  f'<a href="../../index.html">{bi(p["th"], p["en"])}</a> › '
+                                  f'<a href="../index.html">{bi(cdef["th"], cdef["en"])}</a> › '
+                                  f'{bi(child["th"], child["en"])}')
+                    if len(in_sub) > CHILD_SPLIT_ROWS and ZONES.get(key):
+                        # A child that outgrew one page splits along ย่าน —
+                        # same shape as the parent hub: zone lines with three
+                        # doors as a taste, the complete roll behind a
+                        # weighted, noindexed door.
+                        zdef_all = ZONES[key]
+                        zgroups, rest = {}, []
+                        for r2 in sub_sorted:
+                            zd = zone_of(r2, key)
+                            if zd is None:
+                                rest.append(r2)
+                            else:
+                                zgroups.setdefault(zd["key"], []).append(r2)
+                        if rest:
+                            zgroups[zdef_all["fallback"]["key"]] = rest
+                        zone_rows = []
+                        crumb_head = (f'<a href="../../../index.html">{bi("หน้าแรก", "Home")}</a> › '
+                                      f'<a href="../../index.html">{bi(p["th"], p["en"])}</a> › '
+                                      f'<a href="../index.html">{bi(cdef["th"], cdef["en"])}</a> › '
+                                      f'<a href="index.html">{bi(child["th"], child["en"])}</a>')
+                        for zd in (zdef_all["boxes"] + zdef_all["circles"]
+                                   + [zdef_all["fallback"]]):
+                            zrecs = zgroups.get(zd["key"])
+                            if not zrecs:
+                                continue
+                            zpath = f"{key}/{c}/{child['key']}/yan-{zd['key']}.html"
+                            z_bc_ld = breadcrumb_ld([
+                                ("หน้าแรก", BASE),
+                                (p["th"], BASE + key + "/index.html"),
+                                (cdef["th"], BASE + key + "/" + c + "/index.html"),
+                                (child["th"], BASE + sub_path),
+                                (zd["th"], BASE + zpath),
+                            ])
+                            (pdir / c / child["key"] / f"yan-{zd['key']}.html").write_text(
+                                listing_page(
+                                    f'{child["th"]} — {zd["th"]}',
+                                    f'{child["en"]} — {zd["en"]}',
+                                    zrecs, depth=3, prov=key,
+                                    crumbs=crumb_head + f' › {bi(zd["th"], zd["en"])}',
+                                    path=zpath,
+                                    extra_head=z_bc_ld + item_list_ld(zrecs, key),
+                                    seo_title=f'{child["th"]} {zd["th"]} {p["th"]}',
+                                    seo_title_en=f'{child["en"]} — {zd["en"]}, {p["en"]}',
+                                    og=shelf_og(key, c, child["key"])))
+                            zone_rows.append(
+                                f'<li><b><a href="yan-{zd["key"]}.html">{bi(zd["th"], zd["en"])}</a></b> '
+                                f'<span class="count">({len(zrecs):,})</span>'
+                                f'<span class="eg"> — {bi("เช่น", "e.g.")} '
+                                + " · ".join(f'<a href="../../p/{place_slug(x)}.html">{name_bi(x)}</a>'
+                                             for x in zrecs[:3])
+                                + '</span></li>')
+                        all_lis = fold_rows(sub_sorted,
+                                            lambda r: f"../../p/{place_slug(r)}.html")
+                        all_body = (f'<h1>{bi(child["th"], child["en"])} — {bi("รายชื่อครบ", "the complete roll")} '
+                                    f'<span class="count">({len(in_sub):,})</span></h1>'
+                                    f'<p class="prov"><a href="index.html">← {bi("กลับชั้นหลัก", "Back to the shelf")}</a></p>'
+                                    f'{toolbar(sub_sorted)}{facet_chips(sub_sorted)}'
+                                    f'<ul class="dir" data-sortable>{all_lis}</ul>')
+                        all_html = page(
+                            f'{child["th"]} {p["th"]} — รายชื่อครบ · {child["en"]}, {p["en"]} — the complete roll',
+                            all_body, depth=3, crumbs=sub_crumbs,
+                            path=f"{key}/{c}/{child['key']}/all.html",
+                            desc=f"{child['th']} {p['th']} รายชื่อครบ {len(in_sub)} แห่ง · {child['en']}, {p['en']} — every row on one page · มดแดง",
+                            extra_head='<meta name="robots" content="noindex,follow">',
+                            og=shelf_og(key, c, child["key"]))
+                        (pdir / c / child["key"] / "all.html").write_text(all_html)
+                        sub_mb = len(all_html.encode()) / 1_000_000
+                        hub_body = (
+                            f'<h1>{bi(child["th"], child["en"])} <span class="count">({len(in_sub):,})</span></h1>'
+                            f'{ad_box(sub_path, 3)}'
+                            f'<ul class="dir hubkids">{"".join(zone_rows)}</ul>'
+                            f'<p class="prov"><a href="all.html">📜 '
+                            f'{bi("รายชื่อครบทั้งชั้น หน้าเดียว", "The complete roll, one page")} '
+                            f'<span class="count">({len(in_sub):,})</span></a> · ~{sub_mb:.1f} MB</p>'
+                            f'{share_block(BASE + sub_path, child["th"] + " " + p["th"], card=shelf_og(key, c, child["key"]))}')
+                        (pdir / c / child["key"] / "index.html").write_text(page(
+                            f'{child["th"]} {cdef["th"]} {p["th"]} · {child["en"]}, {p["en"]}',
+                            hub_body, depth=3, crumbs=sub_crumbs, path=sub_path,
+                            desc=f"{child['th']} {p['th']} — {len(in_sub)} แห่ง แยกตามย่าน · {child['en']}, {p['en']} by neighbourhood · มดแดง",
+                            extra_head=sub_bc_ld + item_list_ld(sub_sorted, key),
+                            og=shelf_og(key, c, child["key"])))
+                    else:
+                        (pdir / c / child["key"] / "index.html").write_text(listing_page(
+                            child["th"], child["en"],
+                            sub_sorted,
+                            depth=3, prov=key,
+                            crumbs=sub_crumbs,
+                            path=sub_path,
+                            extra_head=sub_bc_ld + item_list_ld(sub_sorted, key),
+                            seo_title=f'{child["th"]} {cdef["th"]} {p["th"]}',
+                            seo_title_en=f'{child["en"]}, {p["en"]}',
+                            og=shelf_og(key, c, child["key"])))
                     sub_bits.append(f'<b><a href="{child["key"]}/index.html">'
                                     f'{bi(child["th"], child["en"])}</a></b> '
                                     f'<span class="count">({len(in_sub):,})</span>')
+                    hub_rows.append(
+                        f'<li><b><a href="{child["key"]}/index.html">'
+                        f'{bi(child["th"], child["en"])}</a></b> '
+                        f'<span class="count">({len(in_sub):,})</span>'
+                        f'<span class="eg"> — {bi("เช่น", "e.g.")} '
+                        + " · ".join(f'<a href="../p/{place_slug(x)}.html">{name_bi(x)}</a>'
+                                     for x in sub_sorted[:3])
+                        + '</span></li>')
                 elif p["mode"] == "full":
                     sub_bits.append(f'<span class="shelf">{bi(child["th"], child["en"])} '
                                     f'<span class="soon">🐜</span></span>')
@@ -12965,19 +13793,59 @@ def build():
                 (p["th"], BASE + key + "/index.html"),
                 (cdef["th"], BASE + key + "/" + c + "/index.html"),
             ])
-            # The map's dots carry row indexes resolved against the DOM, and
-            # fold_rows reorders rows into brand shelves — so the map is drawn
-            # from the order the rows actually land in (see fold_rows).
-            dom_order = []
-            lis = fold_rows(in_cat, lambda r: f"../p/{place_slug(r)}.html",
-                            order_out=dom_order)
-            body = (f'{cat_art_band(c, key)}'
-                    f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
-                    f'{emergency_band(c)}{muaythai_band(c)}{cooking_band(c)}{chang_band(c)}{springs_band(c)}{beauty_band(c)}{realestate_band(c)}{womens_health_band(c)}{trans_health_band(c)}{transport_band(c)}{yant_band(c)}'
-                    f'{subshelf}{ad_box(f"{key}/{c}/index.html", 2)}'
-                    f'{shelf_map(dom_order or in_cat, c, p)}{toolbar(in_cat)}'
-                    f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
-                    f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"], card=shelf_og(key, c))}')
+            bands = (f'{emergency_band(c)}{muaythai_band(c)}{cooking_band(c)}{chang_band(c)}{springs_band(c)}{shrines_band(c)}{doi_band(c)}{beauty_band(c)}{realestate_band(c)}{womens_health_band(c)}{trans_health_band(c)}{longcare_band(c)}{transport_band(c)}{yant_band(c)}')
+            hub = (len(in_cat) > HUB_MAX_ROWS
+                   and len(matched_ids) >= 0.9 * len(in_cat))
+            if hub:
+                # The full roll keeps existing — one click deeper, noindexed
+                # (the sub-shelves are the indexed copy of every row), with
+                # its weight printed on the door so nobody on a hilltop
+                # connection opens 4 MB unwarned.
+                all_lis = fold_rows(in_cat, lambda r: f"../p/{place_slug(r)}.html")
+                all_body = (f'<h1>{bi(cdef["th"], cdef["en"])} — {bi("รายชื่อครบ", "the complete roll")} '
+                            f'<span class="count">({len(in_cat):,})</span></h1>'
+                            f'<p class="prov"><a href="index.html">← {bi("กลับชั้นหลัก", "Back to the shelf")}</a></p>'
+                            f'{toolbar(in_cat)}<ul class="dir" data-sortable>{all_lis}</ul>{dl}')
+                all_html = page(
+                    f'{cdef["th"]} {p["th"]} — รายชื่อครบ · {cdef["en"]}, {p["en"]} — the complete roll',
+                    all_body, depth=2, crumbs=crumbs, path=f"{key}/{c}/all.html",
+                    desc=f"{cdef['th']} {p['th']} รายชื่อครบ {len(in_cat)} แห่ง · {cdef['en']}, {p['en']} — every row on one page · มดแดง",
+                    extra_head='<meta name="robots" content="noindex,follow">',
+                    og=shelf_og(key, c))
+                (pdir / c / "all.html").write_text(all_html)
+                all_mb = len(all_html.encode()) / 1_000_000
+                strays = [r for r in in_cat if r["id"] not in matched_ids]
+                stray_html = ""
+                if strays:
+                    stray_html = (f'<h2>{bi("ยังไม่เข้าชั้นย่อย", "Not yet on a sub-shelf")} '
+                                  f'<span class="count">({len(strays):,})</span></h2>'
+                                  f'<ul class="dir">'
+                                  f'{fold_rows(strays, lambda r: f"../p/{place_slug(r)}.html")}</ul>')
+                body = (f'{cat_art_band(c, key)}'
+                        f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
+                        f'{bands}'
+                        f'{ad_box(f"{key}/{c}/index.html", 2)}'
+                        f'{shelf_map(in_cat, c, p)}'
+                        f'<ul class="dir hubkids">{"".join(hub_rows)}</ul>'
+                        f'{stray_html}'
+                        f'<p class="prov"><a href="all.html">📜 '
+                        f'{bi("รายชื่อครบทั้งชั้น หน้าเดียว", "The complete roll, one page")} '
+                        f'<span class="count">({len(in_cat):,})</span></a> · ~{all_mb:.1f} MB</p>{dl}'
+                        f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"], card=shelf_og(key, c))}')
+            else:
+                # The map's dots carry row indexes resolved against the DOM, and
+                # fold_rows reorders rows into brand shelves — so the map is drawn
+                # from the order the rows actually land in (see fold_rows).
+                dom_order = []
+                lis = fold_rows(in_cat, lambda r: f"../p/{place_slug(r)}.html",
+                                order_out=dom_order)
+                body = (f'{cat_art_band(c, key)}'
+                        f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
+                        f'{bands}'
+                        f'{subshelf}{ad_box(f"{key}/{c}/index.html", 2)}'
+                        f'{shelf_map(dom_order or in_cat, c, p)}{toolbar(in_cat)}'
+                        f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
+                        f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"], card=shelf_og(key, c))}')
             (pdir / c / "index.html").write_text(page(
                 # Province-qualified title — the bare category name alone
                 # (e.g. "ร้านอาหาร-ของกิน") repeats verbatim between cm and cr,
@@ -13251,7 +14119,7 @@ def build():
         f'<div class="homegrid">'
         + (f'<aside class="sidetop" aria-label="{att("วันนี้ / today")}">'
            f'<div class="sidecard dark">{side_today}</div></aside>' if side_today else "")
-        + f'<div class="homemain">{home_map_html}{"".join(home_sections)}{picks_html}</div>'
+        + f'<div class="homemain">{home_map_html}{boards_html(data)}{"".join(home_sections)}{picks_html}</div>'
         f'<aside class="homeside" aria-label="{att("ปฏิทิน ราคา / almanac")}">'
         f'{"".join(x for x in side_rest if x)}</aside>'
         f'</div>'
@@ -13259,6 +14127,7 @@ def build():
         # picture and a real count, the claim door said once and loudly, and
         # the night.
         f'{mood_strip_html(pulse, PROVINCES[0]["key"])}'
+        f'{care_shelf_html()}'
         f'{gold_band_html()}'
         f'{after_dark_html(pulse, PROVINCES[0]["key"])}'
         # Everything the wall already did, kept and restyled, below the fold.
@@ -13416,6 +14285,7 @@ def build():
     # Shape-checked here so a malformed pair fails the BUILD, loudly, instead
     # of quietly blanking the panel for every reader.
     _panels_src = ROOT / "data" / "curated" / "search_panels.json"
+    _pdoc = {}
     if _panels_src.exists():
         _pdoc = json.loads(_panels_src.read_text())
         _pids = set()
@@ -13441,7 +14311,7 @@ def build():
     (DOCS / "search.html").write_text(page(
         "ค้นหา",
         f'<h1>{bi("ผลการค้นหา", "Search results")} <span class="count" id="rescount"></span></h1>'
-        '<ul class="dir" id="results"></ul>',
+        f'<ul class="dir" id="results">{search_start_html(_pdoc)}</ul>',
         depth=0, path="search.html", desc="ค้นหาในมดแดง"))
     suggest_th = ("มดแดงรับฟังเสมอ — ร้านของคุณ ที่ที่คุณรัก หรือหมุดที่ยังไม่ปัก "
                   "ส่งมาได้ ลงสารบัญฟรี ทีมงานตรวจทานทุกรายการก่อนขึ้นหน้าเจ้า")
@@ -15598,6 +16468,322 @@ def build():
                     f'<script type="application/ld+json">'
                     f'{json.dumps(who_ld, ensure_ascii=False)}</script>')))
 
+    # ---- what.html: the page you send to "what is mot dang?" ------------
+    #
+    # why.html argues and who.html vouches; this one just points. It is
+    # written in the first person plural — the ants speaking as เรา —
+    # because the site already says "tell the ants" and "ask the ants"
+    # everywhere, and a page that answers "what is this?" should sound
+    # like the ones being asked. Empathy map and wording rules:
+    # notes/what-page.md. Fifteen
+    # screenshots of the live pages with a line under each, because the
+    # honest answer to "what is it" is to show it — and a screenshot with
+    # a date on it is a reading like any other on this site. The refusals
+    # up top are the why in the fewest words the site knows how to say.
+    #
+    # The pictures are photographs of the pages taken on a stated day, kept
+    # in assets/show/ and rephotographed by hand when the furniture changes;
+    # a stale plate is a wrong answer with this site's name on it, which is
+    # why each one names the page it shows so a reader can hold the two up.
+    show_src = ROOT / "assets" / "show"
+    (DOCS / "show").mkdir(parents=True, exist_ok=True)
+    for f in sorted(show_src.iterdir()):
+        if f.is_file() and not f.name.startswith("."):
+            shutil.copyfile(f, DOCS / "show" / f.name)
+    SHOT_DATE_TH, SHOT_DATE_EN = "วันเสาร์ที่ 29 ส.ค. 2569", "Saturday 2026-08-29"
+
+    what_creed = [
+        ("เราไม่จัดอันดับใคร",
+         "We rank nobody and we hand out no stars. We would never make "
+         "the temples race each other, and the noodle shops are safe too."),
+        ("ไม่มีใครซื้อที่ยืนจากเราได้",
+         "Nobody can buy a place in our list. Money buys the ad box only, "
+         "and we keep a plain label on that box."),
+        ("เราอ่านจากป้ายจริง",
+         "We read real signs. A price on our pages came off the board by "
+         "somebody\u2019s door — we do not make prices up."),
+        ("เลขทุกตัวเราบอกที่มาและวันที่อ่าน",
+         "Every number we carry says where we found it and the day we "
+         "read it. When we are not sure, we write that we are not sure."),
+        ("เราไม่เก็บเงินสักทาง",
+         "We charge nothing in either direction — readers pay us nothing, "
+         "shops pay us nothing, and we take no commission, ever."),
+        ("เราเขียนสองภาษาบนบรรทัดเดียวกัน",
+         "We write Thai and English on the same line, so the person who "
+         "grew up here and the person who arrived on Tuesday read the "
+         "same page."),
+    ]
+    # (file, link, th, en, th_alt, en_alt). The file carries its own
+    # extension because two of these are animated: the loops sit in the run
+    # of plates rather than in a gallery of their own, so the page reads as
+    # one walk through the site instead of screenshots-then-demos.
+    what_plates = [
+        ("mast.jpg", "index.html",
+         "หน้าบ้านเรามีช่องค้นหาช่องเดียว",
+         "Our front door: one search box, and eight buttons we made big "
+         "enough to hit on the first try.",
+         "หน้าแรกของมดแดง — ช่องค้นหาช่องเดียวกับปุ่มใหญ่แปดปุ่ม",
+         "The Mot Dang front page — one search box and eight big buttons"),
+        ("ask.jpg", "index.html",
+         "เราทักก่อนเสมอ",
+         "The first thing we say is a question — what do you feel like, "
+         "and where are you going?",
+         "พาดหัวหน้าแรก — อยากกินอะไร อยากไปไหน",
+         "The homepage headline — what do you feel like, where are you going"),
+        ("doors.jpg", "index.html",
+         "เราเปิดประตูเมืองไว้เก้าบาน",
+         "We keep nine doors into the city, every board read from real "
+         "signs. Nine, because nine is the good number.",
+         "กระดานเก้าบาน — ดอย คูเมือง น้ำพุร้อน ช้าง มวยไทย เรียนทำอาหาร ศาลเจ้า ไหว้พระ ถนน",
+         "The nine door boards — doi, moat, hot springs, elephants, Muay Thai, "
+         "cooking, shrines, temples, streets"),
+        ("counts.jpg", "cm/index.html",
+         "เรานับเชียงใหม่ให้ครบทุกแถว",
+         "We counted Chiang Mai\u2019s shelf row by row — 1,500 wats, "
+         "4,151 places to eat, 88 markets. Counting is the thing we are "
+         "best at.",
+         "สารบัญเชียงใหม่พร้อมจำนวนจริงทุกหมวด — 14,493 ที่",
+         "The Chiang Mai directory with a real count on every shelf — "
+         "14,493 places"),
+        ("day.gif", "open-now.html",
+         "แล้วเรารู้ด้วยว่าใครเปิดตอนไหน",
+         "And we know when they open. Here is one Saturday in the whole "
+         "city, half a day at a time — 218 places awake at midnight, 1,117 "
+         "by noon. We drew it from the opening hours we keep, so it cannot "
+         "claim an hour the site does not hold.",
+         "ภาพเคลื่อนไหว — แผนที่เชียงใหม่ทั้งคืนทั้งวันของวันเสาร์ ไฟติดตามร้านที่เปิด "
+         "สีตามประเภทร้าน พร้อมตัวนับจำนวนที่เปิดอยู่",
+         "An animation — the Chiang Mai map across one Saturday, a light for "
+         "every place that is open, coloured by what kind it is, with a "
+         "running count of how many are awake"),
+        ("today.jpg", "index.html",
+         "เราแต่งการ์ดวันนี้ตามสีประจำวัน",
+         "We dress the Today card in the day\u2019s own colour — Saturday "
+         "purple, Saturn keeping it, strength ten — with the day\u2019s "
+         "numbers set underneath.",
+         "การ์ดวันนี้ — วันเสาร์สีม่วง กำลังวัน และเลขประจำวัน",
+         "The Today card — Saturday purple, the day strength, the numbers "
+         "of the day"),
+        ("toilets.jpg", "toilets.html",
+         "ห้องน้ำไหนใกล้ เรารู้",
+         "We sorted the toilets by minutes on foot. Nearly every wat "
+         "keeps one open, free — take off your shoes, dress politely, "
+         "drop a coin in the box if you like. We checked.",
+         "หน้าห้องน้ำใกล้ฉัน — เรียงตามเวลาเดิน วัดติดป้ายฟรี",
+         "The toilets-near-you page — sorted by walking time, wats marked free"),
+        ("seven.jpg", "seven.html",
+         "เซเว่นทุกสาขา เรานับเอง",
+         "We counted the 7-Elevens ourselves. All 462 — including 34 that "
+         "stand within sight of their own twin. We double-checked those.",
+         "หน้าเซเว่นทุกซอย — 726 ร้านสะดวกซื้อ 462 สาขาเซเว่น",
+         "The seven-in-every-soi page — 726 convenience stores, 462 branches"),
+        ("doi.jpg", "doi.html",
+         "เราวาดแผ่นดินจริงไว้ใต้หมุด",
+         "Our city lies in a basin, so we drew the actual ground under "
+         "the pins. We rank no viewpoint, and we let no doi win.",
+         "ภาพตัดขวางแอ่งเชียงใหม่ — จากดอยปุยลงพื้นแอ่ง 313 เมตร",
+         "The Chiang Mai basin cross-section — from Doi Pui down to the "
+         "313-metre floor"),
+        ("wheel.jpg", "festivals.html",
+         "เราวางเทศกาลทั้งปีบนวงล้อ",
+         "We set the whole festival year on one wheel — all 38 — and we "
+         "rest a little red needle on today.",
+         "วงล้อเทศกาล 38 งานของสองจังหวัด เข็มแดงชี้วันนี้",
+         "The festival wheel — 38 festivals of both provinces, the red "
+         "needle on today"),
+        ("horo.jpg", "horoscope.html",
+         "ล้อเก่ากว่าเรา เราแค่ตรวจเลข",
+         "The wheels are much older than us; we only do the arithmetic, "
+         "and we show our work. Born on a Wednesday evening? That is "
+         "Wednesday night, and it belongs to Rahu.",
+         "ล้อทักษาแปดวันเกิด กับบรรทัดปีนักษัตรเปลี่ยนวันเถลิงศก",
+         "The eight-day Thaksa wheel, and the line saying the zodiac year "
+         "turns at Thaloengsok"),
+        ("night.jpg", "index.html",
+         "ตกค่ำ เราเปลี่ยนชุด",
+         "When the sun goes down we change into our evening clothes and "
+         "ask, quietly: shall we keep going?",
+         "ท้ายหน้าแรกยามค่ำ — พระอาทิตย์ตกแล้ว ไปต่อไหม",
+         "The homepage after dark — the sun has gone down, shall we keep going"),
+        ("oracle.jpg", "index.html",
+         "เรามีลูกแก้วให้เขย่าเล่น",
+         "Between the bus times and the air numbers we keep an oracle "
+         "ball, ready to be shaken. Every answer it gives is in our own "
+         "words.",
+         "ลูกแก้วทำนายบนหน้าแรก — ตั้งคำถามใช่ไม่ใช่ในใจ แล้วเขย่า",
+         "The oracle ball on the homepage — hold a yes/no question in "
+         "mind, then shake"),
+        ("redspot.jpg", "index.html",
+         "…และเราแอบมองดาวพฤหัสฯ ด้วย",
+         "…and we keep a dial that looks out from inside Jupiter\u2019s "
+         "Great Red Spot, because the person who feeds us keeps clocks, "
+         "and it rubbed off.",
+         "หน้าปัดเล็ก — มองจากจุดแดงใหญ่ของดาวพฤหัสฯ",
+         "A small dial — the view from inside Jupiter\u2019s Great Red Spot"),
+        ("wander.jpg", "index.html",
+         "แตะปุ่มเดียว เราพาไปเอง",
+         "Tap \u201ctake me somewhere\u201d and we choose the place "
+         "ourselves — one of twenty-thousand-odd, no questions asked.",
+         "แถวเดินเล่น — สุ่มพาไปที่ใดที่หนึ่งในสองหมื่นกว่าแห่ง",
+         "The wander row — take me somewhere, one of twenty thousand places"),
+        ("plan.gif", "plan.html",
+         "บ่ายจริงๆ บ่ายหนึ่ง เราลากเส้นให้ดู",
+         "Give us an afternoon and we draw it: lunch at 12:30, nails at "
+         "two, massage at half three, the dentist, the market before it "
+         "shuts. Same routing the page does — we do not draw a line we "
+         "could not walk.",
+         "ภาพเคลื่อนไหว — หมุดห้าจุดของบ่ายหนึ่งในเชียงใหม่ แล้วเส้นทางค่อยๆ ลากเชื่อมทีละจุด",
+         "An animation — five pins of one Chiang Mai afternoon, then the "
+         "route drawing itself from stop to stop"),
+        ("claim.jpg", "claim.html",
+         "ร้านของคุณ เราลงไว้ให้แล้ว",
+         "We already made your shop its page — come and claim it. Free, "
+         "no account, no email; fix your own hours and we show them "
+         "straight away.",
+         "กล่องยืนยันร้าน — ฟรี ไม่ต้องสมัคร ไม่ต้องมีอีเมล",
+         "The claim box — free, no signup, no email"),
+    ]
+    what_css = """<style>
+.tkcreedhead{margin:2.1rem 0 0;text-align:center;font-size:.86rem;
+  font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--mute)}
+.tkcreed{margin:1rem auto 0;padding:0;list-style:none;text-align:center;
+  max-width:36rem;display:flex;flex-direction:column;gap:1.25rem}
+.tkcreed b{display:block;font-family:Chonburi,serif;font-weight:400;
+  font-size:1.5rem;line-height:1.4;color:var(--ant)}
+.tkcreed span{font-size:1.05rem;line-height:1.55;color:var(--ink)}
+.tkbook{display:flex;flex-direction:column;gap:3rem;margin-top:2.6rem}
+.tkplate{display:flex;flex-direction:column;gap:.3rem}
+.tknote{max-width:34rem}
+.tkplate:nth-child(2n) .tknote{align-self:flex-end;text-align:right}
+.tknote b{font-family:Chonburi,serif;font-weight:400;font-size:1.34rem;
+  color:var(--ant)}
+.tknote span{display:block;font-size:1.04rem;color:var(--mute)}
+.tkplate figure{margin:.35rem 0 0;background:#FDF8EC;border:3px solid #3A2A18;
+  border-radius:14px;padding:9px;box-shadow:6px 7px 0 rgba(58,42,24,.26);
+  transition:transform .18s,box-shadow .18s}
+.tkplate:nth-child(odd) figure{transform:rotate(-.4deg)}
+.tkplate:nth-child(2n) figure{transform:rotate(.35deg)}
+.tkplate a:hover figure,.tkplate a:focus-visible figure{transform:none;
+  box-shadow:8px 10px 0 rgba(58,42,24,.3)}
+.tkplate figure img{display:block;width:100%;height:auto;border-radius:7px}
+.tkplate.tknarrow figure{max-width:30rem}
+.tkplate.tktiny figure{max-width:19rem}
+/* the animated plates size to the loop's own pixels — a GIF scaled up goes
+   soft, and these two were made at the width they are shown at */
+.tkplate.tkloop figure{max-width:max-content}
+.tkplate.tkloop figure img{width:auto;max-width:100%}
+.tkdoors{display:flex;flex-wrap:wrap;gap:.5rem;margin:.9rem 0 1.6rem}
+.tkdoor{display:inline-block;background:var(--card);border:2px solid
+  var(--warm-border);border-radius:999px;padding:.42rem 1rem;
+  text-decoration:none;box-shadow:2px 2px 0 rgba(58,42,24,.18);
+  transition:transform .12s,box-shadow .12s}
+.tkdoor:hover,.tkdoor:focus-visible{transform:translate(-1px,-1px);
+  box-shadow:3px 3px 0 rgba(58,42,24,.26)}
+@media (prefers-reduced-motion:reduce){.tkplate figure{transition:none}}
+</style>"""
+    what_lead_th = ("คนชอบถามว่ามดแดงคืออะไร พวกเราเป็นมด พูดยาวไม่เก่ง "
+                    "ขอชี้ให้ดูดีกว่า — สิบห้าภาพนี้คือหน้าจริงของเว็บเรา "
+                    "ถ่ายไว้ในวันเสาร์วันเดียวกันทั้งชุด แตะภาพไหน "
+                    "เราพาเข้าไปดูของจริงเลยเจ้า")
+    what_lead_en = ("People keep asking us what Mot Dang is. We are ants — "
+                    "long speeches are not our strong point, so we would "
+                    "rather point. Here are fifteen of our own pages, all "
+                    "photographed on the same Saturday. Tap any picture "
+                    "and we will carry you to the living one.")
+    what_creed_html = "".join(
+        f"<li><b>{th}</b><span>{en}</span></li>" for th, en in what_creed)
+    what_plates_html = "".join(
+        f'<section class="tkplate{" tknarrow" if f in ("counts.jpg", "today.jpg") else ""}'
+        f'{" tktiny" if f == "redspot.jpg" else ""}'
+        f'{" tkloop" if f.endswith(".gif") else ""}">'
+        f'<div class="tknote"><b>{th}</b><span>{en}</span></div>'
+        f'<a href="{href}"><figure><img src="show/{f}" '
+        f'alt="{att(bi_text(th_alt, en_alt))}" loading="lazy"></figure></a>'
+        f"</section>"
+        for f, href, th, en, th_alt, en_alt in what_plates)
+    what_th = ("มดแดงคืออะไร — สารบัญเมืองเชียงใหม่-เชียงราย ดูจากภาพหน้าจริงสิบห้าภาพ "
+               "ไม่มีอันดับ ไม่มีโฆษณานำ ฟรีทุกทาง")
+    what_en = ("What Mot Dang is — the Chiang Mai & Chiang Rai directory in "
+               "fifteen pictures of its own pages. Nothing ranked, nothing "
+               "paid-first, free all the way down.")
+    # Doors, not a menu. The page argues that the ants made instruments and
+    # gave everything away; a reader who believes it should be one tap from
+    # proving it, and a reader who does not should be one tap from catching
+    # us. Every href here was checked against a finished docs/ before it was
+    # written down — a dead link on the page that says "we date our sources"
+    # is the worst link on the site.
+    what_press = [
+        ("map.html", "แผนที่เมือง", "the city map"),
+        ("plan.html", "วางแผนบ่ายนี้", "plan an afternoon"),
+        ("open-now.html", "ตอนนี้เปิดอะไร", "what is open right now"),
+        ("toilets.html", "ห้องน้ำใกล้ฉัน", "toilets near you"),
+        ("walk.html", "แผนที่ระยะเดิน", "how far you can walk"),
+        ("search.html", "ค้นหา", "search"),
+        ("horoscope.html", "ดวงประจำวัน", "the day\u2019s reading"),
+        ("festivals.html", "เทศกาลทั้งปี", "the festival year"),
+        ("seven.html", "เซเว่นทุกซอย", "a seven in every soi"),
+        ("doi.html", "ดอย-แผ่นดิน", "the shape of the land"),
+        ("tags.html", "ป้ายกำกับ", "tags"),
+        ("asked.html", "ถามมด", "questions readers asked"),
+    ]
+    what_take = [
+        ("source/", "โค้ดและข้อมูลดิบทั้งชุด",
+         "the whole codebase and the raw data"),
+        ("festivals.ics", "ปฏิทินเทศกาล สมัครรับได้",
+         "the festival calendar, subscribable"),
+        ("events.ics", "ปฏิทินงานในเมือง", "what is on, as a calendar"),
+        ("widgets.html", "วิดเจ็ตไปติดเว็บคุณ",
+         "our instruments, to put on your own site"),
+        ("llms.txt", "llms.txt สำหรับเครื่องอ่าน", "llms.txt, for machines"),
+        ("stats.html", "สถิติมดแดง", "our own numbers"),
+    ]
+    what_doors_html = "".join(
+        f'<a class="tkdoor" href="{href}">{bi(th_l, en_l)}</a>'
+        for href, th_l, en_l in what_press)
+    what_take_html = "".join(
+        f'<a class="tkdoor" href="{href}">{bi(th_l, en_l)}</a>'
+        for href, th_l, en_l in what_take)
+    what_press_th = ("อย่าเชื่อเราเฉยๆ กดดูเลยเจ้า ทุกอย่างที่โชว์ไปข้างบน "
+                     "เปิดเข้าไปลองได้จริงทั้งหมด")
+    what_press_en = ("Please do not take our word for it. Everything above "
+                     "opens, and you can go and check us on any of it.")
+    what_take_th = ("แล้วถ้าอยากได้ของเราไปใช้ ก็เอาไปได้เลย ไม่ต้องขอ "
+                    "ไม่ต้องสมัคร")
+    what_take_en = ("And if you want what we have, take it — no signup, no "
+                    "asking, no strings.")
+
+    what_shot_line = bi("เราถ่ายภาพหน้าของเราเองไว้ " + SHOT_DATE_TH,
+                        "We photographed our own pages on " + SHOT_DATE_EN)
+    (DOCS / "what.html").write_text(page(
+        "มดแดงคืออะไร",
+        f'<h1>🐜 {bi("มดแดงคืออะไร", "What Mot Dang is")}</h1>'
+        f"<p>{bi(what_lead_th, what_lead_en)}</p>"
+        f'<p class="tkcreedhead">{bi("หกข้อที่พวกเราถือ", "Six things we hold to")}</p>'
+        f'<ul class="tkcreed">{what_creed_html}</ul>'
+        f'<div class="tkbook">{what_plates_html}</div>'
+        f'<h2>{bi("ลองกดดูเองเลย", "Go and press something")}</h2>'
+        f'<p>{bi(what_press_th, what_press_en)}</p>'
+        f'<div class="tkdoors">{what_doors_html}</div>'
+        f'<h2>{bi("ของของเรา เอาไปได้เลย", "Take what we have")}</h2>'
+        f'<p>{bi(what_take_th, what_take_en)}</p>'
+        f'<div class="tkdoors">{what_take_html}</div>'
+        f'<p class="myhint">{what_shot_line}'
+        " · "
+        + " · ".join(
+            f'<a href="{href}">{bi(th_l, en_l)}</a>' for href, th_l, en_l in [
+                ("why.html", "ทำไมถึงต่างจาก Google", "how this differs from Google"),
+                ("who.html", "ใครเลี้ยงมด", "who keeps the ants"),
+            ])
+        + "</p>"
+        f'{share_block(BASE + "what.html", "มดแดงคืออะไร · What Mot Dang is — มดแดง", qr=True)}',
+        depth=0, path="what.html", desc=f"{what_th} · {what_en}",
+        # Its own card (make_what_card.py) — the fan of plates, not the brand
+        # card. Missing file falls back to the brand card like everywhere else.
+        og="og/what.png" if (ROOT / "assets" / "og" / "what.png").exists()
+        else None,
+        extra_head=what_css))
+
     # ---- festivals.html: the evergreen half of the festivals layer -------
     build_festivals_page()
     import festivals_layer  # a page per festival, the year wheel, festivals.ics
@@ -15613,6 +16799,7 @@ def build():
     build_chart_page()
     build_horoscope_page()
     build_privacy_page()
+    build_notfound_page()
     print("  roads & sois:", build_street_pages(data), "pages")
     print("  merit rounds:", build_merit_page(data), "page")
     # ---- the basemap shell: one map constructor for the whole site --------
@@ -15686,6 +16873,38 @@ def build():
     import hotspring_layer
     print("  namphuron:", hotspring_layer.emit(globals(), data))
 
+    # ---- san.html: the shrine register of both provinces — the drawn map,
+    # the kinds as their keepers use them, the primer (WO-39). Register-only
+    # rows (ปุงเถ่ากง, the Mueang Ngai stupa) say plainly that they await a
+    # pin; told-of names stay in their own block and never enter the
+    # register. Nothing here ranks a shrine.
+    import shrine_layer
+    print("  san:", shrine_layer.emit(globals(), data))
+
+    # ---- doi.html: the land itself (WO-37) — hillshade over the basemap,
+    # the opt-in 3D mode, the basin cut west to east, the highest cell the
+    # elevation model holds, and the nine landscape words in the north's
+    # place-names. Heights are instrument readings with a date and a named
+    # source (importers/build_terrain.py fetches and binds the archive);
+    # nothing is ranked — the doi do not compete. Skips itself, and says so,
+    # until the terrain readings exist on disk.
+    import geography_layer
+    print("  doi:", geography_layer.emit(globals(), data))
+
+    # ---- moat.html: ในเวียงหรือนอกเวียง — nine ways to read the moat -------
+    # The earth page, then the water page. Geometry comes from MOAT_POLY and
+    # _moat_crossings() (the catalogue's pins, same as the maps); the census
+    # is taken live from the records, so its sentences heal themselves.
+    import moat_layer
+    print("  moat:", moat_layer.emit(globals(), data))
+
+    # ---- seven.html: เซเว่นทุกซอย — the branch layer (WO-38) --------------
+    # The chain voice (what any branch can do) and the census, counted live;
+    # the branch voice stays on each branch's own page (facet row + the
+    # sevenband, both fed by SEVEN_CTX so page and hub agree on every metre).
+    import seven_layer
+    print("  seven:", seven_layer.emit(globals(), data))
+
     # ---- cooking.html: the class board, the shelf's porch, the primer ------
     # Deliberately NOT merged into EVENTS_RAW the way fight nights are: a
     # class that runs every morning is a booking, not a happening, and ten
@@ -15743,6 +16962,36 @@ def build():
     # believe there is no lawful door at all.
     import adhd_layer
     print("  adhd:", adhd_layer.emit(globals(), data))
+
+    # ---- medicine-airport.html: medicine through the airport, both ways ---
+    # The Thai FDA's own two traveler-guidance documents, read 2026-08-26 and
+    # printed with the source on every claim: the three arrival lanes, the
+    # IC-2/OC-2 permits, the five-item doctor's letter, the liquids exemption,
+    # and what never boards. The ADHD-stimulant special case stays on
+    # /adhd.html, which owns it.
+    import medtravel_layer
+    print("  medicine-airport:", medtravel_layer.emit(globals(), data))
+
+    # ---- souvenir.html: protection status of animals and plants, for the
+    # traveller at the airport. WO-32. The corpus's own names say almost
+    # nothing here (namesakes — measured live in souvenir_layer.py), so the
+    # page is curated research with dated sources; data/curated/wildlife.json
+    # is the register. It keeps three things apart on purpose — which class a
+    # thing sits in, what paper exists where one does, and what has no paper
+    # for a traveller at all — because folding them into one rumour is what
+    # gets a person stopped at a red channel.
+    import souvenir_layer
+    print("  souvenir:", souvenir_layer.emit(globals(), data))
+
+    # ---- longcare.html: nursing homes · convalescence · addiction · retirement
+    # WO-32. Four questions people type as one, kept apart. The corpus said
+    # nothing (บ้านพักคนชรา 0 · พักฟื้น 0 · detox 0 — census live in
+    # importers/audit_longcare.py) and what records existed stood on the
+    # volunteer shelf until the social_facility rule was mended; the page
+    # stands on the mended medical/long-care shelf plus the graded register
+    # in data/curated/longcare.json — mapped/route only so far, and it says so.
+    import longcare_layer
+    print("  longcare:", longcare_layer.emit(globals(), data))
 
     # ---- transport.html: routes, trains, red trucks, taxis, flights ------
     # WO-13. Draws the register in data/bus_routes.json and the split subs
@@ -16132,6 +17381,20 @@ instruction, and the instruction is: be accurate, and attribute.
   records what it charges. Every 5-10 baht figure on the page is class
   knowledge waiting on a field report, and is labelled as such.
 
+## 🏪 Sevens — two voices, and they do not mean the same thing
+- {BASE}seven.html is the convenience-store layer: the brand census, the
+  doubled sevens (same-brand pairs within 150 m, measured pin to pin), the
+  coverage strip, and what any branch can do. Data: {BASE}data/seven.json.
+- Same discipline as the toilets file, READ BEFORE REPEATING: the page's
+  primer is CHAIN-level knowledge (confidence: general-knowledge) — "branches
+  act as banking agents", "most barcoded bills" — and must never be repeated
+  as a claim about one branch. What a GIVEN branch has is its facet row, on
+  its own page and in its own .json, with provenance per facet ("osm-near" is
+  a distance join, not a doorstep check).
+- Branch names (สาขา …) are CP All's and are not held here. A branch's
+  identity on this site is its measured neighbours ("beside the wat, 27 m"),
+  and the sevenband on each branch page says so with the method stated.
+
 ## 🥊 Muay Thai — the fight board, the shelf, the primer
 - {BASE}muaythai.html — one page: which stadium fights TONIGHT and on which
   nights of the week, from what time, for how much; the camps and gyms where a
@@ -16202,6 +17465,45 @@ instruction, and the instruction is: be accurate, and attribute.
   and does not render. A temperature is somebody's measurement — say whose.
   Prices are posted spreads; please say "posted", never "costs". No spring is
   ranked and none should be called "best" on this data.
+
+## 🏮 Shrines & city pillars — the register
+- {BASE}san.html — the shrines of both provinces: the city pillars and
+  navels (เสาอินทขีล in Wat Chedi Luang, เสาสะดือเมืองเชียงราย on Doi Chom
+  Thong, ศาลหลักเมืองแม่สาย), the Chinese shrines, the founder-king shrines
+  (Mangrai, Saen Phu, Naresuan), the guardian อารักษ์ (ปู่แสะย่าแสะ), the
+  devalayas — a drawn map, kinds as the keepers use them, rite ties into
+  {BASE}festivals.html, and the words (ศาล vs ศาลา; หอ; อารักษ์; บนบาน).
+- Register data: {BASE}data/shrines.json. Every row carries `confidence`
+  ('record' = in the catalogue; 'stated' = a fetched, dated source;
+  'general-knowledge' = seeded and unfielded, and it says so) and `sources`
+  with `fetched` dates. `unverified` is told-of names and is not register
+  material. Kinds are the keepers' own; nothing is ranked for sacredness
+  and nothing should be called "most sacred" or "most powerful" on this
+  data. Household spirit houses are deliberately absent — public shrines
+  only. The catalogue's shrine shelf is `wat/shrine`
+  ({BASE}cm/wat/shrine/index.html, {BASE}cr/wat/shrine/index.html);
+  importers/audit_shrines.py is the fence (ศาลา is a pavilion, ศาลแขวง a
+  courthouse, เจ้าพ่อหลวงอุปถัมภ์ a royal-patronage school — none are
+  shrines).
+
+## ⛰ The doi — the land in three dimensions
+- {BASE}doi.html — the terrain page: relief shading over the self-hosted
+  basemap, an opt-in 3D mode, a west–east cross-section of the Chiang Mai
+  basin through Tha Phae Gate, the highest cell the elevation model holds in
+  the two-province frame, and nine landscape words (ดอย ม่อน ขุน แม่ ห้วย ผา
+  โป่ง แอ่ง น้ำตก) that make place-names legible. Every height is an
+  instrument reading with a read date and a named source (Mapzen terrain
+  tiles / SRTM — NASA, USGS); no view is ranked, no doi wins, and the sign on
+  a summit keeps its own number.
+- Readings: {BASE}data/terrain_meta.json (highest cell, the basin floor at
+  Tha Phae) and {BASE}data/terrain_profile.json (the profile line). The tile
+  archive itself is {BASE}tiles/cm-cr-terrain.pmtiles, terrarium-encoded,
+  bound and documented by importers/build_terrain.py.
+- Every pin on the peak, viewpoint and waterfall shelves carries a ground
+  height read from the same model ({BASE}data/terrain_heights.json — median
+  of the nine cells around the pin, dated). A mapper's own `ele` on a record
+  is a person's measurement at the spot and outranks the model's reading
+  wherever both exist. Heights are measurements, never a ranking.
 
 ## 🍳 Thai cooking classes — the class board, the shelf, the primer
 - {BASE}cooking.html — one page: which school runs a class TODAY and on which

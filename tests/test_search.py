@@ -163,6 +163,36 @@ CASES = [
     ("หมู่บ้านป่าไผ่", {"panel": ""},
      "a village name is not a housing-estate query — the mined หมู่บ้าน mapping "
      "must not door it (the realestate panel carries no shelves trigger)"),
+    # WO-32: the long-term-care door.
+    ("nursing home", {"panel": "longcare"},
+     "the elder-care question opens the long-care door instead of two "
+     "records filed as volunteering"),
+    ("บ้านพักคนชรา", {"panel": "longcare"},
+     "the same door in Thai — the corpus holds zero, the door answers"),
+    ("พักฟื้น", {"panel": "longcare"},
+     "convalescence — nothing on any shelf says the word; the door carries "
+     "the census and the three real doors"),
+    ("detox", {"panel": "longcare"},
+     "the addiction question opens the door; the register speaks, no ranking"),
+    ("เลิกเหล้า", {"panel": "longcare"}, "quitting drink, in the reader's own words"),
+    ("retirement", {"panel": "longcare"},
+     "before WO-32 this query's one answer was the Elephant retirement park"),
+    # WO-38 — the branch layer's door.
+    ("เซเว่น", {"panel": "seven", "names_nonempty": True},
+     "the name everybody says opens the branch layer, rows still under it"),
+    ("7-11", {"panel": "seven"}, "the numeral spelling opens the same door"),
+    ("convenience store", {"panel": "seven"},
+     "the English shelf word opens the door"),
+    ("โชห่วย", {"panel": "seven"},
+     "the corner-grocer word belongs to the same shelf, not to silence"),
+    # WO-40 — the three doors of getting a paper sealed.
+    ("โนตารี", {"panel": "notary"},
+     "the counter word at the law office — zero names carry it; the door answers"),
+    ("notary", {"panel": "notary"}, "the reader's English opens the same door"),
+    ("นิติกรณ์", {"panel": "notary"},
+     "the government's word for the MFA seal — nobody's shopfront says it"),
+    ("apostille", {"panel": "notary"},
+     "in force 28 Feb 2027; until then the door explains the chain"),
 ]
 
 

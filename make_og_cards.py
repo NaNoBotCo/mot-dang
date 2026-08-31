@@ -53,7 +53,7 @@ CAT_GLYPH = {
     "wat": "🛕", "food": "🍜", "massage": "💆", "medical": "⚕", "essentials": "🏧",
     "hotel": "🛏", "school-intl": "🎓", "market": "🧺", "shopping": "🛍",
     "realestate": "🏘", "transport": "🛵", "repair": "🔧", "beauty": "✂",
-    "pets": "🐕", "learn": "📚", "home-services": "🧹", "community": "🫂",
+    "pets": "🐕", "sport": "🏋️", "home-services": "🧹", "community": "🫂",
     "business": "🗂", "whats-on": "🎬", "museums-galleries": "🖼", "sights": "⛰",
 }
 

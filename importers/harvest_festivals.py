@@ -42,6 +42,8 @@ import urllib.error
 import urllib.request
 from datetime import date, datetime
 
+import ingest      # shared write discipline (WO-41 Phase 2)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(ROOT, "cache", "festivals")
 CANON = os.path.join(ROOT, "data", "festivals.json")
@@ -364,9 +366,13 @@ def main():
                      "official": s["official"]} for s in SOURCES],
         "count": len(rows), "announced": len(announced), "rows": rows,
     }
-    json.dump(doc, open(OUT, "w"), ensure_ascii=False, indent=1)
-    print(f"🐜 {len(rows)} row(s), {len(announced)} announced, "
-          f"{fetched} live fetch(es) -> {OUT}")
+    # WO-41 Phase 2. min_rows=1 on ROWS, not on announced: a week when no
+    # official source has announced anything is a true and ordinary state of
+    # the world (the file's own charter — a rule is not a date), while zero
+    # rows at all means the parse or the fetch broke.
+    ingest.write(OUT, doc, count=len(rows), min_rows=1,
+                 label="festival_dates.json")
+    print(f"   {len(announced)} announced, {fetched} live fetch(es)")
     for r in announced[:12]:
         print(f"   {r['date_start']}..{r['date_end']}  {r['festival_id']}  "
               f"{r['title_th'][:60]}")

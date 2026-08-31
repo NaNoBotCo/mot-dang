@@ -26,6 +26,8 @@ import urllib.request
 from datetime import date
 from pathlib import Path
 
+import ingest      # shared write discipline (WO-41 Phase 2)
+
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "air.json"
 UA = ("mot-dang-directory/1.0 (+https://github.com/NaNoBotCo/mot-dang; "
@@ -115,12 +117,16 @@ def main():
             "band": band(pm25), "observed": cur.get("time"), "days": days,
         })
 
-    OUT.write_text(json.dumps(
-        {"generated": date.today().isoformat(),
-         "source": "Open-Meteo Air Quality (open-meteo.com), CC-BY 4.0",
-         "model": "CAMS — modelled, not a monitor at street level",
-         "scale": "Thailand PCD PM2.5 bands (µg/m³)",
-         "places": out}, ensure_ascii=False, indent=1))
+    # WO-41 Phase 2. Counted on places that actually carry a reading: the
+    # list can come back full-length with every pm25 None, which is an empty
+    # basket wearing the right shape.
+    ingest.write(OUT, {"generated": date.today().isoformat(),
+                       "source": "Open-Meteo Air Quality (open-meteo.com), CC-BY 4.0",
+                       "model": "CAMS — modelled, not a monitor at street level",
+                       "scale": "Thailand PCD PM2.5 bands (µg/m³)",
+                       "places": out},
+                 count=sum(1 for p in out if p["pm25"] is not None),
+                 min_rows=3, label="air.json")
     got = sum(1 for p in out if p["pm25"] is not None)
     print(f"🐜 air quality for {got}/{len(out)} towns -> {OUT}")
 

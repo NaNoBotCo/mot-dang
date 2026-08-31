@@ -7,6 +7,7 @@ record["sub"]; build.py matches children by key against that list.
 """
 import json
 import re
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -187,6 +188,16 @@ import audit_hotsprings as _spring_rules
 # — จัดสรร or a named developer, never bare หมู่บ้าน, which is the ordinary
 # word for a village and would file somebody's home as a gated estate.
 import audit_realestate as _estate_rules
+# And for long-term care (WO-32): audit_longcare owns the tag rule and the
+# fences — nursing_home/assisted_living/rehabilitation file as care, the
+# orphanage and the training centre stay volunteer work, bare ผู้สูงอายุ is
+# never a rule (it is in the name of every senior club).
+import audit_longcare as _longcare_rules
+# And for the shrines (WO-39): audit_shrines owns the compounds and the
+# fences — ศาลา is not ศาล, the courts and the เจ้าพ่อหลวงอุปถัมภ์ schools
+# never file, a name after หน้า/ใกล้ is navigating not naming. The `shrines`
+# crawl group is STAGED and unfetched; this import is inert until it runs.
+import audit_shrines as _shrine_rules
 
 
 def chang_hit(t):
@@ -540,6 +551,16 @@ def classify(t):
         return "business", "coworking"
     if t.get("office") in ("lawyer", "accountant", "tax_advisor", "notary"):
         return "business", "professional"
+    # WO-32. Until 2026-08-26 every amenity=social_facility filed here as
+    # "Volunteering" and the social_facility=nursing_home|assisted_living|
+    # rehabilitation subtag was thrown away — a nursing home, an
+    # assisted-living garden and the best-known residential rehab in the
+    # province all stood on the volunteer shelf. The rule lives in
+    # importers/audit_longcare.py (one copy); the orphanage, the training
+    # centre and the outreach office it fences stay volunteer work, which
+    # for them is the right shelf.
+    if _longcare_rules.longcare_hit(t):
+        return "medical", "long-care"
     if t.get("office") in ("ngo", "charity") or a == "social_facility":
         return "community", "volunteer"
     # WO-27 door 2. A government office is an essentials record — the shelf
@@ -588,7 +609,7 @@ def classify(t):
         # A sports centre that teaches nothing is a place to play, not a
         # school, and keeps the shelf it has always had.
         if t.get("leisure") in ("sports_centre", "dance"):
-            return "learn", "gym"
+            return "sport", "gym"
         return None
     if t.get("office") == "estate_agent":
         return "realestate", "agent"
@@ -670,7 +691,7 @@ def classify(t):
     if s == "pet":
         return "pets", None
     if t.get("leisure") == "fitness_centre":
-        return "learn", "gym"
+        return "sport", "gym"
     if a == "bank":
         return "essentials", "bank"
     if a == "post_office":
@@ -779,6 +800,52 @@ def classify(t):
     if a == "events_venue":
         return "whats-on", "events-venue"
     return None
+
+
+SEVEN_NAME_RX = re.compile(r"7[\s‐-]?eleven|7-11\b|เซเว่น|เซเวน", re.I)
+# What may surround the brand on a real branch's sign and still mean nothing:
+# the brand itself in any spelling (names arrive as name+name:th+name:en
+# concatenated, so it often appears twice) and the generic shop word.
+SEVEN_NOISE_RX = re.compile(
+    r"7[\s‐/-]?eleven|7[\s‐/-]?11|เซเว่นอีเลฟเว่น|เซเว่น|เซเวน|"
+    r"ร้านสะดวกซื้อ|convenience\s*store", re.I)
+
+
+def seven_from_name(t, sub, name):
+    """WO-38: the barber lie again, on the convenience shelf.
+
+    57 records NAMED 7-Eleven carried no `brand` tag — the mapper typed the
+    name and skipped the tag, and the record arrived brandless, off the brand
+    tag page and out of every count. The name is the shop's own sign, so it
+    fills the brand, provenance `brandFrom: osm-name` (audit:
+    importers/audit_convenience.py prints every one).
+
+    Fences, all three witnessed in the cache:
+    - `not:brand:wikidata` wins. way/544559166 is named "7-Eleven" and carries
+      not:brand:wikidata=Q259340 — a mapper explicitly saying *not really
+      one* — and a denial outranks a name.
+    - convenience sub only. เซเว่น สตาร์ is a condominium; a name rule that
+      reaches past its own shelf files a building as a shop.
+    - The sign must say the brand and NOTHING ELSE. "7-11 หลอด biers Bier
+      Stube" (way/482772359) is the famous beer stall trading in 7-Eleven
+      livery — the brand word inside a longer name is a nickname or an
+      imitation, and branding it would put CP All's name on somebody's bar.
+      So after stripping the brand in every spelling (it often appears twice:
+      name and name:en concatenated) and the generic shop word, any residue
+      refuses the fill. The refusal is visible in the audit's REFUSED report.
+
+    Only 7-Eleven ships in this rule: its patterns are unambiguous. The
+    Lotus/Big-C-named strays the same read surfaced are murkier (which era of
+    the chain's name?) and wait in the audit's report for Nan.
+    """
+    if sub != "convenience" or t.get("not:brand:wikidata"):
+        return None
+    if not SEVEN_NAME_RX.search(name or ""):
+        return None
+    residue = SEVEN_NOISE_RX.sub(" ", name)
+    if re.sub(r"[\s\-‐·.,/()#&+']+", "", residue):
+        return None
+    return "7-Eleven"
 
 
 def _is_thai(s):
@@ -990,6 +1057,10 @@ def records(province="cm"):
     # named residential area that does NOT declare an estate, which in this
     # province is nearly all of them, because they are villages.
     estate_review = []
+    # shrine_review / fetched_sh: the shrines group's fence (WO-39, staged);
+    # fetched_sh maps id -> the snapshot's own date, because the group has
+    # no fetch date until Nan lets it run.
+    shrine_review, fetched_sh = [], {}
     cache = ROOT / "cache" / "overpass" / province
     if not cache.exists():
         return out
@@ -1050,6 +1121,26 @@ def records(province="cm"):
                     estate_review.append((ref, name, dict(t)))
                     continue
                 hit = ("realestate", estate_sub)
+            elif f.stem == "shrines":
+                # THE SHRINES FILE IS FENCED THE SAME WAY (WO-39, staged —
+                # this branch is unreachable until Nan gives the group its
+                # go). Its name selectors are a dragnet like the others:
+                # courts, royal-patronage schools and pork-leg stalls wear
+                # ศาล in their names. Only an element that states the shrine
+                # files (shrines_hit; rules in audit_shrines.py, one copy) —
+                # onto wat/shrine, the child the วัด-สิ่งศักดิ์สิทธิ์ shelf
+                # was named for; everything else goes to
+                # cache/shrine_review_<prov>.txt and classify() is
+                # unreachable from this file. Records are stamped with the
+                # snapshot file's own date, not the constructor's default,
+                # so provenance stays true whenever the group first runs.
+                shrine_sub = _shrine_rules.shrines_hit(t, name)
+                if not shrine_sub:
+                    shrine_review.append((ref, name, dict(t)))
+                    continue
+                hit = ("wat", shrine_sub)
+                fetched_sh[f"{province}-osm-{el['type']}-{el['id']}"] = (
+                    date.fromtimestamp(f.stat().st_mtime).isoformat())
             elif f.stem == "hotsprings":
                 # THE HOTSPRINGS FILE IS FENCED THE SAME WAY (WO-23). Its
                 # name selectors are a dragnet too: schools, temples and
@@ -1128,6 +1219,14 @@ def records(province="cm"):
                        or t.get("website:en"))
             line = t.get("contact:line")
             addr_line, addr_parts = address_of(t)
+            brand = t.get("brand")
+            brand_from = None
+            if not brand:
+                _probe = " ".join(filter(None, (name, t.get("name:th"),
+                                                t.get("name:en"))))
+                brand = seven_from_name(t, sub, _probe)
+                if brand:
+                    brand_from = "osm-name"
             out.append({
                 "id": f"{province}-osm-{el['type']}-{el['id']}", "province": province,
                 "cat": cats, "sub": [sub] if sub else [],
@@ -1153,7 +1252,8 @@ def records(province="cm"):
                     # CITIZENinfo import states a sector, because there it is
                     # true by construction — that register IS the state list.
                     "facilityType": (sub if cat == "medical" else None),
-                    "brand": t.get("brand"), "cuisine": t.get("cuisine"),
+                    "brand": brand, "brandFrom": brand_from,
+                    "cuisine": t.get("cuisine"),
                     "operator": t.get("operator"), "lineId": line,
                     "email": t.get("email") or t.get("contact:email"),
                     "whatsapp": t.get("contact:whatsapp"),
@@ -1210,7 +1310,18 @@ def records(province="cm"):
                     src["fetched"] = "2026-08-20"
     _write_cannabis_review(province, review)
     _write_elephant_review(province, ele_review)
+    # Same truth-telling for the shrines group (WO-39, staged): each record
+    # carries its snapshot file's own date, captured above, because the
+    # group has no fetch date until it is allowed to run.
+    for r in out:
+        stamp = fetched_sh.get(r["id"])
+        if stamp:
+            r["updatedAt"] = stamp
+            for src in r.get("sources", []):
+                if src.get("type") == "osm":
+                    src["fetched"] = stamp
     _write_hotspring_review(province, spring_review)
+    _write_shrine_review(province, shrine_review)
     _write_moobaan_review(province, estate_review)
     return out
 
@@ -1251,6 +1362,43 @@ def _write_elephant_review(province, rows):
     for ref, name, t in sorted(unique, key=lambda r: r[1].lower()):
         kind = (t.get("tourism") or t.get("historic") or t.get("leisure") or "?")
         lines.append(f"{ref:<22} [{kind}] {name}")
+    out.write_text("\n".join(lines) + "\n")
+
+
+def _write_shrine_review(province, rows):
+    """What the shrines dragnet caught that does NOT state a shrine.
+
+    Same posture as the others: not errors and not discards. The ศาล name
+    family reaches courts, royal-patronage schools, pavilions and stalls
+    navigating by a shrine; each is fenced here where a person can see it.
+    A real shrine hiding under a name the rules don't read (Roi Dvarapala
+    Ban Devalaya on community/clubs is the standing example) enters through
+    data/shrines.json or a curated seat with a source — never a wider regex
+    on a guess. Inert until the staged group runs.
+    """
+    out = ROOT / "cache" / f"shrine_review_{province}.txt"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    seen, unique = set(), []
+    for row in rows:
+        if row[0] not in seen:
+            seen.add(row[0])
+            unique.append(row)
+    if not unique:
+        out.write_text(f"# {province}: the shrines group is not in cache "
+                       f"(staged, unfetched — WO-39), or held nothing beyond "
+                       f"the shrines.\n")
+        return
+    lines = [
+        f"# {province}: {len(unique)} elements from the shrines crawl group",
+        "# (historic=wayside_shrine / place_of_worship by stated religion /",
+        "# shop=religion / the ศาลเจ้า name family) that do NOT state a",
+        "# public shrine, filed here instead of onto a shelf.",
+        "#",
+    ]
+    for ref, name, t in sorted(unique, key=lambda r: r[1].lower()):
+        kind = (t.get("historic") or t.get("amenity") or t.get("shop")
+                or t.get("religion") or "?")
+        lines.append(f"{ref:24s} {kind:18s} {name}")
     out.write_text("\n".join(lines) + "\n")
 
 

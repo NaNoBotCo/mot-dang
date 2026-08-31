@@ -1,0 +1,253 @@
+{
+ "_note": "ย่าน — the named parts of town people say out loud, for splitting a sub-shelf that outgrew one page (WO-36). First match wins, boxes before circles, top to bottom. Boxes are the city: the moat rectangle and its named quarters. Circles are the amphoe seats further out. A record inside none of them lands on the รอบนอก fallback page — 'we have not named this zone yet' is a fact, not a failure, same rule as the road graph. Bounds are checked against our own records by importers/audit_zones.py: every zone must contain its named anchors, or the build refuses.",
+ "cm": {
+  "boxes": [
+   {
+    "key": "mueang-kao",
+    "th": "เมืองเก่า-ในคูเมือง",
+    "en": "The Old City (in the moat)",
+    "lat": [
+     18.78,
+     18.7965
+    ],
+    "lng": [
+     98.9755,
+     98.9945
+    ],
+    "anchors": [
+     "วัดพระสิงห์",
+     "วัดเจดีย์หลวง"
+    ]
+   },
+   {
+    "key": "wualai",
+    "th": "วัวลาย-หายยา",
+    "en": "Wualai & Haiya (south of the moat)",
+    "lat": [
+     18.764,
+     18.78
+    ],
+    "lng": [
+     98.972,
+     98.999
+    ],
+    "anchors": [
+     "วัดศรีสุพรรณ"
+    ]
+   },
+   {
+    "key": "chang-khlan",
+    "th": "ช้างคลาน-ไนท์บาซาร์",
+    "en": "Chang Khlan & the Night Bazaar",
+    "lat": [
+     18.774,
+     18.79
+    ],
+    "lng": [
+     98.9945,
+     99.002
+    ],
+    "anchors": [
+     "วัดอุปคุต"
+    ]
+   },
+   {
+    "key": "chang-moi",
+    "th": "ช้างม่อย-ท่าแพ",
+    "en": "Chang Moi & Tha Phae",
+    "lat": [
+     18.79,
+     18.8
+    ],
+    "lng": [
+     98.9945,
+     99.002
+    ],
+    "anchors": [
+     "ตลาดวโรรส"
+    ]
+   },
+   {
+    "key": "rim-ping",
+    "th": "ริมปิง-วัดเกต-เจริญราษฎร์",
+    "en": "Riverside & Wat Ket",
+    "lat": [
+     18.766,
+     18.81
+    ],
+    "lng": [
+     99.002,
+     99.017
+    ],
+    "anchors": [
+     "วัดเกตการาม"
+    ]
+   },
+   {
+    "key": "nimman",
+    "th": "นิมมาน-ศิริมังคลาจารย์",
+    "en": "Nimman",
+    "lat": [
+     18.79,
+     18.8075
+    ],
+    "lng": [
+     98.959,
+     98.973
+    ],
+    "anchors": [
+     "ข้าวซอยนิมมาน"
+    ]
+   },
+   {
+    "key": "santitham",
+    "th": "สันติธรรม-ช้างเผือก",
+    "en": "Santitham & Chang Phueak",
+    "lat": [
+     18.7965,
+     18.816
+    ],
+    "lng": [
+     98.973,
+     98.999
+    ],
+    "anchors": [
+     "สาขาสันติธรรม"
+    ]
+   },
+   {
+    "key": "huay-kaew",
+    "th": "ห้วยแก้ว-หน้ามช.",
+    "en": "Huay Kaew & CMU",
+    "lat": [
+     18.795,
+     18.825
+    ],
+    "lng": [
+     98.928,
+     98.959
+    ],
+    "anchors": []
+   },
+   {
+    "key": "suthep",
+    "th": "สุเทพ-หลังมอ",
+    "en": "Suthep (behind CMU)",
+    "lat": [
+     18.772,
+     18.795
+    ],
+    "lng": [
+     98.928,
+     98.9755
+    ],
+    "anchors": [
+     "วัดอุโมงค์"
+    ]
+   },
+   {
+    "key": "nong-hoi",
+    "th": "หนองหอย-มหิดล",
+    "en": "Nong Hoi & the Mahidol road",
+    "lat": [
+     18.75,
+     18.774
+    ],
+    "lng": [
+     98.986,
+     99.017
+    ],
+    "anchors": [
+     "ปตท.หนองหอย"
+    ]
+   }
+  ],
+  "circles": [
+   {
+    "key": "mae-rim",
+    "th": "แม่ริม",
+    "en": "Mae Rim",
+    "lat": 18.916,
+    "lng": 98.944,
+    "r_km": 10
+   },
+   {
+    "key": "san-sai",
+    "th": "สันทราย-แม่โจ้",
+    "en": "San Sai & Maejo",
+    "lat": 18.848,
+    "lng": 99.04,
+    "r_km": 9
+   },
+   {
+    "key": "doi-saket",
+    "th": "ดอยสะเก็ด",
+    "en": "Doi Saket",
+    "lat": 18.868,
+    "lng": 99.137,
+    "r_km": 12
+   },
+   {
+    "key": "san-kamphaeng",
+    "th": "สันกำแพง",
+    "en": "San Kamphaeng",
+    "lat": 18.745,
+    "lng": 99.118,
+    "r_km": 10
+   },
+   {
+    "key": "saraphi",
+    "th": "สารภี",
+    "en": "Saraphi",
+    "lat": 18.708,
+    "lng": 99.033,
+    "r_km": 7
+   },
+   {
+    "key": "hang-dong",
+    "th": "หางดง-สันผักหวาน",
+    "en": "Hang Dong",
+    "lat": 18.687,
+    "lng": 98.906,
+    "r_km": 9
+   },
+   {
+    "key": "mae-taeng",
+    "th": "แม่แตง-เชียงดาว",
+    "en": "Mae Taeng & Chiang Dao",
+    "lat": 19.19,
+    "lng": 98.96,
+    "r_km": 45
+   },
+   {
+    "key": "fang",
+    "th": "ฝาง-แม่อาย-ไชยปราการ",
+    "en": "Fang, Mae Ai & Chai Prakan",
+    "lat": 19.92,
+    "lng": 99.21,
+    "r_km": 45
+   },
+   {
+    "key": "chomthong",
+    "th": "จอมทอง-ฮอด-ดอยหล่อ",
+    "en": "Chom Thong, Hot & Doi Lo",
+    "lat": 18.42,
+    "lng": 98.67,
+    "r_km": 60
+   },
+   {
+    "key": "mae-on",
+    "th": "แม่ออน-สันกำแพงรอบนอก",
+    "en": "Mae On",
+    "lat": 18.76,
+    "lng": 99.26,
+    "r_km": 14
+   }
+  ],
+  "fallback": {
+   "key": "rop-nok",
+   "th": "รอบนอก-ยังไม่ตั้งชื่อย่าน",
+   "en": "Further out (zone not named yet)"
+  }
+ }
+}

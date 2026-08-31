@@ -80,7 +80,7 @@ PROVINCE_AREA = {
 # is where the ground made it, which is never the near ring. Seven of the
 # eight belong to whole districts the box has never seen.
 WIDE_GROUPS = {"stations", "cannabis", "medical", "schools", "reading", "making",
-               "elephants", "hotsprings", "views",
+               "elephants", "hotsprings", "views", "shrines",
                # WO-27: all three residential/government doors are province-
                # wide. The Land Office branches are in the amphoes, Mae Jo's
                # dorms are outside Chiang Mai's near ring, and a housing
@@ -389,6 +389,17 @@ QUERIES = {
     # accident. harvest_hotsprings.py asks the SAME selectors across the
     # other fifteen ภาคเหนือ provinces for the register (one copy of both
     # lists — it imports them from here).
+    # WO-39, STAGED AND NOT YET RUN — needs Nan's go before any fetch. The
+    # shrine shelf (wat/shrine) stands on records already on disk; this
+    # group is what widens it. WIDE on purpose: the city pillars live in
+    # แม่สาย and เชียงแสน, not the ring. shrines_hit() in audit_shrines.py
+    # fences the import (one copy); the review file catches the rest.
+    "shrines":    ['nwr["historic"="wayside_shrine"]',
+                   'nwr["amenity"="place_of_worship"]["religion"="taoist"]',
+                   'nwr["amenity"="place_of_worship"]["religion"="confucian"]',
+                   'nwr["amenity"="place_of_worship"]["religion"="hindu"]',
+                   'nwr["shop"="religion"]["name"]',
+                   'nwr["name"~"ศาลเจ้า|ศาลหลักเมือง|ศาลพระภูมิ|เทวาลัย|สะดือเมือง"]'],
     "hotsprings": ['nwr["natural"="hot_spring"]',
                    'nwr["amenity"="public_bath"]["name"]',
                    'nwr["name"~"น้ำพุร้อน|น้ำพร้อน|บ่อน้ำร้อน|โป่งน้ำร้อน|'

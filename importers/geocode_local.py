@@ -244,7 +244,7 @@ class Gazetteer:
         # and bank branches they merely stood near, and the tier's median error
         # was 3 km while the street tier's was 194 m. Restricting it to things
         # you can be inside is what the MAYA case was actually about.
-        CONTAINERS = {"shopping", "market", "learn", "medical", "transport",
+        CONTAINERS = {"shopping", "market", "sport", "medical", "transport",
                       "hotel", "whats-on", "museums-galleries", "parks", "wat"}
         for (prov, k), rs in seen_name.items():
             if len({(round(x["lat"], 4), round(x["lng"], 4)) for x in rs}) != 1:
@@ -261,7 +261,7 @@ class Gazetteer:
                 continue
             # How far inside its own grounds the shop could be. A mall or a
             # campus is a big thing to be "at"; a shophouse is not.
-            if cats & {"shopping", "learn", "medical", "transport", "market"}:
+            if cats & {"shopping", "sport", "medical", "transport", "market"}:
                 unc = 400
             elif cats & {"hotel", "whats-on", "parks"}:
                 unc = 250

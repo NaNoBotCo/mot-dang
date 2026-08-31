@@ -1,0 +1,49 @@
+/* /doi.html — the land under the directory. */
+.doimap{height:min(70vh,600px);margin:.5rem 0 .2rem}
+@media (min-width:760px){.doimap{height:min(74vh,680px)}}
+.doimap .mdmap-draw{height:100%}
+.doi-fallback{height:100%;display:grid;align-content:center;gap:.4rem;
+  background:var(--soft,#F6EFE3);border-radius:14px;padding:1rem}
+.doimap.mdmap-on .doi-fallback{display:none}
+#doibar{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.6rem 0 .2rem}
+/* Size and squish only. The colours — resting, pressed, after dark — belong
+   to the design layer at the end of build.py's CSS, which already dresses
+   buttons and their aria-pressed state sitewide; a second palette here
+   fought it and lost, half-inverted. Retune the variables, not the rules. */
+.doibtn{min-height:46px;padding:.5rem .95rem;border-radius:.7rem;font:inherit;
+  font-size:.98rem;cursor:pointer;transition:transform .12s ease}
+.doibtn:active{transform:scale(.96)}
+.doiseg{display:inline-flex;gap:.35rem;flex-wrap:wrap}
+.doi-rule{margin:.8rem 0 1rem;padding:.7rem .9rem;border-radius:.8rem;
+  background:var(--soft);border:1px solid rgba(0,0,0,.07);font-size:.98rem}
+.doi-rule b{display:block;margin-bottom:.15rem}
+.doi-facts{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  margin:.6rem 0}
+.doi-fact{padding:.8rem .95rem;border:1px solid rgba(0,0,0,.08);border-radius:.8rem;
+  background:var(--card,#fff)}
+.doi-fact .big{font-size:1.9rem;font-weight:700;line-height:1.15;display:block}
+.doi-fact small{color:var(--mute)}
+.doi-sect{border:1px solid rgba(0,0,0,.08);border-radius:.8rem;
+  background:var(--card,#fff);padding:.7rem .8rem .4rem;margin:.6rem 0 .2rem}
+.doi-sect svg{display:block;width:100%;height:auto}
+.doi-method{color:var(--mute);font-size:.85rem;margin:.3rem 0 .9rem}
+.doi-words{margin:.2rem 0;padding-left:1.1rem}
+.doi-words li{margin:.26rem 0}
+.doi-note{color:var(--mute);font-size:.9rem}
+.doi-reg{width:100%;border-collapse:collapse;margin:.6rem 0 .4rem;font-size:.95rem}
+.doi-reg th,.doi-reg td{padding:.45rem .4rem;border-bottom:1px solid rgba(0,0,0,.08);
+  text-align:left;vertical-align:top}
+.doi-reg td.ele,.doi-reg th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.doi-reg .venue a{text-decoration:none;color:inherit}
+.doi-reg .venue a:hover{text-decoration:underline}
+/* One ink set, no dark fork: the site's paper stays cream in every mode, so
+   a media-query palette here painted half the drawing for a night that never
+   comes. Fixed inks, like every other drawn map on this site. */
+.doi-grid{stroke:rgba(42,30,22,.14);stroke-width:1}
+.doi-area{fill:#E2D2AC}
+.doi-line{stroke:#4A3A28;stroke-width:2;fill:none}
+.doi-lab{font-size:12px;fill:#5a4f42}
+.doi-lab2{font-size:12.5px;font-weight:600;fill:#3d3428}
+.doi-axis{font-size:10.5px;fill:#8a7a62}
+.doi-tick{stroke:#8a7a62;stroke-width:1.4}
+@media (prefers-reduced-motion:reduce){.doibtn{transition:none}}

@@ -230,7 +230,7 @@
   "cm-osm-node-13859401882": {
    "note": "Na Non Restaurant, Pool & Gym — name claims gym; was food/thai",
    "add_cat": [
-    "learn"
+    "sport"
    ],
    "add_sub": [
     "gym"
@@ -2557,6 +2557,136 @@
    ],
    "source": "https://www.openstreetmap.org/way/1254815337",
    "fetched": "2026-08-20"
+  },
+  "cm-curated-naresuan-lokmolee": {
+   "note": "ศาลสมเด็จพระนเรศวรมหาราช — shrine; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "source": "osm name: ศาลสมเด็จพระนเรศวรมหาราช",
+   "fetched": "2026-08-27"
+  },
+  "cm-osm-node-11226861564": {
+   "note": "ศาลเจ้าพ่อหลักเมืองแจ่งกระต๊ำ — lak-mueang; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "source": "osm name: ศาลเจ้าพ่อหลักเมืองแจ่งกระต๊ำ",
+   "fetched": "2026-08-27"
+  },
+  "cm-osm-node-6180384686": {
+   "note": "ศาลสมเด็จพระนเรศวรมหาราช บ้านร่มไทย — shrine; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "source": "osm name: ศาลสมเด็จพระนเรศวรมหาราช บ้านร่มไทย",
+   "fetched": "2026-08-27"
+  },
+  "cm-osm-node-6364376085": {
+   "note": "Ganesha Shrine — shrine; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "source": "osm name: Ganesha Shrine",
+   "fetched": "2026-08-27"
+  },
+  "cm-osm-node-6726115189": {
+   "note": "หอพญามังราย — shrine; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "add_cat": [
+    "wat"
+   ],
+   "source": "osm name: หอพญามังราย",
+   "fetched": "2026-08-27"
+  },
+  "cm-osm-way-38487629": {
+   "note": "Kuan Imm Palace — shrine; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "add_cat": [
+    "wat"
+   ],
+   "source": "osm historic=wayside_shrine (way/38487629)",
+   "fetched": "2026-08-27"
+  },
+  "cm-osm-way-793933943": {
+   "note": "พิฆเนศวรเทวาลัย — thewalai; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "add_cat": [
+    "wat"
+   ],
+   "source": "osm historic=wayside_shrine (way/793933943)",
+   "fetched": "2026-08-27"
+  },
+  "cr-dgth-religious-0536272949": {
+   "note": "พระสยามเทวาธิราชสวนมโนมัยดอยแม่สลอง — arak; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "add_cat": [
+    "wat"
+   ],
+   "source": "data.go.th religious/attraction list (WO-16 fold; see data/curated/datagoth.json)",
+   "fetched": "2026-08-27"
+  },
+  "cr-dgth-religious-3800070060": {
+   "note": "ศาลเจ้าจี้กงหน่ำพิ้งเกาะ — san-chao; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "add_cat": [
+    "wat"
+   ],
+   "source": "data.go.th religious/attraction list (WO-16 fold; see data/curated/datagoth.json)",
+   "fetched": "2026-08-27"
+  },
+  "cr-osm-node-2622028414": {
+   "note": "เสาสะดือเมืองเชียงราย — lak-mueang; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "add_cat": [
+    "wat"
+   ],
+   "source": "osm name: เสาสะดือเมืองเชียงราย",
+   "fetched": "2026-08-27"
+  },
+  "cr-osm-way-315250004": {
+   "note": "ศาลสมเด็จพระนเรศวรมหาราช — shrine; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "source": "osm name: ศาลสมเด็จพระนเรศวรมหาราช",
+   "fetched": "2026-08-27"
+  },
+  "cr-osm-way-374834904": {
+   "note": "ศาลเจ้าปู่ พญาแสนภู — san-chao; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "source": "osm name: ศาลเจ้าปู่ พญาแสนภู",
+   "fetched": "2026-08-27"
+  },
+  "cr-osm-way-376095627": {
+   "note": "ศาลหลักเมืองแม่สาย — lak-mueang; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "source": "osm name: ศาลหลักเมืองแม่สาย",
+   "fetched": "2026-08-27"
+  },
+  "cr-osm-way-551266015": {
+   "note": "ศาลเจ้าจีน บ้านถ้ำปลา — san-chao; WO-39 seat on the shrine shelf",
+   "add_sub": [
+    "shrine"
+   ],
+   "source": "osm name: ศาลเจ้าจีน บ้านถ้ำปลา",
+   "fetched": "2026-08-27"
   }
  }
 }

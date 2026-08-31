@@ -18,6 +18,11 @@ makes a network call.
     python3 importers/harvest_events.py             # fetch what is stale
     python3 importers/harvest_events.py --refetch   # ignore cache
     python3 importers/harvest_events.py --list      # show registry, fetch nothing
+
+EXIT CODE IS PART OF THE CONTRACT (WO-41 Phase 2): 0 when data/events.json
+now holds this harvest, 1 when the run was refused and the previous file
+stands. The walks read it — `|| say "events kept the snapshot"` in
+morning_walk.sh now says something true rather than only catching a crash.
 """
 
 import html
@@ -30,6 +35,8 @@ import urllib.error
 import urllib.request
 from datetime import date, datetime, timedelta
 
+import ingest         # the shared write discipline (WO-41 Phase 2)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(ROOT, "cache", "events")
 REGISTRY = os.path.join(ROOT, "data", "sources.json")
@@ -38,6 +45,10 @@ LEADS = os.path.join(ROOT, "data", "contact_leads.json")
 UA = "MotDangEvents/1.0 (+https://motdang.net/festivals.html; events for a local directory)"
 TIMEOUT = 30
 STALE_DAYS = 3          # dated events move fast; a 3-day-old snapshot is stale
+# WO-41 Phase 2 — the guards that keep an empty basket from becoming the file.
+# Both are about the PIPELINE's health, never about how busy the city is.
+MIN_ROWS = 3            # fewer than this from four working feeds is a fault
+QUORUM = 2              # of the ical groups + json sources that answered
 PAUSE = 2.0             # gentle between live fetches, same manners as the crawler
 
 
@@ -199,6 +210,16 @@ def parse_tribe(source_id, endpoint, refetch):
             doc = json.loads(body)
         except json.JSONDecodeError:
             break
+        # A parser states the shape it needs. This one wants The Events
+        # Calendar's {"events": [...]} envelope; anything else — a bare list,
+        # a string, a null — belongs to some other kind of source and is not
+        # this parser's to interpret. Raising a plain ValueError here (rather
+        # than letting doc.get explode with an AttributeError) keeps the
+        # failure inside the per-source net below, where one wrong source
+        # costs its own rows and nothing else's.
+        if not isinstance(doc, dict):
+            raise ValueError(f"{source_id}: expected an events envelope, "
+                             f"got a bare {type(doc).__name__}")
         batch = doc.get("events", [])
         for ev in batch:
             v = ev.get("venue") or {}
@@ -309,12 +330,31 @@ def main():
     # the tree, and the KeyError stopped every refetch dead, which is how the
     # events feed came to sit three days stale without anyone noticing. That
     # source has its own importer; it was never this harvester's to fetch.
+    #
+    # WO-41 Phase 2 — AND IT MUST YIELD EVENTS. data/sources.json is the whole
+    # fleet's registry, not this harvester's private list: later orders
+    # registered the OBEC school register, Open-Meteo and the cannabis map
+    # there, all `method: json` and all verified. This harvester took every one
+    # of them, and on 2026-08-25 the school register — a 17 MB JSON *list* —
+    # met parse_tribe()'s doc.get() and killed the whole batch. Every morning
+    # since, the events feed harvested nothing. The registry already says what
+    # each source is for; asking it is the fix.
     fetchable = [s for s in sources
                  if s.get("status") == "verified"
-                 and s.get("method") in ("ical", "json")]
+                 and s.get("method") in ("ical", "json")
+                 and "events" in (s.get("yields") or [])]
     print(f"🐜 {len(fetchable)} fetchable source(s) of {len(sources)} in the registry")
 
-    events, leads, failures = [], [], []
+    # WO-41 Phase 2 — THE NET IS WIDE ON PURPOSE. It used to catch only
+    # (URLError, HTTPError, OSError): the transport failures somebody had
+    # thought of. A source whose payload had merely CHANGED SHAPE raised
+    # straight past it and took the other sources' rows with it, which is
+    # precisely how one school register silenced the whole events feed for
+    # four days. Isolation has to hold against the failure nobody predicted,
+    # so every exception a single source can raise stops at that source —
+    # and is recorded by name rather than swallowed. KeyboardInterrupt and
+    # SystemExit are not Exception subclasses and still stop the run.
+    events, leads, failures, ok_sources = [], [], [], []
     for s in fetchable:
         if s["method"] == "ical":
             for group in s.get("groups", []):
@@ -323,19 +363,21 @@ def main():
                     body, was_cached = cached(f"{s['id']}-{group}", url, refetch)
                     got = parse_ical(body, s["id"])
                     events.extend(got)
+                    ok_sources.append(group)
                     print(f"   {'cache' if was_cached else 'fetch'}  {group}: {len(got)} event(s)")
-                except (urllib.error.URLError, urllib.error.HTTPError, OSError) as ex:
-                    failures.append((group, str(ex)))
-                    print(f"   FAIL   {group}: {ex}")
+                except Exception as ex:
+                    failures.append((group, f"{type(ex).__name__}: {ex}"))
+                    print(f"   FAIL   {group}: {type(ex).__name__}: {ex}")
         elif s["method"] == "json":
             try:
                 got, got_leads = parse_tribe(s["id"], s["endpoint"], refetch)
                 events.extend(got)
                 leads.extend(got_leads)
+                ok_sources.append(s["id"])
                 print(f"   ok     {s['id']}: {len(got)} event(s), {len(got_leads)} contact lead(s)")
-            except (urllib.error.URLError, urllib.error.HTTPError, OSError) as ex:
-                failures.append((s["id"], str(ex)))
-                print(f"   FAIL   {s['id']}: {ex}")
+            except Exception as ex:
+                failures.append((s["id"], f"{type(ex).__name__}: {ex}"))
+                print(f"   FAIL   {s['id']}: {type(ex).__name__}: {ex}")
 
     events = mark_recurring(events)
     events.sort(key=lambda e: (e.get("start") or "", e.get("title") or ""))
@@ -343,21 +385,41 @@ def main():
     upcoming = [e for e in events if (e.get("start") or "") >= horizon]
     leads = dedupe_leads(leads)
 
-    with open(OUT, "w") as fh:
-        json.dump({"generated": date.today().isoformat(),
-                   "count": len(upcoming),
-                   "recurring": sum(1 for e in upcoming if e["recurring"]),
-                   "events": upcoming}, fh, ensure_ascii=False, indent=1)
-    with open(LEADS, "w") as fh:
-        json.dump({"generated": date.today().isoformat(),
-                   "count": len(leads), "leads": leads}, fh, ensure_ascii=False, indent=1)
-
-    print(f"🐜 {len(upcoming)} upcoming event(s) "
-          f"({sum(1 for e in upcoming if e['recurring'])} recurring) -> {OUT}")
-    print(f"🐜 {len(leads)} contact lead(s) -> {LEADS}")
+    # WO-41 Phase 2. This is where 69 good events were lost on 2026-08-24: the
+    # write was unconditional, so a run that harvested nothing published
+    # nothing over the top of everything. Both files now go through the shared
+    # discipline — validated, atomic, and never destructive when the basket
+    # comes home empty.
+    #
+    # MIN_ROWS is deliberately low. The question this guard answers is "did the
+    # pipeline break", not "was it a busy week": a quiet fortnight in the city
+    # is a true thing the site may print, while three events out of four
+    # working feeds is a fault. Quorum carries the rest of the weight, because
+    # a feed can be broken while still returning rows.
+    ok = ingest.write(
+        OUT, {"generated": date.today().isoformat(),
+              "count": len(upcoming),
+              "recurring": sum(1 for e in upcoming if e["recurring"]),
+              "events": upcoming},
+        count=len(upcoming), min_rows=MIN_ROWS,
+        sources_ok=ok_sources, sources_failed=failures, quorum=QUORUM,
+        label="events.json")
+    # The leads file rides the same run and the same verdict: if the harvest
+    # was not trustworthy enough to publish its events, its contact leads are
+    # not trustworthy enough to overwrite the good ones either.
+    if ok:
+        ingest.write(LEADS, {"generated": date.today().isoformat(),
+                             "count": len(leads), "leads": leads},
+                     count=len(leads), min_rows=0,
+                     sources_ok=ok_sources, sources_failed=failures,
+                     label="contact_leads.json")
+    else:
+        ingest.refuse(LEADS, "the same harvest that could not publish events",
+                      ok_sources, failures)
     if failures:
         print(f"⚠  {len(failures)} source(s) failed: {[f[0] for f in failures]}")
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main() or 0)

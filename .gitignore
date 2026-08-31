@@ -37,3 +37,8 @@ publish/.uploaded.json
 # same way docs/ is. make_hf_dataset.py is tracked; its 12 MB of output is not.
 publish/hf-dataset/
 cache/scripture/
+
+# WO-41: ingest sidecars — per-machine operational state, rewritten every
+# run like cache/last-published.json. A fresh clone with no meta is a
+# supported state (ingest.read_meta returns {}).
+data/*.meta.json

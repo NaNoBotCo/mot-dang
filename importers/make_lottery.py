@@ -54,6 +54,8 @@ import urllib.request
 from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 
+import ingest      # shared write discipline (WO-41 Phase 2)
+
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "lottery.json"
 CACHE = ROOT / "cache" / "lottery"
@@ -210,11 +212,23 @@ def main():
         except ValueError:
             old = {}
         if old.get("draw") == rec["draw"]:
+            # Same draw: the file is left exactly as it was (the change gate
+            # depends on that), but the run is still recorded — a sidecar that
+            # cannot tell "checked, nothing new" from "nobody looked" is the
+            # blindness WO-41 exists to end. ingest.write sees the identical
+            # content hash and updates only the meta.
+            ingest.write(OUT, rec, count=1, min_rows=1,
+                         source_published_at=rec["draw"]["date"],
+                         label="lottery.json")
             print("🐜 งวด %s unchanged — data/lottery.json kept as it was"
                   % rec["draw"]["date"])
             return
 
-    OUT.write_text(json.dumps(rec, ensure_ascii=False, indent=1))
+    # WO-41 Phase 2. The sheet is already validated above; this records the
+    # run in the sidecar and keeps the atomic write. count=1 — a draw is one
+    # record, and its own guard is the prize-tier validation, not a row count.
+    ingest.write(OUT, rec, count=1, min_rows=1,
+                 source_published_at=rec["draw"]["date"], label="lottery.json")
     first = next((p for p in rec["draw"]["prizes"] if p["id"] == "first"), {})
     print("🐜 งวด %s — รางวัลที่ 1: %s -> %s"
           % (rec["draw"]["date"], " ".join(first.get("numbers", [])), OUT))

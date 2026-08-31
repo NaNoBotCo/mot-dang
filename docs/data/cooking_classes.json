@@ -1,0 +1,615 @@
+{
+ "_readme": "The class board: which cooking school runs which sessions, on which days, from what time, for what posted price — read by cooking_layer.py for /cooking.html and the band on each school's page. Curated, never crawled; the same facts sit on the records through data/curated/enrich.json so the school's own page shows them too. Every row names WHO stated the sessions (`stated_by`) and where (`source`, `fetched`). `sessions` holds only what the school itself states; `days` holds BYDAY codes only when the school states weekdays (\"closed Sundays\", \"open daily\", \"365 days\") and is null when it does not — null means NOT STATED, never closed. What a listing or a reseller says would go in `days_reported`, by name and date, and render as reported; as of the first board nothing has had to. Prices follow the same rule as everywhere on this site: `_pricesVerified` stays false until somebody reads the board at the door, and a card or page says so. A row with `place` null is a school whose own site was read but whose record could not be tied to an OpenStreetMap record by the strict matcher (`maybe_place` names the candidate, for a person). Schools on the shelf that state nothing are listed by the page itself under 'ask first' — they are not rows here. Deliberately NOT fed into events.json: a daily class is a booking, not a happening.",
+ "verified_on": "2026-08-19",
+ "schools": [
+  {
+   "place": "cm-osm-way-961802207",
+   "name_th": "โรงเรียนสอนทำอาหาร Thai Secret (สันทราย)",
+   "name_en": "Thai Secret Cooking School & Organic Garden Farm",
+   "kind": "farm",
+   "sessions": [
+    {
+     "key": "half",
+     "th": "ครึ่งเมนู",
+     "en": "half menu",
+     "start": "08:30",
+     "end": "13:30"
+    },
+    {
+     "key": "full",
+     "th": "เต็มเมนู",
+     "en": "full menu",
+     "start": "08:30",
+     "end": "15:30"
+    }
+   ],
+   "days": [
+    "MO",
+    "TU",
+    "WE",
+    "TH",
+    "FR",
+    "SA"
+   ],
+   "stated_by": "venue",
+   "stated_th": "เว็บโรงเรียน: ครึ่งเมนู 8:30–13:30 · เต็มเมนู 8:30–15:30 · หยุดวันอาทิตย์ · วันละหนึ่งคลาส",
+   "stated_en": "The school's own site: half menu 8:30–13:30, full menu 8:30–15:30, closed Sundays, one class a day",
+   "source": "https://www.chiang-mai-cooking-school.com/",
+   "fetched": "2026-08-19",
+   "prices_thb": {
+    "half": 1000,
+    "full": 1200
+   },
+   "price_via": "school website",
+   "_pricesVerified": false,
+   "pickup_th": "รับ-ส่งจากตัวเมือง นอกเขตนัดที่ประตูท่าแพ",
+   "pickup_en": "round trip from downtown; outside the zone, meet at Tha Phae Gate",
+   "menu_th": "ตลาดสามแยก แล้วสวนออร์แกนิก · แกง ผัด น้ำพริก ยำ ขนม อาหารเหนือ",
+   "menu_en": "Sam Yaek market, then the organic garden; curries, stir-fries, relishes, salads, desserts, Northern dishes",
+   "book_th": "อีเมลผ่านเว็บโรงเรียน",
+   "book_en": "email via the school's site",
+   "venue_name": "Thai Secret Cooking School & Organic Garden Farm"
+  },
+  {
+   "place": "cm-osm-node-4391653340",
+   "name_th": "Thai Farm Cooking School (ออฟฟิศในเมือง · ฟาร์มนอกเมือง)",
+   "name_en": "Thai Farm Cooking School",
+   "kind": "farm",
+   "sessions": [
+    {
+     "key": "full",
+     "th": "เต็มวัน",
+     "en": "full day",
+     "start": "08:30",
+     "end": "16:30",
+     "note_th": "รับ 8:30–9:00 กลับ 16:00–16:30",
+     "note_en": "pickup 8:30–9:00, back 16:00–16:30"
+    },
+    {
+     "key": "morning",
+     "th": "ครึ่งวันเช้า",
+     "en": "morning half-day",
+     "start": null,
+     "end": null,
+     "note_th": "มี เวลาไม่ระบุ",
+     "note_en": "exists, times not stated"
+    },
+    {
+     "key": "evening",
+     "th": "ครึ่งวันเย็น",
+     "en": "evening half-day",
+     "start": "15:00",
+     "end": "21:00",
+     "note_th": "รับ 15:00–15:30 กลับราว 21:00",
+     "note_en": "pickup 15:00–15:30, back about 21:00"
+    }
+   ],
+   "days": null,
+   "stated_by": "venue (sessions; weekdays not stated)",
+   "stated_th": "เว็บโรงเรียน: เต็มวัน 1,500 บาท รับ 8:30–9:00 กลับ 16:00–16:30 · ครึ่งวันเย็น 1,200 บาท รับ 15:00–15:30 กลับราว 21:00 · ไม่ระบุวัน",
+   "stated_en": "The school's own site: full day 1,500 baht, pickup 8:30–9:00, back 16:00–16:30; evening half-day 1,200 baht, pickup 15:00–15:30, back about 21:00; weekdays not stated",
+   "source": "https://www.thaifarmcooking.net/full-day-cooking-class/",
+   "fetched": "2026-08-19",
+   "prices_thb": {
+    "full": 1500,
+    "evening": 1200
+   },
+   "price_via": "school website",
+   "_pricesVerified": false,
+   "pickup_th": "รถตู้แอร์ในเขตตัวเมือง นอกเขตนัดที่ออฟฟิศหรือตลาดรวมโชค",
+   "pickup_en": "air-con minivan within the city zone; otherwise meet at the office or Ruamchok market",
+   "menu_th": "6 หมวด เลือกเอง · ตลาด แล้วฟาร์มออร์แกนิกราว 17 กม. · ทุกเมนูทำมังสวิรัติ วีแกน ฮาลาล ไร้กลูเตนได้ · เตา-ครกของตัวเอง",
+   "menu_en": "6 categories of your choosing · the market, then the organic farm about 17 km out · the whole menu can be vegetarian, vegan, halal or gluten-free · own station",
+   "book_th": "โทร +66 81 288 5989 · thaifarmcooking@gmail.com",
+   "book_en": "phone +66 81 288 5989 · thaifarmcooking@gmail.com",
+   "venue_name": "Thai Farm Cooking Class"
+  },
+  {
+   "place": "cm-osm-node-3015620954",
+   "name_th": "Asia Scenic (ราชดำเนิน ซอย 5 · และฟาร์ม)",
+   "name_en": "Asia Scenic Thai Cooking School",
+   "kind": "class",
+   "sessions": [
+    {
+     "key": "morning",
+     "th": "เช้า ในเมืองเก่า",
+     "en": "old-city morning",
+     "start": null,
+     "end": null,
+     "note_th": "เวลาไม่อยู่บนหน้าที่อ่าน",
+     "note_en": "time not on the page read"
+    },
+    {
+     "key": "evening",
+     "th": "เย็น ในเมืองเก่า",
+     "en": "old-city evening",
+     "start": "16:00",
+     "end": "20:30",
+     "note_th": "รับ 15:20–15:50",
+     "note_en": "pickup 15:20–15:50"
+    },
+    {
+     "key": "farm",
+     "th": "ที่ฟาร์ม เช้าเท่านั้น",
+     "en": "farm, morning only",
+     "start": "09:00",
+     "end": "15:30",
+     "note_th": "รับ 8:20–8:50",
+     "note_en": "pickup 8:20–8:50"
+    },
+    {
+     "key": "carving",
+     "th": "แกะสลักเต็มคอร์ส",
+     "en": "carving full course",
+     "start": "09:00",
+     "end": "14:30"
+    }
+   ],
+   "days": null,
+   "stated_by": "venue (sessions; weekdays not stated)",
+   "stated_th": "เว็บโรงเรียน: เมืองเก่า เช้าหรือเย็น 1,000 · ฟาร์ม 1,200 · แกะสลัก 2,000 บาท · เลือก 6 จาน · ไม่ระบุวัน",
+   "stated_en": "The school's own site: old city morning or evening 1,000, farm 1,200, carving 2,000 baht; choose 6 dishes; weekdays not stated",
+   "source": "https://www.asiascenic.com/",
+   "fetched": "2026-08-19",
+   "prices_thb": {
+    "oldcity": 1000,
+    "farm": 1200,
+    "carving": 2000
+   },
+   "price_via": "school website",
+   "_pricesVerified": false,
+   "pickup_th": "รถรับในเขตเมืองเก่า",
+   "pickup_en": "pickup within the old city",
+   "menu_th": "เลือก 6 จาน · เดินตลาด · สมุดสูตรพิมพ์เล่ม · ทุกเมนูทำเจ วีแกน ฮาลาล ไร้กลูเตนได้ · มีคอร์สขั้นสูงและแกะสลักผักผลไม้",
+   "menu_en": "choose 6 dishes · market walk · printed cookbook · whole menu vegetarian, vegan, halal, gluten-free · an advanced course and fruit-and-vegetable carving",
+   "book_th": "โทร +66 53 418 657 · จองบนเว็บ",
+   "book_en": "phone +66 53 418 657 · online booking",
+   "venue_name": "Asia Scenic Thai Cooking School"
+  },
+  {
+   "place": "cm-osm-node-5640397222",
+   "name_th": "BaanThai Cookery School (พระปกเกล้า)",
+   "name_en": "BaanThai Cookery School",
+   "kind": "class",
+   "sessions": [
+    {
+     "key": "morning",
+     "th": "เช้า",
+     "en": "morning",
+     "start": "09:30",
+     "end": "14:00"
+    },
+    {
+     "key": "evening",
+     "th": "เย็น",
+     "en": "evening",
+     "start": "16:00",
+     "end": "20:30"
+    }
+   ],
+   "days": null,
+   "stated_by": "venue (sessions; weekdays not stated)",
+   "stated_th": "เว็บโรงเรียน: เช้า 9:30–14:00 · เย็น 16:00–20:30 · 1,100 บาท ทั้งสองรอบ · ไม่ระบุวัน",
+   "stated_en": "The school's own site: morning 9:30–14:00, evening 16:00–20:30, 1,100 baht either session; weekdays not stated",
+   "source": "https://www.baanthaicookery.com/courses/morning",
+   "fetched": "2026-08-19",
+   "prices_thb": {
+    "morning": 1100,
+    "evening": 1100
+   },
+   "price_via": "school website",
+   "_pricesVerified": false,
+   "pickup_th": "รับ-ส่งในรัศมี 3 กม. จากเมืองเก่า",
+   "pickup_en": "pickup within 3 km of the old city",
+   "menu_th": "4 จาน + ตำพริกแกง · เดินตลาด 30–45 นาที · สมุดสูตรกว่า 30 สูตร",
+   "menu_en": "4 dishes + curry paste · a 30–45 minute market walk · a book of 30+ recipes",
+   "book_th": "booking@baanthaicookery.com",
+   "book_en": "booking@baanthaicookery.com",
+   "venue_name": "BaanThai Cookery School"
+  },
+  {
+   "place": "cm-curated-mama-noi-cooking-school",
+   "name_th": "Mama Noi Cooking School",
+   "name_en": "Mama Noi Cooking School",
+   "kind": "farm",
+   "sessions": [
+    {
+     "key": "morning",
+     "th": "เช้า",
+     "en": "morning",
+     "start": "09:00",
+     "end": null,
+     "note_th": "ราว 3–4 ชั่วโมง",
+     "note_en": "about 3–4 hours"
+    },
+    {
+     "key": "afternoon",
+     "th": "บ่าย",
+     "en": "afternoon",
+     "start": "15:30",
+     "end": null,
+     "note_th": "ราว 3–4 ชั่วโมง",
+     "note_en": "about 3–4 hours"
+    }
+   ],
+   "days": [
+    "MO",
+    "TU",
+    "WE",
+    "TH",
+    "FR",
+    "SA",
+    "SU"
+   ],
+   "stated_by": "venue",
+   "stated_th": "เว็บโรงเรียน: เปิดทุกวัน เช้า 9:00 บ่าย 15:30 ราว 3–4 ชั่วโมง · 1,000 บาท ห้องแอร์ 1,399",
+   "stated_en": "The school's own site: open daily, 9:00 and 15:30, about 3–4 hours; 1,000 baht, 1,399 in the air-conditioned room",
+   "source": "https://www.mamanoicookingschool.com/",
+   "fetched": "2026-08-19",
+   "prices_thb": {
+    "standard": 1000,
+    "aircon": 1399
+   },
+   "price_via": "school website",
+   "_pricesVerified": false,
+   "pickup_th": "รับ-ส่งฟรีในรัศมี 5 กม. จากเมืองเก่า",
+   "pickup_en": "free pickup within 5 km of the old city",
+   "menu_th": "3 จาน + ขนม + ชาไทย · เดินตลาด · มังสวิรัติได้ทุกจาน · สวนออร์แกนิก",
+   "menu_en": "3 dishes + dessert + Thai tea · market walk · vegetarian version of every dish · organic garden",
+   "book_th": "โทร +66 83 641 6464 · จองบนเว็บ",
+   "book_en": "phone +66 83 641 6464 · online booking",
+   "venue_name": "Mama Noi Cooking School"
+  },
+  {
+   "place": "cm-curated-grandmas-home-cooking-school",
+   "name_th": "Grandma's Home Cooking School (สารภี)",
+   "name_en": "Grandma's Home Cooking School",
+   "kind": "farm",
+   "sessions": [
+    {
+     "key": "full",
+     "th": "เต็มวัน",
+     "en": "full day",
+     "start": null,
+     "end": null
+    },
+    {
+     "key": "northern",
+     "th": "อาหารเหนือ เต็มวัน",
+     "en": "Northern Thai full day",
+     "start": null,
+     "end": null
+    },
+    {
+     "key": "half",
+     "th": "ครึ่งวัน เช้า / บ่าย / เย็น",
+     "en": "half day, morning / afternoon / evening",
+     "start": null,
+     "end": null
+    }
+   ],
+   "days": null,
+   "stated_by": "venue (course list; times, weekdays and prices not stated)",
+   "stated_th": "เว็บโรงเรียน: เต็มวัน · อาหารเหนือเต็มวัน 6 จาน · ครึ่งวันเช้า/บ่าย/เย็น · รับ-ส่ง 10 กม. · เวลา วัน และราคาไม่อยู่บนหน้าเว็บ",
+   "stated_en": "The school's own site: full day; a Northern Thai full day of six dishes; half day morning, afternoon or evening; pickup within 10 km; times, weekdays and prices not on the page",
+   "source": "https://www.grandmascookingschool.com/",
+   "fetched": "2026-08-19",
+   "prices_thb": null,
+   "price_via": null,
+   "_pricesVerified": false,
+   "pickup_th": "รับ-ส่งในรัศมี 10 กม. จากตัวเมือง",
+   "pickup_en": "pickup within 10 km of downtown",
+   "menu_th": "ตลาดก่อน แล้วฟาร์มออร์แกนิก · มังสวิรัติ ฮาลาล ไร้กลูเตน",
+   "menu_en": "the market first, then the organic farm · vegetarian, halal, gluten-free",
+   "book_th": "โทร +66 82 850 9999 · rsvn.cooking@grandmasvillagefarm.com · จองบนเว็บ",
+   "book_en": "phone +66 82 850 9999 · rsvn.cooking@grandmasvillagefarm.com · online booking",
+   "venue_name": "Grandma's Home Cooking School"
+  },
+  {
+   "place": "cm-osm-node-12500290176",
+   "name_th": "May Kaidee — โรงเรียนสอนทำอาหารวีแกน",
+   "name_en": "May Kaidee vegan cooking school",
+   "kind": "vegan",
+   "sessions": [
+    {
+     "key": "open",
+     "th": "โรงเรียนเปิด",
+     "en": "school open",
+     "start": "09:00",
+     "end": "18:00",
+     "note_th": "เวลาเริ่มคลาสไม่อยู่บนหน้าเว็บ",
+     "note_en": "class start times not on the page"
+    }
+   ],
+   "days": [
+    "MO",
+    "TU",
+    "WE",
+    "TH",
+    "FR",
+    "SA"
+   ],
+   "stated_by": "venue (opening days and hours; class times and prices not stated)",
+   "stated_th": "เว็บ May Kaidee: โรงเรียนเปิด 9:00–18:00 จันทร์–เสาร์ หยุดอาทิตย์ · คอร์ส Thai Cooking, Express, ทำเต้าหู้, ทำพริกแกง, 3/5/10 วัน, ขนมไทย · ราคาและเวลาเริ่มไม่อยู่บนหน้าเว็บ",
+   "stated_en": "May Kaidee's site: school open 9:00–18:00 Monday–Saturday, closed Sunday; courses Thai Cooking, Express, How to Make Tofu, How to Make Chili Paste, 3/5/10-day, Thai Desserts; prices and class times not on the page",
+   "source": "https://www.maykaidee.com/cooking-school",
+   "fetched": "2026-08-19",
+   "prices_thb": null,
+   "price_via": null,
+   "_pricesVerified": false,
+   "pickup_th": null,
+   "pickup_en": null,
+   "menu_th": "วีแกนทั้งหมด · มีคอร์สขนมไทย และคอร์สหลายวัน",
+   "menu_en": "all vegan · a Thai Desserts course and multi-day courses",
+   "book_th": "reservations@maykaidee.com · โทร +66 86 398 4808",
+   "book_en": "reservations@maykaidee.com · phone +66 86 398 4808",
+   "venue_name": "May Kaidee vegan cooking classes"
+  },
+  {
+   "place": "cm-osm-way-305818862",
+   "name_th": "Four Seasons — Rim Tai Kitchen (แม่ริม)",
+   "name_en": "Four Seasons Resort — Rim Tai Kitchen",
+   "kind": "hotel",
+   "sessions": [
+    {
+     "key": "morning",
+     "th": "คลาสเช้า",
+     "en": "morning class",
+     "start": "09:00",
+     "end": "12:00"
+    },
+    {
+     "key": "afternoon",
+     "th": "คลาสบ่าย",
+     "en": "afternoon class",
+     "start": "14:00",
+     "end": "17:00"
+    },
+    {
+     "key": "kids",
+     "th": "คลาสเด็ก 6–11 ปี",
+     "en": "kids' class, ages 6–11",
+     "start": "10:00",
+     "end": "12:00"
+    },
+    {
+     "key": "live",
+     "th": "Thai Kitchen Live",
+     "en": "Thai Kitchen Live",
+     "start": "19:00",
+     "end": "21:00"
+    }
+   ],
+   "days": null,
+   "stated_by": "venue (sessions; weekdays not stated; advance reservation required)",
+   "stated_th": "เว็บรีสอร์ต: คลาสเช้า 9:00–12:00 · บ่าย 14:00–17:00 · เด็ก 10:00–12:00 · กลุ่ม 7,500 ส่วนตัว 8,500 เด็ก 4,250 บาท ++ · ต้องจองล่วงหน้า",
+   "stated_en": "The resort's site: morning 9:00–12:00, afternoon 14:00–17:00, kids 10:00–12:00; group 7,500, private 8,500, kids 4,250 baht plus service and tax; advance reservation required",
+   "source": "https://www.fourseasons.com/chiangmai/dining/restaurants/rim-tai-kitchen/",
+   "fetched": "2026-08-19",
+   "prices_thb": {
+    "group": 7500,
+    "private": 8500,
+    "kids": 4250
+   },
+   "price_via": "resort website (plus 10% service charge and tax)",
+   "_pricesVerified": false,
+   "pickup_th": null,
+   "pickup_en": null,
+   "menu_th": "เริ่มในสวนสมุนไพรของเชฟ แล้วครัวเรือนไม้สัก · เมนูเด็ก 3 จาน",
+   "menu_en": "the chef's garden first, then the teak-house kitchen · three dishes on the kids' menu",
+   "book_th": "โทร 66 2 207-8900",
+   "book_en": "phone 66 2 207-8900",
+   "venue_name": "Four Seasons Resort"
+  },
+  {
+   "place": "cm-osm-node-4573410090",
+   "name_th": "สยามการ์เด้นคุ้กกิ้งสคูล (สันทราย)",
+   "name_en": "Siam Garden Cooking School",
+   "kind": "farm",
+   "sessions": [
+    {
+     "key": "daily",
+     "th": "มีคลาสทุกวัน",
+     "en": "classes daily",
+     "start": null,
+     "end": null,
+     "note_th": "เวลาไม่อยู่บนหน้าแรก",
+     "note_en": "times not on the front page"
+    }
+   ],
+   "days": [
+    "MO",
+    "TU",
+    "WE",
+    "TH",
+    "FR",
+    "SA",
+    "SU"
+   ],
+   "stated_by": "venue (days; times and prices not stated)",
+   "stated_th": "เว็บโรงเรียน: “มีคลาสทุกวัน 365 วัน” · เดินตลาดและสวน · เวลาและราคาไม่อยู่บนหน้าแรก",
+   "stated_en": "The school's own site: “Classes Running 365 Days a Year”; market and garden tour; times and prices not on the front page",
+   "source": "https://www.siamgardencookingschool.com/",
+   "fetched": "2026-08-19",
+   "prices_thb": null,
+   "price_via": null,
+   "_pricesVerified": false,
+   "pickup_th": null,
+   "pickup_en": null,
+   "menu_th": "เดินตลาดและเดินสวน",
+   "menu_en": "market and garden tour",
+   "book_th": "โทร +66 85 033 5883 · LINE fonnie1974",
+   "book_en": "phone +66 85 033 5883 · LINE fonnie1974",
+   "venue_name": "Siam Garden Cooking School"
+  },
+  {
+   "place": null,
+   "maybe_place": "cm-osm-node-4233633591",
+   "maybe_note": "The site calls itself Thai Akha Kitchen; OpenStreetMap holds a Thai Akha Cooking School west of the old city. One shared distinctive token (Akha) is not a match under the strict matcher, so the facts stay on this row until someone stands at the door and says they are the same school.",
+   "name_th": "Thai Akha Kitchen (อาหารอาข่าและไทย)",
+   "name_en": "Thai Akha Kitchen",
+   "kind": "northern",
+   "sessions": [
+    {
+     "key": "morning",
+     "th": "เช้า (มีเดินตลาด)",
+     "en": "morning, with market",
+     "start": "09:00",
+     "end": "15:00"
+    },
+    {
+     "key": "evening",
+     "th": "เย็น",
+     "en": "evening",
+     "start": "17:00",
+     "end": "21:00"
+    }
+   ],
+   "days": null,
+   "stated_by": "venue (sessions; weekdays not stated)",
+   "stated_th": "เว็บโรงเรียน: เช้า 9:00–15:00 1,400 บาท (รวมเดินตลาด) · เย็น 17:00–21:00 1,300 บาท · 11 จาน · 6–16 คน · ทุกคนมีกระทะ-ครกของตัวเอง · ไม่ระบุวัน",
+   "stated_en": "The school's own site: morning 9:00–15:00 at 1,400 baht with the market, evening 17:00–21:00 at 1,300; 11 dishes; 6–16 students; own wok and mortar each; weekdays not stated",
+   "source": "https://www.thaiakhakitchen.com/",
+   "fetched": "2026-08-19",
+   "prices_thb": {
+    "morning": 1400,
+    "evening": 1300
+   },
+   "price_via": "school website",
+   "_pricesVerified": false,
+   "pickup_th": "รับ-ส่งฟรีในรัศมี 3 กม. จากเมืองเก่า",
+   "pickup_en": "free pickup within 3 km of the old city",
+   "menu_th": "อาหารอาข่าและไทย 11 จาน สอนโดยครูชาวอาข่า · เกือบทุกจานเป็นพืชเป็นหลัก ปรับได้ · เผ็ด 5 ระดับ · แจ้งแพ้อาหารได้",
+   "menu_en": "11 Akha and Thai dishes, taught by Akha instructors · mostly plant-based and adaptable · five spice levels · allergies accommodated",
+   "book_th": "จองบนเว็บ จ่ายออนไลน์หรือเงินสดวันเรียน",
+   "book_en": "online booking; pay online or cash on arrival",
+   "venue_name": null
+  },
+  {
+   "place": "cr-curated-suwannee-thai-cooking-class",
+   "name_th": "สุวรรณี สอนทำอาหารไทย เชียงราย",
+   "name_en": "Suwannee Thai Cooking Class Chiangrai",
+   "kind": "class",
+   "province": "cr",
+   "sessions": [
+    {
+     "key": "morning",
+     "th": "เช้า",
+     "en": "morning",
+     "start": "09:30",
+     "end": "14:00"
+    },
+    {
+     "key": "afternoon",
+     "th": "บ่าย",
+     "en": "afternoon",
+     "start": "16:00",
+     "end": "20:00"
+    }
+   ],
+   "days": null,
+   "stated_by": "venue (sessions; weekdays not stated; runs from two people)",
+   "stated_th": "เว็บโรงเรียน: เช้า 9:30–14:00 1,550 บาท · บ่าย 16:00–20:00 1,850 บาท · เปิดสอนเมื่อมี 2 คนขึ้นไป ไม่เกิน 12 คน · ไม่ระบุวัน",
+   "stated_en": "The school's own site: morning 9:30–14:00 at 1,550 baht, afternoon 16:00–20:00 at 1,850; runs from two people, up to twelve; weekdays not stated",
+   "source": "https://www.thaicookingclasschiangrai.com/",
+   "fetched": "2026-08-19",
+   "prices_thb": {
+    "morning": 1550,
+    "afternoon": 1850
+   },
+   "price_via": "school website",
+   "_pricesVerified": false,
+   "pickup_th": "รับ-ส่งในรัศมีราว 3 กม. จากตัวเมือง นอกนั้นนัดที่หอนาฬิกาเก่า",
+   "pickup_en": "pickup within about 3 km of town; otherwise meet at the old clock tower",
+   "menu_th": "เดินตลาด-ชิมของ แวะวัด · รับมังสวิรัติ-วีแกนทุกคอร์ส · สอนมาตั้งแต่ 2550",
+   "menu_en": "market and tasting walk with a temple stop · vegetarians and vegans welcome on every course · teaching since 2007",
+   "book_th": "โทร / WhatsApp +66 84 740 7119",
+   "book_en": "phone / WhatsApp +66 84 740 7119",
+   "venue_name": "Suwannee Thai Cooking Class Chiangrai"
+  },
+  {
+   "place": "cr-curated-akha-kitchen",
+   "name_th": "Akha Kitchen เชียงราย (คลาสส่วนตัว)",
+   "name_en": "Akha Kitchen, Chiang Rai",
+   "kind": "northern",
+   "province": "cr",
+   "sessions": [
+    {
+     "key": "private",
+     "th": "คลาสส่วนตัว ราว 4 ชม.",
+     "en": "private class, about 4 h",
+     "start": null,
+     "end": null,
+     "note_th": "เวลานัดกันเอง",
+     "note_en": "time by arrangement"
+    }
+   ],
+   "days": null,
+   "stated_by": "venue (format; times, weekdays and prices not stated)",
+   "stated_th": "เว็บโรงเรียน: คลาสส่วนตัวราว 4 ชั่วโมง เริ่มที่ตลาด อาหารอาข่า 1 จาน + ไทย 4 จาน · ราคา เวลา และที่อยู่ไม่อยู่บนเว็บ",
+   "stated_en": "The school's own site: a private class of about four hours, the market first, one Akha dish and four Thai; price, times and address not on the site",
+   "source": "https://www.akhakitchen.com/",
+   "fetched": "2026-08-19",
+   "prices_thb": null,
+   "price_via": null,
+   "_pricesVerified": false,
+   "pickup_th": null,
+   "pickup_en": null,
+   "menu_th": "อาหารอาข่า 1 จาน (Sa-pee-tong) + ไทย 4 จาน · วีแกน-มังสวิรัติได้",
+   "menu_en": "one Akha dish (Sa-pee-tong) + four Thai · vegan and vegetarian substitutions",
+   "book_th": "โทร +66 93 040 1429 · akhakitchen@gmail.com",
+   "book_en": "phone +66 93 040 1429 · akhakitchen@gmail.com",
+   "venue_name": "Akha Kitchen"
+  }
+ ],
+ "unconfirmed": [
+  {
+   "name_th": "Thai Cookery School (ของสมพล นาบเนียน — โรงเรียนแรกของเมือง)",
+   "name_en": "Thai Cookery School (Sompon Nabnian — the town's first)",
+   "note_th": "โดเมน thaicookeryschool.com เปลี่ยนทางไปเว็บที่ไม่เกี่ยวข้อง (ตรวจ 2026-08-19) — ไม่ลิงก์ ไม่ยืนยันว่ายังสอน จนกว่าจะมีคนไปยืนหน้าประตู",
+   "note_en": "The domain thaicookeryschool.com now redirects to an unrelated site (checked 2026-08-19) — not linked, not confirmed still teaching, until someone stands at the door"
+  },
+  {
+   "name_th": "Basil Cookery School",
+   "name_en": "Basil Cookery School",
+   "note_th": "เว็บของโรงเรียนใบรับรองหมดอายุ (2026-08-19) และไม่มีในสารบัญ OSM — รอหมุดและคำของตัวเอง",
+   "note_en": "The school's site has an expired certificate (2026-08-19) and OpenStreetMap holds no record — waits on a pin and its own word"
+  },
+  {
+   "name_th": "Smart Cook Thai Cookery School",
+   "name_en": "Smart Cook Thai Cookery School",
+   "note_th": "OSM มีจุดชื่อ “Smart Cook” ใกล้ราชดำเนินซอย 1 และเว็บ smartcookthailand.com ขึ้นว่า “เปิดตัวเร็วๆ นี้” (2026-08-19) — ชื่อบนป้ายบอกแค่ Cook จึงยังไม่ขึ้นชั้น",
+   "note_en": "OpenStreetMap holds a point named only “Smart Cook” near Rachadamnoen Soi 1 and smartcookthailand.com reads “coming soon” (2026-08-19) — the sign says only Cook, so it is not on the shelf yet"
+  },
+  {
+   "name_th": "Thai Orchid Cookery School · Galangal Cooking Studio",
+   "name_en": "Thai Orchid Cookery School · Galangal Cooking Studio",
+   "note_th": "ชื่อที่คนเรียนรู้จัก แต่ไม่พบเว็บของตัวเองที่อ่านได้ (2026-08-19) — ไม่เข้าสารบัญจากความจำ",
+   "note_en": "Names learners know, with no readable site of their own found (2026-08-19) — nothing enters on memory"
+  }
+ ],
+ "link_notes": [
+  {
+   "school": "Zabb-E-Lee Thai Cooking School",
+   "place": "cm-osm-way-623146079",
+   "verdict_th": "เว็บ zabbeleecooking.com เปลี่ยนทางไปโดเมนอื่นที่ไม่เกี่ยวข้อง (2026-08-19)",
+   "verdict_en": "zabbeleecooking.com redirects to an unrelated domain (2026-08-19)"
+  },
+  {
+   "school": "Cooking@home",
+   "place": "cm-osm-node-3440864916",
+   "verdict_th": "ใบรับรองเว็บหมดอายุ (2026-08-19)",
+   "verdict_en": "site certificate expired (2026-08-19)"
+  },
+  {
+   "school": "Pantawan Cooking",
+   "place": "cm-osm-node-3337859200",
+   "verdict_th": "เว็บปฏิเสธการอ่านโดยบอต (HTTP 403, 2026-08-19) — ยังไม่ได้อ่านคำของโรงเรียน",
+   "verdict_en": "site refuses non-browser fetches (HTTP 403, 2026-08-19) — the school's own word not yet read"
+  }
+ ],
+ "chiang_rai": {
+  "note_th": "เชียงรายมีสองโรงเรียนที่อ่านจากเว็บของตัวเองแล้ว (สุวรรณี · Akha Kitchen) ทั้งคู่ยังรอหมุด — OpenStreetMap ไม่มีโรงเรียนสอนทำอาหารในจังหวัดเลย",
+  "note_en": "Chiang Rai has two schools read from their own sites (Suwannee · Akha Kitchen), both awaiting pins — OpenStreetMap holds no cooking school in the province at all"
+ }
+}

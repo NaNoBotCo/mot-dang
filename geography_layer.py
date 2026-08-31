@@ -112,6 +112,7 @@ MDMAP.ready(box,function(map){
      the same two traps, the same cure. */
   var ROOT=document.documentElement.getAttribute('data-root')||'';
   var ABS=new URL(T.url,new URL(ROOT||'./',location.href)).href;
+  function arm(){
   if(!map.getSource('doidem')){
     map.addSource('doidem',{type:'raster-dem',url:'pmtiles://'+ABS,
       encoding:T.encoding||'terrarium',tileSize:256,maxzoom:T.maxzoom||12,
@@ -211,6 +212,41 @@ MDMAP.ready(box,function(map){
     map[rm()?'jumpTo':'flyTo']({center:[ln,la],zoom:11.6,
       duration:rm()?0:2600});
   });
+  }
+
+  /* Nothing above runs until the archive itself has answered. The config
+     declares the DEM at build time, and a declared archive can still be
+     absent where it counts — not yet uploaded, wrong path, symlink gone —
+     while addSource succeeds and every tile request quietly 404s. That
+     shipped once (2026-08-27): relief drawing nothing, and this bar offering
+     a 3D button that could not act. So one 128-byte ranged read settles it
+     first: a PMTiles file opens with its own name, and unless the first
+     seven bytes say so, the page simply keeps its drawn cross-section —
+     the same supported absence as an empty terrain url. On the days the
+     archive does answer, these bytes are the header pmtiles.js is about to
+     fetch anyway, so the cost is one small request; on the days it does
+     not, this is the ONLY request, in place of a screenful of failed tile
+     fetches under a bar of dead controls. */
+  fetch(ABS,{headers:{Range:'bytes=0-127'}}).then(function(r){
+    if(!r.ok)throw 0;
+    /* Our worker answers ranges with 206, so the whole body IS the 128
+       bytes asked for. A host that ignored Range answers 200 with all
+       161 MB behind it — never arrayBuffer() that; read one chunk off the
+       stream and hang up. */
+    if(r.status===206)return r.arrayBuffer().then(function(a){return new Uint8Array(a);});
+    if(!r.body)throw 0;
+    var rd=r.body.getReader(),got=[];
+    function pull(){return rd.read().then(function(c){
+      if(c.value)for(var i=0;i<c.value.length&&got.length<7;i++)got.push(c.value[i]);
+      if(got.length>=7||c.done){try{rd.cancel()}catch(e){}return got;}
+      return pull();
+    });}
+    return pull();
+  }).then(function(b){
+    var m='';for(var i=0;i<7&&i<b.length;i++)m+=String.fromCharCode(b[i]);
+    if(m!=='PMTiles')throw 0;
+    arm();
+  }).catch(function(e){/* no relief today; the drawn basin stands */});
 });
 })();
 """

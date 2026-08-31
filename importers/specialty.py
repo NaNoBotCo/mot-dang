@@ -68,6 +68,21 @@ SPECIALTIES = [
      r"โรคหัวใจ|\bcardio"),
     ("lab", "แล็บ-ตรวจวิเคราะห์", "Lab & testing",
      r"แล็ป|แล็บ|ห้องปฏิบัติการ|\blaborator"),
+    # WO-32. เวชศาสตร์ผู้สูงอายุ is on exactly one sign in the corpus (the
+    # Center for Geriatric Medicine) and ดูแลผู้สูงอายุ on the nursing homes'
+    # own names. Bare ผู้สูงอายุ is NEVER matched — it is in the name of
+    # every senior club (ชมรมผู้สูงอายุ), and a club is not a clinic.
+    ("geriatric", "เวชศาสตร์ผู้สูงอายุ", "Geriatric medicine",
+     r"เวชศาสตร์ผู้สูงอายุ|ดูแลผู้สูงอายุ|เนอร์?สซิ่งโฮม|บ้านพักคนชรา"
+     r"|\bgeriatric|\bnursing\s*home\b"),
+    # WO-32. ธัญญารักษ์ is the DMS addiction-treatment hospital network — the
+    # name is the institution. \brehab\b is a statement here (Dawn Rehab,
+    # The River Rehab) but "Rehabilitation" alone is not: McKean
+    # Rehabilitation Center and the SSO workers' centre are not addiction
+    # medicine, so the fence is (?!ilitat).
+    ("addiction", "บำบัดยาเสพติด-สุรา", "Addiction medicine",
+     r"บำบัดยาเสพติด|ยาเสพติด|เลิกเหล้า|เลิกยา|ธัญญารักษ์"
+     r"|\bdetox\b|\baddiction\b|\brehab\b(?!ilitat)"),
 ]
 
 LABELS = {k: (th, en) for k, th, en, _ in SPECIALTIES}

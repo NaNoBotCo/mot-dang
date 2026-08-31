@@ -494,6 +494,7 @@ background:#fff;padding:.75rem 1rem;margin:1rem 0}
 .comingup ul{margin:.2rem 0;padding-left:1.1rem}
 .comingup li{margin:.2rem 0}
 .comingup .cuwhen{color:var(--mute);font-size:.85rem}
+.comingup .cuitem+.cuitem::before{content:" · "}
 .festhead{border-bottom:3px double var(--ant);padding-bottom:.5rem;margin-bottom:.8rem}
 .festmeta{display:flex;flex-wrap:wrap;gap:.4rem;margin:.5rem 0 .9rem}
 .festmeta span{background:var(--soft);border-radius:.5rem;padding:.15rem .55rem;font-size:.82rem}
@@ -740,35 +741,123 @@ def build_festival_page(f, g, events, idx, prov_of, neighbours):
                      desc=f["blurb_th"][:180], extra_head=head)
 
 
+COMING_UP_HORIZON_DAYS = 62   # this month and next, in resolved-date terms
+
+
+def occurrence(f, ann, today):
+    """The festival's next dated occurrence, or None when only a window is
+    known. (start, end, kind) — announced beats the rule; a fixed-date rule
+    rolls forward past its own date (WO-41 4e: Mother's Day flips to next
+    12 August on 13 August, by computation, not by anyone remembering).
+
+    Only what the data states: an announced instance carries its own range;
+    a fixed festival needs the machine-readable `day` its window text states
+    (eight carry one — the "usually the Nth weekend" fairs deliberately do
+    not, and fall through to window handling rather than gaining a guess).
+    """
+    for r in sorted(ann or [], key=lambda r: r["date_start"]):
+        end = datetime.date.fromisoformat(r["date_end"])
+        if end >= today:                      # a multi-day festival stays
+            return (datetime.date.fromisoformat(r["date_start"]), end, "announced")
+    # Announced-and-over falls through: a fixed-date rule can still name next
+    # year's date; a movable without a rule correctly yields nothing.
+    if f.get("timing_type") == "fixed" and f.get("day"):
+        dur = max(1, f.get("duration_days") or 1)
+        start = datetime.date(today.year, f["month"], f["day"])
+        end = start + datetime.timedelta(days=dur - 1)
+        if end < today:                       # 4e: roll to next year's date
+            start = datetime.date(today.year + 1, f["month"], f["day"])
+            end = start + datetime.timedelta(days=dur - 1)
+        return (start, end, "fixed")
+    return None
+
+
+def _month_window_until(f, today):
+    """Last day of the festival's current window cycle, for data-until on a
+    month-resolved row: the latest of its months, this cycle."""
+    months = f.get("months") or [f["month"]]
+    best = None
+    for m in months:
+        y = today.year + (1 if m < today.month - 1 else 0)
+        if m == 12:
+            last = datetime.date(y, 12, 31)
+        else:
+            last = datetime.date(y, m + 1, 1) - datetime.timedelta(days=1)
+        if last >= today and (best is None or last < best):
+            best = last
+    return best
+
+
 def coming_up(fests, today, depth=0, g=None, limit=5):
-    """The strip that makes the canon useful on any given day: what is on this
-    month and next, in the order the year actually arrives."""
+    """The strip that makes the canon useful on any given day.
+
+    WO-41 4d/4e. Selection is by RESOLVED DATE, never by month distance: an
+    announced or fixed-date festival appears only while its end is still
+    ahead (a multi-day one stays until it ends), sorted by start, inside a
+    62-day horizon. A festival whose date cannot be resolved — lunar or
+    seasonal, no announcement yet — is a different claim and goes in its own
+    "around this time of year" line underneath, never mixed into the dated
+    list. Server text is absolute (the no-JS reader always reads something
+    true); nothing here says เดือนนี้ or "this month" at build time, because
+    a static page does not know what month it is being read in. Every dated
+    row carries data-until, and md.js drops rows whose date has passed at
+    load — the strip corrects itself even if every walk stops.
+    """
     bi = g["bi"]
-    def dist(f):
-        best = 99
-        for m in (f.get("months") or [f["month"]]):
-            best = min(best, (m - today.month) % 12)
-        return best
-    soon = sorted([f for f in fests if dist(f) <= 1], key=lambda f: (dist(f), f["month"]))
-    if not soon:
-        return ""
     r = "../" * depth
     ann_all = g.get("_ANNOUNCED") or {}
-    rows = []
-    for f in soon[:limit]:
-        when = bi("เดือนนี้", "this month") if dist(f) == 0 else bi("เดือนหน้า", "next month")
-        ann = ann_all.get(f["id"])
-        if ann:
-            th, en = _date_range_text(ann[0], g)
-            detail = bi("📌 " + th + " (ประกาศแล้ว)", "📌 " + en + " (announced)")
+    horizon = today + datetime.timedelta(days=COMING_UP_HORIZON_DAYS)
+
+    dated, windowed = [], []
+    for f in fests:
+        occ = occurrence(f, ann_all.get(f["id"]), today)
+        if occ:
+            start, end, kind = occ
+            if start <= horizon:
+                dated.append((start, end, kind, f))
         else:
-            detail = f'{when} · {bi(f["window_th"], f["window_en"])}'
-        rows.append(f'<li><a href="{r}festivals/{f["id"]}.html">{bi(f["name_th"], f["name_en"])}</a> '
-                    f'<span class="cuwhen">— {detail}</span></li>')
+            months = f.get("months") or [f["month"]]
+            if any((m - today.month) % 12 <= 1 for m in months) \
+                    and _month_window_until(f, today):
+                windowed.append(f)
+    dated.sort(key=lambda t: (t[0], t[3]["month"]))
+
+    rows = []
+    for start, end, kind, f in dated[:limit]:
+        th = f'{start.day} {g["MONTH_TH"][start.month]}'
+        en = f'{start.day} {g["MONTH_EN"][start.month]}'
+        if end != start:
+            th += f' – {end.day} {g["MONTH_TH"][end.month]}'
+            en += f' – {end.day} {g["MONTH_EN"][end.month]}'
+        if start.year != today.year:          # rolled forward: say the year
+            th += f' {start.year + 543}'
+            en += f' {start.year}'
+        detail = bi("📌 " + th + " (ประกาศแล้ว)", "📌 " + en + " (announced)") \
+            if kind == "announced" else bi("📅 " + th, "📅 " + en)
+        rows.append(
+            f'<li data-until="{end.isoformat()}">'
+            f'<a href="{r}festivals/{f["id"]}.html">{bi(f["name_th"], f["name_en"])}</a> '
+            f'<span class="cuwhen">— {detail}</span></li>')
+
+    around = ""
+    if windowed:
+        # Each name in its own span with its window's end, separators drawn
+        # by CSS — so the load-time dropper can remove one name cleanly.
+        names = "".join(
+            f'<span class="cuitem" data-until="{_month_window_until(f, today).isoformat()}">'
+            f'<a href="{r}festivals/{f["id"]}.html">{bi(f["name_th"], f["name_en"])}</a></span>'
+            for f in windowed[:limit])
+        around = (f'<p class="cuaround tinynote">'
+                  + bi("ช่วงนี้ของปี (รอวันประกาศ)", "Around this time of year (dates not announced yet)")
+                  + f": {names}</p>")
+
+    if not rows and not around:
+        return ""
     more = (f'<p class="tinynote"><a href="{r}festivals.html">'
             f'{bi("ดูปฏิทินเทศกาลทั้งปี", "See the whole festival year")} →</a></p>')
+    lis = f'<ul>{"".join(rows)}</ul>' if rows else ""
     return (f'<div class="comingup"><h2>🎉 {bi("ใกล้ถึงแล้ว", "Coming up")}</h2>'
-            f'<ul>{"".join(rows)}</ul>{more}</div>')
+            f'{lis}{around}{more}</div>')
 
 
 def season_banner(today, g, depth=0):

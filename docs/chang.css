@@ -1,0 +1,47 @@
+
+.ch-intro{font-size:1.02rem;max-width:46rem}
+.ch-rule{margin:.8rem 0 1rem;padding:.7rem .9rem;border-radius:.8rem;background:var(--soft);
+  border:1px solid rgba(0,0,0,.07);font-size:.98rem}
+.ch-rule b{display:block;margin-bottom:.15rem}
+.ch-reg{width:100%;border-collapse:collapse;margin:.6rem 0 .4rem;font-size:.93rem}
+.ch-reg th,.ch-reg td{padding:.4rem .35rem;border-bottom:1px solid rgba(0,0,0,.08);text-align:center;vertical-align:top}
+.ch-reg th:first-child,.ch-reg td:first-child{text-align:left}
+.ch-reg td.no{font-weight:600;color:var(--ant-dark)}
+.ch-reg td.yes{font-weight:600}
+.ch-reg td.un{color:var(--mute);font-style:italic}
+.ch-reg .venue a{text-decoration:none;color:inherit}
+.ch-reg .venue a:hover{text-decoration:underline}
+.ch-reg .venue small{display:block;color:var(--mute);font-weight:400;font-size:.8rem}
+.ch-legend{font-size:.82rem;color:var(--mute);margin:0 0 1rem}
+.ch-venues{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));margin:.6rem 0 1.2rem}
+.ch-venue{border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:.75rem .85rem;background:#fff}
+.ch-venue h3{margin:0 0 .3rem;font-size:1.05rem}
+.ch-venue h3 a{text-decoration:none;color:inherit}
+.ch-venue h3 a:hover{text-decoration:underline}
+.ch-venue p{margin:.25rem 0;font-size:.92rem}
+.ch-venue .src{font-size:.8rem;color:var(--mute)}
+.ch-venue .self{font-style:italic}
+.ch-venue .draft{font-size:.8rem;color:var(--mute)}
+.ch-grid{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));margin:.6rem 0 1.2rem}
+.ch-card{border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:.75rem .9rem;background:#fff}
+.ch-card h3{margin:0 0 .35rem;font-size:1.05rem}
+.ch-card p{margin:.3rem 0;font-size:.93rem;line-height:1.55}
+.ch-card .say{font-size:.86rem;color:var(--mute)}
+.ch-words{columns:2;column-gap:1.5rem;margin:.4rem 0 1rem;font-size:.95rem}
+.ch-words li{break-inside:avoid;margin:.15rem 0}
+@media (max-width:40rem){.ch-words{columns:1}}
+.ch-camps{list-style:none;padding:0;margin:.4rem 0 1rem;columns:2;column-gap:1.5rem}
+.ch-camps li{break-inside:avoid;margin:.2rem 0;font-size:.95rem}
+@media (max-width:40rem){.ch-camps{columns:1}}
+.ch-camps .reach{color:var(--mute);font-size:.85rem}
+.ch-shelf{margin:.4rem 0 1rem}
+.ch-joins{margin:.6rem 0 1.2rem;padding:.8rem .9rem;border-radius:.8rem;background:var(--soft)}
+.ch-joins p{margin:.3rem 0;font-size:.93rem}
+.ch-unc{font-size:.92rem}
+.ch-unc li{margin:.25rem 0}
+.ch-note{font-size:.86rem;color:var(--mute)}
+.ch-names{font-size:.93rem;margin:.4rem 0 1rem}
+.ch-names li{margin:.25rem 0}
+.ch-names .cnt{color:var(--mute);font-size:.85rem}
+.ch-land{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));margin:.6rem 0 1.2rem}
+.ch-land .ch-card p{font-size:.9rem}

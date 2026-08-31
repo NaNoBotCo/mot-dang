@@ -50,7 +50,15 @@ SKIP_DIRS = {".git", "docs", "cache", "_incoming", "node_modules",
 
 # Top-level JSON keys that record WHEN we looked, not WHAT we found.
 VOLATILE_KEYS = {"generated", "fetched", "fetchedAt", "updated", "updatedAt",
-                 "builtAt", "buildDate", "timestamp", "asOf", "retrieved"}
+                 "builtAt", "buildDate", "timestamp", "asOf", "retrieved",
+                 # WO-41 Phase 2. The ingest sidecars (data/*.meta.json) are
+                 # rewritten on every run, successful or not, and these four
+                 # record WHEN we looked. What a sidecar means — row_count,
+                 # sources_failed, consecutive_failures — is hashed and still
+                 # moves the gate, which is right: a feed that started failing
+                 # is news a rebuild should carry to the page.
+                 "checked_at", "fetched_at", "last_success_at",
+                 "source_published_at"}
 
 
 def digest(path):

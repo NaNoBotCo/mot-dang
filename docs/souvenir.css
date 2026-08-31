@@ -1,0 +1,38 @@
+
+.sv-intro{font-size:1.02rem;max-width:46rem}
+.sv-note{font-size:.86rem;opacity:.78;max-width:46rem}
+.sv-lead{max-width:46rem;border-left:3px solid rgba(0,0,0,.22);padding:.1rem 0 .1rem .9rem;
+  margin:.9rem 0;font-size:1.02rem;line-height:1.6}
+.sv-tool{max-width:46rem;border:1px solid rgba(0,0,0,.16);border-radius:.8rem;
+  padding:.8rem 1rem;margin:1rem 0;background:rgba(0,0,0,.02)}
+.sv-tool .ask{font-weight:600;display:block;margin-bottom:.25rem}
+.sv-items{list-style:none;padding-left:0;max-width:46rem;margin:.6rem 0}
+.sv-items li{padding:.6rem 0;border-bottom:1px solid rgba(0,0,0,.09);line-height:1.55}
+.sv-items .nm{font-weight:600}
+.sv-items .seen{font-size:.84rem;opacity:.72;display:block}
+.sv-items .cls{display:block;font-size:.9rem;margin-top:.2rem}
+.sv-items .carry{display:block;font-size:.88rem;margin-top:.18rem}
+.sv-items .srcs{font-size:.76rem;opacity:.65}
+.sv-flag{display:inline-block;font-size:.72rem;padding:.08rem .42rem;border-radius:.7rem;
+  border:1px solid currentColor;opacity:.9;vertical-align:.08em;white-space:nowrap}
+.sv-flag.no{color:#8a3a2a}
+.sv-flag.papers{color:#7a5a12}
+.sv-flag.ok{color:#1c6b3a}
+.sv-flag.ask{color:#4a4a52}
+.sv-laws{list-style:none;padding-left:0;max-width:46rem}
+.sv-laws li{padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,.07);line-height:1.55}
+.sv-laws .nm{font-weight:600}
+.sv-dead{text-decoration:underline dotted;text-underline-offset:.18em;
+  opacity:.72;cursor:help}
+.sv-ask{margin:.4rem 0 .2rem;padding-left:1.1rem;font-size:.94rem;line-height:1.6;
+  max-width:46rem}
+.sv-reg{border-collapse:collapse;width:100%;max-width:52rem;font-size:.92rem}
+.sv-reg th,.sv-reg td{text-align:left;vertical-align:top;padding:.42rem .5rem;
+  border-bottom:1px solid rgba(0,0,0,.09)}
+.sv-reg th{font-weight:600;white-space:nowrap}
+.sv-gloss{border-collapse:collapse;width:100%;max-width:52rem;font-size:.92rem}
+.sv-gloss td{padding:.34rem .5rem;border-bottom:1px solid rgba(0,0,0,.07);vertical-align:top}
+.sv-gloss .th{font-size:1.06rem;white-space:nowrap}
+.sv-gloss .rtgs{opacity:.72;font-style:italic;white-space:nowrap}
+@media (max-width:640px){.sv-reg,.sv-gloss{font-size:.86rem}
+  .sv-reg th{white-space:normal}}

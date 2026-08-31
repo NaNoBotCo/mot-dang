@@ -1,6 +1,6 @@
 {
- "generated": "2026-08-18",
- "count": 5,
+ "generated": "2026-08-30",
+ "count": 4,
  "leads": [
   {
    "venue_name": "Araksa Tea Garden",
@@ -11,15 +11,6 @@
    "website": "https://www.araksatea.com",
    "address": "87 Moo1, Ban Chang,",
    "city": "Mae Taeng District, Chang Wat"
-  },
-  {
-   "venue_name": "Chiang Mai National Museum",
-   "sources": [
-    "payap-lll"
-   ],
-   "phone": "053221308",
-   "address": "Chiang Mai National Museum, 451, Chang Phueak,",
-   "city": "Mueang Chiang Mai District"
   },
   {
    "venue_name": "Integrated Tribal Development Foundation",

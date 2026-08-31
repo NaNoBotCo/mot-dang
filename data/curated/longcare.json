@@ -1,0 +1,197 @@
+{
+ "_readme": [
+  "WO-32 — the long-term-care register behind /longcare.html (longcare_layer.py).",
+  "Measured first (2026-08-26): across 20,700 records, บ้านพักคนชรา 0 · พักฟื้น 0 ·",
+  "hospice 0 · convalescence 0 · detox 0 · dementia 0 · assisted living 0 in any",
+  "record's own words — and the records that DO exist were filed under",
+  "community/volunteer because import_overpass.py threw the social_facility",
+  "subtag away (fixed the same day; rule in importers/audit_longcare.py).",
+  "Every row carries a GRADE, and the grade is the point:",
+  "  mapped     a mapper's statement — the OSM tag or the place's own sign says",
+  "             this care (social_facility=nursing_home, a name that says",
+  "             เนอร์สซิ่งโฮม or Rehab). Nobody has read the place's own site yet.",
+  "  route      the door this care ordinarily runs through here (a psychiatric",
+  "             hospital, the physio shelf) — NOT confirmed for this question.",
+  "             Same discipline as trans-health's route grade.",
+  "  stated     the place's OWN words read on its own site, with the sentence,",
+  "             the url and the date. NO row holds this grade yet — reaching it",
+  "             is door 4, and printing the absence is the point.",
+  "  lead       a name somebody holds with an OSM id or a source ref, unread —",
+  "             renders only in the not-read table, never as coverage.",
+  "placeIds resolve against canonical; importers/audit_longcare.py exits 1 on a",
+  "row that has no grade or an id that resolves nowhere. Leads whose OSM",
+  "elements the catalogue's own crawl groups never selected carry their",
+  "upstream ref in `ref` — folding them in is a numbered door, not a register row.",
+  "No ranking, no named clinicians, no medical advice, no outcome claims —",
+  "the addiction rows especially: each facility speaks for itself or not at all."
+ ],
+ "generated": "2026-08-26",
+ "rows": [
+  {
+   "key": "pd-nursing-home",
+   "section": "elder",
+   "grade": "mapped",
+   "name_th": "พีดีเนอร์สซิ่งโฮม ดูแลผู้สูงอายุ",
+   "name_en": "PD Nursing Home Care for the Elderly",
+   "placeIds": ["cm-osm-way-1234258607"],
+   "note_th": "ป้ายของที่นี่บอกเองสองภาษา และแท็ก OSM ระบุ nursing_home สำหรับผู้สูงอายุ — เคยเข้าแผนที่สองครั้งจนรวมเป็นระเบียนเดียวแล้ว",
+   "note_en": "Its own sign says it in both languages, and the OSM tag states nursing_home, for=senior. It was mapped twice; the pair is folded to one record.",
+   "src": "OpenStreetMap way 1234258607 (cache/overpass/cm/community.json, crawled 2026-07-27)",
+   "fetched": "2026-08-26"
+  },
+  {
+   "key": "thanarat-healthcare",
+   "section": "elder",
+   "grade": "mapped",
+   "name_th": "ศูนย์ดูแลผู้ป่วยและผู้สูงอายุ ธนรัฎ เฮลท์แคร์",
+   "name_en": "Thanarat Healthcare — patient & elder care centre",
+   "placeIds": ["cm-osm-node-11015761268"],
+   "note_th": "ชื่อบอกเองว่า ดูแลผู้ป่วยและผู้สูงอายุ ถนนเชียงใหม่-ดอยสะเก็ด มีหมายเลขบ้านและรหัสไปรษณีย์ในแท็ก",
+   "note_en": "The name itself states patient-and-elder care; on the Chiang Mai–Doi Saket road, with a house number and postcode in its tags.",
+   "src": "OpenStreetMap node 11015761268 (cache/overpass/cm/community.json, crawled 2026-07-27)",
+   "fetched": "2026-08-26"
+  },
+  {
+   "key": "dok-kaew-gardens",
+   "section": "elder",
+   "grade": "mapped",
+   "name_th": "Dok Kaew Gardens",
+   "name_en": "Dok Kaew Gardens (McKean)",
+   "placeIds": ["cm-osm-way-373874038"],
+   "note_th": "แท็ก OSM ระบุ assisted_living และ operator คือสถาบันแมคเคน — ชื่อไทยยังไม่มีในระเบียน จึงไม่แต่งเอง",
+   "note_en": "The OSM tag states assisted_living and names McKean Rehabilitation Center as operator. No Thai name is on the record, so none is invented here.",
+   "src": "OpenStreetMap way 373874038 (cache/overpass/cm/community.json, crawled 2026-07-27)",
+   "fetched": "2026-08-26"
+  },
+  {
+   "key": "suanprung-rehab-centre",
+   "section": "elder",
+   "grade": "mapped",
+   "name_th": "ศูนย์ฟื้นฟูสมรรถภาพ",
+   "name_en": "Suan Prung Rehabilitation Center",
+   "placeIds": ["cm-osm-way-243415943"],
+   "note_th": "ชื่อไทยว่า ศูนย์ฟื้นฟูสมรรถภาพ ชื่ออังกฤษผูกกับสวนปรุง แท็ก OSM ว่า assisted_living — สามคำนี้ยังไม่ตรงกัน และหน้าเว็บของสถานที่เองยังไม่ได้อ่าน จึงพิมพ์ทั้งสามไว้ตรง ๆ",
+   "note_en": "The Thai name says rehabilitation centre, the English name ties it to Suan Prung, and the mapper tagged assisted_living — three statements that do not yet agree. Its own page is unread, so all three are printed as they stand.",
+   "src": "OpenStreetMap way 243415943 (cache/overpass/cm/community.json, crawled 2026-07-27)",
+   "fetched": "2026-08-26"
+  },
+  {
+   "key": "geriatric-medicine-cm",
+   "section": "elder",
+   "grade": "route",
+   "name_th": "ศูนย์เวชศาสตร์ผู้สูงอายุ เชียงใหม่",
+   "name_en": "Center for Geriatric Medicine, Chiang Mai",
+   "placeIds": ["cm-osm-way-438135402"],
+   "note_th": "ป้ายเดียวในสารบัญทั้งสองจังหวัดที่เขียนคำว่า เวชศาสตร์ผู้สูงอายุ — เป็นโรงพยาบาล ไม่ใช่บ้านพัก คำถามเรื่องเตียงระยะยาวจึงยังไม่ยืนยันที่นี่",
+   "note_en": "The only sign in either province that says geriatric MEDICINE. It is a hospital, not a residence — a long-stay bed is a different question and is not confirmed here.",
+   "src": "OpenStreetMap way 438135402 (cache/overpass/cm/medical.json, crawled 2026-07-27)",
+   "fetched": "2026-08-26"
+  },
+  {
+   "key": "thanyarak-chiangmai",
+   "section": "addiction",
+   "grade": "mapped",
+   "name_th": "โรงพยาบาลธัญญารักษ์เชียงใหม่",
+   "name_en": "Chiangmai Thanyarak Hospital",
+   "placeIds": ["cm-osm-node-3136767740"],
+   "note_th": "ธัญญารักษ์คือเครือโรงพยาบาลบำบัดยาเสพติดของกรมการแพทย์เอง — ชื่อคือสถาบัน นี่คือประตูของรัฐสำหรับคำถามนี้ อยู่ทางแม่ริม",
+   "note_en": "Thanyarak is the Department of Medical Services' own addiction-treatment hospital network — the name is the institution. This is the state door for this question, out toward Mae Rim.",
+   "src": "OpenStreetMap node 3136767740 (cache/overpass/cm/medical.json, crawled 2026-07-27)",
+   "fetched": "2026-08-26"
+  },
+  {
+   "key": "suan-prung",
+   "section": "addiction",
+   "grade": "route",
+   "name_th": "โรงพยาบาลสวนปรุง",
+   "name_en": "Suan Prung Psychiatric Hospital",
+   "placeIds": ["cm-osm-way-1212478397"],
+   "note_th": "โรงพยาบาลจิตเวชของกรมสุขภาพจิต — จิตเวชคือประตูที่การบำบัดสุราและสารเสพติดในระบบรัฐมักวิ่งผ่าน แต่หน้าเว็บของโรงพยาบาลเองยังไม่ได้อ่าน จึงยังไม่ยืนยันสำหรับคำถามนี้",
+   "note_en": "The Department of Mental Health's psychiatric hospital. Psychiatry is the door state-system alcohol and substance treatment ordinarily runs through — but its own site is unread, so nothing is confirmed for this question.",
+   "src": "OpenStreetMap way 1212478397; specialty จิตเวช stated by osm-tag (importers/specialty.py)",
+   "fetched": "2026-08-26"
+  },
+  {
+   "key": "the-cabin",
+   "section": "addiction",
+   "grade": "mapped",
+   "name_th": "The Cabin",
+   "name_en": "The Cabin",
+   "placeIds": ["cm-osm-way-542929587"],
+   "site": "https://www.thecabinchiangmai.com/",
+   "note_th": "แท็ก OSM ระบุ social_facility=rehabilitation และระเบียนมีเว็บไซต์ของตัวเอง — เว็บนั้นยังไม่ได้อ่าน สิ่งที่สถานที่พูดเองจึงยังไม่อยู่ในหน้านี้ · อย่าสับสนกับ The Cabin Hostel ซึ่งเป็นที่พัก",
+   "note_en": "The OSM tag states social_facility=rehabilitation and the record carries its own website — which is unread, so nothing the place says about itself is on this page yet. Not to be confused with The Cabin Hostel, which is lodging.",
+   "src": "OpenStreetMap way 542929587 (cache/overpass/cm/community.json, crawled 2026-07-27)",
+   "fetched": "2026-08-26"
+  },
+  {
+   "key": "dawn-rehab",
+   "section": "addiction",
+   "grade": "mapped",
+   "name_th": "Dawn Rehab",
+   "name_en": "Dawn Rehab",
+   "placeIds": ["cm-osm-node-5336919821"],
+   "note_th": "ชื่อบนป้ายบอกเอง แท็กเป็นคลินิก — เว็บของสถานที่ยังไม่ได้อ่าน",
+   "note_en": "The sign's own name states it; the mapper tagged a clinic. Its own site is unread.",
+   "src": "OpenStreetMap node 5336919821 (cache/overpass/cm/medical.json, crawled 2026-07-27)",
+   "fetched": "2026-08-26"
+  },
+  {
+   "key": "river-rehab",
+   "section": "addiction",
+   "grade": "mapped",
+   "name_th": "The River Rehab",
+   "name_en": "The River Rehab",
+   "placeIds": ["cm-osm-node-7053637677"],
+   "site": "https://theriverrehab.com",
+   "note_th": "ชื่อบนป้ายบอกเอง ระเบียนมีโทรศัพท์ เวลา 24/7 และเว็บไซต์ — เคยเข้าแผนที่สองจุด รวมเป็นระเบียนเดียวแล้ว เว็บยังไม่ได้อ่าน",
+   "note_en": "The sign's own name states it; the record carries a phone, 24/7 hours and a website. It was mapped twice; the pair is folded. The site itself is unread.",
+   "src": "OpenStreetMap node 7053637677 (cache/overpass/cm/medical.json, crawled 2026-07-27)",
+   "fetched": "2026-08-26"
+  }
+ ],
+ "unread": [
+  {
+   "name": "Helping Hands Nursing Home",
+   "section": "elder",
+   "ref": "osm:node/4459060103 · https://www.thaihelpinghands.com/",
+   "reason": "อยู่ในข้อมูล OSM ที่โครงการพี่น้อง (defiant) เก็บไว้ แต่ครอว์ลของสารบัญนี้ไม่เคยเลือกธาตุนี้ — การพับเข้าแคตตาล็อกคือประตูหมายเลขของ WO-32 · in sibling-project OSM data; this catalogue's own crawl groups never selected the element — folding it in is a numbered WO-32 door"
+  },
+  {
+   "name": "Kanya Nursing Home",
+   "section": "elder",
+   "ref": "osm:node/4405355467",
+   "reason": "เช่นเดียวกัน — ธาตุ OSM อยู่นอกกลุ่มครอว์ลปัจจุบัน · same — the OSM element sits outside the current crawl groups"
+  },
+  {
+   "name": "สถานสงเคราะห์คนชราวัยทองนิเวศน์",
+   "section": "elder",
+   "ref": "osm:way/761166888",
+   "reason": "สถานสงเคราะห์ของรัฐ — ธาตุ OSM อยู่นอกกลุ่มครอว์ลปัจจุบัน และทะเบียนกำกับของ พม./สบส. ยังไม่ได้อ่าน · the state welfare home; outside current crawl groups, and the DOP/HSS licence registers are unread"
+  },
+  {
+   "name": "ศูนย์ดูแลผู้ป่วยต่อเนื่อง",
+   "section": "elder",
+   "ref": "osm:way/1267029609",
+   "reason": "ชื่อบอกว่า ดูแลผู้ป่วยต่อเนื่อง — คำเดียวในข้อมูลข้างเคียงที่ตรงกับคำถามพักฟื้นที่สุด ยังไม่ถูกพับเข้าแคตตาล็อก · its name says continuing patient care — the closest any nearby data comes to the convalescence question; not yet folded in"
+  },
+  {
+   "name": "สถาบันแมคเคน · McKean Rehabilitation Center",
+   "section": "elder",
+   "ref": "osm:way/145954356 · www.mckeanhosp.org",
+   "reason": "สถาบันเก่าแก่ฝั่งเกาะกลาง เป็น operator ของ Dok Kaew Gardens — ธาตุ OSM อยู่นอกกลุ่มครอว์ลปัจจุบัน เว็บยังไม่ได้อ่าน · the old Ko Klang institution and Dok Kaew Gardens' operator; outside current crawl groups, site unread"
+  },
+  {
+   "name": "ทะเบียนสถานประกอบการดูแลผู้สูงอายุ (กรม สบส.)",
+   "section": "elder",
+   "ref": "กรมสนับสนุนบริการสุขภาพ — ทะเบียนใบอนุญาตกิจการดูแลผู้สูงอายุ",
+   "reason": "ทะเบียนใบอนุญาตของทางการที่จะบอกว่าในสองจังหวัดมีกี่แห่งจริง — ยังไม่ได้อ่าน เป็นประตูหมายเลข · the official licence register that would say how many houses the two provinces actually hold — unread; a numbered door"
+  },
+  {
+   "name": "เครือข่ายธัญญารักษ์ / สถานฟื้นฟูสมรรถภาพผู้ติดยาเสพติด (กรมการแพทย์)",
+   "section": "addiction",
+   "ref": "ทะเบียนสถานพยาบาลยาเสพติดของกรมการแพทย์",
+   "reason": "ทะเบียนของรัฐสำหรับสถานบำบัด — ยังไม่ได้อ่าน เป็นประตูหมายเลข ข้อมูล data.go.th ที่เก็บไว้แล้วมีแต่หมวดทะเบียนยา ไม่มีคลินิก · the state register of treatment facilities — unread, a numbered door; the data.go.th sets already on disk hold drug-licence categories, not clinics"
+  }
+ ]
+}

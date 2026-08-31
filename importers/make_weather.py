@@ -22,6 +22,8 @@ import urllib.request
 from datetime import date
 from pathlib import Path
 
+import ingest      # shared write discipline (WO-41 Phase 2)
+
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "weather.json"
 UA = "mot-dang-directory/1.0 (+https://github.com/NaNoBotCo/mot-dang; daily weather snapshot)"
@@ -83,11 +85,12 @@ def main():
                                          daily.get("weather_code", [])[:4])
             ],
         })
-    OUT.write_text(json.dumps(
-        {"generated": date.today().isoformat(),
-         "source": "Open-Meteo (open-meteo.com), CC-BY 4.0",
-         "cities": cities}, ensure_ascii=False, indent=1))
-    print(f"🐜 weather for {len(cities)} cities -> {OUT}")
+    # WO-41 Phase 2: one call carries all fifteen cities, so a short list is
+    # a broken answer, not a quiet day. Yesterday's forecast beats none.
+    ingest.write(OUT, {"generated": date.today().isoformat(),
+                       "source": "Open-Meteo (open-meteo.com), CC-BY 4.0",
+                       "cities": cities},
+                 count=len(cities), min_rows=5, label="weather.json")
 
 
 if __name__ == "__main__":

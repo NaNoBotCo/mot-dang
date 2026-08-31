@@ -40,6 +40,8 @@ import urllib.parse
 import urllib.request
 from datetime import date, datetime, timedelta
 
+import ingest      # shared write discipline (WO-41 Phase 2)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(ROOT, "cache", "showtimes")
 OUT = os.path.join(ROOT, "data", "showtimes.json")
@@ -177,11 +179,16 @@ def main():
                             "url": conf_["referer"].format(cinema=c["id"]).rstrip("/")})
 
     total = sum(len(f["times"]) for c in cinemas for d in c["days"].values() for f in d)
-    with open(OUT, "w") as fh:
-        json.dump({"generated": date.today().isoformat(),
-                   "source": "Major Cineplex (majorcineplex.com)",
-                   "dates": dates, "cinemas": cinemas}, fh, ensure_ascii=False, indent=1)
-    print(f"🐜 {len(cinemas)} cinema(s), {total} screening(s) -> {OUT}")
+    # WO-41 Phase 2. This file published 0 cinemas for weeks in August, dated
+    # today every morning. A cinema list with nothing in it is never a fact
+    # about the town.
+    ingest.write(OUT, {"generated": date.today().isoformat(),
+                       "source": "Major Cineplex (majorcineplex.com)",
+                       "dates": dates, "cinemas": cinemas},
+                 count=len(cinemas), min_rows=1,
+                 sources_failed=[str(f) for f in failures],
+                 label="showtimes.json")
+    print(f"   {total} screening(s)")
     if failures:
         print(f"⚠  {len(failures)} fetch(es) failed")
 

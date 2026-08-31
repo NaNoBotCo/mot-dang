@@ -48,7 +48,7 @@ check("every canon entry has a page", ids <= built, str(ids - built))
 check("no orphan festival pages", built <= ids, str(built - ids))
 # 33 + the two muay thai days (วันมวยไทย 6 Feb, วันนายขนมต้ม 17 Mar), added
 # 2026-08-19 with WO-12. Bump this deliberately, never to make it pass.
-check("canon holds 37 festivals", len(canon) == 37, str(len(canon)))  # 35 → 36 กินเจ (WO-14), → 37 วันช้างไทย (WO-15), both 2026-08-19, on purpose
+check("canon holds 38 festivals", len(canon) == 38, str(len(canon)))  # 35 → 36 กินเจ (WO-14), → 37 วันช้างไทย (WO-15), both 2026-08-19, → 38 ปู่แสะย่าแสะ (WO-39 shrines, 2026-08-27), on purpose
 
 # ---- 2. bilingual fields travel in pairs ----------------------------------
 PAIRED = ["name", "window", "blurb", "rule", "auspicious", "merit", "verify",

@@ -147,8 +147,6 @@ python3 tests/test_shelf_cards.py   || say "⚠️  shelf cards advisory — som
 if grep -rl "/Users/" docs/ | head -1 | grep -q .; then
   say "path leak in docs/ — nothing pushed"; exit 1
 fi
-[[ -f docs/CNAME ]] || { say "docs/CNAME missing — nothing pushed"; exit 1 }
-
 # Only what the walk itself gathered and built — never a sweep of the whole
 # tree, so a session's half-finished work can never ride out in this commit.
 git add -A -- build.py data docs assets

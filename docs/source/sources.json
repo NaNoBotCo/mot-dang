@@ -1,0 +1,1199 @@
+{
+ "_comment": "Source registry for the events + contact-enrichment layer. This is the map, and it is meant to drive routine operations: importers read `endpoint`+`method`, honour `cadence`, and record results per `id`. Derived by reading one issue of the weekly Chiang Mai events newsletter (27 July 2026) exhaustively and then fetching what it points at. `status` is what was actually fetched and confirmed on the `verified_on` date — never what a source claims about itself. Sources marked `unverified` are named in the newsletter but not yet fetched; `blocked` refused a plain fetch; `walled` needs a login we will not use.",
+ "_yields_key": "events = dated or recurring happenings. contacts = phone / LINE / email / website / booking url for a place, i.e. fuel for the contact-coverage mission. weather = forecast data for the widget wall. lottery = the Government Lottery draw record for the widget wall — a public record, never a tip.",
+ "_cadence_key": "weekly = fast-decaying dated events. monthly = recurring weekly schedules, which change slowly. quarterly = institutional calendars. manual = needs a human.",
+ "generated": "2026-08-21",
+ "sources": [
+  {
+   "id": "meetup-ical",
+   "name": "Meetup — per-group iCal feeds",
+   "kind": "platform",
+   "url": "https://www.meetup.com/find/?location=th--Chiang-Mai&source=EVENTS",
+   "endpoint": "https://www.meetup.com/{group}/events/ical/",
+   "method": "ical",
+   "yields": [
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "groups": [
+    "chiang-mai-professionals-expats-and-digital-nomads",
+    "beyond-small-talk-chiang-mai",
+    "questionsthatmatter"
+   ],
+   "groups_seen_undiscovered": [
+    "make-new-friends-in-chiang-mai",
+    "creative-writing-meet-up",
+    "ai-engineers-in-thailand"
+   ],
+   "notes": "RFC-5545 with SUMMARY and DTSTART (TZID=Asia/Bangkok). No key, no JS. Weekly recurrences arrive pre-expanded. CAVEAT, measured: these feeds carry NO LOCATION property at all — 0 across all three Chiang Mai feeds — so the venue survives only in prose, either a '**Location:**' line in DESCRIPTION or an '@'/'at' tail on the title. harvest_events.py recovers ~54% of Meetup venues that way and marks them venue_from='title'/'description' so an inferred venue is never mistaken for a stated one. Group HTML pages render client-side and falsely report '0 upcoming events' — the iCal endpoint is the only sane path. The find page IS server-rendered, so discovering new group slugs is automatable.",
+   "venue_coverage": "0% stated, ~54% recoverable from prose"
+  },
+  {
+   "id": "payap-lll",
+   "name": "Lifelong Learning Payap — extension courses",
+   "kind": "institution",
+   "url": "https://www.lllpayap.com/events/",
+   "endpoint": "https://www.lllpayap.com/wp-json/tribe/events/v1/events?per_page=50",
+   "method": "json",
+   "yields": [
+    "events",
+    "contacts"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "priority": "high",
+   "notes": "The Events Calendar plugin REST API. 53 events across 2 pages, confirmed by direct urllib fetch. Per event: title, description, start/end + timezone, cost + currency, categories, tags, image, url. Nested venue carries address/city/province/zip/phone/website; nested organizer carries email. Also exposes /feed/ (blog write-ups of PAST activities, 10 items, not courses — do not mistake it for the calendar) and .ics export from /events/. Highest-volume single institution in the newsletter (~8 mentions in one issue). Also verified: .ics at /events/?ical=1 (PRODID ECPv6.17.1) — a fallback if the JSON API ever changes shape.",
+   "alt_endpoints": {
+    "ical": "https://www.lllpayap.com/events/?ical=1",
+    "rss_blog": "https://www.lllpayap.com/feed/"
+   }
+  },
+  {
+   "id": "citylife-whatson",
+   "name": "Chiang Mai Citylife — CityNow what's on",
+   "kind": "platform",
+   "url": "https://www.chiangmaicitylife.com/citynow/whats-on/",
+   "endpoint": "https://www.chiangmaicitylife.com/citynow/whats-on/live-music/",
+   "method": "html",
+   "yields": [
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Site ALIVE — events dated into Nov 2026, solicits submissions. Its RSS at /feed/ is separately confirmed DEAD (1 item, 2023-08-10); do not use the feed and do not conclude from it that the site is stale. Sections seen in the newsletter: /citynow/whats-on/live-music/ and /citynow/social-life/live-events/. Category-level feeds do NOT exist (/citynow/whats-on/feed/ and /citynow/social-life/live-events/feed/ both 404). /citynow/whats-on/ is the useful page; /citynow/social-life/live-events/ is mostly social photo coverage."
+  },
+  {
+   "id": "jogandjoy",
+   "name": "JOG&JOY — running events",
+   "kind": "platform",
+   "url": "https://www.jogandjoy.com/en",
+   "endpoint": "https://www.jogandjoy.com/thailand-running-calender",
+   "method": "html",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Government-SME organiser, 900+ events nationally. Confirmed CM races with dates and venues: 22K Night Run at Doi Suthep 2026-08-29, Bitcoin Half Marathon at Rot Fai Park 2026-11-22, Muang Thai CM Marathon at Tha Phae Gate 2026-12-20. No feed; browsable listing only. The calendar lives at /thailand-running-calender (note the misspelling in their URL) and is a plain HTML TABLE with columns DATE / EVENT / DISTANCE / PROVINCE / ORG — the province column makes filtering to Chiang Mai trivial. /en/calendar 404s."
+  },
+  {
+   "id": "chiangmainext",
+   "name": "Chiang Mai Next — calendar",
+   "kind": "platform",
+   "url": "https://chiangmainext.com/",
+   "endpoint": null,
+   "method": "blocked",
+   "yields": [
+    "events"
+   ],
+   "cadence": "manual",
+   "status": "blocked",
+   "verified_on": "2026-07-29",
+   "notes": "403 to a plain fetch. Flagged in the newsletter's Notices as a NEW Chiang Mai calendar, so potentially high value. Egress was confirmed working against other hosts in the same session, so this is their firewall. NEEDS A HUMAN LOOK IN A REAL BROWSER."
+  },
+  {
+   "id": "tourismthailand",
+   "name": "Tourism Authority of Thailand — events",
+   "kind": "institution",
+   "url": "https://www.tourismthailand.org/Search-result/events",
+   "endpoint": null,
+   "method": "blocked",
+   "yields": [
+    "events"
+   ],
+   "cadence": "manual",
+   "status": "blocked",
+   "verified_on": "2026-07-29",
+   "notes": "403. TAT Chiang Mai is the origin of several big newsletter items (Lanna Renaissance, Once Upon an Old Town, Big Bad Wolf, Chang Music Connection) but publishes via Facebook."
+  },
+  {
+   "id": "luma",
+   "name": "Luma (lu.ma) — tech/AI events",
+   "kind": "platform",
+   "url": "https://luma.com/3f2i6qhj",
+   "endpoint": null,
+   "method": "js-rendered",
+   "yields": [
+    "events"
+   ],
+   "cadence": "manual",
+   "status": "unusable",
+   "verified_on": "2026-07-29",
+   "notes": "Event pages render client-side with no JSON-LD in delivered HTML; no public feed found. Revisit if a calendar-level .ics turns up. Carries the AI/automation meetup scene."
+  },
+  {
+   "id": "allticket",
+   "name": "All Ticket — 7-Eleven counter ticketing",
+   "kind": "platform",
+   "url": "https://www.allticket.com/",
+   "endpoint": null,
+   "method": "js-rendered",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "unusable",
+   "notes": "HTTP 200 but an empty JS shell — /, /th/events and even /sitemap.xml return the identical header fragment. No server-rendered listings. Needs a headless browser to be worth anything.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "alliance-francaise-cm",
+   "name": "Alliance Française Chiang Mai",
+   "kind": "institution",
+   "url": "https://afchiangmai.com/culture/upcoming-events/",
+   "endpoint": null,
+   "method": "html",
+   "yields": [
+    "events",
+    "contacts"
+   ],
+   "cadence": "monthly",
+   "status": "verified",
+   "notes": "CORRECTION: the national site alliance-francaise.or.th has an EXPIRED TLS CERTIFICATE and cannot be fetched. The Chiang Mai branch runs its own live WordPress at afchiangmai.com — /culture/upcoming-events/ lists events to 2026-08-28 incl. the weekly Friday cinema (100 THB). No feed found. Contacts stated on site: 053 275 277 / 080 067 1650, infochiangmai@alliance-francaise.or.th.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "cm-expats-club",
+   "name": "Chiang Mai Expats Club",
+   "kind": "institution",
+   "url": "https://www.chiangmaiexpatsclub.com/",
+   "endpoint": null,
+   "method": "js-rendered",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "unusable",
+   "notes": "Google Sites: navigation renders but page BODIES come back empty to a plain fetch — /home/events-activities/calendar and /upcoming-events-meetings both returned nav only. Needs a headless browser. Ticketing via TicketTailor. info@chiangmaiexpatsclub.com.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "bridgewebs-cm",
+   "name": "Chiang Mai Bridge Club",
+   "kind": "institution",
+   "url": "https://www.bridgewebs.com/chiangmai/",
+   "endpoint": "https://www.bridgewebs.com/chiangmai/",
+   "method": "html",
+   "yields": [
+    "events"
+   ],
+   "cadence": "quarterly",
+   "status": "verified",
+   "notes": "Verified FRESH — results posted 2026-07-28, updated near-daily. Plain CGI-rendered HTML, no feed. Recurring Mon/Wed/Fri sessions plus named officer contacts incl. phone 084 481 3280. Small but reliably current.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "playtomic-padel-cm",
+   "name": "Padel Club Chiang Mai (Playtomic)",
+   "kind": "venue",
+   "url": "https://app.playtomic.io/tenant/81c96967-fccb-4b98-9b1d-2ce7e8e1d129",
+   "endpoint": null,
+   "method": "js-rendered",
+   "yields": [
+    "events"
+   ],
+   "cadence": "quarterly",
+   "status": "unverified",
+   "notes": "Six days a week of sessions. Playtomic has a documented booking API; tenant id is known."
+  },
+  {
+   "id": "pitchero-cm-cobras",
+   "name": "Chiang Mai Cobras RFC (Pitchero)",
+   "kind": "institution",
+   "url": "https://www.pitchero.com/clubs/chiangmaicobras",
+   "endpoint": null,
+   "method": "html",
+   "yields": [
+    "contacts"
+   ],
+   "cadence": "manual",
+   "status": "stale",
+   "notes": "Reachable and server-rendered, but the last fixture is dated 2025-11-13 — about 8 months stale. NOT viable as a recurring events feed. Still yields contacts: +6663 584 5175, address in Mae Hia.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "chiangmaipao",
+   "name": "Chiang Mai Provincial Administrative Organization",
+   "kind": "institution",
+   "url": "https://www.chiangmaipao.go.th/",
+   "endpoint": null,
+   "method": "blocked",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "blocked",
+   "notes": "HTTP 403 on www, apex and /index.php. Assumption that a .go.th would be crawl-tolerant was WRONG. Hard block.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "buddhadailywisdom",
+   "name": "Buddha Daily Wisdom — Wat Tung Yu programmes",
+   "kind": "venue",
+   "url": "https://www.buddhadailywisdom.com/",
+   "endpoint": null,
+   "method": "html",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "verified",
+   "notes": "CORRECTION: /chiangmai-meditation 404s. The root domain works — retreat 2026-08-16..21 and courses listed to Jan 2027. Wix; /eventscalendar renders without dates. Contacts stated: LINE buddhateacherlove, +66 61-905-4774, hello@BuddhaDailyWisdom.com. Wat Tung Yu programmes bridge events and the wat category.",
+   "verified_on": "2026-07-29"
+  },
+  {
+   "id": "venue-sites",
+   "name": "Venue-owned sites with recurring schedules",
+   "kind": "venue-group",
+   "url": null,
+   "endpoint": null,
+   "method": "html",
+   "yields": [
+    "events",
+    "contacts"
+   ],
+   "cadence": "monthly",
+   "status": "unverified",
+   "members": [
+    {
+     "name": "Maa Yoga Studio & Spa",
+     "url": "https://www.maawellnessretreat.com",
+     "recurring": "5 days/wk wellness rituals"
+    },
+    {
+     "name": "Chiang Mai Holistic",
+     "url": "http://www.chiangmaiholistic.com",
+     "recurring": "4 recurring sound baths/wk"
+    },
+    {
+     "name": "Jason Ryer breathwork",
+     "url": "https://jasonryer.com",
+     "recurring": "3 recurring/wk incl. ice bath"
+    },
+    {
+     "name": "DANCEmandala",
+     "url": "https://dancemandala.com",
+     "recurring": "Sat movement meditation"
+    },
+    {
+     "name": "Cognitive Fitness Coach",
+     "url": "https://www.cognitivefitnesscoach.com/events",
+     "recurring": "mindful jog"
+    },
+    {
+     "name": "RealSpace CM",
+     "url": "https://realspacecm.com",
+     "recurring": "Sat social, Sun Mafia"
+    },
+    {
+     "name": "Archers Bar",
+     "url": "https://archersbar.net",
+     "recurring": "Tue quiz, Sun roast (12 yrs unbroken)"
+    },
+    {
+     "name": "The Riverside",
+     "url": "http://www.theriversidechiangmai.com",
+     "recurring": "Sun music"
+    },
+    {
+     "name": "Gekko Garden",
+     "url": "https://www.gekkogardenrestaurant.com",
+     "recurring": "Sun roast buffet"
+    },
+    {
+     "name": "Favola (Marriott)",
+     "url": "https://www.favolachiangmai.com",
+     "recurring": "Sun bottomless brunch"
+    },
+    {
+     "name": "Le Crystal",
+     "url": "https://lecrystalrestaurant.com",
+     "recurring": "seasonal menu"
+    },
+    {
+     "name": "Berlin's Doner Kebab",
+     "url": "https://www.berlinsdonerkebab.com",
+     "recurring": "daily 10am-2am"
+    },
+    {
+     "name": "The Duke's (5 branches)",
+     "url": "https://wherestheduke.com",
+     "recurring": "monthly breakfast buffet, early bird"
+    },
+    {
+     "name": "U Nimman / Eat@Rincome",
+     "url": "https://www.uhotelsresorts.com/unimmanchiangmai",
+     "recurring": "Thu-Sun seafood"
+    },
+    {
+     "name": "Eastin Tan",
+     "url": "https://www.eastinhotelsresidences.com/eastintanchiangmai",
+     "recurring": "weekend lunch buffet"
+    },
+    {
+     "name": "137 Pillars House",
+     "url": "https://137pillarshotels.com/en/chiangmai",
+     "recurring": "monthly trading club, afternoon tea"
+    },
+    {
+     "name": "Cross Chiang Mai Riverside",
+     "url": "https://crosschiangmairiverside.com/dine",
+     "recurring": "daily brunch"
+    },
+    {
+     "name": "Skugga Vineyard",
+     "url": "https://skuggalife.com",
+     "recurring": "Sun brunch"
+    },
+    {
+     "name": "Araksa Tea Garden",
+     "url": "https://www.araksatea.com",
+     "recurring": "via Payap excursions"
+    }
+   ],
+   "notes": "Each is a small, slow-changing page. Value is dual: a recurring weekly schedule AND first-party contact details for a place already in the catalogue. Batch these into one monthly sweep rather than treating each as its own source. VERIFIED CONTACT-ONLY (no dated events, refresh rarely): realspacecm +66 96 717 4878; maawellnessretreat via wa.me/66843615688; chiangmaiholistic LINE @cmholistic, +66 83 248 1250 / +66 91 859 1308, info@chiangmaiholistic.com — that last one also has weekly recurring sessions but dates them day-of-month with no year."
+  },
+  {
+   "id": "line-official-accounts",
+   "name": "LINE Official Accounts seen in one issue",
+   "kind": "contact-channel",
+   "url": null,
+   "endpoint": null,
+   "method": "manual",
+   "yields": [
+    "contacts"
+   ],
+   "cadence": "manual",
+   "status": "extracted",
+   "verified_on": "2026-07-29",
+   "handles": [
+    "@kantarychiangmai",
+    "@interconchiangmai",
+    "@137pillarshouse",
+    "@cmholistic",
+    "@skuggavineyard",
+    "@crossriverside",
+    "@anantarachiangmai"
+   ],
+   "short_links": [
+    "https://lin.ee/7hb90qp",
+    "https://lin.ee/bm1Fmn9",
+    "https://lin.ee/NgWEcrL",
+    "https://lin.ee/x8mkADz",
+    "https://lin.ee/O6esFM5",
+    "https://lin.ee/QZVdRBU",
+    "https://lin.ee/U9mFL3p"
+   ],
+   "notes": "Confirms the gemba finding that LINE is the real Thai-facing channel. These map onto existing place records and feed the claim system directly — LINE is ranked second in channels() after phone."
+  },
+  {
+   "id": "social-walled",
+   "name": "Facebook / Instagram / WhatsApp — named but login-walled",
+   "kind": "social",
+   "url": null,
+   "endpoint": null,
+   "method": "walled",
+   "yields": [
+    "events",
+    "contacts"
+   ],
+   "cadence": "manual",
+   "status": "walled",
+   "verified_on": "2026-07-29",
+   "notes": "A large share of the newsletter's events exist ONLY here — facebook.com/events/<id>, group ids, IG handles, chat.whatsapp.com invite links. This is a structural ceiling on coverage, not a bug to fix. Value that IS extractable without logging in: the page IDENTITY (handle) as a contact field and claim target on the matching place record."
+  },
+  {
+   "id": "steve-newsletter",
+   "name": "Weekly Chiang Mai events newsletter",
+   "kind": "aggregator",
+   "url": "https://tiny.cc/stevesemail",
+   "endpoint": null,
+   "method": "manual",
+   "yields": [
+    "events",
+    "contacts"
+   ],
+   "cadence": "weekly",
+   "status": "partnership-pending",
+   "notes": "Hand-assembled weekly email; public Google Doc mirror at the url. The body text is venue-supplied press-release copy, not the compiler's own writing — the asset is the DISTRIBUTION LIST of who sends releases in, which is exactly what a crawl cannot reproduce. Partnership offered 2026-07-28, no reply as of 2026-07-29. Treat as a discovery feed for NEW sources to add to this registry, not as a thing to copy."
+  },
+  {
+   "id": "onenimman",
+   "name": "One Nimman",
+   "kind": "venue",
+   "url": "https://www.onenimman.com/",
+   "endpoint": null,
+   "method": "blocked",
+   "yields": [
+    "events"
+   ],
+   "cadence": "manual",
+   "status": "blocked",
+   "verified_on": "2026-07-29",
+   "notes": "HTTP 403 on www, apex and /whats-on — a hard bot block, not a rendering issue. Notable because One Nimman hosts the White Market (Thu-Sun) plus six weekly classes, so it is high-value and unreachable. Manual or owner-claim only."
+  },
+  {
+   "id": "major-showtimes",
+   "name": "Major Cineplex — showtimes (CM + CR screens)",
+   "kind": "platform",
+   "url": "https://www.majorcineplex.com/",
+   "yields": [
+    "events"
+   ],
+   "cadence": "daily",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "priority": "high",
+   "notes": "SUPERSEDES the earlier 'cinemas are unreachable' verdict — the chain's own site does answer, and 183 screenings across 5 CM/CR screens were verified live. How the request is shaped is deliberately not published here; it lives in a config file outside the repository. Only ~2 days of real schedule are available — day 3+ lists advance-sale titles only, which is the chain's own behaviour, not a parse failure. Importer: importers/make_showtimes.py"
+  },
+  {
+   "id": "open-meteo",
+   "name": "Open-Meteo — weather for the widget",
+   "kind": "platform",
+   "url": "https://open-meteo.com/",
+   "endpoint": "https://api.open-meteo.com/v1/forecast",
+   "method": "json",
+   "yields": [
+    "weather"
+   ],
+   "cadence": "daily",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Free, keyless, no attribution requirement, CC-BY 4.0, and it accepts every coordinate in ONE request — 15 cities in a single call. Baked by importers/make_weather.py so published pages still make no external request; the reader picks which baked cities to show. A free-text city search would mean a live call from the browser, which this site does not do."
+  },
+  {
+   "id": "prd-chiangmai",
+   "name": "สำนักงานประชาสัมพันธ์จังหวัดเชียงใหม่ — Chiang Mai Provincial PR Office",
+   "kind": "government",
+   "url": "https://chiangmai.prd.go.th/",
+   "endpoint": "https://chiangmai.prd.go.th/",
+   "method": "html",
+   "yields": [
+    "festival-dates",
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Server-rendered, no JS needed, ~17k Thai characters on the homepage. News articles are /th/content/category/detail/id/N/iid/N — 85 of them linked from the front page, headline in the anchor text, which is enough to parse a date out of. This is the source the spec wanted at priority 2 and it works, unlike tourismthailand (blocked) and chiangmaipao (blocked). CAVEAT, measured: the traffic is overwhelmingly RETROSPECTIVE — 'the governor attended', 'citizens joined' — so harvest_festivals.py requires a forward-looking verb (ขอเชิญ / เตรียมจัด / กำหนดจัด) before it will treat a parsed date as an announcement. A /th/calendar/article/index/id/2 route exists but returned only site chrome.",
+   "venue_coverage": "n/a — announcements, not venues"
+  },
+  {
+   "id": "prd-chiangrai",
+   "name": "สำนักงานประชาสัมพันธ์จังหวัดเชียงราย — Chiang Rai Provincial PR Office",
+   "kind": "government",
+   "url": "https://chiangrai.prd.go.th/",
+   "endpoint": "https://chiangrai.prd.go.th/",
+   "method": "html",
+   "yields": [
+    "festival-dates",
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Same PRD platform and same link shape as the Chiang Mai office, ~24k Thai characters on the homepage. Carries the Chiang Rai provincial festival announcements (Mengrai festival, Doi Tung, the lychee fair). Same retrospective-news caveat.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "cmcity-activities",
+   "name": "เทศบาลนครเชียงใหม่ ข่าวกิจกรรม — Chiang Mai Municipality activity news",
+   "kind": "government",
+   "url": "https://www.cmcity.go.th/",
+   "endpoint": "https://www.cmcity.go.th/list/group/321/ข่าวกิจกรรม/",
+   "method": "html",
+   "yields": [
+    "festival-dates",
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "The municipality, not the province — this is who actually runs Inthakhin, Songkran on the moat and Yi Peng in the city. Server-rendered, ~31k Thai characters. Article URLs are /News/N-<the headline in Thai>, so the title survives in the path itself. Group 321 is ข่าวกิจกรรม; group 495 is ข้อมูลต่างๆของถนนคนเดิน (walking-street info) and is worth a separate pass for the Sunday market.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "cea-cmdw",
+   "name": "เทศกาลงานออกแบบเชียงใหม่ (CEA) — Chiang Mai Design Week",
+   "kind": "organiser",
+   "url": "https://www.chiangmaidesignweek.com/",
+   "endpoint": "https://www.chiangmaidesignweek.com/",
+   "method": "html",
+   "yields": [
+    "festival-dates",
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Redirects to the current year's edition (/cmdw2026 as of the probe), server-rendered. Organiser-owned, so its dates are authoritative for cm-design-week. Front page is mostly marketing copy — the probe's first pass parsed a stray date span out of a slogan, which is why harvest_festivals.py caps a festival span at 45 days.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "singhapark",
+   "name": "Singha Park Chiang Rai",
+   "kind": "organiser",
+   "url": "https://singhapark.com/",
+   "endpoint": "https://singhapark.com/",
+   "method": "html",
+   "yields": [
+    "festival-dates"
+   ],
+   "cadence": "monthly",
+   "status": "thin",
+   "verified_on": "2026-07-29",
+   "notes": "Answers a plain fetch and is server-rendered, but the homepage is only ~38kB with ~2.2k Thai characters and yielded zero announcement-shaped links. Authoritative for the balloon fiesta when they post it; needs a deeper path than the homepage to be useful.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "maefahluang",
+   "name": "มูลนิธิแม่ฟ้าหลวง (ดอยตุง) — Mae Fah Luang Foundation",
+   "kind": "organiser",
+   "url": "https://www.maefahluang.org/",
+   "endpoint": "https://www.maefahluang.org/",
+   "method": "html",
+   "yields": [
+    "festival-dates"
+   ],
+   "cadence": "monthly",
+   "status": "thin",
+   "verified_on": "2026-07-29",
+   "notes": "The right domain for Doi Tung: doitung.org does not resolve at all, and doitung.com is the retail shop. Server-rendered (~2.7k Thai characters) but no announcement links on the front page in this pass.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "chiangrai-province",
+   "name": "จังหวัดเชียงราย — Chiang Rai province (WordPress)",
+   "kind": "government",
+   "url": "https://chiangrai.go.th/",
+   "endpoint": "https://chiangrai.go.th/feed/",
+   "method": "rss",
+   "yields": [
+    "places"
+   ],
+   "cadence": "monthly",
+   "status": "verified",
+   "verified_on": "2026-07-29",
+   "notes": "Publishes a real WordPress RSS feed — 10 items, parses cleanly, no JS. But measured: the content is TOURISM PAGES, not events (เที่ยว อ.เวียงป่าเป้า, วัดป่าอรัญญวิเวก, พระตำหนักดอยตุง). So it is a places feed worth mining for the directory, and NOT a festival-date source. Registered here so nobody re-probes it hoping for dates.",
+   "venue_coverage": "stated in prose"
+  },
+  {
+   "id": "chiangmai-province",
+   "name": "จังหวัดเชียงใหม่ — Chiang Mai province",
+   "kind": "government",
+   "url": "https://www.chiangmai.go.th/",
+   "endpoint": "https://www.chiangmai.go.th/",
+   "method": "html",
+   "yields": [
+    "festival-dates"
+   ],
+   "cadence": "manual",
+   "status": "blocked",
+   "verified_on": "2026-07-29",
+   "notes": "Serves a SELF-SIGNED certificate — the fetch fails with CERTIFICATE_VERIFY_FAILED. Not worked around: this project does not disable certificate verification to reach a source, and it will not send a reader to a security warning either. The provincial PR office (prd-chiangmai) carries the same announcements over a valid certificate; use that.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "chiangraifocus",
+   "name": "เชียงรายโฟกัส — Chiang Rai Focus",
+   "kind": "media",
+   "url": "https://www.chiangraifocus.com/",
+   "endpoint": "https://www.chiangraifocus.com/",
+   "method": "html",
+   "yields": [
+    "festival-dates",
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "thin",
+   "verified_on": "2026-07-29",
+   "notes": "Server-rendered and large (~18k Thai characters). Advertises a category/news/tat-news/ section, which would be a way to read TAT announcements given tourismthailand.org itself is blocked — but that category page returned zero article links in the shape the front page uses, so the listing structure still needs working out.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "cr-municipality",
+   "name": "เทศบาลนครเชียงราย — Chiang Rai Municipality",
+   "kind": "government",
+   "url": "https://www.chiangraicity.go.th/",
+   "endpoint": "https://chiangraicity.go.th/",
+   "method": "js-rendered",
+   "yields": [
+    "festival-dates"
+   ],
+   "cadence": "manual",
+   "status": "unusable",
+   "verified_on": "2026-07-29",
+   "notes": "Returns 200 with only ~59 Thai characters — a client-rendered shell. cr-mu.go.th, the domain first tried, does not resolve. The Chiang Rai municipal equivalent of the Chiang Mai municipality feed is therefore not available to a plain fetch; prd-chiangrai is the fallback.",
+   "venue_coverage": "n/a"
+  },
+  {
+   "id": "glo-lottery",
+   "name": "สำนักงานสลากกินแบ่งรัฐบาล — Government Lottery Office, draw results",
+   "kind": "government",
+   "url": "https://www.glo.or.th/",
+   "endpoint": "https://www.glo.or.th/api/lottery/getLatestLottery",
+   "method": "json-post",
+   "yields": [
+    "lottery"
+   ],
+   "cadence": "daily",
+   "status": "verified",
+   "verified_on": "2026-08-12",
+   "notes": "First-party: the office that conducts the draw. POST with an empty JSON body returns the complete latest sheet — date, every prize tier with amounts, and the office's own announcement PDF. The sibling /api/checking/getLotteryResult is the site's per-ticket checker and returns response:null to everything else, and data.go.th CKAN holds no lottery-results dataset at all (searched 2026-08-12, five query terms — the hits are household-income tables). Fetched once per morning walk by importers/make_lottery.py; the record only changes twice a month, and the importer leaves data/lottery.json untouched when the draw is unchanged. No schedule endpoint exists, so the next draw date is never derived — presence-only."
+  },
+  {
+   "id": "dtam-mcgis",
+   "name": "DTAM Medical Cannabis GIS (MC-GIS) — the licensed-shop register",
+   "kind": "government",
+   "url": "https://cannabis-gis.dtam.moph.go.th/",
+   "endpoint": "https://cannabis-gis.dtam.moph.go.th/api/geo/markers-dev?province_id={id}",
+   "method": "json",
+   "yields": [
+    "places",
+    "coordinates",
+    "licence"
+   ],
+   "cadence": "quarterly",
+   "status": "walled",
+   "verified_on": "2026-08-17",
+   "notes": "THE register, and we may not republish it. กรมการแพทย์แผนไทยฯ runs a public Leaflet dashboard over a plain JSON API — no key, no login, province_id 38 = เชียงใหม่ and 45 = เชียงราย — carrying name, lat/lng, licence number, expiry date and category for every ACTIVE licence. Measured 2026-08-17: Chiang Mai 498 markers (472 ร้านจำหน่าย + 26 แปลงปลูก), Chiang Rai 216 (142 ร้านจำหน่าย, 55 สถานที่เพาะปลูก, 17 แปลงปลูก, 1 โรงงานแปรรูป, 1 สถานที่จัดเก็บ). All 714 active, all with coordinates. WHY IT IS WALLED AND NOT HARVESTED: the system's own ข้อกำหนดการใช้งาน (last revised 10 เมษายน 2569) scopes it in §2 to authorised officials by role, forbids in §4 'คัดลอก เปิดเผย ส่งต่อ หรือเผยแพร่ข้อมูลให้บุคคลที่ไม่มีสิทธิ์เข้าถึง', forbids in §6 use 'เพื่อวัตถุประสงค์ส่วนตัว การพาณิชย์', and asserts in §8 that the content and data structure are the department's property under the Copyright Act B.E. 2537. An unauthenticated endpoint is not a licence. Reachable is not permitted, and this one says so in its own words. WHAT IT IS STILL GOOD FOR: an aggregate the reader deserves and that costs us nothing to state — how many licensed shops exist versus how many we hold. THE ASK THAT WOULD UNLOCK IT: the same department already publishes the Bangkok equivalent as open data (see dtam-gdc-bkk), so the request is not for a new policy, only for the two northern provinces on the terms they have already set for Bangkok.",
+   "province_ids": {
+    "cm": 38,
+    "cr": 45
+   },
+   "measured": {
+    "cm_shops": 472,
+    "cm_plots": 26,
+    "cr_shops": 142,
+    "cr_other": 74,
+    "measured_on": "2026-08-17"
+   }
+  },
+  {
+   "id": "dtam-gdc-bkk",
+   "name": "DTAM open data — Bangkok cannabis establishments (the precedent)",
+   "kind": "government",
+   "url": "https://gdc.dtam.moph.go.th/dataset/c7e99f5f-099a-4f9f-a778-145a5ecf0f1c",
+   "endpoint": "https://data.go.th/api/3/action/package_show?id=dtam-serv-002",
+   "method": "csv",
+   "yields": [
+    "places"
+   ],
+   "cadence": "manual",
+   "status": "thin",
+   "verified_on": "2026-08-17",
+   "notes": "1,722 licensed cannabis establishments — but Bangkok only, and only four columns: ลำดับ, เลขที่ใบอนุญาต, ชื่อ, เขต. No address, no phone, no coordinates. Useless to a Chiang Mai directory as data and valuable as PRECEDENT: the same department that walls MC-GIS publishes this one on data.go.th under the portal's open terms. Searching data.go.th and the department's own CKAN (43 datasets) found no provincial equivalent — Bangkok is the only one. It also settles the order of magnitude: 1,722 shops in one city is why 28 OSM records in a whole province was never going to be the real number."
+  },
+  {
+   "id": "fda-marijuana-register",
+   "name": "อย. ระบบสืบค้นใบอนุญาตสำหรับกัญชา (the old narcotics-law register)",
+   "kind": "government",
+   "url": "https://hemp.fda.moph.go.th/FDA_MARIJUANA/staff/marijuana_report_public",
+   "endpoint": "POST https://hemp.fda.moph.go.th/FDA_MARIJUANA/staff/SEARCH_MARIJUANA_REPORT",
+   "method": "json",
+   "yields": [
+    "places"
+   ],
+   "cadence": "manual",
+   "status": "stale",
+   "verified_on": "2026-08-17",
+   "notes": "A public AngularJS lookup over the pre-2565 licences issued while cannabis was still a category-5 narcotic. POST JSON {province, type:'public', ...}; province is the two-digit code, 50 = เชียงใหม่. Rich schema — full Thai address parts, telephone, sometimes lat/lng — and entirely the wrong era: all 53 Chiang Mai rows read STATUS_NAME 'inactive', mostly government labs and hospitals, dated 2564-2567. Retail licensing moved to กรมการแพทย์แผนไทยฯ under the Herbal Products Act when cannabis was delisted in 2565. Publishing these as shops a reader could walk into would be false. Recorded so nobody rediscovers it and mistakes it for the live register — that is dtam-mcgis."
+  },
+  {
+   "id": "dga-citizeninfo-health",
+   "name": "CITIZENinfo — พิกัดสถานพยาบาลของรัฐ (DGA open data)",
+   "kind": "government",
+   "url": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5",
+   "endpoint": "https://data.go.th/dataset/00170665-bda1-4f4a-ad7c-52dac7abc7a5/resource/2d45b0c6-75e9-4463-888d-ef364ad164fb/download/citizeninfo_health_20200314.csv",
+   "method": "csv",
+   "yields": [
+    "places",
+    "coordinates"
+   ],
+   "cadence": "manual",
+   "status": "verified",
+   "verified_on": "2026-08-18",
+   "licence": "Creative Commons Attribution",
+   "notes": "THE fix for the medical shelf, and it is openly licensed — the exact opposite of dtam-mcgis. 10,715 state health facilities nationwide, EVERY ONE with a latitude and longitude the state surveyed. 514 fall in our two provinces once filtered on the จ./จังหวัด marker (not on any mention of the province word — ถ.เชียงราย-เชียงใหม่ runs between them and would file clinics in the wrong one). Measured 2026-08-18: cm 286, cr 228; 469 โรงพยาบาลส่งเสริมสุขภาพตำบล + 45 โรงพยาบาล, no third kind. This is why Chiang Rai went from THREE medical records to 231. DATED 2020-03-14 by its publisher and that date rides on every record: a รพ.สต. does not move but it can close, and a six-year-old pin presented as current is a claim we have not earned. CC-BY means the credit is a condition, not a courtesy — it is on every record's sources entry. State sector ONLY; private clinics come from the OSM `medical` crawl group.",
+   "measured": {
+    "cm": 286,
+    "cr": 228,
+    "health_stations": 469,
+    "hospitals": 45,
+    "measured_on": "2026-08-18"
+   }
+  },
+  {
+   "id": "cr-clinic-count",
+   "name": "คลินิกทุกประเภท เชียงราย — สสจ.เชียงราย (count series)",
+   "kind": "government",
+   "url": "https://chiangrai.gdcatalog.go.th/dataset/d47beff2-7c46-44f8-beef-9982891a1366",
+   "method": "csv",
+   "yields": [
+    "calibration"
+   ],
+   "cadence": "manual",
+   "status": "thin",
+   "verified_on": "2026-08-18",
+   "licence": "Open Data Commons",
+   "notes": "Not a list — a count series, and that is still worth having. สำนักงานสาธารณสุขจังหวัดเชียงราย publishes 547 clinics of all types in 2563 and **628 in 2564**. That is the yardstick the Chiang Rai medical shelf should be read against, exactly as the licensed-shop count was for cannabis: it says how far short of the ground we still are, without our having to guess. Sibling dataset dataset_50_25 (สถานพยาบาล, by อำเภอ) is the same shape."
+  },
+  {
+   "id": "obec-school-007",
+   "name": "ทะเบียนโรงเรียน สพฐ. — OBEC school register",
+   "kind": "register",
+   "url": "https://gdcatalog.go.th/dataset/gdpublish-obec-school-007",
+   "endpoint": "https://opendata.edudev.in.th/v1/OBEC_SCHOOL_007",
+   "method": "json",
+   "yields": [
+    "places",
+    "contacts"
+   ],
+   "cadence": "yearly",
+   "status": "verified",
+   "verified_on": "2026-08-18",
+   "licence": "Open Data Common (gdcatalog.go.th)",
+   "notes": "THE find for the schools shelf. 29,642 government basic-education schools nationwide, 713 Chiang Mai + 589 Chiang Rai, served as a single 23 MB JSON with no key and no signup. Carries what CITIZENinfo could not: a TELEPHONE for 1,147 of 1,302 in our provinces (88%, against ~19% site-wide), plus classMinLevel/classMaxLevel, enrolment, classroom count, the สพป./สพม. education service area, and highArea — 424 of them stand on the ดอย. Coordinates on all but one row. Pin quality measured against the register's own geography: 5 wrong pins, 0.38%, well under the ~6% Thai mappers report for government sources of this kind. Covers สพฐ. ONLY — no private, municipal, monastic, university or non-formal schools."
+  },
+  {
+   "id": "opec-private-licences",
+   "name": "ทะเบียนใบอนุญาตโรงเรียนเอกชน — private school licences",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/gdpublish-cer",
+   "endpoint": "https://catalog.moe.go.th/dataset/483893fd-25d8-41f9-8596-133302e90a02",
+   "method": "csv",
+   "yields": [
+    "places"
+   ],
+   "cadence": "yearly",
+   "status": "verified",
+   "verified_on": "2026-08-18",
+   "licence": "not stated by the publisher (accessible_condition: ไม่มี)",
+   "notes": "The private half, and the only complete list of INTERNATIONAL schools: 25 in Chiang Mai and Chiang Rai against the 14 OpenStreetMap holds. 225 private schools in our provinces — 184 ordinary สามัญศึกษา, 25 นานาชาติ, 10 การศึกษาสงเคราะห์, 5 การกุศลของวัด (licensed to a temple), 1 การศึกษาพิเศษ. Carries levels taught, founding date, licensed capacity and who holds the licence (person / company / foundation / wat). A LICENCE, NOT A LOCATION — no coordinate, no phone, no street, only อำเภอ. MEASURED DEAD END: the นอกระบบ (non-formal) export holds 134 rows nationwide and ZERO in either province, so the register that should list this city's language schools, muay thai camps and cooking schools is empty in the published copy. Do not look there again. Licence is not stated on the portal; recorded as such rather than assumed open."
+  },
+  {
+   "id": "onab-monastic-schools",
+   "name": "รายชื่อโรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/68_113",
+   "endpoint": null,
+   "method": "csv",
+   "yields": [
+    "places"
+   ],
+   "cadence": "yearly",
+   "status": "harvested",
+   "verified_on": "2026-08-21",
+   "licence": "Open Data Common",
+   "notes": "HARVESTED + FOLDED 2026-08-21 (WO-28). CSV via chiangmai.gdcatalog.go.th, Open Data Common, สำนักงานจังหวัดเชียงใหม่, modified 2026-06-25. 56 rows = the SAME ~28 schools stacked over two academic years (2568, 2569) — take the newest only, the same stacking the provincial temple CSV does. Columns: รายการสถิติทางการ, ปีการศึกษา, อำเภอ, ตำบล, **วัด**, ชื่อโรงเรียน. THE วัด COLUMN IS THE POINT: 50 of 56 rows matched a temple we hold (4 of them to cm-onab-* records that only existed after the 2026-08-20 ONAB fold), so a school is pinned AT its temple and the temple's page names the school. Landed 27 records; 13 temple-pinned. The register carries NO phone, NO website, NO coordinates. ¶ Monastic schools — the โรงเรียนพระปริยัติธรรม that teach the ordinary curriculum to novice monks. Open Data Common, CSV + XLSX, catalogued but NOT yet fetched or counted. Worth doing next because it joins the wat register: these schools sit inside named temples, so รหัสวัด reaches them and no other directory of either province can express that. Sibling datasets seen alongside it: onab016 ศาสนศึกษา, onab017 pupils, onab018 teachers, my-database1 ข้อมูลโรงเรียนพระปริยัติธรรม."
+  },
+  {
+   "id": "mhesi-university-list",
+   "name": "รายชื่อสถาบันอุดมศึกษา — higher-education institutions",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/univ_uni_11_03",
+   "endpoint": null,
+   "method": "csv",
+   "yields": [
+    "places"
+   ],
+   "cadence": "yearly",
+   "status": "harvested",
+   "verified_on": "2026-08-21",
+   "licence": "not stated by the publisher",
+   "notes": "HARVESTED + FOLDED 2026-08-21 (WO-28). CSV from data.mhesi.go.th, licence 'not specified', edition 2563 (the only year in the file) — that year rides on every record. Columns are ONLY ACADEMIC_YEAR, UNIV_NAME, PROVINCE_UNIV_NAME_TH: no address, no coordinates, so the 7 institutions folded are pinless and say so. 20 CM/CR rows, 13 already held. TRAP MEASURED: the register files 'มหาวิทยาลัยรามคำแหง สาขาวิทยบริการฯ จังหวัดแพร่' under เชียงใหม่ — a row whose NAME names another province is refused to the review file, the same rule import_citizeninfo keeps for addresses. ¶ The national list of universities and higher-education institutions (XLSX + CSV + a URL resource). Catalogued, NOT yet fetched. The universities shelf currently comes from the OSM crawl alone, which is why it once answered with a faculty canteen; this is the register that would settle which institutions actually exist and what each is called officially."
+  },
+  {
+   "id": "ttd-thailand-tourism-directory",
+   "name": "Thailand Tourism Directory (กระทรวงการท่องเที่ยวและกีฬา)",
+   "kind": "government",
+   "url": "https://thailandtourismdirectory.go.th/",
+   "endpoint": "https://api.thailandtourismdirectory.go.th/openapi/read",
+   "method": "api-post-json (APIKey+SecretKey, Type 1-6, ProvinceCode 50|57, Skip/Limit) — key is Nan's to register; detail pages carry the full record in __NEXT_DATA__",
+   "yields": [
+    "places",
+    "contacts",
+    "coordinates",
+    "hours"
+   ],
+   "cadence": "quarterly",
+   "status": "verified",
+   "verified_on": "2026-08-19",
+   "notes": "Sitemap ≈28,500 URLs nationally: restaurants 13,264 · accommodations 6,989 · attractions 5,864 · stores 1,304 · spas 406 · routes 351 · activities 241. Two detail pages opened: server HTML __NEXT_DATA__ carries Name th/en/zh/jp, structured address (Moo/Soi/Road/SubDistrict/District/Province/PostCode), Latitude/Longitude, Telephone/Mobile/Fax, Website, Email, FacebookUrl, LineID, OpenHours per weekday, SourceDepartment, Official/OfficialOwner — and Rating + ViewCount, which are REFUSED. robots.txt: Content-Signal search=yes,ai-train=no,use=reference + Allow: / (Amazonbot/ClaudeBot/GPTBot/CCBot etc. named and blocked). MOTS publishes extracts on data.go.th (spa list = Open Data Common) with how-to-call-api-ttd-v2.pdf. CM+CR share NOT measured — the API count per province is step 0 (WO-17). see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "datagoth-cm-wats-67-04",
+   "name": "data.go.th 67-04 — วัดและสำนักสงฆ์ จังหวัดเชียงใหม่ (สำนักงานจังหวัดเชียงใหม่)",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/67-04",
+   "endpoint": "https://chiangmai.gdcatalog.go.th/dataset/9ab07ee0-1064-492c-95eb-aba11ae63bf7/resource/24ea2ae0-c0ce-449a-b964-df7b4acbddd4/download/untitled.csv",
+   "method": "csv (UTF-8); XLSX 181 KB also offered",
+   "yields": [
+    "places"
+   ],
+   "cadence": "yearly",
+   "status": "harvested",
+   "verified_on": "2026-08-20",
+   "notes": "HARVESTED 2026-08-20 by importers/harvest_datagoth.py → data/curated/datagoth.json; folded by importers/import_opendata.py (WO-16). CORRECTION to the 2026-08-19 note: the 4,462 rows are the SAME ~1,487 temples stacked three years deep (2566/๒๕๖๗/2568) — 1,489 unique names, agreeing with ONAB's 1,486. The fold therefore ran from the ONAB register already on disk (wat-registry/registry.db, both provinces); this CSV is the cross-check. ¶ 4,462 rows: ชื่อชุดข้อมูล, ปี, จังหวัด, ชื่อวัด, ประเภทวัด (วัดราษฎร์…), นิกาย, ตำบล, อำเภอ. Licence 'not specified' (same as the school registers). Names + tambon/amphoe only — no pins; geocode via the tambon+amphoe pair rule. Join with data/curated/wat_registry.json (WO-1). WO-16(a). see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "datagoth-cm-bus-routes",
+   "name": "data.go.th _67_70 / dataset_10_238 / 69_148 — เส้นทางเดินรถโดยสารประจำทาง จังหวัดเชียงใหม่",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/_67_70",
+   "endpoint": "https://chiangmai.gdcatalog.go.th/ (resource URLs via package_show)",
+   "method": "csv (UTF-8 for _67_70; dataset_10_238 is cp874)",
+   "yields": [
+    "routes"
+   ],
+   "cadence": "yearly",
+   "status": "harvested",
+   "verified_on": "2026-08-20",
+   "notes": "HARVESTED 2026-08-20 by importers/harvest_datagoth.py → data/curated/datagoth.json; folded by importers/import_opendata.py (WO-16). 674 routes → data/bus_routes.json (641 provincial + 27 category-1/4 + city routes). No timetables in the register, none invented. Awaits WO-13's board; named in llms.txt. ¶ _67_70: 641 rows — ปี, ชื่อเส้นทาง (e.g. เชียงใหม่ - ฮอด - ดอยเต่า), อำเภอที่ผ่าน, ตำบลที่ผ่าน. dataset_10_238: 27 category-1/4 routes with route numbers. 69_148: city routes (route 6 รอบเมือง). Feeds WO-13's bus board with zero scraping. WO-16(b). see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "datagoth-cr-eco-attractions",
+   "name": "data.go.th eco — รายชื่อแหล่งท่องเที่ยว จังหวัดเชียงราย (สำนักงานจังหวัดเชียงราย)",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/eco",
+   "endpoint": "https://chiangrai.gdcatalog.go.th/dataset/d90e86d1-6f82-4634-9d96-049a400f6dd4/resource/0c756837-8a20-46c2-9d70-7e6c0db684e3/download/dataset_20_31.csv",
+   "method": "csv",
+   "yields": [
+    "places",
+    "contacts"
+   ],
+   "cadence": "yearly",
+   "status": "harvested",
+   "verified_on": "2026-08-20",
+   "notes": "HARVESTED 2026-08-20 by importers/harvest_datagoth.py → data/curated/datagoth.json; folded by importers/import_opendata.py (WO-16). 38 records folded onto the CR sights shelf with their phone numbers. ¶ 38 rows: ประเภท, ชื่อสถานที่, ที่อยู่, อำเภอ, ตำบล, ติดต่อ (PHONE — e.g. สิงห์ปาร์ค 053160636), ที่มา. Open Data Common. Siblings: dataset_20_19 (127 religious/arts/cultural sites, cp874), dataset_20_12 (119 community-tourism sites, cp874). WO-16(c). see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "datagoth-cm-police-stations",
+   "name": "data.go.th _67_73 — สถานีตำรวจในสังกัดตำรวจภูธรจังหวัดเชียงใหม่",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/_67_73",
+   "endpoint": "https://chiangmai.gdcatalog.go.th/ (resource URL via package_show)",
+   "method": "csv",
+   "yields": [
+    "places",
+    "contacts"
+   ],
+   "cadence": "yearly",
+   "status": "harvested",
+   "verified_on": "2026-08-20",
+   "notes": "HARVESTED 2026-08-20 by importers/harvest_datagoth.py → data/curated/datagoth.json; folded by importers/import_opendata.py (WO-16). 40 records folded (essentials/gov), all 40 with a phone. ¶ 39 rows with phone numbers in the สถานีตำรวจ field ('กลุ่มงานจราจร ภ.จว.เชียงใหม่ โทรศัพท์:053 234051'). WO-16(d). see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "datagoth-cm-thai-select",
+   "name": "data.go.th _67_69 — ร้านอาหาร ภัตตาคารที่ได้รับการรับรองมาตรฐาน Thai SELECT (CM)",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/_67_69",
+   "endpoint": "https://chiangmai.gdcatalog.go.th/dataset/0160d11e-b83f-4946-ad30-63f07a5201b8/resource/4798edaf-c37f-48a5-be15-11c41fc00141/download/thai-select.csv",
+   "method": "csv",
+   "yields": [
+    "honours"
+   ],
+   "cadence": "yearly",
+   "status": "harvested",
+   "verified_on": "2026-08-20",
+   "notes": "HARVESTED 2026-08-20 by importers/harvest_datagoth.py → data/curated/datagoth.json; folded by importers/import_opendata.py (WO-16). 5 confident exact-name matches → honours.json food marks (award thai-select, edition 2563); 17 names → unverified leads. FOOD_AWARD + tag added. ¶ 23 restaurant names (2563): รายการ, ปี, ชื่อร้าน. Licence not specified. A tag/honour with a link to DITP. WO-16(e). see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "datagoth-cr-thongfah-restaurants",
+   "name": "data.go.th dataset40_11 — ร้านอาหารธงฟ้าราคาประหยัด จังหวัดเชียงราย",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/dataset40_11",
+   "endpoint": "https://chiangrai.gdcatalog.go.th/dataset/092e39f3-fa14-4bad-b070-ea9d27818922/resource/f33d7af3-2ad6-434a-87d0-53877996c80f/download/dataset_40_11.csv",
+   "method": "csv (cp874)",
+   "yields": [
+    "places",
+    "honours"
+   ],
+   "cadence": "yearly",
+   "status": "harvested",
+   "verified_on": "2026-08-20",
+   "notes": "HARVESTED 2026-08-20 by importers/harvest_datagoth.py → data/curated/datagoth.json; folded by importers/import_opendata.py (WO-16). 34 records folded onto the CR food shelf with attrs.thongfah=grade (tag `thongfah`); operator personal names deliberately NOT taken. ¶ 33 rows: ชื่อร้าน, ชื่อผู้ประกอบการ (a person — do not publish), อำเภอ, ตำบล, ประเภทอาหาร, ประเภทร้าน, เกรด, ที่มา (สำนักงานพาณิชย์จังหวัดเชียงราย). Open Data Common. WO-16(e). see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "datagoth-cm-lpg-stations",
+   "name": "data.go.th 69_139 / 69_140 — ร้านและสถานีบริการก๊าซปิโตรเลียม (LPG) จังหวัดเชียงใหม่",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/69_139",
+   "endpoint": "https://chiangmai.gdcatalog.go.th/dataset/ea6ed0c5-116a-4b63-a5b0-dc424f70d240/resource/cacf8fc3-caab-455a-a80c-855b14bfd5b6/download/untitled.csv",
+   "method": "csv",
+   "yields": [
+    "places"
+   ],
+   "cadence": "yearly",
+   "status": "harvested",
+   "verified_on": "2026-08-20",
+   "notes": "HARVESTED 2026-08-20 by importers/harvest_datagoth.py → data/curated/datagoth.json; folded by importers/import_opendata.py (WO-16). 28 records folded (essentials) with attrs.fuel=[lpg] so the LPG tag carries them. ¶ 27 rows (2569): รายการ, ปี, อำเภอ, ตำบล, สถานประกอบการ (company names). Open Data Common. Fuel tag 'LPG'. WO-16(f). see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "sat-standardized-boxing-camps",
+   "name": "การกีฬาแห่งประเทศไทย — ค่ายมวยที่ได้รับการรับรองมาตรฐานในประเทศไทย",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/sat-standardized-boxingcamps",
+   "endpoint": "https://data.go.th/dataset/25a3c839-3760-46b4-8646-d0de1ebcbfc4/resource/3562f2c5-2501-44a9-b32f-901867431644/download/sat-standardized-boxing-camps-in-thailand.xlsx",
+   "method": "xlsx (39 KB) + data dictionary xlsx",
+   "yields": [
+    "places"
+   ],
+   "cadence": "manual",
+   "status": "harvested",
+   "verified_on": "2026-08-20",
+   "notes": "HARVESTED 2026-08-20 by importers/harvest_datagoth.py → data/curated/datagoth.json; folded by importers/import_opendata.py (WO-16). 274 rows national; 17 in CM(4)/CR(13) — ภาค 5 rows carry NO address/tambon/postcode (measured). 17 records folded (muaythai/camp, needs-pin) with satStandard level; apply() stamps any name-matched shelf record. NOTE their District/SubDistrict headers are swapped where filled. ¶ CC-BY. Size-checked only (HEAD 200, 39,189 bytes); not opened. National; CM/CR rows unknown. Feeds WO-12's muaythai shelf. WO-16(g). see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "fda-drug-location-licences",
+   "name": "สำนักงานคณะกรรมการอาหารและยา — ใบอนุญาตสถานที่ด้านยา (2024)",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/drug-location",
+   "endpoint": "https://catalog.fda.moph.go.th/dataset/cf621463-524a-4bc0-8a92-62f32e2650d4/resource/00789601-1313-4d28-86e7-cf9afbc457e8/download/drug_location_license-2024-final.xlsx",
+   "method": "xlsx (2.4 MB)",
+   "yields": [
+    "places"
+   ],
+   "cadence": "yearly",
+   "status": "harvested",
+   "verified_on": "2026-08-20",
+   "notes": "HARVESTED 2026-08-20 by importers/harvest_datagoth.py → data/curated/datagoth.json; folded by importers/import_opendata.py (WO-16). 24,888 rows national. CM: 942 licences, 702 retail (ขายยาแผนปัจจุบัน) vs ~202 catalogue pharmacies; CR: 299/230 vs ~20. Comparison in cache/fda_pharmacy_compare.txt; yardstick rows on /stats.html. Register carries shop NAME + tambon/amphoe/zipcode, no coords/phone — a future fold is possible and is NOT part of WO-16. ¶ Licence not specified. Size-checked only (HEAD 200, 2,473,564 bytes); not opened. National register of drug premises licences (pharmacies); compare with the 376 OSM pharmacies in CM. WO-16(h). see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "hss-health-establishment-operators",
+   "name": "กรมสนับสนุนบริการสุขภาพ — รายการผู้ดำเนินการสถานประกอบการเพื่อสุขภาพที่ได้รับอนุญาต",
+   "kind": "register",
+   "url": "https://data.go.th/dataset/dataset-3-3-01",
+   "endpoint": "https://hss.gdcatalog.go.th/dataset/48bbf63d-1c8d-4652-98c7-6d452ecad576/resource/c9e18423-88ec-4718-814f-c2490b01c995/download/.csv",
+   "method": "csv (406 KB)",
+   "yields": [
+    "calibration"
+   ],
+   "cadence": "yearly",
+   "status": "thin",
+   "verified_on": "2026-08-19",
+   "notes": "Columns: CertificateCode, ServiceType (สปา / elder care), Gender, BirthYear, CertificateYear, ProvinceID, Province — licensed PEOPLE, anonymised, no establishment names. Counts per province only. Do not go looking for shop names here again. spa.hss.moph.go.th is the division homepage (old jQuery); the public licence search is not server-rendered there. see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "datagoth-provincial-yardsticks",
+   "name": "data.go.th provincial COUNT series (CM + CR) — yardsticks, not lists",
+   "kind": "government",
+   "url": "https://data.go.th/organization/chiangmai-province",
+   "endpoint": "CKAN package_search fq=organization:chiangmai-province|chiangrai-province",
+   "method": "csv (CR files are cp874)",
+   "yields": [
+    "calibration"
+   ],
+   "cadence": "yearly",
+   "status": "harvested",
+   "verified_on": "2026-08-20",
+   "notes": "HARVESTED 2026-08-20 by importers/harvest_datagoth.py → data/curated/datagoth.json; folded by importers/import_opendata.py (WO-16). CORRECTIONS measured on fetch: tour operators CM 1,128 (2567, was quoted 872/2565); CR clinics 887 (2568, was 547/2563); hotels-certified CM 1,670 all amphoes (2567); stays CM 1,011 (2568); OTOP outlets 2,670 (2567). All on /stats.html with sources. ¶ CM 477 datasets, CR 318, all titles read; most 'place' titles are COUNT series. Yardsticks worth printing on /stats.html: _67_76 hotels certified-standard Mueang CM 706 hotel + 487 non-hotel (2567); dataset_10_344 tour operators CM 872 (2565); dataset50_77 CR clinics 547 (2563); _67_83 OTOP outlets Mueang CM 200 (2567); dataset_10_028 religious places by type+amphoe (incl. mosques/churches — the place_of_worship taxonomy decision); 69_158 CM accommodation by type (guesthouses 201, 2564). see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "gdcatalog-ua-rule",
+   "name": "gdcatalog.go.th WAF — any User-Agent containing 'bot' gets 403",
+   "kind": "government",
+   "url": "https://chiangmai.gdcatalog.go.th/",
+   "endpoint": null,
+   "method": "note",
+   "yields": [
+    "calibration"
+   ],
+   "cadence": "manual",
+   "status": "verified",
+   "verified_on": "2026-08-19",
+   "notes": "Measured on one CSV: 'MotDangBot/1.0 (+url; email)' → 403, 'MotDangBot/1.0' → 403, 'MotDang/1.0 (+https://motdang.net/about.html; 530kings@proton.me)' → 200, 'MotDang/1.0' → 200, Python default UA → 200. A word list, not a policy against automation. Use the no-'bot' announced UA on every gdcatalog fetch, and RE-TEST the earlier 403 verdicts recorded here (chiangmaipao, onenimman, chiangmainext, tourismthailand) with it before believing them. see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "wongnai",
+   "name": "Wongnai (LINE MAN Wongnai)",
+   "kind": "aggregator",
+   "url": "https://www.wongnai.com/",
+   "endpoint": null,
+   "method": "none",
+   "yields": [
+    "places",
+    "contacts"
+   ],
+   "cadence": "manual",
+   "status": "walled",
+   "verified_on": "2026-08-19",
+   "notes": "robots.txt is open (only /users/ closed; no sitemap at /sitemap.xml) but /terms §(3) forbids it in so many words: 'ไม่รวบรวมข้อมูลร้านค้า ที่อยู่ร้าน รีวิว ข้อมูลที่บริษัทหรือสมาชิกของเว็บไซต์ร่วมกันสร้างขึ้น … เพื่อวัตถุประสงค์ใด ๆ ก็ตาม เว้นแต่จะได้รับอนุญาตจากทางบริษัท'. Do not harvest. see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "gowabi",
+   "name": "GoWabi — spa/massage/beauty booking marketplace",
+   "kind": "platform",
+   "url": "https://www.gowabi.com/",
+   "endpoint": "https://www.gowabi.com/sitemap.xml.gz",
+   "method": "sitemap (3 gz files) → /en/provider/<slug>",
+   "yields": [
+    "places"
+   ],
+   "cadence": "manual",
+   "status": "unverified",
+   "verified_on": "2026-08-19",
+   "notes": "robots.txt open for *, Crawl-delay 1, names Amazonbot/Bytespider/PetalBot etc. sitemap1.xml.gz = 42,993 provider URLs, CM 137 / CR 6 by slug. /en/terms is CLIENT-RENDERED (only chrome text reaches a plain fetch) — terms unread; read in a browser before any page fetch. Defiant already knows GoWabi as an affiliate programme — the politest backlink here is the affiliate link; ask. PARKED. see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "fresha",
+   "name": "Fresha — salon/spa booking",
+   "kind": "platform",
+   "url": "https://www.fresha.com/",
+   "endpoint": "https://www.fresha.com/lp/en/sitemap-lite-venue-pages.xml",
+   "method": "sitemap index (24 files)",
+   "yields": [
+    "places"
+   ],
+   "cadence": "manual",
+   "status": "unverified",
+   "verified_on": "2026-08-19",
+   "notes": "robots.txt open for venue pages (disallows /search*, booking flows, gift cards); venue + professional-profile sitemaps published. CM venue count NOT measured. No terms page found at /terms-of-use, /terms, /legal/terms. PARKED pending a browser read of the terms. see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "happycow",
+   "name": "HappyCow — vegan/vegetarian directory",
+   "kind": "aggregator",
+   "url": "https://www.happycow.net/",
+   "endpoint": "https://www.happycow.net/sitemaps/sitemap-index.xml",
+   "method": "sitemap index (84 files)",
+   "yields": [
+    "places"
+   ],
+   "cadence": "manual",
+   "status": "unverified",
+   "verified_on": "2026-08-19",
+   "notes": "robots.txt open (only /api/ and /hcediting/ closed). /terms is CLIENT-RENDERED (1 char to a plain fetch) — terms unread; widely understood to forbid scraping, so treat as walled until read in a browser. Link to it from the vegan tag page regardless (WO-15). PARKED. see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "property-aggregators-cm",
+   "name": "Hipflat · DDproperty · FazWaz · Coworker",
+   "kind": "aggregator",
+   "url": "https://www.hipflat.co.th/",
+   "endpoint": null,
+   "method": "none",
+   "yields": [
+    "places"
+   ],
+   "cadence": "manual",
+   "status": "blocked",
+   "verified_on": "2026-08-19",
+   "notes": "Refused at the door to an announced UA: hipflat robots.txt 401; ddproperty robots.txt 403; fazwaz robots.txt open but every sitemap 403; coworker robots.txt 403. Not proposed. see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "longdo-map",
+   "name": "Longdo Map",
+   "kind": "platform",
+   "url": "https://map.longdo.com/",
+   "endpoint": null,
+   "method": "none",
+   "yields": [
+    "places"
+   ],
+   "cadence": "manual",
+   "status": "walled",
+   "verified_on": "2026-08-19",
+   "notes": "/terms: 'use any robot, spider, site search/retrieval application, or other device to retrieve or index any portion of Longdo services … for any unauthorized purpose' is forbidden. Do not harvest. see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "eventpop",
+   "name": "Eventpop — ticketing",
+   "kind": "platform",
+   "url": "https://www.eventpop.me/",
+   "endpoint": null,
+   "method": "none",
+   "yields": [
+    "events"
+   ],
+   "cadence": "manual",
+   "status": "blocked",
+   "verified_on": "2026-08-19",
+   "notes": "robots.txt disallows /events/ (and /organizers/, /tickets/, /search…) to every agent, Crawl-delay 0.7, and lists the AI crawlers by name. Not a source. see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "btcmap",
+   "name": "BTC Map — bitcoin-accepting merchants",
+   "kind": "platform",
+   "url": "https://btcmap.org/",
+   "endpoint": null,
+   "method": "link-only",
+   "yields": [
+    "places"
+   ],
+   "cadence": "manual",
+   "status": "verified",
+   "verified_on": "2026-08-19",
+   "notes": "robots.txt allows all; the site is an SPA (sitemap lists /offline only). Their data IS OpenStreetMap currency:XBT tags, which the Overpass crawl can ask for directly (province-wide currency:XBT=yes); we already hold 45 crypto attrs. Their value is the verification dates. Backlink from the bitcoin tag page (WO-15); no harvest. see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "thai-hotels-association",
+   "name": "Thai Hotels Association (thaihotels.org)",
+   "kind": "institution",
+   "url": "https://www.thaihotels.org/",
+   "endpoint": "https://www.thaihotels.org/sitemap.xml",
+   "method": "sitemap (160 pages)",
+   "yields": [
+    "places"
+   ],
+   "cadence": "manual",
+   "status": "thin",
+   "verified_on": "2026-08-19",
+   "notes": "Association site answers a plain fetch; member directory not located in the 160-URL sitemap sample; members are a subset of hotels anyway. Low value next to TTD + the provincial counts. see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "open-megasources",
+   "name": "Overture Maps Places (CDLA-Permissive 2.0) · Foursquare OS Places (Apache 2.0)",
+   "kind": "platform",
+   "url": "https://docs.overturemaps.org/",
+   "endpoint": "GeoParquet on S3 / Hugging Face",
+   "method": "parquet — NOT stdlib; GB-scale",
+   "yields": [
+    "places",
+    "contacts"
+   ],
+   "cadence": "monthly",
+   "status": "unverified",
+   "verified_on": "2026-08-19",
+   "notes": "Docs reachable (both robots open). Open licences with attribution; would lift every shelf at once (names, addresses, phones, sites, socials, categories, brand). Needs a non-stdlib reader and a multi-GB pull → its own decision with Nan, not this plan (feedback: confirm before network-heavy pulls). see notes/aggregators-and-tags-proposal-2026-08-19.md"
+  },
+  {
+   "id": "treasury-condo-valuation",
+   "name": "กรมธนารักษ์ — ราคาประเมินอาคารชุด (the condominium register)",
+   "kind": "official",
+   "url": "https://data.go.th/dataset/condominium-valuation",
+   "endpoint": "https://data.go.th/api/3/action/package_show?id=condominium-valuation",
+   "method": "ckan+csv",
+   "yields": [
+    "places",
+    "prices"
+   ],
+   "cadence": "yearly",
+   "status": "verified",
+   "verified_on": "2026-08-21",
+   "licence": "Open Data Common",
+   "importer": "importers/harvest_condo_register.py",
+   "notes": "The official list of every registered อาคารชุด with its ASSESSED value per m² (ราคาประเมิน — the basis for transfer fees, NOT a market price; normally well below one). 385 northern buildings kept of 122,112 national rows: cm 366, cr 19 — against 53 condominium records the catalogue holds, so the register is also a discovery list. TWO TRAPS, both measured: the CSV is cp874, and read as UTF-8 a search for เชียงใหม่ returns ZERO rows rather than failing; and the file is ordered by province code with the north at the END, so any size-capped read (harvest_datagoth caps at 6 MB) silently comes back with no northern rows at all. A building carries one row per use category and floor band — its figure is a SPREAD, never one welded number."
+  },
+  {
+   "id": "treasury-land-valuation",
+   "name": "กรมธนารักษ์ — ราคาประเมินที่ดิน (assessed land prices)",
+   "kind": "official",
+   "url": "https://data.go.th/dataset/land-valuation",
+   "endpoint": "https://data.go.th/api/3/action/package_show?id=land-valuation",
+   "method": "ckan+csv",
+   "yields": [
+    "prices"
+   ],
+   "cadence": "yearly",
+   "status": "unusable",
+   "verified_on": "2026-08-21",
+   "licence": "Open Data Common",
+   "notes": "Real, current (edition 2026-06-25) and per-province — land_50_chiang-mai.csv is 41 MB / 1,060,644 parcels. UNUSABLE HERE and recorded so nobody re-finds it hopefully: the only keys are UTMMAP1-4 + LAND_NO, the cadastral map-sheet and parcel number. There is no address, no district name and no coordinate, so it cannot be joined to a place record without the cadastral parcel geometry, which is not in this catalogue and is not open. Its sibling condominium-valuation IS joinable — that one carries names and amphoes — and is harvested."
+  }
+ ]
+}

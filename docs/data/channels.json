@@ -1,0 +1,65 @@
+{
+ "site": "https://motdang.net/",
+ "ours": [
+  {
+   "kind": "web",
+   "th": "เว็บนี้เอง",
+   "en": "this site",
+   "value": "motdang.net",
+   "href": "https://motdang.net/",
+   "owned": true
+  },
+  {
+   "kind": "email",
+   "th": "อีเมล",
+   "en": "email",
+   "value": "530kings@proton.me",
+   "href": "mailto:530kings@proton.me",
+   "owned": false
+  },
+  {
+   "kind": "line",
+   "th": "ไลน์ทางการ",
+   "en": "LINE Official Account",
+   "value": "@964yxgnk",
+   "href": "https://lin.ee/zasnN2u",
+   "owned": false
+  },
+  {
+   "kind": "code",
+   "th": "โค้ดและข้อมูลดิบ",
+   "en": "code and raw data",
+   "value": "motdang.net/source/",
+   "href": "https://motdang.net/source/",
+   "owned": true
+  },
+  {
+   "kind": "kofi",
+   "th": "เลี้ยงกาแฟ",
+   "en": "tip jar",
+   "value": "ko-fi.com/defiantchiangmai",
+   "href": "https://ko-fi.com/defiantchiangmai",
+   "owned": false
+  }
+ ],
+ "notOurs": [
+  {
+   "platform": "Facebook",
+   "note": "no account, on purpose"
+  },
+  {
+   "platform": "Instagram",
+   "note": "no account, on purpose"
+  },
+  {
+   "platform": "TikTok",
+   "note": "no account, on purpose"
+  },
+  {
+   "platform": "X (Twitter)",
+   "note": "no account, on purpose"
+  }
+ ],
+ "neverAsksForMoneyToBeListed": true,
+ "generated": "2026-08-31"
+}

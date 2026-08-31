@@ -96,6 +96,12 @@ const FIELDS = [
 const FACET_KEYS = new Set([
   'atm', 'bakery', 'coffee', 'seating', 'hotfood', 'toilet', 'parking',
   'open24', 'wifi', 'aircon', 'wheelchair', 'evcharge', 'twostorey',
+  // WO-38, the convenience set's evidence keys: cards taken, on/beside a
+  // petrol forecourt, and the Slurpee machine (two witnesses and counting).
+  'card', 'atstation', 'slurpee',
+  // WO-40, the professional set's one new key: a Lawyers Council notarial
+  // services attorney on staff. english/booking/card already exist above.
+  'notary',
   'toilethere', 'toiletfree', 'toiletfee5', 'toiletfee10', 'toiletnone',
   'clothed', 'undress', 'scrubglove', 'mat', 'table', 'chair', 'sharedroom',
   'privateroom',

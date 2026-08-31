@@ -29,6 +29,8 @@ import urllib.request
 from datetime import date, timedelta
 from pathlib import Path
 
+import ingest      # shared write discipline (WO-41 Phase 2)
+
 ROOT = Path(__file__).resolve().parent.parent
 KEYS_PATH = Path.home() / ".config" / "nanobotco" / "keys.json"
 UA = "mot-dang-directory/1.0 (+https://github.com/NaNoBotCo/mot-dang; daily finance snapshot)"
@@ -150,9 +152,31 @@ def main():
             print("crypto: " + ", ".join(f"{c['sym']} ฿{c['thb']:,.0f}" for c in crypto["coins"]))
     except Exception as e:
         print(f"crypto: FAILED — {e}")
+    # WO-41 Phase 2 — PER SECTION, because this file is three feeds in a
+    # trenchcoat and they fail one at a time. On 2026-08-16 all three failed
+    # at once and the file was written as {"generated": today} and nothing
+    # else: a page that said "updated today" over an empty box. Now a section
+    # that came home empty keeps yesterday's numbers and says how old they are
+    # (`stale_sections`), which the freshness chips can read; only a run where
+    # EVERY section failed is refused outright.
+    OUT = ROOT / "data" / "finance.json"
+    prev = {}
+    try:
+        prev = json.loads(OUT.read_text())
+    except (OSError, ValueError):
+        pass
+    fresh = [k for k in ("fx", "gold", "crypto") if out.get(k)]
+    kept = []
+    for k in ("fx", "gold", "crypto"):
+        if not out.get(k) and prev.get(k):
+            out[k] = prev[k]
+            kept.append(k)
+    if kept:
+        print(f"kept from the previous file: {', '.join(kept)}")
     out["generated"] = date.today().isoformat()
-    (ROOT / "data" / "finance.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
-    print("wrote data/finance.json")
+    out["stale_sections"] = kept
+    ingest.write(OUT, out, count=len(fresh), min_rows=1,
+                 sources_ok=fresh, sources_failed=kept, label="finance.json")
 
 
 if __name__ == "__main__":

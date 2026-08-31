@@ -52,8 +52,14 @@
       "quote_en": "The importation of narcotic drugs of category 1, 4, or 5 is prohibited.",
       "quote_src": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index",
       "sources": [
-        {"ref": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index", "fetched": "2026-08-21"},
-        {"ref": "https://narcotic.fda.moph.go.th/information-about-drugs/detail-ps", "fetched": "2026-08-21"}
+        {
+          "ref": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index",
+          "fetched": "2026-08-21"
+        },
+        {
+          "ref": "https://narcotic.fda.moph.go.th/information-about-drugs/detail-ps",
+          "fetched": "2026-08-21"
+        }
       ]
     },
     {
@@ -73,10 +79,22 @@
       "nlem_en": "On the National List of Essential Medicines under บัญชี ค, as a tablet in the 10 mg strength only, with ADHD and narcolepsy named as its conditions of use.",
       "nlem_src": "https://ndi.fda.moph.go.th/drug_national_detail/index/13775",
       "sources": [
-        {"ref": "https://narcotic.fda.moph.go.th/information-about-drugs/detail-ps", "fetched": "2026-08-21"},
-        {"ref": "https://narcotic.fda.moph.go.th/detail-psycho-new1/category/detail-psychrotrophic1", "fetched": "2026-08-21"},
-        {"ref": "https://ndi.fda.moph.go.th/drug_national_detail/index/13775", "fetched": "2026-08-21"},
-        {"ref": "https://en.fda.moph.go.th/entrepreneurs-narcotic-drugs-and-psychotropic-substances/category/guidance-for-travelers-under-treatment-carrying-personal-medications-containing-narcotic-drugs-into-/", "fetched": "2026-08-21"}
+        {
+          "ref": "https://narcotic.fda.moph.go.th/information-about-drugs/detail-ps",
+          "fetched": "2026-08-21"
+        },
+        {
+          "ref": "https://narcotic.fda.moph.go.th/detail-psycho-new1/category/detail-psychrotrophic1",
+          "fetched": "2026-08-21"
+        },
+        {
+          "ref": "https://ndi.fda.moph.go.th/drug_national_detail/index/13775",
+          "fetched": "2026-08-21"
+        },
+        {
+          "ref": "https://en.fda.moph.go.th/entrepreneurs-narcotic-drugs-and-psychotropic-substances/category/guidance-for-travelers-under-treatment-carrying-personal-medications-containing-narcotic-drugs-into-/",
+          "fetched": "2026-08-21"
+        }
       ]
     },
     {
@@ -90,7 +108,41 @@
       "carry_th": "ไม่ต้องขออนุญาต หากไม่เกิน 30 วันและมีใบสั่งแพทย์",
       "carry_en": "No permit needed for a personal supply of up to 30 days with a prescription — the tool files it under Medical Preparation (non-controlled).",
       "sources": [
-        {"ref": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index", "fetched": "2026-08-21"}
+        {
+          "ref": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index",
+          "fetched": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "key": "modafinil",
+      "generic_en": "modafinil · armodafinil",
+      "generic_th": "โมดาฟินิล · อาร์โมดาฟินิล",
+      "known_as": "Provigil · Nuvigil",
+      "class_th": "ไม่ปรากฏชื่อในตารางยาเสพติดให้โทษ และไม่ปรากฏในตารางวัตถุออกฤทธิ์",
+      "class_en": "on neither controlled table — not a narcotic drug, not a psychotropic substance",
+      "carry": "unstated",
+      "carry_th": "อาร์โมดาฟินิลไม่มีชื่ออยู่ในฐานข้อมูลตัวยา 2,569 ชื่อของเครื่องมือ อย. เลย ส่วนโมดาฟินิลมี · และเครื่องมือจะไม่ตัดสินให้จนกว่าผู้เดินทางจะกรอกชื่อ-สกุล อีเมล วันเดินทางเข้า-ออก ประเทศ และติ๊กยอมรับเงื่อนไขด้วยตัวเอง ซึ่งเป็นเรื่องของผู้เดินทาง ไม่ใช่ของเว็บนี้",
+      "carry_en": "The checker's own list of 2,569 generic names contains modafinil and does not contain armodafinil at all, so armodafinil — the enantiomer — has no entry of its own to be ruled on and has to be asked about under modafinil or at a desk. The checker also issues no verdict on anything until a traveller enters their own family name, given names, arrival and departure dates, e-mail and country and accepts the terms. That is the traveller's to do; this site does not fill those in for anyone.",
+      "quote_th": "ตารางแสดงการแบ่งประเภทวัตถุออกฤทธิ์ (ปรับปรุง 25.07.2025) ทั้งสี่ประเภทไม่มีชื่อโมดาฟินิล และตารางยาเสพติดให้โทษ (ปรับปรุง 15.09.2025) ก็ไม่มีเช่นกัน",
+      "quote_en": "Read whole on 2026-08-22: the psychotropic table lists thirteen substances beginning with M across its four categories — methylphenidate among them, in the category-2 column — and modafinil is not one of them. The narcotics table does not name it either.",
+      "quote_src": "https://narcotic.fda.moph.go.th/media.php?id=790834351574228992&name=PHYCHO%20list%20(update%2025.07.2025).pdf",
+      "nlem_th": "ยังไม่ได้ตรวจบัญชียาหลักแห่งชาติ — ระบบค้นหาปฏิเสธคำขอเมื่อ 22 ส.ค. 2569",
+      "nlem_en": "Not established: the National List's own search refused the query on 2026-08-22 ('The action you have requested is not allowed'), so nothing about บัญชียาหลัก is recorded here — the block is printed rather than filled with a guess.",
+      "nlem_src": "https://ndi.fda.moph.go.th/drug_national",
+      "sources": [
+        {
+          "ref": "https://narcotic.fda.moph.go.th/media.php?id=790834351574228992&name=PHYCHO%20list%20(update%2025.07.2025).pdf",
+          "fetched": "2026-08-22"
+        },
+        {
+          "ref": "https://narcotic.fda.moph.go.th/media.php?id=808160206197497856&name=NARCO%20list%20(update%2015.09.2025)%20NEW.pdf",
+          "fetched": "2026-08-22"
+        },
+        {
+          "ref": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index",
+          "fetched": "2026-08-22"
+        }
       ]
     }
   ],
@@ -108,8 +160,14 @@
     "customs_th": "แสดงยาและเอกสารที่ช่องตรวจศุลกากรสีแดง",
     "customs_en": "Declare the medicine and its papers at the red channel in customs on arrival.",
     "sources": [
-      {"ref": "https://en.fda.moph.go.th/entrepreneurs-narcotic-drugs-and-psychotropic-substances/category/guidance-for-travelers-under-treatment-carrying-personal-medications-containing-narcotic-drugs-into-/", "fetched": "2026-08-21"},
-      {"ref": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index", "fetched": "2026-08-21"}
+      {
+        "ref": "https://en.fda.moph.go.th/entrepreneurs-narcotic-drugs-and-psychotropic-substances/category/guidance-for-travelers-under-treatment-carrying-personal-medications-containing-narcotic-drugs-into-/",
+        "fetched": "2026-08-21"
+      },
+      {
+        "ref": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index",
+        "fetched": "2026-08-21"
+      }
     ]
   },
   "rows": [
@@ -126,9 +184,18 @@
       "reach_th": "196 หมู่ 10 ต.ดอนแก้ว อ.แม่ริม จ.เชียงใหม่ 50180 · โทร 053-908-300 – 49",
       "reach_en": "196 Moo 10, Don Kaeo, Mae Rim, Chiang Mai 50180 · tel 053-908-300 – 49",
       "sources": [
-        {"ref": "https://thaichilddevelopment.com/contact.php", "fetched": "2026-08-21"},
-        {"ref": "https://www.thaichilddevelopment.com/", "fetched": "2026-08-21"},
-        {"ref": "https://www.ricd.go.th/", "fetched": "2026-08-21"}
+        {
+          "ref": "https://thaichilddevelopment.com/contact.php",
+          "fetched": "2026-08-21"
+        },
+        {
+          "ref": "https://www.thaichilddevelopment.com/",
+          "fetched": "2026-08-21"
+        },
+        {
+          "ref": "https://www.ricd.go.th/",
+          "fetched": "2026-08-21"
+        }
       ]
     },
     {
@@ -143,8 +210,14 @@
       "reach_th": "131 ถ.ช่างหล่อ ต.หายยา อ.เมือง จ.เชียงใหม่ 50100 · โทร +66 53 90 8500",
       "reach_en": "131 Chang Lo Rd, Haiya, Mueang, Chiang Mai 50100 · tel +66 53 90 8500",
       "sources": [
-        {"ref": "https://www.suanprung.go.th/SP2025/service.php", "fetched": "2026-08-21"},
-        {"ref": "https://www.suanprung.go.th/SP2025/contact_us.php", "fetched": "2026-08-21"}
+        {
+          "ref": "https://www.suanprung.go.th/SP2025/service.php",
+          "fetched": "2026-08-21"
+        },
+        {
+          "ref": "https://www.suanprung.go.th/SP2025/contact_us.php",
+          "fetched": "2026-08-21"
+        }
       ]
     },
     {
@@ -157,7 +230,10 @@
       "states_th": "ป้ายของคลินิกเองบอกว่าเป็นคลินิกจิตเวช — ยังไม่มีใครยืนยันเรื่องสมาธิสั้นที่นี่",
       "states_en": "The clinic's own sign says psychiatric clinic. Nothing about ADHD is confirmed here — this row exists because a private psychiatric door in this city is worth knowing about, and because clinics here are named after their doctors, which is why the directory could not find them by trade.",
       "sources": [
-        {"ref": "https://www.openstreetmap.org/node/3385521309", "fetched": "2026-08-21"}
+        {
+          "ref": "https://www.openstreetmap.org/node/3385521309",
+          "fetched": "2026-08-21"
+        }
       ]
     },
     {
@@ -170,7 +246,10 @@
       "states_th": "ป้ายของคลินิกเองบอกว่าเป็นคลินิกจิตเวช — ยังไม่มีใครยืนยันเรื่องสมาธิสั้นที่นี่",
       "states_en": "The clinic's own sign says psychiatric clinic. Nothing about ADHD is confirmed here.",
       "sources": [
-        {"ref": "https://www.openstreetmap.org/node/3388717543", "fetched": "2026-08-21"}
+        {
+          "ref": "https://www.openstreetmap.org/node/3388717543",
+          "fetched": "2026-08-21"
+        }
       ]
     },
     {
@@ -185,7 +264,10 @@
       "reach_th": "โทร 053936150",
       "reach_en": "tel 053936150",
       "sources": [
-        {"ref": "http://suandok.med.cmu.ac.th/", "fetched": "2026-08-21"}
+        {
+          "ref": "http://suandok.med.cmu.ac.th/",
+          "fetched": "2026-08-21"
+        }
       ]
     },
     {
@@ -210,7 +292,10 @@
       "states_en": "Chiang Rai's main hospital. Its paediatric special-clinic page refused this machine with an HTTP 403 on 2026-08-21, so nothing about its services is recorded here — the attempt is printed instead of a guess. Ring and ask.",
       "unread_url": "https://ped.crhospital.org/?group=opd_special&page=service",
       "sources": [
-        {"ref": "https://www.crhospital.org/", "fetched": "2026-08-21"}
+        {
+          "ref": "https://www.crhospital.org/",
+          "fetched": "2026-08-21"
+        }
       ]
     }
   ],
@@ -219,6 +304,7 @@
     "dmh.go.th/service/pdf/6pat.pdf and /8sp.pdf — the Department of Mental Health's own per-institution service schedules for RICD and Suan Prung. Blocked at fetch time; worth reading by browser and folding into rows[].",
     "cm-moph-0114210800027 'กรมสุขภาพจิต โรงพยาบาลสวนปรุง' is the same hospital as cm-osm-way-1212478397 under its MOPH record — a merge pair for data/curated/merges.json, same shape as the 27 pairs WO-25 adjudicated.",
     "Chiangrai Prachanukroh paediatrics: a secondary summary describes an ASD/ADHD/LD service for under-6s with referral to a child psychiatrist over 6. NOT recorded as fact — the hospital's own page was unreadable.",
-    "Private hospital psychiatry desks (Bangkok CM, Chiang Mai Ram, Rajavej, Lanna) — none read for this topic yet; WO-25 found several render client-side."
+    "Private hospital psychiatry desks (Bangkok CM, Chiang Mai Ram, Rajavej, Lanna) — none read for this topic yet; WO-25 found several render client-side.",
+    "Whether any armodafinil or modafinil PRODUCT is registered for sale in Thailand — a different question from the legal class, and the one a pharmacy actually answers. pertento.fda.moph.go.th (the ยาทะเบียนตำรับ registry) timed out on 2026-08-22 and porta.fda.moph.go.th redirected; neither was read. Until one is, the site states the class and says nothing about stock."
   ]
 }

@@ -269,8 +269,6 @@ node tests/test_plan_routes.js     || { say "route tests FAILED — nothing publ
 if grep -rl "/Users/" docs/ | head -1 | grep -q .; then
   say "path leak in docs/ — nothing published"; note "failed" "path leak in docs/"; exit 1
 fi
-[[ -f docs/CNAME ]] || { say "docs/CNAME missing — nothing published"; note "failed" "no CNAME"; exit 1 }
-
 # deploy.py has its own floor, but failing here costs a second instead of a
 # full bucket listing, and says the number out loud in the log.
 COUNT=$(python3 -c "

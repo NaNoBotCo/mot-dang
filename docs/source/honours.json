@@ -1,0 +1,481 @@
+{
+ "_comment": "Field truth: marks of standing that Thai people already recognise, which no global platform carries. Two kinds. (1) royal — พระอารามหลวง, the ecclesiastical grade a temple holds, class (ชั้นเอก/โท/ตรี) and kind (ราชวรมหาวิหาร…สามัญ). This is a real hierarchy, not a ranking we invented. (2) food — เครื่องหมายรับรอง that diners here actually trust. Every entry carries the year of the edition it was read from and the URL it was read on, because these lists change yearly and a dated mark is true forever while an undated one rots. Nothing goes in the verified lists without a fetched source. Never let an importer or crawl write this file.",
+ "_generated_by": "hand, 2026-07-29",
+ "royal": [
+  {
+   "ids": [
+    "cm-osm-way-93414647"
+   ],
+   "th": "วัดพระสิงห์วรมหาวิหาร",
+   "en": "Wat Phra Singh",
+   "province": "cm",
+   "district": "อำเภอเมืองเชียงใหม่",
+   "class": "eak",
+   "kind": "wora-maha-wihan",
+   "verbatim": "พระอารามหลวง ชั้นเอก ชนิดวรมหาวิหาร",
+   "sources": [
+    "https://www.dhammathai.org/watthai/dbview.php?No=16",
+    "https://chiangmaipress.com/2021/05/14/พระอารามหลวง-เชียงใหม่/"
+   ]
+  },
+  {
+   "ids": [
+    "cm-osm-node-4228028194",
+    "cm-osm-way-114651040"
+   ],
+   "th": "วัดพระธาตุดอยสุเทพราชวรวิหาร",
+   "en": "Wat Phra That Doi Suthep",
+   "province": "cm",
+   "district": "อำเภอเมืองเชียงใหม่",
+   "class": "tho",
+   "kind": "ratcha-wora-wihan",
+   "verbatim": "พระอารามหลวง ชั้นโท ชนิดราชวรวิหาร",
+   "note": "Sources agree on ชั้นโท. On kind, dhammathai's list row and chiangmaipress say ราชวรวิหาร (and the temple's own full name ends -ราชวรวิหาร); one dhammathai article page says ราชวรมหาวิหาร. Recorded as ราชวรวิหาร; worth a Royal Gazette check.",
+   "sources": [
+    "https://www.dhammathai.org/watthai/index.php?page=3&OrderBy=2&ListBox=2",
+    "https://chiangmaipress.com/2021/05/14/พระอารามหลวง-เชียงใหม่/"
+   ]
+  },
+  {
+   "ids": [
+    "cm-osm-way-243018795"
+   ],
+   "th": "วัดเจดีย์หลวงวรวิหาร",
+   "en": "Wat Chedi Luang",
+   "province": "cm",
+   "district": "อำเภอเมืองเชียงใหม่",
+   "class": "tri",
+   "kind": "wora-wihan",
+   "verbatim": "พระอารามหลวง ชั้นตรี ชนิดวรวิหาร",
+   "sources": [
+    "https://www.dhammathai.org/watthai/dbview.php?No=107",
+    "https://www.dhammathai.org/watthai/index.php?page=6&OrderBy=2&ListBox=2"
+   ]
+  },
+  {
+   "ids": [
+    "cm-osm-way-314697470"
+   ],
+   "th": "วัดโพธารามมหาวิหาร (วัดเจ็ดยอด)",
+   "en": "Wat Chet Yot (Wat Photharam Maha Wihan)",
+   "province": "cm",
+   "district": "อำเภอเมืองเชียงใหม่",
+   "class": "tri",
+   "kind": "saman",
+   "verbatim": "พระอารามหลวง ชั้นตรี ชนิดสามัญ",
+   "sources": [
+    "https://chiangmaipress.com/2021/05/14/พระอารามหลวง-เชียงใหม่/",
+    "https://travelthaiculture.com/๒๙-พระอารามหลวงในภาคเหน/"
+   ]
+  },
+  {
+   "ids": [
+    "cm-osm-way-322604682"
+   ],
+   "th": "วัดสวนดอก",
+   "en": "Wat Suan Dok",
+   "province": "cm",
+   "district": "อำเภอเมืองเชียงใหม่",
+   "class": "tri",
+   "kind": "saman",
+   "verbatim": "พระอารามหลวง ชั้นตรี ชนิดสามัญ",
+   "sources": [
+    "https://www.dhammathai.org/watthai/dbview.php?No=171",
+    "https://www.dhammathai.org/watthai/index.php?page=9&OrderBy=2&ListBox=2"
+   ]
+  },
+  {
+   "ids": [
+    "cm-osm-way-205009315"
+   ],
+   "th": "วัดศรีโสดา",
+   "en": "Wat Si Soda",
+   "province": "cm",
+   "district": "อำเภอเมืองเชียงใหม่",
+   "class": "tri",
+   "kind": "saman",
+   "verbatim": "พระอารามหลวงชั้นตรี ชนิดสามัญ",
+   "sources": [
+    "https://creator.kapook.com/view275197.html",
+    "https://chiangmaipress.com/2021/05/14/พระอารามหลวง-เชียงใหม่/"
+   ]
+  },
+  {
+   "ids": [
+    "cr-osm-way-487642776"
+   ],
+   "th": "วัดพระแก้ว",
+   "en": "Wat Phra Kaew, Chiang Rai",
+   "province": "cr",
+   "district": "อำเภอเมืองเชียงราย",
+   "class": "tri",
+   "kind": "saman",
+   "verbatim": "พระอารามหลวง ชั้นตรี ชนิดสามัญ",
+   "sources": [
+    "https://cri.onab.go.th/th/content/category/detail/id/110/iid/32325",
+    "https://www.dhammathai.org/watthai/dbview.php?No=156"
+   ]
+  },
+  {
+   "ids": [
+    "cr-osm-way-712045323"
+   ],
+   "th": "วัดพระสิงห์",
+   "en": "Wat Phra Sing, Chiang Rai",
+   "province": "cr",
+   "district": "อำเภอเมืองเชียงราย",
+   "class": "tri",
+   "kind": "saman",
+   "verbatim": "พระอารามหลวง ชั้นตรี ชนิดสามัญ",
+   "sources": [
+    "https://www.dhammathai.org/watthai/dbview.php?No=187",
+    "https://www.dhammathai.org/watthai/index.php?page=9&OrderBy=2&ListBox=2"
+   ]
+  },
+  {
+   "ids": [
+    "cr-osm-way-330739409"
+   ],
+   "th": "วัดเจ็ดยอด",
+   "en": "Wat Chet Yot, Chiang Rai",
+   "province": "cr",
+   "district": "อำเภอเมืองเชียงราย",
+   "class": "tri",
+   "kind": "saman",
+   "verbatim": "พระอารามหลวง ชั้นตรี ชนิดสามัญ",
+   "sources": [
+    "https://www.dhammathai.org/watthai/dbview.php?No=250",
+    "https://www.dhammathai.org/watthai/index.php?page=12&OrderBy=2&ListBox=2"
+   ]
+  }
+ ],
+ "_royal_not_in_catalogue_comment": "Grade verified, but the temple itself is not in the catalogue yet — all four sit outside the crawled area. This is a crawl target list, not a data gap in the grades.",
+ "royal_missing": [
+  {
+   "th": "วัดพระธาตุศรีจอมทองวรวิหาร",
+   "en": "Wat Phra That Si Chom Thong",
+   "province": "cm",
+   "district": "อำเภอจอมทอง",
+   "class": "tri",
+   "kind": "wora-wihan",
+   "verbatim": "พระอารามหลวง ชั้นตรี ชนิดวรวิหาร",
+   "near": "18.4176,98.6733",
+   "sources": [
+    "https://www.dhammathai.org/watthai/dbview.php?No=89"
+   ]
+  },
+  {
+   "th": "วัดท่าตอน",
+   "en": "Wat Tha Ton",
+   "province": "cm",
+   "district": "อำเภอแม่อาย",
+   "class": "tri",
+   "kind": "saman",
+   "verbatim": "พระอารามหลวง ชั้นตรี ชนิดสามัญ",
+   "sources": [
+    "https://www.dhammathai.org/watthai/dbview.php?No=188"
+   ]
+  },
+  {
+   "th": "วัดพระธาตุดอยสะเก็ด",
+   "en": "Wat Phra That Doi Saket",
+   "province": "cm",
+   "district": "อำเภอดอยสะเก็ด",
+   "class": "tri",
+   "kind": "saman",
+   "verbatim": "พระอารามหลวงชั้นตรี ชนิดสามัญ",
+   "sources": [
+    "https://pukmudmuangthai.com/detail/31884"
+   ]
+  },
+  {
+   "th": "วัดป่าดาราภิรมย์",
+   "en": "Wat Pa Dara Phirom",
+   "province": "cm",
+   "district": "อำเภอแม่ริม",
+   "class": "tri",
+   "kind": "saman",
+   "verbatim": "พระอารามหลวง ชั้นตรี ชนิดสามัญ",
+   "sources": [
+    "https://www.dhammathai.org/watthai/dbview.php?No=157"
+   ]
+  }
+ ],
+ "_food_comment": "Chiang Rai province is not covered by the MICHELIN Guide Thailand at all, so an empty Chiang Rai list is the answer rather than a gap. Chiang Mai had no starred restaurants in the 2026 edition. The michelin.com listing pages render client-side and could not be read; the only michelin.com page that gave distinctions is an article dated 20 July 2022, so those entries carry edition 2022 and the badge says so. Entries read from the current listing without a visible distinction are recorded as michelin-guide — in the guide, distinction unread.",
+ "food": [
+  {
+   "id": "cm-osm-node-907695425",
+   "name": "Huan Soontaree",
+   "award": "michelin-bib",
+   "edition": 2022,
+   "source": "https://guide.michelin.com/th/en/article/dining-out/11-must-try-places-in-chiang-mai-for-northern-thai-food"
+  },
+  {
+   "id": "cm-osm-node-3287049585",
+   "name": "Huen Muan Jai",
+   "award": "michelin-bib",
+   "edition": 2022,
+   "source": "https://guide.michelin.com/th/en/article/dining-out/11-must-try-places-in-chiang-mai-for-northern-thai-food"
+  },
+  {
+   "id": "cm-osm-node-5928092288",
+   "name": "Ginger Farm Kitchen",
+   "award": "michelin-bib",
+   "edition": 2022,
+   "note": "Nimmanhaemin branch — the address Michelin gives. The Hang Dong farm is a separate record.",
+   "source": "https://guide.michelin.com/th/en/article/dining-out/11-must-try-places-in-chiang-mai-for-northern-thai-food"
+  },
+  {
+   "id": "cm-osm-node-11189903137",
+   "name": "Krua Lawng Khao",
+   "award": "michelin-bib",
+   "edition": 2022,
+   "source": "https://guide.michelin.com/th/en/article/dining-out/11-must-try-places-in-chiang-mai-for-northern-thai-food"
+  },
+  {
+   "id": "cm-osm-node-4679601294",
+   "name": "Krua Phech Doi Ngam",
+   "award": "michelin-selected",
+   "edition": 2022,
+   "source": "https://guide.michelin.com/th/en/article/dining-out/11-must-try-places-in-chiang-mai-for-northern-thai-food"
+  },
+  {
+   "id": "cm-osm-node-11031642806",
+   "name": "Kiti Panit",
+   "award": "michelin-selected",
+   "edition": 2022,
+   "source": "https://guide.michelin.com/th/en/article/dining-out/11-must-try-places-in-chiang-mai-for-northern-thai-food"
+  },
+  {
+   "id": "cm-osm-node-6587487081",
+   "name": "Lumdee Te Khuadang",
+   "award": "michelin-selected",
+   "edition": 2022,
+   "source": "https://guide.michelin.com/th/en/article/dining-out/11-must-try-places-in-chiang-mai-for-northern-thai-food"
+  },
+  {
+   "id": "cm-osm-way-1437028948",
+   "name": "Kinlum Kindee",
+   "award": "michelin-selected",
+   "edition": 2022,
+   "source": "https://guide.michelin.com/th/en/article/dining-out/11-must-try-places-in-chiang-mai-for-northern-thai-food"
+  },
+  {
+   "id": "cm-osm-node-12441159301",
+   "name": "Aunt Aoy Kitchen",
+   "award": "michelin-guide",
+   "edition": 2026,
+   "source": "https://guide.michelin.com/en/th/chiang-mai-region/restaurants"
+  },
+  {
+   "id": "cm-osm-node-5603619931",
+   "name": "Dan Chicken Rice (San Sai)",
+   "award": "michelin-guide",
+   "edition": 2026,
+   "source": "https://guide.michelin.com/en/th/chiang-mai-region/restaurants"
+  },
+  {
+   "id": "cm-osm-node-8288873136",
+   "name": "Oxygen Dining Room",
+   "award": "michelin-guide",
+   "edition": 2026,
+   "source": "https://guide.michelin.com/en/th/chiang-mai-region/restaurants"
+  },
+  {
+   "id": "cm-osm-node-13444747901",
+   "name": "Aeeen Japanese Vegan (Neo Shokudo)",
+   "award": "michelin-guide",
+   "edition": 2026,
+   "source": "https://guide.michelin.com/en/th/chiang-mai-region/restaurants"
+  },
+  {
+   "id": "cm-osm-node-2716931046",
+   "name": "Gai Yang Cherng Doi",
+   "award": "michelin-guide",
+   "edition": 2026,
+   "source": "https://guide.michelin.com/en/th/chiang-mai-region/restaurants"
+  },
+  {
+   "id": "cm-osm-node-2362979747",
+   "name": "Cuisine de Garden",
+   "award": "michelin-guide",
+   "edition": 2026,
+   "source": "https://guide.michelin.com/en/th/chiang-mai-region/restaurants"
+  },
+  {
+   "id": "cm-osm-node-4681879190",
+   "name": "คุ้มเวียงยอง",
+   "award": "thai-select",
+   "edition": 2563,
+   "source": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "id": "cm-osm-node-1505942280",
+   "name": "เฮือนใจ๋ยอง",
+   "award": "thai-select",
+   "edition": 2563,
+   "source": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "id": "cm-osm-node-1826308733",
+   "name": "แกงร้อนบ้านสวน",
+   "award": "thai-select",
+   "edition": 2563,
+   "source": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "id": "cm-osm-node-3287049585",
+   "name": "เฮือนม่วนใจ๋",
+   "award": "thai-select",
+   "edition": 2563,
+   "source": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "id": "cm-osm-node-4555359052",
+   "name": "ครัวย่า",
+   "award": "thai-select",
+   "edition": 2563,
+   "source": "https://data.go.th/dataset/_67_69"
+  }
+ ],
+ "_unverified_comment": "Leads only. NOT rendered on the site. เชลล์ชวนชิม has no readable public database: shellshuanshim.com serves an expired TLS certificate so the fetcher refuses it, and its search subdomain carries no province field. The URLs below appeared as search-result titles implying Chiang Mai holders; none was opened, so none is a fact yet. One browser session on shellshuanshim.com would settle the lot. Also unresolved: the 2026 Bib Gourmand roster for Chiang Mai is 18 names and only a handful are identified here — the full list needs the client-rendered michelin.com filter pages, which need a real browser.",
+ "unverified": [
+  {
+   "award": "shell",
+   "name": "เฮือนใจ๋ยอง",
+   "likely_id": "cm-osm-node-1505942280",
+   "lead": "https://shellshuanshim.com/restaurant/detail/HeunJaiYong"
+  },
+  {
+   "award": "shell",
+   "name": "ร้านอาหารญี่ปุ่นโกโร่ เชียงใหม่",
+   "lead": "https://shellshuanshim.com/restaurant/detail/GORO-japanese"
+  },
+  {
+   "award": "shell",
+   "name": "ข้าวซอยเชียงใหม่",
+   "lead": "https://shellshuanshim.com/restaurant/detail/KhaoSoiChaingMai"
+  },
+  {
+   "award": "shell",
+   "name": "แซนด์วิช บาร์ เชียงใหม่",
+   "lead": "https://shellshuanshim.com/restaurant/detail/saen-wit-bar"
+  },
+  {
+   "award": "shell",
+   "name": "สายน้ำผึ้ง ศรีดอนไชย",
+   "lead": "https://shellshuanshim.com/restaurant/detail/sainampuen-sridonchai"
+  },
+  {
+   "award": "shell",
+   "name": "เจี่ยท้งเฮง ฟ้าฮ่าม",
+   "likely_id": "cm-osm-node-2517098012",
+   "note": "two เจี่ยท้งเฮง records in the catalogue; the lead is the ฟ้าฮ่าม branch and it is not established which record that is",
+   "lead": "https://shellshuanshim.com/restaurant/detail/jiatongheng-faham"
+  },
+  {
+   "award": "shell",
+   "name": "เทนโกกุ ซอยวัดบวกครกหลวง",
+   "lead": "https://shellshuanshim.com/restaurant/detail/tengoku-de-cuisine"
+  },
+  {
+   "award": "michelin-bib",
+   "name": "CHAWEE",
+   "edition": 2026,
+   "note": "2026 Bib per secondary source. 'Chuen Chawee' in the catalogue is a different name and was not matched.",
+   "lead": "https://www.khaosodenglish.com/life/2025/11/20/michelin-unveils-thailands-2026-bib-gourmand-list-with-13-newcomers/"
+  },
+  {
+   "award": "michelin-bib",
+   "name": "Gongkham",
+   "edition": 2026,
+   "note": "image caption only in the 2026 Bib announcement coverage; not in the body text",
+   "lead": "https://www.khaosodenglish.com/life/2025/11/20/michelin-unveils-thailands-2026-bib-gourmand-list-with-13-newcomers/"
+  },
+  {
+   "award": "thai-select",
+   "name": "ครัวนฤตยะ",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "ครัวอาจารย์สายหยุดและหมอทราย",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "เฮือนคำใบ",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "กินปูดูนา คอฟฟี่แอนด์ซีฟู้ด",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "กู้ดวิว สาขาแม่เหี้ยะ The​ Good​ View​ Village​ Restaurant​ &​ Karaoke",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "ร้าน เขียวไข่กา สาขาวันนิมมาน",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "นาซิจำปู๋",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "จินเจอร์ฟาร์มคิทเช่น",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "The View Bar",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "Parc Thai Eatery",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "Hello Solao ฮัลโหล โซลาว สาขา ถ.คลองชลประทาน",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "กิ่งไกร",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "กินดีมีสุข เชียงใหม่",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "ร้านก๋วยเตี๋ยวคำหวาน (สาขาทุ่งโฮเต็ล)",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "ร้านครัวคำหวาน สาขาสันผีเสื้อ",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "บ้านนา Barn Na Organic Farm & Halal Food",
+   "lead": "https://data.go.th/dataset/_67_69"
+  },
+  {
+   "award": "thai-select",
+   "name": "ร้านมล่าวเมลา",
+   "lead": "https://data.go.th/dataset/_67_69"
+  }
+ ]
+}

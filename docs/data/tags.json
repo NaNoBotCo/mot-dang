@@ -1,0 +1,2705 @@
+{
+ "generated": "2026-08-31",
+ "min_tag": 3,
+ "tag_shelf_min": 8,
+ "note": "A tag is derived by exactly one rule from a field the record carries; `tags` and `tagVia` on each record in places.json say which and how. Counts are per province; a tag under min_tag has no page.",
+ "families": [
+  {
+   "key": "cuisine",
+   "th": "อาหาร-เครื่องดื่ม",
+   "en": "Cuisine",
+   "glyph": "🍜"
+  },
+  {
+   "key": "diet",
+   "th": "อาหารเฉพาะทาง",
+   "en": "Diet",
+   "glyph": "🌱"
+  },
+  {
+   "key": "pay",
+   "th": "การจ่ายเงิน",
+   "en": "Paying",
+   "glyph": "💳"
+  },
+  {
+   "key": "comfort",
+   "th": "สิ่งอำนวยความสะดวก",
+   "en": "Comforts",
+   "glyph": "🛋"
+  },
+  {
+   "key": "hours",
+   "th": "เวลาเปิด",
+   "en": "Hours",
+   "glyph": "🕓"
+  },
+  {
+   "key": "access",
+   "th": "การเข้าถึง",
+   "en": "Access",
+   "glyph": "♿"
+  },
+  {
+   "key": "place",
+   "th": "ทำเล",
+   "en": "Where it stands",
+   "glyph": "📍"
+  },
+  {
+   "key": "brand",
+   "th": "เครือ-แบรนด์",
+   "en": "Chains & brands",
+   "glyph": "🏪"
+  },
+  {
+   "key": "honours",
+   "th": "เกียรติ-รางวัล",
+   "en": "Honours",
+   "glyph": "🏅"
+  },
+  {
+   "key": "school",
+   "th": "โรงเรียน",
+   "en": "Schools",
+   "glyph": "🏫"
+  },
+  {
+   "key": "medical",
+   "th": "การแพทย์",
+   "en": "Medical",
+   "glyph": "🩺"
+  },
+  {
+   "key": "fuel",
+   "th": "น้ำมัน-เชื้อเพลิง",
+   "en": "Fuel",
+   "glyph": "⛽"
+  },
+  {
+   "key": "wat",
+   "th": "วัด",
+   "en": "Temples",
+   "glyph": "🛕"
+  }
+ ],
+ "tags": [
+  {
+   "slug": "japanese",
+   "family": "cuisine",
+   "th": "อาหารญี่ปุ่น",
+   "en": "Japanese",
+   "glyph": "🍣",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "japanese"
+    ]
+   },
+   "counts": {
+    "cm": 87,
+    "cr": 6
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/japanese.html",
+    "cr": "https://motdang.net/cr/tag/japanese.html"
+   }
+  },
+  {
+   "slug": "pizza",
+   "family": "cuisine",
+   "th": "พิซซ่า",
+   "en": "Pizza",
+   "glyph": "🍕",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "pizza",
+     "italian_pizza"
+    ]
+   },
+   "counts": {
+    "cm": 78,
+    "cr": 19
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/pizza.html",
+    "cr": "https://motdang.net/cr/tag/pizza.html"
+   }
+  },
+  {
+   "slug": "tea",
+   "family": "cuisine",
+   "th": "ร้านชา",
+   "en": "Tea",
+   "glyph": "🍵",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "tea"
+    ]
+   },
+   "counts": {
+    "cm": 70,
+    "cr": 18
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/tea.html",
+    "cr": "https://motdang.net/cr/tag/tea.html"
+   }
+  },
+  {
+   "slug": "breakfast",
+   "family": "cuisine",
+   "th": "อาหารเช้า",
+   "en": "Breakfast",
+   "glyph": "🍳",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "breakfast"
+    ]
+   },
+   "counts": {
+    "cm": 71,
+    "cr": 9
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/breakfast.html",
+    "cr": "https://motdang.net/cr/tag/breakfast.html"
+   }
+  },
+  {
+   "slug": "burgers",
+   "family": "cuisine",
+   "th": "เบอร์เกอร์",
+   "en": "Burgers",
+   "glyph": "🍔",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "burger"
+    ]
+   },
+   "counts": {
+    "cm": 62,
+    "cr": 15
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/burgers.html",
+    "cr": "https://motdang.net/cr/tag/burgers.html"
+   }
+  },
+  {
+   "slug": "italian",
+   "family": "cuisine",
+   "th": "อาหารอิตาเลียน",
+   "en": "Italian",
+   "glyph": "🍝",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "italian"
+    ]
+   },
+   "counts": {
+    "cm": 62,
+    "cr": 11
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/italian.html",
+    "cr": "https://motdang.net/cr/tag/italian.html"
+   }
+  },
+  {
+   "slug": "pasta",
+   "family": "cuisine",
+   "th": "พาสต้า",
+   "en": "Pasta",
+   "glyph": "🍝",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "pasta"
+    ]
+   },
+   "counts": {
+    "cm": 27,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/pasta.html"
+   }
+  },
+  {
+   "slug": "cake",
+   "family": "cuisine",
+   "th": "เค้ก",
+   "en": "Cake",
+   "glyph": "🍰",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "cake"
+    ]
+   },
+   "counts": {
+    "cm": 55,
+    "cr": 14
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/cake.html",
+    "cr": "https://motdang.net/cr/tag/cake.html"
+   }
+  },
+  {
+   "slug": "dessert",
+   "family": "cuisine",
+   "th": "ของหวาน",
+   "en": "Dessert",
+   "glyph": "🍮",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "dessert"
+    ]
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 4
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/dessert.html",
+    "cr": "https://motdang.net/cr/tag/dessert.html"
+   }
+  },
+  {
+   "slug": "sandwiches",
+   "family": "cuisine",
+   "th": "แซนด์วิช",
+   "en": "Sandwiches",
+   "glyph": "🥪",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "sandwich"
+    ]
+   },
+   "counts": {
+    "cm": 55,
+    "cr": 6
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/sandwiches.html",
+    "cr": "https://motdang.net/cr/tag/sandwiches.html"
+   }
+  },
+  {
+   "slug": "asian",
+   "family": "cuisine",
+   "th": "อาหารเอเชีย",
+   "en": "Asian",
+   "glyph": "🥢",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "asian"
+    ]
+   },
+   "counts": {
+    "cm": 35,
+    "cr": 26
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/asian.html",
+    "cr": "https://motdang.net/cr/tag/asian.html"
+   }
+  },
+  {
+   "slug": "chinese",
+   "family": "cuisine",
+   "th": "อาหารจีน",
+   "en": "Chinese",
+   "glyph": "🥟",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "chinese"
+    ]
+   },
+   "counts": {
+    "cm": 41,
+    "cr": 14
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/chinese.html",
+    "cr": "https://motdang.net/cr/tag/chinese.html"
+   }
+  },
+  {
+   "slug": "chicken",
+   "family": "cuisine",
+   "th": "ไก่",
+   "en": "Chicken",
+   "glyph": "🍗",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "chicken"
+    ]
+   },
+   "counts": {
+    "cm": 40,
+    "cr": 12
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/chicken.html",
+    "cr": "https://motdang.net/cr/tag/chicken.html"
+   }
+  },
+  {
+   "slug": "noodles",
+   "family": "cuisine",
+   "th": "ก๋วยเตี๋ยว",
+   "en": "Noodles",
+   "glyph": "🍜",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "noodle",
+     "noodles"
+    ]
+   },
+   "counts": {
+    "cm": 33,
+    "cr": 27
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/noodles.html",
+    "cr": "https://motdang.net/cr/tag/noodles.html"
+   }
+  },
+  {
+   "slug": "ice-cream",
+   "family": "cuisine",
+   "th": "ไอศกรีม",
+   "en": "Ice cream",
+   "glyph": "🍨",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "ice_cream"
+    ]
+   },
+   "counts": {
+    "cm": 37,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/ice-cream.html"
+   }
+  },
+  {
+   "slug": "american",
+   "family": "cuisine",
+   "th": "อาหารอเมริกัน",
+   "en": "American",
+   "glyph": "🍔",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "american"
+    ]
+   },
+   "counts": {
+    "cm": 31,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/american.html"
+   }
+  },
+  {
+   "slug": "korean",
+   "family": "cuisine",
+   "th": "อาหารเกาหลี",
+   "en": "Korean",
+   "glyph": "🍲",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "korean"
+    ]
+   },
+   "counts": {
+    "cm": 27,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/korean.html"
+   }
+  },
+  {
+   "slug": "indian",
+   "family": "cuisine",
+   "th": "อาหารอินเดีย",
+   "en": "Indian",
+   "glyph": "🍛",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "indian"
+    ]
+   },
+   "counts": {
+    "cm": 26,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/indian.html"
+   }
+  },
+  {
+   "slug": "steak",
+   "family": "cuisine",
+   "th": "สเต๊ก",
+   "en": "Steak",
+   "glyph": "🥩",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "steak",
+     "steak_house"
+    ]
+   },
+   "counts": {
+    "cm": 37,
+    "cr": 12
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/steak.html",
+    "cr": "https://motdang.net/cr/tag/steak.html"
+   }
+  },
+  {
+   "slug": "regional",
+   "family": "cuisine",
+   "th": "อาหารพื้นเมือง-ท้องถิ่น",
+   "en": "Regional & local",
+   "glyph": "🌾",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "regional",
+     "local"
+    ]
+   },
+   "counts": {
+    "cm": 73,
+    "cr": 26
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/regional.html",
+    "cr": "https://motdang.net/cr/tag/regional.html"
+   }
+  },
+  {
+   "slug": "vietnamese",
+   "family": "cuisine",
+   "th": "อาหารเวียดนาม",
+   "en": "Vietnamese",
+   "glyph": "🍜",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "vietnamese"
+    ]
+   },
+   "counts": {
+    "cm": 21,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/vietnamese.html"
+   }
+  },
+  {
+   "slug": "french",
+   "family": "cuisine",
+   "th": "อาหารฝรั่งเศส",
+   "en": "French",
+   "glyph": "🥐",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "french"
+    ]
+   },
+   "counts": {
+    "cm": 18,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/french.html"
+   }
+  },
+  {
+   "slug": "barbecue",
+   "family": "cuisine",
+   "th": "ปิ้งย่าง-บาร์บีคิว",
+   "en": "Barbecue & grill",
+   "glyph": "🍖",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "barbecue",
+     "grill",
+     "bbq"
+    ]
+   },
+   "counts": {
+    "cm": 22,
+    "cr": 3
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/barbecue.html",
+    "cr": "https://motdang.net/cr/tag/barbecue.html"
+   }
+  },
+  {
+   "slug": "salad",
+   "family": "cuisine",
+   "th": "สลัด",
+   "en": "Salad",
+   "glyph": "🥗",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "salad"
+    ]
+   },
+   "counts": {
+    "cm": 12,
+    "cr": 3
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/salad.html",
+    "cr": "https://motdang.net/cr/tag/salad.html"
+   }
+  },
+  {
+   "slug": "mexican",
+   "family": "cuisine",
+   "th": "อาหารเม็กซิกัน",
+   "en": "Mexican",
+   "glyph": "🌮",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "mexican"
+    ]
+   },
+   "counts": {
+    "cm": 13,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/mexican.html"
+   }
+  },
+  {
+   "slug": "sushi",
+   "family": "cuisine",
+   "th": "ซูชิ",
+   "en": "Sushi",
+   "glyph": "🍣",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "sushi"
+    ]
+   },
+   "counts": {
+    "cm": 12,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/sushi.html"
+   }
+  },
+  {
+   "slug": "juice",
+   "family": "cuisine",
+   "th": "น้ำผลไม้",
+   "en": "Juice",
+   "glyph": "🧃",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "juice"
+    ]
+   },
+   "counts": {
+    "cm": 11,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/juice.html"
+   }
+  },
+  {
+   "slug": "bubble-tea",
+   "family": "cuisine",
+   "th": "ชานมไข่มุก",
+   "en": "Bubble tea",
+   "glyph": "🧋",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "bubble_tea"
+    ]
+   },
+   "counts": {
+    "cm": 5,
+    "cr": 7
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/bubble-tea.html",
+    "cr": "https://motdang.net/cr/tag/bubble-tea.html"
+   }
+  },
+  {
+   "slug": "pancakes",
+   "family": "cuisine",
+   "th": "แพนเค้ก",
+   "en": "Pancakes",
+   "glyph": "🥞",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "pancake"
+    ]
+   },
+   "counts": {
+    "cm": 9,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/pancakes.html"
+   }
+  },
+  {
+   "slug": "german",
+   "family": "cuisine",
+   "th": "อาหารเยอรมัน",
+   "en": "German",
+   "glyph": "🥨",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "german"
+    ]
+   },
+   "counts": {
+    "cm": 11,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/german.html"
+   }
+  },
+  {
+   "slug": "curry",
+   "family": "cuisine",
+   "th": "แกง",
+   "en": "Curry",
+   "glyph": "🍛",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "curry"
+    ]
+   },
+   "counts": {
+    "cm": 9,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/curry.html"
+   }
+  },
+  {
+   "slug": "fish-and-chips",
+   "family": "cuisine",
+   "th": "ฟิชแอนด์ชิปส์",
+   "en": "Fish & chips",
+   "glyph": "🐟",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "fish_and_chips"
+    ]
+   },
+   "counts": {
+    "cm": 8,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/fish-and-chips.html"
+   }
+  },
+  {
+   "slug": "crepes",
+   "family": "cuisine",
+   "th": "เครป",
+   "en": "Crêpes",
+   "glyph": "🥞",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "crepe"
+    ]
+   },
+   "counts": {
+    "cm": 5,
+    "cr": 3
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/crepes.html",
+    "cr": "https://motdang.net/cr/tag/crepes.html"
+   }
+  },
+  {
+   "slug": "european",
+   "family": "cuisine",
+   "th": "อาหารยุโรป",
+   "en": "European",
+   "glyph": "🍽",
+   "rule": {
+    "kind": "attr",
+    "key": "cuisine",
+    "values": [
+     "european"
+    ]
+   },
+   "counts": {
+    "cm": 8,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/european.html"
+   }
+  },
+  {
+   "slug": "vegetarian",
+   "family": "diet",
+   "th": "มีอาหารมังสวิรัติ",
+   "en": "Vegetarian options",
+   "glyph": "🥬",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "diet",
+    "sub": "vegetarian",
+    "values": [
+     "yes",
+     "only"
+    ]
+   },
+   "counts": {
+    "cm": 131,
+    "cr": 21
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/vegetarian.html",
+    "cr": "https://motdang.net/cr/tag/vegetarian.html"
+   },
+   "also": [
+    {
+     "name": "HappyCow",
+     "url": "https://www.happycow.net/asia/thailand/chiang_mai/"
+    }
+   ]
+  },
+  {
+   "slug": "vegan",
+   "family": "diet",
+   "th": "มีอาหารวีแกน",
+   "en": "Vegan options",
+   "glyph": "🌱",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "diet",
+    "sub": "vegan",
+    "values": [
+     "yes",
+     "only"
+    ]
+   },
+   "counts": {
+    "cm": 85,
+    "cr": 17
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/vegan.html",
+    "cr": "https://motdang.net/cr/tag/vegan.html"
+   },
+   "also": [
+    {
+     "name": "HappyCow",
+     "url": "https://www.happycow.net/asia/thailand/chiang_mai/"
+    }
+   ]
+  },
+  {
+   "slug": "halal",
+   "family": "diet",
+   "th": "ฮาลาล",
+   "en": "Halal",
+   "glyph": "☪️",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "diet",
+    "sub": "halal",
+    "values": [
+     "yes",
+     "only"
+    ]
+   },
+   "counts": {
+    "cm": 6,
+    "cr": 4
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/halal.html",
+    "cr": "https://motdang.net/cr/tag/halal.html"
+   },
+   "also": [
+    {
+     "name": "สำนักงานคณะกรรมการกลางอิสลามแห่งประเทศไทย · CICOT",
+     "url": "https://www.cicot.or.th/"
+    }
+   ]
+  },
+  {
+   "slug": "gluten-free",
+   "family": "diet",
+   "th": "ปลอดกลูเตน",
+   "en": "Gluten-free",
+   "glyph": "🌾",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "diet",
+    "sub": "gluten_free",
+    "values": [
+     "yes",
+     "only"
+    ]
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/gluten-free.html"
+   }
+  },
+  {
+   "slug": "organic",
+   "family": "diet",
+   "th": "ออร์แกนิก",
+   "en": "Organic",
+   "glyph": "🍃",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "diet",
+    "sub": "organic",
+    "values": [
+     "yes",
+     "only"
+    ]
+   },
+   "counts": {
+    "cm": 6,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/organic.html"
+   }
+  },
+  {
+   "slug": "cards",
+   "family": "pay",
+   "th": "รับบัตร",
+   "en": "Cards accepted",
+   "glyph": "💳",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "payment",
+    "any": {
+     "credit": [
+      "yes"
+     ],
+     "debit": [
+      "yes"
+     ],
+     "cards": [
+      "yes"
+     ],
+     "visa": [
+      "yes"
+     ],
+     "mastercard": [
+      "yes"
+     ]
+    }
+   },
+   "counts": {
+    "cm": 57,
+    "cr": 5
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/cards.html",
+    "cr": "https://motdang.net/cr/tag/cards.html"
+   }
+  },
+  {
+   "slug": "cash-only",
+   "family": "pay",
+   "th": "เงินสดเท่านั้น",
+   "en": "Cash only",
+   "glyph": "💵",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "payment",
+    "any": {
+     "cash": [
+      "only"
+     ],
+     "cards": [
+      "no"
+     ]
+    },
+    "unless": {
+     "qr": [
+      "yes"
+     ],
+     "promptpay": [
+      "yes"
+     ],
+     "credit": [
+      "yes"
+     ],
+     "debit": [
+      "yes"
+     ],
+     "visa": [
+      "yes"
+     ],
+     "mastercard": [
+      "yes"
+     ]
+    }
+   },
+   "counts": {
+    "cm": 22,
+    "cr": 6
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/cash-only.html",
+    "cr": "https://motdang.net/cr/tag/cash-only.html"
+   }
+  },
+  {
+   "slug": "qr-promptpay",
+   "family": "pay",
+   "th": "สแกนจ่าย-พร้อมเพย์",
+   "en": "QR & PromptPay",
+   "glyph": "📱",
+   "rule": {
+    "kind": "attr-dict",
+    "key": "payment",
+    "any": {
+     "qr": [
+      "yes"
+     ],
+     "promptpay": [
+      "yes"
+     ]
+    }
+   },
+   "counts": {
+    "cm": 12,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/qr-promptpay.html"
+   }
+  },
+  {
+   "slug": "bitcoin",
+   "family": "pay",
+   "th": "รับบิตคอยน์",
+   "en": "Bitcoin & Lightning",
+   "glyph": "₿",
+   "rule": {
+    "kind": "attr-list",
+    "key": "crypto",
+    "values": [
+     "bitcoin",
+     "lightning",
+     "lightning-contactless",
+     "on-chain"
+    ],
+    "or_facet": "crypto"
+   },
+   "counts": {
+    "cm": 30,
+    "cr": 15
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/bitcoin.html",
+    "cr": "https://motdang.net/cr/tag/bitcoin.html"
+   },
+   "also": [
+    {
+     "name": "BTC Map",
+     "url": "https://btcmap.org/"
+    }
+   ]
+  },
+  {
+   "slug": "wifi",
+   "family": "comfort",
+   "th": "มีไวไฟ",
+   "en": "Wi-Fi",
+   "glyph": "📶",
+   "rule": {
+    "kind": "attr",
+    "key": "wifi",
+    "values": [
+     "wlan",
+     "yes",
+     "free",
+     "customers"
+    ],
+    "or_facet": "wifi"
+   },
+   "counts": {
+    "cm": 931,
+    "cr": 273
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/wifi.html",
+    "cr": "https://motdang.net/cr/tag/wifi.html"
+   }
+  },
+  {
+   "slug": "free-wifi",
+   "family": "comfort",
+   "th": "ไวไฟฟรี",
+   "en": "Free Wi-Fi",
+   "glyph": "📶",
+   "rule": {
+    "kind": "attr",
+    "key": "wifiFee",
+    "values": [
+     "no"
+    ]
+   },
+   "counts": {
+    "cm": 250,
+    "cr": 41
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/free-wifi.html",
+    "cr": "https://motdang.net/cr/tag/free-wifi.html"
+   }
+  },
+  {
+   "slug": "air-con",
+   "family": "comfort",
+   "th": "ติดแอร์",
+   "en": "Air-conditioned",
+   "glyph": "❄️",
+   "rule": {
+    "kind": "attr",
+    "key": "airConditioning",
+    "values": [
+     "yes"
+    ],
+    "or_facet": "aircon"
+   },
+   "counts": {
+    "cm": 91,
+    "cr": 27
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/air-con.html",
+    "cr": "https://motdang.net/cr/tag/air-con.html"
+   }
+  },
+  {
+   "slug": "outdoor-seating",
+   "family": "comfort",
+   "th": "นั่งนอกร้านได้",
+   "en": "Outdoor seating",
+   "glyph": "🌤",
+   "rule": {
+    "kind": "attr",
+    "key": "outdoorSeating",
+    "values": [
+     "yes",
+     "street",
+     "terrace",
+     "veranda",
+     "garden",
+     "patio",
+     "balcony",
+     "roof"
+    ]
+   },
+   "counts": {
+    "cm": 214,
+    "cr": 46
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/outdoor-seating.html",
+    "cr": "https://motdang.net/cr/tag/outdoor-seating.html"
+   }
+  },
+  {
+   "slug": "takeaway",
+   "family": "comfort",
+   "th": "ซื้อกลับบ้านได้",
+   "en": "Takeaway",
+   "glyph": "🥡",
+   "rule": {
+    "kind": "attr",
+    "key": "takeaway",
+    "values": [
+     "yes",
+     "only"
+    ]
+   },
+   "counts": {
+    "cm": 148,
+    "cr": 49
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/takeaway.html",
+    "cr": "https://motdang.net/cr/tag/takeaway.html"
+   }
+  },
+  {
+   "slug": "delivery",
+   "family": "comfort",
+   "th": "ส่งถึงบ้าน",
+   "en": "Delivery",
+   "glyph": "🛵",
+   "rule": {
+    "kind": "attr",
+    "key": "delivery",
+    "not_values": [
+     "no",
+     ""
+    ],
+    "contains_any": [
+     "yes",
+     "panda",
+     "grab",
+     "line",
+     "only",
+     "robinhood",
+     ":"
+    ]
+   },
+   "counts": {
+    "cm": 20,
+    "cr": 8
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/delivery.html",
+    "cr": "https://motdang.net/cr/tag/delivery.html"
+   }
+  },
+  {
+   "slug": "smoking-area",
+   "family": "comfort",
+   "th": "มีที่สูบบุหรี่",
+   "en": "Smoking area",
+   "glyph": "🚬",
+   "rule": {
+    "kind": "attr",
+    "key": "smoking",
+    "values": [
+     "outside",
+     "separated",
+     "isolated",
+     "yes",
+     "dedicated"
+    ]
+   },
+   "counts": {
+    "cm": 55,
+    "cr": 21
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/smoking-area.html",
+    "cr": "https://motdang.net/cr/tag/smoking-area.html"
+   }
+  },
+  {
+   "slug": "no-smoking",
+   "family": "comfort",
+   "th": "ปลอดบุหรี่",
+   "en": "No smoking",
+   "glyph": "🚭",
+   "rule": {
+    "kind": "attr",
+    "key": "smoking",
+    "values": [
+     "no"
+    ]
+   },
+   "counts": {
+    "cm": 92,
+    "cr": 24
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/no-smoking.html",
+    "cr": "https://motdang.net/cr/tag/no-smoking.html"
+   }
+  },
+  {
+   "slug": "drive-through",
+   "family": "comfort",
+   "th": "ไดรฟ์ทรู",
+   "en": "Drive-through",
+   "glyph": "🚗",
+   "rule": {
+    "kind": "attr",
+    "key": "driveThrough",
+    "values": [
+     "yes"
+    ]
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/drive-through.html"
+   }
+  },
+  {
+   "slug": "atm-on-site",
+   "family": "comfort",
+   "th": "มีตู้เอทีเอ็มในร้าน",
+   "en": "ATM on site",
+   "glyph": "🏧",
+   "rule": {
+    "kind": "attr",
+    "key": "atmOnSite",
+    "values": [
+     "yes"
+    ]
+   },
+   "counts": {
+    "cm": 179,
+    "cr": 51
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/atm-on-site.html",
+    "cr": "https://motdang.net/cr/tag/atm-on-site.html"
+   }
+  },
+  {
+   "slug": "open-24h",
+   "family": "hours",
+   "th": "เปิด 24 ชั่วโมง",
+   "en": "Open 24 hours",
+   "glyph": "🕓",
+   "rule": {
+    "kind": "facet",
+    "key": "open24"
+   },
+   "counts": {
+    "cm": 250,
+    "cr": 49
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/open-24h.html",
+    "cr": "https://motdang.net/cr/tag/open-24h.html"
+   }
+  },
+  {
+   "slug": "open-late",
+   "family": "hours",
+   "th": "เปิดดึก",
+   "en": "Open late",
+   "glyph": "🌙",
+   "rule": {
+    "kind": "facet",
+    "key": "openlate"
+   },
+   "counts": {
+    "cm": 28,
+    "cr": 3
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/open-late.html",
+    "cr": "https://motdang.net/cr/tag/open-late.html"
+   }
+  },
+  {
+   "slug": "wheelchair",
+   "family": "access",
+   "th": "รถเข็นเข้าได้",
+   "en": "Wheelchair accessible",
+   "glyph": "♿",
+   "rule": {
+    "kind": "attr",
+    "key": "wheelchair",
+    "values": [
+     "yes",
+     "designated"
+    ],
+    "or_facet": "wheelchair"
+   },
+   "counts": {
+    "cm": 179,
+    "cr": 21
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/wheelchair.html",
+    "cr": "https://motdang.net/cr/tag/wheelchair.html"
+   },
+   "also": [
+    {
+     "name": "Wheelmap",
+     "url": "https://wheelmap.org/"
+    }
+   ]
+  },
+  {
+   "slug": "wheelchair-limited",
+   "family": "access",
+   "th": "รถเข็นเข้าได้บางส่วน",
+   "en": "Wheelchair — partly",
+   "glyph": "♿",
+   "rule": {
+    "kind": "attr",
+    "key": "wheelchair",
+    "values": [
+     "limited"
+    ]
+   },
+   "counts": {
+    "cm": 83,
+    "cr": 9
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/wheelchair-limited.html",
+    "cr": "https://motdang.net/cr/tag/wheelchair-limited.html"
+   }
+  },
+  {
+   "slug": "old-city",
+   "family": "place",
+   "th": "ในเวียง-ในคูเมือง",
+   "en": "Inside the old city moat",
+   "glyph": "🏯",
+   "rule": {
+    "kind": "moat"
+   },
+   "counts": {
+    "cm": 1316,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/old-city.html"
+   }
+  },
+  {
+   "slug": "royal-temple",
+   "family": "honours",
+   "th": "พระอารามหลวง",
+   "en": "Royal temples",
+   "glyph": "🛕",
+   "rule": {
+    "kind": "royal"
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 3
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/royal-temple.html",
+    "cr": "https://motdang.net/cr/tag/royal-temple.html"
+   }
+  },
+  {
+   "slug": "michelin",
+   "family": "honours",
+   "th": "มิชลินไกด์",
+   "en": "MICHELIN Guide",
+   "glyph": "🍽",
+   "rule": {
+    "kind": "food-award",
+    "prefix": "michelin"
+   },
+   "counts": {
+    "cm": 14,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/michelin.html"
+   },
+   "also": [
+    {
+     "name": "MICHELIN Guide — Chiang Mai",
+     "url": "https://guide.michelin.com/th/en/chiang-mai-region/chiang-mai/restaurants"
+    }
+   ]
+  },
+  {
+   "slug": "historic-site",
+   "family": "honours",
+   "th": "โบราณสถานขึ้นทะเบียน",
+   "en": "Registered historic site",
+   "glyph": "🏛",
+   "rule": {
+    "kind": "attr",
+    "key": "heritage",
+    "values": [
+     "registered thai historic site"
+    ]
+   },
+   "counts": {
+    "cm": 26,
+    "cr": 18
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/historic-site.html",
+    "cr": "https://motdang.net/cr/tag/historic-site.html"
+   }
+  },
+  {
+   "slug": "highland-school",
+   "family": "school",
+   "th": "โรงเรียนพื้นที่สูง",
+   "en": "Highland schools",
+   "glyph": "⛰",
+   "rule": {
+    "kind": "attr-true",
+    "key": "highland"
+   },
+   "counts": {
+    "cm": 301,
+    "cr": 123
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/highland-school.html",
+    "cr": "https://motdang.net/cr/tag/highland-school.html"
+   }
+  },
+  {
+   "slug": "borderland-school",
+   "family": "school",
+   "th": "โรงเรียนพื้นที่ชายแดน",
+   "en": "Borderland schools",
+   "glyph": "🛂",
+   "rule": {
+    "kind": "attr-true",
+    "key": "borderland"
+   },
+   "counts": {
+    "cm": 15,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/borderland-school.html"
+   }
+  },
+  {
+   "slug": "skin-clinic",
+   "family": "medical",
+   "th": "คลินิกผิวหนัง-ความงาม",
+   "en": "Skin & aesthetic clinics",
+   "glyph": "✨",
+   "rule": {
+    "kind": "attr-list",
+    "key": "specialty",
+    "values": [
+     "skin"
+    ]
+   },
+   "counts": {
+    "cm": 13,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/skin-clinic.html"
+   }
+  },
+  {
+   "slug": "eye-clinic",
+   "family": "medical",
+   "th": "คลินิกตา",
+   "en": "Eye clinics",
+   "glyph": "👁",
+   "rule": {
+    "kind": "attr-list",
+    "key": "specialty",
+    "values": [
+     "eye"
+    ]
+   },
+   "counts": {
+    "cm": 3,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/eye-clinic.html"
+   }
+  },
+  {
+   "slug": "mental-health",
+   "family": "medical",
+   "th": "จิตเวช-สุขภาพจิต",
+   "en": "Mental health",
+   "glyph": "🧠",
+   "rule": {
+    "kind": "attr-list",
+    "key": "specialty",
+    "values": [
+     "psych"
+    ]
+   },
+   "counts": {
+    "cm": 5,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/mental-health.html"
+   }
+  },
+  {
+   "slug": "chinese-medicine",
+   "family": "medical",
+   "th": "แพทย์แผนจีน",
+   "en": "Chinese medicine",
+   "glyph": "☯",
+   "rule": {
+    "kind": "attr-list",
+    "key": "specialty",
+    "values": [
+     "chinese-med"
+    ]
+   },
+   "counts": {
+    "cm": 3,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/chinese-medicine.html"
+   }
+  },
+  {
+   "slug": "lpg",
+   "family": "fuel",
+   "th": "มีแอลพีจี",
+   "en": "LPG",
+   "glyph": "⛽",
+   "rule": {
+    "kind": "attr-list",
+    "key": "fuel",
+    "values": [
+     "lpg"
+    ]
+   },
+   "counts": {
+    "cm": 52,
+    "cr": 11
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/lpg.html",
+    "cr": "https://motdang.net/cr/tag/lpg.html"
+   }
+  },
+  {
+   "slug": "e85",
+   "family": "fuel",
+   "th": "มีอี85",
+   "en": "E85",
+   "glyph": "⛽",
+   "rule": {
+    "kind": "attr-list",
+    "key": "fuel",
+    "values": [
+     "e85"
+    ]
+   },
+   "counts": {
+    "cm": 12,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/e85.html"
+   }
+  },
+  {
+   "slug": "e20",
+   "family": "fuel",
+   "th": "มีอี20",
+   "en": "E20",
+   "glyph": "⛽",
+   "rule": {
+    "kind": "attr-list",
+    "key": "fuel",
+    "values": [
+     "e20"
+    ]
+   },
+   "counts": {
+    "cm": 44,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/e20.html"
+   }
+  },
+  {
+   "slug": "ngv",
+   "family": "fuel",
+   "th": "มีเอ็นจีวี",
+   "en": "NGV (CNG)",
+   "glyph": "⛽",
+   "rule": {
+    "kind": "attr-list",
+    "key": "fuel",
+    "values": [
+     "cng",
+     "ngv"
+    ]
+   },
+   "counts": {
+    "cm": 1,
+    "cr": 0
+   },
+   "pages": {}
+  },
+  {
+   "slug": "maha-nikaya",
+   "family": "wat",
+   "th": "มหานิกาย",
+   "en": "Maha Nikaya",
+   "glyph": "🛕",
+   "rule": {
+    "kind": "attr",
+    "key": "sect",
+    "values": [
+     "มหานิกาย"
+    ]
+   },
+   "counts": {
+    "cm": 1288,
+    "cr": 996
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/maha-nikaya.html",
+    "cr": "https://motdang.net/cr/tag/maha-nikaya.html"
+   }
+  },
+  {
+   "slug": "dhammayut",
+   "family": "wat",
+   "th": "ธรรมยุต",
+   "en": "Dhammayut",
+   "glyph": "🛕",
+   "rule": {
+    "kind": "attr",
+    "key": "sect",
+    "values": [
+     "ธรรมยุต",
+     "ธรรมยุติกนิกาย"
+    ]
+   },
+   "counts": {
+    "cm": 99,
+    "cr": 45
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/dhammayut.html",
+    "cr": "https://motdang.net/cr/tag/dhammayut.html"
+   }
+  },
+  {
+   "slug": "thai-select",
+   "family": "honours",
+   "th": "ไทยซีเล็กต์",
+   "en": "Thai SELECT",
+   "glyph": "🍚",
+   "rule": {
+    "kind": "food-award",
+    "prefix": "thai-select"
+   },
+   "counts": {
+    "cm": 5,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/thai-select.html"
+   },
+   "also": [
+    {
+     "name": "กรมส่งเสริมการค้าระหว่างประเทศ (DITP) · Thai SELECT",
+     "url": "https://www.thaiselect.com/"
+    }
+   ]
+  },
+  {
+   "slug": "thongfah",
+   "family": "honours",
+   "th": "ร้านธงฟ้าราคาประหยัด",
+   "en": "Thong Fah budget restaurants",
+   "glyph": "🚩",
+   "rule": {
+    "kind": "attr",
+    "key": "thongfah",
+    "values": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "yes"
+    ]
+   },
+   "counts": {
+    "cm": 0,
+    "cr": 34
+   },
+   "pages": {
+    "cr": "https://motdang.net/cr/tag/thongfah.html"
+   }
+  },
+  {
+   "slug": "sat-camp",
+   "family": "honours",
+   "th": "ค่ายมวยมาตรฐาน กกท.",
+   "en": "SAT-certified muay thai camps",
+   "glyph": "🥊",
+   "rule": {
+    "kind": "attr-true",
+    "key": "satCertified"
+   },
+   "counts": {
+    "cm": 4,
+    "cr": 13
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/sat-camp.html",
+    "cr": "https://motdang.net/cr/tag/sat-camp.html"
+   }
+  },
+  {
+   "slug": "7-eleven",
+   "family": "brand",
+   "th": "",
+   "en": "7-Eleven",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 331,
+    "cr": 132
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/7-eleven.html",
+    "cr": "https://motdang.net/cr/tag/7-eleven.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "pt",
+   "family": "brand",
+   "th": "พีที",
+   "en": "PT",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 37,
+    "cr": 58
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/pt.html",
+    "cr": "https://motdang.net/cr/tag/pt.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "bangchak",
+   "family": "brand",
+   "th": "บางจาก",
+   "en": "Bangchak",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 52,
+    "cr": 34
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/bangchak.html",
+    "cr": "https://motdang.net/cr/tag/bangchak.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "ptt",
+   "family": "brand",
+   "th": "ป.ต.ท.",
+   "en": "PTT",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 49,
+    "cr": 36
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/ptt.html",
+    "cr": "https://motdang.net/cr/tag/ptt.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "cafe-amazon",
+   "family": "brand",
+   "th": "คาเฟ่ อเมซอน",
+   "en": "Café Amazon",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 47,
+    "cr": 27
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/cafe-amazon.html",
+    "cr": "https://motdang.net/cr/tag/cafe-amazon.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "bangkok-bank",
+   "family": "brand",
+   "th": "ธนาคารกรุงเทพ",
+   "en": "Bangkok Bank",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 35,
+    "cr": 8
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/bangkok-bank.html",
+    "cr": "https://motdang.net/cr/tag/bangkok-bank.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "kasikorn-bank",
+   "family": "brand",
+   "th": "ธนาคารกสิกรไทย",
+   "en": "Kasikorn Bank",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 30,
+    "cr": 11
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/kasikorn-bank.html",
+    "cr": "https://motdang.net/cr/tag/kasikorn-bank.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "lotus-s-go-fresh",
+   "family": "brand",
+   "th": "",
+   "en": "Lotus's go fresh",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 25,
+    "cr": 9
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/lotus-s-go-fresh.html",
+    "cr": "https://motdang.net/cr/tag/lotus-s-go-fresh.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "krungthai-bank",
+   "family": "brand",
+   "th": "ธนาคารกรุงไทย",
+   "en": "Krungthai Bank",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 25,
+    "cr": 9
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/krungthai-bank.html",
+    "cr": "https://motdang.net/cr/tag/krungthai-bank.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "siam-commercial-bank",
+   "family": "brand",
+   "th": "ธนาคารไทยพาณิชย์",
+   "en": "Siam Commercial Bank",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 29,
+    "cr": 4
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/siam-commercial-bank.html",
+    "cr": "https://motdang.net/cr/tag/siam-commercial-bank.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "kfc",
+   "family": "brand",
+   "th": "",
+   "en": "KFC",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 22,
+    "cr": 7
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/kfc.html",
+    "cr": "https://motdang.net/cr/tag/kfc.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "government-savings-bank",
+   "family": "brand",
+   "th": "ธนาคารออมสิน",
+   "en": "Government Savings Bank",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 18,
+    "cr": 5
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/government-savings-bank.html",
+    "cr": "https://motdang.net/cr/tag/government-savings-bank.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "cosmo",
+   "family": "brand",
+   "th": "คอสโม",
+   "en": "Cosmo",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 0,
+    "cr": 22
+   },
+   "pages": {
+    "cr": "https://motdang.net/cr/tag/cosmo.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "caltex",
+   "family": "brand",
+   "th": "คาลเท็กซ์",
+   "en": "Caltex",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 11
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/caltex.html",
+    "cr": "https://motdang.net/cr/tag/caltex.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "kerry-express",
+   "family": "brand",
+   "th": "",
+   "en": "Kerry Express",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 12,
+    "cr": 4
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/kerry-express.html",
+    "cr": "https://motdang.net/cr/tag/kerry-express.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "tmbthanachart-bank",
+   "family": "brand",
+   "th": "ธนาคารทหารไทย",
+   "en": "TMBThanachart Bank",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 10,
+    "cr": 6
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/tmbthanachart-bank.html",
+    "cr": "https://motdang.net/cr/tag/tmbthanachart-bank.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "cp-fresh-mart",
+   "family": "brand",
+   "th": "",
+   "en": "CP Fresh Mart",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 10,
+    "cr": 4
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/cp-fresh-mart.html",
+    "cr": "https://motdang.net/cr/tag/cp-fresh-mart.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "shell",
+   "family": "brand",
+   "th": "เชลล์",
+   "en": "Shell",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 13,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/shell.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "mcdonald-s",
+   "family": "brand",
+   "th": "",
+   "en": "McDonald's",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 12,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/mcdonald-s.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "the-pizza-company",
+   "family": "brand",
+   "th": "",
+   "en": "The Pizza Company",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 10,
+    "cr": 3
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/the-pizza-company.html",
+    "cr": "https://motdang.net/cr/tag/the-pizza-company.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "krungsri",
+   "family": "brand",
+   "th": "กรุงศรี",
+   "en": "Krungsri",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 10,
+    "cr": 3
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/krungsri.html",
+    "cr": "https://motdang.net/cr/tag/krungsri.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "big-c-mini",
+   "family": "brand",
+   "th": "มินิบิ๊กซี",
+   "en": "Big C Mini",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 12,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/big-c-mini.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "doi-chaang",
+   "family": "brand",
+   "th": "",
+   "en": "Doi Chaang",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 11,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/doi-chaang.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "mk-restaurants",
+   "family": "brand",
+   "th": "",
+   "en": "MK Restaurants",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 9,
+    "cr": 3
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/mk-restaurants.html",
+    "cr": "https://motdang.net/cr/tag/mk-restaurants.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "mini-big-c",
+   "family": "brand",
+   "th": "",
+   "en": "Mini Big C",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 10,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/mini-big-c.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "world-gas",
+   "family": "brand",
+   "th": "เวิลด์แก๊ส",
+   "en": "World Gas",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 11,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/world-gas.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "boots",
+   "family": "brand",
+   "th": "",
+   "en": "Boots",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 10,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/boots.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "starbucks",
+   "family": "brand",
+   "th": "",
+   "en": "Starbucks",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 10,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/starbucks.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "bank-for-agriculture-and-agricultural-cooperativ",
+   "family": "brand",
+   "th": "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร ธ.ก.ส.",
+   "en": "Bank for Agriculture and Agricultural Cooperatives (BAAC)",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 3
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/bank-for-agriculture-and-agricultural-cooperativ.html",
+    "cr": "https://motdang.net/cr/tag/bank-for-agriculture-and-agricultural-cooperativ.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "tesco-lotus-express",
+   "family": "brand",
+   "th": "",
+   "en": "TESCO Lotus Express",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/tesco-lotus-express.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "mr-diy",
+   "family": "brand",
+   "th": "",
+   "en": "MR.DIY",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 6,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/mr-diy.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "pizza-hut",
+   "family": "brand",
+   "th": "",
+   "en": "Pizza Hut",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 6,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/pizza-hut.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "s-p",
+   "family": "brand",
+   "th": "",
+   "en": "S&P",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 8,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/s-p.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "watsons",
+   "family": "brand",
+   "th": "",
+   "en": "Watsons",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/watsons.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "thanachart-bank",
+   "family": "brand",
+   "th": "ธนาคารธนชาต",
+   "en": "Thanachart Bank",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/thanachart-bank.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "black-canyon-coffee",
+   "family": "brand",
+   "th": "",
+   "en": "Black Canyon Coffee",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 5,
+    "cr": 2
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/black-canyon-coffee.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "burger-king",
+   "family": "brand",
+   "th": "",
+   "en": "Burger King",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/burger-king.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "lotus-s",
+   "family": "brand",
+   "th": "",
+   "en": "Lotus's",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/lotus-s.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "mingmitr-coffee",
+   "family": "brand",
+   "th": "",
+   "en": "Mingmitr Coffee",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/mingmitr-coffee.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "jiffy",
+   "family": "brand",
+   "th": "จิฟฟี่",
+   "en": "Jiffy",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 7,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/jiffy.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "first-drug",
+   "family": "brand",
+   "th": "",
+   "en": "First Drug",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 6,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/first-drug.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "subway",
+   "family": "brand",
+   "th": "",
+   "en": "Subway",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 6,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/subway.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "cimb-thai",
+   "family": "brand",
+   "th": "ซีไอเอ็มบี ไทย",
+   "en": "CIMB THAI",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 5,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/cimb-thai.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "government-housing-bank",
+   "family": "brand",
+   "th": "ธนาคารอาคารสงเคราะห์",
+   "en": "Government Housing Bank",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 6,
+    "cr": 0
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/government-housing-bank.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "dairy-queen",
+   "family": "brand",
+   "th": "",
+   "en": "Dairy Queen",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 4,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/dairy-queen.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "tesco",
+   "family": "brand",
+   "th": "",
+   "en": "Tesco",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 2,
+    "cr": 3
+   },
+   "pages": {
+    "cr": "https://motdang.net/cr/tag/tesco.html"
+   },
+   "generated": true
+  },
+  {
+   "slug": "islamic-bank-of-thailand",
+   "family": "brand",
+   "th": "ธนาคารอิสลามแห่งประเทศไทย",
+   "en": "Islamic Bank of Thailand",
+   "glyph": "🏪",
+   "rule": {
+    "kind": "brand"
+   },
+   "counts": {
+    "cm": 4,
+    "cr": 1
+   },
+   "pages": {
+    "cm": "https://motdang.net/cm/tag/islamic-bank-of-thailand.html"
+   },
+   "generated": true
+  }
+ ]
+}

@@ -17,8 +17,20 @@ internet_access. So this importer works two seams instead:
          extra hits at 50m are bank lobbies across the road, not the store's
          own machine, so 30m is where evidence stops and guessing starts.
 
+         WO-38 adds a second join, against our own fuel records rather than a
+         fixture crawl: the shop on a petrol-station forecourt. Same
+         measurement discipline — 41 branches at 30 m, 92 at 50, 110 at 80,
+         125 at 120, 140 at 150. The hit rate falls from 2.55/m (30→50) to
+         0.6 (50→80) and settles near background (~0.4–0.5/m) past 80: a
+         forecourt is 40–70 m deep, so 50 m still splits a station from its
+         own shop, and past 80 m the additions are neighbours across the
+         road. 80 m, and the facet is WORDED "in/beside a petrol station" so
+         the boundary case sits inside the claim rather than beyond it.
+
   tag  — the handful of stores that *do* carry wheelchair / air_conditioning /
-         internet_access / opening_hours=24-7. Small numbers, free to take.
+         internet_access / opening_hours=24-7. Small numbers, free to take —
+         including has:slurpee, which exactly two stores in the snapshot
+         carry, and two witnesses are still evidence.
 
 Everything else waits for a person at the door — see data/facets.json, where
 a facet without an `auto` rule is one only a human can answer. Nothing here
@@ -36,6 +48,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 ATM_RADIUS_M = 30      # the store's own machine, not the bank across the road
 TOILET_RADIUS_M = 30   # "there is one around here", never "this shop has one"
+FUEL_RADIUS_M = 80     # the forecourt itself — see the curve in the docstring
 
 FACETS = json.loads((ROOT / "data" / "facets.json").read_text())
 
@@ -85,6 +98,9 @@ TAG_RULES = [
     ("mencut", "male", lambda v: v == "yes"),
     ("womencut", "female", lambda v: v == "yes"),
     ("unisex", "unisex", lambda v: v == "yes"),
+    # WO-38. Two stores in the snapshot say so themselves. A facet with two
+    # witnesses is small, real, and free to take; the door survey grows it.
+    ("slurpee", "has:slurpee", lambda v: v == "yes"),
 ]
 
 
@@ -220,6 +236,10 @@ def apply(records, province):
     tags = load_tags(province)
     atms = [(la, ln) for k, la, ln in fixtures if k == "atm"]
     toilets = [(la, ln) for k, la, ln in fixtures if k == "toilets"]
+    # WO-38: the petrol-station join needs no fixture crawl — the stations are
+    # full records of our own, on the same shelf tree, already in hand.
+    fuels = [(r["lat"], r["lng"]) for r in records
+             if "fuel" in (r.get("sub") or []) and r.get("lat") is not None]
     counts = {}
 
     def near(r, points, radius):
@@ -239,6 +259,8 @@ def apply(records, province):
             found["atm"] = "osm-near"
         if "toilet" in ours and near(r, toilets, TOILET_RADIUS_M):
             found["toilet"] = "osm-near"
+        if "atstation" in ours and near(r, fuels, FUEL_RADIUS_M):
+            found["atstation"] = "osm-near"
         ref = (r.get("sources") or [{}])[0].get("ref")
         t = tags.get(ref, {})
         for key, tag, ok in TAG_RULES:

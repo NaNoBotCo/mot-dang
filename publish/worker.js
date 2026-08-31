@@ -100,6 +100,17 @@ export default {
     }
 
     const url = new URL(request.url);
+
+    /* Renamed shelves. The learn/ slug said classes while the shelf held
+     * gyms (WO-37, 2026-08-26); the pages moved to sport/ and every old URL
+     * keeps working — a rename must never eat a bookmark or a search
+     * result. 301 so crawlers move their index to the new address. */
+    const renamed = url.pathname.match(/^\/(cm|cr)\/learn(\/.*|$)/);
+    if (renamed) {
+      const to = `/${renamed[1]}/sport${renamed[2] || "/"}`;
+      return Response.redirect(url.origin + to + url.search, 301);
+    }
+
     const range = request.headers.get("range");
 
     for (const key of candidates(url.pathname)) {

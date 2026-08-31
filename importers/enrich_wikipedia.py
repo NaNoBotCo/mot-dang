@@ -67,7 +67,7 @@ MAX_CHARS = 420
 # one member of it. See extract_of for the case that found this.
 LIST_TITLE = re.compile(r"^(รายชื่อ|รายการ|Lists? of\b)", re.I)
 WANTED_CATS = {"wat", "sights", "museums-galleries", "parks", "market",
-               "learn", "community", "transport"}
+               "sport", "community", "transport"}
 
 
 def load(path, default):

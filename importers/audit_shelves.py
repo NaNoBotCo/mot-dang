@@ -44,7 +44,7 @@ CLAIMS = [
     (r"(?<![a-z])hostel(?![a-z])|โฮสเทล",
      {"key": "hostel", "add_cat": ["hotel"], "add_sub": ["hostel"]}),
     (r"(?<![a-z])(gym|fitness)(?![a-z])|ฟิตเนส",
-     {"key": "gym", "add_cat": ["learn"], "add_sub": ["gym"]}),
+     {"key": "gym", "add_cat": ["sport"], "add_sub": ["gym"]}),
     (r"(?<![a-z])spa(?![a-z])|(?<!โฮม)สปา",
      {"key": "beauty-spa", "add_cat": ["beauty"], "add_sub": ["beauty-spa"]}),
     (r"(?<![a-z])massage(?![a-z])|ร้านนวด|นวดแผน",

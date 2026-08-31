@@ -1,0 +1,294 @@
+{
+  "_readme": [
+    "WO-32 — the protection-status register behind /souvenir.html",
+    "(souvenir_layer.py). Conservation and protection status of animals and",
+    "plants as a traveller meets them: in a shop, and then at the airport.",
+    "Measured first (2026-08-26): of 20,702 records in both provinces, a bare",
+    "word-scan for tiger/butterfly/orchid meets namesakes almost entirely —",
+    "ตำบลสันผีเสื้อ, Tiger Mart, orchid hotels — the WO-24 lesson again; and",
+    "the venues where a traveller actually meets these goods (orchid farms,",
+    "the animal shows, the souvenir rows) almost never say so in their names.",
+    "So the coverage is this register: curated research at the",
+    "additions-*.json bar, every legal claim with a source read on the day",
+    "recorded. THE DESIGN keeps three things apart, because folding them",
+    "into one rumour is what gets a traveller stopped at a red channel:",
+    "  1. WHICH CLASS a thing sits in — Thai law (สงวน · คุ้มครอง · ควบคุม)",
+    "     and the CITES appendix. Fixed, published, checkable — and the",
+    "     checker is a live official tool we link rather than a table we",
+    "     copy, because the lists move (the preserved list moved twice since",
+    "     2019, and the protected list has a second edition dated this year).",
+    "  2. WHAT PAPER exists for the classes that have one — the CITES export",
+    "     permit (cites.dnp.go.th), the phytosanitary certificate (DoA).",
+    "     Farmed and propagated goods travel on papers the seller arranges;",
+    "     the question to ask is at the till, not the check-in desk.",
+    "  3. WHAT HAS NO PAPER for a traveller at all — ivory above everything:",
+    "     lawfully sold inside Thailand under its own registration act, and",
+    "     still nothing puts a piece of it on a plane. Legal to buy here is",
+    "     not legal to fly with, and that asymmetry is the page's reason.",
+    "carry flags on items[]: no (no traveller path exists) · papers (travels",
+    "with documents the seller/authority provides) · ask (species-dependent —",
+    "check before paying) · ok (no wildlife law in the way; destination",
+    "agriculture rules may still apply and the row says so).",
+    "Appendix statements name what the CITES checklist returns for the",
+    "species; every row links the checklist so a reader verifies against the",
+    "tool, not against us. attempted[] records the official pages that",
+    "refused a read — printed, never guessed at (house rule)."
+  ],
+  "fetched": "2026-08-26",
+  "corpus": {
+    "records": 20702,
+    "note_th": "สแกนชื่อทุกรายการในสารบัญทั้งสองจังหวัด คำว่าเสือ ผีเสื้อ กล้วยไม้ เจอแต่ชื่อพ้องเกือบทั้งหมด — ตำบลสันผีเสื้อ ร้านไทเกอร์มาร์ท โรงแรมออร์คิด",
+    "note_en": "A name-scan of every record in both provinces meets namesakes almost entirely — the moth-named subdistrict, Tiger Mart, orchid hotels. The places where a traveller meets these goods rarely say so on their signs."
+  },
+  "laws": [
+    {
+      "key": "preserved",
+      "name_th": "สัตว์ป่าสงวน",
+      "name_en": "preserved wildlife",
+      "what_th": "ชนิดที่หายากใกล้สูญพันธุ์ที่สุด ปัจจุบัน 21 ชนิด — พ.ร.บ.สงวนและคุ้มครองสัตว์ป่า พ.ศ. 2562 กำหนดไว้ 19 ชนิด และพระราชกฤษฎีกา พ.ศ. 2567 เพิ่มวาฬสีน้ำเงินกับนกชนหินอีก 2 ชนิด",
+      "what_en": "The rarest tier — currently 21 species: 19 under the Wildlife Conservation and Protection Act B.E. 2562 (2019), plus the blue whale and the helmeted hornbill added by royal decree in B.E. 2567 (2024). No trade, no possession, no export — no paper exists for a traveller.",
+      "sources": [
+        {"ref": "https://portal.dnp.go.th/Content/LegalAffairs?contentId=22540", "fetched": "2026-08-26"},
+        {"ref": "https://dl.parliament.go.th/handle/20.500.13072/622056", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "protected",
+      "name_th": "สัตว์ป่าคุ้มครอง",
+      "name_en": "protected wildlife",
+      "what_th": "บัญชียาวตามกฎกระทรวง พ.ศ. 2567 และฉบับที่ 2 พ.ศ. 2569 — ล่า ค้า ครอบครอง ส่งออก ต้องมีใบอนุญาต และนักท่องเที่ยวทั่วไปไม่มีทางได้ใบนั้นที่สนามบิน",
+      "what_en": "The long list, set by ministerial regulation B.E. 2567 with a second edition dated B.E. 2569 — this year, which is why this page links the register instead of copying it. Hunting, trade, possession and export all need permits a tourist does not hold.",
+      "sources": [
+        {"ref": "https://portal.dnp.go.th/Content/LegalAffairs?contentId=22540", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "controlled",
+      "name_th": "สัตว์ป่าควบคุม",
+      "name_en": "controlled wildlife",
+      "what_th": "ชนิดตามอนุสัญญาไซเตสที่ไม่ใช่สัตว์ป่าสงวนหรือคุ้มครอง — ประกาศกระทรวง พ.ศ. 2568 การครอบครองต้องแจ้ง การค้าและเพาะพันธุ์ต้องมีใบอนุญาต",
+      "what_en": "CITES-convention species that are not on the preserved or protected lists — designated by ministerial announcement B.E. 2568. Possession must be notified; breeding and trading are licensed.",
+      "sources": [
+        {"ref": "https://portal.dnp.go.th/Content/LegalAffairs?contentId=22540", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "cites",
+      "name_th": "อนุสัญญาไซเตส — บัญชี 1 · 2 · 3",
+      "name_en": "CITES — Appendix I · II · III",
+      "what_th": "บัญชี 1: ห้ามการค้าเชิงพาณิชย์ระหว่างประเทศ (ช้าง เสือ เต่าทะเล) · บัญชี 2: ค้าได้เมื่อมีใบอนุญาตส่งออก (กล้วยไม้ ปะการัง ไม้พะยูง) · บัญชี 3: ชนิดที่ประเทศสมาชิกขอให้ช่วยควบคุม — ตรวจชนิดไหนอยู่บัญชีไหนได้เองที่ checklist.cites.org",
+      "what_en": "Appendix I: no commercial international trade (elephants, tigers, sea turtles). Appendix II: trade only with an export permit (orchids, corals, rosewood). Appendix III: species a member state has asked for help policing. Which appendix any species sits in is checkable at checklist.cites.org — the convention's own list.",
+      "sources": [
+        {"ref": "https://checklist.cites.org/", "fetched": "2026-08-26"}
+      ]
+    }
+  ],
+  "items": [
+    {
+      "key": "ivory",
+      "name_th": "งาช้าง — ทุกชิ้น ทุกขนาด",
+      "name_en": "Ivory — any piece, any size",
+      "seen_th": "กำไล จี้ แหวน พระเครื่องเลี่ยมงา ตะขอควาญ ของแกะสลัก",
+      "seen_en": "bangles, pendants, rings, amulets in ivory casings, carved figures",
+      "class_th": "ช้างเอเชียอยู่บัญชีไซเตส 1 · ตลาดในประเทศมี พ.ร.บ.งาช้าง พ.ศ. 2558 กำกับ",
+      "class_en": "The Asian elephant is CITES Appendix I; the domestic market runs under the Elephant Ivory Tusks Act B.E. 2558 (2015), a registration scheme for ivory of domesticated Thai elephants.",
+      "carry": "no",
+      "carry_th": "ซื้อในร้านที่ขายถูกกฎหมายในไทยได้ ไม่ได้แปลว่าพาออกนอกประเทศได้ — ไม่มีเอกสารใดที่นักท่องเที่ยวขอได้เพื่อพางาช้างขึ้นเครื่อง และด่านศุลกากรระบุสัตว์ป่าตามไซเตสไว้ในของต้องห้าม",
+      "carry_en": "A shop selling it lawfully inside Thailand does not create a lawful way home: the registration papers govern the DOMESTIC market only, no traveller document exists for taking ivory out, and the customs airport list names CITES wildlife among prohibited goods. This is the sharpest legal-to-buy-here trap on the page.",
+      "check": "https://checklist.cites.org/#/en/search?fullText=elephas%20maximus",
+      "sources": [
+        {"ref": "https://www.customs.go.th/content.php?ini_content=individual_160426_01&lang=en&left_menu=menu_individual_submenu_01_160421_01", "fetched": "2026-08-26"},
+        {"ref": "https://faolex.fao.org/docs/pdf/tha167051.pdf", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "bigcat",
+      "name_th": "ชิ้นส่วนเสือและแมวป่า — เขี้ยว กรงเล็บ หนัง",
+      "name_en": "Tiger and wild-cat parts — teeth, claws, skins",
+      "seen_th": "เขี้ยวเสือเลี่ยมทอง กรงเล็บทำจี้ หนังตกแต่ง เครื่องรางที่อ้างว่ามีชิ้นส่วนจริง",
+      "seen_en": "gold-capped tiger teeth, claw pendants, decorative skins, amulets sold as containing real parts",
+      "class_th": "เสือโคร่งและเสือลายเมฆอยู่บัญชีไซเตส 1 และเป็นสัตว์ป่าคุ้มครองตามกฎหมายไทย",
+      "class_en": "The tiger and the clouded leopard are CITES Appendix I and protected wildlife in Thai law.",
+      "carry": "no",
+      "carry_th": "ครอบครอง ค้า ส่งออก ผิดกฎหมายทั้งในและนอกประเทศ — ของที่อ้างว่าเป็นเขี้ยวเสือจริงคือของที่ห้ามซื้อ ไม่ใช่ของที่ต่อราคา",
+      "carry_en": "Possession, trade and export are offences on both sides of the border. A vendor's claim that a tooth is real is a reason to walk away, not to bargain.",
+      "check": "https://checklist.cites.org/#/en/search?fullText=panthera%20tigris",
+      "sources": [
+        {"ref": "https://www.customs.go.th/content.php?ini_content=individual_160426_01&lang=en&left_menu=menu_individual_submenu_01_160421_01", "fetched": "2026-08-26"},
+        {"ref": "https://portal.dnp.go.th/Content/LegalAffairs?contentId=22540", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "turtle",
+      "name_th": "กระดองเต่า — เครื่องประดับ “กระ”",
+      "name_en": "Turtle shell — “tortoiseshell” combs and jewellery",
+      "seen_th": "หวี กำไล กรอบแว่น ลายกระเหลืองน้ำตาลจากเต่ากระ",
+      "seen_en": "combs, bangles, spectacle frames in the amber-and-brown mottle of the hawksbill",
+      "class_th": "เต่าทะเลทุกชนิดอยู่บัญชีไซเตส 1 — เต่ากระเป็นสัตว์ป่าคุ้มครอง เต่ามะเฟืองเป็นสัตว์ป่าสงวน",
+      "class_en": "Every sea turtle is CITES Appendix I; the hawksbill is protected wildlife and the leatherback sits on the preserved list itself.",
+      "carry": "no",
+      "carry_th": "ไม่มีเส้นทางถูกกฎหมายสำหรับนักท่องเที่ยว — ลาย “กระ” แท้คือสัญญาณให้วางลง",
+      "carry_en": "No lawful traveller path exists. Real tortoiseshell is a signal to put the piece down.",
+      "check": "https://checklist.cites.org/#/en/search?fullText=eretmochelys",
+      "sources": [
+        {"ref": "https://www.customs.go.th/content.php?ini_content=individual_160426_01&lang=en&left_menu=menu_individual_submenu_01_160421_01", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "coral",
+      "name_th": "ปะการัง หอยมือเสือ — แม้เก็บจากชายหาดเอง",
+      "name_en": "Coral and giant clam — even beach-picked",
+      "seen_th": "กิ่งปะการังตากแห้ง ของตกแต่งตู้ปลา เปลือกหอยมือเสือ ม้าน้ำตากแห้ง",
+      "seen_en": "dried coral branches, aquarium ornaments, giant-clam shells, dried seahorses",
+      "class_th": "ปะการังแข็งทั้งอันดับและหอยมือเสืออยู่บัญชีไซเตส 2 และเป็นสัตว์ป่าคุ้มครองตามกฎหมายไทย ม้าน้ำอยู่บัญชีไซเตส 2",
+      "class_en": "Stony corals as a whole order and the giant clams are CITES Appendix II and protected wildlife in Thai law; seahorses are Appendix II.",
+      "carry": "no",
+      "carry_th": "การเก็บเองจากทะเลไทยผิดกฎหมายตั้งแต่บนหาด ไม่ใช่แค่ที่ด่าน — ของที่ระลึกปะการังเป็นของที่ถูกยึดเป็นประจำ",
+      "carry_en": "Taking it from a Thai beach is an offence on the beach, before the airport is involved. Coral souvenirs are routine seizures at both ends of the flight.",
+      "check": "https://checklist.cites.org/#/en/search?fullText=scleractinia",
+      "sources": [
+        {"ref": "https://www.customs.go.th/content.php?ini_content=individual_160426_01&lang=en&left_menu=menu_individual_submenu_01_160421_01", "fetched": "2026-08-26"},
+        {"ref": "https://portal.dnp.go.th/Content/LegalAffairs?contentId=22540", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "livewild",
+      "name_th": "สัตว์ป่ามีชีวิต — นาก นางอาย ชะนี นก",
+      "name_en": "Live wildlife — otters, slow lorises, gibbons, birds",
+      "seen_th": "ลูกนากที่ขายเป็นสัตว์เลี้ยง นางอายถ่ายรูปข้างถนน นกปล่อยขาย",
+      "seen_en": "otter pups sold as pets, roadside photo-prop lorises, wild birds in cages",
+      "class_th": "นากเล็กเล็บสั้นและนางอายอยู่บัญชีไซเตส 1 และเป็นสัตว์ป่าคุ้มครอง — การซื้อคือการครอบครองทันที",
+      "class_en": "The small-clawed otter and the slow lorises are CITES Appendix I and protected wildlife. Buying one is possession, complete at the till.",
+      "carry": "no",
+      "carry_th": "ซื้อไม่ได้ เลี้ยงไม่ได้ พาออกไม่ได้ — และการจ่ายค่าถ่ายรูปคือการจ่ายให้ตลาดที่จับลูกสัตว์จากป่า",
+      "carry_en": "Cannot be bought, kept, or carried out — and a paid photo funds the trade that takes the infant from the forest.",
+      "check": "https://checklist.cites.org/#/en/search?fullText=nycticebus",
+      "sources": [
+        {"ref": "https://portal.dnp.go.th/Content/LegalAffairs?contentId=22540", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "wildorchid",
+      "name_th": "กล้วยไม้ป่า — ขุดจากป่า",
+      "name_en": "Wild orchids — dug from the forest",
+      "seen_th": "เหง้าติดเปลือกไม้ตามตลาดต้นไม้ รองเท้านารีขุดป่า",
+      "seen_en": "bare-root clumps on tree bark at plant markets, wild-dug lady's-slippers",
+      "class_th": "กล้วยไม้ทั้งวงศ์อยู่บัญชีไซเตสอย่างน้อยบัญชี 2 — รองเท้านารีทั้งสกุลอยู่บัญชี 1 และกฎหมายไทยคุ้มครองพืชป่าในป่าอนุรักษ์",
+      "class_en": "The whole orchid family is at least CITES Appendix II, and the lady's-slipper genus Paphiopedilum is Appendix I. Thai law protects wild plants in conservation forest besides.",
+      "carry": "no",
+      "carry_th": "ของขุดป่าไม่มีเอกสารให้ขอ — ความงามของกล้วยไม้ไทยซื้อได้จากสวนที่เพาะเลี้ยง ซึ่งอยู่แถวถัดไปของหน้านี้",
+      "carry_en": "A wild-dug plant has no paper to ask for. The same beauty is sold, lawfully and with documents, by the nurseries in the next row of this page.",
+      "check": "https://checklist.cites.org/#/en/search?fullText=paphiopedilum",
+      "sources": [
+        {"ref": "https://cites.dnp.go.th/", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "farmorchid",
+      "name_th": "กล้วยไม้จากสวนเพาะเลี้ยง",
+      "name_en": "Nursery-grown orchids",
+      "seen_th": "ต้นในกระถาง ขวดเพาะเลี้ยงเนื้อเยื่อ ช่อดอกตัด — สวนกล้วยไม้แม่ริมขายทุกแบบ",
+      "seen_en": "potted plants, tissue-culture flasks, cut sprays — the Mae Rim orchid farms sell all three",
+      "class_th": "ยังอยู่บัญชีไซเตส 2 แต่ของเพาะเลี้ยงมีเส้นทางเอกสาร: ใบรับรองสุขอนามัยพืชจากกรมวิชาการเกษตร และใบอนุญาตไซเตสตามชนิด",
+      "class_en": "Still Appendix II — but propagated plants have a paper path: a phytosanitary certificate from the Department of Agriculture, plus a CITES export permit where the species needs one. Established farms arrange both routinely.",
+      "carry": "papers",
+      "carry_th": "ถามที่สวนก่อนจ่าย: “ส่งออกได้ไหม เอกสารสวนจัดให้หรือเปล่า” — สวนที่ส่งออกประจำตอบได้ทันที และปลายทางของคุณมีด่านพืชของตัวเองด้วย",
+      "carry_en": "Ask the farm before paying: can this travel, and do you arrange the papers? An exporting farm answers at once. Your destination has a plant desk of its own — name your country when you ask.",
+      "check": "https://checklist.cites.org/#/en/search?fullText=orchidaceae",
+      "sources": [
+        {"ref": "https://www.customs.go.th/content.php?ini_content=individual_160426_01&lang=en&left_menu=menu_individual_submenu_01_160421_01", "fetched": "2026-08-26"},
+        {"ref": "https://cites.dnp.go.th/", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "croc",
+      "name_th": "เครื่องหนังจระเข้ — จากฟาร์มจดทะเบียน",
+      "name_en": "Crocodile leather — from registered farms",
+      "seen_th": "กระเป๋า เข็มขัด รองเท้า จากฟาร์มจระเข้ไทย",
+      "seen_en": "bags, belts, shoes from Thai crocodile farms",
+      "class_th": "จระเข้น้ำจืดไทยอยู่บัญชีไซเตส 1 แต่ฟาร์มเพาะพันธุ์ที่จดทะเบียนกับไซเตสค้าได้ตามใบอนุญาต — ร้านที่ถูกต้องออกใบอนุญาตส่งออกไซเตสให้กับชิ้นงาน",
+      "class_en": "The Siamese crocodile is CITES Appendix I, but registered captive-breeding operations trade lawfully under permit — a legitimate shop provides the CITES export document with the piece.",
+      "carry": "papers",
+      "carry_th": "ไม่มีใบ ไม่ซื้อ — ใบอนุญาตไซเตสต้องมากับของ ณ จุดขาย ไม่ใช่ “ไปขอทีหลังได้”",
+      "carry_en": "No document, no sale. The CITES paper comes with the piece at the till — it is not something to sort out later, and your home customs will ask for it.",
+      "check": "https://checklist.cites.org/#/en/search?fullText=crocodylus%20siamensis",
+      "sources": [
+        {"ref": "https://cites.dnp.go.th/", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "wood",
+      "name_th": "ไม้พะยูง ไม้กฤษณา — ของแกะสลักและน้ำมันหอม",
+      "name_en": "Rosewood and agarwood — carvings and oud oil",
+      "seen_th": "พระไม้ ของแกะสลักไม้เนื้อแข็งสีเข้ม น้ำมันกฤษณา ไม้หอมชิ้น",
+      "seen_en": "dark hardwood carvings and Buddha figures, agarwood chips, oud oil",
+      "class_th": "ไม้พะยูงและสกุล Dalbergia ทั้งสกุลอยู่บัญชีไซเตส 2 · ไม้กฤษณา (สกุล Aquilaria) อยู่บัญชี 2 — ของสวนปลูกส่งออกได้ตามใบอนุญาต",
+      "class_en": "Siamese rosewood — and the whole Dalbergia genus — is CITES Appendix II, as is agarwood (Aquilaria). Plantation agarwood exports travel on permits; wild rosewood is the region's most trafficked timber.",
+      "carry": "ask",
+      "carry_th": "ถามชนิดไม้ก่อนซื้อและขอใบเสร็จที่ระบุชนิด — ไม้สักและไม้ทั่วไปแกะสลักไปได้ ไม้พะยูงต้องมีเอกสาร ของไม่มีที่มาคือความเสี่ยงของคุณที่ด่าน",
+      "carry_en": "Ask which wood it is and get the species on the receipt. Teak and common woods travel; rosewood needs papers; a piece with no stated origin is your risk at the desk, both ends.",
+      "check": "https://checklist.cites.org/#/en/search?fullText=dalbergia",
+      "sources": [
+        {"ref": "https://checklist.cites.org/", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "insect",
+      "name_th": "ผีเสื้อและแมลงในกรอบ",
+      "name_en": "Framed butterflies and beetles",
+      "seen_th": "กรอบผีเสื้อถุงทอง กว่างห้าเขา ตามร้านของที่ระลึก",
+      "seen_en": "framed birdwings and stag beetles in souvenir rows",
+      "class_th": "ผีเสื้อถุงทองทั้งสกุลอยู่บัญชีไซเตส 2 และผีเสื้อกับด้วงหลายชนิดเป็นสัตว์ป่าคุ้มครองตามกฎกระทรวง",
+      "class_en": "The birdwing genera are CITES Appendix II, and a number of Thai butterflies and beetles sit on the protected list by ministerial regulation.",
+      "carry": "ask",
+      "carry_th": "ชนิดคือทุกอย่าง — ถามชื่อชนิดและแหล่งเพาะเลี้ยง ของไม่มีป้ายชนิดอย่าพาไปเจอด่าน",
+      "carry_en": "Species is everything. Ask for the species name and whether it was farm-reared; an unlabelled frame is not worth meeting a customs desk with.",
+      "check": "https://checklist.cites.org/#/en/search?fullText=troides",
+      "sources": [
+        {"ref": "https://portal.dnp.go.th/Content/LegalAffairs?contentId=22540", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "snakebottle",
+      "name_th": "งูดองเหล้า แมงป่องดอง",
+      "name_en": "Snakes and scorpions in bottles",
+      "seen_th": "เหล้าดองงูเห่า แมงป่องในแท่งอะคริลิก",
+      "seen_en": "cobra whisky, scorpions cast in acrylic blocks",
+      "class_th": "งูเห่าทุกชนิดในเอเชียอยู่บัญชีไซเตส 2 และงูหลายชนิดเป็นสัตว์ป่าคุ้มครอง",
+      "class_en": "Asian cobras are CITES Appendix II and several Thai snakes are protected wildlife.",
+      "carry": "ask",
+      "carry_th": "ขวดที่มีสัตว์บัญชีไซเตสโดยไม่มีเอกสารถูกยึดได้ทั้งขาออกและขาเข้า — และหลายประเทศห้ามนำเข้าโดยสิ้นเชิง",
+      "carry_en": "A bottle holding a CITES-listed animal travels on papers or not at all — seizable leaving and arriving, and several countries refuse it outright regardless.",
+      "check": "https://checklist.cites.org/#/en/search?fullText=naja",
+      "sources": [
+        {"ref": "https://portal.dnp.go.th/Content/LegalAffairs?contentId=22540", "fetched": "2026-08-26"}
+      ]
+    },
+    {
+      "key": "finethings",
+      "name_th": "ของที่เดินทางได้สบาย — ผ้าไหม ศิลาดล ร่มบ่อสร้าง กาแฟ ชา",
+      "name_en": "The things that travel easily — silk, celadon, Bo Sang umbrellas, coffee, tea",
+      "seen_th": "ผ้าไหมผ้าฝ้าย เครื่องเขิน ศิลาดล กระดาษสา หมอนสามเหลี่ยม กาแฟดอยช้าง ชาอู่หลง ผลไม้อบแห้ง",
+      "seen_en": "silk and cotton, lacquerware, celadon, sa paper, triangle cushions, Doi Chang coffee, oolong tea, dried fruit",
+      "class_th": "ไม่มีกฎหมายสัตว์ป่าหรือพืชป่าขวางทาง — งานหัตถกรรมและของแปรรูปคือของฝากที่กฎหมายออกแบบมาให้ซื้อ",
+      "class_en": "No wildlife or wild-plant law stands in the way — the handicraft and processed rows are what the law leaves wide open, and they are the region's best work anyway.",
+      "carry": "ok",
+      "carry_th": "ข้อเดียวที่เหลือคือด่านเกษตรของประเทศปลายทาง: ผลไม้สดผ่านยากเกือบทุกที่ ของอบแห้งบรรจุปิดผ่านง่ายกว่ามาก — เผื่อใจเรื่องนี้ตอนเลือก",
+      "carry_en": "The one gate left is your destination's agriculture desk: fresh fruit rarely crosses any border, sealed dried goods nearly always do — worth remembering at the moment of choosing.",
+      "sources": [
+        {"ref": "https://www.customs.go.th/content.php?ini_content=individual_160426_01&lang=en&left_menu=menu_individual_submenu_01_160421_01", "fetched": "2026-08-26"}
+      ]
+    }
+  ],
+  "attempted": [
+    {
+      "ref": "https://cites.org/eng/parties/country-profiles/th/national-authorities",
+      "note": "HTTP 403 to a plain fetch, 2026-08-26 — the CITES page naming Thailand's management authorities would not open from this machine; the DNP permit portal is linked instead and names itself."
+    },
+    {
+      "ref": "https://cites.org/eng/node/2597",
+      "note": "HTTP 403 to a plain fetch, 2026-08-26 — Thailand's notified procedures for plant export permits; the customs airport page's own line (plants and their parts: Department of Agriculture) stands in with the DoA named at the source we could read."
+    }
+  ],
+  "unverified": []
+}

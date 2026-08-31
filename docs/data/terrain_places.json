@@ -1,0 +1,87 @@
+{
+ "read": "2026-08-27",
+ "note": "the directory's own pins, elevation read from the z12 cache by importers/build_terrain.py; matched from canonical by name, never typed",
+ "places": [
+  {
+   "id": "cm-osm-way-114651040",
+   "prov": "cm",
+   "nameTh": "วัดพระธาตุดอยสุเทพ",
+   "nameEn": "wat Phrathat Doi Suthep Racha Worawihan",
+   "lat": 18.80492,
+   "lng": 98.9221,
+   "ele": 1056
+  },
+  {
+   "id": "cr-osm-node-2082753285",
+   "prov": "cr",
+   "nameTh": "ดอยตุง",
+   "nameEn": "Doi Tung",
+   "lat": 20.34758,
+   "lng": 99.83915,
+   "ele": 1292
+  },
+  {
+   "id": "cm-osm-node-10175550621",
+   "prov": "cm",
+   "nameTh": "ม่อนแจ่ม",
+   "nameEn": "Mon Cham",
+   "lat": 18.93585,
+   "lng": 98.82271,
+   "ele": 1303
+  },
+  {
+   "id": "cr-osm-node-1227377722",
+   "prov": "cr",
+   "nameTh": "ภูชี้ฟ้า",
+   "nameEn": "Phu Chi Fa",
+   "lat": 19.85007,
+   "lng": 100.45407,
+   "ele": 1596
+  },
+  {
+   "id": "cm-osm-node-9444644428",
+   "prov": "cm",
+   "nameTh": "ดอยอ่างขาง",
+   "nameEn": "Doi Angkhan",
+   "lat": 19.86924,
+   "lng": 99.05502,
+   "ele": 1907
+  },
+  {
+   "id": "cr-onab-03570116008",
+   "prov": "cr",
+   "nameTh": "วัดร่องขุ่น",
+   "nameEn": "",
+   "lat": 19.90127,
+   "lng": 99.82783,
+   "ele": 399
+  },
+  {
+   "id": "cm-osm-relation-9227296",
+   "prov": "cm",
+   "nameTh": "ทะเลสาบห้วยตึงเฒ่า",
+   "nameEn": "Huay Tueng Tao Lake",
+   "lat": 18.86791,
+   "lng": 98.94117,
+   "ele": 349
+  },
+  {
+   "id": "cr-osm-way-487637817",
+   "prov": "cr",
+   "nameTh": "หอนาฬิกา",
+   "nameEn": "Clock Tower",
+   "lat": 19.90716,
+   "lng": 99.83099,
+   "ele": 400
+  },
+  {
+   "id": "cm-osm-way-313040943",
+   "prov": "cm",
+   "nameTh": "วัดพระธาตุดอยคำ",
+   "nameEn": "Wat Phra That Doi Kham",
+   "lat": 18.75944,
+   "lng": 98.91884,
+   "ele": 472
+  }
+ ]
+}

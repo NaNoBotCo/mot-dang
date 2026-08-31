@@ -409,7 +409,7 @@
   "id": "cm-curated-cnxpole",
   "province": "cm",
   "cat": [
-   "learn"
+   "sport"
   ],
   "sub": [
    "dance"
@@ -2052,8 +2052,8 @@
   },
   "featured": false,
   "landmark": false,
-  "blurb_th": "คลินิกเวชกรรมกลางเวียง เปิดทุกวัน — ตรวจสุขภาพ ตรวจเลือด คัดกรองโรคติดต่อทางเพศสัมพันธ์ และระบุระบบต่อมไร้ท่อไว้ในกลุ่มโรคที่ดูแล",
-  "blurb_en": "A general clinic in the old city, open daily — health checks, blood tests, STI screening, and it names endocrine conditions among what it treats.",
+  "blurb_th": "คลินิกเวชกรรมกลางเวียง เปิดทุกวัน — ตรวจสุขภาพ ตรวจเลือด คัดกรองโรคติดต่อทางเพศสัมพันธ์ และมีคลินิกเบาหวาน ไทรอยด์ ต่อมไร้ท่อ ตามหน้าเว็บของคลินิกเอง",
+  "blurb_en": "A general clinic in the old city, open daily — health checks, blood tests, STI screening, and its own page states a diabetes–thyroid–endocrine clinic.",
   "sources": [
    {
     "type": "web",
@@ -2064,10 +2064,15 @@
     "type": "web",
     "ref": "https://thaisisterhood.com/resources/clinics",
     "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://hugsamedical.com/คลินิกเบาหวาน/",
+    "fetched": "2026-08-26"
    }
   ],
   "confidence": "curated",
-  "updatedAt": "2026-08-21"
+  "updatedAt": "2026-08-26"
  },
  {
   "id": "cm-curated-piman-clinic",
@@ -2209,5 +2214,222 @@
   ],
   "confidence": "curated",
   "updatedAt": "2026-08-21"
+ },
+ {
+  "id": "cm-curated-counselling-thailand",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "Counselling Thailand",
+  "nameEn": "Counselling Thailand — Chiang Mai",
+  "lat": 18.802174,
+  "lng": 98.961286,
+  "geoPrecision": "approx",
+  "address": "53 ถ.ชลประทาน ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
+  "phone": "098-776-8857",
+  "website": "https://counsellingthailand.com/therapy-chiang-mai/",
+  "hours": "Mo-Sa 08:00-20:00",
+  "attrs": {
+   "kind": "counselling practice",
+   "specialty": [
+    "psych"
+   ],
+   "specialtyVia": "own-site",
+   "pinVia": "address-street-match",
+   "pinUncertaintyM": "3607",
+   "pinFrom": "Khlong Chonlaprathan Road"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "สำนักงานให้คำปรึกษาเอกชนบนถนนชลประทาน หน้าเว็บของเขาเองระบุ CBT (Cognitive Behavioural Therapy) ไว้ในรายการวิธีบำบัด รับทั้งภาษาไทยและอังกฤษ นัดได้จันทร์–เสาร์ 8 โมงเช้าถึง 2 ทุ่ม หน้าเว็บแจ้งราคา 2,675 บาท/60 นาที และ 3,745 บาท/90 นาที (ยังไม่ได้ยืนยันที่เคาน์เตอร์)",
+  "blurb_en": "A private counselling office on Chonpratan Road — its own page lists CBT (cognitive behavioural therapy) among its methods, works in Thai and English, and sits Monday–Saturday 8am–8pm. Its page states 2,675 baht for 60 minutes and 3,745 for 90 (not yet confirmed at the counter).",
+  "_pricesVerified": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://counsellingthailand.com/therapy-chiang-mai/",
+    "fetched": "2026-08-26"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-26"
+ },
+ {
+  "id": "cm-curated-chiangmai-holistic",
+  "province": "cm",
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
+  "name": "Chiang Mai Holistic",
+  "nameEn": "Chiang Mai Holistic",
+  "lat": 18.802174,
+  "lng": 98.961286,
+  "geoPrecision": "approx",
+  "address": "17/8 ถ.คลองชลประทาน ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200",
+  "website": "https://www.chiangmaiholistic.com/outpatient-counselling-chiang-mai.php",
+  "hours": "Mo-Sa 09:00-21:00; Su 12:00-21:00",
+  "attrs": {
+   "kind": "counselling practice",
+   "specialty": [
+    "psych"
+   ],
+   "specialtyVia": "own-site",
+   "pinVia": "address-street-match",
+   "pinUncertaintyM": "3607",
+   "pinFrom": "Khlong Chonlaprathan Road"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ศูนย์บำบัดบนถนนคลองชลประทาน หน้าเว็บของเขาเองระบุ CBT (Cognitive Behavioural Therapy) ไว้ในรายการวิธีบำบัด มีนักบำบัดสองภาษา ไทย–อังกฤษ สำหรับพบตัวจริง และภาษาอื่นทางออนไลน์ เปิดจันทร์–เสาร์ 9 โมงเช้าถึง 3 ทุ่ม อาทิตย์เที่ยงถึง 3 ทุ่ม ติดต่อทางอีเมลหรือ WhatsApp",
+  "blurb_en": "A therapy centre on Canal Road — its own page lists CBT (cognitive behavioural therapy) among its modalities, with bilingual Thai–English therapists in person and more languages online. Monday–Saturday 9am–9pm, Sunday noon–9pm; contact is by email or WhatsApp.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.chiangmaiholistic.com/outpatient-counselling-chiang-mai.php",
+    "fetched": "2026-08-26"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-26"
+ },
+ {
+  "id": "cm-curated-mfa-legalization-desk",
+  "province": "cm",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สำนักงานหนังสือเดินทางฯ เชียงใหม่ (งานรับรองนิติกรณ์เอกสาร)",
+  "nameEn": "MFA Passport Office Chiang Mai — Legalization Desk",
+  "nameTh": "สำนักงานหนังสือเดินทางฯ เชียงใหม่ (งานรับรองนิติกรณ์เอกสาร)",
+  "lat": 18.768963,
+  "lng": 98.975343,
+  "geoPrecision": "approx",
+  "address": "ศูนย์การค้าเซ็นทรัล เชียงใหม่ แอร์พอร์ต ชั้น 5 (ฝั่งโรบินสัน) อ.เมืองเชียงใหม่ จ.เชียงใหม่",
+  "phone": "053-112-748",
+  "website": "https://consular.mfa.go.th/th/publicservice/%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%A3%E0%B8%AD%E0%B8%87%E0%B8%99%E0%B8%B4%E0%B8%95%E0%B8%B4%E0%B8%81%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B9%80%E0%B8%AD%E0%B8%81%E0%B8%AA%E0%B8%B2%E0%B8%A3",
+  "hours": "Mo-Fr 09:00-16:00",
+  "attrs": {
+   "kind": "government desk — MFA legalization (นิติกรณ์)",
+   "queueUrl": "https://qlegal.consular.go.th",
+   "priceHeard": "ตราละ 200 บาท รับใน 2 วันทำการ · แบบด่วน 400 บาท ยื่นเช้ารับวันเดียวกัน (เอกสารบางประเภท)",
+   "_pricesVerified": false,
+   "pinVia": "anchor-match",
+   "pinFrom": "เซ็นทรัล เชียงใหม่ แอร์พอร์ต (cm-osm-way-87710118)",
+   "pinUncertaintyM": "120"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "โต๊ะรับรองนิติกรณ์เอกสาร (ní-tì-kɔɔn — การรับรองเอกสารราชการเพื่อใช้ข้ามประเทศ) ของกรมการกงสุล กระทรวงการต่างประเทศ ประจำภาคเหนือ อยู่ในสำนักงานหนังสือเดินทางฯ เชียงใหม่ ชั้น 5 เซ็นทรัล เชียงใหม่ แอร์พอร์ต ฝั่งโรบินสัน จันทร์–ศุกร์ 09:00–16:00 ต้องจองคิวออนไลน์ที่ qlegal.consular.go.th ก่อนเข้า ค่าธรรมเนียมตามคู่มือราชการ ตราละ 200 บาท รับใน 2 วันทำการ หรือแบบด่วน 400 บาท ยื่นช่วงเช้ารับวันเดียวกันสำหรับเอกสารบางประเภท (ยังไม่ยืนยันที่เคาน์เตอร์) เอกสารไทยที่จะไปต่างประเทศมักต้องแปลก่อนแล้วนำมารับรองที่นี่ โทร 053-112-748",
+  "blurb_en": "The Ministry of Foreign Affairs' northern legalization desk (นิติกรณ์, ní-tì-kɔɔn — certification of documents for cross-border use) sits inside the MFA passport office, floor 5 of Central Chiang Mai Airport on the Robinson side. Monday–Friday 09:00–16:00, online queue at qlegal.consular.go.th before you come. The government manual's fee is 200 baht a seal returned in two working days, or 400 baht express handed in before mid-morning and returned the same day for some document types — not yet confirmed at the counter. A Thai document heading abroad is normally translated first, then sealed here. Tel 053-112-748.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://consular.mfa.go.th/th/publicservice/%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%A3%E0%B8%AD%E0%B8%87%E0%B8%99%E0%B8%B4%E0%B8%95%E0%B8%B4%E0%B8%81%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B9%80%E0%B8%AD%E0%B8%81%E0%B8%AA%E0%B8%B2%E0%B8%A3",
+    "fetched": "2026-08-28"
+   },
+   {
+    "type": "web",
+    "ref": "https://info.go.th/procedure/94e56d14-f82f-4203-8916-a84631e0af15/view",
+    "fetched": "2026-08-28"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-28"
+ },
+ {
+  "id": "cm-curated-us-consulate-chiangmai",
+  "province": "cm",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "สถานกงสุลใหญ่สหรัฐอเมริกา เชียงใหม่",
+  "nameEn": "U.S. Consulate General Chiang Mai",
+  "nameTh": "สถานกงสุลใหญ่สหรัฐอเมริกา เชียงใหม่",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "131 หมู่ 4 ถนนซุปเปอร์ไฮเวย์เชียงใหม่–ลำปาง ต.หนองป่าครั่ง อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50000",
+  "website": "https://th.usembassy.gov/acs-chiang-mai/",
+  "hours": "",
+  "attrs": {
+   "kind": "consulate — American Citizen Services (notarials by appointment)",
+   "acsEmail": "acschn@state.gov",
+   "priceHeard": "US$50 per notarial seal — dollars, baht or card",
+   "_pricesVerified": false,
+   "movedNote": "OSM and most maps still pin the old Wichayanon Rd compound (checked 2026-08-28); the consulate's own contact page states the superhighway address — go by the address, not an old pin"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ฝ่ายบริการพลเมืองอเมริกัน (ACS) รับรองเอกสารแบบโนตารีสำหรับเอกสารที่จะใช้ในสหรัฐฯ — คำให้การ หนังสือมอบอำนาจ รับรองสำเนาพาสปอร์ตสหรัฐฯ — เฉพาะนัดหมายล่วงหน้าผ่านหน้า ACS ของสถานทูตเท่านั้น ไม่รับ walk-in ค่าธรรมเนียมตามหน้าประกาศของสถานทูตเอง ตราละ 50 ดอลลาร์ จ่ายเป็นดอลลาร์ บาท หรือบัตรได้ (ยังไม่ยืนยันที่เคาน์เตอร์) ที่ทำการย้ายไปอาคารใหม่ริมซุปเปอร์ไฮเวย์ ต.หนองป่าครั่ง แล้ว — แผนที่ส่วนใหญ่ยังปักหมุดที่ถนนวิชยานนท์ที่เดิม ให้ไปตามที่อยู่ ไม่ใช่ตามหมุดเก่า อีเมล acschn@state.gov",
+  "blurb_en": "American Citizen Services notarizes documents bound for the United States — affidavits, acknowledgements, powers of attorney, certified copies of US passports — by appointment only through the consulate's ACS pages; no walk-ins. The consulate's own published fee is US$50 a seal, payable in dollars, baht or by card (not yet confirmed at the counter). The consulate has moved to its new compound on the Chiang Mai–Lampang Superhighway in Nong Pa Khrang — most maps still pin the old Wichayanon Road compound, so go by the address, not an old pin. Carrying US federal-benefit paperwork? Say so when booking. Email acschn@state.gov.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://th.usembassy.gov/acs-chiang-mai/",
+    "fetched": "2026-08-28"
+   },
+   {
+    "type": "web",
+    "ref": "https://th.usembassy.gov/acs-service-fees/",
+    "fetched": "2026-08-28"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-28"
+ },
+ {
+  "id": "cm-curated-aphiwat-bualoi-law",
+  "province": "cm",
+  "cat": [
+   "business"
+  ],
+  "sub": [
+   "professional"
+  ],
+  "name": "Aphiwat Bualoi Law Office",
+  "nameEn": "Aphiwat Bualoi Law Office",
+  "lat": 18.8016,
+  "lng": 98.9663,
+  "geoPrecision": "approx",
+  "address": "ห้อง 3i ชั้น 3 เลขที่ 191 ถนนห้วยแก้ว ต.สุเทพ อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50200 (ตรงข้ามกาดริมโขงและเมญ่า)",
+  "phone": "064-932-1365",
+  "website": "https://aphiwatlaw.com/notary-chiang-mai/",
+  "hours": "",
+  "attrs": {
+   "kind": "law office — notarial services attorney",
+   "notaryVia": "own-site",
+   "facets": {
+    "notary": true
+   },
+   "pinVia": "anchor-match",
+   "pinFrom": "MAYA (cm-osm-node-2717002069)",
+   "pinUncertaintyM": "200"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "สำนักงานกฎหมายบนถนนห้วยแก้ว ตรงข้ามเมญ่า (ห้อง 3i ชั้น 3 เลขที่ 191 มีที่จอดรถฟรี) หน้าเว็บของเขาเองระบุงานโนตารี — รับรองลายมือชื่อและรับรองสำเนาถูกต้อง เอกสารวีซ่า สำเนาพาสปอร์ต หนังสือมอบอำนาจ หนังสือรับรองการมีชีวิต วุฒิการศึกษา เอกสารบริษัท — ทั้งไทยและอังกฤษ พร้อมแขวนใบทะเบียนทนายความผู้ทำคำรับรองฯ ของสภาทนายความ (พ.ศ. 2566) ในสำนักงาน เอกสารที่ยื่นช่วงเช้ามักเสร็จในวันเดียว ค่าบริการขึ้นกับชนิดเอกสารและจำนวนลายมือชื่อ — ถามพร้อมเอกสารในมือ โทร 064-932-1365 อีเมล info@aphiwatlaw.com",
+  "blurb_en": "A law office on Huay Kaew Road opposite MAYA and Kad Rincome (room 3i, floor 3, no. 191, free parking) whose own page states notarial work — certifying signatures and true copies: visa papers, passport copies, powers of attorney, life certificates, degrees, company documents — in English and Thai, with the Lawyers Council notarial-services registration (B.E. 2566) displayed in the office. Papers brought in the morning are normally finished the same day; the fee depends on the document and the number of signatures, so ask with the document in hand. Tel 064-932-1365, info@aphiwatlaw.com.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://aphiwatlaw.com/notary-chiang-mai/",
+    "fetched": "2026-08-28"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-28"
  }
 ]
