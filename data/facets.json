@@ -1821,6 +1821,376 @@
      "ask_en": "Can the fee go on a card?"
     }
    ]
+  },
+  {
+   "key": "pest",
+   "appliesTo": [
+    "pest-control"
+   ],
+   "th": "โทรถามอะไรก่อนจ้าง",
+   "en": "What to settle before you hire",
+   "note_th": "ทั้งหมดนี้ถามทางโทรศัพท์หรือทางไลน์ได้ ไม่ต้องไปถึงหน้าร้าน — เป็นงานที่เขามาหาเรา ไม่ใช่เราไปหาเขา",
+   "note_en": "Every one of these is settled on the phone or over LINE. This is a trade that comes to you, so there is no counter to stand at — the questions are the visit.",
+   "facets": [
+    {
+     "key": "fdalicence",
+     "icon": "📋",
+     "th": "มีใบอนุญาตวัตถุอันตราย",
+     "en": "Holds the hazardous-substances permission",
+     "ask_th": "มีใบอนุญาตวัตถุอันตรายไหมคะ/ครับ ขอดูหน่อยได้ไหม",
+     "ask_en": "Do you hold the hazardous-substances permission, and may I see it?"
+    },
+    {
+     "key": "termite",
+     "icon": "🪵",
+     "th": "ปลวก",
+     "en": "Termites",
+     "ask_th": "รับงานปลวกไหมคะ/ครับ",
+     "ask_en": "Do you take termite work?"
+    },
+    {
+     "key": "rodent",
+     "icon": "🐀",
+     "th": "หนู",
+     "en": "Rats and mice",
+     "ask_th": "รับกำจัดหนูด้วยไหมคะ/ครับ",
+     "ask_en": "Do you do rats as well?"
+    },
+    {
+     "key": "bedbug",
+     "icon": "🛏",
+     "th": "ตัวเรือด",
+     "en": "Bed bugs",
+     "ask_th": "รับงานตัวเรือดไหมคะ/ครับ",
+     "ask_en": "Do you take bed bugs?"
+    },
+    {
+     "key": "mosquito",
+     "icon": "🦟",
+     "th": "ยุง · พ่นหมอกควัน",
+     "en": "Mosquitoes and fogging",
+     "ask_th": "รับพ่นหมอกควันกำจัดยุงไหมคะ/ครับ",
+     "ask_en": "Do you fog for mosquitoes?"
+    },
+    {
+     "key": "baitsystem",
+     "icon": "🪤",
+     "th": "ระบบเหยื่อ",
+     "en": "Bait system",
+     "ask_th": "มีระบบเหยื่อไหมคะ/ครับ ราคาต่อเมตรเท่าไหร่",
+     "ask_en": "Do you offer a bait system, and what is the rate per metre?"
+    },
+    {
+     "key": "pipesystem",
+     "icon": "🚰",
+     "th": "วางท่อ · อัดน้ำยา",
+     "en": "Pipework and injection",
+     "ask_th": "อัดน้ำยาหรือวางท่อได้ไหมคะ/ครับ ราคาต่อเมตรเท่าไหร่",
+     "ask_en": "Can you inject or lay pipework, and what is the rate per metre?"
+    },
+    {
+     "key": "herbal",
+     "icon": "🌿",
+     "th": "บอกว่าใช้สมุนไพร ไม่ใช้เคมี",
+     "en": "States a herbal, non-chemical method",
+     "ask_th": "ใช้สารเคมีหรือสมุนไพรคะ/ครับ ตัวยาชื่ออะไร",
+     "ask_en": "Chemical or herbal — and what is the product called?"
+    },
+    {
+     "key": "warranty",
+     "icon": "🧾",
+     "th": "รับประกันเป็นลายลักษณ์อักษร",
+     "en": "Guarantee in writing",
+     "ask_th": "รับประกันกี่ปี มีเอกสารรับประกันไหมคะ/ครับ",
+     "ask_en": "How long is the guarantee, and is it written down?"
+    },
+    {
+     "key": "petsafe",
+     "icon": "🐕",
+     "th": "บอกได้ว่าต้องพาคนและสัตว์เลี้ยงออกกี่ชั่วโมง",
+     "en": "Can say how many hours people and pets must be out",
+     "ask_th": "ต้องพาเด็กกับสัตว์เลี้ยงออกจากบ้านกี่ชั่วโมงคะ/ครับ",
+     "ask_en": "How many hours do children and pets need to be out of the house?"
+    },
+    {
+     "key": "priceboard",
+     "icon": "🏷",
+     "th": "บอกราคาไว้ล่วงหน้า",
+     "en": "Publishes a price",
+     "ask_th": "มีราคาเริ่มต้นบอกไว้ไหมคะ/ครับ",
+     "ask_en": "Is there a published starting price?"
+    },
+    {
+     "key": "english",
+     "icon": "💬",
+     "th": "คุยภาษาอังกฤษได้",
+     "en": "English spoken",
+     "ask_th": "มีคนคุยภาษาอังกฤษได้ไหมคะ/ครับ",
+     "ask_en": "Is there someone who can work in English?"
+    },
+    {
+     "key": "booking",
+     "icon": "📅",
+     "th": "ต้องนัดล่วงหน้า",
+     "en": "Appointment needed",
+     "ask_th": "เข้ามาสำรวจได้เร็วสุดวันไหนคะ/ครับ",
+     "ask_en": "How soon can someone come and look?"
+    },
+    {
+     "key": "card",
+     "icon": "💳",
+     "th": "รับบัตร",
+     "en": "Cards taken",
+     "ask_th": "จ่ายด้วยบัตรได้ไหมคะ/ครับ",
+     "ask_en": "Can it go on a card?"
+    }
+   ]
+  },
+  {
+   "key": "tailor",
+   "appliesTo": [
+    "tailor",
+    "alterations",
+    "fabric"
+   ],
+   "th": "ร้านนี้รับงานแบบไหน",
+   "en": "What this shop actually takes",
+   "note_th": "คำว่า tailor ในภาษาอังกฤษรวมสี่อาชีพไว้ด้วยกัน — สูทนักท่องเที่ยว เครื่องแบบราชการ ห้องเสื้อชุดออกงาน และร้านแก้ผ้า ร้านที่ใช่สำหรับคนหนึ่งคือร้านที่ผิดสำหรับอีกคน",
+   "note_en": "One English word covers four trades: the tourist suit shop, the uniform tailor, the dressmaker's house, and the mending shop. The right shop for one reader is the wrong shop for the next, so this is the difference, written down.",
+   "facets": [
+    {
+     "key": "uniform",
+     "icon": "🎖",
+     "th": "เครื่องแบบราชการ",
+     "en": "Civil-service uniform",
+     "ask_th": "รับตัดเครื่องแบบข้าราชการไหม",
+     "ask_en": "Do they cut civil-service uniform?"
+    },
+    {
+     "key": "fulldresswhite",
+     "icon": "🤍",
+     "th": "ชุดปกติขาว",
+     "en": "Full dress white",
+     "ask_th": "รับตัดชุดปกติขาวไหม",
+     "ask_en": "Do they cut ชุดปกติขาว, the ceremonial white?"
+    },
+    {
+     "key": "policemilitary",
+     "icon": "👮",
+     "th": "ชุดตำรวจ-ทหาร",
+     "en": "Police & military",
+     "ask_th": "รับตัดชุดตำรวจหรือทหารไหม",
+     "ask_en": "Do they cut police or military uniform?"
+    },
+    {
+     "key": "insignia",
+     "icon": "⭐",
+     "th": "เครื่องหมาย-อินทรธนู",
+     "en": "Insignia & shoulder boards",
+     "ask_th": "มีเครื่องหมาย อินทรธนู แพรแถบ ป้ายชื่อ ขายด้วยไหม",
+     "ask_en": "Do they also supply insignia — boards, ribbon bars, name plates?"
+    },
+    {
+     "key": "schoolkit",
+     "icon": "🎒",
+     "th": "ชุดนักเรียน-ปักอาร์ม",
+     "en": "School kit & badge embroidery",
+     "ask_th": "รับตัดชุดนักเรียนหรือปักอาร์มไหม",
+     "ask_en": "Do they do school kit or badge embroidery?"
+    },
+    {
+     "key": "sportskit",
+     "icon": "🏅",
+     "th": "ชุดกีฬา",
+     "en": "Sports kit",
+     "ask_th": "รับตัดชุดกีฬาและใส่เบอร์ไหม",
+     "ask_en": "Do they cut sports kit and put numbers on it?"
+    },
+    {
+     "key": "eveningwear",
+     "icon": "👗",
+     "th": "ชุดราตรี-ชุดออกงาน",
+     "en": "Evening & occasion wear",
+     "ask_th": "รับตัดชุดราตรีหรือชุดออกงานไหม",
+     "ask_en": "Do they cut evening or occasion wear?"
+    },
+    {
+     "key": "thaiformal",
+     "icon": "🪷",
+     "th": "ชุดไทย-ชุดล้านนา",
+     "en": "Thai & Lanna formal dress",
+     "ask_th": "รับตัดชุดไทยหรือชุดล้านนาไหม",
+     "ask_en": "Do they cut Thai or Lanna formal dress?"
+    },
+    {
+     "key": "bridal",
+     "icon": "💍",
+     "th": "ชุดแต่งงาน",
+     "en": "Bridal",
+     "ask_th": "รับตัดชุดแต่งงานหรือชุดเพื่อนเจ้าสาวไหม",
+     "ask_en": "Do they cut wedding or bridesmaid dresses?"
+    },
+    {
+     "key": "rental",
+     "icon": "🔁",
+     "th": "ให้เช่าชุด",
+     "en": "Hire, not only cut",
+     "ask_th": "มีชุดให้เช่าด้วยไหม",
+     "ask_en": "Do they hire garments as well as make them?"
+    },
+    {
+     "key": "repairs",
+     "icon": "🧵",
+     "th": "แก้ทรง-เปลี่ยนซิป",
+     "en": "Alterations & repairs",
+     "ask_th": "รับแก้ทรง ตัดขา เปลี่ยนซิป ไหม",
+     "ask_en": "Do they take alterations — reshaping, hems, zips?"
+    },
+    {
+     "key": "copygarment",
+     "icon": "📐",
+     "th": "ตัดตามตัวอย่างที่เอาไป",
+     "en": "Copies a garment you bring",
+     "ask_th": "เอาเสื้อตัวเก่าไปให้ตัดตามได้ไหม",
+     "ask_en": "Will they copy a garment you bring in?"
+    },
+    {
+     "key": "english",
+     "icon": "🗣",
+     "th": "คุยภาษาอังกฤษได้",
+     "en": "English spoken",
+     "ask_th": "ร้านคุยภาษาอังกฤษได้ไหม",
+     "ask_en": "Is English spoken here?"
+    },
+    {
+     "key": "bigsizes",
+     "icon": "📏",
+     "th": "ไซซ์ใหญ่",
+     "en": "Sizes above Thai retail",
+     "ask_th": "รับงานไซซ์ใหญ่กว่าที่ร้านทั่วไปมีไหม",
+     "ask_en": "Do they work above the sizes Thai retail stocks?"
+    }
+   ]
+  },
+  {
+   "key": "paper",
+   "appliesTo": [
+    "copyshop",
+    "printing",
+    "translation",
+    "visa",
+    "photo"
+   ],
+   "th": "ร้านนี้ทำอะไรให้ได้บ้าง",
+   "en": "What this counter will actually do",
+   "note_th": "ร้านถ่ายเอกสาร ขาย สำเนา ส่วนร้านแปลหรือเอเจนต์วีซ่า ทำ เอกสาร — สองอาชีพ สองราคา ร้านหน้าอำเภอกับหน้า ตม. มักทำทั้งสองอย่างที่เคาน์เตอร์เดียว จึงต้องถามให้ชัดว่าจ่ายค่าอะไร",
+   "note_en": "A copy shop sells you a copy; a translator or visa agent prepares a document. Two trades, two prices — and the shop at the gate of the district office or immigration often does both at one counter, so ask which one you are paying for.",
+   "facets": [
+    {
+     "key": "printphone",
+     "icon": "📱",
+     "th": "ปริ้นจากมือถือ/LINE",
+     "en": "Print from a phone or LINE",
+     "ask_th": "ส่งไฟล์ทางไลน์แล้วปริ้นได้ไหม",
+     "ask_en": "Can I send the file by LINE and print it here?"
+    },
+    {
+     "key": "binding",
+     "icon": "📚",
+     "th": "เข้าเล่ม",
+     "en": "Binding",
+     "ask_th": "เข้าเล่มสันกาว/สันห่วงได้ไหม",
+     "ask_en": "Do they bind — glue spine or spiral?"
+    },
+    {
+     "key": "laminate",
+     "icon": "🪪",
+     "th": "เคลือบบัตร",
+     "en": "Laminating",
+     "ask_th": "เคลือบบัตรได้ไหม",
+     "ask_en": "Do they laminate?"
+    },
+    {
+     "key": "scan",
+     "icon": "🖨",
+     "th": "สแกนส่งไฟล์",
+     "en": "Scan to file",
+     "ask_th": "สแกนเอกสารส่งไฟล์ให้ได้ไหม",
+     "ask_en": "Can they scan a document and send the file?"
+    },
+    {
+     "key": "bigformat",
+     "icon": "📐",
+     "th": "ถ่ายแบบแปลน A3/A2",
+     "en": "Large-format plans",
+     "ask_th": "ถ่ายแบบแปลน A3 หรือ A2 ได้ไหม",
+     "ask_en": "Can they copy A3 or A2 plans?"
+    },
+    {
+     "key": "idphoto",
+     "icon": "📷",
+     "th": "รูปติดบัตร 4×6",
+     "en": "ID / visa photo 4×6",
+     "ask_th": "ถ่ายรูปติดบัตรขนาด 4×6 ซม. ได้ไหม",
+     "ask_en": "Can they take a 4×6 cm ID photo — the immigration size?"
+    },
+    {
+     "key": "formhelp",
+     "icon": "✍️",
+     "th": "กรอกแบบฟอร์มให้",
+     "en": "Fills in the form",
+     "ask_th": "กรอกแบบฟอร์ม ตม. หรือคำร้องราชการให้ได้ไหม",
+     "ask_en": "Will they fill in the immigration or district-office form for you?"
+    },
+    {
+     "key": "certtrans",
+     "icon": "📜",
+     "th": "แปลพร้อมรับรองคำแปล",
+     "en": "Certified translation",
+     "ask_th": "แปลแล้วรับรองคำแปลให้ด้วยไหม",
+     "ask_en": "Is the translation certified — signed and stamped by the translator?"
+    },
+    {
+     "key": "mfarun",
+     "icon": "🏛",
+     "th": "เดินเรื่องรับรองกงสุลให้",
+     "en": "Runs the MFA legalization",
+     "ask_th": "เดินเรื่องรับรองนิติกรณ์ที่กรมการกงสุลให้ไหม คิดเท่าไร",
+     "ask_en": "Do they carry the paper to the MFA legalization desk, and what do they charge for the run?"
+    },
+    {
+     "key": "visaagent",
+     "icon": "🛂",
+     "th": "ยื่นเรื่องวีซ่าให้",
+     "en": "Files the visa paperwork",
+     "ask_th": "ยื่นต่อวีซ่าหรือรายงาน 90 วันแทนได้ไหม",
+     "ask_en": "Will they file the extension or 90-day report on my behalf?"
+    },
+    {
+     "key": "english",
+     "icon": "🗣",
+     "th": "คุยอังกฤษได้",
+     "en": "English spoken",
+     "ask_th": "พูดอังกฤษได้ไหม",
+     "ask_en": "Is there English at the counter?"
+    },
+    {
+     "key": "open24",
+     "icon": "🌙",
+     "th": "เปิด 24 ชม.",
+     "en": "Open 24 hours",
+     "ask_th": "เปิด 24 ชั่วโมงไหม",
+     "ask_en": "Open around the clock?"
+    },
+    {
+     "key": "priceboard",
+     "icon": "🏷",
+     "th": "ติดป้ายราคา",
+     "en": "Prices posted",
+     "ask_th": "มีป้ายราคาต่อแผ่นไหม",
+     "ask_en": "Is the per-sheet price posted?"
+    }
+   ]
   }
  ],
  "_massage_note": "The massage set carries two of the three axes from notes/massage-granularity-proposal-2026-08-17.md. The category tree is Axis 1, what the hands do. Here, in order: Axis 2 is the FRAME — what you take off, what you lie on, who else is in the room, whether the price is on a board outside. Axis 3 is the REGISTER — who says so: the numbered สบส. certificate under the Health Establishment Act B.E. 2559, a licensed Thai-traditional-medicine clinic, a practitioner's own professional licence, and who runs the place. Together they answer the question a reader is actually asking without anyone having to characterise a business or the people working in it.\n\nTWO THINGS DELIBERATELY ABSENT, and both should stay absent.\n\nFirst, there is no 'no certificate seen' facet, even though toiletnone sets a precedent for recording an absence. A toilet is either there or it is not, and a passer-by who looked is giving testimony. A licence is different: it may be behind the counter, in an office, in a frame a customer never walks past — so 'none seen' is not testimony, it is one person's afternoon, and attached to a named business it does real harm while being easy to get wrong. hsscert is a positive fact or it is nothing.\n\nSecond, nothing here records who stands outside, how the signage looks, how late it opens, or anything else a reader might read as a hint about what a shop 'really' sells. The touching-tout signal that prompted this is on the printed reader sheet as guidance about street behaviour, which is fair and useful, and it is not a field on anybody's listing. Closing time is already plain fact in record.hours and needs no facet to carry an insinuation.",
@@ -1831,5 +2201,7 @@
  "_cooking_note": "The cooking row asks what a crawl cannot answer and what a person about to book a class asks first. NOTHING HERE IS EVER INFERRED FROM NAME OR SHELF: a school on the farm shelf is not assumed to fetch you, a school whose site says vegan is not ticked vegan until somebody at the door or the owner says so, and a school with no ticks has not been asked — it has not answered no. Sessions, prices and pickup radius are the school's own statements (attrs on the record via enrich.json, data/curated/cooking_classes.json) or nothing. The two licence facets are paperwork, photographable, and positive only: a โรงเรียนนอกระบบ registered with สช. under the Private School Act B.E. 2550 hangs a numbered licence and can issue a Ministry-recognised certificate; a class that fetches you and walks a market may be registered instead as a tour business with a TAT licence number (Suwannee in Chiang Rai prints hers). Neither absence is recorded — a licence can sit behind a counter — and neither is a judgement: a kitchen is a kitchen. The set sits BEFORE the school set on purpose: the school set claims sub `cooking`, and a cooking school should meet these questions rather than the school bus and the lunch.",
  "_chang_note": "The elephant row asks what a crawl cannot answer and what a person about to book a day with elephants asks first — and it is asked, never inferred. NOTHING HERE IS TICKED FROM A NAME, A SHELF OR A WEBSITE: a place called Sanctuary is not assumed to refuse riding, a place called Camp is not assumed to offer it, a place that says ethical is not assumed anything. What a venue states on its own page lives on the record as attrs.ridingStated / elephantProgram / elephantsStated (with programVia and a date) and on the board in data/curated/elephants.json with stated_by and fetched; a tick is the owner's or the door survey's. No welfare score, no ethical/unethical sort, ever — a wrong 'unethical' is a slur on a named family's camp at this site's scale, a wrong 'ethical' sends a reader somewhere under false comfort, and both are statements about a named business. The set sits after cooking and before school; no other set claims its subs.",
  "_realestate_note": "The realestate row asks what the crawl cannot answer and what decides whether a person takes the room. OSM sometimes knows the floor count and nothing else; the per-unit electric rate (ค่าไฟหน่วยละ) moves the real monthly cost more than the rent line does, and no map anywhere records it. Every key is a policy the building itself states — never an inference from its name or its price. The one number this set deliberately refuses: the foreign quota remaining in a condominium. It lives at the juristic office and changes with every transfer, so it may appear in data/curated/realestate.json only as a dated statement from the building's own channel — a facet tick would rot into a lie the week after it was true.",
- "_professional_note": "WO-40. The lawyer-accountant shelf's one question with its own word: โนตารี. Thailand keeps no notary public; the Lawyers Council registers notarial services attorneys (ทนายความผู้ทำคำรับรองลายมือชื่อและเอกสาร), and whether an office has one is exactly the kind of fact OSM never holds — it hangs framed on the office wall. english/booking/card are keys that already exist elsewhere; only notary is new to FACET_KEYS."
+ "_professional_note": "WO-40. The lawyer-accountant shelf's one question with its own word: โนตารี. Thailand keeps no notary public; the Lawyers Council registers notarial services attorneys (ทนายความผู้ทำคำรับรองลายมือชื่อและเอกสาร), and whether an office has one is exactly the kind of fact OSM never holds — it hangs framed on the office wall. english/booking/card are keys that already exist elsewhere; only notary is new to FACET_KEYS.",
+ "_pest_note": "WO-48. กำจัดปลวก — the trade that answers a telephone and never a door, which is why every ask_th here is a sentence for the phone or for LINE rather than something a passer-by ticks on the pavement. `fdalicence` is the one that matters and the one no other directory carries: a firm spraying for hire holds permission for type-3 hazardous substances under the Hazardous Substances Act B.E. 2535 and works under a certified supervisor, and the FDA publishes a lookup for both (data/curated/pest.json -> pest.licence.checks). It is a positive fact only — there is no 'no-licence-seen' key, for the hsscert reason: a certificate can sit in a filing cabinet, so an absence is one afternoon's answer rather than testimony, and it would land on a named business. `termite`/`rodent`/`bedbug`/`mosquito` are which animal the firm's own page says it takes — asked separately because a house with bed bugs and a house with termites are not looking for the same firm, and bed bugs are named by almost nobody. `baitsystem`/`pipesystem` are the two ways a termite job is done and the reason two quotes differ. `herbal` records a stated non-chemical method WITHOUT endorsing it — the tick means they say so, and the blurb keeps the claim in their words. `petsafe` asks for a NUMBER OF HOURS, not for reassurance: 'it's safe' is marketing, 'four hours' is a fact you can plan a day around. english/priceboard/booking/parking/card already exist.",
+ "_tailor_note": "WO-49, 2026-08-31. This set exists because the site's tailor shelf held ten records, seven of them Night Bazaar suit shops and two of them cobblers, while the Thai directories carried 126 tailors and 119 repair shops. The facets are the answer to Nan's rule that day: good for tourists does not equal good for locals or expats. An absent facet is not a false one — most shops here have been read from a directory, not walked, so only what a shop says about itself is set."
 }

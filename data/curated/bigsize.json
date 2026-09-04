@@ -1,0 +1,585 @@
+{
+ "_readme": [
+  "WO-50 — ไซส์ใหญ่. The register for a body Thai retail does not stock, and",
+  "the two questions it splits into: clothes, which can be solved, and shoes,",
+  "which largely cannot.",
+  "",
+  "Asked by Nan 2026-08-31: \"do a mot dang enrichment for large size men's",
+  "and women's shoes and clothes.\"",
+  "",
+  "MEASURED FIRST, and the measurement is the largest hole this directory has",
+  "ever found in itself. The catalogue holds 14,665 records for Chiang Mai and",
+  "6,229 for Chiang Rai. Under shopping/clothes it holds ZERO. Under",
+  "shopping/shoes it holds ZERO. Not a thin shelf — no shelf: neither key",
+  "existed in data/categories.json before today.",
+  "",
+  "This was never an OSM failure. The census taken 2026-08-07 (cache/census/)",
+  "counts 134 shop=clothes in TH-50 and 72 in TH-57 — 206 clothes shops, which",
+  "makes clothes the SIXTH most common shop value in Chiang Mai, ahead of",
+  "supermarket, ahead of car, ahead of bakery — plus 18 shop=shoes, 10",
+  "boutique, 8 bag, 26 sports and 14 outdoor. Two hundred and eighty-two",
+  "elements. Every one of them was on the open map the whole time.",
+  "",
+  "The reason is one line long and it is in our own file: shop=clothes and",
+  "shop=shoes have NEVER appeared in crawl_overpass.py QUERIES, in any group,",
+  "since the crawler was written. The `shopping` group asks for six selectors",
+  "— doityourself, hardware, gift, second_hand, herbalist, alternative — and",
+  "not one is a clothes shop. The shelf was not empty. The question was never",
+  "asked. That is the fifth time this repository has had to write that",
+  "sentence: เสริมสวย on sixty-two shopfronts, the notary, ห้องเสื้อ on a",
+  "hundred and twenty-six, ห้องซ้อม, and now this.",
+  "",
+  "AND THE ONE RECORD THAT SAID IT OUT LOUD WAS FILED AS A RESTAURANT. Of",
+  "20,894 records in two provinces exactly one names itself big-size —",
+  "ร้านเสื้อผ้า The Bigsize, OSM node 4358877280 — and it stood on the food",
+  "shelf as a Thai restaurant, because a mapper tagged amenity=restaurant and",
+  "nothing here ever read the name. ร้านเสื้อผ้า is the first word of it.",
+  "Retagged in this order (data/curated/retags.json), with the element's own",
+  "name as the receipt.",
+  "",
+  "TWO QUESTIONS, NEVER ONE VOICE — the pest/snake rule, second subject.",
+  "Clothes and shoes look like one errand and are not. A shirt can be MADE:",
+  "this directory learned 67 tailors yesterday and any of them will cut to a",
+  "body no shelf carries, which is why the clothes answer ends in a choice",
+  "between buying and commissioning. A shoe cannot, not at a price anyone",
+  "would pay for one pair. So the clothes page is a list of doors and the shoe",
+  "page is mostly a method, and folding them would let the fuller half hide",
+  "how thin the other one is.",
+  "",
+  "MEN AND WOMEN ARE ALSO NOT ONE QUESTION, and the trade says so itself: the",
+  "Thai big-size retail vocabulary is overwhelmingly female — สาวอวบ, ชุดคนอ้วน,",
+  "แฟชั่นสาวพลัสไซส์ — because a woman past a Thai L is sold to as a market and",
+  "a man past a Thai L is sent to a tailor. Neither is wrong. Both are here.",
+  "",
+  "NO SHAME IN EITHER LANGUAGE, AND NO EUPHEMISM EITHER. คนอ้วน is an ordinary",
+  "Thai shop-sign word and half the trade puts it on the sign; อวบ is the",
+  "softer one and the other half uses that. This register uses the shops' own",
+  "words when it quotes them and plain description in its own voice, and it",
+  "does not translate คนอ้วน into something more comfortable than the shop",
+  "chose. A reader who cannot find the word cannot find the shop.",
+  "",
+  "PRICES AND CEILINGS ARE _sizesVerified: false UNLESS SOMEBODY WALKED IN. A",
+  "published size range is what a shop says it carries, not what is on the",
+  "rail today, and the whole point of this register is the gap between a label",
+  "and a garment.",
+  "",
+  "CORRECTED 2026-08-31, SAME DAY, BY NAN: \"with the number of kathoeys in CM,",
+  "I thought it would be easier to find a large woman's going-out shoe.\" She is",
+  "right and the first pass was wrong — not in its numbers but in whose question",
+  "it answered. Every search behind the shoe half was framed for a man: เบอร์ 45",
+  "46 47 48, army stores, Decathlon, an EU 46 boot. A large WOMAN'S shoe is a",
+  "different trade with different numbers (41–45, not 45–48), a different word",
+  "(ส้นสูงไซส์ใหญ่, not รองเท้าไซส์ใหญ่) and a different customer, and asking the",
+  "men's question returned the men's answer and called it the city's.",
+  "",
+  "Her inference is also a demographic argument and it holds: Chiang Mai has a",
+  "large and visible กะเทย / สาวสอง population, a working cabaret trade, and",
+  "therefore steady demand for a 42 in a heel. Demand that steady is supplied by",
+  "somebody. The first pass concluded 'nobody stocks your size' from eight OSM",
+  "records — and OSM was never the place that would know."
+ ],
+ "asked_by": "Nan, 2026-08-31",
+ "fetched": "2026-08-31",
+ "corpus": {
+  "_note": "What each source was asked and what it answered. Counts are as read on the date.",
+  "osm_census": {
+   "ref": "cache/census/{cm,cr}-shop.csv",
+   "fetched": "2026-08-07",
+   "counts": {
+    "clothes": {
+     "cm": 134,
+     "cr": 72
+    },
+    "shoes": {
+     "cm": 9,
+     "cr": 9
+    },
+    "boutique": {
+     "cm": 8,
+     "cr": 2
+    },
+    "bag": {
+     "cm": 7,
+     "cr": 1
+    },
+    "sports": {
+     "cm": 23,
+     "cr": 3
+    },
+    "outdoor": {
+     "cm": 13,
+     "cr": 1
+    },
+    "shoe_repair": {
+     "cm": 1,
+     "cr": 1
+    }
+   },
+   "held_before_today": {
+    "clothes": 0,
+    "shoes": 0,
+    "sports-shop": 1
+   },
+   "why": "shop=clothes and shop=shoes were never in QUERIES. Added as the `clothing` group in this order, province-wide in both provinces.",
+   "crawl_returned": {
+    "_note": "The new `clothing` group, run province-wide 2026-08-31. Named-only, so the census count is the ceiling and this is what has a name.",
+    "cm": {
+     "total": 106,
+     "clothes": 78,
+     "sports": 11,
+     "shoes": 8,
+     "outdoor": 6,
+     "bag": 3,
+     "boutique": 2,
+     "_boutique": "500'd six times on the first run and the group was marked incomplete; retried through fetch_wide and answered 2. The group is complete."
+    },
+    "cr": {
+     "total": 42,
+     "_note": "all six selectors answered first time"
+    },
+    "shelves_after": {
+     "cm": {
+      "clothes": 78,
+      "shoes": 8,
+      "sports-shop": 18
+     },
+     "cr": {
+      "clothes": 32,
+      "shoes": 4,
+      "sports-shop": 5
+     }
+    }
+   }
+  },
+  "cmhy": {
+   "ref": "https://www.cmhy.city/category/33-Personal/",
+   "fetched": "2026-08-31",
+   "categories_read": {
+    "102-Women-Clothing-Store": "เสื้อผ้าสตรี",
+    "154-Clothing-Store": "เครื่องแต่งกาย",
+    "123-Used-Clothing-Store": "เสื้อผ้า-เครื่องแต่งกาย(มือสอง)",
+    "228-Shoes-Store": "รองเท้า"
+   },
+   "not_read": {
+    "153-TailorDressmaker-Shop": "ห้องเสื้อ-ตัดชุด — WO-49 read it yesterday",
+    "265-Repair-Service-Apparel": "ร้านซ่อมผ้า — WO-49, same"
+   },
+   "distinct_places": 583,
+   "reader": "importers/read_bigsize_sites.py",
+   "result": {
+    "read": 583,
+    "with_own_gps": 474,
+    "with_phone": 332,
+    "updated_2025_or_2026": 184,
+    "say_a_big_size_word_on_their_own_page": 1,
+    "_the_one": "ปุ้มปุ้ย บิ๊กไซส์ (สาขาคำเที่ยง) — its own tags are เสื้อผ้าบิ๊กไซส์ and เสื้อผ้าสาวอวบอ้วน; ถ.ตลาดคำเที่ยง ต.ป่าตัน; 081-169-2099; its own published GPS. Independently surfaced under ร้านปุ้มปุ้ย เสื้อผ้าสาวอวบอ้วน บิ๊กไซส์เชียงใหม่, so two sources meet on one shop. Recorded as cm-curated-pom-pui-big-size-kham-thiang.",
+    "_what_one_in_583_means": "This is the measurement that makes the page true. It is not that Chiang Mai has one big-size shop — the register's own strands say otherwise — it is that the trade does not advertise the fact where a directory can read it. One shop in five hundred and eighty-three wrote it down."
+   }
+  }
+ },
+ "the_finding": {
+  "no_such_category": {
+   "th": "ไม่มีหมวด \"ไซส์ใหญ่\" ที่ไหนเลย",
+   "en": "THERE IS NO BIG-SIZE CATEGORY, ANYWHERE. Not in OpenStreetMap's tag vocabulary, not on CMHY.city's 583-place apparel index, not on any Thai directory read for this order. A shop that carries a 3XL or a 47 is not a kind of shop in this city; it is an ordinary shop that happens to hold the size, and the only place that fact is ever written down is the shop's own name, its own hashtags, or its own description. That is why the register scores every apparel record for the words instead of filtering a category — and why the shelf this order builds is `clothes`, an honest shelf of clothes shops, with the size read onto the records that state it."
+  },
+  "night_hours": {
+   "th": "ร้านไซส์ใหญ่เปิดเย็น ไม่ได้เปิดเช้า",
+   "en": "THE BIG-SIZE TRADE KEEPS MARKET HOURS, NOT SHOP HOURS. The Chiang Mai big-size women's trade that advertises itself at all trades at กาดหน้ามอ — the night market in front of the university — and at The Chiang Mai Complex, and the hours it publishes are 16:00–22:00 and 18:00–22:00. A stall that opens at six in the evening is not a storefront, and that is the mechanism behind its absence from every map: a daytime survey walks past a shuttered space, an OSM mapper has nothing to tag, and a directory records nothing. The shops are not hiding. They are open when the surveyors have gone home."
+  },
+  "the_label_is_not_the_size": {
+   "th": "ตัวอักษรบนป้ายไม่ใช่ขนาดจริง",
+   "en": "THE WORD ON THE LABEL IS NOT THE SIZE IN THE GARMENT, and the cleanest proof is a Thai brand called XLARGE. XLARGE Thailand's own published size chart, read 2026-08-31, stops at XL — there is no 2XL on it — its denim runs to a 36-inch waist and no further, and its socks are sold as \"ONE SIZE: US 7 ~ US 9\". A brand whose name is the size does not sell a 38-inch waist. Nothing here is a complaint about that brand; it is the clearest available demonstration that in Thailand the letter on the label is a style decision and the INCHES are the fact."
+  },
+  "free_size_is_a_ceiling": {
+   "th": "ฟรีไซส์ ไม่ใช่ไซส์ แต่เป็นเพดาน",
+   "en": "ฟรีไซส์ — \"free size\", one size — is not a size. It is a ceiling with a friendly name, and it is how a very large share of Thai women's clothing is sold. A reader who has been told a garment is free size has been told nothing about whether it fits her, and the only useful reply is the question below: กี่นิ้วคะ — how many inches."
+  },
+  "thai_yai_is_not_big_thai": {
+   "th": "ไทยใหญ่ ไม่ได้แปลว่าไทยตัวใหญ่",
+   "en": "A TRAP WORTH RECORDING. The Thai word for the Shan is ไทยใหญ่ — literally \"big Thai\" — and Chiang Mai has at least five shops selling ชุดไทยใหญ่, Shan dress. A naive substring search for ใหญ่ files every one of them as a big-size shop and puts an ethnic costume shop in front of a reader looking for a 3XL. The reader scores whole words, and gave them all zero."
+  },
+  "a_name_that_reads_wrong_is_not_evidence": {
+   "th": "ชื่อที่อ่านแล้วรู้สึกผิด ยังไม่ใช่หลักฐาน",
+   "en": "Nine records on the new shelves looked misfiled from their names. Eight were checked against the element's own tags and only ONE of the eight held up — doi cycling studio really does carry clothes=sports;cycling_apparel, Munee Hostel carries clothes=women with a 2026-02-08 check_date, and DECATHLON CHIANGMAI is a real café whose Thai name field holds the landmark it stands beside. Two retags in the end: ร้านเสื้อผ้า The Bigsize and \"Motorbike & car rent 080-2464381\", each with the element's own name as the receipt. A name that reads wrong is a lead, not a correction."
+  },
+  "the_mens_question_returns_the_mens_answer": {
+   "th": "ถามคำถามของผู้ชาย ก็ได้คำตอบของผู้ชาย",
+   "en": "THE SHOE HALF WAS ASKED IN A MAN'S NUMBERS AND ANSWERED IN A MAN'S SHOPS. เบอร์ 45–48 is a man's range; a woman needing a large going-out shoe here needs 41–45, and the word that finds it is ส้นสูงไซส์ใหญ่ — big-size HIGH HEEL — not รองเท้าไซส์ใหญ่. Searched in the man's numbers, Chiang Mai returns Decathlon and an army-surplus shop. Searched in the woman's, it returns a market aisle. Same city, same day, same directory. Sixth sighting of the ขัดขี้ไคล lesson, and the first time the wrong word was one of ours rather than the source's."
+  },
+  "osm_was_never_going_to_know": {
+   "th": "แผนที่เปิดไม่เคยรู้เรื่องนี้",
+   "en": "\"EIGHT NAMED SHOE SHOPS IN THE WHOLE OF CHIANG MAI\" IS TRUE OF OPENSTREETMAP AND FALSE ABOUT THE CITY. CMHY's รองเท้า category holds about ninety, and among them FIVE women's shoe shops standing side by side in one aisle — โซนเครื่องแต่งกาย, ตลาดธานินทร์ — every one tagged รองเท้าส้นสูง by the directory, all five within thirty metres of each other, and NOT ONE of them in the crawl. A market stall inside a covered market is not a `shop=shoes` node and never will be. The first pass published a count from the source that could not see them."
+  }
+ },
+ "words": {
+  "_note": "The trade's own vocabulary. Search these, not the English — the ขัดขี้ไคล lesson, sixth sighting. Shown with RTGS and gloss on first use, per the house rule.",
+  "size": [
+   {
+    "th": "ไซส์ใหญ่",
+    "rtgs": "sai yai",
+    "en": "big size — the plain term, and the one to type"
+   },
+   {
+    "th": "บิ๊กไซส์",
+    "rtgs": "bik sai",
+    "en": "\"big size\" written in Thai script; as common as the Thai phrase"
+   },
+   {
+    "th": "ไซส์พิเศษ",
+    "rtgs": "sai phiset",
+    "en": "special size — what a shoe shop says"
+   },
+   {
+    "th": "พลัสไซส์",
+    "rtgs": "phlat sai",
+    "en": "plus size — the newer, softer, online word"
+   },
+   {
+    "th": "ฟรีไซส์",
+    "rtgs": "fri sai",
+    "en": "free size / one size — a ceiling, not a size"
+   },
+   {
+    "th": "เบอร์ใหญ่",
+    "rtgs": "boe yai",
+    "en": "big number — shoes; เบอร์ is how a shoe size is said"
+   }
+  ],
+  "body": [
+   {
+    "th": "คนอ้วน",
+    "rtgs": "khon uan",
+    "en": "fat people — an ordinary shop-sign word here, not an insult"
+   },
+   {
+    "th": "สาวอวบ",
+    "rtgs": "sao uap",
+    "en": "curvy women — the gentler half of the trade uses this"
+   },
+   {
+    "th": "ตัวใหญ่",
+    "rtgs": "tua yai",
+    "en": "big-bodied"
+   },
+   {
+    "th": "ตัวสูง",
+    "rtgs": "tua sung",
+    "en": "tall — a different problem, and it is sold separately"
+   },
+   {
+    "th": "เท้าใหญ่",
+    "rtgs": "thao yai",
+    "en": "big feet"
+   }
+  ],
+  "measure": [
+   {
+    "th": "อก",
+    "rtgs": "ok",
+    "en": "chest — stated in นิ้ว inches, not in letters"
+   },
+   {
+    "th": "รอบอก",
+    "rtgs": "rop ok",
+    "en": "chest circumference"
+   },
+   {
+    "th": "เอว",
+    "rtgs": "eo",
+    "en": "waist — inches"
+   },
+   {
+    "th": "สะโพก",
+    "rtgs": "saphok",
+    "en": "hips"
+   },
+   {
+    "th": "ไหล่",
+    "rtgs": "lai",
+    "en": "shoulder"
+   },
+   {
+    "th": "ความยาวเท้า",
+    "rtgs": "khwam yao thao",
+    "en": "foot length — in เซนติเมตร, the only shoe number that travels"
+   },
+   {
+    "th": "นิ้ว",
+    "rtgs": "niu",
+    "en": "inch"
+   },
+   {
+    "th": "เซนติเมตร / ซม.",
+    "rtgs": "sentimet",
+    "en": "centimetre"
+   }
+  ],
+  "where": [
+   {
+    "th": "กาดหน้ามอ",
+    "rtgs": "kat na mo",
+    "en": "the night market in front of Chiang Mai University"
+   },
+   {
+    "th": "กาดหลวง",
+    "rtgs": "kat luang",
+    "en": "Warorot Market"
+   },
+   {
+    "th": "มือสอง",
+    "rtgs": "mue song",
+    "en": "secondhand — where a Western size arrives in this country by the bale"
+   }
+  ]
+ },
+ "sizes": {
+  "_note": "Every number here is from a named source read on 2026-08-31, and the disagreements are kept rather than averaged. A conversion table is the maker's, never the country's.",
+  "shoes": {
+   "the_rule": {
+    "th": "วัดเท้าเป็นเซนติเมตร แล้วบอกตัวเลขนั้น",
+    "en": "MEASURE YOUR FOOT IN CENTIMETRES AND SAY THAT NUMBER. Stand on a sheet of paper, mark the heel and the longest toe, measure between the marks. The centimetre is the only shoe number that means the same thing in every shop in Thailand, in every language, on every shelf. เบอร์ does not: two published Thai charts read on the same day agree at 44 and 45 and part company above them."
+   },
+   "charts": [
+    {
+     "source": "Mizuno Thailand, its own size chart",
+     "ref": "https://tha.mizuno.com/pages/size-chart",
+     "fetched": "2026-08-31",
+     "unit": "cm foot length",
+     "rows": {
+      "44": 28.0,
+      "44.5": 28.5,
+      "45": 29.0,
+      "45.5": 29.5,
+      "46": 30.0,
+      "46.5": 30.5,
+      "47": 31.0,
+      "48.5": 32.0
+     },
+     "ceiling": "EU 48.5 / US 14 / 32.0 cm"
+    },
+    {
+     "source": "ไทยรัฐ Thairath, men's conversion table",
+     "ref": "https://www.thairath.co.th/lifestyle/life/2712014",
+     "published": "2023-07-25",
+     "fetched": "2026-08-31",
+     "unit": "cm foot length",
+     "rows": {
+      "44": 28.0,
+      "44.5": 28.5,
+      "45": 29.0,
+      "46": 29.5,
+      "46.5": 30.0,
+      "47": 30.5
+     },
+     "ceiling": "EU 47 / US 12.5 / 30.5 cm"
+    }
+   ],
+   "the_disagreement": {
+    "th": "เบอร์ 44 กับ 45 ตรงกัน เบอร์ 46 ขึ้นไปไม่ตรงกัน ห่างกันครึ่งเซนติเมตร",
+    "en": "The two charts agree exactly at 44 (28.0 cm) and 45 (29.0 cm) and diverge from 46 up: Mizuno calls 30.0 cm a 46 and Thairath calls it a 46.5; Mizuno calls 31.0 cm a 47 and Thairath's 47 is 30.5. Half a centimetre is a full size. Above 45, say the centimetre."
+   },
+   "the_thai_shelf": {
+    "th": "ชั้นวางในไทยมักจบที่เบอร์ 44 ผู้ชาย และ 40–41 ผู้หญิง",
+    "en": "A Thai shop's shelf normally stops at about 44 for men and 40–41 for women. Past that the answer is not a different aisle, it is a different route — a sports or outdoor chain that stocks to 46–48, a brand outlet ordering in, a maker, or online. This is stated as the common shape of the trade and NOT as a measured count: nobody has walked a rail and counted, and until somebody does it stays here and off the page as a fact."
+   }
+  },
+  "clothes": {
+   "the_rule": {
+    "th": "อกกี่นิ้ว เอวกี่นิ้ว — ตัวเลข ไม่ใช่ตัวอักษร",
+    "en": "ASK IN INCHES, NOT IN LETTERS. Thai clothing is sold by อก (chest) and เอว (waist) in inches, and the big-size trade advertises its range that way — อก 40–60 นิ้ว. S/M/L/XL sits on top of that as decoration and every brand draws it differently. Know your chest and waist in inches before you go and the whole problem becomes arithmetic."
+   },
+   "the_gap": {
+    "th": "XL ของไทย ไม่ใช่ XL ที่บ้านคุณ",
+    "en": "A Thai XL is not the XL you grew up with; a Thai 2XL is commonly described as a Western medium. This is the reason a reader who wears an ordinary size at home finds nothing on a rail here, and it is not a fact about their body. Reported as the widely-stated shape of the difference and NOT as a measured conversion — a letter-to-letter table would be exactly the false precision this entry exists to warn against."
+   },
+   "measured_example": {
+    "source": "XLARGE Thailand, its own published size chart",
+    "ref": "https://www.xlarge.co.th/pages/copy-of-ตารางขนาดเสื้อผ้า",
+    "fetched": "2026-08-31",
+    "sizes_offered": [
+     "S",
+     "M",
+     "L",
+     "XL"
+    ],
+    "no_2xl": true,
+    "tee_chest_in": {
+     "S": 20,
+     "M": 21,
+     "L": 22,
+     "XL": 24
+    },
+    "shirt_chest_in": {
+     "S": 22,
+     "M": 23,
+     "L": 24,
+     "XL": 26
+    },
+    "denim_waist_in": [
+     30,
+     32,
+     34,
+     36
+    ],
+    "socks": "ONE SIZE: US 7 ~ US 9",
+    "tolerance": "±1 inch, as published",
+    "note": "Chest figures are as the chart prints them (flat measure). The point is the ceiling, not the method: a brand named XLARGE tops out at XL and at a 36-inch waist."
+   },
+   "the_thai_range": {
+    "th": "ร้านไซส์ใหญ่ไทยขายถึง 5XL–10XL และบอกเป็นนิ้ว",
+    "en": "The Thai big-size trade itself runs far past XL — 2XL to 10XL is ordinary on a Thai big-size rail, stated as an inch range rather than a letter. This is the half of the market that solves the problem, and it is the half that is on TikTok and Facebook and at a night market, not on a map."
+   }
+  }
+ },
+ "strands": {
+  "_note": "Kept apart on purpose. None is offered as an answer to another's question — WO-49's rule, and Nan's before it: good for tourists does not equal good for locals or expats.",
+  "big_size_womens": {
+   "th": "ร้านเสื้อผ้าไซส์ใหญ่ผู้หญิง",
+   "en": "The Thai big-size women's trade — the half of this question that is actually well served, if you can find it. Night-market hours, inch-stated ranges to 5XL and beyond, prices from a couple of hundred baht, and it lives on Facebook, Instagram, TikTok and Kaidee because that is where its customers are.",
+   "geography": "กาดหน้ามอ (Kad Na Mor, in front of the university) and The Chiang Mai Complex, evenings.",
+   "confidence": "third-party — see `attempted`: Facebook would not serve its own pages to this fetcher, so location and hours are as carried by the search index, not as read off the shop.",
+   "measured": "One shop, ปุ้มปุ้ย บิ๊กไซส์, out of 583 apparel places in the Thai directory. Everything else in this strand is third-party."
+  },
+  "big_size_mens": {
+   "th": "เสื้อผ้าผู้ชายตัวใหญ่",
+   "en": "The men's answer is a different shape and it is mostly NOT retail. There is no men's equivalent of the สาวอวบ trade here. A man past a Thai L is sent to a tailor, and this directory learned 67 of them yesterday under shopping/tailor — the suit street, the uniform shops that cut to measure by trade, the ห้องเสื้อ, and the menders. That cross-link is not a consolation prize; for a shirt it is cheaper and better than anything on a rail.",
+   "see": "shopping/tailor — WO-49, data/curated/tailor.json"
+  },
+  "secondhand": {
+   "th": "มือสอง",
+   "en": "Where a Western size arrives in this country. Used clothing comes in by the bale from countries whose bodies are bigger, so a มือสอง rail is the one place in Chiang Mai where a 3XL shirt turns up by accident rather than by order. CMHY carries 59 used-clothing shops; the catalogue held three. The trade-off is honest and belongs on the page: no size run, no restock, no second one in another colour.",
+   "see": "shopping/secondhand"
+  },
+  "sports_and_outdoor": {
+   "th": "ร้านกีฬา-เอาต์ดอร์",
+   "en": "The half of the shoe answer that exists. A sports or outdoor chain buys from international size runs and stocks past where a fashion shelf stops — which is why the answer to \"where do I find a 46\" in this city is more often a sports shop than a shoe shop. The census counts 26 sports and 14 outdoor across the two provinces; the directory held one.",
+   "see": "shopping/sports-shop"
+  },
+  "made": {
+   "th": "สั่งตัด",
+   "en": "Have it made. For clothes this is the reliable answer at any size and the site already knows where. For shoes it exists and is expensive — WO-49 found a bootmaker filed on the tailor shelf by mistake — and the page says so rather than pretending the two are comparable.",
+   "see": "shopping/tailor"
+  },
+  "womens_large_going_out": {
+   "th": "รองเท้าส้นสูงไซส์ใหญ่ผู้หญิง",
+   "en": "A LARGE WOMAN'S GOING-OUT SHOE — Nan's question, and the one the first pass did not ask. Distinct from every other strand here: not a sports shop (they sell trainers and boots, never a heel), not the men's problem (41–45, not 45–48), and not solvable by making (see `made`).",
+   "numbers": "41–45 in เบอร์. A Thai women's shelf usually stops at 40 or 41, so the gap starts one size earlier than the men's and is narrower.",
+   "words": [
+    "รองเท้าส้นสูงไซส์ใหญ่",
+    "ส้นสูงไซส์พิเศษ",
+    "รองเท้าไซส์ใหญ่ผู้หญิง",
+    "รองเท้าส้นสูงคนอ้วน",
+    "สาวสอง",
+    "เบอร์ 41 42 43 44 45"
+   ],
+   "where_measured": {
+    "tanin_market": "FIVE shops in one aisle — ล้านอ้อย, ล้านอ้อย ๑, นุ้ยชูส์, ร้านแม่อ้อย, เพชรน้ำหนึ่ง — โซนเครื่องแต่งกาย ตลาดธานินทร์, all tagged รองเท้าส้นสูง, three with phones, two updated 2025-11-27, all with their own published GPS and all within 30 m of each other. Plus รสริน รองเท้าแฟชั่น on ถ.สันติธรรม, updated 2026-03-30. Recorded as cm-curated-heels-*. **NONE of the six publishes a size ceiling** — checked in each cached page — so they are where the question is asked, not an answer to it. Six shops in one walk is still the best available shape of an answer, and it beats the eight-shop count the first pass printed."
+   },
+   "the_trade_names_it": {
+    "source": "CHOWY Fashionable (chowyshoes.com), read 2026-08-31",
+    "what": "A Thai retailer carrying women's shoes **35–49**, with a whole ส้นสูงไซส์ใหญ่ line at 41–45 and heels to 5–8 inches. Its own product copy names the customer — *สำหรับผู้ที่เท้าอวบอูมหรือสาวสอง*, for people with full feet or สาวสอง — and publishes a foot chart for 40–46 with the advice to **size up one**. Tel 0993165688.",
+    "why_it_matters": "It settles that the trade EXISTS and that it addresses สาวสอง in plain retail Thai. It does not settle Chiang Mai: this is online, and a shoe is the one thing you should not buy without standing up in it.",
+    "confidence": "third-party — read through a search index of the shop's own pages; nothing walked, nothing phoned."
+   },
+   "not_claimed": "That the shops at ตลาดธานินทร์ carry a 43, and that this is where สาวสอง in Chiang Mai buy. Neither is known. Writing either would be putting a claim about a community's own shopping in this directory's voice on no evidence, which is the exact error this file exists to refuse."
+  }
+ },
+ "asks": {
+  "_note": "Sentences to say or send. Short, because they are read off a phone in a market at nine at night.",
+  "clothes": [
+   {
+    "th": "มีไซส์ใหญ่ไหมคะ/ครับ",
+    "en": "Do you have big sizes?"
+   },
+   {
+    "th": "อกกี่นิ้วคะ/ครับ",
+    "en": "How many inches is the chest?"
+   },
+   {
+    "th": "มีถึงอกกี่นิ้ว",
+    "en": "What is the biggest chest you go up to?"
+   },
+   {
+    "th": "เอว 40 นิ้ว มีไหม",
+    "en": "Do you have a 40-inch waist?"
+   },
+   {
+    "th": "ตัวนี้ฟรีไซส์ อกกี่นิ้ว",
+    "en": "This is free size — how many inches is that?"
+   },
+   {
+    "th": "ลองได้ไหมคะ/ครับ",
+    "en": "May I try it on?"
+   },
+   {
+    "th": "แก้ให้ได้ไหม",
+    "en": "Can it be altered?"
+   }
+  ],
+  "shoes": [
+   {
+    "th": "เท้ายาว 30 เซนติเมตร มีเบอร์อะไรบ้าง",
+    "en": "My foot is 30 cm — what number is that here?"
+   },
+   {
+    "th": "มีเบอร์ 46 ไหมคะ/ครับ",
+    "en": "Do you have a 46?"
+   },
+   {
+    "th": "ไซส์ใหญ่สุดเบอร์อะไร",
+    "en": "What is the biggest number you carry?"
+   },
+   {
+    "th": "สั่งได้ไหม กี่วัน",
+    "en": "Can you order it in? How many days?"
+   },
+   {
+    "th": "มีสาขาไหนมีเบอร์ใหญ่บ้าง",
+    "en": "Which of your branches has the big sizes?"
+   }
+  ]
+ },
+ "refused": [
+  {
+   "what": "A letter-to-letter conversion table (Thai XL = US M, etc.)",
+   "why": "Every brand draws its own letters and the two shoe charts read for this order already disagree by a full size above 45. A neat table would be the most shareable thing on the page and the most likely to send somebody home with a shirt that does not fit. The inch and the centimetre are published instead, with the sources that print them."
+  },
+  {
+   "what": "Ranking the shops, or a \"best for big sizes\" list",
+   "why": "The house rule, and this subject earns it twice: nobody here has walked a rail and counted, so a ranking would be a ranking of who advertises loudest."
+  },
+  {
+   "what": "Softening คนอ้วน into a gentler English word when quoting a shop",
+   "why": "It is the shop's own sign and it is how the shop is found. Rewriting it makes the page politer and the shop unfindable."
+  },
+  {
+   "what": "Publishing the individual social-media sellers as directory records",
+   "why": "Facebook would not serve its own pages to this fetcher (see `attempted`), so every address and every opening hour available for them today is a search-index summary rather than a thing read off the shop. They are named in the note as leads for a walk, and they do not get pins."
+  }
+ ],
+ "attempted": [
+  {
+   "what": "facebook.com/bigsizechiangmai and the other Facebook shop pages",
+   "result": "Served a title line and nothing else — login-walled to this fetcher. Location (กาดหน้ามอ โซน 4, The Chiang Mai Complex) and hours (16:00–22:00, 18:00–22:00) are from the search index, not from the page, and are marked third-party wherever they appear.",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "pantip.com/topic/38225155 — ใครเท้าใหญ่ 46, 47, 48 มาแชร์สถานที่ซื้อรองเท้ากันหน่อย",
+   "result": "The opening post reads and the replies do not — they load by script. The one line that did come through is the poster's own: รองเท้าหนังไซส์ใหญ่ หายากมากๆ, big-size leather shoes are very hard to find. That is the question, not the answer, and it is left as the question.",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "A Thai shoe conversion table found by search",
+   "result": "Returned EU 44 = 24.6 cm, which is about a 39. Not used, and recorded here because it is the shape of the hazard: the first table a reader finds can be three sizes wrong, which is the whole argument for the centimetre.",
+   "fetched": "2026-08-31"
+  }
+ ],
+ "leads": [
+  "**ASK THE PEOPLE WHO ALREADY KNOW — and the directory already holds all four.** The answer to \"where does a woman buy a 43 in a heel in Chiang Mai\" is known precisely, cheaply and immediately by มูลนิธิเอ็มพลัส (cm-curated-mplus-chiangmai, in the trans-health register at grade `stated`), ศูนย์สุขภาพแคร์แมท CAREMAT, มูลนิธิยังไพรด์ Young Pride Club (Chiang Mai Pride), and the cabaret companies — Chiang Mai Cabaret Theatre (cm-osm-way-762611799), whose performers need 42–45 in a heel every working night. This is ONE question to four contacts the site already carries, and it is the highest-value hour available on this subject. It must be asked as a question, not published as an assumption — and the answer belongs on the page in THEIR words.",
+  "Walk โซนเครื่องแต่งกาย, ตลาดธานินทร์, and ask the five-shop row the one question none of them publishes: ไซส์ใหญ่สุดเบอร์อะไร. Six shops, one walk, and the women's half of WO-50 stops being a method.",
+  "Walk กาดหน้ามอ on an evening and read the rails — the big-size clothing strand is third-party until somebody does.",
+  "The chains' real ceilings, counted: Decathlon, Super Sport, Bata, the Nike and Adidas outlets, Uniqlo. One visit each, one number each.",
+  "Fattyshop — named on Kaidee as a big-size women's shop near Wat Phra Singh, XL–XXXL, from 200 ฿. Old and unverified; a phone call clears it.",
+  "ล้านนา บิ๊กไซซ์, bigsize_shop85, yumekawaii.plussize — named sellers with no readable address. LINE or a message clears each one."
+ ]
+}

@@ -1,0 +1,348 @@
+{
+ "_readme": [
+  "WO-57 — the care trades inside CMHY category 53 (other health services), which the",
+  "WO-56 physio read had already fetched: elder-care homes, dialysis clinics and one",
+  "ambulance service. Trade is decided by the row's OWN name and tags, one row one trade;",
+  "`dementia` and `bedbound` are true only where the place's own tags say so.",
+  "Records land on medical/long-care (WO-32's shelf) and medical/clinic.",
+  "A row within 80 m of a canonical record ALREADY ON THE SAME SHELF is that record."
+ ],
+ "_built": "2026-09-04",
+ "counts": {
+  "elder": 16,
+  "dialysis": 4,
+  "ambulance": 1,
+  "matched": 1,
+  "refused": 88
+ },
+ "written_new": 1,
+ "touched": 0,
+ "rows": [
+  {
+   "cmhy": "14509",
+   "name": "โครงการรักษาผู้ป่วยไตวายเรื้อรัง ด้วยการล้างช่องท้อง",
+   "trade": "dialysis",
+   "phone": "",
+   "modified": "2021-06-04",
+   "tags": [
+    "ไตวายเรื้อรัง",
+    "ล้างช่องท้อง",
+    "ฟอกไต"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-dialysis-14509"
+  },
+  {
+   "cmhy": "17070",
+   "name": "พีดีเนอร์สซิ่งโฮม ดูแลผู้สูงอายุ (หนองหอย )",
+   "trade": "elder",
+   "phone": "086-5443375,086-3779767,081-3667142",
+   "modified": "2020-04-16",
+   "tags": [
+    "ดูแลผู้สูงอายุ",
+    "สถานดูแลผู้สูงอายุ",
+    "สถานดูแลผู้ป่วย"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "osm": "cm-osm-way-1234258607",
+   "metres": 8
+  },
+  {
+   "cmhy": "20784",
+   "name": "บ้านลลิสา เนอร์สซิ่งโฮมเชียงใหม่ (พายัพ)",
+   "trade": "elder",
+   "phone": "088-252-4336",
+   "modified": "2020-03-19",
+   "tags": [
+    "เนอร์สซิ่งโฮม",
+    "ศูนย์ดูแลผู้สูงอายุ",
+    "ผู้ป่วยระยะพักฟื้น"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-elder-20784"
+  },
+  {
+   "cmhy": "20786",
+   "name": "บ้านลลิสา เนอร์สซิ่งโฮมเชียงใหม่ (ป่าแดด)",
+   "trade": "elder",
+   "phone": "088-252-4336",
+   "modified": "2020-03-19",
+   "tags": [
+    "เนอร์สซิ่งโฮม",
+    "ศูนย์ดูแลผู้สูงอายุ",
+    "ผู้ป่วยระยะพักฟื้น"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-elder-20786"
+  },
+  {
+   "cmhy": "20824",
+   "name": "ศูนย์รวมบริการดูแลผู้สูงอายุ-ชีวาวัฒนะ",
+   "trade": "elder",
+   "phone": "053-218-665,095-236-7493",
+   "modified": "2020-03-21",
+   "tags": [
+    "ศูนย์รวมบริการดูแลผู้สูงอายุ",
+    "รับดูแลผู้สูงอายุพักค้างคืน",
+    "รับบริการพาผู้สูงอายุพบแพทย์"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-elder-20824"
+  },
+  {
+   "cmhy": "21245",
+   "name": "ศูนย์ดูแลผู้สูงอายุ เชียงใหม่ เฮลท์ แคร์",
+   "trade": "elder",
+   "phone": "089-950-2098,095-697-5842,081-716-0318,081-868-7682",
+   "modified": "2025-12-11",
+   "tags": [
+    "ศูนย์ดูแลผู้สูงอายุ",
+    "ผู้ป่วยระยะพักพื้น",
+    "ผู้ป่วยให้อ๊อกซิเจน"
+   ],
+   "dementia": false,
+   "bedbound": true,
+   "record": "cm-curated-elder-21245"
+  },
+  {
+   "cmhy": "21698",
+   "name": "หว่าญ่า สหคลินิก",
+   "trade": "elder",
+   "phone": "061-327-7738",
+   "modified": "2026-08-03",
+   "tags": [
+    "ดูแลแผลกดทับ",
+    "ดูแลผู้สูงอายุ",
+    "รับฝากครรภ์"
+   ],
+   "dementia": false,
+   "bedbound": true,
+   "record": "cm-curated-elder-21698"
+  },
+  {
+   "cmhy": "21732",
+   "name": "จุง พร็อพเพอร์ตี้",
+   "trade": "elder",
+   "phone": "053-272-783",
+   "modified": "2023-05-07",
+   "tags": [
+    "บริการresortสำหรับผู้สูงอายุ",
+    "บริการดูแลผู้สูงอายุ"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-elder-21732"
+  },
+  {
+   "cmhy": "24326",
+   "name": "อาร์เอ็นเนิร์สซิ่งโฮม เชียงใหม่แลนด์",
+   "trade": "elder",
+   "phone": "062-673-9995",
+   "modified": "2020-12-25",
+   "tags": [
+    "ศูนย์ดูแลผู้สูงอายุ",
+    "ผู้ป่วยพักฟื้น",
+    "รับดูแลผู้สูงอายุปกติ"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-elder-24326"
+  },
+  {
+   "cmhy": "27201",
+   "name": "ศูนย์บริการรถพยาบาล สยามทรานฟอร์เซอร์วิส",
+   "trade": "ambulance",
+   "phone": "052-087-087",
+   "modified": "2021-07-29",
+   "tags": [
+    "บริการรถพยาบาล24ชั่วโมง",
+    "ส่งผู้ป่วยตามแพทย์นัด",
+    "ส่งผู้ป่วยฟอกไต"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-ambulance-27201"
+  },
+  {
+   "cmhy": "29585",
+   "name": "บ้านลลิสา (สาขาแยกเทพปัญญา) เมืองเชียงใหม่",
+   "trade": "elder",
+   "phone": "088-252-4336,088-259-1895",
+   "modified": "2025-12-12",
+   "tags": [
+    "เนอร์สซิ่งโฮม",
+    "ศูนย์ดูแลผู้สูงอายุ",
+    "ผู้ป่วยระยะพักฟื้น"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-elder-29585"
+  },
+  {
+   "cmhy": "30590",
+   "name": "ศูนย์พยาบาลอินเตอร์เนอสซิ่งโฮม",
+   "trade": "elder",
+   "phone": "053-328-090,080-503-0396",
+   "modified": "2021-12-09",
+   "tags": [
+    "ศูนย์ดูแลคนชรา",
+    "ดูแลผู้ป่วย"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-elder-30590"
+  },
+  {
+   "cmhy": "38844",
+   "name": "คิดนี่ ยู ไตเทียม คลินิกเวชกรรม",
+   "trade": "dialysis",
+   "phone": "065-957-9864,092-253-9528",
+   "modified": "2024-12-05",
+   "tags": [
+    "บริการฟอกเลือดด้วยเครื่องไตเทียม",
+    "ฟอกไต",
+    "โรคไต"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-dialysis-38844"
+  },
+  {
+   "cmhy": "39048",
+   "name": "ศูนย์ดูแลผู้สูงอายุ มาร์ริช เซ็นเตอร์ เนอร์ซิ่งแคร์",
+   "trade": "elder",
+   "phone": "095-332-5654,085-489-3210",
+   "modified": "2025-01-16",
+   "tags": [
+    "ศูนย์บริการดูแลผู้สูงอายุ",
+    "ศูนย์บริการดูแลผู้สูงอายุมีภาวะพึ่งพิง"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-elder-39048"
+  },
+  {
+   "cmhy": "40336",
+   "name": "ศูนย์ไตเทียม TRD คลินิกเวชกรรมทีอาร์ดี",
+   "trade": "dialysis",
+   "phone": "080-072-8478",
+   "modified": "2026-01-02",
+   "tags": [
+    "ศูนย์ฟอกไต",
+    "ไตเทียม"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-dialysis-40336"
+  },
+  {
+   "cmhy": "40886",
+   "name": "พักใจเนิร์สซิ่งโฮม รับดูแลผู้สูงอายุ",
+   "trade": "elder",
+   "phone": "093-195-9594",
+   "modified": "2025-11-27",
+   "tags": [
+    "เนิร์สซิ่งโฮม",
+    "บริการรับดูแลผู้สูงอายุ",
+    "ให้บริการผู้ป่วยติดเตียง"
+   ],
+   "dementia": false,
+   "bedbound": true,
+   "record": "cm-curated-elder-40886"
+  },
+  {
+   "cmhy": "42373",
+   "name": "บ้านแสนรัก เนอร์ซิ่งโฮม สาขาเชียงใหม่",
+   "trade": "elder",
+   "phone": "065-469-9569",
+   "modified": "2026-06-23",
+   "tags": [
+    "ดูแลรักษาผู้สูงอายุ",
+    "รับดูแลผู้สูงอายุ",
+    "ดูแลผู้ป่วยที่มีภาวะทุพพลภาพ"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-elder-42373"
+  },
+  {
+   "cmhy": "6802",
+   "name": "เชียงใหม่คลินิกโรคไตเวชกรรมเฉพาะทาง",
+   "trade": "dialysis",
+   "phone": "053-226-657",
+   "modified": "2024-02-07",
+   "tags": [
+    "โรคไต",
+    "ฟอกไต",
+    "รักษาไต"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-dialysis-6802"
+  },
+  {
+   "cmhy": "7945",
+   "name": "บ้านสบาย ซีเนียร์ เรสซิเดนส์ รีสอร์ทดูแลผู้สูงวัย",
+   "trade": "elder",
+   "phone": "053-854-778,093-694-2359",
+   "modified": "2025-01-21",
+   "tags": [
+    "รีสอร์ท",
+    "ดูแลผู้สูงอายุ",
+    "ดูแลผู้ป่วยอัลไซเมอร์"
+   ],
+   "dementia": true,
+   "bedbound": false,
+   "record": "cm-curated-elder-7945"
+  },
+  {
+   "cmhy": "935",
+   "name": "โรงพยาบาลแมคเคน",
+   "trade": "elder",
+   "phone": "053-817-170,053-817-171,053-124-263",
+   "modified": "2024-01-24",
+   "tags": [
+    "โรงพยาบาลแมคเคน",
+    "ดูแลผู้สูงอายุ",
+    "สถาบันผู้สูงอายุแมคเคน"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-elder-935"
+  },
+  {
+   "cmhy": "9454",
+   "name": "เอส.ดี.เนอสซิ่งโฮม",
+   "trade": "elder",
+   "phone": "081-784-1805,088-260-1063",
+   "modified": "2024-09-12",
+   "tags": [
+    "บ้านพักผู้สูงอายุ",
+    "ดูแลผู้สูงอายุ",
+    "ดูแลผู้ป่วย"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-elder-9454"
+  },
+  {
+   "cmhy": "9456",
+   "name": "บ้านดลสุข",
+   "trade": "elder",
+   "phone": "097-010-2480,081-386-8802,088-267-5885",
+   "modified": "2024-09-12",
+   "tags": [
+    "ดูแลผู้สูงอายุ",
+    "ดูแลผู้ป่วย"
+   ],
+   "dementia": false,
+   "bedbound": false,
+   "record": "cm-curated-elder-9456"
+  }
+ ]
+}

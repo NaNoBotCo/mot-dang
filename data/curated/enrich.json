@@ -1910,6 +1910,26 @@
   "shared_with": 1,
   "src": "https://www.artmaigalleryhotel.com/"
  },
+ "cm-osm-node-6267879684": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/nutsplacechiangmai/",
+    "kind": "neighbourhood bar with a kitchen",
+    "postcode": "50200"
+   },
+   "blurb_en": "A small bar on Ratchamanka Soi 3 — cold beer, cocktails, and a kitchen it puts first: the pad thai is cooked by a chef who came out of vegan kitchens.",
+   "blurb_th": "บาร์เล็ก ๆ ในซอยราชมรรคา 3 — เบียร์เย็น ค็อกเทล และครัวที่ร้านภูมิใจ ผัดไทยฝีมือเชฟที่เคยทำร้านวีแกนมาก่อน"
+  },
+  "how": {
+   "attrs": "the bar's own Facebook Page, read 2026-09-04: the page's own category (Bar), its own address line \"1/4 RT. Rajamangala Soi 3, Chiang Mai, 50200\" — which carries the same house number and soi as the OSM node, so it is this place — and the page URL. Postcode taken from that line; tambon NOT taken, because the page does not state one.",
+   "blurb_en": "written from the page's own intro",
+   "blurb_th": "written from the page's own intro"
+  },
+  "license": "official-site",
+  "note": "Everything a reader would actually ring is still missing: no phone, no hours, no LINE, no photograph. The page states none of them (197 followers, no posts visible, read 2026-09-04) and there is no other first-hand source — Tripadvisor holds a two-review stub, which is a directory copy and not a source here. The owner is a friend of Nan's and can settle all four in one message, or claim the listing outright, which outranks this entry. UNCONFIRMED LEAD, deliberately not recorded as a fact: Chiang Mai Pool League Monday (chiangmaimondayleague.leaguerepublic.com) lists a venue \"Nut's Bar\" and a team \"Nut's Love & Peace\" playing Group A at 20:00 on Mondays, and the league publishes no address for that venue, so nothing but the first name ties the two together. Ask the owner; if it is her bar, the fixture list is a weekly event source, not a blurb.",
+  "src": "https://www.facebook.com/nutsplacechiangmai/"
+ },
  "cm-osm-node-631562393": {
   "fetched": "2026-08-16",
   "fields": {
@@ -3014,19 +3034,13 @@
   "src": "https://mayashoppingcenter.com/"
  },
  "cm-osm-way-249676814": {
-  "fetched": "2026-08-16",
+  "fetched": "2026-08-31",
   "fields": {
-   "attrs": {
-    "facebook": "https://www.facebook.com/SiripannaVillaResortSpaChiangMai/",
-    "instagram": "https://www.instagram.com/siripannavillaresortspa/",
-    "lineUrl": "https://line.me/R/ti/p/@mno4060g"
-   }
+   "phone": "053-294656"
   },
-  "how": {
-   "attrs": "page links"
-  },
-  "license": "official-site",
-  "src": "https://www.siripanna.com/"
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
  },
  "cm-osm-way-251908577": {
   "fetched": "2026-08-16",
@@ -3181,19 +3195,15 @@
   "src": "https://www.bangkokhospital.com/th/chiangmai"
  },
  "cm-osm-way-301472018": {
-  "fetched": "2026-08-16",
+  "fetched": "2026-08-31",
   "fields": {
    "attrs": {
-    "email": "dpcm@dusit.com,dpcmrsvn1@dusit.com",
-    "facebook": "https://www.facebook.com/DusitPrincessChiangMai/",
-    "instagram": "https://www.instagram.com/dusitprincess.chiangmai/"
+    "lineUrl": "https://lin.ee/U9mFL3p"
    }
   },
-  "how": {
-   "attrs": "page links"
-  },
-  "license": "official-site",
-  "src": "https://www.dusit.com/dusitprincess-chiangmai/"
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
  },
  "cm-osm-way-304926822": {
   "fetched": "2026-08-16",
@@ -5185,5 +5195,434 @@
   },
   "license": "official-site",
   "src": "https://fortmengraihospital.rta.mi.th/homepage.php"
+ },
+ "cm-osm-way-528019091": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "+66 (0)53 247 788",
+   "website": "https://137pillarshotels.com/",
+   "attrs": {
+    "email": "137cnxfb@137pillarshouse.com"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-1358959179": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/events/1375039671185313/1375048144517799",
+    "whatsapp": "https://chat.whatsapp.com/LcDAeKjgqi7C7ckAXWCgzZ?mode=gi_t"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-2662194563": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/archerschiangmai"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-5344068221": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "085 523 4366; 093 434 0844; 099 592 2665"
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-97675281": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "053 801457; 053275300",
+   "attrs": {
+    "lineUrl": "https://lin.ee/x8mkADz"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-5009181282": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "082-381-4938",
+   "attrs": {
+    "facebook": "https://www.facebook.com/cfcnxfitness"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-curated-chiangmai-holistic": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "attrs": {
+    "email": "info@chiangmaiholistic.com",
+    "facebook": "https://www.facebook.com/cmholistic/",
+    "lineId": "@cmholistic"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-8862959718": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "087-502-7990"
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-127736836": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/events/1545075017342903"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-4866129712": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "+66 (0) 53-253-299"
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-6041336985": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/events/1255372053339282/1255372060005948/"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-482768719": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "086-648-6306",
+   "website": "https://www.gekkogardenrestaurant.com/"
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-494956255": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "+66 (0)52 090 998",
+   "attrs": {
+    "email": "dining.icchiangmai@ihg.com",
+    "lineId": "@interconchiangmai",
+    "lineUrl": "https://lin.ee/O6esFM5"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-232645469": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "053-231-520",
+   "attrs": {
+    "email": "infojingjaicm@central.co.th"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-315411426": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "053 222 111; 089 556 2737",
+   "attrs": {
+    "lineId": "@kantarychiangmai",
+    "lineUrl": "https://lin.ee/bm1Fmn9"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-256273906": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "website": "https://lecrystalrestaurant.com/"
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-11749674742": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "094-6546846"
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-curated-maepingpt": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "attrs": {
+    "email": "chonlapas@hotmail.com"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-10219057144": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "081-671-2846"
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-627946317": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "website": "https://www.onenimman.com/",
+   "attrs": {
+    "facebook": "https://www.facebook.com/onenimman"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-8288873136": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "attrs": {
+    "lineId": "@crossriverside"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-5951420885": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "098-3297835",
+   "attrs": {
+    "lineId": "@Paapu"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-5374601734": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "attrs": {
+    "email": "williamdsparks@outlook.com"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-440038015": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "053-253-888; 081-245-0743",
+   "attrs": {
+    "email": "slcm@shangri-la.com"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-3304357654": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/events/1796979185052071/"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-3237944103": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "053-240-550",
+   "attrs": {
+    "email": "expatbreakfast@thedukes.co.th"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-4209258146": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "053-908-814; 053-908-888",
+   "attrs": {
+    "lineId": "@themellowship"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-1615270730": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "+66897046166",
+   "attrs": {
+    "email": "sbkchiangmaithailand@gmail.com",
+    "facebook": "https://www.facebook.com/groups/349933706518867/",
+    "lineId": "@sbkchiangmai",
+    "whatsapp": "https://chat.whatsapp.com/HSRcoxlA4ekGOv4KXEi4wR"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-4556484689": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "092-979-4542",
+   "attrs": {
+    "email": "faqredbox@gmail.com"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-relation-16830172": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "+66 97 918 4609",
+   "attrs": {
+    "email": "rsvn.nimman@travelodgehotels.asia",
+    "lineId": "@jaoying_bachataWhatsApp",
+    "lineUrl": "https://lin.ee/QZVdRBU"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-324137063": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/unirishpub/"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-107194941": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "082-160-9350",
+   "attrs": {
+    "email": "jinya.competition@gmail.com",
+    "facebook": "https://www.facebook.com/tatchiangmai"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-243018795": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/tatchiangmai"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-3476116051": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "attrs": {
+    "email": "info@chiangmaiexpatsclub.com"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-way-562707358": {
+  "fetched": "2026-08-31",
+  "fields": {
+   "phone": "080-112-2561",
+   "attrs": {
+    "facebook": "https://www.facebook.com/yummypizzachiangmai/"
+   }
+  },
+  "src": "https://tiny.cc/stevesemail",
+  "license": "venue-supplied release, 2026-08-31 issue",
+  "note": "Typed by the venue into its own press release and carried by the weekly newsletter — the venue's words, one hop from first-hand. Campaign and menu shortlinks were not taken as `website`; where the host was the venue's own, only the origin was kept, because a seasonal path 404s long before the domain does."
+ },
+ "cm-osm-node-12619518873": {
+  "fetched": "2026-09-04",
+  "src": "https://www.cmhy.city/en/place/32420-Chiang-Mai-Immigration-Office-Central-Chiangmai",
+  "license": "directory",
+  "fields": {
+   "nameTh": "สำนักงานตรวจคนเข้าเมืองจังหวัดเชียงใหม่ (สาขาเซ็นทรัล เชียงใหม่ ชั้น 2)",
+   "phone": "053-277-510",
+   "hours": "Mo-Fr 09:00-17:00",
+   "address": "ชั้น 2 เซ็นทรัล เชียงใหม่ (เซ็นทรัลเฟสติวัล) ถนนซุปเปอร์ไฮเวย์ เชียงใหม่-ลำปาง ตำบลฟ้าฮ่าม อำเภอเมือง เชียงใหม่ 50000",
+   "attrs": {
+    "services": [
+     "ต่อวีซ่าระยะสั้น",
+     "รายงาน 90 วัน",
+     "แจ้งที่พัก ตม.30",
+     "re-entry permit"
+    ],
+    "opened": "2022-06-06",
+    "website": "http://www.chiangmaiimm.com"
+   }
+  },
+  "how": {
+   "nameTh": "directory heading",
+   "phone": "directory listing",
+   "hours": "directory listing",
+   "address": "directory listing",
+   "attrs": "directory description"
+  }
  }
 }

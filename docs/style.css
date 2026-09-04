@@ -65,6 +65,15 @@ form.seek button:hover{background:var(--ant-dark)}
 .en{display:none}
 body.lang-both .en{display:inline}
 body.lang-en .en{display:inline} body.lang-en .th{display:none}
+/* ...except a NAME. A place with one name has that name shown in all three
+   modes: hiding it left a clickable blank beside a map pin — 24,023 rows in
+   English-only, 30,941 in Thai-only. `.en.solo` (0,2,0) beats the bare
+   `.en` rule, and `body.lang-en .th.solo` (0,3,1) beats `body.lang-en .th`. */
+.en.solo{display:inline}
+body.lang-en .th.solo{display:inline}
+/* An RTGS reading is not a name and does not dress like one: it is the
+   machine saying how the Thai sounds, so it is set quieter and in italic. */
+.roman{font-style:italic;opacity:.82}
 h1{font-size:1.6rem;margin:.4rem 0} h2{font-size:1.25rem;border-bottom:2px solid var(--soft);
 padding-bottom:.2rem;margin-top:1.6rem}
 ul.dir{list-style:none;padding:0;column-width:22rem;column-gap:2.5rem}
@@ -261,12 +270,51 @@ border:1px solid #DFC98C;background:linear-gradient(180deg,#FDF6E6,#FBF6EE)}
 .honpanel li{margin-bottom:.4rem}
 .honverb,.honsrc{display:block;font-size:.85rem;opacity:.8}
 .honsrc a{font-size:.82rem}
+/* WO-52 — the tap-sheet, `mark()` in build.py. The site had 198,767 title=
+   attributes and no way to open one on a phone, so every note worth keeping
+   was printed as a paragraph instead. <details> opens on tap AND on Enter,
+   needs no JS, and still shows its note with CSS off. The pointer keeps
+   hover through the summary's own title=, under @media(hover:hover) — the
+   query this stylesheet never had. */
+.mk{display:inline;position:relative}
+/* The underline is --gold, the bead colour this site keeps for rules and
+   borders — never --mute, which tests/test_contrast.py holds to text only so
+   the quiet inks can be darkened without moving any structure. */
+.mk>summary{display:inline;list-style:none;cursor:pointer;
+border-bottom:1px dotted var(--gold);padding:0 .1em}
+.mk>summary::-webkit-details-marker{display:none}
+.mk>summary::marker{content:""}
+.mk>summary:focus-visible{outline:2px solid var(--ant);outline-offset:2px;border-radius:.2rem}
+.mk .mknote{display:block;margin:.35rem 0 .2rem;padding:.5rem .7rem;
+font-size:.84rem;line-height:1.5;color:var(--ink);background:var(--card-alt);
+border-left:3px solid var(--gold);border-radius:.4rem;max-width:56ch}
+.mkapprox>summary,.mkhow>summary{border-bottom:0;color:var(--mute);
+font-size:.9em;padding:0 .25em}
+.mkapprox>summary,.mkhow>summary{text-decoration:underline dotted}
+/* A mark standing in for a section label keeps the label's own voice — it is
+   still the heading, it just answers a question when tapped. */
+.mklabel{display:block;margin-bottom:.3rem}
+.mklabel>summary{font-size:.9rem;color:var(--ant-dark);font-weight:700;
+letter-spacing:.02em;border-bottom-style:dotted}
+/* The 🏷 row's label. Stays inline with the pills it introduces. */
+.mktags{display:inline}
+.mktags>summary{font-size:.8rem;color:var(--mute);margin-right:.2rem}
+@media (hover:hover){
+  /* Only where a pointer exists does the mark stay quiet until asked — a
+     thumb gets no hover, so on touch the underline never dims. This is the
+     first hover query in this stylesheet; its absence is what left 198,767
+     title= attributes unopenable. */
+  .mk>summary{border-bottom-color:var(--soft)}
+  .mk>summary:hover{border-bottom-color:var(--ant)}
+}
 /* Facets — what this branch of the chain actually has. Solid-bordered when a
    person confirmed it, dashed when it was joined by distance from a map point:
-   the border IS the provenance, readable before the tooltip is opened. */
+   the border IS the provenance, readable before the note is opened. Each
+   facet keeps its title= for a mouse; the row's label carries the tap-sheet
+   that says what an absent facet means. */
 .facets{white-space:normal}
 .facet{display:inline-block;font-size:.72rem;line-height:1.6;margin-left:.3rem;
-padding:0 .45rem;border-radius:999px;vertical-align:.08em;cursor:help;
+padding:0 .45rem;border-radius:999px;vertical-align:.08em;
 background:#E8F0E2;color:#3C5A2E;border:1px solid #C3D8B6}
 .facet.near{border-style:dashed;opacity:.85}
 .facet.field{background:#DCEFD2;border-color:#8FBF77;font-weight:600}
@@ -274,8 +322,17 @@ background:#E8F0E2;color:#3C5A2E;border:1px solid #C3D8B6}
 padding:.1rem .7rem}
 .facetpanel{margin:.9rem 0;padding:.7rem .9rem .8rem;border-radius:.8rem;
 border:1px solid #C3D8B6;background:linear-gradient(180deg,#F3F8EF,#F8FAF5)}
-.facetpanel .facetlede{margin:.15rem 0 .5rem}
+/* WO-52: the set's lede now sits on the SHELF above the filter chips, once,
+   instead of on every place page beneath it. */
+.facetlede{margin:.4rem 0 .5rem;color:var(--mute);font-size:.92rem;max-width:66ch}
 .facetbar{margin-top:.4rem}
+/* WO-52: the one contribute door on a place page, after the record rather
+   than in front of it. Quiet on purpose — twelve loud ones returned nothing. */
+.addline{margin:1.1rem 0 .2rem;font-size:.9rem}
+.addline a{color:var(--mute);text-decoration:underline dotted;
+text-underline-offset:.2em;text-decoration-color:var(--gold)}
+.addline a:hover,.addline a:focus-visible{color:var(--ant);text-decoration-color:var(--ant)}
+.maptag{margin:-.3rem 0 .6rem}
 .fchip{cursor:pointer}
 /* 🏷 Tags — the cross-shelf pills under the facet row. Links, not filters:
    each opens the tag's own page. Marigold, so they read as a different kind

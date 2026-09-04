@@ -2,7 +2,7 @@
  "_comment": "Source registry for the events + contact-enrichment layer. This is the map, and it is meant to drive routine operations: importers read `endpoint`+`method`, honour `cadence`, and record results per `id`. Derived by reading one issue of the weekly Chiang Mai events newsletter (27 July 2026) exhaustively and then fetching what it points at. `status` is what was actually fetched and confirmed on the `verified_on` date — never what a source claims about itself. Sources marked `unverified` are named in the newsletter but not yet fetched; `blocked` refused a plain fetch; `walled` needs a login we will not use.",
  "_yields_key": "events = dated or recurring happenings. contacts = phone / LINE / email / website / booking url for a place, i.e. fuel for the contact-coverage mission. weather = forecast data for the widget wall. lottery = the Government Lottery draw record for the widget wall — a public record, never a tip.",
  "_cadence_key": "weekly = fast-decaying dated events. monthly = recurring weekly schedules, which change slowly. quarterly = institutional calendars. manual = needs a human.",
- "generated": "2026-08-21",
+ "generated": "2026-08-31",
  "sources": [
   {
    "id": "meetup-ical",
@@ -412,15 +412,17 @@
    "name": "Weekly Chiang Mai events newsletter",
    "kind": "aggregator",
    "url": "https://tiny.cc/stevesemail",
-   "endpoint": null,
+   "endpoint": "_incoming/newsletter/{issue}.txt",
    "method": "manual",
    "yields": [
     "events",
     "contacts"
    ],
    "cadence": "weekly",
-   "status": "partnership-pending",
-   "notes": "Hand-assembled weekly email; public Google Doc mirror at the url. The body text is venue-supplied press-release copy, not the compiler's own writing — the asset is the DISTRIBUTION LIST of who sends releases in, which is exactly what a crawl cannot reproduce. Partnership offered 2026-07-28, no reply as of 2026-07-29. Treat as a discovery feed for NEW sources to add to this registry, not as a thing to copy."
+   "status": "parsed",
+   "notes": "Hand-assembled weekly email; public mirror at the url. The body text is venue-supplied press-release copy, not the compiler's own writing, so the parser takes the FACTS of a listing (when, where, how much, how to book) and generates its own description — the prose is never copied through. Arrives as email, so there is nothing to fetch: a human drops the issue's text into _incoming/newsletter/ and harvest_events.py reads it through importers/read_newsletter.py, which puts it under the same validate/atomic/never-destructive write discipline as every fetched feed. MEASURED on the 2026-08-31 issue (39 pp): 67 dated listings, 122 weekly fixtures under weekday headers and 21 notices -> 319 events and 132 contact leads, against 82 events and 4 leads from every crawled source combined. Its four-part split sorts by decay rate, so the sections are parsed apart and the notices yield contacts only, never events. STILL the best discovery feed in the registry: the 2026-08-31 issue named 62 venues the 14,493-record catalogue did not hold and turned up runlah's schema.org event feed. Partnership offered 2026-07-28, no reply as of 2026-08-31.",
+   "parser": "importers/read_newsletter.py",
+   "verified_on": "2026-08-31"
   },
   {
    "id": "onenimman",
@@ -1194,6 +1196,82 @@
    "verified_on": "2026-08-21",
    "licence": "Open Data Common",
    "notes": "Real, current (edition 2026-06-25) and per-province — land_50_chiang-mai.csv is 41 MB / 1,060,644 parcels. UNUSABLE HERE and recorded so nobody re-finds it hopefully: the only keys are UTMMAP1-4 + LAND_NO, the cadastral map-sheet and parcel number. There is no address, no district name and no coordinate, so it cannot be joined to a place record without the cadastral parcel geometry, which is not in this catalogue and is not open. Its sibling condominium-valuation IS joinable — that one carries names and amphoes — and is harvested."
+  },
+  {
+   "id": "runlah",
+   "name": "RUNLAH — race calendar and entry pages",
+   "kind": "platform",
+   "url": "https://www.runlah.com/en/events",
+   "endpoint": "https://www.runlah.com/en/{event}",
+   "method": "json-ld",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "verified",
+   "verified_on": "2026-08-31",
+   "notes": "Found in the 2026-08-31 newsletter issue via the Baanpong Cross Country listing. MEASURED: the EVENT page is server-rendered and carries one complete schema.org SportsEvent JSON-LD block — name, startDate with +07:00 offset, endDate, eventStatus, and a nested Place with the venue name and province ('Ban Pong Municipality, Hang Dong, Chiang Mai province'). No key, no JS needed. The /en/events INDEX is the opposite: 45 KB, 213 words of text and one mention of Chiang Mai, so it renders client-side — event slugs have to come from somewhere else, which for now is this newsletter. Province lives in the Place name string, not a field, so filtering to CM is a substring match."
+  },
+  {
+   "id": "sansatan",
+   "name": "Sansatan — Thai race registration",
+   "kind": "platform",
+   "url": "https://www.sansatan.com/",
+   "endpoint": "https://www.sansatan.com/event/{slug}",
+   "method": "html",
+   "yields": [
+    "events",
+    "contacts"
+   ],
+   "cadence": "monthly",
+   "status": "verified",
+   "verified_on": "2026-08-31",
+   "notes": "Found in the 2026-08-31 issue via the Bangkok Airways Run listing. MEASURED: event page HTTP 200, server-rendered, 1,399 words of real text and 22 mentions of Chiang Mai — dates, distances and fees are in the HTML. No JSON-LD, so it needs a parser rather than a reader."
+  },
+  {
+   "id": "thailandexhibition",
+   "name": "Thailand Exhibition — trade fair and expo listings",
+   "kind": "aggregator",
+   "url": "https://www.thailandexhibition.com/en/",
+   "endpoint": null,
+   "method": "html",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "status": "unverified",
+   "verified_on": "2026-08-31",
+   "notes": "Found in the 2026-08-31 issue via the CAT EXPOP listing. Event page returns HTTP 200 but only 294 words of extractable text, so most of it renders client-side. No working index or search URL found — the guessed /en/search?province= is a 404. Needs a human to find the real listing path before it is worth a parser."
+  },
+  {
+   "id": "ticketmelon",
+   "name": "Ticketmelon — Thai event ticketing",
+   "kind": "platform",
+   "url": "https://www.ticketmelon.com/",
+   "endpoint": null,
+   "method": "blocked",
+   "yields": [
+    "events"
+   ],
+   "cadence": "manual",
+   "status": "blocked",
+   "verified_on": "2026-08-31",
+   "notes": "Found in the 2026-08-31 issue via The Ritual Festival at Dhara Dhevi. Fetch raises URLError from this machine — the connection does not complete, so nothing about its content has been measured. Recorded as blocked, not as empty."
+  },
+  {
+   "id": "shutupwrite",
+   "name": "Shut Up & Write! — writing-group series pages",
+   "kind": "platform",
+   "url": "https://www.shutupwrite.com/groups?q=Chiang+Mai",
+   "endpoint": "https://www.shutupwrite.com/series/{id}",
+   "method": "js-rendered",
+   "yields": [
+    "events"
+   ],
+   "cadence": "quarterly",
+   "status": "unverified",
+   "verified_on": "2026-08-31",
+   "notes": "Found in the 2026-08-31 issue via the Monday session at Artisan Cafe. HTTP 200 but 50 words of text: client-rendered. Its JSON-LD is Organization and WebSite boilerplate with no event data in it, so the schema.org block is not the way in here the way it is on runlah."
   }
  ]
 }

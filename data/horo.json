@@ -1,7 +1,7 @@
 {
- "generated": "2026-08-30",
- "from": "2026-08-30",
- "to": "2027-02-25",
+ "generated": "2026-09-04",
+ "from": "2026-09-04",
+ "to": "2027-03-02",
  "tables": {
   "thai": {
    "days": [
@@ -1218,39 +1218,39 @@
   ]
  },
  "today": {
-  "date": "2026-08-30",
-  "slot": 0,
+  "date": "2026-09-04",
+  "slot": 5,
   "thai": {
    "station": [
-    0,
     7,
     6,
     5,
-    3,
-    1,
     4,
-    2
+    2,
+    0,
+    3,
+    1
    ],
    "cs": 1388,
    "animal": 6
   },
   "chinese": {
-   "dp": 12,
+   "dp": 17,
    "year_branch": 6,
    "gy": 2026,
    "day_rel": [
-    "same",
-    "liuhe",
     "plain",
+    "sanhe",
     "xing",
+    "plain",
+    "plain",
+    "same",
+    "plain",
+    "plain",
+    "liuhe",
     "sanhe",
     "plain",
-    "chong",
-    "hai",
-    "sanhe",
-    "po",
-    "plain",
-    "plain"
+    "chong"
    ],
    "year_rel": [
     "chong",
@@ -1270,35 +1270,35 @@
   "west": {
    "readings": [
     {
-     "moon_sign": 0,
+     "moon_sign": 2,
+     "moon_aspect": "sextile",
+     "top": [
+      6,
+      "conj"
+     ],
+     "verdict": "กลาง"
+    },
+    {
+     "moon_sign": 2,
+     "moon_aspect": null,
+     "top": [
+      5,
+      "square"
+     ],
+     "verdict": "ดี"
+    },
+    {
+     "moon_sign": 2,
      "moon_aspect": "conj",
      "top": [
-      6,
-      "conj"
-     ],
-     "verdict": "กลาง"
-    },
-    {
-     "moon_sign": 0,
-     "moon_aspect": null,
-     "top": [
-      5,
-      "square"
-     ],
-     "verdict": "ดี"
-    },
-    {
-     "moon_sign": 0,
-     "moon_aspect": "sextile",
-     "top": [
       5,
       "sextile"
      ],
      "verdict": "ดี"
     },
     {
-     "moon_sign": 0,
-     "moon_aspect": "square",
+     "moon_sign": 2,
+     "moon_aspect": null,
      "top": [
       6,
       "square"
@@ -1306,8 +1306,8 @@
      "verdict": "ระวัง"
     },
     {
-     "moon_sign": 0,
-     "moon_aspect": "trine",
+     "moon_sign": 2,
+     "moon_aspect": "sextile",
      "top": [
       5,
       "conj"
@@ -1315,8 +1315,8 @@
      "verdict": "ดี"
     },
     {
-     "moon_sign": 0,
-     "moon_aspect": null,
+     "moon_sign": 2,
+     "moon_aspect": "square",
      "top": [
       4,
       "sextile"
@@ -1324,35 +1324,35 @@
      "verdict": "ดี"
     },
     {
-     "moon_sign": 0,
+     "moon_sign": 2,
+     "moon_aspect": "trine",
+     "top": [
+      6,
+      "opp"
+     ],
+     "verdict": "ดี"
+    },
+    {
+     "moon_sign": 2,
+     "moon_aspect": null,
+     "top": [
+      5,
+      "square"
+     ],
+     "verdict": "ดี"
+    },
+    {
+     "moon_sign": 2,
      "moon_aspect": "opp",
      "top": [
-      6,
-      "opp"
-     ],
-     "verdict": "กลาง"
-    },
-    {
-     "moon_sign": 0,
-     "moon_aspect": null,
-     "top": [
-      5,
-      "square"
-     ],
-     "verdict": "ดี"
-    },
-    {
-     "moon_sign": 0,
-     "moon_aspect": "trine",
-     "top": [
       5,
       "trine"
      ],
      "verdict": "ดี"
     },
     {
-     "moon_sign": 0,
-     "moon_aspect": "square",
+     "moon_sign": 2,
+     "moon_aspect": null,
      "top": [
       6,
       "square"
@@ -1360,8 +1360,8 @@
      "verdict": "ระวัง"
     },
     {
-     "moon_sign": 0,
-     "moon_aspect": "sextile",
+     "moon_sign": 2,
+     "moon_aspect": "trine",
      "top": [
       5,
       "opp"
@@ -1369,83 +1369,18 @@
      "verdict": "ดี"
     },
     {
-     "moon_sign": 0,
-     "moon_aspect": null,
+     "moon_sign": 2,
+     "moon_aspect": "square",
      "top": [
       4,
       "trine"
      ],
-     "verdict": "กลาง"
+     "verdict": "ระวัง"
     }
    ]
   }
  },
  "days": {
-  "2026-08-30": {
-   "wd": 6,
-   "dp": 12,
-   "lon": [
-    156.861,
-    1.467,
-    159.306,
-    201.717,
-    102.257,
-    133.327,
-    13.75
-   ]
-  },
-  "2026-08-31": {
-   "wd": 0,
-   "dp": 13,
-   "lon": [
-    157.828,
-    14.945,
-    161.214,
-    202.531,
-    102.893,
-    133.538,
-    13.696
-   ]
-  },
-  "2026-09-01": {
-   "wd": 1,
-   "dp": 14,
-   "lon": [
-    158.795,
-    28.584,
-    163.104,
-    203.333,
-    103.528,
-    133.748,
-    13.64
-   ]
-  },
-  "2026-09-02": {
-   "wd": 2,
-   "dp": 15,
-   "lon": [
-    159.762,
-    42.351,
-    164.973,
-    204.123,
-    104.161,
-    133.957,
-    13.583
-   ]
-  },
-  "2026-09-03": {
-   "wd": 3,
-   "dp": 16,
-   "lon": [
-    160.731,
-    56.223,
-    166.823,
-    204.899,
-    104.793,
-    134.166,
-    13.525
-   ]
-  },
   "2026-09-04": {
    "wd": 4,
    "dp": 17,
@@ -3719,6 +3654,71 @@
     148.572,
     140.192,
     12.651
+   ]
+  },
+  "2027-02-26": {
+   "wd": 4,
+   "dp": 12,
+   "lon": [
+    337.363,
+    224.579,
+    322.556,
+    296.376,
+    148.187,
+    140.07,
+    12.761
+   ]
+  },
+  "2027-02-27": {
+   "wd": 5,
+   "dp": 13,
+   "lon": [
+    338.368,
+    237.169,
+    321.992,
+    297.56,
+    147.807,
+    139.949,
+    12.872
+   ]
+  },
+  "2027-02-28": {
+   "wd": 6,
+   "dp": 14,
+   "lon": [
+    339.373,
+    249.416,
+    321.548,
+    298.744,
+    147.431,
+    139.83,
+    12.984
+   ]
+  },
+  "2027-03-01": {
+   "wd": 0,
+   "dp": 15,
+   "lon": [
+    340.377,
+    261.399,
+    321.225,
+    299.93,
+    147.063,
+    139.712,
+    13.097
+   ]
+  },
+  "2027-03-02": {
+   "wd": 1,
+   "dp": 16,
+   "lon": [
+    341.381,
+    273.208,
+    321.019,
+    301.117,
+    146.7,
+    139.596,
+    13.21
    ]
   }
  }

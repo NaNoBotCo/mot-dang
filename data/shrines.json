@@ -70,7 +70,7 @@
    "recordId": "cm-osm-way-38487629",
    "amphoe_th": "เมืองเชียงใหม่",
    "note_th": "แผนที่เปิดระบุเป็นศาล (historic=wayside_shrine) ชื่อไทยยังไม่มีในแผนที่ — มดไม่แต่งชื่อเอง ใครทราบชื่อบนป้าย บอกมดได้",
-   "note_en": "OpenStreetMap states the shrine itself (historic=wayside_shrine); no Thai name is mapped yet, and the ants never invent one — if you know the sign, tell the ants.",
+   "note_en": "OpenStreetMap states the shrine itself (historic=wayside_shrine); no Thai name is mapped yet, and the ants do not invent one — if you know the sign, tell the ants.",
    "sources": [{"type": "osm", "ref": "way/38487629"}],
    "confidence": "record"
   },

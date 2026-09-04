@@ -1,0 +1,598 @@
+{
+ "_readme": [
+  "WO-49 — musical instruments in Chiang Mai and Chiang Rai: the shops that",
+  "SELL, the far shorter list that RENTS, and the one question a person",
+  "arriving with no instrument actually asks — do I have to go to Bangkok.",
+  "Asked by Nan 2026-08-31. Renting leads, and is written first, because a",
+  "person who has just landed does not want to own a cello.",
+  "",
+  "MEASURED FIRST, and this time the measurement had never been taken. The",
+  "crawler has carried `nwr[shop=musical_instrument][name]` since the",
+  "`making` group was written — and the `making` group had NEVER BEEN RUN.",
+  "There was no cache/overpass/cm/making.json and no cr one either. It was",
+  "fetched for this work order, and Chiang Mai province answers with 42",
+  "elements of which exactly ONE is a musical instrument shop, against the",
+  "twenty-three read by hand for this file.",
+  "",
+  "AND THE ONE IS THE ANSWER. That single node is `Piano Center` on Suthep",
+  "Road — a piano RENTAL firm. The reader's question is where to rent an",
+  "instrument in Chiang Mai, and the one record the open map holds was a",
+  "rental company sitting behind a selector nobody had ever fired. This is",
+  "worse than the beauty shelf and better as a lesson: not a shelf left",
+  "empty on a stated reason, but a query written into the source and never",
+  "run, so there was never even a number to disbelieve. The rest of the",
+  "trade is on Facebook, on LINE, in the malls and on Prapokklao Road, and",
+  "it enters the catalogue the way the notary and pest shelves did — one",
+  "shop at a time, each read from its own page with the date it was read.",
+  "",
+  "TWO ACTS, ONE SHELF, AND A FLAG THAT DECIDES. Unlike pest/snake, buying",
+  "and renting here are not two voices that must never mix — Patr Music and",
+  "High end Music do both under one roof, and splitting them would file one",
+  "shop twice. The danger is narrower and exact: a reader who needs a",
+  "violin for one term must never be sent to a shop that only sells one.",
+  "So `rents` is a per-record flag, never an inference from the shop's size",
+  "or its stock, and the page sorts on it. A shop whose own page does not",
+  "say it rents is recorded `rents: false` — which means NOT STATED, not",
+  "refused, and the record says so.",
+  "",
+  "THE THREE RENTAL CLOCKS, which is the whole finding. This trade does not",
+  "have one rental market, it has three, and they answer three different",
+  "questions. BY THE MONTH is the student clock — a school instrument for a",
+  "term, and in Thailand that is essentially one operator, Churairat Music,",
+  "whose Chiang Mai branch's own listing names rental of pianos, marching",
+  "band and concert band instruments; Piano Center is the second, for",
+  "pianos only. BY THE DAY is the event clock — backline for a gig, and",
+  "Chiang Mai has its own firms for it. BY THE HOUR is the practice clock,",
+  "and it is the answer most people actually want: nobody in Chiang Mai",
+  "will rent you a drum kit for the month, but ten rooms will rent you an",
+  "hour in a room that already has one, and a music school in Hang Dong",
+  "will rent an hour at an acoustic piano for 350 baht. A directory that",
+  "only knew the word `rental` would have found the first clock and missed",
+  "the two that get used.",
+  "",
+  "THE ANSWER TO THE QUESTION AS ASKED: no. For the twenty categories in",
+  "`categories` below, Chiang Mai sells nineteen and can rent most of them.",
+  "Bangkok is for four things and they are nameable — the double reeds",
+  "(oboe, bassoon), the harp, the double bass, and a concert-grade",
+  "instrument hired for a single day, which the one firm that does it",
+  "(Bravo Music) will only hand over in person in Bangkok. Saying `go to",
+  "Bangkok` as a general answer would be false; naming the four is true.",
+  "",
+  "AND THE INVERSION, which is why this file has a 21st category. สะล้อ ซอ",
+  "ซึง — the Lanna trio — appears on none of the three national lists and",
+  "is the one family for which Bangkok is the wrong direction. The makers",
+  "are here. A Chiang Mai directory that ranked only the global top twenty",
+  "would have published a list on which the local instrument does not",
+  "appear, in the city where it is made.",
+  "",
+  "WHAT THIS FILE REFUSES. No ranking of shops. No repeating a shop's own",
+  "superlative in this site's voice — Chiang Rai Music calls itself the",
+  "largest instrument store in northern Thailand and that is recorded as",
+  "THEIRS, attributed, never restated as fact. No brand recommendations.",
+  "Every price is `_pricesVerified: false` until somebody reads a quotation",
+  "or a rate card at a counter."
+ ],
+ "fetched": "2026-08-31",
+ "corpus": {
+  "osm_making_group_state_before": "never crawled — no cache/overpass/{cm,cr}/making.json existed for either province",
+  "osm_making_elements_cm": 42,
+  "osm_musical_instrument_cm": 1,
+  "osm_musical_instrument_cm_which": "node/4559279126 `Piano Center`, Suthep Road, +6653277990, Mo-Su 08:30-21:00",
+  "osm_musical_instrument_cr": 2,
+  "curated_shops_cm": 23,
+  "curated_shops_cr": 3,
+  "note_th": "กลุ่ม making ของตัวเก็บข้อมูลไม่เคยถูกเรียกใช้เลยสักครั้ง ทั้งที่มีตัวเลือก shop=musical_instrument เขียนไว้ในโค้ดมานาน พอเรียกจริงเมื่อ 31 ส.ค. 2569 ทั้งจังหวัดเชียงใหม่ได้กลับมา 42 รายการ และเป็นร้านเครื่องดนตรีร้านเดียว: Piano Center ถนนสุเทพ ซึ่งเป็นร้านให้เช่าเปียโน — คำตอบของคำถามที่ผู้อ่านถาม นั่งอยู่ในตัวเก็บข้อมูลของเราเองมาตลอด",
+  "note_en": "The crawler's `making` group had never been run, although the shop=musical_instrument selector had been written into it. Run on 2026-08-31, Chiang Mai province returns 42 elements and exactly ONE instrument shop: Piano Center on Suthep Road — and Piano Center is a piano RENTAL firm. The answer to the reader's question was inside our own crawler the whole time, behind a selector nobody had ever fired.",
+  "osm_musical_instrument_cr_note": "Chiang Rai has TWO named instrument shops on the open map against Chiang Mai province-wide TOTAL of one — the smaller province is better mapped for this trade, which is worth sitting with rather than explaining away",
+  "osm_musical_instrument_cr_which": "node/13992126701 มิวสิคเซ็นเตอร์ เชียงราย / Music Center Chiangrai — a real shop, and the most complete record on this shelf that was not read off a web page (house number, street, postcode, phone, hours, all on the pin). The second, node/2148624712 'ร้านขาย เช่า DVD CD', is a DVD and CD rental shop mistagged shop=musical_instrument. So the honest count for Chiang Rai is ONE instrument shop on the map, same as Chiang Mai — the raw 2 does not survive reading the names."
+ },
+ "categories": {
+  "_readme": [
+   "The twenty most-played instrument categories across the United States,",
+   "the United Kingdom and Thailand, deduplicated into a single list — the",
+   "shape Nan asked for. There is no published table that ranks all three",
+   "countries together, so this is a UNION with each country's own evidence",
+   "attached per row, and `rank` is this file's judgement of the combined",
+   "weight, not a figure anybody published. Where a country's source gives",
+   "a number, the number is here; where it does not, the row says so",
+   "rather than inventing one.",
+   "",
+   "The three sources, and what each one actually measures — they are not",
+   "the same measurement and the list must not pretend they are:",
+   "  US — trade and retail data (NAMM 2025 Global Report; Music Trades",
+   "       via pianodreamers 2026). MONEY AND UNITS SOLD, adults included.",
+   "  UK — ABRSM Making Music 2024, 1,000+ children aged 5-17. CHILDREN",
+   "       WHO SAY THEY PLAY. Not sales, and not adults.",
+   "  TH — geyemusic's ranked list of the Western instruments Thais most",
+   "       play, plus the school วงโยธวาทิต marching-band channel through",
+   "       which most Thai children meet a wind instrument at all.",
+   "A category high in one column and low in another is usually this",
+   "difference and not a disagreement: the recorder is 16% of British",
+   "children and a rounding error in American retail because one measures",
+   "school and the other measures spending."
+  ],
+  "list": [
+   {
+    "rank": 1,
+    "key": "acoustic-guitar",
+    "en": "Acoustic guitar",
+    "th": "Ranked #1 of the Western instruments Thais most play (geyemusic) — portable, needs nothing else",
+    "us": "Guitars are the largest single segment of the instrument market; 36% of the US guitar market is acoustic and NAMM finds 69% of guitarists own one — the highest ownership of any guitar type",
+    "uk": "Guitar family among the most played; ABRSM 2024 breaks out electric separately",
+    "buy_cm": true,
+    "rent_cm": "hour",
+    "bangkok_only": false
+   },
+   {
+    "rank": 2,
+    "key": "electric-guitar",
+    "en": "Electric guitar",
+    "th": "Ranked #2 (geyemusic)",
+    "us": "58% of the US guitar market by Music Trades' split — the largest single guitar category; 60% of guitarists own one",
+    "uk": "17% of children aged 5-17 in 2024, up from 13% in 2014 — and it overtook the violin for the first time",
+    "buy_cm": true,
+    "rent_cm": "day",
+    "bangkok_only": false
+   },
+   {
+    "rank": 3,
+    "key": "digital-piano-keyboard",
+    "en": "Digital piano & electric keyboard",
+    "th": "Sold by every shop on this shelf; the entry point for most Thai piano study",
+    "us": "Digital and electronic instruments grew 36.5% in the decade to 2025 (NAMM)",
+    "uk": "Keyboard 13% of children in 2024; ABRSM names piano and keyboard together as the most popular thing children learn",
+    "buy_cm": true,
+    "rent_cm": "month",
+    "bangkok_only": false
+   },
+   {
+    "rank": 4,
+    "key": "acoustic-piano",
+    "en": "Acoustic piano (upright & grand)",
+    "th": "Ranked #8 (geyemusic); the rental market for it is the most developed of any instrument in the country",
+    "us": "The traditional core of the market, now outgrown by digital",
+    "uk": "16% of children in 2024 — the single most played instrument in the ABRSM survey, and also the most abandoned",
+    "buy_cm": true,
+    "rent_cm": "month",
+    "bangkok_only": false
+   },
+   {
+    "rank": 5,
+    "key": "ukulele",
+    "en": "Ukulele",
+    "th": "Ranked #4 (geyemusic) — the standard cheap first instrument here",
+    "us": "Active players estimated at roughly 5 million in 2010 and 20-25 million by 2025",
+    "uk": "Named by ABRSM 2024 as rising among young people",
+    "buy_cm": true,
+    "rent_cm": "hour",
+    "bangkok_only": false
+   },
+   {
+    "rank": 6,
+    "key": "drum-kit",
+    "en": "Drum kit (acoustic)",
+    "th": "Carried by every general shop here, and the instrument the practice-room trade exists for",
+    "us": "Percussion a standing category; school band's largest section by applicants",
+    "uk": "In ABRSM 2024's most-played six; markedly more boys than girls",
+    "buy_cm": true,
+    "rent_cm": "hour",
+    "bangkok_only": false
+   },
+   {
+    "rank": 7,
+    "key": "bass-guitar",
+    "en": "Bass guitar",
+    "th": "Stocked by every general shop; standard in the Thai band lineup",
+    "us": "Counted inside the fretted category, which grew 38% in the US in the decade",
+    "uk": "In ABRSM 2024's most-played six",
+    "buy_cm": true,
+    "rent_cm": "day",
+    "bangkok_only": false
+   },
+   {
+    "rank": 8,
+    "key": "violin",
+    "en": "Violin",
+    "th": "Ranked #7 (geyemusic)",
+    "us": "Orchestra reaches ~2% of US high-school graduates against band's 11% (Elpus & Abril 2019), but violin dominates within it",
+    "uk": "In ABRSM 2024's most-played six, and rising — though passed by electric guitar for the first time",
+    "buy_cm": true,
+    "rent_cm": "month",
+    "bangkok_only": false
+   },
+   {
+    "rank": 9,
+    "key": "electronic-drums",
+    "en": "Electronic drum kit",
+    "th": "Advertised by name in Chiang Mai shop listings — the answer to a condo wall",
+    "us": "Inside the digital/electronic category, up 36.5% in the decade",
+    "uk": "Not broken out by ABRSM",
+    "buy_cm": true,
+    "rent_cm": "day",
+    "bangkok_only": false
+   },
+   {
+    "rank": 10,
+    "key": "alto-saxophone",
+    "en": "Alto saxophone",
+    "th": "Ranked #6 (geyemusic) and a วงโยธวาทิต staple",
+    "us": "One of the most-chosen beginner band instruments — a middle-school band needs at most four alto players against up to twenty clarinets",
+    "uk": "Woodwind present but behind the top six",
+    "buy_cm": true,
+    "rent_cm": "month",
+    "bangkok_only": false
+   },
+   {
+    "rank": 11,
+    "key": "flute",
+    "en": "Flute",
+    "th": "Ranked #9 (geyemusic)",
+    "us": "A school-band staple; heavily subscribed",
+    "uk": "15% of children in 2024, up from 7% in 2014 — the sharpest rise in the ABRSM survey",
+    "buy_cm": true,
+    "rent_cm": "month",
+    "bangkok_only": false
+   },
+   {
+    "rank": 12,
+    "key": "clarinet",
+    "en": "Clarinet",
+    "th": "วงโยธวาทิต staple",
+    "us": "Called one of the most common band instruments and the usual path to saxophone or bass clarinet",
+    "uk": "Woodwind present but behind the top six",
+    "buy_cm": true,
+    "rent_cm": "month",
+    "bangkok_only": false
+   },
+   {
+    "rank": 13,
+    "key": "trumpet",
+    "en": "Trumpet",
+    "th": "วงโยธวาทิต staple; stocked by name in Chiang Mai",
+    "us": "Brass staple; better honours-band odds than flute or alto sax, which is a demand signal",
+    "uk": "Brass present but behind the top six",
+    "buy_cm": true,
+    "rent_cm": "month",
+    "bangkok_only": false
+   },
+   {
+    "rank": 14,
+    "key": "recorder",
+    "en": "Recorder",
+    "th": "Standard primary-school issue; sold by the brass-and-woodwind specialist here",
+    "us": "Near-invisible in retail — a classroom object, not a purchase",
+    "uk": "16% of children in 2024, down from 28% in 2014 — the steepest fall in the survey",
+    "buy_cm": true,
+    "rent_cm": false,
+    "bangkok_only": false
+   },
+   {
+    "rank": 15,
+    "key": "melodica",
+    "en": "Melodica",
+    "th": "Standard Thai primary-school instrument, sold by name alongside the recorder — the one row on this list where Thailand's column is the only one that matters",
+    "us": "Marginal",
+    "uk": "Marginal",
+    "buy_cm": true,
+    "rent_cm": false,
+    "bangkok_only": false
+   },
+   {
+    "rank": 16,
+    "key": "double-bass",
+    "en": "Double bass (bass fiddle, upright bass)",
+    "th_name": "ดับเบิลเบส · เบสฟิดเดิล",
+    "us": "The scarce tier — a bassist has at least a 50% chance at honours orchestra against a violinist's 30% — plus the spine of bluegrass, jazz and rockabilly, an adult playing population the school numbers miss",
+    "uk": "Orchestral core, in short supply the same way",
+    "th": "School and university orchestras; rentable by the day in Bangkok only",
+    "buy_cm": false,
+    "rent_cm": false,
+    "bangkok_only": true,
+    "note": "THE HARDEST ROW ON THE SHELF and the reason it is here: the only category both IN the twenty and IN the Bangkok four. The list says it matters; the shelf says nobody in either province sells or rents one. A reader who plays bass fiddle has the worst problem on this page and is owed a straight answer rather than an omission. Added on Nan's instruction, 2026-08-31 — it had been in the Bangkok box only, which left a hole in the list itself."
+   },
+   {
+    "rank": 17,
+    "key": "cello",
+    "en": "Cello",
+    "th": "School orchestra instrument; rentable nationally by the month",
+    "us": "Scarce enough that a cellist has at least a 50% chance at honours orchestra against a violinist's 30%",
+    "uk": "Orchestral core, behind the top six",
+    "buy_cm": null,
+    "rent_cm": "month",
+    "bangkok_only": false
+   },
+   {
+    "rank": 18,
+    "key": "trombone",
+    "en": "Trombone",
+    "th": "วงโยธวาทิต staple; stocked by name in Chiang Mai",
+    "us": "Brass staple; in demand at honours level",
+    "uk": "Brass present but behind the top six",
+    "buy_cm": true,
+    "rent_cm": "month",
+    "bangkok_only": false
+   },
+   {
+    "rank": 19,
+    "key": "electric-organ",
+    "en": "Electric organ / Electone",
+    "th": "Ranked #3 (geyemusic) — a category that exists as a category here and barely does in the other two countries",
+    "us": "Not a distinct retail category",
+    "uk": "Not broken out",
+    "buy_cm": true,
+    "rent_cm": false,
+    "bangkok_only": false
+   },
+   {
+    "rank": 20,
+    "key": "hand-percussion",
+    "en": "Cajón & hand percussion (bongo, conga, djembe)",
+    "th": "Bongos rank #10 (geyemusic); the cajón is the busker's kit",
+    "us": "A steady accessory category",
+    "uk": "Percussion present; markedly gendered in ABRSM's 2024 findings",
+    "buy_cm": true,
+    "rent_cm": "hour",
+    "bangkok_only": false
+   }
+  ],
+  "twenty_first": {
+   "key": "lanna-strings",
+   "en": "Lanna instruments — salaw, saw, sueng",
+   "th": "สะล้อ ซอ ซึง",
+   "why": [
+    "Deliberately NOT in the twenty, because it is on none of the three",
+    "national lists and putting it there would be a lie about the",
+    "sources. It is here because it is the one family on which the",
+    "reader's question inverts: for these, Bangkok is the wrong",
+    "direction and Chiang Mai is where they are made. A directory of",
+    "this city that published a global top twenty and stopped would",
+    "have printed a list of instruments with the local one missing."
+   ],
+   "buy_cm": true,
+   "rent_cm": false,
+   "bangkok_only": false
+  },
+  "_dropped": {
+   "harmonica": {
+    "th": "ฮาร์โมนิกา",
+    "was": 19,
+    "dropped": "2026-08-31, when the double bass came in on Nan's instruction",
+    "why": "The twenty is ordered by combined weight across three countries and the harmonica had evidence from ONE — Thailand ranks it #5, neither the US trade data nor ABRSM breaks it out. It is also a two-hundred-baht impulse buy that nobody rents and nobody travels for, so it was the row costing a reader the least. Recorded here rather than deleted: if the rule ever changes, this is the row to put back first.",
+    "still_true": "Sold in Chiang Mai. Never rented anywhere. Thailand ranks it above the saxophone and the violin."
+   }
+  }
+ },
+ "rental_clocks": {
+  "month": {
+   "th": "รายเดือน — เครื่องของนักเรียน",
+   "en": "By the month — the student clock",
+   "who": "Churairat Music (จุไรรัตน์มิวสิค), which has a Chiang Mai showroom and service centre; its own listing names rental of pianos, marching band and concert band instruments; Piano Center on Suthep Road, the one shop the open map holds, for pianos",
+   "published_rates_thb_per_month": {
+    "flute": 350,
+    "clarinet_bb": 450,
+    "trumpet_bb": 450,
+    "alto_saxophone": 750,
+    "french_horn": 1550,
+    "viola": 550,
+    "violin": 950,
+    "cello": 550,
+    "drum_set": 500,
+    "xylophone": 4200,
+    "piano_upright_japanese": 990,
+    "piano_yamaha_u1": 2500,
+    "piano_grand_classic": 5500
+   },
+   "terms": "Student rentals run 3, 6 or 12 months. Piano: upright from 1 month, delivery both ways 2,500 THB extra, one tuning included, deposit 20,000 THB on the 990-baht Japanese upright (35,000 on a U1, 65,000 on a grand). Instrument deposits 300-1,500 THB. Deposits are stated to earn 5% a year.",
+   "_pricesVerified": false,
+   "answered": "ANSWERED 2026-08-31 by Nan, who has Churairat on LINE and knows the business: Chiang Mai is a SMALL SHOWROOM and the rental stock ships up from a large warehouse in BANGKOK. This was the shelf's biggest open question and it does not change the headline — the instrument still comes to you in Chiang Mai and you do not travel — but it changes the shape of the transaction in a way a reader has to be told: there is a LEAD TIME, and you cannot try the instrument before it arrives. Churairat also told her the wait is not long — recorded as THEIR account of their own service, reaching us through her, and given no number because none was given. A firm describing its own delivery speed is an interested party, so the day-count is the one thing here still worth asking for. The question on the phone is not 'do you have one' (a small showroom will not) but 'how many days from order to delivery, and can I try one in the showroom first'."
+  },
+  "day": {
+   "th": "รายวัน — แบ็คไลน์สำหรับงาน",
+   "en": "By the day — the event clock",
+   "who": "Chiang Mai has its own backline and PA firms: Triple A Sound Chiang Mai, LNW Event (drums, acoustic guitar, keyboard, bass amp, guitar amp, electric guitar), Sound VIP",
+   "note": "The big Bangkok backline houses found in search — IP Studio, Rocky Studio — are Bangkok-and-around only and are NOT an answer here. Recorded so the next session does not re-find them and mistake them for coverage."
+  },
+  "hour": {
+   "th": "รายชั่วโมง — ห้องซ้อม",
+   "en": "By the hour — the practice clock",
+   "who": "Ten rehearsal rooms in Chiang Mai, most with the kit already in the room; plus Doremi Music School in Hang Dong at 350 THB/hr for an acoustic piano room",
+   "published_rates_thb_per_hour": {
+    "typical_low": 150,
+    "typical_high": 300
+   },
+   "_pricesVerified": false,
+   "why_it_matters": [
+    "This is the answer most people are actually looking for and no",
+    "search for the word `rental` returns it. Nobody in Chiang Mai will",
+    "rent a household a drum kit by the month. Ten rooms will rent an",
+    "hour in a room that has one, from about 150 baht, and for a drummer",
+    "or a band that is the same need met at a twentieth of the price."
+   ]
+  }
+ },
+ "bangkok": {
+  "verdict_th": "ไม่ต้องลงกรุงเทพ — ยกเว้นสี่อย่าง",
+  "verdict_en": "No — except for four things",
+  "the_four": [
+   {
+    "what": "Double reeds — oboe, bassoon (โอโบ บาสซูน)",
+    "why": "No Chiang Mai shop advertises them, including the brass-and-woodwind specialist. Order-in at best."
+   },
+   {
+    "what": "Harp (ฮาร์ป)",
+    "why": "Not advertised by any shop in either province."
+   },
+   {
+    "what": "Double bass (ดับเบิลเบส)",
+    "why": "Not advertised for sale by any shop in either province, and rentable by the day in Bangkok only. This is the ONE item that is both in the top twenty and in this box — the list says it matters and the shelf says nobody here has one. Everything else in the twenty can be got in Chiang Mai; the bass fiddle is the exception that has to be said out loud rather than left as a gap in the table."
+   },
+   {
+    "what": "A concert-grade instrument hired for ONE DAY",
+    "why": "The firm that does this in Thailand is Bravo Music in Bangkok — violin or viola 3,000 THB/day, cello 5,000, double bass 6,000, harp 15,000, commercial use 5,000 per instrument per day. Its own terms say the renter collects in person and that delivery is within Bangkok only. That is a genuine trip, and it is the only row on this page where the answer to the question is yes.",
+    "_pricesVerified": false
+   }
+  ],
+  "not_bangkok": [
+   "Everything else on the twenty — but note the shape, not just the answer. For a rented",
+   "band or orchestra instrument, BANGKOK IS STILL WHERE THE STOCK IS; what Chiang Mai",
+   "spares you is the journey, not the wait — and by the shop's own account to Nan the wait",
+   "is short, though nobody has given a number. The instrument ships to you (field, Nan,",
+   "2026-08-31). That is a different sentence from 'Chiang Mai has it', and this file says",
+   "the true one.",
+   "And for สะล้อ ซอ ซึง the direction of travel reverses outright: the makers are here."
+  ]
+ },
+ "refused": [
+  "Ranking the shops. The shelf sorts by whether a shop rents and by district, not by merit.",
+  "Repeating Chiang Rai Music's claim to be the largest instrument store in northern Thailand in this site's voice. Attributed to them, or not printed.",
+  "Recommending brands. Several shops list their dealerships; that is stock, not advice.",
+  "Treating fastwork.co's Chiang Mai instrument-rental page as a source. Its search snippet promises rental from 300 baht; the page itself returns พบงาน 0 งาน — zero providers, read 2026-08-31. Recorded so nobody cites the snippet.",
+  "Inferring that a shop rents because it is large or has a practice room. `rents` comes from the shop's own words or it is false.",
+  "Counting node/2148624712 as an instrument shop. It is tagged shop=musical_instrument and named 'ร้านขาย เช่า DVD CD' — a DVD and CD rental. Reading the name in the shop's own language is the check that catches this, and it is the same check that filled the salon shelf."
+ ],
+ "discrepancies": [
+  {
+   "about": "Churairat Music Chiang Mai — address",
+   "a": "Their own site: Khao Shong Park, 24/5, San Phi Suea, Mueang Chiang Mai 50300",
+   "b": "CMHY.city: Somphot Chiangmai 700 Year Rd., San Phisuea, Mueang Chiang Mai 50300",
+   "held": "Both put it in San Phi Suea; Khao Shong Park sits off the 700-Year Road. The company's own wording is kept and the pin is needs-pin until somebody stands there."
+  },
+  {
+   "about": "Churairat Music Chiang Mai — hours",
+   "a": "Their own site: Mon-Sat 09:00-18:00, Sunday closed",
+   "b": "CMHY.city: Mon-Fri 10:00-19:00, Sat-Sun 08:00-18:00",
+   "held": "The company's own page is kept. The two disagree about Sunday, which is the one that would waste a trip."
+  },
+  {
+   "about": "Patr Music — address",
+   "a": "thailandnomads: 123/6-7 Sriphoom Rd",
+   "b": "chiangmai.net lists it under Musical Instruments / Musical Instrument Rental / Rehearsal Rooms / Band Practice Rooms with no address",
+   "held": "Address unconfirmed from the shop's own page; recorded needs-pin. Its Facebook is Patr Music-ภัทร มิวสิค."
+  },
+  {
+   "about": "Green Music — house number",
+   "a": "thailandnomads: 67 Prapokkloa Rd",
+   "b": "salehere: 67/4-5 ถนนพระปกเกล้า",
+   "held": "67/4-5, the fuller Thai form. Same phone (053-206-951) in both, which is what ties them together.",
+   "osm": "OSM node/5234292721 `Greens Music` sits at 18.7835698, 98.988531 filed as shopping/mall — the same shop, misclassified as a shopping centre. That single node is very likely the ONE musical-instrument-adjacent record the open map holds, and it is not even tagged as one."
+  },
+  {
+   "about": "Green Music — number of practice rooms",
+   "a": "thailandnomads: 4 soundproof rooms at 150-180 THB/hr",
+   "b": "salehere: 6 rooms at a standard rate; cmhy.city: 7 rooms",
+   "held": "Unresolved and printed as a range. Three sources, three counts, which is what a room being added looks like from outside."
+  }
+ ],
+ "next_acts": [
+  "Churairat's lead time IN DAYS. Nan has answered where the stock is (Bangkok, shipped to a small Chiang Mai showroom) and passed on the shop's own word that delivery is not slow. What is left is the number, from them rather than about them, plus whether a renter can try one in the showroom before ordering. 093-090-9018, or her LINE thread with them.",
+  "The bass fiddle is the shelf's one real hole. Nobody in either province advertises one for sale or hire. Worth asking Music Arms CM and CM Music Thailand whether they will order one in, and asking the university and school orchestras — CMU's music faculty and the Chiang Rai youth orchestra both must own several — who repairs and who lends.",
+  "Two of the sites cited here do not resolve — chiangraimusic.com and pianocenter.co.th. Both records now say so on their face, but both want a phone call to replace second-hand text with something somebody was told: 097-123-5959 and 053-277-990.",
+  "Walk Prapokklao Road: Green Music at 67/4-5 and Toey Music at 7/16 Mun Mueang are both inside the old city and ten minutes apart. Two rate cards photographed settles the practice-room prices for the whole shelf.",
+  "Fix OSM node/5234292721 in our own data: `Greens Music` is a musical instrument shop, not a mall.",
+  "Ask the three Lanna makers what they charge and whether they will make to order — สุรินทร์ดนตรีล้านนา (081-366-4929) is a maker, not a reseller, and that is the one thing on this page Bangkok cannot answer.",
+  "Chiang Rai is thin: two shops. The province deserves the same hour Chiang Mai got."
+ ],
+ "sources": [
+  {
+   "what": "NAMM 2025 Global Report — key takeaways (fretted +38% US in the decade; digital/electronic +36.5%; guitar pedals ~$200M)",
+   "ref": "https://www.namm.org/blog/industry-insights-key-takeaways-2025-global-report",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "US guitar market splits and NAMM ownership figures (electric 58% / acoustic 36% / classical 6%; 69% own acoustic, 60% electric)",
+   "ref": "https://www.pianodreamers.com/guitar-sales-statistics/",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "ABRSM Making Music 2024 — children 5-17 (electric guitar 17%, piano 16%, recorder 16%, flute 15%, keyboard 13%)",
+   "ref": "https://www.centralfifetimes.com/news/national/25126061.one-six-children-learning-recorder-drop-popularity-decade/",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "ABRSM 2024 — electric guitar overtakes violin; the most-played six",
+   "ref": "https://www.thestrad.com/electric-guitar-overtakes-violin-on-list-of-students-most-popular-musical-instruments/2039.article",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "Thai ranked list of most-played Western instruments",
+   "ref": "https://www.geyemusic.com/article_detail/view/117773",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "Churairat Music — student wind/string/percussion rental rates",
+   "ref": "https://churairatmusic.com/rent-service/marching-and-concert-rental",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "Churairat Music — piano rental from 990 THB/month, terms and deposits",
+   "ref": "https://churairatmusic.com/th/rent-service/piano-rental/990-baht/home-use",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "Churairat Music — branch list including the Chiang Mai showroom",
+   "ref": "https://churairatmusic.com/en/contact",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "Churairat Music Chiang Mai — listing naming instrument rental among its services",
+   "ref": "https://www.cmhy.city/en/place/15574-Churairat-Music-Chiang-Mai",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "Bravo Music — Bangkok orchestral rental rates and collect-in-person terms",
+   "ref": "https://www.bravomusic.co.th/rental",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "Nine Chiang Mai instrument shops with addresses and phones",
+   "ref": "https://www.thailandnomads.com/music-instrument-stops-chiang-mai/",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "Five Chiang Mai instrument shops, Thai addresses and hours",
+   "ref": "https://salehere.co.th/articles/musical-instrument-at-chiang-mai",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "Ten Chiang Mai rehearsal rooms with addresses and phones",
+   "ref": "https://salehere.co.th/articles/music-rehearsal-room-in-chiang-mai",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "Music Arms Chiang Mai branch — address, phone, hours, stock",
+   "ref": "https://www.musicarms.net/ร้าน-music-arms-สาขาเชียงใหม่/",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "CM Music Thailand — brass, woodwind, marching, repair, piano tuning",
+   "ref": "https://cmmusicthailand.com/",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "Chiang Mai instrument rental directory category — one business listed",
+   "ref": "https://www.chiangmai.net/business-directory/category/musical-instrument-rental",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "Parinyapat Thai Music — Lanna instrument shop, Chang Phuak",
+   "ref": "https://www.cmhy.city/en/place/35818-Parinyapat-Thai-Music",
+   "fetched": "2026-08-31"
+  },
+  {
+   "what": "fastwork.co Chiang Mai instrument rental — zero providers on the page itself",
+   "ref": "https://fastwork.co/instrument-rental/chiangmai",
+   "fetched": "2026-08-31"
+  }
+ ],
+ "dead_sources": {
+  "_readme": [
+   "Checked by asked_check.py on 2026-08-31, the same day the records were written.",
+   "A source that is already dead the day we cite it is not a source, so these are",
+   "named here rather than left to be rediscovered."
+  ],
+  "chiangraimusic.com": "DNS does not resolve. This is the worse one: the whole Chiang Rai Music record — address, phone, hours, stock, and its own superlative — was read from a search index's copy of a site that is not answering. The record is downgraded to third-party and says so on its face.",
+  "pianocenter.co.th": "DNS does not resolve. Piano Center is still the one shop on the open map and the OSM node carries its phone and hours, but there is no shop page to check the rental claim or the 900-1,200/month against.",
+  "themusicthailand.com/9-<thai-path>": "the deep link with a percent-encoded Thai path fails link-check; the site root is cited instead",
+  "surin_lanna.plazathai.com": "TLS failure — an underscore is not valid in a certificate hostname. Reads over plain HTTP. Not a dead source, a mis-issued one."
+ }
+}

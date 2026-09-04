@@ -1,7 +1,48 @@
 {
- "generated": "2026-08-30",
- "count": 4,
+ "generated": "2026-09-04",
+ "count": 99,
  "leads": [
+  {
+   "venue_name": "137 Pillars House",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "+66 (0)53 247 788",
+   "email": "137cnxfb@137pillarshouse.com",
+   "website": "https://137pillarshotels.com/en/chiangmai/seasonal/roots-of-the-monsoon-afternoon-tea"
+  },
+  {
+   "venue_name": "4Seas Nimman",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "whatsapp": "https://chat.whatsapp.com/LcDAeKjgqi7C7ckAXWCgzZ?mode=gi_t",
+   "facebook": "https://www.facebook.com/events/1375039671185313/1375048144517799"
+  },
+  {
+   "venue_name": "Aleenta Retreat Chiang Mai",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "052-090-333",
+   "email": "reservation@akaryn.com"
+  },
+  {
+   "venue_name": "Alt_PingRiver",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "https://luma.com/52xn3b1b"
+  },
+  {
+   "venue_name": "Anantara Chiang Mai Resort",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "+66 53 253 333",
+   "email": "communications.achm@anantara.com",
+   "lineId": "@anantarachiangmai"
+  },
   {
    "venue_name": "Araksa Tea Garden",
    "sources": [
@@ -13,6 +54,285 @@
    "city": "Mae Taeng District, Chang Wat"
   },
   {
+   "venue_name": "Archers Chiang Mai",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/archerschiangmai"
+  },
+  {
+   "venue_name": "Artisan Café",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "https://www.shutupwrite.com/series/id2wv2875w00"
+  },
+  {
+   "venue_name": "Auf der Au Garden",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "085 523 4366; 093 434 0844; 099 592 2665",
+   "maps": "https://maps.app.goo.gl/tYcMLTz49Hf8ak3d7"
+  },
+  {
+   "venue_name": "Ban Hang Khaew",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "081-019-8980; 081-885-8572",
+   "facebook": "https://www.facebook.com/events/1058940860401845"
+  },
+  {
+   "venue_name": "Berlin's Doner Kebab",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "https://www.chiangmaicitylife.com/citynow/social-life/live-events/berlins-doner-"
+  },
+  {
+   "venue_name": "Centara Riverside Hotel",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "053 801457; 053275300",
+   "lineUrl": "https://lin.ee/x8mkADz"
+  },
+  {
+   "venue_name": "Central Festival Chiang Mai",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "https://the1.onelink.me/UohD/hvrw1qbl",
+   "facebook": "https://www.facebook.com/CentralDepartmentStoreChiangmai"
+  },
+  {
+   "venue_name": "CFCNX",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "082-381-4938",
+   "facebook": "https://www.facebook.com/cfcnxfitness"
+  },
+  {
+   "venue_name": "Chiang Mai Holistic",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "https://jasonryer.com/breathwork-in-chiang-mai/",
+   "email": "info@chiangmaiholistic.com",
+   "facebook": "https://www.facebook.com/cmholistic/",
+   "lineId": "@cmholistic"
+  },
+  {
+   "venue_name": "Chiang Mai Marriott Hotel",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "+66 (0) 53-253-666",
+   "website": "https://mds-assets.marriott.com/cms-platform-for-marriott/cnxmc-gaj-kitchen-and-"
+  },
+  {
+   "venue_name": "Chiang Mai University Auditorium",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "https://www.thailandexhibition.com/en/thai-event-details/cat-expop-2026/27983"
+  },
+  {
+   "venue_name": "China Kitchen",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "053 253888",
+   "website": "https://tinyurl.com/slcm-signature-dim-sum",
+   "email": "restaurants.slcm@shangri-la.com"
+  },
+  {
+   "venue_name": "Chotana Mall Chiang Mai",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/chotanamallchiangmai"
+  },
+  {
+   "venue_name": "CNX Cigars",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "email": "cnxcigars@gmail.com",
+   "facebook": "https://www.facebook.com/events/1501023178731679/",
+   "phone": "062-276-9937"
+  },
+  {
+   "venue_name": "Copacabana Rooftop CNX",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/events/928517180202262/"
+  },
+  {
+   "venue_name": "Cowboy Army Riding Club",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/UntilTheSundown"
+  },
+  {
+   "venue_name": "Cross Chiang Mai Riverside",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/share/p/1F1Z9u1JpP/?mibextid=wwXIfr",
+   "lineId": "@doctorkimcnx",
+   "phone": "+66 53 931 999",
+   "email": "STAY@crosschiangmairiverside.com"
+  },
+  {
+   "venue_name": "Curry Express",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "087-502-7990"
+  },
+  {
+   "venue_name": "Decathlon Central Festival",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "whatsapp": "https://chat.whatsapp.com/JI1gSHHPcc56jLZoifni18"
+  },
+  {
+   "venue_name": "Dhara Dhevi Chiang Mai",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "https://www.ticketmelon.com/ambercircle/TheRitualFestival",
+   "facebook": "https://www.facebook.com/events/1545075017342903"
+  },
+  {
+   "venue_name": "Dojo Yoga & Pilates",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "email": "joanne@sonic-bloom.org"
+  },
+  {
+   "venue_name": "Dream Star Academy Football Club",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/groups/203913962982666/",
+   "maps": "https://goo.gl/maps/XYLFwP4brwRMvYwA8"
+  },
+  {
+   "venue_name": "Dudee4Me",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "053 231 520",
+   "website": "https://drive.google.com/.../1pvglyaR7lhZstH75ARc.../view",
+   "email": "infojingjaicm@central.co.th"
+  },
+  {
+   "venue_name": "Dusit Princess Chiang Mai",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "lineUrl": "https://lin.ee/U9mFL3p"
+  },
+  {
+   "venue_name": "Eat@Rincome",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "+66 52 005 111",
+   "email": "reserve@unimmanchiangmai.com",
+   "lineUrl": "https://lin.ee/7hb90qp"
+  },
+  {
+   "venue_name": "F4T",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "email": "cgust51@hotmail.com"
+  },
+  {
+   "venue_name": "Faculty of Fine Arts, Chiang Mai University",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "email": "ifbonde@yahoo.com.au",
+   "maps": "https://maps.app.goo.gl/Ji97msMXUKigJKLE9"
+  },
+  {
+   "venue_name": "Favola",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "+66 (0) 53-253-299",
+   "website": "https://marriotth.tl/6187B8oAdX"
+  },
+  {
+   "venue_name": "Free Bird Cafe",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://fb.me/e/2wzLRzfwa?mibextid=RQdjqZ"
+  },
+  {
+   "venue_name": "Free Bird CNX Donation Center and Thrift Store",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/events/1255372053339282/1255372060005948/"
+  },
+  {
+   "venue_name": "Gaj Kitchen and Bar",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "https://marriotth.tl/6186B1IPne"
+  },
+  {
+   "venue_name": "Game Tree Café",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/events/2872631169763098/2872631173096431/",
+   "phone": "094-968-6384"
+  },
+  {
+   "venue_name": "Gekko Garden Restaurant",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "086-648-6306",
+   "website": "https://www.gekkogardenrestaurant.com/"
+  },
+  {
+   "venue_name": "GooMan's CNX",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "email": "seankyleprice@gmail.com",
+   "facebook": "https://www.facebook.com/p/GooMans-cnx-61573583033500/"
+  },
+  {
+   "venue_name": "Gymkhana Club",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "https://bit.ly/3zE1VSD"
+  },
+  {
+   "venue_name": "Happy Allergy Bakery",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/groups/560946855677052"
+  },
+  {
    "venue_name": "Integrated Tribal Development Foundation",
    "sources": [
     "payap-lll"
@@ -20,6 +340,71 @@
    "phone": "053 114 583",
    "website": "https://itdfinternational.org/",
    "address": "Integrated Tribal Development Foundation,169 หมู่ 3 San Phi Suea, Mueang Chiang Mai District,"
+  },
+  {
+   "venue_name": "InterContinental Chiang Mai The Mae Ping",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "+66 (0)52 090 998",
+   "email": "reservations.icchiangmai@ihg.com",
+   "lineId": "@interconchiangmai",
+   "lineUrl": "https://lin.ee/O6esFM5"
+  },
+  {
+   "venue_name": "Jing Jai Market",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "053-231-520",
+   "email": "infojingjaicm@central.co.th"
+  },
+  {
+   "venue_name": "Kad Kriangkrai",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/hashtag/mahamitraerobic",
+   "maps": "https://goo.gl/maps/ziVYq53a3J1Y8ZwU9"
+  },
+  {
+   "venue_name": "Kantary Hills",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "053 222 111; 089 556 2737",
+   "lineId": "@kantarychiangmai",
+   "lineUrl": "https://lin.ee/bm1Fmn9"
+  },
+  {
+   "venue_name": "Kindred Studio",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/kindredstudio.art",
+   "maps": "https://goo.gl/maps/65h1UVVWwYY9TAes9"
+  },
+  {
+   "venue_name": "La Friandise",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "092-949-9925"
+  },
+  {
+   "venue_name": "Le Crystal Restaurant",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "053 218 059; 084 177 6599",
+   "website": "https://lecrystalrestaurant.com/reservation/"
+  },
+  {
+   "venue_name": "Lecker Café & Bistro",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "maps": "https://maps.app.goo.gl/BHzPmjeH2ZjKVszdA"
   },
   {
    "venue_name": "Lifelong Learning Payap",
@@ -36,6 +421,372 @@
    "website": "https://www.lllpayap.com",
    "address": "Lifelong Learning Payap Center Payap University, Kaew Nawarat Campus, Unnamed Road, Wat Ket, Mueang Chiang Mai District, Chiang Mai 50000, Thailand",
    "city": "Chiang Mai"
+  },
+  {
+   "venue_name": "Limeleaf Kitchen",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "094-6546846",
+   "maps": "https://goo.gl/maps/a26WhvkkShQNAnR9A"
+  },
+  {
+   "venue_name": "Maa Yoga Studio & Spa",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "+66 84 361 5688",
+   "website": "https://www.maawellnessretreat.com"
+  },
+  {
+   "venue_name": "Mae Ping Physical Therapy",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "053-441-942; 094-589-8348",
+   "email": "chonlapas@hotmail.com"
+  },
+  {
+   "venue_name": "Magnolia Café",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "081-671-2846"
+  },
+  {
+   "venue_name": "Mitt Studio",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "096-329-6526"
+  },
+  {
+   "venue_name": "Moment’s Notice Jazz Club",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "0636722212"
+  },
+  {
+   "venue_name": "North Gate Spirit",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://facebook.com/events/s/chiang-mai-cocktails-for-a-cau/1039296708880502/"
+  },
+  {
+   "venue_name": "Oak Tree",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "084 481 3280",
+   "website": "http://www.bridgewebs.com/chiangmai/",
+   "email": "jpeukert@aol.com"
+  },
+  {
+   "venue_name": "Old Chiangmai Cultural Center",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "084-014-6314",
+   "email": "morestreet2024@gmail.com"
+  },
+  {
+   "venue_name": "One Nimman",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/onenimman",
+   "website": "https://www.onenimman.com/"
+  },
+  {
+   "venue_name": "Oxygen Dining Room",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "053-931999",
+   "lineId": "@crossriverside"
+  },
+  {
+   "venue_name": "Paapu House",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "098-3297835",
+   "lineId": "@Paapu"
+  },
+  {
+   "venue_name": "PuraVida",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/groups/cigarandwhiskey"
+  },
+  {
+   "venue_name": "RealSpace",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "0967174878",
+   "lineId": "@RealSpace"
+  },
+  {
+   "venue_name": "RED CNX",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/events/1295796312414695/1295796325748027/"
+  },
+  {
+   "venue_name": "Riverside Bar & Restaurant",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "http://www.theriversidechiangmai.com/"
+  },
+  {
+   "venue_name": "Rong Sa Dang",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "081-516-1368",
+   "facebook": "https://www.facebook.com/profile.php?",
+   "maps": "https://maps.app.goo.gl/QSE1fPerC3AsEq998"
+  },
+  {
+   "venue_name": "Sacred Grounds CNX",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "email": "sacredgroundscnx@gmail.com",
+   "maps": "https://maps.app.goo.gl/1SxiuGbRpfFnETin7"
+  },
+  {
+   "venue_name": "Sala Café",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "email": "williamdsparks@outlook.com"
+  },
+  {
+   "venue_name": "Sense Dhara Dhevi Wellness Club",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "https://www.chiangmaicitylife.com/citynow/whats-on/live-music/soul-"
+  },
+  {
+   "venue_name": "Seven Fountains Jesuit Retreat Center",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "email": "ccmeditationcnx@gmail.com"
+  },
+  {
+   "venue_name": "Shangri-La Chiang Mai",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "053-253-888; 081-245-0743",
+   "email": "slcm@shangri-la.com",
+   "website": "https://www.slcm.online/dim-sum-buffet"
+  },
+  {
+   "venue_name": "Sip at Ping",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/events/1430771705584786"
+  },
+  {
+   "venue_name": "Siripanna Villa Resort & Spa",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "053-294656",
+   "maps": "https://goo.gl/maps/xjNfHji4DDcaVzDu"
+  },
+  {
+   "venue_name": "Skugga Vineyard",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "+66 81-146-2652",
+   "email": "vineyard@skuggalife.com",
+   "lineId": "@skuggavineyard"
+  },
+  {
+   "venue_name": "STEAMpunk Studio",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "0646573872",
+   "email": "thaicreativitea@gmail.com"
+  },
+  {
+   "venue_name": "Studio 88 Artist Residency",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/events/1407159268144803/",
+   "maps": "https://maps.app.goo.gl/Vi4WzhCAoUQ33xNW8"
+  },
+  {
+   "venue_name": "Suvannabhumi Art Gallery",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/events/1796979185052071/"
+  },
+  {
+   "venue_name": "T Station",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "+66 52 001 999",
+   "website": "https://www.eastinhotelsresidences.com/eastintanchiangmai/",
+   "email": "rsvn@eastintanchiangmai.com",
+   "lineUrl": "https://lin.ee/NgWEcrL"
+  },
+  {
+   "venue_name": "The Duke's",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/thedukeschiangmai"
+  },
+  {
+   "venue_name": "The Duke's Ruamchok",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "053-240-550",
+   "email": "expatbreakfast@thedukes.co.th"
+  },
+  {
+   "venue_name": "The Gad Lanna",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "+66 (0)52 090 998",
+   "website": "https://chiangmai.intercontinental.com/.../intercontinent",
+   "email": "dining.icchiangmai@ihg.com",
+   "lineId": "@interconchiangmai",
+   "lineUrl": "https://lin.ee/O6esFM5"
+  },
+  {
+   "venue_name": "The Globe",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/theglobechiangmai"
+  },
+  {
+   "venue_name": "The Mellowship Jazz Club",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "053-908-814; 053-908-888",
+   "lineId": "@themellowship"
+  },
+  {
+   "venue_name": "The Moat House",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "+66897046166",
+   "email": "sbkchiangmaithailand@gmail.com",
+   "lineId": "@sbkchiangmai",
+   "whatsapp": "https://chat.whatsapp.com/HSRcoxlA4ekGOv4KXEi4wR",
+   "facebook": "https://www.facebook.com/groups/349933706518867/"
+  },
+  {
+   "venue_name": "The Old City Spa",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "https://jasonryer.com/ice-",
+   "lineId": "@TheOldCitySpa"
+  },
+  {
+   "venue_name": "The Red Box",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "092-979-4542",
+   "email": "faqredbox@gmail.com"
+  },
+  {
+   "venue_name": "Tiki Torch",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/events/s/burning-man-"
+  },
+  {
+   "venue_name": "Travelodge Nimman",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "+66 97 918 4609",
+   "lineId": "@jaoying_bachataWhatsApp",
+   "maps": "https://maps.app.goo.gl/ZfyAzZAMBPrzc98VA?g_st=ic",
+   "email": "rsvn.nimman@travelodgehotels.asia",
+   "lineUrl": "https://lin.ee/QZVdRBU"
+  },
+  {
+   "venue_name": "UN Irish Pub & Restaurant",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/unirishpub/"
+  },
+  {
+   "venue_name": "UNISERV CMU",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "082-160-9350",
+   "email": "jinya.competition@gmail.com",
+   "facebook": "https://www.facebook.com/tatchiangmai"
+  },
+  {
+   "venue_name": "Wat Chedi Luang",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/tatchiangmai"
+  },
+  {
+   "venue_name": "Wat Tung Yu",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "website": "https://www.buddhadailywisdom.com/courses-retreats-in-"
+  },
+  {
+   "venue_name": "Wine Connection Central Festival",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "email": "info@chiangmaiexpatsclub.com"
+  },
+  {
+   "venue_name": "Your Father Cafe",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "phone": "095-194-4969",
+   "email": "yourfathercafe@gmail.com",
+   "facebook": "https://www.facebook.com/yourfathercnx"
+  },
+  {
+   "venue_name": "Yummy Pizza",
+   "sources": [
+    "steve-newsletter"
+   ],
+   "facebook": "https://www.facebook.com/yummypizzachiangmai/",
+   "phone": "080-112-2561"
   }
  ]
 }

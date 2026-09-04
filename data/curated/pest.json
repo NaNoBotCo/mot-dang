@@ -1,0 +1,298 @@
+{
+ "_readme": [
+  "WO-48 — the pest-control register, and the snake strand beside it.",
+  "Asked by Nan 2026-08-31: exterminators are a trade every long-stay",
+  "household in Chiang Mai needs and almost none of them work in English,",
+  "so the site has to make them reachable, not merely listable.",
+  "",
+  "MEASURED FIRST, as always. The `crafts` crawl group already asks",
+  "Overpass for `nwr[craft][name]` across both provinces, so if OSM held a",
+  "pest-control firm here we would have it. It does not: 102 craft/shop",
+  "elements in Chiang Mai and 42 in Chiang Rai, and not one of them is",
+  "craft=pest_control or shop=pest_control. The whole home-services",
+  "category held ten records before this file, every one of them a",
+  "landscaper arriving from craft=gardener. This is not a crawl that needs",
+  "running harder — it is a trade that lives on Facebook, on LINE, and on",
+  "its own .co.th, and it enters the catalogue the way the notary shelf",
+  "did: curated, one firm at a time, each read from its own page with the",
+  "date it was read.",
+  "",
+  "TWO KINDS OF KNOWLEDGE, NEVER ONE VOICE — the toilets rule again, and",
+  "here it is the whole design. `pest` is a TRADE you hire: companies,",
+  "prices, a licence, a contract. `snake` is a FREE PUBLIC SERVICE you",
+  "call: the fire-and-rescue number, and volunteers. Folding them together",
+  "would sell a householder a pest contract for a problem that a state",
+  "crew answers for nothing — which is exactly the mistake a directory",
+  "makes when it lets one word ('pests') cover both. Nothing in `snake`",
+  "may ever be rendered as a company's service, and no company in `pest`",
+  "may be offered as an answer to a snake in the kitchen.",
+  "",
+  "THE LICENCE IS THE ONE CHECKABLE FACT. Thailand controls this trade",
+  "through the Hazardous Substances Act B.E. 2535: a firm spraying for",
+  "hire holds permission for type-3 hazardous substances (or has notified",
+  "for type 2) and works under a named supervisor. The FDA publishes",
+  "lookups for both, so this site links the live tool rather than copying",
+  "a table — the wildlife.json rule, for the same reason: the lists move.",
+  "Every price here is `_pricesVerified: false` until somebody reads a",
+  "quotation on paper. Prices in this trade are quoted per LINEAR METRE of",
+  "the building's perimeter, which is why two quotes for 'a house' are not",
+  "comparable until you know the number they were multiplied by.",
+  "",
+  "WHAT THIS FILE REFUSES. No efficacy claims. Where a firm's own page",
+  "makes one — '100% colony kill', herbal nano-particles, 'proven safe by",
+  "Thai health authorities' — the claim is recorded as THEIRS, attributed,",
+  "in the words they used, and never repeated in the site's own voice. No",
+  "ranking of firms. No snake farm or snake show offered as a removal",
+  "service, however often a directory lists one (see snake.refused)."
+ ],
+ "fetched": "2026-08-31",
+
+ "corpus": {
+  "osm_crafts_cm": 102,
+  "osm_crafts_cr": 42,
+  "osm_pest_control": 0,
+  "home_services_before": 10,
+  "note_th": "กลุ่ม crafts ของการเก็บข้อมูล OSM ถาม craft ทุกค่าที่มีชื่อ ทั้งสองจังหวัดได้มา 144 รายการ ไม่มีสักรายการเดียวที่เป็นบริษัทกำจัดแมลง หมวดบริการบ้านทั้งหมวดมี 10 รายการ เป็นคนสวนทั้งหมด",
+  "note_en": "The OSM crafts group asks for every named craft=* in both provinces and returns 144 records. Not one is a pest-control firm. The whole home-services category held ten records, every one a landscaper."
+ },
+
+ "pest": {
+  "trade_th": "กำจัดปลวก กำจัดแมลง กำจัดหนู",
+  "trade_en": "termite, insect and rodent control",
+  "note_th": "คำที่ร้านใช้เรียกตัวเองคือ กำจัดปลวก ไม่ใช่ กำจัดแมลง เฉยๆ — เกือบทุกเจ้าตั้งชื่อบริการตามปลวกก่อน แล้วค่อยพ่วงหนู แมลงสาบ ยุง ตัวเรือด",
+  "note_en": "The trade names itself after termites first — กำจัดปลวก — and hangs rats, cockroaches, mosquitoes and bed bugs off that. Search the Thai word for termites, not the English word for exterminator; the English word returns paid ads and the Thai one returns the trade.",
+
+  "licence": {
+   "law_th": "พระราชบัญญัติวัตถุอันตราย พ.ศ. 2535",
+   "law_en": "Hazardous Substances Act B.E. 2535 (1992)",
+   "permission_th": "การขออนุญาตสำหรับวัตถุอันตรายชนิดที่ 3 หรือแจ้งดำเนินการวัตถุอันตรายชนิดที่ 2",
+   "permission_en": "permission for type-3 hazardous substances, or notification for type-2, held by the firm that sprays for hire",
+   "supervisor_th": "ผู้ควบคุมการใช้วัตถุอันตรายเพื่อใช้รับจ้าง",
+   "supervisor_en": "the certified supervisor who must oversee pest-control work done for hire",
+   "retrain_years": 3,
+   "regulator_th": "สำนักงานคณะกรรมการอาหารและยา (อย.) กองควบคุมวัตถุอันตราย",
+   "regulator_en": "Thai FDA, Hazardous Substances Control Division",
+   "ask_th": "มีใบอนุญาตวัตถุอันตรายไหมคะ/ครับ ขอดูหน่อยได้ไหม",
+   "ask_en": "Do you hold the hazardous-substances permission? May I see it?",
+   "checks": [
+    {
+     "th": "ค้นผู้ควบคุมการใช้วัตถุอันตราย",
+     "en": "Look up a certified supervisor",
+     "url": "https://excercitium.fda.moph.go.th/FDA_TXC_SEARCH/TXC_SEARCH/FRM_TXC_SEARCH_SPECIAL"
+    },
+    {
+     "th": "ค้นสถานที่ที่ได้รับอนุญาต",
+     "en": "Look up a licensed premises",
+     "url": "https://excercitium.fda.moph.go.th/FDA_TXC_SEARCH/TXC_SEARCH/FRM_TXC_SERACH_MAIN"
+    }
+   ],
+   "sources": [
+    {"type": "gov", "ref": "https://hazard.fda.moph.go.th/our-service/category/pco-01", "fetched": "2026-08-31"}
+   ]
+  },
+
+  "pricing": {
+   "_pricesVerified": false,
+   "unit_th": "ความยาวรอบตัวอาคาร (เมตร) — เรียกกันว่า LM",
+   "unit_en": "the linear metre of the building's perimeter, quoted as LM",
+   "why_th": "สองเจ้าเสนอราคาบ้านหลังเดียวกันไม่เท่ากันเพราะคูณคนละตัวเลข ถามว่ารอบบ้านกี่เมตร แล้วราคาต่อเมตรเท่าไหร่ ถึงจะเทียบกันได้",
+   "why_en": "Two quotes for the same house are not comparable until you know the perimeter each was multiplied by. Ask for the metres and the rate, not just the total.",
+   "systems": [
+    {
+     "key": "bait",
+     "th": "ระบบเหยื่อ",
+     "en": "bait system",
+     "how_th": "วางสถานีเหยื่อรอบบ้าน ปลวกพากลับรัง เข้าตรวจเป็นรอบ",
+     "how_en": "bait stations round the house; the colony carries it home; the firm returns on a cycle",
+     "rate_th": "400–700 บาท ต่อเมตร (ราคาตามหน้าเว็บ ยังไม่ยืนยันที่หน้างาน)",
+     "rate_en": "400–700 baht per linear metre, as published, not yet confirmed against a quotation"
+    },
+    {
+     "key": "chemical",
+     "th": "ระบบอัดน้ำยาเคมี",
+     "en": "chemical injection",
+     "how_th": "เจาะอัดน้ำยาลงพื้นและรอบฐานราก ทำได้กับบ้านที่สร้างแล้ว",
+     "how_en": "drilling and injecting round the slab and footings; the option for a house already built",
+     "rate_th": "150–280 บาท ต่อเมตร (ราคาตามหน้าเว็บ ยังไม่ยืนยันที่หน้างาน)",
+     "rate_en": "150–280 baht per linear metre, as published, not yet confirmed against a quotation"
+    },
+    {
+     "key": "pipe",
+     "th": "ระบบวางท่อ",
+     "en": "pipe system",
+     "how_th": "ฝังท่อไว้ตอนสร้าง แล้วเติมน้ำยาผ่านหัวจ่ายทีหลัง ถูกที่สุดถ้าทำตอนก่อสร้าง",
+     "how_en": "pipework laid during construction and recharged through fill points later; much the cheapest if the house is not built yet",
+     "rate_th": "แล้วแต่แบบบ้าน ไม่มีเจ้าไหนประกาศราคา",
+     "rate_en": "quoted per building; no firm read here publishes a rate"
+    }
+   ],
+   "factors_th": ["ความยาวรอบอาคาร", "ระบบที่เลือก", "ระดับความรุนแรงของปัญหาปลวก"],
+   "factors_en": ["the perimeter", "the system chosen", "how far the infestation has got"],
+   "sources": [
+    {"type": "web", "ref": "https://www.homechemical.co.th/service-charge-calculation/", "fetched": "2026-08-31"}
+   ]
+  },
+
+  "words": [
+   {"th": "ปลวก", "rtgs": "pluak", "en": "termites"},
+   {"th": "แมลงเม่า", "rtgs": "malaeng mao", "en": "the winged termites that fly at a light after rain — the sign a colony is nearby, and the call to make"},
+   {"th": "มด", "rtgs": "mot", "en": "ants"},
+   {"th": "แมลงสาบ", "rtgs": "malaeng sap", "en": "cockroaches"},
+   {"th": "หนู", "rtgs": "nu", "en": "rats and mice"},
+   {"th": "ยุง", "rtgs": "yung", "en": "mosquitoes"},
+   {"th": "ตัวเรือด", "rtgs": "tua rueat", "en": "bed bugs"},
+   {"th": "ตะขาบ", "rtgs": "takhap", "en": "centipedes"},
+   {"th": "รังต่อ · รังแตน", "rtgs": "rang to · rang taen", "en": "hornet and wasp nests — a 199 call, not a pest contract"},
+   {"th": "พ่นหมอกควัน", "rtgs": "phon mok khwan", "en": "fogging, the mosquito treatment"},
+   {"th": "ประเมินหน้างานฟรี", "rtgs": "pramoen na ngan free", "en": "free site inspection — every firm read here offers one"},
+   {"th": "ใบเสนอราคา", "rtgs": "bai sanoe rakha", "en": "written quotation"},
+   {"th": "รับประกัน", "rtgs": "rap prakan", "en": "guarantee"}
+  ],
+
+  "asks": [
+   {"th": "สวัสดีค่ะ/ครับ ที่บ้านมีปลวก อยากให้เข้ามาสำรวจหน่อยค่ะ/ครับ", "en": "Hello — we have termites at the house and I would like someone to come and look."},
+   {"th": "บ้านอยู่ตำบล… ซอย… เข้าไปดูได้ไหมคะ/ครับ ประเมินฟรีไหม", "en": "The house is in … subdistrict, soi … — can you come out? Is the inspection free?"},
+   {"th": "คิดราคายังไงคะ/ครับ ต่อเมตรรอบบ้าน หรือเหมาทั้งหลัง รอบบ้านกี่เมตร", "en": "How do you price it — per metre of perimeter, or a flat rate for the house? How many metres do you make it?"},
+   {"th": "ใช้ระบบเหยื่อหรืออัดน้ำยาคะ/ครับ ต่างกันยังไง", "en": "Bait system or chemical injection? What is the difference for my house?"},
+   {"th": "รับประกันกี่ปี มีเอกสารรับประกันไหมคะ/ครับ", "en": "How long is the guarantee, and is it written down?"},
+   {"th": "มีใบอนุญาตวัตถุอันตรายไหมคะ/ครับ ขอดูหน่อยได้ไหม", "en": "Do you hold the hazardous-substances permission? May I see it?"},
+   {"th": "ต้องพาเด็กกับสัตว์เลี้ยงออกจากบ้านกี่ชั่วโมงคะ/ครับ", "en": "How many hours do children and pets need to be out of the house?"},
+   {"th": "ขอใบเสนอราคาเป็นลายลักษณ์อักษรก่อนได้ไหมคะ/ครับ", "en": "Could I have the quotation in writing first?"},
+   {"th": "ส่งรูปทางไลน์ให้ดูก่อนได้ไหมคะ/ครับ", "en": "Can I send photos on LINE first?"}
+  ],
+
+  "how_to_reach_th": "ไลน์ก่อน โทรทีหลัง — เกือบทุกเจ้ามีไลน์ออฟฟิเชียล และส่งรูปร่องรอยปลวกทางไลน์ได้ผลกว่าอธิบายทางโทรศัพท์เป็นภาษาอังกฤษ",
+  "how_to_reach_en": "LINE first, phone second. Every firm read here keeps a LINE official account, and a photograph of the mud tubes on a skirting board says more than a phone call in a language neither side shares. Send the picture, ask the price question in Thai, and let them ring you back."
+ },
+
+ "snake": {
+  "rule_th": "งูไม่ใช่งานของบริษัทกำจัดแมลง เป็นงานของหน่วยกู้ภัย และไม่เสียเงิน",
+  "rule_en": "A snake is not a pest-control company's job. It is a fire-and-rescue job, and it does not cost money.",
+
+  "numbers": [
+   {
+    "tel": "199",
+    "th": "ดับเพลิง · กู้ภัย — งูเข้าบ้าน รังต่อ รังแตน สัตว์ติดค้าง",
+    "en": "Fire and rescue — a snake in the house, a hornets' nest, an animal stuck somewhere",
+    "issuer_th": "กรมป้องกันและบรรเทาสาธารณภัย",
+    "issuer_en": "Department of Disaster Prevention and Mitigation",
+    "hours": "24",
+    "already_on_site": true
+   },
+   {
+    "tel": "1669",
+    "th": "เจ็บป่วยฉุกเฉิน · รถพยาบาล — ถูกงูกัด โทรนี่",
+    "en": "Medical emergency and ambulance — the number for a bite",
+    "issuer_th": "สถาบันการแพทย์ฉุกเฉินแห่งชาติ (สพฉ.)",
+    "issuer_en": "National Institute for Emergency Medicine",
+    "hours": "24",
+    "already_on_site": true
+   },
+   {
+    "tel": "1367",
+    "th": "ศูนย์พิษวิทยารามาธิบดี — สายให้คำปรึกษาเรื่องพิษ ตลอด 24 ชั่วโมง ทั้งประชาชนและแพทย์ (ไลน์ @rpc1367)",
+    "en": "Ramathibodi Poison Center — 24-hour poisons advice, for the public as well as for doctors (LINE @rpc1367). It is the line the treating hospital itself rings.",
+    "issuer_th": "ศูนย์พิษวิทยา คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี มหาวิทยาลัยมหิดล",
+    "issuer_en": "Ramathibodi Poison Center, Faculty of Medicine, Mahidol University",
+    "hours": "24",
+    "source": {"type": "gov", "ref": "https://www.rama.mahidol.ac.th/poisoncenter/th/contactus", "fetched": "2026-08-31"}
+   },
+   {
+    "tel": "1362",
+    "th": "สายด่วนพิทักษ์ป่า — กรมอุทยานฯ รับแจ้งเรื่องสัตว์ป่า ตลอด 24 ชั่วโมง",
+    "en": "Forest protection hotline — the national parks department's 24-hour line for wildlife matters",
+    "issuer_th": "กรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช · สำนักบริหารพื้นที่อนุรักษ์ที่ 16 (เชียงใหม่)",
+    "issuer_en": "Department of National Parks, Wildlife and Plant Conservation — Protected Area Regional Office 16, Chiang Mai",
+    "hours": "24"
+   }
+  ],
+
+  "asks": [
+   {"th": "มีงูเข้าบ้านค่ะ/ครับ ขอเจ้าหน้าที่มาจับหน่อยได้ไหมคะ/ครับ", "en": "There is a snake in the house — could you send someone to catch it?"},
+   {"th": "บ้านเลขที่… ซอย… ตำบล… อำเภอ…", "en": "House number …, soi …, subdistrict …, district … — give the address slowly, twice."},
+   {"th": "งูอยู่ในห้องน้ำ / ในครัว / ใต้ตู้เย็น / ในสวน", "en": "The snake is in the bathroom / the kitchen / under the fridge / in the garden."},
+   {"th": "ตัวยาวประมาณ … เมตร สีดำ / สีเขียว / มีลาย", "en": "About … metres long, black / green / patterned."},
+   {"th": "ยังไม่ได้ไล่ ปิดประตูห้องไว้แล้วค่ะ/ครับ", "en": "I have not chased it. I have shut the door on the room."},
+   {"th": "ไม่ต้องฆ่านะคะ/ครับ ขอให้เอาไปปล่อยได้ไหม", "en": "Please don't kill it — can it be taken away and released? This is the sentence the section exists for."}
+  ],
+
+  "while_waiting": {
+   "do_th": ["ตั้งสติ", "ถอยออกมาให้ห่าง พาเด็กและสัตว์เลี้ยงออกจากห้อง", "ปิดประตูห้องนั้นไว้ เอาผ้าอุดใต้ประตู", "มองไว้ห่างๆ ว่างูอยู่ตรงไหน จะได้บอกเจ้าหน้าที่ได้", "ถ่ายรูปไว้ถ้าถ่ายได้อย่างปลอดภัย"],
+   "do_en": ["Stay calm.", "Back away and get children and pets out of the room.", "Shut the door on the room and push a towel against the gap.", "Keep it in sight from a distance so you can tell the crew where it is.", "Photograph it if you can do that safely — the picture identifies it, and it is what the hospital would want if anyone were bitten."],
+   "dont_th": ["อย่าไล่ อย่าตี อย่าจับเอง", "อย่าเข้าไปใกล้เพื่อดูให้ชัด", "อย่าใช้ยาฆ่าแมลงฉีดใส่"],
+   "dont_en": ["Do not chase it, hit it, or try to pick it up.", "Do not go closer to get a better look — most bites in Thailand happen to the hand that reached.", "Do not spray insecticide at it. It does not work on a snake and it makes a cornered animal move."],
+   "source": {"type": "web", "ref": "https://www.samsenfire.com/blog/%E0%B8%88%E0%B8%B1%E0%B8%9A%E0%B8%87%E0%B8%B9-%E0%B9%82%E0%B8%97%E0%B8%A3199/", "fetched": "2026-08-31", "note": "a Thai fire-and-rescue station's own advice page"}
+  },
+
+  "if_bitten": {
+   "_rule": "Reported first aid, from Thai hospital and poison-centre pages, and it stops where a clinician starts. This site says who to call and what the standing advice is against; it does not treat anybody.",
+   "do_th": ["โทร 1669", "อยู่นิ่งๆ ให้ส่วนที่ถูกกัดอยู่ต่ำกว่าระดับหัวใจ", "ล้างแผลด้วยน้ำสะอาด", "ถอดแหวนและนาฬิกาออกก่อนบวม", "ถ่ายรูปงูถ้าทำได้อย่างปลอดภัย — ไม่ต้องเอาตัวงูไปโรงพยาบาล"],
+   "do_en": ["Call 1669.", "Keep still; keep the bitten part below heart level.", "Wash the wound with clean water.", "Take off rings and watches before the swelling starts.", "Photograph the snake if it is safe to — do not carry the snake to the hospital."],
+   "dont_th": ["ห้ามขันชะเนาะ", "ห้ามกรีดแผล ห้ามดูดพิษ", "ห้ามประคบเย็นหรือน้ำแข็ง", "ห้ามดื่มเหล้า"],
+   "dont_en": ["No tourniquet — the standing Thai advice is that it does more harm than the bite.", "Do not cut the wound or suck it.", "No ice or cold packs.", "No alcohol."],
+   "note_th": "เซรุ่มมีที่โรงพยาบาล ไม่ได้มีทุกที่ทุกชนิด และหมอจะให้ต่อเมื่อมีอาการของพิษ — เหตุผลอีกข้อที่ควรไปโรงพยาบาล ไม่ใช่รอดูอาการที่บ้าน",
+   "note_en": "Antivenom lives at hospitals, not every hospital carries every kind, and it is given when signs of envenoming appear rather than on the fact of a bite. Which is another reason the destination is a hospital and not the sofa.",
+   "sources": [
+    {"type": "hospital", "ref": "https://www.nakornthon.com/article/detail/%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%90%E0%B8%A1%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B9%80%E0%B8%9A%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%95%E0%B9%89%E0%B8%99%E0%B8%AD%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%96%E0%B8%B9%E0%B8%81%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%96%E0%B8%B9%E0%B8%81%E0%B8%87%E0%B8%B9%E0%B8%81%E0%B8%B1%E0%B8%94", "fetched": "2026-08-31"},
+    {"type": "gov", "ref": "https://www.rama.mahidol.ac.th/poisoncenter/th/contactus", "fetched": "2026-08-31"}
+   ]
+  },
+
+  "protected": {
+   "th": "งูหลายชนิดในไทยเป็นสัตว์ป่าคุ้มครองตามกฎกระทรวง — งูจงอาง งูเหลือม งูหลาม งูสิง งูทางมะพร้าว งูแสงอาทิตย์ และอื่นๆ รวม 14 ชนิด ห้ามล่า ห้ามทำอันตราย ห้ามครอบครอง ส่วนงูเห่าไม่ได้อยู่ในบัญชีนี้ — ซึ่งเป็นอีกเหตุผลว่าทำไมการแยกชนิดไม่ใช่หน้าที่ของคนอยู่บ้านตอนสี่ทุ่ม",
+   "en": "Fourteen snakes are named protected wildlife by ministerial regulation — the king cobra, the reticulated and Burmese pythons, the rat snakes, the sunbeam snake and others — with hunting, harming and keeping all forbidden. The common monocled cobra is not on that list. Which is the point: telling the protected one from the unprotected one, in the dark, is not a householder's job, and it is one more reason the call is free and the crew is trained.",
+   "checker_th": "รายชื่อเปลี่ยนได้ ตรวจกับกรมอุทยานฯ เอง",
+   "checker_en": "The list moves; check it against the department's own, not against us.",
+   "checker_url": "https://portal.dnp.go.th/Content/LegalAffairs?contentId=22540",
+   "sources": [
+    {"type": "news", "ref": "https://www.sanook.com/news/9537374/", "fetched": "2026-08-31", "note": "names the 14 species and the ministerial regulation"}
+   ]
+  },
+
+  "why_they_came": {
+   "th": "งูตามหนู หนูตามอาหาร — บ้านที่มีหนูในฝ้าหรือกองของรกริมรั้วคือบ้านที่งูมีเหตุผลจะเข้า จุดที่ทั้งสองเรื่องในหน้านี้มาบรรจบกัน: จัดการหนูคือการจัดการงู",
+   "en": "Snakes follow rats and rats follow food. A roof space with rats in it, or a pile of stuff along the wall, is a house a snake has a reason to enter. This is the one place where the two halves of this page meet: dealing with the rats is dealing with the snakes, and it is the only pest-control answer to a snake that this site will give."
+  },
+
+  "refused": [
+   {
+    "what_th": "ฟาร์มงู / สวนงู",
+    "what_en": "snake farms and snake shows",
+    "why_th": "มีสารบัญภาษาอังกฤษที่ลงเบอร์ฟาร์มงูใกล้เชียงใหม่ไว้ใต้หัวข้อ จับงู ทั้งที่หน้าเดียวกันนั้นเขียนเองว่าอย่าโทรหาสวนงูเพราะงูมักถูกฆ่าหรือถูกเอาไปแสดง เว็บนี้จึงไม่ลง — และบอกไว้ตรงนี้ว่าทำไม",
+    "why_en": "An English-language directory lists a snake farm near Chiang Mai under snake removal on the same page where it tells readers not to call snake shows, because the animal is killed or ends up in a display. Both cannot be right, and a name on a removal list is a recommendation. So it is not listed here, and this line says why rather than leaving a silent gap.",
+    "source": {"type": "web", "ref": "https://thailandsnakes.com/need-a-snake-removed-call-these-numbers/", "fetched": "2026-08-31"}
+   }
+  ],
+
+  "open": [
+   {
+    "th": "ยังไม่พบหน้าเว็บของสถานีดับเพลิงหรือเทศบาลในเชียงใหม่ที่เขียนเองว่าไม่คิดค่าใช้จ่ายและปล่อยงูคืนธรรมชาติ — คำว่า ฟรี และ ปล่อย ในหน้านี้มาจากคำบอกเล่าของคนที่เคยโทรและจากหน้าของสถานีดับเพลิงที่กรุงเทพฯ ยังไม่ได้ยืนยันกับหน่วยในเชียงใหม่",
+    "en": "No Chiang Mai fire station or municipal page could be found stating in its own words that the call is free and the snake is released. The words free and released here rest on accounts from people who have called, and on a Bangkok station's own page. Confirming it with the Chiang Mai crew — a phone call to 053-259000 and one question — is the act that closes this.",
+    "clears_it": "one call to เทศบาลนครเชียงใหม่ 053-259000, งานป้องกันและบรรเทาสาธารณภัย"
+   }
+  ]
+ },
+
+ "attempted": [
+  {
+   "url": "https://www.rentokil.com/th/local-branches/pest-control-chiangmai",
+   "status": "403",
+   "on": "2026-08-31",
+   "note": "Rentokil's own Chiang Mai page refuses to be read from here, in both the Thai and the English path. Its record is therefore third-party, from a directory listing, and says so."
+  },
+  {
+   "url": "http://pca.fda.moph.go.th/public_media_detail.php?id=2&cat=50&content_id=268",
+   "status": "dns",
+   "on": "2026-08-31",
+   "note": "the FDA consumer-protection page on pest-control registration does not resolve; the licence facts here come from hazard.fda.moph.go.th instead."
+  }
+ ],
+
+ "discrepancies": [
+  {
+   "who": "cm-curated-mtp-service-group",
+   "what_th": "บริษัทเดียวกันลงที่อยู่สาขาเชียงใหม่ไว้สองที่อยู่ในเว็บของตัวเองสองหน้า อ่านวันเดียวกัน — 427/4 หมู่ 4 กับ 145/2 หมู่ 6 ถนนวงแหวน ทั้งคู่อยู่ ต.หนองจ๊อม อ.สันทราย เบอร์เดียวกัน",
+   "what_en": "The same company publishes two different Chiang Mai branch addresses on two of its own pages, read the same day — 427/4 Moo 4 on the branch page, 145/2 Moo 6 Ring Road on the group page. Both in Nong Chom, San Sai; the phone number is identical on both. The branch page's address is the one recorded, and neither is pinned."
+  }
+ ]
+}

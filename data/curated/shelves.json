@@ -2687,6 +2687,50 @@
    ],
    "source": "osm name: ศาลเจ้าจีน บ้านถ้ำปลา",
    "fetched": "2026-08-27"
+  },
+  "cm-osm-node-4358877280": {
+   "note": "ร้านเสื้อผ้า The Bigsize — the clothes shelf its own name asks for. Retagged off food/thai in the same order; this is where it lands.",
+   "add_cat": [
+    "shopping"
+   ],
+   "add_sub": [
+    "clothes"
+   ],
+   "source": "OSM node 4358877280 name=ร้านเสื้อผ้า The Bigsize",
+   "fetched": "2026-08-31"
+  },
+  "cm-curated-big-size-chic-chic": {
+   "note": "บื๊กไซส์ชิกชิก — read by WO-49 as an alterations shop, which is the half of the name after the comma. บื๊กไซส์ is the half before it, and a shop that sells the size belongs on the clothes shelf too.",
+   "add_cat": [
+    "shopping"
+   ],
+   "add_sub": [
+    "clothes"
+   ],
+   "source": "https://www.cmhy.city/place/9388-Clothes-fix",
+   "fetched": "2026-08-31"
+  },
+  "cm-osm-node-2055923138": {
+   "note": "บ้านถวาย / Ban Tawai — crawled as market/fresh because OSM allows one primary tag and the village IS also a market. WO-51: it is the wood carving village of Hang Dong, an OTOP model village since 2547, and the craft shelf is the identity the wet-market tag hid. Nothing removed; the market shelf and its URL stay.",
+   "add_cat": [
+    "shopping"
+   ],
+   "add_sub": [
+    "crafts"
+   ],
+   "source": "https://wikicommunity.sac.or.th/community/371",
+   "fetched": "2026-08-31"
+  },
+  "cm-osm-node-9893302718": {
+   "note": "Motorbike & car rent — the shelf its own name asks for.",
+   "add_cat": [
+    "transport"
+   ],
+   "add_sub": [
+    "rental"
+   ],
+   "source": "OSM node 9893302718 name=\"Motorbike & car rent 080-2464381\"",
+   "fetched": "2026-08-31"
   }
  }
 }

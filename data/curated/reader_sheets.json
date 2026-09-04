@@ -1088,6 +1088,286 @@
    },
    "foot_th": "ถ่ายเอกสารแจกต่อได้เลย ไม่ต้องขอ · แผ่นนี้ไม่ใช่คำแนะนำทางการแพทย์ กฎหมายและรายการยาเปลี่ยนได้ ตรวจกับต้นทางเสมอ",
    "foot_en": "Photocopy and hand these out freely — no permission needed. This sheet is not medical advice and carries no dose. Schedules and medicine lists change; always check against the source."
+  },
+  {
+   "key": "carve-words",
+   "glyph": "🪵",
+   "title_en": "Wood carving — the words for the village",
+   "title_th": "ไม้แกะสลัก — คำที่ใช้ในหมู่บ้าน",
+   "audience_en": "For anyone walking Ban Tawai or any carving shop in the North — and for anyone about to buy something they then have to get home",
+   "audience_th": "สำหรับคนที่เดินบ้านถวายหรือร้านไม้แกะสลักที่ไหนก็ตามในภาคเหนือ และสำหรับคนที่กำลังจะซื้อของที่ต้องพากลับบ้าน",
+   "lede_en": "Carving is not one trade. Six pairs of hands touch a piece before it reaches a shopfront, and the words below say which pair you are talking to. Point at the Thai — you need not read it. Two of these words change what you may legally carry home, and one of them is พระพุทธรูป. Nothing here ranks a shop.",
+   "lede_th": "งานแกะไม่ใช่อาชีพเดียว ชิ้นหนึ่งผ่านมือหกคู่กว่าจะถึงหน้าร้าน คำข้างล่างบอกว่ากำลังคุยกับคู่ไหนอยู่ ชี้ที่ตัวไทยได้เลย ไม่ต้องอ่านออก สองคำในนี้เปลี่ยนเรื่องการพาของกลับบ้าน และคำหนึ่งคือ พระพุทธรูป",
+   "url": "https://motdang.net/tawai.html",
+   "url_label_en": "The chain of hands, the woods, the export licence, and when the fair really is",
+   "url_label_th": "สายพานมือ ไม้แต่ละชนิด ใบอนุญาตส่งออก และวันงานประจำปีที่แท้จริง",
+   "foot_th": "ถ่ายเอกสารแจกต่อได้เลย ไม่ต้องขอ · ถ้าร้านตอบคำถามพวกนี้ ส่งกลับมาบอกมดแดงได้",
+   "foot_en": "Photocopy and hand these out freely — no permission needed. If a shop answers one of these, tell Mot Dang.",
+   "blocks": [
+    {
+     "heading_th": "ใครทำอะไร",
+     "heading_en": "Who does which part",
+     "rows": [
+      {
+       "th": "สล่า",
+       "rtgs": "sà-làa",
+       "gloss": "master craftsman",
+       "en": "Kam mueang, and it goes before the name instead of Mr — สล่าปั๋น, not นายปั๋น. From Burmese สย่า, teacher."
+      },
+      {
+       "th": "แกะสลัก",
+       "rtgs": "kà sà-làk",
+       "gloss": "to carve",
+       "en": "The block work. ไม้แกะสลัก mái kà sà-làk is the carved thing — and it is the term to search, because 'teak' in a search box returns steakhouses."
+      },
+      {
+       "th": "เดินเส้น · แต่งลาย",
+       "rtgs": "dəən sên · tɛ̀ng laai",
+       "gloss": "line work · dressing the pattern",
+       "en": "The step that makes a Ban Tawai piece look like one. Different person from the carver, and it came into the village from a women's group, not from the carving shop."
+      },
+      {
+       "th": "ลงรักปิดทอง",
+       "rtgs": "long rák pìt thɔɔng",
+       "gloss": "lacquer and gold leaf",
+       "en": "Ground coat, pattern, a resist where the gold must not go, then leaf brushed on. Coloured glass set last."
+      },
+      {
+       "th": "ทำเก่า",
+       "rtgs": "tham kào",
+       "gloss": "aged, made to look old",
+       "en": "A speciality here, sold openly. ของเก่า khɔ̌ɔng kào is genuinely old. Asking which is which is a normal question, not an accusation."
+      }
+     ]
+    },
+    {
+     "heading_th": "ไม้",
+     "heading_en": "The wood",
+     "rows": [
+      {
+       "th": "ไม้สัก",
+       "rtgs": "mái sàk",
+       "gloss": "teak",
+       "en": "The house wood. Cuts kindly, grain reads, resists termites."
+      },
+      {
+       "th": "ไม้ฉำฉา · ไม้จามจุรี",
+       "rtgs": "mái chǎm-chǎa · jaam-jù-rii",
+       "gloss": "rain tree, monkeypod",
+       "en": "Soft, huge, gives the wide single slabs — a one-board table top is nearly always this."
+      },
+      {
+       "th": "ไม้มะม่วง",
+       "rtgs": "mái má-mûang",
+       "gloss": "mango",
+       "en": "An orchard tree past bearing. Bowls and homeware."
+      },
+      {
+       "th": "ไม้พะยูง",
+       "rtgs": "mái phá-yuung",
+       "gloss": "Siamese rosewood — ASK",
+       "en": "The whole Dalbergia genus is CITES Appendix II. Ask the species and get it on the receipt before you buy."
+      },
+      {
+       "th": "ไม้กฤษณา",
+       "rtgs": "mái krìt-sà-nǎa",
+       "gloss": "agarwood — ASK",
+       "en": "Also CITES Appendix II. Plantation stock travels on permits; ask who arranges them."
+      }
+     ]
+    },
+    {
+     "heading_th": "ถามที่หน้าร้าน",
+     "heading_en": "At the till",
+     "rows": [
+      {
+       "th": "ไม้อะไรครับ / คะ",
+       "rtgs": "mái à-rai khráp / khâ",
+       "gloss": "which wood is it?",
+       "en": "The first question, always. It moves both the price and the paperwork."
+      },
+      {
+       "th": "ขอใบเสร็จระบุชนิดไม้",
+       "rtgs": "khɔ̌ɔ bai sèt rá-bù chá-nít mái",
+       "gloss": "a receipt naming the species, please",
+       "en": "This is the thing a customs desk can read. It is not a certificate and does not pretend to be."
+      },
+      {
+       "th": "แกะมือ หรือใช้เครื่อง",
+       "rtgs": "kà mʉʉ rʉ̌ʉ chái khrʉ̂ang",
+       "gloss": "hand-carved or machine?",
+       "en": "Both are normal here and both are sold openly. You are asking so you know what the price is for."
+      },
+      {
+       "th": "ทำที่นี่ไหม",
+       "rtgs": "tham thîi nîi mǎi",
+       "gloss": "is it made here?",
+       "en": "A frontage shop and a canal-side shop are different links in the chain. Neither is doing anything wrong."
+      },
+      {
+       "th": "ตีลังส่งได้ไหม",
+       "rtgs": "tii lang sòng dâi mǎi",
+       "gloss": "can you crate and ship it?",
+       "en": "A shop that exports regularly handles its own documents and will say so at once. ราคาส่ง raa-khaa sòng is the wholesale price."
+      }
+     ]
+    },
+    {
+     "heading_th": "ถ้าซื้อพระ",
+     "heading_en": "If you buy a Buddha image",
+     "rows": [
+      {
+       "th": "พระพุทธรูป",
+       "rtgs": "phrá phút-thá-rûup",
+       "gloss": "Buddha image",
+       "en": "Not the same object in law as a carved elephant. It falls under the Antiquities Act B.E. 2504, amended 2535 — a different law from the wood rules and from CITES."
+      },
+      {
+       "th": "ใบอนุญาต ศก.6",
+       "rtgs": "bai à-nú-yâat sɔ̌ɔ-kɔɔ hòk",
+       "gloss": "export licence, form ศก.6",
+       "en": "The application to take an antique or object of art out of the kingdom, with an itemised list."
+      },
+      {
+       "th": "กรมศิลปากร",
+       "rtgs": "krom sǐn-lá-paa-kɔɔn",
+       "gloss": "the Fine Arts Department",
+       "en": "Its Office of National Museums issues the licence. Two colour photographs per item, a copy of your passport, and proof you own it."
+      },
+      {
+       "th": "ร้านทำเรื่องให้ไหม",
+       "rtgs": "ráan tham rʉ̂ang hâi mǎi",
+       "gloss": "do you file the paperwork?",
+       "en": "The real question at the till. Not 'can this be shipped' — that one always gets a yes."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "paper-words",
+   "glyph": "🖨",
+   "title_en": "Copies, prints and papers — the words at the counter",
+   "title_th": "ถ่ายเอกสาร ปริ้น เอกสาร — คำที่ใช้หน้าเคาน์เตอร์",
+   "audience_en": "For anyone with a form to file — at immigration, a bank, a school, a district office — and a copy shop between them and the counter",
+   "audience_th": "สำหรับคนที่มีเอกสารต้องยื่น ที่ ตม. ธนาคาร โรงเรียน อำเภอ และมีร้านถ่ายเอกสารคั่นอยู่ก่อนถึงเคาน์เตอร์",
+   "lede_en": "A copy shop sells you a copy. A translator or a visa agent prepares a document. Two trades, two prices, and at the gate of a government office the same counter does both — so the first thing to say is which one you are buying. Point at the Thai; you need not read it.",
+   "lede_th": "ร้านถ่ายเอกสารขายสำเนา ร้านแปลกับเอเจนต์วีซ่าทำเอกสาร สองอาชีพ สองราคา และหน้าประตูราชการเคาน์เตอร์เดียวทำทั้งสองอย่าง ประโยคแรกจึงคือบอกว่าจะจ่ายค่าอะไร",
+   "url": "https://motdang.net/asked/copy-print.html",
+   "url_label_en": "Every copy shop we hold, with hours, and the paperwork page beside it",
+   "url_label_th": "ร้านถ่ายเอกสารทุกร้านที่มีในสารบัญ พร้อมเวลาเปิด และหน้าเรื่องเอกสารข้าง ๆ",
+   "foot_th": "ถ่ายเอกสารแจกต่อได้เลย ไม่ต้องขอ · ราคาทุกตัวตามป้าย ยังไม่ยืนยันที่เคาน์เตอร์",
+   "foot_en": "Photocopy and hand these out freely — no permission needed. Every price here is as posted, not yet confirmed at the counter.",
+   "blocks": [
+    {
+     "heading_th": "ที่เครื่องถ่าย",
+     "heading_en": "At the copier",
+     "rows": [
+      {
+       "th": "ถ่ายเอกสาร 2 ชุด",
+       "rtgs": "thàai èek-kà-sǎan sɔ̌ɔng chút",
+       "gloss": "ถ่าย “to shoot” · ชุด “set”",
+       "en": "Two copies. Say the number of sets, not of pages; the shop counts sets."
+      },
+      {
+       "th": "ขาวดำ · สี",
+       "rtgs": "khǎao dam · sǐi",
+       "gloss": "black-white · colour",
+       "en": "Mono is about a baht a page on a posted board, colour has no going rate. Ask before a colour job."
+      },
+      {
+       "th": "หน้าเดียว · หน้าหลัง",
+       "rtgs": "nâa diao · nâa lǎng",
+       "gloss": "one face · front-back",
+       "en": "Single- or double-sided. Government counters usually want single-sided copies."
+      },
+      {
+       "th": "ปริ้นจากไลน์",
+       "rtgs": "prín càak laai",
+       "gloss": "print from LINE",
+       "en": "Send the PDF to the shop's LINE, then walk over. Nearly every shop takes files this way; a USB stick also works."
+      },
+      {
+       "th": "สแกนส่งไลน์",
+       "rtgs": "sà-kɛɛn sòng laai",
+       "gloss": "scan, send to LINE",
+       "en": "A scan sent back to your phone. Ask for PDF, not a photo."
+      },
+      {
+       "th": "เซ็นสำเนาถูกต้อง",
+       "rtgs": "sen sǎm-nao thùuk-tɔ̂ɔng",
+       "gloss": "sign “true copy”",
+       "en": "Thai counters expect every copy signed with the words สำเนาถูกต้อง and your name. The shop will show you where."
+      }
+     ]
+    },
+    {
+     "heading_th": "เข้าเล่ม เคลือบ",
+     "heading_en": "Binding and laminating",
+     "rows": [
+      {
+       "th": "เข้าเล่มสันกาว",
+       "rtgs": "khâo lêm sǎn kaao",
+       "gloss": "glue spine",
+       "en": "A report or thesis: glued spine, card cover. The cheap default."
+      },
+      {
+       "th": "เข้าเล่มสันห่วง",
+       "rtgs": "khâo lêm sǎn hùang",
+       "gloss": "ring spine",
+       "en": "Spiral or wire — lies flat. Say สันห่วงเหล็ก for wire."
+      },
+      {
+       "th": "เคลือบบัตร",
+       "rtgs": "khlʉ̂ap bàt",
+       "gloss": "coat a card",
+       "en": "Laminating, by the sheet. A4 and card sizes are priced apart."
+      },
+      {
+       "th": "ถ่ายแบบแปลน · A3",
+       "rtgs": "thàai bɛ̀ɛp-plɛɛn",
+       "gloss": "plans",
+       "en": "Large format. Only some shops have the machine; the tag พล๊อตแบบ or A3 on their page says so."
+      }
+     ]
+    },
+    {
+     "heading_th": "เอกสารราชการ",
+     "heading_en": "The paperwork counter",
+     "rows": [
+      {
+       "th": "รูปติดบัตร 4×6",
+       "rtgs": "rûup tìt bàt sìi khuun hòk",
+       "gloss": "card photo 4×6 cm",
+       "en": "The immigration size, per the TM.7 form itself, taken within six months. Made at a photo studio (ร้านถ่ายรูป), sometimes at the gate copy shop; other countries want other sizes — see the page."
+      },
+      {
+       "th": "กรอกแบบฟอร์มให้หน่อย",
+       "rtgs": "kròok bɛ̀ɛp-fɔɔm hâi nɔ̀i",
+       "gloss": "fill in the form for me",
+       "en": "The gate shop will fill a TM.7 or a district-office form for a small fee. That is a service, priced apart from the copies."
+      },
+      {
+       "th": "แปลพร้อมรับรองคำแปล",
+       "rtgs": "plɛɛ phrɔ́ɔm ráp-rɔɔng kham-plɛɛ",
+       "gloss": "translate + certify the translation",
+       "en": "A certified translation: the translator signs and stamps. Around 350 baht a page on one firm's own site. Ask for this by name or you may get a plain translation."
+      },
+      {
+       "th": "รับรองนิติกรณ์",
+       "rtgs": "ráp-rɔɔng ní-tì-kɔɔn",
+       "gloss": "MFA legalization",
+       "en": "The ministry's own seal: 200 baht a seal, 400 express, at Central Airport floor 5. A firm that “runs” it for you charges from 1,800 a page — that fee buys a queue-stander, not the seal. Ask for the two as separate lines."
+      },
+      {
+       "th": "ยื่นแทนได้ไหม",
+       "rtgs": "yʉ̂ʉn thɛɛn dâai mǎi",
+       "gloss": "can you file on my behalf",
+       "en": "A visa agent is a courier. The state fee — 1,900 baht for an extension — does not change, and nobody gets past the rules."
+      }
+     ]
+    }
+   ]
   }
  ],
  "_layout_note": "Two sides of one A4, and the copy has to earn its place on them. Blocks carry page: 'back' to move below the fold; the front holds the eleven terms you might walk into by accident, and the back holds the two you would have to seek out or be told about, sitting directly above the licence box that explains the second one. make_reader_sheets.py fails the build if the result is not exactly two pages — when it does, cut words, do not shrink the Thai.",

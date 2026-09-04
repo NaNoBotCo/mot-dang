@@ -1,0 +1,5311 @@
+{
+ "_readme": [
+  "WO-49 — the tailoring register: the suit trade, the uniform trade, the",
+  "dress trade, and the mending trade, which are four trades sharing one",
+  "English word.",
+  "",
+  "Asked by Nan 2026-08-31, in three parts: enrich tailoring for men and",
+  "women including uniforms across Chiang Mai and Chiang Rai; then \"where",
+  "do the high-ranking police officers get tailoring done\"; then \"high",
+  "quality western and thai evening wear tailors — probably not found on",
+  "Loi Kroh road.\" Her framing is the whole design: GOOD FOR TOURISTS DOES",
+  "NOT EQUAL GOOD FOR LOCALS OR EXPATS. Different needs, different",
+  "expectations, all valid — so this file never ranks the four trades",
+  "against each other, and never offers one as an answer to another's",
+  "question.",
+  "",
+  "MEASURED FIRST. OSM holds ten records under shop=tailor across the",
+  "whole of Chiang Mai and ZERO across the whole of Chiang Rai. Of the",
+  "ten: seven are farang-facing suit shops inside 600 m of the Night",
+  "Bazaar (Ambassador, Unique, New Moda, Mr. Armani, You & Me, Universal,",
+  "Siam Collection), one is a SHOE REPAIR STALL, one is a bootmaker, and",
+  "exactly one — รับซ่อมแซม เสื้อผ้า — is a Thai shop repairing clothes.",
+  "So the site's tailor shelf was not a tailoring register at all; it was",
+  "a register of the tourist trade with two cobblers filed by mistake.",
+  "That is not an OSM failure to scold. It is what happens when a shelf is",
+  "filled by people mapping in English in the streets they walk.",
+  "",
+  "WHERE THE TRADE ACTUALLY IS: in Thai, in Thai directories. CMHY.city —",
+  "a Chiang Mai directory maintained in Thai — carries 126 shops under",
+  "ห้องเสื้อ-ตัดชุด and a further 119 under ร้านซ่อมผ้า-เครื่องแต่งกาย, 243",
+  "of the 245 with their own GPS, 174 with a phone, and 92 of them updated",
+  "in 2025 or 2026. That is the same lesson the salon shelf paid for and",
+  "the notary shelf paid for: KNOWN_EMPTY can be a fact about the search",
+  "term, not about the city. เสริมสวย was on sixty-two shopfronts; ห้องเสื้อ",
+  "is on a hundred and twenty-six.",
+  "",
+  "FOUR TRADES, NEVER ONE VOICE. A tourist wanting a suit in 48 hours, a",
+  "police major wanting a ชุดปกติขาว that will pass inspection, a woman",
+  "wanting a ชุดไทย for her daughter's ordination, and a long-stayer whose",
+  "only trousers have split a seam are not four grades of one customer.",
+  "They want different shops, in different streets, at different prices,",
+  "and the shop that is right for one is wrong for the next. The strands",
+  "in this file are kept apart on purpose and each carries its own words,",
+  "its own prices, and its own asks.",
+  "",
+  "THE GEOGRAPHY IS THE FINDING. 21 of the 126 tailors sit inside 600 m of",
+  "the Night Bazaar and their names say who they are for — Hong Kong,",
+  "Boston, Europe International, James Bond, Tony, VIP, Vincent Bespoke,",
+  "Smart Fashion — English trade names written in Thai script, almost all",
+  "tagged with one service, #ตัดสูท. The uniform trade has no such street:",
+  "its 31 shops are spread over ต.ศรีภูมิ (8), ช้างเผือก (6), หายยา (6),",
+  "วัดเกต (4) and พระสิงห์ (3), and they cluster around the INSTITUTION",
+  "they dress, not around each other. Six sit on ถนนสนามกีฬา, 38 m from",
+  "the National Sports University campus, and they cut sports kit and",
+  "embroider school badges. In Chiang Rai the same rule is in the shop's",
+  "own name: ร้านบอดี้โก๋ (หน้าค่ายฯ) — 'in front of the camp'.",
+  "",
+  "PRICES ARE UNVERIFIED UNTIL SOMEBODY READS A QUOTATION. Every number",
+  "here carries where it was read and when, and `_pricesVerified` is false",
+  "throughout. Nothing in this file has been walked."
+ ],
+ "fetched": "2026-08-31",
+ "asked_by": "Nan, 2026-08-31",
+ "corpus": {
+  "osm_tailor_cm": 10,
+  "osm_tailor_cr": 0,
+  "osm_alterations_cm": 1,
+  "osm_tailor_cm_that_are_tourist_suit_shops": 7,
+  "osm_tailor_cm_that_are_actually_cobblers": 2,
+  "osm_tailor_cm_that_are_thai_clothing_repair": 1,
+  "cmhy_tailor_cm": 126,
+  "cmhy_repair_cm": 119,
+  "cmhy_rental_cm": 38,
+  "cmhy_with_gps": 243,
+  "cmhy_with_phone": 174,
+  "cmhy_updated_2025_or_2026": 92,
+  "cmhy_updated_before_2021": 6,
+  "yellowpages_cr_trade_records": 25,
+  "night_bazaar_cluster_within_600m": 21,
+  "uniform_capable_cm": 31,
+  "evening_or_womens_cm": 46,
+  "note_th": "OSM มีร้านตัดเสื้อในเชียงใหม่ 10 แห่ง เชียงรายศูนย์แห่ง ในสิบแห่งนั้นเจ็ดแห่งเป็นร้านสูทย่านไนท์บาซาร์ สองแห่งเป็นร้านซ่อมรองเท้าที่ติดป้ายผิด เหลือร้านคนไทยจริงๆ แห่งเดียว — ส่วนสารบัญภาษาไทยมี 126 ร้านตัดชุด และ 119 ร้านซ่อมผ้า",
+  "note_en": "The gap is not 10 versus 126. It is that the ten were the wrong ten: the shelf held the tourist trade and two cobblers, and none of the four trades a resident needs.",
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "data/canonical/cm.json + cr.json, sub=tailor|alterations",
+    "fetched": "2026-08-31"
+   },
+   {
+    "type": "directory",
+    "ref": "https://www.cmhy.city/category/33-Personal/153-TailorDressmaker-Shop/",
+    "fetched": "2026-08-31"
+   },
+   {
+    "type": "directory",
+    "ref": "https://www.cmhy.city/category/33-Personal/265-Repair-Service-Apparel/",
+    "fetched": "2026-08-31"
+   },
+   {
+    "type": "directory",
+    "ref": "https://www.cmhy.city/category/33-Personal/197-Rental-Dress-Shop/",
+    "fetched": "2026-08-31"
+   },
+   {
+    "type": "directory",
+    "ref": "https://www.yellowpages.co.th/ypsearch (q=ตัดเย็บเสื้อผ้า|เครื่องแบบ|ชุดข้าราชการ|ชุดครุย|ตัดสูท|ผ้า, w=เชียงราย|เชียงใหม่)",
+    "fetched": "2026-08-31"
+   }
+  ]
+ },
+ "words": {
+  "note_th": "คำที่ใช้ผิดคำเดียวก็ไปคนละร้าน — ภาษาอังกฤษคำว่า tailor รวมทั้งสี่อาชีพนี้ไว้ด้วยกัน ภาษาไทยแยกไว้แล้ว",
+  "note_en": "One English word covers four trades. Thai already separates them, and typing the right one is the difference between a shop that can help and one that cannot.",
+  "list": [
+   {
+    "th": "ร้านตัดเสื้อ",
+    "rtgs": "ran tat suea",
+    "en": "tailor's shop — the general word, most often a neighbourhood shop cutting shirts, trousers and skirts"
+   },
+   {
+    "th": "ห้องเสื้อ",
+    "rtgs": "hong suea",
+    "en": "literally 'clothes room' — a dressmaker's house, usually a woman cutting for women; this is the word for the evening and Thai-formal trade"
+   },
+   {
+    "th": "ตัดสูท",
+    "rtgs": "tat sut",
+    "en": "to cut a suit — the word on almost every Night Bazaar shopfront"
+   },
+   {
+    "th": "เครื่องแบบข้าราชการ",
+    "rtgs": "khrueang baep kharatchakan",
+    "en": "civil-service uniform — the regulated dress of a state officer, not a work uniform"
+   },
+   {
+    "th": "ชุดปกติขาว",
+    "rtgs": "chut pokati khao",
+    "en": "full dress white — the ceremonial uniform for royal occasions and decorations"
+   },
+   {
+    "th": "ชุดกากี",
+    "rtgs": "chut kaki",
+    "en": "the khaki working uniform"
+   },
+   {
+    "th": "ซาฟารี",
+    "rtgs": "safari",
+    "en": "safari suit — the four-pocket jacket worn as officialdom's smart-casual"
+   },
+   {
+    "th": "ชุดพระราชทาน",
+    "rtgs": "chut phra ratchathan",
+    "en": "the royally-bestowed style — the standing-collar Thai formal shirt/jacket for men"
+   },
+   {
+    "th": "ชุดไทย",
+    "rtgs": "chut thai",
+    "en": "Thai national formal dress; the women's forms are named separately (ไทยจักรี, ไทยบรมพิมาน, ไทยเรือนต้น …)"
+   },
+   {
+    "th": "ชุดไทยใหญ่",
+    "rtgs": "chut thai yai",
+    "en": "Shan / Tai Yai dress — a distinct tradition with its own cut, and its own tailor in Chiang Mai"
+   },
+   {
+    "th": "ชุดล้านนา",
+    "rtgs": "chut lanna",
+    "en": "Lanna dress — the northern form, worn on Fridays, at festivals, and for photographs"
+   },
+   {
+    "th": "ชุดราตรี",
+    "rtgs": "chut ratri",
+    "en": "evening gown"
+   },
+   {
+    "th": "ชุดครุย",
+    "rtgs": "chut khrui",
+    "en": "academic gown"
+   },
+   {
+    "th": "เครื่องหมาย",
+    "rtgs": "khrueang mai",
+    "en": "insignia — shoulder boards, ribbon bars, name plates, unit badges; a SEPARATE trade from cutting cloth"
+   },
+   {
+    "th": "อินทรธนู",
+    "rtgs": "inthanu",
+    "en": "shoulder board — what carries the rank"
+   },
+   {
+    "th": "แพรแถบ",
+    "rtgs": "phrae thaep",
+    "en": "ribbon bar — the mounted ribbons of decorations"
+   },
+   {
+    "th": "แก้ทรง",
+    "rtgs": "kae song",
+    "en": "alter the shape — take in, let out, recut"
+   },
+   {
+    "th": "ตัดขา",
+    "rtgs": "tat kha",
+    "en": "shorten the leg — the commonest job in the mending trade"
+   },
+   {
+    "th": "เปลี่ยนซิป",
+    "rtgs": "plian sip",
+    "en": "replace a zip"
+   },
+   {
+    "th": "ปะชุน",
+    "rtgs": "pa chun",
+    "en": "patch and darn"
+   },
+   {
+    "th": "ผ้าเมตร",
+    "rtgs": "pha met",
+    "en": "cloth by the metre — what you buy before you go to a tailor"
+   },
+   {
+    "th": "ค่าแรง",
+    "rtgs": "kha raeng",
+    "en": "labour charge — what you pay if you bring your own cloth"
+   }
+  ]
+ },
+ "readers": [
+  {
+   "key": "tourist",
+   "th": "นักท่องเที่ยว",
+   "en": "The visitor",
+   "wants_en": "A suit, a jacket or a few shirts made inside the length of a holiday, in a shop that works in English, takes a card, and will ship. Fittings are compressed into the days available.",
+   "wants_th": "สูทหรือเสื้อเชิ้ตให้เสร็จภายในทริป ร้านพูดอังกฤษ รูดบัตรได้ ส่งของตามไปได้",
+   "where_en": "Chang Khlan Road and the Night Bazaar blocks: 21 shops inside 600 m, and they are the shops OSM already holds.",
+   "watch_en": "One fitting is not two. A 24-hour suit is cut, sewn and pressed without the second fitting where the shape is actually corrected — which is a fair trade for a holiday, and not the same product as a fitted garment.",
+   "watch_th": "ลองครั้งเดียวไม่เท่าสองครั้ง งาน 24 ชั่วโมงคือการตัดโดยไม่มีการลองแก้รอบสอง"
+  },
+  {
+   "key": "expat",
+   "th": "คนอยู่ยาว",
+   "en": "The long-stayer",
+   "wants_en": "Not a souvenir suit. Trousers hemmed, a zip replaced, a favourite shirt copied before it dies, a size Thai retail does not stock, black cotton dyed back to black, a jacket taken in after weight comes off.",
+   "wants_th": "ไม่ใช่สูทที่ระลึก แต่คือแก้ขากางเกง เปลี่ยนซิป ก๊อปเสื้อตัวโปรดก่อนจะขาด ไซซ์ที่ร้านไทยไม่มี ย้อมผ้าดำให้ดำอีกครั้ง",
+   "where_en": "The mending trade — 119 shops, in every quarter, most with no English and no website, several inside malls where a walk-in is easy. Bring the garment; the word is แก้ทรง.",
+   "watch_en": "Bringing a garment to copy works better than a description. Ask the price before the work, not after — this trade quotes per job and the numbers are small.",
+   "watch_th": "เอาตัวจริงไปให้ดูดีกว่าอธิบาย และถามราคาก่อนลงมือ"
+  },
+  {
+   "key": "local",
+   "th": "คนที่นี่",
+   "en": "The resident",
+   "wants_en": "A uniform that has to be correct, a gown for a graduation, a ชุดไทย for an ordination or a wedding, a dress for a function, school kit, a sports strip with a number on the back. Most of it is deadline work against a ceremony date.",
+   "wants_th": "เครื่องแบบที่ต้องถูกระเบียบ ชุดครุย ชุดไทยงานบวชงานแต่ง ชุดออกงาน ชุดนักเรียน ชุดกีฬาติดเบอร์ — ส่วนใหญ่มีวันงานเป็นเส้นตาย",
+   "where_en": "Nowhere near the Night Bazaar. The uniform shops sit by the institutions they dress; the ห้องเสื้อ sit in residential streets and are known by word of mouth.",
+   "watch_en": "Ask the finish date in writing and ask for the leftover cloth back — both are the complaints Chiang Rai customers actually posted.",
+   "watch_th": "ขอวันนัดเป็นลายลักษณ์อักษร และขอผ้าที่เหลือคืน — สองข้อนี้คือเรื่องที่ลูกค้าเชียงรายบ่นไว้จริง"
+  }
+ ],
+ "tourist_trade": {
+  "note_en": "21 shops inside 600 m of the Night Bazaar, and the seven OSM already held are among them. Listed here so the strand is named and bounded — not ranked, and not offered as an answer to any other question in this file.",
+  "note_th": "ร้านสูทย่านไนท์บาซาร์ 21 ร้านในรัศมี 600 เมตร ลงไว้ให้รู้ว่าเป็นสายไหน ไม่จัดอันดับ",
+  "shops": [
+   {
+    "name": "ร้านทรงนำ",
+    "addr": "ถนนช้างม่อย ตำบลช้างม่อย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "086-673-6079"
+    ],
+    "tags": [
+     "#ตัดชุดพยาบาล",
+     "#ตัดเสื้อ",
+     "#ตัดกางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/1229-Changnam",
+    "gps": [
+     18.790722,
+     98.998987
+    ],
+    "cmhy_updated": "2026-06-01"
+   },
+   {
+    "name": "ประภา ตัดเสื้อสตรี",
+    "addr": "ถนนสิทธิวงศ์ ตำบลช้างม่อย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [],
+    "tags": [
+     "#ตัดเย็บเสื้อผ้า",
+     "#ตัดเสื้อสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/1212-Papa",
+    "gps": [
+     18.790362,
+     98.997131
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ซี.เอ็ม. อาร์มานี่",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "085-037-8528"
+    ],
+    "tags": [
+     "#ตัดสูท"
+    ],
+    "src": "https://www.cmhy.city/place/29361-CM-Armani-Custom-Tailor",
+    "gps": [
+     18.7828416,
+     98.9999473
+    ],
+    "cmhy_updated": "2024-01-22"
+   },
+   {
+    "name": "แอมบาสเดอร์ แฟชั่น",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "082-397-7892"
+    ],
+    "tags": [
+     "#สั่งตัดชุด",
+     "#ตัดสูท",
+     "#ตัดเสื้อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/2076-Ambassador-fashion",
+    "gps": [
+     18.7849693,
+     99.0003368
+    ],
+    "cmhy_updated": "2022-07-14"
+   },
+   {
+    "name": "ฮ่องกง เทเลอร์",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "081-595-5633"
+    ],
+    "tags": [
+     "#ตัดชุด",
+     "#ตัดสูท",
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/37092-Hong-Kong-Tailors",
+    "gps": [
+     18.7831294,
+     99.0000204
+    ],
+    "cmhy_updated": "2024-01-22"
+   },
+   {
+    "name": "ฮิส แอนด์ เฮอร์ เฮาส์  เทเลอร์",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "097-979-2766"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#ตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/11653-His-Her-Tailors-House",
+    "gps": [
+     18.7857159,
+     99.0008219
+    ],
+    "cmhy_updated": "2026-02-09"
+   },
+   {
+    "name": "โทนี่ เทเลอร์",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "089-489-6244"
+    ],
+    "tags": [
+     "#ตัดชุด",
+     "#ตัดสูท",
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/37082-Tony-Tailors",
+    "gps": [
+     18.7851628,
+     99.0003404
+    ],
+    "cmhy_updated": "2024-03-25"
+   },
+   {
+    "name": "C&D  ซีแอนด์ดี คอลเลคชั่น",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "081-671-9505"
+    ],
+    "tags": [
+     "#ตัดสูท"
+    ],
+    "src": "https://www.cmhy.city/place/29362-CD-Collection",
+    "gps": [
+     18.7827202,
+     98.9999206
+    ],
+    "cmhy_updated": "2024-01-22"
+   },
+   {
+    "name": "มิเตอร์ เค. เทเลอร์",
+    "addr": "ถนนลอยเคราะห์ ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "065-426-9444"
+    ],
+    "tags": [
+     "#ตัดสูทชาย"
+    ],
+    "src": "https://www.cmhy.city/place/32616-Mr-K-Best-Tailors",
+    "gps": [
+     18.7848481,
+     98.994059
+    ],
+    "cmhy_updated": "2025-04-29"
+   },
+   {
+    "name": "สมาร์ท แฟชั่น คัสตอม เทเลอร์",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [],
+    "tags": [
+     "#ตัดชุด",
+     "#ตัดสูท",
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/37099-SMART-Fashion-Custom-Tailor",
+    "gps": [
+     18.7823734,
+     99.0001874
+    ],
+    "cmhy_updated": "2024-01-22"
+   },
+   {
+    "name": "บอสตัน เทเลอร์",
+    "addr": "ถนนลอยเคราะห์ ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "083-134-2197"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#สูท"
+    ],
+    "src": "https://www.cmhy.city/place/12113-Boston-Tailor",
+    "gps": [
+     18.784702,
+     98.995211
+    ],
+    "cmhy_updated": "2021-07-26"
+   },
+   {
+    "name": "แอมบาสเดอร์ เทเลอร์ เฮ้าส์",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "082-397-7892"
+    ],
+    "tags": [
+     "#ตัดชุด",
+     "#ตัดสูท",
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/37083-Ambassador-Fashions-Tailor-house",
+    "gps": [
+     18.7849559,
+     99.0003756
+    ],
+    "cmhy_updated": "2024-01-22"
+   },
+   {
+    "name": "ไทย เทเลอร์ เฮ้าส์",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "080-296-2644"
+    ],
+    "tags": [
+     "#ตัดชุด",
+     "#ตัดสูท",
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/37079-Thai-Tailor-House",
+    "gps": [
+     18.7852709,
+     99.0006928
+    ],
+    "cmhy_updated": "2024-01-22"
+   },
+   {
+    "name": "เจ คอสตูม เทเลอร์",
+    "addr": "ถนนท่าแพ ตำบลช้างม่อย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "082-766-5341"
+    ],
+    "tags": [
+     "#ตัดสูท"
+    ],
+    "src": "https://www.cmhy.city/place/35031-Jays-Custom-Tailor-Chiang-Mai",
+    "gps": [
+     18.7880004,
+     98.9942791
+    ],
+    "cmhy_updated": "2026-03-09"
+   },
+   {
+    "name": "ยุโรป อินเตอร์เนชั่นแนล เทเลอร์",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "094-647-1217"
+    ],
+    "tags": [
+     "#ตัดชุด",
+     "#ตัดสูท",
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/37089-Europe-International-Tailor",
+    "gps": [
+     18.78322,
+     99.0003274
+    ],
+    "cmhy_updated": "2024-01-22"
+   },
+   {
+    "name": "ฮิส แอนด์ เฮอร์ เทเลอร์ เฮ้าส์",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "097-979-2766"
+    ],
+    "tags": [
+     "#ตัดชุด",
+     "#ตัดสูท",
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/37077-His-Her-Tailors-House",
+    "gps": [
+     18.7857039,
+     99.0008104
+    ],
+    "cmhy_updated": "2024-01-22"
+   },
+   {
+    "name": "วินเซนต์ บีสโบค เทเลอร์",
+    "addr": "183 8-9 ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "096-698-8638",
+     "0974263661"
+    ],
+    "tags": [
+     "#ร้านสูท",
+     "#ร้านตัดเสื้อเชียงใหม่",
+     "#ร้านเสื้อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/38640-Vinzent-Bespoke-Tailor",
+    "gps": [
+     18.7804811,
+     98.9998834
+    ],
+    "cmhy_updated": "2024-09-06"
+   },
+   {
+    "name": "new moda นิว โมดา",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "086-921-2938"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#ตัดเสื้อเชิ๊ต"
+    ],
+    "src": "https://www.cmhy.city/place/29363-New-Moda-Custom-Tailor",
+    "gps": [
+     18.7825233,
+     98.9998773
+    ],
+    "cmhy_updated": "2024-01-22"
+   },
+   {
+    "name": "ยู แอนด์ มี เทเลอร์",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "094-313-3341"
+    ],
+    "tags": [
+     "#ตัดชุด",
+     "#ตัดสูท",
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/37097-You-me-Tailor",
+    "gps": [
+     18.7826641,
+     98.9999293
+    ],
+    "cmhy_updated": "2024-01-22"
+   },
+   {
+    "name": "เจมส์บอนส์ เทเลอร์",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "095-030-0516"
+    ],
+    "tags": [
+     "#ตัดชุด",
+     "#ตัดสูท",
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/37076-James-bond-tailor",
+    "gps": [
+     18.7862109,
+     99.000891
+    ],
+    "cmhy_updated": "2024-01-22"
+   },
+   {
+    "name": "VIP คอสตอม เทเลอร์",
+    "addr": "ถนนช้างคลาน ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "083-636-7660"
+    ],
+    "tags": [
+     "#ตัดชุด",
+     "#ตัดสูท",
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/37078-VIP-Custom-Tailor",
+    "gps": [
+     18.7854584,
+     99.0004529
+    ],
+    "cmhy_updated": "2024-01-22"
+   }
+  ]
+ },
+ "uniform": {
+  "trade_th": "ตัดเครื่องแบบข้าราชการ ทหาร ตำรวจ",
+  "trade_en": "civil-service, military and police uniform tailoring",
+  "note_en": "A uniform is not a suit with a badge. It is a regulated garment: the cut, the cloth, the buttons and what sits on the shoulder are all specified, and the specification is law. A tailor cuts the cloth; the rank and the decorations usually come from a different shop.",
+  "note_th": "เครื่องแบบไม่ใช่สูทติดตรา แต่เป็นเครื่องแต่งกายตามกฎหมาย ทั้งแบบ ผ้า กระดุม และของบนบ่าถูกกำหนดไว้ — ร้านตัดผ้ากับร้านเครื่องหมายมักคนละร้าน",
+  "law": {
+   "police_th": "กฎกระทรวงว่าด้วยเครื่องแบบตำรวจ ออกตามความในพระราชบัญญัติตำรวจแห่งชาติ พ.ศ. 2565 มาตรา 151",
+   "police_en": "The ministerial regulation on police uniforms, made under s.151 of the National Police Act B.E. 2565 (2022).",
+   "live_2026_th": "19 มี.ค. 2569 สำนักงานตำรวจแห่งชาติออกคำชี้แจงว่า ร่างกฎกระทรวงเป็นการจัดหมวดหมู่เครื่องแบบให้ครบถ้วน 60 ชุด — เครื่องแบบปกติ 18 ชุด (ชาย 8 หญิง 10) และเครื่องแบบพิเศษ 42 ชุด — และยืนยันว่า 'เครื่องแบบตำรวจที่เป็นสีกากีให้ใช้สีกากี สีผ้าพระราชทาน' ข่าวที่ว่าจะเปลี่ยนสีนั้น 'ไม่เป็นความจริงแต่อย่างใด' รับฟังความเห็นถึง 3 เม.ย. 2569",
+   "live_2026_en": "On 19 March 2026 the Royal Thai Police issued a clarification: the draft regulation catalogues 60 uniforms — 18 ordinary (8 male, 10 female) and 42 special — and the khaki stays the royally-granted khaki. Reports of a colour change were, in its words, untrue. Comments closed 3 April 2026.",
+   "why_it_matters_en": "A DRAFT IS NOT IN FORCE. Anyone about to spend five thousand baht on a bespoke uniform is entitled to know the spec is being re-catalogued and to know that the police themselves say nothing visible changes. This entry is dated; check it before repeating it.",
+   "sources": [
+    {
+     "type": "gov",
+     "ref": "https://saranitet.police.go.th/commanders-mission/administration_19032026_61007/",
+     "fetched": "2026-08-31",
+     "note": "RTP Public Relations Division statement, published 19 March 2026"
+    },
+    {
+     "type": "gov",
+     "ref": "https://www.forensic.police.go.th/FS/html/download/activity/uniform.pdf",
+     "fetched": "2026-08-31",
+     "note": "side-by-side table of the old and draft ministerial regulations; not read in full"
+    }
+   ]
+  },
+  "ranks": {
+   "note_en": "What goes on the shoulder is the whole point, and it is what a tailor cannot supply. Commissioned ranks (ชั้นสัญญาบัตร) wear stars on a board; general officers (นายพลตำรวจ) add a crown and laurel; non-commissioned ranks (ชั้นประทวน) wear chevrons on the sleeve and no board.",
+   "note_th": "สิ่งที่อยู่บนบ่าคือหัวใจ และเป็นสิ่งที่ร้านตัดผ้าไม่ได้ขาย ชั้นสัญญาบัตรติดดาวบนอินทรธนู นายพลเพิ่มมงกุฎและช่อชัยพฤกษ์ ชั้นประทวนติดเครื่องหมายที่แขน",
+   "tiers": [
+    {
+     "th": "นายพลตำรวจ",
+     "en": "general officers",
+     "ranks": "พล.ต.ต. / พล.ต.ท. / พล.ต.อ.",
+     "board_en": "two, three or four eight-pointed stars with crown and laurel wreath"
+    },
+    {
+     "th": "ชั้นสัญญาบัตร",
+     "en": "commissioned officers",
+     "ranks": "ร.ต.ต. → พ.ต.อ.",
+     "board_en": "one to three stars, with a crown from พ.ต.ต. upward"
+    },
+    {
+     "th": "ชั้นประทวน",
+     "en": "non-commissioned",
+     "ranks": "ส.ต.ต. → ด.ต.",
+     "board_en": "chevrons on the sleeve; ดาบตำรวจ wears crossed swords"
+    }
+   ],
+   "sources": [
+    {
+     "type": "reference",
+     "ref": "https://th.wikipedia.org/wiki/ยศตำรวจไทย",
+     "fetched": "2026-08-31",
+     "note": "tertiary; the regulation above is the authority"
+    }
+   ]
+  },
+  "pricing": {
+   "_pricesVerified": false,
+   "note_en": "One published breakdown for a complete ชุดปกติขาว came to 5,710 baht, of which about 3,300 was the tailoring and the rest was insignia, shirt, tie, ribbon bars, buttons and cap. The poster's own caveat is the honest one: the real price depends on the shop and on which pieces you buy.",
+   "note_th": "ตัวอย่างที่มีคนลงไว้ ชุดปกติขาวครบชุดราว 5,710 บาท เป็นค่าตัดราว 3,300 บาท ที่เหลือคือเครื่องหมาย เสื้อเชิ้ต เนกไท แพรแถบ กระดุม หมวก — เจ้าของโพสต์เองบอกว่าราคาจริงขึ้นกับร้านและของที่เลือก",
+   "ready_made_th": "ชุดกากีสำเร็จรูปในเชียงรายมีคนซื้อได้ที่ 650 บาท และร้านในกาดเจียงคำขาย 1,300 บาทพร้อมผ้า",
+   "ready_made_en": "Ready-made khaki was reported bought at 650 baht, and a Chiang Kham market shop at 1,300 baht with the cloth included — against a bespoke ปกติขาว at several thousand. Ready-made is a real option and locals say so first.",
+   "sources": [
+    {
+     "type": "social",
+     "ref": "https://www.lemon8-app.com/@sinday1999/7437142998158426641?region=th",
+     "fetched": "2026-08-31",
+     "note": "itemised 5,710 baht breakdown, author's own figures"
+    },
+    {
+     "type": "forum",
+     "ref": "https://forums.chiangraifocus.com/index.php?topic=891803.0",
+     "fetched": "2026-08-31",
+     "note": "thread of 14–17 September 2016; the 650 and 1,300 baht figures are posters' own"
+    }
+   ]
+  },
+  "the_police_question": {
+   "asked_by": "Nan, 2026-08-31 — 'where do the high ranking police officers get tailoring done'",
+   "answer_en": [
+    "There is no single house, and the folk answer people give — แถวๆ ศาลากลาง, 'over by the provincial hall' — is only half right and worth measuring rather than repeating. Of the 31 uniform-capable shops in Chiang Mai, exactly ONE sits within 2.5 km of the new government centre on Chotana; the median distance to it is 5.3 km. The median distance to the OLD provincial hall at the Three Kings Monument is 1.6 km. The trade stayed in the old city and its northern fringe when the offices moved out.",
+    "Chiang Mai is where the senior officers are, and that is structural: ตำรวจภูธรภาค 5 — Provincial Police Region 5, commanding eight northern provinces including Chiang Rai — is headquartered at 311 Mahidol Road, Nong Hoi (053 140 000). Its commander is a lieutenant general. Chiang Rai has a provincial command; Chiang Mai has a regional one. Even so, no uniform tailor sits at that gate: the nearest is 1.9 km away.",
+    "The shops that name police work in their own words are ร้านเฟรนด์สูท on Ratchaphakhinai Road (#ตัดชุดทหาร #ตัดชุดตำรวจ) and ร้านนิวบอย on the Chiang Mai–Lamphun road, whose own tags say ตัดชุดทุกเหล่าทัพ — every service. For the ceremonial white, the shops tagging ปกติขาว are มาสเตอร์เทเลอร์, สุเมธสูธ, สูทโปรคลาส and เจ๊หล้า.",
+    "The one that answers the question properly is เจ๊หล้าชุดและเครื่องหมายข้าราชการ — 'clothes AND insignia' in its own shop name, three branches. For a senior officer that combination is the point: the cloth is the easy half, and the shoulder boards, ribbon bars, garuda buttons and name plate are the half that has to be right."
+   ],
+   "answer_th": [
+    "ไม่มีร้านเดียวที่เป็นคำตอบ และคำตอบที่คนชอบบอกกันว่า 'แถวๆ ศาลากลาง' ถูกครึ่งเดียว — ในร้านที่รับตัดเครื่องแบบ 31 ร้านในเชียงใหม่ มีร้านเดียวที่อยู่ในรัศมี 2.5 กม. จากศูนย์ราชการใหม่ถนนโชตนา ค่ากลางคือ 5.3 กม. แต่ค่ากลางถึงศาลากลางหลังเก่าแถวสามกษัตริย์คือ 1.6 กม. ร้านอยู่ที่เดิมตอนที่ราชการย้ายออกไป",
+    "ตำรวจภูธรภาค 5 อยู่ที่ 311 ถนนมหิดล ต.หนองหอย โทร 053 140 000 คุมแปดจังหวัดภาคเหนือรวมเชียงราย ผู้บัญชาการเป็นพลตำรวจโท — นายตำรวจชั้นผู้ใหญ่จึงอยู่เชียงใหม่ แต่ไม่มีร้านตัดเครื่องแบบอยู่หน้ากองบัญชาการ ร้านที่ใกล้ที่สุดห่าง 1.9 กม.",
+    "ร้านที่เขียนงานตำรวจไว้เองคือ ร้านเฟรนด์สูท ถนนราชภาคินัย และ ร้านนิวบอย ถนนเชียงใหม่-ลำพูน ที่ติดแท็กว่า ตัดชุดทุกเหล่าทัพ ส่วนชุดปกติขาวมี มาสเตอร์เทเลอร์ สุเมธสูธ สูทโปรคลาส และ เจ๊หล้า",
+    "ร้านที่ตอบคำถามได้ครบคือ เจ๊หล้าชุดและเครื่องหมายข้าราชการ — ชื่อร้านบอกเองว่าทั้งชุดและเครื่องหมาย เพราะสำหรับนายตำรวจชั้นผู้ใหญ่ ผ้าเป็นครึ่งที่ง่าย อินทรธนู แพรแถบ กระดุมครุฑ และป้ายชื่อคือครึ่งที่ต้องถูก"
+   ],
+   "the_gate_rule_en": "Uniform tailors sit at the gate of the institution that wears the uniform, not in a tailoring quarter. Chiang Rai says it plainly: ร้านบอดี้โก๋ (หน้าค่ายฯ) and ร้านโก๋ 'opposite the camp's central gate, where they sell the vegetables'. Chiang Mai's clearest case is ถนนสนามกีฬา — six shops, 38 m from the National Sports University, cutting sports kit and embroidering school badges.",
+   "the_gate_rule_th": "ร้านตัดเครื่องแบบอยู่หน้าหน่วยงานที่ใส่เครื่องแบบนั้น ไม่ได้รวมกันเป็นย่านตัดเสื้อ เชียงรายพูดตรงๆ ว่า ร้านบอดี้โก๋ (หน้าค่ายฯ) และ ร้านโก๋ ตรงข้ามประตูกลางที่มีการขายผัก — ส่วนเชียงใหม่ชัดที่สุดคือถนนสนามกีฬา หกร้าน ห่างมหาวิทยาลัยการกีฬาแห่งชาติ 38 เมตร",
+   "measurement": {
+    "uniform_shops_measured": 31,
+    "median_km_to_old_provincial_hall": 1.6,
+    "median_km_to_new_government_centre": 5.3,
+    "within_2_5km_of_new_government_centre": 1,
+    "nearest_uniform_tailor_to_region5_hq_km": 1.9,
+    "anchors": {
+     "old_provincial_hall_three_kings": [
+      18.79079,
+      98.98661
+     ],
+     "government_centre_chotana": [
+      18.83713,
+      98.97082
+     ],
+     "provincial_police_region_5": [
+      18.760019,
+      98.998876
+     ]
+    },
+    "method": "great-circle distance from each shop's own published GPS to each anchor; anchors from data/canonical/cm.json except Region 5, which is from its own contact page"
+   },
+   "sources": [
+    {
+     "type": "forum",
+     "ref": "https://pantip.com/topic/34651186",
+     "fetched": "2026-08-31",
+     "note": "'หาร้านตัดชุดข้าราชการตำรวจในเชียงใหม่' — the one reply is 'แถวๆ ศาลากลางก็มีนะคะ'. This is the folk answer the measurement above tests."
+    },
+    {
+     "type": "gov",
+     "ref": "https://police5.go.th/p5/contacts",
+     "fetched": "2026-08-31",
+     "note": "Provincial Police Region 5 address, phone and coordinates"
+    }
+   ]
+  },
+  "shops": [
+   {
+    "name": "ร้านทรงสมัย",
+    "addr": "160/2 ถนนซุปเปอร์ไฮเวย์ เชียงใหม่-ลำปาง [11] ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [],
+    "tags": [
+     "#ตัดชุดยูนิฟอร์ม",
+     "#เครื่องแบบราชการ",
+     "#ซาฟารี"
+    ],
+    "src": "https://www.cmhy.city/place/3479-Song-Smai",
+    "gps": [
+     18.811038,
+     98.992555
+    ],
+    "cmhy_updated": "2026-03-19"
+   },
+   {
+    "name": "เอเธนส์",
+    "addr": "ซอย 4 ถนนช้างเผือก (โชตนา) [107] ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "089-757-0456",
+     "086-671-7604"
+    ],
+    "tags": [
+     "#ตัดชุดซาฟารี",
+     "#ตัดสูท",
+     "#เสื้อกาวน์"
+    ],
+    "src": "https://www.cmhy.city/place/1219-Athens",
+    "gps": [
+     18.800412,
+     98.983737
+    ],
+    "cmhy_updated": "2020-10-12"
+   },
+   {
+    "name": "ร้านทรงนำ",
+    "addr": "ถนนช้างม่อย ตำบลช้างม่อย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "086-673-6079"
+    ],
+    "tags": [
+     "#ตัดชุดพยาบาล",
+     "#ตัดเสื้อ",
+     "#ตัดกางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/1229-Changnam",
+    "gps": [
+     18.790722,
+     98.998987
+    ],
+    "cmhy_updated": "2026-06-01"
+   },
+   {
+    "name": "เฟรนด์สูท",
+    "addr": "ถนนราชภาคินัย ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "083-946-1649"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#ตัดชุดทหาร",
+     "#ตัดชุดตำรวจ"
+    ],
+    "src": "https://www.cmhy.city/place/17277-friend-suit",
+    "gps": [
+     18.7840866,
+     98.9905529
+    ],
+    "cmhy_updated": "2021-07-26"
+   },
+   {
+    "name": "พลอย เครื่องแบบราชการ",
+    "addr": "8 ซอย 4 ถนนหัสดิเสวี ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "080-121-8203",
+     "082-854-6050"
+    ],
+    "tags": [
+     "#ตัดชุดเครื่องแบบราชการ",
+     "#เครื่องแบบข้าราชการ"
+    ],
+    "src": "https://www.cmhy.city/place/26468-Ploy-Costom",
+    "gps": [
+     18.8028037,
+     98.9814598
+    ],
+    "cmhy_updated": "2023-04-21"
+   },
+   {
+    "name": "ตะวันสูท",
+    "addr": "ถนนวังสิงห์คำ ตำบลป่าตัน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "086-671-5730",
+     "081-960-5977"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#ชุดซาฟารี",
+     "#ชุดพระราชทาน"
+    ],
+    "src": "https://www.cmhy.city/place/2780-Tawan-suit",
+    "gps": [
+     18.804528,
+     99.003082
+    ],
+    "cmhy_updated": "2021-05-15"
+   },
+   {
+    "name": "สูทสยาม",
+    "addr": "84/9 ถนนราชภาคินัย ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "089-559-9099",
+     "081-472-2762"
+    ],
+    "tags": [
+     "#ตัดสูทชาย",
+     "#ตัดเสื้อชาย",
+     "#เครื่องแบบข้าราชการ"
+    ],
+    "src": "https://www.cmhy.city/place/5368-Siam-suit",
+    "gps": [
+     18.7840987,
+     98.9905827
+    ],
+    "cmhy_updated": "2021-07-26"
+   },
+   {
+    "name": "ห้องเสื้อ CHIC หลักสูตรปารีส (สาขาเชียงใหม่)",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนทิพยเนตร ตำบลหายยา อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ตัดชุดข้าราชการ",
+     "#ตัดเสื้อ",
+     "#ตัดชุด"
+    ],
+    "src": "https://www.cmhy.city/place/32138-CHIC",
+    "gps": [
+     18.7747477,
+     98.9806792
+    ],
+    "cmhy_updated": "2026-02-25"
+   },
+   {
+    "name": "สูทแซมเปิล",
+    "addr": "12 ถนนประชาอุทิศ ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [],
+    "tags": [
+     "#สูท",
+     "#ตัดสูท",
+     "#ตัดชุดราชการ"
+    ],
+    "src": "https://www.cmhy.city/place/6275-Suit-Sample",
+    "gps": [
+     18.8072293,
+     98.9832461
+    ],
+    "cmhy_updated": "2026-01-28"
+   },
+   {
+    "name": "แหม่ม รับตัดเสื้อผ้า ชุดราตรี",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนสุริยวงค์ ตำบลหายยา อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ตัดชุดลีดเดอร์",
+     "#ตัดชุดยูนิฟอร์ม",
+     "#ตัดชุดราตรี"
+    ],
+    "src": "https://www.cmhy.city/place/27274-Mam-Cloth",
+    "gps": [
+     18.7764654,
+     98.9928276
+    ],
+    "cmhy_updated": "2026-08-15"
+   },
+   {
+    "name": "อุ๋ย ออกแบบเสื้อสตรี",
+    "addr": "ถนนบำรุงราษฎร์ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "080-123-2652"
+    ],
+    "tags": [
+     "#ตัดชุดฟอร์ม",
+     "#ชุดฟอร์มทำงาน",
+     "#ตัดชุดสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/13016-Aoi-Costume",
+    "gps": [
+     18.7873956,
+     99.0087989
+    ],
+    "cmhy_updated": "2022-02-26"
+   },
+   {
+    "name": "มาสเตอร์เทเลอร์",
+    "addr": "หมู่บ้านอุษาฟ้าฮ่าม ถนนเจริญราษฎร์ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "099-291-8866",
+     "090-586-6688"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#ตัดเสื้อปกติขาว",
+     "#ตัดสูทสากล"
+    ],
+    "src": "https://www.cmhy.city/place/17071-Master-Tailor",
+    "gps": [
+     18.8026095,
+     99.0060949
+    ],
+    "cmhy_updated": "2024-11-20"
+   },
+   {
+    "name": "ราชาสูท (สาขาเชียงใหม่)",
+    "addr": "122/4 ถนนระแกง ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "085-041-3739"
+    ],
+    "tags": [
+     "#ชุดข้าราชการ",
+     "#ร้านตัดสูท",
+     "#ตัดชุดซาฟารี"
+    ],
+    "src": "https://www.cmhy.city/place/15710-Racha-Suite",
+    "gps": [
+     18.7764865,
+     98.9960423
+    ],
+    "cmhy_updated": "2025-12-15"
+   },
+   {
+    "name": "พรตัดชุดกีฬา",
+    "addr": "ถนนสนามกีฬา ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [],
+    "tags": [
+     "#ชุดกีฬา",
+     "#ตัดชุดกีฬา",
+     "#ใส่เบอร์ชุด"
+    ],
+    "src": "https://www.cmhy.city/place/6520-Porn-shirt-sport",
+    "gps": [
+     18.800538,
+     98.98729
+    ],
+    "cmhy_updated": "2021-07-27"
+   },
+   {
+    "name": "รามา เทเลอร์",
+    "addr": "351/2 ม .5 บ.พระนอน ซ.21 ถนนสมโภชเชียงใหม่ 700 ปี (วงแหวนรอบกลาง) ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "062-923-5446"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#ทักซิโด้",
+     "#ซาฟารี"
+    ],
+    "src": "https://www.cmhy.city/place/24194-RAMA-Tailor",
+    "gps": [
+     18.8416896,
+     98.9785285
+    ],
+    "cmhy_updated": "2026-02-23"
+   },
+   {
+    "name": "เจ๊หล้าชุดและเครื่องหมายข้าราชการ(สาขาแม่เหียะ)",
+    "addr": "สาขา 3 อยู่ในปั้มบางจากตนุภัทรแยกแม่เหียะ ถนนสมโภชเชียงใหม่ 700 ปี (วงแหวนรอบกลาง) ตำบลแม่เหียะ อำเภอเมือง",
+    "tel": [
+     "081-716-1748",
+     "085-526-8399"
+    ],
+    "tags": [
+     "#ชุดข้าราชการ",
+     "#ชุดปกติขาว",
+     "#ชุดครูเอกชน"
+    ],
+    "src": "https://www.cmhy.city/place/40447-Jae-La-Civil-servant-tailor-shop-Mae-Hia-branch",
+    "gps": [
+     18.7404835,
+     98.9651829
+    ],
+    "cmhy_updated": "2025-08-08"
+   },
+   {
+    "name": "ประเสริฐสูท",
+    "addr": "ถนนสันติธรรม ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "086-195-4583"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#ซ่อมเสื้อผ้า",
+     "#ตัดชุดข้าราชการ"
+    ],
+    "src": "https://www.cmhy.city/place/30027-Pasert-Suit",
+    "gps": [
+     18.8024436,
+     98.9786903
+    ],
+    "cmhy_updated": "2021-10-04"
+   },
+   {
+    "name": "สูทไฮคลาส",
+    "addr": "ถนนอนุบาล ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "081-724-1965",
+     "085-716-7750"
+    ],
+    "tags": [
+     "#สูทพระราชทาน",
+     "#ตัดสูท",
+     "#ตัดชุดยูนิฟอร์ม"
+    ],
+    "src": "https://www.cmhy.city/place/9039-Suite-HiClass",
+    "gps": [
+     18.809192,
+     98.991175
+    ],
+    "cmhy_updated": "2021-07-29"
+   },
+   {
+    "name": "ณัฐพงษ์ เทเลอร์ (ป้านุช)",
+    "addr": "ถนนนันทาราม ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "083-319-3586"
+    ],
+    "tags": [
+     "#ตัดเสื้อ",
+     "#ตัดกางเกง",
+     "#ตัดชุดฟอร์ม"
+    ],
+    "src": "https://www.cmhy.city/place/1891-Natpong-Tailor",
+    "gps": [
+     18.775095,
+     98.983511
+    ],
+    "cmhy_updated": "2025-08-06"
+   },
+   {
+    "name": "สุเมธสูธ",
+    "addr": "ซอย 2 ถนนสนามกีฬา ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "061-294-4226",
+     "080-463-1245"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#ตัดชุดซาฟารีสูท",
+     "#ตัดชุดปกติขาว"
+    ],
+    "src": "https://www.cmhy.city/place/30996-Sumet-Suit",
+    "gps": [
+     18.7974541,
+     98.9881796
+    ],
+    "cmhy_updated": "2021-12-09"
+   },
+   {
+    "name": "สุวรรณสูท",
+    "addr": "ถนนนันทาราม ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "086-658-7437"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#ตัดเสื้อซาฟารี",
+     "#ตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/25253-Suwan-Suit",
+    "gps": [
+     18.7754792,
+     98.9862981
+    ],
+    "cmhy_updated": "2024-05-21"
+   },
+   {
+    "name": "ฤดี รับตัดเสื้อกางเกง",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ซอย 1 ถนนราชเชียงแสน ตำบลหายยา อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ตัดเสื้อ",
+     "#ตัดกางเกง",
+     "#ตัดชุดข้าราชการ"
+    ],
+    "src": "https://www.cmhy.city/place/25148-Rudee-cloth",
+    "gps": [
+     18.7771262,
+     98.9898999
+    ],
+    "cmhy_updated": "2022-04-18"
+   },
+   {
+    "name": "สแกนดิ คอลเลคชั่น scandy milano",
+    "addr": "ถนนราชมรรคา ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "085-069-7909"
+    ],
+    "tags": [
+     "#ตัดชุดซาฟารี",
+     "#ตัดชุดชุดราตรี",
+     "#ตัดสูท"
+    ],
+    "src": "https://www.cmhy.city/place/11111-Scandy-collection",
+    "gps": [
+     18.7852033,
+     98.9927156
+    ],
+    "cmhy_updated": "2026-05-31"
+   },
+   {
+    "name": "สูทโปรคลาส",
+    "addr": "ถนนอุ่นอารี ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "081-032-8980"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#ตัดชุดซาฟารี",
+     "#ตัดชุดขาว"
+    ],
+    "src": "https://www.cmhy.city/place/28709-Suit-Proclass",
+    "gps": [
+     18.7971604,
+     98.9910037
+    ],
+    "cmhy_updated": "2023-09-28"
+   },
+   {
+    "name": "ป่องเทเลอร์",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนสนามกีฬา ตำบลศรีภูมิ อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ตัดสูท",
+     "#ชุดนักเรียน",
+     "#เปลี่ยนซิบ"
+    ],
+    "src": "https://www.cmhy.city/place/17963-Pong-Tailor",
+    "gps": [
+     18.7977563,
+     98.9902278
+    ],
+    "cmhy_updated": "2026-02-12"
+   },
+   {
+    "name": "นันธิกา",
+    "addr": "ซอย 1 ถนนช้างเผือก (โชตนา) [107] ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "096-491-6462",
+     "089-955-2724"
+    ],
+    "tags": [
+     "#ตัดชุดซาฟารี",
+     "#ตัดชุดฟอร์ม",
+     "#ตัดชุดข้าราชการ"
+    ],
+    "src": "https://www.cmhy.city/place/28730-Natika",
+    "gps": [
+     18.7978437,
+     98.9871502
+    ],
+    "cmhy_updated": "2022-08-26"
+   },
+   {
+    "name": "สินสิริ เจสปอร์ต ตัดชุด",
+    "addr": "ซอย 6 ถนนวัวลาย ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [],
+    "tags": [
+     "#ตัดชุดรด.",
+     "#ตัดชุดข้าราชการ",
+     "#ตัดขุดอปพร"
+    ],
+    "src": "https://www.cmhy.city/place/35405-Sinsriri-J-Sport",
+    "gps": [
+     18.7775743,
+     98.9817822
+    ],
+    "cmhy_updated": "2023-04-21"
+   },
+   {
+    "name": "จันทร์นภา",
+    "addr": "ถนนมนตรี ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "086-197-3441"
+    ],
+    "tags": [
+     "#ตัดชุดฟอร์ม",
+     "#ตัดเสื้อสุภาพสตรี",
+     "#ตัดสูท"
+    ],
+    "src": "https://www.cmhy.city/place/28937-Jannapa",
+    "gps": [
+     18.7889562,
+     99.0109326
+    ],
+    "cmhy_updated": "2026-06-02"
+   },
+   {
+    "name": "นิวบอย",
+    "addr": "ถนนเชียงใหม่-ลำพูน [106] ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "082-619-0365"
+    ],
+    "tags": [
+     "#ตัดเย็บเครื่องแบบข้าราชการทหาร",
+     "#ตัดชุดตำรวจ",
+     "#ตัดชุดทุกเหล่าทับ"
+    ],
+    "src": "https://www.cmhy.city/place/40520-New-Boy-Clothing",
+    "gps": [
+     18.7805183,
+     99.0070926
+    ],
+    "cmhy_updated": "2025-07-11"
+   },
+   {
+    "name": "ร้าน รับปักเสื้อนักเรียน [ถนนสนามกีฬา]",
+    "addr": "ติดกับ พัตราภรณ์ ยูนิฟอร์ม ถนนสนามกีฬา ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "097-923-5396"
+    ],
+    "tags": [
+     "#ปักเสื้อนักเรียน",
+     "#ปักป้ายอาร์ม",
+     "#ปักโลโก้"
+    ],
+    "src": "https://www.cmhy.city/place/10507-Student-Custome",
+    "gps": [
+     18.798055,
+     98.9902
+    ],
+    "cmhy_updated": "2025-07-09"
+   },
+   {
+    "name": "ร้านวิไล ซ่อมผ้า",
+    "addr": "ถนนช้างเผือก (โชตนา) [107] ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [],
+    "tags": [
+     "#ซ่อมผ้า",
+     "#ตัดเย็บผ้า",
+     "#ตัดชุดยูนิฟอร์ม"
+    ],
+    "src": "https://www.cmhy.city/place/35695-Virai-Cloth-Fix",
+    "gps": [
+     18.800798,
+     98.9844037
+    ],
+    "cmhy_updated": "2024-04-22"
+   }
+  ],
+  "insignia_note_en": "The insignia trade is separate and easy to miss. In Chiang Rai it is ณัฐพลเครื่องหมาย, next to the Teachers' Savings Cooperative, and ร้านสตรองแมนโปลิศ in the town centre; in Chiang Mai the one-stop is เจ๊หล้า. A shop that only cuts cloth will send you elsewhere for the boards, and a shop that only sells boards cannot make the garment.",
+  "insignia_note_th": "ร้านเครื่องหมายเป็นคนละร้านกับร้านตัด เชียงรายมี ณัฐพลเครื่องหมาย ติดสหกรณ์ออมทรัพย์ครู และ ร้านสตรองแมนโปลิศ ในเมือง เชียงใหม่มี เจ๊หล้า ที่ทำทั้งสองอย่าง"
+ },
+ "evening": {
+  "note_en": "Nan's guess is right and the data agrees: the evening and Thai-formal trade is not on Loi Kroh or Chang Khlan. It is in ห้องเสื้อ — dressmakers' houses — on residential streets, and its 46 shops are found by word of mouth, by Facebook page, and by walking past. Several are one woman with a name on the shutter.",
+  "note_th": "งานชุดราตรีและชุดไทยไม่ได้อยู่ลอยเคราะห์หรือช้างคลาน แต่อยู่ในห้องเสื้อตามถนนที่คนอยู่จริง 46 ร้าน รู้กันปากต่อปาก ทางเฟซบุ๊ก และเดินผ่าน",
+  "western_formal": {
+   "en": "Gowns, bridesmaids, prom and mother-of-the-bride. The named houses are วรมน on Manee Nopparat (#ชุดราตรี #ชุดแต่งงาน #ชุดเพื่อนเจ้าสาว), ภรณ์อำไพ คอเลคชั่น on Ratchawithi, คุณแดงดีไซน์ at Nong Hoi (#ชุดผ้าไหม #ชุดราตรี #ชุดกลางวัน), and สแกนดิ คอลเลคชั่น on Ratchamanka.",
+   "th": "ชุดราตรี ชุดเพื่อนเจ้าสาว ชุดแม่เจ้าสาว — ร้านที่มีชื่อคือ วรมน ถนนมณีนพรัตน์ ภรณ์อำไพคอเลคชั่น ถนนราชวิถี คุณแดงดีไซน์ หนองหอย และ สแกนดิคอลเลคชั่น ถนนราชมรรคา"
+  },
+  "thai_formal": {
+   "en": "ชุดไทย is not one garment. สุพัณณดา on Sirimangkhalajan cuts it in ไหมแก้ว — 'glass silk' — and sells the cloth; ห้องเสื้อชุลี on Arak Road works in ผ้าไหม and ผ้าฝ้าย; ห้องเสื้อ ขวัญกัญจน์ designs to order. Two shops carry traditions of their own: แสนหวี on Sanam Kila Soi 2 cuts ชุดไทยใหญ่, Shan dress, and แพรไหม on Chotana Soi 6 sells ชุดไตย and Tai books at the same counter.",
+   "th": "ชุดไทยไม่ใช่ชุดเดียว สุพัณณดา ถนนศิริมังคลาจารย์ ตัดด้วยไหมแก้วและขายผ้าเอง ห้องเสื้อชุลี ถนนอารักษ์ ทำผ้าไหมผ้าฝ้าย ห้องเสื้อขวัญกัญจน์ ออกแบบตามสั่ง และมีสองร้านที่มีธรรมเนียมของตัวเอง — แสนหวี ซอย 2 ถนนสนามกีฬา ตัดชุดไทยใหญ่ และ แพรไหม ซอย 6 โชตนา ขายชุดไตยกับหนังสือไตยที่เคาน์เตอร์เดียวกัน"
+  },
+  "unusual": [
+   {
+    "th": "วีณา บราเซีย — รับตัดเย็บยกทรง",
+    "en": "Veena Brassiere on Anuban Road takes custom bra orders and also cuts ชุดไทย. Custom underwear barely exists as a listed trade and it is the single hardest thing for a woman above Thai retail sizing to buy here.",
+    "tel": "093-132-5612"
+   },
+   {
+    "th": "โกแมว รับย้อมผ้าทุกสี",
+    "en": "Ko Maew on Nimman Soi 17 dyes cloth in any colour — denim, cotton, silk. A faded black shirt is a dyeing job, not a tailoring job, and almost nobody knows the shop exists.",
+    "tel": "084-047-1187"
+   },
+   {
+    "th": "ห้องเสื้อ อรุณี — สอนตัดเสื้อ",
+    "en": "Arunee on the Chiang Mai–Lamphun road teaches cutting as well as doing it; so does สอนตัดเสื้อกัลยา."
+   },
+   {
+    "th": "ศรีสุดา เทเลอร์ x Maajoy Cafe",
+    "en": "A tailor and a café at one address on Rakang Road — you can wait for the fitting with a coffee.",
+    "tel": "097-954-1969"
+   },
+   {
+    "th": "ร้านเฟรนด์สูท",
+    "en": "Its own Facebook page is 'ร้านเฟรนด์ตัดสูทเช่าจักรยาน' — cuts suits, rents bicycles."
+   }
+  ],
+  "shops": [
+   {
+    "name": "ตัดเสื้อวาเลนไทน์",
+    "addr": "ถนนพระปกเกล้า ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "080-495-7151"
+    ],
+    "tags": [
+     "#ตัดชุดสตรี",
+     "#ตัดเสื้อกาวน์",
+     "#ตัดกางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/29309-Velentine",
+    "gps": [
+     18.7894383,
+     98.9879643
+    ],
+    "cmhy_updated": "2024-07-08"
+   },
+   {
+    "name": "สุพัณณดา ตัดชุดไทย",
+    "addr": "ซอย 7 ถนนศิริมังคลาจารย์ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "096-595-3655",
+     "094-429-1424"
+    ],
+    "tags": [
+     "#ตัดชุดไทย",
+     "#ตัดชุดเสื้อไหมแก้ว",
+     "#ขายผ้าไหมแก้ว"
+    ],
+    "src": "https://www.cmhy.city/place/15016-Suphannada",
+    "gps": [
+     18.7950119,
+     98.9724884
+    ],
+    "cmhy_updated": "2022-03-09"
+   },
+   {
+    "name": "เอเธนส์",
+    "addr": "ซอย 4 ถนนช้างเผือก (โชตนา) [107] ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "089-757-0456",
+     "086-671-7604"
+    ],
+    "tags": [
+     "#ตัดชุดซาฟารี",
+     "#ตัดสูท",
+     "#เสื้อกาวน์"
+    ],
+    "src": "https://www.cmhy.city/place/1219-Athens",
+    "gps": [
+     18.800412,
+     98.983737
+    ],
+    "cmhy_updated": "2020-10-12"
+   },
+   {
+    "name": "ห้องเสื้อ โมเลกุล ไฟว์",
+    "addr": "ซอย 1 ถนนหน้าวัดเกต ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "081-882-1578"
+    ],
+    "tags": [
+     "#ตัดเสื้อ",
+     "#ตัดชุดตามแฟชั่น",
+     "#ตัดสูท"
+    ],
+    "src": "https://www.cmhy.city/place/5635-Molecule5",
+    "gps": [
+     18.792547,
+     99.005586
+    ],
+    "cmhy_updated": "2020-07-18"
+   },
+   {
+    "name": "ร้านตัดเสื้อ ลาบูม",
+    "addr": "ศรีบัวเงิน 78/8 ซอย16 ถนนบ้านศรีบัวเงิน ตำบลท่าศาลา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "089-997-3977"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#ตัดเสื้อสตรี",
+     "#ตัดเสื้อผู้หญิง"
+    ],
+    "src": "https://www.cmhy.city/place/10738-Laboom",
+    "gps": [
+     18.7665015,
+     99.048917
+    ],
+    "cmhy_updated": "2023-07-26"
+   },
+   {
+    "name": "ใบเฟิร์น ตัดเสื้อ-กางเกง-สูท",
+    "addr": "ถนนนันทาราม ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "080-458-1812"
+    ],
+    "tags": [
+     "#ตัดเสื้อ",
+     "#ตัดเสื้อชาย",
+     "#ตัดเสื้อสุภาพสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/31422-Bai-Fern-talor",
+    "gps": [
+     18.778534,
+     98.9876718
+    ],
+    "cmhy_updated": "2024-05-21"
+   },
+   {
+    "name": "ห้องเสื้อ CHIC หลักสูตรปารีส (สาขาเชียงใหม่)",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนทิพยเนตร ตำบลหายยา อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ตัดชุดข้าราชการ",
+     "#ตัดเสื้อ",
+     "#ตัดชุด"
+    ],
+    "src": "https://www.cmhy.city/place/32138-CHIC",
+    "gps": [
+     18.7747477,
+     98.9806792
+    ],
+    "cmhy_updated": "2026-02-25"
+   },
+   {
+    "name": "สองพี่น้อง(ช่างน้อง) ตัดเย็บเสื้อผ้า",
+    "addr": "ถนนเจ็ดยอด-ช่างเคี่ยน ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "0840430753"
+    ],
+    "tags": [
+     "#ตัดชุดไทย",
+     "#แก้ทรง",
+     "#ซ่อมผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/3677-Song-Pe-Nong",
+    "gps": [
+     18.806863,
+     98.969274
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "แหม่ม รับตัดเสื้อผ้า ชุดราตรี",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนสุริยวงค์ ตำบลหายยา อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ตัดชุดลีดเดอร์",
+     "#ตัดชุดยูนิฟอร์ม",
+     "#ตัดชุดราตรี"
+    ],
+    "src": "https://www.cmhy.city/place/27274-Mam-Cloth",
+    "gps": [
+     18.7764654,
+     98.9928276
+    ],
+    "cmhy_updated": "2026-08-15"
+   },
+   {
+    "name": "อุ๋ย ออกแบบเสื้อสตรี",
+    "addr": "ถนนบำรุงราษฎร์ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "080-123-2652"
+    ],
+    "tags": [
+     "#ตัดชุดฟอร์ม",
+     "#ชุดฟอร์มทำงาน",
+     "#ตัดชุดสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/13016-Aoi-Costume",
+    "gps": [
+     18.7873956,
+     99.0087989
+    ],
+    "cmhy_updated": "2022-02-26"
+   },
+   {
+    "name": "ห้องเสื้อ อรุณี",
+    "addr": "ถนนเชียงใหม่-ลำพูน [106] ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [],
+    "tags": [
+     "#รับตัดเสื้อ",
+     "#สอนตัดเสื้อ",
+     "#ตัดเสื้อผ้าผู้หญิง"
+    ],
+    "src": "https://www.cmhy.city/place/962-Arunee",
+    "gps": [
+     18.784728,
+     99.00518
+    ],
+    "cmhy_updated": "2021-03-10"
+   },
+   {
+    "name": "ร้านตัดเสื้อ Point-9",
+    "addr": "ถนนบำรุงราษฎร์ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "081-289-4847"
+    ],
+    "tags": [
+     "#ตัดเสื้อสตรี",
+     "#ตัดชุดสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/28942-Point-9",
+    "gps": [
+     18.7932674,
+     99.0087899
+    ],
+    "cmhy_updated": "2022-03-16"
+   },
+   {
+    "name": "ห้องเสื้อชุลี",
+    "addr": "ถนนอารักษ์ ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "081-530-0688"
+    ],
+    "tags": [
+     "#ผ้าไหม",
+     "#ผ้าฝ้าย",
+     "#ชุดสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/15775-Chuli-Dress",
+    "gps": [
+     18.7847515,
+     98.9782315
+    ],
+    "cmhy_updated": "2023-05-07"
+   },
+   {
+    "name": "ติ๊ก ตัดเสื้อสตรี",
+    "addr": "ถนนราชดำริ ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "087-302-4416"
+    ],
+    "tags": [
+     "#แก้ทรง",
+     "#เปลี่ยนซิบ",
+     "#ตัดเสื้อผู้หญิง"
+    ],
+    "src": "https://www.cmhy.city/place/1515-Tik-Clothe",
+    "gps": [
+     18.802212,
+     98.975699
+    ],
+    "cmhy_updated": "2024-08-16"
+   },
+   {
+    "name": "ห้องเสื้อน้อย-โบ๊ต",
+    "addr": "ถนนทุ่งโฮเต็ล ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [],
+    "tags": [
+     "#ตัดชุดสตรี",
+     "#ตัดชุด",
+     "#ตัดเครื่องแต่งกาย"
+    ],
+    "src": "https://www.cmhy.city/place/32722-Noi-Boat-Cloth",
+    "gps": [
+     18.7989117,
+     99.0149515
+    ],
+    "cmhy_updated": "2025-04-29"
+   },
+   {
+    "name": "ศรีสุดา เทเลอร์ x Maajoy Cafe",
+    "addr": "ถนนระแกง ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "097-954-1969",
+     "065-423-4539"
+    ],
+    "tags": [
+     "#ตัดสูท",
+     "#ตัดเสื้อสุภาพสตรี",
+     "#กาแฟสด"
+    ],
+    "src": "https://www.cmhy.city/place/4668-Sisuda-tailor",
+    "gps": [
+     18.778036,
+     98.994983
+    ],
+    "cmhy_updated": "2024-04-17"
+   },
+   {
+    "name": "เทส ออเตอร์เรชั่น",
+    "addr": "ถนนเชียงใหม่แลนด์ ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [],
+    "tags": [
+     "#แก้ไขเสื้อผ้า",
+     "#ห้องเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/3203-Tess-Alteration",
+    "gps": [
+     18.764639,
+     98.992892
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ร้านตัดเสื้อผ้าชวารินทร์",
+    "addr": "ถนนจ่าบ้าน ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "081-796-9465"
+    ],
+    "tags": [
+     "#ตัดชุดสตรี",
+     "#ตัดเสื้อผ้าหญิง",
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/33418-Chawarin",
+    "gps": [
+     18.792403,
+     98.9863398
+    ],
+    "cmhy_updated": "2025-08-28"
+   },
+   {
+    "name": "คุณแดงดีไซน์",
+    "addr": "ถนนการเคหะชุมชนเชียงใหม่ (การเคหะหนองหอย) ตำบลหนองหอย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "087-599-6265",
+     "061-428-2593"
+    ],
+    "tags": [
+     "#ชุดผ้าไหม",
+     "#ชุดราตรี",
+     "#ชุดกลางวัน"
+    ],
+    "src": "https://www.cmhy.city/place/8237-Khun-dang-design",
+    "gps": [
+     18.7619076,
+     99.0113224
+    ],
+    "cmhy_updated": "2026-04-24"
+   },
+   {
+    "name": "ห้องเสื้อคุณอู๊ด",
+    "addr": "ถนนสามล้าน ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [],
+    "tags": [
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/34302-Khun-Aood-Costome",
+    "gps": [
+     18.7832588,
+     98.9818707
+    ],
+    "cmhy_updated": "2024-10-24"
+   },
+   {
+    "name": "มัดหมี่ ไทยซิลค์",
+    "addr": "ถนนสนามกีฬา ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [],
+    "tags": [
+     "#ผ้าไหม",
+     "#ตัดเสื้อ",
+     "#ผ้ามัดหมี่"
+    ],
+    "src": "https://www.cmhy.city/place/6529-Mudmhee-Thai-Silk",
+    "gps": [
+     18.800141,
+     98.987999
+    ],
+    "cmhy_updated": "2024-07-26"
+   },
+   {
+    "name": "ร้านชุดสตรีสุนีย์",
+    "addr": "ถนนเกาะกลาง ตำบลหนองหอย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [],
+    "tags": [
+     "#ตัดเสื้อสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/23305-Sunee",
+    "gps": [
+     18.7610137,
+     99.0042716
+    ],
+    "cmhy_updated": "2021-08-01"
+   },
+   {
+    "name": "ห้องเสื้อลำดวน",
+    "addr": "ถนนเจริญราษฎร์ ตำบลฟ้าฮ่าม อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [],
+    "tags": [
+     "#ตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/21320-Lumdoen-Clothset",
+    "gps": [
+     18.8061889,
+     99.0052862
+    ],
+    "cmhy_updated": "2023-01-07"
+   },
+   {
+    "name": "วรมน",
+    "addr": "ถนนมณีนพรัตน์ ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "084-655-2155"
+    ],
+    "tags": [
+     "#ชุดราตรี",
+     "#ชุดแต่งงาน",
+     "#ชุดเพื่อนเจ้าสาว"
+    ],
+    "src": "https://www.cmhy.city/place/8980-Voramon",
+    "gps": [
+     18.796498,
+     98.984024
+    ],
+    "cmhy_updated": "2024-08-16"
+   },
+   {
+    "name": "สแกนดิ คอลเลคชั่น scandy milano",
+    "addr": "ถนนราชมรรคา ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "085-069-7909"
+    ],
+    "tags": [
+     "#ตัดชุดซาฟารี",
+     "#ตัดชุดชุดราตรี",
+     "#ตัดสูท"
+    ],
+    "src": "https://www.cmhy.city/place/11111-Scandy-collection",
+    "gps": [
+     18.7852033,
+     98.9927156
+    ],
+    "cmhy_updated": "2026-05-31"
+   },
+   {
+    "name": "ห้องเสื้อพักตร์วิไล",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล หมู่บ้านวังสิงห์คำ ถนนวังสิงห์คำ ตำบลป่าตัน อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ชุดผ้าไหม",
+     "#ชุดบูติก",
+     "#ตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/15405-Puk-Virai",
+    "gps": [
+     18.8081506,
+     99.0011384
+    ],
+    "cmhy_updated": "2026-02-11"
+   },
+   {
+    "name": "ห้องเสื้อเพ็ญ",
+    "addr": "ถนนเจริญประเทศ ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [],
+    "tags": [
+     "#ตัดเสื้อสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/5245-Pen-cloth",
+    "gps": [
+     18.766868,
+     99.001799
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ห้องเสื้ออุไรภรณ์",
+    "addr": "ถนนราชเชียงแสน ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [],
+    "tags": [
+     "#ตัดเสื้อสุภาพสตรี",
+     "#ตัดเสื้อผู้หญิง"
+    ],
+    "src": "https://www.cmhy.city/place/32108-Auraipon-Cloth",
+    "gps": [
+     18.7764243,
+     98.9896488
+    ],
+    "cmhy_updated": "2022-04-18"
+   },
+   {
+    "name": "รุ่งเรือง ตัดชุดสตรี",
+    "addr": "ถนนช้างม่อยเก่า ตำบลช้างม่อย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [],
+    "tags": [
+     "#ตัดชุดสตรี",
+     "#ตัดสูท",
+     "#ตัดกางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/35532-Rung-Raeng-Women-Tailor",
+    "gps": [
+     18.7905061,
+     98.9948965
+    ],
+    "cmhy_updated": "2023-04-27"
+   },
+   {
+    "name": "ติ๊กสแควร์",
+    "addr": "ถนนตรัสวงค์ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [],
+    "tags": [
+     "#ตัดเสื้อชาย",
+     "#ตัดเสื้อสุภาพสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/12456-TiK-Square",
+    "gps": [
+     18.803378,
+     99.011688
+    ],
+    "cmhy_updated": "2018-05-20"
+   },
+   {
+    "name": "ห้องเสื้อบุญชื่น",
+    "addr": "ถนนบำรุงราษฎร์ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [],
+    "tags": [
+     "#ตัดเสื้อ",
+     "#ตัดชุดสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/36169-Boon-Chen-Costume",
+    "gps": [
+     18.7878254,
+     99.008597
+    ],
+    "cmhy_updated": "2023-08-28"
+   },
+   {
+    "name": "ห้องเสื้อ ขวัญกัญจน์",
+    "addr": "223/3 ถนนเชียงใหม่-ลำพูน [106] ตำบลหนองหอย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "081-881-2045",
+     "094-824-4459",
+     "081-885-5259"
+    ],
+    "tags": [
+     "#ออกแบบตัดชุด",
+     "#สั่งตัดชุด",
+     "#ชุดไทย"
+    ],
+    "src": "https://www.cmhy.city/place/3152-Kwankan",
+    "gps": [
+     18.7551109,
+     99.0081024
+    ],
+    "cmhy_updated": "2026-06-12"
+   },
+   {
+    "name": "ภรณ์อำไพ คอเลคชั่น",
+    "addr": "ถนนราชวิถี ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200 เปิดทุกวัน",
+    "tel": [],
+    "tags": [
+     "#ชุดแต่งงาน",
+     "#ชุดราตรี",
+     "#ตัดเสื้อสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/25858-Porn-Ampai-Collection",
+    "gps": [
+     18.7903868,
+     98.9917484
+    ],
+    "cmhy_updated": "2022-07-26"
+   },
+   {
+    "name": "แสนหวี ตัดชุดไทยใหญ่",
+    "addr": "ซอย 2 ถนนสนามกีฬา ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "093-268-9142"
+    ],
+    "tags": [
+     "#ตัดชุดไทยใหญ่"
+    ],
+    "src": "https://www.cmhy.city/place/30995-Sanwee",
+    "gps": [
+     18.797432,
+     98.9881768
+    ],
+    "cmhy_updated": "2024-11-14"
+   },
+   {
+    "name": "รัานตัดเสื้อเกวลี",
+    "addr": "ซอย 9 ถนนมูลเมือง ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "091-851-8129",
+     "089-623-3130"
+    ],
+    "tags": [
+     "#ตัดเสื้อผู้ชาย",
+     "#ตัดเสื้อผู้หญิง"
+    ],
+    "src": "https://www.cmhy.city/place/19390-Gewaree-Tailor",
+    "gps": [
+     18.7943095,
+     98.9905999
+    ],
+    "cmhy_updated": "2024-09-12"
+   },
+   {
+    "name": "ห้องเสื้อแพร",
+    "addr": "ซอย 6 ถนนมูลเมือง ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [],
+    "tags": [
+     "#ตัดชุดสตรี",
+     "#ห้องเสื้อสตรี",
+     "#ตัดกระโปรง"
+    ],
+    "src": "https://www.cmhy.city/place/33087-Plear-Costome",
+    "gps": [
+     18.7922061,
+     98.9904849
+    ],
+    "cmhy_updated": "2022-08-15"
+   },
+   {
+    "name": "ห้องเสื้อ วรัชยา",
+    "addr": "ถนนสามล้าน ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "094-615-5641"
+    ],
+    "tags": [
+     "#ตัดเสื้อสตรี",
+     "#ห้องเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/35470-Warachaya-Cloth",
+    "gps": [
+     18.7881962,
+     98.9802388
+    ],
+    "cmhy_updated": "2023-05-04"
+   },
+   {
+    "name": "จันทร์นภา",
+    "addr": "ถนนมนตรี ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "086-197-3441"
+    ],
+    "tags": [
+     "#ตัดชุดฟอร์ม",
+     "#ตัดเสื้อสุภาพสตรี",
+     "#ตัดสูท"
+    ],
+    "src": "https://www.cmhy.city/place/28937-Jannapa",
+    "gps": [
+     18.7889562,
+     99.0109326
+    ],
+    "cmhy_updated": "2026-06-02"
+   },
+   {
+    "name": "ห้องเสื้อณัทพงศ์ ณัท 192 รับตัดชุดสตรี",
+    "addr": "ถนนเกาะกลาง ตำบลป่าแดด อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "093-232-8264"
+    ],
+    "tags": [
+     "#ตัดชุดสุภาพสตรี",
+     "#ตัดเย็บ",
+     "#ชุดสุภาพสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/6715-Natpong-dress-custom",
+    "gps": [
+     18.75705,
+     98.9985794
+    ],
+    "cmhy_updated": "2026-02-14"
+   },
+   {
+    "name": "ห้องเสื้อสตรี และซักอบรีด [ซอย 3 ถนนสิงหราช]",
+    "addr": "ซอย 3 ถนนสิงหราช ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [],
+    "tags": [
+     "#ร้านซักอบรีด",
+     "#ร้านตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/38662-Womens-clothing-store-and-laundry",
+    "gps": [
+     18.7927507,
+     98.978982
+    ],
+    "cmhy_updated": "2024-11-19"
+   },
+   {
+    "name": "แพรไหม ขายชุดไทย",
+    "addr": "ซอย 6 ถนนช้างเผือก (โชตนา) [107] ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "062-896-8624"
+    ],
+    "tags": [
+     "#ชุดไตย",
+     "#หนังสือไตย",
+     "#เสื้อยืดไตย"
+    ],
+    "src": "https://www.cmhy.city/place/19442-Peamai-Tai-Dress",
+    "gps": [
+     18.8027692,
+     98.9878028
+    ],
+    "cmhy_updated": "2019-11-20"
+   },
+   {
+    "name": "โกแมว รับย้อมผ้าทุกสี",
+    "addr": "ซอย 17 ถนนนิมมานเหมินทร์ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "084-047-1187",
+     "053226684"
+    ],
+    "tags": [
+     "#ย้อมยีนส์",
+     "#ผ้าฝ้าย",
+     "#ผ้าไหม"
+    ],
+    "src": "https://www.cmhy.city/place/17293-Ko-Moew-dyeing",
+    "gps": [
+     18.7947281,
+     98.9690367
+    ],
+    "cmhy_updated": "2023-01-10"
+   },
+   {
+    "name": "ห้องเสื้อวรรณภา รับตัดเสื้อกระโปรง ซ่อมผ้า หลังมอ",
+    "addr": "ซอย 7 ถนนบ้านใหม่หลังมอ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "089-755-6503"
+    ],
+    "tags": [
+     "#รับตัดเสื้อกระโปรง",
+     "#ซ่อมผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/16116-Cloth-fix-service",
+    "gps": [
+     18.7927436,
+     98.9526261
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "สองพี่น้อง(ช่างน้อง) ตัดเย็บเสื้อผ้า",
+    "addr": "ถนนเจ็ดยอด-ช่างเคี่ยน ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "0840430753"
+    ],
+    "tags": [
+     "#ตัดชุดไทย",
+     "#แก้ทรง",
+     "#ซ่อมผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/3677-Song-Pe-Nong",
+    "gps": [
+     18.806863,
+     98.969274
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ปรียา ตัดเสื้อผ้าสตรี/บุรุษ",
+    "addr": "ซอย 2 ถนนกู่เต้า ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300 เปิดทุกวัน",
+    "tel": [],
+    "tags": [
+     "#ตัดเสื้อผ้า",
+     "#เปลี่ยนซิบ",
+     "#ตัดเสื้อผู้หญิง"
+    ],
+    "src": "https://www.cmhy.city/place/35959-Preeya-Cloth-fix",
+    "gps": [
+     18.8037735,
+     98.9880572
+    ],
+    "cmhy_updated": "2026-07-05"
+   },
+   {
+    "name": "วีณา บราเซีย",
+    "addr": "ถนนอนุบาล ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "093-132-5612"
+    ],
+    "tags": [
+     "#รับตัดเย็บยกทรง",
+     "#รัดหน้าท้อง",
+     "#ชุดไทย"
+    ],
+    "src": "https://www.cmhy.city/place/17915-Vena-Brasia",
+    "gps": [
+     18.8110704,
+     98.9875066
+    ],
+    "cmhy_updated": "2026-06-17"
+   }
+  ]
+ },
+ "rent_or_cut": {
+  "note_en": "For anything worn once, renting is the local default and the numbers are not close. ร้านเดอะเกร็ท on Nimman Soi 3 rents a white suit at 550 baht (1,000 deposit) and a civil-service uniform at 650 baht (1,500 deposit); a bespoke ชุดปกติขาว is several thousand. นำเทเลอร์ 1991 on Ratchaphakhinai — thirty years, its own graduation department — rents CMU gowns and cuts them from about 9,000 baht with a 60-working-day lead time; Thai university gowns are quoted 1,200–3,000 and overseas ones 9,000–15,000. Chiang Mai has 38 rental houses. A directory that lists only tailors is telling a resident to buy the expensive answer.",
+  "note_th": "ของที่ใส่ครั้งเดียว คนที่นี่เช่า ร้านเดอะเกร็ท ซอย 3 นิมมาน ให้เช่าชุดสูทขาว 550 บาท (ประกัน 1,000) ชุดข้าราชการ 650 บาท (ประกัน 1,500) — ส่วนสั่งตัดปกติขาวหลักพัน นำเทเลอร์ 1991 ถนนราชภาคินัย มีแผนกชุดครุยของตัวเอง ตัดเริ่ม 9,000 บาท ใช้เวลา 60 วันทำการ ชุดครุยไทย 1,200–3,000 ต่างประเทศ 9,000–15,000 และเชียงใหม่มีร้านเช่าชุด 38 ร้าน",
+  "_pricesVerified": false,
+  "shops": [
+   {
+    "name": "ร้านเดอะเกร็ท (สาขาเชียงใหม่)",
+    "addr": "เลขที่ 5  ซอย 3 ถนนนิมมานเหมินทร์ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "081-904-1249"
+    ],
+    "tags": [
+     "#เช่าชุด",
+     "#ตัดชุดครุย",
+     "#ชุดราชการ"
+    ],
+    "src": "https://www.cmhy.city/place/13237-The-Great-Chiangmai",
+    "gps": [
+     18.7992021,
+     98.9681824
+    ]
+   },
+   {
+    "name": "นำเทเลอร์ 1991",
+    "addr": "125/5 ถนนราชภาคินัย ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [],
+    "tags": [
+     "#ชุดครุย",
+     "#ชุดข้าราชการ",
+     "#ชุดสูท"
+    ],
+    "src": "https://www.cmhy.city/place/11176-Num-Tailor-1991",
+    "gps": [
+     18.788891,
+     98.990067
+    ],
+    "cmhy_updated": "2017-07-15"
+   },
+   {
+    "name": "แฟนซี เบาเบา",
+    "addr": "ถนนสันติสุข ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "081-288-8411",
+     "0812888411"
+    ],
+    "tags": [
+     "#เช่าชุด",
+     "#ชุดแฟนซี"
+    ],
+    "src": "https://www.cmhy.city/place/20991-Fancy-Bao-Bao",
+    "gps": [
+     18.8035777,
+     98.9726988
+    ],
+    "cmhy_updated": "2021-12-09"
+   },
+   {
+    "name": "เนาวรัตน์ชุดไทย",
+    "addr": "ถนนนันทาราม ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "081-881-8313"
+    ],
+    "tags": [
+     "#ชุดเช่า",
+     "#ชุดไทยเช่า",
+     "#ชุดไทย"
+    ],
+    "src": "https://www.cmhy.city/place/1894-Nawarat-Thai-dress",
+    "gps": [
+     18.7751794,
+     98.9833018
+    ],
+    "cmhy_updated": "2025-08-06"
+   },
+   {
+    "name": "เดอะ การ์เด้น ชุดเช่า",
+    "addr": "หมู่บ้านกาญจนกนก19 ถนนมหิดล [1141] ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "095-682-2265",
+     "0956822265"
+    ],
+    "tags": [
+     "#ชุดแต่งงาน",
+     "#เช่าตัดชุดแต่งงาน",
+     "#สูท"
+    ],
+    "src": "https://www.cmhy.city/place/11578-The-Garden-rental-shop",
+    "gps": [
+     18.7683723,
+     98.994048
+    ],
+    "cmhy_updated": "2022-02-12"
+   },
+   {
+    "name": "อ๊อดชุดไทยเชียงใหม่​ by​ aod",
+    "addr": "ถนนสามล้าน ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "094-830-8264"
+    ],
+    "tags": [
+     "#เช่าชุดไทย",
+     "#ชุดเช่า",
+     "#เช่าชุดล้านนา"
+    ],
+    "src": "https://www.cmhy.city/place/5874-Aod-thai-dress",
+    "gps": [
+     18.7879458,
+     98.9802296
+    ],
+    "cmhy_updated": "2023-05-07"
+   },
+   {
+    "name": "ร้านเช่าชุดพีคอเลคชั่นสาขาอาเขต(สาขาอาเขต)",
+    "addr": "อาเขตเชียงใหม่ ถนนแก้วนวรัฐ-ซูปเปอร์ไฮเวย์ (สถานีขนส่งเชียงใหม่) ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "096-554-3514",
+     "096 554 3514"
+    ],
+    "tags": [
+     "#ชุดการแสดง",
+     "#ชุดหลีด",
+     "#ชุดลีดเดอร์"
+    ],
+    "src": "https://www.cmhy.city/place/15858-PN-Dress-Rent",
+    "gps": [
+     18.8003764,
+     99.0163938
+    ]
+   },
+   {
+    "name": "โชว์ไทม์ ชุดเช่า",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ด้านในกำแพงแจ่งหัวริน ถนนศรีภูมิ ตำบลศรีภูมิ อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ชุดเจ้าหญิง",
+     "#ชุดเจ้าชาย",
+     "#ชุดแฟนซี"
+    ],
+    "src": "https://www.cmhy.city/place/6337-Showtime-dress-rent",
+    "gps": [
+     18.795436,
+     98.979299
+    ],
+    "cmhy_updated": "2024-02-15"
+   },
+   {
+    "name": "ANGELLA ร้านเช่าชุดราตรี",
+    "addr": "โครงการ ชิลพาร์ค ถนนเชียงใหม่-หางดง [108] ตำบลแม่เหียะ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "097-919-6526",
+     "099-235-3295"
+    ],
+    "tags": [
+     "#เช่าชุดราตรี",
+     "#บริการเช่าชุดราตรี",
+     "#เช่าชุดงานพรอม"
+    ],
+    "src": "https://www.cmhy.city/place/31934-ANGELLA-dress-Rent",
+    "gps": [
+     18.7422578,
+     98.9594056
+    ],
+    "cmhy_updated": "2022-09-21"
+   },
+   {
+    "name": "บลูไดมอนด์ ชุดเช่า คาร์บาเร่โชว์",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ซอย 3 ถนนศรีปิงเมือง ตำบลหายยา อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#เช่าชุด",
+     "#ออกแบบท่าเต้น",
+     "#ออกแบบเสื้อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/1883-Blue-Diamond-Rent-Dress",
+    "gps": [
+     18.77248,
+     98.9839402
+    ],
+    "cmhy_updated": "2022-08-29"
+   },
+   {
+    "name": "เอื้องผี้งล้านนา เสริมสวย และ ชุดเช่า",
+    "addr": "ถนนวังสิงห์คำ ตำบลป่าตัน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "087-473-6224"
+    ],
+    "tags": [
+     "#รับแต่งหน้า",
+     "#เช่าชุดไทย",
+     "#เช่าชุดล้านนา"
+    ],
+    "src": "https://www.cmhy.city/place/27695-Beauty-and-dressing-rental",
+    "gps": [
+     18.8085126,
+     99.0026282
+    ],
+    "cmhy_updated": "2026-01-13"
+   },
+   {
+    "name": "ห้องเสื้อ เฮง เฮง ชุดเช่าออกงาน",
+    "addr": "ถนนหนองฮ่อ [4307] ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "083-626-6442",
+     "085-528-7517"
+    ],
+    "tags": [
+     "#ชุดออกงาน",
+     "#ชุดราตรี",
+     "#ชุดเช่า"
+    ],
+    "src": "https://www.cmhy.city/place/10293-Heang-Heang-custome",
+    "gps": [
+     18.8259078,
+     98.9563355
+    ],
+    "cmhy_updated": "2022-03-29"
+   },
+   {
+    "name": "บ้านนาฏยรังสรรค์ ชุดเช่า",
+    "addr": "ถนนอนุเสาวรีย์สิงห์ ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "099-056-8998"
+    ],
+    "tags": [
+     "#ชุดเช่า",
+     "#ชุดไทย",
+     "#ชุดลูกทุ่ง"
+    ],
+    "src": "https://www.cmhy.city/place/6278-Nataya-rangsan-dress-rent",
+    "gps": [
+     18.8131492,
+     98.9825772
+    ],
+    "cmhy_updated": "2016-05-23"
+   },
+   {
+    "name": "พริ้นเซส เดรส เช่าชุดราตรี ชุดเพื่อนเจ้าสาว",
+    "addr": "ถนนซุปเปอร์ไฮเวย์ เชียงใหม่-ลำปาง [11] ตำบลป่าตัน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "095-696-6875"
+    ],
+    "tags": [
+     "#ชุดราตรี",
+     "#เครื่องประดับ",
+     "#เช่าชุดราตรี"
+    ],
+    "src": "https://www.cmhy.city/place/14488-Princess-Dress",
+    "gps": [
+     18.8100921,
+     98.998781
+    ],
+    "cmhy_updated": "2018-11-30"
+   },
+   {
+    "name": "แฮฟกู๊ดเดย์ ชุดราตรีเช่า",
+    "addr": "ถนนวังสิงห์คำ ตำบลป่าตัน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "084-043-3389"
+    ],
+    "tags": [
+     "#ชุดราตรี",
+     "#ชุดออกงาน",
+     "#ชุดแฟนซี"
+    ],
+    "src": "https://www.cmhy.city/place/2795-Have-a-good-day",
+    "gps": [
+     18.808321,
+     99.00281
+    ]
+   },
+   {
+    "name": "ห้องเสื้อแฟนตาซี ร้านเช่าชุด",
+    "addr": "ถนนมหิดล [1141] ตำบลหนองหอย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "097-009-3946",
+     "097-921-0064"
+    ],
+    "tags": [
+     "#ร้านเช่าชุด",
+     "#รับจัดขบวนกีฬาสี",
+     "#รับเหมาขบวน\r\nเช่าชุดแฟนตาซี"
+    ],
+    "src": "https://www.cmhy.city/place/36494-Fantacy-Custome-Rent-Shop",
+    "gps": [
+     18.7570312,
+     99.0034596
+    ]
+   },
+   {
+    "name": "ลานา ลานนา สตูดิโอ",
+    "addr": "ซอย 7 ถนนราชดำเนิน ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "063-062-8866"
+    ],
+    "tags": [
+     "#ให้เช่าชุดเดรส",
+     "#ใช้เช่าชุดทักซิโด",
+     "#สตูดิโอถ่ายภาพ"
+    ],
+    "src": "https://www.cmhy.city/place/36329-Lana-lanna-Studio",
+    "gps": [
+     18.7891121,
+     98.9845376
+    ],
+    "cmhy_updated": "2023-10-11"
+   },
+   {
+    "name": "เบลินด้าสไตล์",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนเลียบคันคลองชลประทาน (ถนนวงแหวนรอบนอกเมืองเชียงใหม่)  [121] ตำบลช้างเผือก อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#เช่าชุดพรอม",
+     "#เช่าชุดราตรี",
+     "#งานพรอม"
+    ],
+    "src": "https://www.cmhy.city/place/8165-Belinda-style",
+    "gps": [
+     18.8096739,
+     98.963289
+    ],
+    "cmhy_updated": "2023-02-02"
+   },
+   {
+    "name": "แฮร์คัลเลอร์โมเดลลิ่ง & ออร์แกไนซ์",
+    "addr": "ถนนเชียงใหม่-แม่ริม [107] (โชตนา) ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "086-911-5641",
+     "0933037621"
+    ],
+    "tags": [
+     "#ออกแบบทรงผม",
+     "#สระไดร์",
+     "#แต่งหน้าเจ้าสาว"
+    ],
+    "src": "https://www.cmhy.city/place/8362-Hair-color-modeling",
+    "gps": [
+     18.816134,
+     98.981912
+    ],
+    "cmhy_updated": "2020-10-11"
+   },
+   {
+    "name": "รัชสา เดส เช่าชุดราตรี ชุดแต่งงาน",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล 25 ถนนเจริญสุข ตำบลช้างเผือก อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#เช่าชุดราตรี",
+     "#เช่าชุดแต่งงาน"
+    ],
+    "src": "https://www.cmhy.city/place/8792-ratsa-dress",
+    "gps": [
+     18.8016086,
+     98.9780489
+    ],
+    "cmhy_updated": "2022-03-01"
+   },
+   {
+    "name": "ร้านอารยา เช่าชุดราตรี",
+    "addr": "ซอยสุดใจ ถนนเลียบคันคลองชลประทาน (ถนนวงแหวนรอบนอกเมืองเชียงใหม่)  [121] ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "084-987-3322"
+    ],
+    "tags": [
+     "#เช่าชุดราตรี",
+     "#เช่าชุดเพื่อนเจ้าสาว",
+     "#เช่าชุดสูท"
+    ],
+    "src": "https://www.cmhy.city/place/36105-Araya-Dress-Dress-Rent",
+    "gps": [
+     18.8057552,
+     98.9613395
+    ],
+    "cmhy_updated": "2023-08-07"
+   },
+   {
+    "name": "อะโดล่า เช่าชุดราตรี ชุดเพื่อนเจ้าสาว",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล โครงการ จริงใจ มาร์เก็ต โซน B ถนนอัษฎาธร ตำบลป่าตัน อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ชุดไทย",
+     "#ราตรี",
+     "#ชุดเพื่อเจ้าสาว"
+    ],
+    "src": "https://www.cmhy.city/place/12429-Adora",
+    "gps": [
+     18.808292,
+     98.995522
+    ],
+    "cmhy_updated": "2022-03-18"
+   },
+   {
+    "name": "แพรวพราว",
+    "addr": "ซอย 7 ถนนราชดำเนิน ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "064-426-6395"
+    ],
+    "tags": [
+     "#เสื้อผ้าแฟชั่น",
+     "#เสื้อผ้าสตรี",
+     "#เสื้อผ้าผู้หญิง"
+    ],
+    "src": "https://www.cmhy.city/place/5828-Prew-Proud",
+    "gps": [
+     18.789254,
+     98.984317
+    ],
+    "cmhy_updated": "2021-12-04"
+   },
+   {
+    "name": "พอลสมาร์ทสูท เช่าสูท",
+    "addr": "ซอย สุขใจ ถนนเลียบคันคลองชลประทาน (ถนนวงแหวนรอบนอกเมืองเชียงใหม่)  [121] ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "080-123-4929"
+    ],
+    "tags": [
+     "#เช่าชุดสูท",
+     "#ขายสูท",
+     "#ตัดสูท"
+    ],
+    "src": "https://www.cmhy.city/place/36106-Paul-Smart-Suit",
+    "gps": [
+     18.8057854,
+     98.9613087
+    ],
+    "cmhy_updated": "2026-01-13"
+   },
+   {
+    "name": "มิสเดส แอนด์ แอคเซสซอรี่",
+    "addr": "โครงการจริงใจมาร์เก็ต ถนนอัษฎาธร ตำบลป่าตัน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "086-922-9464"
+    ],
+    "tags": [
+     "#ชุดราตรีเช่า",
+     "#เครื่องประดับเช่า",
+     "#ชุดออกงาน"
+    ],
+    "src": "https://www.cmhy.city/place/5014-Miss-dress-accessories",
+    "gps": [
+     18.80806,
+     98.994776
+    ]
+   },
+   {
+    "name": "มัลลิกา ชุดเช่า",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนโพธาราม ตำบลช้างเผือก อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#สอนรำไทย",
+     "#เชาเครื่องประดับ",
+     "#ชุดไทย"
+    ],
+    "src": "https://www.cmhy.city/place/16837-Malica",
+    "gps": [
+     18.8126204,
+     98.9739618
+    ],
+    "cmhy_updated": "2026-01-13"
+   },
+   {
+    "name": "วันดี เวดดิ้งสตูดิโอ",
+    "addr": "ถนนวังสิงห์คำ ตำบลป่าตัน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [],
+    "tags": [
+     "#จัดงานแต่ง",
+     "#ช่างถ่ายภาพ",
+     "#ช่างแต่งหน้า"
+    ],
+    "src": "https://www.cmhy.city/place/24096-Wan-Dee-Wedding-Studio",
+    "gps": [
+     18.8081362,
+     99.0027743
+    ]
+   },
+   {
+    "name": "แอด เดส ชุดเช่า",
+    "addr": "ซอย 4 ถนนกู่เต้า ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "096-694-6979"
+    ],
+    "tags": [
+     "#เช่าชุดราตรี",
+     "#ชุดผู้หญิงเช่า",
+     "#ชุดสตรีเช่า"
+    ],
+    "src": "https://www.cmhy.city/place/28716-At-Dress",
+    "gps": [
+     18.8005396,
+     98.9876576
+    ],
+    "cmhy_updated": "2026-08-08"
+   },
+   {
+    "name": "บ้านพระสิงห์ เช่าชุดล้านนา",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนราชดำเนิน ตำบลพระสิงห์ อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#เช่าชุดล้านนา"
+    ],
+    "src": "https://www.cmhy.city/place/10889-Baab-Phrasing",
+    "gps": [
+     18.787839,
+     98.983053
+    ],
+    "cmhy_updated": "2026-02-05"
+   },
+   {
+    "name": "เพนนี่ เช่าชุดราตรี",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนศิริมังคลาจารย์ ตำบลสุเทพ อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ชุดแต่งงาน",
+     "#ชุดสูท",
+     "#ชุดพรีเวดดิ้ง"
+    ],
+    "src": "https://www.cmhy.city/place/13591-penny",
+    "gps": [
+     18.7963262,
+     98.9708939
+    ],
+    "cmhy_updated": "2026-04-24"
+   },
+   {
+    "name": "OK Dressโอเค เดสท์ แอนด์ สตูดิโอ ชุดเช่า",
+    "addr": "หมู่บ้านฟ้าฮ่ามกรีนโฮม ถนนสุขสัญจร ตำบลฟ้าฮ่าม อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "090-891-4689"
+    ],
+    "tags": [
+     "#ชุดราตรี",
+     "#ชุดแต่งงาน",
+     "#ชุดเพื่อนเจ้าสาว"
+    ],
+    "src": "https://www.cmhy.city/place/10201-OK-Pop-and-Dress",
+    "gps": [
+     18.8250548,
+     99.0005877
+    ],
+    "cmhy_updated": "2024-06-13"
+   },
+   {
+    "name": "บ้านออเจ้า เช่าชุดไทย",
+    "addr": "ซอย 1 ถนนราชมรรคา ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "063-492-9369"
+    ],
+    "tags": [
+     "#เช่าชุดไทย"
+    ],
+    "src": "https://www.cmhy.city/place/37464-Baan-Orjao-chutThaiRent",
+    "gps": [
+     18.7854425,
+     98.9906809
+    ],
+    "cmhy_updated": "2026-05-31"
+   },
+   {
+    "name": "สันติไทไท",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนทุ่งโฮเต็ล ตำบลวัดเกต อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#สอนดนตรีไทย",
+     "#รำไทย",
+     "#จัดขบวนแห่"
+    ],
+    "src": "https://www.cmhy.city/place/4405-Santi-thaithai",
+    "gps": [
+     18.792663,
+     99.01777
+    ],
+    "cmhy_updated": "2022-07-21"
+   },
+   {
+    "name": "ม่อนไหม เช่าชุด ตัดชุด",
+    "addr": "ถนนราชพฤกษ์ ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "093-549-9449"
+    ],
+    "tags": [
+     "#ชุดไทย",
+     "#ชุดราตรี",
+     "#เชียร์ลึดเดอร์"
+    ],
+    "src": "https://www.cmhy.city/place/7168-Monmai",
+    "gps": [
+     18.801414,
+     98.975804
+    ],
+    "cmhy_updated": "2026-08-23"
+   },
+   {
+    "name": "อลิสเวดดิ้งสตูดิโอ ชุดเช่า",
+    "addr": "อาคารสุพนิชคอนโด ถนนรถไฟ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "095-564-2429"
+    ],
+    "tags": [
+     "#ให้เช่าชุดแต่งงาน",
+     "#ตั่งรดน้ำสังข์",
+     "#อุปกรณ์งานแต่งงาน"
+    ],
+    "src": "https://www.cmhy.city/place/35430-Alice-Studio",
+    "gps": [
+     18.7842085,
+     99.0158987
+    ]
+   },
+   {
+    "name": "ป๊อปเลิฟ เวดดิ้งสตูดิโอ",
+    "addr": "ถนนเลียบคันคลองชลประทาน (ถนนวงแหวนรอบนอกเมืองเชียงใหม่)  [121] ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "099-291-1515"
+    ],
+    "tags": [
+     "#ร้านเช่าชุด",
+     "#ชุดเพื่อนเจ้าสาว",
+     "#ชุดเพื่อนเจ้าบ่าว"
+    ],
+    "src": "https://www.cmhy.city/place/7249-Pop-Love",
+    "gps": [
+     18.803119,
+     98.959837
+    ],
+    "cmhy_updated": "2026-08-12"
+   },
+   {
+    "name": "บ้านโอ๊ตแฟนซี",
+    "addr": "ถนนรัตนโกสินทร์ ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "081-032-8959"
+    ],
+    "tags": [
+     "#ร้านเช่าชุด",
+     "#ร้านชุดเช่า",
+     "#ร้านเช่าชุดแฟนซี"
+    ],
+    "src": "https://www.cmhy.city/place/40767-Baan-Aoth-Fancy",
+    "gps": [
+     18.8015923,
+     98.9921078
+    ],
+    "cmhy_updated": "2026-01-13"
+   },
+   {
+    "name": "สูทเพื่อน - เช่าสูท",
+    "addr": "ถนนสนามบิน ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "063-234-8210"
+    ],
+    "tags": [
+     "#ร้านเช่าสูท",
+     "#ร้านตัดสูท",
+     "#ร้านสูท"
+    ],
+    "src": "https://www.cmhy.city/place/40709-Suit-Pren-Suit-rental-shop",
+    "gps": [
+     18.789577,
+     98.9626301
+    ],
+    "cmhy_updated": "2026-01-13"
+   }
+  ],
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://webapp.northcm.ac.th/GraduationCeremony/assets/PDFFile/TheGreat_Edit.pdf",
+    "fetched": "2026-08-31",
+    "note": "The Great's own price sheet as circulated by North-Chiang Mai University"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.numtailor1991.com/product-category/ชุดครุย/",
+    "fetched": "2026-08-31",
+    "note": "NUM Tailor's own site: address 125/5-6 Ratchaphakhinai Rd, tel 053-212464, gown prices and lead time"
+   }
+  ]
+ },
+ "repair": {
+  "note_en": "119 shops, and the one strand every resident uses and no guide lists. Zips, hems, waists, patches, dyeing, and the shoe-and-bag repairers who sit alongside them. Several are inside malls — กรวลัย งานผ้า on floor 1 of Airport Plaza — which makes a first visit easy when you have no Thai. บื๊กไซส์ชิกชิก on Suan Dok Road repairs and sells big sizes at the same counter.",
+  "note_th": "119 ร้าน เป็นสายที่คนอยู่จริงใช้ทุกคนและไม่มีไกด์เล่มไหนลง เปลี่ยนซิป ตัดขา แก้เอว ปะชุน ย้อมผ้า และร้านซ่อมรองเท้า-กระเป๋าที่อยู่ข้างกัน บางร้านอยู่ในห้าง เช่น กรวลัย งานผ้า ชั้น 1 แอร์พอร์ตพลาซ่า",
+  "shops": [
+   {
+    "name": "ป้าพิศ รับย้อมผ้า",
+    "addr": "ถนนแก้วนวรัฐ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "089-854-6588"
+    ],
+    "tags": [
+     "#ย้อมผ้า",
+     "#รับย้อมผ้า",
+     "#ตัดเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/10431-Pa-pit-Services",
+    "gps": [
+     18.800197,
+     99.012758
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ร้านพจน์เทเลอร์ ซ่อมเสื้อผ้า (สันติธรรม เวียงบัว)",
+    "addr": "ถนนเจดีย์ปล่อง ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "061-969-7357"
+    ],
+    "tags": [
+     "#แก้ทรงกางเกง",
+     "#เปลี่ยนซิบ",
+     "#ปะชุนผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/7126-Clothing-repairs-Santithum",
+    "gps": [
+     18.8069903,
+     98.9807593
+    ],
+    "cmhy_updated": "2025-06-09"
+   },
+   {
+    "name": "รับซ่อมผ้าย้อมผ้าหลังมอ",
+    "addr": "ถนนสุเทพ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "089-634-4953"
+    ],
+    "tags": [
+     "#ตัดขา",
+     "#แก้เอว",
+     "#เปลี่ยนทรง"
+    ],
+    "src": "https://www.cmhy.city/place/24040-Fabric-dyeing-repair-service",
+    "gps": [
+     18.7918648,
+     98.957953
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ป้าอำไพ รับเย็บผ้า",
+    "addr": "ถนนหมื่นด้ามพร้าคต ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "085-304-9449"
+    ],
+    "tags": [
+     "#เปลี่ยนซิบ",
+     "#แก้ทรง",
+     "#ตัดขากางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/16708-Aumpai-cloth-fix",
+    "gps": [
+     18.8054124,
+     98.9938982
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "เสน่หา ซ่อมรองเท้า ซ่อมกระเป๋า",
+    "addr": "ถนนช้างเผือก (โชตนา) [107] ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "086-730-2678"
+    ],
+    "tags": [
+     "#ซ่อมรองเท้า",
+     "#กระเป๋า",
+     "#จำหน่ายรองเท้าหนัง"
+    ],
+    "src": "https://www.cmhy.city/place/12588-Saneahan-fix-Shoes",
+    "gps": [
+     18.806549,
+     98.985014
+    ],
+    "cmhy_updated": "2026-02-07"
+   },
+   {
+    "name": "มิสเตอร์แบ๊กฟิกส์ Mr.bag fix",
+    "addr": "ถนนเชียงใหม่-หางดง [108] ตำบลป่าแดด อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "086-312-5877"
+    ],
+    "tags": [
+     "#ซ่อมกระเป๋า",
+     "#ซ่อมเข็มขัด",
+     "#ซ่อมเครื่องหนัง"
+    ],
+    "src": "https://www.cmhy.city/place/8074-MrBag-Fix",
+    "gps": [
+     18.755597,
+     98.967886
+    ],
+    "cmhy_updated": "2025-03-07"
+   },
+   {
+    "name": "โกแมว รับย้อมผ้าทุกสี",
+    "addr": "ซอย 17 ถนนนิมมานเหมินทร์ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "084-047-1187",
+     "053226684"
+    ],
+    "tags": [
+     "#ย้อมยีนส์",
+     "#ผ้าฝ้าย",
+     "#ผ้าไหม"
+    ],
+    "src": "https://www.cmhy.city/place/17293-Ko-Moew-dyeing",
+    "gps": [
+     18.7947281,
+     98.9690367
+    ],
+    "cmhy_updated": "2023-01-10"
+   },
+   {
+    "name": "เจริญศิลป์ (หน้าราชภัฎ) ซ่อมรองเท้า กระเป๋า เครื่องหนัง",
+    "addr": "ถนนเชียงใหม่-แม่ริม [107] (โชตนา) ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "096-985-3704"
+    ],
+    "tags": [
+     "#รับสั่งตัดรองเท้า",
+     "#ซ่อมกระเป๋า",
+     "#ซ่อมรองเท้า"
+    ],
+    "src": "https://www.cmhy.city/place/847-Jaroan-Shin",
+    "gps": [
+     18.8140218,
+     98.9835144
+    ],
+    "cmhy_updated": "2023-04-21"
+   },
+   {
+    "name": "ร้าน รับปักเสื้อนักเรียน [ถนนสนามกีฬา]",
+    "addr": "ติดกับ พัตราภรณ์ ยูนิฟอร์ม ถนนสนามกีฬา ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "097-923-5396"
+    ],
+    "tags": [
+     "#ปักเสื้อนักเรียน",
+     "#ปักป้ายอาร์ม",
+     "#ปักโลโก้"
+    ],
+    "src": "https://www.cmhy.city/place/10507-Student-Custome",
+    "gps": [
+     18.798055,
+     98.9902
+    ],
+    "cmhy_updated": "2025-07-09"
+   },
+   {
+    "name": "แฮนด์ ทู แฮนด์ กระเป๋ามือสอง",
+    "addr": "ซอย 4 ถนนช้างเผือก (โชตนา) [107] ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "080-684-2181",
+     "094-601-5892"
+    ],
+    "tags": [
+     "#กระเป๋ามือสอง",
+     "#รับซ่อมกระเป๋า"
+    ],
+    "src": "https://www.cmhy.city/place/12596-hand-to-hand",
+    "gps": [
+     18.8007311,
+     98.9845252
+    ],
+    "cmhy_updated": "2022-08-26"
+   },
+   {
+    "name": "ร้าน 101 ซ่อมเสื้อผ้า",
+    "addr": "ถนนชมจันทร์ (ซอย) ตำบลป่าแดด อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "061-7679192"
+    ],
+    "tags": [
+     "#แก้ทรงเสื้อ",
+     "#เปลี่ยนซิบ",
+     "#ซ่อมกางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/15155-Pee-Krung-cloth-fix",
+    "gps": [
+     18.7635927,
+     98.9777382
+    ],
+    "cmhy_updated": "2026-06-12"
+   },
+   {
+    "name": "แชมป์วิน",
+    "addr": "ถนนแก้วนวรัฐ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "085-616-3588"
+    ],
+    "tags": [
+     "#ซ่อมยีนส์",
+     "#ซ่อมซิป",
+     "#ปะเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/29868-Champ-Win",
+    "gps": [
+     18.7947361,
+     99.0022732
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ช่างอ้วน รับซ่อมรองเท้า",
+    "addr": "ถนนสุเทพ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "081-033-5183"
+    ],
+    "tags": [
+     "#ซ่อมรองเท้า"
+    ],
+    "src": "https://www.cmhy.city/place/31881-Chang-Aon-shoe-Repair",
+    "gps": [
+     18.7888897,
+     98.9737805
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "กรวลัย งานผ้า (ชั้น 1 แอร์พอร์ตพลาซ่า) ติดลานจอดรถ ใกล้เอเซียบุ๊ค",
+    "addr": "ชั้น 1 แอร์พอร์ตพลาซ่า ติดลานจอดรถด้านในอาคาร ถนนมหิดล (เซ็นทรัลพลาซ่า แอร์พอร์ต) ตำบลป่าแดด อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "089-950-0150"
+    ],
+    "tags": [
+     "#ซ่อมผ้า",
+     "#ซ่อมกระเป๋า",
+     "#แก้ทรงเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/14114-Korwarai-Cloth",
+    "gps": [
+     18.7684472,
+     98.9744065
+    ],
+    "cmhy_updated": "2025-07-11"
+   },
+   {
+    "name": "ห้องเสื้อวรรณภา รับตัดเสื้อกระโปรง ซ่อมผ้า หลังมอ",
+    "addr": "ซอย 7 ถนนบ้านใหม่หลังมอ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "089-755-6503"
+    ],
+    "tags": [
+     "#รับตัดเสื้อกระโปรง",
+     "#ซ่อมผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/16116-Cloth-fix-service",
+    "gps": [
+     18.7927436,
+     98.9526261
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "รับซ่อม เสื้อ-กางเกง [ถนน เชียงใหม่-หางดง]",
+    "addr": "ตรงข้ามแม็คโครหางดง ถนนเชียงใหม่-หางดง [108] ตำบลแม่เหียะ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "098-784-2103"
+    ],
+    "tags": [
+     "#เปลี่ยนซิบ",
+     "#เปลี่ยนยางขอบ",
+     "#ตัดขา"
+    ],
+    "src": "https://www.cmhy.city/place/33183-Cloth-Fix-Services",
+    "gps": [
+     18.7411345,
+     98.9578268
+    ],
+    "cmhy_updated": "2022-09-21"
+   },
+   {
+    "name": "บื๊กไซส์ชิกชิก รับซ่อมผ้า",
+    "addr": "ถนนสวนดอก ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "0842686836"
+    ],
+    "tags": [
+     "#ปะผ้า",
+     "#เปลี่ยนยางกางเกง",
+     "#เปลี่ยนซิบ"
+    ],
+    "src": "https://www.cmhy.city/place/9388-Clothes-fix",
+    "gps": [
+     18.788341,
+     98.968988
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "รับซ่อมรองเท้าทุกชนิด [ตลาดหนองหอย]",
+    "addr": "ถนนเชียงใหม่-ลำพูน [106] ตำบลหนองหอย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000 เปิดทุกวัน",
+    "tel": [],
+    "tags": [
+     "#รับซ่อมรองเท้า"
+    ],
+    "src": "https://www.cmhy.city/place/34023-shoe-repair-shop",
+    "gps": [
+     18.7647486,
+     99.0055587
+    ],
+    "cmhy_updated": "2025-09-19"
+   },
+   {
+    "name": "เจ๊เปิ้ล รับซ่อมผ้า",
+    "addr": "ถนนหนองป่าครั่ง ตำบลหนองป่าครั่ง อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "092-887-4565"
+    ],
+    "tags": [
+     "#เปลี่ยนซิบ",
+     "#แก้ทรง",
+     "#ตัดต่อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/20673-Jeple-Clothfix",
+    "gps": [
+     18.7932016,
+     99.0283731
+    ],
+    "cmhy_updated": "2022-09-20"
+   },
+   {
+    "name": "ร้านตัดผ้าป้าวี สันติธรรม",
+    "addr": "64 ถนนเวียงบัว ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "084-172-7906"
+    ],
+    "tags": [
+     "#แก้ไขทรง",
+     "#กระดุม",
+     "#ตัดชายกระโปรง"
+    ],
+    "src": "https://www.cmhy.city/place/30037-Pa-Vee-Cloth-Services",
+    "gps": [
+     18.8062535,
+     98.9786972
+    ],
+    "cmhy_updated": "2026-05-30"
+   },
+   {
+    "name": "ประวิน รับซ่อมผ้า",
+    "addr": "ถนนเจ็ดยอด-ช่างเคี่ยน ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "089-947-2589"
+    ],
+    "tags": [
+     "#เปลี่ยนซิบ",
+     "#เปลี่ยนทรง",
+     "#ซ่อมกระโปรง"
+    ],
+    "src": "https://www.cmhy.city/place/12608-pawin-fix-cloth",
+    "gps": [
+     18.809373,
+     98.960383
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "คลินิกซ่อมรองเท้า",
+    "addr": "ถนนสุเทพ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "063-792-2069"
+    ],
+    "tags": [
+     "#ซ่อมรองเท้า"
+    ],
+    "src": "https://www.cmhy.city/place/31879-Clinic-shoe-Repair",
+    "gps": [
+     18.7887385,
+     98.9769812
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "การันตี ซ่อมรองเท้า และ กุญแจ ( แอร์พอร์ตพลาซ่า)",
+    "addr": "ชั้น 1ติดลานจอดรถด้านใน เซ็นทรัลแอร์พอร์ตพลาซ่า ถนนมหิดล (เซ็นทรัลพลาซ่า แอร์พอร์ต) ตำบลป่าแดด อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "089-854-4316"
+    ],
+    "tags": [
+     "#ซ่อมรองเท้า",
+     "#กุญแจรถยนต์",
+     "#ปั๊มกุญแจ"
+    ],
+    "src": "https://www.cmhy.city/place/37825-Guarantee-Shoes-Repair-Key-Service-Central-Airport-Plaza",
+    "gps": [
+     18.7686378,
+     98.9757249
+    ],
+    "cmhy_updated": "2026-08-15"
+   },
+   {
+    "name": "ป้าหล้ารับซ่อมผ้า",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ใต้สะพานลอยแมคคอร์มิค ถนนแก้วนวรัฐ ตำบลวัดเกต อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ซ่อมกระเป๋า",
+     "#ซ่อมเสื้อผ้า",
+     "#ซ่อมกระเป๋าเดินทาง"
+    ],
+    "src": "https://www.cmhy.city/place/22115-Aunt-La-for-clothes-repairing",
+    "gps": [
+     18.7988393,
+     99.0105667
+    ],
+    "cmhy_updated": "2025-08-06"
+   },
+   {
+    "name": "รับซ่อมเกิบ รองเท้า",
+    "addr": "ถนนหมื่นด้ามพร้าคต ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "080-493-2591"
+    ],
+    "tags": [
+     "#ตอกตราไก่",
+     "#ซ่อมรองเท้า",
+     "#ซ่อมกระเป๋า"
+    ],
+    "src": "https://www.cmhy.city/place/24721-Shoe-Fix",
+    "gps": [
+     18.8051321,
+     98.9939184
+    ],
+    "cmhy_updated": "2025-04-04"
+   },
+   {
+    "name": "บ้านทองทวีทลุงนครป้าน้อย ตัดเย็บเสื้อผ้า",
+    "addr": "ถนนการเคหะชุมชนเชียงใหม่ (การเคหะหนองหอย) ตำบลหนองหอย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "083-764-9221",
+     "082-691-0207"
+    ],
+    "tags": [
+     "#แก้ทรง",
+     "#ปะเสื้อผ้า",
+     "#เปลี่ยนซิบกระเป๋า"
+    ],
+    "src": "https://www.cmhy.city/place/29782-Pannoy-Lungnakorn",
+    "gps": [
+     18.7620272,
+     99.0103379
+    ],
+    "cmhy_updated": "2026-06-01"
+   },
+   {
+    "name": "โนอาห์เครื่องหนัง (ร้านในตำนาน) ซ่อมรองเท้า [ถนนแก้วนวรัฐ]",
+    "addr": "ถนนรัตนโกสินทร์ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "061-982-2273",
+     "066-024-1788"
+    ],
+    "tags": [
+     "#ซ่อมรองเท้า",
+     "#ตัดแต่งรองเท้า",
+     "#ซ่อมกระเป๋า"
+    ],
+    "src": "https://www.cmhy.city/place/22113-Noar-Leather-goods",
+    "gps": [
+     18.8015765,
+     99.009822
+    ],
+    "cmhy_updated": "2025-12-26"
+   },
+   {
+    "name": "ซ่อมเสื้อผ้า ป้าต้อย(เจ้าเก่า)",
+    "addr": "ซอย 2 ถนนเชียงใหม่-แม่ริม [107] (โชตนา) ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "081-5950249"
+    ],
+    "tags": [
+     "#เปลี่ยนยางยืด",
+     "#ผ้าขาวม้าปะ",
+     "#ซ่อมผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/17362-Patoy-cloth-fix",
+    "gps": [
+     18.813399,
+     98.9846178
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ลุงศักดิ์ คลินิกซ่อมรองเท้า(กาดหลวง วโรรส ตรอกเล่าโจ้ว)",
+    "addr": "ตรอกเล่าโจ้ว อยู่ข้างร้านเด่นเสมอ ถนนข่วงเมรุ ตำบลช้างม่อย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "099-175-3428"
+    ],
+    "tags": [
+     "#ซ่อมรองเท้ากาดหลวง",
+     "#ร้านซ่อมรองเท้า",
+     "#ซ่อมรองเท้าหนัง"
+    ],
+    "src": "https://www.cmhy.city/place/35901-Shoes-Clinic-Lao-Jao-Waroroj-market",
+    "gps": [
+     18.7898575,
+     99.0004016
+    ],
+    "cmhy_updated": "2025-10-21"
+   },
+   {
+    "name": "คลินิกกางเกง (ชาตรี)",
+    "addr": "ถนนเวียงบัว ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "086-192-5160",
+     "086-448-3640"
+    ],
+    "tags": [
+     "#ซ่อมกางเกง",
+     "#เปลี่ยนทรงกางเกง",
+     "#สอยขา"
+    ],
+    "src": "https://www.cmhy.city/place/13726-Kang-Keng-Clinic",
+    "gps": [
+     18.8058082,
+     98.9820159
+    ],
+    "cmhy_updated": "2026-03-24"
+   },
+   {
+    "name": "ภูธนสิริภัทร หมวยนะค่ะ ซ่อมรองเท้า ซ่อมกระเป๋า",
+    "addr": "หน้าโรงเรียนดารา ข้างร้านฟาร์ม่าช๊อยซ์ ถนนแก้วนวรัฐ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "086-945-9695"
+    ],
+    "tags": [
+     "#รองเท้า",
+     "#กระเป๋า",
+     "#เสื้อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/22114-Meoy-Na-Ka-Shoe-repair",
+    "gps": [
+     18.7990624,
+     99.0109917
+    ],
+    "cmhy_updated": "2025-12-12"
+   },
+   {
+    "name": "ร้านรับซ่อมผ้าทุกชนิด [หนองป่าครั่ง]",
+    "addr": "ถนนหนองป่าครั่ง ตำบลหนองป่าครั่ง อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "061-574-4519"
+    ],
+    "tags": [
+     "#เปลี่ยนซิบ",
+     "#แก้ทรง",
+     "#กางเกงยินส์"
+    ],
+    "src": "https://www.cmhy.city/place/20658-Accept-all-types-of-tailors",
+    "gps": [
+     18.790715,
+     99.0267532
+    ],
+    "cmhy_updated": "2023-03-02"
+   },
+   {
+    "name": "สุเทพสปอร์ต รับซ่อมผ้า",
+    "addr": "ถนนสุริยวงค์ ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "081-366-8621"
+    ],
+    "tags": [
+     "#รับซ่อมผ้า",
+     "#เปลี่ยนยางยืด",
+     "#ตัดขา"
+    ],
+    "src": "https://www.cmhy.city/place/4717-Suthep-sport",
+    "gps": [
+     18.775977,
+     98.989392
+    ],
+    "cmhy_updated": "2024-07-12"
+   },
+   {
+    "name": "สองพี่น้อง(ช่างน้อง) ตัดเย็บเสื้อผ้า",
+    "addr": "ถนนเจ็ดยอด-ช่างเคี่ยน ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "0840430753"
+    ],
+    "tags": [
+     "#ตัดชุดไทย",
+     "#แก้ทรง",
+     "#ซ่อมผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/3677-Song-Pe-Nong",
+    "gps": [
+     18.806863,
+     98.969274
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "คลินิกซ่อมผ้า",
+    "addr": "ถนนป่าตัน ตำบลป่าตัน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "085-724-2540"
+    ],
+    "tags": [
+     "#ซ่อมผ้า",
+     "#เย็บผ้า",
+     "#ตัดผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/5597-fix-choth",
+    "gps": [
+     18.821886,
+     98.994311
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ร้านเย็บผ้า [ถนน ธานินทร์]",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนธานินทร์ / ตลาดศิริวัฒนา ตำบลช้างเผือก อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#เปลี่ยนซิบ",
+     "#แก้ทรง",
+     "#แก้เอว"
+    ],
+    "src": "https://www.cmhy.city/place/3391-yeppa",
+    "gps": [
+     18.804526,
+     98.981079
+    ],
+    "cmhy_updated": "2024-04-03"
+   },
+   {
+    "name": "อ้ายยีนส์ ย้อมผ้า",
+    "addr": "ถนนสิทธิวงศ์ ตำบลช้างม่อย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "087-356-6466"
+    ],
+    "tags": [
+     "#ย้อมผ้าสี",
+     "#ย้อมกางเกงยีนส์"
+    ],
+    "src": "https://www.cmhy.city/place/34845-Ai-Jean-Dying-Service",
+    "gps": [
+     18.7941203,
+     98.9944925
+    ],
+    "cmhy_updated": "2023-01-30"
+   },
+   {
+    "name": "แม่นา เย็บผ้ารับซ่อมผ้า",
+    "addr": "ถนนศิริธร ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "090-468-7463"
+    ],
+    "tags": [
+     "#ซ่อมผ้า",
+     "#รับเย็บผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/36782-Mae-Na-Cloth-fix",
+    "gps": [
+     18.8100365,
+     98.9820292
+    ],
+    "cmhy_updated": "2023-11-07"
+   },
+   {
+    "name": "รับซ่อมผ้า [ถนนศรีภูมิ]",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนศรีภูมิ ตำบลศรีภูมิ อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#เปลี่ยนซิบ",
+     "#ปะกางเกง",
+     "#เปลี่ยนทรง"
+    ],
+    "src": "https://www.cmhy.city/place/8969-Fix-costume-services",
+    "gps": [
+     18.7952498,
+     98.9862188
+    ],
+    "cmhy_updated": "2026-04-20"
+   },
+   {
+    "name": "คลินิกยายบัว รับซ่อมผ้า",
+    "addr": "ถนนวรุณนิเวศน์ (ซอยร้องเรือนคำ) ตำบลป่าแดด อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "062-647-9366"
+    ],
+    "tags": [
+     "#แก้ทรง",
+     "#ต่อขากางเกง",
+     "#เปลี่ยนยางยืด"
+    ],
+    "src": "https://www.cmhy.city/place/31379-Yaybue-colth-fix",
+    "gps": [
+     18.7460442,
+     98.9790944
+    ],
+    "cmhy_updated": "2023-10-18"
+   },
+   {
+    "name": "ร้าน ซ่อมรองเท้า กระเป๋า [ตลาดธานินทร์]",
+    "addr": "ตลาดธานินทร์ด้านหลังร้านสุทธิพร ถนนธานินทร์ / ตลาดศิริวัฒนา ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300 จันทร์-เสาร์",
+    "tel": [],
+    "tags": [
+     "#ซ่อมรองเท้า",
+     "#ซ่อมกระเป๋า"
+    ],
+    "src": "https://www.cmhy.city/place/35499-Fix-Bag-Fix-Shoes-Tanin-Market",
+    "gps": [
+     18.8040424,
+     98.985193
+    ],
+    "cmhy_updated": "2024-03-16"
+   },
+   {
+    "name": "มิสเตอร์ไกรสร ซ่อมรองเท้า กุญแจ ซ่อมกระเป๋า",
+    "addr": "ถนนราชพฤกษ์ ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "096-687-6600"
+    ],
+    "tags": [
+     "#ซ่อมรองเท้า",
+     "#ปั๊มกุญแจม",
+     "#กุญแจสำรอง"
+    ],
+    "src": "https://www.cmhy.city/place/16598-Shoes-and-Key",
+    "gps": [
+     18.8003023,
+     98.9754018
+    ],
+    "cmhy_updated": "2024-07-27"
+   },
+   {
+    "name": "บิลลี่ขั้นเทพ 2005 ซ่อมรองเท้า",
+    "addr": "ถนนศิริมังคลาจารย์ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "094-635-1685"
+    ],
+    "tags": [
+     "#ซ่อมกระเป๋า",
+     "#ซ่อมเครื่องหนัง",
+     "#ซ่อมรองเท้า"
+    ],
+    "src": "https://www.cmhy.city/place/26967-Billy-Ka-Thep-fix-Shoes",
+    "gps": [
+     18.7908766,
+     98.9704092
+    ],
+    "cmhy_updated": "2024-12-04"
+   },
+   {
+    "name": "ป้าทอง รับซ่อมผ้า",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนพงค์สุวรรณ (ซอย) ตำบลศรีภูมิ อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ย้อมผ้า",
+     "#ตัดเย็บ"
+    ],
+    "src": "https://www.cmhy.city/place/23882-PaThong-Cloth-Fix",
+    "gps": [
+     18.8016024,
+     98.9851504
+    ],
+    "cmhy_updated": "2026-02-20"
+   },
+   {
+    "name": "รุจาภา รับตัดเย็บ งานเย็บ",
+    "addr": "ซอย 6 ถนนบ้านใหม่หลังมอ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "082-698-4559"
+    ],
+    "tags": [
+     "#ตัดเย็บเสื้อผ้า",
+     "#ซ่อมเสื้อผ้า",
+     "#ตัดต่อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/9535-Rujapa",
+    "gps": [
+     18.7921624,
+     98.9536488
+    ],
+    "cmhy_updated": "2023-06-11"
+   },
+   {
+    "name": "รับซ่อมผ้า และผ้าม่าน [ต้นขาม]",
+    "addr": "ถนนต้นขาม ตำบลท่าศาลา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "081-031-9123"
+    ],
+    "tags": [
+     "#รับซ่อมผ้า",
+     "#ซ่อมผ้าม่าน",
+     "#พรม"
+    ],
+    "src": "https://www.cmhy.city/place/35311-Curtain-fix-and-Cloth",
+    "gps": [
+     18.7703792,
+     99.0259443
+    ],
+    "cmhy_updated": "2023-06-21"
+   },
+   {
+    "name": "ป้าพรซ่อมผ้าทุกชนิด",
+    "addr": "ซอย 1 ถนนราชภาคินัย ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "0853628036"
+    ],
+    "tags": [
+     "#ซ่อมเสื้อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/30427-Paporn-Fix-clothes",
+    "gps": [
+     18.7943992,
+     98.989057
+    ],
+    "cmhy_updated": "2025-07-09"
+   },
+   {
+    "name": "คลินิกผ้า",
+    "addr": "ถนนช่างเคี่ยน ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "084-040-0530"
+    ],
+    "tags": [
+     "#แก้ไขผ้า",
+     "#แก้ทรง",
+     "#แก้ไซส์"
+    ],
+    "src": "https://www.cmhy.city/place/3895-paclinic",
+    "gps": [
+     18.812903,
+     98.957284
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "บริการซ่อมรองเท้า [ใกล้ ตลาดสันป่าข่อย]",
+    "addr": "ใกล้ประตูทางเข้าค่ายกาวิละด้านหลัง ถนนกองทราย ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "096-724-5494",
+     "064-434-0286"
+    ],
+    "tags": [
+     "#ซ่อมรองเท้า",
+     "#ซ่อมคัตชู",
+     "#ซ่อมตาไก่"
+    ],
+    "src": "https://www.cmhy.city/place/35719-Shoes-Fix-Sanpakoi-market",
+    "gps": [
+     18.7856745,
+     99.008963
+    ],
+    "cmhy_updated": "2026-03-05"
+   },
+   {
+    "name": "ร้านตัดผ้าซิกแซ๊ก",
+    "addr": "ถนนทุ่งโฮเต็ล ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "086-921-6619",
+     "084-612-2957"
+    ],
+    "tags": [
+     "#ต่อขา",
+     "#ตัดขา",
+     "#แก้เอว"
+    ],
+    "src": "https://www.cmhy.city/place/8232-Zikzak",
+    "gps": [
+     18.79738,
+     99.015737
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "รับตัดเสื้อผ้า (เจ้าเก่าวัดกู่เต้า)",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนวังสิงห์คำ ตำบลป่าตัน อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ตัดขา",
+     "#เปลี่ยนซิบ",
+     "#เข้ารูปกางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/24095-Kru-tao-Tailor",
+    "gps": [
+     18.8079217,
+     99.0025899
+    ],
+    "cmhy_updated": "2023-05-08"
+   },
+   {
+    "name": "ร้านรับเย็บผ้าทุกชนิด",
+    "addr": "ถนนเจริญราษฎร์ ตำบลฟ้าฮ่าม อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "093-212-1823",
+     "088-646-7721"
+    ],
+    "tags": [
+     "#รับเย็บผ้า",
+     "#แก้ทรงผ้า",
+     "#เปลี่ยนซิบ"
+    ],
+    "src": "https://www.cmhy.city/place/34730-Clothing-fix-Shop",
+    "gps": [
+     18.8086226,
+     99.0046155
+    ],
+    "cmhy_updated": "2024-05-08"
+   },
+   {
+    "name": "อิ๋ว รับตัดผ้า",
+    "addr": "ถนนประชาสัมพันธ์ ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "061-280-2965",
+     "099-267-4976"
+    ],
+    "tags": [
+     "#เปลี่ยนซิบ",
+     "#ตัดขา",
+     "#แก้ทรง"
+    ],
+    "src": "https://www.cmhy.city/place/30766-Aew-Cloth-fix",
+    "gps": [
+     18.7750421,
+     98.9961719
+    ],
+    "cmhy_updated": "2023-03-24"
+   },
+   {
+    "name": "ป้ากุ้งซ่อมผ้า",
+    "addr": "ถนนเชียงใหม่-แม่ริม (โชตนา) (ซอย 22) ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "086-659-3744"
+    ],
+    "tags": [
+     "#ปักผ้า",
+     "#แก้ทรง",
+     "#ปักอาร์ม"
+    ],
+    "src": "https://www.cmhy.city/place/30969-Pakoong-cloth-fix",
+    "gps": [
+     18.8362987,
+     98.9824616
+    ],
+    "cmhy_updated": "2026-06-02"
+   },
+   {
+    "name": "อัมพร คลีนิคผ้า",
+    "addr": "ถนนเชียงใหม่-ลำพูน [106] ตำบลหนองหอย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "093-210-1845",
+     "0969024312"
+    ],
+    "tags": [
+     "#ซ่อมรองเท้า",
+     "#กระเป๋า",
+     "#เปลี่ยนซิบ"
+    ],
+    "src": "https://www.cmhy.city/place/27851-Aomporn-Cloth-Clinic",
+    "gps": [
+     18.764848,
+     99.0058
+    ],
+    "cmhy_updated": "2022-10-20"
+   },
+   {
+    "name": "ร้านซ่อมเสื้อป้าปิ่น",
+    "addr": "ซอย 1 ถนนสิงหราช ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "083-568-7899"
+    ],
+    "tags": [
+     "#แก้ทรง",
+     "#เปลี่ยนซิบยีนส์",
+     "#เปลี่ยนซิบ"
+    ],
+    "src": "https://www.cmhy.city/place/18582-Pa-pan-cloth-fix",
+    "gps": [
+     18.7912453,
+     98.9825451
+    ],
+    "cmhy_updated": "2025-08-06"
+   },
+   {
+    "name": "ปาย ซ่อมผ้า",
+    "addr": "ซอย 4 ถนนพระปกเกล้า ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "094-757-5856"
+    ],
+    "tags": [
+     "#ตัดขากางเกง",
+     "#เปลี่ยนซิบ",
+     "#เย็บเสื้อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/25845-Pai-Cloth-fix",
+    "gps": [
+     18.7832214,
+     98.9877727
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ร้านซ่อมรองเท้า อ็อด (ร้านเก่าใต้สะพานลอยหน้า รพ.แมคคอร์มิค)",
+    "addr": "ถนนแก้วนวรัฐ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "099-342-1617"
+    ],
+    "tags": [
+     "#ซ่อมรองเท้า",
+     "#ตัดแต่งรองเท้า",
+     "#ซ่อมกระเป๋า"
+    ],
+    "src": "https://www.cmhy.city/place/38292-Aod-ShoesFix-Service",
+    "gps": [
+     18.800445,
+     99.0132468
+    ],
+    "cmhy_updated": "2025-12-12"
+   },
+   {
+    "name": "ร้านเย็บผ้า พี่หล้า-ป้าพร",
+    "addr": "ถนนเจริญสุข ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "095-679-5740"
+    ],
+    "tags": [
+     "#ร้านซ่อมผ้า",
+     "#ร้านเย็บผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/36209-P-La-Pa-Pon-Cloth-fix",
+    "gps": [
+     18.8017019,
+     98.9776569
+    ],
+    "cmhy_updated": "2023-08-18"
+   },
+   {
+    "name": "รับซ่อมเสื้อ กระโปรง [ถนน อารักษ์]",
+    "addr": "ถนนอารักษ์ ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "085-867-3719"
+    ],
+    "tags": [
+     "#ซ่อมเสื้อ",
+     "#ซ่อมกระโปรง",
+     "#ซ่อม"
+    ],
+    "src": "https://www.cmhy.city/place/14266-Cloth-fix",
+    "gps": [
+     18.7933456,
+     98.9785589
+    ],
+    "cmhy_updated": "2024-11-19"
+   },
+   {
+    "name": "สร้อยดีไซน์ ซ่อมผ้า",
+    "addr": "ตลาดอ้อมเมือง ถนนมหิดล [1141] ตำบลท่าศาลา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "089-432-0724"
+    ],
+    "tags": [
+     "#แก้ทรง",
+     "#ตัดผ้าถุง",
+     "#เปลี่ยนซิบ"
+    ],
+    "src": "https://www.cmhy.city/place/35944-Soi-Design",
+    "gps": [
+     18.7641689,
+     99.0262946
+    ],
+    "cmhy_updated": "2023-10-13"
+   },
+   {
+    "name": "ร้านรับซ่อมเสื้อผ้า(หอพักธนสิริเพลส)",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล อาคารหอพักธนสิริ ถนนเจดีย์ปล่อง ตำบลช้างเผือก อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ซ่อมเสื้อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/37764-Cloth-Fix-Service",
+    "gps": [
+     18.8070948,
+     98.9810175
+    ],
+    "cmhy_updated": "2026-04-06"
+   },
+   {
+    "name": "รุ่งเรือง รับตัด-เย็บเสื้อผ้า",
+    "addr": "ซอย 5 ถนนหัสดิเสวี ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "082-762-8323"
+    ],
+    "tags": [
+     "#แก้ทรง",
+     "#เย็บเสื้อผ้า",
+     "#เปลี่ยนซิบ"
+    ],
+    "src": "https://www.cmhy.city/place/26474-Rungreng",
+    "gps": [
+     18.8027604,
+     98.9821106
+    ],
+    "cmhy_updated": "2025-12-07"
+   },
+   {
+    "name": "ร้านตัดเย็บเสื้อผ้า[ถนน กุลวงศ์อุทิศ]",
+    "addr": "ถนนกุลวงศ์อุทิศ ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "089-558-5578"
+    ],
+    "tags": [
+     "#แก้ทรง",
+     "#เปลี่ยนซิบ",
+     "#กางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/12529-Cloth-fix",
+    "gps": [
+     18.80452,
+     98.987544
+    ],
+    "cmhy_updated": "2024-07-15"
+   },
+   {
+    "name": "ตั้งบุรินทร์ ซ่อมแซมรองเท้า",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนแก้วนวรัฐ ตำบลวัดเกต อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ซ่อมรองเท้า",
+     "#เปลี่ยนทรง",
+     "#เกือกม้ารองเท้า"
+    ],
+    "src": "https://www.cmhy.city/place/22117-Tongborin-Shoes-fix",
+    "gps": [
+     18.798671,
+     99.0102507
+    ],
+    "cmhy_updated": "2026-02-19"
+   },
+   {
+    "name": "พี่แอร์รับซ่อมผ้า",
+    "addr": "ถนนสุขสัญจร ตำบลฟ้าฮ่าม อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [],
+    "tags": [
+     "#ตัดผ้า",
+     "#เปลี่ยนซิบ",
+     "#รับแก้ทรงผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/37264-East-Pe-Air-Cloth-fix-Shop",
+    "gps": [
+     18.8183404,
+     99.001968
+    ],
+    "cmhy_updated": "2024-06-13"
+   },
+   {
+    "name": "ป้าแปง ซ่อมรองเท้า ซ่อมกระเป๋า",
+    "addr": "ข้างร้านเอื้องฟ้า ถนนข่วงเมรุ ตำบลช้างม่อย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "085-921-0376"
+    ],
+    "tags": [
+     "#ซ่อมรองเท้า",
+     "#ซ่อมกระเป๋า",
+     "#ข้าวต้มมัด"
+    ],
+    "src": "https://www.cmhy.city/place/35023-Aunt-Pang-repairs-shoes-and-bags",
+    "gps": [
+     18.7899869,
+     99.0004371
+    ],
+    "cmhy_updated": "2025-10-21"
+   },
+   {
+    "name": "สุภาพปักจักร",
+    "addr": "ถนนเวียงพิงค์ ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "081-706-3043"
+    ],
+    "tags": [
+     "#ปักเสื้อ",
+     "#ปักโลโก้",
+     "#ตัวอักษรเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/29400-Supab-Pakjak",
+    "gps": [
+     18.7719163,
+     98.9921793
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "เจ.ซี. คาวบอย ซ่อมผ้า",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนนันทาราม ตำบลหายยา อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ซ่อมผ้า",
+     "#เปลี่ยนซิบ",
+     "#แก้ทรงเสื้อ"
+    ],
+    "src": "https://www.cmhy.city/place/14972-JC-Cowboy",
+    "gps": [
+     18.775668,
+     98.9864967
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ทิพวรรณ",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนกำแพงดิน ตำบลช้างคลาน อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ตัดเสื้อสตรี",
+     "#แก้ทรง",
+     "#เปลี่ยนซิบ"
+    ],
+    "src": "https://www.cmhy.city/place/23080-Thippawan",
+    "gps": [
+     18.779561,
+     98.997915
+    ],
+    "cmhy_updated": "2026-02-19"
+   },
+   {
+    "name": "ร้านธัญชนก shop",
+    "addr": "การเคหะหนองหอย ถนนการเคหะชุมชนเชียงใหม่ (การเคหะหนองหอย) ตำบลหนองหอย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "090-295-3735"
+    ],
+    "tags": [
+     "#รับซ่อมผ้า",
+     "#ออกแบบเสื้อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/33395-Thanchanok-Cloth-fix-shop",
+    "gps": [
+     18.7600116,
+     99.0118438
+    ],
+    "cmhy_updated": "2022-09-22"
+   },
+   {
+    "name": "น้อย คลินิค ซ่อมผ้า",
+    "addr": "ถนนบ้านบวกครกน้อย ตำบลหนองป่าครั่ง อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [],
+    "tags": [
+     "#แก้ทรง",
+     "#ตัดเสื้อ",
+     "#ตัดกางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/28486-Noi-Cloth-fix",
+    "gps": [
+     18.786196,
+     99.0344967
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ป้าน้อย ซ่อมผ้า [ทุ่งโฮเต็ล]",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนทุ่งโฮเต็ล ตำบลวัดเกต อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#แก้ซิบ",
+     "#แก้ทรง",
+     "#ตัดต่อกางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/29392-Pa-Noi",
+    "gps": [
+     18.7936571,
+     99.0154609
+    ],
+    "cmhy_updated": "2026-07-24"
+   },
+   {
+    "name": "เสงี่ยม รับซ่อมผ้า",
+    "addr": "ถนนระแกง ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "063-632-6619"
+    ],
+    "tags": [
+     "#รับซ่อมผ้า",
+     "#แก้ทรงเสื้อ",
+     "#แก้ทรงกางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/38350-Salem-Cloth-fix-Service",
+    "gps": [
+     18.7775722,
+     98.9944258
+    ],
+    "cmhy_updated": "2024-09-07"
+   },
+   {
+    "name": "นุช-หน่อย ตัดเสื้อสตรี พิมพ์งานfax",
+    "addr": "ถนนบำรุงราษฎร์ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "082-956-9592"
+    ],
+    "tags": [
+     "#ตัดเสื้อสตรี",
+     "#แฟกซ์",
+     "#นามบัตร"
+    ],
+    "src": "https://www.cmhy.city/place/15440-Nuch-Noi",
+    "gps": [
+     18.7970627,
+     99.0083673
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ศัลยกรรมผ้า",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนช่างเคี่ยน ตำบลสุเทพ อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ตัดผ้า",
+     "#เย็บผ้า",
+     "#แก้ทรง"
+    ],
+    "src": "https://www.cmhy.city/place/11830-Sarayakam-Pa",
+    "gps": [
+     18.812117,
+     98.958102
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ร้านวิไล ซ่อมผ้า",
+    "addr": "ถนนช้างเผือก (โชตนา) [107] ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [],
+    "tags": [
+     "#ซ่อมผ้า",
+     "#ตัดเย็บผ้า",
+     "#ตัดชุดยูนิฟอร์ม"
+    ],
+    "src": "https://www.cmhy.city/place/35695-Virai-Cloth-Fix",
+    "gps": [
+     18.800798,
+     98.9844037
+    ],
+    "cmhy_updated": "2024-04-22"
+   },
+   {
+    "name": "ร้านซ่อมผ้า [ถนน สุขสันจร]",
+    "addr": "ถนนสุขสัญจร ตำบลฟ้าฮ่าม อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "095-307-0155"
+    ],
+    "tags": [
+     "#เปลี่นซิบ",
+     "#ตัดขา",
+     "#แก้"
+    ],
+    "src": "https://www.cmhy.city/place/37272-Cloth-fix-shop-Suksajon",
+    "gps": [
+     18.8216617,
+     99.0000291
+    ],
+    "cmhy_updated": "2024-09-24"
+   },
+   {
+    "name": "ร้านนารี ตัดเสื้อแก้ทรง",
+    "addr": "ถนนราชเชียงแสน ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "090-893-9927"
+    ],
+    "tags": [
+     "#แก้ทรง",
+     "#ตัดกางเกง",
+     "#เปลี่ยนซิบ"
+    ],
+    "src": "https://www.cmhy.city/place/32106-Naree-Cloth-fix",
+    "gps": [
+     18.7764886,
+     98.9896468
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ศศินันท์รับปัก",
+    "addr": "ถนนบ้านป่าแก ตำบลฟ้าฮ่าม อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "084-223-3570"
+    ],
+    "tags": [
+     "#ปักชื่อ",
+     "#ตัดเย็บ",
+     "#ร้านรับงานปัก"
+    ],
+    "src": "https://www.cmhy.city/place/36660-Sasrinam-Kran-Pak",
+    "gps": [
+     18.8118034,
+     99.0135652
+    ],
+    "cmhy_updated": "2023-11-24"
+   },
+   {
+    "name": "ร้านซักอบรีด รายชิ้น รายเดือน และ ซ่อมผ้า [บวกครกน้อย]",
+    "addr": "ถนนบ้านบวกครกน้อย ตำบลหนองป่าครั่ง อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000 เปิดทุกวัน",
+    "tel": [],
+    "tags": [
+     "#ซักผ้ารายเดือน",
+     "#ร้านซักอบรีด",
+     "#ซักผ้ารายชิ้น"
+    ],
+    "src": "https://www.cmhy.city/place/35250-Laundry-Service-Bok-Krok-Noi",
+    "gps": [
+     18.7854942,
+     99.0302868
+    ],
+    "cmhy_updated": "2026-04-06"
+   },
+   {
+    "name": "ปรียา ตัดเสื้อผ้าสตรี/บุรุษ",
+    "addr": "ซอย 2 ถนนกู่เต้า ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300 เปิดทุกวัน",
+    "tel": [],
+    "tags": [
+     "#ตัดเสื้อผ้า",
+     "#เปลี่ยนซิบ",
+     "#ตัดเสื้อผู้หญิง"
+    ],
+    "src": "https://www.cmhy.city/place/35959-Preeya-Cloth-fix",
+    "gps": [
+     18.8037735,
+     98.9880572
+    ],
+    "cmhy_updated": "2026-07-05"
+   },
+   {
+    "name": "ร้านเปลี่ยนซิบ ตัดขากางเกง [บ้านบวกครกน้อย]",
+    "addr": "ถนนบ้านบวกครกน้อย ตำบลหนองป่าครั่ง อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000 เปิดทุกวัน",
+    "tel": [],
+    "tags": [
+     "#ร้านเปลี่ยนซิบ",
+     "#ตัดขากางเกง",
+     "#ร้านซ่อมผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/39082-Clothing-repair-shop",
+    "gps": [
+     18.7865817,
+     99.0342296
+    ],
+    "cmhy_updated": "2025-03-05"
+   },
+   {
+    "name": "วีระวรรณ ตัดเย็บเสื้อสตรี",
+    "addr": "ถนนราชมรรคา ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "081-950-2624"
+    ],
+    "tags": [
+     "#ตัดเย็บเสื้อสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/17955-Verawan-Clothing-Women",
+    "gps": [
+     18.7858948,
+     98.9800501
+    ],
+    "cmhy_updated": "2024-03-19"
+   },
+   {
+    "name": "ร้านช่อมผ้าปะผ้า [หมู่บ้านชัยพฤกษ์]",
+    "addr": "ถนนหมู่บ้านชัยพฤกษ์ ตำบลหนองหอย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "098-020-3879"
+    ],
+    "tags": [
+     "#ร้านซ่อมผ้า",
+     "#ปะผ้า",
+     "#ซ่อมเสื้อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/36490-Cloth-Service-Chaiya-Phuek-village",
+    "gps": [
+     18.7547478,
+     99.0167285
+    ],
+    "cmhy_updated": "2023-10-06"
+   },
+   {
+    "name": "ดาวรับซ่อมผ้า-เย็บผ้า",
+    "addr": "ถนนวัดอุโมงค์ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "087-657-7197"
+    ],
+    "tags": [
+     "#ตัดต่อขา",
+     "#แก้ทรง",
+     "#รับซ่อมผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/40715-Dao-Clothing-repair-shop",
+    "gps": [
+     18.7909797,
+     98.9563044
+    ],
+    "cmhy_updated": "2025-10-21"
+   },
+   {
+    "name": "รับเปลี่ยนซิบ แก้ทรง",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนเทวีอุทิศ ตำบลวัดเกต อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#เปลี่ยนยางกางเกง",
+     "#ตัดขากางเกง",
+     "#ปะผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/21633-Cloth-fix-services",
+    "gps": [
+     18.7882578,
+     99.0124516
+    ],
+    "cmhy_updated": "2025-09-30"
+   },
+   {
+    "name": "รับซ่อมผ้า [ถนน นันทาราม]",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนนันทาราม ตำบลหายยา อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#รับซ่อมผ้า",
+     "#ปักผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/37248-Cloth-fix-Nantaram-RD",
+    "gps": [
+     18.7757395,
+     98.986504
+    ],
+    "cmhy_updated": "2024-06-28"
+   },
+   {
+    "name": "ป้าน้อย ซ่อมผ้า",
+    "addr": "ซอย 4 ถนนพระปกเกล้า ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "087-172-2344"
+    ],
+    "tags": [
+     "#เปลี่ยนซิบ",
+     "#แก้ทรง"
+    ],
+    "src": "https://www.cmhy.city/place/25848-Pa-Noy-Cloth-fix",
+    "gps": [
+     18.7832555,
+     98.9861819
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ร้านตัดเย็บเสื้อผ้าซ่อมผ้าปะผ้า [ถนน ตรัสวงค์]",
+    "addr": "ถนนตรัสวงค์ ตำบลฟ้าฮ่าม อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000 เปิดทุกวัน",
+    "tel": [],
+    "tags": [
+     "#ซ่อมผ้า",
+     "#ปะผ้า",
+     "#ตัดเย็บเสื้อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/35297-Fix-Cloth-Shop",
+    "gps": [
+     18.8040872,
+     99.0118386
+    ],
+    "cmhy_updated": "2024-09-01"
+   },
+   {
+    "name": "ร้านรับซ่อมเสื้อผ้า แก้ทรง + เสริมสวยไอซ์ บิวตี้ [แยกข่วงสิงห์]",
+    "addr": "ถนนซุปเปอร์ไฮเวย์ เชียงใหม่-ลำปาง [11] ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [],
+    "tags": [
+     "#รับซ่อมเสื้อผ้า",
+     "#แก้ทรง",
+     "#เสริมสวย"
+    ],
+    "src": "https://www.cmhy.city/place/38147-Cloth-fix-service-Salon",
+    "gps": [
+     18.8117048,
+     98.9802227
+    ],
+    "cmhy_updated": "2026-03-22"
+   },
+   {
+    "name": "ร้านภโวทัย รับตัดเสื้อ-กางเกง",
+    "addr": "ถนนท่าสะต๋อย ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "066-092-9758"
+    ],
+    "tags": [
+     "#รับตัดเสื้อ",
+     "#รับตัดกางเกง",
+     "#เปลี่ยนซิบกางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/31847-Pavothai-fix-Cloth",
+    "gps": [
+     18.7825279,
+     99.006468
+    ],
+    "cmhy_updated": "2025-08-06"
+   },
+   {
+    "name": "รับซ่อมผ้าข้างวัดผาบ่อง",
+    "addr": "ถนนสิงหราช ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "081-531-2636",
+     "098-495-9149"
+    ],
+    "tags": [
+     "#แก้ทรง",
+     "#แก้เอว",
+     "#ตัดขา"
+    ],
+    "src": "https://www.cmhy.city/place/30297-Cloth-fix",
+    "gps": [
+     18.789884,
+     98.9822568
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ซิสเตอร์ เอสเอส",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ซอย 2 ถนนราชเชียงแสน ตำบลหายยา อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#แก้ทรง",
+     "#ตัดเย็บ",
+     "#เย็บผ้าตามออเดอร์"
+    ],
+    "src": "https://www.cmhy.city/place/15272-Sister-SS-chiangmai",
+    "gps": [
+     18.7781992,
+     98.9941697
+    ],
+    "cmhy_updated": "2026-08-01"
+   },
+   {
+    "name": "ป้าใหญ่ ตัดเย็บ",
+    "addr": "ซอย 1 ถนนราชเชียงแสน ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "084-206-6465"
+    ],
+    "tags": [
+     "#แก้ทรง",
+     "#เปลี่ยนซิบ",
+     "#ตัดเย็บ"
+    ],
+    "src": "https://www.cmhy.city/place/25149-Payai-Cloth",
+    "gps": [
+     18.7787554,
+     98.9907218
+    ],
+    "cmhy_updated": "2025-04-29"
+   },
+   {
+    "name": "คอมมอน Common ซ่อมเสื้อผ้าชายหญิง",
+    "addr": "ถนนพระปกเกล้า ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200 เปิดทุกวัน",
+    "tel": [],
+    "tags": [
+     "#ซ่อมเสื้อผ้าชาย",
+     "#ซ่อมเสื้อผ้าหญิง",
+     "#ซ่อมเสื้อผ้าสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/35018-Common-Mens-and-womens-clothing-repair-shop",
+    "gps": [
+     18.7822146,
+     98.9894467
+    ],
+    "cmhy_updated": "2024-01-14"
+   },
+   {
+    "name": "โอ รับตัดเสื้อกางเกง",
+    "addr": "ถนนนันทาราม ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "096-692-6886"
+    ],
+    "tags": [
+     "#แก้ซิบ",
+     "#แก้เอว",
+     "#ตัดขา"
+    ],
+    "src": "https://www.cmhy.city/place/37990-O-Cloth-Service",
+    "gps": [
+     18.777024,
+     98.9871386
+    ],
+    "cmhy_updated": "2026-03-08"
+   },
+   {
+    "name": "ดี-ดีซานย์",
+    "addr": "ถนนเสริมสุข ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "081-137-3549"
+    ],
+    "tags": [
+     "#ตัดเย็บเสื้อผ้า",
+     "#ตัดเสื้อชาย",
+     "#ตัดเสื้อสตรี"
+    ],
+    "src": "https://www.cmhy.city/place/8753-D-design",
+    "gps": [
+     18.798685,
+     98.977992
+    ],
+    "cmhy_updated": "2024-08-16"
+   },
+   {
+    "name": "ร้านแก้ทรงซ่อมผ้า [ถนน ราชมรรคา]",
+    "addr": "ถนนราชมรรคา ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [],
+    "tags": [],
+    "src": "https://www.cmhy.city/place/37542-Clothing-Women-Ramakara-RD",
+    "gps": [
+     18.7858414,
+     98.9808435
+    ],
+    "cmhy_updated": "2024-03-19"
+   },
+   {
+    "name": "ร้านถวิล รับตัดเย็บ ซ่อมผ้า",
+    "addr": "ถนนช้างม่อย ตำบลช้างม่อย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300 เปิดทุกวัน",
+    "tel": [],
+    "tags": [
+     "#ตัดเย็บเสื้อผ้า",
+     "#แก้ทรง",
+     "#เปลี่ยนซิบ"
+    ],
+    "src": "https://www.cmhy.city/place/40049-Tawin-Chang-Moi",
+    "gps": [
+     18.7899945,
+     98.9971229
+    ],
+    "cmhy_updated": "2026-06-01"
+   },
+   {
+    "name": "รับซ่อมผ้า [สามล้าน ซอย 1]",
+    "addr": "ซอย 1 ถนนสามล้าน ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [],
+    "tags": [
+     "#เปลี้ยนซิบ",
+     "#แก้กระโปรง",
+     "#ซ่อมกระเป๋า"
+    ],
+    "src": "https://www.cmhy.city/place/38743-Cloth-Fix-Shop-Samlan",
+    "gps": [
+     18.7878654,
+     98.9788156
+    ],
+    "cmhy_updated": "2024-11-22"
+   },
+   {
+    "name": "คลินิคเสื้อผ้า น้องเก๋",
+    "addr": "สถานที่นี้อาจจะปิดกิจการ หรือ ย้ายสถานที่ ช่วยเราปรับปรุงข้อมูล ถนนนันทาราม ตำบลหายยา อำเภอเมือง",
+    "tel": [],
+    "tags": [
+     "#ตัดขา",
+     "#เปลี่ยนซิบ",
+     "#ปะผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/23057-Nong-Kea-Cloth",
+    "gps": [
+     18.7755451,
+     98.9823961
+    ],
+    "cmhy_updated": "2022-05-23"
+   },
+   {
+    "name": "ป้านุช รับซ่อมผ้า",
+    "addr": "ซอย 9 หลัง วัดราชมณเฑียร ถนนศรีภูมิ ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "099-370-3288"
+    ],
+    "tags": [
+     "#ร้านรับซ่อมผ้า",
+     "#ซ่อมเสื้อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/40021-Pa-Nuck-Cloth-Fix-Service",
+    "gps": [
+     18.7944988,
+     98.9823945
+    ],
+    "cmhy_updated": "2025-05-31"
+   },
+   {
+    "name": "สายสวาทซ่อมผ้า",
+    "addr": "ซอย 1 ถนนราชดำเนิน ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "081-026-2062"
+    ],
+    "tags": [
+     "#ซ่อมเสื้อผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/35454-Sai-Swat-Cloth-fix-service",
+    "gps": [
+     18.7892438,
+     98.9921145
+    ],
+    "cmhy_updated": "2023-05-07"
+   },
+   {
+    "name": "ป้าณีเย็บผ้า",
+    "addr": "ซอย 6 ถนนนันทาราม ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "084-636-1160"
+    ],
+    "tags": [
+     "#แก้ทรงกางเกง",
+     "#เปลี่ยนซิบ",
+     "#ตัดขา"
+    ],
+    "src": "https://www.cmhy.city/place/37992-Pa-Nee-Clothing-Repair-Shop",
+    "gps": [
+     18.7731482,
+     98.9855783
+    ],
+    "cmhy_updated": "2026-08-15"
+   },
+   {
+    "name": "เสาว์ณีย์ รับซ่อมผ้า",
+    "addr": "ซอย 7 ถนนสามล้าน ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "089-554-9244"
+    ],
+    "tags": [
+     "#ร้านตัดผ้า",
+     "#ร้านเย็บผ้า",
+     "#เปลี่ยนซิบ"
+    ],
+    "src": "https://www.cmhy.city/place/38579-Aoy-clothfix",
+    "gps": [
+     18.7827972,
+     98.9834364
+    ],
+    "cmhy_updated": "2026-06-22"
+   },
+   {
+    "name": "พี่ฟอง รับซ่อมผ้า",
+    "addr": "ถนนแยกขัวมุง ถนนเวสาลี ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "093-336-3767"
+    ],
+    "tags": [
+     "#รับซ่อมผ้า",
+     "#เย็บผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/39731-Pee-Fong-cloth-fix-service",
+    "gps": [
+     18.8174858,
+     98.9863609
+    ],
+    "cmhy_updated": "2025-04-21"
+   },
+   {
+    "name": "วรรณา รับซ่อมเสื้อผ้า",
+    "addr": "ซอย 1 ถนนเจ็ดยอด-อยู่เย็น ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "086-919-0279"
+    ],
+    "tags": [
+     "#รับซ่อมเสื้อผ้า",
+     "#ซ่อมผ้า",
+     "#เปลี่ยนซิบ"
+    ],
+    "src": "https://www.cmhy.city/place/40038-Wanna-Cloth-Fix",
+    "gps": [
+     18.8078015,
+     98.9684143
+    ],
+    "cmhy_updated": "2025-05-31"
+   },
+   {
+    "name": "วีณา บราเซีย",
+    "addr": "ถนนอนุบาล ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "093-132-5612"
+    ],
+    "tags": [
+     "#รับตัดเย็บยกทรง",
+     "#รัดหน้าท้อง",
+     "#ชุดไทย"
+    ],
+    "src": "https://www.cmhy.city/place/17915-Vena-Brasia",
+    "gps": [
+     18.8110704,
+     98.9875066
+    ],
+    "cmhy_updated": "2026-06-17"
+   },
+   {
+    "name": "ร้าน ยินดีรับใช้บริการ รับซ่อมผ้า",
+    "addr": "ถนนป่าแดดเหนือ ตำบลป่าแดด อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "086-915-3682"
+    ],
+    "tags": [
+     "#ซ่อมผ้า",
+     "#ตัดขากางเกง",
+     "#แก้ทรง"
+    ],
+    "src": "https://www.cmhy.city/place/39875-Yin-Dee-Cloth-Service",
+    "gps": [
+     18.7496577,
+     98.9855178
+    ],
+    "cmhy_updated": "2025-04-22"
+   },
+   {
+    "name": "ร้านตัดผ้า เช",
+    "addr": "ซอย 7 ถนนมหาโชค ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "081-960-6869"
+    ],
+    "tags": [
+     "#ร้านตัดผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/38943-Che-Cloth-fixing-shop",
+    "gps": [
+     18.8332093,
+     98.9866137
+    ],
+    "cmhy_updated": "2025-12-19"
+   },
+   {
+    "name": "ป้ามล ซ่อมผ้า [ซอย 2 ระแกง]",
+    "addr": "ซอย 2 ถนนระแกง ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [],
+    "tags": [
+     "#ซ่อมกางเกง",
+     "#ซ่อมผ้า",
+     "#แก้ทรง"
+    ],
+    "src": "https://www.cmhy.city/place/40304-Pa-Mon-clothing-repair-service",
+    "gps": [
+     18.778904,
+     98.996699
+    ],
+    "cmhy_updated": "2025-09-15"
+   },
+   {
+    "name": "บัวขาว รับซ่อมผ้า",
+    "addr": "ถนนมหาโชค ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "082-381-1632"
+    ],
+    "tags": [
+     "#เปลี่ยนซิบ",
+     "#ใส่ยางยืด",
+     "#ตัดขากางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/41092-Bua-Khao-Tailor-shop",
+    "gps": [
+     18.8345362,
+     98.9862362
+    ],
+    "cmhy_updated": "2026-01-13"
+   },
+   {
+    "name": "หล้า ตัดเย็บเสื้อผ้าทั่วไป",
+    "addr": "ซอย 2 ถนนสามล้าน ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+    "tel": [
+     "089-264-1005"
+    ],
+    "tags": [
+     "#ร้านตัดเย็บเสื้อผ้า",
+     "#ร้านซ่อมผ้า",
+     "#ร้านเย็บผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/40976-Lha-Tailor-shop",
+    "gps": [
+     18.7864834,
+     98.9818009
+    ],
+    "cmhy_updated": "2026-01-13"
+   },
+   {
+    "name": "พวงแก้ว ปะ เปลี่ยนซิบแก้ทรง",
+    "addr": "ถนนธานินทร์ / ตลาดศิริวัฒนา ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+    "tel": [
+     "081-033-2853"
+    ],
+    "tags": [
+     "#ร้านซ่อมผ้า",
+     "#ซ่อมผ้าปะ",
+     "#เปลี่ยนซิบแก้ทรง"
+    ],
+    "src": "https://www.cmhy.city/place/40885-Pong-Kawe-Cloth-fix",
+    "gps": [
+     18.8044043,
+     98.9814866
+    ],
+    "cmhy_updated": "2025-11-27"
+   },
+   {
+    "name": "ตัดเสื้อกางเกง [ศรีปิงเมือง]",
+    "addr": "ถนนศรีปิงเมือง ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [],
+    "tags": [
+     "#ร้านตัดเย็บเสื้อผ้า",
+     "#ร้านซ่อมผ้า",
+     "#ร้านเย็บผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/40851-Tailor-shop-Sriping-Muang",
+    "gps": [
+     18.7707114,
+     98.983165
+    ],
+    "cmhy_updated": "2026-01-13"
+   },
+   {
+    "name": "น้าสา คลินิกซ่อมผ้า",
+    "addr": "ถนนเชียงใหม่-พร้าว [1001] ตำบลฟ้าฮ่าม อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+    "tel": [
+     "082-105-6876",
+     "095-141-7766"
+    ],
+    "tags": [
+     "#ซ่อมซิบ",
+     "#ร้านตัดเย็บเสื้อผ้า",
+     "#ร้านซ่อมผ้า"
+    ],
+    "src": "https://www.cmhy.city/place/41426-Na-Sa-Tailor-shop",
+    "gps": [
+     18.8192196,
+     99.0134754
+    ],
+    "cmhy_updated": "2026-01-13"
+   },
+   {
+    "name": "วีเก็ตช็อป บริการงานปัก (โลตัสแม่เหียะ)",
+    "addr": "ชั้น 1 โลตัสแม่เหียะ ใกล้ DIY ถนนเชียงใหม่-หางดง [108] ตำบลป่าแดด อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "086-085-7602"
+    ],
+    "tags": [
+     "#ปักชื่อ",
+     "#ปักโลโก้",
+     "#ปักหมวก"
+    ],
+    "src": "https://www.cmhy.city/place/42064-VGET-SHOP-embroidery",
+    "gps": [
+     18.759263,
+     98.9725911
+    ],
+    "cmhy_updated": "2026-06-06"
+   },
+   {
+    "name": "ร้านซ่อมผ้า [ถนนเจริญประเทศ]",
+    "addr": "ถนนเจริญประเทศ ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+    "tel": [
+     "099-131-6552"
+    ],
+    "tags": [
+     "#เปลี่ยนทรง",
+     "#แก้ทรงเสื้อผ้า",
+     "#แก้ทรงกางเกง"
+    ],
+    "src": "https://www.cmhy.city/place/40995-Tailor-shop-Charoenpathet-RD",
+    "gps": [
+     18.773707,
+     99.0001472
+    ],
+    "cmhy_updated": "2026-01-13"
+   }
+  ]
+ },
+ "fabric": {
+  "note_en": "The move a local makes first: buy the cloth yourself and pay the shop labour only — ซื้อผ้าไปให้ร้านตัด ให้ร้านคิดเฉพาะค่าแรง, in the Chiang Rai forum's own Kam Mueang. Kad Luang (ตลาดวโรรส) on Wichayanon and Chang Moi Roads is where the cloth is: metre goods, rolls, zips, buttons, and northern cloth by name — ผ้าเมืองฟอกนุ่ม, ผ้าหมักโคลน (mud-fermented), ผ้าใยกัญชา (hemp), แพรพันวา. เชียงใหม่ใจดี there is open Mon–Sat 07:30–17:00, 053-235-181.",
+  "note_th": "ท่าที่คนที่นี่ทำก่อน — ซื้อผ้างามๆ ไปหื้อร้านตัด หื้อร้านคิดเฉพาะค่าแรง กาดหลวงถนนวิชยานนท์และช้างม่อยคือที่ซื้อผ้า มีทั้งผ้าเมตร ผ้าม้วน ซิป กระดุม และผ้าเมืองเรียกชื่อได้ — ผ้าเมืองฟอกนุ่ม ผ้าหมักโคลน ผ้าใยกัญชา แพรพันวา",
+  "anchor": {
+   "name": "เชียงใหม่ใจดี รวมผ้านานาชนิด (ตลาดวโรรส)",
+   "addr": "ถนนช้างม่อย ตำบลช้างม่อย อำเภอเมือง เชียงใหม่ 50300",
+   "tel": "053-235-181",
+   "hours": "จันทร์-เสาร์ 07:30-17:00",
+   "gps": [
+    18.790913,
+    98.999987
+   ],
+   "src": "https://www.cmhy.city/place/1238-Chiangmai-Jaidee"
+  },
+  "sources": [
+   {
+    "type": "forum",
+    "ref": "https://forums.chiangraifocus.com/index.php?topic=891803.0",
+    "fetched": "2026-08-31",
+    "note": "the Kam Mueang line 'ซื้อผ้างาม ๆ ไปหื้อร้านตัด (หื้อร้านคิดเฉพาะค่าแรง)'"
+   }
+  ]
+ },
+ "chiang_rai": {
+  "note_en": "Chiang Rai had NOTHING. Zero tailors in the corpus, zero uniform shops, one sewing-machine dealer in Mae Chan. What exists is in Thai on a local forum and in Yellow Pages, and much of the forum material is a decade old — every entry below carries the year it was posted, because a 2014 phone number is a lead, not a fact.",
+  "note_th": "เชียงรายไม่มีอะไรเลยในฐานข้อมูล ร้านตัดเสื้อศูนย์ ร้านเครื่องแบบศูนย์ มีแต่ร้านจักรเย็บผ้าที่แม่จัน — ที่มีอยู่คือในเว็บบอร์ดท้องถิ่นกับเยลโล่เพจเจส และหลายอย่างเก่าสิบปี ทุกรายการจึงลงปีที่โพสต์ไว้ เบอร์ปี 2557 คือเบาะแส ไม่ใช่ข้อเท็จจริง",
+  "named_by_locals": [
+   {
+    "name_th": "ร้านบอดี้โก๋ (หน้าค่ายฯ)",
+    "what_en": "military, police, civil-service and civilian; ชุดปกติขาว and safari; the poster says a cutter of thirty years' standing",
+    "tel": [
+     "053-713717",
+     "085-6150404"
+    ],
+    "addr": "ตำบลรอบเวียง อำเภอเมืองเชียงราย",
+    "reported": "2010–2014 forum; Yellow Pages listing still standing 2026-08-31",
+    "caution_en": "Its website body-go.com now returns a bot-verification wall, not a shop. Treat the phone as unconfirmed."
+   },
+   {
+    "name_th": "ร้านโก๋ (หน้าค่าย)",
+    "what_en": "'opposite the camp's central gate, where they sell the vegetables'",
+    "reported": "2016 forum",
+    "tel": []
+   },
+   {
+    "name_th": "ร้านแชมป์",
+    "what_en": "a small shophouse on the north side of Khon Muan San Khong Noi Road, before the three-way junction at the Wat San Khong Noi wall; 'more than forty years' reputation'",
+    "reported": "2016 forum",
+    "tel": []
+   },
+   {
+    "name_th": "ร้านสูทไมเคิล (เหลิม)",
+    "what_en": "Ban Du Mueang Mai, opposite Chiang Rai Rajabhat University, Phaen Din Thong project",
+    "tel": [
+     "053-767545"
+    ],
+    "reported": "2014 and 2016 forum"
+   },
+   {
+    "name_th": "ร้านสูทเซ็นเตอร์",
+    "what_en": "opposite Wang Kham; keeps cloth to choose from and will post the finished garment",
+    "tel": [],
+    "addr": "ตำบลเวียง อำเภอเมืองเชียงราย",
+    "reported": "2016 forum + Yellow Pages"
+   },
+   {
+    "name_th": "ร้านสยามเทเลอร์",
+    "what_en": "Mae Chan; sells uniforms and insignia both",
+    "addr": "ตำบลแม่จัน อำเภอแม่จัน",
+    "reported": "2016 forum + Yellow Pages"
+   },
+   {
+    "name_th": "ร้านท๊อปสูท",
+    "what_en": "its own listing: international suits for men and women, civil-service uniform, ชุดปกติขาว, trousers, skirts, and suits for hire",
+    "addr": "ตำบลรอบเวียง อำเภอเมืองเชียงราย",
+    "reported": "Yellow Pages, read 2026-08-31"
+   },
+   {
+    "name_th": "ร้านสตรองแมนโปลิศ",
+    "what_en": "police and civil-service kit — uniforms, shoes, caps. The insignia half of the trade, in the town centre",
+    "addr": "ตำบลเวียง อำเภอเมืองเชียงราย",
+    "reported": "Yellow Pages, read 2026-08-31"
+   },
+   {
+    "name_th": "ณัฐพลเครื่องหมาย",
+    "what_en": "khaki, ชุดขาวปกติ, ribbon bars, name plates, insignia for every department; next to the Chiang Rai Teachers' Savings Cooperative",
+    "reported": "shop's own social post, 2024",
+    "tel": [],
+    "caution_en": "No address or phone found beyond the landmark."
+   },
+   {
+    "name_th": "ร้านจุฬาลักษณ์ ปักจักร",
+    "what_en": "computerised embroidery: school shirts, unit badges, caps, leather, and monks' shoulder bags",
+    "addr": "ตำบลรอบเวียง อำเภอเมืองเชียงราย",
+    "reported": "Yellow Pages, read 2026-08-31"
+   },
+   {
+    "name_th": "วาสนาฝ้ายล้านนา แอนด์ เจ้านางสตูดิโอ",
+    "what_en": "Lanna dress for hire, adult and child, plus Lanna and international wedding",
+    "addr": "ตำบลเวียง อำเภอเมืองเชียงราย",
+    "reported": "Yellow Pages, read 2026-08-31"
+   },
+   {
+    "name_th": "กลุ่มตัดเย็บเสื้อผ้าตำบลนางแล",
+    "what_en": "a village women's group cutting Lanna dress to order — a form of the trade that has no shopfront and no English at all",
+    "addr": "ตำบลนางแล อำเภอเมืองเชียงราย",
+    "reported": "Yellow Pages, read 2026-08-31"
+   },
+   {
+    "name_th": "กลุ่มตัดเย็บเสื้อผ้าชุดพื้นเมือง บ้านสลิด",
+    "what_en": "northern dress in silk and cotton",
+    "addr": "ตำบลเวียงเหนือ อำเภอเวียงชัย",
+    "reported": "Yellow Pages, read 2026-08-31"
+   }
+  ],
+  "listing": [
+   {
+    "name": "กลุ่มตัดเย็บเสื้อผ้าชุดพื้นเมือง บ้านสลิด",
+    "addr": "ตำบลเวียงเหนือ อำเภอเวียงชัย จังหวัดเชียงราย 57210",
+    "what": "ตัดเย็บเสื้อผ้าชุดพื้นเมือง ทางเหนือ ผ้าไหม ผ้าฝ้าย",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%81%E0%B8%A5%E0%B8%B8%E0%B9%88%E0%B8%A1%E0%B8%95%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B9%87%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87-%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AA%E0%B8%A5%E0%B8%B4%E0%B8%94-92Fcw8xY5",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "กลุ่มตัดเย็บเสื้อผ้าตำบลนางแล",
+    "addr": "ตำบลนางแล อำเภอเมืองเชียงราย จังหวัดเชียงราย 57100",
+    "what": "รับตัดเย็บชุดล้านนาตามออเดอร์ที่สั่ง",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%81%E0%B8%A5%E0%B8%B8%E0%B9%88%E0%B8%A1%E0%B8%95%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B9%87%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B8%95%E0%B8%B3%E0%B8%9A%E0%B8%A5%E0%B8%99%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%A5-93vWsKEma",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน สูทเซ็นเตอร์",
+    "addr": "ตำบลเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": "ตัดเย็บเสื้อผ้า",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%AA%E0%B8%B9%E0%B8%97%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C-19JyEsLrZ",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน ออสการ์",
+    "addr": "ตำบลเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": "ร้านตัดเย็บเสื้อผ้า",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%AD%E0%B8%AD%E0%B8%AA%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%8C-20tde96jG",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน ท แสง",
+    "addr": "ตำบลแม่สาย อำเภอแม่สาย จังหวัดเชียงราย 57130",
+    "what": "เครื่องตัดเย็บเสื้อผ้า",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%97-%E0%B9%81%E0%B8%AA%E0%B8%87-2o1vZt9a",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน อรุณสปอร์ต",
+    "addr": "ตำบลเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": "รับตัดเย็บเสื้อผ้าชุดกีฬา",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%AD%E0%B8%A3%E0%B8%B8%E0%B8%93%E0%B8%AA%E0%B8%9B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%95-91n3tmHdX",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน บอดีโก๋",
+    "addr": "ตำบลรอบเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": "งานตัดเย็บคุณภาพ มีระดับ ราคาประทับใจ ตัดเย็บเสื้อผ้า ทหาร ตำรวจ ข้าราชการ พลเรือน สูทซาฟารี",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%9A%E0%B8%AD%E0%B8%94%E0%B8%B5%E0%B9%82%E0%B8%81%E0%B9%8B-1kpGjuZeR",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "วาสนาฝ้ายล้านนา แอนด์ เจ้านางสตูดิโอ",
+    "addr": "ตำบลเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": ", บุคคล,โฆษณา ผ้าเช่าล้านนา - สากล - งานทั่วไป ( ผู้ใหญ่ - เด็ก) แต่งงานล้านนา - สากล ( ครบวงจร) ราคาคุยกันสบายๆ ออกแบบตัดเย็บผ้าทุกชนิด ( ด่วน ) อุปกรณ์ฉากล้านนาให้เช่า ยินดีต้อนรับ",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A7%E0%B8%B2%E0%B8%AA%E0%B8%99%E0%B8%B2%E0%B8%9D%E0%B9%89%E0%B8%B2%E0%B8%A2%E0%B8%A5%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B8%B2-%E0%B9%81%E0%B8%AD%E0%B8%99%E0%B8%94%E0%B9%8C-%E0%B9%80%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%B2%E0%B8%87%E0%B8%AA%E0%B8%95%E0%B8%B9%E0%B8%94%E0%B8%B4%E0%B9%82%E0%B8%AD-92LgZwT7J",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน กิจจำเริญ",
+    "addr": "ตำบลเวียง อำเภอเทิง จังหวัดเชียงราย 57160",
+    "what": "จำหน่ายเครื่องแบบนักเรียน",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%81%E0%B8%B4%E0%B8%88%E0%B8%88%E0%B8%B3%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B8%8D-2a1LnObX0",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน แซม แม่สาย",
+    "addr": "ตำบลเวียงพางคำ อำเภอแม่สาย จังหวัดเชียงราย 57130",
+    "what": "จำหน่ายชุดนักเรียนตราสมอและจำหน่ายชุดนักเรียนตราช้างแมมมอธ",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B9%81%E0%B8%8B%E0%B8%A1-%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%AA%E0%B8%B2%E0%B8%A2-93sfJkpJB",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน สยามเทเลอร์",
+    "addr": "ตำบลแม่จัน อำเภอแม่จัน จังหวัดเชียงราย 57110",
+    "what": "จำหน่ายเครื่องแบบและเครื่องหมายต่างๆ",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%AA%E0%B8%A2%E0%B8%B2%E0%B8%A1%E0%B9%80%E0%B8%97%E0%B9%80%E0%B8%A5%E0%B8%AD%E0%B8%A3%E0%B9%8C-1VXGSsnE9",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน ท๊อปสูท",
+    "addr": "ตำบลรอบเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": "สถานที่ตัดสูทสากล ชาย-หญิง ชุดเครื่องแบบราชการ-ชุดปกติขาว กางเกง กระโปรง มีสูทให้เช่า-ขาย บริการทั้งในและนอกสถานที่",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%97%E0%B9%8A%E0%B8%AD%E0%B8%9B%E0%B8%AA%E0%B8%B9%E0%B8%97-92BZjtGaG",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน สตรองแมนโปลิศ",
+    "addr": "ตำบลเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": "จำหน่ายอุปกรณ์ข้าราชการเชียยงราย,จำหน่ายชุดข้าราชการเชียงราย,จำหน่ายรองเท้า,หมวกข้าราชการเชียงราย,รับทำป้ายชื่อเชียงราย,สั่งตัดเสื้อโฆษณาเชียงราย,ป้ายชื่อเชียงราย,ข้าราชการเชียงราย,ชุดตำรวจเชียงราย,ขายชุดตำรวจเชียงราย",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B8%AD%E0%B8%87%E0%B9%81%E0%B8%A1%E0%B8%99%E0%B9%82%E0%B8%9B%E0%B8%A5%E0%B8%B4%E0%B8%A8-93ORWziS0",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ชัยสิทธิ์ จักรเย็บผ้า เชียงราย",
+    "addr": "อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": "จำหน่ายจักรเย็บผ้าทั้งปลีก-ส่ง อะไหล่จักรทุกยี่ห้อ lucky shunfa yoko gemsy juki siruba jack รับซ่อมทั้งในและนอกสถานที่ จักรเย็บผ้าอุตสาหกรรม เย็บผ้า จักรเย็บผ้ากระเป๋าหิ้ว เครื่องตัดผ้า เตารีดไอน้ำ จักรเย็บกระสอบ อุปกรณ์ตัดเย็บผ้า รับซ่อมจักรเย็บผ้าทั้งในและนอกสถานที่",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%8A%E0%B8%B1%E0%B8%A2%E0%B8%AA%E0%B8%B4%E0%B8%97%E0%B8%98%E0%B8%B4%E0%B9%8C-%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A3%E0%B9%80%E0%B8%A2%E0%B9%87%E0%B8%9A%E0%B8%9C%E0%B9%89%E0%B8%B2-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2-91Ktm4d4w",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ภัทรานี ผ้าไหมเชียงราย",
+    "addr": "ตำบลบ้านดู่ อำเภอเมืองเชียงราย จังหวัดเชียงราย 57100",
+    "what": "เครื่องเงินรูปพรรณ, ผ้าไหม, ผ้าฝ้าย, เสื้อสำเร็จรูป, เสื้อผ้าพื้นเมือง, เสื้อผ้าพื้นเมือง เชียงราย, ผ้าฝ้ายเชียงราย cotton chiang rai, ผ้าไหมเชียงราย silk chiang rai, เครื่องเงินเชียงราย",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A0%E0%B8%B1%E0%B8%97%E0%B8%A3%E0%B8%B2%E0%B8%99%E0%B8%B5-%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B9%84%E0%B8%AB%E0%B8%A1%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2-91L58nR32",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน จุฬาลักษณ์ ปักจักร เชียงราย",
+    "addr": "ตำบลรอบเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": "รับปักเสื้อนักเรียน,ปักอาร์มเครื่องหมาย,ปักหมวก,ปักหนัง,ปักย่ามพระด้วยจักรปักคอมพิวเตอร์",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%88%E0%B8%B8%E0%B8%AC%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%A9%E0%B8%93%E0%B9%8C-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A3-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2-93xpZvJD9",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "จินไหมไทย",
+    "addr": "อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": "ผลิต และ จำหน่าย ผ้าไหมบาติก ผ้าไหมทุกชนิด ผ้าพื้นเมืองล้านนา จำหน่ายขายปลีก และขายส่ง รับออกแบบ และบริการตัดชุดผ้าไหม ผ้าไหมเชียงราย ผ้าไหมบาติก เชียงราย ผ้าพื้นเมืองล้านนา เชียงราย รับตัดชุดผ้าไหม เชียงราย",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%88%E0%B8%B4%E0%B8%99%E0%B9%84%E0%B8%AB%E0%B8%A1%E0%B9%84%E0%B8%97%E0%B8%A2-93Fr7lgIi",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน แฟชั่น แฟบบริค",
+    "addr": "ตำบลรอบเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": "จำหน่ายผ้าแพรพัน ผ้าม่าน ผ้าห่ม ผ้าปูที่นอน ผ้าตัดชุด",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B9%81%E0%B8%9F%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%99-%E0%B9%81%E0%B8%9F%E0%B8%9A%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%84-93Orq80jQ",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน จักรภูธร",
+    "addr": "ตำบลไม้ยา อำเภอพญาเม็งราย จังหวัดเชียงราย 57290",
+    "what": "ตัวแทนขายจักรอุตสาหกรรม, จักรเย็บผ้า, อะไหล่จักร, อุปกรณ์ตัดเย็บ, อุปกรณ์ช่วยเย็บทุกชนิด",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A3%E0%B8%A0%E0%B8%B9%E0%B8%98%E0%B8%A3-93To5itEm",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน ย่งฮะหลี",
+    "addr": "ตำบลเวียงพางคำ อำเภอแม่สาย จังหวัดเชียงราย 57130",
+    "what": "จำหน่ายผ้าม้วน",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%A2%E0%B9%88%E0%B8%87%E0%B8%AE%E0%B8%B0%E0%B8%AB%E0%B8%A5%E0%B8%B5-2oY1OtMt",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน โอ เค สโตร์",
+    "addr": "ตำบลเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": "จำหน่ายผ้าม้วน",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B9%82%E0%B8%AD-%E0%B9%80%E0%B8%84-%E0%B8%AA%E0%B9%82%E0%B8%95%E0%B8%A3%E0%B9%8C-c3B31HO",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน ไทยเสรี",
+    "addr": "ตำบลแม่จัน อำเภอแม่จัน จังหวัดเชียงราย 57110",
+    "what": "จำหน่ายผ้าเมตร",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B9%80%E0%B8%AA%E0%B8%A3%E0%B8%B5-1VXu0GXV8",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "เอนก ห้าง",
+    "addr": "ตำบลเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+    "what": "จำหน่ายผ้าม้วน และอุปกรณ์ตัดเย็บ",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B9%80%E0%B8%AD%E0%B8%99%E0%B8%81-%E0%B8%AB%E0%B9%89%E0%B8%B2%E0%B8%87-3fwj7LSWi",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ร้าน พรรษชล ไหมไทย",
+    "addr": "ตำบลแม่สาย อำเภอแม่สาย จังหวัดเชียงราย 57130",
+    "what": "ผลิตและจำหน่ายผ้าไหมไทย",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%9E%E0%B8%A3%E0%B8%A3%E0%B8%A9%E0%B8%8A%E0%B8%A5-%E0%B9%84%E0%B8%AB%E0%B8%A1%E0%B9%84%E0%B8%97%E0%B8%A2-93kNLy9Of",
+    "src_type": "yellowpages"
+   },
+   {
+    "name": "ศูนย์ทอผ้าพัฒนาสตรีบ้านสันหลวงใต้",
+    "addr": "ตำบลจอมสวรรค์ อำเภอแม่จัน จังหวัดเชียงราย 57110",
+    "what": "ผ้าฝ้าย, ผ้าไหมประดิษฐ์",
+    "src": "https://www.yellowpages.co.th/profile/%E0%B8%A8%E0%B8%B9%E0%B8%99%E0%B8%A2%E0%B9%8C%E0%B8%97%E0%B8%AD%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B8%9E%E0%B8%B1%E0%B8%92%E0%B8%99%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B8%B5%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AA%E0%B8%B1%E0%B8%99%E0%B8%AB%E0%B8%A5%E0%B8%A7%E0%B8%87%E0%B9%83%E0%B8%95%E0%B9%89-8OrN4Bol9",
+    "src_type": "yellowpages"
+   }
+  ],
+  "complaints_locals_actually_posted": {
+   "note_en": "Two, and both are worth turning into a question you ask BEFORE the work. First: cloth going missing — a customer took in 4.50 m, a pair of trousers needs about a metre, and 2 m came back. Second: the job sat for months, the promised dates passed, other customers were jumped up the queue, and the sleeve was finished in a different colour thread. Neither is an accusation this file repeats about a named shop; the first shop was named by the poster and is NOT listed here.",
+   "note_th": "สองข้อ และควรถามก่อนลงมือทั้งคู่ — หนึ่ง ผ้าหาย เอาไป 4.50 เมตร ตัดกางเกงใช้เมตรกว่า ได้คืน 2 เมตร สอง ดองงานเป็นเดือน ผัดวันนัด ลัดคิวคนอื่น และเย็บชายแขนด้วยด้ายคนละสี",
+   "asks_en": [
+    "Ask for the leftover cloth back, and say so when you hand it over.",
+    "Get the finish date written on the receipt.",
+    "Ask how many fittings are included before you agree a price."
+   ],
+   "asks_th": [
+    "ขอผ้าที่เหลือคืน และบอกตั้งแต่ตอนส่งผ้า",
+    "ขอให้เขียนวันนัดลงในใบรับของ",
+    "ถามว่าราคานี้ลองได้กี่ครั้ง"
+   ],
+   "source": {
+    "type": "forum",
+    "ref": "https://forums.chiangraifocus.com/index.php?topic=10059.0",
+    "fetched": "2026-08-31"
+   }
+  }
+ },
+ "asks": [
+  {
+   "th": "รับตัดชุดข้าราชการไหมคะ/ครับ ชุดปกติขาว",
+   "en": "Do you make civil-service uniforms — the full dress white?"
+  },
+  {
+   "th": "มีเครื่องหมายด้วยไหมคะ/ครับ อินทรธนู แพรแถบ ป้ายชื่อ",
+   "en": "Do you do the insignia too — shoulder boards, ribbon bars, name plate?"
+  },
+  {
+   "th": "ผมเอาผ้ามาเอง คิดค่าแรงเท่าไหร่ครับ",
+   "en": "I've brought my own cloth — what's the labour charge?"
+  },
+  {
+   "th": "ขอผ้าที่เหลือคืนด้วยนะคะ/ครับ",
+   "en": "Please keep the leftover cloth for me."
+  },
+  {
+   "th": "เสร็จวันไหนคะ/ครับ ขอเขียนลงใบรับด้วยได้ไหม",
+   "en": "What day will it be ready — could you write that on the receipt?"
+  },
+  {
+   "th": "ลองได้กี่ครั้งคะ/ครับ",
+   "en": "How many fittings does that include?"
+  },
+  {
+   "th": "มีตัวอย่างงานที่ทำแล้วให้ดูไหมคะ/ครับ",
+   "en": "Do you have finished work I could look at?"
+  },
+  {
+   "th": "เอาตัวนี้มาให้ดู ตัดแบบนี้ได้ไหมคะ/ครับ",
+   "en": "I've brought this one — could you copy it?"
+  },
+  {
+   "th": "แก้ทรงได้ไหมคะ/ครับ เอวใหญ่ไป",
+   "en": "Can you take this in? The waist is too big."
+  },
+  {
+   "th": "เปลี่ยนซิปเท่าไหร่คะ/ครับ",
+   "en": "How much to replace the zip?"
+  },
+  {
+   "th": "ตัดขากางเกงเสร็จเมื่อไหร่คะ/ครับ",
+   "en": "When would a trouser hem be ready?"
+  },
+  {
+   "th": "เช่าดีกว่าตัดไหมคะ/ครับ ใส่ครั้งเดียว",
+   "en": "Would renting be better than having one made? I'll wear it once."
+  },
+  {
+   "th": "มีชุดไทยใหญ่ไหมคะ/ครับ",
+   "en": "Do you do Shan dress?"
+  },
+  {
+   "th": "ย้อมสีดำให้กลับมาดำได้ไหมคะ/ครับ",
+   "en": "Can you dye this back to black?"
+  }
+ ],
+ "refused": [
+  {
+   "what_en": "Ranking the shops, or naming a 'best tailor in Chiang Mai'.",
+   "why_en": "Every English-language 'top ten tailors' page found in this research was published by a tailor. One of them lists its competitors under its own brand. A ranking here would be the same act with a directory's name on it, and the three readers want three different shops anyway."
+  },
+  {
+   "what_en": "Repeating a complaint against a named shop.",
+   "why_en": "The Chiang Rai forum names a shop in a fabric-shortage complaint from a decade ago. The COMPLAINT PATTERN is useful and is recorded, as an ask a customer should make. The name is not, and that shop is not listed in this file at all."
+  },
+  {
+   "what_en": "Efficacy or quality claims in the site's own voice.",
+   "why_en": "Where a shop says 'thirty years' experience' or 'international standard', that is recorded as the shop's own words, attributed. This file has walked none of it."
+  },
+  {
+   "what_en": "Offering a Night Bazaar suit shop as an answer to a uniform question, or a uniform shop as an answer to a gown.",
+   "why_en": "Nan's rule, 2026-08-31: good for tourists does not equal good for locals or expats. Four trades, kept apart."
+  },
+  {
+   "what_en": "Publishing a pin the page cannot name.",
+   "why_en": "The Chiang Rai records have tambon-level addresses and no GPS. They are listed with the address as given and no pin, rather than pinned to a guessed point."
+  }
+ ],
+ "attempted": [
+  {
+   "url": "http://www.body-go.com",
+   "status": "bot-verification wall (reCAPTCHA), no shop content",
+   "on": "2026-08-31",
+   "note": "The website ร้านบอดี้โก๋ advertised on the Chiang Rai forum in 2010 and 2014. The domain resolves and serves a verification page. The shop's Yellow Pages listing still stands, so the shop is not assumed closed — but its own site is gone and the phone is therefore unconfirmed."
+  },
+  {
+   "url": "https://www.yellowpages.co.th/profile/… (23 profile pages)",
+   "status": "200, but phone and street address are withheld behind login/JS",
+   "on": "2026-08-31",
+   "note": "Chiang Rai records therefore carry the tambon/amphur address from the search listing only. Getting the street and the phone means a call or a walk."
+  },
+  {
+   "url": "https://www.tripadvisor.com/… Night Bazaar tailor reviews",
+   "status": "not used",
+   "on": "2026-08-31",
+   "note": "Deliberately not mined. Review aggregate for the tourist strand adds nothing this file needs and would import a ranking through the back door."
+  },
+  {
+   "url": "CMHY place pages for ยาฮาดีไซน์ and ฟรีสไตล์ 4x4",
+   "status": "fetch failed twice",
+   "on": "2026-08-31",
+   "note": "2 of 245; both are in the repair category. Re-run to fill."
+  }
+ ],
+ "discrepancies": [
+  {
+   "who": "cmhy-153-vs-osm-tailor",
+   "what_en": "OSM files 'Charoensilpa custom boots' and a shoe-repair stall under shop=tailor in Chiang Mai. Neither cuts cloth. Two of the ten records on the site's tailor shelf were never tailors.",
+   "what_th": "OSM ลงร้านทำรองเท้าและแผงซ่อมรองเท้าไว้ใต้ shop=tailor สองในสิบรายการบนชั้นร้านตัดเสื้อไม่เคยเป็นร้านตัดเสื้อ",
+   "resolution": "Not corrected upstream in this pass. Recorded so the shelf's count is not read as a count of tailors."
+  },
+  {
+   "who": "pantip-34651186-vs-measurement",
+   "what_en": "The only answer given to 'where in Chiang Mai for a police uniform' is 'over by the provincial hall'. Measured against 31 shops' own coordinates, exactly one is within 2.5 km of the new government centre. Both can be true if the speaker meant the OLD provincial hall — the median distance to that is 1.6 km — but the answer as written would send a reader 5 km wrong.",
+   "resolution": "Both recorded, with the arithmetic. The folk answer is not deleted; it is measured."
+  },
+  {
+   "who": "the-great-vs-numtailor-gown-prices",
+   "what_en": "Renting a graduation gown is quoted from 300 baht/day on one national platform, 550–650 baht by The Great's own sheet, and cutting one is 9,000 baht and 60 working days at NUM Tailor. These are not contradictory — rent, rent-with-deposit and bespoke — but a reader seeing only one number would draw the wrong conclusion.",
+   "resolution": "All three carried, each with its source."
+  }
+ ]
+}

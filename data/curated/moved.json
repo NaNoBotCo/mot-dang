@@ -1,6 +1,25 @@
 {
  "_readme": "Pages whose address changed: {old_path: new_path}, both relative to the site root. build.py write_moved_stubs() puts a tiny forwarding page (meta refresh + canonical, noindex, not in the sitemap) at each old path, and only where the new page exists. place_slug() is the Latin name plus the OSM id, so a corrected name moves a page; this is how a link pasted into a group last month still lands. Add a line whenever a curated record changes a published nameEn.",
  "moved": {
-  "cm/p/sak-yant-tatoo-chiang-mai-5703615419.html": "cm/p/sak-yant-chiang-mai-5703615419.html"
+  "cm/p/sak-yant-tatoo-chiang-mai-5703615419.html": "cm/p/sak-yant-chiang-mai-5703615419.html",
+  "cm/p/103-1-1031.html": "cm/p/103-1-1031-e8c572f.html",
+  "cm/p/103-2-1032.html": "cm/p/103-2-1032-ea0c673.html",
+  "cm/p/103-3-1033.html": "cm/p/103-3-1033-0756144.html",
+  "cm/p/103-5-1035.html": "cm/p/103-5-1035-38d54ab.html",
+  "cm/p/103-103.html": "cm/p/103-103-23b5e19.html",
+  "cm/p/the-next-1-1-11.html": "cm/p/the-next-1-1-11-72e63b9.html",
+  "cm/p/the-next-1-2-12.html": "cm/p/the-next-1-2-12-b255695.html",
+  "cm/p/the-next-1-3-13.html": "cm/p/the-next-1-3-13-92f069d.html",
+  "cm/p/the-next-1-4-14.html": "cm/p/the-next-1-4-14-c17f899.html",
+  "cm/p/the-next-2-1-21.html": "cm/p/the-next-2-1-21-be12f43.html",
+  "cm/p/the-next-2-2-22.html": "cm/p/the-next-2-2-22-e84b12c.html",
+  "cm/p/the-next-3-1-31.html": "cm/p/the-next-3-1-31-d477cbc.html",
+  "cm/p/the-next-3-2-32.html": "cm/p/the-next-3-2-32-f4a6020.html",
+  "cm/p/1-2-12.html": "cm/p/1-2-12-6f01f44.html",
+  "cm/p/d-cmcondoregd.html": "cm/p/d-cmcondoregd-7cbb5cd.html",
+  "cm/p/f-cmcondoregf.html": "cm/p/f-cmcondoregf-f6ad4a3.html",
+  "cm/p/a-b-cmcondoregab.html": "cm/p/a-b-cmcondoregab-b8d06a5.html",
+  "cm/p/e-cmcondorege.html": "cm/p/e-cmcondorege-dd6e178.html",
+  "cm/p/11-11.html": "cm/p/11-11-faa93f0.html"
  }
 }

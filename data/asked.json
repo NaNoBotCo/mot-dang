@@ -523,7 +523,7 @@
    "notes": [
     {
      "th": "เรียงตามตัวอักษร ไม่จัดอันดับ และไม่แยกว่าร้านไหนของฝรั่งร้านไหนของไทย ป้ายหน้าร้านอ่านเองได้ ชื่อร้านบอกเรื่องของมันเองอยู่แล้ว",
-     "en": "Alphabetical and unranked, and never sorted into farang shops and Thai shops. A reader can read a shopfront, and these names tell their own story.",
+     "en": "Alphabetical and unranked, and not sorted into farang shops and Thai shops. A reader can read a shopfront, and these names tell their own story.",
      "cls": "tinynote"
     },
     {
@@ -898,6 +898,430 @@
     "cm-osm-way-189618479",
     "cm-osm-way-257214959",
     "cm-osm-way-97675282"
+   ]
+  },
+  {
+   "key": "exterminator",
+   "q": {
+    "th": "ปลวกขึ้นบ้าน หนูขึ้นฝ้า จะจ้างใครกำจัด ราคาประมาณเท่าไหร่",
+    "en": "Termites in the house, rats in the ceiling — who do you hire, and what does it cost?"
+   },
+   "asked_on": "2026-08-31",
+   "via": "other",
+   "find": {
+    "sub": "pest-control"
+   },
+   "show": "phone",
+   "lead": [
+    {
+     "th": "ไม่มีบริษัทกำจัดปลวกอยู่ในแผนที่เปิดของสองจังหวัดนี้เลยสักเจ้า — การเก็บข้อมูลถาม OpenStreetMap หาช่างทุกประเภทที่มีชื่อ ได้กลับมา 144 รายการ ไม่มีสักรายการที่เป็นบริษัทกำจัดแมลง ทั้งที่บ้านทุกหลังที่อยู่เชียงใหม่นานพอก็ต้องใช้ และเป็นงานที่แทบไม่มีใครคุยอังกฤษ {n} เจ้าข้างล่างนี้อ่านมาจากหน้าเว็บของแต่ละเจ้าเอง พร้อมวันที่ที่อ่าน สามเจ้าแรกขึ้นก่อนด้วยเหตุผลที่เขียนไว้บนตัวมันเอง ไม่ใช่การจัดอันดับ: เจ้าแรกลงเลขทะเบียน อย. ไว้เอง เจ้าที่สองลงราคาไว้เอง เจ้าที่สามทำงานเป็นภาษาอังกฤษได้",
+     "en": "Not one pest-control firm in either province is on the open map. The crawl asks OpenStreetMap for every named trade in Chiang Mai and Chiang Rai and gets 144 records back; none of them is an exterminator — while every house that stays here long enough needs one, and it is a trade that almost never works in English. The {n} below were read from each firm's own page, with the date each was read. The first three lead for a reason written on them rather than as a ranking: the first publishes its licence number, the second publishes a price, the third works in English."
+    }
+   ],
+   "notes": [
+    {
+     "cls": "tinynote",
+     "th": "ราคางานปลวกคิดเป็น เมตร รอบตัวอาคาร ไม่ใช่ตารางเมตรพื้นที่บ้าน — เขาเรียกกันว่า LM ระบบเหยื่อ ราคาเริ่มราว 400–700 บาทต่อเมตร ระบบอัดน้ำยา ราว 150–280 บาทต่อเมตร ถ้าบ้านยังไม่สร้าง วางท่อไว้ตอนสร้างถูกที่สุด ทั้งหมดนี้เป็นราคาตามที่ประกาศไว้ ยังไม่ได้ยืนยันกับใบเสนอราคาจริงสักใบ สองเจ้าเสนอราคา บ้านหลังเดียวกัน ไม่เท่ากันเพราะคูณคนละตัวเลข ถามให้ครบสองอย่างเสมอ: รอบบ้านกี่เมตร และเมตรละเท่าไหร่",
+     "en": "Termite work is priced by the LINEAR METRE of the building's perimeter — LM in the trade — not by the floor area. A bait system starts around 400–700 baht a metre and chemical injection around 150–280; if the house is not built yet, pipework laid during construction is much the cheapest. Every one of those figures is as published and none has been confirmed against a real quotation. Two quotes for the same house differ because they multiplied different numbers, so ask for both halves every time: how many metres do you make it, and what is the rate."
+    },
+    {
+     "cls": "tinynote",
+     "th": "ข้อเดียวที่ตรวจได้จริง: บริษัทที่รับจ้างพ่นยาต้องได้รับอนุญาตวัตถุอันตรายชนิดที่ 3 (หรือแจ้งดำเนินการชนิดที่ 2) ตาม พ.ร.บ.วัตถุอันตราย พ.ศ. 2535 และต้องมี ผู้ควบคุมการใช้วัตถุอันตรายเพื่อใช้รับจ้าง ที่อบรมทบทวนทุกสามปี ประโยคที่ใช้ถามคือ มีใบอนุญาตวัตถุอันตรายไหมคะ/ครับ ขอดูหน่อยได้ไหม และ อย. เปิดให้ค้นทะเบียนทั้งตัวบุคคลและสถานที่ได้เองที่ excercitium.fda.moph.go.th ในรายชื่อนี้มีเจ้าเดียวที่ลงเลขทะเบียนไว้บนหน้าเว็บตัวเอง",
+     "en": "The one fact here that can be checked rather than trusted: a firm that sprays for hire holds permission for type-3 hazardous substances — or has notified for type 2 — under the Hazardous Substances Act B.E. 2535, and the work must be run by a certified supervisor who retrains every three years. The sentence to say is มีใบอนุญาตวัตถุอันตรายไหม, do you hold the hazardous-substances permission, may I see it. The FDA publishes lookups for both the person and the premises at excercitium.fda.moph.go.th. Exactly one firm in this list puts its number on its own page."
+    },
+    {
+     "cls": "tinynote",
+     "th": "วิธีติดต่อที่ได้ผลจริงคือ ไลน์ก่อน โทรทีหลัง ทุกเจ้ามีไลน์ออฟฟิเชียล ถ่ายรูปทางเดินดินของปลวกที่ขอบบัว รูรอยเจาะ หรือกองขี้เลื่อย ส่งไปทางไลน์ รูปเดียวอธิบายได้มากกว่าโทรคุยกันคนละภาษา แล้วค่อยถามราคาเป็นภาษาไทยตามประโยคด้านบน คำที่ต้องรู้: ปลวก · มด · แมลงสาบ · หนู · ยุง · ตัวเรือด · แมลงเม่า คือปลวกมีปีกที่บินเล่นไฟหลังฝนตก เห็นเมื่อไหร่คือสัญญาณให้โทร ไม่ใช่ให้ฉีดยา",
+     "en": "What actually works is LINE first and the phone second — every firm here keeps a LINE official account. Photograph the mud tubes along a skirting board, the pin-holes, or the little pile of frass, and send the picture; one photograph says more than a call in a language neither side shares, and the price questions above can then go over in Thai. The words worth knowing: ปลวก pluak termites · มด mot ants · แมลงสาบ malaeng sap cockroaches · หนู nu rats · ยุง yung mosquitoes · ตัวเรือด tua rueat bed bugs. And แมลงเม่า malaeng mao — the winged termites that swarm a light after rain. Those are the sign to make the call, not the thing to spray."
+    },
+    {
+     "cls": "tinynote",
+     "th": "งูไม่ใช่งานของบริษัทพวกนี้ และไม่ต้องเสียเงิน อยู่คนละหน้า — แต่ต่อกันอยู่ตรงหนู: งูตามหนู หนูตามอาหาร บ้านที่มีหนูอยู่ในฝ้าคือบ้านที่งูมีเหตุผลจะเข้า จัดการหนูคือจัดการงู",
+     "en": "A snake is not these firms' job and does not cost money — it has a page of its own. The two meet at the rats: snakes follow rats and rats follow food, so a roof space with rats in it is a house a snake has a reason to enter. Dealing with the rats is dealing with the snakes.",
+     "links": [
+      {
+       "href": "asked/snake-in-the-house.html",
+       "th": "งูเข้าบ้าน โทรใคร",
+       "en": "A snake in the house"
+      }
+     ]
+    },
+    {
+     "cls": "tinynote",
+     "th": "ชั้นอื่นที่อยู่ข้างกัน",
+     "en": "The shelves next door",
+     "links": [
+      {
+       "href": "cm/home-services/pest-control/index.html",
+       "th": "กำจัดปลวก-แมลง-หนู เชียงใหม่",
+       "en": "Pest control, Chiang Mai"
+      },
+      {
+       "href": "cr/home-services/pest-control/index.html",
+       "th": "กำจัดปลวก-แมลง-หนู เชียงราย",
+       "en": "Pest control, Chiang Rai"
+      },
+      {
+       "href": "realestate.html",
+       "th": "ซื้อ-เช่าที่อยู่",
+       "en": "Homes & land"
+      }
+     ]
+    }
+   ],
+   "first": [
+    "cm-curated-unipest",
+    "cm-curated-happy-house-pest",
+    "cm-curated-green-nano-thai"
+   ]
+  },
+  {
+   "key": "snake-in-the-house",
+   "q": {
+    "th": "งูเข้าบ้าน โทรใคร ให้เขาจับไปปล่อย ไม่ต้องฆ่า",
+    "en": "A snake got into the house — who do I call, and can they take it away alive?"
+   },
+   "asked_on": "2026-08-31",
+   "via": "other",
+   "gap": true,
+   "panel": {
+    "th": "คำตอบคือเบอร์โทร ไม่ใช่ที่อยู่",
+    "en": "the answer is a phone number, not an address"
+   },
+   "lead": [
+    {
+     "th": "199 ดับเพลิงและกู้ภัย ตลอด 24 ชั่วโมง ทั่วประเทศ นี่คือคำตอบทั้งหมด ไม่ใช่บริษัทกำจัดแมลง ไม่ต้องจ่ายเงิน และหน้านี้ไม่มีรายชื่อสถานที่ให้กด เพราะคำตอบของคำถามนี้เป็นเบอร์โทร ไม่ใช่ที่อยู่ — สารบัญนี้บอกตรงๆ แทนที่จะแกล้งมีรายชื่อ ประโยคที่ต้องพูดคือ มีงูเข้าบ้านค่ะ/ครับ ขอเจ้าหน้าที่มาจับหน่อยได้ไหม แล้วต่อด้วยประโยคที่หน้านี้มีอยู่เพื่อสิ่งนี้: ไม่ต้องฆ่านะคะ/ครับ ขอให้เอาไปปล่อยได้ไหม",
+     "en": "199 — fire and rescue, 24 hours, everywhere in the country. That is the whole answer. Not a pest-control company, no money, and no list of places on this page, because the answer to this question is a number rather than an address and this catalogue would rather say so than pretend to a list. The sentence to say is มีงูเข้าบ้าน ขอเจ้าหน้าที่มาจับหน่อยได้ไหม — there is a snake in the house, could you send someone to catch it. Then the sentence this page exists for: ไม่ต้องฆ่านะ ขอให้เอาไปปล่อยได้ไหม — please don't kill it, can it be taken away and released."
+    }
+   ],
+   "notes": [
+    {
+     "cls": "tinynote",
+     "th": "บอกอะไรบ้างตอนโทร: บ้านเลขที่ ซอย ตำบล อำเภอ พูดช้าๆ สองรอบ · งูอยู่ตรงไหน ในห้องน้ำ ในครัว ใต้ตู้เย็น ในสวน · ตัวยาวประมาณกี่เมตร สีอะไร มีลายไหม · และบอกว่ายังไม่ได้ไล่ ปิดประตูห้องไว้แล้ว ถ้ามีเพื่อนคนไทยแถวนั้น ให้เขาโทรจะเร็วกว่า ถ้าไม่มี ส่งตำแหน่งทางไลน์ให้เพื่อนบ้านช่วยแจ้งก็ได้",
+     "en": "What to give them: the house number, soi, subdistrict and district, said slowly and twice · where the snake is — the bathroom, the kitchen, under the fridge, in the garden · roughly how many metres long, what colour, patterned or not · and that you have not chased it and have shut the door on the room. If a Thai neighbour is to hand, their call goes faster than yours; if not, send a neighbour your location on LINE and let them make it."
+    },
+    {
+     "cls": "tinynote",
+     "th": "ระหว่างรอ: ตั้งสติ ถอยออกมาให้ห่าง พาเด็กและสัตว์เลี้ยงออกจากห้อง ปิดประตูห้องนั้นไว้ เอาผ้าอุดใต้ประตู มองไว้ห่างๆ ว่ามันอยู่ตรงไหนจะได้บอกเจ้าหน้าที่ได้ ถ่ายรูปไว้ถ้าถ่ายได้อย่างปลอดภัย ที่ไม่ควรทำ: อย่าไล่ อย่าตี อย่าจับเอง อย่าเข้าไปใกล้เพื่อดูให้ชัด และอย่าฉีดยาฆ่าแมลงใส่ ยาฆ่าแมลงไม่ได้ผลกับงู ได้ผลอย่างเดียวคือทำให้มันย้ายที่",
+     "en": "While you wait: stay calm, back away, get children and pets out of the room, shut the door and push a towel against the gap. Keep it in sight from a distance so you can tell the crew where it is, and photograph it if you can do that safely. What not to do: don't chase it, don't hit it, don't pick it up, don't move closer for a better look — the bites here happen to the hand that reached — and don't spray insecticide at it. Insecticide does nothing to a snake except make a cornered one move."
+    },
+    {
+     "cls": "tinynote",
+     "th": "ทำไมต้อง ไม่ต้องฆ่า: งูหลายชนิดในไทยเป็นสัตว์ป่าคุ้มครองตามกฎกระทรวง ทั้งงูจงอาง งูเหลือม งูหลาม งูสิง งูทางมะพร้าว งูแสงอาทิตย์ รวมสิบสี่ชนิด ห้ามล่า ห้ามทำอันตราย ห้ามครอบครอง ส่วนงูเห่าไม่ได้อยู่ในบัญชีนั้น — และนั่นคือเหตุผลพอดี: การแยกว่าตัวนี้ชนิดไหน ตอนสี่ทุ่ม ในครัว ไม่ใช่หน้าที่ของคนอยู่บ้าน เป็นหน้าที่ของคนที่ฝึกมาและมาฟรี รายชื่อชนิดเปลี่ยนได้ ตรวจกับกรมอุทยานฯ เอง ไม่ใช่กับเว็บนี้",
+     "en": "Why the sentence about not killing it: fourteen snakes are named protected wildlife by ministerial regulation — the king cobra, the reticulated and Burmese pythons, the rat snakes, the sunbeam snake and others — with hunting, harming and keeping all forbidden. The common monocled cobra is not on that list. Which is exactly the point. Telling one from the other, at ten at night, in a kitchen, is not a householder's job; it is the job of someone trained who comes for nothing. The list moves, so check it against the national parks department rather than against us."
+    },
+    {
+     "cls": "tinynote",
+     "th": "ถ้าโดนกัด โทร 1669 ทันที เจ็บป่วยฉุกเฉิน ฟรีทุกเครือข่าย ที่ควรทำ: อยู่นิ่งๆ ให้ส่วนที่ถูกกัดอยู่ต่ำกว่าระดับหัวใจ ล้างแผลด้วยน้ำสะอาด ถอดแหวนถอดนาฬิกาออกก่อนบวม ถ่ายรูปงูไว้ถ้าปลอดภัย — ไม่ต้องเอาตัวงูไปโรงพยาบาล ที่ห้ามทำตามคำแนะนำที่ใช้กันในไทย: ห้ามขันชะเนาะ ห้ามกรีดแผล ห้ามดูดพิษ ห้ามประคบน้ำแข็ง ห้ามดื่มเหล้า เซรุ่มอยู่ที่โรงพยาบาล ไม่ได้มีทุกที่ทุกชนิด และหมอให้เมื่อมีอาการของพิษ — ไปโรงพยาบาล อย่ารอดูอาการที่บ้าน สายให้คำปรึกษาเรื่องพิษคือ ศูนย์พิษวิทยารามาธิบดี 1367 ตลอด 24 ชั่วโมง ทั้งประชาชนและแพทย์ ไลน์ @rpc1367",
+     "en": "If someone is bitten, ring 1669 — medical emergency, free from any network. Keep still, keep the bitten part below heart level, wash it with clean water, take off rings and watches before the swelling starts, and photograph the snake if it is safe to. Do not carry the snake to the hospital. The standing Thai advice is against all of these: no tourniquet, no cutting, no sucking, no ice, no alcohol. Antivenom lives at hospitals, not every hospital carries every kind, and it is given when signs of envenoming appear rather than on the fact of a bite — which is one more reason the destination is a hospital and not the sofa. The poisons line is the Ramathibodi Poison Center, 1367, 24 hours, for the public as well as for doctors, LINE @rpc1367."
+    },
+    {
+     "cls": "tinynote",
+     "th": "สองเรื่องที่หน้านี้ยังไม่ยืนยัน และบอกไว้ตรงนี้แทนที่จะเงียบ: หนึ่ง คำว่า ฟรี และ ปล่อยคืนธรรมชาติ มาจากคำบอกเล่าของคนที่เคยโทร และจากหน้าเว็บของสถานีดับเพลิงที่กรุงเทพฯ ยังหาหน้าเว็บของหน่วยในเชียงใหม่ ที่เขียนสองคำนี้เองไม่เจอ สอง สารบัญภาษาอังกฤษบางเจ้าลงเบอร์ ฟาร์มงู ไว้ใต้หัวข้อรับจับงู ทั้งที่หน้าเดียวกันเตือนเองว่าอย่าโทรหาสวนงูเพราะงูมักถูกฆ่าหรือถูกเอาไปแสดง เว็บนี้จึงไม่ลงชื่อนั้น และเขียนเหตุผลไว้ตรงนี้แทนที่จะปล่อยให้เป็นช่องว่างเงียบๆ",
+     "en": "Two things this page has not confirmed, said here rather than left silent. First: the words free and released rest on accounts from people who have called and on a Bangkok fire station's own page — no Chiang Mai station or municipal page could be found stating either in its own words, and one call to the municipality would settle it. Second: an English-language directory lists a snake farm near Chiang Mai under snake removal on the same page where it warns readers off snake shows, because the animal is killed or ends up in a display. Both cannot be true, and a name on a removal list is a recommendation — so it is not here, and this is why rather than a silent gap."
+    },
+    {
+     "cls": "tinynote",
+     "th": "เบอร์อื่นที่ควรมีติดบ้าน และหน้าข้างเคียง",
+     "en": "The other numbers worth keeping by you, and the page next door",
+     "links": [
+      {
+       "href": "asked/exterminator.html",
+       "th": "ปลวก หนู จ้างใคร",
+       "en": "Termites and rats — who to hire"
+      },
+      {
+       "href": "care.html",
+       "th": "ดูแลต่อเนื่อง",
+       "en": "Ongoing care"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "flat-sheet",
+   "q": {
+    "th": "ผ้าปูที่นอนแบบไม่รัดมุม (ผ้าปูทับตัวแบบที่ฝรั่งใช้) หาซื้อที่ไหนได้บ้าง",
+    "en": "Where can I buy a flat sheet — the loose top sheet farang sleep under, not the fitted kind?"
+   },
+   "asked_on": "2026-08-31",
+   "via": "other",
+   "draft": true,
+   "find": {
+    "prov": "cm"
+   },
+   "show": "phone",
+   "lead": [
+    {
+     "th": "",
+     "en": ""
+    }
+   ],
+   "notes": []
+  },
+  {
+   "key": "instrument-rental",
+   "q": {
+    "th": "อยากเล่นดนตรีที่เชียงใหม่ ซื้อหรือเช่าเครื่องดนตรีได้ที่ไหน ต้องลงไปกรุงเทพไหม",
+    "en": "I want to play here — where do I buy or rent an instrument in Chiang Mai, and do I have to go to Bangkok?"
+   },
+   "asked_on": "2026-08-31",
+   "via": "other",
+   "find": {
+    "sub": "music"
+   },
+   "show": "phone",
+   "lead": [
+    {
+     "th": "คำตอบสั้นๆ คือ ไม่ต้องลงกรุงเทพ — เชียงใหม่ซื้อได้เกือบทุกอย่างในยี่สิบหมวดที่คนอเมริกัน อังกฤษ และไทยเล่นกันมากที่สุด และเช่าได้ด้วย แต่ต้องรู้ว่าคำว่า เช่า ที่นี่มีสามแบบ ไม่ใช่แบบเดียว: รายเดือน สำหรับเครื่องของนักเรียน · รายวัน สำหรับงานอีเวนต์ · และ รายชั่วโมง คือห้องซ้อมที่มีเครื่องอยู่ในห้องแล้ว ซึ่งเป็นคำตอบที่คนส่วนใหญ่ต้องการจริงๆ แต่ค้นคำว่าให้เช่าแล้วไม่เจอ ที่ต้องลงกรุงเทพจริงๆ มีสี่อย่างเท่านั้น อยู่ในกล่องข้างล่าง ที่น่าสังเกตคือ แผนที่เปิดของทั้งจังหวัดเชียงใหม่มีร้านเครื่องดนตรีที่มีชื่ออยู่ ร้านเดียว ส่วน {n} ร้านข้างล่างนี้อ่านมาจากหน้าเว็บและสารบัญของแต่ละร้าน พร้อมวันที่ที่อ่าน ร้านที่ให้เช่าขึ้นก่อน เพราะคนถามคำถามนี้มักยังไม่อยากเป็นเจ้าของ",
+     "en": "The short answer is no. Chiang Mai sells nearly everything in the twenty categories Americans, Britons and Thais play most, and rents a good part of it — but the word \"rent\" here means three different things, and only one of them turns up if you search for it. BY THE MONTH is the student clock, for a school instrument for a term. BY THE DAY is the event clock, backline for a gig. BY THE HOUR is a rehearsal room with the kit already in it, which is what most people actually want and which no search for \"instrument rental\" will ever return. Four things genuinely mean a trip to Bangkok, and they are named in the box below. Worth knowing: the open map of the whole province holds exactly one named instrument shop. The {n} below were read from each shop's own page or listing, with the date each was read, and the ones that rent lead — because a person asking this question usually does not want to own anything yet."
+    }
+   ],
+   "notes": [
+    {
+     "cls": "tinynote",
+     "th": "สามนาฬิกาของการเช่า ถามให้ตรงอันจะได้คำตอบเร็ว · รายเดือน — จุไรรัตน์มิวสิค สาขาสันพระเนตร 093-090-9018 เป็นที่เดียวในสองจังหวัดที่เขียนไว้เองว่าให้เช่าเปียโน เครื่องเป่าวงโยธวาทิต และเครื่องวงคอนเสิร์ต ราคาหน้าเว็บกลาง: ฟลูต 350 คลาริเน็ต 450 ทรัมเป็ต 450 อัลโตแซก 750 ไวโอลิน 950 เชลโล 550 กลองชุด 500 บาทต่อเดือน สัญญา 3–12 เดือน เปียโนอัพไรท์เริ่ม 990 บาทต่อเดือน บวกค่าขนส่งไป-กลับ 2,500 มัดจำ 20,000 · รายวัน — แบ็คไลน์งานอีเวนต์ มีเจ้าในเชียงใหม่เอง (บริษัทใหญ่ที่เจอในกูเกิลหลายเจ้ารับแต่กรุงเทพ อย่าเสียเวลา) · รายชั่วโมง — ห้องซ้อมสิบแห่งในเมือง ราวชั่วโมงละ 150–300 บาท มีกลอง แอมป์ อยู่ในห้องแล้ว ไม่มีใครในเชียงใหม่ให้เช่ากลองชุดรายเดือนไปไว้ที่คอนโด แต่ตีได้ทุกวันในราคานี้ ข้อที่ต้องรู้ก่อนโทรหาจุไรรัตน์: เชียงใหม่เป็นโชว์รูมเล็ก ของส่งขึ้นมาจากคลังใหญ่ที่กรุงเทพ เดินเข้าไปหิ้วออกมาเลยไม่ได้ ต้องสั่งแล้วรอ และลองก่อนไม่ได้ถ้าของยังไม่มาถึง ทางร้านบอกเองว่าส่งไม่นาน แต่ยังไม่มีตัวเลขวัน ถามว่า สั่งแล้วกี่วันถึง ไม่ใช่ มีของไหม ราคาทุกตัวตามที่ประกาศไว้ ยังไม่ได้ยืนยันหน้าร้าน",
+     "en": "Three rental clocks — ask for the right one and the answer comes fast. BY THE MONTH: Churairat Music in San Phi Suea, 093-090-9018, is the only place in either province whose own listing says it rents pianos, marching band and concert band instruments. Published rates: flute 350, clarinet 450, trumpet 450, alto sax 750, violin 950, cello 550, drum kit 500 baht a month on 3–12 month terms; an upright piano from 990 a month plus 2,500 delivery both ways and a 20,000 deposit. BY THE DAY: event backline, and Chiang Mai has its own firms — several big names that come up in a search take Bangkok work only, so don't waste the call. BY THE HOUR: ten rehearsal rooms in the city at roughly 150–300 baht, kit already in the room. Nobody here will rent a household a drum kit by the month for a condo; playing one every day at that price is the same need met. One thing to know before ringing Churairat: Chiang Mai is a small showroom and the stock ships up from a large warehouse in Bangkok. You order and wait rather than carrying something out, and you cannot try it until it arrives — though the shop's own word is that the wait is short. Ask how many days from order to delivery, not whether they have one. Every figure is as published and none confirmed at a counter."
+    },
+    {
+     "cls": "tinynote",
+     "th": "สี่อย่างที่ต้องลงกรุงเทพจริงๆ · โอโบ กับ บาสซูน — ไม่มีร้านไหนในสองจังหวัดโฆษณาไว้ แม้แต่ร้านเครื่องเป่าโดยเฉพาะ · ฮาร์ป — ไม่มี · ดับเบิลเบส — ไม่มีขาย และเช่ารายวันได้ที่กรุงเทพเท่านั้น · เครื่องระดับคอนเสิร์ตเช่าวันเดียว — เจ้าที่ทำเรื่องนี้คือ Bravo Music ที่กรุงเทพ ไวโอลินหรือวิโอลา 3,000 เชลโล 5,000 ดับเบิลเบส 6,000 ฮาร์ป 15,000 บาทต่อวัน และเงื่อนไขของเขาเขียนว่าผู้เช่าต้องไปรับเอง ส่งให้เฉพาะในเขตกรุงเทพ นั่นคือทริปจริง และเป็นข้อเดียวในหน้านี้ที่คำตอบคือ ใช่ ส่วนทางกลับกัน สะล้อ ซอ ซึง กรุงเทพคือทิศที่ผิด คนทำอยู่ที่นี่",
+     "en": "The four things that really do mean Bangkok. OBOE and BASSOON — not advertised by any shop in either province, the woodwind specialist included. HARP — nothing. DOUBLE BASS — not sold here, and rentable by the day in Bangkok only. A CONCERT-GRADE INSTRUMENT FOR ONE DAY — the firm that does this is Bravo Music in Bangkok: violin or viola 3,000, cello 5,000, double bass 6,000, harp 15,000 baht a day, and its own terms say the renter collects in person, with delivery inside Bangkok only. That is a real trip, and the only row here where the answer is yes. It runs the other way once: for สะล้อ ซอ ซึง, Bangkok is the wrong direction — the makers are here."
+    },
+    {
+     "cls": "tinynote",
+     "th": "ยี่สิบหมวดที่คนเล่นมากที่สุดในสหรัฐฯ อังกฤษ และไทย รวมกันแบบไม่นับซ้ำ เรียงตามน้ำหนักรวมของทั้งสามประเทศ: กีตาร์โปร่ง · กีตาร์ไฟฟ้า · เปียโนไฟฟ้า-คีย์บอร์ด · เปียโนอะคูสติก · อูคูเลเล่ · กลองชุด · กีตาร์เบส · ไวโอลิน · กลองไฟฟ้า · อัลโตแซกโซโฟน · ฟลูต · คลาริเน็ต · ทรัมเป็ต · รีคอร์เดอร์ · เมโลเดียน · เชลโล · ทรอมโบน · ออร์แกนไฟฟ้า-อิเล็กโทน · ฮาร์โมนิกา · คาฮอง-เพอร์คัชชัน สามประเทศนี้วัดคนละอย่าง จึงต้องอ่านแบบนี้: อเมริกาวัดยอดขาย อังกฤษวัดเด็กอายุ 5–17 ที่บอกว่าเล่นได้ (ABRSM 2567: กีตาร์ไฟฟ้า 17% เปียโน 16% รีคอร์เดอร์ 16% ฟลูต 15% คีย์บอร์ด 13%) ส่วนไทยวัดความนิยมของผู้เล่น ที่รีคอร์เดอร์สูงในอังกฤษแต่แทบไม่มีในยอดขายอเมริกา เพราะอันหนึ่งวัดโรงเรียน อีกอันวัดเงิน ไม่ใช่เพราะขัดกัน",
+     "en": "The twenty categories most played across the United States, the United Kingdom and Thailand, merged with no duplicates and ordered by combined weight: acoustic guitar · electric guitar · digital piano & keyboard · acoustic piano · ukulele · drum kit · bass guitar · violin · electronic drums · alto saxophone · flute · clarinet · trumpet · recorder · melodica · cello · trombone · electric organ (Electone) · harmonica · cajón & hand percussion. The three countries measure different things, so read it that way: America counts sales, Britain counts children aged 5–17 who say they play (ABRSM 2024 — electric guitar 17%, piano 16%, recorder 16%, flute 15%, keyboard 13%), Thailand counts what players take up. The recorder ranking high in Britain and near-invisibly in American retail is that difference, not a disagreement."
+    },
+    {
+     "cls": "tinynote",
+     "th": "เรื่องที่สารบัญนี้ควรบอกตัวเอง: ตัวเก็บข้อมูลของเรามีคำสั่งถามหาร้านเครื่องดนตรีเขียนอยู่ในโค้ดมานาน แต่ไม่เคยถูกเรียกใช้เลยสักครั้ง พอเรียกจริงเมื่อ 31 ส.ค. 2569 ทั้งจังหวัดเชียงใหม่ตอบกลับมาร้านเดียว — และร้านนั้นในข้อมูลเราถูกจัดเป็นห้างสรรพสินค้า ไม่ใช่ร้านเครื่องดนตรี ชั้นนี้จึงสร้างด้วยมือทีละร้าน เชียงรายยังมีแค่สองร้าน ซึ่งน้อยไปสำหรับทั้งจังหวัด และเป็นงานที่ยังค้างอยู่",
+     "en": "What this catalogue should say about itself: our crawler has carried a query for instrument shops in its source for a long time and had never once been run. Run on 2026-08-31, the whole of Chiang Mai province answered with a single shop — and that shop is filed in our own data as a shopping mall rather than an instrument shop. So this shelf was built by hand, one shop at a time. Chiang Rai still holds only two, which is too few for a province and is work still owed."
+    }
+   ]
+  },
+  {
+   "key": "big-size-clothes",
+   "q": {
+    "th": "ตัวใหญ่ ใส่ไซส์ใหญ่ ซื้อเสื้อผ้าที่ไหนได้บ้างในเชียงใหม่ ร้านไหนมีเกิน XL",
+    "en": "I'm a big person. Where in Chiang Mai can I actually buy clothes that fit — who stocks past XL?"
+   },
+   "asked_on": "2026-08-31",
+   "via": "other",
+   "find": {
+    "sub": "clothes"
+   },
+   "lead": [
+    {
+     "th": "ก่อนหน้านี้สารบัญนี้มีร้านเสื้อผ้าอยู่ ศูนย์ ร้าน จากสองหมื่นกว่ารายการ ไม่ใช่เพราะเชียงใหม่ไม่มี แต่เพราะไม่เคยถาม — ตัวกรอง shop=clothes ไม่เคยอยู่ในชุดคำถามของเราเลยตั้งแต่เขียนโปรแกรมมา ทั้งที่แผนที่เปิดมีอยู่ 134 ร้านในเชียงใหม่ และ 72 ร้านในเชียงราย {n} ร้านข้างล่างนี้มาจากการเก็บข้อมูลรอบใหม่วันนี้ · เรื่องที่ต้องรู้ก่อนออกจากบ้าน: ที่นี่ขายเสื้อผ้าเป็น นิ้ว ไม่ใช่ตัวอักษร ถามว่า อกกี่นิ้ว เอวกี่นิ้ว แล้ววัดตัวเองไว้ก่อน แบรนด์ไทยที่ชื่อ XLARGE เอง ตารางไซส์ยังจบที่ XL และเอว 36 นิ้ว · ฟรีไซส์ ไม่ใช่ไซส์ แต่เป็นเพดาน ถ้าเจอคำนี้ให้ถามกลับว่า กี่นิ้วคะ · ร้านไซส์ใหญ่ของคนไทยมีจริงและใหญ่กว่าที่คิด ขายถึง 5XL ขึ้นไป บอกขนาดเป็นนิ้ว แต่อยู่ที่กาดหน้ามอกับเชียงใหม่คอมเพล็กซ์ และเปิดตอนเย็น ไม่ใช่ตอนเช้า ซึ่งเป็นเหตุผลที่ไม่มีในแผนที่ไหนเลย · ส่วนของผู้ชายไม่มีตลาดแบบนั้น คำตอบคือร้านตัดเสื้อ ซึ่งสารบัญนี้มีอยู่ 67 ร้าน",
+     "en": "This directory held ZERO clothes shops out of twenty thousand records until today — not because Chiang Mai has none, but because we never asked: the selector shop=clothes had never once been in our crawl, while the open map held 134 of them in Chiang Mai and 72 in Chiang Rai. The {n} below come from a crawl run today. Four things worth knowing before you go out. CLOTHES HERE ARE SOLD IN INCHES, NOT IN LETTERS — ask อกกี่นิ้ว, how many inches is the chest, and เอวกี่นิ้ว for the waist, and know your own numbers first; a Thai brand called XLARGE publishes a chart that stops at XL and at a 36-inch waist, which is how little the letter tells you. ฟรีไซส์ \"FREE SIZE\" IS NOT A SIZE, IT IS A CEILING — the only useful reply is กี่นิ้ว, how many inches. THE THAI BIG-SIZE TRADE IS REAL and goes far past XL — 5XL and beyond, stated in inches — but it is at กาดหน้ามอ and The Chiang Mai Complex and it opens in the evening rather than the morning, which is exactly why no map has it. AND THERE IS NO MEN'S EQUIVALENT: the men's answer is a tailor, and this directory knows 67 of them."
+    }
+   ],
+   "notes": [
+    {
+     "cls": "tinynote",
+     "th": "ยูนิโคล่ — ข้อนี้สวนความรู้สึก และน่าจะมีประโยชน์ที่สุดในหน้านี้ ยูนิโคล่ประเทศไทยมีไซส์ XXL 3XL 4XL จริง แต่ ไม่มีขายในสาขา มีเฉพาะทางออนไลน์ เดินเข้าเซ็นทรัลเฟสติวัลแล้วจะไม่เจออะไรเกิน XL แต่สั่งออนไลน์แล้วเลือก Click & Collect ไปรับที่สาขาเดิมนั้นได้ ร้านถูก แต่ประตูผิด ข้อมูลนี้อ่านผ่านดัชนีค้นหาจากหน้าเว็บของยูนิโคล่เอง เพราะเว็บเขาไม่ตอบตัวเก็บข้อมูลของเรา",
+     "en": "UNIQLO, and this is the counter-intuitive one — probably the most useful line on the page. Uniqlo Thailand does carry XXL, 3XL and 4XL, and those sizes are NOT stocked in the branches: they are an online line. Walk into Central Festival and nothing goes past XL. Order online, choose Click & Collect, and the same branch hands you the 4XL. The shop is right and the door is wrong. Read through a search index of Uniqlo's own pages — uniqlo.com timed this fetcher out twice."
+    },
+    {
+     "cls": "tinynote",
+     "th": "คำที่ต้องใช้ค้นหา ไม่ใช่ภาษาอังกฤษ: ไซส์ใหญ่ · บิ๊กไซส์ · ไซส์พิเศษ · พลัสไซส์ · คนอ้วน · สาวอวบ · ตัวใหญ่ คำว่า คนอ้วน เป็นคำบนป้ายร้านตามปกติในภาษาไทย ไม่ใช่คำหยาบ และเป็นคำที่ค้นแล้วเจอร้าน หน้านี้ใช้คำที่ร้านเขาใช้เอง เพราะถ้าเปลี่ยนให้สุภาพขึ้น คนอ่านจะหาร้านไม่เจอ · และไม่มีหมวด ไซส์ใหญ่ ที่ไหนเลย ทั้งในแผนที่เปิดและในสารบัญไทยที่อ่านมา 583 ร้าน ร้านที่มีไซส์ใหญ่ไม่ใช่ ประเภทร้าน แต่เป็นร้านธรรมดาที่บังเอิญมีของ ต้องอ่านชื่อร้านกับแฮชแท็กเอาเอง",
+     "en": "The words to search — not the English ones: ไซส์ใหญ่ sai yai, big size · บิ๊กไซส์ bik sai, the same written in Thai letters · ไซส์พิเศษ sai phiset, special size · พลัสไซส์ phlat sai, plus size · คนอ้วน khon uan, fat people · สาวอวบ sao uap, curvy women · ตัวใหญ่ tua yai, big-bodied. คนอ้วน is an ordinary Thai shop-sign word rather than an insult, and it is the word that finds the shop — this page uses the shops' own words, because a politer one makes them unfindable. And there is no big-size category anywhere: not in the open map's tags, not in the 583-place Thai apparel index read for this order. A shop that carries the size is not a kind of shop; it is an ordinary shop, and the fact lives only in its own name."
+    },
+    {
+     "cls": "tinynote",
+     "th": "สามทาง เรียงตามที่ควรลอง · หนึ่ง ร้านไซส์ใหญ่ไทย ตลาดกลางคืน ราคาเริ่มหลักร้อย บอกขนาดเป็นนิ้ว ส่วนใหญ่เป็นของผู้หญิง · สอง แบรนด์ต่างชาติที่ใช้ไซส์ยุโรปหรืออเมริกา ในเชียงใหม่มี ยูนิโคล่ H&M อเมริกันอีเกิล ลาคอสท์ แม็คเอาท์เล็ต · สาม สั่งตัด ถูกกว่าที่คิด และเป็นคำตอบเดียวที่ได้ผลกับทุกขนาด ดูชั้น ร้านตัดสูท-ตัดชุด · และอีกทางที่คนมองข้าม มือสอง เสื้อผ้ามือสองมาจากประเทศที่คนตัวใหญ่กว่า ไซส์ 3XL จึงโผล่มาเองบนราวมือสอง แลกกับการที่มีตัวเดียว ไม่มีสีอื่น ไม่มีเบอร์อื่น",
+     "en": "Three routes, in the order to try them. ONE — the Thai big-size shops. Night-market hours, a couple of hundred baht up, ranges stated in inches, and overwhelmingly women's. TWO — the international chains, which use European or American sizing: Uniqlo, H&M, American Eagle, Lacoste and McOutlet are all in Chiang Mai. THREE — have it made. Cheaper than it sounds, and the only route that works at every size; see the tailors' shelf. And a fourth people overlook: SECONDHAND. Used clothing arrives here by the bale from countries with bigger bodies, so a มือสอง rail is the one place in this city where a 3XL turns up by accident rather than by order. The trade-off is honest: one of it, no other colour, no other size."
+    },
+    {
+     "cls": "tinynote",
+     "th": "ประโยคที่ใช้ได้จริง: มีไซส์ใหญ่ไหมคะ/ครับ · อกกี่นิ้ว · มีถึงอกกี่นิ้ว · เอว 40 นิ้ว มีไหม · ตัวนี้ฟรีไซส์ อกกี่นิ้ว · ลองได้ไหม · แก้ให้ได้ไหม ประโยคสุดท้ายสำคัญ ร้านหลายร้านแก้ให้ฟรีหรือคิดไม่กี่สิบบาท และสารบัญนี้มีชั้น ซ่อมแซม-แก้เสื้อผ้า แยกไว้ต่างหาก",
+     "en": "Sentences that work: มีไซส์ใหญ่ไหม — do you have big sizes · อกกี่นิ้ว — how many inches is the chest · มีถึงอกกี่นิ้ว — what is the biggest chest you go up to · เอว 40 นิ้ว มีไหม — do you have a 40-inch waist · ตัวนี้ฟรีไซส์ อกกี่นิ้ว — this is free size, so how many inches is that · ลองได้ไหม — may I try it on · แก้ให้ได้ไหม — can it be altered. The last one matters: plenty of shops alter for nothing or for a few tens of baht, and this directory keeps a separate shelf of menders."
+    }
+   ],
+   "first": [
+    "cm-curated-pom-pui-big-size-kham-thiang",
+    "cm-osm-node-4358877280",
+    "cm-curated-big-size-chic-chic",
+    "cm-osm-node-12351352158",
+    "cm-osm-node-13525478384",
+    "cm-osm-node-6753289085"
+   ]
+  },
+  {
+   "key": "big-size-shoes",
+   "q": {
+    "th": "เท้าใหญ่ ผู้ชายเบอร์ 45 46 47 ผู้หญิงเบอร์ 41 42 43 ส้นสูงด้วย หาซื้อที่ไหนในเชียงใหม่",
+    "en": "Big feet — a 46 for a man, or a 42 in a heel. Where do I find shoes in Chiang Mai?"
+   },
+   "asked_on": "2026-08-31",
+   "via": "other",
+   "lead": [
+    {
+     "th": "สองคำถามในประโยคเดียว และตัวเลขคนละชุด ผู้ชายที่ใส่เบอร์ 45–48 กับผู้หญิงที่ใส่เบอร์ 41–45 โดยเฉพาะส้นสูง ไม่ได้เจอปัญหาเดียวกันและไม่ได้ไปร้านเดียวกัน · ผู้หญิงก่อน เพราะที่นี่มีคำตอบเป็นที่ทางจริงๆ ห้าร้านเรียงติดกันในโซนเครื่องแต่งกาย ตลาดธานินทร์ ทุกร้านลงป้ายตัวเองว่า รองเท้าส้นสูง อยู่ในรัศมีสามสิบเมตร เดินถามทั้งแถวได้ในสิบนาที บวกร้านรสรินที่ถนนสันติธรรมอีกหนึ่ง ไม่มีร้านไหนประกาศว่ามีถึงเบอร์อะไร ต้องถามเอง ประโยคเดียว ไซส์ใหญ่สุดเบอร์อะไรคะ · ผู้ชาย ร้านกีฬาหรือเอาต์ดอร์ ไม่ใช่ร้านรองเท้า เพราะเขาสั่งของตามชุดไซส์สากล · และสิ่งที่ใช้ได้กับทั้งสองคน คือตัวเลข วัดเท้าเป็นเซนติเมตรแล้วบอกตัวเลขนั้น ยืนบนกระดาษ ขีดที่ส้นกับปลายนิ้วที่ยาวที่สุด แล้ววัด เซนติเมตรแปลเหมือนกันทุกร้าน ทุกภาษา ส่วนเบอร์ไม่ใช่",
+     "en": "Two questions in one sentence, and they do not share a number. A man in 45–48 and a woman in 41–45 — especially in a heel — have different problems and go to different shops. THE WOMEN'S HALF HAS AN ADDRESS. Five shoe shops stand side by side in the apparel zone of ตลาดธานินทร์ Tanin Market, every one of them tagged รองเท้าส้นสูง, all five inside thirty metres: you can ask the whole row in ten minutes. รสริน on ถ.สันติธรรม makes six. **None of them publishes a size ceiling** — nobody in this city does — so it is one sentence at each counter: ไซส์ใหญ่สุดเบอร์อะไร, what is the biggest number you carry. THE MEN'S HALF is a sports or outdoor shop rather than a shoe shop, because they buy from international size runs. AND THE THING THAT WORKS FOR BOTH IS A NUMBER: measure your foot in centimetres and say it. Stand on paper, mark the heel and the longest toe, measure between. The centimetre means the same in every shop and every language. เบอร์ does not."
+    }
+   ],
+   "notes": [
+    {
+     "cls": "tinynote",
+     "th": "แก้ไข หน้านี้เคยเขียนว่า ทั้งจังหวัดเชียงใหม่มีร้านรองเท้าแปดร้าน ซึ่งจริงกับแผนที่เปิด แต่ไม่จริงกับเมือง สารบัญไทยมีราวเก้าสิบร้าน และในนั้นมีห้าร้านเรียงติดกันในตลาดธานินทร์ที่การเก็บข้อมูลของเราไม่เห็นสักร้านเดียว เพราะแผงในตลาดมีหลังคาไม่ใช่หมุดบนแผนที่ และจะไม่มีวันเป็น การนับจากแหล่งที่มองไม่เห็นของที่ถาม ไม่ใช่การนับ",
+     "en": "A CORRECTION. This page first said there were eight shoe shops in the whole of Chiang Mai. That is true of OpenStreetMap and false about the city. The Thai directory carries about ninety, and among them the five that stand in one aisle at ตลาดธานินทร์ — not one of which our crawl saw, because a stall inside a covered market is not a map node and never will be. A count taken from a source that cannot see the thing you asked about is not a count."
+    },
+    {
+     "cls": "tinynote",
+     "th": "ตัวเลขคนละชุด และคำก็คนละคำ ผู้ชาย เบอร์ 45–48 คำค้นคือ รองเท้าไซส์ใหญ่ · ผู้หญิง เบอร์ 41–45 ชั้นวางของผู้หญิงในไทยมักจบที่ 40 หรือ 41 คือเริ่มขาดเร็วกว่าฝั่งผู้ชายหนึ่งเบอร์ และคำค้นที่ใช้ได้คือ รองเท้าส้นสูงไซส์ใหญ่ ไม่ใช่ รองเท้าไซส์ใหญ่ เฉยๆ ค้นด้วยคำของผู้ชาย เชียงใหม่จะตอบมาเป็นเดคาทลอนกับร้านขายของทหาร ค้นด้วยคำของผู้หญิง จะตอบมาเป็นแถวร้านในตลาด เมืองเดียวกัน วันเดียวกัน",
+     "en": "DIFFERENT NUMBERS, AND A DIFFERENT WORD. Men: 45–48, and the search term is รองเท้าไซส์ใหญ่. Women: 41–45 — a Thai women's shelf usually stops at 40 or 41, so the shortage starts a size earlier than the men's — and the term that finds anything is ส้นสูงไซส์ใหญ่, big-size HIGH HEEL, not รองเท้าไซส์ใหญ่ on its own. Search in the men's words and Chiang Mai answers with Decathlon and an army-surplus shop. Search in the women's and it answers with a market row. Same city, same day."
+    },
+    {
+     "cls": "tinynote",
+     "th": "การค้าสำหรับรองเท้าส้นสูงไซส์ใหญ่มีอยู่จริง และเรียกลูกค้าด้วยชื่อตรงๆ ร้านไทยที่ขายรองเท้าผู้หญิงเบอร์ 35 ถึง 49 เขียนไว้ในหน้าสินค้าของตัวเองว่า สำหรับผู้ที่เท้าอวบอูมหรือสาวสอง พร้อมตารางวัดเท้า 40–46 และคำแนะนำให้บวกหนึ่งเบอร์ ส้นสูงมีถึง 5–8 นิ้ว นั่นตอบว่ามีของ แต่ยังไม่ตอบว่ามีในเชียงใหม่ เพราะเป็นร้านออนไลน์ และรองเท้าเป็นของอย่างเดียวที่ไม่ควรซื้อโดยไม่ได้ลองยืน",
+     "en": "THE TRADE EXISTS AND NAMES ITS CUSTOMER. A Thai retailer selling women's shoes from 35 to 49 writes on its own product pages *สำหรับผู้ที่เท้าอวบอูมหรือสาวสอง* — for people with full feet, or สาวสอง — publishes a foot chart for 40–46, advises sizing up one, and carries heels of five to eight inches. So the shoe is made and sold in this country in plain retail Thai. That does not yet answer Chiang Mai: it is an online shop, and a shoe is the one thing not to buy without standing up in it."
+    },
+    {
+     "cls": "tinynote",
+     "th": "เทียบไซส์ จากสองแหล่งที่พิมพ์เอง และเก็บความไม่ตรงกันไว้ ไม่เฉลี่ย — มิซูโน่ประเทศไทย 28.0 ซม. = 44 · 29.0 = 45 · 30.0 = 46 · 31.0 = 47 · 32.0 = 48.5 ซึ่งเท่ากับ US 14 และเป็นเพดานของตาราง — ไทยรัฐ 25 ก.ค. 2566 28.0 = 44 · 29.0 = 45 · 29.5 = 46 · 30.5 = 47 สองตารางตรงกันที่ 44 กับ 45 แล้วแยกทางกันตั้งแต่ 46 ขึ้นไป ครึ่งเซนติเมตรคือหนึ่งไซส์เต็ม ดังนั้นเกิน 45 ให้บอกเป็นเซนติเมตร ตารางเทียบไซส์เป็นของผู้ผลิต ไม่ใช่ของประเทศ · ตารางแรกที่ค้นเจอให้ 44 = 24.6 ซม. ซึ่งเท่ากับเบอร์ 39 ผิดไปสามไซส์ครึ่ง ไม่ได้ใช้",
+     "en": "Conversion, from two sources that print it themselves, with the disagreement kept rather than averaged. MIZUNO THAILAND: 28.0 cm = 44 · 29.0 = 45 · 30.0 = 46 · 31.0 = 47 · 32.0 = 48.5, which is US 14 and the top of its chart. ไทยรัฐ THAIRATH, 25 July 2023: 28.0 = 44 · 29.0 = 45 · 29.5 = 46 · 30.5 = 47. They agree exactly at 44 and 45 and part company from 46 up. Half a centimetre is a full size, so past 45 say the centimetre. A conversion chart is the maker's, never the country's — and the first table an ordinary search returns gives 44 = 24.6 cm, which is about a 39. Three and a half sizes wrong. Not used here."
+    },
+    {
+     "cls": "tinynote",
+     "th": "ทางที่มีอยู่จริง เรียงตามที่ควรลอง · หนึ่ง ร้านกีฬาหรือเอาต์ดอร์ ไม่ใช่ร้านรองเท้า เพราะเขาสั่งของตามชุดไซส์สากล เชียงใหม่มีเดคาทลอนสามสาขา อาดิดาส สปอร์ตแมกซ์ แสนทองสปอร์ต APX และร้านอาร์มี่สโตร์ นี่คือเหตุผลที่คำตอบของคำถามนี้มักเป็นร้านกีฬามากกว่าร้านรองเท้า · สอง ให้เขาสั่งเข้ามา สั่งได้ไหม กี่วัน เคาน์เตอร์แบรนด์ที่ไม่มีของบนชั้นมักสั่งได้ · สาม ออนไลน์ ซึ่งเป็นที่ที่ตลาดรองเท้าไซส์ใหญ่ของไทยอยู่จริง รองเท้าแตะไซส์ใหญ่มีถึงเบอร์ 52 · สี่ สั่งทำ มีจริงและแพง",
+     "en": "The routes that do exist, in the order to try them. ONE — a sports or outdoor shop, not a shoe shop. They buy from international size runs and stock past where a fashion shelf stops: Chiang Mai has three Decathlons, Adidas, Sports Maximise, สปอร์ตแมกซ์, แสนทองสปอร์ต, APX and an Army Stores. This is why the answer here is usually a sports shop. TWO — ask them to order it in: สั่งได้ไหม กี่วัน, can you order it and how many days; a brand counter with nothing on the wall can often get one. THREE — online, which is where the Thai big-size shoe trade actually lives; big-size sandals run to เบอร์ 52 there and nowhere on a street here. FOUR — have them made. Real, and expensive, and not comparable in price to any of the above."
+    },
+    {
+     "cls": "tinynote",
+     "th": "ประโยคที่ใช้ได้จริง เท้ายาว 30 เซนติเมตร มีเบอร์อะไรบ้าง · มีเบอร์ 46 ไหมคะ/ครับ · ไซส์ใหญ่สุดเบอร์อะไร · สั่งได้ไหม กี่วัน · มีสาขาไหนมีเบอร์ใหญ่บ้าง คำที่ต้องรู้ เบอร์ คือไซส์รองเท้า · เท้าใหญ่ · เบอร์ใหญ่ · ไซส์พิเศษ · ความยาวเท้า",
+     "en": "Sentences to say: เท้ายาว 30 เซนติเมตร มีเบอร์อะไรบ้าง — my foot is 30 cm, what number is that here · มีเบอร์ 46 ไหม — do you have a 46 · ไซส์ใหญ่สุดเบอร์อะไร — what is the biggest number you carry · สั่งได้ไหม กี่วัน — can you order it, how many days · มีสาขาไหนมีเบอร์ใหญ่บ้าง — which of your branches has the big sizes. The words: เบอร์ boe is how a shoe size is said · เท้าใหญ่ thao yai, big feet · เบอร์ใหญ่ boe yai, a big number · ไซส์พิเศษ sai phiset, special size · ความยาวเท้า khwam yao thao, foot length."
+    },
+    {
+     "cls": "tinynote",
+     "th": "ทำไมหน้านี้ถึงแยกจากหน้าเสื้อผ้า เพราะเสื้อ สั่งตัด ได้ และสารบัญนี้รู้จักร้านตัดเสื้อ 67 ร้าน ส่วนรองเท้าสั่งตัดไม่ได้ในราคาที่คนทั่วไปจ่ายไหวสำหรับคู่เดียว คำถามสองข้อนี้มาพร้อมกันเสมอแต่คำตอบคนละแบบ ถ้ารวมกัน ข้างที่มีคำตอบเยอะจะบังข้างที่ไม่มี เรื่องเสื้อผ้าไซส์ใหญ่อยู่อีกหน้าหนึ่ง และหน้านั้นมีรายชื่อให้กดจริง",
+     "en": "Why this is a separate page from the clothes one: a shirt can be MADE, and this directory knows 67 tailors who will. A shoe cannot, not at a price anyone pays for a single pair. The two questions always arrive in one sentence and separate the moment you answer them — and folding them would let the half with an answer hide the half without one. The clothes question is on its own page, and that one does have a list."
+    }
+   ],
+   "find": {
+    "sub": "shoes"
+   },
+   "first": [
+    "cm-curated-heels-lan-ooy",
+    "cm-curated-heels-nuy-shoes",
+    "cm-curated-heels-phet-nam-nueng",
+    "cm-curated-heels-mae-ooy",
+    "cm-curated-heels-lan-ooy-1",
+    "cm-curated-heels-rotsarin"
+   ]
+  },
+  {
+   "key": "copy-print",
+   "q": {
+    "th": "ถ่ายเอกสาร ปริ้นงาน เข้าเล่ม ใกล้ฉันที่ไหน ร้านไหนเปิดดึก ปริ้นจากมือถือได้ไหม",
+    "en": "Where can I photocopy, print from my phone and get a report bound — and which shops are open late?"
+   },
+   "asked_on": "2026-09-04",
+   "via": "other",
+   "find": {
+    "sub": "copyshop"
+   },
+   "show": "phone",
+   "lead": [
+    {
+     "th": "จนถึงวันนี้สารบัญนี้มีร้านถ่ายเอกสาร ศูนย์ ร้าน จากสองหมื่นกว่ารายการ — ไม่ใช่เพราะเมืองไม่มี แต่เพราะไม่เคยถาม: แผนที่เปิดมี shop=copyshop อยู่ 43 จุดในเชียงใหม่และ 12 จุดในเชียงราย และตัวกรองนี้ไม่เคยอยู่ในชุดคำถามของเราเลย ร้านเดียวที่หลุดเข้ามาถูกจัดไว้ใต้ ซ่อมคอมพิวเตอร์ อ่านสารบัญไทย (CMHY.city) เพิ่มอีก 60 ร้านใต้คำว่า ร้านถ่ายเอกสาร {n} ร้านข้างล่างนี้มาจากทั้งสองทางในวันนี้ · กฎของทำเลอยู่ในชื่อร้านเอง: ร้านหนึ่งเขียนไว้ว่า *ย้ายไป หน้าอาคารประกันสังคม* อีกร้านชื่อ *ดับเบิ้ลเอ หน้าค่าย ป.พัน 7* — ร้านถ่ายเอกสารตั้งอยู่หน้าประตูของหน่วยงานที่ต้องการสำเนา ไม่ใช่รวมกันเป็นย่าน วัดจริง: ร้านถ่ายเอกสารในเชียงใหม่ 64 จาก 157 ร้าน อยู่ในระยะ 150 เมตรจากที่ว่าการ โรงเรียน มหาวิทยาลัย หรือโรงพยาบาล (มัธยฐาน 181 เมตร) เทียบกับเซเว่น 119 จาก 516 (มัธยฐาน 267 เมตร) ถ้าต้องยื่นเอกสารที่ไหน ร้านที่ใช่คือร้านที่หน้าประตูนั้น",
+     "en": "Until today this directory held ZERO copy shops in twenty thousand records — not because the city has none, but because we never asked: the open map carries 43 shop=copyshop points in Chiang Mai and 12 in Chiang Rai, and that selector had never once been in our crawl. The one that slipped in was filed under computer repair. Read in Thai, CMHY.city adds sixty more under ร้านถ่ายเอกสาร. The {n} below come from both, crawled today. THE RULE OF WHERE IS WRITTEN IN THE SHOPS' OWN NAMES: one lists itself as *moved to the front of the Social Security building*; another is *Double A, in front of the artillery camp*. A copy shop stands at the gate of whichever office wants the copies — they do not cluster into a quarter. Measured: 64 of Chiang Mai's 157 copy shops stand within 150 m of a government office, school, university or hospital (median 181 m), against 119 of 516 7-Elevens (median 267 m). If you have papers to file somewhere, the right shop is the one at that door."
+    }
+   ],
+   "notes": [
+    {
+     "cls": "tinynote",
+     "th": "ราคาตามป้าย ยังไม่ยืนยันที่เคาน์เตอร์: ถ่ายเอกสารขาวดำ หน้าละ 1 บาท และเหลือ 50 สตางค์เมื่อเกิน 100 หน้า (ร้านย่านสันติธรรม โพสต์รีวิว ม.ค. 2568) ชื่อร้านสองร้านในสารบัญคือ ร้านถ่ายเอกสาร 35 สต. และ 45 ส.ต. — ราคาต่อแผ่นเป็นชื่อร้านได้ในเมืองนี้ · ปริ้นสีและเข้าเล่มไม่มีราคากลาง ถามก่อนสั่ง · เกือบทุกร้านรับไฟล์ทางไลน์ ส่งไฟล์ PDF ไปก่อน เดินไปรับ",
+     "en": "Prices as posted, not yet confirmed at the counter: black-and-white copies at 1 baht a page, 50 satang once past 100 pages (a Santitham shop, review post Jan 2025). Two shops in the register are NAMED for their price — ร้านถ่ายเอกสาร 35 สต. and 45 ส.ต., thirty-five and forty-five satang. Colour and binding have no going rate; ask first. Nearly every shop takes the file by LINE: send the PDF, walk over and collect."
+    },
+    {
+     "cls": "tinynote",
+     "th": "ประโยคที่ใช้: ถ่ายเอกสาร 2 ชุด · ปริ้นขาวดำ/ปริ้นสี · หน้าเดียว/หน้าหลัง · เข้าเล่มสันกาว (เล่มรายงาน) / สันห่วง (เปิดราบ) · เคลือบบัตร · สแกนส่งไลน์ · ถ่ายพาสปอร์ตหน้าแรกกับหน้าวีซ่า — ร้านหน้า ตม. รู้ว่าต้องถ่ายหน้าไหนบ้างโดยไม่ต้องบอก",
+     "en": "Sentences that work: ถ่ายเอกสาร 2 ชุด, two copies · ปริ้นขาวดำ / ปริ้นสี, print mono / colour · หน้าเดียว / หน้าหลัง, single- / double-sided · เข้าเล่มสันกาว, glue-bound (a report) / สันห่วง, spiral (lies flat) · เคลือบบัตร, laminate · สแกนส่งไลน์, scan it to my LINE · ถ่ายพาสปอร์ตหน้าแรกกับหน้าวีซ่า, copy the passport bio page and the visa page — the shop at the immigration gate knows which pages without being told."
+    },
+    {
+     "cls": "tinynote",
+     "th": "เปิดดึก: ร้านเพื่อนถ่ายเอกสาร หน้า มช. แจ้งว่าเปิด 24 ชั่วโมง (สารบัญบุคคลที่สาม ธ.ค. 2566) ร้านที่เหลือส่วนใหญ่ปิดหกโมงเย็นถึงหนึ่งทุ่ม และปิดวันอาทิตย์ ร้านที่ติดป้าย 24 ชม. บนหน้าของตัวเองจะติดสัญลักษณ์ 🌙 ในรายการ · ร้านถ่ายรูปติดบัตร 4×6 ที่ ตม. ต้องการ เป็นอีกอาชีพหนึ่ง — สารบัญไทยมีร้านถ่ายรูป 58 ร้าน 12 ร้านเขียน รูปติดบัตร/รูปวีซ่า ไว้ในแท็กของตัวเอง ทั้ง 58 ร้านอยู่บนชั้น ร้านถ่ายรูป-รูปติดบัตร แล้ว ร้านที่ติดแท็กรูปติดบัตรมีสัญลักษณ์ 📷",
+     "en": "Late: เพื่อนถ่ายเอกสาร by CMU's front gate states 24 hours (third-party directory, Dec 2023); most of the rest close between six and seven and shut on Sunday. A shop that says 24 ชม. on its own page carries 🌙 in the list. The 4×6 photo immigration wants is a different trade — the Thai directory holds 58 photo studios, 12 of which write รูปติดบัตร or รูปวีซ่า in their own tags. All 58 are on the Photo Studios & ID Photos shelf now; the ones tagging ID photos carry 📷."
+    }
+   ],
+   "first": []
+  },
+  {
+   "key": "document-prep",
+   "q": {
+    "th": "เอกสารที่ต้องแปล รับรอง หรือทำเรื่องวีซ่า ไปทำที่ไหนในเชียงใหม่ ต้องเตรียมอะไรบ้าง",
+    "en": "Where do I get a document translated, legalized or a visa form prepared in Chiang Mai, and what do I bring?"
+   },
+   "asked_on": "2026-09-04",
+   "via": "other",
+   "find": {
+    "ids": [
+     "cm-osm-way-822791365",
+     "cm-osm-node-12619518873",
+     "cm-curated-mfa-legalization-desk",
+     "cm-curated-us-consulate-chiangmai",
+     "cm-curated-aphiwat-bualoi-law",
+     "cr-curated-immigration-central-chiangrai",
+     "cr-osm-way-401955473",
+     "cr-osm-node-2193469948",
+     "cr-osm-node-9847655396",
+     "cm-curated-centa-care-translation",
+     "cm-curated-chiangmai-translation-service",
+     "cm-curated-paper-12875",
+     "cm-curated-paper-15321",
+     "cm-curated-paper-23418",
+     "cm-osm-node-6235387371",
+     "cm-curated-paper-14867",
+     "cm-curated-paper-23654",
+     "cm-curated-paper-26553",
+     "cm-curated-paper-2733",
+     "cm-curated-paper-4269",
+     "cm-curated-paper-488",
+     "cm-curated-modus-language-services"
+    ]
+   },
+   "show": "phone",
+   "lead": [
+    {
+     "th": "เอกสารจะไปที่ไหน เลือกช่องทางตามนั้น — สามงานที่คนมักเรียกรวมกันว่า ทำเอกสาร คือคนละอาชีพ คนละเคาน์เตอร์ คนละราคา: (1) ต่อวีซ่า / รายงาน 90 วัน / แจ้งที่พัก ทำเองที่ ตม. ฟรีหรือตามค่าธรรมเนียม ร้านหน้า ตม. ถ่ายเอกสารและกรอกแบบฟอร์มให้ (2) แปลเอกสารพร้อมรับรองคำแปล ที่ศูนย์แปล — สารบัญไทยมี 15 รายการใต้ รับแปลเอกสาร แต่ 3 ในนั้นเป็นโรงเรียนสอนภาษา (3) ตรารับรอง: นิติกรณ์ของกรมการกงสุล ชั้น 5 เซ็นทรัลแอร์พอร์ต หรือโนตารีของสภาทนายความ — มีหน้าของตัวเองแล้ว {n} ประตูข้างล่างนี้อ่านจากหน้าของแต่ละที่เอง พร้อมวันที่",
+     "en": "Pick the route by where the paper is going. Three jobs people lump together as \"document services\" are three trades at three counters with three prices. ONE — the extension, the 90-day report, the TM30: done at immigration yourself, for the fee or for nothing; the shop at the immigration gate copies the pages and fills the form. TWO — a certified translation, at a translation counter: the Thai directory lists 15 under รับแปลเอกสาร, and three of those are language schools. THREE — a seal: the MFA legalization desk on floor 5 of Central Airport, or a Lawyers Council notarial attorney, which has its own page. The {n} doors below were read from each place's own page, with the date."
+    }
+   ],
+   "notes": [
+    {
+     "cls": "tinynote",
+     "th": "ตม. เชียงใหม่มีสองประตู ที่เดียวกันโทร 1178: สำนักงานหลัก 71 หมู่ 3 ถนนสนามบิน ต.สุเทพ (จ–ศ 08:30–16:30) และ ชั้น 2 เซ็นทรัล เชียงใหม่ (เซ็นทรัลเฟสติวัล) เปิด 6 มิ.ย. 2565 (จ–ศ 09:00–17:00) รับต่อวีซ่าระยะสั้น รายงาน 90 วัน แจ้งที่พัก และ re-entry — สาขาพรอมเมนาดาปิดตั้งแต่ 25 มี.ค. 2563 หน้าเก่าหลายหน้ายังชี้ไปที่นั่น · เชียงราย: สำนักงานหลักอยู่แม่สาย ส่วนแยกอยู่ชั้น G เซ็นทรัล เชียงราย ข้างสำนักงานหนังสือเดินทาง ย้ายมา 18 ก.ย. 2566 (จ–ศ 08:30–16:30)",
+     "en": "Chiang Mai immigration has two doors on one phone, 1178: the main office at 71 Moo 3 Airport Road, Suthep (Mon–Fri 08:30–16:30), and the 2nd floor of Central Chiang Mai (Central Festival), opened 6 June 2022 (Mon–Fri 09:00–17:00), which takes short extensions, 90-day reports, TM30 and re-entry. The Promenada branch closed on 25 March 2020 and many older pages still point there. Chiang Rai: the main office is in Mae Sai; the city branch is on the G floor of Central Chiang Rai beside the passport office, moved there 18 September 2023 (Mon–Fri 08:30–16:30)."
+    },
+    {
+     "cls": "tinynote",
+     "th": "สิ่งที่แบบฟอร์ม ตม.7 เองระบุ: รูปถ่าย 4×6 ซม. หนึ่งรูป (ถ่ายไม่เกิน 6 เดือน) และค่าธรรมเนียม 1,900 บาท ไม่คืนทุกกรณี (ตามหน้าค่าธรรมเนียมของ ตม.1) re-entry ครั้งเดียว 1,000 บาท หลายครั้ง 3,800 บาท · สำเนาที่ทุกคนถ่าย: หน้าแรกพาสปอร์ต หน้าวีซ่า หน้าตราเข้าเมือง บัตรขาเข้า/ใบรับ ตม.30 — เซ็นชื่อทุกแผ่น ร้านหน้า ตม. รู้ชุดนี้ดีกว่าเว็บไซต์",
+     "en": "What the TM.7 form itself states: one 4×6 cm photo (under six months old) and a fee of 1,900 baht, non-refundable in every case (per Immigration Division 1's fee page); re-entry 1,000 single, 3,800 multiple. The copies everybody makes: passport bio page, visa page, entry-stamp page, and the TM30 receipt — sign every sheet. The shop at the immigration gate knows this set better than any website."
+    },
+    {
+     "cls": "tinynote",
+     "th": "แปล: ราคาตามหน้าเว็บของบริษัทเอง ยังไม่ยืนยัน — อังกฤษ↔ไทย 350 บาทต่อหน้า (ประมาณ 200 คำ) และค่าเดินเรื่องรับรองนิติกรณ์ที่กรมการกงสุล เริ่ม 1,800 บาทต่อหน้า (เซนต้า แคร์ ช้างเผือก) เอกสารทั่วไปเช่นบัตรประชาชน ทะเบียนบ้าน เริ่ม 300 บาท (JSN แม่ริม) ส่วนตราของกระทรวงเองราคา 200 บาทต่อตรา (ด่วน 400) — ค่าเดินเรื่องคือค่าที่จ่ายให้คนไปยืนต่อแถวแทน ไม่ใช่ค่าตรา ถามแยกสองรายการ · ทะเบียนสมรสชาวต่างชาติ: เชียงใหม่ ทรานสเลชั่น เซอร์วิส ถนนโชตนา ระบุงานนี้ไว้ในหน้าของตัวเอง",
+     "en": "Translation, prices from the firms' own sites and unconfirmed: English↔Thai 350 baht a page of about 200 words, and an MFA legalization RUN from 1,800 baht a page (Centa Care, Chang Phueak); simple papers such as an ID card or house registration from 300 baht (JSN, Mae Rim). The ministry's own seal is 200 baht (400 express). The run fee pays a person to stand in the queue for you; it is not the seal. Ask for the two as separate lines. Foreigner marriage registration: Chiangmai Translation Service on Chotana Road states the job on its own page."
+    },
+    {
+     "cls": "tinynote",
+     "th": "เชียงราย: แผนที่เปิดมีสำนักงานแปลในจังหวัดอยู่หนึ่งแห่ง — บ้านแปลภาษา — และเป็นแห่งเดียว ทุกหน้าเว็บ แปลเอกสารเชียงราย ที่ค้นเจอ (KTP, NYC, Exact, AMKO) เป็นบริษัทกรุงเทพฯ รับงานทางไปรษณีย์และไลน์ ไม่ผิดอะไร แต่ต้องรู้ว่ากำลังส่งต้นฉบับไปกรุงเทพฯ · เอเจนต์ที่รับ ยื่นแทน ที่ ตม.: ถูกกฎหมายในฐานะคนถือเอกสารไปให้ แต่ค่าธรรมเนียมของรัฐไม่เปลี่ยน และไม่มีใครข้ามหลักเกณฑ์ได้ หน้านี้ไม่แนะนำเอเจนต์รายใด",
+     "en": "Chiang Rai: the open map holds one translation office in the province — บ้านแปลภาษา — and only one. Every \"แปลเอกสารเชียงราย\" web page found (KTP, NYC, Exact, AMKO) is a Bangkok firm taking work by post and LINE. Nothing wrong with that; know that your original is going to Bangkok. Agents who \"file for you\" at immigration: lawful as a courier, the state fee unchanged, and nobody gets past the rules. This page recommends no agent."
+    },
+    {
+     "cls": "tinynote",
+     "th": "ขนาดรูป ไม่ใช่ขนาดเดียวกันทุกประเทศ — ตม. ไทย 4×6 ซม. (ตามแบบฟอร์ม ตม.7 เอง) · พาสปอร์ตอังกฤษ 45×35 มม. ศีรษะสูง 29–34 มม. พื้นหลังครีมหรือเทาอ่อน ถ่ายภายใน 1 เดือน (gov.uk อ่าน 4 ก.ย. 2569) · พาสปอร์ต/วีซ่าสหรัฐฯ 2×2 นิ้ว ถ่ายภายใน 6 เดือน (หน้า travel.state.gov ปฏิเสธการอ่านวันนี้ ยืนยันกับหน้านั้นเอง) · บอกร้านถ่ายรูปว่า ไปประเทศไหน ก่อนบอกขนาด ร้านที่ติดแท็ก รูปวีซ่า จะรู้ขนาดเอง",
+     "en": "Photo sizes differ by country — Thai immigration 4×6 cm (the TM.7 form's own words) · UK passport 45×35 mm, head 29–34 mm, cream or light-grey background, taken in the last month (gov.uk, read 4 Sep 2026) · US passport/visa 2×2 in, taken in the last 6 months (travel.state.gov refused a fetch today; confirm on that page) · tell the studio WHICH COUNTRY before the size; a shop tagged รูปวีซ่า knows the sizes."
+    }
+   ],
+   "first": [
+    "cm-osm-node-12619518873",
+    "cm-osm-way-822791365",
+    "cr-curated-immigration-central-chiangrai",
+    "cm-curated-mfa-legalization-desk"
    ]
   }
  ]

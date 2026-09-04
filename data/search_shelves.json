@@ -1,1928 +1,2029 @@
 {
- "note": "term -> shelf keys. Membership, not synonymy: a match NARROWS the search to these shelves.",
- "shelves": {
-  "วัดในเวียง": [
-   "wat"
-  ],
-  "วัดบนดอย": [
-   "wat"
-  ],
-  "ศาลพระภูมิ": [
-   "spirit-house",
-   "wat"
-  ],
-  "old": [
-   "wat"
-  ],
-  "city": [
-   "wat"
-  ],
-  "wats": [
-   "wat"
-  ],
-  "mountain": [
-   "wat"
-  ],
-  "spirit": [
-   "wat"
-  ],
-  "วัด-สิ่งศักดิ์สิทธิ์": [
-   "wat"
-  ],
-  "wats & sacred places": [
-   "wat"
-  ],
-  "spirit houses": [
-   "spirit-house"
-  ],
-  "อาหารไทย": [
-   "food",
-   "thai"
-  ],
-  "นานาชาติ": [
-   "food",
-   "international",
-   "school"
-  ],
-  "ข้าวซอย": [
-   "food"
-  ],
-  "ทะเล": [
-   "food"
-  ],
-  "มังสวิรัติ": [
-   "cooking",
-   "food"
-  ],
-  "สตรีทฟู้ด": [
-   "food"
-  ],
-  "noodles": [
-   "food"
-  ],
-  "seafood": [
-   "food",
-   "seafood"
-  ],
-  "vegetarian": [
-   "cooking",
-   "food"
-  ],
-  "street": [
-   "food"
-  ],
-  "food": [
-   "food"
-  ],
-  "ร้านอาหาร-ของกิน": [
-   "food"
-  ],
-  "food & eats": [
-   "food"
-  ],
-  "ตามสั่ง-ผัดกะเพรา": [
-   "made-to-order"
-  ],
-  "made-to-order": [
-   "made-to-order"
-  ],
-  "ข้าวซอย-ก๋วยเตี๋ยว": [
-   "northern"
-  ],
-  "khao soi & noodles": [
-   "northern"
-  ],
-  "อาหารทะเล": [
-   "seafood"
-  ],
-  "มังสวิรัติ-เจ": [
-   "vegetarian"
-  ],
-  "vegetarian & vegan": [
-   "vegetarian"
-  ],
-  "สตรีทฟู้ด-ฟาสต์ฟู้ด": [
-   "street-food"
-  ],
-  "street food & fast food": [
-   "street-food"
-  ],
-  "เบเกอรี่-ของหวาน": [
-   "bakery-dessert"
-  ],
-  "bakery & dessert": [
-   "bakery-dessert"
-  ],
-  "บาร์-ผับ": [
-   "bar-pub"
-  ],
-  "bars & pubs": [
-   "bar-pub"
-  ],
-  "กาแฟ-คาเฟ่": [
-   "cafe"
-  ],
-  "coffee & cafés": [
-   "cafe"
-  ],
-  "ร้านริมน้ำ": [
-   "riverside"
-  ],
-  "riverside": [
-   "riverside"
-  ],
-  "นวดแผนไทย": [
-   "massage"
-  ],
-  "นวดเท้า": [
-   "massage"
-  ],
-  "น้ำมัน": [
-   "massage"
-  ],
-  "ประคบ": [
-   "massage"
-  ],
-  "จับเส้น": [
-   "massage"
-  ],
-  "ตอกเส้น": [
-   "massage",
-   "tok-sen"
-  ],
-  "ย่ำขาง": [
-   "massage",
-   "yam-khang"
-  ],
-  "สปา": [
-   "massage"
-  ],
-  "traditional": [
-   "massage"
-  ],
-  "foot": [
-   "foot",
-   "massage"
-  ],
-  "oil": [
-   "massage"
-  ],
-  "herbal": [
-   "massage"
-  ],
-  "compress": [
-   "massage"
-  ],
-  "deep": [
-   "massage"
-  ],
-  "sen": [
-   "massage"
-  ],
-  "work": [
-   "massage"
-  ],
-  "tok": [
-   "massage"
-  ],
-  "yam": [
-   "massage"
-  ],
-  "khang": [
-   "massage"
-  ],
-  "spa": [
-   "massage"
-  ],
-  "นวด-สปา": [
-   "massage"
-  ],
-  "massage & spa": [
-   "massage"
-  ],
-  "นวดแผนไทย-แผนโบราณ": [
-   "thai-traditional"
-  ],
-  "thai traditional": [
-   "thai-traditional"
-  ],
-  "นวดเท้า-กดจุดฝ่าเท้า": [
-   "foot"
-  ],
-  "นวดน้ำมัน-อโรมา": [
-   "oil"
-  ],
-  "oil & aroma": [
-   "oil"
-  ],
-  "ประคบสมุนไพร": [
-   "prakhop"
-  ],
-  "herbal compress": [
-   "prakhop"
-  ],
-  "นวดจับเส้น": [
-   "chap-sen"
-  ],
-  "deep sen work": [
-   "chap-sen"
-  ],
-  "tok sen (lanna)": [
-   "tok-sen"
-  ],
-  "yam khang (lanna)": [
-   "yam-khang"
-  ],
-  "นวดราชสำนัก": [
-   "ratchasamnak"
-  ],
-  "royal court style": [
-   "ratchasamnak"
-  ],
-  "นวดออฟฟิศซินโดรม": [
-   "office-syndrome"
-  ],
-  "office syndrome": [
-   "office-syndrome"
-  ],
-  "สปา-ขัดผิว-อบไอน้ำ": [
-   "spa-body"
-  ],
-  "spa, scrub & steam": [
-   "spa-body"
-  ],
-  "ขัดขี้ไคล-ระเบิดขี้ไคล": [
-   "khat-khi-khlai"
-  ],
-  "dead-skin scrub": [
-   "khat-khi-khlai"
-  ],
-  "นวดหน้า-กัวซาหน้า": [
-   "face"
-  ],
-  "facial & face gua sha": [
-   "face"
-  ],
-  "ครอบแก้ว": [
-   "cupping"
-  ],
-  "cupping": [
-   "cupping"
-  ],
-  "ทับหม้อเกลือ-อยู่ไฟ": [
-   "postpartum"
-  ],
-  "postnatal care": [
-   "postpartum"
-  ],
-  "นวดคนท้อง": [
-   "prenatal"
-  ],
-  "prenatal": [
-   "prenatal"
-  ],
-  "นวดโดยคนตาบอด": [
-   "blind-massage"
-  ],
-  "blind massage": [
-   "blind-massage"
-  ],
-  "อาบอบนวด": [
-   "ap-ob-nuat"
-  ],
-  "ap ob nuat": [
-   "ap-ob-nuat"
-  ],
-  "โรงพยาบาล": [
-   "hospital",
-   "medical"
-  ],
-  "คลินิก": [
-   "cannabis",
-   "clinic",
-   "medical"
-  ],
-  "หมอฟัน": [
-   "dentist",
-   "medical"
-  ],
-  "ร้านขายยา": [
-   "medical",
-   "pharmacy"
-  ],
-  "รพ.สต.": [
-   "medical"
-  ],
-  "แล็บ": [
-   "medical"
-  ],
-  "กายภาพ": [
-   "medical"
-  ],
-  "dentists": [
-   "dentist",
-   "medical"
-  ],
-  "pharmacies": [
-   "essentials",
-   "medical",
-   "pharmacy"
-  ],
-  "labs": [
-   "medical"
-  ],
-  "physio": [
-   "medical"
-  ],
-  "หมอ-คลินิก-โรงพยาบาล": [
-   "medical"
-  ],
-  "doctors & hospitals": [
-   "medical"
-  ],
-  "hospitals": [
-   "hospital"
-  ],
-  "clinics": [
-   "clinic"
-  ],
-  "หมอเฉพาะทาง": [
-   "doctors"
-  ],
-  "specialists": [
-   "doctors"
-  ],
-  "รพ.สต.-สถานีอนามัย": [
-   "health-station"
-  ],
-  "health stations (รพ.สต.)": [
-   "health-station"
-  ],
-  "แล็บ-ตรวจเลือด": [
-   "laboratory"
-  ],
-  "labs & testing": [
-   "laboratory"
-  ],
-  "กายภาพบำบัด": [
-   "physio"
-  ],
-  "physiotherapy": [
-   "physio"
-  ],
-  "ร้านแว่น-วัดสายตา": [
-   "optometrist"
-  ],
-  "eyes & optometry": [
-   "optometrist"
-  ],
-  "ดูแลระยะยาว-บ้านพักคนชรา": [
-   "long-care"
-  ],
-  "long-term & residential care": [
-   "long-care"
-  ],
-  "แพทย์แผนไทย-สมุนไพร": [
-   "thai-medicine"
-  ],
-  "traditional thai medicine": [
-   "thai-medicine"
-  ],
-  "ร้านกัญชา": [
-   "cannabis",
-   "dispensary"
-  ],
-  "คาเฟ่": [
-   "cannabis"
-  ],
-  "ร้านน้ำใบกระท่อม": [
-   "cannabis",
-   "kratom"
-  ],
-  "ฟาร์ม": [
-   "cannabis"
-  ],
-  "dispensaries": [
-   "cannabis",
-   "dispensary"
-  ],
-  "caf": [
-   "cannabis"
-  ],
-  "kratom": [
-   "cannabis",
-   "kratom"
-  ],
-  "farms": [
-   "cannabis",
-   "cooking"
-  ],
-  "กัญชา-กระท่อม": [
-   "cannabis"
-  ],
-  "cannabis & kratom": [
-   "cannabis"
-  ],
-  "คาเฟ่กัญชา": [
-   "cannabis-cafe"
-  ],
-  "cannabis cafés": [
-   "cannabis-cafe"
-  ],
-  "คลินิกกัญชา": [
-   "clinic"
-  ],
-  "cannabis clinics": [
-   "clinic"
-  ],
-  "ฟาร์ม-วิสาหกิจชุมชน": [
-   "farm"
-  ],
-  "farms & growers": [
-   "farm"
-  ],
-  "ร้านยา": [
-   "essentials",
-   "pharmacy"
-  ],
-  "ธนาคาร": [
-   "essentials"
-  ],
-  "ไปรษณีย์": [
-   "essentials"
-  ],
-  "ราชการ": [
-   "essentials"
-  ],
-  "banks": [
-   "essentials"
-  ],
-  "post": [
-   "essentials"
-  ],
-  "government": [
-   "essentials",
-   "school"
-  ],
-  "ของจำเป็นประจำเมือง": [
-   "essentials"
-  ],
-  "city essentials": [
-   "essentials"
-  ],
-  "ธนาคาร-เอทีเอ็ม": [
-   "bank"
-  ],
-  "banks & atms": [
-   "bank"
-  ],
-  "ร้านซักรีด-สะดวกซัก": [
-   "laundry"
-  ],
-  "laundry": [
-   "laundry"
-  ],
-  "ไปรษณีย์-ขนส่ง": [
-   "post"
-  ],
-  "post & parcels": [
-   "post"
-  ],
-  "ราชการ-เอกสาร": [
-   "gov"
-  ],
-  "government offices": [
-   "gov"
-  ],
-  "วีซ่า-ต่ออายุ": [
-   "visa"
-  ],
-  "visa & extensions": [
-   "visa"
-  ],
-  "ร้านสะดวกซื้อ": [
-   "convenience"
-  ],
-  "convenience stores": [
-   "convenience"
-  ],
-  "โรงแรม": [
-   "hotel",
-   "hotel-full"
-  ],
-  "เกสต์เฮาส์": [
-   "guesthouse",
-   "hotel"
-  ],
-  "โฮสเทล": [
-   "hostel",
-   "hotel"
-  ],
-  "hotels": [
-   "hotel",
-   "hotel-full"
-  ],
-  "guesthouses": [
-   "guesthouse",
-   "hotel"
-  ],
-  "hostels": [
-   "hostel",
-   "hotel"
-  ],
-  "โรงแรม-ที่พัก": [
-   "hotel"
-  ],
-  "hotels & stays": [
-   "hotel"
-  ],
-  "โรงเรียนรัฐ": [
-   "school"
-  ],
-  "เอกชน": [
-   "school"
-  ],
-  "อนุบาล": [
-   "school"
-  ],
-  "มหาวิทยาลัย": [
-   "school",
-   "university"
-  ],
-  "ค่ายมวย": [
-   "muaythai",
-   "school"
-  ],
-  "สอนภาษา": [
-   "school"
-  ],
-  "สอนทำอาหาร": [
-   "cooking",
-   "school"
-  ],
-  "(มีชั้นเรียนทำอาหารไทยของตัวเองแล้ว)": [
-   "school"
-  ],
-  "private": [
-   "school"
-  ],
-  "kindergartens": [
-   "school"
-  ],
-  "universities": [
-   "school",
-   "university"
-  ],
-  "muay": [
-   "sport",
-   "school"
-  ],
-  "language": [
-   "sport",
-   "school"
-  ],
-  "cooking": [
-   "cooking",
-   "school"
-  ],
-  "classes": [
-   "cooking",
-   "school"
-  ],
-  "now": [
-   "sport",
-   "school"
-  ],
-  "have": [
-   "sport",
-   "school"
-  ],
-  "own": [
-   "sport",
-   "school"
-  ],
-  "shelf": [
-   "sport",
-   "school"
-  ],
-  "too": [
-   "school"
-  ],
-  "โรงเรียน-สถานศึกษา": [
-   "school"
-  ],
-  "schools & education": [
-   "school"
-  ],
-  "โรงเรียนนานาชาติ": [
-   "international",
-   "school-intl"
-  ],
-  "international schools": [
-   "international",
-   "school-intl"
-  ],
-  "โรงเรียนรัฐบาล": [
-   "government"
-  ],
-  "government schools": [
-   "government"
-  ],
-  "โรงเรียนเอกชน": [
-   "private"
-  ],
-  "private schools": [
-   "private"
-  ],
-  "อนุบาล-เตรียมอนุบาล": [
-   "kindergarten"
-  ],
-  "kindergartens & nurseries": [
-   "kindergarten"
-  ],
-  "วิทยาลัย-อาชีวศึกษา": [
-   "college"
-  ],
-  "colleges & vocational": [
-   "college"
-  ],
-  "คณะ-อาคารในมหาวิทยาลัย": [
-   "campus"
-  ],
-  "faculties & campus buildings": [
-   "campus"
-  ],
-  "โรงเรียนพระปริยัติธรรม": [
-   "monastic"
-  ],
-  "monastic schools": [
-   "monastic"
-  ],
-  "โรงเรียนการกุศล-ศาสนา": [
-   "religious"
-  ],
-  "faith-founded schools": [
-   "religious"
-  ],
-  "การศึกษาพิเศษ": [
-   "special"
-  ],
-  "special education": [
-   "special"
-  ],
-  "ศึกษาสงเคราะห์": [
-   "welfare"
-  ],
-  "welfare schools": [
-   "welfare"
-  ],
-  "โรงเรียนสอนภาษา": [
-   "language"
-  ],
-  "language schools": [
-   "language"
-  ],
-  "ค่ายมวย-มวยไทย": [
-   "muaythai"
-  ],
-  "muay thai camps": [
-   "muaythai"
-  ],
-  "โรงเรียนสอนทำอาหาร": [
-   "cooking"
-  ],
-  "cooking schools": [
-   "cooking"
-  ],
-  "โรงเรียนสอนนวด": [
-   "massage-school"
-  ],
-  "massage schools": [
-   "massage-school"
-  ],
-  "โรงเรียนดนตรี-ศิลปะ": [
-   "music-art"
-  ],
-  "music & art schools": [
-   "music-art"
-  ],
-  "โรงเรียนสอนเต้น-รำ": [
-   "dance"
-  ],
-  "dance schools": [
-   "dance"
-  ],
-  "กวดวิชา": [
-   "tutoring"
-  ],
-  "tutoring": [
-   "tutoring"
-  ],
-  "โรงเรียนสอนขับรถ": [
-   "driving"
-  ],
-  "driving schools": [
-   "driving"
-  ],
-  "ศูนย์ฝึกอบรม": [
-   "training"
-  ],
-  "training centres": [
-   "training"
-  ],
-  "หลักสูตรอังกฤษ": [
-   "school-intl"
-  ],
-  "อเมริกัน": [
-   "school-intl"
-  ],
-  "สองภาษา": [
-   "school-intl"
-  ],
-  "british": [
-   "school-intl"
-  ],
-  "american": [
-   "school-intl"
-  ],
-  "bilingual": [
-   "school-intl"
-  ],
-  "ตลาดสด": [
-   "fresh",
-   "market"
-  ],
-  "ถนนคนเดิน": [
-   "market",
-   "walking-street"
-  ],
-  "ตลาดนัด": [
-   "flea",
-   "market"
-  ],
-  "fresh": [
-   "cooking",
-   "market"
-  ],
-  "walking": [
-   "market"
-  ],
-  "streets": [
-   "market"
-  ],
-  "flea": [
-   "market"
-  ],
-  "ตลาด": [
-   "market"
-  ],
-  "markets": [
-   "market"
-  ],
-  "fresh markets": [
-   "fresh"
-  ],
-  "walking streets": [
-   "walking-street"
-  ],
-  "flea markets": [
-   "flea"
-  ],
-  "หัตถกรรม": [
-   "shopping"
-  ],
-  "เสื้อผ้ามือสอง": [
-   "shopping"
-  ],
-  "ของฝาก": [
-   "shopping"
-  ],
-  "crafts": [
-   "shopping"
-  ],
-  "consignment": [
-   "shopping"
-  ],
-  "secondhand": [
-   "shopping"
-  ],
-  "gifts": [
-   "shopping"
-  ],
-  "ช้อปปิ้ง-ของฝาก": [
-   "shopping"
-  ],
-  "shopping & gifts": [
-   "shopping"
-  ],
-  "ของฝาก-หัตถกรรม": [
-   "crafts"
-  ],
-  "crafts & gifts": [
-   "crafts"
-  ],
-  "เสื้อผ้ามือสอง-คัดพิเศษ": [
-   "secondhand"
-  ],
-  "consignment & secondhand": [
-   "secondhand"
-  ],
-  "ห้าง-มอลล์": [
-   "mall"
-  ],
-  "malls": [
-   "mall"
-  ],
-  "diy-วัสดุก่อสร้าง": [
-   "diy"
-  ],
-  "diy & hardware": [
-   "diy"
-  ],
-  "ตัดเย็บ-ซ่อมเสื้อผ้า": [
-   "tailor"
-  ],
-  "tailors & alterations": [
-   "tailor"
-  ],
-  "คอนโด": [
-   "realestate"
-  ],
-  "อพาร์ตเมนต์-แมนชั่น": [
-   "realestate"
-  ],
-  "หอพัก": [
-   "dorm",
-   "realestate"
-  ],
-  "หมู่บ้าน": [
-   "realestate"
-  ],
-  "นายหน้า": [
-   "realestate"
-  ],
-  "condos": [
-   "realestate"
-  ],
-  "apartments": [
-   "realestate"
-  ],
-  "mansions": [
-   "realestate"
-  ],
-  "dorms": [
-   "realestate"
-  ],
-  "moobaan": [
-   "realestate"
-  ],
-  "agents": [
-   "realestate"
-  ],
-  "อสังหาฯ-คอนโด": [
-   "realestate"
-  ],
-  "real estate & condos": [
-   "realestate"
-  ],
-  "อาคารชุด-คอนโด": [
-   "condo"
-  ],
-  "condominiums": [
-   "condo"
-  ],
-  "อพาร์ตเมนต์-แมนชั่น-คอร์ท": [
-   "apartment"
-  ],
-  "apartments, mansions & courts": [
-   "apartment"
-  ],
-  "dormitories": [
-   "dorm"
-  ],
-  "หมู่บ้านจัดสรร": [
-   "moobaan"
-  ],
-  "moobaan (housing estates)": [
-   "moobaan"
-  ],
-  "นายหน้า-เอเจนต์": [
-   "agent"
-  ],
-  "agents & agencies": [
-   "agent"
-  ],
-  "เช่ามอไซค์": [
-   "transport"
-  ],
-  "รถแดง": [
-   "transport"
-  ],
-  "สถานีขนส่ง": [
-   "transport"
-  ],
-  "bike": [
-   "transport"
-  ],
-  "rental": [
-   "transport"
-  ],
-  "rot": [
-   "transport"
-  ],
-  "daeng": [
-   "transport"
-  ],
-  "stations": [
-   "transport"
-  ],
-  "รถ-เดินทาง": [
-   "transport"
-  ],
-  "getting around": [
-   "transport"
-  ],
-  "เช่ารถ-มอเตอร์ไซค์": [
-   "rental"
-  ],
-  "car & bike rental": [
-   "rental"
-  ],
-  "สถานีรถไฟ": [
-   "train"
-  ],
-  "train stations": [
-   "train"
-  ],
-  "สถานีขนส่ง-ท่ารถ": [
-   "bus"
-  ],
-  "bus terminals": [
-   "bus"
-  ],
-  "รถแดง-สองแถว": [
-   "songthaew"
-  ],
-  "rot daeng & songthaew": [
-   "songthaew"
-  ],
-  "แท็กซี่-คิวรถ": [
-   "taxi"
-  ],
-  "taxi ranks": [
-   "taxi"
-  ],
-  "รถรางขึ้นดอย": [
-   "funicular"
-  ],
-  "the doi suthep funicular": [
-   "funicular"
-  ],
-  "ท่าเรือ": [
-   "pier"
-  ],
-  "piers & boat landings": [
-   "pier"
-  ],
-  "สนามบิน": [
-   "airport"
-  ],
-  "airports": [
-   "airport"
-  ],
-  "ปั๊มน้ำมัน": [
-   "fuel"
-  ],
-  "fuel stations": [
-   "fuel"
-  ],
-  "ซ่อมรถ": [
-   "repair"
-  ],
-  "ช่างบ้าน": [
-   "repair"
-  ],
-  "มือถือ-คอม": [
-   "repair"
-  ],
-  "motors": [
-   "repair"
-  ],
-  "home": [
-   "cooking",
-   "repair"
-  ],
-  "trades": [
-   "repair"
-  ],
-  "phones": [
-   "repair"
-  ],
-  "computers": [
-   "repair"
-  ],
-  "ช่าง-ซ่อม": [
-   "repair"
-  ],
-  "repairs & trades": [
-   "repair"
-  ],
-  "ซ่อมรถ-อู่": [
-   "auto"
-  ],
-  "auto & motorbike": [
-   "auto"
-  ],
-  "ช่างบ้าน-ช่างอลูมิเนียม": [
-   "home"
-  ],
-  "home trades": [
-   "home"
-  ],
-  "มือถือ-คอมพิวเตอร์": [
-   "tech"
-  ],
-  "phones & computers": [
-   "tech"
-  ],
-  "ร้านผม": [
-   "beauty"
-  ],
-  "ตัดผมชาย": [
-   "barber",
-   "beauty"
-  ],
-  "เสริมสวย": [
-   "beauty"
-  ],
-  "ต่อผม": [
-   "beauty"
-  ],
-  "ทำเล็บ": [
-   "beauty",
-   "nails"
-  ],
-  "hair": [
-   "beauty"
-  ],
-  "barbers": [
-   "barber",
-   "beauty"
-  ],
-  "salons": [
-   "beauty"
-  ],
-  "extensions": [
-   "beauty"
-  ],
-  "nails": [
-   "beauty",
-   "nails"
-  ],
-  "เสริมสวย-ทำผม": [
-   "beauty"
-  ],
-  "beauty & hair": [
-   "beauty"
-  ],
-  "ร้านทำผม": [
-   "hair"
-  ],
-  "hair salons": [
-   "hair"
-  ],
-  "ต่อผม-ถักเปีย": [
-   "extensions"
-  ],
-  "extensions & braids": [
-   "extensions"
-  ],
-  "ร้านเสริมสวย": [
-   "salon"
-  ],
-  "beauty salons": [
-   "salon"
-  ],
-  "สปาความงาม": [
-   "spa-beauty"
-  ],
-  "beauty spa": [
-   "spa-beauty"
-  ],
-  "สักยันต์ตามครูบาอาจารย์": [
-   "tattoo"
-  ],
-  "ร้านสักสมัยใหม่": [
-   "studio",
-   "tattoo"
-  ],
-  "สักคิ้ว-สักปาก": [
-   "cosmetic",
-   "tattoo"
-  ],
-  "ลบรอยสัก": [
-   "removal",
-   "tattoo"
-  ],
-  "sak": [
-   "tattoo"
-  ],
-  "yant": [
-   "tattoo"
-  ],
-  "ajarn": [
-   "tattoo"
-  ],
-  "modern": [
-   "tattoo"
-  ],
-  "studios": [
-   "sights",
-   "tattoo"
-  ],
-  "brow": [
-   "tattoo"
-  ],
-  "lip": [
-   "tattoo"
-  ],
-  "tattoo": [
-   "sights",
-   "tattoo"
-  ],
-  "removal": [
-   "removal",
-   "tattoo"
-  ],
-  "สักยันต์-รอยสัก": [
-   "tattoo"
-  ],
-  "tattoo & sak yant": [
-   "tattoo"
-  ],
-  "สักยันต์": [
-   "sak-yant"
-  ],
-  "sak yant": [
-   "sak-yant"
-  ],
-  "modern studios": [
-   "studio"
-  ],
-  "cosmetic tattoo": [
-   "cosmetic"
-  ],
-  "เจาะ": [
-   "piercing"
-  ],
-  "piercing": [
-   "piercing"
-  ],
-  "หมอสัตว์": [
-   "pets",
-   "vet"
-  ],
-  "อาบน้ำตัดขน": [
-   "pets"
-  ],
-  "vets": [
-   "pets",
-   "vet"
-  ],
-  "grooming": [
-   "grooming",
-   "pets"
-  ],
-  "สัตว์เลี้ยง": [
-   "pets"
-  ],
-  "pets": [
-   "pets"
-  ],
-  "อาบน้ำ-ตัดขน": [
-   "grooming"
-  ],
-  "ยิม": [
-   "sport"
-  ],
-  "ฟิตเนส": [
-   "sport"
-  ],
-  "สนามกีฬา": [
-   "sport"
-  ],
-  "โยคะ": [
-   "sport"
-  ],
-  "ค่ายมวยและสนามมวยมีชั้นมวยไทยของตัวเองแล้ว": [
-   "sport"
-  ],
-  "ส่วนโรงเรียนสอนภาษาอยู่ชั้นโรงเรียน": [
-   "sport"
-  ],
-  "gyms": [
-   "sport",
-   "muaythai"
-  ],
-  "fitness": [
-   "sport"
-  ],
-  "sports": [
-   "sport"
-  ],
-  "yoga": [
-   "sport"
-  ],
-  "stadiums": [
-   "sport",
-   "muaythai"
-  ],
-  "live": [
-   "sport",
-   "whats-on"
-  ],
-  "กีฬา-ฟิตเนส": [
-   "sport"
-  ],
-  "sport & fitness": [
-   "sport"
-  ],
-  "มวยไทย-ยิม": [
-   "gym"
-  ],
-  "muay thai & gyms": [
-   "gym"
-  ],
-  "สนามมวย": [
-   "muaythai"
-  ],
-  "ดูมวยคืนนี้": [
-   "muaythai"
-  ],
-  "ยิมมวยไทย": [
-   "muaythai"
-  ],
-  "เรียนมวย": [
-   "muaythai"
-  ],
-  "ร้านนวม-กางเกงมวย": [
-   "muaythai"
-  ],
-  "ไหว้ครูรำมวย": [
-   "muaythai"
-  ],
-  "มงคล": [
-   "muaythai"
-  ],
-  "ประเจียด": [
-   "muaythai"
-  ],
-  "ราคาตั๋ว": [
-   "muaythai"
-  ],
-  "tonight": [
-   "muaythai"
-  ],
-  "fight": [
-   "muaythai"
-  ],
-  "nights": [
-   "muaythai"
-  ],
-  "training": [
-   "muaythai"
-  ],
-  "glove": [
-   "muaythai"
-  ],
-  "shorts": [
-   "muaythai"
-  ],
-  "wai": [
-   "muaythai"
-  ],
-  "khru": [
-   "muaythai"
-  ],
-  "mongkhon": [
-   "muaythai"
-  ],
-  "night": [
-   "muaythai"
-  ],
-  "costs": [
-   "muaythai"
-  ],
-  "มวยไทย": [
-   "muaythai"
-  ],
-  "muay thai": [
-   "muaythai"
-  ],
-  "สนามมวย-ดูมวย": [
-   "stadium"
-  ],
-  "stadiums & fight nights": [
-   "stadium"
-  ],
-  "ค่ายมวย-ยิมมวยไทย": [
-   "camp"
-  ],
-  "camps & gyms": [
-   "camp"
-  ],
-  "ร้านอุปกรณ์มวย": [
-   "gear"
-  ],
-  "gear shops": [
-   "gear"
-  ],
-  "คลาสทำอาหารไทย": [
-   "cooking"
-  ],
-  "ครึ่งวัน": [
-   "cooking"
-  ],
-  "เต็มวัน": [
-   "cooking"
-  ],
-  "คลาสเย็น": [
-   "cooking"
-  ],
-  "ฟาร์มออร์แกนิก": [
-   "cooking"
-  ],
-  "เดินตลาด": [
-   "cooking"
-  ],
-  "เรียนที่บ้านครู": [
-   "cooking"
-  ],
-  "อาข่า": [
-   "cooking"
-  ],
-  "ไทใหญ่": [
-   "cooking"
-  ],
-  "ขนมไทย": [
-   "cooking",
-   "dessert"
-  ],
-  "แกะสลักผักผลไม้": [
-   "carving",
-   "cooking"
-  ],
-  "คลาสในโรงแรม": [
-   "cooking"
-  ],
-  "หลักสูตรอาชีพ": [
-   "cooking"
-  ],
-  "สารพัดช่าง": [
-   "cooking"
-  ],
-  "พริกแกง": [
-   "cooking"
-  ],
-  "ครก": [
-   "cooking"
-  ],
-  "half": [
-   "cooking"
-  ],
-  "day": [
-   "chang",
-   "cooking"
-  ],
-  "full": [
-   "cooking"
-  ],
-  "evening": [
-   "cooking"
-  ],
-  "organic": [
-   "cooking"
-  ],
-  "walk": [
-   "cooking"
-  ],
-  "through": [
-   "cooking"
-  ],
-  "kitchens": [
-   "cooking"
-  ],
-  "akha": [
-   "cooking"
-  ],
-  "shan": [
-   "cooking"
-  ],
-  "khanom": [
-   "cooking"
-  ],
-  "fruit": [
-   "cooking"
-  ],
-  "carving": [
-   "cooking"
-  ],
-  "resort": [
-   "cooking"
-  ],
-  "trade": [
-   "cooking"
-  ],
-  "courses": [
-   "cooking"
-  ],
-  "curry": [
-   "cooking"
-  ],
-  "paste": [
-   "cooking"
-  ],
-  "mortar": [
-   "cooking"
-  ],
-  "เรียนทำอาหารไทย": [
-   "cooking"
-  ],
-  "thai cooking classes": [
-   "cooking"
-  ],
-  "โรงเรียนสอนทำอาหารไทย": [
-   "class"
-  ],
-  "cooking schools & classes": [
-   "class"
-  ],
-  "คลาสในสวน-ฟาร์มออร์แกนิก": [
-   "farm"
-  ],
-  "farm & garden classes": [
-   "farm"
-  ],
-  "เรียนที่บ้านครู-ครัวส่วนตัว": [
-   "home"
-  ],
-  "home-kitchen classes": [
-   "home"
-  ],
-  "อาหารเจ-มังสวิรัติ-วีแกน": [
-   "vegan"
-  ],
-  "vegetarian & vegan classes": [
-   "vegan"
-  ],
-  "อาหารเหนือ-ล้านนา-อาข่า-ไทใหญ่": [
-   "northern"
-  ],
-  "northern, lanna, akha & shan cuisine": [
-   "northern"
-  ],
-  "thai dessert classes": [
-   "dessert"
-  ],
-  "fruit & vegetable carving": [
-   "carving"
-  ],
-  "คลาสในโรงแรม-รีสอร์ต": [
-   "hotel"
-  ],
-  "hotel & resort cooking schools": [
-   "hotel"
-  ],
-  "หลักสูตรอาชีพ-สารพัดช่าง-อาชีวะ": [
-   "vocational"
-  ],
-  "vocational & professional courses": [
-   "vocational"
-  ],
-  "ปางช้าง": [
-   "chang"
-  ],
-  "ศูนย์ช้าง": [
-   "chang"
-  ],
-  "ดูช้าง": [
-   "chang"
-  ],
-  "ป้อนช้าง": [
-   "chang"
-  ],
-  "อาบน้ำช้าง": [
-   "chang"
-  ],
-  "ปางที่ไม่มีขี่ช้าง": [
-   "chang"
-  ],
-  "ควาญ": [
-   "chang"
-  ],
-  "ช้างเผือก": [
-   "chang"
-  ],
-  "ประตูช้างเผือก": [
-   "chang"
-  ],
-  "วัดเชียงมั่นเจดีย์ช้างล้อม": [
-   "chang"
-  ],
-  "คลินิกช้าง": [
-   "chang"
-  ],
-  "กระดาษมูลช้าง": [
-   "chang"
-  ],
-  "วันช้างไทย": [
-   "chang"
-  ],
-  "มีนาคม": [
-   "chang"
-  ],
-  "elephant": [
-   "chang"
-  ],
-  "sanctuaries": [
-   "chang"
-  ],
-  "states": [
-   "chang"
-  ],
-  "about": [
-   "chang"
-  ],
-  "riding": [
-   "chang"
-  ],
-  "bathing": [
-   "chang"
-  ],
-  "shows": [
-   "chang"
-  ],
-  "mahouts": [
-   "chang"
-  ],
-  "white": [
-   "chang"
-  ],
-  "gate": [
-   "chang"
-  ],
-  "chedis": [
-   "chang"
-  ],
-  "carry": [
-   "chang"
-  ],
-  "poo": [
-   "chang"
-  ],
-  "paper": [
-   "chang"
-  ],
-  "ช้าง": [
-   "chang"
-  ],
-  "elephants": [
-   "chang"
-  ],
-  "ปางช้าง-ศูนย์ช้าง": [
-   "camp"
-  ],
-  "camps & sanctuaries": [
-   "camp"
-  ],
-  "คลินิกช้าง-โรงพยาบาลช้าง": [
-   "care"
-  ],
-  "elephant clinics & hospitals": [
-   "care"
-  ],
-  "ของช้าง-กระดาษมูลช้าง-รูปปั้น": [
-   "craft"
-  ],
-  "of the elephant — paper, statues, craft": [
-   "craft"
-  ],
-  "แม่บ้าน": [
-   "home-services",
-   "housekeeper"
-  ],
-  "ช่างซ่อมบ้าน": [
-   "handyman",
-   "home-services"
-  ],
-  "คนสวน": [
-   "home-services"
-  ],
-  "housekeepers": [
-   "home-services",
-   "housekeeper"
-  ],
-  "handymen": [
-   "handyman",
-   "home-services"
-  ],
-  "landscapers": [
-   "home-services",
-   "landscaper"
-  ],
-  "แม่บ้าน-ช่างสวน-ดูแลบ้าน": [
-   "home-services"
-  ],
-  "home services": [
-   "home-services"
-  ],
-  "คนสวน-จัดสวน": [
-   "landscaper"
-  ],
-  "โรตารี": [
-   "community"
-  ],
-  "ชมรมนานาชาติ": [
-   "community"
-  ],
-  "จิตอาสา": [
-   "community",
-   "volunteer"
-  ],
-  "rotary": [
-   "community"
-  ],
-  "clubs": [
-   "community"
-  ],
-  "volunteering": [
-   "community",
-   "volunteer"
-  ],
-  "ชมรม-สมาคม": [
-   "community",
-   "intl-clubs"
-  ],
-  "clubs & community": [
-   "community"
-  ],
-  "clubs & societies": [
-   "intl-clubs"
-  ],
-  "ศาลาประชาคม-ศูนย์ชุมชน": [
-   "centre"
-  ],
-  "community centres": [
-   "centre"
-  ],
-  "ค้าส่ง": [
-   "business"
-  ],
-  "ซัพพลายเออร์": [
-   "business"
-  ],
-  "ขายออนไลน์": [
-   "business"
-  ],
-  "wholesale": [
-   "business"
-  ],
-  "suppliers": [
-   "business"
-  ],
-  "selling": [
-   "business"
-  ],
-  "online": [
-   "business"
-  ],
-  "ธุรกิจ-ค้าขาย": [
-   "business"
-  ],
-  "doing business": [
-   "business"
-  ],
-  "โคเวิร์กกิ้งสเปซ": [
-   "coworking"
-  ],
-  "coworking spaces": [
-   "coworking"
-  ],
-  "ค้าส่ง-ซัพพลายเออร์": [
-   "wholesale"
-  ],
-  "wholesale & suppliers": [
-   "wholesale"
-  ],
-  "ขายออนไลน์-ดรอปชิป": [
-   "online-selling"
-  ],
-  "online selling & dropshipping": [
-   "online-selling"
-  ],
-  "ทนาย-บัญชี": [
-   "professional"
-  ],
-  "lawyers & accountants": [
-   "professional"
-  ],
-  "โรงหนัง": [
-   "whats-on"
-  ],
-  "ดนตรีสด": [
-   "live-music",
-   "whats-on"
-  ],
-  "ที่จัดงาน": [
-   "whats-on"
-  ],
-  "รอบฉาย": [
-   "whats-on"
-  ],
-  "cinemas": [
-   "whats-on"
-  ],
-  "music": [
-   "whats-on"
-  ],
-  "venues": [
-   "whats-on"
-  ],
-  "showtimes": [
-   "whats-on"
-  ],
-  "หนัง-คอนเสิร์ต-อีเวนต์": [
-   "whats-on"
-  ],
-  "movies, concerts & events": [
-   "whats-on"
-  ],
-  "โรงหนัง-รอบฉาย": [
-   "cinema"
-  ],
-  "cinemas & showtimes": [
-   "cinema"
-  ],
-  "live music": [
-   "live-music"
-  ],
-  "ที่จัดงาน-อีเวนต์": [
-   "events-venue"
-  ],
-  "event venues": [
-   "events-venue"
-  ],
-  "พิพิธภัณฑ์": [
-   "museum",
-   "museums-galleries"
-  ],
-  "หอศิลป์": [
-   "museums-galleries"
-  ],
-  "แกลเลอรี": [
-   "museums-galleries"
-  ],
-  "museums": [
-   "museum",
-   "museums-galleries"
-  ],
-  "art": [
-   "museums-galleries",
-   "sights"
-  ],
-  "galleries": [
-   "museums-galleries"
-  ],
-  "exhibition": [
-   "museums-galleries"
-  ],
-  "spaces": [
-   "museums-galleries"
-  ],
-  "พิพิธภัณฑ์-หอศิลป์": [
-   "museums-galleries"
-  ],
-  "museums & galleries": [
-   "museums-galleries"
-  ],
-  "หอศิลป์-แกลเลอรี": [
-   "gallery"
-  ],
-  "art galleries": [
-   "gallery"
-  ],
-  "สวนสาธารณะ": [
-   "park",
-   "parks"
-  ],
-  "สวนพฤกษศาสตร์": [
-   "garden",
-   "parks"
-  ],
-  "อ่างเก็บน้ำ": [
-   "parks"
-  ],
-  "สนามเด็กเล่น": [
-   "parks",
-   "playground"
-  ],
-  "public": [
-   "parks"
-  ],
-  "parks": [
-   "parks"
-  ],
-  "gardens": [
-   "garden",
-   "parks"
-  ],
-  "reservoirs": [
-   "parks"
-  ],
-  "playgrounds": [
-   "parks",
-   "playground"
-  ],
-  "สวน-ที่พักผ่อน": [
-   "parks"
-  ],
-  "parks & green space": [
-   "parks"
-  ],
-  "public parks": [
-   "park"
-  ],
-  "เขตอนุรักษ์-อุทยาน": [
-   "nature"
-  ],
-  "nature reserves": [
-   "nature"
-  ],
-  "อ่างเก็บน้ำ-หนองน้ำ": [
-   "water"
-  ],
-  "lakes & reservoirs": [
-   "water"
-  ],
-  "ร้านสัก": [
-   "sights"
-  ],
-  "ห้องสมุด": [
-   "library",
-   "sights"
-  ],
-  "สตูดิโอศิลป์": [
-   "art-studio",
-   "sights"
-  ],
-  "libraries": [
-   "library",
-   "sights"
-  ],
-  "ที่เที่ยว-ของดี": [
-   "sights"
-  ],
-  "sights & good things": [
-   "sights"
-  ],
-  "art studios": [
-   "art-studio"
-  ],
-  "โบราณสถาน-ที่ประวัติศาสตร์": [
-   "historic"
-  ],
-  "historic places": [
-   "historic"
-  ],
-  "จุดชมวิว": [
-   "viewpoint"
-  ],
-  "viewpoints": [
-   "viewpoint"
-  ],
-  "น้ำตก": [
-   "waterfall"
-  ],
-  "waterfalls": [
-   "waterfall"
-  ],
-  "ดอย-ยอดเขา": [
-   "peak"
-  ],
-  "peaks & mountains": [
-   "peak"
-  ],
-  "น้ำพุร้อน": [
-   "hot-spring"
-  ],
-  "hot springs": [
-   "hot-spring"
-  ],
-  "ทริปวันเดียว": [
-   "outing"
-  ],
-  "outings & day trips": [
-   "outing"
-  ]
- }
+"note": "term -> shelf keys. Membership, not synonymy: a match NARROWS the search to these shelves.",
+"shelves": {
+"วัดในเวียง": [
+"wat"
+],
+"วัดบนดอย": [
+"wat"
+],
+"ศาลพระภูมิ": [
+"spirit-house",
+"wat"
+],
+"old": [
+"wat"
+],
+"city": [
+"wat"
+],
+"wats": [
+"wat"
+],
+"mountain": [
+"wat"
+],
+"spirit": [
+"wat"
+],
+"วัด-สิ่งศักดิ์สิทธิ์": [
+"wat"
+],
+"wats & sacred places": [
+"wat"
+],
+"ศาลเจ้า-ศาลหลักเมือง": [
+"shrine"
+],
+"shrines & city pillars": [
+"shrine"
+],
+"spirit houses": [
+"spirit-house"
+],
+"อาหารไทย": [
+"food",
+"thai"
+],
+"นานาชาติ": [
+"food",
+"international",
+"school"
+],
+"ข้าวซอย": [
+"food"
+],
+"ทะเล": [
+"food"
+],
+"มังสวิรัติ": [
+"cooking",
+"food"
+],
+"สตรีทฟู้ด": [
+"food"
+],
+"noodles": [
+"food"
+],
+"seafood": [
+"food",
+"seafood"
+],
+"vegetarian": [
+"cooking",
+"food"
+],
+"street": [
+"food"
+],
+"food": [
+"food"
+],
+"ร้านอาหาร-ของกิน": [
+"food"
+],
+"food & eats": [
+"food"
+],
+"ตามสั่ง-ผัดกะเพรา": [
+"made-to-order"
+],
+"made-to-order": [
+"made-to-order"
+],
+"ข้าวซอย-ก๋วยเตี๋ยว": [
+"northern"
+],
+"khao soi & noodles": [
+"northern"
+],
+"อาหารทะเล": [
+"seafood"
+],
+"มังสวิรัติ-เจ": [
+"vegetarian"
+],
+"vegetarian & vegan": [
+"vegetarian"
+],
+"สตรีทฟู้ด-ฟาสต์ฟู้ด": [
+"street-food"
+],
+"street food & fast food": [
+"street-food"
+],
+"เบเกอรี่-ของหวาน": [
+"bakery-dessert"
+],
+"bakery & dessert": [
+"bakery-dessert"
+],
+"บาร์-ผับ": [
+"bar-pub"
+],
+"bars & pubs": [
+"bar-pub"
+],
+"กาแฟ-คาเฟ่": [
+"cafe"
+],
+"coffee & cafés": [
+"cafe"
+],
+"ร้านริมน้ำ": [
+"riverside"
+],
+"riverside": [
+"riverside"
+],
+"นวดแผนไทย": [
+"massage"
+],
+"นวดเท้า": [
+"massage"
+],
+"น้ำมัน": [
+"massage"
+],
+"ประคบ": [
+"massage"
+],
+"จับเส้น": [
+"massage"
+],
+"ตอกเส้น": [
+"massage",
+"tok-sen"
+],
+"ย่ำขาง": [
+"massage",
+"yam-khang"
+],
+"สปา": [
+"massage"
+],
+"traditional": [
+"massage"
+],
+"foot": [
+"foot",
+"massage"
+],
+"oil": [
+"massage"
+],
+"herbal": [
+"massage"
+],
+"compress": [
+"massage"
+],
+"deep": [
+"massage"
+],
+"sen": [
+"massage"
+],
+"work": [
+"massage"
+],
+"tok": [
+"massage"
+],
+"yam": [
+"massage"
+],
+"khang": [
+"massage"
+],
+"spa": [
+"massage"
+],
+"นวด-สปา": [
+"massage"
+],
+"massage & spa": [
+"massage"
+],
+"นวดแผนไทย-แผนโบราณ": [
+"thai-traditional"
+],
+"thai traditional": [
+"thai-traditional"
+],
+"นวดเท้า-กดจุดฝ่าเท้า": [
+"foot"
+],
+"นวดน้ำมัน-อโรมา": [
+"oil"
+],
+"oil & aroma": [
+"oil"
+],
+"ประคบสมุนไพร": [
+"prakhop"
+],
+"herbal compress": [
+"prakhop"
+],
+"นวดจับเส้น": [
+"chap-sen"
+],
+"deep sen work": [
+"chap-sen"
+],
+"tok sen (lanna)": [
+"tok-sen"
+],
+"yam khang (lanna)": [
+"yam-khang"
+],
+"นวดราชสำนัก": [
+"ratchasamnak"
+],
+"royal court style": [
+"ratchasamnak"
+],
+"นวดออฟฟิศซินโดรม": [
+"office-syndrome"
+],
+"office syndrome": [
+"office-syndrome"
+],
+"สปา-ขัดผิว-อบไอน้ำ": [
+"spa-body"
+],
+"spa, scrub & steam": [
+"spa-body"
+],
+"ขัดขี้ไคล-ระเบิดขี้ไคล": [
+"khat-khi-khlai"
+],
+"dead-skin scrub": [
+"khat-khi-khlai"
+],
+"นวดหน้า-กัวซาหน้า": [
+"face"
+],
+"facial & face gua sha": [
+"face"
+],
+"ครอบแก้ว": [
+"cupping"
+],
+"cupping": [
+"cupping"
+],
+"ทับหม้อเกลือ-อยู่ไฟ": [
+"postpartum"
+],
+"postnatal care": [
+"postpartum"
+],
+"นวดคนท้อง": [
+"prenatal"
+],
+"prenatal": [
+"prenatal"
+],
+"นวดโดยคนตาบอด": [
+"blind-massage"
+],
+"blind massage": [
+"blind-massage"
+],
+"อาบอบนวด": [
+"ap-ob-nuat"
+],
+"ap ob nuat": [
+"ap-ob-nuat"
+],
+"โรงพยาบาล": [
+"hospital",
+"medical"
+],
+"คลินิก": [
+"cannabis",
+"clinic",
+"medical"
+],
+"หมอฟัน": [
+"dentist",
+"medical"
+],
+"ร้านขายยา": [
+"medical",
+"pharmacy"
+],
+"รพ.สต.": [
+"medical"
+],
+"แล็บ": [
+"medical"
+],
+"กายภาพ": [
+"medical"
+],
+"dentists": [
+"dentist",
+"medical"
+],
+"pharmacies": [
+"essentials",
+"medical",
+"pharmacy"
+],
+"labs": [
+"medical"
+],
+"physio": [
+"medical"
+],
+"หมอ-คลินิก-โรงพยาบาล": [
+"medical"
+],
+"doctors & hospitals": [
+"medical"
+],
+"hospitals": [
+"hospital"
+],
+"clinics": [
+"clinic"
+],
+"หมอเฉพาะทาง": [
+"doctors"
+],
+"specialists": [
+"doctors"
+],
+"รพ.สต.-สถานีอนามัย": [
+"health-station"
+],
+"health stations (รพ.สต.)": [
+"health-station"
+],
+"แล็บ-ตรวจเลือด": [
+"laboratory"
+],
+"labs & testing": [
+"laboratory"
+],
+"กายภาพบำบัด": [
+"physio"
+],
+"physiotherapy": [
+"physio"
+],
+"ร้านแว่น-วัดสายตา": [
+"optometrist"
+],
+"eyes & optometry": [
+"optometrist"
+],
+"ดูแลระยะยาว-บ้านพักคนชรา": [
+"long-care"
+],
+"long-term & residential care": [
+"long-care"
+],
+"แพทย์แผนไทย-สมุนไพร": [
+"thai-medicine"
+],
+"traditional thai medicine": [
+"thai-medicine"
+],
+"ร้านกัญชา": [
+"cannabis",
+"dispensary"
+],
+"คาเฟ่": [
+"cannabis"
+],
+"ร้านน้ำใบกระท่อม": [
+"cannabis",
+"kratom"
+],
+"ฟาร์ม": [
+"cannabis"
+],
+"dispensaries": [
+"cannabis",
+"dispensary"
+],
+"caf": [
+"cannabis"
+],
+"kratom": [
+"cannabis",
+"kratom"
+],
+"farms": [
+"cannabis",
+"cooking"
+],
+"กัญชา-กระท่อม": [
+"cannabis"
+],
+"cannabis & kratom": [
+"cannabis"
+],
+"คาเฟ่กัญชา": [
+"cannabis-cafe"
+],
+"cannabis cafés": [
+"cannabis-cafe"
+],
+"คลินิกกัญชา": [
+"clinic"
+],
+"cannabis clinics": [
+"clinic"
+],
+"ฟาร์ม-วิสาหกิจชุมชน": [
+"farm"
+],
+"farms & growers": [
+"farm"
+],
+"ร้านยา": [
+"essentials",
+"pharmacy"
+],
+"ธนาคาร": [
+"essentials"
+],
+"ไปรษณีย์": [
+"essentials"
+],
+"ราชการ": [
+"essentials"
+],
+"banks": [
+"essentials"
+],
+"post": [
+"essentials"
+],
+"government": [
+"essentials",
+"school"
+],
+"ของจำเป็นประจำเมือง": [
+"essentials"
+],
+"city essentials": [
+"essentials"
+],
+"ธนาคาร-เอทีเอ็ม": [
+"bank"
+],
+"banks & atms": [
+"bank"
+],
+"ร้านซักรีด-สะดวกซัก": [
+"laundry"
+],
+"laundry": [
+"laundry"
+],
+"ไปรษณีย์-ขนส่ง": [
+"post"
+],
+"post & parcels": [
+"post"
+],
+"ราชการ-เอกสาร": [
+"gov"
+],
+"government offices": [
+"gov"
+],
+"วีซ่า-ต่ออายุ": [
+"visa"
+],
+"visa & extensions": [
+"visa"
+],
+"ถ่ายเอกสาร-ปริ้นงาน": [
+"copyshop"
+],
+"copy & print shops": [
+"copyshop"
+],
+"โรงพิมพ์-ป้าย": [
+"printing"
+],
+"print houses & signs": [
+"printing"
+],
+"แปลเอกสาร-รับรอง": [
+"translation"
+],
+"translation & document services": [
+"translation"
+],
+"ร้านสะดวกซื้อ": [
+"convenience"
+],
+"convenience stores": [
+"convenience"
+],
+"โรงแรม": [
+"hotel",
+"hotel-full"
+],
+"เกสต์เฮาส์": [
+"guesthouse",
+"hotel"
+],
+"โฮสเทล": [
+"hostel",
+"hotel"
+],
+"hotels": [
+"hotel",
+"hotel-full"
+],
+"guesthouses": [
+"guesthouse",
+"hotel"
+],
+"hostels": [
+"hostel",
+"hotel"
+],
+"โรงแรม-ที่พัก": [
+"hotel"
+],
+"hotels & stays": [
+"hotel"
+],
+"โรงเรียนรัฐ": [
+"school"
+],
+"เอกชน": [
+"school"
+],
+"อนุบาล": [
+"school"
+],
+"มหาวิทยาลัย": [
+"school",
+"university"
+],
+"ค่ายมวย": [
+"muaythai",
+"school"
+],
+"สอนภาษา": [
+"school"
+],
+"สอนทำอาหาร": [
+"cooking",
+"school"
+],
+"(มีชั้นเรียนทำอาหารไทยของตัวเองแล้ว)": [
+"school"
+],
+"private": [
+"school"
+],
+"kindergartens": [
+"school"
+],
+"universities": [
+"school",
+"university"
+],
+"muay": [
+"school",
+"sport"
+],
+"language": [
+"school",
+"sport"
+],
+"cooking": [
+"cooking",
+"school"
+],
+"classes": [
+"cooking",
+"school"
+],
+"now": [
+"school",
+"sport"
+],
+"have": [
+"school",
+"sport"
+],
+"own": [
+"school",
+"sport"
+],
+"shelf": [
+"school",
+"sport"
+],
+"too": [
+"school"
+],
+"โรงเรียน-สถานศึกษา": [
+"school"
+],
+"schools & education": [
+"school"
+],
+"โรงเรียนนานาชาติ": [
+"international",
+"school-intl"
+],
+"international schools": [
+"international",
+"school-intl"
+],
+"โรงเรียนรัฐบาล": [
+"government"
+],
+"government schools": [
+"government"
+],
+"โรงเรียนเอกชน": [
+"private"
+],
+"private schools": [
+"private"
+],
+"อนุบาล-เตรียมอนุบาล": [
+"kindergarten"
+],
+"kindergartens & nurseries": [
+"kindergarten"
+],
+"วิทยาลัย-อาชีวศึกษา": [
+"college"
+],
+"colleges & vocational": [
+"college"
+],
+"คณะ-อาคารในมหาวิทยาลัย": [
+"campus"
+],
+"faculties & campus buildings": [
+"campus"
+],
+"โรงเรียนพระปริยัติธรรม": [
+"monastic"
+],
+"monastic schools": [
+"monastic"
+],
+"โรงเรียนการกุศล-ศาสนา": [
+"religious"
+],
+"faith-founded schools": [
+"religious"
+],
+"การศึกษาพิเศษ": [
+"special"
+],
+"special education": [
+"special"
+],
+"ศึกษาสงเคราะห์": [
+"welfare"
+],
+"welfare schools": [
+"welfare"
+],
+"โรงเรียนสอนภาษา": [
+"language"
+],
+"language schools": [
+"language"
+],
+"ค่ายมวย-มวยไทย": [
+"muaythai"
+],
+"muay thai camps": [
+"muaythai"
+],
+"โรงเรียนสอนทำอาหาร": [
+"cooking"
+],
+"cooking schools": [
+"cooking"
+],
+"โรงเรียนสอนนวด": [
+"massage-school"
+],
+"massage schools": [
+"massage-school"
+],
+"โรงเรียนดนตรี-ศิลปะ": [
+"music-art"
+],
+"music & art schools": [
+"music-art"
+],
+"โรงเรียนสอนเต้น-รำ": [
+"dance"
+],
+"dance schools": [
+"dance"
+],
+"กวดวิชา": [
+"tutoring"
+],
+"tutoring": [
+"tutoring"
+],
+"โรงเรียนสอนขับรถ": [
+"driving"
+],
+"driving schools": [
+"driving"
+],
+"ศูนย์ฝึกอบรม": [
+"training"
+],
+"training centres": [
+"training"
+],
+"หลักสูตรอังกฤษ": [
+"school-intl"
+],
+"อเมริกัน": [
+"school-intl"
+],
+"สองภาษา": [
+"school-intl"
+],
+"british": [
+"school-intl"
+],
+"american": [
+"school-intl"
+],
+"bilingual": [
+"school-intl"
+],
+"ตลาดสด": [
+"fresh",
+"market"
+],
+"ถนนคนเดิน": [
+"market",
+"walking-street"
+],
+"ตลาดนัด": [
+"flea",
+"market"
+],
+"fresh": [
+"cooking",
+"market"
+],
+"walking": [
+"market"
+],
+"streets": [
+"market"
+],
+"flea": [
+"market"
+],
+"ตลาด": [
+"market"
+],
+"markets": [
+"market"
+],
+"fresh markets": [
+"fresh"
+],
+"walking streets": [
+"walking-street"
+],
+"flea markets": [
+"flea"
+],
+"เสื้อผ้า": [
+"shopping"
+],
+"รองเท้า": [
+"shoes",
+"shopping"
+],
+"ไซส์ใหญ่": [
+"shopping"
+],
+"หัตถกรรม": [
+"shopping"
+],
+"เสื้อผ้ามือสอง": [
+"shopping"
+],
+"เครื่องดนตรี": [
+"shopping"
+],
+"ของฝาก": [
+"shopping"
+],
+"clothes": [
+"shopping"
+],
+"shoes": [
+"shoes",
+"shopping"
+],
+"big": [
+"shopping"
+],
+"sizes": [
+"shopping"
+],
+"crafts": [
+"shopping"
+],
+"consignment": [
+"shopping"
+],
+"instruments": [
+"shopping"
+],
+"gifts": [
+"shopping"
+],
+"ช้อปปิ้ง-ของฝาก": [
+"shopping"
+],
+"shopping & gifts": [
+"shopping"
+],
+"ของฝาก-หัตถกรรม": [
+"crafts"
+],
+"crafts & gifts": [
+"crafts"
+],
+"เสื้อผ้ามือสอง-คัดพิเศษ": [
+"secondhand"
+],
+"consignment & secondhand": [
+"secondhand"
+],
+"ห้าง-มอลล์": [
+"mall"
+],
+"malls": [
+"mall"
+],
+"diy-วัสดุก่อสร้าง": [
+"diy"
+],
+"diy & hardware": [
+"diy"
+],
+"เสื้อผ้า-เครื่องแต่งกาย": [
+"clothes"
+],
+"clothes & apparel": [
+"clothes"
+],
+"ชุดกีฬา-อุปกรณ์กีฬา": [
+"sports-shop"
+],
+"sports & outdoor shops": [
+"sports-shop"
+],
+"ร้านตัดสูท-ตัดชุด": [
+"tailor"
+],
+"tailors": [
+"tailor"
+],
+"ซ่อมแซม-แก้เสื้อผ้า": [
+"alterations"
+],
+"alterations & repairs": [
+"alterations"
+],
+"ผ้าเมตร-ร้านผ้า": [
+"fabric"
+],
+"fabric by the metre": [
+"fabric"
+],
+"เครื่องนอน-ผ้าปูที่นอน": [
+"bedding"
+],
+"bedding & sheets": [
+"bedding"
+],
+"เครื่องดนตรี-ให้เช่า": [
+"music"
+],
+"instruments — buy & rent": [
+"music"
+],
+"คอนโด": [
+"realestate"
+],
+"อพาร์ตเมนต์-แมนชั่น": [
+"realestate"
+],
+"หอพัก": [
+"dorm",
+"realestate"
+],
+"หมู่บ้าน": [
+"realestate"
+],
+"นายหน้า": [
+"realestate"
+],
+"condos": [
+"realestate"
+],
+"apartments": [
+"realestate"
+],
+"mansions": [
+"realestate"
+],
+"dorms": [
+"realestate"
+],
+"moobaan": [
+"realestate"
+],
+"agents": [
+"realestate"
+],
+"อสังหาฯ-คอนโด": [
+"realestate"
+],
+"real estate & condos": [
+"realestate"
+],
+"อาคารชุด-คอนโด": [
+"condo"
+],
+"condominiums": [
+"condo"
+],
+"อพาร์ตเมนต์-แมนชั่น-คอร์ท": [
+"apartment"
+],
+"apartments, mansions & courts": [
+"apartment"
+],
+"dormitories": [
+"dorm"
+],
+"หมู่บ้านจัดสรร": [
+"moobaan"
+],
+"moobaan (housing estates)": [
+"moobaan"
+],
+"นายหน้า-เอเจนต์": [
+"agent"
+],
+"agents & agencies": [
+"agent"
+],
+"เช่ามอไซค์": [
+"transport"
+],
+"รถแดง": [
+"transport"
+],
+"สถานีขนส่ง": [
+"transport"
+],
+"bike": [
+"transport"
+],
+"rental": [
+"transport"
+],
+"rot": [
+"transport"
+],
+"daeng": [
+"transport"
+],
+"stations": [
+"transport"
+],
+"รถ-เดินทาง": [
+"transport"
+],
+"getting around": [
+"transport"
+],
+"เช่ารถ-มอเตอร์ไซค์": [
+"rental"
+],
+"car & bike rental": [
+"rental"
+],
+"สถานีรถไฟ": [
+"train"
+],
+"train stations": [
+"train"
+],
+"สถานีขนส่ง-ท่ารถ": [
+"bus"
+],
+"bus terminals": [
+"bus"
+],
+"รถแดง-สองแถว": [
+"songthaew"
+],
+"rot daeng & songthaew": [
+"songthaew"
+],
+"แท็กซี่-คิวรถ": [
+"taxi"
+],
+"taxi ranks": [
+"taxi"
+],
+"รถรางขึ้นดอย": [
+"funicular"
+],
+"the doi suthep funicular": [
+"funicular"
+],
+"ท่าเรือ": [
+"pier"
+],
+"piers & boat landings": [
+"pier"
+],
+"สนามบิน": [
+"airport"
+],
+"airports": [
+"airport"
+],
+"ปั๊มน้ำมัน": [
+"fuel"
+],
+"fuel stations": [
+"fuel"
+],
+"ซ่อมรถ": [
+"repair"
+],
+"ช่างบ้าน": [
+"repair"
+],
+"มือถือ-คอม": [
+"repair"
+],
+"motors": [
+"repair"
+],
+"home": [
+"cooking",
+"repair"
+],
+"trades": [
+"repair"
+],
+"phones": [
+"repair"
+],
+"computers": [
+"repair"
+],
+"ช่าง-ซ่อม": [
+"repair"
+],
+"repairs & trades": [
+"repair"
+],
+"ซ่อมรถ-อู่": [
+"auto"
+],
+"auto & motorbike": [
+"auto"
+],
+"ช่างบ้าน-ช่างอลูมิเนียม": [
+"home"
+],
+"home trades": [
+"home"
+],
+"มือถือ-คอมพิวเตอร์": [
+"tech"
+],
+"phones & computers": [
+"tech"
+],
+"ร้านผม": [
+"beauty"
+],
+"ตัดผมชาย": [
+"barber",
+"beauty"
+],
+"เสริมสวย": [
+"beauty"
+],
+"ต่อผม": [
+"beauty"
+],
+"ทำเล็บ": [
+"beauty",
+"nails"
+],
+"hair": [
+"beauty"
+],
+"barbers": [
+"barber",
+"beauty"
+],
+"salons": [
+"beauty"
+],
+"extensions": [
+"beauty"
+],
+"nails": [
+"beauty",
+"nails"
+],
+"เสริมสวย-ทำผม": [
+"beauty"
+],
+"beauty & hair": [
+"beauty"
+],
+"ร้านทำผม": [
+"hair"
+],
+"hair salons": [
+"hair"
+],
+"ต่อผม-ถักเปีย": [
+"extensions"
+],
+"extensions & braids": [
+"extensions"
+],
+"ร้านเสริมสวย": [
+"salon"
+],
+"beauty salons": [
+"salon"
+],
+"สปาความงาม": [
+"spa-beauty"
+],
+"beauty spa": [
+"spa-beauty"
+],
+"สักยันต์ตามครูบาอาจารย์": [
+"tattoo"
+],
+"ร้านสักสมัยใหม่": [
+"studio",
+"tattoo"
+],
+"สักคิ้ว-สักปาก": [
+"cosmetic",
+"tattoo"
+],
+"ลบรอยสัก": [
+"removal",
+"tattoo"
+],
+"sak": [
+"tattoo"
+],
+"yant": [
+"tattoo"
+],
+"ajarn": [
+"tattoo"
+],
+"modern": [
+"tattoo"
+],
+"studios": [
+"sights",
+"tattoo"
+],
+"brow": [
+"tattoo"
+],
+"lip": [
+"tattoo"
+],
+"tattoo": [
+"sights",
+"tattoo"
+],
+"removal": [
+"removal",
+"tattoo"
+],
+"สักยันต์-รอยสัก": [
+"tattoo"
+],
+"tattoo & sak yant": [
+"tattoo"
+],
+"สักยันต์": [
+"sak-yant"
+],
+"sak yant": [
+"sak-yant"
+],
+"modern studios": [
+"studio"
+],
+"cosmetic tattoo": [
+"cosmetic"
+],
+"เจาะ": [
+"piercing"
+],
+"piercing": [
+"piercing"
+],
+"หมอสัตว์": [
+"pets",
+"vet"
+],
+"อาบน้ำตัดขน": [
+"pets"
+],
+"vets": [
+"pets",
+"vet"
+],
+"grooming": [
+"grooming",
+"pets"
+],
+"สัตว์เลี้ยง": [
+"pets"
+],
+"pets": [
+"pets"
+],
+"อาบน้ำ-ตัดขน": [
+"grooming"
+],
+"ยิม": [
+"sport"
+],
+"ฟิตเนส": [
+"sport"
+],
+"สนามกีฬา": [
+"sport"
+],
+"โยคะ": [
+"sport"
+],
+"ค่ายมวยและสนามมวยมีชั้นมวยไทยของตัวเองแล้ว": [
+"sport"
+],
+"ส่วนโรงเรียนสอนภาษาอยู่ชั้นโรงเรียน": [
+"sport"
+],
+"gyms": [
+"muaythai",
+"sport"
+],
+"fitness": [
+"sport"
+],
+"sports": [
+"sport"
+],
+"yoga": [
+"sport"
+],
+"stadiums": [
+"muaythai",
+"sport"
+],
+"live": [
+"sport",
+"whats-on"
+],
+"กีฬา-ฟิตเนส": [
+"sport"
+],
+"sport & fitness": [
+"sport"
+],
+"มวยไทย-ยิม": [
+"gym"
+],
+"muay thai & gyms": [
+"gym"
+],
+"สนามมวย": [
+"muaythai"
+],
+"ดูมวยคืนนี้": [
+"muaythai"
+],
+"ยิมมวยไทย": [
+"muaythai"
+],
+"เรียนมวย": [
+"muaythai"
+],
+"ร้านนวม-กางเกงมวย": [
+"muaythai"
+],
+"ไหว้ครูรำมวย": [
+"muaythai"
+],
+"มงคล": [
+"muaythai"
+],
+"ประเจียด": [
+"muaythai"
+],
+"ราคาตั๋ว": [
+"muaythai"
+],
+"tonight": [
+"muaythai"
+],
+"fight": [
+"muaythai"
+],
+"nights": [
+"muaythai"
+],
+"training": [
+"muaythai"
+],
+"glove": [
+"muaythai"
+],
+"shorts": [
+"muaythai"
+],
+"wai": [
+"muaythai"
+],
+"khru": [
+"muaythai"
+],
+"mongkhon": [
+"muaythai"
+],
+"night": [
+"muaythai"
+],
+"costs": [
+"muaythai"
+],
+"มวยไทย": [
+"muaythai"
+],
+"muay thai": [
+"muaythai"
+],
+"สนามมวย-ดูมวย": [
+"stadium"
+],
+"stadiums & fight nights": [
+"stadium"
+],
+"ค่ายมวย-ยิมมวยไทย": [
+"camp"
+],
+"camps & gyms": [
+"camp"
+],
+"ร้านอุปกรณ์มวย": [
+"gear"
+],
+"gear shops": [
+"gear"
+],
+"คลาสทำอาหารไทย": [
+"cooking"
+],
+"ครึ่งวัน": [
+"cooking"
+],
+"เต็มวัน": [
+"cooking"
+],
+"คลาสเย็น": [
+"cooking"
+],
+"ฟาร์มออร์แกนิก": [
+"cooking"
+],
+"เดินตลาด": [
+"cooking"
+],
+"เรียนที่บ้านครู": [
+"cooking"
+],
+"อาข่า": [
+"cooking"
+],
+"ไทใหญ่": [
+"cooking"
+],
+"ขนมไทย": [
+"cooking",
+"dessert"
+],
+"แกะสลักผักผลไม้": [
+"carving",
+"cooking"
+],
+"คลาสในโรงแรม": [
+"cooking"
+],
+"หลักสูตรอาชีพ": [
+"cooking"
+],
+"สารพัดช่าง": [
+"cooking"
+],
+"พริกแกง": [
+"cooking"
+],
+"ครก": [
+"cooking"
+],
+"half": [
+"cooking"
+],
+"day": [
+"chang",
+"cooking"
+],
+"full": [
+"cooking"
+],
+"evening": [
+"cooking"
+],
+"organic": [
+"cooking"
+],
+"walk": [
+"cooking"
+],
+"through": [
+"cooking"
+],
+"kitchens": [
+"cooking"
+],
+"akha": [
+"cooking"
+],
+"shan": [
+"cooking"
+],
+"khanom": [
+"cooking"
+],
+"fruit": [
+"cooking"
+],
+"carving": [
+"cooking"
+],
+"resort": [
+"cooking"
+],
+"trade": [
+"cooking"
+],
+"courses": [
+"cooking"
+],
+"curry": [
+"cooking"
+],
+"paste": [
+"cooking"
+],
+"mortar": [
+"cooking"
+],
+"เรียนทำอาหารไทย": [
+"cooking"
+],
+"thai cooking classes": [
+"cooking"
+],
+"โรงเรียนสอนทำอาหารไทย": [
+"class"
+],
+"cooking schools & classes": [
+"class"
+],
+"คลาสในสวน-ฟาร์มออร์แกนิก": [
+"farm"
+],
+"farm & garden classes": [
+"farm"
+],
+"เรียนที่บ้านครู-ครัวส่วนตัว": [
+"home"
+],
+"home-kitchen classes": [
+"home"
+],
+"อาหารเจ-มังสวิรัติ-วีแกน": [
+"vegan"
+],
+"vegetarian & vegan classes": [
+"vegan"
+],
+"อาหารเหนือ-ล้านนา-อาข่า-ไทใหญ่": [
+"northern"
+],
+"northern, lanna, akha & shan cuisine": [
+"northern"
+],
+"thai dessert classes": [
+"dessert"
+],
+"fruit & vegetable carving": [
+"carving"
+],
+"คลาสในโรงแรม-รีสอร์ต": [
+"hotel"
+],
+"hotel & resort cooking schools": [
+"hotel"
+],
+"หลักสูตรอาชีพ-สารพัดช่าง-อาชีวะ": [
+"vocational"
+],
+"vocational & professional courses": [
+"vocational"
+],
+"ปางช้าง": [
+"chang"
+],
+"ศูนย์ช้าง": [
+"chang"
+],
+"ดูช้าง": [
+"chang"
+],
+"ป้อนช้าง": [
+"chang"
+],
+"อาบน้ำช้าง": [
+"chang"
+],
+"ปางที่ไม่มีขี่ช้าง": [
+"chang"
+],
+"ควาญ": [
+"chang"
+],
+"ช้างเผือก": [
+"chang"
+],
+"ประตูช้างเผือก": [
+"chang"
+],
+"วัดเชียงมั่นเจดีย์ช้างล้อม": [
+"chang"
+],
+"คลินิกช้าง": [
+"chang"
+],
+"กระดาษมูลช้าง": [
+"chang"
+],
+"วันช้างไทย": [
+"chang"
+],
+"มีนาคม": [
+"chang"
+],
+"elephant": [
+"chang"
+],
+"sanctuaries": [
+"chang"
+],
+"states": [
+"chang"
+],
+"about": [
+"chang"
+],
+"riding": [
+"chang"
+],
+"bathing": [
+"chang"
+],
+"shows": [
+"chang"
+],
+"mahouts": [
+"chang"
+],
+"white": [
+"chang"
+],
+"gate": [
+"chang"
+],
+"chedis": [
+"chang"
+],
+"carry": [
+"chang"
+],
+"poo": [
+"chang"
+],
+"paper": [
+"chang"
+],
+"ช้าง": [
+"chang"
+],
+"elephants": [
+"chang"
+],
+"ปางช้าง-ศูนย์ช้าง": [
+"camp"
+],
+"camps & sanctuaries": [
+"camp"
+],
+"คลินิกช้าง-โรงพยาบาลช้าง": [
+"care"
+],
+"elephant clinics & hospitals": [
+"care"
+],
+"ของช้าง-กระดาษมูลช้าง-รูปปั้น": [
+"craft"
+],
+"of the elephant — paper, statues, craft": [
+"craft"
+],
+"แม่บ้าน": [
+"home-services",
+"housekeeper"
+],
+"ช่างซ่อมบ้าน": [
+"handyman",
+"home-services"
+],
+"คนสวน": [
+"home-services"
+],
+"กำจัดปลวก": [
+"home-services"
+],
+"housekeepers": [
+"home-services",
+"housekeeper"
+],
+"handymen": [
+"handyman",
+"home-services"
+],
+"landscapers": [
+"home-services",
+"landscaper"
+],
+"pest": [
+"home-services"
+],
+"control": [
+"home-services"
+],
+"แม่บ้าน-ช่างสวน-ดูแลบ้าน": [
+"home-services"
+],
+"home services": [
+"home-services"
+],
+"คนสวน-จัดสวน": [
+"landscaper"
+],
+"กำจัดปลวก-แมลง-หนู": [
+"pest-control"
+],
+"pest control": [
+"pest-control"
+],
+"โรตารี": [
+"community"
+],
+"ชมรมนานาชาติ": [
+"community"
+],
+"จิตอาสา": [
+"community",
+"volunteer"
+],
+"rotary": [
+"community"
+],
+"clubs": [
+"community"
+],
+"volunteering": [
+"community",
+"volunteer"
+],
+"ชมรม-สมาคม": [
+"community",
+"intl-clubs"
+],
+"clubs & community": [
+"community"
+],
+"clubs & societies": [
+"intl-clubs"
+],
+"ศาลาประชาคม-ศูนย์ชุมชน": [
+"centre"
+],
+"community centres": [
+"centre"
+],
+"ค้าส่ง": [
+"business"
+],
+"ซัพพลายเออร์": [
+"business"
+],
+"ขายออนไลน์": [
+"business"
+],
+"wholesale": [
+"business"
+],
+"suppliers": [
+"business"
+],
+"selling": [
+"business"
+],
+"online": [
+"business"
+],
+"ธุรกิจ-ค้าขาย": [
+"business"
+],
+"doing business": [
+"business"
+],
+"โคเวิร์กกิ้งสเปซ": [
+"coworking"
+],
+"coworking spaces": [
+"coworking"
+],
+"ค้าส่ง-ซัพพลายเออร์": [
+"wholesale"
+],
+"wholesale & suppliers": [
+"wholesale"
+],
+"ขายออนไลน์-ดรอปชิป": [
+"online-selling"
+],
+"online selling & dropshipping": [
+"online-selling"
+],
+"ทนาย-บัญชี": [
+"professional"
+],
+"lawyers & accountants": [
+"professional"
+],
+"โรงหนัง": [
+"whats-on"
+],
+"ดนตรีสด": [
+"live-music",
+"whats-on"
+],
+"ที่จัดงาน": [
+"whats-on"
+],
+"รอบฉาย": [
+"whats-on"
+],
+"cinemas": [
+"whats-on"
+],
+"music": [
+"whats-on"
+],
+"venues": [
+"whats-on"
+],
+"showtimes": [
+"whats-on"
+],
+"หนัง-คอนเสิร์ต-อีเวนต์": [
+"whats-on"
+],
+"movies, concerts & events": [
+"whats-on"
+],
+"โรงหนัง-รอบฉาย": [
+"cinema"
+],
+"cinemas & showtimes": [
+"cinema"
+],
+"live music": [
+"live-music"
+],
+"ที่จัดงาน-อีเวนต์": [
+"events-venue"
+],
+"event venues": [
+"events-venue"
+],
+"พิพิธภัณฑ์": [
+"museum",
+"museums-galleries"
+],
+"หอศิลป์": [
+"museums-galleries"
+],
+"แกลเลอรี": [
+"museums-galleries"
+],
+"museums": [
+"museum",
+"museums-galleries"
+],
+"art": [
+"museums-galleries",
+"sights"
+],
+"galleries": [
+"museums-galleries"
+],
+"exhibition": [
+"museums-galleries"
+],
+"spaces": [
+"museums-galleries"
+],
+"พิพิธภัณฑ์-หอศิลป์": [
+"museums-galleries"
+],
+"museums & galleries": [
+"museums-galleries"
+],
+"หอศิลป์-แกลเลอรี": [
+"gallery"
+],
+"art galleries": [
+"gallery"
+],
+"สวนสาธารณะ": [
+"park",
+"parks"
+],
+"สวนพฤกษศาสตร์": [
+"garden",
+"parks"
+],
+"อ่างเก็บน้ำ": [
+"parks"
+],
+"สนามเด็กเล่น": [
+"parks",
+"playground"
+],
+"public": [
+"parks"
+],
+"parks": [
+"parks"
+],
+"gardens": [
+"garden",
+"parks"
+],
+"reservoirs": [
+"parks"
+],
+"playgrounds": [
+"parks",
+"playground"
+],
+"สวน-ที่พักผ่อน": [
+"parks"
+],
+"parks & green space": [
+"parks"
+],
+"public parks": [
+"park"
+],
+"เขตอนุรักษ์-อุทยาน": [
+"nature"
+],
+"nature reserves": [
+"nature"
+],
+"อ่างเก็บน้ำ-หนองน้ำ": [
+"water"
+],
+"lakes & reservoirs": [
+"water"
+],
+"ร้านสัก": [
+"sights"
+],
+"ห้องสมุด": [
+"library",
+"sights"
+],
+"สตูดิโอศิลป์": [
+"art-studio",
+"sights"
+],
+"libraries": [
+"library",
+"sights"
+],
+"ที่เที่ยว-ของดี": [
+"sights"
+],
+"sights & good things": [
+"sights"
+],
+"art studios": [
+"art-studio"
+],
+"โบราณสถาน-ที่ประวัติศาสตร์": [
+"historic"
+],
+"historic places": [
+"historic"
+],
+"จุดชมวิว": [
+"viewpoint"
+],
+"viewpoints": [
+"viewpoint"
+],
+"น้ำตก": [
+"waterfall"
+],
+"waterfalls": [
+"waterfall"
+],
+"ดอย-ยอดเขา": [
+"peak"
+],
+"peaks & mountains": [
+"peak"
+],
+"น้ำพุร้อน": [
+"hot-spring"
+],
+"hot springs": [
+"hot-spring"
+],
+"ทริปวันเดียว": [
+"outing"
+],
+"outings & day trips": [
+"outing"
+]
+}
 }

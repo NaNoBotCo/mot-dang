@@ -104,6 +104,14 @@
    "what_th": "เปิดช่องทางเก็บข้อมูลสามช่องที่ไม่เคยถามมาก่อน: สำนักงานที่ดิน — ที่ที่การโอนโฉนดทุกครั้งเดินผ่าน — สารบัญเคยมีศูนย์แห่ง ตอนนี้มีสี่ (สองสาขาของเชียงใหม่ กรมที่ดิน และสำนักงานจังหวัดเชียงราย ส่วนสาขาเมืองเชียงใหม่ยังไม่มีใครปักหมุดในแผนที่เปิด) · หอพัก 22 → 84 แห่ง เพราะแผนที่ติดป้ายหอพักไว้ที่ตัวอาคาร ไม่ใช่ในชื่อ · หมู่บ้านจัดสรร 0 → 22 แห่ง จากพื้นที่อยู่อาศัยที่มีชื่อ โดยกันหมู่บ้านจริง 590 แห่งไว้ไม่ให้ถูกจัดเป็นโครงการจัดสรร",
    "what_en": "Three crawl sources that had never been asked: the Land Office — where every chanote transfer happens — went from ZERO in the catalogue to four (two Chiang Mai branches, the Land Department, and Chiang Rai's provincial office; nobody has pinned Chiang Mai's Mueang seat on the open map yet) · dormitories 22 → 84, because the map tags a dorm on the building rather than in the name · housing estates 0 → 22 from named residential areas, with 590 real villages fenced OUT so that nobody's home address is filed as a development somebody is selling.",
    "page": "realestate.html"
+  },
+  {
+   "reported": "2026-08-31",
+   "fixed": "2026-08-31",
+   "via": "มดเอง / the ants' own audit",
+   "what_th": "ร้านที่ชื่อตัวเองบอกว่า “รับซ่อมแซม เสื้อผ้า” ถูกจัดอยู่ชั้นเดียวกับร้านตัดสูทเก้าร้านมาตั้งแต่เก็บข้อมูล 27 ก.ค. เพราะแผนที่เปิดติดป้ายว่า craft=tailor ซึ่งเป็นป้ายเดียวที่ใช้กับงานเข็มทั้งหมด ตอนนี้ “ซ่อมแซม-แก้เสื้อผ้า” แยกออกจาก “ร้านตัดสูท-ตัดชุด” เป็นคนละชั้นแล้ว และเปิดอีกสองชั้นทิ้งไว้ว่าง — “ผ้าเมตร-ร้านผ้า” กับ “เครื่องนอน-ผ้าปูที่นอน” — เพราะทั้งสองจังหวัดรวม 20,778 รายการ ไม่มีสักรายการเดียวที่เอ่ยถึงสองอย่างนี้ ไม่ว่าจะภาษาไหน",
+   "what_en": "A shop whose own name says รับซ่อมแซม เสื้อผ้า — clothing repairs — had sat beside nine bespoke-suit houses since the 27 July crawl, because the open map tags it craft=tailor and that one tag covers the whole needle trade. Alterations & Repairs is now a shelf of its own, separate from Tailors. Two more were opened empty beside it — Fabric by the Metre, and Bedding & Sheets — because across 20,778 records in both provinces, not one names either trade in either script.",
+   "page": "cm/shopping/index.html"
   }
  ]
 }

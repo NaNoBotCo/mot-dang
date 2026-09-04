@@ -2,8 +2,12 @@
  {
   "id": "cr-curated-mplus-chiangrai",
   "province": "cr",
-  "cat": ["medical"],
-  "sub": ["clinic"],
+  "cat": [
+   "medical"
+  ],
+  "sub": [
+   "clinic"
+  ],
   "name": "มูลนิธิเอ็มพลัส เชียงราย",
   "nameTh": "มูลนิธิเอ็มพลัส เชียงราย",
   "nameEn": "M Plus Foundation Chiang Rai",
@@ -25,10 +29,812 @@
   "blurb_th": "สาขาเชียงรายของมูลนิธิเอ็มพลัส — ตรวจเอชไอวีและโรคติดต่อทางเพศสัมพันธ์ ยาเพร็พ-เป๊ป และงานสุขภาพชุมชนแนวเดียวกับสำนักงานใหญ่เชียงใหม่",
   "blurb_en": "The Chiang Rai clinic of the M Plus Foundation — HIV/STI testing, PrEP and PEP, and the same line of community health work as the Chiang Mai head office.",
   "sources": [
-   {"type": "web", "ref": "https://www.mplusthailand.com/en/contact-us/", "fetched": "2026-08-21"},
-   {"type": "web", "ref": "https://thaisisterhood.com/resources/clinics", "fetched": "2026-08-21"}
+   {
+    "type": "web",
+    "ref": "https://www.mplusthailand.com/en/contact-us/",
+    "fetched": "2026-08-21"
+   },
+   {
+    "type": "web",
+    "ref": "https://thaisisterhood.com/resources/clinics",
+    "fetched": "2026-08-21"
+   }
   ],
   "confidence": "curated",
   "updatedAt": "2026-08-21"
+ },
+ {
+  "id": "cr-curated-unipest-chiangrai",
+  "province": "cr",
+  "cat": [
+   "home-services"
+  ],
+  "sub": [
+   "pest-control"
+  ],
+  "name": "บริษัท ยูนิเพสท์ จำกัด (สาขาเชียงราย)",
+  "nameEn": "Unipest (Chiang Rai branch)",
+  "lat": 19.937736,
+  "lng": 99.84024,
+  "geoPrecision": "approx",
+  "address": "418/108 หมู่ 1 ต.ริมกก อ.เมืองเชียงราย จ.เชียงราย 57100",
+  "phone": "053-602-882",
+  "website": "https://www.unipest.co.th/",
+  "hours": "Mo-Su 08:00-17:00",
+  "attrs": {
+   "kind": "pest control — termites, rodents, insects",
+   "phoneAlt": "061-270-6644",
+   "lineId": "@unipest",
+   "licenceNo": "83/2539",
+   "licenceVia": "own-site",
+   "facets": {
+    "termite": true,
+    "rodent": true,
+    "fdalicence": true
+   },
+   "pinVia": "tambon-amphoe-centroid",
+   "pinFrom": "ริมกก / เมืองเชียงราย (geocode_local)",
+   "pinUncertaintyM": "540"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "สาขาเชียงรายของยูนิเพสท์ อยู่ริมกก ในเมือง สำนักงานใหญ่อยู่เชียงใหม่ หน้าเว็บของเขาเองระบุเลขทะเบียน อย. 83/2539 อบรมกับสมาคมผู้ประกอบกิจการกำจัดแมลง (TPMA) และ ISO 9001:2015 — ทั้งหมดเป็นคำของบริษัทเอง ตรวจกับทะเบียน อย. ได้ตามลิงก์ในหน้าถามมด งาน: ปลวก หนู แมลงสาบ มด แมลงวัน เห็บ ด้วง และงานพ่นฆ่าเชื้อ ไลน์ @unipest โทร 053-602-882 หรือ 061-270-6644",
+  "blurb_en": "Unipest's Chiang Rai branch, at Rim Kok inside the town; the head office is in Chiang Mai. Its own page publishes an FDA registration number, 83/2539, states training through the Thai Pest Management Association and claims ISO 9001:2015 — the company's own statements, checkable against the FDA register linked from the Ask-the-ants page. The work is termites, rats, cockroaches, ants, flies, ticks and beetles, plus disinfection spraying. LINE @unipest, tel 053-602-882 or 061-270-6644.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.unipest.co.th/",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-minibug-chiangrai",
+  "province": "cr",
+  "cat": [
+   "home-services"
+  ],
+  "sub": [
+   "pest-control"
+  ],
+  "name": "บริษัท มินิ บั๊ค จำกัด (สาขาเชียงราย)",
+  "nameEn": "Mini Bug (Chiang Rai branch)",
+  "geoPrecision": "needs-pin",
+  "address": "299/13 หมู่ที่ 2 ต.ท่าสาย อ.เมืองเชียงราย จ.เชียงราย 57000",
+  "phone": "053-773-568",
+  "website": "https://www.minibug-insect.com/",
+  "hours": "Mo-Sa 08:00-17:00",
+  "attrs": {
+   "kind": "pest control — termites, rodents",
+   "phoneAlt": "088-139-4884 · 099-415-8599",
+   "lineId": "@minibug",
+   "taxId": "0105554040623",
+   "facets": {
+    "termite": true,
+    "rodent": true,
+    "baitsystem": true,
+    "pipesystem": true
+   },
+   "pinNote": "ท่าสาย เมืองเชียงราย — เลขที่ยังไม่มีพิกัด"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "สาขาเชียงรายของมินิ บั๊ค อยู่ท่าสาย เปิดจันทร์–เสาร์ 08.00–17.00 น. หยุดอาทิตย์ หน้าสาขาของเขาเองระบุระบบเหยื่อและอัดน้ำยา สำรวจหน้างานฟรี และระบุว่าเข้าหน้างานภายใน 48 ชั่วโมง พื้นที่บริการ: เชียงราย พะเยา แพร่ น่าน อุทัยธานี พิจิตร และ อ.งาว ลำปาง หน้านี้ไม่ได้ลงอีเมลไว้ ไลน์ @minibug โทร 053-773-568 (แฟกซ์ 053-773-569) สายด่วน 088-139-4884, 099-415-8599",
+  "blurb_en": "Mini Bug's Chiang Rai branch at Tha Sai, open Monday to Saturday 08:00–17:00 and closed Sundays. The branch page states a bait system and chemical injection, a free site inspection, and a stated 48-hour response. Its service area is Chiang Rai, Phayao, Phrae, Nan, Uthai Thani, Phichit and Ngao district in Lampang. No email is published on that page. LINE @minibug. Tel 053-773-568 (fax 053-773-569), hotlines 088-139-4884 and 099-415-8599.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.minibug-insect.com/17973932/%E0%B8%AA%E0%B8%B2%E0%B8%82%E0%B8%B2%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-firesaver-chiangrai",
+  "province": "cr",
+  "cat": [
+   "home-services"
+  ],
+  "sub": [
+   "pest-control"
+  ],
+  "name": "ไฟร์เซฟเวอร์ เชียงราย",
+  "nameEn": "Firesaver Chiang Rai",
+  "geoPrecision": "needs-pin",
+  "address": "517 หมู่ 1 ถ.พหลโยธิน ต.บ้านดู่ อ.เมืองเชียงราย จ.เชียงราย 57100",
+  "phone": "053-703-100",
+  "website": "https://www.firesaver-cg.com/",
+  "hours": "",
+  "attrs": {
+   "kind": "fire-safety supplier with a pest-control line",
+   "phoneAlt": "081-473-6280 · 090-331-0999 · 089-559-2890",
+   "email": "fcg3993@gmail.com",
+   "facets": {
+    "termite": true,
+    "pipesystem": true,
+    "herbal": true
+   },
+   "pinNote": "บ้านดู่ ถนนพหลโยธิน — เลขที่ยังไม่มีพิกัด"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ร้านอยู่ถนนพหลโยธิน บ้านดู่ ธุรกิจหลักคืองานดับเพลิงและความปลอดภัย และมีสายงานกำจัดปลวกอยู่ในนั้น หน้าบริการของเขาเองระบุ: กำจัดปลวกทั้งบ้านไม้และบ้านปูน วิธีสมุนไพร วางท่อปลวก และงานรมควัน หน้าเว็บมีหัวข้อใบอนุญาตและทะเบียนพาณิชย์ แต่ไม่ได้แสดงเลขไว้ในหน้าที่อ่าน (31 ส.ค. 2569) — ขอดูตอนนัด อีเมล fcg3993@gmail.com โทร 053-703-100, 081-473-6280, 090-331-0999, 089-559-2890",
+  "blurb_en": "A shop on Phahonyothin Road at Ban Du whose main trade is fire safety and equipment, with termite work as a service line inside it. Its own service page states termite treatment for both timber and concrete houses, a herbal method, termite pipework and fumigation. The site has headings for licences and commercial registration but showed no numbers on the page read (2026-08-31) — worth asking to see when you book. fcg3993@gmail.com, tel 053-703-100, 081-473-6280, 090-331-0999, 089-559-2890.",
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.firesaver-cg.com/productList.php?cat=64",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-chiangrai-music",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "music"
+  ],
+  "name": "เชียงรายมิวสิค",
+  "nameTh": null,
+  "nameEn": "Chiang Rai Music",
+  "geoPrecision": "needs-pin",
+  "address": "209-210 หมู่ 18 ถนนพระสุพรรณ (พหลโยธิน) ต.เวียง อ.เมืองเชียงราย จ.เชียงราย",
+  "phone": "097-123-5959",
+  "website": "",
+  "hours": "Mo-Su 09:00-18:00",
+  "attrs": {
+   "rents": false,
+   "sells": true,
+   "lessons": true,
+   "carries": "กีตาร์โปร่ง กีตาร์ไฟฟ้า เปียโนไฟฟ้า กลอง เครื่องเป่าทุกชนิด",
+   "ownClaim": "the shop's site called it the largest musical instrument store in northern Thailand — recorded as their claim, and the site itself no longer resolves, so even the claim is second-hand now",
+   "pinNote": "ถนนพระสุพรรณ ใกล้สถานีขนส่งเก่า — เลขที่จากเว็บของร้าน ยังไม่ได้ยืนยันด้วยการไปยืน",
+   "readRefused": "https://www.chiangraimusic.com/ — DNS does not resolve, checked twice on 2026-08-31. The address, phone, hours and stock below come from a search index's copy of that site, not from the live page."
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ร้านใหญ่ที่สุดของเชียงรายเท่าที่อ่านเจอ อยู่ถนนพระสุพรรณใกล้สถานีขนส่งเก่า ขายกีตาร์โปร่ง กีตาร์ไฟฟ้า เปียโนไฟฟ้า กลอง และเครื่องเป่าทุกชนิด มีสอนดนตรี รายการนี้อ่อนกว่ารายการอื่นในชั้นนี้ และบอกไว้ตรงนี้: เว็บของร้านเอง chiangraimusic.com ไม่ตอบ (DNS ไม่ resolve ลองสองครั้งเมื่อ 31 ส.ค. 2569) ที่อยู่ เบอร์ เวลาเปิด และรายการสินค้าทั้งหมดจึงมาจากสำเนาที่เครื่องค้นหาเก็บไว้ ไม่ใช่จากหน้าเว็บที่ยังมีชีวิต โทรยืนยันก่อนขับไป 097-123-5959",
+  "blurb_en": "The largest room in Chiang Rai as far as this survey reached, on Phra Suphan Road near the old bus station, selling acoustic and electric guitars, digital pianos, drums and wind instruments of every kind, with lessons. This record is weaker than the others on this shelf and says so: the shop's own site, chiangraimusic.com, does not resolve — DNS failure on two checks on 2026-08-31 — so the address, phone, hours and stock all come from a search index's copy of that page rather than from the live one. Ring to confirm before driving out: 097-123-5959.",
+  "sources": [
+   {
+    "type": "search-index",
+    "ref": "https://www.chiangraimusic.com/en/",
+    "fetched": "2026-08-31",
+    "note": "site does not resolve; read from a search engine's stored copy"
+   }
+  ],
+  "confidence": "third-party",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-intune-guitar-shop",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "music"
+  ],
+  "name": "Intune Guitar Shop",
+  "nameTh": "อินทูน กีตาร์ ชอป",
+  "nameEn": null,
+  "geoPrecision": "needs-pin",
+  "address": "",
+  "phone": "",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "rents": false,
+   "sells": true,
+   "repairs": true,
+   "carries": "กีตาร์ ขายและซ่อม",
+   "pinNote": "ยังไม่มีที่อยู่และเบอร์ที่อ่านมาได้ — มีเพจเฟซบุ๊ก intuneguitarshop",
+   "unverified": "found only as a Facebook page"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ร้านกีตาร์ในเชียงราย ขายและซ่อม พบเป็นเพจเฟซบุ๊ก intuneguitarshop ยังไม่มีที่อยู่หรือเบอร์ที่อ่านมาได้ เชียงรายมีอยู่สองร้านในสารบัญนี้ ซึ่งน้อยเกินไปสำหรับทั้งจังหวัด และเป็นงานที่ยังค้างอยู่",
+  "blurb_en": "A guitar shop in Chiang Rai, selling and repairing, found as the Facebook page intuneguitarshop with no address or phone read. Chiang Rai holds two records on this shelf, which is too few for a whole province and is work still owed.",
+  "sources": [
+   {
+    "type": "social",
+    "ref": "https://www.facebook.com/intuneguitarshop/",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "third-party",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-body-go-tailor",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "tailor"
+  ],
+  "name": "ร้านบอดี้โก๋ (หน้าค่ายฯ)",
+  "nameEn": "Body Go Tailor (opposite the camp)",
+  "geoPrecision": "needs-pin",
+  "address": "ตำบลรอบเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+  "phone": "053-713717",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "tailor — uniform work",
+   "facets": {
+    "uniform": true,
+    "fulldresswhite": true,
+    "policemilitary": true
+   },
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call",
+   "phoneAlt": [
+    "085-615-0404"
+   ]
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ร้านตัดเย็บเสื้อผ้าบุรุษและสตรี รับตัดเครื่องแบบทหาร ตำรวจ ข้าราชการ พลเรือน ชุดปกติขาว ซาฟารี และชุดฟอร์มหน่วยงาน ชื่อร้านบอกที่ตั้งเอง — หน้าค่าย ซึ่งเป็นกฎของอาชีพนี้ทั้งอาชีพ ร้านตัดเครื่องแบบอยู่หน้าหน่วยงานที่ใส่เครื่องแบบนั้น ⚠ ข้อมูลติดต่อมาจากกระทู้เว็บบอร์ดเชียงรายโฟกัสปี 2553–2557 และรายการเยลโล่เพจเจสที่ยังตั้งอยู่ ณ 31 ส.ค. 2569 เว็บไซต์ของร้านเอง body-go.com ตอนนี้ขึ้นหน้ายืนยันตัวตนแทนหน้าร้าน เบอร์จึงยังไม่ได้ยืนยัน",
+  "blurb_en": "Men's and women's tailoring: military, police, civil-service and civilian uniform, ชุดปกติขาว, safari and organisational kit; a cutter of thirty years' standing by the poster's account. The shop names its own location — หน้าค่าย, in front of the camp — which is the rule for this whole trade: uniform tailors sit at the gate of the institution they dress. ⚠ Contact details come from Chiang Rai Focus forum threads of 2010–2014 plus a Yellow Pages listing still standing on 31 Aug 2026. The shop's own site, body-go.com, now serves a bot-verification wall rather than a shop, so the phone is unconfirmed — call before you drive.",
+  "sources": [
+   {
+    "type": "forum",
+    "ref": "https://forums.chiangraifocus.com/index.php?topic=10059.0",
+    "fetched": "2026-08-31"
+   },
+   {
+    "type": "directory",
+    "ref": "https://www.yellowpages.co.th/ypsearch?q=%E0%B8%95%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B9%87%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%9C%E0%B9%89%E0%B8%B2&w=%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-top-suit",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "tailor"
+  ],
+  "name": "ร้านท๊อปสูท",
+  "nameEn": "Top Suit",
+  "geoPrecision": "needs-pin",
+  "address": "ตำบลรอบเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+  "phone": "",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "tailor — uniform work and suit hire",
+   "facets": {
+    "uniform": true,
+    "fulldresswhite": true,
+    "rental": true
+   },
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "รายการของร้านเองเขียนว่า ตัดสูทสากลชาย-หญิง ชุดเครื่องแบบราชการ ชุดปกติขาว กางเกง กระโปรง และมีสูทให้เช่า — ร้านเดียวในเชียงรายที่พบว่าทำทั้งตัดเครื่องแบบและให้เช่า",
+  "blurb_en": "Its own listing reads: international-cut suits for men and women, civil-service uniform, ชุดปกติขาว, trousers, skirts — and suits for hire. The only Chiang Rai shop found doing both the uniform cutting and the hire.",
+  "sources": [
+   {
+    "type": "directory",
+    "ref": "https://www.yellowpages.co.th/ypsearch?q=%E0%B8%95%E0%B8%B1%E0%B8%94%E0%B8%AA%E0%B8%B9%E0%B8%97&w=%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-strongman-police",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "tailor"
+  ],
+  "name": "ร้านสตรองแมนโปลิศ",
+  "nameEn": "Strongman Police",
+  "geoPrecision": "needs-pin",
+  "address": "ตำบลเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+  "phone": "",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "uniform and insignia supplier",
+   "facets": {
+    "uniform": true,
+    "insignia": true,
+    "policemilitary": true
+   },
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "จำหน่ายอุปกรณ์ข้าราชการ ชุดข้าราชการ รองเท้า หมวก — เป็นครึ่งหนึ่งของอาชีพนี้ที่คนมักไม่รู้ว่าแยกกัน ร้านตัดผ้ากับร้านเครื่องหมายคนละร้าน",
+  "blurb_en": "Sells civil-service kit: uniforms, shoes, caps. This is the half of the trade people miss — the shop that cuts the cloth and the shop that supplies the boards, ribbon bars and caps are usually two different shops.",
+  "sources": [
+   {
+    "type": "directory",
+    "ref": "https://www.yellowpages.co.th/ypsearch?q=%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%81%E0%B8%B2%E0%B8%A3&w=%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-siam-tailor-maechan",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "tailor"
+  ],
+  "name": "ร้านสยามเทเลอร์",
+  "nameEn": "Siam Tailor (Mae Chan)",
+  "geoPrecision": "needs-pin",
+  "address": "ตำบลแม่จัน อำเภอแม่จัน จังหวัดเชียงราย 57110",
+  "phone": "",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "uniform and insignia supplier",
+   "facets": {
+    "uniform": true,
+    "insignia": true
+   },
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "จำหน่ายเครื่องแบบและเครื่องหมายต่างๆ ที่แม่จัน — คนในเว็บบอร์ดเชียงรายแนะนำไว้ปี 2559 ว่า สยามเทเลอร์ ที่แม่จันก็โอ",
+  "blurb_en": "Uniforms and insignia both, in Mae Chan. Named on the Chiang Rai forum in 2016 — 'Siam Tailor at Mae Chan is fine too' — and still carrying a Yellow Pages listing in 2026.",
+  "sources": [
+   {
+    "type": "forum",
+    "ref": "https://forums.chiangraifocus.com/index.php?topic=891803.0",
+    "fetched": "2026-08-31"
+   },
+   {
+    "type": "directory",
+    "ref": "https://www.yellowpages.co.th/ypsearch?q=%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%81%E0%B8%9A%E0%B8%9A&w=%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-suit-center-cr",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "tailor"
+  ],
+  "name": "ร้านสูทเซ็นเตอร์",
+  "nameEn": "Suit Center",
+  "geoPrecision": "needs-pin",
+  "address": "ตำบลเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+  "phone": "",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "tailor — uniform work",
+   "facets": {
+    "uniform": true
+   },
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "คนในเว็บบอร์ดปี 2559 บอกว่าอยู่เยื้องๆ ห้างวังคำ มีผ้าให้เลือก และส่งของทางไปรษณีย์ให้ด้วย ซึ่งสำคัญสำหรับคนที่อยู่อำเภอไกล",
+  "blurb_en": "A 2016 forum poster places it opposite Wang Kham, says it keeps cloth to choose from, and — the part that matters if you live in an outer district — will post the finished garment to you.",
+  "sources": [
+   {
+    "type": "forum",
+    "ref": "https://forums.chiangraifocus.com/index.php?topic=891803.0",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-michael-suit-crru",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "tailor"
+  ],
+  "name": "ร้านสูทไมเคิล (เหลิม)",
+  "nameEn": "Michael Suit (Loem)",
+  "geoPrecision": "needs-pin",
+  "address": "โครงการแผ่นดินทอง บ้านดู่เมืองใหม่ ตรงข้ามมหาวิทยาลัยราชภัฏเชียงราย อำเภอเมืองเชียงราย จังหวัดเชียงราย 57100",
+  "phone": "053-767545",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "tailor — uniform work",
+   "facets": {
+    "uniform": true
+   },
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "อยู่ในโครงการแผ่นดินทอง บ้านดู่เมืองใหม่ ตรงข้ามราชภัฏเชียงราย มีคนแนะนำไว้ในเว็บบอร์ดทั้งปี 2557 และ 2559 ⚠ เบอร์มาจากกระทู้ ไม่ได้ยืนยันใหม่",
+  "blurb_en": "In the Phaen Din Thong project at Ban Du Mueang Mai, opposite Chiang Rai Rajabhat University. Named on the local forum in both 2014 and 2016. ⚠ The number comes from those threads and has not been re-checked.",
+  "sources": [
+   {
+    "type": "forum",
+    "ref": "https://forums.chiangraifocus.com/index.php?topic=891803.0",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-chulalak-embroidery",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "tailor"
+  ],
+  "name": "ร้านจุฬาลักษณ์ ปักจักร",
+  "nameEn": "Chulalak Machine Embroidery",
+  "geoPrecision": "needs-pin",
+  "address": "ตำบลรอบเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+  "phone": "",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "machine embroidery",
+   "facets": {
+    "schoolkit": true,
+    "insignia": true
+   },
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "รับปักเสื้อนักเรียน ปักอาร์มเครื่องหมาย ปักหมวก ปักหนัง และปักย่ามพระ ด้วยจักรปักคอมพิวเตอร์",
+  "blurb_en": "Computerised embroidery: school shirts, unit badges, caps, leather — and monks' shoulder bags. The finishing trade that sits beside the cutting trade and is never listed with it.",
+  "sources": [
+   {
+    "type": "directory",
+    "ref": "https://www.yellowpages.co.th/ypsearch?q=%E0%B8%95%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B9%87%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%9C%E0%B9%89%E0%B8%B2&w=%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-wasana-fai-lanna",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "tailor"
+  ],
+  "name": "วาสนาฝ้ายล้านนา แอนด์ เจ้านางสตูดิโอ",
+  "nameEn": "Wasana Fai Lanna & Chao Nang Studio",
+  "geoPrecision": "needs-pin",
+  "address": "ตำบลเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+  "phone": "",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "Lanna dress hire and studio",
+   "facets": {
+    "rental": true,
+    "thaiformal": true,
+    "bridal": true
+   },
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ผ้าเช่าล้านนา สากล และงานทั่วไป ทั้งผู้ใหญ่และเด็ก รับงานแต่งงานแบบล้านนาและสากล",
+  "blurb_en": "Lanna and international dress for hire, adults and children, and Lanna or international weddings. For a garment worn once, hire is what people here do first.",
+  "sources": [
+   {
+    "type": "directory",
+    "ref": "https://www.yellowpages.co.th/ypsearch?q=%E0%B8%9C%E0%B9%89%E0%B8%B2&w=%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-nanglae-sewing-group",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "tailor"
+  ],
+  "name": "กลุ่มตัดเย็บเสื้อผ้าตำบลนางแล",
+  "nameEn": "Nang Lae Sub-district Sewing Group",
+  "geoPrecision": "needs-pin",
+  "address": "ตำบลนางแล อำเภอเมืองเชียงราย จังหวัดเชียงราย 57100",
+  "phone": "",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "village sewing group",
+   "facets": {
+    "thaiformal": true
+   },
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "รับตัดเย็บชุดล้านนาตามออเดอร์ที่สั่ง — เป็นรูปแบบหนึ่งของอาชีพนี้ที่ไม่มีหน้าร้าน ไม่มีป้ายภาษาอังกฤษ และไม่เคยอยู่ในสารบัญไหน",
+  "blurb_en": "Cuts Lanna dress to order. A form of this trade with no shopfront, no English sign and no listing anywhere else — a village women's group taking commissions.",
+  "sources": [
+   {
+    "type": "directory",
+    "ref": "https://www.yellowpages.co.th/ypsearch?q=%E0%B8%95%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B9%87%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%9C%E0%B9%89%E0%B8%B2&w=%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-bansalit-sewing-group",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "tailor"
+  ],
+  "name": "กลุ่มตัดเย็บเสื้อผ้าชุดพื้นเมือง บ้านสลิด",
+  "nameEn": "Ban Salit Northern-Dress Sewing Group",
+  "geoPrecision": "needs-pin",
+  "address": "ตำบลเวียงเหนือ อำเภอเวียงชัย จังหวัดเชียงราย 57210",
+  "phone": "",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "village sewing group",
+   "facets": {
+    "thaiformal": true
+   },
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ตัดเย็บเสื้อผ้าชุดพื้นเมืองทางเหนือ ผ้าไหมและผ้าฝ้าย",
+  "blurb_en": "Northern dress in silk and cotton, cut by a village group in Wiang Chai.",
+  "sources": [
+   {
+    "type": "directory",
+    "ref": "https://www.yellowpages.co.th/ypsearch?q=%E0%B8%95%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B9%87%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%9C%E0%B9%89%E0%B8%B2&w=%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-fashion-fabric-cr",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "fabric"
+  ],
+  "name": "ร้าน แฟชั่น แฟบบริค",
+  "nameEn": "Fashion Fabric",
+  "geoPrecision": "needs-pin",
+  "address": "ตำบลรอบเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+  "phone": "",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "fabric shop",
+   "facets": {},
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "จำหน่ายผ้าแพรพัน ผ้าม่าน ผ้าห่ม ผ้าปูที่นอน และผ้าตัดชุด — ซื้อผ้าเองแล้วให้ร้านคิดเฉพาะค่าแรง เป็นท่าที่คนเชียงรายแนะนำกันเองในเว็บบอร์ด",
+  "blurb_en": "Curtain, bedding and dress cloth. Buying your own cloth and paying the shop for labour only is the move Chiang Rai people recommend to each other on their own forum.",
+  "sources": [
+   {
+    "type": "directory",
+    "ref": "https://www.yellowpages.co.th/ypsearch?q=%E0%B8%9C%E0%B9%89%E0%B8%B2&w=%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-anek-hang-fabric",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "fabric"
+  ],
+  "name": "เอนก ห้าง",
+  "nameEn": "Anek Hang — cloth and sewing supplies",
+  "geoPrecision": "needs-pin",
+  "address": "ตำบลเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+  "phone": "",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "fabric and haberdashery",
+   "facets": {},
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "จำหน่ายผ้าม้วนและอุปกรณ์ตัดเย็บ",
+  "blurb_en": "Cloth by the roll plus sewing supplies — the second half of the buy-your-own-cloth route.",
+  "sources": [
+   {
+    "type": "directory",
+    "ref": "https://www.yellowpages.co.th/ypsearch?q=%E0%B8%9C%E0%B9%89%E0%B8%B2&w=%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-arun-sport-cr",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "tailor"
+  ],
+  "name": "ร้าน อรุณสปอร์ต",
+  "nameEn": "Arun Sport",
+  "geoPrecision": "needs-pin",
+  "address": "ตำบลเวียง อำเภอเมืองเชียงราย จังหวัดเชียงราย 57000",
+  "phone": "",
+  "website": "",
+  "hours": "",
+  "attrs": {
+   "kind": "tailor — sports kit",
+   "facets": {
+    "uniform": true,
+    "sportskit": true
+   },
+   "pinNote": "tambon-level address only; the directory withholds the street and no GPS was published — pin needs a walk or a call"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "รับตัดเย็บเสื้อผ้าชุดกีฬา",
+  "blurb_en": "Cuts sports kit — the school-and-club end of the uniform trade.",
+  "sources": [
+   {
+    "type": "directory",
+    "ref": "https://www.yellowpages.co.th/ypsearch?q=%E0%B8%95%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B9%87%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%9C%E0%B9%89%E0%B8%B2&w=%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+    "fetched": "2026-08-31"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-music-center-chiangrai",
+  "province": "cr",
+  "cat": [
+   "shopping"
+  ],
+  "sub": [
+   "music"
+  ],
+  "name": "มิวสิคเซ็นเตอร์ เชียงราย",
+  "nameTh": "มิวสิคเซ็นเตอร์ เชียงราย",
+  "nameEn": "Music Center Chiangrai",
+  "lat": 19.8866293,
+  "lng": 99.8304177,
+  "geoPrecision": "exact",
+  "address": "127 ถนนพหลโยธิน อ.เมืองเชียงราย จ.เชียงราย 57000",
+  "phone": "081-595-1408",
+  "website": "",
+  "hours": "Mo-Su 10:00-19:00",
+  "attrs": {
+   "rents": false,
+   "sells": true,
+   "osm": "node/13992126701 — carries its own house number, street, postcode, phone and hours"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ถนนพหลโยธินในเมืองเชียงราย เปิดทุกวัน 10.00–19.00 น. รายการนี้มาจากแผนที่เปิดโดยตรง และเป็นรายการที่ครบที่สุดในชั้นนี้ที่ไม่ได้มาจากการอ่านเว็บ — มีทั้งบ้านเลขที่ ถนน รหัสไปรษณีย์ เบอร์โทร และเวลาเปิด อยู่บนหมุดเดียว 081-595-1408",
+  "blurb_en": "On Phahonyothin Road in Chiang Rai town, open daily 10:00–19:00. This record comes straight off the open map and is the most complete one on this shelf that was not read from a web page — house number, street, postcode, phone and hours all sit on the single pin. 081-595-1408.",
+  "sources": [
+   {
+    "type": "osm",
+    "ref": "node/13992126701",
+    "fetched": "2026-08-31",
+    "via": "mot-dang overpass — making group, first run"
+   }
+  ],
+  "confidence": "crawled",
+  "updatedAt": "2026-08-31"
+ },
+ {
+  "id": "cr-curated-immigration-central-chiangrai",
+  "province": "cr",
+  "cat": [
+   "essentials"
+  ],
+  "sub": [
+   "gov"
+  ],
+  "name": "ตรวจคนเข้าเมืองจังหวัดเชียงราย ส่วนแยกเซ็นทรัล เชียงราย",
+  "nameEn": "Chiang Rai Immigration — Central Chiang Rai branch",
+  "address": "ชั้น G ศูนย์การค้าเซ็นทรัล เชียงราย (ฝั่งโรบินสัน ข้างสำนักงานหนังสือเดินทาง) ตำบลรอบเวียง อำเภอเมือง เชียงราย 57000",
+  "phone": "053-731008 ต่อ 14",
+  "website": "https://chiangrai.immigration.go.th/",
+  "hours": "Mo-Fr 08:30-16:30",
+  "attrs": {
+   "kind": "immigration branch office",
+   "services": [
+    "ต่อวีซ่า",
+    "re-entry permit",
+    "แจ้งที่พัก ตม.30",
+    "รายงาน 90 วัน"
+   ],
+   "moved": "2023-09-18",
+   "pinVia": "beside the passport office OSM holds"
+  },
+  "featured": false,
+  "landmark": false,
+  "blurb_th": "ต่อวีซ่า re-entry แจ้งที่พัก และรายงาน 90 วัน — ชั้น G เซ็นทรัล เชียงราย ข้างสำนักงานหนังสือเดินทาง ย้ายมาจาก อบจ. 18 ก.ย. 2566",
+  "blurb_en": "Extensions, re-entry, TM30 and 90-day reports on the G floor of Central Chiang Rai, next to the passport office; moved here from the PAO on 18 Sep 2023. The main office stays in Mae Sai.",
+  "sources": [
+   {
+    "type": "official",
+    "ref": "https://chiangrai.immigration.go.th/ตม-จว-เชียงราย-ย้ายที่ทำ/",
+    "fetched": "2026-09-04"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-04",
+  "lat": 19.9300453,
+  "lng": 99.8652225,
+  "geoPrecision": "approx"
  }
 ]

@@ -1,0 +1,493 @@
+{
+ "_readme": "หม้อห้อม / ม่อฮ่อม — the indigo register behind /hom.html. This is a FACT register, not a shop shelf, and the distinction is the point: the directory holds 86 craft shops in Chiang Mai and none of them has ห้อม on the sign, because the shirt is sold as a shirt. Everything here is a dated claim with its source, or a thing measured live from the directory at build time. The pot itself is in Phrae, three hours east, and the page says so rather than pretending the trade is local. Companion article, with the manuscript evidence: wichaa.net/a/entity_hom/.",
+ "fetched": "2026-08-31",
+ "plants": [
+  {
+   "key": "hom",
+   "th": "ห้อม · ฮ่อม",
+   "rtgs": "hom",
+   "latin": "Strobilanthes cusia (Nees) Kuntze",
+   "syn": "Baphicacanthus cusia — still the name on most Thai labels",
+   "family_th": "วงศ์เหงือกปลาหมอ (Acanthaceae)",
+   "family_en": "Acanthaceae",
+   "where_th": "ไม้พุ่มชอบร่มและอากาศเย็น — ภูเขาทางเหนือ",
+   "where_en": "a shade-loving shrub of the cool northern hills",
+   "indican": "0.4–1.3% of leaf weight",
+   "also_th": "รากและใบเป็นยา — จีนเรียกรากว่า 南板藍根 หนานปั่นหลันเกิน ใช้มากว่าพันปี · ชาวเมี่ยน (เย้า) ทางเหนือใช้ใบแก้ท้องเสีย",
+   "also_en": "The root is 南板藍根 nan ban lan gen in Chinese medicine, about a thousand years of use; the pigment itself is 青黛 qingdai, indigo naturalis, for skin disease. The Mien (Yao) of northern Thailand use the leaf against diarrhoea.",
+   "sources": [
+    {
+     "ref": "https://pubmed.ncbi.nlm.nih.gov/32889034/",
+     "fetched": "2026-08-31",
+     "note": "Strobilanthes cusia — a multifunctional TCM plant, review"
+    },
+    {
+     "ref": "https://www.sciencedirect.com/science/article/pii/S2351989421003450",
+     "fetched": "2026-08-31",
+     "note": "Blue footprint — distribution and use of S. cusia"
+    }
+   ]
+  },
+  {
+   "key": "khram",
+   "th": "คราม",
+   "rtgs": "khram",
+   "latin": "Indigofera tinctoria L.",
+   "syn": "",
+   "family_th": "วงศ์ถั่ว (Leguminosae / Fabaceae)",
+   "family_en": "Fabaceae — a legume",
+   "where_th": "ที่ราบ ปลูกทั่วประเทศ มากที่สุดทางอีสาน",
+   "where_en": "lowland, grown countrywide, heaviest in the northeast",
+   "indican": "higher yield per leaf than woad by a factor of 30–175",
+   "also_th": "เป็นคำกลางที่คนไทยใช้เรียกทั้งสีและกระบวนการ",
+   "also_en": "This is the word standard Thai uses generically, for the colour and for the process — which is why northern ห้อม gets called คราม in Bangkok.",
+   "sources": [
+    {
+     "ref": "https://monkeynumber4.blogspot.com/2018/11/12-fact-about-indigo.html",
+     "fetched": "2026-08-31",
+     "note": "twelve facts about ห้อม, Phrae — the two plants distinguished"
+    }
+   ]
+  }
+ ],
+ "tests": [
+  {
+   "key": "crock",
+   "verdict": "real",
+   "th": "ซักครั้งแรกแล้วสีตก — น้ำเป็นสีคราม ต้องเทน้ำทิ้งหลายรอบกว่าสีจะอยู่ตัว",
+   "en": "It crocks. The first washes run blue and you pour the water off several times before the colour settles. Natural indigo sits ON the fibre and rubs off until it doesn't.",
+   "note_th": "ผ้าย้อมเคมีไม่ตกสี — ถ้าซักแล้วน้ำใส ให้สงสัยไว้ก่อน",
+   "note_en": "A synthetic-dyed shirt does not do this. Clear rinse water on the first wash is the tell for a printed one."
+  },
+  {
+   "key": "fade",
+   "verdict": "real",
+   "th": "ยิ่งใส่ยิ่งซีด และยิ่งซีดยิ่งงาม — ของแท้ต้องกลับไปย้อมซ้ำเป็นเรื่องปกติ",
+   "en": "It fades, and it gets better as it fades. Re-dyeing an old shirt is normal practice, not a repair.",
+   "note_th": "สีสังเคราะห์จะคงที่ ไม่เปลี่ยนไปตามการใช้งาน",
+   "note_en": "Synthetic indigo holds flat. A shirt that looks identical after two years was never in a pot."
+  },
+  {
+   "key": "smell",
+   "verdict": "real",
+   "th": "มีกลิ่นหมักจาง ๆ ติดเนื้อผ้า ไม่ใช่กลิ่นสีย้อม",
+   "en": "A faint ferment smell in the cloth, not a dye smell.",
+   "note_th": "",
+   "note_en": ""
+  },
+  {
+   "key": "uneven",
+   "verdict": "real",
+   "th": "สีไม่เรียบเสมอกันทั้งผืน เพราะจุ่มทีละครั้งแล้วผึ่งลม",
+   "en": "The shade is not perfectly even across the cloth, because it was built dip by dip with air between.",
+   "note_th": "",
+   "note_en": ""
+  },
+  {
+   "key": "printed",
+   "verdict": "printed",
+   "th": "ลายมัดย้อมที่คมกริบเท่ากันทุกตัวคือลายพิมพ์ ไม่ใช่มัด",
+   "en": "A tie-dye pattern that is crisp and identical on every shirt on the rail is printed, not tied.",
+   "note_th": "มัดย้อมจริงไม่มีสองผืนเหมือนกัน",
+   "note_en": "No two genuinely tied pieces match."
+  }
+ ],
+ "pot_states": [
+  {
+   "key": "pen",
+   "th": "หม้อนิลเป็น",
+   "rtgs": "mo nin pen",
+   "en": "the pot is alive",
+   "sign_th": "ฟองสีน้ำเงินลอยเป็นแพบนผิว ไม่ยุบง่าย เรียกว่า “โพนปลวก” น้ำข้างล่างเขียวเข้ม",
+   "sign_en": "A blue foam-cap sits on the surface and will not collapse — the dyers call it โพนปลวก, the termite mound. Liquor dark green beneath. This is the pot you can dye in.",
+   "do_th": "ย้อมได้ วันละครั้ง",
+   "do_en": "Dye. One dip per pot per day."
+  },
+  {
+   "key": "hiu",
+   "th": "หม้อนิลหิว",
+   "rtgs": "mo nin hiu",
+   "en": "the pot is hungry",
+   "sign_th": "น้ำเปลี่ยนเป็นสีเหลือง กวนแล้วไม่เกิดฟอง",
+   "sign_en": "The liquor turns yellow and stirring raises no foam.",
+   "do_th": "เติมน้ำด่าง กล้วยสุก มะขามเปียก",
+   "do_en": "Feed it — ash lye, half a ripe banana, pinched balls of tamarind."
+  },
+  {
+   "key": "ni",
+   "th": "หม้อนิลลักหนี",
+   "rtgs": "mo nin lak ni",
+   "en": "the pot has stolen away",
+   "sign_th": "วิญญาณในหม้อหนีไป น้ำครามเสียเร็ว ย้อมไม่ติด",
+   "sign_en": "The spirit in it has gone. The liquor spoils within days and will not take.",
+   "do_th": "เติมเนื้อครามและน้ำด่าง — บางครั้งกลับมาเป็นได้อีก",
+   "do_en": "Add paste and lye. Sometimes it comes back — a pot that recovers is said to be pen again."
+  },
+  {
+   "key": "tai",
+   "th": "หม้อนิลตาย",
+   "rtgs": "mo nin tai",
+   "en": "the pot is dead",
+   "sign_th": "ไม่ให้สีอีกเลย",
+   "sign_en": "It gives no colour at all, whatever you feed it.",
+   "do_th": "เทคราม ก่อหม้อใหม่",
+   "do_en": "Throw the indigo out and found a new pot."
+  }
+ ],
+ "cycle": [
+  {
+   "n": 1,
+   "th": "แช่ใบ 18–20 ชั่วโมง",
+   "en": "steep the cut stems, 18–20 hours",
+   "what_th": "เอนไซม์ในใบตัดอินดิแคนเป็นอินดอกซิล น้ำเป็นสีเหลืองแกมเขียว มีกลิ่น",
+   "what_en": "A glucosidase in the leaf splits indican into glucose and indoxyl. The liquor goes yellow-green and it stinks. Nothing blue exists yet."
+  },
+  {
+   "n": 2,
+   "th": "ตีปูนขาว",
+   "en": "beat lime in",
+   "what_th": "อินดอกซิลรวมตัวกับอากาศเป็นอินดิโกติน — สีน้ำเงิน แต่ไม่ละลายน้ำ ตกเป็นตะกอน “เนื้อคราม”",
+   "what_en": "Indoxyl pairs with itself in air and becomes indigotin, C16H10N2O2 — blue, and insoluble in water. It drops out as the paste, เนื้อคราม. About 10 g of lime per litre."
+  },
+  {
+   "n": 3,
+   "th": "ก่อหม้อ",
+   "en": "found the pot",
+   "what_th": "เนื้อคราม + น้ำด่างจากขี้เถ้า + กล้วยสุก + มะขามเปียก + น้ำครามจากหม้อที่เป็นเป็น “เชื้อ”",
+   "what_en": "Paste, wood-ash lye, half a ripe banana, tamarind, and a dipper begged from a living pot as a starter — the word is เชื้อ, the same word as a yeast culture or a lineage."
+  },
+  {
+   "n": 4,
+   "th": "โจกคราม วันละ 3–4 ครั้ง",
+   "en": "chok khram — 3 to 4 times a day",
+   "what_th": "ตักน้ำครามขึ้นแล้วเทกลับ ให้ไหลผ่านอากาศ แบคทีเรียรีดิวซ์ครามเป็นลิวโคอินดิโกที่ละลายน้ำได้",
+   "what_en": "Lift the liquor and pour it back through the air. Alkaline bacteria reduce the pigment to leuco-indigo — soluble, and yellow-green. pH starts 12.5–13 and drifts to 10–10.5 over about twenty days."
+  },
+  {
+   "n": 5,
+   "th": "จุ่มผ้า 10–15 นาที",
+   "en": "dip the cloth, 10–15 minutes",
+   "what_th": "ผ้าออกมาเป็นสีเขียวอมเหลือง ยังไม่ใช่สีคราม",
+   "what_en": "The cloth comes out yellow-green. It is not blue yet."
+  },
+  {
+   "n": 6,
+   "th": "ผึ่งลม",
+   "en": "hang it in the air",
+   "what_th": "ออกซิเจนเปลี่ยนลิวโคอินดิโกกลับเป็นอินดิโกติน สีน้ำเงินจับแน่นบนเส้นใย",
+   "what_en": "Oxygen turns the leuco-indigo back to indigotin, insoluble, precipitated on the fibre. It goes blue in your hands. This is the whole trick."
+  },
+  {
+   "n": 7,
+   "th": "หมักข้ามคืน แล้วย้อมซ้ำ",
+   "en": "cure overnight, then dip again",
+   "what_th": "จุ่มเช้า หมักถึงเย็น · จุ่มเย็น หมักข้ามคืน · สีเข้มต้องหลายรอบ 4–5 วัน",
+   "what_en": "Dipped in the morning, cured till evening; dipped in the evening, cured till morning. A dark shade wants many dips over four or five days — and one pot gives one dip a day, so a serious dyer keeps several."
+  }
+ ],
+ "timeline": [
+  {
+   "year": 1834,
+   "be": 2377,
+   "th": "ไทพวน 17 ครอบครัวจากเมืองพวน แขวงเชียงขวาง ถูกโยกย้ายลงมาน่าน",
+   "en": "Seventeen Tai Phuan families are moved from Muang Phuan in Xieng Khouang, Laos, into Nan — the redistribution of Phuan populations among the armies of the Lao campaigns. Relatives follow for decades. Thung Hong, in Phrae, is one of the settlements.",
+   "src": "sac"
+  },
+  {
+   "year": 1878,
+   "be": 2421,
+   "th": "อาดอล์ฟ ฟอน เบเยอร์ ไขโครงสร้างของคราม",
+   "en": "Adolf von Baeyer works out indigo's chemical structure. Nineteen years of process work follow, costing BASF more than its stated capital.",
+   "src": "unb"
+  },
+  {
+   "year": 1897,
+   "be": 2440,
+   "th": "BASF ขายครามสังเคราะห์ — สิบปีถัดมา ตลาดครามธรรมชาติหายไป 95%",
+   "en": "BASF puts synthetic indigo on sale. Within a decade about 95% of the natural indigo trade is gone; a world crop of roughly 19,000 tonnes is under 1,000 by 1914. What survives is the village pot — because in 1897 it was not worth destroying.",
+   "src": "unb"
+  },
+  {
+   "year": 1950,
+   "be": 2493,
+   "th": "พจนานุกรมฉบับราชบัณฑิตยสถาน พ.ศ. ๒๔๙๓ เก็บคำ",
+   "en": "The Royal Institute Dictionary carries the word: a round-necked, short-sleeved shirt opening down the front, usually dyed deep blue or black.",
+   "src": "orst"
+  },
+  {
+   "year": 1953,
+   "be": 2496,
+   "th": "ไกรศรี นิมมานเหมินท์ จัดขันโตกที่เชียงใหม่ กำหนดให้แต่งเสื้อฝ้ายคอกลมย้อมคราม คาดผ้าขาวม้า",
+   "en": "Kraisri Nimmanhaeminda gives a khantoke dinner in Chiang Mai for Sanya Dharmasakti and the American consul, and sets a dress code: round-necked cotton, indigo-dyed, phakhaoma at the waist. It is copied, and copied. The garment becomes northern formal dress — invented as costume, in Chiang Mai, on a date.",
+   "src": "cmnews"
+  },
+  {
+   "year": 1975,
+   "be": 2518,
+   "th": "ราชบัณฑิตยสถานออกคำอธิบายเรื่องการเขียน ม่อฮ่อม / หม้อห้อม",
+   "en": "The Royal Institute takes up the spelling in a bulletin. Its ruling: write หม้อห้อม. ม่อฮ่อม is not a correct transposition of the northern sounds — Bangkok Thai collapses the two, northern speech does not. The shop signs in Phrae still say ม่อฮ่อม.",
+   "src": "orst"
+  },
+  {
+   "year": 2005,
+   "be": 2548,
+   "th": "6 สิงหาคม — ตั้งวิสาหกิจชุมชนหม้อห้อมทุ่งเจริญย้อมสีธรรมชาติ",
+   "en": "6 August: the natural-dye work at Ban Thung Hong is registered as a community enterprise, วิสาหกิจชุมชนหม้อห้อมทุ่งเจริญย้อมสีธรรมชาติ.",
+   "src": "sac"
+  },
+  {
+   "year": 2020,
+   "be": 2563,
+   "th": "30 มีนาคม — ผ้าหม้อห้อมแพร่ ขึ้นทะเบียน GI",
+   "en": "30 March: ผ้าหม้อห้อมแพร่ is registered as a Thai geographical indication. The name is now fixed in law to Phrae, and to indigo grown there.",
+   "src": "dip"
+  }
+ ],
+ "route": [
+  {
+   "key": "xiengkhouang",
+   "th": "เมืองพวน แขวงเชียงขวาง",
+   "en": "Muang Phuan, Xieng Khouang (Laos)",
+   "lat": 19.46,
+   "lng": 103.13,
+   "kind": "origin",
+   "note_th": "บ้านเดิมของชาวไทพวน",
+   "note_en": "where the Tai Phuan came from"
+  },
+  {
+   "key": "nan",
+   "th": "น่าน",
+   "en": "Nan",
+   "lat": 18.7756,
+   "lng": 100.773,
+   "kind": "stop",
+   "note_th": "จุดแรกที่ถูกโยกย้ายมา พ.ศ. 2377",
+   "note_en": "first resettlement, 1834"
+  },
+  {
+   "key": "thunghong",
+   "th": "บ้านทุ่งโฮ้ง อ.เมือง จ.แพร่",
+   "en": "Ban Thung Hong, Mueang, Phrae",
+   "lat": 18.17404,
+   "lng": 100.16574,
+   "kind": "pot",
+   "note_th": "หมู่บ้านหม้อห้อม — 5 หมู่บ้าน ราว 4,840 คน 2,037 ครัวเรือน · ชื่อหมู่บ้านมาจาก “ทั่ง” (ที่ตีเหล็ก) + “โห้ง” (แอ่งลึก) ไม่ได้มาจากการย้อม",
+   "note_en": "The mo hom village: five muban, about 4,840 people in 2,037 households. The name is ทั่ง (an anvil, a place of hammering) + โห้ง (Phuan for a deep hollow) — Ban Thang Hong, the smithy in the basin. It is named after iron, not dye."
+  },
+  {
+   "key": "chiangmai",
+   "th": "เชียงใหม่",
+   "en": "Chiang Mai",
+   "lat": 18.7883,
+   "lng": 98.9853,
+   "kind": "market",
+   "note_th": "ที่ซึ่งเสื้อกลายเป็นเครื่องแบบ พ.ศ. 2496",
+   "note_en": "where the shirt became a uniform, 1953"
+  }
+ ],
+ "getting_there": {
+  "th": "เชียงใหม่ → แพร่ ราว 200 กม. รถโดยสารจากสถานีขนส่งอาร์เขต 3 ใช้เวลาราว 4 ชั่วโมง · ทุ่งโฮ้งอยู่เหนือตัวเมืองแพร่ราว 3 กม. บนถนนยันตรกิจโกศล",
+  "en": "Chiang Mai to Phrae is about 200 km — roughly four hours by bus from Arcade terminal. Thung Hong sits about 3 km north of Phrae town on the Yantrakitkoson road, and the shops are the street.",
+  "verified": false
+ },
+ "sources": {
+  "sac": {
+   "ref": "https://wikicommunity.sac.or.th/community/303",
+   "fetched": "2026-08-31",
+   "note": "Sirindhorn Anthropology Centre community wiki — บ้านทุ่งโฮ้ง"
+  },
+  "orst": {
+   "ref": "http://legacy.orst.go.th/?knowledges=%E0%B8%A1%E0%B9%88%E0%B8%AD%E0%B8%AE%E0%B9%88%E0%B8%AD%E0%B8%A1-%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD-%E0%B8%AB%E0%B8%A1%E0%B9%89%E0%B8%AD%E0%B8%AB%E0%B9%89%E0%B8%AD%E0%B8%A1",
+   "fetched": "2026-08-31",
+   "note": "Office of the Royal Society — ม่อฮ่อม หรือ หม้อห้อม"
+  },
+  "cmnews": {
+   "ref": "https://www.chiangmainews.co.th/100lanna/3537828/",
+   "fetched": "2026-08-31",
+   "note": "Chiang Mai News — หม้อห้อม จากภูมิปัญญาล้านนา"
+  },
+  "dip": {
+   "ref": "https://www.ipthailand.go.th/th/gi.html",
+   "fetched": "2026-08-31",
+   "note": "Department of Intellectual Property — GI register"
+  },
+  "unb": {
+   "ref": "https://www.unb.ca/fredericton/science/_assets/documents/chemistry/indigo.pdf",
+   "fetched": "2026-08-31",
+   "note": "The history of indigo — Baeyer, BASF, the collapse"
+  },
+  "ubu": {
+   "ref": "https://ap.ubu.ac.th/~ap/wp-content/uploads/2021/08/%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%A2%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%84%E0%B8%A3%E0%B8%B2%E0%B8%A1.pdf",
+   "fetched": "2026-08-31",
+   "note": "กัญญา จึงวิมุติพันธ์ — ภูมิปัญญาการก่อหม้อนิลและย้อมผ้าด้วยคราม (Ubon Ratchathani Univ.); the pot vocabulary and the vat recipe, from interviews of 2006"
+  },
+  "thwiki": {
+   "ref": "https://th.wikipedia.org/wiki/%E0%B8%AB%E0%B8%A1%E0%B9%89%E0%B8%AD%E0%B8%AB%E0%B9%89%E0%B8%AD%E0%B8%A1",
+   "fetched": "2026-08-31",
+   "note": "Thai Wikipedia — หม้อห้อม; the garment across Tai Lue, Lao and Tai Yuan"
+  },
+  "bmc": {
+   "ref": "https://www.dhammatalks.org/vinaya/bmc/Section0041.html",
+   "fetched": "2026-08-31",
+   "note": "Buddhist Monastic Code II ch.2 — Mv.VIII.10.1 six dyes, Mv.VIII.29 nila forbidden"
+  },
+  "crm2563": {
+   "ref": "https://thaiwomen.or.th/th/news/detail/778/",
+   "fetched": "2026-08-31",
+   "note": "Cabinet resolution 9 June 2020 — Thai cloth on Tuesday and Friday"
+  },
+  "sicolour": {
+   "ref": "https://th.wikipedia.org/wiki/%E0%B8%AA%E0%B8%B5%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B3%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B9%83%E0%B8%99%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%97%E0%B8%A8%E0%B9%84%E0%B8%97%E0%B8%A2",
+   "fetched": "2026-08-31",
+   "note": "สีประจำวัน — the weekday colours and their planetary devas"
+  },
+  "sakon": {
+   "ref": "https://thai.tourismthailand.org/Articles/indigo-sakon-nakhon-th",
+   "fetched": "2026-08-31",
+   "note": "Sakon Nakhon indigo — the northeast's own Friday cloth"
+  },
+  "prachiat": {
+   "ref": "https://th.wikipedia.org/wiki/%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%88%E0%B8%B5%E0%B8%A2%E0%B8%94",
+   "fetched": "2026-08-31",
+   "note": "ประเจียด — the inscribed cloth is white salu, never indigo"
+  },
+  "aizome": {
+   "ref": "https://japanobjects.com/features/indigo",
+   "fetched": "2026-08-31",
+   "note": "Japanese indigo — antibacterial, insect-repellent, samurai and fire brigades"
+  },
+  "sawat": {
+   "ref": "https://www.sarakadee.com/2025/01/29/sawadiraksa/",
+   "fetched": "2026-08-31",
+   "note": "สวัสดิรักษา — the seven battle-dress colours, and their มหาทักษา basis"
+  }
+ },
+ "unverified": [
+  "The road time and the 3 km to Thung Hong are from published route descriptions, not walked. Nothing on this page is priced.",
+  "The ห้วยห้อม / ห้วยฮ่อม toponyms are read here as the plant, on the northern ห้วย + plant pattern. ฮ่อม in kam mueang is ALSO an ordinary word for a lane, and no gazetteer entry has been found that settles any one of them.",
+  "ตำบลยางคราม in Doi Lo is NOT claimed for the dye plant — ยาง is its own tree word and the compound is unexplained here.",
+  "No instrument earlier than the 2020 cabinet resolution has been found that fixes the Thai-cloth day. Provincial and departmental Friday dress days ran before it; this page does not date them.",
+  "The everyday and battle colour lists are NOT presented as earlier and later versions of one another. Both trace themselves to มหาทักษา; nothing here dates either, and the modern list's standardisation is usually placed in the Fifth Reign without a citation this page can name."
+ ],
+ "week": {
+  "_note": "TWO LISTS WITH DIFFERENT JOBS — not two eras. EVERYDAY is สีประจำวัน as ordinarily given and still worn: Sunday red, Monday yellow, Tuesday pink, Wednesday green, Thursday orange, Friday blue, Saturday purple. WAR is the list in สวัสดิรักษา, Sunthorn Phu's didactic verse, which the corpus's own katha manual reprints (Compendium of Katha from Old Manuals, pp.15-16): it opens 'อนึ่งภูษาผ้าทรงณรงค์รบ ให้มีครบเครื่องเสร็จทั้งเจ็ดสี' — the cloth worn GOING INTO BATTLE, and it applies whatever day you were born on. Both lists trace themselves to the same มหาทักษา root, the body-colours of the planetary devas, and they land differently. An earlier version of this page set them side by side and called the difference historical drift. That was wrong and the correction is the point of the figure now: same system, two purposes.",
+  "days": [
+   {
+    "th": "อาทิตย์",
+    "en": "Sunday",
+    "day_th": "แดง",
+    "day_en": "red",
+    "day": "#CF3A32",
+    "war_th": "แดง",
+    "war_en": "red",
+    "war": "#CF3A32",
+    "cloth": false
+   },
+   {
+    "th": "จันทร์",
+    "en": "Monday",
+    "day_th": "เหลือง",
+    "day_en": "yellow",
+    "day": "#E8B92B",
+    "war_th": "ขาว",
+    "war_en": "white",
+    "war": "#F2EEE4",
+    "cloth": false
+   },
+   {
+    "th": "อังคาร",
+    "en": "Tuesday",
+    "day_th": "ชมพู",
+    "day_en": "pink",
+    "day": "#E0648F",
+    "war_th": "ม่วงปนคราม",
+    "war_en": "purple with indigo",
+    "war": "#43378A",
+    "cloth": true
+   },
+   {
+    "th": "พุธ",
+    "en": "Wednesday",
+    "day_th": "เขียว",
+    "day_en": "green",
+    "day": "#3C8A4C",
+    "war_th": "แสด",
+    "war_en": "orange-red",
+    "war": "#DC5A20",
+    "cloth": false
+   },
+   {
+    "th": "พฤหัสบดี",
+    "en": "Thursday",
+    "day_th": "ส้ม",
+    "day_en": "orange",
+    "day": "#DC7220",
+    "war_th": "เขียวเหลือง",
+    "war_en": "yellow-green",
+    "war": "#8D9A3F",
+    "cloth": false
+   },
+   {
+    "th": "ศุกร์",
+    "en": "Friday",
+    "day_th": "ฟ้า",
+    "day_en": "blue",
+    "day": "#3D9BD4",
+    "war_th": "สีเมฆ",
+    "war_en": "cloud grey",
+    "war": "#6B7075",
+    "cloth": true
+   },
+   {
+    "th": "เสาร์",
+    "en": "Saturday",
+    "day_th": "ม่วง",
+    "day_en": "purple",
+    "day": "#6A3E9E",
+    "war_th": "ดำ",
+    "war_en": "black",
+    "war": "#1E1B19",
+    "cloth": false
+   }
+  ]
+ },
+ "friday": {
+  "policy_th": "มติคณะรัฐมนตรี 9 มิถุนายน 2563 — ขอความร่วมมือข้าราชการและประชาชน แต่งกายด้วยผ้าไทยหรือผ้าพื้นเมืองอย่างน้อยสัปดาห์ละสองวัน คือ วันอังคารและวันศุกร์ · แต่ละจังหวัดเลือกผ้าของตัวเอง",
+  "policy_en": "The cabinet resolution of 9 June 2020 asks officials and the public to dress in Thai or local cloth at least two days a week — Tuesday and Friday. Each province picks its own cloth, so the policy is one and the garment is many.",
+  "isan_th": "อีสานก็ทำเหมือนกัน แต่ใช้ผ้าของตัวเอง — สกลนครใส่ผ้าย้อมคราม ซึ่งเป็นครามคนละต้นกับห้อมทางเหนือ · มุกดาหารใส่ผ้าพื้นเมืองมุกดาหาร",
+  "isan_en": "The northeast keeps the same Friday with its own cloth: Sakon Nakhon wears ผ้าย้อมคราม — indigo from Indigofera, not from the northern hill plant. Mukdahan wears Mukdahan cloth. Same day, different species.",
+  "colour_th": "และวันศุกร์เป็น “สีฟ้า” อยู่แล้วในสีประจำวัน ซึ่งมาจากสีกายพระศุกร์ เทวดานพเคราะห์ — คนใส่ม่อฮ่อมวันศุกร์จึงพอดีกับสีของวันโดยไม่ได้ตั้งใจ",
+  "colour_en": "And Friday is already blue. In the everyday สีประจำวัน scheme each day's colour comes from the body-colour of its planetary deva, and Friday belongs to พระศุกร์, Venus, whose colour is blue. So a Friday mo hom shirt lands on the day's own colour without anyone arranging it.",
+  "caveat_th": "ข้อควรระวังสองข้อ: เหตุผลของรัฐคือรายได้ชุมชนกับงานฝีมือ ไม่ใช่เรื่องดาว · และอย่าเอาสีประจำวันไปปนกับรายการสีในสวัสดิรักษา นั่นคือสีผ้าทรง “ณรงค์รบ” คนละเรื่องกัน",
+  "caveat_en": "Two cautions. The state's stated reasoning is craft income, not Venus — the fit is real but it is not a cause. And do not confuse the everyday scheme with the list in สวัสดิรักษา: that one is ผ้าทรงณรงค์รบ, battle dress, and it is a different list for a different occasion."
+ },
+ "protection": [
+  {
+   "key": "measured",
+   "label_th": "วัดได้",
+   "label_en": "measured",
+   "th": "โมเลกุลในครามเอง — ทริปแทนทริน กับ ไอซาทิน — ต้านแบคทีเรีย ต้านเชื้อรา ลดการอักเสบ กลิ่นไล่แมลง และผ้าครามกันยูวีได้จริง",
+   "en": "Indigo's own molecules — tryptanthrin and isatin — ride into the cloth and are antibacterial, antifungal and anti-inflammatory. The dye smells wrong to insects. The cloth measurably blocks ultraviolet.",
+   "use_th": "ชาวนาใส่ทำงานกลางแดดทั้งวันแล้วไม่ไหม้ · เนื้อครามเย็น ๆ โปะแผลตะขาบ แมงป่อง ดูดพิษ",
+   "use_en": "A farmer in open paddy sun-up to sun-down does not burn; the cool paste goes on a centipede or scorpion sting to draw the poison. Japan found the same thing from the other side — samurai wore indigo under armour against wound infection, fire brigades wore it for the way it resists flame."
+  },
+  {
+   "key": "spirits",
+   "label_th": "กันผี",
+   "label_en": "against spirits",
+   "th": "บนดอย ครามคือของกัน — ผ้าม้งลายบาติกครามกับลายปักซ้อนกันเป็นเกราะ และงานที่ทำละเอียดที่สุดคือของเด็กอ่อน ผ้าอุ้มเด็กกับหมวกเด็ก บางใบปักเป็นตา",
+   "en": "In the hills indigo is a ward. Hmong indigo batik under dense embroidery is built as a field that turns harm aside, and the most heavily worked pieces in the whole repertoire are made for infants — the baby carrier and the baby cap. Some caps carry eyes, to look back.",
+   "use_th": "เหตุผลเก่าแก่ที่สุดของสีเข้ม — สิ่งที่มองไม่เห็นก็เอาไปไม่ได้",
+   "use_en": "The oldest logic there is for a dark colour: what cannot be picked out cannot be taken, and a child dressed the colour of dusk is a child a spirit walks past. This is hill-country, not Lanna — but it is the same plant, cut on the same slopes."
+  },
+  {
+   "key": "yantra",
+   "label_th": "แต่ไม่ใช่ผ้ายันต์",
+   "label_en": "but not the yantra cloth",
+   "th": "ผ้าประเจียดกับผ้ายันต์ทำจากผ้าสาลูขาว ลงสีขาว แดง เหลือง ไม่ใช่คราม — เพราะยันต์ต้องอ่านออก หมึกบนผ้าครามคือหมึกบนความมืด",
+   "en": "Thai amulet magic says no. ผ้าประเจียด — the inscribed cloth tied round the head or the upper arm, ancestor of the muay thai armband — is cut from plain white ผ้าสาลู and worked in white, red and yellow. Never indigo.",
+   "use_th": "สรุป: เวทของสีย้อม กับ เวทของสิ่งที่เขียนลงไป เป็นคนละวิชากัน",
+   "use_en": "Because a yantra has to be read, and ink on indigo is ink on nothing. The drawn magic and the dyed magic are two different technologies with two different colour rules — and this page is about the dyed one."
+  }
+ ]
+}

@@ -457,6 +457,14 @@
      }
     },
     {
+     "key": "utilities",
+     "th": "น้ำดื่ม-แก๊สหุงต้ม",
+     "en": "Drinking Water & Cooking Gas",
+     "match": {
+      "sub": "utilities"
+     }
+    },
+    {
      "key": "post",
      "th": "ไปรษณีย์-ขนส่ง",
      "en": "Post & Parcels",
@@ -481,11 +489,51 @@
      }
     },
     {
+     "key": "copyshop",
+     "th": "ถ่ายเอกสาร-ปริ้นงาน",
+     "en": "Copy & Print Shops",
+     "match": {
+      "sub": "copyshop"
+     }
+    },
+    {
+     "key": "printing",
+     "th": "โรงพิมพ์-ป้าย",
+     "en": "Print Houses & Signs",
+     "match": {
+      "sub": "printing"
+     }
+    },
+    {
+     "key": "translation",
+     "th": "แปลเอกสาร-รับรอง",
+     "en": "Translation & Document Services",
+     "match": {
+      "sub": "translation"
+     }
+    },
+    {
+     "key": "photo",
+     "th": "ร้านถ่ายรูป-รูปติดบัตร",
+     "en": "Photo Studios & ID Photos",
+     "match": {
+      "sub": "photo"
+     }
+    },
+    {
      "key": "convenience",
      "th": "ร้านสะดวกซื้อ",
      "en": "Convenience Stores",
      "match": {
       "sub": "convenience"
+     }
+    },
+    {
+     "key": "funeral",
+     "th": "งานศพ-ฌาปนสถาน",
+     "en": "Funeral Directors & Crematoria",
+     "match": {
+      "sub": "funeral"
      }
     }
    ]
@@ -730,8 +778,8 @@
    "key": "shopping",
    "th": "ช้อปปิ้ง-ของฝาก",
    "en": "Shopping & Gifts",
-   "teaser_th": "หัตถกรรม เสื้อผ้ามือสอง ของฝาก...",
-   "teaser_en": "Crafts, consignment & secondhand, gifts...",
+   "teaser_th": "เสื้อผ้า รองเท้า ไซส์ใหญ่ หัตถกรรม เสื้อผ้ามือสอง เครื่องดนตรี ของฝาก...",
+   "teaser_en": "Clothes, shoes, big sizes, crafts, consignment, instruments, gifts...",
    "children": [
     {
      "key": "crafts",
@@ -766,11 +814,67 @@
      }
     },
     {
+     "key": "clothes",
+     "th": "เสื้อผ้า-เครื่องแต่งกาย",
+     "en": "Clothes & Apparel",
+     "match": {
+      "sub": "clothes"
+     }
+    },
+    {
+     "key": "shoes",
+     "th": "รองเท้า",
+     "en": "Shoes",
+     "match": {
+      "sub": "shoes"
+     }
+    },
+    {
+     "key": "sports-shop",
+     "th": "ชุดกีฬา-อุปกรณ์กีฬา",
+     "en": "Sports & Outdoor Shops",
+     "match": {
+      "sub": "sports-shop"
+     }
+    },
+    {
      "key": "tailor",
-     "th": "ตัดเย็บ-ซ่อมเสื้อผ้า",
-     "en": "Tailors & Alterations",
+     "th": "ร้านตัดสูท-ตัดชุด",
+     "en": "Tailors",
      "match": {
       "sub": "tailor"
+     }
+    },
+    {
+     "key": "alterations",
+     "th": "ซ่อมแซม-แก้เสื้อผ้า",
+     "en": "Alterations & Repairs",
+     "match": {
+      "sub": "alterations"
+     }
+    },
+    {
+     "key": "fabric",
+     "th": "ผ้าเมตร-ร้านผ้า",
+     "en": "Fabric by the Metre",
+     "match": {
+      "sub": "fabric"
+     }
+    },
+    {
+     "key": "bedding",
+     "th": "เครื่องนอน-ผ้าปูที่นอน",
+     "en": "Bedding & Sheets",
+     "match": {
+      "sub": "bedding"
+     }
+    },
+    {
+     "key": "music",
+     "th": "เครื่องดนตรี-ให้เช่า",
+     "en": "Instruments — buy & rent",
+     "match": {
+      "sub": "music"
      }
     }
    ]
@@ -837,6 +941,22 @@
      "en": "Car & Bike Rental",
      "match": {
       "sub": "rental"
+     }
+    },
+    {
+     "key": "bicycle",
+     "th": "จักรยาน-เช่า-ซ่อม",
+     "en": "Bicycles — Shops, Rental & Repair",
+     "match": {
+      "sub": "bicycle"
+     }
+    },
+    {
+     "key": "motorbike",
+     "th": "ร้านมอเตอร์ไซค์-โชว์รูม",
+     "en": "Motorbike Dealers",
+     "match": {
+      "sub": "motorbike"
      }
     },
     {
@@ -934,6 +1054,14 @@
      "en": "Phones & Computers",
      "match": {
       "sub": "tech"
+     }
+    },
+    {
+     "key": "mend",
+     "th": "ซ่อมรองเท้า-จักร-เครื่องใช้ไฟฟ้า",
+     "en": "Cobblers, Sewing-Machine & Appliance Repair",
+     "match": {
+      "sub": "mend"
      }
     }
    ]
@@ -1237,8 +1365,8 @@
    "key": "home-services",
    "th": "แม่บ้าน-ช่างสวน-ดูแลบ้าน",
    "en": "Home Services",
-   "teaser_th": "แม่บ้าน ช่างซ่อมบ้าน คนสวน...",
-   "teaser_en": "Housekeepers, handymen, landscapers...",
+   "teaser_th": "แม่บ้าน ช่างซ่อมบ้าน คนสวน กำจัดปลวก...",
+   "teaser_en": "Housekeepers, handymen, landscapers, pest control...",
    "children": [
     {
      "key": "housekeeper",
@@ -1256,6 +1384,14 @@
      "en": "Landscapers",
      "match": {
       "sub": "landscaper"
+     }
+    },
+    {
+     "key": "pest-control",
+     "th": "กำจัดปลวก-แมลง-หนู",
+     "en": "Pest Control",
+     "match": {
+      "sub": "pest-control"
      }
     }
    ]

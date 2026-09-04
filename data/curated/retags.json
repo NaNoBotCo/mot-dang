@@ -93,6 +93,46 @@
    ],
    "evidence": "โรงพยาบาลสัตว์ names the thing itself: an animal hospital. Filed with the vets where a reader looking for one will find it.",
    "date": "2026-08-21"
+  },
+  "cm-osm-node-13298710901": {
+   "note": "รับซ่อมแซม เสื้อผ้า / repair clothes — mapped craft=tailor, and so shelved with nine bespoke-suit houses since the 2026-07-27 crawl. WO-46.",
+   "drop_sub": [
+    "tailor"
+   ],
+   "add_sub": [
+    "alterations"
+   ],
+   "evidence": "OSM node 13298710901's own name in both languages says the trade and not the tag: name=รับซ่อมแซม เสื้อผ้า ('clothing repairs accepted'), name:en=repair clothes. Its only shop tag is craft=tailor, which OSM uses for the whole needle trade and which this shelf had been reading as bespoke. Read in cache/overpass/cm/crafts.json, crawled 2026-07-27. cat is untouched: this is still shopping.",
+   "fetched": "2026-08-31",
+   "date": "2026-08-31"
+  },
+  "cm-osm-node-4358877280": {
+   "note": "ร้านเสื้อผ้า The Bigsize — mapped amenity=restaurant and standing on the food shelf as a Thai restaurant since the 2026-07-27 crawl. Found by WO-50: of 20,894 records in two provinces this is the ONE that names itself big-size, and the directory was serving it to people looking for dinner.",
+   "drop_cat": [
+    "food"
+   ],
+   "drop_sub": [
+    "thai"
+   ],
+   "add_cat": [
+    "shopping"
+   ],
+   "evidence": "OSM node 4358877280's own name tag reads ร้านเสื้อผ้า The Bigsize — ร้านเสื้อผ้า is 'clothes shop' and it is the first word of the name. The node carries amenity=restaurant and no other tag: no cuisine, no opening_hours, nothing a restaurant mapper adds. The name is the evidence and it is in the element itself.",
+   "fetched": "2026-08-31"
+  },
+  "cm-osm-node-9893302718": {
+   "note": "\"Motorbike & car rent 080-2464381\" — arrived on the new shopping/sports-shop shelf from shop=outdoor in WO-50's first crawl. It is a vehicle rental, and the whole of the evidence is the name the mapper typed.",
+   "drop_cat": [
+    "shopping"
+   ],
+   "drop_sub": [
+    "sports-shop"
+   ],
+   "add_cat": [
+    "transport"
+   ],
+   "evidence": "OSM node 9893302718 carries shop=outdoor and exactly one other tag: name=\"Motorbike & car rent 080-2464381\". The name states the trade and gives the phone number for it. Nothing on the element mentions outdoor equipment.",
+   "fetched": "2026-08-31"
   }
  }
 }

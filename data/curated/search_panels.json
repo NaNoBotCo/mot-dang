@@ -963,6 +963,658 @@
    ]
   },
   {
+   "id": "ot",
+   "glyph": "🖐",
+   "variants": [
+    "กิจกรรมบำบัด",
+    "นักกิจกรรมบำบัด",
+    "occupational therapy",
+    "occupational therapist",
+    "อาชีวบำบัด",
+    "ot clinic",
+    "sensory integration",
+    "กระตุ้นพัฒนาการ",
+    "พัฒนาการล่าช้า",
+    "คลินิกพัฒนาการเด็ก"
+   ],
+   "query": [
+    "กิจกรรมบำบัด",
+    "นักกิจกรรมบำบัด",
+    "occupational therap",
+    "อาชีวบำบัด",
+    "ot clinic",
+    "โอที คลินิก",
+    "sensory integration",
+    "sensory processing",
+    "บูรณาการประสาท",
+    "กระตุ้นพัฒนาการ",
+    "พัฒนาการล่าช้า",
+    "พัฒนาการช้า",
+    "คลินิกพัฒนาการเด็ก",
+    "developmental delay",
+    "child development clinic",
+    "hand therapy",
+    "ฝึกกลืน",
+    "swallowing therapy",
+    "stroke rehab",
+    "ฟื้นฟูหลอดเลือดสมอง",
+    "ฝึกกิจวัตรประจำวัน",
+    "adl training",
+    "เวชกรรมฟื้นฟู",
+    "เวชศาสตร์ฟื้นฟู",
+    "rehabilitation medicine",
+    "physiatr"
+   ],
+   "title": [
+    "กิจกรรมบำบัด",
+    "Occupational therapy"
+   ],
+   "lead": [
+    "ฝึกให้กลับไปทำสิ่งที่ต้องทำในชีวิตประจำวันได้ — เด็กที่พัฒนาการช้า ผู้ใหญ่หลังโรคหลอดเลือดสมองหรือมือบาดเจ็บ ผู้สูงอายุที่ความจำถดถอย ในสารบัญ 21,047 แห่ง ไม่มีชื่อไหนเขียนคำนี้เลย หน้านี้จึงอ่านจากหน้าของแต่ละที่เอง ทุกแถวมีเกรดบอกว่าใครเป็นคนพูด",
+    "Training to do the everyday things again — a child whose development is slow, an adult after a stroke or a hand injury, an elder whose memory is going. Across 21,047 records not one name carries the word, so this page was read from each place's own site; every row names who is speaking."
+   ],
+   "facts": [
+    [
+     "นักกิจกรรมบำบัดเป็นผู้ประกอบโรคศิลปะ — ตรวจชื่อได้ที่ทะเบียนของ สบส.",
+     "an OT here holds a Healing Arts licence — the name-check is a public register"
+    ],
+    [
+     "ไม่จัดอันดับ ไม่ระบุชื่อบุคคล ไม่ใช่คำแนะนำทางการแพทย์",
+     "no rankings, no named clinicians, no medical advice"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "ot.html",
+     "main": true,
+     "label": [
+      "หน้ากิจกรรมบำบัด — เด็ก ผู้ใหญ่ เชียงราย ทะเบียนใบอนุญาต",
+      "the occupational-therapy page — children, adults, Chiang Rai, the licence register"
+     ]
+    },
+    {
+     "href": "care.html",
+     "label": [
+      "ดูแลต่อเนื่อง — แผนกที่โรงพยาบาลบอกเอง",
+      "ongoing care — the departments hospitals state"
+     ]
+    },
+    {
+     "href": "adhd.html",
+     "label": [
+      "สมาธิสั้น — ทะเบียนจิตเวช",
+      "ADHD — the psychiatric register"
+     ]
+    },
+    {
+     "href": "longcare.html",
+     "label": [
+      "ดูแลระยะยาว — พักฟื้น บ้านพักคนชรา",
+      "long-term care — convalescence, nursing homes"
+     ]
+    }
+   ],
+   "delight": [
+    "คำที่ใช้ถามที่เคาน์เตอร์คือ งานกิจกรรมบำบัด — ในโรงพยาบาลรัฐมันอยู่ใต้ กลุ่มงานเวชกรรมฟื้นฟู ห้องเดียวกับกายภาพบำบัดและกายอุปกรณ์",
+    "The counter word is งานกิจกรรมบำบัด — in a state hospital it lives under the rehabilitation-medicine group, the same corridor as physiotherapy and prosthetics."
+   ]
+  },
+  {
+   "id": "vaccines",
+   "glyph": "💉",
+   "variants": [
+    "วัคซีน",
+    "ฉีดวัคซีน",
+    "vaccine",
+    "vaccination",
+    "ไข้เหลือง",
+    "yellow fever",
+    "พิษสุนัขบ้า",
+    "rabies",
+    "เวชศาสตร์การเดินทาง",
+    "travel clinic"
+   ],
+   "query": [
+    "วัคซีน",
+    "ฉีดวัคซีน",
+    "vaccin",
+    "ไข้เหลือง",
+    "yellow fever",
+    "พิษสุนัขบ้า",
+    "rabies",
+    "บาดทะยัก",
+    "tetanus",
+    "ไทฟอยด์",
+    "typhoid",
+    "ตับอักเสบ",
+    "hepatitis",
+    "เวชศาสตร์การเดินทาง",
+    "travel clinic",
+    "travel medicine",
+    "เล่มเหลือง",
+    "หมากัด",
+    "dog bite"
+   ],
+   "title": [
+    "วัคซีนและเวชศาสตร์การเดินทาง",
+    "Vaccines and travel medicine"
+   ],
+   "lead": [
+    "เข็มก่อนเดินทาง เล่มเหลืองไข้เหลือง และวัคซีนหลังหมากัด — คนละประตูกัน หน้านี้แยกให้ พร้อมราคาที่ผู้ให้บริการพิมพ์เอง",
+    "The jabs before a journey, the yellow-fever certificate, and the vaccine after a dog bite — three different doors, kept apart, with the providers' own printed prices."
+   ],
+   "facts": [
+    [
+     "หมากัดคือเรื่องฉุกเฉิน — ไปห้องฉุกเฉิน ไม่ใช่คลินิกนัดล่วงหน้า",
+     "a bite is an emergency — the emergency room, not an appointment clinic"
+    ],
+    [
+     "เล่มเหลืองออกได้เฉพาะศูนย์ที่ได้รับมอบหมาย",
+     "only a designated centre may issue the yellow certificate"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "vaccines.html",
+     "main": true,
+     "label": [
+      "หน้าวัคซีนและเวชศาสตร์การเดินทาง เชียงใหม่",
+      "the Vaccines and travel medicine, Chiang Mai page"
+     ]
+    },
+    {
+     "href": "medicine-airport.html",
+     "label": [
+      "พกยาขึ้นเครื่อง",
+      "medicine and the airport"
+     ]
+    }
+   ],
+   "delight": [
+    "คลินิกเวชศาสตร์การเดินทางของรัฐอยู่ถนนศรีดอนไชย ตรงข้ามร้านหนังสือสุริวงค์ — อาคารเดียวกับ รพ.นครพิงค์ สาขาศรีดอนไชย",
+    "The state travel-medicine clinic sits on Sri Don Chai Road opposite the Suriwong bookshop, in the same building as Nakornping's Sri Don Chai branch."
+   ]
+  },
+  {
+   "id": "eyecare",
+   "glyph": "👁",
+   "variants": [
+    "จักษุ",
+    "จักษุแพทย์",
+    "คลินิกตา",
+    "ต้อกระจก",
+    "ต้อหิน",
+    "eye clinic",
+    "ophthalmolog",
+    "ร้านแว่น",
+    "วัดสายตา",
+    "optician"
+   ],
+   "query": [
+    "จักษุ",
+    "คลินิกตา",
+    "หมอตา",
+    "ต้อกระจก",
+    "ต้อหิน",
+    "ต้อเนื้อ",
+    "เบาหวานขึ้นตา",
+    "จอตา",
+    "ตาเข",
+    "ตาขี้เกียจ",
+    "eye clinic",
+    "eye hospital",
+    "ophthalmolog",
+    "cataract",
+    "glaucoma",
+    "ร้านแว่น",
+    "แว่นตา",
+    "วัดสายตา",
+    "optician",
+    "optometr",
+    "เลสิก",
+    "lasik",
+    "ตาปลอม"
+   ],
+   "title": [
+    "ตา จักษุแพทย์ และร้านแว่น",
+    "Eyes, ophthalmologists and opticians"
+   ],
+   "lead": [
+    "สามประตูคนละราคา: จักษุแพทย์ในโรงพยาบาล คลินิกตอนเย็น และร้านแว่น — หน้านี้แยกให้ พร้อมชั้นและห้องตรวจที่โรงพยาบาลบอกเอง",
+    "Three doors at three prices: a hospital ophthalmologist, an evening clinic, and an optician — kept apart, with the floors and room numbers the hospitals state."
+   ],
+   "facts": [
+    [
+     "ร้านแว่นวัดสายตาเพื่อประกอบแว่น ไม่ใช่การวินิจฉัยโรคตา",
+     "an optician measures for glasses; that is not a diagnosis"
+    ],
+    [
+     "ราคาที่ไม่ได้อ่านจะไม่พิมพ์ ไม่จัดอันดับ ไม่ใช่คำแนะนำทางการแพทย์",
+     "a price not read is not printed; no rankings, no medical advice"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "eyecare.html",
+     "main": true,
+     "label": [
+      "หน้าตาและร้านแว่น เชียงใหม่",
+      "the Eyes and opticians, Chiang Mai page"
+     ]
+    },
+    {
+     "href": "care.html",
+     "label": [
+      "ดูแลต่อเนื่อง — เบาหวานและตา",
+      "ongoing care — diabetes and the eye"
+     ]
+    }
+   ],
+   "delight": [
+    "ต้อ คำเดียวคือโรคสี่โรค: ต้อกระจก ต้อหิน ต้อเนื้อ ต้อลม — ถามด้วยคำเต็มเสมอ",
+    "One word ต้อ covers four different diseases — cataract, glaucoma, pterygium, pinguecula. Always ask with the whole word."
+   ]
+  },
+  {
+   "id": "counselling",
+   "glyph": "🫱",
+   "variants": [
+    "ปรึกษาสุขภาพจิต",
+    "จิตแพทย์",
+    "นักจิตวิทยา",
+    "จิตบำบัด",
+    "counselling",
+    "counseling",
+    "psychologist",
+    "therapist",
+    "therapy"
+   ],
+   "query": [
+    "counsel",
+    "psycholog",
+    "therapist",
+    "psychotherap",
+    "จิตแพทย์",
+    "นักจิตวิทยา",
+    "จิตบำบัด",
+    "ปรึกษาสุขภาพจิต",
+    "สุขภาพจิต",
+    "ซึมเศร้า",
+    "วิตกกังวล",
+    "ไบโพลาร์",
+    "นอนไม่หลับ",
+    "depression",
+    "anxiety",
+    "english speaking therapist",
+    "mental health"
+   ],
+   "title": [
+    "ปรึกษาสุขภาพจิต",
+    "Counselling and therapy"
+   ],
+   "lead": [
+    "จิตแพทย์สั่งยาได้ นักจิตวิทยาคลินิกประเมินและบำบัด นักให้คำปรึกษาพูดคุย — คนละอาชีพ คนละราคา หน้านี้บอกเฉพาะภาษาที่แต่ละที่ระบุเอง",
+    "A psychiatrist can prescribe, a clinical psychologist assesses and treats, a counsellor talks — three professions at three prices. The page names a language only where the place names it."
+   ],
+   "facts": [
+    [
+     "สายด่วนสุขภาพจิต 1323 ฟรี ตลอด 24 ชั่วโมง",
+     "the national mental-health line is 1323, free, around the clock"
+    ],
+    [
+     "ไม่จัดอันดับ ไม่ระบุชื่อบุคคล ไม่ใช่คำแนะนำทางการแพทย์",
+     "no rankings, no named clinicians, no medical advice"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "counselling.html",
+     "main": true,
+     "label": [
+      "หน้าปรึกษาสุขภาพจิต เชียงใหม่",
+      "the Counselling and therapy, Chiang Mai page"
+     ]
+    },
+    {
+     "href": "adhd.html",
+     "label": [
+      "สมาธิสั้น — ทะเบียนจิตเวช",
+      "ADHD — the psychiatric register"
+     ]
+    },
+    {
+     "href": "longcare.html",
+     "label": [
+      "บำบัดการติดสุราและสารเสพติด",
+      "addiction medicine"
+     ]
+    }
+   ],
+   "delight": [
+    "ถามได้ตรง ๆ ว่าถือใบอนุญาตอะไร — จิตแพทย์ นักจิตวิทยาคลินิก และนักให้คำปรึกษา ไม่ใช่วิชาชีพเดียวกัน",
+    "It is fair to ask outright which licence someone holds — psychiatrist, clinical psychologist and counsellor are not the same profession."
+   ]
+  },
+  {
+   "id": "speech",
+   "glyph": "🗣",
+   "variants": [
+    "แก้ไขการพูด",
+    "อรรถบำบัด",
+    "ฝึกพูด",
+    "speech therapy",
+    "speech therapist",
+    "นักแก้ไขการพูด",
+    "พูดช้า",
+    "พูดไม่ชัด",
+    "ติดอ่าง"
+   ],
+   "query": [
+    "แก้ไขการพูด",
+    "อรรถบำบัด",
+    "ฝึกพูด",
+    "speech therap",
+    "speech language",
+    "นักแก้ไขการพูด",
+    "พูดช้า",
+    "พูดไม่ชัด",
+    "ติดอ่าง",
+    "stutter",
+    "stammer",
+    "late talker",
+    "ฝึกกลืน",
+    "swallow",
+    "สื่อความหมาย"
+   ],
+   "title": [
+    "แก้ไขการพูด",
+    "Speech therapy"
+   ],
+   "lead": [
+    "เด็กพูดช้า พูดไม่ชัด ติดอ่าง และการกลืนหลังโรคหลอดเลือดสมอง — ในสารบัญไม่มีชื่อไหนเขียนคำนี้ หน้านี้อ่านจากหน้าของแต่ละที่เอง ทุกแถวบอกว่าใครพูด",
+    "Late talkers, unclear speech, stammering, and swallowing after a stroke — no name in the catalogue carries the word; the page was read from each place's own site, every row naming who is speaking."
+   ],
+   "facts": [
+    [
+     "นักแก้ไขการพูดเป็นผู้ประกอบโรคศิลปะ — ตรวจชื่อได้ในทะเบียน",
+     "a speech therapist here holds a Healing Arts licence — the name-check is public"
+    ],
+    [
+     "ไม่จัดอันดับ ไม่ระบุชื่อบุคคล ไม่ใช่คำแนะนำทางการแพทย์",
+     "no rankings, no named clinicians, no medical advice"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "speech.html",
+     "main": true,
+     "label": [
+      "หน้าแก้ไขการพูด เชียงใหม่",
+      "the Speech therapy, Chiang Mai page"
+     ]
+    },
+    {
+     "href": "ot.html",
+     "label": [
+      "กิจกรรมบำบัด — คลินิกเดียวกันหลายแห่ง",
+      "occupational therapy — often the same clinic"
+     ]
+    },
+    {
+     "href": "hearing.html",
+     "label": [
+      "การได้ยิน — หน่วยเดียวกันในโรงพยาบาล",
+      "hearing — the same hospital unit"
+     ]
+    }
+   ],
+   "delight": [
+    "ในโรงพยาบาลรัฐ การพูดกับการได้ยินอยู่หน่วยเดียวกัน: หน่วยโสตวิทยาและการสื่อความหมาย ใต้แผนกหู คอ จมูก",
+    "In a state hospital speech and hearing share one unit — audiology and communication, under ear-nose-throat."
+   ]
+  },
+  {
+   "id": "prosthetics",
+   "glyph": "🦿",
+   "variants": [
+    "กายอุปกรณ์",
+    "ขาเทียม",
+    "แขนเทียม",
+    "prosthetics",
+    "prosthesis",
+    "orthotics",
+    "เครื่องช่วยคนพิการ"
+   ],
+   "query": [
+    "กายอุปกรณ์",
+    "ขาเทียม",
+    "แขนเทียม",
+    "prosthe",
+    "orthotic",
+    "artificial leg",
+    "artificial limb",
+    "amputee",
+    "เฝือกอ่อน",
+    "แผ่นรองเท้า",
+    "custom insole",
+    "เครื่องช่วยคนพิการ",
+    "wheelchair fitting"
+   ],
+   "title": [
+    "กายอุปกรณ์และขาเทียม",
+    "Prosthetics and orthotics"
+   ],
+   "lead": [
+    "มูลนิธิขาเทียมของประเทศอยู่ที่แม่ริม และงานกายอุปกรณ์อยู่ในกลุ่มงานเวชกรรมฟื้นฟูของโรงพยาบาลรัฐ — ไม่มีชื่อไหนในสารบัญเขียนคำนี้ หน้านี้อ่านจากหน้าของแต่ละที่เอง",
+    "The national Prostheses Foundation is at Mae Rim, and the prosthetics units sit inside state hospitals' rehabilitation groups — no name in the catalogue carries the word; the page was read from each place's own site."
+   ],
+   "facts": [
+    [
+     "ทุกแถวบอกว่าใครพูด: สถานที่เอง สารบัญ หรือประตูที่ใช้ประจำ",
+     "every row names who is speaking: the place, a directory, or the usual door"
+    ],
+    [
+     "ไม่จัดอันดับ ไม่ใช่คำแนะนำทางการแพทย์",
+     "no rankings, no medical advice"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "prosthetics.html",
+     "main": true,
+     "label": [
+      "หน้ากายอุปกรณ์และขาเทียม เชียงใหม่",
+      "the Prosthetics and orthotics, Chiang Mai page"
+     ]
+    },
+    {
+     "href": "ot.html",
+     "label": [
+      "กิจกรรมบำบัด — ห้องเดียวกัน",
+      "occupational therapy — the same corridor"
+     ]
+    },
+    {
+     "href": "longcare.html",
+     "label": [
+      "ดูแลระยะยาว",
+      "long-term care"
+     ]
+    }
+   ],
+   "delight": [
+    "คำที่ใช้ถามที่เคาน์เตอร์คือ งานกายอุปกรณ์ — ในโรงพยาบาลรัฐอยู่ห้องเดียวกับกายภาพบำบัด",
+    "The counter word is งานกายอุปกรณ์ — in a state hospital it shares the room with physiotherapy."
+   ]
+  },
+  {
+   "id": "hearing",
+   "glyph": "👂",
+   "variants": [
+    "เครื่องช่วยฟัง",
+    "ตรวจการได้ยิน",
+    "การได้ยิน",
+    "hearing aid",
+    "hearing test",
+    "audiology",
+    "หูตึง",
+    "ประสาทหูเทียม",
+    "cochlear"
+   ],
+   "query": [
+    "เครื่องช่วยฟัง",
+    "ตรวจการได้ยิน",
+    "การได้ยิน",
+    "hearing aid",
+    "hearing test",
+    "hearing loss",
+    "audiolog",
+    "หูตึง",
+    "หูหนวก",
+    "ประสาทหูเทียม",
+    "cochlear",
+    "audiogram"
+   ],
+   "title": [
+    "การได้ยินและเครื่องช่วยฟัง",
+    "Hearing and hearing aids"
+   ],
+   "lead": [
+    "ร้านตรวจและขาย โรงพยาบาลวินิจฉัยและผ่าตัด — สองประตูที่มักเดินสลับกัน หน้านี้แยกให้ ทุกแถวบอกว่าใครพูด",
+    "A shop tests and sells; a hospital diagnoses and operates — two doors people take in the wrong order. The page keeps them apart; every row names who is speaking."
+   ],
+   "facts": [
+    [
+     "สิทธิเบิกทุกสิทธิเริ่มที่แพทย์หู คอ จมูกของโรงพยาบาลรัฐ",
+     "every entitlement starts with a state-hospital ENT diagnosis"
+    ],
+    [
+     "ไม่จัดอันดับ ไม่ใช่คำแนะนำทางการแพทย์ ราคาไม่ได้คัดลอกมา",
+     "no rankings, no medical advice, no prices copied"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "hearing.html",
+     "main": true,
+     "label": [
+      "หน้าการได้ยินและเครื่องช่วยฟัง เชียงใหม่",
+      "the Hearing and hearing aids, Chiang Mai page"
+     ]
+    },
+    {
+     "href": "speech.html",
+     "label": [
+      "แก้ไขการพูด — หน่วยเดียวกันในโรงพยาบาล",
+      "speech therapy — the same hospital unit"
+     ]
+    },
+    {
+     "href": "care.html",
+     "label": [
+      "ดูแลต่อเนื่อง — แผนกที่โรงพยาบาลบอกเอง",
+      "ongoing care — the departments hospitals state"
+     ]
+    }
+   ],
+   "delight": [
+    "คำบนป้ายร้านคือ หูตึง — ไม่ใช่คำหยาบ เป็นคำธรรมดาที่ร้านเขียนเองเพื่อให้คนที่กำลังหาเห็นจากถนน",
+    "The shop-sign word is หูตึง, hard of hearing — not rude, the plain word a shop writes on itself so the person looking can see it from the street."
+   ]
+  },
+  {
+   "id": "tawai",
+   "glyph": "🪵",
+   "shelves": [],
+   "variants": [
+    "บ้านถวาย",
+    "ไม้แกะสลัก",
+    "แกะสลักไม้",
+    "หัตถกรรม",
+    "ban tawai",
+    "baan tawai",
+    "ban thawai",
+    "woodcarving",
+    "wood carving",
+    "handicraft",
+    "teak",
+    "ไม้สัก",
+    "สล่า",
+    "otop",
+    "โอทอป"
+   ],
+   "query": [
+    "บ้านถวาย",
+    "บ้านถวายเชียงใหม่",
+    "หมู่บ้านไม้แกะสลัก",
+    "หมู่บ้านหัตถกรรม",
+    "ไม้แกะสลัก",
+    "แกะสลักไม้",
+    "งานไม้แกะสลัก",
+    "ลงรักปิดทอง",
+    "เดินเส้น",
+    "ban tawai",
+    "baan tawai",
+    "ban thawai",
+    "bantawai",
+    "wood carving",
+    "woodcarving",
+    "wood carving village",
+    "carved wood",
+    "teak",
+    "teak furniture",
+    "teak wood",
+    "ไม้สัก",
+    "เฟอร์นิเจอร์ไม้สัก",
+    "otop",
+    "โอทอป",
+    "otop village",
+    "หมู่บ้าน otop",
+    "สล่า",
+    "บ้านเหมืองกุง",
+    "เหมืองกุง"
+   ],
+   "title": [
+    "บ้านถวาย — หมู่บ้านที่แกะไม้",
+    "Ban Tawai — the carving village"
+   ],
+   "lead": [
+    "หมู่บ้านไม้แกะสลักอยู่ใต้เมืองลงไป 15 กิโลเมตร ตามถนน 108 หน้านี้บอกว่าไม้ผ่านมือกี่คู่กว่าจะถึงหน้าร้าน ไม้อะไรพากลับบ้านได้ และงานประจำปีจัดเมื่อไหร่ ซึ่งไม่ใช่เดือนเดิมทุกปี",
+    "The carving village sits 15 km south on Route 108. This page counts the pairs of hands a piece passes before it reaches a shopfront, says which woods can travel home with you, and gives the fair's real dates — which are not the same month every year."
+   ],
+   "facts": [
+    [
+     "ค้นคำว่า teak แบบไม่สนตัวพิมพ์ จะได้ร้านสเต็กเป็นส่วนใหญ่ เพราะ steak มี teak อยู่ข้างใน คำไทยที่ใช้คือ ไม้แกะสลัก",
+     "Searching teak anywhere returns mostly steakhouses — steak contains teak. The Thai to search is ไม้แกะสลัก"
+    ],
+    [
+     "งานประจำปีเดินตามปีงบประมาณ ปี 2568 จึงมีสองครั้ง — ครั้งที่ 34 มกราคม และครั้งที่ 35 ธันวาคม",
+     "The fair runs on the fiscal year, so 2025 had two of them — the 34th in January and the 35th in December"
+    ],
+    [
+     "ไม้พะยูงและไม้กฤษณาอยู่บัญชีไซเตส 2 — ถามชนิดไม้และขอให้ระบุในใบเสร็จ",
+     "Rosewood and agarwood are CITES Appendix II — ask the species and ask for it on the receipt"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "tawai.html",
+     "main": true,
+     "label": [
+      "บ้านถวาย — สายพาน ไม้ และวันงานจริง",
+      "Ban Tawai — the chain, the woods, and the real fair dates"
+     ]
+    },
+    {
+     "href": "souvenir.html",
+     "label": [
+      "ของฝากที่เดินทางได้ — ธงพาขึ้นเครื่องกับกฎหมาย",
+      "Souvenirs and the law — the carry-flags"
+     ]
+    }
+   ]
+  },
+  {
    "id": "souvenir",
    "glyph": "🎁",
    "variants": [
@@ -1314,6 +1966,152 @@
      "label": [
       "ชั้นทนาย-บัญชี เชียงราย",
       "the lawyers & accountants shelf, Chiang Rai"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "paper",
+   "glyph": "🖨",
+   "shelves": [],
+   "variants": [
+    "ถ่ายเอกสาร",
+    "ก๊อปปี้",
+    "ปริ้น",
+    "ปริ๊น",
+    "เข้าเล่ม",
+    "เคลือบบัตร",
+    "copy shop",
+    "copyshop",
+    "photocopy",
+    "photocopies",
+    "print shop",
+    "printing",
+    "binding",
+    "แปลเอกสาร",
+    "รับแปล",
+    "translation",
+    "translator",
+    "รูปติดบัตร",
+    "ต่อวีซ่า",
+    "90 วัน",
+    "tm30",
+    "tm7",
+    "ตม."
+   ],
+   "query": [
+    "ถ่ายเอกสาร",
+    "ก๊อปปี้",
+    "ก็อปปี้",
+    "ปริ้น",
+    "ปริ๊น",
+    "ปริ้นท์",
+    "พิมพ์งาน",
+    "เข้าเล่ม",
+    "เคลือบบัตร",
+    "สแกน",
+    "แฟกซ์",
+    "copy shop",
+    "copyshop",
+    "photocopy",
+    "print shop",
+    "printing",
+    "print from phone",
+    "binding",
+    "laminate",
+    "laminating",
+    "scan",
+    "fax",
+    "แปลเอกสาร",
+    "รับแปล",
+    "translate",
+    "translation",
+    "translator",
+    "certified translation",
+    "รูปติดบัตร",
+    "รูปวีซ่า",
+    "passport photo",
+    "visa photo",
+    "ต่อวีซ่า",
+    "visa extension",
+    "90 day",
+    "90-day",
+    "90 วัน",
+    "tm30",
+    "tm.30",
+    "tm7",
+    "tm.7",
+    "ตม."
+   ],
+   "title": [
+    "ถ่ายเอกสาร แปลเอกสาร ทำเรื่องวีซ่า",
+    "Copies, translations and visa paperwork"
+   ],
+   "lead": [
+    "ร้านถ่ายเอกสาร ขาย สำเนา — ร้านแปลกับเอเจนต์วีซ่า ทำ เอกสาร สองอาชีพ สองราคา ร้านหน้าอำเภอกับหน้า ตม. ทำทั้งสองอย่างที่เคาน์เตอร์เดียว ถามให้ชัดว่าจ่ายค่าอะไร",
+    "A copy shop sells you a copy; a translator or visa agent prepares a document. Two trades, two prices — and the counter at the gate of the district office or immigration does both, so ask which one you are paying for."
+   ],
+   "facts": [
+    [
+     "ตม. เชียงใหม่ ต้องการ รูป 4×6 ซม. ถ่ายไม่เกิน 6 เดือน สำเนาพาสปอร์ตหน้าแรก ตราเข้าเมือง วีซ่า และใบรับ ตม.30 — ค่าธรรมเนียมต่ออายุ 1,900 บาท เงินสด",
+     "Chiang Mai immigration wants a 4×6 cm photo under six months old, copies of the passport bio page, entry stamp and visa, and the TM30 receipt — the extension fee is 1,900 baht, cash"
+    ],
+    [
+     "ถ่ายเอกสารขาวดำหน้าละ 1 บาท (100 หน้าขึ้นไปหน้าละ 50 สตางค์) ตามป้ายร้านย่านสันติธรรม · แปลอังกฤษ-ไทย 350 บาทต่อหน้า และเดินเรื่องรับรองกงสุลเริ่ม 1,800 บาทต่อหน้า ตามหน้าเว็บของบริษัทแปลย่านช้างเผือก — ราคาตามที่ประกาศ ยังไม่ยืนยันที่เคาน์เตอร์",
+     "Black-and-white copies at 1 baht a page (50 satang from 100 pages) on a Santitham shop's own board · English–Thai translation 350 baht a page and an MFA legalization run from 1,800 baht a page on a Chang Phueak translation firm's own site — prices as published, not yet confirmed at the counter"
+    ]
+   ],
+   "count": {
+    "codes": [
+     "copyshop",
+     "printing",
+     "translation",
+     "visa",
+     "photo"
+    ]
+   },
+   "doors": [
+    {
+     "href": "asked/copy-print.html",
+     "main": true,
+     "label": [
+      "ถ่ายเอกสาร ปริ้นจากมือถือ เข้าเล่ม — ร้านไหน เปิดกี่โมง",
+      "copies, print-from-phone and binding — which shops, and the hours"
+     ]
+    },
+    {
+     "href": "asked/document-prep.html",
+     "label": [
+      "แปล รับรอง ทำเรื่องวีซ่า — เตรียมอะไร ไปที่ไหน",
+      "translate, legalize, visa forms — what to bring and where to go"
+     ]
+    },
+    {
+     "href": "cm/essentials/copyshop/index.html",
+     "label": [
+      "ชั้นร้านถ่ายเอกสาร เชียงใหม่",
+      "the copy & print shelf, Chiang Mai"
+     ]
+    },
+    {
+     "href": "cr/essentials/copyshop/index.html",
+     "label": [
+      "ชั้นร้านถ่ายเอกสาร เชียงราย",
+      "the copy & print shelf, Chiang Rai"
+     ]
+    },
+    {
+     "href": "cm/essentials/photo/index.html",
+     "label": [
+      "ชั้นร้านถ่ายรูป-รูปติดบัตร เชียงใหม่",
+      "the photo-studio shelf — the 4×6 is made here"
+     ]
+    },
+    {
+     "href": "asked/notary.html",
+     "label": [
+      "ตราโนตารี — อีกหน้าหนึ่ง",
+      "the notary seal — its own page"
      ]
     }
    ]

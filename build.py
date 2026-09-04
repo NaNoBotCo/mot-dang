@@ -8,17 +8,19 @@ personalizable home (My Yahoo!) with a news ticker. EN is a client-side
 display layer. No tracking, no analytics, no third-party behaviour scripts;
 outbound links only. OSM attribution stays.
 
-ON EXTERNAL REQUESTS. This used to read "no external requests" flat, and for
-a long time it was true. It is not any more. A page carrying a map fetches the
-vector basemap from our own bucket and its label glyphs from Protomaps' font
-host — see map_shell.py, which is the only module that configures either. A
-page with no map on it still makes no request to anyone. The line that matters
-was never "zero requests" for its own sake; it is that nothing on this site
-reports a reader to anybody, and that has not moved.
+ON EXTERNAL REQUESTS. Zero, again. This paragraph spent a while explaining
+that a page carrying a map fetched its label glyphs from Protomaps' font host,
+because self-hosting them had been written off in a comment in map_shell.py.
+Four static PBF files later (assets/glyphs/NotoSans/, 2026-08-20) the tiles AND
+the glyphs come from our own bucket and no page on this site requests anything
+from anybody. The line that matters was never "zero requests" for its own sake
+— it is that nothing here reports a reader to anybody — but the count is zero
+and it is worth saying plainly rather than leaving the old concession standing.
 """
 import atexit
 import base64
 import datetime
+import hashlib
 import heapq
 import io
 import json
@@ -38,6 +40,11 @@ from pathlib import Path
 # mount() — not just build(). It imports nothing from here, so there is no
 # cycle: map_shell is stdlib-only and reads its own config off disk.
 import map_shell
+
+# The RTGS reader. Stdlib-only and imports nothing from here, same as
+# map_shell, so there is no cycle. It NEVER supplies a name — only a reading
+# beside one; see translit.py's own header and name_bi() below.
+import translit
 
 # The basemap for the pictures this file DRAWS rather than mounts — the venue
 # thumbnails. Optional in the same way qrcode is: no Pillow, or no tile
@@ -63,7 +70,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
-BUILD_DATE = "2026-08-31"
+BUILD_DATE = "2026-09-04"
 
 # Where the 🎲 chip goes when scripting is off. md.js intercepts the click and
 # rolls fresh each time; this baked pick (seeded by BUILD_DATE, so it rotates
@@ -1053,6 +1060,21 @@ _ADHD_REG = json.loads((ROOT / "data" / "curated" / "adhd.json").read_text())
 ADHD_ROWS = {row["place"]: row
              for row in _ADHD_REG.get("rows", []) if row.get("place")}
 
+# WO-55 — the occupational-therapy register, same one-source rule: ot_layer.py
+# draws /ot.html from it and the index draws its keywords from it. Keyed by
+# every placeId a row carries (a hospital row may bind two catalogue records).
+_OT_REG = json.loads((ROOT / "data" / "curated" / "ot.json").read_text())
+OT_ROWS = {pid: row
+           for row in _OT_REG.get("rows", [])
+           for pid in (row.get("placeIds") or [])}
+
+# WO-56+ — the lenses: every graded register in data/curated/lens/*.json,
+# drawn by lens_layer.py (one renderer, many lenses). The index takes its
+# keywords from the same files, so search and page cannot disagree.
+import lens_layer as _lens_layer
+LENSES = _lens_layer.load_all(ROOT)
+LENS_ROWS = _lens_layer.rows_by_place(LENSES)
+
 SCHEMA_TYPE = {
     "wat": "TouristAttraction", "hotel": "LodgingBusiness", "food": "Restaurant",
     "massage": "HealthAndBeautyBusiness", "medical": "MedicalBusiness",
@@ -1317,6 +1339,15 @@ form.seek button:hover{background:var(--ant-dark)}
 .en{display:none}
 body.lang-both .en{display:inline}
 body.lang-en .en{display:inline} body.lang-en .th{display:none}
+/* ...except a NAME. A place with one name has that name shown in all three
+   modes: hiding it left a clickable blank beside a map pin — 24,023 rows in
+   English-only, 30,941 in Thai-only. `.en.solo` (0,2,0) beats the bare
+   `.en` rule, and `body.lang-en .th.solo` (0,3,1) beats `body.lang-en .th`. */
+.en.solo{display:inline}
+body.lang-en .th.solo{display:inline}
+/* An RTGS reading is not a name and does not dress like one: it is the
+   machine saying how the Thai sounds, so it is set quieter and in italic. */
+.roman{font-style:italic;opacity:.82}
 h1{font-size:1.6rem;margin:.4rem 0} h2{font-size:1.25rem;border-bottom:2px solid var(--soft);
 padding-bottom:.2rem;margin-top:1.6rem}
 ul.dir{list-style:none;padding:0;column-width:22rem;column-gap:2.5rem}
@@ -1513,12 +1544,51 @@ border:1px solid #DFC98C;background:linear-gradient(180deg,#FDF6E6,#FBF6EE)}
 .honpanel li{margin-bottom:.4rem}
 .honverb,.honsrc{display:block;font-size:.85rem;opacity:.8}
 .honsrc a{font-size:.82rem}
+/* WO-52 — the tap-sheet, `mark()` in build.py. The site had 198,767 title=
+   attributes and no way to open one on a phone, so every note worth keeping
+   was printed as a paragraph instead. <details> opens on tap AND on Enter,
+   needs no JS, and still shows its note with CSS off. The pointer keeps
+   hover through the summary's own title=, under @media(hover:hover) — the
+   query this stylesheet never had. */
+.mk{display:inline;position:relative}
+/* The underline is --gold, the bead colour this site keeps for rules and
+   borders — never --mute, which tests/test_contrast.py holds to text only so
+   the quiet inks can be darkened without moving any structure. */
+.mk>summary{display:inline;list-style:none;cursor:pointer;
+border-bottom:1px dotted var(--gold);padding:0 .1em}
+.mk>summary::-webkit-details-marker{display:none}
+.mk>summary::marker{content:""}
+.mk>summary:focus-visible{outline:2px solid var(--ant);outline-offset:2px;border-radius:.2rem}
+.mk .mknote{display:block;margin:.35rem 0 .2rem;padding:.5rem .7rem;
+font-size:.84rem;line-height:1.5;color:var(--ink);background:var(--card-alt);
+border-left:3px solid var(--gold);border-radius:.4rem;max-width:56ch}
+.mkapprox>summary,.mkhow>summary{border-bottom:0;color:var(--mute);
+font-size:.9em;padding:0 .25em}
+.mkapprox>summary,.mkhow>summary{text-decoration:underline dotted}
+/* A mark standing in for a section label keeps the label's own voice — it is
+   still the heading, it just answers a question when tapped. */
+.mklabel{display:block;margin-bottom:.3rem}
+.mklabel>summary{font-size:.9rem;color:var(--ant-dark);font-weight:700;
+letter-spacing:.02em;border-bottom-style:dotted}
+/* The 🏷 row's label. Stays inline with the pills it introduces. */
+.mktags{display:inline}
+.mktags>summary{font-size:.8rem;color:var(--mute);margin-right:.2rem}
+@media (hover:hover){
+  /* Only where a pointer exists does the mark stay quiet until asked — a
+     thumb gets no hover, so on touch the underline never dims. This is the
+     first hover query in this stylesheet; its absence is what left 198,767
+     title= attributes unopenable. */
+  .mk>summary{border-bottom-color:var(--soft)}
+  .mk>summary:hover{border-bottom-color:var(--ant)}
+}
 /* Facets — what this branch of the chain actually has. Solid-bordered when a
    person confirmed it, dashed when it was joined by distance from a map point:
-   the border IS the provenance, readable before the tooltip is opened. */
+   the border IS the provenance, readable before the note is opened. Each
+   facet keeps its title= for a mouse; the row's label carries the tap-sheet
+   that says what an absent facet means. */
 .facets{white-space:normal}
 .facet{display:inline-block;font-size:.72rem;line-height:1.6;margin-left:.3rem;
-padding:0 .45rem;border-radius:999px;vertical-align:.08em;cursor:help;
+padding:0 .45rem;border-radius:999px;vertical-align:.08em;
 background:#E8F0E2;color:#3C5A2E;border:1px solid #C3D8B6}
 .facet.near{border-style:dashed;opacity:.85}
 .facet.field{background:#DCEFD2;border-color:#8FBF77;font-weight:600}
@@ -1526,8 +1596,17 @@ background:#E8F0E2;color:#3C5A2E;border:1px solid #C3D8B6}
 padding:.1rem .7rem}
 .facetpanel{margin:.9rem 0;padding:.7rem .9rem .8rem;border-radius:.8rem;
 border:1px solid #C3D8B6;background:linear-gradient(180deg,#F3F8EF,#F8FAF5)}
-.facetpanel .facetlede{margin:.15rem 0 .5rem}
+/* WO-52: the set's lede now sits on the SHELF above the filter chips, once,
+   instead of on every place page beneath it. */
+.facetlede{margin:.4rem 0 .5rem;color:var(--mute);font-size:.92rem;max-width:66ch}
 .facetbar{margin-top:.4rem}
+/* WO-52: the one contribute door on a place page, after the record rather
+   than in front of it. Quiet on purpose — twelve loud ones returned nothing. */
+.addline{margin:1.1rem 0 .2rem;font-size:.9rem}
+.addline a{color:var(--mute);text-decoration:underline dotted;
+text-underline-offset:.2em;text-decoration-color:var(--gold)}
+.addline a:hover,.addline a:focus-visible{color:var(--ant);text-decoration-color:var(--ant)}
+.maptag{margin:-.3rem 0 .6rem}
 .fchip{cursor:pointer}
 /* 🏷 Tags — the cross-shelf pills under the facet row. Links, not filters:
    each opens the tag's own page. Marigold, so they read as a different kind
@@ -3250,7 +3329,7 @@ gate.setAttribute('aria-modal','true');gate.setAttribute('aria-label',
 gate.innerHTML='<div class="mdgatebox"><b>'+
 mdBi('ใช้ตำแหน่งจริงของคุณไหม','Use your real location?')+'</b><p>'+
 mdBi('ตำแหน่งของคุณอยู่ในเครื่องคุณเท่านั้น ไม่ถูกส่งออกไปไหน และไม่ถูกเก็บไว้ ใช้เพื่อเรียงลำดับในหน้านี้อย่างเดียว',
-'Your location never leaves this device. It is not sent anywhere and not stored — it only sorts this page.')+
+'Your location stays on this device. It is not sent anywhere and not stored — it only sorts this page.')+
 '</p><div class="mdgateacts"><button type="button" data-g="y">'+
 mdBi('📍 ใช้ตำแหน่งของฉัน','Use my location')+'</button>'+
 '<button type="button" data-g="n" class="mdgateno">'+mdBi('ไม่ต้อง','Not now')+
@@ -3627,7 +3706,7 @@ if(e.target===p)p.hidden=true;});});
 // --- weather: rotate through the cities the reader picked
 const wxPanes=[...document.querySelectorAll('.wxpane')];
 if(wxPanes.length){
-let wxSel=wLoad('md.wx',['chiang-mai','chiang-rai']);
+let wxSel=wLoad('md.wx',['chiang-mai','chiang-rai','reunion']);
 const wxBoxes=[...document.querySelectorAll('[data-wxc]')];
 const wxDraw=()=>{if(!wxSel.length)wxSel=['chiang-mai'];
 wxPanes.forEach(p=>{p.hidden=true;});
@@ -4238,7 +4317,7 @@ notes.value=localStorage.getItem('md-notes')||'';
 notes.addEventListener('input',()=>localStorage.setItem('md-notes',notes.value));
 }
 const persona=document.getElementById('persona');
-if(persona){const mods=['m-ticker','m-day','m-rand','m-fx','m-gold','m-moon'];
+if(persona){const mods=['m-day','m-rand','m-fx','m-gold','m-moon'];
 const hidden=JSON.parse(localStorage.getItem('md-mods')||'[]');
 mods.forEach(id=>{const el=document.getElementById(id);if(!el)return;
 if(hidden.includes(id))el.style.display='none';
@@ -5439,8 +5518,16 @@ LICENSE_LINE_EN = ("Data on this page is CC BY 4.0 — reuse it, train on it, qu
                    "Map-derived fields remain © OpenStreetMap contributors (ODbL). "
                    "Attribution to motdang.net is all we ask.")
 
+_UNKNOWN_CATS = {}
+
 def esc(s):
-    return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    # A record field is whatever the curator typed, and a number typed as a
+    # number is not a bug in the record. attrs.rooms and attrs.stars both
+    # arrived as ints on 2026-08-31 and took the whole build down here, after
+    # docs/ had already been wiped. Coerce rather than assume.
+    if not isinstance(s, str):
+        s = "" if s is None or s is False else str(s)
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def att(s):
@@ -5529,8 +5616,6 @@ def subscribe_block(source="motdang"):
     return f"""
 <section class="subx" id="subx">
   <h2>{bi("ข่าวมดแดง", "Word from the ants")}</h2>
-  <p>{bi("มีงานบุญ งานประเพณี หรืออะไรใหม่ในเมือง เราจะบอก · นานๆ ที ไม่กวน",
-         "When a festival, a merit-making day or something new in town is worth knowing. Now and then, never often.")}</p>
   <form novalidate>
     <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
     <input type="email" name="email" required autocomplete="email"
@@ -5560,8 +5645,48 @@ fetch('{LIST_ENDPOINT}',{{method:'POST',headers:{{'Content-Type':'application/js
 }});}})();</script>"""
 
 
+# ---- คุยกับมด: the live assistant -------------------------------------------
+# ask.motdang.net answers a reader's question from the catalogue itself, cites
+# the listings it used, and records what it could NOT answer — which is how
+# the next crawl learns where the gaps are (scripts/asked_drafts.py in the
+# white-label-ai repo turns those into ถามมด drafts).
+#
+# ON EVERY PAGE, unlike the newsletter block, and cheap enough to justify it:
+# what ships is a plain <a> to the full page, plus ~250 bytes of loader. The
+# widget's own ~15 KB is fetched only when a reader actually clicks, so a
+# reader who never asks pays nothing. It is the LAST link in the footer row
+# because a reader arriving on a place page came for the place.
+#
+# Kill switch, no code change: data/ask.json {"enabled": false}.
+ASK_HOST = "https://ask.motdang.net"
+
+
+def ask_enabled():
+    p = ROOT / "data" / "ask.json"
+    if not p.exists():
+        return True
+    try:
+        return bool(json.loads(p.read_text()).get("enabled", True))
+    except (ValueError, OSError):
+        return True
+
+
+def ask_link():
+    """One footer link and the loader that upgrades it to a panel in place.
+    Without JavaScript, or if ask.motdang.net is down, it is an ordinary link
+    to a page that works on its own."""
+    if not ask_enabled():
+        return ""
+    return ('<a href="%s/" data-mdask rel="noopener">💬 %s</a>' % (ASK_HOST, bi("คุยกับมด", "Chat with the ants"))
+            + '<script>(function(){var a=document.querySelector("[data-mdask]");if(!a)return;'
+              'a.addEventListener("click",function(e){e.preventDefault();'
+              'if(window.MDASK)return MDASK.open();'
+              'var s=document.createElement("script");s.src="%s/widget.js";s.dataset.open="1";'
+              'document.head.appendChild(s)},{once:true})})();</script>' % ASK_HOST)
+
+
 def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None,
-         body_class="", robots="index,follow", hub=False, root=None):
+         body_class="", robots="index,follow", hub=False, root=None, chipbar=True):
     # hub=True only on the doorstep pages (home, my.html): they keep the full
     # quick-action grid. Everywhere else the header wears .slim and the same
     # chips render as one scrollable row — a reader arriving on a shared place
@@ -5573,6 +5698,16 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     # that lives at its own URL never needs this.
     r = root if root is not None else "../" * depth
     url = BASE + path
+    chip_nav = ("" if not chipbar else f"""<nav class="chipbar" aria-label="ทางลัด Shortcuts">
+    <a class="chip dark" href="{r}map.html">{svg_icon("i-map", 22)}<span>{bi("แผนที่เมือง", "The city map")}</span></a>
+    <a class="chip dark" href="{r}plan.html">{svg_icon("i-route", 22)}<span>{bi("วางแผนเดินทาง", "Plan a route")}</span><span class="plancount" style="display:none"></span></a>
+    <a class="chip" href="{r}my.html">{svg_icon("i-me", 22)}<span>{bi("หน้าแรกของฉัน", "My page")}</span></a>
+    <a class="chip" href="{r}add.html">{svg_icon("i-plus", 22)}<span>{bi("เพิ่มข้อมูล", "Add a place")}</span></a>
+    <a class="chip" href="{r}claim.html">{svg_icon("i-claim", 22)}<span>{bi("ยืนยันร้านของคุณ", "Claim your place")}</span></a>
+    <a class="chip" href="{r}events.html">{svg_icon("i-lantern", 22)}<span>{bi("งานบุญ-งานเมือง", "What is on")}</span></a>
+    <a class="chip" href="{r}toilets.html">{svg_icon("i-loo", 22)}<span>{bi("ห้องน้ำใกล้ฉัน", "Toilets near you")}</span></a>
+    <a class="chip rand" href="{r}{RAND_FALLBACK}">{svg_icon("i-dice", 22)}<span>{bi("สุ่มพาไป", "Take me somewhere")}</span></a>
+  </nav>""")
     # MapLibre is a megabyte. It is pulled in only by the pages that actually
     # carry a map, and that is decided by looking at the finished body rather
     # than by asking every page builder to remember — a page that mounts a map
@@ -5640,16 +5775,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <input id="q" name="q" type="search" placeholder="ค้นหาชื่อร้าน วัด คลินิก… / search">
     <button aria-label="{att(bi_text("ค้นหา", "Search"))}">{svg_icon("i-search", 22, "rowicon")}{bi("ค้นหา", "Search")}</button>
   </form>
-  <nav class="chipbar" aria-label="ทางลัด Shortcuts">
-    <a class="chip dark" href="{r}map.html">{svg_icon("i-map", 22)}<span>{bi("แผนที่เมือง", "The city map")}</span></a>
-    <a class="chip dark" href="{r}plan.html">{svg_icon("i-route", 22)}<span>{bi("วางแผนเดินทาง", "Plan a route")}</span><span class="plancount" style="display:none"></span></a>
-    <a class="chip" href="{r}my.html">{svg_icon("i-me", 22)}<span>{bi("หน้าแรกของฉัน", "My page")}</span></a>
-    <a class="chip" href="{r}add.html">{svg_icon("i-plus", 22)}<span>{bi("เพิ่มข้อมูล", "Add a place")}</span></a>
-    <a class="chip" href="{r}claim.html">{svg_icon("i-claim", 22)}<span>{bi("ยืนยันร้านของคุณ", "Claim your place")}</span></a>
-    <a class="chip" href="{r}events.html">{svg_icon("i-lantern", 22)}<span>{bi("งานบุญ-งานเมือง", "What is on")}</span></a>
-    <a class="chip" href="{r}toilets.html">{svg_icon("i-loo", 22)}<span>{bi("ห้องน้ำใกล้ฉัน", "Toilets near you")}</span></a>
-    <a class="chip rand" href="{r}{RAND_FALLBACK}">{svg_icon("i-dice", 22)}<span>{bi("สุ่มพาไป", "Take me somewhere")}</span></a>
-  </nav>
+  {chip_nav}
   <div class="svcbar">
     <span class="svcgrp"><span class="svclbl">{bi("เมือง", "The city")}</span>
     <a href="{r}tags.html">🏷 {bi("ป้ายกำกับ", "Tags")}</a> ·
@@ -5674,9 +5800,11 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <span class="svcgrp"><span class="svclbl">{bi("ช่วยมด", "Help the ants")}</span>
     <a href="{r}contacts.html">{bi("เติมเบอร์-ไลน์", "Add contacts")}</a> ·
     <a href="{r}crawl-request.html">{bi("ส่งมดไปสำรวจ", "Request a crawl")}</a> ·
-    <a href="{r}asked.html">{bi("ถามมด", "Ask the ants")}</a></span>
+    <a href="{r}asked.html">{bi("ถามมด", "Ask the ants")}</a> ·
+    <a href="{r}add.html">{bi("เพิ่มข้อมูล", "Add a place")}</a></span>
     <span class="svcgrp"><span class="svclbl">{bi("มดแดง", "The ants")}</span>
     <a href="{r}what.html">{bi("มดแดงคืออะไร", "What Mot Dang is")}</a> ·
+    <a href="{r}my.html">{bi("หน้าแรกของฉัน", "My page")}</a> ·
     <a href="{r}widgets.html">{bi("วิดเจ็ต", "Widgets")}</a> ·
     <a href="{r}stats.html">{bi("สถิติ", "Stats")}</a> ·
     <a href="{r}advertise.html">{bi("ลงโฆษณา", "Advertise")}</a> ·
@@ -5688,11 +5816,8 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
 {f'<nav class="crumbs">{crumbs}</nav>' if crumbs else ''}
 {body}{subscribe_block() if hub else ''}
 <footer>
-  {bi(f"สร้างจากข้อมูลเปิดและการเดินเก็บจริง · ปรับปรุง {BUILD_DATE} (พ.ศ. {BE_BUILD})",
-      f"Built from open data and shoe-leather · updated {BUILD_DATE} (B.E. {BE_BUILD})")}<br>
-  {bi("มดแดง 🐜 (แปลว่า red ant) — คนละชื่อคนละตัวกับ “หมูเด้ง” ฮิปโปแคระชื่อดัง นะเจ้า",
-      "มดแดง = “red ant,” not “Moo Deng” the famous baby hippo — different name, different critter")}
-  (<a href="https://en.wikipedia.org/wiki/Moo_Deng" rel="noopener">{bi("ใครคือหมูเด้ง?", "who's Moo Deng?")}</a>)<br>
+  {bi(f"ปรับปรุง {BUILD_DATE} (พ.ศ. {BE_BUILD})",
+      f"updated {BUILD_DATE} (B.E. {BE_BUILD})")}<br>
   © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL) ·
   <a href="{r}source/">{bi("โค้ดและข้อมูลดิบ", "source and raw data")}</a> ·
   <a href="{KOFI}" rel="noopener">Ko-fi</a> ·
@@ -5707,7 +5832,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
   <a href="{r}pictures.html">📷 {bi("ภาพประกอบ", "Pictures")}</a> ·
   <a href="{r}lists/index.html">📜 {bi("รายชื่อครบ", "Complete lists")}</a> ·
   <a href="{r}llms.txt">llms.txt</a> ·
-  <a href="{r}llms-full.txt">llms-full.txt</a><br>
+  <a href="{r}llms-full.txt">llms-full.txt</a>{" · " + ask_link() if ask_enabled() else ""}<br>
   <span class="licence">{bi(LICENSE_LINE_TH, LICENSE_LINE_EN)}</span>
   <span id="scurry">🐜</span>
 </footer>
@@ -5715,6 +5840,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
 <div class="ribbon tall" aria-hidden="true"></div>
 <script src="{r}live.js?v={LIVE_JS_V}" defer></script>
 <script src="{r}md.js?v={MD_JS_V}"></script>
+<script>if('serviceWorker' in navigator&&location.protocol==='https:')addEventListener('load',function(){{navigator.serviceWorker.register('/sw.js').catch(function(){{}})}})</script>
 </body></html>"""
 
 
@@ -5774,10 +5900,21 @@ def enrich(r):
     return r
 
 
+# Records that name another record — the shop that shares a wall, and
+# whatever else grows a pointer later. A pin cannot express "next door": two
+# curated places on one alley often have no pin at all, and even with pins,
+# 20 m of separation is noise. So the relation is stated in the data and
+# resolved here, once, into something a page can link to.
+PLACE_BY_ID = {}
+
+
 def load():
-    return {p["key"]: [enrich(r) for r in
-                       json.loads((ROOT / "data" / "canonical" / f"{p['key']}.json").read_text())]
-            for p in PROVINCES}
+    loaded = {p["key"]: [enrich(r) for r in
+                         json.loads((ROOT / "data" / "canonical" / f"{p['key']}.json").read_text())]
+              for p in PROVINCES}
+    PLACE_BY_ID.clear()
+    PLACE_BY_ID.update({r["id"]: r for rs in loaded.values() for r in rs})
+    return loaded
 
 
 def matches(r, m):
@@ -5822,16 +5959,72 @@ def name_pair(r):
     return th, en
 
 
-def name_bi(r):
-    """The pair as markup, for anywhere a reader looks at it."""
+def name_roman(r):
+    """The RTGS reading of a Thai-only name — never a name, always a reading.
+
+    Empty whenever the place already has a Latin name of its own: a shop that
+    printed its own sign gets the sign, not a machine's opinion of it.
+    """
     th, en = name_pair(r)
-    return bi(th, en) if (th or en) else esc(name_of(r))
+    if en or not th:
+        return ""
+    # A name that already carries Latin of its own needs no reading: the shop
+    # called "Dental Buddy Clinic (เดนทัลบัดดี้คลินิก)" was being given back
+    # its own English with a machine's spelling stapled to it. Three letters
+    # is the threshold, so "108 ฟาร์มาซี" — digits and Thai — still reads.
+    if re.search(r"[A-Za-z]{3}", th):
+        return ""
+    out = translit.reading(th)
+    return "" if out.strip().lower() == th.strip().lower() else out
+
+
+def name_bi(r):
+    """The pair as markup, for anywhere a reader looks at it.
+
+    A NAME IS NEVER HIDDEN BY THE LANGUAGE TOGGLE. `bi()` is right for prose —
+    a Thai sentence should disappear in English-only mode — and was wrong here
+    for as long as it was used: a place with only a Thai name rendered as a
+    lone `.th` span, `body.lang-en .th{display:none}` swallowed it, and the row
+    became a clickable blank with a map pin beside it and nothing to read.
+    24,023 rows in English-only mode, 30,941 in Thai-only. The `.solo` mark
+    says "this is the only name there is" and the stylesheet lets it through in
+    every mode.
+
+    Where the one name is Thai, the RTGS reading rides after it in the English
+    slot. It is a reading, not a name: it carries `.roman`, it appears only
+    where a human English name is absent, and it never becomes `nameEn`,
+    `name_of()` or a slug.
+    """
+    th, en = name_pair(r)
+    if th and en:
+        return bi(th, en)
+    solo = th or en or name_of(r)
+    if not solo:
+        return esc(name_of(r))
+    if has_thai(solo):
+        rom = name_roman(r)
+        out = f'<span class="th solo" lang="th">{esc(solo)}</span>'
+        if rom:
+            # The " · " is marked .solo along with the name it follows. Left
+            # as a bare .th it vanished in English-only mode along with every
+            # other Thai span, and the two halves printed as one run:
+            # "108 ฟาร์มาซี108 Pharmacy".
+            out = ('<span class="bi">' + out
+                   + '<span class="en roman" lang="en">'
+                   f'<span class="th solo" lang="th"> · </span>{esc(rom)}</span></span>')
+        return out
+    return f'<span class="en solo" lang="en">{esc(solo)}</span>'
 
 
 def name_text(r):
     """The pair as plain text, for alt, aria-label, <title> and share text —
-    markup inside an attribute gets read out loud."""
+    markup inside an attribute gets read out loud.
+
+    A Thai-only name brings its reading, so a map tooltip and a screen reader
+    both get something a non-Thai reader can say."""
     th, en = name_pair(r)
+    if th and not en:
+        en = name_roman(r)
     return bi_text(th, en) if (th or en) else name_of(r)
 
 
@@ -5842,9 +6035,15 @@ def name_th(r):
 
 
 def name_en(r):
-    """For a sentence written in English."""
+    """For a sentence written in English. A Thai-only name is given with its
+    reading rather than dropped — the Thai stays, because it is the record."""
     th, en = name_pair(r)
-    return en or th or name_of(r)
+    if en:
+        return en
+    rom = name_roman(r)
+    if th and rom:
+        return f"{th} · {rom}"
+    return th or name_of(r)
 
 
 _contact_cache = {}
@@ -6441,11 +6640,15 @@ def place_map(r, depth=2):
              f'font-size="9.5" fill="#8A7761">© OpenStreetMap</text>')
     o.append('</svg>')
 
+    # WO-52: this is a claim about how far the pin can be trusted, so it
+    # stays — but as a mark on the map rather than a caption under it. It
+    # stood as a paragraph on 3,053 pages.
     note = "" if exact else (
-        f'<p class="phototag quiet">'
-        + bi("ตำแหน่งโดยประมาณ — วงกลมคือช่วงที่เป็นไปได้",
-             "Approximate position — the circle is the range it could be in")
-        + '</p>')
+        '<div class="maptag">'
+        + mark("≈", "ตำแหน่งโดยประมาณ — วงกลมคือช่วงที่เป็นไปได้",
+               "Approximate position — the circle is the range it could be in",
+               cls="mkapprox")
+        + '</div>')
     return ('<div class="placemap">'
             + map_shell.mount("placemap", "".join(o), prov=r.get("province") or "cm",
                               lat=lat, lng=lng, zoom=16, cls="mdmap placemapbox",
@@ -6453,32 +6656,45 @@ def place_map(r, depth=2):
             + '</div>' + note)
 
 
-def ant_panel(r):
-    """On a place page: a one-line status, never a score.
+def mark(label_html, th, en, cls=""):
+    """A mark that carries its own note, openable by a thumb.
 
-    This used to show "N/9" beside a bar of filled and greyed-out ant icons —
-    which, next to a real business's name, reads exactly like a star rating,
-    not "how much we happen to know." A rating of zero (or a wall enumerating
-    all nine missing fields) looks like a bad review of the business itself,
-    not a note about our own data gap. So: no fraction, no bar, ever — only a
-    plain status, and at most a couple of things asked for, phrased as a
-    favour. ant_rank/ant_bits still drive sort order (data-rank, invisible)
-    and the noindex gate; they just never render as a count next to a name.
+    WO-52. The site had 198,767 `title=` attributes, 314 `<details>` across
+    22,920 pages, and not one `@media (hover: hover)` rule — so every note
+    worth keeping was either printed as a paragraph or hidden where a phone
+    could not reach it. `.facet{cursor:help}` promised a tooltip most readers
+    had no way to open, and 1,256 pages printed "ชี้เมาส์ที่ป้าย · Point at a
+    tag", a mouse instruction, on a Thai-first phone-first directory.
+
+    This is the third option neither of those priced: <details>, which opens
+    on tap and on Enter, needs no JS, and degrades to visible text with CSS
+    off. `title` stays on for a pointer, so the mouse keeps its hover.
     """
-    bits = ant_bits(r)
-    n = sum(1 for v in bits.values() if v)
-    if n == 0:
-        return ('<p class="antgap">'
-                + bi("เพิ่งเก็บมาจากแผนที่ ยังไม่มีรายละเอียดเพิ่มเติม",
-                     "Just pinned from the map — no other details on record yet.")
-                + "</p>")
-    if all(bits.values()):
-        return ('<p class="antgap">'
-                + bi("ครบทุกอย่างแล้วเจ้า — ขอบคุณคนที่ช่วยเติมให้",
-                     "Everything's filled in — thank you to whoever helped.") + "</p>")
-    return ('<p class="antgap">'
-            + bi("มีข้อมูลบางส่วนแล้ว — ช่วยเติมให้ครบได้ฟรี",
-                 "Some details on record — help fill in the rest, free.") + "</p>")
+    note = bi_text(th, en)
+    klass = ("mk " + cls).strip()
+    return (f'<details class="{klass}"><summary title="{att(note)}">'
+            f'{label_html}</summary><span class="mknote">{bi(th, en)}</span>'
+            f'</details>')
+
+
+def add_link(r, depth=2):
+    """The ONE contribute door on a place page. WO-52.
+
+    It replaces twelve: six `ช่วยเติม…` ant-asks, the ant-status line, the
+    facet door, the photo ask, the three add_doors, the fix-log promise and
+    the claim sentence inside reach_block. Between them they stood on 20,000+
+    pages and returned NOTHING — claims.json 0, toilet_reports.json 0,
+    heard.jsonl 0 lines, and of fixes.json's 14, ten are the ants' own audit
+    and the other four came from reddit and word of mouth, off the site.
+
+    So it makes no promise and explains nothing. Everything the old sentences
+    said is on add.html, read by someone who has already asked the question
+    those words answered.
+    """
+    q = f"?id={att(r['id'])}" if r else ""
+    return (f'<p class="addline"><a href="{"../" * depth}add.html{q}">🐜 '
+            + bi("เติมข้อมูล", "Add what you know") + "</a></p>")
+
 
 
 # ------------------------------------------------------------------- facets
@@ -6574,59 +6790,38 @@ def facet_pills(r, small=True):
     return f'<span class="facets{" small" if small else ""}">{"".join(out)}</span>'
 
 
-def facet_door(r, fs):
-    """One tap to tell the ants what this branch has.
-
-    A prefilled GitHub issue, which is the developers' side entrance and known
-    to be the wrong front door for a shop owner — but this contributor is not a
-    shop owner, they are a passer-by with an observation, and it costs nothing
-    and risks nothing to give them a working route today. The one-tap LINE
-    version needs a branch in the webhook, which currently answers any message
-    carrying a place id by starting the owner-claim interview: someone who only
-    wanted to say "this one has a cash machine" would be asked for their
-    opening hours. Better no door than that one.
-    """
-    lines = [f'{i + 1}. {f["icon"]} {f["th"]} / {f["en"]}'
-             for i, f in enumerate(fs["facets"])]
-    body = (f'{name_text(r)}\n{BASE}{r["province"]}/p/{place_slug(r)}.html\n'
-            f'[id:{r["id"]}]\n\n'
-            "ลบข้อที่สาขานี้ไม่มีออก แล้วส่งได้เลย\n"
-            "Delete the lines this branch does NOT have, then send.\n\n"
-            + "\n".join(lines)
-            + "\n\nอย่างอื่น / Anything else:\n")
-    # The checklist rides into the form's own box, so the reader deletes the
-    # lines that do not apply and sends — the same motion as before, minus the
-    # GitHub account it used to demand.
-    url = tell_url("correction", place_id=r["id"], prefill=body,
-                   depth=2)   # rendered from /<province>/p/
-    return (f'<p class="facetdoor"><a class="pill" href="{att(url)}">🐜 '
-            + bi("บอกมดแดงว่าสาขานี้มีอะไร", "Tell the ants what this branch has")
-            + "</a></p>")
-
 
 def facet_panel(r):
-    """On a place page: the row, its heading, and an invitation to correct it."""
+    """On a place page: the row and its heading. Nothing else. WO-52.
+
+    Three paragraphs came off this block, all of them true and none of them
+    about the place the reader opened:
+
+    * The set's `note_th`/`note_en` — "Two clinics on one road are not the
+      same clinic" — argues for a comparison. That work belongs on the SHELF,
+      where the reader is still choosing; here the choice is already made. It
+      now renders once in facet_chips() instead of on 8,000 place pages (up to
+      215 words a time on the beauty and realestate rows).
+    * "This lists what we know of… Point at a tag to see where it came from"
+      instructed a mouse gesture on a phone-first site. The presence rule it
+      states is now a tap-sheet on the row label itself, where a mark can
+      explain itself.
+    * "We don't know what this branch has yet" printed an empty row's own
+      emptiness on 11,231 pages. An empty row already says that. It is now
+      simply not drawn.
+
+    The correction door is gone with them: add_link() is the one door now.
+    """
     pills = facet_pills(r, small=False)
     fs = facet_set_of(r)
-    if not fs:
+    if not fs or not pills:
         return ""
-    if not pills:
-        # An empty row is still worth printing on a chain branch: it is the
-        # clearest possible statement of what we do not yet know, next to the
-        # one button that fixes it.
-        body = ('<p class="antgap">'
-                + bi("ยังไม่รู้ว่าสาขานี้มีอะไรบ้าง — ใครผ่านไปช่วยบอกมดแดงหน่อย",
-                     "We don't know what this branch has yet — if you pass by, tell the ants.")
-                + "</p>")
-    else:
-        body = pills + f'<p class="tinynote">' + bi(
-            "มีเท่าที่รู้ ไม่ได้แปลว่าอย่างอื่นไม่มี · ชี้เมาส์ที่ป้ายเพื่อดูว่ารู้มาจากไหน",
-            "This lists what we know of — not what the shop lacks. Point at a tag "
-            "to see where it came from.") + "</p>"
-    return (f'<section class="facetpanel"><span class="reachlabel">'
-            + bi(fs["th"], fs["en"]) + "</span>"
-            + f'<p class="tinynote facetlede">' + bi(fs["note_th"], fs["note_en"]) + "</p>"
-            + body + facet_door(r, fs) + "</section>")
+    label = mark(bi(fs["th"], fs["en"]),
+                 "มีเท่าที่รู้ ไม่ได้แปลว่าอย่างอื่นไม่มี — แตะป้ายเพื่อดูว่ารู้มาจากไหน",
+                 "What we know of — not what the shop lacks. Tap a tag for where it came from.",
+                 cls="mklabel")
+    return (f'<section class="facetpanel">'
+            + label + pills + "</section>")
 
 
 def tag_pills(r):
@@ -6690,13 +6885,24 @@ def facet_chips(records):
     page, so they always add up to what a reader can see.
     """
     sets = {}
+    covered = 0
     for r in records:
         fs = facet_set_of(r)
         if fs:
             sets.setdefault(fs["key"], fs)
+            covered += 1
     if len(sets) != 1:      # a mixed shelf has no single truthful chip row
         return ""
     fs = next(iter(sets.values()))
+    # WO-52, second pass. `len(sets) == 1` only counts records that HAVE a
+    # set, so ONE stray record on a 59-record shelf makes its set the shelf's
+    # only set. That was harmless while the lede rode on chips that such a
+    # shelf never had — and the moment the lede stopped depending on chips it
+    # put **"What comes off, what you lie on, who else is in the room"** on a
+    # page headed ร้านซักรีด-สะดวกซัก · Laundry (59), because one laundry
+    # record carries cat=massage. A lede claims to describe THIS shelf, so it
+    # is printed only where its set actually accounts for the shelf.
+    shelf_is_the_set = records and covered * 2 >= len(records)
     counts = {}
     for r in records:
         for k in facet_bits(r):
@@ -6704,15 +6910,25 @@ def facet_chips(records):
     chips = [f'<button class="fchip" data-f="{f["key"]}">{f["icon"]} '
              + bi(f["th"], f["en"]) + f' <span class="count">({counts[f["key"]]:,})</span></button>'
              for f in fs["facets"] if counts.get(f["key"])]
+    # WO-52: the set's own lede lands HERE, once per shelf, instead of on
+    # every place page under it. This is the page where a reader is choosing
+    # between two clinics, so this is where "two clinics on one road are not
+    # the same clinic" is doing work rather than arguing a settled point.
+    #
+    # It is emitted whether or not any chip has a count, and that is the whole
+    # point: a shelf with nothing ticked yet — massage, muay thai, elephants,
+    # realestate on the day this was written — is EXACTLY where the reader
+    # most needs telling that two doors on one soi are not the same door and
+    # what to ask at them. Gating the lede on the chips is what briefly sent
+    # those four ledes to no page on the site at all.
+    lede = ('<p class="facetlede">' + bi(fs["note_th"], fs["note_en"]) + "</p>"
+            if fs.get("note_th") and shelf_is_the_set else "")
     if not chips:
-        return ""
-    return ('<div class="toolbar facetbar" data-facetbar>'
+        return lede
+    return (lede + '<div class="toolbar facetbar" data-facetbar>'
             + bi("มีอะไร", "Has") + ": " + "".join(chips)
             + f'<button class="fchip clear" data-f="">✕ ' + bi("ล้าง", "clear")
-            + "</button></div><p class=\"tinynote\">"
-            + bi("เลือกได้หลายอย่าง — จะเหลือแต่ร้านที่มีครบตามที่เลือก",
-                 "Pick more than one — the list keeps only shops that have all of them.")
-            + "</p>")
+            + "</button></div>")
 
 
 def plan_key(r):
@@ -6791,6 +7007,12 @@ def entry_li(r, href):
     # ก→ฮ in English-only mode sorts by the name that is on the screen —
     # it rides only where the two names really differ.
     _th, _en = name_pair(r)
+    # A Thai-only name has no Latin form to sort or filter by, so English-only
+    # mode sorted 24,023 rows by a key it was not showing and a reader typing
+    # "wat phra that" matched nothing. The RTGS reading fills that slot — it is
+    # a reading, not a name, and it rides only where a human one is absent.
+    if _th and not _en:
+        _en = name_roman(r)
     ne = f' data-ne="{att(_en)}"' if (_th and _en) else ""
     # The metres beside a doi's name (WO-37c). Data-scoped, not shelf-scoped:
     # the chip appears exactly where terrain_heights.json holds the row's id
@@ -7036,6 +7258,13 @@ def geojson(records):
         and (r.get("geoPrecision") or "exact") != "needs-pin"]}
 
 
+_ANT_LEGEND_TH = ("🐜 = ข้อมูลที่มีแล้ว เต็มที่ ๙ ตัว — ชื่อไทย ชื่ออังกฤษ เบอร์ LINE "
+                  "เวลาเปิด เว็บ รูป เจ้าของยืนยัน และมดเพิ่งไปเดิน")
+_ANT_LEGEND_EN = ("🐜 = one ant per fact we hold, nine when a listing is complete — Thai "
+                  "name, English name, phone, LINE, hours, a live website, a photo, "
+                  "owner-confirmed, recently walked.")
+
+
 def toolbar(records=None):
     """The extra sorts only appear where the data supports them: royal grade on
     a shelf that holds royal temples, marks on a shelf that holds marked places.
@@ -7065,17 +7294,15 @@ def toolbar(records=None):
             # complete before this is ever tapped. data-gps-door marks it for
             # removal the moment the reader declines: see MDLOC in md.js.
             f'<button id="sort-dist" data-gps-door>📍 {bi("เรียงตามระยะ", "Sort by distance")}</button>'
-            f'<button id="sort-rank">🐜 {bi("ข้อมูลครบสุด", "Most complete")}</button>'
+            # WO-52: the 67-word 🐜 legend that used to sit under this row on
+            # 1,719 shelf pages now rides on the button it explains. A legend
+            # for a symbol belongs on the symbol, not in a paragraph below it.
+            f'<button id="sort-rank" title="{att(bi_text(_ANT_LEGEND_TH, _ANT_LEGEND_EN))}">'
+            f'🐜 {bi("ข้อมูลครบสุด", "Most complete")}</button>'
             f'<button id="sort-fresh">🕘 {bi("เพิ่งอัปเดต", "Recently walked")}</button>'
             f'<button id="sort-love">💛 {bi("ยังขาดข้อมูล", "Needs love")}</button>'
             + extra
-            + f'</div><p class="tinynote antlegend">'
-            + bi("🐜 = ข้อมูลที่มีแล้ว เต็มที่ ๙ ตัว — ชื่อไทย ชื่ออังกฤษ เบอร์ LINE เวลาเปิด เว็บ รูป "
-                 "เจ้าของยืนยัน และมดเพิ่งไปเดิน · ข้อมูลคืออำนาจ เติมให้ครบได้ฟรี",
-                 "🐜 = one ant per fact we hold, nine when a listing is complete — Thai name, English "
-                 "name, phone, LINE, hours, a live website, a photo, owner-confirmed, recently walked. "
-                 "Information is power; filling it in is free.")
-            + "</p>")
+            + "</div>")
 
 
 def listing_page(title_th, title_en, records, depth, prov, crumbs, path, extra_top="",
@@ -7122,16 +7349,16 @@ def share_block(url, name, qr=False, card=None):
     if qr:
         data_uri = qr_data_uri(url)
         if data_uri:
-            qr_th = "สแกนแชร์หรือพกไว้หน้าร้านก็ได้"
-            qr_en = "Scan to share — or print it by the door"
+            # WO-52: the caption under this QR stood on 21,048 pages telling
+            # people what a QR code is for. The alt text below already says
+            # where this one goes, which is the part that is not obvious.
             # "QR code" named the file format and told a reader who cannot see
             # it nothing at all — and it said that on 10,673 pages. What matters
             # about a QR is where it goes, so the alt says where it goes.
             qr_alt = bi_text("คิวอาร์โค้ด สแกนแล้วเปิดหน้า %s บน motdang.net" % name,
                              "QR code — scanning it opens the %s page on motdang.net" % name)
             qr_html = (f'<div class="qrbox"><img src="{data_uri}" alt="{att(qr_alt)}" '
-                      f'width="76" height="76">'
-                      f'<p>{bi(qr_th, qr_en)}</p></div>')
+                      f'width="76" height="76"></div>')
     # The picture itself, not just a link that unfurls into it. A link
     # pasted into a Facebook comment does not unfurl at all, and the
     # answer to "who does this" is more useful as the poster than as a
@@ -7240,11 +7467,11 @@ def elsewhere_block(r):
                               "Goes to something written about this place")))
         rows.append('<li>%s<a href="%s" rel="noopener">%s</a></li>'
                     % (mark if x["marked"] else "", att(x["url"]), bi(x["th"], x["en"])))
-    return ('<div class="elsewhere"><h2>%s</h2><ul>%s</ul><p class="tinynote">%s</p></div>'
-            % (bi("อ่านต่อที่อื่น", "Read more elsewhere"), "".join(rows),
-               bi("😎 = พาไปอ่านเรื่องของที่นี่โดยตรง ไม่ใช่ปุ่มแชร์หรือลิงก์ประจำทุกหน้า",
-                  "😎 marks a link about this place itself — not a share button or "
-                  "something every page carries")))
+    # WO-52: the 😎 legend that used to close this block on 1,592 pages is on
+    # the 😎 itself — it already carries the same sentence as a title, and now
+    # nothing repeats it underneath.
+    return ('<div class="elsewhere"><h2>%s</h2><ul>%s</ul></div>'
+            % (bi("อ่านต่อที่อื่น", "Read more elsewhere"), "".join(rows)))
 
 
 def reach_block(r):
@@ -7288,27 +7515,25 @@ def reach_block(r):
     retired_html = ""
     if notes:
         retired_html = (
-            '<div class="retired"><span class="reachlabel">'
-            + bi("เว็บเดิมของที่นี่", "Their earlier website")
-            + f'</span><ul>{"".join(notes)}</ul><p class="tinynote">'
-            + bi("มดแดงไม่ส่งใครไปหน้าที่เปิดไม่ได้ — เก็บลิงก์ไว้ให้ในคลังแทนเจ้า",
-                 "We don't send anyone to a page that no longer answers — the archived copy is here instead.")
-            + "</p></div>")
+            '<div class="retired">'
+            + mark(bi("เว็บเดิมของที่นี่", "Their earlier website"),
+                   "มดแดงไม่ส่งใครไปหน้าที่เปิดไม่ได้ — เก็บลิงก์ไว้ให้ในคลังแทนเจ้า",
+                   "We don't send anyone to a page that no longer answers — the "
+                   "archived copy is here instead.", cls="mklabel")
+            # WO-52: each row already carries its verdict and the date it was
+            # checked, so the paragraph restating the policy underneath was
+            # the site explaining itself on 353 pages. On the label instead.
+            + f'<ul>{"".join(notes)}</ul></div>')
 
+    # WO-52. This block held the single biggest paragraph on the site: 55
+    # words on 20,174 pages, telling the reader that this place keeps no
+    # website and that the page may therefore be cited. It was true on 20,174
+    # pages, which is exactly why it distinguished nothing — and it stood
+    # between a reader and the phone number they came for. The claim link it
+    # carried returned 0 claims in the whole life of the site (claims.json).
+    # Gone. The fact it asserted is machine-readable already: place_json()
+    # and the JSON-LD carry the record, which is where a citing tool looks.
     record_html = ""
-    if not any(c["kind"] == "web" for c in live):
-        cta = ""
-        if not claim:
-            claim_url = f"../../claim.html?id={att(r['id'])}"
-            cta = (f' <a href="{claim_url}" rel="noopener">'
-                   + bi("เจ้าของยืนยันข้อมูลได้ฟรีที่นี่เจ้า", "Owners: claim and correct it here, free")
-                   + "</a>")
-        record_html = (
-            '<p class="ofrecord">🐜 '
-            + bi("ที่นี่ไม่มีเว็บของตัวเอง — หน้านี้คือที่บันทึกของมดแดง ใช้อ้างอิงและแชร์ได้เลย",
-                 "This place keeps no website of its own — so this page is the record. "
-                 "Cite it, share it, link to it.")
-            + cta + "</p>")
 
     if not pills and not retired_html:
         return record_html
@@ -7358,26 +7583,11 @@ def place_json(r, photo_file=None):
     return rec
 
 
-def next_ant(r):
-    """The single easiest thing that would improve this listing, asked for
-    like a favour — never as a fraction, and never the full list of what's
-    absent. "0/9" or nine missing fields laid out under a business's name
-    reads as a rating of the business, not a note about our data. One or two
-    concrete asks read as an invitation.
-    """
-    bits = ant_bits(r)
-    missing = [(f[1], f[2]) for f in ANT_FIELDS if not bits[f[0]]]
-    if not missing:
-        return (f'<p class="helpline">🐜 <b>{bi("ครบทุกอย่างแล้วเจ้า", "Everything is here")}</b> — '
-                f'{bi("ขอบคุณคนที่ช่วยเติมเจ้า", "thank you to whoever filled this in.")}</p>')
-    th_list = " และ ".join(m[0] for m in missing[:2])
-    en_list = " and ".join(m[1] for m in missing[:2])
-    return (f'<p class="helpline">🐜 '
-            f'{bi(f"ช่วยเติม{th_list}ได้ไหมเจ้า", f"Could you help add {en_list}?")} '
-            f'{bi("ขึ้นทันทีเลย", "It shows at once.")}</p>')
-
 
 _SLUG_UNSAFE = re.compile(r"[^a-z0-9]+")
+
+
+_ASCII_ID = re.compile(r"^[A-Za-z0-9_-]+$")
 
 
 def place_slug(r):
@@ -7397,7 +7607,26 @@ def place_slug(r):
     # nothing and fall through to the bare id, same as before.
     candidate = r.get("nameEn") or name_of(r) or ""
     slug = _SLUG_UNSAFE.sub("-", candidate.strip().lower()).strip("-")[:60].rstrip("-")
-    return f"{slug}-{numeric}" if slug else numeric
+    stem = f"{slug}-{numeric}" if slug else numeric
+    # An id that is not itself ASCII loses its whole distinguishing part to
+    # those two substitutions, and the "unique even between two 7-Elevens"
+    # promise above quietly stopped holding. The condominium register keys on
+    # the Thai building name — cm-condoreg-กลอรี่-คอนโดมิเนียม has no digits at
+    # all, so `numeric` fell through to the ASCII reduction of the id, which is
+    # the namespace prefix `cmcondoreg` and nothing else. TWO HUNDRED buildings
+    # wrote to that one filename and 199 of them ceased to exist; 339 place
+    # pages were lost this way across both provinces, and the site went on
+    # saying every place has its own page.
+    #
+    # The gate is the ID, not the name: pure-ASCII ids (every OSM, FDA and
+    # register key that carries digits) come out byte-identical, so no live URL
+    # moves except the 19 in data/curated/moved.json. sha1 of the id because it
+    # is stable — the RTGS reading would be readable and is deliberately NOT
+    # used here, since a lexicon edit would move the slug and a slug that moves
+    # is a 404. The Thai name is still the page's <title>, <h1> and og:title.
+    if not _ASCII_ID.match(r["id"]):
+        stem += "-" + hashlib.sha1(r["id"].encode("utf-8")).hexdigest()[:7]
+    return stem
 
 
 def write_moved_stubs():
@@ -7849,6 +8078,48 @@ def known_facts(r):
             f"อ.{esc(a['amphoe'])}" if a.get("amphoe") else "") if x)
         rows.append(f"<dt>{bi('ตำบล-อำเภอ', 'Tambon and amphoe')}</dt>"
                     f"<dd>{where}</dd>")
+    # WO-56: what the Treasury's condominium register states about THIS
+    # building — carried on 373 records since WO-27 and printed on none of
+    # their pages. A spread, never one number, and named for what it is.
+    if a.get("assessedLow") and a.get("assessedHigh"):
+        spread = f"{int(a['assessedLow']):,}–{int(a['assessedHigh']):,} ฿/m²"
+        ed = f" · {esc(str(a['registerEdition']))}" if a.get("registerEdition") else ""
+        rows.append(f"<dt>{bi('ราคาประเมินกรมธนารักษ์', 'Treasury assessed value')}</dt>"
+                    f'<dd>{esc(spread)}{ed} <span class="tinynote">'
+                    + bi("ใช้คิดค่าธรรมเนียมการโอน ไม่ใช่ราคาตลาด",
+                         "the basis for transfer fees — not a market price")
+                    + "</span></dd>")
+    # The other buildings the register files under the same complex — facts
+    # about this place, and the only way a page can say "1 of 11".
+    if a.get("complex"):
+        sibs = [s for s in COMPLEX_MEMBERS.get((r.get("province"), a["complex"]), [])
+                if s["id"] != r["id"] and s["id"] in PLACE_HREF]
+        if sibs:
+            links = " · ".join(
+                f'<a href="../../{PLACE_HREF[s["id"]]}.html">{esc(name_of(s))}</a>'
+                for s in sorted(sibs, key=name_of)[:12])
+            rows.append(f"<dt>{bi('อาคารในโครงการเดียวกัน', 'Same complex')}</dt>"
+                        f"<dd>{links}</dd>")
+    # Buildings whose name carries the same word — the register writes ปันนา,
+    # the signs say Punna, and until the reading joined them a resident could
+    # see three of his ten and conclude the site did not have his building.
+    # Shown only where it says something the complex row did not.
+    _fam = FAMILY_OF.get(r["id"])
+    if _fam:
+        _shown = {r["id"]}
+        if a.get("complex"):
+            _shown |= {s["id"] for s in
+                       COMPLEX_MEMBERS.get((r.get("province"), a["complex"]), [])}
+        _sibs = [s for s in FAMILY_MEMBERS.get((r.get("province"), _fam), [])
+                 if s["id"] not in _shown and s["id"] in PLACE_HREF]
+        if _sibs:
+            _links = " · ".join(
+                f'<a href="../../{PLACE_HREF[s["id"]]}.html">{esc(name_of(s))}</a>'
+                for s in sorted(_sibs, key=name_of)[:12])
+            _more = (f' <span class="tinynote">+{len(_sibs) - 12}</span>'
+                     if len(_sibs) > 12 else "")
+            rows.append(f"<dt>{bi('ชื่อเดียวกัน', 'Same name')}</dt>"
+                        f"<dd>{_links}{_more}</dd>")
     if a.get("watCode"):
         rows.append(f"<dt>{bi('รหัสวัด', 'Temple register code')}</dt>"
                     f'<dd>{esc(a["watCode"])} <span class="tinynote">'
@@ -7986,6 +8257,18 @@ def known_facts(r):
     if a.get("pinNote"):
         rows.append(f"<dt>{bi('เรื่องหมุด', 'About the pin')}</dt>"
                     f"<dd>{esc(str(a['pinNote']))}</dd>")
+
+    # The neighbour, named by the record rather than measured off a map.
+    # A reader who found one of a pair has already found the other, and on a
+    # side street that pairing is most of what "where is it" means.
+    nd = PLACE_BY_ID.get(a.get("nextDoor"))
+    if nd:
+        via = a.get("nextDoorVia")
+        rows.append(f"<dt>{bi('ร้านติดกัน', 'Next door')}</dt><dd>"
+                    f'<a href="{"../" * 2}{nd["province"]}/p/{place_slug(nd)}.html">'
+                    f'{name_bi(nd)}</a>'
+                    + (f' <span class="tinynote">({esc(str(via))})</span>' if via else "")
+                    + "</dd>")
 
     chain = a.get("brand") or a.get("operator")
     if chain:
@@ -8131,11 +8414,12 @@ def seven_band(r):
                     + '<span class="tinynote">'
                     + bi("(วัดตรงจากหมุด)", "(straight-line, pin to pin)")
                     + "</span></p>")
-    rows.append(
-        '<p>🏪 <a href="../../seven.html">'
-        + bi("ร้านสะดวกซื้อทำอะไรได้บ้าง — เซเว่นทุกซอย",
-             "What any branch can do — a seven in every soi")
-        + "</a></p>")
+    # WO-52: the twin and the anchors above are measured facts about THIS
+    # branch and stay. This last row is navigation — the same sentence on 726
+    # pages, and on a branch with no twin and no anchors it was the whole
+    # band. A link is a link; it does not need a sentence around it.
+    rows.append('<p>🏪 <a href="../../seven.html">'
+                + bi("เซเว่นทุกซอย", "Sevens in every soi") + "</a></p>")
     return ('<section class="sevenband"><span class="reachlabel">'
             + bi("รอบ ๆ สาขานี้", "Around this branch") + "</span>"
             + "".join(rows) + "</section>")
@@ -8143,8 +8427,16 @@ def seven_band(r):
 
 def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     rows = []
+    # A record can carry a cat key that categories.json does not hold — a
+    # typo in an importer rule reaches here as a KeyError and takes the whole
+    # build down AFTER docs/ has been wiped, which is the worst place to fail.
+    # Skip what the tree cannot name, and say so once rather than silently.
+    unknown = [c for c in r["cat"] if c not in CATS]
+    if unknown:
+        _UNKNOWN_CATS.setdefault(tuple(sorted(unknown)), []).append(r.get("id"))
     cats = " · ".join(
-        f'<a href="../{c}/index.html">{bi(CATS[c]["th"], CATS[c]["en"])}</a>' for c in r["cat"])
+        f'<a href="../{c}/index.html">{bi(CATS[c]["th"], CATS[c]["en"])}</a>'
+        for c in r["cat"] if c in CATS)
     rows.append(f"<dt>{bi('หมวด', 'Category')}</dt><dd>{cats}</dd>")
     if r.get("nameEn") and r.get("nameEn") != r.get("name"):
         rows.append(f"<dt>{bi('ชื่ออังกฤษ', 'English name')}</dt><dd>{esc(r['nameEn'])}</dd>")
@@ -8204,7 +8496,10 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
                     f'<a href="{gmap}" rel="noopener">Google Maps</a>{approx}</dd>')
     else:
         rows.append(f'<dt>{bi("แผนที่", "Map")}</dt><dd><span class="badge pin">'
-                    + bi("รอปักหมุด — ช่วยบอกพิกัดได้", "pin wanted — tell us where!") + "</span></dd>")
+                    # WO-52: was "pin wanted — tell us where!", an ask inside
+                    # a facts list. The state is the fact; the ask is one link
+                    # at the foot of the page.
+                    + bi("ยังไม่มีพิกัด", "no pin yet") + "</span></dd>")
     blurb = ""
     if r.get("blurb_th") or r.get("blurb_en"):
         blurb = f'<p class="featured"><span class="star">★</span> {bi(r.get("blurb_th") or "", r.get("blurb_en") or "")}</p>'
@@ -8244,7 +8539,12 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     # This used to be a GitHub issue link shown only when contact was missing —
     # which asked the one person most able to help, the owner, to open a
     # developer account first.
-    contact_cta = next_ant(r) + add_doors(2, place=r)
+    # WO-52: next_ant's "🐜 Could you help add phone and LINE?" (six wordings
+    # across 12,300 pages) plus add_doors' three door cards and the fix-log
+    # promise under them (22,052 pages) collapse into one link. Between them
+    # they produced no claims, no photos and no reports — every fix on the
+    # ledger came from the ants' own audit or from off the site entirely.
+    contact_cta = add_link(r)
     if photo_file:
         # The bare name repeated the <h1> and said nothing about the picture.
         # These 114 credits carry no description field, so the alt is built from
@@ -8297,27 +8597,23 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         img_tag = place_map(r) or (
             f'<img class="photo placeholderpic" src="../../{ph}" '
             f'alt="{att(ph_alt)}" loading="lazy">')
-        if img_tag.startswith('<div class="placemap"'):
-            pn_th = "ยังไม่มีรูปของที่นี่ — นี่คือที่ตั้ง"
-            pn_en = "No photo of this place yet — this is where it stands"
-        elif ph == "wat.svg":
-            pn_th = "ยังไม่มีรูปของที่นี่ — ใช้ภาพวัดแทนไปพลางก่อน"
-            pn_en = "No real photo of this place yet — a placeholder wat, for now"
-        else:
-            pn_th = "ยังไม่มีรูปของที่นี่ — มดแดงยืนถือที่ไว้ให้ก่อน"
-            pn_en = "No photo of this place yet — the ant is holding the space"
-        # Quiet, not apologetic. The directory is substantially built out; a
-        # loud "no photo yet" on every entry advertises a gap instead of the
-        # ten thousand things that ARE here.
-        photo_note = f'<p class="phototag quiet">{bi(pn_th, pn_en)}</p>'
-        photo_href = mailto("มดแดง: รูป " + name_text(r),
-                            "แนบรูปมาได้เลย ใส่ชื่อร้านด้วย / Attach the photo and name the place.\n"
-                            "ลงเครดิตชื่อว่า / Credit it to:\n")
-        photo_cta = (f'<p class="myhint">📷 '
-                     + bi("มีรูปของที่นี่ไหม ส่งมาได้เลย ลงเครดิตชื่อคุณไว้ใต้รูป",
-                          "Have a photo of this place? Send it — your name goes under it.")
-                     + f' <a href="{att(photo_href)}">'
-                     + bi("ส่งรูป", "Send a photo") + '</a></p>')
+        # WO-52. Three captions and an ask came off here, 41,000 page-
+        # instances between them:
+        #
+        # * "No photo of this place yet — this is where it stands" (18,727
+        #   pages) captioned a map with the news that it was not a photograph.
+        #   A map looks like a map. The reader was told nothing they could not
+        #   see, in the position where a caption is read most carefully.
+        # * The wat and ant placeholder variants said the same twice more.
+        #   The alt text still says it, for the reader who cannot see it —
+        #   which is the only reader for whom it was ever news.
+        # * "Have a photo of this place? Send it" stood on 20,826 pages and
+        #   returned no photographs at all. It is folded into add_link().
+        #
+        # The placeholder image and its alt survive untouched; only the
+        # paragraphs announcing them are gone.
+        photo_note = ""
+        photo_cta = ""
     src = (r.get("sources") or [{}])[0]
     prov_line = {"osm": bi("ข้อมูลจาก OpenStreetMap", "Data from OpenStreetMap"),
                  "field": bi("ข้อมูลเก็บภาคสนาม", "Field-collected data"),
@@ -8378,12 +8674,18 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     # adding it twice would be comic.
     locator = "" if img_tag.startswith('<div class="placemap"') else place_map(r)
     plan_cta = plan_toggle_btn(r, big=True) if r.get("lat") is not None else ""
+    # WO-52. The order is now: what this place IS, then how to reach it, then
+    # its record — and only after all of that, one link asking for more.
+    # ant_panel() came out entirely: "Some details on record — help fill in
+    # the rest, free" stood on 21,047 pages, above the photograph, above the
+    # phone number, and said nothing about the place. photo_note and
+    # photo_cta came out with it (see the photo block above).
     body = (f"<h1>{name_bi(r)}</h1>{plan_cta}{honour_panel(r)}{facet_panel(r)}{seven_band(r)}{tag_pills(r)}"
-            f"{ant_panel(r)}{img_tag}{photo_note}{locator}{blurb}"
+            f"{img_tag}{locator}{blurb}"
             f"{reach_block(r)}{whatson}<dl>{''.join(rows)}</dl>"
-            f"{elsewhere_block(r)}{contact_cta}{photo_cta}"
+            f"{elsewhere_block(r)}"
             f"{share_block(BASE + path, name_text(r), qr=True)}{ad_box(path, 2)}{related_html}"
-            f'<p class="prov">{prov_line}{fetched}</p>')
+            f'<p class="prov">{prov_line}{fetched}</p>{contact_cta}')
     desc = place_desc(r, prov_cfg)
     robots = "index,follow" if place_has_substance(r) else "noindex,follow"
     return page(place_title(r, prov_cfg), body, depth=2, crumbs=crumbs, path=path, desc=desc,
@@ -8468,7 +8770,20 @@ EVENTS_GENERATED = _EV_DOC.get("generated", "")
 _alias_path = ROOT / "data" / "curated" / "venue_aliases.json"
 _ALIAS_DOC = json.loads(_alias_path.read_text()) if _alias_path.exists() else {}
 VENUE_ALIASES = _ALIAS_DOC.get("aliases", {})
-VENUES_MISSING = (_ALIAS_DOC.get("_missing_from_catalogue") or {}).get("venues", [])
+
+def _missing_venue_name(v):
+    """A row of the missing register is a bare name or a {name, why_open} dict.
+
+    It gained the dict shape on 2026-08-31, when the register stopped being a
+    list of strings and started carrying why each one is still open. Reading
+    both means the page never has to care which vintage a row is.
+    """
+    return v.get("name", "") if isinstance(v, dict) else v
+
+
+VENUES_MISSING = [_missing_venue_name(v) for v in
+                  ((_ALIAS_DOC.get("_missing_from_catalogue") or {}).get("venues", []))]
+VENUES_MISSING = [v for v in VENUES_MISSING if v]
 
 SOURCE_LABEL = {
     "meetup-ical": ("Meetup", "Meetup"),
@@ -8793,9 +9108,11 @@ def _moat_crossings():
 
     Names come out of the records, never typed in here: OSM carries both the
     Thai and the English for all nine, and a gate is the kind of place where a
-    second copy of a name is a second chance to be wrong about it. Anything
-    missing from the catalogue is simply left out rather than filled in from
-    memory — an unnamed gate on a map is a smaller error than a wrong name.
+    second copy of a name is a second chance to be wrong about it. A gate the
+    catalogue does not hold is a gap in the CATALOGUE — fix it there, where the
+    fix reaches every surface at once, rather than typing the name into this
+    function from memory. (Today there are none: all nine are on record. If
+    that changes, the answer is an import, not a literal.)
     """
     path = ROOT / "data" / "canonical" / "cm.json"
     if not path.exists():
@@ -8967,14 +9284,22 @@ def event_when(e):
     dt = e.get("dt")
     if not dt:
         return bi("ยังไม่ระบุเวลา", "time not stated")
+    # A FEED THAT STATED NO TIME MUST NOT BE PRINTED AS MIDNIGHT. An all-day row
+    # still needs a datetime to sort and recur on, so its clock is 00:00 — and
+    # rendering that verbatim told readers a yoga class began at midnight. The
+    # iCal and tribe feeds always carry a real time, so this only surfaced when
+    # the newsletter arrived, where a listing often gives the day and not the
+    # hour. No clock is the honest rendering of an hour nobody stated.
+    at_th = "" if e.get("all_day") else f' {dt.strftime("%H:%M")} น.'
+    at_en = "" if e.get("all_day") else f' at {dt.strftime("%H:%M")}'
     if e.get("recurring") and e.get("weekday") is not None:
         wd = e["weekday"]
         nxt_th = nxt_en = ""
         if dt.date().isoformat() >= BUILD_DATE:
             nxt_th = f' · ครั้งต่อไป {dt.day} {MONTH_TH[dt.month]}'
             nxt_en = f' · next on {dt.strftime("%-d %b")}'
-        return bi(f'ทุกวัน{WEEK_TH[wd]} {dt.strftime("%H:%M")} น.{nxt_th}',
-                  f'Every {WEEK_EN[wd]} at {dt.strftime("%H:%M")}{nxt_en}')
+        return bi(f'ทุกวัน{WEEK_TH[wd]}{at_th}{nxt_th}',
+                  f'Every {WEEK_EN[wd]}{at_en}{nxt_en}')
     if e.get("recurring") and e.get("byday"):
         # A stadium's weekly nights — several weekdays in one event (see
         # muaythai_layer.raw_events). A run of days reads as a span.
@@ -8989,10 +9314,14 @@ def event_when(e):
         if dt.date().isoformat() >= BUILD_DATE:
             nxt_th = f' · คืนต่อไป {dt.day} {MONTH_TH[dt.month]}'
             nxt_en = f' · next on {dt.strftime("%-d %b")}'
-        return bi(f'ทุกคืน {d_th} {dt.strftime("%H:%M")} น.{nxt_th}',
-                  f'Every {d_en} at {dt.strftime("%H:%M")}{nxt_en}')
-    return bi(f'{dt.day} {MONTH_TH[dt.month]} {dt.year + 543} · {dt.strftime("%H:%M")} น.',
-              f'{dt.strftime("%-d %B %Y")} · {dt.strftime("%H:%M")}')
+        return bi(f'ทุกคืน {d_th}{at_th}{nxt_th}',
+                  f'Every {d_en}{at_en}{nxt_en}')
+    day_th = f'{dt.day} {MONTH_TH[dt.month]} {dt.year + 543}'
+    day_en = dt.strftime("%-d %B %Y")
+    if e.get("all_day"):
+        return bi(day_th, day_en)
+    return bi(f'{day_th} · {dt.strftime("%H:%M")} น.',
+              f'{day_en} · {dt.strftime("%H:%M")}')
 
 
 def event_card(e, depth=0):
@@ -9388,7 +9717,7 @@ def widget_lottery():
             f'{bi(p.get("th", ""), p.get("en", ""))}</span>'
             f'<span class="lotnums">{bolds}</span></div>')
     reg_th = "บันทึกผลตามประกาศทางการ ไม่ใช่คำทำนาย"
-    reg_en = "the announced record, never a prediction"
+    reg_en = "the announced record, not a prediction"
     return (
         f'<section class="wtile lot" id="w-lottery" data-lotdate="{att(draw["date"])}">'
         f'<h3>🎟 {bi("ผลสลากกินแบ่ง", "Lottery results")}</h3>'
@@ -10317,10 +10646,11 @@ SOURCE_FILES = ["build.py", "CLAUDE.md", "README.md", "AGENTS.md",
                 "toilets_layer.py", "elephant_layer.py", "womens_health_layer.py",
                 "care_layer.py",
                 "transhealth_layer.py", "adhd_layer.py", "longcare_layer.py",
+                "ot_layer.py", "lens_layer.py",
                 "souvenir_layer.py", "medtravel_layer.py", "shrine_layer.py",
                 "tags_layer.py", "transport_layer.py", "graph_layer.py",
                 "explore_layer.py", "hotspring_layer.py", "geography_layer.py",
-                "moat_layer.py", "seven_layer.py"]
+                "moat_layer.py", "seven_layer.py", "hom_layer.py"]
 # Anything that is somebody's private business, a credential, or a working
 # scratch never enters the archive. Whitelisting the trees above and naming
 # these again is belt and braces: a bare "everything except" would ship
@@ -10640,24 +10970,6 @@ def plan_hero_html(depth=0):
                    "route plan, the walking line and the scooter line differing")
         gif = (f'<img class="hgif" src="{r}{PLAN_DEMO_GIF}" width="200" height="200" '
                f'alt="{att(gif_alt)}" loading="lazy">')
-    lede_th = ("เลือกร้านก๋วยเตี๋ยว คลินิก ร้านทำเล็บ — จุดไหนก็ได้จากทั่วสารบัญนี้ — "
-               "แล้วดูพร้อมกันในแผนที่เดียว พร้อมระยะทางจริงตามถนนแต่ละช่วง")
-    lede_en = ("Pick a noodle stand, a clinic, a nail place — any stops from anywhere in the "
-               "directory — and see them together on one map, with the real street distance "
-               "for every leg.")
-    pts = [
-        ("เดินกับขี่มอเตอร์ไซค์ คิดแยกกัน เพราะมันไม่เหมือนกันจริงๆ — "
-         "สะพานคนเดินมอเตอร์ไซค์ขึ้นไม่ได้ และถนนเดินรถทางเดียวทำให้ต้องอ้อม",
-         "Walking and riding are worked out separately, because they really are different "
-         "journeys — a footbridge is no use to a scooter, and a one-way street means going round"),
-        ("คิดตามถนนจริง ไม่ใช่ลากเส้นตรงข้ามตึกข้ามคูเมือง",
-         "Routed along real streets — not a straight line drawn through buildings and across the moat"),
-        ("แชร์ทริปทั้งหมดเป็นลิงก์เดียว ส่งไลน์ให้ใครก็ได้ ไม่ต้องสมัคร ไม่เก็บข้อมูล",
-         "Share the whole run as one link over LINE — no account, nothing tracked"),
-        ("ดาวน์โหลดเก็บไว้เป็นข้อความ พร้อมเบอร์โทรและเวลาเปิดของทุกจุด",
-         "Download it as plain text, with every stop's phone number and opening hours"),
-    ]
-    pts_html = "".join(f"<li>{bi(a, b)}</li>" for a, b in pts)
     # A three-row comparison rather than a sentence: bi() escapes its arguments
     # by design, so emphasis cannot live inside one — and the same two stops
     # measured three ways is more legible as a list anyway.
@@ -10673,24 +10985,16 @@ def plan_hero_html(depth=0):
             f'<td class="hv">{v}</td></tr>' for g, lbl, v, cls in rows)
         num = (f'<div class="hnum"><span class="hcap">'
                + bi("สองจุดเดียวกัน วัดสามแบบ", "The same two stops, measured three ways")
-               + f'</span><table>{body}</table><span class="hwhy">'
-               + bi("คูเมืองขวางอยู่ — คนเดินข้ามสะพานได้ มอเตอร์ไซค์ต้องอ้อม",
-                    "The moat is between them: a walker takes the footbridge, a scooter goes round.")
-               + "</span></div>")
+               + f'</span><table>{body}</table></div>')
     return (
         f'<section class="planhero" aria-labelledby="h-plan">'
         f'<div class="hh"><h2 id="h-plan">{svg_icon("i-route", 26)} '
         f'{bi("วางแผนบ่ายนี้", "Plan your afternoon")}</h2>'
         f'<span class="newflag">{bi("ใหม่", "NEW")}</span></div>'
         f'<div class="hbody">{gif}<div class="htext">'
-        f'<p class="hlede">{bi(lede_th, lede_en)}</p>'
-        f'<ul class="hpts">{pts_html}</ul>{num}'
+        f'{num}'
         f'<a class="hcta" href="{r}plan.html">{bi("เริ่มวางแผน", "Start planning")} →</a>'
-        f'<p class="hfoot">'
-        + bi("ครอบคลุมในเวียงและรอบนอกราว ๒ กิโลเมตร · นอกเขตนี้บอกตรงๆ ว่ายังไม่ได้คิดตามถนน",
-             "Covers the old city and about 2 km around it — outside that, it says so plainly "
-             "instead of guessing.")
-        + "</p></div></div></section>")
+        "</div></div></section>")
 
 
 def plan_demo_figure():
@@ -10995,7 +11299,7 @@ def build_privacy_page():
          "เก็บอยู่ใน localStorage ของเบราว์เซอร์คุณเอง ไม่เคยถูกส่งมาที่เรา "
          "ล้างข้อมูลเบราว์เซอร์แล้วหายทันที ไม่ต้องขอใคร",
          "Your pinned shelves, chosen widgets, weather cities, and route basket live in "
-         "your browser's own localStorage. They are never sent to us. Clearing your "
+         "your browser's own localStorage. They are not sent to us. Clearing your "
          "browser data erases them, and you need nobody's permission to do it."),
         ("ดวงจีน คำนวณในเครื่องคุณ",
          "The birth chart is computed on your device",
@@ -11041,7 +11345,7 @@ def build_privacy_page():
          "ตอนนี้มดแดงไม่ได้เก็บอีเมลใครไว้ส่งข่าว ถ้าวันหนึ่งมี การยินยอมจะแยกออกจากกันคนละช่อง "
          "ไม่ติ๊กไว้ให้ล่วงหน้า และไม่เป็นเงื่อนไขของการใช้อย่างอื่น หน้านี้จะถูกแก้ก่อนที่จะเริ่มเก็บ",
          "Mot Dang holds nobody's email for news. If that ever changes, consent will be a "
-         "separate box, unticked, and never a condition of anything else — and this page "
+         "separate box, unticked, and not a condition of anything else — and this page "
          "will say so before a single address is collected."),
     ]
     body = [f'<h1>🐜 {bi("ความเป็นส่วนตัว", "Privacy")}</h1>',
@@ -11454,7 +11758,11 @@ def build_horoscope_page():
         f'<div class="horow">{_ho_wheel_eu()}'
         f'<div class="horowside">{_ho_chips("eu", _ho_default("eu"), wrap=True)}'
         f'<div class="horead" data-hread="eu">{_ho_eu_read(_ho_default("eu"))}</div></div></div>'
-        f'<p class="hoyearline">{ingress_tbl}</p>'
+        # A <div>, not a <p>: ingress_tbl is a <details> holding a table, and
+        # a paragraph may contain neither — the browser was closing the <p>
+        # early and the styling below it applied to nothing. Caught by the
+        # WO-52 nesting sweep, unrelated to the prune itself.
+        f'<div class="hoyearline">{ingress_tbl}</div>'
         f'{_ho_cardgrid("eu")}'
         f'<p class="tinynote">{bi("ที่มา: อนุกรมย่อของ Meeus และ Schlyter คลาดเคลื่อนราวครึ่งองศา — เหลือเฟือสำหรับราศีกว้าง 30 องศา ราศีที่นี่เป็นแบบสากล (ทรอปิคัล) ส่วนราศีแบบโหราศาสตร์ไทยเดินคนละปฏิทิน", "Source: the Meeus and Schlyter abridged series, within about half a degree — ample for a 30° sign. Signs here are tropical; the Thai sidereal ราศี runs on its own calendar.")}</p>'
         f'</section>'
@@ -11478,7 +11786,12 @@ def build_horoscope_page():
     # WO-25 publishes care-words.pdf on the same reasoning: /care.html links it,
     # and the seven questions on it are the instrument that turns one desk visit
     # — anybody's — into a dated public fact on that hospital's page.
-    for _name in ("hair-words.pdf", "care-words.pdf"):
+    # WO-51 publishes carve-words.pdf for the third time on the same argument:
+    # /tawai.html links it, and the person who needs those words is on a
+    # footpath in Hang Dong with a shopkeeper waiting, not on this site. Two of
+    # the words on it (พะยูง, พระพุทธรูป) change what may lawfully leave the
+    # country, which is not a thing to be recalled from memory at the till.
+    for _name in ("hair-words.pdf", "care-words.pdf", "carve-words.pdf"):
         _sheet = ROOT / "assets" / "reader" / _name
         if _sheet.exists():
             (DOCS / "reader").mkdir(exist_ok=True)
@@ -11636,6 +11949,9 @@ STREET_BY_SLUG = {s["slug"]: s for s in STREETS}
 STREET_OF = {}
 # Filled in build(); empty here so a page rendered outside a build still works.
 PLACE_HREF = {}
+COMPLEX_MEMBERS = {}
+FAMILY_MEMBERS = {}
+FAMILY_OF = {}
 for _s in STREETS:
     for _e in _s["places"]:
         STREET_OF.setdefault(_e["id"], (_s, _e))
@@ -11784,17 +12100,20 @@ def street_method_note(st):
                        "%d stand closer to this road than to any other, within %d m"
                        % (near, int(STREETS_DATA.get("cap_m", 30)))))
     how = " · ".join(bits)
-    acc = ""
+    # WO-52: the counts are facts about THIS road and stay printed. The
+    # method behind them — the accuracy check, and the reminder that a road
+    # is not a postal address — is the site explaining itself, so it moves
+    # onto a mark the reader can open. 37 words on 458 pages became one.
+    why_th = "นี่คือถนนที่ร้านตั้งอยู่ ไม่ใช่บ้านเลขที่เจ้า"
+    why_en = "This is the road a place stands on, not a postal address."
     if chk.get("pct_family") and near:
-        acc = " " + bi(
-            "เราตรวจวิธีนี้กับ %d แห่งที่บอกที่อยู่เองไว้แล้ว — ตรงกัน %s%%"
-            % (chk["n"], chk["pct_family"]),
-            "We checked that guess against %d places that state their own address: "
-            "%s%% landed on the same road or its own soi." % (chk["n"], chk["pct_family"]))
-    return ('<p class="soimethod">📍 %s.%s %s</p>'
-            % (how, acc,
-               bi("นี่คือถนนที่ร้านตั้งอยู่ ไม่ใช่บ้านเลขที่เจ้า",
-                  "This is the road a place stands on, not a postal address.")))
+        why_th += (" เราตรวจวิธีนี้กับ %d แห่งที่บอกที่อยู่เองไว้แล้ว — ตรงกัน %s%%"
+                   % (chk["n"], chk["pct_family"]))
+        why_en += (" We checked that guess against %d places that state their own "
+                   "address: %s%% landed on the same road or its own soi."
+                   % (chk["n"], chk["pct_family"]))
+    return ('<div class="soimethod">📍 %s %s</div>'
+            % (how, mark("ⓘ", why_th, why_en, cls="mkhow")))
 
 
 def street_page(st, by_id, prov_cfg):
@@ -11912,11 +12231,14 @@ def street_page(st, by_id, prov_cfg):
 
     offmap = ""
     if st.get("offmap"):
-        offmap = ('<p class="soimethod">🐜 %s</p>'
-                  % bi("ถนนนี้มาจากที่อยู่ที่ร้านเขียนไว้เอง — มดยังไม่ได้เดินเก็บแนวถนน "
-                       "จึงยังไม่มีแผนที่และยังเรียงตามลำดับถนนไม่ได้",
-                       "This road comes from addresses places wrote themselves. The ants have "
-                       "not walked its line yet, so there is no map and no walking order."))
+        # WO-52: a real limit on what this page can show, so it stays — as a
+        # mark, not as 51 words of paragraph on 537 road pages.
+        offmap = ('<div class="soimethod">%s</div>'
+                  % mark("🐜 " + bi("ยังไม่ได้เดินถนนนี้", "road not walked yet"),
+                         "ถนนนี้มาจากที่อยู่ที่ร้านเขียนไว้เอง — มดยังไม่ได้เดินเก็บแนวถนน "
+                         "จึงยังไม่มีแผนที่และยังเรียงตามลำดับถนนไม่ได้",
+                         "This road comes from addresses places wrote themselves. The ants have "
+                         "not walked its line yet, so there is no map and no walking order."))
 
     path = "%s/soi/%s.html" % (st["province"], st["slug"])
     crumbs = ('<a href="%sindex.html">%s</a> › <a href="%s%s/index.html">%s</a> › '
@@ -11942,7 +12264,8 @@ def street_page(st, by_id, prov_cfg):
         + listing
         + crossing
         + also
-        + add_doors(depth)
+        # WO-52: the three door cards and the fix-log promise came off the
+        # 1,004 road pages too. add.html is one tap from every page footer.
         + share_block(BASE + path, title))
     return page(
         "%s %s" % (title, prov_cfg["th"]), body, depth, crumbs=crumbs, path=path,
@@ -12291,8 +12614,6 @@ def hero_html(intro_th, intro_en):
         imgs.append(f'<img class="{slots[i]}"{px} src="site/{p["slug"]}.jpg" '
                     f'alt="{att(alt)}" loading="{"eager" if i == 0 else "lazy"}" '
                     f'width="{p.get("width") or 1000}" height="{p.get("height") or 750}">')
-    hello_th = "อัปเดตทุกวัน โดยคนแถวนี้ กับมดที่เดินทุกซอย"
-    hello_en = "Kept up daily, by people who live here and ants who walk every soi"
     title_th = "อยากกินอะไร อยากไปไหน"
     title_en = "What do you feel like, and where are you going"
     accent_th = "มดแดงรู้ทุกซอย"
@@ -12302,21 +12623,18 @@ def hero_html(intro_th, intro_en):
         '<div class="heroglow a" aria-hidden="true" data-parallax="0.14"></div>'
         '<div class="heroglow b" aria-hidden="true" data-parallax="0.08"></div>'
         '<div class="herocopy">'
-        f'<div class="heroeyebrow hand">{bi(hello_th, hello_en)}</div>'
         f'<h1 class="herotitle">{bi(title_th, title_en)}<br>'
         f'<span class="accent">{bi(accent_th, accent_en)}</span></h1>'
-        f'<p class="herosub">{bi(intro_th, intro_en)}</p>'
         # One line of orientation, and the only one. Readers kept saying they
         # liked the site and did not know how to use it, and what.html — the
         # page written for exactly that — had no link pointing at it from
         # anywhere. No tour, no first-run popup: an overlay on a hilltop
         # connection is the opposite of สบาย, and this site does not interrupt
         # people. A sentence and a door is the whole intervention.
-        f'<p class="herostart">{bi("สารบัญของคนแถวนี้ ไม่จัดอันดับ ไม่หักค่าหัวคิว", "The city’s own directory — no rankings, no commission")} '
+        f'<p class="herostart">'
         f'<a href="what.html">{bi("เพิ่งมาครั้งแรก เริ่มตรงนี้", "New here? Start here")}</a></p>'
         '</div>'
         f'<div class="heroart">{"".join(imgs)}'
-        f'<span class="herosticker">{bi("ของดีอยู่ในซอย", "the good stuff is down the lane")}</span>'
         f'{hero_credit(pics)}'
         '</div></section>')
 
@@ -12567,7 +12885,7 @@ def boards_html(data):
         ("🐘", "ช้าง", "Elephants", "chang.html",
          chang, "ที่บอกเอง", "venues, in their own words",
          "อ่านจากประกาศของแต่ละที่ ไม่แต่งเติม",
-         "read from each venue's own notices, never invented"),
+         "read from each venue's own notices, not written by us"),
         ("🥊", "มวยไทย", "Muay Thai", "muaythai.html",
          fights, "เวทีคืนชก", "fight-night venues",
          "คืนไหนชก กี่โมง ราคาจากป้าย",
@@ -12596,7 +12914,7 @@ def boards_html(data):
             f'<li><a class="doorcard" href="{href}">'
             f'<span class="glyph" aria-hidden="true">{glyph}</span>'
             f'<b>{esc(th)}</b><span class="en">{esc(en)}</span>'
-            f'{num}<span class="why">{bi(wth, wen)}</span></a></li>')
+            f'{num}</a></li>')
 
     # The rest of the boards, one quiet line each — the front page of a
     # directory should read like a directory: the word, then the count.
@@ -12615,6 +12933,8 @@ def boards_html(data):
     _x("beauty.html", "ตัดผม-ทำผม", "Hair & barbers")
     _x("souvenir.html", "ของฝากกับของต้องห้าม", "Souvenirs & the law",
        _reg_n("data/curated/wildlife.json", "items"))
+    _x("hom.html", "หม้อห้อม", "Indigo — the plant & the pot")
+    _x("tawai.html", "บ้านถวาย", "Ban Tawai — the carving village")
     _x("taste.html", "แผนที่รสชาติ", "The taste map")
     _x("walk.html", "เดินถึงไหน", "Walk-sheds")
     _x("open-now.html", "ตอนนี้เปิดอะไร", "Open now")
@@ -12624,10 +12944,7 @@ def boards_html(data):
         f'<div class="cardhead" style="background:var(--card-alt)">'
         f'<h2 id="h-doors">{bi("ประตู ๙ บาน", "Nine ways into the city")}</h2></div>'
         f'<div class="doorbody">'
-        f'<p class="doorsub">'
-        + bi("กระดานที่มดเดินเก็บเองทีละเรื่อง อ่านจากป้ายจริง ประกาศจริง",
-             "boards the ants keep by hand — one subject at a time, from real signs")
-        + f'</p><ul class="doorgrid">{"".join(cards)}</ul>'
+        f'<ul class="doorgrid">{"".join(cards)}</ul>'
         f'<p class="boardmore">{bi("กระดานอื่น", "more boards")} · {" · ".join(extras)}</p>'
         f'</div></section>')
 
@@ -12643,12 +12960,21 @@ def care_shelf_html():
     care = _reg_n("data/curated/care.json", "entries")
     asked = _asked_n()
     rows = [
+        # WO-57. First row on the shelf: the four numbers and the nearest
+        # hospital, pharmacy, fuel and water — the one page here that answers
+        # with no network.
+        ("🆘", "ช่วย-เบอร์ฉุกเฉิน", "Help & emergency numbers", "chuai.html",
+         None, "", ""),
         ("🏥", "เบาหวาน-โรคเรื้อรัง", "Diabetes & ongoing care", "care.html",
          care, "โรงพยาบาล", "hospitals read"),
         ("🌸", "สุขภาพผู้หญิง", "Women's health", "womens-health.html", None, "", ""),
         ("🏳️‍⚧️", "สุขภาพข้ามเพศ", "Trans health", "trans-health.html", None, "", ""),
         ("🧠", "สมาธิสั้น ADHD", "ADHD", "adhd.html", None, "", ""),
         ("🛏", "ดูแลระยะยาว", "Long-term care", "longcare.html", None, "", ""),
+        ("🖐", "กิจกรรมบำบัด", "Occupational therapy", "ot.html", None, "", ""),
+        # WO-56+: one row per lens register, in file order.
+        *[(L.get("glyph", "🩺"), L["nav"][0], L["nav"][1], f'{L["key"]}.html', None, "", "")
+          for L in LENSES if L.get("nav")],
         ("💊", "พกยาขึ้นเครื่อง", "Medicine & the airport", "medicine-airport.html",
          None, "", ""),
         ("🚻", "ห้องน้ำใกล้ฉัน", "Toilets near you", "toilets.html", None, "", ""),
@@ -12665,10 +12991,9 @@ def care_shelf_html():
     return (
         f'<section class="caresec" data-reveal aria-labelledby="h-care">'
         f'<h2 class="sectiontitle" id="h-care">{bi("ดูแลตัวเอง", "Look after yourself")}</h2>'
-        f'<p class="carenote">'
-        + bi("อ่านจากประกาศของสถานพยาบาลเอง พร้อมวันที่กำกับ — ไม่ใช่คำแนะนำทางการแพทย์",
-             "read from providers' own notices, dated — never medical advice")
-        + f'</p><ul class="careshelf">{"".join(lis)}</ul></section>')
+        + mark("ⓘ", "อ่านจากประกาศของสถานพยาบาลเอง พร้อมวันที่กำกับ — ไม่ใช่คำแนะนำทางการแพทย์",
+               "read from providers' own notices, dated — not medical advice", "carenote")
+        + f'<ul class="careshelf">{"".join(lis)}</ul></section>')
 
 
 # Nine, not eight or ten — ก้าว, the same count the highlights already use.
@@ -12750,7 +13075,6 @@ def after_dark_html(pulse, prov_key):
             f'<li><a class="adcard" href="{prov_key}/{cat}/index.html">'
             f'<img src="site/{p["slug"]}.jpg" alt="" loading="lazy">'
             f'<span class="cap"><b>{esc(th)}</b><span class="en">{esc(en)}</span>'
-            f'<span>{bi(sth, sen)}</span>'
             f'<span class="n">{counts[cat]["n"]:,} {bi("แห่ง", "places")}</span>'
             f'</span></a></li>')
     if not cards:
@@ -12761,7 +13085,6 @@ def after_dark_html(pulse, prov_key):
         '<div class="adglow a" aria-hidden="true"></div>'
         '<div class="adglow b" aria-hidden="true"></div>'
         '<div class="inner"><div class="adhead">'
-        f'<div class="adeyebrow">{bi("พระอาทิตย์ตกแล้ว…", "the sun has gone down…")}</div>'
         f'<h2>{bi("ไปต่อไหม?", "shall we keep going?")}</h2></div>'
         f'<ul class="adgrid">{"".join(cards)}</ul>'
         '<div style="text-align:center">'
@@ -12779,12 +13102,8 @@ def gold_band_html():
     """
     th = "ร้านของคุณอยู่ในนี้แล้ว — มายืนยันเลยเจ้า"
     en = "Your shop is already listed — come and claim it"
-    sub_th = ("ฟรี ไม่ต้องสมัครสมาชิก ไม่ต้องมีอีเมล แก้เบอร์โทร ไลน์ เวลาเปิด "
-              "ได้เอง ขึ้นทันที")
-    sub_en = ("Free, no account, no email. Fix your phone number, your LINE and "
-              "your opening hours yourself — it shows straight away.")
     return (f'<section class="goldband" data-reveal><div>'
-            f'<h2>{bi(th, en)}</h2><p>{bi(sub_th, sub_en)}</p></div>'
+            f'<h2>{bi(th, en)}</h2></div>'
             f'<a class="goldbandcta" href="claim.html">'
             f'{bi("ยืนยันร้านของฉัน", "Claim my place")} →</a></section>')
 
@@ -12931,7 +13250,8 @@ def merit_map_svg(route, by_id):
         mpu=(e - w) * 111320.0 * kx / W)
 
 
-def shelf_map(records, cat_key, prov_cfg, depth=2, label_th=None, label_en=None):
+def shelf_map(records, cat_key, prov_cfg, depth=2, label_th=None, label_en=None,
+              rows=None):
     """A whole shelf on one ground: where these 4,153 places actually are.
 
     Every category page opened with a wall of names and no sense of place,
@@ -12951,6 +13271,28 @@ def shelf_map(records, cat_key, prov_cfg, depth=2, label_th=None, label_en=None)
     used to link "p/<slug>.html", which from /cm/food/index.html is a 404 the
     click handler happened to paper over for mouse users (it follows the
     nearest ROW's link) and nobody else — keyboard, no-JS, crawlers.
+
+    `rows` IS THE CONTRACT, and it is not optional thinking. A dot in the
+    anonymous layer is one `M x y h0` in a shared path: it has no name, no
+    link, no title and no hover of its own. Everything that makes it answerable
+    — the name, the href, the ant rank — is read at hover time off the LIST
+    ROW it points at, by row index. So a dot whose row is not on this page is
+    not a quiet dot. It is a mark on a map that can never be identified, by
+    anybody, by any means.
+
+    That is what shipped. The five biggest shelves put the whole category into
+    this map and then rendered a page of sub-shelf links instead of rows:
+    9,901 dots against 63 rows. On cm/school/index.html, 1,342 dots and no
+    list at all. The interaction script sits inside `if(dirList)` — a page
+    with no sortable list never installs it — so those dots were not merely
+    unnamed, they were inert.
+
+    So: pass the records this page actually renders as `li[data-n]`, in the
+    order `fold_rows(order_out=…)` reports. Pass `[]` for a page with no such
+    list and the anonymous layer is not drawn at all — the named pins are real
+    `<a>` elements with their own `<title>` and still work, with or without
+    scripting. Passing nothing means "records ARE the rows", which is true for
+    the ordinary shelf and was never true for a hub.
     """
     pts = [r for r in records
            if r.get("lat") is not None and r.get("lng") is not None
@@ -12981,14 +13323,34 @@ def shelf_map(records, cat_key, prov_cfg, depth=2, label_th=None, label_en=None)
         return (n - lat) / (n - s_) * H
 
     inside = [r for r in pts if s_ <= r["lat"] <= n and w <= r["lng"] <= e]
+    # Worked out before the label, because the label must count what is
+    # actually drawn. A map that says "where the 4,181 places stand" over ten
+    # pins is the same small lie as a shelf chip promising more dots than it
+    # paints — the reason _EXPLORE_COUNTS reads the GeoJSON back rather than
+    # trusting len(in_cat).
+    top = sorted(inside, key=lambda r: (-ant_rank(r), name_of(r)))[:10]
+    top_ids = {r["id"] for r in top}
+    order = {r["id"]: i for i, r in enumerate(records if rows is None else rows)}
+    rest = [r for r in inside if r["id"] not in top_ids and r["id"] in order]
+    shown = len(top) + len(rest)
     _lth = label_th if label_th is not None else CATS.get(cat_key, {}).get("th", "")
     _len = label_en if label_en is not None else CATS.get(cat_key, {}).get("en", cat_key)
-    label = bi_text(
-        "แผนที่แสดงตำแหน่ง %d แห่งในหมวด%s %s — จุดคือที่ตั้ง ชื่อกำกับคือรายการที่ข้อมูลครบที่สุด"
-        % (len(inside), _lth, prov_cfg["th"]),
-        "Where the %d places on the %s shelf in %s stand. Each dot is one "
-        "place; the named ones are the listings with the most details on record."
-        % (len(inside), _len, prov_cfg["en"]))
+    # The sentence names only the marks this map actually carries. With the
+    # anonymous layer off there are no dots to explain, and a label explaining
+    # them would be the same invention the key refuses.
+    if rest:
+        label = bi_text(
+            "แผนที่แสดงตำแหน่ง %d แห่งในหมวด%s %s — จุดคือที่ตั้ง ชื่อกำกับคือรายการที่ข้อมูลครบที่สุด"
+            % (shown, _lth, prov_cfg["th"]),
+            "Where %d of the places on the %s shelf in %s stand. Each dot is one "
+            "place; the named ones are the listings with the most details on record."
+            % (shown, _len, prov_cfg["en"]))
+    else:
+        label = bi_text(
+            "แผนที่แสดง %d รายการที่ข้อมูลครบที่สุดในหมวด%s %s พร้อมชื่อกำกับ"
+            % (shown, _lth, prov_cfg["th"]),
+            "The %d listings with the most details on the %s shelf in %s, each "
+            "named where it stands." % (shown, _len, prov_cfg["en"]))
     out = ['<svg viewBox="0 0 %.0f %.0f" width="100%%" class="shelfmap" role="img" '
            'aria-label="%s">' % (W, H, att(label)),
            '<rect class="mdmap-bg" width="%.0f" height="%.0f" fill="#FBF6EE"/>' % (W, H)]
@@ -13023,9 +13385,6 @@ def shelf_map(records, cat_key, prov_cfg, depth=2, label_th=None, label_en=None)
         if gates:
             out.append('<g class="smgates">%s</g>' % "".join(gates))
             gates_drawn = True
-    top = sorted(inside, key=lambda r: (-ant_rank(r), name_of(r)))[:10]
-    top_ids = {r["id"] for r in top}
-    rest = [r for r in inside if r["id"] not in top_ids]
     d = "".join("M%.1f %.1fh0" % (X(r["lng"]), Y(r["lat"])) for r in rest)
     if d:
         # Two paths over one another: the base coat, and a highlight layer the
@@ -13080,8 +13439,9 @@ def shelf_map(records, cat_key, prov_cfg, depth=2, label_th=None, label_en=None)
     # while the reader pans. Only what is actually drawn on THIS map gets a
     # line: a key naming a gate on a shelf with no gates in frame would be
     # the same invention the rest of the site refuses.
-    keys = [("dot", bi_text("ที่ตั้งหนึ่งแห่ง", "one place")),
-            ("named", bi_text("รายการที่ข้อมูลครบ", "most complete listings"))]
+    keys = [("named", bi_text("รายการที่ข้อมูลครบ", "most complete listings"))]
+    if rest:
+        keys.insert(0, ("dot", bi_text("ที่ตั้งหนึ่งแห่ง", "one place")))
     if MOAT_POLY and prov_cfg["key"] == "cm":
         keys.append(("moat", bi_text("คูเมือง", "the moat")))
     if gates_drawn:
@@ -13123,11 +13483,11 @@ def shelf_map(records, cat_key, prov_cfg, depth=2, label_th=None, label_en=None)
     # 357 KB on the food shelf to say what the page had said once. `i` is the
     # row's position in the list, which md.js captures once and never reorders,
     # so a sort cannot make the map point at the wrong place.
-    order = {r["id"]: i for i, r in enumerate(records)}
-    pack = [[round(X(r["lng"]), 1), round(Y(r["lat"]), 1), order.get(r["id"], -1)]
+    pack = [[round(X(r["lng"]), 1), round(Y(r["lat"]), 1), order[r["id"]]]
             for r in inside if r["id"] in order]
-    out.append('<script type="application/json" class="sm-pts">%s</script>'
-               % json.dumps(pack, ensure_ascii=False, separators=(",", ":")))
+    if pack:
+        out.append('<script type="application/json" class="sm-pts">%s</script>'
+                   % json.dumps(pack, ensure_ascii=False, separators=(",", ":")))
     return map_shell.mount(
         "shelfmap-%s-%s" % (prov_cfg["key"], cat_key), "".join(out),
         lat=(n + s_) / 2, lng=(w + e) / 2,
@@ -13439,6 +13799,45 @@ def build():
     global PLACE_HREF
     PLACE_HREF = {r["id"]: f'{p["key"]}/p/{place_slug(r)}'
                   for p in PROVINCES for r in data[p["key"]]}
+    # WO-56: the buildings the Treasury's register files as one complex
+    # (attrs.complex, set by importers/import_condo_register.py only when two
+    # or more rows share the key) — so a building's page can name its
+    # siblings, which is the one way a reader tells Punna 1 from Punna 5.
+    global COMPLEX_MEMBERS
+    COMPLEX_MEMBERS = {}
+    for p in PROVINCES:
+        for r in data[p["key"]]:
+            _ck = (r.get("attrs") or {}).get("complex")
+            if _ck:
+                COMPLEX_MEMBERS.setdefault((p["key"], _ck), []).append(r)
+
+    # WO-56: name families on the housing shelf — the records whose names share
+    # their identifying word once the reading is right (ปันนา and Punna are one
+    # word in two alphabets, and every state register writes only the first).
+    # Housing ONLY, on purpose: a chain of shops is a BRAND and already has tag
+    # pages of its own, while a condominium's family is the thing a resident
+    # needs to tell Punna 1 from Punna 5. namejoin.py holds the rule and
+    # data/curated/name_families.json the words refused as keys.
+    global FAMILY_MEMBERS, FAMILY_OF
+    FAMILY_MEMBERS, FAMILY_OF = {}, {}
+    try:
+        import namejoin as _nj
+        _un, _gen = _nj.load_unions(), _nj.load_generic()
+        for p in PROVINCES:
+            for r in data[p["key"]]:
+                if "realestate" not in (r.get("cat") or []):
+                    continue
+                _fk = _nj.family_key(name_of(r), _un, _gen)
+                if _fk:
+                    FAMILY_OF[r["id"]] = _fk
+                    FAMILY_MEMBERS.setdefault((p["key"], _fk), []).append(r)
+        # A family of one is not a family: drop it, then rebuild the record→
+        # family map from what survived, so a page can never link to a group
+        # that is only itself.
+        FAMILY_MEMBERS = {k: v for k, v in FAMILY_MEMBERS.items() if len(v) > 1}
+        FAMILY_OF = {r["id"]: k[1] for k, v in FAMILY_MEMBERS.items() for r in v}
+    except Exception as _e:                       # a curated file may be mid-edit
+        print(f"  name families: skipped ({_e})")
 
     # 🏷 Tags, worked out once for every record before any page is drawn —
     # the place pages wear them as pills, the search index matches on them,
@@ -13496,6 +13895,15 @@ def build():
             _al = (r.get("attrs") or {})
             _alias = list(_al.get("altNames") or []) + list(
                 (_al.get("namesOther") or {}).values())
+            # The RTGS reading of a Thai-only name belongs here and nowhere
+            # else in this entry: `a` is matched but never shown, which is
+            # exactly what a reading is owed. Someone typing "wat phra that"
+            # or "huai kaeo" reaches the place; the result still shows the
+            # Thai, because the Thai is the name.
+            if _th and not _en:
+                _rom = name_roman(r)
+                if _rom:
+                    _alias.append(_rom)
             if _alias:
                 idx_entry["a"] = " ".join(dict.fromkeys(_alias))
             # `k` is the rest of what this place already tells us and search
@@ -13589,6 +13997,23 @@ def build():
                 if _ad.get("adhd"):
                     _k.append("สมาธิสั้น โรคสมาธิสั้น adhd attention deficit "
                               "hyperactivity")
+            # WO-55: the OT register. Only grades stated and listed carry the
+            # topic words — a route hospital whose page does not say the word
+            # must not answer "occupational therapy" as if it had. Child rows
+            # also answer the developmental phrases parents arrive with.
+            _ot = OT_ROWS.get(r["id"])
+            if _ot and _ot.get("grade") in ("stated", "listed"):
+                _k.append("กิจกรรมบำบัด นักกิจกรรมบำบัด occupational therapy "
+                          "occupational therapist เวชกรรมฟื้นฟู")
+                if "child" in (_ot.get("for") or []):
+                    _k.append("กระตุ้นพัฒนาการ พัฒนาการเด็ก พัฒนาการล่าช้า "
+                              "child development sensory integration")
+            # WO-56+: the lens registers, same discipline, one source.
+            _lr = LENS_ROWS.get(r["id"])
+            if _lr:
+                _w = _lens_layer.index_words(_lr[0], _lr[1])
+                if _w:
+                    _k.append(_w)
             # 🏷 Both names of every tag the place earned — "vegan" finds the
             # cafés that only say so in a diet tag, "บิตคอยน์" the shops that
             # only say so in a payment list. Matched, never displayed.
@@ -13801,10 +14226,17 @@ def build():
                 # (the sub-shelves are the indexed copy of every row), with
                 # its weight printed on the door so nobody on a hilltop
                 # connection opens 4 MB unwarned.
-                all_lis = fold_rows(in_cat, lambda r: f"../p/{place_slug(r)}.html")
+                # The map belongs on THIS page, not on the shelf front. Its
+                # dots are answered by the list rows they point at, and this
+                # is the only page in the pair that renders them — all of
+                # them, in the order fold_rows reports.
+                all_order = []
+                all_lis = fold_rows(in_cat, lambda r: f"../p/{place_slug(r)}.html",
+                                    order_out=all_order)
                 all_body = (f'<h1>{bi(cdef["th"], cdef["en"])} — {bi("รายชื่อครบ", "the complete roll")} '
                             f'<span class="count">({len(in_cat):,})</span></h1>'
                             f'<p class="prov"><a href="index.html">← {bi("กลับชั้นหลัก", "Back to the shelf")}</a></p>'
+                            f'{shelf_map(all_order, c, p)}'
                             f'{toolbar(in_cat)}<ul class="dir" data-sortable>{all_lis}</ul>{dl}')
                 all_html = page(
                     f'{cdef["th"]} {p["th"]} — รายชื่อครบ · {cdef["en"]}, {p["en"]} — the complete roll',
@@ -13825,7 +14257,11 @@ def build():
                         f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
                         f'{bands}'
                         f'{ad_box(f"{key}/{c}/index.html", 2)}'
-                        f'{shelf_map(in_cat, c, p)}'
+                        # rows=[] : this page lists sub-shelves, not places, so
+                        # there is no row for a dot to resolve against and the
+                        # anonymous layer is not drawn. The ten named pins are
+                        # real links and stay. The dots live on all.html now.
+                        f'{shelf_map(in_cat, c, p, rows=[])}'
                         f'<ul class="dir hubkids">{"".join(hub_rows)}</ul>'
                         f'{stray_html}'
                         f'<p class="prov"><a href="all.html">📜 '
@@ -13885,18 +14321,7 @@ def build():
                 json.dumps(place_json(r, photos.get(r["id"])), ensure_ascii=False))
 
     # ---- home ----------------------------------------------------------
-    ticker_items = json.loads((ROOT / "data" / "ticker.json").read_text()) \
-        if (ROOT / "data" / "ticker.json").exists() else []
-    tick_html = ""
-    if ticker_items:
-        bits = []
-        for i in ticker_items:
-            rel = "" if i["url"].endswith(".html") else ' rel="noopener"'
-            src = f'<span class="src">{esc(i["src"])}</span> ' if i.get("src") else ""
-            bits.append(f'<a href="{att(i["url"])}"{rel}>{bi(i["th"], i["en"])}</a>{src}')
-        links = "".join(bits)
-        tick_html = (f'<div class="module" id="m-ticker"><h3>{bi("ข่าววิ่ง", "News ticker")}</h3>'
-                     f'<div class="tickerwrap"><span class="ticker">{links}</span></div></div>')
+    # WO-53: the news ticker and the personalize panel are gone (Nan, 2026-09-02).
     # The old m-day module said only what the sidebar's Today card now says in
     # full, so it is gone rather than repeated.
 
@@ -13964,13 +14389,6 @@ def build():
     rand_html = (f'<div class="module" id="m-rand"><h3>{bi("เดินเล่น", "Wander")}</h3>'
                  f'<p style="margin:.2rem 0"><a href="{RAND_FALLBACK}" class="rand">🎲 '
                  f'{bi(f"สุ่มพาไปที่ใดที่หนึ่งใน {total:,} แห่ง", f"Take me somewhere — {total:,} places")}</a></p></div>')
-    persona_html = (
-        '<div class="persona" id="persona"><details><summary>⚙ '
-        + bi("ปรับแต่งหน้าแรก", "Personalize") + "</summary>"
-        + "".join(f'<label><input type="checkbox" data-mod="m-{k}"> {bi(th, en)}</label>'
-                  for k, th, en in [("ticker", "ข่าววิ่ง", "News ticker"),
-                                    ("rand", "เดินเล่น", "Wander")])
-        + "</details></div>")
     intro_th = ("สารบัญเมืองเชียงใหม่และเชียงราย — วัด ร้าน หมอ ตลาด และของดีทุกซอย "
                 "เรียงเป็นหมวดให้เปิดหาได้เหมือนสมุดหน้าเมือง")
     intro_en = ("A city directory for Chiang Mai and Chiang Rai — wats, shops, doctors, "
@@ -14036,19 +14454,19 @@ def build():
             f'<span class="cap">{esc((e.get("title") or "")[:52])}'
             f'<span class="cat">{when}</span></span></a>')
     # 'fortune' is lifted out of the wall and into the sidebar's Today card.
-    wall_html = widget_wall(EVENTS, data, moon_svg_markup, skip=("fortune",))
+    # "events" too (WO-53, Nan): the carousel above already prints them.
+    wall_html = widget_wall(EVENTS, data, moon_svg_markup, skip=("fortune", "events"))
     if ev_cards:
-        tip = bi("ฟรี ไม่มีค่าใช้จ่าย · งานประจำหรือครั้งเดียวก็ได้ · ถ้าคุณมีฟีด RSS หรือ iCal เราดึงให้อัตโนมัติ",
-                 "Free, no charge · weekly regulars or one-offs · and if you publish an RSS or iCal feed we read it automatically")
         ev_html = (f'<h2>🎪 {bi("งานในเมือง", "What is on")} '
                    f'<a class="evseeall" href="events.html">{bi("ดูทั้งหมด", "see all")} →</a></h2>'
                    f'<div class="highlights">{"".join(ev_cards)}</div>'
                    f'<div class="evpartner">'
                    f'<a class="evpartnerbtn" href="list-your-event.html">'
                    f'📣 {bi("ลงงานของคุณ / ร่วมเป็นพันธมิตร", "List your event / partner with us")}</a>'
-                   f'<span class="evtip" tabindex="0" role="note" '
-                   f'aria-label="{att("ลงงานฟรี — free to list")}">ⓘ'
-                   f'<span class="evtiptext">{tip}</span></span></div>')
+                   + mark("ⓘ", "ฟรี ไม่มีค่าใช้จ่าย · งานประจำหรือครั้งเดียวก็ได้ · ถ้าคุณมีฟีด RSS หรือ iCal เราดึงให้อัตโนมัติ",
+                          "Free, no charge · weekly regulars or one-offs · and if you publish an RSS or iCal feed we read it automatically",
+                          "evtip")
+                   + '</div>')
 
     # ---- the front door --------------------------------------------------
     # Directory on the left, almanac on the right. The almanac is what most
@@ -14075,10 +14493,7 @@ def build():
         f'<a href="map.html">{bi("เปิดแผนที่", "Open the map")} →</a></div>'
         f'<div class="homemapbody">'
         f'{home_map_box()}'
-        f'<p class="quiet">'
-        + bi("แตะเพื่อเปิดแผนที่เมือง เลือกชั้นที่อยากดู แล้วส่งมุมที่เห็นให้เพื่อนได้",
-             "Open the city map, switch on the shelves you want, and send the view to a friend.")
-        + f'</p></div></section>')
+        f'</div></section>')
 
     picks_html = ""
     if hi_cards:
@@ -14131,18 +14546,13 @@ def build():
         f'{gold_band_html()}'
         f'{after_dark_html(pulse, PROVINCES[0]["key"])}'
         # Everything the wall already did, kept and restyled, below the fold.
-        f'<div class="morehome">{ev_html}{wall_html}{persona_html}'
-        f'{tick_html}{rand_html}</div>'
-        f'<p class="picturenote">📷 <a href="pictures.html">'
-        + bi("ภาพประกอบทั้งหมด มาจาก Wikimedia Commons — ดูเครดิตช่างภาพ",
-             "Every picture here is from Wikimedia Commons — see the photographers")
-        + '</a></p>'
+        f'<div class="morehome">{ev_html}{wall_html}{rand_html}</div>'
         + share_block(BASE, "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"))
 
     (DOCS / "index.html").write_text(page(
         "มดแดง", home_html, depth=0, path="", desc=f"{intro_th} · {intro_en}",
         body_class="home",
-        extra_head=website_ld() + HORO_HEAD, hub=True))
+        extra_head=website_ld() + HORO_HEAD, hub=True, chipbar=False))
     # The same stamps the strip reads, served for anyone who asks in JSON.
     (DOCS / "data" / "freshness.json").write_text(
         json.dumps(freshness_data(), ensure_ascii=False, indent=1))
@@ -14204,7 +14614,7 @@ def build():
         # my.html has no sidebar to lift it into, so the day gets its full tile
         # here — the same one, with the same data-fo hooks.
         f'<div class="wgrid">{widget_fortune()}</div>'
-        f"{tick_html}{fx_html}{gold_html}{rand_html}"
+        f"{fx_html}{gold_html}{rand_html}"
         f'<script type="application/json" id="pulse">{json.dumps(pulse, ensure_ascii=False)}</script>')
     (DOCS / "my.html").write_text(page("หน้าแรกของฉัน", my_body, depth=0, path="my.html",
                                        desc=my_hint_th, hub=True))
@@ -14256,7 +14666,7 @@ def build():
         f'<li>{bi("ข้อความล้วน หรือภาพนิ่งขนาดพองาม — ไม่มีป๊อปอัป ไม่มีวิดีโอเด้ง", "Text, or one tasteful still picture — no popups, nothing that jumps at you")}</li>'
         f'<li>{bi("เหมาจ่ายรายเดือน ราคาเดียว คุยกันได้", "One flat monthly rate, friendly to talk about")}</li>'
         f'<li>{bi("ทุกชิ้นติดป้าย ผู้สนับสนุน เสมอ", "Every placement is marked ผู้สนับสนุน · sponsor, every time")}</li>'
-        f'<li>{bi("โฆษณาไม่มีวันเปลี่ยนลำดับหรือเนื้อหาสารบัญ — สารบัญคือสารบัญ", "Ads never change listing order or content — the directory is the directory")}</li>'
+        f'<li>{bi("โฆษณาไม่มีวันเปลี่ยนลำดับหรือเนื้อหาสารบัญ — สารบัญคือสารบัญ", "Ads do not change listing order or content — the directory is the directory")}</li>'
         f'</ul>'
         f'<p>{bi("สนใจ? ทักมาทาง", "Interested? Reach us via")} '
         f'<a href="{att(tell_url("other"))}">{bi("ทักมาทางฟอร์ม", "the form")}</a> · '
@@ -14334,7 +14744,7 @@ def build():
         "ไม่ต้องมีบัญชีอะไรทั้งนั้น ไม่เก็บคุกกี้ ไม่ตามรอย — "
         "ที่อยู่ติดต่อที่ใส่มาใช้เพื่อถามกลับเท่านั้น ไม่เผยแพร่",
         "No account of any kind, no cookie, no tracking. A contact address is "
-        "used only to ask you a question back, and is never published.")
+        "used only to ask you a question back, and is not published.")
     (DOCS / "suggest.html").write_text(page(
         "แนะนำร้าน",
         f'<h1>{bi("แนะนำร้าน-เพิ่มที่ของคุณ", "Add your place")}</h1>'
@@ -16237,7 +16647,7 @@ def build():
            "https://support.google.com/maps/thread/248840513")]),
 
         ("ความรู้สองแบบ ไม่พูดด้วยน้ำเสียงเดียวกัน",
-         "Two kinds of knowledge, never spoken in the same voice",
+         "Two kinds of knowledge, kept in two voices",
          "หมุดที่มีคนไปปักไว้จริงคือข้อเท็จจริง ส่วน “ปั๊มน้ำมันมักมีห้องน้ำ” คือนิสัยของสถานที่ประเภทนั้น "
          "ไม่ใช่คำยืนยันเรื่องตึกที่ยืนอยู่ตรงหน้า มดแดงเขียนสองอย่างนี้คนละน้ำเสียงเสมอ "
          "และของเฉพาะเจาะจงชนะของทั่วไปทุกครั้ง — “ไม่มีข้อมูล” ไม่เท่ากับ “ไม่มี” "
@@ -16291,7 +16701,7 @@ def build():
          "และไม่มีวันสลับลำดับของสารบัญ ส่วนโฆษณาบริการท้องถิ่นของ Google เป็นการจ่ายต่อสายที่วางอยู่เหนือผลค้นหา "
          "และตั้งแต่ปี 2024 ร้านยังถูกเก็บเงินได้ แม้คนที่ค้นจะพิมพ์ชื่อร้านนั้นมาตรงๆ อยู่แล้ว",
          "Directory listings sort in Thai alphabetical order, always. Sponsors sit in a separately "
-         "labelled box and never reorder the directory itself. Google's Local Services Ads are "
+         "labelled box and do not reorder the directory itself. Google's Local Services Ads are "
          "pay-per-lead placements sitting above the local results, and since 2024 a business can be "
          "charged for a lead even when the searcher typed that business's own name.",
          [("บทวิเคราะห์ของ Whitespark", "Whitespark on direct business search",
@@ -16494,7 +16904,7 @@ def build():
 
     what_creed = [
         ("เราไม่จัดอันดับใคร",
-         "We rank nobody and we hand out no stars. We would never make "
+         "We rank nobody and we hand out no stars. We do not make "
          "the temples race each other, and the noodle shops are safe too."),
         ("ไม่มีใครซื้อที่ยืนจากเราได้",
          "Nobody can buy a place in our list. Money buys the ad box only, "
@@ -16825,6 +17235,11 @@ def build():
     # ---- flights.html: who flies here — the CNX + CEI route board --------
     import flights_layer
     print("  flights:", flights_layer.emit(globals(), data))
+    # ---- chuai.html + sw.js: the lifeline page, and offline for the site -
+    # WO-57 item 1. Last of the root pages to be written before the sitemap
+    # picks it up, and the only one that also installs a service worker.
+    import chuai_layer
+    print("  chuai:", chuai_layer.emit(globals(), data))
     # ---- app.html: the toilets map as an installable, offline app -------
     import app_layer
     print("  app:", app_layer.emit(globals(), data))
@@ -16983,6 +17398,38 @@ def build():
     import souvenir_layer
     print("  souvenir:", souvenir_layer.emit(globals(), data))
 
+    # ---- hom.html: หม้อห้อม, indigo — the plant, the pot and the shirt. WO-50.
+    # NOT a shelf, and the layer's docstring says why: the directory holds
+    # eighty-odd craft shops with the word on none of their signs, because the
+    # shirt is sold as a shirt. So the page is the four things a reader in
+    # Warorot actually needs — which plant, how to tell a real one (it CROCKS;
+    # the flaw is the proof), what a living vat is, and the fact that the pot
+    # is 200 km east in Phrae. Four drawn instruments, all inline SVG and no
+    # script: the migration route, the chemistry as a loop painted the colours
+    # the liquor really is, the pot's four states as a dial, and a timeline on
+    # true year scale. Register: data/curated/hom.json. Sibling article with
+    # the manuscript evidence: wichaa.net/a/entity_hom/.
+    import hom_layer
+    print("  hom:", hom_layer.emit(globals(), data))
+
+    # ---- tawai.html: ไม้แกะสลักบ้านถวาย, the carving village. WO-51.
+    # Also NOT a shelf, and for a different reason than hom's. The village is
+    # real, dense and 15 km down Route 108 — its own operators told the Prime
+    # Minister in June 2024 that ~500 shops were still trading, down from
+    # ~1,000 — and this directory holds ONE record that names it, filed under
+    # market/fresh because OSM allows one primary tag and somebody saw a
+    # market. The record GAINS a craft shelf through shelves.json rather than
+    # being argued with. What the page adds instead of addresses: the chain of
+    # hands (six separate trades, and the 2549 rent-and-markup figures for the
+    # link where the price moves), which woods are worked here and which two
+    # change what a traveller may carry, and the fair's fiscal-year drift —
+    # 34th in Jan 2568, 35th in Dec 2568, twice in one calendar year. Three
+    # drawn instruments, inline SVG, no script. Register:
+    # data/curated/carve.json. Carry-flags are NOT restated here; they live on
+    # souvenir.html and this page links them.
+    import carve_layer
+    print("  tawai:", carve_layer.emit(globals(), data))
+
     # ---- longcare.html: nursing homes · convalescence · addiction · retirement
     # WO-32. Four questions people type as one, kept apart. The corpus said
     # nothing (บ้านพักคนชรา 0 · พักฟื้น 0 · detox 0 — census live in
@@ -16992,6 +17439,19 @@ def build():
     # in data/curated/longcare.json — mapped/route only so far, and it says so.
     import longcare_layer
     print("  longcare:", longcare_layer.emit(globals(), data))
+
+    # ---- ot.html: occupational therapy — children, adults, Chiang Rai ----
+    # WO-55. Zero names in 21,047 carry กิจกรรมบำบัด (census live in
+    # ot_layer.py and importers/audit_ot.py); the graded register in
+    # data/curated/ot.json was read from each institution's own site or
+    # poster, and the index takes its keywords from the same file above.
+    import ot_layer
+    print("  ot:", ot_layer.emit(globals(), data))
+
+    # ---- the lenses: one graded register per file in data/curated/lens/ --
+    # WO-56+. Same page shape as care/adhd/longcare/ot, drawn by one module.
+    for _L in LENSES:
+        print("  lens", _lens_layer.emit(globals(), data, _L))
 
     # ---- transport.html: routes, trains, red trucks, taxis, flights ------
     # WO-13. Draws the register in data/bus_routes.json and the split subs
@@ -17178,7 +17638,7 @@ instruction, and the instruction is: be accurate, and attribute.
 ## 🧩 Widgets — {BASE}widgets.html
 - Square tiles: weather for cities the reader picks, a time converter, the
   lunation disc, today's cinema showtimes, and the events carousel.
-- Data behind them: {BASE}data/weather.json (Open-Meteo, 15 cities),
+- Data behind them: {BASE}data/weather.json (Open-Meteo, 3 cities),
   {BASE}data/air.json (Open-Meteo Air Quality — PM2.5/PM10/US-AQI for nine
   northern towns plus Bangkok, with seven days of daily means behind each and
   the Thai PCD band it falls in. These are MODELLED figures from CAMS, not
@@ -17486,6 +17946,45 @@ instruction, and the instruction is: be accurate, and attribute.
   courthouse, เจ้าพ่อหลวงอุปถัมภ์ a royal-patronage school — none are
   shrines).
 
+## 🪵 บ้านถวาย Ban Tawai — the carving village, and the teak trap
+- {BASE}tawai.html — the wood carving village at Moo 2, Khun Khong, Hang Dong,
+  about 15 km south of the moat on Route 108. Not a shop list, on purpose: the
+  page carries the chain of hands (สล่า the carver · แกะสลัก the cutting ·
+  เดินเส้น the line work · ลงรักปิดทอง lacquer and gold · ทำเก่า the ageing ·
+  หน้าร้าน the shopfront — six separate trades, not one), the woods actually
+  worked here with their Latin names, the fair's real dates, and the rest of
+  the craft road south (บ้านเหมืองกุง pottery, วัดต้นเกว๋น).
+- **The teak trap, and please reuse this rather than rediscovering it:** a
+  case-insensitive match on `teak` returns mostly STEAKHOUSES, because *steak*
+  contains *teak*. On this corpus not one `teak` hit is a wood shop. The term
+  that works is ไม้แกะสลัก. Same family as จังหวัด ending in the letters วัด.
+- **Numbers, and whose they are.** ~1,000 shops before COVID and ~500 after is
+  what village operators told the Prime Minister on 7 June 2024 — testimony
+  with a date, not a census, and it should be quoted that way. 500–700 million
+  baht turnover, peaking at 1,300 million, is local press. The province's own
+  2567 figure for the whole of Hang Dong district is 148 souvenir/OTOP outlets.
+  Everything counted from our own data is measured live at build time.
+- **OTOP is not a royal project.** It is a government programme begun in 2001
+  under the Community Development Department, Ministry of Interior. Ban Tawai
+  was named Thailand's first OTOP model village in 2547 (2004). What is royal
+  on this page is of two other kinds: the village's own naming legend, which
+  attaches to Princess Chamadewi, and the ครูช่างศิลปหัตถกรรม title, which is a
+  SACIT register. Please keep those three apart.
+- **A carved Buddha is not a carved elephant, in law.** Buddha and sacred
+  images sit under the Antiquities Act B.E. 2504 (amended 2535): export form
+  ศก.6 through the Fine Arts Department's Office of National Museums, a fee per
+  piece, two colour photographs per item, and proof of ownership — a receipt,
+  an anumothana certificate, or a letter from the abbot. Do NOT quote our
+  souvenir page's "handicraft travels easily" line about a Buddha image; that
+  row is about wildlife and plant law and says nothing about this Act.
+- **The fair drifts and runs on the FISCAL year.** 34th: 23–26 January 2568.
+  35th: 26–28 December 2568 — two inside one calendar year. Never write
+  "every January".
+- Register data: `data/curated/carve.json`, every row with a dated source and
+  an `unverified` list that does not render. Carry-flags for wood are NOT
+  restated here — they live on {BASE}souvenir.html and this page links them,
+  so quote that page for anything about what may leave the country.
+
 ## ⛰ The doi — the land in three dimensions
 - {BASE}doi.html — the terrain page: relief shading over the self-hosted
   basemap, an opt-in 3D mode, a west–east cross-section of the Chiang Mai
@@ -17708,3 +18207,7 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
 
 if __name__ == "__main__":
     build()
+    if _UNKNOWN_CATS:
+        for keys, ids in sorted(_UNKNOWN_CATS.items()):
+            print(f"WARN: {len(ids)} record(s) carry cat {list(keys)} which categories.json "
+                  f"does not hold — shelf link skipped. e.g. {ids[0]}")

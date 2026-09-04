@@ -1,0 +1,641 @@
+{
+ "_readme": "ไม้แกะสลักบ้านถวาย — the register behind /tawai.html. WO-51. This is a FACT register, not a shop shelf, and the reason is measured in the layer: the directory holds ONE record that names บ้านถวาย and it is filed as a wet market, while the province's own 2567 count puts 148 OTOP/souvenir outlets in Hang Dong alone and the village's own operators told the Prime Minister in June 2024 that ~500 shops were still trading, down from ~1,000. Nothing here awards importance — every honour is a register row with the body that granted it and a date; every price is somebody else's figure, dated, and none of it has been walked. Woods carry the same four carry-flags as data/curated/wildlife.json so the two pages cannot drift.",
+ "fetched": "2026-08-31",
+ "village": {
+  "th": "บ้านถวาย",
+  "en": "Ban Tawai",
+  "rtgs": "Ban Thawai",
+  "moo": "หมู่ที่ 2",
+  "tambon": "ขุนคง",
+  "tambon_en": "Khun Khong",
+  "amphoe": "หางดง",
+  "amphoe_en": "Hang Dong",
+  "province": "เชียงใหม่",
+  "postcode": "50230",
+  "lat": 18.687081,
+  "lng": 98.9475791,
+  "pin_note_th": "พิกัดนี้คือหมุดเดียวที่สารบัญมีชื่อหมู่บ้าน — ไม่ใช่ที่ตั้งของร้านใดร้านหนึ่ง",
+  "pin_note_en": "This is the one pin in the directory that carries the village's name. It is not any one shop.",
+  "households": 140,
+  "population": 750,
+  "rai_total": 450,
+  "rai_homes": 190,
+  "rai_farm": 260,
+  "peoples_th": "ไทยวน · ไทใหญ่",
+  "peoples_en": "Tai Yuan and Shan",
+  "src": [
+   "sac",
+   "khunkhong"
+  ],
+  "name_story_th": "ผู้เฒ่าเล่าไว้หลายทาง — เดิมมีต้นหวายมาก · มีผู้ใจบุญชื่อ “วาย” สร้างวัด · หรือมาจากวัดเก่าชื่อ “ธวาย” และคำเล่าที่ยาวที่สุดคือชาวบ้านนำของใส่พานออกไป “ถวาย” พระนางจามเทวี ครั้งเสด็จโดยเกวียนผ่านมาจากลำพูน",
+  "name_story_en": "The elders give more than one reading, and this register keeps them all rather than picking a winner: that rattan (หวาย) once grew thick here; that a benefactor named Wai built the temple; that an older temple called Thawai gave up its name; and the longest-told one, that villagers carried gifts out on trays to present — ถวาย — to Princess Chamadewi as her cart passed from Lamphun. A folk etymology is a thing a village believes about itself, which is a fact of its own kind, and it is filed here as that and not as a derivation.",
+  "old_ground_th": "พื้นที่นี้เคยเป็นเวียงละโว้ เมืองหน้าด่านของนครหริภุญไชย ก่อนพญามังรายตีหริภุญไชยได้",
+  "old_ground_en": "The ground was Wiang Lawo, a frontier settlement of Hariphunchai, before Mangrai took Hariphunchai and its importance fell away."
+ },
+ "timeline": [
+  {
+   "year": "2500–2505",
+   "ce": "1957–1962",
+   "sort": 1957,
+   "th": "ฝนไม่ตก นาไม่ได้ผล ชาวบ้านสามคน — พ่อหนานแดง พันธุสา · พ่อใจมา อิ่นแก้ว · พ่อเฮือน พันธุศาสตร์ — ออกไปรับจ้างที่ประตูเชียงใหม่ และไปเรียนแกะสลักที่ร้านน้อมศิลป์ บ้านวัวลาย แต่ละคนถนัดคนละอย่าง องค์พระ · สิงห์ · ครุฑ แล้วกลับมาสอนคนในหมู่บ้าน",
+   "en": "The rain failed. Three men — Pho Nan Daeng Panthusa, Pho Chai Ma In Kaew and Pho Huean Panthusat — took wage work at Chiang Mai Gate and learned carving at the Nom Sin shop in Ban Wua Lai. They came home with one subject each: Buddha images, lions, garuda. Then they taught the village.",
+   "src": "sac"
+  },
+  {
+   "year": "2512",
+   "ce": "1969",
+   "sort": 1969,
+   "th": "กรมชลประทานขุดคลองผ่านหมู่บ้าน น้ำมาถึง ปลูกถั่วเหลือง ผัก ข้าวโพดได้ — และคลองเส้นนั้นคือถนนที่ตลาดไปยืนอยู่ในอีกยี่สิบปี",
+   "en": "The Royal Irrigation Department cut a canal through the village. Water arrived, and with it soybeans, vegetables and maize. That canal is the street the market would stand on twenty years later.",
+   "src": "sac"
+  },
+  {
+   "year": "2532–2533",
+   "ce": "1989–1990",
+   "sort": 1989,
+   "th": "สมัยพ่อหลวงคำมูล บุตรไชย ชาวบ้านจัดงานไม้แกะสลักครั้งแรก แล้วค่อย ๆ ตั้งศูนย์หัตถกรรมริมคลอง — ขอใช้ที่ดินชลประทานอยู่หลายปีกว่าจะลงตัว",
+   "en": "Under headman Kham Mun Butchai the village held its first carving fair, and began building the handicraft centre along the canal. Getting the Irrigation Department's land settled took years.",
+   "src": "cmnews-otop"
+  },
+  {
+   "year": "2543",
+   "ce": "2000",
+   "sort": 2000,
+   "th": "จดทะเบียนเป็นกลุ่มหัตถกรรมเพื่อการส่งออกบ้านถวาย",
+   "en": "The village group registers as an export handicraft group.",
+   "src": "cmnews-otop"
+  },
+  {
+   "year": "2547",
+   "ce": "2004",
+   "sort": 2004,
+   "th": "กรมการพัฒนาชุมชน กระทรวงมหาดไทย ยกให้เป็น “หมู่บ้าน OTOP ต้นแบบ” แห่งแรกของประเทศ (เมษายน) นำร่องพร้อมดอยแม่สลองและเกาะเกร็ด ต่อมาสำนักงานพัฒนาการท่องเที่ยว กระทรวงการท่องเที่ยวและกีฬา ให้เป็น “หมู่บ้านท่องเที่ยว OTOP” แห่งแรก",
+   "en": "The Community Development Department, Ministry of Interior, names it Thailand's first OTOP model village (April), piloted alongside Doi Mae Salong and Ko Kret. The Office of Tourism Development then makes it the country's first OTOP tourism village.",
+   "src": "mgr-capital"
+  },
+  {
+   "year": "2548–2549",
+   "ce": "2005–2006",
+   "sort": 2005,
+   "th": "ทุนนอกเข้ามา — ห้องเช่าของพ่อค้าต่างถิ่นริมทางเข้าคิดกันหมื่นกว่าบาทต่อห้อง 3×4 เมตร ขณะที่ห้องของคนในชุมชนราวพันบาท มังกรแกะที่ร้านชุมชนขาย 800 บาท ไปโผล่ที่ร้านหน้า 3,000 บาท และงานประจำปีที่เคยจัด 29 ม.ค.–4 ก.พ. ติดกันสิบห้าสิบหกปี ถูกย้ายไป 31 ธ.ค. 2548–2 ม.ค. 2549 ให้รับกับการเปิดไนท์ซาฟารี ตอนนั้นริมคลองมีร้านของคนในชุมชนสองร้อยกว่าร้าน และงานไม้เลี้ยงคนราวสี่พันคนใน 9 หมู่บ้านของตำบล",
+   "en": "Outside capital arrives. Rooms let by incoming traders on the approach road were going at over 10,000 baht for a 3×4 m unit while a community shop paid about 1,000; a carved dragon that sold for 800 baht in a village shop was 3,000 at a frontage one. The annual fair, held 29 Jan–4 Feb for fifteen or sixteen years running, was moved to 31 Dec 2005–2 Jan 2006 to fit the Night Safari opening. At that point the canal carried 200-odd shops belonging to villagers, and the trade fed around 4,000 people across the tambon's nine villages.",
+   "src": "mgr-capital"
+  },
+  {
+   "year": "2562",
+   "ce": "2019",
+   "sort": 2019,
+   "th": "พ.ร.บ.ป่าไม้ (ฉบับที่ 8) แก้มาตรา 7 — ไม้ทุกชนิดที่ขึ้นในที่ดินมีกรรมสิทธิ์ไม่เป็นไม้หวงห้ามอีกต่อไป คำถามเรื่องไม้จากสวนของตัวเองเปลี่ยนไปทั้งข้อ",
+   "en": "The Forest Act (No. 8) rewrites section 7: no tree grown on titled land is restricted timber any more. The whole question of wood off your own land changes shape.",
+   "src": "forest2562"
+  },
+  {
+   "year": "2562",
+   "ce": "2019",
+   "sort": 2019.5,
+   "th": "สล่ายรรยงค์ คำยวง ได้รับยกย่องเป็น “ครูช่างศิลปหัตถกรรม” สาขาเครื่องไม้ จาก สศท. (sacit) — งานที่ขึ้นชื่อคือแกะเรื่องรามเกียรติ์",
+   "en": "Sala Yanyong Khamyuang is named a Master Craftsman (ครูช่างศิลปหัตถกรรม) in wood by SACIT. The work he is known for carries the Ramakien.",
+   "src": "sacit-yanyong"
+  },
+  {
+   "year": "2563–2565",
+   "ce": "2020–2022",
+   "sort": 2020,
+   "th": "โควิด-19 — รายได้ที่เคยขึ้นถึง 500–700 ล้านบาท และเคยสูงสุด 1,300 ล้านบาท หยุดลง",
+   "en": "COVID. A trade that had been turning 500–700 million baht, and at its peak 1,300 million, stops.",
+   "src": "cmnews-legend"
+  },
+  {
+   "year": "2567",
+   "ce": "7 มิ.ย. 2024",
+   "sort": 2024,
+   "th": "นายกรัฐมนตรีมาที่ศูนย์หัตถกรรมบ้านถวาย ผู้ประกอบการบอกตัวเลขกับท่านตรง ๆ — ก่อนโควิดราวพันร้าน ตอนนี้เหลือราวห้าร้อย ขอ 40–50 ล้านบาทมาทำภูมิทัศน์ และขอให้ช่วยหาตลาดใหม่",
+   "en": "The Prime Minister comes to the handicraft centre. The operators give him the number to his face: about 1,000 shops before COVID, about 500 now. They ask for 40–50 million baht for the landscape and for help finding new markets.",
+   "src": "matichon-pm"
+  },
+  {
+   "year": "2568",
+   "ce": "2025",
+   "sort": 2025,
+   "th": "งานศิลปหัตถกรรมไม้แกะสลักบ้านถวายจัดสองครั้งในปีปฏิทินเดียว — ครั้งที่ 34 วันที่ 23–26 มกราคม และครั้งที่ 35 วันที่ 26–28 ธันวาคม เพราะงานเดินตามปีงบประมาณ ไม่ได้เดินตามปีปฏิทิน",
+   "en": "The Ban Tawai carving fair happens twice inside one calendar year — the 34th on 23–26 January and the 35th on 26–28 December — because the fair runs on the government's fiscal year, not the calendar.",
+   "src": "prd35"
+  }
+ ],
+ "honours": [
+  {
+   "th": "หมู่บ้าน OTOP ต้นแบบ แห่งแรกของประเทศไทย",
+   "en": "Thailand's first OTOP model village",
+   "by_th": "กรมการพัฒนาชุมชน กระทรวงมหาดไทย",
+   "by_en": "Community Development Department, Ministry of Interior",
+   "be": "2547",
+   "ce": "2004",
+   "src": "mgr-capital"
+  },
+  {
+   "th": "หมู่บ้านท่องเที่ยว OTOP แห่งแรกของประเทศไทย",
+   "en": "Thailand's first OTOP tourism village",
+   "by_th": "สำนักงานพัฒนาการท่องเที่ยว กระทรวงการท่องเที่ยวและกีฬา",
+   "by_en": "Office of Tourism Development, Ministry of Tourism and Sports",
+   "be": "2547",
+   "ce": "2004",
+   "src": "khunkhong"
+  },
+  {
+   "th": "ชุมชนท่องเที่ยวดีเด่น",
+   "en": "Outstanding tourism community",
+   "by_th": "— (ตามที่ข่าวท้องถิ่นบันทึกไว้)",
+   "by_en": "— as recorded by the local press; the granting body is not named in the source",
+   "be": "2550",
+   "ce": "2007",
+   "src": "cmnews-otop"
+  },
+  {
+   "th": "ย่านการค้าไทยดีเด่น",
+   "en": "Outstanding Thai commercial district",
+   "by_th": "กระทรวงพาณิชย์",
+   "by_en": "Ministry of Commerce",
+   "be": "2554",
+   "ce": "2011",
+   "src": "cmnews-otop"
+  }
+ ],
+ "royal_note": {
+  "th": "OTOP ไม่ใช่โครงการหลวง — เป็นนโยบายรัฐบาลตั้งแต่ พ.ศ. 2544 ดูแลโดยกรมการพัฒนาชุมชน กระทรวงมหาดไทย ส่วนที่เป็นเรื่องเจ้านายในหน้านี้มีสองอย่างและคนละชั้นกัน: ตำนานชื่อหมู่บ้านที่ผูกกับพระนางจามเทวี ซึ่งเป็นเรื่องเล่า และตำแหน่ง “ครูช่างศิลปหัตถกรรม” ของ สศท. ซึ่งเป็นทะเบียนของหน่วยงานรัฐ",
+  "en": "OTOP is not a royal project. It is a government programme begun in 2001 and run by the Community Development Department of the Interior Ministry, and this page keeps that straight because the two get folded together constantly. What is royal here is of two different kinds and neither is the programme: the village's own naming legend, which attaches to Princess Chamadewi and is a story the village tells about itself; and the Master Craftsman title, which is a state register kept by SACIT — an institute whose remit is Thai craft, not a palace grant."
+ },
+ "hands": [
+  {
+   "key": "sala",
+   "th": "สล่า",
+   "rtgs": "sala",
+   "en": "the carver",
+   "note_th": "คำเมือง ใช้นำหน้าชื่อแทน “นาย” — สล่าปั๋น ไม่ใช่ นายปั๋น ตรงกับคำว่า “ช่าง” ในภาษากลาง ส่วนที่มาของคำ ผะหญาล้านนาว่าเพี้ยนมาจาก “สย่า” ในภาษาพม่า ที่แปลว่าครูหรืออาจารย์ — เป็นคำอธิบายที่มีเจ้าของ ไม่ใช่ข้อยุติ",
+   "note_en": "Kam mueang, and it goes in front of the name instead of Mr — Sala Pan, not Nai Pan. It answers to central Thai ช่าง, artisan. As for where the word came from, the Lanna-language writers at Phaya Lanna derive it from Burmese สย่า ဆရာ, teacher or master, which entered Lanna through the long contact with Burma. That is an attributed reading, not a settled derivation, and it is filed as one.",
+   "src": "sala",
+   "src2": "sala-burmese"
+  },
+  {
+   "key": "kae",
+   "th": "แกะสลัก",
+   "rtgs": "kae salak",
+   "en": "cutting the form",
+   "note_th": "งานหลัก — ลอยตัว นูนสูง นูนต่ำ แล้วแต่ชิ้น",
+   "note_en": "The block work: in the round, high relief, low relief, depending on the piece.",
+   "src": "sac"
+  },
+  {
+   "key": "sen",
+   "th": "เดินเส้น · แต่งลาย",
+   "rtgs": "doen sen · taeng lai",
+   "en": "walking the line",
+   "note_th": "ขั้นที่ทำให้งานบ้านถวายเป็นบ้านถวาย — ลายที่กลุ่มแม่บ้านไปเรียนมาจากศูนย์วัฒนธรรมเชียงใหม่แล้วเอามาต่อกับงานไม้ ลายตัวหนอนม้วน 2–3 รอบเรียงเป็นแถว ลายดอกเครือม้วนซ้อนเป็นช่อ",
+   "note_en": "This is the step that makes a Ban Tawai piece a Ban Tawai piece, and it did not come from the carving shop — a women's group learned the patterns at the Chiang Mai cultural centre and married them to the wood. The caterpillar motif is a thread rolled two or three times and set in rows; the vine motif stacks the rolls into sprays.",
+   "src": "bantawaicenter"
+  },
+  {
+   "key": "rak",
+   "th": "ลงรักปิดทอง",
+   "rtgs": "long rak pit thong",
+   "en": "lacquer and gold leaf",
+   "note_th": "รองพื้น เขียนลาย ปิดยางกันทอง แล้วปัดทองด้วยพู่กัน ปิดท้ายด้วยกระจกสี",
+   "note_en": "Ground coat, the pattern drawn, a resist laid where the gold must not go, the leaf brushed on, and coloured glass set last.",
+   "src": "sac"
+  },
+  {
+   "key": "kao",
+   "th": "ทำเก่า · แอนติค",
+   "rtgs": "tham kao",
+   "en": "ageing and antiquing",
+   "note_th": "ทำของใหม่ให้อ่านเป็นของเก่า เป็นงานที่บ้านถวายขึ้นชื่อ และเป็นเหตุผลที่ต้องถามตรง ๆ ว่าเก่าจริงหรือทำเก่า — คำถาม ไม่ใช่ข้อกล่าวหา",
+   "note_en": "Making new work read as old. Ban Tawai is known for it — reproductions good enough that the question has to be asked out loud rather than guessed at. Asking is not an accusation here; it is the normal transaction.",
+   "src": "sawa"
+  },
+  {
+   "key": "shop",
+   "th": "หน้าร้าน",
+   "rtgs": "na ran",
+   "en": "the shopfront",
+   "note_th": "และนี่คือช่วงที่ราคาขยับมากที่สุด ดูแถวปี 2548–2549 ในเส้นเวลา",
+   "note_en": "And this is the link in the chain where the price moves most. See the 2005–2006 row on the timeline.",
+   "src": "mgr-capital"
+  }
+ ],
+ "woods": [
+  {
+   "th": "ไม้สัก",
+   "rtgs": "mai sak",
+   "en": "teak",
+   "latin": "Tectona grandis L.f.",
+   "use_th": "ไม้หลักของงานที่นี่ — แกะง่าย ลายสวย ทนปลวก",
+   "use_en": "The house wood: it cuts kindly, the grain reads, and it resists termites.",
+   "carry": "ok",
+   "src": "carve-woods"
+  },
+  {
+   "th": "ไม้จามจุรี · ฉำฉา · ก้ามปู",
+   "rtgs": "cham churi · cham cha",
+   "en": "rain tree, monkeypod",
+   "latin": "Samanea saman (Jacq.) Merr.",
+   "use_th": "ไม้เนื้ออ่อน ต้นใหญ่ ได้แผ่นกว้าง — โต๊ะแผ่นเดียว ชามใหญ่ งานหยาบสวย",
+   "use_en": "Soft, fast, and enormous, so it gives the wide single slabs: table tops, big bowls, the pieces whose whole point is one board.",
+   "carry": "ok",
+   "src": "carve-woods"
+  },
+  {
+   "th": "ไม้มะม่วง",
+   "rtgs": "mai mamuang",
+   "en": "mango",
+   "latin": "Mangifera indica L.",
+   "use_th": "ไม้สวนที่หมดอายุให้ผล กลายมาเป็นชามและของแต่งบ้าน",
+   "use_en": "An orchard tree past bearing, turned into bowls and homeware.",
+   "carry": "ok",
+   "src": "carve-woods"
+  },
+  {
+   "th": "ไม้กระท้อน",
+   "rtgs": "mai krathon",
+   "en": "santol",
+   "latin": "Sandoricum koetjape (Burm.f.) Merr.",
+   "use_th": "งานแกะทั่วไป",
+   "use_en": "General carving stock.",
+   "carry": "ok",
+   "src": "carve-woods"
+  },
+  {
+   "th": "ไม้มะกอก",
+   "rtgs": "mai makok",
+   "en": "hog plum",
+   "latin": "Spondias pinnata (L.f.) Kurz",
+   "use_th": "งานแกะทั่วไป",
+   "use_en": "General carving stock.",
+   "carry": "ok",
+   "src": "carve-woods"
+  },
+  {
+   "th": "ไม้พะยูง และไม้สกุลชิงชัน",
+   "rtgs": "mai phayung",
+   "en": "Siamese rosewood and its genus",
+   "latin": "Dalbergia cochinchinensis Pierre — สกุล Dalbergia ทั้งสกุล",
+   "use_th": "ไม้เนื้อแข็งสีเข้ม พระไม้ ของแกะชิ้นเล็ก — ถามชนิดไม้และขอให้ระบุในใบเสร็จ",
+   "use_en": "Dark hardwood, small carvings and Buddha figures. Ask which wood, and ask for the species on the receipt.",
+   "carry": "ask",
+   "src": "cites"
+  },
+  {
+   "th": "ไม้กฤษณา",
+   "rtgs": "mai kritsana",
+   "en": "agarwood",
+   "latin": "Aquilaria spp.",
+   "use_th": "ชิ้นไม้หอม น้ำมัน ลูกประคำ — ของสวนปลูกส่งออกได้ตามใบอนุญาต",
+   "use_en": "Scented chips, oil, beads. Plantation stock travels on permits.",
+   "carry": "ask",
+   "src": "cites"
+  }
+ ],
+ "carry_note": {
+  "th": "หน้านี้ไม่ทำธงพาขึ้นเครื่องซ้ำกับหน้า “ของฝากที่เดินทางได้” — ธงสี่แบบ กฎ และแหล่งอ้างอิงอยู่ที่นั่น ที่นี่มีแค่ชนิดไม้ที่ใช้จริงในหมู่บ้าน และคำถามที่ควรถามที่หน้าร้าน",
+  "en": "The four carry-flags, the law behind them and the sources live on the souvenir page and are not restated here. What this page adds is which woods are actually worked in this village, and the question to ask at the till.",
+  "href": "souvenir.html"
+ },
+ "asks": [
+  {
+   "th": "ไม้อะไรครับ / คะ",
+   "en": "Which wood is it?",
+   "why_th": "คำตอบเปลี่ยนทั้งราคาและเรื่องเอกสาร",
+   "why_en": "The answer moves both the price and the paperwork."
+  },
+  {
+   "th": "ขอใบเสร็จระบุชนิดไม้ได้ไหม",
+   "en": "Can the receipt say the species?",
+   "why_th": "อันนี้คือของที่ด่านอยากเห็น ไม่ใช่คำรับรองจากใคร",
+   "why_en": "This is the thing a customs desk can read. It is not a certificate and does not pretend to be."
+  },
+  {
+   "th": "แกะมือ หรือใช้เครื่อง",
+   "en": "Hand-carved, or machine?",
+   "why_th": "ทั้งสองอย่างมีขายที่นี่ตามปกติ ถามเพื่อรู้ว่าจ่ายค่าอะไร",
+   "why_en": "Both are normal here and both are sold openly. You are asking so you know what the price is for."
+  },
+  {
+   "th": "ทำที่นี่ไหม ช่างอยู่หลังร้านหรือเปล่า",
+   "en": "Is it made here — is the workshop out the back?",
+   "why_th": "ร้านหน้าถนนกับร้านริมคลองไม่ใช่ชั้นเดียวกันของสายพาน",
+   "why_en": "A frontage shop and a canal-side shop are not the same link in the chain. Nobody is doing anything wrong; they are just doing different things."
+  },
+  {
+   "th": "ตีลังส่งได้ไหม คิดยังไง",
+   "en": "Do you crate and ship, and how is it charged?",
+   "why_th": "ร้านที่ส่งออกประจำมักจัดการเอกสารเองได้",
+   "why_en": "A shop that exports regularly usually handles its own documents."
+  }
+ ],
+ "zones": [
+  {
+   "key": "centre",
+   "th": "ศูนย์หัตถกรรมบ้านถวาย",
+   "en": "The handicraft centre",
+   "what_th": "ฝั่งถนนใหญ่ ร้านแบบ SME โชว์รูม เฟอร์นิเจอร์ ของแต่งบ้าน",
+   "what_en": "The road frontage: showrooms, furniture, homeware, the SME-shaped shops.",
+   "src": "khunkhong"
+  },
+  {
+   "key": "canal",
+   "th": "ศูนย์หัตถกรรมบ้านถวายสองฝั่งคลอง",
+   "en": "The two-banks-of-the-canal centre",
+   "what_th": "ร้านเรียงสองฝั่งคลองชลประทาน บรรยากาศคนละแบบ สินค้าเป็นงานหัตถกรรมเหมือนกัน — และเป็นที่ที่ร้านของคนในชุมชนตั้งอยู่มาตั้งแต่ต้น",
+   "what_en": "Shops down both banks of the irrigation canal. The Khun Khong SAO's own description says the two walks feel different and the goods are the same kind of thing — and this is where the villagers' own shops have stood from the beginning.",
+   "src": "khunkhong"
+  },
+  {
+   "key": "thipmani",
+   "th": "บ้านทิพย์มณี",
+   "en": "Ban Thip Mani",
+   "what_th": "ที่รวมงานชิ้นครู มีพระพิฆเนศไม้แกะที่ว่ากันว่าใหญ่ที่สุดในประเทศ สูง 298 ซม. ยาว 400 ซม. กว้าง 220 ซม. มีพิธีบูชาประจำปีวันแรม 15 ค่ำ เดือน 10",
+   "what_en": "The masterwork house. It holds a carved Ganesha said to be the largest in wood in Thailand — 298 cm high, 400 long, 220 wide — with its own yearly rite on the 15th waning day of the tenth lunar month.",
+   "src": "sac"
+  },
+  {
+   "key": "wat",
+   "th": "วัดถวาย",
+   "en": "Wat Tawai",
+   "what_th": "วัดของหมู่บ้าน ประตู หน้าต่าง และเครื่องประดับเป็นงานแกะของช่างที่นี่",
+   "what_en": "The village temple. Its doors, windows and fittings are the village's own carving, which makes it the one place you can read the work without a price on it.",
+   "src": "sac"
+  }
+ ],
+ "fair": {
+  "th": "งานศิลปหัตถกรรมไม้แกะสลักบ้านถวาย",
+  "en": "The Ban Tawai wood carving fair",
+  "where_th": "ศูนย์หัตถกรรมไม้แกะสลักบ้านถวาย หมู่ 2 ต.ขุนคง อ.หางดง",
+  "where_en": "The Ban Tawai wood carving handicraft centre, Moo 2, Khun Khong, Hang Dong",
+  "by_th": "ที่ว่าการอำเภอหางดง · อบต.ขุนคง · อบจ.เชียงใหม่",
+  "by_en": "Hang Dong District Office, Khun Khong SAO and the Chiang Mai PAO",
+  "editions": [
+   {
+    "n": 34,
+    "th": "23–26 มกราคม 2568",
+    "en": "23–26 January 2025",
+    "src": "cmnews-34"
+   },
+   {
+    "n": 35,
+    "th": "26–28 ธันวาคม 2568",
+    "en": "26–28 December 2025",
+    "src": "prd35"
+   }
+  ],
+  "drift_th": "อย่าจดวันไว้ล่วงหน้าจากปีก่อน — งานเดินตามปีงบประมาณ เคยจัด 29 ม.ค.–4 ก.พ. ติดกันสิบห้าปี แล้วถูกย้ายไปสิ้นเดือนธันวาคมในปี 2548 และปี 2568 ก็มีสองครั้งในปีปฏิทินเดียว",
+  "drift_en": "Do not carry last year's dates forward. The fair runs on the fiscal year: it sat on 29 Jan–4 Feb for fifteen years, was moved to the turn of the year in 2005, and in 2025 it happened twice inside one calendar year.",
+  "src": "mgr-capital"
+ },
+ "road": [
+  {
+   "key": "muangkung",
+   "th": "บ้านเหมืองกุง",
+   "en": "Ban Muang Kung",
+   "craft_th": "เครื่องปั้นดินเผา — น้ำต้น หม้อน้ำ แจกัน",
+   "craft_en": "Pottery — the น้ำต้น water jar above all, the one set out at the gate for whoever is passing",
+   "where_th": "หมู่ 7 ต.หนองควาย อ.หางดง ริมถนนสาย 108",
+   "where_en": "Moo 7, Nong Khwai, Hang Dong, on Route 108",
+   "note_th": "บรรพบุรุษถูกกวาดต้อนมาจากเมืองปุ เมืองสาด รัฐเชียงตุง ภูมิปัญญาการปั้นน่าจะมาทางสิบสองปันนา สืบมากว่าสองร้อยปี",
+   "note_en": "The founders were brought down from Mueang Pu and Mueang Sat in Kengtung; the potting itself is traced towards Sipsongpanna. Two hundred years and counting.",
+   "src": "muangkung"
+  },
+  {
+   "key": "tonkwen",
+   "th": "วัดต้นเกว๋น (วัดอินทราวาส)",
+   "en": "Wat Ton Kwen (Wat Inthrawat)",
+   "craft_th": "ไม่ใช่ร้าน — เป็นงานช่างล้านนาที่ยังครบ ศาลาจตุรมุขหลังเดียวในภาคเหนือ",
+   "craft_en": "Not a shop. It is the carpentry itself, still whole: the four-porch pavilion is the only one of its kind in the North",
+   "where_th": "ต.หนองควาย อ.หางดง",
+   "where_en": "Nong Khwai, Hang Dong",
+   "note_th": "สร้างราว พ.ศ. 2399–2412 สมัยพระเจ้ากาวิโลรสสุริยวงศ์ ได้รางวัลอนุรักษ์สถาปัตยกรรมจากสมาคมสถาปนิกสยามฯ พ.ศ. 2532 — และศาลาจตุรมุขหลังนั้นมีหน้าที่: เป็นที่พักและสรงน้ำพระธาตุศรีจอมทอง ระหว่างทาง 60 กิโลเมตรจากจอมทองเข้าเมือง",
+   "note_en": "Built about 1856–1869 under Chao Kawilorot Suriyawong, and given the Association of Siamese Architects' conservation award in 1989. The four-porch pavilion has a job: it is where the Phra That Si Chom Thong relic rested and was bathed on the 60 km road from Chom Thong into the city.",
+   "src": "tonkwen"
+  },
+  {
+   "key": "tawai",
+   "th": "บ้านถวาย",
+   "en": "Ban Tawai",
+   "craft_th": "ไม้แกะสลัก งานเดินเส้น ลงรักปิดทอง ของทำเก่า",
+   "craft_en": "Carving, line work, lacquer and gold, and reproduction antiques",
+   "where_th": "หมู่ 2 ต.ขุนคง อ.หางดง",
+   "where_en": "Moo 2, Khun Khong, Hang Dong",
+   "note_th": "ปลายทางของถนนสายนี้ และเป็นหมู่บ้านเดียวในสามแห่งที่สารบัญมีหมุดชื่อของมันเอง",
+   "note_en": "The end of this road, and the only one of the three that the directory holds a pin for under its own name.",
+   "src": "khunkhong"
+  }
+ ],
+ "masters": [
+  {
+   "name_th": "นายยรรยงค์ คำยวง",
+   "name_en": "Yanyong Khamyuang",
+   "honour_th": "ครูช่างศิลปหัตถกรรม สาขาเครื่องไม้",
+   "honour_en": "Master Craftsman in wood",
+   "by_th": "สถาบันส่งเสริมศิลปหัตถกรรมไทย (สศท. · sacit)",
+   "by_en": "SACIT — the Sustainable Arts and Crafts Institute of Thailand",
+   "be": "2562",
+   "ce": "2019",
+   "for_th": "แกะสลักเรื่องรามเกียรติ์ · เป็นประธานกลุ่มหัตถกรรมบ้านถวาย",
+   "for_en": "Ramakien narrative carving. He chairs the Ban Tawai handicraft group.",
+   "src": "sacit-yanyong"
+  }
+ ],
+ "getting_there": {
+  "th": "ออกจากเมืองไปทางใต้ตามถนนสาย 108 (เชียงใหม่–หางดง) ราว 15 กิโลเมตร ป้ายน้ำตาลบอกทางแยกเข้าหมู่บ้านอยู่ฝั่งขวา รถสองแถวเหลืองสายหางดงออกจากประตูเชียงใหม่ ลงที่ซุ้มทางเข้า",
+  "en": "South out of town on Route 108, the Chiang Mai–Hang Dong road, about 15 km, with the brown signs turning you off to the village. The yellow Hang Dong songthaew leaves from Chiang Mai Gate and will drop you at the entrance arch."
+ },
+ "unverified": [
+  "ค่ารถสองแถวสายหางดงและเวลาเดินรถมาจากคู่มือท่องเที่ยว ไม่ได้เดินไปนั่งเอง · The songthaew fare and hours come from travel guides, not from anybody here riding it — treat them as the shape of the answer, not the answer.",
+  "เวลาเปิด-ปิดของร้านเป็นของแต่ละร้าน ไม่มีเวลาเดียวของทั้งหมู่บ้าน · Opening hours belong to each shop. Guides print a village-wide 09:00–17:00 and no source with standing says it.",
+  "ตัวเลขร้าน ~1,000 ก่อนโควิด และ ~500 หลังจากนั้น เป็นคำของผู้ประกอบการที่พูดกับนายกรัฐมนตรีเมื่อ 7 มิ.ย. 2567 ไม่ใช่สำมะโน · The 1,000-and-500 figures are what operators told the Prime Minister on 7 June 2024. That is testimony with a date and a room, not a census.",
+  "รายได้ 500–700 ล้าน และจุดสูงสุด 1,300 ล้านบาท มาจากบทสัมภาษณ์ในสื่อท้องถิ่น ไม่มีชุดข้อมูลรัฐยืนยัน · The 500–700 million and 1,300 million baht figures come from local press interviews; no state dataset has been found that carries them.",
+  "จำนวนสล่าที่ยังทำงานอยู่วันนี้ ไม่มีใครนับไว้ที่หาเจอ · How many carvers are still at the bench today: no count was found anywhere."
+ ],
+ "sources": {
+  "sac": {
+   "ref": "https://wikicommunity.sac.or.th/community/371",
+   "fetched": "2026-08-31",
+   "note": "วิกิชุมชน ศูนย์มานุษยวิทยาสิรินธร — บ้านถวาย (งานสนาม สัมภาษณ์ ประพัฒน์ โพธิ์ธา 16 ก.พ. 2566)"
+  },
+  "khunkhong": {
+   "ref": "http://www.khunkhong.go.th/travel_view.php?cateid=1&id=6",
+   "fetched": "2026-08-31",
+   "note": "อบต.ขุนคง — ข้อมูลท่องเที่ยว บ้านถวาย"
+  },
+  "mgr-capital": {
+   "ref": "https://mgronline.com/specialscoop/detail/9490000011269",
+   "fetched": "2026-08-31",
+   "note": "ผู้จัดการ 2549 — ทุนใหญ่กลืนโอทอปชุมชนต้นแบบ"
+  },
+  "matichon-pm": {
+   "ref": "https://www.matichon.co.th/politics/news_4616098",
+   "fetched": "2026-08-31",
+   "note": "มติชน — นายกฯ เยี่ยมศูนย์หัตถกรรมบ้านถวาย 7 มิ.ย. 2567"
+  },
+  "cmnews-legend": {
+   "ref": "https://www.chiangmainews.co.th/100lanna/3283589/",
+   "fetched": "2026-08-31",
+   "note": "เชียงใหม่นิวส์ — สานต่อตำนานศิลปหัตถกรรมไม้แกะสลักบ้านถวาย"
+  },
+  "cmnews-otop": {
+   "ref": "https://www.chiangmainews.co.th/100lanna/3518993/",
+   "fetched": "2026-08-31",
+   "note": "เชียงใหม่นิวส์ — บ้านถวาย สู่ชุมชนต้นแบบ OTOP"
+  },
+  "cmnews-pao": {
+   "ref": "https://www.chiangmainews.co.th/social/3856414/",
+   "fetched": "2026-08-31",
+   "note": "เชียงใหม่นิวส์ — อบจ. หนุนงานครั้งที่ 35"
+  },
+  "prd35": {
+   "ref": "https://radiochiangmai.prd.go.th/th/content/category/detail/id/57/iid/451467",
+   "fetched": "2026-08-31",
+   "note": "สวท.เชียงใหม่ — งานครั้งที่ 35"
+  },
+  "bantawaicenter": {
+   "ref": "https://www.bantawaicenter.com/%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%A7%E0%B8%B1%E0%B8%95%E0%B8%B4%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%96%E0%B8%A7%E0%B8%B2%E0%B8%A2.html",
+   "fetched": "2026-08-31",
+   "note": "บ้านถวายเซ็นเตอร์ — ประวัติ กลุ่มแม่บ้านกับงานเดินเส้น"
+  },
+  "sacit-yanyong": {
+   "ref": "https://archive.sacit.or.th/creator/49",
+   "fetched": "2026-08-31",
+   "note": "sacit archive — นายยรรยงค์ คำยวง ครูช่างศิลปหัตถกรรม 2562"
+  },
+  "forest2562": {
+   "ref": "https://www.thaipbs.or.th/news/content/279318",
+   "fetched": "2026-08-31",
+   "note": "ราชกิจจานุเบกษา ประกาศ พ.ร.บ.ป่าไม้ (ฉบับที่ 8) พ.ศ. 2562"
+  },
+  "cites": {
+   "ref": "https://checklist.cites.org/",
+   "fetched": "2026-08-31",
+   "note": "CITES checklist — Dalbergia, Aquilaria"
+  },
+  "carve-woods": {
+   "ref": "https://wikicommunity.sac.or.th/community/371",
+   "fetched": "2026-08-31",
+   "note": "ชนิดไม้ที่ใช้ — สัก จามจุรี มะกอก มะม่วง กระท้อน"
+  },
+  "muangkung": {
+   "ref": "https://wikicommunity.sac.or.th/community/385",
+   "fetched": "2026-08-31",
+   "note": "วิกิชุมชน — บ้านเหมืองกุง"
+  },
+  "tonkwen": {
+   "ref": "https://www.thaipbs.or.th/news/content/324557",
+   "fetched": "2026-08-31",
+   "note": "ไทยพีบีเอส — วัดต้นเกว๋น ต้นแบบอนุรักษ์สถาปัตยกรรมล้านนา รางวัล 2532"
+  },
+  "sala": {
+   "ref": "https://mgronline.com/travel/detail/9480000051898",
+   "fetched": "2026-08-31",
+   "note": "ผู้จัดการ — สล่า คือช่าง และใช้นำหน้าชื่อ เช่น สล่าตุ๊ สล่าแสงเดือน"
+  },
+  "sawa": {
+   "ref": "https://www.sawadiscovery.com/guide-thailand/attraction/baan-tawai-woodcarving-village",
+   "fetched": "2026-08-31",
+   "note": "คู่มือท่องเที่ยว — งานทำเก่า/ของเลียนแบบเป็นของขึ้นชื่อของหมู่บ้าน"
+  },
+  "otop-outlets": {
+   "ref": "https://chiangmai.gdcatalog.go.th/dataset/3ae271f1-269f-425b-86ac-1c6019d056c6",
+   "fetched": "2026-08-20",
+   "note": "สำนักงานจังหวัดเชียงใหม่ — แหล่งจำหน่ายของฝาก/OTOP รายอำเภอ 2567"
+  },
+  "cmnews-34": {
+   "ref": "https://www.chiangmainews.co.th/social/3563267/",
+   "fetched": "2026-08-31",
+   "note": "เชียงใหม่นิวส์ — งานครั้งที่ 34 ระหว่าง 23–26 มกราคม"
+  },
+  "sala-burmese": {
+   "ref": "https://www.gotoknow.org/posts/411121",
+   "fetched": "2026-08-31",
+   "note": "ผะหญาล้านนา — ที่มาของคำ สล่า จาก สย่า ในภาษาพม่า"
+  },
+  "ditp-export": {
+   "ref": "https://onestopservice.ditp.go.th/file/14.14.pdf",
+   "fetched": "2026-08-31",
+   "note": "กรมส่งเสริมการค้าระหว่างประเทศ — ขั้นตอนการส่งออก โบราณวัตถุ พระพุทธรูป เทวรูป (ปรับปรุง ก.ย. 2560)"
+  }
+ },
+ "attempted": [
+  {
+   "ref": "https://radiochiangmai.prd.go.th/th/content/category/detail/id/57/iid/451467",
+   "tried": "2026-08-31",
+   "what": "DNS: the host did not resolve from this network",
+   "th": "แหล่งที่ให้ช่วงวันของงานครั้งที่ 35 (26–28 ธ.ค. 2568) คือเว็บ สวท.เชียงใหม่ ซึ่งชื่อโดเมนไม่ตอบจากเครือข่ายนี้เมื่อ 31 ส.ค. 2569 — วันเปิดงาน 26 ธ.ค. ยืนยันซ้ำได้จากข่าว อบจ.เชียงใหม่ ที่เข้าถึงได้",
+   "en": "The source for the 35th fair's date range (26–28 Dec 2025) is the PRD's Chiang Mai radio site, whose host did not resolve from this network on 31 Aug 2026. The opening date of 26 Dec is separately carried by the Chiang Mai PAO coverage, which does resolve."
+  },
+  {
+   "ref": "https://www.asaconservationaward.com/index.php/2016-06-13-15-22-21/temple2532/175-wat-inthrawat-wat-ton-kwen",
+   "tried": "2026-08-31",
+   "what": "connection reset",
+   "th": "หน้ารางวัลของสมาคมสถาปนิกสยามฯ เอง รีเซ็ตการเชื่อมต่อ จึงอ้างรางวัลผ่านไทยพีบีเอสแทน",
+   "en": "The architects' association's own award page reset the connection, so the award is cited through Thai PBS instead of from the granting body's site."
+  },
+  {
+   "ref": "https://www.gotoknow.org/posts/411121",
+   "tried": "2026-08-31",
+   "what": "HTTP 403 to a plain fetch",
+   "th": "ที่มาของคำว่า สล่า อยู่หน้านี้ ซึ่งตอบ 403 กับการดึงหน้าแบบธรรมดา — เก็บที่อยู่ไว้",
+   "en": "The สล่า etymology sits on this page, which answers 403 to a plain fetch. The address is kept rather than dropped."
+  }
+ ],
+ "export": {
+  "title_th": "พระที่แกะเสร็จวันนี้ กับช้างที่แกะเสร็จวันนี้ ไม่ใช่ของอย่างเดียวกันในทางกฎหมาย",
+  "title_en": "A Buddha carved this morning and an elephant carved this morning are not the same object in law",
+  "lead_th": "พระพุทธรูปและรูปเคารพอยู่ใต้ พ.ร.บ.โบราณสถาน โบราณวัตถุ ศิลปวัตถุ และพิพิธภัณฑสถานแห่งชาติ พ.ศ. 2504 และฉบับที่ 2 พ.ศ. 2535 — คนละกฎหมายกับเรื่องไม้ คนละกฎหมายกับไซเตส และไม่ได้อยู่บนหน้าของฝากที่เดินทางได้ นี่คือสิ่งที่เอกสารของกรมส่งเสริมการค้าระหว่างประเทศระบุไว้ ไม่ใช่คำแนะนำของเรา",
+  "lead_en": "Buddha images and sacred images sit under the Act on Ancient Monuments, Antiques, Objects of Art and National Museums B.E. 2504, amended 2535. That is a different law from the wood question, a different law from CITES, and it is not on the souvenir page's easy row. What follows is what the Department of International Trade Promotion's own procedure sheet states — not our advice.",
+  "rows": [
+   {
+    "th": "ใบอนุญาตที่ใช้คือ แบบ ศก.6 — คำขอรับใบอนุญาตส่งหรือนำโบราณวัตถุหรือศิลปวัตถุออกนอกราชอาณาจักร พร้อมบัญชีรายการ",
+    "en": "The licence is form ศก.6 — the application to send or take an antique or object of art out of the kingdom, with an itemised list."
+   },
+   {
+    "th": "ยื่นที่สำนักพิพิธภัณฑสถานแห่งชาติ กรมศิลปากร ชั้น 14 อาคารธนาลงกรณ์ ถนนบรมราชชนนี กรุงเทพฯ · โทร. 02-446-8054 ถึง 56",
+    "en": "Filed with the Office of National Museums, Fine Arts Department, 14th floor Thanalongkorn Building, Borommaratchachonnani Road, Bangkok · 02-446-8054 to 56."
+   },
+   {
+    "th": "เอกสาร: หลักฐานว่าเป็นเจ้าของ — ใบเสร็จรับเงินที่ถูกต้อง ใบอนุโมทนาบัตร หรือหนังสือรับรองจากเจ้าอาวาสวัดที่บูชาพระองค์นั้น · ภาพสีขนาด 3×5 หรือ 4×6 นิ้ว สองภาพต่อหนึ่งรายการ · สำเนาบัตรประชาชนหรือหนังสือเดินทาง",
+    "en": "Documents: proof you own it — a lawful receipt, an anumothana certificate, or a letter from the abbot of the temple where the image was venerated · two colour photographs, 3×5 or 4×6 inches, per item · a copy of your ID card or passport. This is the sentence that makes the receipt worth asking for at the till."
+   },
+   {
+    "th": "ค่าธรรมเนียม: ชิ้นละ 2,000 บาท ถ้ากรมศิลปากรเห็นว่ามีอายุตั้งแต่สมัยอยุธยาขึ้นไป · ชิ้นละ 1,000 บาท ถ้าเห็นว่าต่ำกว่าสมัยอยุธยา",
+    "en": "Fees: 2,000 baht per piece if the Fine Arts Department judges it Ayutthaya period or older; 1,000 baht per piece if it judges it later than Ayutthaya."
+   },
+   {
+    "th": "ระยะเวลา: กรุงเทพฯ 2 วัน · ต่างจังหวัด 5–7 วัน — ซึ่งยาวกว่าที่คนส่วนใหญ่เหลือเวลาอยู่",
+    "en": "Time: two days in Bangkok, five to seven in the provinces — which is longer than most people have left."
+   },
+   {
+    "th": "สิ่งที่เอกสารระบุว่าอนุญาตให้ส่งออกได้ ได้แก่ โบราณวัตถุจำลองหรือผลิตภัณฑ์ใหม่ (อายุไม่ถึง 5 ปี ไม่ต้องขออนุญาต) และพระพุทธรูปกับรูปเคารพที่ทำขึ้นใหม่ — งานที่เพิ่งแกะเสร็จที่บ้านถวายอยู่ในหมวดนี้ ไม่ใช่หมวดโบราณวัตถุ",
+    "en": "What the sheet lists as permitted for export: replicas and new products — and it says an item under five years old does not require permission — and newly made Buddha and sacred images. A piece carved at Ban Tawai last month is in that category, not in the antiquities one."
+   }
+  ],
+  "ask_th": "คำถามที่หน้าร้านจึงไม่ใช่ “ส่งได้ไหม” แต่เป็น “ร้านทำเรื่อง ศก.6 ให้ไหม หรือให้ผมทำเอง” — ร้านที่ส่งออกประจำมักตอบได้ทันที",
+  "ask_en": "So the question at the till is not “can this be shipped” but “do you file the ศก.6, or do I?” A shop that exports regularly answers that one without hesitating.",
+  "caveat_th": "เอกสารชุดนี้ปรับปรุงกันยายน 2560 ค่าธรรมเนียมและที่อยู่เปลี่ยนได้ ให้ถือว่าหน้านี้บอกว่า “มีขั้นตอนอยู่และมีหน่วยงานเจ้าของเรื่อง” ส่วนตัวเลขวันนี้ต้องถามที่โต๊ะนั้น",
+  "caveat_en": "That sheet was last updated in September 2017. Fees and addresses move. Read this page as saying there IS a procedure and there IS an office that owns it; today's numbers belong to that desk.",
+  "src": "ditp-export"
+ },
+ "contacts": {
+  "note_th": "เบอร์ที่เผยแพร่ไว้เป็นช่องทางติดต่อขององค์กร ไม่ใช่ของร้านใดร้านหนึ่ง และหน้านี้ไม่แนะนำร้าน",
+  "note_en": "Published organisational contacts, not any one shop's — and this page recommends no shop.",
+  "rows": [
+   {
+    "th": "วิสาหกิจชุมชนบ้านถวาย",
+    "en": "The Ban Tawai community enterprise",
+    "tel": "08-9851-1206",
+    "src": "sac"
+   },
+   {
+    "th": "อบต.ขุนคง",
+    "en": "Khun Khong Subdistrict Administrative Organisation",
+    "tel": "0-5302-2995",
+    "src": "sac"
+   }
+  ]
+ }
+}
