@@ -1,0 +1,32 @@
+RETIRED WORKTREES — mot-dang, 2026-09-07
+Every checkout was removed. Every BRANCH survives; nothing was deleted.
+To bring one back:   git worktree add <path> <branch>
+
+worktree (gone)                branch (kept)                            tip          ahead of main
+blissful-albattani-76249e      claude/blissful-albattani-76249e         601eda13d2  ahead-of-main=1
+blissful-tesla-56e3b5          claude/distracted-cray-9bc922            ec7d0a580c  ahead-of-main=2
+bold-ishizaka-8dd90e           claude/shrink-guard-main                 a062ce5cac  ahead-of-main=1
+busy-ramanujan-68ad38          claude/busy-ramanujan-68ad38             d6a291f429  ahead-of-main=1
+dreamy-kepler-689654           claude/priceless-mcclintock-f28b51       ec2b78a5b4  ahead-of-main=1
+elegant-tesla-e8f35b           claude/elegant-tesla-e8f35b              e1c1d25c53  ahead-of-main=1
+exciting-pike-7a8403           claude/exciting-pike-7a8403              726e4f25d9  ahead-of-main=1
+great-elion-0f9633             claude/adoring-mendel-8e91fd             d935d82b6a  ahead-of-main=1
+interesting-ritchie-cd6f33     HEAD                                     8b622298ae  ahead-of-main=0
+nostalgic-kilby-23200f         claude/hungry-williamson-9b6811          dc47841194  ahead-of-main=7
+practical-hofstadter-d9fa71    claude/practical-hofstadter-d9fa71       5447a3397e  ahead-of-main=0
+priceless-mcclintock-f28b51    claude/vigilant-pare-affb4e              70de7142ac  ahead-of-main=0
+sweet-cray-4ce823              claude/sweet-cray-4ce823                 119c326b9f  ahead-of-main=1
+wat-mongkhon-merge             claude/wat-mongkhon-merge                86bda64110  ahead-of-main=1
+
+Uncommitted work found in 6 of them was committed to its own branch first,
+so nothing was lost: elegant-tesla 27,418 files, great-elion 15,112,
+sweet-cray 4, exciting-pike 3, wat-mongkhon 3, nostalgic-kilby 2.
+
+13 of these branches still carry the creed in build.py. They are not
+merged and nothing reads them, but MERGING ONE BRINGS IT BACK. Check
+before merging:  git grep -c what_creed <branch> -- build.py
+
+Also retired, all clean and nothing unmerged:
+  defiant-site/compassionate-cerf-db9fb3
+  manuscript-wiki/silly-mendeleev-9ea99f   (held the pre-scrub generator)
+  wichaa-vault/infallible-borg-7c4401, nice-maxwell-067987
