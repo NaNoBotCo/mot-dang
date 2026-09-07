@@ -60,9 +60,6 @@ CSS = """/* /doi.html — the land under the directory. */
   font-size:.98rem;cursor:pointer;transition:transform .12s ease}
 .doibtn:active{transform:scale(.96)}
 .doiseg{display:inline-flex;gap:.35rem;flex-wrap:wrap}
-.doi-rule{margin:.8rem 0 1rem;padding:.7rem .9rem;border-radius:.8rem;
-  background:var(--soft);border:1px solid rgba(0,0,0,.07);font-size:.98rem}
-.doi-rule b{display:block;margin-bottom:.15rem}
 .doi-facts{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
   margin:.6rem 0}
 .doi-fact{padding:.8rem .95rem;border:1px solid rgba(0,0,0,.08);border-radius:.8rem;
@@ -418,14 +415,6 @@ def emit(g, data):
         "relief shading at every zoom, a 3D mode one tap away, and a cross-section "
         "of the basin drawn from the same file the map reads." % _fmt(tp["ele"]))
 
-    rule = ('<div class="doi-rule"><b>⛰ ' + bi("กติกาของหน้านี้", "The rule of this page") + "</b>"
-            + bi("ความสูงทุกตัวเป็นตัวเลขของเครื่องอ่าน — แบบจำลองความสูงที่หน้านี้ถือ พร้อมวันที่อ่านและแหล่ง · "
-                 "ป้ายบนยอดถือเลขของป้ายเอง · ไม่มีวิวไหนถูกจัดอันดับ ไม่มีดอยไหน “ชนะ” · "
-                 "โหมด 3 มิติเป็นทางเลือก กดเองเสมอ หน้าไม่เล่นเอง",
-                 "Every height here is an instrument's reading — the elevation model this page "
-                 "holds, with its read date and its source · the sign on a summit keeps its own "
-                 "number · no view is ranked and no doi wins · 3D is opt-in, always — the page "
-                 "never performs on its own") + "</div>")
 
     bar = (
         '<div id="doibar" hidden>'
@@ -597,7 +586,6 @@ def emit(g, data):
         '<h1>⛰ ' + bi("ดอย — แผ่นดินเชียงใหม่ · เชียงราย",
                       "The doi — the shape of the land") + "</h1>"
         '<p class="doi-intro">' + intro + "</p>"
-        + rule
         + "<h2>" + bi("แผนที่พื้นดิน", "The ground map") + "</h2>"
         + bar + box
         + '<p class="doi-note">'

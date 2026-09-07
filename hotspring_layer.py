@@ -38,9 +38,6 @@ REG = ROOT / "data" / "hotsprings.json"
 
 CSS = """
 .hs-intro{font-size:1.02rem;max-width:46rem}
-.hs-rule{margin:.8rem 0 1rem;padding:.7rem .9rem;border-radius:.8rem;background:var(--soft);
-  border:1px solid rgba(0,0,0,.07);font-size:.98rem}
-.hs-rule b{display:block;margin-bottom:.15rem}
 .hs-reg{width:100%;border-collapse:collapse;margin:.6rem 0 .4rem;font-size:.93rem}
 .hs-reg th,.hs-reg td{padding:.4rem .35rem;border-bottom:1px solid rgba(0,0,0,.08);text-align:center;vertical-align:top}
 .hs-reg th:first-child,.hs-reg td:first-child{text-align:left}
@@ -308,7 +305,7 @@ def emit(g, data):
          say("น้ำพุร้อนสันกำแพงดำเนินงานโดย ททท. ร่วมกับสหกรณ์การเกษตรหมู่บ้านสหกรณ์สันกำแพง (อบต.บ้านสหกรณ์เล่าไว้เอง) · กรมอุทยานฯ ดูแลบ่อในเขตอุทยาน · อบต. และหมู่บ้านดูแลบ่อชุมชน — ผู้ดูแลคือผู้ประกาศราคา", "San Kamphaeng runs as a TAT–village-cooperative venture (the sub-district office tells the story itself); the parks department keeps the in-park pools; sub-district offices and villages keep the community ones — whoever keeps the spring is whoever posts its prices"))
     card("น้ำร้อนจริง — ป้ายที่ทุกบ่อเขียนไว้ทางของตัวเอง", "Genuinely hot — the one sign every spring writes its own way",
          bi("บ่อต้นทางหลายแห่งร้อนเกิน 90 องศา — น้ำที่ต้มไข่สุกได้ ต้มคนได้เท่ากัน กติกาที่ป้ายหน้าบ่อพูดตรงกันทุกที่: แช่ในอ่างที่จัดไว้ ไม่ใช่บ่อต้นทาง อ่านอุณหภูมิของอ่างก่อนลง และเด็กกับผู้สูงอายุแช่สั้นกว่า — ตัวเลขนาทีเป็นของป้ายแต่ละบ่อ ไม่ใช่ของเว็บนี้",
-            "Several source pools run past ninety degrees — water that cooks an egg cooks a person the same way. The rule every gate's sign states in its own words: soak in the built tubs, never the source pool; read the tub's own temperature before you get in; children and elders soak shorter. The minutes belong to each spring's sign, not to this site."),
+            "Several source pools run past ninety degrees — water that cooks an egg cooks a person the same way. The rule every gate's sign states in its own words: soak in the built tubs, not the source pool; read the tub's own temperature before you get in; children and elders soak shorter. The minutes belong to each spring's sign, not to this site."),
          say("สิ่งที่น้ำแร่ “ดีต่อ” อะไร เป็นคำของผู้ดูแลบ่อและของประเพณี — หน้านี้จดคำนั้นเป็นคำพูด ไม่ใช่คำแนะนำ", "what the mineral water is said to be good for is the operator's and the tradition's claim — this page records the claim as a claim, and gives no advice"))
     card("ออนเซ็นในเมือง — น้ำเดียวกัน คนละทาง", "The onsen in town — the same water, a different way in",
          bi("ร้านออนเซ็นและสปาน้ำแร่ในเมือง เป็นธุรกิจอาบน้ำ อยู่บนชั้นของมันเอง (นวด-สปา) ไม่ได้อยู่ในทะเบียนบ่อ — บางร้านบอกว่าใช้น้ำแร่จากบ่อจริง คำนั้นเป็นของร้าน หน้านี้ชี้ทางไปหาบ่อที่พื้นดินทำเอง",
@@ -335,11 +332,8 @@ def emit(g, data):
     n_far = len(springs) - n_home
     n_prov = len(provinces)
     intro = bi(
-        f"หน้านี้คือทะเบียนน้ำพุร้อนทั้งภาคเหนือ — {len(springs)} บ่อ ใน {n_prov} จังหวัด: เชียงใหม่กับเชียงรายอยู่ในสารบัญเต็ม ({n_home} บ่อ กดเข้าหน้าของแต่ละบ่อได้) ที่เหลืออีก {n_far} บ่อจดพิกัดและที่มาไว้ให้วางแผนเที่ยว — บ่อไหนบอกอะไรเอง (อุณหภูมิ ค่าเข้า เวลา ไข่) อยู่ในตารางพร้อมที่มา ไม่มีการจัดอันดับ",
-        f"The register of hot springs across the whole of northern Thailand — {len(springs)} springs in {n_prov} provinces: Chiang Mai and Chiang Rai are in the full directory ({n_home} springs with their own pages), the other {n_far} carry their pins and sources for planning. What each spring states for itself — temperature, fees, hours, eggs — is in the table with its source. Nothing is ranked.")
-    rule_html = ('<div class="hs-rule"><b>♨️ ' + bi("กติกาของหน้านี้", "The rule of this page") + "</b>"
-                 + bi("บ่อบอกเอง หรือหน่วยงานที่วัดบอก — มดจดพร้อมที่มา · อุณหภูมิคือตัวเลขของคนวัด ไม่ใช่คำว่า “ร้อนมาก” · ราคาคือที่ประกาศ · สรรพคุณของน้ำเป็นคำของบ่อและของประเพณี หน้านี้ไม่ให้คำแนะนำสุขภาพ · ไม่มีบ่อไหนถูกจัดอันดับ ไม่มี “ที่สุด” — เรียงตามจังหวัดและตัวอักษรเท่านั้น",
-                      "The spring states, or the measuring agency does — the ants write it down with the source · a temperature is somebody's number, never “very hot” · prices are as posted · what the water is good for is the spring's and the tradition's claim, and this page gives no health advice · no spring is ranked, nothing is “best” — order is province and alphabet, nothing else.") + "</div>")
+        f"หน้านี้คือทะเบียนน้ำพุร้อนทั้งภาคเหนือ — {len(springs)} บ่อ ใน {n_prov} จังหวัด: เชียงใหม่กับเชียงรายอยู่ในสารบัญเต็ม ({n_home} บ่อ กดเข้าหน้าของแต่ละบ่อได้) ที่เหลืออีก {n_far} บ่อจดพิกัดและที่มาไว้ให้วางแผนเที่ยว — บ่อไหนบอกอะไรเอง (อุณหภูมิ ค่าเข้า เวลา ไข่) อยู่ในตารางพร้อมที่มา",
+        f"The register of hot springs across the whole of northern Thailand — {len(springs)} springs in {n_prov} provinces: Chiang Mai and Chiang Rai are in the full directory ({n_home} springs with their own pages), the other {n_far} carry their pins and sources for planning. What each spring states for itself — temperature, fees, hours, eggs — is in the table with its source.")
 
     # A province whose fetch lost selectors is short, not done — the register
     # says which, and the page repeats it rather than letting an absence read
@@ -396,7 +390,6 @@ def emit(g, data):
     body = (
         f'<h1>♨️ {bi("น้ำพุร้อน — ทั้งภาคเหนือ", "Hot springs — the whole north")}</h1>'
         f'<p class="hs-intro">{intro}</p>'
-        f"{rule_html}"
         f'<h2>{bi("แผนที่", "The map")}</h2>'
         f"{map_html}{credit}"
         f'<h2>{bi("ทะเบียน — บ่อไหนบอกว่าอะไร", "The register — what each spring states")}</h2>'
@@ -419,7 +412,7 @@ def emit(g, data):
     (DOCS / "namphuron.html").write_text(page(
         "น้ำพุร้อนภาคเหนือ — ทะเบียนทุกบ่อ ทุกจังหวัด · Hot springs of northern Thailand",
         body, depth=0, path="namphuron.html",
-        desc="ทะเบียนน้ำพุร้อนทั้งภาคเหนือ: เชียงใหม่ เชียงราย แม่ฮ่องสอน ลำปาง และทุกจังหวัด — แผนที่ อุณหภูมิตามผู้วัด ค่าเข้าตามประกาศ บ่อแช่ บ่อต้มไข่ พร้อมที่มาทุกช่อง ไม่จัดอันดับ · Every hot spring in northern Thailand: the map, temperatures as measured, fees as posted, soaking and egg pools, sources on every cell, nothing ranked",
+        desc="ทะเบียนน้ำพุร้อนทั้งภาคเหนือ: เชียงใหม่ เชียงราย แม่ฮ่องสอน ลำปาง และทุกจังหวัด — แผนที่ อุณหภูมิตามผู้วัด ค่าเข้าตามประกาศ บ่อแช่ บ่อต้มไข่ พร้อมที่มาทุกช่อง · Every hot spring in northern Thailand: the map, temperatures as measured, fees as posted, soaking and egg pools, sources on every cell",
         extra_head=head, og=og,
         crumbs=f'<a href="index.html">{bi("หน้าแรก", "Home")}</a> › {bi("น้ำพุร้อน", "Hot springs")}'))
     return {"page": 1, "springs": len(springs), "provinces": n_prov,

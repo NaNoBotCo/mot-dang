@@ -33,9 +33,6 @@ REG = ROOT / "data" / "shrines.json"
 
 CSS = """
 .sn-intro{font-size:1.02rem;max-width:46rem}
-.sn-rule{margin:.8rem 0 1rem;padding:.7rem .9rem;border-radius:.8rem;background:var(--soft);
-  border:1px solid rgba(0,0,0,.07);font-size:.98rem}
-.sn-rule b{display:block;margin-bottom:.15rem}
 .sn-map{margin:.6rem 0 .2rem;border:1px solid rgba(0,0,0,.08);border-radius:.8rem;
   background:var(--card,#fff);overflow:hidden}
 .sn-map svg{display:block;width:100%;height:auto}
@@ -293,7 +290,7 @@ def emit(g, data):
              "the suea mueang is the guardian spirit of the whole city — the annual fate-extension rite keeps that bond fed"))
     card("ศาลเกษียณที่ไหน — ต้นโพธิ์ กำแพงวัด", "Where a spirit house retires",
          bi("ศาลที่ปลดแล้วไม่ทิ้งลงถัง — ธรรมเนียมที่เห็นได้ทั่วเมืองคือเชิญไปไว้โคนต้นโพธิ์ต้นไทรใหญ่ กำแพงวัด หรือทางสามแพร่ง จึงเห็นศาลเก่ารวมกันเป็นหย่อม ๆ ตามที่เหล่านั้น — ในคัมภีร์ล้านนายังมีสูตถอนสำหรับถอนบ้านถอนเรือนโดยเฉพาะ เป็นวิชาของปู่อาจารย์",
-            "A retired spirit house is never binned — the custom seen all over both towns is to carry it to the foot of a great bodhi or banyan, a temple wall, or a three-way junction, which is why old shrines gather in small companies at such places. The Lanna manuscripts even keep withdrawal liturgies (sut thon) for un-consecrating a house — a ritual specialist's craft."),
+            "A retired spirit house is not binned — the custom seen all over both towns is to carry it to the foot of a great bodhi or banyan, a temple wall, or a three-way junction, which is why old shrines gather in small companies at such places. The Lanna manuscripts even keep withdrawal liturgies (sut thon) for un-consecrating a house — a ritual specialist's craft."),
          say("เห็นหย่อมศาลเก่าใต้ต้นไม้ใหญ่ = ที่เกษียณ ไม่ใช่ที่ถูกทิ้ง — เดินผ่านด้วยความเคารพตามธรรมเนียม",
              "a company of old shrines under a great tree is a retirement, not a dump — custom is to pass with respect"))
     card("คำที่จะได้เจอ", "Words you will meet",
@@ -316,13 +313,10 @@ def emit(g, data):
     intro = bi(
         f"ทะเบียนศาล ศาลเจ้า และหลักเมืองของเชียงใหม่-เชียงราย — {len(rows)} แห่งในทะเบียน "
         f"({n_rec} แห่งกดเข้าหน้าของแต่ละที่ได้ อีก {n_wait} แห่งรอหมุด-รอสำรวจ) "
-        "จัดตามชนิดที่ผู้ดูแลเรียกเอง ไม่มีการจัดอันดับความศักดิ์สิทธิ์",
+        "จัดตามชนิดที่ผู้ดูแลเรียกเอง",
         f"The register of shrines and city pillars of Chiang Mai and Chiang Rai — {len(rows)} entries "
         f"({n_rec} open their own directory pages; {n_wait} await a pin or a survey), "
-        "grouped by the kinds their keepers use. Nothing here is ranked for sacredness.")
-    rule_html = ('<div class="sn-rule"><b>🏮 ' + bi("กติกาของหน้านี้", "The rule of this page") + "</b>"
-                 + bi("ผู้ดูแลเป็นคนบอกว่าศาลคืออะไร — มดจดตามป้ายและตามทะเบียน พร้อมที่มาและวันที่อ่าน · งานประจำปีอิงหน้าเทศกาลซึ่งบอกที่มาของตัวเอง · สิ่งที่ผู้คนไปขอเป็นเรื่องของประเพณีและผู้ไป หน้านี้ไม่สัญญาอะไรให้ใคร · ไม่มีศาลไหนถูกจัดอันดับ ไม่มี «ศักดิ์สิทธิ์ที่สุด» — เรียงตามชนิดและจังหวัดเท่านั้น · ศาลในบ้านคนเป็นเรื่องของบ้านนั้น สารบัญลงเฉพาะศาลสาธารณะ",
-                      "The keeper says what the shrine is — the ants copy the sign and the register, with the source and the date it was read · annual rites lean on the festivals page, which cites itself · what people go to ask for belongs to the tradition and the asker; this page promises nothing · no shrine is ranked, nothing is «most sacred» — order is kind and province only · a shrine in somebody's home is that household's own; only public shrines are listed") + "</div>")
+        "grouped by the kinds their keepers use.")
 
     map_html = _map_svg(rows, provinces, by_id, bi_text, esc)
     credit = ('<p class="sn-credit">'
@@ -352,7 +346,6 @@ def emit(g, data):
     body = (
         f'<h1>🏮 {bi("ศาล-ศาลเจ้า-หลักเมือง", "Shrines & city pillars")}</h1>'
         f'<p class="sn-intro">{intro}</p>'
-        f"{rule_html}"
         f'<h2>{bi("แผนที่", "The map")}</h2>'
         f"{map_html}{credit}"
         f'<h2>{bi("ทะเบียน — ตามชนิดที่ผู้ดูแลเรียก", "The register — by the kinds their keepers use")}</h2>'
@@ -367,7 +360,7 @@ def emit(g, data):
     (DOCS / "san.html").write_text(page(
         "ศาล ศาลเจ้า หลักเมือง เชียงใหม่-เชียงราย — ทะเบียนพร้อมที่มา · Shrines & city pillars of Chiang Mai & Chiang Rai",
         body, depth=0, path="san.html",
-        desc="ทะเบียนศาล ศาลเจ้า และหลักเมืองของเชียงใหม่-เชียงราย: เสาอินทขีล สะดือเมือง ปุงเถ่ากง ปู่แสะย่าแสะ ศาลบูรพกษัตริย์ เทวาลัย — แผนที่ ชนิดตามผู้ดูแล งานประจำปี พร้อมที่มาทุกแถว ไม่จัดอันดับ · The shrine register of Chiang Mai and Chiang Rai: city pillars, Chinese shrines, founder-king shrines, guardian spirits and devalayas — mapped, sourced, never ranked",
+        desc="ทะเบียนศาล ศาลเจ้า และหลักเมืองของเชียงใหม่-เชียงราย: เสาอินทขีล สะดือเมือง ปุงเถ่ากง ปู่แสะย่าแสะ ศาลบูรพกษัตริย์ เทวาลัย — แผนที่ ชนิดตามผู้ดูแล งานประจำปี พร้อมที่มาทุกแถว · The shrine register of Chiang Mai and Chiang Rai: city pillars, Chinese shrines, founder-king shrines, guardian spirits and devalayas — mapped and sourced",
         extra_head=head, og=og,
         crumbs=f'<a href="index.html">{bi("หน้าแรก", "Home")}</a> › {bi("ศาลเจ้า-หลักเมือง", "Shrines")}'))
     return {"page": 1, "register": len(rows), "with_records": n_rec,

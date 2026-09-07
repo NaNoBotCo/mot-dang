@@ -53,6 +53,10 @@ padding:.4rem 0;border-top:1px dashed var(--care-line)}
 .care-row:first-child{border-top:0}
 .care-key{font-weight:600}
 .care-hours{color:var(--care-quiet);font-size:.9rem;display:block}
+.care-states{margin:.35rem 0 .1rem}
+.care-states-lead{color:var(--care-quiet);font-size:.85rem}
+.care-states ul{margin:.2rem 0 0;padding-left:1.1rem}
+.care-states li{font-size:.92rem;line-height:1.5}
 .care-said{display:block;color:var(--care-quiet);font-size:.86rem;line-height:1.5;
 margin-top:.15rem;border-left:2px solid var(--care-line);padding-left:.55rem}
 .care-said a{color:inherit}
@@ -121,8 +125,21 @@ CLINIC_ORDER = [
     ("endocrine", "ต่อมไร้ท่อ", "Endocrine — thyroid, diabetes, hormones"),
     ("internal-med", "อายุรกรรม", "Internal medicine"),
     ("neuro", "ระบบประสาทและสมอง", "Brain & nervous system"),
+    # WO-25 cont., 2026-09-03. A hospital whose whole business is one specialty
+    # states its ROOMS, not the specialty — so the register grew the rooms.
+    # These keys are the register's own; specialty.py mines shop signs and has
+    # never carried a neuro key, so there is nothing here to disagree with.
+    ("neuro-med", "อายุรกรรมประสาท", "Neurology — nervous-system medicine"),
+    ("neuro-surg", "ศัลยกรรมประสาท", "Neurosurgery"),
+    ("memory", "คลินิกความจำ", "Memory clinic — dementia"),
+    ("neurointervention", "รังสีร่วมรักษาทางระบบประสาท", "Neurointervention"),
+    ("geriatric", "เวชศาสตร์ผู้สูงอายุ", "Geriatric medicine"),
     ("obgyn", "สูตินรีเวช", "Women's health"),
     ("physio", "กายภาพบำบัด-ฟื้นฟู", "Physiotherapy & rehab"),
+    # WO-55. The OT unit inside a rehabilitation-medicine group, where the
+    # hospital's own page names it. Key shared with specialty.py ("ot") and
+    # the register in data/curated/ot.json, which /ot.html draws.
+    ("ot", "กิจกรรมบำบัด", "Occupational therapy"),
     ("kidney", "ไตเทียม-ฟอกไต", "Dialysis"),
     ("checkup", "ตรวจสุขภาพ", "Health check-up"),
 ]
@@ -134,7 +151,12 @@ PAPER_ORDER = [
 ]
 CONT_ORDER = [
     ("after_hours", "คลินิกนอกเวลา", "After-hours clinic"),
+    # WO-25 cont., 2026-09-03. A posted price and a way in that is not a phone
+    # call are both continuity facts: they decide whether a second visit happens.
+    ("posted_fee", "ค่าบริการที่ประกาศไว้", "Posted fee"),
+    ("booking", "วิธีนัด", "How to book"),
     ("telemed", "ปรึกษาทางไกล", "Telehealth"),
+    ("longterm_care", "บริบาลระยะยาว", "Long-term care"),
 ]
 
 
@@ -183,6 +205,21 @@ def emit(g, data):
         return (f'<span class="care-said">{bi("ที่หน้าเว็บเขียนว่า", "read on the page")}: '
                 f'“{esc(ev[:260])}” — {where} · {esc(f)}</span>')
 
+    def states(block):
+        """Some clinics print the conditions they see. That list IS the answer
+        to \u201cwho in this town handles X\u201d, so it is printed as the hospital
+        wrote it \u2014 in its order, unranked, nothing added and nothing read into it."""
+        th_list = block.get("states_th") or []
+        en_list = block.get("states_en") or []
+        if not th_list:
+            return ""
+        items = "".join(
+            f'<li>{bi(t, en_list[i] if i < len(en_list) else t)}</li>'
+            for i, t in enumerate(th_list))
+        return (f'<div class="care-states"><span class="care-states-lead">'
+                f'{bi("คลินิกระบุว่าดูแล", "the clinic lists what it sees")}</span>'
+                f'<ul>{items}</ul></div>')
+
     def rows(block_map, order, tag_class=""):
         out = []
         for key, th, en in order:
@@ -195,7 +232,7 @@ def emit(g, data):
             tag = (f'<span class="care-tag {tag_class}">'
                    f'{bi("บอกเอง", "stated")}</span>')
             out.append(f'<div class="care-row"><div class="care-key">{bi(th, en)}</div>'
-                       f'<div>{label}{tag}{hours}{said(b)}</div></div>')
+                       f'<div>{label}{tag}{hours}{states(b)}{said(b)}</div></div>')
         return "".join(out)
 
     cards, n_claims = [], 0
@@ -280,14 +317,14 @@ def emit(g, data):
         "แผนที่บอกได้แค่ว่าโรงพยาบาลอยู่ตรงไหน แต่การรักษาต่อเนื่องอยู่ที่ 'แผนก' "
         "ไม่ใช่ที่ตัวอาคาร เราจึงไปอ่านเว็บของโรงพยาบาลเองทีละแห่ง "
         "แล้วพิมพ์เฉพาะสิ่งที่แต่ละแห่งเขียนไว้เอง พร้อมประโยคต้นทาง ลิงก์ และวันที่อ่าน "
-        "ไม่จัดอันดับ ไม่ให้คะแนน ไม่ระบุชื่อหมอ และไม่ใช่คำแนะนำทางการแพทย์ "
+        "ไม่ใช่คำแนะนำทางการแพทย์ "
         "ที่ไหนไม่ได้เขียนไว้ = เงียบ ไม่ได้แปลว่าไม่มี",
         "This page is for people who live here and manage something long-term — not "
         "for a one-day fever. A map can only say where a hospital is; ongoing care "
         "lives in DEPARTMENTS, not in buildings. So each hospital's own site was read, "
         "one at a time, and only what it states itself is printed here — with the "
-        "sentence it came from, the link, and the date it was read. No rankings, no "
-        "scores, no named doctors, and no medical advice. Where a hospital says "
+        "sentence it came from, the link, and the date it was read. This is not "
+        "medical advice. Where a hospital says "
         "nothing, that is silence, not a 'no'.")
 
     ld = {

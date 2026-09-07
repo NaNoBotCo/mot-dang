@@ -263,16 +263,13 @@ def emit(g, data):
     intro = bi(
         "หน้านี้รวบรวมสถานพยาบาลที่เกี่ยวกับสุขภาพผู้หญิงในสารบัญ พร้อมบอกตรง ๆ ว่า "
         "แต่ละแห่งรู้มาแค่ไหน — บางแห่งบอกเองว่ามีสูตินรีเวช บางแห่งเป็นโรงพยาบาลทั่วไป "
-        "ซึ่งมักจะมีแผนกนี้ แต่ยังไม่มีใครยืนยัน มดแดงไม่จัดอันดับ ไม่ให้คะแนน "
-        "และไม่ระบุชื่อหมอเป็นรายคน — ความเก่งของหมอดูจากใบวุฒิบัตร ไม่ใช่จากดาว "
+        "ซึ่งมักจะมีแผนกนี้ แต่ยังไม่มีใครยืนยัน "
         "ตารางข้างล่างบอกว่าไปตรวจใบวุฒิบัตรได้ที่ไหน",
         "This page collects the places in the directory that do women's health care, "
         "and says plainly how much is actually known about each one — some state a "
         "สูตินรีเวช (OB-GYN) service themselves; others are general hospitals, which "
-        "in Thailand almost always run one, but nobody has confirmed it here. Mot "
-        "Dang does not rank, score, or name individual doctors: competence is a "
-        "board certification, not a star rating, and the table below says where to "
-        "check one.")
+        "in Thailand almost always run one, but nobody has confirmed it here. The "
+        "table below says where to check a board certification.")
 
     ld = {
         "@context": "https://schema.org", "@type": "ItemList",

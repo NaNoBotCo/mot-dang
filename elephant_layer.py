@@ -46,9 +46,6 @@ import audit_elephant  # noqa: E402  (zero network; the NAME_ELEMENTS fence)
 
 CSS = """
 .ch-intro{font-size:1.02rem;max-width:46rem}
-.ch-rule{margin:.8rem 0 1rem;padding:.7rem .9rem;border-radius:.8rem;background:var(--soft);
-  border:1px solid rgba(0,0,0,.07);font-size:.98rem}
-.ch-rule b{display:block;margin-bottom:.15rem}
 .ch-reg{width:100%;border-collapse:collapse;margin:.6rem 0 .4rem;font-size:.93rem}
 .ch-reg th,.ch-reg td{padding:.4rem .35rem;border-bottom:1px solid rgba(0,0,0,.08);text-align:center;vertical-align:top}
 .ch-reg th:first-child,.ch-reg td:first-child{text-align:left}
@@ -399,10 +396,8 @@ def emit(g, data):
                   + "</p></div>")
 
     # ---- assemble ---------------------------------------------------------
-    intro = bi("หน้านี้มีสามอย่าง: ทะเบียนว่าแต่ละปางบอกเองอย่างไรเรื่องขี่ช้าง อาบน้ำ โชว์ และการดูอย่างเดียว (ปางบอก มดจดพร้อมที่มา) ชั้นปางช้างและคลินิกที่สารบัญมี และเรื่องที่ควรรู้ก่อนไป — กฎหมายสองฉบับ องค์กรที่ออกใบรับรอง ชื่อในเมืองที่มีช้างอยู่ และคำศัพท์ — เขียนจากข้าง ๆ ช้าง ไม่ได้จัดอันดับว่าปางไหนดีกว่ากัน คำว่า sanctuary เป็นของปางที่พูด",
-               "Three things on one page: a register of what each camp states for itself about riding, bathing, shows and hands-off (the camp states it; the ants write it down with the source), the shelf of camps and the clinic the directory holds, and what to know before you go — the two laws, the bodies that certify, the names in this city that carry the elephant, and the words — written from beside an elephant, with no ranking of camps against each other. The word sanctuary belongs to whoever says it.")
-    rule_html = ('<div class="ch-rule"><b>🐘 ' + bi("กติกาของหน้านี้", "The rule of this page") + '</b>'
-                 + bi("ปางบอกเองว่ามีอะไร — หรือหน้านี้บอกว่ายังไม่มีใครบอก · กฎหมายบอกว่าอะไรขึ้นทะเบียน · หน้านี้ไม่ตัดสินว่าปางไหนมีจริยธรรม ปางไหนไม่มี เพราะคำตัดสินผิดเพียงครั้งเดียวคือการใส่ร้ายครอบครัวหนึ่งหรือการส่งคนไปที่ใดที่หนึ่งด้วยความมั่นใจผิด ๆ — ทั้งสองอย่างเป็นคำพูดถึงธุรกิจที่มีชื่อ ในขนาดของเว็บนี้", "The camp states what happens — or this page says nobody has stated it · the law says what is registered · this page does not judge which camp is ethical and which is not, because one wrong verdict either slanders a family or sends a reader somewhere under false comfort — and both are statements about a named business, at this site's scale.") + '</div>')
+    intro = bi("หน้านี้มีสามอย่าง: ทะเบียนว่าแต่ละปางบอกเองอย่างไรเรื่องขี่ช้าง อาบน้ำ โชว์ และการดูอย่างเดียว (ปางบอก มดจดพร้อมที่มา) ชั้นปางช้างและคลินิกที่สารบัญมี และเรื่องที่ควรรู้ก่อนไป — กฎหมายสองฉบับ องค์กรที่ออกใบรับรอง ชื่อในเมืองที่มีช้างอยู่ และคำศัพท์ — เขียนจากข้าง ๆ ช้าง",
+               "Three things on one page: a register of what each camp states for itself about riding, bathing, shows and hands-off (the camp states it; the ants write it down with the source), the shelf of camps and the clinic the directory holds, and what to know before you go — the two laws, the bodies that certify, the names in this city that carry the elephant, and the words — written from beside an elephant.")
     ld = {
         "@context": "https://schema.org", "@type": "ItemList",
         "name": "ปางช้างเชียงใหม่ — Elephant camps and sanctuaries, Chiang Mai: what each states",
@@ -419,13 +414,12 @@ def emit(g, data):
     body = (
         f'<h1>🐘 {bi("ช้าง — ปางไหนบอกว่าอะไร ชั้นปางช้าง และเรื่องที่ควรรู้ก่อนไป", "Elephants — what each camp states, the shelf, what to know before you go")}</h1>'
         f'<p class="ch-intro">{intro}</p>'
-        f'{rule_html}'
         f'<h2>{bi("ทะเบียน — ปางบอกเองว่าอะไร", "The register — what each camp states")}</h2>'
         f'{reg_html}{venues_html}{unr_html}{unc_html}{norow_html}{cr_html}'
         f'<h2>{bi("ชั้นช้าง — ปาง คลินิก และของช้าง", "The elephant shelf — camps, the clinic, the craft")}</h2>'
         f'{shelf_html}'
         f'<h3>{bi("ปางช้างในสารบัญ", "Camps in the directory")} <span class="count">({len(camp_rows)})</span></h3>'
-        f'<p class="ch-note">{bi("เรียงตามชื่อ ไม่จัดอันดับ — ☎ LINE WA 🌐 คือช่องทางที่สารบัญมี", "Alphabetical, unranked — ☎ LINE WA 🌐 mark the channels the directory holds")}</p>'
+        f'<p class="ch-note">{bi("เรียงตามชื่อ — ☎ LINE WA 🌐 คือช่องทางที่สารบัญมี", "Alphabetical — ☎ LINE WA 🌐 mark the channels the directory holds")}</p>'
         f'{camps_html}'
         f'<h2>{bi("กฎหมายสองฉบับ และองค์กรที่ออกใบรับรอง", "Two laws, and the bodies that certify")}</h2>'
         f'{law_html}'

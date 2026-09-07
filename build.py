@@ -270,6 +270,7 @@ SITE_ART = [p for p in (json.loads(_picks_path.read_text())["picks"]
                         if _picks_path.exists() else [])
             if p.get("file") and p.get("usable")]
 ART_USED = {}     # slug -> pick, filled as pictures are drawn; feeds /pictures.html
+ART_DRAWN = {}    # slug -> how many times drawn, so art() can round-robin the pool
 
 
 def art(topic=None, mood=None, place=None, season=None, n=1, key="", avoid=(),
@@ -304,15 +305,17 @@ def art(topic=None, mood=None, place=None, season=None, n=1, key="", avoid=(),
         return True
 
     pool = [p for p in SITE_ART if ok(p)]
-    # Anything already drawn on this page sinks to the bottom of the shuffle,
-    # so the hero and the shelf card below it do not both land on Songkran.
-    # It is a preference, not a ban: with only one genuine picture of a subject,
-    # showing it twice still beats showing the wrong one.
-    pool.sort(key=lambda p: (p["slug"] in ART_USED,
+    # LEAST-DRAWN FIRST. This used to sort on `slug in ART_USED`, a flag that
+    # stops discriminating the moment a picture has been drawn once — so the
+    # build kept landing on the same favourites and 112 of Nan's 145 pictures
+    # were downloaded, licensed, shipped in docs/site/ and never shown. A draw
+    # COUNT makes the same deterministic shuffle round-robin the whole pool.
+    pool.sort(key=lambda p: (ART_DRAWN.get(p["slug"], 0),
                              zlib.crc32((key + "|" + p["slug"]).encode())))
     out = pool[:n]
     for p in out:
         ART_USED[p["slug"]] = p
+        ART_DRAWN[p["slug"]] = ART_DRAWN.get(p["slug"], 0) + 1
     return out
 
 
@@ -329,7 +332,11 @@ CAT_ART_TOPIC = {"wat": "wat", "food": "food", "market": "market",
                  "transport": "transport", "hotel": "stay", "massage": "wellness",
                  # Every class on this shelf begins at a market stall; the
                  # pictures of the market are the true header, not a plate.
-                 "cooking": "market"}
+                 "cooking": "market",
+                 # Both `sport` pictures ARE muay thai, so these two shelves
+                 # get the thing itself. `animals` holds the elephants.
+                 "muaythai": "sport", "sport": "sport", "chang": "animals",
+                 "shopping": "market"}
 
 
 EMERGENCY = json.loads((ROOT / "data" / "curated" / "emergency.json").read_text())
@@ -632,22 +639,36 @@ def cat_art_band(cat_key, prov_key, depth=2):
         return ""
     hint = "yant" if cat_key == "tattoo" else None
     k = f"catband-{prov_key}-{cat_key}-{BUILD_DATE}"
-    p = None
+    # THREE, not one. Same band, same height — the strip is divided, not added
+    # to, so this costs no vertical space and no words. Three slots per shelf
+    # is what lets art()'s round-robin actually reach the whole pool.
+    picks = []
     if hint:
-        p = art_one(topic=topic, slug_has=hint, key=k, not_topic=("people",), local=True)
-    if not p:
-        p = art_one(topic=topic, key=k, not_topic=("people",), local=True)
-    if not p:
+        picks = art(topic=topic, n=3, slug_has=hint, key=k,
+                    not_topic=("people",), local=True)
+    if len(picks) < 3:
+        picks += [q for q in art(topic=topic, n=3, key=k,
+                                 not_topic=("people",), local=True)
+                  if q["slug"] not in {x["slug"] for x in picks}]
+    # Nan, 2026-09-07: use ALL the pictures. Where a topic's local pool runs
+    # out, the pictures she tagged `elsewhere` (the dish or the custom rather
+    # than this city) fill the trailing slots rather than sitting on disk.
+    # Local ones still take the leading slots. Reverse by restoring local=True.
+    if len(picks) < 3:
+        picks += [q for q in art(topic=topic, n=3, key=k)
+                  if q["slug"] not in {x["slug"] for x in picks}]
+    picks = picks[:3]
+    if not picks:
         return ""
     r = "../" * depth
-    alt = art_alt(p)
-    artist = re.sub(r"\s*\(.*?\)\s*", " ", p.get("artist") or "").strip()
-    artist = artist if len(artist) <= 28 else artist[:27] + "…"
-    chip = (f'<a class="herocredit" href="{r}pictures.html">📷 {esc(artist)}</a>'
-            if artist and artist.lower() != "unknown" else "")
-    return (f'<div class="catband"><img src="{r}site/{p["slug"]}.jpg" '
-            f'alt="{att(alt)}" loading="lazy" '
-            f'width="{p.get("width") or 1000}" height="{p.get("height") or 750}">{chip}</div>')
+    imgs = "".join(
+        f'<img src="{r}site/{q["slug"]}.jpg" alt="{att(art_alt(q))}" '
+        f'loading="lazy" width="{q.get("width") or 1000}" '
+        f'height="{q.get("height") or 750}">' for q in picks)
+    # One chip for the strip. Every photographer and licence is on
+    # /pictures.html, which is where the chip goes.
+    chip = f'<a class="herocredit" href="{r}pictures.html">📷</a>'
+    return f'<div class="catband n{len(picks)}">{imgs}{chip}</div>'
 
 
 def art_alt(p):
@@ -3169,7 +3190,8 @@ color:var(--ink);font-size:.68rem;padding:.18rem .6rem;border-radius:999px;
 text-decoration:none;border:1px solid rgba(42,30,22,.12)}
 .herocredit:hover{background:rgba(250,245,234,.95)}
 .catband{position:relative;margin:.2rem 0 .9rem;border-radius:14px;overflow:hidden;
-border:2px solid var(--ink);box-shadow:0 6px 18px rgba(42,30,22,.14)}
+border:2px solid var(--ink);box-shadow:0 6px 18px rgba(42,30,22,.14);
+display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:2px}
 .catband img{width:100%;height:clamp(110px,18vw,175px);object-fit:cover;display:block}
 .freshstrip{display:flex;gap:.45rem;flex-wrap:wrap;align-items:center;margin:.7rem 0 .2rem}
 .freshchip{display:inline-flex;gap:.3rem;align-items:center;font-size:.78rem;
@@ -6842,13 +6864,8 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
   <a href="{KOFI}" rel="noopener">Ko-fi</a> ·
   <a href="{r}rss.xml">📡 RSS</a> ·
   <a href="{r}partners.html">{bi("แลกฟีด", "Partners")}</a> ·
-  <a href="{r}what.html">{bi("มดแดงคืออะไร", "What Mot Dang is")}</a> ·
-  <a href="{r}who.html">{bi("ใครเลี้ยงมด", "Who keeps the ants")}</a> ·
-  <a href="{r}reach.html">🔗 {bi("ลิงก์ที่ยังเปิดได้", "Which links still work")}</a> ·
   <a href="{r}privacy.html">{bi("ความเป็นส่วนตัว", "Privacy")}</a> ·
   <a href="{r}fixed.html">🛠 {bi("แจ้งปุ๊บ แก้ปั๊บ", "Fix log")}</a> ·
-  <a href="{r}pictures.html">📷 {bi("ภาพประกอบ", "Pictures")}</a> ·
-  <a href="{r}lists/index.html">📜 {bi("รายชื่อครบ", "Complete lists")}</a> ·
   <a href="{r}llms.txt">llms.txt</a> ·
   <a href="{r}llms-full.txt">llms-full.txt</a> ·
   <a href="{r}api/">🔌 {bi("API", "API")}</a> ·
@@ -7889,13 +7906,17 @@ def add_link(r, depth=2):
            + bi("แจ้งผิด", "report an error") + "</a>")
     if not gaps:
         return f'<p class="addline">🐜 {fix}</p>'
-    summ_th = "ยังไม่มี: " + " · ".join(g[2] for g in gaps)
-    summ_en = "missing: " + " · ".join(g[3] for g in gaps)
+    # THE SAME LIST, TWICE. The summary named every gap and the drawer under
+    # it named them again as links — 531,540 word-instances site-wide for one
+    # list of fields. Nan's own rule (the docstring above) says the lack goes
+    # in the drawer, so the names go in the drawer, once, as the links that
+    # fill them. The summary is the count.
     links = " · ".join(
         f'<a href="{r_}suggest.html?kind={kind}&id={rid}&field={key}">'
         f'{bi(th, en)}</a>' for key, kind, th, en in gaps)
-    return (f'<details class="gapdrawer"><summary>🐜 {bi(summ_th, summ_en)}</summary>'
-            f'<p>{bi("เติม", "add")}: {links} · <a href="{r_}add.html?id={rid}">{bi("ยืนยันร้าน", "claim")}</a>'
+    return (f'<details class="gapdrawer"><summary>🐜 '
+            f'{bi(f"ยังไม่มี {len(gaps)}", f"{len(gaps)} missing")}</summary>'
+            f'<p>{links} · <a href="{r_}add.html?id={rid}">{bi("ยืนยันร้าน", "claim")}</a>'
             f' · {fix}</p></details>')
 
 
@@ -8720,9 +8741,8 @@ def reach_block(r):
         retired_html = (
             '<div class="retired">'
             + mark(bi("เว็บเดิมของที่นี่", "Their earlier website"),
-                   "มดแดงไม่ส่งใครไปหน้าที่เปิดไม่ได้ — เก็บลิงก์ไว้ให้ในคลังแทนเจ้า",
-                   "We don't send anyone to a page that no longer answers — the "
-                   "archived copy is here instead.", cls="mklabel")
+                   "หน้านี้เปิดไม่ได้แล้ว — เก็บลิงก์ไว้ให้ในคลังแทนเจ้า",
+                   "This page no longer answers; the archived copy is here instead.", cls="mklabel")
             # WO-52: each row already carries its verdict and the date it was
             # checked, so the paragraph restating the policy underneath was
             # the site explaining itself on 353 pages. On the label instead.
@@ -9957,8 +9977,10 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         osm = f"https://www.openstreetmap.org/?mlat={r['lat']}&mlon={r['lng']}#map=18/{r['lat']}/{r['lng']}"
         gmap = f"https://maps.google.com/?q={r['lat']},{r['lng']}"
         approx = " " + bi("(โดยประมาณ)", "(approximate)") if r["geoPrecision"] == "approx" else ""
+        # The <dt> beside it already says Map, so the first link says WHOSE
+        # map it is instead of saying "map" a second time.
         rows.append(f'<dt>{bi("แผนที่", "Map")}</dt><dd>'
-                    f'<a href="../../map.html#16/{r["lat"]:.5f}/{r["lng"]:.5f}">{bi("แผนที่เมือง", "City map")}</a> · '
+                    f'<a href="../../map.html#16/{r["lat"]:.5f}/{r["lng"]:.5f}">มดแดง</a> · '
                     f'<a href="{osm}" rel="noopener">OpenStreetMap</a> · '
                     f'<a href="{gmap}" rel="noopener">Google Maps</a>{approx}</dd>')
     else:
@@ -10065,9 +10087,12 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         photo_note = ""
         photo_cta = ""
     src = (r.get("sources") or [{}])[0]
-    prov_line = {"osm": bi("ข้อมูลจาก OpenStreetMap", "Data from OpenStreetMap"),
-                 "field": bi("ข้อมูลเก็บภาคสนาม", "Field-collected data"),
-                 "curated": bi("ข้อมูลคัดสรรโดยทีมมดแดง", "Curated by the Mot Dang team")}.get(
+    # The source's NAME is the fact; "ข้อมูลจาก · Data from" was scaffolding
+    # around it, in a <p class="prov"> that already says what it is, on every
+    # place page on the site.
+    prov_line = {"osm": "OpenStreetMap",
+                 "field": bi("ภาคสนาม", "Field survey"),
+                 "curated": bi("มดแดง", "Mot Dang")}.get(
         src.get("type"), bi("ข้อมูลเปิด", "Open data"))
     # A directory that took a name from another directory says so, by name and
     # with a link back. "Open data" is what this used to print for those, which
@@ -10077,7 +10102,7 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         who = esc(src["via"])
         link = f'<a href="{att(src["ref"])}"{credit_rel(src["ref"])}>{who}</a>' \
             if str(src.get("ref", "")).startswith("http") else who
-        prov_line = bi(f"ชื่อและที่อยู่จาก {link}", f"Name and address from {link}", raw=True)
+        prov_line = bi(f"ชื่อ-ที่อยู่ {link}", f"Name & address {link}", raw=True)
     # A register says who published it, by name. "Open data" was what these
     # printed, and it is vague exactly where a reader most needs specifics:
     # CITIZENinfo is CC-BY and naming it is a LICENCE CONDITION rather than a
@@ -10088,7 +10113,7 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         who = esc(src["credit"])
         link = (f'<a href="{att(src["ref"])}"{credit_rel(src["ref"])}>{who}</a>'
                 if str(src.get("ref", "")).startswith("http") else who)
-        prov_line = bi(f"ข้อมูลจาก {link}", f"Data from {link}", raw=True)
+        prov_line = link
     fetched = f" · {esc(src['fetched'])}" if src.get("fetched") else ""
     path = f"{r['province']}/p/{place_slug(r)}.html"
     # The third rung. The trail used to read หน้าแรก › เชียงใหม่ › this place,
@@ -12091,10 +12116,10 @@ def build_events_page(events):
                f'<a href="crawl-request.html">{bi("ส่งมดไปสำรวจ", "Send the ants")}</a></p></div>')
 
     method_th = (f"รวบรวมเมื่อ {EVENTS_GENERATED} จากปฏิทินสาธารณะ (Meetup, "
-                 "เรียนรู้ตลอดชีวิตพายัพ) ไม่ได้คัดสรรหรือรับรองงานใด "
+                 "เรียนรู้ตลอดชีวิตพายัพ) "
                  "งานอาจเปลี่ยนแปลงได้ กรุณาตรวจสอบกับผู้จัดก่อนเดินทาง")
     method_en = (f"Harvested {EVENTS_GENERATED} from public calendars (Meetup, Lifelong "
-                 "Learning Payap). Nothing here is curated or endorsed, and events change "
+                 "Learning Payap). Events change "
                  "at short notice — check with the organiser before you travel.")
 
     ld = {"@context": "https://schema.org", "@type": "ItemList",
@@ -14735,9 +14760,13 @@ def pictures_page():
     photographer names without becoming a caption. So the pictures link here,
     and here names every one: photographer, licence, and the file it came from.
     """
+    # ALL 145, not the 33 a build happened to draw. Every one of these was
+    # picked by Nan, licensed, downloaded and shipped in docs/site/ — a table
+    # that lists only the ones a template reached is an incomplete credit for
+    # files that are published either way.
     rows = []
-    for slug in sorted(ART_USED):
-        p = ART_USED[slug]
+    for p in sorted(SITE_ART, key=lambda q: q["slug"]):
+        slug = p["slug"]
         where = ", ".join(p.get("topic", [])) or "—"
         rows.append(
             f'<tr><td><img src="site/{slug}.jpg" alt="" loading="lazy" '
@@ -14749,16 +14778,12 @@ def pictures_page():
             # beside it carries the rest verbatim, so this is trimmed, not cut.
             f'<td>{esc(_short_artist(p.get("artist")))}</td>'
             f'<td>{esc(p.get("licence") or "—")}</td></tr>')
-    intro_th = ("ภาพประกอบทั้งหมดบนเว็บนี้มาจาก Wikimedia Commons ใช้ได้ตามสัญญาอนุญาต "
-                "ที่ระบุไว้ ขอบคุณช่างภาพทุกท่านเจ้า — ภาพเหล่านี้เป็นภาพของเมือง "
-                "ไม่ใช่ภาพของร้านใดร้านหนึ่ง")
-    intro_en = ("Every picture in this site's own furniture comes from Wikimedia "
-                "Commons and is used under the licence named beside it. Thank you to "
-                "the photographers. These are pictures OF the city, not of any "
-                "particular business — a photograph of a shop appears only on that "
-                "shop's own page.")
-    body = (f'<h1>📷 {bi("ภาพประกอบ", "Pictures")}</h1>'
-            f'<p>{bi(intro_th, intro_en)}</p>'
+    # Nan, 2026-09-07, on the sentence that used to stand here: "I gave you a
+    # couple HUNDRED links for pictures, you chose only a few of them and said
+    # 'all of our pictures come from Wikimedia'." The count and the table are
+    # the whole page now; the claim is gone and nothing replaces it.
+    body = (f'<h1>📷 {bi("ภาพประกอบ", "Pictures")} '
+            f'<span class="count">({len(SITE_ART):,})</span></h1>'
             f'<table class="credits"><thead><tr>'
             f'<th></th><th>{bi("ไฟล์", "File")}</th>'
             f'<th>{bi("ช่างภาพ", "Photographer")}</th>'
@@ -14769,7 +14794,8 @@ def pictures_page():
                 path="pictures.html",
                 crumbs=f'<a href="index.html">{bi("หน้าแรก", "Home")}</a> › '
                        + bi("ภาพประกอบ", "Pictures"),
-                desc=intro_th)
+                desc=f"ภาพประกอบ {len(SITE_ART):,} ภาพ ช่างภาพและสัญญาอนุญาต · "
+                     f"{len(SITE_ART):,} pictures, photographer and licence")
 
 
 # ------------------------------------------------------- ไหว้พระ ๙ วัด
@@ -18623,8 +18649,7 @@ def build():
          "บ่ายจริงๆ บ่ายหนึ่ง เราลากเส้นให้ดู",
          "Give us an afternoon and we draw it: lunch at 12:30, nails at "
          "two, massage at half three, the dentist, the market before it "
-         "shuts. Same routing the page does — we do not draw a line we "
-         "could not walk.",
+         "shuts. The same routing the page does.",
          "ภาพเคลื่อนไหว — หมุดห้าจุดของบ่ายหนึ่งในเชียงใหม่ แล้วเส้นทางค่อยๆ ลากเชื่อมทีละจุด",
          "An animation — five pins of one Chiang Mai afternoon, then the "
          "route drawing itself from stop to stop"),
@@ -18685,11 +18710,9 @@ def build():
         f'alt="{att(bi_text(th_alt, en_alt))}" loading="lazy"></figure></a>'
         f"</section>"
         for f, href, th, en, th_alt, en_alt in what_plates)
-    what_th = ("มดแดงคืออะไร — สารบัญเมืองเชียงใหม่-เชียงราย ดูจากภาพหน้าจริงสิบห้าภาพ "
-               "ไม่มีอันดับ ไม่มีโฆษณานำ ฟรีทุกทาง")
+    what_th = "มดแดงคืออะไร — สารบัญเมืองเชียงใหม่-เชียงราย ดูจากภาพหน้าจริงสิบห้าภาพ"
     what_en = ("What Mot Dang is — the Chiang Mai & Chiang Rai directory in "
-               "fifteen pictures of its own pages. Nothing ranked, nothing "
-               "paid-first, free all the way down.")
+               "fifteen pictures of its own pages.")
     # Doors, not a menu. The page argues that the ants made instruments and
     # gave everything away; a reader who believes it should be one tap from
     # proving it, and a reader who does not should be one tap from catching
@@ -18729,10 +18752,8 @@ def build():
         for href, th_l, en_l in what_take)
     what_press_th = "ทุกอย่างที่โชว์ไปข้างบน เปิดเข้าไปลองได้จริงทั้งหมด"
     what_press_en = "Everything above opens."
-    what_take_th = ("แล้วถ้าอยากได้ของเราไปใช้ ก็เอาไปได้เลย ไม่ต้องขอ "
-                    "ไม่ต้องสมัคร")
-    what_take_en = ("And if you want what we have, take it — no signup, no "
-                    "asking, no strings.")
+    # "no signup, no asking, no strings" was a promise about the future
+    # standing on a reader page. The links below it are the whole statement.
 
     what_shot_line = bi("เราถ่ายภาพหน้าของเราเองไว้ " + SHOT_DATE_TH,
                         "We photographed our own pages on " + SHOT_DATE_EN)
@@ -18745,7 +18766,6 @@ def build():
         f'<p>{bi(what_press_th, what_press_en)}</p>'
         f'<div class="tkdoors">{what_doors_html}</div>'
         f'<h2>{bi("ของของเรา เอาไปได้เลย", "Take what we have")}</h2>'
-        f'<p>{bi(what_take_th, what_take_en)}</p>'
         f'<div class="tkdoors">{what_take_html}</div>'
         f'<p class="myhint">{what_shot_line}'
         " · "
@@ -19545,8 +19565,7 @@ instruction, and the instruction is: be accurate, and attribute.
   list, and Mae Hong Son province's hot-spring CSV (both Open Data Common).
   Curated fields carry `sources` with `fetched` dates; `unverified` is leads
   and does not render. A temperature is somebody's measurement — say whose.
-  Prices are posted spreads; please say "posted", never "costs". No spring is
-  ranked and none should be called "best" on this data.
+  Prices are posted spreads; please say "posted", never "costs".
 
 ## 🏮 Shrines & city pillars — the register
 - {BASE}san.html — the shrines of both provinces: the city pillars and
@@ -19559,10 +19578,8 @@ instruction, and the instruction is: be accurate, and attribute.
   ('record' = in the catalogue; 'stated' = a fetched, dated source;
   'general-knowledge' = seeded and unfielded, and it says so) and `sources`
   with `fetched` dates. `unverified` is told-of names and is not register
-  material. Kinds are the keepers' own; nothing is ranked for sacredness
-  and nothing should be called "most sacred" or "most powerful" on this
-  data. Household spirit houses are deliberately absent — public shrines
-  only. The catalogue's shrine shelf is `wat/shrine`
+  material. Kinds are the keepers' own. Household spirit houses are absent — public
+  shrines only. The catalogue's shrine shelf is `wat/shrine`
   ({BASE}cm/wat/shrine/index.html, {BASE}cr/wat/shrine/index.html);
   importers/audit_shrines.py is the fence (ศาลา is a pavilion, ศาลแขวง a
   courthouse, เจ้าพ่อหลวงอุปถัมภ์ a royal-patronage school — none are
@@ -19624,7 +19641,7 @@ instruction, and the instruction is: be accurate, and attribute.
   height read from the same model ({BASE}data/terrain_heights.json — median
   of the nine cells around the pin, dated). A mapper's own `ele` on a record
   is a person's measurement at the spot and outranks the model's reading
-  wherever both exist. Heights are measurements, never a ranking.
+  wherever both exist. Heights are measurements.
 
 ## 🍳 Thai cooking classes — the class board, the shelf, the primer
 - {BASE}cooking.html — one page: which school runs a class TODAY and on which
@@ -19689,7 +19706,7 @@ instruction, and the instruction is: be accurate, and attribute.
 - Consequence for anyone consuming this dataset: a `website` field in places.json
   is the raw source value and may be dead. linkhealth.json carries the verdict,
   the date it was checked, and a Wayback snapshot URL where one exists.
-- We never publish a hyperlink to a URL we verified as broken. sameAs in the
+- A URL verified as broken is not published as a hyperlink. sameAs in the
   JSON-LD contains only channels that were checked and answered.
 
 ## 🏪 Claiming — owners are the authority on their own contact info

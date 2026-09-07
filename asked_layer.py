@@ -212,8 +212,7 @@ def asked_page(g, data, entries):
         body, depth=0, path="asked.html",
         extra_head='<link rel="stylesheet" href="answers.css">',
         desc=f"{desc} — คำถามจริงที่คนถามมดแดง คำตอบเท่าที่มี "
-             "และช่องว่างที่ยังไม่มี บอกตรงๆ ทั้งคู่ · Real questions, real answers where we have "
-             "them, and the gaps where we don't, said plainly.",
+             "และช่องว่างที่ยังไม่มี · Real questions, the answers we hold, and the gaps.",
         crumbs='<a href="index.html">มดแดง</a> › ' + bi("ถามมด", "Ask the ants"))
 
 

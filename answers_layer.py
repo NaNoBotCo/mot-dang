@@ -259,11 +259,10 @@ def festival_dates_page(g, data):
               f'<span class="voice waiting">⏳ {bi("รอประกาศ", "awaiting announcement")}</span> '
               f'{bi("บอกช่วงตามธรรมเนียมไว้ก่อน ยังไม่ใช่วันจริง", "the customary window only — not yet a date")}</p>')
     candor = bi(
-        "หมายเหตุความซื่อตรง: หน้านี้ไม่เดาวันจากกฎจันทรคติเอง วันที่ทุกวันมาจากประกาศทางการ "
+        "ที่มาของวันที่: ทุกวันมาจากประกาศทางการ "
         "หรือปฏิทินที่เผยแพร่แล้วเท่านั้น (ไฟล์ข้อมูลคือ festival_calendar.json พร้อมที่มาต่อแถว) "
         "งานหมู่บ้าน-งานจังหวัดที่ประกาศเป็นปี ๆ ไป ให้ยึดประกาศของผู้จัดเป็นหลักเสมอ",
-        "Where this comes from: this page does not derive a date from the lunar rule "
-        "itself. Every date is either an official announcement or a published "
+        "Where this comes from: every date is either an official announcement or a published "
         "calendar, checked by hand (the data file is festival_calendar.json, one "
         "source per row). For the fairs announced year by year, the organiser's "
         "announcement always wins.")
@@ -382,14 +381,6 @@ def open_now_page(g, data):
         + "</tr>" for h in range(24))
 
     n = len(lamps["places"])
-    silence = bi(
-        f"กติกาของหน้านี้: เรานับเฉพาะ {n:,} แห่งที่มดแดงถือเวลาเปิด-ปิดอยู่จริง "
-        "ร้านที่ไม่อยู่ในหน้านี้คือร้านที่ยังไม่มีใครเก็บเวลาให้ ไม่ใช่ร้านที่ปิด — "
-        "ความเงียบไม่ใช่คำว่าไม่",
-        f"The rule of this page: it counts only the {n:,} places whose opening "
-        "hours the catalogue actually holds. A place missing from this page is a "
-        "place whose hours nobody has recorded — never a closed one. Silence is "
-        "not a no.")
 
     js = """
 (function(){
@@ -415,7 +406,6 @@ if(lbl)lbl.textContent=['จันทร์','อังคาร','พุธ','�
         f'{bi("แห่งเปิดอยู่ในชั่วโมงนี้", "places open this hour")} '
         f'<span class="tinynote" id="now-label"></span> · '
         f'<a href="nitnoy.html">{bi("ดูเป็นแผนที่โคมไฟขยับได้", "watch it as the animated lamp map")}</a></div>'
-        f'<p class="tinynote">{silence}</p>'
         + section("เปิดตลอด 24 ชั่วโมง", "Open 24 hours",
                   "หิวตอนตีสาม หายาตอนตีสี่ — รายชื่อที่ไม่ปิดเลยทั้งสัปดาห์",
                   "Hungry at 3am, need a pharmacy at 4 — the places that never close at all.",

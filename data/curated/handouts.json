@@ -6,7 +6,7 @@
   "shanVerified": false,
 
   "common": {
-    "free_th": "ไม่มีค่าใช้จ่าย ไม่เคยเก็บเงิน ไม่หักเปอร์เซ็นต์",
+    "free_th": "ไม่มีค่าใช้จ่าย ไม่หักเปอร์เซ็นต์",
     "free_en": "Free. Always. No commission, no cut, nothing to sign.",
     "ants_th": "ข้อมูลครบ ๙ อย่าง = มด ๙ ตัว — ชื่อไทย ชื่ออังกฤษ เบอร์โทร ไลน์ เวลาเปิด เว็บ รูป เจ้าของยืนยันเอง — ตัวที่ ๙ มดเติมให้เอง เมื่อมดไปเดินดูมาแล้ว",
     "ants_en": "Nine facts, nine ants — Thai name, English name, phone, LINE, hours, website, photo, owner-confirmed. The ninth is ours to earn: the ants have walked past recently.",
@@ -31,8 +31,8 @@
       "lede_th": "มดแดงคือสารบัญร้านในเชียงใหม่กับเชียงราย ร้านของคุณอาจอยู่ในนั้นแล้ว แต่มีแค่ชื่อ ไม่มีเบอร์ ไม่มีเวลาเปิด ไม่มีรูป คนเลยโทรไม่ถูกและไม่รู้ว่าเปิดกี่โมง",
       "lede_en": "Mot Dang is a directory of Chiang Mai and Chiang Rai. Your shop may already be in it — but with only a name. No phone, no hours, no photo. So nobody calls, and nobody knows when you open.",
       "points": [
-        ["ลงฟรี ตลอดไป ไม่หักเปอร์เซ็นต์จากออเดอร์ ไม่มีค่าคลิก",
-         "Free listing, forever. We never take a percentage of an order and never charge per click."],
+        ["ลงฟรี ไม่หักเปอร์เซ็นต์จากออเดอร์ ไม่มีค่าคลิก",
+         "Listing is free. No percentage of an order, no charge per click."],
         ["เบอร์ที่ลงคือเบอร์คุณ ลูกค้าโทรหาคุณตรงๆ ไม่ผ่านใคร",
          "The number on the page is yours. Customers ring you, not a middleman."],
         ["บอกเวลาเปิดปิดกับวันหยุดได้ คนจะได้ไม่มาเก้อ",
@@ -57,7 +57,7 @@
       "lede_en": "Mot Dang lists 593 temples across Chiang Mai and Chiang Rai. Most carry only a name and a point on the map. Tell us the chanting times and the merit days and we will put them up. No charge.",
       "points": [
         ["ชั้นพระอารามหลวงขึ้นให้ตามจริง พร้อมที่มาของข้อมูล ไม่ได้จัดอันดับเอง",
-         "Royal monastery grade is shown where it applies, with the source it was read from. We do not rank temples ourselves."],
+         "Royal monastery grade is shown where it applies, with the source it was read from."],
         ["รูปวัดใส่เครดิตผู้ถ่ายและสัญญาอนุญาตเสมอ",
          "Temple photographs always carry the photographer's name and licence."],
         ["งานบุญกับวันสำคัญขึ้นหน้ากิจกรรมของเว็บ คนที่หาว่าวันนี้มีอะไรจะเจอ",
@@ -85,12 +85,12 @@
          "Listed only when you ask. Nobody is put up without being asked first."],
         ["ลงเฉพาะที่คุณเลือกให้ลง — เบอร์ ไลน์ เส้นทางที่วิ่ง ภาษาที่พูด ประเภทรถ",
          "Only what you choose goes up — phone, LINE, the routes you run, the languages you speak, the vehicle."],
-        ["ไม่ลงที่อยู่บ้าน ไม่ลงทะเบียนรถ ไม่ลงเลขบัตรประชาชน ไม่เคยขอ",
-         "No home address, no plate number, no ID number. We never ask for them."],
+        ["ไม่ลงที่อยู่บ้าน ไม่ลงทะเบียนรถ ไม่ลงเลขบัตรประชาชน",
+         "No home address, no plate number, no ID number."],
         ["อยากเอาออกเมื่อไหร่ ทักมาคำเดียว เอาออกให้วันนั้น ไม่ถามเหตุผล",
          "Want it gone? One message and it comes down that day. No reason needed."],
         ["ฟรี ไม่มีค่าสมัคร ไม่มีรายเดือน ไม่มีค่าขึ้นอันดับ เพราะไม่มีอันดับให้ซื้อ",
-         "Free. No sign-up fee, no monthly charge, and nothing to buy your way up, because there is no ranking to buy."]
+         "Free. No sign-up fee, no monthly charge."]
       ],
       "back_th": "บอกมาแค่นี้ก็พอ: ชื่อที่อยากให้เรียก เบอร์ ไลน์ วิ่งแถวไหน รถอะไร นั่งได้กี่คน พูดภาษาอะไรบ้าง",
       "back_en": "This is all we need: the name you want used, phone, LINE, the areas you cover, the vehicle, how many seats, and which languages you speak."
@@ -109,17 +109,17 @@
       "lede_en": "Mot Dang is a directory for Chiang Mai and Chiang Rai. If you want to be findable, we will make you a page. Free, only what you allow, and taken down whenever you say.",
       "lede_shn": "မတ်တႅင် ပဵၼ်သဵၼ်ႈမၢႆ ၵဵင်းမႆႇလႄႈ ၵဵင်းႁၢႆး။ ႁဝ်းတေႁဵတ်းၼႃႈလိၵ်ႈပၼ်ၸဝ်ႈၵဝ်ႇ လၢႆလၢႆ။",
       "points": [
-        ["ฟรี ไม่เคยเก็บเงินคุณ และไม่เคยเก็บเงินจากนายจ้างด้วย ไม่ใช่นายหน้า",
-         "Free. We never charge you, and we never charge an employer either. We are not an agency.",
+        ["ฟรี ไม่เก็บเงินคุณ ไม่เก็บเงินจากนายจ้าง ไม่ใช่นายหน้า",
+         "Free — for you and for an employer. This is not an agency.",
          "လၢႆလၢႆ။ ဢမ်ႇလႆႈပၼ်ငိုၼ်း။"],
         ["ลงเฉพาะที่คุณเลือก — ชื่อที่อยากให้เรียก เบอร์หรือไลน์ ย่านที่รับงาน วันที่ว่าง ภาษาที่พูด",
          "Only what you choose — the name you want used, a phone or LINE, the areas you work, your free days, your languages.",
          "လိူၵ်ႈဢဝ်ႁင်းၵူၺ်း — ၸိုဝ်ႈ၊ မၢႆၾူၼ်း၊ တီႈႁဵတ်းၵၢၼ်၊ ဝၼ်းလွတ်ႈ၊ ၽႃႇသႃႇ။"],
-        ["ไม่ลงที่อยู่บ้านคุณ ไม่ลงชื่อนายจ้าง ไม่ลงเลขบัตร ไม่ลงเรื่องวีซ่าหรือใบอนุญาตทำงาน ไม่เคยถาม",
-         "Never your home address, never an employer's name, never an ID number, and nothing about visa or work permit. We do not ask.",
+        ["ไม่ลงที่อยู่บ้านคุณ ไม่ลงชื่อนายจ้าง ไม่ลงเลขบัตร ไม่ลงเรื่องวีซ่าหรือใบอนุญาตทำงาน",
+         "No home address, no employer's name, no ID number, nothing about visa or work permit.",
          "ဢမ်ႇလႆႈသႂ်ႇ တီႈယူႇႁိူၼ်း၊ ဢမ်ႇလႆႈသႂ်ႇ မၢႆၶႅပ်း။"],
         ["อยากเอาออก ทักมาคำเดียว เอาออกวันนั้น ไม่ถามว่าทำไม",
-         "Want it taken down? One message and it is gone that day. We do not ask why.",
+         "Want it taken down? One message and it is gone that day.",
          "သင်ဝႃႈ ၶႂ်ႈဢဝ်ဢွၵ်ႇ — ပွင်ႇၶၢဝ်ႇမႃးၵမ်းလဵဝ်။"],
         ["บอกได้ว่าพูดไทใหญ่ ไทย อังกฤษ พม่า — นายจ้างหลายบ้านหาคนที่คุยกันรู้เรื่อง",
          "Say which of Shan, Thai, English or Burmese you speak. Plenty of households are looking for exactly that.",

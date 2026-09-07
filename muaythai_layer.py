@@ -354,7 +354,7 @@ def emit(g, data):
     card("มงคล · ประเจียด — ของสองชิ้นบนตัวนักมวย", "Mongkhon and prajiad — two things on the fighter",
          bi("มงคล (mong-khon) คือเชือกถักวงกลมที่สวมหัวเข้ามาในเวที เป็นของค่าย ไม่ใช่ของนักมวยคนใดคนหนึ่ง ครูเป็นคนสวมและถอดให้ก่อนยกแรก ประเจียด (prà-jìat) คือผ้ารัดต้นแขน มักมีคาถาหรือยันต์พับอยู่ข้างใน สวมไว้ตลอดการชก",
             "The mongkhon (มงคล, mong-khon) is the braided circlet worn into the ring: it belongs to the camp, not to any one fighter, and the trainer puts it on and takes it off before round one. The prajiad (ประเจียด, prà-jìat) are the armbands, often with a katha or a folded yant inside, worn through the fight."),
-         f'<span class="say">{bi("ตามประเพณี — มงคลไม่วางถึงพื้น และบางค่ายมีข้อกำหนดว่าใครจับต้องได้ ของสองชิ้นนี้คือจุดที่มวยไทยพบกับสายยันต์-คาถา ซึ่งไปต่อได้ที่ wichaa ด้านล่าง", "Tradition holds — a mongkhon is never set on the floor, and some camps keep rules about who may handle it. These two objects are where muay thai meets the yant-and-katha tradition — which continues on wichaa, below.")}</span>')
+         f'<span class="say">{bi("ตามประเพณี — มงคลไม่วางถึงพื้น และบางค่ายมีข้อกำหนดว่าใครจับต้องได้ ของสองชิ้นนี้คือจุดที่มวยไทยพบกับสายยันต์-คาถา ซึ่งไปต่อได้ที่ wichaa ด้านล่าง", "Tradition holds — a mongkhon is not set on the floor, and some camps keep rules about who may handle it. These two objects are where muay thai meets the yant-and-katha tradition — which continues on wichaa, below.")}</span>')
     card("เสียงปี่กลอง — สี่คนที่คุมจังหวะทั้งคืน", "The music — four people who set the pace all night",
          bi("วงปี่กลอง: ปี่ชวา (pìi chá-waa, ปี่ลิ้นคู่เสียงแหลม) กลองแขกคู่ และฉิ่ง เล่นตั้งแต่ไหว้ครูจนระฆังยกสุดท้าย เพลงตอนไหว้ครูเรียกว่าสะระหม่า (sà-rá-màa) พอถึงยกท้าย ๆ จังหวะจะเร่งขึ้นตามการชก",
             "The pii klong ensemble: the pii chawaa (ปี่ชวา, pìi chá-waa — a shrill double-reed pipe), a pair of klong khaek drums (กลองแขก) and the ching cymbals (ฉิ่ง), playing from the wai khru to the last bell. The wai khru tune is the sarama (สะระหม่า, sà-rá-màa); in the late rounds the tempo climbs with the fight."),
@@ -442,7 +442,7 @@ def emit(g, data):
         f'<h2>{bi("ชั้นมวยไทย — สนาม ค่าย ยิม ร้านอุปกรณ์", "The Muay Thai shelf — stadiums, camps, gyms, gear")}</h2>'
         f'{shelf_html}'
         f'<h3>{bi("ค่ายมวยและยิมที่ฝึกได้", "Camps and gyms where you can train")} <span class="count">({len(camp_rows)})</span></h3>'
-        f'<p class="mt-note">{bi("เรียงตามชื่อ ไม่จัดอันดับ — ☎ LINE 🌐 คือช่องทางที่สารบัญมี ค่ายไหนยังไม่มีเบอร์ ช่วยกันเติมได้", "Alphabetical, unranked — ☎ LINE 🌐 mark the channels the directory holds; a camp with none yet can be filled in by anyone")}</p>'
+        f'<p class="mt-note">{bi("เรียงตามชื่อ — ☎ LINE 🌐 คือช่องทางที่สารบัญมี ค่ายไหนยังไม่มีเบอร์ ช่วยกันเติมได้", "Alphabetical — ☎ LINE 🌐 mark the channels the directory holds; a camp with none yet can be filled in by anyone")}</p>'
         f'{camps_html}'
         f'<h2>{bi("ก่อนเสียงปี่ดัง — เรื่องที่ควรรู้", "Before the pipes start — what you are looking at")}</h2>'
         f'{primer_html}{joins_html}'

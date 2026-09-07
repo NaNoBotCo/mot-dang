@@ -419,15 +419,12 @@ def emit(g, data):
         "หน้านี้รวบรวมที่ที่เกี่ยวกับสุขภาพคนข้ามเพศในสารบัญ พร้อมบอกตรง ๆ ว่ารู้มาจากไหน — "
         "บางแห่งบอกเองในช่องทางของตัวเอง บางแห่งชุมชนคนข้ามเพศแนะนำไว้ในสารบัญของชุมชนเอง "
         "และบางแห่งเป็นโรงพยาบาลที่แผนกที่เกี่ยวข้องน่าจะมีแต่ยังไม่ยืนยัน "
-        "มดแดงไม่จัดอันดับ ไม่ให้คะแนน และไม่ระบุชื่อหมอเป็นรายคน — "
-        "ความเก่งของหมอดูจากใบวุฒิบัตร ไม่ใช่จากดาว ตารางข้างล่างบอกว่าไปตรวจได้ที่ไหน",
+        "ตารางข้างล่างบอกว่าไปตรวจได้ที่ไหน",
         "This page collects the places in the directory that concern trans health, "
         "and says plainly where each fact comes from — some places state it in "
         "their own words, some are listed by the trans community's own directory, "
         "and some are hospitals where the relevant department is likely but "
-        "unconfirmed. Mot Dang does not rank, score, or name individual doctors: "
-        "competence is a board certification, not a star rating, and the table "
-        "below says where to check one.")
+        "unconfirmed. The table below says where to check a board certification.")
 
     zero_note = bi(
         f"วัดจริงเมื่อสร้างหน้า: จาก {n_records:,} รายการในสารบัญ มี {n_stating} แห่งที่ชื่อของตัวเอง"

@@ -494,14 +494,8 @@ def emit(g, data):
 
     # ---- assemble ---------------------------------------------------------
     intro = bi(
-        "หน้านี้มีสี่อย่าง: คำที่ต้องถามก่อนวางมัดจำ (ภาษาไทย เสียงอ่าน และรากคำ — รวมเหตุที่ตึกถูกสุดในเมืองชื่อ แมนชั่น) · ชั้นคอนโด อพาร์ตเมนต์ หอพัก และนายหน้า หลังการแยกชั้นตามป้ายจริงของตึก · ตัวเลขจริงของสิ่งที่ยังไม่มีใครถามตึกเลย · และทะเบียนสิ่งที่ตึกบอกเอง เรียงตามตัวอักษร ไม่จัดอันดับ ไม่ชี้ย่าน ไม่แนะนำการลงทุน",
-        "Four things on one page: the words to ask before the deposit, in Thai, with the sounds and the roots — including why the cheapest buildings in town are called Mansion · the condo, apartment, dorm and agent shelves, split by what each building's own sign says · the real counts of what nobody has asked the buildings yet · and the register of what buildings state for themselves. Alphabetical, unranked, no neighbourhood verdicts, no investment advice.")
-    rule_html = (
-        "<div class=\"re-rule\"><b>&#127968; " + bi("กติกาของหน้านี้", "The rule of this page")
-        + "</b>"
-        + bi("ตึกบอกเองว่าเป็นอะไรและมีอะไร — หรือหน้านี้บอกว่ายังไม่มีใครถาม · ช่องว่างแปลว่าเงียบ ไม่ได้แปลว่าไม่มี · ราคาขึ้นเฉพาะที่ประกาศจริง พร้อมวันที่ · หน้านี้ไม่จัดอันดับตึก ไม่บอกว่าย่านไหนดี ไม่แยกตึกฝรั่งตึกไทย และเรื่องกฎหมาย (โควตาต่างชาติ การโอนโฉนด) ให้คำถามกับที่ที่คำตอบอยู่ — นิติบุคคลและสำนักงานที่ดิน — ไม่เดาแทน",
-             "The building states what it is and what it has — or this page says nobody has asked · a blank is silence, not a no · prices appear only as posted, with a date · no rankings, no neighbourhood verdicts, no sorting into farang buildings and Thai ones — and where the law decides (the foreign quota, the chanote transfer), this page gives you the question and the office the answer lives in — the นิติบุคคล and the Land Office — rather than guessing statutes on your behalf.")
-        + "</div>")
+        "หน้านี้มีสี่อย่าง: คำที่ต้องถามก่อนวางมัดจำ (ภาษาไทย เสียงอ่าน และรากคำ — รวมเหตุที่ตึกถูกสุดในเมืองชื่อ แมนชั่น) · ชั้นคอนโด อพาร์ตเมนต์ หอพัก และนายหน้า หลังการแยกชั้นตามป้ายจริงของตึก · ตัวเลขจริงของสิ่งที่ยังไม่มีใครถามตึกเลย · และทะเบียนสิ่งที่ตึกบอกเอง เรียงตามตัวอักษร",
+        "Four things on one page: the words to ask before the deposit, in Thai, with the sounds and the roots — including why the cheapest buildings in town are called Mansion · the condo, apartment, dorm and agent shelves, split by what each building's own sign says · the real counts of what nobody has asked the buildings yet · and the register of what buildings state for themselves. Alphabetical.")
 
     # THE DOOR TO THE LISTING SHEET. This page is the buildings; the sheet is
     # the offers standing on them, and the two are separate instruments on
@@ -534,7 +528,7 @@ def emit(g, data):
         "<h1>&#127968; "
         + bi("อสังหาฯ-ที่พัก — คำที่ต้องถาม ตึกที่มี และสิ่งที่ยังไม่มีใครถาม",
              "Real estate & places to live — the words to ask, the buildings, and what nobody has asked them")
-        + "</h1><p class=\"re-intro\">" + intro + "</p>" + rule_html + door_html
+        + "</h1><p class=\"re-intro\">" + intro + "</p>" + door_html
 
         + h2("คำที่ต้องถามก่อนวางมัดจำ", "The words to ask before the deposit")
         + note("ค่าเช่าที่เห็นไม่ใช่ราคาจริงของห้อง จนกว่าจะรู้ค่าไฟหน่วยละ ค่าน้ำ ค่าส่วนกลาง และมัดจำ — คำพวกนี้ไม่อยู่บนเว็บประกาศไหนเลย",

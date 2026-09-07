@@ -71,7 +71,7 @@
    "notes": [
     {
      "th": "เรื่องถุงมือ ตอบตรงๆ ในห้าร้านนี้มีร้านเดียวที่มีหลักฐานลงวันที่ว่าขัดด้วยถุงมือ คือ Darin Health Massage (รีวิวผู้ใช้ ก.ค. 2567 ระบุถุงมือขัดผิว) อีกสี่ร้านบอกว่าทำขัดขี้ไคล แต่ไม่ได้บอกว่าใช้ถุงมือ ผ้า หรือมือเปล่า และมดแดงจะไม่เดาแทนร้าน ประโยคที่ใช้ถามตอนโทรจองคือ ขัดด้วยถุงมือไหมคะ/ครับ และจะเอาถุงมือไปเองก็ถามได้เหมือนกัน",
-     "en": "On the glove, plainly: of these five, one carries dated evidence of a mitt — Darin Health Massage, from a July 2024 reader review naming ถุงมือขัดผิว. The other four name the treatment and not the instrument, and we do not guess on behalf of a business. The sentence to use when you book is ขัดด้วยถุงมือไหมคะ/ครับ (khàt dûai thǔng-mʉʉ mǎi) — do you scrub with a mitt? Asking to bring your own is an ordinary request too.",
+     "en": "On the glove, plainly: of these five, one carries dated evidence of a mitt — Darin Health Massage, from a July 2024 reader review naming ถุงมือขัดผิว. The other four name the treatment and not the instrument. The sentence to use when you book is ขัดด้วยถุงมือไหมคะ/ครับ (khàt dûai thǔng-mʉʉ mǎi) — do you scrub with a mitt? Asking to bring your own is an ordinary request too.",
      "cls": "tinynote"
     },
     {
@@ -326,7 +326,7 @@
      "en": "Not one shop in the catalogue states that it works with tightly coiled hair — zero out of 18,686 records across both provinces, and that is a counted number, not a hunch. But “no shop has said so” and “no shop can” are different sentences. Chiang Mai has African, African-American and mixed-heritage residents and students who get their hair cut every month. The chairs exist; nobody has written it on a sign."
     },
     {
-     "th": "มดแดงจะไม่เดาชื่อร้านให้ เพราะการเดาผิดครั้งเดียวคือการส่งคนไปนั่งเก้าอี้ที่ช่างไม่เคยจับผมแบบนั้นมาก่อน ซึ่งจบลงด้วยผมที่เสียจริง ๆ ไม่ใช่แค่ทรงที่ไม่ถูกใจ",
+     "th": "ยังไม่มีร้านไหนบอกเอง",
      "en": "The ants will not guess a shop name here. One wrong guess puts somebody in a chair where the stylist has never handled that hair before, and that ends in real damage, not merely a cut you dislike."
     }
    ],
@@ -344,7 +344,7 @@
      ]
     },
     {
-     "th": "จะช่วยปิดช่องนี้ได้ยังไง: ถ้าคุณเจอร้านที่ทำได้จริง — หรือคุณเป็นช่างคนนั้นเอง — บอกมดแดงมาได้ คำตอบจะขึ้นเป็นป้าย 🌀 บนหน้าร้านนั้น และเป็นของสาธารณะให้คนถัดไปใช้ตลอดไป คำถามนี้ตอบได้ทางเดียวคือมีคนบอก",
+     "th": "จะช่วยปิดช่องนี้ได้ยังไง: ถ้าคุณเจอร้านที่ทำได้จริง — หรือคุณเป็นช่างคนนั้นเอง — บอกมดแดงมาได้ คำตอบจะขึ้นเป็นป้าย 🌀 บนหน้าร้านนั้น และเป็นของสาธารณะให้คนถัดไปใช้ คำถามนี้ตอบได้ทางเดียวคือมีคนบอก",
      "en": "How to close this: if you find a shop that genuinely does it — or you are that stylist — tell the ants. It becomes a 🌀 mark on that shop’s page, public for good, for whoever asks next. This question has exactly one way of being answered: somebody says so.",
      "cls": "tinynote",
      "links": [
@@ -522,8 +522,8 @@
    ],
    "notes": [
     {
-     "th": "เรียงตามตัวอักษร ไม่จัดอันดับ และไม่แยกว่าร้านไหนของฝรั่งร้านไหนของไทย ป้ายหน้าร้านอ่านเองได้ ชื่อร้านบอกเรื่องของมันเองอยู่แล้ว",
-     "en": "Alphabetical and unranked, and not sorted into farang shops and Thai shops. A reader can read a shopfront, and these names tell their own story.",
+     "th": "เรียงตามตัวอักษร ป้ายหน้าร้านอ่านเองได้ ชื่อร้านบอกเรื่องของมันเองอยู่แล้ว",
+     "en": "Alphabetical. A reader can read a shopfront, and these names tell their own story.",
      "cls": "tinynote"
     },
     {
@@ -1323,6 +1323,27 @@
     "cr-curated-immigration-central-chiangrai",
     "cm-curated-mfa-legalization-desk"
    ]
+  },
+  {
+   "key": "jerm-rot",
+   "q": {
+    "th": "เจิมรถมอเตอร์ไซค์ใหม่ ไปวัดไหนในเชียงใหม่ วันไหน เสียเท่าไหร่",
+    "en": "Where in Chiang Mai do you take a new motorbike to be blessed — which temple, which day, what does it cost?"
+   },
+   "asked_on": "2026-09-06",
+   "via": "walk",
+   "draft": true,
+   "find": {
+    "prov": "cm"
+   },
+   "show": "phone",
+   "lead": [
+    {
+     "th": "",
+     "en": ""
+    }
+   ],
+   "notes": []
   }
  ]
 }

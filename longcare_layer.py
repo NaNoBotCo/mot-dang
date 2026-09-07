@@ -190,7 +190,7 @@ def emit(g, data):
         head = (f'<h2 class="lc-h">{bi(sth, sen)} '
                 f'<span class="count">({len(srows)})</span></h2>')
         if skey == "addiction":
-            head += (f'<p class="lc-note">{bi("หน้านี้ไม่จัดอันดับ ไม่แนะนำที่ใด ไม่พูดถึงแนวทางหรือผลลัพธ์ของการบำบัด แต่ละแห่งพูดแทนตัวเองหรือยังไม่ได้พูด — และการอยากเลิกคือเรื่องปกติของคนธรรมดา ไม่ใช่เรื่องต้องกระซิบ", "This section ranks nothing, recommends nowhere, and says nothing about treatment approaches or outcomes — each place speaks for itself or has not yet. Wanting to stop is an ordinary human errand, not something to whisper.")}</p>')
+            head += (f'<p class="lc-note">{bi("แต่ละแห่งพูดแทนตัวเองหรือยังไม่ได้พูด", "Each place speaks for itself, or has not yet.")}</p>')
         if not stated:
             head += (f'<p class="lc-note">{bi("ยังไม่มีแถวใดถึงเกรด “บอกเอง” — ยังไม่ได้อ่านเว็บของสถานที่ใดเลย ทุกแถวข้างล่างคือคำของแผนที่หรือป้าย ไม่ใช่คำของสถานที่", "No row here has reached the ‘stated’ grade — no place’s own site has been read yet. Every row below is a map’s or a sign’s word, not the place’s own.")}</p>')
         section_html.append(head + "".join(card(r) for r in srows))
@@ -200,7 +200,13 @@ def emit(g, data):
         f'<h2 class="lc-h">{bi("พักฟื้น — ช่องว่างระหว่างออกจากโรงพยาบาลกับหายดี", "Convalescence — the gap between discharge and well")}</h2>'
         f'<p class="lc-intro">{bi("นับแล้วตรง ๆ: ในระเบียน 20,700 แห่งของสองจังหวัด ไม่มีชื่อไหนเขียนคำว่า พักฟื้น เลยแม้แต่แห่งเดียว ไม่ใช่ว่าการพักฟื้นไม่มีอยู่ — แต่มันวิ่งผ่านช่องทางอื่น: แผนกกายภาพบำบัด คลินิกต่อเนื่องของโรงพยาบาล และคนดูแลที่บ้าน ซึ่งไม่มีป้ายให้แผนที่เก็บ", "Counted plainly: across 20,700 records in both provinces, not one name carries the word พักฟื้น. Convalescent care is not absent — it runs through other channels: the physiotherapy shelf, a hospital’s own continuing-care clinics, and carers who come to the house, who have no sign for a map to hold.")}</p>'
         f'<p class="lc-note">{bi("สามทางที่มีจริงวันนี้", "The three ways in that exist today")}: '
-        f'<a href="cm/medical/physio/index.html">{bi("ชั้นกายภาพบำบัด", "the physiotherapy shelf")}</a> · '
+        # WO-55 found this pointing at cm/medical/physio/index.html, a page
+        # that has never been built: no record carries facilityType=physio
+        # (OSM has no healthcare=physiotherapist in either province), so the
+        # child is hidden and the link was a 404 on a live page. The specialty
+        # search is where the three physio names actually answer.
+        f'<a href="search.html?q=%E0%B8%81%E0%B8%B2%E0%B8%A2%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%9A%E0%B8%B3%E0%B8%9A%E0%B8%B1%E0%B8%94">{bi("ค้นกายภาพบำบัด", "search physiotherapy")}</a> · '
+        f'<a href="ot.html">{bi("กิจกรรมบำบัด", "occupational therapy")}</a> · '
         f'<a href="care.html">{bi("ดูแลต่อเนื่อง — แผนกและคลินิกนอกเวลาที่โรงพยาบาลบอกเอง", "ongoing care — the departments hospitals state themselves")}</a> · '
         f'{bi("และคำที่ต้องใช้ถามเคาน์เตอร์ก่อนออกจากโรงพยาบาล: ผู้ป่วยติดเตียง · ญาติเฝ้า · ผู้ดูแล (ดูตาราง)", "and the words to ask a desk with before discharge: ผู้ป่วยติดเตียง · ญาติเฝ้า · ผู้ดูแล (see the table)")}.</p>')
 
@@ -241,15 +247,14 @@ def emit(g, data):
         "โรงพยาบาล หาทางออกจากการติดสุราหรือสารเสพติด และหาชีวิตวัยเกษียณที่ยังแข็งแรง — "
         "หน้านี้แยกทั้งสี่ออกจากกัน เพราะการปนกันทำให้คนที่ต้องการเตียงคืนนี้ได้บทความไลฟ์สไตล์แทน "
         "ทุกแถวมีเกรดกำกับว่าใครเป็นคนพูด: แผนที่ ทางที่ใช้ประจำ หรือสถานที่พูดเอง "
-        "ไม่จัดอันดับ ไม่แนะนำ ไม่ใช่คำแนะนำทางการแพทย์ ที่ไหนไม่ได้พูด = เงียบ ไม่ใช่ 'ไม่มี'",
+        "ไม่ใช่คำแนะนำทางการแพทย์ ที่ไหนไม่ได้พูด = เงียบ ไม่ใช่ 'ไม่มี'",
         "Four questions people type as one — a place for an ageing parent, somewhere "
         "to recover after a hospital, a way out of an addiction, and a retirement "
         "that is a life and not a bed. This page keeps the four apart, because "
         "folding them together is how the family that needs a bed tonight gets a "
         "lifestyle article instead. Every row carries a grade naming who is "
-        "speaking: a map, the usual route, or the place itself. No rankings, no "
-        "recommendations, no medical advice. Where a place says nothing, that is "
-        "silence — never a 'no'.")
+        "speaking: a map, the usual route, or the place itself. This is not medical "
+        "advice. Where a place says nothing, that is silence — never a 'no'.")
 
     ld = {
         "@context": "https://schema.org", "@type": "ItemList",

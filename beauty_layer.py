@@ -50,9 +50,6 @@ import audit_beauty  # noqa: E402  (zero network; the เปีย stray guard)
 
 CSS = """
 .bt-intro{font-size:1.02rem;max-width:46rem}
-.bt-rule{margin:.8rem 0 1rem;padding:.7rem .9rem;border-radius:.8rem;background:var(--soft);
-  border:1px solid rgba(0,0,0,.07);font-size:.98rem}
-.bt-rule b{display:block;margin-bottom:.15rem}
 .bt-words{width:100%;border-collapse:collapse;margin:.6rem 0 1rem;font-size:.95rem}
 .bt-words th,.bt-words td{padding:.45rem .4rem;border-bottom:1px solid rgba(0,0,0,.08);
   text-align:left;vertical-align:top}
@@ -289,12 +286,10 @@ def emit(g, data):
     social = [r for r in linked if not _es.first_hand(_url_of(r))]
 
     gap_th = ("จาก {:,} ระเบียนในสองจังหวัด ไม่มีร้านไหนบอกเลยว่าทำผมหยิกฝอยแบบผมแอฟริกันได้ "
-              "— ไม่ใช่ว่าไม่มีร้านทำได้ แต่ไม่มีร้านไหนเคยพูด และหน้านี้จะไม่เดาแทน "
-              "เพราะการเดาว่า “ได้” หนึ่งครั้ง คือการส่งคนหนึ่งคนไปนั่งเก้าอี้ที่ไม่มีใครเคยจับผมแบบนั้นมาก่อน").format(total)
+              "— ไม่ใช่ว่าไม่มีร้านทำได้ แต่ไม่มีร้านไหนเคยพูด").format(total)
     gap_en = ("of {:,} records across both provinces state that they work with tightly coiled or "
               "Afro-textured hair. That is not the same as no shop being able to — it means no shop "
-              "has said so, and this page will not guess on their behalf. One wrong yes puts somebody "
-              "in a chair where nobody has handled their hair before.").format(total)
+              "has said so.").format(total)
     gap_html = (
         "<div class=\"bt-gap\"><b>&#127744; "
         + bi("ผมหยิกฝอย-ผมแอฟโฟร — สิ่งที่สารบัญนี้ยังตอบไม่ได้",
@@ -363,7 +358,7 @@ def emit(g, data):
             why[key] = why.get(key, 0) + 1
         reg_html = (
             note("ทุกบรรทัดคือคำที่ร้านเขียนไว้เอง พร้อมประโยคที่อ่านเจอ ไม่มีบรรทัดไหนที่ตรวจย้อนไม่ได้ ช่องว่างแปลว่าหน้าเว็บไม่ได้พูดถึง ไม่ได้แปลว่าไม่มี",
-                 "Every line is the shop’s own wording, with the sentence it was read from — nothing here is unauditable. A blank means the page did not mention it, never that the shop cannot.")
+                 "Every line is the shop’s own wording, with the sentence it was read from — nothing here is unauditable. A blank means the page did not mention it, not that the shop cannot.")
             + '<div class="bt-shops">' + "".join(cards) + "</div>"
             + note("อ่านไม่ได้ " + str(len(unread)) + " ร้าน: " + str(why.get("social", 0))
                    + " ร้านมีแต่ลิงก์เฟซบุ๊ก-ไลน์ (กำแพงล็อกอินไม่ใช่คำบอกของร้าน) · "
@@ -391,21 +386,15 @@ def emit(g, data):
 
     # ---- assemble ---------------------------------------------------------
     intro = bi(
-        "หน้านี้มีสี่อย่าง: คำที่ต้องพูดเพื่อให้ได้ทรงที่อยากได้ (ภาษาไทย เสียงอ่าน และรากคำ) · ชั้นร้านตัดผมชายและร้านเสริมสวยที่สารบัญมี · สิ่งที่ยังไม่มีใครถามร้านเลย พร้อมตัวเลขจริง · และทะเบียนบริการที่ร้านบอกเอง เรียงตามตัวอักษร ไม่จัดอันดับ ไม่แยกว่าร้านไหนของใคร",
-        "Four things on one page: the words to say to get the haircut you want, in Thai, with the sounds and the roots · the barber and salon shelves the directory holds · what nobody has asked the shops yet, with the real counts · and the register of services the shops state for themselves. Alphabetical, unranked, and never sorted by whose shop it is thought to be.")
-    rule_html = (
-        "<div class=\"bt-rule\"><b>&#128136; " + bi("กติกาของหน้านี้", "The rule of this page")
-        + "</b>"
-        + bi("ร้านบอกเองว่าทำอะไรได้ — หรือหน้านี้บอกว่ายังไม่มีใครถาม · ช่องว่างแปลว่าเงียบ ไม่ได้แปลว่าไม่มี · หน้านี้ไม่แยกร้านเป็นร้านฮิปกับร้านธรรมดา ร้านฝรั่งกับร้านไทย ป้ายหน้าร้านอ่านเองได้ และร้านทุกร้านที่เขียนว่า BARBER อยู่ในรายการเดียวกันทั้งหมด",
-             "The shop states what it can do — or this page says nobody has asked · a blank means silence, never a no · this page does not sort shops into the hip ones and the ordinary ones, the farang ones and the Thai ones. A reader can read a shopfront, and every shop that put BARBER on the sign is in one list.")
-        + "</div>")
+        "หน้านี้มีสี่อย่าง: คำที่ต้องพูดเพื่อให้ได้ทรงที่อยากได้ (ภาษาไทย เสียงอ่าน และรากคำ) · ชั้นร้านตัดผมชายและร้านเสริมสวยที่สารบัญมี · สิ่งที่ยังไม่มีใครถามร้านเลย พร้อมตัวเลขจริง · และทะเบียนบริการที่ร้านบอกเอง เรียงตามตัวอักษร",
+        "Four things on one page: the words to say to get the haircut you want, in Thai, with the sounds and the roots · the barber and salon shelves the directory holds · what nobody has asked the shops yet, with the real counts · and the register of services the shops state for themselves. Alphabetical.")
 
     og = shelf_og("cm", "beauty") if shelf_og else None
     body = (
         "<h1>&#128136; "
         + bi("เสริมสวย-ตัดผม — คำที่ต้องพูด ร้านที่มี และสิ่งที่ยังไม่มีใครถาม",
              "Hair — the word to ask for, the shops, and what nobody has asked them")
-        + "</h1><p class=\"bt-intro\">" + intro + "</p>" + rule_html
+        + "</h1><p class=\"bt-intro\">" + intro + "</p>"
 
         + h2("คำที่ต้องพูด", "The word to ask for")
         + note("ทรงที่อยากได้ ต้องมีคำเรียก ร้านที่ดัดดิจิตอลได้มีอยู่ทั่วเมือง แต่ถ้าพูดว่า “ดัดผม” เฉย ๆ อาจได้ดัดเย็นกลับบ้าน",
@@ -426,8 +415,8 @@ def emit(g, data):
         + census_html
 
         + h2("ร้านตัดผมชาย", "Barbers", len(barbers))
-        + note("เรียงตามตัวอักษร ไม่จัดอันดับ · ☎ LINE 🌐 🕒 คือสิ่งที่สารบัญมี · ก่อนหน้านี้ชั้นนี้มีอยู่ ๖ ร้าน เพราะ OpenStreetMap ติดป้าย hairdresser=barber ไว้แค่ ๖ จุด ที่เหลือเขียนคำว่า บาร์เบอร์ ไว้บนป้ายร้านตัวเอง",
-               "Alphabetical, unranked · ☎ LINE 🌐 🕒 mark what the directory holds · this shelf held six until this build, because OpenStreetMap tags hairdresser=barber on six points. The rest wrote BARBER on their own shopfront.")
+        + note("เรียงตามตัวอักษร · ☎ LINE 🌐 🕒 คือสิ่งที่สารบัญมี · ก่อนหน้านี้ชั้นนี้มีอยู่ ๖ ร้าน เพราะ OpenStreetMap ติดป้าย hairdresser=barber ไว้แค่ ๖ จุด ที่เหลือเขียนคำว่า บาร์เบอร์ ไว้บนป้ายร้านตัวเอง",
+               "Alphabetical · ☎ LINE 🌐 🕒 mark what the directory holds · this shelf held six until this build, because OpenStreetMap tags hairdresser=barber on six points. The rest wrote BARBER on their own shopfront.")
         + listing(barbers)
 
         + h2("ร้านเสริมสวย", "Salons", len(salons))

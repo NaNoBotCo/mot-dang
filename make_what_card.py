@@ -9,7 +9,7 @@ should be the tour, in one picture.
 
 So the card is built from the same files the page shows: four of the plates in
 assets/show/, fanned out like the pictures on the page itself, with the ants'
-three shortest promises beside them. Same source as the page means the card
+wordmark beside them. Same source as the page means the card
 cannot drift from what a reader finds when they arrive, which is the only
 promise a share card can actually make.
 
@@ -63,13 +63,6 @@ FAN = [
     ("counts.jpg", 3.5, 556, 262, 322),
 ]
 
-PROMISES = [
-    ("ไม่มีอันดับ", "nothing is ranked"),
-    ("ซื้อที่ยืนไม่ได้", "no place is for sale"),
-    ("ฟรีทั้งสองทาง", "free in both directions"),
-]
-
-
 def find_chrome():
     for c in CHROMES:
         if c and Path(c).exists():
@@ -108,8 +101,6 @@ def card_html():
             f'<img class="pl" style="left:{left}px;top:{top}px;'
             f'transform:rotate({rot}deg);width:{width}px" '
             f'src="{data_uri(f, "image/jpeg")}" alt="">')
-    promises = "".join(
-        f'<li><b>{th}</b><span>{en}</span></li>' for th, en in PROMISES)
     return f"""<!doctype html><meta charset="utf-8"><style>
 {font_faces()}
 *{{margin:0;padding:0;box-sizing:border-box}}
@@ -155,7 +146,6 @@ li span{{color:#6E5B44;font-size:20px;margin-left:9px}}
     <div class="wordmark">มดแดง<small>MOT DANG</small></div>
   </div>
   <h1>มดแดงคืออะไร<span>What Mot Dang is</span></h1>
-  <ul>{promises}</ul>
 </div>
 <div class="count"><b>20,702</b> ที่ · places · เชียงใหม่ · เชียงราย</div>
 <div class="trail t"></div><div class="trail b"></div>

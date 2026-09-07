@@ -4,14 +4,7 @@
   "topic the site already keeps a page for. WO-24. Every reader-facing string",
   "is a [th, en] pair; build.py refuses the file otherwise.",
   "",
-  "How a panel is triggered, three ways, any one is enough:",
-  "  shelves  — a category key the mined table (search_shelves.json) lifted",
-  "             from the query. Use ONLY when every term mapping to that key",
-  "             names the topic itself: 'chang' is safe (all its words are",
-  "             elephant words), 'cooking' is NOT — the mined table sends",
-  "             มังสวิรัติ (a vegetarian looking for dinner) to the cooking",
-  "             shelf, and a class panel over a dinner search answers the",
-  "             wrong question. Broad topics trigger by variants instead.",
+  "How a panel is triggered, TWO ways now, either is enough:",
   "  variants — words compared against each analyzed term's expansions, so a",
   "             Thai form, its Northern form and its English gloss all count",
   "             if the thesaurus knows them (จ๊าง reaches the chang panel",
@@ -19,13 +12,34 @@
   "  query    — normalized substrings of the whole query, for multi-word",
   "             names the segmenter takes apart (yi peng).",
   "",
+  "A LIFTED SHELF NO LONGER OPENS A PANEL (2026-09-06). There was a third way",
+  "in — `shelves`, meaning a category key the mined table lifted out of the",
+  "query — and it is retired. The mined table (search_shelves.json) is built",
+  "from each shelf's own English TEASER PROSE, so the chang teaser's phrase",
+  "\"the gate and the chedis that carry its name\" put gate, carry, white, day,",
+  "paper and poo into the table pointing at elephants. Michael typed",
+  "\"parking for motorcycle near taphae gate\" and got the full elephant door",
+  "above the page's own note that nothing had matched.",
+  "",
+  "The old rule asked curators to use `shelves` ONLY where every mined word",
+  "names the topic. That is not a check a person can make: the words are",
+  "mined, they change when a teaser is reworded, and they are not visible in",
+  "this file. It failed on `clinic` in August and on `gate` in September, both",
+  "out of the same sentence, so the kind is gone rather than patched again.",
+  "",
+  "`shelves` IS STILL READ, for the other thing it always did: a panel that",
+  "opened joins its shelf to the lift, which raises on-shelf rows and splits",
+  "the namesakes out below them. Keep it accurate. It just cannot summon a",
+  "panel any more.",
+  "",
   "shelf_stops (top level) — the mined table's wrong turns: a word mapped to",
-  "a shelf it does not name. 'clinic' reached chang through the elephant-",
-  "hospital child's English name, so a person looking for people-medicine got",
-  "the elephant door. Per word, per shelf: the word stops lifting that shelf",
-  "and stops opening its panel, while real topic words still do. The lasting",
-  "fix is a generic-word rule in search-core's shelves_motdang(), filed in",
-  "search-core/SEARCH.md Known gaps.",
+  "a shelf it does not name. These no longer open a door, but they still LIFT,",
+  "which reorders rows: typing any gate in this city floated elephant camps to",
+  "the top of the list. Per word, per shelf, so real topic words are untouched",
+  "and \"elephant clinic\" still lands — ช้าง lifts chang on its own.",
+  "The lasting fix is the topic-word rule in search-core's shelves_motdang(),",
+  "which stops these being mined at all; this list holds the line for a table",
+  "built before it.",
   "",
   "First panel to speak wins — keep this list ordered narrow to broad.",
   "Internal door hrefs are root-relative and must exist in the built site;",
@@ -35,6 +49,49 @@
  "shelf_stops": {
   "clinic": [
    "chang"
+  ],
+  "gate": [
+   "chang"
+  ],
+  "white": [
+   "chang"
+  ],
+  "day": [
+   "chang",
+   "cooking"
+  ],
+  "paper": [
+   "chang"
+  ],
+  "poo": [
+   "chang"
+  ],
+  "carry": [
+   "chang"
+  ],
+  "about": [
+   "chang"
+  ],
+  "states": [
+   "chang"
+  ],
+  "shows": [
+   "chang"
+  ],
+  "night": [
+   "muaythai"
+  ],
+  "nights": [
+   "muaythai"
+  ],
+  "tonight": [
+   "muaythai"
+  ],
+  "costs": [
+   "muaythai"
+  ],
+  "work": [
+   "massage"
   ]
  },
  "panels": [
@@ -46,7 +103,20 @@
    ],
    "variants": [
     "ช้าง",
-    "elephant"
+    "elephant",
+    "elephants",
+    "sanctuaries",
+    "mahouts",
+    "ควาญ",
+    "ปางช้าง",
+    "ศูนย์ช้าง",
+    "ดูช้าง",
+    "ป้อนช้าง",
+    "อาบน้ำช้าง",
+    "วันช้างไทย",
+    "คลินิกช้าง",
+    "กระดาษมูลช้าง",
+    "ปางที่ไม่มีขี่ช้าง"
    ],
    "title": [
     "ช้าง",
@@ -62,8 +132,8 @@
      "Thai Elephant Day — 13 March"
     ],
     [
-     "ปางบอกเอง เราไม่จัดอันดับ",
-     "each camp speaks for itself — no rankings here"
+     "ปางบอกเอง",
+     "each camp speaks for itself"
     ]
    ],
    "count": {
@@ -105,6 +175,12 @@
    "delight": [
     "ชื่อบ้านนามเมืองก็มีช้าง — ช้างเผือก ช้างคลาน ช้างม่อย ดอยช้าง ตั้งตามช้างทั้งนั้น แต่ไม่ใช่ปางช้าง รายชื่อเต็มอยู่ท้ายหน้าทะเบียน",
     "Place names carry elephants too — Chang Phueak, Chang Khlan, Chang Moi, Doi Chang are all named for them, and none is a camp. The full toponym list lives on the register page."
+   ],
+   "query": [
+    "ปางช้าง",
+    "elephant camp",
+    "elephant sanctuary",
+    "ควาญช้าง"
    ]
   },
   {
@@ -115,7 +191,16 @@
    ],
    "variants": [
     "มวยไทย",
-    "muaythai"
+    "muaythai",
+    "มวย",
+    "ค่ายมวย",
+    "สนามมวย",
+    "เรียนมวย",
+    "ดูมวยคืนนี้",
+    "ไหว้ครูรำมวย",
+    "ประเจียด",
+    "muay",
+    "boxing"
    ],
    "title": [
     "มวยไทย",
@@ -149,7 +234,12 @@
    ],
    "query": [
     "มวยไทย",
-    "muay thai"
+    "muay thai",
+    "ค่ายมวย",
+    "สนามมวย",
+    "เรียนมวย",
+    "muay thai gym",
+    "boxing stadium"
    ]
   },
   {
@@ -210,7 +300,14 @@
     "ร้านทำผม",
     "haircut",
     "hairdresser",
-    "เสริมสวย"
+    "เสริมสวย",
+    "barbers",
+    "salons",
+    "hair",
+    "nails",
+    "ต่อผม",
+    "ทำเล็บ",
+    "ร้านผม"
    ],
    "title": [
     "เสริมสวย-ตัดผม",
@@ -245,7 +342,13 @@
    "query": [
     "ตัดผม",
     "ทำผม",
-    "เสริมสวย"
+    "เสริมสวย",
+    "ร้านตัดผม",
+    "ทำเล็บ",
+    "ต่อผม",
+    "barber",
+    "nail salon",
+    "hair salon"
    ]
   },
   {
@@ -378,8 +481,8 @@
    ],
    "facts": [
     [
-     "โรงพยาบาลบอกเอง เราไม่จัดอันดับ และไม่ใช่คำแนะนำทางการแพทย์",
-     "each hospital speaks for itself — no rankings here, and no medical advice"
+     "โรงพยาบาลบอกเอง ไม่ใช่คำแนะนำทางการแพทย์",
+     "each hospital speaks for itself — not medical advice"
     ],
     [
      "ที่ไหนไม่ได้เขียนไว้ = เงียบ ไม่ได้แปลว่าไม่มี",
@@ -439,8 +542,8 @@
      "ring 1330 to ask about your own hormone coverage"
     ],
     [
-     "ที่บอกเอง เราไม่จัดอันดับ",
-     "each place speaks for itself — no rankings here"
+     "ที่บอกเอง",
+     "each place speaks for itself"
     ]
    ],
    "doors": [
@@ -537,7 +640,7 @@
      "check your own medicine with the FDA itself — search the generic name"
     ],
     [
-     "ไม่มีขนาดยาในหน้านี้ และเราไม่มีความเห็นว่าใครควรกินอะไร",
+     "ไม่มีขนาดยาในหน้านี้",
      "no doses here, and no view on what anyone should take"
     ]
    ],
@@ -666,7 +769,8 @@
     "flights",
     "ไฟลท์",
     "สนามบิน",
-    "airport"
+    "airport",
+    "airports"
    ],
    "title": [
     "เที่ยวบิน",
@@ -688,7 +792,9 @@
    ],
    "query": [
     "เที่ยวบิน",
-    "สนามบิน"
+    "สนามบิน",
+    "สนามบินเชียงใหม่",
+    "chiang mai airport"
    ]
   },
   {
@@ -701,7 +807,13 @@
     "นวด",
     "massage",
     "สปา",
-    "spa"
+    "spa",
+    "นวดแผนไทย",
+    "นวดเท้า",
+    "ตอกเส้น",
+    "ย่ำขาง",
+    "ประคบ",
+    "จับเส้น"
    ],
    "title": [
     "นวด-สปา",
@@ -725,6 +837,17 @@
       "the Chiang Mai shelf"
      ]
     }
+   ],
+   "query": [
+    "tok sen",
+    "ตอกเส้น",
+    "ย่ำขาง",
+    "นวดแผนไทย",
+    "นวดเท้า",
+    "thai massage",
+    "foot massage",
+    "herbal compress",
+    "ประคบสมุนไพร"
    ]
   },
   {
@@ -785,7 +908,22 @@
     "หอพัก",
     "แมนชั่น",
     "mansion",
-    "อสังหา"
+    "อสังหา",
+    "บ้านเช่า",
+    "โฉนด",
+    "ที่ดิน",
+    "ทาวน์เฮ้าส์",
+    "หมู่บ้าน",
+    "chanote",
+    "townhouse",
+    "moobaan",
+    "leasehold",
+    "condominium",
+    "apartments",
+    "condos",
+    "dorms",
+    "mansions",
+    "นายหน้า"
    ],
    "query": [
     "real estate",
@@ -795,7 +933,66 @@
     "หมู่บ้านจัดสรร",
     "dormitory",
     "ที่พักรายเดือน",
-    "monthly rent"
+    "monthly rent",
+    "house for rent",
+    "houses for rent",
+    "house for sale",
+    "houses for sale",
+    "rent a house",
+    "buy a house",
+    "house rent",
+    "home for rent",
+    "home for sale",
+    "room for rent",
+    "rooms for rent",
+    "place to live",
+    "somewhere to live",
+    "long term rental",
+    "long-term rental",
+    "long stay",
+    "monthly rental",
+    "monthly room",
+    "housing",
+    "housing estate",
+    "property for sale",
+    "property for rent",
+    "pool villa",
+    "villa for rent",
+    "villa for sale",
+    "townhouse",
+    "town house",
+    "studio apartment",
+    "serviced apartment",
+    "moobaan",
+    "mooban",
+    "mubaan",
+    "muban",
+    "บ้านให้เช่า",
+    "เช่าบ้าน",
+    "ขายบ้าน",
+    "บ้านเดี่ยว",
+    "บ้านจัดสรร",
+    "ทาวน์เฮ้าส์",
+    "ทาวน์เฮาส์",
+    "ทาวน์โฮม",
+    "ห้องให้เช่า",
+    "เช่าห้อง",
+    "ที่พักระยะยาว",
+    "อยู่รายเดือน",
+    "land for sale",
+    "ที่ดิน",
+    "ขายที่ดิน",
+    "ที่ดินขาย",
+    "chanote",
+    "โฉนด",
+    "title deed",
+    "leasehold",
+    "freehold",
+    "ตารางวา",
+    "square wah",
+    "ตร.ว.",
+    "estate agent",
+    "นายหน้าอสังหา"
    ],
    "title": [
     "อสังหาฯ-ที่พัก",
@@ -811,8 +1008,8 @@
      "the per-unit electric rate — ask before signing"
     ],
     [
-     "ตึกบอกเอง เราไม่จัดอันดับ",
-     "buildings speak for themselves — no rankings here"
+     "ตึกบอกเอง",
+     "buildings speak for themselves"
     ]
    ],
    "count": {
@@ -827,6 +1024,13 @@
      "label": [
       "คำที่ต้องถาม-ทะเบียนตึก",
       "the words & the register"
+     ]
+    },
+    {
+     "href": "listings/",
+     "label": [
+      "กระดานประกาศ — ขาย-เช่า พร้อมวันที่",
+      "the Listing Sheet — what is for sale and for rent, dated"
      ]
     },
     {
@@ -847,6 +1051,9 @@
    "delight": [
     "ตึกถูกสุดในเมืองชื่อ แมนชั่น — คำอังกฤษที่แปลว่าคฤหาสน์ มาถึงเมืองไทยแล้วกลายเป็นห้องเช่ารายเดือนธรรมดา ๆ ส่วน คอร์ท ก็เรือนเดียวกัน",
     "The cheapest buildings in town are called Mansion — English for a grand house, arrived in Thailand as a plain monthly room. Court took the same journey."
+   ],
+   "shelves": [
+    "realestate"
    ]
   },
   {
@@ -925,8 +1132,8 @@
    ],
    "facts": [
     [
-     "ไม่จัดอันดับ ไม่แนะนำที่ใด และไม่ใช่คำแนะนำทางการแพทย์",
-     "no rankings, no recommendations, and no medical advice"
+     "ไม่ใช่คำแนะนำทางการแพทย์",
+     "not medical advice"
     ],
     [
      "ที่ไหนไม่ได้พูด = เงียบ ไม่ได้แปลว่าไม่มี",
@@ -1019,8 +1226,8 @@
      "an OT here holds a Healing Arts licence — the name-check is a public register"
     ],
     [
-     "ไม่จัดอันดับ ไม่ระบุชื่อบุคคล ไม่ใช่คำแนะนำทางการแพทย์",
-     "no rankings, no named clinicians, no medical advice"
+     "ไม่ใช่คำแนะนำทางการแพทย์",
+     "not medical advice"
     ]
    ],
    "doors": [
@@ -1057,6 +1264,747 @@
    "delight": [
     "คำที่ใช้ถามที่เคาน์เตอร์คือ งานกิจกรรมบำบัด — ในโรงพยาบาลรัฐมันอยู่ใต้ กลุ่มงานเวชกรรมฟื้นฟู ห้องเดียวกับกายภาพบำบัดและกายอุปกรณ์",
     "The counter word is งานกิจกรรมบำบัด — in a state hospital it lives under the rehabilitation-medicine group, the same corridor as physiotherapy and prosthetics."
+   ]
+  },
+  {
+   "id": "skin",
+   "glyph": "🩹",
+   "variants": [
+    "ผิวหนัง",
+    "โรคผิวหนัง",
+    "หมอผิวหนัง",
+    "แพทย์ผิวหนัง",
+    "คลินิกผิวหนัง",
+    "ตจวิทยา",
+    "dermatology",
+    "dermatologist",
+    "โรซาเซีย",
+    "rosacea",
+    "สะเก็ดเงิน",
+    "psoriasis",
+    "eczema",
+    "ผื่นแพ้"
+   ],
+   "query": [
+    "ผิวหนัง",
+    "หมอผิวหนัง",
+    "แพทย์ผิวหนัง",
+    "คลินิกผิวหนัง",
+    "ตจวิทยา",
+    "ตจแพทย์",
+    "dermatolog",
+    "skin doctor",
+    "skin clinic",
+    "skin specialist",
+    "โรซาเซีย",
+    "โรซาเชีย",
+    "โรคหน้าแดง",
+    "rosacea",
+    "สะเก็ดเงิน",
+    "psoriasis",
+    "eczema",
+    "dermatitis",
+    "ผื่นแพ้",
+    "ผื่นคัน",
+    "ลมพิษ",
+    "urticaria",
+    "hives",
+    "ด่างขาว",
+    "vitiligo",
+    "ฝ้า",
+    "melasma",
+    "รักษาสิว",
+    "acne treatment",
+    "ฉายแสงผิวหนัง",
+    "phototherapy"
+   ],
+   "title": [
+    "ผิวหนัง — โรคผิวหนัง หมอผิวหนัง และคลินิกความงาม",
+    "Skin — dermatology, dermatologists and the aesthetic counter"
+   ],
+   "lead": [
+    "ไม่มีป้ายไหนในสองจังหวัดเขียนชื่อโรคผิวหนัง — โรซาเซีย สิว ผื่น สะเก็ดเงิน ไปทางประตูเดียวกันคือแพทย์ผิวหนัง หน้านี้รวมแผนกโรคผิวหนังของโรงพยาบาลที่บอกวัน ชั้น และเบอร์เอง คลินิกผิวหนังตามแผนที่ และคลินิกความงามที่เป็นคนละเคาน์เตอร์",
+    "No sign in either province names a skin disease — rosacea, acne, rashes and psoriasis all go through one door, the dermatologist. This page holds the hospital dermatology clinics that state their own days, floors and numbers, the mapped skin clinics, and the aesthetic clinics that are a different counter."
+   ],
+   "facts": [
+    [
+     "บนป้ายโรงพยาบาล “โรคผิวหนัง” กับ “ความงาม/ผิวพรรณ” มักอยู่ใต้ศูนย์เดียวกันแต่เป็นคนละบรรทัด คนละเวลา — ราชเวชเปิดโรคผิวหนังเช้าสี่วัน ผิวพรรณทุกวันถึงค่ำ",
+     "On a hospital sign 'skin disease' and 'aesthetics' usually share one centre and sit on different lines with different hours — Rajavej runs skin disease four mornings, complexion every day until evening"
+    ],
+    [
+     "โรงเรียนแพทย์บอกเอง: คลินิกโรคผิวหนังของรัฐที่สวนดอก อังคาร พฤหัส ศุกร์ เช้า ชั้น 10 อาคารศรีพัฒน์ ห้องฉายแสงชั้น 12",
+     "The medical school states it: the state dermatology clinic at Suan Dok runs Tue, Thu, Fri mornings on floor 10 of the Sriphat building, phototherapy on floor 12"
+    ],
+    [
+     "ไม่มีราคาในหน้านี้ ไม่มีชื่อแพทย์ และเราไม่มีความเห็นว่าใครควรรักษาที่ไหน",
+     "No prices here, no doctors' names, and no view on where anyone should be treated"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "skin.html",
+     "main": true,
+     "label": [
+      "หน้าผิวหนัง — แผนกโรคผิวหนัง คลินิกผิวหนัง และคำบนป้าย",
+      "the skin page — dermatology departments, skin clinics and the words on the doors"
+     ]
+    },
+    {
+     "href": "care.html",
+     "label": [
+      "ดูแลต่อเนื่อง — คลินิกนอกเวลา เอกสาร",
+      "ongoing care — after-hours clinics, paperwork"
+     ]
+    },
+    {
+     "href": "asked/biologics.html",
+     "label": [
+      "ยาชีววัตถุรักษาสะเก็ดเงิน",
+      "psoriasis biologics"
+     ]
+    },
+    {
+     "href": "cm/medical/index.html",
+     "label": [
+      "ชั้นหมอ-สถานพยาบาล",
+      "the medical shelf"
+     ]
+    }
+   ],
+   "delight": [
+    "หน่วยโรคผิวหนัง มช. พิมพ์ตารางห้องฉายแสงอัลตราไวโอเลตไว้ทั้งสัปดาห์ — วันจันทร์ 08:30–16:30 วันพุธถึงเที่ยง วันอื่นแบ่งเช้าบ่าย — เป็นหน้าเดียวในภาคเหนือที่บอกคนไข้สะเก็ดเงินว่าห้องนี้เปิดกี่โมงโดยไม่ต้องโทร",
+    "CMU's dermatology division prints its ultraviolet room's whole week — Monday 08:30–16:30, Wednesday to noon, the other days split morning and afternoon — the one page in the north that tells a psoriasis patient when that room is open without a phone call."
+   ]
+  },
+  {
+   "id": "funerals",
+   "glyph": "🪷",
+   "variants": [
+    "งานศพ",
+    "ฌาปนกิจ",
+    "สุสาน",
+    "ป่าช้า",
+    "เมรุ",
+    "ฌาปนสถาน",
+    "funeral",
+    "cremation",
+    "พวงหรีด",
+    "โลงศพ"
+   ],
+   "query": [
+    "งานศพ",
+    "ฌาปนกิจ",
+    "ฌาปนสถาน",
+    "ณาปนสถาน",
+    "สุสาน",
+    "ป่าช้า",
+    "เมรุ",
+    "funeral",
+    "cremation",
+    "crematorium",
+    "พวงหรีด",
+    "หรีด",
+    "โลงศพ",
+    "หีบศพ",
+    "สวดอภิธรรม",
+    "รดน้ำศพ",
+    "ลอยอังคาร",
+    "แจ้งตาย",
+    "ใบมรณบัตร",
+    "death certificate"
+   ],
+   "title": [
+    "งานศพและสุสานประจำหมู่บ้าน",
+    "Funerals and the village grounds"
+   ],
+   "lead": [
+    "เกือบทั้งหมดเกิดที่วัดและสุสานประจำหมู่บ้าน ไม่ใช่ที่บริษัท — หน้านี้บอกว่าลานอยู่ที่ไหน ลำดับขั้นเป็นอย่างไร และคำที่จะได้ยินคืออะไร",
+    "Nearly all of it happens at a temple and the village's own ground rather than at a company — this page says where the grounds are, what order things happen in, and what the words mean."
+   ],
+   "facts": [
+    [
+     "สุสาน ที่นี่คือลานเผา ไม่ใช่ที่ฝัง",
+     "a สุสาน here is a cremation ground, not a burial place"
+    ],
+    [
+     "ไม่มีใครประกาศราคา ถามที่วัดและขอแยกรายการได้",
+     "nobody publishes a price; ask the temple, and asking for the items separately is ordinary"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "funerals.html",
+     "main": true,
+     "label": [
+      "หน้างานศพในเชียงใหม่",
+      "the Funerals in Chiang Mai page"
+     ]
+    },
+    {
+     "href": "cm/community/cremation/index.html",
+     "label": [
+      "สุสานประจำหมู่บ้าน",
+      "the village grounds"
+     ]
+    },
+    {
+     "href": "cm/essentials/gov/index.html",
+     "label": [
+      "แจ้งตายที่อำเภอ",
+      "registering a death"
+     ]
+    }
+   ],
+   "delight": [
+    "ชื่อของสุสานคือชื่อหมู่บ้านเสมอ — สุสานบ้านกาดฮาว ป่าช้าบ้านหัวฝาย — เพราะมันเป็นของหมู่บ้านนั้นจริง ๆ",
+    "A ground's name is always its village's name, because it genuinely belongs to that village."
+   ]
+  },
+  {
+   "id": "driving",
+   "glyph": "🛵",
+   "variants": [
+    "ใบขับขี่",
+    "ทำใบขับขี่",
+    "ต่อใบขับขี่",
+    "สอนขับรถ",
+    "โรงเรียนสอนขับรถ",
+    "driving licence",
+    "driving license",
+    "driving school",
+    "ขนส่ง"
+   ],
+   "query": [
+    "ใบขับขี่",
+    "ทำใบขับขี่",
+    "ต่อใบขับขี่",
+    "สอบใบขับขี่",
+    "สอนขับรถ",
+    "โรงเรียนสอนขับรถ",
+    "driving licen",
+    "driving school",
+    "สำนักงานขนส่ง",
+    "ขนส่งจังหวัด",
+    "dlt",
+    "smart queue",
+    "international driving permit",
+    "idp",
+    "เลื่อนล้อต่อภาษี",
+    "ต่อภาษีรถ"
+   ],
+   "title": [
+    "ใบขับขี่และโรงเรียนสอนขับรถ",
+    "The driving licence and the schools"
+   ],
+   "lead": [
+    "เชียงใหม่มีสำนักงานขนส่งสองแห่งและทำคนละงาน — ใบขับขี่อยู่ที่แม่เหียะ ไม่ใช่หนองหอย และคิวต้องจองล่วงหน้าหนึ่งวัน",
+    "Chiang Mai has two transport offices doing different work — licences are at Mae Hia, not Nong Hoi — and the queue must be booked a day ahead."
+   ],
+   "facts": [
+    [
+     "จองคิวล่วงหน้าอย่างน้อย 1 วันผ่าน DLT Smart Queue",
+     "book at least one day ahead through DLT Smart Queue"
+    ],
+    [
+     "ใบรับรองแพทย์ต้องออกไม่เกิน 1 เดือน",
+     "the medical certificate must be less than a month old"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "driving.html",
+     "main": true,
+     "label": [
+      "หน้าใบขับขี่ เชียงใหม่",
+      "the The Thai driving licence, Chiang Mai page"
+     ]
+    },
+    {
+     "href": "cm/transport/rental/index.html",
+     "label": [
+      "เช่ารถ-มอเตอร์ไซค์",
+      "car and bike rental"
+     ]
+    },
+    {
+     "href": "asked/document-prep.html",
+     "label": [
+      "ทำเอกสาร",
+      "documents"
+     ]
+    }
+   ],
+   "delight": [
+    "สำนักงานแห่งที่ 1 หนองหอย ทำทะเบียนมอเตอร์ไซค์และภาษีแบบไม่ต้องลงจากรถ แห่งที่ 2 แม่เหียะ ทำใบขับขี่ — ไปผิดที่คือเสียไปหนึ่งวัน",
+    "Branch 1 at Nong Hoi does motorcycle registration and drive-thru tax; branch 2 at Mae Hia does licences. Going to the wrong one costs a day."
+   ]
+  },
+  {
+   "id": "bpo",
+   "glyph": "🏢",
+   "variants": [
+    "outsourcing",
+    "bpo",
+    "รับจ้างงานธุรกิจ",
+    "คอลเซ็นเตอร์",
+    "call center",
+    "back office",
+    "สำนักงานบัญชี",
+    "payroll",
+    "เงินเดือน"
+   ],
+   "query": [
+    "outsourc",
+    "bpo",
+    "back office",
+    "call cent",
+    "คอลเซ็นเตอร์",
+    "รับจ้างงาน",
+    "เอาท์ซอร์ส",
+    "สำนักงานบัญชี",
+    "รับทำบัญชี",
+    "accounting service",
+    "bookkeep",
+    "payroll",
+    "เงินเดือน",
+    "จัดหางาน",
+    "recruitment agency",
+    "staffing",
+    "employer of record",
+    "boi",
+    "ส่งเสริมการลงทุน",
+    "work permit company"
+   ],
+   "title": [
+    "รับจ้างงานธุรกิจ (BPO)",
+    "Business process outsourcing"
+   ],
+   "lead": [
+    "สามแบบที่ต่างกันมาก: คอลเซ็นเตอร์ภาษายุโรปที่จ้างฝรั่งอยู่ที่นี่ · สำนักงานบัญชี-วีซ่าที่รับงานหลังบ้าน · และบริษัทจัดหาคนที่ส่งพนักงานเข้าองค์กรอื่น หน้านี้อ่านจากหน้าของแต่ละที่เอง",
+    "Three quite different kinds: European-language contact centres employing foreigners here, accounting-and-visa firms running small companies' back offices, and staffing companies placing workers inside other organisations. Read from each company's own site."
+   ],
+   "facts": [
+    [
+     "บริษัทต่างชาติถือหุ้นข้างมากในธุรกิจบริการได้ทางหนึ่งคือได้รับการส่งเสริมจาก BOI",
+     "BOI promotion is the route by which a foreign-owned service company may hold a majority"
+    ],
+    [
+     "ตรวจนิติบุคคลได้เองที่คลังข้อมูลธุรกิจ DBD ก่อนจ้างหรือก่อนสมัคร",
+     "check any company yourself in the DBD register before hiring or applying"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "bpo.html",
+     "main": true,
+     "label": [
+      "หน้ารับจ้างงานธุรกิจ (BPO) เชียงใหม่",
+      "the Business process outsourcing, Chiang Mai page"
+     ]
+    },
+    {
+     "href": "cm/business/coworking/index.html",
+     "label": [
+      "โคเวิร์กกิ้ง — ที่นั่งทำงาน",
+      "co-working — desks"
+     ]
+    },
+    {
+     "href": "asked/document-prep.html",
+     "label": [
+      "ทำเอกสาร วีซ่า แปล",
+      "documents, visas, translation"
+     ]
+    }
+   ],
+   "delight": [
+    "บริษัท BPO ที่ใหญ่ที่สุดในเมืองนี้รับสายเป็นภาษาเยอรมัน ฝรั่งเศส สเปน และดัตช์ ให้ธุรกิจเล็กในยุโรป — จากตึกบนถนนมหิดล",
+    "The city's most visible BPO answers the phone in German, French, Spanish and Dutch for small businesses in Europe — from a building on Mahidol Road."
+   ]
+  },
+  {
+   "id": "stroke",
+   "glyph": "🧠",
+   "variants": [
+    "โรคหลอดเลือดสมอง",
+    "หลอดเลือดสมอง",
+    "อัมพฤกษ์",
+    "อัมพาต",
+    "stroke",
+    "ฟื้นฟูระยะกลาง",
+    "IMC",
+    "ระบบประสาท"
+   ],
+   "query": [
+    "หลอดเลือดสมอง",
+    "อัมพฤกษ์",
+    "อัมพาต",
+    "stroke",
+    "ฟื้นฟูระยะกลาง",
+    "ระยะกลาง",
+    "intermediate care",
+    "เยี่ยมบ้าน",
+    "ระบบประสาท",
+    "neurolog",
+    "ปากเบี้ยว",
+    "แขนขาอ่อนแรง",
+    "hemipleg",
+    "paralysis",
+    "rehabilitation"
+   ],
+   "title": [
+    "โรคหลอดเลือดสมองและการฟื้นฟู",
+    "Stroke and rehabilitation"
+   ],
+   "lead": [
+    "สามช่วงเวลา สามประตู: ชั่วโมงแรก (1669 ห้องฉุกเฉินที่มีหน่วยสโตรก) คลินิกติดตาม และหกเดือนแรกที่ระบบเรียกว่าฟื้นฟูระยะกลาง",
+    "Three periods, three doors: the first hour (1669, an emergency room with a stroke unit), the follow-up clinic, and the first six months the system calls intermediate care."
+   ],
+   "facts": [
+    [
+     "ชั่วโมงแรกสำคัญที่สุด — โทร 1669 ฟรี ตลอด 24 ชั่วโมง ปลายทางต้องเป็นโรงพยาบาล ไม่ใช่คลินิก",
+     "the first hour matters most — 1669 is free at any hour, and the destination must be a hospital, not a clinic"
+    ],
+    [
+     "ไม่จัดอันดับ ไม่ระบุชื่อแพทย์ ไม่ใช่คำแนะนำทางการแพทย์",
+     "no rankings, no named doctors, no medical advice"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "stroke.html",
+     "main": true,
+     "label": [
+      "หน้าโรคหลอดเลือดสมองและการฟื้นฟู เชียงใหม่",
+      "the Stroke and rehabilitation, Chiang Mai page"
+     ]
+    },
+    {
+     "href": "ot.html",
+     "label": [
+      "กิจกรรมบำบัด — ฝึกกิจวัตร มือ การกลืน",
+      "occupational therapy — daily living, hand, swallowing"
+     ]
+    },
+    {
+     "href": "longcare.html",
+     "label": [
+      "พักฟื้นและดูแลระยะยาว",
+      "convalescence and long-term care"
+     ]
+    }
+   ],
+   "delight": [
+    "ระบบไทยมีคำและงบสำหรับหกเดือนแรกหลังสโตรกโดยเฉพาะ เรียกว่า ระยะกลาง — ถามโรงพยาบาลด้วยคำนี้",
+    "The Thai system has a name and a budget for the first six months after a stroke — ระยะกลาง, the intermediate phase. Ask the hospital using that word."
+   ]
+  },
+  {
+   "id": "specialed",
+   "glyph": "🤟",
+   "variants": [
+    "โรงเรียนเฉพาะความพิการ",
+    "โสตศึกษา",
+    "ปัญญานุกูล",
+    "ศรีสังวาลย์",
+    "โรงเรียนคนตาบอด",
+    "โรงเรียนคนหูหนวก",
+    "special school",
+    "ศูนย์การศึกษาพิเศษ"
+   ],
+   "query": [
+    "โสตศึกษา",
+    "ปัญญานุกูล",
+    "ศรีสังวาลย์",
+    "โรงเรียนคนตาบอด",
+    "โรงเรียนคนหูหนวก",
+    "โรงเรียนเด็กพิเศษ",
+    "ศูนย์การศึกษาพิเศษ",
+    "special school",
+    "special education",
+    "school for the deaf",
+    "school for the blind",
+    "เรียนร่วม",
+    "เด็กพิเศษ",
+    "ออทิสติก โรงเรียน"
+   ],
+   "title": [
+    "โรงเรียนเฉพาะความพิการ",
+    "Special schools"
+   ],
+   "lead": [
+    "โรงเรียนของรัฐสำหรับเด็กหูหนวก ตาบอด และเด็กที่มีความบกพร่องทางสติปัญญาหรือร่างกาย — ส่วนใหญ่เป็นโรงเรียนประจำ เบอร์มาจากทะเบียน สพฐ. เพราะเว็บของโรงเรียนเปิดไม่ได้",
+    "State schools for deaf children, blind children, and children with intellectual or physical disability — mostly residential. The phones come from the OBEC register, because the schools' own websites do not resolve."
+   ],
+   "facts": [
+    [
+     "ชื่อโรงเรียนบอกประเภทความพิการเอง: โสตศึกษา ปัญญานุกูล ศรีสังวาลย์",
+     "a school's own name states the disability: โสตศึกษา deaf, ปัญญานุกูล intellectual, ศรีสังวาลย์ physical"
+    ],
+    [
+     "ศูนย์การศึกษาพิเศษของจังหวัดคือด่านแรก — ประเมินและส่งต่อ",
+     "the province's special-education centre is the first door: it assesses and refers"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "specialed.html",
+     "main": true,
+     "label": [
+      "หน้าโรงเรียนเฉพาะความพิการ เชียงใหม่-เชียงราย",
+      "the Special schools, Chiang Mai and Chiang Rai page"
+     ]
+    },
+    {
+     "href": "speech.html",
+     "label": [
+      "แก้ไขการพูด",
+      "speech therapy"
+     ]
+    },
+    {
+     "href": "ot.html",
+     "label": [
+      "กิจกรรมบำบัด",
+      "occupational therapy"
+     ]
+    }
+   ],
+   "delight": [
+    "ในชื่อโรงเรียนไทย คำว่า อนุกูล และ ปัญญานุกูล ไม่ใช่ชื่อคน — เป็นคำบอกว่าโรงเรียนนี้สอนใคร",
+    "In a Thai school's name, อนุกูล and ปัญญานุกูล are not somebody's name — they say who the school teaches."
+   ]
+  },
+  {
+   "id": "mending",
+   "glyph": "🪡",
+   "variants": [
+    "ซ่อม",
+    "รับซ่อม",
+    "แก้เสื้อ",
+    "เปลี่ยนซิป",
+    "ล้างแอร์",
+    "ลับมีด",
+    "หุ้มเบาะ",
+    "ซ่อมรองเท้า",
+    "repair",
+    "mend",
+    "alterations"
+   ],
+   "query": [
+    "ซ่อมรองเท้า",
+    "ซ่อมกระเป๋า",
+    "เปลี่ยนซิป",
+    "เปลี่ยนซิบ",
+    "แก้ทรง",
+    "ตัดขากางเกง",
+    "สอยขา",
+    "แก้เสื้อ",
+    "ชุบรองเท้า",
+    "ล้างแอร์",
+    "ติดตั้งแอร์",
+    "ซ่อมแอร์",
+    "หุ้มเบาะ",
+    "ซ่อมโซฟา",
+    "ลับมีด",
+    "ลับกรรไกร",
+    "ลับคม",
+    "ซ่อมจักร",
+    "จักรเย็บผ้า",
+    "ซ่อมทีวี",
+    "มุ้งลวด",
+    "อลูมิเนียม",
+    "shoe repair",
+    "cobbler",
+    "alterations",
+    "tailor alterations",
+    "knife sharpening",
+    "upholstery",
+    "aircon cleaning"
+   ],
+   "title": [
+    "ซ่อมของ",
+    "Getting things mended"
+   ],
+   "lead": [
+    "ของชิ้นนี้ซ่อมที่ไหน — คำถามเดียวที่กระจายอยู่หลายชั้น เพราะเป็นช่างคนละอย่าง หน้านี้รวมทางเข้าและคำที่ต้องใช้ถาม",
+    "Where do I get this fixed — one question spread across several shelves, because these are different tradespeople. This page gathers the ways in and the words to ask with."
+   ],
+   "facts": [
+    [
+     "ราคาไม่มีใครประกาศ ต้องถามหน้าร้านพร้อมของ",
+     "nobody publishes prices; you ask at the counter with the thing in hand"
+    ],
+    [
+     "ล้างแอร์ใช้คำว่า ล้าง ไม่ใช่ ซ่อม",
+     "an air-conditioner is washed, not mended — the word is ล้าง"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "mending.html",
+     "main": true,
+     "label": [
+      "หน้าซ่อมของในเชียงใหม่",
+      "the Getting things mended, Chiang Mai page"
+     ]
+    },
+    {
+     "href": "cm/repair/index.html",
+     "label": [
+      "ชั้นช่าง-ซ่อม",
+      "the repairs shelf"
+     ]
+    },
+    {
+     "href": "cm/shopping/alterations/index.html",
+     "label": [
+      "แก้เสื้อผ้า",
+      "alterations"
+     ]
+    }
+   ],
+   "delight": [
+    "ลับปัตตาเลี่ยน — ช่างตัดผมทั้งเมืองพึ่งร้านลับคมห้าร้าน และแทบไม่มีคำอังกฤษเรียกอาชีพนี้แล้ว",
+    "Every barber in the city depends on five sharpening shops, a trade English has almost stopped having a word for."
+   ]
+  },
+  {
+   "id": "dialysis",
+   "glyph": "🩸",
+   "variants": [
+    "ฟอกไต",
+    "ไตเทียม",
+    "ฟอกเลือด",
+    "ล้างช่องท้อง",
+    "dialysis",
+    "โรคไต",
+    "ไตวาย"
+   ],
+   "query": [
+    "ฟอกไต",
+    "ไตเทียม",
+    "ฟอกเลือด",
+    "ล้างช่องท้อง",
+    "ล้างไต",
+    "dialysis",
+    "haemodialysis",
+    "hemodialysis",
+    "peritoneal",
+    "โรคไต",
+    "ไตวาย",
+    "nephrolog",
+    "เส้นฟอกไต"
+   ],
+   "title": [
+    "ฟอกไต",
+    "Dialysis"
+   ],
+   "lead": [
+    "สองวิธีที่คนละเรื่อง: ฟอกเลือดที่หน่วย กับล้างช่องท้องที่บ้าน — พร้อมชั้นและเวลาที่โรงพยาบาลบอกเอง",
+    "Two methods that are not the same: haemodialysis at a unit, peritoneal dialysis at home — with the floors and hours the hospitals state."
+   ],
+   "facts": [
+    [
+     "หน่วยฟอกเปิดตั้งแต่ตีห้า เพราะเก้าอี้หนึ่งตัวรับหลายรอบต่อวัน",
+     "units open at five in the morning because one chair takes several rounds a day"
+    ],
+    [
+     "เรื่องสิทธิถามหน่วยบริการและ สปสช. 1330 — เกณฑ์เปลี่ยนเมื่อ 1 เม.ย. 2568",
+     "on entitlement ask the unit and NHSO 1330 — the rules changed on 1 April 2025"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "dialysis.html",
+     "main": true,
+     "label": [
+      "หน้าฟอกไต เชียงใหม่",
+      "the Dialysis, Chiang Mai page"
+     ]
+    },
+    {
+     "href": "care.html",
+     "label": [
+      "ดูแลต่อเนื่อง — โรคเรื้อรัง",
+      "ongoing care — chronic conditions"
+     ]
+    }
+   ],
+   "delight": [
+    "ที่นี่คนเรียกเครื่องว่า ไตเทียม (ไตปลอม) และเรียกการรักษาว่า ฟอก (ซัก) — ป้ายจะเขียนคำใดคำหนึ่ง",
+    "Here the machine is called the artificial kidney and the treatment is called washing — a sign carries one word or the other."
+   ]
+  },
+  {
+   "id": "dementia",
+   "glyph": "🧩",
+   "variants": [
+    "สมองเสื่อม",
+    "อัลไซเมอร์",
+    "คลินิกความจำ",
+    "dementia",
+    "alzheimer",
+    "memory clinic",
+    "memory care"
+   ],
+   "query": [
+    "สมองเสื่อม",
+    "อัลไซเมอร์",
+    "คลินิกความจำ",
+    "ความจำเสื่อม",
+    "หลงลืม",
+    "dementia",
+    "alzheim",
+    "memory clinic",
+    "memory care",
+    "คัดกรองสมองเสื่อม"
+   ],
+   "title": [
+    "สมองเสื่อมและความจำ",
+    "Dementia and memory care"
+   ],
+   "lead": [
+    "สองคำถามคนละเรื่อง: ตรวจว่าใช่หรือไม่ (คลินิกความจำ) กับหาที่ดูแลรายวัน — หน้านี้แยกให้ และเขียนว่ารับสมองเสื่อมเฉพาะที่เขาเขียนเอง",
+    "Two different questions: whether it is dementia (a memory clinic) and who can care daily — kept apart, and “takes dementia” written only where the place wrote it."
+   ],
+   "facts": [
+    [
+     "คัดกรองไม่ใช่การวินิจฉัย",
+     "screening is not diagnosis"
+    ],
+    [
+     "สายด่วนสุขภาพจิต 1323 ฟรี ตลอด 24 ชั่วโมง สำหรับผู้ดูแลด้วย",
+     "the 1323 line is free around the clock, for carers too"
+    ]
+   ],
+   "doors": [
+    {
+     "href": "dementia.html",
+     "main": true,
+     "label": [
+      "หน้าสมองเสื่อมและความจำ เชียงใหม่",
+      "the Dementia and memory care, Chiang Mai page"
+     ]
+    },
+    {
+     "href": "longcare.html",
+     "label": [
+      "ดูแลระยะยาว — บ้านพักและพักฟื้น",
+      "long-term care — homes and convalescence"
+     ]
+    },
+    {
+     "href": "ot.html",
+     "label": [
+      "กิจกรรมบำบัด — ฝึกความจำ",
+      "occupational therapy — memory training"
+     ]
+    }
+   ],
+   "delight": [
+    "คลินิกผู้สูงอายุของโรงพยาบาลประสาทเปิดวันอาทิตย์สุดท้ายของเดือน — วันที่ลูกหลานพามาได้",
+    "The neurological hospital's geriatric clinic runs on the last Sunday of the month — the day a family can bring someone."
    ]
   },
   {
@@ -1262,8 +2210,8 @@
      "the national mental-health line is 1323, free, around the clock"
     ],
     [
-     "ไม่จัดอันดับ ไม่ระบุชื่อบุคคล ไม่ใช่คำแนะนำทางการแพทย์",
-     "no rankings, no named clinicians, no medical advice"
+     "ไม่ใช่คำแนะนำทางการแพทย์",
+     "not medical advice"
     ]
    ],
    "doors": [
@@ -1340,8 +2288,8 @@
      "a speech therapist here holds a Healing Arts licence — the name-check is public"
     ],
     [
-     "ไม่จัดอันดับ ไม่ระบุชื่อบุคคล ไม่ใช่คำแนะนำทางการแพทย์",
-     "no rankings, no named clinicians, no medical advice"
+     "ไม่ใช่คำแนะนำทางการแพทย์",
+     "not medical advice"
     ]
    ],
    "doors": [
