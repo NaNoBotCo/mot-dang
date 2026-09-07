@@ -1,6 +1,7 @@
 const MD_CATWORDS={"wat": "วัด-สิ่งศักดิ์สิทธิ์ · Wats & Sacred Places", "food": "ร้านอาหาร-ของกิน · Food & Eats", "massage": "นวด-สปา · Massage & Spa", "medical": "หมอ-คลินิก-โรงพยาบาล · Doctors & Hospitals", "cannabis": "กัญชา-กระท่อม · Cannabis & Kratom", "essentials": "ของจำเป็นประจำเมือง · City Essentials", "hotel": "โรงแรม-ที่พัก · Hotels & Stays", "school": "โรงเรียน-สถานศึกษา · Schools & Education", "school-intl": "โรงเรียนนานาชาติ · International Schools", "market": "ตลาด · Markets", "shopping": "ช้อปปิ้ง-ของฝาก · Shopping & Gifts", "realestate": "อสังหาฯ-คอนโด · Real Estate & Condos", "transport": "รถ-เดินทาง · Getting Around", "repair": "ช่าง-ซ่อม · Repairs & Trades", "beauty": "เสริมสวย-ทำผม · Beauty & Hair", "tattoo": "สักยันต์-รอยสัก · Tattoo & Sak Yant", "pets": "สัตว์เลี้ยง · Pets", "sport": "กีฬา-ฟิตเนส · Sport & Fitness", "muaythai": "มวยไทย · Muay Thai", "cooking": "เรียนทำอาหารไทย · Thai Cooking Classes", "chang": "ช้าง · Elephants", "home-services": "แม่บ้าน-ช่างสวน-ดูแลบ้าน · Home Services", "community": "ชมรม-สมาคม · Clubs & Community", "business": "ธุรกิจ-ค้าขาย · Doing Business", "whats-on": "หนัง-คอนเสิร์ต-อีเวนต์ · Movies, Concerts & Events", "museums-galleries": "พิพิธภัณฑ์-หอศิลป์ · Museums & Galleries", "parks": "สวน-ที่พักผ่อน · Parks & Green Space", "sights": "ที่เที่ยว-ของดี · Sights & Good Things"};
-const MD_SUBWORDS={"shrine": "ศาลเจ้า-ศาลหลักเมือง Shrines & City Pillars", "spirit-house": "ศาลพระภูมิ Spirit Houses", "thai": "อาหารไทย Thai", "made-to-order": "ตามสั่ง-ผัดกะเพรา Made-to-order", "noodle": "ข้าวซอย-ก๋วยเตี๋ยว Khao Soi & Noodles", "international": "นานาชาติ International", "seafood": "อาหารทะเล Seafood", "vegetarian": "มังสวิรัติ-เจ Vegetarian & Vegan", "street-food": "สตรีทฟู้ด-ฟาสต์ฟู้ด Street Food & Fast Food", "bakery-dessert": "เบเกอรี่-ของหวาน Bakery & Dessert", "bar-pub": "บาร์-ผับ Bars & Pubs", "cafe": "กาแฟ-คาเฟ่ Coffee & Cafés", "riverside": "ร้านริมน้ำ Riverside", "thai-traditional": "นวดแผนไทย-แผนโบราณ Thai Traditional", "foot": "นวดเท้า-กดจุดฝ่าเท้า Foot", "oil": "นวดน้ำมัน-อโรมา Oil & Aroma", "prakhop": "ประคบสมุนไพร Herbal Compress", "chap-sen": "นวดจับเส้น Deep Sen Work", "tok-sen": "ตอกเส้น Tok Sen (Lanna)", "yam-khang": "ย่ำขาง Yam Khang (Lanna)", "ratchasamnak": "นวดราชสำนัก Royal Court Style", "office-syndrome": "นวดออฟฟิศซินโดรม Office Syndrome", "spa-body": "สปา-ขัดผิว-อบไอน้ำ Spa, Scrub & Steam", "khat-khi-khlai": "ขัดขี้ไคล-ระเบิดขี้ไคล Dead-Skin Scrub", "face": "นวดหน้า-กัวซาหน้า Facial & Face Gua Sha", "cupping": "ครอบแก้ว Cupping", "postpartum": "ทับหม้อเกลือ-อยู่ไฟ Postnatal Care", "prenatal": "นวดคนท้อง Prenatal", "blind-massage": "นวดโดยคนตาบอด Blind Massage", "ap-ob-nuat": "อาบอบนวด Ap Ob Nuat", "hospital": "โรงพยาบาล Hospitals", "clinic": "คลินิก Clinics", "doctors": "หมอเฉพาะทาง Specialists", "dentist": "หมอฟัน Dentists", "pharmacy": "ร้านขายยา Pharmacies", "health-station": "รพ.สต.-สถานีอนามัย Health stations (รพ.สต.)", "laboratory": "แล็บ-ตรวจเลือด Labs & testing", "physio": "กายภาพบำบัด Physiotherapy", "optometrist": "ร้านแว่น-วัดสายตา Eyes & optometry", "long-care": "ดูแลระยะยาว-บ้านพักคนชรา Long-term & residential care", "thai-medicine": "แพทย์แผนไทย-สมุนไพร Traditional Thai Medicine", "dispensary": "ร้านกัญชา Dispensaries", "cannabis-cafe": "คาเฟ่กัญชา Cannabis cafés", "kratom": "ร้านน้ำใบกระท่อม Kratom", "farm": "ฟาร์ม-วิสาหกิจชุมชน Farms & growers", "bank": "ธนาคาร-เอทีเอ็ม Banks & ATMs", "laundry": "ร้านซักรีด-สะดวกซัก Laundry", "utilities": "น้ำดื่ม-แก๊สหุงต้ม Drinking Water & Cooking Gas", "post": "ไปรษณีย์-ขนส่ง Post & Parcels", "gov": "ราชการ-เอกสาร Government Offices", "visa": "วีซ่า-ต่ออายุ Visa & Extensions", "copyshop": "ถ่ายเอกสาร-ปริ้นงาน Copy & Print Shops", "printing": "โรงพิมพ์-ป้าย Print Houses & Signs", "translation": "แปลเอกสาร-รับรอง Translation & Document Services", "photo": "ร้านถ่ายรูป-รูปติดบัตร Photo Studios & ID Photos", "convenience": "ร้านสะดวกซื้อ Convenience Stores", "funeral": "งานศพ-ฌาปนสถาน Funeral Directors & Crematoria", "hotel-full": "โรงแรม Hotels", "guesthouse": "เกสต์เฮาส์ Guesthouses", "hostel": "โฮสเทล Hostels", "government": "โรงเรียนรัฐบาล Government schools", "private": "โรงเรียนเอกชน Private schools", "kindergarten": "อนุบาล-เตรียมอนุบาล Kindergartens & nurseries", "university": "มหาวิทยาลัย Universities", "college": "วิทยาลัย-อาชีวศึกษา Colleges & vocational", "campus": "คณะ-อาคารในมหาวิทยาลัย Faculties & campus buildings", "monastic": "โรงเรียนพระปริยัติธรรม Monastic schools", "religious": "โรงเรียนการกุศล-ศาสนา Faith-founded schools", "special": "การศึกษาพิเศษ Special education", "welfare": "ศึกษาสงเคราะห์ Welfare schools", "language": "โรงเรียนสอนภาษา Language schools", "muaythai": "ค่ายมวย-มวยไทย Muay Thai camps", "cooking": "โรงเรียนสอนทำอาหาร Cooking schools", "massage-school": "โรงเรียนสอนนวด Massage schools", "music-art": "โรงเรียนดนตรี-ศิลปะ Music & art schools", "dance": "โรงเรียนสอนเต้น-รำ Dance schools", "tutoring": "กวดวิชา Tutoring", "driving": "โรงเรียนสอนขับรถ Driving schools", "training": "ศูนย์ฝึกอบรม Training centres", "fresh": "ตลาดสด Fresh Markets", "walking-street": "ถนนคนเดิน Walking Streets", "flea": "ตลาดนัด Flea Markets", "crafts": "ของฝาก-หัตถกรรม Crafts & Gifts", "secondhand": "เสื้อผ้ามือสอง-คัดพิเศษ Consignment & Secondhand", "mall": "ห้าง-มอลล์ Malls", "diy": "DIY-วัสดุก่อสร้าง DIY & Hardware", "clothes": "เสื้อผ้า-เครื่องแต่งกาย Clothes & Apparel", "shoes": "รองเท้า Shoes", "sports-shop": "ชุดกีฬา-อุปกรณ์กีฬา Sports & Outdoor Shops", "tailor": "ร้านตัดสูท-ตัดชุด Tailors", "alterations": "ซ่อมแซม-แก้เสื้อผ้า Alterations & Repairs", "fabric": "ผ้าเมตร-ร้านผ้า Fabric by the Metre", "bedding": "เครื่องนอน-ผ้าปูที่นอน Bedding & Sheets", "music": "เครื่องดนตรี-ให้เช่า Instruments — buy & rent", "condo": "อาคารชุด-คอนโด Condominiums", "apartment": "อพาร์ตเมนต์-แมนชั่น-คอร์ท Apartments, Mansions & Courts", "dorm": "หอพัก Dormitories", "moobaan": "หมู่บ้านจัดสรร Moobaan (Housing Estates)", "agent": "นายหน้า-เอเจนต์ Agents & Agencies", "rental": "เช่ารถ-มอเตอร์ไซค์ Car & Bike Rental", "bicycle": "จักรยาน-เช่า-ซ่อม Bicycles — Shops, Rental & Repair", "motorbike": "ร้านมอเตอร์ไซค์-โชว์รูม Motorbike Dealers", "train": "สถานีรถไฟ Train Stations", "bus": "สถานีขนส่ง-ท่ารถ Bus Terminals", "songthaew": "รถแดง-สองแถว Rot Daeng & Songthaew", "taxi": "แท็กซี่-คิวรถ Taxi Ranks", "funicular": "รถรางขึ้นดอย The Doi Suthep Funicular", "pier": "ท่าเรือ Piers & Boat Landings", "airport": "สนามบิน Airports", "fuel": "ปั๊มน้ำมัน Fuel Stations", "auto": "ซ่อมรถ-อู่ Auto & Motorbike", "home": "ช่างบ้าน-ช่างอลูมิเนียม Home Trades", "tech": "มือถือ-คอมพิวเตอร์ Phones & Computers", "mend": "ซ่อมรองเท้า-จักร-เครื่องใช้ไฟฟ้า Cobblers, Sewing-Machine & Appliance Repair", "hair": "ร้านทำผม Hair Salons", "extensions": "ต่อผม-ถักเปีย Extensions & braids", "nails": "ทำเล็บ Nails", "salon": "ร้านเสริมสวย Beauty salons", "beauty-spa": "สปาความงาม Beauty spa", "barber": "ตัดผมชาย Barbers", "sak-yant": "สักยันต์ Sak Yant", "studio": "ร้านสักสมัยใหม่ Modern studios", "cosmetic-tattoo": "สักคิ้ว-สักปาก Cosmetic tattoo", "piercing": "เจาะ Piercing", "tattoo-removal": "ลบรอยสัก Removal", "vet": "หมอสัตว์ Vets", "grooming": "อาบน้ำ-ตัดขน Grooming", "gym": "มวยไทย-ยิม Muay Thai & Gyms", "stadium": "สนามมวย-ดูมวย Stadiums & Fight Nights", "camp": "ค่ายมวย-ยิมมวยไทย Camps & Gyms", "gear": "ร้านอุปกรณ์มวย Gear Shops", "class": "โรงเรียนสอนทำอาหารไทย Cooking Schools & Classes", "vegan": "อาหารเจ-มังสวิรัติ-วีแกน Vegetarian & Vegan Classes", "northern": "อาหารเหนือ-ล้านนา-อาข่า-ไทใหญ่ Northern, Lanna, Akha & Shan Cuisine", "dessert": "ขนมไทย Thai Dessert Classes", "carving": "แกะสลักผักผลไม้ Fruit & Vegetable Carving", "hotel": "คลาสในโรงแรม-รีสอร์ต Hotel & Resort Cooking Schools", "vocational": "หลักสูตรอาชีพ-สารพัดช่าง-อาชีวะ Vocational & Professional Courses", "elephant-camp": "ปางช้าง-ศูนย์ช้าง Camps & Sanctuaries", "elephant-care": "คลินิกช้าง-โรงพยาบาลช้าง Elephant Clinics & Hospitals", "elephant-craft": "ของช้าง-กระดาษมูลช้าง-รูปปั้น Of the Elephant — paper, statues, craft", "housekeeper": "แม่บ้าน Housekeepers", "handyman": "ช่างซ่อมบ้าน Handymen", "landscaper": "คนสวน-จัดสวน Landscapers", "pest-control": "กำจัดปลวก-แมลง-หนู Pest Control", "clubs": "ชมรม-สมาคม Clubs & Societies", "centre": "ศาลาประชาคม-ศูนย์ชุมชน Community Centres", "volunteer": "จิตอาสา Volunteering", "coworking": "โคเวิร์กกิ้งสเปซ Coworking Spaces", "wholesale": "ค้าส่ง-ซัพพลายเออร์ Wholesale & Suppliers", "online-selling": "ขายออนไลน์-ดรอปชิป Online Selling & Dropshipping", "professional": "ทนาย-บัญชี Lawyers & Accountants", "cinema": "โรงหนัง-รอบฉาย Cinemas & Showtimes", "live-music": "ดนตรีสด Live Music", "events-venue": "ที่จัดงาน-อีเวนต์ Event Venues", "museum": "พิพิธภัณฑ์ Museums", "gallery": "หอศิลป์-แกลเลอรี Art Galleries", "park": "สวนสาธารณะ Public parks", "garden": "สวนพฤกษศาสตร์ Gardens", "nature": "เขตอนุรักษ์-อุทยาน Nature reserves", "water": "อ่างเก็บน้ำ-หนองน้ำ Lakes & reservoirs", "playground": "สนามเด็กเล่น Playgrounds", "library": "ห้องสมุด Libraries", "art-studio": "สตูดิโอศิลป์ Art Studios", "historic": "โบราณสถาน-ที่ประวัติศาสตร์ Historic Places", "viewpoint": "จุดชมวิว Viewpoints", "waterfall": "น้ำตก Waterfalls", "peak": "ดอย-ยอดเขา Peaks & Mountains", "hot-spring": "น้ำพุร้อน Hot Springs", "outing": "ทริปวันเดียว Outings & Day Trips"};
+const MD_SUBWORDS={"shrine": "ศาลเจ้า-ศาลหลักเมือง Shrines & City Pillars", "spirit-house": "ศาลพระภูมิ Spirit Houses", "thai": "อาหารไทย Thai", "made-to-order": "ตามสั่ง-ผัดกะเพรา Made-to-order", "noodle": "ข้าวซอย-ก๋วยเตี๋ยว Khao Soi & Noodles", "northern": "อาหารเหนือ-ขันโตก Northern Thai & Khantoke", "international": "นานาชาติ International", "seafood": "อาหารทะเล Seafood", "vegetarian": "มังสวิรัติ-เจ Vegetarian & Vegan", "street-food": "สตรีทฟู้ด-ฟาสต์ฟู้ด Street Food & Fast Food", "bakery-dessert": "เบเกอรี่-ของหวาน Bakery & Dessert", "bar-pub": "บาร์-ผับ Bars & Pubs", "cafe": "กาแฟ-คาเฟ่ Coffee & Cafés", "riverside": "ร้านริมน้ำ Riverside", "thai-traditional": "นวดแผนไทย-แผนโบราณ Thai Traditional", "foot": "นวดเท้า-กดจุดฝ่าเท้า Foot", "oil": "นวดน้ำมัน-อโรมา Oil & Aroma", "prakhop": "ประคบสมุนไพร Herbal Compress", "chap-sen": "นวดจับเส้น Deep Sen Work", "tok-sen": "ตอกเส้น Tok Sen (Lanna)", "yam-khang": "ย่ำขาง Yam Khang (Lanna)", "ratchasamnak": "นวดราชสำนัก Royal Court Style", "office-syndrome": "นวดออฟฟิศซินโดรม Office Syndrome", "spa-body": "สปา-ขัดผิว-อบไอน้ำ Spa, Scrub & Steam", "khat-khi-khlai": "ขัดขี้ไคล-ระเบิดขี้ไคล Dead-Skin Scrub", "face": "นวดหน้า-กัวซาหน้า Facial & Face Gua Sha", "cupping": "ครอบแก้ว Cupping", "postpartum": "ทับหม้อเกลือ-อยู่ไฟ Postnatal Care", "prenatal": "นวดคนท้อง Prenatal", "blind-massage": "นวดโดยคนตาบอด Blind Massage", "ap-ob-nuat": "อาบอบนวด Ap Ob Nuat", "hospital": "โรงพยาบาล Hospitals", "clinic": "คลินิก Clinics", "doctors": "หมอเฉพาะทาง Specialists", "dentist": "หมอฟัน Dentists", "pharmacy": "ร้านขายยา Pharmacies", "health-station": "รพ.สต.-สถานีอนามัย Health stations (รพ.สต.)", "laboratory": "แล็บ-ตรวจเลือด Labs & testing", "physio": "กายภาพบำบัด Physiotherapy", "optometrist": "ร้านแว่น-วัดสายตา Eyes & optometry", "long-care": "ดูแลระยะยาว-บ้านพักคนชรา Long-term & residential care", "thai-medicine": "แพทย์แผนไทย-สมุนไพร Traditional Thai Medicine", "dispensary": "ร้านกัญชา Dispensaries", "cannabis-cafe": "คาเฟ่กัญชา Cannabis cafés", "kratom": "ร้านน้ำใบกระท่อม Kratom", "farm": "ฟาร์ม-วิสาหกิจชุมชน Farms & growers", "bank": "ธนาคาร-เอทีเอ็ม Banks & ATMs", "laundry": "ร้านซักรีด-สะดวกซัก Laundry", "utilities": "น้ำดื่ม-แก๊สหุงต้ม Drinking Water & Cooking Gas", "post": "ไปรษณีย์-ขนส่ง Post & Parcels", "gov": "ราชการ-เอกสาร Government Offices", "visa": "วีซ่า-ต่ออายุ Visa & Extensions", "copyshop": "ถ่ายเอกสาร-ปริ้นงาน Copy & Print Shops", "printing": "โรงพิมพ์-ป้าย Print Houses & Signs", "translation": "แปลเอกสาร-รับรอง Translation & Document Services", "photo": "ร้านถ่ายรูป-รูปติดบัตร Photo Studios & ID Photos", "convenience": "ร้านสะดวกซื้อ Convenience Stores", "funeral": "งานศพ-ฌาปนสถาน Funeral Directors & Crematoria", "hotel-full": "โรงแรม Hotels", "guesthouse": "เกสต์เฮาส์ Guesthouses", "hostel": "โฮสเทล Hostels", "government": "โรงเรียนรัฐบาล Government schools", "private": "โรงเรียนเอกชน Private schools", "kindergarten": "อนุบาล-เตรียมอนุบาล Kindergartens & nurseries", "university": "มหาวิทยาลัย Universities", "college": "วิทยาลัย-อาชีวศึกษา Colleges & vocational", "campus": "คณะ-อาคารในมหาวิทยาลัย Faculties & campus buildings", "monastic": "โรงเรียนพระปริยัติธรรม Monastic schools", "religious": "โรงเรียนการกุศล-ศาสนา Faith-founded schools", "special": "การศึกษาพิเศษ Special education", "welfare": "ศึกษาสงเคราะห์ Welfare schools", "language": "โรงเรียนสอนภาษา Language schools", "muaythai": "ค่ายมวย-มวยไทย Muay Thai camps", "cooking": "โรงเรียนสอนทำอาหาร Cooking schools", "massage-school": "โรงเรียนสอนนวด Massage schools", "music-art": "โรงเรียนดนตรี-ศิลปะ Music & art schools", "dance": "โรงเรียนสอนเต้น-รำ Dance schools", "tutoring": "กวดวิชา Tutoring", "driving": "โรงเรียนสอนขับรถ Driving schools", "training": "ศูนย์ฝึกอบรม Training centres", "fresh": "ตลาดสด Fresh Markets", "walking-street": "ถนนคนเดิน Walking Streets", "flea": "ตลาดนัด Flea Markets", "crafts": "ของฝาก-หัตถกรรม Crafts & Gifts", "secondhand": "เสื้อผ้ามือสอง-คัดพิเศษ Consignment & Secondhand", "mall": "ห้าง-มอลล์ Malls", "diy": "DIY-วัสดุก่อสร้าง DIY & Hardware", "clothes": "เสื้อผ้า-เครื่องแต่งกาย Clothes & Apparel", "shoes": "รองเท้า Shoes", "sports-shop": "ชุดกีฬา-อุปกรณ์กีฬา Sports & Outdoor Shops", "dresshire": "ร้านเช่าชุด Dress & Costume Hire", "tailor": "ร้านตัดสูท-ตัดชุด Tailors", "alterations": "ซ่อมแซม-แก้เสื้อผ้า Alterations & Repairs", "fabric": "ผ้าเมตร-ร้านผ้า Fabric by the Metre", "bedding": "เครื่องนอน-ผ้าปูที่นอน Bedding & Sheets", "music": "เครื่องดนตรี-ให้เช่า Instruments — buy & rent", "condo": "อาคารชุด-คอนโด Condominiums", "apartment": "อพาร์ตเมนต์-แมนชั่น-คอร์ท Apartments, Mansions & Courts", "dorm": "หอพัก Dormitories", "moobaan": "หมู่บ้านจัดสรร Moobaan (Housing Estates)", "agent": "นายหน้า-เอเจนต์ Agents & Agencies", "parking": "ที่จอดรถ Parking", "motorcycle-parking": "ที่จอดมอเตอร์ไซค์ Motorcycle Parking", "bicycle-parking": "ที่จอดจักรยาน Bicycle Parking", "parking-entrance": "ทางเข้าอาคารจอดรถ Parking Entrances", "rental": "เช่ารถ-มอเตอร์ไซค์ Car & Bike Rental", "bicycle": "จักรยาน-เช่า-ซ่อม Bicycles — Shops, Rental & Repair", "motorbike": "ร้านมอเตอร์ไซค์-โชว์รูม Motorbike Dealers", "train": "สถานีรถไฟ Train Stations", "bus": "สถานีขนส่ง-ท่ารถ Bus Terminals", "songthaew": "รถแดง-สองแถว Rot Daeng & Songthaew", "taxi": "แท็กซี่-คิวรถ Taxi Ranks", "funicular": "รถรางขึ้นดอย The Doi Suthep Funicular", "pier": "ท่าเรือ Piers & Boat Landings", "airport": "สนามบิน Airports", "fuel": "ปั๊มน้ำมัน Fuel Stations", "auto": "ซ่อมรถ-อู่ Auto & Motorbike", "home": "ช่างบ้าน-ช่างอลูมิเนียม Home Trades", "tech": "มือถือ-คอมพิวเตอร์ Phones & Computers", "mend": "ซ่อมรองเท้า-จักร-เครื่องใช้ไฟฟ้า Cobblers, Sewing-Machine & Appliance Repair", "hair": "ร้านทำผม Hair Salons", "extensions": "ต่อผม-ถักเปีย Extensions & braids", "nails": "ทำเล็บ Nails", "salon": "ร้านเสริมสวย Beauty salons", "beauty-spa": "สปาความงาม Beauty spa", "barber": "ตัดผมชาย Barbers", "sak-yant": "สักยันต์ Sak Yant", "studio": "ร้านสักสมัยใหม่ Modern studios", "cosmetic-tattoo": "สักคิ้ว-สักปาก Cosmetic tattoo", "piercing": "เจาะ Piercing", "tattoo-removal": "ลบรอยสัก Removal", "vet": "หมอสัตว์ Vets", "grooming": "อาบน้ำ-ตัดขน Grooming", "pet-shop": "ร้านสัตว์เลี้ยง-อาหารสัตว์ Pet Shops & Feed", "gym": "มวยไทย-ยิม Muay Thai & Gyms", "stadium": "สนามมวย-ดูมวย Stadiums & Fight Nights", "camp": "ค่ายมวย-ยิมมวยไทย Camps & Gyms", "gear": "ร้านอุปกรณ์มวย Gear Shops", "class": "โรงเรียนสอนทำอาหารไทย Cooking Schools & Classes", "vegan": "อาหารเจ-มังสวิรัติ-วีแกน Vegetarian & Vegan Classes", "dessert": "ขนมไทย Thai Dessert Classes", "carving": "แกะสลักผักผลไม้ Fruit & Vegetable Carving", "hotel": "คลาสในโรงแรม-รีสอร์ต Hotel & Resort Cooking Schools", "vocational": "หลักสูตรอาชีพ-สารพัดช่าง-อาชีวะ Vocational & Professional Courses", "elephant-camp": "ปางช้าง-ศูนย์ช้าง Camps & Sanctuaries", "elephant-care": "คลินิกช้าง-โรงพยาบาลช้าง Elephant Clinics & Hospitals", "elephant-craft": "ของช้าง-กระดาษมูลช้าง-รูปปั้น Of the Elephant — paper, statues, craft", "housekeeper": "แม่บ้าน Housekeepers", "handyman": "ช่างซ่อมบ้าน Handymen", "landscaper": "คนสวน-จัดสวน Landscapers", "pest-control": "กำจัดปลวก-แมลง-หนู Pest Control", "clubs": "ชมรม-สมาคม Clubs & Societies", "centre": "ศาลาประชาคม-ศูนย์ชุมชน Community Centres", "volunteer": "จิตอาสา Volunteering", "cremation": "สุสาน-ฌาปนสถานประจำหมู่บ้าน Village Cremation Grounds", "coworking": "โคเวิร์กกิ้งสเปซ Coworking Spaces", "wholesale": "ค้าส่ง-ซัพพลายเออร์ Wholesale & Suppliers", "online-selling": "ขายออนไลน์-ดรอปชิป Online Selling & Dropshipping", "professional": "ทนาย-บัญชี Lawyers & Accountants", "cinema": "โรงหนัง-รอบฉาย Cinemas & Showtimes", "live-music": "ดนตรีสด Live Music", "events-venue": "ที่จัดงาน-อีเวนต์ Event Venues", "museum": "พิพิธภัณฑ์ Museums", "gallery": "หอศิลป์-แกลเลอรี Art Galleries", "gallery-commercial": "แกลเลอรี-ห้องศิลป์ที่ขายงาน Galleries that sell", "park": "สวนสาธารณะ Public parks", "garden": "สวนพฤกษศาสตร์ Gardens", "nature": "เขตอนุรักษ์-อุทยาน Nature reserves", "water": "อ่างเก็บน้ำ-หนองน้ำ Lakes & reservoirs", "playground": "สนามเด็กเล่น Playgrounds", "library": "ห้องสมุด Libraries", "art-studio": "สตูดิโอศิลป์ Art Studios", "historic": "โบราณสถาน-ที่ประวัติศาสตร์ Historic Places", "viewpoint": "จุดชมวิว Viewpoints", "waterfall": "น้ำตก Waterfalls", "peak": "ดอย-ยอดเขา Peaks & Mountains", "cave": "ถ้ำ Caves", "hot-spring": "น้ำพุร้อน Hot Springs", "community-tourism": "ชุมชนท่องเที่ยว Community Tourism", "culture-site": "แหล่งเรียนรู้-ศิลปวัฒนธรรม Culture & Learning", "outing": "ทริปวันเดียว Outings & Day Trips"};
 const MD_TOPCATS=["food", "wat", "medical", "essentials", "massage", "hotel"];
+const MD_ASK_HOST="https://ask.motdang.net";
 // GENERATED FILE — do not edit here.
 // Source: search-core/searchcore.js. Regenerate with search-core/sync.py.
 // Edits made here are silently overwritten and escape parity.py, which is
@@ -330,6 +331,11 @@ const INTENT_RULES = [
     'ส่งถึงบ้าน', 'เดลิเวอรี', 'สั่งกลับบ้าน', 'ใส่กล่อง']],
   ['appointment', 'walkin', ['walk in', 'walkin', 'no appointment',
     'without appointment', 'วอล์กอิน', 'ไม่ต้องนัด', 'เดินเข้าไปได้']],
+  // A size is a constraint, not a word to match — see searchcore.py.
+  ['size', 'big', ['big size', 'big sizes', 'bigsize', 'big-size', 'plus size',
+    'plus sizes', 'plussize', 'large size', 'large sizes', 'extra large',
+    'xxl', '3xl', '4xl', '5xl', 'ไซส์ใหญ่', 'บิ๊กไซส์', 'ไซส์พิเศษ',
+    'ไซส์ใหญ่พิเศษ', 'อวบอ้วน', 'สาวอวบ', 'คนอ้วน']],
 ];
 
 // The words a person wraps a question in. They carry the intent to ASK, which
@@ -513,9 +519,27 @@ class SearchCore {
   analyze(q, oracle) {
     oracle = oracle || this.seg;
     const intent = parseIntent(q, this.rules);
+    // A CONSTRAINT IS ONLY A CONSTRAINT WHEN THERE IS SOMETHING TO CONSTRAIN.
+    // parseIntent eats the phrase it recognises and leaves the rest as
+    // `residual`, which is right for "cafe with parking" and leaves NOTHING
+    // for "parking". Every constraint word typed on its own — parking, wifi,
+    // open now, wheelchair, ที่จอดรถ — analyzed to zero terms and so found
+    // zero rows, in a directory holding thousands of places that answer each
+    // of them. It read as "we have none of that".
+    //
+    // Found 2026-09-06 chasing a reader's report about parking, which is the
+    // one where it did the most damage: he typed "parking for motorcycle near
+    // taphae gate", the engine searched for *motorcycle + near + taphae +
+    // gate*, and the first word of his question never reached the index.
+    //
+    // So when eating the phrase would leave nothing, the words are put back
+    // and matched as words. The filters stay set either way. Twin of the same
+    // block in searchcore.py — parity.py fails the build if they drift.
+    let text = intent.residual;
+    if (!text.trim()) text = intent.phrases.join(' ') || q;
     const notes = new Set();
     let rawTokens = [];
-    for (const chunk of intent.residual.split(/\s+/)) {
+    for (const chunk of text.split(/\s+/)) {
       if (!chunk) continue;
       if (hasThai(chunk)) {
         // A word the THESAURUS knows is never split. ร้านยา is a pharmacy, and
@@ -1001,6 +1025,17 @@ const resBox=document.getElementById('results');
 async function loadIndex(){const r=await fetch(RROOT+'data/index.json');return r.json();}
 if(resBox){(async()=>{
 const q=new URLSearchParams(location.search).get('q')||'';
+// WO-69 — THE FILTERS. tag= sub= cat= st= ar= narrow; near=lat,lng is a point
+// to measure from. Read here, beside q, so the pipeline block below stays
+// free of the DOM and the two test harnesses can hand it an F of their own.
+const QS=location.search;
+const F=(()=>{const u=new URLSearchParams(QS);
+const list=k=>(u.get(k)||'').split(',').map(s=>s.trim()).filter(Boolean);
+const nr=(u.get('near')||'').split(',').map(Number);
+const f={tag:list('tag'),sub:list('sub'),cat:list('cat'),st:list('st'),ar:list('ar'),
+near:(nr.length===2&&nr.every(isFinite))?{lat:nr[0],lng:nr[1]}:null};
+f.any=!!(f.tag.length||f.sub.length||f.cat.length||f.st.length||f.ar.length||f.near);
+return f;})();
 document.querySelector('form.seek input').value=q;
 // THE GUARD. Everything below this line exists to answer a query, and the
 // first thing it does is fetch data/index.json — 6.2 MB, and 6.8 MB with the
@@ -1010,8 +1045,34 @@ document.querySelector('form.seek input').value=q;
 // that reader are now baked into search.html itself (search_start_html in
 // build.py), so with no query there is nothing to fetch and nothing to draw:
 // leave the served page standing and go home.
-if(!q)return;
+if(!q&&!F.any)return;
+// The two shortcut rows (city map / plan a route, and city · tags · roads ·
+// doi) belong to the site, and on a phone they stood between the reader and
+// the first result. With a query on the page they file below the list.
+{const frag=document.createDocumentFragment();
+document.querySelectorAll('header.site .chipbar, header.site .svcbar').forEach(el=>frag.appendChild(el));
+resBox.parentNode.insertBefore(frag,resBox.nextSibling);}
+// AND THE NOW·NEAR LINE GOES WITH THEM (Nan, 2026-09-07). Today's event
+// count, the temperature and the PM2.5 reading are the right first line on
+// every page a reader arrives at with no question. This is the one page they
+// arrive at WITH one, and the strip sits between them and the answer saying
+// nothing about it. Hidden here rather than in nownear_layer, because it is
+// this page's circumstance and not a change to the line.
+document.querySelectorAll('header.site .nownear').forEach(el=>{el.hidden=true;});
+// ---- md:search-pipeline — tests/test_search.py lifts this block ----
+// Everything down to the closing marker is cut out by tests/test_search.py and
+// run under node against the built index, so its cases exercise the code this
+// page actually serves rather than a Python paraphrase of it.
+// The test used to find the block by matching a line of the matcher itself.
+// The matcher then moved out to search-core/searchcore.js, the anchor stopped
+// existing, and the test spent the next three weeks dying on a ValueError
+// before it reached a single case. So the anchor is a NAMED MARKER now: move
+// it with the block and the test follows; delete it and the test says plainly
+// that it can no longer find what it is meant to be testing.
+// Keep this stretch free of DOM and network. mdJSON, fetch and loadIndex are
+// the only calls out of it, and the test stubs exactly those three.
 const idx=await loadIndex();
+globalThis.MD_IDX=idx;   // the card panel's "three nearest" reads it (wiring below the render block)
 // Searching used to mean typing the name exactly, in order, spelled our way:
 // the whole query had to appear as one unbroken substring. "rajavej hospital"
 // found nothing, because Rajavej Chiang Mai Hospital keeps two words in the
@@ -1032,11 +1093,17 @@ const idx=await loadIndex();
 // inlined would have put ~60 KB of vocabulary on the ticker, the map and every
 // place page to serve a box that only search.html has. Now every other page is
 // lighter than it was and the cost falls where the feature is.
-const [thesDoc,segText,shelfDoc,panelDoc]=await Promise.all([
+const [thesDoc,segText,shelfDoc,panelDoc,lmDoc,tabDoc]=await Promise.all([
 mdJSON('data/search_thesaurus.json'),
 fetch(RROOT+'data/search_segdict.txt').then(r=>r.ok?r.text():'').catch(()=>''),
 mdJSON('data/search_shelves.json'),
-mdJSON('data/search_panels.json')]);
+mdJSON('data/search_panels.json'),
+mdJSON('data/search_landmarks.json'),
+mdJSON('data/search_tables.json')]);
+// WO-69 — the card's tables: tag / trade / street / area names and the
+// opening schedules, each row an int in the index (see search_tables()).
+const TAB=Object.assign({tags:[],trade:[],streets:[],areas:[],subs:{},hours:[]},tabDoc||{});
+globalThis.MD_TAB=TAB;
 const SEG=segText.split('\n').filter(l=>l&&l[0]!=='#');
 const SHELVES=(shelfDoc&&shelfDoc.shelves)||{};
 const core=new SEARCHCORE.SearchCore((thesDoc&&thesDoc.groups)||[],SEG);
@@ -1051,15 +1118,129 @@ const core=new SEARCHCORE.SearchCore((thesDoc&&thesDoc.groups)||[],SEG);
 const sw=e=>((e.c||[]).map(c=>MD_CATWORDS[c]||c).join(' ')+' '+
 (e.su||[]).map(s=>(MD_SUBWORDS[s]||'')+' '+s.replace(/-/g,' ')).join(' '));
 const index=new SEARCHCORE.Index(core);
+// `nm`/`em` where a row has them: the name to MATCH, which is not always the
+// name to SHOW. A car park displays "ลานจอดรถ · ใกล้ประตูท่าแพ 100 ม." because
+// that is how a reader tells it from the next one, and matches on "ลานจอดรถ"
+// because it is not called Tha Phae Gate.
 for(const e of idx){index.add(e,{
-name:[[e.n,e.e,e.a].filter(Boolean).join(' '),1.0],
+name:[[e.nm||e.n,e.em||e.e,e.a].filter(Boolean).join(' '),1.0],
 shelf:[sw(e)+' '+(e.k||''),0.45]});}
 index.finalize();
 // The index is the mending dictionary too: ราชเวช is in no Thai dictionary, but
 // it is very much a word in a directory that lists the hospital, so a query one
 // letter wrong is repaired against what this corpus actually contains.
-const an=core.analyze(q,index);
-let found=an.terms.length?index.search(an,0):[];
+// ---- NEAR A LANDMARK IS A DISTANCE (WO-68, Nan 2026-09-07) ----------------
+// "near tha phae gate" names a POINT. Matched as text it is three ordinary
+// words: `gate` scores against every gate in the city, `near` against the
+// seventeen places with the word in their name, and a car park 810 m away
+// outranks one at 80 m because both merely contain the letters. Nan:
+// "Near a landmark should sort by distance."
+//
+// So the landmark is lifted out of the query before it is analyzed, exactly
+// the way searchcore lifts a constraint — its alias and the proximity word in
+// front of it are consumed, and what remains is what the reader is looking
+// FOR. "parking for motorcycle near taphae gate" becomes: motorbikes, on the
+// parking shelf, measured from 18.7877,98.9931.
+//
+// Longest alias wins, so ประตูช้างเผือก beats ช้างเผือก and Chiang Mai Gate
+// beats the bare city name. A query that names a landmark and nothing else
+// ("tha phae gate") keeps its words — the reader wants the gate itself, and
+// the row for it is a real record.
+const LMS=Array.isArray(lmDoc)?lmDoc:[];
+const NEARWORD=/(^|\s)(near|nearest|close to|closest to|around|beside|next to|ใกล้ ?ๆ?|แถว ?ๆ?|ข้าง|รอบ ?ๆ?|บริเวณ|แถบ)(\s|$)/gi;
+// THE ASPIRATE IS OPTIONAL, AND SO IS THE SPACE. Michael wrote "taphae"; the
+// register holds Tha Phae, Thapae, Tha Pae, Thaphae and Tapae, and not that
+// one. Chasing spellings into a list one at a time is the mistake the mined
+// shelf table already taught us, so this is a rule instead: in Thai
+// romanisation the h after t, p and k is written or not written by whoever
+// painted the sign, and the space between syllables likewise. `th?a\s*ph?ae`
+// covers taphae, thapae, tapae, thaphae and tha phae with one pattern, and
+// the register keeps only the spellings that are actually somebody's house
+// style. Thai aliases are matched as written — Thai spelling does not drift
+// this way.
+const lmPat=a=>{let out='';
+for(let i=0;i<a.length;i++){const c=a[i].toLowerCase();
+if(c===' '||c==='-'){out+='[\\s-]*';continue;}
+if(c==='h'&&i>0&&'tpk'.indexOf(a[i-1].toLowerCase())>=0)continue;
+out+=c.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+if('tpk'.indexOf(c)>=0)out+='h?';}
+return out;};
+const LATIN=/^[\x20-\x7e]+$/;
+let lm=null,qFor=q;
+if(LMS.length){
+// Longest alias wins, so ประตูช้างเผือก beats ช้างเผือก and Chiang Mai Gate
+// beats the bare city name.
+let best=null;
+const nq0=SEARCHCORE.norm(q);
+for(const l of LMS)for(const a of(l.aliases||[])){
+if(a.length<4)continue;
+let re=null,hit=null;
+if(LATIN.test(a)){re=new RegExp('(^|[^a-z])('+lmPat(a)+')(?![a-z])','i');
+const m=re.exec(q);if(m)hit={txt:m[2],idx:m.index+m[1].length};}
+else{const i=nq0.indexOf(SEARCHCORE.norm(a));if(i!==-1)hit={txt:a,idx:-1};}
+if(hit&&(!best||a.length>best.a.length))best={l:l,a:a,hit:hit};}
+if(best){
+// Cut the landmark out of the RAW query, then the proximity word that was
+// leading up to it. What is left is what the reader is looking FOR.
+let left;
+if(best.hit.idx>=0)left=q.slice(0,best.hit.idx)+' '+q.slice(best.hit.idx+best.hit.txt.length);
+else{const parts=SEARCHCORE.norm(best.a).split(' ').filter(Boolean);
+left=q.split(/\s+/).filter(w=>parts.indexOf(SEARCHCORE.norm(w))===-1).join(' ');
+if(left===q)left=q.split(SEARCHCORE.norm(best.a)).join(' ');}
+left=left.replace(NEARWORD,' ').replace(/\s+/g,' ').trim();
+lm=best.l;
+// A query that names a landmark AND NOTHING ELSE keeps its words — the gate
+// is a record and the reader may want the gate. It is still measured from,
+// which is what puts the gate itself (nought metres away) at the top and the
+// places carrying its name in order of how near they stand. Typing
+// "tha phae gate" used to return the gate fourth, behind three cafés.
+if(left)qFor=left;}}
+// WO-69 — A TAG IS A FILTER, NOT A WORD (Michael: "discovery should
+// EXPLICITLY allow searching/finding by tags"). Three routes, in order:
+//   1. tag= in the URL, and #word in the box — always a filter, cut from
+//      the words like the landmark above;
+//   2. a constraint searchcore already lifted (vegan, wifi, wheelchair,
+//      delivery, open late) — mapped onto its tag below, once `an` exists;
+//   3. a bare word that IS a tag's name (pizza, japanese, bitcoin, old city,
+//      michelin) — a filter only when the filtered set is not empty.
+// Routes 2 and 3 are SOFT: never to nothing. Route 1 is what the reader
+// asked for by name and may honestly answer zero.
+const TAGKEY={};
+TAB.tags.forEach((t,i)=>{[t[0],t[1],t[2]].forEach(nm=>{const k=SEARCHCORE.norm(nm||'');if(k&&!TAGKEY[k])TAGKEY[k]={t:i};});});
+TAB.trade.forEach((t,i)=>{const k=SEARCHCORE.norm(t[0]||'');if(k&&!TAGKEY[k])TAGKEY[k]={tt:i};});
+const resolveTag=v=>{const k=SEARCHCORE.norm(v||'');if(!k)return null;
+if(TAGKEY[k])return Object.assign({},TAGKEY[k]);
+const ti=TAB.tags.findIndex(t=>t[0]===v);if(ti>=0)return {t:ti};
+const si=TAB.trade.findIndex(t=>t[0]===v);if(si>=0)return {tt:si};return null;};
+const FT=[];
+const pushTag=x=>{if(x&&!FT.some(y=>y.t===x.t&&y.tt===x.tt&&y.none===x.none))FT.push(x);};
+// a tag asked for BY NAME that no table knows is a hard filter nothing meets:
+// zero rows, the chip struck through — never the whole catalogue
+for(const v of F.tag)pushTag(resolveTag(v)||{none:v});
+qFor=qFor.replace(/(^|\s)#([^\s#]+)/g,(m,a,w)=>{const r=resolveTag(w);if(r){pushTag(r);return a;}return m;}).replace(/\s+/g,' ').trim();
+// No words left and a filter in hand: the filter IS the query. Every row
+// stands as an exact hit and the filter step below narrows it.
+let an,found;
+if(!qFor&&(F.any||FT.length)){an={terms:[],intent:{filters:{},phrases:[]},notes:[]};
+found=idx.map(e=>({doc:e,score:0,tier:'exact',coverage:1}));}
+else{an=core.analyze(qFor,index);found=an.terms.length?index.search(an,0):[];}
+for(const t of an.terms){let hit=null;
+for(const v of [t.raw].concat(t.variants||[])){const r=TAGKEY[SEARCHCORE.norm(v)];if(r&&r.t!=null){hit=r;break;}}
+if(hit)pushTag({t:hit.t,soft:true,word:t.raw});}
+// A BARE SIZE WORD IS A CONSTRAINT THE INDEX CANNOT MEET. "Big women's shoes"
+// (Nan, 2026-09-06) matched "big" as text, found a clothing shop with Big in
+// its name, and ranked it above every shoe stall. The compound forms (big
+// size, ไซส์ใหญ่) are lifted by the shared intent layer; the bare word is
+// ambiguous — Big C, big bike — so it is dropped ONLY when keeping it left no
+// row matching every word, and the page says so out loud below.
+const SIZE_HINT={'big':1,'large':1,'huge':1,'ใหญ่':1,'ไซส์':1};
+let sizeDropped=null;
+if(found.length&&found[0].coverage<1&&an.terms.length>1){
+const kept=an.terms.filter(t=>!SIZE_HINT[t.raw]);
+if(kept.length&&kept.length<an.terms.length){
+const an2=core.analyze(kept.map(t=>t.raw).join(' '),index);
+const f2=an2.terms.length?index.search(an2,0):[];
+if(f2.length&&f2[0].coverage>=1){sizeDropped=an.terms.filter(t=>SIZE_HINT[t.raw]).map(t=>t.raw);an=an2;found=f2;}}}
 // A word that names a shelf is a reader telling us where to look, not just what
 // to match — "coworking" and "ตอกเส้น" each belong to one shelf out of
 // twenty-four. Applied as a lift rather than a filter: narrowing hard would
@@ -1073,16 +1254,67 @@ const STOPS=(panelDoc&&panelDoc.shelf_stops)||{};
 const lift=w=>{for(const k of(SHELVES[w]||[]))if((STOPS[w]||[]).indexOf(k)===-1)wantShelves.add(k);};
 for(const t of an.terms)lift(t.raw);
 for(const ph of an.intent.phrases)lift(ph);
+// WO-67 — THE PARKING COLUMN, and the reason the word vanished.
+//
+// searchcore reads "parking" as a CONSTRAINT (access:parking) and eats it out
+// of the query, the same way it eats "open now". That is right for "cafe with
+// parking" and it was catastrophic on its own: Michael typed "parking for
+// motorcycle near taphae gate" and the engine searched for motorcycle + near
+// + taphae + gate. The first word he wrote, the whole point of the question,
+// was deleted before anything was matched — which is why the page could then
+// say "understood 'parking' — this page cannot filter on it yet" and mean it.
+// There was no column, because until today there was no parking in the
+// catalogue at all: zero records among 22,351.
+//
+// There are now 1,796. So the constraint is answered the way every other
+// shelf word is answered — by lifting the shelf, which raises car parks, files
+// everything else behind the namesake header, and leaves the rest of the query
+// to do the locating. `parking` is a sub key here, which onShelf() reads
+// alongside the category keys.
+const IFILT=an.intent.filters||{};
+const ivals=k=>[].concat(IFILT[k]||[]);
+if(ivals('access').indexOf('parking')!==-1)wantShelves.add('parking');
+const TAGOF={diet:{vegetarian:'vegetarian',vegan:'vegan',halal:'halal'},access:{wheelchair:'wheelchair'},
+wifi:{yes:'wifi'},delivery:{yes:'delivery'},open:{late:'open-late'}};
+for(const k in TAGOF)for(const v of ivals(k)){const slug=TAGOF[k][v];if(!slug)continue;
+const ti=TAB.tags.findIndex(t=>t[0]===slug);if(ti>=0)pushTag({t:ti,soft:true,word:v});}
 // A topic the site keeps a whole page for answers with that page, not only
 // with rows — the rich door, curated in data/curated/search_panels.json.
-// Picked BEFORE the lift so a panel's shelf joins the lift too: วัด reaches
-// the wat shelf even though no mined table carries the bare word. Triggered
-// by a lifted shelf, by a word a term expanded to (so จ๊าง arrives through
-// ช้าง), or by a phrase of the whole query; first panel to speak wins.
-const nq=SEARCHCORE.norm(q);
+// Triggered by a word a term expanded to (so จ๊าง arrives through ช้าง) or by
+// a phrase of the whole query; first panel to speak wins.
+//
+// A LIFTED SHELF NO LONGER OPENS A DOOR (2026-09-06, Michael's report). It
+// used to, and that is how "parking for motorcycle near taphae gate" was
+// answered with elephant camps: the mined table reads the shelf's own English
+// TEASER, the chang teaser says "...the gate and the chedis that carry its
+// name...", and so gate → chang. Every query naming any gate in this city
+// opened the elephant door — full width, glyph, count, lead sentences —
+// above the page's own admission that it had matched nothing.
+//
+// The rule this replaces asked curators to use a shelf trigger "ONLY when
+// every term mapping to that key names the topic". That test cannot be made
+// by hand: the words are MINED, they change whenever a teaser is reworded,
+// and nobody reviewing search_panels.json can see them. It failed twice on
+// the same sentence — `clinic` in August, `gate` today — so the kind is
+// retired rather than patched a third time. Nine junk words are stopped
+// individually in shelf_stops below, and search-core's shelves_motdang()
+// stops mining them; this line is what makes those the last of it.
+//
+// `shelves` KEEPS ITS OTHER JOB. Below, a panel that did open still joins its
+// shelf to the lift, which is what raises on-shelf rows and splits namesakes
+// out from them. Trigger and lift were one field doing two things; only the
+// trigger was leaky.
+// MATCHED AGAINST WHAT IS LEFT TO ASK, not the raw query. When a landmark has
+// been lifted out, its words have already been answered — with metres — and a
+// topic card about them is a second answer to a question nobody asked twice.
+// "parking near tha phae gate" opened the MOAT door, nine ways to tell inside
+// from outside, a wall of it above the car parks. Same shape as the elephant
+// panel, one notch less absurd. A query that is ONLY a landmark keeps its
+// words (qFor is the query), so "tha phae gate" still opens the moat door,
+// which is exactly where that reader wants to be.
+const nq=SEARCHCORE.norm(qFor);
 const PANELS=(panelDoc&&panelDoc.panels)||[];
 const panel=PANELS.find(p=>
-(p.shelves||[]).some(s=>wantShelves.has(s))||
 (p.variants||[]).some(v=>an.terms.some(t=>t.variants.indexOf(v)!==-1))||
 (p.query||[]).some(s=>nq&&nq.indexOf(SEARCHCORE.norm(s))!==-1))||null;
 if(panel)for(const s of(panel.shelves||[]))wantShelves.add(s);
@@ -1096,9 +1328,88 @@ found.sort((a,b)=>b.score-a.score);}
 // made the count lie: ร้านกาแฟนิมมาน reported 2,247 finds, which was every cafe
 // in the directory plus everything on that road — and the count is the one
 // number on this page that has to be true.
+// WO-69 — THE FILTER STEP. A filter narrows; a mined shelf word only lifts
+// (WO-68's rule). Applied BEFORE the loosen-by-steps below, so the tiers are
+// settled over the rows that survive it, not over rows it was about to drop.
+const FSUB=new Set(F.sub),FCAT=new Set(F.cat),FST=new Set(F.st),FAR=new Set(F.ar);
+const arIdx=new Set();TAB.areas.forEach((a,i)=>{if(FAR.has(a[0])||FAR.has(a[1]))arIdx.add(i);});
+const stIdx=new Set();TAB.streets.forEach((s,i)=>{if(FST.has(s[0]))stIdx.add(i);});
+const hardTags=FT.filter(x=>!x.soft),softTags=FT.filter(x=>x.soft);
+const hasTag=(e,x)=>x.none!=null?false:(x.t!=null?(e.t||[]).indexOf(x.t)!==-1:(e.tt||[]).indexOf(x.tt)!==-1);
+const pass=e=>(!FSUB.size||(e.su||[]).some(s=>FSUB.has(s)))&&(!FCAT.size||(e.c||[]).some(c=>FCAT.has(c)))
+&&(!stIdx.size||stIdx.has(e.st))&&(!arIdx.size||arIdx.has(e.ar))&&hardTags.every(x=>hasTag(e,x));
+const HARD=!!(FSUB.size||FCAT.size||stIdx.size||arIdx.size||hardTags.length);
+if(HARD)found=found.filter(r=>pass(r.doc));
+for(const x of softTags){const f2=found.filter(r=>hasTag(r.doc,x));if(f2.length)found=f2;else x.dropped=true;}
 const whole=found.filter(r=>r.coverage>=1);
 if(whole.length)found=whole;
+// WO-70 — THE RARE WORD IS THE QUESTION (Michael, "best place to buy a
+// Martin guitar": `buy` matched 261 rows, `martin` 4, `guitar` 4; every row
+// had matched one word, all tied on coverage, and Guitar House came ~230th
+// behind the cafés that matched "buy"). When no row matched every word, a
+// word that matches four rows says more about what was wanted than one that
+// matches two hundred — so the partial pile is ranked by the rarity of what
+// each row matched, Σ log(N/df), and the matcher's own score breaks ties.
+// Rows that matched every word are not touched.
+if(found.length&&found[0].coverage<1&&an.terms.length>1){
+const N=idx.length||1,DID=new Map(index.docs.map((d,i)=>[d,i]));
+const DF=an.terms.map(t=>{const ids=new Set();for(const [nm] of index.fields){for(const d of index._resolve(t,nm,0).keys())ids.add(d);}
+return {ids:ids,w:Math.log((N+1)/(ids.size+1))};});
+for(const r of found){let s=0;const d=DID.get(r.doc);for(const f of DF)if(f.ids.has(d))s+=f.w;r.rare=s;}
+found.sort((a,b)=>(b.rare-a.rare)||(b.score-a.score));}
+// A STATED CONSTRAINT NARROWS; A SHELF WORD ONLY LIFTS. The difference is
+// what the reader said. "motorcycle" HINTS at the transport shelf, and the
+// mined table lifts it — but the transport shelf also holds every rental
+// counter and repair hut in the city, so with a distance sort the nearest of
+// those sat on top of a search whose first word was `parking`. "parking" is
+// not a hint: searchcore lifted it as access:parking, which is the reader
+// stating a requirement. So it filters.
+// Never to nothing, though: a requirement no row can meet leaves the rows we
+// have rather than an empty page, and the status line above still says the
+// word was understood.
+if(ivals('access').indexOf('parking')!==-1){
+const onlyPark=found.filter(r=>(r.doc.su||[]).indexOf('parking')!==-1);
+if(onlyPark.length)found=onlyPark;}
+// THE SORT, when a landmark was named. Relevance has already decided WHICH
+// rows answer; the landmark decides their ORDER, because that is the only
+// thing the reader asked about them. Nearest first, and a row with no pin
+// sorts last rather than nowhere — it is still an answer, it just cannot say
+// how far.
+//
+// Kept inside the tier the matcher settled on: an exact match may not be
+// pushed below a near-spelling one for being further away, or a typo would
+// win by standing closer. Within a tier, metres decide.
+const R2D=Math.PI/180;
+const distM=(a,b,c,d)=>{const x=(c-a)*R2D*6371000,y=(d-b)*R2D*6371000*Math.cos((a+c)/2*R2D);
+return Math.sqrt(x*x+y*y);};
+// The point everything is measured from: the landmark the reader named, or
+// the near= the page was opened with. One point, whichever was given.
+const P=lm?{lat:lm.lat,lng:lm.lng,id:lm.id,th:lm.th,en:lm.en}:(F.near?{lat:F.near.lat,lng:F.near.lng}:null);
+if(P){const TIERS={exact:0,thesaurus:1,loose:2,partial:3};
+for(const r of found){const e=r.doc;
+r.m=(e.lat==null||e.lng==null)?null:distM(P.lat,P.lng,e.lat,e.lng);}
+found.sort((a,b)=>((TIERS[a.tier]||0)-(TIERS[b.tier]||0))
+||((a.m==null)-(b.m==null))||((a.m||0)-(b.m||0)));
+// THE LANDMARK ITSELF GOES FIRST when it is among the answers. A reader who
+// types "tha phae gate" is owed the gate before the cafés beside it, and it
+// will not get there on its own: the gate's record is named ประตูท่าแพ
+// Thapae Gate and matched that query at a worse tier than two cafés whose
+// road field spells it the way the reader did. Nought metres beats every
+// argument about spelling.
+if(P.id){const i=found.findIndex(r=>r.doc.id===P.id);
+if(i>0)found.unshift(found.splice(i,1)[0]);}}
 const hits=found.slice(0,200).map(r=>r.doc);
+// The metres, by row id, so the renderer can put the one fact the reader
+// asked for on the row itself instead of making them open each page to find
+// out which is nearest.
+const HITM={};if(P)for(const r of found.slice(0,200))HITM[r.doc.id]=r.m;
+// ---- md:search-pipeline ends ----
+// ---- md:search-render — tests/test_search_page.py lifts from here ----
+// Everything from here to the closing marker BUILDS THE PAGE, and until
+// 2026-09-07 nothing tested it: tests/test_search.py stops at the line
+// above, so a ReferenceError in this half took the entire result list down
+// while every search case still passed. Same rule as the pipeline marker —
+// move the block and take the marker with it.
 // ช้าง answers twice in this city: the camps, and the gates, roads and noodle
 // shops that carry the elephant in their NAME — ช้างเผือก, ช้างคลาน, ดอยช้าง.
 // Mixed together the second kind buries the first; split, both read true.
@@ -1111,9 +1422,25 @@ const nameHits=wantShelves.size?hits.filter(e=>!onShelf(e)):[];
 // capped number told a reader searching "coffee" that the city holds 200 cafes
 // when the directory knows 1,976 of them — the one number on this page that has
 // to be true.
-document.getElementById('rescount').textContent=q?`${found.length}`:'';
-const more=found.length>hits.length
-?`<li class="shelf">แสดง ${hits.length} จาก ${found.length} — พิมพ์ให้เจาะจงขึ้นเพื่อแคบลง · showing ${hits.length} of ${found.length}; add a word to narrow it</li>`:'';
+//
+// AND IT SAYS WHAT IT COUNTED. In partial mode this number is the size of the
+// loosened pile, not a count of answers: "parking for motorcycle near taphae
+// gate" matched no row at all and the heading still read "Search results
+// 3,514". A reader reads that as three thousand answers. The word beside it
+// is the difference between a count and a boast.
+// The loosest tier anything was matched at — 'exact' is silent, everything
+// else means the page has to say out loud that it widened. Declared HERE, at
+// its first use, and not further down beside the status lines: it was below,
+// `partial` read it above, and `const` in the dead zone threw a
+// ReferenceError that took the whole result list down. The unit harness never
+// saw it — it lifts only the pipeline block, which ends above this line — so
+// it took loading the page in a browser to find. Hence tests/test_search_page.py.
+const worst=found.length?found[0].tier:null;
+const partial=worst==='partial';
+document.getElementById('rescount').textContent=(q||F.any)?`${found.length}`:'';
+document.getElementById('rescount').className=partial?'count partial':'count';
+{const rq=document.getElementById('resqual');
+if(rq)rq.innerHTML=(q&&partial)?mdBi('ที่ตรงบางคำ','partial matches'):'';}
 // Say plainly how the match was made. A reader shown a near-spelling match
 // without being told it was one has been quietly misled about how well the
 // search understood them — and a reader who sees ร้านกาแฟนิมมาน reported as
@@ -1121,21 +1448,80 @@ const more=found.length>hits.length
 // Did this query ask after women's health at all? The marker rides on the
 // speciality's own vocabulary, so the test is whether any term expanded to it.
 const obAsked=an.terms.some(t=>t.variants.some(v=>v==='obgyn'||v==='นรีเวช'||v==='สูตินรีเวช'));
-const worst=found.length?found[0].tier:null;
+// Status lines print ONCE, in the script the reader typed in. A reader who
+// typed Latin is not helped by a Thai sentence above their results, and the
+// reverse; .solo survives every language mode, as it does for a lone name.
+const qTh=SEARCHCORE.hasThai(q);
+const say=(th,en)=>qTh?'<span class="th solo" lang="th">'+th+'</span>':'<span class="en solo" lang="en">'+en+'</span>';
+// The count and the cap were printed TWICE — "3,931" in the heading and
+// "showing 200 of 3,931" one line below it. The heading is where the number
+// belongs; what this line is for is the thing the reader can DO, so that is
+// all it says now.
+// WO-69: "add a word to narrow it" came off — the count already says.
+const more='';
+// WO-69 — HOW THE SEARCH READ YOU, AS CHIPS, NOT SENTENCES. A mended or
+// loosened spelling is "≈ word"; a Thai query cut into words is the words;
+// a search where no row matched everything is each word with its own count;
+// a size or a constraint the page could not use is the word struck through;
+// the landmark or the point everything is measured from is 📍 and its name.
+// (Michael, 2026-09-07: "if you need to explain something using words,
+// you're fucking up".) `says` holds chip HTML; `note` renders them in one
+// row. The old sentences are gone, not hidden.
+const hx=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const says=[];
-if(an.notes.indexOf('mended')>=0)says.push(['สะกดใกล้เคียง — น่าจะหมายถึงคำนี้','near spelling — this looks like the word you meant']);
-if(an.notes.indexOf('segmented')>=0)says.push(['แยกคำเป็น '+an.terms.map(t=>t.raw).join(' + '),'read as '+an.terms.map(t=>t.raw).join(' + ')]);
-if(worst==='thesaurus')says.push(['รวมคำที่ความหมายเดียวกัน','including words that mean the same thing']);
-if(worst==='loose')says.push(['สะกดใกล้เคียง — เรียงตามที่ใกล้ที่สุด','near spellings — closest first']);
-if(worst==='partial')says.push(['ไม่ตรงทุกคำ — เรียงตามที่ตรงมากที่สุด','not every word matched — closest first']);
+const words=()=>an.terms.map(t=>t.raw).join(' + ');
+// WHICH OF THESE ANSWERS A QUESTION THE READER HAS (Nan, 2026-09-07).
+// Kept: the ones that answer "why am I looking at this, and what do I do
+// about it" — a repaired spelling, a query read as separate words, a list
+// ordered by nearness of spelling, a search that matched nothing whole, a
+// word we understood and could not use. Each changes whether the reader
+// retypes.
+// CUT: "including words that mean the same thing". It fired on the ordinary
+// successful case — the thesaurus doing its job — and told nobody anything
+// they could act on. A line printed on a good search is a line the reader
+// learns to look past, which costs the lines that matter.
+if(an.notes.indexOf('mended')>=0||worst==='loose')says.push('≈ '+hx(an.terms.map(t=>t.raw).join(' ')));
+if(an.notes.indexOf('segmented')>=0)says.push(an.terms.map(t=>hx(t.raw)).join(' + '));
+// The point, and it goes FIRST because it decided the order of everything
+// under it.
+if(P)says.unshift('📍 '+(lm?mdBi(lm.th,lm.en||lm.th):''));
+// NOT EVERY WORD MATCHED — say which. The engine keeps every row that matched
+// some of the words only when none matched all of them; the reader is owed the
+// count behind each word, not a shrug. Counted against the same index the rows
+// came from, so the numbers and the list can never disagree.
+if(worst==='partial'){for(const t of an.terms){const ids=new Set();
+for(const [nm] of index.fields){for(const d of index._resolve(t,nm,0).keys())ids.add(d);}
+says.push(hx(t.raw)+' <span class="count">'+ids.size+'</span>');}}
+if(sizeDropped)says.push('<s>'+hx(sizeDropped.join(' '))+'</s>');
 // Constraints the box understood but this page has no column to filter on. Said
-// out loud, because a filter silently dropped is worse than one politely declined.
-const CANFILTER={};
-const asked=Object.keys(an.intent.filters||{}).filter(k=>!CANFILTER[k]);
-if(asked.length&&found.length)says.push(
-['อ่านคำขอได้ แต่หน้านี้ยังกรองตามนั้นไม่ได้ — ดูรายละเอียดในหน้าร้าน',
-'understood, but this page cannot filter on that yet — check the listing']);
-const note=says.map(s=>`<li class="shelf">${mdBi(s[0],s[1])}</li>`).join('');
+// out loud and BY NAME, because a filter silently dropped is worse than one
+// politely declined, and "cannot filter on that" left the reader guessing what
+// "that" was.
+// Which constraint this page can actually act on, by KEY and by VALUE. It
+// used to be by key alone and empty, so every constraint got the same shrug.
+// `access` is the case that proves the pair is needed: access:parking has a
+// shelf behind it as of WO-67, access:wheelchair and access:english still
+// have nothing, and one word cannot answer for all three.
+const CANFILTER={access:['parking','wheelchair'],diet:['vegetarian','vegan','halal'],wifi:['yes'],delivery:['yes'],open:['late']};
+const canFilter=k=>{const c=CANFILTER[k];const vs=ivals(k);
+return !!c&&vs.length>0&&vs.every(v=>c.indexOf(v)!==-1);};
+const FILTER_SAY={size:['ยังไม่มีร้านไหนในนี้บันทึกไซส์ไว้ — ค้นจากคำที่เหลือ','no listing here records sizes yet — the search ran on the other words']};
+const asked=Object.keys(IFILT).filter(k=>!canFilter(k));
+if(asked.length&&found.length&&Object.keys(IFILT).every(k=>!canFilter(k)))
+for(const ph of(an.intent.phrases||[]))says.push('<s>'+hx(ph)+'</s>');
+const note=says.length?'<li class="shelf fbar rd">'+says.map(s=>'<span class="rchip">'+s+'</span>').join(' ')+'</li>':'';
+// WO-69 — THE ACTIVE FILTERS, each a chip whose tap REMOVES it. No label.
+const fbar=(()=>{const items=[];const u0=new URLSearchParams(QS);
+const without=(k,v)=>{const u=new URLSearchParams(u0);const rest=(u.get(k)||'').split(',').filter(x=>x&&x!==v);
+if(rest.length)u.set(k,rest.join(','));else u.delete(k);const s=u.toString();return RROOT+'search.html'+(s?'?'+s:'');};
+for(const x of FT){const tg=x.t!=null?TAB.tags[x.t]:null,tr=x.tt!=null?TAB.trade[x.tt]:null;
+const lab=tg?((tg[3]?tg[3]+' ':'')+mdBi(tg[1],tg[2])):hx(tr?tr[0]:(x.none||''));const val=tg?tg[0]:(tr?tr[0]:(x.none||''));
+items.push('<a class="rchip on'+((x.dropped||x.none!=null)?' off':'')+'" href="'+without('tag',val)+'">'+lab+'</a>');}
+for(const s of F.sub)items.push('<a class="rchip on" href="'+without('sub',s)+'">'+(TAB.subs[s]?mdBi(TAB.subs[s][0],TAB.subs[s][1]):hx(s))+'</a>');
+for(const c of F.cat)items.push('<a class="rchip on" href="'+without('cat',c)+'">'+(MD_CATWORDS[c]||hx(c))+'</a>');
+for(const s of F.st){const row=TAB.streets.find(x=>x[0]===s);items.push('<a class="rchip on" href="'+without('st',s)+'">'+(row?mdBi(row[1]||row[2],row[2]||row[1]):hx(s))+'</a>');}
+for(const a of F.ar)items.push('<a class="rchip on" href="'+without('ar',a)+'">'+hx(a)+'</a>');
+return items.length?'<li class="shelf fbar">'+items.join(' ')+'</li>':'';})();
 // A place carrying `ob` answered a women's-health query on the strength of
 // being a general hospital, which is not the same as anybody having confirmed
 // an OB-GYN department there. The cm-womens-health harvester graded it
@@ -1143,15 +1529,134 @@ const note=says.map(s=>`<li class="shelf">${mdBi(s[0],s[1])}</li>`).join('');
 // the row rather than in a footnote: a reader scanning forty-nine names should
 // be able to see which five are stated and which forty-four are inferred,
 // without reading anything above the list.
-const row=e=>`<li><a href="${RROOT}${e.p}/p/${e.s}.html">${e.n}</a>`+
-`${e.e&&e.e!==e.n?' <span class="count">'+e.e+'</span>':''}`+
-` <span class="count">· ${e.pv}</span>`+
+// IF IT DOES NOT ANSWER A QUESTION IT IS NOT ON THE ROW (Nan, 2026-09-07:
+// "slash and burn. If it doesn't answer a question, it is invisible.")
+//
+// The province used to print on all two hundred rows. When every row is in
+// Chiang Mai — which is most searches, because most of the catalogue is —
+// that is two hundred repetitions of one word, and it answers a question
+// nobody asked. It prints now only when the results actually SPAN the two
+// provinces, which is the only time it tells them apart.
+const spanProv=(()=>{let a=null;for(const e of hits){if(a===null)a=e.pv;
+else if(e.pv!==a)return true;}return false;})();
+// The metres, when the reader named a landmark. This is the whole of what
+// they asked about these rows, so it is on the row — not one tap away on
+// each of two hundred pages.
+// The whole chip through mdBi, not the unit on its own: "80 " + bi("ม.","m")
+// rendered as "80 ม. · m" in both-languages mode, which is not a distance in
+// either language.
+const fmtM=m=>{if(m==null)return '';
+const v=m<1000?String(Math.round(m/10)*10):(m/1000).toFixed(1);
+return m<1000?mdBi(v+' ม.',v+' m'):mdBi(v+' กม.',v+' km');};
+// ONE DISTANCE PER ROW, AND IT IS THE ONE THAT WAS ASKED FOR. A synthesised
+// car-park name ends in a bearing to whichever landmark it stands nearest,
+// which is what tells it from the next car park — and in a list measured from
+// Tha Phae Gate it produced rows reading
+//     "ที่จอดรถ · ใกล้แจ่งก๊ะต๊ำ 290 ม. · 430 ม."
+// two numbers, neither obviously the one the reader asked about. So under a
+// landmark sort the row shows the name WITHOUT its bearing (`nm`/`em`, the
+// same base the index matches on) and the chip carries the only distance that
+// answers the question. Everywhere else the bearing stays: it is the name.
+const dName=e=>(lm&&e.nm)?e.nm:e.n;
+const dEn=e=>(lm&&e.em)?e.em:e.e;
+// WO-69 — THE CARD (Michael, 2026-09-07). A result is a place, not a link:
+// its name, the reading or the English, the metres when a point is known,
+// a lamp when we hold a schedule (lit = open now; unlit = closed now; none =
+// nobody has recorded hours, which is not "closed"), up to three chips —
+// the sub-shelf, the street or the district or the nearest landmark, the
+// best tag — every chip a filter, and a 📍. The body opens in place (the
+// wiring below the render marker): a mini map, the three nearest places we
+// hold, the same kind nearby, what is on here, add to plan.
+// THE CLOCK IS THE SHOP'S, NOT THE READER'S. This was new Date().getDay(),
+// which is right in Chiang Mai and wrong everywhere else: a reader in London
+// saw an unlit lamp on a shop that was open, while /api/v1 answered correctly
+// for the same place at the same moment, because it has always gone through
+// Intl. Intl does the zone rather than a hardcoded +7, for the reason
+// publish/api.js gives: Thailand has not moved its offset since 1920, and an
+// offset written into code is a silent bug the day a rule changes.
+// hourCycle h23 is the one place this differs from api.js — en-GB with
+// hour12:false reports midnight as 24 on some engines, which would put the
+// small hours a whole day out. api.js wants the same eight characters.
+const MDDAYS=['Mo','Tu','We','Th','Fr','Sa','Su'];
+const mdWmin=d=>{try{
+const pt=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Bangkok',weekday:'short',
+hour:'2-digit',minute:'2-digit',hour12:false,hourCycle:'h23'}).formatToParts(d||new Date());
+const g=t=>{const x=pt.find(q=>q.type===t);return x?x.value:'';};
+const dy=MDDAYS.indexOf(g('weekday').slice(0,2)),h=parseInt(g('hour'),10),m=parseInt(g('minute'),10);
+if(dy<0||isNaN(h)||isNaN(m))return null;return dy*1440+h*60+m;}catch(e){return null;}};
+// Recomputed at most twice a minute. A page left open crosses closing time,
+// and a lamp that was drawn once at load is a lamp that lies by teatime.
+let _wmT=0,_wmV=null;
+const WMIN=()=>{const n=Date.now();if(!_wmT||n-_wmT>3e4){_wmV=mdWmin();_wmT=n;}return _wmV;};
+// null, NEVER false, when nobody has recorded hours. build_open_lamps.py
+// refuses to guess at the strings it cannot parse, and this must not undo that
+// by drawing "no one has said" as "shut".
+const mdOpen=(sch,w)=>{if(!sch||!sch.length||w==null)return null;
+for(const iv of sch)if(w>=iv[0]&&w<iv[1])return true;return false;};
+// Minutes until the state changes. The intervals cover one week and they wrap,
+// so the edges are searched across three — last week, this one, next — and the
+// first one after now wins. A shop open right through to next week has no edge
+// ahead of it inside the window and gets null, which prints nothing.
+const MDWEEK=10080;
+const mdEdge=(sch,w)=>{if(!sch||!sch.length||w==null)return null;let best=null;
+for(const iv of sch)for(const k of[-MDWEEK,0,MDWEEK])for(const t of[iv[0]+k,iv[1]+k]){
+const d=t-w;if(d>0&&(best===null||d<best))best=d;}
+return best;};
+// The state between open and closed, which is the one a reader acts on: a lamp
+// says whether to go, this says whether to hurry. Only inside the hour — an
+// edge nine hours out is not news, it is the opening times, and those are on
+// the place's own page.
+const MDSOON=60;
+const mdWhen=(sch,w)=>{const on=mdOpen(sch,w);if(on===null)return '';
+const d=mdEdge(sch,w);if(d===null||d>MDSOON)return '';
+return on?mdBi('ปิดใน '+d+' นาที','closes in '+d+' min')
+:mdBi('เปิดใน '+d+' นาที','opens in '+d+' min');};
+// Handed to the surfaces that are their own files — here.js, near.js — so the
+// site has one reading of a schedule rather than one per page.
+if(typeof window!=='undefined')window.MDHOURS={open:mdOpen,edge:mdEdge,when:mdWhen,wmin:mdWmin,now:WMIN};
+const schOf=e=>(e.hk==null?null:(TAB.hours[e.hk]||null));
+const openNow=e=>mdOpen(schOf(e),WMIN());
+const nearLm=e=>{let b=null,bd=1500;for(const l of LMS){if(l.lat==null||l.lng==null)continue;
+const d=distM(e.lat,e.lng,l.lat,l.lng);if(d<bd){bd=d;b=l;}}return b;};
+// WHAT THIS PLACE IS, WHERE IT IS, WHAT ELSE IT IS — in that order, and
+// every one of them a filter the reader can tap. The last is the shelf the
+// sub-shelf hangs off, so a record with nothing but a name and a shelf still
+// carries two: a guitar shop in Chiang Rai with no street, no tambon and no
+// landmark within 1.5 km was showing one chip and reading like a bare link.
+const chipsOf=e=>{const out=[];
+const su=(e.su||[])[0];
+if(su&&TAB.subs[su])out.push(['?sub='+encodeURIComponent(su),mdBi(TAB.subs[su][0],TAB.subs[su][1])]);
+if(e.st!=null&&TAB.streets[e.st]){const s=TAB.streets[e.st];out.push(['?st='+encodeURIComponent(s[0]),mdBi(s[1]||s[2],s[2]||s[1])]);}
+else if(e.ar!=null&&TAB.areas[e.ar]){const a=TAB.areas[e.ar];const nm=a[0]||a[1];out.push(['?ar='+encodeURIComponent(nm),mdBi(nm,a[3]||nm)]);}
+else if(e.lat!=null){const nl=nearLm(e);if(nl)out.push(['?q='+encodeURIComponent(q)+'&near='+nl.lat+','+nl.lng,'📍 '+mdBi(nl.th,nl.en||nl.th)]);}
+if(e.t&&e.t.length&&TAB.tags[e.t[0]]){const t=TAB.tags[e.t[0]];out.push(['?tag='+encodeURIComponent(t[0]),(t[3]?t[3]+' ':'')+mdBi(t[1],t[2])]);}
+else if(e.tt&&e.tt.length&&TAB.trade[e.tt[0]]){const t=TAB.trade[e.tt[0]];out.push(['?tag='+encodeURIComponent(t[0]),hx(t[0])+(t[2]?' <span class="en roman">'+hx(t[2])+'</span>':'')]);}
+if(e.c&&e.c[0]&&MD_CATWORDS[e.c[0]]&&!(su&&TAB.subs[su]&&out.length>=3))out.push(['?cat='+encodeURIComponent(e.c[0]),MD_CATWORDS[e.c[0]]]);
+return out.slice(0,3);};
+const row=e=>{const ch=chipsOf(e),w=WMIN(),sch=schOf(e),on=mdOpen(sch,w),soon=mdWhen(sch,w);
+return `<li class="rcard" data-id="${hx(e.id)}"${e.lat!=null?` data-lat="${e.lat}" data-lng="${e.lng}"`:''} data-plan="${hx(e.p+':'+e.s)}">`+
+`<a class="rname" href="${RROOT}${e.p}/p/${e.s}.html">${hx(dName(e))}</a>`+
+`${dEn(e)&&dEn(e)!==dName(e)?' <span class="count">'+hx(dEn(e))+'</span>':(e.r?' <span class="count roman">'+hx(e.r)+'</span>':'')}`+
+`${P&&HITM[e.id]!=null&&e.id!==P.id?' <span class="count dist u">· '+fmtM(HITM[e.id])+'</span>':''}`+
+`${on===true?' <span class="lamp on"></span>':(on===false?' <span class="lamp off"></span>':'')}`+
+`${soon?' <span class="count soon">'+soon+'</span>':''}`+
+`${spanProv?' <span class="count">· '+e.pv+'</span>':''}`+
 `${e.ob&&obAsked?' <span class="prov">'+(e.ob===2?mdBi('รพ.สต. — สถานีอนามัยประจำตำบล ฝากครรภ์และวางแผนครอบครัวเป็นงานประจำ','รพ.สต. — the local primary-care station; antenatal care and family planning are routine'):mdBi('โรงพยาบาลทั่วไป — ยังไม่ได้ยืนยันว่ามีแผนกสูตินรีเวช','general hospital — an OB-GYN department is not confirmed'))+'</span>':''}`+
-`</li>`;
+(ch.length?' <span class="rchips">'+ch.map(c=>`<a class="rchip" href="${RROOT}search.html${c[0]}">${c[1]}</a>`).join(' ')+'</span>':'')+
+(e.lat!=null?'<button type="button" class="rpin" aria-label="แผนที่ · map">📍</button>':'')+
+'<div class="rpanel" hidden></div></li>';};
 // Two hundred names in one column is a list nobody reads. Grouped under the
 // shelf each one stands on, with its count, the same result becomes a page you
 // can steer: thirty-three ข้าวซอย places, four of them in Chiang Rai.
-const groupHtml=list=>{const groups=new Map();
+// EXCEPT WHEN DISTANCE IS THE ORDER. Grouping sorts the shelves by size and
+// prints them one after another, which quietly re-sorts the rows: a search
+// for "tha phae gate" put three cafés above the gate itself because food was
+// the bigger group, after the distance sort had correctly placed the gate at
+// nought metres. Nearest-first is a single sequence or it is nothing, so a
+// landmark search renders one flat list — and the shelf headings, which
+// answer "what kinds are these", are not an answer to "which is nearest".
+const groupHtml=list=>{if(P)return list.map(row).join('');
+const groups=new Map();
 for(const e of list){const c=(e.c&&e.c[0])||'other';
 if(!groups.has(c))groups.set(c,[]);groups.get(c).push(e);}
 return [...groups.entries()].sort((a,b)=>b[1].length-a[1].length)
@@ -1164,7 +1669,18 @@ const pdoor=d=>{const ext=/^https?:/i.test(d.href);
 return `<a class="pdoor${d.main?' pdmain':''}" href="${ext?d.href:RROOT+d.href}"${ext?' rel="noopener"':''}>${mdBi(d.label[0],d.label[1])}</a>`;};
 const pcodes=(panel&&panel.count&&panel.count.codes)||[];
 const pcount=pcodes.length?idx.filter(e=>(e.c||[]).some(c=>pcodes.indexOf(c)!==-1)||(e.su||[]).some(s=>pcodes.indexOf(s)!==-1)).length:0;
-const panelHtml=panel?`<li class="richdoor">`+
+// NO DOOR OVER A SEARCH THAT ALREADY FAILED. A rich door is an ANSWER — glyph,
+// count, lead sentences, a main door in gold — and in partial mode the page
+// has just worked out that nothing matched everything the reader typed. Those
+// two things on one screen make the door a wrong answer given confidently,
+// which is worse than no answer: Michael read the elephant panel as the reply
+// to "parking for motorcycle near taphae gate" and never scrolled as far as
+// the sentence saying we could not help.
+//
+// The panel is suppressed, not the lift. If the query really was about
+// elephants, its shelf still raises elephant rows up the list — where a row is
+// a row and claims nothing more.
+const panelHtml=(panel&&!partial)?`<li class="richdoor">`+
 `<p class="rdhead">${panel.glyph?panel.glyph+' ':''}<b>${mdBi(panel.title[0],panel.title[1])}</b>${pcount?` <span class="count">${pcount}</span>`:''}</p>`+
 `<p class="rdlead">${mdBi(panel.lead[0],panel.lead[1])}</p>`+
 ((panel.facts&&panel.facts.length)?`<p class="rdfacts">${panel.facts.map(f=>`<span class="rdfact">${mdBi(f[0],f[1])}</span>`).join(' ')}</p>`:'')+
@@ -1179,12 +1695,280 @@ const divider=(wantShelves.size&&nameHits.length)?`<li class="shelf namesake">${
 // directory does not hold yet.
 const doors=()=>{const top=MD_TOPCATS.map(c=>
 `<li class="shelf"><a href="${RROOT}cm/${c}/">${MD_CATWORDS[c]||c}</a></li>`).join('');
-return '<li class="shelf">ไม่พบคำนี้ — ลองดูตามหมวด หรือบอกมดให้ไปเก็บ · '+
-'nothing under that word — try a shelf, or send the ants to find it</li>'+top+
+return top+
 `<li class="shelf"><a href="${RROOT}crawl-request.html">ส่งมดไปสำรวจ · Request a crawl</a></li>`;};
+// A reader whose words did not all match is owed a way forward, not only an
+// apology. The shelves are no use here — the query named no shelf — so the two
+// doors are the ants, who can read a sentence and search the same catalogue
+// with more patience than a word index, and the crawl request, which is how a
+// thing the directory does not hold gets held. Offered ONLY in partial mode:
+// on a search that worked, this would be clutter over a good answer.
+const askDoor=MD_ASK_HOST
+?' · <a href="'+MD_ASK_HOST+'/?q='+encodeURIComponent(q)+'" rel="noopener">'+mdBi('คุยกับมด','chat with the ants')+'</a>':'';
+const stuck=partial?'<li class="shelf stuck">'+askDoor.replace(/^ · /,'')+
+(askDoor?' · ':'')+'<a href="'+RROOT+'suggest.html?kind=crawl&t='+encodeURIComponent('crawl request (search): '+q)+'">'+
+mdBi('ส่งมดไปเก็บ','send the ants')+'</a></li>':'';
 // q is guaranteed non-empty here — the guard above sent the other reader
 // home to the served page.
-resBox.innerHTML=(hits.length?panelHtml+note+more+groupHtml(onHits)+divider+groupHtml(nameHits):panelHtml+doors());})();}
+//
+// THE ORDER IS THE FIX (2026-09-06). It used to be panel, then note: the
+// page's own account of how it had read the query — "nothing matches all of
+// motorcycle + near + taphae + gate", "understood 'parking' — this page cannot
+// filter on it yet" — printed BELOW a full-width topic card, in the smallest
+// type on the page. Every true sentence we had was underneath the wrong one.
+// How the search read you now comes first, then what it found.
+// `more` — "add a word to narrow it" — sits UNDER the list now. It is advice
+// about the list, and advice printed above two hundred answers is one more
+// thing between the reader and the first of them.
+// P1 — A SHORT ANSWER GETS A SHORT PAGE. Four rows or fewer and the page ends
+// at the answer: the shortcut grid, the services bar and the footer's link row
+// do not render (CSS, body.mdshort). The OSM credit and the licence line stay,
+// because they are a licence condition and not decoration.
+// Four is the line because a phone shows about that many rows below the box
+// and the heading, so up to four is an answer a reader takes in whole, and
+// five is a list they have started scanning. A search that found NOTHING is
+// not short in this sense — it needs its shelves and its way forward, which
+// is the one time that furniture is the answer.
+document.body.classList.toggle('mdshort',hits.length>0&&hits.length<=4);
+// WO-69 — THE WHERE-ANSWER (P5). A point and a kind both named: the three
+// nearest are the answer and everything past them folds under a number.
+// A WHERE-QUESTION: a point, and something asked for beside it. Either the
+// landmark was lifted OUT of the query (words were left behind) or the page
+// was opened at a point. A query that is ONLY a landmark is not folded — the
+// reader asked what stands there, and that is the whole list.
+const askedHere=!!(P&&((lm&&qFor!==q)||F.near));
+const foldN=(askedHere&&onHits.length>3)?3:0;
+const listHtml=foldN
+?groupHtml(onHits.slice(0,foldN))+'<li class="shelf fold"><details><summary><span class="count">+'+(onHits.length-foldN+nameHits.length)+'</span></summary><ul class="dir cards">'+groupHtml(onHits.slice(foldN))+divider+groupHtml(nameHits)+'</ul></details></li>'
+:groupHtml(onHits)+divider+groupHtml(nameHits);
+resBox.className='dir cards';
+resBox.innerHTML=(hits.length?fbar+note+stuck+panelHtml+listHtml+more
+:fbar+note+stuck+panelHtml+((FT.length||F.any)?'<li class="shelf"><span class="count">0</span></li>':doors()));
+if(typeof mdResMap==='function')mdResMap(hits,P,askedHere);
+// Feedback at the point of failure (2026-09-06): one line, the query
+// carried along, so a wrong list costs the reader one tap to report.
+// AT THE POINT OF FAILURE, which is what it was called when it was added
+// (2026-09-06) and was not what it did: it printed under every search,
+// including the ones that worked. "Wrong results?" under a list of exactly
+// the right results is a line that answers nothing and quietly suggests the
+// page is unsure of itself. It appears now when the search actually
+// struggled — nothing matched everything, the spelling had to be stretched,
+// or there were no rows at all.
+if(!hits.length||partial||worst==='loose')
+resBox.insertAdjacentHTML('beforeend','<li class="shelf tellants"><a href="'+RROOT+'suggest.html?kind=other&t='+encodeURIComponent('search: '+q)+'">'+say('ผลไม่ตรง? บอกมดหน่อย','wrong results? tell the ants')+'</a></li>');
+// THE NAME-EXACT ESCAPE HATCH. Held records are out of the ranked index, so
+// typing one's name returned five OTHER temples with the same words in them —
+// which reads as "we do not have it" about a place we do have. This runs
+// whether or not there were hits, because the five-others case is the one that
+// misleads. data/held.json is names only and is fetched once, on the first
+// search that could match, so a reader who never types a held name never pays
+// for it.
+// ---- THE BEACON. What was asked, and how well we answered. ---------------
+// The box has run entirely in this browser since the site existed and called
+// nothing, so every question typed into motdang.net was lost the moment it was
+// answered — while the demand loop behind site_gaps ran on chat traffic alone.
+// This is the other 99% of the traffic finally reaching it.
+//
+// IT CAN NEVER COST THE READER ANYTHING. Fired after the list is drawn, with
+// sendBeacon so the browser sends it on its own time and nothing awaits it;
+// wrapped whole in try/catch; skipped entirely where sendBeacon does not exist
+// (which is also how the node harness in tests/test_search_page.py steps over
+// it). If it fails, it fails silently and the search is unaffected.
+//
+// WHAT GOES: the query, how many rows, the tier we matched at, the id ranked
+// first, whether a landmark or a filter was in play, and any word that matched
+// nothing at all. WHAT NEVER GOES: anything about the reader. No id, no
+// position, no stored token. `eid` is minted per search and thrown away — it
+// exists only so the click beacon below can find this row, and it must never
+// be reused, or it becomes a session identifier.
+try{if(MD_ASK_HOST&&typeof navigator!=='undefined'&&navigator.sendBeacon){
+// The words that matched NOTHING — the vocabulary gap, which is the whole
+// reason this table is worth having. "moto" was in no thesaurus, so "moto
+// parking taphae" answered with one shop 4.6 km away and total confidence.
+// Computed only when the search actually went wrong, so a good search pays
+// nothing for it.
+let unk=[];
+if(partial||!found.length){for(const t of an.terms){let hit=false;
+for(const [nm] of index.fields){try{if(index._resolve(t,nm,0).size){hit=true;break;}}catch(e){}}
+if(!hit)unk.push(t.raw);}}
+const eid=Array.from(crypto.getRandomValues(new Uint8Array(8))).map(b=>b.toString(16).padStart(2,'0')).join('');
+globalThis.MD_BEACON={eid:eid,sent:false};
+navigator.sendBeacon(MD_ASK_HOST+'/api/box',new Blob([JSON.stringify({
+eid:eid,site:'motdang',source:F.any&&!q?'chip':'box',q:q,
+resolved:{lm:(lm&&qFor!==q)?String(lm).slice(0,60):'',near:!!(F.near||P),
+filters:['tag','sub','cat','st','ar'].filter(k=>F[k]&&F[k].length)},
+unknown:unk.slice(0,12),n:found.length,quality:worst||'',
+top:(hits[0]&&hits[0].id)?String(hits[0].id):''})],{type:'text/plain'}));
+}}catch(e){}
+// ---- md:search-render ends ----
+mdHeldRow(q,resBox);})();}
+// ---- THE OUTCOME BEACON: did the answer answer? --------------------------
+// A count of results says how many rows we drew, not whether any of them was
+// the thing. This is the other half: the reader opened one, or refined, or
+// left. A row that stays '' forever is the honest reading of "we showed them
+// results and they touched none of them" — which is the failure a result count
+// cannot see and the one worth ranking work orders by.
+//
+// Outside the render block for the same reason WO-69 is: the DOM stub that
+// tests/test_search_page.py runs the block under has no addEventListener.
+// One outcome per search, ever — `sent` latches, so a reader who opens three
+// results in three tabs writes one row, not three.
+(function(){
+if(typeof document==='undefined'||!document.addEventListener)return;
+const box=document.getElementById('results');if(!box)return;
+function tell(outcome){try{
+const B=globalThis.MD_BEACON;
+if(!B||B.sent||!MD_ASK_HOST||!navigator.sendBeacon)return;
+B.sent=true;
+navigator.sendBeacon(MD_ASK_HOST+'/api/box',
+new Blob([JSON.stringify({eid:B.eid,outcome:outcome})],{type:'text/plain'}));
+}catch(e){}}
+box.addEventListener('click',function(e){
+const a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+// A tap on a filter chip or a shelf is the reader NARROWING, not arriving.
+// Counting that as an answer would score our worst searches as our best.
+if(a.classList.contains('pdoor')||a.classList.contains('rchip')){tell('refined');return;}
+const m=a.getAttribute('href').match(/\/p\/([^/?#]+)\.html/);
+tell(m?'opened:'+m[1].slice(0,100):'opened');},true);
+// Left without touching anything. pagehide rather than unload: unload does not
+// fire on a phone that switches apps, which is most of this site's traffic.
+addEventListener('pagehide',function(){tell('abandoned');});
+})();
+// ---- WO-69: what a card does when touched -------------------------------
+// Outside the render block on purpose: the DOM stub tests/test_search_page.py
+// runs the block under has no addEventListener, and the block emits markup
+// only. Position from MDLOC lives in memory and never in the URL.
+(function(){
+const box=document.getElementById('results');if(!box)return;
+const RR=document.documentElement.getAttribute('data-root')||'';
+let hitsNow=[],pointNow=null,mapOpen=false,mapReady=false,booted=false,cardMapEl=null,evGJ=null,evTried=false,grid=null;
+const R2D=Math.PI/180;
+const dM=(a,b,c,d)=>{const x=(c-a)*R2D*6371000,y=(d-b)*R2D*6371000*Math.cos((a+c)/2*R2D);return Math.sqrt(x*x+y*y);};
+const fm=m=>m<1000?mdBi(Math.round(m/10)*10+' ม.',Math.round(m/10)*10+' m'):mdBi((m/1000).toFixed(1)+' กม.',(m/1000).toFixed(1)+' km');
+const hx=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+// the four map files, loaded on the first tap and never before
+function mapBoot(then){if(booted){then&&then();return;}booted=true;
+let urls=[];try{urls=JSON.parse(document.getElementById('maphead').textContent);}catch(e){}
+if(!urls.length){then&&then();return;}
+const css=urls.filter(u=>/\.css/.test(u)),js=urls.filter(u=>!/\.css/.test(u));
+css.forEach(u=>{const l=document.createElement('link');l.rel='stylesheet';l.href=RR+u;document.head.appendChild(l);});
+let i=0;const next=()=>{if(i>=js.length){then&&then();return;}
+const s=document.createElement('script');s.src=RR+js[i++];s.async=false;s.onload=next;s.onerror=next;document.head.appendChild(s);};
+next();}
+// the results map
+const rm=document.getElementById('resmap'),rmBtn=document.getElementById('resmapbtn'),nearBtn=document.getElementById('resnear');
+const gjOf=list=>({type:'FeatureCollection',features:list.filter(e=>e.lat!=null&&e.lng!=null).slice(0,200).map(e=>({type:'Feature',
+geometry:{type:'Point',coordinates:[e.lng,e.lat]},properties:{id:e.id,n:e.n,e:e.e||'',p:e.p,s:e.s,su:(e.su||[])[0]||''}}))});
+function drawMap(){if(!rm||!window.MDMAP)return;
+const gj=gjOf(hitsNow);
+window.MDMAP.ready(rm,map=>{
+if(map.getSource('res'))map.getSource('res').setData(gj);
+else{map.addSource('res',{type:'geojson',data:gj});
+map.addLayer({id:'res-halo',type:'circle',source:'res',paint:{'circle-radius':['interpolate',['linear'],['zoom'],10,3.2,14,5.4,17,8],'circle-color':'#FFFCF6','circle-opacity':.85}});
+map.addLayer({id:'res-dot',type:'circle',source:'res',paint:{'circle-radius':['interpolate',['linear'],['zoom'],10,2.4,14,4,17,6],'circle-color':'#C2401C','circle-opacity':.95}});
+map.on('click',ev=>{const R=22,pt=ev.point;const f=map.queryRenderedFeatures([[pt.x-R,pt.y-R],[pt.x+R,pt.y+R]],{layers:['res-dot']});
+if(!f.length)return;const pr=f[0].properties||{};
+if(window.MDCARD)window.MDCARD.show({name:[pr.n,pr.e].filter(Boolean).join(' · '),sub:(window.MD_TAB&&window.MD_TAB.subs[pr.su])?window.MD_TAB.subs[pr.su].join(' · '):'',
+href:RR+pr.p+'/p/'+pr.s+'.html',plan:pr.p+':'+pr.s,dist:pointNow?fm(dM(pointNow.lat,pointNow.lng,f[0].geometry.coordinates[1],f[0].geometry.coordinates[0])):''},rm);});
+map.on('mousemove',ev=>{const f=map.queryRenderedFeatures(ev.point,{layers:['res-dot']});map.getCanvas().style.cursor=f.length?'pointer':'';});}
+const pts=gj.features.map(f=>f.geometry.coordinates);
+if(pointNow)map.jumpTo({center:[pointNow.lng,pointNow.lat],zoom:15});
+else if(pts.length){const b=[[Math.min(...pts.map(p=>p[0])),Math.min(...pts.map(p=>p[1]))],[Math.max(...pts.map(p=>p[0])),Math.max(...pts.map(p=>p[1]))]];
+try{map.fitBounds(b,{padding:24,maxZoom:16,duration:0});}catch(e){}}
+mapReady=true;});}
+// A MAP THAT NEVER ARRIVES MUST NOT LEAVE A HOLE. MDMAP.ready() fires only
+// when the basemap's style loads, and never when the tiles fail — which is
+// correct, and which would otherwise leave 280 px of empty box above the
+// answer on exactly the connection this site is for. If it has not drawn in
+// eight seconds the box closes again and the reader is left with the list,
+// which was the answer all along.
+function openMap(){if(!rm)return;mapOpen=true;rm.hidden=false;
+const t=setTimeout(()=>{if(!mapReady){rm.hidden=true;mapOpen=false;}},8000);
+mapBoot(()=>{rm.setAttribute('data-mdmap','1');if(window.MDMAP&&window.MDMAP.mount)window.MDMAP.mount(rm);
+drawMap();const w=setInterval(()=>{if(mapReady){clearTimeout(t);clearInterval(w);}},400);
+setTimeout(()=>clearInterval(w),9000);});}
+function closeMap(){mapOpen=false;if(rm)rm.hidden=true;}
+window.mdResMap=function(hits,P,openNow){hitsNow=hits||[];pointNow=P||pointNow;
+if(rmBtn)rmBtn.hidden=!hitsNow.some(e=>e.lat!=null);
+if(nearBtn)nearBtn.hidden=!hitsNow.some(e=>e.lat!=null)||!window.MDLOC;
+if(openNow&&hitsNow.length)openMap();else if(mapOpen)drawMap();};
+rmBtn&&rmBtn.addEventListener('click',()=>{mapOpen?closeMap():openMap();});
+// near me: the position sorts the cards on the page and centres the map;
+// it is never written to the URL or to storage (MDLOC's own rule)
+nearBtn&&nearBtn.addEventListener('click',()=>{if(!window.MDLOC)return;
+window.MDLOC.ask(pt=>{pointNow={lat:pt.lat,lng:pt.lng};
+const cards=[...box.querySelectorAll('li.rcard')];
+for(const c of cards){const la=parseFloat(c.dataset.lat),ln=parseFloat(c.dataset.lng);
+let d=isFinite(la)&&isFinite(ln)?dM(pt.lat,pt.lng,la,ln):null;c._m=d;
+let sp=c.querySelector('.dist');if(d!=null){if(!sp){sp=document.createElement('span');sp.className='count dist u';c.querySelector('.rname').after(sp);}sp.innerHTML='· '+fm(d);}}
+box.querySelectorAll('li.shelf:not(.fbar):not(.stuck):not(.tellants):not(.held):not(.fold):not(.namesake)').forEach(li=>{if(li.querySelector('a[href*="/"]')&&!li.querySelector('.rchip'))li.remove();});
+cards.sort((a,b)=>((a._m==null)-(b._m==null))||((a._m||0)-(b._m||0))).forEach(c=>box.appendChild(c));
+openMap();});});
+// the card body
+function nearest3(e){if(!window.MD_IDX)return[];
+if(!grid){grid=new Map();for(const x of window.MD_IDX){if(x.lat==null||x.lng==null)continue;
+const k=Math.round(x.lat*200)+':'+Math.round(x.lng*200);(grid.get(k)||grid.set(k,[]).get(k)).push(x);}}
+const la=Math.round(e.lat*200),ln=Math.round(e.lng*200),out=[];
+for(let i=-1;i<=1;i++)for(let j=-1;j<=1;j++)for(const x of(grid.get((la+i)+':'+(ln+j))||[])){if(x.id===e.id)continue;out.push([dM(e.lat,e.lng,x.lat,x.lng),x]);}
+return out.sort((a,b)=>a[0]-b[0]).slice(0,3);}
+function fill(card){const id=card.dataset.id,e=(window.MD_IDX||[]).find(x=>x.id===id);const pn=card.querySelector('.rpanel');if(!e||!pn)return;
+const T=window.MD_TAB||{subs:{}};const su=(e.su||[])[0]||(e.c||[])[0];
+let h='';
+if(e.lat!=null){h+='<div class="cardmapslot"></div>';
+// NO METRES INSIDE THE NOISE OF A PIN. 2,958 rows sit on a coordinate
+// shared with another record — a tambon or postcode centroid stacks every
+// place it placed on one point, and one Chiang Rai centroid carries 145.
+// Three neighbours reading "0 ม." is a false fact stated three times; the
+// places are real and the distance between them is not known.
+const nb=nearest3(e);if(nb.length)h+='<p class="rnear">'+nb.map(([d,x])=>'<a href="'+RR+x.p+'/p/'+x.s+'.html">'+hx(x.n)+'</a>'+(d>=25?' <span class="count dist u">'+fm(d)+'</span>':'')).join(' · ')+'</p>';
+if(su)h+='<p class="rsame"><a href="'+RR+'search.html?'+(e.su&&e.su[0]?'sub=':'cat=')+encodeURIComponent(su)+'&near='+e.lat+','+e.lng+'">'+(T.subs[su]?mdBi(T.subs[su][0],T.subs[su][1]):(MD_CATWORDS[su]||hx(su)))+' 📍</a></p>';}
+h+='<p class="rdo"><button type="button" class="planbtn planbtn-lg" data-plan="'+hx(card.dataset.plan)+'"><span class="off-label">'+mdBi('เพิ่มลงแผน','Add to plan')+'</span><span class="on-label">'+mdBi('อยู่ในแผน','In plan')+'</span></button>'+
+' <a class="ropen" href="'+RR+e.p+'/p/'+e.s+'.html">'+mdBi('เปิดหน้านี้','Open this page')+'</a></p>';
+h+='<p class="revents"></p>';
+pn.innerHTML=h;
+const pb=pn.querySelector('.planbtn');if(pb&&typeof planGet==='function'){pb.addEventListener('click',ev=>{ev.preventDefault();ev.stopPropagation();
+const k=pb.dataset.plan,list=planGet(),i=list.indexOf(k);if(i>-1)list.splice(i,1);else if(list.length<PLAN_MAX)list.push(k);planSet(list);});planPaint();}
+if(e.lat!=null){const slot=pn.querySelector('.cardmapslot');
+if(!cardMapEl){cardMapEl=document.createElement('div');cardMapEl.id='cardmap';cardMapEl.className='mdmap cardmap';cardMapEl.innerHTML='<div class="mdmap-draw"></div>';}
+cardMapEl.dataset.lat=e.lat;cardMapEl.dataset.lng=e.lng;cardMapEl.dataset.zoom='16';slot.appendChild(cardMapEl);
+mapBoot(()=>{if(!window.MDMAP)return;const m=window.MDMAP.map(cardMapEl);
+if(m){m.resize();m.jumpTo({center:[e.lng,e.lat],zoom:16});}
+else{cardMapEl.setAttribute('data-mdmap','1');window.MDMAP.mount&&window.MDMAP.mount(cardMapEl);}});
+const ev=pn.querySelector('.revents');const paint=()=>{if(!evGJ)return;const mine=(evGJ.features||[]).filter(f=>(f.properties||{}).placeId===id);
+ev.innerHTML=mine.map(f=>'🎪 '+hx(f.properties.title||'')+(f.properties.start?' <span class="count">'+hx(f.properties.start)+'</span>':'')).join('<br>');};
+if(evGJ)paint();else if(!evTried){evTried=true;fetch(RR+'data/events.geojson').then(r=>r.ok?r.json():null).then(d=>{evGJ=d;paint();}).catch(()=>{});}}}
+box.addEventListener('click',ev=>{const t=ev.target;
+const pin=t.closest&&t.closest('.rpin');const card=t.closest&&t.closest('li.rcard');
+if(!card)return;
+if(pin){ev.preventDefault();const la=parseFloat(card.dataset.lat),ln=parseFloat(card.dataset.lng);
+openMap();if(window.MDMAP&&rm){window.MDMAP.ready(rm,map=>{map.jumpTo({center:[ln,la],zoom:16});
+if(window.MDCARD){const e=(window.MD_IDX||[]).find(x=>x.id===card.dataset.id)||{};window.MDCARD.show({name:[e.n,e.e].filter(Boolean).join(' · '),sub:'',href:RR+e.p+'/p/'+e.s+'.html',plan:card.dataset.plan},rm);}});}
+return;}
+if(t.closest('a')||t.closest('button')||t.closest('.rpanel'))return;
+const pn=card.querySelector('.rpanel');if(!pn)return;
+const open=!pn.hidden;
+box.querySelectorAll('li.rcard.open').forEach(c=>{c.classList.remove('open');const p=c.querySelector('.rpanel');if(p)p.hidden=true;});
+if(!open){card.classList.add('open');if(!pn.innerHTML)fill(card);else if(cardMapEl&&pn.contains(cardMapEl)===false&&pn.querySelector('.cardmapslot')){pn.querySelector('.cardmapslot').appendChild(cardMapEl);}
+pn.hidden=false;
+if(cardMapEl&&window.MDMAP){const e=(window.MD_IDX||[]).find(x=>x.id===card.dataset.id);const m=window.MDMAP.map(cardMapEl);if(m&&e&&e.lat!=null){m.resize();m.jumpTo({center:[e.lng,e.lat],zoom:16});}}}});
+})();
+let MD_HELD=null,MD_HELD_TRIED=false;
+async function mdHeldRow(q,box){
+ const k=(q||'').replace(/\s+/g,'').toLowerCase();
+ if(k.length<4)return;
+ if(!MD_HELD&&!MD_HELD_TRIED){MD_HELD_TRIED=true;MD_HELD=await mdJSON('data/held.json');}
+ if(!MD_HELD)return;
+ // Exact first. Only if nothing is exact does it accept the typed name being
+ // the whole of a held name's start — never a loose substring, which would
+ // hand back a wrong place with total confidence.
+ let hit=MD_HELD[k]||null;
+ if(!hit){for(const key in MD_HELD){if(key.startsWith(k)&&k.length>=6){hit=MD_HELD[key];break;}}}
+ if(!hit)return;
+ const li=document.createElement('li');
+ li.className='shelf held';
+ li.innerHTML='<a href="'+RROOT+hit[1]+'">'+hit[0]+'</a> <span class="badge pin">'+mdBi('ยังไม่มีพิกัด','no pin')+'</span>'+
+  ' · <a href="'+RROOT+'pins.html">'+mdBi('ช่วยเติม','fill it in')+'</a>';
+ box.insertBefore(li,box.firstChild);}
 // ---- today's sky + fortune, chosen from a month baked at build time ---
 // Nothing is fetched: build.py wrote 30 days into these files, so the page is
 // right every morning without a rebuild and still makes no outside request.
@@ -1309,7 +2093,7 @@ mdBi(s.th,s.en);
 // the slip points somewhere in the directory: unhide the door for this verdict
 host.querySelectorAll('.ssdoor').forEach(d=>{d.hidden=d.dataset.ssdoor!==s.verdict;});
 out.hidden=false;},900);});})();
-// ---- widgets: choices live in localStorage, no account, no tracking --
+// ---- widgets: choices live in localStorage, no account --
 function wLoad(k,d){try{const v=JSON.parse(localStorage.getItem(k));
 return Array.isArray(v)?v:d;}catch(e){return d;}}
 function wSave(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
@@ -2474,7 +3258,7 @@ const rec={key:k,n:e.n,en:e.e,p:e.p,s:e.s,pv:e.pv,c:e.c||[],lat:e.lat,lng:e.lng}
 // every page does, and eight of those is a cheap price for stop cards that
 // are actually useful standing in the street.
 const j=await mdJSON(e.p+'/p/'+e.s+'.json');
-if(j){rec.addr=j.address||'';rec.chan=(j.channels||[]).slice(0,4);}
+if(j){rec.addr=j.address||'';rec.chan=(j.channels||[]).slice(0,4);rec.sched=j.sched||null;}
 out.push(rec);}
 return out;}
 // Which network the reader is on. It decides what "nearest" means when the
@@ -2796,6 +3580,31 @@ if(legIn&&legIn.foot)tot+=' · จากตำแหน่งคุณถึง�
 if(unrouted)tot+=' · <b>'+unrouted+' ช่วงอยู่นอกเขตคิดเส้นทาง</b> / '+unrouted+
 ' leg'+(unrouted>1?'s':'')+' outside the routed area';
 elTotal.innerHTML=tot;
+// WHEN YOU GET THERE, IS IT STILL OPEN? Everything above this line is
+// metres; this is the other half of the same question, and the reason the
+// stops carry their week in `sched`. Travel time only — nothing is assumed
+// about how long an errand takes, because that is the reader's business and
+// not something this page can know — so it says "about", and an arrival that
+// lands after closing is worth saying out loud even approximately. No
+// schedule means no line at all: unknown is not shut.
+const MDW=10080;
+const NOWW=(window.MDHOURS&&MDHOURS.now)?MDHOURS.now():null;
+const legMin=L=>{if(!L)return 0;const m=L[planMode]||L.foot||L.ride;
+return m?Math.round(m.km/MODES[planMode].kmh*60):0;};
+const cumMin=[];{let t=(legIn&&legIn[planMode])?Math.round(legIn[planMode].km/MODES[planMode].kmh*60):0;
+for(let i=0;i<places.length;i++){cumMin.push(t);t+=legMin(legs[i]);}}
+function arrivalHtml(p,i){
+if(NOWW===null||!p.sched||!window.MDHOURS)return '';
+const at=((NOWW+cumMin[i])%MDW+MDW)%MDW;
+const on=MDHOURS.open(p.sched,at);
+if(on===null)return '';
+const clock=('0'+Math.floor((at%1440)/60)).slice(-2)+':'+('0'+(at%60)).slice(-2);
+if(!on)return '<p class="planwhen shut">⚠ '+mdBi('ถึงประมาณ '+clock+' — ตอนนั้นปิดแล้ว',
+'arrive about '+clock+' — closed by then')+'</p>';
+const d=MDHOURS.edge(p.sched,at);
+const tail=(d!==null&&d<=60)?' · '+mdBi('อีก '+d+' นาทีปิด','closes '+d+' min later'):'';
+return '<p class="planwhen">'+mdBi('ถึงประมาณ '+clock+' — เปิดอยู่',
+'arrive about '+clock+' — open')+tail+'</p>';}
 planSteps.innerHTML=places.map((p,i)=>{
 const cats=(p.c||[]).map(c=>CATL[c]?CATL[c][0]:c).join(' · ');
 const chan=(p.chan||[]).map(c=>'<a href="'+H2(c.href)+'" rel="noopener">'+H2(c.text)+'</a>').join('');
@@ -2830,6 +3639,7 @@ return '<li class="planstop"><span class="plannum">'+(i+1)+'</span>'+
 '<div class="planbody"><h3><a href="'+RROOT+p.p+'/p/'+p.s+'.html">'+H2(p.n)+'</a></h3>'+
 '<span class="plancat">'+H2(cats)+' · '+H2(p.pv)+'</span>'+
 (p.addr?'<p class="planaddr">'+H2(p.addr)+'</p>':'')+
+arrivalHtml(p,i)+
 (chan?'<div class="planchan">'+chan+'</div>':'')+
 '</div><div class="planacts">'+
 '<button type="button" data-up="'+i+'" title="เลื่อนขึ้น / move up"'+(i?'':' disabled')+'>▲</button>'+
@@ -3011,12 +3821,20 @@ const qs=new URLSearchParams(location.search);
 if(qs.get('kind'))form.kind.value=qs.get('kind');
 if(qs.get('t')&&!form.what.value)form.what.value=qs.get('t');
 const pid=qs.get('id')||'';
+// TYPED FACTS (facts.py, 2026-09-06). With a place known, the form offers a
+// field and a value; the drawer on a place page arrives with the field set.
+// The fact travels as "fact:" + JSON in `what`, so the Worker and the queue
+// need no new kind — importers/apply_facts.py reads it out by number.
+const fbox=document.getElementById('factbox'),ff=form.querySelector('[name=factfield]'),fv=form.querySelector('[name=factvalue]');
+if(pid&&fbox){fbox.hidden=false;if(qs.get('field')&&ff)ff.value=qs.get('field');}
 const where=document.getElementById('suggestwhere');
 if(pid&&where){where.textContent=pid;where.parentElement.hidden=false;}
 const say=document.getElementById('suggestsay');
 form.addEventListener('submit',async e=>{
 e.preventDefault();
-const what=form.what.value.trim();
+let what=form.what.value.trim();
+if(ff&&ff.value&&fv&&fv.value.trim())what='fact:'+JSON.stringify({field:ff.value,value:fv.value.trim(),note:what});
+else if(ff&&ff.value&&!what){say.textContent='ใส่ค่าในช่องด้วยเจ้า / Put the value in the box';return;}
 if(!what){say.textContent='บอกเราหน่อยว่าเรื่องอะไร / Tell us what to look at';return;}
 const btn=form.querySelector('button');btn.disabled=true;
 say.textContent='กำลังส่ง… / sending…';
@@ -3039,4 +3857,53 @@ else{say.textContent=(out.error||'ส่งไม่สำเร็จ / could n
 say.textContent='ส่งไม่ได้ตอนนี้ / could not send just now — '
 +'อีเมลมาก็ได้ / email works too: '+cfg.email;btn.disabled=false;}
 });
+})();
+
+// ---- WO-65 NOW · NEAR: the plan cell, and a ☰ that never opens on nothing --
+(function(){
+function nnPlan(){var el=document.querySelector('.nnplan');if(!el)return;
+var n=0;try{var v=JSON.parse(localStorage.getItem('md-plan'));n=Array.isArray(v)?v.length:0;}catch(e){}
+el.hidden=!n;el.innerHTML=n?'<span class="nnsep"> · </span>🗺 '+mdBi('แผนของคุณ '+n+' จุด','your plan, '+n+(n>1?' stops':' stop')):'';}
+nnPlan();
+document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('.planbtn'))setTimeout(nnPlan,0);});
+window.addEventListener('storage',function(e){if(!e.key||e.key==='md-plan')nnPlan();});
+// The count of what is on TODAY, where today is the reader's own date. It was
+// baked from BUILD_DATE, a hand-typed string, and on 2026-09-07 that string
+// said the 5th on every page of the site. data/today.json carries three weeks
+// forward; mdPick hands back today's entry or nothing at all.
+function nnSep(el){var n=el.nextElementSibling;
+while(n){if(!n.hidden&&!n.classList.contains('nnsep'))return true;n=n.nextElementSibling;}
+return false;}
+(async function(){var wrap=document.querySelector('.nnevwrap');if(!wrap)return;
+var a=wrap.querySelector('.nnev'),sep=wrap.querySelector('.nnevsep');
+var day=mdPick(await mdJSON('data/today.json'));
+var n=day&&day.events;
+// Nothing on today is a true answer and not an error: the cell goes rather
+// than printing a nought, exactly as an empty plan does.
+if(!n){nnEmpty();return;}
+a.innerHTML='🎪 '+mdBi(n+' งานวันนี้',n+' on today');
+wrap.hidden=false;sep.hidden=!nnSep(wrap);nnEmpty();})();
+// 📍 ตรงนี้ — shown only where the browser already says granted. It is a link,
+// never a redirect and never a prompt: Nan's call, 2026-09-07. Where
+// navigator.permissions is missing the cell simply stays down and the reader
+// still has the chip in ☰.
+(function(){var el=document.querySelector('.nnhere');if(!el)return;
+if(!navigator.permissions||!navigator.permissions.query)return;
+navigator.permissions.query({name:'geolocation'}).then(function(st){
+function paint(){var on=st.state==='granted';
+el.innerHTML=on?'<span class="nnsep"> · </span>📍 '+mdBi('ตรงนี้','where I am'):'';
+el.hidden=!on;nnEmpty();}
+paint();st.onchange=paint;}).catch(function(){});})();
+// A line with nothing true left to say is not a line. Same cleanup nnDrawer
+// does for the ☰ over an empty drawer.
+function nnEmpty(){document.querySelectorAll('p.nownear').forEach(function(p){
+var live=Array.prototype.some.call(p.children,function(c){
+return !c.hidden&&!c.classList.contains('nnsep')&&(c.textContent||'').trim();});
+p.hidden=!live;});}
+nnEmpty();
+// search.html files the chip rows under its results; the drawer they left is
+// then a glyph over nothing, so it goes too.
+function nnDrawer(){document.querySelectorAll('details.morenav').forEach(function(d){
+d.hidden=!d.querySelector('a');});}
+window.addEventListener('load',function(){setTimeout(nnDrawer,0);});
 })();
