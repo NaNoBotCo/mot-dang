@@ -9,7 +9,7 @@ picture: which cuisines huddle (Indian in 786 m, east of the moat — the
 Chang Klan quarter is real), which spread everywhere, and which direction
 each one's weight sits from the moat.
 
-House rules as ever: browser-drawn from the baked file over the shared city
+As ever: browser-drawn from the baked file over the shared city
 frame, no tiles, no library. A place with no cuisine tag is absent — that
 is silence, never "no cuisine". Geography numbers are Chiang Mai-only; the
 CR dots draw, but a centroid across two provinces is a rice field between

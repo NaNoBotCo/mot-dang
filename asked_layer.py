@@ -38,13 +38,12 @@ Shibari is the one entry that stays a gap on purpose even after a real lead
 turned up: press coverage shows a rope-teaching scene has existed in Chiang
 Mai, but the source was a single old, paywalled article naming one private
 individual in a sensitive practice — not something this site will publish
-without that person's own consent, no matter how citable. The house rule
+without that person's own consent, no matter how citable. The practice
 (add.html, self-submitted, no address required) is the correct path here,
 not a name pulled from someone else's reporting.
 
-House rules as everywhere: nothing that reports a reader to anybody, no
-invented ratings, silence never dressed up as "no". No map on these pages, so
-they fetch nothing at read time.
+As everywhere: no invented ratings, and silence is not dressed up
+as "no". No map on these pages, so they fetch nothing at read time.
 
 Entry point: emit(globals_of_build, data) — call after answers_layer.emit so
 this page's stylesheet (answers.css) already exists on disk. `load()` and

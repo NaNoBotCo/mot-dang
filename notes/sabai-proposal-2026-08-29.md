@@ -20,7 +20,7 @@ she could not reach it.
 ## What was measured, before
 
 1. **what.html had ZERO inbound links.** The page built precisely for
-   "เว็บอะไรอ่ะ" — six things we hold to, fifteen tappable plates — was
+   "เว็บอะไรอ่ะ" — fifteen tappable plates — was
    linked from nowhere: not the chipbar, not the svcbar's five families,
    not the footer (why/who/reach/privacy are there; what was not), not the
    homepage, not the 404. `grep -rl what.html docs/` returned the sitemap
@@ -113,9 +113,9 @@ Nothing posts without Nan, and the **Messenger export runs before any
 posting push** (`project_distribution_rebuild`). Draft:
 
 > **TH** — ขอบคุณที่ชอบกันนะคะ 🐜 มดแดงมีหน้าที่อธิบายตัวเองอยู่ค่ะ ว่า
-> เว็บนี้คืออะไร ใช้ยังไง และมีข้อไหนที่เรายึดไว้บ้าง — motdang.net/what.html
-> **EN** — Thank you! There is a page that explains what Mot Dang is, how to
-> use it, and the six things we hold to — motdang.net/what.html
+> เว็บนี้คืออะไร และใช้ยังไง — motdang.net/what.html
+> **EN** — Thank you! There is a page that explains what Mot Dang is and how to
+> use it — motdang.net/what.html
 
 Every future "how do I use it" gets the same door handed over, and now the
 door is also on every page of the site, so most of them will not have to ask.

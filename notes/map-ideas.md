@@ -47,9 +47,9 @@ there is no soi tier. The rung between ตำบล and place.
 พระประจำวันเกิด. Walkable and rideable nine-wat loops per district, and a
 variant keyed to the reader's birth weekday. A practice people already do at new
 year and Songkran, shareable to LINE as a poster. Aimed at ป้าร้านกะเพรา and the
-temple steward, not at the farang reader. Note the empathy map's standing rule:
-**temples are never ranked against each other** — a route is an order of walking,
-which is not a ranking, and the page has to make that plain.
+temple steward, not at the farang reader. From the empathy map: the page does
+not rank temples against each other — a route is an order of walking, not a
+ranking, and the page has to make that plain.
 
 **4. One-trip errand solver.** `plan.html` routes stops that are already chosen.
 The version nobody else offers: give it *categories* — ร้านยา, ตู้เอทีเอ็ม,

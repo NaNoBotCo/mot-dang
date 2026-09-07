@@ -6,8 +6,7 @@
 > to build next and how you will know it worked. The shared task board carries
 > the moving state; this is the standing structure.
 >
-> House discipline, no exceptions: stdlib Python, local, static, no tracking.
-> Curated outranks crawled. Provenance travels with every fact. Ambiguity goes
+> House discipline: stdlib Python, local, static. Curated outranks crawled. Provenance travels with every fact. Ambiguity goes
 > to a review file, never to a coin flip. Bilingual ไทย · EN or it does not
 > ship. **Bots build and test; the standing walk publishes.** No order below
 > ends in a deploy because none of them has to: `importers/standing_walk.sh`
@@ -28,6 +27,15 @@
 | WO-5 | Sorts: neighbourhood, ancientness | **DONE** 2026-08-17 (open-now open) |
 | WO-3 | The detail page | **DONE** 2026-08-17 (site crawl running) |
 | WO-7 | The maps | **DONE** 2026-08-17 (shelf maps interactive) |
+| WO-65 | The second axis — `kind`, kind-aware ants, and the second gate | **BUILT** 2026-09-06 — the counter rule retired: `kinds.json` + `kind_layer.py`, 10 kinds over 24,059 records (16 unplaced); the nine ants re-cut to 5 universal + 4 the kind's own (commerce byte-identical); `place_has_substance()` now asks what a record's OWN KIND owes — indexable 13,630 → 14,286, held-out-of-index 1,708 → 677; `tests/test_kinds.py`. Nan's decisions J/K/L/M still open. |
+| WO-66 | THE EDGE — bus shelters, tree shrines, named sois, wells (decision J) | **BUILT** 2026-09-06 — two kinds added (`sacred` 40 records, hand-checked; `way`), `edge_layer.py` PROJECTS 1,077 named ways (432 sois) out of data/streets.json where they had been fully modelled and never admitted as records; the vernacular for all four classes (49 terms, Thai + reading + gloss) written into kinds.json and gated; compiler learned `cat_not`. Shelters, shrines and wells need one OSM pull each — network, so Nan's trigger. |
+| WO-67 | ที่จอดรถ — the elephants he got when he asked for parking (Michael's report) | **BUILT** 2026-09-06 — three faults, three fixes. (1) A mined shelf can no longer open a rich door: the chang teaser's "the gate and the chedis that carry its name" had made `gate` an elephant word, so every gate in this city opened the elephant panel; `search-core/mine.py` now reads an English teaser as a LIST not as prose (17 junk terms dropped, 1 real one lost), and 15 residue words are stopped by name. (2) A failed search no longer wears a door: in partial mode no panel renders, the page's own "nothing matches all of…" comes FIRST, the heading says *partial matches*, and a stuck reader is handed the ants and a crawl request. (3) The catalogue held ZERO parking among 22,351 places — now 1,796 (CM 1,361 / CR 435), and 1,711 of them were unnamed, so they publish under a name derived from their tags plus a bearing (`ที่จอดรถ · ใกล้ประตูท่าแพ 80 ม.`), stamped `derived` so no give-back can ever offer OSM a name we wrote. Plus the fourth fault found on the way: `parse_intent` ate every bare constraint, so `parking`, `wifi`, `open now` and `wheelchair` each returned zero rows — fixed in both halves of searchcore, parity 528/528. `access:parking` now has a column. New `parking` kind (the pin IS the answer). tests/test_search.py grew 13 rich-door cases. |
+| WO-68 | ใกล้ = ระยะทาง · near a landmark is a DISTANCE, and the results page slashed back | **BUILT** 2026-09-07 — Nan: "Near a landmark should sort by distance. Also declutter results page. Slash and burn. If it doesn't answer a question, it is invisible." A landmark named in the query is lifted out of it (68 points from the bearings register, published as `search_landmarks.json`), the proximity word with it, and what remains is what the reader wants — then rows sort by metres from the point and each carries its distance. Romanisation drift is a RULE not a list: `th?a\s*ph?ae` matches taphae/thapae/tapae/tha phae, because the aspirate and the space are whoever painted the sign's choice. The landmark's own record is hoisted first (typing "tha phae gate" returned the gate FOURTH). A stated constraint now NARROWS where a mined shelf word only lifts. Declutter: the now·near strip hides on a query, the province chip prints only when results span both, the count/cap duplication is gone, the thesaurus status line is cut, "wrong results?" appears only when the search struggled, and shelf headings step aside under a distance sort. **`tests/test_search_page.py` is new and is the point** — it renders the page under a DOM stub, and it exists because a `const` in the temporal dead zone had taken every search on the site down while test_search.py passed 32/33, the fault being four lines below where that file stops looking. |
+| WO-69 | บัตรผลการค้นหา — a result is a PLACE, not a link: chips, a lamp, metres, a map, and finding BY TAG | **BUILT** 2026-09-07 — Michael: "if I see something I like on the list of results, I want map controls of it accessible, links to related (nearby/near time) things, interactivity, and relationships... discovery should EXPLICITLY allow searching/finding by tags... if you need to explain something using words, you're fucking up." The index carries the relations at last (`t` tags · `tt` trade tags · `st` street · `ar` district · `hk` opening schedule, every one an int into the new `docs/data/search_tables.json`; the unread `h` string came off, net +200 KB). Search takes `tag= sub= cat= st= ar= near=`, with no words at all if you like; a tag typed in the box or written `#vegan` is lifted out of the query into a filter, and the constraints searchcore already lifted (vegan, wifi, wheelchair, delivery, open late) narrow instead of printing "this page cannot filter on it yet". A row is now a card: up to three chips that are each a filter, the metres when a point is known, an open-now lamp (absent when nobody recorded hours — never "closed"), a 📍, and a body that opens IN PLACE with a mini map, the three nearest other places, same-kind-nearby, what is on here, and add-to-plan. A results map, lazy-loaded so no search pays a megabyte for it, with near-me through the one MDLOC door. Fourteen instructional sentences deleted and replaced by chips. `tests/test_index_weight.py` NEW; test_search + test_search_page extended. Note: go/card. |
+| WO-70 | คำที่หายากคือคำถาม — the rare word IS the question | **BUILT** 2026-09-07 — Michael's "best place to buy a Martin guitar" put Guitar House ~230th: `buy` matched 261 rows, `martin` 4, `guitar` 4, and nothing in the score knew the difference. When no row matches every word the partial pile is ranked by Σ log(N/df) over the words each row actually matched. Guitar House, Intune and Cin Guitars are now the top three; "cheap tok sen massage old city" answers with tok sen shops. Rows that matched everything are untouched, and every existing case still passes. In build.py's caller only — searchcore.js is not touched. |
+| WO-71 | ทิศทาง + สามทางให้เดินต่อ — orientation on every listing, and the three ways to wander | **BUILT** 2026-09-07 — WO-64's hook is APPLIED at last (Nan 9/6: "all listing pages to have landmarks and orientations... orientation in comparison to other objects is this site's actual secret sauce"): 93% of sampled place pages carry a ทิศทาง row, /landmarks.html and data/landmarks.json exist, and an approximate pin says so instead of quoting metres. Under the map, Nan's §6: the five nearest places we hold, same-kind-nearby (ALL of them, nearest first, via `?sub=…&near=…`), and 🎲. The Map row opens OUR city map first — no place page had ever linked to it. "More like this" is retired: it was a fourth way to wander, ranked by record completeness rather than by where anything is. Five sentences cut from the shared template. `tests/test_page_weight.py` check 2 now grades repeated prose (21), all prose (37) and total (159) separately, because the single 140-word cap was counting per-place FACTS as boilerplate. |
+| WO-72 | คำอ่าน — the romaniser's three faults, measured over all 15,947 Thai names | **BUILT** 2026-09-07 — `tests/test_translit.py` was RED on both floors this morning without the romaniser having changed (the pair set is drawn live and new records arrived whose English name is a different name). Under it: run-on compounds 5,678 → 1,044 (ประตูท่าแพ was "Pratuthaphae"), stranded tails 18 → 0 (บุ่น was "Bu Na"), English leaking mid-name 117 → 0 (วัดถ้ำพระ was "Wat Cave Phra"). The segmenter is now dynamic-programming, the objective ported from thapsap so both projects cut Thai the same way. Floors 42.8% → 46.9% exact, 68.1% → 70.4% close, both green. 72.8% of readings changed. |
+| WO-73 | พิกัด — the gazetteer stops being confidently wrong | **BUILT** 2026-09-07 — its docstring claimed 80% calibration; measured, 63%. The worst five results of every run were one failure: ถนนโชตนา in อ.ฝาง matched to the Chiang Mai stub of a road that runs 128 km north, declared ±280 m. Three witnesses added: the อำเภอ the address names (43 centres were in admin_areas.json since August, read by nothing) refuses a road, tambon or postcode that falls outside it; a street nobody corroborates answers at ±3,000 m and so is never published; and the sign's spelling is a RULE (the h after t/p/k, the space) plus 25 curated rows in the new `data/curated/street_aliases.json` — the fix named on 9/5 and never built. Calibration 63% → 75%, unplaceable 971 → 189. A dry run offers 194 new pins, NOT written. `tests/test_geocode_local.py` NEW. |
 | WO-2b | Class venues — "ทุกวัด", "the five gates" | new, from WO-2 |
 | WO-8 | กัญชา-กระท่อม shelf — crawl, classify, facets, lamps | **BUILT** 2026-08-17 |
 | WO-9 | The medical shelf — the one that had never been crawled | **BUILT** 2026-08-18 |
@@ -68,6 +76,24 @@
 | WO-43 | ยามเฝ้าค้นหา — the search guard: 6.8 MB fetched to answer nobody, and the doors moved out of the script into the page | **ZERO-NETWORK BUILT** 2026-08-30, Nan's "start with the search guard" off the §1 finding — `notes/sabai-survey-2026-08-30.md`. **The measurement: md.js read the query and then fetched `data/index.json` BEFORE checking whether there was one.** An empty search cost **6,840 KB — index.json 6,158 + segdict 306 + md.js 181 + thesaurus 122 + panels 40 + shelves 30 — about 36 s on a 1.5 Mbps link**, to be told nothing; and WO-42's teaching pills sat *inside* that same await, so **the teaching built to spare people the wait arrived last, after it**. Two halves, both shipped. **The guard:** `if(!q)return;` immediately after the query is read, ahead of `loadIndex()` — browser-verified, an empty search now fetches **no index, no thesaurus, no segdict, no panel file at all**; a real query is untouched (`?q=ช้าง` still opens the 🐘 panel with its live count of 30 over 221 rows). **The served doors:** `search_start_html()` renders the start state at BUILD time into `<ul id="results">` — **search.html's body went 27 chars → 1,312**, all 19 pills, page 28 KB, and it now works with scripts off and is visible to the crawlers and models whose stated pain in `notes/empathy-map.md` is client-rendered pages (two pages on the whole site carried a `<noscript>`). Two gains fell out of moving it server-side: the pairs go through `bi()` so **the language toggle finally reaches the start state** (the JS copy emitted plain "th · en" it could not touch), and the Thai terms are URL-encoded by Python instead of by hand. **The client-side `start()` is deleted, not kept as a second copy** — the served page is the only definition, so the two cannot drift. `tests/test_sabai.py` 24 → **27 checks**, its teacher section rewritten to ask the stronger question (not "can the script draw the doors" but "are the doors in the page before any script runs"), plus the guard's own shape and a check that the dead copy stays gone. Eleven suites green; build 22,175 pp. Still surveyed and NOT built (same note): the two failing ink tokens `--mute` 3.0:1 / `--gloss` 4.0:1 → `#816e53` / `#816d55` · the 32 pages over 600 KB the hub rule cannot reach (wat held by the coverage gate at 1,365 KB, tags never had the rule) · phone 14 % and **LINE 0 of 20,702** · three broken links incl. the ADHD desk sheet that was never generated. |
 
 | WO-44 | หมึกเงียบที่อ่านออก — the quiet inks made readable: two token values, the ladder kept, the gold split into bead and ink, and a contrast gate | **ZERO-NETWORK BUILT** 2026-08-30, Nan's go on the §2 finding — `notes/sabai-survey-2026-08-30.md`. **The measurement: `--mute` sat at 3.0:1 against the paper and `--gloss` at 4.0:1, both under the 4.5:1 floor for body text — and they were not decorative.** Between them they set **91 rules, every one a `color:`** (no border, no background, no shadow), on exactly the smallest text the site prints: `.tinynote` · `.src` · `.cat` · `.teaser` · `.photodesc` · `.adlabel`, plus `.herosub`, the homepage's opening paragraph. **The site's whole trust argument — provenance lines, source credits, read-dates — was written in its least readable ink, at its smallest size.** Shipped: `--mute` `#a08b6c` → **`#7d6b51`**, `--gloss` `#8a755b` → **`#685845`**, same hue, darkened only, so nothing structural moved. **The survey's own first numbers were wrong and were corrected before shipping:** computed against the paper alone they gave `#816e53`, which falls to **4.3:1** on the `--card-alt` the chips and bands use — the shipped pair clears 4.5 on **all three** light surfaces (mute 4.7/5.0/4.5, gloss 6.3/6.7/6.0). **The ladder was treated as a thing worth keeping:** pushing both to the floor collapses them into one colour and spends a level of the palette to buy contrast, so `--gloss` was darkened proportionally instead — ink 14.9 > ink-soft 8.4 > gloss 6.3 > mute 4.7, four distinguishable steps; a `--soft`-floor variant was computed and **rejected** because it put gloss at 8.0 against ink-soft's 8.4, the same colour in effect. **The one residual is written down, not buried:** `--mute` on a `--soft` background is 3.5:1 and five bands do put muted text there (`.myhint` `.mtband` `.planhero .hnum` `.festwhen` `.widgetbox .wtitle`) — `--soft` is 49 borders to 24 backgrounds, so the fix belongs to those bands (inner text → `--ink-soft`, or a lighter background for the background uses), and the test asserts the exemption so it stays visible. `tests/test_contrast.py` — **checks that read the tokens OUT OF THE SHIPPED STYLESHEET** rather than from numbers copied into the test: the floor for all four inks across all three light surfaces, the ladder's order *and* a >1.15× gap so no two neighbours merge, the `--soft` exemption, and that both quiet inks stay `color:`-only so a later edit cannot quietly make one a border. Twelve suites green; build 22,175 pp. **THE GOLD SPLIT, same sitting, on Nan's "do the gold-ink fix too": `--gold` was doing two jobs at once.** As decoration — the ‧ bead after a band label, the underline on a hovered header link, the watermark on the dark side card — 2.8:1 is fine, because nothing there is read; as **text** it was the hero's "Kept up daily…" line at **2.79:1** and the nine-doors / care-shelf counts at **2.99:1**, all around 13 px. **Measured in the live DOM rather than inferred from the stylesheet, which mattered: `.heroeyebrow` takes its colour from a rule 230 lines from the one that sets its size, and the first CSS reading pinned it to the wrong place.** New token **`--gold-ink` `#8e6621`** — same **38° hue**, carried to 4.5:1 on card-alt / 4.7 paper / 5.1 card — swapped into exactly three rules (`.heroeyebrow` · `.doorcard .n` · `.careshelf .n`); `--gold` keeps the bead, the underline and the watermark unchanged. Verified live: eyebrow **2.79 → 4.74**, both counts **2.99 → 5.07**, bead still `#c08a2d`, and it still reads as gold (a warm amber, distinct from the ant red beside it and the ink-soft under it). The gate grew the rule that keeps the split honest: `--gold-ink` clears the floor on every light surface AND keeps gold's hue within 2°, while **`--gold` may sit under the floor only where nothing is read** — an allow-list of exactly two selectors. **That check caught its own first draft**, which counted `text-decoration-color:var(--gold)` as a text colour; the regex now refuses a `-color:` property and the hover underline is correctly left as decoration. `tests/test_contrast.py` now 26 checks; twelve suites green, build 22,175 pp. |
+| WO-45 | จดหมายข่าวรายสัปดาห์ — the weekly events newsletter parsed, and the 62 venues no crawl had | **ZERO-NETWORK-TO-BUILD, BUILT** 2026-08-31, Nan's ask (*"Please use this content for motdang.net … I bet some of the locations mentioned don't even show up on crawl. Find out what/where they are and add all available details, everywhere. Be EXHAUSTIVE."*) — `notes/newsletter-ingest-2026-08-31.md`. **The instinct was right: 62 of the venues one issue names did not exist in the 14,493-record catalogue in any spelling, in either script** — Chiang Mai Marriott, Cross Chiang Mai Riverside, Anantara Chiang Mai Resort, the Gymkhana Club, Seven Fountains, Sand Creek Golf Course, Old Chiangmai Cultural Center, and Chiang Mai Hall inside Central Airport Plaza (the mall itself is still absent — the catalogue held six pharmacies inside it and not the building). **events.json 82 → 401 · contact_leads.json 4 → 99 venues · place pages with a "what's on here" band 0 → 89 · venue_aliases.json 4 → 148 keys · cm 14,493 → 14,558 records.** The issue: 39 pp, 67 dated listings + 122 weekly fixtures + 21 notices → 319 events and 139 leads, against 82 events and 4 leads from every crawled source combined. **`importers/read_newsletter.py`** — stdlib, no network (it arrives as email; a human drops the text at `_incoming/newsletter/YYYY-MM-DD.txt`), called by `harvest_events.py` as a local source so it rides WO-41 Phase 2's validate/atomic/never-destructive discipline and a bad parse is refused rather than published. **The prose is never copied**: the body is venue-supplied press-release copy and `sources.json` has said since 7/29 to treat this as a discovery feed "not as a thing to copy", so the parser takes the FACTS (when/where/how much/how to book) and generates every description; notices are standing offers, not happenings, and yield contacts only. **A weekly fixture is a rule, not a date** — stated weekday, projected onto its next TWO occurrences, each marked `from_rule`; the next issue restates the rule so nothing outlives its source (festival_dates.json's charter again). Two PDF facts no rule solves: page seams rejoin correctly at 30 of 39 and wrongly at 9, pinned per issue in `ISSUES` because a bad join silently merges two events; and a weekday header with no blank line rides the block above it (Saturday first parsed 41 items, Sunday 0). **Pins came from the venues themselves**: 19 listings carried a Google Maps link the venue published, 11 resolved to coordinates → `exact`, **each citing the link it came from, because a pin without a citation is an assertion**; the rest through `geocode_local.py`, landmark→`approx` / street→`block` / coarser→`needs-pin`, no geocoding service called (that file's docstring forbids it). Final spread 11 exact · 12 block · 6 approx · 33 needs-pin. **Two refusals:** every address that was MY inference rather than the issue's statement was deleted rather than pinned (Gymkhana's road, Anantara's, the Marriott's, Chotana Mall's tambon), and **Kad Kriangkrai's gazetteer answer was refused outright** — Chotana Road at a confident ±280 m, 12 km south of the Mae Rim market Google's own link names; address kept, pin not. **Venue→place matching, "not built yet" on 7/29, is built — and not fuzzy** (fuzzy gave Araksa Tea Garden → "Garden Restaurant"): strict `match_venue()` plus a much larger alias file, with the newsletter's own spellings folded first in `read_newsletter.CANON`. **All 95 venues resolve; 100% of newsletter events carrying a venue string land on a place — 231 of 231.** Five records written then removed as duplicates the catalogue already held (CFCNX, Soi Dog Blues, Stories, สนามกีฬาเทศบาลตำบลสุเทพ — 18 m from the rugby club's own map pin — and Duke's Ruamchok), each an alias instead. **`_missing_from_catalogue` 5 → 2**; Araksa Tea Garden closed in passing from the Payap lead sitting unused in contact_leads since July; still open are Bua Bhat Factory (a phone, no address) and NARIT Astronomy Park (0 records carry NARIT or สดร in either province). **37 EXISTING records gained a channel** via `curated/enrich.json` — 22 phones, 13 emails, 13 Facebook, 13 LINE, 2 WhatsApp, 4 websites, only fields the record lacked, nothing overwritten; a venue-supplied release is the venue's own words one hop out, not a directory's scrape, and the `license` says so. **Campaign links refused as `website`** (Favola's marriotth.tl menu shortlink, the InterContinental's truncated offer URL, buddhadailywisdom for วัดทุงยู — the organiser, not the temple); where the host WAS the venue's own only the origin was kept, because a seasonal path 404s long before the domain does. **Three defects the newsletter exposed in older code:** `event_when()` printed `%H:%M` unconditionally, so a listing stating a day and no hour rendered *"Every Monday at 00:00"* — the site telling readers a yoga class starts at midnight; the iCal and tribe feeds always carry a real time so nothing had ever shown it, and it honours `all_day` now. `dedupe_leads()` copied five fields and dropped Facebook, Instagram, LINE, WhatsApp and the maps pin on the floor — **while LINE ranks second only to the phone in `channels()`**. And **my own first pass filed LINE as `attrs.line`** when `channels()` reads `lineId`/`lineUrl`: 22 LINE contacts were silently invisible until the keys were fixed, and `phone` is semicolon-separated by house convention so a venue printing three numbers keeps all three. **The alias trap that cost 6 of 90 matches:** keys are looked up as `_vnorm(string)`, so a key written `UN Irish Pub & Restaurant` or `The Duke's` can never be hit — and `_vnorm` keeps the acute, so `café` needs its own key beside `cafe`. Time parsing earned two fixes: **"6-11pm" read as 23:00** (the meridiem sits only on the end of a range — Game Tree's Catan night five hours late) and **"12 noon until 3pm" read as 15:00**, opening a listing after it ended. **Sources the issue turned up, each recorded as MEASURED not as claimed:** **runlah.com verified and the best find** — event pages server-render a complete schema.org `SportsEvent` block (name, startDate +07:00, nested Place naming the province), no key, no JS, though its index is client-rendered at 213 words so slugs still come from this newsletter; **sansatan.com verified** (1,399 words of dates/distances/fees, no JSON-LD so it needs a parser); **thailandexhibition.com unverified** (200 but 294 words, no index path found); **ticketmelon.com blocked** (URLError — recorded as blocked, not empty, the 7/29 citylife distinction); **shutupwrite.com client-rendered**, its JSON-LD Organization boilerplate with no event data. `test_pins` caught my own error before it shipped: 4 records claimed an `exact` pin while naming a `pinVia`, and a surveyed pin is derived from nothing — the citation belongs in `sources`, where it already was. All suites green; build 22,242 pp into a scratch dir, because **Nan's own `deploy.py --yes` held the build lock for the whole sitting** (the WO-33 lock working in the wild, second sighting) — **the site is UNBUILT and UNDEPLOYED with these changes on disk; the next `build.py` + `deploy.py` is Nan's**. Held for Nan: **the partnership is still unanswered** (offered 7/28, nothing by 8/31 — two issues mined without one; ask again, ask differently, or keep mining is a fork, not a standing decision) · Central Airport Plaza itself (its two FDA pharmacy pins disagree by 4 km, so neither can be borrowed) · the next issue costs one paste plus ~10 min of hand-verifying its page seams · 1 Instagram and 3 WhatsApp group links reached no record because their listings named no pinnable venue · and **pre-existing, untouched**: `test_shelf_cards` fails on 6 orphan og cards (`shelf-cm-learn`, `-learn-gym`, `-transport-station` and the cr three) — verified unrelated, `learn` is a cat on 0 records and `station` a sub on 0 records in both provinces. |
+| WO-46 | ผ้าปูที่นอนแบบไม่รัดมุม — the flat sheet: the home-textile shelf the catalogue has none of, the words to ask with, and three shrine groups rescued on the way | **ZERO-NETWORK BUILT** 2026-08-31, Nan's ask ("Getting farang style flat sheets in thailand is very challenging. Thais just use fitted and duvet cover. Can motdang help the handful of farangs who refuse to adapt to this reality?") then her go ("build the zero-network half of WO-46") — `notes/bedding-proposal-2026-08-31.md` + `notes/asked-flat-sheet-2026-08-31.md`. **The census, run the way WO-22 says to run one — the names first, in the language the shops wrote them: 20,778 records across both provinces, 28 words in both scripts, ZERO.** ผ้าปูที่นอน · เครื่องนอน · ที่นอน · ผ้านวม · ปลอกหมอน · ผ้าม่าน · รัดมุม · ผ้าเมตร · ร้านผ้า · ตัดเย็บ · ช่างเสื้อ · อุปกรณ์โรงแรม · bedding · bed linen · flat sheet · top sheet · duvet · mattress · fabric · seamstress · alteration all nil; only **textile** (2) and **ซักรีด** (2) survive anywhere. Home textiles are not a thin shelf here, they are an absent one — and this is NOT the beauty-shelf error repeating, because the names were read in Thai and the trade is genuinely missing from the catalogue rather than hiding in it under another word. **The tailor row was the tell**: `shopping/tailor` held 10, nine of them bespoke-suit houses with English signage and exactly one named in Thai — **รับซ่อมแซม เสื้อผ้า** (`cm-osm-node-13298710901`), which is a sign and not a business name. **Retagged** `sub: tailor → alterations` on its own name in both languages (name:en=repair clothes) against its single `craft=tailor` tag, which OSM uses for the whole needle trade; evidence read in `cache/overpass/cm/crafts.json`, crawled 2026-07-27, `cat` untouched, receipt in the record's own sources + a bilingual line in `data/fixes.json`. `import_all` reports **7 curated retags where there were 6**; tailor 10 → 9, alterations 0 → 1. **Three shelves opened, named for the trade and never for the asker** (the ขัดขี้ไคล rule: a shelf called "Flat Sheets" would hide every shop that calls it something else): `shopping/alterations` ซ่อมแซม-แก้เสื้อผ้า (1 record, renders), `shopping/fabric` ผ้าเมตร-ร้านผ้า and `shopping/bedding` เครื่องนอน-ผ้าปูที่นอน (0 records, correctly wireframe — no page built), with `shopping/tailor` relabelled **ร้านตัดสูท-ตัดชุด / Tailors** so it stops claiming a repair trade it does not hold. Both empty shelves are registered in `tests/test_facets.py` KNOWN_EMPTY with the census and — the part that matters — **neither reason says unfillable**: both wait on ONE crawl that has not been run, ranked in the note, hospitality supply first because that single fetch decides whether this shelf is five records or fifty. **Eight thesaurus groups**, written to `search-core/data/hand.thesaurus.json` and NOT to `data/search_thesaurus.json`, which is generated — `mine.py` + `sync.py` would have erased a local edit silently. **"flat sheet" now reaches ผ้าปูที่นอน** with nothing behind it yet, which is the correct state: the word works the day the first record lands. **ผ้าห่ม was deliberately left OUT** of the sheet group (a blanket is not a sheet; the mined table already pairs it with "blanket"), while flat/top/fitted DO sit beside ผ้าปูที่นอน as hyponyms rather than synonyms — a deliberate stretch of that file's contract, written up inline, because **Thai carries one generic word where English carries three specific ones and that asymmetry is the entire finding**. **THE DEFECT FOUND ON THE WAY, and it was one keystroke from being permanent: three WO-39 shrine groups existed ONLY in the generated file.** `city pillar · lak mueang · หลักเมือง · ศาลหลักเมือง · เสาหลักเมือง · **อินทขีล** · สะดือเมือง`, `devalaya · เทวาลัย · เทวสถาน`, and `shrine · spirit house · **joss house** · ศาล · ศาลพระภูมิ · ศาลเจ้า · หอผี` had been hand-written straight into `data/search_thesaurus.json` — a file whose own header says edits there are silently overwritten — so they were in no generator anywhere, and the first re-mine by anyone would have deleted Chiang Mai's own city pillar out of the search. `tests/test_shrines.py` caught it (check 7, "the words reach it"). All three recovered from git HEAD into `hand.thesaurus.json`; the shrine group came back RICHER than it left, keeping "joss house" and gaining the shelf label ศาลเจ้า-ศาลหลักเมือง through union-find. **A second staleness found and closed**: the search tables had never been re-mined since WO-39/WO-41/WO-45 landed — re-mining added 29 groups and dropped 14, so **the shrine shelf and the pest-control shelf had both shipped with vocabulary the search did not know**. Tables now 2,753 → **2,777 groups / 7,514 members**, shelf terms 618 → 624. **THREE CORRECTIONS TO THIS ORDER AS PROPOSED, all refusals rather than omissions: (1) ตลาดวโรรส was NOT re-shelved** — `retags.json` requires evidence a person read, the record carries a name, a pin and opening hours and nothing whatever about cloth, and the cloth floor is my knowledge and not a receipt; it stays `market`/`fresh` and becomes the top crawl target instead, with กาดหลวง on a second record 80 m away left unmerged (`merges.json` takes human-confirmed pairs only). **(2) `data/curated/bedding.json` was NOT created** — curated files are wired into `import_all` one at a time and an unread scaffold is dead weight; records go to `additions-chiang-mai.json` as the ขัดขี้ไคล five did, and the field contract lives in the note. **(3) the thesaurus edit changed repositories**, per the generated-file trap above. `asked_new.py flat-sheet --via other` opened the draft + its note, filled with the census, the ranked leads with the one act that clears each, and the refusals written in advance — no "sells flat sheets" flag from an inference, no `gap: true` (a gap publishes "nobody does this" and the finding is that the catalogue cannot SEE a trade, a different and possibly false sentence), no "Thais don't use these" framing in either language, and the free answer on the page regardless: **a duvet cover with no quilt inside IS a flat sheet sewn shut on three sides**. It **cannot leave draft** and the reason is structural — `find: {prov, sub}` resolves against tagged records and `sub: bedding` holds zero. Register → shelf → question, WO-39's order. **Verification: scratch build 22,258 pages** (`build.DOCS` repointed, no lock taken — the escape hatch `clear_docs()` documents), **30 of 34 suites green**; `test_facets` failed me correctly on the two unregistered empty shelves and passes now; `test_shrines`, `test_search`, `test_asked`, `test_tags`, `test_alt_text` green. The card check run against the scratch build shows **299 list pages · 299 cards · no orphans at all** — WO-45's 6 orphans are gone and the 137 seen mid-run were a concurrent build's wiped docs/, not a defect. Three shelves had no card; **all three drawn** (`shelf-cm-shopping-alterations` plus the two pre-existing `pest-control` ones), and `shelf_og()` reads `assets/og/` at build start so the next build resolves their og:image. `test_publish_gate` and `test_moat_geometry` read the real `docs/` and could not be evaluated: **another Claude session built this repo four times during this order** (pids 69828, 77125, 82512), and its first build read the catalogue 30 s before this order's `import_all` finished writing it — nothing corrupted, docs/ simply predates the retag. **UNBUILT and UNDEPLOYED against the real docs/; the standing walk (make_shelf_cards → build) closes both the cards and the pages on its next round.** |
+| WO-47 | คำที่ร้านใช้ — the thesaurus made a page: 2,753 bilingual groups that only a search box can read, and the 1,149 that earn one | **PROPOSED** 2026-08-31, Nan's ask off WO-46 ("I think the thesaurus itself could benefit the public if it's made available in a friendly UX kind of way… shouldn't just be background knowledge") — `notes/thesaurus-public-proposal-2026-08-31.md`. **The site has been half-admitting this**: when search widens a query through the table it already tells the reader so — `build.py:3448` prints *รวมคำที่ความหมายเดียวกัน · including words that mean the same thing* — so a reader is told a table exists, told it changed their results, and given no way to look at it. **Measured: 2,753 groups · 7,427 terms · 2.7 per group · largest 25, and all 2,753 are bilingual** — there is no monolingual group in the file, which is unusual enough to be the whole product. Its own note says *synonymy only, spelling variants are the phonetic key's job*, so it is a meaning table and not a misspelling table, which is what makes it readable by a human. **Already fetched, not baked** (`build.py:3350–3356`): it is a public URL every reader's browser downloads, so publishing puts a door on a room the site already ships, and an edit busts the asset hash (`5408`) so the page cannot go stale against the search. **The filter is the design: only 1,149 of 2,753 groups have a footprint in the 20,778-record catalogue**; the other **1,604 are general-language synonymy** (`["abate","allay","decrease","ease","meliorate","บรรเทา"]`) — fine for widening a query, ruinous on a page, because it would present Mot Dang as offering a Thai–English dictionary it has not audited and should not be judged as. Those 1,604 keep working behind the search and get no pages. **A finding I nearly shipped and it was false**: 34 of 165 category values carry no thesaurus term — `hotel-full` (911), `health-station` (469), `bar-pub` (460), `street-food` (232) — which looks like a coverage hole and is not one. Those are internal slugs; checked directly, hotel · โรงแรม · bar · บาร์ · ผับ · street food · อาหารริมทาง · bakery · เบเกอรี่ · spa · สปา · museum · พิพิธภัณฑ์ are all present. Recorded because the next person to run that query gets the same wrong answer. **The shape**: `/kham.html` (คำ, word) on Yahoo-directory discipline — **Term (count)**, scannable, no search box needed to begin; group pages for the 1,149 showing every term in both scripts, how many records each reaches, and the shelf it opens, with a dead term shown as dead rather than hidden because that is a reader telling us where to crawl; **the search line made a link** — name the words and link the group where md.js already says it widened, one line, the smallest change and the highest-value, since it lands at the exact moment the reader wonders what just happened; and shelf headers carrying the words their trade is known by, so ขัดขี้ไคล/ระเบิดขี้ไคล are readable without a search. No new mining, no network — every number above came off disk. **Two blockers, both forks for Nan**: **provenance** — house law is that provenance travels with every fact and 7,427 terms currently travel with one sentence (*mined by mine.py from motdang data*), adequate for machinery nobody reads and thin for a page with a byline, so either `mine.py` writes per-group provenance on its next run (correct, costs a mining pass) or the page states prominently that these are mined from listings and unaudited (cheap, true, available today); and **คำเมือง** — the table already carries กาด beside ตลาด and เฮือง beside เรือง, and presented flatly as synonyms that flattens Lanna into a spelling variant of Central Thai, which is the error this site exists not to make. Marked as Northern, it becomes one of the better reasons to visit the page. **Voice constraint**: every gloss must read as *shops here say this*, never *the Thai for X is Y* — the site is not a language authority and the moment it sounds like one it is wrong. **WO-46 is this page's proof case.** |
+| WO-50 | ไซส์ใหญ่ — the body Thai retail does not stock, and the two questions it splits into: clothes, which can be solved, and shoes, which largely cannot | **BUILT** 2026-08-31, Nan's ask (*"do a mot dang enrichment for large size men's and women's shoes and clothes"*) and her go on both halves of the fetch — `notes/asked-big-size-clothes-2026-08-31.md`, `notes/asked-big-size-shoes-2026-08-31.md`, `data/curated/bigsize.json`. **MEASURED FIRST, AND IT IS THE LARGEST HOLE THIS DIRECTORY HAS EVER FOUND IN ITSELF.** 14,665 records for Chiang Mai and 6,229 for Chiang Rai, and under `shopping/clothes` **zero**, under `shopping/shoes` **zero** — not a thin shelf, no shelf: neither key existed in `categories.json` this morning. Never OSM's fault: the census of 2026-08-07 counts **134 `shop=clothes` in TH-50 and 72 in TH-57**, which makes clothes the **sixth commonest shop value in Chiang Mai — ahead of supermarket, ahead of car, ahead of bakery** — plus 18 shoes, 10 boutique, 8 bag, 26 sports, 14 outdoor. **282 elements, on the open map the whole time.** The reason is one line long and it is in our own file: **`shop=clothes` and `shop=shoes` have NEVER appeared in `crawl_overpass.py` QUERIES, in any group, since the crawler was written**; the `shopping` group asks for doityourself, hardware, gift, second_hand, herbalist and healthcare=alternative, and not one is a clothes shop. Fifth sighting: เสริมสวย on sixty-two shopfronts, the notary, ห้องเสื้อ on a hundred and twenty-six, ห้องซ้อม, and now this. **AND THE ONE RECORD THAT SAID IT OUT LOUD WAS FILED AS A RESTAURANT** — of 20,894 records exactly one names itself big-size, **ร้านเสื้อผ้า The Bigsize** (node 4358877280), and it stood on the food shelf as a Thai restaurant because a mapper wrote `amenity=restaurant` and nothing here ever read the name; ร้านเสื้อผ้า is the first word of it. New `clothing` crawl group, **province-wide in both provinces against the house default** — a ring round the moat is the geometry that made WO-49's tailor shelf a register of the Night Bazaar the day before, and a size 47 is scarce and scattered by construction. **cm 106 + cr 42 elements → shelves 79/8/17 and 32/4/5, from one record between them.** `boutique` gave up on the CM run after six rests (Overpass 500), the group was correctly marked `incomplete`, and it was retried through `fetch_wide` and merged rather than left short. **TWO QUESTIONS, NEVER ONE VOICE** — the pest/snake rule, second subject: **a shirt can be MADE** (67 tailors, learned yesterday) and **a shoe cannot**, not at a price anyone pays for one pair, so the clothes page is a list of doors and the shoe page is a `gap: true` with a method, and folding them would let the fuller half hide how thin the other is. **THERE IS NO BIG-SIZE CATEGORY ANYWHERE** — not in OSM's tags, not on CMHY.city's **583-place apparel index** read whole for this order, so `read_bigsize_sites.py` scores every record for the words instead of filtering a category, and **exactly ONE of 583 says a big-size word on its own page**: ปุ้มปุ้ย บิ๊กไซส์ (สาขาคำเที่ยง), own tags เสื้อผ้าบิ๊กไซส์ + เสื้อผ้าสาวอวบอ้วน, own GPS, 081-169-2099 — and the Facebook trade surfaces the same shop independently. **THE GEOGRAPHY AND THE HOURS ARE THE MECHANISM**: the big-size women's trade is at **กาดหน้ามอ** and The Chiang Mai Complex and publishes **16:00–22:00 and 18:00–22:00** — a stall that opens at six in the evening is invisible to a daytime survey, which is why no map has it (third-party: Facebook served this fetcher a title line and nothing else, and it says so). **THE WORD ON THE LABEL IS NOT THE SIZE IN THE GARMENT**, proved by a Thai brand called **XLARGE** whose own chart stops at XL, whose denim stops at a 36-inch waist and whose socks are "ONE SIZE: US 7 ~ US 9"; **ฟรีไซส์ is a ceiling with a friendly name**, and the reply to it is *กี่นิ้ว*. **THE MOST USEFUL LINE ON THE CLOTHES PAGE IS COUNTER-INTUITIVE**: Uniqlo Thailand's XXL/3XL/4XL are an **online line, not stocked in branches** — walk into Central Festival and nothing passes XL — but **Click & Collect hands you the 4XL at that same branch**. The shop is right and the door is wrong. **THE SHOE ANSWER IS A NUMBER, NOT AN ADDRESS**: eight named shoe shops in the whole of Chiang Mai (three of them Bata, one a sandal stall) and about fifty brand counters on CMHY, and **not one advertises a size** — so **measure the foot in centimetres and say that**, because Mizuno Thailand and ไทยรัฐ (25 ก.ค. 2566) **agree exactly at 44 (28.0 cm) and 45 (29.0) and part company from 46 up**, half a centimetre being a full size, and the first table an ordinary search returns gives **44 = 24.6 cm — about a 39, three and a half sizes wrong** (printed, not used). The routes that do exist, in order: a **sports or outdoor** shop rather than a shoe shop (three Decathlons, Adidas, สปอร์ตแมกซ์, แสนทองสปอร์ต, APX, an Army Stores — which is why `sports-shop`, a shelf with one record and no selector behind it, is part of this order), *สั่งได้ไหม กี่วัน*, online, and made. **A NAME THAT READS WRONG IS NOT EVIDENCE**: nine records looked misfiled and **eight were checked against the element's own tags and only two retagged** — doi cycling studio really carries `clothes=sports;cycling_apparel`, Munee Hostel carries `clothes=women` with a 2026-02-08 `check_date`, and DECATHLON CHIANGMAI is a genuine café whose Thai name field holds the landmark 35 m away; the two with receipts are The Bigsize and "Motorbike & car rent 080-2464381" (`shop=outdoor`, and the name is the whole evidence). **A TRAP RECORDED**: **ไทยใหญ่ is Shan, not "big Thai"** — five shops sell ชุดไทยใหญ่ and a naive substring search for ใหญ่ files every one as a big-size shop; the reader scores whole words and gave them zero. **NO FACET** (a facet needs three places; there is one) and **NO big-size shelf invented** — a size claim made on a shop's behalf would be the one thing on the page nobody could check. **REFUSED**: a letter-to-letter conversion table (the most shareable thing available and the most likely to send somebody home with a shirt that does not fit), any ranking, softening **คนอ้วน** when quoting a shop that put it on its own sign, and publishing the Facebook/Instagram sellers as pinned records. **ATTEMPTED, PRINTED, NOT GUESSED**: facebook.com login-walled, uniqlo.com timed out twice, Pantip's replies load by script (the one line that came through is the poster's own — *รองเท้าหนังไซส์ใหญ่ หายากมากๆ* — and it is left as the question). All prices and every size range `_sizesVerified: false`; **the first lead is a walk of กาดหน้ามอ on an evening, and the second is five numbers — the biggest shoe on the shelf at Decathlon, Super Sport, Bata, Nike and Adidas — which turn the shoe page from a method into a list.** **CORRECTED THE SAME DAY, BY NAN** (*"with the number of kathoeys in CM, I thought it would be easier to find a large woman's going-out shoe"*) — and she was right: the shoe half was **asked in a man's numbers and answered in a man's shops**. เบอร์ 45–48 is a man's range; a large woman's going-out shoe is **41–45** and the word that finds it is **ส้นสูงไซส์ใหญ่**, big-size HIGH HEEL, not รองเท้าไซส์ใหญ่. Her inference is a demographic argument and it holds — CM has a large visible กะเทย/สาวสอง population and a working cabaret trade, so demand for a 42 in a heel is steady, and steady demand is supplied. Re-scored the 583-place corpus already on disk in the women's words and it answered immediately: **FIVE women's shoe shops standing side by side in ONE AISLE — โซนเครื่องแต่งกาย, ตลาดธานินทร์ — all tagged รองเท้าส้นสูง, all within 30 m, three with phones, two updated 2025-11-27, every one with its own published GPS**, plus รสริน on ถ.สันติธรรม: six records, `cm-curated-heels-*`. **NOT ONE was in the crawl** — a stall inside a covered market is not a `shop=shoes` node and never will be — which makes the first pass's headline number a plain error, now corrected on the page in its own note: **"eight named shoe shops in the whole of Chiang Mai" is true of OpenStreetMap and false about the city** (CMHY's รองเท้า category alone holds ~90). A count from a source that cannot see what you asked about is not a count. **None of the six publishes a size ceiling** (checked in each cached page), so they are a place to ASK — one sentence, ไซส์ใหญ่สุดเบอร์อะไร — and six counters in one walk is the honest shape of an answer. **THE TRADE NAMES ITS CUSTOMER**: a Thai retailer carrying women's 35–49 with heels to 8 in. writes *สำหรับผู้ที่เท้าอวบอูมหรือสาวสอง* on its own product pages, with a 40–46 foot chart and a size-up-one rule — the shoe is made and sold here in plain retail Thai; it is online, and a shoe is the one thing not to buy without standing up in it. **`gap: true` DROPPED** — the gap rule exists so a shareable poster never asserts an absence, and this page no longer asserts one; it has a list, a card and an aisle. `show: "phone"` dropped from both questions too: right for an exterminator, wrong for a shop you walk into, and it was silently hiding Uniqlo, H&M, American Eagle and two of the five Tanin stalls. **AND THE LEAD THAT OUTWEIGHS THE REST**: the answer is known precisely and cheaply by people this directory ALREADY HOLDS — **มูลนิธิเอ็มพลัส MPlus** (`cm-curated-mplus-chiangmai`, trans-health register, grade `stated`), **ศูนย์สุขภาพ แคร์แมท CAREMAT**, **มูลนิธิยังไพรด์ Young Pride Club**, and **Chiang Mai Cabaret Theatre** (`cm-osm-way-762611799`), whose performers need 42–45 in a heel every working night. One question, four contacts already on the site. **Asked as a question, never published as an assumption**: the register explicitly refuses to claim that the Tanin row carries a 43 or that it is where สาวสอง in Chiang Mai buy — neither is known, and a claim about a community's own shopping in this directory's voice on no evidence is the error the file exists to refuse. The answer belongs on the page in their words. Sixth sighting of the ขัดขี้ไคล lesson, and **the first time the wrong word was ours rather than the source's**. |
+| WO-49 | ตัดเสื้อ — four trades, one English word: the tourist suit street, the uniform trade at the institution's gate, the ห้องเสื้อ that cut the gowns, and the 119 shops that mend | **BUILT** 2026-08-31, Nan's ask in three parts across one afternoon (*"do a mot dang enrichment on men' and women's tailoring, including uniform tailoring, in Chiang Mai and Chiang Rai. Deep dive, don't come back emptyhanded. **Good for tourists doesn't equal good for locals or expats--different needs and expectations, all valid**"*), then mid-build (*"where do the high ranking police officers get tailoring done, is a question I'm curious about....."*), then (*"Also high quality western and thai evening wear tailors. Probably not found on Loi Kroh road."*) — `notes/tailoring-2026-08-31.md`, `data/curated/tailor.json`. **MEASURED FIRST, and the shelf was worse than empty — it was WRONG.** Ten records under `sub=tailor` in Chiang Mai, **zero in the whole of Chiang Rai**; of the ten, **seven are farang suit shops inside 600 m of the Night Bazaar**, **one is a shoe-repair stall and one a bootmaker** (neither cuts cloth), and **exactly one** — รับซ่อมแซม เสื้อผ้า — is a Thai shop repairing clothes. The tailor shelf was a register of the tourist trade with two cobblers filed by mistake, and it answered none of Nan's three questions. The salon lesson and the notary lesson, third sighting: **KNOWN_EMPTY can be a fact about the search term, not about the city**. Read in Thai the city is not thin — CMHY.city carries **126** under ห้องเสื้อ-ตัดชุด, **119** under ร้านซ่อมผ้า-เครื่องแต่งกาย, **38** under ร้านเช่าชุด, **243 of 245 with their own published GPS**, 174 with a phone, **92 updated in 2025–2026**. **FOUR TRADES, NEVER ONE VOICE** — Nan's rule turned into structure, the `pest.json` two-voices rule generalised: a tourist wanting a suit before Friday, a police major wanting a ชุดปกติขาว that will pass inspection, a woman wanting a ชุดไทย for an ordination, and a long-stayer whose only trousers have split are not four grades of one customer; each strand carries its own words, prices and asks, and none is offered as an answer to another's question. **THE GEOGRAPHY IS THE FINDING**: the tourist trade is ONE STREET — 21 of 126 inside 600 m of the Night Bazaar, named Hong Kong, Boston, Europe International, James Bond, Tony, VIP, Vincent Bespoke, English trade names in Thai script, almost all one tag `#ตัดสูท` — while the uniform trade has NO street: 31 shops over ศรีภูมิ 8 · ช้างเผือก 6 · หายยา 6 · วัดเกต 4 · พระสิงห์ 3, clustering **around the institution they dress**, six of them on ถนนสนามกีฬา **38 m from the National Sports University**, cutting sports kit and embroidering school badges. Chiang Rai says the rule out loud in a shop's own name: **ร้านบอดี้โก๋ (หน้าค่ายฯ)** and ร้านโก๋ *ตรงข้ามประตูกลาง(ที่มีการขายผัก)*. **THE POLICE QUESTION, MEASURED RATHER THAN REPEATED**: the only reply on the one Pantip thread asking it is *แถวๆ ศาลากลาง* — measured against 31 shops' own coordinates, the median to the **new** government centre on Chotana is **5.3 km with 1 of 31 inside 2.5 km**, and to the **old** provincial hall at Three Kings **1.6 km with 22 of 31 inside 2 km**; the trade stayed when the offices moved, and the folk answer read the modern way sends a reader 5 km wrong. Chiang Mai is where the senior officers are and that is structural — **ตำรวจภูธรภาค 5** commands eight northern provinces including Chiang Rai from 311 ถนนมหิดล under a พล.ต.ท. — and **still no tailor sits at that gate**: nearest 1.9 km. Shops naming the work themselves: **เฟรนด์สูท** (`#ตัดชุดทหาร #ตัดชุดตำรวจ`, and its own page is *ร้านเฟรนด์ตัดสูทเช่าจักรยาน* — suits and bicycles), **นิวบอย** (`#ตัดชุดทุกเหล่าทับ`), and the real answer **เจ๊หล้าชุดและเครื่องหมายข้าราชการ** — *ชุด AND เครื่องหมาย* in its own shop name, because for a นายพล the cloth is the easy half and the **อินทรธนู · แพรแถบ · กระดุมครุฑ · ป้ายชื่อ** are the half that has to be right, normally a different shop entirely (CR: ร้านสตรองแมนโปลิศ, ณัฐพลเครื่องหมาย ติดสหกรณ์ออมทรัพย์ครู). **LIVE AND DATED**: RTP's own clarification of **19 มี.ค. 2569** — the draft กฎกระทรวง catalogues **60 uniforms (18 ordinary: ชาย 8 หญิง 10, + 42 special)** and *เครื่องแบบตำรวจที่เป็นสีกากีให้ใช้สีกากี สีผ้าพระราชทาน*; the colour-change reports were *ไม่เป็นความจริงแต่อย่างใด*; comments closed 3 เม.ย. 2569. **A draft is not in force**, and anyone about to spend 5,700 ฿ is owed both halves. **NAN'S THIRD ASK WAS RIGHT AND THE DATA AGREES**: the evening trade is not on Loi Kroh — it is in **ห้องเสื้อ** on residential streets: วรมน (มณีนพรัตน์), ภรณ์อำไพ (ราชวิถี), คุณแดงดีไซน์ (หนองหอย), สแกนดิ (ราชมรรคา); Thai formal at สุพัณณดา (cuts in **ไหมแก้ว** and sells the cloth), ห้องเสื้อชุลี (อารักษ์), ขวัญกัญจน์; and two traditions with their own tailors — **แสนหวี ตัดชุดไทยใหญ่** (Shan) and **แพรไหม** selling ชุดไตย *and Tai books at one counter*. Three nobody lists: **วีณา บราเซีย** takes **custom brassiere** orders (made-to-measure underwear barely exists as a listed trade and is the hardest thing to buy above Thai retail sizing), **โกแมว** dyes cloth any colour on Nimman 17, **บื๊กไซส์ชิกชิก** repairs and sells big sizes at one counter. **RENT OR CUT, THE FORK WITH NUMBERS** (`_pricesVerified: false` throughout, nothing walked): เดอะเกร็ท hires a white suit at **550 ฿** (ประกัน 1,000) and a ชุดข้าราชการ at **650 ฿** (1,500) against a bespoke ปกติขาว at **5,710 ฿** of which ~3,300 is the tailoring; ready-made khaki reported at **650 ฿** and **1,300 ฿ with cloth**; นำเทเลอร์ 1991 cuts a ชุดครุย from **9,000 ฿ on 60 working days** (Thai gowns 1,200–3,000, overseas 9,000–15,000) and hires CMU gowns. **38 rental houses in CM — a directory that lists only tailors tells a resident to buy the expensive answer.** **THE TWO ASKS CR CUSTOMERS EARNED**, turned into questions asked BEFORE the work and never into an accusation (the named shop is deliberately **not** listed): **ขอผ้าที่เหลือคืน** (4.50 m in, ~1 m used, 2 m back) and **ขอให้เขียนวันนัดลงในใบรับของ**; plus the move locals give first, in their own Kam Mueang — **ซื้อผ้างาม ๆ ไปหื้อร้านตัด หื้อร้านคิดเฉพาะค่าแรง**, with กาดหลวง as the cloth anchor (ผ้าเมืองฟอกนุ่ม · ผ้าหมักโคลน · ผ้าใยกัญชา · แพรพันวา). **BUILT**: `data/curated/tailor.json` (233 KB, 255 shop rows, every strand carrying its own sources and dates), **50 records into `additions-chiang-mai.json`** and **13 into `additions-chiang-rai.json`** — CR goes **0 → 13**, CM's tailor/alterations/fabric shelves **10 → 60** — plus facet set **`tailor` (14 facets: uniform · fulldresswhite · policeMilitary · insignia · schoolkit · sportskit · eveningwear · thaiformal · bridal · rental · repairs · copyGarment · englishSpoken · bigSizes)** over `tailor|alterations|fabric`. Importer green: cm 29 uniform · 16 eveningwear · 11 thaiformal · 4 fulldresswhite · 4 rental · 2 policeMilitary · 2 bridal · 2 repairs; cr all 13 carry theirs. **No shelf children added** — `tailor`, `alterations`, `fabric` already existed; the four-trade split belongs in facets, because the shelf says what kind of shop and the facet says whether it is worth walking to *that* one. **REFUSED AND WRITTEN DOWN**: no ranking and no "best tailor in Chiang Mai" — **every** English top-ten page found in this research was published by a tailor, one of them listing its competitors under its own brand; no efficacy claim in our voice; no complaint repeated against a named shop; **no pin the page cannot name** — all 13 CR records are `needs-pin` because Yellow Pages withholds the street and a tambon centroid is not a pin. **ATTEMPTED, PRINTED, NOT GUESSED**: **body-go.com now serves a reCAPTCHA wall where a shop used to be** (the Yellow Pages listing still stands, so the shop is not assumed closed — but its phone is a lead, not a fact); 23 Yellow Pages profile pages return 200 with the phone and street behind login/JS; TripAdvisor deliberately not mined (review aggregate would import a ranking through the back door); 2 of 245 CMHY fetches failed (ยาฮาดีไซน์, ฟรีสไตล์ 4x4, both repair). **DISCREPANCIES KEPT**: OSM files a bootmaker and a shoe-repair stall under `shop=tailor`, uncorrected upstream this pass and recorded so the count is not read as a count of tailors; the Pantip folk answer against the measurement; and three gown prices (300/day platform, 550–650 The Great, 9,000 bespoke) that are not contradictory but would mislead alone. **NO SILENT CAP**: **176 of the 245 CMHY shops have no place record yet** — they are all in the register as data with their own GPS, phone and directory-update date, and the register IS the work-list. **Doors, ranked**: 176 write-ups from data already on disk (zero network) · 13 CR pins from one afternoon's calls · one walked quotation turns 5,710 from published to ours · one call each settles `englishSpoken` and `copyGarment`, the two facets a long-stayer actually filters on · and whether ชุดไทยใหญ่ deserves its own line on the culture shelf rather than a facet. **Worker redeploy is Nan's** — until then the 14 new keys filter harmlessly, WO-27/38 arrangement |
+| WO-48 | กำจัดปลวก และ งูเข้าบ้าน — the exterminator shelf a farang household needs and cannot phone for, and the free snake call beside it, kept in a separate voice | **BUILT** 2026-08-31, Nan's ask (*"Add motdang enrichment on exterminators. They don't speak english much, but everyone—including farangs—need them if they stay in cm long-term. Motdang should make it easy to reach/locate/and hire these services"*) and, mid-build, (*"can you also add a section on humane snake removal? Big thing around here"*) — `notes/asked-exterminator-2026-08-31.md`, `notes/asked-snake-in-the-house-2026-08-31.md`. **MEASURED FIRST and the ant had already been sent**: the `crafts` group asks Overpass for every named `craft=*` in both provinces and returns **102 elements in CM and 42 in CR — zero `craft=pest_control`, zero `shop=pest_control`**; the whole `home-services` category held **10 records, every one a landscaper** off `craft=gardener`. Not KNOWN_EMPTY-because-nobody-asked — the crawl ran, came back, and the trade is genuinely on Facebook, LINE and its own .co.th instead. The notary route, therefore: curated, one firm at a time. **The word is กำจัดปลวก, never "exterminator"** — every firm in two provinces names itself after the termite first and hangs rats, cockroaches, mosquitoes and bed bugs off it; the English word returns paid ads and the Thai word returns the trade with its price pages attached (ขัดขี้ไคล, fourth sighting). **11 records** (cm 8, cr 3), each read from its own page with the date on it: Unipest (CM head office + CR branch), GB Pest Control, Mini Bug ×2, Ikari, Green Nano Thai, Happy House, Mitrapap/MTP, Rentokil, Firesaver. **THE ONE CHECKABLE FACT, and no other directory carries it**: a firm spraying for hire holds permission for type-3 hazardous substances (or notified type 2) under พ.ร.บ.วัตถุอันตราย พ.ศ. 2535 and works under a **ผู้ควบคุมการใช้วัตถุอันตรายเพื่อใช้รับจ้าง** retrained every three years — and **อย. publishes public lookups for both the person and the premises**, so the register links the live tool rather than copying a table (the `wildlife.json` rule; the lists move). **Exactly one of eleven publishes its licence number** (Unipest, 83/2539). **Pricing is per LINEAR METRE of perimeter (LM), not floor area** — bait 400–700/LM, chemical injection 150–280/LM, pipework cheapest but only during construction — which is why two quotes for one house are not comparable until you know the number each was multiplied by; the page says ask for both halves. **Every price `_pricesVerified: false`**; only Happy House publishes one at all (3,900 first visit, from 6,900). **LINE first, phone second** — the reach answer to Nan's actual question: every firm keeps a LINE OA, and a photograph of the mud tubes beats a call in a language neither side shares; the register carries **9 Thai phone sentences** and the pest vocabulary with แมลงเม่า flagged as the sign to call rather than the thing to spray. **THE SNAKE HALF IS A SEPARATE VOICE BY RULE** — `pest.json`'s `_readme` forbids the merge (the toilets rule, second subject): `pest` is a trade you hire, `snake` is a **free** service you call on **199**, and folding them sells a householder a contract for a problem a state crew answers for nothing. The two touch at exactly one sentence, in both directions: **snakes follow rats**. Four numbers with their issuing agencies (199 · 1669 · **1367** Ramathibodi Poison Center, 24 h, public as well as doctors · **1362** พิทักษ์ป่า), six phone sentences ending in the one the page exists for — **ไม่ต้องฆ่านะ ขอให้เอาไปปล่อยได้ไหม** — while-you-wait do/don't, bitten do/don't (no tourniquet, no cutting, no ice), and the **14 protected snakes** with **งูเห่า deliberately noted as NOT among them**, because that is the argument: telling them apart at ten at night is not a householder's job. **Published as a candid `gap: true`** with the panel *คำตอบคือเบอร์โทร ไม่ใช่ที่อยู่ / the answer is a phone number, not an address* — pointing `find` at the 2 fire stations or at the hospitals was available and refused both times, and **the accepted cost is no share card** (the gap rule, kept rather than bent for a case that happens to be encouraging). **REFUSED AND WRITTEN DOWN**: an English directory lists a **snake farm** under snake removal on the same page that warns readers off snake shows because the animal is killed or displayed — both cannot be true, a name on a removal list is a recommendation, so it is not here and the page says why. **ATTEMPTED, PRINTED, NOT GUESSED**: rentokil.com 403 on both language paths (its record is `confidence: third-party` and says so in both languages), pca.fda.moph.go.th DNS-dead. **DISCREPANCY KEPT, NOT RESOLVED**: MTP publishes two different CM branch addresses on two of its own pages the same day, same phone — recorded, unpinned, and the blurb tells the reader to confirm on booking. **SIX OF ELEVEN LEFT `needs-pin`** rather than pinned: `geocode_local` reaches only postcode centroids for ต้นเปา, หนองผึ้ง, สันผักหวาน, หนองจ๊อม, ท่าสาย, บ้านดู่ — 3.3 to 12.5 km. A 12 km circle is not a pin. Three are pinned and say how (Chotana St 280 m · สันกลาง/สันกำแพง 592 m · ริมกก/เมืองเชียงราย 540 m). **No efficacy claim in our voice** — three firms make them (100% colony kill, herbal nano-particles, "proven safe by Thai health authorities") and all three are quoted as theirs. **No ranking**: `first` pins three for a stated reason written on the card — publishes a licence number / publishes a price / works in English. Shelf `home-services/pest-control` (กำจัดปลวก-แมลง-หนู) + teaser retuned; facet set `pest` (14 facets, **10 new worker FACET_KEYS**: `fdalicence termite rodent bedbug mosquito baitsystem pipesystem herbal warranty petsafe`), every `ask_th` a phone/LINE sentence because this trade has no door — `fdalicence` positive-only on the `hsscert` rule, `herbal` records that a firm *says* so, `petsafe` wants a number of hours not a reassurance. **`emergency.json` deliberately untouched** — its `_rule` is numbers-only, no triage, and 199 was already there. `test_asked` · `test_facets` · `test_publish_gate` green. **Doors, ranked**: eleven อย.-register lookups turn `fdalicence` from self-reported to measured (highest value) · one written quotation turns the LM ranges from published to walked · **one call to เทศบาลนครเชียงใหม่ 053-259000** turns "free" and "released" from reported to ours · ten calls settle `english` · six pins · whether CM has a named volunteer snake-catcher the way Phuket and Samui do (nothing found, and if one exists they enter by their own consent, the shibari rule). **Worker redeploy is Nan's** — until then the 10 new keys filter harmlessly, the WO-27/38 arrangement |
+| WO-52 | หน้านี้ไม่ใช่ใบปลิว — the page is not a pamphlet: 33 blocks were 72% of every word on the site, and the CTA half of them had converted zero times | **BUILT** 2026-09-02, Nan's ask (*"a lot of shit that is printed on the page should actually be a tool tip at most"* → *"do the whole thing"* → *"be AGGRESSIVE"*). Gemba over all 22,920 built pages, then all four cuts taken. **Site prose 7,752,480 → 2,190,817 word-instances. Median place-page record 350 → 92 words. Words of repeated chrome between the name and the first fact: 132 → 0 (max 7).** Twelve CTAs that had returned literally nothing — `claims.json` 0, `toilet_reports.json` 0, `heard.jsonl` 0, and 10 of `fixes.json`'s 14 self-caught with the other 4 arriving from reddit and word of mouth — collapse to one link. The 55-word "this page is the record" paragraph (20,174 pp), the fix-log promise (22,052 pp), the Moo Deng footnote and the shoe-leather slogan (every page), three "no photo yet" captions (20,826 pp) and the photo ask (20,826 pp) are gone. **`mark()` + the stylesheet's first-ever `@media (hover:hover)`** gives the site the tap-sheet it never had — `<details>`, no JS, works on a thumb — and the notes worth keeping moved onto the marks they explain. Facet ledes moved from 8,000 place pages to the shelf above them. **`tests/test_page_weight.py` is the gate** (3 checks, HARD): nothing repeated above the first fact, median record ≤140 words, no long `title=` without a tap-sheet. All 37 suites PASS incl. publish gate + contrast; 2,500-page HTML nesting sweep clean. Deploy is Nan's. |
+| WO-53 | หน้าแรกไม่ใช่ใบปลิว — the homepage was not in WO-52's count: one page never repeats, so it kept every blurb the place pages lost | **BUILT** 2026-09-02, Nan's ask (*"I still feel like 30-50% of the text could be cut. Did the page not fully update, or did you lack aggression?"* — the page had updated; the prune had never touched it). Her picks: weather for Chiang Mai, Chiang Rai and Réunion only (Saint Expédit's island); prose explainers gone (hero eyebrow, sub and orientation sentence; the route planner's lede, four bullets, moat note and coverage note; the map card's instruction; the newsletter's pitch; the claim band's paragraph; the Wikimedia note); blurbs gone (nine-doors sub-line and per-card line; after-dark eyebrow and per-card line); chipbar off the homepage and its two doors the svcbar lacked (My page, Add a place) added there; news ticker and Personalize panel deleted. The care shelf's register line and the events partner tip became `mark()` tap-sheets. Then her second pick, the duplicate events wall tile, dropped (carousel stays). **Homepage 4,397 → 3,136 words (−28%)**; the remaining bulk is widget data (weather, cinema, horoscope, katha), NOT picked. `min_rows` on weather.json 5 → 3. All 38 suites pass. |
+| WO-54 | ถ่ายเอกสาร-แปลเอกสาร — the paper trades: copy shops at the gate of whichever office wants the copies, and the three counters a farang calls "document services" | **BUILT** 2026-09-04, Nan's ask ("deep dive and enrichment on copy shops and document preparation services. Use external sources if necessary"). **Measured first: the directory held ZERO copy shops in 20,700 records while the census on disk showed shop=copyshop 43 in CM and 12 in CR, craft=printer 1, office=visa 1, office=translation 1 — `shop=copyshop` had never been in any crawl group** (the WO-50 failure, sixth sighting); the one that slipped in was filed under repair/tech. New province-wide `paper` group (`crawl_overpass.py`, WIDE_GROUPS): **47 CM + 13 CR elements**, with `classify()` rules for copyshop/printing/translation/visa filed under `essentials` beside post and gov — where the reader stands when they need one. VFS Global (office=visa) and บ้านแปลภาษา (CR, office=translation) surface by their own tags. **Read in Thai: `importers/read_paper_sites.py` took CMHY.city's five paper categories whole — 522 places, 426 with GPS, 367 with a phone, 182 updated 2025–26** (one DNS blip cost 291 pages mid-run; snapshot-first re-read filled them). `importers/build_paper_register.py` → `data/curated/paper.json` (every row kept as the denominator) + **321 records into additions-chiang-mai.json (copyshop 130 · printing 187 · translation 4), 57 CMHY shops recognised as OSM doors within 80 m and NOT written twice** (dedupe is same-trade: a translation counter 60 m from a copy shop is a different shop), **144 refused and printed**: 82 with no published GPS, 58 photo studios (no photo shelf — 12 tag รูปติดบัตร, carried as the lead), 4 language schools filed by CMHY as translators. Two translation counters with first-hand sites but no directory pin ship `needs-pin` (Centa Care, Chiangmai Translation Service). **TWO VOICES (the pest/snake rule): a copy shop SELLS a copy, a translator or visa agent PREPARES a document** — three shelf children (`copyshop` ถ่ายเอกสาร-ปริ้นงาน · `printing` โรงพิมพ์-ป้าย · `translation` แปลเอกสาร-รับรอง), the `paper` facet set (10 new keys + english/open24/priceboard reused; worker FACET_KEYS), and two reader questions: `asked/copy-print` and `asked/document-prep`, the seal half linked to WO-40's notary page rather than restated. **The rule of where is in the shops' own names**: ลานนาก็อปปี้ *"ย้ายไป หน้าอาคารประกันสังคม"*, ดับเบิ้ลเอ *หน้าค่าย ป.พัน 7* — the trade stands at the gate of the office that wants the copies (WO-49's uniform-tailor rule again). **Facts read off their own pages, dated**: CM immigration's two doors — 71 M.3 Airport Rd (Mo–Fr 08:30–16:30) and **Central Festival 2nd floor, opened 2022-06-06** (Mo–Fr 09:00–17:00; OSM node 12619518873 IS that counter, now named/houred via enrich.json); **Promenada closed 2020-03-25** and half the English web still sends people there; **CR's city branch moved 2023-09-18 to Central Chiang Rai G floor beside the passport office** (own announcement) — no OSM record, so `cr-curated-immigration-central-chiangrai`; the TM.7 form's own text (4×6 cm photo) and Division 1's fee page (1,900 · re-entry 1,000/3,800), both 403 to WebFetch and read by curl/pdftotext; translation 350 ฿/page and an MFA RUN from 1,800 ฿/page (Centa Care's site) against the ministry's own 200 ฿ seal — the page says the run fee buys a queue-stander, not a seal; copies 1 ฿/page, 50 satang past 100 (a Santitham board via a 2025 review post; two shops are NAMED for their price, 35 สต. and 45 ส.ต.). All `_pricesVerified: false`. **Chiang Rai translation: every "แปลเอกสารเชียงราย" page found is a Bangkok firm working by post** — printed as the finding. Search: `paper` panel (21st) + 6 hand-thesaurus groups (written to `search-core/data/hand.thesaurus.json`, re-mined and synced: 2,819 groups, shelf terms 644), 4 cases in `tests/test_search.py`. **Refused**: no agent recommended, no ranking, no photo shelf invented, no visa rule beyond the form's own text. **Second pass, same day ("keep adding richness")**: the gate rule MEASURED — 64 of 157 CM copy shops within 150 m of a gov office/school/university/hospital (median 181 m) vs 119 of 516 7-Elevens (median 267 m), on the page as one sentence; **313 CMHY pages carry hours → 268 records gained an hours field with no network**; a lenient JSON-LD read recovered the 96 pages a JSON slip had hidden (523/523 GPS, 464 phones) — and its first version named 94 shops "ธุรกิจ" off the breadcrumb, caught by the tally, purged, regenerated; **`essentials/photo` shelf, 58 records, `idphoto` from the shops' own tags** (the 4×6 is made here); **nine translation/visa counters recovered with street+phone+GPS — Tha Phae/Inthawarorot is the one paper trade that clusters**, four counters on two streets; Modus (own site, needs-pin); photo sizes by country (TH/UK fetched, US refused and said so); reader sheet `paper-words` (10th). Records 321 → **456** (copyshop 174 · printing 215 · translation 8 · visa 1 · photo 58). Notes: `notes/asked-copy-print-2026-09-04.md`, `notes/asked-document-prep-2026-09-04.md`. |
+| WO-51 | ไม้แกะสลักบ้านถวาย — the carving village 15 km south, the chain of six trades, the woods, and the fair that moves | **BUILT** 2026-08-31, Nan's ask ("a deep dive/enrichment on the woodcarvers' village (OTOP royal program) south of Chiang Mai"). **The measurement WO-10 filed as finding #1, now taken properly and printed: 82 records within 2.5 km of the Ban Tawai pin, 2 on a craft shelf, 0 whose name says carving — and the one record that names the village is filed `market/fresh`.** Against the province's own 2567 figure of 148 souvenir/OTOP outlets in Hang Dong, and the operators' own count to the Prime Minister on 7 Jun 2024: ~1,000 shops before COVID, ~500 after. Fixed the way Hub 53 was: `shelves.json` ADDS `shopping`/`crafts`, the market shelf and its URL survive, and it lands on the next `import_all` (not run here — WO-50's crawl was writing into `cache/overpass/`). **THE STEAK TRAP, third of its family after `(?<!ห)วัด` and `\bse-ed\b` and the first that is not confined to our code: `teak` case-insensitive returns 71 records, 58 of them steakhouses (steak *contains* teak), the other 13 cafes/resorts/a teak stand/วัดผาแตก romanised Pha Teak — wood shops among all 71: zero.** Page is a register, not a shelf: `data/curated/carve.json` (11 dated rows, 7 woods, 4 register honours, 20 sources, 3 printed refusals), `carve_layer.py` → `/tawai.html` + three inline-SVG instruments (the ground, the chain of hands, the timeline on true year scale). Spine is ผู้จัดการ's 2549 case study — a 3×4 m room at 10,000+ baht to an outsider and ~1,000 to a villager, a dragon at 800 on the canal and 3,000 on the frontage, the fair moved to suit the Night Safari — so the page states **where on the chain a reader is standing** and never who deserves to sell. Carry-flags NOT restated: `souvenir.html` holds them and `tests/test_tawai.py` fails if a Dalbergia/Aquilaria row here ever disagrees with `wildlife.json`. OTOP is **not** a royal project and the page says which three things are being confused (2544 Interior Ministry programme · the จามเทวี naming legend · SACIT's ครูช่างศิลปหัตถกรรม, held by นายยรรยงค์ คำยวง 2562). The fair runs on the FISCAL year — 34th 23–26 Jan 2568, 35th 26–28 Dec 2568, twice in one calendar year — and the gate fails if the editions list collapses to one month. **The section souvenir.html could not carry: a carved Buddha is not a carved elephant in law.** Its `finethings` row says handicraft is what the law leaves wide open — true of the elephant, false of the Buddha, which sits under พ.ร.บ.โบราณสถานฯ พ.ศ. 2504 (amended 2535): form **ศก.6** through สำนักพิพิธภัณฑสถานแห่งชาติ กรมศิลปากร, 2,000 baht/piece if judged Ayutthaya or older and 1,000 if later, 2 days in Bangkok and 5–7 upcountry, two colour photos per item, and **proof you own it** — which is what makes "can I have a receipt?" worth saying at the till. Source is DITP's own sheet, dated Sept 2560 on the page because a fee table with no edition reads as current forever. Souvenir.html now points back (`see_href` on the wildlife wood row + a guarded one-liner in `souvenir_layer.py`; a row without the field renders unchanged) — the chang/hom reciprocal contract. **`carve-words` reader sheet** (9th, `assets/reader/carve-words.pdf`, four blocks) published into the built site, third after hair-words and care-words, on the same argument: the person needing these words is on a footpath with a shopkeeper waiting, and two of them (พะยูง, พระพุทธรูป) change what may lawfully leave the country. `tawai` search panel (20th) with 4 cases added to `tests/test_search.py` incl. the `teak` trap query; llms.txt section; note `notes/tawai-woodcarving-2026-08-31.md`. **บ้านเหมืองกุง, the pottery village on the same road, has ZERO records — printed, not assumed.** Scratch build 22,748 pp; publish gate PASS (0 links to broken URLs, 0 /Users/ leaks); test_search PASS; test_tawai PASS. |
+| WO-55 | กิจกรรมบำบัด — occupational therapy: the word no sign carries, the empty physio shelf found under it, the register read from the doors, /ot.html | **BUILT** 2026-09-04, Nan's ask (*"do a deep dive and enrichment on motdang for occupational therapy"*) — `notes/ot-2026-09-04.md`. **Census: 21,047 names, 0 say กิจกรรมบำบัด/occupational; 3 say physio; the medical tree's `physio` child matches NOTHING** (OSM holds no healthcare=physiotherapist in either province), so `/longcare.html` had linked to `cm/medical/physio/index.html`, a page never built — a 404 on a live page since 26 Aug, now re-pointed. `cache/care/` already held Nakornping stating งานกิจกรรมบำบัด at two doors with hours; the reads (cache/ot/, 50 fetches, verify-before-believe) added the CMU OT clinic at ศูนย์สุขภาพพร้อม (licensed OT stated, Mon–Fri 08–19), Maharaj's หน่วยกิจกรรมบำบัด (OPD20), ChivaCare, Kids Sense Play, and **Chiang Rai Prachanukroh's SMC กิจกรรมบำบัด after-hours clinic (Mon–Tue, Wed–Fri 16–20, Sat 08–16, ext 1112/1723) read off its own poster**. `data/curated/ot.json` = 14 graded rows (7 stated · 2 listed · 5 route) + 3 registers (สบส. licence name-check · OTAT, seated in CM at CMU's OT dept · the dept itself, the north's only OT school) + 8 unread with reasons (Kidsluck refused: Bangkok). `ot_layer.py` → /ot.html; `ot` panel + 3 thesaurus groups + 6 search cases (hotel guard); `ot` specialty key; care.json `ot` blocks on 4 hospitals; 4 additions; `importers/audit_ot.py`. Doors: fill the physio shelf from cmhy (≈20 clinics) · ring/write RICD + Suan Prung · merge CM Neuro's MOPH twin · special-schools pass · speech-therapy sister lens · an asked card. |
+| WO-58 | ชั้นที่ไม่มีใครถาม — the shelves nobody had asked for: กายภาพบำบัด 0 → 20, ทันตกรรม +157, สัตวแพทย์ +165, ช่างซ่อม +354, ซักรีด +375 | **BUILT** 2026-09-04/05, Nan's go on the twenty follow-ups to WO-55 (*"please add all of these one by one"*). **One reader, one job, made a table:** `importers/cmhy.py` (the CMHY.city read as JOBS), `importers/cmhy_records.py` (same-shelf dedupe, record shape, upsert), `importers/build_trade_registers.py` (per-trade rules, every refusal written down). ~1,700 curated records added in a day. **Three rules were refusing real trades, and each refusal list read like a trade directory:** of 331 `mend` rows refused for 'no trade word', 31 said เปลี่ยนซิบ and 28 แก้ทรง (WO-49's alterations shelf), 14 อลูมิเนียม and 11 กระจก (repair/home, drawn at launch and never filled), 9 ซ่อมทีวี, 8 หุ้มเบาะ, and a knife-sharpening trade English has stopped having a word for; **ล้างแอร์ was refused for saying *wash* rather than *mend*** and is the most-called home trade in this city. Also mended: `craft=shoemaker` had sat on the TAILOR shelf since the first crawl. Seven new Overpass groups (funeral · bikes · laundry · mend · utilities · driving · optician). **The ส่งน้ำ trap:** the first utilities selector returned twenty-three irrigation canals (คลองส่งน้ำ, and the road beside one, and the Royal Irrigation Department's own office) — the teak/steak trap of WO-50, in Thai. |
+| WO-60 | เลนส์ — the graded register made a layer: eleven new lenses on one renderer | **BUILT** 2026-09-04/05. care · trans-health · adhd · longcare · ot were the same page five times, so the shape is data now: `data/curated/lens/*.json` + `lens_layer.py` + `importers/sync_lens.py` (panel and thesaurus out to search) + `importers/audit_lens.py` (exit 1 on a register that would print a wrong page) + `importers/fetchlog.py` (verify-before-believe with a ledger). Eleven lenses: **speech · hearing · prosthetics · eyecare · vaccines · counselling · dementia · dialysis · stroke · specialed · mending**, every row graded stated/listed/route with its sentence, url and date. **Finds:** CMU's OT teaching clinic and its speech clinic; Chiang Rai Prachanukroh's after-hours SMC OT clinic read off its own poster; the Prostheses Foundation at Mae Rim; Suan Dok's ศูนย์โรคสมองภาคเหนือ; CM Neuro's memory clinic (Thursdays) and its geriatric clinic on the last **Sunday** of the month, the day a family can bring someone; the state travel-medicine clinic on Sri Don Chai opposite the Suriwong bookshop; **the optician shelf held ONE record against 85 `shop=optician` on the open map**; and twelve nursing homes the long-care register did not have, one stating Alzheimer's care in its own tags. |
+| WO-61 | รับจ้างงานธุรกิจ — business process outsourcing | **BUILT** 2026-09-05, Nan's ask mid-run (*"can you enrich business process outsourcing?"*) — `notes/bpo-2026-09-05.md`. **Census: five names in 22,805 records**, two of them false positives (a hospital and a government audit office). The reason is the WO-9 naming custom one layer out: half this city's BPO is in Thai and calls itself สำนักงานบัญชี, never BPO; the other half is farang-facing and says 'outsourcing company' on a site no crawl reads. `/bpo.html` keeps three businesses apart — multilingual contact centre · accounting-payroll-visa back office · staffing. **CLBS on Mahidol Road states its own BOI promotion** and hires German, French, Spanish and Dutch speakers with visa, work permit and insurance: the nearest peer to the bpo-shop project and evidence the BOI route works for a Chiang Mai BPO. SANS states the whole back-office stack a new shop buys rather than builds. PRTR has no Chiang Mai office, and that is written into the register so nobody adds one from a search result. Registers a reader can check themselves: BOI · the DBD data warehouse (403 to a plain fetch — open it in a browser) · social security. No wages printed: nobody publishes one. |
+| WO-62 | ใบขับขี่ · งานศพ · แว่นตา — the last of the twenty, and three tags that were lying | **BUILT** 2026-09-05. `/driving.html`: **Chiang Mai's two transport offices do different work** — licences at Mae Hia (192 ม.7, 053-277-156), motorcycle registration and drive-thru tax at Nong Hoi — and the queue must be booked a day ahead through DLT Smart Queue; a medical certificate must be under a month old; one school's own published prices (car 5,500 · motorcycle 1,000 · truck 6,000 · new-applicant training 500 · renewal 200), **read off a page still served in TIS-620**. `/funerals.html`: **155 of Chiang Rai's 156 `shop=funeral_directors` are village cremation grounds, not businesses** — believing the tag would have printed a city-essentials shelf claiming 156 funeral companies. The name now decides (สุสาน · ป่าช้า · ฌาปน · ณาปน · เมรุ → community/cremation, 278 grounds); the page gives the order of a Thai funeral, the itemised cost with **no figure invented**, and says a สุสาน here is a pyre, not a grave. **Three more tags had no rule at all:** `shop=optician` (the optometrist shelf held ONE record against 85 shops — Top Charoen alone has a dozen branches), `shop=musical_instrument` (all 23 music records were curated; the mapped shops were dropped), and `shop=fabric` + `antiques` + `jewelry` + four handicraft names from the `making` crawl (สยามศิลาดล, Baan Celadon, the Bo Sang sa-paper centre, WO-51's own carving-village centre). A crawl that runs and then drops its find is the same failure as a crawl that never runs, and harder to see. |
+| WO-59 | โรคค้นหา — search disease: the unit of indexing is the NAME, the unit of demand is the NEED; four strains, the cure in eight phases, Phase 0 landed | **PHASE 0 BUILT + LIVE** 2026-09-05, Nan's BHAG (*"use Motdang to cure worldwide 'search disease' one city at a time, starting with Chiang Mai and Chiang Rai"*; the tok sen case: *"a tech debt issue, not a praxis issue"*) — diagnosis `notes/search-disease-2026-09-05.txt` (go/disease), plan `notes/search-disease-cure-plan-2026-09-05.txt` (go/cure), tally `notes/search-disease-status-2026-09-05.txt` (go/cure-status). **The measurement:** massage 302 records, 294 OSM, 21 Thai-named (7%); the whole province holds 16 OSM elements with นวด in the name against 337 in a Thai directory; ตอกเส้น in 24,216 records: 0. **The organism:** indexes hold what a thing is CALLED, never what it OFFERS, and the closer to a practice's epicentre the weaker the structured signal (the inverse-coverage law). Four strains: name · source · script · silence. **Phase 0 landed:** tok-sen 0 → 30 records (10 shelves.json tags + 20 additions incl. Phailin); the 73 name-rule records live on four shelves; `tests/test_facets.py` now FAILS on any zero child shelf without a written reason, on a child with no match rule, and on a KNOWN_EMPTY entry that has filled (four ruleless children got rules + read reasons); `tests/test_answer_shaped.py` asks the corpus the reader's question ("toksen in the old city, open past 21:00" → Lila Thai Massage) and passes; `tests/test_search.py` carries toksen and ตอกเส้น. **Live 18:10:** ai.motdang.net/api/search toksen 8 · ตอกเส้น 6 (both 0 that morning); index.json 76 tok-sen hits. **Open the same evening:** 3 KNOWN_EMPTY entries went stale within the day (chap-sen, cannabis/farm, cannabis/clinic) and the new test says so. **Phases 1–8 not started:** `data/curated/vocabulary.json` (one file → thesaurus, index_labels, MOTDANG_TAGS, coverage test) · Thai-native registers (thdata crawl was never persisted; CM massage still 8% Thai-named vs CR 100% off data.go.th) · `offers[]` + blurb (2,725 blurbs already held, none indexed) · hours/facets into the site index (4,398 hours held, none searchable) · one 50-question exam across three doors (GPT mine: 367 of Nan's own questions scored, 52 pass) · /coverage.html + the miss → work-item loop · Thai geocoder · Chiang Rai · CITY.md. **Forks, hers:** F1 zero-result counter · F2 geocoder · F3 Wongnai/GoWabi ToS · F4 offers evidence bar · F5 massage-first vs breadth · F6 AI answers → pages · F7 fold 1,070 cached OSM temples · F8 the pin cap · F9 three shelves the corpus already fills (pet-shop 64, northern cuisine 58, CR tourism kinds 228). Sibling work the same day: pins (go/pins, 287 applied, geocoder's three defects), the holding pen (go/held, 1,246 name-only records out of both indexes), the gap audit (go/gaps), the GPT mine (go/gptmine). |
+| WO-56 | ปันนา = Punna — the condominium identity join: a resident's building held three times under two scripts and findable as neither | **BUILT** 2026-09-04, from Nan (*"friend uses motdang, says we don't have his condo on there"*) — `notes/condo-identity-2026-09-04.md`. **It was there three times**: two map footprints named only in Latin (Punna Residence, 55 m apart), five register rows named only in Thai (ปันนา เรสซิเดนซ์ 1 แอท นิมมาน …) with no pin, and nothing joining the halves — **185 of 353 mapped CM buildings carry no Thai name, while all 373 register rows are Thai-only**, so WO-27's exact-name join is blind by construction to every building whose two names are one word in two scripts. `loanword_candidates()` reads the register's Thai by RTGS and matches CONSONANT SKELETONS with the generic words stripped (ปันนา → Panna → `pn` = Punna), numbers compared separately and never assumed: **29 candidates** into `cache/condo_register_review_<prov>.txt`, merged by nobody. The floor is two consonants because Punna itself reduces to `pn`, and that is only safe because the Latin side is confined to the housing shelf — over the whole catalogue the same skeleton offered a temple for a condominium. **Six pairs settled by hand** (Ban Haw Kham · Pansook The Urban · Palm Springs Nimman Areca · The Star Hill · Mountain Front · Mountain View); **Punna deliberately NOT settled** — three footprints, five rows, no evidence which is 1. `settle_sub()`: a building the Treasury registers is an อาคารชุด under the Condominium Act B.E. 2522, so it files `condo` and the mapper's `apartment` comes off (7 re-filed, CM condo shelf 354 → 408). And the facts the site had held since WO-27 and printed on no page — **362 assessed spreads, 109 complex keys** — now render on the place page, the spread saying it is the transfer-fee basis and not a market price, the complex linking the sibling buildings (the only way a page tells One Plus Suan Dok 1 from the other ten). Open: the 27 candidates read once by a person. **Correction same day** (Nan: *"there's a lot of punnas in chiang mai"*): which footprint is which is NOT one question — **10 Punna records on the CM housing shelf**, 3 pinned and 7 register rows, across **4 tambon** and 3 product lines (Residence @ Nimman 1–2 · Oasis 1–2 at Wat Ket · 3/5/@หน้ามช by the university), so the pins cannot be assigned by elimination. **The name-family grouping is measured and NOT built — her fork**, written out in the note: every rule that groups all ten (consonant skeleton · one-edit chained · one-vowel) also merges words that differ only by a vowel because that is what they are (เพนนี Penny among the Punnas; chai with chao), and the only rule that never lies (exact romanized token) splits Punna 7 and 3. Recommended: exact token + a curated `name_families.json` of human-confirmed unions, same shape as merges.json. **She then asked "is this a holistic fix?" — it was not**, and the answer changed the build: measured across all 21,937 records, **every state register is Thai-only** (ONAB 2,084 · OBEC 1,302 · MOPH 490 · OPEC 168 at 100%; FDA 907 and condoreg 367 at 98%) against **58% of 14,851 OSM records Latin-only**, with **only 24% holding both scripts of their own name** — Punna is the shape of the whole catalogue. **So the fix went to the READING**: 20 building loanwords into `rtgs_lexicon.json` (ยูนีค was reading `Yu Nik`, ฮิลล์ไซด์ `Hinsai`, แฮปปี้ `Papi`) plus a new **`brand` section** — a name's own Latin spelling read off a record in this same catalogue, so ปันนา is Punna because three buildings here paint it that way; never an outside source, never a claim about ownership. With the readings right **no similarity test is needed**: 57 housing families on the exact token, 22 joining a register row to a mapped building, Punna's ten among them, and 242 pages now carry a Same-name row. `namejoin.py` is the shared vocabulary; `name_families.json` became the **refusal list** (30 kind/descriptor/place words — without it the shelf grouped 13 unrelated หอ N หญิง). **Then: "do the sweep everywhere"** — `importers/audit_readings.py` mines the 4,987 records that hold BOTH a Thai name and a human English one, keeping only pairs that share a consonant shape (a transliteration; กาแฟ→Coffee and เภสัช→Pharmacy are TRANSLATIONS and were left alone). **22 loanwords + 16 brand spellings**: วัตสัน `Wat San`→Watsons (**20 pharmacies, not one with an English name**), บู๊ทส์ `But`→Boots (13), ปตท `Patot`→PTT (42), กสิกร `Kasik`→Kasikorn (39), พีที→PT (37), บิ๊กซี→Big C (25), โลตัส→Lotus (23), ฟาสซิโน→Fascino (12), เทคโนโลยี→Technology (23 schools), คริสเตียน→Christian (13). Readings matching the sign **1,360→1,495 of 4,987 (27.3%→30.0%)**; **490 Thai-only records with no English name now carry the English word** (407 medical · 382 essentials · 36 housing · 9 schools). **The temple shelf answered differently**: wat readings are mostly right, and what is wrong there is Pali SEGMENTATION (วัดสุวรรณ→`Wat Suoraron`, วัดป่ายาง→`Wat Painga`) — named, NOT fixed. A BUG WORTH KEEPING: NFKD accent-folding ATE THAI (สระ อำ decomposes, the combining-mark filter dropped the nikhahit, เดอะยูนีค came back `yanik`) — fold accents on the Latin path only. |
+| WO-57 | ภัยพิบัติ — the disaster layer: the site could not answer without a network, and could not say where to breathe or how high the river was | **ITEMS 1–6 BUILT** 2026-09-04, from Nan (*"motdang.net could potentially be a REAL asset in a local emergency or natural disaster... pre-stage useful and lifesaving resources, enrich what already exists"*, then *"let's work our way down the list"*) — `notes/WO-57 — ภัยพิบัติ — the disaster layer — PROPOSED 2026-09-04.txt`. **The gap counted first**: 23,434 pages and ZERO service workers, the four emergency numbers on ONE shelf, and 10 phone numbers across 593 state health facilities. (1) `chuai_layer.py` → **/chuai.html**, 2,227 lifeline rows baked inline (124 hospitals · 469 รพ.สต. · 1,030 pharmacies · 435 fuel · 169 mapped water points, 47 kB gzipped) with the nearest-thing search running on the device, plus **`sw.js`**: precaches the lifeline, serves navigations network-first, and falls back to /chuai.html so ANY address on the site, opened with no signal, lands on the numbers — verified by stopping the server and loading a page never visited. Kill switch: delete sw.js from the build. (2) the four numbers now render in the **footer of every page** — WO-52's own rule for a sentence true everywhere is "the footer once", and this is it; **1784** (สายด่วนสาธารณภัย, ปภ.) added to `emergency.json`, the one new number and the one thing here Nan should confirm. (3) `make_chuai_sheet.py` → **assets/chuai/chuai.pdf**, two sides of A4 reusing the handout rig; PCD bands carry a *stepped black bar* inside the colour because five colour fills photocopy to five identical greys; a ruled box for the numbers no directory can hold. (4) `importers/fetch_cleanrooms.py` + `foon_layer.py` → **/foon.html**: กรมอนามัย's clean-air register has a public API and holds **2,428 publicly accessible rooms with pins across both provinces** — a March 2026 newspaper said 45 in 13 of 25 districts, which is why the rule is read the register, not the article about it. **206 of its pins cannot be where the row says** (one row's latitude is 473027; 45 rows naming Mae Sai and Omkoi sit within 5 km of Tha Phae) and **458 rows carried a bulk-entry phone — one number on 428 rows at 246 separate sites**; both checks are tuned against a truth set, flag rather than delete, and are printed on the page. (5) `importers/make_ping.py` + `nam_layer.py` → **/nam.html**: the SRTM flood layer was REFUSED on its own numbers (z12, ~38 m a cell, ±5–10 m — a guess wearing a contour line) and replaced by something true: RID's hourly gauges, where **every row carries the station's own alert level** (P.1 Nawarat = 3.70 m), the river drawn in the order the water passes, and the Mae Tae → Nawarat lead time **measured** by cross-correlation (5 h, r=0.841, 736 hours over 30 days) instead of repeating the folk six-to-eight. No forecast, no advice; `tests/test_hazard.py` holds that line and can tell a forecast from a refusal to forecast. (6) `importers/enrich_from_cleanrooms.py` matched the register's phones onto the catalogue: **state health facilities went from 10 phones to 141**, refusing a match on a shared name, a bulk-entry number, or pins more than 5 km apart. New tests: `tests/test_chuai.py`, `tests/test_hazard.py`. `importers/watch_data.py` now watches ping.json (1 day) and cleanrooms.json (120 days). Open: which hospitals run a 24-hour ER (no source on this disk) · the 15 register names that are two facilities · the ~30 pins the amphoe check is too loose to catch · a second reader for the 1784 entry. |
 
 WO-3 and WO-7 were marked standing because they are the two a reader actually
 meets. Both have now been done, and the rule stays: anything added here is
@@ -820,7 +846,7 @@ the register arrives as `<prov>-osm-…` and `<prov>-obec-…` and no merge on i
 see they are one place. `cache/school_dupes_<prov>.txt` has a paste-ready
 merges.json line for each. **138 of them (44%) have an identical name and sit
 within 50 m of each other**, which is the obvious first batch; the other 173 need
-an eye. Nothing is merged automatically and nothing should be — the house rule is
+an eye. Nothing is merged automatically and nothing should be — the practice is
 human-confirmed pairs only.
 
 **The one empty shelf is monastic**, and it is on `KNOWN_EMPTY` with its reason:
@@ -1844,9 +1870,7 @@ and the sentence Nan wants to say had nothing on the site to land against.
 stays: the register is the ants', not a CV. The ants do the walking; one person
 feeds them. Four modules — who (named, with the config email, never a second
 copy), how the ants walk (stdlib, static, the twenty-minute round, the source
-downloadable from the site itself), what will not change (the no-tracking /
-no-ranking / no-stars promises, restated where somebody checking up on us
-actually looks), and what happens when it is wrong (the city changes daily and
+downloadable from the site itself), and what happens when it is wrong (the city changes daily and
 one person keeps this, so every fact is dated and the fix log is public). Then
 `channels_block()`, which already existed and already names the accounts that
 are NOT us — the thing that makes an impostor page expensive.
@@ -1869,8 +1893,8 @@ only call in build.py shaped that way, which was the tell. Links go outside,
 
 ## The nod ledger — `heard.py`, and why it is not part of the site
 
-The plan is measured, and the site carries no analytics and never will, so
-there was no number anywhere that could answer *has anyone heard of this?*
+The plan is measured against conversations, not readers, so there was no
+number anywhere that could answer *has anyone heard of this?*
 `heard.py` is a numbered-menu CLI ([[user_accessibility]]): one keypress per
 person Nan tells — **1** didn't know it · **2** knew the site · **3** knew it
 was hers — plus an optional coarse room, appended to `data/heard.jsonl`.
@@ -2081,3 +2105,671 @@ gate — which is right, because that is news the page should carry.
 Also flagged in passing, not fixed: `make_ticker.py` is in no walk's
 roster (dormant fetcher), and several fetcher User-Agent strings still
 advertise the departed GitHub URL.
+
+---
+
+## WO-52 — หน้านี้ไม่ใช่ใบปลิว · the page is not a pamphlet · BUILT 2026-09-02
+
+Nan's ask, 2026-09-02: *"a lot of shit that is printed on the page should
+actually be a tool tip at most. Do a thorough gemba and come up with a plan of
+action to heavily prune."*
+
+### The gemba
+
+Walked all 22,920 built pages in `docs/`, extracting every paragraph-level
+block and counting how many pages carry each one.
+
+- **33 distinct blocks account for 5,547,155 of the site's 7,752,480 prose
+  word-instances — 71.6% of every word the site prints.**
+- On a place page, **85% of the words inside `<main>` are blocks that appear on
+  200+ other pages.** Sample of 400 place pages: 138,986 prose words, 117,889
+  of them site-wide boilerplate.
+- **Median place page: 350 words in `<main>`, of which 51 are about that
+  place.** The floor: `cm/p/ban-hong-school-289210140.html` — 6 words of school
+  inside 358 words of page.
+- **Median 132 words of boilerplate stand between the H1 and the first
+  place-specific block** (75th percentile: 204).
+- Worked example, `cm/p/chang-puak-hospital-103540040.html`, a hospital: three
+  facts on the page (open 24 h, open late, OSM as of 2026-07-27), wrapped in
+  **fifteen** blocks of solicitation and self-description.
+
+The five largest single blocks, by pages × words:
+
+| pages | words | block |
+|---|---|---|
+| 20,174 | 55 | "This place keeps no website of its own — so this page is the record. Cite it, share it…" |
+| 20,826 | 30 | "Have a photo of this place? Send it — your name goes under it." |
+| 22,052 | 26 | "Reports here go somewhere: 14 fixes on the public log, dates and all" |
+| 21,047 | 19 | "Some details on record — help fill in the rest, free." |
+| 18,727 | 19 | "No photo of this place yet — this is where it stands" |
+
+### The finding that decides it
+
+**The CTA apparatus has never converted once through the page.**
+
+- `data/claims.json` → **0 claims**, against "ยืนยันร้านของคุณ · Claim your
+  place" printed on 20,174 pages.
+- `data/toilet_reports.json` → **0 reports**.
+- `data/heard.jsonl` → **0 lines**.
+- `data/fixes.json` → 14 fixes, and the channels are their own answer: **10
+  `มดเอง` (the ants' own audit), 3 reddit r/chiangmai, 1 word of mouth.**
+  Reader-originated: 4, every one of them from OFF the site.
+- `data/contact_leads.json` (99) is the ants' own harvest from a newsletter,
+  not reader submissions. Unaffected by anything here.
+
+So the sentence on 22,052 pages promising that reports go somewhere is
+advertising a channel that has delivered nothing, while a channel nobody
+advertises (reddit) delivered three quarters of the reader-reported fixes.
+
+### The component that was never built
+
+The site has no progressive-disclosure mechanism at all, which is why
+everything is printed.
+
+- `title=` attributes: **198,767 uses, 8.7 per page** — and `title=` does not
+  open on touch. There is **not one `@media (hover: hover)` rule in
+  `style.css`.**
+- `<details>`: **314 uses across 22,920 pages** (0.01 per page).
+- `<abbr>`, `popover`, `aria-describedby`: **zero**.
+- `.facet{cursor:help}` (style.css:277) promises a tooltip a phone cannot
+  open, and `README.md` describes reading a tag "before they open the tooltip"
+  — a tooltip most readers have no way to open.
+- The site then prints, on 1,256 pages, the sentence **"ชี้เมาส์ที่ป้ายเพื่อดู
+  ว่ารู้มาจากไหน · Point at a tag to see where it came from"** — instructing a
+  mouse gesture on a Thai-first, phone-first directory.
+
+### Provenance check
+
+Grepped CLAUDE.md, AGENTS.md, README.md and all 247 KB of MARCHING-ORDERS.md:
+**no decision of Nan's puts any of these blocks on the place page.** They are
+accretion — each work order added its own sentence, and nothing ever removed
+one. Per this file's own rule, an addition with no provenance is a past
+session's choice, not doctrine.
+
+**No test asserts any of them.** Grepped all 36 files in `tests/` for the Thai
+strings: zero hits. `test_sabai.py` checks `svcbar` grouping and
+`test_festivals.py` / `test_tawai.py` use `note_th` on per-venue records — a
+different, legitimate field. The prune is ungated.
+
+### The four cuts
+
+**Cut 1 — the CTA apparatus. 12 blocks, 1,816,399 word-instances, 23.4% of the
+site, 0 conversions.**
+Delete from the place page: the six `🐜 ช่วยเติม…` ant-asks (12,300 pages
+between them), `บอกมดแดงว่าสาขานี้มีอะไร` (12,487), `มีข้อมูลบางส่วนแล้ว —
+ช่วยเติมให้ครบได้ฟรี` (21,047), the photo-ask (20,826), the QR line
+`สแกนแชร์หรือพกไว้หน้าร้าน` (21,048), the claim-box prose (20,174),
+`รอปักหมุด` (2,099).
+Replace all twelve with **one link at the foot of the record block** —
+`🐜 เติมข้อมูล · Add what you know`. No sentence, no promise, no free-ness
+claim. Every word explaining what happens moves to `add.html` / `claim.html`,
+where the person who tapped is already asking the question those words answer.
+
+**Cut 2 — the site talking about itself. 6 blocks, 2,131,267 word-instances,
+27.5%.**
+- "This place keeps no website of its own — so this page is the record" —
+  true of 20,174 pages, therefore distinguishing nothing. **Delete.** If it
+  must survive it is a JSON-LD statement for machines, not a paragraph for a
+  person who came to find out when the clinic shuts.
+- "Reports here go somewhere: 14 fixes…" (22,052 pp) — **delete.** The footer
+  already carries `🛠 แจ้งปุ๊บ แก้ปั๊บ · Fix log` as a link. The sentence is a
+  louder duplicate of a link that exists, and the number in it will age.
+- The ant legend "🐜 = one ant per fact, nine when complete…" (1,719 pp, 67 w),
+  the 😎 legend (1,592 pp), "Point at a tag…" (1,256 pp) — **move onto the mark
+  itself** via Cut 4. A legend explaining a symbol belongs on the symbol.
+- The Moo Deng disambiguation (every page) — **delete from the place page**,
+  keep once on `/why.html`. Nobody on a hospital page is confusing the
+  directory with a hippo.
+- "Built from open data and shoe-leather" (every page) — **keep the date, drop
+  the slogan.** `ปรับปรุง 2026-09-02` is the fact.
+
+**Cut 3 — the category lede on the individual place page. 9 blocks, 779,371
+word-instances, 10.1%.**
+The 14 `note_th`/`note_en` blurbs in `data/facets.json` — "Two clinics on one
+road are not the same clinic" (2,042 pp × 48 w), "Two schools on one road"
+(2,970 × 59), the realestate set (774 × **214 w**), the beauty set (283 ×
+**215 w**), massage (298 × 64), cannabis (694 × 42), convenience (726 × 33),
+"the things people ask before they sit down" (4,504 × 43).
+**Keep exactly one instance, on the shelf page**, where a reader choosing
+between places is doing the comparison the sentence argues for. **Delete from
+the place page**, where the choice is already made. This is a render-site
+change, not a data change — the strings stay in `facets.json`.
+
+**Cut 4 — build the disclosure component, then move the absence notices into
+it. 6 blocks, 820,118 word-instances, 10.6%.**
+Build one tap-sheet that works on touch and mouse with no JS — `<details>` /
+`<button popovertarget>`, one `.mark` + `.marknote` CSS block, plus the
+`@media (hover: hover)` rule `style.css` has never had. Then move in:
+`ตำแหน่งโดยประมาณ` (3,053 pp), the three "no photo yet" variants (20,826),
+`ยังไม่รู้ว่าสาขานี้มีอะไรบ้าง` (11,231), the road-from-addresses note (537),
+the Wikidata-is-the-chain caveat (825), the archived-link note (353).
+These are **true and worth keeping** — they are simply not worth a paragraph.
+An absence is a mark on the thing that is absent.
+
+### The gate
+
+`tests/test_page_weight.py`, new, HARD:
+1. No block appearing on >500 pages may sit inside `<main>` **above** the
+   first place-specific block. (Today: 132 words of them, median.)
+2. Median `<main>` prose on a place-page sample ≤ 120 words. (Today: 350.)
+3. No `title=` carries text longer than 60 characters without a
+   `.marknote` sibling — i.e. nothing important hides where a phone cannot
+   reach it.
+
+Without (1) and (2) this grows back, because that is exactly how it got here:
+fifty-one work orders, each adding one reasonable sentence, and no test that
+ever counted them.
+
+### Expected outcome
+
+| | now | after |
+|---|---|---|
+| median `<main>` prose, place page | 350 w | ~90 w |
+| of which about that place | 51 w (15%) | 51 w (~57%) |
+| chrome before the first fact | 132 w | 0 |
+| site prose word-instances | 7.75 M | ~2.2 M |
+
+### What could be lost, priced
+
+- **SEO.** The "cite this page" text might be doing indexing work. Against: it
+  is byte-identical on 20,174 pages, which is a duplicate-content signal rather
+  than a ranking asset, and the unique text on those pages is currently
+  outnumbered 6:1 by the identical text. Mitigation: cut one shelf first,
+  watch, then proceed.
+- **The claim funnel.** 0 claims means there is nothing to lose. If Nan reads
+  the claim CTA as a long game, keep exactly one — the claim link — and delete
+  the other eleven.
+- **Owner outreach.** `contact_leads.json` came from a newsletter harvest, not
+  the page. Untouched.
+- **Tone.** The ant-voice warmth largely lives in these sentences. The reply:
+  warmth that appears identically on 20,000 pages stops reading as warmth and
+  starts reading as a template. Keep the voice in the places that are unique to
+  a page — the facet notes, the "threads from here" line, the shelf ledes.
+
+### What was built
+
+Nan took the fork the same day: *"do the whole thing"*, then *"be AGGRESSIVE"*.
+All four cuts, plus the component and the gate.
+
+**The component that did not exist — `build.mark()` and `.mk` in CSS.** A
+`<details>` tap-sheet: opens on tap, opens on Enter, needs no JS, degrades to
+visible text with CSS off, and keeps `title=` on the summary so a pointer
+still hovers. With it went **the first `@media (hover:hover)` rule this
+stylesheet has ever had** — its absence is the whole reason 198,767 `title=`
+attributes were written for a mouse on a phone-first Thai directory.
+`.facet{cursor:help}` no longer promises what a thumb cannot open.
+
+**Cut 1 — the asking.** `add_link()` replaces twelve doors: six `ช่วยเติม…`
+ant-asks, `ant_panel`'s status line, `facet_door`, the photo ask, the three
+`add_doors` cards, `door_ledger_line`'s promise and the claim sentence inside
+`reach_block`. `ant_panel()`, `next_ant()` and `facet_door()` are deleted, not
+merely unwired. One quiet line now closes the record: 🐜 เติมข้อมูล · Add what
+you know. add_doors also came off the 1,004 road pages.
+
+**Cut 2 — the site talking about itself.** Gone: the 55-word "this place keeps
+no website of its own" (20,174 pp, the largest block on the site — the fact it
+asserted is still in `place_json()` and the JSON-LD, where a citing tool
+actually looks); "Reports here go somewhere: 14 fixes" (22,052 pp — the footer
+already links the ledger, and the number in it aged); the 😎 legend (1,592 pp);
+the 🐜 legend (1,719 pp, now the sort button's own note); the Moo Deng
+disambiguation and "built from open data and shoe-leather" from every footer
+(Moo Deng survives in `llms.txt`, which is who it was for); the QR caption
+(21,048 pp — the alt text already says where the code goes).
+
+**Cut 3 — the category lede, moved not deleted.** `facets.json`'s
+`note_th`/`note_en` render once in `facet_chips()` on the shelf, where a reader
+choosing between two clinics is doing the comparison the sentence argues for —
+and no longer on the ~8,000 place pages under it, where the choice is made.
+
+**Cut 4 — the absences.** Three "no photo yet" captions and the "we don't know
+what this branch has" row are simply gone; a map looks like a map, an empty
+row states its own emptiness, and the alt text still carries it for the reader
+who cannot see the image. The four that are real claims about our own reach
+became marks: approximate position (3,053 pp), the road not walked (537 pp),
+the archived-website policy (353 pp), and the tag provenance — that last one
+found by the gate, a **135-character note that had been sitting in `title=` on
+every tagged page**, invisible to touch. It now lists, on the row's own 🏷
+label, only the ways the tags on THAT page were earned.
+
+**Also caught in passing, unrelated to the prune:** `<details class="hoingress">`
+sat inside a `<p>` on /horoscope.html, so the browser was closing the paragraph
+early and the styling below it applied to nothing. Fixed. A 2,500-page nesting
+sweep now finds zero `<details>` inside a `<p>` or `<span>`.
+
+### The gate — `tests/test_page_weight.py`
+
+Three HARD checks, and the reason each exists:
+
+1. **Nothing repeated stands between the name and the first fact.** Prose
+   only: a `<dd>` reading "Doctors & Hospitals" repeats on thousands of pages
+   and is still a fact about this one — repetition makes a value shared, not
+   empty. A *paragraph* that reads the same on 500 others cannot be about this
+   place. Cap 25 words; the site now sits at 0 median, 7 max.
+2. **Median record prose ≤ 140 words.** It is 92.
+3. **No `title=` over 100 characters without a tap-sheet.** 100 rather than 60
+   because every note here is bilingual.
+
+Without 1 and 2 this grows back, because that is exactly how it got here:
+fifty-one work orders, each adding one reasonable sentence, and no test that
+ever counted them.
+
+### Where it landed
+
+| | before | after |
+|---|---|---|
+| site-wide prose word-instances | 7,752,480 | **2,190,817** |
+| median place-page record | 350 w | **92 w** |
+| repeated chrome before the first fact | 132 w median | **0 w median, 7 max** |
+| a place page on disk (Chang Puak Hospital) | 52,780 B | **48,319 B** |
+| `@media (hover:hover)` rules in style.css | 0 | 1 |
+| tap-sheets on a place page | 0 | ~0.6 average |
+
+Verification: all **37** test suites pass, including `test_publish_gate.py`
+and `test_contrast.py` (which caught `--mute` being used for a border — this
+repo keeps the quiet inks text-only so they can be darkened without moving
+structure; the mark's underline is `--gold`, the bead colour). Full build
+22,920 pages. **DEPLOYED 2026-09-02 on Nan's say-so** — `publish/deploy.py
+--yes` → r2://mot-dang-site → https://motdang.net/ , verified live (the six
+deleted blocks return 0 hits on the deployed hospital page; `mark()` and the
+hover query are in the shipped stylesheet). Tiles NOT pushed (`--tiles`, ~280
+MB) — nothing here touched them.
+
+### The one regression, caught after the first deploy
+
+Cut 3 moved the facet ledes from the place pages to `facet_chips()` on the
+shelf — but `facet_chips()` returned early when a shelf had no ticked chips
+yet, so the lede went with it. Four sets — **massage, muay thai, chang,
+realestate** — landed on NO page on the site. Realestate's is the 214-word one.
+
+Found by checking where each of the 14 ledes actually rendered rather than
+trusting that "moved" meant "arrived". Fixed: the lede is emitted whenever the
+shelf has one facet set, chips or no chips. That is the right rule and not
+merely the safe one — **a shelf with nothing ticked yet is exactly where a
+reader most needs telling that two doors on one soi are not the same door.**
+
+All 14 sets now land: convenience 12 · sitdown 65 · massage 8 · beauty 17 ·
+cannabis 7 · medical 23 · muaythai 4 · cooking 15 · chang 6 · school 57 ·
+realestate 8 · professional 2 · pest 2 · tailor 7.
+
+**And the fix had a second bug under it, found the same way.** With the lede no
+longer gated on chips, it appeared wherever `facet_chips()` found a single
+facet set — but `len(sets) == 1` counts only the records that HAVE a set, so
+ONE stray record decides a whole shelf. The laundry shelf holds one record with
+`cat=massage`, so **ร้านซักรีด-สะดวกซัก · Laundry (59)** went live carrying
+*"What comes off, what you lie on, who else is in the room, whether the price
+is on a board outside."* It was harmless for as long as the lede rode on chips
+that such a shelf never has, and it shipped the moment that gate came off.
+
+Now a lede prints only where its set accounts for at least half the shelf
+(`shelf_is_the_set`). Audited by printing every lede against its page's own
+H1: all 14 land, every one on a shelf whose heading matches its subject, and
+the laundry page carries none.
+
+Lessons, both paid for on the live site:
+1. **Verify the destination, not the departure.** On a move-not-delete, grep
+   where the thing renders now and treat zero as failure.
+2. **Removing a gate reveals what the gate was hiding.** `if not chips:
+   return ""` was silently suppressing a wrong answer, not preventing one.
+   Before deleting a guard, ask what has been sheltering behind it.
+
+### Left standing on purpose
+
+The 54 prose blocks still repeating on 500+ pages are the ones that should:
+the provenance lines (`ข้อมูลจาก … · Data from … · <date>` — who said it and
+when, which is the practice, not clutter), the one add link, and the section
+headings. The sponsor block stays: it is revenue, and it is one line.
+
+## WO-53 — หน้าแรกไม่ใช่ใบปลิว · the homepage is not a pamphlet either · BUILT 2026-09-02
+
+Nan, 2026-09-02, after WO-52 went live: *"I still feel like 30-50% of the text
+could be cut. Did the page not fully update, or did you lack aggression?"*
+
+The page had updated — live was byte-identical to `docs/index.html`. WO-52
+counted blocks by how many pages repeated them, and a homepage is one page, so
+none of its prose ever entered the count. Scope miss, not a stale deploy.
+
+### Her picks, and what each cost
+
+| cut | where in build.py | words |
+|---|---|---|
+| weather to Chiang Mai · Chiang Rai · Réunion (Saint-Denis, `Indian/Reunion`) | `importers/make_weather.py` CITIES; default `md.wx` selection; `min_rows` 5 → 3 | ~120 |
+| hero: eyebrow, sub, "no rankings" sentence, sticker gone; H1 + credit + Start-here link stay | `hero_html()` | ~90 |
+| route planner: lede, four bullets, moat note, coverage note gone; H2, gif, three-row table, button stay | `plan_hero_html()` | ~200 |
+| nine doors: sub-line and per-card blurb gone | `boards_html()` | ~150 |
+| care shelf: register line → `mark()` tap-sheet | `care_shelf_html()` | ~25 |
+| claim band: paragraph gone | `gold_band_html()` | ~50 |
+| after dark: eyebrow and per-card line gone | `after_dark_html()` | ~40 |
+| map card: instruction line gone | home assembly | ~20 |
+| newsletter: pitch gone, form and privacy line stay (shared by every hub page) | `subscribe_block()` | ~40 |
+| chipbar off the homepage only; My page + Add a place join the svcbar | `page(chipbar=)` | ~60 |
+| news ticker + Personalize panel deleted; Wander stays | home assembly, md.js mods list | ~300 |
+| events partner tip: hover bubble → `mark()` | home assembly | 0 (moved) |
+| Wikimedia picture note gone (hero credit + footer already carry it) | home assembly | ~20 |
+
+**4,397 → 3,418 words, −22%.** Shown the four widget cuts, she took ONE: the
+"What is on" wall tile, printed a second time under the carousel, is skipped on
+the homepage (`widget_wall(skip=("fortune", "events"))`; widgets.html keeps it).
+**Now 3,136 words, −28%.** The rest — weather, cinema, horoscope, katha and
+psalm — she declined by name. Not a fork any more; a decision.
+
+### Rules it adds
+
+- **One-page furniture is invisible to a repeat count.** WO-52's gemba
+  measured the site by repetition; a page that exists once scored zero however
+  fat it was. Measure the doorstep by absolute weight.
+- **A removed block can have a second reader.** `tick_html` was built once and
+  printed twice (home and my.html); deleting the builder broke the second
+  page. `grep` every name before deleting its definition.
+- **A guard sized to an old list is a bug waiting for a smaller list.**
+  `ingest.write(min_rows=5)` refused the three-city weather.json and kept the
+  fifteen-city one — silently, with a warning line. When a list shrinks,
+  re-read every floor set against it.
+
+## WO-54 — ถ่ายเอกสาร-แปลเอกสาร · the paper trades · BUILT 2026-09-04
+
+Nan, 2026-09-04: *"Have motdang do a deep dive and enrichment on copy shops and
+document preparation services. Use external sources if necessary. Don't be
+verbose. Be effective."*
+
+### What the measurement said
+
+Zero copy shops in the directory; 43 + 12 on the open map, never asked for.
+The same shape as WO-50 (shop=clothes) and WO-49 (shop=tailor): a shelf empty
+because no selector had ever been written, not because the city lacked the
+trade. CMHY.city, read in Thai, holds 522 places across five paper categories.
+
+### Two voices
+
+"Document preparation" is three counters — the immigration errand (do it
+yourself; the shop at the gate copies and fills the form), the translation
+counter (certified translation, sometimes an MFA run), and the seal (WO-40's
+page). The register never offers one as the answer to another's question, and
+the page says which line on the receipt is which.
+
+### Rules it adds
+
+- **A copy shop is at a gate, not in a quarter.** Two shops write the rule in
+  their own names. Ask "where must the paper go" before "where is a copy shop".
+- **Same door means same trade.** Deduping CMHY against OSM by distance alone
+  swallowed a translation counter into a copy shop 60 m away; the match now
+  requires the same trade family.
+- **A network blip looks like an empty directory.** 291 of 523 CMHY pages
+  failed on DNS mid-run with `!!` lines nobody read until the tally looked
+  thin. `read_*_sites.py` readers print failures; the tally must be compared
+  against the index count before it is believed.
+- **A refusal is printed, never silent.** Every CMHY row is in the register
+  with the reason it did or did not become a record.
+- **A lenient parser needs the same tally check as a strict one.** The regex
+  read that rescued 96 pages also named 94 shops after a breadcrumb.
+- **Measure the rule you are about to print.** "At the gate" was two shop
+  names until the distance table; now it is 41% vs 23% with a control.
+
+### Open
+
+Prices unwalked · lens shops and studios share the photo shelf until a door
+survey splits them · CR copy shops carry no hours (Yellow Pages 403) · `shop=paint` node
+4358880543 named ร้านถ่ายเอกสาร wants a shopfront read · deploy is Nan's.
+
+## WO-63 — ผิวหนัง: the door a disease goes through · BUILT 2026-09-05
+
+Nan's go: *"Use motdang to find providers who specialize in rosacea, then
+improve all systems and processes that could lead to its discovery."*
+
+### What the measurement said
+
+`rosacea` / `โรซาเซีย`: 0 of 24,236 index entries, 0 results from the reader
+assistant's place search, 0 reader questions in its log. `ผิวหนัง` on 14
+records. "dermatologist chiang mai" at ai.motdang.net returned two dentists and
+an osteopath at 0.51 — because `attrs.specialty` (importers/specialty.py, 13
+records tagged `skin`) rode in search.html's index since WO-25 and NEVER in the
+assistant's place text. The pattern is the search disease again: the disease is
+on no sign, and the door it goes through — a dermatology clinic — was tagged on
+the site but silent in the assistant.
+
+### What was read, and who said what
+
+Eight hospitals state a dermatology clinic on their own pages: Suan Dok's CMU
+division (Tue/Thu/Fri mornings, floor 10 Sriphat building, UV room floor 12 —
+the only state clinic in the north that prints its days), Sriphat (floor 5,
+053-934733), Chiangmai Ram (its page draws the disease/aesthetic line in two
+sentences), Bangkok Hospital CM (Bangkok Plaza floor 1, 08:00–16:30 daily),
+Rajavej (skin disease four mornings; complexion every day), Chiangmai Hospital
+(named among its special clinics), Kasemrad Sriburin and Overbrook in Chiang
+Rai. McCormick's finder lists no dermatology department; Lanna returns 403;
+DST's find-a-dermatologist answers with an empty body. Five aesthetic clinics
+from the map sit in their own section, marked as the other door.
+
+### Where it landed
+
+- `data/curated/lens/skin.json` → `/skin.html`, 19 rows (8 stated · 9 listed ·
+  2 route), 3 registers, 9 glossary words, 8 unread. Panel `skin` in
+  search_panels.json; 8 thesaurus groups (rosacea, dermatologist, psoriasis,
+  eczema, urticaria, vitiligo, melasma, phototherapy) into search-core's hand
+  file, rolled out, parity OK.
+- `build.py place_json`: the sidecar now carries `lens` {key, page, title,
+  grade, for, words} — the same words the index gets.
+- white-label-ai `scripts/index_motdang.py`: place text now carries `Treats:`
+  from `attrs.specialty` and every register's words + page, placed AFTER the
+  contact facts (Suan Dok's eight registers had filled the 1,500-char cap and
+  cut its phone; cap now 2,000). `MOTDANG_DOCS` indexes a scratch build.
+  Reindexed 2026-09-05: 3,806 + 111 places re-embedded. ai.motdang.net
+  /api/search: "rosacea" 0 → 7 hits (Skin Centre, Ratika, Chiangmai Ram,
+  Bangkok Hospital, Narada …); "dermatologist chiang mai" dentists → Chiangmai
+  Ram 0.82, Bangkok Hospital 0.81, Rajavej 0.80. Two eval cases added.
+- `lens_layer.rows_by_place` now keeps EVERY register a place is in (was one
+  slot; the last lens in file order won, so Maharaj was the yellow-fever
+  centre and lost its dermatology words). Sidecar field is `lenses`.
+- `tests/test_search.py`: rosacea / โรซาเซีย / หมอผิวหนัง / dermatologist open
+  the skin door and reach the stated hospitals.
+
+### Rules it adds
+
+- **A speciality the site knows is a speciality the assistant must know.** Any
+  field build.py indexes for search.html has to reach the sidecar, because the
+  sidecar is the assistant's whole knowledge of a place.
+- **A disease no sign names is a page about the door, not the disease.** No
+  rosacea claims were invented; the page says which counter treats skin
+  disease and which treats complexion, in each hospital's own words.
+
+### Open
+
+Days and floor at Kasemrad Sriburin and Overbrook · Narada / Skin Centre /
+Ratika / Dr. Vich own pages unread · Lanna, Theppanya, McCormick silent · DST
+finder unreachable · no Chiang Mai price for a visit · site deploy is Nan's.
+
+## WO-64 — ตรงนี้ · the site opening where the reader stands · BUILT 2026-09-06, staged
+
+Nan 2026-09-06: *"if I open motdang.net standing in the old city, I'd
+appreciate it if it actually just loaded up a map to where I am ... get
+oriented, tell me what's nearby, navigate me, give me shareable information."*
+Note for her: `notes/here-2026-09-06.txt` (go/here).
+
+### Where it landed
+
+- `here_layer.py` → `/here.html` + `here.js` + `here.css` + `data/here/<cell>.json`.
+  One tap through MDLOC; then WHERE (inside the moat / which ย่าน / nearest gate
+  with distance + compass word + arrow / GPS accuracy), NEARBY (every kind within
+  ~1 km, nearest 3 each, pavement order, open/closed only where hours were
+  posted), NAVIGATE (geo: link to the phone's own map app, plan.html?stops=,
+  tel:, the dot follows the reader), SHARE (here.html#lat/lng built ONLY by a
+  tap on a button that says the link carries a position; the map as a picture
+  with ODbL in the pixels; every row is a place page).
+- **Cells, not shelves:** the catalogue tiled into 0.01° cells; a phone fetches
+  the 9 around it — 166 kB gzipped for the old city against 1.3 MB for
+  cm-food.geojson alone. Opening-hour intervals ride inside each row, so "open
+  now" never fetches open_lamps.json (683 kB).
+- **The switch** `md-here` (a preference, never a coordinate): the page starts
+  locating on open — only once the browser already says the permission is
+  granted, so it can never raise the OS dialog.
+- `tests/test_here.py`: no replaceState/pushState in here.js; localStorage holds
+  the switch and nothing else; every fetch is to data/here/; JS and Python agree
+  on cell keys (cross-checked in node); every pinned published place page is in
+  exactly one cell; the 9 old-city cells stay under 320 kB gzipped.
+- Built in an offline lane — a build by another session ran the whole time.
+  **NOT in build.py yet:** the emit line, the homepage hop, and a nav chip.
+  Exact snippets in the note §2. `hub=False` on purpose: the map is the first
+  thing under the header.
+
+### Rules it adds
+
+- **A position is never written anywhere but the screen.** The one link that
+  carries one is made by a tap on a button that says so. The test holds it.
+- **A layer that draws INTO the basemap still goes through `MDMAP.ready`** — the
+  third page to do so after /map.html and doi; no second constructor.
+
+### Open
+
+- Dots and the you-dot on the basemap unverified: the preview browser never
+  created a WebGL canvas for any map on the site. Phone walk wanted.
+- 75 catalogue records exist twice (same name, same pin, different ids, all
+  `repair`) — probably today's cmhy / trade-lexicon import. The here list
+  collapses them; nothing else does. Her call (note F5).
+- Her forks F1–F4 in the note: hop policy, nav chip, radius, default kinds.
+
+## WO-65 — ตอนนี้ · ใกล้ๆ · every page leads with NOW and NEAR · BUILT 2026-09-06, not built out to docs/
+
+Beer (via Nan, 9/6): the most important thing on the site is what is
+happening right now and what is nearby — events, weather, a place you
+planned, a to-do. Everything else drawered, hidden or demoted. Nan: on
+EVERY page, not only home. Note: notes/now-near-2026-09-06.txt (go/now-near).
+
+Measured live 9/6: home is 128.5 kB / 168 links / 24 bands; events sit at
+79 % of the page, weather at 50 %, six divination tiles above both; 24
+events are dated today and none is above the fold. A place page carries 35
+furniture links above its H1 (H1 at ~630 px); the svcbar has no slim rule.
+_ev_strip is composed for the spare front page and never placed.
+
+BUILT 2026-09-06 in an offline lane (the build lock was never free, so
+nothing was run and docs/ was not touched; deploy is Nan's). Note:
+notes/nownear-built-2026-09-06.txt. New file nownear_layer.py; six
+anchored edits in build.py; two gates in tests/test_page_weight.py.
+
+The header on every page is now masthead · search · one line · ☰ —
+🎪 41 on today · 🌦 24° · PM2.5 17 ดี · 🗺 your plan (from localStorage,
+hidden when empty), with the 8 chips and 27 svcbar links inside a closed
+<details class="morenav">. The front page is that line, the name, three
+event cards, the postcard map, the eight paths gptmine ranked, and five
+closed folds holding everything that was there before — the finder (175
+shelves) among them, because the card catalog is something you open.
+
+Measured at 375 px: home 21,712 px → 2,789 px, 168 open links → 24;
+place page 35 links above the H1 → 5, H1 630 px → 310 px. Opening every
+fold restores 12,031 px and every link.
+
+Still open: 📍 here (WO-64's hooks never landed, so /here.html is not on
+the site; the cell is written and commented out), the place page's three
+ways to wander, the n ≤ 3 search card, and forks F3, F4, F7–F10.
+BUILD_DATE (build.py:80) reads 2026-09-05 on the 6th and the events cell
+counts "today" from it — bump it before the next build.
+
+The design: header = masthead · search · a NOW·NEAR strip (≤4 one-line
+cells: 🌤 weather+air · 🎪 N on today · 🗺 your plan N stops · 📍 here) ·
+one closed <details> holding the 8 chips and 27 svcbar links. Home
+re-sorted: today's events, weather/air, plan+map, colour of the day, the
+finder, then drawers. Place H1 from ~630 px to ~230 px. Snippets verbatim
+in the note §3; a test for §3f goes in tests/test_page_weight.py.
+
+Not built: build.py was hot all session (PID 92845 since 10:05). Forks
+F1–F6 in the note are hers.
+
+Nan, 9/6 afternoon — minimal, wanderable, desire paths (note §6): the
+strip is one line of text; the finder goes behind ☰ (it is the card
+catalog); a place page ends in three ways to wander — the 9 nearest
+neighbours as text (neighbours_in already draws them), same kind nearby,
+Take me somewhere. Paths are ALREADY logged first-party at
+ask.motdang.net (white-label-ai D1: search_log 0006 — no seat id; site_gaps
+0008 — candidate listings). Cloudflare fronts the site, so zone paths exist
+without a beacon — her fork F7. search.html stays on-device (F10:
+recommend no beacon). Weekly paths worklist to _incoming (F9).
+
+## WO-70 — เวลา · the clock is the shop's, not the build's · BUILT 2026-09-07
+
+Nan, 2026-09-07: "I want to add more temporal, interactive and live-navigation
+features to motdang.net. What can we build with mostly what we already have?"
+
+The survey answer was that most of it was already written and not reaching
+anybody. Her calls the same day: build first and ship once at the end; the
+📍 chip and NO homepage hop; the compass in, behind a tap.
+
+### What was actually wrong
+
+**BUILD_DATE is a stamp and it was being used as a clock.** A hand-typed string
+at build.py:81, reading 2026-09-05 on the 7th. nownear_layer counted today's
+events from it, so every one of 27,818 pages was printing **41 งานวันนี้ when
+the day actually held 18** — not a rounding error, 2.3×, and wrong in the one
+cell Beer's rule puts first.
+
+**Two surfaces read the reader's clock instead of the shop's.** The WO-69
+search lamp (build.py) and here.js's openState() both did
+`new Date().getDay()`. Measured at one instant: a shop at week-minute 1410 in
+Bangkok reads 1050 to a reader in London and 570 in Los Angeles — six and
+fourteen hours out. /api/v1 has been right about the same place the whole
+time, because publish/api.js:106 goes through Intl. The site disagreed with
+its own API.
+
+**The search lamp had never rendered at all.** docs/data/search_tables.json did
+not exist in the built tree, so `hk` resolved to nothing on every card.
+
+### What landed
+
+1. **Today is the reader's.** `write_today_json()` bakes a 21-day window
+   (602 bytes) and the strip picks its day with the `mdPick(doc).days[MD_TODAY]`
+   pattern the sky and fortune tiles already used. `today_count` is unchanged
+   and now called 21 times instead of once — one reading of a row, not two.
+   Window exhausted → the cell goes quiet rather than lying. BUILD_DATE keeps
+   the footer, the sitemap lastmod, the RSS date and the rotation salts, which
+   are the jobs where a build stamp IS the fact.
+2. **One reading of a schedule, in Bangkok time.** `mdWmin` / `mdOpen` /
+   `mdEdge` / `mdWhen` in build.JS, published as `window.MDHOURS` so here.js
+   and near.js stop growing their own. `null` never renders as shut — the
+   contract build_open_lamps.py sets and tests/test_api_worker.js pins.
+   `hourCycle:'h23'` because en-GB with hour12:false reports midnight as 24 on
+   some engines: Bangkok Tue 00:00 must be 1440, not 2880. **publish/api.js:106
+   wants the same eight characters — not touched here, the worker is a separate
+   deploy.**
+3. **The state between open and closed.** "ปิดใน 40 นาที" on search cards and
+   here.html rows, inside the hour only: an edge nine hours out is the opening
+   times, not news.
+4. **/here.html wired.** here_layer.emit() after explore_layer (whose INKS it
+   shares), an `i-pin` sprite, the chip in the ☰ drawer, and NOW·NEAR's 📍 cell
+   uncommented — revealed only where the browser already reports geolocation as
+   granted. No homepage hop: Nan's call. 3,368 cells, 174 kB gzipped for the
+   old city against a 320 kB ceiling.
+5. **The plan says whether you will still get in.** plan.html already routes on
+   a real road graph with a 2-opt reorder and separate foot/scooter distances —
+   that half was never missing. What was missing is time: place_json now carries
+   `sched` (the week as intervals, beside the `hours` string it was parsed
+   from), and each stop reads "ถึงประมาณ 14:20 — เปิดอยู่" or warns when arrival
+   lands after closing. Travel time only, no invented dwell, so it says "about".
+6. **The compass.** /here.html only, behind its own button, because iOS will
+   not hand over orientation except from inside a tap. Refused, unsupported or
+   silent, every arrow stays the static true bearing it already was. The
+   heading is never stored, never written to a URL, never leaves the device.
+
+### Bought on the way
+
+**A DATA RACE LOOKS EXACTLY LIKE A BROKEN FILTER.** test_here failed at
+"cells hold 23,943; catalogue has 25,243". Neither number was wrong: another
+session rewrote data/canonical/*.json at 14:29:19, inside my build's
+14:21:32–14:29:48. Re-running here_layer.rows() against the settled files gives
+25,243 exactly. Checking the mtimes cost a minute; hunting the filter would
+have cost an afternoon. The same afternoon, tests/test_nitnoy.py's determinism
+check failed because data/open_lamps.json was stale from another session's
+import — its own rerun fixed it. **Two "failures", zero defects, both found by
+reading a timestamp before reading the code.**
+
+**here_layer already dedupes on (province, slug)**, so the 75 duplicate
+`repair` records were never going to double a nearby list. That fork stays open
+for the records themselves; it was never a /here.html problem.
+
+### Still Nan's
+
+- publish/api.js:106 — the same `hourCycle:'h23'`, whenever the worker next
+  deploys. Wrong only between 00:00 and 01:00 Bangkok, and only on some engines.
+- Whether the 📍 cell should show for everyone rather than only where
+  permission is already granted. It is a link, not a prompt; the conservative
+  reading is shipped.
+- The other surfaces MDHOURS could now light: place pages, shelf and hub rows,
+  near.js. The helper is published and unused by them.
+- WO-64's remaining forks are untouched: radius, default kinds, the runway and
+  river lines, the 14 landmarks not on disk.

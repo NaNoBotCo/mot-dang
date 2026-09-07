@@ -208,7 +208,7 @@ are the tags OSM actually uses in these two provinces.
 
 Expected yield is genuinely unknown and this note will not guess it. It is one
 Overpass call per province per group, cached under `cache/overpass/`, and
-**per house rule it does not run until Nan says run it.**
+**it does not run until Nan says run it.**
 
 ### B. Give the tree children that describe the thing
 

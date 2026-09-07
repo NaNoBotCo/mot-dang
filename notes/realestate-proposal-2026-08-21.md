@@ -11,8 +11,8 @@ intestitial expansion."*
 
 Two instructions in that: enrich deeply, and leave interstitial room. §2 is the
 depth that needed no network; §4 is where the room was left and what each slot
-waits for. The launch rule stands unchanged: *catalog stable things (condo
-BUILDINGS + agents/developers), not churny listings.*
+waits for. The launch scope is unchanged: *catalog stable things (condo BUILDINGS +
+agents/developers), not churny listings.*
 
 ---
 
@@ -161,7 +161,7 @@ Quality Houses, Perfect Place, กัลปพฤกษ์, and one that says �
 outright. The other **590 are in `cache/moobaan_review_<prov>.txt`** where a
 person can read them. Filing somebody's village as a gated development is a
 falsehood about their home address, and that is why bare หมู่บ้าน is not a
-rule and never will be.
+rule here.
 
 **Door 4 — dormitories: 22 → 84.** `building=dormitory` tags student housing
 on the building rather than in the name, so the shelf had only ever held the
@@ -262,11 +262,10 @@ Near-misses are still never merged automatically: a loose join put
 - **The facet set is the growth surface**: an owner claiming their building
   answers the questions no crawl ever will, and the claim flow (scope-fenced
   to contacts + hours + facets) already exists.
-- **Listings stay out** — the launch rule. If a partner's inventory ever
-  appears it is a marked ผู้สนับสนุน card under the ads doctrine (flat rate,
-  no tracking, never reordering a shelf), not records. The register's rent
-  fields hold what a BUILDING posts about itself, dated — that is the line
-  between a catalogue and a marketplace, and it is where this site stands.
+- **Listings stay out at launch.** If a partner's inventory ever appears it is
+  a marked ผู้สนับสนุน card, not records. The register's rent fields hold what
+  a BUILDING posts about itself, dated — that is the line between a catalogue
+  and a marketplace. Whether it moves is Nan's call.
 - **The foreign-quota shape** is settled in the register's readme before the
   first row exists: a dated statement from the building's own channel, never
   a facet, never an inference. (The same shape serves the หอนาฬิกา scouting
@@ -291,10 +290,10 @@ sitemap) is the distribution.
 Laila's side gig and Perfect Homes CM want different things from a directory:
 an agent wants leads and placement; this site sells neither. What it CAN offer
 a partner without bending: a claimed, enriched agency listing (free, like
-everyone's), sponsor cards under the marked-box doctrine, and the register as
+everyone's), sponsor cards in a marked box, and the register as
 a shared instrument — a partner who helps fill building facts gets a better
 city, not a better rank. Laila's records are already featured field-truth in
 CR; that pattern (hand-entered, sourced, marked when sponsored) is the shape
 that fits both her and Perfect Homes — and the interests that "don't 100%
-align" (placement, exclusivity, lead capture) are exactly the parts the site's
-constitution already refuses, which makes the conversation short and clean.
+align" (placement, exclusivity, lead capture) are exactly the parts the site
+does not do today, which makes the conversation short and clean.

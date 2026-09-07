@@ -180,8 +180,8 @@ this city will tell you.
 ## 7. What this order will not build
 
 No booking, no referral, no "we can arrange it", no lead capture, no partner
-inventory — the constitution refuses all four and this topic is exactly where
-somebody would try. No condition pages. No treatment comparisons. No prices
+inventory in this order — and this topic is exactly where somebody would try.
+Whether any of them is ever built is Nan's call. No condition pages. No treatment comparisons. No prices
 without a counter visit. And no English-first framing: the Thai reader with a
 sore knee and a government-scheme card is the first reader of this page, not the
 second.

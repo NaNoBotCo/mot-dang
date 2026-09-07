@@ -21,7 +21,7 @@ a province's cache file exists.
   python3 importers/harvest_hotsprings.py --assemble  # zero network: rebuild data/hotsprings.json from cache
 
 ASSEMBLY reads five shelves of truth and folds them by name, curated
-outranking everything (the house rule):
+outranking everything:
 
   1. data/canonical/cm.json + cr.json — records with sub=hot-spring (the
      directory's own, already fenced);
@@ -443,7 +443,7 @@ def _fold(entries):
 
 
 def _apply_curated(springs):
-    """data/curated/hotsprings.json outranks everything else, the house rule.
+    """data/curated/hotsprings.json outranks everything else.
 
     Shape: {"springs": {<register id>: {fields…}}, "additions": [...],
     "unverified": [...]}. An addition needs `province` and at least one

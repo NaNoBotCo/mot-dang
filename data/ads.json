@@ -31,8 +31,8 @@
   },
   {
     "id": "house",
-    "th": "พื้นที่นี้ว่างสำหรับร้านของคุณ — โฆษณาแบบปี 1997 สุภาพ ไม่ตามรอยใคร",
-    "en": "This space is open for your shop — 1997-style ads: polite, no tracking",
+    "th": "พื้นที่นี้ว่างสำหรับร้านของคุณ — โฆษณาแบบปี 1997",
+    "en": "This space is open for your shop — 1997-style ads",
     "url": "advertise.html",
     "house": true
   }

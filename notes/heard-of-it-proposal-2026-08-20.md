@@ -31,11 +31,11 @@ Spoken-word insurance: say it spelled once — "M-O-T-D-A-N-G dot net"; the pock
 
 Both verified on a scratch build of 21,703 pages; publish gate, alt-text and asked gates all PASS. They ship on the next walk after the current `cache/walk-rest` expires.
 
-## The doctrine this plan obeys
+## What this plan is made of
 
-`AGENTS.md`: no growth mechanics, no engagement loops, no referral schemes, no A/B copy, no app. And: **paper cannot be deplatformed** — every idea must survive the platform disappearing. So this plan is made of rooms, paper, answered questions, one newsletter, one press relationship, and the LINE OA. Nothing here breaks if Meta flips a switch.
+Paper cannot be deplatformed — every idea here survives the platform disappearing. So this plan is rooms, paper, answered questions, one newsletter, one press relationship, and the LINE OA. Nothing here breaks if Meta flips a switch.
 
-Mot Dang has no Facebook account, and that stays true. In groups it is Nan answering under her own name, with the site's answer. That is not a workaround — that is exactly the association the line needs.
+Mot Dang has no Facebook account. In groups it is Nan answering under her own name, with the site's answer — not a workaround, but the association the line needs.
 
 ## The gate, first
 
@@ -62,7 +62,7 @@ Running total from nine: ~18 by the party, ~32 by ยี่เป็ง, ~44 by 
 
 ## Signed work — BUILT as WO-30, 2026-08-21
 
-`/who.html` — **ใครเลี้ยงมด · Who keeps the ants** — in the ants' own voice: the ants do the walking; one person feeds them — Annika "Nan" Peacock, NaNoBotCo, Chiang Mai. Four modules (who · how the ants walk · what will not change · what happens when it is wrong), then the channels card that already names the accounts which are NOT us. Footer link on every page, in the sitemap, named in llms.txt as the attribution for anyone summarising the corpus. `/who` resolves too. The persona stays institutional; one page answers the second beat of the conversation ("wait — that's you?").
+`/who.html` — **ใครเลี้ยงมด · Who keeps the ants** — in the ants' own voice: the ants do the walking; one person feeds them — Annika "Nan" Peacock, NaNoBotCo, Chiang Mai. Four modules (who · how the ants walk · what happens when it is wrong), then the channels card that already names the accounts which are NOT us. Footer link on every page, in the sitemap, named in llms.txt as the attribution for anyone summarising the corpus. `/who` resolves too. The persona stays institutional; one page answers the second beat of the conversation ("wait — that's you?").
 
 It deliberately does **not** link /brief: the deck is noindex and investor-facing, and putting it one click from a reader page is Nan's call, not a default.
 
@@ -92,7 +92,7 @@ It deliberately does **not** link /brief: the deck is noindex and investor-facin
 ## Bench — only if the ledger says so
 
 11. `motdaeng.net` defensive redirect (~$13/yr) if spelling misses show up in the ledger.
-12. Worker-side aggregate path counts — its own WO; doctrine-clean, no client change.
+12. Worker-side aggregate path counts — its own WO; no client change.
 13. One "I built this" post from Nan personally (r/chiangmai), timed to ยี่เป็ง week. A spike, not a channel — nothing depends on it, so it passes the platform-disappearing test. reach.html's 47%-dead-official-links finding is the story, ready-made.
 
 ## Files

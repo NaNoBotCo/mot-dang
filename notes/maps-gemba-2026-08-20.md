@@ -141,7 +141,7 @@
 ## Proposed WO-20 — แผนที่มีชีวิต (the living maps)
 
 Phased so every phase pays on its own. Steps 1–2 are bug-fix sized; nothing
-here waits on a crawl. House rules apply: build, test, leave on disk.
+here waits on a crawl. Build, test, leave on disk.
 
 **Phase 1 — un-dead every existing map (days; config + one layer of JS)**
    a. Pointer events: extend the `.loopin` re-enable to the drawn links

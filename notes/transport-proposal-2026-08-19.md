@@ -84,8 +84,8 @@ Consequences, in the data shape:
   Red-truck fares in particular: the page states what a named source stated on
   a date (the municipality, the cooperative, a terminal sign) and otherwise
   says *agree before you board* — which is information, not a warning.
-- **Bakes flat, like the flights board.** No external request from any
-  published page; no live arrivals; no tracking of a vehicle or a reader. The
+- **Bakes flat, like the flights board.** Nothing is fetched at read time; no
+  live arrivals; no vehicle is followed. The
   board's `as_of` is printed on the board. The flights layer already proves
   the shape: hand-refreshed data file, season-sized cadence, one voice per
   kind of number.

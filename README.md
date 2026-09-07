@@ -20,8 +20,8 @@ build.py still runs fine — QR boxes are just skipped.
 
 - **Thai canonical, EN a display layer** (client-side toggle; more languages later).
 - **Category tree is data** — [data/categories.json](data/categories.json). Empty
-  categories are hidden by the build: no empty shelves, ever.
-- **A wireframe shelf must mean "no data", never "wrong rule".** A child whose
+  categories are hidden by the build.
+- **A wireframe shelf means "no data" — check it does not mean "wrong rule".** A child whose
   `match` names a sub nobody emits renders identically to one genuinely waiting
   for data — muted, 🐜 มดกำลังไปเก็บ — so a typo reads to every visitor as "Chiang
   Mai has no tattoo studios". It hid 35 studios, 56 salons and 40 vegetarian
@@ -37,7 +37,7 @@ build.py still runs fine — QR boxes are just skipped.
   reason. Both were fixed by reading the names, in Thai, in one afternoon
   (WO-22, `importers/audit_beauty.py`). A written-down decision still put two
   lying shelves in front of readers for months, because the test can only ask
-  "is this shelf empty on purpose", never "is the purpose still true". **Before
+  "is this shelf empty on purpose", not "is the purpose still true". **Before
   a shelf is declared unfillable, read the names — in the language the shop
   wrote them.** The corollary holds too: when the names genuinely say nothing,
   say so with a number. Across all 18,686 records not one shopfront names a
@@ -53,13 +53,11 @@ build.py still runs fine — QR boxes are just skipped.
 - **Field/curated truth beats crawled truth** — records in `data/curated/` always
   win over a crawl refresh (same discipline as mueang-map).
 - **Provenance on every page** — source type + fetch date shown to readers.
-- **No tracking, no analytics, no third-party behaviour scripts.** Type and page
-  data are self-hosted and baked. One exception, on map pages only: the basemap
-  fetches vector tiles from our own bucket and label glyphs from Protomaps'
-  font host, both configured in `map_shell.py`. A page with no map makes no
-  external request at all. Nothing anywhere reports a reader to anybody.
-  Ads, when they come, are flat-rate text + tasteful static cards marked ผู้สนับสนุน.
-- **Never publish local paths**; build output is checked. Publish only as NaNoBotCo.
+- **Type, page data and the basemap are self-hosted and baked** — vector tiles
+  AND label glyphs come from our own bucket, configured in `map_shell.py`. The
+  four Noto Sans PBF ranges went into `assets/glyphs/` on 2026-08-20.
+- **No local paths in published output** — `grep -rl "/Users/" docs/` is checked
+  before every deploy. Publish as NaNoBotCo.
 
 ## Data sources (all local, zero network)
 
@@ -89,9 +87,9 @@ crawl's clothes.
   category tree: the list is data, not code. `appliesTo` matches `record.sub`,
   so nothing here is 7-Eleven-specific — pharmacies and fuel stations inherit
   the row when their turn comes.
-- **Presence is the only claim.** An absent facet renders as *nothing*, never
-  as "no". We know 109 shops have an ATM; we do not know the other 406 lack
-  one, and a directory that implied it would be lying quietly.
+- **Presence is the only claim.** An absent facet renders as *nothing* rather
+  than as "no". We know 109 shops have an ATM; we do not know the other 406
+  lack one, and a directory that implied it would be lying quietly.
 - **The border is the provenance.** Dashed = joined by distance from a map
   point. Solid = tagged in OSM. Solid and bold = a person stood there. A reader
   can tell how much to trust a tag before they open the tooltip.
@@ -102,14 +100,14 @@ crawl's clothes.
   50m) — the extra hits at 50m are bank lobbies across the road, so 30m is where
   evidence stops and guessing starts.
 - **Filter chips are AND, not OR** — the question is always "a cash machine
-  *and* somewhere to sit", never either. The heading count follows the filter so
-  it can never contradict what is on screen.
+  *and* somewhere to sit". The heading count follows the filter, so it says what
+  is on screen.
 - **The vocabulary lives in three files** (schema, worker, build) because a
   Cloudflare Worker cannot read the repo at request time.
   [tests/test_facets.py](tests/test_facets.py) fails if they drift: an
   unrecognised key is silently discarded by the worker, so a contributor would
   tick "has a bakery", get a success message, and lose the fact.
-- **Ticks can never open a claim.** Claiming locks a record against everyone
+- **Ticks do not open a claim.** Claiming locks a record against everyone
   else, so letting a passer-by claim by ticking a box would let a stranger lock
   a shop out of its own listing. A claim still needs a real way to reach the
   shop; ticks only ride along.
@@ -136,7 +134,7 @@ the moat, a 7-Eleven, a royal temple. Each tag is a page a reader lands on for
   the pill's tooltip on the place page says the same in words.
 - **Empty is hidden by design.** A tag page (`/<prov>/tag/<slug>.html`) needs
   `min_tag` records in that province; a tag×shelf page (`<slug>--<shelf>.html`)
-  needs `tag_shelf_min`. Counts are per province and never merged. Index at
+  needs `tag_shelf_min`. Counts are per province, unmerged. Index at
   `/tags.html`, Yahoo-style *Tag (count)* by family; the search index matches
   both names of every tag a place earned.
 - **Curated outranks derived.** `data/curated/tags_curated.json` —
@@ -179,9 +177,9 @@ afternoon.
   pill on every place page. Both drive one `md-plan` list in localStorage, so
   the nav chip's count is live on every page. Cap is 8 stops.
 - **The plan lives in its URL** — `plan.html?stops=cm:<slug>,cm:<slug>,…` in
-  visiting order. That link *is* the plan: no account, no server state, so it
-  can be handed to somebody over LINE. Arriving by a shared link never
-  overwrites the reader's own plan silently — a banner offers to keep it.
+  visiting order. That link *is* the plan — no server state — so it
+  can be handed to somebody over LINE. Arriving by a shared link does not
+  overwrite the reader's own plan silently — a banner offers to keep it.
 - **One map, drawn in Python-free JS** — same inline-SVG approach as the events
   map, no library: numbered pins, both routed lines, a scale bar, a legend, and
   the moat for orientation. (Not yet wired to the basemap shell; when it is,
@@ -259,7 +257,7 @@ category); every place page also carries schema.org JSON-LD.
 ## Festivals layer
 
 Two tables, not one. A **festival** is the recurring canon — it carries a date
-*rule* and never a date. An **event** is one dated instance of it, in one year,
+*rule*, not a date. An **event** is one dated instance of it, in one year,
 at one venue. `data/festivals.json` is the canon (33 entries, hand-curated,
 `confidence` marked per entry); `data/events.json` is the instances. The canon
 is written once, so only instances need a crawl — which is why 33 festival

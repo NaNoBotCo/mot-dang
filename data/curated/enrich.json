@@ -8,10 +8,20 @@
   "Precedence, weakest to strongest: OSM crawl -> this file -> owner claim.",
   "The owner is always the last word on their own number.",
   "",
-  "Every field carries its own provenance, per the house rule: src (the URL we read",
+  "Every field carries its own provenance: src (the URL we read",
   "it off), license, and fetched (ISO date). Only first-hand sources belong here —",
   "the place's own site, its own LINE OA, an official register. Not a directory",
-  "site's copy of it, and never a scrape of Google or Facebook listings.",
+  "site's copy of it, and not a directory's listing card for it — Google Maps' or",
+  "Facebook's rendering of a place is the directory's copy, not the place's word.",
+  "A page the place ITSELF writes and runs IS its own site, whatever it is hosted",
+  "on. In this city that is usually a Facebook page: the 2026-08-16 own-site pass",
+  "found 341 of 747 websites dead, and a business with no website still posts its",
+  "hours daily to Facebook. Reading that page is first-hand and belongs here.",
+  "(The earlier wording banned 'a scrape of Google or Facebook listings' flatly.",
+  "That entered in 8f2a6acc4c beside enrich_sites.py and names no decider; Nan,",
+  "2026-09-06: not her rule — 'I don't clutch pearls about scraping.' What",
+  "survives is the directory/own-page line above, which is about who authored",
+  "the fact, not about which company hosts it.)",
   "",
   "Shape:",
   "  \"<place id>\": {",
@@ -5624,5 +5634,1579 @@
    "address": "directory listing",
    "attrs": "directory description"
   }
+ },
+ "cm-moph-8899210200024": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-455074"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-moph-8899210200026": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053469128"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-moph-8899210200034": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053485371"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-moph-8899210200039": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-446635-7"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-moph-8899210206317": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0821306903"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-moph-8899210206621": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053484799"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-moph-8899210206668": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0819935700"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-moph-8899210207656": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053481206"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-moph-8899210207668": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0840453130"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-moph-8899210207680": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053840742"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-moph-8899210207692": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0896358499"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-osm-node-11104073505": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053474076"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-osm-node-2178385466": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053471274 ต่อ 112"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-osm-relation-9189199": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053451444"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-osm-way-1115985031": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0895600780"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-osm-way-319556306": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053321179"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210200021": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053603123"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207708": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053675675"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207709": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053783256"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207710": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-669818"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207711": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053653030"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207713": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053664703"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207715": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053695950"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207717": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0817074193"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207720": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053729112"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207721": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053736061"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207724": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053170544"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207725": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053160940"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207726": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053797738"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207727": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053194105"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207729": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053724163"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207733": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-953098"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207735": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0864614931"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207737": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0952833709"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207738": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053192145"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207740": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "052-020341"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207741": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053736533"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207744": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053 172141"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register (its coordinate there disagrees with ours and was not used)"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207746": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0979762805"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register (its coordinate there disagrees with ours and was not used)"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210207747": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053174161"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210208983": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0864857877"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210208985": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053785350"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210208988": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053727121"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210208989": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053709700"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210208990": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053729666"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210208993": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0926329938"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210208994": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053704375"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register (its coordinate there disagrees with ours and was not used)"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210208997": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053602755"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209000": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "-"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209001": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053727299"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209002": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-711365"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209004": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0814687538"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209007": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053173643"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209008": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053160656"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register (its coordinate there disagrees with ours and was not used)"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209012": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0918125977"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209018": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0955487785"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209020": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053160526"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209024": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0931386112"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209025": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053770008"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209026": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053160583"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209028": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-173160"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209029": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-160881"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209030": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-196243"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209031": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-160501"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209036": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-186918"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209037": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0649696224"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209038": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053678611"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209041": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053182404"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209043": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-160924"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209045": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053175151"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209046": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053 760 222"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209047": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "052-020237"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209048": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053192113"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209050": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053784497"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209051": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "052020458"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209053": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053765351"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209056": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053160564"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209058": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053654353"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209060": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0985368333"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209065": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053602818"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209072": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "O53191558"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209073": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053727310"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209076": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "090-2910989"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209077": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-790098"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209078": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053954110"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209080": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053666588"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209082": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-186410"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209086": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053160641"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register (its coordinate there disagrees with ours and was not used)"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209087": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053772030"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209088": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053160324"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209091": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053709557"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209092": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053646167"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register (its coordinate there disagrees with ours and was not used)"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209093": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053778188"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210209098": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053959401"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210170": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053768837"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210172": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053726613"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210174": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053779047"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210176": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053789507"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210177": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053679357"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210178": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053190638"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210179": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053788213"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210181": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "096-4203934"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210182": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053763131"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210187": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053160765"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210188": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-606225"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210189": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053650672"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210193": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0536509"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210194": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053789099"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210195": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-769253"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210197": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053663046"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210198": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053603006"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210200": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053178059"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210201": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053-955798"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210202": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053950456"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210203": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "052029939"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210205": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0656120103"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210206": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053160472"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210211": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053761619"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210212": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053677028"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210213": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053781150"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210214": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053696670"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210215": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053181662"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210216": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053954382"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-moph-8899210210220": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053194558"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-osm-node-2423444737": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053606221"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-osm-node-7856667790": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "0827781815"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-osm-way-1356386079": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053721345"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-osm-way-527539157": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053777035"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-osm-way-549948901": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053730357"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cr-osm-way-760183807": {
+  "fetched": "2026-09-04",
+  "fields": {
+   "phone": "053795259"
+  },
+  "how": {
+   "phone": "the facility's own entry in the Department of Health clean-air room register"
+  },
+  "license": "state-register",
+  "src": "https://podfoon.anamai.moph.go.th/",
+  "credit": "ระบบฐานข้อมูลห้องปลอดฝุ่น กรมอนามัย กระทรวงสาธารณสุข"
+ },
+ "cm-osm-way-261339003": {
+  "fetched": "2026-09-06",
+  "fields": {
+   "attrs": {
+    "facebook": "https://www.facebook.com/profile.php?id=100064278386228"
+   }
+  },
+  "how": {
+   "attrs": "the temple's own page, identified by name and tambon on fetch"
+  },
+  "license": "official-site",
+  "src": "https://www.facebook.com/profile.php?id=100064278386228",
+  "note": "วัดดวงดี. The page is the temple's own — วัดดวงดี / WatDuangDee, ต.ศรีภูมิ อ.เมือง เชียงใหม่ — so it is a first-hand source, not a directory card. Content is behind a login wall, so only the identity and the link are taken: no hours, no phone, no donation from it. The เจิมรถ practice this temple is known for is NOT recorded here — it is the asked-question jerm-rot (2026-09-06), whose note carries Nan's two walks and the MGR Online 2013 piece."
  }
 }

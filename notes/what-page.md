@@ -18,8 +18,8 @@ saying "ดูอันนี้" — look at this one.
 **2. ลูกสาวเจ้าของร้าน — the shopkeeper's daughter.** Someone said "your
 shop is on this site." Arrives looking for the catch.
 **The page must** put ฟรี in a picture, not a policy — the claim plate is
-hers, and the creed line about money buying only the labelled box is read
-with her eyes first.
+hers, and the line about money buying only the labelled box is read with her
+eyes first.
 
 **3. ฝรั่งอยู่ยาว — the resident farang.** Asks "so is this better than
 Google Maps?" Will not read Thai but sees that Thai comes first everywhere,

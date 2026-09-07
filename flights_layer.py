@@ -5,7 +5,7 @@ Not a flight tracker. The airports already have arrival boards for the next
 hour; nobody keeps a plain answer to the season-sized question: which routes
 come to our two airports at all, on which airlines, how often. That answer
 changes a few times a year, which is exactly the cadence this site rebuilds
-at, so it bakes flat like everything else — no external requests from the
+at, so it bakes flat like everything else — nothing is fetched from the
 published page.
 
 Two kinds of number, one voice each:

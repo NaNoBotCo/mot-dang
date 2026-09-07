@@ -7,7 +7,7 @@ Archive still holds a copy of. The shop is usually still there; it is the domain
 that lapsed. Its old site printed a phone number, and that number is the only
 first-hand contact fact left anywhere for 85 of these places.
 
-Same house rule as its sibling: first-hand only. An archived copy of the
+Same practice as its sibling: first-hand only. An archived copy of the
 place's OWN site is still the place's own words — nothing from a directory
 site, nothing from Google or Facebook. And the same filling rule: only fields
 the record is missing. This never overrules the crawl, which matters more here

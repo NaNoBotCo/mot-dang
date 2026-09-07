@@ -168,9 +168,9 @@ serving). IndexNow 4,285 URLs, 200.
 ## Last push — 2026-08-02, `2530aca502`, 11,811 pages
 
 Three commits: the two infographics from the map-ideas round (`c8c1afb2bd`),
-the ledger, and the ramp flip at Nan's direction — **darkest = nearest**, her
-standing rule now for any distance/density colouring here ("the ink sits where
-the branches crowd"). Overlays had to follow the flip: moat outline + label
+the ledger, and the ramp flip at Nan's direction — **darkest = nearest** ("the
+ink sits where the branches crowd"), applied to the distance/density colouring
+here. Overlays had to follow the flip: moat outline + label
 cream, branch dots white with a green ring, or they drown in the dark centre.
 
 New live: `/watnames.html` (เชียง 2.1 กม. → ทุ่ง 11.8 กม.; 23 romanised-only

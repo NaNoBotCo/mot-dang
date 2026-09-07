@@ -14,7 +14,7 @@ build.py each make promises a test has to keep:
    not a result. The four headline groups the tile stands on are present.
 3. The next draw date is OMITTED unless the source confirmed it. The
    official schedule shifts around New Year and royal ceremony days;
-   presence-only doctrine says a missing fact is omitted, never guessed.
+   presence-only handling omits a missing fact rather than guessing it.
    If a next_draw ever appears it must be a real ISO date after the draw.
 4. The tile is a public record, not a tip sheet. When data is present the
    built wall carries the tile, the first-prize number, both calendars and

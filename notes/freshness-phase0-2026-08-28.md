@@ -166,10 +166,10 @@ for the CHIP rather than the checker. **Phase 1 should grow this file into
 the manifest, not stand a second roster beside it** — two rosters drift,
 and this repo already has the one-copy rule for exactly that.
 
-House rules the later phases must keep (so the contract fits this house):
+What the later phases need to keep working with:
 - Lottery next-draw dates render with ~ (computed, unconfirmed) — the
   fetcher's presence-only rule stands.
-- `festival_dates.json`'s charter stands: "a rule is not a date" — no lunar
+- `festival_dates.json` keeps "a rule is not a date" — no lunar
   inference; announced instances only. The order's "resolved date for Tan
   Kuay Salak" therefore means *announced-or-held-out*, which is what the
   candidate/announced machinery already does; unannounced movables go to the

@@ -10,7 +10,7 @@
  *
  * WHAT THE ENGINE PROMISES
  * ------------------------
- * The house rule about absence holds all the way into the JSON: a place whose
+ * The handling of absence holds all the way into the JSON: a place whose
  * hours we do not hold is `openNow: null`, never `false`, and `open_now=1`
  * excludes it rather than calling it shut. Same for coordinates — a record
  * with `geoPrecision: "needs-pin"` has no lat/lng and simply cannot answer a

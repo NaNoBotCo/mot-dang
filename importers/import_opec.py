@@ -38,7 +38,7 @@ them again.
 
 NO INVENTED MATCHES. A register row is joined to a record only on an exact
 normalised name within the same province. Anything close but not equal goes to
-cache/opec_review.txt for a person to settle, per the house rule that has held
+cache/opec_review.txt for a person to settle, per the practice that has held
 since wat-registry/match.py.
 """
 import csv

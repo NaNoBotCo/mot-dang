@@ -38,7 +38,7 @@
   });
 
   function label() {
-    // A lap says which way it goes round. เวียนขวา is the standing rule and is
+    // A lap says which way it goes round. เวียนขวา is the direction and is
     // not rideable on the moat's one-way ring, so a lap here is normally the
     // other way by a decision that was made deliberately — and a decision is
     // worth being able to see on the screen it produced.

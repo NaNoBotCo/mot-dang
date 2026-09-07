@@ -61,6 +61,15 @@ CSS = """
 .re-rule{margin:.8rem 0 1rem;padding:.7rem .9rem;border-radius:.8rem;background:var(--soft);
   border:1px solid rgba(0,0,0,.07);font-size:.98rem}
 .re-rule b{display:block;margin-bottom:.15rem}
+.re-door{margin:.8rem 0 1.2rem;padding:.85rem 1rem;border-radius:.8rem;
+  border:1px solid rgba(0,0,0,.12);border-left:4px solid var(--accent,#a33d21);
+  font-size:.98rem}
+.re-door b{display:block;margin-bottom:.2rem}
+.re-door .go{display:inline-flex;align-items:center;gap:.4rem;margin:.55rem .6rem 0 0;
+  padding:.5rem .9rem;border-radius:.55rem;text-decoration:none;font-weight:600;
+  background:var(--accent,#a33d21);color:#fff}
+.re-door .go.q{background:transparent;color:var(--accent,#a33d21);
+  border:1px solid currentColor}
 .re-words{width:100%;border-collapse:collapse;margin:.6rem 0 1rem;font-size:.95rem}
 .re-words th,.re-words td{padding:.45rem .4rem;border-bottom:1px solid rgba(0,0,0,.08);
   text-align:left;vertical-align:top}
@@ -329,7 +338,7 @@ def emit(g, data):
              "buildings with a stated floor count (from the mapper)",
              sum(1 for r in mine if (r.get("attrs") or {}).get("buildingLevels")))
         + li("คำเรียกที่พักรายเดือนบนชั้นโรงแรม — นับไว้ ไม่ย้าย",
-             "monthly words sitting on the hotel shelf — counted, never re-filed by a rule",
+             "monthly words sitting on the hotel shelf — counted, not re-filed by a rule",
              len(hotelside))
         + "</ul>"
         + note("บรรทัดแรก ๆ เป็นศูนย์ และตั้งใจพิมพ์ไว้ให้เห็น: ไม่มีกฎชื่อตึกไหนรอเขียนอยู่ ราคา เฟอร์ ค่าไฟ สัตว์เลี้ยง ตอบได้ทางเดียวคือตึกบอกเอง เจ้าของติ๊กเอง หรือมีคนไปถามหน้าโต๊ะ",
@@ -395,7 +404,7 @@ def emit(g, data):
             + bi("ราคาประเมิน ไม่ใช่ราคาตลาด", "An assessed value is not a market price")
             + "</b>"
             + bi("ตัวเลขนี้คือราคาประเมินของกรมธนารักษ์ ซึ่งใช้คิดค่าธรรมเนียมการโอนและภาษี ไม่ใช่ราคาซื้อขาย ไม่ใช่ราคาที่ประกาศ และตามปกติจะต่ำกว่าทั้งสองอย่างมาก อาคารหนึ่งมีหลายบรรทัดตามประเภทการใช้และชั้น จึงแสดงเป็นช่วง ไม่ใช่ตัวเลขเดียว",
-                 "This is the Treasury's assessed value — the figure transfer fees and taxes are reckoned from. It is not a sale price, not an asking price, and normally well below both. A building carries a row per use category and floor band, so it is shown as a spread and never as one welded number.")
+                 "This is the Treasury's assessed value — the figure transfer fees and taxes are reckoned from. It is not a sale price, not an asking price, and normally well below both. A building carries a row per use category and floor band, so it is shown as a spread and not as one welded number.")
             + "</div>"
             + note("ทะเบียนราชการนับอาคารชุดจดทะเบียนในเชียงใหม่ " + f"{cm_n:,}" + " แห่ง และเชียงราย "
                    + f"{cr_n:,}" + " แห่ง ก่อนหน้านี้สารบัญนี้ถือแค่ 53 แห่งที่ชื่อบอกเองว่าเป็นคอนโด เพราะแผนที่เปิดรู้เท่านั้น ตอนนี้ชั้นคอนโดมี " + str(len(condos))
@@ -491,15 +500,41 @@ def emit(g, data):
         "<div class=\"re-rule\"><b>&#127968; " + bi("กติกาของหน้านี้", "The rule of this page")
         + "</b>"
         + bi("ตึกบอกเองว่าเป็นอะไรและมีอะไร — หรือหน้านี้บอกว่ายังไม่มีใครถาม · ช่องว่างแปลว่าเงียบ ไม่ได้แปลว่าไม่มี · ราคาขึ้นเฉพาะที่ประกาศจริง พร้อมวันที่ · หน้านี้ไม่จัดอันดับตึก ไม่บอกว่าย่านไหนดี ไม่แยกตึกฝรั่งตึกไทย และเรื่องกฎหมาย (โควตาต่างชาติ การโอนโฉนด) ให้คำถามกับที่ที่คำตอบอยู่ — นิติบุคคลและสำนักงานที่ดิน — ไม่เดาแทน",
-             "The building states what it is and what it has — or this page says nobody has asked · a blank is silence, never a no · prices appear only as posted, with a date · no rankings, no neighbourhood verdicts, no sorting into farang buildings and Thai ones — and where the law decides (the foreign quota, the chanote transfer), this page gives you the question and the office the answer lives in — the นิติบุคคล and the Land Office — rather than guessing statutes on your behalf.")
+             "The building states what it is and what it has — or this page says nobody has asked · a blank is silence, not a no · prices appear only as posted, with a date · no rankings, no neighbourhood verdicts, no sorting into farang buildings and Thai ones — and where the law decides (the foreign quota, the chanote transfer), this page gives you the question and the office the answer lives in — the นิติบุคคล and the Land Office — rather than guessing statutes on your behalf.")
         + "</div>")
+
+    # THE DOOR TO THE LISTING SHEET. This page is the buildings; the sheet is
+    # the offers standing on them, and the two are separate instruments on
+    # purpose — a dated asking price with a named seller is exactly what this
+    # catalogue's launch scope excludes. What that separation must never mean is
+    # that a reader who wants a price, or an agency with forty properties,
+    # cannot find the place that holds them: /listings/ had no inbound link on
+    # this whole site, so the only way to it was to already know the address.
+    # A count and a link is all that crosses. No price appears here.
+    door_html = (
+        "<div class=\"re-door\"><b>&#128220; "
+        + bi("ราคาประกาศจริงอยู่ที่กระดานประกาศ", "Asking prices live on the Listing Sheet")
+        + "</b>"
+        + bi("หน้านี้คือ<b>ตึก</b> — ชื่อ ที่ตั้ง และสิ่งที่ตึกบอกเอง ส่วน<b>ข้อเสนอ</b> "
+             "คือราคาขาย ราคาเช่า พร้อมวันที่และผู้ที่ติดต่อได้ อยู่บนกระดานประกาศ "
+             "ซึ่งเป็นคนละแผ่นกัน ทุกราคามีวันที่กำกับ และไม่มีใครซื้ออันดับได้",
+             "This page is the <b>buildings</b> — what they are called, where they "
+             "are, and what they state for themselves. The <b>offers</b> — a price "
+             "to buy or rent, the day it was true, and a person to ask — are a "
+             "separate sheet, because a dated price with a named seller is not a "
+             "stable fact about a building. Nothing on it can be ranked for money.")
+        + "<div><a class=\"go\" href=\"listings/\">"
+        + bi("ดูกระดานประกาศ", "See the Listing Sheet")
+        + "</a><a class=\"go q\" href=\"listings/add.html\">"
+        + bi("ลงประกาศของคุณ", "Add a listing")
+        + "</a></div></div>")
 
     og = shelf_og("cm", "realestate") if shelf_og else None
     body = (
         "<h1>&#127968; "
         + bi("อสังหาฯ-ที่พัก — คำที่ต้องถาม ตึกที่มี และสิ่งที่ยังไม่มีใครถาม",
              "Real estate & places to live — the words to ask, the buildings, and what nobody has asked them")
-        + "</h1><p class=\"re-intro\">" + intro + "</p>" + rule_html
+        + "</h1><p class=\"re-intro\">" + intro + "</p>" + rule_html + door_html
 
         + h2("คำที่ต้องถามก่อนวางมัดจำ", "The words to ask before the deposit")
         + note("ค่าเช่าที่เห็นไม่ใช่ราคาจริงของห้อง จนกว่าจะรู้ค่าไฟหน่วยละ ค่าน้ำ ค่าส่วนกลาง และมัดจำ — คำพวกนี้ไม่อยู่บนเว็บประกาศไหนเลย",

@@ -547,8 +547,8 @@ def emit(g, data):
               sections["route"])
         + sec("ที่ที่เราเปิดหน้าเว็บไม่ได้ — บอกไว้ตรง ๆ",
               "Where the page would not open for us — said plainly",
-              "มดแดงพิมพ์ความพยายามไว้แทนการเดา นี่คือกฎของบ้านนี้",
-              "Mot Dang prints the attempt rather than a guess. That is the house rule.",
+              "มดแดงพิมพ์ความพยายามไว้แทนการเดา",
+              "Mot Dang prints the attempt rather than a guess.",
               sections["unread"])
 
         + "<h2>" + bi("คำที่ควรถามที่เคาน์เตอร์", "The questions to ask at the desk") + "</h2>"

@@ -34,7 +34,7 @@ thai, cooking, massage, driving. This is the สพฐ. sector and nothing else.
 ENROLMENT IS A FACT, NOT A LEAGUE TABLE. `students` is published because a
 12-pupil school on a ridge and a 3,000-pupil school in town are different
 places and a parent deserves to know which one they are looking at. It is
-carried with the register's own date and it is never a sort. The house rule
+carried with the register's own date and it is never a sort. The practice
 about temples never being ranked against each other applies here with more
 force, not less — these are children's schools.
 

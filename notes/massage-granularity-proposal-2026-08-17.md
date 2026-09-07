@@ -40,7 +40,7 @@ All four are the same failure: **the encounter is not described anywhere
 before you are in it.** Granularity is the fix, but only if it describes the
 service, never the suspicion.
 
-## House rule this must obey
+## What this must obey
 
 `data/facets.json` already says it, and it governs here more than anywhere:
 

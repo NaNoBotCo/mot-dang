@@ -25,7 +25,7 @@ hurts people. Kept apart on the page:
    nothing puts a piece of it on a plane. *Legal to buy here is not legal
    to fly with* is the page's one rule.
 
-The frame stays auspicious per house rule: the h1 is the things that DO
+The frame stays auspicious: the h1 is the things that DO
 travel well (silk, celadon, Bo Sang umbrellas — the `ok` row exists so the
 page opens a door instead of wagging a finger), no penalty tables, and the
 questions are phrased for the shop counter.
@@ -66,7 +66,7 @@ questions are phrased for the shop counter.
   translation (faolex.fao.org/docs/pdf/tha167051.pdf): the domestic
   registration scheme that makes the legal-to-buy-here trap real.
 
-## Refused a read, printed as refusals (house rule)
+## Refused a read, printed as refusals
 
 - cites.org/eng/parties/country-profiles/th/national-authorities — 403.
 - cites.org/eng/node/2597 (Thailand's plant-export-permit procedures) —

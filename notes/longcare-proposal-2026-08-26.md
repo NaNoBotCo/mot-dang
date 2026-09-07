@@ -116,7 +116,7 @@ dementia-care claims off a general nursing-home sign. No amphoe-level
 place states the word itself — ประคับประคอง is a department's word, and no
 department here has been read saying it.
 
-## defiant.to — done the same day (its own repo, its own doctrine)
+## defiant.to — done the same day (its own repo, its own conventions)
 
 The rehab bucket in partners/common.py split (physio 7 · addiction 4 ·
 rehab 4 · geriatric 11 in the public directory); /retirement/, /recovery/,

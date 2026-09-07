@@ -193,6 +193,83 @@ def apply_lgbtq(records, province):
     return n
 
 
+def apply_curated_pins(records):
+    """Coordinates from data/curated/pins.json, applied after the merge.
+
+    2,116 records carried geoPrecision "needs-pin" — real, addressed, and on
+    no map. 945 of them were temples from the ONAB register, which states a
+    ตำบล and an อำเภอ and no coordinate at all. Two passes fill what can
+    honestly be filled: importers/pin_from_osm.py matches a record to a
+    SURVEYED OpenStreetMap point by name within its province, refusing any
+    name that answers to more than one place; importers/geocode_gaps.py
+    infers a point from the written address with importers/geocode_local.py,
+    using only this catalogue's own ground.
+
+    A SURVEYED PIN ALWAYS WINS. This only ever fills an empty one — it never
+    argues with a point somebody walked to.
+
+    Every pin brought in here is stamped attrs.pinVia, which is also how
+    geocode_local knows to keep it OUT of its own gazetteer: a centroid built
+    from inferred points would site the next inference on the last one, and
+    the error would compound quietly, run after run.
+    """
+    path = ROOT / "data" / "curated" / "pins.json"
+    if not path.exists():
+        # SAY SO. This file went missing once and the only symptom was a
+        # silent zero: the import ran clean, the pins were simply not there,
+        # and the site rebuilt without them. An absent overlay is a fact worth
+        # one line, because the alternative is finding out from a map.
+        gaps = sum(1 for r in records
+                   if (r.get("geoPrecision") or "exact") == "needs-pin")
+        print(f"  no data/curated/pins.json — {gaps} record(s) stay unpinned "
+              f"(regenerate: importers/geocode_gaps.py --write, "
+              f"then importers/pin_from_osm.py --write)")
+        return 0
+    pins = (json.loads(path.read_text()) or {}).get("pins") or {}
+    by_id = {r["id"]: r for r in records}
+    n = 0
+    for rid, p in pins.items():
+        r = by_id.get(rid)
+        if not r:
+            continue
+        if r.get("lat") and (r.get("geoPrecision") or "exact") != "needs-pin":
+            continue
+        r["lat"], r["lng"] = p["lat"], p["lng"]
+        # NOTHING THAT COMES THROUGH THIS FILE IS "exact", INCLUDING THE OSM
+        # MATCHES. pin_from_osm.py's own header argues the other way — "these
+        # are surveyed points, not inferences, and they should not be dressed
+        # as approximations" — and it is half right: the COORDINATE is
+        # surveyed. What is derived is the claim that it belongs to THIS
+        # record, and that claim is a name match. tests/test_pins.py states
+        # the same idea from the other side: a record carrying a pinVia has
+        # had its pin derived from something, and "exact" means nobody derived
+        # it. The two contracts had never met until 2026-09-05, because
+        # pins.json had never once been written. This is the reading that
+        # survives both: the reader is told (โดยประมาณ), the receipt says
+        # which OSM element and how, and geocode_local still keeps every one
+        # of them out of its own gazetteer so the error cannot compound.
+        r["geoPrecision"] = "approx"
+        a = r.setdefault("attrs", {})
+        # THE MARK THAT MAKES THIS RE-RUNNABLE. A record pinned from here is
+        # `approx`, not `needs-pin`, so it no longer looks like a gap — and the
+        # pass that pinned it would skip it forever after, silently measuring a
+        # smaller problem every run. pinSource says "this pin was inferred by
+        # the curated overlay", which is a fact about the RECORD and survives
+        # wherever the overlay file happens to be.
+        a["pinSource"] = "curated-pins"
+        a["pinVia"] = p.get("via", "")
+        a["pinUncertaintyM"] = str(p.get("uncertainty_m", ""))
+        a["pinFrom"] = str(p.get("from", ""))
+        r.setdefault("sources", []).append({
+            "type": "osm" if p.get("tier") == "osm" else "derived",
+            "ref": str(p.get("from", "")),
+            "fetched": p.get("fetched", ""),
+            "via": p.get("source", ""),
+        })
+        n += 1
+    return n
+
+
 def apply_curated_shelves(records):
     """Extra shelves from data/curated/shelves.json, applied after the merge.
 
@@ -216,12 +293,40 @@ def apply_curated_shelves(records):
                   dict(r.get("attrs") or {}))
         r["cat"] = sorted(set(r.get("cat") or []) | set(fix.get("add_cat") or []))
         r["sub"] = sorted(set(r.get("sub") or []) | set(fix.get("add_sub") or []))
+        # add_lens is the same union for shelves that claim records by a lens
+        # (food/made-to-order reads attrs.lens for "pad-krapow", sights/library
+        # for "library"). Before 2026-09-05 the only way to put a record on such
+        # a shelf from here was set_attrs, which REPLACES the whole lens list.
+        if fix.get("add_lens"):
+            a = r.setdefault("attrs", {})
+            a["lens"] = sorted(set(a.get("lens") or []) | set(fix["add_lens"]))
         # set_attrs is for shelves that match on an attr (medical/dentist and
         # essentials/pharmacy match attrs.facilityType, not sub). Curated truth
         # wins over a crawled value — same tier rule as the record merge — and
         # the appended source line says where the new value came from.
         for k, v in (fix.get("set_attrs") or {}).items():
             r.setdefault("attrs", {})[k] = v
+        # add_offers is what a place OFFERS, as against what it IS. A massage
+        # shop's sub says thai-traditional because that is the trade on its
+        # sign; ตอกเส้น is a line on the menu inside. Both are true, and until
+        # this key existed the only way to record the second was to claim it
+        # was the first. Each item carries its own provenance — where it was
+        # read and when — because an offer read off a third-party listing is a
+        # weaker thing than one read off the shop's own page, and a reader is
+        # owed the difference. Merged by key, never overwritten: the first
+        # source to state an offer keeps its receipt.
+        if fix.get("add_offers"):
+            a = r.setdefault("attrs", {})
+            have = {o.get("k") for o in (a.get("offers") or [])}
+            for off in fix["add_offers"]:
+                if off.get("k") in have:
+                    continue
+                a.setdefault("offers", []).append({
+                    "k": off["k"],
+                    "via": off.get("via", "web-listing"),
+                    "seen": off.get("seen") or fix.get("fetched", ""),
+                    "url": off.get("url") or fix.get("source", ""),
+                })
         after = (set(r["cat"]), set(r["sub"]), dict(r.get("attrs") or {}))
         if after != before:
             r.setdefault("sources", []).append(
@@ -365,6 +470,9 @@ def apply_curated_story_hooks(records):
     rule as names.json — every hook carries a fetched URL, and a story a
     chronicle carries but primary documents do not is worded as tradition.
     """
+    # Nan, 2026-09-06: no blurbs on the site. The hooks stay on disk as
+    # sourced material and are NOT applied; tests/test_no_blurbs.py holds it.
+    return 0
     path = ROOT / "data" / "curated" / "story_hooks.json"
     if not path.exists():
         return 0
@@ -433,6 +541,81 @@ def apply_wat_registry(records):
              "via": "data/curated/wat_registry.json", "note": reg.get("matched_how", "")})
         n += 1
     return n
+
+
+def apply_parking_locators(records, prov):
+    """Give every SYNTHESISED parking name the one fact that tells it apart.
+
+    WO-67. 1,711 of the 1,796 parking features in these two provinces carry no
+    name, so import_overpass names them from their tags — and the tags say the
+    same thing about nearly all of them. Left there, the shelf is 1,229 rows
+    reading ที่จอดรถ, which is a worse answer than none: a reader cannot pick.
+
+    What tells one car park from another is WHERE IT IS, and bearings_layer
+    (WO-64) already computes exactly that sentence from the pin. Every one of
+    the 1,796 gets at least one line, and the ones that matter most get the
+    best line: there are lots 80 m and 100 m from Tha Phae Gate, and they can
+    say so.
+
+        ที่จอดรถ · ใกล้ประตูท่าแพ 80 ม.      Parking · 80 m from Tha Phae Gate
+        ลานจอดรถ · ย่านแม่ริม                Car park · Mae Rim
+        ที่จอดมอเตอร์ไซค์ Nim city           (an operator already named it)
+
+    Done here rather than in the importer because a bearing needs the merged
+    record — the curated pin passes run first, and a pin corrected by hand
+    should move the name that quotes it.
+
+    A NAME A MAPPER WROTE IS NEVER TOUCHED. The test is the provenance grade
+    the importer stamped, not a guess from the string: `derived` means we
+    wrote it, `stated` means they did. That is the whole reason the grade is
+    written at the moment the name is made.
+    """
+    import sys as _sys
+    if str(ROOT) not in _sys.path:
+        _sys.path.insert(0, str(ROOT))
+    import bearings_layer
+    park = [r for r in records
+            if "parking" in (r.get("sub") or [])
+            and ((r.get("provenance") or {}).get("name") or {}).get("how") == "derived"]
+    if not park:
+        return 0
+    c = bearings_layer.ctx(by_id={r["id"]: r for r in records}, force=True)
+    # In order of how much a person standing in the street can use it. A gate
+    # or a landmark beats a district name; a district name beats a distance
+    # from a gate ten kilometres away, which is true and nearly useless on its
+    # own — but it is what we have for a lot in Chom Thong, so it is what that
+    # lot says.
+    ORDER = ("at", "address", "moat", "near", "zone", "city")
+    done = 0
+    for r in park:
+        lines = {l["kind"]: l for l in bearings_layer.bearings(r, c)}
+        line = next((lines[k] for k in ORDER if k in lines), None)
+        if not line:
+            continue
+        # The moat line is "quarter · N m from the gate"; the gate half is the
+        # half a person navigates by, so take it when it is there.
+        th = line["th"].split(" · ")[-1].strip()
+        en = line["en"].split(" · ")[-1].strip()
+        if not th or not en:
+            continue
+        # The name BEFORE the bearing, kept so the search index can match on it
+        # instead of on the whole string. A bearing is for a reader's eye: it
+        # says which car park this is. Matched as text it made every lot near
+        # Tha Phae Gate answer to the gate's own name, so typing ประตูท่าแพ
+        # returned 179 rows of car parks and put the gate itself fourth.
+        # Display keeps the bearing; the index matches the base. The landmark
+        # sort is what answers "near the gate", and it does it with metres.
+        a = r.setdefault("attrs", {})
+        a["nameBase"] = r["name"]
+        if r.get("nameEn"):
+            a["nameBaseEn"] = r["nameEn"]
+        r["name"] = f'{r["name"]} · {th}'
+        if r.get("nameTh"):
+            r["nameTh"] = f'{r["nameTh"]} · {th}'
+        if r.get("nameEn"):
+            r["nameEn"] = f'{r["nameEn"]} · {en}'
+        done += 1
+    return done
 
 
 def main():
@@ -555,6 +738,17 @@ def main():
         storied = apply_curated_story_hooks(final)
         if storied:
             print(f"{prov}: {storied} curated story hook(s) filled in")
+        # Reader-supplied facts approved by hand (facts.py / apply_facts.py).
+        import sys as _sys
+        if str(ROOT) not in _sys.path:
+            _sys.path.insert(0, str(ROOT))
+        import facts as _facts
+        _fn = _facts.apply(final, _facts.load_doc(ROOT / "data" / "curated" / "facts.json"))
+        if _fn:
+            print(f"{prov}: {_fn} reader fact(s) applied")
+        pinned = apply_curated_pins(final)
+        if pinned:
+            print(f"{prov}: {pinned} curated pin(s) applied to records that had none")
         shelved = apply_curated_shelves(final)
         if shelved:
             print(f"{prov}: {shelved} curated shelf addition(s) applied")
@@ -585,6 +779,18 @@ def main():
         final, merged = apply_curated_merges(final)
         if merged:
             print(f"{prov}: {merged} duplicate record(s) folded")
+        # WO-56: a building the Treasury's register names is a condominium —
+        # after the merges, so a footprint a person folded a register row
+        # into is re-filed by the register's word, not the mapper's tag.
+        settled = import_condo_register.settle_sub(final)
+        if settled:
+            print(f"{prov}: {settled} building(s) filed condo by the Treasury's register")
+        # WO-67, and it runs LAST of the record passes: a parking name that
+        # quotes a bearing has to quote the pin the curated passes settled on,
+        # not the one the crawl arrived with.
+        located = apply_parking_locators(final, prov)
+        if located:
+            print(f"{prov}: {located} unnamed car park(s) now say where they are")
         (outdir / f"{prov}.json").write_text(
             json.dumps(final, ensure_ascii=False, indent=1), encoding="utf-8")
         got = sum(1 for r in final if (r.get("attrs") or {}).get("facets"))

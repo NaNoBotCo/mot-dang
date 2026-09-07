@@ -80,8 +80,8 @@ number. (1) and (2) are the big ones and both are gentle.
    metadata; nothing is copied, thumbnails hot-link with credit). The AREA
    pass is the photo-op instrument nobody else has: it answers "which subjects
    in these two provinces are heavily photographed under a free licence" —
-   evidence of where people actually stand and shoot, with no tracking, no
-   platform scraping, no guessing. Keyless API, gentle by design.
+   evidence of where people actually stand and shoot, with no platform scraping
+   and no guessing. Keyless API, gentle by design.
 3. **Thailand Tourism Directory** (WO-17, standing): attractions are Type 1 of
    its 28,500 listings — จุดชมวิว and น้ำตก categories with phone · LINE ·
    hours · coords. Step 0 is unchanged: Nan registers for the API key.

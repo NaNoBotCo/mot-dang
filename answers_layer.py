@@ -23,7 +23,7 @@ directory can answer better than anything else.
                        page. The count is a promise: tests fail if the number
                        in the heading drifts from the rows on the page.
 
-House rules as everywhere: Thai canonical with EN as a display layer, nothing
+As everywhere: Thai canonical with EN as a display layer, nothing
 that reports a reader to anybody, provenance stated, silence never dressed up
 as "no". These pages carry no map, so they fetch nothing at read time.
 
@@ -262,7 +262,7 @@ def festival_dates_page(g, data):
         "หมายเหตุความซื่อตรง: หน้านี้ไม่เดาวันจากกฎจันทรคติเอง วันที่ทุกวันมาจากประกาศทางการ "
         "หรือปฏิทินที่เผยแพร่แล้วเท่านั้น (ไฟล์ข้อมูลคือ festival_calendar.json พร้อมที่มาต่อแถว) "
         "งานหมู่บ้าน-งานจังหวัดที่ประกาศเป็นปี ๆ ไป ให้ยึดประกาศของผู้จัดเป็นหลักเสมอ",
-        "Where this comes from: this page never derives a date from the lunar rule "
+        "Where this comes from: this page does not derive a date from the lunar rule "
         "itself. Every date is either an official announcement or a published "
         "calendar, checked by hand (the data file is festival_calendar.json, one "
         "source per row). For the fairs announced year by year, the organiser's "
