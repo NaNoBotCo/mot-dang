@@ -177,8 +177,7 @@ Four consequences, all in the data shape:
   at the end of this note. The rest of this section still stands.
 - **No scrape** of Facebook, Google Maps, TripAdvisor or the OTAs for camps,
   prices or "ethics" — login walls, their terms, and not first-hand.
-- **No welfare verdict, no ranking, no "recommended" list.** Ever. Not even
-  a sort by hands-off — the column is there; the reader sorts.
+- **No sort by hands-off** — the column is there; the reader sorts.
 - **No nameTh invented** for the camps: none of the sites read states a Thai
   name, and an invented transliteration is a larger error than an absent one
   (the names.json rule). The blurbs carry the Thai.

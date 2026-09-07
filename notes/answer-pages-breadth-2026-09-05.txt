@@ -1,0 +1,79 @@
+ANSWER PAGES — THE BREADTH-FIRST 52, READ ONE BY ONE
+Staged 2026-09-05, after Nan's decision the same day: breadth first on the 52
+that already score ≥0.60, then depth on the 153 that return nothing.
+Staged machine-readable: _incoming/answer-pages-2026-09-05.json.
+NOTHING BUILT.  data/asked.json untouched.  A build was running; docs/ not touched.
+
+────────────────────────────────────────────────────────────────────────────
+THE CORRECTION
+────────────────────────────────────────────────────────────────────────────
+"52 answerable" does not survive being read.  The 0.60 score is a floor, not
+an answer, and what it is mostly measuring is the hub-record defect the GPT
+mine already named.  Read one by one, the 52 are:
+
+    18  REAL     — right hits, data on disk, worth a page
+     7  THIN     — one plausible hit; the record must be read before a word
+                   is written, and the honest page may say "the nearest thing"
+     3  HAVE     — a page already exists (big-size-clothes, notary, sak-yant)
+     3  REFUSE   — "best thai food", "nicest place to stay", "best festival".
+                   The venue states; we do not rank.  Not a gap, a rule.
+     2  BLOCKED  — the two cannabis questions.  The shelf answers them on-site,
+                   but it is weed.th-sourced: tier D in go/osm-gate, never
+                   exported, and worth knowing before it becomes an ANSWER page
+                   that an assistant quotes as ours.
+    19  NOISE    — no data behind the score at all.
+
+Churairat Music Chiang Mai is the top hit for Birkenstocks, an RF cavitation
+machine, a premium wig, picaridin, a Twilio number, buying a house for cash,
+and a train from Bangkok.  Cannabis shops top nicotine patches, drosperinone,
+astaxanthin, DIM and momos.  That is one shop and one shelf answering eleven
+questions they have nothing to do with — the same finding as go/gptmine, now
+with the consequence attached: TWENTY-TWO of the 52 would have become answer
+pages built on a hub record.  An answer page over a wrong hit is worse than
+no page, because an assistant will quote it.
+
+────────────────────────────────────────────────────────────────────────────
+THE REAL LIST — 22 DISTINCT PAGES FROM THE 25 REAL+THIN QUESTIONS
+────────────────────────────────────────────────────────────────────────────
+Cuisine axis (no shelf exists for any of these — the biggest single cluster):
+  vietnamese-food · korean-food · chinese-food · japanese-sushi ·
+  levantine-food (THIN — top hit is Iraqi, say so) · indian-pizza (THIN) ·
+  non-thai-cuisine (THIN — asks for a judgement we do not make) · ice-cream
+
+Body and clinic:
+  couples-spa (a SERVICE, not a name — the offers[] case exactly) ·
+  lets-relax-branches (a brand-branch query; tests the namesake split) ·
+  peptide-rejuvenation-clinic (THIN — overlaps WO-63's skin lens; check it
+  before claiming a service) · compounding-pharmacy (THIN — verify the shop
+  actually compounds) · general-practice-clinic (THIN — the shelf is wrong,
+  not missing: a "one clinic for everything" question topped by a psychology
+  centre)
+
+Doing things:
+  climbing-gym · yoga-pilates-pole-one-place (the question is ONE venue for
+  three things — a combined-offer query no shelf can answer) ·
+  cooking-class-old-city (/cooking.html exists; this is the walkable cut) ·
+  language-school · language-school-long-program (lodging + year-long is the
+  discriminator) · hot-springs (/namphuron.html exists; this is its door)
+
+Buying things:
+  buy-instruments-strings (BUYING — distinct from the existing
+  instrument-rental page) · akha-hilltribe-clothes (a real shelf gap) ·
+  home-goods · coworking
+
+────────────────────────────────────────────────────────────────────────────
+WHAT THIS SAYS ABOUT THE FORK SHE ANSWERED
+────────────────────────────────────────────────────────────────────────────
+Breadth-first was the right call and the breadth is 22 pages, not 52 — which
+makes it CHEAPER than it looked, not more expensive.  It also lands one
+finding depth-first would have taken weeks to reach: the largest cluster in
+the whole mine is the CUISINE AXIS, and Mot Dang has no cuisine shelf at all.
+Eight of the 22 pages are one missing shelf wearing eight hats.  That is the
+next real piece of data work, and it is not massage.
+
+Next step when the tower is quiet: one `asked` entry per page in the
+data/asked.json contract (key, q{th,en}, asked_on, via, find, show, lead,
+notes) via asked_new.py — starting with the eight cuisine pages, because
+building the shelf they need answers eight questions at once.
+
+Siblings: go/arrivals, go/gptmine, go/cure, go/disease, go/osm-gate.

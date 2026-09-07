@@ -1,0 +1,107 @@
+PER-FIELD PROVENANCE — THE SCHEMA, BUILT
+2026-09-05.  Built, tested, and STAGED — data/canonical is NOT yet written,
+because a build was running.  Files:
+    provenance.py                          the grammar
+    importers/backfill_provenance.py       the backfill (--write when quiet)
+    tests/test_provenance.py               the contract, 22 checks, all pass
+    _incoming/provenance-backfill-2026-09-05.json   143,500 staged entries
+
+────────────────────────────────────────────────────────────────────────────
+WHY, IN ONE PARAGRAPH
+────────────────────────────────────────────────────────────────────────────
+`sources[]` says where a RECORD came from.  Nothing said where a FIELD came
+from, and two jobs need exactly that: OpenStreetMap asks its question one tag
+at a time (go/osm-gate), and `offers[]` is a claim that needs a receipt
+(Phase 3 of the cure plan).  Both want the same sentence — this fact, from
+that source, in this way — so they now get one grammar instead of two.
+
+This is not a new idea in the repo; it is an existing one finished.  The pin
+has carried `attrs.pinSource` / `pinVia` / `pinFrom` / `pinUncertaintyM` for
+a while, and `facet_bits()` already returns `{key: provenance}` rather than a
+flat true.  Two ad-hoc receipts for two fields somebody got burned on.  This
+generalises them rather than adding a third dialect.
+
+────────────────────────────────────────────────────────────────────────────
+THE SHAPE
+────────────────────────────────────────────────────────────────────────────
+    record["provenance"] = {
+      "phone": {"source": "opendata:data.go.th",  "how": "stated",   "at": "2026-08-20"},
+      "hours": {"source": "web:venue-site",       "how": "stated",   "at": "2026-08-19"},
+      "lat":   {"source": "derived:curated-pins", "how": "inferred", "at": "2026-09-05"},
+      "sub":   {"source": "curated:shelves.json", "how": "derived",  "at": "2026-09-05"},
+    }
+
+`source` is a stable KEY (`type:via`), never an index into `sources[]` — the
+`apply_*` passes append to that list after the merge, so an index written on
+Tuesday points somewhere else on Wednesday.
+
+THREE GRADES, and the whole safety mechanism is that there are three:
+  stated    the source printed this field, in these words
+  derived   we computed it from what the source stated (a shelf off a name)
+  inferred  we filled it within stated bounds and could be wrong (a geocode)
+ONLY `stated` is ever giveable.  `derived` is our reading and `inferred` is
+our guess, and neither is a fact somebody surveyed.
+
+ABSENCE IS ABSENCE.  A field with no entry has UNKNOWN provenance — not
+"ours", not "OSM".  Every consumer fails closed: a wrong refusal costs one
+record left at home, a wrong permission costs an upload we cannot defend.
+
+────────────────────────────────────────────────────────────────────────────
+TWO GATES, HELD APART ON PURPOSE
+────────────────────────────────────────────────────────────────────────────
+`giveable(record, field)` answers "may this go to OSM TODAY".
+`needs_licence_clearance(record, field)` answers "is this held up only by a
+letter nobody has answered yet".
+
+They were one function for about ten minutes, and that version would have
+green-lit all 6,150 government-register fields before DGA replied — which is
+precisely the promise the letter makes (go/dga-letter).  So the promise now
+lives in code as a constant:
+
+    LICENCE_CLEARED = (OURS, VENUE)      # GOV goes in the day the reply lands
+
+and `tests/test_provenance.py` fails if somebody adds GOV to it.  A promise a
+test can enforce is worth more than a promise in a note.
+
+────────────────────────────────────────────────────────────────────────────
+WHAT THE BACKFILL CAN HONESTLY DO — AND WHAT IT REFUSES
+────────────────────────────────────────────────────────────────────────────
+94% of the corpus carries EXACTLY ONE SOURCE — 22,652 of 24,059 records.  For
+those, provenance is not a guess: there was nowhere else a field could have
+come from.  One pass, 143,500 entries:
+
+    stated 89,569  ·  derived 42,729  ·  inferred 11,202
+
+The other 1,407 records carry two or more sources.  The backfill fills only
+what an existing MARKER settles (the pin) and leaves every other field
+UNKNOWN.  Deliberately.  A rule like "the phone probably came from the
+register" would be right most of the time, and provenance that is right most
+of the time is worse than none — it READS as a receipt, it gets uploaded on
+the strength of looking like one, and the day it is wrong nothing can tell you
+which day that was.
+
+    fields giveable to OSM today       359
+    fields waiting on a licence reply  16,054
+    fields still unaccounted           the 1,407 records' 9,284
+
+And those 1,407 are the same 1,407 that hold tier B of the give-back — the
+373 records where we have enriched an OSM object with our own work.  So the
+backlog is not diffuse: it is one hand-checkable list, and it is the list that
+was worth doing this for.
+
+────────────────────────────────────────────────────────────────────────────
+NOT DONE YET
+────────────────────────────────────────────────────────────────────────────
+1. APPLY IT.  `importers/backfill_provenance.py --write` refuses while
+   cache/build.lock exists and refuses on any validation complaint.  Run it
+   when the tower is quiet.  Nothing in build.py has been touched.
+2. STAMP AT THE SOURCE.  The real fix is `provenance.stamp()` called in each
+   importer and each `apply_*` at the moment a value lands — that is the only
+   moment the answer is free.  Every later attempt is archaeology.  Twelve or
+   so call sites; none of them touched today, because the tower holds them.
+3. THE 373.  Hand-check tier B, one field at a time.  That is what unblocks
+   the give-back that started this.
+4. `offers[]` inherits the grammar rather than inventing one.  An offer is
+   {what, source, how, at} — the same four words.
+
+Siblings: go/osm-gate, go/dga-letter, go/arrivals, go/cure.

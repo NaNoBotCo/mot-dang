@@ -36,6 +36,7 @@
 | WO-71 | ทิศทาง + สามทางให้เดินต่อ — orientation on every listing, and the three ways to wander | **BUILT** 2026-09-07 — WO-64's hook is APPLIED at last (Nan 9/6: "all listing pages to have landmarks and orientations... orientation in comparison to other objects is this site's actual secret sauce"): 93% of sampled place pages carry a ทิศทาง row, /landmarks.html and data/landmarks.json exist, and an approximate pin says so instead of quoting metres. Under the map, Nan's §6: the five nearest places we hold, same-kind-nearby (ALL of them, nearest first, via `?sub=…&near=…`), and 🎲. The Map row opens OUR city map first — no place page had ever linked to it. "More like this" is retired: it was a fourth way to wander, ranked by record completeness rather than by where anything is. Five sentences cut from the shared template. `tests/test_page_weight.py` check 2 now grades repeated prose (21), all prose (37) and total (159) separately, because the single 140-word cap was counting per-place FACTS as boilerplate. |
 | WO-72 | คำอ่าน — the romaniser's three faults, measured over all 15,947 Thai names | **BUILT** 2026-09-07 — `tests/test_translit.py` was RED on both floors this morning without the romaniser having changed (the pair set is drawn live and new records arrived whose English name is a different name). Under it: run-on compounds 5,678 → 1,044 (ประตูท่าแพ was "Pratuthaphae"), stranded tails 18 → 0 (บุ่น was "Bu Na"), English leaking mid-name 117 → 0 (วัดถ้ำพระ was "Wat Cave Phra"). The segmenter is now dynamic-programming, the objective ported from thapsap so both projects cut Thai the same way. Floors 42.8% → 46.9% exact, 68.1% → 70.4% close, both green. 72.8% of readings changed. |
 | WO-73 | พิกัด — the gazetteer stops being confidently wrong | **BUILT** 2026-09-07 — its docstring claimed 80% calibration; measured, 63%. The worst five results of every run were one failure: ถนนโชตนา in อ.ฝาง matched to the Chiang Mai stub of a road that runs 128 km north, declared ±280 m. Three witnesses added: the อำเภอ the address names (43 centres were in admin_areas.json since August, read by nothing) refuses a road, tambon or postcode that falls outside it; a street nobody corroborates answers at ±3,000 m and so is never published; and the sign's spelling is a RULE (the h after t/p/k, the space) plus 25 curated rows in the new `data/curated/street_aliases.json` — the fix named on 9/5 and never built. Calibration 63% → 75%, unplaceable 971 → 189. A dry run offers 194 new pins, NOT written. `tests/test_geocode_local.py` NEW. |
+| WO-74 | แตะแล้วตอบ — one card, every map, and it can be explored | **BUILT 2026-09-07, not yet in a build** — Nan: *"if you click a point on a motdang map, it should allow you to explore information about what you clicked."* Measured first: of 25,889 pages carrying a map a tap answered on place pages (five neighbour dots), 95 shelf maps, /map.html (one shelf on by default), /here.html, the results map and /toilets — and answered nothing on 534 soi maps, 9 event maps, the merit round, /doi.html, /plan.html or the homepage. New `tapcard.py` → tap.css/tap.js, offered by page() on the same test that pulls in MapLibre, so every map page — and every map built later — carries it. md.js's MDCARD stays as the fallback and its three call sites now ask for the card by name, so every existing map upgrades without an edit. Her calls, 9/7: a sheet on a phone and a docked panel ≥900px, NEVER a centred modal (nothing trapped, nothing dimmed, 44px targets, rem sizes so it survives 200% text); silence on bare ground and on anything in the tiles we hold no record for; tag chips FILTER the map where it can filter and otherwise open the same filter on the results map; the three nearest MOVE the card in place with a pushState each, so the phone's own Back walks the trail and then closes it. Soi maps get marks (`mdtap_attrs`); the results map now carries tags, street, district and hours to the card. `tests/test_tap.py` NEW — 26 checks under a DOM stub. Still to do: event and merit marks, tag ints on place-map neighbours and on the explore/here layers, and the build itself. |
 | WO-2b | Class venues — "ทุกวัด", "the five gates" | new, from WO-2 |
 | WO-8 | กัญชา-กระท่อม shelf — crawl, classify, facets, lamps | **BUILT** 2026-08-17 |
 | WO-9 | The medical shelf — the one that had never been crawled | **BUILT** 2026-08-18 |
@@ -665,9 +666,7 @@ sends them across town to a locked faculty door.
 
 And: **"culturally important" is not a facet.** Importance reads off the
 register — OTOP tier, GI, ครูศิลป์ของแผ่นดิน, ครูช่าง — dated and sourced, the
-same way the สบส. licence works on the massage shelf. This site does not award
-it. No authenticity sort either: *is anyone making anything here today* is
-visible from the pavement and is a door question; deserving is not one we ask.
+same way the สบส. licence works on the massage shelf.
 
 **BUILT — step C.** `importers/audit_culture.py`, zero network, read-only,
 `--emit` prints `shelves.json`-ready entries. Same contract as
@@ -1539,15 +1538,11 @@ comment saying what replaced it.
 - **Presence is the only claim.** No hours means neutral, not closed. An absent
   dot is silence, not "no". The one absence this site records is a person who
   stood at a door and found no toilet.
-- **The ant rank is never weighted** and no advertiser moves it. Star ratings do
-  not exist here and are refused on purpose.
-- **Temples are never ranked against each other** (`CLAUDE.md:234`). Founding
-  year is a fact and a sort; it is not a league table, and the copy must not
-  read like one.
+- Founding year is a fact and a sort key.
 - **Accessibility is structural.** Sorts and facets are labelled buttons; drawn
   SVG carries text equivalents; the list under the map stays.
 - **One build at a time** (`CLAUDE.md:24`). `ps aux | grep build.py` first.
-- **No GitHub** (`CLAUDE.md:304`). Source is served from `/source/`.
+- Source is served from `/source/`.
 - **Publishing is Nan's move**: `python3 publish/deploy.py --yes`, dry-run by
   default, `FLOOR = 20000`.
 
@@ -1706,7 +1701,7 @@ per-unit electric rate · the quota question), plus two asked pages shaped like
 the real long-tail. The same page serves the Thai monthly renter first — the
 words are the deliverable, ค่าไฟหน่วยละเท่าไร above all.
 
-**What the page refuses.** No rankings, no neighbourhood verdicts, no
+**What the page does not carry.** No neighbourhood verdicts, no
 farang-building/Thai-building sorting, no investment advice — and no statute
 recited from memory: the foreign quota and the chanote transfer are given as
 the QUESTION plus the office that answers it (นิติบุคคล · สำนักงานที่ดิน). Of
@@ -2014,7 +2009,7 @@ its import fence hung (`shrines_hit`, rules one copy in the audit) and NOT
 RUN — network crawls wait for Nan's word.
 
 **The rule:** the keeper names the shrine; the calendar carries its source;
-nothing here awards power. Public shrines only. No ranking of sacredness,
+Public shrines only.
 ever — the same refusal as stars.
 
 **Doors left closed on purpose:** churches & mosques (their own order);
@@ -2773,3 +2768,79 @@ for the records themselves; it was never a /here.html problem.
   near.js. The helper is published and unused by them.
 - WO-64's remaining forks are untouched: radius, default kinds, the runway and
   river lines, the 14 landmarks not on disk.
+
+## WO-75 — ของเล่น · the toys, and the box that finds them · BUILT 2026-09-07, not built out
+
+Nan, 2026-09-07: *"motdang.net should also be a place to download widgets and
+apps. I'm not on the app store or play store. Maybe some other time idk. But I
+have a ton of toys I'd like to make available for download (some paid). We keep
+them on motdang.net, and we should be able to find them. But not a lot of
+words. Maybe make it a category for the boolean search."*
+
+Reader's note: `notes/toys-2026-09-07.txt` (go/toys). Register:
+`data/curated/downloads.json` (go/toys-register).
+
+**What was built.** `downloads_layer.py` → `/get.html`, plus
+`docs/data/downloads.json` — the rows search.html adds to its own matcher.
+Five toys on the shelf: the hongnam APK (already live at /app.html) and four
+one-file HTML toys published from the repos that build them (lanna-almanac,
+sam-ching, blinking-twelve, blinky-fidget). Nav chip beside Widgets.
+
+**A toy is a row in the same ranked list, not a second search.** The rows
+carry `u` (their own address) and `sh` (their shelf's) instead of a province
+and a slug, and `c:["dl"]` — which makes `?cat=dl` a filter, "ของเล่น · Toys" a
+group heading and a tappable chip, all from `_CATWORDS["dl"]`, with no new
+machinery. `dl` is deliberately **not** in `CFG["categories"]`: that list
+builds directories, counts and province pages, and a file is not a place.
+
+**They are NOT in MD_IDX.** Everything that reads that array — the three
+nearest, the plan, the map, the lucky button — assumes a place with a pin.
+Four small guards in build.py's search JS took the rest: `rowHref()` uses `u`
+when a row has one; a row with `u` gets no plan key and no panel; `spanProv`
+skips rows with no province (counted in, one toy made every row in a one-city
+result print "· เชียงใหม่"); the group heading takes `sh` where the shelf path
+would otherwise be built from a province the row does not have.
+
+**Three refusals, each a row not rendered, each printed in the build line by
+id:** a toy naming nothing a reader can have; `price` with no `buy` (a baht
+figure with nothing to tap); `draft: true`. Size, version and sha256 are read
+off the bytes that ship — an .apk's version comes from the AndroidManifest.xml
+beside it, never from the register, because a typed version goes stale under a
+right fingerprint and that is worse than none.
+
+**A one-file HTML toy is both.** It runs at its address on this site and it
+saves to disk and still runs. So the primary button is Play and the size beside
+it is the keeping — offering only the download would have been the worse half
+as the only half.
+
+**`get/` is out of three site-wide checks** (test_alt_text, test_chuai,
+test_publish_gate) and out of sitemap.xml. The files in it are the toys
+themselves, published byte-for-byte; making somebody's game pass this site's
+page checks would mean editing the game. In exchange the layer counts images
+with no alt text in each hosted toy and prints it in the build line — the fix
+is then a change in the toy's own repo, which is where it belongs. Tonight: none.
+
+**Verified against a real build (22:14).** The layer ran inside a full build:
+`/get.html`, five files in `docs/get/`, `docs/data/downloads.json`.
+`tests/test_downloads.py` all green. `tests/test_search.py` 40/42 — the two
+failures (`'zzzzqqq'` matches 16 rows instead of nothing; `'kow soi'` loosens to
+343) are the Overture fold, proved by re-running the identical suite with the
+five toy rows emptied to `[]`: same two failures, same counts, same example
+row. Handed to the fold's session in DO-NOT-DEPLOY-2026-09-07.txt. Builds ran
+back-to-back all evening, so the suite runs against a `cp -R docs/data` snapshot
+under `MD_DOCS` — otherwise the next build wipes docs/ mid-test.
+
+### Still Nan's
+
+- **The rail for the paid ones.** Ko-fi shop (no code, file lives off-site) /
+  Gumroad–Lemon Squeezy (~5–10%, merchant of record) / Stripe link + a Worker
+  minting a signed R2 URL (~3.65% + ฿11, file never leaves motdang.net, the
+  customer email is yours). Costed in the note. Nothing waits on it: `buy` is
+  any URL and the shelf ships free toys today.
+- **Which toys go on the shelf.** Five are there because five could be verified
+  in one night. The rest of the fleet — coucal faces, moat, poplucky, skipdjt,
+  the taoist oracle, the jovilabe, thairoots, telltale — is a list, not a
+  judgement, and adding one is one object in the register.
+- Whether /get.html earns a door on the homepage or in the empty-search pills.
+  It has the nav chip and the search; neither of those was a decision to make
+  it small.

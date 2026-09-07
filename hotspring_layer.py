@@ -13,16 +13,15 @@ Three things a reader asks about a soak, in the order they ask them:
   2. WHAT EACH ONE STATES — the register: temperature with who measured it,
      the posted fee spread, hours, pools/private tubs/egg baskets as the
      operator's own words. "unstated" is a column value meaning the pages
-     read did not say. Nothing is ranked; no spring is crowned.
+     read did not say.
   3. WHAT YOU ARE LOOKING AT — the words (โป่ง, the mineral-seep word half
      the north is named after), the egg basket, the park gate, and the one
      safety line every spring posts in its own way: the hottest pool is for
      eggs, not people.
 
-The rule, from the proposal note: the spring states; the measurement carries
-its source; nothing is awarded. What the water is said to be good for is the
-operator's or the tradition's claim and renders as a claim — this site gives
-no health advice.
+The spring states; the measurement carries its source. What the water is said
+to be good for is the operator's or the tradition's claim and renders as a
+claim.
 
 Entry point: emit(globals_of_build, data) — hooked in build.py after the
 elephant layer. Emits namphuron.html + namphuron.css, copies the register to
@@ -291,11 +290,11 @@ def emit(g, data):
     def say(th, en):
         return '<span class="say">' + bi(th, en) + "</span>"
 
-    card("โป่ง — คำที่อยู่หน้าครึ่งหนึ่งของชื่อ", "Pong — the word in front of half the names",
+    card("โป่ง — คำในครึ่งหนึ่งของชื่อ", "Pong — in half the names",
          bi("โป่ง (pòong) คือแอ่งแร่ธาตุที่ซึมขึ้นจากดิน — โป่งดิน โป่งเกลือ ที่สัตว์ป่ามากิน — และที่ที่น้ำร้อนผุดขึ้น คนเหนือก็เรียกโป่งเหมือนกัน: โป่งเดือด โป่งน้ำร้อน โป่งอาง ชื่อหมู่บ้านนับร้อยในภาคเหนือขึ้นต้นด้วยโป่ง เพราะหมู่บ้านตั้งใกล้โป่ง — หมู่บ้านชื่อโป่งจึงไม่ใช่บ่อน้ำร้อนเสมอไป และทะเบียนหน้านี้แยกสองอย่างนั้นออกจากกันตั้งแต่ตัวกรอง",
             "A โป่ง pòong is a mineral seep — the salt licks the wild animals visit — and where the seep runs hot, the northern word is the same: Pong Duet the boiling pong, Pong Nam Ron the hot-water pong, Pong Ang. Hundreds of northern villages begin with the word because the village stood near one, which is why a village called Pong is not always a spring — and why this page's filter keeps the two apart."),
          say("น้ำพุร้อน (nám-phú-rɔ́ɔn) คือคำกลาง: น้ำ + พุ (ผุดขึ้น) + ร้อน · บ่อน้ำร้อน (bɔ̀ɔ) คือบ่อ · ธารน้ำร้อน คือลำธาร", "น้ำพุร้อน nám-phú-rɔ́ɔn is the standard compound — water + well-up + hot; บ่อน้ำร้อน bɔ̀ɔ nám rɔ́ɔn is the pool form; ธารน้ำร้อน a hot stream"))
-    card("ไข่ในตะกร้า — ประเพณีของบ่อพัฒนา", "The egg basket — the developed spring's own tradition",
+    card("ไข่ในตะกร้า", "The egg basket",
          bi("ที่บ่อพัฒนาแล้ว — สันกำแพง แจ้ซ้อน แม่ขะจาน — ของที่ขายหน้าบ่อคือไข่ในตะกร้าสาน หย่อนลงบ่อต้นทางที่ร้อนที่สุด นาทีที่ต้มเป็นของป้ายหน้าบ่อ (บ่อไหนกี่นาที บ่อนั้นบอกเอง) ไข่ออนเซ็นแบบไข่แดงเซตก่อนไข่ขาวคือฟิสิกส์ของน้ำ 70 องศา — และบ่อที่ต้มไข่ได้คือบ่อที่ห้ามแช่",
             "At the developed springs — San Kamphaeng, Chae Son, Mae Khachan — the thing sold at the water's edge is eggs in a woven basket, lowered into the hottest source pool. How many minutes is the sign's own business, posted pool by pool; the onsen egg with its set yolk and soft white is the physics of seventy-degree water — and the pool that cooks an egg is the pool nobody soaks in."),
          say("ต้มไข่ (tôm khài) — ต้ม ต้ม + ไข่ ไข่ · ไข่ออนเซ็น มาจากญี่ปุ่น 温泉たまご", "tôm khài — to boil + egg · khài onsen rides the Japanese loan, 温泉たまご"))
@@ -303,11 +302,11 @@ def emit(g, data):
          bi("บ่อหลายแห่ง — โป่งเดือด เทพพนม แจ้ซ้อน ฝาง — อยู่ในอุทยานแห่งชาติ: ค่าเข้าอุทยาน (คนไทย/ต่างชาติ คนละอัตรา ตามที่กรมอุทยานฯ ประกาศ) มาก่อนถึงบ่อ และบางบ่อมีค่าอ่างส่วนตัวเพิ่มอีกชั้น — ทุกตัวเลขในทะเบียนคือ “ตามที่ประกาศ” พร้อมวันที่อ่าน ใครยืนหน้าประตูมาแล้วเลขไม่ตรง บอกมดได้",
             "Several springs — Pong Duet, Thep Phanom, Chae Son, Fang — sit inside national parks: the park's own gate fee (Thai and foreign rates, as the department posts them) comes before the spring, and a private tub is often a second posted price inside the first. Every figure in the register is as-posted with the date it was read; if you stood at a gate and the number differed, tell the ants."),
          say("น้ำพุร้อนสันกำแพงดำเนินงานโดย ททท. ร่วมกับสหกรณ์การเกษตรหมู่บ้านสหกรณ์สันกำแพง (อบต.บ้านสหกรณ์เล่าไว้เอง) · กรมอุทยานฯ ดูแลบ่อในเขตอุทยาน · อบต. และหมู่บ้านดูแลบ่อชุมชน — ผู้ดูแลคือผู้ประกาศราคา", "San Kamphaeng runs as a TAT–village-cooperative venture (the sub-district office tells the story itself); the parks department keeps the in-park pools; sub-district offices and villages keep the community ones — whoever keeps the spring is whoever posts its prices"))
-    card("น้ำร้อนจริง — ป้ายที่ทุกบ่อเขียนไว้ทางของตัวเอง", "Genuinely hot — the one sign every spring writes its own way",
+    card("น้ำร้อนจริง — ป้ายของแต่ละบ่อ", "Genuinely hot — each spring's own sign",
          bi("บ่อต้นทางหลายแห่งร้อนเกิน 90 องศา — น้ำที่ต้มไข่สุกได้ ต้มคนได้เท่ากัน กติกาที่ป้ายหน้าบ่อพูดตรงกันทุกที่: แช่ในอ่างที่จัดไว้ ไม่ใช่บ่อต้นทาง อ่านอุณหภูมิของอ่างก่อนลง และเด็กกับผู้สูงอายุแช่สั้นกว่า — ตัวเลขนาทีเป็นของป้ายแต่ละบ่อ ไม่ใช่ของเว็บนี้",
             "Several source pools run past ninety degrees — water that cooks an egg cooks a person the same way. The rule every gate's sign states in its own words: soak in the built tubs, not the source pool; read the tub's own temperature before you get in; children and elders soak shorter. The minutes belong to each spring's sign, not to this site."),
          say("สิ่งที่น้ำแร่ “ดีต่อ” อะไร เป็นคำของผู้ดูแลบ่อและของประเพณี — หน้านี้จดคำนั้นเป็นคำพูด ไม่ใช่คำแนะนำ", "what the mineral water is said to be good for is the operator's and the tradition's claim — this page records the claim as a claim, and gives no advice"))
-    card("ออนเซ็นในเมือง — น้ำเดียวกัน คนละทาง", "The onsen in town — the same water, a different way in",
+    card("ออนเซ็นในเมือง", "The onsen in town",
          bi("ร้านออนเซ็นและสปาน้ำแร่ในเมือง เป็นธุรกิจอาบน้ำ อยู่บนชั้นของมันเอง (นวด-สปา) ไม่ได้อยู่ในทะเบียนบ่อ — บางร้านบอกว่าใช้น้ำแร่จากบ่อจริง คำนั้นเป็นของร้าน หน้านี้ชี้ทางไปหาบ่อที่พื้นดินทำเอง",
             "The onsen houses and mineral spas in town are bathing businesses and live on their own shelf (massage & spa), not in this register — some state they truck water from a real spring, and that statement is theirs. This page points at the springs the ground made."),
          say("ออนเซ็น ← ญี่ปุ่น 温泉 on-sen “บ่อน้ำร้อน” — คำยืมที่วนกลับมาแปลตัวเอง", "onsen ← Japanese 温泉, hot spring — a loanword that circles back to translate itself"))
@@ -403,7 +402,7 @@ def emit(g, data):
         + '</p>'
         + short_html
         + f"{prov_html}{unv_html}"
-        f'<h2>{bi("ก่อนแช่ — เรื่องที่ควรรู้", "Before you soak — what you are looking at")}</h2>'
+        f'<h2>{bi("ก่อนแช่", "Before you soak")}</h2>'
         f"{primer_html}"
         f'<p class="hs-note">{bi("ที่มาของทะเบียน", "Register data")}: <a href="data/hotsprings.json">data/hotsprings.json</a> · '
         + bi("บ่อที่มดยังไม่เจอ หรือเลขที่ไม่ตรงป้าย — ", "A spring the ants have not found, or a number that no longer matches the sign — ")

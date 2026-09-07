@@ -1,0 +1,208 @@
+==============================================================================
+THE PIN GAP — WHAT WAS CLOSED, WHAT COULD NOT BE, AND WHY (2026-09-05)
+==============================================================================
+
+
+Asked of ai.motdang.net: "TOKSEN NEAR ME." It answered with five general
+Thai-massage shops and explained nothing. Chasing "near me" through the
+assistant led here, to the catalogue: an assistant cannot sort by distance for
+records that have no distance.
+
+THE GAP, MEASURED
+------------------------------------------------------------------------------
+
+
+2,116 OF 24,159 PLACES CARRY GEOPRECISION: "NEEDS-PIN" — real, addressed, and
+on no map. 2,088 of them have a written address. Where they are:
+
+      WAT (ONAB REGISTER)
+          records with no pin: 943
+
+      REALESTATE
+          records with no pin: 367
+
+      SIGHTS
+          records with no pin: 226
+
+      SCHOOL
+          records with no pin: 193
+
+      ESSENTIALS
+          records with no pin: 163
+
+      EVERYTHING ELSE
+          records with no pin: ~224
+
+
+THREE DEFECTS IN A GEOCODER THAT WAS NEVER RUN
+------------------------------------------------------------------------------
+
+
+importers/geocode_local.py was built, documented and measured, wired into
+import_opendata.py and import_weedth.py — and never once pointed at the 2,116
+records already on disk. Running it found three things:
+
+  1.  TAMBON CENTROIDS IGNORED THE PROVINCE. ป่าแดด is a ตำบล in Mueang Chiang
+      Mai and an อำเภอ in Chiang Rai. Keyed on the bare name, the Chiang Mai
+      centroid answered ต.ป่าแดด อ.ป่าแดด จ.เชียงราย and put a school, a
+      hospital and two more 139 KM OUT WHILE DECLARING ±1,365 M. The province
+      was known at every call site and was simply not being used. Now keyed
+      (province, name), and refused outright when no province is given and the
+      name lives in both.
+  2.  THAI ROMANISATION DOES NOT AGREE WITH ITSELF ABOUT SPACES. streets.json
+      holds Wua Lai and Thapae Road; addresses are written Wualai Rd and Tha
+      Phae Rd. Neither pair matched, so shops on two of the busiest roads in
+      the old city fell through to a postcode centroid 4 km wide. A second,
+      space-blind index — consulted only when the exact one finds nothing,
+      minimum key length six — took Ajarn Somphong Tok Sen from ±4,026 m to
+      ±806 m. (Tha Phae vs Thapae is a spelling difference, not a spacing one,
+      and still misses. A curated alias row is the fix, not a fuzzy matcher.)
+  3.  The docstring's accuracy was out of date, and optimistically.
+      Re-measured against 3,517 places carrying both an address and a surveyed
+      pin:
+
+      LANDMARK
+          n: 4
+          median: 478 m
+          90th: 697 m
+          worst: 697 m
+
+      STREET
+          n: 948
+          median: 248 m
+          90th: 2,677 m
+          worst: 128,240 m
+
+      POSTCODE
+          n: 1,346
+          median: 6,137 M
+          90th: 21,721 m
+          worst: 126,938 m
+
+      TAMBON
+          n: 238
+          median: 2,215 m
+          90th: 12,892 m
+          worst: 72,290 m
+
+      NO MATCH
+          n: 981
+          median: —
+          90th: —
+          worst: —
+
+
+  Calibration — the stated uncertainty actually covering the truth — is 63%,
+  not the 80% the file claims. The street tier's worst case is ถนนโชตนา,
+  Highway 107 to Fang: we hold a short in-city fragment and declare ±280 m for
+  a road that runs 128 km.
+
+  So published pins are capped at ±3,000 M, which refused 137 of them.
+
+THE BIGGER FIND: MOT DANG HAS NEVER CRAWLED TEMPLES
+------------------------------------------------------------------------------
+
+
+crawl_overpass.py has forty query groups and not one is
+amenity=place_of_worship. The 249 surveyed wat pins we held — against 2,691
+wat records — arrived sideways, as mueang-map lens points and as neighbours
+inside other groups. OSM HAS 1,070 NAMED, PINNED TEMPLES IN CHIANG MAI ALONE.
+
+importers/pin_from_osm.py fetches them (cache: cache/osm-worship/, kept OUT of
+cache/overpass/ on purpose — import_all.py folds everything under the latter
+into the corpus, and adding a thousand new temple records is a decision about
+the catalogue, not a side effect of fixing pins) and matches register records
+to surveyed points by name, on unique names only.
+A repeated name is settled by the register's own ตำบล/อำเภอ against an addr:
+tag, or by the อำเภอ centroid from importers/crawl_admin.py — and otherwise
+refused. A wrong pin on a named temple sends someone to the wrong village,
+confidently.
+
+crawl_admin.py is new too: OSM boundary relations for both provinces, each
+with the radius of its own bounding box. It yields 25 CHIANG MAI AND 18 CHIANG
+RAI อำเภอ. Thailand's ตำบล are barely drawn in OSM — level 7 returns เทศบาล
+municipalities, not subdistricts — so the district is the real prize, and it
+is enough to tell วัดพระบาท in Mae Rim from วัดพระบาท in Chom Thong.
+
+WHAT ACTUALLY LANDED
+------------------------------------------------------------------------------
+
+
+data/curated/pins.json, 287 PINS, applied by apply_curated_pins() in
+import_all.py — an overlay, never a write into data/canonical/, which that
+script regenerates. A surveyed pin always wins; this only fills an empty one.
+
+      OSM
+          pins: 95
+          what it is: a surveyed OpenStreetMap point, name-matched
+
+      TAMBON
+          pins: 156
+          what it is: subdistrict centroid
+
+      STREET
+          pins: 22
+          what it is: the middle of a named road
+
+      POSTCODE
+          pins: 12
+          what it is: delivery-area centroid
+
+      LANDMARK
+          pins: 2
+          what it is: a place we already hold, named in the address
+
+
+Every pin is stamped attrs.pinVia, attrs.pinUncertaintyM and attrs.pinFrom.
+pinVia is also how geocode_local now knows to keep these OUT OF ITS OWN
+GAZETTEER: a centroid built from inferred points would site the next inference
+on the last one, and the error would compound quietly, run after run.
+
+THE HONEST CEILING
+------------------------------------------------------------------------------
+
+
+287 OF 2,116 — 14%. Raising the cap to ±6 km would add ~140 more and make them
+worse. The remaining 1,836 are not an algorithm problem:
+
+  -  1,875 REGISTER RECORDS ARE NOT IN OSM UNDER THEIR NAME. Rural temples
+     nobody has mapped. Only a survey or a better register moves these.
+  -  146 NAMES ANSWER TO MORE THAN ONE PLACE and the register cannot say
+     which.
+  -  10 OF THE 18 TOK SEN SHOPS HAVE NO ADDRESS AT ALL — the field reads
+     "Chiang Mai". Nothing can geocode that; it needs a name-and-street pass.
+
+They stay on pins.html, which is what that page is for, and the assistant now
+says "no map pin" rather than inventing a distance.
+
+OPEN, AND NAN'S
+------------------------------------------------------------------------------
+
+
+  1.  FOLD THE 1,070 CM + CR OSM TEMPLES IN AS RECORDS? The cache is sitting
+      there. It would roughly double the wat shelf and give every new record a
+      surveyed pin — but it is a corpus decision.
+  2.  IS ±3 KM THE RIGHT LINE for publishing an approximate pin on a named
+      business? ±1.5 km would keep ~30; ±6 km would add ~140.
+  3.  A CURATED STREET-ALIAS TABLE (Tha Phae/Thapae, Nimmanhaemin/Nimman
+      Haemin, Ratchadamnoen/Rachadamnern…) — a dozen hand-checked rows would
+      reach the Latin-script addresses that miss today.
+
+
+A FOOTGUN, AND ITS FIX (added after it fired)
+
+The problem. geocode_gaps.py defined "the gap" as records marked needs-pin. But
+once its own pins have been applied by import_all, those records are marked
+approx and drop out of the gap. So a second run measures a smaller problem and
+writes a smaller file — and if a capped run and an uncapped run overlap, the
+last writer wins and the cap is silently gone. That happened: the file on disk
+held 424 pins, including 55 postcode pins at roughly 6 km of error, while the
+cap said 286.
+
+The solution. A record already listed in pins.json is still a gap. Both passes
+now read the existing file first and re-derive every pin they wrote, under
+whatever cap is in force today. Running them twice now gives the same answer as
+running them once, which is the only property that makes a number quotable.
+
+The same shape as everything else found today: a measurement that quietly
+measured something other than what it claimed.

@@ -1,0 +1,161 @@
+OSM GIVE-BACK — THE LICENCE GATE, AND WHAT IS ACTUALLY GIVEABLE
+Audit, 2026-09-05.  Nan's decision the same day: BROAD — contribute
+everything licence-clean.  This is the gate that decision requires, run
+before a single edit.  NOTHING HAS BEEN EDITED OR UPLOADED.
+
+Staged machine-readable: _incoming/osm-giveback-2026-09-05.json (every
+record id in its tier, with pin status and which facts it holds).
+
+────────────────────────────────────────────────────────────────────────────
+THE HEADLINE
+────────────────────────────────────────────────────────────────────────────
+Broad is the right call and it cannot be executed on the current schema.
+
+Provenance in this corpus is RECORD-level: `sources[]` says where the record
+came from, never where a FIELD came from.  OSM asks the opposite question —
+"what is the source of this tag" — one field at a time.  For a record with
+an OSM source and a second source, we cannot prove which of the two gave the
+phone number, so we cannot honestly answer OSM's question about it.
+
+That is not a reason to stop.  It is the reason the giveable set is 517
+records today rather than 6,667, and it names the fix: per-field provenance,
+which is the same schema work as the `offers[]` provenance in Phase 3 of the
+cure plan.  One change, two payoffs, again.
+
+────────────────────────────────────────────────────────────────────────────
+THE TIERS — 24,059 RECORDS SORTED BY WHAT WE MAY GIVE
+────────────────────────────────────────────────────────────────────────────
+E  OSM-ONLY — 14,089 records (all pinned)                        NOTHING TO GIVE
+   Came from OSM, holds nothing OSM did not already have.  Pushing these
+   back is a round trip.  They are 59% of the corpus and 0% of the gift.
+
+B  ATTRIBUTE ON AN EXISTING OSM OBJECT — 373 records (373 pinned)   GIVEABLE*
+   An OSM object we have enriched from our own work or from the venue's own
+   published words.  This is the highest-value tier per edit: the object is
+   already there, correctly placed, and we are adding a fact it lacks.
+   * Each one needs a per-field check first — record-level provenance cannot
+   say WHICH field is ours.  373 is small enough to check by script + eye.
+
+A  A PLACE OSM DOES NOT HAVE — 144 records (52 pinned)              GIVEABLE
+   Sourced from our own survey or a venue's own site.  52 can go up today;
+   92 have no coordinate and OSM cannot take a node without one.
+
+C  THE LICENCE, READ — 6,150 records (4,223 pinned)          MUCH BETTER
+   NEWS THAN THIS NOTE FIRST SAID.  I downloaded and read the actual text:
+   "Terms and Conditions for DGA Open Government License", Version 1.0,
+   10 June 2021 (data.go.th → /pages/dga-open-government-license → the EN
+   PDF).  Saved reasoning below; the numbers first.
+
+   FIRST FINDING — IT IS ONE LICENCE, NOT FIVE.  Every register in tier C
+   except OBEC carries a `ref` of https://data.go.th/dataset/… :
+       2,084  ONAB ทะเบียนวัด        data.go.th/dataset/onab_temples
+       1,660  data.go.th (assorted)  incl. อย. drug-location, กรมธนารักษ์
+         480  CITIZENinfo (DGA)      data.go.th/dataset/00170665-…
+         168  สช. private schools    data.go.th/dataset/gdpublish-cer
+       1,077  OBEC สพฐ.              gdcatalog.go.th — whose dataset page
+                                     links back to a data.go.th dataset
+   So 5,073 records ride on ONE licence text, and the last 1,077 ride on a
+   sibling platform that points at the same place.  The four "different
+   licence strings" in our own metadata are what each DATASET's licence
+   field happened to say; the PLATFORM's terms are the floor under all of
+   them, because the Terms state that a government organization accepts
+   them at the moment it publishes a dataset there.
+
+   SECOND FINDING — WHAT THE TEXT ACTUALLY GRANTS.  Under "Rights and
+   Obligations of the User" the licence is non-exclusive, "without the
+   limitations of territory or period", and needs no further authorization
+   and no fee.  The user may copy, publish and distribute the data "in
+   whatever methods"; may apply it by any means that does not change its
+   substantive meaning; and — this is the clause that matters most for
+   OSM — may "usefully process the Data by means of either gathering the
+   Data therefrom together with other data".  Combining it into somebody
+   else's database is expressly contemplated.
+
+   THIRD FINDING — AND THIS IS THE ONE THAT MOVES THE GATE.  There is NO
+   share-alike clause, NO copyleft, NO restriction on sublicensing, and NO
+   restriction on redistributing under a different licence.  The single
+   standing obligation is attribution: the user "shall state references for
+   the Use of Data, at all the time".  And where the producing organization
+   cannot be identified individually, the Terms PRESCRIBE A BLANKET LINE:
+       "The right to Use the Data is subject to the terms and conditions
+        for DGA Open Government License"
+   A source-level statement, not per-record attribution.  That is exactly
+   the shape of attribution OSM gives — a contributors page naming the
+   source — and per-record attribution was the reason I flagged CC-BY as a
+   blocker in the first draft of this note.  The licence answers the
+   objection in its own words.
+
+   Exceptions listed: data the law forbids disclosing; logos, emblems and
+   national-identity symbols; military insignia and uniform; and third-party
+   IP DGA has no power to license.  A temple's name, a school's name and a
+   street address touch none of the four.
+
+   WHAT IS STILL NOT SETTLED, AND I AM NOT ASSERTING IT IS.  Licence text
+   clearing the obstacles is not the same as OSM saying yes.  Any import at
+   this scale goes to OSM's own review, which wants an explicit written
+   statement from the publisher rather than a third party's reading of a
+   PDF.  But the ASK has shrunk from "please change your licence" to
+   "please confirm what your licence already says", and it goes to ONE
+   addressee — DGA, whose Terms these are and whose contact address is
+   printed in the document (contact@dga.or.th, DGA Contact Center).
+   That letter is drafted: notes/dga-osm-licence-letter-2026-09-05.txt.
+
+   What tier C brings: name + address on 5,451 of 5,468, and 999 phones.
+   Zero hours — the registers do not hold them.
+
+D  FORBIDDEN, PERMANENTLY — 3,303 records (3,197 pinned)            NEVER
+   Scraped commercial directories: weed.th 658, plus yellowpages, cmhy,
+   lemon8, salehere, thailandnomads and friends.  These go nowhere near an
+   OSM account, ever, under any waiver, at any volume.  A single one of them
+   in an upload is the thing that attaches a name to the account for good.
+
+────────────────────────────────────────────────────────────────────────────
+THE FINDING THAT STINGS
+────────────────────────────────────────────────────────────────────────────
+The tok sen records — the whole point of the search-disease work, the thing
+we most want the world's maps to know — are 19 records, tier A, and
+EIGHTEEN OF THEM HAVE NO PIN.
+
+OSM cannot accept a node with no location.  So the flagship give-back is
+blocked not by licence and not by schema but by the pin gap (F8, go/pins).
+The one pinned tok-sen record can go up tomorrow.  The other eighteen are a
+geocoder away, and the geocoder is a fork Nan has not answered.
+
+────────────────────────────────────────────────────────────────────────────
+WHAT I WOULD DO NEXT, IN ORDER
+────────────────────────────────────────────────────────────────────────────
+1. Per-field provenance in the schema.  Unblocks tier B properly and is
+   Phase 3 work already scheduled under another name.
+2. The 52 tier-A pinned places: hand-check, then a small, slow, well-
+   commented upload under a named account with a changeset comment that
+   says exactly where the data came from.  Small first upload is how a new
+   contributor earns the right to a bigger one.
+3. ONE letter, not five: to DGA at contact@dga.or.th, asking them to
+   confirm in writing that data published under the DGA Open Government
+   License may be incorporated into OpenStreetMap under ODbL with
+   attribution given as a source-level statement.  That covers 5,073
+   records directly and almost certainly the OBEC 1,077 with it.  Drafted
+   at notes/dga-osm-licence-letter-2026-09-05.txt — NOT SENT.
+   ⚠ EMAIL ONLY — no phone calls, even though the PDF prints a number.
+4. A hard exclusion list in code so a tier-D record can never enter an
+   upload by accident.  The audit is a moment; the guard is permanent.
+
+────────────────────────────────────────────────────────────────────────────
+WHAT I DID NOT DO
+────────────────────────────────────────────────────────────────────────────
+No edit, no upload, no account, no changeset, and nothing sent.  I DID read
+the DGA licence text (the 5-page English PDF of 10 June 2021) and the OBEC
+dataset page, and the summary above is what those documents say.  I have not
+read a separate gdcatalog terms page — gdcatalog.go.th/pages/terms-of-use is
+a 404 — so OBEC's 1,077 rest on the dataset page pointing back to data.go.th
+rather than on a terms document I have seen.
+
+I am not asserting a legal conclusion.  What I am asserting is narrower and
+checkable: the licence text contains no share-alike clause, no sublicensing
+restriction, an express permission to combine the data with other data, and
+an attribution requirement its own text says may be met with a single blanket
+sentence.  Whether that is sufficient for OSM is OSM's call, and the letter
+is how we ask.
+
+Sibling notes: go/arrivals (why this matters at all), go/pins, go/disease,
+go/cure.  Staged data: _incoming/osm-giveback-2026-09-05.json.

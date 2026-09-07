@@ -1,0 +1,122 @@
+WO-65 · NOW · NEAR — BUILT 2026-09-06
+Beer's rule, applied to every page on motdang.net
+========================================================================
+Staged in build.py + nownear_layer.py. NOT deployed and NOT built: a
+build from another session held the lock all day (PID 92845, from 10:05),
+so nothing was run and docs/ was not touched. Deploy is Nan's.
+
+
+WHAT CHANGED
+------------------------------------------------------------------------
+The header, on every page
+    masthead · search · ONE LINE · ☰
+
+  The line, baked at build from the files the tiles already read:
+      🎪 41 งานวันนี้ · 41 on today   → events.html
+      🌦 24°                          → the weather tile
+      PM2.5 17 ดี · Good              → the air tile
+      🗺 แผนของคุณ 3 จุด               → plan.html  (from localStorage
+                                        md-plan, hidden on an empty plan)
+  What is happening comes first, because on a 375 px phone whatever is
+  written last is written off the screen. A cell with nothing true to say
+  drops; a stale weather or air file drops its own cell rather than
+  printing yesterday as today.
+
+  ☰ is a closed <details>. It holds the 8 chips and the 27 svcbar links
+  that used to stand above every page's content. No script — the site
+  already runs hundreds of <details>.
+
+The front page
+    the line · ☰ · the name · three event cards · the postcard map ·
+    eight paths · five closed folds
+
+  The eight paths are the questions readers actually bring, ranked by
+  gptmine on 9/5: shopping 96 · clinics 50 · food 49 · activities 35 ·
+  services 24 · transport 19 · pharmacy 17 · massage 5. Chiang Mai
+  shelves; Chiang Rai's are one fold down. Re-cut them whenever
+  ask.motdang.net's search_log says otherwise.
+
+  The five folds, closed, holding every single thing that was on the page
+  before — nothing was deleted:
+      🔎 ทุกชั้น ทุกหมวด · every shelf   the finder, all 175 shelves, 66 links
+      ✨ วันนี้ · today                  the six divination tiles
+      🌙 ฟ้า ลม น้ำ ราคา                 sky, weather, air, clocks, lottery,
+                                        gold, fx
+      🧭 เครื่องมือของมด                 the plan hero and the instruments
+      📡 ข่าวสด · live                   events, cinema, toilets, coming up
+  The finder is the card catalog. A card catalog is something you open,
+  not something you walk into.
+
+
+MEASURED — before, and after (phone width 375 px)
+------------------------------------------------------------------------
+  HOME              before        after
+  page height       21,712 px     2,789 px
+  bytes             147 kB        132 kB
+  links open        168           24  (above the footer)
+  headed bands      24            0 open, 5 folded
+
+  PLACE PAGE        before        after
+  links above H1    35            5
+  H1 at             ~630 px       310 px
+  header links      35            5, and 35 behind ☰
+
+  Opening every fold and the drawer restores 12,031 px and every link.
+  Verified in the browser at 375 px: the line wraps to two lines rather
+  than scrolling sideways (a sideways scroll nobody discovers is how the
+  air reading went missing off the right edge); no console errors from
+  the site's own code; md.js and style.css load; the plan cell paints
+  from localStorage and hides itself when the plan is empty.
+
+
+THE FILES
+------------------------------------------------------------------------
+  nownear_layer.py           new — strip(), home(), CSS, JS, the eight paths
+  build.py                   6 edits, all anchored:
+      import nownear_layer
+      page() — the strip, and <details class="morenav"> around the chips
+               and the svcbar
+      home_html — now nownear_layer.home({...}); every piece is composed
+               exactly as before, the module only decides what stands open
+      style.css and md.js — the layer's CSS and JS appended
+  tests/test_page_weight.py  two new gates, in WO-52's file:
+      test_header_leads_with_now_and_near — ≤ 6 open links in any header
+      test_the_front_page_is_not_a_wall   — ≤ 36 open links above the footer
+  The gates skip on an unbuilt site by design; they want a real docs/.
+
+
+ONE THING TO KNOW BEFORE THE NEXT BUILD
+------------------------------------------------------------------------
+BUILD_DATE (build.py:80) is hand-maintained and reads 2026-09-05 while
+today is the 6th. The events cell counts "today" from that constant,
+the same one the rest of the site uses — so on a build day where the
+constant was not bumped, the line says "on today" about yesterday. That
+is not new and it is not mine, but a cell whose whole job is NOW is where
+it will finally show. Bump it, or key the count to the real build day.
+
+
+NOT DONE
+------------------------------------------------------------------------
+· 📍 here — WO-64's /here.html is built but its two hooks in build.py were
+  never applied, so the page is not on the site. A cell linking to a 404
+  is worse than no cell; the line for it is written and commented in
+  nownear_layer.strip(). Add it the day the hook lands.
+· 📝 to-do — localStorage md-notes turns out to be my.html's sticky-notes
+  textarea: free text, not a list, nothing to count. Fork F2 is answered:
+  there is no to-do cell to build without something to hold one.
+· The place page's three ways to wander (the 9 nearest as text, same kind
+  nearby, take me somewhere) — §6 of the design note. Not in this pass.
+· The n ≤ 3 search answer card — still fork F5, still the search-cure lane.
+· No build, no deploy, no test run against docs/. The lock was never free.
+
+
+HER FORKS — what is still hers
+------------------------------------------------------------------------
+F1  answered by building it: the drawer is on the home page too.
+F3  the divination tiles: all six fold together, under ✨ วันนี้. If the
+    colour of the day should stand open by itself, that is one line.
+F4  the footer sitemap: left where it was, below the content.
+F6  🎪 on a place page: the city-wide count, as recommended.
+F7–F10  the desire-path forks, untouched: Cloudflare zone paths · an
+    on-device last-5 trail · a weekly paths worklist · and the search.html
+    beacon, still recommended against.

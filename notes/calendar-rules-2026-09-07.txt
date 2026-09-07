@@ -1,0 +1,56 @@
+CALENDAR RULES
+2026-09-07.  Survey + your decisions.  Nothing built yet; build.py was running.
+
+
+WHAT IS ON DISK
+
+open_lamps          4,359 opening-hours strings parsed to minute-of-week
+                    intervals.  Works.  Covers 4,392 of 88,161 records (5%).
+                    Answers "open now" only.
+
+read_newsletter.py  Parses "every Saturday" into a weekly rule, writes two
+                    dated copies (RULE_HORIZON_WEEKS = 2), discards the rule.
+                    174 of 309 events say "every ..." in a text field nothing
+                    can query.  63 of 309 were past on 9/7.
+
+harvest_events.py   Re-derives recurrence by spotting repeats.  Needed only
+                    because the rule above was discarded.
+
+harvest_festivals   Will not calculate a lunar date.  Waits for an official
+                    announcement.  Festivals published: 0.
+
+markets             1,400 records.  25 carry opening days or times.
+
+
+YOUR DECISIONS 2026-09-07
+
+Storage    Rules are records.  Queryable.  Not on the homepage.
+           Functional fields only — a field unrelated to the record does not
+           get a column.  No prose in the data.
+
+Publishing Rules stay in the background.  No rule is stated to the public
+           unless law requires it.
+
+Gaps       A record missing data is stored and backfilled as data arrives.
+           Background job.  Reported to you, to nobody else.  Applies to
+           every rule, not only these.
+
+Reader     Fix the date question.  "What is on 22-26 Nov" and "what is open
+           now" are different questions; the site answers neither.
+
+
+ONE OPEN QUESTION
+
+Loi Krathong, Yi Peng and wan phra fall on the full moon or a lunar quarter.
+The date is arithmetic and can be computed years ahead.  The code refuses to
+compute it and will only take a date printed in an official announcement.  It
+has found none, so the festival calendar is empty.
+
+Compute the dates, or keep waiting?
+
+Cost of computing: the astronomical full moon is exact, but the city sets its
+own dates for lantern releases and road closures, and those can land a day
+either side.  A computed date is right about the moon and can be wrong about
+the event.
+
+Cost of waiting: what is there now, which is nothing.

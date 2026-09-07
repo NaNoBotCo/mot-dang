@@ -17,12 +17,8 @@ SO THE DEPARTMENTS WERE READ, one hospital site at a time, and what each one
 STATES is what this page prints — `data/curated/care.json`, every claim
 carrying the sentence it came from, the URL it was read at, and the date.
 
-THE RULE: the desk states; the paper carries its date; nothing is awarded.
-No rankings, no "best hospital for X", no named doctors, no medical advice.
-A hospital that says nothing about a service gets NOTHING here — absence is
-silence, never a "no" — and the silences are printed too, by name, in the
-could-not-read table. A directory that shows only its successes is telling
-the reader the map is finished.
+A hospital that says nothing about a service gets NOTHING here, and the
+silences are printed too, by name, in the could-not-read table.
 
 TWO SILENCES WORTH THE WORDS. The Kasemrad chain site lists 73 centres across
 ten branches behind a client-side picker, and its package prices are tagged to
@@ -208,7 +204,7 @@ def emit(g, data):
     def states(block):
         """Some clinics print the conditions they see. That list IS the answer
         to \u201cwho in this town handles X\u201d, so it is printed as the hospital
-        wrote it \u2014 in its order, unranked, nothing added and nothing read into it."""
+        wrote it \u2014 in its order, nothing added and nothing read into it."""
         th_list = block.get("states_th") or []
         en_list = block.get("states_en") or []
         if not th_list:
@@ -341,7 +337,7 @@ def emit(g, data):
             f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>')
     og = shelf_og("cm", "medical") if shelf_og else None
     body = (
-        f'<h1>{bi("ดูแลต่อเนื่อง — แผนก คลินิกนอกเวลา และกระดาษที่ต้องใช้", "Ongoing care — departments, after-hours clinics, and the paperwork")}</h1>'
+        f'<h1>{bi("ดูแลต่อเนื่อง — แผนก คลินิกนอกเวลา กระดาษ", "Ongoing care — departments, clinics, paperwork")}</h1>'
         f'<p class="care-intro care-lede">{intro}</p>'
 
         f'<h2 class="care-h">{bi("โรงพยาบาลที่อ่านเว็บของตัวเองได้แล้ว", "Hospitals whose own site has been read")} '
@@ -353,7 +349,7 @@ def emit(g, data):
         f'<p class="care-note">{bi("นี่คือสิ่งที่หน้าเว็บทางการของ VA เขียนไว้ ไม่ใช่คำแนะนำของเรา และไม่ใช่การตีความ", "This is what the VA’s own page states — not our advice, and not our reading of it.")}</p>'
         f'{fmp_html}'
 
-        f'<h2 class="care-h">{bi("วีซ่า DTV — ยังอ่านจากต้นทางไม่ได้", "The DTV visa — not readable from the source")}</h2>'
+        f'<h2 class="care-h">{bi("วีซ่า DTV — ยังอ่านไม่ได้", "The DTV visa — not yet read")}</h2>'
         f'{dtv_html}'
 
         f'<h2 class="care-h">{bi("ยังอ่านไม่ได้ — บอกไว้ตรง ๆ", "Not read yet — said plainly")} '
@@ -361,11 +357,11 @@ def emit(g, data):
         f'<p class="care-note">{bi("สารบัญที่โชว์เฉพาะที่สำเร็จ คือสารบัญที่บอกว่าแผนที่เสร็จแล้ว ทั้งที่ยังไม่เสร็จ รายชื่อนี้คือช่องว่างที่รู้ตัว และคือคิวงานรอบต่อไป", "A directory that shows only its successes is telling you the map is finished. These are the known gaps, and they are the next round’s queue.")}</p>'
         f'{unread_html}'
 
-        f'<h2 class="care-h">{bi("แผ่นพกไปเคาน์เตอร์ — เจ็ดคำถาม", "The sheet to carry to the desk — seven questions")}</h2>'
+        f'<h2 class="care-h">{bi("แผ่นพกไปเคาน์เตอร์ — เจ็ดคำถาม", "The desk sheet — seven questions")}</h2>'
         f'<p class="care-note">{bi("แผ่น A4 พิมพ์ได้ ชี้ที่ภาษาไทยได้เลย ทุกบรรทัดเป็นคำถามที่เคาน์เตอร์ตอบเป็นประจำ — ขอใบเสร็จแยกรายการ ขอเวชระเบียน ถามคลินิกนอกเวลา จดคำตอบพร้อมวันที่แล้วส่งกลับมาบอกมดแดงได้ จะขึ้นเป็นข้อมูลสาธารณะ", "A printable A4 sheet — point at the Thai. Every line is a question a hospital front desk answers routinely: an itemised receipt, a copy of your records, what time the after-hours clinic opens, and whether they have filed US FMP or TRICARE claims before. Write the answer down with the date and send it back; it becomes a public, dated fact on that hospital’s page.")}</p>'
         f'<p><a class="bt-sheet" href="reader/care-words.pdf">📄 '
         f'{bi("ดาวน์โหลดแผ่นคำถาม (PDF)", "Download the desk sheet (PDF)")}</a></p>'
-        f'<h2 class="care-h">{bi("อ่านป้ายหน้าแผนก — คำที่ควรรู้", "Reading the department board — the words to know")}</h2>'
+        f'<h2 class="care-h">{bi("อ่านป้ายหน้าแผนก", "Reading the department board")}</h2>'
         f'<p class="care-note">{bi("อักษรไทย · คำอ่านแบบ RTGS · ความหมาย — เทียบรูปคำกับป้ายได้แม้อ่านไทยไม่ออก", "Thai script · RTGS spelling · what it means — enough to match a word against a sign by its shape, without reading Thai.")}</p>'
         f'{gloss_html}'
 

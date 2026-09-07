@@ -16,9 +16,8 @@ rides every row and is the point.
 - `route` — the door this care ordinarily runs through, whose own page was
   read and does NOT say the word. Ring first.
 
-No rankings, no named clinicians, no outcome claims, no medical advice, no
-price the page did not read. A licence is a register row, never a rating.
-Absent is silence, never a 'no'. A page is a record, not a pamphlet.
+No price the page did not read. A licence is a register row, not a rating.
+Absent is silence, not a 'no'. A page is a record, not a pamphlet.
 
 Fields: `key` `glyph` `nav [th,en]` `title [th,en]` `h1 [th,en]` `desc [th,en]`
 `intro [th,en]` `sections [[key,th,en]…]` `for {key:[th,en]}`

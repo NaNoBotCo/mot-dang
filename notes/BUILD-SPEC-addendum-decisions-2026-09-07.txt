@@ -1,0 +1,222 @@
+ONE FRONT DOOR — ADDENDUM
+Nan's decisions of 2026-09-07, and the detail she asked for.
+Reads with BUILD-SPEC-one-front-door-2026-09-07.txt (go/frontdoor).
+
+DECIDED BY NAN, 2026-09-07:
+  F1  DEPLOY PHASE 0.                                    → in progress
+  F2  RETRIEVER-FIRST. "for now, might change later as the site improves."
+  F3  LOG QUERIES. "Definitely."
+  F4  BOTS ACT on work orders.
+  F5  detail requested — §2 below.
+  F6  WITHDRAWN BY NAN: "I never said the website needed to be purely
+      static." Correct — she did not. That was my inference, not her rule,
+      and it is struck. §4 says what it unlocks.
+
+
+==============================================================================
+1. F2 — RETRIEVER-FIRST, AND WHAT "FOR NOW" BUYS
+==============================================================================
+
+  Retriever-first means the resolved question goes to the edge (structured
+  API + Vectorize) and searchcore becomes the fallback, not the front line.
+
+  Kept anyway, deliberately, and this is what makes "might change later"
+  cheap rather than a rewrite:
+
+    · searchcore.js stays, and parity.py stays green. It is the offline path
+      and the instant-name path, and it is the thing that keeps working when
+      the edge does not.
+    · The resolver's output — WHAT / WHERE / WHEN / WHICH / WORDS — is the
+      stable interface. Which engine answers is a routing decision behind it.
+      Changing the mix later is a config change, not a rebuild.
+    · Every engine's answer is logged with its score (§3), so in three months
+      the question "is the retriever still earning its place" has an answer
+      from data rather than from taste.
+
+
+==============================================================================
+2. F5 — INFRASTRUCTURE VS FIELDS, WITH THE NUMBERS
+==============================================================================
+
+  MEASURED TODAY, from data/canonical/{cm,cr}.json — 25,914 records:
+
+      a pin              25,319   97.7%   ← the one thing we have
+      an address         10,896   42.0%
+      an English name     9,681   37.4%
+      a phone             5,283   20.4%
+      opening hours       4,402   17.0%
+      trade tags          2,598   10.0%
+      a website           2,313    8.9%
+      a description       2,531 of 19,015 cm records (13.3%)
+
+  Read that column downward. We know WHERE almost everything is and almost
+  nothing ELSE about most of it. Four fifths of the directory cannot tell a
+  reader when it opens or how to ring it.
+
+  THE ARGUMENT FOR FIELDS
+    No retriever can rank a fact that was never collected. Every phase in the
+    main spec makes the site better at FINDING; none of them makes a car park
+    with no hours into an answer to "is it open now". The wrong-tool note
+    already measured the sharp end of this: of 1,796 car parks, 0 carry a
+    phone and 2 carry hours, so 68% of them offer a reader nothing beyond the
+    pin they can already see on the map.
+
+  THE ARGUMENT AGAINST SPENDING IT YET — AND THIS IS THE REAL POINT
+    You cannot target field-filling until you log queries. "The top 500
+    most-queried records" is, today, unknowable: the box logs nothing. Money
+    spent now buys fields chosen by guess.
+
+    So F3 is not a parallel decision to F5. It is a PREREQUISITE for it.
+
+      week 0      ship logging (2 hours of work, no new cost)
+      weeks 1–3   let it run; the log says what people actually ask
+      week 4      spend, on the fields the log named
+
+    Three weeks of patience turns $100/month from a guess into a targeted
+    buy. That is the whole recommendation.
+
+  THE UNIT MATH, SO THE BUDGET MEANS SOMETHING
+    Filling and CITING one record's hours + phone — find a first-hand source,
+    verify it, enter it, record provenance — runs about 4 minutes when a
+    source exists. Call it 15 records an hour.
+
+      500 records  ≈ 33 hours
+      1,000        ≈ 67 hours
+
+    You know the Chiang Mai market for that work far better than I do, so I
+    am giving you the work units rather than a wage. What I would say is that
+    the first 500 should be chosen by the log, not by category.
+
+  WHAT ELSE $100/MONTH COULD BUY, RANKED
+    1. Targeted field-filling, chosen by the query log.        ← recommended
+    2. Tavily, free tier or paid (~$30/mo at volume). It is what turns "the
+       site could not answer this" into "and here is the place that exists".
+       worker.js already reads env.TAVILY_KEY; there is nothing to build.
+    3. A geocoder for the 2,116 unpinned records — LocationIQ (~$0–49/mo) or
+       self-hosted Photon. Its own project, not this one.
+    4. Infrastructure. Costs under $10/month all-in and is already bought.
+       There is nothing here worth $100.
+
+  AND THE CHEAPEST FIELDS OF ALL, WHICH ARE NOT A PURCHASE
+    Your own directive of 9/6 stands: a place's own Facebook page IS
+    first-hand, and 63% of records are OSM while only 1% carry an FB page.
+    The blocker recorded there was MECHANISM — 0 of 5 logged-out fetches
+    returned a fact — not policy. Solve the mechanism and a bot fills fields
+    at zero marginal cost, which is §3's F4 tier line exactly.
+    That is the highest-leverage unsolved problem on this list.
+
+
+==============================================================================
+3. F3 — WHAT GETS LOGGED, AND WHAT NEVER DOES
+==============================================================================
+
+  ONE row per resolved query, POSTed to the existing Worker.
+
+  WRITTEN:
+    ts                  when
+    source              box │ map │ chip │ tag │ voice
+    q_raw               what they typed, verbatim, capped at 300 chars
+    resolved            the structure: {what, where, when, which, words}
+    unknown             any word the resolver could not place  ← Cause 2
+    engines             which of A/B/C answered, and each one's top score
+    n                   how many results came back
+    top                 the id ranked first
+    outcome             opened:<id> │ refined │ mapped │ abandoned
+
+  NOT IN THE SCHEMA:
+    no IP · no seat id · no cookie · no fingerprint · no account link.
+    search_log already carries no seat id, on purpose — the existing schema
+    comment says it plainly: "this is about the sites' coverage, not about
+    people." The new column does not change that.
+
+  RETENTION: rows roll off at 180 days; the aggregates that feed the bots
+  survive. D1's free tier covers this at a hundred times current traffic.
+
+  DISCLOSED: one line on terms.html. The licence page already makes promises
+  about this data and it should not have to be amended later.
+
+  WHY `unknown` IS THE MOST VALUABLE COLUMN
+    "moto" was not in the thesaurus, so one shop 4.6 km away was reported
+    with total confidence. A log of the words we did not understand is a
+    ranked to-do list for the vocabulary, and it is generated by readers
+    rather than guessed by us.
+
+
+==============================================================================
+4. F4 — THE BOTS ACT. HERE IS THE LINE THEY DO NOT CROSS.
+==============================================================================
+
+  ONE RULE, and everything else follows from it:
+
+      Does the action ASSERT A NEW FACT ABOUT THE WORLD,
+      or does it only improve the site's ability to find facts it
+      already holds?
+
+      The second, a bot does. The first, Nan signs.
+
+  TIER 1 — ACT. Logged, reversible, no ask.
+    · add a synonym, a thesaurus group, or a segdict word
+      (this is the `unknown` column becoming a fix, unattended)
+    · build a shelf page for records that exist with nowhere to sit
+      (34 of 175 shelves are at zero; 73 records fill 4 of them off their
+      own names)
+    · re-run a crawl for a category that returned nothing
+    · re-embed changed records into Vectorize
+    · merge exact-id duplicates; fix a broken internal link or a bad slug
+    · compute a bearing or a landmark relation from pins ALREADY HELD
+    · open, rank and close work orders
+
+  TIER 2 — PROPOSE. Nan signs.
+    · publish a NEW place record — that asserts a place exists
+    · write or change any field that states a fact about a business:
+      hours, phone, "treats X", price, whether it is open
+    · anything touching licence or provenance — the OSM give-back, the 3,303
+      forbidden rows, the DGA/OGL boundary
+    · delete or unpublish anything
+    · change what a register or lens CLAIMS about a place
+
+  THE GUARDRAILS
+    · A work order needs a THRESHOLD, never a single query: seen ≥ 3, or a
+      cluster of phrasings that resolve to one want. One person's typo is
+      not a mandate.
+    · Every Tier-1 act writes a provenance row naming the bot, the trigger
+      query, and the timestamp. `git revert`-able, one command.
+    · A Tier-1 action firing more than 20 times in a day PAUSES and asks.
+      A bot that has found a hundred things to fix has found a bug.
+    · A weekly digest: what acted, what is waiting on you, what it cost.
+    · Absence stays absence. A bot may never fill a field with a guess to
+      make a page look complete — `openNow` is null and
+      never false applies to bots exactly as it applies to the API.
+
+
+==============================================================================
+5. F6 — STRUCK, AND WHAT IT UNLOCKS
+==============================================================================
+
+  Nan: "I never said the website needed to be purely static."
+
+  She did not. I wrote that constraint into F6 myself and attributed the
+  caution to the project. Struck. What it opens up, in order of value:
+
+    · SERVER-RENDER THE FIRST ANSWER. The answer arrives in the HTML.
+      No 1.5 MB, no JavaScript wait, no blank screen on Thai mobile data.
+      This is a better fix than Phase 4's "smaller index" and it is simpler.
+    · PER-QUESTION INDEXES AT THE EDGE. The Worker already parses one baked
+      file per isolate and answers in 120 ms. A reader never downloads a
+      catalogue again.
+    · REAL QUERY ENDPOINTS instead of a downloaded blob — which is what the
+      /api/v1 Worker has been doing for a month already, for everyone except
+      our own readers.
+    · SESSION THINGS BECOME POSSIBLE: near me, my plan, recently viewed,
+      the map remembering where you were.
+
+  PHASE 4 IS THEREFORE REWRITTEN: it is no longer "make the index smaller".
+  It is "render the answer at the edge and stop shipping an index at all",
+  with the small local index kept deliberately for offline and instant
+  name-matching. Same effort, much better outcome.
+
+  ONE THING WORTH KEEPING ON PURPOSE, not as a constraint but as a feature:
+  the site works on a phone with no signal once it has been loaded. That is
+  worth something in a province with real dead zones, and it should survive
+  as a deliberate choice about which pages cache — not as a rule about how
+  the whole site is built.

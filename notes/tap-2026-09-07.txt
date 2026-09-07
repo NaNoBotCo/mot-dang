@@ -1,0 +1,158 @@
+แตะแล้วได้อะไร — WHAT A TAP ON A MAP IS WORTH
+Measured 2026-09-07, and built the same evening on your six answers (§5).
+Not yet through a build, not deployed.
+
+    Touch it:  https://claude.ai/code/artifact/6ee4f01c-9806-4f38-b51e-21b73536efd4
+    (real ground from our own tiles, 1,104 real records, 1 km of the old city)
+
+
+0. WHAT THE COUNTS BELOW ARE COUNTS OF
+
+Everything measured here was measured at 20:50 on 9/7, against the LIVE site
+and the docs tree built before it — a 25,914-record catalogue. At 20:47 another
+session folded in Overture Places and the catalogue became 88,161 records
+(their note: DO-NOT-DEPLOY-2026-09-07.txt at the repo root; nothing of mine
+builds or deploys anything). So: the page counts describe the site as it stands
+tonight and will be about 3.4× larger after the next build. Two things to watch
+when that build runs, both mine:
+  * `tap.js` fetches data/search_tables.json on the first touch — 331 KB before
+    the fold. It carries the street, district and hours vocabularies, so the
+    fold grows it. If it grows a lot, the card should fetch a table of its own
+    instead of sharing search's.
+  * the soi maps now carry a mark per place; 3.4× the records is 3.4× those
+    attributes on 534 pages. tests/test_page_weight.py is the gate that would
+    catch it.
+The share of records carrying tags, hours or a street will FALL — the fold
+brings contact facts, not tags. The card is built for exactly that: it shows
+what a record holds and stays silent about what it does not.
+
+
+1. WHAT A TAP DOES TODAY
+
+25,889 pages carry a map. A tap answers on some of them:
+
+    place pages (25,243)   the five neighbour dots, and nothing else drawn on them
+    shelf maps (95)        every dot
+    /map.html              only the shelves switched on — and it opens with ONE on (วัด)
+    /here.html             every dot
+    /search.html           every dot on the results map
+    /toilets.html          moves your starting point (its own thing)
+
+And answers nothing at all on:
+
+    soi pages (534)   ·   event maps (9)   ·   the merit route   ·   /doi.html
+    /plan.html   ·   the homepage postcard   ·   every named thing in the tiles
+    (a building, a road, a gate) that is not one of our dots   ·   bare ground, everywhere
+
+So: open แผนที่เมือง, see the city, tap the shop you can see on it — silence, unless
+it happens to be a temple. That is the bug you hit.
+
+
+2. WHAT THE CARD SAYS WHEN IT DOES ANSWER
+
+Name · shelf · 🐜rank · distance · "open this page" · "add to plan". Six lines,
+four of which the page already showed you.
+
+What the record holds and the card does not use:
+
+    7,856 records carry tags (127 tag words)     0 shown
+    6,980 carry a street                          0
+    4,359 carry opening hours                     0 — no open/closed lamp
+    3,852 carry a tambon/amphoe                   0
+    romanisation, the bearing line, 50,946 measured near-edges, events   0
+
+Meanwhile a tap on a RESULT ROW in search opens a panel with a map, the three
+nearest places, same-kind-nearby and events. Two patterns for the same object,
+and the one that explores is unreachable from a map.
+
+
+3. THE PROTOTYPE
+
+Same card everywhere, and it is a place you can keep pulling on:
+
+    name · reading · what it is · which street · how far and which way
+    an open-now lamp ONLY where hours are recorded (absent, never "closed")
+    tag chips that FILTER the map — this is finding by tag with no words typed
+    the three nearest: tapping one MOVES the card to it, no page load
+    open · add to plan · directions
+    a tap on bare ground answers too: which street, which ย่าน, three nearest
+
+Three shapes are switchable at the top so you can feel which is right. Drag the
+blue dot to move "you" and the distances re-reckon.
+
+My read: sheet on a phone, docked panel on a wide screen, never the centred
+modal — the modal covers the thing you just pointed at, and comparing two dots
+is the whole gesture.
+
+
+4. FORKS — answered by you, 9/7 evening (kept here for the record)
+
+  1  SHAPE. Sheet everywhere · sheet on phone + side panel ≥900px · centred modal.
+     Cost: the same either way; it is one CSS block. Worst case of the modal: on a
+     360-wide phone the card covers the map and a second tap costs a close first.
+
+  2  BARE GROUND. Does a tap on nothing answer "here: this street, these three",
+     or stay silent? Cost of answering: nothing to build — /here.html already
+     computes it for the reader's GPS; this asks it of any point. Worst case: a
+     card opens when you meant to pan, which is why it needs a drag test first.
+
+  3  TAGS. Do the chips FILTER the map, or only link out to the tag page?
+     Filtering is what Michael asked for and the API has taken tag= since August.
+     Worst case: a tag nobody has answers zero dots — the map goes empty and has
+     to say so rather than look broken.
+
+  4  WALKING THE CARD. Tapping a nearby name moves the card in place (no page
+     load), or navigates? In place is the exploring verb. Worst case: a reader
+     wanders four cards deep and the back button does not undo it — needs the
+     card to remember its trail, one more button.
+
+  5  WHICH SURFACES. All 25,889 (soi, events, doi, plan, homepage included), or
+     only the browse maps? Cost of all: the same card, mounted in six more places.
+
+  6  THINGS WE DO NOT HOLD. The tiles are full of named buildings and roads that
+     are not our records. Tappable — saying "not on our shelves yet" — or not
+     tappable at all? This one is a policy call about admitting absence out loud.
+
+
+5. BUILT — your six answers, in the code (WO-74, evening of 9/7)
+
+New `tapcard.py` → `tap.css` + `tap.js`, offered by page() on the SAME test that
+pulls in MapLibre: a page with a map gets the card, including a map built next
+year that nobody remembers to wire. md.js keeps its own card underneath for the
+phone that never received tap.js, and its three call sites now ask for the card
+by name at the moment of the touch — so the place maps, the shelf maps,
+/map.html, /here.html, the results map and the toilets page all upgrade without
+an edit of their own.
+
+  1  SHAPE — a sheet at the bottom on a phone, a panel docked bottom-right from
+     900px, never a centred modal. Nothing is trapped and nothing is dimmed: the
+     map stays live under the card, so a reader who opened it by accident is not
+     stuck. Every size is in rem and the height is a maximum, so it still works
+     at 200% text on a 320px screen; every control is 44px; Escape closes it.
+  2  BARE GROUND — silence. A tap that hits no mark opens nothing.
+  3  TAGS — the chips filter. Where the map can narrow itself the chip narrows
+     it and says how many are left; a tag nobody has says "none on this map"
+     rather than quietly showing everything. Where the map cannot (a place map
+     draws five dots), the chip opens the same filter on the results map, which
+     can, sorted by distance.
+  4  WALKING — the three nearest move the card in place, one history entry per
+     card. Your phone's own Back walks the trail backwards and then closes it;
+     closing hands every entry back so Back does not replay the walk. That is
+     the nearest thing to an ADA convention here: the change is on request,
+     announced, and reversible with the control the reader already knows.
+  5  ALL SURFACES — one head hook covers every map page. The 534 soi maps now
+     carry marks that know their own record (they had a <title> and nothing
+     else). The results map now hands the card the tags, street, district and
+     opening hours the row already held.
+  6  THINGS WE DO NOT HOLD — silence. Only our own marks are tappable.
+
+`tests/test_tap.py` runs tap.js under a DOM stub — 26 checks, all green, and
+they assert your six answers so a later session cannot quietly undo them.
+
+STILL TO DO, and honestly not done:
+  * marks on the 9 event maps and the merit round (the same one-line helper);
+  * tag ints on place-map neighbours and on the /map.html and /here.html layers,
+    so the chips appear there too — today they appear on the results map;
+  * THE BUILD. Another session held build.py and a running build all evening;
+    nothing here has been through a full build or the walk's gates, and none of
+    it is deployed. That is the next thing, not a decision for you.

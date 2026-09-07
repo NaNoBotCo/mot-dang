@@ -52,9 +52,8 @@ carries its source*. Here:
 **The keeper names the shrine; the calendar carries its source; nothing here
 awards power.** A shrine's kind (ศาลเจ้า, หลักเมือง, เทวาลัย, หอ) is read off
 its own name and keeper, never assigned by us. What a shrine is said to be
-good for asking is the tradition's claim and renders as a claim — this site
-promises no blessings and gives no ranking of sacredness, no "ศักดิ์สิทธิ์
-ที่สุด", no top-ten for wish-granting. Rites and festival ties carry dates
+good for asking is the tradition's claim and renders as a claim. Rites and
+festival ties carry dates
 from named sources (the festivals.json discipline — `inthakhin`,
 `chinese-new-year`, `suep-chata-mueang` already stand). **Public shrines
 only:** a household's ศาลพระภูมิ in a private compound is home practice, not

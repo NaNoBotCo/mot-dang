@@ -1,0 +1,199 @@
+WO-57 — ภัยพิบัติ · THE DISASTER LAYER
+Proposed 2026-09-04. Nothing built. Your numbered go, or your no.
+
+
+THE ANSWER FIRST
+================
+
+Yes. And four fifths of it is enrichment, not new building — the records
+are already on disk, the print rig already exists, and the one thing that
+is genuinely missing is the one that matters most: the site does not work
+without a network.
+
+
+WHAT IS ALREADY THERE (counted 2026-09-04, not remembered)
+==========================================================
+
+Records, CM + CR, all with lat/lng, Thai first:
+
+     124  hospitals                 1,129  pharmacies
+     469  health stations (รพ.สต.)    726  convenience (24h)
+     435  fuel stations               352  government offices
+     139  fresh markets                59  community centres
+     289  banks                        21,551 rows in total
+
+Live feeds already pulled on the daily walk:
+
+     air.json      PM2.5 + PM10 + AQI, 9 cities, 7-day history, PCD bands
+     weather.json  the cities
+     open_lamps.json  opening hours → what is open at this hour
+
+Ground:
+
+     terrain_heights.json   SRTM elevation at every pin
+     road_graph.json + streets.json   roads and sois
+     cache/overpass/cm/water_points.json   drinking-water points (fetched,
+                                           never used — map-only, unbuilt)
+
+Paper:
+
+     make_handouts.py and make_reader_sheets.py already render A4 PDFs
+     through Chrome: black only, no grey type, one big QR, built to
+     survive a third-generation photocopy. This is a disaster asset that
+     already works and was built for a different reason.
+
+Emergency:
+
+     data/curated/emergency.json — 1669 / 191 / 199 / 1155, each naming
+     the agency that issues it. It renders on the medical shelf ONLY.
+
+
+WHAT IS MISSING, IN THE ORDER IT WOULD HURT
+===========================================
+
+1.  NO OFFLINE. Zero service workers across 23,434 pages. In a flood or
+    a quake the network is the first thing to go and the site goes with
+    it. Everything else on this list is worth less than this one.
+
+2.  THE FOUR NUMBERS ARE ON ONE SHELF. Not on the homepage, not on a
+    page of their own, not on the app, not on paper. Somebody who lands
+    on a noodle shop page at 3am has no path to 1669.
+
+3.  NO PHONE ON 95% OF MEDICAL ROWS. 92 of 1,946 medical records carry a
+    phone number ON THIS DISK. (Not a claim that the numbers do not
+    exist — a claim about what this repo holds.)
+
+4.  NO HAZARD LAYER AT ALL. No flood, no smoke shelter, no shelter or
+    evacuation point, no "which hospital has an ER open tonight".
+
+The season is now: the Ping runs high September–October. Smoke is
+February–April. The March 2025 Mandalay quake was felt through the city.
+Three hazards, three different answers, one city.
+
+
+THE RULE THAT SHAPES ALL OF IT
+==============================
+
+This site says WHERE THINGS ARE AND WHAT THEY ARE. It is not a clinician
+and it is not ปภ. So the layer is locations, numbers, hours, elevations
+and official sources — never triage, never "what to do if", never a
+prediction. emergency.json already says this in its own _rule and the
+rule holds here.
+
+Second rule, from WO-52: an invitation that has never been answered is
+furniture. So no "report flooding here" box. The channel that works is
+the one nobody advertises.
+
+Third: a shelter list that is wrong at 3am is worse than no list. Any
+shelter or evacuation data comes from a named official announcement with
+a date, or it does not go up.
+
+
+THE FORK — pick by number, any combination
+==========================================
+
+1 · OFFLINE FIRST — a service worker and a pocket page
+------------------------------------------------------
+    One page, /chuai.html (ช่วย · help), that caches itself: the four
+    numbers, the nearest ER hospitals with their pins, pharmacies open
+    now, fuel, water points, and the city's own emergency accounts. Once
+    a reader has opened it once, it answers with the network down.
+    Plus a service worker that keeps the last-visited pages readable.
+
+    Cost:      ~1 day. Stdlib only, no new dependency.
+    Worst case: a stale cache shows yesterday's opening hours. Mitigated
+               by stamping every cached page with its build date.
+    Undo:      delete one file; the site is static and unchanged.
+
+2 · THE NUMBERS EVERYWHERE — 30 minutes
+----------------------------------------
+    Move the emergency band out of the medical shelf: footer of every
+    page as a single tel: row, and a full card on /chuai.html. Four
+    tel: links, no prose. This is the cheapest item on the list and the
+    one most likely to matter.
+
+    Cost:      under an hour.
+    Worst case: four more link-instances per page. Measured against the
+               WO-52 word count before it ships; if it fails the count
+               it goes in the footer once and nowhere else.
+    Undo:      one function.
+
+3 · THE PAPER SHEET — A4, Thai first, fridge-door
+--------------------------------------------------
+    Reuse make_handouts.py exactly as it stands. One sheet: the four
+    numbers at the size you can read across a room, the nearest hospital
+    per amphoe, PM2.5 bands with what the colours mean, and the QR to
+    /chuai.html. Black only. Photocopies. Works with no power.
+    Trilingual is on the table — Thai, English, Shan — with the same
+    UNVERIFIED banner rule the housekeeper sheet already carries.
+
+    Cost:      half a day, no new code, needs Chrome.
+    Worst case: printed numbers go stale. Only nationally-issued numbers
+               go on paper, exactly as emergency.json already requires.
+    Undo:      it is a PDF.
+
+4 · SMOKE SEASON — the clean-air layer  (build now, matters February)
+---------------------------------------------------------------------
+    air.json already holds the readings and the PCD bands. What is
+    missing is WHERE TO GO: the malls, libraries, hospitals and offices
+    with filtered air, drawn from records already on disk, plus the
+    government clean-air rooms (ห้องปลอดฝุ่น) when an official list
+    with a date can be found.
+
+    Cost:      1–2 days, most of it verification, not code.
+    Worst case: a room listed as clean-air is not. Mitigated by only
+               listing rooms an official source names, with the date.
+    Undo:      one layer file.
+
+5 · THE FLOOD LAYER — and the honest limit
+-------------------------------------------
+    What this repo can truthfully do: show each pin's ground elevation
+    from SRTM and its distance from the Ping, and put the P.1 gauge
+    reading (Nawarat Bridge, กรมชลประทาน) next to the levels at which
+    the city has historically taken water.
+
+    What it CANNOT do: tell anyone whether their house floods. SRTM at
+    z12 is roughly 38 m per cell with 5–10 m of vertical error. That is
+    a terrain profile, not a flood model, and any page built on it must
+    say so in its first line or it is lying.
+
+    Cost:      2 days, and one open question — whether the P.1 gauge has
+               a fetchable feed. Unknown; would need checking.
+    Worst case: false confidence. This is the item I would build LAST,
+               and only with the limit printed at the top.
+    Undo:      one layer file.
+
+6 · ENRICH WHAT IS ALREADY THERE — the unglamorous one
+-------------------------------------------------------
+    · phones onto the 124 hospitals and 469 health stations
+    · which hospitals run a 24-hour ER, from their own stated hours
+    · the water points already fetched and never built
+    · fuel + 24h convenience already have hours; surface them on
+      /chuai.html as "open now" instead of a separate shelf
+
+    Cost:      2–3 days, mostly reading sources.
+    Worst case: a wrong phone number. Every one carries its source and
+               fetch date, same as every other record on this site.
+    Undo:      per-record.
+
+
+EXPIRY
+======
+
+Items 1, 2, 3 and 6 have no expiry — they are better the day before
+they are needed and useless the day after.
+
+Item 4 has one: it is worth building before February. After the smoke
+starts it is a page written in a hurry.
+
+Item 5 has one too, the other way: the Ping is high NOW, Sept–Oct. If
+the flood layer is wanted for this season it needs the go inside two
+weeks. Otherwise it waits for next year, which is fine.
+
+
+WHAT I DID NOT DECIDE
+=====================
+
+Whether ANY of this ships. This is a proposal with numbers attached,
+not a plan, and nothing is held or holstered — it is simply not built.
+Say a number, a set of numbers, or no.

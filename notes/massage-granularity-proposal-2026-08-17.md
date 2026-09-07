@@ -200,17 +200,6 @@ Built 2026-08-17: **D then A**, in that order, on Nan's call.
   a LINE QR; its audience is a shop. These are the other direction, and they
   live in `assets/reader/` behind their own generator.
 
-## What this proposal refuses to build
-
-- Any inferred, scored, or derived rating of what a shop "really is."
-- Any pairing that sorts shops into wholesome and otherwise.
-- Any listing that excludes a venue for what it sells, or names workers.
-
-The claim of this design is narrower and stronger than a safety label: a
-reader who can see the thirteen words, the frame, and the plaque does not
-need us to tell them anything.
-
-
 ---
 
 ## What shipped, 2026-08-17

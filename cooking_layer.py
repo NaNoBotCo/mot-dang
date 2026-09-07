@@ -353,7 +353,7 @@ def emit(g, data):
             "Galangal (ข่า, khàa) is piny and sharp — tom kha, tom yam, every curry paste; ginger (ขิง, khǐng) is sweet-hot — stir-fries and sweets; they do not swap. Kaffir lime (มะกรูด, má-krùut) gives its torn leaf and grated zest, not its juice; the lime you squeeze is มะนาว (má-naao). Three basils: holy basil (กะเพรา, kà-phrao) — furred, peppery, for phat kaphrao; Thai sweet basil (โหระพา, hǒo-rá-phaa) — anise-scented, into green curry; lemon basil (แมงลัก, maeng-lák) — into khanom chin nam ya."),
          bi("ตะไคร้ (tà-khrái) ใช้แต่โคนขาว · ขมิ้น (khà-mîn) ทำให้แกงเหนือเหลือง · รากผักชี (râak phàk-chii) คือกลิ่นลับในพริกแกงและน้ำจิ้ม — ของสามอย่างที่คนเรียนมักไม่เคยเห็นทั้งต้น",
             "Lemongrass (ตะไคร้, tà-khrái): only the pale base. Turmeric (ขมิ้น, khà-mîn) is what makes a Northern curry yellow. Coriander root (รากผักชี, râak phàk-chii) is the hidden scent in pastes and dipping sauces — three things a learner has usually not seen whole."))
-    card("ครกกับสาก — ทำไมต้องตำเอง", "The mortar and pestle — why you pound it yourself",
+    card("ครกกับสาก", "The mortar and pestle",
          bi("พริกแกง (phrík kaeng) ทุกชนิดเริ่มจากครกหิน (khrók hǐn) กับสาก (sàak): พริกแห้งแช่น้ำ ข่า ตะไคร้ ผิวมะกรูด รากผักชี หอม กระเทียม กะปิ ตำจากของแข็งไปหาของนิ่ม ใส่เกลือเม็ดช่วยบด ตำจนเนียนเป็นเนื้อเดียว — สิบถึงสิบห้านาทีต่อครก คลาสดี ๆ ให้ทุกคนมีครกของตัวเอง และเสียงตำพร้อมกันทั้งห้องคือเสียงของครัวไทยจริง ๆ",
             "Every curry paste (พริกแกง, phrík kaeng) starts in a stone mortar (ครกหิน, khrók hǐn) with a pestle (สาก, sàak): soaked dried chillies, galangal, lemongrass, kaffir zest, coriander root, shallot, garlic, shrimp paste — hardest things first, a pinch of coarse salt to help the grind, pounded until it is one smooth paste. Ten to fifteen minutes a mortar. A good class gives everyone their own, and a room pounding together is the real sound of a Thai kitchen."),
          bi("ครกดิน (khrók din, ครกดินเผากับสากไม้) ใช้ตำส้มตำ — ตำเบา ๆ แค่ให้ช้ำ ไม่ใช่บด · เครื่องปั่นทำได้ แต่ได้เนื้อและกลิ่นคนละอย่าง — ครูจะบอกเองว่าทำไม",
@@ -371,7 +371,7 @@ def emit(g, data):
          bi("เจ (jee) คือแบบจีน-พุทธ: ไม่มีเนื้อ ไข่ นม และไม่มีผักฉุนห้าอย่าง (กระเทียม หอม กุยช่าย หลักเกียว ใบยาสูบ) ร้านเจติดธงเหลืองตัว 齋 · มังสวิรัติ (mang-sà-wí-rát) คือมังสวิรัติทั่วไป บางคนกินไข่-นม · วีแกน (wii-kaen) คือไม่มีของจากสัตว์เลย — น้ำปลาและกะปิคือจุดที่เมนูไทยเลี่ยงยาก โรงเรียนที่ทำได้จะบอกเองว่าใช้ซีอิ๊วหรือเกลือแทน",
             "เจ (jee) is the Chinese-Buddhist rule: no meat, egg or dairy, and none of the five pungent plants (garlic, onion, chives, Chinese leek, tobacco-leaf); a jee shop flies a yellow flag with the character 齋. มังสวิรัติ (mang-sà-wí-rát) is ordinary vegetarian, egg and dairy for some. วีแกน (wii-kaen) is nothing from an animal — fish sauce and shrimp paste are where a Thai menu has to be rewritten, and a school that can do it will say whether soy sauce or salt stands in."),
          f'<a href="festivals/kin-je.html">{bi("เทศกาลกินเจ — เก้าวันเดือนเก้าจีน (ราวกันยายน–ตุลาคม) ธงเหลืองทั้งเมือง", "The Vegetarian Festival — nine days of the ninth Chinese month, about September–October, yellow flags across town")} →</a>')
-    card("เงิน — ค่าเรียน รถรับ และค่านายหน้า", "Money — the fee, the van and the commission",
+    card("เงิน — ค่าเรียน รถรับ ค่านายหน้า", "Money — fee, van, commission",
          bi("ราคาที่โรงเรียนในเมืองประกาศเอง (ดูกระดาน) อยู่ราว 1,000–1,500 บาทต่อคนสำหรับครึ่งวันหรือเต็มวัน รวมรถรับ ตลาด วัตถุดิบ สูตรกลับบ้าน และอาหารที่ทำ · คลาสในโรงแรมคิดเป็นพันหลายพันบวกค่าบริการ · ทุกตัวเลขบนกระดานมีที่มาและวันที่ และยังไม่มีตัวไหนเทียบกับป้ายหน้าประตู",
             "What the town's schools post themselves (see the board) runs about 1,000–1,500 baht a person for a half or full day, with the van, the market, the ingredients, the recipes and the meal you made; hotel studios charge several thousand plus service. Every number on the board carries its source and date, and none has yet been checked against the sign at the school's entrance."),
          bi("จองผ่านที่พัก เอเจนซี่ หรือแอปจอง มักมีค่านายหน้าอยู่ในราคา — ไม่ผิดอะไร แค่รู้ไว้ ราคาที่เว็บหรือ LINE ของโรงเรียนคือราคาของโรงเรียน เทียบได้ · ถามสามอย่างก่อนโอน: รวมรถรับไหม รัศมีกี่กิโล และยกเลิกได้ถึงเมื่อไหร่",
@@ -398,7 +398,7 @@ def emit(g, data):
              ("กินข้าว (kin khâao) — กินอาหาร", "kin khao (กินข้าว) — to eat, whatever is eaten"),
          ]) + "</ul>",
          f'<span class="say">{bi("คำว่า ครัว (khrua) แปลว่าห้องครัว และในภาษาเมืองยังแปลว่าของ/ข้าวของ (ครัวตาน — ของที่นำไปทำบุญ) · แกง ใช้ได้ทั้งของใส่กะทิและไม่ใส่ ความหมายกว้างกว่า curry", "ครัว (khrua) is the kitchen — and in the Northern tongue also means goods, things (khrua taan, the things carried to a temple offering). แกง (kaeng) covers dishes with coconut and without; it is wider than the English curry.")}</span>')
-    card("กระดาษบนผนัง — โรงเรียน หรือทัวร์", "The paper on the wall — a school, or a tour",
+    card("กระดาษบนผนัง", "The paper on the wall — school or tour",
          bi("โรงเรียนสอนทำอาหารที่จดทะเบียนเป็น โรงเรียนนอกระบบ กับสำนักงานคณะกรรมการส่งเสริมการศึกษาเอกชน (สช.) ตาม พ.ร.บ.โรงเรียนเอกชน พ.ศ. 2550 จะมีใบอนุญาตจัดตั้งโรงเรียนมีเลขที่ติดผนัง ออกใบประกาศที่กระทรวงรับรองได้ และคอร์สยาวของโรงเรียนแบบนี้คือทางที่วีซ่านักเรียน (ED) เดิน · คลาสที่มารับถึงที่พักและพาเดินตลาด บางแห่งจดทะเบียนเป็นธุรกิจนำเที่ยว มีเลขใบอนุญาตของ ททท. (สุวรรณีที่เชียงรายพิมพ์เลขไว้บนเว็บ) · สองกระดาษนี้ต่างกัน และไม่มีอันไหนบอกว่าครัวไหนดีกว่า — ถ้าอยากเห็น ขอดู",
             "A cooking school registered as a โรงเรียนนอกระบบ, a private non-formal school, with the Office of the Private Education Commission (สช.) under the Private School Act B.E. 2550 hangs a numbered licence on the wall, can issue a Ministry-recognised certificate, and a long course at such a school is the road an ED visa travels. A class that fetches you and walks a market is sometimes registered instead as a tour business, with a TAT licence number (Suwannee in Chiang Rai prints hers on her site). The two papers are different things, and neither says whose kitchen is better — if you want to see it, ask."),
          bi("ฝั่งอาชีพ: กรมพัฒนาฝีมือแรงงานมีมาตรฐานฝีมือแรงงานแห่งชาติ สาขาผู้ประกอบอาหารไทย ให้คนทำครัวสอบเอาใบรับรอง — สถาบันที่เชียงใหม่ (335 หมู่ 3 ถ.โชตนา แม่ริม โทร 053 121002-3) และที่เชียงรายมีสอบตามรอบ รอบนี้มีสาขาไหนบ้าง โทรถาม · ชั้น “หลักสูตรอาชีพ” บนชั้นนี้ยังว่างอยู่จริง ๆ จนกว่าสถาบันเหล่านี้จะบอกเองบนหน้าเว็บว่าสอนอาหาร",
@@ -437,17 +437,17 @@ def emit(g, data):
             f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>')
     og = shelf_og("cm", "cooking") if shelf_og else None
     body = (
-        f'<h1>🍳 {bi("เรียนทำอาหารไทย — คลาสวันนี้ โรงเรียนทุกแบบ รู้อะไรก่อนจับครก", "Thai cooking classes — today, every kind of school, what to know before the mortar")}</h1>'
+        f'<h1>🍳 {bi("เรียนทำอาหารไทย — คลาสวันนี้ ทุกโรงเรียน", "Thai cooking classes — today, every school")}</h1>'
         f'<p class="ck-intro">{intro}</p>'
         f'{today_html}'
         f'<h2>{bi("กระดานรอบเรียนประจำสัปดาห์", "The weekly class board")}</h2>'
         f'{board_html}{venues_html}{link_html}{unc_html}{cr_html}'
-        f'<h2>{bi("ชั้นเรียนทำอาหาร — ทุกโรงเรียน ทุกแบบ", "The cooking shelf — every school, every kind")}</h2>'
+        f'<h2>{bi("ชั้นเรียนทำอาหาร", "The cooking shelf")}</h2>'
         f'{shelf_html}'
         f'<h3>{bi("โรงเรียนทั้งหมดในสารบัญ", "Every school in the directory")} <span class="count">({len(school_rows)})</span></h3>'
         f'<p class="ck-note">{bi("เรียงตามชื่อ — ☎ LINE 🌐 คือช่องทางที่สารบัญมี · 📋 = อยู่บนกระดานด้านบน ที่เหลือยังไม่มีคำของตัวเองให้จด ถามก่อนไป · โรงเรียนไหนยังไม่มีเบอร์ ช่วยกันเติมได้", "Alphabetical — ☎ LINE 🌐 mark the channels the directory holds · 📋 = on the board above; the rest have stated nothing yet to write down, so ask first · a school with no contact can be filled in by anyone")}</p>'
         f'{schools_html}'
-        f'<h2>{bi("ก่อนจับครก — เรื่องที่ควรรู้", "Before the mortar — what you are looking at")}</h2>'
+        f'<h2>{bi("ก่อนจับครก", "Before the mortar")}</h2>'
         f'{primer_html}{joins_html}'
         f'<p class="ck-note">{bi("ที่มาของกระดาน", "Board data")}: <a href="data/cooking_classes.json">data/cooking_classes.json</a> · '
         f'{bi("รอบเรียนและราคาอยู่บนหน้าของแต่ละโรงเรียนด้วย", "sessions and prices also sit on each school’s own page")}</p>'

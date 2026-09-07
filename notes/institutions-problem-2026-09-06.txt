@@ -1,0 +1,224 @@
+THE INSTITUTIONS PROBLEM — what EFEO is an instance of
+Mot Dang · problem statement only · 2026-09-06 · no build
+Counts below are from data/canonical/cm.json + cr.json as of this morning (24,059 records).
+"Corpus holds 0" means not on this disk. It never means the city has none.
+
+────────────────────────────────────────────────────────────────────────
+0. ONE LINE
+
+  Mot Dang admits a place to the corpus by its COUNTER — the point where it
+  sells something to someone. A place with no counter cannot get in, has no
+  shelf to sit on, has no field that could say what it is for, and is fed by
+  a genre of source that has never been registered. EFEO fails on all four
+  at once. So does every library, archive, institute, consulate, foundation,
+  association, congregation, society, club and civic office in the city.
+
+────────────────────────────────────────────────────────────────────────
+1. THE ENTRY TICKETS — how a place gets in today
+
+  Every record arrived through one of three doors:
+
+    (a) A MAPPER WALKED PAST IT and it had a signboard worth tagging.
+        OSM — 15,262 records (63%).
+    (b) A LICENCE OR REGISTER NAMES IT AS A BUSINESS/SCHOOL/WAT.
+        ONAB wats, OBEC/OPEC schools, MOPH clinics, condo register, weedth,
+        DBD juristic persons — register 3,969 + opendata 2,182.
+    (c) IT MARKETS ITSELF TO CONSUMERS.
+        CMHY trade directory 3,293; Facebook business pages; curated 680.
+
+  source_register.json holds 18 sources. All 18 are one of (a)(b)(c):
+  business pages, licensed clinics, tour-operator licences, seller
+  storefronts, YellowPages, market-stall lists. Not one is a ROSTER OF
+  INSTITUTIONS. The class was not under-crawled; it was never in scope.
+
+  The test for membership in the class: fails (a) AND (b) AND (c).
+    EFEO: no signboard trade → not tagged. Not a business, school or wat →
+    on no register we hold. Serves scholars by appointment, not consumers →
+    no marketing surface. Invisible by construction, not by accident.
+
+────────────────────────────────────────────────────────────────────────
+2. THE HOLE, MEASURED
+
+  Probe on name/nameTh/nameEn, both provinces:
+
+    class                         held   where they were filed
+    ─────────────────────────────────────────────────────────────────
+    archive จดหมายเหตุ               0   —   (National Archives has a CM branch)
+    mosque มัสยิด                    0   —   (CM has well over a dozen)
+    consulate กงสุล                  2   1 = US Consulate (via 'web'); 1 = "Chicken Embassy", food
+    institute สถาบัน                 8   7 filed school
+    church คริสตจักร                 8   5 are CEMETERIES; 1 filed `wat`; 1 filed `sights/historic`
+    club ชมรม/สโมสร                  8
+    research ศูนย์วิจัย              8   4 filed essentials
+    association สมาคม               11
+    non-formal ed กศน.              11
+    foundation มูลนิธิ              19   (province registers hundreds)
+    library ห้องสมุด                22   17 filed `sights`; 14 are CMU faculty rooms
+    ho trai หอไตร                    1
+    cemetery สุสาน/ป่าช้า           303   ← the tell
+
+  The cemetery row is the proof. 303 cemeteries, 0 archives. A cemetery is a
+  LANDUSE POLYGON — a mapper draws it. An archive is a FUNCTION — nobody draws
+  it. The corpus holds what has a footprint, not what has a purpose.
+
+  The `community` cat (375 records) is where institutions go to die:
+  278 of 375 (74%) are cremation grounds. Subs: cremation 278, centre 59,
+  clubs 16, volunteer 14, arts 3. There is no sub for church, mosque,
+  foundation, association, consulate, library, archive or institute. A
+  church that is not a cemetery had to be filed as a wat or a historic sight.
+
+  The one consulate that made it came through source type `web` — the only
+  door in the register that is not a map, a licence or a storefront. That
+  door has 216 records. It is the door this class needs, and it is 0.9% of
+  the corpus.
+
+────────────────────────────────────────────────────────────────────────
+3. WHY THIS IS NOT THE TOK-SEN DISEASE
+
+  Tok sen (go/disease) was a MISSING ATTRIBUTE ON A PRESENT RECORD: the shop
+  was in the corpus as a massage shop; what it offered was not. One miss.
+
+  EFEO is FOUR MISSES STACKED, each of which alone would hide it:
+
+    1. No RECORD    — no source we hold names it.
+    2. No SHELF     — 203 shelf keys; none is library/archive/institute/
+                      consulate/congregation/foundation. `libraries` exists as
+                      a shelf key but resolves to a `library` TAG that 0
+                      records carry; the 21 library-ish records are a LENS.
+    3. No FIELD     — the schema cannot say what an institution is FOR.
+    4. No SOURCE GENRE — see §5.
+
+  Fixing any one leaves it invisible. The name-rule that filled physio and
+  made-to-order from names already in the corpus (go/shelves) cannot help
+  here: the names are not in the corpus.
+
+────────────────────────────────────────────────────────────────────────
+4. WHAT THE SCHEMA CANNOT SAY
+
+  Top-level fields: name, lat/lng, address, phone, website, hours, cat, sub.
+  attrs census, top keys: pinVia, amphoe, postcode, facilityType, tambon,
+  kind, facets, sector, sect, foundedBE, tradeTags, desc, watCode, watRank,
+  cuisine, licenceNo, brand, brandWikidata, operator, students, classrooms.
+
+  Every one of these describes a TRADE, a WAT or a SCHOOL. A reader's
+  question to an institution is none of those. It is:
+
+    WHAT DOES IT HOLD OR DO   — "Lanna palm-leaf manuscripts, microfilm,
+                                French & Thai scholarship on the region"
+    WHO MAY USE IT            — public / members / researchers / by letter
+    ON WHAT TERMS             — appointment, membership fee, reading-room
+                                only, no lending, ID required
+    WHO IS BEHIND IT          — parent body (EFEO Paris; CCT; MFA of X;
+                                Rotary District 3360)
+    SINCE WHEN / STILL?       — a foundation can be dormant for a decade and
+                                still registered
+    IN WHAT LANGUAGE          — the librarian's, the catalogue's, the sermon's
+
+  No field carries any of these. `desc` exists on 2,531 records — nearly all
+  the ONAB wat register text. There is no `holds`, `access`, `parent`,
+  `eligibility`, `terms`. A perfect crawl would yield a pin and a name, which
+  for a research library is worse than nothing: it sends a reader to a locked
+  door on a Tuesday.
+
+  This is the search disease in its hardest form. Tok sen was a SERVICE you
+  buy — an `offers[]` line fixes it. An institution's value is a HOLDING, a
+  CAPABILITY or an ELIGIBILITY. Nobody asks "library near me" to find EFEO.
+  They ask "who has the Jinakālamālī", "where can I read Tai Khün", "is
+  there a Quaker meeting", "which consul handles a Dutch passport". The unit
+  of demand is the holding; the unit of the index is the name.
+
+────────────────────────────────────────────────────────────────────────
+5. WHY CRAWLING HARDER CANNOT FIX IT — AND WHAT CAN
+
+  The inverse-coverage law again, inverted once more. Shops are
+  under-documented and over-mapped. Institutions are OVER-DOCUMENTED and
+  UNMAPPED. EFEO has a century of publications, an annual report, a staff
+  page, footnotes in every serious book on Lanna. The information is not
+  scarce; it lives in a GENRE OF SOURCE the pipeline has never read:
+
+    ROSTERS   — institutions are legible to EACH OTHER even when illegible
+                to maps. Someone maintains a list: the MFA's consular list;
+                the provincial Islamic committee's mosque list; the Church
+                of Christ in Thailand's district rolls; the Interior
+                Ministry's foundation/association registry (มูลนิธิ/สมาคม
+                are REGISTERED, like wats); MHESI's research-unit list;
+                National Archives' branch list; กศน. centre lists; Rotary
+                District 3360; the Informal Northern Thai Group's speaker
+                archive; the Foreign Cemetery's own burial roll.
+    OWN PAGES — an institution's About page is written by the institution,
+                with access rules on it. This is the "own words" bar already
+                set for Facebook (go/provenance): first-hand.
+    THE LITERATURE — acknowledgements, footnotes, bibliographies, gazettes.
+                The only source genre where a manuscript HOLDING is stated.
+
+  The 1930s Polk and Kelly city directories already knew this. Their
+  "Churches / Societies / Consuls / Libraries / Public Offices" sections were
+  compiled from rosters, separately from the alphabetical trades which were
+  walked. Mot Dang has rebuilt the trades half of a city directory and none
+  of the miscellany half.
+
+────────────────────────────────────────────────────────────────────────
+6. WHY THE ECONOMICS ARE THE OPPOSITE OF THE SHOPS
+
+  Shops: 20,000 of them, churn yearly, cheap to be wrong about (a closed
+  noodle stall costs a reader a walk). Hand-entry cannot scale; crawl must.
+
+  Institutions: hundreds, not tens of thousands. Churn is decades (EFEO,
+  the Consulate, the Foreign Cemetery, the mosques have not moved in a
+  generation). Expensive to be wrong about (a wasted trip to an
+  appointment-only reading room; a consulate that no longer handles your
+  passport). Small N × low churn × high error cost = the ONE class where
+  hand-curation from rosters is not a stopgap but the correct method, and
+  where a DATE on every access rule is mandatory.
+
+────────────────────────────────────────────────────────────────────────
+7. WHY IT IS THE MISSION, NOT A SIDE SHELF
+
+  HERE and ARRIVALS (go/here, go/arrivals) serve the 99% ARRIVING. This
+  class serves the person who STAYS — and the scholar, the convert, the
+  bereaved, the stateless, the volunteer. It is the difference between a
+  tourist listing and a civic record.
+
+  It is also the memory of the city. The shops will be re-mapped by the
+  next crawler. The Payap archive's missionary letters, the ho trai's
+  bundles, the EFEO reading room will not be re-found by anyone if they go
+  unlisted. A directory that holds 303 cemeteries and 0 archives has the
+  memory organs backwards.
+
+────────────────────────────────────────────────────────────────────────
+8. WHAT THE ARCHITECTURE MUST ANSWER (not answered here — these are the forks)
+
+  A. WHERE THE CLASS LIVES — a new top-level cat `institutions` with its own
+     children (library, archive, institute, consulate, foundation,
+     association, congregation:church/mosque/gurdwara/synagogue/meeting,
+     club, civic-office), vs a lens laid across the existing cats. The
+     `community` cat cannot host it: it is 74% crematoria.
+
+  B. THE FIELDS — `holds[]`, `access`, `terms`, `parent`, `eligibility`,
+     `languages`, each with per-field provenance and a DATE, as attrs or
+     first-class. Whether `offers[]` (the tok-sen fix) and `holds[]` are one
+     array or two.
+
+  C. THE SOURCE GENRE — a roster importer, not a crawl: which rosters exist
+     for CM/CR, who maintains each, what licence, what each yields. MEASURE
+     BEFORE BUILD (source-scout pattern): count the MFA consular list, the
+     mosque list, the foundation registry, before writing a line.
+
+  D. THE EVIDENCE BAR — access rules come only from the institution's own
+     words or a roster, never inferred; every rule carries `asOf`. The
+     reader must be able to see the date.
+
+  E. THE INDEX — how a HOLDING is searched: "Tai Khün manuscripts" must land
+     on EFEO and Payap; "Dutch passport" on the honorary consul. That is
+     vocabulary.json (Phase 1 of go/cure) fed a second kind of term.
+
+  F. THE READER FACE — an institution page answers "may I, and how", not
+     "is it open now". Different card, different tests, different first line.
+
+  G. SIZE OF THE FIRST TRANCHE — the ~30 that a resident scholar would name
+     from memory (EFEO, Payap Archives, National Archives CM, CMU Social
+     Research Institute, the Foreign Cemetery, the consulates, the mosques,
+     the churches, INTG, the Quaker meeting, Chabad, the Gymkhana Club) vs
+     the full roster pull.
+
+None of A–G is decided. They are Nan's.

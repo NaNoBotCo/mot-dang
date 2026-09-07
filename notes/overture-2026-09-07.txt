@@ -1,0 +1,138 @@
+OVERTURE — WHAT THE FOLD DID
+Built 2026-09-07 · Nan: "a and b" · go/overture
+
+
+WHAT WAS ASKED
+--------------
+Fork A: use Overture Places to fill contact facts on records Mot Dang already
+holds. Fork B: admit the places it holds that Mot Dang does not.
+
+
+WHAT IT IS
+----------
+Overture Maps Places, release 2026-08-19.0, CDLA-Permissive 2.0, off a public
+S3 bucket with no account. In Chiang Mai and Chiang Rai it is 96,870 rows and
+**99% of them come from Meta** — they are Facebook business pages, carrying the
+phone and address the page itself states.
+
+That matters because of the 9/6 directive. OSM is not first truth; a place
+describes itself on Facebook; and the blocker was never policy, it was
+mechanism — five logged-out fetches of facebook.com gave no fact, and dressing
+a script as a browser to get one is off-limits. This is the same fact arriving
+through an open front door.
+
+It was parked on 8/19 as "GB-scale parquet, not stdlib — its own decision".
+Both halves are gone: duckdb reads the remote file in place and takes only the
+rows it wants. The extract is 33 seconds.
+
+
+THE NUMBERS
+-----------
+                 before            after
+  records        25,914            88,161
+  with a pin     97.7%             99.3%
+  phone          20.4%             69.3%
+  facebook        1.0%             78.1%
+  email           1.7%             28.7%
+  address        42.0%             55.6%
+  website         8.9%             23.2%
+  hours          17.0%              5.0%   <- the one that got worse
+
+  A · enriched     6,270 records gained a phone, website, address, Facebook
+                   page or email they did not have
+  B · admitted    63,170 places nothing here held
+      refused      6,897 near-misses, written down for a person
+
+Shelves, before -> after:
+  massage         342 -> 1,317      food       5,340 -> 26,984
+  beauty          283 -> 2,576      repair       542 -> 5,467
+  hotel         1,939 -> 8,525      wat        2,739 -> 3,373
+  physio            6 ->    49      music         29 ->    86
+  pest control     11 ->    21
+
+And the one the whole search-disease note was written about:
+
+  records with ตอกเส้น in the NAME:  0 -> 4
+  records with จับเส้น in the NAME:  0 -> 4
+
+Nothing had ever named tok sen. Four shops now say it themselves.
+
+
+WHAT IT REFUSES TO DO, AND THE MEASUREMENTS BEHIND EACH REFUSAL
+---------------------------------------------------------------
+1. IT NEVER MATCHES ON A NAME ALONE.
+   Over 3,072 records with a surveyed pin whose name matches exactly one
+   Overture row in the province: median 32 m, 64% inside 100 m, **p90 21 km,
+   p95 134 km**. The middle says the two datasets agree; the tail says name
+   equality across a province is routinely two different shops. So identity is
+   name AND within 300 m.
+
+2. IT NEVER MOVES A PIN.
+   595 records still have no coordinates and Overture appears to offer some.
+   Under the strictest rule available — unique name, and the point inside the
+   อำเภอ our own address names — 555 candidates came out at median 62 m but
+   **p90 5,551 m**, above the ±3,000 m this repo publishes at. Requiring
+   confidence >= 0.8 gave p90 3,896 m. Still over. 85 records could have had a
+   pin tonight and about a quarter of them would have been the wrong place, so
+   they keep their honest absence.
+
+3. IT NEVER OVERWRITES. Only empty fields are filled. Survey, register,
+   curated correction and an owner's claim all outrank it and all run later.
+
+4. IT NEVER SETTLES A NEAR-MISS. 6,897 rows stood within 25 m of a record we
+   hold, on the same shelf, under a name the match rule did not recognise.
+   Sampling found both kinds — real duplicates under two spellings (บ้านกาแฟ
+   and "Ban Coffee", 4 m apart) and real neighbours (a sushi bar 11 m from an
+   MK). A join cannot tell those apart, so they went to
+   cache/overture_review_cm.txt and _cr.txt for a person. 25 m and not 50 m
+   because 50 m of a Chiang Mai soi is several shops.
+
+5. IT IS NEVER GIVEABLE TO OPENSTREETMAP. The source type is `directory`, so
+   provenance.py classes it FORBIDDEN and the give-back gate refuses it
+   without being told. Correct: CDLA-Permissive is not ODbL and Meta's rows
+   are not ours to relicense. The cost was counted before it was taken — on
+   2026-09-07 no record in the catalogue had a giveable or licence-waiting
+   field, so nothing was lost.
+
+
+WHAT IT COSTS
+-------------
+- **Hours coverage falls from 17% to 5%.** Overture carries no opening hours
+  at all, so 63,170 records arrive without any and dilute the fraction. The
+  4,402 records that state hours still state them. Nothing was lost; the
+  denominator grew.
+- **The catalogue is 3.4x bigger.** Every per-record cost multiplies: build
+  time, page count, the search index, the assistant's vector index.
+- **It is Facebook's view.** A closed shop keeps its page. An owner's house
+  can be a business location. 30% of rows carry a confidence below 0.5 and
+  were refused, but confidence is Overture's guess, not a survey.
+- **6% of rows could not be filed** — no category we map, or none at all.
+  They enriched but were not admitted.
+
+
+WHAT IS ON DISK
+---------------
+  importers/harvest_overture.py       the fetch (needs duckdb; the only thing here that does)
+  importers/import_overture.py        A and B, stdlib, wired into import_all.py
+  data/curated/overture_categories.json   96 rules, Overture category -> shelf, 94% of rows
+  tests/test_overture.py              28 checks: every refusal above, tested
+  cache/overture/cmcr.jsonl.gz        96,870 rows, the whole north
+  cache/overture/pre-overture/        the 25,914-record catalogue, kept
+  cache/overture_review_<prov>.txt    the 6,897 near-misses
+  DO-NOT-DEPLOY-2026-09-07.txt        a note to the other sessions; delete it on Nan's go
+
+One test elsewhere was rewritten, not weakened: tests/test_kinds.py asserted
+that more than 500 register-described wats are rescued from noindex by the
+kind-aware gate. Enrichment gave 238 of those wats an ADDRESS, so they now
+clear even the old shop-shaped gate and leave the rescued population BY GETTING
+BETTER. A count over a moving corpus drifts on its own — the same trap as the
+romaniser's corpus floor. It now asserts the property that does not drift:
+every register-described wat that fails the shop-shaped gate is rescued.
+173 of 173.
+
+
+NOT DEPLOYED
+------------
+The site has not been rebuilt or published with this. That is Nan's call and
+it wants the build numbers first: index weight, page count, and whether a
+search box with 3.4x the rows behind it still answers.

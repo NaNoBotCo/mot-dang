@@ -7,10 +7,15 @@ record["sub"]; build.py matches children by key against that list.
 """
 import json
 import re
+import sys
 from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+# Per-field provenance lives at the repo root, not in importers/. Needed here
+# so a name this file WRITES (the parking fence) says who wrote it.
+sys.path.insert(0, str(ROOT))
+import provenance  # noqa: E402
 
 
 FOOD_INTL = {"japanese", "italian", "chinese", "korean", "indian", "vietnamese",
@@ -39,6 +44,28 @@ def food_sub(t):
     diets = {t.get("diet:vegetarian"), t.get("diet:vegan")}
     if cuisines & {"vegetarian", "vegan"} or "only" in diets:
         return "vegetarian"
+    # THE TAG RULE WAS WRITTEN AND THE NAME RULE NEVER WAS. The diet rule above
+    # is right and it only fires on a tag 51 places carry; meanwhile 40 shops
+    # said it on their own signboards — Ming Kwan Vegetarian, Imjai Vegan,
+    # Pakbai Vegetarian and Vegan Food, and one simply called มังสวิรัติ — and
+    # every one of them was filed `thai` or `cafe`. That is the WO-22 lesson
+    # one shelf further along: before a shelf is called thin, READ THE NAMES.
+    # Bare เจ is deliberately not in this list: it is a common syllable in Thai
+    # names (เจ็ดยอด, เจริญ) and would sweep in hundreds of unrelated places.
+    name = " ".join(str(t.get(k) or "") for k in ("name", "name:th", "name:en")).lower()
+    if any(w in name for w in ("มังสวิรัติ", "อาหารเจ", "ร้านเจ", "vegetarian", "vegan")):
+        return "vegetarian"
+    # อาหารเหนือ has no cuisine tag and no shelf until now: `regional` is the
+    # nearest OSM value and it means nothing in particular. In the province
+    # that is this food's home ground, that is the inverse-coverage law on our
+    # own tree — the categories were written by people for whom sai ua was
+    # exotic. The dish names ARE the signboards here.
+    if any(w in name for w in ("อาหารเหนือ", "ขันโตก", "ไส้อั่ว", "แคบหมู", "จิ้นส้ม",
+                               "ลาบเหนือ", "น้ำพริกหนุ่ม", "northern thai", "khantoke",
+                               "kantoke", "lanna cuisine")):
+        return "northern"
+    if any(w in name for w in ("ข้าวซอย", "khao soi", "khaosoi", "น้ำเงี้ยว")):
+        return "noodle"
     if cuisines & {"seafood", "fish"}:
         return "seafood"
     if cuisines & {"noodle", "noodles", "ramen"}:
@@ -56,11 +83,17 @@ CRAFT_TO = {
     "handicraft": ("shopping", "crafts"), "jeweller": ("shopping", "crafts"),
     "woodworking": ("shopping", "crafts"), "furniture": ("shopping", "crafts"),
     "pottery": ("shopping", "crafts"), "basket_maker": ("shopping", "crafts"),
-    "tailor": ("shopping", "tailor"), "shoemaker": ("shopping", "tailor"),
+    "tailor": ("shopping", "tailor"),
     "dressmaker": ("shopping", "tailor"), "leather": ("shopping", "tailor"),
+    # WO-56 batch: the menders. A cobbler mends what a tailor does not, and
+    # sat on the tailor shelf since the first crawl; an electronics repairer
+    # is not a phone shop. Both join sewing-machine and appliance repair on
+    # repair/mend — the trades that fix the thing rather than sell it.
+    "shoemaker": ("repair", "mend"), "sewing": ("repair", "mend"),
+    "electronics_repair": ("repair", "mend"),
     "bakery": ("food", "bakery-dessert"), "confectionery": ("food", "bakery-dessert"),
     "coffee_roaster": ("food", "cafe"), "caterer": ("food", "thai"),
-    "electronics_repair": ("repair", "tech"), "computer_repair": ("repair", "tech"),
+    "computer_repair": ("repair", "tech"),
     # The building trades — exactly what repair/home (ช่างบ้าน-ประปา-ไฟ) was
     # drawn for, and why it stayed a wireframe: the shelf existed, the query
     # never did.
@@ -128,6 +161,10 @@ MEDICAL_SUB = {
     "birthing_centre": "clinic",
     "psychotherapist": "clinic",
     "rehabilitation": "physio",
+    # WO-55: OSM's healthcare=occupational_therapist. Zero elements carry it
+    # in either province today (cache/census, 2026-09-04); the rule is here so
+    # the first one mapped lands on the rehabilitation shelf, not nowhere.
+    "occupational_therapist": "physio",
     "blood_donation": "laboratory",
     "dialysis": "clinic",
 }
@@ -301,7 +338,7 @@ def moobaan_hit(t):
 
     The rules live in audit_realestate.py (one copy): จัดสรร — the word for
     an allotted development — or a developer's own name on the arch. Bare
-    หมู่บ้าน is never matched and never will be: it is the ordinary word for
+    หมู่บ้าน is not matched: it is the ordinary word for
     a village, this catalogue already holds eighteen real ones wearing it,
     and a village filed as a gated estate is a falsehood about where people
     live. An element the mapper already called a village keeps that.
@@ -378,6 +415,25 @@ MUAYTHAI_NAME = re.compile(r"มวยไทย|ค่ายมวย|สนา�
                            r"|\bmuay\b|\bmuaythai\b|boxing (?:gym|camp|stadium)",
                            re.I)
 INTL_NAME = re.compile(r"นานาชาติ|\binternational\b", re.I)
+# THE INTERNATIONAL GATE, and it is a tag gate because the word cannot carry
+# this on its own. "International" is an ordinary word in the name of an
+# organisation that teaches ADULTS, and the name rule — which used to run
+# first and above everything — read it as โรงเรียนนานาชาติ every time:
+#   WVS ITC Worldwide Veterinary Service International Training Center
+#     (office=educational_institution) — veterinary CPD, and the Listing
+#     Sheet reported it to a family in Nam Phrae as the nearest international
+#     school, 1,587 m away.
+#   International College of Digital Innovation (amenity=university) — CMU's
+#     tertiary college.
+#   International Sustainable Development Studies Institute (ISDSI).
+#   International language school (amenity=training, training=language).
+# นานาชาติ is not the failure mode: all four are English-named. Every one of
+# the 15 genuine international schools in these two provinces carries
+# amenity=school or amenity=kindergarten, so the tag settles it at no cost —
+# it says "a school children attend", which is the whole claim this shelf
+# makes. A record without one of those tags falls through to the ordinary
+# ordering below and lands on the shelf its own words earn.
+INTL_SCHOOL_AMENITY = {"school", "kindergarten"}
 # A campus is full of buildings that are not schools. 70 records — ภาควิชาเคมี,
 # โรงอาหารคณะครุศาสตร์, อาคารเรียนรวม C — were sitting on the universities
 # shelf, so "universities in Chiang Mai" answered with a canteen. They are real
@@ -409,7 +465,12 @@ SCHOOL_NAME_SUB = (
                 r"|cookery|culinary (?:arts? )?(?:school|academy|institute)"),
     ("massage-school", r"โรงเรียนสอนนวด|สอนนวด|massage school"
                        r"|school of (?:thai )?massage"),
-    ("driving", r"สอนขับรถ|โรงเรียนขับรถ|driving school"),
+    # ฝึกขับขี่ and "driving training center" are here so the general
+    # training rule at the bottom never takes a driving school off this line:
+    # ศูนย์ฝึกขับขี่ปลอดภัย กรีนวิง / Green Wing Safety Driving Training Center
+    # is tagged amenity=driving_school and must stay a driving school.
+    ("driving", r"สอนขับรถ|โรงเรียนขับรถ|ฝึกขับขี่|ขับขี่ปลอดภัย"
+                r"|driving (?:school|training|cent(?:re|er))|safety driving"),
     ("language", r"สอนภาษา|โรงเรียนภาษา|สถาบันภาษา|language (?:school|institute"
                  r"|centre|center)|school of english|\btesol\b"),
     ("tutoring", r"กวดวิชา|ติวเตอร์|โรงเรียนติว|\btutor\w*\b|cram school"),
@@ -426,6 +487,17 @@ SCHOOL_NAME_SUB = (
                 r"|พาณิชยการ|\bcollege\b|\bpolytechnic\b|vocational"),
     ("kindergarten", r"อนุบาล|เตรียมอนุบาล|เนอสเซอรี่|ศูนย์พัฒนาเด็ก"
                      r"|kindergarten|nursery|pre-?school|childcare|daycare"),
+    # Last, because it is the most general word here and every specific kind
+    # above it is also, technically, training. amenity=training already maps
+    # to this sub; this is the same answer read off the name, for the places
+    # that carry office=educational_institution instead and would otherwise
+    # take the university fallback at the bottom of school_sub(). WVS ITC —
+    # veterinary CPD, four days a week in Hang Dong — is one of those, and
+    # ศูนย์ฝึกอบรม is what its shelf label already says in Thai. Bare ศูนย์ฝึก
+    # is NOT here: ศูนย์ฝึกขับขี่ปลอดภัย is a driving school and says so in
+    # its tag, and a general name word must never out-rank a specific tag.
+    ("training", r"ฝึกอบรม|อบรมวิชาชีพ"
+                 r"|training (?:cent(?:re|er)|institute|academy|school)"),
 )
 SCHOOL_NAME_SUB = tuple((sub, re.compile(pat, re.I) if pat else None)
                         for sub, pat in SCHOOL_NAME_SUB)
@@ -458,6 +530,31 @@ SCHOOL_TAG_SUB = {
 # สองแถว / rot daeng, written in the name because OSM has no tag for it.
 # Latin spellings vary as much as the trucks do: songthaew, songtaew, song thaew.
 SONGTHAEW_NAME = re.compile(r"สองแถว|รถแดง|song ?t[ha]?aew|songtaew|rot daeng", re.I)
+# WO-57. A water shop or a gas agent, read off its own sign. น้ำดื่ม is the
+# drinking-water word and collides with nothing; ส่งน้ำ is NOT here, because
+# คลองส่งน้ำ is an irrigation canal and there are dozens in this valley.
+UTILITY_NAME = re.compile(
+    r"น้ำดื่ม|ร้านแก๊ส|ส่งแก๊ส|แก๊สหุงต้ม|ตู้น้ำหยอดเหรียญ|drinking water", re.I)
+# WO-57. The handicraft names the `making` group asked for and this file then
+# had no rule to file: the two celadon works, the Bo Sang sa-paper and
+# umbrella centre, and WO-51's carving-village centre. They carry a craft name
+# and man_made=works, tourism=attraction or building=retail — never a shop
+# tag. The name is the evidence, as it is for songthaew and for the water
+# shops above. Fenced against a WAT with a craft word in its name.
+# WO-58. A village cremation ground, read off its own name. สุสาน is the
+# ground — not a "cemetery" in the western sense, because the north cremates;
+# ป่าช้า is the older word for the same place, เมรุ the furnace building,
+# ฌาปนสถาน the formal one. This exists because 155 of Chiang Rai's 156
+# shop=funeral_directors elements are grounds, not shops.
+# ณาปน with ณ is on real signs and in OSM as often as the correct ฌาปน.
+# The English/French spellings are here because three grounds in this crawl
+# are named only "Crematorium" and would otherwise read as a business.
+CREMATION_GROUND = re.compile(
+    r"สุสาน|ป่าช้า|ฌาปน|ณาปน|เมรุ|graveyard|cemetery|cr[ée]matorium|crematory", re.I)
+
+MAKING_NAME = re.compile(
+    r"ศิลาดล|celadon|เครื่องเขิน|lacquer|กระดาษสา|ร่มบ่อสร้าง|หัตถกรรม|handicraft"
+    r"|เครื่องเงิน|silversmith|ผ้าทอ|woodcarv|แกะสลัก", re.I)
 
 
 def school_sub(t, name):
@@ -470,10 +567,11 @@ def school_sub(t, name):
     n = " ".join(v for v in (name, t.get("name:th"), t.get("name:en"),
                              t.get("alt_name")) if v)
     a = t.get("amenity")
-    # International first and above everything: it is the one distinction a
+    # International first among the name rules: it is the one distinction a
     # reader is most often searching for, and a school that calls itself
-    # นานาชาติ is telling us on purpose.
-    if INTL_NAME.search(n):
+    # นานาชาติ is telling us on purpose. Gated on the tag — see
+    # INTL_SCHOOL_AMENITY for the four records that gate exists for.
+    if INTL_NAME.search(n) and a in INTL_SCHOOL_AMENITY:
         return "international"
     if MUAYTHAI_NAME.search(n) or t.get("sport") == "muay_thai":
         return "muaythai"
@@ -541,8 +639,54 @@ def classify(t):
     # this crawl found, and สะดวกซัก on a soi corner is a city essential in
     # exactly the way a bank is, so it gets its own shelf rather than being
     # filed under staff-you-hire.
-    if s in ("laundry", "dry_cleaning"):
+    if s in ("laundry", "dry_cleaning") or a == "laundry":
         return "essentials", "laundry"
+    # WO-56 batch (2026-09-04). Six trades the census counted in the
+    # hundreds and no group had asked for — see the foot of QUERIES in
+    # crawl_overpass.py. Each gets the shelf a reader would look under, not
+    # a "misc" bin: a funeral director beside post and gov (it is the errand
+    # nobody plans), bicycles with the other ways of getting around, water
+    # and cooking gas with the city essentials, and the menders on the
+    # repair tree beside the motor and phone shops.
+    # WO-58, corrected the same day. **155 of the 156 Chiang Rai elements
+    # tagged shop=funeral_directors are village cremation grounds** — สุสาน
+    # and ป่าช้า, named for their village — and exactly one is a business.
+    # A mapper there has used the shop tag for the ground itself. Filing all
+    # 156 on a shop shelf beside the banks and the post offices would tell a
+    # reader Chiang Rai holds 156 funeral businesses when it holds about one,
+    # which is the "read the content, not the columns" rule in one line.
+    # So the NAME decides: a name that says สุสาน / ป่าช้า / ฌาปนสถาน / เมรุ
+    # is the village's cremation ground and files as a community facility;
+    # everything else on those tags is the trade.
+    _fun_name = " ".join(str(t.get(k) or "") for k in ("name", "name:th", "name:en"))
+    if (s == "funeral_directors" or a in ("crematorium", "grave_yard")
+            or t.get("landuse") == "cemetery"
+            # Ten of these carry a สุสาน name and NO tag this function reads,
+            # so they were dropped entirely: the name is the only evidence
+            # there is, exactly as it is for songthaew stops and water shops.
+            or CREMATION_GROUND.search(_fun_name)):
+        if CREMATION_GROUND.search(_fun_name):
+            return "community", "cremation"
+        return "essentials", "funeral"
+    if s in ("bicycle", "bicycle_repair") or a == "bicycle_rental":
+        return "transport", "bicycle"
+    if a == "motorcycle_rental":
+        return "transport", "rental"
+    if s == "motorcycle":
+        return "transport", "motorbike"
+    if s in ("water", "gas"):
+        return "essentials", "utilities"
+    # The name outranks the tag here, as it does for songthaew: a water shop
+    # is mapped shop=yes or nothing at all, and writes น้ำดื่ม on its own
+    # front. Fenced hard against คลองส่งน้ำ (an irrigation canal), the road
+    # beside one, and the Royal Irrigation Department's ส่งน้ำและบำรุงรักษา
+    # offices — the whole northern valley is threaded with them.
+    if UTILITY_NAME.search(" ".join(str(t.get(k) or "") for k in
+                                    ("name", "name:th", "name:en"))):
+        if not (t.get("waterway") or t.get("highway") or t.get("landuse") == "government"):
+            return "essentials", "utilities"
+    if s in ("shoe_repair", "sewing", "electronics_repair", "appliance"):
+        return "repair", "mend"
     if s == "garden_centre":
         return "home-services", "landscaper"
     if s in ("wholesale", "trade"):
@@ -551,6 +695,19 @@ def classify(t):
         return "business", "coworking"
     if t.get("office") in ("lawyer", "accountant", "tax_advisor", "notary"):
         return "business", "professional"
+    # WO-54. The paper trades, filed as city essentials beside post and gov
+    # because that is where the reader stands when they need one: outside
+    # an office that wants two copies and a photo. Two voices, kept apart:
+    # a copy shop SELLS you a copy; a translator or visa agent PREPARES a
+    # document, which is a different trade with a different price.
+    if s == "copyshop" or a == "copyshop":
+        return "essentials", "copyshop"
+    if craft == "printer" or s in ("printing", "print"):
+        return "essentials", "printing"
+    if t.get("office") in ("translator", "translation"):
+        return "essentials", "translation"
+    if t.get("office") == "visa":
+        return "essentials", "visa"
     # WO-32. Until 2026-08-26 every amenity=social_facility filed here as
     # "Volunteering" and the social_facility=nursing_home|assisted_living|
     # rehabilitation subtag was thrown away — a nursing home, an
@@ -730,8 +887,15 @@ def classify(t):
         return "museums-galleries", "gallery-commercial"
     # The celadon shelf is labelled ศิลาดล-เครื่องปั้นดินเผา and covers pottery
     # generally, so shop=pottery lands on it without overclaiming a tradition.
+    # 2026-08-31: that shelf does not exist yet. categories.json holds no
+    # `crafts` TOP-LEVEL category and no `celadon` child — only
+    # shopping > crafts — so this rule returned a cat key the tree cannot
+    # name, and three pottery shops (cm-osm-node-2005888864, -7041105907,
+    # -8619103749) reached build.py as a KeyError. Mapped to the shelf that
+    # exists, matching the CRAFT table above and the fallback below; restore
+    # the celadon pair the day the child lands in categories.json.
     if s == "pottery":
-        return "crafts", "celadon"
+        return "shopping", "crafts"
     # Tattoo is its own top-level category: 41 records were stranded under
     # 'sights' with no rule at all, so the whole trade was invisible.
     if s == "tattoo":
@@ -779,6 +943,66 @@ def classify(t):
         return "shopping", "crafts"
     if s == "second_hand":
         return "shopping", "secondhand"
+    # WO-50, after the crawl of 2026-08-31 and not before it — the same
+    # discipline that left shop=fabric unclassified in WO-10 until somebody
+    # had looked at the elements. These four values were never once asked for
+    # by any selector in crawl_overpass.py, so there has never been a rule
+    # here to file one, and the directory has held ZERO clothes shops and ZERO
+    # shoe shops since the day it was built. The census of 2026-08-07 counts
+    # 134 shop=clothes in TH-50 and 72 in TH-57.
+    #
+    # shop=boutique files with clothes rather than beside it: OSM's boutique
+    # is a small clothes shop, and a shelf split on the shopkeeper's ambition
+    # would ask a reader to guess which of two identical shelves has the
+    # shirt. shop=bag is NOT here and is deliberately unclassified — see the
+    # note on the `clothing` group; eight elements is too few to file blind
+    # and a bag is not apparel.
+    if s in ("clothes", "boutique"):
+        return "shopping", "clothes"
+    if s == "shoes":
+        return "shopping", "shoes"
+    # WO-57. The `making` group HAS run (2026-08-31, WO-51's crawl) and eleven
+    # of its forty-two Chiang Mai elements were dropped at this function for
+    # want of a rule: four shop=fabric (Golden Thai Silk, Kashmir Cashmere,
+    # เฮือนฝ้าย ด้ายงาม, จักรเย็บผ้านครพิงค์), shop=antiques, shop=jewelry
+    # (หลุยส์หัตถกรรมเครื่องเงิน — a silversmith), and four that carry a
+    # handicraft NAME with no shop tag at all: บริษัท สยามศิลาดล and Baan
+    # Celadon (the two celadon works), ศูนย์หัตถกรรมกระดาษสาและร่ม (the Bo
+    # Sang sa-paper and umbrella centre) and ศูนย์หัตถกรรมไม้แกะสลักบ้านถวาย
+    # (WO-51's own carving village centre). A crawl that runs and then drops
+    # its find is the same failure as a crawl that never runs, and harder to
+    # see. shop=fabric earns its own child: WO-46 gave the bedding trade one
+    # and ผ้าฝ้าย/ผ้าทอ is its neighbour, not a craft souvenir.
+    if s == "fabric":
+        return "shopping", "fabric"
+    # shop=musical_instrument, likewise never ruled on. The music shelf holds
+    # 23 records and every one of them is a CURATED addition from the
+    # instruments order — the mapped shops (Piano Center in Chiang Mai, two in
+    # Chiang Rai) were dropped here for want of two lines.
+    if s == "musical_instrument":
+        return "shopping", "music"
+    # WO-58/60. The glasses shops. MEDICAL_SUB knows healthcare=optometrist,
+    # which nobody in either province uses; `shop=optician` is the tag the 85
+    # actual shops carry and it had no rule, so the optometrist shelf stood at
+    # ONE record — a mapped clinic — while Top Charoen alone has a dozen
+    # branches here. A shop that fits glasses is medical enough for the shelf
+    # a reader looks under, and /eyecare.html says plainly that a refraction
+    # for glasses is not a diagnosis.
+    if s == "optician":
+        return "medical", "optometrist"
+    if s in ("antiques", "jewelry", "jewellery"):
+        return "shopping", "crafts"
+    if MAKING_NAME.search(" ".join(str(t.get(k) or "") for k in
+                                   ("name", "name:th", "name:en"))):
+        if not (t.get("amenity") == "place_of_worship" or t.get("historic")):
+            return "shopping", "crafts"
+    # Sport as RETAIL, not as fitness. This shelf existed with exactly one
+    # record in it (Decathlon) and no selector behind it. It earns its place
+    # in this order because the sports chains are where a EU 46 boot is
+    # actually stocked in this city — the answer to half of WO-50's question
+    # is a shop nobody would think to file under clothing.
+    if s in ("sports", "outdoor"):
+        return "shopping", "sports-shop"
     if s == "herbalist" or t.get("healthcare") == "alternative":
         return "medical", "thai-medicine"
     # Medicine, which this crawl had never once asked for. There was no
@@ -926,6 +1150,24 @@ FEATURE_TAGS = {
     "cannabis:edibles": "cannabisEdibles",
     "cannabis:seeds": "cannabisSeeds",
     "cannabis:smoking": "cannabisSmoking",
+    # WO-67, the parking fence. Every one of these is a qualification, never a
+    # boolean: `access=customers` is the difference between a car park and a
+    # shop's forecourt you will be moved off, `fee=yes` with no `charge` is "it
+    # costs, nobody wrote how much", and `supervised=yes` is the ยาม in the hut
+    # who watches it. Absent stays absent — see the note at features_of(): on
+    # this site silence means nobody has said, and for parking that matters
+    # more than usual, because the tempting reading of a missing `fee` is
+    # "free" and the tempting reading of a missing `access` is "anyone".
+    "supervised": "supervised",
+    "covered": "covered",
+    "surface": "surface",
+    "lit": "lit",
+    "park_ride": "parkRide",
+    # Whether a CAR park also takes motorbikes. Its own question: nearly every
+    # car park here does in practice and almost none of them says so, which is
+    # exactly why the tag is kept where it exists and never assumed where it
+    # does not.
+    "motorcycle": "motorcycle",
 }
 
 # Straight copies. Renamed only where the OSM key would collide with a field
@@ -948,7 +1190,117 @@ SCALAR_TAGS = {
     "addr:city": "city",
     "addr:province": "addrProvince",
     "source": "osmSource",
+    # WO-67. `parking` is the STRUCTURE — surface, multi-storey, underground,
+    # rooftop, street_side — and it is the one tag that changes what a reader
+    # is looking for on the ground: a multi-storey is a building with a ramp,
+    # street_side is a painted bay. `capacity:motorcycle` is not in either
+    # province today (0 of 1,796) and is carried anyway, so that the first
+    # mapper who writes it is not throwing it into a field nobody reads.
+    "parking": "parkingType",
+    "capacity:motorcycle": "capacityMotorcycle",
+    "capacity:disabled": "capacityDisabled",
+    "maxstay": "maxstay",
+    "charge": "charge",
+    "fee:conditional": "feeConditional",
 }
+
+
+# --------------------------------------------------------------- WO-67 ----
+# THE PARKING FENCE, and the one place in this importer where a record without
+# a name is allowed through.
+#
+# "Unnamed elements are skipped — no shelf for the nameless" is the rule at the
+# top of this file and it is right nearly everywhere: an unnamed noodle shop is
+# a rectangle somebody drew, and a directory of rectangles helps no one. A car
+# park is the exception, and it is not a marginal one. Of the 1,796 parking
+# features in these two provinces, 85 carry a name and 1,711 do not — 95%. The
+# name is missing because there is nothing to write: the place is a piece of
+# ground behind a shop, and what a reader needs to know about it is where it
+# is, whether it costs, and whether they are allowed on it. All three are
+# tagged. Only the signboard is missing, and only because there is no
+# signboard.
+#
+# Nan, 2026-09-06, asked whether unnamed lots should publish: "Of course we
+# want unnamed lots to publish!" So they are named from what they DO carry —
+# the structure (multi-storey, surface, street-side), the vehicle, and the
+# operator where one is given — and the bearings layer says where each one is
+# ("580 m from Chang Phueak Gate"), which is the sentence a person standing on
+# a scooter actually wants.
+#
+# THE SYNTHESISED NAME IS STAMPED `derived`, NOT `stated` (provenance.py). It
+# was computed from tags OSM states; no mapper wrote it. That grade is what
+# keeps it out of any give-back — we must never hand OpenStreetMap back a name
+# we made up for a lot they deliberately left unnamed — and it is what lets a
+# page say "described by its tags" instead of implying a signboard.
+PARKING_KINDS = {
+    # amenity -> (sub key, Thai word, English word)
+    "parking":            ("parking",            "ที่จอดรถ",           "Parking"),
+    "motorcycle_parking": ("motorcycle-parking", "ที่จอดมอเตอร์ไซค์",  "Motorcycle parking"),
+    "bicycle_parking":    ("bicycle-parking",    "ที่จอดจักรยาน",      "Bicycle parking"),
+    "parking_entrance":   ("parking-entrance",   "ทางเข้าที่จอดรถ",    "Parking entrance"),
+}
+
+# The structure, where OSM states it — and it is stated on 363 of the 1,796,
+# which makes it by far the commonest thing we know about an unnamed lot. A
+# multi-storey is a building you drive up inside; a street-side bay is a line
+# of paint. Calling both "Parking" would be true and useless.
+PARKING_STRUCTURE = {
+    "multi-storey": ("อาคารจอดรถ", "Multi-storey car park"),
+    "multi_storey": ("อาคารจอดรถ", "Multi-storey car park"),
+    "garage":       ("อาคารจอดรถ", "Parking garage"),
+    "garage_boxes": ("โรงจอดรถ", "Lock-up garages"),
+    "underground":  ("ที่จอดรถใต้ดิน", "Underground car park"),
+    "rooftop":      ("ที่จอดรถบนดาดฟ้า", "Rooftop car park"),
+    "street_side":  ("ที่จอดริมถนน", "Street-side parking"),
+    "lane":         ("ที่จอดริมถนน", "Street-side parking"),
+    "layby":        ("ที่จอดริมทาง", "Lay-by"),
+    "carports":     ("โรงจอดรถ", "Carports"),
+    "surface":      ("ลานจอดรถ", "Car park"),
+}
+
+
+def parking_name(t):
+    """(name, name_th, name_en, subs) for one parking element, or None.
+
+    Returns None only when the element is not a parking feature at all, which
+    inside the parking file means somebody widened the selectors without
+    coming here — the fence refuses it rather than letting classify() guess.
+
+    A named lot keeps its own name untouched; the synthesis is for the 95%
+    that have none, and even for a named one the subs come from the tags.
+    """
+    amenity = (t.get("amenity") or "").strip()
+    kind = PARKING_KINDS.get(amenity)
+    if not kind:
+        return None
+    sub, th, en = kind
+    # The car park shelf holds every kind of it — a motorbike bay IS parking,
+    # and a reader who asks the shelf for parking should not have to know we
+    # filed it under a second word. The specific child comes with it, so
+    # "motorcycle parking" is a shelf query rather than a name search, which
+    # is the whole of what Michael typed.
+    subs = ["parking"] if sub != "parking" else []
+    subs.append(sub)
+
+    given = t.get("name") or t.get("name:th") or t.get("name:en")
+    if given:
+        return given, t.get("name:th"), t.get("name:en"), subs
+
+    # Structure first: it is the more useful word and it is stated more often
+    # than anything else here. Only for car parks — a multi-storey tag on a
+    # motorcycle bay would be describing the building it sits in.
+    if amenity == "parking":
+        st = PARKING_STRUCTURE.get((t.get("parking") or "").strip().lower())
+        if st:
+            th, en = st
+    # An operator is a name in all but the tag: "ที่จอดรถ เซ็นทรัลเฟสติวัล"
+    # tells a reader exactly which lot this is. Thai operator name preferred
+    # for the Thai side, since that is the side a Thai reader reads.
+    op_th = (t.get("operator:th") or t.get("operator") or "").strip()
+    op_en = (t.get("operator:en") or t.get("operator") or "").strip()
+    name_th = f"{th} {op_th}".strip() if op_th else th
+    name_en = f"{en} — {op_en}".strip() if op_en else en
+    return name_th, name_th, name_en, subs
 
 
 def features_of(t):
@@ -1069,11 +1421,23 @@ def records(province="cm"):
         for el in data.get("elements", []):
             t = el.get("tags", {})
             name = t.get("name") or t.get("name:th") or t.get("name:en")
-            if not name:
+            # THE ONE EXEMPTION FROM "no shelf for the nameless" (WO-67). A car
+            # park is unnamed because there is no signboard, not because nobody
+            # has got round to it: 1,711 of the 1,796 in these two provinces
+            # carry no name and never will. See parking_name() for what is put
+            # there instead and why the result is stamped `derived`.
+            park_hit = parking_name(t) if f.stem == "parking" else None
+            if park_hit:
+                name, park_th, park_en, park_subs = park_hit
+            elif not name:
                 continue
             if is_gone(t):
                 continue
             ref = f"{el['type']}/{el['id']}"
+            # A lens a group's own fence assigned, carried to the record's
+            # attrs below. Only the shrines branch sets one today
+            # (wat/spirit-house matches on a lens, not a sub).
+            lens_hit = None
             # THE ELEPHANTS FILE IS FENCED (WO-19). tourism=attraction is a
             # dragnet — waterfalls, gardens, tiger parks, snake farms, hot
             # springs — and this order asked for the elephants, not for an
@@ -1139,6 +1503,9 @@ def records(province="cm"):
                     shrine_review.append((ref, name, dict(t)))
                     continue
                 hit = ("wat", shrine_sub)
+                # ศาลพระภูมิ is its own shelf (wat/spirit-house, matched on a
+                # lens) and had no path from a crawled name until now.
+                lens_hit = _shrine_rules.shrine_lens(name)
                 fetched_sh[f"{province}-osm-{el['type']}-{el['id']}"] = (
                     date.fromtimestamp(f.stat().st_mtime).isoformat())
             elif f.stem == "hotsprings":
@@ -1162,6 +1529,18 @@ def records(province="cm"):
                     continue
                 hit = ("sights", spring_sub)
                 fetched_hs.add(f"{province}-osm-{el['type']}-{el['id']}")
+            elif f.stem == "parking":
+                # FENCED like the others, and for the same reason: nothing in
+                # this file may reach classify(). The parking group asks four
+                # amenity values province-wide, and an element that answers
+                # none of them arrived because somebody widened the selectors
+                # — it is refused here rather than being shelved by a generic
+                # rule that happens to match its other tags. A named car park
+                # inside a mall would otherwise classify as the mall.
+                if not park_hit:
+                    review.append((ref, name or "(unnamed)", dict(t)))
+                    continue
+                hit = ("transport", park_subs[-1])
             else:
                 # The cannabis shelf is asked first, because the tag that puts a
                 # place on it (`shop=cannabis`) sits happily beside a tag that
@@ -1229,8 +1608,14 @@ def records(province="cm"):
                     brand_from = "osm-name"
             out.append({
                 "id": f"{province}-osm-{el['type']}-{el['id']}", "province": province,
-                "cat": cats, "sub": [sub] if sub else [],
-                "name": name, "nameTh": t.get("name:th"), "nameEn": t.get("name:en"),
+                "cat": cats,
+                # A parking feature carries both its shelf word and its vehicle
+                # (["parking", "motorcycle-parking"]), so it answers the shelf
+                # AND the specific ask. Everywhere else one sub is the answer.
+                "sub": park_subs if park_hit else ([sub] if sub else []),
+                "name": name,
+                "nameTh": park_th if park_hit else t.get("name:th"),
+                "nameEn": park_en if park_hit else t.get("name:en"),
                 "lat": lat, "lng": lng, "geoPrecision": "exact",
                 "address": addr_line,
                 "phone": phone,
@@ -1239,6 +1624,7 @@ def records(province="cm"):
                 "attrs": {k: v for k, v in {
                     **addr_parts,
                     **features_of(t),
+                    **({"lens": [lens_hit]} if lens_hit else {}),
                     # The medical children in categories.json match on
                     # attrs.facilityType, not on sub — that shape was set by
                     # the cm-womens-health import years before this crawl
@@ -1289,6 +1675,26 @@ def records(province="cm"):
                              "fetched": "2026-07-27", "via": "mot-dang overpass"}],
                 "confidence": "crawled", "updatedAt": "2026-07-27",
             })
+            # A NAME WE WROTE SAYS SO, IN THE ONE PLACE THAT TRAVELS WITH IT.
+            # `derived` is the exact grade: computed from tags the source
+            # states — amenity, parking, operator — with nothing invented and
+            # nothing surveyed. provenance.giveable() will not export it, so
+            # the give-back can never offer OpenStreetMap a name for a lot
+            # their mappers left bare on purpose. A lot that DID carry a name
+            # is stamped `stated`, because a mapper wrote it.
+            if park_hit:
+                _psrc = out[-1]["sources"][0]
+                _how = "stated" if (t.get("name") or t.get("name:th")
+                                    or t.get("name:en")) else "derived"
+                # Only fields that HOLD something. A receipt for a field that
+                # is not there is not provenance, it is noise — and
+                # provenance.validate() says so, which is how this was caught:
+                # a mapper-named lot has `name` and no name:th, and stamping
+                # all three left 148 receipts for empty fields.
+                for _f in ("name", "nameTh", "nameEn"):
+                    if out[-1].get(_f):
+                        provenance.stamp(out[-1], _f, _psrc, _how)
+                provenance.stamp(out[-1], "sub", _psrc, "derived")
     # The shared constructor stamps every record with the ORIGINAL crawl's
     # date. The elephants group was fetched 2026-08-20, and a record claiming
     # it was fetched three weeks before its group existed is a false statement

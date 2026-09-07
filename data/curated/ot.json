@@ -20,9 +20,8 @@
     "no grade, a stated row without src+evidence, or an id that resolves nowhere.",
     "THE PROFESSION IS LICENSED: an OT here is a ผู้ประกอบโรคศิลปะ สาขากิจกรรมบำบัด under",
     "the Healing Arts Practice Act, licensed by กองสถานพยาบาลและการประกอบโรคศิลปะ (สบส.),",
-    "whose public name-check is linked in `registers`. A licence is a register row, NEVER",
-    "a rating (the WO-26 rule). No rankings, no named clinicians, no outcome claims, no",
-    "medical advice, no prices the page did not read. Absent is silence, never a 'no'.",
+    "whose public name-check is linked in `registers`. A licence is a register row,",
+    "not a rating (WO-26). Absent is silence, not a 'no'.",
     "build.py reads rows[] for index keywords so search and page cannot disagree:",
     "only grades stated and listed carry the topic words."
   ],

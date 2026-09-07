@@ -108,14 +108,6 @@ not a whisper.
    already on disk from the sibling crawl) but a new import source for
    import_all.py, so it is asked as a door, not slipped in.
 
-## What this order refuses
-
-No "best rehab in Chiang Mai". No cost tables nobody read from a source. No
-dementia-care claims off a general nursing-home sign. No amphoe-level
-"retirement community" invented from a moobaan name. No hospice row until a
-place states the word itself — ประคับประคอง is a department's word, and no
-department here has been read saying it.
-
 ## defiant.to — done the same day (its own repo, its own conventions)
 
 The rehab bucket in partners/common.py split (physio 7 · addiction 4 ·

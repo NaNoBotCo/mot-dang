@@ -1,0 +1,373 @@
+CURING SEARCH DISEASE — THE WHOLE PICTURE AND THE PLAN
+2026-09-05 · for Nan · Mot Dang, Chiang Mai first, Chiang Rai second, then the kit
+
+The BHAG, your words: use Motdang to cure worldwide "search disease" one
+city at a time, starting with Chiang Mai and Chiang Rai.
+
+This note is three things: (1) the disease named precisely, in four strains,
+(2) today's gemba with a number on every wound, (3) the cure as a plan with
+phases, costs, and the forks that are yours.
+
+
+================================================================================
+1. THE DISEASE — FOUR STRAINS, ONE ORGANISM
+================================================================================
+
+Search disease = the gap between what a person ASKS and what an index HOLDS.
+Every symptom we have seen since July is one of four strains.
+
+STRAIN A — THE NAME STRAIN.  Indexes hold what a thing is CALLED, never
+  what it OFFERS. A menu item, a technique, a service, a dialect word is
+  invisible. Tok sen is the type case: sold in thirty shops, printed on
+  zero signboards. Also: physio inside "clinic", ขัดขี้ไคล inside "spa",
+  ล้างแอร์ refused for saying wash instead of mend.
+
+STRAIN B — THE SOURCE STRAIN (the inverse-coverage law).  The closer to
+  a practice's epicentre, the weaker the structured signal, because there
+  it is ordinary and nobody writes it into a category. The categories that
+  ship worldwide were written by outsiders for whom it was exotic. So the
+  world capital of ตอกเส้น has the world's worst data about it. Our own
+  version of this: we used a MAP (OSM, English-skewed) as a TRADE REGISTER.
+  Massage shelf: 302 records, 294 from OSM, 21 with any Thai in the name.
+
+STRAIN C — THE SCRIPT STRAIN.  The question arrives in one script
+  ("toksen", "toke sen", "tok-sen"), the answer lives in another (ตอกเส้น),
+  and nothing bridges them. Google bridges it with billions of documents;
+  we must bridge it with a vocabulary we write on purpose.
+
+STRAIN D — THE SILENCE STRAIN.  Nothing measures the miss. A shelf sits at
+  zero for months and the only detector is a reader who leaves. Today the
+  site's own search box records nothing, the AI's log holds my exams and
+  almost no readers, and 18 of 34 empty shelves have no written reason.
+
+The organism under all four: THE UNIT OF INDEXING IS THE NAME, AND THE
+UNIT OF DEMAND IS THE NEED. Google closes that gap with scale. Mot Dang
+closes it by being written from the inside — a category tree, a vocabulary
+and a schema that say what a place DOES, in the words the city uses,
+with a source on every claim. That is the only cure a one-person directory
+can afford, and it is also the only one Google structurally cannot copy
+(see /why.html: their data cannot be downloaded; ours can).
+
+
+================================================================================
+2. GEMBA, 2026-09-05 — EVERY WOUND WITH ITS NUMBER
+================================================================================
+
+2.1  THE READER'S PATH, WALKED
+
+  motdang.net search "toksen"        2 rows, both noise: Grill & Token
+                                     Steak House, วัดดงเย็น ("near spellings")
+  ai.motdang.net/api/search toksen   0 results
+  same, ตอกเส้น (Thai)               0 results
+  same, นวด                          6 good massage rows (0.78–0.79)
+  ask.motdang.net "toksen in CM?"    names Fah Lanna [1], then "the web
+                                     recommends the Silver Temple but I did
+                                     not find a direct listing", then D2 Thai
+                                     Massage as a generic fallback.
+
+  Yesterday it shrugged. Today it names one shop. The city has thirty.
+  The AI is now better than its data, and it is the data's turn.
+
+2.2  THE CURE THAT WAS WRITTEN AND NEVER SWALLOWED
+
+  _incoming/toksen-2026-09-04.txt (go/toksen): 10 records already in Mot
+  Dang that need only the tok-sen tag, 20 businesses to add, Phailin among
+  them with your own pin and hours (_incoming/toksen-records-2026-09-05.json).
+  Status on disk right now: shelves.json holds 0 tok-sen entries, canonical
+  holds no Phailin. The harvest sits beside the corpus, unapplied. (A parallel
+  session was landing this today — check cache/build.lock and shelves.json
+  before anyone builds.)
+
+2.3  THE CORPUS — WHAT 24,216 RECORDS ACTUALLY CARRY
+
+  field          Chiang Mai (17,653)    Chiang Rai (6,563)
+  address              46%                    43%
+  phone                24%                    16%
+  hours                23%                     6%
+  website              12%                     4%
+  description/blurb     0%                     0%   <- there is NO field
+  offers                0%                     0%   <- there is NO field
+
+  The search index text per place = name + shelf slug + hours + phone +
+  town. That is the entire surface a query can land on. Google indexes the
+  shop's own paragraph; we index a label.
+
+  Sources: OSM 15,081 · curated 5,432 · ONAB 2,084 · OBEC 1,302 · data.go.th
+  1,292 · weed.th 658 · MOPH 490 · condo register 367. The Thai-native
+  registers (9,444 records) filled the shelves OSM never could — monastic
+  schools, temples, clinics, condos — and were never pointed at the trades.
+
+  Chiang Rai curated records: 28 (Chiang Mai: 2,688). CR is a crawl, not yet
+  a directory. The inverse-coverage law bites hardest there.
+
+2.4  THE SHELVES
+
+  175 child shelves · 34 at zero · 18 of those with no recorded reason ·
+  3,247 records with a cat and no sub (massage 76%, sights 31%) · 73 records
+  already in the corpus fill four zero shelves off their own names (made-
+  to-order 33, physio 19, library 16, walking-street 5) — emitted paste-
+  ready on 9/4, not yet applied · 5 KNOWN_EMPTY entries are now full and
+  still listed.
+
+2.5  THE PINS
+
+  2,098 records need pins. Reachable from what we hold: ~900 (10 exact,
+  431 tambon centroid at ~3 km, 460 amphoe). 1,207 unreachable without a
+  Thai geocoder. 682 of 943 unpinned registered temples have no OSM entry
+  at all — the map does not know 72% of what the register knows.
+
+2.6  THE DEMAND SIGNAL — WHAT PEOPLE ACTUALLY ASK
+
+  data/asked.json: 26 reader questions since 2026-08-19. EVERY ONE is a
+  search-disease case — khat khi khlai, physio, shibari, afro-textured hair,
+  digital perm, hair house-call, big-size clothes and shoes, flat sheet,
+  notary, biologics, exterminator, snake in the house, copy-print, document
+  prep. 5 are gaps, 4 still drafts. Rate: ~4 a week, every one hand-carried
+  by you from the groups. The site's own invitations converted zero (WO-52).
+
+  AI log since launch 9/4: ask. 109 rows, ai. 13, demo 41 — nearly all my
+  exam. Real readers: a handful. The learning loop has nothing to learn from
+  yet, which is the Silence strain in a new coat.
+
+2.7  THE AI'S OWN COPY OF THE DISEASE
+
+  The planner can only write a query for what MOTDANG_TAGS names — 203 shelf
+  keys. It got tok-sen only when the children were added on 9/4. A trade
+  with no shelf is invisible to the AI exactly as it is to the site. Same
+  organism, mirrored. Also: the AI does not read the 20 provider names out of
+  a directory page it cites ([10] traditionalbodywork.com), so a source that
+  contains the whole answer yields one name.
+
+2.8  SEARCH-CORE'S OWN OPEN GAPS (SEARCH.md)
+
+  No intent filters yet (open-now, price, wifi, wheelchair) — the index does
+  not carry the fields. Thai compounds still come apart when not in the
+  thesaurus (ทำอาหาร → ทำ+อา+ร). Filter words that are also shelf words get
+  swallowed (มังสวิรัติ → 0 rows on a site with a vegetarian shelf).
+
+2.9  YOUR OWN SEARCH HISTORY IS THE DEMAND CORPUS (found after the first draft)
+
+  The ChatGPT archive (Mar 2023 – Feb 2026) holds 198 conversations with
+  Chiang Mai in the title and 14 about tok sen alone. On 2025-12-05 you
+  asked "So should we try tok sen? Any availability around Tha Phae? Is Nun
+  Tok Sen on actual temple grounds, do I need sleeves?" — the exact answer-
+  shaped question, nine months before the site could answer it. Others:
+  buckwheat pillows, a poker coach, bass rosin and luthiers, couples
+  therapy, neon clothes, instrument shops. Every one is a search-disease
+  case with a date on it. Phase 1 mines these into vocabulary.json and
+  Phase 4 mines them into the 50-question exam, before any reader types
+  one. Local only, never quoted on the site.
+
+
+================================================================================
+3. WHAT A CURED CITY LOOKS LIKE — FIVE LAYERS, EACH WITH A TEST
+================================================================================
+
+  L1  VOCABULARY — what people ASK.        Test: every home-ground term and
+      every asked.json key has an entry with Thai, translits, gloss, shelf.
+  L2  CORPUS — what EXISTS.                Test: for each term, held ≥ the
+      order of magnitude an outside source says exists.
+  L3  SCHEMA — what each place OFFERS.     Test: a record can say "does tok
+      sen, per its own Facebook page, seen 2026-09-05" without lying about
+      what it IS.
+  L4  RETRIEVAL — one index, three doors.  Test: site search, /api/search
+      and the AI answer the SAME 50 real questions, scored the same way.
+  L5  LOOP — every miss is a work item.    Test: a zero-result query or an
+      uncited AI search lands in a queue within a day; a zero shelf without
+      a reason fails the build.
+
+The discipline stays what AGENTS.md says: provenance on every fact, and no
+inference about what a shop "really is".
+
+
+================================================================================
+4. THE PLAN — PHASES, WHAT EACH MOVES, WHAT EACH COSTS
+================================================================================
+
+PHASE 0 — SWALLOW THE MEDICINE ALREADY ON DISK       (1 day · no new deps)
+  a. Land the tok sen harvest: 10 tags + 20 records incl. Phailin (go/toksen).
+  b. Apply the 73 name-rule records to their four shelves (go/shelves).
+  c. Remove the 5 stale KNOWN_EMPTY entries; write reasons for the 18 silent
+     zero shelves or fill them.
+  d. tests/test_facets.py: FAIL on any child shelf at zero that is not in
+     KNOWN_EMPTY. (Strain D, stopped at the build.)
+  e. First answer-shaped test: "toksen + old city + open past 21:00 → ≥ 1".
+  f. Rebuild, re-index Vectorize (scripts/index_motdang.py, ~30 min), rerun
+     the AI exam.
+  Moves: tok-sen 0 → 30 · silent zero shelves 18 → 0 · the reader's path in
+  2.1 answers with names on all three doors.
+
+PHASE 1 — THE HOME-GROUND VOCABULARY                  (2 days)
+  data/curated/vocabulary.json — one file, one entry per term for which
+  Chiang Mai / Chiang Rai IS the authority, plus every asked.json key:
+    { th, translits[] (incl. the misspellings readers type), en, shelf,
+      offers-key, expected ("dozens" | "hundreds"), sources-to-query[] }
+  Mine first: the 26 asked keys and the 198 Chiang Mai conversations in the
+  ChatGPT archive (2.9). Then the home-ground terms, ~60: ตอกเส้น ย่ำขาง ขัดขี้ไคล ประคบ จับเส้น ราชสำนัก · สักยันต์
+  ข้าวซอย หม้อห้อม เครื่องเขิน ตุง สลุงเงิน ซิ่นตีนจก กาดหมั้ว มะแขว่น ·
+  กายภาพบำบัด กิจกรรมบำบัด ล้างแอร์ ถ่ายเอกสาร … and the 26 asked keys.
+  ONE file drives FOUR consumers (all already exist, all hand-fed today):
+    search-core thesaurus (site search) · index_labels.json (Vectorize
+    text) · MOTDANG_TAGS (the AI planner) · the coverage test (Phase 5).
+  Moves: Strain C closed for every term in the file; adding a term becomes
+  data entry, not four code edits.
+
+PHASE 2 — REBALANCE THE SOURCES: REGISTERS FIRST      (the real work · ~2 weeks,
+                                                        one trade at a time)
+  Stop using the map as the trade register. For every Thai-named trade, a
+  Thai-native source, on the ONAB/CMHY pattern that is already proven here:
+    · thdata.co — 337 CM massage with Thai names, addresses, phones (crawled
+      9/4, sits in memory only — persist the crawl to cache/); then its other
+      categories for every zero shelf
+    · สบส. health-establishment licence register (สถานประกอบการเพื่อสุขภาพ,
+      B.E. 2559) — the massage spine, and the licence axis the massage facet
+      set already models
+    · DBD company register (browser fetch; 403s to scripts)
+    · the 806 records that ALREADY carry a Facebook page — their own words,
+      never crawled; the richest offers source we hold
+    · cmhy job table extended to Chiang Rai (today CM only — 2.3)
+    · Wongnai / GoWabi — FORK F3 below (terms of service)
+  Every ingest: fetchlog ledger (verify-before-believe), dedupe by door AND
+  trade, refusals written down and READ (a refusal list that reads like a
+  trade directory is the tell — twenty-follow-ups note).
+  Order: massage first (the type case, the harvest is half done), then the
+  17 other empty-by-name shelves, then CR.
+  Moves: Thai-named massage 7% → majority · CR curated 28 → hundreds ·
+  Strain B addressed at the spine.
+
+PHASE 3 — THE SCHEMA: `offers[]` AND `blurb`          (3 days)
+  `sub` says what a place IS. Add what it DOES:
+    offers: [ {k:"tok-sen", via:"own-facebook", seen:"2026-09-05", url:…} ]
+  plus a short `blurb_th`/`blurb_en` in the shop's OWN words (quoted, dated,
+  sourced — never written by us). Render offers as a menu row on the place
+  page; fold offers + blurb into the Vectorize text and the site index.
+  Evidence bar (FORK F4): own name, own site, own page, menu photo, licence
+  = offers. A reader review = attrs only (the scrubglove precedent). A
+  sidebar link = nothing (the 33-of-36 thdata trap).
+  Migrate: shelves.json entries whose evidence is a menu, not a sign, become
+  offers; the shelf keeps counting them.
+  Moves: Strain A closed structurally; "who does X near me, open at 21:00"
+  becomes a query the data can answer.
+
+PHASE 4 — ONE INDEX, THREE DOORS                       (3 days)
+  Site search (search-core JS), /api/search and the AI planner read the
+  same vocabulary and the same offers. Put hours and area into the site
+  index so open-now / ย่าน are filters, not shrugs (SEARCH.md's own "next
+  real step"). Fix the two search-core gaps that bite shelves (compound
+  segmentation via vocabulary; a filter word that is also a shelf word
+  survives as a term).
+  The eval: tests/answers.json — 50 real questions (asked.json + the AI
+  log + your own), each with the record(s) that must appear. Scored against
+  ALL THREE doors in one run. Today the AI has a 24-question exam and the
+  site has a 26-query one, and they do not share a question.
+  Moves: one scoreboard for the whole platform; a regression on any door
+  is visible the same day.
+
+PHASE 5 — THE LOOP AND THE NUMBER                      (2 days, then standing)
+  a. /coverage.html — public, dated, unflattering on purpose: per
+     vocabulary term, held vs expected vs the outside count. "Expected 20+,
+     holding 0" printed where a reader can see it. This is 2.4 made into a
+     page, and it is the same honesty-as-interface that reach.html already
+     practises.
+  b. Zero-result queries on the site search → a local, IP-free, session-
+     free counter of the QUERY STRING only (FORK F1 — privacy-adjacent, so
+     it is yours). Today the site's biggest demand signal is thrown away.
+  c. AI search_log rows searched-but-uncited + site zero-results →
+     gaps.py → asked_new.py drafts, weekly, before you carry them from the
+     groups by hand. The 4-a-week hand-fed loop becomes the exception.
+  d. The AI reads provider names out of directory pages it cites (2.7) and
+     hands them to the harvester as candidates with the page as evidence.
+  Moves: Strain D closed; the miss becomes the work queue.
+
+PHASE 6 — GEOGRAPHY FROM A THAI SOURCE                 (FORK F2 · 1 day once chosen)
+  1,207 records cannot be pinned from anything we hold. Longdo Map's
+  geocoder (Thai-first, tambon resolution) or data.go.th's administrative
+  boundaries/centroids. A new dependency is your call. Until then: apply
+  the ~900 honest centroids with measured pinUncertaintyM.
+
+PHASE 7 — CHIANG RAI, THE SECOND PATIENT                (after Phase 2 proves on CM)
+  Same playbook, same files, different numbers. CR is where the law is
+  strongest and the curated count is 28. The test of "one city at a time"
+  is whether Phases 0–5 run there as data entry plus one crawl list, with
+  no new code.
+
+PHASE 8 — THE KIT: HOW A CITY GETS CURED                (write-up, after CR)
+  The cure is a REPO SHAPE, not Chiang Mai data:
+    vocabulary.json · a register list · offers schema · answer-shaped tests ·
+    coverage page · the empathy map · the discipline rules.
+  CITY.md: what a new city needs on day one (a home-ground vocabulary, three
+  Thai-native — or local-native — registers, twenty real questions), and
+  what it must never do. That document is the BHAG's unit of replication.
+
+
+================================================================================
+5. THE FORKS — YOURS, NOT MINE
+================================================================================
+
+  F1  Zero-result query counter on the site search. Stores the query string
+      and a count, nothing else — no IP, no session, no time finer than a
+      day. Still a first for a site that "does not measure the reader".
+      Options: (a) do it, stated on /privacy · (b) do it only for the AI
+      widget where a question is already stored · (c) no.
+      Cost of (c): the largest demand signal stays invisible.
+
+  F2  A Thai geocoder for 1,207 unpinned records. Longdo (API key, Thai
+      company) or data.go.th boundaries (free, static, coarser). Cost of
+      neither: 1,207 records never appear in "near me".
+
+  F3  Wongnai / GoWabi as sources. Both hold the Thai-named trade with menus.
+      Both have terms of service to read first. Cost of no: thdata + สบส. +
+      Facebook carry most of it anyway; slower.
+
+  F4  The evidence bar for `offers`. Proposed: own words only (name, site,
+      page, menu photo, licence). Reader review → attrs. Directory sidebar →
+      nothing. Lower the bar and the massage rule breaks; keep it and some
+      shops stay unlabelled until their own page says it.
+
+  F5  Order inside Phase 2: massage-first (type case, harvest half done) or
+      breadth-first (all 18 silent shelves one pass each). I recommend
+      massage-first: it proves the register pattern on the hardest shelf.
+
+  F6  Approved AI answers → indexable ถามมด pages (already on your open-fork
+      list). Turns the AI's best answers into corpus. Needs your eye per entry.
+
+  Expiry: none of these blocks Phase 0 or Phase 1. F5 blocks Phase 2's
+  first day. F1 blocks Phase 5b only. F2 blocks Phase 6 only.
+
+
+================================================================================
+6. WHAT THIS DOES NOT DO
+================================================================================
+
+  Does not infer a modality from a shop's hours, street or staff (the
+  massage rule). Does not scrape Google or Facebook LISTINGS
+  (ToS, your exposure) — a shop's OWN page, read for its own words, is a
+  different thing and is where Phase 2 gets offers. Does not add ratings,
+  ranking, engagement, or a reader profile. Does not promise a tooltip.
+  Does not make the AI the plan: the AI is the third door on one index, and
+  it is only as good as Phase 2.
+
+
+================================================================================
+7. THE SCOREBOARD — THE NUMBERS THAT SAY IT IS WORKING
+================================================================================
+
+  today                                            target
+  tok-sen records                         0        30 (Phase 0)
+  silent zero shelves (no reason)        18        0  (Phase 0)
+  vocabulary terms driving all 4 doors    0        60 (Phase 1)
+  Thai-named share of massage             7%       >50% (Phase 2)
+  records with offers[]                   0        1,000 (Phase 3)
+  answer-shaped eval, one exam, 3 doors   none     50 q, ≥ 45 pass (Phase 4)
+  asked questions arriving via the loop   0/26     most (Phase 5)
+  unpinned records                    2,098        <300 (Phase 6)
+  Chiang Rai curated records             28        hundreds (Phase 7)
+
+Where things are: go/disease (the tok sen diagnosis) · go/toksen (the
+harvest) · go/shelves (the empty-shelf survey) · go/ai (the AI proposal) ·
+go/ai-eval (the AI exam) · this note = go/cure.
+
+
+STATUS 2026-09-05 18:20: Phase 0 landed and live; Phases 1–8 not started;
+three new forks (F7–F9). The running tally is notes/search-disease-status-
+2026-09-05.txt (go/cure-status).

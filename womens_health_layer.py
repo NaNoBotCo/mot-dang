@@ -268,8 +268,8 @@ def emit(g, data):
         "This page collects the places in the directory that do women's health care, "
         "and says plainly how much is actually known about each one — some state a "
         "สูตินรีเวช (OB-GYN) service themselves; others are general hospitals, which "
-        "in Thailand almost always run one, but nobody has confirmed it here. The "
-        "table below says where to check a board certification.")
+        "in Thailand almost always run one, but nobody has confirmed it here. "
+        "Below: where to check a board certification.")
 
     ld = {
         "@context": "https://schema.org", "@type": "ItemList",
@@ -285,23 +285,23 @@ def emit(g, data):
             f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>')
     og = shelf_og("cm", "medical") if shelf_og else None
     body = (
-        f'<h1>{bi("สุขภาพผู้หญิง — ไปตรวจที่ไหน และตรวจใบวุฒิบัตรยังไง", "Women’s health — where to go, and how to check a credential")}</h1>'
+        f'<h1>{bi("สุขภาพผู้หญิง — ไปตรวจที่ไหน", "Women’s health — where to go")}</h1>'
         f'<p class="wh-intro">{intro}</p>'
         f'<h2>{bi("ที่ที่บอกเองว่ามีสูตินรีเวช", "Places that state a women’s-health service")} '
         f'<span class="count">({len(stated)})</span></h2>'
         f'<p class="wh-note">{bi("แต่ละแห่งบอกเองจากชื่อร้านหรือจากป้ายข้อมูลใน OpenStreetMap — ชี้ที่ชื่อเพื่อดูว่ารู้มาจากไหน", "Each one states it, either on its own sign or in an OpenStreetMap tag — hover the mark to see which")}</p>'
         f'{stated_html}'
-        f'<h2>{bi("โรงพยาบาลทั่วไป — น่าจะมีแผนกสูตินรีเวช แต่ยังไม่ยืนยัน", "General hospitals — an OB-GYN department is likely but unconfirmed")} '
+        f'<h2>{bi("โรงพยาบาลทั่วไป — น่าจะมี ยังไม่ยืนยัน", "General hospitals — likely, unconfirmed")} '
         f'<span class="count">({len(likely)})</span></h2>'
         f'<p class="wh-note">{bi("โรงพยาบาลทั่วไปในไทยเกือบทุกแห่งมีแผนกสูตินรีเวช แต่ยังไม่มีใครโทรไปถามให้แน่ใจ จึงขึ้นไว้แบบติดป้ายว่ายังไม่ยืนยัน — โทรถามแผนกสูตินรีเวชก่อนไปได้เลย ตู้สายโรงพยาบาลตอบเรื่องนี้เป็นประจำ", "Nearly every general hospital in Thailand runs a สูตินรีเวช department, but nobody has rung to confirm these, so they are listed and marked rather than promised. Ring the hospital’s OB-GYN department and ask — Thai hospital switchboards answer this routinely.")}</p>'
         f'{likely_html}'
         f'<h2>{bi("รพ.สต. — สถานีอนามัยประจำตำบล", "รพ.สต. — the subdistrict health station")}</h2>'
         f'<p class="wh-note">{rpsat_note}</p>'
         f'{station_html}'
-        f'<h2>{bi("ความเก่งคือใบวุฒิบัตร — ตรวจได้ที่นี่", "Competence is a credential — here is where to check it")}</h2>'
+        f'<h2>{bi("ตรวจใบวุฒิบัตรได้ที่นี่", "Where to check a credential")}</h2>'
         f'<p class="wh-note">{bi("ทุกแห่งเป็นทะเบียนทางการ ตรวจแล้วว่าเข้าถึงได้เมื่อ 19 ก.ค. 2569", "Every one of these is an official register, verified reachable 2026-07-19")}</p>'
         f'{reg_html}'
-        f'<h2>{bi("อ่านป้ายหน้าคลินิก — คำที่ควรรู้", "Reading the clinic sign — the words to know")}</h2>'
+        f'<h2>{bi("อ่านป้ายหน้าคลินิก", "Reading the clinic sign")}</h2>'
         f'<p class="wh-note">{bi("อักษรไทย · คำอ่านแบบ RTGS · ความหมาย — เทียบรูปคำกับป้ายได้เลยแม้อ่านไทยไม่ออก", "Thai script · RTGS spelling · what it means — enough to match a word against a sign by its shape, without reading Thai")}</p>'
         f'{gloss_html}'
         f'<p class="wh-note">{bi("มดแดงเป็นสารบัญของสถานที่ ไม่ใช่คำแนะนำทางการแพทย์ ไม่ใช่การส่งต่อคนไข้ และไม่ใช่การรับรองคุณภาพ ข้อมูลสถานพยาบาลบางส่วนมาจาก OpenStreetMap (ODbL 1.0)", "Mot Dang is a directory of places. It is not medical advice, not a referral, and not a quality guarantee. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors.")}</p>'

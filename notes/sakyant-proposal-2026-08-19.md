@@ -104,8 +104,7 @@ screenshot Nan chose, read and indexed. For THIS shelf the seam is:
    no-republish rule in `photo-mine/bots/3a_sakyant_assayer.md` stands. Nan's
    own session photographs are cleared; when shown, Ajarn Dang and Ajarn
    Sak/Sek are credited by name with a link to sakyantchiangmai.com.
-5. **No authenticity sort.** No ranking of studios into real and touristic; no
-   "best sak yant"; a shelf lists and says what each door states.
+5. **A shelf lists and says what each door states.**
 6. **สักขาลาย is its own tradition**, not a section here. The Lanna
    waist-to-knee tattoo has its own notes on wichaa
    (`manuscript-wiki/content/_sak-kha-lai-notes.md`) and waits for its own

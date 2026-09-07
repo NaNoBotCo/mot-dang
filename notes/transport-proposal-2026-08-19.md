@@ -69,7 +69,7 @@ nights, or the page says nobody has*. Transport:
 
 **The operator states its own timetable, its own fare, its own terminal — dated,
 by name — or the page says nobody has. A board is a season, never a departures
-screen. And no ranking of ways to move: a red truck, a Grab, a metered taxi
+screen. The ways to move sit side by side: a red truck, a Grab, a metered taxi
 and your own two feet are four ways, the card is the card.**
 
 Consequences, in the data shape:
@@ -229,8 +229,7 @@ Three data files, one renderer pattern, copied from `flights_layer.py`:
   page says *ask at the window*.
 - **No fare advice and no scam paragraph.** "Agree before you board" is the
   whole of it; the rest is `feedback_no_tourist_framing`.
-- **No ranking of red truck vs Grab vs taxi vs walking.** Four ways; the card
-  is the card.
+- **Four ways side by side**; the card is the card.
 - **No Overpass crawl in this note.** The re-tagging of the 53 station records
   and the five taxi ranks needs no network at all — the `stations` group
   already fetched railway, halt, ferry terminal and taxi on 2026-07-27. The

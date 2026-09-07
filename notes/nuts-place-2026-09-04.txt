@@ -1,0 +1,81 @@
+NUT'S PLACE — what went on the page today, and what only Nut can answer
+Chiang Mai · 1/4 Ratchamanka Soi 3 · motdang.net/cm/p/nut-s-place-6267879684.html
+2026-09-04
+
+
+WHAT THE PAGE HELD BEFORE TODAY
+
+A name, a pin, and a street. Nothing else. Ant rank 1 of 9 — the lowest a
+listing can carry and still be a listing.
+
+
+WHAT WENT IN TODAY, AND WHERE IT CAME FROM
+
+Read off the bar's own Facebook Page (facebook.com/nutsplacechiangmai),
+2026-09-04 — the Page is Nut's own channel, so it counts as first-hand:
+
+  · category, in the bar's own words: Bar
+  · postcode 50200, off the address line the Page writes itself,
+    "1/4 RT. Rajamangala Soi 3, Chiang Mai, 50200" — same house number and
+    same soi as the map record, which is what ties the two together
+  · a Facebook link, so the page now has a channel a reader can open
+  · two sentences, Thai and English, about cold beer, cocktails, and pad
+    thai cooked by a chef who came out of vegan kitchens
+
+Not taken: the tambon (the Page does not state one, and guessing it would
+be a falsehood about somebody's address), and the Tripadvisor stub, which
+is a directory's copy and is not a source on this site.
+
+
+WHAT THE WEB DOES NOT HOLD
+
+No phone. No opening hours. No LINE. No photograph. Five searches and the
+Page itself, and none of the four exist anywhere first-hand. They are not
+findable — they have to come from Nut.
+
+
+THE MESSAGE TO SEND NUT
+
+Hi — Nan here. Your bar is on motdang.net, the Chiang Mai directory I
+build. The page is free, there is no account to make, and nothing tracks
+anybody who reads it.
+
+Four things are missing and only you have them: your phone number, your
+opening hours, your LINE, and a photo of the bar.
+
+You can put them up yourself in about a minute, and they go live at once:
+
+https://motdang.net/claim.html?id=cm-osm-node-6267879684
+
+Two more if you have a moment. Is your bar the "Nut's Bar" that hosts the
+Monday pool league team? And do you want the pool nights and tournaments
+listed on the page, with the dates?
+
+
+THE POOL QUESTION, AND WHY IT IS WORTH ASKING
+
+Chiang Mai Pool League Monday lists a venue called "Nut's Bar" and a team
+called "Nut's Love & Peace" playing Group A at 20:00 on Mondays. The
+league publishes no address for that venue, so the only thing tying it to
+Nut's Place is a first name. That is a lead, not a fact, and it is written
+into the record as a lead. One sentence from Nut settles it.
+
+It matters beyond her page. The catalogue holds 460 bars and not one of
+them is recorded as having a pool table — the word "pool" in the data means
+swimming, every time. Three Chiang Mai pool leagues publish their venue
+lists and their weekly fixtures in the open, and between them they name
+about two dozen bars that do have tables, with the night each one plays.
+That is a shelf the site does not have yet, an events feed for two dozen
+place pages, and Nut's Place at the top of it.
+
+
+THE FORKS, WHICH ARE YOURS
+
+1. Feature it. Laila's shop, FUBAR and Soi Dog Blues are featured as
+   friends' places. Nut's Place is not, yet. Say the word and it is.
+2. Build the pool-league source. Half a day: three league sites into the
+   source registry, venues and weekly fixtures out, a pool-table shelf.
+   Costs nothing but the time and does not depend on Nut answering.
+3. Publish now or wait. The two sentences and the Facebook link are on
+   disk and not yet built or deployed. They can ride the next build, or
+   go out on their own today.

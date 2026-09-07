@@ -1,0 +1,264 @@
+THE EDGE — bus shelters, tree shrines, named sois, wells
+Mot Dang · decision J taken 2026-09-06 · taxonomy BUILT, three of four still need a crawl
+Counts are from data/canonical + data/streets.json this morning. "Held 0" means NOT ON
+THIS DISK. It is never a claim about the city.
+
+────────────────────────────────────────────────────────────────────────
+0. WHY THESE FOUR ARE ONE PROBLEM
+
+  You picked four things that look unrelated and are not. They share a property
+  that neither a shop nor an institution has:
+
+      NOBODY WILL EVER CLAIM THEM.
+
+  No proprietor fills in a bus shelter's opening hours. There is no owner of a
+  tree. A soi has no proprietor and a well has no counter. So the entire
+  enrichment model this directory was built on — owner-confirmed, a phone to
+  ring, a listing somebody wants to claim — is VOID for all four, and the only
+  sources left are the map, the survey (a person stood there and wrote it down),
+  the municipal asset register, and what the neighbourhood knows.
+
+  Call that posture THE COMMONS. It is a third thing beside commerce and the
+  institutions, and it needs its own everything.
+
+  Two consequences follow, and both are structural:
+
+  · THEY ARE NOT DISCRETE. A soi is a LINE. A well serves a neighbourhood. A
+    shrine may be one of a cluster under one tree. The record shape — one name,
+    one pin, one address — was built for a shopfront and does not fit any of
+    them. This is why `geoPrecision: "line"` had to exist before a soi could be
+    a record at all.
+
+  · THEY ARE NAVIGATED BY, NOT TO. Nobody searches for a bus shelter by name. A
+    shelter is the answer INSIDE another answer — "how do I get to X". That makes
+    bearings (WO-64) worth more to this class than pins are, and it means the
+    reader face for them is a different face.
+
+  And one more, which is the reason to hurry: THEY ARE THE MOST FRAGILE THING IN
+  THE CATALOGUE. A shop that closes gets re-mapped by the next crawler. A yang-na
+  avenue felled for a road widening, a well capped, a หอเสื้อบ้าน cleared for a
+  car park — nobody re-finds those. The commons is the part of a city directory
+  that is also a record of the city.
+
+────────────────────────────────────────────────────────────────────────
+1. THE BIG FINDING: THE SOIS WERE ALREADY HERE
+
+  I went looking for named ways expecting to have to crawl for them.
+
+      data/streets.json holds 1,077 NAMED WAYS across both provinces.
+      432 of them are SOIS.
+      Every single one is Thai-named.
+      534 carry geometry · 508 know what they cross · 355 know their parent road.
+      6,227 PLACES ARE ALREADY PLACED ALONG THEM — 685 by the place's own OSM
+      address (`stated`), 5,542 by sitting within 30 m and nearer than any
+      other named way (`nearest`, with the metres recorded).
+      Median length 268 m. Busiest: ถนนช้างคลาน with 156 places on it.
+
+  None of it is a record. The ways exist only as a JOIN TABLE serving other
+  pages — no id, no kind, no page, not in the search index. A reader who types
+  ซอยวัดอุโมงค์ gets nothing, and the catalogue has known the answer since WO-6.
+
+  This is the empty-shelves Cause 2 in its largest form yet: not a shelf that
+  never filled, but AN ENTIRE CLASS FULLY MODELLED ON DISK AND NEVER ADMITTED.
+  1,077 records, zero fetching, zero inference.
+
+────────────────────────────────────────────────────────────────────────
+2. WHAT WAS BUILT TODAY
+
+  TWO NEW KINDS, on the axis from this morning:
+
+    `sacred`  a place of observance that is not a wat and not a body of people —
+              a spirit house, a wound tree, a city pillar, a guardian shrine, a
+              Chinese shrine. 40 records claimed, checked one by one by eye.
+    `way`     a road, soi, alley or bridge — a place that is a LINE, not a point.
+              You find things ALONG it and you navigate BY it.
+
+  `edge_layer.py` PROJECTS the ways rather than importing them: streets.json
+  stays the truth, the 1,077 records are derived every build, and a curated
+  overlay can hang facts a projection can never know — does it flood, can a car
+  get down it, who the donor was — off the same id. Reversible by deletion.
+
+  THE FALSE POSITIVES, because this is where a name rule earns its keep. The
+  first pass on `sacred` claimed 57 records. Seventeen were wrong and every one
+  is now held out by a written rule:
+      ธนาคาร            contains นาค — 219 banks matched a naga probe
+      ศาลจังหวัด        is a COURTHOUSE, not a shrine
+      โรงเรียนเจ้าพ่อหลวงอุปถัมภ์  is a school under royal patronage
+      อารักษ์           is a road AND a vet clinic AND an alterations shop
+      Bodhi Tree Café · ใบโพธิ์นวดแผนโบราณ · Slee Banyan — a café, a massage
+                        shop and a restaurant trading on a sacred tree
+      ขาหมูแสนคำ (หน้าศาลเจ้าแม่จัน) — a pork-leg stall giving its landmark
+  "Slee Banyan" could not be held out by any word in its name, so the compiler
+  learned `cat_not`: a `food` record is not a shrine however it is called.
+
+  KNOWN LIMITATION, written down rather than hidden: `claimed` (owner-confirmed)
+  is one of the five universal ants and a commons record can almost never earn
+  it, so these kinds realistically cap at 8 of 9. It is left universal because
+  moving it would reorder the strip on every shop page, and the shopping axis has
+  not been moved. The honest fix, when you want it, is a
+  `vouched` path — a keeper recorded (the wat that tends the shrine, the tambon
+  that keeps the well, the family on the donor plaque) earning the same ant.
+
+────────────────────────────────────────────────────────────────────────
+3. THE FOUR, ONE BY ONE — AND THE VERNACULAR, WHICH IS THE WHOLE GAME
+
+  The search-disease lesson applies hardest here: for all four classes, THE THAI
+  IS THE ONLY PLACE THEY LIVE. A well is not "a well" to anybody who uses it.
+  So each class carries its terms, each with a reading and a gloss, in
+  data/curated/kinds.json under `edge`, and the test refuses a term without all
+  three or a Thai word written only in Latin.
+
+  ── 3.1  NAMED WAYS — ถนน · ซอย · ตรอก
+      held today: 0   ·   ALREADY MODELLED ON DISK: 1077
+      what a reader wants to know:
+        · where does it come out
+        · how long is it
+        · off which road
+        · what can get down it — car, motorbike only, foot
+        · is it a dead end
+        · does it flood
+        · what stands along it
+      the words it lives under:
+        ถนน                    thanon                   road
+        ซอย                    soi                      the lane off a road, usually numbered from it
+        ตรอก                   trok                     an older, narrower alley
+        ซอกซอย                 sok soi                  the warren of small lanes taken together
+        ทางเข้า                thang khao               the way in — often the only name a lane has
+        สะพาน                  saphan                   bridge
+        แยก · สี่แยก           yaek · si yaek           junction · crossroads — how Chiang Mai actually gives directions
+        ประตู                  pratu                    gate — the old city's ways are named off ประตูท่าแพ, ประตูช้างเผือก, ประตูเชียงใหม่, ประตูสวนดอก
+        คูเมือง                khu mueang               the moat, which is itself the reference line for the old city
+        กาด                    kat                      LANNA: market — names many ways it runs to
+      source: ALREADY ON DISK. data/streets.json holds 1,077 named ways — 432 of them sois — every one Thai-named, 534 with geometry, 508 knowing what they cross, and 6,227 places already placed along them. Nothing needs fetching.
+      note:   This is the empty-shelves Cause 2 in its largest form yet: a whole class fully modelled on disk, invisible because it was never admitted as a RECORD. The ways exist only as a join table serving other pages — no id, no kind, no page, not in the index, unfindable.
+
+  ── 3.2  TREE SHRINES AND SPIRIT HOUSES — ศาลพระภูมิ · ต้นไม้ผูกผ้า · หอเสื้อบ้าน
+      held today: 40
+      what a reader wants to know:
+        · what is honoured here
+        · who keeps it
+        · what is customarily offered
+        · when it is observed
+        · may I approach, may I photograph
+        · how long it has stood
+      the words it lives under:
+        ศาลพระภูมิ             san phra phum            the land-guardian's shrine, on one post
+        ศาลเจ้าที่             san chao thi             the shrine of the lord of the place, house-shaped on four posts
+        ศาลตายาย               san ta yai               the grandfather-and-grandmother shrine
+        ศาลเพียงตา             san phiang ta            'level with the eye' — a shrine raised for one purpose, often temporary
+        หอเสื้อบ้าน            ho suea ban              LANNA: the village guardian's house (เสื้อ here is a guardian spirit, not a shirt)
+        หอเสื้อวัด             ho suea wat              LANNA: the guardian of the wat compound
+        ผีปู่ย่า               phi pu ya                LANNA: the matrilineal ancestor spirits and the house that holds them
+        อารักษ์                arak                     a guardian spirit, and by extension its shrine
+        เสาอินทขีล             sao inthakhin            the city pillar of Chiang Mai, at Wat Chedi Luang
+        สะดือเมือง             sadue mueang             the navel of the city
+        ศาลหลักเมือง           san lak mueang           the city-pillar shrine
+        ศาลเจ้า                san chao                 a Chinese shrine — has a committee, so it may be congregation as well
+        เจ้าพ่อ · เจ้าแม่      chao pho · chao mae      the lord / the lady a shrine is raised to
+        ต้นโพธิ์               ton pho                  bodhi — wound with cloth, often with a shelf at the root
+        ต้นไทร                 ton sai                  banyan
+        ต้นยางนา               ton yang na              the great dipterocarps — the Chiang Mai–Lamphun avenue among them
+        ต้นจามจุรี             ton chamchuri            rain tree
+        นางตะเคียน             nang takhian             the lady of the takhian tree
+        ผ้าแพรเจ็ดสี           pha phrae chet si        the seven-coloured cloth that marks a tree as held
+      source: OSM historic=wayside_shrine · natural=tree + denotation=natural_monument; data/shrines.json (WO-39, 21 shrines + 5 unverified) is the seed register; the rest is DOOR SURVEY — this class does not exist in any crawlable index.
+      note:   ⛔ Nothing here is a rating, a ranking or an instruction to a reader about how to behave at somebody's shrine. State what is there and who says so.
+
+  ── 3.3  BUS SHELTERS AND WAITING PLACES — ศาลารอรถ · ที่พักผู้โดยสาร
+      held today: 48
+      what a reader wants to know:
+        · does anything actually stop here
+        · which route
+        · is there shade
+        · is there a bench
+        · is it lit after dark
+        · can a wheelchair get in
+        · who built it — the donor plaque
+      the words it lives under:
+        ศาลารอรถ               sala ro rot              the pavilion where you wait for a vehicle
+        ศาลาที่พักผู้โดยสาร    sala thi phak phu doi san passenger waiting pavilion — the official term on the asset registers
+        ป้ายรถเมล์             pai rot me               bus stop sign
+        ป้ายรถประจำทาง         pai rot pracham thang    scheduled-service stop
+        จุดจอดรถแดง            chut chot rot daeng      where the red songthaew stops — usually unsigned, known not mapped
+        คิวรถ                  khiu rot                 the rank: where shared vehicles queue for a destination
+        ท่ารถ                  tha rot                  the vehicle landing — a depot, larger than a stop
+        ศาลาพักร้อน            sala phak ron            a rest pavilion, not tied to a vehicle
+      source: OSM highway=bus_stop · public_transport=platform · amenity=shelter + shelter_type=public_transport · amenity=bus_station; then the เทศบาล asset list for the ศาลาที่พักผู้โดยสาร, which is where the built ones are numbered
+      note:   Chiang Mai's real network is รถแดง, which has NO fixed stops — that is the point of it. So a stop record here is honest only if it says which of the two it is: a built, numbered shelter, or a place people are known to wait.
+
+  ── 3.4  WELLS, WEIRS AND WATER POINTS — บ่อน้ำ · ฝาย · ตู้น้ำ
+      held today: 0
+      what a reader wants to know:
+        · is the water drinkable
+        · is it free
+        · does it still run
+        · who maintains it
+        · how old is it
+        · who paid for it
+      the words it lives under:
+        บ่อน้ำ · น้ำบ่อ        bo nam · nam bo          a well; the second word order is the Northern one
+        บ่อน้ำโบราณ            bo nam boran             an ancient well — the old city's are inside wat compounds
+        บ่อน้ำทิพย์            bo nam thip              a holy well; this one is sacred as well as infrastructure
+        ประปาหมู่บ้าน          prapa mu ban             the village water supply
+        ประปาภูเขา             prapa phukhao            gravity-fed mountain water — the upland standard
+        ตู้น้ำหยอดเหรียญ       tu nam yot rian          the coin water machine — public water infrastructure that people actually drink from
+        ฝาย                    fai                      LANNA: the weir
+        เหมือง                 muang                    LANNA: the irrigation channel — NOT a mine, in this context
+        เหมืองฝาย              muang fai                LANNA: the whole communal irrigation system, the institution that organised this valley
+        แก่เหมืองแก่ฝาย        kae muang kae fai        LANNA: the elected keeper of the weir — a real office, held by a person, recorded nowhere we hold
+        ท่าน้ำ                 tha nam                  the landing and the steps down to the water
+        น้ำพุ                  nam phu                  spring or fountain
+        สระ · หนอง             sa · nong                pond · marsh-pond — หนองหอย, หนองประทีป are named for theirs
+      source: OSM man_made=water_well · amenity=drinking_water · man_made=water_tap · waterway=weir; the ประปาส่วนภูมิภาค and tambon asset lists; and for เหมืองฝาย, the irrigation-office records and the คณะกรรมการเหมืองฝาย themselves.
+      note:   The corpus holds ZERO wells. What a name-probe finds is 292 ตู้น้ำ/gas suppliers filed as `essentials/utilities` — those are commerce and are correctly filed — and 99 lakes, reservoirs and canals filed as `parks/water`, which are `land`. Neither is a well. Absence here is absence ON THIS DISK.
+
+────────────────────────────────────────────────────────────────────────
+4. WHAT EACH ONE STILL NEEDS
+
+  WAYS      Nothing. 1,077 records, on disk, projecting now. What is left is
+            reader-facing: a page per way, the axis in the index, and the two
+            facts a projection cannot know (passable / floods) which come from
+            survey or from you.
+
+  SACRED    40 held. The seed register data/shrines.json (WO-39) carries 21
+            shrines and 5 unverified. Everything beyond that is DOOR SURVEY —
+            this class exists in no crawlable index. OSM's
+            historic=wayside_shrine is worth one pull for what it has.
+            ⛔ Nothing here is a rating, a ranking, or an instruction to a
+            reader about how to behave at somebody's shrine. State what is
+            there and who says so.
+
+  SHELTERS  48 stop records held, and not one of them is a shelter — they are
+            songthaew and bus stopping points. One OSM pull (highway=bus_stop,
+            public_transport=platform, amenity=shelter + shelter_type=
+            public_transport), then the เทศบาล asset list, which is where the
+            BUILT and NUMBERED ศาลาที่พักผู้โดยสาร are. Honesty rule for this
+            class: Chiang Mai's real network is รถแดง and it HAS no fixed stops
+            — that is the point of it. So a record here must say which of the
+            two it is: a built shelter, or a place people are known to wait.
+
+  WATER     0 held, and the name probes are all false positives — 292 ตู้น้ำ and
+            gas suppliers filed as `essentials/utilities` (commerce, correctly
+            filed) and 99 lakes, reservoirs and canals filed as `parks/water`
+            (which is `land`). Neither is a well. One OSM pull
+            (man_made=water_well, amenity=drinking_water, man_made=water_tap,
+            waterway=weir), then the tambon asset lists. And เหมืองฝาย — the
+            communal irrigation system that organised this valley, with its
+            elected แก่เหมืองแก่ฝาย — is recorded nowhere we hold and is the
+            single most Lanna thing missing from this catalogue.
+
+  All three pulls are NETWORK and therefore yours to trigger. Nothing was
+  fetched.
+
+────────────────────────────────────────────────────────────────────────
+5. STILL OPEN
+
+  K  does the blunt noindex retire entirely once fitness ranking lands
+  L  the keyed search API
+  M  the first roster (I still recommend DBD มูลนิธิ/สมาคม)
+  ②  the fields — holds · access · parent · serves · ownWords, and now also
+     honours · keeper · offerings · observedOn · approach · runsFrom · runsTo ·
+     passable · floods · donor · potable. All declared, all slotted, none built.
+  ④  the rosters.
+  NEW: do the 1,077 ways get pages of their own, and does a way appear in
+     ordinary search results or only when a reader is plainly asking for a way?

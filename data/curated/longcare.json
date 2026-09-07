@@ -22,8 +22,7 @@
   "row that has no grade or an id that resolves nowhere. Leads whose OSM",
   "elements the catalogue's own crawl groups never selected carry their",
   "upstream ref in `ref` — folding them in is a numbered door, not a register row.",
-  "No ranking, no named clinicians, no medical advice, no outcome claims —",
-  "the addiction rows especially: each facility speaks for itself or not at all."
+  "Each facility speaks for itself or not at all."
  ],
  "generated": "2026-08-26",
  "rows": [

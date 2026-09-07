@@ -1,0 +1,100 @@
+MICHAEL'S SECOND BUG REPORT — "best place to buy a Martin guitar?"
+Read 2026-09-07 from Google Drive. Screenshots on disk at go/bugs.
+
+WHAT HE TYPED, 19:00, 2026-09-06
+  best place to buy a Martin guitar?
+
+WHAT THE PAGE GAVE HIM
+  Search results 266
+  nothing matches all of buy + martin + guitar — showing what matches some,
+  most words first: buy 261 · martin 4 · guitar 4
+  understood "best" — this page cannot filter on it yet; check the listing
+  showing 200 of 266; add a word to narrow it
+
+  Then, in order: Khao Tom Pui Racha Thai Food · Leng Doi Pui · Mod Khaotom
+  Pui 2 · Malin Sky · night and morning market · Jardin d'ete Gelato ·
+  ... roughly two hundred rows of KFC, Starbucks, Cafe Amazon, McDonald's,
+  Khao Soi Mae Manee, Goodsouls Kitchen, Humanities Canteen ...
+
+  and only then, under the header "Shopping & Gifts 30":
+    Guitar House · Intune Guitar Shop · Cin Guitars · Pom Pui Big Size ·
+    108 Music Shop · Audition Music Room · Churairat Music ·
+    CM Music Thailand · Del Gesu Violin Shop · Doremi Music School
+
+  He had to scroll past two hundred coffee shops to reach a guitar shop.
+
+THE ANSWER WAS NEVER MISSING
+  Same question, put to the other door (ai.motdang.net/api/search, checked
+  2026-09-07):
+
+    Intune Guitar Shop      0.639   Chiang Rai, sells and repairs
+    Cin Guitars             0.630   Tha Sala, high-end acoustics
+    PaiyapanichCNX          0.627   Chang Phueak, takes consignment
+    Music Collection        0.626   Central Festival 3rd floor
+    Guitar House            0.624   Suthep Rd, closed weekends
+    Patr Music              0.624   Sri Phum, sells + rents + rehearsal
+    Chiang Rai Music        0.622   Phra Suphan Rd
+    Sirit Borikan           0.616   Maninopharat Rd, opens Sundays
+
+  Eight shops, with phone, address, hours and a written blurb. Eight of eight
+  are right. The corpus holds the answer; the site search ranks it ~230th.
+  ONE INDEX, TWO DOORS, OPPOSITE OUTCOMES — layer 4 of the cure plan, and
+  this is the first hard case of it a reader has hit.
+
+  "martin" returns 0 on the API. No shop on this disk is recorded as carrying
+  Martin. That part is honest scarcity, not a defect — but the page never
+  said it. It said 266.
+
+THE FAULT — RARITY IS NOT WEIGHED
+  Three words. buy matched 261 rows, martin 4, guitar 4. No row matched all
+  three, so the engine dropped to partial and kept every row matching any one
+  of them. Every one of those rows has the same coverage (1 of 3). They then
+  sort by score, and score does not know that a word matching 4 rows out of
+  22,351 says a thousand times more about what the reader wants than a word
+  matching 261.
+
+  The rare word IS the question. "guitar" is the question. "buy" is grammar.
+  Ranked by rarity, the eight shops are the first eight rows and Michael
+  never sees a Cafe Amazon.
+
+  This is the same organism as the parking bug and a different mechanism:
+  there, a constraint word was eaten before matching; here, the words all
+  survive and are then weighed as equals.
+
+SECOND FAULT — "buy" SHOULD NOT MATCH 261 RESTAURANTS
+  Not yet pinned. Two candidates, and I have not proved either:
+    - the loose/near-spelling tier reaching buy -> pui (Khao Tom Pui, Leng
+      Doi Pui, Mod Khaotom Pui 2, Pom Pui Big Size all rank in this pile,
+      which is not a coincidence worth ignoring)
+    - "Instruments — buy & rent" is a real shelf label, so buy is a genuine
+      index token; but that would give ~30 rows, not 261.
+  Whichever it is, buy/place/best are query scaffolding, not content.
+
+THIRD — THE DOOR ON A FAILED SEARCH, AGAIN
+  "Search results 266" over a search that answered nothing. WO-67 already
+  fixes this (the count now carries a "partial matches" label) and WO-67 is
+  BUILT AND NOT DEPLOYED. Michael is reading the live site. Some of what he
+  reports is already fixed on disk and he cannot see it.
+
+WHAT I DID NOT DO
+  I did not pin the line that computes .score / .coverage. It is referenced
+  at build.py:3578, 3659 and set at build.py:3651, but the producer is not
+  in assets/searchcore.js and I did not find it. Naming it is the first step
+  of any fix.
+
+FORKS — NAN'S
+  A  Deploy WO-67 first, or hold and land both fixes together?
+  B  Rarity weighting: is the fix IDF on the score, or the blunter rule
+     "when no row matches every word, rank by the rarest word matched"?
+     The blunt rule is one line and cannot regress a whole-coverage query;
+     IDF is correct and touches every search on the fleet, including wichaa
+     (searchcore is shared).
+  C  A stopword list for query scaffolding (buy, best, place, near, where,
+     good, cheap) — a list is exactly the hand-curated table the parking
+     lesson says not to build. Derive it from frequency instead?
+  D  When the rarest word has few rows and the query names a shelf those rows
+     sit on, should the page say "no shop here is recorded as carrying Martin
+     — here are 8 guitar shops" and show only those? That is a real answer
+     instead of 266 rows.
+  E  Michael is now two-for-two on finding faults nothing else found. Ask him
+     for more, or leave him to it?

@@ -223,7 +223,7 @@ def emit(g, data):
         t = lp.get("tecc") or {}
         f_ = lp.get("fae") or {}
         phones = " · ".join(f'<a href="tel:{att(re.sub(r"[^0-9+]", "", x))}">{esc(x)}</a>' for x in t.get("phones") or [])
-        lp_html = (f'<div class="ch-card"><h3>🏥 {bi("ลำปาง — โรงพยาบาลช้างและสถาบันคชบาล", "Lampang — the elephant hospital and the institute")}</h3>'
+        lp_html = (f'<div class="ch-card"><h3>🏥 {bi("ลำปาง — โรงพยาบาลช้างและสถาบันคชบาล", "Lampang — hospital and institute")}</h3>'
                    f'<p class="ch-note">{bi(lp.get("note_th", ""), lp.get("note_en", ""))}</p>'
                    f'<p><b>{bi(t.get("name_th", ""), t.get("name_en", ""))}</b> — {esc(t.get("district_en", ""))}'
                    + (f' · ☎ {phones}' if phones else "")
@@ -333,11 +333,11 @@ def emit(g, data):
 
     # money from the register itself, computed not typed
     posted = [v for v in venues if v.get("prices_en")]
-    card("ปาง — คำที่อยู่หน้าทุกชื่อ", "Pang — the word in front of every name",
+    card("ปาง — คำในทุกชื่อ", "Pang — the word in every name",
          bi("ปางช้าง (paang cháang) — ปาง คือค่ายพักในป่าที่ตั้งชั่วคราวเพื่อทำงาน คำเดียวกับปางไม้ของคนทำไม้ซุง ปางช้างจึงแปลตรงตัวว่าค่ายช้าง และเกือบทุกปางในหุบเขาแม่แตง แม่วาง แม่แจ่ม เคยเป็นหรือสืบจากค่ายทำไม้ก่อนปิดป่าสัมปทานปี 2532 — หลังจากนั้นช้างกับควาญต้องหางานใหม่ และงานใหม่คือผู้มาเยือน",
             "ปางช้าง paang cháang — ปาง is a working camp pitched in the forest, the same word as the loggers' timber camps, so a pang chang is literally an elephant camp. Tradition holds that most of the camps in the Mae Taeng, Mae Wang and Mae Chaem valleys are, or descend from, the logging camps that lost their work when the forests were closed to logging in 1989 — after which the elephants and their mahouts needed a new trade, and the new trade was visitors."),
          say("ลักษณนามของช้างเลี้ยงคือ เชือก — ช้างหนึ่งเชือก สองเชือก — ส่วนช้างป่านับเป็น ตัว: ภาษาจำไว้ว่าช้างเลี้ยงคือช้างที่มีเชือกผูก", "The classifier for a captive elephant is เชือก chʉ̂ak, “rope” — one rope, two ropes of elephants — while a wild one is counted in ตัว: the language remembers that a kept elephant is an elephant with a rope on it."))
-    card("ควาญ ตะขอ และคำถามที่ถามได้", "The mahout, the hook, and the questions you may ask",
+    card("ควาญ ตะขอ คำถาม", "The mahout, the hook, the questions",
          bi("ควาญช้าง (khwaan cháang) คือคนประจำช้างหนึ่งเชือก มักเป็นคนเดียวกันนานหลายปี หลายปางบอกเองว่าช้างแต่ละเชือกมีควาญประจำ — ตะขอ หรือ ขอช้าง (khɔ̌ɔ) คือเครื่องมือโลหะปลายงอที่ควาญถือ ปางที่ไม่ใช้จะประกาศเอง ปางที่ใช้มักไม่พูดถึง ถามได้ตรง ๆ ว่าใช้ไหม และกลางคืนช้างอยู่ที่ไหน ล่ามไหม — คำตอบเป็นของปาง มดแค่จด",
             "The ควาญ khwaan is the person assigned to one elephant, often the same person for years; several camps say on their own sites that each elephant has its own mahout. The ตะขอ / ขอช้าง khɔ̌ɔ is the curved metal hook a mahout carries; camps that do not use one say so, camps that do rarely mention it. Both are fair questions at the gate — do the mahouts carry a hook, and where are the elephants at night, and are they chained. The answer is the camp's; the ants only write it down."),
          say("ในภาคเหนือ ชุมชนกะเหรี่ยง (ปกาเกอะญอ) แม่วาง แม่แจ่ม อมก๋อย เลี้ยงช้างมาหลายชั่วคน หลายปางในทะเบียนบอกเองว่าเป็นของครอบครัวกะเหรี่ยง — คำว่าหมอช้าง (mɔ̌ɔ cháang) คือผู้รู้วิชาช้าง ผู้ทำพิธีให้ช้าง อ่านต่อที่ wichaa", "In the north the Karen (Pgakenyaw) communities of Mae Wang, Mae Chaem and Omkoi have kept elephants for generations, and several camps in the register describe themselves as Karen family camps. A หมอช้าง mɔ̌ɔ cháang is an elephant-master, the keeper of the elephant lore and the rites — which continues on wichaa, below."))
@@ -353,7 +353,7 @@ def emit(g, data):
     card("ถามที่ประตู — ห้าคำถาม", "At the gate — five questions",
          bi("1 มีขี่ช้างไหม ถ้ามี หลังเปล่าหรือแหย่ง · 2 ควาญใช้ตะขอไหม · 3 กลางคืนช้างอยู่ไหน ล่ามไหม · 4 มีสัตวแพทย์ไหม · 5 ขอดูตั๋วรูปพรรณได้ไหม — ถามอย่างสุภาพ คำตอบคือข้อมูลของปาง ไม่ใช่ข้อสอบ และคนที่ตอบคือคนที่อยู่กับช้างทุกวัน",
             "1 Is there riding, and if so bareback or with a chair · 2 Do the mahouts carry a hook · 3 Where are the elephants at night, and are they chained · 4 Is there a vet · 5 May I see the registration papers — asked politely; the answers are the camp's own information, not an exam, and the person answering is the one who is with the elephants every day."),
-         say("มดแดงจดคำตอบที่ปางประกาศไว้ (ตารางด้านบน) และเจ้าของปางติ๊กเองได้ที่หน้าของตัวเอง — ไม่มีใครติ๊กแทนปาง และหน้านี้ไม่ให้คะแนนสวัสดิภาพใคร", "The ants write down what a camp has stated (the register above) and a camp's owner can tick the facts on their own page — nobody ticks on a camp's behalf, and this page scores nobody's welfare."))
+         say("มดแดงจดคำตอบที่ปางประกาศไว้ (ตารางด้านบน) และเจ้าของปางติ๊กเองได้ที่หน้าของตัวเอง — ไม่มีใครติ๊กแทนปาง", "The ants write down what a camp has stated (the register above) and a camp's owner can tick the facts on their own page — nobody ticks on a camp's behalf."))
     card("คำที่จะได้ยิน", "Words you will hear",
          '<ul class="ch-words">'
          + "".join(f"<li>{bi(th, en)}</li>" for th, en in [
@@ -412,11 +412,11 @@ def emit(g, data):
             f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>')
     og = shelf_og("cm", "chang") if shelf_og else None
     body = (
-        f'<h1>🐘 {bi("ช้าง — ปางไหนบอกว่าอะไร ชั้นปางช้าง และเรื่องที่ควรรู้ก่อนไป", "Elephants — what each camp states, the shelf, what to know before you go")}</h1>'
+        f'<h1>🐘 {bi("ช้าง — ปางไหนบอกว่าอะไร", "Elephants — what each camp states")}</h1>'
         f'<p class="ch-intro">{intro}</p>'
         f'<h2>{bi("ทะเบียน — ปางบอกเองว่าอะไร", "The register — what each camp states")}</h2>'
         f'{reg_html}{venues_html}{unr_html}{unc_html}{norow_html}{cr_html}'
-        f'<h2>{bi("ชั้นช้าง — ปาง คลินิก และของช้าง", "The elephant shelf — camps, the clinic, the craft")}</h2>'
+        f'<h2>{bi("ชั้นช้าง — ปาง คลินิก ของช้าง", "The shelf — camps, clinic, craft")}</h2>'
         f'{shelf_html}'
         f'<h3>{bi("ปางช้างในสารบัญ", "Camps in the directory")} <span class="count">({len(camp_rows)})</span></h3>'
         f'<p class="ch-note">{bi("เรียงตามชื่อ — ☎ LINE WA 🌐 คือช่องทางที่สารบัญมี", "Alphabetical — ☎ LINE WA 🌐 mark the channels the directory holds")}</p>'
@@ -424,11 +424,11 @@ def emit(g, data):
         f'<h2>{bi("กฎหมายสองฉบับ และองค์กรที่ออกใบรับรอง", "Two laws, and the bodies that certify")}</h2>'
         f'{law_html}'
         f'<div class="ch-grid">{lp_html}</div>'
-        '<h2>' + bi("ช้างในชื่อเมือง — ประตู วัด ย่าน ดอย", "The elephant in the city's names — a gate, temples, quarters, a mountain") + '</h2>'
+        '<h2>' + bi("ช้างในชื่อเมือง", "The elephant in the city's names") + '</h2>'
         f'{land_html}'
-        f'<h3>{bi("ทุกระเบียนที่มีช้างในชื่อ", "Every record with the elephant in its name")}</h3>'
+        f'<h3>{bi("ทุกระเบียนที่มีช้างในชื่อ", "Every record named for the elephant")}</h3>'
         f'{names_html}'
-        f'<h2>{bi("ก่อนไปปาง — เรื่องที่ควรรู้", "Before you go — what you are looking at")}</h2>'
+        f'<h2>{bi("ก่อนไปปาง", "Before you go")}</h2>'
         f'{primer_html}{joins_html}'
         f'<p class="ch-note">{bi("ที่มาของทะเบียน", "Register data")}: <a href="data/elephants.json">data/elephants.json</a> · '
         f'{bi("วันช้างไทยอยู่ในปฏิทินเทศกาล", "Thai Elephant Day is on the festivals page")} → <a href="festivals.html">festivals.html</a></p>'

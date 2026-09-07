@@ -22,8 +22,7 @@ WHY SELF-HOSTED TILES
 The obvious fix is a raster tile layer pointed at tile.openstreetmap.org. It
 is three lines and it would have shipped the same afternoon. It also would
 have made this the first page on the site to fetch anything from a third
-party, on a site whose front page promises it follows no one around — and it
-would have leaned on a donated CDN whose usage policy a growing directory is
+party, and it would have leaned on a donated CDN whose usage policy a growing directory is
 built to violate.
 
 Protomaps solves both: one .pmtiles file we host ourselves, fetched in ranges
@@ -147,6 +146,18 @@ def head(depth=0):
             f'<script src="{r}vendor/pmtiles.js" defer></script>'
             f'<script src="{r}vendor/maplibre-gl.js" defer></script>'
             f'<script src="{r}map.js?v={v}" defer></script>')
+
+
+def head_urls(depth=0):
+    """The same four files head() emits, as a list — for a page that must
+    not pay for MapLibre until a reader asks for a map (search.html bakes
+    them into a JSON block and loads them on the first tap). One owner for
+    the version hash, so the two never disagree."""
+    if not enabled():
+        return []
+    r = "../" * depth
+    return [f"{r}vendor/maplibre-gl.css", f"{r}vendor/pmtiles.js",
+            f"{r}vendor/maplibre-gl.js", f"{r}map.js?v={version()}"]
 
 
 def mount(map_id, fallback_svg="", *, prov="cm", zoom=14,
@@ -784,7 +795,12 @@ window.MDMAP={
   },
   /* The map itself, for a layer that already knows it is mounted. Returns
      undefined rather than throwing when it is not. */
-  map:function(el){return reg.get(el);}
+  map:function(el){return reg.get(el);},
+  /* A box ADDED after load — the search page's result map, a card's mini
+     map — is seen by none of the watchers above: sweep() runs on scroll and
+     resize, the observers watch the boxes present at script time, and a box
+     that was hidden measures zero. Whoever made the box asks for it here. */
+  mount:function(el){maybe(el);}
 };
 
 /* The backstop. Passive so it never costs a frame of scroll. */
@@ -967,9 +983,19 @@ def emit(g):
     # URL to fetch the font PBFs from. The usual answer is Protomaps' public
     # font host — which is exactly the third-party request self-hosting the
     # tiles was meant to avoid, and it would leak every map view to a server
-    # that is not ours. So: no self-hosted glyphs, no labels. An unlabelled
-    # street grid under our own pins is still an enormous improvement on
-    # cream, and the pins carry their own names already.
+    # that is not ours.
+    #
+    # This comment used to end "So: no self-hosted glyphs, no labels" and the
+    # maps went out unlabelled for it. That was never a fact about the world.
+    # Font PBFs are four static files; they were built and put in
+    # assets/glyphs/NotoSans/ on 2026-08-20 and the labels have been on ever
+    # since, with no external request. The refusal named its own fix in the
+    # sentence before it and declined to do it, then sat here for weeks
+    # instructing whoever read it next. Worth remembering as a shape, not just
+    # as a bug: see CLAUDE.md, "a restriction has to carry its provenance".
+    #
+    # `glyphs` unset is still a supported state — a rollback sets it back to a
+    # URL, or to nothing — and the symbol layers drop rather than erroring.
     glyphs = cfg.get("glyphs")
     dropped = 0
     if not glyphs:

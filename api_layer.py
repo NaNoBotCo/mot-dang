@@ -514,7 +514,7 @@ def _terms_page(g):
         f'<h1>{bi("เงื่อนไขการใช้ข้อมูล", "Terms of use")}</h1>'
         f'<p class="lead">{bi("เอาไปใช้ได้เลย ให้เครดิตกลับมาที่ มดแดง ก็พอ", "Take it. Credit มดแดง Mot Dang. That is the whole deal.")}</p>'
 
-        + h2("สิ่งที่ทำได้ — ทั้งหมดนี้ ไม่ต้องขอ", "What you may do — all of it, without asking")
+        + h2("สิ่งที่ทำได้ ไม่ต้องขอ", "Allowed, without asking")
         + ul([
             ("ใช้ ทำสำเนา ดัดแปลง แปล และเผยแพร่ต่อ",
              "Use, copy, adapt, translate and redistribute it"),
@@ -529,7 +529,7 @@ def _terms_page(g):
         ])
         + f'<p>{bi("ไม่ต้องสมัคร ไม่มีคีย์ ไม่มีค่าธรรมเนียม ไม่ต้องทำสัญญา ไม่มีการให้สิทธิ์แต่ผู้เดียวกับใคร", "No sign-up, no key, no fee, no contract, no exclusivity with anyone.")}</p>'
 
-        + h2("สิ่งเดียวที่ขอ — เครดิต", "The one thing we ask — attribution")
+        + h2("เครดิต", "Attribution")
         + ul([
             ("ถ้าข้อมูลปรากฏให้คนเห็น ให้เครดิต “มดแดง Mot Dang” พร้อมลิงก์ไปที่ motdang.net ตรงหน้านั้น หรือในหน้าเกี่ยวกับ/เครดิตของแอป",
              "Where the data is visible, credit “มดแดง Mot Dang” with a link to motdang.net — on the page, or in an app's About/Credits screen"),
@@ -546,7 +546,7 @@ def _terms_page(g):
         f'<a href="https://opendatacommons.org/licenses/odbl/1-0/" rel="noopener">ODbL 1.0</a></p>'
         f'<p>{bi("ภาพถ่ายไม่รวมอยู่ในนี้ — แต่ละภาพมีเครดิตและสัญญาอนุญาตของตัวเองอยู่ที่หน้าภาพ", "Photos are NOT covered by this. Each one carries its own credit and licence beside it; see the pictures page.")}</p>'
 
-        + h2("ข้อจำกัดของข้อมูล", "Limits of this data")
+        + h2("ข้อจำกัด", "Limits")
         + ul([
             ("เวลาเปิด-ปิดและเบอร์โทรเปลี่ยนได้ตลอด ร้านปิดกิจการไปแล้วก็มี",
              "Hours and phone numbers change; a place may have closed since we last looked"),
@@ -558,7 +558,7 @@ def _terms_page(g):
              "Provided as-is, with no warranty of any kind"),
         ])
 
-        + h2("สิ่งที่ขออย่าทำ", "What we ask you not to do")
+        + h2("อย่าทำ", "Not allowed")
         + ul([
             ("อย่าทำให้เข้าใจว่ามดแดงรับรองคุณ หรือว่าข้อเท็จจริงที่คุณเพิ่มเองมาจากเรา",
              "Do not imply that Mot Dang endorses you, or that a fact you added came from us"),
@@ -570,7 +570,7 @@ def _terms_page(g):
              "Owner-supplied contact details were given for a directory listing, not for a marketing list"),
         ])
 
-        + h2("มารยาทในการเรียกใช้", "How to be a good caller")
+        + h2("มารยาทในการเรียกใช้", "Caller etiquette")
         + f'<p>{bi("ไม่มีคีย์ ไม่มีลิมิต ขอแค่ช่วยกันประหยัด", "There is no key and no rate limit. In exchange:")}</p>'
         + ul([
             ("แคชคำตอบไว้ และส่ง If-None-Match มาด้วย — ทุกคำตอบมี ETag",
@@ -581,8 +581,8 @@ def _terms_page(g):
              "Put a name and a contact in your User-Agent, so we can tell you if something changes"),
         ])
 
-        + h2("คีย์ที่ /api/v1/ ใช้อยู่", "The keys /api/v1/ uses")
-        + f'<p>{bi("รายการคีย์ทั้งหมดที่รุ่นนี้ออก อ่านได้จาก", "The full list of keys this version emits is at")} '
+        + h2("คีย์ของ /api/v1/", "The /api/v1/ keys")
+        + f'<p>{bi("ทุกคีย์ที่รุ่นนี้ออก", "Every key this version emits")} '
         f'<a href="api/v1/schema.json"><code>api/v1/schema.json</code></a>.</p>'
 
         f'<p class="count">{bi("ปรับปรุงล่าสุด", "Last updated")} {g["BUILD_DATE"]} · '

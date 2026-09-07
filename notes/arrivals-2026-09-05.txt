@@ -1,0 +1,176 @@
+ARRIVALS — HOW A STRANGER REACHES MOT DANG WHEN THEY NEVER TYPE MOTDANG.NET
+Survey, 2026-09-05.  Nan: "I bet 99% traffic will not be direct to start.
+What can we do to be more useful and attractive?"
+
+────────────────────────────────────────────────────────────────────────────
+THE SHORT ANSWER
+────────────────────────────────────────────────────────────────────────────
+No — this has never been dug into.  notes/ holds 78 files and not one of them
+is about arrival.  There is no SEO note, no distribution note, no referral
+note, and no measurement of any kind anywhere in the repo.  Every claim below
+about where readers come from is inference, including Nan's 99%, because the
+site cannot currently count a single arrival.
+
+Two corrections to the premise, both of which change the work:
+
+1. A GOOGLE MAPS USER CANNOT ARRIVE FROM MAPS.  Maps is a closed loop; a
+   result has no outbound link to a directory.  There are exactly three doors
+   to that reader and none of them is inside Maps:
+     (a) the WEB search that happens beside or before the map — "tok sen
+         chiang mai" typed into Google, where web results sit under the pack.
+         That door is an ANSWER page, not a place page.
+     (b) the shop's own Google listing, whose website field the shop controls
+         — reachable only through /claim.html, one shop at a time.
+     (c) OSM.  Apple Maps, Organic Maps, Komoot, Garmin, Facebook's map and
+         most model geo-knowledge read OpenStreetMap.  We read OSM and have
+         never written a line back.  Fixing the substrate is the only way we
+         reach a map-shaped reader at scale, and it is the one Google cannot
+         close.
+
+2. "AI FINDS IT" IS THREE DIFFERENT MECHANISMS and we are strong in the one
+   that matters least:
+     - PRETRAINING (llms.txt, llms-full.txt, an open dataset) — huge, slow,
+       uncontrollable, and both files are live and good.
+     - RETRIEVAL AT ANSWER TIME (the assistant runs a search and reads a
+       page) — this is what decides whether ChatGPT names a Mot Dang shop
+       tomorrow.  It rewards a page that answers the QUESTION, not one that
+       names the PLACE.  We have 22 such pages.
+     - TOOL USE (the assistant calls an API) — /api/v1 is written, frozen,
+       schema'd, documented in api.js… and returns 404 in production.
+
+────────────────────────────────────────────────────────────────────────────
+MEASURED STATE, 2026-09-05
+────────────────────────────────────────────────────────────────────────────
+robots.txt          every AI crawler explicitly allowed (GPTBot, ClaudeBot,
+                    PerplexityBot, Google-Extended, Applebot-Extended,
+                    Bytespider, CCBot…).  Correct and rare.  LIVE.
+sitemap.xml         14,905 URLs — 13,635 place pages, 742 shelf pages,
+                    380 sois, 79 root, 38 festivals, 22 asked.  LIVE.
+place pages         noindex,follow unless place_has_substance() — phone,
+                    LINE, hours, website, photo, claim or address.
+                    ~10,400 of 24,059 places therefore have NO indexable
+                    page.  Deliberate (build.py:8887) and defensible.
+JSON-LD             LocalBusiness/subtype + BreadcrumbList on every place
+                    page; name, alternateName, url, image, address,
+                    telephone, geo, sameAs, mainEntityOfPage.  Thoughtful.
+                    MISSING: openingHoursSpecification, makesOffer.
+llms.txt            44.6 KB, live, and it disambiguates มดแดง from หมูเด้ง.
+llms-full.txt       live.
+/data/places.json   live, 24,059 records.
+/api/v1/places      404.  api.js expects docs/api/v1/index.json; nothing in
+                    the repo writes that file and tests/ has no api test.
+HF dataset          publish/hf-dataset/ built; the repo NaNoBotCo/mot-dang-
+                    chiang-mai-chiang-rai returns 401 — never pushed.
+analytics           none — none third-party, none first-party either.
+                    Zero arrivals countable.
+og:image            place pages all share card.png.  24,059 places, one
+                    picture.  Shelf pages get real cards.
+outbound map link   maps.google.com/?q=<lat>,<lng> — drops a pin on empty
+                    map rather than opening the business.  No Apple Maps,
+                    no Organic Maps, no Waze, no LINE share.
+
+────────────────────────────────────────────────────────────────────────────
+USER STORIES — DOES IT WORK TODAY?
+────────────────────────────────────────────────────────────────────────────
+S1  A tourist in a Grab types "tok sen chiang mai" into Google.
+    Wants: a place, tonight, open late, walkable.
+    Lands: nowhere.  We hold 30 tok-sen records and Lila answers the exact
+    query in test_answer_shaped.py — and there is no /asked/tok-sen.html for
+    Google to rank.  ✗ FAILS on the answer page, not on the data.
+
+S2  Someone asks ChatGPT "where can I get traditional Lanna massage with the
+    hammer, in Chiang Mai, open after 9pm?"
+    Wants: named shops with hours.
+    Today: the model searches, finds no page shaped like that answer,
+    and names Fah Lanna from memory.  ✗
+
+S3  A resident asks Claude "is there a physiotherapist near Nimman who takes
+    walk-ins?"
+    We hold 24 physio records as of yesterday.  No physio answer page,
+    no hours in JSON-LD, no callable API.  ✗
+
+S4  A developer asks an agent "what's open right now near me in Chiang Mai?"
+    /open-now.html exists for a human.  The agent needs /api/v1 with
+    near= and open_now=.  Written, frozen, 404.  ✗ — and this is the
+    cheapest fix on the list.
+
+S5  A shop owner googles their own shop name.
+    Lands: their Mot Dang page — IF it cleared place_has_substance().  For
+    ~10,400 places there is no page to find, so no claim, so no phone, so
+    it never clears the bar.  ✗ a closed loop we built ourselves.
+
+S6  A Bangkok Thai searches "ร้านนวดตอกเส้น เชียงใหม่" in Thai.
+    Our pages are Thai-first and bilingual — this is our strongest hand and
+    the one nobody else plays.  Blocked only by S1's missing answer page. ~
+
+S7  Someone shares a place to LINE or Messenger.
+    Every one of 24,059 places shows the same card.png.  A shared link that
+    looks identical to every other shared link gets clicked less.  ✗
+
+S8  An Apple Maps or Organic Maps user searches "massage" in the old city.
+    They see OSM's 16 นวด elements for the whole province.  We hold 325 CM
+    massage records and 30 tok-sen attributes and have never contributed
+    one.  ✗ — and this is the only door to a map-shaped reader.
+
+S9  A journalist or researcher wants "a Thai city directory dataset".
+    llms-full.txt and places.json answer perfectly.  HF — the place they
+    would actually look — 401.  ~
+
+S10 An assistant needs to CITE us.
+    A stable URL, a date, a count, a licence, a named method.  Every shelf
+    page has all four.  This is quietly our best asset and nothing points
+    at it.  ✓ but unadvertised.
+
+S11 A reader arrives on a place page from anywhere and wants directions.
+    Gets a bare coordinate pin in Google Maps.  ✗ cheap.
+
+S12 A returning reader wants "what changed".  rss.xml exists.  ✓
+
+────────────────────────────────────────────────────────────────────────────
+THE GAPS, RANKED BY (LEVERAGE ÷ COST)
+────────────────────────────────────────────────────────────────────────────
+G1  /api/v1 is 404.  The one door an agent can CALL.  api.js is complete and
+    key-frozen; what is missing is the generator that writes
+    docs/api/v1/index.json at build and a test.  Half a day.
+G2  22 answer pages against 367 real questions already mined from Nan's own
+    GPT archive (153 of which return NOTHING today).  asked_new.py already
+    exists and takes one question.  This is the retrieval door, and it is
+    6% built.  It is also the same work as the search-disease cure, seen
+    from the outside.
+G3  openingHoursSpecification + makesOffer in the JSON-LD.  The corpus holds
+    4,398 hours and 2,725 blurbs that never reach a page.  Both Google's
+    rich results and every LLM extractor read exactly these two fields, and
+    makesOffer IS the offers[] schema from Phase 3.  One job, three payoffs.
+G4  ~10,400 noindex places.  The bar is right; the enrichment to clear it is
+    sitting on disk unapplied.  Every hour applied moves a record over.
+G5  No OSM write-back.  Licence gate first: only field-verified and
+    licence-compatible facts may go, never anything Google-derived.  Within
+    that gate it is the highest-reach act available to this project.
+G6  No arrival measurement.  Not a tracker — a first-party edge count of
+    referrer host + landing path, no cookie, no third party, aggregated.
+    Without it every line above stays a guess and stays unfalsifiable.
+G7  HF dataset unpushed.
+G8  Place og:images all identical; map links are bare coordinates.  Cheap.
+
+────────────────────────────────────────────────────────────────────────────
+DECIDED BY NAN, 2026-09-05
+────────────────────────────────────────────────────────────────────────────
+A1  MEASUREMENT — YES, count at the edge.  First-party, no cookie, no third
+    party; referrer host + landing path only, aggregated.  A line on /about
+    stating exactly what is counted.  NOT STARTED.
+A2  OSM — BROAD: contribute everything licence-clean.  Licence gate run the
+    same day: go/osm-gate.  Verdict — 517 records are giveable now, 6,150
+    are blocked on four unanswered licence questions, 3,303 are permanently
+    forbidden, and the schema cannot yet say which FIELD is ours to give.
+A3  ANSWER PAGES — BREADTH FIRST on the 52 that already score ≥0.60, then
+    depth on the 153 that return nothing.  This also answers F5.  NOT STARTED.
+A4  /api/v1 — SHIP IT.  Landed the same evening by a parallel session:
+    api_layer.py, tests/test_api.py, tests/test_api_worker.js, build.py
+    calling api_layer.emit().  ⚠ The DEPLOYED worker predates the API branch
+    (/api/v1/health returns the HTML 404 page, not JSON) — publish/worker.js
+    needs a wrangler deploy before the endpoint answers.
+A5  HF DATASET — PUSH IT.  publish/hf-dataset/ is built; the repo 401s.
+    Push is a human step.  NOT STARTED.
+
+Nothing above was built by this session.  Sibling notes: go/osm-gate,
+go/disease, go/cure, go/cure-status, go/gptmine, go/gaps, go/pins, go/held.

@@ -1,0 +1,361 @@
+ONE FRONT DOOR
+A build spec for getting any kind of information about Chiang Mai out of
+Mot Dang, from a typed question or from the map.
+Written for Nan, 2026-09-07. Budget stated: up to $100/month.
+
+Everything in §0 is measured or read off disk today. Nothing below has been
+built. Two other sessions were mid-build while this was written (WO-74 into a
+scratch tree, and a real build into docs/), so this was researched from
+source — assets/, build.py, publish/, notes/ — and docs/ was never touched.
+
+
+==============================================================================
+0. THE FINDING: YOU HAVE THREE ENGINES. ONE IS WIRED TO THE BOX.
+==============================================================================
+
+  A. STRUCTURED / GEO — /api/v1/places
+     A Cloudflare Worker (publish/worker.js + publish/api.js, 752 lines) over
+     a baked index. DEPLOYED. Accepts: q, province, cat, sub, tag, lens,
+     facet, has, min_ants, near, radius, open_now, open_at, sort, limit,
+     offset. Returns distanceM, openNow, confidence, osmDerived, antRank,
+     facets, has, lenses, photoUrl.
+
+     Probed live today:
+       /api/v1/places?near=18.7876,98.9931&radius=300&limit=5
+       → 316 places, distance-sorted, in 120 ms.
+
+     The site's own JavaScript has never called it. (Same finding as
+     card-2026-09-07.txt §0.)
+
+  B. SEMANTIC — ask.motdang.net/api/search
+     Cloudflare Vectorize, 1024-dim cosine, embeddings from @cf/baai/bge-m3
+     (multilingual — it reads Thai). 23,651 of 25,179 places indexed; the
+     ~1,500 absent are the deliberately `held` records. DEPLOYED, and it
+     already sends access-control-allow-origin: *.
+
+     Probed live today:
+       "guitar shop"        → Intune · Cin Guitars · Guitar House    1.5 s cold
+       "ตอกเส้น"             → Nuat Lanna Tok Sen / Chap Sen clinic   0.61 s
+       "quiet cafe with wifi to work in"
+                            → Code Space · Brain Awake · Yellow      0.60 s
+       "motorbike fixed near Tha Phae Gate"
+                            → five repair shops, NONE near Tha Phae  0.66 s
+
+     The site links to it only AFTER the box has already failed.
+
+  C. LEXICAL — searchcore.js in the reader's browser
+     911 lines, four layers (normalise · Thai homophone/vowel folding + edit
+     distance · Thai segmentation · thesaurus), twinned with a Python copy
+     under parity.py. Good code. It is the ONLY engine the search box calls,
+     and to run it the phone downloads 1.5 MB gzipped (9.5 MB raw index).
+
+  THE MAP, which you already own outright:
+     MapLibre GL (vendored, 1.05 MB) + pmtiles.js over your own PMTiles
+     archives in R2 — cm-cr.pmtiles 116 MB, cm-cr-terrain.pmtiles 161 MB.
+     No Mapbox, no MapTiler, no per-view tile fee, ever.
+     Plus road_graph.json — real nodes/edges with an offline router
+     (importers/routing.py, Graph.route, ride_plan.py). Walking-time rings
+     are therefore possible without any routing service.
+
+  THE DIAGNOSIS THAT ALREADY EXISTS:
+     search-is-the-wrong-tool-2026-09-07.txt. Its §6 is the thesis of this
+     spec — a where-question is three structured facts (WHAT / WHERE / HOW
+     FAR) and a text box captures none of them. This document is that
+     conclusion turned into a build.
+
+  So: the horsepower is bought, deployed, and idle. What is missing is not a
+  retriever. It is a FRONT DOOR that turns anything a reader does into one
+  structured question, sends it to whichever engine can answer it, and then
+  renders a page the size of the answer.
+
+
+==============================================================================
+1. THE ARCHITECTURE
+==============================================================================
+
+  READER INPUT — all of these are the same thing, a question:
+    typed words · a tapped chip · the map's viewport · a long-press on the
+    map · "near me" · a tag link · a shelf · a voice note
+                              │
+                              ▼
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │ THE RESOLVER            one edge Worker, target < 50 ms, no model      │
+  │                                                                        │
+  │ Turns ANY input into ONE structured question:                          │
+  │                                                                        │
+  │   WHAT       kind / tag / shelf / trade                                │
+  │              from 127 tag slugs on 7,873 records, 1,724 trade tags,    │
+  │              175 shelves, the lens registers                           │
+  │   WHERE      a point + radius │ an area │ a bbox                       │
+  │              from 68 landmark records, streets (1,077 named ways,      │
+  │              432 sois), tambon/amphoe, the map viewport, or GPS        │
+  │   WHEN       now │ a time │ a day        (open_now / open_at exist)    │
+  │   WHICH      free · covered · wheelchair · English · price · vegan …   │
+  │   WORDS      everything left over — a NAME FILTER, never a requirement │
+  │                                                                        │
+  │ Rules, from the seven causes in the wrong-tool note:                   │
+  │   · a word we did not understand is SAID OUT LOUD, never swallowed     │
+  │     (Cause 2: "moto" was unknown and the page reported one shop with   │
+  │     total confidence)                                                  │
+  │   · extra words never narrow to nothing (Cause 3: an eleven-word       │
+  │     sentence is how humans ask, and it was punished for it)            │
+  │   · a narrower question never returns a worse answer (Cause 1:         │
+  │     "motorbike" hid the car park 80 m away)                            │
+  └────────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼  dispatch, in parallel, whichever apply
+  ┌──────────────┬────────────────────────┬────────────────────────────────┐
+  │ A. STRUCTURED│ B. SEMANTIC            │ C. LEXICAL                     │
+  │ /api/v1      │ Vectorize + bge-m3     │ searchcore.js                  │
+  │ WHAT + WHERE │ a sentence, a vague    │ a NAME — "rajavej", "ปั๊มน้ำมัน" │
+  │ resolved     │ want, an unknown word  │                                │
+  │ 120 ms       │ 600 ms                 │ instant, small index only      │
+  └──────────────┴────────────────────────┴────────────────────────────────┘
+                              │
+                              ▼
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │ MERGE + RERANK                                                         │
+  │ Union by id. Where A and B disagree about the top three, run            │
+  │ @cf/baai/bge-reranker-base over the top ~50 (Workers AI, no new         │
+  │ account). Structured constraints are HARD — a reranker may reorder,     │
+  │ never resurrect something outside the radius or shut at 3 a.m.          │
+  └────────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │ THE ANSWER RENDERER — the page is sized to the answer (Cause 7)        │
+  │                                                                        │
+  │   0        we do not hold this. Say so, say what we DO hold near it,   │
+  │            offer the ants and the crawl request. No near-miss list.    │
+  │   1–4      the answer, and the page ENDS. No shortcut grid, no         │
+  │            services bar, no footer, no scroll. (P1, your standing rule)│
+  │   5–40     cards + one shared map, distance-sorted, each row carrying  │
+  │            the fact that tells it from its neighbour (P3)              │
+  │   40+      NOT A LIST. A map with facet chips. "1,796 car parks" is a  │
+  │            map question and has never been a list question.            │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  The URL always carries the whole question — ?tag=&near=&radius=&open_now=
+  &q= — so every answer is linkable, back works, and the map and the list are
+  two views of one state rather than two features.
+
+
+==============================================================================
+2. THE MAP IS A QUESTION, NOT A PICTURE
+==============================================================================
+
+  Today the map is a destination you visit. It should be the primary input
+  device for a where-question, because it captures WHERE without asking
+  anyone to spell a landmark.
+
+  M1  THE VIEWPORT IS A WHERE-CLAUSE.
+      Pan or zoom → re-query with the visible bounds. Needs one new param on
+      the existing API: bbox=minLng,minLat,maxLng,maxLat. (near+radius is
+      already there; bbox is ~20 lines in publish/api.js.)
+
+  M2  LONG-PRESS IS A POINT.
+      "Everything within a 5-minute walk of HERE." No typing, no landmark
+      name, no GPS permission.
+
+  M3  A PIN OPENS THE CARD IN PLACE.
+      WO-70 already built one shared MapLibre instance moved from card to
+      card. Tap = card, not a page load. Two thirds of car parks have
+      nothing behind the link anyway (wrong-tool §3).
+
+  M4  KIND CHIPS FILTER THE PINS LIVE.
+      The 127 tags become map controls. Michael's brief, verbatim:
+      "discovery should EXPLICITLY allow searching/finding by tags."
+
+  M5  WALKING TIME, NOT CROW-FLIES RADIUS.
+      A 500 m circle crosses the Ping and the superhighway. road_graph.json
+      + Graph.route already exist; a Dijkstra over walk-permitted edges gives
+      a 5/10/15-minute ring that is TRUE. This is the one thing on this page
+      that no competitor can copy off a map API.
+      (Needs a walk profile on the graph — verify before promising it.)
+
+  M6  THE MAP IS THE ZERO-QUERY STATE.
+      A reader who has typed nothing gets "what is around you", not a grid of
+      shortcuts. This is also the answer to go/arrivals — a Maps user cannot
+      arrive from Maps, but a person standing in Chiang Mai with a phone can
+      arrive at a map.
+
+  M7  CLUSTER BY KIND, NOT BY BLOB.
+      At low zoom: "23 cafés · 4 clinics · 11 car parks" in this square, not
+      a grey circle with a number in it.
+
+
+==============================================================================
+3. THE STEPS, IN THE ORDER THAT PAYS
+==============================================================================
+
+Each phase is independently shippable and independently reversible. Each has
+a gate — a test that must pass before it goes out. Effort is my estimate for
+one focused session, not a promise.
+
+  ── PHASE 0 · DEPLOY WHAT IS ALREADY BUILT ────────────────── you, 10 min
+     WO-67/68 (parking, bearings, the slashed results page), WO-69–73 (the
+     card, tag filters, chips), here.html, NOW·NEAR. All built, tested,
+     undeployed. Every measurement in the wrong-tool note is against the
+     FIXED build; the live site is worse than any baseline in this spec.
+     GATE: your go. Nothing else in this document should start first.
+
+  ── PHASE 1 · THE PAGE FITS THE ANSWER ────────────────────── half a day
+     P1 + P2 from the wrong-tool note. Under ~4 results nothing renders
+     below them. One language per unit — "810 ม." or "810 m", never both.
+     Today: 27 px of answer inside 1,484 px of furniture.
+     GATE: a new test_page_weight.py case — a 1-result search on a 375 px
+     viewport is under 700 px total and has no scroll.
+
+  ── PHASE 2 · THE RESOLVER ────────────────────────────────── 2 days
+     The box stops being a matcher and becomes a parser. WHAT / WHERE /
+     WHEN / WHICH / WORDS. The landmark-lift and constraint-lift from WO-68
+     already do a third of this. Unknown words are named on the page.
+     GATE: the nine phrasings in wrong-tool §4 must all return the car park
+     80 m from Tha Phae Gate in the top three. Today four of nine never
+     show it and one returns a shop 4.6 km away.
+
+  ── PHASE 3 · WIRE THE THREE ENGINES ──────────────────────── 2 days
+     Dispatch to /api/v1 and to Vectorize from the resolver. Merge by id.
+     searchcore stays for names and as the offline fallback.
+     GATE: "best place to buy a Martin guitar?" puts a guitar shop first.
+     Today it is ~230th, behind two hundred coffee shops (go/guitar-bug).
+
+  ── PHASE 4 · STOP SHIPPING THE CATALOGUE ─────────────────── 2 days
+     P6, and the one that decides whether this is usable on Thai mobile
+     data. The 9.5 MB index stops being the price of asking a question.
+     Keep a small name-and-pin index (~300 KB) for instant local name
+     matching and for offline; everything else comes from the edge.
+     GATE: first answer painted in under 3 s on a throttled 1.5 Mbps
+     connection. Today the index alone is ~36 s at that speed.
+
+  ── PHASE 5 · THE MAP AS INPUT ────────────────────────────── 3 days
+     M1–M4, M6, M7. bbox= on the API; viewport queries; long-press; live
+     tag chips; the zero-query map.
+     GATE: a reader can answer "somewhere to park near here" with zero
+     keystrokes.
+
+  ── PHASE 6 · WALKING TIME ────────────────────────────────── 2 days
+     M5. Verify the walk profile on road_graph.json first; if the graph
+     will not carry it, say so and keep the radius rather than shipping a
+     ring that lies.
+     GATE: the 5-minute ring around Tha Phae Gate does not cross the Ping
+     where there is no bridge.
+
+  ── PHASE 7 · THE LEARNING LOOP ───────────────────────────── 2 days
+     The half you already own: search_log and site_gaps in D1, a nightly
+     cron at 17:20, gaps.py, asked_layer.py, asked_check.py,
+     make_answer_cards.py. It has produced 54 real leads from 278 questions
+     — a 19% yield — on chat traffic alone.
+     What is missing is fuel: THE SEARCH BOX LOGS NOTHING. It runs entirely
+     in the browser and calls nothing but static files, so every query typed
+     into the site is lost the instant it is answered.
+     Phase 3 fixes this for free — once the query is a request, it can be
+     logged. Add a `source` column, log query + outcome (zero / weak / which
+     result was opened / abandoned), and classify nightly into causes you
+     have already named: MISSING RECORD · EMPTY SHELF · WRONG NAME ·
+     MISSING FIELD · WRONG TOOL. Out the other end: typed work orders.
+     GATE: one week of real traffic produces work orders a bot can act on
+     without you rewriting them.
+
+  ── PHASE 8 · THE OVERHAUL PROPER ─────────────────────────── 3 days
+     P3 (a row carries what tells it apart), P7 (say when the answer is
+     thin), the card everywhere, the words that come off. Michael's rule is
+     the standard: "If you need to explain something using words, you're
+     fucking up."
+     GATE: test_page_weight.py, and a re-run of your phone test.
+
+  Total: roughly three weeks of focused sessions. Phases 0–3 are the ones
+  that change a reader's experience; 4 is the one that decides whether Thai
+  readers on mobile data have an experience at all.
+
+
+==============================================================================
+4. WHAT YOU MUST PAY FOR, AND WHAT YOU MUST SIGN UP FOR
+==============================================================================
+
+  ALREADY OWNED — no new account, no new charge:
+
+    Cloudflare Workers Paid           $5/mo    already billed
+      → Workers, Cron, Rate Limiting, Durable Objects, Queues
+    Cloudflare R2                     ~$0-2/mo already billed
+      → mot-dang-site (the site), the PMTiles archives, listing photos
+    Cloudflare Vectorize              see below · index already provisioned
+    Cloudflare Workers AI             see below · binding already provisioned
+    Cloudflare D1                     free tier · search_log + site_gaps live
+    Cloudflare KV                     free tier · the claims worker
+    MapLibre GL + pmtiles.js          BSD/open, vendored, $0 forever
+    Your own PMTiles tiles            no tile service, no per-view fee, $0
+    motdang.net on Cloudflare         already yours
+    LINE Official Account             already yours (the claims webhook)
+
+  THE MARGINAL COST OF EVERYTHING IN THIS SPEC:
+
+    Vectorize storage   23,651 × 1024 = 24.2M stored dims.
+                        10M included on Workers Paid; $0.05 per 100M after.
+                        → $0.007 / month
+    Vectorize queries   50M queried dims/month included; $0.01/M after.
+                        → $0 until tens of thousands of searches a month
+    Embeddings          @cf/baai/bge-m3, 1,075 neurons per M input tokens,
+                        $0.011 per 1,000 neurons.
+                        A full re-embed of all 25k places ≈ $0.15.
+                        A reader's query ≈ a rounding error.
+    Reranker            @cf/baai/bge-reranker-base, same neuron billing,
+                        run only on contested queries. Single dollars.
+    Workers requests    10M/month included on Paid.
+
+    REALISTIC TOTAL AT YOUR CURRENT TRAFFIC:  under $10/month, all-in.
+    AT 100× YOUR CURRENT TRAFFIC:             still under $30/month.
+
+  YOU WOULD NEED A NEW ACCOUNT ONLY FOR THESE, AND NONE IS REQUIRED:
+
+    Tavily (web search)        worker.js already reads env.TAVILY_KEY. Free
+                               tier 1,000 searches/mo. Only needed if you
+                               want the gap-finder to keep confirming that a
+                               missing place really exists. RECOMMENDED —
+                               it is what turns a failed query into a lead.
+    A geocoder                 for the 2,116 unpinned records. Options:
+                               Nominatim (free, rate-limited, usage policy),
+                               LocationIQ (~$0–49/mo), self-hosted Photon.
+                               NOT needed for this spec; needed for the pins
+                               gap, which is its own project.
+    Cloudflare Web Analytics   free, cookie-less. Sign-up is a toggle in the
+                               dashboard, not an account. Worth turning on
+                               BEFORE Phase 1 so the overhaul is measurable.
+    Cloudflare Turnstile       free. Only if a write path gets abused.
+
+  WHAT I WOULD ACTUALLY SPEND THE $100 ON, IF YOU WANT IT SPENT:
+
+    Nothing in the stack. Spend it on CONTENT — the fields that make a row
+    worth tapping. 1,796 car parks: 0 have a phone, 2 have hours, 68% say
+    nothing beyond the pin. No retriever can rank facts that were never
+    collected. A month of a Thai-reading assistant filling hours and fees
+    for the top 500 most-queried records would beat every phase above.
+    That is a real fork and it is yours.
+
+
+==============================================================================
+5. WHAT IS YOURS TO DECIDE
+==============================================================================
+
+  F1  DEPLOY PHASE 0, or not. Everything here is measured against the fixed
+      build. The live site is worse than every baseline in this document.
+
+  F2  Retriever-first, or local-first with the retriever as rescue?
+      First gives better answers; second is cheaper and keeps offline whole.
+
+  F3  LOG QUERIES AT ALL? Phase 7 needs it. It is question-only and IP-free
+      by design — search_log carries no seat id, deliberately — but it is a
+      behavioural log where today there is none, and that is your call, not
+      an implementation detail.
+
+  F4  Do the builder bots ACT on a work order, or only propose one?
+
+  F5  The $100: reranker and infrastructure, or a human filling in fields?
+      I recommend fields. The infrastructure is nearly free and the fields
+      are the thing readers actually came for.
+
+  F6  Phase 4 (stop shipping the catalogue) breaks the pure-static promise —
+      the site starts depending on the edge to answer a question. The
+      offline/PWA path has to be kept deliberately. Worth it, but it is a
+      change to what Mot Dang IS, and you should say so out loud before it
+      happens rather than discover it later.

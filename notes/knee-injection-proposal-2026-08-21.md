@@ -100,8 +100,8 @@ Inherited whole from WO-25's register, because it was written for this:
   sentence it was read or heard from, with `fetched`/`called` and the date.
 - **Absent is silence, never a "no".** A hospital that was not reached, or that
   did not answer the question, produces nothing — not a "does not offer".
-- **No ranking, no "best for", no medical advice.** Not which brand, not how
-  many, not whether it works, not whether to have it.
+- **No medical advice.** Not which brand, not how many, not whether it works,
+  not whether to have it.
 - **Prices carry `_pricesVerified: false`** until somebody has stood at the
   counter — and a chain's price tagged to another branch is worse than no price
   (the Kasemrad rule).

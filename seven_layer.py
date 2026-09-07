@@ -303,7 +303,7 @@ def emit(g, data):
             f'<tr><td>{bi(th, en)}</td><td class="n">{n:,}</td></tr>'
             for (th, en), n in sorted(zc.items(), key=lambda kv: -kv[1]))
         zone_html = (
-            f'<h2>{bi("เซเว่นรายย่าน — เชียงใหม่", "Sevens by part of town — Chiang Mai")}</h2>'
+            f'<h2>{bi("เซเว่นรายย่าน", "Sevens by part of town")}</h2>'
             f'<table class="sv-reg"><tr><th>' + bi("ย่าน", "Zone")
             + '</th><th class="n">' + bi("สาขา", "Branches") + "</th></tr>"
             + rows + "</table>"
@@ -341,11 +341,11 @@ def emit(g, data):
         f"<p>{bi(dth, den)}</p></div>"
         for ico, th, en, dth, den in PRIMER)
     primer_html = (
-        f'<h2>{bi("สาขาไหนก็ทำได้ — ความรู้ระดับเครือ", "What any branch can do — the chain voice")}</h2>'
+        f'<h2>{bi("สาขาไหนก็ทำได้", "What any branch can do")}</h2>'
         f'<p class="sv-note">'
         + bi("ความรู้ระดับเครือ (confidence: general-knowledge) ไม่ใช่คำยืนยันรายสาขา — "
              "สาขาไหนมีอะไรจริง ดูป้ายในหน้าสาขานั้น",
-             "Chain-level knowledge (confidence: general-knowledge), never a per-branch "
+             "Chain-level knowledge (confidence: general-knowledge), not a per-branch "
              "promise — what a given branch actually has lives on that branch's own page.")
         + "</p>"
         + f'<div class="sv-grid">{cards}</div>')
@@ -372,7 +372,7 @@ def emit(g, data):
             f'<li>{f.get("icon", "")} ' + bi(f.get("ask_th", f["th"]), f.get("ask_en", f["en"])) + "</li>"
             for f in conv_set["facets"])
         asks_html = (
-            f'<h2>{bi("คำถามหน้าร้าน — ช่วยมดดูสาขาที่คุณผ่าน", "The shopfront questions — survey the branch you pass")}</h2>'
+            f'<h2>{bi("คำถามหน้าร้าน", "The shopfront questions")}</h2>'
             f'<p class="sv-lede">'
             + bi("นี่คือคำถามที่แยกสาขาหนึ่งจากอีกสาขา — ผ่านร้านไหน กดปุ่ม 🐜 ในหน้าสาขานั้นแล้วตอบเท่าที่เห็น",
                  "These are the questions that tell one branch from the next. Pass a branch, open its "

@@ -345,9 +345,9 @@ Rules that bite:
 - The look comes from a Claude Design study Nan approved. The palette lives in
   `:root` and the whole design layer sits in ONE block at the end of `CSS` —
   ribbon, sticker shadows, hero, mood cards, after dark, the gold claim band.
-  Retune the variables, not the rules. One thing from that study is refused on
-  purpose and must stay refused: star ratings and review counts — we hold no
-  ratings, and drawing them invents facts about named businesses. Its Leaflet
+  Retune the variables, not the rules. The study's star ratings and review
+  counts are not drawn: no ratings are held, so there is nothing to draw. Its
+  Leaflet
   map on third-party tiles was refused for years as well; that has been
   superseded by a self-hosted basemap (`map_shell.py`). What was actually
   being refused was renting the ground from a company that logs who walks on
@@ -388,12 +388,10 @@ Rules that bite:
   different places. A card with no photograph gets `.textonly` and gives the
   space to its words. The placeholder stays out of schema.org `image`, which
   had been telling crawlers a shop's picture is a line drawing of a temple.
-- **Temples are not ranked against each other** — Nan's call. `/merit.html` numbers nine
-  stops because a walk has an order, and says in words that the order is the
-  shortest way round and not a ranking. Royal grade appears because the Sangha
-  assigned it, not as a reason one temple leads. The พระประจำวันเกิด strip is
-  "what to look for at any temple" — pairing a weekday with particular temples
-  is not in the tradition and is not ours to invent.
+- `/merit.html` numbers nine stops because a walk has an order — the shortest
+  way round. Royal grade appears because the Sangha assigned it. The
+  พระประจำวันเกิด strip is "what to look for at any temple" — pairing a weekday
+  with particular temples is not in the tradition and is not ours to invent.
 - `importers/routing.py` is a second implementation of the routing in
   `build.py`'s plan JS. They must agree, above all on `oneway` binding ride and
   not foot, and on the snap walk-in being added at both ends.
@@ -450,12 +448,13 @@ Rules that bite:
   three modes. Anything new that renders a name goes through `name_bi()`.
 - **A reading is not a name.** `translit.py` reads a Thai-only name by RTGS
   (Royal Society of Thailand, 1999) so an English reader has something to say
-  and to type. It rides in `.roman` after the Thai, fills `data-ne` and the
-  search index's `a` (matched, not shown) — and stops there. `nameEn`,
-  `data/canonical/`, `name_of()`, `place_slug()` and JSON-LD `name` hold the
-  NAME, which is a different object. That boundary is what lets the reading be
-  generous everywhere it does belong — the row, `data-ne`, search — without
-  claiming to be a shop's own sign.
+  and to type. Today it rides in `.roman` after the Thai, fills `data-ne` and
+  the search index's `a` (matched, not shown). Two fields cost something to
+  write it into: `nameEn` and `data/canonical/` hold sourced facts, so a
+  computed reading there loses the provenance distinction the site publishes;
+  and `place_slug()` reads `name_of()`, so a slug that moves is a 404 after
+  deploy. Anywhere else — a chip, a label, a heading — is a judgement about
+  what reads well on that page, and it is open.
   `data/curated/rtgs_lexicon.json` holds what the letter rules cannot reach —
   Pali/Sanskrit readings, the 44 districts in the spelling already on the road
   signs, and English written in Thai script (บิ้วตี้ is Beauty, not "Bioti").
@@ -523,11 +522,6 @@ Rules that bite:
 - Two builds at once used to leave the loser's older pages standing in docs/.
   `take_build_lock()` handles it now (see above); if you ever suspect it,
   count a nav link against the page total.
-- **No GitHub.** Do not push, do not add `github.com` links, do not offer a
-  GitHub issue as a contribution path. The NaNoBotCo account was hidden on
-  2026-08-07 and she is leaving rather than waiting on an appeal; GitHub was
-  never in the serving path anyway. `git` stays useful LOCALLY — commit as
-  normal — but there is no remote.
 - The deploy is `python3 publish/deploy.py --yes` (R2). That is what readers
   see. Nothing else publishes.
 - **Maker bots do not publish, and do not raise it.** `importers/standing_walk.sh`
@@ -540,7 +534,8 @@ Rules that bite:
   where publishing is the subject are ones about the walks themselves.
   The question "should this go out?" is answered by the gates, not by asking:
   build succeeds, publish gate passes, route tests pass, no `/Users/` paths,
-  docs/ over 20,000 files. Work that clears those goes out.
+  docs/ over 20,000 files. (Nan, 2026-09-08: keep — it is what stops two
+  sessions deploying over each other.)
 - To hold the site still — a risky refactor, a half-imported shelf you do not
   want seen — create `cache/walk-rest`. Empty rests until you remove it; an ISO
   timestamp inside rests until then and clears itself. That is the ONLY way to
@@ -548,7 +543,7 @@ Rules that bite:
 - Source and raw data are served from the site itself: `build.py`'s
   `emit_source()` writes `docs/source/` (archive + the files pages name) and
   `/source.html` presents it, which is where a page points when it needs to
-  show code or data. (There is no remote — see No GitHub, above.)
+  show code or data.
 - Offsite backup is `importers/offsite_backup.py --all` — a `git bundle` of
   every repo in the fleet into R2, weekly from the walk, last three per repo.
   A bundle is a real repository in a file: `git clone <bundle> <name>` restores

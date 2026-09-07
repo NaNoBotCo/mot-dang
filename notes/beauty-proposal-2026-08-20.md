@@ -88,20 +88,6 @@ The strays print every run so the guard can be seen working — same shape as th
    census of the silence.
 8. **`worker/worker.js`** — 20 new facet keys accepted from owners and passers-by.
 
-### What the page refuses to do
-
-It does not sort barbers into the hip ones and the ordinary ones, the farang ones
-and the Thai ones. Sixty-two shops put BARBER on the sign and they are listed
-together, alphabetically, unranked — exactly as the elephant camps are. A reader
-can read a shopfront. Nan's "americana/british style with hipsters" is a real and
-findable thing, and the honest way to serve it is the shop's own name plus the
-facets it states (`razorshave`, `fade`, `beard`, `priceboard`), never a vibe verdict
-attached to somebody's livelihood.
-
-And it does not guess at textured hair. A wrong yes sends somebody with tightly
-coiled hair to a chair where nobody has handled it before, which is a worse
-outcome than an honest "nobody has told us yet".
-
 ---
 
 ## 3. The doors — each needs Nan's numbered go

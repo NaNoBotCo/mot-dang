@@ -1,0 +1,235 @@
+SEARCH DISEASE — WHERE WE ARE, WHAT IS LEFT, AND HOW BIG THIS GETS
+2026-09-05 18:20 · for Nan · go/cure-status (plan: go/cure · diagnosis: go/disease)
+
+
+THE ANSWER FIRST
+================================================================================
+
+Phase 0 of the cure is landed and live. The reader's path that returned two
+noise rows for "toksen" this morning returns tok sen shops tonight on the API
+door and the site door. Phases 1 to 8 are NOT started, except pieces that fell
+out of parallel work today (pins, the holding pen, the gap audit, the GPT mine,
+the skin lens). The next move is Phase 1: data/curated/vocabulary.json, one
+file, no new dependency, two days.
+
+Three items need your decision before Phase 2 can start (F3, F5) or before the
+pin work can continue (F2, F7, F8). They are at the bottom.
+
+
+THE SCOREBOARD (cure note §7)  morning → now → target
+================================================================================
+
+  tok-sen records                          0 →    30 →   30   DONE
+  silent zero shelves (no written reason) 18 →     0 →    0   DONE (test enforces it)
+  stale KNOWN_EMPTY entries                5 →     3 →    0   test FAILS on them now
+  vocabulary terms driving all 4 doors     0 →     0 →   60   not started (inputs ready)
+  Thai-named share of CM massage           7% →    8% → >50%  not started
+  records with offers[]                    0 →     0 → 1,000  not started
+  answer-shaped eval, 3 doors, one exam  none →  1 case → 50  test file exists, passes
+  asked questions arriving via the loop  0/26 →  0/26 → most  not started
+  unpinned records                     2,116 → 1,829 → <300   287 pinned; 1,246 held out of index
+  Chiang Rai curated records              28 →    28 → 100s   not started (CR undersold, see below)
+
+  Live, 18:10 today:
+    ai.motdang.net/api/search  toksen    8 results   (0 this morning)
+    ai.motdang.net/api/search  ตอกเส้น   6 results   (0 this morning)
+    motdang.net data/index.json holds 76 tok-sen shelf hits, 37 ตอกเส้น
+    ask.motdang.net             not re-tested (API wants a sign-in; run the exam after the build)
+
+
+PHASE 0, ITEM BY ITEM
+================================================================================
+
+  a. Tok sen harvest       LANDED. 30 records carry tok-sen in data/canonical/cm.json:
+                           10 tags in shelves.json (each naming the page that says it)
+                           + 20 records in additions-chiang-mai.json incl. Phailin.
+                           tests/test_search.py carries both scripts as cases.
+  b. The 73 name-rule      LIVE, by three different rules: made-to-order 26 (lens),
+     records               physio 24 (attr facilityType), library 21 (lens),
+                           walking-street 2 (sub; 5 were proposed, 3 short).
+  c. KNOWN_EMPTY hygiene   HALF. tok-sen and fabric came out. THREE ARE STALE NOW:
+                           massage/chap-sen (1 record), cannabis/farm, cannabis/clinic.
+                           The subs were applied this afternoon (gap audit item 5) and
+                           the reasons were not removed. tests/test_facets.py fails on
+                           exactly those three. A build was running (cache/build.lock
+                           18:01) so I did not edit under it. A one-minute fix.
+  d. Zero-shelf test       BUILT. Fails on a child shelf at zero without a reason, on a
+                           child with NO match rule (six existed; four got rules and
+                           read reasons: housekeeper, handyman, online-selling, outing),
+                           and on a KNOWN_EMPTY shelf that has filled. A parity check
+                           holds it to build.matches.
+  e. Answer-shaped test    BUILT, PASSES. "toksen in the old city, open past 21:00"
+                           → Lila Thai Massage. One case; Phase 4 grows it to fifty.
+  f. Rebuild + re-index    DONE at least once (the live API proves it). Another build
+                           is running now; rerun the AI exam when it ends.
+
+
+ALSO LANDED TODAY, OUTSIDE THE PLAN'S NUMBERING (parallel sessions)
+================================================================================
+
+  PINS (go/pins)           The geocoder had three defects: tambon centroids ignored the
+                           province (ป่าแดด put a school 139 km out at ±1,365 m),
+                           romanisation spacing (Wua Lai vs Wualai), and a claimed 80%
+                           calibration that measures 63%. 287 pins applied through
+                           data/curated/pins.json under a ±3 km cap. Ajarn Somphong Tok
+                           Sen went ±4,026 → ±806 m. 10 of the 18 tok sen shops have NO
+                           address at all. Mot Dang has never crawled temples: 1,070
+                           pinned CM temples sit in cache/osm-worship/, not folded.
+  HOLDING PEN (go/held)    1,246 name-only records (no pin, ≤2 facts) are out of the
+                           site index and the assistant index; they rejoin themselves
+                           when a fact lands. Shelf pages still list them (not built).
+  GAP AUDIT (go/gaps)      The biggest gaps are records we HOLD that reach no shelf:
+                           vegetarian 42 → 204 off own names + cached diet tags ·
+                           northern food 58 (no อาหารเหนือ shelf exists, in its home
+                           province) · pet-shop shelf does not exist, 64 records · 328
+                           attrs.kind trade words unread (228 of them Chiang Rai) ·
+                           345 duplicate pairs = 315 addresses + 284 phones for no fetch
+                           · 4,398 hours, 2,725 blurbs, 2,642 facet sets held and NOT
+                           in the index · the thdata crawl of 9/4 was never persisted
+                           and must be redone.
+  GPT MINE (go/gptmine)    1,139 Thailand conversations → 367 in-scope place questions
+                           scored against /api/search: 52 pass, 153 return nothing.
+                           28 vocabulary lines drafted (section E). Nothing applied.
+  SKIN LENS                rosacea → the skin door (tests/test_search.py, WO-63).
+                           The GPT mine names the next seven specialty lenses.
+  LISTING POWER            Design note on who may change a listing (go/listings):
+                           the supply side of offers[] — the shop writing its own menu.
+
+
+WHAT REMAINS, BY PHASE
+================================================================================
+
+  PHASE 0 leftovers        Minutes. Remove 3 stale KNOWN_EMPTY. walking-street +3.
+                           Rerun the AI exam after the build.
+
+  PHASE 1 vocabulary.json  NOT STARTED. Inputs are ready: ~60 home-ground terms
+  (2 days)                 (go/disease §4.1), 28 GPT-mine lines, the 26 asked keys.
+                           The four consumers exist and are hand-fed today: search-core
+                           thesaurus · index_labels.json · MOTDANG_TAGS · the coverage
+                           test. Adding a term must become data entry, not four edits.
+
+  PHASE 2 registers        NOT STARTED. thdata crawl lost. CM massage: 325 records,
+  (2 weeks)                297 OSM, 29 Thai-named (8%), 225 with no sub at all.
+                           Sources in the plan: thdata · สบส. licence register · DBD ·
+                           the Facebook pages we already hold links to · cmhy → CR.
+                           Blocked on F5 (massage-first vs breadth) and F3 (Wongnai/
+                           GoWabi terms).
+
+  PHASE 3 offers[]/blurb   NOT STARTED, and cheaper than estimated: the gap audit
+  (3 days)                 found 2,725 blurbs and 166 OSM descriptions already on
+                           records, unsearchable; 85 blurbs name a trade the record's
+                           name does not (ถ่ายเอกสาร ×27, physio ×17, ล้างแอร์ ×13).
+                           Blocked on F4 (the evidence bar).
+
+  PHASE 4 one index,       NOT STARTED. The live site index carries id, slug, name,
+  three doors (3 days)     cat, sub, keywords and NO hours, facets or blurb, though the
+                           corpus holds 4,398 hours. "Open past 21:00" is answerable
+                           in the data and not at the search box. tests/answers.json
+                           does not exist; the GPT mine gives 367 scored candidates.
+                           The three exams (site 26+, AI 24, none for the API) still
+                           share no question.
+
+  PHASE 5 the loop         NOT STARTED. asked.json 26, none via the loop. No
+  (2 days)                 /coverage.html. Blocked on F1 (zero-result counter).
+
+  PHASE 6 geography        PARTLY. 287 pinned, 1,829 open. Two estimates disagree on
+                           the ceiling: the pins note says 14% is the limit under a
+                           ±3 km cap; the gap audit says 1,267 are reachable if the
+                           cap is the measured uncertainty. That disagreement IS
+                           fork F8. The OSM temple fold is F7.
+
+  PHASE 7 Chiang Rai       NOT STARTED, and undersold: CR holds 12 massage records,
+                           ALL Thai-named, ALL from data.go.th (100% vs CM's 8%). The
+                           register pattern is already proven in miniature there.
+                           228 CR records carry a trade word in attrs.kind and no shelf.
+
+  PHASE 8 the kit          NOT STARTED. The shapes exist in the repo already: a lens is
+                           one JSON, a shelf tag is one shelves.json row with its
+                           source, an empty shelf is a written reason, a question is
+                           an answer-shaped test. CITY.md is the document that says so.
+
+
+THE FORKS — YOURS, NONE ANSWERED
+================================================================================
+
+  F1  Zero-result query counter on site search (query string + daily count,
+      nothing else). (a) do it, say so on /privacy · (b) AI widget only · (c) no.
+      Cost of (c): the largest demand signal stays invisible. Blocks Phase 5b.
+  F2  A Thai geocoder (Longdo key, or data.go.th boundaries). Blocks Phase 6.
+  F3  Wongnai / GoWabi as sources; read the terms first. Slows Phase 2 if no.
+  F4  offers[] evidence bar: own words only; reader review → attrs; sidebar → nothing.
+  F5  Phase 2 order: massage-first (recommended) or breadth-first. Blocks Phase 2 day 1.
+  F6  Approved AI answers → indexable ถามมด pages.
+  NEW TODAY
+  F7  Fold the 1,070 cached OSM temples in as records? Doubles the wat shelf,
+      every new record pinned. A corpus decision, not a pin fix.
+  F8  The pin cap: ±3 km (287 pins) · ±1.5 km (~30) · measured uncertainty with
+      no cap (~1,267, honestly labelled). Decides how many "near me" answers exist.
+  F9  New shelves the corpus already fills: pets/pet-shop (64), food/northern as a
+      cuisine (58), and the four CR tourism kinds (228). Each is a categories.json row.
+
+  Expiry: none blocks Phase 1. F5 blocks Phase 2's first day.
+
+
+THE HORIZON — WHAT CURING A CITY GROWS INTO
+================================================================================
+
+  1. COVERAGE AS A PUBLIC NUMBER. /coverage.html per city: for every home-ground
+     term, held vs the outside count, dated, unflattering on purpose. That page IS
+     the BHAG's unit of measurement: a search-disease index a city can be scored
+     on, and a second city compared against. The demonstration is one table:
+     the same twenty questions, Mot Dang's answer beside the incumbent's, by hand.
+
+  2. A REGISTER OF WHAT THE CITY DOES, NOT WHAT IT IS CALLED. offers[] with a
+     source on every item turns 24,000 names into a menu of the city. We already
+     hold 1,062 links to shops' own Facebook pages, the richest own-words source
+     there is. The claims door (go/listings) and the LINE bot let the shop write
+     its own offers: the supply side of the cure, and the one Google structurally
+     cannot copy, because ours downloads.
+
+  3. THE DEMAND CORPUS AS THE EXAM. 367 of your own questions with dates on them,
+     26 asked.json entries, the AI's search log, and (F1) the site's own misses.
+     A city is cured when the exam passes, not when a shelf count grows. Every
+     miss is a work item within a day; the 4-a-week hand-carried loop becomes the
+     exception.
+
+  4. REGISTERS FIRST, EVERYWHERE. The finding under every number today: a
+     local-native register beats a global map every time (ONAB filled monastic
+     schools; data.go.th made CR massage 100% Thai-named). The kit's day-one
+     question for any city is "name three registers written by insiders."
+
+  5. THE KIT (CITY.md). vocabulary.json · three registers · twenty questions ·
+     the discipline rules. Chiang Rai proves it with no new code. Then the
+     northern circuit where the inverse-coverage law bites hardest and no
+     directory exists at all: Lamphun, Lampang, Pai and Mae Hong Son, Nan, Phrae.
+     A city becomes a folder of JSON and a crawl list, not a codebase.
+
+  6. THE AI AS A CRAWLER WITH A PROVENANCE RULE. It already cites directory pages
+     holding twenty names and returns one. Reading names out of pages it cites,
+     handing them to the harvester as candidates with the page as evidence,
+     makes the third door feed the corpus instead of only reading it.
+
+  7. THE LEXICON MADE PUBLIC. WO-47's thesaurus page plus vocabulary.json is an
+     open home-ground lexicon anyone can download: the words a city uses for
+     what it does, in both scripts, with counts. /why.html made concrete.
+
+  8. THE LAW, WRITTEN UP. Sixteen OSM elements with นวด in the name across the
+     province of tok sen's birth, against 337 in a Thai directory, is a measured
+     instance of the inverse-coverage law. It is a chapter, a pitch and a paper.
+     Whether and where it is written is yours.
+
+  None of this changes the discipline: no inference about what a shop "really"
+  does, and a source on every fact.
+
+
+NEXT MOVE I RECOMMEND
+================================================================================
+
+  Tonight, after the build ends: the three stale KNOWN_EMPTY out; rerun the AI
+  exam. Tomorrow: Phase 1, vocabulary.json, seeded from go/disease §4.1 + the 28
+  GPT-mine lines + the 26 asked keys, wired to all four consumers. Then Phase 2,
+  massage-first, the day F5 is answered.
+
+Where things are: go/cure (plan) · go/disease (diagnosis) · go/toksen (harvest) ·
+go/shelves (empty shelves) · go/gaps (gap audit) · go/gptmine (your questions) ·
+go/pins · go/held · go/listings · this note = go/cure-status.

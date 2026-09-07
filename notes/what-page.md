@@ -25,8 +25,7 @@ eyes first.
 Google Maps?" Will not read Thai but sees that Thai comes first everywhere,
 and that is itself the answer.
 **The page must** let the English halves stand as real sentences — not
-glosses of the Thai — and let the refusals (no ranking, no pay-to-win)
-land without a single marketing word.
+glosses of the Thai — without a single marketing word.
 
 **4. คนอ่านแบบตั้งใจ — the pitch reader.** A Pim, a Stan, an editor. Reads
 the whole thing twice, checks one claim.

@@ -14,11 +14,10 @@ Three things a reader asks, in the order they ask them:
      stay in their own block and never enter the register.
   3. WHAT YOU ARE LOOKING AT — the primer: ศาลพระภูมิ vs ศาลเจ้าที่, who
      keeps a ศาลเจ้า, what a หลักเมือง is, where a spirit house retires.
-     Class knowledge in the tradition's voice, promising nothing.
+     Class knowledge in the tradition's voice.
 
-The rule, from the proposal note: the keeper names the shrine; the calendar
-carries its source; nothing here awards power. No ranking of sacredness,
-ever. Public shrines only.
+The keeper names the shrine; the calendar carries its source. Public shrines
+only.
 
 Entry point: emit(globals_of_build, data) — hooked in build.py after the
 hotspring layer. Emits san.html + san.css, copies the register to
@@ -278,12 +277,12 @@ def emit(g, data):
             "A san phra phum on its single post houses the lord of the land; the lower san chao thi (often many-posted, the grandparents' shrine) belongs to the spirits who were here first. Chinese shopfronts keep the ti chu ia on the floor inside — a third form of the same courtesy. All of it is household practice, which is why this register lists only the public shrines standing in open ground."),
          say("คำเมืองเรียกหอผีประจำหมู่บ้านว่า หอเสื้อบ้าน — เสื้อ ในที่นี้คือผีอารักษ์ ไม่ใช่เสื้อผ้า",
              "the northern word for a village guardian hall is ho suea ban — the suea here is a guardian spirit, nothing to do with shirts"))
-    card("ศาลเจ้า — ศาลจีน และผู้เลี้ยงดูแล", "San chao — the Chinese shrines and their keepers",
+    card("ศาลเจ้า — ศาลจีน", "San chao — the Chinese shrines",
          bi("ศาลเจ้าจีนดูแลโดยคณะกรรมการชุมชน มูลนิธิ หรือสมาคมตระกูล มีผู้ดูแลประจำ จุดธูปได้ทั้งปี และคึกคักที่สุดช่วงตรุษจีนกับงานประจำปีของศาล — ปุงเถ่ากงที่ช้างม่อยเป็นแบบฉบับของศาล «เจ้าที่ใหญ่ของชุมชน» ที่ชาวจีนโพ้นทะเลตั้งเมื่อมาถึงแล้วเลี้ยงดูแลสืบกันมา",
             "A Chinese shrine is kept — by a community committee, a foundation, a clan association — with a keeper on the ground, incense the year round, and its big days at Chinese New Year and the shrine's own annual festival. Pung Thao Kong by Warorot is the type specimen: the community's founding guardian, set up on arrival and kept ever since."),
          say("ศาลเจ้าจีนหลายแห่งอยู่ใต้มูลนิธิการกุศล — ชื่อบนป้ายจึงอาจเป็นชื่อมูลนิธิ ไม่ใช่ชื่อเทพ",
              "many Chinese shrines sit under benevolent foundations — the name on the gate may be the foundation's, not the deity's"))
-    card("หลักเมือง อินทขีล สะดือเมือง — ใจของเวียง", "The pillar, the Inthakhin, the navel — a mueang's heart",
+    card("หลักเมือง อินทขีล สะดือเมือง", "The pillar, the Inthakhin, the navel",
          bi("เมืองในธรรมเนียมไท-ล้านนามีใจ: เชียงใหม่ฝากใจไว้กับเสาอินทขีลในวัดเจดีย์หลวง (งานใส่ขันดอกราวพฤษภาคม–มิถุนายน) เชียงรายมีเสาสะดือเมืองบนดอยจอมทอง แม่สายมีศาลหลักเมืองของตัวเอง — ส่วนแจ่งและประตูเมืองมีผู้เฝ้าของแต่ละมุม อย่างศาลเจ้าพ่อหลักเมืองที่แจ่งกระต๊ำ",
             "A mueang in the Tai-Lanna way keeps a heart: Chiang Mai's is the Inthakhin pillar inside Wat Chedi Luang (the flower-tray festival falls around May–June), Chiang Rai's the navel pillar on Doi Chom Thong, Mae Sai keeps a pillar shrine of its own — and the corners and gates keep their own guardians, like the Chao Pho Lak Mueang shrine at Katam Corner."),
          say("เสื้อเมือง คือผีอารักษ์ของทั้งเวียง — พิธีสืบชะตาเมืองทุกปีคือการเลี้ยงดูแลความผูกพันนี้",
@@ -348,10 +347,10 @@ def emit(g, data):
         f'<p class="sn-intro">{intro}</p>'
         f'<h2>{bi("แผนที่", "The map")}</h2>'
         f"{map_html}{credit}"
-        f'<h2>{bi("ทะเบียน — ตามชนิดที่ผู้ดูแลเรียก", "The register — by the kinds their keepers use")}</h2>'
+        f'<h2>{bi("ทะเบียน — ตามชนิดของผู้ดูแล", "The register — by keeper kind")}</h2>'
         f"{kind_html}"
         f"{unv_html}"
-        f'<h2>{bi("ก่อนไหว้ — กำลังมองอะไรอยู่", "Before you wai — what you are looking at")}</h2>'
+        f'<h2>{bi("ก่อนไหว้", "Before you wai")}</h2>'
         f"{primer_html}"
         f'<p class="sn-note">{bi("ที่มาของทะเบียน", "Register data")}: <a href="data/shrines.json">data/shrines.json</a> · '
         + bi("ศาลที่มดยังไม่เจอ หรือป้ายที่ไม่ตรงทะเบียน — ", "A shrine the ants have not found, or a sign the register gets wrong — ")

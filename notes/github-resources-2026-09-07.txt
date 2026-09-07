@@ -1,0 +1,123 @@
+GITHUB RESOURCES THAT COULD IMPROVE MOT DANG — survey 2026-09-07
+=================================================================
+
+Question asked: does GitHub contain resources that could improve motdang?
+Method: gh search over ~40 queries; direct look-ups of ~25 named repos;
+then MEASURED the two that matter against data/canonical (25,914 records).
+Everything below was run today; scripts + extract sit in cache/overture/.
+
+-----------------------------------------------------------------
+1. OVERTURE MAPS PLACES — the one that changes the numbers
+-----------------------------------------------------------------
+Repo: OvertureMaps/data (1,162 stars, MIT docs). Data: CDLA-Permissive 2.0
+(attribution, no share-alike). Release 2026-08-19.0, public S3, no account.
+
+It was parked on 2026-08-19 (notes/aggregators-and-tags-proposal) as
+"GB-scale parquet, not stdlib — its own decision". That reason is gone:
+python3 already has duckdb 1.4.5 on this Mac, and the whole Chiang Mai +
+Chiang Rai extract took 33 seconds. Nothing was downloaded but the rows.
+
+CM + CR (postcode 50xxx / 57xxx or region named):
+
+   records                     96,870      motdang holds 25,914
+   Thai-named                  67,762  70%  (motdang 62%)
+   phone                       79,920  82%  (motdang 20.4%)
+   own Facebook page           96,213  99%  (motdang ~1%)
+   website                     24,603  25%  (motdang 8.9%)
+   address text                96,800  99%  (motdang 42%)
+   source: 'meta' 99% — these ARE Facebook business pages, with their
+   phone/address as the page states them. The blocker recorded on 9/6
+   ("0/5 logged-out Facebook fetches gave a fact") is bypassed: the fact
+   arrives without touching facebook.com.
+   confidence: 30% of rows sit below 0.5. Filter before ingest.
+   No opening hours. No pin better than the page's own.
+
+By shelf (count / with phone):
+   massage 657/613  (motdang 302, 97% OSM)   tok sen in the name 7/7
+   temples 1,678/816                          copy/print 224/207
+   physio 89/86                               music/guitar 68/61
+   tailor 54/51                               pest control 24/22
+   parking 52                                 notary 3
+
+MATCHED TO MOTDANG (same name, within 300 m; cache/overture/match_motdang.py):
+   motdang pinned records                 25,319
+   ...of which no phone                   20,102
+   name-match found in Overture            6,292
+   would gain a PHONE                      3,631   (20.4% -> ~34%)
+   would gain a FACEBOOK PAGE              6,140   (~1% -> ~25%)
+   would gain a WEBSITE                    2,007
+   unpinned, unique exact-name hit           117   -> a pin each
+   Matching was crude (no romanisation folding). Real yield is higher.
+
+What it does NOT do: it is 99% Facebook pages, so it inherits Facebook's
+view — closed shops persist, chains repeat, a page's "location" can be the
+owner's house. It is a second witness with a phone number, not first truth.
+Provenance schema already has a 'foursquare' key; needs an 'overture' one.
+
+-----------------------------------------------------------------
+2. FOURSQUARE OS PLACES — NOT MEASURED
+-----------------------------------------------------------------
+Apache 2.0, ~100M places. Hugging Face mirror answers 401 without a login;
+the S3 bucket refused a listing. Overture already folds 855 Foursquare rows
+into the north. Worth one login to measure; not measured today.
+
+-----------------------------------------------------------------
+3. PyThaiNLP (1,152 stars, Apache 2.0) — TESTED, DOES NOT HELP THE ROMANISER
+-----------------------------------------------------------------
+1,500 random (nameTh, nameEn) pairs from data/canonical, letters-only compare:
+   translit.py exact      344
+   pythainlp royin exact  147
+   either                 355
+Ours is 2.3x closer to the signs. Royin never spaces (pratuthaphae), drops
+clusters (สระ -> sa). Keep translit.py. PyThaiNLP's other parts
+(newmm segmenter, Thai WordNet, spell) were not tested; the DP segmenter
+from thapsap already does the cutting.
+
+-----------------------------------------------------------------
+4. SMALL, CHEAP, REAL
+-----------------------------------------------------------------
+- spicydog/thailand-province-district-subdistrict-zipcode-latitude-longitude
+  (60 stars, MIT): one CSV, 334 CM+CR tambon rows with lat/lng to 3 decimals.
+  geocode_local.py builds tambon centroids from our OWN pinned records and
+  distrusts a tambon with few points; this is an independent witness for
+  those. ~100 m precision, good enough for the tambon tier (±2,215 m).
+- thailand-geography-data/thailand-geography-json (340 stars, MIT):
+  7,436 subdistricts, TH+EN names + postcode + codes. No coordinates.
+  Official EN spellings of every tambon/amphoe = a free alias table for the
+  gazetteer's "Tha Phae/Thapae" class of miss.
+- opening-hours/opening_hours.js (256 stars): the reference parser for OSM
+  opening_hours strings, if refresh_hours.py (BOTS.md, to build) ever runs.
+
+-----------------------------------------------------------------
+5. LOOKED AT, NOT A FIT
+-----------------------------------------------------------------
+- Pagefind (5,445 stars): chunked static search, would cut the 9.5 MB
+  index — but its own docs list Thai as "no segmentation" (only zh/ja/ko).
+  A Thai query would not be cut into words. No.
+- FlexSearch / MiniSearch / Orama: same class as searchcore.js; none ships
+  a Thai tokenizer; the resolver decision (F2, 9/7) already moves ranking
+  to the Worker + Vectorize. No gain.
+- umami / plausible / goatcounter: page analytics, not query logging.
+  F3 (log the search box) is a 20-line Worker write, not a product.
+  cloudcounter (GoatCounter on CF Pages + D1) is the closest to the stack
+  if page analytics are ever wanted.
+- Thai address parsers (several, <10 stars each): weaker than the
+  witness-based gazetteer built 9/7.
+- Her own GitHub (NaNoBotCo, 39 repos): nothing motdang lacks. traffic-eye
+  classifies user agents, not queries. thairoots/thapsap already ported.
+
+-----------------------------------------------------------------
+FORK — hers
+-----------------------------------------------------------------
+A. Ingest Overture as an ENRICHER (phone / FB page / website onto records
+   we already hold, name+300 m match, confidence >= 0.5, per-field
+   provenance 'overture'). ~3,600 phones, ~6,100 Facebook pages. One
+   importer, one build. Worst case: a wrong phone on a right shop — the
+   match rule is the guard, and the field carries its source.
+B. Ingest Overture as RECORDS too (the ~90,000 we do not hold). Fills
+   massage 302 -> ~650+ and every thin shelf at once, but imports
+   Facebook's noise wholesale and trebles the catalogue. Needs the
+   kind-aware gate (WO-65) in front of it.
+C. Leave it parked. Nothing changes; the 8/19 reason no longer holds.
+Expiry: none. Overture releases monthly; the extract script re-runs in
+half a minute.

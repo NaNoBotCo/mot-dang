@@ -10,9 +10,8 @@
   "quality western and thai evening wear tailors — probably not found on",
   "Loi Kroh road.\" Her framing is the whole design: GOOD FOR TOURISTS DOES",
   "NOT EQUAL GOOD FOR LOCALS OR EXPATS. Different needs, different",
-  "expectations, all valid — so this file never ranks the four trades",
-  "against each other, and never offers one as an answer to another's",
-  "question.",
+  "expectations, all valid — so the four trades are kept apart, and one is",
+  "not offered as an answer to another's question.",
   "",
   "MEASURED FIRST. OSM holds ten records under shop=tailor across the",
   "whole of Chiang Mai and ZERO across the whole of Chiang Rai. Of the",
@@ -34,7 +33,7 @@
   "term, not about the city. เสริมสวย was on sixty-two shopfronts; ห้องเสื้อ",
   "is on a hundred and twenty-six.",
   "",
-  "FOUR TRADES, NEVER ONE VOICE. A tourist wanting a suit in 48 hours, a",
+  "FOUR TRADES. A tourist wanting a suit in 48 hours, a",
   "police major wanting a ชุดปกติขาว that will pass inspection, a woman",
   "wanting a ชุดไทย for her daughter's ordination, and a long-stayer whose",
   "only trousers have split a seam are not four grades of one customer.",
@@ -258,8 +257,8 @@
   }
  ],
  "tourist_trade": {
-  "note_en": "21 shops inside 600 m of the Night Bazaar, and the seven OSM already held are among them. Listed here so the strand is named and bounded — not ranked, and not offered as an answer to any other question in this file.",
-  "note_th": "ร้านสูทย่านไนท์บาซาร์ 21 ร้านในรัศมี 600 เมตร ลงไว้ให้รู้ว่าเป็นสายไหน ไม่จัดอันดับ",
+  "note_en": "21 shops inside 600 m of the Night Bazaar, and the seven OSM already held are among them. Listed here so the strand is named and bounded.",
+  "note_th": "ร้านสูทย่านไนท์บาซาร์ 21 ร้านในรัศมี 600 เมตร ลงไว้ให้รู้ว่าเป็นสายไหน",
   "shops": [
    {
     "name": "ร้านทรงนำ",
@@ -5244,7 +5243,7 @@
  ],
  "refused": [
   {
-   "what_en": "Ranking the shops, or naming a 'best tailor in Chiang Mai'.",
+   "what_en": "Naming a 'best tailor in Chiang Mai'.",
    "why_en": "Every English-language 'top ten tailors' page found in this research was published by a tailor. One of them lists its competitors under its own brand. A ranking here would be the same act with a directory's name on it, and the three readers want three different shops anyway."
   },
   {
@@ -5281,7 +5280,7 @@
    "url": "https://www.tripadvisor.com/… Night Bazaar tailor reviews",
    "status": "not used",
    "on": "2026-08-31",
-   "note": "Deliberately not mined. Review aggregate for the tourist strand adds nothing this file needs and would import a ranking through the back door."
+   "note": "Deliberately not mined. Review aggregate for the tourist strand adds nothing this file needs."
   },
   {
    "url": "CMHY place pages for ยาฮาดีไซน์ and ฟรีสไตล์ 4x4",

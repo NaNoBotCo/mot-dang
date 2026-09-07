@@ -260,6 +260,12 @@ def emit(g, data):
             + check + "</span>"
             + '<span class="carry">' + bi(it.get("carry_th") or "", it.get("carry_en") or "")
             + "</span>"
+            # WO-51: a row may point at the page that goes deeper on it, the
+            # reciprocal-link contract chang.html and hom.html already keep. A
+            # row without the field renders exactly as before.
+            + ('<span class="carry">→ <a href="' + att(it["see_href"]) + '">'
+               + bi(it.get("see_th") or "", it.get("see_en") or "") + "</a></span>"
+               if it.get("see_href") else "")
             + '<span class="srcs">' + srcs_html(it) + "</span></li>")
 
     law_rows = []
@@ -374,8 +380,8 @@ def emit(g, data):
         + '<ul class="sv-items">' + "".join(item_rows) + "</ul>"
         + tool
 
-        + "<h2>" + bi("สี่ชั้นของกฎหมาย ที่ป้ายและใบเสร็จอ้างถึง",
-                      "The four tiers the signs and receipts refer to") + "</h2>"
+        + "<h2>" + bi("สี่ชั้นของกฎหมาย",
+                      "The four legal tiers") + "</h2>"
         + '<p class="sv-note">' + bi(
             "บัญชีพวกนี้ขยับได้ — บัญชีสัตว์ป่าสงวนโตขึ้นสองครั้งหลัง พ.ศ. 2562 และกฎกระทรวงสัตว์ป่าคุ้มครองมีฉบับที่สองลงปีนี้ "
             "หน้านี้จึงลิงก์ทะเบียนแทนการลอกรายชื่อ",
@@ -413,8 +419,8 @@ def emit(g, data):
         + "</p>" + reg_html
         + attempted_html
 
-        + "<h2>" + bi("คำบนป้าย บนใบเสร็จ และที่ด่าน",
-                      "The words on the sign, the receipt and the desk") + "</h2>"
+        + "<h2>" + bi("คำบนป้าย ใบเสร็จ และด่าน",
+                      "Words on the sign, receipt and desk") + "</h2>"
         + '<p class="sv-note">' + bi(
             "อักษรไทย · คำอ่านแบบ RTGS · ความหมาย — เทียบรูปคำกับป้ายได้แม้อ่านไทยไม่ออก",
             "Thai script · RTGS spelling · what it means — enough to match a word "

@@ -1,0 +1,95 @@
+SKIN / ROSACEA — WHO TREATS IT, AND WHAT WAS FIXED SO IT CAN BE FOUND
+WO-63 · 2026-09-05
+
+THE ANSWER (for a reader who asks "who does rosacea in Chiang Mai")
+
+No sign in either province names rosacea, or any skin disease. It goes
+through one door — a dermatology clinic — and eight hospitals state one on
+their own pages. Their words, their hours:
+
+Chiang Mai
+  Suan Dok (Maharaj) — CMU Division of Dermatology: skin clinic Tue/Thu/Fri
+      09:00–12:00, floor 10 Sriphat building; laser clinic Thu 13:00–15:00;
+      UV phototherapy room floor 12 all weekdays. Division office 053-935482-3.
+      The only state clinic in the north that prints its days.
+  Sriphat Medical Center — skin & aesthetic clinic, floor 5 Chalermprakiat
+      building, 053-934733. Same medical school, the self-pay door.
+  Chiangmai Ram — skin & aesthetic centre, Mon–Fri 08–20, Sat 08–17,
+      Sun 08–16, 052-004622. Its page separates "disease" from "complexion".
+  Bangkok Hospital Chiang Mai — skin clinic, Bangkok Plaza floor 1,
+      daily 08:00–16:30, 052-089-846 / 1719. Lists psoriasis, dermatitis,
+      urticaria, skin cancer by name.
+  Rajavej — "skin disease" Mon–Thu 09:00–11:00; "health & complexion"
+      daily 10:00–19:00. Two lines, two doors.
+  Chiangmai Hospital — a "special skin & aesthetic clinic" in its OPD list,
+      OPD Mon–Fri 08–16, 053-225-222.
+  Nakornping — the state regional hospital; page silent on skin. Ring first.
+  Mapped skin clinics (no page read yet): Narada (map tag: dermatology,
+      daily 10–20), Skin Centre, Ratika Skin Clinic, a "Skin clinic" pin
+      inside the moat.
+Chiang Rai
+  Kasemrad Sriburin — "eye, ENT & skin centre" and a "dermatology" card.
+  Overbrook — "skin, laser & aesthetic centre" in its menu (page would not open).
+  Dr. Vich Skin Clinic — the one Thai sign in both provinces that says
+      คลินิกผิวหนัง.
+Silent or unreachable: McCormick (finder lists no dermatology), Lanna (403),
+Theppanya, the Dermatological Society's find-a-dermatologist (empty body).
+No doctors' names copied, no prices found, no medical advice.
+
+WHAT WAS WRONG
+
+  motdang.net search:  "rosacea" = 0 results. 14 records carried "skin".
+  ask.motdang.net:     "rosacea" = 0. "dermatologist chiang mai" returned
+                       two dentists and an osteopath. The speciality field
+                       (13 records tagged skin) was in the site's search
+                       since WO-25 and had NEVER been put in the AI's text.
+  Reader log:          nobody has asked the AI about skin yet.
+
+WHAT WAS BUILT
+
+  /skin.html — a graded register, 19 rows (8 stated · 9 listed · 2 route),
+      3 registers, a glossary of the words on the doors, 8 things not read.
+      file: data/curated/lens/skin.json
+  Search door "skin" opens on: rosacea, โรซาเซีย, หมอผิวหนัง, dermatologist,
+      psoriasis, eczema, ฝ้า, ลมพิษ … and the stated hospitals answer
+      "rosacea" directly (the register's words ride on their index rows).
+  8 thesaurus groups (rosacea, dermatologist, psoriasis, eczema, urticaria,
+      vitiligo, melasma, phototherapy) rolled through search-core; parity OK.
+  Place sidecars now carry EVERY register a place is in ("lenses"). Before,
+      a place in two registers kept only the last one — Suan Dok was the
+      yellow-fever centre and lost its dermatology words.
+  AI index text now carries "Treats: …" from the speciality field and the
+      register words + page. Reindexed tonight (3,917 places re-embedded).
+      ai.motdang.net search: "rosacea" 0 → 7 hits; "dermatologist chiang
+      mai" dentists → Chiangmai Ram, Bangkok Hospital, Rajavej. Two exam
+      cases added to tests/eval.py (the exam's summary line currently
+      crashes on an empty run — another session is editing that file).
+  First live answer over-claimed ("treats rosacea") from the register's
+      search words. Fixed: the index text now says "filed on the register …
+      the place's own page states / a map lists it", and the reader prompt
+      at ask.motdang.net was updated and pushed. Both questions now answer
+      "listed under dermatology … no data that they treat rosacea
+      specifically, ask the clinic" and link motdang.net/skin.html — which
+      404s until the walk publishes.
+  tests/test_search.py: four skin cases.
+
+WHAT IS NOT DONE / NEEDS YOU
+
+  Deploy. The standing walk is resting until 19:22 today; when it wakes it
+      builds and publishes on its own if the tree has been quiet 10 minutes.
+      Another session was also building and deploying at 18:01. I did not
+      deploy anything myself.
+  Search test: the four skin cases pass (rosacea, โรซาเซีย, หมอผิวหนัง,
+      dermatologist). Failures NOT from this work: watsons / boots /
+      kasikorn bank (Thai-only brand names), "yi peng" loosening to ~230,
+      and four condo-register cases (punna residence, unique condominium)
+      that broke when another session's 18:29 change to build.py started
+      holding pin-less records out of the index — 348 condo rows now hide.
+      Listed, not fixed; that session should see it.
+  Unread: Kasemrad and Overbrook days/floors; the four mapped clinics' own
+      pages; a Chiang Mai price for a visit.
+
+FILES
+  file:///Users/annikapeacock/Desktop/go/skin-note      this note
+  file:///Users/annikapeacock/Desktop/go/skin-page      the built page
+  file:///Users/annikapeacock/Desktop/go/skin-lens      the register (JSON)

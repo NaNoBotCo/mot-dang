@@ -170,10 +170,8 @@ Absent is not false, and `data/facets.json` already says so in its own header.
 
 Second rule, narrower: **"culturally important" is not a facet.** Nan's ask
 names culturally important handicraft places, and they are real — but
-importance is not a field this directory will hold, because the moment it is a
-field it is a ranking, and the house has refused rankings everywhere else
-(`CLAUDE.md:234`, temples are never ranked; the ant rank is never weighted).
-What this shelf can carry instead, all of it checkable:
+importance is not a field this directory holds. What this shelf carries
+instead, all of it checkable:
 
 - **the craft, named in Kammuang/Thai with its own word** — เครื่องเขิน,
   ศิลาดล, กระดาษสา, ตุงล้านนา, เครื่องเงินวัวลาย, ร่มบ่อสร้าง
@@ -365,11 +363,8 @@ actually is. Two sides of one A4, enforced by `page_count()`, no
 
 ---
 
-## What this note is deliberately not proposing
+## Not in this note
 
-- **No authenticity sort.** No real-craft/tourist-craft, no "genuine artisan"
-  badge. On site vs. not on site is visible; deserving is not.
-- **No importance ranking.** The register and the cluster carry it, sourced.
 - **No inferred access.** A university library is not marked closed to the
   public until somebody asks at the desk.
 - **No guessed prices.** Any band that ships unwalked gets the

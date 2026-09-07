@@ -1,0 +1,264 @@
+ค้นหาขั้นสูง — THE ADVANCED SEARCH, AND THE BARE SHELL AROUND IT
+WO-75. Written 2026-09-07 night and rebuilt twice the same night on your
+word. Engine BUILT and tested; nothing deployed.
+
+    Touch it:  https://claude.ai/code/artifact/74bfda36-cac2-42ce-aa23-4d8d1f354cf7
+    (9,875 real Chiang Mai records, the shipping engine, not a mock-up.
+     It opens on the easy view, with นวด typed. ผลค้นหา is the easy one;
+     ค้นหาขั้นสูง is the full form.)
+
+1. WHAT YOU ASKED FOR
+
+Three passes tonight, and the third is the one that ships:
+
+  · "boolean tools to refine their own searches… intuitive for the krapow
+     grannies"
+  · "simpler, use fewer words, offer more refinements, without disturbing
+     anyone's sabai"
+  · "I want the boolean to look a lot more like Google's advanced search
+     tools than this. This is hard to understand."
+  · "find anything on motdang.net to a high degree of certainty and
+     granularity… sufficient to HARD searches. But make an easy version
+     available too."
+  · "add sort/filter results"
+
+The second pass produced a rail of chips ranked by how much each would split
+the answer. It was clever, it used one chrome word, and you could not tell
+what it was going to do. Clever is exactly what a boolean must not be. What
+replaced it is the form Google has had since 2003, because anyone who has
+used a computer has filled it in and nobody has ever had to be taught it.
+
+
+2. THE TWO SURFACES
+
+EASY — on the results page. The answer's count, one line saying what is
+switched on, and a shut "เครื่องมือค้นหา · Search tools ▾". Open it and there
+are six labelled dropdowns and two tickboxes: ประเภท · ย่าน · ถนน · มีอะไรบ้าง
+· ชั้น · เรียงลำดับ, then เปิดอยู่ตอนนี้ and ใกล้ฉัน. Every option carries the
+number of THESE results it would leave — counted on the answer in front of
+you, not on the catalogue. Shut, it costs one line. A reader who got what they
+wanted never opens it.
+
+HARD — /advanced.html. The full form, in three labelled groups:
+
+    หาที่มี…                      Find places with…
+      มีทุกคำนี้                    all these words          (AND)
+      วลีตรงตัวนี้                   this exact phrase
+      มีคำใดคำหนึ่ง                  any of these words       (OR)
+      ไม่มีคำเหล่านี้                  none of these words      (NOT)
+      คำอยู่ตรงไหน                  where the words may match
+
+    แล้วกรองให้แคบลง…             Then narrow by…
+      ประเภท · ย่าน · ถนน · มีอะไรบ้าง · ชั้น   — pick as many as you like
+      เปิดอยู่ตอนนี้ · ต้องมี · ยังไม่มี
+
+    แล้วเรียงผลลัพธ์…              Then order the answer…
+      เรียงลำดับ · ระยะทาง · ในระยะ
+
+AND, OR and NOT ARE THE ROW LABELS. Nobody has to know that "มีทุกคำนี้" is
+AND. They fill in the row that says what they want. That is the whole reason
+Google's form has outlived every clever faceted-search UI built since.
+
+The form is a real <form method="get">. It works with JavaScript off, and its
+dropdowns are BAKED at build time with global counts, so the page is static
+and instant and never fetches the index to show a list of districts.
+
+
+3. WHAT MAKES IT SUFFICIENT FOR A HARD SEARCH
+
+  WHERE THE WORDS MAY MATCH — the certainty control, and the one thing here
+    that was not obvious. The index matches on seven fields, and two of them
+    (`k`: shelf words, cuisine, brand, road · `a`: alt names, other-language
+    names, the RTGS reading) are matched and NEVER SHOWN. That is right for a
+    wide search and wrong for somebody who knows the name of the shop they
+    want. ชื่อเท่านั้น returns that shop and nothing standing near it.
+  MULTIPLE VALUES PER FIELD — pick three districts and get all three (OR);
+    pick a district and a trade and get the intersection (AND).
+  ไม่เอา — an exclusion on any structured value, not just on words.
+  ต้องมี / ยังไม่มี — presence and absence on the pin, the hours, the
+    district, the road. "ยังไม่มี" is what the add and claim flows are for:
+    working through a gap on purpose needs a way to ask for it.
+  DISTANCE — the pin is on 97.7% of the catalogue, against hours at 17% and
+    tags at 10%. It is the field we hold on nearly everything and it was the
+    last one the search grew. ใกล้ฉัน + ในระยะ 500 ม. … 25 กม.
+  SORT — ตรงที่สุด · ก-ฮ · ใกล้ที่สุด · ครบที่สุด. Only what the index can
+    actually order on: there is no updatedAt in a row and no popularity
+    anywhere, so neither is offered. ครบที่สุด counts how many of a row's
+    fields are filled in, which is the honest stand-in for "the one we know
+    most about".
+
+WHAT IT STILL CANNOT DO, so you are not surprised by it: there is no phone,
+website or price in the index rows, so none of the three can be filtered on.
+Adding any of them is an index change, not a form change.
+
+UNKNOWN IS NOT NO, throughout. An exclusion never removes a place for lacking
+a field. A radius never removes a place with no pin — it is unmeasured, not
+far away, and it sorts to the end rather than the front. เปิดอยู่ uses md.js's
+own mdOpen, which returns null and never false where nobody recorded hours:
+hand it over and the tickbox works, withhold it and the tickbox is disabled
+rather than guessing. This is go/parking-bug written into the engine, where
+unknown read as no cost 1,632 car parks their place in a parking search.
+
+THE STATE IS THE URL. Every control is a real navigation, so the back button
+is undo and any search can be sent to somebody on LINE. One line above the
+answer says what is switched on, and every part of it is a tap that switches
+it off.
+
+
+3. WHAT THIS COSTS — say no to any of it and it does not ship
+
+  · 25,889 pages lose their crawlable outbound links. Internal linking is
+    how the shelves were reachable at all (go/arrivals); the record-internal
+    links you kept are now the ENTIRE link graph and sitemap.xml carries the
+    rest alone. This is the one cost I would not have you discover later.
+  · /here.html /plan.html /events.html /toilets.html /my.html /add.html
+    /claim.html and the 27 svcbar destinations are still built and still at
+    their own addresses. NOTHING is deleted. They are reachable by search,
+    by their URL, and by nothing else.
+  · The six sources are what the catalogue can actually answer on. Behind
+    them the corpus is thin: hours 17%, tags 10%, the facet set 12%. The
+    rail is honest about that — it only ever offers what the rows in front
+    of the reader actually carry — but it cannot conjure a field.
+
+
+4. WHAT IS BUILT, AND WHAT IS NOT
+
+  BUILT   refine_layer.py — the engine, the advanced form, the tools row,
+          the CSS, the bare header, the bare footer, the blank front page.
+          tests/test_refine.py — 48 cases against the real catalogue on
+          disk (88,161 records tonight), plus a structural check of both
+          surfaces' markup. Runs with NO build: it derives its fixture from
+          data/canonical/ rather than waiting for docs/data/index.json.
+          `python3 tests/test_refine.py`
+  NOT     /advanced.html as a page. advanced_form() builds it; build.py has
+          to write it and compute its baked options (§5g).
+  UNSEEN  I could not click anything in the prototype: the browser pane
+          cannot drive an artifact's cross-origin frame, so what I verified
+          by eye is how both surfaces RENDER, and what I verified by test is
+          how they behave. Nobody has yet put a finger on it.
+  NOT     the five hooks in build.py (§5). build.py was edited at 21:09
+          with a build running since 20:54 — another session is inside it.
+          Touching it tonight would collide, so this is staged the way
+          WO-64 and WO-65 were staged before it.
+  NOT     a build, a walk or a deploy. And note DO-NOT-DEPLOY-2026-09-07:
+          the tree is carrying 63,170 unreviewed Overture records.
+
+
+5. THE FIVE HOOKS, VERBATIM, FOR WHOEVER GETS build.py NEXT
+
+  (a) beside `import nownear_layer`:
+        import refine_layer
+
+  (b) in page(), the header. DELETE from `<div class="mast">` through
+      `</details>` — the masthead, the tagline, the seek form, the strip
+      call at 6845 and the whole `<details class="morenav">` with its
+      chip_nav and svcbar — and put in its place:
+        {refine_layer.header(r, bi, att, svg_icon, logo_html, lang_html,
+                             nownear_layer.strip(r, path) if path == "" else "")}
+      Delete the `chip_nav = (...)` assignment and the `chipbar` parameter
+      with it. Delete the crumbs line:
+        {f'<nav class="crumbs">{crumbs}</nav>' if crumbs else ''}
+
+  (c) in page(), the footer. Replace the whole <footer> block with:
+        {refine_layer.bare_footer(r, bi, emergency_foot, BUILD_DATE,
+                                  BE_BUILD, LICENSE_LINE_TH, LICENSE_LINE_EN)}
+      and add beside the md.js script tag:
+        {refine_layer.head(r)}
+
+  (d) the search page body, at 16644. The panel goes BELOW the line that
+      prints how many were found and above the rows — never above the
+      count, which would put the apparatus in front of the answer:
+        f'…the count line…{refine_layer.panel_mount(bi)}<ul class="dir" id="results">…'
+      and in md.js's result renderer, three lines — hand over the hours
+      test, filter through the panel, then draw against the UNFILTERED
+      set, which is what makes every count mean "how many would be left":
+        if(window.MDREFINE)MDREFINE.setOpenTest(e=>mdOpen(schOf(e),WMIN()));
+        const found0=found;
+        if(window.MDREFINE){found=MDREFINE.apply(found,TAB);}
+        …render found…
+        if(window.MDREFINE)MDREFINE.draw(found0,TAB);
+
+  (e) the assets. Write the file, fold the CSS, hash both:
+        (DOCS / "refine.js").write_text(refine_layer.JS)
+      at 15420, append `+ "\n" + refine_layer.CSS`; at 6560, add
+      `+ chr(10) + refine_layer.CSS` inside _asset_v so the stylesheet's
+      own version moves when this does.
+
+  (f) the front page, at 16448 — `home_html = nownear_layer.home({...})`
+      becomes:
+        home_html = refine_layer.home_body(nownear_layer.strip("", ""))
+
+  (g) /advanced.html, and the counts its dropdowns are baked with. Beside
+      where search.html is written, walk the index rows once — the same
+      rows that were just written to docs/data/index.json — and tally each
+      narrowing key through the engine's own reading of a row, so the form
+      and the results page can never disagree about what a value means:
+        _opts = {}
+        for _k, _th, _en, _ in refine_layer.NARROW_ROWS:
+            _c = collections.Counter()
+            for _e in _index_rows:
+                for _v in set(refine_layer.row_values(_e, _k, _SEARCH_TABLES)):
+                    _c[_v] += 1
+            _w = refine_layer.FACET_WORDS if _k == "f" else {}
+            _opts[_k] = [(v, _w.get(v, (v, ""))[0], _w.get(v, (v, ""))[1], n)
+                         for v, n in _c.most_common(refine_layer.OPTION_CAP)]
+        (DOCS / "advanced.html").write_text(page(
+            "ค้นหาขั้นสูง · Advanced search",
+            refine_layer.advanced_form(bi, att, _opts),
+            depth=0, path="advanced.html", robots="index,follow"))
+      `row_values` is `vals` from the JS, mirrored in Python — it does not
+      exist yet and is the ONE piece of this that still has to be written.
+      Until it does, a hand-rolled tally works and the risk is exactly the
+      drift this hook is shaped to avoid.
+
+  Then: tests/test_refine.py, tests/test_page_weight.py (its two gates get
+  much easier), tests/test_search_page.py — that one exists because a
+  dead-zone const broke every search while test_search.py passed 32/33.
+
+
+6. FORKS — yours, none taken
+
+  R1  ANSWERED by the cut: there is no rail to place. The offers are one
+      wrapping line under the answer's count, at every width.
+
+  R2  ANSWERED: เปิดอยู่ is built, as the sixth source. It needs md.js's
+      one-line handover (§5d) and it does not appear without it. Watch:
+      only 17% of the catalogue records hours, so on most queries it will
+      not rank into the top ten at all — which is the rail working, not
+      the refinement failing.
+
+  R3  THE MINUS. One glyph on the chip's right edge, no label on screen
+      (ไม่เอา rides in the title and aria-label, so a screen reader gets
+      it and a sighted reader is not charged two words for it). Worst
+      case: nobody finds it and NOT goes unused — in which case it has
+      cost one character. Watch her hand on the prototype.
+
+  R8  HOW MANY OFFERS. TOP=10 chips, at most 3 from any one source. On a
+      360-wide phone ten chips is about three lines. Fewer is calmer and
+      hides good forks; more is the list coming back. Both numbers are one
+      line at the top of refine_layer.JS.
+
+  R4  A TAP COSTS A PAGE LOAD. As built, every tap is an ordinary link:
+      works with no JavaScript, back button is undo, the URL can be sent.
+      The prototype instead re-renders in place, so you can feel the
+      difference. Cost of instant: one callback into md.js and the
+      no-JavaScript path goes. Worst case: a reader on a slow connection
+      pays the index fetch again on a tap — mitigated by the service
+      worker, not eliminated.
+
+  R5  THE 25,889 PAGES' LINK GRAPH (§3, first bullet). Leave it to
+      sitemap.xml and the record-internal links · or put a single
+      "ทุกชั้น · every shelf" link in the bare footer, which is one link
+      and undoes almost none of the strip. My read: the footer link. Your
+      call, and it is the one with a cost you cannot see from a screenshot.
+
+  R6  THE FRONT PAGE'S ONE LINE. Kept, per tonight. But BUILD_DATE is
+      hand-typed and the events cell counts "today" from it — it was two
+      days stale on 2026-09-07. If the line is the only thing on the front
+      page, that staleness is now the whole front page. Either the cell
+      moves to the baked 21-day window (nownear_layer already has the
+      pattern) or the line drops its event count.
+
+  R7  WHETHER THIS OUTRANKS the staged-and-undeployed WO-64, 65, 69–73 and
+      the Overture fold. Five things are now waiting on one build.
+

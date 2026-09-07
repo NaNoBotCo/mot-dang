@@ -340,7 +340,7 @@ def emit(g, events, data):
             f'</div></div>{hero_credit}')
 
     nav = "".join(f'<a href="#{k}">{bi(th, en)}</a>' for k, th, en in [
-        ("moon", "วันไหน", "the night"), ("map", "แผนที่", "the map"), ("lights", "โคมสามดวง", "three lights"),
+        ("moon", "คืนไหน", "the night"), ("map", "แผนที่", "the map"), ("lights", "โคมสามดวง", "three lights"),
         ("krathong", "กระทง", "the raft"), ("ways", "หลายทาง", "many ways"), ("notices", "ประกาศ", "notices"),
         ("week", "สัปดาห์งาน", "festival week"), ("letters", "จดหมายรายสัปดาห์", "the letters"),
         ("sources", "ที่มา", "sources")])
@@ -374,7 +374,7 @@ def emit(g, events, data):
         cls = ' class="is"' if c == 12 else ""
         months.append(f'<div{cls}>{c}<small>เดือน{name}</small></div>')
     night = (
-        f'<h2 id="moon">🌕 {bi("วันไหน — ชื่อบอกวิธีนับ", "The night — a name that says how to count")}</h2>'
+        f'<h2 id="moon">🌕 {bi("คืนไหน", "Which night")}</h2>'
         f'<div class="yp-moon">{msvg}<div>'
         f'<p>{bi("<b>เป็ง</b> คือคำเมืองว่า <i>เพ็ญ</i> — <b>ยี่</b> คือ <i>ที่สอง</i> ยี่เป็งจึงคือคืนเพ็ญเดือนยี่ตรงตัว ล้านนานับเดือนเร็วกว่าภาคกลางสองเดือน เดือนสิบสองของภาคกลาง — เดือนลอยกระทง — จึงเป็นเดือนยี่ของทางเหนือพอดี", "<b>Peng</b> is the northern word for the <i>full moon</i>; <b>yi</b> is <i>second</i>. Yi Peng is, exactly, the full moon of the second month — and the Lanna count runs two months ahead of the central one, so the 12th central month, the month of Loi Krathong, is the north’s second month.", raw=True)}</p>'
         f'<p class="tinynote"><span class="yp-mark">{bi("ปฏิทิน", "almanac")}</span>'
@@ -426,10 +426,10 @@ def emit(g, events, data):
         f'<p><span class="yp-mark">{bi("ประเพณีว่า", "tradition holds")}</span>{bi("เป็นการถวายแสงขึ้นสู่พระเกตุแก้วจุฬามณีบนสวรรค์ชั้นดาวดึงส์ ที่คนเดินไปไหว้ไม่ถึง แสงจึงต้องบินไปแทน", "an offering of light sent up toward the Culamani reliquary in Tavatimsa, which no pilgrim can walk to — so the light must fly")}</p>'
         f'<p><span class="yp-mark">{bi("ทะเบียน", "canon")}</span>{bi(fest["auspicious_th"], fest["auspicious_en"])}</p>'
         f'<p class="tinynote">{bi("ปล่อยที่ไหน เมื่อไร — ดูช่องประกาศเขตปล่อยโคมข้างล่าง", "Where and when to release — see the sky notice below")} <a href="#notices">↓</a></p></div>'
-        f'<div class="yp-card">{kw_img}{kw_cr}<h3>{bi("โคมแขวน — ดวงที่อยู่ใต้ชายคา", "โคมแขวน — the lantern that keeps the eave")}</h3>'
+        f'<div class="yp-card">{kw_img}{kw_cr}<h3>{bi("โคมแขวน — ดวงใต้ชายคา", "โคมแขวน — the eave lantern")}</h3>'
         f'<p><span class="yp-mark">{bi("ประเพณีว่า", "tradition holds")}</span>{bi("แสงที่ถวายไว้อย่างสงบ ประดับประตู ชายคา และซุ้มวิหารตลอดสัปดาห์งาน เชื้อเชิญบุญมาถึงประตู — ดวงที่อยู่บ้านของโคมลอย ไม่ต้องรอประกาศใด", "light offered in stillness, dressing gates, eaves and viharn doorways through festival week, welcoming merit to the door — the stay-home sibling of the sky lantern; it needs no notice")}</p></div>'
         f'<div class="yp-card"><div class="nopic">{bi("ยังไม่มีภาพผางประทีปในคลังภาพของเรา — ช่องนี้ว่างไว้ ไม่ใส่ภาพแทน", "No photo of ผางประทีป in our pool yet — the slot stays empty rather than take a stand-in")}</div>'
-        f'<h3>{bi("ผางประทีป — ดวงเล็กที่สุด ชั้นที่เก่าที่สุด", "ผางประทีป — the small flame, the oldest layer")}</h3>'
+        f'<h3>{bi("ผางประทีป — ชั้นที่เก่าที่สุด", "ผางประทีป — the oldest layer")}</h3>'
         f'<p><span class="yp-mark">{bi("ใบลาน", "manuscript")}</span>{bi("ถ้วยดินใส่น้ำมันหรือขี้ผึ้ง ไส้หนึ่งเส้น เรียงบนขอบหน้าต่าง ขั้นบันได ลานเจดีย์ — และในคลังใบลาน นี่คือดวงที่ลึกที่สุด: อานิสงส์การจุดประทีปเทศน์ไว้ที่วัดสูงเม่น (๒๓๗๓) วัดพระสิงห์ วัดพระบาทมิ่งเมือง (๒๔๔๘) วัดพระธาตุช้างค้ำ (๒๔๙๐) และวัดป่าซางน้อย (๒๔๘๗) — ห้าวัด สามจังหวัด", "a clay cup of oil or wax with one wick, in rows along a sill, a stair, a chedi terrace — and in the manuscript record the deepest light of the three: lamp-merit sermons at Wat Sung Men (1830), Wat Phra Sing, Wat Phra Bat Ming Mueang (1905), Wat Phra That Chang Kham (1947) and Wat Pa Sak Noi (1944) — five temples, three provinces")}</p>'
         f'<p><span class="yp-mark">{bi("อนุมาน", "inference")}</span>{bi("ดวงไฟที่ถ่อมที่สุดของเทศกาล คือดวงที่มีคนเขียนถึงมากที่สุด", "the humblest flame of the festival is the one most written about")}</p></div>'
         f'</div>')
@@ -437,7 +437,7 @@ def emit(g, events, data):
     # ---- the raft ----------------------------------------------------------
     kr_img, kr_cr = _photo(PHOTO["krathong"], picks, esc, att, bi_text, "กระทงในน้ำ คืนลอยกระทง เชียงใหม่", "Krathongs on the water, Loi Krathong night, Chiang Mai")
     raft = (
-        f'<h2 id="krathong">🌊 {bi("กระทง — แพน้อยกับคำขอขมาที่ฝากไปกับน้ำ", "The raft — and the pardon asked of the water")}</h2>'
+        f'<h2 id="krathong">🌊 {bi("กระทง — แพน้อยกับคำขอขมา", "The raft, and the pardon")}</h2>'
         f'<div class="yp-figure">{kr_img}{kr_cr}</div>'
         f'<p><span class="yp-mark">{bi("ทะเบียน", "canon")}</span>{bi("กระทงแบบดั้งเดิมคือหยวกกล้วยฝานเป็นแว่น ห่อใบตองพับ ปักดอกไม้ ธูป เทียน และมักมีเหรียญหนึ่งเหรียญ", "the classic krathong is a slice of banana trunk dressed with folded leaf, a flower, incense, a candle, often a coin")}</p>'
         f'<p><span class="yp-mark">{bi("ประเพณีว่า", "tradition holds")}</span>{bi("สิ่งที่ลอยไปคือคำขอขมาต่อ <b>พระแม่คงคา</b> — ขอบคุณสำหรับน้ำตลอดปี และขออภัยสำหรับสิ่งที่เราทิ้งลงไป", "what floats away is a pardon asked of <b>Mae Khongkha</b>, the mother of waters — thanks for the year’s water, and forgiveness for what we have put into her", raw=True)} '
@@ -446,7 +446,7 @@ def emit(g, events, data):
         f'<div class="yp-quote"><span class="pali">มะยัง โภนโต · อิมินา ปะทีเปนะ · นัมมะทายะ นะทิยา · วาลิกาปุลิเน · มุนิโน · ปาทะวะลัญชัง · อะภิปูเชมะ …</span><br>'
         f'{bi("“ด้วยดวงประทีปนี้ ข้าพเจ้าทั้งหลายขอบูชารอยพระพุทธบาท อันประดิษฐานเหนือหาดทรายแห่งแม่น้ำนัมมทา”", "“With this lamp we worship the footprint of the Sage, set upon the sandy bank of the river Nammada.”")}</div>'
         f'<p><span class="yp-mark">{bi("อนุมาน", "inference")}</span>{bi("สองความหมายไม่ได้แย่งกัน แต่ซ้อนกัน — กระทงใบเดียวพาไปทั้งคู่ และไม่มีใครริมน้ำต้องเลือก", "the two are layers, not rivals — one float carries both, and nobody on the riverbank is asked to choose")}</p>'
-        f'<div class="yp-card yp-home"><h3>{bi("พับเอง ทำที่บ้าน — ยี่เป็งที่ไม่ต้องมีงาน", "Fold your own, keep it at home — the festival that needs no venue")}</h3>'
+        f'<div class="yp-card yp-home"><h3>{bi("พับเอง ทำที่บ้าน", "Fold your own, at home")}</h3>'
         f'<ol>'
         f'<li>{bi("<b>ใบตอง ไม่ใช่โฟม</b> ใบตองย่อยสลายได้ โฟมไม่ได้ — วัดริมน้ำหลายแห่งแจกใบตองให้พับเองฟรี", "<b>Leaf, not foam.</b> Leaf breaks down; foam does not — several riverside wats hand out banana leaf so you can fold your own, free", raw=True)} <span class="yp-mark">{bi("ทะเบียน", "canon")}</span></li>'
         f'<li>{bi("<b>ฝานหยวกกล้วย</b>เป็นแว่นหนาสักสองนิ้ว ห่อขอบด้วยใบตองพับกลีบ กลัดด้วยไม้กลัด", "<b>Slice a banana trunk</b> about two fingers thick, wrap the rim in folded leaf petals, pin with bamboo pins", raw=True)}</li>'
@@ -515,8 +515,8 @@ def emit(g, events, data):
         pat = (f'<a href="{att(gt["pattern_url"])}" rel="noopener nofollow">{bi(gt["pattern_th"], gt["pattern_en"])}</a>'
                if gt["pattern_url"] else bi(gt["pattern_th"], gt["pattern_en"]))
         gate_rows.append(f'<tr><td>{bi(gt["th"], gt["en"])}</td><td>{status}</td><td class="yp-wait">{pat}</td></tr>')
-    notices = (f'<h2 id="notices">📣 {bi("ประกาศที่ปีนี้ยังค้างอยู่ — ช่องว่างที่มีชื่อ", "The notices the year still owes — named empty slots")}</h2>'
-               f'<p>{bi("ทุกปีทางราชการประกาศสี่อย่างนี้ในเดือนสุดท้าย ๆ ก่อนงาน หน้านี้จะเติมช่องเองทันทีที่ประกาศจริงเข้าระบบ พร้อมลิงก์ไปที่ประกาศ — ก่อนหน้านั้นเราไม่พิมพ์เขต เวลา หรือวันใด ๆ ล่วงหน้า", "Each year four official notices land in the final weeks before the festival. This page fills each slot on its own the moment the real notice enters the system, with the link — until then no zone, hour or day is printed ahead of the official word.")}</p>'
+    notices = (f'<h2 id="notices">📣 {bi("ยังไม่ประกาศ", "Not yet announced")}</h2>'
+               f'<p>{bi("ทุกปีทางราชการประกาศสี่อย่างนี้ในเดือนสุดท้าย ๆ ก่อนงาน หน้านี้จะเติมช่องเองทันทีที่ประกาศจริงเข้าระบบ พร้อมลิงก์ไปที่ประกาศ", "Each year four official notices land in the final weeks before the festival. This page fills each slot on its own the moment the real notice enters the system, with the link.")}</p>'
                f'<table class="yp-gates"><thead><tr><th>{bi("ประกาศ", "notice")}</th><th>{bi("สถานะ", "status")}</th><th>{bi("รูปแบบปีก่อน", "last year’s pattern")}</th></tr></thead><tbody>{"".join(gate_rows)}</tbody></table>'
                f'<p class="tinynote">{bi("ถ้าประกาศออกก่อนหน้านี้จะทัน — ถามคนขายโคมที่แผง วัดที่ท่านไป หรือที่พักของท่านได้เลย คนในพื้นที่รู้กันดีว่าคืนนั้นฟ้าเปิดตรงไหน · เห็นประกาศก่อนเรา บอกมดได้ที่", "If a notice lands before this page catches it, ask the stall you buy from, the wat you visit, or your host — local people know which sky is open that night · saw a notice before we did? tell the ants at")} <a href="list-your-event.html">{bi("หน้าลงงาน", "the listing page")}</a></p>')
 
@@ -541,7 +541,7 @@ def emit(g, events, data):
         f'{" 🌕" if full else ""}</td><td>{"<br>".join(items)}</td></tr>'
         for d, full, items in week_rows)
     wk_html += (f'<tr><td class="day">{bi("เชียงราย", "Chiang Rai")}</td><td>{wait("เทศบาลนครเชียงราย ริมน้ำกก — ปีก่อน ๆ ตรงคืนเพ็ญ", "the municipal evening on the Kok — past years on the full-moon nights")}</td></tr>')
-    week = (f'<h2 id="week">📅 {bi("สัปดาห์ยี่เป็ง วันต่อวัน — โครง ไม่ใช่ตาราง", "Festival week, day by day — a frame, not a schedule")}</h2>'
+    week = (f'<h2 id="week">📅 {bi("สัปดาห์ยี่เป็ง วันต่อวัน", "Festival week, day by day")}</h2>'
             f'<p>{bi("ทั้งสัปดาห์วางรอบคืนเพ็ญวันอังคารที่ ๒๔ สิ่งที่ยืนยันแล้วพิมพ์ไว้ สิ่งที่รอประกาศบอกว่ารออะไร — ช่องไหนไม่มีประกาศจนถึงวันงาน ช่องนั้นหายไป ไม่ใช่ถูกเดา", "The week arranges itself around the full moon on Tuesday the 24th. What is confirmed is printed; what waits says what it waits on — a slot with no notice by the day disappears rather than gets guessed.")}</p>'
             f'<table class="yp-week"><tbody>{wk_html}</tbody></table>')
 
@@ -565,7 +565,7 @@ def emit(g, events, data):
             en = _md(i["en"], esc)
             iss_html.append(f'<details class="yp-issue"{" open" if i["wk"] == latest else ""}><summary>✉️ {title}<small>— {when}</small></summary>'
                             f'<div class="body">{body}<div class="en">{en}</div></div></details>')
-    letters = (f'<h2 id="letters">✉️ {bi("จดหมายรายสัปดาห์ — สิบสองฉบับถึงคืนเพ็ญ", "The weekly letters — twelve to the full moon")}</h2>'
+    letters = (f'<h2 id="letters">✉️ {bi("จดหมายรายสัปดาห์ — สิบสองฉบับ", "The weekly letters — twelve")}</h2>'
                f'<p>{bi("ตั้งแต่ ๑ กันยายนถึงคืนก่อนเพ็ญ สัปดาห์ละฉบับ เล่าเรื่องยี่เป็งไปทีละเรื่อง ฉบับที่ถึงวันแล้วอ่านได้ตรงนี้ ฉบับที่รอประกาศบอกไว้ว่ารออะไร", "From 1 September to the eve, one letter a week, one part of the festival at a time. A letter whose day has come reads here; one waiting on a notice says what it waits for.")} '
                f'{bi("อยากได้ทางอีเมล →", "By email →")} <a href="https://wichaa.net/support">{bi("สมัครรับจดหมาย", "join the list")}</a></p>'
                + "".join(iss_html))
@@ -573,7 +573,7 @@ def emit(g, events, data):
     # ---- sources -------------------------------------------------------------
     mss_rows = "".join(f'<tr><td>{esc(a)}</td><td>{esc(b)}<br><small>{esc(c)}</small></td><td>{bi(d, e)}</td></tr>' for a, b, c, d, e in MSS)
     pc_img, pc_cr = _photo(PHOTO["procession"], picks, esc, att, bi_text, "ขบวนแห่โคม คืนยี่เป็ง เชียงใหม่", "A lantern procession on a Yi Peng night, Chiang Mai")
-    sources = (f'<h2 id="sources">📜 {bi("ที่มา — ใบลาน ทะเบียน ปฏิทิน ภาพ", "Sources — manuscripts, the register, the almanac, the pictures")}</h2>'
+    sources = (f'<h2 id="sources">📜 {bi("ที่มา", "Sources")}</h2>'
                f'<div class="yp-figure">{pc_img}{pc_cr}</div>'
                f'<table class="yp-mss"><thead><tr><th>{bi("เอกสาร", "source")}</th><th>{bi("ชื่อ · ที่เก็บ · ปี", "title · keeping temple · date")}</th><th>{bi("ให้อะไรกับหน้านี้", "what it gave this page")}</th></tr></thead><tbody>{mss_rows}</tbody></table>'
                f'<p class="tinynote">{bi("ใบลานอยู่ในคลังวิชชา (wichaa.net) — ฉบับโบราณจาก DLNTM/CrossAsia อักษรธรรมล้านนา และหนังสือร่วมสมัยที่ได้รับมอบ รอยต่อคือที่มา · คำว่า ผางประทีป และ ยี่เป็ง ยังไม่ปรากฏในตัวบทใบลานที่คลังถืออยู่ (เดือนยี่มาถึงคลังผ่านชื่อเรื่อง ms 5794 เท่านั้น) — บอกไว้ตรง ๆ ไม่แต่งเติม", "The manuscripts live in the wichaa corpus (wichaa.net) — antique palm-leaf from DLNTM/CrossAsia in Tham Lanna script, and contributed modern volumes; the seam is the provenance · the words ผางประทีป and ยี่เป็ง do not yet occur in any manuscript text the corpus holds (the second month reaches it only through ms 5794’s title) — said plainly, not smoothed over")}</p>'

@@ -5,9 +5,7 @@ One card, drawn the way the shelf cards are drawn (Chrome renders, Pillow
 crops), wearing the same paper and the same double rule so a shared link
 reads as this site before a word is read. Its picture is not decoration:
 the bottom band is the REAL west–east cut through ประตูท่าแพ, drawn from
-data/terrain_profile.json — the same numbers the page prints. A card whose
-mountains were sketched by hand would be the one drawing on the site that
-answers to nobody.
+data/terrain_profile.json — the same numbers the page prints. A card whose mountains were sketched by hand would not match them.
 
 Needs Chrome and data/terrain_profile.json + data/terrain_meta.json
 (importers/build_terrain.py writes both). Run after a terrain re-read:

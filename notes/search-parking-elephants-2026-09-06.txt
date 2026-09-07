@@ -1,0 +1,292 @@
+MOT DANG — "I asked for motorcycle parking and got elephants"
+Michael's bug report, 2026-09-06 17:10 (screenshot: Drive "bug report")
+WO-67 — BUILT 2026-09-06. Nan: "want all of these fixes... Of course we want
+unnamed lots to publish! Be complete!"
+
+**DEPLOYED 2026-09-07 ~12:45** on Nan's go ("Deploy everything you currently
+have"). 27,816 pages built, 57,224 files synced to R2, IndexNow pinged 17,314
+urls, verified live on a 375 px viewport. The paragraph that stood here said
+"nothing is deployed" and was true for a day; it is corrected rather than
+deleted so the sequence still reads.
+
+==============================================================================
+WHAT HE TYPED, WHAT HE GOT
+==============================================================================
+
+  parking for motorcycle near taphae gate
+
+  1. "Search results 3514"
+  2. A full-width ELEPHANTS panel — 30 camps, Thai Elephant Day, the toponym
+     story about Chang Phueak Gate.
+  3. Below it, in the smallest type on the page:
+        nothing matches all of motorcycle + near + taphae + gate
+        understood "parking" — this page cannot filter on it yet
+  4. Elephant Jungle Sanctuary pinned above everything else.
+  5. Then 68 scooter rental and repair shops. Not one parking place.
+
+He is the reader this site is for: a resident with a specific need, asking in
+plain words, which is exactly what we want people to do. The site answered
+with the most tourist-brochure topic in Chiang Mai and hid its own apology
+under it. Three insults land in the first second — wrong topic delivered
+confidently, the one true sentence buried, and a count of 3,514 for a question
+with zero answers. He was right to be angry and he was not going to try again.
+
+==============================================================================
+FOUR FAULTS. THE FOURTH ONE WAS FOUND WHILE FIXING THE OTHER THREE.
+==============================================================================
+
+1. THE WORD "GATE" OPENED THE ELEPHANT DOOR.
+   The search page's shelf table is MINED from each shelf's English teaser.
+   The elephant teaser reads "...the mahouts, the white elephant, the gate and
+   the chedis that carry its name, the elephant clinic, poo paper...". Split on
+   whitespace, that taught the table: gate, white, carry, states, about,
+   chedis, riding → ELEPHANTS. Every gate in this city is a landmark people
+   navigate by. The same sentence had already done this once, with `clinic`,
+   in August; that was patched one word at a time.
+
+2. A FAILED SEARCH STILL WORE A DOOR.
+   The engine had already worked out that nothing matched all four words. It
+   rendered the topic panel anyway, above its own confession, and printed
+   "Search results 3,514" — the size of the loosened pile, not a count of
+   answers.
+
+3. THE CATALOGUE HELD NO PARKING AT ALL.
+   Zero among 22,351 places. OpenStreetMap has held the answer since before
+   this site existed and no crawl group had ever asked for the tag.
+
+4. THE WORD HE TYPED FIRST NEVER REACHED THE INDEX.
+   searchcore reads "parking" as a CONSTRAINT and eats it out of the query.
+   So the engine searched for *motorcycle + near + taphae + gate* — his first
+   word, the whole point of the question, was deleted before anything was
+   matched. Worse, the same rule meant that typing ANY constraint on its own —
+   parking, wifi, open now, wheelchair, ที่จอดรถ — returned ZERO rows sitewide.
+   Not a parking bug: a general one, live for as long as intent parsing has
+   been in.
+
+==============================================================================
+WHAT WAS BUILT
+==============================================================================
+
+FIX 1 — a mined shelf can no longer open a door.
+  · build.py: the panel trigger now reads variants and query phrases only.
+    `shelves` keeps its other job (lifting rows, splitting namesakes); it was
+    one field doing two things and only the trigger was leaky.
+  · The old rule asked curators to use a shelf trigger "only when every mined
+    word names the topic". That is not a check a person can make — the words
+    are mined, they change when a teaser is reworded, and they are invisible
+    in the file. It failed twice on one sentence, so the kind is retired.
+  · search-core/mine.py: an English teaser is read as a LIST, not as prose.
+    Items carrying a clause word, a determiner, or more than three words are
+    not mined. Measured over the 175 shelves: 17 junk terms dropped (`gate`
+    and `clinic` among them), 1 real one lost (`curry`, out of a sentence).
+  · 49 real topic words the retired trigger used to catch were restored by
+    hand as panel variants — ปางช้าง, ควาญ, ค่ายมวย, สนามมวย, ตอกเส้น, ย่ำขาง,
+    barbers, salons, condos. The junk was not.
+  · 15 residue words stopped by name in search_panels.json.
+
+FIX 2 — when the search fails, it says so first.
+  · No panel renders in partial mode.
+  · The "nothing matches all of…" and "understood X" lines move ABOVE
+    everything, at body size, directly under the box.
+  · The heading reads "Search results 3,931 · partial matches".
+  · A stuck reader gets one line offering the ants (who read whole sentences)
+    and a crawl request, with the query carried into both.
+
+FIX 3 — the parking shelf. 1,796 records where there were none.
+  · New crawl group, province-wide in both provinces: amenity=parking,
+    motorcycle_parking, bicycle_parking, parking_entrance.
+       Chiang Mai 1,361     Chiang Rai 435
+  · New shelf ที่จอดรถ · Parking under Getting Around, with children for
+    motorcycle, bicycle and entrances. A motorbike bay carries both words, so
+    "motorcycle parking" is a shelf query, not a name search.
+  · UNNAMED LOTS PUBLISH — your call, and it is 1,711 of the 1,796. They are
+    unnamed because there is no signboard, not because nobody got round to it.
+    Each is named from what it does carry (the structure, the vehicle, the
+    operator) and then given the one fact that tells it apart, from the
+    bearings layer:
+
+        ที่จอดรถ · ใกล้ประตูท่าแพ 80 ม.       Parking · 80 m from Tha Phae Gate
+        อาคารจอดรถ · ใกล้ประตูท่าแพ 220 ม.    Multi-storey · 220 m from Tha Phae
+        ลานจอดรถ · ย่านแม่ริม                 Car park · Mae Rim
+
+    1,039 distinct names for 1,796 records; the repeats are rural lots sharing
+    a district name, far from any landmark.
+  · A NAME WE WROTE SAYS SO. Every synthesised name is stamped `derived` in
+    per-field provenance, so the OSM give-back can never offer them a name for
+    a lot their mappers left bare on purpose. A lot a mapper DID name keeps it,
+    stamped `stated`.
+  · Facts kept where OSM states them: fee, access, capacity, structure,
+    surface, covered, supervised, lit, maxstay, charge, park-and-ride,
+    whether a car park takes motorbikes. 792 of 1,796 carry at least one.
+    Absent stays absent — a missing `fee` is not "free" and a missing `access`
+    is not "anyone".
+  · New `parking` kind in the taxonomy, and it is the one kind where THE PIN
+    IS THE ANSWER: the question asked of a car park is "where is there one
+    near here", so a pinned lot has answered it. Every other kind can be
+    pinned and still say nothing.
+
+FIX 4 — a constraint is only a constraint when there is something to
+constrain. Both halves of searchcore: when eating the phrase would leave the
+query empty, the words go back in and are matched as words. The filters stay
+set either way. parity 528/528 comparisons, no disagreement.
+Also: `access:parking` now has a column, so the page stops apologising and
+says what it did — "car parks first, everything else under namesakes".
+
+==============================================================================
+HIS QUERY, NOW  (as of WO-67; WO-68 the next day improved it again — see below)
+==============================================================================
+
+  parking for motorcycle near taphae gate     → 3,931 partial, no panel
+     the top rows became motorcycle parking instead of elephant camps, but
+     the list still ranked by words matched, so a lot 810 m away could sit
+     above one at 80 m. That is what WO-68 fixed.
+
+  parking          1,812 exact     (was 0)
+  ที่จอดรถ          1,799 exact     (was 0)
+  motorcycle parking  732 exact    (was 0)
+
+The nearest lots to Tha Phae Gate are 80 m and 100 m away, and one of them
+posts its capacity and says it is free. That is the answer to the question he
+asked.
+
+==============================================================================
+TESTS
+==============================================================================
+
+tests/test_search.py — 13 new rich-door cases, all pass, including his query
+  verbatim ("must not open the elephant door"), "chiang mai gate",
+  ประตูช้างเผือก (opens the moat door, never the elephant one) and every panel
+  that must still open. Four new matcher cases for parking, all pass.
+search-core parity.py    528 comparisons, no disagreement.
+tests/test_kinds.py      unclassified residue back to 13 (the gate is 40).
+tests/test_provenance.py passes; it caught me stamping receipts onto empty
+  fields, which is exactly what it is for.
+tests/test_bearings.py, tests/test_no_blurbs.py  pass.
+
+ONE TEST IS RED AND IT IS NOT MINE. `zzzzqqq` finds 3 rows at the loose tier
+("SK House") where it should find none. Verified red on the live index before
+any of this work, so it is pre-existing. The nonsense string survives analysis
+intact, so the fault is in the loose tier of the index match, not in anything
+touched here. Left alone deliberately: loosening thresholds is a fleet-wide
+matcher change with its own eval, and it is a different defect from his.
+
+==============================================================================
+WHAT IS STILL OPEN — yours
+==============================================================================
+
+A. DEPLOY. Everything is built and verified in a scratch tree. docs/ is
+   untouched and the live site is still the one in his screenshot.
+
+B. "NEAR X" IS STILL NOT A DISTANCE. His query ranks by words matched, so a
+   lot 810 m from Tha Phae can outrank one 80 m away, and Suan Dok rows can
+   sit among Tha Phae ones. Reading "near <landmark>" as a bearing constraint
+   and sorting by it is a real piece of work with its own decisions. Not
+   smuggled in here.
+
+C. THE BEARING IS IN THE NAME, NOT IN A CHIP. WO-64 lists "a bearing chip on
+   listing rows and in the search index" as unbuilt, and it still is. Parking
+   gets its bearing by carrying it in the name, which works everywhere at once
+   and costs nothing. If the chip lands later, parking names could shed it.
+
+D. CAR PARKING AS WELL AS MOTORCYCLE — I published both, since a resident with
+   a car is a reader too. Say if you want the shelf narrowed.
+
+E. 1,004 lots carry only a pin. They publish, per your call, and they answer
+   their kind's question by existing where they are. If you would rather the
+   bare ones stayed held until somebody adds a fee or an access tag, that is
+   one line in the answers table.
+
+==============================================================================
+WO-68 — 2026-09-07: NEAR IS A DISTANCE, AND THE RESULTS PAGE CUT BACK
+Nan: "Near a landmark should sort by distance. Also declutter results page.
+Slash and burn. If it doesn't answer a question, it is invisible."
+==============================================================================
+
+NEAR A LANDMARK NOW MEANS METRES.
+
+  A landmark named in the query is lifted OUT of it before anything is
+  matched — the same way a constraint is — and the proximity word with it.
+  What remains is what the reader is looking FOR; the landmark becomes the
+  point everything is measured from. 68 points, from the register the
+  bearings layer already keeps, published as data/search_landmarks.json with
+  the coordinate READ FROM THE RECORD, so a corrected pin moves the sort.
+
+  ROMANISATION IS A RULE, NOT A LIST. Michael wrote "taphae". The register
+  held Tha Phae, Thapae, Tha Pae, Thaphae and Tapae — and not that one.
+  Chasing spellings into a list one at a time is the mistake the mined shelf
+  table already taught us, so: in Thai romanisation the h after t, p and k is
+  written or not written by whoever painted the sign, and so is the space.
+  `th?a\s*ph?ae` covers all six spellings with one pattern.
+
+  THE LANDMARK'S OWN RECORD GOES FIRST. Typing "tha phae gate" returned the
+  gate FOURTH, behind two cafés whose road field spelled it the way the
+  reader had. Nought metres beats every argument about spelling.
+
+  A STATED CONSTRAINT NARROWS; A MINED SHELF WORD ONLY LIFTS. "motorcycle"
+  hints at the transport shelf — which also holds every rental counter and
+  repair hut in the city, so with a distance sort the nearest of those sat on
+  top of a search whose first word was "parking". "parking" is not a hint.
+
+  His query, then and now:
+    was   3,514 found · elephant panel · 68 scooter shops · no parking at all
+    now     134 found · exact · motorcycle parking, nearest first, no panel
+
+    parking near tha phae gate   ที่จอดรถ Parking · 80 ม.
+                                 ลานจอดรถ Car park · 100 ม.
+                                 อาคารจอดรถ Multi-storey car park · 220 ม.
+    coffee near tha phae gate    Stories · 30 ม. · The Coffee Club · 40 ม.
+    ประตูท่าแพ                    the gate itself, then what stands around it
+
+SLASH AND BURN — what came off the results page, and why each one went:
+
+  · the ตอนนี้·ใกล้ๆ strip (events today, temperature, PM2.5). The right
+    first line on every page a reader arrives at with no question. This is
+    the one page they arrive at WITH one.
+  · the province on every row. Two hundred repetitions of "เชียงใหม่" when
+    every row is in Chiang Mai. It prints only when the rows span both.
+  · "showing 200 of 3,931". The heading already says 3,931. The line keeps
+    only the part the reader can act on: "add a word to narrow it" — and it
+    moved BELOW the list, being advice about it.
+  · "including words that mean the same thing". Fired on the ordinary
+    successful search and told nobody anything they could do.
+  · "wrong results? tell the ants" under every search, including the ones
+    that worked. It was added as feedback AT THE POINT OF FAILURE; now it
+    appears at one.
+  · shelf headings under a distance sort. Grouping sorts shelves by size,
+    which quietly re-sorted the rows — three cafés above the gate itself.
+  · a topic card over a question it does not answer. "parking near tha phae
+    gate" opened the MOAT door, nine ways to tell inside from outside, above
+    the car parks. The panel is matched against what is LEFT to ask.
+  · the second distance on a row. A car park is named for the landmark it
+    stands nearest, so in a list measured from Tha Phae Gate a row read
+    "ใกล้แจ่งก๊ะต๊ำ 290 ม. · 430 ม." — two numbers, neither obviously the
+    one asked about. Under a landmark sort the row shows the base name and
+    one distance.
+
+A NEW TEST, AND IT IS THE POINT OF THE DAY.
+
+  tests/test_search_page.py renders the page under a DOM stub and asserts
+  what a reader would SEE. It exists because I put this in build.py:
+
+        const partial = worst === 'partial';   // line 3681
+        ...
+        const worst = found.length ? ... ;     // line 3695
+
+  `const` in the temporal dead zone. Every search on the site threw a
+  ReferenceError and the result list never drew at all — while
+  tests/test_search.py passed 32 of 33 cases, because it lifts only the
+  pipeline block and the fault was four lines below where it stops. I found
+  it by opening the page in a browser, which is not a test.
+
+STILL RED, STILL NOT MINE: `zzzzqqq` finds 3 rows at the loose tier. Verified
+red on the live index before any of this work.
+
+STILL OPEN AND YOURS:
+  · Deploy. All of WO-67 and WO-68 is verified in a scratch tree; docs/ is
+    untouched and the live site is still the one in his screenshot.
+  · The masthead and tagline stay on the results page. Cutting the site's own
+    name and "รู้ทุกซอย เหมือนมดแดง" is a brand call, not a decluttering one,
+    so I left it to you. Say the word and it goes too.
+  · 68 landmarks is the register as it stands — five gates, four corners, the
+    markets, the malls, the hospitals. Nothing stops it growing; every entry
+    added becomes a thing people can search "near".

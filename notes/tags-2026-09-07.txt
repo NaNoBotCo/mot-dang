@@ -1,0 +1,163 @@
+🏷  TAGGING — WO-76
+    built 2026-09-07 · NOT deployed · nothing was built or published from this tree
+
+WHAT YOU ASKED FOR
+    Tag everything, more aggressively than seems enough, and open many more ways
+    to find a listing through its tags. And: "stub" should be a tag.
+
+THE NUMBER THAT MADE THE CASE
+    Before:   5,606 of 88,161 records carried a tag        6.4%
+    After:   88,159 of 88,161                            100.0%
+    Two records carry nothing: they hold a name and no field at all.
+
+    Vocabulary:    76 tags  ->  1,356      (88 written by hand, 1,174 mined,
+                                            94 chains)
+    Tags per record: 0.1  ->  3.3 mean, 3 median, 24 at most
+    Pages:        1,841 tag pages · 1,765 tag x shelf pages · 17 family pages
+
+WHY IT WAS 6.4%
+    Not because the rules were wrong. The 76 hand-written rules read fields like
+    attrs.cuisine, which 2,125 records carry. The corpus is 88,161 records over
+    288 attrs keys. The vocabulary was hand-sized and the corpus was not.
+
+    The Overture fold sharpened it. 63,170 of the new records carry
+    attrs.overtureCategory — 681 distinct words — and nothing read that field.
+    18,730 of them stand on a shelf with NO sub-shelf (13,668 on food alone), so
+    that word was the only fine grain they had, and they were findable by name
+    and by nothing else.
+
+WHAT WAS BUILT
+
+  1. MINED TAGS — tags_mine.py (new)
+     What _brand_tags already did for attrs.brand, now done for every
+     categorical field: read the field's own values off the records, mint one
+     tag per value that clears a floor. Nothing typed on, one stated rule per
+     tag, and the vocabulary grows the day a crawl meets a new word.
+
+         trade      393   attrs.tradeTags — the vernacular off the sign
+                          (ซักผ้าหยอดเหรียญ, ปะยางมอเตอร์ไซค์, ตอกเส้น), floor 3
+         kind       380   attrs.overtureCategory, floor 8
+         area       321   amphoe · tambon · street · postcode, floor 5–8
+         cuisine     55   every cuisine value past the 34 written by hand
+         medical     35   facilityType + specialty
+         school      21 · comfort 16 · wat 5
+
+  2. "STUB", and the rest of the state family — 9 tags on a new `field` rule
+     kind that reads which fields the RECORD holds, not what the place is:
+
+         stub                8,554 in CM   one field or none of eight
+         name-only              94         no field at all
+         no-pin              5,363
+         no-contact         10,467         no phone, site, page or email held
+         has-phone          44,007 · has-facebook 48,830 · has-website 15,743
+         has-hours           4,003 · multi-source 5,310
+
+     Every one of those pages says in its lede that it describes the entry and
+     not the shop, and that a place with no hours held is not a place that is
+     shut.
+
+  3. HOURS ARE NOW READ, not just ticked. A small opening_hours parser (";" and
+     newline rules, 2- and 3-letter days, past-midnight closes). open-late went
+     from 28 records to 1,770 because it had only ever read an owner's tick.
+     New: open-sunday 3,020 · open-monday 3,841 · open-early 1,156.
+
+  4. DISCOVERY — four surfaces, all with counts on the face
+
+     a. "These are also" on every tag page — the tags that tag's places most
+        often ALSO carry, ranked by LIFT rather than count, each chip a link to
+        search.html?tag=a&tag=b, which is already a real AND filter. 1,101 tags
+        have one.
+
+            motorbike repair -> oil change (130) · puncture repair (143)
+            dental work      -> fillings (34) · braces (50) · extractions (8)
+            coin laundry     -> coin washing machines (67) · 24-hour laundry (24)
+            vegan            -> vegetarian (59) · gluten-free (6) · organic (5)
+
+        Ranked by count instead, every rail on the site read "also: has a phone
+        number (44,007)". Lift asks the better question and the state family is
+        kept off the rails entirely.
+
+     b. "Narrow this shelf" on every shelf page — the tags most carried by the
+        records on that shelf, linking to the tag x shelf page where one exists.
+        26,984 rows of food is not a list anyone reads; coffee shop (2,498),
+        Thai restaurant (1,504), open late (594) is a set of doors.
+
+     c. Family rail on every tag page — the siblings, commonest first, for when
+        this tag was nearly the right word.
+
+     d. /tags.html rebuilt for the scale, plus one page per family
+        (/tags/trade.html and so on) with a type-to-narrow box. 1,356 tags do
+        not fit on one page and were not made to.
+
+  5. PILLS ARE ORDERED RAREST FIRST. A café now carries `coffee shop` (3,679)
+     and `coin laundry` (200) at once and only one of those is why anyone would
+     land on it — the same lesson the guitar bug taught ranking. Capped at 14
+     with the rest folded.
+
+TESTS
+    tests/test_tags_mine.py — new, 9 tests, passing. Runs against data/ alone
+    with no built site, so it can run while another session holds the build.
+    It gates the coverage number at 80% (it was 6.4%, it landed at 100%).
+
+    tests/test_tags.py is the gate on the artefact and needs docs/ built. It has
+    NOT been run — a build was already running in this tree and I stayed off it.
+    Run it after the next build.
+
+NOT DONE, NOT DEPLOYED
+    No build was run. Nothing was deployed. The DO-NOT-DEPLOY note from the
+    Overture session is still on the tree and still applies — and this adds
+    ~3,600 new pages on top of the 63,170 records it is about, so the two want
+    measuring together, not separately.
+
+FORKS — yours
+
+  F1  NINE OVERTURE WORDS ARE SKIPPED as pure shelf-restatements: restaurant,
+      food, eat_and_drink, shopping, accommodation, education,
+      professional_services, business_to_business, structure_and_geography.
+      `restaurant` alone is 7,507 records and a tag page for it duplicates
+      /cm/food/. Cost of minting them: nine more big pages that say what the
+      shelf already says. Cost of skipping: those 7,507 lose one tag each.
+      No expiry — it is one line in data/tags.json either way.
+
+  F2  THE STATE FAMILY IS PUBLIC. `stub`, `no-pin` and `no-contact` each get
+      their own page, listing by name the 8,554 / 5,363 / 10,467 records where
+      this catalogue holds least. That is a true list, it is useful (it is the
+      work queue, and it is the door an owner walks in through), and it is also
+      the thinnest part of the directory with a page of its own and a place in
+      the sitemap. The alternative is to assign the tags — so search and the
+      filters still use them — and draw no page. Your call, not mine.
+      Cost either way: nothing to rebuild, one flag.
+
+  F3  934 MINED TAGS HAVE NO HAND-WRITTEN LABEL. 348 are English words the
+      builder de-snakes acceptably ("Auto parts and supply store"). 586 are
+      Thai and now carry their RTGS reading as the English half.
+      [Amended 2026-09-08. This fork used to say those 586 rendered Thai-only,
+      "because translit.py's rule says a reading never fills an English name
+      slot". Nobody wrote that rule — see go/rules-cut. A tag is not a place
+      and a tag's English half is not nameEn, so no shop is being given a name
+      it did not choose, and an English-mode reader can now read, type and
+      remember the chip.]
+      What is left of the fork: whether you want hand-written labels over the
+      readings. I labelled 304; `python3 tags_mine.py -v` prints the rest,
+      commonest first. No expiry.
+
+  F4  THE FLOORS. trade 3, kind 8, area 5, brand 5. Lower floors mean more
+      tags and more pages: at trade 3 there are 393 trade tags; the field holds
+      1,782 distinct words, so a floor of 1 would be ~1,800. You said more
+      aggressive than seems enough — this is where that dial is.
+
+  F5  THREE MORE DOORS I DID NOT BUILD, because each touches the search JS or
+      the home page and both are being worked in this tree tonight:
+        · a zero-result search offering the nearest tags instead of nothing;
+        · a tag rail on /here.html;
+        · tags on the card (the index already carries them as ints).
+
+FILES
+    tags_mine.py                        new — the miner
+    tags_layer.py                       field + hours rule kinds, mining, the
+                                        rails, /tags.html and the family pages
+    data/tags.json                      mined config, state + hours + the four
+                                        new families
+    data/curated/tag_labels.json        new — 304 hand labels for mined values
+    build.py                            shelf chips on shelf pages, rail CSS
+    tests/test_tags_mine.py             new — 9 tests, passing

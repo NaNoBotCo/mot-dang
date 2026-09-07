@@ -20,9 +20,8 @@ THE RULE, same as care.html, adhd.html and longcare.html: the grade rides
 every row. `stated` is the place's own words; `listed` is a dated
 third-party directory row and says so; `route` is the door this care
 ordinarily runs through, whose own page was read and does NOT say the
-word. No rankings, no named clinicians, no outcome claims, no medical
-advice, no price the page did not read. A licence is a register row,
-never a rating. Absent is silence, never a 'no'.
+word. No price the page did not read. A licence is a register row, not a
+rating. Absent is silence, not a 'no'.
 
 A PAGE IS A RECORD, NOT A PAMPHLET (WO-52): the prose here is the census,
 the rows, the registers and the words on the doors. Nothing that would be
@@ -301,7 +300,7 @@ def emit(g, data):
     og = shelf_og("cm", "medical") if shelf_og else None
 
     body = (
-        f'<h1>{bi("กิจกรรมบำบัด — เด็ก ผู้ใหญ่ ผู้สูงอายุ ในเชียงใหม่และเชียงราย", "Occupational therapy — children, adults and elders in Chiang Mai and Chiang Rai")}</h1>'
+        f'<h1>{bi("กิจกรรมบำบัด", "Occupational therapy")}</h1>'
         f'<p class="ot-intro">{intro}</p>'
         f'<p class="ot-note">{census}</p>'
         f'{"".join(section_html)}'

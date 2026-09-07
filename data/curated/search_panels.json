@@ -1336,7 +1336,7 @@
      "The medical school states it: the state dermatology clinic at Suan Dok runs Tue, Thu, Fri mornings on floor 10 of the Sriphat building, phototherapy on floor 12"
     ],
     [
-     "ไม่มีราคาในหน้านี้ ไม่มีชื่อแพทย์ และเราไม่มีความเห็นว่าใครควรรักษาที่ไหน",
+     "ไม่มีราคาในหน้านี้ ไม่มีชื่อแพทย์",
      "No prices here, no doctors' names, and no view on where anyone should be treated"
     ]
    ],
@@ -1666,8 +1666,8 @@
      "the first hour matters most — 1669 is free at any hour, and the destination must be a hospital, not a clinic"
     ],
     [
-     "ไม่จัดอันดับ ไม่ระบุชื่อแพทย์ ไม่ใช่คำแนะนำทางการแพทย์",
-     "no rankings, no named doctors, no medical advice"
+     "ไม่ใช่คำแนะนำทางการแพทย์",
+     "not medical advice"
     ]
    ],
    "doors": [
@@ -2137,8 +2137,8 @@
      "an optician measures for glasses; that is not a diagnosis"
     ],
     [
-     "ราคาที่ไม่ได้อ่านจะไม่พิมพ์ ไม่จัดอันดับ ไม่ใช่คำแนะนำทางการแพทย์",
-     "a price not read is not printed; no rankings, no medical advice"
+     "ราคาที่ไม่ได้อ่านจะไม่พิมพ์ ไม่ใช่คำแนะนำทางการแพทย์",
+     "a price not read is not printed; not medical advice"
     ]
    ],
    "doors": [
@@ -2362,8 +2362,8 @@
      "every row names who is speaking: the place, a directory, or the usual door"
     ],
     [
-     "ไม่จัดอันดับ ไม่ใช่คำแนะนำทางการแพทย์",
-     "no rankings, no medical advice"
+     "ไม่ใช่คำแนะนำทางการแพทย์",
+     "not medical advice"
     ]
    ],
    "doors": [
@@ -2438,7 +2438,7 @@
     ],
     [
      "ไม่จัดอันดับ ไม่ใช่คำแนะนำทางการแพทย์ ราคาไม่ได้คัดลอกมา",
-     "no rankings, no medical advice, no prices copied"
+     "not medical advice; no prices copied"
     ]
    ],
    "doors": [

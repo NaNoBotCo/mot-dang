@@ -1,0 +1,175 @@
+มดแดง — THE PUBLIC API
+Built 2026-09-05. Local only so far: nothing is deployed. Deploying is yours.
+
+WHAT WAS WRONG
+--------------
+The corpus has been public since the site existed — places.json, a .json beside
+every place page, GeoJSON per category, llms.txt — and the licence on every page
+said "reuse it, train on it, quote it". Two things made that invitation hard to
+accept:
+
+  1. No response carried an Access-Control-Allow-Origin header, so nothing
+     running in a browser could touch any of it. Server-side only.
+  2. Everything was whole-file. Wanting "clinics open right now within two
+     kilometres" meant downloading 25 MB and writing the filter yourself.
+
+An open licence a browser cannot act on is an invitation with the door locked.
+
+
+WHAT IS THERE NOW
+-----------------
+CORS on every response — pages, data files, 304s, 404s, the API. The ETag is
+exposed cross-origin too, which is what lets a caller revalidate instead of
+re-downloading the whole file every time.
+
+A query API at /api/v1/ over 22,348 places (see THREE COUNTS below — that is
+the site-search population, not every record):
+
+  GET /api/v1/places        query and filter
+  GET /api/v1/places/{id}   one place, every field
+  GET /api/v1/categories    the category tree with live counts
+  GET /api/v1/tags          every tag, lens and facet key in use
+  GET /api/v1/index.json    the whole index in one file, if a caller would
+                            rather take it and never call us again
+  GET /api/v1/openapi.json  the spec
+  GET /api/v1/schema.json   the frozen key contract
+  GET /api/v1/health
+  GET /api/v1/              what this is, and every endpoint in it
+
+Filters: q · province · cat · sub · tag · lens · facet · has · min_ants ·
+near + radius · open_now / open_at · sort · limit · offset.
+
+No key. No sign-up. No rate limit. Open to every origin.
+
+
+THE THREE RULES THAT MADE IT INTO THE JSON
+------------------------------------------
+Absence is absence. A place whose hours nobody holds answers openNow: null,
+never false, and open_now=1 leaves it out rather than calling it shut. 4,343 of
+22,348 places have hours we can stand behind; the API says which.
+
+No pin, no distance answer. A record with no coordinates drops out of a near=
+query rather than being placed somewhere plausible. geoPrecision says which
+kind of pin it is.
+
+Never guess between two records. 75 page slugs are shared by two records.
+Returning the first would be right every time today — which is exactly why it
+is the wrong habit. A shared slug returns 300 and both ids instead.
+
+
+HOW KEYS ARE HANDLED TODAY
+--------------------------
+Keys in /api/v1/ are added to; none has been removed, renamed or retyped. A
+change that would break somebody's app currently goes to a /api/v2/ at a
+different address, with v1 running beside it. How long v1 runs, and whether
+this stays the shape, is Nan's call.
+
+The current behaviour is held by tests/test_api.py, not by memory. Four places state the
+shape (api_layer.py, publish/api.js, schema.json, openapi.json) and the test
+fails the moment any two disagree.
+
+
+THE TERMS — /terms.html, new page
+---------------------------------
+Take it. Copy it, adapt it, sell things built on it, train models on it, print
+it. No key, no fee, no contract, no exclusivity with anybody.
+
+The one thing asked back is attribution: "มดแดง Mot Dang" with a link to
+motdang.net where the data shows, or in an app's About screen; named in the
+lineage if you train on it; and keep each record's `sources` field if you
+republish, because that credit belongs to other people, not to us.
+
+Compilation is CC BY 4.0. Map-derived fields stay © OpenStreetMap contributors
+under ODbL 1.0, and every record carries an osmDerived flag saying which it is,
+so a reuser never has to guess which licence they are standing under. Photos are
+excluded — each carries its own credit on its page.
+
+
+HOW IT IS BUILT (no database)
+-----------------------------
+api_layer.py bakes docs/api/v1/index.json during the ordinary build, from the
+same records and the same helpers that write the pages, so a field can never
+mean one thing on a page and another in the API. (WHICH records it carries is a
+separate question — see THREE COUNTS.) The Worker parses it once per isolate and
+answers from memory. Opening hours reuse importers/build_open_lamps.py, so "open now" here is
+the same minute-of-week the nitnoy map draws, and the 32 hours strings that
+parser refuses to guess at stay unguessed here too.
+
+Measured on the real 12.9 MB index: 46 ms to parse, 22.7 MB of heap, 14 ms to
+scan all 22,348 rows. Once per isolate, then it is memory.
+
+
+WHERE IT IS VISIBLE
+-------------------
+Footer of every page · llms.txt (its own section) · why.html, in the "you cannot
+get this from Google" argument · source/ · the Hugging Face dataset card ·
+sitemap · and Link: rel="service-doc" / "service-desc" / "license" headers on
+every API response, so a client that lands anywhere can find the rest.
+
+
+TESTS — 66 checks, all green
+----------------------------
+  python3 tests/test_api.py          25  the key contract + the built index
+  node tests/test_api_worker.js      25  the query engine over the real rows
+  node tests/test_worker_routes.js   16  routing and headers, real docs/ on disk
+
+Two bugs these caught before anything shipped:
+  · ?has=nameTh matched nothing — the query was lowercased and the ant bits are
+    camelCase. Zero results look exactly like "no such places".
+  · the id and slug namespaces were one lookup table, so a shared slug resolved
+    silently to whichever record was last.
+
+
+THREE COUNTS, AND WHY THEY DIFFER — corrected 2026-09-05 evening
+----------------------------------------------------------------
+I told you earlier that the API "publishes exactly what the pages publish".
+That was wrong, and regenerating the Hugging Face dataset is what caught it.
+
+  24,059  records in data/canonical — and in the HF dataset
+  24,002  place pages actually on disk
+  22,348  rows in the site's search index — and in the API
+
+held() does NOT withhold a page. Those 1,711 records (no pin, two facts or
+fewer) have pages, are linked from their shelves, and travel in the dataset.
+What held() withholds is a row in data/index.json, the site's own search. The
+API follows search, so it inherits that.
+
+That is a choice, and not an obvious one — a caller asking ?cat=realestate
+gets 147 condos where the shelf itself lists 348. It is now C52 in the queue.
+The descriptor carries a `population` block saying which of the three it
+counted, so nobody has to work it out from a mismatch.
+
+
+DECIDED 2026-09-05
+------------------
+  · The 76 duplicate records — QUEUED, not fixed. C51.
+  · The Hugging Face dataset — REGENERATED, not pushed. Pushing is yours.
+  · Deploy and the Workers plan — still open, you dismissed both.
+
+
+FOUR THINGS THAT ARE YOURS
+--------------------------
+1. DEPLOYING. Nothing is live. This one needs BOTH steps, because the Worker
+   code changed and not just the content:
+       python3 build.py
+       python3 publish/deploy.py --yes
+       cd publish && npx wrangler deploy
+
+2. THE WORKERS PLAN. The first request to hit a cold isolate spends ~46 ms of
+   CPU parsing the index. That is nothing on Workers Paid. If this account is on
+   the free plan the per-invocation CPU limit is far tighter and cold /places
+   requests could be cut off. Worth checking before announcing it anywhere.
+
+3. 76 DUPLICATE RECORDS. The 75 shared slugs are all the same shop entered in
+   two curated registers — mend + home (37), mend + tech (22), mend + bicycle
+   (7), mend + alterations (6), and three others. Nothing is lost and no page
+   is wrong; the counts are inflated by 0.3%. A dedupe pass over the curated
+   registers is a small, separate job.
+
+4. THE HUGGING FACE DATASET — REGENERATED, waiting on you to push. 24,059
+   records (17,595 Chiang Mai / 6,464 Chiang Rai), 15,241 flagged osm_derived,
+   22,220 with coordinates. The card now names the API and the terms. Push it
+   from publish/hf-dataset/ with:
+       huggingface-cli upload NaNoBotCo/mot-dang-chiang-mai-chiang-rai . --repo-type=dataset
+   Push knowing it carries 1,711 records the API does not return — see THREE
+   COUNTS above. Nothing is wrong with them; they are simply thin.

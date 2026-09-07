@@ -1,0 +1,190 @@
+THE TOK SEN DIAGNOSIS — AND THE DISEASE IT IS AN INSTANCE OF
+2026-09-05
+
+Nan, 2026-09-05: "There IS no more toksen anywhere in the world than there is
+in Chiang Mai and Chiang Rai, so the fact that signal here is weak is a tech
+debt issue, not a praxis issue." And: "The problem toksen presents is an
+example of a search disease pervasive worldwide."
+
+Both are right, and the numbers below say exactly where the debt sits.
+
+
+================================================================================
+1. THE DISEASE, STATED PLAINLY
+================================================================================
+
+Search indexes what a thing is CALLED. It does not index what a thing OFFERS.
+
+So anything that lives on a menu rather than on a signboard is invisible:
+a technique, a service, a practice, a dialect word. Not because it is rare —
+because the unit of indexing is the name.
+
+Then it gets worse in a specific and counter-intuitive way:
+
+  THE INVERSE-COVERAGE LAW. The closer you are to the epicentre of a practice,
+  the WEAKER the structured signal about it. At the epicentre the practice is
+  ordinary. Nobody there writes it into a category, because everybody already
+  knows. The categories that global platforms ship were written elsewhere, by
+  people for whom it was exotic enough to need a label.
+
+Chiang Mai is the world capital of ตอกเส้น. Chiang Mai therefore has the
+world's WORST structured data about ตอกเส้น. That is not a paradox, it is the
+law operating.
+
+Mot Dang is the one directory positioned to break it, because it is the only
+one whose category tree is written from the inside.
+
+
+================================================================================
+2. WHAT THE MEASUREMENTS ACTUALLY SHOW
+================================================================================
+
+  ตอกเส้น in 24,216 canonical records ......................... 0
+  massage records ........................................... 302
+  ... of those, sourced from OSM ............................ 294  (97%)
+  ... of those, with ANY Thai in the name .................... 21  (7%)
+  ALL records with any Thai in the name .................. 15,115  (62%)
+
+  OSM elements in the WHOLE of Chiang Mai Province
+  with "นวด" anywhere in the name ............................ 16
+
+  thdata.co, Chiang Mai นวดและสปา category, Thai names
+  and street addresses ...................................... 337
+
+Read those together and the finding is not subtle:
+
+  MOT DANG'S MASSAGE SHELF IS AN ENGLISH-NAMED, OSM-DERIVED, TOURIST-FACING
+  SLICE OF THE TRADE. The Thai-named massage economy — which is the only
+  place the words ตอกเส้น, ย่ำขาง, จับเส้น, ประคบ ever appear — was never
+  ingested at all.
+
+The modality shelves are not empty because shops decline to say what they do.
+They are empty because the shops that say it in Thai are not in the corpus.
+
+OSM is a MAP. It is not a business register, and in Thailand it is heavily
+English-skewed. Using it as the spine for a TRADE was the original debt.
+Everything else — empty shelves, a weak index, an AI that shrugs — is interest
+being paid on it. Note the contrast inside our own corpus: the register,
+directory and opendata sources carry 9,444 records and are Thai-native. None
+of them was ever pointed at massage.
+
+
+================================================================================
+3. NAN'S OWN GROUND TRUTH, AND WHAT IT PROVES
+================================================================================
+
+She went to a tok sen place yesterday. Found it on GOOGLE MAPS by searching
+"toksen". Old city, next to Mini Cost hotel, finished around 22:00.
+
+Mini Cost is cm-osm-node-2533128064 (18.7890626, 98.9921558). Within 250 m of
+it Mot Dang holds 22 massage records. Eight are open to 21:00 or later:
+
+     28m  Into The Nature            Th-Tu 11:00-21:00
+    106m  Sainapa Thai Massage       Mo-Su 09:00-23:00
+    152m  Time To Massage            Su-Tu,Th-Sa 10:00-22:00
+    184m  Darlin's Massage 3         Mo-Su 10:00-00:00
+    188m  Lila Thai Massage          Mo-Su 10:00-22:00   <- a CONFIRMED tok sen
+                                                            provider, see go/toksen
+    195m  Zira Spa                   Mo-Su 10:00-22:00
+    212m  Karina Thai massage 2      Mo-Su 11:00-23:00
+    217m  Sabai Thong Thai Massage   Mo-Su 10:00-22:00
+
+The only modality sub present across all 22 is "thai-traditional".
+Fourteen of the 22 carry no sub at all. None carries tok-sen.
+
+TWO THINGS FOLLOW.
+
+  (a) The shop is very probably ALREADY A RECORD. We hold the place, the pin,
+      the hours and the old-city flag. What we do not hold is the one fact she
+      searched on. This is a MISSING ATTRIBUTE, not a missing business.
+
+  (b) Google could answer because Google indexes the shop's own words —
+      its listing text, its services, its reviews. We index a name and a
+      category slug. That is the whole difference, and it is ours to close.
+
+
+================================================================================
+4. WHAT TO BUILD — FIVE MOVES, IN ORDER
+================================================================================
+
+--------------------------------------------------------------------------
+4.1  A HOME-GROUND VOCABULARY. The asset this whole thing turns on.
+--------------------------------------------------------------------------
+An explicit registry of terms for which Chiang Mai / Chiang Rai IS the world
+authority. Each entry: the Thai term, its transliterations and misspellings,
+an English gloss, the shelf it maps to, and an EXPECTED ORDER OF MAGNITUDE.
+
+  ตอกเส้น tok sen / toksen ....... tok-sen ......... expect dozens
+  ย่ำขาง yam khang ............... yam-khang ....... expect a handful
+  ขัดขี้ไคล khat khi khlai ....... khat-khi-khlai .. expect dozens
+  ประคบสมุนไพร prakhop ........... prakhop ......... expect hundreds
+  จับเส้น chap sen ............... chap-sen ........ expect hundreds
+  นวดราชสำนัก ratchasamnak ....... ratchasamnak .... expect dozens
+  ...and beyond massage: สักยันต์, ข้าวซอย, หม้อห้อม, เครื่องเขิน,
+  ตุงล้านนา, สลุงเงิน, ผ้าซิ่นตีนจก, กาดหมั้ว, มะแขว่น
+
+This one file then drives FOUR systems at once:
+  · the query set every ingest axis is run against
+  · the coverage test (below)
+  · the AI's synonym expansion
+  · the site's own search thesaurus
+It converts "we ought to have tok sen" from a feeling into a specification.
+
+--------------------------------------------------------------------------
+4.2  COVERAGE AS A NUMBER, NOT A SHELF COUNT.
+--------------------------------------------------------------------------
+For every home-ground term: what we hold, versus what an outside source says
+exists. "Expected 20+, holding 0" is a defect with a magnitude attached.
+This is precisely "tech debt, not praxis" made operational — the shelf stops
+being empty-and-shrugged-at and starts being a number that is wrong.
+
+--------------------------------------------------------------------------
+4.3  REBALANCE THE SOURCES. Stop using a map as a trade register.
+--------------------------------------------------------------------------
+For every category whose trade is Thai-named, add a Thai-native source:
+  · thdata.co        — 337 CM massage businesses, Thai names + addresses,
+                       paginated, already crawled once tonight
+  · Wongnai, GoWabi  — Thai review and booking platforms
+  · DBD company register, สบส. licence register (สถานประกอบการเพื่อสุขภาพ)
+  · Longdo Map       — Thai-first geocoder
+  · the shop's own Facebook page — 806 records ALREADY carry one, uncrawled
+The register pattern is proven in this repo: ONAB filled the monastic-school
+shelf that OSM could never have filled. Do the same for the trades.
+
+--------------------------------------------------------------------------
+4.4  MODEL SERVICES, NOT ONLY CATEGORIES. The structural fix.
+--------------------------------------------------------------------------
+`sub` says what a place IS. There is no field for what it OFFERS. Add one —
+an `offers` array with per-item provenance, on the same discipline the facets
+already use (scrubToolVia: reader-review):
+
+    offers: [ {k: "tok-sen", via: "own-facebook", seen: "2026-09-05"},
+              {k: "prakhop", via: "menu-photo",   seen: "2026-09-05"} ]
+
+This is what makes "who does tok sen near me, open at 21:00" answerable, and
+it is the honest shape of the data: a menu is a list, and a shop can be a
+thai-traditional shop that also does tok sen on Tuesdays.
+
+--------------------------------------------------------------------------
+4.5  ANSWER-SHAPED TESTS, replacing shelf-count tests.
+--------------------------------------------------------------------------
+Today the tests ask "is this shelf non-empty". Ask instead "is this question
+answerable":
+
+    toksen + old city + open past 21:00   ->  must return >= 1 record
+
+Nan answered that by hand yesterday, on someone else's platform. The test is
+just that sentence, written down. Every home-ground term gets one.
+
+
+================================================================================
+5. THE ORDER I WOULD DO IT IN
+================================================================================
+  1. Write the home-ground vocabulary (4.1). Everything else keys off it.
+  2. Point thdata + the สบส. register at massage (4.3). Thai names, addresses,
+     phones. This is the ingest that should have existed instead of OSM.
+  3. Add `offers` (4.4) and land the 30 tok sen providers from go/toksen into
+     it, each with its provenance.
+  4. Coverage metric + answer-shaped tests (4.2, 4.5), so it cannot rot again.
+
+Steps 1 and 4 are small. Step 2 is the real work and is the one that pays.

@@ -1,0 +1,189 @@
+HANDOVER — MOT DANG SEARCH / RESULTS PAGE
+Written 2026-09-07 ~13:30 by the session that did WO-67, WO-68, P1 and P2.
+Nan: "stop what you're doing and create instructions for another bot with
+broader scope to take over. I don't want you 2 to race."
+
+I HAVE STOPPED. Nothing of mine is running. The build lock is RELEASED, no
+deploy is in flight, my polling shells and local http.servers are killed.
+The repo is yours.
+
+==============================================================================
+1. STATE OF THE WORLD, EXACTLY
+==============================================================================
+
+LIVE on motdang.net (deployed twice today, both verified):
+  · WO-67 — the parking shelf. 1,796 car parks (CM 1,361 / CR 435) where the
+    catalogue held ZERO. 1,711 of them unnamed and published under a name
+    derived from their tags plus a bearing. A mined shelf word can no longer
+    open a rich door. A failed search shows its own note FIRST and no panel.
+  · WO-68 — a landmark named in a query is lifted out of it and becomes the
+    point everything is measured from. 68 landmarks in
+    `docs/data/search_landmarks.json`.
+  · P1/P2 CSS is IN the live style.css — but see the trap below.
+
+BUILT IN docs/ AND **NOT DEPLOYED** (this is the one live loose end):
+  · The stylesheet is now versioned: `style.css?v=5c662ff1`.
+    docs/ was built at ~13:20 and is complete and gate-green.
+
+**THE TRAP, AND WHY THE LAST BUILD MATTERS.** `style.css` is served with
+`cache-control: public, max-age=604800` — SEVEN DAYS — and until this build
+the URL carried no version. So P1 and P2 are on R2 and a returning reader
+still gets the CSS they already had, for up to a week. I confirmed it in a
+browser: `body.mdshort` was set, `docHeight` was still 1,484, and the rule
+that reads the class had not been fetched. md.js has always been versioned;
+the stylesheet never was.
+
+  TO CLOSE IT:   cd "~/Developer/claude code projects/mot-dang"
+                 python3 publish/deploy.py --yes        # ~25 min, 57,224 files
+                 python3 importers/ping_indexnow.py
+
+  You do NOT have to deploy separately for this. If you are going to build and
+  deploy anything at all, the fix is already in build.py and rides along. I
+  left it undeployed rather than start a 25-minute sync while being told to
+  stop. Until it goes out, P1 and P2 are invisible to anyone who has visited
+  before.
+
+==============================================================================
+2. WHAT NAN ASKED FOR THAT IS **NOT** DONE
+==============================================================================
+
+Her standing instruction, verbatim, 2026-09-07:
+
+  "we need systemic fixes that accommodate human user behavior and
+   expectations, regardless of what the search is. Human searches will always
+   be inexact, include spelling errors, extra words, missing words. We should
+   be anticipating user intent better throughout. And not showing extraneous
+   anything. If it doesn't answer the question, don't show it."
+
+  "For 1-2 results, you shouldn't have to long-scroll. Never."
+  "Maybe search isn't even the right tool for what we're trying to do, but
+   this site is soooooooo frustrating to the humans who try and use it."
+
+The full measured diagnosis is `go/wrongtool`
+(notes/search-is-the-wrong-tool-2026-09-07.txt). READ IT FIRST. Headlines,
+all measured on the fixed build, not asserted:
+
+  · a one-result search was 27 px of answer in a 1,484 px page — 1.8%.
+    (P1 fixes this; verified locally at docHeight == viewport, no scroll.)
+  · **1.5 MB gzipped before the first character of an answer.** index.json is
+    the entire catalogue — 25,179 rows — fetched to answer one question about
+    one street corner. THIS IS THE BIGGEST ONE AND IT IS UNTOUCHED.
+  · the tap after a result reveals nothing for 68% of car parks (0 phones,
+    2 hours, 163 of 1,796 say whether they cost).
+  · **one intent typed nine human ways gives nine different answers.** Four
+    never show the car park 80 m from the gate; "moto parking taphae" returns
+    a single shop 4.6 km away with total confidence.
+  · **asking the NARROWER question returns the WORSE answer** — "motorcycle"
+    is matched as TEXT, so the 80 m car park is hidden because its name does
+    not contain the word.
+  · a vocabulary gap fails SILENTLY ("moto" is not in the thesaurus).
+  · ไทย+EN is the default and doubles 26% of rows.
+
+DONE TODAY: P1 (page fits the answer) and P2 (one unit per row). Both are in
+docs/, gate-green, and need the deploy above to reach returning readers.
+
+NOT DONE — P3 to P7, in the order that pays:
+  P3  a row carries what tells it apart (fee, capacity, structure, street).
+  P4  INTENT BEFORE WORDS. Resolve (kind, place, constraints) first, then use
+      leftover words as a name FILTER, not as requirements. This is the
+      systemic one she is asking for.
+  P5  a where-question gets a where-answer: 3 nearest with the deciding fact
+      and a map, not 134 links.
+  P6  stop shipping the whole catalogue to answer one question.
+  P7  say when the answer is thin.
+
+==============================================================================
+3. THE WALL I BUILT — FIX THIS EARLY, IT IS MINE
+==============================================================================
+
+1,796 car parks share 1,039 names. Under a distance sort I strip the bearing
+off the display name so the distance is not printed twice, which leaves 134
+rows all reading "ที่จอดมอเตอร์ไซค์ Motorcycle parking", differing only in
+the metres. **I turned a wall of elephants into a wall of identical car
+parks.** That is P3 and it is the most visible remaining insult.
+
+The material to fix it is already on the records: `attrs.fee`, `access`,
+`capacity`, `parkingType`, `covered`, `supervised`, `surface`, `operator`.
+`nm`/`em` in the search index hold the base name; the full name with its
+bearing is `n`/`e`.
+
+==============================================================================
+4. LANDMINES. EVERY ONE OF THESE COST ME REAL TIME TODAY.
+==============================================================================
+
+**`grep` treats docs/md.js as BINARY and silently matches nothing.** I
+concluded four times that a good deploy had shipped nothing. Use python:
+    python3 -c "print(open('docs/md.js',encoding='utf-8').read().count('X'))"
+
+**A trailing `grep -c` returning 0 exits 1** and makes a successful deploy
+look failed. Read publish/deploy.py's log for "site synced", not the exit
+code of your shell chain.
+
+**The search page has TWO test files and they cover different halves.**
+  tests/test_search.py       lifts `md:search-pipeline` — matching only.
+  tests/test_search_page.py  lifts `md:search-render` — the DOM half. NEW.
+I wrote the second one because I put `const partial = worst==='partial'`
+ABOVE `const worst = ...`, a temporal dead zone, and **every search on the
+site threw a ReferenceError while test_search.py passed 32 of 33 cases** —
+the fault was four lines below where it stops looking. If you edit the render
+half, run test_search_page.py. It also holds CSS contracts (P1, P2, and the
+stylesheet-versioning guard) because those live in the stylesheet where the
+render test cannot see them.
+
+**`tests/test_search.py` has ONE pre-existing red case: `zzzzqqq` finds 3
+rows at the loose tier ("SK House").** I verified it red on the live index
+BEFORE any of this work. It is not mine and I left it deliberately: loosening
+thresholds is a fleet-wide matcher change with its own eval.
+
+**A build is ~25 minutes and wipes docs/.** `cache/build.lock` is enforced.
+To verify while someone else holds docs/, import build, point `build.DOCS` at
+a scratch dir, call `build()`. That takes no lock.
+
+**A browser will lie to you about a deploy.** Serve the scratch build on a
+FRESH PORT to get a cold cache, or you will screenshot yesterday's page and
+believe it.
+
+**MIND THE TOWER.** Other sessions edit build.py constantly — I saw its mtime
+move under me. There are 14 git worktrees under .claude/worktrees/.
+
+==============================================================================
+5. WHERE EVERYTHING IS
+==============================================================================
+
+  go/parking-bug   notes/search-parking-elephants-2026-09-06.txt
+                   WO-67 + WO-68 in full, with the numbers.
+  go/wrongtool     notes/search-is-the-wrong-tool-2026-09-07.txt
+                   THE DIAGNOSIS. P1–P7. Read this first.
+  this file        notes/HANDOVER-search-2026-09-07.txt
+
+  MARCHING-ORDERS.md rows WO-67 and WO-68.
+  Desktop/1 — NEXT UP/QUEUE.txt has the live items.
+  Memory: project_motdang_parking.md (+ the MEMORY.md index line).
+
+  Code touched today, all uncommitted in the working tree:
+    build.py                      search pipeline + render + CSS + footer wrap
+                                  + MD_CSS_V
+    importers/crawl_overpass.py   the `parking` group, province-wide
+    importers/import_overpass.py  PARKING_KINDS, parking_name(), the fence,
+                                  provenance stamps
+    importers/import_all.py       apply_parking_locators()
+    data/categories.json          4 parking children under transport
+    data/curated/kinds.json       the `parking` kind + its ants + answers
+    data/curated/search_panels.json  shelves-trigger retired, 15 shelf_stops,
+                                  49 restored variants
+    search-core/mine.py           teaser_words_en — read a teaser as a LIST
+    search-core/searchcore.py/.js a bare constraint keeps its words
+    tests/test_search.py          13 rich-door cases + 4 parking cases
+    tests/test_search_page.py     NEW
+
+==============================================================================
+6. IF YOU DO ONE THING
+==============================================================================
+
+Deploy the build sitting in docs/ so P1 and P2 actually reach people, then
+take P4 (intent before words), because it is the one Nan named and the one
+that makes the other nine phrasings work. P6 is the one that decides whether
+this site is pleasant on a phone in Thailand.
+
+Do not re-litigate WO-67/68 — they are live and verified. Do not "fix"
+zzzzqqq without measuring first.

@@ -51,6 +51,12 @@ import translit
 import kind_layer
 import nownear_layer
 
+# The card a touch on any map opens (WO-74, 2026-09-07). At module scope
+# because page() offers it to every page that mounts a map, the same way it
+# offers MapLibre — and for the same reason: a surface that carries a map and
+# forgets to ask for the card is exactly the silence this replaces.
+import tapcard
+
 # The basemap for the pictures this file DRAWS rather than mounts — the venue
 # thumbnails. Optional in the same way qrcode is: no Pillow, or no tile
 # archive, and every caller falls back to the drawing it had before.
@@ -1776,6 +1782,26 @@ border:1px solid var(--marigold-b);text-decoration:none;white-space:nowrap}
 .tagfam{margin:-.3rem 0 .4rem}
 .tagalso{margin:.2rem 0 .6rem}
 .tagidx li{margin:.25rem 0}
+/* 🏷 WO-76 — the discovery rails. A chip is a door with its count on the face:
+   nothing here opens a list the reader cannot see the size of first. */
+.alsorail{margin:.35rem 0 .7rem;line-height:2}
+.alsorail .raillabel{font-size:.78rem;color:var(--mute);margin-right:.35rem;text-transform:none}
+.tagchip{display:inline-block;font-size:.84rem;padding:.06rem .6rem;margin:0 .28rem .25rem 0;
+border-radius:999px;background:var(--paper-2,#fff);color:var(--ink);
+border:1px solid var(--rule);text-decoration:none;white-space:nowrap}
+.tagchip:hover,.tagchip:focus-visible{background:var(--gold-pale);border-color:var(--marigold-b)}
+.tagchip .count{font-size:.76rem;color:var(--mute);margin-left:.35rem}
+.famrail{border-top:1px dotted var(--rule);padding-top:.4rem}
+.shelfrail{margin:.2rem 0 .9rem}
+.tagmore{font-size:.82rem;white-space:nowrap}
+.tagrest{display:inline}
+.tagrest>summary{display:inline;cursor:pointer;font-size:.8rem;color:var(--mute);list-style:none}
+.tagrest>summary::-webkit-details-marker{display:none}
+.tagjump{margin:.2rem 0 .8rem;line-height:2;font-size:.9rem}
+.tagjump a{white-space:nowrap;margin-right:.5rem}
+.tagfilterbox{margin:.4rem 0 .9rem}
+.tagfilterbox input{font:inherit;padding:.28rem .55rem;border:1px solid var(--rule);
+border-radius:.4rem;min-width:14rem;max-width:100%}
 .tagidx .count{margin-left:.15rem}
 .dir li.areahead .xshelf{font-weight:400;font-size:.85rem}
 .fchip.on{background:var(--ant);color:#fff;border-color:var(--ant)}
@@ -3064,9 +3090,9 @@ ul.catrows{grid-template-columns:minmax(0,1fr);padding:.4rem}
    ====================================================================== */
 
 /* --- type ----------------------------------------------------------------
-   Three faces, all SIL Open Font Licence, all served from our own domain:
-   the site promises it follows no one around, and a font from someone else's
-   CDN is a request that reader never asked to make. Licences sit beside the
+   Three faces, all SIL Open Font Licence, all served from our own domain: a
+   font from someone else's CDN is a request the reader never asked to make.
+   Licences sit beside the
    files in assets/fonts/. 132 KB for the lot, split by unicode-range so a
    Thai reader never downloads the Latin cut.
    Chonburi is a display face and stays one — headings, never running text.
@@ -3660,13 +3686,17 @@ globalThis.MD_IDX=idx;   // the card panel's "three nearest" reads it (wiring be
 // inlined would have put ~60 KB of vocabulary on the ticker, the map and every
 // place page to serve a box that only search.html has. Now every other page is
 // lighter than it was and the cost falls where the feature is.
-const [thesDoc,segText,shelfDoc,panelDoc,lmDoc,tabDoc]=await Promise.all([
+const [thesDoc,segText,shelfDoc,panelDoc,lmDoc,tabDoc,dlDoc]=await Promise.all([
 mdJSON('data/search_thesaurus.json'),
 fetch(RROOT+'data/search_segdict.txt').then(r=>r.ok?r.text():'').catch(()=>''),
 mdJSON('data/search_shelves.json'),
 mdJSON('data/search_panels.json'),
 mdJSON('data/search_landmarks.json'),
-mdJSON('data/search_tables.json')]);
+mdJSON('data/search_tables.json'),
+// WO-75 — the toys. A handful of rows, written by downloads_layer, so that
+// what this site gives away is findable in the box that finds everything
+// else rather than only from a link somebody remembered to follow.
+mdJSON('data/downloads.json')]);
 // WO-69 — the card's tables: tag / trade / street / area names and the
 // opening schedules, each row an int in the index (see search_tables()).
 const TAB=Object.assign({tags:[],trade:[],streets:[],areas:[],subs:{},hours:[]},tabDoc||{});
@@ -3692,6 +3722,16 @@ const index=new SEARCHCORE.Index(core);
 for(const e of idx){index.add(e,{
 name:[[e.nm||e.n,e.em||e.e,e.a].filter(Boolean).join(' '),1.0],
 shelf:[sw(e)+' '+(e.k||''),0.45]});}
+// WO-75 — THE TOYS GO IN THE SAME MATCHER, NOT A SECOND ONE. They are rows
+// with a `u` (their own address) instead of a province and a slug, so they
+// rank against the places on the same scale and carry `c:['dl']` — which
+// makes `?cat=dl` a filter and "ของเล่น · Toys" a heading with no new
+// machinery anywhere. They are NOT put into MD_IDX: everything that reads
+// that array — the three nearest, the plan, the map, the lucky button —
+// assumes a place with a pin, and a toy is not one.
+const DL=Array.isArray(dlDoc)?dlDoc:[];
+for(const e of DL)index.add(e,{name:[[e.n,e.e].filter(Boolean).join(' '),1.0],
+shelf:[sw(e)+' '+(e.k||''),0.45]});
 index.finalize();
 // The index is the mending dictionary too: ราชเวช is in no Thai dictionary, but
 // it is very much a word in a directory that lists the hospital, so a query one
@@ -4104,7 +4144,10 @@ return items.length?'<li class="shelf fbar">'+items.join(' ')+'</li>':'';})();
 // that is two hundred repetitions of one word, and it answers a question
 // nobody asked. It prints now only when the results actually SPAN the two
 // provinces, which is the only time it tells them apart.
-const spanProv=(()=>{let a=null;for(const e of hits){if(a===null)a=e.pv;
+// A row with no province is not a disagreement about provinces — it is a toy
+// (WO-75), which stands in neither city. Counted in, it made every row in a
+// one-city result print "· เชียงใหม่" again.
+const spanProv=(()=>{let a=null;for(const e of hits){if(!e.pv)continue;if(a===null)a=e.pv;
 else if(e.pv!==a)return true;}return false;})();
 // The metres, when the reader named a landmark. This is the whole of what
 // they asked about these rows, so it is on the row — not one tap away on
@@ -4200,18 +4243,22 @@ if(e.t&&e.t.length&&TAB.tags[e.t[0]]){const t=TAB.tags[e.t[0]];out.push(['?tag='
 else if(e.tt&&e.tt.length&&TAB.trade[e.tt[0]]){const t=TAB.trade[e.tt[0]];out.push(['?tag='+encodeURIComponent(t[0]),hx(t[0])+(t[2]?' <span class="en roman">'+hx(t[2])+'</span>':'')]);}
 if(e.c&&e.c[0]&&MD_CATWORDS[e.c[0]]&&!(su&&TAB.subs[su]&&out.length>=3))out.push(['?cat='+encodeURIComponent(e.c[0]),MD_CATWORDS[e.c[0]]]);
 return out.slice(0,3);};
+// WO-75 — a row that carries its own address uses it. Everything else about
+// the row is unchanged, and a row with `u` gets no plan key and no panel:
+// there is no page of ours to add to a day, and nothing to open in place.
+const rowHref=e=>e.u?RROOT+e.u:`${RROOT}${e.p}/p/${e.s}.html`;
 const row=e=>{const ch=chipsOf(e),w=WMIN(),sch=schOf(e),on=mdOpen(sch,w),soon=mdWhen(sch,w);
-return `<li class="rcard" data-id="${hx(e.id)}"${e.lat!=null?` data-lat="${e.lat}" data-lng="${e.lng}"`:''} data-plan="${hx(e.p+':'+e.s)}">`+
-`<a class="rname" href="${RROOT}${e.p}/p/${e.s}.html">${hx(dName(e))}</a>`+
+return `<li class="rcard" data-id="${hx(e.id)}"${e.lat!=null?` data-lat="${e.lat}" data-lng="${e.lng}"`:''}${e.u?'':` data-plan="${hx(e.p+':'+e.s)}"`}>`+
+`<a class="rname" href="${rowHref(e)}">${e.g?hx(e.g)+' ':''}${hx(dName(e))}</a>`+
 `${dEn(e)&&dEn(e)!==dName(e)?' <span class="count">'+hx(dEn(e))+'</span>':(e.r?' <span class="count roman">'+hx(e.r)+'</span>':'')}`+
 `${P&&HITM[e.id]!=null&&e.id!==P.id?' <span class="count dist u">· '+fmtM(HITM[e.id])+'</span>':''}`+
 `${on===true?' <span class="lamp on"></span>':(on===false?' <span class="lamp off"></span>':'')}`+
 `${soon?' <span class="count soon">'+soon+'</span>':''}`+
-`${spanProv?' <span class="count">· '+e.pv+'</span>':''}`+
+`${spanProv&&e.pv?' <span class="count">· '+e.pv+'</span>':''}`+
 `${e.ob&&obAsked?' <span class="prov">'+(e.ob===2?mdBi('รพ.สต. — สถานีอนามัยประจำตำบล ฝากครรภ์และวางแผนครอบครัวเป็นงานประจำ','รพ.สต. — the local primary-care station; antenatal care and family planning are routine'):mdBi('โรงพยาบาลทั่วไป — ยังไม่ได้ยืนยันว่ามีแผนกสูตินรีเวช','general hospital — an OB-GYN department is not confirmed'))+'</span>':''}`+
 (ch.length?' <span class="rchips">'+ch.map(c=>`<a class="rchip" href="${RROOT}search.html${c[0]}">${c[1]}</a>`).join(' ')+'</span>':'')+
 (e.lat!=null?'<button type="button" class="rpin" aria-label="แผนที่ · map">📍</button>':'')+
-'<div class="rpanel" hidden></div></li>';};
+(e.u?'':'<div class="rpanel" hidden></div>')+'</li>';};
 // Two hundred names in one column is a list nobody reads. Grouped under the
 // shelf each one stands on, with its count, the same result becomes a page you
 // can steer: thirty-three ข้าวซอย places, four of them in Chiang Rai.
@@ -4228,7 +4275,11 @@ for(const e of list){const c=(e.c&&e.c[0])||'other';
 if(!groups.has(c))groups.set(c,[]);groups.get(c).push(e);}
 return [...groups.entries()].sort((a,b)=>b[1].length-a[1].length)
 .map(([c,shelf])=>{const lab=MD_CATWORDS[c];
-const head=lab?`<li class="shelf"><a href="${RROOT}${shelf[0].p}/${c}/">${lab}</a> <span class="count">${shelf.length}</span></li>`:'';
+// A group whose rows carry their own shelf address (WO-75 — the toys) uses
+// it. Without this the heading linked to `undefined/dl/`, because the shelf
+// path is built from a province the row does not have.
+const sh=shelf[0].sh||`${shelf[0].p}/${c}/`;
+const head=lab?`<li class="shelf"><a href="${RROOT}${sh}">${lab}</a> <span class="count">${shelf.length}</span></li>`:'';
 return head+shelf.map(row).join('');}).join('');};
 // The rich door itself. Its count is taken from the index the page just
 // loaded, so it is the directory's own number today, never a baked one.
@@ -4424,8 +4475,12 @@ const s=document.createElement('script');s.src=RR+js[i++];s.async=false;s.onload
 next();}
 // the results map
 const rm=document.getElementById('resmap'),rmBtn=document.getElementById('resmapbtn'),nearBtn=document.getElementById('resnear');
+// The relations ride along to the dot. The index row already carries the
+// tags, the street, the district and the opening schedule as ints (WO-69);
+// until now the map threw all four away and the card could only say the name.
 const gjOf=list=>({type:'FeatureCollection',features:list.filter(e=>e.lat!=null&&e.lng!=null).slice(0,200).map(e=>({type:'Feature',
-geometry:{type:'Point',coordinates:[e.lng,e.lat]},properties:{id:e.id,n:e.n,e:e.e||'',p:e.p,s:e.s,su:(e.su||[])[0]||''}}))});
+geometry:{type:'Point',coordinates:[e.lng,e.lat]},properties:{id:e.id,n:e.n,e:e.e||'',p:e.p,s:e.s,su:(e.su||[])[0]||'',
+t:(e.t||[]).join(','),st:e.st==null?'':e.st,ar:e.ar==null?'':e.ar,hk:e.hk==null?'':e.hk,r:e.r||''}}))});
 function drawMap(){if(!rm||!window.MDMAP)return;
 const gj=gjOf(hitsNow);
 window.MDMAP.ready(rm,map=>{
@@ -4435,8 +4490,11 @@ map.addLayer({id:'res-halo',type:'circle',source:'res',paint:{'circle-radius':['
 map.addLayer({id:'res-dot',type:'circle',source:'res',paint:{'circle-radius':['interpolate',['linear'],['zoom'],10,2.4,14,4,17,6],'circle-color':'#C2401C','circle-opacity':.95}});
 map.on('click',ev=>{const R=22,pt=ev.point;const f=map.queryRenderedFeatures([[pt.x-R,pt.y-R],[pt.x+R,pt.y+R]],{layers:['res-dot']});
 if(!f.length)return;const pr=f[0].properties||{};
-if(window.MDCARD)window.MDCARD.show({name:[pr.n,pr.e].filter(Boolean).join(' · '),sub:(window.MD_TAB&&window.MD_TAB.subs[pr.su])?window.MD_TAB.subs[pr.su].join(' · '):'',
-href:RR+pr.p+'/p/'+pr.s+'.html',plan:pr.p+':'+pr.s,dist:pointNow?fm(dM(pointNow.lat,pointNow.lng,f[0].geometry.coordinates[1],f[0].geometry.coordinates[0])):''},rm);});
+if(window.MDCARD)window.MDCARD.show({name:pr.n,nameEn:pr.e,rom:pr.r,su:pr.su,
+t:pr.t?String(pr.t).split(',').map(Number):null,
+st:pr.st===''?null:+pr.st,ar:pr.ar===''?null:+pr.ar,hk:pr.hk===''?null:+pr.hk,
+href:RR+pr.p+'/p/'+pr.s+'.html',plan:pr.p+':'+pr.s,dist:pointNow?fm(dM(pointNow.lat,pointNow.lng,f[0].geometry.coordinates[1],f[0].geometry.coordinates[0])):'',
+lat:f[0].geometry.coordinates[1],lng:f[0].geometry.coordinates[0]},rm);});
 map.on('mousemove',ev=>{const f=map.queryRenderedFeatures(ev.point,{layers:['res-dot']});map.getCanvas().style.cursor=f.length?'pointer':'';});}
 const pts=gj.features.map(f=>f.geometry.coordinates);
 if(pointNow)map.jumpTo({center:[pointNow.lng,pointNow.lat],zoom:15});
@@ -4888,6 +4946,13 @@ const m=2*R*Math.asin(Math.sqrt(h));
 return m<950?Math.round(m/10)*10+' ม./m':(m/1000).toFixed(1)+' กม./km';}};
 })();
 window.MDCARD=MDCARD;
+// tap.js (tapcard.py) replaces window.MDCARD with the card that can be
+// explored — tags that filter, the nearest three, a Back button that
+// works. It loads after this file, so every call below asks for the
+// card by name at the moment of the touch rather than closing over the
+// one that existed at parse time. A phone that never received tap.js
+// keeps the card above, which is why it stays.
+const MDSHEET=()=>window.MDCARD||MDCARD;
 
 // ---- neighbours on a place map answer with a card ---------------------
 // They are real links and they stay real links — this only steps in front of
@@ -4902,10 +4967,10 @@ if(!nbs.length)return;
 const here={lat:parseFloat(holder.dataset.lat),lng:parseFloat(holder.dataset.lng)};
 const open=(a,by)=>{
 const la=parseFloat(a.dataset.lat),ln=parseFloat(a.dataset.lng);
-MDCARD.show({name:a.dataset.n,sub:a.dataset.sub||'',href:a.getAttribute('href'),
+MDSHEET().show({name:a.dataset.n,sub:a.dataset.sub||'',href:a.getAttribute('href'),
 plan:a.dataset.plan||'',rank:a.dataset.rank||'',
 dist:isFinite(la)&&isFinite(ln)&&isFinite(here.lat)
-?MDCARD.gap(here,{lat:la,lng:ln})+' จากที่นี่ · from here':''},by);};
+?MDSHEET().gap(here,{lat:la,lng:ln})+' จากที่นี่ · from here':''},by);};
 nbs.forEach(a=>{a.addEventListener('click',ev=>{
 if(ev.metaKey||ev.ctrlKey||ev.shiftKey||ev.altKey||ev.button)return;
 ev.preventDefault();open(a,a);});});
@@ -5074,7 +5139,7 @@ const best=pick(ev,30)||near;
 if(!best)return;
 const li=best.li,a=li.querySelector('a[href]'),btn=li.querySelector('.planbtn[data-plan]');
 const rank=li.dataset.rank;
-MDCARD.show({name:rowName(li),sub:li.dataset.area||'',
+MDSHEET().show({name:rowName(li),sub:li.dataset.area||'',
 href:a?a.getAttribute('href'):'',plan:btn?btn.dataset.plan:'',
 rank:(rank&&rank!=='0')?rank:''},holder);});
 // A filter chip or a search box narrows the LIST; the map follows it, so the
@@ -5088,8 +5153,7 @@ draw(PTS);})();
 // The founding years the temple register gave us. A place with no year is not
 // young — it is undated, so it keeps its alphabetical place BELOW the dated
 // ones rather than being sorted as though it were founded in year zero.
-// Temples are never ranked against each other here: this is a date, and the
-// page says so.
+// This sort is on the founding date only.
 const yr=li=>{const v=parseInt(li.dataset.founded||'',10);return isNaN(v)?null:v;};
 reorder(document.getElementById('sort-age'),(a,b)=>{const x=yr(a),y=yr(b);
 if(x===null&&y===null)return nm(a,b);if(x===null)return 1;if(y===null)return -1;
@@ -5454,6 +5518,10 @@ else if(list.length>=PLAN_MAX){alert('แผนหนึ่งเก็บได
 else list.push(k);
 planSet(list);});});
 planPaint();
+// The one door to the plan, for anything outside this file — tap.js adds a
+// stop from the card. Without this it would keep a second copy of these rules
+// and the two would drift on the day one of them changed.
+window.MDPLAN={get:planGet,set:planSet,max:PLAN_MAX};
 // ---- plan.html itself --------------------------------------------------
 const planSteps=document.getElementById('plansteps');
 if(planSteps){(async()=>{
@@ -6476,6 +6544,12 @@ def _asset_v(text):
 _THES_PATH = ROOT / "data" / "search_thesaurus.json"
 _THES = json.loads(_THES_PATH.read_text())["groups"] if _THES_PATH.exists() else []
 _CATWORDS = {c["key"]: f'{c["th"]} · {c["en"]}' for c in CFG["categories"]}
+# WO-75 — the toys are a category in the BOX and not a shelf in the tree.
+# `?cat=dl` filters on it, the group heading and the row chip read their words
+# from it, and it is deliberately not in CFG["categories"]: that list builds
+# directories, counts and province pages, and a downloadable file is not a
+# place in either city.
+_CATWORDS["dl"] = "ของเล่น · Toys"
 _SUBWORDS = {k: f'{v.get("th","")} {v.get("en","")}'.strip()
              for k, v in SUB_LABELS.items()}
 # The doors an empty search offers: the shelves a person is most often after,
@@ -6752,6 +6826,12 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     # is the silent half-failure this check exists to make impossible.
     if 'data-mdmap="1"' in body and "maplibre-gl.js" not in extra_head:
         extra_head = map_shell.head(depth) + extra_head
+    # And the card those maps open, on the same test, so a map built next year
+    # answers a touch without anybody remembering to wire it. Six kilobytes,
+    # and it rides on the drawn-SVG maps too — those are the ones a reader on
+    # a bad connection actually gets.
+    if 'data-mdmap="1"' in body and "tap.js" not in extra_head:
+        extra_head = tapcard.head(depth) + extra_head
     # Kept RAW here and escaped once at each use. It used to arrive
     # pre-escaped and then go through att() again for og:title, so any
     # place with an ampersand in its name — "Shaka Laka Bar & Restaurant"
@@ -6845,6 +6925,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     <a href="{r}what.html">{bi("มดแดงคืออะไร", "What Mot Dang is")}</a> ·
     <a href="{r}my.html">{bi("หน้าแรกของฉัน", "My page")}</a> ·
     <a href="{r}widgets.html">{bi("วิดเจ็ต", "Widgets")}</a> ·
+    <a href="{r}get.html">⬇️ {bi("ของเล่น", "Toys")}</a> ·
     <a href="{r}stats.html">{bi("สถิติ", "Stats")}</a> ·
     <a href="{r}advertise.html">{bi("ลงโฆษณา", "Advertise")}</a> ·
     <a href="{KOFI}" rel="noopener">☕ {bi("เลี้ยงกาแฟมดแดง", "Buy the ants a coffee")}</a></span>
@@ -8162,6 +8243,30 @@ def plan_key(r):
     return f"{r['province']}:{place_slug(r)}"
 
 
+def mdtap_attrs(r, href, extra=""):
+    """The attributes a mark on a map needs so that touching it answers.
+
+    The same vocabulary entry_li writes on a listing row — tap.js reads one
+    reader for both, because a dot and a row are the same record seen twice.
+    They go on the <g> that wraps the mark rather than on the drawing, so the
+    picture stays a picture and still prints as one.
+
+    Before this, 534 soi maps, the event maps and the merit round drew marks
+    that carried a <title> and nothing else: a hover on a desktop, and on a
+    phone, silence.
+    """
+    if r.get("lat") is None:
+        return ""
+    rank = ant_rank(r)
+    en = (r.get("nameEn") or "").strip()
+    return (' data-mdtap="1" data-n="%s"%s data-lat="%.5f" data-lng="%.5f"'
+            ' data-href="%s" data-plan="%s"%s%s' % (
+                att(name_text(r)),
+                (' data-ne="%s"' % att(en)) if en else "",
+                r["lat"], r["lng"], att(href), att(plan_key(r)),
+                (' data-rank="%d"' % rank) if rank else "", extra))
+
+
 def plan_toggle_btn(r, big=False):
     """A ring on a listing row; a labelled pill on the place page. Both read
     the same localStorage set (md-plan, md.js), so adding from either place
@@ -9410,12 +9515,10 @@ def known_facts(r):
     # existed, the whole of both registers reached the page as a phone number
     # and nothing else.
     #
-    # ENROLMENT IS A FACT AND NEVER A SORT. A twelve-pupil school on a ridge
-    # and a three-thousand-pupil school in town are different places, and a
-    # parent reading one page deserves to know which they are looking at. The
-    # rule that temples are never ranked against each other holds here with
-    # more force rather than less: these are children's schools, and a number
-    # that becomes a league table has stopped being a fact about a place.
+    # Enrolment is printed as a fact and is not a sort key. A twelve-pupil
+    # school on a ridge and a three-thousand-pupil school in town are
+    # different places, and a parent reading one page deserves to know which
+    # they are looking at.
     if a.get("levels"):
         rows.append(f"<dt>{bi('ระดับชั้นที่เปิดสอน', 'Levels taught')}</dt>"
                     f"<dd>{esc(str(a['levels']))}</dd>")
@@ -10102,6 +10205,15 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         who = esc(src["via"])
         link = f'<a href="{att(src["ref"])}"{credit_rel(src["ref"])}>{who}</a>' \
             if str(src.get("ref", "")).startswith("http") else who
+        # OVERTURE IS A LICENCE, NOT A WORD. The 2026-09-07 fold added 63,170
+        # records whose `ref` is a bare UUID, so this branch rendered them as
+        # the lowercase word "overture" with no licence and nowhere to look.
+        # CDLA-Permissive-2.0 asks that the notice travel with the data, and
+        # naming the source is the least a reader needs to weigh the fact.
+        if src["via"] == "overture":
+            lic = esc(src.get("licence") or "CDLA-Permissive-2.0")
+            link = (f'<a href="https://overturemaps.org" rel="noopener nofollow">'
+                    f'Overture Maps</a> · {lic}')
         prov_line = bi(f"ชื่อ-ที่อยู่ {link}", f"Name & address {link}", raw=True)
     # A register says who published it, by name. "Open data" was what these
     # printed, and it is vague exactly where a reader most needs specifics:
@@ -13048,7 +13160,7 @@ def build_chart_page():
         f'{mail_block}'
         f'<h2>{bi("เลขมาจากไหน", "Where the numbers come from")}</h2>'
         f'<p>{bi(src_th, src_en)}</p>'
-        f'<p class="tinynote">{bi("หน้านี้ไม่เก็บอะไรเลย อ่านเพิ่มที่", "This page stores nothing. More at")} '
+        f'<p class="tinynote">{bi("อ่านเพิ่มที่", "More at")} '
         f'<a href="privacy.html">{bi("ความเป็นส่วนตัว", "Privacy")}</a></p>'
         f'{share_block(BASE + "chart.html", "ดวงจีนสี่เสา · มดแดง")}')
 
@@ -13318,7 +13430,7 @@ def build_horoscope_page():
         f'<p class="tinynote">{bi("ที่มา: อนุกรมย่อของ Meeus และ Schlyter คลาดเคลื่อนราวครึ่งองศา — เหลือเฟือสำหรับราศีกว้าง 30 องศา ราศีที่นี่เป็นแบบสากล (ทรอปิคัล) ส่วนราศีแบบโหราศาสตร์ไทยเดินคนละปฏิทิน", "Source: the Meeus and Schlyter abridged series, within about half a degree — ample for a 30° sign. Signs here are tropical; the Thai sidereal ราศี runs on its own calendar.")}</p>'
         f'</section>'
 
-        f'<p class="tinynote">{bi("หน้านี้ไม่เก็บอะไรเลย ตัวเลือกอยู่ในเครื่องคุณเท่านั้น อ่านเพิ่มที่", "This page stores nothing; your picks live only on your device. More at")} '
+        f'<p class="tinynote">{bi("ตัวเลือกอยู่ในเครื่องคุณ อ่านเพิ่มที่", "Your picks live on your device. More at")} '
         f'<a href="privacy.html">{bi("ความเป็นส่วนตัว", "Privacy")}</a></p>'
         f'{share_block(BASE + "horoscope.html", "ดวงประจำวัน · มดแดง")}')
 
@@ -13603,7 +13715,8 @@ def street_map_svg(st, by_id):
         soft = ' fill-opacity=".85"' if pl.get("via") == "nearest" else ""
         # Disc and number travel together and stay the size they were drawn:
         # the road under them opens out, the numbered stop stays legible.
-        out.append('<g data-mdpin="%.1f,%.1f">' % (cx, cy))
+        out.append('<g data-mdpin="%.1f,%.1f"%s>'
+                   % (cx, cy, mdtap_attrs(r, "../p/%s.html" % place_slug(r))))
         out.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="#eb6834" stroke="#8F2E13" '
                    'stroke-width="1.5"%s><title>%s</title></circle>'
                    % (cx, cy, rad, soft, att("%d. %s" % (i, name_text(r)))))
@@ -14803,10 +14916,7 @@ def pictures_page():
 # ปีใหม่ and สงกรานต์. What nobody had was a walkable order for the nine nearest
 # them, which is a thing the road graph can simply work out.
 #
-# The rule that governs this whole page, from notes/empathy-map.md: temples are
-# never ranked against each other. A route is an order of walking. It is said in
-# those words on the page rather than left to be inferred, because a numbered
-# list of temples will be read as a league table unless it is told not to be.
+# The numbers are stops in walking order.
 _merit_path = ROOT / "data" / "merit.json"
 MERIT = json.loads(_merit_path.read_text()) if _merit_path.exists() else {}
 MERIT_ROUTES = MERIT.get("routes", [])
@@ -14842,10 +14952,10 @@ def merit_map_svg(route, by_id):
     walk = route.get("foot_m")
     label = bi_text(
         "แผนที่เส้นทางไหว้พระ ๙ วัด %s ระยะเดินราว %s กิโลเมตร จุดที่ ๑ ถึง ๙ "
-        "เรียงตามลำดับที่เดิน ไม่ใช่การจัดอันดับวัด"
+        "ลำดับที่เดิน"
         % (route.get("area_th", ""), ("%.1f" % (walk / 1000.0)) if walk else "—"),
         "Map of a nine-temple round %s, about %s km on foot. Points 1 to 9 are "
-        "the order of walking, not a ranking of temples."
+        "the walking order."
         % (route.get("area_en", ""), ("%.1f" % (walk / 1000.0)) if walk else "—"))
     out = ['<svg viewBox="0 0 %.0f %.0f" width="100%%" class="meritmap" role="img" '
            'aria-label="%s">' % (W, H, att(label)),
@@ -16072,7 +16182,12 @@ def build():
                 body = (f'{cat_art_band(c, key)}'
                         f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
                         f'{bands}'
-                        f'{ad_box(f"{key}/{c}/index.html", 2)}'
+                        # 🏷 WO-76 — the shelf's own tag doors. 26,984 rows of
+                        # food is not a list anyone reads; `noodle shop (662)`
+                        # and `open late` are, and each chip carries its count
+                        # before it is clicked.
+                        + _tags_layer.shelf_chips(globals(), key, c, depth=1)
+                        + f'{ad_box(f"{key}/{c}/index.html", 2)}'
                         # rows=[] : this page lists sub-shelves, not places, so
                         # there is no row for a dot to resolve against and the
                         # anonymous layer is not drawn. The ten named pins are
@@ -16094,7 +16209,9 @@ def build():
                 body = (f'{cat_art_band(c, key)}'
                         f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
                         f'{bands}'
-                        f'{subshelf}{ad_box(f"{key}/{c}/index.html", 2)}'
+                        f'{subshelf}'
+                        + _tags_layer.shelf_chips(globals(), key, c, depth=1)
+                        + f'{ad_box(f"{key}/{c}/index.html", 2)}'
                         f'{shelf_map(dom_order or in_cat, c, p)}{toolbar(in_cat)}'
                         f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
                         f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"], card=shelf_og(key, c))}')
@@ -16436,9 +16553,9 @@ def build():
             for c in CAT_ORDER if c in pulse[p["key"]])
         pick_groups.append(f'<p><b>{bi(p["th"], p["en"])}</b><br>{boxes}</p>')
     my_hint_th = ("ตั้งหน้านี้เป็นหน้าแรกของเบราว์เซอร์ แล้วออกท่องเว็บจากที่นี่ทุกวัน — "
-                  "ทุกการตั้งค่าอยู่ในเครื่องของคุณเท่านั้น มดแดงไม่ตามรอยใครเจ้า")
+                  "ทุกการตั้งค่าอยู่ในเครื่องของคุณ")
     my_hint_en = ("Set this as your browser's home page and start every day here — "
-                  "your choices live only on this device. Mot Dang follows no one around.")
+                  "your choices live on this device.")
     my_body = (
         f'<h1>🏠 {bi("หน้าแรกของฉัน", "My page")}</h1>'
         f'{freshness_strip()}'
@@ -17010,7 +17127,7 @@ def build():
                 + f"</td><td>{src}</td></tr>")
         if _yrows:
             yard_html = (
-                f'<h2>{bi("ที่ทางการนับ กับที่มดแดงถือ", "What the province counts vs what we hold")}</h2>'
+                f'<h2>{bi("ที่ทางการนับ กับที่มดแดงถือ", "Province count vs what we hold")}</h2>'
                 f'<p class="chartcap">'
                 + bi("ตัวเลขทางการจากชุดข้อมูลเปิด เทียบกับจำนวนในสารบัญ — ช่องว่างคือเรื่องจริง "
                      "ไม่ใช่เรื่องต้องซ่อน สารบัญที่โชว์แต่ตัวเลขตัวเองย่อมดูครบเสมอ",
@@ -18599,7 +18716,7 @@ def build():
         ("doi.jpg", "doi.html",
          "เราวาดแผ่นดินจริงไว้ใต้หมุด",
          "Our city lies in a basin, so we drew the actual ground under "
-         "the pins. We rank no viewpoint, and we let no doi win.",
+         "the pins.",
          "ภาพตัดขวางแอ่งเชียงใหม่ — จากดอยปุยลงพื้นแอ่ง 313 เมตร",
          "The Chiang Mai basin cross-section — from Doi Pui down to the "
          "313-metre floor"),
@@ -18841,9 +18958,19 @@ def build():
     # ---- app.html: the toilets map as an installable, offline app -------
     import app_layer
     print("  app:", app_layer.emit(globals(), data))
+    # ---- get.html: the toys, and the search rows that find them ---------
+    # WO-75. After app_layer, because the APK it publishes is one of the rows
+    # and the register measures the file rather than trusting the registry.
+    # It writes docs/data/downloads.json, which search.html fetches beside its
+    # own tables — so this must run before the sitemap and before any check
+    # that reads the built docs/.
+    import downloads_layer
+    print("  toys:", downloads_layer.emit(globals()))
     # ---- map.html: the city as a way IN, not only as an illustration -----
     # After the province loop, because it labels its chips with the point
     # counts those GeoJSON files actually came out at.
+    print("  tap card:", tapcard.emit(globals()))
+
     import explore_layer
     print("  explore:", explore_layer.emit(globals()))
     # ---- here.html: the site opening where the reader is standing --------
@@ -18906,7 +19033,7 @@ def build():
     # elevation model holds, and the nine landscape words in the north's
     # place-names. Heights are instrument readings with a date and a named
     # source (importers/build_terrain.py fetches and binds the archive);
-    # nothing is ranked — the doi do not compete. Skips itself, and says so,
+    # Skips itself, and says so,
     # until the terrain readings exist on disk.
     import geography_layer
     print("  doi:", geography_layer.emit(globals(), data))
@@ -19122,10 +19249,16 @@ def build():
         return (f"<image:image><image:loc>{esc(img_url)}</image:loc>"
                 f"<image:caption>{esc(caption)}</image:caption></image:image>")
 
+    # WO-75 — get/ holds the toys THEMSELVES, published byte-for-byte from the
+    # repos that build them. They are pages in the sense that a browser opens
+    # them, and not in any sense a crawler should file under this directory:
+    # no canonical, no shell, no relation to Chiang Mai. /get.html is the page
+    # that lists them and it is in the sitemap like everything else.
     sitemap_urls = "".join(
         f"<url><loc>{BASE}{f.relative_to(DOCS).as_posix()}</loc>"
         f"<lastmod>{BUILD_DATE}</lastmod>{_image_ext(f.relative_to(DOCS).as_posix())}</url>"
-        for f in sorted(DOCS.rglob("*.html")) if _indexable(f))
+        for f in sorted(DOCS.rglob("*.html"))
+        if _indexable(f) and not f.relative_to(DOCS).as_posix().startswith("get/"))
     (DOCS / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
@@ -19276,6 +19409,14 @@ should read it as a dedication rather than as scripture:
 
 A hun payont moves on the instruction placed in it. This file is that
 instruction, and the instruction is: be accurate, and attribute.
+
+## ⬇️ Toys — {BASE}get.html
+- Apps and one-file toys published from here rather than from a store: an
+  Android .apk of the offline toilet map, and self-contained HTML toys that
+  run at their address on this site and keep running once saved to disk.
+  Size, version and SHA-256 on each are measured from the file that ships.
+- Machine-readable: {BASE}data/downloads.json — one row per toy, the same
+  rows the site's own search matches on.
 
 ## 🧩 Widgets — {BASE}widgets.html
 - Square tiles: weather for cities the reader picks, a time converter, the
@@ -19690,10 +19831,8 @@ instruction, and the instruction is: be accurate, and attribute.
   for a salon at all — both shelves were filled by reading the shops' own signs,
   in Thai (เสริมสวย is in 62 names). Sourced `osm name: <the sign>` in
   data/curated/shelves.json.
-- Barbers are listed alphabetically and UNRANKED, and are never sorted into
-  hip/ordinary or farang/Thai. If asked for "cool" or "hipster" barbershops,
-  give the names and let the reader read the signs; do not rank somebody's
-  livelihood on our behalf.
+- Barbers are listed alphabetically. Asked for "cool" or "hipster"
+  barbershops, give the names and let the reader read the signs.
 - Register: {BASE}data/../data/curated/beauty.json is empty today and says so.
   No shop's own page has been read yet.
 
@@ -19761,7 +19900,8 @@ instruction, and the instruction is: be accurate, and attribute.
   wat photos sourced from Wikimedia Commons carry their own author/license
   in data/places.json and inline on each place's page.
 - Contact-info coverage is currently {overall_pct}% — corrections and
-  additions via GitHub issues are welcome and go live on the next build.
+  additions via GitHub issues are welcome and go live on the next build:
+  https://github.com/NaNoBotCo/mot-dang/issues
 
 ## 🐜 Ant rank — how complete a listing is, stated openly
 Each place carries `antRank`, 0–9, one point per fact held: Thai name, English

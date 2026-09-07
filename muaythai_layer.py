@@ -22,8 +22,7 @@ ask them, on one page (/muaythai.html):
      musicians, the five rounds, the bettors, the ticket classes, a dozen
      words, the two national days, and where the north comes in. Written in
      the house voice: what a person sees from the seat, *Tradition holds—*
-     where a claim is the tradition's and not a document's, and no ranking of
-     stadiums into real and touristic — a ring is a ring, the card is the card.
+     where a claim is the tradition's and not a document's.
 
 The joins to wichaa are stated from THIS side: what each wichaa page is to a
 person who just watched a mongkhon come off a fighter's head.
@@ -346,28 +345,28 @@ def emit(g, data):
         body = "".join(f"<p>{x}</p>" for x in paras)
         P.append(f'<div class="mt-card"><h3>{bi(h_th, h_en)}</h3>{body}</div>')
 
-    card("ไหว้ครูรำมวย — ทำไมยังไม่เริ่มชก", "Wai khru ram muay — why the fight has not started",
+    card("ไหว้ครูรำมวย", "Wai khru ram muay",
          bi("ก่อนชกทุกคู่ นักมวยจะไหว้ครู (wâi khruu): เดินวนเวที แตะเชือกมุมทั้งสี่ แล้วรำท่าประจำค่ายของตัวเองช้า ๆ มีเสียงปี่กลองคลอ ใช้เวลาสองสามนาที เป็นการไหว้ครูผู้สอน ไหว้พ่อแม่ และประกาศว่าเวทีนี้เป็นของเรา คนดูท้องถิ่นอ่านออกจากท่ารำว่านักมวยมาจากค่ายไหน",
             "Before every bout each fighter performs the wai khru (ไหว้ครู, wâi khruu): a slow walk round the ring, a touch on the top rope at each corner, then the ram muay (รำมวย), the dance of their own camp, with the pipe and drums under it. Two or three minutes. It salutes the teacher and the parents and declares the ring theirs; a local crowd reads which camp a fighter comes from by the dance alone."),
          bi("การชกยังไม่เริ่มจนกว่าท่านี้จะจบ — อย่าเพิ่งลุกไปซื้อเบียร์ตอนนี้",
             "The fight has not begun until the dance ends — this is not the moment to go for a beer."))
-    card("มงคล · ประเจียด — ของสองชิ้นบนตัวนักมวย", "Mongkhon and prajiad — two things on the fighter",
+    card("มงคล · ประเจียด", "Mongkhon and prajiad",
          bi("มงคล (mong-khon) คือเชือกถักวงกลมที่สวมหัวเข้ามาในเวที เป็นของค่าย ไม่ใช่ของนักมวยคนใดคนหนึ่ง ครูเป็นคนสวมและถอดให้ก่อนยกแรก ประเจียด (prà-jìat) คือผ้ารัดต้นแขน มักมีคาถาหรือยันต์พับอยู่ข้างใน สวมไว้ตลอดการชก",
             "The mongkhon (มงคล, mong-khon) is the braided circlet worn into the ring: it belongs to the camp, not to any one fighter, and the trainer puts it on and takes it off before round one. The prajiad (ประเจียด, prà-jìat) are the armbands, often with a katha or a folded yant inside, worn through the fight."),
          f'<span class="say">{bi("ตามประเพณี — มงคลไม่วางถึงพื้น และบางค่ายมีข้อกำหนดว่าใครจับต้องได้ ของสองชิ้นนี้คือจุดที่มวยไทยพบกับสายยันต์-คาถา ซึ่งไปต่อได้ที่ wichaa ด้านล่าง", "Tradition holds — a mongkhon is not set on the floor, and some camps keep rules about who may handle it. These two objects are where muay thai meets the yant-and-katha tradition — which continues on wichaa, below.")}</span>')
-    card("เสียงปี่กลอง — สี่คนที่คุมจังหวะทั้งคืน", "The music — four people who set the pace all night",
+    card("เสียงปี่กลอง — สี่คน", "The music — the four players",
          bi("วงปี่กลอง: ปี่ชวา (pìi chá-waa, ปี่ลิ้นคู่เสียงแหลม) กลองแขกคู่ และฉิ่ง เล่นตั้งแต่ไหว้ครูจนระฆังยกสุดท้าย เพลงตอนไหว้ครูเรียกว่าสะระหม่า (sà-rá-màa) พอถึงยกท้าย ๆ จังหวะจะเร่งขึ้นตามการชก",
             "The pii klong ensemble: the pii chawaa (ปี่ชวา, pìi chá-waa — a shrill double-reed pipe), a pair of klong khaek drums (กลองแขก) and the ching cymbals (ฉิ่ง), playing from the wai khru to the last bell. The wai khru tune is the sarama (สะระหม่า, sà-rá-màa); in the late rounds the tempo climbs with the fight."),
          bi("ถ้ารู้สึกว่าใจเต้นเร็วขึ้นโดยไม่รู้ตัว นั่นคือฉิ่ง", "If your pulse rises without your leave, that is the ching."))
-    card("ยก — ห้ายก สามนาที และยกที่ห้าที่เดินกัน", "The rounds — five of three minutes, and the fifth that is walked",
+    card("ยก — ห้ายก สามนาที", "The rounds — five of three minutes",
          bi("มวยอาชีพชก 5 ยก ยกละ 3 นาที พัก 2 นาที ยกแรก ๆ มักชกกันเงียบ ๆ เพื่ออ่านคู่ต่อสู้ ยก 3–4 คือของจริง และถ้าใครนำชัดแล้ว ยก 5 มักจะเดินรำกันจนหมดเวลา — ไม่ใช่ล้มมวย เป็นธรรมเนียม",
             "A professional bout is five rounds of three minutes with two minutes between. The first round or two is often quiet while the two read each other; rounds three and four are the fight; and once one is clearly ahead, round five is often walked out to the bell — not thrown, a custom."),
          bi("กรรมการให้คะแนนจากความสมดุล อาวุธที่เข้าเป้า และใครคุมจังหวะ ไม่ใช่ใครต่อยเยอะกว่า คืนหนึ่งมี 6–8 คู่ มีคู่หญิงและคู่เด็ก-เยาวชนปนอยู่ คู่เอก (khûu èek) คือคู่ท้าย ๆ",
             "Judges score balance, clean strikes that land, and who sets the pace — not who throws more. A card runs six to eight bouts, women's and youth bouts among them; the khu ek (คู่เอก, khûu èek), the main event, comes late."))
-    card("เซียนมวย — มุมที่ส่งสัญญาณมือกัน", "The bettors — the corner trading hand signals",
+    card("เซียนมวย — สัญญาณมือ", "The bettors — hand signals",
          bi("ฝั่งหนึ่งของอัฒจันทร์จะมีกลุ่มคนยืนขยับนิ้วและตะโกนราคากัน นั่นคือเซียนมวย (sian muay) การพนันมวยเป็นเรื่องธรรมดาในสนามมวยไทย ไม่มีใครคาดหวังให้คุณเข้าร่วม และไม่มีใครว่าถ้าไม่สนใจ ดูมือเซียนก็พอรู้ว่าห้องนี้คิดว่าใครกำลังนำ",
             "On one side of the stands a knot of people flick fingers and shout odds — the sian muay (เซียนมวย), the bettors. Betting is ordinary in a Thai boxing stadium; nobody expects you to join and nobody minds if you don't. Watching their hands tells you who the room thinks is winning."))
-    card("ตั๋วและเงิน — ชั้นที่นั่ง เครื่องดื่ม และรถรับฟรี", "Tickets and money — seat classes, the drink, the free pickup",
+    card("ตั๋วและเงิน", "Tickets and money",
          bi("สนามขายตั๋วสองถึงสามชั้น: ที่นั่งสนาม / ริงไซด์ / VIP (VIP มักแถมเครื่องดื่ม) ราคาที่สนามในเมืองประกาศเองคืนนี้อยู่ราว 600 ถึง 1,500 บาท — ตัวเลขในกระดานด้านบนมีที่มาและวันที่ดูกำกับทุกตัว",
             "Stadiums sell two or three classes: stadium seat / ringside / VIP (VIP usually includes a drink). The prices the town's stadiums post themselves run from about 600 to 1,500 baht — every number on the board above carries its source and the date it was read."),
          bi("\"รถรับส่งฟรี\" จากบาร์หรือตุ๊กตุ๊กคือค่านายหน้าที่รวมอยู่ในตั๋วแล้ว ไม่ผิดอะไร แค่รู้ไว้ จองตรงกับสนามทาง LINE ก็ได้เท่ากัน · ค่าเรียนที่ค่ายคิดเป็นครั้ง เป็นสัปดาห์ เป็นเดือน — ป้ายหน้าค่ายคือของจริง และถ้าคุณจ่ายไปเท่าไหร่ บอกมดได้",
@@ -395,7 +394,7 @@ def emit(g, data):
          bi("6 กุมภาพันธ์ — วันมวยไทย มติคณะรัฐมนตรี 3 พ.ค. 2554 เทิดพระเกียรติสมเด็จพระเจ้าเสือ พระบิดาแห่งมวยไทย · 17 มีนาคม — วันนายขนมต้ม / วันไหว้ครูมวยไทยโลก จัดที่อยุธยา ระลึกถึงนักมวยเชลยที่ชนะมวยพม่าต่อหน้าพระเจ้ามังระ",
             "6 February — วันมวยไทย, Muay Thai Day, set by a 2011 Cabinet resolution in honour of King Sanphet VIII, the Tiger King, held to be the father of the art · 17 March — Nai Khanom Tom Day, the World Wai Khru Muay Thai ceremony at Ayutthaya, for the captive fighter who beat the Burmese champions before King Hsinbyushin."),
          f'<a href="festivals.html">{bi("ทั้งสองวันอยู่ในปฏิทินเทศกาล", "Both are on the festivals page")} →</a>')
-    card("ภาคเหนือ — เจิง ตบมะผาบ และมวยงานวัด", "The north — choeng, top ma phap, and temple-fair cards",
+    card("ภาคเหนือ — เจิง ตบมะผาบ", "The north — choeng and top ma phap",
          bi("เชียงใหม่ไม่ได้เป็นเมืองหลวงของมวยไทย แต่ภาคเหนือมีของตัวเอง: เจิง (cəəng) ศิลปะการต่อสู้ล้านนาที่ฟ้อนได้ — ฟ้อนเจิง ฟ้อนดาบ และตบมะผาบ (tòp má-phàap) การตบตัวให้ดังเป็นจังหวะก่อนเข้าท่า ยังเห็นในขบวนแห่และงานปอยของวัด ส่วนมวยท่าเสาของอุตรดิตถ์ถูกนับเป็นสายเหนือในห้ามวยภูมิภาคตามที่เล่าสืบกันมา",
             "Chiang Mai is not the capital of muay thai, but the north has its own: choeng (เจิง, cəəng), the Lanna fighting art that is also danced — fon choeng, the sword dance, and top ma phap (ตบมะผาบ, tòp má-phàap), the loud rhythmic body-slap before a form — still seen in processions and at temple fairs. Tradition holds that Muay Tha Sao of Uttaradit is the northern line among the regional styles."),
          bi("มวยงานวัด: เวทีชั่วคราวในงานปอย คู่เด็กและคู่ท้องถิ่น ค่าเข้าไม่มีหรือน้อย — ถ้าได้ยินเสียงปี่กลองจากวัดตอนค่ำ นั่นอาจเป็นมวย",
@@ -434,17 +433,17 @@ def emit(g, data):
             f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>')
     og = shelf_og("cm", "muaythai") if shelf_og else None
     body = (
-        f'<h1>🥊 {bi("มวยไทย — ดูมวยคืนนี้ ฝึกที่ไหน รู้อะไรก่อนเข้าสนาม", "Muay Thai — tonight, where to train, what to know")}</h1>'
+        f'<h1>🥊 {bi("มวยไทย — คืนนี้ ฝึกที่ไหน", "Muay Thai — tonight, and training")}</h1>'
         f'<p class="mt-intro">{intro}</p>'
         f'{tonight_html}'
         f'<h2>{bi("กระดานคืนชกประจำสัปดาห์", "The weekly fight board")}</h2>'
         f'{board_html}{venues_html}{unc_html}{cr_html}'
-        f'<h2>{bi("ชั้นมวยไทย — สนาม ค่าย ยิม ร้านอุปกรณ์", "The Muay Thai shelf — stadiums, camps, gyms, gear")}</h2>'
+        f'<h2>{bi("ชั้นมวยไทย — สนาม ค่าย ยิม อุปกรณ์", "The shelf — stadiums, camps, gyms, gear")}</h2>'
         f'{shelf_html}'
         f'<h3>{bi("ค่ายมวยและยิมที่ฝึกได้", "Camps and gyms where you can train")} <span class="count">({len(camp_rows)})</span></h3>'
         f'<p class="mt-note">{bi("เรียงตามชื่อ — ☎ LINE 🌐 คือช่องทางที่สารบัญมี ค่ายไหนยังไม่มีเบอร์ ช่วยกันเติมได้", "Alphabetical — ☎ LINE 🌐 mark the channels the directory holds; a camp with none yet can be filled in by anyone")}</p>'
         f'{camps_html}'
-        f'<h2>{bi("ก่อนเสียงปี่ดัง — เรื่องที่ควรรู้", "Before the pipes start — what you are looking at")}</h2>'
+        f'<h2>{bi("ก่อนเสียงปี่ดัง", "Before the pipes start")}</h2>'
         f'{primer_html}{joins_html}'
         f'<p class="mt-note">{bi("ที่มาของกระดาน", "Board data")}: <a href="data/fight_nights.json">data/fight_nights.json</a> · '
         f'{bi("คืนที่สนามบอกเองอยู่ในปฏิทินงานเมืองด้วย", "Nights the stadiums state are also on the events page")} → <a href="events.html">events.html</a> · <a href="events.ics">events.ics</a></p>'

@@ -1,0 +1,144 @@
+ของเล่น · TOYS — a download shelf on motdang.net
+WO-75, built 2026-09-07 night.  Nothing deployed.
+
+
+WHAT YOU ASKED FOR
+
+  "motdang.net should also be a place to download widgets and apps.  I'm not
+   on the app store or play store... I have a ton of toys I'd like to make
+   available for download (some paid).  We keep them on motdang.net, and we
+   should be able to find them.  But not a lot of words.  Maybe make it a
+   category for the boolean search."
+
+
+WHAT IS BUILT
+
+  /get.html          the shelf.  One card per toy: glyph, name, one line,
+                     what it runs on, and one button carrying either the
+                     size or the price.  No lede, no explainer, no
+                     invitation.  The only prose on the page is one drawer
+                     at the foot explaining the single nod Android asks for
+                     when a file did not come from a store, and it only
+                     appears when there is an .apk on the shelf.
+
+  the box            typing "toys", "ของเล่น", "almanac", "ปฏิทิน", "billiards"
+                     or a toy's name now finds the toy, ranked against the
+                     places on the same scale.  The toys group under their
+                     own heading, and ?cat=dl shows them and nothing else —
+                     the category you asked for.  Tapping the category chip
+                     on any toy row is the same filter.
+
+  ☰ menu             "⬇️ ของเล่น · Toys" sits beside Widgets under มดแดง.
+
+  data/curated/downloads.json    the register.  Hand-editable.  You add a
+                     toy by adding an object; nothing else is touched.
+
+
+WHAT IS ON THE SHELF TONIGHT — five, and they are the five I could VERIFY
+tonight, not a judgement about which of your toys belong here.
+
+  🚻 ห้องน้ำใกล้ฉัน · Nearest toilet     1.0 MB   the Android app, already live
+  🌕 วันเมือง · Lanna Almanac             34 kB   one file, plays and saves
+  🎱 สามชิ่ง · Sam Ching                  28 kB   one file
+  📼 blinky1200                           99 kB   one file
+  🔘 blinky                               31 kB   one file
+
+Each of the four HTML ones was checked to be genuinely self-contained: it
+references nothing outside itself but its own icon.  It runs from
+motdang.net/get/<name>.html AND it saves to disk and still runs.  So "Play"
+is the button and the size beside it is the keeping.
+
+Struck from the shelf before it was built, and why: Telltale.  I could not
+tell from the file what it is, and I will not write a description of a toy
+I have not read.  Say the sentence and it goes on.
+
+
+HOW YOU ADD THE NEXT ONE
+
+    {
+      "id": "coucal",                       one word, becomes the URL anchor
+      "glyph": "🕰",
+      "name": ["นาฬิกานกกระปูด", "Coucal Clock"],
+      "line": ["...ไทย...", "...English, one line..."],
+      "on": ["web"],                        android · ios · web · desktop · print
+      "src": "coucal-clock/out/face.html",  path from the projects folder
+      "k": "extra words the search should match"
+    }
+
+  A paid one takes two more fields and nothing else:
+
+      "price": 250,
+      "buy": "https://<wherever the money goes>"
+
+  Size, version and fingerprint are never typed.  They are read off the
+  bytes that actually ship, every build, so the page cannot claim a version
+  the file does not carry.
+
+
+THE THREE REFUSALS, each of which is a row NOT rendered
+
+  no file, no link    a toy naming nothing a reader can have.
+  priced, no rail     a price with no buy URL would print ฿250 with nothing
+                      to tap.  Held until there is somewhere to tap.
+  "draft": true       the valve.  A half-packaged toy renders nowhere.
+
+  Every refusal is printed in the build log by id, so a toy that quietly
+  stopped shipping is visible rather than merely absent.
+
+
+THE FORK THAT IS YOURS — HOW THE PAID ONES GET PAID
+
+  Nothing above depends on this.  `buy` is any URL, so the shelf ships
+  free toys today and the paid ones the day you pick a rail.
+
+  A  Ko-fi shop            already yours, already in the footer.  No code,
+                           no account for the buyer.  Ko-fi takes 0% on the
+                           free tier for shop sales but the payment
+                           processor still takes its cut; delivery is
+                           Ko-fi's own download link, off motdang.net.
+                           Cheapest to start, least control, and the file
+                           then lives somewhere you do not run.
+
+  B  Gumroad / Lemon Squeezy    hosted checkout, hosted delivery, VAT
+                           handled for you.  ~5–10% plus processing.  Same
+                           trade as A with a better shop page, and Lemon
+                           Squeezy is the merchant of record, which is the
+                           part that matters if a Thai or EU tax question
+                           ever arrives.
+
+  C  Stripe payment link + a Worker that mints a signed R2 URL
+                           ~3.65% + ฿11 in Thailand, no platform cut, the
+                           file never leaves motdang.net, and the buyer
+                           never leaves either.  Costs a day of work in the
+                           worker you already run.  It is the only one of
+                           the three where a customer email is yours.
+
+  Expiry: none.  The shelf works without an answer.  What it cannot do is
+  advertise a price with no way to pay, and it refuses to.
+
+  Not priced here because it is not mine to price: whether any of these
+  toys should be paid at all.
+
+
+WHAT HAS NOT HAPPENED
+
+  * NOT DEPLOYED.  It is built out — a full build at 22:14 wrote /get.html,
+    the five files and the search rows — but DO-NOT-DEPLOY-2026-09-07.txt
+    stands until you have seen what 88,161 records do to the site, and the
+    two search failures above stand between here and a deploy whoever fixes
+    them.
+  * BOTH SUITES HAVE NOW RUN.  tests/test_downloads.py: all green against
+    the real 22:14 build.  tests/test_search.py: 40 of 42 cases pass; the
+    two that fail are the FOLD, not the toys — 'zzzzqqq' matches 16 rows
+    instead of nothing, and 'kow soi' loosens to 343.  Proved rather than
+    assumed: the identical suite with my five rows emptied to [] fails the
+    same two cases with the same counts and the same example row.  Written
+    into DO-NOT-DEPLOY-2026-09-07.txt for the session measuring the fold.
+  * get/ is excluded from three site-wide checks — test_alt_text,
+    test_chuai, test_publish_gate — because the files in it are the toys
+    themselves, published byte-for-byte, and making somebody's game pass
+    this site's page checks would mean editing the game.  Instead the
+    layer counts images with no alt text in each hosted toy and prints the
+    count in the build line.  Tonight: none.
+  * get/ is kept out of sitemap.xml for the same reason — /get.html is in
+    it, and that is the page that lists them.

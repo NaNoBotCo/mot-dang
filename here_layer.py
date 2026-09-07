@@ -315,7 +315,7 @@ def build_page(g, data, v, near_v):
         f'{bi("เริ่มหาตำแหน่งทันทีเมื่อเปิดหน้านี้", "Start locating as soon as this page opens")}</label>'
         f'<p class="quiet hpriv">{bi("ตำแหน่งของคุณอยู่ในเครื่องคุณเท่านั้น ไม่ถูกส่งไปไหน ไม่ถูกเก็บ และไม่อยู่ในลิงก์ของหน้านี้ — ยกเว้นลิงก์ที่คุณกดปุ่ม “ส่งจุดนี้” สร้างเอง", "Your position stays on this device: not sent anywhere, not stored, and not in this page’s address — the only link that carries it is the one you make with “Send this spot”.")}</p>'
         f'<div class="hdir">'
-        f'<h2>{bi("ประตูและแจ่งเมือง", "The gates and corners of the old city")}</h2>'
+        f'<h2>{bi("ประตูและแจ่งเมือง", "Gates and corners")}</h2>'
         f'<ul class="hgates">{glist}</ul>'
         f'<h2>{bi("ย่านที่หน้านี้รู้จัก", "The neighbourhoods this page speaks in")}</h2>'
         f'<ul class="hzones">{zlist}</ul>'

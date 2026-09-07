@@ -15,7 +15,7 @@ and the mined tables are untouched, so no parity run, no rollout queue.
 the site already keeps a whole page for. When a query names such a topic, the
 card renders ABOVE the rows: glyph, bilingual title, a live count from the
 index the page just loaded, one or two sentences that follow each shelf's own
-discipline (the venue states / no rankings / stated-vs-likely), fact chips,
+discipline (the venue states / stated-vs-likely), fact chips,
 door pills, and where it earns one a quiet delight line. Ten panels ship:
 chang · muaythai · cooking · beauty · womens-health · toilets · festivals ·
 flights · massage · wat.

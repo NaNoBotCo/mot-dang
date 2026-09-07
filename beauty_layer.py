@@ -22,19 +22,10 @@ on one page (/beauty.html):
      has read them. Empty today and saying so, with the 18-shop read queue the
      records themselves generate.
 
-WHAT THIS PAGE REFUSES TO DO. It does not sort barbers into the hip ones and
-the ordinary ones, the farang ones and the Thai ones. Sixty-two shops put
-BARBER on the sign — Sweeney Todds and สุเทพบาร์เบอร์ and Rebel House and
-ปุ๊ บาร์เบอร์ — and they are listed together, alphabetically, unranked, exactly
-as the elephant camps are. A reader can read a sign as well as we can. What a
-chair is like is a door question and always was; who a shop is "for" is not
-the directory's to say.
-
-And it does not guess at textured hair. Not one shop in either province has
-stated it works with tightly coiled hair. The page says that in those words,
-gives the sentence to ask in Thai, and leaves the answer blank — because a
-wrong yes sends somebody with 4c hair to a chair where nobody has handled it
-before, and that is a worse outcome than an honest "we don't know yet".
+Sixty-two shops put BARBER on the sign — Sweeney Todds and สุเทพบาร์เบอร์ and
+Rebel House and ปุ๊ บาร์เบอร์ — and the shelf lists them together,
+alphabetically. Textured hair: no shop in either province has stated it, so
+the answer cell is blank and the page carries the sentence to ask in Thai.
 
 Entry point: emit(globals_of_build, data) — hooked in build.py after the
 cooking layer. Emits beauty.html + beauty.css; prints the counts.
@@ -208,7 +199,7 @@ def emit(g, data):
     nails, spas, hairs = on("nails"), on("beauty-spa"), on("hair")
 
     def listing(recs):
-        """Alphabetical, unranked, with the reach the directory holds.
+        """Alphabetical, with the reach the directory holds.
 
         The same shape the elephant camps get, for the same reason: a list
         that ranks is a list with an opinion about somebody's livelihood.
@@ -293,7 +284,7 @@ def emit(g, data):
     gap_html = (
         "<div class=\"bt-gap\"><b>&#127744; "
         + bi("ผมหยิกฝอย-ผมแอฟโฟร — สิ่งที่สารบัญนี้ยังตอบไม่ได้",
-             "Tightly coiled and Afro-textured hair — what this directory cannot yet tell you")
+             "Tightly coiled and Afro-textured hair — still unanswered")
         + "</b><p><span class=\"n\">" + str(zero["textured"]) + "</span> " + bi(gap_th, gap_en)
         + "</p><p>"
         + bi("สิ่งที่ทำได้ตอนนี้: ถามด้วยประโยคข้างบน แล้วบอกมดว่าร้านตอบว่าอะไร — คำตอบจะขึ้นเป็นป้าย 🌀 บนหน้าร้านนั้น และเป็นของสาธารณะตลอดไป",
@@ -392,8 +383,8 @@ def emit(g, data):
     og = shelf_og("cm", "beauty") if shelf_og else None
     body = (
         "<h1>&#128136; "
-        + bi("เสริมสวย-ตัดผม — คำที่ต้องพูด ร้านที่มี และสิ่งที่ยังไม่มีใครถาม",
-             "Hair — the word to ask for, the shops, and what nobody has asked them")
+        + bi("เสริมสวย-ตัดผม — คำ ร้าน และช่องว่าง",
+             "Hair — the words, the shops, the gaps")
         + "</h1><p class=\"bt-intro\">" + intro + "</p>"
 
         + h2("คำที่ต้องพูด", "The word to ask for")
@@ -409,7 +400,7 @@ def emit(g, data):
         + '<p><a class="bt-sheet" href="reader/hair-words.pdf">📄 '
         + bi("ดาวน์โหลดแผ่นคำศัพท์ตัดผม-ทำผม (PDF สองหน้า)",
              "Download the hair words sheet (2-page PDF)") + "</a></p>"
-        + h2("สิ่งที่สารบัญนี้ยังตอบไม่ได้", "What this directory cannot yet tell you")
+        + h2("ยังตอบไม่ได้", "Still unanswered")
         + gap_html
         + "<h3>" + bi("สำมะโนความเงียบ", "A census of the silence") + "</h3>"
         + census_html
@@ -434,7 +425,7 @@ def emit(g, data):
                "The only three things OpenStreetMap knows about a hair shop — male, female, unisex — and the import threw all three away on every run until now. They are facet marks on the shop’s own page now: a shop that has already answered should not be asked again in person.")
         + listing(stated)
 
-        + h2("ทะเบียนบริการ — ร้านบอกเองว่าอะไร", "The services register — what each shop states")
+        + h2("ทะเบียนบริการ — ร้านบอกเอง", "The register — what each shop states")
         + reg_html
 
         + h2("ชั้นอื่นในหมวดนี้", "The rest of the shelf")

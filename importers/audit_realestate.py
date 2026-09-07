@@ -137,12 +137,17 @@ DEVELOPERS = re.compile(
 ESTATE_WORD = re.compile(r"จัดสรร")
 
 
+CONDO_WORD = re.compile(r"คอนโด|condominium|\bcondo\b", re.I)
+APARTMENT_WORD = re.compile(r"อพาร์ตเมนต์|อพาร์ทเม|แมนชั่น|แมนชัน|apartment|mansion", re.I)
+DORM_WORD = re.compile(r"หอพัก|\bdorm", re.I)
+
+
 def moobaan_hit(t):
     """'moobaan' if a landuse=residential element declares a housing ESTATE
     by its own name, else None. Only ever consulted for elements of
     cache/overpass/<prov>/moobaan.json — see the fence in records().
 
-    หมู่บ้าน alone is never a rule here and never will be: it is the ordinary
+    หมู่บ้าน alone is not a rule here: it is the ordinary
     Thai word for a village, and this catalogue already holds eighteen real
     villages wearing it (audit_realestate's STRAYS report prints them every
     run). The เปีย guard's shape, applied to somebody's home address.
@@ -158,6 +163,22 @@ def moobaan_hit(t):
         return None
     if ESTATE_WORD.search(name) or DEVELOPERS.search(name):
         return "moobaan"
+    # A BUILDING THAT NAMES ITSELF SOMETHING ELSE IS STILL SOMETHING.
+    # This fence only ever asked "is it a housing estate?", so a residential
+    # element whose own sign says คอนโด or หอพัก was refused outright and
+    # written to cache/moobaan_review_<prov>.txt — 24 of them, on a shelf tree
+    # that already has children for all three. The condo shelf holds 427 and
+    # dcondo hyde ดีคอนโด ไฮด์, Arise Condo At Mahidol, Airport Home
+    # Condominium and หอพักชาย มช. were sitting in the refusal file next to
+    # the villages. The village guard above still runs first, and "residence"
+    # is deliberately NOT a word here: Staff Residence Chiang Mai Airport and
+    # บ้านพักพนักงานท่าอากาศยาน are staff housing, not a building anybody rents.
+    if CONDO_WORD.search(name):
+        return "condo"
+    if APARTMENT_WORD.search(name):
+        return "apartment"
+    if DORM_WORD.search(name):
+        return "dorm"
     return None
 
 

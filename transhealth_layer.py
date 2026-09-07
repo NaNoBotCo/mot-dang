@@ -232,7 +232,7 @@ def emit(g, data):
         # no doctor as good or bad — womens_health_layer settled that twice —
         # and the one thing it will publish about a named clinician is the row
         # a reader can look up for themselves, which is exactly what the
-        # register table below tells them to do. No adjectives, no ranking,
+        # register table below tells them to do. No adjectives,
         # and the link goes to the register rather than to our word for it.
         cred = ""
         if row.get("credential_th") or row.get("credential_en"):
@@ -424,7 +424,7 @@ def emit(g, data):
         "and says plainly where each fact comes from — some places state it in "
         "their own words, some are listed by the trans community's own directory, "
         "and some are hospitals where the relevant department is likely but "
-        "unconfirmed. The table below says where to check a board certification.")
+        "unconfirmed. Below: where to check a board certification.")
 
     zero_note = bi(
         f"วัดจริงเมื่อสร้างหน้า: จาก {n_records:,} รายการในสารบัญ มี {n_stating} แห่งที่ชื่อของตัวเอง"
@@ -463,8 +463,8 @@ def emit(g, data):
 
     og = shelf_og("cm", "medical") if shelf_og else None
     body = (
-        "<h1>" + bi("สุขภาพคนข้ามเพศ — ไปที่ไหน ใครบอกเองว่าทำอะไร และตรวจอะไรได้",
-                    "Trans health — where to go, what each place states, and what can be checked") + "</h1>"
+        "<h1>" + bi("สุขภาพคนข้ามเพศ — ไปที่ไหน",
+                    "Trans health — where to go") + "</h1>"
         + '<p class="gx-intro">' + intro + "</p>"
         + benefit_html
         + sec("ที่ที่บอกเองว่าดูแลคนข้ามเพศ", "Places that state it themselves",
@@ -497,14 +497,14 @@ def emit(g, data):
                 "These marks are OpenStreetMap mappers' statements, not the venues' own signs — said plainly, the way every Mot Dang page does")
            + "</p><ul class=\"gx-list\">" + "".join(venue_rows) + "</ul>" if venue_rows else "")
         + pharm_html
-        + "<h2>" + bi("ความเก่งคือใบวุฒิบัตร — ตรวจได้ที่นี่",
-                      "Competence is a credential — here is where to check it") + "</h2>"
+        + "<h2>" + bi("ตรวจใบวุฒิบัตรได้ที่นี่",
+                      "Where to check a credential") + "</h2>"
         + '<p class="gx-note">'
         + bi("ทุกแห่งเป็นทะเบียนหรือหน่วยงานทางการ ตรวจแล้วว่าเข้าถึงได้เมื่อ 21 ส.ค. 2569",
              "Every one is an official register or body, verified reachable 2026-08-21")
         + "</p>" + reg_html
-        + "<h2>" + bi("อ่านป้ายหน้าคลินิก — คำที่ควรรู้",
-                      "Reading the clinic sign — the words to know") + "</h2>"
+        + "<h2>" + bi("อ่านป้ายหน้าคลินิก",
+                      "Reading the clinic sign") + "</h2>"
         + '<p class="gx-note">'
         + bi("อักษรไทย · คำอ่านแบบ RTGS · ความหมาย — เทียบรูปคำกับป้ายได้เลยแม้อ่านไทยไม่ออก",
              "Thai script · RTGS spelling · what it means — enough to match a word against a sign by its shape, without reading Thai")

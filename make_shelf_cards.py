@@ -237,7 +237,7 @@ def place_rows(records, limit):
 
     Price goes on the card when we hold one, because a price is the second
     thing anybody asks and a directory that hides it is a directory that
-    wastes a phone call. What we do NOT do is launder it: an unwalked price
+    wastes a phone call. An unwalked price
     is captioned as the shop's own quote under the panel.
     """
     rows, unverified = [], False

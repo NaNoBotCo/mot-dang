@@ -1,0 +1,72 @@
+THE HOLDING PEN — incomplete records, written down plainly
+Mot Dang · 2026-09-05
+
+
+THE PROBLEM
+
+1,246 records in the catalogue hold a name and nothing else.
+
+No coordinate. No phone. No opening hours. No website. No photograph. Most of
+them are temples from the government's own temple register, which states a
+subdistrict and a district and gives no way at all to find the place.
+
+They are not junk. The register is authoritative and the temples are real. But
+a reader who meets one of these has been handed a name and sent away. There are
+1,246 of them, which is 5% of the catalogue, and they thin out every shelf and
+every search they appear in. A search for a massage in the old city that returns
+four shops you can walk to and six names you cannot find is a worse search than
+one that returns four.
+
+Deleting them is wrong. They are true, they were expensive to gather, and most
+of them are one fact away from being useful. A pin, or a phone number, and the
+record works.
+
+So the problem is: how do you keep something that is true, and not yet useful,
+without letting it get in the way?
+
+
+THE SOLUTION
+
+Hold it.
+
+A record is HELD when it has no pin and two facts or fewer. That is the whole
+test. The two facts are counted by the ant rank the catalogue already computes —
+Thai name, English name, phone, LINE, hours, website, photo, claimed, walked.
+
+A held record keeps everything. It keeps its page, so no link breaks and anyone
+looking for it by name still finds it. It keeps its place in the data. It keeps
+its provenance.
+
+What it loses is the two places a reader meets the catalogue in bulk: the site
+search index, and the assistant's index. It is not offered as an answer, because
+it cannot answer anything.
+
+And it lets itself out. The test is recomputed from the record's own fields on
+every build. The moment a pin lands, or someone adds a phone number, or a walk
+adds opening hours, the record crosses the bar and rejoins — by itself, with
+nobody remembering to release it. That is why it is a holding pen and not a bin:
+a held record is a record waiting, not a record judged.
+
+The errand list stays where it has always been, on pins.html.
+
+
+WHAT IS DONE, AND WHAT IS WRITTEN DOWN FOR LATER
+
+Done:
+  · build.py grows held(), stamps `held` on every place sidecar, and keeps held
+    records out of data/index.json.
+  · The assistant's indexer skips them, so they cannot be offered as an answer.
+
+Written down, not built:
+  · Shelf pages still list them. The same held() call belongs wherever a
+    category page collects its rows; it was not made today because build.py is
+    18,000 lines and finding every listing site is an afternoon, not a
+    paragraph. One call, several places.
+  · pins.html should say the count and the bar out loud — "1,246 records are
+    waiting for one fact" — so the errand has a number on it.
+  · The bar itself (no pin, rank ≤ 2) is a guess that fits the data we have.
+    It should be checked against what readers actually click once there is a
+    click to check.
+
+See go/pins for how the pins themselves were filled, and why only 287 of 2,116
+could be.

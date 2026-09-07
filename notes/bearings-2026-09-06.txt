@@ -1,0 +1,175 @@
+ทิศทาง · BEARINGS — every place page says where it stands in relation to the
+things people steer by. WO-64, built 2026-09-06 (offline lane; not yet wired
+into build.py — see WHAT IS NOT DONE).
+
+Your ask, 2026-09-06: "YES, THIS IS WHAT I WANT" to (1) parse landmarks out of
+address strings and (2) a nearby block, then: "all listing pages to have
+landmarks and orientations. My house is 5 km due east of Tha Phae gate.
+Chiang Mai Plastics is right across the street from Wararot Market. Things
+are inside (and in a quadrant of) the old city, near a gate, outside the old
+city (in a direction), close to the airport, possibly under the flight path
+... until we run out of places. Not ABOVE the most important information of
+a listing, but available. Orientation in comparison to other objects is this
+site's actual secret sauce. That and romanization."
+
+
+WHAT IT SAYS — real records, as they will render (Thai · English · reading)
+
+  ชาตรามือ สาขาตลาดวโรรส (Cha Tra Mue)
+    นอกเวียง ทางตะวันออก ห่างคูเมือง 760 ม. · ใกล้ประตูท่าแพ 830 ม.
+    Outside the moat to the east, 760 m from the water · 830 m from Tha Phae Gate
+    nok wiang · tawan-ok · pratu tha phae
+    ที่ตลาดวโรรส (กาดหลวง) · at Warorot Market · talat warorot · kat luang
+    ห่างวัดแสนฝาง 260 ม. ไปทางตะวันออกเฉียงเหนือ · 260 m north-east of Wat Saen Fang
+    ย่านช้างม่อย-ท่าแพ · Chang Moi & Tha Phae
+
+  หอธรรม วัดเจดีย์หลวง (the manuscript library)
+    ในเวียง กลางเวียง · ใกล้ประตูท่าแพ 680 ม.
+    Inside the old city, the centre · 680 m from Tha Phae Gate · nai wiang
+    ในบริเวณวัดเจดีย์หลวง · in the grounds of Wat Chedi Luang · wat chedi luang
+    ห่างอนุสาวรีย์สามกษัตริย์ 300 ม. ไปทางใต้ · 300 m due south of Three Kings Monument
+
+  สมุดลานนา เครื่องเขียน — address "ตรงข้ามคณะเภสัชฯ ม.ช. ถ.สุเทพ"
+    ตรงข้ามมหาวิทยาลัยเชียงใหม่ (มช.) · opposite Chiang Mai University (CMU)
+    ห่างประตูท่าแพราว 3 กม. ทางตะวันตก (โดยประมาณ) · about 3 km west of Tha Phae Gate (approximate)
+    ย่านสุเทพ-หลังมอ · Suthep (behind CMU)
+
+  ร้านสมใจ (สาขาเมญ่า) — address "ชั้น 3 เมญ่า ถ.ห้วยแก้ว"
+    ในเมญ่า ชั้น 3 · inside Maya, floor 3 · meya
+
+  Ajarn Somphong Tok Sen — the ±806 m pin from the pins note
+    ห่างประตูท่าแพราว 2 กม. ทางตะวันตกเฉียงใต้ (โดยประมาณ)
+    about 2 km south-west of Tha Phae Gate (approximate)
+    ย่านวัวลาย-หายยา · Wualai & Haiya
+    + "pin approximate to ±806 m, so no metre distances are given"
+    (it does NOT say "at Wat Sri Suphan" — the address says Wualai Rd and
+    the pin cannot support 230 m claims; the Silver Temple problem stays a
+    pin problem, which is where it belongs)
+
+  Your two sentences are the first two tests in tests/test_bearings.py:
+    a pin 5,000 m east of the gate → "5.0 km due east of Tha Phae Gate"
+    a shop 40 m from Warorot with "across the street from Warorot Market"
+    in its address → "across the street from Warorot Market" leads the row.
+  (Chiang Mai Plastics is not on this disk under that name — the nearest is
+  ส.เบสท์พลาสติก on ถ.อัษฎาธร, Pa Tan. If you know its Thai name I add it.)
+
+
+THE LINES, in the order they print (each is Thai · English · RTGS reading)
+
+  1 address   what the address itself says: ตรงข้าม / ข้าง / ติด / หลัง /
+              หน้า / ใกล้ / ใน / ชั้น N + a landmark. PUBLISHED ONLY WHEN THE
+              PIN AGREES (within 1.5× the landmark's reach); a record with no
+              pin keeps its address line alone, marked "from address".
+  2 moat      inside: the quarter (NE/NW/SE/SW/centre) + nearest of the nine
+              crossings with metres. Outside within 2.5 km: which side, metres
+              from the water, nearest gate if within its reach.
+  3 at/near   up to two landmarks of different kinds within their reach:
+              "at" / "in the grounds of" when inside at_m, else "N m <dir> of".
+              Campuses, hospitals, the airfield measure "from the middle of".
+  4 city      beyond the ring: "N km <due> <dir> of Tha Phae Gate" (Chiang Rai:
+              the clock tower, which WO-27 already measured from). "due" only
+              inside a 15° cone.
+  5 zone      the WO-36 zone name — dropped when the moat line already said
+              "inside", and an amphoe circle never labels a place within 6 km
+              of the moat (the airport is not in Chom Thong).
+
+  THE PIN GATE: a pin looser than 400 m (the assistant's withDistance() line)
+  never yields a metre figure. It keeps the coarse truths, each marked
+  (โดยประมาณ / approximate), and the row ends with the ± in plain words.
+
+
+THE NUMBERS (importers/audit_bearings.py, this evening)
+
+  records 24,059 · landmarks 57 Chiang Mai + 11 Chiang Rai, all resolved
+  coverage: cm 16,425 / 16,425 pinned · cr 5,798 / 5,798 — every pinned
+    place gets at least one line that is not merely its zone
+  approximate-only (loose pins): cm 4,430 · cr 972
+  lines: moat 6,206 · at 531 · near 7,809 · airport 702 · city 15,578 ·
+    address 73 (5 of them on pin-less records, the only thing known)
+  address relations the pin REFUSED: 4 — all parse-side, all caught:
+    "326/3 Wat Ket, Chiang Mai–Lamphun Road" (Wat Ket the tambon, 3 km off)
+    "ถ. ดอยสะเก็ด-บ่อสร้าง" (the road TO Bo Sang, 9 km off)
+    "ข้างโรงเรียนสาธิต มหาวิทยาลัยราชภัฏ" (the Mae Rim campus, 24 km from
+    the city one the register holds — a second Rajabhat entry would fix it)
+  most-named landmarks: Tha Phae Gate 11,463 · clock tower 5,761 · CMU 1,269
+    · Chang Phueak Gate 467 · Wat Chiang Man 414 · Suan Dok Gate 393
+
+  Three zones.json findings the bearings exposed (zones are yours to edit):
+    ตลาดสดแม่โจ้ falls in "Mae Rim" (its 10 km circle is listed before
+    San Sai's) · Central Festival falls in "San Sai & Maejo" (no city box
+    covers Fa Ham) · the airport fell in "Chom Thong" (60 km circle) — the
+    6 km guard now stops the last one on the page, not in the file.
+
+
+FILES
+
+  data/curated/landmarks.json   the register — 68 landmarks as RECORDS
+                                (id → pin read at build; or an element in
+                                cache/osm-worship for temples not yet folded
+                                in), aliases the address parser matches,
+                                reach_m / at_m, a hand-written RTGS reading,
+                                origin flag. Chains left out on purpose.
+  bearings_layer.py             the engine: ctx(), bearings(r), row_html(),
+                                for_json(), parse_address(), emit() →
+                                /landmarks.html + docs/data/landmarks.json
+  importers/audit_bearings.py   the census + the contradictions list
+  tests/test_bearings.py        70 checks, 2 s, reads data/ only
+  importers/apply_bearings_hook.py  wires build.py (4 insertions by anchor,
+                                idempotent, refuses while a build holds the
+                                lock); --check dry-runs
+  _incoming/bearings-audit-2026-09-06.txt  tonight's report
+
+
+WHAT IS NOT DONE, AND WHY
+
+  build.py is untouched. A build was running the whole session (pid 93602,
+  lock taken 00:48) and build.py itself was edited by another session at
+  01:03 — MIND THE TOWER. The hook is a script, not a patch, so it survives
+  their edits: run it when the lock is free, then a scratch build. The hook
+  code was proven against the real bi()/esc()/place_slug() from an import of
+  build (the row renders, links resolve to thapae-gate-1017379824.html etc.).
+
+    python3 importers/apply_bearings_hook.py --check
+    python3 importers/apply_bearings_hook.py
+    python3 tests/test_bearings.py
+    python3 build.py            # or the standing walk
+
+  The row sits AFTER the Map row in the facts list — below phone, hours,
+  address, road — where you put it.
+
+
+FORKS — yours (none assumed)
+
+  F1  Under the flight path. The engine can say "on the runway line, N km
+      from the threshold" (a geometry fact, not a noise claim — CLAUDE.md:
+      never model a hazard the state publishes its own threshold for; AOT's
+      noise contours are that threshold, and are not on this disk). It needs
+      the runway as a line: ONE Overpass fetch, way["aeroway"="runway"] for
+      CNX and CEI, cached like osm-worship. Network fetch → your go.
+      Cost: minutes. Without it: distance + direction from the airport only
+      (702 places already get that).
+  F2  East or west of the Ping (and the Kok in Chiang Rai). Needs the river
+      as a line — same kind of fetch (waterway=river, relation). Your go.
+      Also unlocks "across the river from Warorot" and the bridges as
+      landmarks (Nawarat, Mengrai are NOT on this disk).
+  F3  A bearing on the LISTING ROWS and in the search index — a short chip
+      ("ในเวียง NE · ใกล้ประตูช้างเผือก") beside each row, and `area` in
+      index.json so "toksen near Tha Phae" can rank on it (Phase 4 of the
+      cure plan already wants hours+area in the index). Touches build.py's
+      row emitter and md.js — a separate sitting after the hook lands.
+  F4  Landmarks not on this disk (no pinned record, no cached element):
+      Chiang Mai railway station · Chang Phueak bus terminal · the zoo ·
+      Kad Suan Kaew · Promenada · Ton Payom · Somphet · JJ market · Nawarat
+      bridge · Rincome junction · Bangkok Hospital CM · Wat Rong Khun · Wat
+      Huay Pla Kang · Chiang Rai bus terminal 1 · MFU. Each is one record
+      (an OSM import or a curated addition) plus one register line. Also
+      a second Rajabhat entry for the Mae Rim campus. Say which.
+  F5  The dials: reach_m / at_m per landmark, the 400 m pin line, the 2.5 km
+      ring, the 15° "due" cone, 6 km for amphoe circles. All in the register
+      or the constants at the top of the layer; the audit re-counts in 15 s.
+  F6  Fold the 1,070 cached OSM temples in as RECORDS (pins-note fork F7):
+      today 20 temple landmarks have no page of their own to link to, so the
+      row names them unlinked. Folding them makes every "in the grounds of
+      Wat X" a link.
+  F7  Chiang Rai zones: zones.json has no cr entry, so Chiang Rai pages get
+      city + landmark lines but no zone line.

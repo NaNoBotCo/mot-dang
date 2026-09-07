@@ -14,11 +14,10 @@ THE RULE does not change by being generic. `stated` is the place's own
 words on its own site or poster, with the sentence, the url and the date.
 `listed` is a dated third-party directory row and says so. `route` is the
 door this care ordinarily runs through, whose own page was read and does
-NOT say the word. No rankings, no named clinicians, no outcome claims, no
-medical advice, no price the page did not read. A licence is a register
-row, never a rating. Absent is silence, never a 'no'. And a page is a
-record, not a pamphlet (WO-52): the prose is the census, the rows, the
-registers and the words on the doors.
+NOT say the word. No price the page did not read. A licence is a register
+row, not a rating. Absent is silence, not a 'no'. And a page is a record,
+not a pamphlet (WO-52): the prose is the census, the rows, the registers
+and the words on the doors.
 
 Lens JSON (see data/curated/lens/README.md):
   key · glyph · nav [th, en] · title [th, en] · h1 [th, en] · desc [th, en]

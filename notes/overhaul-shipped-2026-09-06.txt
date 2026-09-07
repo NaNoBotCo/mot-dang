@@ -1,0 +1,191 @@
+SEARCH + DISCOVERY OVERHAUL — WHAT SHIPPED
+2026-09-06, overnight · for Nan · motdang.net
+Your decisions: "Remove ALL blurbs — blurbs are SLOP. Then work your way
+down the list." Homepage: "only divination items, widgets, toys, feeds,
+and a very SPARE ux for finding resources." "The engine does literal
+magic — hidden under a basket."
+The Phase 0 numbers this answers: file:///Users/annikapeacock/Desktop/go/overhaul
+
+
+================================================================================
+1. BLURBS — GONE
+================================================================================
+  blurb fields removed from records ............ 10,966 keys
+    (canonical cm + cr, curated additions, featured-chiang-rai)
+  per-field provenance entries for them ........ 2,791 removed
+  ★ paragraphs on built place pages ............ 2,652 → 0
+  Wikipedia / mapper description paragraphs .... 314 → 0
+  the two generators (cmhy_records.py,
+    build_paper_register.py) now emit "" ....... a re-import cannot regrow them
+  story hooks (5) .............................. kept on disk, no longer applied
+  index: blurb text out, trade tags + their gloss and reading in
+
+  THE GATE: tests/test_no_blurbs.py fails the build on any blurb field
+  and on any record text that tells a reader to ring / call / phone /
+  ask / "nobody has" / "we haven't" / ควรโทรถาม / โทรถาม / ลองโทร /
+  ยังไม่ได้ไป. Your rule, as a test.
+
+  What a place's own words became: a FIELD. "ที่ร้านลงไว้ว่าทำ · Listed as
+  doing" in the facts list, one tag per trade, each tag a link to the
+  search for it. 2,564 pages. Example, Pom Pui:
+    เสื้อผ้าบิ๊กไซส์ Sueapha Big Size — big-size clothing ·
+    เสื้อผ้าสาวอวบอ้วน Sueapha Sao Uap Uan — clothing for larger women
+
+
+================================================================================
+2. READINGS — A LOT MORE OF THEM
+================================================================================
+  data/trade_lexicon.json, built by importers/build_trade_lexicon.py:
+    trade tags ................................. 1,724
+    with a SOURCED gloss ....................... 251 (91 off a record, 160
+                                                 from the thesaurus; nothing
+                                                 machine-translated)
+    suspect readings (a syllable read to
+      nothing) — never printed ................. 93
+    tambon + amphoe names with readings ........ 59
+  rtgs_lexicon.json gained 34 trade loanwords (มอเตอร์ไซค์ Motorcycle,
+  แอร์ Air, คอมพิวเตอร์ Computer, ไวนิล Vinyl …) so ซ่อมแอร์ reads
+  "Som Air" and not "Som".
+  Where readings now print that they did not this morning:
+    - the trade-tag row on 2,564 place pages
+    - a ตำบล · อำเภอ row with readings wherever a record carries one
+    - search result rows: a Thai-only name shows its reading beside it
+      (index field `r`, ~200 KB)
+    - the search index matches "hang dong", "som air", "big size"
+  Hand fixes go in data/curated/trade_lexicon_overrides.json (tags and
+  areas); never edit the generated file. tests/test_trade_lexicon.py
+  holds that no suspect reading reaches a page.
+
+
+================================================================================
+3. SEARCH SAYS WHAT IT DID
+================================================================================
+  - size is a constraint, not a word: "big size", "plus size", ไซส์ใหญ่,
+    บิ๊กไซส์, xxl … are lifted by the shared intent layer (search-core,
+    both twins, parity OK, synced to thairoots and amulet-essentials as
+    well). A bare "big"/"large"/ใหญ่ is dropped ONLY when keeping it left
+    no row matching every word — "Big C" still matches as a name.
+  - the page then says: read "big" as a size — no listing here records
+    sizes yet, so the search ran on the other words.
+  - "not every word matched" now names the words and the count behind
+    each: nothing matches all of big + women + shoes — showing what
+    matches some: shoes 33 · women 130 · big 68
+  - status lines print ONCE, in the script you typed in
+  - the two shortcut rows (city map / plan a route · city · tags · roads)
+    file BELOW the results when there is a query
+  - one line under every result list: ผลไม่ตรง? บอกมดหน่อย · wrong
+    results? tell the ants → suggest.html with the query carried along
+  Your trigger case now: "Big women's shoes" → 4 rows, shoes first
+  (รสริน รองเท้าแฟชั่น …), tier thesaurus, the size line above them.
+  รองเท้าไซส์ใหญ่ → 59 rows, the shoe shelf, size declined out loud.
+
+
+================================================================================
+4. THE DRAWER — ABSENCE FOLDED, NOT NARRATED
+================================================================================
+  The one "add what you know" line on every place page is now a
+  collapsed drawer whose summary names the fields THIS record lacks:
+    🐜 ยังไม่มี: LINE · เวลาเปิด · เว็บ · รูป · missing: LINE · hours ·
+    website · photo
+  Inside: one link per missing field into suggest.html with the place
+  id and the field already filled in, plus claim and report-an-error.
+  A record missing nothing gets only the report line.
+  The median place page stays inside WO-52's cap (tests/test_page_weight
+  passes; the first draft of this drawer broke it at 162 words and was
+  cut to short labels).
+  F4 PROPER — TYPED INTAKE THAT REACHES THE RECORD (built after the
+  first ship, same night):
+    reader: a drawer link opens suggest.html with the place AND the field
+            set; the form shows a field picker (phone · LINE · hours ·
+            website · pin · what they do) and a value box. The fact
+            travels as "fact:" + JSON inside the existing suggestion —
+            no Worker change, no new kind.
+    you:    python3 importers/apply_facts.py        (add --fetch to pull
+            the queue with wrangler first). A NUMBERED MENU: each row
+            shows the place, the field, what the record holds now, and
+            the reader's value. A value that fails its check (a phone
+            with no digits, a pin outside the two provinces) is listed
+            as refused and can never be applied.
+            python3 importers/apply_facts.py --approve 1 3   → facts.json
+            python3 importers/apply_facts.py --reject 2
+            python3 importers/apply_facts.py --canonical && python3 build.py
+    bots:   facts.py puts the field on the record — from import_all.py
+            and again at build time, idempotent — with provenance
+            {source: reader:suggest, how: stated, at} and a matching
+            sources[] entry, so provenance.py and the give-back gate see
+            it. The page shows "from a reader, checked <date>" on the
+            phone, LINE, website and hours it supplied.
+    Seven hands became three: the reader, you (one number), the build.
+    tests/test_facts.py runs the whole loop on scratch files.
+
+
+================================================================================
+5. THE FRONT PAGE
+================================================================================
+  New order, top to bottom:
+    the name and one line
+    🔎 FIND — one block: Chiang Mai (17,595) and Chiang Rai (6,563), each
+       as one row of shelves in the old style, Term (count); then one line
+       of doors (map, reader questions, health registers, listing sheet,
+       roads, tags, festivals, add a place). The search box is in the
+       masthead as before.
+    ✨ TODAY — the day's colour and numbers, the reading, เซียมซี, the
+       oracle ball, มหาลาภ, the hexagram
+    🌙 SKY, AIR AND PRICES — the instruments photographed off wichaa
+       (moon, jovilabe, red spot), weather, PM2.5, time, lottery, gold, FX
+    🧭 THE ANTS' INSTRUMENTS — plan a route, the city map, and nine doors:
+       the doi, the river, the dust, nitnoy, chuai, your chart, toilets,
+       my page
+    📡 LIVE — coming up, what is on, showtimes, toilets near you
+    the sponsor box · word from the ants · footer
+  Gone from the front page: the photo collage and credit strip, the
+  eight "yesterday" pills, the plan demo hero, the two province shelf
+  grids, today's picks, the mood strip, the care shelf, the gold claim
+  band, after dark, the tile wall, the events carousel.
+  The old page is at /home-classic.html for one release. Switching back
+  is one word.
+  Weight: 175 KB → 147 KB; words in main 3,303 → about 2,900, most of it
+  now the instruments' own copy rather than directory text. If you want
+  it sparer still, the Find block (16 KB) and the Today band (36 KB) are
+  where the words are.
+
+
+================================================================================
+6. WHAT DID NOT SHIP, AND WHY
+================================================================================
+  - The 93 suspect tag readings: printed as Thai alone until the
+    overrides file names them.
+  - tests/test_search.py: my three new cases pass; eight cases another
+    session added for the WO-56 register rows fail on this tree — those
+    rows sit in the holding pen (no pin, few facts) and are not in the
+    ranked index at all, so no build passes them. Also "yi peng" is now
+    a partial match (>200 rows) with the blurbs gone; the festivals door
+    still opens. The test's node timeout was 240 s and the run takes
+    about 260 s on this machine; raised to 900.
+  - tests/test_translit.py's corpus floor (44 percent exact) was already
+    failing at 42.8 percent before any change tonight; unchanged by it.
+  - Nothing is committed. The main worktree carried a day of other
+    sessions' uncommitted work when I started; mine sits on top of it.
+    Three full builds ran (about 45 minutes each — the map thumbnails
+    from the tile archive are the slow part).
+
+
+================================================================================
+7. FILES
+================================================================================
+  build.py                      no blurbs · tag row · district row · drawer ·
+                                search JS · index fields · spare homepage ·
+                                typed suggest form · reader-fact badges
+  facts.py                      new — the typed-fact path
+  importers/apply_facts.py      new — the numbered approval menu
+  data/curated/facts.json       new — approved facts (empty until the first)
+  tests/test_facts.py           new gate
+  importers/build_trade_lexicon.py     new
+  importers/cmhy_records.py, build_paper_register.py, import_all.py
+  data/trade_lexicon.json       generated
+  data/curated/rtgs_lexicon.json       +34 loanwords
+  data/canonical/*.json, data/curated/additions-*.json, featured-chiang-rai.json
+  tests/test_no_blurbs.py, tests/test_trade_lexicon.py   new gates
+  tests/test_search.py          +3 cases, timeout 900
+  search-core/searchcore.py + .js      size intent rule (synced out)
+  api_layer.py                  licence line no longer says "blurbs"

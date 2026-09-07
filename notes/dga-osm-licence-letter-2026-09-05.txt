@@ -1,0 +1,131 @@
+LETTER TO DGA — ASKING THEM TO CONFIRM WHAT THEIR LICENCE ALREADY SAYS
+Drafted 2026-09-05.  NOT SENT.  Sending is Nan's.
+
+WHY ONE LETTER AND NOT FIVE
+  Every register we hold from the Thai state — ONAB's temple register, the
+  สช. private-school register, CITIZENinfo, the assorted data.go.th sets, and
+  (via a dataset page that points back) OBEC's school register — publishes on
+  DGA's platform, so DGA's Terms are the floor under all 6,150 records.  DGA
+  also prints its own contact address inside those Terms.  One addressee,
+  one question, 6,150 records.
+
+TO       contact@dga.or.th  (DGA Contact Center, the address printed in the
+         Terms and Conditions for DGA Open Government License, v1.0)
+REPLY-TO nan@motdang.net
+         ⚠ nan@motdang.net is INBOUND-ONLY today (Cloudflare Email Routing →
+         Proton).  Sending AS it needs an outbound service.  Send from
+         whatever Nan actually sends from and put nan@motdang.net as the
+         stated contact, or set up outbound first.
+SUBJECT  ขออนุญาตยืนยันเงื่อนไขการใช้ข้อมูล DGA Open Government License
+         สำหรับนำเข้าสู่ OpenStreetMap · Confirming DGA Open Government
+         License terms for use in OpenStreetMap
+
+⚠ EMAIL ONLY.  The Terms print a telephone number.  Do not use it.
+
+────────────────────────────────────────────────────────────────────────────
+THAI
+────────────────────────────────────────────────────────────────────────────
+เรียน สำนักงานพัฒนารัฐบาลดิจิทัล (สพร.)
+
+ดิฉันจัดทำ มดแดง (motdang.net) สารบัญเมืองแบบเปิดสำหรับจังหวัดเชียงใหม่และ
+เชียงราย เผยแพร่เป็นภาษาไทยเป็นหลัก ไม่มีค่าใช้จ่าย ไม่มีการติดตามผู้ใช้ และ
+เปิดให้นำข้อมูลไปใช้ต่อได้
+
+ปัจจุบันสารบัญนี้มีรายการที่มาจากชุดข้อมูลบน data.go.th จำนวน 6,150 รายการ
+ได้แก่ ทะเบียนวัดของสำนักงานพระพุทธศาสนาแห่งชาติ ทะเบียนโรงเรียนของ สพฐ.
+ทะเบียนใบอนุญาตโรงเรียนเอกชนของ สป.ศธ. ระบบ CITIZENinfo และชุดข้อมูลอื่น ๆ
+ทุกรายการอ้างอิงแหล่งที่มาไว้ครบถ้วนตามเงื่อนไขของสัญญาอนุญาต
+
+ดิฉันประสงค์จะนำ "ชื่อสถานที่และที่อยู่" จากชุดข้อมูลเหล่านี้ไปเพิ่มลงใน
+OpenStreetMap ซึ่งเป็นแผนที่เสรีที่ทุกคนแก้ไขได้ และเป็นฐานข้อมูลที่แผนที่
+จำนวนมากทั่วโลกนำไปใช้ต่อ ข้อมูลใน OpenStreetMap เผยแพร่ภายใต้สัญญาอนุญาต
+Open Database License (ODbL) และการให้เครดิตแหล่งที่มาทำในระดับ "แหล่งข้อมูล"
+คือระบุไว้ในหน้ารายชื่อผู้ร่วมสนับสนุนของโครงการ ไม่ได้ระบุรายรายการ
+
+ดิฉันได้อ่านข้อกำหนดและเงื่อนไขการให้ใช้ข้อมูล (DGA Open Government License
+ฉบับที่ 1.0 ลงวันที่ 10 มิถุนายน 2564) โดยละเอียดแล้ว และเข้าใจว่า
+
+  ๑. สัญญาอนุญาตให้สิทธิแบบไม่จำกัดอาณาเขตและไม่จำกัดระยะเวลา โดยไม่ต้อง
+     ขออนุญาตเพิ่มเติมและไม่มีค่าธรรมเนียม
+  ๒. ผู้ใช้สามารถนำข้อมูลไป "ประมวลผลร่วมกับข้อมูลอื่น" ได้
+  ๓. ไม่มีเงื่อนไขให้ต้องเผยแพร่ต่อภายใต้สัญญาอนุญาตเดียวกัน (share-alike)
+  ๔. หน้าที่ที่คงอยู่คือการอ้างอิงแหล่งที่มา และในกรณีที่ไม่อาจระบุหน่วยงาน
+     เจ้าของข้อมูลเป็นรายหน่วยได้ เงื่อนไขกำหนดข้อความอ้างอิงกลางไว้ว่า
+     "สิทธิในการใช้ข้อมูลเป็นไปตามข้อกำหนดและเงื่อนไขการให้ใช้ข้อมูลของ
+     ศูนย์กลางข้อมูลเปิดภาครัฐ"
+
+จึงเรียนมาเพื่อขอความอนุเคราะห์ยืนยันเป็นลายลักษณ์อักษรว่า ความเข้าใจข้างต้น
+ถูกต้อง และ สพร. ไม่ขัดข้องที่จะให้นำข้อมูลที่เผยแพร่ภายใต้สัญญาอนุญาตนี้
+ไปรวมไว้ใน OpenStreetMap ภายใต้ ODbL โดยให้เครดิตในระดับแหล่งข้อมูล
+หากมีหน่วยงานเจ้าของข้อมูลรายใดที่ต้องขอความยินยอมแยกต่างหาก ขอความกรุณา
+แจ้งให้ทราบด้วย จะได้ติดต่อไปตามลำดับ
+
+หนังสือยืนยันฉบับนี้จะถูกแนบไว้ในหน้าบันทึกการนำเข้าข้อมูลของ OpenStreetMap
+เพื่อให้ตรวจสอบย้อนกลับได้ และจะไม่มีการนำเข้าข้อมูลใด ๆ ก่อนได้รับคำตอบ
+
+ขอแสดงความนับถือ
+[ชื่อ]
+มดแดง · motdang.net
+
+────────────────────────────────────────────────────────────────────────────
+ENGLISH
+────────────────────────────────────────────────────────────────────────────
+Dear Digital Government Development Agency,
+
+I build Mot Dang (motdang.net), an open, Thai-first city directory for Chiang
+Mai and Chiang Rai. It is free to read and publishes its whole corpus for
+reuse.
+
+The directory currently holds 6,150 records drawn from datasets on data.go.th
+— ONAB's temple register, OBEC's school register, the Ministry of Education's
+private-school licence register, CITIZENinfo, and others. Every record states
+its source, as the licence requires.
+
+I would like to contribute the NAMES and ADDRESSES from those datasets to
+OpenStreetMap, the free editable map whose database is used by a great many
+other maps worldwide. OpenStreetMap publishes under the Open Database License
+(ODbL), and gives credit at the level of the SOURCE — a named entry on the
+project's contributors page — rather than record by record.
+
+I have read the Terms and Conditions for DGA Open Government License, version
+1.0 of 10 June 2021, and I understand them to say:
+
+  1. The rights granted are non-exclusive, without limitation of territory or
+     period, requiring no further authorization and no fee.
+  2. A user may "usefully process the Data by means of ... gathering the Data
+     therefrom together with other data."
+  3. There is no share-alike condition and no restriction on redistribution
+     under a different licence.
+  4. The standing obligation is attribution, and where the producing
+     organization cannot be identified individually the Terms themselves
+     prescribe a blanket reference: "The right to Use the Data is subject to
+     the terms and conditions for DGA Open Government License."
+
+May I ask you to confirm in writing that this reading is correct, and that DGA
+has no objection to data published under this licence being incorporated into
+OpenStreetMap under ODbL with attribution given at source level. If any
+individual publishing agency must be asked separately, I would be grateful to
+be told which, so I can write to them in turn.
+
+Your reply would be attached to the OpenStreetMap import documentation so that
+the permission is publicly checkable. No data will be uploaded before we hear
+from you.
+
+With respect,
+[name]
+Mot Dang · motdang.net
+
+────────────────────────────────────────────────────────────────────────────
+NOTES FOR NAN
+────────────────────────────────────────────────────────────────────────────
+· Nothing has been uploaded to OpenStreetMap and no account has been made.
+· The letter deliberately asks for CONFIRMATION, not permission — the licence
+  already says what we need; the letter gets it in a form OSM can read.
+· It promises no upload before a reply.  Keep that promise: OSM's import
+  review will ask to see this exchange, and a promise broken in the paperwork
+  is the thing that gets an account remembered.
+· If DGA says no, or does not answer: tiers A and B (517 records) are
+  unaffected and still go ahead.  Tier C simply stays on our own site, which
+  is where it is today and where it does no harm.
+· The Thai is the version that will be read.  Worth Beer's eye before it goes.
+· See go/osm-gate for the reasoning and the tier counts.

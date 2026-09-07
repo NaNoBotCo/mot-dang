@@ -30,7 +30,7 @@ Massage's rule was *never infer respectability*. Culture's was *never infer
 whether a reader is allowed in, never infer price*. Muay thai's is:
 
 **The venue states its own nights, its own prices, its own door rules — or the
-page says nobody has stated them. And no ranking of rings into real and
+page says nobody has stated them. Rings into real and
 touristic.** A stadium beside Tha Phae Gate with a VIP drink and a stadium on
 Kong Sai Road where the bettors stand are both stadiums; the card is the card.
 "Which one is authentic" is a tourist question this site does not answer
@@ -136,10 +136,8 @@ Three consequences, all in the data shape:
 - **No scrape of the stadiums' Facebook pages** for nightly cards. Login wall;
   the structural ceiling named in Batch 7b. The board is curated and dated,
   and says so.
-- **No fighter names, no results, no rankings.** That is sport journalism,
-  perishable by the hour, and somebody else's.
-- **No "is it real" sort of stadiums**, and no line about which stadium a
-  local would choose. A ring is a ring.
+- **No fighter names and no results.** That is sport journalism, perishable by
+  the hour, and somebody else's.
 - **No claim about children's bouts beyond "there are youth bouts on the
   cards"**. The law and its debate are a wichaa-side subject with sources,
   not a sentence on a fight board.

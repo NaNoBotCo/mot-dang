@@ -1,0 +1,159 @@
+LODGING — THE CRAWL AND THE AFFILIATE RAIL
+Chiang Rai harvested 2026-09-06.  Chiang Mai still open.
+
+
+WHAT WE HELD BEFORE TODAY
+
+  lodging records, both provinces .................. 2,177
+  of those sourced to OpenStreetMap ............... 2,174
+
+  has a phone ......................................  31%
+  has an address ...................................  21%
+  has a website ....................................  17%
+  has a Thai-script name ...........................  14%
+  has opening hours ................................   4%
+
+Sixth-largest category on the site and almost entirely one source.  The same
+disease as the massage shelf: a map's idea of the trade, not the trade.
+
+
+WHAT CHIANG RAI PUBLISHES, AND IT IS A REAL REGISTER
+
+สำนักงานจังหวัดเชียงราย dataset_20_08, every row sourced to
+ที่ทำการปกครองจังหวัดเชียงราย — the provincial office that issues the licences.
+Three files.  No login, no key, plain CSV.
+
+  466  licensed hotels, with อำเภอ, ตำบล and a licence class 1–4
+  296  other accommodation, with the province's own word for each
+    9  yearly counts of ที่พัก, 2560–2565 (636–672 แห่ง) — a yardstick
+
+  762  names now on disk at data/curated/lodging_cr.json
+
+Licence classes as the register gives them: class 1 — 275 · class 2 — 118 ·
+class 3 — 68 · class 4 — 5.  What those numbers MEAN is not in the register.
+The gloss written into the file is recited from กฎกระทรวงฯ พ.ศ. 2551 and is
+flagged verified:false.  It must not reach a page until somebody fetches the
+regulation and reads it.
+
+18 อำเภอ.  เมืองเชียงราย 343 · แม่สรวย 73 · แม่สาย 55 · แม่จัน 47 ·
+เชียงแสน 47 · เวียงแก่น 41 · เชียงของ 32 · พาน 24.
+
+
+WHAT THE REGISTER DOES NOT CARRY
+
+No coordinates.  No phone numbers.  No street addresses beyond the ตำบล.  No
+room counts.  No dates.  Name and place is the whole of it, the same shape as
+the weed.th harvest.  Nothing in the importer will ever fill contacts and the
+docstring says so, so nobody goes hunting for a bug that is not there.
+
+
+NOTHING WAS FILTERED OUT
+
+The ประเภท column on the 296 is free text the province typed by hand, and it
+is 80-odd vernacular words for a place to sleep that no OSM tag holds:
+
+  โฮมสเตย์ 74 · รีสอร์ท 57 · โรงแรม 31 · โฮสเทล 19 · เกสต์เฮาส์ 7 ·
+  บ้านพัก 7 · วิลล่า 7 · ห้องพักรายวัน 5 · ฟาร์มสเตย์ 4 · พูลวิลล่า 2 ·
+  หอพัก 2 · ห้องพักรายเดือน 2 · เรสสิเดนท์ 2
+
+and then the singletons, which are the good part —
+
+  ลานกางเต็นท์ · บ้านน็อคดาวน์ · เมาเท่นโฮม · โฮมลอดจ์ · แค้มปิ้งวิลล์ ·
+  กระโจมเต็นท์แบ่งเป็นธีม · ที่พักในสวนกาแฟ · ที่พักริมน้ำ ·
+  ห้องพักเรือนไทย · ห้องพักสไตล์โดม · บ้านพักสไตล์ยุโรป · ภูวิลล่า ·
+  ที่พักและลานกางเต็นท์ · รีสอร์ทสไตล์เต็นท์โดม
+
+Some rows in that file are not lodging at all — ร้านอาหาร 2, ห้องจัดเลี้ยง,
+ศูนย์การเรียนรู้, หมู่บ้าน/ชุมชนริมฝั่งแม่น้ำโขง.  Every one was passed
+through with its kind string verbatim.  Deciding which is a place to sleep is
+the classifier's job downstream, done in the open, not this importer's job
+done silently.  `--report` prints the whole tally.
+
+
+HOW MUCH OF THIS IS NEW — NOT KNOWN, AND SAYING SO
+
+  register records ................................... 762
+  exact name match anywhere in the CR corpus .......... 20
+  match after naive RTGS romanisation ................. 49
+
+Do not read 713 as "713 new places".  741 of the 762 register names are Thai
+script; the corpus holds 487 CR lodging records and only 80 of them carry a
+Thai name at all.  "Grace Hostel" in OpenStreetMap and เกรซ โฮสเทล in the
+licence roll are one hotel, and romanisation does not recover it, because the
+Thai is a transcription OF the English.  The overlap is genuinely unmeasured.
+
+Both possible answers are worth having.  If most are new, the shelf grows.  If
+most are already held, this is the Thai-name layer that 86% of CR lodging
+lacks — which is the thing that makes a place findable by the people who live
+here.  Reconciliation is its own job; reconcile_names.py exists for it and
+ตำบล is the disambiguator.
+
+
+CHIANG MAI — STILL OPEN
+
+Chiang Mai publishes no named list.  Its provincial catalogue carries counts
+only, and harvest_datagoth.py already holds them as yardsticks: 1,193
+certified accommodations in อ.เมืองเชียงใหม่ alone (2567); 469 hotels, 339
+resorts, 201 guesthouses in the older series.  Eight of every ten lodging
+records we hold are Chiang Mai, so this is the gap that matters.
+
+Three candidates, none cracked:
+
+  thailandsha.com — TAT's SHA membership directory.  Live, answers 200,
+  Next.js, noindex, no robots.txt, no sitemap.  A backend API exists and is
+  findable in the JS chunks.  Not yet found.
+
+  datawarehouse.dbd.go.th — answers 200.  Every licensed hotel is a juristic
+  person; TSIC hotel codes filtered to Chiang Mai would give names and
+  registered addresses.  Not yet probed.
+
+  the affiliate's own feed — below.
+
+
+THE AFFILIATE RAIL, WHICH IS ALSO A DATA SOURCE
+
+Travelpayouts marker 749581.motdang is already in data/flights.json and
+already live on the flights board, with the bilingual referral disclosure
+written:
+
+  ปุ่มเช็คราคาเป็นลิงก์แนะนำ (affiliate) — ราคาที่เห็นเท่าเดิมทุกบาท
+  Fare buttons are referral links — the price you see is unchanged.
+
+api.travelpayouts.com/data/en/hotels.json answers 403, not 404.  The hotel
+dump exists and is gated on an API token — a different credential from the
+marker, issued by the same account.  That is what makes lodging different from
+every other shelf on the site: the partner who pays on a booking is also the
+one who can hand over names, coordinates and stars for the Chiang Mai gap the
+government will not fill.
+
+NEXT MOVE NEEDS ONE THING FROM NAN: the Travelpayouts API token.
+
+
+THE THING THAT IS TRUE ABOUT THE MONEY
+
+Nobody has paid anything to use motdang and the traffic is Nan, Claude and a
+couple of friends (9/5).  Affiliate links earn on bookings.  This builds the
+instrument; it does not conjure the readers.  Worth building anyway — the
+instrument has to exist before any reader can use it — but nothing here should
+be costed as revenue.
+
+
+FILES
+
+  importers/harvest_lodging_cr.py     the harvester
+  data/curated/lodging_cr.json        762 lodgings, 9 count rows
+  cache/lodging_cr/                   snapshots; --offline re-parses them
+
+  python3 importers/harvest_lodging_cr.py --dry-run
+  python3 importers/harvest_lodging_cr.py --report
+  python3 importers/harvest_lodging_cr.py --offline --report
+
+Manners: chiangrai.gdcatalog.go.th asks Crawl-Delay 10 and disallows /api/, so
+the drift guard goes through data.go.th's package_show instead and never the
+provincial API.  Twelve seconds between requests, four requests in a whole
+run, snapshot-first so a re-run costs them nothing.
+
+A build was running in another session's worktree while this was written, so
+this took the offline lane: two new files, no build, nothing existing touched.
+The register is not wired into the corpus yet — that is a separate step and it
+needs the reconciliation question answered first.

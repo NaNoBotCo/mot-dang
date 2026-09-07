@@ -33,13 +33,9 @@ they ask them, on one page (/realestate.html):
      government counts 366 registered condominium buildings in Chiang Mai
      against the 53 this catalogue holds by name.
 
-WHAT THIS PAGE REFUSES TO DO. It does not rank buildings, name a good
-neighbourhood, sort the farang buildings from the Thai ones, or give
-investment advice. Rents appear only as posted, with a date. And it does not
-assert Thai property law from memory: where the law decides something (the
+Rents appear as posted, with a date. Where the law decides something (the
 foreign quota in a condominium, the transfer at the Land Office), the page
-gives the words to ask the juristic office and the office the answer lives
-in — a directory that guesses at statutes is wrong in the one place it hurts.
+gives the words to ask the juristic office and the office the answer lives in.
 
 Entry point: emit(globals_of_build, data) — hooked in build.py after the
 beauty layer. Emits realestate.html + realestate.css; prints the counts.
@@ -258,7 +254,7 @@ def emit(g, data):
     moobaans = on("moobaan")
 
     def listing(recs):
-        """Alphabetical, unranked, with the reach the directory holds.
+        """Alphabetical, with the reach the directory holds.
 
         Same shape as the elephant camps and the barbers, for the same
         reason. The one residential extra: a stated floor count (a mapper's
@@ -574,7 +570,7 @@ def emit(g, data):
 
         + ct_html
 
-        + h2("สิ่งที่สารบัญนี้ยังตอบไม่ได้", "What this directory cannot yet tell you")
+        + h2("ยังตอบไม่ได้", "Still unanswered")
         + gap_html
         + "<h3>" + bi("สำมะโนความเงียบ", "A census of the silence") + "</h3>"
         + census_html

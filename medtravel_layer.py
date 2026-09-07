@@ -131,15 +131,15 @@ def emit(g, data):
         + "</p>"
 
         + '<p class="mv-note">' + bi(
-            "หน้านี้ไม่ใช่คำแนะนำทางการแพทย์หรือกฎหมาย ไม่มีขนาดยา และไม่มีความเห็นว่าใครควรใช้ยาอะไร "
+            "หน้านี้ไม่ใช่คำแนะนำทางการแพทย์หรือกฎหมาย ไม่มีขนาดยา "
             "เป็นเรื่องของเอกสารกับด่านเท่านั้น กฎเปลี่ยนได้ — ต้นทางที่ลิงก์ไว้ชนะหน้านี้เสมอ",
             "This page is not medical or legal advice. It names no dose and holds no view "
             "on what anyone should take — it is about paperwork and checkpoints only. "
             "Rules change; the linked source always outranks this page.")
         + "</p>"
 
-        + "<h2 class=\"mv-h\">" + bi("ก่อนอื่น: เช็กยาของคุณกับเครื่องมือของ อย.",
-                                     "First: check your medicine with the FDA's own tool") + "</h2>"
+        + "<h2 class=\"mv-h\">" + bi("เช็กยาของคุณกับเครื่องมือ อย.",
+                                     "Check your medicine — the FDA tool") + "</h2>"
         + "<p>" + bi(
             "พิมพ์ชื่อสามัญ (ชื่อโมเลกุล ไม่ใช่ยี่ห้อ) ลงใน "
             "<a href=\"" + att(FDA_TOOL) + "\" rel=\"noopener\">เครื่องมือตรวจสอบยาของ อย.</a> "
@@ -305,8 +305,8 @@ def emit(g, data):
             "Temperature-sensitive medicine like insulin belongs in the carry-on, always.")
         + "</p>"
 
-        + "<h2 class=\"mv-h\">" + bi("คำบนป้ายและบนแบบฟอร์ม",
-                                     "The words on the sign and on the form") + "</h2>"
+        + "<h2 class=\"mv-h\">" + bi("คำบนป้ายและแบบฟอร์ม",
+                                     "Words on the sign and the form") + "</h2>"
         + '<p class="mv-note">' + bi(
             "อักษรไทย · คำอ่านแบบ RTGS · ความหมาย — เทียบรูปคำกับป้ายได้แม้อ่านไทยไม่ออก",
             "Thai script · RTGS spelling · what it means — enough to match a word by its "
@@ -329,7 +329,6 @@ def emit(g, data):
 
         + '<p class="mv-note">' + bi(
             "มดแดงเป็นสารบัญของสถานที่ ไม่ใช่คำแนะนำทางการแพทย์หรือกฎหมาย หน้านี้ไม่มีขนาดยา "
-            "ไม่แนะนำยี่ห้อหรือแพทย์คนใด และไม่มีความเห็นว่าใครควรใช้ยาอะไร "
             "กฎและบัญชียาเปลี่ยนได้ — ตรวจกับต้นทางที่ลิงก์ไว้ก่อนเดินทางทุกครั้ง "
             "เห็นอะไรที่เปลี่ยนไป บอกมดได้ที่หน้าเสนอแนะ",
             "Mot Dang is a directory of places. This page is not medical or legal advice, "
@@ -356,7 +355,7 @@ def emit(g, data):
             "อ่านจากเอกสารของ อย. เอง พร้อมลิงก์ต้นทาง",
             "Carrying personal medicine into and out of Thailand through the airport: "
             "the three arrival lanes, the IC-2 and OC-2 permits, what the doctor's "
-            "letter must contain, liquids over 100ml, and what never boards — read "
+            "letter must contain, liquids over 100ml, and what does not board — read "
             "from the Thai FDA's own guidance, with sources linked."),
         extra_head=head, og=og,
         crumbs='<a href="index.html">' + bi("หน้าแรก", "Home") + "</a> › "

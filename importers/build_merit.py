@@ -284,10 +284,8 @@ def main():
         "practice_th": "ไหว้พระ ๙ วัด — ธรรมเนียมที่คนทำกันจริง มากที่สุดช่วงปีใหม่และสงกรานต์",
         "practice_en": ("Visiting nine temples in one round is an ordinary "
                         "practice here, done most at New Year and Songkran."),
-        "not_a_ranking_th": "ลำดับคือทางเดินที่สั้นที่สุด ไม่ใช่การจัดอันดับวัด",
-        "not_a_ranking_en": ("The order is the shortest way round. It is not a "
-                             "ranking of temples, and nothing here places one "
-                             "temple above another."),
+        "not_a_ranking_th": "ลำดับคือทางเดินที่สั้นที่สุด",
+        "not_a_ranking_en": "The order is the shortest way round.",
         # The eight พระประจำวันเกิด, taken from make_fortune's table rather than
         # retyped, so the merit page and the fortune tile can never drift apart.
         # These are shown as WHAT TO LOOK FOR at any temple — the image for the

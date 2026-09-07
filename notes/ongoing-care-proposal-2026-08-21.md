@@ -294,11 +294,3 @@ Mot Dang's `shelf_stops` guard stays as belt and braces.
 Not built this pass. The register now holds the questions worth printing, and
 `make_reader_sheets.py` is the instrument (the `/reader/hair-words.pdf`
 precedent from WO-22).
-
-## What this order refuses
-
-Rankings, awards, "internationally accredited" as a sort key, named doctors,
-medical advice, any personal case data in data/ or on a page, and any gate on
-the register. The directory's promise to a person managing something long is
-the same as to everyone else: what each place states, in both languages, with
-the source and the date, and no one deciding for her where she should go.

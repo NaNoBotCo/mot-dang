@@ -65,11 +65,8 @@
   "would have published a list on which the local instrument does not",
   "appear, in the city where it is made.",
   "",
-  "WHAT THIS FILE REFUSES. No ranking of shops. No repeating a shop's own",
-  "superlative in this site's voice — Chiang Rai Music calls itself the",
-  "largest instrument store in northern Thailand and that is recorded as",
-  "THEIRS, attributed, never restated as fact. No brand recommendations.",
-  "Every price is `_pricesVerified: false` until somebody reads a quotation",
+  "Chiang Rai Music calls itself the largest instrument store in northern",
+  "Thailand; that is recorded as THEIRS, attributed. Every price is `_pricesVerified: false` until somebody reads a quotation",
   "or a rate card at a counter."
  ],
  "fetched": "2026-08-31",
@@ -443,7 +440,7 @@
   ]
  },
  "refused": [
-  "Ranking the shops. The shelf sorts by whether a shop rents and by district, not by merit.",
+  "The shelf sorts by whether a shop rents and by district.",
   "Repeating Chiang Rai Music's claim to be the largest instrument store in northern Thailand in this site's voice. Attributed to them, or not printed.",
   "Recommending brands. Several shops list their dealerships; that is stock, not advice.",
   "Treating fastwork.co's Chiang Mai instrument-rental page as a source. Its search snippet promises rental from 300 baht; the page itself returns พบงาน 0 งาน — zero providers, read 2026-08-31. Recorded so nobody cites the snippet.",

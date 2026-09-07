@@ -1,0 +1,435 @@
+MOT DANG — THE MAP IS THE APPLICATION
+Architecture proposal, 2026-09-07 · rev 2, same day, after Nan's reframe
+
+Nan: "I'd like navigation and discovery to be primarily driven by map surface
+UX. Text based nav is so 1999."
+
+Nan, on being handed rev 1: "What I'm trying to do is make the same data
+that's easily understood/available to robots, be equally available to humans.
+Humans like to navigate complex problems about their cities via maps. They
+prefer this to text search or directories. We have rich maps. I want to use
+these as empathetic search tools for humans."
+
+WO-74 · PROPOSED · nothing built, nothing deployed, no work order filed.
+Every number below says where it came from.
+
+==============================================================================
+0. THE GOAL, RESTATED IN HER WORDS — AND IT IS A NUMBER
+==============================================================================
+
+Not "the map is nicer". The goal is PARITY: a person standing in Chiang Mai
+should be able to ask this directory everything a machine can ask it.
+
+Measured on the live site, 2026-09-07, by reading both doors:
+
+  A ROBOT can ask sixteen things.  (publish/api.js, the ALLOWED list, live —
+  /api/v1/health returns 200 JSON)
+
+      q · province · cat · sub · tag · lens · facet · has · min_ants ·
+      near · radius · open_now · open_at · sort · limit · offset
+
+  A HUMAN can ask three.  (motdang.net/md.js fetched live, 233,724 chars —
+  every URL parameter the site's own JavaScript reads:)
+
+      q · near · stops
+
+  and of those, `near` only arrives via a location tap or a landmark lifted
+  out of a sentence, and `stops` is the route planner.
+
+  Sixteen against three. The three the robot has that matter most — sub (WHICH
+  KIND), radius (HOW FAR), open_at (WHEN) — have no human control anywhere on
+  the site.
+
+THE DEMONSTRATION. Your circle at Tha Phae Gate, 18.78764, 98.99357, the one
+you geocoded standing there. Asked at the robot door, live, this afternoon:
+
+    /api/v1/places?near=18.78764,98.99357&radius=300&sub=parking
+
+    8 results, sorted by distance:
+        92 m   ลานจอดรถ · ใกล้ประตูท่าแพ 120 ม.
+       116 m   ที่จอดรถ · ใกล้ประตูท่าแพ 80 ม.
+       129 m   ลานจอดรถ · ใกล้ประตูท่าแพ 100 ม.
+
+Standing on that same spot and typing, you were given 810 m, and four of the
+nine ways a person phrases that question never show the near ones at all
+(go/wrongtool §4, go/halfhour).
+
+**The data was never missing. The door was.** A machine asked in three
+structured facts and got the right answer in 120 ms. You asked in your own
+language and got the catalogue.
+
+That is the whole project, and it means the work is not "add a map". It is:
+close a sixteen-to-three gap.
+
+==============================================================================
+1. WHY THE MAP IS THE ONLY SURFACE THAT CAN CLOSE IT
+==============================================================================
+
+Ask how a TEXT interface would reach parity, honestly. It would need a control
+for each of the sixteen — a kind picker, a radius field, a day-and-time picker,
+a has-a-phone checkbox, a sort menu. That is an advanced-search form, and an
+advanced-search form is 1999 in the worst sense: it makes the reader fill in
+the machine's argument list.
+
+A map carries the same sixteen as GESTURES, and most of them for free:
+
+    near        the centre of the map, or the you-dot
+    bbox        the viewport itself — nobody types it, panning IS typing it
+    radius      a circle you drag
+    province    the viewport again
+    cat / sub   the chip rail
+    tag/facet   the chip rail's second tier
+    open_now    a lamp toggle
+    open_at     a time scrubber — "9pm Thursday" as a slider
+    has         a completeness toggle (only show ones with hours / a phone)
+    sort        implicit on a map; explicit only in the list twin
+    limit       the fold
+    q           the box, kept, for naming a thing you already know
+
+**A viewport is WHERE and HOW FAR, given continuously and without vocabulary.**
+That is why the map is not a prettier front end for this site. It is the only
+surface that holds the machine's whole argument list without ever showing a
+person an argument list.
+
+This gives a rule that can be a TEST, not an intention:
+
+    EVERY PARAMETER THE API ACCEPTS HAS A NAMED HUMAN GESTURE.
+    tests/test_parity.py walks publish/api.js's ALLOWED list and fails on any
+    parameter with no gesture registered against it.
+
+Written that way, parity stops being a goal and becomes a gate — which is how
+everything else on this site that stayed true stayed true.
+
+==============================================================================
+2. WHAT "EMPATHETIC" MEANS, AS PROPERTIES AND NOT AS A MOOD
+==============================================================================
+
+You said empathetic search tools. Each line below is one measured failure of
+the current box, turned into a property the map surface must HOLD. None is a
+feature to add later; they are what the thing is.
+
+E1 · YOU DO NOT HAVE TO KNOW THE WORD.
+     The viewport already said where. The chip rail says what is here. This
+     deletes an entire class of failure rather than fixing it: "moto" not
+     being in the thesaurus cannot cost you the answer if you never had to
+     type it. (go/wrongtool causes 1, 2 and 3, all at once.)
+
+E2 · THE TOOL SHOWS ITS OWN REACH.
+     Radius is a hidden default of 2,000 m today. You wanted 300. A circle
+     you can see and drag makes HOW FAR a thing the reader owns, and it is
+     the difference between 80 m and 810 m.
+
+E3 · PRECISION IS NEVER PUNISHED.
+     Saying "motorbike" must narrow the RANKING, never the SET — your own
+     rule, since in Chiang Mai there is no such thing as a car park
+     exclusively for cars. Structurally: a kind filters, a constraint
+     re-ranks, and leftover words only ever filter within a resolved kind.
+
+E4 · A WORD WE DID NOT UNDERSTAND IS SAID, NOT SWALLOWED.
+     Struck through and visible, never silently dropped into confident
+     nonsense 4.6 km away.
+
+E5 · ABSENT IS NOT NEGATIVE.
+     No hours recorded is not "closed". No fee recorded is not "free". The
+     open-now lamp is ABSENT rather than dark. On a map this matters more,
+     not less: an unlit pin reads as a shut door.
+
+E6 · THE PIN CONFESSES ITS OWN PRECISION.
+     2,958 pinned rows share a coordinate with another record; one Chiang Rai
+     centroid carries 145. A centroid drawn like a doorway is a promise to
+     someone who is about to walk there. geoPrecision is already tracked per
+     field and has never been shown to a reader.
+
+E7 · THE ANSWER IS SIZED TO THE QUESTION.
+     One result is one screen. Already your rule; today it is 27 px of answer
+     in a 1,484 px page.
+
+E1 and E2 are the two that only a map can give. E3–E7 are owed to a reader on
+any surface, and the map is simply where they become visible.
+
+==============================================================================
+3. DECIDED — ON THE RECORD
+==============================================================================
+
+**F6 is CLOSED by Nan, 2026-09-07:** the 2,116 unpinned records stay crawlable
+by anyone who wants them, "but realize that their utility without a pin is
+limited to future value."
+
+What that settles, and what it does not:
+  · they stay in the sitemap, the API, llms.txt and the HF dataset;
+  · they do NOT get a special door carved into the map navigation, and the
+    architecture below is not bent to reach them;
+  · "future value" names the lever exactly: a pin converts an archive record
+    into a reachable one, and there is a measured route sitting unrun —
+    `importers/pin_from_osm.py` against 1,070 named pinned temples in Chiang
+    Mai against our 943 unpinned wat, plus the geocoder's honest 14% ceiling
+    (go/pins, 2026-09-05). That is enrichment work, not navigation work, and
+    it no longer blocks anything here.
+
+==============================================================================
+4. WHAT ALREADY EXISTS (do not rebuild any of it)
+==============================================================================
+
+More of this is built than anyone would guess:
+
+  map_shell.py       ONE map constructor. Cooperative gestures, rotation lock,
+                     maxBounds/minZoom, ◎/fullscreen/scale, frame(), legible()
+                     (the 11 px phone type floor), version() cache-busting, a
+                     drawn-SVG fallback, and a TESTED no-basemap branch.
+                     MDMAP.ready() is the only sanctioned way to paint.
+  map_ground.py      the same ground rendered in Python, offline, from the
+                     shipped tiles. The browser's twin.
+  explore_layer.py   /map.html — 47 shelf chips, six inks at once, per-shelf
+                     GeoJSON on demand, MDLOC near-me, and the address bar
+                     already carries the whole view (#zoom/lat/lng/shelf,shelf).
+  here_layer.py      /here.html — and, quietly, THE SPATIAL INDEX: the
+                     catalogue tiled into 0.01° cells, 3,364 files, 15 MB total
+                     on disk (counted in docs/data/here/ today). Nine cells
+                     around the old city are 166 kB gzipped (WO-64) against
+                     1.5 MB for index.json. The densest single cell is 1,075
+                     rows / 139 kB raw.
+  MDCARD             the tap sheet every map already opens.
+  WO-69's panel      a card body opens a panel IN PLACE over ONE shared
+                     MapLibre mount, moved card to card.
+  /api/v1/places     deployed worker over a baked index, 120 ms, already takes
+                     q · cat · sub · tag · lens · facet · has · min_ants ·
+                     near · radius · open_now · open_at · sort. No bbox.
+  search_tables.json WO-69 put the relations in the index at last: t (tags),
+                     tt (trade), st (street), ar (tambon/amphoe), hk (hours),
+                     every one an int.
+  the registers      68 landmarks with coordinates (WO-68) · 13 kinds
+                     (data/curated/kinds.json) · zones/ย่าน · 50,946 measured
+                     `near` edges (WO-69) · 127 tag slugs on 7,873 records.
+
+Missing is not capability. Missing is that **the map is a viewer inside a page
+instead of the page inside which everything else happens.** Five map surfaces
+exist (/map.html, /here.html, 16,665 place maps, plan.html, toilets) and none
+of them can hand a view to another.
+
+==============================================================================
+5. THE INVERSION, IN ONE SENTENCE
+==============================================================================
+
+    Today:  a text page that contains a map.
+    After:  a map that opens text when you ask it something.
+
+And the corollary that keeps the site alive while that happens:
+
+    The text pages do not go away. They stop being the navigation and become
+    the SUBSTRATE — the addressable, shareable, crawlable, LLM-readable
+    statement of what the map is showing. Same data, two renderings, one
+    source. map_ground.py has worked exactly this way since August.
+
+==============================================================================
+6. THE ARCHITECTURE — SEVEN LAYERS
+==============================================================================
+
+L0 · MDVIEW — ONE STATE OBJECT, AND IT IS THE URL
+------------------------------------------------
+State is scattered across five surfaces today: explore's hash, here's cells,
+search's query string, plan's ?stops=, my.html's pins. That is why no surface
+can hand off to another.
+
+    MDVIEW = { center, zoom, bbox, kinds[], constraints{}, focus }
+
+One object. It serializes to the hash (the format explore_layer already
+publishes), it is the SOLE input to retrieval, and it is what "send this view"
+ships. Every surface becomes a subscriber, not an owner. Search, plan, here,
+my-map and the province maps all become projections of one view.
+
+This layer is invisible to a reader and everything below depends on it.
+
+L1 · RETRIEVAL IS KEYED ON A BBOX, NOT A STRING
+-----------------------------------------------
+The single largest change, and the cheapest, because both halves exist.
+
+  zoom ≥ 13 → THE CELLS. Generalize docs/data/here/ from a here.html private
+    asset into the site's spatial index. A phone viewport at z15 covers 4–12
+    cells ≈ 60–200 kB gzipped. Immutable, content-hashed, cache-forever, works
+    with no origin, and answers offline. This is P6 from go/wrongtool — "stop
+    shipping the catalogue to answer one question" — and it is already built,
+    just not admitted.
+
+  zoom < 13 → THE WORKER. `bbox=` on /api/v1/places is roughly fifteen lines
+    beside the near/radius maths already in publish/api.js. Above z13 the
+    worker returns AGGREGATES, never points (see L2).
+
+The rule to write down: **a reader must never download a record that is not on
+their screen.** 1.5 MB before the first character of an answer is the current
+number, and it is the thing that decides whether this site is pleasant on Thai
+mobile data.
+
+L2 · DENSITY IS A HIERARCHY, AND STACKS MUST CONFESS
+----------------------------------------------------
+You cannot draw 24,019 pins, and two facts make naive clustering dishonest:
+
+  · 2,958 pinned rows share a coordinate with another record (WO-69) — one CR
+    centroid carries 145 — because a tambon or postcode centroid stacks
+    everything it placed onto one point.
+  · geoPrecision is already tracked per field. The site knows which pins are
+    doorways and which are centroids and has never told a reader.
+
+So three regimes:
+
+    z < 12    a zone/tambon polygon carrying a COUNT. "Is there anything out
+              there" is a real question and a number answers it.
+    z 12–14   clusters, precomputed per cell at build so they stay static.
+    z ≥ 15    individual pins, and a coincident stack renders as a STACK
+              MARKER that says so: "145 here · a district centroid, not a
+              doorway."
+
+A dot at a centroid drawn like a dot at a doorway is a false fact stated
+2,958 times. Map-first makes that visible, so it has to be fixed first.
+
+L3 · WHAT IS A CHIP, AND THE CHIPS COUNT WHAT IS ON SCREEN
+----------------------------------------------------------
+13 kinds is too coarse to be interesting; 175 shelves is far too many for a
+chip row; the six-ink cap in explore_layer is correct and holds (a seventh
+colour has to repeat one, and the chip carrying the ink is what makes the chip
+row the legend).
+
+The move that makes this discovery rather than filtering:
+
+    THE CHIP RAIL IS COUNTED FROM THE CURRENT VIEWPORT, AND RE-COUNTS ON PAN.
+
+Pan into the old city and the rail reads what is actually there —
+วัด 41 · อาหาร 380 · ที่จอดรถ 47 — and a kind with nothing in view does not
+render a chip at all. No words, no explanation, no empty shelf. Michael's
+rule ("if you need words to explain it, you're fucking up") is satisfiable
+here in a way it is not in a text nav.
+
+Second tier, on a chip's own tap: sub-shelf, then the relations WO-69 just
+put in the index (tag · street · tambon · nearest landmark). Finding BY TAG
+with no words typed already works in the engine; it has never had a surface.
+
+Beside the rail sit the other three gestures that close §0's gap, and they are
+the ones no reader has today:
+    · A DRAGGABLE RADIUS RING — `radius`, and E2. Default visible, not 2,000 m
+      and hidden.
+    · A TIME SCRUBBER — `open_at`. "Open 9pm Thursday" as a slider over the
+      4,398 records that carry hours. Absent hours stay absent, never dark.
+    · A COMPLETENESS TOGGLE — `has` and `min_ants`. "Only the ones we know
+      something about" is a question readers ask constantly and cannot ask.
+
+L4 · A TAP NEVER LEAVES THE MAP
+-------------------------------
+WO-69 built this and it should become the sitewide law. The sheet has three
+detents:
+
+    peek   name · metres · ONE deciding fact · the open-now lamp if hours
+           are held (absent, never "closed", when nobody recorded any)
+    half   chips (each one a filter), 📍, related-nearby from the 50,946
+           measured edges, events, add-to-plan
+    full   the place page's own content, in the sheet
+
+The place page URL stays the canonical address — it is what gets shared,
+indexed and answered from — but inside the map it renders in the sheet. From
+go/wrongtool §3: for 68% of car parks the row already contains everything we
+know, and the link is a promise of more that is not there. A sheet that opens
+in place costs a reader nothing when the answer is thin.
+
+L5 · THE LIST TWIN, AT THE SAME URL
+-----------------------------------
+Two hard problems map-first creates, and one mechanism solves both.
+
+  · A crawler cannot pan. 99% of arrivals are not direct (go/arrivals);
+    ~10,400 place pages are already noindex; the whole LLM-retrieval story
+    runs on text pages.
+  · A map is not readable for everyone. Low vision. A 1 MB MapLibre parse on
+    a mid-budget Android. Thai mobile data. LINE's in-app WebView.
+
+    Every MDVIEW renders TWO ways from one source: the map, and a list that
+    states the same view in words at the same URL.
+
+Not a fallback and not charity — the identical rendering, and it is what the
+crawler, the model and the screen reader all get. map_shell's tested
+no-basemap branch is the seed; map_ground.py is the proof the pattern works.
+The rule: **anything the map can show, a URL must be able to state in words.**
+
+L6 · FIRST PAINT IS NOT MAPLIBRE
+--------------------------------
+~1 MB of JavaScript parses before a map-first site shows anything at all, on
+the phones this site is actually read on. But map_ground.py already renders
+the identical ground as SVG, offline, from the shipped tiles — it is how the
+printed cards work.
+
+    Paint the SVG of the current view first. Hydrate MapLibre over it.
+
+The reader sees the map immediately and it is the SAME map. And since you
+struck "purely static" on 2026-09-07 (go/frontdoor F6), the worker may render
+that first view at the edge rather than only at build.
+
+L7 · WHAT THE TEXT NAV IS FOR AFTERWARDS
+----------------------------------------
+Demoted, not deleted, and to the one job it is genuinely better at: naming a
+thing you already know. The box stays for "Rajavej Hospital". It stops being
+the way you find out what is near you, because it is bad at it and the
+viewport is good at it.
+
+==============================================================================
+7. SEQUENCE — IN THE ORDER THAT PAYS
+==============================================================================
+
+  Ph 0  MDVIEW + bbox on the worker + promote the cells to THE index, and
+        `tests/test_parity.py` — the gate from §1, red on day one, listing
+        the thirteen parameters with no human gesture. Invisible to a reader.
+        Everything else depends on it. Small.
+  Ph 1  /map.html becomes the application: viewport-counted chips, tap→sheet,
+        no navigation away.
+  Ph 2  the density hierarchy + the stack confession. (Blocks Ph 1 going out
+        at province zoom.)
+  Ph 3  the list twin at every map URL; the homepage hop (WO-64's two
+        unwired build.py lines are the same work).
+  Ph 4  relations: tags as chips, the near edges in the sheet.
+  Ph 5  SVG first paint, then edge render.
+
+Ph 0–2 is the honest minimum for "map-primary". Ph 3 is what stops it costing
+the site its arrivals. Ph 4 is Michael's ask. Ph 5 is what makes it pleasant
+on a phone in Thailand.
+
+==============================================================================
+8. WHAT THIS COSTS THAT NOTHING ELSE HAS COST
+==============================================================================
+
+Stated plainly because it is real:
+
+1. **2,116 records have no pin**, and per §3 they are now future value: they
+   stay crawlable and they do not shape the navigation. The cost is simply
+   named rather than solved — a map-primary site cannot reach them, and every
+   one that gets a pin is a record that comes back. Pinning is now the single
+   highest-leverage enrichment on this site, and it is separate work.
+2. **2,958 stacked pins get much more visible** when the map is the product.
+   L2 addresses it honestly rather than hiding it, but honest is still ugly.
+3. **The weight floor goes UP, not down**, unless Ph 5 lands. Cells make the
+   DATA small; MapLibre makes the CODE big. Net win only with the SVG paint.
+4. **A map cannot be crawled or quoted.** L5 is not optional if the arrivals
+   work is to survive. If L5 slips, the site quietly stops being findable
+   while looking better than ever.
+5. **The corpus is thin behind the pin.** Parking is the one kind where the
+   pin IS the answer. For a restaurant, a map that puts you within 10 m of a
+   place we know nothing else about is a prettier version of the same gap.
+
+==============================================================================
+9. STILL YOURS TO DECIDE
+==============================================================================
+
+F1  Does motdang.net/ BECOME the map, or does the map become the first chip?
+    (This is WO-64's hop policy asked sitewide instead of once.)
+F2  The text pages: substrate only — indexed and shareable but out of the
+    nav — or kept as a peer door beside the map?
+F3  Weight: MapLibre for everyone, or SVG-first with hydration on a tap?
+F4  The six-ink cap: hold it, or move to one ink with shape and size carrying
+    the kind, which would lift the six-shelf limit entirely?
+F5  Zoom-out: aggregates below z12, or simply no answer above the province?
+F6  CLOSED 2026-09-07 — see §3. Crawlable, future value, not a nav problem.
+F7  Whether any of this outranks the six phases already staged and undeployed
+    (WO-64 here, WO-65 now·near, WO-69…73 the card). I would not start Ph 0
+    before those are out, but that is a preference, not a finding.
+F8  New, from §1: is `test_parity.py` a HARD gate — no parameter ships on the
+    robot door without a human gesture — or an advisory count? Hard makes the
+    two doors move together forever; it also means the next API parameter
+    costs a piece of map UI before it can exist.
+
+Nothing here is built. Nothing here is filed as a work order. This is the
+architecture you asked for, and the phases are numbered so you can take one
+without taking the rest.

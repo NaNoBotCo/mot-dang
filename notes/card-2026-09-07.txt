@@ -1,0 +1,284 @@
+A RESULT IS A PLACE, NOT A LINK
+WO-69 · WO-70 · WO-71 · WO-72 · WO-73 — built 2026-09-07, NOT deployed
+Written for Nan. Michael's brief, this afternoon, is the whole of the spec:
+
+  "the best and highest use of Motdang is finding things in Chiang Mai...
+   if I see something I like on the list of results, I want to have map
+   controls of it accessible, links to related (nearby/near time) things,
+   interactivity, and relationships. All items listed by motdang should
+   contain relational tags for discovery, and discovery should EXPLICITLY
+   allow searching/finding by tags. Site still contains too many words. If
+   you need to explain something using words, you're fucking up."
+
+Everything below is measured on a scratch build, not asserted. Nothing is
+deployed; docs/ was never touched.
+
+==============================================================================
+0. THE SHAPE OF IT
+==============================================================================
+
+The site already held almost everything he asked for and showed none of it.
+
+  · 127 tag slugs on 7,873 records, 193 tag pages, 1,724 trade tags — and
+    the search box could not filter by any of them. A tag word was folded
+    into one keyword string at 0.45 weight and matched as text.
+  · 50,946 measured "near" edges in the graph, rendered nowhere.
+  · /api/v1/places has taken tag=, sub=, near= and radius= since August. The
+    site's own JavaScript has never called it.
+  · bearings_layer.py — the module whose docstring calls orientation "this
+    site's actual secret sauce", which you said YES to on 9/6 — was written,
+    tested, and never wired into build.py. Nor was here_layer.py.
+
+So this pass is mostly plumbing what was already paid for, and cutting words.
+
+==============================================================================
+1. WHAT A RESULT LOOKS LIKE NOW
+==============================================================================
+
+BEFORE, every row on every search, all of it:
+
+    <li><a>กีตาร์เฮาส์</a> <span>Guitar House</span></li>
+
+AFTER:
+
+    กีตาร์เฮาส์  Guitar House   · 80 ม.  ●
+    [ เครื่องดนตรี ]  [ ถ.สุเทพ ]  [ 🎸 ร้านเครื่องดนตรี ]              📍
+
+  · the metres whenever a point is known — a landmark you named, a near=,
+    or your own position;
+  · a lamp: lit = open now, dim = closed now, ABSENT = nobody has recorded
+    hours. Never "closed" from an absence;
+  · up to three chips, and every chip is a filter you can tap: the
+    sub-shelf, then the street or the district or the nearest landmark
+    within 1.5 km, then the best tag it carries;
+  · 📍 opens the map on it.
+
+Touch the card body and it opens in place, without leaving the page:
+
+  · a map centred on it (one MapLibre instance for the whole list, moved
+    from card to card — not one per row);
+  · the three nearest OTHER places we hold, with metres;
+  · "same kind nearby" — every place on its shelf, nearest first;
+  · what is on here, if anything is;
+  · add to my plan, and the page link.
+
+DISCOVERY BY TAG, EXPLICITLY, as he asked:
+
+    search.html?tag=vegan            no words at all — the filter IS the query
+    search.html?tag=vegan&sub=cafe   102 vegan places · 21 vegan cafés
+    #vegan in the box                lifted out of the words into a filter
+    "vegan cafe"                     the constraint you stated becomes a filter
+    ?st=…  ?ar=…  ?cat=…  ?near=…    street, district, shelf, a point
+
+  Every tag pill on a place page grew a 🔍 that opens exactly that search,
+  and the trade tags ("ที่ร้านลงไว้ว่าทำ") now link to the tag filter
+  instead of dropping their words into the free-text box.
+
+  A filter is a chip; tapping it removes it. A tag nobody has answers
+  ZERO — not the whole catalogue, which is what a silent filter does.
+
+==============================================================================
+2. THE WORDS THAT CAME OFF
+==============================================================================
+
+Search page, gone entirely:
+    "Type a shop, a wat, a clinic, or a road — Thai or English, and the
+     spelling need not be perfect."
+    "Try one of these" · "Not sure what this place is yet? start here"
+    "or walk in through a shelf"
+    "add a word to narrow it"
+    "nothing under that word — try a shelf, or send the ants to find it"
+    "not what you asked for? put it to the ants as a sentence — they read
+     whole questions"
+    "understood 'X' — this page cannot filter on it yet; check the listing"
+    "understood 'parking' — car parks first, everything else under the
+     namesakes heading below"
+    "near spelling — this looks like the word you meant" · "read as a + b"
+    "near spellings — closest first" · "measured from X — nearest first"
+    "nothing matches all of A + B — showing what matches some…"
+
+What replaced them, all of it: chips.
+    📍 ประตูท่าแพ        the point everything is measured from
+    ≈ rajavej           the spelling was stretched
+    motorcycle 12 · gate 17   what each word actually matched
+    ~~ไซส์~~             understood, and we hold nothing to filter on
+
+Place page, gone:
+    "ordered by what actually gets an answer"
+    "See 98 more on the same road, in walking order"   → ถนนสุเทพ (98)
+    "(nearest road, 0 m away)"                          → · 0 ม.
+    "Event data from open sources — check with the organiser before you travel"
+    "What we know of — not what the shop lacks. Tap a tag for where it came from."
+    the tag row's provenance tap-sheet (each pill keeps its own title=)
+    the duplicate ตำบล·อำเภอ row on every wat page
+
+==============================================================================
+3. THE PLACE PAGE: ORIENTATION, AND THREE WAYS TO WANDER
+==============================================================================
+
+BEARINGS ARE LIVE (WO-64's hook, applied today). Every pinned place now says
+where it stands in relation to the things people steer by:
+
+    ในเวียง ด้านตะวันออกเฉียงเหนือ · 580 ม. จากประตูช้างเผือก
+    inside the old city, NE quarter · 580 m from Chang Phueak Gate
+
+100% of 22,223 pinned places get a line; 5,402 are marked approximate and
+print no metre figure at all, because their pin cannot support one.
+
+THE THREE WAYS TO WANDER (your §6, 2026-09-06), under the map:
+    the five nearest places we hold, each with metres
+    the same kind nearby — ALL of them, nearest first, on a page with a map
+    🎲 สุ่มพาไป
+
+  TWO DEVIATIONS FROM YOUR §6, and I want them on the record:
+  · FIVE nearest, not nine. Nine names plus the bearings line put the median
+    place page at 155 words against a 140-word cap that exists to stop
+    exactly that. The map still draws all nine, each one a link.
+  · "ที่คล้ายกันแถวนี้ · More like this" is RETIRED. It was a fourth way to
+    wander — five places on the same sub-shelf anywhere in the province,
+    ranked by how complete their records were, not by where they are. Your
+    §6 says three ways and nothing else, and "same kind nearby" does its job
+    properly. Say the word and it comes back.
+
+The Map row now opens OUR map first (map.html#16/lat/lng), then
+OpenStreetMap and Google. Before today no place page linked to the city map
+at all, though the map has read a centre from its URL since August.
+
+==============================================================================
+4. INTENT BEFORE WORDS — the rare word IS the question (WO-70)
+==============================================================================
+
+Michael, 9/6: "best place to buy a Martin guitar?" put Guitar House about
+230th, behind two hundred cafés. `buy` matched 261 rows, `martin` 4,
+`guitar` 4 — and the score could not tell them apart, because nothing in it
+knew that a word matching four rows says more than a word matching 261.
+
+When no row matches every word, the pile is now ranked by how RARE the words
+each row matched are. Measured on the scratch build:
+
+    "best place to buy a Martin guitar"
+      top three: Guitar House · Intune Guitar Shop · Cin Guitars
+    "cheap tok sen massage old city"
+      top three: Phailin Tok Sen · Green Bamboo · one more tok sen shop
+
+Rows that matched every word are untouched, and every existing search case
+still passes.
+
+==============================================================================
+5. TRANSLITERATION (WO-72) — the test was RED before I touched it
+==============================================================================
+
+tests/test_translit.py was failing on both floors this morning, without the
+romaniser having been changed: the pair set is drawn live from the corpus and
+new records arrived whose English name is a different name altogether
+(บ้านขวัญเคียงดาว is listed as "Bamboo House & Café"). Three real faults
+under it, each measured over all 15,947 Thai names:
+
+  run-on compounds   5,678 → 1,044   ประตูท่าแพ was "Pratuthaphae"
+  stranded tails        18 →     0   บุ่น was "Bu Na", คำอูน "Kham U Na"
+  English mid-name     117 →     0   วัดถ้ำพระ was "Wat Cave Phra"
+
+  corpus floor  exact 42.8% → 46.9%   ·   close 68.1% → 70.4%   (green)
+
+The segmenter is now dynamic-programming rather than greedy — the same
+objective thapsap uses, ported so both projects cut Thai the same way. Four
+Pali forms and three ทับศัพท์ went into the lexicon (อุโบสถ Ubosot, สุรพงษ์
+Suraphong, หฤทัย Haruethai, อากาศยาน Akatsayan, Hill, Place).
+
+72.8% of readings on the site changed. A sample:
+    ที่จอดรถ · ย่านแม่แตง    Thitadrot · Yanmaetaeng   → Thi Chot Rot · Yan Mae Taeng
+    เด่นห้า แอร์ เซอร์วิส     Denha Seosa               → Denha Air Service
+    คาเฟ่ อเมซอน            Khafe Ameton              → Café Amazon
+    วัดเจดีย์หลวงวรวิหาร      Wat Chedilawanguanwihan   → Wat Chedi Luang Won Wihan
+
+==============================================================================
+6. GEOCODING (WO-73) — it was confidently wrong, and now it says so
+==============================================================================
+
+The gazetteer's docstring claimed it covers the truth 80% of the time. I
+measured it: 63%. Every line of that docstring was stale in the optimistic
+direction. The worst five results of every run were ONE failure repeated:
+
+    ถนนโชตนา in อ.ฝาง, matched to the Chiang Mai stub of a road that runs
+    128 km north, and declared ±280 m — because the uncertainty was half the
+    length of the fragment WE HOLD, not of the road.
+
+Three fixes, all of them about witnesses:
+
+  · THE DISTRICT IS A WITNESS. Almost every Thai address names its อำเภอ,
+    and nothing here read it. A road, a tambon or a postcode that falls
+    outside the named district is the wrong one and is refused. (43 อำเภอ
+    centres and radii were sitting in data/curated/admin_areas.json, fetched
+    in August, read by nothing.)
+  · A STREET NOBODY VOUCHES FOR is not a ±280 m answer: with no
+    corroborating tambon or postcode it answers at ±3,000 m, above the
+    publish cap, so it is not published rather than published wrong.
+  · THE SIGN'S SPELLING IS A RULE, NOT A LIST. The h after t/p/k and the
+    space between syllables are whoever painted the sign's choice, so both
+    are folded before matching — Tha Phae / Thapae / Tapae, Huay Kaew /
+    Huai Kaeo, Wua Lai / Wualai all reach their road. The residue the rules
+    cannot reach is 25 hand-written rows in data/curated/street_aliases.json
+    (Nimman, Kaeo Nawarat, Charoen Prathet…), which was named as the fix on
+    9/5 and never built.
+
+    calibration   63% → 75%     street median 247 m → 219 m
+    unplaceable   971 → 189     (the district now places what nothing else could)
+
+  tests/test_geocode_local.py is new and holds the ถนนโชตนา case.
+
+  A DRY RUN says 194 new pins are available under the ±3 km cap. I have NOT
+  written them: geocode_gaps writes data/curated/pins.json, import_all
+  rewrites data/canonical/, and that is a corpus change while a build was
+  running. Your call — see the forks.
+
+==============================================================================
+7. WHAT IS YOURS
+==============================================================================
+
+F1  DEPLOY. Two days of other work plus all of this is on disk and nothing
+    is live. The handover from the WO-67/68 session names a live loose end:
+    style.css is served for seven days and only became versioned in the
+    build sitting in docs/, so P1 and P2 are invisible to anyone who has
+    visited before until a deploy goes out.
+
+F2  THE TAG LIFT ON A BARE WORD. Typing "pizza" now FILTERS to the 97
+    places tagged pizza instead of ranking everything with pizza in its
+    name or its shelf words. It never filters to nothing. But it does change
+    the order of a query that works today, which is your call, not mine.
+    The alternative that changes nothing: offer it as a chip — "🏷 pizza
+    97" above today's list — and lift only on #pizza or a second word.
+
+F3  THE SAME QUESTION FOR THE CONSTRAINTS: "vegan cafe" now returns 21
+    tagged vegan cafés instead of every café. That is what the word means
+    and it is what he asked for, and it is still a change to a working
+    query.
+
+F4  WO-70's rarity ranking changes the order of every partial search on
+    every shelf. It is on. I can put it behind a flag if you would rather
+    see both.
+
+F5  FIVE NEAREST, NOT NINE, and "More like this" retired — §3 above.
+
+F6  194 NEW PINS from the improved gazetteer, and beyond them: the 1,507
+    OSM temple elements sitting in cache/ against 892 unpinned wats (your
+    F7 from 9/5), and whether ±3 km is still the right publish line.
+
+F7  1.5 MB BEFORE THE FIRST ANSWER is still true and still untouched. The
+    index grew 200 KB today (the relations that make the chips possible)
+    and the whole catalogue is still shipped to answer one question about
+    one street corner. That is the biggest thing left and it is its own
+    work order.
+
+==============================================================================
+8. WHAT I DID NOT TOUCH
+==============================================================================
+
+  · searchcore.js — the shared matcher, with a Python twin and a parity
+    test across three sites. Everything above is in build.py's caller.
+  · /api/v1 keys — frozen, and the publish gate still passes.
+  · zzzzqqq, the one pre-existing red case in test_search.py. The handover
+    says it was red on the live index before any of this, and that
+    loosening thresholds is a fleet-wide change with its own eval. Agreed.
+  · here_layer.py — 46 KB, still dark. It is the answer to "open the site
+    standing in the old city and just show me where I am", and it needs one
+    hook and a decision about the front door.

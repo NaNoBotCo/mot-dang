@@ -1,0 +1,276 @@
+CHANGING THE FUNDAMENTAL — from "has a counter" to "answers a question"
+Mot Dang · architecture proposal · 2026-09-06 · nothing built
+Companion to go/institutions (the problem). Counts from data/canonical + build.py as it stands.
+
+────────────────────────────────────────────────────────────────────────
+0. YOU ARE RIGHT, AND IT IS NOT A METAPHOR — IT IS THREE FUNCTIONS
+
+  The counter rule is not an attitude I found in the data. It is written in
+  build.py, in three gates, and each one is a line I can name:
+
+  GATE 1 — build.py:8088  place_has_substance(r)
+      "True if this listing offers a searcher something beyond a name pinned
+       to a map — a phone, LINE, hours, a live site, a photo, or an address."
+      Fail it and the page is noindex,follow.
+      → 10,449 of 24,059 records (43%) fail it today.
+      Every one of those seven tests is A WAY TO CONTACT A SELLER or a shop's
+      own opening time. An archive whose holding and access rule we knew
+      perfectly, with no phone, would be noindex. That is the rule stated
+      as code.
+
+  GATE 2 — build.py:6427  ANT_FIELDS, the nine ants
+      nameTh · nameEn · phone · LINE · hours · website · photo ·
+      owner-confirmed · recently-walked.
+      4 of 9 are a contact channel for a customer.
+      3 of 9 are a shop-shaped fact.
+      2 of 9 (the names) are not commerce-bound.
+      NO ant asks what a place HOLDS, who MAY USE it, on what TERMS, or
+      whose BODY it belongs to. So an institution can never score above 2/9
+      no matter how well we know it — and ant_rank feeds ranking and Gate 3.
+
+  GATE 3 — build.py:6555  held(r)
+      "A record with no pin and two facts or fewer: waiting, not published."
+      → 1,836 records carry needs-pin; ~1,805 are held out of the ranked
+      index entirely.
+      "Two facts" is counted in ants, so it means two SHOP facts.
+
+  Three gates, one rule, and the rule is: BE A BUSINESS OR BE QUIET.
+
+────────────────────────────────────────────────────────────────────────
+1. THE REPLACEMENT RULE
+
+      A place is ADMITTED when a source lets us say it exists and what it
+      is for.
+      A place is PUBLISHED when the record ANSWERS A QUESTION SOMEONE COULD
+      ASK OF THAT KIND OF PLACE.
+
+  One rule became two, and that split is the whole architecture. Today
+  admission and publication are the same test, and that test is a phone
+  number. Separate them and you can be as inclusive as you like at the door
+  without putting a single empty page in front of a reader.
+
+  The second half is the load the phone number was carrying, done properly:
+  "substance" stops meaning CAN I CONTACT IT and starts meaning DOES IT TELL
+  ME SOMETHING I CAME TO FIND OUT. For a noodle stall that is still hours
+  and a phone — nothing regresses. For a research library it is what it
+  holds and whether I may walk in. For a mosque, which committee and when
+  prayer is. For a foundation, what it does and for whom.
+
+  place_has_substance(r) → place_answers_something(r), and what counts as an
+  answer is read from the KIND of place, not from a fixed list of seven.
+
+────────────────────────────────────────────────────────────────────────
+2. FIVE CHANGES, IN DEPENDENCY ORDER
+
+  ① A SECOND AXIS: kind[]  — what a place IS, socially.
+     `cat` (28 keys) is a SHOPPING axis: food, hotel, cannabis, massage,
+     repair, realestate. It is fine at its job and I would not touch it.
+     Beside it, not instead of it:
+
+        kind: commerce · institution · congregation · civic · school · wat ·
+              infrastructure · land · memory · club
+
+     A record can carry both (`cat: [sights]`, `kind: [institution]`). Nothing
+     migrates; 24,059 records keep every field they have. The new axis is
+     what makes a kind-aware substance test possible at all — you cannot ask
+     "does this answer the question its kind invites" until the record says
+     what kind it is.
+
+  ② FIELDS THAT CAN HOLD A NON-COMMERCIAL FACT.
+     Today the schema can say brand, licenceNo, cuisine, watCode, students,
+     classrooms. It cannot say any of this:
+
+        holds[]      what it keeps        — manuscripts, microfilm, a burial roll
+        offers[]     what you can get     — (the tok-sen fix, already Phase 3)
+        serves[]     who it is for        — public / members / researchers /
+                                            a congregation / a nationality
+        access{}     who may use it, on what terms, by appointment, fee,
+                     languages, and an asOf DATE — mandatory, never inferred
+        parent       the body behind it   — EFEO Paris, CCT, MFA of X, D3360
+        ownWords     its own sentence, quoted and dated
+
+     Per-field provenance already exists and already generalises (94% of
+     records single-source, go/provenance). That is why this is safe: every
+     new field arrives carrying its source and its date. The blocker was
+     never trust. It was a fixed field list.
+
+  ③ ANTS THAT COUNT THE RIGHT THINGS.
+     The nine ants stay nine, but three of them become KIND-DEPENDENT slots.
+     A commerce record's slots are phone / hours / photo, as now. An
+     institution's are access / holds / parent. Same strip, same nine, same
+     visual grammar — a reader still sees how well we know a place, and now
+     an archive can be known WELL instead of known 2/9 forever.
+
+     This is the change that stops the demotion. Gates 1 and 3 both read
+     ants; fix the ants and both gates stop punishing the class by
+     construction.
+
+  ④ SOURCE GENRES AS FIRST-CLASS, EACH WITH A DENOMINATOR.
+     source_register.json has 18 entries and all 18 are a map, a licence or
+     a storefront. Add the genres, and add the property the crawl can never
+     give:
+
+        roster      — a list somebody maintains. THE denominator source.
+        literature  — footnotes, gazettes, annual reports, bibliographies.
+                      The only genre in which a HOLDING is ever stated.
+        field       — you walked past; a reader told us. (10 records today.)
+        inference   — a rule over what we already hold. (Proven: 73 records,
+                      four shelves, go/shelves.)
+
+     A roster hands you a number: "the consular list names N; we hold M."
+     Absence becomes a measured defect instead of a silence. That is the
+     silence-strain cure, and no amount of crawling produces it.
+
+  ⑤ PUBLICATION WITHOUT DILUTION — generalise the escape hatch.
+     The fear behind Gate 1 is real: admit 10,000 thin records and search
+     turns to mush. But the codebase already solved this once. held() keeps
+     a thin record out of the RANKED index while keeping its name in a small
+     name-exact file, "so somebody who types its NAME is not answered with
+     five other temples."
+
+     That is the correct shape and it should be the general one:
+        admit everything · rank by FITNESS FOR THE QUESTION ASKED ·
+        let name-exact always win · never delete a record for being thin.
+     A record that answers the asked question outranks a fat record that
+     does not, whatever its ant count. Then inclusiveness costs nothing at
+     the top of the results page, and Gate 1's blunt noindex can retire.
+
+────────────────────────────────────────────────────────────────────────
+3. WHAT MORE CRAWLING BUYS — AND WHAT IT DOES NOT
+
+  You said you are generous with crawling. Where that spends well and where
+  it burns, honestly:
+
+  DOES NOT PAY: re-running Overpass. OSM answers "what did a mapper walk
+  past". Another pass over Chiang Mai returns zero archives, zero mosques,
+  zero EFEOs. Harder crawling of the same genre returns the same genre.
+
+  PAYS, and these ARE crawls — of documents rather than of a map. Each is a
+  candidate, each needs MEASURING before a line is written (the
+  motdang-source-scout bot is exactly the vehicle):
+     · DBD juristic-person registry — มูลนิธิ and สมาคม are REGISTERED, the
+       way wats are. Already listed in source_register; never pulled. This
+       is the single biggest one and it has a denominator.
+     · MFA consular corps list — the honorary consuls.
+     · Islamic Committee of Chiang Mai / Chiang Rai — the mosque roster.
+     · Church of Christ in Thailand district rolls.
+     · MHESI research units; the university institute directories.
+     · National Archives branch list; the provincial culture office.
+     · สกร./กศน. district learning centres.
+     · Rotary D3360, Lions, and the clubs that publish their own rolls.
+  I am not promising what any of these yields. Measure, then decide.
+
+  THE MECHANISM BLOCKER, unchanged and measured: the keyless search endpoint
+  serves a bot a CAPTCHA, and I will not dress a script as a browser to get
+  past it. Facebook logged-out gave 0 of 5 known-good pages any fact beyond
+  og:title. If you want volume through the discovery path, the cost is a
+  keyed search API — Brave's free tier is 2,000 queries/month and is already
+  sitting in source_register.json as an unfunded line. That is a real fork
+  with a real price, and generosity is exactly what it needs.
+
+────────────────────────────────────────────────────────────────────────
+4. WHAT THIS COSTS AND WHAT COULD GO WRONG
+
+  · The index grows. Today's is 6.2 MB and already a known weight problem
+    (search.html fetches the whole thing). Admitting thousands more records
+    makes that worse before Phase 4's work makes it better. Real, and it
+    argues for doing ⑤ (fitness ranking) before the big roster pulls.
+  · A kind-dependent ant strip is more code in the hottest, most-read part
+    of build.py, and ant_bits is cached by id. Needs care, not courage.
+  · An access rule without a date is a lie with a shelf life. asOf must be
+    mandatory at the schema level, not by discipline.
+  · Some of these rosters will be PDFs, some will be a page that has not
+    changed since 2012, some will be behind a login. Expect a third of the
+    list in §3 to yield nothing, and do not write the fill path as if all of
+    them will land.
+  · Inclusiveness has an edge nobody has drawn yet: does a bus shelter get a
+    record? a shrine on a tree? a named soi? I think the answer is yes to all
+    three and the cost is borne entirely by ranking — but that is a call, not
+    a fact.
+
+────────────────────────────────────────────────────────────────────────
+5. THE DECISIONS — YOURS, NONE OF THEM MADE
+
+  H. THE RULE ITSELF. Adopt "admitted if it exists and has a purpose;
+     published if it answers a question of its kind"? Everything below hangs
+     on this one.
+  I. ORDER. My recommendation: ① kind[] → ③ ants → ⑤ fitness ranking →
+     ② fields → ④ rosters. That fixes the machine before pouring records
+     into it. The opposite order (rosters first) gets EFEO on the site this
+     week and lets it sit there noindex and unranked.
+  J. THE EDGE. Bus shelters, tree shrines, named sois, footbridges, the
+     public wells — in or out?
+  K. GATE 1's RETIREMENT. Does noindex go away entirely once fitness ranking
+     lands, or stay as a floor? (It was put there for a real reason: a
+     three-day-old domain's crawl budget.)
+  L. THE KEYED SEARCH API. Fund Brave (free tier, then paid) or keep
+     discovery hand-carried through the bots' own WebSearch?
+  M. FIRST ROSTER. One roster, measured end to end, to prove the path before
+     the other eight. DBD มูลนิธิ/สมาคม is my recommendation: registered,
+     numbered, has a denominator, and yields hundreds of records in a class
+     that currently holds 19.
+
+════════════════════════════════════════════════════════════════════════
+BUILT 2026-09-06 — H adopted, order as recommended. ① ③ ⑤ are on disk.
+
+  ① THE SECOND AXIS
+     data/curated/kinds.json — 10 kinds, 29 rules, each with a `why`.
+     kind_layer.py — derives `kind` at build time; nothing in data/canonical
+     is rewritten and `attrs.kind` (180 free-text trade glosses, here first)
+     is untouched. A curated record stating its own top-level `kind` wins.
+     Rules ACCUMULATE — the wat with a cremation ground is wat AND memory —
+     and the name rules read first, so a place NAMED ห้องสมุด is asked as an
+     institution even though it was filed under `school`.
+
+     commerce 16,914 · wat 2,739 · school 2,226 · civic 1,043 · land 711 ·
+     infrastructure 522 · memory 479 · institution 157 · club 74 ·
+     congregation 7 · UNPLACED 16 (all `sights` with no sub — a hill, a
+     village, a mini-golf; a review item, not a coin flip).
+
+     Congregation holding 7 is not a bug. It is the finding: the corpus knows
+     essentially no churches and no mosques at all. That is what ④ is for.
+
+  ③ THE NINE ANTS, RE-CUT
+     Five universal (Thai name · English name · photo · owner-confirmed ·
+     recently walked) + four the kind's own, from kinds.json.
+       commerce  phone · LINE · hours · website          ← byte-identical
+       wat       sect · founding year · register name · hours
+       school    levels · sector · size · phone
+       institution  holds · access · parent · website
+       congregation parent · when it gathers · access · website
+       memory    from when · who keeps it · whose it is · when you may go
+     Nine is still nine (ก้าว) and the test refuses any kind that drifts.
+     The gap drawer asks for the kind's own missing facts too — it used to
+     ask all 24,000 records for a phone, a LINE and a website, which on a
+     cemetery is the counter rule speaking to the reader in their own language.
+
+  ⑤ THE SECOND GATE
+     place_has_substance() now reads kind_layer.answered(). Silence is still
+     silence — a name-only record fails, and the test proves it — but it is
+     the right silence.
+       indexable                    13,630 → 14,286   (+656)
+       held out of the ranked index  1,708 →    677   (−1,031)
+     Of the rescued, 564 are wats the ONAB register describes fully and that
+     were noindex for want of a telephone.
+     The search index carries `kd` (omitted for commerce, which is the default
+     reading and 70% of the corpus); the API record carries `asked`, the
+     bilingual sentence saying what this kind of place is asked for.
+
+  TESTS  tests/test_kinds.py — taxonomy complete and bilingual · every rule
+     claims something · no answer-set or ant slot promises evidence the corpus
+     cannot hold · the unplaced residue is capped at 40 and watched · commerce
+     keeps the historic nine in order · a library is asked as an institution ·
+     the rescue and the un-holding are asserted as numbers · and a name-only
+     record STILL FAILS, so the gate is a gate and not a rubber stamp.
+     PASS. test_facets, test_provenance, test_answer_shaped also pass.
+     test_search and test_publish_gate cannot run yet — a build has held
+     cache/build.lock since 10:05 and docs/ is mid-rewrite.
+
+  NOT BUILT, AND STILL YOURS
+     J the edge (bus shelters, tree shrines, named sois, wells)
+     K whether noindex retires entirely once fitness ranking lands
+     L the keyed search API
+     M the first roster — I recommend DBD มูลนิธิ/สมาคม
+     ② the fields (holds/access/parent/serves/ownWords) — the slots are cut
+       and the tests exempt them as `future`, so they land into a ready shape.
+     ④ the rosters.

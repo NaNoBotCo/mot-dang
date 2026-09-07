@@ -440,8 +440,8 @@ def emit(g, data):
 
     B = []
     B.append('<div class="cv-wrap">')
-    B.append("<h1>" + bi("ไม้แกะสลักบ้านถวาย — หมู่บ้านที่แกะไม้ ใต้เมืองลงไป 15 กิโลเมตร",
-                         "Ban Tawai — the carving village, fifteen kilometres south")
+    B.append("<h1>" + bi("ไม้แกะสลักบ้านถวาย — หมู่บ้านที่แกะไม้",
+                         "Ban Tawai — the carving village")
              + "</h1>")
     B.append("<p class=lead>" + bi(
         "หมู่บ้านที่คนทั้งหมู่บ้านทำงานไม้ อยู่ที่หมู่ 2 ตำบลขุนคง อำเภอหางดง "
@@ -474,8 +474,8 @@ def emit(g, data):
         "name says it carves." % n_near_says, raw=True) + "</p>")
     B.append("<p>" + bi(
         "และบันทึกเดียวที่มีคำว่า “บ้านถวาย” อยู่ในชื่อ ถูกครอว์ลเก็บมาเป็น “ตลาดสด” — "
-        "OSM ให้ป้ายหลักได้ป้ายเดียว คนแท็กเห็นตลาดก็แท็กตลาด หน้านี้ไม่ได้แก้ข้อเท็จจริงของใคร "
-        "แต่เพิ่มชั้นหัตถกรรมให้บันทึกนั้นผ่าน shelves.json แบบเดียวกับที่ Hub 53 "
+        "OSM ให้ป้ายหลักได้ป้ายเดียว คนแท็กเห็นตลาดก็แท็กตลาด "
+        "ชั้นหัตถกรรมจึงเพิ่มให้บันทึกนั้นผ่าน shelves.json แบบเดียวกับที่ Hub 53 "
         "ได้ชั้นโคเวิร์กกิ้งโดยไม่หลุดจากชั้นที่พัก",
         "And the one record whose name says บ้านถวาย was crawled as a fresh market. OSM "
         "allows a place one primary tag, so a mapper who saw a market tagged a market. "
@@ -579,7 +579,7 @@ def emit(g, data):
 
     # ── the chain of hands ────────────────────────────────────────────────
     B.append('<h2 id="hands">' + bi("ไม้หนึ่งชิ้นผ่านมือกี่คู่",
-                                    "How many pairs of hands one piece passes") + "</h2>")
+                                    "How many hands one piece passes") + "</h2>")
     B.append('<div class="cv-fig">' + _chain_svg(reg, esc, bi_text) + "</div>")
     B.append('<p class="cv-figcap">' + bi(
         "แต่ละกล่องคือคนละคน ไม่ใช่คนละขั้นตอนของคนเดียว — และนั่นคือเหตุผลที่ราคาที่ปลายทาง "
@@ -596,7 +596,7 @@ def emit(g, data):
         "ที่ลิงก์สุดท้ายมีตัวเลขจริงอยู่ชุดหนึ่ง และเป็นของปี 2549 ไม่ใช่ของวันนี้: "
         "ห้องเช่า 3×4 เมตรริมทางเข้าคิดกับพ่อค้าต่างถิ่นหมื่นกว่าบาท คิดกับคนในชุมชนราวพันบาท "
         "และมังกรแกะที่ร้านชุมชนขาย 800 บาท ไปโผล่ที่ร้านหน้า 3,000 บาท — "
-        "หน้านี้ไม่ได้บอกว่าใครควรได้ขายของ แต่บอกว่าคุณกำลังยืนอยู่ตรงไหนของสายพาน",
+        "ตัวเลขชุดนี้บอกว่าคุณกำลังยืนอยู่ตรงไหนของสายพาน",
         "There is one set of real numbers on that last link, and they are from 2006, not "
         "from today: a 3×4 m room on the approach let at over 10,000 baht to an incoming "
         "trader and about 1,000 to a villager, and a carved dragon that was 800 baht in a "

@@ -1,0 +1,268 @@
+MOT DANG — WHY THE SITE IS FRUSTRATING TO USE
+Diagnosis, 2026-09-07, after Nan's phone test of motdang.net
+"For 1-2 results, you shouldn't have to long-scroll. Never."
+"Maybe search isn't even the right tool."
+"Human searches will always be inexact... We should be anticipating user
+ intent better throughout. And not showing extraneous anything."
+
+Everything below is measured, not asserted. Where a number is from the live
+site it says so; where it is from the fixed-but-undeployed build it says so.
+
+==============================================================================
+0. FIRST, THE THING THAT MAKES YOUR TEST UNFAIR TO YOURSELF
+==============================================================================
+
+The screenshot you took is motdang.net as it stands right now, and it has
+NONE of the last two days' work in it. Verified this morning:
+
+    https://motdang.net/data/search_landmarks.json   →  404
+    https://motdang.net/md.js  contains "measured from"  →  0 matches
+
+So your phone downloaded 1.5 MB, ran the old script, and showed you elephants
+for "Motorcycle parking near taphae" — the same bug Michael reported, because
+nothing has been deployed. WO-67 and WO-68 are built and verified in a scratch
+tree and are still waiting on your go.
+
+That said: I re-ran your exact query against the FIXED build, on a 375 px
+phone viewport, and it is better and still not good. Everything from §1 down
+is about the fixed build, because there is no point diagnosing the version we
+have already replaced.
+
+==============================================================================
+1. THE PAGE IS 98% FURNITURE
+==============================================================================
+
+One-result search ("rajavej hospital"), 375 × 812 phone, measured in the page:
+
+    the answer                27 px
+    the whole document     1,484 px
+    the answer is           1.8% of it
+
+    what the other 1,457 px are:
+      site header + language buttons + search box   140 px
+      the shortcut grid (map, plan, my page, …)     344 px
+      the services bar                               26 px
+      the footer                                    558 px
+
+Your rule — for 1-2 results you should never have to long-scroll — is not
+broken by the results. It is broken by everything wrapped around them. The
+grid and the services bar are already MOVED below the results when there is a
+query, which was somebody's fix for this, and it is not enough: they still sit
+between the answer and the end of the page, and the footer is another 558 px.
+
+For a one-result answer the page should end after the answer.
+
+==============================================================================
+2. 1.5 MB BEFORE THE FIRST CHARACTER OF AN ANSWER
+==============================================================================
+
+What a phone must fetch before search.html can show anything at all:
+
+    data/index.json              9,495,083 raw    1,492,090 gzipped
+    md.js                          216,238          77,493
+    search_segdict.txt             383,264          79,013
+    search_thesaurus.json          151,064          40,134
+    search_panels.json             103,181          26,625
+    style.css                      145,427          38,137
+    ---------------------------------------------------------
+    total                       10,405,151        1,727,846
+
+25,179 rows — the ENTIRE catalogue of both provinces — to answer one question
+about one street corner. On the office wifi it is 110 ms and invisible. On
+Thai mobile data it is the whole experience, and the build's own comments
+already say what that costs: the index at 6.2 MB was reckoned at ~36 seconds
+on a 1.5 Mbps link. It is now 9.5 MB.
+
+Every question, however small, pays for every place we hold.
+
+==============================================================================
+3. THE TAP AFTER A RESULT USUALLY REVEALS NOTHING
+==============================================================================
+
+A result row is a link. The link costs another page — ~47 KB, ~12.5 KB
+gzipped. What is on the other side, for the 1,796 car parks:
+
+    have a phone number             0
+    have opening hours              2
+    say whether they cost         163   (9%)
+    say who may park there        303   (17%)
+    say nothing beyond the pin  1,214   (68%)
+
+So for two thirds of them the row already contains everything we know, and
+the link is a promise of more that is not there. A reader taps, waits, reads
+the same name back, and taps return. Three actions, no information.
+
+==============================================================================
+4. THE SAME QUESTION, NINE WAYS, NINE DIFFERENT ANSWERS
+==============================================================================
+
+One intent — where do I leave a motorbike near Tha Phae Gate — put to the
+fixed build in the ways a person actually types it:
+
+  query                                              found   first result
+  ----------------------------------------------------------------------
+  parking thapae gate                                1,796   car park,   80 m  ✅
+  somewhere to park near tha phae                    1,981   car park,  100 m  ✅
+  จอดรถ ท่าแพ                                            38   street-side,460 m  ~
+  Motorcycle parking near taphae   (what you typed)    134   moto bay,  810 m  ~
+  motorcyle parking taphae         (a typo)            134   moto bay,  810 m  ~
+  ที่จอดมอเตอร์ไซค์ ท่าแพ                                133   moto bay,  810 m  ~
+  where can i park my motorbike near tha phae gate       9   a lot named
+                                                             ชาวสวนยางพารา    ✗
+  park my bike tha phae                                 20   "Bike Park", 6 km ✗
+  moto parking taphae                                    1   a shop,     4.6 km ✗
+
+The nearest car park to Tha Phae Gate is 80 metres away. Four of these nine
+phrasings never show it. One returns a single shop 4.6 km away. The reader has
+no way to know which phrasing is the magic one, and no reason to believe the
+site holds anything better than what it just showed them.
+
+This is the systemic fault, and §5 is why it happens.
+
+==============================================================================
+5. THE SEVEN CAUSES
+==============================================================================
+
+CAUSE 1 — THE WORDS ARE MATCHED, THE INTENT IS NOT.
+  "motorcycle" is compared as TEXT against names. Rows literally named
+  ที่จอดมอเตอร์ไซค์ match; the car park 80 m away does not, because its name
+  does not contain the word. **Asking the narrower question returns the worse
+  answer.** A person who says "motorbike" has told us something useful and we
+  punish them for it.
+
+CAUSE 2 — A VOCABULARY GAP FAILS SILENTLY.
+  "moto" is not in the thesaurus, so "moto parking taphae" matched one shop
+  and reported it with total confidence. Nothing on the page says "we did not
+  understand one of your words." Compare "parking", which IS understood.
+
+CAUSE 3 — EXTRA WORDS ARE TREATED AS REQUIREMENTS.
+  "where can i park my motorbike near tha phae gate" has eleven words. The
+  engine wants rows matching all of them, fails, and falls back to whatever
+  matched most — nine odd rows. A sentence is punished for being a sentence,
+  which is how humans ask.
+
+CAUSE 4 — THE COUNT IS THE HEADLINE, AND IT ANSWERS NOTHING.
+  "Search results 134". For "where is the nearest X" the honest headline is
+  the first one, its distance, and whether it costs. 134 is a boast about the
+  catalogue, not an answer to the question.
+
+CAUSE 5 — THE ROWS ARE IDENTICAL, AND THAT ONE IS MINE.
+  1,796 car parks carry 1,039 distinct names; 87 of them read exactly
+  "ที่จอดรถ · ย่านแม่แตง-เชียงดาว". Under a distance sort I strip the bearing
+  off the name so the distance is not printed twice — which leaves 134 rows
+  all reading "ที่จอดมอเตอร์ไซค์ Motorcycle parking", differing only in the
+  metres. I turned a wall of elephants into a wall of identical car parks.
+  A row has to carry the thing that tells it from its neighbour: the street,
+  the landmark, the fee, the capacity — whichever we actually hold.
+
+CAUSE 6 — THE DEFAULT LANGUAGE MODE PRINTS EVERYTHING TWICE.
+  ไทย + EN is the default. 6,788 rows (26%) carry an English name distinct
+  from the Thai and print both. My distance chip renders "810 ม. · 810 m".
+  Every row is longer than it needs to be for a reader who reads either
+  language, and on a phone that is the difference between three answers on
+  screen and six.
+
+CAUSE 7 — THE PAGE HAS NO IDEA HOW MANY ANSWERS IT IS SHOWING.
+  It lays out 1 result and 200 results identically: same header, same
+  furniture, same footer, same 200-row cap. Nothing anywhere asks "is this a
+  short answer or a long list", which is the question that decides the whole
+  layout.
+
+==============================================================================
+6. "MAYBE SEARCH ISN'T EVEN THE RIGHT TOOL." — NO, IT IS NOT
+==============================================================================
+
+For this class of question you are right, and the evidence is in the data.
+
+"Where can I park near Tha Phae Gate" is not a text query. It is three
+structured facts:
+
+    WHAT    a kind of place        (parking, and it has a shelf)
+    WHERE   a point                (a landmark, and we hold 68 of them)
+    HOW FAR a radius               (walking distance, unstated but obvious)
+
+A text box captures none of the three. It gets a string, and we spend the
+whole pipeline trying to recover the three facts from it — which is exactly
+what WO-68 started doing (lift the landmark out, lift the constraint out) and
+why the good phrasings suddenly worked. The lesson of that work is not "the
+search got better", it is **the search only works when it stops being a
+search.**
+
+And the site can already do this. 24,019 of 25,179 records (95%) carry a pin.
+The instruments exist: the map, "ห้องน้ำใกล้ฉัน · Toilets near you", "open
+now", "plan a route". The one thing missing is that the search box does not
+know to hand the question over to them.
+
+So: keep the box — it is where people start, and it should be. Change what it
+DOES with a where-question. A query that resolves to a kind and a place should
+not render a list of 134 links; it should render the answer:
+
+    ที่จอดรถ ใกล้ประตูท่าแพ · Parking near Tha Phae Gate
+
+    ลานจอดรถ            100 ม.   ฟรี · free · 18 คัน
+    ที่จอดรถ             80 ม.   ลูกค้าเท่านั้น · customers only
+    อาคารจอดรถ          220 ม.   อาคาร · multi-storey
+                                       [ แผนที่ · on the map ]
+    ทั้งหมด 1,796 แห่ง · all 1,796
+
+Three answers, the fact that decides between them, and a map. No 200 rows, no
+shelf headings, no count as a headline, and nothing below it.
+
+==============================================================================
+7. WHAT I PROPOSE — SYSTEMIC, IN THE ORDER THAT PAYS
+==============================================================================
+
+P1. THE PAGE FITS THE ANSWER.  (small, and it is your standing rule)
+    Under about four results, nothing renders below them — the shortcut grid,
+    the services bar and the footer all sit out. One result should be one
+    screen with no scroll at all. Today it is 27 px of answer in 1,484 px.
+
+P2. ONE LANGUAGE PER ROW.  (small)
+    In ไทย+EN the row keeps both NAMES, because the two names are two facts,
+    but never doubles a unit or a computed word: "810 ม." or "810 m", not
+    both. Cuts every distance-sorted row by a third.
+
+P3. A ROW CARRIES WHAT TELLS IT APART.  (medium — undoes Cause 5, which I made)
+    Fee, capacity, structure, access, the street — whichever we hold, in the
+    row, chosen by what the reader asked. A list of identical names is not a
+    list.
+
+P4. INTENT BEFORE WORDS.  (medium, and this is the systemic one)
+    Resolve the query to (kind, place, constraints) FIRST — the landmark lift
+    and the constraint lift already do two thirds of this — then use the
+    leftover words as a name filter rather than as requirements. Effects:
+      · a sentence stops being punished for its extra words;
+      · "motorbike" ranks dedicated bays first and STILL shows the car park
+        80 m away, instead of hiding it;
+      · a word we did not understand is SAID, not swallowed.
+
+P5. THE WHERE-QUESTION GETS THE WHERE-ANSWER.  (larger)
+    When kind + place both resolve, render the short answer above, not a
+    results list. This is where "search isn't the right tool" becomes code.
+
+P6. STOP SHIPPING THE CATALOGUE TO ANSWER ONE QUESTION.  (larger)
+    1.5 MB before the first character. A per-shelf index, or a small
+    name-and-pin index with the rest fetched on demand, is the difference
+    between this site being usable on Thai mobile data and not.
+
+P7. SAY WHEN THE ANSWER IS THIN.
+    2 of 1,796 car parks have opening hours; 0 have a phone. A reader
+    deciding between two lots deserves to be told that nobody has recorded
+    which is open, rather than tapping through to find out twice.
+
+==============================================================================
+8. WHAT IS YOURS
+==============================================================================
+
+  · DEPLOY, or not. Two days of work sits in a scratch tree. Everything in
+    §1–§7 is about the fixed build; the live site is still worse than all of
+    it. Nothing goes out without your word.
+  · P1 and P2 are your rules already stated as rules, and I will do them on
+    your go without further argument.
+  · P3 and P4 change how ranking behaves for every shelf, not just parking.
+    That is a real change and it should be your decision, not mine.
+  · P5 and P6 are each their own work order. P6 in particular is a rebuild of
+    how the site serves data, and it is the one that decides whether this is
+    pleasant on a phone in Thailand.
+  · I have not touched any of P1–P7 yet. This is a diagnosis, and you asked
+    for the diagnosis.

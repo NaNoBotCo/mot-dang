@@ -1,0 +1,1784 @@
+{
+ "_readme": [
+  "WO-74 — the dress-hire shelf. Asked by Nan 2026-09-07 off a search for",
+  "\"thai clothing rentals photoshoot\" that returned som tam, noodles and a",
+  "pharmacy chain, with the line: I'm pretty sure the information is",
+  "available to us, but tags and discoverability not there.",
+  "",
+  "It was available. WO-49 read all 38 of CMHY's rental houses on 2026-08-31",
+  "into data/curated/tailor.json — GPS, phone, hashtags, the directory's own",
+  "last-updated date — and 4 of them became records. The other 34 sat in a",
+  "research file no page reads. This file admits them, on a shelf of their",
+  "own, with the English words that make them reachable.",
+  "",
+  "FOUR TRADES, ONE ENGLISH PHRASE. A gown-and-uniform house is not an",
+  "answer to a Lanna-costume question and a cabaret costumier is not an",
+  "answer to a wedding, so the strands are kept apart and every shop is",
+  "assigned from its OWN hashtags.",
+  "",
+  "The price bands below are quoted to their sources and unverified — nobody here has hired a costume. The",
+  "nine shops CMHY marks 'may have closed or moved' are carried with that",
+  "sentence attached, not deleted: a directory note is not a closure."
+ ],
+ "asked_by": "Nan, 2026-09-07",
+ "built": "2026-09-07",
+ "corpus": {
+  "cmhy_rental_cm": 38,
+  "read_on": "2026-08-31 (WO-49)",
+  "were_records_before_this": 4,
+  "records_added_here": 34,
+  "with_directory_gps": 38,
+  "with_a_phone": 27,
+  "directory_says_may_have_closed": 9,
+  "updated_2025_or_2026": 12,
+  "lanna_costume_photo_studios": 5,
+  "note_en": "The gap was never a gap in the corpus. Thirty-four shops with pins and phone numbers were unreachable by any search, on any shelf, in the API and on the map, because nothing had ever carried them out of a research file.",
+  "note_th": "ข้อมูลมีอยู่แล้ว ร้านเช่าชุด 34 ร้านพร้อมพิกัดและเบอร์โทรอยู่ในไฟล์วิจัย ไม่เคยถูกนำออกมาเป็นรายการ จึงค้นไม่เจอทั้งในเว็บ ในแผนที่ และใน API"
+ },
+ "why_the_search_failed": {
+  "query": "thai clothing rentals photoshoot",
+  "measured": "2026-09-07",
+  "words": [
+   {
+    "word": "thai",
+    "matched": 3321,
+    "note": "Noise, and worse than noise: ถ่าย ('to take a photograph') romanises to THAI under RTGS, so the reading of ถ่ายภาพ is 'Thai Phap' and every photo studio in the corpus matches the word 'thai' for a reason that has nothing to do with Thailand."
+   },
+   {
+    "word": "clothing",
+    "matched": 140,
+    "note": "The thesaurus has no group for `dress`. Ban Or Jao's English is 'Thai dress hire', so the reader's word never reached it."
+   },
+   {
+    "word": "rentals",
+    "matched": 164,
+    "note": "`rent`/`rental`/`hire`/`เช่า` ARE one thesaurus group — but the group is the CAR one, and every rental house in this file was off the shelf it would have ranked on."
+   },
+   {
+    "word": "photoshoot",
+    "matched": 0,
+    "note": "Zero in the corpus, zero in the thesaurus. The rarest word is the question (go/guitar-bug); here the rarest word was also the unanswerable one, so the AND collapsed and the page fell back to ranking on 'thai'."
+   }
+  ],
+  "thesaurus_gaps_found": [
+   "`dress` — no group at all",
+   "`costume` — no group at all, 2 records anywhere",
+   "`outfit` — no group at all",
+   "`photoshoot`, `photo session` — no group at all",
+   "ชุด (an outfit, a set) is grouped with `suite` and `unit` — a hotel word"
+  ]
+ },
+ "words": {
+  "note_en": "The gloss column is what makes a Thai-only tag findable in English. Before this file the four Lanna-costume studios carried ถ่ายภาพชุดล้านนา with NO gloss, so the index held the Thai and the reading 'Thai Phap Chutlanna' and nothing an English speaker would ever type.",
+  "list": [
+   {
+    "th": "เช่าชุด",
+    "en": "dress hire"
+   },
+   {
+    "th": "ชุดเช่า",
+    "en": "dress hire"
+   },
+   {
+    "th": "ร้านเช่าชุด",
+    "en": "dress hire shop"
+   },
+   {
+    "th": "ร้านชุดเช่า",
+    "en": "dress hire shop"
+   },
+   {
+    "th": "เช่าชุดไทย",
+    "en": "Thai dress hire"
+   },
+   {
+    "th": "ชุดไทยเช่า",
+    "en": "Thai dress hire"
+   },
+   {
+    "th": "เช่าชุดล้านนา",
+    "en": "Lanna dress hire"
+   },
+   {
+    "th": "ชุดไทย",
+    "en": "Thai formal dress"
+   },
+   {
+    "th": "ชุดล้านนา",
+    "en": "Lanna dress"
+   },
+   {
+    "th": "ชุดพื้นเมือง",
+    "en": "northern local dress"
+   },
+   {
+    "th": "ชุดลูกทุ่ง",
+    "en": "luk thung stage dress"
+   },
+   {
+    "th": "ชุดราตรี",
+    "en": "evening gown"
+   },
+   {
+    "th": "เช่าชุดราตรี",
+    "en": "evening gown hire"
+   },
+   {
+    "th": "บริการเช่าชุดราตรี",
+    "en": "evening gown hire"
+   },
+   {
+    "th": "ชุดราตรีเช่า",
+    "en": "evening gown hire"
+   },
+   {
+    "th": "ราตรี",
+    "en": "evening gown"
+   },
+   {
+    "th": "ชุดออกงาน",
+    "en": "occasion wear"
+   },
+   {
+    "th": "ชุดแต่งงาน",
+    "en": "wedding dress"
+   },
+   {
+    "th": "เช่าชุดแต่งงาน",
+    "en": "wedding dress hire"
+   },
+   {
+    "th": "ให้เช่าชุดแต่งงาน",
+    "en": "wedding dress hire"
+   },
+   {
+    "th": "เช่าตัดชุดแต่งงาน",
+    "en": "wedding dress, hire or made"
+   },
+   {
+    "th": "ชุดพรีเวดดิ้ง",
+    "en": "pre-wedding shoot dress"
+   },
+   {
+    "th": "ชุดเพื่อนเจ้าสาว",
+    "en": "bridesmaid dress"
+   },
+   {
+    "th": "ชุดเพื่อเจ้าสาว",
+    "en": "bridesmaid dress"
+   },
+   {
+    "th": "เช่าชุดเพื่อนเจ้าสาว",
+    "en": "bridesmaid dress hire"
+   },
+   {
+    "th": "ชุดเพื่อนเจ้าบ่าว",
+    "en": "groomsman suit"
+   },
+   {
+    "th": "อุปกรณ์งานแต่งงาน",
+    "en": "wedding equipment"
+   },
+   {
+    "th": "ตั่งรดน้ำสังข์",
+    "en": "the water-pouring dais"
+   },
+   {
+    "th": "จัดงานแต่ง",
+    "en": "wedding organising"
+   },
+   {
+    "th": "ชุดครุย",
+    "en": "academic gown"
+   },
+   {
+    "th": "ตัดชุดครุย",
+    "en": "academic gowns, made"
+   },
+   {
+    "th": "ชุดข้าราชการ",
+    "en": "civil-service uniform"
+   },
+   {
+    "th": "ชุดราชการ",
+    "en": "civil-service uniform"
+   },
+   {
+    "th": "ชุดสูท",
+    "en": "suit"
+   },
+   {
+    "th": "สูท",
+    "en": "suit"
+   },
+   {
+    "th": "เช่าชุดสูท",
+    "en": "suit hire"
+   },
+   {
+    "th": "ร้านเช่าสูท",
+    "en": "suit hire shop"
+   },
+   {
+    "th": "ขายสูท",
+    "en": "sells suits"
+   },
+   {
+    "th": "ตัดสูท",
+    "en": "suits, made"
+   },
+   {
+    "th": "ร้านตัดสูท",
+    "en": "suit tailor"
+   },
+   {
+    "th": "ร้านสูท",
+    "en": "suit shop"
+   },
+   {
+    "th": "ใช้เช่าชุดทักซิโด",
+    "en": "tuxedo hire"
+   },
+   {
+    "th": "ให้เช่าชุดเดรส",
+    "en": "dress hire"
+   },
+   {
+    "th": "ชุดแฟนซี",
+    "en": "fancy dress"
+   },
+   {
+    "th": "ร้านเช่าชุดแฟนซี",
+    "en": "fancy dress hire shop"
+   },
+   {
+    "th": "เช่าชุดแฟนตาซี",
+    "en": "fancy dress hire"
+   },
+   {
+    "th": "ชุดการแสดง",
+    "en": "stage and performance dress"
+   },
+   {
+    "th": "ชุดเจ้าหญิง",
+    "en": "princess costume"
+   },
+   {
+    "th": "ชุดเจ้าชาย",
+    "en": "prince costume"
+   },
+   {
+    "th": "ชุดหลีด",
+    "en": "cheerleader kit"
+   },
+   {
+    "th": "ชุดลีดเดอร์",
+    "en": "cheerleader kit"
+   },
+   {
+    "th": "เชียร์ลึดเดอร์",
+    "en": "cheerleader kit"
+   },
+   {
+    "th": "เช่าชุดพรอม",
+    "en": "prom dress hire"
+   },
+   {
+    "th": "เช่าชุดงานพรอม",
+    "en": "prom dress hire"
+   },
+   {
+    "th": "งานพรอม",
+    "en": "prom"
+   },
+   {
+    "th": "รับจัดขบวนกีฬาสี",
+    "en": "sports-day parade outfitting"
+   },
+   {
+    "th": "รับเหมาขบวน",
+    "en": "parade outfitting, whole"
+   },
+   {
+    "th": "จัดขบวนแห่",
+    "en": "procession organising"
+   },
+   {
+    "th": "ชุดผู้หญิงเช่า",
+    "en": "women's dress hire"
+   },
+   {
+    "th": "ชุดสตรีเช่า",
+    "en": "women's dress hire"
+   },
+   {
+    "th": "เครื่องประดับ",
+    "en": "jewellery"
+   },
+   {
+    "th": "เครื่องประดับเช่า",
+    "en": "jewellery hire"
+   },
+   {
+    "th": "เชาเครื่องประดับ",
+    "en": "jewellery hire"
+   },
+   {
+    "th": "รับแต่งหน้า",
+    "en": "make-up done"
+   },
+   {
+    "th": "แต่งหน้าเจ้าสาว",
+    "en": "bridal make-up"
+   },
+   {
+    "th": "ช่างแต่งหน้า",
+    "en": "make-up artist"
+   },
+   {
+    "th": "ช่างถ่ายภาพ",
+    "en": "photographer"
+   },
+   {
+    "th": "สตูดิโอถ่ายภาพ",
+    "en": "photo studio"
+   },
+   {
+    "th": "ออกแบบทรงผม",
+    "en": "hair design"
+   },
+   {
+    "th": "สระไดร์",
+    "en": "wash and blow-dry"
+   },
+   {
+    "th": "ออกแบบท่าเต้น",
+    "en": "choreography"
+   },
+   {
+    "th": "ออกแบบเสื้อผ้า",
+    "en": "clothing design"
+   },
+   {
+    "th": "สอนรำไทย",
+    "en": "teaches Thai dance"
+   },
+   {
+    "th": "รำไทย",
+    "en": "Thai dance"
+   },
+   {
+    "th": "สอนดนตรีไทย",
+    "en": "teaches Thai music"
+   },
+   {
+    "th": "เสื้อผ้าแฟชั่น",
+    "en": "fashion clothing"
+   },
+   {
+    "th": "เสื้อผ้าสตรี",
+    "en": "women's clothing"
+   },
+   {
+    "th": "เสื้อผ้าผู้หญิง",
+    "en": "women's clothing"
+   },
+   {
+    "th": "ถ่ายภาพชุดล้านนา",
+    "en": "photographed in Lanna dress"
+   },
+   {
+    "th": "ถ่ายรูปชุดไทย",
+    "en": "photographed in Thai dress"
+   },
+   {
+    "th": "ถ่ายภาพล้านนา",
+    "en": "Lanna photography"
+   },
+   {
+    "th": "ถ่ายภาพย้อนยุค",
+    "en": "period photography"
+   },
+   {
+    "th": "ถ่ายภาพรูปครอบครัว",
+    "en": "family portraits"
+   },
+   {
+    "th": "ถ่ายรูปครอบครัว",
+    "en": "family portraits"
+   },
+   {
+    "th": "ถ่ายภาพหมู่คณะ",
+    "en": "group portraits"
+   },
+   {
+    "th": "ถ่ายภาพแต่งงาน",
+    "en": "wedding photography"
+   },
+   {
+    "th": "ถ่ายภาพรูปชุดถ่ายภาพข้าราชการ",
+    "en": "civil-service uniform portraits"
+   },
+   {
+    "th": "ถ่ายรูปชุดราชการ",
+    "en": "civil-service uniform portraits"
+   }
+  ]
+ },
+ "strands": [
+  {
+   "key": "thai-lanna",
+   "th": "ชุดไทย · ชุดล้านนา",
+   "en": "Thai and Lanna dress",
+   "n": 10
+  },
+  {
+   "key": "bridal-evening",
+   "th": "ชุดแต่งงาน · ชุดราตรี",
+   "en": "Bridal and evening",
+   "n": 19
+  },
+  {
+   "key": "gown-uniform",
+   "th": "ชุดครุย · ชุดข้าราชการ · สูท",
+   "en": "Gowns, uniform and suits",
+   "n": 7
+  },
+  {
+   "key": "fancy-stage",
+   "th": "ชุดแฟนซี · ชุดการแสดง",
+   "en": "Fancy dress and stage",
+   "n": 9
+  }
+ ],
+ "shops": [
+  {
+   "name": "ร้านเดอะเกร็ท (สาขาเชียงใหม่)",
+   "strands": [
+    "gown-uniform"
+   ],
+   "tags": [
+    "เช่าชุด",
+    "ตัดชุดครุย",
+    "ชุดราชการ"
+   ],
+   "tagsEn": [
+    "dress hire",
+    "academic gowns, made",
+    "civil-service uniform"
+   ],
+   "tel": [
+    "081-904-1249"
+   ],
+   "addr": "เลขที่ 5  ซอย 3 ถนนนิมมานเหมินทร์ ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+   "gps": [
+    18.7992021,
+    98.9681824
+   ],
+   "src": "https://www.cmhy.city/place/13237-The-Great-Chiangmai",
+   "cmhyUpdated": null,
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-the-great-cm"
+  },
+  {
+   "name": "นำเทเลอร์ 1991",
+   "strands": [
+    "gown-uniform"
+   ],
+   "tags": [
+    "ชุดครุย",
+    "ชุดข้าราชการ",
+    "ชุดสูท"
+   ],
+   "tagsEn": [
+    "academic gown",
+    "civil-service uniform",
+    "suit"
+   ],
+   "tel": [],
+   "addr": "125/5 ถนนราชภาคินัย ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+   "gps": [
+    18.788891,
+    98.990067
+   ],
+   "src": "https://www.cmhy.city/place/11176-Num-Tailor-1991",
+   "cmhyUpdated": "2017-07-15",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-num-tailor-1991"
+  },
+  {
+   "name": "แฟนซี เบาเบา",
+   "strands": [
+    "fancy-stage"
+   ],
+   "tags": [
+    "เช่าชุด",
+    "ชุดแฟนซี"
+   ],
+   "tagsEn": [
+    "dress hire",
+    "fancy dress"
+   ],
+   "tel": [
+    "081-288-8411",
+    "0812888411"
+   ],
+   "addr": "ถนนสันติสุข ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.8035777,
+    98.9726988
+   ],
+   "src": "https://www.cmhy.city/place/20991-Fancy-Bao-Bao",
+   "cmhyUpdated": "2021-12-09",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-20991"
+  },
+  {
+   "name": "เนาวรัตน์ชุดไทย",
+   "strands": [
+    "thai-lanna"
+   ],
+   "tags": [
+    "ชุดเช่า",
+    "ชุดไทยเช่า",
+    "ชุดไทย"
+   ],
+   "tagsEn": [
+    "dress hire",
+    "Thai dress hire",
+    "Thai formal dress"
+   ],
+   "tel": [
+    "081-881-8313"
+   ],
+   "addr": "ถนนนันทาราม ตำบลหายยา อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+   "gps": [
+    18.7751794,
+    98.9833018
+   ],
+   "src": "https://www.cmhy.city/place/1894-Nawarat-Thai-dress",
+   "cmhyUpdated": "2025-08-06",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-1894"
+  },
+  {
+   "name": "เดอะ การ์เด้น ชุดเช่า",
+   "strands": [
+    "bridal-evening",
+    "gown-uniform"
+   ],
+   "tags": [
+    "ชุดแต่งงาน",
+    "เช่าตัดชุดแต่งงาน",
+    "สูท"
+   ],
+   "tagsEn": [
+    "wedding dress",
+    "wedding dress, hire or made",
+    "suit"
+   ],
+   "tel": [
+    "095-682-2265",
+    "0956822265"
+   ],
+   "addr": "หมู่บ้านกาญจนกนก19 ถนนมหิดล [1141] ตำบลช้างคลาน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+   "gps": [
+    18.7683723,
+    98.994048
+   ],
+   "src": "https://www.cmhy.city/place/11578-The-Garden-rental-shop",
+   "cmhyUpdated": "2022-02-12",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-11578"
+  },
+  {
+   "name": "อ๊อดชุดไทยเชียงใหม่​ by​ aod",
+   "strands": [
+    "thai-lanna"
+   ],
+   "tags": [
+    "เช่าชุดไทย",
+    "ชุดเช่า",
+    "เช่าชุดล้านนา"
+   ],
+   "tagsEn": [
+    "Thai dress hire",
+    "dress hire",
+    "Lanna dress hire"
+   ],
+   "tel": [
+    "094-830-8264"
+   ],
+   "addr": "ถนนสามล้าน ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+   "gps": [
+    18.7879458,
+    98.9802296
+   ],
+   "src": "https://www.cmhy.city/place/5874-Aod-thai-dress",
+   "cmhyUpdated": "2023-05-07",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-5874"
+  },
+  {
+   "name": "ร้านเช่าชุดพีคอเลคชั่นสาขาอาเขต(สาขาอาเขต)",
+   "strands": [
+    "fancy-stage"
+   ],
+   "tags": [
+    "ชุดการแสดง",
+    "ชุดหลีด",
+    "ชุดลีดเดอร์"
+   ],
+   "tagsEn": [
+    "stage and performance dress",
+    "cheerleader kit",
+    "cheerleader kit"
+   ],
+   "tel": [
+    "096-554-3514",
+    "096 554 3514"
+   ],
+   "addr": "อาเขตเชียงใหม่ ถนนแก้วนวรัฐ-ซูปเปอร์ไฮเวย์ (สถานีขนส่งเชียงใหม่) ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+   "gps": [
+    18.8003764,
+    99.0163938
+   ],
+   "src": "https://www.cmhy.city/place/15858-PN-Dress-Rent",
+   "cmhyUpdated": null,
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-15858"
+  },
+  {
+   "name": "โชว์ไทม์ ชุดเช่า",
+   "strands": [
+    "fancy-stage"
+   ],
+   "tags": [
+    "ชุดเจ้าหญิง",
+    "ชุดเจ้าชาย",
+    "ชุดแฟนซี"
+   ],
+   "tagsEn": [
+    "princess costume",
+    "prince costume",
+    "fancy dress"
+   ],
+   "tel": [],
+   "addr": "ด้านในกำแพงแจ่งหัวริน ถนนศรีภูมิ ตำบลศรีภูมิ อำเภอเมือง",
+   "gps": [
+    18.795436,
+    98.979299
+   ],
+   "src": "https://www.cmhy.city/place/6337-Showtime-dress-rent",
+   "cmhyUpdated": "2024-02-15",
+   "directorySaysMayHaveClosed": true,
+   "placeId": "cm-curated-dresshire-6337"
+  },
+  {
+   "name": "ANGELLA ร้านเช่าชุดราตรี",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "เช่าชุดราตรี",
+    "บริการเช่าชุดราตรี",
+    "เช่าชุดงานพรอม"
+   ],
+   "tagsEn": [
+    "evening gown hire",
+    "evening gown hire",
+    "prom dress hire"
+   ],
+   "tel": [
+    "097-919-6526",
+    "099-235-3295"
+   ],
+   "addr": "โครงการ ชิลพาร์ค ถนนเชียงใหม่-หางดง [108] ตำบลแม่เหียะ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50100",
+   "gps": [
+    18.7422578,
+    98.9594056
+   ],
+   "src": "https://www.cmhy.city/place/31934-ANGELLA-dress-Rent",
+   "cmhyUpdated": "2022-09-21",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-31934"
+  },
+  {
+   "name": "บลูไดมอนด์ ชุดเช่า คาร์บาเร่โชว์",
+   "strands": [
+    "fancy-stage"
+   ],
+   "tags": [
+    "เช่าชุด",
+    "ออกแบบท่าเต้น",
+    "ออกแบบเสื้อผ้า"
+   ],
+   "tagsEn": [
+    "dress hire",
+    "choreography",
+    "clothing design"
+   ],
+   "tel": [],
+   "addr": "ซอย 3 ถนนศรีปิงเมือง ตำบลหายยา อำเภอเมือง",
+   "gps": [
+    18.77248,
+    98.9839402
+   ],
+   "src": "https://www.cmhy.city/place/1883-Blue-Diamond-Rent-Dress",
+   "cmhyUpdated": "2022-08-29",
+   "directorySaysMayHaveClosed": true,
+   "placeId": "cm-curated-dresshire-1883"
+  },
+  {
+   "name": "เอื้องผี้งล้านนา เสริมสวย และ ชุดเช่า",
+   "strands": [
+    "thai-lanna"
+   ],
+   "tags": [
+    "รับแต่งหน้า",
+    "เช่าชุดไทย",
+    "เช่าชุดล้านนา"
+   ],
+   "tagsEn": [
+    "make-up done",
+    "Thai dress hire",
+    "Lanna dress hire"
+   ],
+   "tel": [
+    "087-473-6224"
+   ],
+   "addr": "ถนนวังสิงห์คำ ตำบลป่าตัน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.8085126,
+    99.0026282
+   ],
+   "src": "https://www.cmhy.city/place/27695-Beauty-and-dressing-rental",
+   "cmhyUpdated": "2026-01-13",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-ueang-phueng-lanna"
+  },
+  {
+   "name": "ห้องเสื้อ เฮง เฮง ชุดเช่าออกงาน",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "ชุดออกงาน",
+    "ชุดราตรี",
+    "ชุดเช่า"
+   ],
+   "tagsEn": [
+    "occasion wear",
+    "evening gown",
+    "dress hire"
+   ],
+   "tel": [
+    "083-626-6442",
+    "085-528-7517"
+   ],
+   "addr": "ถนนหนองฮ่อ [4307] ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.8259078,
+    98.9563355
+   ],
+   "src": "https://www.cmhy.city/place/10293-Heang-Heang-custome",
+   "cmhyUpdated": "2022-03-29",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-10293"
+  },
+  {
+   "name": "บ้านนาฏยรังสรรค์ ชุดเช่า",
+   "strands": [
+    "thai-lanna"
+   ],
+   "tags": [
+    "ชุดเช่า",
+    "ชุดไทย",
+    "ชุดลูกทุ่ง"
+   ],
+   "tagsEn": [
+    "dress hire",
+    "Thai formal dress",
+    "luk thung stage dress"
+   ],
+   "tel": [
+    "099-056-8998"
+   ],
+   "addr": "ถนนอนุเสาวรีย์สิงห์ ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.8131492,
+    98.9825772
+   ],
+   "src": "https://www.cmhy.city/place/6278-Nataya-rangsan-dress-rent",
+   "cmhyUpdated": "2016-05-23",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-6278"
+  },
+  {
+   "name": "พริ้นเซส เดรส เช่าชุดราตรี ชุดเพื่อนเจ้าสาว",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "ชุดราตรี",
+    "เครื่องประดับ",
+    "เช่าชุดราตรี"
+   ],
+   "tagsEn": [
+    "evening gown",
+    "jewellery",
+    "evening gown hire"
+   ],
+   "tel": [
+    "095-696-6875"
+   ],
+   "addr": "ถนนซุปเปอร์ไฮเวย์ เชียงใหม่-ลำปาง [11] ตำบลป่าตัน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.8100921,
+    98.998781
+   ],
+   "src": "https://www.cmhy.city/place/14488-Princess-Dress",
+   "cmhyUpdated": "2018-11-30",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-14488"
+  },
+  {
+   "name": "แฮฟกู๊ดเดย์ ชุดราตรีเช่า",
+   "strands": [
+    "bridal-evening",
+    "fancy-stage"
+   ],
+   "tags": [
+    "ชุดราตรี",
+    "ชุดออกงาน",
+    "ชุดแฟนซี"
+   ],
+   "tagsEn": [
+    "evening gown",
+    "occasion wear",
+    "fancy dress"
+   ],
+   "tel": [
+    "084-043-3389"
+   ],
+   "addr": "ถนนวังสิงห์คำ ตำบลป่าตัน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.808321,
+    99.00281
+   ],
+   "src": "https://www.cmhy.city/place/2795-Have-a-good-day",
+   "cmhyUpdated": null,
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-2795"
+  },
+  {
+   "name": "ห้องเสื้อแฟนตาซี ร้านเช่าชุด",
+   "strands": [
+    "fancy-stage"
+   ],
+   "tags": [
+    "ร้านเช่าชุด",
+    "รับจัดขบวนกีฬาสี",
+    "รับเหมาขบวน  เช่าชุดแฟนตาซี"
+   ],
+   "tagsEn": [
+    "dress hire shop",
+    "sports-day parade outfitting"
+   ],
+   "tel": [
+    "097-009-3946",
+    "097-921-0064"
+   ],
+   "addr": "ถนนมหิดล [1141] ตำบลหนองหอย อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+   "gps": [
+    18.7570312,
+    99.0034596
+   ],
+   "src": "https://www.cmhy.city/place/36494-Fantacy-Custome-Rent-Shop",
+   "cmhyUpdated": null,
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-36494"
+  },
+  {
+   "name": "ลานา ลานนา สตูดิโอ",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "ให้เช่าชุดเดรส",
+    "ใช้เช่าชุดทักซิโด",
+    "สตูดิโอถ่ายภาพ"
+   ],
+   "tagsEn": [
+    "dress hire",
+    "tuxedo hire",
+    "photo studio"
+   ],
+   "tel": [
+    "063-062-8866"
+   ],
+   "addr": "ซอย 7 ถนนราชดำเนิน ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+   "gps": [
+    18.7891121,
+    98.9845376
+   ],
+   "src": "https://www.cmhy.city/place/36329-Lana-lanna-Studio",
+   "cmhyUpdated": "2023-10-11",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-36329"
+  },
+  {
+   "name": "เบลินด้าสไตล์",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "เช่าชุดพรอม",
+    "เช่าชุดราตรี",
+    "งานพรอม"
+   ],
+   "tagsEn": [
+    "prom dress hire",
+    "evening gown hire",
+    "prom"
+   ],
+   "tel": [],
+   "addr": "ถนนเลียบคันคลองชลประทาน (ถนนวงแหวนรอบนอกเมืองเชียงใหม่)  [121] ตำบลช้างเผือก อำเภอเมือง",
+   "gps": [
+    18.8096739,
+    98.963289
+   ],
+   "src": "https://www.cmhy.city/place/8165-Belinda-style",
+   "cmhyUpdated": "2023-02-02",
+   "directorySaysMayHaveClosed": true,
+   "placeId": "cm-curated-dresshire-8165"
+  },
+  {
+   "name": "แฮร์คัลเลอร์โมเดลลิ่ง & ออร์แกไนซ์",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "ออกแบบทรงผม",
+    "สระไดร์",
+    "แต่งหน้าเจ้าสาว"
+   ],
+   "tagsEn": [
+    "hair design",
+    "wash and blow-dry",
+    "bridal make-up"
+   ],
+   "tel": [
+    "086-911-5641",
+    "0933037621"
+   ],
+   "addr": "ถนนเชียงใหม่-แม่ริม [107] (โชตนา) ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.816134,
+    98.981912
+   ],
+   "src": "https://www.cmhy.city/place/8362-Hair-color-modeling",
+   "cmhyUpdated": "2020-10-11",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-8362"
+  },
+  {
+   "name": "รัชสา เดส เช่าชุดราตรี ชุดแต่งงาน",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "เช่าชุดราตรี",
+    "เช่าชุดแต่งงาน"
+   ],
+   "tagsEn": [
+    "evening gown hire",
+    "wedding dress hire"
+   ],
+   "tel": [],
+   "addr": "25 ถนนเจริญสุข ตำบลช้างเผือก อำเภอเมือง",
+   "gps": [
+    18.8016086,
+    98.9780489
+   ],
+   "src": "https://www.cmhy.city/place/8792-ratsa-dress",
+   "cmhyUpdated": "2022-03-01",
+   "directorySaysMayHaveClosed": true,
+   "placeId": "cm-curated-dresshire-8792"
+  },
+  {
+   "name": "ร้านอารยา เช่าชุดราตรี",
+   "strands": [
+    "bridal-evening",
+    "gown-uniform"
+   ],
+   "tags": [
+    "เช่าชุดราตรี",
+    "เช่าชุดเพื่อนเจ้าสาว",
+    "เช่าชุดสูท"
+   ],
+   "tagsEn": [
+    "evening gown hire",
+    "bridesmaid dress hire",
+    "suit hire"
+   ],
+   "tel": [
+    "084-987-3322"
+   ],
+   "addr": "ซอยสุดใจ ถนนเลียบคันคลองชลประทาน (ถนนวงแหวนรอบนอกเมืองเชียงใหม่)  [121] ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.8057552,
+    98.9613395
+   ],
+   "src": "https://www.cmhy.city/place/36105-Araya-Dress-Dress-Rent",
+   "cmhyUpdated": "2023-08-07",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-36105"
+  },
+  {
+   "name": "อะโดล่า เช่าชุดราตรี ชุดเพื่อนเจ้าสาว",
+   "strands": [
+    "thai-lanna",
+    "bridal-evening"
+   ],
+   "tags": [
+    "ชุดไทย",
+    "ราตรี",
+    "ชุดเพื่อเจ้าสาว"
+   ],
+   "tagsEn": [
+    "Thai formal dress",
+    "evening gown",
+    "bridesmaid dress"
+   ],
+   "tel": [],
+   "addr": "โครงการ จริงใจ มาร์เก็ต โซน B ถนนอัษฎาธร ตำบลป่าตัน อำเภอเมือง",
+   "gps": [
+    18.808292,
+    98.995522
+   ],
+   "src": "https://www.cmhy.city/place/12429-Adora",
+   "cmhyUpdated": "2022-03-18",
+   "directorySaysMayHaveClosed": true,
+   "placeId": "cm-curated-dresshire-12429"
+  },
+  {
+   "name": "แพรวพราว",
+   "strands": [
+    "other"
+   ],
+   "tags": [
+    "เสื้อผ้าแฟชั่น",
+    "เสื้อผ้าสตรี",
+    "เสื้อผ้าผู้หญิง"
+   ],
+   "tagsEn": [
+    "fashion clothing",
+    "women's clothing",
+    "women's clothing"
+   ],
+   "tel": [
+    "064-426-6395"
+   ],
+   "addr": "ซอย 7 ถนนราชดำเนิน ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+   "gps": [
+    18.789254,
+    98.984317
+   ],
+   "src": "https://www.cmhy.city/place/5828-Prew-Proud",
+   "cmhyUpdated": "2021-12-04",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-5828"
+  },
+  {
+   "name": "พอลสมาร์ทสูท เช่าสูท",
+   "strands": [
+    "gown-uniform"
+   ],
+   "tags": [
+    "เช่าชุดสูท",
+    "ขายสูท",
+    "ตัดสูท"
+   ],
+   "tagsEn": [
+    "suit hire",
+    "sells suits",
+    "suits, made"
+   ],
+   "tel": [
+    "080-123-4929"
+   ],
+   "addr": "ซอย สุขใจ ถนนเลียบคันคลองชลประทาน (ถนนวงแหวนรอบนอกเมืองเชียงใหม่)  [121] ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.8057854,
+    98.9613087
+   ],
+   "src": "https://www.cmhy.city/place/36106-Paul-Smart-Suit",
+   "cmhyUpdated": "2026-01-13",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-36106"
+  },
+  {
+   "name": "มิสเดส แอนด์ แอคเซสซอรี่",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "ชุดราตรีเช่า",
+    "เครื่องประดับเช่า",
+    "ชุดออกงาน"
+   ],
+   "tagsEn": [
+    "evening gown hire",
+    "jewellery hire",
+    "occasion wear"
+   ],
+   "tel": [
+    "086-922-9464"
+   ],
+   "addr": "โครงการจริงใจมาร์เก็ต ถนนอัษฎาธร ตำบลป่าตัน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.80806,
+    98.994776
+   ],
+   "src": "https://www.cmhy.city/place/5014-Miss-dress-accessories",
+   "cmhyUpdated": null,
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-5014"
+  },
+  {
+   "name": "มัลลิกา ชุดเช่า",
+   "strands": [
+    "thai-lanna"
+   ],
+   "tags": [
+    "สอนรำไทย",
+    "เชาเครื่องประดับ",
+    "ชุดไทย"
+   ],
+   "tagsEn": [
+    "teaches Thai dance",
+    "jewellery hire",
+    "Thai formal dress"
+   ],
+   "tel": [],
+   "addr": "ถนนโพธาราม ตำบลช้างเผือก อำเภอเมือง",
+   "gps": [
+    18.8126204,
+    98.9739618
+   ],
+   "src": "https://www.cmhy.city/place/16837-Malica",
+   "cmhyUpdated": "2026-01-13",
+   "directorySaysMayHaveClosed": true,
+   "placeId": "cm-curated-dresshire-16837"
+  },
+  {
+   "name": "วันดี เวดดิ้งสตูดิโอ",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "จัดงานแต่ง",
+    "ช่างถ่ายภาพ",
+    "ช่างแต่งหน้า"
+   ],
+   "tagsEn": [
+    "wedding organising",
+    "photographer",
+    "make-up artist"
+   ],
+   "tel": [],
+   "addr": "ถนนวังสิงห์คำ ตำบลป่าตัน อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.8081362,
+    99.0027743
+   ],
+   "src": "https://www.cmhy.city/place/24096-Wan-Dee-Wedding-Studio",
+   "cmhyUpdated": null,
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-24096"
+  },
+  {
+   "name": "แอด เดส ชุดเช่า",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "เช่าชุดราตรี",
+    "ชุดผู้หญิงเช่า",
+    "ชุดสตรีเช่า"
+   ],
+   "tagsEn": [
+    "evening gown hire",
+    "women's dress hire",
+    "women's dress hire"
+   ],
+   "tel": [
+    "096-694-6979"
+   ],
+   "addr": "ซอย 4 ถนนกู่เต้า ตำบลศรีภูมิ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+   "gps": [
+    18.8005396,
+    98.9876576
+   ],
+   "src": "https://www.cmhy.city/place/28716-At-Dress",
+   "cmhyUpdated": "2026-08-08",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-28716"
+  },
+  {
+   "name": "บ้านพระสิงห์ เช่าชุดล้านนา",
+   "strands": [
+    "thai-lanna"
+   ],
+   "tags": [
+    "เช่าชุดล้านนา"
+   ],
+   "tagsEn": [
+    "Lanna dress hire"
+   ],
+   "tel": [],
+   "addr": "ถนนราชดำเนิน ตำบลพระสิงห์ อำเภอเมือง",
+   "gps": [
+    18.787839,
+    98.983053
+   ],
+   "src": "https://www.cmhy.city/place/10889-Baab-Phrasing",
+   "cmhyUpdated": "2026-02-05",
+   "directorySaysMayHaveClosed": true,
+   "placeId": "cm-curated-dresshire-10889"
+  },
+  {
+   "name": "เพนนี่ เช่าชุดราตรี",
+   "strands": [
+    "bridal-evening",
+    "gown-uniform"
+   ],
+   "tags": [
+    "ชุดแต่งงาน",
+    "ชุดสูท",
+    "ชุดพรีเวดดิ้ง"
+   ],
+   "tagsEn": [
+    "wedding dress",
+    "suit",
+    "pre-wedding shoot dress"
+   ],
+   "tel": [],
+   "addr": "ถนนศิริมังคลาจารย์ ตำบลสุเทพ อำเภอเมือง",
+   "gps": [
+    18.7963262,
+    98.9708939
+   ],
+   "src": "https://www.cmhy.city/place/13591-penny",
+   "cmhyUpdated": "2026-04-24",
+   "directorySaysMayHaveClosed": true,
+   "placeId": "cm-curated-dresshire-13591"
+  },
+  {
+   "name": "OK Dressโอเค เดสท์ แอนด์ สตูดิโอ ชุดเช่า",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "ชุดราตรี",
+    "ชุดแต่งงาน",
+    "ชุดเพื่อนเจ้าสาว"
+   ],
+   "tagsEn": [
+    "evening gown",
+    "wedding dress",
+    "bridesmaid dress"
+   ],
+   "tel": [
+    "090-891-4689"
+   ],
+   "addr": "หมู่บ้านฟ้าฮ่ามกรีนโฮม ถนนสุขสัญจร ตำบลฟ้าฮ่าม อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+   "gps": [
+    18.8250548,
+    99.0005877
+   ],
+   "src": "https://www.cmhy.city/place/10201-OK-Pop-and-Dress",
+   "cmhyUpdated": "2024-06-13",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-10201"
+  },
+  {
+   "name": "บ้านออเจ้า เช่าชุดไทย",
+   "strands": [
+    "thai-lanna"
+   ],
+   "tags": [
+    "เช่าชุดไทย"
+   ],
+   "tagsEn": [
+    "Thai dress hire"
+   ],
+   "tel": [
+    "063-492-9369"
+   ],
+   "addr": "ซอย 1 ถนนราชมรรคา ตำบลพระสิงห์ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+   "gps": [
+    18.7854425,
+    98.9906809
+   ],
+   "src": "https://www.cmhy.city/place/37464-Baan-Orjao-chutThaiRent",
+   "cmhyUpdated": "2026-05-31",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-ban-or-jao"
+  },
+  {
+   "name": "สันติไทไท",
+   "strands": [
+    "thai-lanna",
+    "fancy-stage"
+   ],
+   "tags": [
+    "สอนดนตรีไทย",
+    "รำไทย",
+    "จัดขบวนแห่"
+   ],
+   "tagsEn": [
+    "teaches Thai music",
+    "Thai dance",
+    "procession organising"
+   ],
+   "tel": [],
+   "addr": "ถนนทุ่งโฮเต็ล ตำบลวัดเกต อำเภอเมือง",
+   "gps": [
+    18.792663,
+    99.01777
+   ],
+   "src": "https://www.cmhy.city/place/4405-Santi-thaithai",
+   "cmhyUpdated": "2022-07-21",
+   "directorySaysMayHaveClosed": true,
+   "placeId": "cm-curated-dresshire-4405"
+  },
+  {
+   "name": "ม่อนไหม เช่าชุด ตัดชุด",
+   "strands": [
+    "thai-lanna",
+    "bridal-evening",
+    "fancy-stage"
+   ],
+   "tags": [
+    "ชุดไทย",
+    "ชุดราตรี",
+    "เชียร์ลึดเดอร์"
+   ],
+   "tagsEn": [
+    "Thai formal dress",
+    "evening gown",
+    "cheerleader kit"
+   ],
+   "tel": [
+    "093-549-9449"
+   ],
+   "addr": "ถนนราชพฤกษ์ ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.801414,
+    98.975804
+   ],
+   "src": "https://www.cmhy.city/place/7168-Monmai",
+   "cmhyUpdated": "2026-08-23",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-7168"
+  },
+  {
+   "name": "อลิสเวดดิ้งสตูดิโอ ชุดเช่า",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "ให้เช่าชุดแต่งงาน",
+    "ตั่งรดน้ำสังข์",
+    "อุปกรณ์งานแต่งงาน"
+   ],
+   "tagsEn": [
+    "wedding dress hire",
+    "the water-pouring dais",
+    "wedding equipment"
+   ],
+   "tel": [
+    "095-564-2429"
+   ],
+   "addr": "อาคารสุพนิชคอนโด ถนนรถไฟ ตำบลวัดเกต อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50000",
+   "gps": [
+    18.7842085,
+    99.0158987
+   ],
+   "src": "https://www.cmhy.city/place/35430-Alice-Studio",
+   "cmhyUpdated": null,
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-35430"
+  },
+  {
+   "name": "ป๊อปเลิฟ เวดดิ้งสตูดิโอ",
+   "strands": [
+    "bridal-evening"
+   ],
+   "tags": [
+    "ร้านเช่าชุด",
+    "ชุดเพื่อนเจ้าสาว",
+    "ชุดเพื่อนเจ้าบ่าว"
+   ],
+   "tagsEn": [
+    "dress hire shop",
+    "bridesmaid dress",
+    "groomsman suit"
+   ],
+   "tel": [
+    "099-291-1515"
+   ],
+   "addr": "ถนนเลียบคันคลองชลประทาน (ถนนวงแหวนรอบนอกเมืองเชียงใหม่)  [121] ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+   "gps": [
+    18.803119,
+    98.959837
+   ],
+   "src": "https://www.cmhy.city/place/7249-Pop-Love",
+   "cmhyUpdated": "2026-08-12",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-7249"
+  },
+  {
+   "name": "บ้านโอ๊ตแฟนซี",
+   "strands": [
+    "fancy-stage"
+   ],
+   "tags": [
+    "ร้านเช่าชุด",
+    "ร้านชุดเช่า",
+    "ร้านเช่าชุดแฟนซี"
+   ],
+   "tagsEn": [
+    "dress hire shop",
+    "dress hire shop",
+    "fancy dress hire shop"
+   ],
+   "tel": [
+    "081-032-8959"
+   ],
+   "addr": "ถนนรัตนโกสินทร์ ตำบลช้างเผือก อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50300",
+   "gps": [
+    18.8015923,
+    98.9921078
+   ],
+   "src": "https://www.cmhy.city/place/40767-Baan-Aoth-Fancy",
+   "cmhyUpdated": "2026-01-13",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-40767"
+  },
+  {
+   "name": "สูทเพื่อน - เช่าสูท",
+   "strands": [
+    "gown-uniform"
+   ],
+   "tags": [
+    "ร้านเช่าสูท",
+    "ร้านตัดสูท",
+    "ร้านสูท"
+   ],
+   "tagsEn": [
+    "suit hire shop",
+    "suit tailor",
+    "suit shop"
+   ],
+   "tel": [
+    "063-234-8210"
+   ],
+   "addr": "ถนนสนามบิน ตำบลสุเทพ อำเภอเมือง เชียงใหม่ รหัสไปรษณีย์ 50200",
+   "gps": [
+    18.789577,
+    98.9626301
+   ],
+   "src": "https://www.cmhy.city/place/40709-Suit-Pren-Suit-rental-shop",
+   "cmhyUpdated": "2026-01-13",
+   "directorySaysMayHaveClosed": false,
+   "placeId": "cm-curated-dresshire-40709"
+  }
+ ],
+ "studios": {
+  "note_en": "A rental house and a studio are two halves of the same afternoon, and the reader who typed 'photoshoot' wanted both. These stand on the `photo` shelf beside the passport-photo trade, because that is the CMHY category they were read from (95-Photo-Center, WO-54). ลานา ลานนา สตูดิโอ is both at once — it hires the dress and takes the photograph — and was filed only as a rental house.",
+  "rows": [
+   {
+    "cmhyId": "26570",
+    "name": "เวียงพิงค์ สตูดิโอ",
+    "tags": [
+     "ถ่ายภาพชุดล้านนา",
+     "ถ่ายภาพรูปครอบครัว",
+     "ถ่ายภาพรูปชุดถ่ายภาพข้าราชการ"
+    ],
+    "tel": [
+     "094-708-9525"
+    ],
+    "addr": "ถ.เชียงใหม่-หางดง [108] ต.แม่เหียะ",
+    "src": "https://www.cmhy.city/place/26570-Wiengping-Studio",
+    "gps": [
+     18.7556372,
+     98.9679492
+    ],
+    "cmhy_updated": "2026-02-23"
+   },
+   {
+    "cmhyId": "26571",
+    "name": "เจ้านางเชียงใหม่สตูดิโอ",
+    "tags": [
+     "ถ่ายภาพชุดล้านนา",
+     "ถ่ายภาพรูปครอบครัว",
+     "ถ่ายภาพรูปชุดถ่ายภาพข้าราชการ"
+    ],
+    "tel": [
+     "097-985-6396",
+     "089-5357278"
+    ],
+    "addr": "ไนท์บาร์ซ่า ถ.ช้างคลาน ต.ช้างคลาน",
+    "src": "https://www.cmhy.city/place/26571-Jaonang-Studio",
+    "gps": [
+     18.7794762,
+     98.9996667
+    ],
+    "cmhy_updated": "2026-05-23"
+   },
+   {
+    "cmhyId": "27214",
+    "name": "ย้อนยุค สตูดิโอ",
+    "tags": [
+     "ถ่ายภาพชุดล้านนา",
+     "ถ่ายภาพรูปครอบครัว",
+     "ถ่ายภาพรูปชุดถ่ายภาพข้าราชการ"
+    ],
+    "tel": [
+     "099-294-8954",
+     "094-708-9525"
+    ],
+    "addr": "ถ.เชียงใหม่-หางดง [108] ต.ป่าแดด",
+    "src": "https://www.cmhy.city/place/27214-Yorn-Studio",
+    "gps": [
+     18.7557579,
+     98.9679939
+    ],
+    "cmhy_updated": "2023-09-13"
+   },
+   {
+    "cmhyId": "27281",
+    "name": "ลีลาล้านนา สตูดิโอ",
+    "tags": [
+     "ถ่ายภาพล้านนา",
+     "ถ่ายภาพหมู่คณะ",
+     "ถ่ายภาพย้อนยุค"
+    ],
+    "tel": [
+     "081-993-2003"
+    ],
+    "addr": "อาคารไนท์บาซาร์ ถ.ช้างคลาน ต.ช้างคลาน",
+    "src": "https://www.cmhy.city/place/27281-Lila-Lanna",
+    "gps": [
+     18.7853958,
+     99.0003676
+    ],
+    "cmhy_updated": "2022-04-18"
+   },
+   {
+    "cmhyId": "32500",
+    "name": "นครา เชียงใหม่ สตูดิโอ",
+    "tags": [
+     "ถ่ายรูปชุดไทย",
+     "ถ่ายรูปครอบครัว",
+     "ถ่ายรูปชุดราชการ"
+    ],
+    "tel": [
+     "089-560-0566",
+     "064-997-5650"
+    ],
+    "addr": "ถ.ช้างคลาน ต.ช้างคลาน",
+    "src": "https://www.cmhy.city/place/32500-Nakara-Chiangmai-Studio",
+    "gps": [
+     18.7843912,
+     99.0005774
+    ],
+    "cmhy_updated": "2024-01-22"
+   }
+  ]
+ },
+ "venues": {
+  "note_en": "Where people actually wear it. No stall here is a record: nobody has read a shop's name off these pavements, so there is no pin. Listed because the trade is not only the shops with doors.",
+  "rows": [
+   {
+    "key": "wat-ton-kwen",
+    "placeIds": [
+     "cm-osm-node-624114779",
+     "cm-onab-03501509003"
+    ],
+    "th": "วัดต้นเกว๋น (วัดอินทราวาส) ต.หนองควาย อ.หางดง",
+    "en": "Wat Ton Kwen (Wat Inthrawat), Nong Khwai, Hang Dong",
+    "what_en": "Costume stalls at the lane mouth and in front of the temple. Thai-language reviews from 2025 and 2026 put a Lanna outfit at about 150 baht with hair and jewellery included, and a photographer as a separate half-hour add-on. The temple became the city's costume-photograph place after the drama กลิ่นกาสะลอง was filmed there.",
+    "grade": "listed",
+    "src": [
+     "https://mgronline.com/local/detail/9690000036563",
+     "https://th.trip.com/moments/detail/hang-dong-14934-138402756/",
+     "https://www.lemon8-app.com/@euroanddollar0/7599949081254887937"
+    ],
+    "fetched": "2026-09-07"
+   },
+   {
+    "key": "old-city-temples",
+    "placeIds": [],
+    "th": "วัดในเวียง — วัดเจดีย์หลวง วัดพระสิงห์ ประตูท่าแพ",
+    "en": "The old-city temples — Wat Chedi Luang, Wat Phra Singh, Tha Phae Gate",
+    "what_en": "Where the packaged trade shoots. Booking platforms list Chiang Mai costume-and-photographer packages from about 450–490 baht for the outfit with dressing and accessories, half-day or full-day, with a photographer and make-up as add-ons and two days' notice asked for the photographer.",
+    "grade": "listed",
+    "src": [
+     "https://www.kkday.com/en-hk/category/th-chiang-mai/costume-rental/list",
+     "https://www.klook.com/en-IN/activity/87523-1-day-thai-costume-rental-rental-chiang-mai/",
+     "https://www.ticket2attraction.com/discount-tickets/thai-costume-dress-rental-chiang-mai/"
+    ],
+    "fetched": "2026-09-07"
+   },
+   {
+    "key": "warorot",
+    "placeIds": [],
+    "th": "ตลาดวโรรส (กาดหลวง) — ผ้าและชุดพื้นเมือง",
+    "en": "Warorot Market (Kat Luang) — cloth and northern dress",
+    "what_en": "The cloth end of the same trade: local cotton, phasin and ready-made northern dress sold rather than hired, upstairs in the market. Named here because a reader who wants to OWN one is asking a different question from a reader who wants one for an afternoon.",
+    "grade": "listed",
+    "src": [
+     "https://www.wongnai.com/reviews/6fe306ade96c4f409c38eb4a789c9bc5"
+    ],
+    "fetched": "2026-09-07"
+   }
+  ]
+ },
+ "prices": {
+  "_verified": false,
+  "note_en": "Quoted to whoever published them. Three price worlds sit in one trade and a reader shown only one of them draws the wrong conclusion — the same finding WO-49 recorded for gown hire.",
+  "rows": [
+   {
+    "what_en": "Lanna outfit at the Wat Ton Kwen stalls, hair and jewellery included",
+    "baht": "~150",
+    "who": "Thai-language reviews, 2025–2026",
+    "src": "https://th.trip.com/moments/detail/hang-dong-14934-138402756/"
+   },
+   {
+    "what_en": "Photographer at Wat Ton Kwen, 30 minutes",
+    "baht": "~850",
+    "who": "Thai-language review, 2026",
+    "src": "https://www.lemon8-app.com/@euroanddollar0/7599949081254887937"
+   },
+   {
+    "what_en": "Old-city costume package, outfit with dressing and accessories",
+    "baht": "450–490 from",
+    "who": "booking platforms, 2026",
+    "src": "https://www.kkday.com/en-hk/category/th-chiang-mai/costume-rental/list"
+   },
+   {
+    "what_en": "White suit hire / civil-service uniform hire (The Great, Nimman Soi 3)",
+    "baht": "550 (dep. 1,000) / 650 (dep. 1,500)",
+    "who": "the shop's own sheet, read 2026-08-31",
+    "src": "https://www.cmhy.city/place/13237-The-Great-Chiangmai"
+   }
+  ]
+ },
+ "asks": [
+  {
+   "th": "ชุดล้านนามีไหมคะ/ครับ เช่าครึ่งวันเท่าไหร่",
+   "en": "Do you have Lanna dress? How much for half a day?"
+  },
+  {
+   "th": "รวมแต่งหน้าทำผมด้วยไหมคะ/ครับ",
+   "en": "Does that include hair and make-up?"
+  },
+  {
+   "th": "เครื่องประดับรวมอยู่ในราคาไหมคะ/ครับ",
+   "en": "Is the jewellery included in the price?"
+  },
+  {
+   "th": "มัดจำเท่าไหร่ ขอใบรับด้วยได้ไหมคะ/ครับ",
+   "en": "How much is the deposit — could I have a receipt?"
+  },
+  {
+   "th": "คืนชุดกี่โมงคะ/ครับ เลยเวลาคิดเพิ่มเท่าไหร่",
+   "en": "What time do I bring it back, and what's the late charge?"
+  },
+  {
+   "th": "ใส่ไปถ่ายที่วัดได้ไหมคะ/ครับ ต้องคลุมไหล่ไหม",
+   "en": "Can I wear it into a temple — do I need to cover my shoulders?"
+  },
+  {
+   "th": "มีชุดผู้ชายไหมคะ/ครับ",
+   "en": "Do you have men's outfits?"
+  },
+  {
+   "th": "มีไซซ์ใหญ่ไหมคะ/ครับ",
+   "en": "Do you carry larger sizes?"
+  },
+  {
+   "th": "ถ่ายเองได้ไหม หรือต้องจ้างช่างของร้าน",
+   "en": "May I take my own photographs, or must I hire your photographer?"
+  }
+ ],
+ "refused": [
+  {
+   "what_en": "Naming a best costume-hire in Chiang Mai.",
+   "why_en": "WO-49's rule, and it holds harder here: every English 'top ten' page in this trade is a booking platform's own inventory."
+  },
+  {
+   "what_en": "Declaring the nine 'may have closed' shops closed.",
+   "why_en": "That is CMHY's own note asking readers to correct it, not a finding. It is carried with its Thai wording attached. Absence of evidence is not evidence of absence."
+  },
+  {
+   "what_en": "Giving the Wat Ton Kwen stalls names, pins or records.",
+   "why_en": "The trade there is well attested and no stall's own name has been read. A venue with citations is honest; six invented pins would not be."
+  },
+  {
+   "what_en": "Putting any price on a place record.",
+   "why_en": "Nobody here has hired a costume. The prices are quoted and flagged unverified."
+  },
+  {
+   "what_en": "Offering a gown-and-uniform house as an answer to a Lanna-dress question.",
+   "why_en": "Four trades, one English phrase. Kept apart, as WO-49 kept the four tailoring trades apart."
+  }
+ ],
+ "unread": [
+  {
+   "name": "The Wat Ton Kwen stalls",
+   "ref": "on the ground, ต.หนองควาย อ.หางดง",
+   "reason": "Named by reviewers, never by themselves. Needs a walk; there is no page to read and no phone to call."
+  },
+  {
+   "name": "The Facebook and Instagram costume houses",
+   "ref": "the old-city trade around Ratchadamnoen and Tha Phae",
+   "reason": "The visitor-facing half of this trade lives on Facebook and IG, which CMHY does not index and a logged-out fetch does not read. go/osm-not-first-truth: the blocker is mechanism."
+  },
+  {
+   "name": "cm-osm-node-624114779 vs cm-onab-03501509003",
+   "ref": "data/canonical/cm.json",
+   "reason": "The same temple twice — วัดต้นเกว๋น from OSM at 18.7228/98.9253, วัดอินทราวาส from the ONAB register at 18.7374/98.9151, which is the pin of a pharmacy 1.6 km away. Neither record carries the other's name, so half the readers looking for this temple find a record that cannot tell them they have arrived. Found here, not fixed here — it belongs with the shared-pin work."
+  }
+ ],
+ "sources": [
+  {
+   "type": "directory",
+   "ref": "https://www.cmhy.city/category/33-Personal/197-Rental-Dress-Shop/",
+   "fetched": "2026-08-31",
+   "via": "WO-49, data/curated/tailor.json"
+  },
+  {
+   "type": "directory",
+   "ref": "https://www.cmhy.city/category/71-Business/95-Photo-Center/",
+   "fetched": "2026-09-04",
+   "via": "WO-54, cache/paper/places.json"
+  },
+  {
+   "type": "press",
+   "ref": "https://mgronline.com/local/detail/9690000036563",
+   "fetched": "2026-09-07",
+   "note": "Songkran 2026 crowds hiring Lanna dress at Wat Ton Kwen"
+  },
+  {
+   "type": "platform",
+   "ref": "https://www.kkday.com/en-hk/category/th-chiang-mai/costume-rental/list",
+   "fetched": "2026-09-07",
+   "note": "packaged costume-and-photographer prices"
+  }
+ ]
+}

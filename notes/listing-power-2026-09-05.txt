@@ -1,0 +1,166 @@
+MOT DANG — WHO MAY CHANGE A LISTING, AND HOW WE ASK
+A design note, 2026-09-05. Written after reading worker/worker.js, not before.
+
+
+WHAT ALREADY EXISTS
+================================================================================
+Half of what you described is built, and the model is the house one: capability
+tokens, not accounts. Nobody signs up, nobody has a password.
+
+  POST /claim          anyone, once per place, rate-limited by IP. Publishes
+                       instantly and hands back a private edit link.
+  GET/POST /edit/:tok  the holder's private link: phone, LINE, Facebook,
+                       Instagram, WhatsApp, email, website, hours, note, menu.
+  POST /toilet         a passer-by's answer to ONE question at one place. No
+                       token, no claim, nothing locked. A deliberately
+                       separate door.
+  POST /suggest        a correction or a missing place, closed vocabulary, into
+                       a queue that is NOT public because it carries the
+                       contributor's own contact details.
+  /webhook/line        the whole flow by chatting with the LINE account, through
+                       the same applyClaim() the web routes use.
+  GET /claims          public, folded into the static build by sync_claims.py.
+
+And the authorisation instinct you just described is already written into the
+code, in a comment:
+
+    "Facets alone can never open a claim. Claiming locks the record against
+     everyone else, so letting a passer-by do it by ticking 'has an ATM' would
+     let a stranger lock a shop out of its own listing."
+
+So the question is not whether people may edit. It is what happens in the three
+cases the current code has no answer for.
+
+
+THE THREE HOLES
+================================================================================
+1. A CONTESTED CLAIM HAS NOWHERE TO GO.  A second claimant gets
+   409 "already claimed — if you think this is wrong, tell us on GitHub".
+   A shop owner in Chiang Mai is not going to open a GitHub issue. First claim
+   wins, forever, including when the first claimant is not the owner.
+
+2. THERE IS NO WAY TO SAY A PLACE IS GONE.  No takedown at all — which is the
+   right default and should stay — but also no authorised removal: a shop that
+   closed, a record that is wrong, a person who wants off the site.
+
+3. AN EDIT OVERWRITES.  applyClaim() writes the claim row straight over the old
+   one in KV. There is no history, so there is nothing to roll back to. That is
+   the one thing worth fixing BEFORE widening who may write, not after.
+
+
+FOUR KINDS OF PERSON
+================================================================================
+The asymmetry you asked for, stated as a table. "How we know" is the whole
+design: none of it is a profile on a server, all of it is either a token the
+device holds or a fact about the record.
+
+  PASSER-BY      we know nothing; rate-limited by IP
+                 may: report one observable fact (a toilet, a facet tick, "this
+                 looks closed"), suggest a correction, add a missing place,
+                 share. Every one of these is a REPORT — dated, attributed to a
+                 report, never a silent change to the page.
+
+  CONTRIBUTOR    holds a token minted on their first accepted contribution
+                 may: all of the above, and their reports land pre-trusted, and
+                 they can see their own history. Optional — see fork F4.
+
+  HOLDER         holds the edit link for that one place
+                 may: edit contact, hours, note and menu on THAT record; mark it
+                 temporarily or permanently closed; hand the link to a successor.
+                 Nothing on any other record.
+
+  STEWARD        an admin token (you)
+                 may: resolve a contest, transfer a claim, retire a record,
+                 restore anything to any earlier version.
+
+The rule underneath, in one line: A PERSON MAY ALWAYS ADD WHAT THEY SAW, AND MAY
+ONLY CHANGE WHAT IS THEIRS. Nobody but a steward can subtract from a listing
+that someone else holds.
+
+
+CONTEST, NOT TAKEOVER
+================================================================================
+Replace the GitHub dead end with a door that changes nothing until it is
+verified:
+
+  1. Second claimant gives a reachable channel (LINE or the phone on the
+     listing) and one line of reason.
+  2. That writes a contest: row and pings you. THE PAGE DOES NOT CHANGE.
+  3. A claim is "verified" once it has been confirmed through a channel we can
+     reach — a LINE reply from the account, or a code to the phone already on
+     the record. Claims made today are all unverified.
+  4. A VERIFIED claim supersedes an UNVERIFIED one automatically after a waiting
+     period (F2). A verified claim can only be displaced by a steward.
+
+That gives a real owner a path without letting anyone seize a record, and it
+makes squatting expensive rather than permanent.
+
+Removal has the same shape: a passer-by reports "closed", which renders as a
+dated reader report and nothing more; a holder may mark their own place closed
+and that is authoritative; only a steward retires the record itself, and even
+then it is retired, not deleted — the antRank ledger and inbound links need it.
+
+
+CALLS TO ACTION — ABUNDANT, NOT CLUTTERED
+================================================================================
+The constraint you set is the whole spec: abundant, presented by type of user,
+hints that do not distort visual understanding. Four rules get there.
+
+  ONE PRIMARY ACT PER PAGE, chosen by what the record LACKS, not by what we
+  would like people to do. No phone on the record → "Add a phone". Claimed with
+  a LINE id → "Message on LINE". Complete → "Share". The page never shows two
+  competing asks.
+
+  EVERYTHING ELSE BEHIND ONE QUIET DOOR. A single "Help fix this" that opens in
+  place — and the space it will occupy is reserved before it opens, so nothing
+  on the page moves. That is the literal reading of "does not distort visual
+  understanding": no reflow, ever.
+
+  HINTS, NOT TOOLTIPS. A tooltip needs a pointer to hover, and most readers here
+  are on a phone with one hand on a scooter helmet. Use a persistent one-line
+  hint under the primary act, in the reader's language, and keep title= and
+  aria-describedby for the pointer users who will never see the hint.
+
+  SHARE IS EVERYWHERE AND WEIGHTLESS. One affordance, on every place, every
+  shelf, every answer: copies a short link with the place name and area already
+  written, in the language the reader is in. Sharing is the only act that costs
+  the reader nothing and gives the site everything, so it is the one CTA that
+  never has to earn its place.
+
+Type-awareness with no accounts: the page reads only what the DEVICE holds — an
+edit token, a prior contribution, a language — so the CTAs shift locally and
+nothing about a reader is ever stored on a server. That keeps the no-tracking
+rule intact while still giving four different people four different pages.
+
+
+THE ASSISTANT IS A DOOR TOO
+================================================================================
+คุยกับมด already answers about places. It could also ACT on them — "tell them I
+am coming", "this one has closed", "add their LINE" — and it is the door most
+likely to be used, because it is the one where the reader is already talking.
+That is fork F5, and it is the largest of them.
+
+
+WHAT I WOULD BUILD FIRST
+================================================================================
+  1. Versioned claims. Every write appends; nothing overwrites. Cheap now,
+     impossible to retrofit once there is volume.
+  2. The contest door, replacing the GitHub message.
+  3. Holder-marked closed, and reader "looks closed" reports as dated reports.
+  4. The CTA layer: one primary act, one quiet door, share everywhere.
+  5. Verification, and only then the automatic supersede.
+
+
+FORKS — YOURS, NOT MINE
+================================================================================
+  F1  Verification channel: LINE reply only, or LINE plus a code to the phone
+      already on the listing? SMS needs a provider and a per-message cost.
+  F2  How long a verified claim waits before it supersedes an unverified one:
+      7, 14 or 30 days.
+  F3  Do independent "looks closed" reports ever change the page on their own —
+      say three in thirty days renders "readers report this closed" — or never
+      without you?
+  F4  Contributor tokens at all, or stay fully anonymous? Tokens make trust
+      cumulative and make abuse traceable; they are also the first thing on this
+      site that resembles an account.
+  F5  Does the assistant get act-on-listing doors, or stay read-only?

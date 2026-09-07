@@ -1,0 +1,235 @@
+MOT DANG — "THE HALF-HOUR LIMIT NOBODY CAN LEARN FROM US"
+Nan, 2026-09-07 ~15:48, with a screenshot of motdang.net/search.html?q=
+motorcycle parking near tha phae gate, a blue circle drawn on the map at the
+gate: "IRL, the blue circle in this screenshot is also motorcycle parking
+1/2 hour limit. This is for motdang.net, to improve product quality."
+
+Everything below is measured off data/canonical/{cm,cr}.json, the OSM cache
+in cache/overpass/*/parking.json, and pages fetched from the LIVE site today.
+Nothing here is asserted from the screenshot's pixels.
+
+WHAT I CHECKED AND DID NOT FIND. The screenshot's rows read "14 km" and
+"18 km" at that resolution and I went looking for a lost decimal point.
+There is none: build.py:4104 formats with (m/1000).toFixed(1) and the two
+records are 1,400 m and 1,814 m. It prints 1.4 km and 1.8 km. Also checked
+and clean: the /add.html the "เติม · add" line points at is a live page, not
+a 404; the place pages the parking shelf links to are all 200 on the live
+site (they 404 only in the local docs/ tree, which is a partial build).
+
+==============================================================================
+1. THE ONE-LINE DIAGNOSIS
+==============================================================================
+
+Seven car parks stand within 250 m of Tha Phae Gate. The site answered her
+question with one 810 m away, because it read "we do not know whether bikes
+may park here" as "bikes may not park here."
+
+  amenity=motorcycle_parking   132 records   ← the only thing the query saw
+  amenity=parking            1,632 records   ← excluded
+  of those 1,632, the number OSM says anything at all about motorcycles: 3
+     (motorcycle=yes 2, motorcycle=no 1. capacity:motorcycle: 0.)
+
+So 1,629 car parks are silent on the question, and the site turns that
+silence into a no. That is the rule Nan already wrote for the Listing Sheet —
+UNKNOWN IS NOT ZERO — broken here in the one place it costs a rider the
+answer.
+
+AND THE SILENCE IS NOT EVEN AMBIGUOUS. Nan, 2026-09-07: "In chiang mai,
+there is no such thing as a 'car park' exclusively for cars." Every lot in
+this city takes motorcycles. So the question the site is asking of each
+record — may bikes park here — has one answer everywhere and did not need
+asking; what it should have been carrying is the opposite fact, which lots
+take BIKES ONLY. See fork A.
+
+The 134 rows she got are the whole province's motorcycle bays sorted by
+distance from the gate. It is a correct list of the wrong set.
+
+==============================================================================
+2. HER FACT CANNOT BE IN THE SITE, FROM ANY SOURCE WE HOLD
+==============================================================================
+
+She stood at the gate and read a sign. Where could that fact have come from?
+
+  maxstay on parking, whole corpus, both provinces .............. 3 records
+    "3 hours" x2, "1 day" x1. None of them in the old city.
+  a half-hour limit anywhere in the catalogue ................... 0
+
+OSM has never recorded it and there is no second source. This is not a bug
+to fix; it is the F5 fields argument arriving with a face on it. No retriever
+ranks a fact nobody collected.
+
+There IS a route in: data/curated/enrich.json, keyed by place id, merged at
+build time by enrich() — "Facts we go and find ourselves live here instead."
+Precedence OSM -> enrich -> owner claim. What it needs is the id. §5.
+
+==============================================================================
+3. WORSE THAN A GAP: THE FACTS WE DO HOLD ARE NEVER PRINTED
+==============================================================================
+
+grep build.py for maxstay, parkingType, capacityMotorcycle, covered,
+supervised: ZERO HITS. There is no generic attrs renderer either. Every
+parking fact we import goes onto the record, is counted by the completeness
+swarm, and is shown to nobody.
+
+Three live pages, fetched today:
+
+  motorcycle-parking-810-m-from-tha-phae-gate-10060778718
+    HOLDS   fee=no · capacity=10 · access=yes
+    PRINTS  bearings, and "missing: a yard, a building or a kerb · photo"
+    A rider learns it is east of the moat near the Night Bazaar. Not that
+    it is free, open to anyone, and holds ten bikes. This is the row she
+    was given as the answer.
+
+  parking-80-m-from-tha-phae-gate-2533128083
+    HOLDS   access=customers
+    PRINTS  nothing of it. The nearest lot to the gate is a customer lot
+            and the page does not say so.
+
+  car-park-280-m-north-of-...-chiang-mai-university-585030388
+    HOLDS   fee=no · capacity=30 · access=private · MAXSTAY=3 HOURS
+    PRINTS  "missing: photo" — 8 of 9 ants, called nearly complete.
+            It is private, you may stay three hours, and a reader who rides
+            there learns both facts from a chain across the entrance.
+
+Across the shelf:
+
+  parking records .............................................. 1,796
+  carrying at least one deciding fact (fee/access/capacity/type/
+    maxstay/covered/supervised/charge/operator/surface) ......... 686  (38%)
+  carrying nothing but a pin and a synthesised name ........... 1,110  (62%)
+  that we KNOW a stranger may not simply park at
+    (access = private / no / customers / permit) ................. 217
+    — not one of which says so anywhere a reader can see.
+
+Those 217 are the sharp end. We are not merely quiet; we hold the fact that
+would have sent the reader elsewhere and we publish the lot as an answer.
+
+==============================================================================
+4. "HOW LONG MAY I STAY" IS NOT ONE OF THE QUESTIONS THE SITE THINKS A CAR
+   PARK HAS TO ANSWER
+==============================================================================
+
+data/curated/kinds.json, the parking kind:
+
+  say_en:  "where it is, whether it costs, whether you may use it,
+            how many fit"
+  ant_slots.parking: attrs.fee · attrs.access · attrs.capacity ·
+                     attrs.parkingType
+
+maxstay and motorcycle are in the kind's `fields` list — so the answer-set
+admits them — but neither is an ant slot. The consequence is exact: the site
+never asks anyone for a time limit, never shows it as missing, and could not
+display it if somebody sent it in. Nan just demonstrated that for a rider at
+a half-hour bay it is the FIRST question, ahead of capacity and ahead of
+structure. A lot you may not leave the bike at for an hour is not the same
+answer as a lot you may.
+
+Same argument, weaker, for `motorcycle`: 5 records carry it.
+
+==============================================================================
+5. THE CIRCLE, GEOCODED — AND THE RECORD WRITTEN
+==============================================================================
+
+Nan, 2026-09-07: "you should be able to geocode the circle. It's none of the
+7 existing lots. You are missing information. Do better!" She is right on all
+three counts. Asking her which lot it was, was the wrong move.
+
+HOW IT WAS GEOCODED, so the next person can redo or overturn it:
+
+  · The results map centres on the resolved landmark — build.py:4360,
+    map.jumpTo({center: pointNow, zoom: 15}) — and its box is 922 x 280 CSS
+    px, read off the live page. Tha Phae Gate is 18.7877625, 98.9932697
+    (docs/data/search_landmarks.json).
+  · Her scale bar reads 50 m across ~9% of the map width. At MapLibre zoom 17
+    the box spans ~520 m, which puts a 50 m bar at 9.6%. Zoom 15 puts it at
+    2.4%. So she had zoomed two steps in, and the frame is ~520-540 m across.
+  · The circle sits on the map's centre, radius ~40 m at that scale. It is
+    marking an AREA — the gate plaza — not a point.
+  · Inside that circle, on 2026 satellite imagery, the plaza's south-east
+    apron carries dense rows of small units west of ถนนคชสาร. Scale
+    calibrated empirically by shifting the map centre 0.00050 lng (52.7 m)
+    and measuring the label shift: 410 px, so 0.1286 m/px. The units run
+    ~15 px against ~35 px for the cars on the road alongside — 1.9 m against
+    4.5 m. Two-wheelers, parked in rows.
+
+  THE PIN: 18.78764, 98.99357 — 34 m ESE of the gate, inside her circle.
+  APPROX, not exact: the painted extent has not been walked and the rows move
+  when the plaza is used for events.
+
+HELD BY NOBODY, CHECKED TODAY:
+  · OSM, around:300 of the gate, every parking-shaped tag including
+    parking:left/right, parking_aisle, parking_space and maxstay:
+    13 features, all 13 already in the catalogue, this one not among them.
+  · data.go.th: no Chiang Mai parking dataset exists. 19 hits for ที่จอดรถ,
+    all Bangkok and other provinces.
+  · Google holds a DIFFERENT lot under a confusable name — "Thapae Parking
+    (THB 30/Hr.) & Restroom", 94/1 ถนนท่าแพ. THB 30 per hour is not a
+    half-hour limit and the two must never be merged.
+
+WRITTEN: data/curated/additions-chiang-mai.json, id
+cm-curated-tha-phae-gate-motorcycle-parking, confidence `field`, sub
+["parking","motorcycle-parking"], attrs.maxstay "30 min", three sources —
+the field report, the satellite check, and the negative source check above.
+The half-hour limit rests on her report alone; the sign has not been read or
+photographed, and the record says so on its face. Fee is unknown, and unknown
+is not free.
+
+It reaches readers on the next import + build + deploy, which is the 25-minute
+pipeline and is NOT started — build.py is hot. Once it lands, her own query
+answers at 34 m instead of 810 m with no code change at all, because the
+record carries the motorcycle-parking sub the query was already looking for.
+It is also the corpus's FIRST parking record with a first-hand fact, and the
+first maxstay in the old city.
+
+==============================================================================
+6. THE FORKS — HERS
+==============================================================================
+
+Costs are build/edit time, not money. build.py is hot right now (mtime 14:35,
+another session is in the search render), so A, B and D touch files it does
+not: kinds.json, the importer, enrich.json. C touches build.py and should
+wait or be handed to that session.
+
+  A. A CAR PARK IS MOTORCYCLE PARKING. Not "widen with a hedge" — CLOSED BY
+     NAN, 2026-09-07: "In chiang mai, there is no such thing as a 'car park'
+     exclusively for cars." So the answer set for a motorcycle question is
+     all 1,796, no caveat and no "usually fine" wording, and the site stops
+     carrying a distinction that does not exist on the ground. Her screenshot
+     goes from 810 m to 89 m.
+     THE DISTINCTION THAT IS REAL IS THE OPPOSITE ONE — which lots take
+     BIKES ONLY. That is amenity=motorcycle_parking (132) plus the ones
+     hiding under amenity=parking with motorcar=no (1: Kadsuankaew
+     Motorcycle Parking, and the importer does not read `motorcar` at all).
+     Worth keeping as a mark on the row, because a rider who wants to be
+     sure of a space benefits from it. The reverse tag is worth nothing:
+     motorcycle=no appears once in two provinces, on San Kamphaeng Hot
+     Spring Parking, a coach lot at a hot spring.
+     COST small, importer + kinds.json. WORST CASE none she recognises.
+     EXPIRES nothing; the cost only grows as more shelves inherit the bug.
+
+  B. PRINT THE FACTS WE HOLD. fee, access, capacity, structure, maxstay on
+     the row and on the page. 686 records gain a deciding line; 217 stop
+     being offered as answers they are not. This is also the handover's P3
+     (1,796 lots sharing 1,039 names) solved from the data end rather than
+     the render end.
+     COST small-to-medium. Needs one build.py hook — hand to the search
+     session, or wait for the lock.
+     WORST CASE none I can see; it is publishing what we already stand
+     behind.
+
+  C. ADD "HOW LONG MAY I STAY" AS AN ANT SLOT. Then the site asks, shows it
+     missing, and can receive it. Displaces one of the current four — I would
+     drop parkingType, the least decision-changing of them.
+     COST small. WORST CASE 1,793 records gain a visible blank; the swarm
+     scores drop and the shelf looks less complete than it did. It IS less
+     complete than it looked.
+
+  D. HER LOT, NOW. §5, one enrich.json entry, no build needed to write it.
+     COST minutes. Blocked only on which record.
+
+  E. DO NOTHING AND HAND ALL OF IT TO THE SEARCH SESSION as data for the
+     BUILD-SPEC. Legitimate — that session is mid-spec on exactly this page.
+     WORST CASE the fields argument stays an argument and the next rider gets
+     the same answer.
+
+No default is taken. Nothing above is built.

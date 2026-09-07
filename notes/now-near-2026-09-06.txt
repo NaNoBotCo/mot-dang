@@ -1,0 +1,256 @@
+NOW · NEAR — every page leads with what is happening and what is close
+========================================================================
+2026-09-06 · WO-65 · designed in an offline lane (build.py was hot all
+session: PID 92845, running since 10:05). Nothing in build.py touched.
+
+THE RULE (Beer, via Nan, 9/6)
+  The most important thing on motdang.net is "things that are happening
+  right now, and things that are nearby": events, weather, a place you
+  planned to visit, something on your to-do list. Everything else is
+  drawered, hidden or demoted.
+  Nan 9/6: that is the rule for EVERY page, not only the home page.
+
+
+1. WHAT THE SITE DOES TODAY (measured live, 11:40)
+------------------------------------------------------------------------
+HOME  motdang.net/            128.5 kB · 168 links · 24 headed bands
+  first heading ............ byte  17,706
+  weather .................. byte  64,891   (50 % of the page down)
+  your plan ................ byte  92,633   (72 %)
+  events ................... byte 101,740   (79 %)
+  Between the top and the weather: SIX divination tiles (reading,
+  fortune sticks, oracle ball, Maha Lap, hexagram, colour of the day).
+  events.json holds 24 rows dated today. None is named above the fold.
+  _ev_strip (three event cards, "What is on") is composed in build.py
+  beside the spare-front-page block and never placed in home_html.
+
+PLACE  cm/p/un-irish-pub-324137063.html
+  100 links; 59 are site furniture; 35 of those sit ABOVE the H1.
+  chipbar 8 links 2.9 kB · svcbar 27 links 6.3 kB · footer 24 links.
+  42 % of the bytes come before the place's name. H1 at ~630 px.
+  build.py:5864 already says the intent — "a reader arriving on a shared
+  place link should meet the place, not the furniture" — and .slim
+  (build.py:2928) delivers two things: one scrollable chip row, no
+  tagline. The svcbar has no slim rule at all: 27 links, every page.
+
+SEARCH  search.html?q=un+irish+pub (one hit)
+  The hit is one link in the right column, same size and colour as the
+  40 nav links beneath it. "wrong results? tell the ants" is set larger
+  than the result. Nan read it as a miss.
+
+
+2. THE DESIGN — one strip, one drawer, every page
+------------------------------------------------------------------------
+The header on every page becomes exactly three things:
+
+  [masthead — logo, language]           as now, slim everywhere
+  [search]                              as now
+  [NOW · NEAR strip]                    NEW — one row, at most 4 cells,
+                                        each one line, each a link.
+                                        A cell with nothing to say drops.
+  [☰ menu]                              NEW — a closed <details> holding
+                                        the 8 chips + the 27 svcbar links
+
+The strip's four cells
+  🌤  32° ฝนฟ้าคะนอง · PM2.5 17 ดี       → sky band / air page
+      baked at build from data/weather.json + data/air.json (both
+      generated today). The date guard in widget_weather (only days >
+      BUILD_DATE) already exists; a stale file drops the cell, never
+      prints yesterday as today.
+  🎪  24 งานวันนี้ · 24 on today          → events.html
+      baked at build: rows whose start date == BUILD_DATE, plus
+      recurring rows whose weekday is today (the same dt event_when
+      reads). Zero → cell drops.
+  🗺  แผนของคุณ 3 จุด · your plan, 3 stops → plan.html
+      client-side, from localStorage 'md-plan' (PLAN_KEY, build.py:4644).
+      planPaint() already paints .plancount; the cell is 4 more lines.
+      Empty plan → nothing. This is Beer's "a place you planned to visit".
+  📍  ตรงนี้ · here                       → here.html
+      shows only when MDLOC permission is already granted — WO-64's
+      rule: the switch is a preference, never a coordinate. Once WO-64's
+      two build.py lines land it reads "ในเวียง · 580 m from Chang
+      Phueak Gate"; until then it is the plain link.
+
+  Beer's "to-do": localStorage 'md-notes' exists in build.py. Not read
+  this session — whether it holds the reader's own notes is unverified.
+  If it does, a fifth cell "📝 1 note" is one line of JS. Fork F2.
+
+The drawer
+  <details class="morenav"><summary>☰ เมนู · menu</summary> … </details>
+  wraps chip_nav and the svcbar in page(), closed by default, on every
+  page INCLUDING home (fork F1). No script: the site already runs 314
+  <details> since WO-52 and the gapdrawer pattern. The footer sitemap
+  (24 links) is below the content, which is where a sitemap belongs;
+  unchanged in this WO (fork F4).
+
+Home page order (the 9/6 spare front page has the right pieces in the
+wrong order — this is a re-sort, not a rebuild)
+  1  🎪 today — _ev_strip, three cards, then "see all"        (already built)
+  2  🌤 weather + 🌬 air — two tiles                          (already built)
+  3  🗺 your plan + the postcard map                          (already built)
+  4  ✨ colour of the day — widget_fortune, one tile          (already built)
+  5  🔎 find — the shelves, Term (count)                      (already built)
+  6  drawers, closed: the readings (5 tiles) · clocks, lottery, gold, fx ·
+     cinema, toilets · the instruments · share · ad
+  Bands 1–4 are the strip written out long. Nothing new is composed.
+
+Place page
+  strip → H1 → open-now (only where hours are posted) → bearing (WO-64
+  hook, when applied) → Add to my plan (already there) → the rest.
+  H1 moves from ~630 px to ~230 px (masthead ~110 + search ~80 + strip
+  ~40). Above the fold on any phone.
+
+Search page
+  n ≤ 3 → answer card(s): name, kind, ย่าน, open-now, bearing, route.
+  No facet column, no subscript count. "wrong results?" demoted to small
+  text under. n > 3 → the list as now. The drawer replaces the 35 links
+  under the results either way. Fork F5: this WO or the search-cure lane
+  (go/cure).
+
+
+3. BUILD MECHANICS — for the session that gets the lock
+------------------------------------------------------------------------
+a  page(), build.py ~5935–5990
+   between the </form> of .seek and {chip_nav}: insert {now_near_strip(r)}
+   then:   <details class="morenav"><summary>☰ {bi("เมนู","menu")}</summary>
+           {chip_nav}
+           <div class="svcbar"> … </div>
+           </details>
+   The hub= distinction stops mattering for the header; keep the param
+   (subscribe_block still keys on it).
+
+b  def now_near_strip(r): new, beside widget_weather (~10118). Builds the
+   🌤 and 🎪 cells from the same baked data; emits
+   <a class="nn nnplan" href="{r}plan.html" hidden></a> and
+   <a class="nn nnhere" href="{r}here.html" hidden>📍 …</a> for JS.
+
+c  JS, planPaint() build.py ~4650: after the .plancount loop —
+   document.querySelectorAll('.nnplan').forEach(el=>{const n=list.length;
+   el.hidden=!n;el.textContent=n?('🗺 แผนของคุณ '+n+' จุด · your plan, '+n+' stops'):'';});
+   .nnhere: unhide when MDLOC reports permission granted (same test the
+   WO-64 hop uses).
+
+d  CSS: .nownear{display:flex;flex-wrap:wrap;gap:.4rem .9rem;font-size:.9rem;
+   padding:.35rem 0} .nownear a{white-space:nowrap}
+   details.morenav>summary{cursor:pointer;font-size:.9rem;color:var(--ant-dark);
+   list-style:none;padding:.3rem 0} details.morenav>summary::-webkit-details-marker{display:none}
+
+e  home_html (~15320): re-sort per §2; place _ev_strip first; wrap bands
+   6 in <details>.
+
+f  tests/test_page_weight.py (WO-52's gate) — add two checks:
+   · on every page, <a> count inside <header> but outside <details> ≤ 4 + masthead
+   · on a sampled place page, byte offset of <h1> < 8,000 (today: 20,679)
+
+Cost: one build.py session, ~1 h once the lock frees; then the full
+rebuild (today's has run 1 h 40 m and counting). Deploy is Nan's.
+
+
+4. HER FORKS
+------------------------------------------------------------------------
+F1  Drawer on the home page too? Beer's rule says yes. Recommend yes.
+    Alternative: home keeps the open chip row, every other page drawers.
+F2  Which cells. The four above, or add 📝 to-do from md-notes (unread —
+    verify what it holds first).
+F3  Divination: colour-of-the-day stays open, the other five fold (recommend)
+    — or all six fold.
+F4  Footer sitemap: leave as the footer (recommend) — or fold it too.
+F5  The n ≤ 3 search card: in this WO, or in the search-cure lane.
+F6  🎪 on a place page: the city-wide count (recommend — it is one number,
+    already baked) or only events at/near this place (needs the pin;
+    2,116 records are unpinned).
+
+Expiry: none of this rots; the numbers in §1 are today's and are the
+before-picture for the test in §3f.
+
+
+5. NOT DONE
+------------------------------------------------------------------------
+· build.py untouched — another session's build held it all session.
+· WO-64's two lines (the here hook + hop) still pending; the 📍 cell
+  wants them but does not need them to ship.
+· md-notes not read.
+
+
+6. MINIMAL, WANDERABLE, DESIRE PATHS  (Nan, 9/6 afternoon)
+------------------------------------------------------------------------
+"As minimal and effective as possible. Easy to wander and browse, but not
+a giant card catalog. Desire paths. Pay attention to the paths people
+follow, so we can beautify them."
+
+What that cuts from §2
+  The strip is ONE line of text, no cells, no boxes:
+      🌤 32° · PM2.5 17 ดี · 🎪 24 งานวันนี้ · 🗺 แผน 3 จุด
+  The drawer summary is one glyph: ☰
+  Home = the line · three event cards · one map postcard · ☰.
+    The finder (175 shelves as Term (count)) IS the card catalog. It goes
+    behind ☰. In its place: the eight or so paths people actually walk,
+    from the log below — re-cut whenever the log says so.
+  Place page = the line · H1 · open-now · bearing · Add to my plan, then
+    THREE ways to wander and nothing else:
+      · the nearest neighbours — neighbours_in() (build.py:6657) already
+        draws the 9 nearest names on the place's own map; print the same
+        9 as text links under it. A place leads to its neighbours, not
+        back to the catalog.
+      · the same kind nearby (one link to the shelf at this pin)
+      · 🎲 Take me somewhere (already exists)
+  Search = the answer card (n ≤ 3) or the list, then ☰. Nothing else.
+
+What is already watching the paths
+  search.html is on-device (fetches data/index.json); a typed search does
+  not leave the browser. Nothing on the site records a click. Three
+  sources exist anyway, all first-party:
+
+  a  ask.motdang.net — white-label-ai, D1 tables ALREADY LIVE:
+       search_log  (0006): one row per question — first 300 chars, cues,
+                   what was planned, what each source returned, what the
+                   answer cited. NO seat id by design ("about the sites'
+                   coverage, not about people"). Admins export CSV.
+       site_gaps   (0008): a row when the site came back weak and the web
+                   found something real — a candidate LISTING with name,
+                   category, area, url, evidence, seen-count, status
+                   new|taken|rejected. "Leads for Nan's own projects."
+     This is the desire-path log. It sees what people ASK the ants, not
+     what they click on the site.
+
+  b  Cloudflare fronts motdang.net (server: cloudflare; ns kyree/
+     princess). Zone analytics — top paths, referrers, countries — exist
+     with no script on the page and no cookie. Reading the host's own log
+     is not "analytics on the page", but whether it keeps the spirit of
+     "we do not track you" is her call (F7).
+     Caveat: traffic today is Nan + Claude + friends (see the
+     monetization-provenance note); for now this log is mostly her own
+     footprints.
+
+  c  gptmine (go/gptmine) — 468 of her own Thailand questions, scored.
+     The demand ranking as of 9/5, unanswered per cluster:
+       shopping-specialty 96 · clinics-specialty 50 · food-cuisine 49 ·
+       activities-sport-community 35 · services-trades 24 ·
+       transport-travel 19 · pharmacy-otc 17 · massage-spa 5
+     That is the first "eight paths" for the home page until (a) says
+     otherwise.
+
+  d  On-device trail (not built): md-seen holds per-shelf counts, not a
+     trail; md-plan holds the plan. A last-5-pages trail in localStorage
+     — not sent anywhere — gives "you were at …" for wandering
+     backwards. (F8)
+
+Beautify the paths — the loop
+  Weekly: search_log + site_gaps CSV → the 20 most-asked questions and
+  the 20 gaps → for each, does the page it lands on carry an answer
+  card, a pin, hours, a photo, a bearing? A ranked worklist to
+  _incoming/paths-<date>.txt, the way source-scout already drops its
+  finds. Not a dashboard. (F9 — a scheduled task like motdang-source-
+  scout, or by hand.)
+
+  NOT recommended: mirroring search.html queries to search_log (one
+  fetch, no id). It is a beacon, and it changes what the site does at
+  read time.
+  Presented because it is the only way to see what is typed on the site
+  itself. (F10)
+
+Forks added
+  F7   read Cloudflare zone paths — yes / no
+  F8   on-device last-5 trail — build / skip
+  F9   weekly paths worklist — scheduled / by hand / skip
+  F10  search.html → search_log beacon — recommend NO

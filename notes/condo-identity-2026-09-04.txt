@@ -1,0 +1,240 @@
+WO-56 — ปันนา = PUNNA: THE BUILDING THE SITE HELD THREE TIMES AND COULD NOT NAME
+================================================================================
+
+2026-09-04. Nan: a friend who uses motdang says his condo is not on there.
+It was. Three times.
+
+
+What the gemba found
+--------------------
+
+He searched punna residence 1. The site holds:
+
+| record | name | pin | what it knows |
+|---|---|---|---|
+| cm-osm-way-199956849 | Punna Residence | yes | nothing else |
+| cm-osm-way-233740168 | Punna Residence | yes, 55 m away | nothing else |
+| cm-osm-way-325243860 | Punna Resident | yes | nothing else |
+| cm-condoreg-ปันนา-เรสซิเดนซ์-1-แอท-นิมมาน | ปันนา เรสซิเดนซ์ 1 แอท นิมมาน | none | ต.สุเทพ · 35,900–43,600 ฿/m² |
+| + four more register rows | ปันนา เรสซิเดนซ์ 2 · โอเอซิส 1–2 · 3 หลัง ม.ช. · 5 | none | assessed spreads |
+
+Two halves of one identity, and nothing joins them. The map knows where the
+building stands and not what it is called in Thai; the register knows the Thai
+name, the tambon and what the Treasury assesses it at, and not where it is.
+A resident who types either half is answered by a page that does not look like
+his building — no pin on one side, no valuation or Thai name on the other.
+
+This is not a Punna problem. 185 of 353 mapped Chiang Mai buildings carry
+no Thai name at all; the register writes every one of its 373 rows in Thai.
+The join written in WO-27 is exact-name-only and correctly so, but it is blind
+by construction to every building whose two names are the same word in two
+scripts.
+
+
+What was built
+--------------
+
+The loanword tier — import_condo_register.loanword_candidates(). The
+register's Thai is read by RTGS (translit.py), the generic words are stripped
+(residence, condo, mansion, @, the district), and what remains is compared as a
+CONSONANT SKELETON: ปันนา → Panna → pn, Punna → pn. Building numbers are
+compared separately and reported, never assumed. 27 candidates in Chiang Mai
+and none in Chiang Rai, written to cache/condo_register_review_<prov>.txt beside the
+existing near-miss list, with the merges.json line to paste.
+
+Nothing is merged by the machine, and the floor is set by two facts. The
+skeleton is a coarse instrument: over the whole catalogue it offered เฮือนป้อ
+เลี้ยง for Wat Luang, Doi Lang and a music shop. Confining the Latin side to
+the housing shelf is what makes a two-consonant floor safe — and a two-
+consonant floor is required, because Punna itself reduces to pn and a higher
+one missed the building this work order started with.
+
+Six pairs settled by a person (name-for-name, unique, no number in doubt):
+Ban Haw Kham · Pansook The Urban · Palm Springs Nimman Areca · The Star Hill ·
+Mountain Front · Mountain View. Each map record kept its pin and its Latin
+name and gained the Treasury's spread.
+
+Punna itself is NOT settled, deliberately. Three footprints, five register
+rows, and no evidence on this disk saying which footprint is Punna 1. Merging
+on a guess puts one building's valuation on another building — the error the
+whole file is written around. It sits in the candidate list as
+number unconfirmed, where a resident or a walk settles it.
+
+A register building is a condominium — settle_sub(), after the merges.
+The register lists buildings registered under the Condominium Act B.E. 2522,
+and that registration is what makes a building an อาคารชุด;
+building=apartments describes form, not tenure. 7 buildings re-filed; the CM
+condo shelf 354 → 408.
+
+The facts the site has held and never printed. 362 records carry the
+Treasury's assessed spread and 109 carry a complex key; no place page showed
+either. Both now render in the facts list: the spread with the sentence that
+says it is the transfer-fee basis and not a market price, and the complex as
+links to the sibling buildings — which is the only way a page can distinguish
+One Plus Suan Dok 1 from the other ten rows behind one map footprint.
+
+
+Open — each needs a person, none needs a crawl
+----------------------------------------------
+
+ The 27 candidates, read once and settled. Highest value: Punna (a resident
+  is asking), Boat Condo ×3, LIV@NIMMAN, ชมดอย.
+ Which footprint is which is NOT one question — I was wrong to write that.
+  Nan, same day: "there's a lot of punnas in chiang mai." Counted: ten
+  Punna records on the housing shelf in Chiang Mai — three mapped footprints
+  (Punna Residence ×2, Punna Resident) and seven register rows, spread over
+  four tambon (สุเทพ ×4, วัดเกต ×2, ศรีภูมิ) and at least three product
+  lines (Residence @ Nimman 1–2 · Oasis 1–2 at Wat Ket · 3, 5 and @หน้ามช by
+  the university). Seven more Punna records sit on other shelves — a hotel, a
+  park, two massage shops, two restaurants, one in Chiang Rai — none of them
+  this trade. Three pins against seven unpinned buildings in four tambon is a
+  survey, not a question, and the pins cannot be assigned by elimination.
+ A register row has no pin and the pin hunt already lists it. A resident who
+  can settle his own building's identity can also drop its pin — and he can
+  only settle HIS, which is the honest size of what one reader can give.
+
+
+"Is this a holistic fix?" — no, and here is what the honest one was
+-------------------------------------------------------------------
+
+Nan asked that of the curated-unions plan, and the answer was no. A file of
+confirmed spelling unions fixes the condo shelf and leaves the disease. So the
+disease was measured across all 21,937 records:
+
+| source | records | Thai-only name | no pin |
+|---|---|---|---|
+| ONAB temple register | 2,084 | 100% | 943 |
+| OBEC schools | 1,302 | 100% | 6 |
+| FDA pharmacies | 907 | 98% | 99 |
+| MOPH health | 490 | 100% | 0 |
+| condominium register | 367 | 98% | 367 |
+| OPEC private schools | 168 | 100% | 168 |
+| OpenStreetMap | 14,851 | — 58% Latin-only | — |
+
+Only 24% of the catalogue holds both scripts of its own name. Every state
+register writes Thai; the open map mostly writes Latin; so any place that
+reaches this site down both paths stands in it twice under two alphabets.
+Punna is not a condominium problem. It is the shape of the whole catalogue,
+and it was found on the condo shelf because that is where a resident looked.
+
+So the fix went to the reading, not to a matching rule. translit.reading
+is what the search index already matches on and what every Thai-only row shows
+as its romanisation. It was getting these names wrong:
+
+    ยูนีค          Yu Nik      → Unique
+    ฮิลล์ไซด์       Hinsai      → Hillside
+    ทรีบูทีค        Sibuthik    → Tree Boutique
+    ไฮแลนด์         Hailaen     → Highland
+    แฮปปี้          Papi        → Happy
+    นอร์ท           Not         → North
+    ปันนา           Panna       → Punna
+
+Twenty building loanwords went into data/curated/rtgs_lexicon.json, which
+already existed for exactly this (บิ้วตี้ is Beauty, not Bioti), plus a new
+brand section for a name's own Latin spelling read off a record in this
+same catalogue — ปันนา is Punna because three buildings on this shelf spell
+it that way on their own signs. No outside source, no claim about ownership.
+
+With the readings right, no similarity test is needed at all. Families
+join on the exact romanised token: 57 families of two or more on the housing
+shelf, 22 of them holding a register row and a mapped building together,
+Punna's ten among them. Every fuzzy rule was measured and refused; the
+audit script still prints what each would have joined, and applies none.
+
+This reaches further than the condo shelf, because the reading is used
+everywhere: the search index's matched-never-shown alias, the romanisation
+under every Thai-only name, and any future register join.
+
+What a family may be keyed on. data/curated/name_families.json holds the
+refusal list — 30 words that name a KIND (หญิง the sex of a dormitory, อาคาร
+the word building, แฟลต, เจ้าหน้าที่), a DESCRIPTOR any building may wear
+(hill, town, garden, square), or a PLACE (ช้างคลาน and ช้างเผือก are two
+districts, not one family). Each refusal carries its ground, so the next
+person can disagree with a reason instead of a silence. Without it the shelf
+grouped thirteen unrelated หอ N หญิง as a family.
+
+
+The sweep, run across every shelf
+---------------------------------
+
+Nan: "do the sweep everywhere." The instrument is
+importers/audit_readings.py, and the evidence is the catalogue's own:
+4,987 records hold a Thai name AND a human English name, so where our
+reading disagrees with the sign, the sign is right and the disagreement is a
+bug report somebody already wrote down.
+
+Only pairs that share a CONSONANT SHAPE were taken. That is the line between
+a transliteration and a translation, and it is the whole discipline: กาแฟ →
+"Coffee" and เภสัช → "Pharmacy" are translations, the readings *Kafae and
+Phesat are correct, and a translation belongs in the search index's
+matched-never-shown words, never in a romanisation.
+
+Twenty-two loanwords and sixteen brand spellings went in. The chains are
+the finding a reader would feel first:
+
+| held as | records | read before | reads now |
+|---|---|---|---|
+| วัตสัน | 20 pharmacies | Wat San | Watsons |
+| บู๊ทส์ | 13 pharmacies | But | Boots |
+| ปตท | 42 | Patot | PTT |
+| กสิกร | 39 | Kasik | Kasikorn |
+| พีที | 37 | Phithi | PT |
+| บิ๊กซี | 25 | Biksi | Big C |
+| โลตัส | 23 | Lotat | Lotus |
+| กรุงศรี | 14 | Krungsi | Krungsri |
+| ฟาสซิโน | 12 pharmacies | Fatsino | Fascino |
+| เทคโนโลยี | 23 schools | Theknoloi | Technology |
+| คริสเตียน | 13 schools | Khrittian | Christian |
+
+Not one of the twenty Watsons or thirteen Boots carries an English name in
+this catalogue. A reader typing the word on the shopfront was told the
+directory did not have it — the same failure as Punna, on a shelf where the
+reader is usually looking for a pharmacy tonight.
+
+Measured over the whole corpus:
+
+| | before | after |
+|---|---|---|
+| readings that match the sign exactly | 1,360 of 4,987 (27.3%) | 1,495 (30.0%) |
+| Thai-only records with no English name whose romanisation now carries the English word | — | 490 |
+
+Those 490 are 407 medical, 382 essentials (the pharmacies), 36 housing, 9
+schools. They are findable in English for the first time, because the
+romanisation is what the search index matches on.
+
+What the temple sweep found instead. On the wat shelf the readings are
+mostly right — Wat, Phra That, Doi, Luang all correct — because those are Thai
+words and RTGS is built for them. What is wrong there is different in kind:
+วัดสุวรรณ reads Wat Suoraron and วัดป่ายาง reads Wat Painga, which are
+segmentation faults in Pali compounds, not missing vocabulary. They belong to
+irregular and to the segmenter, and they are NOT fixed here — naming them is
+the honest end of this sweep, not a claim to have finished them.
+
+
+One thing the sweep found in the lexicon itself
+-----------------------------------------------
+
+The boundary this work order states — a reading romanises, it does not
+translate — is not currently held by the file it is stated in. The lexicon
+already translates where it should transliterate: สาขา comes back as branch,
+ชุมชน as Community, โรงเรียน as School, วิทยาลัย as College. So
+โรงเรียนนานาชาติเชียงใหม่ reads "Nanachati School Chiang Mai" — half read,
+half translated. Those entries predate this sweep and nothing here changed
+them: they may well be a deliberate kindness to an English reader, and
+undoing them would move thousands of readings on the schools shelf. It is
+recorded because the next person to add a word will look at those entries to
+learn the rule, and they teach the opposite of it. Somebody should decide
+which way the file goes.
+
+
+Still open
+----------
+
+ The 27 loanword candidates from the register sweep, read once and settled.
+ Which Punna footprint is number 1. Ten records, three pins, four tambon —
+  a survey or a question to the resident, not an inference.
+ The Pali segmentation faults on the temple shelf (สุวรรณ, ป่ายาง and their
+  kin) — a different repair from this one, in irregular and the segmenter.
+ The name-family row is drawn on the housing shelf only. A chain of shops is
+  a BRAND and already has its own tag pages; whether a family means anything
+  on the wat or school shelves has not been asked.

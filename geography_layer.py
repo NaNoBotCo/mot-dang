@@ -584,7 +584,7 @@ def emit(g, data):
           else (shelf_og("cm", "sights") if shelf_og else None))
     body = (
         '<h1>⛰ ' + bi("ดอย — แผ่นดินเชียงใหม่ · เชียงราย",
-                      "The doi — the shape of the land") + "</h1>"
+                      "The doi — the land") + "</h1>"
         '<p class="doi-intro">' + intro + "</p>"
         + "<h2>" + bi("แผนที่พื้นดิน", "The ground map") + "</h2>"
         + bar + box

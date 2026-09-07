@@ -1,0 +1,1474 @@
+{
+ "_doc": [
+  "THE SECOND AXIS — what a place IS socially, beside `cat`, which is what it SELLS.",
+  "Nan 2026-09-06: 'Mot Dang admits a place by its counter — this is flat wrong.'",
+  "`cat` is a shopping axis and is good at its job; nothing here replaces it and no",
+  "canonical record is rewritten. `kind` is derived at build time by kind_layer.py",
+  "from the rules below, and an explicit top-level `kind` on a curated record wins.",
+  "",
+  "The point of the axis is `answers`: what counts as this record ANSWERING A",
+  "QUESTION depends on the kind of place it is. A phone number is the answer a shop",
+  "owes. A wat owes its sect and its founding; a library owes what it holds and who",
+  "may read there. Judging every place by a shop's answer is the counter rule, and",
+  "the counter rule is what this file exists to end.",
+  "",
+  "Rules are read in order and ACCUMULATE — a place can be more than one kind. A",
+  "record no rule claims comes back `unclassified`; that is a review item, never a",
+  "coin flip, and tests/test_kinds.py prints the count."
+ ],
+ "kinds": {
+  "commerce": {
+   "th": "การค้า",
+   "en": "commerce",
+   "gloss_th": "ที่ที่ขายของหรือรับจ้างทำ",
+   "gloss_en": "somewhere that sells a thing or does a job for money"
+  },
+  "institution": {
+   "th": "สถาบัน",
+   "en": "institution",
+   "gloss_th": "ห้องสมุด หอจดหมายเหตุ สถาบันวิจัย มูลนิธิ สมาคม",
+   "gloss_en": "a library, archive, institute, foundation or association — it keeps or does something, it does not sell it"
+  },
+  "congregation": {
+   "th": "ศาสนสถาน",
+   "en": "congregation",
+   "gloss_th": "โบสถ์ มัสยิด ศาสนสถานอื่นนอกจากวัด",
+   "gloss_en": "a church, mosque, gurdwara, synagogue or meeting — a body of people, not only a building"
+  },
+  "civic": {
+   "th": "ราชการ-ส่วนรวม",
+   "en": "civic",
+   "gloss_th": "ที่ว่าการ สถานกงสุล ศูนย์ราชการ ที่ทำการชุมชน",
+   "gloss_en": "a public office, a consulate, a district or community office"
+  },
+  "school": {
+   "th": "สถานศึกษา",
+   "en": "school",
+   "gloss_th": "โรงเรียน วิทยาลัย มหาวิทยาลัย",
+   "gloss_en": "a school, college or university"
+  },
+  "wat": {
+   "th": "วัด",
+   "en": "wat",
+   "gloss_th": "วัด สำนักสงฆ์ ที่พักสงฆ์",
+   "gloss_en": "a wat, monastic dwelling or hermitage"
+  },
+  "infrastructure": {
+   "th": "โครงสร้างพื้นฐาน",
+   "en": "infrastructure",
+   "gloss_th": "สถานี ท่า ปั๊ม ประปา ไฟฟ้า สะพาน",
+   "gloss_en": "a station, pier, pump, utility or crossing — the city working"
+  },
+  "land": {
+   "th": "ผืนดิน",
+   "en": "land",
+   "gloss_th": "สวน ป่า น้ำตก ดอย บ่อน้ำ จุดชมวิว",
+   "gloss_en": "a park, forest, waterfall, peak, spring or viewpoint — a place that is ground, not a building"
+  },
+  "memory": {
+   "th": "ที่ระลึก-สุสาน",
+   "en": "memory",
+   "gloss_th": "สุสาน ป่าช้า อนุสาวรีย์ โบราณสถาน หอจดหมายเหตุของเมือง",
+   "gloss_en": "a cemetery, memorial, monument or historic site — what the city keeps of what is gone"
+  },
+  "club": {
+   "th": "ชมรม-สโมสร",
+   "en": "club",
+   "gloss_th": "ชมรม สโมสร กลุ่มที่นัดพบกัน",
+   "gloss_en": "a club, society or group that meets — you join it, you do not buy from it"
+  },
+  "sacred": {
+   "th": "ที่ศักดิ์สิทธิ์",
+   "en": "sacred",
+   "gloss_th": "ศาลพระภูมิ ศาลเจ้าที่ ต้นไม้ผูกผ้า เสาอินทขีล หอเสื้อบ้าน ศาลเจ้า",
+   "gloss_en": "a place of observance that is not a wat and not a body of people — a spirit house, a wound tree, a city pillar, a guardian shrine, a Chinese shrine"
+  },
+  "way": {
+   "th": "ทาง",
+   "en": "way",
+   "gloss_th": "ถนน ซอย ตรอก สะพาน — ที่ที่เป็นเส้น ไม่ใช่จุด",
+   "gloss_en": "a road, soi, alley or bridge — a place that is a LINE, not a point; you find things ALONG it, and you navigate BY it rather than TO it"
+  },
+  "parking": {
+   "th": "ที่จอดรถ",
+   "en": "parking",
+   "gloss_th": "ลานจอดรถ อาคารจอดรถ ที่จอดมอเตอร์ไซค์ ที่จอดจักรยาน",
+   "gloss_en": "a car park, multi-storey, motorcycle bay or bicycle rack — a piece of ground you leave a vehicle on"
+  }
+ },
+ "rules": [
+  {
+   "kind": "institution",
+   "name": "ห้องสมุด|หอสมุด|librar|จดหมายเหตุ|archive|สถาบัน|institute|มูลนิธิ|foundation|สมาคม|association|ศูนย์วิจัย|research (centre|center|institute)",
+   "why": "the class this whole axis was built for — matched on its own name wherever it was filed · read FIRST: a name that says so outranks a category that merely contains it"
+  },
+  {
+   "kind": "congregation",
+   "name": "คริสตจักร|โบสถ์|church|chapel|cathedral|มัสยิด|mosque|masjid|สุเหร่า|gurdwara|synagogue|วิหารซิกข์",
+   "name_not": "สุสาน|ป่าช้า|cemetery|graveyard",
+   "why": "a congregation is a body of people; the cemetery beside it is memory, not congregation · read FIRST: a name that says so outranks a category that merely contains it"
+  },
+  {
+   "kind": "sacred",
+   "cat": [
+    "wat"
+   ],
+   "sub": [
+    "shrine"
+   ],
+   "why": "36 records already sit here; a ศาลเจ้า is not a registered wat"
+  },
+  {
+   "kind": "sacred",
+   "sub": [
+    "spirit-house"
+   ],
+   "why": "the shelf declared in 2026-08 and never filled — 0 records; it fills by door survey, never by crawling harder",
+   "expects_none": "the shelf was declared in 2026-08 and has never held a record; ศาลพระภูมิ fills by door survey and by no crawl that exists. The rule is here so that the day one lands it is a shrine and not a `wat`."
+  },
+  {
+   "kind": "sacred",
+   "name": "ศาลพระภูมิ|ศาลเจ้าที่|ศาลตายาย|ศาลเพียงตา|ศาลเจ้า(?!าที่)|ศาลเจ้าพ่อ|ศาลเจ้าแม่|ศาลอารักษ์|หออารักษ์|เสาอินทขีล|อินทขีล|สะดือเมือง|หอเสื้อบ้าน|หอเสื้อวัด|ผีปู่ย่า|ศาลหลักเมือง|spirit house|wayside shrine|city pillar",
+   "name_not": "ธนาคาร|ศาลจังหวัด|ศาลแขวง|ศาลอุทธรณ์|ศาลเยาวชน|ศาลปกครอง|court|โรงเรียน|โรงพยาบาล|บ้านเอื้ออาทร|รับซ่อม|บริษัท|หจก|อพาร์ตเมนต์|หอพัก|\\[ถนน|\\(หน้า|ร้าน|ก๋วยเตี๋ยว|ขาหมู|ข้าว|คาเฟ|cafe|café|coffee|นวด|massage|spa|restaurant|bistro|\\bbar\\b|eatery|kitchen|resort|hotel|โฮมสเตย์|homestay|บริษัท|หจก|โรงแรม",
+   "why": "ธนาคาร contains นาค; ศาลจังหวัด is a courthouse; เจ้าพ่อหลวง names royally-patronised SCHOOLS; อารักษ์ is a road and a vet clinic — the shrine word is the ศาล or หอ in front, and the trade words hold the rest out",
+   "cat_not": [
+    "food",
+    "hotel",
+    "massage",
+    "beauty",
+    "shopping",
+    "repair",
+    "realestate",
+    "cannabis",
+    "pets",
+    "medical",
+    "school",
+    "cooking"
+   ]
+  },
+  {
+   "kind": "sacred",
+   "name": "ต้นโพธิ|ต้นไทร|ต้นยางนา|ต้นจามจุรี|นางตะเคียน|ต้นไม้ใหญ่.*ผ้า|sacred tree|bodhi tree|banyan",
+   "name_not": "ร้าน|ก๋วยเตี๋ยว|ขาหมู|ข้าว|คาเฟ|cafe|café|coffee|นวด|massage|spa|restaurant|bistro|\\bbar\\b|eatery|kitchen|resort|hotel|โฮมสเตย์|homestay|บริษัท|หจก|โรงแรม",
+   "why": "of the 17 ต้นไม้ matches in the corpus, seven are noodle shops and three are cafés trading on the bodhi; the trade words hold them out",
+   "cat_not": [
+    "food",
+    "hotel",
+    "massage",
+    "beauty",
+    "shopping",
+    "repair",
+    "realestate",
+    "cannabis",
+    "pets",
+    "medical",
+    "school",
+    "cooking"
+   ]
+  },
+  {
+   "kind": "wat",
+   "cat": [
+    "wat"
+   ],
+   "why": "the ONAB register is the source and a wat is a wat"
+  },
+  {
+   "kind": "school",
+   "cat": [
+    "school",
+    "school-intl"
+   ],
+   "why": "OBEC/OPEC registers"
+  },
+  {
+   "kind": "institution",
+   "cat": [
+    "museums-galleries"
+   ],
+   "sub_not": [
+    "gallery-commercial"
+   ],
+   "why": "a museum keeps a collection; a commercial gallery sells one"
+  },
+  {
+   "kind": "commerce",
+   "cat": [
+    "museums-galleries"
+   ],
+   "sub": [
+    "gallery-commercial"
+   ]
+  },
+  {
+   "kind": "memory",
+   "cat": [
+    "community"
+   ],
+   "sub": [
+    "cremation"
+   ],
+   "why": "278 of the 375 community records are cremation grounds"
+  },
+  {
+   "kind": "memory",
+   "name": "สุสาน|ป่าช้า|cemetery|graveyard|อนุสาวรีย์|อนุสรณ์|memorial|monument"
+  },
+  {
+   "kind": "memory",
+   "cat": [
+    "sights"
+   ],
+   "sub": [
+    "historic",
+    "culture-site"
+   ]
+  },
+  {
+   "kind": "civic",
+   "cat": [
+    "essentials"
+   ],
+   "sub": [
+    "gov"
+   ]
+  },
+  {
+   "kind": "civic",
+   "name": "กงสุล|consulate|embassy|สถานทูต|ที่ว่าการ|เทศบาล|อบต\\.|อบจ\\.|ที่ทำการ|สำนักงานเขต|district office",
+   "name_not": "chicken|ไก่",
+   "why": "'Chicken Embassy' is a noodle shop — the one bare-name false positive in the corpus, held out by name"
+  },
+  {
+   "kind": "civic",
+   "cat": [
+    "community"
+   ],
+   "sub": [
+    "centre",
+    "hall",
+    "community"
+   ]
+  },
+  {
+   "kind": "club",
+   "cat": [
+    "community"
+   ],
+   "sub": [
+    "clubs"
+   ]
+  },
+  {
+   "kind": "club",
+   "name": "ชมรม|สโมสร|\\bclub\\b|society|สมาคมกีฬา",
+   "name_not": "night ?club|คลับเฮ้าส์|clubhouse|golf club|บริษัท"
+  },
+  {
+   "kind": "institution",
+   "cat": [
+    "community"
+   ],
+   "sub": [
+    "volunteer"
+   ]
+  },
+  {
+   "kind": "parking",
+   "cat": [
+    "transport"
+   ],
+   "sub": [
+    "parking",
+    "motorcycle-parking",
+    "bicycle-parking",
+    "parking-entrance"
+   ],
+   "why": "WO-67 — its own kind rather than a child of infrastructure, because of what it OWES. A station owes who runs it, where it goes and whether it still runs; a car park owes none of those and 95% of them have no name, no operator and no hours because there is nothing to write. What a car park owes is WHERE IT IS, and that it has."
+  },
+  {
+   "kind": "infrastructure",
+   "cat": [
+    "transport"
+   ],
+   "sub": [
+    "bus",
+    "songthaew",
+    "taxi",
+    "airport",
+    "train",
+    "pier",
+    "funicular"
+   ],
+   "why": "a station is the city working; a motorbike dealer on the same shelf is a shop"
+  },
+  {
+   "kind": "commerce",
+   "cat": [
+    "transport"
+   ],
+   "sub": [
+    "motorbike",
+    "fuel",
+    "rental",
+    "bicycle",
+    "tours"
+   ]
+  },
+  {
+   "kind": "infrastructure",
+   "cat": [
+    "essentials"
+   ],
+   "sub": [
+    "utilities",
+    "post"
+   ]
+  },
+  {
+   "kind": "civic",
+   "cat": [
+    "sights"
+   ],
+   "sub": [
+    "community-tourism"
+   ],
+   "why": "ชุมชนท่องเที่ยว — the entity is a village, which also trades; it carries both kinds and both are true"
+  },
+  {
+   "kind": "commerce",
+   "cat": [
+    "sights"
+   ],
+   "sub": [
+    "community-tourism",
+    "spa-body",
+    "farm"
+   ]
+  },
+  {
+   "kind": "land",
+   "cat": [
+    "sights"
+   ],
+   "sub": [
+    "cave",
+    "farm"
+   ]
+  },
+  {
+   "kind": "congregation",
+   "cat": [
+    "community"
+   ],
+   "sub": [
+    "retreat"
+   ],
+   "why": "a retreat house is kept by a religious body, not sold by a hotel"
+  },
+  {
+   "kind": "commerce",
+   "cat": [
+    "community"
+   ],
+   "sub": [
+    "arts",
+    "dance"
+   ],
+   "why": "studios — they teach and sell; the community shelf was where OSM left them"
+  },
+  {
+   "kind": "commerce",
+   "cat": [
+    "whats-on"
+   ],
+   "why": "a cinema, a music room and an events venue all sell a ticket"
+  },
+  {
+   "kind": "land",
+   "cat": [
+    "parks"
+   ]
+  },
+  {
+   "kind": "land",
+   "cat": [
+    "sights"
+   ],
+   "sub": [
+    "peak",
+    "viewpoint",
+    "waterfall",
+    "nature",
+    "hot-spring"
+   ]
+  },
+  {
+   "kind": "civic",
+   "cat": [
+    "medical"
+   ],
+   "sub": [
+    "health-station"
+   ],
+   "why": "a รพ.สต. is a state health post, not a clinic that sells"
+  },
+  {
+   "kind": "commerce",
+   "cat": [
+    "food",
+    "hotel",
+    "cannabis",
+    "massage",
+    "beauty",
+    "repair",
+    "shopping",
+    "realestate",
+    "market",
+    "cooking",
+    "tattoo",
+    "muaythai",
+    "home-services",
+    "chang",
+    "business",
+    "pets",
+    "sport",
+    "medical"
+   ],
+   "why": "the shopping axis, unchanged — these are the shelves `cat` was built for"
+  },
+  {
+   "kind": "commerce",
+   "cat": [
+    "essentials"
+   ],
+   "sub_not": [
+    "gov",
+    "utilities",
+    "post"
+   ]
+  }
+ ],
+ "answers": {
+  "_doc": [
+   "What it means for a record of this kind to ANSWER A QUESTION — the second gate.",
+   "`fields` are top-level record fields, `attrs` are keys under attrs, `ants` are",
+   "the nine-ant keys build.py already computes. A record answers if ANY listed",
+   "item is present. `future` names fields that do not exist yet (they arrive with",
+   "the field work); they are listed so the slot is ready and so nothing has to be",
+   "rewritten when they land."
+  ],
+  "commerce": {
+   "fields": [
+    "phone",
+    "website",
+    "hours",
+    "address"
+   ],
+   "ants": [
+    "phone",
+    "line",
+    "hours",
+    "web",
+    "photo",
+    "claimed"
+   ],
+   "say_th": "ติดต่อได้ เปิดกี่โมง อยู่ตรงไหน",
+   "say_en": "how to reach it, when it opens, where it is"
+  },
+  "wat": {
+   "fields": [
+    "address"
+   ],
+   "attrs": [
+    "sect",
+    "foundedBE",
+    "foundedCE",
+    "watRank",
+    "watRegisterName",
+    "wisung",
+    "desc"
+   ],
+   "ants": [
+    "phone",
+    "hours",
+    "web",
+    "photo",
+    "claimed"
+   ],
+   "say_th": "นิกาย ปีที่สร้าง ชื่อในทะเบียน วิสุงคามสีมา",
+   "say_en": "its sect, its founding, its name in the register, its boundary"
+  },
+  "school": {
+   "fields": [
+    "address",
+    "phone"
+   ],
+   "attrs": [
+    "levels",
+    "students",
+    "schoolSector",
+    "obecCode",
+    "sizeBand",
+    "foundedBE",
+    "eduArea",
+    "desc"
+   ],
+   "ants": [
+    "phone",
+    "web",
+    "hours",
+    "claimed"
+   ],
+   "say_th": "สอนชั้นไหน สังกัดใคร ขนาดเท่าไร",
+   "say_en": "what levels it teaches, whose system it belongs to, how big it is"
+  },
+  "institution": {
+   "fields": [
+    "address",
+    "website"
+   ],
+   "attrs": [
+    "desc",
+    "operator",
+    "registerName",
+    "licenceNo"
+   ],
+   "future": [
+    "holds",
+    "access",
+    "parent",
+    "serves",
+    "ownWords"
+   ],
+   "ants": [
+    "web",
+    "phone",
+    "claimed",
+    "photo"
+   ],
+   "say_th": "เก็บอะไรไว้ ใครเข้าใช้ได้ ต้องนัดไหม อยู่ในสังกัดใคร",
+   "say_en": "what it holds, who may use it, whether you must ask first, whose body it stands under"
+  },
+  "congregation": {
+   "fields": [
+    "address",
+    "hours"
+   ],
+   "attrs": [
+    "desc",
+    "operator",
+    "registerName"
+   ],
+   "future": [
+    "parent",
+    "access",
+    "serves",
+    "ownWords"
+   ],
+   "ants": [
+    "hours",
+    "web",
+    "phone",
+    "photo",
+    "claimed"
+   ],
+   "say_th": "นิกายไหน นัดพบเมื่อไร ใครดูแล ภาษาที่ใช้",
+   "say_en": "which body, when it gathers, who keeps it, what language"
+  },
+  "civic": {
+   "fields": [
+    "address",
+    "phone",
+    "hours",
+    "website"
+   ],
+   "attrs": [
+    "facilityType",
+    "registerName",
+    "operator",
+    "desc"
+   ],
+   "future": [
+    "serves",
+    "access"
+   ],
+   "ants": [
+    "phone",
+    "hours",
+    "web",
+    "claimed"
+   ],
+   "say_th": "ทำเรื่องอะไรได้ที่นี่ เปิดเวลาไหน อยู่ตรงไหน",
+   "say_en": "what you can get done there, when, and where"
+  },
+  "infrastructure": {
+   "fields": [
+    "address",
+    "hours"
+   ],
+   "attrs": [
+    "operator",
+    "facilityType",
+    "status",
+    "desc"
+   ],
+   "ants": [
+    "hours",
+    "phone",
+    "photo"
+   ],
+   "say_th": "ใครเดินรถ ไปไหนได้ ยังเปิดอยู่ไหม",
+   "say_en": "who runs it, where it goes, whether it still runs"
+  },
+  "land": {
+   "fields": [
+    "address"
+   ],
+   "attrs": [
+    "desc",
+    "operator",
+    "status",
+    "facilityType"
+   ],
+   "ants": [
+    "photo",
+    "hours",
+    "web"
+   ],
+   "say_th": "เข้าได้ไหม สูงเท่าไร มีอะไรอยู่ที่นั่น",
+   "say_en": "whether you may go, how high it stands, what is there"
+  },
+  "memory": {
+   "fields": [
+    "address"
+   ],
+   "attrs": [
+    "desc",
+    "foundedBE",
+    "foundedCE",
+    "operator",
+    "registerName"
+   ],
+   "future": [
+    "holds",
+    "parent"
+   ],
+   "ants": [
+    "photo",
+    "web"
+   ],
+   "say_th": "ของใคร แต่เมื่อไร ยังมีคนดูแลไหม",
+   "say_en": "whose it is, from when, whether anyone still keeps it"
+  },
+  "club": {
+   "fields": [
+    "website",
+    "hours"
+   ],
+   "attrs": [
+    "desc",
+    "operator"
+   ],
+   "future": [
+    "parent",
+    "access",
+    "serves",
+    "ownWords"
+   ],
+   "ants": [
+    "web",
+    "hours",
+    "claimed",
+    "phone"
+   ],
+   "say_th": "นัดพบเมื่อไร ที่ไหน เข้าร่วมยังไง",
+   "say_en": "when it meets, where, and how you join"
+  },
+  "unclassified": {
+   "fields": [
+    "phone",
+    "website",
+    "hours",
+    "address"
+   ],
+   "ants": [
+    "phone",
+    "line",
+    "hours",
+    "web",
+    "photo",
+    "claimed"
+   ],
+   "say_th": "ยังไม่ได้จัดประเภท",
+   "say_en": "not yet placed on the axis"
+  },
+  "sacred": {
+   "attrs": [
+    "desc",
+    "foundedBE",
+    "foundedCE",
+    "operator",
+    "registerName"
+   ],
+   "future": [
+    "honours",
+    "keeper",
+    "offerings",
+    "observedOn",
+    "approach"
+   ],
+   "ants": [
+    "photo",
+    "fresh"
+   ],
+   "say_th": "นับถืออะไร ใครดูแล ถวายอะไร เข้าใกล้ได้แค่ไหน",
+   "say_en": "what is honoured, who keeps it, what is offered, how close you may come"
+  },
+  "way": {
+   "fields": [
+    "address"
+   ],
+   "attrs": [
+    "alongCount",
+    "length",
+    "parentWay",
+    "crosses",
+    "wayKind",
+    "soiNumber",
+    "desc"
+   ],
+   "future": [
+    "runsFrom",
+    "runsTo",
+    "passable",
+    "alongCount",
+    "floods"
+   ],
+   "ants": [
+    "photo"
+   ],
+   "say_th": "ออกทางไหน ยาวเท่าไร รถเข้าได้ไหม มีอะไรอยู่บนทางนี้",
+   "say_en": "where it comes out, how long it runs, what can get down it, what stands along it"
+  },
+  "parking": {
+   "fields": [
+    "lat"
+   ],
+   "attrs": [
+    "fee",
+    "access",
+    "capacity",
+    "parkingType",
+    "covered",
+    "supervised",
+    "surface",
+    "operator",
+    "charge",
+    "maxstay",
+    "motorcycle"
+   ],
+   "ants": [
+    "photo"
+   ],
+   "say_th": "อยู่ตรงไหน เสียเงินไหม เข้าได้ไหม จอดได้กี่คัน",
+   "say_en": "where it is, whether it costs, whether you may use it, how many fit",
+   "_why": "THE PIN IS THE ANSWER, and this is the only kind where that is true. Every other kind can be pinned and still say nothing — a noodle stall with a coordinate and no phone, no hours and no menu has not answered anybody. The question asked of a car park IS 'where is there one near here', so a lot with an exact pin and nothing else has answered it in full. Nan, 2026-09-06: 'Of course we want unnamed lots to publish!' The fee, the access and the capacity are the second question, and 792 of the 1,796 already carry at least one of them.",
+   "_why_no_capacity_motorcycle": "capacity:motorcycle is imported but not listed here: OSM carries it 0 times in TH-50 and TH-57 today, and an answer-set may only name evidence we hold."
+  }
+ },
+ "_ants_doc": [
+  "THE NINE ANTS, RE-CUT. build.py's completeness swarm was nine fixed slots and",
+  "four of them were a way to contact a seller — so a wat, a reading room or a",
+  "cemetery could never score above 2 of 9 however well we knew it, and ant_rank",
+  "feeds both the ranking and held(). That is the counter rule at the ranking",
+  "layer, and this is where it ends.",
+  "",
+  "Nine stays nine — it is ก้าว, and a full swarm is a complete listing. Five",
+  "slots are universal (Thai name, English name, photo, owner-confirmed,",
+  "recently-walked); four are the kind's own. `commerce` keeps phone/LINE/hours/",
+  "website exactly as before, so nothing on the shopping axis moves by a pixel.",
+  "",
+  "Each slot: [key, th, en]. `key` is a top-level record field, an attrs key, or",
+  "one of the ant keys build.py computes itself (phone·line·hours·web resolve",
+  "through channels(), which knows a dead website from a live one). An `attrs.`",
+  "prefix reads under attrs. A `|` lets one slot be answered by either of two",
+  "keys where the corpus records the same fact two ways."
+ ],
+ "ant_slots": {
+  "commerce": [
+   [
+    "phone",
+    "เบอร์โทร",
+    "phone"
+   ],
+   [
+    "line",
+    "LINE",
+    "LINE"
+   ],
+   [
+    "hours",
+    "เวลาเปิด",
+    "opening hours"
+   ],
+   [
+    "web",
+    "เว็บที่ยังเปิดอยู่",
+    "a website that still answers"
+   ]
+  ],
+  "wat": [
+   [
+    "attrs.sect",
+    "นิกาย",
+    "its sect"
+   ],
+   [
+    "attrs.foundedBE|attrs.foundedCE",
+    "ปีที่สร้าง",
+    "the year it was founded"
+   ],
+   [
+    "attrs.watRegisterName|attrs.watCode",
+    "ชื่อในทะเบียน",
+    "its name in the register"
+   ],
+   [
+    "hours",
+    "เวลาเปิด",
+    "opening hours"
+   ]
+  ],
+  "school": [
+   [
+    "attrs.levels",
+    "ชั้นที่สอน",
+    "the levels it teaches"
+   ],
+   [
+    "attrs.schoolSector|attrs.sector",
+    "สังกัด",
+    "whose system it belongs to"
+   ],
+   [
+    "attrs.students|attrs.sizeBand",
+    "ขนาด",
+    "how big it is"
+   ],
+   [
+    "phone",
+    "เบอร์โทร",
+    "phone"
+   ]
+  ],
+  "institution": [
+   [
+    "holds",
+    "เก็บอะไรไว้",
+    "what it holds"
+   ],
+   [
+    "access",
+    "ใครเข้าใช้ได้",
+    "who may use it"
+   ],
+   [
+    "parent",
+    "สังกัด",
+    "whose body it stands under"
+   ],
+   [
+    "web",
+    "เว็บที่ยังเปิดอยู่",
+    "a website that still answers"
+   ]
+  ],
+  "congregation": [
+   [
+    "parent",
+    "สังกัด",
+    "which body"
+   ],
+   [
+    "hours",
+    "เวลานัดพบ",
+    "when it gathers"
+   ],
+   [
+    "access",
+    "ใครเข้าร่วมได้",
+    "who may come"
+   ],
+   [
+    "web",
+    "เว็บที่ยังเปิดอยู่",
+    "a website that still answers"
+   ]
+  ],
+  "civic": [
+   [
+    "attrs.facilityType|attrs.registerName",
+    "ทำเรื่องอะไรได้",
+    "what you can get done there"
+   ],
+   [
+    "hours",
+    "เวลาเปิด",
+    "opening hours"
+   ],
+   [
+    "phone",
+    "เบอร์โทร",
+    "phone"
+   ],
+   [
+    "web",
+    "เว็บที่ยังเปิดอยู่",
+    "a website that still answers"
+   ]
+  ],
+  "infrastructure": [
+   [
+    "attrs.operator",
+    "ใครเดินรถ-ใครดูแล",
+    "who runs it"
+   ],
+   [
+    "hours",
+    "เวลาให้บริการ",
+    "when it runs"
+   ],
+   [
+    "attrs.status",
+    "ยังเปิดอยู่ไหม",
+    "whether it still runs"
+   ],
+   [
+    "phone",
+    "เบอร์โทร",
+    "phone"
+   ]
+  ],
+  "land": [
+   [
+    "attrs.desc",
+    "ที่นี่มีอะไร",
+    "what is there"
+   ],
+   [
+    "hours",
+    "เวลาเข้าได้",
+    "when you may go"
+   ],
+   [
+    "attrs.operator",
+    "ใครดูแล",
+    "who keeps it"
+   ],
+   [
+    "web",
+    "เว็บที่ยังเปิดอยู่",
+    "a website that still answers"
+   ]
+  ],
+  "memory": [
+   [
+    "attrs.foundedBE|attrs.foundedCE",
+    "แต่เมื่อไร",
+    "from when"
+   ],
+   [
+    "attrs.operator|attrs.registerName",
+    "ใครดูแล",
+    "who keeps it"
+   ],
+   [
+    "attrs.desc",
+    "ของใคร",
+    "whose it is"
+   ],
+   [
+    "hours",
+    "เวลาเข้าได้",
+    "when you may go"
+   ]
+  ],
+  "club": [
+   [
+    "hours",
+    "นัดพบเมื่อไร",
+    "when it meets"
+   ],
+   [
+    "parent",
+    "สังกัด",
+    "which body"
+   ],
+   [
+    "access",
+    "เข้าร่วมยังไง",
+    "how you join"
+   ],
+   [
+    "web",
+    "เว็บที่ยังเปิดอยู่",
+    "a website that still answers"
+   ]
+  ],
+  "unclassified": [
+   [
+    "phone",
+    "เบอร์โทร",
+    "phone"
+   ],
+   [
+    "line",
+    "LINE",
+    "LINE"
+   ],
+   [
+    "hours",
+    "เวลาเปิด",
+    "opening hours"
+   ],
+   [
+    "web",
+    "เว็บที่ยังเปิดอยู่",
+    "a website that still answers"
+   ]
+  ],
+  "sacred": [
+   [
+    "honours",
+    "นับถืออะไร",
+    "what is honoured here"
+   ],
+   [
+    "keeper",
+    "ใครดูแล",
+    "who keeps it"
+   ],
+   [
+    "offerings",
+    "ถวายอะไร",
+    "what is offered"
+   ],
+   [
+    "attrs.foundedBE|attrs.foundedCE|attrs.desc",
+    "มีมาแต่เมื่อไร",
+    "how long it has stood"
+   ]
+  ],
+  "way": [
+   [
+    "runsFrom",
+    "ออกทางไหน",
+    "where it comes out"
+   ],
+   [
+    "attrs.length|attrs.parentWay",
+    "ยาวเท่าไร ต่อจากถนนอะไร",
+    "how long, and off which road"
+   ],
+   [
+    "passable",
+    "รถเข้าได้ไหม",
+    "what can get down it"
+   ],
+   [
+    "attrs.alongCount",
+    "มีอะไรอยู่บนทางนี้",
+    "what stands along it"
+   ]
+  ],
+  "parking": [
+   [
+    "attrs.fee",
+    "เสียเงินไหม",
+    "whether it costs"
+   ],
+   [
+    "attrs.access",
+    "ใครจอดได้",
+    "who may park there"
+   ],
+   [
+    "attrs.capacity",
+    "จอดได้กี่คัน",
+    "how many fit"
+   ],
+   [
+    "attrs.parkingType",
+    "ลานหรืออาคาร",
+    "a yard, a building or a kerb"
+   ]
+  ]
+ },
+ "_edge_doc": [
+  "THE EDGE — decision J, Nan 2026-09-06: 'bus shelters, tree shrines, named sois,",
+  "wells — love all of these.' They are IN. Four classes that share one property",
+  "neither commerce nor an institution has: NOBODY WILL EVER CLAIM THEM. No owner",
+  "fills in a bus shelter's opening hours; there is no proprietor of a tree. So the",
+  "whole enrichment model the directory was built on — owner-confirmed, a phone to",
+  "ring, a listing to claim — is void here, and the only sources are the map, the",
+  "survey (somebody walked past and wrote it down), the municipal asset register,",
+  "and what the neighbourhood knows. Call that posture THE COMMONS.",
+  "",
+  "Two further properties follow from it. They are NOT DISCRETE the way a shop is:",
+  "a soi is a line, a well serves a neighbourhood, a shrine may be one of a cluster.",
+  "And they are the fabric a reader navigates BY rather than TO — nobody searches",
+  "for a bus shelter by name; a shelter is the answer inside another answer. That",
+  "makes bearings (WO-64) matter more to this class than pins do.",
+  "",
+  "They are also the most fragile thing in the catalogue. A shop that closes is",
+  "re-mapped by the next crawler. A yang-na avenue felled for a road widening, a",
+  "well capped, a หอเสื้อบ้าน cleared for a car park — nobody re-finds those.",
+  "",
+  "KNOWN LIMITATION, written down rather than hidden: `claimed` (owner-confirmed)",
+  "is one of the five universal ants and a commons record can almost never earn it,",
+  "so these kinds realistically cap at 8 of 9. It is left universal because moving",
+  "it would reorder the strip on every shop page, and the shopping axis has not",
+  "been moved. The honest fix, when Nan wants it, is a `vouched`",
+  "path: a keeper recorded — the wat that tends the shrine, the tambon that keeps",
+  "the well, the family on the donor plaque — earning the same ant.",
+  "",
+  "held_today is a snapshot taken when this file was last edited, not a live count; tests/test_kinds.py holds the live one."
+ ],
+ "edge": {
+  "shelter": {
+   "kind": [
+    "infrastructure"
+   ],
+   "held_today": 48,
+   "th": "ศาลารอรถ · ที่พักผู้โดยสาร",
+   "en": "waiting shelters and stopping points",
+   "terms": [
+    [
+     "ศาลารอรถ",
+     "sala ro rot",
+     "the pavilion where you wait for a vehicle"
+    ],
+    [
+     "ศาลาที่พักผู้โดยสาร",
+     "sala thi phak phu doi san",
+     "passenger waiting pavilion — the official term on the asset registers"
+    ],
+    [
+     "ป้ายรถเมล์",
+     "pai rot me",
+     "bus stop sign"
+    ],
+    [
+     "ป้ายรถประจำทาง",
+     "pai rot pracham thang",
+     "scheduled-service stop"
+    ],
+    [
+     "จุดจอดรถแดง",
+     "chut chot rot daeng",
+     "where the red songthaew stops — usually unsigned, known not mapped"
+    ],
+    [
+     "คิวรถ",
+     "khiu rot",
+     "the rank: where shared vehicles queue for a destination"
+    ],
+    [
+     "ท่ารถ",
+     "tha rot",
+     "the vehicle landing — a depot, larger than a stop"
+    ],
+    [
+     "ศาลาพักร้อน",
+     "sala phak ron",
+     "a rest pavilion, not tied to a vehicle"
+    ]
+   ],
+   "wants": [
+    "does anything actually stop here",
+    "which route",
+    "is there shade",
+    "is there a bench",
+    "is it lit after dark",
+    "can a wheelchair get in",
+    "who built it — the donor plaque"
+   ],
+   "source": "OSM highway=bus_stop · public_transport=platform · amenity=shelter + shelter_type=public_transport · amenity=bus_station; then the เทศบาล asset list for the ศาลาที่พักผู้โดยสาร, which is where the built ones are numbered",
+   "note": "Chiang Mai's real network is รถแดง, which has NO fixed stops — that is the point of it. So a stop record here is honest only if it says which of the two it is: a built, numbered shelter, or a place people are known to wait."
+  },
+  "sacred": {
+   "kind": [
+    "sacred"
+   ],
+   "held_today": 40,
+   "th": "ศาลพระภูมิ · ต้นไม้ผูกผ้า · หอเสื้อบ้าน",
+   "en": "spirit houses, wound trees and guardian shrines",
+   "terms": [
+    [
+     "ศาลพระภูมิ",
+     "san phra phum",
+     "the land-guardian's shrine, on one post"
+    ],
+    [
+     "ศาลเจ้าที่",
+     "san chao thi",
+     "the shrine of the lord of the place, house-shaped on four posts"
+    ],
+    [
+     "ศาลตายาย",
+     "san ta yai",
+     "the grandfather-and-grandmother shrine"
+    ],
+    [
+     "ศาลเพียงตา",
+     "san phiang ta",
+     "'level with the eye' — a shrine raised for one purpose, often temporary"
+    ],
+    [
+     "หอเสื้อบ้าน",
+     "ho suea ban",
+     "LANNA: the village guardian's house (เสื้อ here is a guardian spirit, not a shirt)"
+    ],
+    [
+     "หอเสื้อวัด",
+     "ho suea wat",
+     "LANNA: the guardian of the wat compound"
+    ],
+    [
+     "ผีปู่ย่า",
+     "phi pu ya",
+     "LANNA: the matrilineal ancestor spirits and the house that holds them"
+    ],
+    [
+     "อารักษ์",
+     "arak",
+     "a guardian spirit, and by extension its shrine"
+    ],
+    [
+     "เสาอินทขีล",
+     "sao inthakhin",
+     "the city pillar of Chiang Mai, at Wat Chedi Luang"
+    ],
+    [
+     "สะดือเมือง",
+     "sadue mueang",
+     "the navel of the city"
+    ],
+    [
+     "ศาลหลักเมือง",
+     "san lak mueang",
+     "the city-pillar shrine"
+    ],
+    [
+     "ศาลเจ้า",
+     "san chao",
+     "a Chinese shrine — has a committee, so it may be congregation as well"
+    ],
+    [
+     "เจ้าพ่อ · เจ้าแม่",
+     "chao pho · chao mae",
+     "the lord / the lady a shrine is raised to"
+    ],
+    [
+     "ต้นโพธิ์",
+     "ton pho",
+     "bodhi — wound with cloth, often with a shelf at the root"
+    ],
+    [
+     "ต้นไทร",
+     "ton sai",
+     "banyan"
+    ],
+    [
+     "ต้นยางนา",
+     "ton yang na",
+     "the great dipterocarps — the Chiang Mai–Lamphun avenue among them"
+    ],
+    [
+     "ต้นจามจุรี",
+     "ton chamchuri",
+     "rain tree"
+    ],
+    [
+     "นางตะเคียน",
+     "nang takhian",
+     "the lady of the takhian tree"
+    ],
+    [
+     "ผ้าแพรเจ็ดสี",
+     "pha phrae chet si",
+     "the seven-coloured cloth that marks a tree as held"
+    ]
+   ],
+   "wants": [
+    "what is honoured here",
+    "who keeps it",
+    "what is customarily offered",
+    "when it is observed",
+    "may I approach, may I photograph",
+    "how long it has stood"
+   ],
+   "source": "OSM historic=wayside_shrine · natural=tree + denotation=natural_monument; data/shrines.json (WO-39, 21 shrines + 5 unverified) is the seed register; the rest is DOOR SURVEY — this class does not exist in any crawlable index and never will.",
+   "note": "State what is there and who says so."
+  },
+  "way": {
+   "kind": [
+    "way"
+   ],
+   "held_today": 0,
+   "modelled_today": 1077,
+   "th": "ถนน · ซอย · ตรอก",
+   "en": "named ways",
+   "terms": [
+    [
+     "ถนน",
+     "thanon",
+     "road"
+    ],
+    [
+     "ซอย",
+     "soi",
+     "the lane off a road, usually numbered from it"
+    ],
+    [
+     "ตรอก",
+     "trok",
+     "an older, narrower alley"
+    ],
+    [
+     "ซอกซอย",
+     "sok soi",
+     "the warren of small lanes taken together"
+    ],
+    [
+     "ทางเข้า",
+     "thang khao",
+     "the way in — often the only name a lane has"
+    ],
+    [
+     "สะพาน",
+     "saphan",
+     "bridge"
+    ],
+    [
+     "แยก · สี่แยก",
+     "yaek · si yaek",
+     "junction · crossroads — how Chiang Mai actually gives directions"
+    ],
+    [
+     "ประตู",
+     "pratu",
+     "gate — the old city's ways are named off ประตูท่าแพ, ประตูช้างเผือก, ประตูเชียงใหม่, ประตูสวนดอก"
+    ],
+    [
+     "คูเมือง",
+     "khu mueang",
+     "the moat, which is itself the reference line for the old city"
+    ],
+    [
+     "กาด",
+     "kat",
+     "LANNA: market — names many ways it runs to"
+    ]
+   ],
+   "wants": [
+    "where does it come out",
+    "how long is it",
+    "off which road",
+    "what can get down it — car, motorbike only, foot",
+    "is it a dead end",
+    "does it flood",
+    "what stands along it"
+   ],
+   "source": "ALREADY ON DISK. data/streets.json holds 1,077 named ways — 432 of them sois — every one Thai-named, 534 with geometry, 508 knowing what they cross, and 6,227 places already placed along them. Nothing needs fetching.",
+   "note": "This is the empty-shelves Cause 2 in its largest form yet: a whole class fully modelled on disk, invisible because it was never admitted as a RECORD. The ways exist only as a join table serving other pages — no id, no kind, no page, not in the index, unfindable."
+  },
+  "water": {
+   "kind": [
+    "infrastructure",
+    "memory"
+   ],
+   "held_today": 0,
+   "th": "บ่อน้ำ · ฝาย · ตู้น้ำ",
+   "en": "wells, weirs and water points",
+   "terms": [
+    [
+     "บ่อน้ำ · น้ำบ่อ",
+     "bo nam · nam bo",
+     "a well; the second word order is the Northern one"
+    ],
+    [
+     "บ่อน้ำโบราณ",
+     "bo nam boran",
+     "an ancient well — the old city's are inside wat compounds"
+    ],
+    [
+     "บ่อน้ำทิพย์",
+     "bo nam thip",
+     "a holy well; this one is sacred as well as infrastructure"
+    ],
+    [
+     "ประปาหมู่บ้าน",
+     "prapa mu ban",
+     "the village water supply"
+    ],
+    [
+     "ประปาภูเขา",
+     "prapa phukhao",
+     "gravity-fed mountain water — the upland standard"
+    ],
+    [
+     "ตู้น้ำหยอดเหรียญ",
+     "tu nam yot rian",
+     "the coin water machine — public water infrastructure that people actually drink from"
+    ],
+    [
+     "ฝาย",
+     "fai",
+     "LANNA: the weir"
+    ],
+    [
+     "เหมือง",
+     "muang",
+     "LANNA: the irrigation channel — NOT a mine, in this context"
+    ],
+    [
+     "เหมืองฝาย",
+     "muang fai",
+     "LANNA: the whole communal irrigation system, the institution that organised this valley"
+    ],
+    [
+     "แก่เหมืองแก่ฝาย",
+     "kae muang kae fai",
+     "LANNA: the elected keeper of the weir — a real office, held by a person, recorded nowhere we hold"
+    ],
+    [
+     "ท่าน้ำ",
+     "tha nam",
+     "the landing and the steps down to the water"
+    ],
+    [
+     "น้ำพุ",
+     "nam phu",
+     "spring or fountain"
+    ],
+    [
+     "สระ · หนอง",
+     "sa · nong",
+     "pond · marsh-pond — หนองหอย, หนองประทีป are named for theirs"
+    ]
+   ],
+   "wants": [
+    "is the water drinkable",
+    "is it free",
+    "does it still run",
+    "who maintains it",
+    "how old is it",
+    "who paid for it"
+   ],
+   "source": "OSM man_made=water_well · amenity=drinking_water · man_made=water_tap · waterway=weir; the ประปาส่วนภูมิภาค and tambon asset lists; and for เหมืองฝาย, the irrigation-office records and the คณะกรรมการเหมืองฝาย themselves.",
+   "note": "The corpus holds ZERO wells. What a name-probe finds is 292 ตู้น้ำ/gas suppliers filed as `essentials/utilities` — those are commerce and are correctly filed — and 99 lakes, reservoirs and canals filed as `parks/water`, which are `land`. Neither is a well. Absence here is absence ON THIS DISK."
+  }
+ }
+}

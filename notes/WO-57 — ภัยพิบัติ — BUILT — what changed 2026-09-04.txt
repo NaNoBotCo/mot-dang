@@ -1,0 +1,224 @@
+WO-57 — ภัยพิบัติ · THE DISASTER LAYER
+BUILT 2026-09-04. All six items. Nothing is published yet — see THE ONE
+DECISION at the bottom.
+
+
+THE ANSWER FIRST
+================
+
+All six are built and verified. The site now answers with no network, the
+four emergency numbers are on every page, there is a sheet for the wall, and
+two new pages say where to breathe and how high the river is — both of them
+built on the state's own published thresholds, not on anything I modelled.
+
+Two of the six turned out different from the proposal, both for the better,
+and both are explained below: item 5 is NOT the flood layer I offered, and
+item 4 found a register I did not know existed.
+
+
+WHAT IS NOW TRUE THAT WAS NOT THIS MORNING
+==========================================
+
+1 · THE SITE WORKS WITH NO SIGNAL
+---------------------------------
+    /chuai.html — ช่วย. The four numbers, big and tappable, plus the nearest
+    hospital, health station, pharmacy, fuel and drinking-water point,
+    searched ON THE PHONE with no request to anybody.
+
+    2,227 places ride inside the page — 47 kB over the wire — so it is whole
+    the moment it lands, with no second fetch to fail.
+
+    And a service worker on all 23,434 pages. Open ANY address on the site
+    with no signal and you land on that page instead of the browser's error.
+
+    I tested it by stopping the server and loading a page I had never
+    visited: it served the numbers.
+
+    Your position is never sent anywhere. The search runs on the device.
+
+2 · THE FOUR NUMBERS ARE ON EVERY PAGE
+---------------------------------------
+    Footer of all 23,434 pages, as tel: links. Somebody who lands on a
+    noodle shop at 3am now has a path to 1669.
+
+    I ADDED ONE NUMBER: 1784, สายด่วนสาธารณภัย — the ปภ. disaster hotline,
+    for flood, wildfire and earthquake. Same issuing agency as 199, which
+    was already there. It is the only thing in this whole build that came
+    out of my head rather than off a register, and it is the one line I
+    would like a second pair of eyes on before it goes out.
+
+3 · THE SHEET FOR THE WALL
+---------------------------
+    Two sides of A4, black only, photocopies, needs no power.
+      file:///Users/annikapeacock/Desktop/go/wo57-sheet.pdf
+
+    Front: the five numbers at a size you read across a room, each naming
+    the agency that issues it, plus the QR to /chuai.html.
+    Back: what a PM2.5 number means, the 45 state hospitals of both
+    provinces, and a ruled box headed "เบอร์ของเราเอง — our own numbers"
+    for the neighbour and the landlord, which no directory can hold.
+
+    One thing worth knowing: the PM2.5 colour bands now carry a stepped
+    BLACK bar inside the colour, because five colour fills photocopy to
+    five identical greys and the sheet's whole promise is that it copies.
+
+4 · SMOKE SEASON — /foon.html
+------------------------------
+    I went looking for the government clean-air rooms expecting to find
+    nothing usable. กรมอนามัย keeps a national register with a public API,
+    and it holds 2,428 PUBLICLY ACCESSIBLE rooms across our two provinces —
+    every one with a phone, all 45 districts covered.
+
+    A March 2026 newspaper piece said Chiang Mai had 45 public clean-air
+    rooms in 13 of 25 districts. The register says 1,382 in all 26. The
+    paper was counting one programme. This is why I read registers and not
+    articles about registers.
+
+    The grade rides on every row, because the register grades them: 221 were
+    assessed by an officer, the rest assessed themselves, and some were last
+    assessed in 2024. The page says which and when, and says ring first.
+
+    THE PART THAT TOOK THE LONGEST, and the part I would want you to know:
+    the register's pins are dirty. One row's latitude is 473027. Sixty rows
+    are outside both provinces. Forty-five rows naming amphoe as far away as
+    Mae Sai and Omkoi are pinned within five kilometres of Tha Phae Gate.
+    The FIRST version of this page cheerfully offered a Mae Chaem health
+    station as the nearest clean-air room, 226 metres away and 90 km wrong.
+
+    So there are now two checks. Both were tuned against a set of rows I
+    could prove were wrong, not by feel. Both FLAG rather than delete: a
+    flagged row keeps its place and its phone and only loses its seat in the
+    "nearest to me" list. 206 pins set aside, and the page says so.
+
+    One phone number was on 428 rows at 246 separate sites — a bulk-entry
+    default someone typed into a batch. 458 rows lost a number that was
+    never theirs.
+
+5 · THE RIVER — /nam.html — AND WHY IT IS NOT WHAT I OFFERED
+-------------------------------------------------------------
+    I proposed a flood layer built on the terrain data already cached here,
+    and said in the same breath that it could not tell you whether your
+    house floods. I did not build it. That was the right call and here is
+    what replaced it.
+
+    The Royal Irrigation Department publishes hourly readings for every
+    gauge on the Ping — and every single row carries THAT STATION'S OWN
+    ALERT LEVEL. P.1 at Nawarat Bridge states 3.70 m. So the page never has
+    to model anything: it prints the reading, the RID's own limit beside it,
+    which way the last six hours went, and the river drawn in the order the
+    water passes — Chiang Dao, Cho Lae, Mae Tae, Nawarat, Pa Khoi Tai — so
+    you can see what is upstream of you before it arrives.
+
+    Right now: 1.37 m of a stated 3.70 m, falling 0.12 m in six hours.
+
+    ONE NUMBER ON THAT PAGE IS COMPUTED, and I want to flag it because it is
+    the only place I did arithmetic rather than quote. Everyone in Chiang Mai
+    says water takes six to eight hours from Mae Tae to Nawarat. I measured
+    it instead — cross-correlated the two hourly series over thirty days. The
+    answer is 5 hours, correlation 0.841 across 736 compared hours. The page
+    prints the correlation and the window beside it, and says plainly that it
+    is a measurement of the days behind us and not a promise about the next
+    flood.
+
+    The page forecasts nothing, advises nothing, and names no crest. It hands
+    that job to ปภ. and gives 1784. There is a test that holds that line.
+
+6 · THE ENRICHMENT
+-------------------
+    The catalogue held 593 state health facilities — 124 hospitals and 469
+    รพ.สต. — and a phone number for TEN of them.
+
+    The clean-air register's rows are entered by each facility's own staff
+    and carry phones. Matching them onto the catalogue took the count from
+    10 to 141. Nothing new was crawled; the numbers were already on the disk,
+    fetched for item 4.
+
+    It refuses a match when the name belongs to two facilities, when the
+    number is one of the bulk-entry defaults, or when the two pins are more
+    than 5 km apart. Every number carries its source and the date.
+
+    Also done from item 6: the 169 mapped drinking-water points, fetched in
+    August and used by nothing until today.
+
+
+WHAT IS STILL OPEN
+==================
+
+  · Which hospitals run a 24-hour emergency room. There is no source for
+    this on the disk and I did not guess. This is the biggest remaining
+    hole in the lifeline page.
+  · 15 register names that are two different facilities, so no phone was
+    taken for them.
+  · Roughly 30 clean-air pins the amphoe check is too loose to catch. The
+    page says the check is imperfect rather than pretending.
+  · 1784 — the one number here that wants a second reader.
+
+
+SOMETHING I FOUND WHILE TESTING, AND IT CHANGES THE DECISION
+============================================================
+
+I am not the only one working in this repo. The mot-dang checkout has a large
+amount of uncommitted work in it that is not mine — about fifty modified
+source files and thirty new ones, including several new "lens" registers
+(mending, dialysis, dementia, stroke, special education), a dental register,
+a vets register, and edits to two of the test files themselves. Some of it
+was written while I was working: data/curated/lens/mending.json was saved at
+23:08 and search_panels.json at 23:14 tonight, and a build I did not start
+ran against docs/ at 23:12.
+
+None of it is broken and none of it is mine to touch. But it matters for the
+decision below, because THE WALK PUBLISHES THE WHOLE TREE. Saying go to my
+six items also ships everything else that is sitting uncommitted in there.
+
+I ran the full test suite. My own two new files pass, and so does the publish
+gate — 0 links to dead URLs, 0 leaked local paths, front page correct. Three
+suites fail and NONE of the three is mine:
+
+  test_search      seven cases. Three are search doors that do not exist yet
+                   — stroke.html, specialed.html, mending.html — which are
+                   exactly three of the new lens registers sitting untracked
+                   in that tree. The other four are namesake rows (Boots,
+                   Watsons, Kasikorn) held only in Thai script.
+  test_facets      the essentials/utilities shelf matches no records
+  test_translit    the transliteration corpus has drifted below its floor
+                   (43.1% exact against a 44% floor)
+
+I did not fix them because they belong to work in flight and I would be
+editing over somebody's shoulder. I am telling you they are there.
+
+
+THE ONE DECISION — and it is yours
+==================================
+
+NOTHING IS PUBLISHED. The standing walk publishes this site by itself every
+twenty minutes, and I have put it to sleep until 04:31 so a half-finished
+list could not ship itself while I was working. Removing this file lets it
+walk again:
+
+    /Users/annikapeacock/Developer/claude code projects/mot-dang/cache/walk-rest
+
+I held it for one reason worth saying out loud. A service worker is the only
+thing in this repo that keeps running in someone's browser after a bad
+deploy. Everything else, you fix by rebuilding. This you fix by rebuilding
+AND waiting for their browser to notice. It is tested, it is versioned per
+build, it never caches an error, and deleting docs/sw.js unregisters it
+everywhere — but it is still the one change here that reaches out and stays
+out, and you should say go rather than have me assume it.
+
+  A · publish everything (delete cache/walk-rest and let the walk run) —
+      note this ships the other session's uncommitted work too
+  B · publish everything EXCEPT the service worker (I remove the one line
+      in page() that registers it; the pages all still work, they just stop
+      answering with no signal)
+  C · hold the lot until you have read /chuai.html, /foon.html and /nam.html
+      yourself — say the word and I will start a local preview
+
+Cost of A: the site behaves differently on 23,434 pages the next time the
+walk runs, in the way described above — AND whatever else is uncommitted in
+that tree goes out with it, including three failing test suites' worth of
+half-finished work.
+Cost of B: item 1 is half of what it is worth; the page still works, the
+offline promise does not.
+Cost of C: nothing, except that none of it is helping anybody yet.
+
+No expiry on any of the three.

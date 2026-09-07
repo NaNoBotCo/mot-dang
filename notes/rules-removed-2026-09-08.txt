@@ -1,0 +1,118 @@
+RULES REMOVED FROM THE MOT DANG REPO — 2026-09-08
+    Test applied: does a person's decision stand behind it. Where nobody's did,
+    the sentence went. Where a real cost stood behind it, the cost was written
+    down as a cost and the instruction was dropped.
+
+THE ONE THAT STARTED IT
+
+    translit.py said an RTGS reading "NEVER fills nameEn", "NEVER touches
+    name_of() / place_slug() / JSON-LD name", and "renders in its own .roman
+    mark, after the Thai".
+
+    Nobody wrote that. There is no name, no date and no quotation anywhere in
+    translit.py — it is a session's own writing, and it was written by the same
+    session that had just overturned the PREVIOUS unattributed rule in that
+    place ("No machine transliteration"), which CLAUDE.md itself lists as
+    having hidden 24,023 listing rows behind a blank.
+
+    Yesterday it cost 586 tag chips their English half. I hit it, wrote it up
+    as a constraint, and handed it to you as a fork. That was wrong of me.
+
+    Now: two costs are named, and neither is an instruction.
+      · nameEn and data/canonical/ hold sourced facts, so a computed reading
+        there loses the provenance distinction the site publishes.
+      · place_slug() reads name_of(), so a slug that moves is a 404 after
+        deploy — changing it costs redirects.
+    Everywhere else — a chip, a label, a heading — is a judgement about what
+    reads well on that page.
+
+    AND IT IS ACTED ON: the 586 Thai-only tag chips now carry their reading.
+    Fork F3 in go/tags is smaller — what is left is 348 English values the
+    builder de-snakes and whichever readings you would rather see hand-written.
+
+YOUR CALLS, 2026-09-08 — applied
+
+  KEPT, at your word: "do not run the deploy, do not ask whether to publish,
+  do not report that you have not." Restored verbatim in CLAUDE.md and in the
+  MARCHING-ORDERS header, and marked in CLAUDE.md as yours with the date and
+  the reason — it is what stops two sessions deploying over each other.
+
+  GONE ENTIRELY: the GitHub rule. Not softened — deleted. The pointer to it in
+  MARCHING-ORDERS ("No GitHub, CLAUDE.md:304") went with it. GitHub is fine.
+
+  NUKED, not rewritten: the Shan handout paragraph and "provenance beats
+  volume". Both paragraphs are gone from AGENTS.md; I had left a half of each
+  standing and you were right that there was nothing to keep.
+
+  86'd: "This site does not award it. No authenticity sort either... deserving
+  is not one we ask." Gone from the crafts order. What is left there is the
+  fact it was hanging off — importance reads off the register, dated and
+  sourced.
+
+  STILL STANDING, one for you: llms.txt (build.py:19903) tells every crawler
+  and model that "corrections and additions via GitHub issues are welcome and
+  go live on the next build". The account it points at was hidden on
+  2026-08-07, so that has been a broken route on a published page. Now that
+  GitHub is fine again it may just be true — or the route is add.html. It is
+  published copy, so it is yours to say which.
+
+CUT
+
+  1. CLAUDE.md — "No GitHub. Do not push, do not add github.com links, do not
+     offer a GitHub issue..."
+     It stated a prohibition AND stated your intent: "she is leaving rather
+     than waiting on an appeal." It also no longer matches you — you reconciled
+     this on 2026-09-03. Replaced with the two facts (account hidden 2026-08-07;
+     the deploy is R2, GitHub was never in the serving path) and the question
+     left open.
+
+  2. CLAUDE.md — "Maker bots do not publish, and do not raise it... do not ask
+     whether to publish, and do not close a report by noting that you have not
+     pushed."
+     A session instructing later sessions not to put a fork to you. The
+     mechanism is kept: the walk ships every twenty minutes, the gates decide.
+     The instruction to stay quiet is gone.
+
+  3. MARCHING-ORDERS.md header — the same "do not ask whether to, and do not
+     report that you have not", repeated. Cut for the same reason.
+
+  4. AGENTS.md — "Do not write in a language you cannot read back... A wrong
+     handout given to a migrant worker is worse than no handout."
+     That is the exact tell CLAUDE.md already names: X is a smaller error than
+     Y, with no third option priced. The third option was already built and
+     shipping — the black UNVERIFIED banner across both sides of the sheet.
+     The banner is kept and described as the mechanism it is.
+
+  5. AGENTS.md — "Provenance beats volume. Another thousand crawled records
+     with no contact details is worth less than a hundred with a dated source."
+     A settled trade-off nobody settled, and one you went the other way on
+     yourself when you folded in 63,170 Overture records on 2026-09-07. The
+     anti-inflation half — a score is never inflated to make a page look
+     better — is kept. The doctrine is gone.
+
+  6. README.md — "Filter chips are AND, not OR — the question is always..."
+     One unbuilt half of a feature written up as a design position. Now
+     described as what is built, with OR named as unbuilt rather than refused.
+
+CHECKED AND LEFT ALONE
+
+  · Anything quoted to you with a date — OSM is not first truth (9/6), the
+    scraping line (9/6), "until it's complete" (9/6), the 404 soi game (9/5),
+    the ad box being your call, asked.json, a page is a record.
+  · Roughly twenty "X is worse than no X" lines in the Python. I read them.
+    They are local reasons for a choice that WAS made and a thing that WAS
+    built — Chrome instead of Pillow because Pillow here has no raqm; the
+    vector decode instead of tile stitching; the clean-air register instead of
+    a guess. None of them refuses a capability. They stay.
+  · Mechanisms with a named victim: a slug that moves is a 404; two sources of
+    truth for one phone number ships a wrong number; a stranger ticking a box
+    would lock a shop out of its own listing; a class venue written as a claim
+    about a named temple lands on 596 pages. Facts, not doctrine.
+
+ONE I DID NOT CUT, AND AM PUTTING TO YOU INSTEAD
+
+    MARCHING-ORDERS.md, in the crafts work order: "This site does not award it.
+    No authenticity sort either... deserving is not one we ask."
+    That is a session deciding what the site will and will not rank. It sits
+    inside a work-order narrative rather than a rules file, and cutting it
+    would change what that order says was built. Say the word and it goes.

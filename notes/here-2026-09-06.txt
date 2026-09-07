@@ -1,0 +1,163 @@
+ตรงนี้ · HERE — motdang.net opening on where you stand
+2026-09-06 · for Nan · built, staged, NOT deployed
+
+Your ask: "if I open motdang.net standing in the old city, it actually just
+loads up a map to where I am ... get oriented, tell me what's nearby,
+navigate me, give me shareable information."
+
+Built this session, in an offline lane (a build by another session was
+running the whole time; build.py and docs/ untouched):
+
+  here_layer.py        the page, its JS/CSS, and the data cells
+  tests/test_here.py   its gate — 27 checks, all pass on a scratch build
+  (this note)
+
+Two lines in build.py and it ships with the next build (below).
+
+
+================================================================================
+1. WHAT /here.html DOES
+================================================================================
+
+One button: 📍 เริ่มจากตรงนี้ · Start where I am.  Then, in order:
+
+WHERE YOU ARE
+  "You are inside the moat — the old city" / "around Nimman" / "out of town,
+  old city 9.2 km to your south-east ↘", then the nearest gate or corner as a
+  local would say it: "Thapae Gate is 25 m to your north-east ↗", and the
+  GPS accuracy (±12 m). Zones are data/curated/zones.json (the 10 ย่าน + 10
+  amphoe circles). Gates are the 9 catalogue records the moat drawing uses.
+
+WHAT IS NEARBY
+  Every kind present within ~1 km, nearest 3 each (tap "more" for 10), in
+  pavement order: food, wat, essentials, market, massage, medical, sights,
+  shopping, parks, museums, hotels, transport ... Chips switch kinds off.
+  Each row: name (ไทย · EN), sub-shelf (คาเฟ่ · Café), 🐜 rank, straight-line
+  distance, an arrow for the direction, and — ONLY where the place posted
+  hours — เปิดอยู่ / ปิดอยู่ (ตามเวลาที่แจ้ง). No hours = no claim.
+
+NAVIGATE
+  🧭 นำทาง — a geo: link, opens the phone's own map app with turn-by-turn
+     (the same link near.js already uses on /chuai.html)
+  🚶 วางแผนเดิน — plan.html?stops=cm:slug, our planner, walk vs ride
+  ☎ the phone as written, tappable
+  ⌖ กลับมาที่ฉัน — recentre the map on you
+  The dot follows you (watchPosition) and the list re-ranks after 25 m.
+
+SHARE
+  🔗 ส่งจุดนี้ — here.html#lat/lng (4 dp, ~11 m). The ONLY link on the
+     site that carries a position; the button says so. The recipient opens
+     it and sees the same spot, labelled "this spot came from a link you
+     were sent, not from your device", with the same nearby list.
+  📷 ส่งภาพนี้ — the map as a picture with the caption and the ODbL credit
+     in the pixels (unfurls in LINE where a link does not). Shown only when
+     the browser can hand a file to another app (true on your vivo).
+  Each place row links to its page, which has its own share block.
+
+THE SWITCH
+  ☐ เริ่มหาตำแหน่งทันทีเมื่อเปิดหน้านี้ · Start locating as soon as this
+  page opens.  A preference (localStorage `md-here`), never a coordinate. It
+  only acts once the browser already reports the permission GRANTED, so it
+  can never pop the OS dialog by itself. Bookmark /here and it opens on you.
+
+
+================================================================================
+2. THE HOMEPAGE HALF — two lines in build.py, NOT done (build was running)
+================================================================================
+
+(a) Emit the layer. In build(), after explore_layer (build.py ~line 17956):
+
+    import here_layer
+    print("  here:", here_layer.emit(globals(), data))
+
+(b) The hop. In page(), before extra_head is used, keyed on the front page
+    (the front page is the one page() call with path=""):
+
+    if path == "":
+        extra_head += ("<script>(function(){try{"
+          "if(sessionStorage.getItem('md-stay')){sessionStorage.removeItem('md-stay');return;}"
+          "if(localStorage.getItem('md-here')!=='auto')return;"
+          "if(!(navigator.permissions&&navigator.permissions.query))return;"
+          "navigator.permissions.query({name:'geolocation'}).then(function(s){"
+          "if(s.state==='granted')location.replace('here.html');}).catch(function(){});"
+          "}catch(e){}})();</script>")
+
+    Reads the switch here.js sets; asks nothing; a link back to the front
+    page from /here sets md-stay so you are not bounced straight back.
+
+(c) A door people can see — one chip in page()'s chip_nav, next to the map:
+
+    <a class="chip dark" href="{r}here.html">{svg_icon("i-me", 22)}<span>{bi("ตรงนี้", "Where I am")}</span></a>
+
+    Without (c) the only way to find the switch is to know /here exists.
+
+Then: python3 tests/test_here.py · build · deploy (yours). The sitemap picks
+here.html up on its own (index,follow). sw.js needs nothing.
+
+
+================================================================================
+3. NUMBERS (scratch build of the current catalogue)
+================================================================================
+
+  22,147  places in cells (every pinned, published place page, once)
+   3,227  cells of 0.01° (~1.1 km); a phone fetches the 9 around it
+     166  kB gzipped for the 9 old-city cells (558 kB raw); ceiling in the
+          test 320 kB. Densest cell 1878_9899 (Tha Phae) 1,020 places.
+   4,302  places carry posted hours inside their row → open/closed with no
+          second request (open_lamps.json is 683 kB; nobody downloads it)
+       9  gates and corners, from the catalogue
+
+Verified in a browser at phone width via the link mode
+(here.html#18.7876/98.9931): "You are around the Old City (in the moat) ·
+Thapae Gate is 25 m to your north-east ↗"; 77 rows in 27 kinds; Stories 10 m
+↖ (Thai, 🐜1) · Stories 14 m (Coffee, closed by posted hours) · Sailomjoy
+22 m ←; Wat Muen Larn 121 m; chips toggle; "more" expands 3→10; geo: and
+plan links correct; status clears; no console errors.
+NOT verified: the dots and the blue you-dot on the basemap — the preview
+browser never created a WebGL canvas for any map. Same code pattern as
+/map.html; wants the phone walk (importers/phone_cdp.py).
+
+
+================================================================================
+4. WHAT IT WILL NOT DO, ON PURPOSE
+================================================================================
+
+- Ask for your position on load. The site's rule (MDLOC in md.js) is one
+  door, opened by a tap. The switch is the one exception and it cannot
+  produce a dialog, only skip a tap you already took once.
+- Write your position to the URL, to disk, or to us. tests/test_here.py
+  fails the build if here.js ever calls replaceState/pushState or stores
+  anything but the switch.
+- Call anything "closed" that never posted hours.
+- Quote walking minutes. Distances are straight lines and say so; the
+  planner is one tap away for the real walk.
+
+
+================================================================================
+5. FOUND ON THE WAY
+================================================================================
+
+75 records exist TWICE in the catalogue — same name, same pin, different ids,
+all in `repair` (electrical repair shops: ช่างแม้ว, BCN อีเล็กทรีค, ครูอ๊อด
+สารพัดช่าง ...). They share a slug and therefore a page. The here list
+collapses them; every other shelf still shows them twice. Likely from
+today's cmhy_records / trade-lexicon import (both files were being edited
+by another session while I read them). Not fixed here — a data question.
+
+
+================================================================================
+6. YOUR FORKS
+================================================================================
+
+F1  The hop. (i) as written: only when the switch is on AND permission is
+    already granted — nothing changes for anyone who never touched it.
+    (ii) also hop when permission is granted but the switch was never set —
+    more people land on the map, some of them wanting the almanac.
+    Default if you say nothing: (i).
+F2  The door. Chip in the nav (2c) — yes/no. Without it /here is a secret.
+F3  Radius. 9 cells ≈ 1.1 km guaranteed each way, 166 kB. 25 cells ≈ 2.2 km,
+    roughly 4× the bytes. Or fetch the next ring only when the reader taps
+    "wider" — cheap to add.
+F4  Kinds. All 27 catalogue kinds show, in pavement order. Say which to hide
+    by default (realestate? school? business?) and it is one list edit.
+F5  The 75 duplicate repair records — dedupe at import, or leave.

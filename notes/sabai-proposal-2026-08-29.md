@@ -57,8 +57,8 @@ a second door, and what.html for a reader who is more lost than that. **No
 new fetch** — the panel file is already loaded by that page.
 
 **Move 3 — one sentence of orientation in the hero,** ant voice, bilingual,
-ending in the door: *สารบัญของคนแถวนี้ ไม่จัดอันดับ ไม่หักค่าหัวคิว · The
-city's own directory — no rankings, no commission* → *เพิ่งมาครั้งแรก
+ending in the door: *สารบัญของคนแถวนี้ · The city's own directory* →
+*เพิ่งมาครั้งแรก
 เริ่มตรงนี้ · New here? Start here*. **No popup, no first-run modal, no
 tour**: on the connections this site is for, an overlay is the opposite of
 สบาย, and this site does not interrupt people. A sentence and a door is the

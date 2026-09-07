@@ -8,7 +8,7 @@
     "A `clinics` key is written ONLY where the hospital's own page names that",
     "department, and `evidence` carries the phrase it was read from. A page that",
     "does not mention a service produces NOTHING for it — absent is silence,",
-    "never a 'no'. No rankings, no 'best for', no medical advice. Hours are the",
+    "never a 'no'. Hours are the",
     "hospital's own posted hours and go stale like any posted hours: `fetched`",
     "is on every block so a reader can see how old the claim is.",
     "",
@@ -802,7 +802,7 @@
         }
       ],
       "note_th": "ยังอ่านไม่ได้จากต้นทางราชการโดยตรง จึงไม่บันทึกเงื่อนไขใด ๆ ไว้ที่นี่",
-      "note_en": "Not readable first-hand from the government's own pages, so NO requirements are recorded here. This register does not carry visa rules it has not read. The reader is sent to the official portal to read it in a browser, and the attempt is published so the gap is visible rather than filled in from memory."
+      "note_en": "Not readable first-hand from the government's own pages, so NO requirements are recorded here. The reader is sent to the official portal to read it in a browser, and the attempt is published so the gap is visible rather than filled in from memory."
     }
   },
   "unread": [

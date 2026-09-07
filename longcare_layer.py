@@ -26,9 +26,7 @@ the door this care ordinarily runs through, not confirmed for this
 question. `stated` — the place's own words on its own site — is a grade NO
 row here has yet reached; the empty tier is printed, because a register
 that hides its best grade being empty is claiming a coverage it does not
-have. No rankings, no named clinicians, no outcome claims, no medical
-advice; the addiction section especially ranks nothing and recommends
-nothing — each facility speaks for itself or not at all.
+have. Each facility speaks for itself, or not at all.
 """
 import json
 
@@ -190,14 +188,14 @@ def emit(g, data):
         head = (f'<h2 class="lc-h">{bi(sth, sen)} '
                 f'<span class="count">({len(srows)})</span></h2>')
         if skey == "addiction":
-            head += (f'<p class="lc-note">{bi("แต่ละแห่งพูดแทนตัวเองหรือยังไม่ได้พูด", "Each place speaks for itself, or has not yet.")}</p>')
+            head += (f'<p class="lc-note">{bi("แต่ละแห่งพูดเอง หรือยังไม่พูด", "Each place speaks for itself, or has not.")}</p>')
         if not stated:
             head += (f'<p class="lc-note">{bi("ยังไม่มีแถวใดถึงเกรด “บอกเอง” — ยังไม่ได้อ่านเว็บของสถานที่ใดเลย ทุกแถวข้างล่างคือคำของแผนที่หรือป้าย ไม่ใช่คำของสถานที่", "No row here has reached the ‘stated’ grade — no place’s own site has been read yet. Every row below is a map’s or a sign’s word, not the place’s own.")}</p>')
         section_html.append(head + "".join(card(r) for r in srows))
 
     # ---- convalescence: a census, not a register ---------------------------
     conv_html = (
-        f'<h2 class="lc-h">{bi("พักฟื้น — ช่องว่างระหว่างออกจากโรงพยาบาลกับหายดี", "Convalescence — the gap between discharge and well")}</h2>'
+        f'<h2 class="lc-h">{bi("พักฟื้น — จากออกโรงพยาบาลถึงหายดี", "Convalescence — discharge to well")}</h2>'
         f'<p class="lc-intro">{bi("นับแล้วตรง ๆ: ในระเบียน 20,700 แห่งของสองจังหวัด ไม่มีชื่อไหนเขียนคำว่า พักฟื้น เลยแม้แต่แห่งเดียว ไม่ใช่ว่าการพักฟื้นไม่มีอยู่ — แต่มันวิ่งผ่านช่องทางอื่น: แผนกกายภาพบำบัด คลินิกต่อเนื่องของโรงพยาบาล และคนดูแลที่บ้าน ซึ่งไม่มีป้ายให้แผนที่เก็บ", "Counted plainly: across 20,700 records in both provinces, not one name carries the word พักฟื้น. Convalescent care is not absent — it runs through other channels: the physiotherapy shelf, a hospital’s own continuing-care clinics, and carers who come to the house, who have no sign for a map to hold.")}</p>'
         f'<p class="lc-note">{bi("สามทางที่มีจริงวันนี้", "The three ways in that exist today")}: '
         # WO-55 found this pointing at cm/medical/physio/index.html, a page
@@ -212,7 +210,7 @@ def emit(g, data):
 
     # ---- active retirement: a life, not a bed ------------------------------
     retire_html = (
-        f'<h2 class="lc-h">{bi("เกษียณแบบยังแข็งแรง — ชีวิต ไม่ใช่เตียง", "Active retirement — a life, not a bed")}</h2>'
+        f'<h2 class="lc-h">{bi("เกษียณแบบยังแข็งแรง", "Active retirement")}</h2>'
         f'<p class="lc-intro">{bi("คำว่า เกษียณ พูดถึงการเลิกทำงาน ไม่ได้พูดถึงการต้องมีคนดูแล คนที่เกษียณแล้วยังแข็งแรงไม่ได้หาสถานพยาบาล — เขาหาห้องเช่ารายเดือน ชมรม สระว่ายน้ำ และตลาดเช้า ซึ่งเป็นชั้นอื่นของสารบัญนี้ทั้งหมด", "The word เกษียณ is about leaving work, not about needing care. A fit retiree is not looking for a facility — they are looking for a monthly room, a club, a pool and a morning market, all of which are OTHER shelves of this directory.")}</p>'
         f'<p class="lc-note">'
         f'<a href="realestate.html">{bi("อสังหาฯ-ที่พัก — ห้องรายเดือน คำก่อนวางมัดจำ", "housing — monthly rooms, the words before the deposit")}</a> · '
@@ -277,7 +275,7 @@ def emit(g, data):
         f'<a href="{att(k)}/p/{att(place_slug(r))}.html">{esc(name_of(r))}</a>'
         for k, r in sorted(shelf, key=lambda x: name_of(x[1])))
     body = (
-        f'<h1>{bi("ดูแลระยะยาว — บ้านพักคนชรา พักฟื้น บำบัด และวัยเกษียณ", "Long-term care — nursing homes, convalescence, addiction medicine, and retirement")}</h1>'
+        f'<h1>{bi("ดูแลระยะยาว — บ้านพัก พักฟื้น บำบัด เกษียณ", "Long-term care — homes, convalescence, addiction, retirement")}</h1>'
         f'<p class="lc-intro">{intro}</p>'
         f'<h2 class="lc-h">{bi("ชั้นใหม่บนต้นไม้หมอ", "The new shelf on the medical tree")} '
         f'<span class="count">({len(shelf)})</span></h2>'
