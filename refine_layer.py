@@ -202,6 +202,14 @@ FACET_WORDS = {
 # trade words is a download. Past the cap the words fields are the way in,
 # which is what they are for — and the page says so once rather than
 # pretending the list is complete.
+# Five derived tags are facts about OUR RECORD rather than about the place —
+# whether we hold a phone number, a website, a Facebook page, opening hours, or
+# nothing at all. They are the commonest tags in the catalogue, so they were the
+# top three values in "ประเภท · what it is", which is not the question they
+# answer. They move to "มีอะไรบ้าง · what it has", where "show me the ones with
+# a phone number" is exactly what a reader means.
+RECORD_TAGS = ("no-contact", "has-phone", "has-hours", "has-website", "has-facebook")
+
 OPTION_CAP = 300
 
 
@@ -359,9 +367,42 @@ def tools_row(bi, att, r=""):
         '</div>')
 
 
+def doors_row():
+    """The two doors on the answer, mounted empty and filled by refine.js.
+
+    Empty because both counts are counts of THIS answer — the rows left after
+    the reader's own boolean — and that number does not exist until the page
+    has run the search. Neither door is drawn at zero: a 🗺 over a result set
+    with no pins and a 🗓 over one with nothing on are two offers that go
+    nowhere, and an offer that goes nowhere is worse than no offer.
+    """
+    return '<p class="resdoors" id="resdoors" hidden></p>'
+
+
+def event_places_json(events):
+    """{place id: how many events stand there} — the calendar door's count.
+
+    Baked into search.html rather than fetched. 75 ids is about 2 kB; the
+    260 kB of event records behind them is fetched by the reader who taps the
+    door and by nobody else. A door that had to download the whole calendar
+    before it could work out whether to draw itself would charge every search
+    on the site for a door that almost no search draws.
+
+    Counted the way events.ics is written — an event with no date is not in
+    the file, so it is not in the number either.
+    """
+    n = {}
+    for e in events or []:
+        pid = (e.get("place") or {}).get("id")
+        if not pid or not (e.get("dt") or e.get("start")):
+            continue
+        n[pid] = n.get(pid, 0) + 1
+    return _json.dumps(n, ensure_ascii=False, separators=(",", ":"))
+
+
 def panel_mount(bi, att=None, r=""):
     """Kept under its old name so §5(d) of the note still applies."""
-    return tools_row(bi, att or (lambda s: s), r)
+    return doors_row() + tools_row(bi, att or (lambda s: s), r)
 
 
 # Where the words are allowed to match. THIS IS THE CERTAINTY CONTROL: the
@@ -473,6 +514,22 @@ CSS = """
 .advlink{font-size:.85rem;margin-inline-start:auto;white-space:nowrap}
 @media(max-width:560px){.advlink{margin-inline-start:0}
   .tool{width:100%}.tool select{flex:1;max-width:none}}
+/* ── the two doors on the answer ────────────────────────────────── */
+/* Underlined, worded and sized like something a thumb is meant to hit. The
+   pair they replace were two bare emoji in the heading with nothing but an
+   aria-label to say what they did, which is a label only a screen reader
+   ever read. */
+.resdoors{margin:.15rem 0 .55rem;display:flex;flex-wrap:wrap;
+  gap:.1rem .95rem;align-items:center;line-height:1.8}
+.resdoors[hidden]{display:none}
+.resdoor{display:inline-flex;align-items:center;gap:.35rem;min-height:36px;
+  color:var(--ant-dark);font-size:.95rem;text-decoration:underline;
+  text-underline-offset:.18em}
+.resdoor:visited{color:var(--ant-dark)}
+.resdoor:hover,.resdoor:focus{color:var(--ant)}
+.resdoor .count{color:var(--mute);font-size:.85rem;text-decoration:none}
+.resdoor .dooricon{font-size:1.05rem;text-decoration:none}
+.resdoor[aria-busy=true]{opacity:.55}
 /* ── the bare shell ─────────────────────────────────────────────── */
 /* logo · language · อ่านง่าย, one line, and the controls to the right where
    they are out of the way of the name. Under 34rem they wrap and the logo
@@ -505,6 +562,7 @@ footer.bare .footsos a.sos{color:var(--ant-dark);font-weight:600}
 JS = r"""
 (function(){
 'use strict';
+var RECTAG=__RECORD_TAGS__;
 var NARROW=__NARROW__, WORDF=__WORD_FIELDS__, FW=__FACET_WORDS__,
     SCOPES=__SCOPES__, PRESENCE=__PRESENCE__, SORTS=__SORTS__;
 var KEYS=NARROW.concat(['cat','kd','p','open']);
@@ -573,11 +631,13 @@ function wordsOk(e,st){
 function vals(e,k,T){
   var o=[],i;
   if(k==='tag'){
-    if(e.t)for(i=0;i<e.t.length;i++){var g=T.tags[e.t[i]];if(g&&g[0])o.push(g[0]);}
+    if(e.t)for(i=0;i<e.t.length;i++){var g=T.tags[e.t[i]];if(g&&g[0]&&!RECTAG[g[0]])o.push(g[0]);}
     if(e.tt)for(i=0;i<e.tt.length;i++){var r=T.trade[e.tt[i]];if(r&&r[0])o.push(r[0]);}
   }else if(k==='ar'){var a=e.ar!=null?T.areas[e.ar]:null;if(a&&(a[0]||a[1]))o.push(a[0]||a[1]);}
   else if(k==='st'){var s=e.st!=null?T.streets[e.st]:null;if(s&&s[0])o.push(s[0]);}
-  else if(k==='f'){if(e.f)o=e.f.slice();}
+  else if(k==='f'){if(e.f)o=e.f.slice();
+    // …and they belong in "what it has", which is the question they answer.
+    if(e.t)for(i=0;i<e.t.length;i++){var q=T.tags[e.t[i]];if(q&&q[0]&&RECTAG[q[0]])o.push(q[0]);}}
   else if(k==='su'){if(e.su)o=e.su.slice();}
   else if(k==='cat'){if(e.c)o=e.c.slice();}
   else if(k==='kd'){if(e.kd)o=e.kd.slice();}
@@ -653,10 +713,14 @@ function sortRows(rows,st,T){
   return out;
 }
 // Filters, then orders. One call, so md.js's hook stays one line.
+// The answer is kept as well as returned: draw() is handed the UNFILTERED set
+// (that is what makes every count read "how many would be left"), and the two
+// doors under the count are about the filtered one — the rows on screen.
 function apply(rows,T){
   var st=parse();
-  return sortRows(rows.filter(function(e){
+  lastRows=sortRows(rows.filter(function(e){
     return ok(e,st,T)&&far(e,st)!==true;}),st,T);
+  return lastRows;
 }
 
 // ── the URL is the state ─────────────────────────────────────────────────
@@ -694,7 +758,13 @@ function plain(k,v,T){
   // Plain text, because an <option> cannot hold a <span>: a bilingual pair
   // built with markup is drawn as literal tag soup inside a dropdown.
   if(k==='open')return 'เปิดอยู่ · open now';
-  if(k==='f')return FW[v]?FW[v][0]+' · '+FW[v][1]:v;
+  if(k==='f'){
+    if(FW[v])return FW[v][0]+' · '+FW[v][1];
+    // the five record tags arrive in this drawer and their words live in the
+    // tag table, not in FACET_WORDS
+    if(RECTAG[v]){var tr=tables(T).tag&&tables(T).tag[v];
+      if(tr)return (tr[1]||'')+(tr[2]&&tr[2]!==tr[1]?' · '+tr[2]:'');}
+    return v;}
   var ix=tables(T),row=ix[k]&&ix[k][v];
   if(row){var th=row[1]||'',en=row[2]||'';
     return row[0]+(en&&en!==th?th+' · '+en:(th||v));}
@@ -780,7 +850,9 @@ function fillTools(base,T){
   if(!row)return false;
   var anyOffer=false;
   row.querySelectorAll('select[data-refkey]').forEach(function(sel){
-    var k=sel.dataset.refkey,t=tally(base,st,k,T),on=(st.inc[k]||[])[0]||'';
+    var k=sel.dataset.refkey;
+    if(NARROW.indexOf(k)<0)return;   // sort is not a narrowing key
+    var t=tally(base,st,k,T),on=(st.inc[k]||[])[0]||'';
     var html='<option value="">'+H('ทั้งหมด · any')+'</option>';
     t.rows.forEach(function(r){
       // A value every row already carries narrows nothing, and a value at
@@ -846,6 +918,193 @@ function wire(){
       ? href(st,'only',k,el.checked?'1':'')
       : href(st,'only',k,el.value));});
 }
+// ── the two doors on the answer ──────────────────────────────────────────
+//
+// A result is a set of PLACES, and there are exactly two other things a person
+// does with a set of places: look at where they are, and put what is on at
+// them in a diary. Both were reachable before this and neither was legible.
+// The map was a bare 🗺 in the heading — no word, no number, and hidden until
+// it was not — and the calendar existed one event at a time on a page nobody
+// reaches from a search. They are links now. Each says what it will do, each
+// carries the count of the answer in front of the reader, and neither is
+// drawn at zero.
+//
+// WHAT THEY DO IS WHAT A PERSON WOULD EXPECT THEM TO DO:
+//   🗺 draws THESE results on the map already sitting above them — not the
+//      city map with its shelves switched on, which is a different question
+//      wearing the same word (go/wrongtool). Tap again and it shuts, and the
+//      label says so.
+//   🗓 hands over the events standing at THESE places as one .ics file — the
+//      same VEVENTs build.py writes, so what a reader gets from the door and
+//      what they get from events.ics cannot disagree.
+var MAPCAP=200;      // what md.js hands the results map, and what it draws
+var lastRows=null;   // the filtered answer, stashed by apply()
+function root(){return document.documentElement.getAttribute('data-root')||'';}
+function nfmt(n){return Number(n).toLocaleString();}
+// {place id: how many events stand there}, baked into search.html. Absent —
+// on a page that carries no such table, or a build that has not written one
+// yet — the calendar door is simply not drawn, and nothing is fetched.
+function evTable(){
+  var el=document.getElementById('evplaces');
+  if(!el)return {};
+  if(el._md)return el._md;
+  var t={};
+  try{t=JSON.parse(el.textContent)||{};}catch(e){t={};}
+  el._md=t;
+  return t;
+}
+// 184 of 1,796 rather than 184: the difference between the two numbers is the
+// rows nobody has pinned yet. They are unmeasured, not absent, and saying so
+// in the count is cheaper than a sentence saying so underneath.
+function doorCount(shown,total){
+  return total>shown
+    ?'('+BI(nfmt(shown)+' จาก '+nfmt(total),nfmt(shown)+' of '+nfmt(total))+')'
+    :'('+nfmt(shown)+')';
+}
+function drawDoors(rows){
+  var el=document.getElementById('resdoors');
+  if(!el)return;
+  rows=rows||[];
+  var out=[],shown=rows.slice(0,MAPCAP),pinned=0,i;
+  for(i=0;i<shown.length;i++)if(shown[i].lat!=null&&shown[i].lng!=null)pinned++;
+  var btn=document.getElementById('resmapbtn'),rm=document.getElementById('resmap');
+  if(btn&&rm&&pinned){
+    var open=!rm.hidden;
+    out.push('<a class="resdoor" id="resdoor-map" href="#resmap">'+
+      '<span class="dooricon" aria-hidden="true">🗺</span> '+
+      (open?BI('ซ่อนแผนที่','hide the map')
+           :BI('ดูบนแผนที่','see these on the map')+
+             ' <span class="count">'+doorCount(pinned,rows.length)+'</span>')+'</a>');}
+  // The join is the index row's own id against the event's place id, which is
+  // the join md.js already makes to paint 🎪 into an opened row. A row with no
+  // id joins to nothing — never to the string "undefined", which would hand
+  // every row in the answer the same events.
+  var T=evTable(),ids=[],n=0;
+  for(i=0;i<rows.length;i++){var rid=rows[i].id;
+    if(rid==null)continue;
+    var c=T[rid];
+    if(c){ids.push(rid);n+=c;}}
+  if(n)out.push('<a class="resdoor" id="resdoor-cal" href="'+H(root()+'events.ics')+
+    '" data-ids="'+H(ids.join(' '))+'">'+
+    '<span class="dooricon" aria-hidden="true">🗓</span> '+
+    BI('ใส่ปฏิทิน','add to calendar')+
+    ' <span class="count">('+nfmt(n)+')</span></a>');
+  el.innerHTML=out.join('');
+  el.hidden=!out.length;
+  wireDoors();
+}
+
+// ── the calendar file, mirrored from build.py's own ics_document ─────────
+// Asia/Bangkok wall time, and the arithmetic is done in UTC so that adding
+// two hours to an event cannot pick up the READER's daylight saving. Thailand
+// has none; a browser in Berlin does.
+//
+// Escaped in build.py's order and not a tidier one. Folding [\r\n]+ to a
+// single space instead of replacing each newline separately was five events
+// out of 201 whose DESCRIPTION differed from the shipped events.ics by the
+// width of a blank line — which tests/test_refine.py catches by comparing
+// every VEVENT against the file build.py wrote.
+function icsEsc(s){return String(s==null?'':s).replace(/\\/g,'\\\\')
+  .replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,' ').replace(/\r/g,'');}
+function wall(s){
+  var m=/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2})(?::(\d{2}))?)?/.exec(String(s||''));
+  if(!m)return null;
+  return new Date(Date.UTC(+m[1],+m[2]-1,+m[3],+(m[4]||0),+(m[5]||0),+(m[6]||0)));
+}
+function icsStamp(d){function p(n){return (n<10?'0':'')+n;}
+  return d.getUTCFullYear()+p(d.getUTCMonth()+1)+p(d.getUTCDate())+'T'+
+    p(d.getUTCHours())+p(d.getUTCMinutes())+p(d.getUTCSeconds());}
+var BYDAY=['MO','TU','WE','TH','FR','SA','SU'];
+var VTZ='BEGIN:VTIMEZONE\r\nTZID:Asia/Bangkok\r\nBEGIN:STANDARD\r\n'+
+  'DTSTART:19700101T000000\r\nTZOFFSETFROM:+0700\r\nTZOFFSETTO:+0700\r\n'+
+  'TZNAME:+07\r\nEND:STANDARD\r\nEND:VTIMEZONE\r\n';
+function vevent(e){
+  var s=wall(e.start);if(!s)return '';
+  var t=wall(e.end)||new Date(s.getTime()+7200000);
+  var p=e.place||{},where=p.name||e.venue_name||'';
+  var L=['BEGIN:VEVENT',
+    'UID:'+icsEsc((e.source||'md')+'-'+(e.uid||e.title||'')+'@motdang.net'),
+    'DTSTAMP:'+icsStamp(new Date(Date.UTC(2026,0,1))),
+    'DTSTART;TZID=Asia/Bangkok:'+icsStamp(s),
+    'DTEND;TZID=Asia/Bangkok:'+icsStamp(t),
+    'SUMMARY:'+icsEsc(e.title)];
+  if(e.recurring&&e.weekday!=null&&BYDAY[e.weekday])
+    L.push('RRULE:FREQ=WEEKLY;BYDAY='+BYDAY[e.weekday]);
+  else if(e.recurring&&e.byday&&e.byday.length)
+    L.push('RRULE:FREQ=WEEKLY;BYDAY='+e.byday.join(','));
+  if(where)L.push('LOCATION:'+icsEsc(where));
+  // FOUR HUNDRED CHARACTERS, NOT FOUR HUNDRED CODE UNITS. build.py cuts the
+  // description in Python, where an emoji is one character; a JavaScript
+  // slice counts it as two and cut five of the 201 events short of where the
+  // shipped events.ics cut them. Array.from splits on code points.
+  if(e.description)L.push('DESCRIPTION:'+
+    icsEsc(Array.from(String(e.description)).slice(0,400).join('')));
+  if(e.url)L.push('URL:'+icsEsc(e.url));
+  L.push('END:VEVENT');
+  return L.join('\r\n')+'\r\n';
+}
+function icsDoc(evs,name){
+  var body='';for(var i=0;i<evs.length;i++)body+=vevent(evs[i]);
+  return 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Mot Dang//motdang.net//EN\r\n'+
+    'CALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\nX-WR-CALNAME:'+icsEsc(name)+'\r\n'+
+    'X-WR-TIMEZONE:Asia/Bangkok\r\n'+VTZ+body+'END:VCALENDAR\r\n';
+}
+// The file is named after the search, so a reader who saves two of them can
+// tell them apart in a downloads folder. A Thai query leaves no ascii to name
+// it with and gets the plain name rather than a row of escapes.
+function calName(){var q=(parse().q||'').trim();
+  return q?('มดแดง · '+q):'มดแดง · Mot Dang';}
+function calFile(){
+  var q=(parse().q||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+  return 'motdang-'+(q?q.slice(0,40):'events')+'.ics';}
+function save(text,name){
+  try{
+    var b=new Blob([text],{type:'text/calendar;charset=utf-8'});
+    var u=URL.createObjectURL(b),a=document.createElement('a');
+    a.href=u;a.download=name;a.style.display='none';
+    document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(u);
+      if(a.parentNode)a.parentNode.removeChild(a);},4000);
+  }catch(e){}
+}
+function wireDoors(){
+  var el=document.getElementById('resdoors');
+  if(!el||el._wired)return;el._wired=true;
+  el.addEventListener('click',function(ev){
+    var a=ev.target&&ev.target.closest?ev.target.closest('a.resdoor'):null;
+    if(!a)return;
+    if(a.id==='resdoor-map'){
+      ev.preventDefault();
+      var btn=document.getElementById('resmapbtn');if(!btn)return;
+      btn.click();
+      var rm=document.getElementById('resmap');
+      if(rm&&!rm.hidden&&rm.scrollIntoView)rm.scrollIntoView({block:'nearest'});
+      drawDoors(lastRows);
+      // openMap() gives up after eight seconds when no basemap arrives and
+      // shuts the box again. The label has to follow it back, or it sits
+      // there offering to hide a map that is not there.
+      setTimeout(function(){drawDoors(lastRows);},8600);
+      return;}
+    if(a.id!=='resdoor-cal')return;
+    // THE EVENTS ARE FETCHED ONLY BY THE READER WHO ASKS FOR THEM. The count
+    // above comes from a 2 kB table baked into the page; the 260 kB of event
+    // records behind it is downloaded on this tap and on no other search.
+    ev.preventDefault();
+    if(a._busy)return;
+    a._busy=1;a.setAttribute('aria-busy','true');
+    var want={};(a.getAttribute('data-ids')||'').split(' ')
+      .forEach(function(x){if(x)want[x]=1;});
+    var done=function(){a._busy=0;a.removeAttribute('aria-busy');};
+    fetch(root()+'data/events.json').then(function(r){return r.ok?r.json():null;})
+      .then(function(d){done();
+        if(!d)return;
+        var mine=(d.events||[]).filter(function(e){
+          return e&&e.place&&want[e.place.id]&&e.start;});
+        if(mine.length)save(icsDoc(mine,calName()),calFile());})
+      .catch(done);
+  });
+}
+
 function draw(base,T,el){
   el=el||document.getElementById('refine');if(!el)return;
   var st=parse(),b=bar(st,T),bx=document.getElementById('refbar');
@@ -855,10 +1114,14 @@ function draw(base,T,el){
   var tools=document.getElementById('reftools');
   if(tools)tools.hidden=!offers;
   el.hidden=!(b||offers);
+  // The doors are about the rows on screen, not about the set the counts are
+  // drawn against, so they take the answer apply() kept — never `base`.
+  drawDoors(lastRows||base);
 }
 window.MDREFINE={parse:parse,apply:apply,draw:draw,href:href,vals:vals,ok:ok,
   bar:bar,tally:tally,fillTools:fillTools,wordsOk:wordsOk,text:text,KEYS:KEYS,
   sort:sortRows,dist:dist,fullness:fullness,onNav:null,
+  doors:drawDoors,ics:icsDoc,
   setOpenTest:function(fn){openTest=fn;}};
 })();
 """
@@ -876,6 +1139,7 @@ def _js_consts():
     fields = {code: names.split() for code, _, _, names in WORD_SCOPES}
     return {
         "__NARROW__": _json.dumps([k for k, _, _, _ in NARROW_ROWS]),
+        "__RECORD_TAGS__": _json.dumps({t: 1 for t in RECORD_TAGS}),
         "__WORD_FIELDS__": _json.dumps(fields),
         "__FACET_WORDS__": _json.dumps(FACET_WORDS, ensure_ascii=False),
         "__SCOPES__": _json.dumps([[c, th, en] for c, th, en, _ in WORD_SCOPES],
@@ -930,7 +1194,7 @@ def row_values(e, k, T):
     if k == "tag":
         for i in e.get("t") or []:
             g = _tbl(T, "tags", i)
-            if g and g[0]:
+            if g and g[0] and g[0] not in RECORD_TAGS:
                 out.append(g[0])
         for i in e.get("tt") or []:
             g = _tbl(T, "trade", i)
@@ -946,6 +1210,11 @@ def row_values(e, k, T):
             out.append(s[0])
     elif k in ("f", "su", "kd"):
         out = list(e.get(k) or [])
+        if k == "f":
+            for i in e.get("t") or []:
+                g = _tbl(T, "tags", i)
+                if g and g[0] in RECORD_TAGS:
+                    out.append(g[0])
     elif k == "cat":
         out = list(e.get("c") or [])
     elif k == "p":
