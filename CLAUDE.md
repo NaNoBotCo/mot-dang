@@ -441,7 +441,7 @@ Rules that bite:
   drawn from it was not. See `translit.py` and the entry below.
 - **A sole name shows in all three language modes.** `bi()` is for prose, where
   a Thai sentence *should* vanish in English-only mode. Used on a name it
-  produced a lone `.th` span that `body.lang-en .th{display:none}` swallowed:
+  produced a lone `.th` span that `html.lang-en .th{display:none}` swallowed:
   24,023 listing rows rendered as a clickable blank in English-only mode and
   30,941 in Thai-only, each beside a map pin with nothing to read. `name_bi()`
   marks a sole name `.solo` and the stylesheet lets `.solo` through in all

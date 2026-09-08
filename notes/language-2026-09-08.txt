@@ -1,0 +1,280 @@
+THE LANGUAGE TOGGLE, AND THE WORDS IT COULD NEVER REACH
+WO-77 · 2026-09-08 · zero-network, built, NOT deployed
+
+
+WHAT YOU AND MICHAEL SAID
+
+  "The language toggle on motdang.net fails a lot. And there seem to be a
+   bunch of loose terms presented only in one script, which detracts from
+   accessibility and removes opportunity for humans to see patterns and infer
+   meaning."
+
+Both halves are real and they are different faults. Measured before anything
+was changed, on the live site and on the catalogue on disk.
+
+
+PART ONE — WHY THE TOGGLE FAILED
+
+  1. IT WAS APPLIED AFTER THE PAGE HAD ALREADY BEEN DRAWN.
+
+     Every page shipped with a bare <body> and no language on it. The choice
+     you had stored was read and applied by md.js — 248 KB, and the LAST tag
+     on the page, after everything else had painted. So a reader who had
+     picked English got a fully drawn bilingual page first and the switch
+     afterwards, on every single click. On a 1.5 Mbps connection that is
+     seconds of the wrong language, every time.
+
+     From the outside that is indistinguishable from a toggle that failed.
+
+     FIXED: the language now goes on <html>, written by a 180-byte inline
+     script in the head, before the first pixel. The stylesheet's twenty-nine
+     `body.lang-*` rules moved with it. md.js still handles the click; it is
+     no longer what decides what you see when the page opens.
+
+     A second gain fell out of it: the served page now carries lang-both, so a
+     reader with scripts off gets both languages instead of Thai alone.
+
+  2. A LOT OF THE PAGE WAS NOT MARKED WITH A LANGUAGE AT ALL.
+
+     Across 59 live pages sampled at random: 408 runs of Thai and 966 runs of
+     Latin sat outside any language span. The toggle cannot hide what is not
+     marked, so those showed identically in all three modes. On a place page
+     they were concentrated in one place, and it is the finding of this note:
+
+       THE LABELS WERE BILINGUAL. THE VALUES WERE NOT.
+
+     หมวด · Category, นิกาย · Nikaya, ระดับชั้นที่เปิดสอน · Levels taught —
+     every field label on the site has been in both languages for months. The
+     value printed beside it was Thai alone. A reader without Thai was told
+     what they were looking at and never what it said.
+
+  3. "API · API". bi("API","API") printed the same word twice, in both
+     languages, because nothing checked whether the pair was a pair. Same for
+     LINE. Fixed inside bi() itself, so it holds everywhere.
+
+  Also paired, each of which was on every page on the site: the copy-link
+  button (Thai only), the sponsor label (both languages in one unmarked
+  string), the อ่านง่าย button (a bilingual aria-label and a Thai-only face —
+  an English reader saw an unexplained button), the "มดแดง" map link, and the
+  พ.ศ. edition date on 1,371 temple records, which now carries its CE year.
+
+
+PART TWO — THE TERMS THAT EXIST IN ONE SCRIPT
+
+  THE CENSUS, over all 88,161 records:
+
+      55,472  records whose name is Thai with no English name
+      36,442  addresses with no Latin character anywhere in them
+      33,369  attribute values printing in Thai alone, over 59 fields
+
+  The romaniser already reaches a place's NAME — that was WO-72, and on the
+  sample 189 of 196 Thai-only headings carry a reading. It reached nothing
+  else. The fields were where the silence was.
+
+  WHAT WAS BUILT, AND WHY IT COMPOSES RATHER THAN LISTS
+
+  `terms.py` + `data/curated/thai_terms.json`. The registers write in closed
+  vocabularies: `registerUses` has 39 distinct values on 559 records and every
+  one of them is the same dozen words joined with slashes; `levels` has 35 and
+  they are six stage words and a number. A flat list of 39 strings is 39
+  chances to have missed one. A table of twelve words that COMPOSE covers the
+  fortieth value the day the register adds it — and says nothing at all when
+  it cannot, which is the part that makes it trustworthy.
+
+  Coverage of what the pages print, measured:
+
+      นิกาย · Nikaya                  1,717 / 1,717   100%
+      ประเภทวัด · Standing            1,717 / 1,717   100%
+      วิสุงคามสีมา · Wisung           1,717 / 1,717   100%
+      ระดับชั้น · Levels taught       1,516 / 1,516   100%
+      สังกัดเขตพื้นที่ · Education area 1,302 / 1,302   100%
+      ประเภทตามใบอนุญาต · Licensed as   243 /   243   100%
+      ผู้รับใบอนุญาต · Licence held by  196 /   196   100%
+      ที่อยู่ · Address              34,257 / 36,442    94%
+
+  So a temple page now reads
+
+      นิกาย · Nikaya       มหานิกาย — Maha Nikaya, the larger monastic order
+      ประเภทวัด · Standing  วัดราษฎร์ — a people's temple, not a royal one
+      ที่อยู่ · Address     ตำบลหนองบัว อำเภอไชยปราการ จังหวัดเชียงใหม่
+                           Tambon Nong Bua · Amphoe Chai Prakan · Changwat
+                           Chiang Mai
+
+  and a school page says อ.2–ป.6 — Kindergarten 2 to Grade 6, which is the
+  fact a parent came for. ป.6 is Grade 6 and ม.3 is Grade 9, and getting that
+  offset wrong would send someone to the wrong school, so it is a fixed case
+  in the test rather than a phrase somebody can tidy.
+
+  THREE REFUSALS, each deliberate
+
+  1. A GLOSS BEATS A READING, and the first draft printed both. "ได้รับ ·
+     Draiba · granted" spends a word on a reading that is neither useful nor,
+     as it happens, correct. A reading is for a NAME — something you say
+     aloud, type into a search, or show a driver. On an administrative term
+     it is clutter on top of the answer. Where the meaning is known the
+     meaning prints alone; where it is not, the reading is all there is and
+     it prints.
+
+  2. A HALF-GLOSS IS REFUSED ENTIRELY. If one Thai word in a value is unknown,
+     the whole value comes back in Thai. "residential unit · ??? · balcony
+     area" reads as though the site understood the row. The Thai alone is at
+     least true.
+
+  3. NOTHING TRANSLATES A NAME. A place's English name is a sourced field and
+     stays one. Where a head word is a dictionary word and the rest is a name
+     — ลานจอดรถ มหาวิทยาลัยเชียงใหม่ — the head is glossed and the name is
+     READ: "parking yard Chiang Mai University".
+
+  THE ADMIN LEXICON GREW 59 → 403. `build_trade_lexicon.py` had been reading
+  only the curated admin file, which holds 43 อำเภอ and 16 ตำบล — so of the
+  294 distinct ตำบล the catalogue prints on 3,031 records it could read 8%.
+  It now reads the catalogue's own admin names too. Amphoe are still spelt
+  the way the road signs spell them, because the curated file is still read
+  first (กัลยาณิวัฒนา is Galyani Vadhana, not Kanlayani Watthana).
+
+  THE SOURCE CREDITS, 13 names on 4,662 records, now carry the English the
+  agency itself publishes: ทะเบียนวัด สำนักงานพระพุทธศาสนาแห่งชาติ · Temple
+  register, National Office of Buddhism (ONAB). The credit is how a reader
+  weighs a row — a register outranks a directory outranks a guess — and it
+  was legible to half the readership.
+
+  THE FRONT PAGE. The horoscope chips (29 of them, single Thai letters), the
+  currency names and the day and zodiac names all had a bilingual aria-label
+  and a Thai-only face. They now carry both, under your own P2 rule from
+  7 September — the English half stands down in ไทย+EN mode and appears only
+  for a reader who has chosen English, so the row does not get longer.
+
+
+WHAT IT MEASURES
+
+  A place page, freshly rendered against the real catalogue, in English-only
+  mode — runs of Thai the toggle cannot hide:
+
+      before   6.9 per page
+      after    3.3 per page, and 3.0 of those are the masthead: the มดแดง
+               logo and the two toggle buttons themselves, which have to show
+               in every mode or you cannot find your way back.
+
+  Bare Thai values in a <dd>: 300 across 200 built pages before, 0 across 30
+  freshly rendered pages after.
+
+  Two new suites: `tests/test_terms.py` (28 checks, including the refusals and
+  a corpus floor) and `tests/test_language.py` (the pre-paint script, the
+  <html> class, every stylesheet rule that hides a language, and no bare Thai
+  in a value). Both green. test_translit and test_alt_text re-run green.
+
+
+F2–F5, EXECUTED (Nan, same day: "leave the cinema stuff alone… Execute F2-F5")
+
+  F1 stands. The cinema listings are untouched.
+
+  F2 — THE LISTING SHEET now has the same fix. `th.py` carries the toggle for
+     all three of its pages and had the identical fault: the class on <body>,
+     written at the foot of the page. Moved to <html>, a `LANG_PREPAINT`
+     script added to each of the three heads, `class="lang-both"` served, and
+     the seven `body.lang-*` selectors across th.py and sheet.py repointed.
+     Rebuilt; all twelve of its suites green, and the built index.html and
+     add.html carry zero `body.lang` and the pre-paint script.
+
+  F3 — THE READING, WHERE IT WAS NOT.
+
+     Two of the three places named on the first pass turned out to be already
+     done and are worth recording as such: SHELF PAGES carry 1,209 readings on
+     the live wat shelf, and SEARCH RESULT ROWS carry 199 on a 205-row search.
+     Both came in with WO-72. The note was repeating a measurement from 9/6.
+
+     What was actually wrong on the search page is the same fault as the place
+     page, one level down: **the result row's name and its reading were both
+     unmarked**. The name showed in every mode by accident rather than by the
+     `.solo` rule, and the READING showed in Thai-only mode too — an English
+     transcription printed for a reader who had asked for Thai alone. The name
+     now goes through a new `mdSolo()`, the client twin of `name_bi()`, and
+     the reading and the English name ride in the English slot where they
+     belong. `mdBi()` also learnt the same collapse `bi()` learnt, so the
+     client cannot hydrate "API · API" either.
+
+     And the shelf words on those rows: `MD_CATWORDS` welds "th · en" into one
+     string, which is right for the search haystack and wrong on a chip — so
+     every result row printed both languages whichever one you had picked.
+     A 23-entry `MD_CATPAIR` now supplies the pair for the three places a
+     shelf word is SHOWN; the haystack is untouched.
+
+     The front page's own remainder, all of it Thai with English sitting
+     unused in the same record: the event slides printed the venue as one
+     welded string and now carry the pair as markup; the day of the week and
+     the zodiac year in the fortune tile were written as PLAIN TEXT by the
+     live updater, so moving the date put the Thai back whichever language you
+     had chosen; and the gold price's source line.
+
+  F4 — THE TWO BAD READINGS, and a third found under them.
+
+     แก้ว read "Kwae" — the ว taken as the second half of a กว cluster instead
+     of the final /o/ — and นวรัฐ read "Norat", the unwritten vowel between
+     น and ว dropped. So ถ.แก้วนวรัฐ, a road you can see from Nawarat Bridge,
+     read "Kwaenorat". ได้รับ read "Draiba": ดร is a LOANWORD cluster and this
+     is two words meeting, ได้ + รับ.
+
+     Both classes are shapes the letter rules cannot decide — แคว really is
+     Khwae and แก้ว really is Kaeo, and nothing in the spelling separates them
+     — so the four entries went into `rtgs_lexicon.json`, which is what that
+     file is for. One rule did change: the "a leading vowel makes the pair a
+     cluster" exception now applies to NATIVE clusters only, because ไดร- is
+     not a shape Thai builds.
+
+     **The corpus floor moved with it: exact agreement against the
+     catalogue's own human-written English names 46.9% → 47.6%, close
+     70.4% → 70.7%.** ห้วยแก้ว, ต้นแก้ว and แก้วเจ้าจอม all read correctly now,
+     and เบรก is still Brek.
+
+  F5 — THE CONDOMINIUM REGISTER'S OWN WORDS now print. 559 records have
+     carried `registerUses` since WO-27 and no page showed it, while the
+     assessed value beside it printed all along — so the page said what a
+     square metre is worth and not whether the unit may be lived in. New row,
+     ตามทะเบียนใช้เป็น · Registered use, glossed by the table built this
+     morning: "ห้องชุดพักอาศัย/พื้นที่ระเบียง — residential unit · balcony
+     area". One bug fell out of it and is fixed: the register says the same
+     thing twice — ห้องชุดเพื่อประกอบการค้า(ห้องชุดพาณิชยกรรม) — and the
+     gloss was repeating it. It says it once.
+
+
+NOT DEPLOYED, AND WHY
+
+  Nothing here has been built into docs/ or shipped, and **the standing walk
+  is resting on your instruction of 2026-09-05, so it will not ship it either
+  — this needs your go.** A build that started at 09:49 is running against the
+  first half of this work; it does not carry F2–F5, so a fresh build is wanted
+  before anything goes out. `tests/test_search.py` and `test_search_page.py`
+  both need `docs/data/index.json` and could not run while that build had it.
+
+  One thing to flag to the WO-76 session: build.py was edited here through the
+  morning — bi() and its client twin, the head block, the <html> tag, the
+  place-page rows, the prov line, the result-row renderer, the horoscope
+  chips, the fortune tile, the event slides and the currency block. Their
+  `apply_rowline_hook.py` is anchored and idempotent and refuses rather than
+  corrupts, so it will tell them if an anchor moved.
+
+
+FILES
+
+  new   terms.py
+  new   data/curated/thai_terms.json
+  new   tests/test_terms.py
+  new   tests/test_language.py
+  edit  build.py — bi() and mdBi(), mdSolo(), md_read(), term_bi(),
+        address_dd(), the head script, the <html> tag, 29 CSS selectors, the
+        school/temple/condo rows incl. the new Registered-use row, the address
+        row, the road row, the also-called row, the map link, the credit line,
+        the BE date, the result-row renderer and MD_CATPAIR, the horoscope
+        chips, the fortune tile and its live updater, the event slides, the
+        currency names, the gold source line, the copy-link and sponsor labels
+  edit  refine_layer.py — the อ่านง่าย button's face
+  edit  translit.py — NATIVE_CLUSTERS; the lead-vowel exception narrowed
+  edit  data/curated/rtgs_lexicon.json — แก้ว · นวรัฐ · ได้รับ · ไม่ได้รับ
+  edit  importers/build_trade_lexicon.py — the admin names, 59 → 403
+  edit  tests/test_search_page.py, importers/apply_card_hook.py — the two
+        places that asserted the old `body.lang-` selector
+  ran   importers/build_trade_lexicon.py (data/trade_lexicon.json rewritten)
+
+  listing-sheet (the other repo)
+  edit  th.py — LANG_PREPAINT, the class on <html>, B → documentElement
+  edit  sheet.py · buildings.py · form.py — the pre-paint script in each head

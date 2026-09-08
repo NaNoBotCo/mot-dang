@@ -1,0 +1,224 @@
+{
+ "_note": "Thai administrative, registry and trade vocabulary, glossed by hand. These are DICTIONARY WORDS AND ADMINISTRATIVE TERMS, never a place's name: nothing here is a candidate for nameEn, and nothing here is machine translated. A gloss says what the word means; the reading beside it (translit.py, RTGS) says how it sounds. Read by terms.py, folded into data/trade_lexicon.json by importers/build_trade_lexicon.py, and printed as `.en` beside the Thai so the language toggle can reach it.",
+ "_why": "Nan, 2026-09-06 and again 2026-09-08 with Michael: terms that exist in only one script shut out every reader who does not have that script, and hide the patterns a reader could otherwise infer. Measured 2026-09-08: 33,369 Thai-only values printed on the pages across 59 attribute fields, with the FIELD LABELS bilingual and the VALUES Thai alone.",
+ "_built": "2026-09-08",
+ "parts": {
+  "_note": "Words that compose. A value is glossed by glossing its parts, so a combination nobody has seen yet still reads. Order inside a field is preserved.",
+  "sect": {
+   "มหานิกาย": "Maha Nikaya, the larger monastic order",
+   "ธรรมยุต": "Thammayut, the reform monastic order",
+   "ธรรมยุตินิกาย": "Thammayut, the reform monastic order"
+  },
+  "watRank": {
+   "วัดราษฎร์": "a people's temple, not a royal one",
+   "พระอารามหลวง": "a royal temple",
+   "สำนักสงฆ์": "a monastic dwelling, below temple standing"
+  },
+  "wisung": {
+   "ได้รับ": "granted",
+   "ไม่ได้รับ": "not granted"
+  },
+  "regType": {
+   "ยกวัดร้าง": "raised from an abandoned temple",
+   "วัดเก่าตกสำรวจ": "an old temple the survey missed"
+  },
+  "levels": {
+   "เตรียมอนุบาล": "pre-kindergarten",
+   "อนุบาล": "kindergarten",
+   "ประถม": "primary",
+   "มัธยม": "secondary",
+   "ม.ต้น": "lower secondary",
+   "ม.ปลาย": "upper secondary",
+   "ปวช.": "vocational certificate",
+   "ปวส.": "higher vocational certificate",
+   "อ.": "Kindergarten",
+   "ป.": "Grade",
+   "ม.": "Grade",
+   "_numbered": {
+    "อ.": [
+     "Kindergarten ",
+     0
+    ],
+    "ป.": [
+     "Grade ",
+     0
+    ],
+    "ม.": [
+     "Grade ",
+     6
+    ],
+    "ปวช.": [
+     "Vocational year ",
+     0
+    ],
+    "ปวส.": [
+     "Higher vocational year ",
+     0
+    ]
+   },
+   "_numbered_note": "ป.1–ป.6 are Grades 1–6 and ม.1–ม.6 are Grades 7–12, which is the offset. A parent reading in English wants the grade, not the Thai stage's number."
+  },
+  "eduArea": {
+   "สพป.": "Primary Education Service Area",
+   "สพม.": "Secondary Education Service Area",
+   "เขต": "Area",
+   "สำนักบริหารงานการศึกษาพิเศษ": "Bureau of Special Education Administration",
+   "สำนักงานเขตพื้นที่การศึกษา": "Education Service Area Office"
+  },
+  "officialType": {
+   "ในระบบประเภทสามัญศึกษา": "in-system, general education",
+   "ในระบบประเภทนานาชาติ": "in-system, international",
+   "ในระบบประเภทอาชีวศึกษา": "in-system, vocational",
+   "นอกระบบ": "out-of-system",
+   "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา": "a monastic school, general-education division",
+   "การศึกษาสงเคราะห": "welfare education",
+   "การศึกษาสงเคราะห์": "welfare education",
+   "การกุศลของวัด": "temple charity",
+   "การศึกษาพิเศษ": "special education",
+   "สามัญศึกษา": "general education",
+   "โรงเรียนพระปริยัติธรรม": "a monastic school",
+   "แผนกสามัญศึกษา": "general-education division"
+  },
+  "licensee": {
+   "บุคคลธรรมดา": "a private individual",
+   "มูลนิธิ": "a foundation",
+   "บริษัทจำกัด": "a limited company",
+   "บริษัท": "a company",
+   "วัด": "a temple",
+   "หน่วยงานราชการ": "a government body",
+   "ห้างหุ้นส่วนจำกัด (หจก.)": "a limited partnership",
+   "ห้างหุ้นส่วนจำกัด": "a limited partnership",
+   "สมาคม": "an association",
+   "หจก.": "a limited partnership"
+  },
+  "nameBase": {
+   "ที่จอดรถ": "car park",
+   "ลานจอดรถ": "parking yard",
+   "ที่จอดมอเตอร์ไซค์": "motorcycle parking",
+   "ที่จอดริมถนน": "roadside parking",
+   "ที่จอดจักรยาน": "bicycle parking",
+   "ที่จอดรถใต้ดิน": "underground car park",
+   "อาคารจอดรถ": "parking building",
+   "ทางเข้าที่จอดรถ": "car-park entrance",
+   "ที่จอดรถบนดาดฟ้า": "rooftop parking",
+   "โรงจอดรถ": "carport",
+   "ที่จอดรถคนพิการ": "accessible parking"
+  },
+  "registerUses": {
+   "ห้องชุดพักอาศัย": "residential unit",
+   "พื้นที่ห้องชุดพักอาศัย": "residential unit area",
+   "พักอาศัย": "residential",
+   "ห้องชุดเพื่อประกอบการค้า": "commercial unit",
+   "ห้องชุดพาณิชยกรรม": "commercial unit",
+   "พาณิชยกรรม": "commercial",
+   "ห้องชุดพาณิชกรรม": "commercial unit",
+   "ห้องชุดสำนักงาน": "office unit",
+   "พื้นที่ระเบียง": "balcony area",
+   "พื้นทีระเบียง": "balcony area",
+   "ระเบียง": "balcony",
+   "พื้นที่วางแอร์": "air-conditioner space",
+   "พื้นวางแอร์": "air-conditioner space",
+   "ที่วางแอร์": "air-conditioner space",
+   "พื้นที่วางเครื่องปรับอากาศ": "air-conditioner space",
+   "ที่จอดรถยนต์ส่วนบุคคล": "private car parking",
+   "แบบ 2 ชั้นควบ": "two floors joined",
+   "แบบเพนท์เฮ้าส์": "penthouse",
+   "แบบเพนท์เฮ้าส์ 2 ชั้นควบ": "penthouse, two floors joined",
+   "ห้องเก็บของ": "storage room",
+   "พื้นที่นอกห้องชุด": "area outside the unit",
+   "พื้นที่จัดสวน ส่วนบุคคล ห้องชุด": "private garden area for the unit",
+   "ห้องชุดพักอาศัยตากอากาศ": "holiday residential unit",
+   "มีระเบียงทางออกสู่ทรัพย์ส่วนกลาง": "with a balcony onto the common property",
+   "ห้องชุดพักอาศัยมีทางเดินลงสระว่ายน้ำ": "residential unit with a walkway down to the pool",
+   "ห้องชุดพักอาศัยที่มีระเบียงออกสระว่ายน้ำส่วนกลาง": "residential unit with a balcony onto the shared pool",
+   "ห้องชุดพักอาศัยที่มีระเบียงลงสระว่ายน้ำ": "residential unit with a balcony down to the pool",
+   "พื้นที่ควบคุมไฟเฉพาะส่วนห้องชุด": "unit-only electrical control area",
+   "ห้องชุดพักอาศัยแบบเพนท์เฮ้าส์": "penthouse residential unit",
+   "2 ชั้นควบ": "two floors joined",
+   "3 ชั้นควบ": "three floors joined"
+  },
+  "kind": {
+   "ชุมชนท่องเที่ยว": "a tourism community",
+   "แหล่งท่องเที่ยวเชิงศาสนา ศิลปะ วัฒนธรรม": "a religion, art and culture attraction",
+   "แหล่งท่องเที่ยวเชิงนิเวศ": "an ecological attraction",
+   "แหล่งท่องเที่ยวเชิงสุขภาพ": "a health and wellness attraction",
+   "แหล่งท่องเที่ยวเชิงเกษตร": "an agricultural attraction",
+   "ปางช้าง": "an elephant camp",
+   "สนามมวย": "a boxing stadium",
+   "โรงเรียนสอนทำอาหาร": "a cooking school",
+   "คลาสทำอาหารส่วนตัว": "private cooking classes",
+   "โรงอาบน้ำ-ออนเซ็น": "a bathhouse and onsen",
+   "ร้าน-สตูดิโอรูปปั้นช้าง": "an elephant-statue shop and studio",
+   "ข้าวราดแกง": "rice with curry ladled over it",
+   "อาหารตามสั่ง": "cooked to order",
+   "อาหารจานเดียว": "one-plate dishes",
+   "ก๋วยเตี๋ยว": "noodle soup",
+   "อาหารเหนือ": "northern food",
+   "อาหารเจ": "jay food, vegan, no pungent roots",
+   "อาหารอื่นๆ": "other food",
+   "โรงอาบน้ำ": "a bathhouse",
+   "ออนเซ็น": "an onsen",
+   "ร้าน": "a shop",
+   "สตูดิโอรูปปั้นช้าง": "an elephant-statue studio",
+   "แหล่งท่องเที่ยวเชิงศาสนา": "a religious attraction",
+   "ศิลปะ": "art",
+   "วัฒนธรรม": "culture"
+  },
+  "addrProvince": {
+   "จังหวัด": "Changwat",
+   "จ.": "Changwat"
+  },
+  "descriptionTh": {
+   "วัดใน": "a temple in",
+   "วัดร้างใน": "an abandoned temple in",
+   "พุทธศาสนสถานใน": "a Buddhist religious site in",
+   "จังหวัด": "",
+   "อำเภอ": "Amphoe ",
+   "ตำบล": "Tambon ",
+   "ประเทศไทย": "Thailand"
+  },
+  "prefix": {
+   "_note": "The one-letter address prefixes. Printed in front of a name, they are the difference between a road and a district and half the tambon of Chiang Mai are also road names.",
+   "ต.": "Tambon",
+   "อ.": "Amphoe",
+   "จ.": "Changwat",
+   "ถ.": "Thanon",
+   "ถนน": "Thanon",
+   "ซ.": "Soi",
+   "ซอย": "Soi",
+   "หมู่": "Mu",
+   "หมู่ที่": "Mu",
+   "ม.": "Mu",
+   "แขวง": "Khwaeng",
+   "เขต": "Khet",
+   "ตำบล": "Tambon",
+   "อำเภอ": "Amphoe",
+   "จังหวัด": "Changwat"
+  }
+ },
+ "separators": {
+  "_note": "Kept as they are, so a glossed value has the shape of the Thai one.",
+  "–": " – ",
+  "-": " – ",
+  "/": " · ",
+  ",": ", ",
+  "(": " (",
+  ")": ")"
+ },
+ "agency": {
+  "_note": "The 13 Thai agency names the records credit as their source, each under the English name the agency itself publishes. A credit line that only a Thai reader can read tells an English reader nothing about how much to trust the row. Whole-string match, never composed — an agency's name is its name.",
+  "ทะเบียนวัด สำนักงานพระพุทธศาสนาแห่งชาติ (ONAB)": "Temple register · National Office of Buddhism (ONAB)",
+  "ทะเบียนโรงเรียน สพฐ. · สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน": "School register · Office of the Basic Education Commission (OBEC)",
+  "สำนักงานคณะกรรมการอาหารและยา": "Food and Drug Administration (Thai FDA)",
+  "ระบบ CITIZENinfo · สำนักงานพัฒนารัฐบาลดิจิทัล (DGA)": "CITIZENinfo · Digital Government Development Agency (DGA)",
+  "กรมธนารักษ์": "The Treasury Department",
+  "ทะเบียนใบอนุญาตโรงเรียนเอกชน · สำนักงานปลัดกระทรวงศึกษาธิการ": "Private-school licence register · Office of the Permanent Secretary, Ministry of Education",
+  "สำนักงานการท่องเที่ยวและกีฬา จังหวัดเชียงราย": "Chiang Rai Provincial Office of Tourism and Sports",
+  "สำนักงานการท่องเที่ยวและกีฬาจังหวัดเชียงราย": "Chiang Rai Provincial Office of Tourism and Sports",
+  "สำนักงานจังหวัดเชียงใหม่": "Chiang Mai Provincial Office",
+  "สำนักงานจังหวัดเชียงราย": "Chiang Rai Provincial Office",
+  "สำนักงานวัฒนธรรมจังหวัดเชียงราย": "Chiang Rai Provincial Cultural Office",
+  "การกีฬาแห่งประเทศไทย": "Sports Authority of Thailand (SAT)",
+  "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม": "Office of the Permanent Secretary, Ministry of Higher Education, Science, Research and Innovation (MHESI)"
+ }
+}
