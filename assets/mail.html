@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Send mail</title>
+<!--
+  The send half of beer@motdang.net and beer@chiangmaivisadesk.com, built for a
+  phone. Gmail's "Send mail as" screen is desktop web only; this page is not.
+  It holds no key — the passphrase is typed once per phone and kept in that
+  phone's own storage, and the Resend keys sit in the beer-mail Worker.
+  Source: assets/mail.html in the mot-dang repo; build.py copies it to docs/.
+-->
+<style>
+  :root{
+    --ink:#16130f; --dim:#6b6257; --line:#ded5c8; --bg:#fbf8f3;
+    --card:#fff; --go:#8a2f1d; --goink:#fff; --bad:#9a2020; --good:#1d6b3a;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#f2ece3; --dim:#a79c8d; --line:#3a352e; --bg:#15130f;
+           --card:#1e1b16; --go:#c9613f; --goink:#15130f; --bad:#e08a8a; --good:#7fc79b; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:17px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans Thai",sans-serif;
+       padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+  .wrap{max-width:640px;margin:0 auto;padding:18px 16px 40px}
+  h1{font-size:21px;margin:8px 0 2px;font-weight:700}
+  .sub{color:var(--dim);font-size:15px;margin:0 0 18px}
+  label{display:block;font-size:14px;font-weight:600;color:var(--dim);
+        margin:16px 0 6px;letter-spacing:.02em}
+  input,textarea,button,select{font:inherit;color:inherit}
+  input[type=text],input[type=email],input[type=password],textarea{
+    width:100%;padding:13px 12px;border:1px solid var(--line);border-radius:10px;
+    background:var(--card);-webkit-appearance:none}
+  textarea{min-height:190px;resize:vertical}
+  .from{display:grid;gap:8px}
+  .from button{text-align:left;padding:13px 14px;border:1px solid var(--line);
+    border-radius:10px;background:var(--card);cursor:pointer;line-height:1.35}
+  .from button[aria-pressed=true]{border-color:var(--go);box-shadow:inset 0 0 0 1px var(--go)}
+  .from b{display:block;font-size:16px}
+  .from span{color:var(--dim);font-size:14px}
+  .row{display:flex;align-items:center;gap:9px;margin-top:14px;color:var(--dim);font-size:15px}
+  .row input{width:20px;height:20px}
+  .link{background:none;border:0;color:var(--go);padding:0;font-size:15px;
+        text-decoration:underline;cursor:pointer}
+  .send{width:100%;margin-top:22px;padding:16px;border:0;border-radius:12px;
+        background:var(--go);color:var(--goink);font-size:18px;font-weight:700;cursor:pointer}
+  .send[disabled]{opacity:.55}
+  .files{margin-top:8px;font-size:14px;color:var(--dim)}
+  .files div{padding:3px 0}
+  .msg{margin-top:16px;padding:13px 14px;border-radius:10px;font-size:16px;display:none}
+  .msg.bad{display:block;background:rgba(154,32,32,.12);color:var(--bad)}
+  .msg.good{display:block;background:rgba(29,107,58,.12);color:var(--good)}
+  .hide{display:none}
+  .foot{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);
+        color:var(--dim);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="lock">
+    <h1>Send mail</h1>
+    <p class="sub">Type the password once. This phone will remember it.</p>
+    <label for="pw">Password</label>
+    <input id="pw" type="password" autocomplete="current-password" enterkeyhint="go">
+    <button class="send" id="unlock">Open</button>
+  </div>
+
+  <form id="app" class="hide" autocomplete="off">
+    <h1>Send mail</h1>
+    <p class="sub">Replies come to your Gmail, the same as now.</p>
+
+    <label>Send from</label>
+    <div class="from" id="from">
+      <button type="button" data-a="beer@motdang.net" aria-pressed="true">
+        <b>Mot Dang</b><span>beer@motdang.net</span></button>
+      <button type="button" data-a="beer@chiangmaivisadesk.com" aria-pressed="false">
+        <b>Visa Desk</b><span>beer@chiangmaivisadesk.com</span></button>
+    </div>
+
+    <label for="to">To</label>
+    <input id="to" type="email" inputmode="email" autocapitalize="off" spellcheck="false"
+           placeholder="name@example.com">
+    <button type="button" class="link" id="cctoggle" style="margin-top:8px">Add Cc</button>
+    <div id="ccbox" class="hide">
+      <label for="cc">Cc</label>
+      <input id="cc" type="email" inputmode="email" autocapitalize="off" spellcheck="false">
+    </div>
+
+    <label for="subject">Subject</label>
+    <input id="subject" type="text">
+
+    <label for="text">Message</label>
+    <textarea id="text"></textarea>
+
+    <label for="files">Photos and files</label>
+    <input id="files" type="file" multiple>
+    <div class="files" id="filelist"></div>
+
+    <div class="row">
+      <input id="copy" type="checkbox" checked>
+      <label for="copy" style="margin:0;font-weight:400;color:inherit">Keep a copy in my inbox</label>
+    </div>
+
+    <button class="send" id="go">Send</button>
+    <div class="msg" id="msg"></div>
+
+    <div class="foot">
+      Photos are made smaller so they send on phone data.<br>
+      <button type="button" class="link" id="forget">Forget the password on this phone</button>
+    </div>
+  </form>
+
+</div>
+<script>
+(function(){
+  var API = "https://beer-mail.nanobotco.workers.dev/send";
+  var $ = function(id){ return document.getElementById(id); };
+  var store = {
+    get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k,v){ try { localStorage.setItem(k,v); } catch(e){} },
+    del: function(k){ try { localStorage.removeItem(k); } catch(e){} }
+  };
+
+  /* The bookmark carries ?k=… so she never types the password. Strip it from
+     the address bar straight away: a URL with a password in it gets shared. */
+  var url = new URL(location.href);
+  var fromUrl = url.searchParams.get("k");
+  if (fromUrl) {
+    store.set("pass", fromUrl);
+    url.searchParams.delete("k");
+    history.replaceState(null, "", url.pathname + url.hash);
+  }
+
+  function open(){ $("lock").className = "hide"; $("app").className = ""; restore(); }
+  if (store.get("pass")) open();
+
+  $("unlock").addEventListener("click", function(e){
+    e.preventDefault();
+    var v = $("pw").value.trim();
+    if (!v) return;
+    store.set("pass", v);
+    open();
+  });
+  $("pw").addEventListener("keydown", function(e){ if (e.key === "Enter") $("unlock").click(); });
+
+  $("forget").addEventListener("click", function(){
+    store.del("pass"); location.reload();
+  });
+
+  var from = "beer@motdang.net";
+  Array.prototype.forEach.call($("from").children, function(b){
+    b.addEventListener("click", function(){
+      from = b.getAttribute("data-a");
+      Array.prototype.forEach.call($("from").children, function(o){
+        o.setAttribute("aria-pressed", String(o === b));
+      });
+      save();
+    });
+  });
+
+  $("cctoggle").addEventListener("click", function(){
+    $("ccbox").className = ""; $("cctoggle").className = "link hide";
+  });
+
+  /* A phone takes a call, a phone switches apps, a phone runs out of battery.
+     The draft is written on every keystroke so none of that loses her work. */
+  var FIELDS = ["to","cc","subject","text"];
+  function save(){
+    var d = { from: from };
+    FIELDS.forEach(function(f){ d[f] = $(f).value; });
+    store.set("draft", JSON.stringify(d));
+  }
+  function restore(){
+    var raw = store.get("draft"); if (!raw) return;
+    var d; try { d = JSON.parse(raw); } catch(e){ return; }
+    FIELDS.forEach(function(f){ if (d[f]) $(f).value = d[f]; });
+    if (d.cc) { $("ccbox").className = ""; $("cctoggle").className = "link hide"; }
+    if (d.from) {
+      from = d.from;
+      Array.prototype.forEach.call($("from").children, function(o){
+        o.setAttribute("aria-pressed", String(o.getAttribute("data-a") === from));
+      });
+    }
+  }
+  FIELDS.forEach(function(f){ $(f).addEventListener("input", save); });
+
+  /* Shrink pictures in the browser. A phone photo is four megabytes and an
+     amulet reads perfectly at 1600px, so this is the difference between a
+     message that sends on mobile data and one that times out. */
+  function shrink(file){
+    return new Promise(function(done){
+      if (!/^image\//.test(file.type) || /svg/.test(file.type)) return done(file);
+      var img = new Image(), u = URL.createObjectURL(file);
+      img.onload = function(){
+        var s = Math.min(1, 1600 / Math.max(img.width, img.height));
+        if (s === 1 && file.size < 900000) { URL.revokeObjectURL(u); return done(file); }
+        var c = document.createElement("canvas");
+        c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+        c.toBlob(function(b){
+          URL.revokeObjectURL(u);
+          done(b && b.size < file.size
+            ? new File([b], file.name.replace(/\.[^.]+$/, "") + ".jpg", { type: "image/jpeg" })
+            : file);
+        }, "image/jpeg", 0.82);
+      };
+      img.onerror = function(){ URL.revokeObjectURL(u); done(file); };
+      img.src = u;
+    });
+  }
+
+  function b64(file){
+    return new Promise(function(done, fail){
+      var r = new FileReader();
+      r.onload = function(){ done(String(r.result).split(",")[1]); };
+      r.onerror = fail;
+      r.readAsDataURL(file);
+    });
+  }
+
+  function kb(n){ return n < 1048576 ? Math.round(n/1024) + " KB" : (n/1048576).toFixed(1) + " MB"; }
+
+  var picked = [];
+  $("files").addEventListener("change", function(){
+    var list = Array.prototype.slice.call($("files").files).slice(0, 10);
+    $("filelist").textContent = "Getting the files ready…";
+    Promise.all(list.map(shrink)).then(function(out){
+      picked = out;
+      $("filelist").innerHTML = "";
+      out.forEach(function(f){
+        var d = document.createElement("div");
+        d.textContent = f.name + " — " + kb(f.size);
+        $("filelist").appendChild(d);
+      });
+    });
+  });
+
+  function say(kind, words){
+    var m = $("msg"); m.className = "msg " + kind; m.textContent = words;
+    m.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
+
+  $("app").addEventListener("submit", function(e){
+    e.preventDefault();
+    var btn = $("go");
+    if (btn.disabled) return;
+    if (!$("to").value.trim()) return say("bad", "Put an address in the To line.");
+    if (!$("text").value.trim()) return say("bad", "The message is empty.");
+    btn.disabled = true; btn.textContent = "Sending…";
+    say("good", "Sending…");
+
+    Promise.all(picked.map(function(f){
+      return b64(f).then(function(c){ return { filename: f.name, content: c }; });
+    })).then(function(atts){
+      return fetch(API, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          pass: store.get("pass"),
+          from: from,
+          to: $("to").value,
+          cc: $("cc").value,
+          subject: $("subject").value,
+          text: $("text").value,
+          copy: $("copy").checked,
+          attachments: atts
+        })
+      });
+    }).then(function(r){
+      return r.json().then(function(d){ return { ok: r.ok, d: d, code: r.status }; });
+    }).then(function(res){
+      btn.disabled = false; btn.textContent = "Send";
+      if (!res.ok) {
+        if (res.code === 401) { store.del("pass"); say("bad", "Wrong password. Reload the page and type it again."); return; }
+        return say("bad", res.d.error || "It did not send. Try again.");
+      }
+      say("good", "Sent to " + $("to").value.trim() + ".");
+      ["to","cc","subject","text"].forEach(function(f){ $(f).value = ""; });
+      picked = []; $("files").value = ""; $("filelist").textContent = "";
+      store.del("draft");
+    }).catch(function(){
+      btn.disabled = false; btn.textContent = "Send";
+      say("bad", "It did not send. Check the signal and try again.");
+    });
+  });
+})();
+</script>
+</body>
+</html>
