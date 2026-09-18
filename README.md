@@ -307,3 +307,13 @@ time, 12s pauses, retries that rest and rotate mirrors. Refresh with `--fetch`.
   weather + horoscope home modules.
 - **Phase 3**: suggest/moderation worker (mueang-map Cloudflare pattern).
 - **Phase 4**: paying sponsors on the advertise.html terms.
+
+
+## Licence
+
+Records, prose and pages: CC BY-SA 4.0. Code: AGPL-3.0-or-later. Anything
+carried in from elsewhere keeps its own terms — see [LICENSE](LICENSE).
+
+**Commercial licence.** If share-alike doesn't fit your use — a corpus, a
+product, a model — a commercial licence is available.
+[Open an issue](https://github.com/NaNoBotCo/mot-dang/issues) and say what you need.
