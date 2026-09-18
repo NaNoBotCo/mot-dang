@@ -6,10 +6,11 @@
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>Send mail</title>
 <!--
-  The send half of beer@motdang.net and beer@chiangmaivisadesk.com, built for a
-  phone. Gmail's "Send mail as" screen is desktop web only; this page is not.
-  It holds no key — the passphrase is typed once per phone and kept in that
-  phone's own storage, and the Resend keys sit in the beer-mail Worker.
+  The send half of the work addresses on motdang.net and chiangmaivisadesk.com,
+  built for a phone. Gmail's "Send mail as" screen is desktop web only; this
+  page is not. It holds no key and no list of people — the passphrase is typed
+  once per phone, kept in that phone's own storage, and the beer-mail Worker
+  answers with the name and the addresses that belong to it.
   Source: assets/mail.html in the mot-dang repo; build.py copies it to docs/.
 -->
 <style>
@@ -37,10 +38,14 @@
   textarea{min-height:190px;resize:vertical}
   .from{display:grid;gap:8px}
   .from button{text-align:left;padding:13px 14px;border:1px solid var(--line);
-    border-radius:10px;background:var(--card);cursor:pointer;line-height:1.35}
+    border-radius:10px;background:var(--card);cursor:pointer;line-height:1.35;width:100%}
   .from button[aria-pressed=true]{border-color:var(--go);box-shadow:inset 0 0 0 1px var(--go)}
   .from b{display:block;font-size:16px}
   .from span{color:var(--dim);font-size:14px}
+  .one{padding:13px 14px;border:1px solid var(--line);border-radius:10px;
+       background:var(--card);line-height:1.35}
+  .one b{display:block;font-size:16px}
+  .one span{color:var(--dim);font-size:14px}
   .row{display:flex;align-items:center;gap:9px;margin-top:14px;color:var(--dim);font-size:15px}
   .row input{width:20px;height:20px}
   .link{background:none;border:0;color:var(--go);padding:0;font-size:15px;
@@ -67,19 +72,15 @@
     <label for="pw">Password</label>
     <input id="pw" type="password" autocomplete="current-password" enterkeyhint="go">
     <button class="send" id="unlock">Open</button>
+    <div class="msg" id="lockmsg"></div>
   </div>
 
   <form id="app" class="hide" autocomplete="off">
-    <h1>Send mail</h1>
-    <p class="sub">Replies come to your Gmail, the same as now.</p>
+    <h1 id="hello">Send mail</h1>
+    <p class="sub">Replies come to your own inbox, the same as now.</p>
 
     <label>Send from</label>
-    <div class="from" id="from">
-      <button type="button" data-a="beer@motdang.net" aria-pressed="true">
-        <b>Mot Dang</b><span>beer@motdang.net</span></button>
-      <button type="button" data-a="beer@chiangmaivisadesk.com" aria-pressed="false">
-        <b>Visa Desk</b><span>beer@chiangmaivisadesk.com</span></button>
-    </div>
+    <div class="from" id="from"></div>
 
     <label for="to">To</label>
     <input id="to" type="email" inputmode="email" autocapitalize="off" spellcheck="false"
@@ -117,7 +118,7 @@
 </div>
 <script>
 (function(){
-  var API = "https://beer-mail.nanobotco.workers.dev/send";
+  var API = "https://beer-mail.nanobotco.workers.dev";
   var $ = function(id){ return document.getElementById(id); };
   var store = {
     get: function(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
@@ -125,8 +126,9 @@
     del: function(k){ try { localStorage.removeItem(k); } catch(e){} }
   };
 
-  /* The bookmark carries ?k=… so she never types the password. Strip it from
-     the address bar straight away: a URL with a password in it gets shared. */
+  /* The bookmark carries ?k=… so nothing is typed on a phone keyboard. Strip it
+     from the address bar straight away: a URL with a password in it gets
+     shared, screenshotted, and read over a shoulder. */
   var url = new URL(location.href);
   var fromUrl = url.searchParams.get("k");
   if (fromUrl) {
@@ -135,31 +137,90 @@
     history.replaceState(null, "", url.pathname + url.hash);
   }
 
-  function open(){ $("lock").className = "hide"; $("app").className = ""; restore(); }
-  if (store.get("pass")) open();
+  var from = "";   /* the chosen address, once the Worker says which exist */
+
+  function post(path, body){
+    return fetch(API + path, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(body)
+    });
+  }
+
+  function lockSays(words){
+    var m = $("lockmsg"); m.className = words ? "msg bad" : "msg"; m.textContent = words || "";
+  }
+
+  /* Who the password belongs to is the Worker's answer, not the page's. The
+     page ships no list of people and no list of addresses. */
+  function identify(pass, typed){
+    return post("/who", { pass: pass }).then(function(r){
+      if (!r.ok) {
+        store.del("pass");
+        lockSays(r.status === 401 ? "Wrong password." : "Something is wrong. Try again in a minute.");
+        return false;
+      }
+      return r.json().then(function(me){
+        draw(me);
+        $("lock").className = "hide";
+        $("app").className = "";
+        restore();
+        return true;
+      });
+    }).catch(function(){
+      lockSays(typed ? "No answer. Check the signal and try again." : "");
+      return false;
+    });
+  }
+
+  function draw(me){
+    $("hello").textContent = me.name ? "Send mail — " + me.name : "Send mail";
+    var box = $("from");
+    box.innerHTML = "";
+    from = me.from.length ? me.from[0].address : "";
+    /* One address is a statement, not a choice. Drawing it as a button that
+       cannot be unpressed asks for a decision that does not exist. */
+    if (me.from.length === 1) {
+      var d = document.createElement("div");
+      d.className = "one";
+      d.innerHTML = "<b></b><span></span>";
+      d.firstChild.textContent = me.from[0].label;
+      d.lastChild.textContent = me.from[0].address;
+      box.appendChild(d);
+      return;
+    }
+    me.from.forEach(function(f, i){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("data-a", f.address);
+      b.setAttribute("aria-pressed", String(i === 0));
+      b.innerHTML = "<b></b><span></span>";
+      b.firstChild.textContent = f.label;
+      b.lastChild.textContent = f.address;
+      b.addEventListener("click", function(){
+        from = f.address;
+        Array.prototype.forEach.call(box.children, function(o){
+          o.setAttribute("aria-pressed", String(o === b));
+        });
+        save();
+      });
+      box.appendChild(b);
+    });
+  }
+
+  if (store.get("pass")) identify(store.get("pass"), false);
 
   $("unlock").addEventListener("click", function(e){
     e.preventDefault();
     var v = $("pw").value.trim();
     if (!v) return;
-    store.set("pass", v);
-    open();
+    lockSays("");
+    identify(v, true).then(function(ok){ if (ok) store.set("pass", v); });
   });
   $("pw").addEventListener("keydown", function(e){ if (e.key === "Enter") $("unlock").click(); });
 
   $("forget").addEventListener("click", function(){
-    store.del("pass"); location.reload();
-  });
-
-  var from = "beer@motdang.net";
-  Array.prototype.forEach.call($("from").children, function(b){
-    b.addEventListener("click", function(){
-      from = b.getAttribute("data-a");
-      Array.prototype.forEach.call($("from").children, function(o){
-        o.setAttribute("aria-pressed", String(o === b));
-      });
-      save();
-    });
+    store.del("pass"); store.del("draft"); location.reload();
   });
 
   $("cctoggle").addEventListener("click", function(){
@@ -167,7 +228,7 @@
   });
 
   /* A phone takes a call, a phone switches apps, a phone runs out of battery.
-     The draft is written on every keystroke so none of that loses her work. */
+     The draft is written on every keystroke so none of that loses the work. */
   var FIELDS = ["to","cc","subject","text"];
   function save(){
     var d = { from: from };
@@ -179,18 +240,23 @@
     var d; try { d = JSON.parse(raw); } catch(e){ return; }
     FIELDS.forEach(function(f){ if (d[f]) $(f).value = d[f]; });
     if (d.cc) { $("ccbox").className = ""; $("cctoggle").className = "link hide"; }
-    if (d.from) {
-      from = d.from;
-      Array.prototype.forEach.call($("from").children, function(o){
-        o.setAttribute("aria-pressed", String(o.getAttribute("data-a") === from));
-      });
+    var btns = $("from").children;
+    for (var i = 0; i < btns.length; i++) {
+      if (btns[i].getAttribute("data-a") === d.from) {
+        from = d.from;
+        Array.prototype.forEach.call(btns, function(o){
+          o.setAttribute("aria-pressed", String(o.getAttribute("data-a") === from));
+        });
+        break;
+      }
     }
   }
   FIELDS.forEach(function(f){ $(f).addEventListener("input", save); });
 
   /* Shrink pictures in the browser. A phone photo is four megabytes and an
-     amulet reads perfectly at 1600px, so this is the difference between a
-     message that sends on mobile data and one that times out. */
+     amulet or a passport page reads perfectly at 1600px, so this is the
+     difference between a message that sends on mobile data and one that
+     times out. */
   function shrink(file){
     return new Promise(function(done){
       if (!/^image\//.test(file.type) || /svg/.test(file.type)) return done(file);
@@ -256,19 +322,15 @@
     Promise.all(picked.map(function(f){
       return b64(f).then(function(c){ return { filename: f.name, content: c }; });
     })).then(function(atts){
-      return fetch(API, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          pass: store.get("pass"),
-          from: from,
-          to: $("to").value,
-          cc: $("cc").value,
-          subject: $("subject").value,
-          text: $("text").value,
-          copy: $("copy").checked,
-          attachments: atts
-        })
+      return post("/send", {
+        pass: store.get("pass"),
+        from: from,
+        to: $("to").value,
+        cc: $("cc").value,
+        subject: $("subject").value,
+        text: $("text").value,
+        copy: $("copy").checked,
+        attachments: atts
       });
     }).then(function(r){
       return r.json().then(function(d){ return { ok: r.ok, d: d, code: r.status }; });
