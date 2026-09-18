@@ -45,6 +45,9 @@
   .from span{color:var(--dim);font-size:.82rem}
   .one{padding:13px 14px;border:1px solid var(--line);border-radius:10px;
        background:var(--card);line-height:1.35}
+  .from select{width:100%;padding:13px 12px;border:1px solid var(--line);
+    border-radius:10px;background:var(--card);-webkit-appearance:none;
+    appearance:none;font-size:.94rem}
   .one b{display:block;font-size:.94rem}
   .one span{color:var(--dim);font-size:.82rem}
   .row{display:flex;align-items:center;gap:9px;margin-top:14px;color:var(--dim);font-size:.88rem}
@@ -218,6 +221,21 @@
       box.appendChild(d);
       return;
     }
+    /* Past a handful, a column of buttons is a scroll rather than a choice.
+       A dropdown holds thirteen addresses in the space of one. */
+    if (me.from.length > 4) {
+      var sel = document.createElement("select");
+      sel.setAttribute("aria-label", "Send from");
+      me.from.forEach(function(f){
+        var o = document.createElement("option");
+        o.value = f.address;
+        o.textContent = f.label + " — " + f.address;
+        sel.appendChild(o);
+      });
+      sel.addEventListener("change", function(){ from = sel.value; save(); });
+      box.appendChild(sel);
+      return;
+    }
     me.from.forEach(function(f, i){
       var b = document.createElement("button");
       b.type = "button";
@@ -269,6 +287,13 @@
     var d; try { d = JSON.parse(raw); } catch(e){ return; }
     FIELDS.forEach(function(f){ if (d[f]) $(f).value = d[f]; });
     if (d.cc) { $("ccbox").className = ""; $("cctoggle").className = "link hide"; }
+    var sel = $("from").querySelector("select");
+    if (sel) {
+      for (var j = 0; j < sel.options.length; j++) {
+        if (sel.options[j].value === d.from) { sel.selectedIndex = j; from = d.from; break; }
+      }
+      return;
+    }
     var btns = $("from").children;
     for (var i = 0; i < btns.length; i++) {
       if (btns[i].getAttribute("data-a") === d.from) {
