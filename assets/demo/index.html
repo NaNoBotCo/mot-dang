@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>มดทำงานยังไง · What the ants did</title>
+<style>
+:root{--paper:#faf5ea;--ink:#2a1e16;--ant:#c13a2e;--ant-dark:#8f2a21;
+--link:#14479b;--soft:#e3d5bc;--mute:#7d6b51;--card:#fffdf7;--card-alt:#f8f0dd;
+--ink-soft:#544636;--gold-ink:#8e6621;--jade:#1f6b57;--jade-a:#cfe3d2;
+--marigold-a:#f9dc93;--marigold-ink:#6d5411;--rule:#e3d5bc}
+@media(prefers-color-scheme:dark){:root{--paper:#17120d;--ink:#f3e8d5;
+--card:#201911;--card-alt:#2a2016;--ink-soft:#cbbba0;--soft:#4a3c2a;
+--rule:#463829;--link:#9dc0ff;--mute:#a4917a;--jade-a:#1e3a2c;
+--marigold-a:#4a3a16;--marigold-ink:#f0d79a;--gold-ink:#e0b767}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+font:16px/1.65 "Noto Sans Thai","Sarabun",system-ui,-apple-system,"Segoe UI",sans-serif;
+padding:0 0 4rem}
+.wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
+header{border-bottom:3px solid var(--ant);margin-bottom:1.4rem;padding:1.6rem 0 1rem}
+h1{margin:0;font-size:1.55rem;line-height:1.3}
+.sub{margin:.3rem 0 0;font-size:1rem;font-weight:400;color:var(--ink-soft)}
+.lede{margin:.8rem 0 0;color:var(--ink-soft);font-size:.98rem}
+.stamp{margin:.7rem 0 0;font-size:.82rem;color:var(--mute)}
+.card{background:var(--card);border:2px solid var(--soft);border-radius:.7rem;
+padding:.95rem 1.05rem 1.05rem;margin:0 0 1.15rem}
+.job{margin:0 0 .55rem;font-weight:700;font-size:1.06rem;
+border-left:4px solid var(--ant);padding-left:.55rem}
+.typed,.did{margin:.45rem 0;font-size:.93rem}
+.lab{display:block;color:var(--mute);font-size:.78rem;letter-spacing:.03em;
+text-transform:none;margin:0 0 .18rem}
+code{background:var(--card-alt);border:1px solid var(--rule);border-radius:.3rem;
+padding:.12rem .45rem;font-size:1rem;font-family:inherit}
+.pill{display:inline-block;border-radius:999px;padding:.1rem .6rem;margin:.12rem .18rem .12rem 0;
+font-size:.8rem;border:1px solid transparent;white-space:nowrap}
+.pill.work{background:var(--jade-a);color:var(--jade);border-color:var(--jade)}
+.pill.tier{background:var(--marigold-a);color:var(--marigold-ink);border-color:var(--gold-ink)}
+.pill.tier.t-partial,.pill.tier.t-loose{background:transparent;border-style:dashed}
+.pill.count{background:transparent;border:1px solid var(--rule);color:var(--ink-soft)}
+@media(prefers-color-scheme:dark){.pill.work{color:#9fe3c6}}
+ul.res{list-style:none;margin:.7rem 0 .2rem;padding:0;border-top:1px solid var(--rule)}
+ul.res li{padding:.5rem 0;border-bottom:1px solid var(--rule)}
+a.nm{color:var(--link);text-decoration:none;font-weight:600;display:block}
+a.nm:hover,a.nm:focus-visible{text-decoration:underline}
+.prov{display:block;font-size:.8rem;color:var(--mute);margin-top:.12rem}
+.prov .sep{margin:0 .35rem}
+.ants{white-space:nowrap}
+.point{margin:.75rem 0 0;font-size:.95rem;color:var(--ink-soft);
+background:var(--card-alt);border-radius:.5rem;padding:.55rem .7rem}
+.live{margin:.6rem 0 0;font-size:.92rem}
+.live a{color:var(--ant-dark);font-weight:600}
+@media(prefers-color-scheme:dark){.live a{color:#ef8a7d}}
+.legend{background:var(--card-alt);border:2px dashed var(--soft);border-radius:.7rem;
+padding:.9rem 1.05rem;margin:1.6rem 0 0;font-size:.9rem}
+.legend h2{margin:0 0 .5rem;font-size:1.05rem}
+.legend dt{font-weight:700;margin-top:.5rem}
+.legend dd{margin:0;color:var(--ink-soft)}
+.tryit{margin:1.6rem 0 0;padding:1rem 1.05rem;border:2px solid var(--ant);
+border-radius:.7rem;background:var(--card)}
+.tryit h2{margin:0 0 .5rem;font-size:1.1rem}
+.tryit form{display:flex;gap:.5rem;flex-wrap:wrap}
+.tryit input{flex:1 1 14rem;font:inherit;padding:.55rem .7rem;border:2px solid var(--soft);
+border-radius:.45rem;background:var(--paper);color:var(--ink)}
+.tryit button{font:inherit;font-weight:700;padding:.55rem 1.3rem;border:2px solid var(--ant-dark);
+border-radius:.45rem;background:var(--ant);color:#fff;cursor:pointer}
+html[data-l="en"] .th,html:not([data-l="en"]) .en{display:none}
+.langbar{display:flex;gap:0;margin:.9rem 0 0;border:2px solid var(--ink);
+border-radius:.45rem;overflow:hidden;width:max-content}
+.langbar button{font:inherit;font-size:.85rem;padding:.25rem .85rem;border:0;
+border-right:2px solid var(--ink);background:var(--card);color:var(--ink);cursor:pointer}
+.langbar button:last-child{border-right:0}
+.langbar button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+footer{margin:2rem 0 0;font-size:.82rem;color:var(--mute)}
+</style></head><body>
+<div class="wrap">
+<header>
+ <h1><span class="th">มดทำงานยังไง</span><span class="en">What the ants did</span></h1>
+ <p class="sub"><span class="th">งานสิบอย่างจากสัปดาห์เดียว ลองผ่านสารบบเชียงใหม่</span><span class="en">Ten jobs from one week, run through the directory</span></p>
+ <div class="langbar" role="group">
+   <button type="button" data-l="th" aria-pressed="true">ไทย</button>
+   <button type="button" data-l="en" aria-pressed="false">EN</button>
+ </div>
+ <p class="lede"><span class="th">ทุกบรรทัดข้างล่างนี้มาจากการยิงคำถามจริงเข้าเครื่องค้นหาของ motdang.net เมื่อวันที่ 2026-09-17 ไม่มีตัวเลขไหนพิมพ์เอง</span><span class="en">Every line below came from putting these questions to the motdang.net search engine on 2026-09-17. No number here was typed by hand.</span></p>
+ <p class="stamp"><span class="th">วัดเมื่อ 2026-09-17 · ผ่าน API สาธารณะ เวลาตอบกลางทาง 3.6 วินาที (หน้าเว็บค้นในเครื่อง เร็วกว่านี้มาก)</span><span class="en">measured 2026-09-17 · through the public API, median 3.6 s (the site&#x27;s own search runs on the device and is far quicker)</span></p>
+</header>
+
+
+<article class="card">
+ <p class="job"><span class="th">สั่งเหรียญรางวัล 400 เหรียญ ให้โครงการว่ายน้ำ</span><span class="en">Order 400 medals for the swim programme</span></p>
+ <p class="typed"><span class="lab"><span class="th">พิมพ์ว่า</span><span class="en">typed</span></span>
+   <code>เหรียญรางวัล</code></p>
+ <p class="did"><span class="lab"><span class="th">เครื่องทำอะไร</span><span class="en">what it did</span></span><span class="pill work"><span class="th">ตัดคำ</span><span class="en">split the Thai into words</span></span><span class="pill work"><span class="th">ขยายคำ</span><span class="en">widened to near spellings</span></span><span class="pill tier t-exact"><span class="th">ตรงคำ</span><span class="en">matched your words</span></span>
+   <span class="pill count">2<span class="th"> รายการ</span><span class="en"> found</span></span></p>
+ <ul class="res"><li><a class="nm" href="https://motdang.net/cm/p/376961147882621372.html" rel="noopener">เชียงใหม่โทรฟี่ จำหน่ายถ้วยรางวัล โล่ เหรียญ อุปกรณ์กีฬา เครื่องออกกำลังกาย</a><span class="prov"><span class="th">แหล่งอื่น</span><span class="en">another directory</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-07</span><span class="en">read 2026-09-07</span><span class="sep">·</span><span class="ants">🐜 3/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cm/p/1287903344685664008703857.html" rel="noopener">ร้านมิตรเจริญ</a><span class="prov"><span class="th">แหล่งอื่น</span><span class="en">another directory</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-07</span><span class="en">read 2026-09-07</span><span class="sep">·</span><span class="ants">🐜 2/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li></ul>
+ <p class="point"><span class="th">พิมพ์คำว่า “เหรียญรางวัล” คำเดียว ได้ร้านที่รับทำ — และได้เจ้าที่สอง ไว้เทียบราคา</span><span class="en">One Thai word for “medal” finds the shop — and a second supplier to price against.</span></p>
+ <p class="live"><a href="https://motdang.net/search.html?q=%E0%B9%80%E0%B8%AB%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%8D%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%A7%E0%B8%B1%E0%B8%A5" rel="noopener"><span class="th">ลองเองเลย →</span><span class="en">run it yourself →</span></a></p>
+</article>
+<article class="card">
+ <p class="job"><span class="th">หาช่างตัดสูทสั่งตัด ก่อนกลางเดือนตุลาคม</span><span class="en">Find a bespoke tailor before mid-October</span></p>
+ <p class="typed"><span class="lab"><span class="th">พิมพ์ว่า</span><span class="en">typed</span></span>
+   <code>bespoke tailor</code></p>
+ <p class="did"><span class="lab"><span class="th">เครื่องทำอะไร</span><span class="en">what it did</span></span><span class="pill work"><span class="th">ขยายคำ</span><span class="en">widened to near spellings</span></span><span class="pill tier t-exact"><span class="th">ตรงคำ</span><span class="en">matched your words</span></span>
+   <span class="pill count">2<span class="th"> รายการ</span><span class="en"> found</span></span></p>
+ <ul class="res"><li><a class="nm" href="https://motdang.net/cm/p/signature-bespoke-tailor-chiang-mai-cmcuratedfbsignaturebespoketailor.html" rel="noopener">Signature Bespoke Tailor Chiang Mai</a><span class="prov"><span class="th">คนกรอกเอง</span><span class="en">entered by hand</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-08</span><span class="en">read 2026-09-08</span><span class="sep">·</span><span class="ants">🐜 3/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cm/p/vinzent-bespoke-tailor-6267479377452878186266240597.html" rel="noopener">Vinzent Bespoke Tailor</a><span class="prov"><span class="th">แหล่งอื่น</span><span class="en">another directory</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-07</span><span class="en">read 2026-09-07</span><span class="sep">·</span><span class="ants">🐜 4/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li></ul>
+ <p class="point"><span class="th">ถามเป็นภาษาอังกฤษ ได้ร้านที่เขียนชื่อตัวเองเป็นภาษาอังกฤษ ทั้งสองร้าน</span><span class="en">Asked in English, answered with the two shops that write their own name in English.</span></p>
+ <p class="live"><a href="https://motdang.net/search.html?q=bespoke%20tailor" rel="noopener"><span class="th">ลองเองเลย →</span><span class="en">run it yourself →</span></a></p>
+</article>
+<article class="card">
+ <p class="job"><span class="th">จดทะเบียนบริษัท เดือนตุลาคม</span><span class="en">Register the company in October</span></p>
+ <p class="typed"><span class="lab"><span class="th">พิมพ์ว่า</span><span class="en">typed</span></span>
+   <code>จดทะเบียนบริษัท</code></p>
+ <p class="did"><span class="lab"><span class="th">เครื่องทำอะไร</span><span class="en">what it did</span></span><span class="pill work"><span class="th">ตัดคำ</span><span class="en">split the Thai into words</span></span><span class="pill tier t-exact"><span class="th">ตรงคำ</span><span class="en">matched your words</span></span>
+   <span class="pill count">6<span class="th"> รายการ</span><span class="en"> found</span></span></p>
+ <ul class="res"><li><a class="nm" href="https://motdang.net/cm/p/chiangmai-lanna-business-services-ltd-clbs-cmcuratedbpoclbs.html" rel="noopener">เชียงใหม่ ลานนา บิสสิเนส เซอร์วิสเซส (CLBS)</a><span class="prov"><span class="th">คนกรอกเอง</span><span class="en">entered by hand</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-04</span><span class="en">read 2026-09-04</span><span class="sep">·</span><span class="ants">🐜 5/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cm/p/sans-chiang-mai-accounting-visas-and-business-services-cmcuratedbposans.html" rel="noopener">SANS Chiang Mai — บัญชี วีซ่า และบริการธุรกิจ</a><span class="prov"><span class="th">คนกรอกเอง</span><span class="en">entered by hand</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-04</span><span class="en">read 2026-09-04</span><span class="sep">·</span><span class="ants">🐜 5/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cm/p/16823.html" rel="noopener">เอโอ บัญชีธุรกิจ</a><span class="prov"><span class="th">คนกรอกเอง</span><span class="en">entered by hand</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-04</span><span class="en">read 2026-09-04</span><span class="sep">·</span><span class="ants">🐜 4/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li></ul>
+ <p class="point"><span class="th">หกราย ทุกรายเป็นข้อมูลที่คนไปยืนดูเอง ไม่ใช่ข้อมูลที่เครื่องลอกมา</span><span class="en">Six firms, every one of them entered by hand rather than copied by a crawler.</span></p>
+ <p class="live"><a href="https://motdang.net/search.html?q=%E0%B8%88%E0%B8%94%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%9A%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97" rel="noopener"><span class="th">ลองเองเลย →</span><span class="en">run it yourself →</span></a></p>
+</article>
+<article class="card">
+ <p class="job"><span class="th">หาทนายที่เชียงใหม่</span><span class="en">Find the Chiang Mai lawyer</span></p>
+ <p class="typed"><span class="lab"><span class="th">พิมพ์ว่า</span><span class="en">typed</span></span>
+   <code>ทนายความ</code></p>
+ <p class="did"><span class="lab"><span class="th">เครื่องทำอะไร</span><span class="en">what it did</span></span><span class="pill work"><span class="th">ขยายคำ</span><span class="en">widened to near spellings</span></span><span class="pill tier t-exact"><span class="th">ตรงคำ</span><span class="en">matched your words</span></span>
+   <span class="pill count">123<span class="th"> รายการ</span><span class="en"> found</span></span></p>
+ <ul class="res"><li><a class="nm" href="https://motdang.net/cm/p/15321.html" rel="noopener">สำนักงานฤทธิชัย ทนายความ</a><span class="prov"><span class="th">คนกรอกเอง</span><span class="en">entered by hand</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-04</span><span class="en">read 2026-09-04</span><span class="sep">·</span><span class="ants">🐜 4/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cm/p/11731.html" rel="noopener">ชุติพนธ์ ทนายความ</a><span class="prov"><span class="th">คนกรอกเอง</span><span class="en">entered by hand</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-04</span><span class="en">read 2026-09-04</span><span class="sep">·</span><span class="ants">🐜 4/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cm/p/12205.html" rel="noopener">สำนักงานอภิชาติทนายความและเพื่อน</a><span class="prov"><span class="th">คนกรอกเอง</span><span class="en">entered by hand</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-04</span><span class="en">read 2026-09-04</span><span class="sep">·</span><span class="ants">🐜 4/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li></ul>
+ <p class="point"><span class="th">หนึ่งร้อยยี่สิบสามราย เรียงตามชื่อที่ตรงคำ ไม่ใช่ตามค่าโฆษณา</span><span class="en">123 of them, ordered by how well the name matches — nobody paid to be at the top.</span></p>
+ <p class="live"><a href="https://motdang.net/search.html?q=%E0%B8%97%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1" rel="noopener"><span class="th">ลองเองเลย →</span><span class="en">run it yourself →</span></a></p>
+</article>
+<article class="card">
+ <p class="job"><span class="th">นัดหมอที่ราชเวช — สะกดจากความจำ</span><span class="en">Book at Rajavej — spelled from memory</span></p>
+ <p class="typed"><span class="lab"><span class="th">พิมพ์ว่า</span><span class="en">typed</span></span>
+   <code>rajavey hospital</code></p>
+ <p class="did"><span class="lab"><span class="th">เครื่องทำอะไร</span><span class="en">what it did</span></span><span class="pill work"><span class="th">ขยายคำ</span><span class="en">widened to near spellings</span></span><span class="pill tier t-loose"><span class="th">ใกล้เคียง</span><span class="en">near spellings, closest first</span></span>
+   <span class="pill count">1<span class="th"> รายการ</span><span class="en"> found</span></span></p>
+ <ul class="res"><li><a class="nm" href="https://motdang.net/cm/p/rajavej-chiang-mai-hospital-97675282.html" rel="noopener">โรงพยาบาลราชเวช เชียงใหม่</a><span class="prov"><span class="th">เก็บจากเว็บ</span><span class="en">read off the web</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-08-16</span><span class="en">read 2026-08-16</span><span class="sep">·</span><span class="ants">🐜 5/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li></ul>
+ <p class="point"><span class="th">สะกดผิด คนละภาษากับชื่อร้าน ได้คำตอบเดียว และถูก</span><span class="en">Misspelled, in the wrong script, and it comes back with one answer — the right one.</span></p>
+ <p class="live"><a href="https://motdang.net/search.html?q=rajavey%20hospital" rel="noopener"><span class="th">ลองเองเลย →</span><span class="en">run it yourself →</span></a></p>
+</article>
+<article class="card">
+ <p class="job"><span class="th">หาร้านพระเครื่อง</span><span class="en">Find amulet shops</span></p>
+ <p class="typed"><span class="lab"><span class="th">พิมพ์ว่า</span><span class="en">typed</span></span>
+   <code>amulet shop</code></p>
+ <p class="did"><span class="lab"><span class="th">เครื่องทำอะไร</span><span class="en">what it did</span></span><span class="pill work"><span class="th">ขยายคำ</span><span class="en">widened to near spellings</span></span><span class="pill tier t-thesaurus"><span class="th">คำพ้อง</span><span class="en">matched your word to theirs</span></span>
+   <span class="pill count">3<span class="th"> รายการ</span><span class="en"> found</span></span></p>
+ <ul class="res"><li><a class="nm" href="https://motdang.net/cm/p/27385460456787171655382.html" rel="noopener">พระเครื่องสวัสดี</a><span class="prov"><span class="th">แหล่งอื่น</span><span class="en">another directory</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-07</span><span class="en">read 2026-09-07</span><span class="sep">·</span><span class="ants">🐜 4/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cm/p/108-69047580415685725326941302.html" rel="noopener">ร้านบารมี108 ขายกรอบทอง ขายตลับทองพระเครื่อง รับซื้อทอง นาค เงิน ใกล้ฉัน</a><span class="prov"><span class="th">แหล่งอื่น</span><span class="en">another directory</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-07</span><span class="en">read 2026-09-07</span><span class="sep">·</span><span class="ants">🐜 4/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cr/p/04381445817178498.html" rel="noopener">ชมรมพระเครื่อง เมืองขุนตาล</a><span class="prov"><span class="th">แหล่งอื่น</span><span class="en">another directory</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-07</span><span class="en">read 2026-09-07</span><span class="sep">·</span><span class="ants">🐜 2/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li></ul>
+ <p class="point"><span class="th">พิมพ์อังกฤษ เครื่องไปหยิบคำว่า “พระเครื่อง” มาให้</span><span class="en">Typed in English; the engine reached for the Thai word พระเครื่อง on its own.</span></p>
+ <p class="live"><a href="https://motdang.net/search.html?q=amulet%20shop" rel="noopener"><span class="th">ลองเองเลย →</span><span class="en">run it yourself →</span></a></p>
+</article>
+<article class="card">
+ <p class="job"><span class="th">หาร้านทำกรอบพระ</span><span class="en">Find somewhere to frame them</span></p>
+ <p class="typed"><span class="lab"><span class="th">พิมพ์ว่า</span><span class="en">typed</span></span>
+   <code>ร้านกรอบพระ</code></p>
+ <p class="did"><span class="lab"><span class="th">เครื่องทำอะไร</span><span class="en">what it did</span></span><span class="pill work"><span class="th">ตัดคำ</span><span class="en">split the Thai into words</span></span><span class="pill work"><span class="th">ขยายคำ</span><span class="en">widened to near spellings</span></span><span class="pill tier t-exact"><span class="th">ตรงคำ</span><span class="en">matched your words</span></span>
+   <span class="pill count">2<span class="th"> รายการ</span><span class="en"> found</span></span></p>
+ <ul class="res"><li><a class="nm" href="https://motdang.net/cm/p/24728444445796582827117.html" rel="noopener">ร้านมหากบกรอบพระ กรอบพระแม่แตงเชียงใหม่</a><span class="prov"><span class="th">แหล่งอื่น</span><span class="en">another directory</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-07</span><span class="en">read 2026-09-07</span><span class="sep">·</span><span class="ants">🐜 3/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cm/p/6320139642591820395936.html" rel="noopener">บิล กรอบพระลายสุโขทัย</a><span class="prov"><span class="th">แหล่งอื่น</span><span class="en">another directory</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-07</span><span class="en">read 2026-09-07</span><span class="sep">·</span><span class="ants">🐜 3/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li></ul>
+ <p class="point"><span class="th">ภาษาไทยไม่เว้นวรรค เครื่องตัดเป็น ร้าน + กรอบ + พระ ได้เอง</span><span class="en">Thai is written without spaces; the engine split it into ร้าน · กรอบ · พระ itself.</span></p>
+ <p class="live"><a href="https://motdang.net/search.html?q=%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%81%E0%B8%A3%E0%B8%AD%E0%B8%9A%E0%B8%9E%E0%B8%A3%E0%B8%B0" rel="noopener"><span class="th">ลองเองเลย →</span><span class="en">run it yourself →</span></a></p>
+</article>
+<article class="card">
+ <p class="job"><span class="th">แปลเอกสาร</span><span class="en">Get documents translated</span></p>
+ <p class="typed"><span class="lab"><span class="th">พิมพ์ว่า</span><span class="en">typed</span></span>
+   <code>แปลเอกสาร</code></p>
+ <p class="did"><span class="lab"><span class="th">เครื่องทำอะไร</span><span class="en">what it did</span></span><span class="pill work"><span class="th">ขยายคำ</span><span class="en">widened to near spellings</span></span><span class="pill tier t-exact"><span class="th">ตรงคำ</span><span class="en">matched your words</span></span>
+   <span class="pill count">26<span class="th"> รายการ</span><span class="en"> found</span></span></p>
+ <ul class="res"><li><a class="nm" href="https://motdang.net/cm/p/26553.html" rel="noopener">ศูนย์แปลเอกสาร เอเชีย ทรานสเลชั่น เซอร์วิส</a><span class="prov"><span class="th">คนกรอกเอง</span><span class="en">entered by hand</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-04</span><span class="en">read 2026-09-04</span><span class="sep">·</span><span class="ants">🐜 3/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cm/p/488.html" rel="noopener">ศูนย์แปลเอกสาร ลานนาการแปล</a><span class="prov"><span class="th">คนกรอกเอง</span><span class="en">entered by hand</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-04</span><span class="en">read 2026-09-04</span><span class="sep">·</span><span class="ants">🐜 4/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cm/p/sec-global-visa-translation-376995144861534301042.html" rel="noopener">SEC Global เรียนต่อต่างประเทศ ทำวีซ่า แปลเอกสาร เชียงใหม่ Visa &amp; Translation</a><span class="prov"><span class="th">แหล่งอื่น</span><span class="en">another directory</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-07</span><span class="en">read 2026-09-07</span><span class="sep">·</span><span class="ants">🐜 3/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li></ul>
+ <p class="point"><span class="th">ยี่สิบหกราย ส่วนใหญ่มีวันที่อ่านกำกับไว้ต้นเดือนนี้</span><span class="en">26 of them, most read this month, each carrying the date it was read.</span></p>
+ <p class="live"><a href="https://motdang.net/search.html?q=%E0%B9%81%E0%B8%9B%E0%B8%A5%E0%B9%80%E0%B8%AD%E0%B8%81%E0%B8%AA%E0%B8%B2%E0%B8%A3" rel="noopener"><span class="th">ลองเองเลย →</span><span class="en">run it yourself →</span></a></p>
+</article>
+<article class="card">
+ <p class="job"><span class="th">หาที่นั่งทำงาน</span><span class="en">Find somewhere to sit and work</span></p>
+ <p class="typed"><span class="lab"><span class="th">พิมพ์ว่า</span><span class="en">typed</span></span>
+   <code>ร้านกาแฟนั่งทำงานได้</code></p>
+ <p class="did"><span class="lab"><span class="th">เครื่องทำอะไร</span><span class="en">what it did</span></span><span class="pill work"><span class="th">ตัดคำ</span><span class="en">split the Thai into words</span></span><span class="pill work"><span class="th">ตัดคำเชื่อม</span><span class="en">set the filler words aside</span></span><span class="pill work"><span class="th">ขยายคำ</span><span class="en">widened to near spellings</span></span><span class="pill tier t-thesaurus"><span class="th">คำพ้อง</span><span class="en">matched your word to theirs</span></span>
+   <span class="pill count">1<span class="th"> รายการ</span><span class="en"> found</span></span></p>
+ <ul class="res"><li><a class="nm" href="https://motdang.net/cm/p/coworking-space-21891.html" rel="noopener">เยลโล่ว์ โคเวิร์คกิ้ง  Coworking Space</a><span class="prov"><span class="th">คนกรอกเอง</span><span class="en">entered by hand</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-09-04</span><span class="en">read 2026-09-04</span><span class="sep">·</span><span class="ants">🐜 3/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li></ul>
+ <p class="point"><span class="th">ทั้งประโยค เครื่องอ่านออกว่าอยากได้อะไร แล้วไปเจอ coworking</span><span class="en">A whole sentence. The engine reads what is being asked for and lands on a coworking space.</span></p>
+ <p class="live"><a href="https://motdang.net/search.html?q=%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B9%81%E0%B8%9F%E0%B8%99%E0%B8%B1%E0%B9%88%E0%B8%87%E0%B8%97%E0%B8%B3%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B9%84%E0%B8%94%E0%B9%89" rel="noopener"><span class="th">ลองเองเลย →</span><span class="en">run it yourself →</span></a></p>
+</article>
+<article class="card">
+ <p class="job"><span class="th">ถ้วยรางวัล — คำที่เครื่องยังทำได้ไม่ดี</span><span class="en">Trophies — the word this engine still handles badly</span></p>
+ <p class="typed"><span class="lab"><span class="th">พิมพ์ว่า</span><span class="en">typed</span></span>
+   <code>ถ้วยรางวัล</code></p>
+ <p class="did"><span class="lab"><span class="th">เครื่องทำอะไร</span><span class="en">what it did</span></span><span class="pill work"><span class="th">ขยายคำ</span><span class="en">widened to near spellings</span></span><span class="pill tier t-thesaurus"><span class="th">คำพ้อง</span><span class="en">matched your word to theirs</span></span>
+   <span class="pill count">60<span class="th"> รายการ</span><span class="en"> found</span></span></p>
+ <ul class="res"><li><a class="nm" href="https://motdang.net/cm/p/cup-cake-2685512392.html" rel="noopener">Cup &amp; Cake</a><span class="prov"><span class="th">เก็บจากเว็บ</span><span class="en">read off the web</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-07-27</span><span class="en">read 2026-07-27</span><span class="sep">·</span><span class="ants">🐜 1/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cm/p/happy-cup-2881830813.html" rel="noopener">Happy Cup</a><span class="prov"><span class="th">เก็บจากเว็บ</span><span class="en">read off the web</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-07-27</span><span class="en">read 2026-07-27</span><span class="sep">·</span><span class="ants">🐜 2/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li><li><a class="nm" href="https://motdang.net/cm/p/cup-fine-day-3023579106.html" rel="noopener">Cup Fine Day</a><span class="prov"><span class="th">เก็บจากเว็บ</span><span class="en">read off the web</span><span class="sep">·</span><span class="th">อ่านเมื่อ 2026-07-27</span><span class="en">read 2026-07-27</span><span class="sep">·</span><span class="ants">🐜 3/9<span class="th"> ข้อมูล</span><span class="en"> facts</span></span></span></li></ul>
+ <p class="point"><span class="th">ถ้วย ไปชนกับ cup ในชื่อร้านกาแฟ เครื่องบอกเองว่าใช้ชั้น “คำพ้อง” ซึ่งเป็นชั้นที่กว้างที่สุด</span><span class="en">ถ้วย (a cup) collided with Cup in a café&#x27;s name. The engine says on its own that it fell back to the widest layer.</span></p>
+ <p class="live"><a href="https://motdang.net/search.html?q=%E0%B8%96%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%A7%E0%B8%B1%E0%B8%A5" rel="noopener"><span class="th">ลองเองเลย →</span><span class="en">run it yourself →</span></a></p>
+</article>
+
+<section class="legend">
+ <h2><span class="th">ศัพท์บนป้าย</span><span class="en">the words on the pills</span></h2>
+ <dl>
+  <dt><span class="th">ตัดคำ</span><span class="en">split the Thai into words</span></dt>
+  <dd><span class="th">ภาษาไทยเขียนติดกัน เครื่องต้องตัดเองก่อนถึงจะหาเจอ</span><span class="en">Thai is written without spaces, so the engine has to cut the query into words before it can match anything.</span></dd>
+  <dt><span class="th">ซ่อมคำ</span><span class="en">mended a spelling</span></dt>
+  <dd><span class="th">คำที่พิมพ์ผิดหนึ่งตัว ถูกซ่อมเทียบกับชื่อที่มีอยู่จริงในสารบบ</span><span class="en">A word one letter wrong, repaired against the names this directory actually holds.</span></dd>
+  <dt><span class="th">คำพ้อง</span><span class="en">matched your word to theirs</span></dt>
+  <dd><span class="th">คำที่คุณใช้ กับคำที่ร้านใช้ ไม่ใช่คำเดียวกัน เครื่องเชื่อมให้</span><span class="en">Your word and the shop&#x27;s word are different words; the engine bridges them — including across languages.</span></dd>
+  <dt><span class="th">ใกล้เคียง</span><span class="en">near spellings, closest first</span></dt>
+  <dd><span class="th">ไม่มีคำไหนตรงเป๊ะ เครื่องเรียงคำที่เสียงใกล้ที่สุดขึ้นก่อน</span><span class="en">Nothing matched outright, so the engine ranked by sound and put the closest first.</span></dd>
+  <dt><span class="th">บางคำ</span><span class="en">some of your words</span></dt>
+  <dd><span class="th">จับได้แค่บางคำ ชั้นนี้กว้างที่สุด และเป็นชั้นที่ผลลัพธ์เพี้ยนได้มากที่สุด</span><span class="en">Only part of the query matched. This is the widest layer and the one where the results wander.</span></dd>
+  <dt><span class="th">ที่มาของข้อมูล</span><span class="en">where each fact came from</span></dt>
+  <dd><span class="th">ใต้ชื่อทุกร้านมีที่มาและวันที่อ่าน — คนกรอกเอง · ทะเบียนราชการ · แหล่งอื่น · เก็บจากเว็บ</span><span class="en">Under every name: where the fact came from and the date it was read — entered by hand · a government register · another directory · read off the web.</span></dd>
+  <dt>🐜</dt>
+  <dd><span class="th">จำนวนมด คือจำนวนข้อมูลที่หน้านั้นมีอยู่จริง เก้าตัวคือครบ</span><span class="en">One ant per fact the listing holds. Nine is a complete listing.</span></dd>
+ </dl>
+</section>
+
+<section class="tryit">
+ <h2><span class="th">ลองพิมพ์เอง</span><span class="en">type your own</span></h2>
+ <p><span class="th">พิมพ์ผิดได้ ภาษาไหนก็ได้ ไม่ต้องเว้นวรรค</span><span class="en">Spell it wrong. Either language. No spaces needed.</span></p>
+ <form action="https://motdang.net/search.html" method="get" target="_blank">
+  <input name="q" type="search" placeholder="เช่น ร้านกรอบพระ / bespoke tailor" aria-label="search">
+  <button type="submit"><span class="th">ค้นหา</span><span class="en">search</span></button>
+ </form>
+</section>
+
+<footer><span class="th">มดแดง · motdang.net — สารบบเชียงใหม่และเชียงราย</span><span class="en">มดแดง Mot Dang · motdang.net — the Chiang Mai and Chiang Rai directory</span></footer>
+</div>
+<script>
+(function(){
+ var h=document.documentElement,bs=document.querySelectorAll('.langbar button');
+ function set(l){h.setAttribute('data-l',l);
+  bs.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.l===l));});
+  try{localStorage.setItem('md-demo-lang',l);}catch(e){}
+ }
+ bs.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.l);});});
+ var saved=null;try{saved=localStorage.getItem('md-demo-lang');}catch(e){}
+ set(saved==='en'?'en':'th');
+})();
+</script>
+</body></html>

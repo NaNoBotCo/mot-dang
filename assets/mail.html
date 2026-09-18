@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>Send mail</title>
+<link rel="manifest" href="/mail/manifest.json">
+<link rel="apple-touch-icon" href="/mail/apple-touch-icon.png">
+<link rel="icon" href="/mail/icon-192.png" type="image/png">
+<meta name="theme-color" content="#8a2f1d">
 <!--
   The send half of the work addresses on motdang.net and chiangmaivisadesk.com,
   built for a phone. Gmail's "Send mail as" screen is desktop web only; this
@@ -69,6 +73,12 @@
   .sizes button:nth-child(2){font-size:16px}
   .sizes button:nth-child(3){font-size:20px}
   .sizes button[aria-pressed=true]{border-color:var(--go);box-shadow:inset 0 0 0 1px var(--go)}
+  .escape{display:none;margin:0 0 16px;padding:13px 14px;border-radius:10px;
+    border:1px solid var(--go);background:var(--card);line-height:1.4}
+  .escape.show{display:block}
+  .escape p{margin:0 0 10px;font-size:.88rem}
+  .escape a{display:block;text-align:center;padding:12px;border-radius:10px;
+    background:var(--go);color:var(--goink);font-weight:700;text-decoration:none}
   .hide{display:none}
   .foot{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);
         color:var(--dim);font-size:.82rem}
@@ -76,6 +86,13 @@
 </head>
 <body>
 <div class="wrap">
+
+  <div class="escape" id="escape">
+    <p>You opened this inside another app, which cannot keep an icon on your
+       home screen. Open it in Chrome once, then use Chrome's menu and
+       "Add to Home screen".</p>
+    <a id="chrome" href="#">Open in Chrome</a>
+  </div>
 
   <div id="lock">
     <h1>Send mail</h1>
@@ -143,15 +160,43 @@
     del: function(k){ try { localStorage.removeItem(k); } catch(e){} }
   };
 
-  /* The bookmark carries ?k=… so nothing is typed on a phone keyboard. Strip it
-     from the address bar straight away: a URL with a password in it gets
-     shared, screenshotted, and read over a shoulder. */
-  var url = new URL(location.href);
-  var fromUrl = url.searchParams.get("k");
-  if (fromUrl) {
-    store.set("pass", fromUrl);
-    url.searchParams.delete("k");
-    history.replaceState(null, "", url.pathname + url.hash);
+  /* THE LINK IS THE CREDENTIAL, and it stays in the address bar.
+     The first build stripped ?k= once it had been copied into localStorage.
+     That breaks the way this is actually opened: LINE hands the link to its
+     own in-app browser, whose storage is not Chrome's and does not always
+     survive, so the next tap had nothing left. A link that keeps working
+     wherever it is opened beats a tidy address bar.
+     #k= is preferred over ?k= — a fragment is never sent to a server, so the
+     password stays out of every access log — but both are accepted, because
+     ?k= links were already written down. */
+  function secretFromUrl(){
+    var h = location.hash.replace(/^#/, "");
+    var m = /(?:^|&)k=([^&]+)/.exec(h);
+    if (m) return decodeURIComponent(m[1]);
+    return new URL(location.href).searchParams.get("k");
+  }
+  var fromUrl = secretFromUrl();
+  if (fromUrl) store.set("pass", fromUrl);   /* a convenience, never the source of truth */
+
+  /* An in-app browser has no "Add to Home screen". On Android it can be left
+     through an intent: URL, which hands the same page to Chrome. */
+  var ua = navigator.userAgent || "";
+  var inApp = /\bLine\b|FBAN|FBAV|Instagram|; wv\)|GSA\//.test(ua);
+  if (inApp && /Android/.test(ua)) {
+    var pass = fromUrl || store.get("pass") || "";
+    $("chrome").href = "intent://motdang.net/mail" +
+      (pass ? "?k=" + encodeURIComponent(pass) : "") +
+      "#Intent;scheme=https;package=com.android.chrome;end";
+    $("escape").className = "escape show";
+  } else if (inApp && /iPhone|iPad/.test(ua)) {
+    /* iOS has no intent: URL — the way out is the app's own menu, so say
+       which menu rather than offering a button that cannot work. */
+    $("chrome").className = "hide";
+    $("escape").firstElementChild.textContent =
+      "You opened this inside another app, which cannot keep an icon on your " +
+      "home screen. Use that app's menu to open this page in Safari, then " +
+      "Safari's share button and \u201cAdd to Home Screen\u201d.";
+    $("escape").className = "escape show";
   }
 
   /* Text size is remembered per phone and applied before the first paint, so
@@ -255,7 +300,8 @@
     });
   }
 
-  if (store.get("pass")) identify(store.get("pass"), false);
+  if (fromUrl) identify(fromUrl, false);
+  else if (store.get("pass")) identify(store.get("pass"), false);
 
   $("unlock").addEventListener("click", function(e){
     e.preventDefault();
@@ -267,7 +313,8 @@
   $("pw").addEventListener("keydown", function(e){ if (e.key === "Enter") $("unlock").click(); });
 
   $("forget").addEventListener("click", function(){
-    store.del("pass"); store.del("draft"); location.reload();
+    store.del("pass"); store.del("draft");
+    location.replace(location.pathname);   /* drop the link's copy too */
   });
 
   $("cctoggle").addEventListener("click", function(){

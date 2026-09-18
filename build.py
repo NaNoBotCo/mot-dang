@@ -17092,6 +17092,15 @@ def build():
     _mail = ROOT / "assets" / "mail.html"
     if _mail.exists():
         shutil.copy(_mail, DOCS / "mail.html")
+        # Its manifest and icons, so Chrome can install it as an app. A path
+        # with a dot maps straight to an R2 key, so /mail/icon-192.png works
+        # alongside /mail without either shadowing the other.
+        _maildir = ROOT / "assets" / "mail"
+        if _maildir.is_dir():
+            (DOCS / "mail").mkdir(exist_ok=True)
+            for _f in sorted(_maildir.iterdir()):
+                if _f.is_file():
+                    shutil.copy(_f, DOCS / "mail" / _f.name)
     # The home-made moon drawings are gone: the sky tile photographs the
     # real instruments at wichaa.net instead. See widget_sky().
     moon_svg_markup = None
