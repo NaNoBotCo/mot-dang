@@ -18242,10 +18242,11 @@ def build():
         elsewhere_body(), depth=0, path="elsewhere.html",
         desc="สารบัญและคลังอื่น ๆ ที่ทำด้วยมือเดียวกัน · The other directories and archives built by the same hands."))
 
-    (DOCS / "index.html").write_text(page(
-        "มดแดง", home_html, depth=0, path="", desc=f"{intro_th} · {intro_en}",
-        body_class="home",
-        extra_head=website_ld() + HORO_HEAD, hub=True, chipbar=False))
+    # The front page is home_layer's (Nan, 2026-09-19: built from zero — the
+    # scenes, the pictures, no search box). home_html above still builds so
+    # home-classic.html keeps the previous page one release.
+    import home_layer
+    (DOCS / "index.html").write_text(home_layer.render())
     # The same stamps the strip reads, served for anyone who asks in JSON.
     (DOCS / "data" / "freshness.json").write_text(
         json.dumps(freshness_data(), ensure_ascii=False, indent=1))

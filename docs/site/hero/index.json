@@ -1,0 +1,658 @@
+[
+{
+"slug": "cr-wat-gable-blue",
+"pool": "morning",
+"scene": "hero",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"bg": 1,
+"la": 19.924,
+"lo": 99.842
+},
+{
+"slug": "khao-soi-plate",
+"pool": "day",
+"scene": "food",
+"w": 1024,
+"h": 768,
+"ic": 1,
+"la": 18.807,
+"lo": 99.018
+},
+{
+"slug": "sign-post-lane",
+"pool": "day",
+"scene": "near",
+"w": 768,
+"h": 1024,
+"bg": 1,
+"la": 18.742,
+"lo": 99.018
+},
+{
+"slug": "palms-sky-1",
+"pool": "day",
+"scene": "hero",
+"w": 768,
+"h": 1024,
+"bg": 1,
+"la": 18.858,
+"lo": 99.101
+},
+{
+"slug": "spirit-house-red",
+"pool": "dusk",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"la": 18.789,
+"lo": 99.046
+},
+{
+"slug": "spirit-house-blue-table",
+"pool": "day",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"la": 19.07,
+"lo": 99.082
+},
+{
+"slug": "palms-sky-2",
+"pool": "day",
+"scene": "hero",
+"w": 768,
+"h": 1024,
+"bg": 1,
+"la": 18.858,
+"lo": 99.101
+},
+{
+"slug": "cr-naga-gate",
+"pool": "morning",
+"scene": "hero",
+"w": 1024,
+"h": 768,
+"ic": 1,
+"bg": 1,
+"la": 19.924,
+"lo": 99.842
+},
+{
+"slug": "cave-mouth-1",
+"pool": "day",
+"scene": "hero",
+"w": 1182,
+"h": 664,
+"ic": 1,
+"bg": 1,
+"la": 20.381,
+"lo": 99.868
+},
+{
+"slug": "noodle-bowl",
+"pool": "day",
+"scene": "food",
+"w": 1024,
+"h": 768,
+"la": 18.288,
+"lo": 99.494
+},
+{
+"slug": "khao-soi-plate-2",
+"pool": "day",
+"scene": "food",
+"w": 1024,
+"h": 768,
+"la": 18.807,
+"lo": 99.018
+},
+{
+"slug": "flower-garden-hills",
+"pool": "day",
+"scene": "hero",
+"w": 1024,
+"h": 768,
+"ic": 1,
+"bg": 1,
+"la": 18.936,
+"lo": 98.822
+},
+{
+"slug": "shrine-offerings-1",
+"pool": "day",
+"scene": "day",
+"w": 1024,
+"h": 768,
+"bg": 1,
+"la": 18.797,
+"lo": 98.983
+},
+{
+"slug": "palms-sky-3",
+"pool": "day",
+"scene": "hero",
+"w": 768,
+"h": 1024,
+"bg": 1,
+"la": 18.858,
+"lo": 99.101
+},
+{
+"slug": "shrine-offerings-2",
+"pool": "day",
+"scene": "day",
+"w": 1024,
+"h": 768,
+"bg": 1,
+"la": 18.797,
+"lo": 98.983
+},
+{
+"slug": "lanna-gable-1",
+"pool": "morning",
+"scene": "hero",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"bg": 1,
+"la": 19.992,
+"lo": 99.86
+},
+{
+"slug": "guardian-statue",
+"pool": "morning",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"la": 19.824,
+"lo": 99.764
+},
+{
+"slug": "sunset-trees-1",
+"pool": "dusk",
+"scene": "door",
+"w": 1024,
+"h": 768,
+"ic": 1,
+"bg": 1,
+"la": 18.789,
+"lo": 99.044
+},
+{
+"slug": "lanna-gable-2",
+"pool": "morning",
+"scene": "hero",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"bg": 1,
+"la": 19.992,
+"lo": 99.86
+},
+{
+"slug": "mask-moss",
+"pool": "morning",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"la": 19.824,
+"lo": 99.764
+},
+{
+"slug": "red-mask",
+"pool": "night",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"la": 19.907,
+"lo": 99.835
+},
+{
+"slug": "temple-square-dusk",
+"pool": "dusk",
+"scene": "hero",
+"w": 1024,
+"h": 768,
+"ic": 1,
+"bg": 1,
+"la": 18.291,
+"lo": 99.492
+},
+{
+"slug": "shrine-altar",
+"pool": "morning",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"la": 18.761,
+"lo": 98.976
+},
+{
+"slug": "pm25-sign",
+"pool": "day",
+"scene": "near",
+"w": 768,
+"h": 1024,
+"la": 18.802,
+"lo": 98.969
+},
+{
+"slug": "wooden-door-1",
+"pool": "dusk",
+"scene": "door",
+"w": 768,
+"h": 1024,
+"la": 18.799,
+"lo": 98.969
+},
+{
+"slug": "skyline-towers",
+"pool": "day",
+"scene": "near",
+"w": 768,
+"h": 1024,
+"bg": 1,
+"la": 20.353,
+"lo": 100.082
+},
+{
+"slug": "clock-tower-day",
+"pool": "day",
+"scene": "now",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"bg": 1,
+"la": 18.289,
+"lo": 99.491
+},
+{
+"slug": "wat-hall-interior-1",
+"pool": "morning",
+"scene": "hero",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"bg": 1,
+"la": 19.992,
+"lo": 99.861
+},
+{
+"slug": "mask-hairy",
+"pool": "morning",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"la": 19.824,
+"lo": 99.764
+},
+{
+"slug": "night-traffic",
+"pool": "night",
+"scene": "now",
+"w": 768,
+"h": 1022,
+"ic": 1,
+"bg": 1,
+"la": 18.804,
+"lo": 99.019
+},
+{
+"slug": "great-tree",
+"pool": "day",
+"scene": "hero",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"bg": 1,
+"la": 18.781,
+"lo": 99.004
+},
+{
+"slug": "shrine-offerings-3",
+"pool": "day",
+"scene": "day",
+"w": 1024,
+"h": 768,
+"bg": 1,
+"la": 18.797,
+"lo": 98.983
+},
+{
+"slug": "cave-light-1",
+"pool": "day",
+"scene": "hero",
+"w": 1182,
+"h": 664,
+"ic": 1,
+"bg": 1,
+"la": 20.381,
+"lo": 99.868
+},
+{
+"slug": "clock-tower-night-1",
+"pool": "night",
+"scene": "hero",
+"w": 1024,
+"h": 768,
+"ic": 1,
+"bg": 1,
+"la": 18.289,
+"lo": 99.49
+},
+{
+"slug": "sunset-trees-2",
+"pool": "dusk",
+"scene": "hero",
+"w": 1024,
+"h": 768,
+"bg": 1,
+"la": 18.789,
+"lo": 99.044
+},
+{
+"slug": "road-dusk",
+"pool": "dusk",
+"scene": "near",
+"w": 1024,
+"h": 768,
+"bg": 1,
+"la": 18.789,
+"lo": 99.044
+},
+{
+"slug": "shrine-offerings-4",
+"pool": "day",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"bg": 1,
+"la": 18.797,
+"lo": 98.983
+},
+{
+"slug": "roundabout-jar",
+"pool": "morning",
+"scene": "near",
+"w": 768,
+"h": 1024,
+"bg": 1,
+"la": 18.723,
+"lo": 98.946
+},
+{
+"slug": "wat-hall-interior-2",
+"pool": "morning",
+"scene": "hero",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"bg": 1,
+"la": 19.992,
+"lo": 99.861
+},
+{
+"slug": "clock-tower-night-2",
+"pool": "night",
+"scene": "now",
+"w": 1024,
+"h": 768,
+"ic": 1,
+"bg": 1,
+"la": 18.289,
+"lo": 99.49
+},
+{
+"slug": "horse-carriage-1",
+"pool": "day",
+"scene": "now",
+"w": 1024,
+"h": 768,
+"ic": 1,
+"bg": 1,
+"la": 18.286,
+"lo": 99.486
+},
+{
+"slug": "motorbikes",
+"pool": "day",
+"scene": "now",
+"w": 1024,
+"h": 768,
+"bg": 1,
+"la": 18.781,
+"lo": 98.982
+},
+{
+"slug": "cabaret-curtain",
+"pool": "night",
+"scene": "now",
+"w": 1024,
+"h": 768,
+"bg": 1,
+"la": 18.798,
+"lo": 98.976
+},
+{
+"slug": "tree-ribbons-1",
+"pool": "morning",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"bg": 1,
+"la": 18.786,
+"lo": 99.049
+},
+{
+"slug": "clock-tower-night-3",
+"pool": "night",
+"scene": "hero",
+"w": 1024,
+"h": 768,
+"ic": 1,
+"bg": 1,
+"la": 18.289,
+"lo": 99.49
+},
+{
+"slug": "wires-sky",
+"pool": "day",
+"scene": "near",
+"w": 1024,
+"h": 768,
+"bg": 1,
+"la": 18.768,
+"lo": 98.977
+},
+{
+"slug": "lane-morning",
+"pool": "morning",
+"scene": "near",
+"w": 768,
+"h": 1024,
+"bg": 1,
+"la": 19.918,
+"lo": 99.836
+},
+{
+"slug": "spirit-tree",
+"pool": "day",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"bg": 1,
+"la": 18.936,
+"lo": 98.822
+},
+{
+"slug": "black-house",
+"pool": "morning",
+"scene": "hero",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"bg": 1,
+"la": 19.992,
+"lo": 99.86
+},
+{
+"slug": "sunset-trees-3",
+"pool": "dusk",
+"scene": "hero",
+"w": 1024,
+"h": 768,
+"bg": 1,
+"la": 18.789,
+"lo": 99.044
+},
+{
+"slug": "cafe-interior-1",
+"pool": "day",
+"scene": "now",
+"w": 768,
+"h": 1024,
+"bg": 1,
+"la": 18.789,
+"lo": 99.0
+},
+{
+"slug": "spirit-house-flowers",
+"pool": "morning",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"la": 18.804,
+"lo": 99.019
+},
+{
+"slug": "cave-mouth-2",
+"pool": "day",
+"scene": "hero",
+"w": 1182,
+"h": 664,
+"ic": 1,
+"bg": 1,
+"la": 20.381,
+"lo": 99.868
+},
+{
+"slug": "sunset-sky",
+"pool": "dusk",
+"scene": "hero",
+"w": 1024,
+"h": 768,
+"ic": 1,
+"bg": 1,
+"la": 18.789,
+"lo": 99.044
+},
+{
+"slug": "cave-light-2",
+"pool": "day",
+"scene": "hero",
+"w": 1182,
+"h": 664,
+"ic": 1,
+"bg": 1,
+"la": 20.381,
+"lo": 99.868
+},
+{
+"slug": "mask-brick-wall",
+"pool": "day",
+"scene": "day",
+"w": 1024,
+"h": 768,
+"la": 18.792,
+"lo": 98.991
+},
+{
+"slug": "clock-tower-night-4",
+"pool": "night",
+"scene": "hero",
+"w": 1024,
+"h": 768,
+"ic": 1,
+"bg": 1,
+"la": 18.289,
+"lo": 99.49
+},
+{
+"slug": "golden-chedi-1",
+"pool": "morning",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"bg": 1,
+"la": 18.786,
+"lo": 99.049
+},
+{
+"slug": "street-afternoon",
+"pool": "day",
+"scene": "near",
+"w": 1024,
+"h": 768,
+"bg": 1,
+"la": 18.72,
+"lo": 98.954
+},
+{
+"slug": "roundabout-night",
+"pool": "night",
+"scene": "door",
+"w": 1024,
+"h": 768,
+"ic": 1,
+"bg": 1,
+"la": 18.289,
+"lo": 99.49
+},
+{
+"slug": "mural-cafe",
+"pool": "day",
+"scene": "now",
+"w": 768,
+"h": 1024,
+"bg": 1,
+"la": 18.789,
+"lo": 99.0
+},
+{
+"slug": "hamsa-carving",
+"pool": "morning",
+"scene": "day",
+"w": 1024,
+"h": 768,
+"la": 19.907,
+"lo": 99.829
+},
+{
+"slug": "tree-ribbons-2",
+"pool": "morning",
+"scene": "day",
+"w": 768,
+"h": 1024,
+"bg": 1,
+"la": 18.786,
+"lo": 99.049
+},
+{
+"slug": "golden-chedi-flags",
+"pool": "morning",
+"scene": "hero",
+"w": 768,
+"h": 1024,
+"ic": 1,
+"bg": 1,
+"la": 18.786,
+"lo": 99.049
+}
+]
