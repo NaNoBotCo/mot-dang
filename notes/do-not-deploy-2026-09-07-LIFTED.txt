@@ -1,0 +1,96 @@
+DO NOT DEPLOY THIS TREE YET — written 2026-09-07 ~20:55 by the Overture session
+
+WHAT CHANGED, AND WHEN
+  At about 20:47 tonight data/canonical/cm.json and cr.json were rewritten by
+  importers/import_all.py with the Overture Places fold in it (Nan approved
+  forks A and B this evening). The catalogue went from 25,914 records to
+  88,161:
+
+      63,170 places ADMITTED that nothing here held   (third-party, Overture)
+       6,270 records ENRICHED with a phone, website, address, Facebook page
+             or email they did not have
+       6,897 near-misses REFUSED and written to cache/overture_review_<prov>.txt
+
+WHY THE HOLD
+  Nan approved the fold. She has not seen what it does to the site: index
+  weight, page count, duplicate rate and the answer quality of a search box
+  that now has 3.4x the rows behind it. Deploying before that is measured
+  would publish 63,170 unreviewed third-party records to motdang.net.
+
+IF YOU ARE MID-BUILD
+  A build started before 20:47 read both catalogues and its numbers mean
+  nothing. Re-run it.
+
+TO BUILD AGAINST THE OLD CATALOGUE
+  cp cache/overture/pre-overture/{cm,cr}.json data/canonical/
+
+TO PUT THE FOLD BACK
+  cp cache/overture/post-overture/{cm,cr}.json data/canonical/
+  (or re-run importers/import_all.py, which regenerates it from source)
+
+WHAT THIS FILE IS NOT
+  Not a rule and not a policy. A note between sessions working the same repo
+  on the same night. Delete it once Nan has seen the numbers and said go.
+
+SEEN — 21:15, the tap-card session (WO-74). Nothing of mine builds or deploys.
+  Two things in the tree that your next build will pick up, so they are not a
+  surprise in the log:
+    * new tapcard.py → docs/tap.css + docs/tap.js, offered by page() on the
+      same data-mdmap test that pulls in MapLibre. New line in the emit list:
+      "  tap card: …". tests/test_tap.py is standalone (node, no docs needed).
+    * marks on the soi maps (mdtap_attrs) and four small md.js edits.
+  Worth a glance when the post-fold numbers land, both mine:
+    * data/search_tables.json — tap.js fetches it on the first touch of a map.
+      331 KB before the fold; it carries streets/areas/hours, so the fold grows
+      it. If it grows a lot the card should get a table of its own.
+    * soi pages now carry a mark per place — 3.4x the records is 3.4x those
+      attributes on 534 pages. test_page_weight.py is the gate.
+  My measurements in notes/tap-2026-09-07.txt are all pre-fold and say so.
+
+SEEN — 23:0x, the toys session (WO-75). One measurement you asked for, made
+  against the 22:14 build of the folded catalogue and handed over rather than
+  acted on: tests/test_search.py FAILS 2 of 42 cases post-fold.
+
+    'zzzzqqq'   n=16  tier=loose       a nonsense query now matches 16 rows
+                                       (e.g. "SK House") instead of nothing
+    'kow soi'   n=343 tier=thesaurus   romanisation drift loosens to 343 —
+                                       "a loosened tier must not return the
+                                       catalogue"
+
+  Both are the fold, not WO-75: I re-ran the identical suite with my five toy
+  rows emptied to [] and got the same two failures, same counts, same example
+  row. Nothing of mine is in either.
+
+  Read as answer quality: the fuzzy tiers were tuned against 25,914 rows and
+  at 88,161 they let a miss through. That is a threshold, not a fold problem —
+  but it is a fail on a HARD suite and it stands between here and a deploy.
+
+  Mine in the tree, so it is not a surprise in your log: downloads_layer.py
+  (new), /get.html + docs/get/ (5 files, 1.2 MB) + docs/data/downloads.json,
+  a nav chip, four small guards in build.py's search JS, and get/ excluded
+  from test_alt_text / test_chuai / test_publish_gate / sitemap.xml. Details
+  in MARCHING-ORDERS.md WO-75 and notes/toys-2026-09-07.txt.
+
+--------------------------------------------------------------------------------
+LIFTED 2026-09-08 by Nan: "schedule the deploy with the tower."
+
+The note's own instruction was to delete it once she had seen the numbers and
+said go. She has both. What she was shown this morning, which is what the hold
+was written to wait for:
+
+    88,161 records · 80,208 sitemap URLs (live was 17,376) · 93,577 pages
+    duplicate rate — the number this note asked for by name — 354 records
+      (0.4%) sharing BOTH a normalised name and a pin within ~11 m.
+      The 10,553 (12.0%) sharing an exact pin are venues, not duplicates;
+      reading them as duplicates would delete a mall's shops.
+
+The two search-test failures this note records are NOT fixed and were left
+deliberately — Nan, same message: "the rest of what you're talking about all
+sounds like edge cases — leave them lay." For whoever picks them up: they are
+not the same kind of failure. `kow soi` at 343 trips a guard written as an
+absolute n > 200 when the corpus was 25,914; 343 of 88,161 is 0.39%, which is
+proportionally TIGHTER than that guard ever allowed, so the constant is what
+aged. `zzzzqqq` matching 16 rows is a real fault in the fuzzy tier.
+
+Kept as a note rather than deleted, because the arithmetic in it is the only
+written record of what the fold did.

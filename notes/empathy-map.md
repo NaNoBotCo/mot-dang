@@ -34,7 +34,7 @@ A monk, or more often the lay steward who actually answers the phone.
 **Pains** — a wat page that carries an advertisement in poor taste next to it. Photographs used without credit. Being ranked against other temples. Ceremony times published wrong so people arrive to a closed hall.
 **Gains** — the merit-day calendar being findable. The royal grade recorded accurately with its source. Being cited rather than scraped.
 
-**The site must** — never rank temples against each other. Royal grade is shown because the Sangha assigned it, with the source printed; it is not a Mot Dang opinion and must never be presented as one. Photographs carry the photographer and the licence, always. **Open question that needs a decision:** `ad_box` renders on wat pages exactly as it does on a bar's page. The handout tells the truth about this — clearly marked, never mixed into listings, position not for sale — but a future ant should ask whether a sponsor block belongs on a page about a sacred place at all, and the honest answer may be no.
+**The site must** — never rank temples against each other. Royal grade is shown because the Sangha assigned it, with the source printed; it is not a Mot Dang opinion and must never be presented as one. Photographs carry the photographer and the licence, always. **Open question that needs a decision:** `ad_box` renders on wat pages exactly as it does on a bar's page. The handout tells the truth about this — clearly marked, never mixed into listings, position not for sale — but a future ant should ask whether a sponsor block belongs on a page about a sacred place at all, and the answer may be no.
 
 ---
 
@@ -88,7 +88,7 @@ Forty-five, certified in นวดแผนไทย, works a shop three days an
 
 ## 6. หุ่นพยนต์ — the crawler, the model, the agent
 
-Not a metaphor and not a joke: a large share of the people who will ever "read" this site will meet it through something like this. It is a user with needs.
+Not a metaphor and not a joke: a large share of the people who "read" this site meet it through something like this. It is a user with needs.
 
 **Says** — nothing. Requests.
 **Thinks** — in the shape of whatever it was asked. "Where do I eat khao soi in Chiang Mai." "Is this temple a royal one." "How do I get my shop listed."

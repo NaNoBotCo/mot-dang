@@ -1,0 +1,77 @@
+THE ROSTER ON MOT DANG — TWO PLACEMENTS, YOURS TO PICK
+Drafted 2026-09-18. Nothing in build.py or refine_layer.py is changed yet.
+
+Rendered side by side, against the live stylesheet:
+  notes/roster — two placements (2026-09-18).html
+
+
+WHAT IS BEING PLACED
+
+The other sites now carry a row of links to each other. Mot Dang carries one
+outward link — ask.motdang.net — and nothing else. It is the largest surface
+on the shelf and it sends no reader anywhere.
+
+
+WHAT THE CODE ALREADY SAYS
+
+WO-52: a sentence that is true everywhere is "the footer once, behind a tap,
+or nowhere". You, 2026-09-08: "everywhere, but subtle". And bare_footer's own
+docstring records what the build date cost — it changed every page every day,
+and every page re-uploaded for it.
+
+98,337 pages. 88,195 of them are place pages. That is the whole cost question.
+
+
+A — ONE DOOR IN THE FOOTER, BEHIND A TAP
+
+  One more mark in the first footline, next to "every shelf":
+      ที่อื่นของเรา · elsewhere from the same workshop
+
+  The roster itself lives at /elsewhere.html and nothing else moves.
+
+  Cost      236 bytes on every page. One-off re-upload of about 23 MB;
+            after that nothing changes again.
+  Reach     every page, including the 88,195 places a reader lands on cold.
+  Shape     exactly WO-52's form.
+  Against   a sixth mark in a footline you cut down to five on purpose.
+
+  The change: bare_footer already takes extra_html for precisely this.
+      extra_html=f' · <a href="{r}elsewhere.html">'
+                 + bi("ที่อื่นของเรา", "elsewhere from the same workshop")
+                 + '</a>'
+
+
+B — A BAND ON THE BROWSING PAGES ONLY
+
+  A line under the shelf: six names, then "ทั้งหมด · all of it →".
+  Front page, all.html and the 366 shelf indexes. Place pages untouched.
+
+  Cost      1,811 bytes on 368 pages — about 666 KB, and no re-upload of the
+            88,195 place pages at all.
+  Reach     the reader who is browsing. Not the one who arrived from a search
+            on one noodle shop and leaves from that page.
+  Shape     a band, like muaythai_band and the emergency band.
+  Against   six names is six decisions about which six.
+
+  The change: a fleet_band(r) beside muaythai_band(), called from the home
+  body, all.html and the shelf index builder.
+
+
+BOTH NEED /elsewhere.html
+
+  Bilingual, one card per site, Thai first. Twelve directories and archives,
+  then four under "ผู้ช่วยและงานบริการ · Assistants and services" —
+  ถามมดแดง, ai.motdang.net, Defiant, Hongdam. Drawn in the preview.
+
+  This is also the page that finally points at ai.motdang.net and
+  demo.motdang.net, which answered 401 to every crawler until today.
+
+
+WHAT I WOULD DO
+
+B, plus /elsewhere.html, and A only if you want the place pages to carry it —
+they are 90% of the site and none of them say the workshop exists. B costs
+almost nothing and can ship this week; A can follow once you have seen B
+sitting in the footline.
+
+Say which and I will build it.

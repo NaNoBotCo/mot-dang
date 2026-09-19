@@ -7,8 +7,8 @@
 > a PRIMARY entry point to the site, touching multiple points and having those
 > touches add meaning. Her verdict on today's state: "maps feel dead."
 >
-> This note is the assessment and the proposed order (WO-20). **No code was
-> changed in this pass.** Findings are tagged by how they were established:
+> This note is the assessment and the proposed order (WO-20). Findings are
+> tagged by how they were established:
 > `[live]` verified on https://motdang.net in a browser this session,
 > `[code]` read directly from source, `[measured]` a number computed from the
 > repo's own data. Platform weighting uses actual Thailand statistics
@@ -157,7 +157,7 @@ here waits on a crawl. Build, test, leave on disk.
       open] [🧭 เพิ่มลงแผน · add to plan] [📌 my page]. Second tap or the
       button navigates; first tap never does. Wire it to `mdmap:click` +
       the shelf nearest-point test + neighbour pins. Fixes 2/3/11 in one
-      pattern and makes EVERY map multi-point-meaningful.
+      pattern and makes every map multi-point-meaningful.
    d. Serving: basemap.json url → motdang.net/tiles/…; Cache-Control on
       tiles in publish/worker.js; self-host glyphs after a Thai-range check.
       Fixes 13.

@@ -114,7 +114,7 @@ a second and third door are walked. Recommend (c) — but it is hers.
 All `_pricesVerified: false` until somebody reads a board on the street.
 **No price is known here.** A temple takes a donation, not a fee, and no source
 on this disk states an amount. Do not invent a range and do not carry over a
-figure from another temple — the question asks "เสียเท่าไหร่" and the honest
+figure from another temple — the question asks "เสียเท่าไหร่" and the stated
 answer today is that we do not know yet.
 
 ## The four outputs

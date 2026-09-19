@@ -1,0 +1,101 @@
+THE EDGE COUNT — built AND DEPLOYED 2026-09-08 01:48 +0700
+================================================================================
+Nan's decision of 2026-09-05 (notes/arrivals-2026-09-05.txt, A1): count arrivals
+first-party — referrer host and landing path, no cookie, no third party,
+aggregated, and a line on the privacy page saying exactly what is counted.
+
+WHY IT WAS WORTH BUILDING TODAY
+  motdang.net took 626,640 requests in the 28 days to 2026-09-08 and there was
+  no way to say how many were people. Worker analytics carries no User-Agent;
+  zone analytics does (top paths, referrers, countries, bots) and the fleet
+  token is refused `zone.analytics.read` on that zone, while wrangler's OAuth
+  expired 2026-08-23 and will not refresh outside an interactive login.
+
+  The shape of the traffic was readable even so, and it does not look like
+  people. Baseline 10-20k/day. On 09-06 02:00-06:00 UTC a flat plateau of
+  ~14,500/hr for three hours, ~48k in five — flat, no diurnal curve. From 09-06
+  15:00 the floor moved from ~400/hr to 1,000-3,000/hr and stayed there through
+  09-07 and 09-08. Aug 12 (75,740), Aug 20 and Aug 28 (43k each) have the same
+  plateau shape. Something sweeps the site periodically and something new has
+  been coming steadily since the 6th. Which crawlers those are is exactly the
+  question a User-Agent answers and nothing on the account was recording one.
+
+WHAT WAS ALREADY THERE — traffic-eye
+  ../traffic-eye is a fleet collector Worker built 2026-07-30 that records these
+  nine categories from the User-Agent, with a dashboard over them. It was
+  deployed and never routed at anything: every route in wrangler.collector.toml
+  is commented out. It could NOT have been routed at motdang.net in any case — a
+  Cloudflare hostname belongs to exactly one Worker and motdang.net/* belongs to
+  mot-dang-site. So nothing new was designed here; the classifier was vendored
+  and the write moved inside the site Worker.
+
+WHAT WAS BUILT
+  publish/classify.js          copy of traffic-eye/src/classify.js, 2026-09-08
+  publish/worker.js            + record(), + trimPath(), the old handler renamed
+                               to serve() and wrapped by a fetch() that returns
+                               the response first and counts in waitUntil
+  publish/wrangler.toml        + [[analytics_engine_datasets]] TRAFFIC/traffic_eye
+  tests/test_edge_count.mjs    16 cases, all green
+  tests/test_classify.mjs      traffic-eye's own 34 cases against the copy
+  traffic.py                   the reader: python3 traffic.py [days] [host]
+  build.py                     one more row on the privacy page
+  publish/README.md            the section
+  ../traffic-eye/*             collector.toml says why motdang.net is not there;
+                               README's "create a token" step corrected — the
+                               fleet token already carries Account Analytics Read
+
+ONE DATASET, TWO WRITERS
+  The rows go into traffic-eye's `traffic_eye` dataset in ITS blob order, so its
+  dashboard reads motdang.net beside the other sites. Position IS the schema
+  there: a row written in a different order is not an error, it is a wrong
+  number that looks right. test_edge_count.mjs parses the blob comments out of
+  both files and fails when they drift.
+
+THE ABSENCES, WHICH ARE THE POINT
+  No IP, no cookie, no identifier — two requests by one reader are two rows that
+  cannot be joined, and there is a test that sends a cookie, an IP header and an
+  Authorization header and asserts none of them appear. The referrer is cut to
+  its host (a search engine's full referrer carries the words somebody typed)
+  and the query string is dropped from the path for the same reason.
+
+  Categories come from the User-Agent, which is self-declared. Anything can call
+  itself Googlebot. "human" means a browser's User-Agent with no bot marker —
+  the ceiling of what a count with no cookie can know, and the reader says so.
+
+IT CANNOT BREAK THE SITE
+  serve() runs first and its response is returned whatever happens next. The
+  write is inside waitUntil inside a try/catch whose failure path is to do
+  nothing. Unbound binding, Analytics Engine outage, unfamiliar User-Agent — the
+  reader still gets the page, and there are tests for each.
+
+DEPLOYED 2026-09-08 01:48 +0700, and recording. First rows inside a minute:
+  four of my own Chrome hits on /, and one Edge browser on
+  /cm/p/wat-phra-that-doi-kham-313040943.html with a same-site referrer —
+  somebody already walking the site.
+
+  Deployed with the fleet token, not a wrangler login:
+    export CLOUDFLARE_API_TOKEN=<keys.json cloudflare.api_token>
+    cd publish && npx wrangler deploy
+
+  ⚠ THE DEPLOY ENDS IN A RED ERROR AND STILL WORKED. The script uploads fine;
+  wrangler then tries to reconcile [[routes]] against the zone and the fleet
+  token has Workers Scripts write but NOT Workers Routes write, so that call
+  401s. The routes already exist from earlier deploys and are untouched — the
+  new code was live and recording immediately. Do not read that error as a
+  failed deploy, and do not go minting a token to silence it; the only thing it
+  blocks is CHANGING a route, which is rare and can be done in the dashboard.
+
+  wrangler's OAuth expired 2026-08-23 and will not refresh non-interactively,
+  but that is not a blocker: the fleet token in ~/.config/nanobotco/keys.json
+  carries Workers Scripts write for the whole account and its own note says to
+  use it instead of a login — export CLOUDFLARE_API_TOKEN and deploy. Held for
+  Nan's go, not for a credential.
+
+  The DO-NOT-DEPLOY-2026-09-07 hold is about CONTENT — the Overture fold in
+  data/canonical. This is the Worker, a different deploy, and it carries none of
+  those 63,170 records to the site.
+
+READ PATH IS ALREADY PROVEN
+  traffic.py queried the live SQL API on 2026-09-08 with the fleet token and got
+  the 7 rows traffic-eye's own self-test wrote in July. The only missing piece is
+  the write, which is the deploy.

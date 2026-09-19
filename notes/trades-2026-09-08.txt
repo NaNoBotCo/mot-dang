@@ -1,0 +1,130 @@
+WO-76 — คำบนป้าย · WORDS ON THE SIGNS
+The 1,782 trade words, translated, transliterated, and given a page
+2026-09-08
+
+
+WHAT WAS WRONG
+
+data/trade_lexicon.json held 1,782 Thai trade words read off the shops
+themselves — ซ่อมมอเตอร์ไซค์, ตู้น้ำดื่มหยอดเหรียญ, ปะยางมอเตอร์ไซค์, ฌาปนกิจสถาน.
+They are the vocabulary the city names itself by, and they reached a reader in
+exactly two ways: as a field on a place page, and as a query the search box
+would run if you already knew the word to type. There was no page.
+
+Of the 1,782:
+
+     326  carried an English equivalent            (18%)
+   1,689  carried an RTGS reading                  (95%)
+      93  had no reading the letter rules would stand behind
+       0  were reachable by browsing
+
+The readings that existed were also mixed. The shared loanword table in
+data/curated/rtgs_lexicon.json maps มอเตอร์ไซค์ → "Motorcycle", which is right
+for a place NAME and wrong for a reading: ซ่อมมอเตอร์ไซค์ came out as
+"Som Motorcycle", half a reading and half a translation, and a reader saying it
+aloud in a shop would not be understood. 870 terms carried that kind of seam.
+
+
+WHAT WAS DONE
+
+1. EVERY TERM GLOSSED AND READ. 1,456 glosses and 875 corrected readings
+   written by hand into data/curated/trade_lexicon_overrides.json — the file
+   the importer already reads and re-applies, so nothing here is lost the next
+   time importers/build_trade_lexicon.py runs.
+
+       trade terms 1,782 · glossed 1,782 (100%) · readings 1,782 (100%)
+       suspect readings 0 (was 93)
+
+   The glosses are dictionary equivalences for the word on the sign, not
+   descriptions of the shop: ซ่อม is to repair, ปะยาง is to patch a tyre,
+   หยอดเหรียญ is coin-operated, ฌาปนกิจสถาน is a crematorium.
+
+   The corrected readings are RTGS all the way through — Som Motoesai, not
+   Som Motorcycle. Only the trade tags are re-read; the shared lexicon that
+   place names use is untouched.
+
+2. A PAGE. /trades.html, from trades_layer.py. One row per term:
+
+       ซ่อมมอเตอร์ไซค์  Som Motoesai — motorcycle repair  (191)
+
+   Thai, reading, English, count — the same three parts in the same order as
+   the "ที่ร้านลงไว้ว่าทำ · Listed as doing" row already on every place page, so
+   a word looks the same wherever it is met.
+
+   Each row links to search.html?tag=<the Thai> — the query the place page's
+   own tags already run. The page adds a door and no machinery behind it.
+
+   Ordered the Thai way, not by codepoint. Codepoint order files เ แ โ ใ ไ
+   after ฮ, so เปลี่ยนยาง, แก้ทรง and ไวนิล would have landed in a heap at the
+   end where no Thai reader would look. 34 letter blocks, a rail across the
+   top with a count on each, no letter drawn empty.
+
+   One filter box across all three columns: "motorcycle" → 84 rows,
+   "Motoesai" → 72, "ปะยาง" → 10, "dialysis" → 6. Every row is real HTML; the
+   box only hides, so the page is complete with JavaScript off.
+
+   327 kB, 48 kB over the wire. Comparable to soi.html (162 kB) and a
+   twentieth of cm/wat/.
+
+3. A DEAD DOOR FIXED, in the row the new one joins. The front page's Find row
+   has always linked "ถนนและซอย · roads & sois" to streets.html.
+   build_street_pages() writes the index as soi.html. streets.html has never
+   existed; one of the eight front-page doors was a 404. Now soi.html.
+
+
+WHERE THE GLOSSES SURFACE
+
+One file, five places, four of them for free:
+
+  /trades.html                     the new index
+  every place page                 trade_tags_row() reads TRADE_LEX
+  the refine panel's ประเภท drawer  search_tables.json is baked from TRADE_LEX
+  the tap card on any map          reads the same table
+  the assistant                    same lexicon
+
+
+FILES
+
+  data/curated/trade_lexicon_overrides.json   88 → 1,549 entries
+  data/trade_lexicon.json                     regenerated from the above
+  trades_layer.py                             new
+  tests/test_trades.py                        new, 12 tests, all pass
+  build.py                                    import · build_trades_page() ·
+                                              CSS in both compose sites ·
+                                              the Find row (soi fix + trades)
+
+
+NOT DONE, AND WHY
+
+NOT BUILT, NOT DEPLOYED. A build has been running since 08:37 and build.py is
+being edited by other sessions; DO-NOT-DEPLOY-2026-09-07.txt still stands over
+the whole tree. Everything here is staged and tested standalone against the
+current data/trade_lexicon.json.
+
+THE IMPORTER RAN, AND THE OVERRIDES SURVIVED IT. I applied the glosses to
+data/trade_lexicon.json directly rather than re-running
+importers/build_trade_lexicon.py, because that importer reads
+data/canonical/*.json and that is now the folded catalogue. It was then re-run
+anyway at 09:13 by another hand in this tree, and the result is clean: all
+1,782 glosses came back as glossVia=curated, every corrected reading held, and
+the tag counts are unchanged (sum 6,776, ซ่อมมอเตอร์ไซค์ still 191) — so the
+fold has not reached tradeTags. `areas` grew 59 → 403 in the same run, which
+is data/curated/admin_areas.json, not the fold.
+
+Checked afterwards, not assumed: the counts block reports tagsSuspect 95 and
+no `curated` in glossVia. Both are the importer tallying before it applies the
+overrides. No ENTRY carries `suspect` — tests/test_trades.py asserts it.
+
+COVERAGE IS NOT GATED. tests/test_trades.py reports 100% and asserts the
+mechanics. A test that demanded 100% would fail the first time a crawl found a
+word nobody had read yet, and would then be an argument against crawling.
+
+ONE DATA DEFECT LEFT WHERE IT IS. A record carries the tag
+"กล่องอาหารเดลิเวอรี่\nบรรจุภัณฑ์อาหาร" — two trade words with a literal
+newline between them, as the source wrote it. Glossed as one term rather than
+split, because splitting it is a change to the record and that is a separate
+decision.
+
+CLIENT DECISION 2026-09-08 (Nan): WO-76 ships with the Overture fold. No
+separate release, and this is not an open fork — whoever clears the fold
+carries the trade vocabulary and /trades.html out with it.

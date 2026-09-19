@@ -1,0 +1,185 @@
+MOTDANG.NET — THE FRONT PAGE, REBUILT FROM ZERO
+Plan, 2026-09-19. Nothing built yet. Homepage only; cm/, cr/, place and
+shelf pages untouched.
+
+Nan: "Remove all body content from motdang.net and build from scratch to
+support the direction the site is taking. Highly aesthetic, big parallax
+background images, knowledge of what's close by and happening now (or soon)
+in Chiang Mai (geofencing, counters, clocks, calendars), and […]
+minisite features. Add back in some of the divination/auspicious stuff, but
+keep everything uncluttered and the vibe quite magical (predicting user needs
+before they can articulate them)."
+
+================================================================================
+1. WHAT STANDS TODAY (gemba)
+================================================================================
+
+LIVE (built 9/12): artboard 2a. Wordmark · search · two city pills · postcard
+map with the 28°/PM tile and the red phone · seven-day strip · three event
+titles · every-shelf link · glyph footer. Cream ground, rounded boxes, no
+photograph anywhere.
+
+IN THE TREE, NOT LIVE (built 9/16–19): the ของวันนี้ band above the wordmark
+— toilets, the open-now count with its curve, PM2.5, a word of the day, a
+picture, a place of the day, the dice.
+
+The whole page is three functions in refine_layer.py (home_header, home_body,
+home_footer) plus HOME_CSS/HOME_JS, called from build.py only when path == "".
+A clean cut: a new home_layer.py takes those three calls and nothing else
+changes. home-classic.html keeps the old page one release, as before.
+
+Data already baked every morning and mostly unused on the front:
+  fortune.json   day colour · planet · Buddha posture · lucky numbers ·
+                 Wednesday-night Rahu · Chinese year   (45 days baked small)
+  sky.json       moon age and phase · wan phra · Jupiter's four moons
+  horo.json+js   Thai/Western/Chinese, recomputed live for any date
+  solar_terms    the 24 jie; festival_dates announced dates; festivals
+  events.json    21-day window, the reader's clock picks today
+  open_lamps     4,359 places with hours → open-now count and the day curve
+  weather/air    both cities, PCD bands; cleanrooms.json (clean-air rooms)
+  showtimes      tonight's films; lottery; merit; katha; shrines
+  data/here/     every pin tiled into 1.1 km cells; nine cells = 1 km radius
+  trade_lexicon  the city's trade words with readings
+
+Pictures: 146 in docs/site, 117 place photos in assets/photos. Widest is
+1100 px. A parallax hero on a phone wants 1600; on a desk 2400. Every one of
+the 145 picks is a Commons file, and Commons serves any width from the same
+URL — the 960px in the thumb path becomes 2400px. So the re-fetch is a
+script, not a search. Credits and licences are already on file.
+
+Geolocation today: the one door is MDLOC (a tap), never on load. The Worker
+reads only request.cf.country. Cloudflare also hands the Worker cf.city,
+cf.latitude/longitude and cf.timezone on every request — ISP-level, no
+prompt, wrong by a few km and sometimes a city (a CM reader on some mobile
+carriers shows as Bangkok).
+
+Minisites live under the same host as prefixes: /loop (Mae Hong Son),
+/muay-thai. /handpoke lives on wichaa. The roster is fleet.json
+(nanobotco-portal); a homepage shelf can read it at build time.
+
+Deploy: docs/index.html is one file. deploy.log shows prefix-scoped rclone
+runs of seconds (loop/, muay-thai/). A homepage publish is index.html + a
+hero folder + home.css/home.js — minutes, not the 2 h 18 walk.
+
+================================================================================
+2. THE PAGE — six scenes, one scroll
+================================================================================
+
+Every scene is one screen tall on a phone. The picture behind each scene
+moves slower than the words (parallax). Under prefers-reduced-motion or
+Save-Data the pictures stand still and load at 800 px.
+
+ 0  THE MOMENT      Full-bleed picture chosen by the hour and the season
+                    (dawn · day · dusk · night; a festival week takes its own).
+                    Wordmark. The box. One line under it, no sentence:
+                    the Thai clock · the day's colour as a dot · the moon ·
+                    temp · PM. Every mark opens something; nothing is labelled
+                    until อา.
+
+ 1  ตอนนี้ NOW      Counters that move: places open now (the curve behind),
+                    "next" as hours-away (the next market, the next film, the
+                    next event within reach), a countdown to the nearest
+                    festival or wan phra. A live clock in Thai and B.E.
+
+ 2  ใกล้ๆ NEAR      City chosen for the reader, not asked. Coarse position
+                    picks Chiang Mai or Chiang Rai; the map postcard opens
+                    there. One tap (the existing MDLOC door) refines to the
+                    nine cells: nearest open food, nearest toilet, nearest
+                    pharmacy, nearest clean-air room when PM is high. Straight
+                    lines, and it says so.
+
+ 3  ฤกษ์ THE DAY    One card, quiet: the colour, the planet, the Buddha
+                    posture, the moon, the lucky pair. A tap opens the
+                    horoscope (the live wheels already built), the shrines,
+                    the merit page, the katha. Jupiter's moons as tonight's
+                    small drawing when the sky is clear.
+
+ 4  เจาะลึก DEEP    The minisites as full-bleed picture tiles: the Loop, Muay
+                    Thai, Hand Poke, Amulet Essentials, the Atlas… read from
+                    fleet.json so a new site appears here on its next build.
+                    This is the shelf that grows.
+
+ 5  THE DOOR        The two cities with their counts, ทุกชั้น ทุกหมวด, the
+                    glyph footer, the picture credits.
+
+Predicting the need — a rule table, not a model. Hour × weekday × conditions
+picks which scene leads and which card sits first:
+  05–08   alms, wan phra, the morning markets
+  11–13   open-now food first
+  PM2.5 over the PCD line   clean-air rooms first, the number in red
+  rain in the forecast      indoor shelves first
+  Saturday evening          Wualai; Sunday   Tha Phae walking street
+  Songkran · Yi Peng · Loy Krathong week   scene 0 becomes the festival
+  22:00 on                  pharmacies, 24-hour, the red phone
+Deterministic, baked as JSON, picked by the reader's clock; testable in
+tests/test_home.py with a frozen clock.
+
+Words on the page: the nine stay. Titles and aria-labels carry the names;
+อา prints them. Counts computed at build time, never typed. No claim about
+what the page does not do.
+
+================================================================================
+3. TECH
+================================================================================
+
+home_layer.py (new)         the three functions build.py already calls
+docs/home.css, home.js      one sheet, one script, no framework, no request
+                            beyond the pictures and, on the tap, nine cells
+docs/site/hero/             AVIF + JPEG at 800 / 1600 / 2400, srcset
+Parallax                    translate3d on scroll under requestAnimationFrame;
+                            off under reduced-motion and Save-Data
+Payload                     one inline JSON as the band does now: 45 days of
+                            almanac, 21 days of events, both forecasts, the
+                            picture roster, the rule table
+Coarse geo                  the Worker stamps cf.city/lat/lon/timezone into
+                            one response header on "/" ; home.js reads it;
+                            nothing stored, nothing in the URL
+First paint budget          measured and printed by the test, not capped
+Accessibility               scrims under every word on a picture, 4.5:1
+                            checked at build; อา and the language control as
+                            today; works with no script (the form submits,
+                            the tiles are links)
+
+Effort: two sessions. Hero re-fetch and conversion ~2 h of machine time.
+Publish: homepage-only rclone, minutes; rollback is one command.
+
+================================================================================
+4. FORKS — yours
+================================================================================
+
+A  PICTURES
+   1  Re-fetch the 145 picks from Commons at 2400 px. Free, credited,
+      licensed, two hours. Some frames are soft at that size.
+   2  Your own captures (GoPro, the field drop). Best, and they are yours.
+      Needs you to point at a folder.
+   3  Both: yours lead, Commons fills the hours you have no frame for.
+   Worst case for 1: a scene with no strong frame falls back to a flat
+   colour ground. Expiry: none; 1 can start tonight.
+
+B  GEOFENCE
+   1  Coarse only, from the edge: no prompt ever, city-level, sometimes
+      wrong on a mobile carrier.
+   2  Tap only, the current rule: exact, but the page opens generic until
+      the tap.
+   3  Both (recommended): coarse picks the city and the map view; the tap
+      refines to the nine cells.
+   Worst case for 3: a Bangkok-routed reader sees Chiang Mai chosen for
+   them; the pill fixes it in one tap and is remembered.
+
+C  DIVINATION ON THE FRONT
+   1  One line in scene 0 (colour dot, moon) and nothing more.
+   2  One card, scene 3, that opens (recommended).
+   3  The full wheel on the page.
+
+D  THE ของวันนี้ BAND (9/16, in the tree, never shipped)
+   1  Gone; its pieces move into scenes 1–3 where they fit.
+   2  Kept as the top of scene 0.
+   Recommended: 1. Same data, fewer boxes.
+
+E  PUBLISH
+   1  Homepage-only publish when you say go; the walk keeps shipping the
+      rest as now.
+   2  Ride the next full walk.
+   Recommended: 1.
+
+Say A, B, C, D, E as numbers and I start.

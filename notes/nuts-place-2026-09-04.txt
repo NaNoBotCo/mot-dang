@@ -37,7 +37,7 @@ findable — they have to come from Nut.
 THE MESSAGE TO SEND NUT
 
 Hi — Nan here. Your bar is on motdang.net, the Chiang Mai directory I
-build. The page is free, there is no account to make, and nothing tracks
+build. The page is free, there is no sign-in to make, and nothing tracks
 anybody who reads it.
 
 Four things are missing and only you have them: your phone number, your

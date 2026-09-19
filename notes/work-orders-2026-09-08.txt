@@ -1,0 +1,101 @@
+WHICH WORK ORDER IS WHICH
+The register, after four numbers turned out to mean more than one thing
+2026-09-08
+
+
+WHY
+
+Nan, 2026-09-08: "deconflict the work orders."
+
+She had recorded a shipping decision — "WO-76 ships with the Overture fold" —
+at a moment when THREE different pieces of work answered to WO-76. A decision
+is not much use if the thing it names is ambiguous.
+
+
+§1  WO-76 — CLAIMED THREE TIMES
+
+    the trade vocabulary, /trades.html      notes/trades-2026-09-08.txt
+      "คำบนป้าย · WORDS ON THE SIGNS", 2026-09-08
+      also in build.py, importers/build_trade_lexicon.py, tests/test_trades.py
+
+    the tag mine                            notes/tags-2026-09-07.txt
+      2026-09-07 — the EARLIEST claim
+      also in tags_mine.py, tags_layer.py, derive.py, tests/test_tags_mine.py,
+      notes/derivable-fields-2026-09-08.txt
+
+    the second line of a result row         notes/rowline-2026-09-08.txt
+      2026-09-08 — mine
+
+RESOLVED: WO-76 IS THE TRADE VOCABULARY. Not because it was first — it was
+not, the tag mine was — but because YOUR shipping decision names it, and a
+number a client has already used in a decision is the one thing here that
+must not move. Renumbering it would make your own sentence wrong.
+
+    the second line  ->  WO-78, done. Every reference in my files moved:
+                         tapcard.py, both hook scripts, the note, the
+                         MARCHING-ORDERS row.
+    the tag mine     ->  UNRESOLVED, and deliberately. See §4.
+
+
+§2  WO-77 — CLAIMED TWICE, BOTH TODAY, BOTH LIVE
+
+    สามประตู, the three doors     notes/doors-2026-09-08.txt,
+                                  notes/three-doors-2026-09-08.txt
+                                  refine_layer.py, glyphs.py, nownear_layer.py,
+                                  tests/test_glyphs.py, tests/test_page_weight.py
+
+    ภาษา, the language toggle     notes/language-2026-09-08.txt
+                                  build.py ("WO-77 F3", "WO-77 F5")
+
+Both are wired into files that are being edited right now. UNRESOLVED — §4.
+
+
+§3  WO-14 — CLAIMED TWICE, LONG AGO
+
+    เรียนทำอาหารไทย, the cooking classes   importers/audit_cooking.py
+    สักยันต์-รอยสัก, the tattoo shelf      importers/audit_tattoo.py
+
+Both are finished. Every reference is a comment describing work already done,
+so the number is history rather than an instruction, and rewriting history
+buys nothing. Recorded here and left alone.
+
+
+§4  WHAT I DID NOT RENUMBER, AND WHY
+
+The tag mine and one of the two WO-77s should move. I did not move them.
+
+Every one of their references lives in files two other sessions are writing
+this morning — build.py, refine_layer.py, glyphs.py, nownear_layer.py — while
+a deploy has been running for half an hour. Renaming another session's work
+order inside a file they have open is how you get a half-renamed tree and a
+lost edit, and the session that owns the work is the one that should pick its
+own number.
+
+So this register does the job the renaming would have done: every existing
+reference is resolvable by reading it. Nothing is broken, nothing of anyone
+else's was touched, and the ambiguity in your decision is gone.
+
+
+§5  WO-75 — CLAIMED TWICE, AND INVISIBLE
+
+It has no row in MARCHING-ORDERS.md at all, which is why it did not show up
+when I first counted the collisions there.
+
+    the toys, the download shelf   notes/toys-2026-09-07.txt
+                                   build.py, downloads_layer.py, and four
+                                   tests — test_downloads, test_publish_gate,
+                                   test_chuai, test_alt_text
+
+    กรองเอง, the boolean refine    notes/boolean-refine-2026-09-07.txt
+                                   refine_layer.py
+
+Same night, same number. UNRESOLVED, §4 again — and worth knowing that a work
+order with no row in the table is a work order nobody can see is taken.
+
+
+§6  FREE NUMBERS, IF ANYONE NEEDS ONE
+
+Taken, counting the notes and not only the table:
+    1-25, 27-38, 40-62, 65-78
+Free:
+    26, 39, 63, 64, and 79 upward.

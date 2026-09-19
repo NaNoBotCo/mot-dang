@@ -50,7 +50,7 @@ can afford, and it is also the only one Google structurally cannot copy
 
 
 ================================================================================
-2. GEMBA, 2026-09-05 — EVERY WOUND WITH ITS NUMBER
+2. GEMBA, 2026-09-05 — every wound WITH ITS NUMBER
 ================================================================================
 
 2.1  THE READER'S PATH, WALKED
@@ -111,14 +111,14 @@ can afford, and it is also the only one Google structurally cannot copy
 
 2.5  THE PINS
 
-  2,098 records need pins. Reachable from what we hold: ~900 (10 exact,
+  2,098 records need pins. Reachable from the records held: ~900 (10 exact,
   431 tambon centroid at ~3 km, 460 amphoe). 1,207 unreachable without a
   Thai geocoder. 682 of 943 unpinned registered temples have no OSM entry
   at all — the map does not know 72% of what the register knows.
 
 2.6  THE DEMAND SIGNAL — WHAT PEOPLE ACTUALLY ASK
 
-  data/asked.json: 26 reader questions since 2026-08-19. EVERY ONE is a
+  data/asked.json: 26 reader questions since 2026-08-19. every one is a
   search-disease case — khat khi khlai, physio, shibari, afro-textured hair,
   digital perm, hair house-call, big-size clothes and shoes, flat sheet,
   notary, biologics, exterminator, snake in the house, copy-print, document
@@ -267,7 +267,7 @@ PHASE 5 — THE LOOP AND THE NUMBER                      (2 days, then standing)
   a. /coverage.html — public, dated, unflattering on purpose: per
      vocabulary term, held vs expected vs the outside count. "Expected 20+,
      holding 0" printed where a reader can see it. This is 2.4 made into a
-     page, and it is the same honesty-as-interface that reach.html already
+     page, and it is the same candour-as-interface that reach.html already
      practises.
   b. Zero-result queries on the site search → a local, IP-free, session-
      free counter of the QUERY STRING only (FORK F1 — privacy-adjacent, so
@@ -283,7 +283,7 @@ PHASE 6 — GEOGRAPHY FROM A THAI SOURCE                 (FORK F2 · 1 day once 
   1,207 records cannot be pinned from anything we hold. Longdo Map's
   geocoder (Thai-first, tambon resolution) or data.go.th's administrative
   boundaries/centroids. A new dependency is your call. Until then: apply
-  the ~900 honest centroids with measured pinUncertaintyM.
+  the ~900 measured centroids with measured pinUncertaintyM.
 
 PHASE 7 — CHIANG RAI, THE SECOND PATIENT                (after Phase 2 proves on CM)
   Same playbook, same files, different numbers. CR is where the law is

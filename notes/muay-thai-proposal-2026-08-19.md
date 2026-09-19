@@ -33,7 +33,7 @@ whether a reader is allowed in, never infer price*. Muay thai's is:
 page says nobody has stated them. Rings into real and
 touristic.** A stadium beside Tha Phae Gate with a VIP drink and a stadium on
 Kong Sai Road where the bettors stand are both stadiums; the card is the card.
-"Which one is authentic" is a tourist question this site does not answer
+"Which one is the true one" is a question this site does not answer
 (`feedback_no_tourist_framing`). What it answers is *which nights, from when,
 for how much, by whose word, seen on what date*.
 

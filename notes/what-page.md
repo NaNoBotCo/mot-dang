@@ -31,7 +31,7 @@ glosses of the Thai — without a single marketing word.
 the whole thing twice, checks one claim.
 **The page must** keep every claim checkable — each plate links to the live
 page it photographs, and the screenshot date is printed, because a claim a
-reader can hold up against the real thing is the site's whole trick.
+reader can hold up against the street is the site's whole trick.
 
 **5. เครื่องอ่าน — the machine.** The site is deliberately legible to
 crawlers and models. The description line answers "what is Mot Dang" in
@@ -53,7 +53,7 @@ same chain are not the same shop." The correction, as rules:
   their own twin" is funnier than any adjective.
 - Recognition beats decoration: day colours, wan phra, เถลิงศก named
   plainly, the way a local would, never explained like an exhibit.
-- Honesty as interface: date the screenshots, admit the page will age,
+- Candour as interface: date the screenshots, admit the page will age,
   link every plate to the thing it photographs.
 
 ## The shape

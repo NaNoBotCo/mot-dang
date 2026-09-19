@@ -1,0 +1,125 @@
+SOFT EYES — the build. 2026-09-08
+================================================================================
+Nan, 2026-09-08: *"I think we can actually infer and derive additional fields and
+tags than what our data sources originally gave us, just by looking at everything
+we already have together, with soft eyes."* Survey first: go/softeyes. This is
+what was built from it.
+
+  derive.py                 six passes over the catalogue's own material
+  tests/test_derive.py      27 cases, all green
+  provenance.py             +5 TRACKED fields (amphoe, tambon, postcode, road, soi)
+  importers/import_all.py   derive runs LAST of the record passes
+  ../search-core/mine.py    the shelf-term miner, two rules fixed
+
+WHAT IT WRITES — 346,626 fields, measured, nothing crawled
+--------------------------------------------------------------------------------
+  ADDRESS      amphoe 14,237 · tambon 18,363 confirmed · postcode 7,542 ·
+               road 14,358 · soi 5,219 · moo 15,476
+  NAME         nameScript 88,001 (thai 46,115 · latin 25,743 · both 16,143) ·
+               branchName 2,283 · nameHonorific 896 · companyForm 1,064
+  CONTACT      lineType 60,716 · frontDoor 70,730
+  STRUCTURE    brand from a repeated name 1,998 · insideOf 307
+  DISAGREEMENT catAgreement 44,440 (agree 16,494 · differ 27,946)
+
+  attrs.amphoe stood on 3.7% of records and NOTHING in the repo derived it. It
+  is now on ~20% and every one of those was read out of the record's own
+  address string.
+
+THE RULES THAT MADE IT HONEST, each written after the first cut got it wrong
+--------------------------------------------------------------------------------
+  A GAZETTEER, NOT A GUESS. A parsed อำเภอ is written only when it matches one
+  of the province's real 25 (CM) or 18 (CR) in admin_areas.json. 97 grabs
+  matched nothing and were dropped rather than written; several of those are
+  Pai, Ban Thi, Pa Sang — other provinces, correctly refused.
+
+  THE PIN IS A SECOND WITNESS. Of 14,237 parsed amphoe, 13,658 fall inside that
+  อำเภอ's own boundary radius. 363 do not, and those carry attrs.amphoeDisputed:
+  either the pin is wrong or the address is, and the pair is worth more to
+  whoever fixes it than either half alone.
+
+  WHAT WAS SAID vs WHAT IS. The gazetteer holds 15 of Chiang Mai's tambon and 1
+  of Chiang Rai's, so a ตำบล cannot be validated the way an อำเภอ can. A reading
+  that matches a tambon the corpus already holds as a fact goes to attrs.tambon;
+  everything else goes to attrs.tambonSaid. No reader is misled and no work is
+  lost — promoting them is a one-line pass the day that gazetteer is filled.
+
+  A CHAIN NEEDS THREE SEPARATE PINS. Three rows at one coordinate are a
+  duplicate, a food court, or one shop entered three times. Never a chain.
+
+  A NAME THIS REPO WROTE IS NOT A BRAND. The first cut branded 87 car parks as a
+  chain of 87 branches: the WO-67 parking locators write "ที่จอดรถ · ย่าน<area>"
+  and stamp it `derived`. The provenance table already knew; now the pass asks.
+  Likewise a trade word — ซักผ้าหยอดเหรียญ stands at 50 pins and is fifty coin
+  laundries, not fifty branches. trade_lexicon.json is the list of such words,
+  so the test is a lookup, not a judgement.
+
+  A HOST WORD MUST BE A WORD. Thai is written without spaces, so a substring is
+  not a word. The first cut made วัดสันห้าง — a temple whose name merely CONTAINS
+  ห้าง — the landlord of 43 shops, and "UP 420 (Weed Station)" the landlord of
+  92. Now a Thai host word must OPEN the name and a Latin one must stand whole,
+  a pin holding more than 20 records is a geocoder's shrug rather than a
+  building, and every member must have an exact pin. 926 candidate pins became
+  307 tenancies under 33 hosts, all of them markets, hospitals and one
+  university faculty. The refusals are counted, not silent.
+
+  NOTHING DERIVED IS EVER GIVEABLE. Every write is stamped how="derived", and
+  provenance.giveable() requires how="stated". A reading of ours can never be
+  offered to OpenStreetMap as somebody's survey. There is a test.
+
+  FIRST WRITER WINS. No pass overwrites a value already present — a register's
+  fact, a curated correction and an owner's claim all outrank a derivation, and
+  derive runs last in import_all for that reason.
+
+  IT HOLDS THE BUILD LOCK. This rewrites what build.py reads. Checking for a
+  running build was not enough — a build can start in the gap — so cache/build.lock
+  is taken for the duration in build.py's own format and released in a finally.
+  The first run of this was held behind a live build for exactly that reason.
+
+--------------------------------------------------------------------------------
+A LIVE SEARCH BUG, FOUND ON THE WAY, FIXED
+--------------------------------------------------------------------------------
+Chasing why the lexicon mapped คาเฟ่ (café) to the CANNABIS shelf led to
+data/search_shelves.json, which search.html fetches on every search. Deployed
+and confirmed on motdang.net the same morning:
+
+    คาเฟ่   -> ["cannabis"]                  a café search went to cannabis, only
+    ฟาร์ม   -> ["cannabis"]                  so did a farm search
+    คลินิก  -> ["cannabis","clinic","medical"]  a CLINIC search led with cannabis
+    caf, farms -> ["cannabis"]
+
+Not a typo. The cannabis shelf's Thai teaser is a correct list of the kinds of
+premises cannabis is sold from — "ร้านกัญชา คาเฟ่ ร้านน้ำใบกระท่อม คลินิก ฟาร์ม" —
+and search-core/mine.py reads a teaser as shelf membership. GENERIC_PREMISES was
+written in August for exactly this, after `clinic` did it in English; the Thai
+half never got the same treatment, and `gate` (WO-68) was the third instance of
+one bug. This is the fourth.
+
+Two rules, in ../search-core/mine.py:
+
+  GENERIC_PREMISES_TH — a premise word is what a business is HOUSED IN, never
+  what it IS, so it cannot narrow a search on its own. NOT หมู่บ้าน: it looks
+  like one and is not, because a หมู่บ้าน IS the housing development, and
+  dropping it cost the real-estate shelf its best Thai term for one run.
+
+  A SHELF'S OWN NAME OUTRANKS AN UNRELATED SHELF'S TEASER. There is a shelf
+  literally called คลินิก. A name is a stronger claim than a teaser. Restricted
+  to UNRELATED shelves after the first cut stripped `medical` off โรงพยาบาล and
+  `massage` off ตอกเส้น — a parent and its own child are not rivals, and that
+  version would have quietly undone the tok-sen work.
+
+The whole diff over 656 terms: FOUR wrong mappings gone (คาเฟ่, ฟาร์ม, caf,
+farms), คลินิก narrowed from three shelves to the one it is named after,
+โรงพยาบาล narrowed to the hospital shelf, four terms gained. Nothing else moved.
+
+--------------------------------------------------------------------------------
+STILL OPEN
+--------------------------------------------------------------------------------
+  * The tambon gazetteer — 15 of CM's, 1 of CR's. Filling it promotes 996
+    attrs.tambonSaid readings to facts and is a crawl_admin.py run, not a design.
+  * The 363 amphoeDisputed records: nobody has looked at whether it is the pins
+    or the addresses that are wrong.
+  * The 27,946 catAgreement=differ records are a ranked quality queue nothing
+    reads yet.
+  * A derived field reaches no PAGE yet. This writes the fields; showing them —
+    an "inside Central Festival" line, a chain filter, a tambon in the address —
+    is build.py work and is not done.

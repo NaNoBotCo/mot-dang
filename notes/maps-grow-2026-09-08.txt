@@ -1,0 +1,631 @@
+MAPS ON MOT DANG — WHERE THEY STAND, AND HOW THEY GROW
+2026-09-08, answering: "more awesome? layers and GIS for the reader?
+street/satellite? colour coding?"  Nothing built, nothing deployed.
+
+
+0. FIRST — THE LIVE SITE IS HALF GONE RIGHT NOW (measured 12:14 and 12:15)
+
+   404   motdang.net/  /index.html  /map.html  /map.js  /vendor/maplibre-gl.js
+         /here.html  /plan.html  /my.html  /search.html  /doi.html  /trades.html
+   200   /cm/  /cm/food/  /cm/p/<place>  /data/cm-wat.geojson  /md.js
+   206   both tile archives (basemap 121 MB, terrain 161 MB)
+
+   The bucket's root files and vendor/ are missing; the subfolders survive.
+   So: no front page, no explore map, and every one of the 16,665 place maps
+   is standing on its drawn SVG fallback with no basemap. Nobody else's data
+   is lost — it is the site's own top level.
+
+   The shape matches the warning inside publish/deploy.py: an rclone sync
+   still walking the tree while build.py wiped docs/. The three-doors note
+   records a deploy from ~11:05 still uploading; a build started 11:53
+   (PID 42215, still running as I write) and a scratch build beside it.
+
+   There is nothing to restore from — build.py empties docs/ every run and
+   the only manifest on disk is Sept 4. The fix is a finished build that
+   passes its gates, then
+
+       python3 publish/deploy.py --yes
+
+   That tree carries WO-77/78 (three doors, the second line), and you said
+   finish Ph D before deploying it. So the fork is M1 below. I did not deploy.
+
+
+1. WHAT THE MAP IS TODAY (in the tree — the live copy was this minus Ph D
+   until this morning)
+
+   Surfaces   /map.html explore · /here.html · 16,665 place maps with the
+              tap sheet · plan.html (stops over the road graph, old city +
+              2 km only) · /doi.html relief · toilets
+   Explore    47 shelf chips, six inks, chip = legend · the address bar IS
+              the view (#zoom/lat/lng/shelves/tag,ring,events) · ring 300 m
+              to 5 km round a crosshair, chips counted inside it · stacks
+              drawn as rings ("+N at this pin") · open-now green ring
+              (emphasis, never a filter) · events door · send-as-picture
+              with the licence in the pixels · a tested no-basemap branch
+   Engine     map_shell.py, the one constructor · MapLibre 5.24 vendored
+              (6.8 is out: Thai word-boundary wrapping) · Protomaps vector
+              basemap + terrain, both on our R2, same origin · map_ground.py
+              draws the same ground in Python
+   Colour     shelf ink · open ring · stack ring. Nothing else. No colour by
+              any attribute of a place.
+   Layers     points only. Held on disk and never drawn: 534 sois with
+              geometry (streets.json) · ย่าน boxes and circles (zones.json)
+              · 68 landmarks · the road graph · bus routes (674, names only,
+              no geometry). No tambon polygons.
+   Reader     pins on my.html → a map link · the hash link · the picture ·
+              plan stops. No drawing, measuring, import, export, or saved
+              maps.
+   Parity     the API answers sixteen parameters; the map carries six of
+              thirteen gestures (three-doors §4 table). Not built: open_at,
+              aggregates below z12, the list twin, SVG-first paint, cells as
+              the index.
+
+
+2. CAN WE GROW — yes. The ground under all of it is one constructor, one
+   state object in the URL, and the same GeoJSON the robots read. A new
+   layer is a chip; a new colour is a select; a new gesture is a hash part.
+   Below, each idea says what it stands on and what it costs.
+
+
+3. LAYERS, AND GIS IN THE READER'S HANDS
+
+3a. Layers we already hold — a build-time GeoJSON and one chip each, no new
+    data, about a day each:
+      sois           534 lines. รู้ทุกซอย finally on the map. First.
+      ย่าน           the zone boxes/circles as faint fills with a name.
+      landmarks      68 gates/bridges/markets as bearings, not pins.
+      relief         doi.js hillshade + opt-in 3D lifted onto /map.html —
+                     the archive is already served; ~20 lines.
+      walk-time      5/10/15 min bands over the road graph from any pin
+                     (map-ideas #1). A shape, not a circle: the moat and
+                     one-ways are why. Old city only until the crawl grows.
+      open lamp      already there; becomes a chip like the rest.
+
+3b. Layers that need data first:
+      tambon polygons   CC-BY, named in go/tools — unlocks every area
+                        colouring in §5.
+      bus geometry      none held; the register is names.
+      wells, shelters   the edge — an OSM pull you have not triggered.
+
+3c. The reader's own GIS — a ladder; each rung stands on the one below.
+    R1  draw + measure     terra-draw (MIT, MapLibre adapter): point, line,
+                           polygon; turf (MIT): length, area, buffer. The
+                           ring already measures. Roughly +60 kB, no server.
+    R2  carry it away      the drawing in the hash (fine to ~40 vertices;
+                           past that LINE and the address bar strain) ·
+                           export GeoJSON / GPX / KML and import the same
+                           (a file goes over LINE and opens in OsmAnd,
+                           Organic Maps, Google Earth) · the picture, held.
+                           No server. The licence band rides in every file
+                           as it rides in the picture.
+    R3  save + link        the first WRITE path on a worker that is GET-only
+                           by design: a paste store (id → JSON) on KV or D1,
+                           no accounts, an expiry, a size cap. Free tier
+                           covers it. It changes what the site is — a place
+                           that keeps what readers write — and that is a
+                           posture, so it is M3.
+    R4  publish            a reader's map others can find. Moderation and
+                           arrivals. Park it.
+
+
+4. STREET VIEW, SATELLITE, 3D — as a [layers] glyph on the rail, a raster
+   under the labels. Ranked by your dharmic-and-cheap test.
+
+   A  3D relief         BUILT on /doi.html. Lift the toggle. Free.
+   B  Satellite, ours   Sentinel-2 (ESA, CC-BY-SA 3.0 IGO — share-alike,
+                        which you said is fine), 10 m/px = native z14. The
+                        AWS public bucket answers without an account (checked
+                        today). A dry-season cloud-free mosaic of the two
+                        provinces → raster PMTiles on R2 beside the other
+                        two: ~100–150 MB at z14, ~35 MB if capped at z13.
+                        Same origin, no key, no tracking. A weekend and ~2 GB
+                        down. Rooftops in the old city are not resolvable at
+                        10 m — say so on the toggle. RECOMMENDED.
+   C  NASA GIBS live    public domain, keyless, a reader-side fetch to NASA
+                        per tile; 30–250 m, province scale only. An afternoon.
+   D  Esri / MapTiler / Mapbox   sub-metre, but a key, their terms, and the
+                        reader's IP goes to them. Against your line. Last.
+   E  Google            its terms forbid its imagery under a non-Google map,
+                        and it is your last preference. Out.
+
+   Street level — nothing gives Google-grade coverage; be plain about it:
+   F  Mapillary         CC-BY-SA, a Meta token, Chiang Mai coverage old and
+                        patchy. Baked at build as a photo-at-the-pin, so no
+                        reader ever fetches from Meta. A weekend.
+   G  Panoramax, ours   fork D on go/tools: a ~$10/mo server; your and
+                        Beer's photos become the street view.
+   H  Own photos on R2  no server; a photo layer with a glyph. Needs photos.
+
+
+5. COLOUR CODING
+
+   The rule that already holds: the control IS the legend (a chip carries
+   its ink). A "colour by" select on the rail keeps it — the select's
+   options wear the swatches.
+
+   By a place's own facts, once each rides in the GeoJSON (rank and k do;
+   tags do not yet — Ph C, data not code):
+     kind (today) · ants 0–9 as one-hue ramp · open / closed / no hours
+     posted (THREE states, never two — absent is not closed) · distance
+     bands from the crosshair · tag · trade word · source · age of record
+   By area (needs 3b polygons): records per tambon, ants per tambon
+     (map-ideas #6), coverage cells (#7).
+   By density below z12: heat by cell, saying its count (WO-74 L2).
+
+   Constraints: six inks stay the cap for anything categorical; a ramp
+   uses one hue and moves lightness (the retune lesson). I have NOT checked
+   the six for red-green vision; that is a measurement, half a day.
+   WO-74 F4 is the door to both at once: shape carries kind, ink carries
+   the attribute. The 66 glyphs make shapes possible now.
+
+
+6. THE PHONE
+   MapLibre is 270 kB gzipped before a tile arrives. Every layer above sits
+   behind a tap, never on first paint, until SVG-first (L6) lands.
+
+
+7. FORKS — YOURS. None taken.
+   M1  the outage: deploy the WO-77/78 tree when this build lands, or build
+       a checkout you accept first, then deploy.
+   M2  layer order: sois → ย่าน → relief → walk-time bands, or another.
+   M3  reader GIS rung: R1 · R1+R2 · R3 (the write path) · none.
+   M4  satellite: B (ours, Sentinel-2) · C · D · none.
+   M5  street level: F · G · H · none.
+   M6  colour-by attributes, and whether F4 (shape + ink) opens.
+   M7  MapLibre 5.24 → 6.8: a vendored swap and a phone walk.
+
+
+==============================================================================
+12. THE 404s — WHAT CAUSED THEM, AND THE STRATEGY SO IT STOPS
+    Written 2026-09-08 after you asked. Guards BUILT the same day.
+==============================================================================
+
+WHAT HAPPENED, from the evidence and not from a guess
+
+  The live site is an OLDER build's bytes with a large set of paths deleted
+  out of it. Proof: live /cm/food/ asks for md.js?v=aabffca9 and
+  refine.js?v=02afaee0, while the tree on this disk asks for 8a539bb5 and
+  e8ebfe51; live md.js is 257,091 bytes against 271,057 here. So the live
+  content was not written by the build running now.
+
+  What is missing live: index.html · 404.html · map.js · live.js ·
+  explore.js · explore.css · favicon.ico · sitemap.xml · what.html ·
+  toilets.html · reach.html · the whole of /cr/ · /glyphs/ · /vendor/ ·
+  /api/v1/index.json. What survives: /cm/** · /data/** · md.js · refine.js ·
+  robots.txt · style.css · the images · both tile archives.
+
+  `rclone sync` is a mirror. It deletes from the bucket whatever is not in
+  docs/ when it looks. Somebody's publish looked at a docs/ that did not hold
+  those files — a build that had been killed part-way, or one still running —
+  and the deletions followed. Nothing was hacked and nothing is lost that a
+  finished build does not rewrite.
+
+WHY BOTH EXISTING GUARDS PASSED IT — this is the part worth keeping
+
+  1. FLOOR = 20,000 files. It is a TOTAL, and docs/cm/ alone is 77,107
+     files. A tree holding only cm/ and data/ clears the floor FOUR TIMES
+     OVER while missing every root page, both provinces' front doors, the
+     vendored map engine and every glyph. A total count cannot see a missing
+     root. It never could.
+
+  2. The build lock. It refuses a publish while a build is ALIVE, and clears
+     a lock whose process is gone — correctly, or one crash would wedge the
+     repo forever. But a killed build leaves exactly what the lock stops
+     protecting: a real, populated, half-written docs/. The lock guards the
+     build in progress. Nothing guarded the wreckage it leaves.
+
+  Neither guard was careless. Both asked "is anything running?" and "is this
+  big?" when the question is "is this THE SITE?"
+
+  Third finding: a publish left NO RECORD on this machine. Not when, not
+  what it deleted. The most destructive thing this repo does was the only
+  thing that wrote no log, so this had to be diagnosed backwards off the
+  live site's own 404s.
+
+BUILT TODAY — publish/safety.py, wired into publish/deploy.py
+
+  a. REQUIRED PATHS. A short, certain list the site cannot be served
+     without: index.html, 404.html, md.js, style.css, robots.txt,
+     sitemap.xml, llms.txt, cm/index.html, cr/index.html — plus map.js, both
+     vendored libraries and two glyph ranges WHEN a basemap is configured
+     (an empty basemap url is a supported state, so those are conditional and
+     say so). Missing any of them refuses the publish and names them.
+  b. PER-SUBTREE FLOORS. cm ≥ 1,000 · cr ≥ 100 · data ≥ 20. This is the
+     check the total could not do: a limb falling off is now visible.
+  c. DELETION PREVIEW. Before anything is destroyed, both sides are listed
+     and the difference is shown. More than 2,000 deletions stops and asks
+     for --prune. Anything under vendor/, glyphs/ or api/ is refused even
+     WITH --prune, because losing those does not shrink the site, it makes
+     every map blank, unlabelled, or 503.
+  d. SMOKE TEST AFTER THE UPLOAD. Eleven live URLs (plus four more when a
+     basemap is on), including one that must return 404 so a bucket serving
+     200 for everything is caught too. A failure exits non-zero and says so.
+  e. A DEPLOY LOG at cache/deploy.log — when, which pid, how many deletions.
+  f. The checks re-run under the lock, not only before it.
+  g. tests/test_publish_safety.py, 21 checks, all green. The one that
+     matters rebuilds a miniature of the outage tree and asserts it is
+     refused; it also asserts that tree clears the old floor, so the hole
+     stays documented in a test rather than in a memory.
+
+  Run either half alone, no network needed for the first:
+      python3 publish/safety.py           is docs/ a whole site?
+      python3 publish/safety.py --smoke   is the live site answering?
+
+  Checked against reality: run against docs/ as it stands mid-build, it
+  names all twelve missing paths and the empty cr/, and refuses.
+
+STILL OPEN — the root fix, and it is yours because it edits build.py
+
+  R1  BUILD BESIDE, THEN SWAP. build.py wipes docs/ in place, so for the
+      ~40 minutes a build takes there is a half-written site sitting at the
+      published path looking publishable. Build into docs.next/ and rename
+      it over docs/ at the end and a partial tree never exists where a
+      publish can find it. Every guard above becomes a belt to that brace.
+      Cost: a second copy on disk during the build, and an edit to build.py's
+      clear_docs() — which other sessions are in constantly, so it wants a
+      quiet moment rather than a race.
+  R2  A WATCH ON THE LIVE SITE. `python3 publish/safety.py --smoke` is
+      already the whole job; it wants a schedule and somewhere to shout.
+      Not scheduled — a standing job on your machine is yours to say yes to.
+  R3  NEVER DELETE ON THE ORDINARY PATH. Stronger still: make --yes upload
+      only, and retire pages in a separate deliberate --prune pass. Costs
+      some stale objects in the bucket; buys the property that an ordinary
+      publish can never remove anything. I did not take this one — it
+      changes what a publish MEANS, and the file's own docstring says
+      retiring pages is wanted behaviour.
+  R4  A published-tree manifest. Write the key list of every good publish to
+      cache/, so "what did we lose" is answerable in one diff instead of by
+      probing URLs. cache/last-published.json is a SOURCE fingerprint and is
+      not this.
+
+
+8. LAYERS BUILT 2026-09-08
+
+   §3a said "a build-time GeoJSON and one chip each, no new data, about a
+   day each" for four of the six. The GeoJSON half of four of them is now
+   written: layers_geo.py and tests/test_layers_geo.py, both new files,
+   nothing else in the repo touched. NOT WIRED, NOT BUILT INTO docs/, NOT
+   DEPLOYED — a full build was running in another session all afternoon and
+   build.py, explore_layer.py, refine_layer.py, map_shell.py, docs/ and
+   data/ were all left alone.
+
+   What it writes, run against a scratch DOCS and measured there:
+
+     data/sois.geojson              534 features   368 kB
+     data/zones.geojson              20 features    14 kB
+     data/landmarks.geojson          68 features    24 kB
+     data/walk-bands.geojson          9 features   4.6 kB   the seed index
+     data/walk-bands-<seed>.geojson   3 features  71–110 kB  ×9
+
+   Thirteen files, 1.20 MB. A map drawing sois + ย่าน + landmarks + the band
+   index pulls 410 kB and fetches a gate's rings only when that gate is
+   tapped. One combined bands file was 1.29 MB, which is why it is nine.
+
+   THE COUNTS, all measured today from data/, none estimated:
+
+     sois        1,077 named ways on disk, 534 with geometry, ALL of them
+                 Chiang Mai — CR holds 151 ways and geometry for none.
+                 317 of the 534 are sois; 115 more sois are names with no
+                 line. 650 parts, 8,494 points; 445 ways are one piece and
+                 89 come in 2–7, so those 89 are MultiLineStrings and the
+                 gaps stay gaps. 6,227 places attached, published as a count
+                 per way, not as the list. 527 of 534 names carry Thai; the
+                 other 7 are what OSM had, including one way named "one way".
+     ย่าน        10 boxes + 10 circles. The boxes are drawn as the exact
+                 rectangles on disk and carry `order`, because zones.json
+                 resolves overlaps by first-match-wins and a layer that
+                 draws them in another order stops agreeing with the shelf.
+                 Circles are 32-gons: 34 m short at r=7 km, 289 m at 60 km.
+     landmarks   68, 0 unresolved, read through bearings_layer.ctx() so the
+                 pin comes from the record and never from the register.
+                 42 of the 68 are inside the road-graph box.
+     walk-time   9,767 junctions, 12,280 edges, 675.9 km. 12,176 edges are
+                 walkable at least one way; 104 carry no foot bit at all.
+                 2,456 edges are one-way to a scooter, 11 to a walker — the
+                 asymmetry that makes a band a shape instead of a circle.
+                 Foot 4.6 km/h (build.py MODES.foot), so 383/767/1,150 m.
+                 From Tha Phae Gate: 282 edges and 8.8 km of street in the
+                 first five minutes, 529 more (22.1 km) in the second five,
+                 927 more (39.3 km) in the third — 1,738 edges, 70.2 km.
+                 From แจ่งศรีภูมิ, 800 m away, five minutes reaches 4.5 km.
+                 Bands are DISJOINT RINGS (`minutes` upper, `fromMin`
+                 lower); union three for "everything within 15 minutes".
+                 An edge is in a ring when it can be walked END TO END
+                 inside it, so the boundary sits at junctions and the real
+                 reach runs up to one block further than the drawn line.
+
+   THE REFUSAL. walk_bands() raises layers_geo.OutsideGraph outside
+   18.7567–18.8253 N, 98.9533–99.0170 E, and again inside the box when
+   there is no walkable edge within 250 m. It does not fall back to a
+   circle. Tested from Bangkok, from Chiang Rai, from Doi Suthep and from
+   1/1000° past each of the four walls.
+
+   TESTS. python3 tests/test_layers_geo.py — 154 checks, ~9 s, reads data/
+   only and runs no build. Every coordinate of every feature is fenced to
+   97.3–100.6 E / 17.0–20.5 N, because streets.json stores [lat, lng] and
+   GeoJSON wants [lng, lat] and a swapped soi draws perfectly well in the
+   Barents Sea.
+
+   THE HOOK LINES A FUTURE SESSION PASTES INTO build.py
+
+   One insertion, three lines, in build(). The anchor is the tap-card /
+   explore pair at build.py:19476–19479, which today reads exactly:
+
+           print("  tap card:", tapcard.emit(globals()))
+
+           import explore_layer
+           print("  explore:", explore_layer.emit(globals()))
+
+   Insert BETWEEN them — after tapcard, before `import explore_layer` —
+   so the files exist before anything that might want to count them:
+
+           # ---- the four layers held on disk and never drawn -------------
+           import layers_geo
+           print("  geo layers:", layers_geo.emit(globals()))
+
+   That is the whole wiring. layers_geo.emit(g) takes build.py's globals,
+   uses only g["DOCS"] (and g["ROOT"] if present), writes into DOCS/data/,
+   and returns a status string in the same shape the other layers return.
+   It creates DOCS/data itself, so it is safe wherever it goes after DOCS
+   exists. It writes no HTML, no CSS and no JS, and it will not collide
+   with bearings_layer's docs/data/landmarks.json — that one is .json,
+   this one .geojson.
+
+   Two optional follow-ons, each a separate decision:
+
+   a) List the files where the other exports are listed, so a robot and a
+      reader can find them. events.geojson is linked at build.py:12649-12651
+      from the events page; the road graph is described in llms.txt around
+      build.py:20047. Neither is required for the layers to work.
+
+   b) The chips. §3a's "one chip each" is NOT built and is not in this
+      file. explore_layer.py owns the chip rail and belongs to whoever is
+      mid-build; adding a chip means a shelf ink, a legend row and a fetch,
+      and the ink budget is six (§5). That is M2's decision, not a paste.
+
+   WHAT IS STILL NOT DONE, and why
+
+   · No chip, no colour, no legend. Data only. See (b).
+   · Chiang Rai has no way geometry ON THIS DISK. That is not "CR has no
+     sois" — build_streets.py has only ever been pointed at the CM cache.
+   · Bands for the other 33 in-box landmarks: cheap (0.04 s each once the
+     graph is loaded, ~90 kB each) and not taken, because which landmarks
+     get bands is a reader question, not mine. All 16,665 places is 11
+     minutes of build and ~1.5 GB of GeoJSON — the size is the reason, not
+     the time.
+   · Nothing for a place outside the box, which is most of the catalogue.
+     The graph is the limit and it stays visible as a refusal.
+   · No tambon polygons (§3b), no bus geometry, no wells or shelters.
+   · Nothing deployed and nothing built into docs/.
+
+
+==============================================================================
+13. THE ROOT CAUSE UNDER THE ROOT CAUSE — THE DISK WAS FULL
+    2026-09-08, found after §12 was already written. FIXED.
+==============================================================================
+
+§12 explains how a half-built docs/ reached the live site. This is why docs/
+was half-built in the first place, and it is simpler and worse.
+
+  THE DISK WAS AT 99%. 2.1 GB free of 228 GB.
+
+The build I was watching died at 12:39 with **exit code 120** and a traceback
+that was itself truncated — "Exception ignored in <_io.TextIOWrapper
+name='<stdout>'>". Exit 120 is what CPython returns when it cannot flush
+stdout as it exits. The build could not finish writing its own error message,
+which is why the log is nine lines long instead of several hundred.
+
+So the chain runs: disk fills → every build dies part-way → docs/ is left
+holding a real, populated, half-written site → a publish mirrors it → the
+front page 404s. The guards in §12 break that chain at the last link. This
+breaks it at the first.
+
+WHERE THE SPACE HAD GONE — 19 GB in /private/tmp/claude-501
+
+Session scratch directories, one per Claude session, never cleaned up. Each
+scratch BUILD of this site is ~1.7 GB, and sessions had left ten of them
+lying about, the oldest from 4 September.
+
+FREED 16 GB (18 GB now available). Removed, all of them copies of built site
+output that any build regenerates:
+
+  6d2ee05d …/scratchpad/mdbuild, mdbuild2, mdbuild3      4.97 GB   Sep 5
+  12a39b2f …/scratchpad/snap                             1.90 GB   Sep 7
+  bee0c22e …/scratchpad/docs-wo74                        1.72 GB   Sep 7
+  8588bfd6 …/scratchpad/md                               1.65 GB   Sep 5
+  5e8db596 …/scratchpad/md                               1.48 GB   Sep 4
+  /private/tmp/md-scratch                                1.90 GB   Sep 7
+  /private/tmp/md-scratch-docs                           1.87 GB   Sep 7
+  /private/tmp/docs-snap                                 0.24 GB   Sep 7
+
+Only the build trees went. Every log, note and scraped page in those
+scratchpads was left where it was. The one live session's scratchpad
+(791cd92c, 3.7 GB, still writing) was NOT touched.
+
+WORTH KNOWING: a scratch build is the recommended way to verify while
+somebody else holds docs/ — build.py's own docstring says so — and nothing
+ever deletes one. Ten sessions doing the right thing filled the disk. That is
+a housekeeping gap, not anybody's mistake, and it will happen again in about
+ten more sessions.
+
+
+==============================================================================
+14. AND UNDER THAT — THE TAMBON POLYGONS WERE ALREADY ON THE DISK
+==============================================================================
+
+Clearing §13 turned up 1.4 GB in /private/tmp/claude-501/tha_adm: the
+national administrative boundary set, adm0-adm3, downloaded 2026-09-07 by
+another session, never brought into the repo, and one sweep of /tmp away from
+being gone.
+
+adm3 is TAMBON. That is the exact thing §3b and §5 of this note called
+"needs data first" and the thing every area question has been blocked on —
+records per tambon, ants per tambon, the coverage choropleth, area colouring
+on the map. It was never missing. It was in a temp folder.
+
+BROUGHT IN — importers/import_admin_boundaries.py (stdlib only, no shapely
+on this machine), run today:
+
+  amphoe (adm2)   43 features   cm 25 · cr 18   301,442 → 17,297 points
+  tambon (adm3)  328 features   cm 204 · cr 124  863,305 → 40,747 points
+
+  data/admin_boundaries.json      2.5 MB, simplified, both levels,
+                                  Thai and romanised names, P-codes, valid_on
+  cache/admin/cmcr_*_full.geojson 47 MB, FULL resolution, both provinces,
+                                  kept because the national source is temp
+
+Simplification is Douglas-Peucker at 0.0005° (~53 m at 18.8°N), which drops
+94-95% of the points and is a FORK, not a fact: right for a choropleth, wrong
+for a map zoomed to a street. Every coordinate was checked against the
+site's own two-province fence.
+
+THE ONE THING NOT DONE, deliberately: **the licence is unverified.** The
+files carry no licence field. The field names and P-code shape are OCHA
+COD-AB, published through the Humanitarian Data Exchange, and those are
+normally free to use with attribution — but normally is not a licence, and
+this site states per-field provenance rather than guessing. So the file is
+written with `"licence": "UNVERIFIED"` and `"_publish_gate": false`, and
+nothing should DRAW these shapes on a public page until one page is read:
+
+    https://data.humdata.org/dataset/cod-ab-tha
+
+Counting records per tambon internally is a different question and is not
+gated on that.
+
+
+9. READER GIS BUILT 2026-09-08 — R1 and R2, in the tree, NOT deployed, NOT wired
+
+   §3c's ladder, rungs one and two. New files only; build.py, explore_layer.py,
+   refine_layer.py, map_shell.py, glyphs.py, docs/ and data/ were not touched,
+   because another session was building while this was written.
+
+   WHAT IS ON DISK
+     draw_layer.py        the layer: emit(g), version(), head(depth),
+                          head_urls(depth), controls_html(g, map_id),
+                          measured_cost(), hash_capacity()
+     glyphs_draw.py       five marks glyphs.py did not have — i-poly, i-cursor,
+                          i-erase, i-upload, i-ruler. Same 24-grid stroke-only
+                          contract; a SECOND file only because glyphs.py was
+                          being edited at the time. Fold them in and delete it
+                          when that stops being true.
+     tests/test_draw.py   35 cases, all passing. Runnable as a script.
+     assets/vendor/       terra-draw.js, terra-draw-maplibre.js, mdturf.js,
+                          terra-draw.LICENSE.txt, turf.LICENSE.txt
+
+   WHAT IT DOES
+     R1  point / line / area, select-and-move, delete one, clear all. Live
+         readout: length in ม./กม., area in ไร่-งาน-ตารางวา FIRST, then m² and
+         ha, plus the perimeter. Controls are drawn marks with bilingual
+         accessible names; every one is 44x44 minimum; laid out for 375x812.
+     R2  save as GeoJSON / GPX / KML (Blob, client-side, no server); open the
+         same three back (sniffed on content, never on the extension); the
+         drawing in the hash as the 5th part's `d=`.
+
+   MEASURED — gzip.compress(bytes, 9), the payload a server actually sends
+     terra-draw 1.33.0 (MIT)              248,929 B raw   47,923 B gz
+     terra-draw-maplibre-gl-adapter 1.4.1  8,845 B raw    2,846 B gz
+     @turf/length + @turf/area 7.4.0 (MIT) 5,673 B raw    2,247 B gz
+     draw.js                              28,467 B raw   10,643 B gz
+     draw.css                              2,086 B raw    1,048 B gz
+                                          --------------------------
+     THE WHOLE FEATURE                                   64,707 B gz
+   §3c said "roughly +60 kB". It is 64,707 B, and none of it loads on a page
+   without the bar on it.
+
+   MEASURED — @turf/buffer WAS REFUSED, and here is the number
+     the same bundle WITH @turf/buffer 7.4.0    67,265 B gz
+     the same bundle WITHOUT it                  2,129 B gz
+     -> @turf/buffer alone                      65,136 B gz
+   More than terra-draw and the adapter together, for one operation, because
+   it pulls turf-jsts. Shipped instead: ring(lng,lat,r) — a geodesic ring, 15
+   lines, 0 extra bytes, exported on MDDRAW and not yet wired to a control. A
+   true offset polygon around a LINE or an AREA is what is not built. FORK.
+
+   MEASURED — the hash, and §3c's "~40 vertices" was low by an order of
+   magnitude
+     encoding: Google polyline at precision 5 (about 1.1 m), delta + zigzag,
+     five bits a character, output alphabet swapped to base64url — polyline's
+     own 63..126 range holds [ \ ] ^ ` { | }, all illegal in a fragment and all
+     percent-encoded to three characters each by the browser.
+       25 m between vertices    3.70 chars/vertex
+       70 m                     4.20 chars/vertex
+      500 m                     4.60 chars/vertex
+     cap: MAX_HASH_CHARS = 1,800 on the `d=` value
+       -> 391 vertices at the worst spacing measured, 486 at the best
+     Over the cap the drawing is NOT put in the hash and the reader is told, in
+     both languages, with the character count and the cap, to save a file. A
+     truncated drawing in a link is worse than no link: it looks like it worked.
+
+   NOT MEASURED, and therefore NOT ASSERTED ANYWHERE: what LINE does to a long
+   link, and each browser's own ceiling. The build sandbox intercepts localhost
+   (a 401 from something in front of python -m http.server, confirmed on two
+   ports), so the probe never ran. 1,800 is a CHOSEN budget — the 2,000-char
+   figure proxies and scrapers have assumed since IE, and the fact that a QR at
+   version 40 / EC M holds 2,331 alphanumeric characters, so a 2,000-char URL
+   is at the edge of one that still scans. Somebody with a phone should walk it
+   and write the real numbers here.
+
+   THE HOOK LINES — paste these four, nothing else changes
+
+   (1) build.py, immediately after the map_shell block
+       (`print("  basemap:", map_shell.emit(globals()))`), because draw.js is
+       useless before map.js exists and emit() no-ops when the basemap is off:
+
+    # ---- draw.js: the reader's own GIS (R1+R2) ---------------------------
+    # draw_layer.py. Vendors terra-draw + turf into docs/vendor/ beside
+    # MapLibre and writes draw.js/draw.css. No-op with no basemap.
+    import draw_layer
+    print("  draw:", draw_layer.emit(globals()))
+
+   (2) explore_layer.py, beside its other imports at the top:
+
+import draw_layer
+
+   (3) explore_layer.py, in build_page(), in the page() call at the end —
+       AFTER explore.js, because draw.js reads the terraDraw global the three
+       library tags before it define, and all of them are defer so source
+       order is execution order:
+
+                extra_head=f'<link rel="stylesheet" href="explore.css?v={v}">'
+                           f'<script src="explore.js?v={v}" defer></script>'
+                           + draw_layer.head(0))
+
+   (4) explore_layer.py, in build_page()'s body, on the line after the xhint
+       paragraph and before `<div class="xpick">`:
+
+        f'{draw_layer.controls_html(g, "xmap")}'
+
+   AND TWO LINES INSIDE explore_layer.JS — without them the drawing falls out
+   of the URL the first time the reader pans, because explore.js rewrites the
+   hash on every moveend from its own state, which does not know about `d=`.
+
+   (5) in viewParams(), immediately before `return q.join('&');`:
+
+  if(window.MDDRAW&&MDDRAW.hashPart())q.push(MDDRAW.hashPart());
+
+   (6) at the very end of the MDMAP.ready callback, after the last
+       `writeHash(map);` — this hands explore's own writer to draw.js so there
+       is ONE writer of the hash on that page instead of two racing:
+
+  if(window.MDDRAW&&MDDRAW.attach)MDDRAW.attach(function(){writeHash(map);});
+
+   VERIFY AFTER WIRING
+     python3 tests/test_draw.py           (35 cases, no build needed)
+     python3 tests/test_glyphs.py         (the ids must still not collide)
+     grep -c 'draw.js?v=' docs/map.html   (1 — the cache-buster, the whole
+                                           reason map.js's outage happened)
+     then open /map.html on a phone at 375x812 and draw something.
+
+   WHAT IS NOT DONE
+     · Nothing is wired. The six lines above are not applied and no build was
+       run against docs/.
+     · No browser walk. Written and tested under node; never opened in a
+       browser, because the sandbox would not serve a local page. NOBODY
+       SHOULD DEPLOY THIS UNTIL SOMEBODY HAS DRAWN A POLYGON WITH A FINGER.
+     · A polygon exported to GPX comes back as a closed LINE — GPX 1.1 has no
+       polygon type. Asserted as a loss in the tests so it cannot become a
+       different one. GeoJSON and KML are lossless both ways.
+     · No offset buffer (see the measurement above). No snapping to a road or
+       to a place. No undo button — terra-draw's undo/redo exists and is not
+       wired.
+     · R3 (the write path) and R4 (publish) untouched: still M3, still yours.

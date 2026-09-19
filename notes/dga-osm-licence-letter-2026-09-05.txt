@@ -118,7 +118,7 @@ Mot Dang · motdang.net
 ────────────────────────────────────────────────────────────────────────────
 NOTES FOR NAN
 ────────────────────────────────────────────────────────────────────────────
-· Nothing has been uploaded to OpenStreetMap and no account has been made.
+· Nothing has been uploaded to OpenStreetMap and no OSM sign-in has been made.
 · The letter deliberately asks for CONFIRMATION, not permission — the licence
   already says what we need; the letter gets it in a form OSM can read.
 · It promises no upload before a reply.  Keep that promise: OSM's import

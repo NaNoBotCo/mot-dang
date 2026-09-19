@@ -125,7 +125,7 @@ there with verified sites and desk numbers, and a knee is ongoing care.
 **Decision 2 — the `asked` selector needs one small thing.** `_match()` in
 `asked_layer.py` treats `attr` as a truthiness test (`a.get(f["attr"])`), so
 `specialty: ["ortho"]` cannot be selected: `{"attr": "specialty"}` matches every
-record with any speciality, dental included. The two honest routes:
+record with any speciality, dental included. The two defensible routes:
 
 - add a **`spec` clause** — one line, `if "spec" in f and f["spec"] not in
   (a.get("specialty") or []): return False` — which is the smallest change and

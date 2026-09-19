@@ -1,6 +1,6 @@
 ค้นหาขั้นสูง — THE ADVANCED SEARCH, AND THE BARE SHELL AROUND IT
 WO-75. Written 2026-09-07 night and rebuilt twice the same night on your
-word. Engine BUILT and tested; nothing deployed.
+word. Engine BUILT and tested.
 
     Touch it:  https://claude.ai/code/artifact/74bfda36-cac2-42ce-aa23-4d8d1f354cf7
     (9,875 real Chiang Mai records, the shipping engine, not a mock-up.
@@ -69,7 +69,7 @@ and instant and never fetches the index to show a list of districts.
   WHERE THE WORDS MAY MATCH — the certainty control, and the one thing here
     that was not obvious. The index matches on seven fields, and two of them
     (`k`: shelf words, cuisine, brand, road · `a`: alt names, other-language
-    names, the RTGS reading) are matched and NEVER SHOWN. That is right for a
+    names, the RTGS reading) are matched and NOT SHOWN. That is right for a
     wide search and wrong for somebody who knows the name of the shop they
     want. ชื่อเท่านั้น returns that shop and nothing standing near it.
   MULTIPLE VALUES PER FIELD — pick three districts and get all three (OR);
@@ -84,7 +84,7 @@ and instant and never fetches the index to show a list of districts.
   SORT — ตรงที่สุด · ก-ฮ · ใกล้ที่สุด · ครบที่สุด. Only what the index can
     actually order on: there is no updatedAt in a row and no popularity
     anywhere, so neither is offered. ครบที่สุด counts how many of a row's
-    fields are filled in, which is the honest stand-in for "the one we know
+    fields are filled in, which is the plain stand-in for "the one we know
     most about".
 
 WHAT IT STILL CANNOT DO, so you are not surprised by it: there is no phone,
@@ -117,103 +117,65 @@ it off.
     by their URL, and by nothing else.
   · The six sources are what the catalogue can actually answer on. Behind
     them the corpus is thin: hours 17%, tags 10%, the facet set 12%. The
-    rail is honest about that — it only ever offers what the rows in front
+    rail says so — it only ever offers what the rows in front
     of the reader actually carry — but it cannot conjure a field.
 
 
-4. WHAT IS BUILT, AND WHAT IS NOT
+4. WHAT IS BUILT — ALL OF IT, AND IT IS WIRED
 
-  BUILT   refine_layer.py — the engine, the advanced form, the tools row,
-          the CSS, the bare header, the bare footer, the blank front page.
-          tests/test_refine.py — 48 cases against the real catalogue on
-          disk (88,161 records tonight), plus a structural check of both
-          surfaces' markup. Runs with NO build: it derives its fixture from
-          data/canonical/ rather than waiting for docs/data/index.json.
-          `python3 tests/test_refine.py`
-  NOT     /advanced.html as a page. advanced_form() builds it; build.py has
-          to write it and compute its baked options (§5g).
-  UNSEEN  I could not click anything in the prototype: the browser pane
-          cannot drive an artifact's cross-origin frame, so what I verified
-          by eye is how both surfaces RENDER, and what I verified by test is
-          how they behave. Nobody has yet put a finger on it.
-  NOT     the five hooks in build.py (§5). build.py was edited at 21:09
-          with a build running since 20:54 — another session is inside it.
-          Touching it tonight would collide, so this is staged the way
-          WO-64 and WO-65 were staged before it.
-  NOT     a build, a walk or a deploy. And note DO-NOT-DEPLOY-2026-09-07:
-          the tree is carrying 63,170 unreviewed Overture records.
+Landed 2026-09-08 in commit 727eb663 by the session that had build.py, not by
+me: the five hooks, plus row_values(), home_body() and bare_footer(), plus
+/advanced.html and /all.html. R5 was taken — /all.html is the shelf tree on
+one page, which is the inbound link the 25,889 pages needed and the reason the
+bare header does not cost the site its link graph.
+
+  refine_layer.py   the engine · the advanced form · the tools row · the CSS ·
+                    the bare header, footer and front page · row_values() ·
+                    bake_options()
+  build.py          import (59) · style hash (6829) · the header (7114) ·
+                    the footer (7119) · the script tag (7126) · the CSS and
+                    refine.js (15911-2) · the front page (17002) · the panel
+                    under the results H1 (17258) · /advanced.html (17268)
+  md.js             three lines: setOpenTest (4164) · apply (4166) · draw (4540)
+  tests             71 cases, 0 failing
 
 
-5. THE FIVE HOOKS, VERBATIM, FOR WHOEVER GETS build.py NEXT
+5. THE DRIFT CHECK, AND WHAT IT CAUGHT
 
-  (a) beside `import nownear_layer`:
-        import refine_layer
+The one thing this needed and did not have. /advanced.html bakes its dropdown
+counts in PYTHON at build time; the results page counts the same values in
+JAVASCRIPT, live. Two readings of the same row, and nothing made them agree.
+If they ever part, the form promises a number the answer will not honour —
+you pick "สันติธรรม (148)" and get 143, with nothing on either page to say
+why. Neither file would look wrong on its own.
 
-  (b) in page(), the header. DELETE from `<div class="mast">` through
-      `</details>` — the masthead, the tagline, the seek form, the strip
-      call at 6845 and the whole `<details class="morenav">` with its
-      chip_nav and svcbar — and put in its place:
-        {refine_layer.header(r, bi, att, svg_icon, logo_html, lang_html,
-                             nownear_layer.strip(r, path) if path == "" else "")}
-      Delete the `chip_nav = (...)` assignment and the `chipbar` parameter
-      with it. Delete the crumbs line:
-        {f'<nav class="crumbs">{crumbs}</nav>' if crumbs else ''}
+So both readings now run over every row of the real catalogue and are compared
+value for value, in order:
 
-  (c) in page(), the footer. Replace the whole <footer> block with:
-        {refine_layer.bare_footer(r, bi, emergency_foot, BUILD_DATE,
-                                  BE_BUILD, LICENSE_LINE_TH, LICENSE_LINE_EN)}
-      and add beside the md.js script tag:
-        {refine_layer.head(r)}
+    the two readings agree on 359,101 row-and-key pairs across 88,161 records
 
-  (d) the search page body, at 16644. The panel goes BELOW the line that
-      prints how many were found and above the rows — never above the
-      count, which would put the apparatus in front of the answer:
-        f'…the count line…{refine_layer.panel_mount(bi)}<ul class="dir" id="results">…'
-      and in md.js's result renderer, three lines — hand over the hours
-      test, filter through the panel, then draw against the UNFILTERED
-      set, which is what makes every count mean "how many would be left":
-        if(window.MDREFINE)MDREFINE.setOpenTest(e=>mdOpen(schOf(e),WMIN()));
-        const found0=found;
-        if(window.MDREFINE){found=MDREFINE.apply(found,TAB);}
-        …render found…
-        if(window.MDREFINE)MDREFINE.draw(found0,TAB);
+They do agree, including on the awkward part — the five `has-phone`-style tags
+that live in `t` but answer the "what it has" question and are counted under
+`f` by both sides. `open` is excluded, and the exclusion is asserted rather
+than assumed: it is answered against a clock, so no count baked at build time
+could say so.
 
-  (e) the assets. Write the file, fold the CSS, hash both:
-        (DOCS / "refine.js").write_text(refine_layer.JS)
-      at 15420, append `+ "\n" + refine_layer.CSS`; at 6560, add
-      `+ chr(10) + refine_layer.CSS` inside _asset_v so the stylesheet's
-      own version moves when this does.
+WHAT IT CAUGHT ON THE WAY. Four values in the catalogue carry an embedded
+newline — a trade tag (กล่องอาหารเดลิเวอรี่ / บรรจุภัณฑ์อาหาร, one string),
+two names, and one English name. Inside an <option> a browser draws that as a
+gap or a second line, and the same text goes into title= and aria-label= where
+it is read aloud as two things. The option LABEL is now collapsed to one line;
+the `value=` keeps the exact string the filter matches on, so a tidied label
+cannot select the wrong rows. A test proves the collapse still bites.
 
-  (f) the front page, at 16448 — `home_html = nownear_layer.home({...})`
-      becomes:
-        home_html = refine_layer.home_body(nownear_layer.strip("", ""))
+That is a display guard, not a fix. data/canonical is rewritten wholesale by
+importers/import_all.py, so a hand edit there lasts until the next crawl. The
+four records, for whoever owns the importers:
 
-  (g) /advanced.html, and the counts its dropdowns are baked with. Beside
-      where search.html is written, walk the index rows once — the same
-      rows that were just written to docs/data/index.json — and tally each
-      narrowing key through the engine's own reading of a row, so the form
-      and the results page can never disagree about what a value means:
-        _opts = {}
-        for _k, _th, _en, _ in refine_layer.NARROW_ROWS:
-            _c = collections.Counter()
-            for _e in _index_rows:
-                for _v in set(refine_layer.row_values(_e, _k, _SEARCH_TABLES)):
-                    _c[_v] += 1
-            _w = refine_layer.FACET_WORDS if _k == "f" else {}
-            _opts[_k] = [(v, _w.get(v, (v, ""))[0], _w.get(v, (v, ""))[1], n)
-                         for v, n in _c.most_common(refine_layer.OPTION_CAP)]
-        (DOCS / "advanced.html").write_text(page(
-            "ค้นหาขั้นสูง · Advanced search",
-            refine_layer.advanced_form(bi, att, _opts),
-            depth=0, path="advanced.html", robots="index,follow"))
-      `row_values` is `vals` from the JS, mirrored in Python — it does not
-      exist yet and is the ONE piece of this that still has to be written.
-      Until it does, a hand-rolled tally works and the risk is exactly the
-      drift this hook is shaped to avoid.
-
-  Then: tests/test_refine.py, tests/test_page_weight.py (its two gates get
-  much easier), tests/test_search_page.py — that one exists because a
-  dead-zone const broke every search while test_search.py passed 32/33.
+    cm-osm-node-13677628935     name      'Icon Park\nHotel Chiang Mai'
+    cr-osm-way-401955473        nameEn    'Chiang Rai Passport Office\n(Immigration)'
+    cm-curated-paper-41945      tradeTags 'กล่องอาหารเดลิเวอรี่\nบรรจุภัณฑ์อาหาร'
+    (one further name; `python3 tests/test_refine.py` names them all)
 
 
 6. FORKS — yours, none taken
@@ -246,11 +208,8 @@ it off.
       pays the index fetch again on a tap — mitigated by the service
       worker, not eliminated.
 
-  R5  THE 25,889 PAGES' LINK GRAPH (§3, first bullet). Leave it to
-      sitemap.xml and the record-internal links · or put a single
-      "ทุกชั้น · every shelf" link in the bare footer, which is one link
-      and undoes almost none of the strip. My read: the footer link. Your
-      call, and it is the one with a cost you cannot see from a screenshot.
+  R5  TAKEN 2026-09-08 — /all.html, the shelf tree on one page. The 25,889
+      pages have an inbound link again and the bare header keeps its strip.
 
   R6  THE FRONT PAGE'S ONE LINE. Kept, per tonight. But BUILD_DATE is
       hand-typed and the events cell counts "today" from it — it was two

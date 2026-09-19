@@ -8,7 +8,7 @@ THE RULE (Beer, via Nan, 9/6)
   right now, and things that are nearby": events, weather, a place you
   planned to visit, something on your to-do list. Everything else is
   drawered, hidden or demoted.
-  Nan 9/6: that is the rule for EVERY page, not only the home page.
+  Nan 9/6: that is the rule for every page, not only the home page.
 
 
 1. WHAT THE SITE DOES TODAY (measured live, 11:40)

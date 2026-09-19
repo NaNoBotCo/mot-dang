@@ -72,7 +72,7 @@ and Chiang Mai Cabaret Theatre (`cm-osm-way-762611799`) — whose performers nee
 42–45 in a heel every working night. One question, four contacts already on the
 site, and the women's half of this question stops being a method.
 
-It must be asked as a question and never published as an assumption. This file
+It must be asked as a question and not published as an assumption. This file
 does not claim that the Tanin row carries a 43, and does not claim that it is
 where สาวสอง in Chiang Mai buy. Neither is known, and writing either in this
 directory's voice — a claim about a community's own shopping, on no evidence —
@@ -181,7 +181,7 @@ recorded because it is the shape of the hazard.
 
 - **`gap: true`.** The shelf `shopping/shoes` is created and filled with what the
   city has, and the question is published as a gap: eight named shoe shops in a
-  province, none advertising a size, and the honest answer is a method plus four
+  province, none advertising a size, and the answer on record is a method plus four
   routes. **No share card** — a poster reading "nobody stocks your size" travels
   further than the sentence under it.
 - shelf: `shoes` (รองเท้า) and `sports-shop` (ชุดกีฬา-อุปกรณ์กีฬา), added under `shopping`

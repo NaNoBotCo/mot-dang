@@ -1,0 +1,114 @@
+MOTDANG.NET — THE FRONT PAGE, REBUILT
+2026-09-19, night. LIVE at motdang.net.
+
+Plan and your five answers: go/home-plan.
+
+THE PICTURES DO NOT MOVE (your call, 2026-09-19)
+  There is one picture layer for the whole page. It is pinned to the screen
+  and knows nothing about scrolling, so it cannot drift or lag: the words
+  move over a photograph that is standing still. Passing from one scene to
+  the next fades the frame, never slides it. The two tile sections have
+  their own ground, so the last frame simply waits behind them.
+
+WHAT IS ON THE PAGE
+  hero      one of your frames by the hour · มดแดง · the clock in Bangkok
+            time and the B.E. date · the day's colour as a dot · the moon ·
+            temp · PM2.5 in its band colour · the two city pills
+  ตอนนี้     open right now (count and the day's curve) · the next event ·
+            the next market · wan phra · the next two festivals ·
+            the red phone. PM over the PCD line puts clean-air rooms first;
+            22:00–05:00 puts 1669 first.
+  ใกล้ๆ     the city chosen for the reader (your choice, else the edge's
+            guess, else Chiang Mai). One tap: the nearest open food, wat,
+            market, massage, clinic within 1 km, by the hour.
+  วันนี้     one card: colour · planet · Buddha posture · moon · lucky pair.
+            Opens to the Chinese pillar and the hexagram, and the doors to
+            horoscope, nine wats, katha, lottery, siam si.
+  เจาะลึก   the Loop · Muay Thai · Hand Poke · festivals · nine wats ·
+            horoscope · toilets · dust · plan · help — as picture tiles.
+  ทุกชั้น    28 shelves as picture tiles with the count for the chosen city;
+            the dice; the door to all.html.
+  footer    add · chat · source · elsewhere · API · CC BY · OSM · date ·
+            picture credits.
+
+No search box. Nine words stay; everything else is a name, a number or a
+picture. ไทย / +EN / EN and อา as before, the same two keys.
+
+THE PICTURES FOLLOW THE READER
+  Standing somewhere: the frames shot within a kilometre win, then five,
+  then fifteen. Past fifty from both cities the page shows only the iconic
+  set — 28 of the 49 backgrounds. Position is the exact fix once you tap
+  📍, otherwise Cloudflare's own idea of where the request came from, which
+  costs no prompt and no permission. Verified live tonight: the edge said
+  Chiang Mai and the front page drew a shrine shot 800 m away. Faked a
+  stand at Wat Phra Singh and all five scenes changed to frames from that
+  square kilometre.
+
+  64 of your own frames, from the Photos library on this Mac (1,457 of your
+  photos carry a Chiang Mai or Chiang Rai position; 1,266 have a 1024 px
+  preview here; originals are in iCloud). Chosen by eye from the top 300 by
+  Photos' own aesthetic score with faces excluded: no skin, no tattoos, no
+  documents, no signatures, no home interiors, no paintings.
+  Coordinates: every frame ships one rounded to three decimals, about
+  110 m — that is what makes the geofence work. The frames from around your
+  own house are in it on your word, 2026-09-19, so a reader standing near
+  there gets your sunsets and the dusk road.
+  The 145 Commons picks fill the shelves that have no frame of yours;
+  their credits print in the footer.
+  Veto any frame: name it, I pull it. Contact sheet of the 72:
+  docs/site/hero/ (the file names say what they are).
+
+FILES
+  home_layer.py                 the page; python3 home_layer.py rebuilds it
+  importers/make_hero.py        your frames → docs/site/hero
+  data/curated/hero_picks.json  the roster (private coordinates)
+  publish/home.py               homepage-only publish: --yes to send
+  publish/worker.js             fills md-where on the front page (edge geo)
+  tests/test_home.py            20 checks, green
+  build.py                      index.html now comes from home_layer
+
+PUBLISHED 2026-09-19 22:17 and again 22:39 (index.html + 64 frames) and the
+Worker at 22:18, version 6805d54a.
+  To publish again:  python3 publish/home.py --yes
+  Rollback: git checkout docs/index.html && python3 publish/home.py --yes
+
+CONTRAST
+  Every word sits on one surface, never on a photograph. Against the worst a
+  photograph could be — pure white — the body text reads at 10.9:1, the grey
+  at 8.3:1, the gold at 7.4:1. AA asks for 4.5 and AAA for 7. The test
+  computes all three from the stylesheet on every build, so it cannot drift.
+
+THE SHELF PICTURES, AND WHAT WAS KEPT
+  The first pass gave all twenty-eight shelves a photograph because all
+  twenty-eight could have one. A mossy demon mask stood over Beauty & Hair,
+  a temple guardian over Pets, a horoscope wheel over Tattoo & Sak Yant, a
+  hillside of flowers over Elephants. Nine of the twenty-eight were right.
+  You asked for it to be kept:
+    https://archive.org/details/motdang-shelves-2026-09-19
+    https://web.archive.org/web/20260919154845/https://motdang.net/
+  The item holds a self-contained copy of the page that needs no server, a
+  full-resolution screenshot, the mapping table that produced it, and an
+  article naming what is in each picture. All CC BY 4.0.
+
+  Fixed the same night. A shelf now gets a photograph of the thing itself or
+  no photograph at all. Nine get none and draw a plain panel with their name
+  and count: doctors, cannabis, schools, international schools, beauty,
+  pets, sport, elephants, home services. Nothing on file shows any of those.
+  The rest show the subject — a massage over Massage, a hostel room over
+  Hotels, Warorot over Markets, two fighters over Muay Thai, a cooking class
+  over Cooking, a ceramics workshop over Doing Business, the Lanna folklife
+  museum over Museums, a sak yant shop over Tattoo.
+
+OPEN
+  · Your originals at full size: Photos → Settings → "Download Originals"
+    would let make_hero.py write 2400 px frames instead of 1024. Not needed
+    for legibility; it would sharpen the big backgrounds on a desk screen.
+  · More frames. 1,266 of your Chiang Mai and Chiang Rai photos have a
+    preview on this Mac and I used 64. Point me at a place or a month and
+    I will cut another set.
+  · The nine plain panels. A photograph of a clinic waiting room, a salon,
+    a gym, a school gate, an elephant that is not a statue, would each fill
+    one. Yours or Commons, your call which.
+  · Anywhere else the archive copy should go. It is on archive.org and in
+    the repo. Posting it somewhere public reads as you speaking, so that
+    one is yours.

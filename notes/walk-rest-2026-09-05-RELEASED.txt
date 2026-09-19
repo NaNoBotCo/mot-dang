@@ -1,0 +1,65 @@
+Resting at Nan's instruction, 2026-09-05 ~20:05.
+
+"stage for deploy but alert me if it's unsuccessful and get in line with the
+tower — don't push on your own."
+
+WHY THIS FILE EXISTS RIGHT NOW. The public API (/api/v1/, CORS on every
+response, /terms.html) is built and staged in docs/ but has NOT been approved
+for deploy. The standing walk would have published it on its own within twenty
+minutes of the tree going quiet — that is exactly what it is for, and exactly
+what was not wanted here.
+
+It would also have published it HALF: the walk runs deploy.py (content only).
+The API needs a Worker deploy too, because worker.js gained the routing and the
+CORS headers. Content alone puts api/v1/*.json in the bucket behind a Worker
+that does not route /api/v1/ — so /api/ would go live advertising endpoints
+that 404, on the live site.
+
+TO RELEASE: delete this file. The next round publishes normally.
+Then the Worker still needs its own deploy, through the same lane:
+    python3 ".../bot-tower/tower.py" wrap cloudflare-deploy -- \
+        sh -c 'cd publish && npx wrangler deploy'
+
+Empty-file semantics would rest forever; this text does the same thing and
+says who to ask. Not another session's rest — if you are that session, this
+one will not mind you replacing it.
+
+-----------------------------------------------------------------------------
+
+RELEASED 2026-09-08 ~12:2x by Nan: "unfreeze." cache/walk-rest deleted.
+
+
+
+The walk asks cache/build.lock before it does anything, so it stands down on
+
+its own while pid 42215's build (started 11:53) holds it. The first round
+
+after that build clears is the one that publishes.
+
+
+
+WHAT THIS RELEASE CARRIES, beyond the API this file was written about:
+
+  the Overture fold (88,161 records), WO-76 /trades.html, WO-78's second line
+
+  and the ph/w index fields, the index split — and data/index2.json, which is
+
+  a NEW FILE the site is wrong without. deploy.py uploads all of docs/, so it
+
+  goes; a hand-built publish list would not.
+
+
+
+THE WORKER HALF IS STILL SEPARATE and is NOT done here. worker.js has changes
+
+beyond what is deployed. deploy.py is content only.
+
+
+
+NOT needed for the 404 game: the deployed Worker already carries the miss
+
+branch — motdang.net answers a miss with the exact 9 bytes of worker.js's own
+
+fallback, which is that branch's else. The moment docs/404.html lands in the
+
+bucket the ant walks.

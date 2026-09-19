@@ -1,0 +1,335 @@
+MOT DANG — GEMBA · 2026-09-10, 21:40–22:10
+==========================================
+Walked: the live site at 375 px and on desktop (home, three searches, a place
+page, the map page, the calendar page, a 404, the assistant); every response
+timed with curl from Chiang Mai; the Worker, publish, build and importer
+source; the three launchd jobs and their logs; the work-order register.
+A build (pid 27055) ran from 20:52 the whole time. Nothing was built, edited
+or deployed. The tree carries ~2,600 uncommitted lines from another session
+tonight — icons.svg as one file, forked place-page loops, docs.next swap,
+deploy transfers, the gate's slash fix. None of that is proposed again below.
+The 9/5 gemba (go/gemba) named four fixes: the nav wall and fortune.json are
+gone from the live pages; the 9 MB index waits on the shard deploy; the
+assistant's guardrail false positive was not retested tonight.
+
+
+WHAT THE WALK FOUND
+-------------------
+Operator
+  Six full builds on 9/10 (00:39, 03:45, 06:53, 10:30, 13:43, 16:43), each
+  ~2 h 50, each thrown away by the publish gate on the same 14 links. Seventeen
+  machine-hours; nothing published by the walk since 9/9. Cause: check_links
+  keys a bare host as "http://host/", records say "http://host" (build.py:818).
+  Fixed in the tree tonight, uncommitted. The order of the walk — build
+  170 min, THEN gate — is what made one bad slash cost six builds.
+  The listings job (08:40 daily) has exited 1 every day since 9/6:
+  FileNotFoundError 'npx'. The plist has no PATH; the same fix went into two
+  sibling plists on 8/19 and missed this one. notify.py runs after it, so no
+  lister has been told "published / lapses on" for five days.
+  data/linkhealth.json is dated 2026-08-21. Nothing runs check_links.py.
+  The gate's only evidence goes stale at 30 days = 9/20.
+  Nothing on this Mac ever pulls claims or suggestions from the Worker
+  (sync_claims.py, sync_suggestions.py: no plist, no cron).
+  deploy.py refuses more than 2,000 deletions unless --prune is typed
+  (publish/safety.py:129); tonight needed 4,115. The walk cannot pass this.
+  enrich_daily.sh (the WO-84 miss loop, "daily") is armed nowhere.
+  cache/walk-rest holds 2026-09-11T06:01 — the walk is muted until then.
+
+Readers, measured live
+  data/index.json: 9.2 MB on the wire, 3.7 s here; results appeared after
+  the 6-second mark in the pane. /api/v1/places?q=: 2.4 s, 3.1 s, 4.7 s,
+  10.0 s across four tries (the index is parsed per isolate).
+  /api/v1/search: 503 until the shards land (deploy 2 tonight). / 0.95 s,
+  cm/ 5.3 s, 404 3.3 s, sitemap.xml 6.5 s to first byte.
+  "coffee near tha phae gate": 8,729 rows. WO-80 (built, undeployed) is the
+  answer; nothing new proposed.
+  Result rows still print stock emoji: 📍 ☎ 🏯 🇹🇭 🕓 🍜 🧭 ♿. The 9/8 sweep
+  runs over built HTML; rows are drawn by md.js at run time and were never
+  swept.
+  One row carries "wheelchair accessible" and "wheelchair partial" at once.
+  "Open Sunday · Open Monday" chips on rows — a record-management family in
+  the foreground; WO-80 cut the state family, not this one.
+  Rail selects at 375 px truncate to "what it" and "neares"; five of seven
+  carry no aria-label; a chosen value has no visible label afterwards.
+  The map page at 375 px: heading, 70-word paragraph, four buttons, the shelf
+  list — the map is below all of it. The calendar page: 50-word intro, five
+  stat tiles, a partner CTA, then events; rows print a raw source id
+  ("steve-newsletter").
+  html lang="th" is fixed (build.py:7272); the toggle flips a class. A screen
+  reader reads English in a Thai voice.
+  Every locator map logs an SVG error: height="auto" (build.py:8231).
+  A search whose index fetch fails shows a blank list, no line, no retry
+  (build.py:4739).
+  Home page controls under 44 px: read button 40, language buttons, the two
+  corner buttons 34, calendar cells ~30 (refine_layer.py:223-226, 305).
+  A Cloudflare analytics beacon loads on every page, injected by the zone,
+  not the repo. Your forks WO-65 F7/F10 already hold it.
+
+Listings
+  Coverage over 88,228 records: pin 99% · Facebook 78% · phone 69% ·
+  website 18% · hours 5% · photo ~0.1%.
+  An owner's saved edit link (GET /edit/<token>) returns raw JSON in a
+  browser (worker/worker.js:1077).
+  The suggest form cannot say closed, moved or duplicate (build.py:17674,
+  17802). No field on a record can mark a place permanently closed.
+  The claim form asks ten fields; hours is eighth (build.py:17739-17752).
+  A place page prints the phone as +66892637243; the same record's row
+  prints 089-263-7243. Facebook prints "@107420257420054". Email prints
+  twice. One road prints three ways on one page: the tag "Ratdanoen" (minted
+  from the address string), the street chip "Rachadamnoen Road", the road
+  row "Ratcha Damnoen".
+  The Worker's mail binding is pinned to one address: a business that files a
+  claim or a suggestion is never answered. Mail failures are logged as
+  mailed:false in a JSON body nothing reads.
+  A "last checked" date exists per record (build.py:8773) and is not printed.
+
+
+SMALL IMPROVEMENTS — each under a day, none a product decision
+--------------------------------------------------------------
+Answer with numbers. Size is engineering time.
+
+FOR YOU
+ 1  PATH in net.motdang.listings-publish.plist (EnvironmentVariables, as the
+    two 8/19 fixes). 15 min. Restores the daily listings pull and notify.py.
+ 2  Gate before the build: run the link-verdict check on source before
+    standing_walk.sh:250 starts build.py, and skip a rebuild when the last
+    failure's cause is unchanged. 4 h. Ends the six-wasted-builds pattern.
+ 3  check_links.py into morning_walk.sh as a soft-fail fetcher. 30 min.
+    Keeps linkhealth.json inside its 30-day life.
+ 4  One plist (PATH + the fleet token) running sync_claims.py and
+    sync_suggestions.py daily. 1 h. The Worker's inbox gets read.
+ 5  A bounded prune for the walk (allow past 2,000 when check_tree passed).
+    2 h. Ordinary retirement stops needing a person.
+ 6  publish/worker.js:365 — console.error and a 500 for a real fault; 503
+    only when edge/meta.json is absent. 30 min. A broken engine becomes
+    visible.
+ 7  Mail failures to KV (mailfail:<date>) and printed by safety.py --smoke.
+    1 h.
+ 8  enrich_daily.sh: a plist, or delete the "arm me" header. 30 min.
+ 9  rclone stats into cache/deploy.log; the two advisory tests out of
+    /dev/null (standing_walk.sh:263,267). 30 min. Needed to see whether
+    tonight's transfer change worked.
+10  Generate publish/searchcore.js from assets/ at build time
+    (build.py:6822-6842 syncs assets only; the copy is by hand, one-line
+    diff today). 1 h.
+11  A cron sweep of alpha/ screenshots in R2 past ALPHA_TTL, or fold it into
+    the beta removal. 1 h.
+
+FOR THE LISTINGS
+12  GET /edit/<token> as HTML (listingPage at worker/worker.js:923 exists).
+    2 h. The owner's link stops looking broken.
+13  "closed", "moved", "duplicate" in the suggest form's kind select, and a
+    closed flag rendered as a line on the page, never a deletion. Half a day.
+14  Claim form: hours first, phone second. 30 min.
+15  "ตรวจล่าสุด · last checked <date>" in the place page's prov line from the
+    field at build.py:8773. 1 h.
+16  One phone formatter for row and page; Facebook link text "Facebook page"
+    when the handle is numeric; the duplicate email row out. 1 h.
+17  Mint on-* road tags from the matched street (the st= chip), or drop the
+    on-* chip when an st chip is present. 2 h. One road, one spelling.
+18  wheelchair=limited exclusive of wheelchair=yes at minting. 30 min.
+19  Accepted suggestions appended to data/fixes.json so fixed.html closes the
+    loop it promises. 2 h.
+    Yours, not engineering (B lane): `wrangler email sending enable
+    motdang.net` (wrangler.jsonc:49-55) is what lets a submitter be answered.
+
+FOR READERS
+20  build.py:4739 — on a failed index fetch draw one bilingual line, a retry,
+    and the /api/v1/search link. 1 h. The commonest failure on a phone stops
+    being a blank page.
+21  defer on md.js (build.py:7317; 280 KB parsed synchronously on every
+    page). 30 min plus a check that MDREFINE ordering holds.
+22  Edge first paint for filter-only searches too (build.py:3831 requires
+    q && !F.any; a ?tag= link shared on LINE gets a blank screen for the
+    whole fetch). 2 h.
+23  <html lang> follows the toggle (build.py:7272, :7285, mdSetLang at
+    :3757). 30 min.
+24  Home controls to 44 px (refine_layer.py:223-226, 305; calendar cells
+    min-height). 30 min.
+25  Rail: shorter empty-option words under 400 px, aria-label on all seven
+    selects, aria-live="polite" on #rescount. 1 h.
+26  Row chips through the same glyph table as the pages (mdIcon exists in
+    tonight's tree) — no stock emoji in rows. 2 h.
+27  Hide the open-<day> family from row chips; the lamp carries it. 30 min.
+28  Map page: the map first, the paragraph under it. 1 h.
+29  Calendar page: events before tiles; source name, not id. 1 h.
+30  Drop height="auto" at build.py:8231. 5 min.
+31  md-city (chosen on the home page) read by search.html and map.html
+    (refine_layer.py:321-335 writes it; nothing else reads it). 1 h. A
+    Chiang Rai reader stops seeing Chiang Mai first.
+32  /api/v1/places?q= through the shard engine, or a pre-parsed slim index
+    in the Cache API. 1 day. The API and the assistant stop waiting 2–10 s.
+
+HALF-WIRED, WIRE OR DELETE (each 1–2 h)
+33  nownear_layer.strip() has no caller; its CSS ships; md.js hides three
+    selectors no page emits (build.py:3849, 3858).
+34  refine_layer.event_places_json() has no caller, so the calendar door on
+    results and ~120 lines of ics/calendar JS can never run.
+35  MD_JS_V, MD_CSS_V, LIVE_JS_V, HORO_JS_V, SHUFFLE_JS_V computed, unused
+    (build.py:6997-7039); refine_layer.js_version() uncalled, docstring wrong.
+
+
+ALREADY IN THE TREE TONIGHT (another session, uncommitted, unproven by a
+full build): icons.svg external sprite · forked place-page loops (MD_JOBS) ·
+docs.next swap · --transfers/--s3-no-head · the verdict slash fix · ?v=
+replaced by revalidation in the Worker. One build and one publish measure all
+of it; the numbers belong in deploy.log (item 9).
+
+FORKS THAT ARE YOURS, NOT RE-ARGUED
+  deploy-speed note items 4–8 (footer date, hashes, has-* pages, bodies in
+  R2) · WO-65 F7/F10 (the beacon) · WO-79 A–D and its deploy · WO-73's 194
+  pins · WO-17 key · the "Add to my plan" button as the first thing under a
+  place's name · the sponsor box on result pages (F3, left as is).
+
+
+==============================================================================
+STATUS — 2026-09-11 09:50. What was built overnight, what is proven, what is
+not. Nothing was deployed; no build was run.
+==============================================================================
+
+PROVEN IN PRODUCTION THIS MORNING
+  08:20  the inbox pull ran for the first time: 0 claims, 1 suggestion
+         waiting ("search: River tavern Chiang Rai"), 1,737 searches read
+         from the box log, 21 distinct questions, 12 that found nothing.
+         Item 4. It runs daily now.
+  08:40  the listings job ran clean for the first time since 9/6 — "queue:
+         1 submission, 0 to pull, 1 awaiting a decision" and "nothing owed
+         tonight". The PATH fix held. Item 1. That one submission is waiting
+         on the publish/hold link in an email, which is yours to click.
+
+IN THE TREE, TESTED, NOT DEPLOYED
+  The walk's gate hold (item 2), the bounded prune (item 5), rclone stats in
+  the log (9a), the Worker's mail-failure record and /health (7), the alpha
+  screenshot sweep (11), the owner's edit page as HTML (12), the three new
+  suggestion kinds on the Worker (13w), the map page reordered and centred
+  on the reader's city (28, 31-map), the road and wheelchair tag fixes
+  (17, 18), the /api/v1/places edge cache (32), a real 500 for a broken
+  search engine instead of a silent 503 (6), the accept-a-suggestion tool
+  (19), the closed/moved data path (13, data half).
+  Green: publish safety 49/49 · derive · explore · accept-suggestion ·
+  edge route · api worker · edge search. Every changed file passes its
+  syntax check.
+
+FIXED THIS MORNING, AFTER REVIEW
+  - The suggestion tool wrote the reader's own address text straight into a
+    live link on fixed.html. "javascript:..." typed in that box would have
+    become a live javascript: link on a published page. It now keeps only an
+    ordinary path to one of our own pages; 15 hostile cases are in the test.
+  - The gate hold would never have held: it hashed linkhealth.json raw, and
+    the link checker stamps today's date in that file every morning, so the
+    hash moved daily. The manifest already hashes it with the date dropped.
+    Proven stable across two calls.
+  - The gate hold would also have engaged on "not a site:", which is a tree
+    mid-build — a condition that clears on its own. It no longer counts.
+  - walk_fingerprint.py did not skip docs.next/, which build.py now builds
+    into before the rename. The walk would have hashed a half-built tree.
+  - --prune-up-to=6000 (with the equals sign) was read as an unknown word
+    and the 2,000 ceiling stood, silently. Both spellings now parse.
+  - The link checker held this morning's walk for over two hours: every
+    verdict had aged out at once and it rechecked all 13,170. It is bounded
+    to 800 a morning now, which turns the whole set over in under three
+    weeks, inside the 30-day life.
+
+NOT DONE — the model ran out of quota mid-run
+  Twelve of thirty-four agents died on the limit. What that cost:
+  - The reader lane never started: items 20 (blank list on a failed fetch),
+    21 (defer md.js), 22 (blank filter-only search), 23 (html lang), 25a,
+    26 (emoji in rows), 27 (open-<day> chips), 31 (md-city in search).
+  - The plumbing lane never started: 10, 24, 25b, 29, 33, 34, 35.
+  - Every build.py edit was skipped — items 30, 16, 15, 14 and the page half
+    of 13. Not for a reason of judgement: another session was writing
+    build.py all evening and the rule is not to edit a file someone else is
+    in. It is idle now and each one has a written patch waiting.
+    tests/test_status.py is red on purpose until that page half lands.
+  - Two lanes were built but never reviewed (the tag fixes, the build.py
+    data path).
+
+STILL RED, AND OLDER THAN LAST NIGHT
+  tests/test_tags.py — the 173 tag pages with no crumb back to tags.html.
+  Known, advisory in the walk, not touched.
+  tests/test_api.py — the Worker routes /api/v1/search and the published
+  API description does not mention it. From WO-82 on 9/10, not from this
+  work. One entry in api_layer.openapi() fixes it.
+
+THE TOWER
+  The walk is resting until 12:00 today, held by another session: build.py
+  carries five deploy-speed changes that have never finished a build, and a
+  scratch build died in the tag phase at 22:10 with its output buffered.
+  That note is at cache/walk-rest and it is theirs to lift. Nothing here
+  touches it.
+
+
+==============================================================================
+STATUS — 2026-09-11 15:00. The retry. Nothing was deployed; no build was run.
+==============================================================================
+
+DONE, TESTED, IN THE TREE (not yet in a build)
+  The place page: the map's svg error is gone (30) · one phone format on page
+  and row, "+66 0…" and "0066 0…" included, extensions kept as written (16) ·
+  the claim form asks hours first (14) · a closed or moved place says so under
+  its name, lights no open-now lamp, and stays on every shelf (13) · the
+  suggest form takes closed / moved / duplicate with a detail box (13).
+  Search: a failed index fetch leaves a retry line instead of a blank list
+  (20) · md.js is deferred (21) · a filter-only link keeps its doors while it
+  loads (22) · the page's language attribute follows the toggle (23) · the
+  result count is announced (25a) · rows draw glyphs, not stock emoji, and
+  carry no open-<day> chips, on the search page and in every other place a
+  row is drawn (26, 27).
+  Plumbing: publish/searchcore.js is now written by the build (10) · the
+  calendar door on results is wired (34) · the calendar page puts events
+  first and names its sources (29) · dead code and dead selectors out (33,
+  35) · the tools-row selects are labelled and fit a phone (25b) · home
+  controls raised toward 44 px (24 — some could not rise without the front
+  page scrolling; listed in the lane's notes).
+  Side: the search endpoint is in the published API description, so
+  tests/test_api.py is green · closed and moved places report openNow as
+  unknown in the API · the inbox printout names the new report kinds.
+
+TAKEN BACK OUT
+  31 — the front page's remembered city as a search filter. With home set to
+  Chiang Mai, "mae sai" answered 200 Chiang Mai namesakes and none of Chiang
+  Rai's own district; "white temple" lost its Chiang Rai rows. A test now
+  fails if search reads md-city. The map page still opens on the remembered
+  city; that only sets where the map starts.
+
+CHANGED FROM THE PLAN, AFTER REVIEW
+  15 — "last checked" prints only when an owner confirmed the record. Built
+  as planned it printed the day an importer wrote each record — 2026-09-07 on
+  63,234 pages — as "last checked", which nobody had done. Today no owner has
+  confirmed a record, so it prints nowhere yet.
+  20 — the second link to /api/v1/search is gone; it answered raw JSON.
+
+THE LINK CHECK FINISHED — AND WHAT IT FOUND
+  13:37: data/linkhealth.json rewritten, the first full check since 8/21 and
+  the first to cover the Overture websites. 13,398 outbound links:
+    ok 5,984 · dns 2,740 · social 1,539 · gone 872 · http-error 642 ·
+    redirect-offsite 510 · timeout 432 · empty 224
+  The dns verdicts are real: a sample of 60 resolves nowhere, including at
+  1.1.1.1 and 8.8.8.8, while every control host and 20 of 20 "ok" links
+  resolve. The next build acts on this: a place whose own site is dead gets
+  its Wayback snapshot where one exists and its working channels first.
+  That touches about 5,200 place pages at once.
+  It took 6 h 28 m because every verdict had aged out together (2 h of
+  checks, 4 h of one-at-a-time archive lookups for 5,215 dead links). It is
+  bounded now — 800 checks and 150 lookups a morning — and its log no
+  longer lags.
+
+STILL OPEN
+  - Deploy order. The claims Worker (worker/worker.js) must deploy before or
+    with the first build that ships the new suggest form: a Worker still on
+    the old code files closed / moved / duplicate as "other" and drops the
+    detail.
+  - Nothing here has been through a full build. The other session's five
+    deploy-speed changes have not either.
+  - Older reds, unchanged by this work: tests/test_tags.py (173 pages with no
+    crumb) and tests/test_language.py (18 bare-Thai values in the 9/10 build).
+  - "mae sai" puts Chiang Mai rows in its top five with no city set at all.
+    Older ranking, not from this work.
+
+THE HOLD
+  cache/walk-rest now runs to 18:00 today. It held the other session's
+  unverified deploy-speed changes until 12:00; I renewed it at 12:06 because
+  this run's build.py edits were mid-review, and a round after the morning
+  walk let go would have built and published them. Their note is kept word
+  for word under mine. At 18:00 the walk builds and publishes whatever the
+  tree holds, including their five changes and all of the above.

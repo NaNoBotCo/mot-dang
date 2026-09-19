@@ -68,7 +68,7 @@ It deliberately does **not** link /brief: the deck is noindex and investor-facin
 
 ## Counting the nods
 
-- **The ledger (primary) — BUILT 2026-08-21.** `python3 heard.py` in the mot-dang repo: numbered menu, 1 = didn't know · 2 = knew the site · 3 = knew it was hers, plus an optional coarse room. `--report` prints the monthly rate against the targets above and which rooms earn nods; `--undo` takes back a mis-key. Appends to `data/heard.jsonl` — a diary, never published, no other person's name stored. The monthly rate is THE metric of this plan.
+- **The ledger (primary) — BUILT 2026-08-21.** `python3 heard.py` in the mot-dang repo: numbered menu, 1 = didn't know · 2 = knew the site · 3 = knew it was hers, plus an optional coarse room. `--report` prints the monthly rate against the targets above and which rooms earn nods; `--undo` takes back a mis-key. Appends to `data/heard.jsonl` — a diary that does not reach the site, with no other person's name written down. The monthly rate is THE metric of this plan.
 - **Already-built signals:** nanobot-list `/stats` per-source signups (source `motdang`); LINE OA contact count; Ko-fi; suggest.html question inflow.
 - **Server-side only:** a monthly glance at Cloudflare's own Worker/R2 request graphs — nothing added to any page, ever.
 - **Search Console** (after item 8): which English/Thai queries surface the site.

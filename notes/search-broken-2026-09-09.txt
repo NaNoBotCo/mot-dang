@@ -1,0 +1,229 @@
+SEARCH, AS BEER FOUND IT — 2026-09-09
+=====================================
+Bug report: Pallida (Beer), two phone screenshots, 10:00 today.  Samsung, 5G.
+"Search is completely broken since the rebuild."
+
+
+WHAT HE SAW
+-----------
+motdang.net/search.html?q=Event and a second shot part-way through typing
+"Breakfas".  Both show the heading
+
+    ผลการค้นหา · Search results
+
+with NO NUMBER after it, and underneath a box of shelf chips — ช้าง Elephants,
+มวยไทย Muay Thai, เรียนทำอาหารไทย cooking classes, เสริมสวย-ตัดผม barbers,
+สุขภาพผู้หญิง women's health.  The same five for both queries.  No result, no
+count, nothing that answers the question he asked.
+
+He is not seeing a wrong answer.  He is seeing the page BEFORE the answer, and
+on his phone that state did not end.
+
+
+WHY — THE MEASUREMENT
+---------------------
+The answer needs data/index.json.  Measured against the live site today:
+
+    data/index.json      49,262,215 bytes raw    9,769,199 on the wire (brotli)
+    data/index2.json      3,772,761 bytes raw      608,890 on the wire
+    rows                     87,833
+    JSON.parse            469 ms — on an M-series Mac, warm cache
+    first answer drawn    ~10.6 s — same Mac, wired broadband
+
+The small files land fast: search_shelves.json and search_panels.json in about
+0.4 s.  Those draw the shelf chips.  So the chips are what stands on screen for
+the whole of the window while index.json downloads and parses, and the heading
+sits there with no number.  On a Mac that window is ten and a half seconds.  On
+a phone on mobile data it is 9.8 MB to fetch and a 38-million-character string
+to parse, and the tab has a memory budget.  Beer's window did not end.
+
+The counts move while you wait.  Reading the same page for "Event" at three
+moments gave 2, then 119, then 991.  It does settle — 991, against the API's
+997 — but everything before it settles is on screen and looks like an answer.
+
+
+WHY THE INDEX IS 49 MB — THE `k` FIELD IS 46% OF IT
+---------------------------------------------------
+Field weights, measured by re-serialising every row of the live file:
+
+    k    21.33 MB   45.8%       t     2.16 MB   4.6%
+    n     5.08 MB   10.9%       w     1.74 MB   3.7%
+    id    3.96 MB    8.5%       a     1.52 MB   3.3%
+    s     2.90 MB    6.2%       r     1.49 MB   3.2%
+
+`k` is the searchable keyword blob.  It has become the place the facet and
+provenance BADGE TEXT is written out, in both languages, in full, on every row.
+A real row:
+
+    "k": "ข้อมูลยังบาง A thin entry ยังไม่ได้ปักหมุด Not pinned yet
+          ยังไม่มีช่องทางติดต่อ No way to reach it held มีหลายแหล่งตรงกัน
+          More than one source agrees Condo อ.เมืองเชียงใหม่ ..."
+
+How often each phrase repeats across the 87,833 rows:
+
+    held                              87,799 rows  100.0%
+    มีเพจเฟซบุ๊ก Facebook page        68,981 rows   78.5%   2.55 MB (Thai token alone)
+    มีเบอร์โทร Phone number           61,181 rows   69.7%   1.90 MB
+    ยังไม่มีช่องทางติดต่อ / No way…   14,672 rows   16.7%
+    ข้อมูลยังบาง / A thin entry       12,460 rows   14.2%
+
+The tokens that sit on more than half the rows come to 6.6 MB by themselves.
+
+This is not only weight.  Those words are SEARCHABLE, so a facet label competes
+with a name.  Searching "Event" during the load window returned lawyers and
+accountants carrying the chip "🎪 รับจัดงาน · Event planning" ahead of the two
+places actually on the Event Venues shelf.
+
+Every one of these facts is already carried as an int in `t` / `f`, which the
+chips render from.  The prose in `k` is a second copy of data the row already
+has.
+
+
+WHAT IS NOT BROKEN, AND SHOULD NOT BE REBUILT
+---------------------------------------------
+BOOLEAN IS BUILT AND SHIPPED.  /advanced.html is live — ค้นหาขั้นสูง · Advanced
+search, with all four fields (as_q, as_epq, as_oq, as_eq) and the scope
+selector, and refine.js reads them.  search.html links to it exactly ONCE, low
+on the page; index.html does not link to it at all.  Beer never found it.  The
+gap is the door, not the engine.
+
+THE ASSISTANT IS THERE.  คุยกับมด · Chat with the ants is on search.html as a
+footer link, below where Beer's screenshot ends.
+
+RANKING SETTLES CORRECTLY.  Once loaded, "Event" gives 991 against the API's
+997.  Nothing about scoring needs rewriting to answer this report.
+
+NO GATE FAILED, AND NONE SHOULD HAVE.  tests/test_index_weight.py used to fail
+a build over 10,000,000 bytes.  That number was a session's invention, Nan
+nuked it on 2026-09-08, and the file now REPORTS weight and never fails on it —
+correctly, because it also fires on the Overture fold she approved.  No line
+has been drawn since.  Drawing one is hers.
+
+
+THE DISCREPANCY I DID NOT RESOLVE
+---------------------------------
+"breakfast": the page settles at 101, /api/v1/places says 775.  "Event" agrees
+(991 vs 997).  The API appears to match the tag `breakfast` where the page
+matches names and keywords.  Two engines, two scopes, same box — not run down.
+
+
+THE ENGINE THAT ANSWERS IN 3.7 KB
+---------------------------------
+    /api/v1/places?q=breakfast&limit=5   ->  775 total, 3,715 bytes
+
+Deployed, and the search box has never called it.  indexsplit_layer.py said so
+itself on 2026-09-08: *"that is the fix, and it trades offline-first for it,
+which is a decision about what this site is."*  Still true, still hers.
+
+
+FOUND ON THE WAY — THE FAVICON, ON EVERY PAGE
+---------------------------------------------
+The emoji sweep replaced the 🐜 inside the favicon's data: URI with an inline
+SVG, and that SVG uses double quotes inside a double-quoted attribute:
+
+    rel="icon" href="data:image/svg+xml,<svg ...><text ...><svg class="rowicon" ...
+
+The href ends at `class=`.  The remainder lands in the document, and
+document.body.innerText on the live search page begins with a stray `">`.  No
+favicon anywhere, and two visible characters at the top of every page.  Checked
+on index, search.html and here.html — all three.
+
+
+WHAT WAS CUT — 2026-09-09, on Nan's instruction
+================================================
+"strip the badge prose out of k and rebuild. Be brutal and relentless
+stripping out extraneous prose EVERYWHERE. And rebuild."
+
+1. tags_layer.py — search_words() no longer writes two kinds of label into `k`:
+   * the 9 tags of kind `field` (family `state`, whose own note in
+     data/tags.json reads "Describes the entry, not the place")   10.93 MB
+   * the mined `attrs.amphoe` and `attrs.tambon` labels, whose words
+     build.py already writes into `k` raw a few lines further down  0.49 MB
+   Their two siblings in the `area` family STAY: `street` reaches records
+   STREET_OF does not, and a postcode is a thing a reader types.
+   Nothing routes a query to any muted word — checked search_thesaurus.json,
+   search_panels.json and search_landmarks.json for all fourteen strings.
+   Every facet stays filterable: `f` and `t` are untouched, and refine.js
+   reads those, not the prose.
+
+2. build.py — the RTGS reading is written once, not twice. It went into `a`
+   AND under its own key `r`, and on 46,645 of the 46,666 rows carrying both,
+   `a` was byte-for-byte `r`.                                       1.16 MB
+   The matcher now reads `e.r` beside `e.a`. No row carries `r` without `a`,
+   so nothing gains a match it did not have, and the 21 rows whose `a` holds
+   a Chinese or Korean name as well keep every word.
+
+3. build.py — data/fortune.json (1.36 MB, 180 days of sky and hexagram) is
+   fetched only on a page that draws the widget. It was fetched on EVERY
+   page: on search.html, 1.36 MB racing the index for a phone's bandwidth to
+   fill an element not in the document. Neither search.html nor the front
+   page has ever had it.
+
+4. build.py — data/search_panels.json ships without its `_readme`: 2,795
+   bytes of build notes fetched by every reader. Any `_`-prefixed key comes
+   off now, so the next note added does not have to be remembered.
+
+PROJECTED, measured against the live index before the build:
+    k          20.72 MB -> 7.83 MB   (-62.2%)
+    index.json ~46.7 MB -> ~32.7 MB
+    and 1.36 MB that search.html no longer fetches at all.
+
+WHAT THIS DOES NOT BUY, SAID PLAINLY
+------------------------------------
+Not much of the wire. Brotli already squashed a string that repeated 68,981
+times — index.json was 49.3 MB raw but 9.8 MB on the wire. What comes off is
+PARSE TIME and MEMORY on a phone, which is what Beer's window was made of, and
+RANKING, because a facet label no longer competes with a name.
+The real numbers go in below, after the build.
+
+
+THE RELEVANCE BUG — found 2026-09-09 evening, and it is not the bytes
+=====================================================================
+Nan: "the only thing you should see if you do a search is results relevant to
+that search. Not possible always, but should at least not always be
+impossible."
+
+It was impossible for nearly every query of more than one word. Measured live,
+index fully loaded, so nothing here is a loading artefact:
+
+    guitar                          9 results   (matches /api/v1 exactly)
+    martin guitar                   0
+    place to buy a Martin guitar    0
+
+Adding a word that four records carry emptied a result set of nine.
+
+THE ENGINE WAS NEVER WRONG. searchcore, handed the same 87,833-row live index
+offline in node, answers:
+
+    guitar                         10 rows, every one a guitar shop
+    martin guitar                  35 rows, the guitar shops among them
+    buy a martin guitar           489 rows — Guitar House, อินทูน กีตาร์ ชอป
+                                   and Intune Guitar Shop ranked FIRST
+
+WO-70's rare-word ranking (Σ log(N/df), added after Michael's report) works.
+The answer was correct and then discarded.
+
+WHERE: refine_layer.py, wordsOk(). `st.q` read `as_q` and then FELL BACK to
+the plain `q` — what search.html's box sends — and wordsOk demands that EVERY
+token appear as a literal lowercase substring of the row. The advanced form's
+strictest slot, silently applied to the ordinary search box, AFTER searchcore
+had already matched with tiers, coverage and the thesaurus. Not a second
+opinion — a veto. One word survived it because an AND of one token is
+satisfiable; two words almost never are.
+
+THE FIX: wordsOk now tests `as_q` alone, under its own key `aq`. `st.q` stays
+as it was because the .ics download is named from it. search.html sends no
+as_ parameter at all — it has no such control — so on the ordinary box
+wordsOk returns true and searchcore's ranking stands. advanced.html, which is
+where a reader deliberately asks for AND / OR / NOT / exact phrase, is
+untouched.
+
+WHY IT SHIPPED: tests/test_refine.py sends `as_q`, `as_oq`, `as_eq` and
+`as_epq` — twelve times. It had never once sent `q`. The suite tested the
+advanced form and never the box on the page. Two assertions added; against the
+old code they fail, and by how much is the size of the bug:
+
+    ?q=นวด คลินิก      old: 2 rows of 88,224      fixed: 88,224
+    ?q=martin guitar   old: 0 rows of 88,224      fixed: 88,224
+
+    73 passed, 0 failed

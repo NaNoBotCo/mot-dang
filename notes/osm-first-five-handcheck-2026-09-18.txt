@@ -1,0 +1,157 @@
+THE FIRST FIVE — HAND-CHECK BEFORE ANY OSM UPLOAD
+Client decision 2026-09-18: "upload a handful first, five by hand."
+NOTHING HAS BEEN UPLOADED. This note is the check that decision asked for.
+
+────────────────────────────────────────────────────────────────────────────
+THE HEADLINE
+────────────────────────────────────────────────────────────────────────────
+The pinned tier-A 52 is not a pool of 52 clean records. Hand-checking the
+provenance of each one, record by record, leaves ONE that can be uploaded
+without a reservation attached.
+
+The 9/5 gate described tier A as "sourced from our own survey or a venue's
+own site". That is what the SOURCES say. It is not what the COORDINATES say,
+and OSM asks about the coordinate.
+
+────────────────────────────────────────────────────────────────────────────
+WHAT THE 52 ACTUALLY ARE
+────────────────────────────────────────────────────────────────────────────
+ 10  COORDINATE CAME FROM A GOOGLE MAPS LINK          must never be uploaded
+ 10  coordinate shared with an Overture row                    not this batch
+ 27  coordinate is an address-derived estimate            depends on how far
+  3  coordinate estimated from the venue's own address    depends on how far
+  1  coordinate from an official government page          pin is at the OLD address
+  1  coordinate from Nan's own visit                                   CLEAN
+
+THE GOOGLE PROBLEM — 10 records, all cm-newsletter-*. Each carries
+attrs.maps = a goo.gl/maps or maps.app.goo.gl share link, geoPrecision
+"exact", seven decimal places, and no pinVia. The coordinate was resolved
+from the Google link. A coordinate read off Google Maps is Google's, and
+putting one into OSM is the fastest way to have a changeset reverted and an
+account marked. The NAME and the FACT THE PLACE EXISTS are not Google's —
+those can go up — but the pin has to be found again some other way first.
+  Affected: dream-star-academy-fc, faculty-fine-arts-cmu, graphic-heaven-hockey,
+  kindred-studio, lecker-cafe-bistro, padel-club-cm, rong-sa-dang,
+  sacred-grounds-cnx, studio-88-residency, the-den-cnx.
+
+THE DISTANCE PROBLEM — the local geocoder (importers/geocode_local.py) is
+clean for OSM: it calls no service, and it reads data/streets.json, which is
+OSM's own geometry, so the round trip raises no licence question at all.
+What it does raise is accuracy. Its own measured medians: street 201 m,
+landmark 234 m, postcode 2,367 m, tambon 1,817 m. It states its uncertainty
+per record and the numbers on these 52 run:
+
+    63 m   mitt-studio
+   120 m   mfa-legalization-desk        anchor-match
+   200 m   aphiwat-bualoi-law           (also an Overture row)
+   280 m   unipest                      address-street-match
+   400 m   hugsa-medical                the clinic's own address
+   540 m   la-friandise, unipest-chiangrai
+   592 m   happy-house-pest             tambon centroid
+   600 m   bpo-clbs                     the company's own address
+   723 m   game-tree-cafe
+   806 m   maa-yoga-studio
+ 1,666 m   drwimon-clinic
+ 2,442 m   cmu-auditorium, seven-fountains
+ 3,607 m   chiangmai-holistic, counselling-thailand
+ 4,059 m   kids-sense-play              postcode centroid
+
+A node placed 3.6 km from its door is not a contribution. Anything over a
+few hundred metres should not be uploaded as a point; the address and the
+phone can go on an object that is ALREADY correctly placed (that is tier B),
+but they cannot found a new node.
+
+THE ONE THAT IS WRONG — cr-curated-immigration-central-chiangrai. Our
+address says ชั้น G ศูนย์การค้าเซ็นทรัล เชียงราย, and the official source we
+read is the page announcing the move (ตม-จว-เชียงราย-ย้ายที่ทำ). The pin,
+19.9300453 / 99.8652225, sits in ศูนย์ราชการ next to OSM way 401955473
+สำนักงานหนังสือเดินทาง เชียงราย — the OLD address, 4 km from Central. The
+pinVia, "beside the passport office OSM holds", is exactly how it went
+wrong: it anchored on the building the office had just left. Do not upload.
+Worth fixing in our own data whatever OSM does.
+
+────────────────────────────────────────────────────────────────────────────
+THE ONE THAT SURVIVES
+────────────────────────────────────────────────────────────────────────────
+cm-curated-phailin-tok-sen — Phailin Tok Sen Massage
+  18.7890626 / 98.9921558      stated uncertainty 30 m
+  source:  field | client — "client visit, 2026-09-04 evening; located by
+           Nan 2026-09-05"
+  pinVia:  landmark-adjacency
+  pinFrom: Minicost Apartment & Guesthouse (cm-osm-node-2533128064)
+  hours:   closes about 22:00 (observed)
+  address: Old city, beside Minicost Apartment & Guesthouse, Mueang Chiang Mai
+
+Nan walked in, and located it against a node OSM already holds. No second
+source, no directory, no Google, nothing to disentangle. It is the only
+record in the corpus whose coordinate is a survey.
+
+It is also tok-sen — the shelf the whole search-disease lane was built for,
+19 records, 18 of them unpinned. The first thing Mot Dang gives back to OSM
+would be the one tok-sen shop it went out and stood in front of.
+
+────────────────────────────────────────────────────────────────────────────
+WHAT IT WOULD LOOK LIKE ON OSM
+────────────────────────────────────────────────────────────────────────────
+A single node, single changeset:
+
+    name        = Phailin Tok Sen Massage
+    shop        = massage
+    massage:type = tok_sen
+    opening_hours:signed = no
+    note        = closes about 22:00 (observed 2026-09-04)
+    source      = survey
+
+  changeset:
+    comment     = Add Phailin Tok Sen Massage, Chiang Mai old city (survey)
+    source      = survey
+    created_by  = manual edit
+
+No import tag, no bulk, no script — one node, surveyed, which is the most
+ordinary edit on OSM and needs no import review at all. That matters: it
+starts the account with a normal edit rather than with a batch.
+
+────────────────────────────────────────────────────────────────────────────
+THE MECHANISM, STATED PLAINLY
+────────────────────────────────────────────────────────────────────────────
+OSM removed HTTP Basic auth from its API in 2024. Writing to it now needs an
+OAuth 2.0 token, which a login alone does not give. Two ways in, both Nan's
+hands:
+  a) openstreetmap.org → logged in → the "Edit" tab → place the node in iD.
+     One node, five minutes, and the edit is unambiguously hers.
+  b) openstreetmap.org → My Settings → OAuth 2 applications → register one,
+     scope write_api → then the upload can be run from here.
+(b) is only worth it if more than a handful are ever going up.
+
+────────────────────────────────────────────────────────────────────────────
+WHAT THIS CHANGES UPSTREAM
+────────────────────────────────────────────────────────────────────────────
+1. The tier-A count of 52 is not a count of giveable records. Giveable, on
+   today's reading, is 1. The gate needs a COORDINATE-provenance column, not
+   just a record-provenance one — the same per-field work the DGA tier needs.
+2. Every pin should carry pinUncertaintyM. 37 of the 52 carry no pinVia at
+   all, which is the same silence the Google ten hid behind.
+3. The Google ten are recoverable: their names, hours and phones are fine,
+   and each one only needs a coordinate found another way.
+
+────────────────────────────────────────────────────────────────────────────
+THE OSM-SIDE CHECK, RUN 2026-09-18
+────────────────────────────────────────────────────────────────────────────
+Overpass, live, against the proposed pin 18.7890626 / 98.9921558:
+
+  · The anchor is real and is where Nan said. node 2533128064 "Mini Cost",
+    tourism=hotel, sits within 40 m of the pin. attrs.pinFrom checks out.
+  · Within 40 m there are seven objects — Wonderwall Hotel, เลิศรส,
+    Mini Cost, Vieng Mantra, Cooking Love, Water Well Guest House,
+    Good Morning. No massage shop among them. Nothing would be duplicated.
+  · A 400 m sweep returned 200 named objects, twenty of them massage shops
+    (Darlin's, Moonlight, Nuad Thai House, Aloe Vera, Panna, Nokbin,
+    Kradangnga, Siam, Friends, Somsri, Sa-bho, Bon, Oriental, Sabai Thai
+    Thai, Lila, Kiyora, Awana, Le Lux, Nanchikan, Machita). None is Phailin.
+  · The name query for Phailin / ไผลิน / ไพลิน across 2.5 km could NOT be
+    completed — Overpass returned 429 and 504 on both the main endpoint and
+    the kumi mirror. So: not found in the 400 m sweep, and not disproved at
+    2.5 km. Re-run before uploading.
+
+The other four candidates were checked the same way and each failed for the
+reason given above, not for anything Overpass said.

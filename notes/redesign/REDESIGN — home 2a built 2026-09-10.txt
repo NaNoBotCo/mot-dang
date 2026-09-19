@@ -1,0 +1,51 @@
+มดแดง MOT DANG — THE FRONT PAGE, ARTBOARD 2a · BUILT 2026-09-10
+================================================================
+You searched from River Tavern and found none of the 9/8 spec on your phone.
+Right: the spec (9/8) and your decisions (9/9) were on disk and no work order
+had picked them up. Artboard 2a is now built in the tree; it ships in the next
+build after the one running now.
+
+WHAT THE PAGE IS
+  อา (easy read) at the left · ไทย / +EN / EN at the right
+  มดแดง / MOT DANG
+  the box — magnifier, mic (speech input where the browser has it), and a
+  first tap lists the shelves as suggestions with no script
+  เชียงใหม่ 62,823 | เชียงราย 25,398 — live counts, the remembered city selected
+  four 52 px tiles: map · calendar · 26° over PM2.5 12 (links to the widgets)
+  · the red phone, which opens the five numbers as a sheet with no JavaScript
+  ทุกชั้น ทุกหมวด →
+  ⊕ chat </> API · CC BY 4.0 · © OSM · 2569-09-10
+Nine visible words. Every icon carries its name in both languages as title
+and aria-label; under อา the names print beneath the tiles.
+Fits 375 × 812 with no scroll. Desktop is the same column, 560 px wide.
+
+WHAT CHANGED SITE-WIDE WITH IT
+  the language control's middle word is +EN everywhere (was ไทย + EN)
+  the easy-read control is อา everywhere (was อ่านง่าย · Easy read)
+  the old front page stays at home-classic.html, one release
+
+THE ICONS
+  Your 9/9 decision: Phosphor, supplemented from our own sprite. The page
+  carries the Phosphor marks it needs as inline SVG (phosphor.py, MIT, the
+  notice in the file) — no font request, so nothing can arrive as a blank
+  box on a rural connection. The site-wide swap of the other 105 marks is
+  the same table, one mechanical pass, not done tonight.
+
+ADDED THE SAME EVENING, on your words ("an actual map pane and a reasonable
+calendar view on the home page, without sacrificing minimalism")
+  the pane — the drawn city (the moat and its gates) the moment the page
+  paints; the live basemap on top when the phone is idle or you touch it,
+  never on a data-saver or 2G connection; the weather and emergency tiles
+  sit in its corner; one glyph opens the full map
+  the calendar — seven days as cells with their counts, today selected, the
+  day's first three events under it, one line each (title, time); tap a day
+  to switch; one glyph opens the events page; no script needed to read it
+  desktop — two columns: search, cities and calendar left, the pane right;
+  the top row is only อา and the language control
+  the footer — one hairline, small type, quiet ink, on every page
+  Words on the page: still nine.
+
+WHAT IS NOT IN THIS PASS
+  1a–1f (the shelf page, the place page, the desktop header) — a second
+  work order. 2b (desktop) is the same column; 2c not drawn separately.
+  Dark palette — the site is light-only today.

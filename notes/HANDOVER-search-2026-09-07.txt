@@ -108,7 +108,7 @@ The material to fix it is already on the records: `attrs.fee`, `access`,
 bearing is `n`/`e`.
 
 ==============================================================================
-4. LANDMINES. EVERY ONE OF THESE COST ME REAL TIME TODAY.
+4. LANDMINES. every one of these cost me real time today.
 ==============================================================================
 
 **`grep` treats docs/md.js as BINARY and silently matches nothing.** I

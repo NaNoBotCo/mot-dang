@@ -127,7 +127,7 @@ hints that do not distort visual understanding. Four rules get there.
   the reader nothing and gives the site everything, so it is the one CTA that
   never has to earn its place.
 
-Type-awareness with no accounts: the page reads only what the DEVICE holds — an
+Type-awareness with no sign-in: the page reads only what the DEVICE holds — an
 edit token, a prior contribution, a language — so the CTAs shift locally and
 nothing about a reader is ever stored on a server. That keeps the no-tracking
 rule intact while still giving four different people four different pages.

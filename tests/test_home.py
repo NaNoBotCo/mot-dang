@@ -34,6 +34,23 @@ def main():
     check("no ?v= fingerprints", "?v=" not in html)
     check("the two keys the site shares", "md-lang" in html and "md-read" in html)
 
+    # The backdrop: one fixed layer, one frame per scene, and nothing that
+    # moves it. Nan, 2026-09-19: "set all the background images to background.
+    # so they don't move at all as the page scrolls."
+    check("one backdrop layer", html.count('class="backdrop"') == 1)
+    scenes = re.findall(r'<picture class="bg[^"]*" data-scene="([a-z]+)"', html)
+    check("a frame per scene", scenes == ["hero", "now", "near", "day", "door"], str(scenes))
+    check("one frame starts showing", html.count('class="bg on"') == 1)
+    check("the scenes hold no pictures of their own",
+          not re.search(r'<section[^>]*>\s*<picture', html))
+    js = html[html.rindex("<script>") + 8:html.rindex("</script>")]
+    css = html[html.index("<style>"):html.index("</style>")]
+    check("nothing moves the backdrop", "translate3d" not in js and "parallax" not in js)
+    check("the backdrop is fixed", ".backdrop{position:fixed" in css)
+    # An opaque body would paint over a negative-z backdrop: it did once.
+    check("body lets the backdrop through", "body{margin:0" in css and
+          re.search(r"body\{[^}]*background:transparent", css) is not None)
+
     # Every picture the page names is a file on disk.
     refs = set(re.findall(r'(?:src|srcset)="(site/[^"]+)"', html))
     missing = [r for r in refs if not (ROOT / "docs" / r).exists()]

@@ -31,7 +31,7 @@ states its own nights*. The elephant's is:
 
 **The venue states what happens with its elephants — riding, bathing, shows,
 hands-off, how many, where they are at night — or the page says nobody has
-stated it. The law says what is registered. And this site never ranks a camp
+stated it. The law says what is registered. And this site does not rank a camp
 into ethical and unethical, sanctuary and show.** "Sanctuary", "ethical" and
 "rescue" are a venue's own words and render as the venue's words, in quotation,
 with a date. There is no welfare score. A reader who wants to choose by a
@@ -260,4 +260,4 @@ twelve from the survey (Doiinthanon, Elephant retirement park, New Elephant
 Home, Kanta, Hug, Adventure, Pride, Camp Chi, Ghok Dee, Jamlearn, elephant
 Freedom, Ruammit) plus the Anantara resort — and /chang.html says so under
 "on the shelf; the ants have not yet read the venue's own pages", which is
-the register's honest gap, stated in words.
+the register's declared gap, stated in words.

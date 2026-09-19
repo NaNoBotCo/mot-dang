@@ -1,0 +1,174 @@
+SEARCH IS BROKEN IN CHIANG MAI — MEASURED, NOT ASSERTED
+2026-09-18
+
+Method, so anyone can run it again:
+  38 queries, four strata, put to a general web search engine (Brave Search
+  API, the same index the white-label assistant uses) on 18 September 2026.
+  Top ten results captured per query; the top five fetched with an ordinary
+  browser user-agent and their HTTP status recorded. The same questions put to
+  motdang.net/api/v1/places.
+  Probe: notes/search-broken-cm-probe.py · raw: notes/search-broken-cm-2026-09-18.json
+
+  The four strata:
+    A  Thai home-ground trade terms — things Chiang Mai is the world capital of
+    B  ordinary needs in English — drawn from questions the demand corpus named
+    C  answer-shaped questions — what + where + when together
+    D  Chiang Rai — the thin-city case
+
+
+================================================================================
+1. WHAT COMES BACK
+================================================================================
+
+  380 results across 38 questions.
+
+      38%   a page on somebody's site
+      16%   a Facebook page
+      15%   a listicle or a city blog
+      13%   a business's own site
+       7%   a booking aggregator — TripAdvisor, Viator, Trip.com, Klook
+       6%   a forum thread — Reddit, ASEAN Now
+       4%   a TikTok or YouTube video
+       1%   a structured directory
+       1%   a marketplace listing — a shop selling the tools of the trade
+
+  The first result was a listicle, a forum, or a blog for 26% of the questions.
+
+  QUESTIONS WHERE THE TOP FIVE HELD A WORKING LINK TO A SPECIFIC BUSINESS:
+  20 of 38.
+
+  Not a scandal on its own. The shape of the other 18 is the finding.
+
+
+================================================================================
+2. THE LINKS DO NOT RESOLVE
+================================================================================
+
+  190 top-five links fetched. 137 answered 200. The rest:
+
+      21   HTTP 400   every one of them facebook.com
+      15   HTTP 403   the page refuses an ordinary automated client
+       7   no answer  DNS failure or connection refused
+       6   HTTP 404   gone
+       2   HTTP 432 · 1 HTTP 410 · 1 HTTP 521
+
+  Two separate facts live in that column, and they should not be blurred:
+
+  SIMPLY GONE — 404, 410, or nothing at the address: 14 of 168 non-Facebook
+  links, 8%. One in twelve of the links a search engine offers for Chiang Mai
+  leads nowhere at all.
+
+  CLOSED TO MACHINES — 400, 403, 432: 18 more. Including every Facebook link
+  but one.
+
+
+================================================================================
+3. THE PART THAT MATTERS: THE CITY'S BUSINESSES LIVE ON FACEBOOK
+================================================================================
+
+  Facebook was the single most common host in the results — 60 of 380, ahead of
+  cmhy.city (15), TripAdvisor (14), TikTok (11), Reddit (10).
+
+  21 of the 22 Facebook links fetched answered HTTP 400 to a client that was
+  not logged in.
+
+  So for a whole class of Chiang Mai question the state of the art is exactly this: the answer exists, it is a Facebook page, and neither a
+  logged-out person nor any machine can read it.
+
+  Mot Dang's own corpus says the same thing from the other side. Counted from
+  data/canonical on 18 September 2026, 88,246 records:
+
+      Facebook page ......... 69,698   79.0%
+      phone ................. 61,114   69.3%
+      Thai in the name ...... 61,839   70.1%
+      address ............... 49,122   55.7%
+      email ................. 25,378   28.8%
+      website ............... 15,564   17.6%
+      hours .................. 4,407    5.0%
+      a pin ................. 87,674   99.4%
+
+  Four in five of the businesses in this city have a Facebook page and fewer
+  than one in five has a website. That is not a preference anyone chose. It is
+  where the commercial web of northern Thailand actually lives, and it is
+  behind a login.
+
+
+================================================================================
+4. THE INVERSE-COVERAGE LAW, VISIBLE IN THE RESULTS
+================================================================================
+
+  Stratum A was the Thai trade terms — ตอกเส้น, ย่ำขาง, จับเส้น, ประคบสมุนไพร,
+  the knife smiths, the watch menders, the hand-loom cotton.
+
+  Chiang Mai is the world capital of every one of them. The search results for
+  ตอกเส้น เชียงใหม่, in order:
+
+      a Facebook page                             HTTP 400
+      a TripAdvisor review page                   HTTP 403
+      a university course application, 2019       HTTP 404
+      thdata.co, a Thai directory listing         200
+      Shopee, selling the wooden hammer           200
+
+  Two of the five are about a shop you could visit. One opens.
+
+  Then the same question with the constraint a person actually has —
+  "tok sen massage old city chiang mai open after 9pm" — returns five results,
+  every one of them a tour-booking page, and not one of them carries opening
+  hours at all.
+
+  This is the law from the 5 September diagnosis operating in public: at the
+  epicentre of a practice, nobody writes it into a category, because everybody
+  already knows. The categories were written elsewhere.
+
+
+================================================================================
+5. THE SAME QUESTIONS, PUT TO MOT DANG
+================================================================================
+
+  Live, through motdang.net/api/v1/places, 18 September 2026:
+
+      motorcycle parking near Tha Phae Gate
+          44 records, each with its distance from the gate — 80 m, 100 m, 150 m
+          Search returned: a scooter rental company, a hotel page, a travel
+          blog, and a parking page for the MotoGP circuit in Buriram.
+
+      tok sen, old city, still open at 21:30
+          1 — นุ่น นวดตอกเส้น. The same shop TripAdvisor was ranking, except
+          the record carries the hours the question turned on, and it opens.
+
+      coin-operated drinking water within 1.5 km of the moat
+          35, most of them 24/7. No other index holds this category at all.
+
+      dentist in Chiang Rai ...................... 0
+      public toilet near Chiang Mai Gate ......... 0
+
+  The last two are in this note on purpose. The corpus holds 433 health records
+  in Chiang Rai and 2,967 toilets; the query missed them because the search box
+  matches on a name and neither is NAMED that. Mot Dang carries the same
+  name-strain it diagnoses. What it has, and nobody else does, is the record
+  underneath — and a per-field receipt saying where each fact came from.
+
+
+================================================================================
+6. WHAT THIS SUPPORTS, AND WHAT IT DOES NOT
+================================================================================
+
+  Supported by the measurement above:
+    · a search engine answers about half of these questions with a working
+      link to a business, and answers the constrained ones worse
+    · one in twelve of the links it offers is gone
+    · the most common destination for a Chiang Mai business question is a
+      Facebook page that answers 400 to anyone not logged in
+    · four in five businesses in the corpus are reachable that way and no other
+    · Mot Dang answers geographic and hours-constrained questions that general
+      search does not, where the field has been collected
+
+  NOT supported, and not to be claimed:
+    · that Mot Dang answers most questions today — it does not; the same
+      indexing disease runs in its own search box
+    · that anybody has paid for any of this
+    · that the traffic to motdang.net is people rather than crawlers; that is
+      uninstrumented (see go/motdang-product)
+
+  38 queries is a probe, not a survey. It is reproducible, the raw results are
+  beside this file, and the code that ran it is one file.

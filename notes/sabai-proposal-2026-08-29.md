@@ -1,11 +1,11 @@
-# WO-42 — สบายขึ้น: the door for the reader who was never sent · 2026-08-29
+# WO-42 — สบายขึ้น: the door for the reader nobody sent · 2026-08-29
 
 *Nan: "Many people commented 'I really like motdang.net but I don't know how
 to use it'. Come up with a plan to increase the sabai round here!" — then,
 on the six moves below: "Please work your way through the list."*
 
 **Zero network.** Five edits in `build.py` and one new test. No data, no
-crawls, no new pages, no URL changed, nothing deployed.
+crawls, no new pages, no URL changed.
 
 ## What the comment means
 

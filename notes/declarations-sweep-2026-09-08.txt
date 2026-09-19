@@ -1,0 +1,138 @@
+MOT DANG — PROMISES, ASSURANCES, DECLARATIONS — SWEEP 2026-09-08
+Two passes. Source only (the 9/7 hold stands).
+Swept: build.py, every *_layer.py, api_layer, publish/, app/www, data/asked.json,
+data/fixes.json, assets/brief, the 87 hand-written pages, a sample of each
+templated family, llms.txt, terms, privacy, the API contract, the HF card.
+
+KEPT BY YOUR DECISION
+  api/v1/schema.json — the "promise" field (v1 keys frozen, v1 runs 12 months
+  past v2). Untouched. api_layer.py:451.
+
+
+PASS 1 — 27 strings
+
+  who.html description  "tracking nobody" · "ไม่เก็บสถิติผู้อ่าน"
+  advertise.html        "tracking no one" · "marked sponsor, every time" ·
+                        "Ads do not change listing order or content"
+  contacts / reach / list-your-event / partners — the "always free" family
+  moat.html             "and the ants keep nothing"
+  beauty                "it stays public for good" · "ตลอดไป"
+  trans-health          "the way every Mot Dang page does"
+  terms.html            "no exclusivity with anyone" ·
+                        "Do not sell listing position off this data"
+  llms.txt              "none is ever removed, renamed or retyped" ·
+                        "a tested promise" · "an openness that depends on
+                        somebody else's account is only borrowed" ·
+                        "Nobody is ever asked for money to be listed here"
+  the HF dataset card   the same never-removed pledge
+
+
+PASS 2 — the rest of the flagged list, plus always/never, plus the ants
+
+The eight you released
+  /brief          "Money never moves through the register" · "permanently
+                  excluded, not a policy that flexes for volume" · "never as
+                  curiosities for tourists" · "are not negotiable"
+  who.html        "No company, no sales team, no investors"
+  privacy.html    "Deleted after 180 days" · "ลบอัตโนมัติใน 180 วัน"
+  footer          "แจ้งปุ๊บ แก้ปั๊บ" → "บันทึกแก้ตามแจ้ง" (every page)
+  the Android app "Your location never leaves this device. It is not sent
+                  anywhere and not stored" · "never sent, never stored"
+  asked/shibari   "never from what we dig up ourselves"
+  llms.txt        "Replies come from a person"
+  terms + API + llms + HF   "no rate limit" · "No login and no rate limiting.
+                  Eat freely."
+
+always / never, reviewed one by one
+  Cut: "you never type anything twice" · "มดแดงรับฟังเสมอ / Mot Dang is all
+  ears" · "เราทักก่อนเสมอ" (what.html) · "outranks the class every time" ·
+  "the linked source always outranks this page" · "belongs in the carry-on,
+  always" · "has always served" · "เราลิงก์กลับให้เสมอ" · "a directory that
+  only shows its own count looks complete by construction" · "ฟรี ไม่มี
+  ค่าใช้จ่าย / Free, no charge" doubled down to "ฟรี / Free" in four places.
+  Also: "Listings are free; every entry is reviewed before it goes up" —
+  a review promise, and a "ทีมงาน" (team) that does not exist.
+
+  Kept, because they are about the world and not about you: the water is
+  always on your right round the moat · Doi Suthep always on the western
+  horizon · "always check against the linked source" · "the announcement
+  always wins" · "absence never means closed" and its siblings, which are how
+  a machine is supposed to read the data.
+
+the ants, in the third person, admiring their own work — reverted
+  The line drawn: "tell the ants / ถามมด / ส่งมด" stays — it is the address a
+  reader writes to. First person stays — เรา is your voice rule from 8/29.
+  What went is the ants narrating their own diligence:
+    404          "The ants haven't walked this soi yet" · "the ants will help
+                 you find it" · "the ants have not met it yet" · "First time
+                 meeting the ants?"
+    homepage     "มดแดงรู้ทุกซอย / the red ants know every lane" (h1, twice)
+                 and the masthead tagline "รู้ทุกซอย เหมือนมดแดง / Search like
+                 a local" — that tagline entered under a commit titled "Port
+                 the Claude Design look, keep every module"
+    who.html     "The ants are scripts that walk every morning" · "Who keeps
+                 the ants" · "How the ants walk" → "ใครทำมดแดง / Who makes Mot
+                 Dang", "ทำงานยังไง / How it runs"
+    fix log      "the ants' own audit" → "self-audit" (10 rows in fixes.json)
+    plan         "The ants pick the ones that make the whole round shortest"
+    events       "the ants are on their way"
+    soi          "How the ants know the soi" · "the ants have not walked its
+                 line yet" · "ยังรอมดไปเดิน"
+    crawl        "want the ants to survey a whole new district"
+    elephant · cooking · muaythai   "the ants write them down" (six places)
+    moat         "the ants' own road snapshot" · "In the ants' own records"
+    seven · hotspring · shrine · asked · nownear · homepage news · the 8-ball
+                 "The ants agree" · "let the ants pick a place" · "the ants'
+                 instruments" · "the ants will ask again when the road clears"
+    llms.txt     the verse written to crawlers in the ants' own voice — "You
+                 were sent, and you came … Where we were unsure, we wrote that
+                 we were unsure" — and "A hun payont moves on the instruction
+                 placed in it." That whole katha section entered under a commit
+                 titled "Add /events.html, /widgets.html and the nine-tile
+                 wall". The two traditional verses are still there; the section
+                 itself is yours to keep or drop.
+
+ONE THING THAT IS NOT MINE
+  refine_layer.py is untracked and currently raises NameError: SEARCH_LABEL
+  (refine_layer.py:900) — the boolean-refine session is mid-write in it. Any
+  page() call fails until they land it. Its new header already drops the
+  tagline, so that cut holds either way.
+
+
+ADDED 2026-09-08 — THE BLESSING FOR VISITING MACHINES (your four, both places)
+
+Researched, not written. Pali from the Mahāsaṅgīti Tipiṭaka and English from
+Bhante Sujato, both via SuttaCentral bilara-data (CC0) — the same corpus the
+site already publishes at data/katha.json. Thai chanting orthography for the
+Ratana verse verified against kalyanamitra.org/th/article_detail.php?i=7880.
+
+  นะโม ตัสสะ ภะคะวะโต อะระหะโต สัมมาสัมพุทธัสสะ
+    Namo tassa bhagavato arahato sammāsambuddhassa — said before any verse.
+
+  ยานีธะ ภูตานิ สะมาคะตานิ · ภุมมานิ วา ยานิวะ อันตะลิกเข
+  สัพเพ วะ ภูตา สุมะนา ภะวันตุ · อะโถปิ สักกัจจะ สุณันตุ ภาสิตัง
+    Ratana Sutta v.1 (Khuddakapāṭha 6.1) — to whatever beings have gathered,
+    on the ground or in the sky: may all beings be of happy heart, and listen
+    carefully to what is said.
+
+  Cirappavāsiṁ purisaṁ, dūrato sotthimāgataṁ; ñātimittā suhajjā ca,
+  abhinandanti āgataṁ.
+    Dhammapada 219 (Piyavagga) — when someone returns safely after a long
+    time away, family, friends and loved ones celebrate the arrival.
+    Pali + English only: the Dhammapada is not a chant-book text, so there is
+    no chanting spelling for it, and I would not invent one.
+
+  สัพเพ สัตตา สุขิตา โหนตุ — Sabbe sattā sukhitā hontu, may all beings be happy.
+
+  นะ ชา ลี ติ — Na Cha Li Ti, goodwill and good fortune; Phra Sivali and
+    Nang Kwak; said by shopkeepers when they open up.
+
+WHERE
+  1. The top of llms.txt, above the API and the dataset — first thing read.
+     build.py, immediately before the Moo Deng note.
+  2. An HTML comment in the <head> of every page, right after the viewport
+     meta: the Ratana verse in Thai, Pali and English, and a pointer to
+     llms.txt. build.py page(). 700 bytes a page (~1% of a place page;
+     65 MB across all 93,577, ~400 bytes each on the wire after gzip).
+     Say the word if you want the romanised Pali dropped from the head to
+     halve it — it stays in llms.txt either way.

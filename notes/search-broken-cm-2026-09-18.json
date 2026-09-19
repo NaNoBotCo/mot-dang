@@ -1,0 +1,3024 @@
+{
+ "run": "2026-09-18 20:45",
+ "queries": 38,
+ "rows": [
+  {
+   "stratum": "A",
+   "query": "ตอกเส้น เชียงใหม่",
+   "label": "tok sen",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "ตอกเส้นบ้านพ่อครูดาว ล้านนา Tok Sen Massage Kru Dao ...",
+     "url": "https://www.facebook.com/toksenkrudao/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "นุ่น นวดตอกเส้น (เมืองเชียงใหม่, ไทย) - รีวิว",
+     "url": "https://th.tripadvisor.com/Attraction_Review-g293917-d13957019-Reviews-Nun_Tok_Sen-Chiang_Mai.html",
+     "kind": "aggregator",
+     "status": 403,
+     "k2": "aggregator"
+    },
+    {
+     "title": "เปิดรับอบรมการนวดตอกเส้น",
+     "url": "https://www.med.cmu.ac.th/web/student-apply/1176/",
+     "kind": "other",
+     "status": 404,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Perfect Massage tok sen เพอร์เฟค นวด ตอกเส้น - นวดและสปา เชียงใหม่ | thdata",
+     "url": "https://thdata.co/th/p/perfect-massage-tok-sen-%E0%B9%80%E0%B8%9E%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%9F%E0%B8%84-%E0%B8%99%E0%B8%A7%E0%B8%94-%E0%B8%95%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99-7948/",
+     "kind": "directory",
+     "status": 200,
+     "k2": "directory"
+    },
+    {
+     "title": "ตอกเส้น ไม้นวดตอกเส้น ค้อน สิ่ว ลิ้มชุด3 ชิ้นไม้แดง กรณ์ เชียงใหม่",
+     "url": "https://shopee.co.th/%E0%B8%95%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99-%E0%B9%84%E0%B8%A1%E0%B9%89%E0%B8%99%E0%B8%A7%E0%B8%94%E0%B8%95%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99-%E0%B8%84%E0%B9%89%E0%B8%AD%E0%B8%99-%E0%B8%AA%E0%B8%B4%E0%B9%88%E0%B8%A7-%E0%B8%A5%E0%B8%B4%E0%B9%89%E0%B8%A1%E0%B8%8A%E0%B8%B8%E0%B8%943-%E0%B8%8A%E0%B8%B4%E0%B9%89%E0%B8%99%E0%B9%84%E0%B8%A1%E0%B9%89%E0%B9%81%E0%B8%94%E0%B8%87-%E0%B8%81%E0%B8%A3%E0%B8%93%E0%B9%8C-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-i.426127124.25759696061",
+     "kind": "marketplace",
+     "status": 200,
+     "k2": "marketplace"
+    },
+    {
+     "title": "หมอตอกเส้นที่มีเงินก็รักษาไม่ได้  #หมอ #ตอกเส้น #ล้านนา #หมอตอกเส้น #แก้ปวด #ปวดเมื่อย  | TikTok",
+     "url": "https://www.tiktok.com/@sunbeary.bearhug/video/7487958728478706962",
+     "kind": "social-video",
+     "k2": "social-video"
+    },
+    {
+     "title": "บ้านพ่อครูดาวเชียงใหม่ ยินดีต้อนรับผู้มาเยือนทุกๆท่านนะคะ ผ่านมา ...",
+     "url": "https://www.facebook.com/toksenkrudao/videos/%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%9E%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%A3%E0%B8%B9%E0%B8%94%E0%B8%B2%E0%B8%A7%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-%E0%B8%A2%E0%B8%B4%E0%B8%99%E0%B8%94%E0%B8%B5%E0%B8%95%E0%B9%89%E0%B8%AD%E0%B8%99%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%A1%E0%B8%B2%E0%B9%80%E0%B8%A2%E0%B8%B7%E0%B8%AD%E0%B8%99%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B9%86%E0%B8%97%E0%B9%88%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B8%B0%E0%B8%84%E0%B8%B0-%E0%B8%9C%E0%B9%88%E0%B8%B2%E0%B8%99%E0%B8%A1%E0%B8%B2%E0%B9%81%E0%B8%A7%E0%B8%B0%E0%B8%97%E0%B8%B1%E0%B8%81%E0%B8%97%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%A3%E0%B8%B9%E0%B9%81%E0%B8%A1%E0%B8%A7%E0%B9%84/1271771949626345/?locale=th_TH",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "อุปกรณ์บางอย่างที่ใช้ในการตอกเส้นบ้านพ่อครูดาว ครูแมวจะเอาติดไป ...",
+     "url": "https://www.facebook.com/toksenkrudao/videos/%E0%B8%AD%E0%B8%B8%E0%B8%9B%E0%B8%81%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B8%9A%E0%B8%B2%E0%B8%87%E0%B8%AD%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B9%83%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%95%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%9E%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%A3%E0%B8%B9%E0%B8%94%E0%B8%B2%E0%B8%A7-%E0%B8%84%E0%B8%A3%E0%B8%B9%E0%B9%81%E0%B8%A1%E0%B8%A7%E0%B8%88%E0%B8%B0%E0%B9%80%E0%B8%AD%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B9%84%E0%B8%9B%E0%B8%88%E0%B8%B3%E0%B8%AB%E0%B8%99%E0%B9%88%E0%B8%B2%E0%B8%A2%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%9A%E0%B8%B2%E0%B8%87%E0%B8%AA%E0%B9%88%E0%B8%A7/1330717463731793/?locale=th_TH",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "สถาบันพัฒนาฝีมือแรงงาน 19 เชียงใหม่",
+     "url": "https://www.dsd.go.th/chiangmai/Region/ShowACT/50754?region_id=38",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "นวดตอกเส้น – ฟ้าล้านนาสปา เชียงใหม่ – Thai Wellness and Travel",
+     "url": "https://thaiwellnessandtravel.com/product/%E0%B8%99%E0%B8%A7%E0%B8%94%E0%B8%95%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99-%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%A5%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B8%B2%E0%B8%AA%E0%B8%9B/",
+     "kind": "other",
+     "k2": "listicle/blog"
+    }
+   ],
+   "motdang": {
+    "n": 11,
+    "top": [
+     "ตอกเส้นบ้านพ่อครูดาว ล้านนา",
+     "ตอกเส้นในสวน",
+     "ตอกเส้นในสวน"
+    ]
+   }
+  },
+  {
+   "stratum": "A",
+   "query": "ย่ำขาง เชียงใหม่",
+   "label": "yam khang",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "นวดแบบภูมิปัญญาล้านนา ย่ำขาง | CBT Thailand",
+     "url": "https://cbtthailand.dasta.or.th/webapp/attraction/content/39/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "บ้านไร่กองขิง นวดผ่อนคลายสไตล์ย่ำขาง เรียนรู้ กินอยู่ อ",
+     "url": "https://www.thetrippacker.com/th/review/%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%84%E0%B8%A3%E0%B9%88%E0%B8%81%E0%B8%AD%E0%B8%87%E0%B8%82%E0%B8%B4%E0%B8%87/9992",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "“ย่ำขาง” ภูมิปัญญาแพทย์พื้นบ้านล้านนา (16 ธ.ค. 59) - YouTube",
+     "url": "https://www.youtube.com/watch?v=lNoZKjtga5Q",
+     "kind": "social-video",
+     "status": 200,
+     "k2": "social-video"
+    },
+    {
+     "title": "ย่ำขาง นวดแผนไทยโบราณล้านนา ฉบับคนเหนือ 👉 ...",
+     "url": "https://www.facebook.com/TourisminThailand/posts/%E0%B8%A2%E0%B9%88%E0%B8%B3%E0%B8%82%E0%B8%B2%E0%B8%87-%E0%B8%99%E0%B8%A7%E0%B8%94%E0%B9%81%E0%B8%9C%E0%B8%99%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B9%82%E0%B8%9A%E0%B8%A3%E0%B8%B2%E0%B8%93%E0%B8%A5%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B8%B2-%E0%B8%89%E0%B8%9A%E0%B8%B1%E0%B8%9A%E0%B8%84%E0%B8%99%E0%B9%80%E0%B8%AB%E0%B8%99%E0%B8%B7%E0%B8%AD-%E0%B8%A2%E0%B9%88%E0%B8%B3%E0%B8%82%E0%B8%B2%E0%B8%87-%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9A%E0%B8%B3%E0%B8%9A%E0%B8%B1%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%A9%E0%B8%B2%E0%B8%AD%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%88%E0%B9%87%E0%B8%9A%E0%B8%9B%E0%B8%A7%E0%B8%94/3798757780190780/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "ย่ำขาง :: โรงเรียนพัฒนาปัญญาไท – IDI Thaimassage",
+     "url": "https://idithaimassages.com/yamkang-service/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ย่ำขาง: การบำบัดรักษาเจ็บปวดทางร่างกายในภูมิปัญญาของชาวล้านนา – IDI Thaimassage",
+     "url": "https://idithaimassages.com/yam-khang-treatment-of-physical-pain-in-the-wisdom-of-the-lanna-people/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "“ย่ำข่าง” การนวดทางเลือก แก้ปวดเมื่อยฉบับล้านนา",
+     "url": "https://mgronline.com/qol/detail/9550000014120",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ย่ำขาง บำบัดปวดตามศาสตร์แพทย์ล้านนา : ปรับก่อนป่วย (9 ธ.ค. 63) - YouTube",
+     "url": "https://www.youtube.com/watch?v=xjh64KfEnBE",
+     "kind": "social-video",
+     "k2": "social-video"
+    },
+    {
+     "title": "กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัย และนวัตกรรม (อว)",
+     "url": "https://www.u2t.ac.th/community-business/detail/313",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "คนสู้โรค - ท่องเที่ยวเชิงสุขภาพ ชุมชนบ้านไร่กองขิง, “ย่ำขาง” ภูมิปัญญาแพทย์พื้นบ้านล้านนา | Thai PBS รายการไทยพีบีเอส",
+     "url": "https://www.thaipbs.or.th/program/KonSuRoak/episodes/42279",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "A",
+   "query": "จับเส้น เชียงใหม่",
+   "label": "chap sen",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "มีใครพอรู้จักหมอนวด ผ่อนคลาย หรือจับเส้นด้วยก็ได้ที่เชียงใหม่บ้างคะ - Pantip",
+     "url": "https://pantip.com/topic/32252466",
+     "kind": "forum",
+     "status": 200,
+     "k2": "forum"
+    },
+    {
+     "title": "ตอกเส้นบ้านพ่อครูดาว ล้านนา Tok Sen Massage Kru Dao ...",
+     "url": "https://www.facebook.com/toksenkrudao/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "42 ร้านอร่อย เมนูเส้น ใครมัก รักเส้น มาที่นี่เลยจ้า",
+     "url": "https://www.eatingoutmap.com/read/42noodleshopinchiangmai",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "นุ่น นวดตอกเส้น (เมืองเชียงใหม่, ไทย) - รีวิว",
+     "url": "https://th.tripadvisor.com/Attraction_Review-g293917-d13957019-Reviews-Nun_Tok_Sen-Chiang_Mai.html",
+     "kind": "aggregator",
+     "status": 403,
+     "k2": "aggregator"
+    },
+    {
+     "title": "📣ปวดน่อง‼️ ##ยอดจับเส้นเชียงใหม่##ดอยสะเก็ดเชียงใหม่##ออฟฟิศซินโดรม##นวดคอบ่าไหล่##นวดสลายพังผืด#นวดเชียงใหม่##นวดแก้อาก",
+     "url": "https://www.tiktok.com/@beehoney28/video/7512696795370229000",
+     "kind": "social-video",
+     "status": 200,
+     "k2": "social-video"
+    },
+    {
+     "title": "‼อุทาหรณ์นวดจับเส้น‼ นวดผิด ชีวิตเปลี่ยน ‼😢 บุญบัวคลินิกได้รับผู้ ...",
+     "url": "https://www.facebook.com/chiromassagechiangmai/videos/%E0%B8%AD%E0%B8%B8%E0%B8%97%E0%B8%B2%E0%B8%AB%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B8%99%E0%B8%A7%E0%B8%94%E0%B8%88%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99-%E0%B8%99%E0%B8%A7%E0%B8%94%E0%B8%9C%E0%B8%B4%E0%B8%94-%E0%B8%8A%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%95%E0%B9%80%E0%B8%9B%E0%B8%A5%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%99-%E0%B8%9A%E0%B8%B8%E0%B8%8D%E0%B8%9A%E0%B8%B1%E0%B8%A7%E0%B8%84%E0%B8%A5%E0%B8%B4%E0%B8%99%E0%B8%B4%E0%B8%81%E0%B9%84%E0%B8%94%E0%B9%89%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%9B%E0%B9%88%E0%B8%A7%E0%B8%A2%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%84%E0%B8%94%E0%B9%89%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9A%E0%B8%B2%E0%B8%94%E0%B9%80%E0%B8%88%E0%B9%87%E0%B8%9A/331593876015831/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "บุญบัวคลินิกแพทย์ทางเลือกนวดจัดกระดูกเชียงใหม่ รักษาอาการปวดคอ บ่า หลัง",
+     "url": "https://www.boonbua.com/",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "เปิดรับอบรมการนวดตอกเส้น",
+     "url": "https://www.med.cmu.ac.th/web/student-apply/1176/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "พาแวะมาคลายเส้น ร้านนวดเชียงใหม่ ที่สายนวดต้องลอง - Sale Here",
+     "url": "https://salehere.co.th/articles/chiang-mai-massage",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ก๋วยเตี๋ยวเส้นคลุก ลูกชิ้นหมูยอโกไข่เจ๊น้อย หลังมอ สาขาหลัก ต้น ...",
+     "url": "https://www.facebook.com/SenKlookNoodle",
+     "kind": "business-social",
+     "k2": "business-social"
+    }
+   ],
+   "motdang": {
+    "n": 5,
+    "top": [
+     "ร้านนวดนวดล้านนาตอกเส้นนวดจับเส้น นวดแก้อาการ นวคลินิกนวดรัก",
+     "นวดจับเส้น/ผ่อนคลาย/บรรเทาอาการ",
+     "นวดจับเส้น หนุมานเปลี่ยนเส้นเอ็น แม่สาย เชียงราย Thai massag"
+    ]
+   }
+  },
+  {
+   "stratum": "A",
+   "query": "ประคบสมุนไพร เชียงใหม่",
+   "label": "herbal compress",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "นวดประคบ ราคาเท่าไหร่ บริการที่ไหนดี อัพเดทล่าสุด 2568 | HDmall.co.th",
+     "url": "https://hdmall.co.th/tags/%E0%B8%99%E0%B8%A7%E0%B8%94%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%84%E0%B8%9A",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ลูกประคบ สมุนไพร ศูนย์ OTOP เชียงใหม่",
+     "url": "https://www.otopchiangmai.com/page/id/1566440089974272",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "สวนสมุนไพร - ฐานข้อมูลสมุนไพร",
+     "url": "https://herb.pharmacy.cmu.ac.th/Garden/Garden1",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "นวดแผนไทยยามค่ำคืนเชียงใหม่: คู่มือเลือกร้านสปา ผ่อนคลายก่อนนอน",
+     "url": "https://www.chiangmaihomeguide.com/chiangmai-night-thai-massage/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "อบสมุนไพรเชียงใหม่: ศาสตร์แห่งการดูแลสุขภาพแบบธรรมชาติ | 2025 ประสบการณ์ผู้ใช้จริงบน Lemon8",
+     "url": "https://www.lemon8-app.com/experience/%E0%B8%AD%E0%B8%9A%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%99%E0%B9%84%E0%B8%9E%E0%B8%A3-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88?region=th",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "การประคบสมุนไพร - สถาบัน/ศูนย์พรหมวชิรญาณ คลินิกแพทย์แผนไทย-จีน",
+     "url": "https://www.promwachirayan.org/th/%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3/%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%84%E0%B8%9A%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%99%E0%B9%84%E0%B8%9E%E0%B8%A3.html",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "การประคบสมุนไพร ลูกประคบ",
+     "url": "https://kiritara.com/%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%84%E0%B8%9A/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "โรงงานผลิตขายส่งเครื่องเทศ สมุนไพรตากแห้ง ธัญพืช เชียงใหม่",
+     "url": "https://www.spiceschiangmai.com/",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "รวม 5 ร้านไส้อั่วเชียงใหม่ ของอร่อยเมืองเหนือ หอมสมุนไพร",
+     "url": "https://kindeeyunuea.com/58728/%E0%B8%A3%E0%B8%A7%E0%B8%A1-5-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%84%E0%B8%AA%E0%B9%89%E0%B8%AD%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ร้าน นวดแผนไทยอบสมุนไพรชีวกโกมารภัจจ์จอมทอง เชียงใหม่ on wongnai.com",
+     "url": "https://www.wongnai.com/businesses/330667yK-%E0%B8%99%E0%B8%A7%E0%B8%94%E0%B9%81%E0%B8%9C%E0%B8%99%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B8%AD%E0%B8%9A%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%99%E0%B9%84%E0%B8%9E%E0%B8%A3%E0%B8%8A%E0%B8%B5%E0%B8%A7%E0%B8%81%E0%B9%82%E0%B8%81%E0%B8%A1%E0%B8%B2%E0%B8%A3%E0%B8%A0%E0%B8%B1%E0%B8%88%E0%B8%88%E0%B9%8C%E0%B8%88%E0%B8%AD%E0%B8%A1%E0%B8%97%E0%B8%AD%E0%B8%87-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88",
+     "kind": "directory",
+     "k2": "directory"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "A",
+   "query": "ร้านตีมีด เชียงใหม่",
+   "label": "knife smith",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Lanna Thai Sword สำนักตีดาบช่างตั้ม ตระกูลพ่อครู ...",
+     "url": "https://www.facebook.com/tumthaiswordsmith/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "Gecko Sharpening -ลับคมมีด โรงตีมีดปลาคู่สันกำแพง | Facebook",
+     "url": "https://www.facebook.com/Meedplakhu",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "Vijin Custom Knives Thailand, Knife Making Classes Bangkok, Chiang Mai – Siam Blades",
+     "url": "https://siamblades.com/th-thai/pages/blacksmith-vijin-custom-knives",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "680 ครับ พิมนิยม #ช่างตีมีด #มีดหล็กแหนบ #มีดไทย #มีดเหนือ #มีดเต็มระบบ #มีดยี่เป็ง  | TikTok",
+     "url": "https://www.tiktok.com/@jetsadasuriyasan/video/7507435114792783112",
+     "kind": "social-video",
+     "status": 200,
+     "k2": "social-video"
+    },
+    {
+     "title": "ร้านตีมีดบางระกำพิษณุโลก | Amphoe Bang Rakam | Facebook",
+     "url": "https://www.facebook.com/p/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%95%E0%B8%B5%E0%B8%A1%E0%B8%B5%E0%B8%94%E0%B8%9A%E0%B8%B2%E0%B8%87%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B3%E0%B8%9E%E0%B8%B4%E0%B8%A9%E0%B8%93%E0%B8%B8%E0%B9%82%E0%B8%A5%E0%B8%81-100082828767209/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "มีดพับ (Folding Knife) – Chiangmai Archery & Outdoor",
+     "url": "https://cmarchery.com/en/collections/folding-knife",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "เชียงใหม่ ไทยแลนด์ โฮมสเตย์ เรียนทำมีดกับช่างตีเหล็กไทย",
+     "url": "https://siamblades.com/th-thai/pages/vijin-knife-making-classes-bangkok",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "เฉิ่ม เชียงใหม่ Cherm Chiangmai Tailor | Facebook",
+     "url": "https://www.facebook.com/chermchiangmai/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "ต๋องเต็มโต๊ะ - TongTemToh | Chiang Mai | Facebook",
+     "url": "https://www.facebook.com/TongTemToh/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "ร้านตีมีด ช่างมนต์ (@user839286135378)",
+     "url": "https://www.tiktok.com/@user839286135378",
+     "kind": "social-video",
+     "k2": "social-video"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "A",
+   "query": "ช่างกุญแจ เชียงใหม่",
+   "label": "locksmith",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "ช่างเอกกุญแจเชียงใหม่",
+     "url": "https://www.xn--12caqceiew7pi4hqa7d7b1b2igq8b6esa.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "ช่างกุญแจ เชียงใหม่ 24 ชั่วโมง",
+     "url": "https://www.locksmithchiangmai.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "ร้านกุญแจดี ช่างเอ กุญแจเชียงใหม่",
+     "url": "https://sites.google.com/view/dkeychiangmai",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ช่างกุญแจเชียงใหม่ - ช่างกุญแจ 24ชั่วโมง : Inspired by LnwShop.com (v2)",
+     "url": "https://www.xn--24-lqixddlfx8rnc8ff0gwgwa3gl.com/product/6402/%E0%B8%8A%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ต๋อยช่างกุญแจ | ไทยแลนด์ เยลโล่เพจเจส",
+     "url": "https://www.yellowpages.co.th/profile/%E0%B8%95%E0%B9%8B%E0%B8%AD%E0%B8%A2%E0%B8%8A%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88-91N0D2oa1",
+     "kind": "directory",
+     "status": 200,
+     "k2": "directory"
+    },
+    {
+     "title": "ช่างกุญแจเชียงใหม่ พร้อมให้บริการ 24 ชั่วโมง | Chiang Mai | Facebook",
+     "url": "https://www.facebook.com/EmergencyLocksmithCM/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "ติดต่อเรา – ช่างเอกกุญแจเชียงใหม่",
+     "url": "https://www.xn--12caqceiew7pi4hqa7d7b1b2igq8b6esa.com/%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%A3%E0%B8%B2/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ช่างกุญแจเชียงใหม่ I ร้าน เจ กุญแจ | Chiang Mai",
+     "url": "https://www.facebook.com/Jkeycmg/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "ช่างกุญแจเชียงใหม่เปิดบ้าน เปิดรถ เปิดตู้เซฟ ทำกุญแจ24 ชั่วโมง...",
+     "url": "https://www.facebook.com/servicekey24hour/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "ช่างกุญแจ เชียงใหม่ ใกล้ฉัน 24 ช.ม. ติดต่อ 080-309-9670",
+     "url": "https://www.spstainlessthai.com/category/9371/%E0%B8%8A%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99-24-%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%82%E0%B8%A1%E0%B8%87-%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B9%88%E0%B8%AD-080-309-9670/%E0%B8%8A%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99-24-%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%82%E0%B8%A1%E0%B8%87-%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B9%88%E0%B8%AD-080-309-9670",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    }
+   ],
+   "motdang": {
+    "n": 14,
+    "top": [
+     "ช่างกุญแจเชียงใหม่ ร้านเอกุญแจ",
+     "ช่างกุญแจเชียงราย 080-4994570 24 ชั่วโมง ร้านกุญแจลานนา Key ",
+     "ช่างกุญแจเชียงราย ใจ๋ดี"
+    ]
+   }
+  },
+  {
+   "stratum": "A",
+   "query": "ร้านซ่อมนาฬิกา เชียงใหม่",
+   "label": "watch repair",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "ร้านซ่อมนาฬิกา อำเภอหางดง เชียงใหม่ | CMHY.city",
+     "url": "https://www.cmhy.city/place/23693-Watch-Fix",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "ศูนย์ซ่อมนาฬิกา ซ่อมนาฬิกาเชียงใหม่ | Chiang Mai",
+     "url": "https://www.facebook.com/CRWWatchService/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "Fix Watch Shop [Pa Koi Tai market] Muang District Chiangmai | CMHY.city",
+     "url": "https://www.cmhy.city/en/place/39012-Fix-Watch-Shop-Pa-Koi-Tai-market",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "ศูนย์ซ่อมนาฬิกาช้างเผือก | Chiang Mai",
+     "url": "https://www.facebook.com/p/%E0%B8%A8%E0%B8%B9%E0%B8%99%E0%B8%A2%E0%B9%8C%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%99%E0%B8%B2%E0%B8%AC%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%8A%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%9C%E0%B8%B7%E0%B8%AD%E0%B8%81-100063935446150/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "ร้านซ่อมนาฬิกา [ตรงข้ามที่ว่าการอำเภอฝาง] อำเภอฝาง เชียงใหม่",
+     "url": "https://www.cmhy.city/en/place/33573-Watch-fix-Service",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "แค่ซ่อมนาฬิกาต้องมาถึงนิมมานเชียงใหม่/Ohmo style โอ - YouTube",
+     "url": "https://www.youtube.com/watch?v=pMyjeSTBt-4",
+     "kind": "social-video",
+     "k2": "social-video"
+    },
+    {
+     "title": "#ร้านซ่อมนาฬิกาเชียงใหม่ | TikTok",
+     "url": "https://www.tiktok.com/tag/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%99%E0%B8%B2%E0%B8%AC%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88",
+     "kind": "social-video",
+     "k2": "social-video"
+    },
+    {
+     "title": "ศูนย์ซ่อมนาฬิกาช้างเผือก อำเภอเมือง เชียงใหม่",
+     "url": "https://www.cmhy.city/en/place/3502-Chang-Phuek-Clock-Center",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "ค้นหา \"ซ่อมนาฬิกา\" เชียงใหม่",
+     "url": "https://www.cmhy.city/en/search/%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%99%E0%B8%B2%E0%B8%AC%E0%B8%B4%E0%B8%81%E0%B8%B2",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Tom Watch Repair | Chiang Mai | Facebook",
+     "url": "https://www.facebook.com/p/Tom-Watch-Repair-61556584924356/",
+     "kind": "business-social",
+     "k2": "business-social"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "A",
+   "query": "ร้านผ้าฝ้ายทอมือ เชียงใหม่",
+   "label": "hand-woven cotton",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "ร้านขายผ้าพื้นเมือง ผ้าฝ้าย กาดหลวง ตลาดวโรรส เชียงใหม่ แพรพันวา ผ้าเมตร",
+     "url": "https://xn--22c9bkxc4gcc4rg.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "ผ้าฝ้ายทอมือ : HandMadeCNX",
+     "url": "https://handmadecnx.com/product-category/handwoven-cotton/",
+     "kind": "other",
+     "status": 0,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ผ้าฝ้ายทอมือ ย้อมสีธรรมชาติ 100% Cotton Fabric Hand Weaved ์Natural Color Please contact Shop for Natural dye and Non-To",
+     "url": "http://www.madamslowlife.com/category/9/%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B8%9D%E0%B9%89%E0%B8%B2%E0%B8%A2%E0%B8%97%E0%B8%AD%E0%B8%A1%E0%B8%B7%E0%B8%AD-cotton-fabric-hand-weaved",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "KHUNJACK ชุดผ้าฝ้ายทอมือ ที่ออกแบบเพื่อคนทุกวัย - ThaiPower.co",
+     "url": "https://www.thaipower.co/product-khun-jack/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ผ้าไทย ผ้าฝ้าย ผ้าไหม ผ้าทอมือ ศิลปะและเทคนิคการใช้งาน - ร้านชอบไหม - ผ้าไหมทอมือ ผ้าไหมสุรินทร์ ผ้าไหมแท้ ผ้าไหมพื้นเมื",
+     "url": "https://www.chobmai.com/article/488/%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B9%84%E0%B8%97%E0%B8%A2-%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B8%9D%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B9%84%E0%B8%AB%E0%B8%A1-%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B8%97%E0%B8%AD%E0%B8%A1%E0%B8%B7%E0%B8%AD-%E0%B8%A8%E0%B8%B4%E0%B8%A5%E0%B8%9B%E0%B8%B0%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%97%E0%B8%84%E0%B8%99%E0%B8%B4%E0%B8%84%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99-2",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "ฝ้ายทอมือขายเป็นเมตร (@ThaiCotton.Handmade)",
+     "url": "https://www.facebook.com/ThaiCotton.Handmade/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "หน้ารายการสินค้า สินค้าล่าสุดคือ สีผ้าพื้นผ้าฝ้ายทอมือ",
+     "url": "https://www.nokweedplus.com/products?cat_main_id=592982&cat_name=%E0%B8%AA%E0%B8%B5%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%A5%E0%B8%B2%E0%B8%A2%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B8%9D%E0%B9%89%E0%B8%B2%E0%B8%A2%E0%B8%97%E0%B8%AD%E0%B8%A1%E0%B8%B7%E0%B8%AD",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "- TARAD.com - ต่อดอกฝ้าย ผ้าทอมือ ลำพูน เชียงใหม่",
+     "url": "https://www.taradplaza.com/tordokfai/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ณัฐรดา ผ้าฝ้าย | San Kamphaeng | Facebook",
+     "url": "https://www.facebook.com/Natrada.phafai/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "ผ้าฝ้าย ผ้าฝ้ายทอมือ ผ้าฝ้ายพื้นเมือง โรงงานทอผ้าฝ้าย | Dobbytex Fabric",
+     "url": "https://www.dobbytexfabric.com/en/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "A",
+   "query": "ร้านซ่อมจักรยาน เชียงใหม่",
+   "label": "bicycle repair",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "รวม ร้านจักรยาน ขายและซ่อมจักรยาน เสียซ่อมให้ได้",
+     "url": "https://www.reviewchiangmai.com/7-bike-shop/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ช่วยแนะนำร้านซ่อมจักรยานแถวเชียงใหม่หน่อยค่ะ - Pantip",
+     "url": "https://pantip.com/topic/34107000",
+     "kind": "forum",
+     "status": 200,
+     "k2": "forum"
+    },
+    {
+     "title": "ร้านซ่อมจักรยาน [สันกลางเหนือ] อำเภอสันกำแพง เชียงใหม่ | CMHY.city",
+     "url": "https://www.cmhy.city/place/40477-Bicycle-repair-shop-San-Klang-Nuea",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "SHIMANO BIKE SHOP GUIDE : เอนกไบค์",
+     "url": "https://hahhong.com/shimano-bike-shop-guide-anek-bike/",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "ร้านซ่อมจักรยาน? : r/chiangmai",
+     "url": "https://www.reddit.com/r/chiangmai/comments/1mnf56x/bicycle_repair_shops/",
+     "kind": "forum",
+     "status": 200,
+     "k2": "forum"
+    },
+    {
+     "title": "ร้านขายและซ่อม จักรยาน [สันผักหวาน] อำเภอหางดง เชียงใหม่ | CMHY.city",
+     "url": "https://www.cmhy.city/place/39232-Bicycle-shop-and-repair-shop-San-Phak-Wan",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "888bike เชียงใหม่ | Facebook",
+     "url": "https://www.facebook.com/888bikecm/videos/service%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A3%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%B9%E0%B9%88%E0%B9%83%E0%B8%88-888%E0%B9%84%E0%B8%9A%E0%B8%84%E0%B9%8C%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%A3%E0%B8%A2%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-bikelife-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88/973254517072581/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "หมอรถถีบ ซ่อมจักรยาน แม่ริม อำเภอแม่ริม เชียงใหม่ | CMHY.city",
+     "url": "https://www.cmhy.city/place/33062-BiCycle-fix",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "ช่าง2ไบค์เซอร์วิส | Chiang Mai | Facebook",
+     "url": "https://www.facebook.com/boonyarit26",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "888bike เชียงใหม่ (@888bikecm)",
+     "url": "https://www.facebook.com/888bikecm/?locale=th_TH",
+     "kind": "business-social",
+     "k2": "business-social"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "A",
+   "query": "ทำฟันปลอม เชียงใหม่",
+   "label": "dentures",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "ฟันปลอม เชียงใหม่ - Chiangmai Smile Dental Clinic",
+     "url": "https://chiangmaismiledental.clinic/services/false-teeth/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ฟันปลอม เชียงใหม่: ซ่อม-ทำใหม่ ปรับฐานกระชับ ใส่สบาย | Chiangmai Smile Dental",
+     "url": "https://chiangmaismiledental.clinic/dentures-chiangmai/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ฟันปลอม ครอบฟัน สะพานฟัน ทันตกรรมประดิษฐ์ เชียงใหม่ CIDC",
+     "url": "https://chiangmaidentist.com/en/dental-treatments/prosthetic-dentures/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ฟันปลอม (Denture) - การดูแลฟันปลอม การทำความสะอาดฟันปลอม โดย เจริญเมือง (ซี.เอ็ม) ทันตกรรม เชียงใหม่",
+     "url": "https://www.cmdentalcare.com/%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3/%E0%B8%9F%E0%B8%B1%E0%B8%99%E0%B8%9B%E0%B8%A5%E0%B8%AD%E0%B8%A1.html",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ฟันเทียมถอดได้ - คลินิกบ้านฟันสวย จัดฟัน วีเนียร์ รากเทียม เชียงใหม่ ช้างม่อย",
+     "url": "https://banfunsuay.com/services/%E0%B8%9F%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B8%A2%E0%B8%A1%E0%B8%96%E0%B8%AD%E0%B8%94%E0%B9%84%E0%B8%94%E0%B9%89-5",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ทำฟันปลอมที่ ศักดาคลินิกทันตกรรม โดยทีมทันตแพทย์ ...",
+     "url": "https://www.facebook.com/sakdadentalclinic/posts/%E0%B8%97%E0%B8%B3%E0%B8%9F%E0%B8%B1%E0%B8%99%E0%B8%9B%E0%B8%A5%E0%B8%AD%E0%B8%A1%E0%B8%97%E0%B8%B5%E0%B9%88-%E0%B8%A8%E0%B8%B1%E0%B8%81%E0%B8%94%E0%B8%B2%E0%B8%84%E0%B8%A5%E0%B8%B4%E0%B8%99%E0%B8%B4%E0%B8%81%E0%B8%97%E0%B8%B1%E0%B8%99%E0%B8%95%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1-%E0%B9%82%E0%B8%94%E0%B8%A2%E0%B8%97%E0%B8%B5%E0%B8%A1%E0%B8%97%E0%B8%B1%E0%B8%99%E0%B8%95%E0%B9%81%E0%B8%9E%E0%B8%97%E0%B8%A2%E0%B9%8C%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%8A%E0%B8%B2%E0%B8%8D%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%8A%E0%B8%B2%E0%B8%8D%E0%B8%94%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B3%E0%B8%9F%E0%B8%B1%E0%B8%99%E0%B8%A1%E0%B8%B2/977542907505178/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "ฟันปลอม - drjessiedental clinic คลินิกทันตกรรมเชียงใหม่ คลินิก ...",
+     "url": "https://drjessiedentalclinic.com/%E0%B8%9F%E0%B8%B1%E0%B8%99%E0%B8%9B%E0%B8%A5%E0%B8%AD%E0%B8%A1/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ทำฟันเชียงใหม่ | ศักดาคลินิก | ทำฟัน | จัดฟัน | วิเนียร์",
+     "url": "https://sakdaclinic.com/en/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Your Smile Dental Clinic | อุดฟัน ถอนฟัน ขูดหินปูน รักษารากฟัน รากฟันเทียม ทำฟันปลอม รักษาโรคเหงือก จัดฟัน ครอบฟัน ทำสะพ",
+     "url": "http://www.yoursmilechiangmai.com/",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "ฟันปลอม || Denture || Your Smile Dental Clinic",
+     "url": "http://www.yoursmilechiangmai.com/denture.php",
+     "kind": "other",
+     "k2": "own-site"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "A",
+   "query": "ร้านขายเครื่องดนตรีไทย เชียงใหม่",
+   "label": "Thai instruments",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "แนะนำ ร้านขายเครื่องดนตรี เชียงใหม่ ถูกใจสายดนตรี - Sale Here",
+     "url": "https://salehere.co.th/articles/musical-instrument-at-chiang-mai",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "CMMUSICTHAILAND | ขายเครื่องดนตรีสากล ซ่อมเครื่องดนตรี นำเข้า จูนเปียโน เชียงใหม่",
+     "url": "https://cmmusicthailand.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "ร้าน Music Arms สาขาเชียงใหม่ | Music Arms ศูนย์รวมเครื่องดนตรี ตั้งแต่เริ่มต้น ถึงมืออาชีพ",
+     "url": "https://www.musicarms.net/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99-music-arms-%E0%B8%AA%E0%B8%B2%E0%B8%82%E0%B8%B2%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "TOP 3 ร้านขายเครื่องดนตรีในเชียงใหม่ | Blog Of The Week",
+     "url": "https://blog.cnxwebdesign.com/top-3-chiang-mai-music-store/",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "ร้านปรินญาภัครดนตรีไทย ขายสะล้อ ซอ ซึง เครื่องดนตรี ...",
+     "url": "https://www.facebook.com/playwhite555/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "รวมร้าน “ขายส่งอุปกรณ์ดนตรี” ขายส่งกีต้าร์โปร่ง, ขายส่งเครื่องดนตรีสากล, ขายส่งขายเครื่องดนตรีไทย - SMELeader : เริ่มต้น",
+     "url": "https://www.smeleader.com/%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B9%88%E0%B8%87%E0%B8%AD%E0%B8%B8%E0%B8%9B%E0%B8%81%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B8%94%E0%B8%99%E0%B8%95%E0%B8%A3%E0%B8%B5/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ร้านเบญจรงค์ดนตรีไทย (@BenjarongThaiMusical)",
+     "url": "https://www.facebook.com/BenjarongThaiMusical/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "ห้างหุ้นส่วนจำกัด เชียงใหม่การดนตรี และ กีฬา | ไทยแลนด์ เยลโล่เพจเจส",
+     "url": "https://cmschiangmai.yellowpages.co.th/",
+     "kind": "directory",
+     "k2": "directory"
+    },
+    {
+     "title": "MAXIMUM SOUND (แม็กซิมั่ม ซาวด์)",
+     "url": "https://www.maximumsoundshop.com/",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "ซื้อ ขาย เครื่องดนตรี ใน เชียงใหม่ ออนไลน์ ราคาถูก",
+     "url": "https://www.kaidee.com/c60p1-music/chiangmai",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "A",
+   "query": "ตู้น้ำดื่มหยอดเหรียญ เชียงใหม่",
+   "label": "coin-op water",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "ติดตั้งตู้น้ำดื่มหยอดเหรียญหอพักอำเภอสันทราย จังหวัดเชียงใหม่ - วอเตอร์เฟรช",
+     "url": "https://www.waterfresh-cm.com/product/%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%94%E0%B8%B7%E0%B9%88%E0%B8%A1%E0%B8%AB%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B9%80/",
+     "kind": "other",
+     "status": 0,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ตู้น้ำดื่มหยอดเหรียญ เครื่องซักผ้าหยอดเหรียญ เชียงใหม่ | Facebook",
+     "url": "https://www.facebook.com/baanyodrianchiangmai/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "เครื่องกรองน้ำเชียงใหม่ สยามวอเตอร์ เฮ้าส์โฮลด์",
+     "url": "https://siamwaterhouseholds.com/th/products/category/54101",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ตู้น้ำหยอดเหรียญ อ.เมือง จ.เชียงใหม่",
+     "url": "https://siamwaterhouseholds.com/th/products/401171-%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%AB%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%AB%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%8D-%E0%B8%AD.%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87-%E0%B8%88.%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ตู้น้ำดื่มหยอดเหรียญ (boss water work) อำเภอเมือง เชียงใหม่ | CMHY.city",
+     "url": "https://www.cmhy.city/place/25267-Drinking-Water-Vending",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "ตู้น้ำดื่มหยอดเหรียญ ราคาสุดคุ้ม 19,500.- รับประกัน 5 ปี ผ่อนสบาย 12 งวด ขนส่งติดตั้งทั่วไทย",
+     "url": "https://www.ntgthailand.com/17414091/%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%94%E0%B8%B7%E0%B9%88%E0%B8%A1%E0%B8%AB%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%AB%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%8D",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ตู้น้ำหยอดเหรียญ (พีระ เซอร์วิส ) อำเภอเมือง เชียงใหม่ | CMHY.city",
+     "url": "https://www.cmhy.city/place/16581-Drinking-Water-Vending-Pree-ra-Services",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "ตู้น้ำดื่มหยอดเหรียญ (water fresh) อำเภอเมือง เชียงใหม่",
+     "url": "https://www.cmhy.city/en/place/9777-Drinking-Water-Vending-Machine",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "ตู้น้ำดื่มหยอดเหรียญ่ราคาถูก จ.เชียงใหม่ | กิตติพร ไฟเบอร์กลาส & KP Water บริการติดตั้งตู้น้ำคุณภาพดีราคาถูก ตู้น้ำดื่มห",
+     "url": "https://xn--12cf1cdhp1dq6kdb9cwak0rxamb0f.com/?p=pd&post_id=63",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "ตู้น้ำดื่มหยอดเหรียญระบบ Ro ขนาดใหญ่ 200 ลิตร กำลังผลิต 600 ลิตรต่อวัน | Lazada Thailand",
+     "url": "https://www.lazada.co.th/tag/%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%94%E0%B8%B7%E0%B9%88%E0%B8%A1%E0%B8%AB%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B9%80%E0%B8%AB%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%8D/",
+     "kind": "marketplace",
+     "k2": "marketplace"
+    }
+   ],
+   "motdang": {
+    "n": 141,
+    "top": [
+     "ตู้น้ำดื่มหยอดเหรียญ (ทำน้ำแร่พลังแม่เหล็ก)",
+     "ตู้น้ำดื่มหยอดเหรียญ (น้ำแร่พลังแม่เหล็ก)",
+     "ตู้น้ำดื่มหยอดเหรียญ (พีระ เซอร์วิส)"
+    ]
+   }
+  },
+  {
+   "stratum": "B",
+   "query": "locksmith chiang mai",
+   "label": "locksmith",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "ร้านกุญแจดี ช่างกุญแจเชียงใหม่ 0614146964 Locksmith Chiangmai | Chiang Mai | Facebook",
+     "url": "https://www.facebook.com/LocksmithChiangmai24hr/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "Locksmith service Muang District Chiangmai | CMHY.city",
+     "url": "https://www.cmhy.city/en/place/3115-Locksmith-service",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "ช่างกุญแจ เชียงใหม่ 24 ชั่วโมง",
+     "url": "https://www.locksmithchiangmai.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "Locksmith",
+     "url": "https://chiangmaiguru.com/Residential_&_Commercial_Services/Locksmith/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Locksmiths | Chiang Mai Business Directory | ChiangMai.net",
+     "url": "https://www.chiangmai.net/business-directory/category/locksmiths",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Chiang Mai Locksmith | Ride Asia Motorcycle Forums",
+     "url": "https://www.rideasia.net/motorcycle-forum/threads/chiang-mai-locksmith.2521/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ติดต่อเรา - ช่างกุญแจ เชียงใหม่",
+     "url": "https://www.locksmithchiangmai.com/contact/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ช่างหญิง เชียงใหม่กุญแจ หนองหอย | Chiang Mai | Facebook",
+     "url": "https://www.facebook.com/princesskey.locksmith/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "Log in or sign up to view",
+     "url": "https://www.facebook.com/places/Locksmith-in-Chiang-Mai-Thailand/111591762192643/181814521855864/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "Good Locksmith - Chiang Mai - Thailand News and Discussion Forum | ASEANNOW",
+     "url": "https://aseannow.com/topic/1107681-good-locksmith/",
+     "kind": "forum",
+     "k2": "forum"
+    }
+   ],
+   "motdang": {
+    "n": 36,
+    "top": [
+     "ร้านกุญแจดี ช่างกุญแจเชียงใหม่ 0614146964  Locksmith Chiangm",
+     "กุญแจเชียงใหม่เอกุญแจ",
+     "ช่างกุญแจเชียงใหม่ ร้านเอกุญแจ"
+    ]
+   }
+  },
+  {
+   "stratum": "B",
+   "query": "watch repair chiang mai",
+   "label": "watch repair",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Watch Repair | Chiang Mai Business Directory | ChiangMai.net",
+     "url": "https://www.chiangmai.net/business-directory/category/watch-repair",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Peter Hertel Watch Service Chiang Mai",
+     "url": "http://watchservice-th.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "Client Testimonials | Wristforge — Watch Repair Chiang Mai",
+     "url": "https://wristforge.world/testimonials.html",
+     "kind": "other",
+     "status": 521,
+     "k2": "own-site"
+    },
+    {
+     "title": "Apple Watch Repair Chiang Mai | All Series, Expert Technicians | cmnsfixmac",
+     "url": "https://cmnsfixmac.com/en/services/apple-watch.php",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Quality watch repair shop in Chiang Mai | Ride Asia Motorcycle Forums",
+     "url": "https://www.rideasia.net/motorcycle-forum/threads/quality-watch-repair-shop-in-chiang-mai.1749/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Client Testimonials | Kanok — Watch Repair Chiang Mai",
+     "url": "https://kanok.biz/testimonials.html",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "Lanna Atelier — Watch Repair & Restoration, Chiang Mai",
+     "url": "https://lannaatz.biz/",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "Tom Watch Repair | Chiang Mai | Facebook",
+     "url": "https://www.facebook.com/p/Tom-Watch-Repair-61556584924356/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "anyone know where to get a watch fixed? - Chiang Mai Forum - Tripadvisor",
+     "url": "https://www.tripadvisor.com/ShowTopic-g293917-i9325-k7643735-Anyone_know_where_to_get_a_watch_fixed-Chiang_Mai.html",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    },
+    {
+     "title": "High Quality Watch Repair - Chiang Mai - Thailand News and Discussion Forum | ASEANNOW",
+     "url": "https://aseannow.com/topic/1050147-high-quality-watch-repair/",
+     "kind": "forum",
+     "k2": "forum"
+    }
+   ],
+   "motdang": {
+    "n": 1,
+    "top": [
+     "Peter Hertel German Watch Repair Service"
+    ]
+   }
+  },
+  {
+   "stratum": "B",
+   "query": "self storage chiang mai",
+   "label": "self storage",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Chiang Mai Storage | Self Storage In Chiang Mai",
+     "url": "https://chiangmai-storage.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "r/chiangmai on Reddit: Storage options in Chiang Mai",
+     "url": "https://www.reddit.com/r/chiangmai/comments/1f5obom/storage_options_in_chiang_mai/",
+     "kind": "forum",
+     "status": 200,
+     "k2": "forum"
+    },
+    {
+     "title": "Luggage and Box Storage Service - Chiang Mai Buddy",
+     "url": "https://chiangmaibuddy.com/services-and-products/luggage-and-box-storage-service/",
+     "kind": "other",
+     "status": 0,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Secure Self-Storage Services in Bangkok | Short Term & Long Term",
+     "url": "https://www.asia-relocation.com/thailand/storage-services/self-storage/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Chiangmai Storage (@chiangmaistorage)",
+     "url": "https://www.facebook.com/chiangmaistorage/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "CHIANGMAI STORAGES ,Chiangmai Storages ,เชียงใหม่สโตเร็จ,รับฝากของเชียงใหม่",
+     "url": "https://www.chiangmaistorages.com/",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "Whether you are traveling near or far, for a week or a month, don't worry about not having someone to take care of your ",
+     "url": "https://storagenearme.in.th/en/self-storage/service-facility-self-storage/car-storage-chiang-mai/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Chiang Mai Auction & Self Storage (@chiangmaiauction)",
+     "url": "https://www.facebook.com/chiangmaiauction/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "About Us | Chiang Mai Storage",
+     "url": "https://chiangmai-storage.com/about-us/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Storage | Chiang Mai Removals",
+     "url": "https://chiangmairemovals.com/storage",
+     "kind": "other",
+     "k2": "own-site"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "B",
+   "query": "compounding pharmacy chiang mai",
+   "label": "compounding pharmacy",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Compounding Pharmacies?? - Health and Medicine - Thailand News and Discussion Forum | ASEANNOW",
+     "url": "https://aseannow.com/topic/952033-compounding-pharmacies/",
+     "kind": "forum",
+     "status": 403,
+     "k2": "forum"
+    },
+    {
+     "title": "Contact – MANOSÉ RESEARCH CENTER",
+     "url": "https://www.manose.co/contact/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Chiang Mai Pharmacy",
+     "url": "https://www.chiangmailocator.com/page-chiang-mai-pharmacy-125",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Peptide Therapy in Thailand | Clinical & Prescription Based | Peptides Thailand",
+     "url": "https://peptidesthailand.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "r/chiangmai on Reddit: Big pharmacy",
+     "url": "https://www.reddit.com/r/chiangmai/comments/yfl0gf/big_pharmacy/",
+     "kind": "forum",
+     "status": 200,
+     "k2": "forum"
+    },
+    {
+     "title": "Chiang Mai University Digital Collections",
+     "url": "https://cmudc.library.cmu.ac.th/frontend/Info/item/dc:163118",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ทั่วประเทศไทย",
+     "url": "https://search.tci-thailand.org/article.html?b3BlbkFydGljbGUmaWQ9MjExMTgy=",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "Singharat Pharmacy :: Chiang Mai Master",
+     "url": "https://www.chiangmaimaster.com/place/singharat-pharmacy",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Peera Pharmacy CNX | Chiang Mai | Facebook",
+     "url": "https://www.facebook.com/peerapharmacy/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "Pharmacy and Chiang Mai - Chiang Mai Forum - Tripadvisor",
+     "url": "https://www.tripadvisor.com/ShowTopic-g293917-i9325-k8113693-Pharmacy_and_Chiang_Mai-Chiang_Mai.html",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "B",
+   "query": "poker club chiang mai",
+   "label": "poker club",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Alpha Poker Club Thailand | Chiang Mai | Facebook",
+     "url": "https://www.facebook.com/Alphapokerchiangmai/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "Texas Holdem Poker - Any Clubs Or Groups Here In Chiang Mai - Chiang Mai - Thailand News, Travel & Forum - ASEAN NOW",
+     "url": "https://aseannow.com/topic/521537-texas-holdem-poker-any-clubs-or-groups-here-in-chiang-mai/",
+     "kind": "forum",
+     "status": 403,
+     "k2": "forum"
+    },
+    {
+     "title": "Thailand as a Popular Destination in the Poker World",
+     "url": "https://usa.holdemrealmoney.com/thailand/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "r/poker on Reddit: Games in Chiang Mai Thailand",
+     "url": "https://www.reddit.com/r/poker/comments/p6r1s6/games_in_chiang_mai_thailand/",
+     "kind": "forum",
+     "status": 200,
+     "k2": "forum"
+    },
+    {
+     "title": "Thailande \"Road to Chiang Mai\" - Page 4 - Voyages - Club Poker",
+     "url": "https://www.clubpoker.net/forum-poker/topic/149926-thailande-road-to-chiang-mai/?page=4",
+     "kind": "other",
+     "status": 403,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "CASINOS in & near CHIANG MAI, THAILAND - 2026 up-to-date list - CasinosAvenue",
+     "url": "https://www.casinosavenue.com/en/casinos/searchByDistance/?city=chiang-mai&id=121378&page=1",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "PokerTube - 📰 Revealed: The Asian Poker Underground",
+     "url": "https://www.pokertube.com/article/revealed-the-asian-poker-underground",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "The Only Moving to Thailand Guide You Need | BlackRain79 - Elite Poker Strategy",
+     "url": "https://www.blackrain79.com/2013/08/online-poker-players-living-in-thailand.html",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Thailande \"Road to Chiang Mai\" - Voyages - Club Poker",
+     "url": "https://www.clubpoker.net/forum-poker/topic/149926-thailande-road-to-chiang-mai/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "THE BEST Chiang Mai Casinos You'll Want to Visit (Updated 2026)",
+     "url": "https://www.tripadvisor.com/Attractions-g293917-Activities-c53-Chiang_Mai.html",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "B",
+   "query": "electrolysis hair removal chiang mai",
+   "label": "electrolysis",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Laser Electrolysis Treatments in Chiang Mai - Book Local Salons",
+     "url": "https://www.thaisalons.com/beauty-services-in-chiang-maithai-salons-directory/hair-removal-salons-in-chiang-mai/laser-electrolysis-treatments/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Hair Removal in Thailand - Yanhee Hospital - Cosmetic Services",
+     "url": "https://www.yanhee.net/cosmetic-services/hair-removal/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "MP Bright Clinic - MP Hair Clinic",
+     "url": "https://mphairclinic.com/en/mp-bright-clinic-en/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Hair Removal | Chiangmai Wellness Clinic",
+     "url": "https://www.chiangmaiwellnessclinic.com/hairremoval",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "Electrolysis Hair Removal Shin in Thailand | Best clinics and price guaranteed",
+     "url": "https://www.medicaldepartures.com/clinics/electrolysis-hair-removal-shin/thailand",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Bangkok electrolysis - Health Issues - Bangkok Forum",
+     "url": "https://bangkok-addicts.com/topic/7304-bangkok-electrolysis/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Hair Removal Salons in Chiang Mai: Top Services",
+     "url": "https://www.thaisalons.com/beauty-services-in-chiang-maithai-salons-directory/hair-removal-salons-in-chiang-mai/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Sarinya Clinic in Chiang Mai,Thailand, • Find Procedures, ...",
+     "url": "https://ever.healthcare/mc/sarinya-clinic?query=Laser+Hair+Removal",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Hair removal in Thailand - Experiences? - Thailand Forum - Tripadvisor",
+     "url": "https://www.tripadvisor.com/ShowTopic-g293915-i3686-k11085311-Hair_removal_in_Thailand_Experiences-Thailand.html",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    },
+    {
+     "title": "Gangnam Clinic (Central Chiangmai) - Save Up to 80% Shop Now! at GoWabi",
+     "url": "https://www.gowabi.com/en/provider/gangnam-clinic-central-chiangmai",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "B",
+   "query": "colon hydrotherapy chiang mai",
+   "label": "colon hydrotherapy",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Colonic Irrigation - Colon Cleanse Thailand | Chiang Mai Detox",
+     "url": "https://www.chiangmaidetox.com/colonic-irrigation/",
+     "kind": "other",
+     "status": 404,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Colonic Irrigation",
+     "url": "https://www.detox-chiangmai.com/colonic_irrigation.php",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "Colon cleansing helps eliminate waste and toxins from the body | Chiangmai Hospital | Tel : 053 225 222",
+     "url": "https://www.chiangmai-hospital.com/en/knowledges/colon-cleansing-helps-eliminate-waste-and-toxins-from-the-body",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Colon Hydrotherapy - Siam Clinic Thailand",
+     "url": "https://siamclinicthailand.com/en/services/colon-hydrotherapy/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Absolute Health Chiangmai | Muang Chiang Mai | Facebook",
+     "url": "https://www.facebook.com/AbsoluteHealthChiangmai/posts/%E0%B8%A5%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%9E%E0%B8%B4%E0%B8%A9%E0%B8%84%E0%B8%A3%E0%B8%9A%E0%B8%A7%E0%B8%87%E0%B8%88%E0%B8%A3-%E0%B8%97%E0%B8%B5%E0%B9%88absolute-health-chiangmai-%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%A7%E0%B8%99%E0%B8%A5%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%A5%E0%B8%B3%E0%B9%84%E0%B8%AA%E0%B9%89-colon-detox-%E0%B9%80/1239528731515774/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "Colonic Irrigation: detox at the Chiang Mai Ayurvedic Center | Earthoria",
+     "url": "http://www.earthoria.com/colonic-irrigation-chiang-mai.html",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "Chiang Mai Ayurvedic Center Get healthy in Chiang Mai",
+     "url": "https://changpuakmagazine.com/en-article/Chiang-Mai-Ayurvedic-Center/154542/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ดีท็อกซ์ล้างลำไส้ ดีท็อกซ์ลดพุง ดีท็อกลําไส้ดีไหม Colon @หมอหญิงคลินิก เชียงใหม่",
+     "url": "https://www.moryingclinic.com/colon-hydrotherapy",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "The 5-day colonic hydrotherapy detox at the Chiang Mai Ayurvedic Center was an interesting experience. I hope it cleanse",
+     "url": "https://www.flickr.com/photos/gauravonomics/11545127846",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "การทำ Colon Hydrotherapy เหมาะกับใครบ้าง ถ้าอยากดูแลสุขภาพ ...",
+     "url": "https://www.facebook.com/AbsoluteHealthChiangmai/videos/%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B8%B3-colon-hydrotherapy-%E0%B9%80%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%B0%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%83%E0%B8%84%E0%B8%A3%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%87-%E0%B8%96%E0%B9%89%E0%B8%B2%E0%B8%AD%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%94%E0%B8%B9%E0%B9%81%E0%B8%A5%E0%B8%AA%E0%B8%B8%E0%B8%82%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B8%95%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%95%E0%B8%A3%E0%B8%B5/419517734487133/",
+     "kind": "business-social",
+     "k2": "business-social"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "B",
+   "query": "korean grocery store chiang mai",
+   "label": "korean grocery",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Category - Grocery Store :: Chiang Mai Master",
+     "url": "https://www.chiangmaimaster.com/category/Grocery+Store",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Bora Korean Mart :: Chiang Mai Master",
+     "url": "https://www.chiangmaimaster.com/place/bora-korean-mart",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "โบรา โคเรียน มาร์ท Bora Korean Mart สาขาเชียงใหม่",
+     "url": "https://www.facebook.com/Borakoreanmartchiangmai/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "Chiang Mai Supermarkets",
+     "url": "https://www.chiangmailocator.com/page-chiang-mai-supermarkets-165",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Pinning Down Chiang Mai's Famous Rimping Supermarket. | Trip.com Mae Rim",
+     "url": "https://pk.trip.com/moments/detail/mae-rim-14935-144068626",
+     "kind": "aggregator",
+     "status": 200,
+     "k2": "aggregator"
+    },
+    {
+     "title": "r/chiangmai on Reddit: Best grocery stores/supermarkets?",
+     "url": "https://www.reddit.com/r/chiangmai/comments/1020bgk/best_grocery_storessupermarkets/",
+     "kind": "forum",
+     "k2": "forum"
+    },
+    {
+     "title": "Baan Korea Shop | Chiang Mai",
+     "url": "https://www.facebook.com/TesterKorea.Baankoreashop/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "Thetravelbrief",
+     "url": "https://www.thetravelbrief.com/briefs/chiang-mai-overview-of-supermarkets-in-chiang-mai",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Chiang Mai Grocery Shop",
+     "url": "https://www.chiangmailocator.com/page-chiang-mai-grocery-shop-71",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Best Super Markets In Chiang Mai - FoodParadise.Network - Exploring the top-rated experiences",
+     "url": "https://foodparadise.network/best-super-markets-in-chiang-mai/",
+     "kind": "other",
+     "k2": "listicle/blog"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "B",
+   "query": "large size shoes chiang mai",
+   "label": "large size shoes",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "r/chiangmai on Reddit: Shoes for big feet",
+     "url": "https://www.reddit.com/r/chiangmai/comments/17zgwyy/shoes_for_big_feet/",
+     "kind": "forum",
+     "status": 200,
+     "k2": "forum"
+    },
+    {
+     "title": "Where Can I Buy Large Shoes? - Chiang Mai - Thailand News, Travel & Forum - ASEAN NOW",
+     "url": "https://aseannow.com/topic/212250-where-can-i-buy-large-shoes/",
+     "kind": "forum",
+     "status": 403,
+     "k2": "forum"
+    },
+    {
+     "title": "r/chiangmai on Reddit: Dress shoes for big feet?",
+     "url": "https://www.reddit.com/r/chiangmai/comments/15uixhk/dress_shoes_for_big_feet/",
+     "kind": "forum",
+     "status": 200,
+     "k2": "forum"
+    },
+    {
+     "title": "Big Shoes - Chiang Mai - Thailand News and Discussion Forum | ASEANNOW",
+     "url": "https://aseannow.com/topic/576959-big-shoes",
+     "kind": "forum",
+     "status": 403,
+     "k2": "forum"
+    },
+    {
+     "title": "The Irony of Shoe Shopping in Thailand – Greg to Differ",
+     "url": "https://www.gregtodiffer.com/the-irony-of-shoe-shopping-in-thailand/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Big shoe size 13 - 15 in Chiang Mai - Chiang Mai - Thailand News and Discussion Forum | ASEANNOW",
+     "url": "https://aseannow.com/topic/977592-big-shoe-size-13-15-in-chiang-mai/",
+     "kind": "forum",
+     "k2": "forum"
+    },
+    {
+     "title": "Big shoes & sandals in Chiang Mai - Chiang Mai - Thailand News and Discussion Forum | ASEANNOW",
+     "url": "https://aseannow.com/topic/990688-big-shoes-sandals-in-chiang-mai/",
+     "kind": "forum",
+     "k2": "forum"
+    },
+    {
+     "title": "Nike Factory Store Chiang Mai Plaza",
+     "url": "https://www.nike.com/retail/s/nike-factory-store-cmp",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Chiang Mai 3 shoes in one - Seyes.shop – seyes",
+     "url": "https://seyes.shop/products/women-fashion-sandal-modular-vegan-sustainable-chiang-mai",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Large and XL clothes and shoes ChiangMai - Chiang Mai - Thailand News and Discussion Forum | ASEANNOW",
+     "url": "https://aseannow.com/topic/1216292-large-and-xl-clothes-and-shoes-chiangmai/",
+     "kind": "forum",
+     "k2": "forum"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "B",
+   "query": "brass band instruments chiang mai",
+   "label": "band instruments",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Brass Instrument - Churairat Music",
+     "url": "https://churairatmusic.com/category/brass-instrument",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "About Us - Churairat Music",
+     "url": "https://churairatmusic.com/about-us",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "Home - Churairat Music",
+     "url": "https://churairatmusic.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "Where to Buy the Best Musical Instruments in Chiang Mai: Top 10 Picks for Digital Nomads – Thailand Nomads",
+     "url": "https://www.thailandnomads.com/music-instrument-stops-chiang-mai/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Musical Instruments | Chiang Mai Business Directory | ChiangMai.net",
+     "url": "https://www.chiangmai.net/business-directory/category/musical-instruments",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Musical Instruments for sale in Chiang Mai, Thailand",
+     "url": "https://www.facebook.com/marketplace/chiangmai/instruments/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "Churairat Music Chiang Mai Muang District Chiangmai | CMHY.city",
+     "url": "https://www.cmhy.city/en/place/15574-Churairat-Music-Chiang-Mai",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Traditional Thai Music Instruments: Sounds of the Kingdom - ThaiCyclopedia",
+     "url": "https://thaicyclopedia.com/traditional-thai-music-instruments-sounds-of-the-kingdom/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Music Collection - Central Festival Chiang Mai | Chiang Mai | Facebook",
+     "url": "https://www.facebook.com/@MusicCollectionChiangmai/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "Musical Instrument Rental | Chiang Mai Business Directory | ChiangMai.net",
+     "url": "https://www.chiangmai.net/business-directory/category/musical-instrument-rental",
+     "kind": "other",
+     "k2": "listicle/blog"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "B",
+   "query": "bridge club chiang mai",
+   "label": "bridge club",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "The Bridge Club of Chiang Mai, Chiang Mai, Thailand",
+     "url": "https://www.bridgewebs.com/chiangmai/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Bridge Club",
+     "url": "https://www.chiangmaicitylife.com/citynow/whats-on/clubs-and-societies/bridge-club/",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Bridge Club Chiang Mai, Chiang Mai",
+     "url": "https://www.chiangmailocator.com/chiang-mai-hangouts-8027:bridge-club-chiang-mai",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Chiang Mai Bridge Club Tickets [2026] - Promos, Prices, Reviews & Opening Hours | Trip.com",
+     "url": "https://hk.trip.com/travel-guide/attraction/chiang-mai/chiang-mai-bridge-club-143995128?curr=HKD&locale=en-HK",
+     "kind": "aggregator",
+     "status": 432,
+     "k2": "aggregator"
+    },
+    {
+     "title": "Minutes of Meetings of the Bridge Club of Chiang Mai",
+     "url": "https://www.bridgewebs.com/chiangmai/page7.html",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Bridge Club Party at Why Not - Chiang Mai Citylife CityNow",
+     "url": "https://www.chiangmaicitylife.com/citynow/social-life/live-events/bridge-club-party-at-why-not/",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Thailand bridge",
+     "url": "https://www.pattayabridge.com/bangkok.htm",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "Bridge Club at Oat Tree Restaurant - Chiang Mai Citylife CityNow",
+     "url": "https://www.chiangmaicitylife.com/citynow/social-life/live-events/bridge-club-oat-tree-restaurant/",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Bridge Friendly Match RBSC VS BCCM – The Royal Bangkok Sports Club | RBSC Official Website",
+     "url": "https://www.rbsc.org/events/bridge-friendly-match-rbsc-vs-bccm/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Bridge Club CMU | Facebook",
+     "url": "https://www.facebook.com/BridgeClubCMU/",
+     "kind": "business-social",
+     "k2": "business-social"
+    }
+   ],
+   "motdang": {
+    "n": 5,
+    "top": [
+     "The Bridge Student Center",
+     "ด่านควบคุมโรคติดต่อระหว่างประเทศ สะพานมิตรภาพ 4 เชียงของ",
+     "คริสตจักรสะพานรุ้งแม่จัน"
+    ]
+   }
+  },
+  {
+   "stratum": "B",
+   "query": "indoor climbing gym chiang mai",
+   "label": "climbing gym",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Progression Vertical Climbing Gym",
+     "url": "https://www.thailandclimbing.com/progression-climbing-gym",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "No Gravity - Indoor Climbing - All You SHOULD Know Before Going 2026 (with Reviews)",
+     "url": "https://www.tripadvisor.com/Attraction_Review-g293917-d6510196-Reviews-No_Gravity_Indoor_Climbing-Chiang_Mai.html",
+     "kind": "aggregator",
+     "status": 403,
+     "k2": "aggregator"
+    },
+    {
+     "title": "Discover an indoor climbing at Main Wall! Located in Chiang Mai’s old town🧗‍♂️🌿 | Trip.com Chiang Mai",
+     "url": "https://www.trip.com/moments/detail/chiang-mai-209-133652430/",
+     "kind": "aggregator",
+     "status": 200,
+     "k2": "aggregator"
+    },
+    {
+     "title": "No Gravity - indoor climbing gym",
+     "url": "https://www.chiangmaicitylife.com/clg/see-do/family-activities/no-gravity-the-best-indoor-climbing-gym-in-chiang-mai/",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Thailand Indoor Climbing Gyms",
+     "url": "https://www.indoorclimbing.com/thailand.html",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "Main Wall Climbing Gym - Chiang Mai Kids by BKK Kids",
+     "url": "https://www.chiangmaikids.com/listing/main-wall-climbing-gym/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Chiang Mai Climbing: The Best Rocks & Indoor Gyms [2021]",
+     "url": "https://www.thewanderingclimber.com/chiang-mai-rock-climbing/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Main Wall | Walltopia",
+     "url": "https://walltopia.com/projects/main-wall/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Chiang Mai Rock Climbing Adventures - indoor bouldering, outdoor fun",
+     "url": "https://www.chiangmaicitylife.com/clg/see-do/sports-fitness/climbing/chiang-mai-rock-climbing-adventures/",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Indoor Rock Climbing Day Pass Ticket at Main Wall Climbing Gym | Chiang Mai - KKday",
+     "url": "https://www.kkday.com/en/product/263084",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    }
+   ],
+   "motdang": {
+    "n": 1,
+    "top": [
+     "No Gravity Indoor Climbing"
+    ]
+   }
+  },
+  {
+   "stratum": "C",
+   "query": "tok sen massage old city chiang mai open after 9pm",
+   "label": "tok sen late",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Northern Style Massage (Traditional Therapeutic Healing From Within) | Trambellir",
+     "url": "https://www.trambellir.com/treatment/northern-style-massage-fah-lanna-spa-old-city-chiang-mai",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Nun Tok Sen Massage Tickets [2025] - Promos, Prices, Reviews & Opening Hours | Trip.com",
+     "url": "https://www.trip.com/travel-guide/attraction/chiang-mai/nun-tok-sen-massage-56010712/",
+     "kind": "aggregator",
+     "status": 432,
+     "k2": "aggregator"
+    },
+    {
+     "title": "Tok Sen Massage at Fah Lanna Spa in Chiang Mai 2026 - BOOK NOW",
+     "url": "https://www.viator.com/tours/Chiang-Mai/1-Hour-Tok-Sen-Massage-in-Chiang-Mai/d5267-30822P10",
+     "kind": "aggregator",
+     "status": 403,
+     "k2": "aggregator"
+    },
+    {
+     "title": "Nun Tok Sen (Chiang Mai, Thailand): Hours, Address - Tripadvisor",
+     "url": "https://www.tripadvisor.com/Attraction_Review-g293917-d13957019-Reviews-Nun_Tok_Sen_Massage-Chiang_Mai.html",
+     "kind": "aggregator",
+     "status": 403,
+     "k2": "aggregator"
+    },
+    {
+     "title": "Great Tok Sen Massage - Review of Fah Lanna Spa - in the Old Town, Chiang Mai, Thailand - Tripadvisor",
+     "url": "https://www.tripadvisor.com/ShowUserReviews-g293917-d1604987-r181546539-Fah_Lanna_Spa_in_the_Old_Town-Chiang_Mai.html",
+     "kind": "aggregator",
+     "status": 403,
+     "k2": "aggregator"
+    },
+    {
+     "title": "Tok-Sen massage was wonderful in a beautiful setting! - Review of Fah Lanna Spa, Chiang Mai, Thailand - Tripadvisor",
+     "url": "https://www.tripadvisor.com/ShowUserReviews-g293917-d1604987-r392667097-Fah_Lanna_Spa_in_the_Old_Town-Chiang_Mai.html",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    },
+    {
+     "title": "Tok Sen - the massage that is hard to forget - Fah Lanna Spa, Chiang Mai Traveller Reviews - Tripadvisor",
+     "url": "https://www.tripadvisor.com.sg/ShowUserReviews-g293917-d1604987-r296224366-Fah_Lanna_Spa_in_the_Old_Town-Chiang_Mai.html",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    },
+    {
+     "title": "Chiang Mai: Tok Sen Massage at Award-Winning Thai Eco Spa",
+     "url": "https://activities.marriott.com/asia/thailand/chiang-mai/activities/tok_sen_massage_at_fah_lanna_spa_in_chiang_mai-X0KNQ3",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Lavender Tok Sen Massage - All You SHOULD Know Before Going 2026 (with Reviews)",
+     "url": "https://www.tripadvisor.com/Attraction_Review-g293917-d26728289-Reviews-Lavender_Tok_Sen_Massage-Chiang_Mai.html",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    },
+    {
+     "title": "loved it! must try the tok sen massage - Review of Fah Lanna Spa, Chiang Mai, Thailand - Tripadvisor",
+     "url": "https://www.tripadvisor.com/ShowUserReviews-g293917-d1604987-r191332414-Fah_Lanna_Spa_in_the_Old_Town-Chiang_Mai.html",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "C",
+   "query": "24 hour pharmacy chiang mai",
+   "label": "24h pharmacy",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Be WELL 24/7 Late Night Pharmacy",
+     "url": "https://changpuakmagazine.com/en-article/Be-WELL-24/7/159950/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Hospital Pharmacies (24-Hour Access) - Chiang Mai Daily Life | Expats Thailand",
+     "url": "https://expatsthai.com/directory/hospital",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "🎏 ร้านเราเปิดให้บริการทุกวันนะคะ #drug #phamacy #ร้านยา ...",
+     "url": "https://www.facebook.com/pharmacist24hours/posts/-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%A3%E0%B8%B2%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%99%E0%B8%B0%E0%B8%84%E0%B8%B0-drug-phamacy-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%A2%E0%B8%B2%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-open24hours/944529768541615/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "ร้านยา - สวัสดีวันมาฆบูชาค่ะ ร้านเราเปิดให้บริการปกตินะคะ 🪷🙏🏻 ...",
+     "url": "https://www.facebook.com/pharmacist24hours/photos/%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%A1%E0%B8%B2%E0%B8%86%E0%B8%9A%E0%B8%B9%E0%B8%8A%E0%B8%B2%E0%B8%84%E0%B9%88%E0%B8%B0-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%A3%E0%B8%B2%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%81%E0%B8%95%E0%B8%B4%E0%B8%99%E0%B8%B0%E0%B8%84%E0%B8%B0drug-phamacy-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%A2%E0%B8%B2%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87/949130518081540/",
+     "kind": "business-social",
+     "status": 200,
+     "k2": "business-social"
+    },
+    {
+     "title": "#pharmacist #drugstore #ฟาร์มาซิสท์ #24ชั่วโมง #ร้านยา ...",
+     "url": "https://www.facebook.com/pharmacist24hours/posts/pharmacist-drugstore-%E0%B8%9F%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%A1%E0%B8%B2%E0%B8%8B%E0%B8%B4%E0%B8%AA%E0%B8%97%E0%B9%8C-24%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%82%E0%B8%A1%E0%B8%87-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%A2%E0%B8%B2%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%9424%E0%B8%8A%E0%B8%A1-24hours-chaingmai-nimm/968547906139801/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "ร้านเปิดนะคะ ยินดีให้บริการค่า รู้ทันโรค#drugstore #ฟาร์มาซิสท์ ...",
+     "url": "https://www.facebook.com/pharmacist24hours/posts/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B8%99%E0%B8%B0%E0%B8%84%E0%B8%B0-%E0%B8%A2%E0%B8%B4%E0%B8%99%E0%B8%94%E0%B8%B5%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%84%E0%B9%88%E0%B8%B2-%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B1%E0%B8%99%E0%B9%82%E0%B8%A3%E0%B8%84drugstore-%E0%B8%9F%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%A1%E0%B8%B2%E0%B8%8B%E0%B8%B4%E0%B8%AA%E0%B8%97%E0%B9%8C-24%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%82%E0%B8%A1%E0%B8%87-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%A2%E0%B8%B2%E0%B9%80%E0%B8%9B/1002767469384511/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "🎏ร้านเปิดให้บริการนะคะ #drug #phamacy #ร้านยาใกล้ฉัน # ...",
+     "url": "https://www.facebook.com/pharmacist24hours/posts/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%99%E0%B8%B0%E0%B8%84%E0%B8%B0-drug-phamacy-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%A2%E0%B8%B2%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-open24hours-%E0%B8%99%E0%B8%B4%E0%B8%A1%E0%B8%A1%E0%B8%B2%E0%B8%99-ph/693131133681481/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "Chiang Mai Pharmacy",
+     "url": "https://www.chiangmailocator.com/page-chiang-mai-pharmacy-125",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "ร้านยา ฟาร์มาซิสท์ นิมมาน 24 ชม. Drug store 24 hours",
+     "url": "https://www.facebook.com/pharmacist24hours/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "ร้านยา - 🎏 ร้านเราเปิดให้บริการทุกวันนะคะ #drug #phamacy # ...",
+     "url": "https://www.facebook.com/pharmacist24hours/photos/-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%A3%E0%B8%B2%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%99%E0%B8%B0%E0%B8%84%E0%B8%B0-drug-phamacy-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%A2%E0%B8%B2%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-open24hours/944529731874952/",
+     "kind": "business-social",
+     "k2": "business-social"
+    }
+   ],
+   "motdang": {
+    "n": 2,
+    "top": [
+     "อีฟ ฟาร์มาซี",
+     "ร้านยา เอพลัส"
+    ]
+   }
+  },
+  {
+   "stratum": "C",
+   "query": "dentist open sunday chiang mai",
+   "label": "dentist sunday",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Home | Chiang Mai Dental 4",
+     "url": "https://www.chiangmaidental4you.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "Dental Department | Bangkok Hospital Chiang Mai",
+     "url": "https://www.bangkokhospital-chiangmai.com/en/center/dental-clinic/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Dental 4 You | Dental Departures",
+     "url": "https://www.dentaldepartures.com/dentist/dental-4-you",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Chiang Mai Dentist - Chiangmai Dental Clinic International (CIDC)",
+     "url": "https://chiangmaidentist.com/en/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "10 Best Dentists In Chiang Mai For Travelers And Expats",
+     "url": "https://catisoutoftheoffice.com/best-dentists-in-chiang-mai/",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Top 10 Clinics in Chiang Mai | Book Now | Dental Departures",
+     "url": "https://www.dentaldepartures.com/info/treatments/thailand/chiang-mai-province/chiang-mai",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "TOP-8 Best Dental Treatment Clinics in Chiang Mai — Prices & Packages 2026",
+     "url": "https://us-uk.bookimed.com/clinics/country=thailand/city=chiang-mai/direction=dentistry/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Special Dental Department | Chiangmai Hospital | Tel : 053 225 222",
+     "url": "https://www.chiangmai-hospital.com/en/our-services/special-dental-department",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Dental Clinic Chiang Mai | DentalExcellence by LERTs",
+     "url": "https://www.dentalexcellencebylerts.com/",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "Dental World Clinic | Dentist Chiang Mai - Implants & Invisalign",
+     "url": "https://www.dentalworldchiangmai.com/home-eng.html",
+     "kind": "other",
+     "k2": "own-site"
+    }
+   ],
+   "motdang": {
+    "n": 76,
+    "top": [
+     "Open Wide",
+     "ทันตแพทย์ ทรงธรรม-อัจฉรา",
+     "ซีดีเจ คลินิกทันตกรรม"
+    ]
+   }
+  },
+  {
+   "stratum": "C",
+   "query": "vet open now chiang mai",
+   "label": "vet now",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "New centre in Thailand: Enhancing veterinary care and animal welfare across South East Asia // WVS",
+     "url": "https://wvs.org.uk/news/new-centre-thailand/",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Veterinarian in Ruamchok area , | Zoo Zoo Veterinary Hospital | PetBacker Chiang Mai",
+     "url": "https://www.petbacker.com/thailand/veterinarian/chiang-mai/zoo-zoo-veterinary-hospital-pet-clinic",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Chiang Mai Chotana Animal Hospital",
+     "url": "https://chotanavet.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "Cmu",
+     "url": "https://www.vet.cmu.ac.th/SmallAnimalHospital-eng/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Faculty of Veterinary Medicine, Chiang Mai University",
+     "url": "https://www.vet.cmu.ac.th/VET_lang=en/index.php",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Chiang Mai University Animal Hospital (CMUAH)",
+     "url": "https://www.vet.cmu.ac.th/SmallAnimalHospital-eng/main-service.html",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "» Veterinarian Cost in Chiang Mai",
+     "url": "https://www.tielandtothailand.com/veterinarian-cost-chiang-mai/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Chiangmai Veterinary Clinic (Canal Road), Chiang Mai",
+     "url": "https://www.chiangmailocator.com/chiang-mai-hospitals-clinics-4540:chiangmai-veterinary-clinic-canal-road",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Small Animal Hospital (Chiang Mai University) Muang District Chiangmai | CMHY.city",
+     "url": "https://www.cmhy.city/en/place/1290-Small-Animal-Hospital-Chiang-Mai-University",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Vets and Pet Care in Chiang Mai 2026 | Chiang Mai Ambassador",
+     "url": "https://www.chiangmaiambassador.com/guides/vets-pet-care-chiang-mai",
+     "kind": "other",
+     "k2": "listicle/blog"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "C",
+   "query": "motorcycle parking near tha phae gate",
+   "label": "moto parking",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Old City, Chiang Mai: Motorbike Rental with Byklo",
+     "url": "https://www.byklo.rent/en/city/chiang-mai/old-city/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Best Hotels Near Tha Phae Gate in Chiang Mai | Trip.com",
+     "url": "https://us.trip.com/hotels/chiang-mai-tha-phae-gate/hotels-c623m6789578/",
+     "kind": "aggregator",
+     "status": 200,
+     "k2": "aggregator"
+    },
+    {
+     "title": "Tha Phae Gate Chiang Mai",
+     "url": "https://airial.travel/attractions/thailand/tha-phae-gate-chiang-mai-kuLGGeMn",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "MotoGP Thailand | Parking | MotoGPThailand.com",
+     "url": "https://www.motogpthailand.com/en/parking-82",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Tha Phae Gate: Your Guide To Chiang Mai's Historical Landmark",
+     "url": "https://catmotors.net/travel/tha-phae-gate/",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Tha Phae Gate - Historical landmark in Tamon chang khlan - Website",
+     "url": "https://tha-phae-gate.com-place.com/",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "TOP 10 BEST Motorcycle Parking in Houston, TX - Updated 2026 - Quality & Affordability - Yelp",
+     "url": "https://www.yelp.com/search?find_desc=Motorcycle+Parking&find_loc=Houston,+TX",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    },
+    {
+     "title": "Tha Phae Gate: The Iconic Gateway to Chiang Mai's Heritage",
+     "url": "https://evendo.com/locations/thailand/northern-thailand/landmark/tha-phae-gate",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Tha Phae Gate: Everything You Need Before Visiting",
+     "url": "https://www.klook.com/en-US/destination/p50001188-tha-phae-gate/",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    },
+    {
+     "title": "On-Site Bike & Motorcycle Parking | Minnesota State Fair",
+     "url": "https://www.mnstatefair.org/get-here/bicycle/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "C",
+   "query": "public toilet near chiang mai gate",
+   "label": "toilet",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Chiang Mai is officially the best city in the world for public toilets",
+     "url": "https://www.timeout.com/chiang-mai/news/we-sh-t-you-not-chiang-mai-has-been-named-the-best-city-in-the-world-for-public-toilets-081026",
+     "kind": "aggregator",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Are there any public Toilets - Chiang Mai Forum - Tripadvisor",
+     "url": "https://www.tripadvisor.com/ShowTopic-g293917-i9325-k5826435-Are_there_any_public_Toilets-Chiang_Mai.html",
+     "kind": "aggregator",
+     "status": 403,
+     "k2": "aggregator"
+    },
+    {
+     "title": "Public Bathroom in Mueang Chiang Mai District, Chiang Mai Thailand - Apple Maps",
+     "url": "https://maps.apple.com/place?place-id=I88929AA6A415633D",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "r/Thailand on Reddit: Possibly the most beautiful public toilet on Earth, Chiang Rai Thailand.",
+     "url": "https://www.reddit.com/r/Thailand/comments/i2j4da/possibly_the_most_beautiful_public_toilet_on/",
+     "kind": "forum",
+     "status": 200,
+     "k2": "forum"
+    },
+    {
+     "title": "The Best and Worst of Chiang Mai | Jet Set and Forget",
+     "url": "https://www.jetsetandforget.com/best-and-worst-of-chiang-mai/",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Public Toilet Near Me - Find Restrooms & Bathrooms Near Me | Toilet ...",
+     "url": "https://www.toiletcodes.com/en/chiang-mai",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Clean public restrooms in Chiang Mai - Chiang Mai Forum - Tripadvisor",
+     "url": "https://www.tripadvisor.com.sg/ShowTopic-g293917-i9325-k8898610-Clean_public_restrooms_in_Chiang_Mai-Chiang_Mai.html",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    },
+    {
+     "title": "Toilet (Busteminal 3) Muang District Chiangmai | CMHY.city",
+     "url": "https://www.cmhy.city/en/place/21120-Toilet-Busteminal-3",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "10 Things You Need to Know About Thailand Before You Go » Chai Lai Orchid",
+     "url": "https://chailaiorchid.com/blog/10tips-thailand/",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "r/ArchitecturalRevival on Reddit: Possibly the most beautiful public toilet on Earth, Chiang Rai Thailand.",
+     "url": "https://www.reddit.com/r/ArchitecturalRevival/comments/i1rz0v/possibly_the_most_beautiful_public_toilet_on/",
+     "kind": "forum",
+     "k2": "forum"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "C",
+   "query": "nursing home chiang mai english speaking",
+   "label": "nursing home",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "The Top-Ranked Dementia Care Facilities in Thailand: Our 2025 Review",
+     "url": "https://www.vivocare.org/post/thailand-s-best-dementia-care-memory-care-facilities-2025-review",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "List of care homes in Chiang Mai Thailand",
+     "url": "https://chiangmai.care/list-of-care-homes-in-chiang-mai-thailand/",
+     "kind": "other",
+     "status": 0,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Chiang Mai care resort - Full care nursing home in Thailand.",
+     "url": "https://bansabaicare.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "Care Resort Chiang Mai",
+     "url": "https://www.careresortchiangmai.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "Retirement and Nursing Homes - Chiang Mai Buddy",
+     "url": "https://chiangmaibuddy.com/you-the-people/retirees/retirement-and-nursing-homes/",
+     "kind": "other",
+     "status": 0,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Care Resort Chiang Mai - Nursing Homes, Assisted Living in Chiang Mai | Prices & Contact | SabaiCare",
+     "url": "https://sabaicare.com/facilities/care-resort-chiang-mai",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Vivobene Thailand | Premium Swiss-Standard Assisted Living Care",
+     "url": "https://www.vivobene.asia/",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "A luxury retirement facility in Thailand",
+     "url": "https://www.careresortchiangmai.com/index.php?viewID=2",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "Finding the Best Quality Home Care in a Skilled Nursing Facility - Modern Aging",
+     "url": "https://thisismodernaging.com/finding-the-best-quality-home-care-in-a-skilled-nursing-facility/",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Best Senior Living Facilities in Chiang Mai - SeniorLivingAbroad",
+     "url": "https://seniorlivingabroad.com/location/thailand/chiang-mai/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "C",
+   "query": "laundry open late chiang mai",
+   "label": "laundry late",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "A Guide to Laundry in Chiang Mai – a load off your mind",
+     "url": "https://perfecthomes.co.th/guide-laundry-chiang-mai-load-off-mind/",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Laundry Delivery Chiang Mai — Pickup, Wash, Iron & 24h Laundromat | Happy 24",
+     "url": "https://happy24hlaundry.com/",
+     "kind": "other",
+     "status": 404,
+     "k2": "own-site"
+    },
+    {
+     "title": "Laundry Service - Free Pickup & Delivery - by Laundery Giving you back the time you deserve!",
+     "url": "https://www.launderyth.com/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "r/chiangmai on Reddit: Laundry",
+     "url": "https://www.reddit.com/r/chiangmai/comments/1gig6bc/laundry/",
+     "kind": "forum",
+     "status": 200,
+     "k2": "forum"
+    },
+    {
+     "title": "Chiang Mai Laundromat",
+     "url": "https://www.chiangmailocator.com/page-chiang-mai-laundromat-95",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Laundry Royal Chiang Mai, Thailand",
+     "url": "https://laundryroyalchiangmai.com/en/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Laundry Shop | Shangri-la Chiang Mai",
+     "url": "https://www.slcm.online/laundry-shop",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "Laundry Service Chiang Mai | Preferred Choice for Hotel Guests + Expats",
+     "url": "https://laundrytown.com/laundry-service-chiang-mai/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Em's Laundry Chiang Mai | 828 Reviews | Free Pickup & Delivery",
+     "url": "https://www.chiangmailaundry.com/",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "Laundry Services - Chiang Mai Forum - Tripadvisor",
+     "url": "https://www.tripadvisor.com/ShowTopic-g293917-i9325-k14632723-Laundry_Services-Chiang_Mai.html",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    }
+   ],
+   "motdang": {
+    "n": 240,
+    "top": [
+     "Laundry",
+     "Laundry and coffee",
+     "Laundry Station & Cafe"
+    ]
+   }
+  },
+  {
+   "stratum": "D",
+   "query": "ตอกเส้น เชียงราย",
+   "label": "tok sen CR",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "ศูนย์หมอต๋องอินดี้เชียงราย นวดตอกเส้น - ข้อมูลคลินิกในเชียงราย | TopClinic.in.th",
+     "url": "https://topclinic.in.th/clinics/suunyhmtngindiiechiiyngraay-nwdtkesn",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ค้นหาร้านนวดตอกเส้นล้านนาเชียงรายใกล้คุณ พร้อมบริการคลายเส้นมืออาชีพ",
+     "url": "https://www.lemon8-app.com/@nuaojasmin/7575031002553205249?region=th",
+     "kind": "other",
+     "status": 404,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ตอกเส้นเชียงราย",
+     "url": "https://www.tiktok.com/tag/%E0%B8%95%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+     "kind": "social-video",
+     "status": 200,
+     "k2": "social-video"
+    },
+    {
+     "title": "รีวิว นวดตอกเส้น ณ วัดเชตุพน จ.เชียงราย 089-442-5925 😂 🔨 วัดเชตุพน https://maps.app.goo.gl/Jc6U7kvYk1samqst9?g_st=ic | T",
+     "url": "https://www.tiktok.com/@nechikas/video/7253674968318266629",
+     "kind": "social-video",
+     "status": 200,
+     "k2": "social-video"
+    },
+    {
+     "title": "นวดตอกเส้นเชียงราย",
+     "url": "https://www.tiktok.com/tag/%E0%B8%99%E0%B8%A7%E0%B8%94%E0%B8%95%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+     "kind": "social-video",
+     "status": 200,
+     "k2": "social-video"
+    },
+    {
+     "title": "Tok Sen - ณลิลธารา นวดเพื่อสุขภาพ เชียงราย",
+     "url": "https://www.nalinthara.com/tok-sen/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "นวดตอกเส้นสีไพร เชียงราย",
+     "url": "https://www.facebook.com/natthawut.issariyawiwat.9/videos/3903519786546095/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "เป็นข่าวเล่าเรื่อง l อนุรักษ์ฟื้นฟูหมอเมือง “ย่ำขาง ตอกเส้น”",
+     "url": "https://www.facebook.com/NationTV/videos/%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%82%E0%B9%88%E0%B8%B2%E0%B8%A7%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%B2%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87-l-%E0%B8%AD%E0%B8%99%E0%B8%B8%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%A9%E0%B9%8C%E0%B8%9F%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%9F%E0%B8%B9%E0%B8%AB%E0%B8%A1%E0%B8%AD%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87-%E0%B8%A2%E0%B9%88%E0%B8%B3%E0%B8%82%E0%B8%B2%E0%B8%87-%E0%B8%95%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99/549404397949880/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "#หมอต๋องอินดี้ #นวดตอกเส้น #เชียงราย #วัดร่องขุ่นจังหวัดเชียงราย  | TikTok",
+     "url": "https://www.tiktok.com/@maiyaya526/video/7357322991279082769",
+     "kind": "social-video",
+     "k2": "social-video"
+    },
+    {
+     "title": "นวดตอกเส้นสีไพร เชียงราย #นวดตอกเส้นเพื่อสุขภาพ แก้ไข ตรง ...",
+     "url": "https://www.facebook.com/groups/780824432069553/posts/3137839413034698/",
+     "kind": "business-social",
+     "k2": "business-social"
+    }
+   ],
+   "motdang": {
+    "n": 11,
+    "top": [
+     "ตอกเส้นบ้านพ่อครูดาว ล้านนา",
+     "ตอกเส้นในสวน",
+     "ตอกเส้นในสวน"
+    ]
+   }
+  },
+  {
+   "stratum": "D",
+   "query": "ช่างกุญแจ เชียงราย",
+   "label": "locksmith CR",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "ช่างกุญแจเชียงราย 080-4994570 24 ชั่วโมง ร้านกุญแจลานนา ...",
+     "url": "https://www.facebook.com/LnankeyService/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "ช่างกุญแจเชียงราย ซ่อมกุญแจ กุญแจรีโมทหาย 0840176485 - ช่างกุญแจ 24ชั่วโมง : Inspired by LnwShop.com (v2)",
+     "url": "https://www.xn--24-lqixddlfx8rnc8ff0gwgwa3gl.com/product/14075/%E0%B8%8A%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2-%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88-%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B8%A3%E0%B8%B5%E0%B9%82%E0%B8%A1%E0%B8%97%E0%B8%AB%E0%B8%B2%E0%B8%A2-0840176485",
+     "kind": "other",
+     "status": 404,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "รับทำกุญแจเชียงราย 0840176485 - ช่างกุญแจ 24ชั่วโมง : Inspired by LnwShop.com",
+     "url": "https://www.xn--24-lqixddlfx8rnc8ff0gwgwa3gl.com/product/7389/%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%97%E0%B8%B3%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2-0840176485",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ซ่อมกุญแจรถยนต์ เชียงราย 0840176485 - ช่างกุญแจ 24ชั่วโมง : Inspired by LnwShop.com (v2)",
+     "url": "https://www.xn--24-lqixddlfx8rnc8ff0gwgwa3gl.com/product/6864/%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B8%A3%E0%B8%96%E0%B8%A2%E0%B8%99%E0%B8%95%E0%B9%8C-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2-0840176485",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ช่างกุญแจ เชียงราย ใกล้ฉัน 24 ช.ม. ติดต่อ 080-309-9670",
+     "url": "https://www.spstainlessthai.com/category/9372/%E0%B8%8A%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99-24-%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%82%E0%B8%A1%E0%B8%87-%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B9%88%E0%B8%AD-080-309-9670/%E0%B8%8A%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2-%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99-24-%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%A7%E0%B9%82%E0%B8%A1%E0%B8%87-%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B9%88%E0%B8%AD-080-309-9670",
+     "kind": "other",
+     "status": 404,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ช่างกุญแจเชียงราย รับทำกุญแจรถยนต์ทุกชนิด ราคาถูก",
+     "url": "https://www.xn--12clefr3cght1fnic6ryb4bykva8h8d.com/post/2873/",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "เบอร์ช่างกุญแจเชียงราย: ทำกุญแจรถ รีโมทรถยนต์ เปิดตู้เซฟ ราคาถูก บริการทุกอำเภอ!",
+     "url": "http://www.xn--12clefr5da2gxb8ff8e2fybxcj.com/product/78/%E0%B8%8A%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2-%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B8%A3%E0%B8%96%E0%B8%AB%E0%B8%B2%E0%B8%A2-%E0%B8%A5%E0%B8%B7%E0%B8%A1%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88-%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%80%E0%B8%8B%E0%B8%9F-%E0%B9%82%E0%B8%97%E0%B8%A3-081-1757677",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ช่างกุญแจ ซ่อมสวิทช์กุญแจรถยนต์ เปิดรถเปิดตู้เซฟ",
+     "url": "https://www.keyshopthai.com/category/66/%E0%B8%8A%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2-%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B8%AB%E0%B8%B2%E0%B8%A2-%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B8%A3%E0%B8%B5%E0%B9%82%E0%B8%A1%E0%B8%97-%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ช่างกุญแจเชียงรา ย | กุญแจรถหาย | ลืมกุญแจ | เปิดตู้เซฟ โทร.081-1757677",
+     "url": "http://www.xn--12clefr5da2gxb8ff8e2fybxcj.com/category/9/%E0%B8%8A%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2-%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B8%B3%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B8%A3%E0%B8%96%E0%B8%A2%E0%B8%99%E0%B8%95%E0%B9%8C-%E0%B8%A3%E0%B8%B5%E0%B9%82%E0%B8%A1%E0%B8%97%E0%B8%A3%E0%B8%96%E0%B8%A2%E0%B8%99%E0%B8%95%E0%B9%8C-%E0%B9%82%E0%B8%97%E0%B8%A3-081-1757677",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ช่างกุญแจเชียงราย084-1504041 | Chiang Rai",
+     "url": "https://www.facebook.com/moskeytimechiangrai/?locale=th_TH",
+     "kind": "business-social",
+     "k2": "business-social"
+    }
+   ],
+   "motdang": {
+    "n": 14,
+    "top": [
+     "ช่างกุญแจเชียงใหม่ ร้านเอกุญแจ",
+     "ช่างกุญแจเชียงราย 080-4994570 24 ชั่วโมง ร้านกุญแจลานนา Key ",
+     "ช่างกุญแจเชียงราย ใจ๋ดี"
+    ]
+   }
+  },
+  {
+   "stratum": "D",
+   "query": "ร้านซ่อมนาฬิกา เชียงราย",
+   "label": "watch repair CR",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "ร้าน จอมทองนาฬิกา contact information. นาฬิกา, in เชียงราย",
+     "url": "https://xn--th-th139452----8l6bxdqa4y9ae9npb9ptac7jjc0d.contact.page/",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "🛠️ศูนย์ซ่อมนาฬิกาทั้ง ทุกรุ่น เก่าและใหม่ #เชียงราย #gshock # ...",
+     "url": "https://www.facebook.com/naka.shopping/posts/%EF%B8%8F%E0%B8%A8%E0%B8%B9%E0%B8%99%E0%B8%A2%E0%B9%8C%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%99%E0%B8%B2%E0%B8%AC%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%97%E0%B8%B1%E0%B9%89%E0%B8%87-%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99-%E0%B9%80%E0%B8%81%E0%B9%88%E0%B8%B2%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2-gshock-casio-alba-op-seiko-beb/966504222151177/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "ศูนย์ซ่อมนาฬิกาทั้ง เก่าและใหม่ #เชียงราย ⚙️ เปลี่ยนสาย ⚙️ ...",
+     "url": "https://www.facebook.com/naka.shopping/posts/%E0%B8%A8%E0%B8%B9%E0%B8%99%E0%B8%A2%E0%B9%8C%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%99%E0%B8%B2%E0%B8%AC%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%97%E0%B8%B1%E0%B9%89%E0%B8%87-%E0%B9%80%E0%B8%81%E0%B9%88%E0%B8%B2%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2%EF%B8%8F-%E0%B9%80%E0%B8%9B%E0%B8%A5%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%99%E0%B8%AA%E0%B8%B2%E0%B8%A2%EF%B8%8F-%E0%B9%80%E0%B8%9B%E0%B8%A5%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%99%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%99%EF%B8%8F-%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%AD%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%9A%E0%B8%B7%E0%B9%89%E0%B8%AD/963468395788093/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "#ศูนย์ช่อมนาฬิกาเก่าใหม่ทุกยี่ห้อเชียงราย",
+     "url": "https://www.tiktok.com/tag/%E0%B8%A8%E0%B8%B9%E0%B8%99%E0%B8%A2%E0%B9%8C%E0%B8%8A%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%99%E0%B8%B2%E0%B8%AC%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B9%80%E0%B8%81%E0%B9%88%E0%B8%B2%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%A2%E0%B8%B5%E0%B9%88%E0%B8%AB%E0%B9%89%E0%B8%AD%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2",
+     "kind": "social-video",
+     "status": 200,
+     "k2": "social-video"
+    },
+    {
+     "title": "รับซ่อมนาฬิกาทุกยี่ห้อ ทุกอาการ งานมีรับประกัน",
+     "url": "https://forums.chiangraifocus.com/?topic=619769.0",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "ฟีนิกซ์นาฬิกา | Chiang Rai | Facebook",
+     "url": "https://www.facebook.com/phoenixwatch.cr/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "กุญแจ-รีโมททุกชนิด - นาฬิกา รับงานในและนอกสถานที่ ...",
+     "url": "https://www.facebook.com/Topkey24h/",
+     "kind": "business-social",
+     "k2": "business-social"
+    },
+    {
+     "title": "Luxetime - ศูนย์ซ่อมนาฬิกา High-end | วันเดียว รอรับกลับได้เลย",
+     "url": "https://luxe-time.com/sell-or-trade/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "ร้านซ่อมนาฬิกาใกล้ฉัน รับซ่อมถึงที่ ทั่วไทย ราคาเริ่ม ฿200 | Fastwork",
+     "url": "https://fastwork.co/watch-repair",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "ร้านซ่อมนาฬิกา เซนทรัลเวสเกต Export watch | สำนักงานคณะกรรมการ สกสค.",
+     "url": "https://www.otep.go.th/benefits/category/4b6ded4f-147a-42b5-91fc-abe2a0cd9989/1edbb199-5f38-4672-b915-dbbb5fe709b8",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "D",
+   "query": "dentist chiang rai",
+   "label": "dentist CR",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Dental Land Chiang Rai : จัดฟัน ทำฟัน รากเทียม โดยทันตแพทย์เฉพาะทาง | Chiang Rai | Facebook",
+     "url": "https://www.facebook.com/dentallandchiangrai/",
+     "kind": "business-social",
+     "status": 400,
+     "k2": "business-social"
+    },
+    {
+     "title": "The Best Dentists in Mueang Chiang Rai, Thailand | WhoDoYou",
+     "url": "https://www.whodoyou.com/l/mueang-chiang-rai--thailand/dentist",
+     "kind": "other",
+     "status": 403,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "LDC Dental เชียงราย | LDC Dental",
+     "url": "https://www.ldcdental.com/en/branch/cri/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Dental Land Chiang Rai",
+     "url": "https://dentalland-chiangrai.com/en/",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Dentistry Clinics in Chiang Rai | 2025 Prices",
+     "url": "https://www.mymeditravel.com/dentistry-clinics-in-chiangrai-thailand",
+     "kind": "other",
+     "status": 410,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Top 7 Dentists in Chiang Rai, Thailand - Jul 2026",
+     "url": "https://www.thaiyello.com/category/dentists/city:chiang-rai",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Dentist Chiang Rai - Thailand - Best - Dental - Clinic",
+     "url": "https://newholidays.co.uk/dentist-chiang-rai-thailand-best-dental-clinic/",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Dentists in Chang Rai - Chiang Rai Forum - Tripadvisor",
+     "url": "https://www.tripadvisor.com/ShowTopic-g297920-i9940-k11527461-Dentists_in_Chang_Rai-Chiang_Rai_Chiang_Rai_Province.html",
+     "kind": "aggregator",
+     "k2": "aggregator"
+    },
+    {
+     "title": "Dentist recommendation anyone?",
+     "url": "https://www.chiangraities.com/index.php?topic=5639.0",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "White Smile Chiang Rai Dental Clinic คลินิกไวท์สไมล์ ทำฟัน จัดฟัน เชียงราย | Facebook",
+     "url": "https://www.facebook.com/whitesmilechiangrai/",
+     "kind": "business-social",
+     "k2": "business-social"
+    }
+   ],
+   "motdang": {
+    "n": 433,
+    "top": [
+     "Dentistry Library CMU | Chiang Mai",
+     "Dentist's Heart Dental Clinic",
+     "ทันตแพทย์ ทรงธรรม-อัจฉรา"
+    ]
+   }
+  },
+  {
+   "stratum": "D",
+   "query": "veterinarian chiang rai",
+   "label": "vet CR",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Veterinary clinic in Chiang rai (City) - Directory - List - Guide - Veterinary clinic - Other cities in chiang rai - Chi",
+     "url": "https://www.veterinariansguide.com/veterinary-clinic-in-thailand/veterinarians-in-chiang-rai/",
+     "kind": "other",
+     "status": 0,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Veterinary Clinics & Pet Surgeries in Chiang Rai",
+     "url": "https://www.chiangraitimes.com/chiang-rai-guide/veterinary-clinics-chiang-rai/",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Veterinary clinics in Chiang Rai",
+     "url": "https://www.chiangraities.com/index.php?topic=495.0",
+     "kind": "other",
+     "status": 200,
+     "k2": "own-site"
+    },
+    {
+     "title": "Veterinary care at Chiang Rai, Thailand - Vap.wiki",
+     "url": "https://vap.wiki/TH/3498_Chiang-Rai/veterinary_care/",
+     "kind": "other",
+     "status": 0,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Best Veterinary Care In Chiang Rai Thailand",
+     "url": "https://closelocation.com/veterinary-care/veterinary-care-in-chiang-rai-3443-219",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Emergency veterinarian and 24-hour veterinary clinic in Chiang Rai, Thailand",
+     "url": "https://www.vetshunter.com/en/chiang-rai/thailand",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "โรงพยาบาลสัตว์เชียงราย ChiangRaiPetHospital Reviews - Animal hospital in Den Ha, Thailand | Top-Rated.Online Travel",
+     "url": "https://www.top-rated.online/cities/Den+Ha/place/p/9462251/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B8%AA%E0%B8%B1%E0%B8%95%E0%B8%A7%E0%B9%8C%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A3%E0%B8%B2%E0%B8%A2+ChiangRaiPetHospital",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Vets In Chiang Rai - Chiang Rai - Thailand News, Travel & Forum - ASEAN NOW",
+     "url": "https://aseannow.com/topic/251173-vets-in-chiang-rai/",
+     "kind": "forum",
+     "k2": "forum"
+    },
+    {
+     "title": "Emergency Vet in Chiang Rai - Thailand",
+     "url": "https://www.veterinby.com/emergency-vet-thailand/chiang-rai-i1/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "โรงพยาบาลสัตว์สหมิตร (Sahamitr animal hospital) - Amphoe Chiang Rai, Thailand",
+     "url": "https://yellow.place/en/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B8%AA%E0%B8%B1%E0%B8%95%E0%B8%A7%E0%B9%8C%E0%B8%AA%E0%B8%AB%E0%B8%A1%E0%B8%B4%E0%B8%95%E0%B8%A3-sahamitr-animal-hospital-amphoe-chiang-rai-thailand",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    }
+   ],
+   "motdang": {
+    "n": 0,
+    "top": []
+   }
+  },
+  {
+   "stratum": "D",
+   "query": "hardware store chiang rai",
+   "label": "hardware CR",
+   "error": null,
+   "n_results": 10,
+   "results": [
+    {
+     "title": "Hardware stores in Area Code 53 Chiang Mai, Chiang Mai Province",
+     "url": "https://www.cybo.com/TH-area-code/53_chiang-mai/hardware-store/",
+     "kind": "other",
+     "status": 403,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Hardware Store | Chiang Mai Business Directory | ChiangMai.net",
+     "url": "https://www.chiangmai.net/business-directory/category/hardware-store",
+     "kind": "other",
+     "status": 200,
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Top 15 Hardware Stores in Chiang Mai, Thailand - Jun 2026",
+     "url": "https://www.thaiyello.com/category/hardware-stores/city:chiang-mai",
+     "kind": "other",
+     "status": 200,
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "Thailand home pro hardware store, similar to a Lowe’s or a Home Depot in the states. They have a lot of familiar tools, ",
+     "url": "https://www.tiktok.com/@big.z.thailand/video/7392681538414202158",
+     "kind": "social-video",
+     "status": 200,
+     "k2": "social-video"
+    },
+    {
+     "title": "Home decor hardware - Chiang Mai Forum - Tripadvisor",
+     "url": "https://www.tripadvisor.com/ShowTopic-g293917-i9325-k9222163-Home_decor_hardware-Chiang_Mai.html",
+     "kind": "aggregator",
+     "status": 403,
+     "k2": "aggregator"
+    },
+    {
+     "title": "HomePro | No.1 Home Improvement Center in Thailand",
+     "url": "https://www.homepro.co.th/?lang=en",
+     "kind": "other",
+     "k2": "own-site"
+    },
+    {
+     "title": "Hardware store nearby Chiang Mai, Thailand: addresses, websites in Shops directory, Maps.me - download offline maps",
+     "url": "https://maps.me/catalog/shops/shop-hardware/country-praethsaithy/city-echiiyngaihm-178056220/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    },
+    {
+     "title": "The Tool Mart - Hardware Store in Mueang Chiang Mai",
+     "url": "https://foursquare.com/v/the-tool-mart/4ea900cadab4888811033b2f",
+     "kind": "directory",
+     "k2": "directory"
+    },
+    {
+     "title": "Hardware Stores | Chiang Mai Business Directory | ChiangMai.net",
+     "url": "https://www.chiangmai.net/business-directory/category/hardware-stores",
+     "kind": "other",
+     "k2": "listicle/blog"
+    },
+    {
+     "title": "Hardware stores in Narsingdi District",
+     "url": "https://www.cybo.com/BD/narsingdi-district/hardware-store/",
+     "kind": "other",
+     "k2": "page-on-a-site"
+    }
+   ],
+   "motdang": {
+    "n": 2,
+    "top": [
+     "Hardware Store",
+     "สกลโลหะภัณฑ์ เชียงใหม่ Sakollohaphan Metal store Chiang Mai"
+    ]
+   }
+  }
+ ]
+}

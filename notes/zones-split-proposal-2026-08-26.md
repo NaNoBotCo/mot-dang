@@ -33,7 +33,7 @@ similar). The spine was measured before it was chosen:
   แม่แตง-เชียงดาว, ฝาง-แม่อาย, จอมทอง-ฮอด, แม่ออน). First match wins,
   boxes before circles.
 
-## The anchor rule (how hand-drawn bounds stay honest)
+## The anchor rule (how hand-drawn bounds stay defensible)
 
 Every city zone names **anchors** — places from our own records that must
 fall inside it: the moat rectangle is proven by วัดพระสิงห์ and

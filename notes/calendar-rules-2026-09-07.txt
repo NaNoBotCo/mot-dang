@@ -1,5 +1,5 @@
 CALENDAR RULES
-2026-09-07.  Survey + your decisions.  Nothing built yet; build.py was running.
+2026-09-07.  Survey + your decisions.  build.py was running.
 
 
 WHAT IS ON DISK

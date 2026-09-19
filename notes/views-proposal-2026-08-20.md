@@ -26,7 +26,7 @@ states and nothing ranks it*. Here:
 measurements and render as measurements. A venue's "mountain view" is the
 venue's own claim and renders as its claim — ชื่อบอกวิว, the name says so. A
 Commons count is a count of freely-licensed photographs, dated. Nothing on
-this site crowns a "best sunset", sorts spots into hidden and touristy, or
+this site crowns a "best sunset", sorts spots into hidden and heavily visited, or
 turns a westward bearing into a sunset promise — whether the horizon is open
 at dusk is the venue's or the door survey's to state. Sorts stay distance and
 alphabet, the same rule as the temples. Entry fees, when they come, are the

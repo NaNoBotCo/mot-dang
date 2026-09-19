@@ -18,7 +18,7 @@ There is no trade. That is the finding, and it is the whole answer.
   — please don't kill it, can it be taken away and released. Everything else on
   the page is scaffolding around that one line.
 
-## Why this is NOT a pest-control question, and why the two must never share a voice
+## Why this is NOT a pest-control question, and why the two do not share a voice
 
 `data/curated/pest.json` holds both strands in one file with a `_readme` that
 forbids merging them:
@@ -32,7 +32,7 @@ forbids merging them:
 The toilets rule, applied to a second subject. The one place the two halves are
 allowed to touch is the rats: snakes follow rats, rats follow food, so dealing
 with the rats is dealing with the snakes — and that is the ONLY pest-control
-answer to a snake this site will give. It is one sentence, on both pages, in
+answer to a snake given here. It is one sentence, on both pages, in
 both directions.
 
 ## Sources (url · fetched 2026-08-31 · what it supports)

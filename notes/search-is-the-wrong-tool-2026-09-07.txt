@@ -23,7 +23,7 @@ for "Motorcycle parking near taphae" — the same bug Michael reported, because
 nothing has been deployed. WO-67 and WO-68 are built and verified in a scratch
 tree and are still waiting on your go.
 
-That said: I re-ran your exact query against the FIXED build, on a 375 px
+I re-ran your exact query against the FIXED build, on a 375 px
 phone viewport, and it is better and still not good. Everything from §1 down
 is about the fixed build, because there is no point diagnosing the version we
 have already replaced.
@@ -142,7 +142,7 @@ CAUSE 3 — EXTRA WORDS ARE TREATED AS REQUIREMENTS.
   which is how humans ask.
 
 CAUSE 4 — THE COUNT IS THE HEADLINE, AND IT ANSWERS NOTHING.
-  "Search results 134". For "where is the nearest X" the honest headline is
+  "Search results 134". For "where is the nearest X" the fitting headline is
   the first one, its distance, and whether it costs. 134 is a boast about the
   catalogue, not an answer to the question.
 

@@ -1,0 +1,204 @@
+WO-78 — THE SECOND LINE
+A result you can act on without opening it
+2026-09-08
+
+
+WHAT MICHAEL ASKED
+
+  "Records that appear in search/map/discoverability functionality in Motdang
+   should not require you to click them to see basic information (such as the
+   lists displayed after search). You should be able to rank/sort results
+   according to tags and your own matching criteria, without ever leaving the
+   results page. Most of the details Motdang has could fit on a line or 2, and
+   would cut down on clicks for human users (good--accessibility!). You need
+   basic information about links in order to decide (as a human) whether
+   clicking is worth the extra nav effort."
+
+
+§1  WHAT THE ROW WAS THROWING AWAY
+
+WO-69 (yesterday) made a result a card rather than a link: name, reading,
+metres, an open-now lamp, three chips, a 📍. What it did not do is let anyone
+FINISH on the list. Six things the record behind that row already held and the
+row did not show:
+
+    every tag it earned          `t`   — capped at ONE chip; 127 slugs exist
+    its trade tags               `tt`  — never shown at all
+    its street                   `st`  } the row showed whichever came first
+    its tambon / amphoe          `ar`  } and dropped the other
+    its opening schedule         `hk`  — spent on a lamp; the HOURS unread
+    a phone / its own page       —     — not in the index at all
+
+The first four were already ints on the index row. They were being computed,
+shipped, and discarded at render time. Those cost nothing to put back.
+
+
+§2  WHAT A ROW LOOKS LIKE NOW
+
+Before:
+
+    เดนทัล บลูม ●
+    dentist · ฟอกสีฟัน · จัดฟัน                                        📍
+
+After:
+
+    เดนทัล บลูม ●
+    dentist  จัดฟัน  รากฟันเทียม  ฟอกสีฟัน   เปิดถึง 22:00
+    ☎ 052-007-389   facebook                                          📍
+
+Order is the order a person scans in — what is it, where is it, when is it
+open, how do I reach it. Every chip is a filter, so you can narrow by any tag
+you can SEE, which until today was one tag per row. Past the fifth chip they
+fold behind a +N that opens IN PLACE: no navigation, nothing dropped.
+
+Measured across the whole catalogue (88,161 records):
+
+    83%  will carry a phone or their own page on the row
+    100% get a second line of some kind
+    the ones that get NOTHING get nothing — a name-and-a-pin record renders no
+         line at all rather than an empty bar. 63,170 of the records folded in
+         this week are exactly that, and a row that draws a blank strip for
+         each of them would be worse than the list we have.
+
+
+§3  RANK AND SORT, ON THE RESULTS PAGE
+
+The refine tools row (WO-75) already offers ตรงที่สุด · ก-ฮ · ใกล้ที่สุด ·
+ครบที่สุด. It gains:
+
+    ตรงแท็กมากสุด / most tags matched
+
+which counts how many of the tag terms YOU asked for each row carries. With an
+OR of two tags, the rows carrying both go on top. It only ever REORDERS — a row
+carrying none of them scores nought and sorts last; a row nobody has tagged is
+untagged, not disqualified. And ครบที่สุด now counts the phone and the page.
+
+
+§4  THE MAP SIDE
+
+A dot and a row are the same record seen twice, so the map card (WO-74) reads
+the same two attributes and gains the same two things: the hours in words in
+place of "open now", and the ☎ / page line. Map marks carry them.
+
+Still not done on the map side, carried over from WO-74: event and merit marks,
+and tag ints on the place-map neighbours and the explore/here layers, so chips
+appear there too.
+
+
+§5  WHAT IT COSTS
+
+Two new index fields, both written in the shortest true form:
+
+    ph   the phone, digits only, 60,921 rows              1.09 MB
+    w    its own page, protocol-stripped, facebook.com/
+         shortened to f/, 70,730 rows                     1.73 MB
+                                                          -------
+                                                          2.82 MB
+
+NOT the address: 49,046 records hold one and it is 2.05 MB, and what it says is
+the street and the district — which the row already carries as two chips at a
+fortieth of the weight.
+
+`importers/apply_rowline_hook.py --no-index` leaves both out. The line still
+draws the tags, the place, the hours and the fold; it loses the ☎ and the link,
+which is the 83%.
+
+
+§6  THE INDEX, AND A CEILING THAT IS GONE
+
+An earlier draft of this note deferred to a 10,000,000-byte budget in
+tests/test_index_weight.py as though it had standing. It did not. Asked where
+the number came from, the answer was: a session wrote it on 2026-09-07 at
+13:28, it was never committed to git, and the file's own docstring says the
+number is "what index.json weighed that afternoon, plus the cost of that day's
+change, rounded up." A ratchet against Sunday, not a judgment about a reader.
+Nan, 2026-09-08: "the 10 mb ceiling is a hallucination that needs nuked."
+
+It is nuked. test_index_weight.py now REPORTS weight — raw and gzipped — and
+fails only on the things that are correctness rather than taste: a relation
+int that points outside its table (a chip that renders as nothing or as the
+wrong place's name, which no reader could ever catch), the unread `h` string
+creeping back, a pinned row with no shelf.
+
+The real cost was never a raw byte count on one file. It is what a phone
+fetches before the first character of an answer, and Nan on the same day:
+"1.5 mb before an answer is a problem that needs fixed." Measured against the
+LIVE index this morning, and against what the Overture fold does to it:
+
+    live today, 25,582 rows                 1.56 MB gzipped
+    after the fold, 89,082 rows, unchanged  6.50 MB gzipped
+
+WO-78's 2.82 MB raw sits on top of that. It is a real cost and it is not the
+problem; the problem is a whole catalogue shipped to answer one question about
+one street corner, and it is about to be four times worse. That is its own
+work order, opened, and the numbers are in §9.
+
+§7  FORKS — YOURS
+
+  F1  Apply and build?  build.py has been held all morning (a build running
+      since 08:37, build.py itself edited at 09:13 by another session), so
+      nothing is wired and nothing is built. One command when the lock frees:
+          python3 importers/apply_rowline_hook.py
+      then the three test suites, then a scratch build.
+
+  F2  ☎ and the link on the row, or not — the 2.82 MB in §5. My read: on. It
+      is the difference between a list you read and a list you can act on, and
+      it is the only thing on that line a reader can FINISH with.
+
+  F3  Five chips before the fold. More on a wide screen, fewer on a phone?
+      Today it is five everywhere.
+
+  F4  The Facebook link goes straight out to facebook.com. It is very often
+      the place's own first-hand page, and it is also a link off this site to
+      a company you have opinions about. Alternatives: our own page for that
+      record instead, or both.
+
+  F5  The map-side leftovers in §4 — worth a pass, or leave them.
+
+
+§8  WHAT IS ON DISK
+
+    rowline_layer.py                the module: sheet, JS, and the two index
+                                    helpers                     go/rowline
+    tests/test_rowline.py           40 checks, no build needed   go/rowline-test
+    importers/apply_rowline_hook.py 10 anchored, idempotent edits to build.py
+                                    and refine_layer.py          go/rowline-hook
+    tapcard.py                      map card wired to it (edited in place —
+                                    it was cold)
+    notes/rowline-2026-09-08.txt    this                         go/rowline-note
+
+Verified by hand, not only by test: a preview built from real Chiang Mai
+records was driven in the browser — the fold opens and closes in place, the
+hours read off a real schedule, and at 375 px with the text at 200% nothing
+overflows and nothing scrolls sideways.
+
+
+§9  THE 1.5 MB — WHERE IT ACTUALLY GOES
+
+Measured on the live index this morning (25,582 rows, 1,563,679 gzipped), by
+stripping each field and re-measuring. No single fat field; it is spread:
+
+    n   name        271,899  17%     s   slug        220,469  14%
+    k   keywords    246,780  16%     lat+lng         264,442  17%
+    id              102,244   7%     e   English      98,657   6%
+    a   aliases      52,063   3%     everything else 306,000  20%
+
+Two levels of fix:
+
+  CHEAP, no architecture change — 196 KB (13%)
+    coordinates to 5 dp (1.1 m, which is finer than any pin we hold)  64 KB
+    drop `id`, use the array position                                102 KB
+    drop `pv`, derivable from `p`                                     30 KB
+
+  THE SPLIT — 42%
+    Of the fields on a row, thirteen are needed only to DRAW a row that is
+    actually shown: s, lat, lng, st, ar, hk, f, fx, r, nm, em, pv, ob. The
+    reader sees two hundred rows and we ship twenty-five thousand rows' worth
+    of them. Split in two, the first answer costs 941 KB instead of 1,564 KB;
+    with the cheap wins, 774 KB — half of today.
+
+  AND IT IS STILL NOT ENOUGH. Half of 6.50 MB is 3.2 MB. The structural
+  answer is that /api/v1/places is deployed, answers in about 120 ms, and the
+  search box has never called it — so a first answer could cost no index at
+  all. That is the front-door work, and it trades offline-first for it, which
+  is a decision about what this site IS and is not mine.

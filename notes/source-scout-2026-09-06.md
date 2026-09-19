@@ -1,6 +1,6 @@
 # source-scout — 2026-09-06 (first run)
 
-Four sources measured, three of them now `works`, one honest downgrade. Two
+Four sources measured, three of them now `works`, one measured downgrade. Two
 entries added. Three forks raised, one of which corrects a fork written earlier
 today. No importer was written, nothing was published, nothing was posted.
 
@@ -220,7 +220,7 @@ KNOWN_EMPTY lesson one layer out: **read the file, not the label.**
 **`68_113` holds 56 monastic schools for การศึกษา 2568. The catalogue holds
 27.** `("school","monastic")` came off KNOWN_EMPTY on 2026-08-21 when the ONAB
 register filled it — and it is sitting at **48%** of what the province publishes
-now. Every row names its วัด, so the join is the same one that worked the first
+now. A row names its วัด, so the join is the same one that worked the first
 time: temple name → an already-pinned wat record. This is the cheapest real
 shelf gain on the board and it is one importer.
 
@@ -329,7 +329,7 @@ way to try it, which is one more reason the search-budget fork is worth an answe
 
 - **6 sources measured**, 5 now `works` (hss-health-establishment-licence, dbd-
   juristic-register, keyed-search-api, provincial-gdcatalog-portals,
-  line-official-account), 1 honestly downgraded to a verifier.
+  line-official-account), 1 downgraded to a verifier.
 - **4 entries added** (hss-health-establishment-licence, hosp-hss-verifier,
   provincial-gdcatalog-portals, mots-tourism-directory).
 - **4 forks** for Nan, one of which corrects a fork written earlier the same day.

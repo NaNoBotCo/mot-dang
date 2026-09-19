@@ -1,5 +1,5 @@
 CHANGING THE FUNDAMENTAL — from "has a counter" to "answers a question"
-Mot Dang · architecture proposal · 2026-09-06 · nothing built
+Mot Dang · architecture proposal · 2026-09-06
 Companion to go/institutions (the problem). Counts from data/canonical + build.py as it stands.
 
 ────────────────────────────────────────────────────────────────────────
@@ -85,7 +85,7 @@ Companion to go/institutions (the problem). Counts from data/canonical + build.p
         serves[]     who it is for        — public / members / researchers /
                                             a congregation / a nationality
         access{}     who may use it, on what terms, by appointment, fee,
-                     languages, and an asOf DATE — mandatory, never inferred
+                     languages, and an asOf DATE — mandatory, not inferred
         parent       the body behind it   — EFEO Paris, CCT, MFA of X, D3360
         ownWords     its own sentence, quoted and dated
 
@@ -139,7 +139,7 @@ Companion to go/institutions (the problem). Counts from data/canonical + build.p
 3. WHAT MORE CRAWLING BUYS — AND WHAT IT DOES NOT
 
   You said you are generous with crawling. Where that spends well and where
-  it burns, honestly:
+  it burns:
 
   DOES NOT PAY: re-running Overpass. OSM answers "what did a mapper walk
   past". Another pass over Chiang Mai returns zero archives, zero mosques,

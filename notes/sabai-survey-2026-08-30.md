@@ -4,7 +4,7 @@
 usability?" — then, on the ordered list below, "start with the search guard."
 **§1 BUILT (WO-43) and §2 BUILT (WO-44); §3–§5 remain a survey, not a build.** Every number below was
 read off the built `docs/` of 2026-08-29 (22,175 pages) or the canonical
-data. Nothing here is done.*
+data.*
 
 The WO-42 finding was that the site had no sign on the wall. These are the
 next ones, and the first is the biggest single number on this page.
@@ -186,7 +186,7 @@ of page fall outside it:
   `cm/tag/maha-nikaya.html` 1,153 KB.
 
 **32 pages exceed 600 KB.** Compare `cm/hotel/index.html`, which flipped to a
-hub and is now 117 KB. Cheapest honest fix first: print the weight on the door
+hub and is now 117 KB. Cheapest defensible fix first: print the weight on the door
 wherever it is over ~500 KB, the way `all.html` already does — a reader on a
 hilltop deserves the same warning whether the page is called `all.html` or
 `wat/index.html`. The hub treatment for tags is the larger, later move.
@@ -243,7 +243,7 @@ resolved. The three:
    makes WO-42's teaching actually arrive. Same sitting: server-render the
    start state so no-JS readers and models get it too.
 2. **The two ink tokens** (§2) — two values, whole site, and the readability
-   of every provenance line the site's honesty rests on.
+   of every provenance line the site's candour rests on.
 3. **The weight on the door** (§3) — one rule, applied where the hub rule
    cannot reach.
 4. **The three links + the missing ADHD sheet** (§5) — an afternoon.

@@ -1,0 +1,110 @@
+ALPHA FEEDBACK — THE TESTER'S THUMB
+Built 2026-09-09. Worker DEPLOYED 2026-09-09. Site BUILT 2026-09-10 00:12,
+96,372 pages, not deployed to R2.
+
+
+WHAT IT IS
+
+Two thumbs, bottom left of every page. Thumb up is one tap and it is sent.
+Thumb down opens a box: what went wrong, and up to three screenshots.
+
+Each report carries what the tester could not have typed:
+
+  the address, and the query in it        what the search box held
+  how many rows the page actually had     how many survived the filters
+  where the map was pointing, and zoom    whether the tiles ever arrived
+  every JS error since the page loaded    every request that came back wrong
+  the last dozen taps, timed              build date, screen size, language
+  the connection type                     whether the offline worker was on
+
+"Search is bad" becomes "search for กีตาร์ returned 200 rows on the 9 Sept
+build, none of them a guitar shop, with a 404 from the index behind it".
+
+A send that does not land is kept on the phone and goes with the next page the
+tester opens. They are told which of the two happened.
+
+
+WHO SEES IT
+
+Only a browser that has been handed a tester name, once, by a link:
+
+    https://motdang.net/?tester=beer
+    https://motdang.net/?tester=michael
+    https://motdang.net/?tester=nan
+
+The name is taken out of the address bar straight away, so a tester who shares
+a URL does not pass their name on. Every other reader gets the site with
+nothing added: the script exits before it touches the page.
+
+Set "audience": "everyone" in data/alpha.json for a day of open testing.
+
+
+WHERE THE REPORTS GO
+
+Email, one per report, to 530kings@proton.me — with the screenshots attached
+when they are small enough to attach, and the R2 key named when they are not.
+That is the read path; no dashboard, no pull step, no login.
+
+The second copy is in the worker's KV for 180 days:
+
+    python3 importers/sync_alpha.py
+        → data/alpha_reports.json + notes/alpha-reports.txt (a week in one sitting)
+
+Screenshots live in the private R2 bucket the listing photos already use
+(alpha/<report id>/1.jpg). Nothing serves that bucket.
+
+
+TURNING IT OFF
+
+data/alpha.json, "on": false — or delete the file. Then no page mentions
+alpha.js, the file is not written, and nothing is loaded, hidden or listening.
+tests/test_alpha.py checks that against the built tree, both ways.
+
+"until": "2026-12-31" turns it off by itself and the build says so. Move the
+date to keep it.
+
+At beta, gone completely is four deletions:
+    alpha_layer.py · data/alpha.json · importers/sync_alpha.py · tests/test_alpha.py
+    the import and the one tag line in build.py page()
+    the two marked blocks in worker/worker.js
+    (and `wrangler kv key delete --remote --prefix alpha:` if the reports have
+     served their purpose)
+
+
+DONE 2026-09-09/10
+
+  Worker deployed. /alpha answers on the live worker, proven end to end with
+  one test report: KV written, screenshot into R2, email delivered with the
+  picture attached, keyed pull, digest. That test report has been deleted from
+  KV and R2; the queue starts empty. Wrangler's OAuth token had expired and its
+  refresh token was dead, so the deploy used the account token in
+  ~/.config/nanobotco/keys.json.
+
+  ALPHA_KEY set on the worker, key written to ~/.mot-dang-alpha.json (600).
+  sync_alpha.py works now.
+
+  Site built — 96,372 pages, alpha.js on every sampled page, docs/alpha.js
+  written, tests/test_alpha.py green against the built tree.
+
+
+WHAT NEEDS YOU
+
+1. Deploy the site  —  python3 publish/deploy.py --yes
+   Until then the thumbs are built but not published.
+2. The invite links above, to whoever is testing.
+
+One loose end: after the build I nudged the thumbs up by 3 rem on pages that
+carry a map, so they do not sit on MapLibre's scale bar, and rewrote
+docs/alpha.js in place. The pages still ask for the old ?v= hash — same file,
+so they get the new one; the next build tidies the query string.
+
+
+OPEN
+
+  A  Every page, or only search and map pages? Every page now — a bug is
+     wherever it is. Narrowing it is one line.
+  B  Thumb up sends on one tap with no note. The alternative is a box every
+     time, which costs a tap and gets fewer of them.
+  C  180 days in KV, and the end date 2026-12-31. Both are guesses.
+  D  What happens to the reports at beta — kept as a file, or deleted with
+     the rest.

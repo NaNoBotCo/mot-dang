@@ -330,11 +330,13 @@ class Art:
                 f'<ul>{rows}</ul><p><a href="pictures.html">{bi("ภาพทั้งหมด", "All pictures")}</a></p></details><!-- stylecheck: allow-end -->')
 
 
-def pic_tag(art, ref, cls="bg", eager=False, alt=""):
+def pic_tag(art, ref, cls="bg", eager=False, alt="", scene=""):
     a = art.any(ref) if not isinstance(ref, dict) else ref
     src = f'<source type="image/webp" srcset="{a["w"]}">' if a["w"] else ""
-    load = 'fetchpriority="high"' if eager else 'loading="lazy" decoding="async"'
-    return (f'<picture class="{cls}">{src}<img src="{a["j"]}" width="{a["W"]}" height="{a["H"]}" '
+    load = ('fetchpriority="high"' if eager
+            else 'loading="lazy" decoding="async" fetchpriority="low"')
+    sc = f' data-scene="{scene}"' if scene else ""
+    return (f'<picture class="{cls}"{sc}>{src}<img src="{a["j"]}" width="{a["W"]}" height="{a["H"]}" '
             f'alt="{esc(alt)}" {load}></picture>')
 
 
@@ -363,11 +365,24 @@ def render(today=None):
 
     # Server-side frame per scene: a fixed choice per build date, so a reader
     # with no script still sees a picture. The script re-picks by the hour.
+    #
+    # THE PICTURES DO NOT MOVE (Nan, 2026-09-19). They are not in the scenes
+    # at all: one fixed layer sits behind the whole page, holding one frame
+    # per scene, and the scene that owns the viewport is the one showing. The
+    # page scrolls; the photograph stays exactly where it is and the next one
+    # fades up behind the words. With no script the hero's frame stands for
+    # the whole page, which is a page with one background rather than none.
     def first(scene, pool):
         p = payload["pics"]
         cand = ([x for x in p if x["s"] == scene and x["p"] == pool]
                 or [x for x in p if x["s"] == scene] or p)
         return cand[today.toordinal() % len(cand)]
+
+    SCENES = (("hero", "day"), ("now", "day"), ("near", "day"), ("day", "day"), ("door", "dusk"))
+    backdrop = "".join(
+        pic_tag(art, first(scene, pool), cls="bg" + (" on" if scene == "hero" else ""),
+                eager=(scene == "hero"), scene=scene)
+        for scene, pool in SCENES)
 
     lang_html = ('<div class="langs" role="group" aria-label="ภาษา Language">'
                  '<button type="button" data-lang="th" aria-pressed="false">ไทย</button>'
@@ -428,11 +443,13 @@ def render(today=None):
 <script type="application/ld+json">{json.dumps({"@context": "https://schema.org", "@type": "WebSite", "name": "มดแดง Mot Dang", "alternateName": "Mot Dang", "url": BASE, "inLanguage": ["th", "en"]}, ensure_ascii=False)}</script>
 </head><body>
 <a class="skip" href="#now">{bi("ข้ามไปเนื้อหา", "Skip to content")}</a>
+<div class="backdrop" aria-hidden="true">
+{backdrop}
+<div class="scrim"></div>
+</div>
 <header class="top">{read_html}{lang_html}</header>
 <main>
-<section class="s hero" id="top">
-{pic_tag(art, first("hero", "day"), eager=True)}
-<div class="scrim"></div>
+<section class="s hero" id="top" data-scene="hero">
 <div class="in">
 <div class="plate hero">
 <h1 class="wordmark"><span class="wth">มดแดง</span><span class="wrom">MOT DANG</span></h1>
@@ -449,9 +466,7 @@ def render(today=None):
 <a class="down" href="#now" aria-label="ต่อ · more">⌄</a>
 </section>
 
-<section class="s now" id="now">
-{pic_tag(art, first("now", "day"))}
-<div class="scrim"></div>
+<section class="s now" id="now" data-scene="now">
 <div class="in">
 <div class="plate">
 <h2>{bi("ตอนนี้", "Now")}</h2>
@@ -462,9 +477,7 @@ def render(today=None):
 </div>
 </section>
 
-<section class="s near" id="near">
-{pic_tag(art, first("near", "day"))}
-<div class="scrim"></div>
+<section class="s near" id="near" data-scene="near">
 <div class="in">
 <div class="plate">
 <h2>{bi("ใกล้ๆ", "Near")}</h2>
@@ -476,9 +489,7 @@ def render(today=None):
 </div>
 </section>
 
-<section class="s day" id="day">
-{pic_tag(art, first("day", "day"))}
-<div class="scrim"></div>
+<section class="s day" id="day" data-scene="day">
 <div class="in">
 <div class="plate">
 <h2>{bi("วันนี้", "Today")}</h2>
@@ -504,9 +515,7 @@ def render(today=None):
 </section>
 </main>
 
-<footer class="door" id="door">
-{pic_tag(art, first("door", "dusk"))}
-<div class="scrim"></div>
+<footer class="door" id="door" data-scene="door">
 <div class="in">
 <div class="plate">
 <p class="glyphs"><a href="add.html">{bi("เพิ่มข้อมูล", "Add a place")}</a> · <a href="https://ask.motdang.net" rel="noopener">{bi("คุยกับมด", "Chat with the ants")}</a> · <a href="source/">{bi("โค้ดและข้อมูลดิบ", "Source")}</a> · <a href="elsewhere.html">{bi("ที่อื่นของเรา", "Elsewhere")}</a> · <a href="api/">API</a></p>
@@ -543,7 +552,11 @@ CSS = r"""
  --th:'Prompt','Sarabun',system-ui,sans-serif;--tx:'Sarabun','Atkinson Hyperlegible',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
 *{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--night)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;font-family:var(--tx);color:var(--ink);background:var(--night);line-height:1.45;-webkit-font-smoothing:antialiased}
+/* The ground colour lives on <html>, not here. A fixed backdrop at a
+   negative z-index joins the ROOT stacking context, which paints it before
+   body's own background — so an opaque body would hide every photograph on
+   the page, which is exactly what it did for one build. */
+body{margin:0;font-family:var(--tx);color:var(--ink);background:transparent;line-height:1.45;-webkit-font-smoothing:antialiased}
 html.easyread body{font-family:'Atkinson Hyperlegible','Sarabun',sans-serif;font-size:1.12em;line-height:1.6}
 a{color:inherit;text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:.22em}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
@@ -564,18 +577,25 @@ html.lang-both .th+.en::before{content:" · "}
 .langs button[aria-pressed=true],.readbtn[aria-pressed=true]{background:var(--ink);color:#15110e;font-weight:600}
 
 /* ---- a scene: a big picture, and words that never sit on it ---- */
-.s,.door{position:relative;min-height:100svh;display:grid;align-items:center;overflow:hidden;isolation:isolate}
+/* THE BACKDROP. One fixed layer for the whole page, holding one frame per
+   scene. It is pinned to the viewport and never told anything about scroll
+   position, so the photograph cannot drift, lag or parallax: the words move
+   over a picture that is standing still. Which frame shows is the only thing
+   that changes, and it changes by fading, not by moving. */
+.backdrop{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.backdrop .bg{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .7s ease}
+.backdrop .bg.on{opacity:1}
+.backdrop .bg img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.88) saturate(1.06)}
+.backdrop .scrim{position:absolute;inset:0;background:
+ radial-gradient(130% 100% at 50% 50%,rgba(21,17,14,0) 38%,rgba(21,17,14,.42) 100%),
+ linear-gradient(180deg,rgba(21,17,14,.34) 0%,rgba(21,17,14,0) 22%,rgba(21,17,14,0) 72%,rgba(21,17,14,.72) 100%)}
+.backdrop .scrim::after{content:"";position:absolute;inset:0;background-image:GRAIN;opacity:.14;mix-blend-mode:overlay}
+.s,.door{position:relative;min-height:100svh;display:grid;align-items:center}
 .s.deep,.s.wander{min-height:0;background:var(--night)}
-.bg{position:absolute;inset:-10% 0;z-index:-2;margin:0}
-.bg img{width:100%;height:100%;object-fit:cover;display:block;will-change:transform;filter:brightness(.88) saturate(1.06)}
 .bg.flat{background:linear-gradient(160deg,#2b231c 0%,#1d1713 100%)}
 .tile.bare{border:1px solid var(--hair)}
 .tile.bare::after{background:none}
 .tile.bare .lbl{position:static;display:grid;align-content:end;height:100%;background:none;backdrop-filter:none;padding:clamp(12px,1.4vw,18px)}
-.scrim{position:absolute;inset:0;z-index:-1;background:
- radial-gradient(130% 100% at 50% 50%,rgba(21,17,14,0) 38%,rgba(21,17,14,.42) 100%),
- linear-gradient(180deg,rgba(21,17,14,.34) 0%,rgba(21,17,14,0) 22%,rgba(21,17,14,0) 72%,rgba(21,17,14,.72) 100%)}
-.scrim::after{content:"";position:absolute;inset:0;background-image:GRAIN;opacity:.14;mix-blend-mode:overlay;pointer-events:none}
 .in{width:min(1240px,100%);margin:0 auto;padding:clamp(104px,17vh,190px) clamp(18px,5vw,64px) clamp(72px,13vh,130px)}
 .plate{max-width:880px;margin:0 auto;background:var(--plate);backdrop-filter:blur(16px) saturate(1.15);
  border:1px solid var(--hair);border-radius:28px;padding:clamp(24px,3.2vw,44px);
@@ -679,7 +699,7 @@ html.lang-both .city .en,html.lang-both .moon .en{display:none}
 @media (min-width:1100px){.tiles{grid-template-columns:repeat(4,1fr)}.tiles.small{grid-template-columns:repeat(5,1fr)}}
 .tile{position:relative;display:block;aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:#2a221c;isolation:isolate}
 .tiles.small .tile{aspect-ratio:1}
-.tile .bg{inset:0}
+.tile .bg{position:absolute;inset:0;margin:0}
 .tile .bg img{filter:brightness(.95) saturate(1.05);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
 .tile:hover .bg img,.tile:focus-visible .bg img{transform:scale(1.06)}
 .tile .lbl{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:clamp(10px,1.2vw,15px) clamp(12px,1.4vw,18px);
@@ -703,7 +723,7 @@ html.lang-both .tile .lbl .en{font-weight:400;font-size:.84em;color:var(--dim)}
 .credits summary{cursor:pointer;min-height:44px;display:flex;align-items:center;justify-content:center}
 .credits ul{text-align:left;padding-left:20px;max-height:220px;overflow:auto;line-height:1.6}
 
-@media (prefers-reduced-motion:reduce){.bg{inset:0}.bg img{transform:none!important}.tile .bg img{transition:none}}
+@media (prefers-reduced-motion:reduce){.backdrop .bg{transition:none}.tile .bg img{transition:none}}
 """.replace("GRAIN", GRAIN)
 
 JS = r"""
@@ -762,7 +782,7 @@ function paint(){
   var want=pool(T.h),P=FIX||(EDGE?{lat:EDGE.lat,lon:EDGE.lon}:null);
   var portrait=innerHeight>innerWidth,used={},seed=T.utc.getUTCDate()*7+Math.floor(T.h/3);
   SCENES.forEach(function(scene,si){
-    var best=null,bs=0,n=0;
+    var best=null,bs=0;
     D.pics.forEach(function(f,i){
       if(used[f.j])return;
       var v=frameScore(f,scene,P,want,portrait);
@@ -770,23 +790,49 @@ function paint(){
       /* the seed breaks ties, so the same hour of the same day is stable and
          the next one is not */
       v*=1+(((i*31+seed+si*7)%17)/160);
-      if(v>bs){bs=v;best=f;}
-      n++;});
+      if(v>bs){bs=v;best=f;}});
     if(!best)return;
     used[best.j]=1;
-    var sec=document.querySelector(scene==='door'?'footer.door':'.s.'+scene);
-    if(!sec)return;
-    var img=sec.querySelector(':scope>.bg img'),src=sec.querySelector(':scope>.bg source');
+    var pic=document.querySelector('.backdrop .bg[data-scene="'+scene+'"]');
+    if(!pic)return;
+    var img=pic.querySelector('img'),src=pic.querySelector('source');
     if(!img||img.getAttribute('src')===best.j)return;
     img.width=best.W;img.height=best.H;if(src)src.srcset=best.w;img.src=best.j;});
 }
 
-/* ---- parallax: the picture drifts a little slower than the words */
-if(!RM){var secs=[].slice.call(document.querySelectorAll('.s,.door')),vis=new Set();
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?vis.add(e.target):vis.delete(e.target);});});
-  secs.forEach(function(s){io.observe(s);});var raf=0;
-  function move(){raf=0;var vh=innerHeight;vis.forEach(function(s){var r=s.getBoundingClientRect();var p=(r.top+r.height/2-vh/2)/vh;var img=s.querySelector(':scope>.bg img');if(img)img.style.transform='translate3d(0,'+(p*8).toFixed(2)+'%,0)';});}
-  addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(move);},{passive:true});move();}
+/* Which frame is showing. The backdrop does not move, so this is the only
+   thing scrolling changes: whichever scene holds most of the screen owns the
+   picture, and it changes by fading. An IntersectionObserver rather than a
+   scroll handler — a scroll listener is throttled when the tab is in the
+   background and then reports nothing, while this keeps its books either way.
+   The two shelf sections have their own opaque ground, so nothing needs to
+   happen as the reader passes them: the last frame simply stays up behind. */
+var SHOWN=null;
+function show(scene){
+  if(scene===SHOWN)return;
+  SHOWN=scene;
+  document.querySelectorAll('.backdrop .bg').forEach(function(b){
+    b.classList.toggle('on',b.dataset.scene===scene);});
+}
+(function(){
+  /* The SECTIONS only. The backdrop's own frames carry data-scene too, and
+     they are fixed and permanently on screen — observing those reported every
+     scene as fully visible and the hero never handed the picture on. */
+  var seen={},els=document.querySelectorAll('main>[data-scene],footer[data-scene]');
+  if(!els.length||!window.IntersectionObserver)return;
+  function best(){
+    var b=null,bv=0;
+    SCENES.forEach(function(s){if((seen[s]||0)>bv){bv=seen[s];b=s;}});
+    if(b&&bv>0.12)show(b);
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.target.dataset.scene)seen[e.target.dataset.scene]=e.intersectionRatio;});
+    best();
+  },{threshold:[0,.1,.25,.4,.6,.8,1]});
+  els.forEach(function(e){io.observe(e);});
+  best();
+})();
 
 /* ---- where: the reader's choice, else the edge's guess, else Chiang Mai */
 var META=(document.querySelector('meta[name=md-where]').content||'').split('|');

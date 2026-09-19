@@ -1,0 +1,142 @@
+มดแดง MOT DANG — REDESIGN SPEC
+Source: Claude Design canvas, dated 2026-09-08 (two turns). Pulled to disk 2026-09-09.
+Visual mockups: motdang-redesign-spec.dc.html (open in a browser).
+The designing session read the LIVE site only. It never read the tree, so its
+counts are the deployed ones and several features it "adds" are already built.
+
+────────────────────────────────────────────────────────────────────────
+TURN 1 — "minimal refresh"  (artboards 1a–1f)
+────────────────────────────────────────────────────────────────────────
+
+1a · HOME, MOBILE
+  Header is three rows, maximum: brand + language / search / utility chips.
+  Language: the existing 3-mode toggle (ไทย · ไทย+EN · EN) as one segmented
+  control, persisted in localStorage.
+  Map and Events get real labels — never a raw filename like "map.html".
+  Weather and PM2.5 merge into ONE passive chip linking to the widgets page.
+  Emergency collapses to one accent-outlined row, sticky at the bottom of the
+  viewport on scroll; tapping opens the sheet.
+  City is a segmented choice, remembered per visitor; shelf counts update live.
+  Six most-used shelves show first; "22 more shelves" expands in place.
+
+1b · EMERGENCY SHEET
+  Every row a tel: link, whole row tappable, ≥52px tall.
+  All five hotlines verbatim — 1669 medical · 191 police · 199 fire/rescue ·
+  1784 disaster · 1155 tourist police — plus the chuai "what is nearest" page.
+  Desktop renders the same content inline in the footer strip; no sheet.
+  Works with no JavaScript, as an in-page anchor.
+
+1c · HOME, DESKTOP
+  One-row header: brand, search (with "/" shortcut), utilities, language.
+  No second nav bar.
+  Both cities visible at once — the extra width buys parallel columns, not
+  bigger type. Top 12 shelves per city by count, then "all 28 shelves".
+  Emergency numbers inline in the footer strip.
+  Max content width 1200px, centred; collapses to the mobile layout <1024px.
+
+1d · CATEGORY SHELF, MOBILE
+  Scoped "search this shelf" above the list; global search stays in the header.
+  Filter chips scroll horizontally: Open now · Near me · Tags · Soi.
+  Tags and Soi open the EXISTING tag and soi indexes as filter pickers —
+  those pages are reused, not duplicated.
+  Row = name (Thai first, English muted per language mode), one meta line, one
+  call button. Whole row opens the place; the 44px button dials.
+  List virtualises past 50 rows; the footer prints position, so 19k entries
+  never feel bottomless.
+
+1e · PLACE DETAIL, MOBILE
+  Three equal actions, 56px tall: Call (tel:) · Map (site map on the pin) ·
+  Share (native sheet, URL fallback).
+  Detail rows are one column — no cards inside cards.
+  Hours collapse to today's line; "see full hours" expands.
+  The road row links into the sois index; tags link into the tag index.
+  "Suggest an edit" reuses add.html pre-filled with the place.
+  OSM attribution on every place, per ODbL.
+
+1f · FEATURE MAP — "nothing dropped"
+  3 language modes + easy read  → segmented control + easy-read chip, both persist
+  Search, 2 entry points        → one header search + scoped shelf search
+  map.html / events.html        → labelled chips แผนที่ · Map, ปฏิทิน · Events
+  Weather + PM2.5 widgets       → one passive chip → widgets page
+  5 emergency numbers + chuai   → sticky row → sheet (mobile), footer (desktop)
+  2 cities × 28 shelves         → mobile: toggle + top 6, expand 22 more;
+                                  desktop: both cities, top 12 + link
+  all.html                      → kept as the canonical full index
+  Secondary indexes (tags, sois, festivals, care, listings, asked, trades,
+  add)                          → linked from all.html, reused as pickers
+  source · API · privacy · terms · chat → footer, one line, everywhere
+  Updated stamp · CC BY 4.0 · OSM      → footer, verbatim, incl. B.E. date
+
+────────────────────────────────────────────────────────────────────────
+TURN 2 — "1996 google.com", near-zero words  (artboards 2a–2c)
+────────────────────────────────────────────────────────────────────────
+
+WORD BUDGET — nine visible words, all functional: brand (1), language modes
+(3), cities (2), the every-shelf link (2), easy-read glyph (1). Numerals,
+icons and symbols are exempt; they read in both languages at once, which is
+how a bilingual page reaches near-zero words without picking a side.
+
+ICON LEGEND, with accessible names
+  map trifold  → แผนที่ · Map
+  calendar     → ปฏิทิน · Events
+  24° / 9 tile → อากาศ-ฝุ่น · Weather + PM2.5 (links to widgets)
+  red phone    → ฉุกเฉิน · Emergency (opens the 1b sheet)
+  plus-circle  → เพิ่มข้อมูล · add a place
+  chats        → คุยกับมด
+  code         → source & raw data
+  Every icon carries title + aria-label in both languages; tooltips on hover,
+  long-press on mobile.
+
+SEARCH IS THE DIRECTORY
+  Focusing the empty box lists all 28 shelves with counts as suggestions.
+  Typing matches names, shelves, tags, sois and numbers, Thai or English.
+  The mic runs speech input.
+  The every-shelf link and all.html stay the no-JS path to everything —
+  nothing is dropped, it is re-entered through search.
+
+LAYOUT & PALETTE — the spec marks this INFERRED, to confirm against a screenshot
+  paper #faf8f2 · ink #211d18 · ant red #c62f22 (brand, search, emergency only)
+  hairline #d8d2c4 · selected fill #f0e9dc
+  Centre column max 560px. Targets ≥44px, icon tiles 52px on mobile.
+  Body 15px; easy-read 18px with labels shown.
+  Below 1024px desktop and mobile are identical but for the "/" hint and mic.
+
+ORDER OF FIRST PAINT
+  logo → search → cities → four tiles → shelf link → footer glyphs.
+  One column, no scroll on any phone taller than 640px. Everything after the
+  search box is optional chrome; the page is usable the moment the box renders.
+
+SYSTEM RULES the spec states (a designing session's inventions, not decisions
+you made — treat as proposals):
+  Type 15px body, 12–13px meta; headings by size not weight, max 600. Thai in
+  the same stack, never smaller than its English pair.
+  Spacing on a 4/8/12/16 rhythm; list rows ≥48px; one divider weight.
+  One accent, for interactive things only. Counts and meta neutral-500.
+  Easy-read bumps body to 18px, rows to 60px, meta to full opacity — same
+  layout, no separate page.
+  No JS required for any content page; search, sheet and expand degrade to
+  plain links and anchors.
+
+────────────────────────────────────────────────────────────────────────
+WHAT IS ALREADY BUILT, AND WHERE THE SPEC COLLIDES
+────────────────────────────────────────────────────────────────────────
+Already in the tree, so not new work:
+  · easy-read mode — build.py, WO-76: the class rides on <html> beside the
+    font switch; there is no separate page, which is what the spec asks for.
+  · the 3-mode language toggle, ไทย+EN as the default.
+  · แผนที่ · ปฏิทิน as chips under the count — the two/three-doors work of 9/8.
+  · the near-zero-word home — the "1996 cut" is in the tree, undeployed:
+    3,087 live words → 147 in the tree → a 91-word mock. Turn 2 of this spec
+    arrives at the same page from a standing start.
+
+Collisions to settle before any of it is built:
+  · ICONS. The spec draws its icons from the Phosphor web font (class
+    "ph ph-phone"). The tree has glyphs.py — 66 drawn glyphs with its own
+    sprite, icon() and an emoji sweep. Two icon systems; one has to win.
+  · THE FOOTER LICENCE LINE. The spec keeps the stamp + CC BY + OSM credit
+    "verbatim … everywhere" — that is the 45-word line on every page already
+    flagged as a problem in the blank-home work.
+  · COUNTS. The spec prints Chiang Mai 63,745 and food 19,262; the tree holds
+    62,825 and 19,265. It read the deployed site, which is behind.
+  · SHELF ORDER. "Top 6" and "top 12 by count" is a ranking rule; the shelves
+    on the site are not ordered by count today.

@@ -91,10 +91,10 @@ Open — each needs a person, none needs a crawl
   survey, not a question, and the pins cannot be assigned by elimination.
  A register row has no pin and the pin hunt already lists it. A resident who
   can settle his own building's identity can also drop its pin — and he can
-  only settle HIS, which is the honest size of what one reader can give.
+  only settle HIS, which is the true size of what one reader can give.
 
 
-"Is this a holistic fix?" — no, and here is what the honest one was
+"Is this a holistic fix?" — no, and here is what the fuller one was
 -------------------------------------------------------------------
 
 Nan asked that of the curated-unions plan, and the answer was no. A file of
@@ -208,7 +208,7 @@ words and RTGS is built for them. What is wrong there is different in kind:
 วัดสุวรรณ reads Wat Suoraron and วัดป่ายาง reads Wat Painga, which are
 segmentation faults in Pali compounds, not missing vocabulary. They belong to
 irregular and to the segmenter, and they are NOT fixed here — naming them is
-the honest end of this sweep, not a claim to have finished them.
+the true end of this sweep, not a claim to have finished them.
 
 
 One thing the sweep found in the lexicon itself

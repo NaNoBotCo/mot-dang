@@ -2,7 +2,7 @@ ANSWER PAGES — THE BREADTH-FIRST 52, READ ONE BY ONE
 Staged 2026-09-05, after Nan's decision the same day: breadth first on the 52
 that already score ≥0.60, then depth on the 153 that return nothing.
 Staged machine-readable: _incoming/answer-pages-2026-09-05.json.
-NOTHING BUILT.  data/asked.json untouched.  A build was running; docs/ not touched.
+A build was running; docs/ and data/asked.json not touched.
 
 ────────────────────────────────────────────────────────────────────────────
 THE CORRECTION
@@ -13,7 +13,7 @@ mine already named.  Read one by one, the 52 are:
 
     18  REAL     — right hits, data on disk, worth a page
      7  THIN     — one plausible hit; the record must be read before a word
-                   is written, and the honest page may say "the nearest thing"
+                   is written, and the page may say "the nearest thing"
      3  HAVE     — a page already exists (big-size-clothes, notary, sak-yant)
      3  REFUSE   — "best thai food", "nicest place to stay", "best festival".
                    The venue states; we do not rank.  Not a gap, a rule.

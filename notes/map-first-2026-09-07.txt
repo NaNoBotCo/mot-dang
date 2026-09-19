@@ -10,7 +10,7 @@ Humans like to navigate complex problems about their cities via maps. They
 prefer this to text search or directories. We have rich maps. I want to use
 these as empathetic search tools for humans."
 
-WO-74 · PROPOSED · nothing built, nothing deployed, no work order filed.
+WO-74 · PROPOSED
 Every number below says where it came from.
 
 ==============================================================================
@@ -65,7 +65,7 @@ close a sixteen-to-three gap.
 1. WHY THE MAP IS THE ONLY SURFACE THAT CAN CLOSE IT
 ==============================================================================
 
-Ask how a TEXT interface would reach parity, honestly. It would need a control
+Ask how a TEXT interface would reach parity. It would need a control
 for each of the sixteen — a kind picker, a radius field, a day-and-time picker,
 a has-a-phone checkbox, a sort menu. That is an advanced-search form, and an
 advanced-search form is 1999 in the worst sense: it makes the reader fill in
@@ -93,7 +93,7 @@ person an argument list.
 
 This gives a rule that can be a TEST, not an intention:
 
-    EVERY PARAMETER THE API ACCEPTS HAS A NAMED HUMAN GESTURE.
+    every parameter the API accepts HAS A NAMED HUMAN GESTURE.
     tests/test_parity.py walks publish/api.js's ALLOWED list and fails on any
     parameter with no gesture registered against it.
 
@@ -162,7 +162,7 @@ What that settles, and what it does not:
   · "future value" names the lever exactly: a pin converts an archive record
     into a reachable one, and there is a measured route sitting unrun —
     `importers/pin_from_osm.py` against 1,070 named pinned temples in Chiang
-    Mai against our 943 unpinned wat, plus the geocoder's honest 14% ceiling
+    Mai against our 943 unpinned wat, plus the geocoder's measured 14% ceiling
     (go/pins, 2026-09-05). That is enrichment work, not navigation work, and
     it no longer blocks anything here.
 
@@ -311,7 +311,7 @@ the ones no reader has today:
     · A COMPLETENESS TOGGLE — `has` and `min_ants`. "Only the ones we know
       something about" is a question readers ask constantly and cannot ask.
 
-L4 · A TAP NEVER LEAVES THE MAP
+L4 · A TAP STAYS ON THE MAP
 -------------------------------
 WO-69 built this and it should become the sitewide law. The sheet has three
 detents:
@@ -383,7 +383,7 @@ viewport is good at it.
   Ph 4  relations: tags as chips, the near edges in the sheet.
   Ph 5  SVG first paint, then edge render.
 
-Ph 0–2 is the honest minimum for "map-primary". Ph 3 is what stops it costing
+Ph 0–2 is the defensible minimum for "map-primary". Ph 3 is what stops it costing
 the site its arrivals. Ph 4 is Michael's ask. Ph 5 is what makes it pleasant
 on a phone in Thailand.
 
@@ -399,7 +399,7 @@ Stated plainly because it is real:
    one that gets a pin is a record that comes back. Pinning is now the single
    highest-leverage enrichment on this site, and it is separate work.
 2. **2,958 stacked pins get much more visible** when the map is the product.
-   L2 addresses it honestly rather than hiding it, but honest is still ugly.
+   L2 states it rather than hiding it, but stating it is still ugly.
 3. **The weight floor goes UP, not down**, unless Ph 5 lands. Cells make the
    DATA small; MapLibre makes the CODE big. Net win only with the SVG paint.
 4. **A map cannot be crawled or quoted.** L5 is not optional if the arrivals
@@ -430,6 +430,5 @@ F8  New, from §1: is `test_parity.py` a HARD gate — no parameter ships on the
     two doors move together forever; it also means the next API parameter
     costs a piece of map UI before it can exist.
 
-Nothing here is built. Nothing here is filed as a work order. This is the
-architecture you asked for, and the phases are numbered so you can take one
-without taking the rest.
+This is the architecture you asked for, and the phases are numbered so
+you can take one without taking the rest.

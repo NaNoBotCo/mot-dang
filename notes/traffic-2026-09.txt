@@ -1,0 +1,57 @@
+MOTDANG.NET — TRAFFIC, MEASURED
+2026-08-18 to 2026-09-18 (32 days with data)
+Source: Cloudflare Workers analytics, workersInvocationsAdaptive, script mot-dang-site.
+Pulled 2026-09-18 20:54. Nothing here is estimated.
+
+     5,296,010  requests
+       165,500  a day on average
+       724,170  the peak day, 2026-09-11
+         4,530  the quietest, 2026-08-19
+
+  Peak and low exclude the first and last day, which are partial.
+
+  by outcome
+     5,288,500  success
+         7,510  clientDisconnected
+
+WHAT THIS NUMBER IS NOT
+  Edge requests, not people. A page fetches several API files, so one
+  reader makes several requests.
+  The split between crawlers, AI readers and people is not instrumented
+  on this zone. traffic-eye answers that question and is not attached;
+  the route is written and commented out in
+  traffic-eye/wrangler.collector.toml.
+
+DAILY
+  2026-08-18        130
+  2026-08-19      4,530
+  2026-08-20     43,870
+  2026-08-21     30,040
+  2026-08-22     31,250
+  2026-08-23     17,540
+  2026-08-24     28,360
+  2026-08-25     15,860
+  2026-08-26     21,750
+  2026-08-27     14,370
+  2026-08-28     43,850
+  2026-08-29     10,330
+  2026-08-30     11,370
+  2026-08-31     14,630
+  2026-09-01     22,770
+  2026-09-02      9,240
+  2026-09-03     11,260
+  2026-09-04     11,710
+  2026-09-05     10,040
+  2026-09-06     72,220
+  2026-09-07     42,310
+  2026-09-08     62,600
+  2026-09-09    188,780
+  2026-09-10    583,570
+  2026-09-11    724,170
+  2026-09-12    490,440
+  2026-09-13    540,100
+  2026-09-14    689,470
+  2026-09-15    591,580
+  2026-09-16    511,980
+  2026-09-17    340,590
+  2026-09-18    105,300

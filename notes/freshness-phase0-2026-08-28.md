@@ -85,12 +85,12 @@ psalms, fortune.json, sky.json (60-day bakes), open_lamps, streets.
 
 Two loose ends found in passing: `importers/make_ticker.py` (the CM-news
 RSS ticker) is **in no walk's roster** — dormant; and several fetcher
-User-Agent strings still advertise `github.com/NaNoBotCo/mot-dang`,
-post-divorce leftovers worth a sweep.
+User-Agent strings advertise `github.com/NaNoBotCo/mot-dang`, which is
+the right contact address for a crawler to name.
 
 ## Item 2 — schedules, real machinery, real outcomes
 
-No GitHub Actions exist and none should be reported on. The machinery:
+The machinery, all of it local:
 
 - `net.motdang.morning-walk.plist` — 07:09 ICT daily (launchd runs local
   time; no UTC offset trap on this machine). The GATHER: every fetcher above,
@@ -174,7 +174,7 @@ What the later phases need to keep working with:
   Kuay Salak" therefore means *announced-or-held-out*, which is what the
   candidate/announced machinery already does; unannounced movables go to the
   order's own "later this year" list rather than gaining invented dates.
-- No GitHub anything; escalation lands on the task board or in cache/ flags.
+- Escalation lands on the task board or in cache/ flags.
 - stdlib only; no external status services.
 
 ## Shipping today (green-lit by the order's own sequencing): 4d + 4e

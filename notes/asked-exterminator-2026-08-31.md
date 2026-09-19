@@ -63,7 +63,7 @@ the notary shape exactly.
   prices: per LINEAR METRE of perimeter (LM); bait 400–700/LM, chemical
   150–280/LM
 
-## Attempted, and refused — printed, never guessed at
+## Attempted, and refused — printed rather than guessed at
 
 - **https://www.rentokil.com/th/local-branches/pest-control-chiangmai — HTTP 403**,
   both the Thai and English paths. Their record is therefore `confidence:

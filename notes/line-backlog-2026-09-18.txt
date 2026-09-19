@@ -1,0 +1,139 @@
+==============================================================================
+THE OPS CHANNEL, ROUTED — what was said, where it belongs, what state it is in
+Built 2026-09-18 from _incoming/line/chat/*.jsonl (110 messages, 7 Sep - 14 Sep)
+==============================================================================
+
+FIRST, THE THING THAT BLOCKS ALL OF IT
+
+  The intake is dead, and has been for eleven days.
+
+    _incoming/line/knowledge/   one file, 2026-09-07
+    _incoming/line/ops/         one file, 2026-09-07
+    _incoming/line/chat/        stops at 2026-09-14
+    _drive-queue.txt            photos queued since 2026-09-07, none uploaded
+
+  pull_line.py reads the Worker's ledger, and the Worker only hears what the
+  NaNoBotCo bot hears. The bot is out of the group. So the hourly desk task
+  pulls nothing, reports "nothing waiting.", and stops — which is what its own
+  skill tells it to do.
+
+  Everything below is the last week the pipe was open. The 15-16 Sept traffic
+  (the 400 medals, the 3 pm, Algonquin to Fern Forest) is on nobody's disk.
+
+  Reading the room now means LINE desktop on this Mac and control of the
+  screen. That is a cost, and the cadence is yours to set — the same fork
+  left open in "Channel discipline - operations-motdang (16 Sept 2026)".
+
+
+------------------------------------------------------------------------------
+OPEN ASKS TO BEER — assigned in the room, no output anywhere on disk
+------------------------------------------------------------------------------
+
+1  9/11 14:57  Ten export products and ten imports, ranked by immediate ROI.
+   Beer: "I created new work list so you can see the up date". That list is
+   not on this disk. No repo holds this work.
+   NEXT: ask Beer where the list lives, or start it here.
+
+2  9/12 10:20  Does B2B pharmacy and clinic sales need a licensed pharmacist —
+   legally, and in what clinics expect. Beer added it to the list.
+   BELONGS: bpo-shop/legitimacy/ , alongside the company-registration path.
+
+3  9/13 14:05  A music instructor in Chiang Mai qualified to teach stand-up
+   bass. WORKED TODAY — see the two answers at the bottom of this file.
+
+4  9/14 07:17  The CM-expats commenter: autoimmune-related kidney condition,
+   seeking physical and mental health care, "seems sincere", you offered a
+   quote for local support. Beer said she would talk to him that day.
+   BELONGS: defiant.to / care-abroad / medical-tourism.
+   HOTTEST ITEM HERE — a person is waiting on an answer, four days on.
+
+5  9/14 08:18  "Here's another big project for Beer" — producing a generic
+   only sold in the US. The capture truncates the message.
+   NEXT: the full text is in LINE; it needs re-reading before it can be routed.
+
+6  9/14 09:25  A second, narrower research ask, background already done by you.
+   Also truncated in capture. Same fix.
+
+7  9/11 19:19  Infrastructure to sell t-shirts, trinkets and printed things off
+   pop-culture memes — came out of the amulet-meme thread. Beer's read: the new
+   generation would not be offended, few would buy, "fast fashion".
+   No project holds this. Nearest neighbours: patreon-launch, catalog-pipeline.
+
+   CLOSED in the room, for the record: the randy-monk amulet is a meme from the
+   news (Beer, 9/11). The Lumphini currency exchange is SuperRich @ One Bangkok;
+   the weed shop has no delivery and was closed when she rang (9/13).
+
+
+------------------------------------------------------------------------------
+PLACES AND PHOTOS — eight photographs, none filed, none geocoded
+------------------------------------------------------------------------------
+
+8   9/07  "Get Er to the Greek" — sign in shot, asked for an EXIF geocode.
+9   9/07  Pharma Choice, and the vacant commercial unit beside it, east side of
+    the old city. Asked for geocode, map enrichment and tags.
+10  9/08  Lucky carpark near Chiang Mai airport (Beer).
+11  9/12  Pha Naresuan, four photographs (Beer, cleaning there with her sister
+    Bo; they also buy supplies for the woman who keeps it).
+
+    All four sit in _incoming/line/photos/.../_unfiled/ with no place resolved.
+    None has a record in the catalogue. The sign readings on the two 9/07
+    photographs came back null, so the shop names are still only in your words
+    in the chat — which is a stronger source than a sign reading, and unused.
+
+12  Drive upload has been blocked every run since 9/07: the connector takes
+    bytes only as base64 in a tool argument, ~360,000 characters a photograph,
+    and no path gets those characters through intact. ASK-NAN.txt item 4.
+    The .jpg lines are still queued, untouched.
+
+
+------------------------------------------------------------------------------
+OPERATIONS — facts about running the business, nothing carrying them
+------------------------------------------------------------------------------
+
+13  9/10 08:01  Chiang Rai business address being sorted; Pob to get it to
+    Laila that evening. No confirmation in the room afterwards.
+14  9/10 11:56  Beer is pricing an insurance plan. Dates of birth given in the
+    room: Michael 23 Jan 1978, Nan 1 Aug 1976. No plan on disk.
+15  9/12 17:12  Beer's phone, 094 414 4665, given so Pob could call for
+    translation help. A contact fact — your records, not the public directory.
+16  9/11 19:21  A 360 action camera bought for mapping the city.
+    BELONGS: zontes ride cam / Mot Dang coverage.
+17  9/12 15:13  The Lazada scraper runs on any keyword sequence, currently set
+    to amulets. BELONGS: lazada-vernacular.
+18  9/14 09:28  The wat where the bikes were blessed is also doing palm-leaf
+    digitisation. BELONGS: wat-registry (รหัสวัด is the join key),
+    manuscript-wiki, lanna-crawler.
+    BLOCKED: the wat is not named in the room. One line from you routes it.
+19  9/14 09:06  "Let meet up when you come back" - Algonquin coworking,
+    Wednesday. SUPERSEDED 9/16: Algonquin cancelled, Fern Forest instead.
+20  9/07 16:28  One bug ticket, no text. bugs.jsonl.
+
+
+------------------------------------------------------------------------------
+ITEM 3, WORKED — the bass instructor ask, 9/13
+------------------------------------------------------------------------------
+
+Put to the directory today:
+
+  โรงเรียนดนตรี      130 music schools in Chiang Mai
+  ครูสอนดนตรี          1
+  music lessons        1   Wind Chime Music Chiangmai (piano, private)
+  double bass        343   none of them music — the words match cafe names
+
+Six to start with:
+  โรงเรียนดนตรีสันติ                     Santi Music School
+  โรงเรียนดนตรี บ้านครูปุก               Ban Khru Puk
+  Harmony Music School โรงเรียนดนตรีฮาร์โมนี
+  โรงเรียนดนตรี Soundwave Studio
+  โรงเรียนดนตรีและภาษาสยามผาสุก
+  อาคารศิลปะวัฒนธรรมและดนตรี โรงเรียนสาธิต มช   (CMU Demonstration School)
+
+  Not one shopfront in the catalogue names an instrument, so the directory can
+  say where the teaching is and cannot say who teaches double bass. That is six
+  doors for Beer rather than a city to search.
+
+AND A GAP THE SAME QUESTION OPENED
+
+  ร้านขายเครื่องดนตรี — musical instrument shops — returns ONE record, and it is
+  a DVD and CD shop in Chiang Rai. A city with 130 music schools has no
+  instrument shelf. That is an asked.json candidate, not a search fault.

@@ -27,7 +27,7 @@ the whole of Chiang Rai. Of the ten:
 * exactly one, `รับซ่อมแซม เสื้อผ้า`, is a Thai shop repairing clothes.
 
 So the tailor shelf was not a tailoring register. It was a register of the
-tourist trade with two cobblers filed by mistake, and it answered none of the
+visitor trade with two cobblers filed by mistake, and it answered none of the
 three questions above. This is the salon lesson and the notary lesson again:
 `KNOWN_EMPTY` can be a fact about the search term, not about the city.
 
@@ -39,7 +39,7 @@ in Yellow Pages, in Thai, some of it a decade old.
 
 ## Four trades, one English word
 
-The design decision, and it is Nan's rule turned into structure: a tourist
+The design decision, and it is Nan's rule turned into structure: a visitor
 wanting a suit before Friday, a police major wanting a ชุดปกติขาว that will pass
 inspection, a woman wanting a ชุดไทย for an ordination, and a long-stayer whose
 only trousers have split are **not four grades of one customer**. Each strand
@@ -48,7 +48,7 @@ none is offered as an answer to another's question.
 
 ## The geography is the finding
 
-* **The tourist trade is one street.** 21 of the 126 sit inside 600 m of the
+* **The visitor trade is one street.** 21 of the 126 sit inside 600 m of the
   Night Bazaar, and their names say who they are for — Hong Kong, Boston,
   Europe International, James Bond, Tony, VIP, Vincent Bespoke — English trade
   names written in Thai script, almost all carrying one tag, `#ตัดสูท`.

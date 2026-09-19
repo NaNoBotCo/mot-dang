@@ -70,3 +70,11 @@ Written down, not built:
 
 See go/pins for how the pins themselves were filled, and why only 287 of 2,116
 could be.
+
+
+2026-09-10 — SUPERSEDED IN PART. A held record is now IN data/index.json,
+marked `hd`, with no keyword blob: md.js indexes it on its name and its
+province words only and files it behind any row that answers as well. The
+exact-name side file (data/held.json) is still written for the assistant and
+is no longer read by the search page. Reason: "river tavern chiang rai" found
+nothing from inside River Tavern. See notes/search-middle-layer-2026-09-10.txt.

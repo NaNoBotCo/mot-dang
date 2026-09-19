@@ -1,5 +1,5 @@
 ของเล่น · TOYS — a download shelf on motdang.net
-WO-75, built 2026-09-07 night.  Nothing deployed.
+WO-75, built 2026-09-07 night.
 
 
 WHAT YOU ASKED FOR
@@ -92,7 +92,7 @@ THE FORK THAT IS YOURS — HOW THE PAID ONES GET PAID
   free toys today and the paid ones the day you pick a rail.
 
   A  Ko-fi shop            already yours, already in the footer.  No code,
-                           no account for the buyer.  Ko-fi takes 0% on the
+                           no sign-in for the buyer.  Ko-fi takes 0% on the
                            free tier for shop sales but the payment
                            processor still takes its cut; delivery is
                            Ko-fi's own download link, off motdang.net.
@@ -108,8 +108,8 @@ THE FORK THAT IS YOURS — HOW THE PAID ONES GET PAID
 
   C  Stripe payment link + a Worker that mints a signed R2 URL
                            ~3.65% + ฿11 in Thailand, no platform cut, the
-                           file never leaves motdang.net, and the buyer
-                           never leaves either.  Costs a day of work in the
+                           file stays on motdang.net, and the buyer
+                           stays too.  Costs a day of work in the
                            worker you already run.  It is the only one of
                            the three where a customer email is yours.
 

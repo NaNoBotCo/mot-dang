@@ -1,0 +1,104 @@
+==============================================================================
+OPS SITREP — Friday 19 September 2026, desk run 21:27
+==============================================================================
+
+PIPE
+  Health          {"ok":true} — build 2026-09-07-neighbours, reads_sign,
+                  reads_neighbours. Answered in 0.09 s.
+  Rows waiting    0. "nothing waiting." — and this time it means it.
+  Newest message  19 Sept 11:54, Michael, "It just finished."
+                  About 9 hours old. The pipe is ALIVE.
+
+  The 7-18 Sept blackout is over. Chat is landing on disk the same day:
+  2026-09-18.jsonl (22 messages) and 2026-09-19.jsonl (9) both written.
+
+THE ROOM
+  9 messages today, 00:44 to 11:54, over 11 hours.
+  Nan 5, Palida (Beer) 3, Michael 1.
+  Two earlier desk runs already read today (ops file written 06:51, then
+  19:32) and yesterday. Nothing in the room was left unread at this run.
+
+FOR NAN
+  1. The 11 pm meeting is still unsettled and it is the only live ambiguity.
+     Beer, 00:44: "Can we meet tomorrow at 11 pm instead?" You: "Yes."
+     Then a meeting happened this morning at 11:00. Either she meant 11 am
+     today, or 23:00 Sunday 20 Sept still stands and this morning was a
+     separate meeting. Nothing is calendared until you say which.
+     One line settles it: "Sunday 11 pm is off" or "Sunday 11 pm stands."
+
+  2. Michael has been unwell since you got home — a stuffy nose, your 07:34.
+     You offered Beer the out on the mall visit; she never took it or
+     declined it in the room, and the 11:00 meeting went ahead.
+
+  3. Nobody has confirmed the send page. You posted three motdang.net/mail
+     links last night; no one has said back that they opened one or sent
+     anything. The page itself is up (checked: 200).
+
+  4. No bug report came in today or yesterday. There is no BUGS.txt and no
+     bugs.jsonl in this repo — so if Michael files one, there is currently
+     nowhere for it to land and no number to pass him. Worth knowing before
+     the next one arrives.
+
+WORKED
+  chiangmaivisadesk.com — you told Beer, standing, to post it whenever she
+  sees someone on Facebook asking for visa help. Checked before she does:
+  the site answers 200 in 0.09 s, and the free tracker you named in the
+  room is live at /farang-buddy/ — "FarangBuddy — a free Thailand stay
+  tracker". Note /farang-buddy without the slash 307s to the slash version,
+  so both spellings work. The claim you made in the room holds up.
+
+  Duke's at Maya — resolved against the catalogue. It is held:
+  The Duke's Maya, floor 4 MAYA Lifestyle, 55 Huay Kaew, 052 081 095,
+  open 10:00-22:00 daily, wherestheduke.com. Four Duke's branches in
+  Chiang Mai; only this one is at Maya, so the 29 Sept venue is not
+  ambiguous. No new place row needed.
+
+  A shelf bug found on the way. The Duke's Maya is filed under seafood.
+  Its own OSM cuisine tag is steak_house;seafood;pizza;burger;sandwich;
+  pasta — a steakhouse on the seafood shelf, and The Duke's Ping River
+  the same. Cause is exact: importers/import_overpass.py line 69 tests
+  the cuisine set for "seafood" before it ever reaches the international
+  branch, so one word anywhere in a six-word tag decides the shelf.
+  Scanned all 62,847 records in data/canonical/cm.json: 384 carry a
+  multi-value cuisine, 5 of those sit on the seafood shelf while their
+  leading cuisine is something else — two Duke's, Thai Cuisine
+  (indonesian), jasmine restaurant (thai), and Sunny Shrimp, which is
+  arguably filed right. So 3 or 4 wrong records, not a wave.
+  Search is unaffected — the keyword blob keeps every cuisine word, so
+  these places still answer to "steak". It is the shelf that lies.
+  Not fixed: a precedence order is a call on your tree, and "use the
+  first token" is not safe either, because OSM's cuisine list has no
+  order. Written as a candidate only, nothing touched in data/.
+
+ROUTED
+  Today's 9 messages   → _incoming/line/ops/2026-09-19.txt (already written)
+  Yesterday's 22       → _incoming/line/ops/2026-09-18.txt (already written)
+  Duke's Maya, two rows → _incoming/line/knowledge/2026-09-19.json  [NEW]
+                          the venue resolution, and the seafood-shelf finding
+  The 11 pm ambiguity  → _incoming/line/ASK-NAN.txt (already written)
+
+  Nothing today was a fact about a new place, and nothing today belonged to
+  another project in "claude code projects". It was a domestic day: a
+  meeting moved, a cold, a GoPro card finishing its upload.
+
+BLOCKED
+  Drive photo queue, day 13. Ten photos from 7, 8, 12 and 14 Sept, all
+  still on disk, none ever uploaded. Ten sidecars did go up. The upload
+  path I have carries the image as base64 inside a tool call; the smallest
+  queued photo is 69 KB and the largest 430 KB, so all ten cost roughly
+  400k tokens and every retry pays it again. rclone is installed on this
+  Mac with no remote configured. One authorised Drive remote plus four
+  lines in pull_line.py retires this for good — the OAuth sign-in is
+  yours, it cannot be mine.
+
+  Two photos still cannot be filed without you:
+    "Lucky carpark near Chiang Mai airport" (Beer, 8 Sept) — no carpark by
+    that name in the catalogue. Is it the จ่าหนอน carpark under another
+    name, or a place we do not hold?
+    "Pha Naresuan" (Beer, 12 Sept, five photos) — six King Naresuan sites
+    held, none called Pha Naresuan. ผา is a cliff and fits none of them.
+
+  Both are asked in ASK-NAN.txt and both have now been asked more than
+  once. ASK-NAN.txt is 222 lines and the unfiled folder has been ten
+  photos for eleven days: the room is being read and not answered. That
+  is the one number on this page that is getting worse.

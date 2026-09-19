@@ -1,0 +1,131 @@
+ป้ายทุกที่ — TAGGING EVERYTHING WE CAN
+2026-09-08. Nan: "tag every record you can — make tags prolific. Some tags
+can/should be inferred. Don't hold back."
+
+Engine only. Nothing built, nothing deployed — a build was running all day.
+
+
+WHERE IT STARTED, MEASURED THIS MORNING
+
+    88,161 records (the Overture fold)
+    69,734 carried a tag ABOUT THE PLACE          79.1%
+    18,427 carried none at all
+    41,287 carried exactly one
+     1,549 tags in the vocabulary
+
+The rest carried only the `state` family — has-phone, has-website, no-pin.
+Those describe OUR ENTRY, not the place, and they are not what a reader
+searches for.
+
+
+WHERE IT IS NOW
+
+    87,686 carry a tag about the place            99.5%   (was 79.1%)
+       475 carry none                                     (was 18,427)
+      2.76 tags about the place per record, mean          (was 1.56)
+     1,920 tags in the vocabulary                         (was 1,549)
+         0 of them without a label                        (was 406)
+
+  The 475 are mostly caves, peaks and lakes whose sub-shelf has fewer than
+  five members — the floor, not a gap in the reading.
+
+Read off, in order of size: a field the record already carried (198,666), the
+record's own name (25,948), its opening hours (11,703), a hand-written rule
+(7,220), a brand (2,978), the moat polygon (2,321).
+
+
+THE FOUR THINGS THAT CHANGED
+
+1  THE SUB-SHELF IS A FIELD.  87,319 records stand on a sub-shelf and the tag
+   layer read none of them, so a massage shop with a technique (tok-sen), a
+   hotel with a class and a food stall with a cuisine all had nothing to be
+   found by across shelves. Now the sub is mined like any other field, and it
+   JOINS the tag that already says the same thing rather than minting a twin.
+   This is the single biggest lift: it is most of the 18,427.
+
+2  THE NAME IS A FIELD TOO — the inference you asked for.  In this catalogue a
+   name is usually the shop's own description of itself: ซักผ้าหยอดเหรียญ is a
+   coin laundry, ก๋วยเตี๋ยวเรือป้านิด is a noodle shop, Baan Suan Guesthouse is
+   a guesthouse. 25,948 tags are now read out of names, and the tag says which
+   word it read. Two guards keep it inference and not invention:
+     · the shelf must already say it — a tag can only be read off a name on a
+       shelf where the FIELD-earned members of that same tag already stand, so
+       "Thai" is read off a food place and never off นวดแผนไทย;
+     · a word has to be a word — Thai matches are at least three characters,
+       Latin ones are whole words of at least four, so "bar" never lights up
+       Barber and "spa" never lights up Spanish.
+   Spot-checked: แอร์ found 182 places, every one an air-con repair shop.
+
+3  ONE AXIS, NOT TWO HALVES.  The 46 *_restaurant words in the Overture fold
+   were being minted as separate KIND tags standing beside the hand-written
+   cuisine list that already had the word — japanese_restaurant beside
+   japanese. They are cuisines now, and they join the tag that exists.
+   Same for the facility and specialty families. `restaurant` itself is
+   un-skipped: 3,873 records carry it and no sub-shelf, so it was the only
+   word they had.
+
+4  THE SITE'S OWN WORDS.  A mined tag was supposed to take its label from the
+   shelf labels before falling back to the raw value, and nothing had ever
+   handed them over — so 180 sub tags arrived as "Hotel full" and "Bakery
+   dessert" with no Thai at all. They now read กาแฟ-คาเฟ่ · Coffee & Cafés,
+   ซ่อมรถ-อู่ · Auto & Motorbike, ทนาย-บัญชี · Lawyers & Accountants.
+
+
+TWO BUGS FOUND WHILE DOING IT
+
+  · A brand tag called "Restaurant".  Six records have the word Restaurant
+    typed into their brand box; the first cut of the merging handed 7,516
+    restaurants to that tag, which says they are all branches of one chain.
+    A value may now only join a tag in the SAME family, and a brand can no
+    longer take the name of a kind of place (a `brand_skip` list, plus every
+    hand-written tag slug). Brand tags: 194 real chains.
+  · A rule that mined nothing.  The `street` family read attrs.street, which
+    no record in this catalogue carries — 14,358 carry attrs.road. It had been
+    mining nothing at all.
+
+
+THE MERGE AND THE LABELS — both done, same evening
+
+  · THE COFFEE MERGE.  Four fields were saying one thing in four wordings:
+    กาแฟ-คาเฟ่ (8,726), คาเฟ่ (4,518), ร้านกาแฟ (3,752) and Coffee (3,043).
+    They are one tag now — กาแฟ-คาเฟ่ · Coffee & Cafés, 8,728 places — and it
+    carries every (field, value) pair it swallowed, so a member can still be
+    shown the word it actually holds: cafe, coffee_shop, coffee or tea_room.
+    Deciding that "Coffee shop" and "Café" are the same tag is a person's
+    judgment and not a rule, so the list is written down in data/tags.json
+    under `merge` rather than derived. Six others went with it: barber →
+    barbers, bubble tea, hotel → hotels, guest house → guesthouses, and the
+    Overture vegetarian and halal into the diet tags that already existed.
+
+  · THE 406 ARE LABELLED.  Every mined tag now has both names. 691 carry a
+    written label; the other 947 are place names and Thai trade words whose
+    English half is an RTGS reading, which is the designed fallback and is
+    marked as a reading rather than dressed as a name.
+    Two things fixed while doing it: a postcode chip read "50300" and nothing
+    else (it reads รหัสไปรษณีย์ 50300 · 50300 postcode now), and the
+    อ./ต./ถ. decoration was growing into the ADDRESS — the tag is still at
+    /tags/in-san-sai/ and only its label says (district).
+    Two values stopped being tags at all: `unknown` from the wat register,
+    which filed 247 wats under a fact nobody recorded, and a trade value of
+    "50".
+
+
+STILL OPEN
+
+  · WEIGHT. Tags ride in the search index as ints, and the mean went 1.56 to
+    2.76 per record — roughly +106,000 ints, plus 371 more tag definitions in
+    search_tables.json. tests/test_index_weight.py reports weight and no
+    longer fails on it, so the build will print the real number. Your
+    "1.5 MB before an answer is a problem" still stands and this adds to it.
+  · TAG PAGES. Every tag over the floor draws a page per province. The
+    vocabulary grew by 371, so the build will draw a few hundred more pages,
+    some of which say what a sub-shelf page already says. Whether that is
+    worth it is yours; I have not suppressed any.
+  · THE BUILD. None of this has been through one. A build has been running
+    all day and DO-NOT-DEPLOY-2026-09-07.txt is still at the repo root.
+
+  Files: tags_mine.py · tags_layer.py · data/tags.json ·
+  data/curated/tag_labels.json (354 → 714 entries) · tests/test_tags_mine.py
+  (18 tests, green — they assert coverage, the shelf guard, the word-length
+  floors, the family guard and the brand rule, so a later session cannot
+  quietly undo any of it).

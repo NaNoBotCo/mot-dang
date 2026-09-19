@@ -1,0 +1,242 @@
+มดแดง MOT DANG — REDESIGN, THE DECISIONS AND WHAT THEY COST
+Addendum to REDESIGN SPEC — from Claude Design 2026-09-08.txt
+Nan's decisions, 2026-09-09.
+
+────────────────────────────────────────────────────────────────────────
+WHAT WAS DECIDED
+────────────────────────────────────────────────────────────────────────
+· GLYPHS — the Phosphor web font, supplemented from our own sprite where
+  Phosphor has nothing.
+· THE FOOTER — as the spec has it. Kept.
+· COUNTS — out of scope. This pass is design and usability.
+· PALETTE — works either way; light and dark both.
+· THE LOGO — motdang-logo.svg, as favicon, as the upper-left navigation, and
+  everywhere an actual logo is needed. Adapted: no black ground, transparent,
+  square in whatever box it sits in, and coloured by what it sits against.
+· THE TEST EVERYTHING ELSE ANSWERS TO — universal accessibility, and design
+  that is about function.
+
+────────────────────────────────────────────────────────────────────────
+THE GLYPHS — 122 marks, and where each comes from
+────────────────────────────────────────────────────────────────────────
+PHOSPHOR TAKES 113 OF THE 122 GLYPHS (every name below verified against the
+@phosphor-icons/web 2.1.2 regular set — 1,530 icons):
+
+  i-arrow       ph-arrow-right              i-atm         ph-currency-circle-dollar
+  i-back        ph-arrow-left               i-bank        ph-bank
+  i-basket      ph-basket                   i-beauty      ph-scissors
+  i-bed         ph-bed                      i-beer        ph-beer-bottle
+  i-book        ph-book-open                i-broom       ph-broom
+  i-bus         ph-bus                      i-cal         ph-calendar-dots
+  i-camera      ph-camera                   i-chat        ph-chats-circle
+  i-check       ph-check                    i-claim       ph-seal-check
+  i-clock       ph-clock                    i-cloud       ph-cloud
+  i-cloudsun    ph-cloud-sun                i-coffee      ph-coffee
+  i-coin        ph-coin                     i-compass     ph-compass
+  i-dice        ph-dice-five                i-document    ph-file-text
+  i-doi         ph-mountains                i-download    ph-download-simple
+  i-film        ph-film-slate               i-filter      ph-funnel
+  i-fit         ph-barbell                  i-flag        ph-flag
+  i-flower      ph-flower                   i-food        ph-fork-knife
+  i-fuel        ph-gas-pump                 i-fullmoon    ph-moon
+  i-gear        ph-gear                     i-gift        ph-gift
+  i-globe       ph-globe                    i-glove       ph-boxing-glove
+  i-grid        ph-squares-four             i-haze        ph-cloud-fog
+  i-health      ph-first-aid-kit            i-heart       ph-heart
+  i-here        ph-crosshair                i-home2       ph-house
+  i-ink         ph-pen-nib                  i-lamp        ph-lamp
+  i-layers      ph-stack                    i-leaf        ph-leaf
+  i-link        ph-link                     i-list        ph-list-dashes
+  i-live        ph-broadcast                i-loo         ph-toilet
+  i-lotus       ph-flower-lotus             i-mail        ph-envelope
+  i-map         ph-map-trifold              i-market      ph-storefront
+  i-me          ph-user                     i-megaphone   ph-megaphone
+  i-menu        ph-list                     i-minus       ph-minus
+  i-moon        ph-moon                     i-museum      ph-buildings
+  i-near        ph-crosshair-simple         i-needle      ph-syringe
+  i-not         ph-prohibit                 i-note        ph-note
+  i-onsen       ph-bathtub                  i-pan         ph-cooking-pot
+  i-park        ph-tree                     i-party       ph-confetti
+  i-people      ph-users                    i-pet         ph-paw-print
+  i-phone       ph-phone                    i-pill        ph-pill
+  i-pin         ph-map-pin                  i-plane       ph-airplane
+  i-plus        ph-plus                     i-plus-circle ph-plus-circle
+  i-print       ph-printer                  i-question    ph-question
+  i-rain        ph-cloud-rain               i-refresh     ph-arrows-clockwise
+  i-ride        ph-motorcycle               i-ring        ph-circle-dashed
+  i-road        ph-road-horizon             i-route       ph-path
+  i-school      ph-graduation-cap           i-scooter     ph-scooter
+  i-search      ph-magnifying-glass         i-share       ph-share-network
+  i-shop        ph-bag                      i-sort        ph-sort-ascending
+  i-sos         ph-siren                    i-spa         ph-hand-heart
+  i-sparkle     ph-sparkle                  i-star        ph-star
+  i-storm       ph-cloud-lightning          i-sun         ph-sun
+  i-swap        ph-arrows-left-right        i-tag         ph-tag
+  i-tent        ph-tent                     i-tools       ph-wrench
+  i-toy         ph-puzzle-piece             i-trans       ph-gender-transgender
+  i-walk        ph-person-simple-walk       i-warn        ph-warning
+  i-water       ph-drop                     i-wheelchair  ph-wheelchair
+  i-wind        ph-wind                     i-x           ph-x
+  i-yinyang     ph-yin-yang                 i-zoom-in     ph-magnifying-glass-plus
+  i-zoom-out    ph-magnifying-glass-minus                 
+
+THESE 9 STAY OURS — Phosphor draws nothing for them, or draws the wrong thing:
+
+  i-ant          the brand mark
+  i-ant-solid    the brand mark, filled
+  i-moat         the old city
+  i-gate         a city gate
+  i-chang        the elephant
+  i-lantern      the Yi Peng lantern
+  i-wat          a wat — Phosphor has no temple or pagoda
+  i-khrok        the mortar and pestle
+  i-air          the PM2.5 reading
+
+WHAT THE FONT WEIGHS, measured 2026-09-09 against jsDelivr:
+  Phosphor regular  .woff2  147,380 bytes (144 kB)   1,530 icons
+                    .woff   488,716 bytes (477 kB)
+  style.css                  78,131 bytes ( 76 kB)
+  our two sprites, inline:   20,021 bytes ( 20 kB)   122 marks
+                             (build.ICON_SPRITE 6,821 + glyphs.py drawings 13,200)
+So Phosphor as shipped costs 220 kB before an icon draws, for 1,530 icons of
+which the site uses 113. Two levers, both worth taking on a rural connection:
+subset the font to the 113 (the CSS goes with it, since it is one rule per
+icon), and self-host rather than hit a CDN.
+
+WHAT AN ICON FONT NEEDS IN ORDER TO BE ACCESSIBLE
+· The glyph is a private-use codepoint drawn by ::before. If the font does not
+  arrive, it renders as a blank or a tofu box, silently. So no control may
+  depend on its icon to be understood: every one carries a real text label, or
+  an aria-label when the label is visually hidden.
+· The <i> is aria-hidden="true", always. A screen reader must never read the
+  codepoint.
+· font-display: block, not swap — a fallback glyph in a text face is noise.
+· The nine marks that stay ours are inline SVG in the sprite, so they draw
+  with no network at all. The ant among them: the brand never depends on a
+  font request.
+
+────────────────────────────────────────────────────────────────────────
+THE PALETTE — both, and the numbers that hold it up
+────────────────────────────────────────────────────────────────────────
+Ratios are WCAG 2.1: 4.5:1 for text under 18.5px, 3:1 for a graphic or a
+boundary that carries meaning.
+
+LIGHT, the spec's own values:
+  ink   #211d18 on paper #faf8f2   15.77:1   text        PASS
+  red   #c62f22 on paper           5.16:1    text        PASS
+  white #ffffff on red   #c62f22   5.48:1    button      PASS
+  hairline #d8d2c4 on paper        1.42:1    boundary    FAIL
+  selected #f0e9dc on paper        1.14:1    state       FAIL
+
+DARK, the counterpart:
+  ink   #f0ece3 on ground #14120f  15.86:1   text        PASS
+  meta  #b3aa99 on ground          8.13:1    text        PASS
+  red   #ff6b5c on ground          6.69:1    text        PASS
+  ground#14120f on red   #ff6b5c   6.69:1    button      PASS
+
+ONE RED CANNOT SERVE BOTH — measured:
+  #ff6b5c on paper   2.63:1  FAIL     #c62f22 on the dark ground  3.41:1  FAIL
+So light and dark each take their own red. The one value that clears 3:1 as a
+GRAPHIC on both is the logo's own #e0524d — 3.61:1 on paper, 4.88:1 on the
+dark ground — which is why the raster logo fallbacks are drawn in it.
+
+THREE THINGS THE SPEC LEAVES BELOW THE LINE, and the fix for each:
+· THE META LINE. The spec sets counts and meta at "neutral-500". At 12–13px
+  that is body text, and the common neutral-500s do not clear it: #737373 is
+  4.46:1, #8a8578 is 3.46:1. #5c574c gives 6.77:1 and still reads as quiet.
+· THE HAIRLINE. #d8d2c4 is 1.42:1 — decoration, not a boundary. If the rule
+  is the only thing separating one row from the next it has to be seen:
+  #928e85 is the first warm value that reaches 3:1 (3.08). If the rows are
+  told apart some other way, the pale rule can stay as ornament.
+· THE SELECTED STATE. No warm tint of the paper reaches 3:1 — #dfd0b0, already
+  darker than the spec's, is 1.43:1. So selection cannot be carried by fill.
+  It needs a second cue that survives both low vision and a monochrome screen:
+  a rule down the leading edge in the accent, plus aria-pressed / aria-current
+  so it is announced rather than merely seen.
+
+────────────────────────────────────────────────────────────────────────
+UNIVERSAL ACCESSIBILITY — what the spec does not yet say
+────────────────────────────────────────────────────────────────────────
+The spec covers hit targets, the easy-read mode, aria-labels on icons and a
+no-JS path. These are the gaps.
+
+· THE TWO LANGUAGES NEED lang. Thai and English sit in the same line all over
+  this site. Without lang="th" / lang="en" on each half, a screen reader says
+  the English in Thai phonemes and the Thai in English ones — the bilingual
+  page is the one that most needs the attribute, and the spec never mentions
+  it. Every paired string carries it; <html lang> is the majority language of
+  the page, not of the reader's toggle.
+· FOCUS HAS TO BE VISIBLE. No ratio is given for a focus ring. Two-pixel ring
+  plus a two-pixel offset, in the ink rather than the accent — #211d18 on
+  paper is 15.77:1, so it is visible against the selected fill and the paper
+  alike, which the red at 5.16:1 is not on every ground it lands on.
+· ZOOM AND REFLOW. 400% zoom at 1280px wide must not produce a horizontal
+  scrollbar. The 560px centre column and the one-column mobile layout both
+  survive it; the horizontally-scrolling filter chip rail is the one place to
+  check, since a chip rail and a reflowed page fight each other.
+· TARGET SIZE. The spec's 44px is the AA figure and the right one. Two places
+  it has to be measured rather than assumed: the language segmented control,
+  three targets in one row, and the phone button that sits inside a tappable
+  row — a target inside a target needs its own 44px and a gap, or the wrong
+  one fires.
+· THE ONE THING NO ICON MAY CARRY ALONE is the emergency row. A siren glyph
+  with no word is not a hotline. Numbers are exempt from the word budget, and
+  1669 next to a red phone is the row: the numeral does the work.
+· MOTION. The masthead has a rotate on hover today. prefers-reduced-motion
+  turns every transform and transition off, not down.
+· THE FORM. The search box needs a real <label>, visually hidden if the
+  design wants no visible word; a placeholder is not a name. The mic button
+  is a separate control with its own label, never the box's.
+· AND THE ONE THE WORD BUDGET THREATENS. Nine visible words is a design goal,
+  not an accessibility one. Icons that lose their labels lose them for
+  everyone who does not already know the site. The budget holds as long as
+  every glyph keeps its accessible name and its tooltip, which is what the
+  spec says — it just has to survive the build.
+
+────────────────────────────────────────────────────────────────────────
+THE LOGO — what was built from the file, and why
+────────────────────────────────────────────────────────────────────────
+Source: motdang-logo.svg, as given — 720×720, a neon-line ant on a dark navy
+ground, in a frame, over มดแดง and motdang.net.
+
+At 40px the frame, the wordmark and the URL are a smudge; the badge is drawn
+for a card, not for a tab or a masthead. So the ant is lifted out of it — the
+same drawing, the same geometry, nothing redrawn — and squared:
+
+  assets/logo/motdang-logo.svg        her file, untouched
+  assets/logo/motdang-mark.svg        the ant, transparent, square viewBox,
+                                      stroke="currentColor" — it takes the
+                                      colour of whatever it is placed on
+  assets/logo/motdang-favicon.svg     transparent, and carrying its own
+                                      light/dark rule, because currentColor
+                                      has nothing to inherit inside a tab
+  assets/logo/motdang-mark-{512,192,180,32}.png   raster fallbacks in #e0524d,
+                                      the one red that clears 3:1 on both
+
+STROKE WEIGHT — Nan, 2026-09-09: "lines on the logo SVG (top left) should be 4×
+heavier. Favicon should be visually similar." Every stroke in the drawing is
+multiplied by 4 (the 5/4/3.5 of her badge become 20/16/14), and the favicon
+carries the same weight, so the tab and the masthead are one mark. The square
+grew by half a stroke width so the heavier line cannot clip its own box —
+checked on the 512px render: the ink stops at 82/18 and 429/495 inside 512.
+One weight now serves every size; the separate 2.2× small file is gone.
+
+Wired in build.py:
+  · LOGO_MARK reads assets/logo/motdang-mark.svg — one file holds the drawing.
+  · The masthead draws LOGO_MARK instead of ANT_MARK.
+  · .logomark loses background:var(--ant), its border and its inset shadow.
+    It was a filled red tile with a paper-coloured ant inside; it is now the
+    mark alone, at colour var(--ant), filling its 62px square.
+  · The favicon stops being the 🐜 emoji in a data URI — which was the exact
+    thing glyphs.py was written to end, an emoji being whatever the reader's
+    phone decides it is — and becomes the SVG, with a 32px PNG and a 180px
+    apple-touch icon behind it.
+  · assets/logo/ is copied to docs/logo/ in the same block as wat.svg.
+
+Left alone: ANT_MARK is still defined and is now unused. Deleting it is a
+separate, deliberate change.
+
+Still open, one thing: at 16px no version of this ant reads as an ant — the
+legs and feelers merge whatever the stroke weight, and 4× merges them sooner
+than 2.2× did. What 4× buys is 32px and up, where the mark now reads at a
+glance. A 16px drawing that is recognisably an ant would be a new drawing.

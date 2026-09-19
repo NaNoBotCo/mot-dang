@@ -177,7 +177,7 @@ Counts below are from data/canonical/cm.json + cr.json as of this morning (24,05
   HERE and ARRIVALS (go/here, go/arrivals) serve the 99% ARRIVING. This
   class serves the person who STAYS — and the scholar, the convert, the
   bereaved, the stateless, the volunteer. It is the difference between a
-  tourist listing and a civic record.
+  visitor listing and a civic record.
 
   It is also the memory of the city. The shops will be re-mapped by the
   next crawler. The Payap archive's missionary letters, the ho trai's
@@ -205,7 +205,7 @@ Counts below are from data/canonical/cm.json + cr.json as of this morning (24,05
      mosque list, the foundation registry, before writing a line.
 
   D. THE EVIDENCE BAR — access rules come only from the institution's own
-     words or a roster, never inferred; every rule carries `asOf`. The
+     words or a roster, not inferred; every rule carries `asOf`. The
      reader must be able to see the date.
 
   E. THE INDEX — how a HOLDING is searched: "Tai Khün manuscripts" must land
