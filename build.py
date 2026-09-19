@@ -16996,6 +16996,15 @@ def build():
     _loop = ROOT / "assets" / "loop"
     if _loop.is_dir():
         shutil.copytree(_loop, DOCS / "loop", dirs_exist_ok=True)
+    # Muay thai at /muay-thai. Built elsewhere (muay-thai) with
+    # SITE_URL=https://motdang.net/muay-thai and installed into assets/muay-thai/,
+    # copied here for the same reason /loop and /brief are. Hyphenated because
+    # /muaythai.html is this site's own board of tonight's fights, and two
+    # different things one character apart is a trap for a reader and a crawler.
+    # Publish it on its own with:  python3 publish/deploy.py --only muay-thai --yes
+    _muaythai = ROOT / "assets" / "muay-thai"
+    if _muaythai.is_dir():
+        shutil.copytree(_muaythai, DOCS / "muay-thai", dirs_exist_ok=True)
     _demo = ROOT / "assets" / PLAN_DEMO_GIF
     if _demo.exists():
         shutil.copyfile(_demo, DOCS / PLAN_DEMO_GIF)

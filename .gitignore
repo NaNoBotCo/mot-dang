@@ -54,4 +54,20 @@ data/*.meta.json
 #     && python3 tools/terrain.py --width 1400 --dark --out build/site/terrain-dark.png \
 #     && rm -rf ../mot-dang/assets/loop && mkdir -p ../mot-dang/assets/loop \
 #     && cp -R build/site/ ../mot-dang/assets/loop/
+# and the copy build.py installs from it, the same 91 MB again
+docs/loop/
 assets/loop/
+# and the copy build.py installs from it, the same 91 MB again
+docs/loop/
+
+# /muay-thai — the muay thai site. 51 MB of built pages and share cards, produced by the
+# muay-thai repo, not authored here. Rebuild with:
+#   cd ../muay-thai && SITE_URL=https://motdang.net/muay-thai python3 tools/build.py \
+#     && python3 tools/worldmap.py \
+#     && SITE_URL=https://motdang.net/muay-thai python3 tools/site.py \
+#     && python3 tools/cards.py \
+#     && rm -rf ../mot-dang/assets/muay-thai && mkdir -p ../mot-dang/assets/muay-thai \
+#     && cp -R build/site/ ../mot-dang/assets/muay-thai/
+assets/muay-thai/
+# and the copy build.py installs from it, the same 51 MB again
+docs/muay-thai/
