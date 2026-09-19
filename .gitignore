@@ -24,6 +24,8 @@ app/www/data/
 # that command if it is ever lost.
 assets/tiles/*.pmtiles
 docs/tiles/
+docs.next/
+docs.prev/
 
 # Publishing state and local tool caches. The tooling in publish/ is tracked;
 # what it leaves behind is not. .wrangler/ in particular caches a Cloudflare
@@ -31,6 +33,7 @@ docs/tiles/
 # ran a deploy — a public repo is the wrong home for the deployer's front door.
 # .uploaded.json is a per-machine checksum ledger of the last sync.
 publish/.wrangler/
+worker/.wrangler/
 publish/.uploaded.json
 
 # The Hugging Face dataset repo: a build artifact of the canonical data, the
@@ -42,3 +45,13 @@ cache/scripture/
 # run like cache/last-published.json. A fresh clone with no meta is a
 # supported state (ingest.read_meta returns {}).
 data/*.meta.json
+
+# /loop — the Mae Hong Son loop site. 78 MB of built pages and terrain rasters,
+# produced by the mhs-loop repo, not authored here. Rebuild with:
+#   cd ../mhs-loop && SITE_URL=https://motdang.net/loop python3 tools/build.py \
+#     && SITE_URL=https://motdang.net/loop python3 tools/site.py \
+#     && python3 tools/terrain.py --width 1400 \
+#     && python3 tools/terrain.py --width 1400 --dark --out build/site/terrain-dark.png \
+#     && rm -rf ../mot-dang/assets/loop && mkdir -p ../mot-dang/assets/loop \
+#     && cp -R build/site/ ../mot-dang/assets/loop/
+assets/loop/

@@ -16988,6 +16988,14 @@ def build():
     _brief = ROOT / "assets" / "brief"
     if _brief.is_dir():
         shutil.copytree(_brief, DOCS / "brief", dirs_exist_ok=True)
+    # The Mae Hong Son loop at /loop. Built elsewhere (mhs-loop) with
+    # SITE_URL=https://motdang.net/loop and installed into assets/loop/, copied
+    # here for the same reason /brief is: docs/ is what deploy.py syncs, and an
+    # object uploaded straight to the bucket would be deleted by the next sync.
+    # Publish it on its own with:  python3 publish/deploy.py --only loop --yes
+    _loop = ROOT / "assets" / "loop"
+    if _loop.is_dir():
+        shutil.copytree(_loop, DOCS / "loop", dirs_exist_ok=True)
     _demo = ROOT / "assets" / PLAN_DEMO_GIF
     if _demo.exists():
         shutil.copyfile(_demo, DOCS / PLAN_DEMO_GIF)
