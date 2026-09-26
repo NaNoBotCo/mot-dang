@@ -1,0 +1,2920 @@
+{
+ "from": "2026-09-19",
+ "to": "2026-09-25",
+ "total": 1458130,
+ "cats": {
+  "ai": 947302,
+  "human": 270828,
+  "other": 122610,
+  "seo": 63956,
+  "search": 32227,
+  "tool": 19052,
+  "social": 1841,
+  "none": 119
+ },
+ "agents": {
+  "meta-externalagent": {
+   "cat": "ai",
+   "n": 557474
+  },
+  "Chrome": {
+   "cat": "human",
+   "n": 257003
+  },
+  "ClaudeBot": {
+   "cat": "ai",
+   "n": 162216
+  },
+  "Amazonbot": {
+   "cat": "ai",
+   "n": 147134
+  },
+  "KeenableBot": {
+   "cat": "other",
+   "n": 86037
+  },
+  "Bytespider": {
+   "cat": "ai",
+   "n": 64473
+  },
+  "SemrushBot": {
+   "cat": "seo",
+   "n": 49749
+  },
+  "headless": {
+   "cat": "tool",
+   "n": 17273
+  },
+  "Reflectionbot": {
+   "cat": "other",
+   "n": 17092
+  },
+  "ShapBot": {
+   "cat": "other",
+   "n": 15684
+  },
+  "MJ12bot": {
+   "cat": "seo",
+   "n": 13971
+  },
+  "OAI-SearchBot": {
+   "cat": "ai",
+   "n": 13758
+  },
+  "YandexBot": {
+   "cat": "search",
+   "n": 9940
+  },
+  "Edge": {
+   "cat": "human",
+   "n": 7865
+  },
+  "Applebot": {
+   "cat": "search",
+   "n": 6764
+  },
+  "PetalBot": {
+   "cat": "search",
+   "n": 6457
+  },
+  "bingbot": {
+   "cat": "search",
+   "n": 4872
+  },
+  "Googlebot": {
+   "cat": "search",
+   "n": 3120
+  },
+  "GPTBot": {
+   "cat": "ai",
+   "n": 2208
+  },
+  "Safari": {
+   "cat": "human",
+   "n": 1998
+  },
+  "Facebook": {
+   "cat": "social",
+   "n": 1787
+  },
+  "Facebook in-app": {
+   "cat": "human",
+   "n": 1553
+  },
+  "Opera": {
+   "cat": "human",
+   "n": 1464
+  },
+  "YandexRenderResourcesBot": {
+   "cat": "other",
+   "n": 1460
+  },
+  "curl": {
+   "cat": "tool",
+   "n": 1331
+  },
+  "unrecognised": {
+   "cat": "other",
+   "n": 1105
+  },
+  "Internet Archive": {
+   "cat": "search",
+   "n": 1060
+  },
+  "other browser": {
+   "cat": "human",
+   "n": 680
+  },
+  "SofyaBot": {
+   "cat": "other",
+   "n": 672
+  },
+  "python": {
+   "cat": "tool",
+   "n": 371
+  },
+  "SERankingBacklinksBot": {
+   "cat": "other",
+   "n": 281
+  },
+  "AhrefsBot": {
+   "cat": "seo",
+   "n": 252
+  },
+  "Firefox": {
+   "cat": "human",
+   "n": 245
+  },
+  "ChatGPT-User": {
+   "cat": "ai",
+   "n": 200
+  },
+  "(no user-agent)": {
+   "cat": "none",
+   "n": 119
+  },
+  "ImageMetaBot": {
+   "cat": "other",
+   "n": 100
+  },
+  "Go-http-client": {
+   "cat": "tool",
+   "n": 62
+  },
+  "TikTokSpider": {
+   "cat": "other",
+   "n": 62
+  },
+  "crawler": {
+   "cat": "other",
+   "n": 59
+  },
+  "Samsung Internet": {
+   "cat": "human",
+   "n": 54
+  },
+  "LINE": {
+   "cat": "social",
+   "n": 27
+  },
+  "YisouSpider": {
+   "cat": "other",
+   "n": 23
+  },
+  "Slackbot": {
+   "cat": "social",
+   "n": 11
+  },
+  "WhatsApp": {
+   "cat": "social",
+   "n": 8
+  },
+  "360Spider": {
+   "cat": "other",
+   "n": 7
+  },
+  "SEBot-WA": {
+   "cat": "other",
+   "n": 6
+  },
+  "trendictionbot0.5.0": {
+   "cat": "other",
+   "n": 5
+  },
+  "SEOJuice-SearchBot": {
+   "cat": "other",
+   "n": 4
+  },
+  "redditbot": {
+   "cat": "social",
+   "n": 4
+  },
+  "AdsBot-Google": {
+   "cat": "other",
+   "n": 4
+  },
+  "Twitterbot": {
+   "cat": "social",
+   "n": 4
+  },
+  "okhttp": {
+   "cat": "tool",
+   "n": 3
+  },
+  "LINE in-app": {
+   "cat": "human",
+   "n": 3
+  },
+  "AdsBot-Google-Mobile": {
+   "cat": "other",
+   "n": 3
+  },
+  "ListSignalBot": {
+   "cat": "other",
+   "n": 2
+  },
+  "DuckDuckBot": {
+   "cat": "search",
+   "n": 2
+  },
+  "wpbot": {
+   "cat": "other",
+   "n": 2
+  },
+  "http-client": {
+   "cat": "tool",
+   "n": 2
+  },
+  "domainsbot.com": {
+   "cat": "other",
+   "n": 2
+  },
+  "DataForSeoBot": {
+   "cat": "seo",
+   "n": 1
+  },
+  "Crawler": {
+   "cat": "other",
+   "n": 1
+  },
+  "unnamed bot": {
+   "cat": "other",
+   "n": 1
+  }
+ },
+ "hours": {
+  "MJ12bot": [
+   809,
+   460,
+   810,
+   294,
+   980,
+   420,
+   857,
+   203,
+   1196,
+   663,
+   679,
+   461,
+   619,
+   490,
+   382,
+   765,
+   163,
+   494,
+   712,
+   314,
+   427,
+   331,
+   727,
+   715
+  ],
+  "Amazonbot": [
+   6231,
+   5929,
+   5993,
+   6087,
+   6192,
+   6226,
+   6222,
+   6323,
+   6321,
+   6322,
+   6299,
+   6204,
+   5880,
+   6170,
+   5984,
+   5986,
+   5916,
+   6096,
+   6130,
+   6000,
+   6003,
+   6161,
+   6275,
+   6184
+  ],
+  "KeenableBot": [
+   3442,
+   3409,
+   3470,
+   3462,
+   3574,
+   2510,
+   2901,
+   3869,
+   3925,
+   3802,
+   3807,
+   4043,
+   3820,
+   4043,
+   3858,
+   3857,
+   3684,
+   3333,
+   3458,
+   3514,
+   3630,
+   3512,
+   3572,
+   3542
+  ],
+  "meta-externalagent": [
+   29966,
+   27391,
+   22825,
+   21835,
+   23087,
+   22133,
+   21481,
+   22891,
+   17891,
+   18453,
+   19223,
+   17428,
+   18513,
+   19883,
+   22483,
+   21666,
+   25114,
+   26657,
+   26528,
+   27100,
+   26177,
+   26498,
+   25835,
+   26416
+  ],
+  "Reflectionbot": [
+   451,
+   492,
+   451,
+   462,
+   519,
+   584,
+   669,
+   698,
+   794,
+   801,
+   777,
+   795,
+   809,
+   762,
+   784,
+   828,
+   791,
+   794,
+   803,
+   781,
+   762,
+   836,
+   821,
+   828
+  ],
+  "ShapBot": [
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   3118,
+   5668,
+   608,
+   4490,
+   2,
+   0,
+   1796,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "Applebot": [
+   232,
+   232,
+   250,
+   294,
+   342,
+   302,
+   330,
+   328,
+   325,
+   355,
+   392,
+   383,
+   370,
+   332,
+   337,
+   205,
+   207,
+   230,
+   233,
+   179,
+   182,
+   231,
+   253,
+   240
+  ],
+  "YandexBot": [
+   304,
+   2,
+   5,
+   1455,
+   1815,
+   752,
+   1129,
+   1134,
+   380,
+   697,
+   423,
+   1119,
+   607,
+   18,
+   9,
+   9,
+   17,
+   14,
+   1,
+   30,
+   8,
+   10,
+   0,
+   2
+  ],
+  "PetalBot": [
+   306,
+   299,
+   300,
+   303,
+   294,
+   307,
+   308,
+   293,
+   300,
+   273,
+   275,
+   237,
+   258,
+   254,
+   239,
+   251,
+   239,
+   259,
+   244,
+   256,
+   247,
+   220,
+   224,
+   271
+  ],
+  "Bytespider": [
+   3045,
+   3001,
+   2848,
+   2489,
+   2850,
+   3223,
+   3084,
+   3089,
+   2631,
+   3181,
+   2279,
+   2730,
+   3282,
+   2860,
+   2978,
+   2489,
+   2141,
+   2161,
+   2413,
+   2435,
+   2217,
+   2422,
+   2425,
+   2200
+  ],
+  "SemrushBot": [
+   2081,
+   2074,
+   2065,
+   2069,
+   2063,
+   2052,
+   2086,
+   2072,
+   2071,
+   2043,
+   2079,
+   2061,
+   2068,
+   2067,
+   2067,
+   2090,
+   2083,
+   2072,
+   2101,
+   2069,
+   2074,
+   2085,
+   2084,
+   2073
+  ],
+  "OAI-SearchBot": [
+   665,
+   149,
+   209,
+   1396,
+   47,
+   140,
+   39,
+   43,
+   55,
+   2340,
+   28,
+   172,
+   2649,
+   138,
+   654,
+   17,
+   3,
+   46,
+   15,
+   2828,
+   1471,
+   38,
+   3,
+   613
+  ],
+  "ClaudeBot": [
+   1342,
+   1691,
+   5908,
+   10874,
+   16802,
+   16068,
+   19595,
+   13701,
+   14378,
+   12682,
+   12408,
+   8718,
+   6748,
+   4814,
+   2971,
+   2538,
+   1943,
+   1668,
+   1522,
+   1432,
+   1329,
+   1284,
+   694,
+   1106
+  ],
+  "headless": [
+   563,
+   0,
+   10,
+   3021,
+   3374,
+   1166,
+   2300,
+   2008,
+   718,
+   1245,
+   740,
+   75,
+   523,
+   13,
+   10,
+   15,
+   207,
+   546,
+   15,
+   26,
+   408,
+   218,
+   72,
+   0
+  ]
+ },
+ "countries": {
+  "meta-externalagent": {
+   "US": 557306
+  },
+  "ClaudeBot": {
+   "US": 162270
+  },
+  "Amazonbot": {
+   "US": 147088
+  },
+  "KeenableBot": {
+   "US": 86041
+  },
+  "Bytespider": {
+   "SG": 64438,
+   "HK": 14
+  },
+  "SemrushBot": {
+   "US": 49733
+  },
+  "Reflectionbot": {
+   "US": 17090
+  },
+  "ShapBot": {
+   "US": 15680
+  },
+  "headless": {
+   "RU": 15658,
+   "TH": 1341,
+   "US": 270,
+   "CN": 14
+  },
+  "OAI-SearchBot": {
+   "US": 13778
+  },
+  "MJ12bot": {
+   "FR": 10340,
+   "FI": 1384,
+   "PL": 930,
+   "UA": 838,
+   "DE": 239,
+   "AT": 239
+  },
+  "YandexBot": {
+   "RU": 9958
+  },
+  "Applebot": {
+   "US": 6764
+  },
+  "PetalBot": {
+   "SG": 6454
+  }
+ },
+ "fav": {
+  "meta-externalagent": [
+   [
+    "/chuai.html",
+    32445
+   ],
+   [
+    "/api/v1/search",
+    5014
+   ]
+  ],
+  "headless": [
+   [
+    "/chuai.html",
+    3178
+   ],
+   [
+    "/plan.html",
+    24
+   ]
+  ],
+  "Applebot": [
+   [
+    "/api/v1/search",
+    365
+   ],
+   [
+    "/chuai.html",
+    33
+   ]
+  ],
+  "OAI-SearchBot": [
+   [
+    "/cm/p/sinpattana-real-estate-43652088416158100694771.html",
+    30
+   ],
+   [
+    "/tawai.html",
+    9
+   ],
+   [
+    "/beauty.html",
+    8
+   ],
+   [
+    "/cm/cannabis/",
+    8
+   ],
+   [
+    "/cm/tag/tambon-phra-sing.html",
+    8
+   ]
+  ],
+  "SemrushBot": [
+   [
+    "/find",
+    23
+   ],
+   [
+    "/cm/p/k-design-by-867636904699615930537.html",
+    10
+   ]
+  ],
+  "ClaudeBot": [
+   [
+    "/find",
+    23
+   ],
+   [
+    "/cm/p/juicy4u-2040042303.html",
+    17
+   ],
+   [
+    "/cm/p/wat-sai-moon-myanmar-244650874.html",
+    16
+   ],
+   [
+    "/cm/p/7-eleven-8690800396.html",
+    16
+   ],
+   [
+    "/cm/p/mornzter-tattoo-studio-4789224122.html",
+    15
+   ]
+  ],
+  "MJ12bot": [
+   [
+    "/cr/tag/school--school.html",
+    18
+   ],
+   [
+    "/cr/tag/in-wiang-pa-pao.html",
+    16
+   ],
+   [
+    "/cm/tag/wifi.html",
+    16
+   ],
+   [
+    "/cr/school/government/index.html",
+    15
+   ],
+   [
+    "/cr/school/all.html",
+    15
+   ]
+  ],
+  "Amazonbot": [
+   [
+    "/find",
+    15
+   ],
+   [
+    "/cm/p/4493803243789077782961539.html",
+    10
+   ],
+   [
+    "/cm/p/3348909304041008737519388.html",
+    10
+   ]
+  ],
+  "KeenableBot": [
+   [
+    "/cm/p/60966247495911320.html",
+    10
+   ],
+   [
+    "/asked/snake-in-the-house.html",
+    10
+   ]
+  ],
+  "YandexBot": [
+   [
+    "/cr/p/52674218495694989.html",
+    10
+   ],
+   [
+    "/cm/p/4935559645865161020.html",
+    10
+   ]
+  ],
+  "ShapBot": [
+   [
+    "/cm/p/nsp-food-hall-6868990379.html",
+    8
+   ],
+   [
+    "/cm/p/20096157242815918323.html",
+    8
+   ]
+  ]
+ },
+ "places": {
+  "KeenableBot": 48590,
+  "SemrushBot": 23730,
+  "Amazonbot": 15675,
+  "ClaudeBot": 13279,
+  "ShapBot": 13169,
+  "OAI-SearchBot": 12380,
+  "Reflectionbot": 9545,
+  "YandexBot": 7155,
+  "PetalBot": 5240,
+  "Bytespider": 4857
+ },
+ "seen": {
+  "ShapBot": [
+   "2026-09-14 23:35:33",
+   "2026-09-25 10:57:34"
+  ],
+  "PetalBot": [
+   "2026-09-10 04:28:24",
+   "2026-09-25 16:59:57"
+  ],
+  "Applebot": [
+   "2026-09-08 01:49:20",
+   "2026-09-25 16:57:56"
+  ],
+  "MJ12bot": [
+   "2026-09-08 01:48:49",
+   "2026-09-25 16:02:05"
+  ],
+  "headless": [
+   "2026-09-08 20:34:37",
+   "2026-09-25 14:50:06"
+  ],
+  "ClaudeBot": [
+   "2026-09-10 14:26:12",
+   "2026-09-25 16:53:41"
+  ],
+  "YandexBot": [
+   "2026-09-09 01:48:30",
+   "2026-09-25 14:45:25"
+  ],
+  "OAI-SearchBot": [
+   "2026-09-08 05:46:48",
+   "2026-09-25 16:58:47"
+  ],
+  "Reflectionbot": [
+   "2026-09-15 10:59:44",
+   "2026-09-25 16:59:58"
+  ],
+  "Amazonbot": [
+   "2026-09-08 02:40:14",
+   "2026-09-25 16:59:58"
+  ],
+  "KeenableBot": [
+   "2026-09-11 14:44:34",
+   "2026-09-25 16:53:47"
+  ],
+  "Bytespider": [
+   "2026-09-08 02:30:12",
+   "2026-09-25 14:32:16"
+  ],
+  "SemrushBot": [
+   "2026-09-08 01:49:06",
+   "2026-09-25 16:59:59"
+  ],
+  "meta-externalagent": [
+   "2026-09-08 01:49:26",
+   "2026-09-25 16:06:19"
+  ]
+ },
+ "misses": [
+  [
+   "meta-externalagent",
+   "/null",
+   "US",
+   776
+  ],
+  [
+   "meta-externalagent",
+   "/cm/p/null",
+   "US",
+   125
+  ],
+  [
+   "meta-externalagent",
+   "/cm/tag/null",
+   "US",
+   107
+  ],
+  [
+   "unrecognised",
+   "/wp-admin/install.php",
+   "RU",
+   93
+  ],
+  [
+   "meta-externalagent",
+   "/cr/p/null",
+   "US",
+   73
+  ],
+  [
+   "meta-externalagent",
+   "/cr/tag/null",
+   "US",
+   60
+  ],
+  [
+   "Chrome",
+   "/themes/custom/ahaspeed/favicon.ico",
+   "CN",
+   57
+  ],
+  [
+   "Chrome",
+   "/assets/fire_admin/images/logo.png",
+   "CN",
+   55
+  ],
+  [
+   "Chrome",
+   "/imgs/logox.png",
+   "CN",
+   49
+  ],
+  [
+   "Chrome",
+   "/favicon.png",
+   "CN",
+   48
+  ],
+  [
+   "Chrome",
+   "/favicon.ico.png",
+   "CN",
+   43
+  ],
+  [
+   "Chrome",
+   "/assets/index/kuailian/image/favicon.ico",
+   "CN",
+   42
+  ],
+  [
+   "Chrome",
+   "/assets/images/logo-cn-vpnweb.png",
+   "CN",
+   42
+  ],
+  [
+   "Chrome",
+   "/theme/Bob-Theme-Argon/favicon.ico",
+   "CN",
+   40
+  ],
+  [
+   "Chrome",
+   "/static/icon/bjch.png",
+   "CN",
+   39
+  ],
+  [
+   "Chrome",
+   "/details/images/favicon.ico",
+   "CN",
+   38
+  ],
+  [
+   "Chrome",
+   "/images/favicon-196x196.png",
+   "CN",
+   37
+  ],
+  [
+   "Chrome",
+   "/officialsite",
+   "CN",
+   34
+  ],
+  [
+   "Chrome",
+   "/Alvin9999/https/fanfan1.net/daohang/",
+   "CN",
+   31
+  ],
+  [
+   "Chrome",
+   "/img/logo_512.png",
+   "CN",
+   30
+  ],
+  [
+   "Facebook",
+   "/ghost/images/ho-phaya-mangrai/king-mangrai-shrine.jpg",
+   "US",
+   24
+  ],
+  [
+   "Facebook",
+   "/ghost/",
+   "US",
+   19
+  ],
+  [
+   "unrecognised",
+   "/.well-known/assetlinks.json",
+   "SG",
+   13
+  ],
+  [
+   "Chrome",
+   "/cpanel/phpinfo.php",
+   "US",
+   12
+  ],
+  [
+   "Chrome",
+   "/server-info.php",
+   "US",
+   12
+  ],
+  [
+   "Chrome",
+   "/.env1",
+   "US",
+   12
+  ],
+  [
+   "curl",
+   "/nginx/.env",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/htdocs/.env",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/.env.ci",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/apps/api/.env",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/.env.storage",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/.env.firebase",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/svelte/.env",
+   "SE",
+   9
+  ],
+  [
+   "Chrome",
+   "/saas/.env",
+   "US",
+   9
+  ],
+  [
+   "Chrome",
+   "/administrator/phpinfo.php",
+   "US",
+   9
+  ],
+  [
+   "curl",
+   "/k8s/.env",
+   "SE",
+   9
+  ],
+  [
+   "Chrome",
+   "/cloud/.env",
+   "US",
+   9
+  ],
+  [
+   "Chrome",
+   "/api/dev/.env",
+   "US",
+   9
+  ],
+  [
+   "curl",
+   "/local/.env",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/ses.env",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/new/.env",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/.env.1",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/@fs/.env.local",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/.env.tokens",
+   "SE",
+   9
+  ],
+  [
+   "Chrome",
+   "/wordpress/wp-includes/wlwmanifest.xml",
+   "US",
+   9
+  ],
+  [
+   "Chrome",
+   "/api/v3/.env",
+   "US",
+   9
+  ],
+  [
+   "Chrome",
+   "/v1/.env",
+   "US",
+   9
+  ],
+  [
+   "Chrome",
+   "/store/.env",
+   "US",
+   9
+  ],
+  [
+   "Chrome",
+   "/backup/.git/HEAD",
+   "SE",
+   9
+  ],
+  [
+   "Edge",
+   "/.svn/reconx-fe5e34a81c64",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/docker/.env.local",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/.env.cache",
+   "SE",
+   9
+  ],
+  [
+   "curl",
+   "/.env.queue",
+   "SE",
+   9
+  ],
+  [
+   "Chrome",
+   "/xmlrpc.php",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/api/.env",
+   "DE",
+   8
+  ],
+  [
+   "Chrome",
+   "/web/wp-includes/wlwmanifest.xml",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/gitlab/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/p.php",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/circleci/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/mail/phpinfo.php",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/.env.production",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/mail/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/sender/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/public_html/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/gcp/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/mailjet/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/cronlab/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/public/phpinfo.php",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/smtp/phpinfo.php",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/public/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/preview/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/site/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/zend/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/exapi/.env",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/.env.prod",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/production/.env",
+   "US",
+   7
+  ],
+  [
+   "Facebook",
+   "/images/bua-tong-bloom/bua-tong-bloom-doi-mae-u-kho-mexican-sunflower-fields.thumb.jpg",
+   "US",
+   7
+  ],
+  [
+   "Chrome",
+   "/blog/",
+   "NL",
+   7
+  ],
+  [
+   "Chrome",
+   "/private/.env",
+   "DE",
+   7
+  ],
+  [
+   "Chrome",
+   "/wordpress/",
+   "NL",
+   7
+  ],
+  [
+   "Chrome",
+   "/p/2billion-apartment-535924469448.html",
+   "SG",
+   7
+  ],
+  [
+   "Chrome",
+   "/cms/.env",
+   "US",
+   7
+  ],
+  [
+   "Chrome",
+   "/hosting/phpinfo.php",
+   "US",
+   7
+  ],
+  [
+   "Chrome",
+   "/wp/.env",
+   "US",
+   7
+  ],
+  [
+   "ClaudeBot",
+   "/cr/p/the-baan-hom-samunphrai-school-www-homprang-com-679429024927980240604010.html",
+   "US",
+   7
+  ],
+  [
+   "Chrome",
+   "/test/wp-includes/wlwmanifest.xml",
+   "US",
+   7
+  ],
+  [
+   "Firefox",
+   "/.env",
+   "US",
+   7
+  ],
+  [
+   "Chrome",
+   "/.env",
+   "DE",
+   6
+  ],
+  [
+   "Chrome",
+   "/2019/wp-includes/wlwmanifest.xml",
+   "US",
+   6
+  ],
+  [
+   "Chrome",
+   "/dev/.env",
+   "US",
+   6
+  ],
+  [
+   "Chrome",
+   "/src/.env",
+   "DE",
+   6
+  ],
+  [
+   "Chrome",
+   "/admin-panel/.env",
+   "US",
+   6
+  ],
+  [
+   "Chrome",
+   "/.env",
+   "US",
+   6
+  ],
+  [
+   "Firefox",
+   "/.git/config",
+   "US",
+   6
+  ],
+  [
+   "other browser",
+   "/.git/config",
+   "US",
+   6
+  ],
+  [
+   "Chrome",
+   "/yii/.env",
+   "US",
+   6
+  ],
+  [
+   "Chrome",
+   "/.env",
+   "NL",
+   6
+  ],
+  [
+   "Chrome",
+   "/web/.env",
+   "US",
+   6
+  ],
+  [
+   "Chrome",
+   "/wp/",
+   "NL",
+   6
+  ],
+  [
+   "Chrome",
+   "/feed/",
+   "US",
+   6
+  ],
+  [
+   "Chrome",
+   "/preview/phpinfo.php",
+   "US",
+   6
+  ],
+  [
+   "Chrome",
+   "/psnlink/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/p/wonderful-massage-2597948021.html",
+   "SG",
+   5
+  ],
+  [
+   "Chrome",
+   "/symfony/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/user-panel/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.old",
+   "NL",
+   5
+  ],
+  [
+   "Chrome",
+   "/config/app/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/node/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/build/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env2",
+   "DE",
+   5
+  ],
+  [
+   "Chrome",
+   "/express/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.test",
+   "DE",
+   5
+  ],
+  [
+   "Facebook",
+   "/images/doi-inthanon/doi-inthanon-minla-strigula-doi-inthanon.thumb.jpg",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/2021/wp-includes/wlwmanifest.xml",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/pinfo.php",
+   "US",
+   5
+  ],
+  [
+   "ClaudeBot",
+   "/cm/school/page-2.html",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.json",
+   "DE",
+   5
+  ],
+  [
+   "Facebook",
+   "/images/ban-rak-thai/ban-rak-thai-ban-rak-thai-mae-hong-sorn-thailand-125159281.thumb.jpg",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/core/app/.env",
+   "DE",
+   5
+  ],
+  [
+   "Chrome",
+   "/blog/wp/v2/media",
+   "NL",
+   5
+  ],
+  [
+   "Chrome",
+   "/api/v1/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/cakephp/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/test/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/backend/.env",
+   "DE",
+   5
+  ],
+  [
+   "Chrome",
+   "/cron/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/p/6451.html",
+   "SG",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.yaml",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/shared/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.backup",
+   "DE",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.example",
+   "DE",
+   5
+  ],
+  [
+   "Chrome",
+   "/server/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/.git/config",
+   "NL",
+   5
+  ],
+  [
+   "Chrome",
+   "/htdocs/.env",
+   "US",
+   5
+  ],
+  [
+   "Facebook",
+   "/roads/old",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/aws/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.local",
+   "DE",
+   5
+  ],
+  [
+   "Chrome",
+   "/private/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.dev",
+   "DE",
+   5
+  ],
+  [
+   "Chrome",
+   "/panel/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/phpinfo.php",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.staging",
+   "DE",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.sample",
+   "DE",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.uat",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/wp/v2/posts/999999",
+   "NL",
+   5
+  ],
+  [
+   "Chrome",
+   "/react/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/staging/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.stage",
+   "DE",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.bak",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.save",
+   "DE",
+   4
+  ],
+  [
+   "Chrome",
+   "/p/thanapiriya-supermarket-515022348568238530799756.html",
+   "SG",
+   4
+  ],
+  [
+   "Chrome",
+   "/.json",
+   "NL",
+   4
+  ],
+  [
+   "Chrome",
+   "/p/areen-cafe-4738386545416582269528.html",
+   "SG",
+   4
+  ],
+  [
+   "Chrome",
+   "/2020/wp-includes/wlwmanifest.xml",
+   "US",
+   4
+  ],
+  [
+   "MJ12bot",
+   "/cr/p/1057120637.html",
+   "FR",
+   4
+  ],
+  [
+   "Chrome",
+   "/p/green-nat-cafe-5307804222.html",
+   "SG",
+   4
+  ],
+  [
+   "Chrome",
+   "/portal/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/prod/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/sparkpost/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.old",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/service/.env",
+   "US",
+   4
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-way-481786772.html",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/erp/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/assets/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/azure/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/actions/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/app/.env",
+   "US",
+   4
+  ],
+  [
+   "Facebook",
+   "/images/tham-lot/tham-lot-tham-lot-cave-stalactites-ceiling-thailand.thumb.jpg",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/uat/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/dev/phpinfo.php",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/p/07864604993767458791.html",
+   "SG",
+   4
+  ],
+  [
+   "Chrome",
+   "/.git/config",
+   "DE",
+   4
+  ],
+  [
+   "Chrome",
+   "/p/776073717645346921423717.html",
+   "SG",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env~",
+   "DE",
+   4
+  ],
+  [
+   "Chrome",
+   "/config/.env",
+   "US",
+   4
+  ],
+  [
+   "Facebook",
+   "/images/doi-kong-mu/doi-kong-mu-wat-phrathat-doi-kong-mu-7.thumb.jpg",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.txt",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.svn/format",
+   "SE",
+   4
+  ],
+  [
+   "Chrome",
+   "/transactional/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.yml",
+   "DE",
+   4
+  ],
+  [
+   "MJ12bot",
+   "/cr/p/1057120723.html",
+   "FR",
+   4
+  ],
+  [
+   "Chrome",
+   "/email/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/control-panel/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/phpinfo.php.bak",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/client/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/queue/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/cms/wp-includes/wlwmanifest.xml",
+   "US",
+   4
+  ],
+  [
+   "unrecognised",
+   "/api/session/properties",
+   "FR",
+   4
+  ],
+  [
+   "Chrome",
+   "/html/.env",
+   "US",
+   4
+  ],
+  [
+   "Facebook",
+   "/ghost",
+   "US",
+   4
+  ],
+  [
+   "Facebook",
+   "/g",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/server/.env",
+   "DE",
+   4
+  ],
+  [
+   "Chrome",
+   "/terraform/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/drupal/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.svn/wc.db",
+   "NL",
+   4
+  ],
+  [
+   "Chrome",
+   "/cm/tag/ban-mae-kha-noi-chom-chan-soi-1-1c7270",
+   "SG",
+   4
+  ],
+  [
+   "Chrome",
+   "/mailgun/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/notify/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/current/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.txt",
+   "DE",
+   4
+  ],
+  [
+   "Chrome",
+   "/p/panna-1491298010.html",
+   "SG",
+   4
+  ],
+  [
+   "meta-externalagent",
+   "/cm/soi/null",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.backup",
+   "NL",
+   4
+  ],
+  [
+   "MJ12bot",
+   "/cr/p/1057120453.html",
+   "FR",
+   4
+  ],
+  [
+   "Chrome",
+   "/ansible/.env",
+   "US",
+   4
+  ],
+  [
+   "MJ12bot",
+   "/cr/p/1057120732.html",
+   "FR",
+   4
+  ],
+  [
+   "Chrome",
+   "/mysql/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/api/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/webmail/phpinfo.php",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/travis/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/elasticsearch/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.live",
+   "US",
+   4
+  ],
+  [
+   "MJ12bot",
+   "/cr/p/1057120342.html",
+   "FR",
+   4
+  ],
+  [
+   "Chrome",
+   "/site/map/map-dots-light.png",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/local/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/internal/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/laravel5/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/shopify/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/wp-content/plugins/pods/init.php",
+   "ID",
+   4
+  ],
+  [
+   "Chrome",
+   "/p/541240483515020996.html",
+   "SG",
+   4
+  ],
+  [
+   "Chrome",
+   "/lab/.env",
+   "US",
+   4
+  ],
+  [
+   "Firefox",
+   "/.env.local",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.remote",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/www/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.old",
+   "DE",
+   4
+  ],
+  [
+   "Chrome",
+   "/cm/tattoo/suthep-road-953174",
+   "SG",
+   4
+  ],
+  [
+   "Chrome",
+   "/wp-content/plugins/pods/readme.txt",
+   "ID",
+   4
+  ],
+  [
+   "Chrome",
+   "/_profiler/phpinfo",
+   "US",
+   4
+  ],
+  [
+   "ClaudeBot",
+   "/cr/hotel/page-2.html",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/nest/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/app/.env",
+   "DE",
+   4
+  ],
+  [
+   "Chrome",
+   "/mailing/.env",
+   "US",
+   4
+  ],
+  [
+   "Facebook",
+   "/gho",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/core/phpinfo.php",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/feed/",
+   "CA",
+   4
+  ],
+  [
+   "curl",
+   "/wp-config.original",
+   "SE",
+   4
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-way-1017739602.html",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/sitemaps/.env",
+   "US",
+   4
+  ],
+  [
+   "Facebook",
+   "/images/pang-ung/pang-ung-pang-oung-tham-pla-namtok-pha-suea-national-park.thumb.jpg",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/p/31942.html",
+   "SG",
+   4
+  ],
+  [
+   "Chrome",
+   "/.git/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/scripts/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/tools/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/frontend/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/temp/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/p/68213177461183314740103.html",
+   "SG",
+   4
+  ],
+  [
+   "curl",
+   "/sendgrid.env",
+   "SE",
+   4
+  ],
+  [
+   "Facebook",
+   "/gh",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/frontend/.env",
+   "DE",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.stage",
+   "US",
+   4
+  ],
+  [
+   "curl",
+   "/wp-cron.php",
+   "SE",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.save",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/debug.php",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/smtp/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/sbin/.env",
+   "US",
+   4
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-3388725586.html",
+   "US",
+   4
+  ],
+  [
+   "curl",
+   "/api/v1/.env",
+   "SE",
+   4
+  ],
+  [
+   "Chrome",
+   "/logs/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/p/parking-330-m-north-east-of-central-chiang-rai-959686148.html",
+   "SG",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.production",
+   "DE",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.preprod",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/test/phpinfo.php",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/server-status.php",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/resources/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/beta/phpinfo.php",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/wordpress/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/blog/wp-includes/wlwmanifest.xml",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.aws/credent",
+   "NL",
+   4
+  ],
+  [
+   "Chrome",
+   "/site/.env",
+   "DE",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.remote",
+   "DE",
+   4
+  ],
+  [
+   "Facebook",
+   "/ghos",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/site/wp-includes/wlwmanifest.xml",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/phpinfo",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.swp",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/campaign/.env",
+   "US",
+   4
+  ],
+  [
+   "Facebook",
+   "/images/pai/pai-pai-thailand.thumb.jpg",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/admin/phpinfo.php",
+   "US",
+   4
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-12295719271.html",
+   "US",
+   3
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-3317919568.html",
+   "US",
+   3
+  ],
+  [
+   "Chrome",
+   "/shared/.env",
+   "DE",
+   3
+  ],
+  [
+   "Chrome",
+   "/htdocs/phpinfo.php",
+   "US",
+   3
+  ],
+  [
+   "Chrome",
+   "/p/the-radhaa-villa-s-9719264143990945921.html",
+   "SG",
+   3
+  ],
+  [
+   "Edge",
+   "/p/35-99820035741560499674084.html",
+   "SG",
+   3
+  ],
+  [
+   "Chrome",
+   "/wp-includes/wlwmanifest.xml",
+   "US",
+   3
+  ],
+  [
+   "Chrome",
+   "/p/7893972044002937.html",
+   "SG",
+   3
+  ],
+  [
+   "Bytespider",
+   "/cm/p/03500703008.html",
+   "SG",
+   3
+  ],
+  [
+   "Chrome",
+   "/p/cross-cnx-36960419980609820.html",
+   "SG",
+   3
+  ],
+  [
+   "Chrome",
+   "/wp2/wp-includes/wlwmanifest.xml",
+   "US",
+   3
+  ],
+  [
+   "Chrome",
+   "/xmlrpc.php",
+   "CA",
+   3
+  ],
+  [
+   "Chrome",
+   "/p/elephant-nature-park-1961011456875607977.html",
+   "SG",
+   3
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-1101288715.html",
+   "US",
+   3
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-4067975166.html",
+   "US",
+   3
+  ],
+  [
+   "Chrome",
+   "/p/tung-fon-cemetery-13298602701.html",
+   "SG",
+   3
+  ],
+  [
+   "Chrome",
+   "/.env.local",
+   "NL",
+   3
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-relation-8169475.html",
+   "US",
+   3
+  ],
+  [
+   "Googlebot",
+   "/cr/p/cr-osm-node-13844545401.html",
+   "US",
+   3
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-4995205024.html",
+   "US",
+   3
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-4646472290.html",
+   "US",
+   3
+  ],
+  [
+   "Chrome",
+   "/wordpress/wp/v2/posts/999998",
+   "NL",
+   3
+  ],
+  [
+   "Chrome",
+   "/p/momotion-company-limited-535842481902177107.html",
+   "SG",
+   3
+  ],
+  [
+   "Chrome",
+   "/.env.dist",
+   "US",
+   3
+  ]
+ ],
+ "fibber": {
+  "SG": 142720,
+  "TH": 12
+ },
+ "people": {
+  "loads": 580,
+  "visits": 370,
+  "mobile": 220,
+  "countries": {
+   "TH": 270,
+   "US": 70,
+   "TR": 10,
+   "AU": 10,
+   "SG": 10
+  },
+  "pages": [
+   [
+    "/",
+    160
+   ],
+   [
+    "/cm/p/chamcha-market-10815775054.html",
+    50
+   ],
+   [
+    "/map.html",
+    20
+   ],
+   [
+    "/field/",
+    20
+   ],
+   [
+    "/field",
+    20
+   ],
+   [
+    "/field/scenes/",
+    20
+   ],
+   [
+    "/ghost/lore/",
+    10
+   ],
+   [
+    "/field/scenes/hand-painted-postal-box-mailman-with-letter-and-hornbill/",
+    10
+   ],
+   [
+    "/muay-thai/",
+    10
+   ],
+   [
+    "/field/san/gold-spirit-house-on-a-pillar-outside-a-shophouse/",
+    10
+   ],
+   [
+    "/roads/words/",
+    10
+   ],
+   [
+    "/cm/p/cm-curated-ride0923-bake-a-seat.html",
+    10
+   ],
+   [
+    "/plan.html",
+    10
+   ],
+   [
+    "/cm/medical/",
+    10
+   ],
+   [
+    "/roads/",
+    10
+   ],
+   [
+    "/cm/tag/farms-growers--cannabis.html",
+    10
+   ],
+   [
+    "/cm/p/mezz-press-chiangmai-printmaking-studio-8177954895825111671079.html",
+    10
+   ],
+   [
+    "/muay-thai/gyms/",
+    10
+   ],
+   [
+    "/loop/quiz/",
+    10
+   ],
+   [
+    "/field/scenes/tha-phae-gate/",
+    10
+   ]
+  ],
+  "facebook": 100,
+  "google": 10
+ },
+ "gossip": [
+  {
+   "key": "eater",
+   "bot": "meta-externalagent",
+   "title_th": "ตัวกินจุ",
+   "rom": "tua kin chu",
+   "title_en": "The big eater",
+   "th": "meta-externalagent (บริษัทเจ้าของเฟซบุ๊ก) ขอหน้าเว็บ 557,474 ครั้งในสัปดาห์นี้ คิดเป็น 38% ของทั้งหมด หน้าที่ชอบที่สุด: ช่วย อ่านไป 32,445 ครั้ง สัปดาห์ก่อน 827,520 ครั้ง",
+   "en": "meta-externalagent (Meta, Facebook's owner) asked for 557,474 pages this week, 38% of everything anyone asked for. Its favourite: ช่วย, chuai, the help page: emergency numbers, hospitals, pharmacies, 32,445 times. Last week, 827,520.",
+   "stat": "557,474"
+  },
+  {
+   "key": "new",
+   "bot": "KeenableBot",
+   "title_th": "ขาใหม่",
+   "rom": "kha mai",
+   "title_en": "New in town",
+   "th": "KeenableBot สัปดาห์ก่อนมา 34 ครั้ง สัปดาห์นี้มา 86,037 ครั้ง เคาะประตูครั้งแรกในบันทึกของเรา วันศุกร์ 11 ก.ย. 21:44 น.",
+   "en": "KeenableBot came 34 times last week and 86,037 times this week. First knock in our log: Fri 11 Sept, 21:44.",
+   "stat": "86,037"
+  },
+  {
+   "key": "quiet",
+   "bot": "GPTBot",
+   "title_th": "หายเงียบ",
+   "rom": "hai ngiap",
+   "title_en": "Gone quiet",
+   "th": "GPTBot (บริษัทที่ทำ ChatGPT) สัปดาห์ก่อนมา 498,153 ครั้ง สัปดาห์นี้เหลือ 2,208 ครั้ง",
+   "en": "GPTBot (OpenAI, the ChatGPT company) asked 498,153 times last week. This week, 2,208.",
+   "stat": "2,208"
+  },
+  {
+   "key": "clock",
+   "bot": "SemrushBot",
+   "title_th": "นาฬิกา",
+   "rom": "nalika",
+   "title_en": "The clock",
+   "th": "SemrushBot (Semrush บริษัทขายข้อมูลการตลาด) มาเท่า ๆ กันทั้งสัปดาห์ กลางวันกลางคืน ชั่วโมงละ 291 ถึง 300 หน้า ทุกชั่วโมง ไม่พักกินข้าว ไม่นอน",
+   "en": "SemrushBot (Semrush, a marketing-data company) kept one pace all week, day and night: 291 to 300 pages an hour, every hour. No lunch, no sleep.",
+   "stat": ""
+  },
+  {
+   "key": "hours",
+   "bot": "ShapBot",
+   "title_th": "ขยันกลางวัน",
+   "rom": "khayan klang wan",
+   "title_en": "Day shift",
+   "th": "ShapBot อ่าน 89% ของทั้งสัปดาห์ ช่วง 10:00 ถึง 16:00 เวลาเชียงใหม่ ชั่วโมงที่ยุ่งที่สุด: 12:00 น.",
+   "en": "ShapBot did 89% of its week's reading between 10:00 and 16:00 Chiang Mai time. Busiest hour: 12:00.",
+   "stat": ""
+  },
+  {
+   "key": "fibber",
+   "bot": "",
+   "title_th": "ขี้โม้",
+   "rom": "khi mo",
+   "title_en": "The fibber",
+   "th": "เครื่องกลุ่มหนึ่งในสิงคโปร์ แต่งตัวเป็นเบราว์เซอร์ Chrome แล้วบอกว่า Google ส่งมา สัปดาห์นี้ 142,720 ครั้ง ตกชั่วโมงละประมาณ 849 ครั้ง ตัวนับคนของเราเห็นคนที่ Google ส่งมาจริง ๆ ประมาณ 10 ครั้ง",
+   "en": "A pool of machines in Singapore dresses as the Chrome browser and says Google sent it. 142,720 times this week, about 849 an hour. Our people counter saw about 10 visits that Google sent.",
+   "stat": "142,720"
+  },
+  {
+   "key": "lost",
+   "bot": "meta-externalagent",
+   "title_th": "หลงทาง",
+   "rom": "long thang",
+   "title_en": "Lost",
+   "th": "meta-externalagent (บริษัทเจ้าของเฟซบุ๊ก) ขอหน้าที่ชื่อ “null” 1,145 ครั้ง ในภาษาคอมพิวเตอร์ null แปลว่า ไม่มีอะไร มันมาหาความว่างเปล่า แล้วก็เจอ",
+   "en": "meta-externalagent (Meta, Facebook's owner) asked 1,145 times for a page called “null”. In computer talk null means nothing. It came looking for nothing, and found it.",
+   "stat": "1,145"
+  },
+  {
+   "key": "door",
+   "bot": "",
+   "title_th": "เคาะผิดประตู",
+   "rom": "kho phit pratu",
+   "title_en": "Wrong door",
+   "th": "มีเครื่องมาเคาะประตูหลังของโปรแกรมที่เว็บนี้ไม่ได้ใช้ 1,197 ครั้ง ตัวที่เคาะมากที่สุดมาจากรัสเซีย ลองประตู /wp-admin/install.php 93 ครั้ง เครื่องมือของขโมยเดินไปทุกซอย ลองบิดลูกบิดทุกบ้าน",
+   "en": "Machines knocked 1,197 times at back doors of software this site doesn't run. The busiest knocker, from Russia, tried /wp-admin/install.php 93 times. Burglar tools walk every street and try every handle.",
+   "stat": "1,197"
+  },
+  {
+   "key": "face",
+   "bot": "",
+   "title_th": "ลองหน้า",
+   "rom": "long na",
+   "title_en": "Trying on faces",
+   "th": "เครื่องจากจีน ลองขอโลโก้ของเว็บอื่น 12 แบบ รวม 520 ครั้ง เช่น /assets/images/logo-cn-vpnweb.png เครื่องสแกนทำแบบนี้เพื่อเดาว่าเจอเว็บแบบไหน",
+   "en": "Machines from China tried on 12 other websites' logos here, 520 requests, /assets/images/logo-cn-vpnweb.png among them. A scanner does this to guess what kind of site it has found.",
+   "stat": "12"
+  },
+  {
+   "key": "worm",
+   "bot": "Amazonbot",
+   "title_th": "หนอนหนังสือ",
+   "rom": "non nangsue",
+   "title_en": "Bookworm",
+   "th": "Amazonbot (อเมซอน) อ่านหน้าร้าน วัด และสถานที่ 15,675 หน้าในสัปดาห์นี้ หน้าที่กลับไปอ่านซ้ำมากที่สุด: สวนส้มแสงธรรม · Som Saeng Tham Garden, ร้านเสริมสวยขจร เชียงใหม่ · Khachon Chiang Mai Beauty salon",
+   "en": "Amazonbot (Amazon) read 15,675 pages about shops, temples and places this week. The ones it went back to most: สวนส้มแสงธรรม · Som Saeng Tham Garden, ร้านเสริมสวยขจร เชียงใหม่ · Khachon Chiang Mai Beauty salon.",
+   "stat": "15,675"
+  },
+  {
+   "key": "people",
+   "bot": "",
+   "title_th": "คน",
+   "rom": "khon",
+   "title_en": "People",
+   "th": "คนเข้ามาประมาณ 370 ครั้ง ใช้มือถือ 59% หน้าที่คนเปิดมากที่สุด: ตะกร้าผ้าทอ · Chamcha Market มาจากเฟซบุ๊กประมาณ 100 ครั้ง คนมา 1 ครั้ง เครื่องมา 3,941 ครั้ง",
+   "en": "About 370 visits by people, 59% on phones. The page people opened most: ตะกร้าผ้าทอ · Chamcha Market. About 100 came from Facebook. For every visit by a person, 3,941 requests by machines.",
+   "stat": "370"
+  }
+ ]
+}
