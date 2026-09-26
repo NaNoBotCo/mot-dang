@@ -1,7 +1,7 @@
 {
  "from": "2026-09-19",
  "to": "2026-09-25",
- "total": 1458130,
+ "total": 1457935,
  "cats": {
   "ai": 947302,
   "human": 270828,
@@ -15,59 +15,59 @@
  "agents": {
   "meta-externalagent": {
    "cat": "ai",
-   "n": 557474
+   "n": 557306
   },
   "Chrome": {
    "cat": "human",
-   "n": 257003
+   "n": 256962
   },
   "ClaudeBot": {
    "cat": "ai",
-   "n": 162216
+   "n": 162270
   },
   "Amazonbot": {
    "cat": "ai",
-   "n": 147134
+   "n": 147088
   },
   "KeenableBot": {
    "cat": "other",
-   "n": 86037
+   "n": 86041
   },
   "Bytespider": {
    "cat": "ai",
-   "n": 64473
+   "n": 64452
   },
   "SemrushBot": {
    "cat": "seo",
-   "n": 49749
+   "n": 49733
   },
   "headless": {
    "cat": "tool",
-   "n": 17273
+   "n": 17283
   },
   "Reflectionbot": {
    "cat": "other",
-   "n": 17092
+   "n": 17090
   },
   "ShapBot": {
    "cat": "other",
-   "n": 15684
+   "n": 15680
   },
   "MJ12bot": {
    "cat": "seo",
-   "n": 13971
+   "n": 13970
   },
   "OAI-SearchBot": {
    "cat": "ai",
-   "n": 13758
+   "n": 13778
   },
   "YandexBot": {
    "cat": "search",
-   "n": 9940
+   "n": 9958
   },
   "Edge": {
    "cat": "human",
-   "n": 7865
+   "n": 7868
   },
   "Applebot": {
    "cat": "search",
@@ -75,15 +75,15 @@
   },
   "PetalBot": {
    "cat": "search",
-   "n": 6457
+   "n": 6454
   },
   "bingbot": {
    "cat": "search",
-   "n": 4872
+   "n": 4871
   },
   "Googlebot": {
    "cat": "search",
-   "n": 3120
+   "n": 3118
   },
   "GPTBot": {
    "cat": "ai",
@@ -143,7 +143,7 @@
   },
   "Firefox": {
    "cat": "human",
-   "n": 245
+   "n": 246
   },
   "ChatGPT-User": {
    "cat": "ai",
@@ -205,24 +205,24 @@
    "cat": "other",
    "n": 4
   },
-  "redditbot": {
-   "cat": "social",
-   "n": 4
-  },
   "AdsBot-Google": {
    "cat": "other",
+   "n": 4
+  },
+  "redditbot": {
+   "cat": "social",
    "n": 4
   },
   "Twitterbot": {
    "cat": "social",
    "n": 4
   },
-  "okhttp": {
-   "cat": "tool",
-   "n": 3
-  },
   "LINE in-app": {
    "cat": "human",
+   "n": 3
+  },
+  "okhttp": {
+   "cat": "tool",
    "n": 3
   },
   "AdsBot-Google-Mobile": {
@@ -264,15 +264,15 @@
  },
  "hours": {
   "MJ12bot": [
-   809,
+   817,
    460,
    810,
    294,
    980,
-   420,
+   421,
    857,
    203,
-   1196,
+   1186,
    663,
    679,
    461,
@@ -290,82 +290,82 @@
    715
   ],
   "Amazonbot": [
-   6231,
-   5929,
-   5993,
-   6087,
-   6192,
-   6226,
+   6234,
+   5936,
+   5990,
+   6088,
+   6200,
+   6217,
    6222,
    6323,
-   6321,
-   6322,
-   6299,
-   6204,
+   6319,
+   6319,
+   6301,
+   6190,
    5880,
    6170,
-   5984,
-   5986,
-   5916,
-   6096,
+   5981,
+   5987,
+   5898,
+   6097,
    6130,
-   6000,
-   6003,
-   6161,
-   6275,
-   6184
+   6002,
+   5994,
+   6150,
+   6284,
+   6176
   ],
   "KeenableBot": [
-   3442,
-   3409,
-   3470,
-   3462,
-   3574,
+   3435,
+   3410,
+   3460,
+   3463,
+   3571,
    2510,
-   2901,
+   2902,
    3869,
-   3925,
-   3802,
-   3807,
+   3923,
+   3821,
+   3806,
    4043,
-   3820,
-   4043,
+   3822,
+   4040,
    3858,
-   3857,
+   3858,
    3684,
    3333,
-   3458,
-   3514,
-   3630,
-   3512,
-   3572,
+   3459,
+   3522,
+   3631,
+   3511,
+   3568,
    3542
   ],
   "meta-externalagent": [
-   29966,
-   27391,
-   22825,
-   21835,
-   23087,
-   22133,
-   21481,
-   22891,
-   17891,
-   18453,
-   19223,
+   29947,
+   27384,
+   22828,
+   21812,
+   23079,
+   22135,
+   21479,
+   22897,
+   17893,
+   18429,
+   19227,
    17428,
-   18513,
-   19883,
-   22483,
+   18504,
+   19896,
+   22475,
    21666,
-   25114,
-   26657,
-   26528,
-   27100,
+   25097,
+   26619,
+   26504,
+   27117,
    26177,
-   26498,
-   25835,
-   26416
+   26508,
+   25839,
+   26366
   ],
   "Reflectionbot": [
    451,
@@ -382,14 +382,14 @@
    795,
    809,
    762,
-   784,
+   783,
    828,
    791,
    794,
    803,
    781,
    762,
-   836,
+   835,
    821,
    828
   ],
@@ -408,7 +408,7 @@
    3118,
    5668,
    608,
-   4490,
+   4486,
    2,
    0,
    1796,
@@ -426,10 +426,10 @@
    294,
    342,
    302,
-   330,
+   329,
    328,
    325,
-   355,
+   354,
    392,
    383,
    370,
@@ -438,26 +438,26 @@
    205,
    207,
    230,
-   233,
-   179,
+   234,
+   180,
    182,
    231,
    253,
    240
   ],
   "YandexBot": [
-   304,
+   308,
    2,
    5,
    1455,
-   1815,
+   1814,
    752,
    1129,
-   1134,
+   1135,
    380,
    697,
    423,
-   1119,
+   1133,
    607,
    18,
    9,
@@ -476,7 +476,7 @@
    299,
    300,
    303,
-   294,
+   293,
    307,
    308,
    293,
@@ -494,63 +494,63 @@
    256,
    247,
    220,
-   224,
-   271
+   223,
+   270
   ],
   "Bytespider": [
-   3045,
+   3039,
    3001,
-   2848,
+   2856,
    2489,
-   2850,
-   3223,
-   3084,
+   2847,
+   3225,
+   3081,
    3089,
-   2631,
+   2636,
    3181,
    2279,
    2730,
    3282,
    2860,
    2978,
-   2489,
+   2473,
    2141,
-   2161,
-   2413,
+   2162,
+   2410,
    2435,
    2217,
    2422,
-   2425,
-   2200
+   2423,
+   2196
   ],
   "SemrushBot": [
-   2081,
+   2084,
    2074,
+   2074,
+   2070,
    2065,
-   2069,
-   2063,
    2052,
-   2086,
-   2072,
-   2071,
-   2043,
-   2079,
-   2061,
-   2068,
+   2085,
+   2073,
+   2070,
+   2044,
+   2080,
+   2060,
    2067,
    2067,
+   2066,
    2090,
    2083,
-   2072,
-   2101,
+   2054,
+   2100,
    2069,
-   2074,
-   2085,
+   2072,
    2084,
-   2073
+   2081,
+   2069
   ],
   "OAI-SearchBot": [
-   665,
+   668,
    149,
    209,
    1396,
@@ -559,7 +559,7 @@
    39,
    43,
    55,
-   2340,
+   2361,
    28,
    172,
    2649,
@@ -569,7 +569,7 @@
    3,
    46,
    15,
-   2828,
+   2824,
    1471,
    38,
    3,
@@ -579,13 +579,13 @@
    1342,
    1691,
    5908,
-   10874,
+   10885,
    16802,
    16068,
    19595,
    13701,
    14378,
-   12682,
+   12677,
    12408,
    8718,
    6748,
@@ -594,7 +594,7 @@
    2538,
    1943,
    1668,
-   1522,
+   1570,
    1432,
    1329,
    1284,
@@ -602,11 +602,11 @@
    1106
   ],
   "headless": [
-   563,
+   565,
    0,
    10,
    3021,
-   3374,
+   3382,
    1166,
    2300,
    2008,
@@ -834,16 +834,16 @@
   ]
  },
  "places": {
-  "KeenableBot": 48590,
-  "SemrushBot": 23730,
-  "Amazonbot": 15675,
+  "KeenableBot": 48582,
+  "SemrushBot": 23726,
+  "Amazonbot": 15680,
   "ClaudeBot": 13279,
-  "ShapBot": 13169,
-  "OAI-SearchBot": 12380,
-  "Reflectionbot": 9545,
-  "YandexBot": 7155,
-  "PetalBot": 5240,
-  "Bytespider": 4857
+  "ShapBot": 13165,
+  "OAI-SearchBot": 12402,
+  "Reflectionbot": 9544,
+  "YandexBot": 7173,
+  "PetalBot": 5238,
+  "Bytespider": 4855
  },
  "seen": {
   "ShapBot": [
@@ -1368,14 +1368,14 @@
   ],
   [
    "Chrome",
-   "/blog/",
-   "NL",
+   "/private/.env",
+   "DE",
    7
   ],
   [
    "Chrome",
-   "/private/.env",
-   "DE",
+   "/blog/",
+   "NL",
    7
   ],
   [
@@ -1572,13 +1572,7 @@
   ],
   [
    "Chrome",
-   "/.env.test",
-   "DE",
-   5
-  ],
-  [
-   "Facebook",
-   "/images/doi-inthanon/doi-inthanon-minla-strigula-doi-inthanon.thumb.jpg",
+   "/pinfo.php",
    "US",
    5
   ],
@@ -1589,9 +1583,15 @@
    5
   ],
   [
-   "Chrome",
-   "/pinfo.php",
+   "Facebook",
+   "/images/doi-inthanon/doi-inthanon-minla-strigula-doi-inthanon.thumb.jpg",
    "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/.env.test",
+   "DE",
    5
   ],
   [
@@ -1674,8 +1674,8 @@
   ],
   [
    "Chrome",
-   "/.env.backup",
-   "DE",
+   "/.git/config",
+   "NL",
    5
   ],
   [
@@ -1685,26 +1685,20 @@
    5
   ],
   [
-   "Chrome",
-   "/server/.env",
+   "Facebook",
+   "/roads/old",
    "US",
    5
   ],
   [
    "Chrome",
-   "/.git/config",
-   "NL",
+   "/.env.backup",
+   "DE",
    5
   ],
   [
    "Chrome",
    "/htdocs/.env",
-   "US",
-   5
-  ],
-  [
-   "Facebook",
-   "/roads/old",
    "US",
    5
   ],
@@ -1716,13 +1710,19 @@
   ],
   [
    "Chrome",
+   "/private/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
    "/.env.local",
    "DE",
    5
   ],
   [
    "Chrome",
-   "/private/.env",
+   "/phpinfo.php",
    "US",
    5
   ],
@@ -1740,8 +1740,8 @@
   ],
   [
    "Chrome",
-   "/phpinfo.php",
-   "US",
+   "/.env.sample",
+   "DE",
    5
   ],
   [
@@ -1752,13 +1752,19 @@
   ],
   [
    "Chrome",
-   "/.env.sample",
-   "DE",
+   "/react/.env",
+   "US",
    5
   ],
   [
    "Chrome",
    "/.env.uat",
+   "US",
+   5
+  ],
+  [
+   "Chrome",
+   "/server/.env",
    "US",
    5
   ],
@@ -1770,15 +1776,21 @@
   ],
   [
    "Chrome",
-   "/react/.env",
+   "/staging/.env",
    "US",
    5
   ],
   [
    "Chrome",
-   "/staging/.env",
+   "/2020/wp-includes/wlwmanifest.xml",
    "US",
-   5
+   4
+  ],
+  [
+   "Chrome",
+   "/p/areen-cafe-4738386545416582269528.html",
+   "SG",
+   4
   ],
   [
    "Chrome",
@@ -1788,7 +1800,19 @@
   ],
   [
    "Chrome",
-   "/.env.bak",
+   "/p/green-nat-cafe-5307804222.html",
+   "SG",
+   4
+  ],
+  [
+   "Chrome",
+   "/.json",
+   "NL",
+   4
+  ],
+  [
+   "Chrome",
+   "/service/.env",
    "US",
    4
   ],
@@ -1806,36 +1830,6 @@
   ],
   [
    "Chrome",
-   "/.json",
-   "NL",
-   4
-  ],
-  [
-   "Chrome",
-   "/p/areen-cafe-4738386545416582269528.html",
-   "SG",
-   4
-  ],
-  [
-   "Chrome",
-   "/2020/wp-includes/wlwmanifest.xml",
-   "US",
-   4
-  ],
-  [
-   "MJ12bot",
-   "/cr/p/1057120637.html",
-   "FR",
-   4
-  ],
-  [
-   "Chrome",
-   "/p/green-nat-cafe-5307804222.html",
-   "SG",
-   4
-  ],
-  [
-   "Chrome",
    "/portal/.env",
    "US",
    4
@@ -1848,19 +1842,7 @@
   ],
   [
    "Chrome",
-   "/sparkpost/.env",
-   "US",
-   4
-  ],
-  [
-   "Chrome",
    "/.env.old",
-   "US",
-   4
-  ],
-  [
-   "Chrome",
-   "/service/.env",
    "US",
    4
   ],
@@ -1879,6 +1861,24 @@
   [
    "Chrome",
    "/assets/.env",
+   "US",
+   4
+  ],
+  [
+   "MJ12bot",
+   "/cr/p/1057120637.html",
+   "FR",
+   4
+  ],
+  [
+   "Chrome",
+   "/sparkpost/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/.env.bak",
    "US",
    4
   ],
@@ -1962,8 +1962,8 @@
   ],
   [
    "Chrome",
-   "/.svn/format",
-   "SE",
+   "/.env.yml",
+   "DE",
    4
   ],
   [
@@ -1974,8 +1974,8 @@
   ],
   [
    "Chrome",
-   "/.env.yml",
-   "DE",
+   "/.svn/format",
+   "SE",
    4
   ],
   [
@@ -2225,14 +2225,14 @@
    4
   ],
   [
-   "Firefox",
-   "/.env.local",
+   "Chrome",
+   "/.env.remote",
    "US",
    4
   ],
   [
-   "Chrome",
-   "/.env.remote",
+   "Firefox",
+   "/.env.local",
    "US",
    4
   ],
@@ -2628,14 +2628,14 @@
   ],
   [
    "Chrome",
-   "/xmlrpc.php",
-   "CA",
+   "/p/tung-fon-cemetery-13298602701.html",
+   "SG",
    3
   ],
   [
    "Chrome",
-   "/p/elephant-nature-park-1961011456875607977.html",
-   "SG",
+   "/xmlrpc.php",
+   "CA",
    3
   ],
   [
@@ -2652,7 +2652,7 @@
   ],
   [
    "Chrome",
-   "/p/tung-fon-cemetery-13298602701.html",
+   "/p/elephant-nature-park-1961011456875607977.html",
    "SG",
    3
   ],
@@ -2812,9 +2812,9 @@
    "title_th": "ตัวกินจุ",
    "rom": "tua kin chu",
    "title_en": "The big eater",
-   "th": "meta-externalagent (บริษัทเจ้าของเฟซบุ๊ก) ขอหน้าเว็บ 557,474 ครั้งในสัปดาห์นี้ คิดเป็น 38% ของทั้งหมด หน้าที่ชอบที่สุด: ช่วย อ่านไป 32,445 ครั้ง สัปดาห์ก่อน 827,520 ครั้ง",
-   "en": "meta-externalagent (Meta, Facebook's owner) asked for 557,474 pages this week, 38% of everything anyone asked for. Its favourite: ช่วย, chuai, the help page: emergency numbers, hospitals, pharmacies, 32,445 times. Last week, 827,520.",
-   "stat": "557,474"
+   "th": "meta-externalagent (บริษัทเจ้าของเฟซบุ๊ก) ขอหน้าเว็บ 557,306 ครั้งในสัปดาห์นี้ คิดเป็น 38% ของทั้งหมด หน้าที่ชอบที่สุด: ช่วย อ่านไป 32,445 ครั้ง สัปดาห์ก่อน 827,520 ครั้ง",
+   "en": "meta-externalagent (Meta, Facebook's owner) asked for 557,306 pages this week, 38% of everything anyone asked for. Its favourite: ช่วย, chuai, the help page: emergency numbers, hospitals, pharmacies, 32,445 times. Last week, 827,520.",
+   "stat": "557,306"
   },
   {
    "key": "new",
@@ -2822,9 +2822,9 @@
    "title_th": "ขาใหม่",
    "rom": "kha mai",
    "title_en": "New in town",
-   "th": "KeenableBot สัปดาห์ก่อนมา 34 ครั้ง สัปดาห์นี้มา 86,037 ครั้ง เคาะประตูครั้งแรกในบันทึกของเรา วันศุกร์ 11 ก.ย. 21:44 น.",
-   "en": "KeenableBot came 34 times last week and 86,037 times this week. First knock in our log: Fri 11 Sept, 21:44.",
-   "stat": "86,037"
+   "th": "KeenableBot สัปดาห์ก่อนมา 34 ครั้ง สัปดาห์นี้มา 86,041 ครั้ง เคาะประตูครั้งแรกในบันทึกของเรา วันศุกร์ 11 ก.ย. 21:44 น.",
+   "en": "KeenableBot came 34 times last week and 86,041 times this week. First knock in our log: Fri 11 Sept, 21:44.",
+   "stat": "86,041"
   },
   {
    "key": "quiet",
@@ -2842,8 +2842,8 @@
    "title_th": "นาฬิกา",
    "rom": "nalika",
    "title_en": "The clock",
-   "th": "SemrushBot (Semrush บริษัทขายข้อมูลการตลาด) มาเท่า ๆ กันทั้งสัปดาห์ กลางวันกลางคืน ชั่วโมงละ 291 ถึง 300 หน้า ทุกชั่วโมง ไม่พักกินข้าว ไม่นอน",
-   "en": "SemrushBot (Semrush, a marketing-data company) kept one pace all week, day and night: 291 to 300 pages an hour, every hour. No lunch, no sleep.",
+   "th": "SemrushBot (Semrush บริษัทขายข้อมูลการตลาด) มาเท่า ๆ กันทั้งสัปดาห์ กลางวันกลางคืน ชั่วโมงละ 292 ถึง 300 หน้า ทุกชั่วโมง ไม่พักกินข้าว ไม่นอน",
+   "en": "SemrushBot (Semrush, a marketing-data company) kept one pace all week, day and night: 292 to 300 pages an hour, every hour. No lunch, no sleep.",
    "stat": ""
   },
   {
@@ -2902,9 +2902,9 @@
    "title_th": "หนอนหนังสือ",
    "rom": "non nangsue",
    "title_en": "Bookworm",
-   "th": "Amazonbot (อเมซอน) อ่านหน้าร้าน วัด และสถานที่ 15,675 หน้าในสัปดาห์นี้ หน้าที่กลับไปอ่านซ้ำมากที่สุด: สวนส้มแสงธรรม · Som Saeng Tham Garden, ร้านเสริมสวยขจร เชียงใหม่ · Khachon Chiang Mai Beauty salon",
-   "en": "Amazonbot (Amazon) read 15,675 pages about shops, temples and places this week. The ones it went back to most: สวนส้มแสงธรรม · Som Saeng Tham Garden, ร้านเสริมสวยขจร เชียงใหม่ · Khachon Chiang Mai Beauty salon.",
-   "stat": "15,675"
+   "th": "Amazonbot (อเมซอน) อ่านหน้าร้าน วัด และสถานที่ 15,680 หน้าในสัปดาห์นี้ หน้าที่กลับไปอ่านซ้ำมากที่สุด: สวนส้มแสงธรรม · Som Saeng Tham Garden, ร้านเสริมสวยขจร เชียงใหม่ · Khachon Chiang Mai Beauty salon",
+   "en": "Amazonbot (Amazon) read 15,680 pages about shops, temples and places this week. The ones it went back to most: สวนส้มแสงธรรม · Som Saeng Tham Garden, ร้านเสริมสวยขจร เชียงใหม่ · Khachon Chiang Mai Beauty salon.",
+   "stat": "15,680"
   },
   {
    "key": "people",
@@ -2912,8 +2912,8 @@
    "title_th": "คน",
    "rom": "khon",
    "title_en": "People",
-   "th": "คนเข้ามาประมาณ 370 ครั้ง ใช้มือถือ 59% หน้าที่คนเปิดมากที่สุด: ตะกร้าผ้าทอ · Chamcha Market มาจากเฟซบุ๊กประมาณ 100 ครั้ง คนมา 1 ครั้ง เครื่องมา 3,941 ครั้ง",
-   "en": "About 370 visits by people, 59% on phones. The page people opened most: ตะกร้าผ้าทอ · Chamcha Market. About 100 came from Facebook. For every visit by a person, 3,941 requests by machines.",
+   "th": "คนเข้ามาประมาณ 370 ครั้ง ใช้มือถือ 59% หน้าที่คนเปิดมากที่สุด: ตะกร้าผ้าทอ · Chamcha Market มาจากเฟซบุ๊กประมาณ 100 ครั้ง คนมา 1 ครั้ง เครื่องมา 3,940 ครั้ง",
+   "en": "About 370 visits by people, 59% on phones. The page people opened most: ตะกร้าผ้าทอ · Chamcha Market. About 100 came from Facebook. For every visit by a person, 3,940 requests by machines.",
    "stat": "370"
   }
  ]

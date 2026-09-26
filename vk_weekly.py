@@ -744,14 +744,12 @@ def building() -> bool:
 
 
 def publish() -> None:
+    # a running build rewrites docs/; wait for it, up to 3 hours. After that the scoped
+    # --only sync goes anyway: it touches voight-kampff/ alone and refuses an empty one.
     waited = 0
-    while building():
-        if waited >= 3 * 3600:
-            sys.exit("build.py still running after 3 hours; files written, not published")
+    while building() and waited < 3 * 3600 and "--now" not in sys.argv:
         time.sleep(60)
         waited += 60
-    if not (DOCS / "fonts").is_dir():
-        sys.exit("docs/ is not a built site; files written, not published")
     shutil.copytree(VK, DOCS / "voight-kampff", dirs_exist_ok=True)
     subprocess.run([sys.executable, "publish/deploy.py", "--only", "voight-kampff", "--yes"], cwd=ROOT, check=True)
 
