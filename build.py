@@ -15606,7 +15606,7 @@ def toys_html():
         ("foon.html", "🌬", "ฝุ่น", "the dust", "ห้องปลอดฝุ่นใกล้ฉัน", "clean-air rooms near you"),
         ("nitnoy.html", "🏮", "นิดหน่อย", "nitnoy", "ตะเกียงร้านเปิด-ปิด ทั้งเมือง", "every shop's lamp, opening and closing"),
         ("chuai.html", "🆘", "ช่วย", "chuai", "หน้าที่ตอบได้แม้ไม่มีเน็ต", "the page that answers with no signal"),
-        ("chart.html", "☯", "ดวงจีน", "your chart", "คำนวณในเครื่องคุณ ไม่ส่งไปไหน", "computed on your device, sent nowhere"),
+        ("chart.html", "☯", "ดวงจีน", "your chart", "คำนวณในเครื่องคุณ", "worked out on your phone"),
         ("toilets.html", "🚻", "ห้องน้ำ", "toilets", "ที่ใกล้ที่สุด ตามระยะจริง", "the nearest, by real distance"),
         ("my.html", "🏠", "หน้าแรกของฉัน", "my page", "ตั้งเป็นหน้าแรกของเบราว์เซอร์", "make it your browser's home"),
     )
