@@ -1623,9 +1623,15 @@ CITY_ENTITY = {
 
 # The city's long read, where one exists: one line under Places to visit.
 CITY_READING = {
-    "cr": '<p><a href="../chiang-rai/">' + '<span class="th" lang="th">แอ่วเชียงราย ค่อย ๆ ไปเน้อ</span> · '
-          '<span class="en" lang="en">Chiang Rai, Slowly</span></a></p>',
+    "cr": ("../chiang-rai/", "แอ่วเชียงราย ค่อย ๆ ไปเน้อ", "Chiang Rai, Slowly"),
 }
+
+
+def city_reading(key):
+    if key not in CITY_READING:
+        return ""
+    href, th, en = CITY_READING[key]
+    return f'<p><a href="{href}">{bi(th, en)}</a></p>'
 
 
 def city_ld(key, p, n):
@@ -17644,7 +17650,7 @@ def build():
         (pdir / "index.html").write_text(page(
             f'{p["th"]} · {p["en"]}',
             f'<h1>{bi(p["th"], p["en"])} <span class="count">({len(records):,})</span>{grow}</h1>'
-            f'{feat_html}{CITY_READING.get(key, "")}{ad_box(key + "/index.html", 1)}'
+            f'{feat_html}{city_reading(key)}{ad_box(key + "/index.html", 1)}'
             f'<h2>{bi("หมวด", "Categories")}</h2><ul class="cats">{prov_shelves}</ul>'
             f'{share_block(BASE + key + "/index.html", "มดแดง " + p["th"], card=shelf_og(key))}',
             depth=1, crumbs=crumbs, path=f"{key}/index.html",
