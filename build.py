@@ -1609,6 +1609,61 @@ def breadcrumb_ld(items):
     return f'<script type="application/ld+json">{json.dumps(obj, ensure_ascii=False)}</script>'
 
 
+# The city each province hub is about, by Wikidata and Wikipedia: the head
+# searches "chiang mai" / "เชียงใหม่" are about the entity, and sameAs is how a
+# page says which one. City first (the municipality, what the bare name means),
+# the province it sits in second. QIDs read off Wikidata 2026-09-27.
+CITY_ENTITY = {
+    "cm": {"city": "Q52028", "province": "Q233588", "geo": (18.7889, 98.9833),
+           "wiki": ("Chiang_Mai", "เทศบาลนครเชียงใหม่")},
+    "cr": {"city": "Q856772", "province": "Q236419", "geo": (19.9094, 99.8275),
+           "wiki": ("Chiang_Rai", "เทศบาลนครเชียงราย")},
+}
+
+
+def city_ld(key, p, n):
+    """CollectionPage about the city, for {key}/index.html."""
+    e = CITY_ENTITY.get(key)
+    if not e:
+        return ""
+    en_w, th_w = e["wiki"]
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": f'{p["th"]} · {p["en"]}',
+        "url": BASE + key + "/index.html",
+        "inLanguage": ["th", "en"],
+        "isPartOf": {"@type": "WebSite", "name": "มดแดง Mot Dang", "url": BASE},
+        "numberOfItems": n,
+        "about": {
+            "@type": "City",
+            "name": p["en"],
+            "alternateName": p["th"],
+            "geo": {"@type": "GeoCoordinates",
+                    "latitude": e["geo"][0], "longitude": e["geo"][1]},
+            "containedInPlace": {
+                "@type": "AdministrativeArea",
+                "name": f'{p["en"]} Province',
+                "sameAs": f'https://www.wikidata.org/wiki/{e["province"]}'},
+            "sameAs": [f'https://www.wikidata.org/wiki/{e["city"]}',
+                       f'https://en.wikipedia.org/wiki/{en_w}',
+                       f'https://th.wikipedia.org/wiki/{th_w}'],
+        },
+    }
+    return f'<script type="application/ld+json">{json.dumps(obj, ensure_ascii=False)}</script>'
+
+
+def city_desc(p, counts, n):
+    """The hub's search snippet, from its own shelf counts, both languages."""
+    picks = [c for c in ("wat", "food", "hotel", "medical")
+             if counts.get(c)]
+    th = " · ".join(f'{CATS[c]["th"]} {counts[c]:,}' for c in picks)
+    en = ", ".join(f'{CATS[c]["en"]} {counts[c]:,}' for c in picks)
+    return (f'{p["th"]}: {th} — รวม {n:,} แห่ง · '
+            f'{p["en"]}: {en} — {n:,} places · มดแดง Mot Dang')
+
+
+
 def website_ld():
     """WebSite + SearchAction — the box Google wants before it will draw a
     sitelinks search box under the listing. search.html already reads ?q= off
@@ -17586,8 +17641,8 @@ def build():
             f'<h2>{bi("หมวด", "Categories")}</h2><ul class="cats">{prov_shelves}</ul>'
             f'{share_block(BASE + key + "/index.html", "มดแดง " + p["th"], card=shelf_og(key))}',
             depth=1, crumbs=crumbs, path=f"{key}/index.html",
-            desc=f"สารบัญ{p['th']} {len(records):,} แห่ง · {p['en']} city directory · มดแดง",
-            extra_head=prov_bc_ld,
+            desc=city_desc(p, counts, len(records)),
+            extra_head=prov_bc_ld + city_ld(key, p, len(records)),
             og=shelf_og(key)))
 
         for c in live_cats:
