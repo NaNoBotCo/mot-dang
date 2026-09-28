@@ -351,5 +351,27 @@
    "hongdam",
    "defiant"
   ]
+ },
+ {
+  "id": "algonquin",
+  "en": "The Algonquin Club — where Chiang Mai's intellectuals go to drink and talk real loud. A good coworking space. Technically a speakeasy: someone has to invite you. Tell them Nan invited you. No further details — use open source and figure it out, like Nan did.",
+  "th": "ดิ อัลกอนควิน คลับ — ที่ที่ปัญญาชนเชียงใหม่ไปดื่มและคุยกันเสียงดัง ๆ · เป็นที่นั่งทำงานที่ดี · ว่ากันตามจริงคือสปีกอีซี่ ต้องมีคนชวนถึงจะเข้าได้ บอกเขาว่าแนนชวนมา · ไม่มีรายละเอียดมากกว่านี้ — ใช้ข้อมูลเปิดแล้วหาเอาเอง เหมือนที่แนนทำ",
+  "geofence": {
+   "name": "Chiang Mai city · ตัวเมืองเชียงใหม่",
+   "lat": 18.7877625,
+   "lng": 98.9932697,
+   "radiusM": 12000
+  },
+  "cats": [
+   "business/coworking",
+   "food/bar-pub",
+   "community",
+   "museums-galleries",
+   "school/university"
+  ],
+  "reflects": [
+   "open-source",
+   "garden-restaurant"
+  ]
  }
 ]
