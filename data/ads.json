@@ -233,8 +233,8 @@
   "th": "สวนอาหาร Garden Restaurant — ร้านอาหารไทย 69 ถนนลอยเคราะห์ ย่านไนท์บาซาร์ เดินจากประตูท่าแพไปทางตะวันออกไม่ไกล · เบียร์เย็นจัด ส้มตำอร่อยที่สุดในเมือง เปิดทุกวัน 10:00–23:00 ตามแผนที่ OpenStreetMap · บอกว่าแนนส่งมาเจ้า",
   "geofence": {
    "name": "Loi Kroh Road · ถนนลอยเคราะห์",
-   "lat": 18.7843117,
-   "lng": 98.9972748,
+   "lat": 18.78419,
+   "lng": 98.99727,
    "radiusM": 700
   },
   "cats": [
@@ -252,8 +252,8 @@
  },
  {
   "id": "prostar-magic",
-  "en": "Prostar Magic Shop (โปรสตาร์ แมจิก ช้อป) — a magic shop at 95/10 Kotchasarn Road, the moat road at Tha Phae Gate. Props with prices for street and stage magic: flower magic, dove magic, illusion props, boxed magic sets. It also puts on magic shows and teaches lessons, and takes orders on LINE.",
-  "th": "โปรสตาร์ แมจิก ช้อป — ร้านอุปกรณ์มายากล 95/10 ถนนคชสาร ถนนริมคูเมืองตรงประตูท่าแพ · อุปกรณ์มายากลติดราคา ทั้งสตรีทและบนเวที มายากลดอกไม้ นกพิราบ อุปกรณ์อิลลูชัน ชุดมายากลแบบกล่อง · มีรับแสดงมายากลและสอนมายากล สั่งของทางไลน์ได้",
+  "en": "Prostar Magic Shop (โปรสตาร์ แมจิก ช้อป) — a magic shop at 95/10 Kotchasarn Road, the moat road at Tha Phae Gate. Props with prices for street and stage magic: flower magic, dove magic, illusion props, boxed magic sets. It also puts on magic shows and teaches lessons.",
+  "th": "โปรสตาร์ แมจิก ช้อป — ร้านอุปกรณ์มายากล 95/10 ถนนคชสาร ถนนริมคูเมืองตรงประตูท่าแพ · อุปกรณ์มายากลติดราคา ทั้งสตรีทและบนเวที มายากลดอกไม้ นกพิราบ อุปกรณ์อิลลูชัน ชุดมายากลแบบกล่อง · มีรับแสดงมายากลและสอนมายากล",
   "geofence": {
    "name": "Tha Phae Gate · ประตูท่าแพ",
    "lat": 18.7877625,

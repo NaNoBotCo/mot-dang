@@ -214,6 +214,10 @@ Rules that bite:
   2026-09-28, for Garden Restaurant and Prostar Magic). How an ad relates to the site comes only from `house`
   or its own `relation` field, never by guess. api.js is Worker code: the
   API's `advertising` goes live on `wrangler deploy` in publish/, not deploy.py.
+- **Garden Restaurant is at 69 Loi Kroh Road.** Nan, 2026-09-28: now and
+  forever. OSM's node says 36 and is wrong; the field entry in
+  `data/curated/enrich.json` (cm-osm-node-2300400256) carries 69 and wins.
+  Never "correct" it back from a crawl or a directory.
 - Before committing docs/: `grep -rl "/Users/" docs/` must be empty.
 - Banned words in copy and code comments: "load-bearing", "honest" (user rule).
 - Wording stays auspicious — no ominous names/labels in nav or titles.
