@@ -52,17 +52,34 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:var(--i
 @keyframes yay{from{transform:none}to{transform:translateY(-90px)}}
 .yay{position:absolute;z-index:8;font-family:Chonburi;font-size:92px;color:var(--gold-light);-webkit-text-stroke:4px var(--ink);paint-order:stroke;opacity:0;animation:burst 1.6s cubic-bezier(.3,1.6,.5,1) both}
 @keyframes burst{0%{opacity:0;transform:scale(0) rotate(-20deg)}25%{opacity:1;transform:scale(1.15) rotate(8deg)}80%{opacity:1;transform:scale(1) rotate(-4deg)}100%{opacity:0;transform:scale(1.3)}}
-.a{position:absolute;bottom:0;width:260px;text-align:center}
-.a svg{width:260px;display:block;animation:bob .5s ease-in-out infinite alternate}
-.a:nth-child(2) svg{animation-delay:.17s}.a:nth-child(3) svg{animation-delay:.33s}
-@keyframes bob{to{transform:translateY(-10px)}}
+.a{position:absolute;bottom:0;text-align:center}
+.a svg{display:block;overflow:visible;animation:bob .5s ease-in-out infinite alternate}
+.nan{left:0;width:350px;animation:zoomz 2.4s ease-out .8s both}
+.nan svg{width:350px;animation-duration:.22s}
+.beer{left:372px;width:250px;animation:zoom 2.2s ease-out 1.3s both}
+.beer svg{width:250px;animation-delay:.1s;animation-duration:.3s}
+.mike{left:712px;width:350px;animation:zoom 2.6s ease-out 1.0s both}
+.mike svg{width:350px;animation-delay:.2s;animation-duration:.6s}
+@keyframes bob{to{transform:translateY(-8px)}}
+@keyframes zoom{from{transform:translateX(-1200px)}to{transform:none}}
+@keyframes zoomz{0%{transform:translate(-1200px,0)}20%{transform:translate(-950px,-50px) rotate(-6deg)}40%{transform:translate(-650px,20px) rotate(4deg)}
+ 60%{transform:translate(-350px,-60px) rotate(-8deg)}80%{transform:translate(-100px,10px) rotate(3deg)}100%{transform:none}}
+.wh{transform-box:fill-box;transform-origin:center;animation:spin .35s linear 8}
+.nan .wh{animation-delay:.8s}.beer .wh{animation-delay:1.3s}.mike .wh{animation-delay:1s}
+@keyframes spin{to{transform:rotate(360deg)}}
 .tag{display:inline-block;background:var(--paper);border:4px solid var(--ink);border-radius:18px;padding:6px 18px 2px;
- box-shadow:6px 6px 0 var(--ink);font-size:38px;line-height:1.1;white-space:nowrap}
-.tag span{display:block;font-size:24px;color:var(--ant-dark)}
-.a1{left:70px;animation:walk 2.2s ease-out .9s both}
-.a2{left:410px;animation:walk 2.2s ease-out 1.25s both}
-.a3{left:750px;animation:walk 2.2s ease-out 1.6s both}
-@keyframes walk{from{transform:translateX(-1100px)}to{transform:none}}
+ box-shadow:6px 6px 0 var(--ink);font-size:36px;line-height:1.1;white-space:nowrap;position:relative;z-index:2}
+.tag span{display:block;font-size:22px;color:var(--ant-dark)}
+.fx{position:absolute;font-family:Chonburi;color:var(--gold-light);z-index:3;animation:floaty 1.4s ease-in-out infinite alternate}
+@keyframes floaty{from{transform:translateY(0) rotate(-10deg)}to{transform:translateY(-26px) rotate(12deg)}}
+.twk{animation:twk .6s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+@keyframes twk{from{opacity:.3;transform:scale(.6)}to{opacity:1;transform:scale(1.2)}}
+.bub{position:absolute;z-index:4;background:#fff;border:4px solid var(--ink);border-radius:26px;padding:4px 20px 0;
+ font-family:Sriracha;font-size:40px;white-space:nowrap;box-shadow:5px 5px 0 var(--ink);opacity:0;animation:bub 1.3s cubic-bezier(.3,1.6,.5,1) both}
+.bub::after{content:"";position:absolute;left:30px;bottom:-22px;border:12px solid transparent;border-top:14px solid var(--ink)}
+@keyframes bub{0%{opacity:0;transform:scale(0)}20%{opacity:1;transform:scale(1.1)}85%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.9) translateY(-20px)}}
+.shaka{animation:wave .4s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:0 100%}
+@keyframes wave{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
 /* petals */
 .p{position:absolute;top:-80px;width:34px;height:22px;border-radius:50% 50% 50% 0;z-index:7;opacity:0;animation:fall 3.4s linear both}
 @keyframes fall{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:1;transform:translateY(2100px) rotate(720deg)}}
@@ -106,12 +123,62 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:var(--i
  <div class="yay" style="right:60px;top:1020px;animation-delay:5.45s">ว้าว!!</div>
  <div class="yay" style="left:330px;top:900px;animation-delay:5.6s;font-size:70px">✨ yay!! ✨</div>
 
- <div class="crew">
-  <div class="a a1"><div class="tag">น่าน<span>NaN</span></div><svg viewBox="0 0 260 200"><use href="#ant" transform="translate(260 0) scale(-1 1)"/><circle cx="180" cy="72" r="15" fill="#f3c34b" stroke="#2a1e16" stroke-width="4"/><circle cx="180" cy="72" r="6" fill="#fff"/></svg></div>
-  <div class="a a2"><div class="tag">ไก่ชน<span>Gai Chon</span></div><svg viewBox="0 0 260 200"><use href="#ant" transform="translate(260 0) scale(-1 1)"/><circle cx="180" cy="72" r="15" fill="#fff" stroke="#2a1e16" stroke-width="4"/><circle cx="180" cy="72" r="6" fill="#f3c34b"/></svg></div>
-  <div class="a a3"><div class="tag">เบียร์<span>Beer</span></div><svg viewBox="0 0 260 200"><use href="#ant" transform="translate(260 0) scale(-1 1)"/><circle cx="180" cy="72" r="15" fill="#f9e2a4" stroke="#2a1e16" stroke-width="4"/><circle cx="180" cy="72" r="6" fill="#c13a2e"/></svg></div>
+<div class="crew">
+  <div class="a nan"><div class="tag">น่าน<span>NaN · แม่มดใจดี (มั้ง?)</span></div><svg viewBox="0 -44 340 290" aria-hidden="true"><g stroke="#2a1e16" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M246 62 L250 16 L266 18 L262 64 Z" fill="#cfe7ef" fill-opacity=".7" stroke="#2a1e16" stroke-width="4"/>
+ <path d="M252 118 L242 62" fill="none" stroke-width="8"/><path d="M226 62 L262 58" fill="none" stroke-width="8"/>
+ <path d="M30 176 Q34 146 76 140 L174 140 Q184 150 184 172 L222 172 Q226 128 244 96 Q262 92 268 104 Q286 140 296 182 Q282 188 268 184 Q262 172 250 176 L112 182 Q96 172 78 172 Q58 172 50 186 Q34 188 30 176 Z" fill="#fffdf7"/>
+ <path d="M66 140 Q64 122 92 122 L166 122 Q180 124 176 142 Z" fill="#2a1e16"/>
+ <ellipse cx="274" cy="118" rx="8" ry="10" fill="#f9e2a4"/>
+ <path d="M40 176 L22 170" fill="none" stroke-width="7"/>
+ <g class="wh"><circle cx="78" cy="210" r="32" fill="#2a1e16"/><circle cx="78" cy="210" r="13" fill="#c08a2d"/><path d="M78 184 V236 M52 210 H104" stroke="#c08a2d" stroke-width="4"/></g>
+ <g class="wh"><circle cx="262" cy="210" r="32" fill="#2a1e16"/><circle cx="262" cy="210" r="13" fill="#c08a2d"/><path d="M262 184 V236 M236 210 H288" stroke="#c08a2d" stroke-width="4"/></g>
+</g><g stroke="#2a1e16" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+ <path d="M178 44 Q160 20 142 22"/><path d="M198 42 Q212 14 232 16"/></g>
+ <g fill="#c13a2e" stroke="#2a1e16" stroke-width="5">
+ <ellipse cx="112" cy="104" rx="36" ry="30"/><ellipse cx="158" cy="98" rx="18" ry="24"/><circle cx="188" cy="64" r="27"/></g>
+ <path d="M160 116 L196 140 L206 172" stroke="#2a1e16" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M162 90 L200 90 L232 62" stroke="#2a1e16" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <circle cx="199" cy="58" r="5" fill="#2a1e16"/><ellipse cx="200" cy="76" rx="8" ry="5" fill="#f7a7a0"/><path d="M186 80 Q196 88 206 80" stroke="#2a1e16" stroke-width="4" fill="none" stroke-linecap="round"/>
+ <path d="M166 42 Q184 10 196 -34 Q206 -40 214 -30 Q200 -26 204 0 Q208 22 212 42 Z" fill="#3b2548" stroke="#2a1e16" stroke-width="5" stroke-linejoin="round"/><path d="M170 34 L210 34" stroke="#f3c34b" stroke-width="7"/><ellipse cx="190" cy="42" rx="42" ry="8" fill="#3b2548" stroke="#2a1e16" stroke-width="5"/><path class="twk" d="M0-9 L2.5-2.5 9 0 2.5 2.5 0 9-2.5 2.5-9 0-2.5-2.5Z" fill="#f3c34b" transform="translate(198 10)"/><path class="twk" d="M0-9 L2.5-2.5 9 0 2.5 2.5 0 9-2.5 2.5-9 0-2.5-2.5Z" fill="#f3c34b" transform="translate(160 -10)"/><path class="twk" d="M0-9 L2.5-2.5 9 0 2.5 2.5 0 9-2.5 2.5-9 0-2.5-2.5Z" fill="#f3c34b" transform="translate(230 -20)"/></svg>
+   <span class="fx" style="left:-6px;top:60px;font-size:60px">?</span><span class="fx" style="right:0;top:90px;font-size:44px;animation-delay:-.5s">✦</span><span class="fx" style="left:40px;top:150px;font-size:34px;animation-delay:-.9s">✧</span></div>
+  <div class="a beer"><div class="tag">เบียร์<span>Beer · ops</span></div><svg viewBox="0 -44 340 290" aria-hidden="true"><g stroke="#2a1e16" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+ 
+ <path d="M252 118 L242 62" fill="none" stroke-width="8"/><path d="M226 62 L262 58" fill="none" stroke-width="8"/>
+ <path d="M30 176 Q34 146 76 140 L174 140 Q184 150 184 172 L222 172 Q226 128 244 96 Q262 92 268 104 Q286 140 296 182 Q282 188 268 184 Q262 172 250 176 L112 182 Q96 172 78 172 Q58 172 50 186 Q34 188 30 176 Z" fill="#f3c34b"/>
+ <path d="M66 140 Q64 122 92 122 L166 122 Q180 124 176 142 Z" fill="#2a1e16"/>
+ <ellipse cx="274" cy="118" rx="8" ry="10" fill="#f9e2a4"/>
+ <path d="M40 176 L22 170" fill="none" stroke-width="7"/>
+ <g class="wh"><circle cx="78" cy="210" r="32" fill="#2a1e16"/><circle cx="78" cy="210" r="13" fill="#c08a2d"/><path d="M78 184 V236 M52 210 H104" stroke="#c08a2d" stroke-width="4"/></g>
+ <g class="wh"><circle cx="262" cy="210" r="32" fill="#2a1e16"/><circle cx="262" cy="210" r="13" fill="#c08a2d"/><path d="M262 184 V236 M236 210 H288" stroke="#c08a2d" stroke-width="4"/></g>
+</g><g stroke="#2a1e16" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+ <path d="M178 44 Q160 20 142 22"/><path d="M198 42 Q212 14 232 16"/></g>
+ <g fill="#c13a2e" stroke="#2a1e16" stroke-width="5">
+ <ellipse cx="112" cy="104" rx="36" ry="30"/><ellipse cx="158" cy="98" rx="18" ry="24"/><circle cx="188" cy="64" r="27"/></g>
+ <path d="M160 116 L196 140 L206 172" stroke="#2a1e16" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M162 90 L200 90 L232 62" stroke="#2a1e16" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <circle cx="199" cy="58" r="5" fill="#2a1e16"/><ellipse cx="200" cy="76" rx="8" ry="5" fill="#f7a7a0"/><path d="M186 80 Q196 88 206 80" stroke="#2a1e16" stroke-width="4" fill="none" stroke-linecap="round"/>
+ <path d="M158 84 L138 60" stroke="#2a1e16" stroke-width="7" stroke-linecap="round"/><g transform="rotate(-12 124 44)"><rect x="104" y="14" width="44" height="58" rx="5" fill="#fffdf7" stroke="#2a1e16" stroke-width="4"/><rect x="116" y="8" width="20" height="10" rx="3" fill="#c08a2d" stroke="#2a1e16" stroke-width="3"/><path d="M112 32 l4 4 8-9 M130 32 H142 M112 46 l4 4 8-9 M130 46 H142 M112 60 l4 4 8-9 M130 60 H142" stroke="#c13a2e" stroke-width="3" fill="none"/></g></svg>
+   <div class="bub" style="left:175px;top:30px;animation-delay:2.9s">fun!</div>
+   <div class="bub" style="left:175px;top:30px;animation-delay:4.3s">สนุก!!</div>
+   <div class="bub" style="left:175px;top:30px;animation-delay:6.2s">FUN!!! ✓</div>
+   <div class="bub" style="left:175px;top:30px;animation-delay:8.9s">fun fun fun!</div></div>
+  <div class="a mike"><div class="tag">ไมเคิล<span>Michael · ชิลล์ ๆ!!</span></div><svg viewBox="0 -44 340 290" aria-hidden="true"><g stroke="#2a1e16" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M246 62 L250 16 L266 18 L262 64 Z" fill="#cfe7ef" fill-opacity=".7" stroke="#2a1e16" stroke-width="4"/>
+ <path d="M252 118 L242 62" fill="none" stroke-width="8"/><path d="M226 62 L262 58" fill="none" stroke-width="8"/>
+ <path d="M30 176 Q34 146 76 140 L174 140 Q184 150 184 172 L222 172 Q226 128 244 96 Q262 92 268 104 Q286 140 296 182 Q282 188 268 184 Q262 172 250 176 L112 182 Q96 172 78 172 Q58 172 50 186 Q34 188 30 176 Z" fill="#fffdf7"/>
+ <path d="M66 140 Q64 122 92 122 L166 122 Q180 124 176 142 Z" fill="#2a1e16"/>
+ <ellipse cx="274" cy="118" rx="8" ry="10" fill="#f9e2a4"/>
+ <path d="M40 176 L22 170" fill="none" stroke-width="7"/>
+ <g class="wh"><circle cx="78" cy="210" r="32" fill="#2a1e16"/><circle cx="78" cy="210" r="13" fill="#c08a2d"/><path d="M78 184 V236 M52 210 H104" stroke="#c08a2d" stroke-width="4"/></g>
+ <g class="wh"><circle cx="262" cy="210" r="32" fill="#2a1e16"/><circle cx="262" cy="210" r="13" fill="#c08a2d"/><path d="M262 184 V236 M236 210 H288" stroke="#c08a2d" stroke-width="4"/></g>
+</g><g stroke="#2a1e16" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+ <path d="M178 44 Q160 20 142 22"/><path d="M198 42 Q212 14 232 16"/></g>
+ <g fill="#c13a2e" stroke="#2a1e16" stroke-width="5">
+ <ellipse cx="112" cy="104" rx="36" ry="30"/><ellipse cx="158" cy="98" rx="18" ry="24"/><circle cx="188" cy="64" r="27"/></g>
+ <path d="M158 118 L226 54 L224 172" stroke="#2a1e16" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M162 90 L200 90 L232 62" stroke="#2a1e16" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <ellipse cx="200" cy="76" rx="8" ry="5" fill="#f7a7a0"/><path d="M186 80 Q196 88 206 80" stroke="#2a1e16" stroke-width="4" fill="none" stroke-linecap="round"/>
+ <rect x="184" y="50" width="28" height="13" rx="5" fill="#2a1e16"/><path d="M170 56 L184 56" stroke="#2a1e16" stroke-width="4"/><path d="M150 88 L130 50 L122 14" stroke="#2a1e16" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text class="shaka" x="98" y="16" font-size="46">🤙</text></svg>
+   <span class="fx" style="right:10px;top:70px;font-size:54px;animation-delay:-.3s">!!</span></div>
  </div>
-
  <div class="card c1">
   <div class="th">ตัดริบบิ้นแล้ว!!!</div>
   <div class="en">no ads. none. EVER!!! 🎉</div>
