@@ -1,0 +1,1359 @@
+{
+ "cm-curated-bostonhealth": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "Annual Health Check Up",
+     "Erectile Dysfunction Clinic",
+     "Hormone Testing",
+     "Laboratory Testing",
+     "Skin And Botox Clinic",
+     "Vitamin IV Therapy",
+     "Orthopedic Consultation",
+     "Physiotherapy"
+    ],
+    "languages": [
+     "English",
+     "Thai"
+    ],
+    "appointment": "walk-in"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "Annual Health Check Up Chiang Mai",
+   "languages": "fluent English-speaking medical doctors",
+   "appointment": "We run our clinic by appointment. However, we do appreciate emergencies do happen. We welcome walk-in patients",
+   "languages_th": "medical professionals are all completely fluent in English and Thai"
+  },
+  "license": "official-site",
+  "source": "https://bostonhealthcm.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-chiangmai-counseling": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "Providing personalised counseling services",
+     "counseling for couples and families",
+     "counseling for children and teenagers",
+     "counseling for alcohol & substance abuse",
+     "trauma, grief & loss counseling"
+    ],
+    "servicesTh": [
+     "การให้บริการคำปรึกษาส่วนบุคคล",
+     "การให้บริการคำปรึกษาแก่คู่รักและครอบครัว",
+     "การให้บริการคำปรึกษาแก่เด็กและวัยรุ่น",
+     "การให้บริการคำปรึกษาเกี่ยวกับการติดสุราและสารเสพติด",
+     "การให้บริการคำปรึกษาเกี่ยวกับความ創伤 ความสูญเสีย"
+    ],
+    "languages": [
+     "English",
+     "Thai"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "Professional Chiang Mai counseling services",
+   "does_th": "การให้บริการคำปรึกษาส่วนบุคคล",
+   "languages": "in both English & Thai language",
+   "appointment": "Most counselors will also offer a free consultation prior to any financial commitment"
+  },
+  "license": "official-site",
+  "source": "https://chiangmaicounseling.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-chiangmai-holistic": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "Outpatient Counselling",
+     "Reiki",
+     "Sound Healing",
+     "Akashic Record Readings",
+     "Private Yoga Classes",
+     "Personalized Fitness Training",
+     "Hypnotherapy",
+     "Tibetan Bowls Sound Therapy"
+    ],
+    "servicesTh": [
+     "การให้คำปรึกษาทางด้านผู้ป่วยนอก"
+    ],
+    "languages": [
+     "Thai",
+     "English",
+     "Mandarin",
+     "Malay",
+     "Indonesian",
+     "Tagalog",
+     "Hindi"
+    ],
+    "appointment": "walk-in"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "Outpatient Counselling in Chiang Mai",
+   "does_th": "การให้คำปรึกษาทางด้านผู้ป่วยนอก",
+   "languages": "Multiple languages available for clients",
+   "appointment": "Free initial consultation"
+  },
+  "license": "official-site",
+  "source": "https://www.chiangmaiholistic.com/outpatient-counselling-chiang-mai.php",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-chivacare": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "การรักษา",
+     "การฟื้นฟู",
+     "การทำกายภาพบำบัด",
+     "การทำกิจกรรมบำบัด",
+     "การนวดเชิงการแพทย์",
+     "รักษาโรคทางสมองและระบบประสาท",
+     "รักษาโรคกระดูกและข้อ"
+    ],
+    "servicesTh": [
+     "การรักษา",
+     "การฟื้นฟู",
+     "การทำกายภาพบำบัด",
+     "การทำกิจกรรมบำบัด",
+     "การนวดเชิงการแพทย์",
+     "รักษาโรคทางสมองและระบบประสาท",
+     "รักษาโรคกระดูกและข้อ"
+    ],
+    "appointment": "required"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "การรักษา การฟื้นฟู การทำกายภาพบำบัด",
+   "does_th": "การรักษา การฟื้นฟู การทำกายภาพบำบัด",
+   "appointment": "จองคิวนัดรักษา"
+  },
+  "license": "official-site",
+  "source": "https://chivacare.com/th",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-counselling-thailand": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "Individual Counselling",
+     "Couples Therapy",
+     "Teen Counselling",
+     "Child Therapy",
+     "Family Therapy",
+     "LGBTQ+ Hypnotherapy",
+     "Online Counselling",
+     "CBT (Cognitive Behavioural Therapy)"
+    ],
+    "servicesTh": [
+     "การให้คำปรึกษาส่วนบุคคล",
+     "การให้คำปรึกษาคู่",
+     "การให้คำปรึกษาวัยรุ่น",
+     "การให้คำปรึกษาดูแลเด็ก",
+     "การให้คำปรึกษากลุ่มครอบครัว",
+     "การให้คำปรึกษาสำหรับ LGBTQ+",
+     "การให้คำปรึกษาออนไลน์",
+     "การบำบัดด้วยจิตวิทยา"
+    ],
+    "languages": [
+     "English",
+     "Thai"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "Counselling & Therapy Services",
+   "does_th": "การให้คำปรึกษาส่วนบุคคล การให้คำปรึกษาคู่",
+   "languages": "English & Thai",
+   "appointment": "Fees & Appointments"
+  },
+  "license": "official-site",
+  "source": "https://counsellingthailand.com/therapy-chiang-mai/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-direk-eye-clinic": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "eye clinic",
+     "treat eye diseases",
+     "examine and prescribe glasses"
+    ],
+    "servicesTh": [
+     "คลินิกรักษาโรคตา",
+     "ตรวจรักษาโรคตา",
+     "วัดสายตาประกอบแว่น"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "คลินิกรักษาโรคตาเฉพาะทาง และวัดสายตาประกอบแว่น",
+   "does_th": "คลินิกรักษาโรคตาเฉพาะทาง และวัดสายตาประกอบแว่น",
+   "not_stated": "false",
+   "languages": "",
+   "appointment": "",
+   "price_hint": ""
+  },
+  "license": "official-site",
+  "source": "https://www.direkclinic.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-drwimon-clinic": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "Plastic Surgery",
+     "consultation",
+     "surgery services"
+    ],
+    "servicesTh": [
+     "การทำศัลยกรรม",
+     "ศัลยกรรมความงาม"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "รับให้ คำปรึกษา และบริการทางศัลยกรรมความงาม",
+   "does_th": "ศัลยกรรมความงาม โดย พญ. วิมล ศิริมหาราช",
+   "not_stated": "false"
+  },
+  "license": "official-site",
+  "source": "https://www.drwimonclinic.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-hugsa-klang-wiang": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "การดูแลโดยแพทย์ผู้เชี่ยวชาญ",
+     "บริการรักษาโรคครอบคลุม",
+     "การตรวจสุขภาพประจำปี",
+     "การตรวจโรคทั่วไป",
+     "การฉีดวัคซีน",
+     "การทำแผล",
+     "รักษาโรคเฉพาะทางต่าง ๆ"
+    ],
+    "servicesTh": [
+     "การดูแลโดยแพทย์ผู้เชี่ยวชาญ",
+     "บริการรักษาโรคครอบคลุม",
+     "การตรวจสุขภาพประจำปี",
+     "การตรวจโรคทั่วไป",
+     "การฉีดวัคซีน",
+     "การทำแผล",
+     "รักษาโรคเฉพาะทางต่าง ๆ"
+    ],
+    "appointment": "required"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "บริการรักษาโรคครอบคลุมตั้งแต่การตรวจสุขภาพประจำปี",
+   "does_th": "บริการรักษาโรคครอบคลุมตั้งแต่การตรวจสุขภาพประจำปี",
+   "appointment": "นัดหมายเข้าใช้บริการที่คลินิกรักษาโรคทั่วไป เชียงใหม่ ฮักษา เมดิคอล"
+  },
+  "license": "official-site",
+  "source": "https://hugsamedical.com/branch-chiang-mai/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-hugsa-medical": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "ตรวจเอชไอวี",
+     "ตรวจภายใน",
+     "จ่ายยาต้านไวรัส PEP",
+     "ยาต้านฉุกเฉิน เพร็พ PrEP",
+     "ตรวจเลือด",
+     "ฉีดวัคซีน",
+     "ตรวจสุขภาพ",
+     "ตรวจภูมิแพ้"
+    ],
+    "servicesTh": [
+     "ตรวจเอชไอวี",
+     "ตรวจภายใน",
+     "จ่ายยาต้านไวรัส PEP",
+     "ยาต้านฉุกเฉิน เพร็พ PrEP",
+     "ตรวจเลือด",
+     "ฉีดวัคซีน",
+     "ตรวจสุขภาพ",
+     "ตรวจภูมิแพ้"
+    ],
+    "languages": [
+     "ไทย",
+     "English"
+    ],
+    "appointment": "walk-in"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "บริการของเรา ตรวจภายใน เชียงใหม่ ใบรับรองแพทย์ เชียงใหม่ จ่ายยาต้านไวรัส PEP ยาต้านฉุกเฉิน เพร็พ PrEP",
+   "does_th": "บริการของเรา ตรวจภายใน เชียงใหม่ ใบรับรองแพทย์ เชียงใหม่ จ่ายยาต้านไวรัส PEP ยาต้านฉุกเฉิน เพร็พ PrEP",
+   "not_stated": "",
+   "languages": "ไทย English",
+   "appointment": "คุณมาสามารถ walk-in หรือจากสามารถจอง ออนไลน์ได้",
+   "price_hint": ""
+  },
+  "license": "official-site",
+  "source": "https://cmmedicalclinic.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-kids-sense-play": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "play-based development",
+     "occupational therapy",
+     "pre-school program",
+     "pediatric occupational therapy services",
+     "play-based learning activities",
+     "parent-supported online programs"
+    ],
+    "servicesTh": [
+     "คลินิกกิจกรรมบำบัดเด็ก",
+     "การบำบัดด้านการย้ายที่",
+     "โปรแกรมก่อนเรียน",
+     "บริการการบำบัดด้านการย้ายที่สำหรับเด็ก",
+     "กิจกรรมการเรียนรู้แบบเล่น",
+     "โปรแกรมออนไลน์ที่มีผู้ปกครองเป็นผู้สนับสนุน"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "play-based center for children",
+   "does_th": "คลินิกกิจกรรมบำบัดเด็ก",
+   "not_stated": "",
+   "languages": "",
+   "appointment": "",
+   "price_hint": ""
+  },
+  "license": "official-site",
+  "source": "https://www.kidssenseplay.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-mplus-chiangmai": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "HIV testing",
+     "Syphilis testing",
+     "CD4 testing",
+     "Viral load testing",
+     "Hormone level testing",
+     "PrEP service",
+     "PEP service",
+     "Sexual health consultation"
+    ],
+    "servicesTh": [
+     "ตรวจเอชไอวี",
+     "ตรวจซิฟิลิส",
+     "ตรวจระดับภูมิคุ้มกัน CD4",
+     "ตรวจไวรัลโหลด",
+     "ตรวจวัดระดับฮอร์โมน",
+     "จัดบริการยาเพร็พ",
+     "จัดบริการยาเป๊ป",
+     "ให้คำปรึกษา สุขภาพทางเพศ"
+    ],
+    "languages": [
+     "TH",
+     "EN"
+    ],
+    "appointment": "required"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "งานของเรา ตรวจเอชไอวี ตรวจซิฟิลิส ตรวจคัดกรอง",
+   "does_th": "งานของเรา ตรวจเอชไอวี ตรวจซิฟิลิส ตรวจคัดกรอง",
+   "languages": "TH TH EN",
+   "appointment": "จองคิวตรวจ",
+   "price_hint": ""
+  },
+  "license": "official-site",
+  "source": "https://www.mplusthailand.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-peachclinic": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "Vaginal Rejuvenation",
+     "Laser Hair Removal",
+     "Labial Reduction",
+     "Pelvic examination",
+     "Ultrasound",
+     "Cervical cancer screening",
+     "STI screening",
+     "Hormonal balancing"
+    ],
+    "servicesTh": [
+     "ฝากน้องสาวไว้กับหมอพีช",
+     "การฟื้นฟูความสวยงามและความเป็นหญิง"
+    ],
+    "languages": [
+     "English"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "Feminine Wellness Services",
+   "does_th": "#ฝากน้องสาวไว้กับหมอพีช",
+   "languages": "All the check ups done with kind and gentle guidance in English",
+   "appointment": "Appointment"
+  },
+  "license": "official-site",
+  "source": "https://peachclinic.co/en",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-prep-by-cwc": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "HIV PrEP clinic",
+     "PEP",
+     "STD tests and treatment",
+     "HIV test and treatment",
+     "Hepatitis B and Hepatitis C",
+     "Syphilis, Gonorrhea, Chlamydia tests",
+     "Blood Tests",
+     "Urine Test for STI"
+    ],
+    "languages": [
+     "English"
+    ],
+    "appointment": "walk-in"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "HIV PrEP clinic | PEP | STD tests and treatment",
+   "languages": "English-speaking staff",
+   "appointment": "Easy appointment booking",
+   "not_stated": "false"
+  },
+  "license": "official-site",
+  "source": "https://www.prepclinicchiangmai.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-osm-node-10970962604": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "ตรวจ วินิจฉัย และรักษาโรค",
+     "การรักษาด้วยสมุนไพรจีน",
+     "ฝังเข็ม",
+     "ครอบแก้ว",
+     "กัวซา",
+     "ผ่อนคลาย",
+     "ลดอาการปวด",
+     "เพิ่มการไหลเวียนของเลือด"
+    ],
+    "servicesTh": [
+     "ตรวจ วินิจฉัย และรักษาโรค",
+     "การรักษาด้วยสมุนไพรจีน",
+     "ฝังเข็ม",
+     "ครอบแก้ว",
+     "กัวซา",
+     "ผ่อนคลาย",
+     "ลดอาการปวด",
+     "เพิ่มการไหลเวียนของเลือด"
+    ],
+    "appointment": "required"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "คลินิกให้บริการตรวจ วินิจฉัย และรักษาโรค",
+   "does_th": "คลินิกให้บริการตรวจ วินิจฉัย และรักษาโรค",
+   "appointment": "จองนัดหมาย",
+   "price_hint": ""
+  },
+  "license": "official-site",
+  "source": "https://miladawellness.com",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-osm-node-11215121810": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "practical high quality massage training",
+     "therapist training Course",
+     "massage courses"
+    ],
+    "servicesTh": [
+     "massage training",
+     "therapist training Course",
+     "massage courses"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "practical high quality massage training",
+   "does_th": "massage training",
+   "not_stated": "false"
+  },
+  "license": "official-site",
+  "source": "https://ttcspaschool.net/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-osm-node-11250917910": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "จำหน่ายเครื่องช่วยฟัง",
+     "จำหน่ายอุปกรณ์ช่วยฟัง",
+     "จำหน่ายเครื่องมือแพทย์",
+     "ให้บริการเครื่องมือแพทย์",
+     "ให้บริการหลังการขาย",
+     "ส่งเสริมสนับสนุนความรู้ทางวิชาการด้านการได้ยิน"
+    ],
+    "servicesTh": [
+     "จำหน่ายเครื่องช่วยฟัง",
+     "จำหน่ายอุปกรณ์ช่วยฟัง",
+     "จำหน่ายเครื่องมือแพทย์",
+     "ให้บริการเครื่องมือแพทย์",
+     "ให้บริการหลังการขาย",
+     "ส่งเสริมสนับสนุนความรู้ทางวิชาการด้านการได้ยิน"
+    ],
+    "languages": [
+     "Thai",
+     "English"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "ศูนย์เครื่องช่วยฟัง Audimed จำหน่ายเครื่องช่วยฟัง และอุปกรณ์ช่วยฟัง",
+   "does_th": "ศูนย์เครื่องช่วยฟัง Audimed จำหน่ายเครื่องช่วยฟัง และอุปกรณ์ช่วยฟัง",
+   "languages": "Language: Home Home Home Home",
+   "not_stated": "false"
+  },
+  "license": "official-site",
+  "source": "http://www.audimed.co.th",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-osm-node-12629910948": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "sacred treatments",
+     "meditation",
+     "healing touch of herbal remedies",
+     "traditional herbal medicine",
+     "treatments"
+    ],
+    "priceNote": "THB 9,000"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "priceNote": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "Through sacred treatments, meditation, and the healing touch of herbal remedies",
+   "price_hint": "THB 9,000"
+  },
+  "license": "official-site",
+  "source": "https://www.my3wella.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-osm-node-3420998761": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "anti-aging",
+     "facial design",
+     "skin rejuvenation",
+     "body reshaping",
+     "hair care",
+     "vaginal tightening"
+    ],
+    "servicesTh": [
+     "การฟื้นฟูผิวหน้า",
+     "การออกแบบใบหน้า",
+     "การฟื้นฟูผิว",
+     "การเปลี่ยนแปลงรูปร่าง",
+     "การดูแลเส้นผม",
+     "การกระชับช่องคลอด"
+    ],
+    "languages": [
+     "English",
+     "Thai"
+    ],
+    "appointment": "required"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "Sarinya Clinic is an aesthetic clinic for anti-aging, facial design, skin rejuvenation, body reshaping, hair care and vaginal tightening",
+   "does_th": "การฟื้นฟูผิวหน้า การออกแบบใบหน้า การฟื้นฟูผิว การเปลี่ยนแปลงรูปร่าง การดูแลเส้นผม การกระชับช่องคลอด",
+   "not_stated": "false",
+   "languages": "English and Thai text on the page",
+   "appointment": "Schedule a consultation",
+   "price_hint": "none"
+  },
+  "license": "official-site",
+  "source": "https://www.sarinya-clinic.com",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-osm-node-5265397323": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "Blood Tests",
+     "Check-up Packages",
+     "Medication Refills",
+     "Vaccinations",
+     "Wound Dressing",
+     "Vitamin IV Drips",
+     "Work Permit & Driving License Certificates",
+     "Comprehensive Medical Scope"
+    ],
+    "servicesTh": [
+     "เจาะเลือด",
+     "ตรวจสุขภาพ",
+     "รับยาเดิม",
+     "ฉีดวัคซีน",
+     "ทำแผล",
+     "ดริปวิตามิน",
+     "ใบรับรองแพทย์ทำใบขับขี่/ใบอนุญาตทำงาน",
+     "บริการสุขภาพทั่วไป"
+    ],
+    "languages": [
+     "English",
+     "Thai"
+    ],
+    "appointment": "required",
+    "priceNote": "5,030 THB"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept",
+   "priceNote": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "Blood Tests • Check-up Packages • Medication Refills • Vaccinations • Wound Dressing • Vitamin IV Drips • Work Permit & Driving License Certificates",
+   "does_th": "เจาะเลือด • ตรวจสุขภาพ • รับยาเดิม • ฉีดวัคซีน • ทำแผล • ดริปวิตามิน • ใบรับรองแพทย์ทำใบขับขี่/ใบอนุญาตทำงาน",
+   "not_stated": "false",
+   "languages": "English and Thai text on the page",
+   "appointment": "Book Appointment",
+   "price_hint": "Check Up program F40 No DM (5,030 THB)"
+  },
+  "license": "official-site",
+  "source": "http://www.healthcaremedicalclinic.com",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-osm-node-6561551296": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "จัดฟัน",
+     "รากเทียม",
+     "ฟอกฟัน",
+     "ทันตกรรมเพื่อความงาม",
+     "วีเนียร์",
+     "เคลือบผิวฟัน",
+     "ฟอกสีฟัน"
+    ],
+    "servicesTh": [
+     "จัดฟัน",
+     "รากเทียม",
+     "ฟอกฟัน",
+     "ทันตกรรมเพื่อความงาม",
+     "วีเนียร์",
+     "เคลือบผิวฟัน",
+     "ฟอกสีฟัน"
+    ],
+    "languages": [
+     "TH",
+     "EN",
+     "ZH",
+     "JP"
+    ],
+    "appointment": "required"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "จัดฟัน รากเทียม ฟอกฟัน - Chiangmai dental",
+   "does_th": "จัดฟัน รากเทียม ฟอกฟัน - Chiangmai dental",
+   "not_stated": "false",
+   "languages": "TH EN – English ZH – 中文 JP – 日本語",
+   "appointment": "ทำการนัดหมาย",
+   "price_hint": "null"
+  },
+  "license": "official-site",
+  "source": "https://chiangmaidentist.com",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-osm-way-163021936": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "Pharmacy"
+    ],
+    "servicesTh": [
+     "ยาสารภี"
+    ],
+    "languages": [
+     "English",
+     "Thai"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "Saraphi Pharmacy",
+   "does_th": "บ้านยาสารภี",
+   "languages": "Saraphi Pharmacy / Barnya",
+   "not_stated": "false"
+  },
+  "license": "official-site",
+  "source": "http://www.barnya.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-osm-way-257214959": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "medical services"
+    ],
+    "servicesTh": [
+     "แพทย์ผู้เชี่ยวชาญเฉพาะทางจากทุกสาขา",
+     "บริการสำหรับผู้ป่วย",
+     "ตรวจสุขภาพลูกค้าองค์กร"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "แพทย์ผู้เชี่ยวชาญเฉพาะทางจากทุกสาขา",
+   "does_th": "แพทย์ผู้เชี่ยวชาญเฉพาะทางจากทุกสาขา",
+   "not_stated": "",
+   "languages": "",
+   "appointment": "",
+   "price_hint": ""
+  },
+  "license": "official-site",
+  "source": "https://www.chiangmairam.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-osm-way-294031574": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "hospital services"
+    ],
+    "servicesTh": [
+     "บริการของเรา",
+     "โรงพยาบาลกรุงเทพเชียงใหม่"
+    ],
+    "languages": [
+     "Thai",
+     "English"
+    ],
+    "appointment": "required"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "บริการของเรา",
+   "does_th": "บริการของเรา",
+   "languages": "Language & Currency",
+   "appointment": "ทำนัด"
+  },
+  "license": "official-site",
+  "source": "http://www.bangkokhospital-chiangmai.com",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-osm-way-312058346": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "Trauma Center",
+     "HEAT STROKE treatment",
+     "consult"
+    ],
+    "servicesTh": [
+     "THEPPANYA TRAUMA CENTER",
+     "HEAT STROKE",
+     "consult"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "THEPPANYA TRAUMA CENTER",
+   "does_th": "THEPPANYA TRAUMA CENTER",
+   "not_stated": "",
+   "languages": "",
+   "appointment": "",
+   "price_hint": ""
+  },
+  "license": "official-site",
+  "source": "http://www.theppanya.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-osm-way-542929587": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "Alcohol Addiction Treatment",
+     "Drug Addiction Treatment",
+     "Mental Health Treatment",
+     "Anxiety Treatment",
+     "Depression Treatment",
+     "Trauma Treatment",
+     "Prescription Drug Addiction Treatment",
+     "Behavioral Addiction Treatment"
+    ],
+    "servicesTh": [
+     "การรักษาเสพติดแอลกอฮอล์",
+     "การรักษาเสพติดยา",
+     "การรักษาสุขภาพจิต",
+     "การรักษาอาการกังวล",
+     "การรักษาอาการซึม",
+     "การรักษาอาการบาดเจ็บทางจิต",
+     "การรักษาเสพติดยาทางการแพทย์",
+     "การรักษาเสพติดพฤติกรรม"
+    ],
+    "languages": [
+     "English",
+     "Thai"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "Rehab Thailand for Drug and Alcohol Addiction at The Cabin",
+   "does_th": "การรักษาเสพติดแอลกอฮอล์และยาเสพติดที่เดอะคาบิน",
+   "languages": "TH: +66 20 385 469",
+   "not_stated": ""
+  },
+  "license": "official-site",
+  "source": "https://www.thecabinchiangmai.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cr-curated-mplus-chiangrai": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "HIV testing",
+     "Syphilis testing",
+     "CD4 testing",
+     "Viral load testing",
+     "Hormone level testing",
+     "PrEP service",
+     "PEP service",
+     "Sexual health consultation"
+    ],
+    "servicesTh": [
+     "ตรวจเอชไอวี",
+     "ตรวจซิฟิลิส",
+     "ตรวจระดับภูมิคุ้มกัน CD4",
+     "ตรวจไวรัลโหลด",
+     "ตรวจวัดระดับฮอร์โมน",
+     "จัดบริการยาเพร็พ",
+     "จัดบริการยาเป๊ป",
+     "ให้คำปรึกษา สุขภาพทางเพศ"
+    ],
+    "languages": [
+     "TH",
+     "EN"
+    ],
+    "appointment": "required"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "งานของเรา ตรวจเอชไอวี ตรวจซิฟิลิส ตรวจคัดกรอง",
+   "does_th": "งานของเรา ตรวจเอชไอวี ตรวจซิฟิลิส ตรวจคัดกรอง",
+   "languages": "TH TH EN",
+   "appointment": "จองคิวตรวจ",
+   "price_hint": ""
+  },
+  "license": "official-site",
+  "source": "https://www.mplusthailand.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cr-osm-way-447735125": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "รักษาทุกที่ด้วยบัตรประชาชนใบเดียว",
+     "ให้ความรู้แก่ผู้รับบริการ",
+     "จัดกิจกรรมวันเบาหวานโลก",
+     "จัดกิจกรรมวันเอดส์โลก"
+    ],
+    "servicesTh": [
+     "รักษาทุกที่ด้วยบัตรประชาชนใบเดียว",
+     "ให้ความรู้แก่ผู้รับบริการ",
+     "จัดกิจกรรมวันเบาหวานโลก",
+     "จัดกิจกรรมวันเอดส์โลก"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "รักษาทุกที่ด้วยบัตรประชาชนใบเดียว",
+   "does_th": "รักษาทุกที่ด้วยบัตรประชาชนใบเดียว"
+  },
+  "license": "official-site",
+  "source": "https://maechanhospital.go.th/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cr-osm-way-483841193": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "บริการทางการแพทย์",
+     "ตรวจสุขภาพ",
+     "การดูแลสุขภาพช่องปากผู้สูงอายุ",
+     "การดูแลผู้ป่วยประคับประคอง",
+     "ศัลยกรรมระบบประสาท"
+    ],
+    "servicesTh": [
+     "บริการทางการแพทย์",
+     "ตรวจสุขภาพ",
+     "การดูแลสุขภาพช่องปากผู้สูงอายุ",
+     "การดูแลผู้ป่วยประคับประคอง",
+     "ศัลยกรรมระบบประสาท"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "บริการทางการแพทย์",
+   "does_th": "บริการทางการแพทย์",
+   "appointment": "นัด appoint online",
+   "not_stated": "false"
+  },
+  "license": "official-site",
+  "source": "https://www.crhospital.org/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cr-osm-way-527539157": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "รักษา",
+     "ป้องกันโรคไต"
+    ],
+    "servicesTh": [
+     "รักษา",
+     "ป้องกันโรคไต"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "โครงการป้องกันโรคไต",
+   "does_th": "โครงการป้องกันโรคไต",
+   "not_stated": "",
+   "languages": "",
+   "appointment": "",
+   "price_hint": ""
+  },
+  "license": "official-site",
+  "source": "https://chiangsaenhospital.go.th/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cr-osm-way-991657339": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "ดูแลสุขภาพแบบแผนไทย",
+     "บริการแพทย์แผนไทย",
+     "คลินิกแพทย์แผนจีน",
+     "คลินิกทันตกรรม",
+     "แผนปฏิบัติงานฉุกเฉินทางการแพทย์"
+    ],
+    "servicesTh": [
+     "ดูแลสุขภาพแบบแผนไทย",
+     "บริการแพทย์แผนไทย",
+     "คลินิกแพทย์แผนจีน",
+     "คลินิกทันตกรรม",
+     "แผนปฏิบัติงานฉุกเฉินทางการแพทย์"
+    ]
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "ดูแลสุขภาพแบบแผนไทย บริการแพทย์แผนไทย คลินิกแพทย์แผนจีน คลินิกทันตกรรม แผนปฏิบัติงานฉุกเฉินทางการแพทย์",
+   "does_th": "ดูแลสุขภาพแบบแผนไทย บริการแพทย์แผนไทย คลินิกแพทย์แผนจีน คลินิกทันตกรรม แผนปฏิบัติงานฉุกเฉินทางการแพทย์"
+  },
+  "license": "official-site",
+  "source": "www.fortmengraihospital.com",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-hearing-11798": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "ตรวจการได้ยิน",
+     "ปรึกษาปัญหาการได้ยิน",
+     "ตรวจ-ใส่เครื่องช่วยฟัง",
+     "ซ่อมเครื่องช่วยฟัง",
+     "ทดลองเครื่องช่วยฟังฟรี 7 วัน"
+    ],
+    "servicesTh": [
+     "ตรวจการได้ยิน",
+     "ปรึกษาปัญหาการได้ยิน",
+     "ตรวจ-ใส่เครื่องช่วยฟัง",
+     "ซ่อมเครื่องช่วยฟัง",
+     "ทดลองเครื่องช่วยฟังฟรี 7 วัน"
+    ],
+    "languages": [
+     "TH",
+     "EN"
+    ],
+    "appointment": "required"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "ตรวจการได้ยิน ปรึกษาปัญหาการได้ยิน ตรวจ-ใส่เครื่องช่วยฟัง ซ่อมเครื่องช่วยฟัง",
+   "does_th": "ตรวจการได้ยิน ปรึกษาปัญหาการได้ยิน ตรวจ-ใส่เครื่องช่วยฟัง ซ่อมเครื่องช่วยฟัง",
+   "languages": "TH Menu Toggle EN",
+   "appointment": "ทำนัดเข้ารับบริการ",
+   "price_hint": ""
+  },
+  "license": "official-site",
+  "source": "http://www.dear.co.th/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-hearing-15731": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "ให้บริการผู้บกพร่องทางการได้ยิน",
+     "ปรึกษาการได้ยิน",
+     "ใส่เครื่องช่วยฟัง",
+     "ทดลองเครื่องช่วยฟัง",
+     "บริการหลังการขาย",
+     "ตรวจสุขภาพการได้ยิน",
+     "บำรุงรักษาเครื่องช่วยฟัง"
+    ],
+    "servicesTh": [
+     "ให้บริการผู้บกพร่องทางการได้ยิน",
+     "ปรึกษาการได้ยิน",
+     "ใส่เครื่องช่วยฟัง",
+     "ทดลองเครื่องช่วยฟัง",
+     "บริการหลังการขาย",
+     "ตรวจสุขภาพการได้ยิน",
+     "บำรุงรักษาเครื่องช่วยฟัง"
+    ],
+    "languages": [
+     "Thai",
+     "English"
+    ],
+    "appointment": "required",
+    "priceNote": "300"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept",
+   "priceNote": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "ให้บริการผู้บกพร่องทางการได้ยิน ตั้งแต่ระดับเล็กน้อย (Mild) ถึงระดับรุนแรงมาก (Profound)",
+   "does_th": "ให้บริการผู้บกพร่องทางการได้ยิน ตั้งแต่ระดับเล็กน้อย (Mild) ถึงระดับรุนแรงมาก (Profound)",
+   "languages": "staff spoke enough English to communicate comfortably",
+   "appointment": "booked the appointment through Line",
+   "price_hint": "the fee was 300 baht"
+  },
+  "license": "official-site",
+  "source": "https://intimexchiangmai.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-physio-12222": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "ตรวจสุขภาพ",
+     "อัลตราซาวด์",
+     "เอกซเรย์",
+     "กายภาพบำบัด",
+     "แมมโมแกรม",
+     "ตรวจมวลกระดูก"
+    ],
+    "servicesTh": [
+     "ตรวจสุขภาพ",
+     "อัลตราซาวด์",
+     "เอกซเรย์",
+     "กายภาพบำบัด",
+     "แมมโมแกรม",
+     "ตรวจมวลกระดูก"
+    ],
+    "priceNote": "0.00"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "priceNote": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "ตรวจสุขภาพ ตรวจสุขภาพหน่วยงาน (ในและนอกสถานที่) อัลตราซาวด์ เอกซเรย์ กายภาพบำบัด แมมโมแกรม ตรวจมวลกระดูก",
+   "price_hint": "เริ่มต้นที่ 0.00 (จาก 50.00 )",
+   "does_th": "ตรวจสุขภาพ ตรวจสุขภาพหน่วยงาน (ในและนอกสถานที่) อัลตราซาวด์ เอกซเรย์ กายภาพบำบัด แมมโมแกรม ตรวจมวลกระดูก"
+  },
+  "license": "official-site",
+  "source": "https://www.prompthealthcenter.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-physio-12939": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "ตรวจสุขภาพ",
+     "อัลตราซาวด์",
+     "เอกซเรย์",
+     "กายภาพบำบัด",
+     "แมมโมแกรม",
+     "ตรวจมวลกระดูก"
+    ],
+    "servicesTh": [
+     "ตรวจสุขภาพ",
+     "อัลตราซาวด์",
+     "เอกซเรย์",
+     "กายภาพบำบัด",
+     "แมมโมแกรม",
+     "ตรวจมวลกระดูก"
+    ],
+    "priceNote": "0.00"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "priceNote": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "ตรวจสุขภาพ ตรวจสุขภาพหน่วยงาน (ในและนอกสถานที่) อัลตราซาวด์ เอกซเรย์ กายภาพบำบัด แมมโมแกรม ตรวจมวลกระดูก",
+   "does_th": "ตรวจสุขภาพ ตรวจสุขภาพหน่วยงาน (ในและนอกสถานที่) อัลตราซาวด์ เอกซเรย์ กายภาพบำบัด แมมโมแกรม ตรวจมวลกระดูก",
+   "price_hint": "เริ่มต้นที่ 0.00 (จาก 50.00 )"
+  },
+  "license": "official-site",
+  "source": "https://www.prompthealthcenter.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "cm-curated-physio-36264": {
+  "fetched": "2026-09-07",
+  "fields": {
+   "attrs": {
+    "services": [
+     "Annual Health Check Up",
+     "Erectile Dysfunction Clinic",
+     "Gynecologist",
+     "Laboratory Testing",
+     "Skin And Botox Clinic",
+     "Orthopedic Consultation",
+     "Physiotherapy",
+     "Vaccination Services"
+    ],
+    "servicesTh": [
+     "การตรวจสุขภาพประจำปี",
+     "คลินิกโรคต่อมลูกหมาก",
+     "สูตินรีแพทย์",
+     "การตรวจห้องปฏิบัติการ",
+     "คลินิกผิวและบอโตกซ์",
+     "การปรึกษาออร์โธปิดิกส์",
+     "การบำบัดฟิสิโอ",
+     "การให้วัคซีน"
+    ],
+    "languages": [
+     "English",
+     "Thai"
+    ],
+    "appointment": "walk-in"
+   }
+  },
+  "how": {
+   "services": "read off the place's own page by a model, quote kept",
+   "servicesTh": "read off the place's own page by a model, quote kept",
+   "languages": "read off the place's own page by a model, quote kept",
+   "appointment": "read off the place's own page by a model, quote kept"
+  },
+  "evidence": {
+   "does": "Medical Clinic Chiang Mai | Health Clinic & Medical Centre",
+   "does_th": "คลินิกแพทย์เชียงใหม่ | คลินิกสุขภาพและศูนย์แพทย์",
+   "languages": "fluent English-speaking medical doctors",
+   "appointment": "We run our clinic by appointment. However, we do appreciate emergencies do happen. We welcome walk-in patients",
+   "price_hint": "None"
+  },
+  "license": "official-site",
+  "source": "https://bostonhealthcm.com/",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ },
+ "_readme": [
+  "What a place does, read off its own site by a model — importers/enrich_services.py.",
+  "Every field keeps the page's own words in `evidence`. A field that is absent",
+  "means the page did not say, NEVER that the place does not do it."
+ ]
+}
