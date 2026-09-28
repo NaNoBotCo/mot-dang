@@ -100,6 +100,12 @@ ATTRIBUTION = "มดแดง Mot Dang · motdang.net"
 SEMANTIC_SEARCH = "https://ask.motdang.net/api/search"
 
 
+def _for_hire():
+    """data/for_hire.json without its editor's note."""
+    fh = json.loads((Path(__file__).resolve().parent / "data" / "for_hire.json").read_text())
+    return {k: v for k, v in fh.items() if not k.startswith("_")}
+
+
 def _licence_block(base):
     return {
         "compilation": "CC-BY-4.0",
@@ -270,6 +276,9 @@ def build_index(g, data, photos, tags):
         "docs": base + "api/",
         "attribution": ATTRIBUTION,
         "licence": _licence_block(base),
+        # The commercial licence and the bots for hire — data/for_hire.json,
+        # the same file llms.txt renders.
+        "commercial": _for_hire(),
         "count": len(rows),
         # WHICH population `count` counts, said out loud — so a caller who
         # also holds the bulk dataset never has to work out a difference from
@@ -387,7 +396,8 @@ def openapi(base):
                 + base + "terms.html"),
             "license": {"name": "CC BY 4.0 (compilation); ODbL 1.0 on OSM-derived rows",
                         "url": base + "terms.html"},
-            "contact": {"url": base + "api/"},
+            "contact": {"url": base + "api/", "email": _for_hire()["contact"]},
+            "x-commercial": _for_hire(),
         },
         "servers": [{"url": base + "api/v1"}],
         "paths": {
