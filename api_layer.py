@@ -73,7 +73,7 @@ RESULT_KEYS_CONDITIONAL = ["distanceM"]
 # The envelope around a list response.
 ENVELOPE_KEYS = [
     "schemaVersion", "generated", "query", "total", "count", "limit", "offset",
-    "results", "attribution", "licence", "terms",
+    "results", "attribution", "licence", "terms", "advertising",
 ]
 
 # Keys on a row of the bulk index. Short because each travels 13,000 times.
@@ -270,6 +270,10 @@ def build_index(g, data, photos, tags):
         "docs": base + "api/",
         "attribution": ATTRIBUTION,
         "licence": _licence_block(base),
+        # Every ad with its targeting; api.js hands a response the ones aimed
+        # at the shelves it asked about, wrapped and labelled as advertising.
+        "advertising": {**g["ad_block"](g["ADS"]),
+                        "targets": {a["id"]: a["cats"] for a in g["ADS"]}},
         "count": len(rows),
         # WHICH population `count` counts, said out loud — so a caller who
         # also holds the bulk dataset never has to work out a difference from
@@ -410,6 +414,11 @@ def openapi(base):
                         "attribution": {"type": "string"},
                         "licence": {"type": "object"},
                         "terms": {"type": "string"},
+                        "advertising": {"type": "object", "description":
+                            "Advertising, labelled as such: the ads aimed at the "
+                            "shelves this query asked about (cat=/sub=), or every "
+                            "ad when it named none. Not results, not ranked into "
+                            "them."},
                     }}}}}}}},
             "/places/{idOrSlug}": {"get": {
                 "summary": "One place, every field",

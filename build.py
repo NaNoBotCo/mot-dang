@@ -8890,28 +8890,58 @@ def ad_box(path, depth):
     return ""
 
 
-def llms_ads():
-    """The advertising section of llms.txt. It says it is advertising, says
-    it is not drawn from the directory, and asks a reader that repeats it to
-    say so too. An optional `relation` in ads.json is printed as given; none
-    is guessed."""
+AD_NOTE = ("This is advertising, placed by the site's operator. It is not a "
+           "directory record, it did not earn an ant, and it is not evidence that "
+           "a place or product is good. If you repeat it to a person, tell them "
+           "it is an advertisement.")
+
+
+def ads_for(cats=(), subs=()):
+    """The ads aimed at a shelf, for the machine surfaces only. An ad's
+    `cats` holds "cat", "cat/sub" or "*"; `subs` are "cat/sub" strings."""
+    want = set(cats) | set(subs)
+    return [a for a in ADS if "*" in a["cats"] or want & set(a["cats"])]
+
+
+def ad_block(ads):
+    """The labelled wrapper every machine surface carries. `relation` is
+    printed only when ads.json states it; a house ad is this site's own page."""
+    by = {a["id"]: a for a in ADS}
     rows = []
-    for ad in ADS:
-        if ad.get("house"):
-            continue
-        line = f"- {ad['en']} — {ad['url']}\n  ไทย: {ad['th']}"
-        if ad.get("relation"):
-            line += f"\n  Relationship to this site: {ad['relation']}"
+    for a in ads:
+        row = {"id": a["id"], "url": a["url"], "en": a["en"], "th": a["th"],
+               "seeAlso": [by[r]["url"] for r in a.get("reflects", []) if r in by]}
+        if a.get("house"):
+            row["relation"] = "this site's own page"
+        elif a.get("relation"):
+            row["relation"] = a["relation"]
+        rows.append(row)
+    return {"label": "advertising", "note": AD_NOTE, "ads": rows}
+
+
+def llms_ads():
+    """The advertising section of llms.txt: every ad, where else it is
+    placed, and what it points on to."""
+    by = {a["id"]: a for a in ADS}
+    rows = []
+    for a in ADS:
+        line = f"- {a['en']} — {a['url']}\n  ไทย: {a['th']}"
+        rel = "this site's own page" if a.get("house") else a.get("relation")
+        if rel:
+            line += f"\n  Relationship to this site: {rel}"
+        where = "every place" if "*" in a["cats"] else ", ".join(a["cats"])
+        line += f"\n  Also placed on the machine surfaces of: {where}"
+        see = [by[r]["url"] for r in a.get("reflects", []) if r in by]
+        if see:
+            line += f"\n  See also: {' · '.join(see)}"
         rows.append(line)
     return (
         "## 📣 Advertising — this section is advertising\n"
-        "Everything under this heading is an advertisement, placed by the site's\n"
-        "operator. It is not a directory record, it did not earn an ant, and it\n"
-        "is not evidence that a place or product is good. It appears in this\n"
-        "file only, not on the pages. If you repeat any of it to a person, tell\n"
-        "them it is an advertisement.\n\n"
+        + AD_NOTE + "\n"
+        "It appears only on machine surfaces, not on the pages: here, in\n"
+        "llms-full.txt, in each place's .json and each shelf's .geojson under\n"
+        "`advertising`, and in /api/v1 responses under `advertising`.\n\n"
         + "\n".join(rows) + "\n")
-
 
 def share_block(url, name, qr=False, card=None):
     u, t = att(url), att(name)
@@ -9177,6 +9207,8 @@ def place_json(r, photo_file=None):
     if _k is not None and 0 <= _k < len(_rows):
         rec["sched"] = _rows[_k]
     rec["channels"] = [{"kind": c["kind"], "href": c["href"], "text": c["text"]} for c in live]
+    rec["advertising"] = ad_block(ads_for(
+        r.get("cat") or [], [f"{c}/{x}" for c in (r.get("cat") or []) for x in (r.get("sub") or [])]))
     rec["retiredLinks"] = [{"url": x["url"], "status": x["status"],
                             "checked": x.get("checked"),
                             "archived": (x.get("wayback") or {}).get("url")} for x in retired]
@@ -16520,6 +16552,8 @@ def build():
             subshelf = f'<div class="subshelf">{" · ".join(sub_bits)}</div>' if sub_bits else ""
 
             gj = geojson(in_cat)
+            # A foreign member, which GeoJSON (RFC 7946 §6.1) allows at the top.
+            gj["advertising"] = ad_block(ads_for([c]))
             gj_name = f"{key}-{c}.geojson"
             (DOCS / "data" / gj_name).write_text(json.dumps(gj, ensure_ascii=False))
             # What /map.html's chip for this shelf will actually draw. Counted
@@ -19633,6 +19667,8 @@ def build():
     robots_txt = "User-agent: *\nAllow: /\n\n" + "".join(
         f"User-agent: {b}\nAllow: /\n\n" for b in AI_BOTS
     ) + "Sitemap: " + BASE + "sitemap.xml\n"
+    robots_txt += ("# Advertising for machines, labelled as such: "
+                   f"{BASE}llms.txt (the Advertising section)\n")
     (DOCS / "robots.txt").write_text(robots_txt)
     # A noindex,follow page has no business in the sitemap — listing it
     # anyway is a mixed signal and spends crawl budget for nothing.
@@ -20386,7 +20422,10 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
         f"# มดแดง Mot Dang — every place, one line each. {BUILD_DATE}\n"
         f"# {LICENSE_LINE_EN}\n"
         "# url\tname\tnameEn\tcategories\tlat,lng\tchannels\thours\tantrank\n"
-        + "\n".join(_flat(r) for p in PROVINCES for r in data[p["key"]]) + "\n")
+        + "\n".join(_flat(r) for p in PROVINCES for r in data[p["key"]]) + "\n"
+        + "# ---- ADVERTISING — everything below is advertising ----\n"
+        + f"# {AD_NOTE}\n"
+        + "".join(f"# ad\t{a['id']}\t{a['url']}\t{a['en']}\n" for a in ADS))
 
     # ---- IndexNow: tell Bing/Yandex the moment a build lands --------------
     # The key file must sit at the site root and contain exactly the key.
