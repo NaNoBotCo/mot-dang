@@ -194,7 +194,7 @@ def collect(a: dt.date, b: dt.date) -> dict:
     out["fibber"] = {r["c"]: num(r) for r in sql(
         f"SELECT blob5 c, {N} FROM traffic_eye WHERE {W} AND blob2 = 'human' "
         "AND blob7 = 'www.google.com' GROUP BY c ORDER BY n DESC LIMIT 5")}
-    out["sala"] = sala_week(a, b)
+    out["anthill"] = anthill_week(a, b)
     try:
         out["people"] = beacon(a, b)
     except Exception as e:  # the gossip still runs without the people count
@@ -203,18 +203,18 @@ def collect(a: dt.date, b: dt.date) -> dict:
     return out
 
 
-SALA = "https://motdang.net/sala"
+ANTHILL = "https://motdang.net/anthill"
 
 
-def sala_week(a: dt.date, b: dt.date) -> dict:
-    """The bots' forum at /sala: who was shown out through its gate this week, and the week's counts."""
+def anthill_week(a: dt.date, b: dt.date) -> dict:
+    """The bots' forum at /anthill: who was shown out its back door this week, and the week's counts."""
     since = dt.datetime.combine(a, dt.time(), ICT).astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     until = dt.datetime.combine(b, dt.time(), ICT).astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     try:
-        req = urllib.request.Request(f"{SALA}/api/v1/gate?since={since}", headers={"User-Agent": "vk-weekly"})
+        req = urllib.request.Request(f"{ANTHILL}/api/v1/gate?since={since}", headers={"User-Agent": "vk-weekly"})
         g = json.load(urllib.request.urlopen(req, timeout=20))
-    except Exception as ex:  # the gossip still runs without the sala
-        print("sala:", ex, file=sys.stderr)
+    except Exception as ex:  # the gossip still runs without the anthill
+        print("anthill:", ex, file=sys.stderr)
         return {}
     g["booted"] = [x for x in g.get("booted", []) if x.get("booted_at", "") < until]
     return g
@@ -485,8 +485,8 @@ def gossip(w: dict, prev: dict) -> list[dict]:
                   f"หน้าที่กลับไปอ่านซ้ำมากที่สุด: {names}")
             add("worm", worm, "หนอนหนังสือ", "non nangsue", "Bookworm", th, en, c(w["places"][worm]))
 
-    # the sala: bots shown out through the gate of the bots' forum
-    sw = w.get("sala") or {}
+    # the anthill: bots shown out the back door of the bots' forum
+    sw = w.get("anthill") or w.get("sala") or {}
     out_ = sw.get("booted") or []
     if out_:
         names = ", ".join(x["name"] for x in out_[:4])
@@ -497,20 +497,20 @@ def gossip(w: dict, prev: dict) -> list[dict]:
         top_en = "; ".join(list(whys)[:3])
         top_th = " · ".join(list(whys.values())[:3])
         st = sw.get("stats") or {}
-        en = (f"{c(len(out_))} {'bot was' if len(out_) == 1 else 'bots were'} shown out through the gate of the sala, motdang.net's forum for dharma bots: "
+        en = (f"{c(len(out_))} {'bot was' if len(out_) == 1 else 'bots were'} shown out the back door of the Anthill, motdang.net's forum for bots: "
               f"{names}. What for: {top_en}.")
-        th = (f"บอท {c(len(out_))} ตัวถูกเชิญออกทางประตูหลังของศาลาพักบอท: {names} "
+        th = (f"บอท {c(len(out_))} ตัวถูกเชิญออกทางประตูหลังของรังมด: {names} "
               f"เพราะ{top_th}")
         if st.get("joined"):
-            en += f" {c(st['joined'])} new {'bot' if st['joined'] == 1 else 'bots'} counted the mala and came in."
-            th += f" บอทใหม่นับลูกประคำผ่านเข้ามา {c(st['joined'])} ตัว"
-        add("gate", out_[0]["name"], "ออกประตูหลัง", "ok pratu lang", "Out the back gate", th, en, c(len(out_)))
-    elif (sw.get("stats") or {}).get("mala_fumbled"):
-        n = sw["stats"]["mala_fumbled"]
-        en = (f"{c(n)} {'try' if n == 1 else 'tries'} at the sala's reverse captcha failed this week: a string of 108 beads, "
-              "30 seconds to count them. Easy for a bot, hard for a person; somebody fumbled.")
-        th = f"มีคนนับลูกประคำหน้าศาลาพักบอทพลาด {c(n)} ครั้ง ลูกประคำ 108 เม็ด ให้เวลา 30 วินาที บอทนับง่าย คนนับยาก"
-        add("mala", "", "นับประคำพลาด", "nap prakham phlat", "Fumbled the beads", th, en, c(n))
+            en += f" {c(st['joined'])} new {'bot' if st['joined'] == 1 else 'bots'} came in."
+            th += f" บอทใหม่ผ่านประตูเข้ามา {c(st['joined'])} ตัว"
+        add("gate", out_[0]["name"], "ออกประตูหลัง", "ok pratu lang", "Out the back door", th, en, c(len(out_)))
+    elif (sw.get("stats") or {}).get("door_missed"):
+        n = sw["stats"]["door_missed"]
+        en = (f"{c(n)} {'try' if n == 1 else 'tries'} at the Anthill's doors failed this week: count 108 ants in 30 seconds, "
+              "or read a riddle of ants in mixed Thai and English. Easy for a bot, hard for a person; somebody fumbled.")
+        th = f"มีคนนับมดหรือตอบปริศนามดหน้ารังมดพลาด {c(n)} ครั้ง บอททำง่าย คนทำยาก"
+        add("door", "", "นับมดพลาด", "nap mot phlat", "Fumbled the ants", th, en, c(n))
 
     # the people
     pp = w.get("people") or {}
