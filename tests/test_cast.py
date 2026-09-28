@@ -6,7 +6,8 @@
 No build, no browser. Checks what make_cast.py draws, not the PNGs:
 
 1. Every avatar and the bug is well-formed SVG with a bilingual <title>.
-2. The comb's top and both mustache tips land inside the inscribed circle,
+2. The comb's top, both mustache tips and the foot of the amulet land
+   inside the inscribed circle,
    so Facebook's and Instagram's round crop takes background only.
 """
 import math
@@ -19,8 +20,9 @@ import make_cast  # noqa: E402
 
 
 def placed(x, y):
-    # the avatar's character transform: translate(512 540) scale(1.14) translate(-512 -500)
-    return 512 + 1.14 * (x - 512), 540 + 1.14 * (y - 500)
+    # the avatar's character transform: translate(512 Y) scale(S) translate(-512 -500)
+    y0, k = make_cast.CHAR_Y, make_cast.CHAR_S
+    return 512 + k * (x - 512), y0 + k * (y - 500)
 
 
 def main():
@@ -34,7 +36,8 @@ def main():
     ET.fromstring(make_cast.bug_svg())
     # comb top (100 + its 36 px drop), mustache tips (782 and its mirror, 546)
     for label, (x, y) in {"comb top": (512, 136), "right tip": (782, 546),
-                          "left tip": (242, 546)}.items():
+                          "left tip": (242, 546),
+                          "amulet foot": (512, 850 + .83 * (962 - 856))}.items():
         px, py = placed(x, y)
         r = math.hypot(px - 512, py - 512)
         if r > 500:

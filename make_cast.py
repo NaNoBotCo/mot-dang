@@ -24,6 +24,7 @@ correctly by definition (same reason as make_og_cards.py).
 The palette is the site's: --ant #c13a2e behind him (it is also the red of the
 portraits he was drawn from), --ink #2a1e16 for every line, --gold for the
 piping. No emblem of any organisation is drawn on the cap; the pin is a comb.
+At his throat, the พระสมเด็จ he wears, in a gold case on a gold chain.
 """
 import argparse
 import shutil
@@ -64,6 +65,10 @@ CAP = "#1e1a17"
 SHIRT = "#2b2522"
 TEE = "#f7f2e8"
 LENS = "#3a2f28"
+
+# where the avatar hangs the character: raised so the amulet at his throat
+# stays inside the round crop
+CHAR_Y, CHAR_S = 490, 1.14
 
 W = 10  # the one line weight; the bug scales it, nothing else changes it
 
@@ -122,6 +127,41 @@ def shoulders():
         f'<path d="M512 950 L512 1030"/><path d="M300 900 C290 950 288 990 290 1030"/>'
         f'<path d="M724 900 C734 950 736 990 734 1030"/></g>'
         f'<circle cx="512" cy="975" r="8" fill="#4a403a"/>'
+    )
+
+
+def amulet():
+    """พระสมเด็จ on a gold chain: a powder tablet in a gold case, the seated
+    Buddha under the bell arch on a three-tier base. At the throat, where he
+    wears it; it sits inside the round crop (tests/test_cast.py)."""
+    chain = 'M448 806 C458 834 486 850 512 850'
+    tablet = "#efe6cf"
+    relief = "#b09a6c"
+    return (
+        mirror(chain, "none", stroke=GOLD_DEEP, sw=7)
+        + mirror(chain, "none", stroke=GOLD, sw=3)
+        # the pendant is drawn at full size and hung at 0.83 from the chain's foot
+        + '<g transform="translate(512 850) scale(.83) translate(-512 -856)">'
+        + f'<circle cx="512" cy="864" r="8" fill="none" stroke="{GOLD_DEEP}" stroke-width="5"/>'
+        + f'<rect x="478" y="870" width="68" height="92" rx="9" fill="{GOLD}" '
+          f'stroke="{INK}" stroke-width="6"/>'
+        + f'<rect x="487" y="879" width="50" height="74" rx="3" fill="{tablet}" '
+          f'stroke="{GOLD_DEEP}" stroke-width="3"/>'
+        # the bell arch
+        + f'<path d="M492 948 C492 912 500 892 512 888 C524 892 532 912 532 948" '
+          f'fill="none" stroke="{relief}" stroke-width="3" stroke-linecap="round"/>'
+        # seated Buddha: head, body, lap
+        + f'<circle cx="512" cy="905" r="5" fill="{relief}"/>'
+        + f'<path d="M502 930 C503 917 507 911 512 911 C517 911 521 917 522 930 Z" '
+          f'fill="{relief}"/>'
+        + f'<ellipse cx="512" cy="930" rx="13" ry="4" fill="{relief}"/>'
+        # three tiers
+        + f'<g fill="{relief}"><rect x="500" y="936" width="24" height="3"/>'
+          f'<rect x="496" y="941" width="32" height="3"/>'
+          f'<rect x="492" y="946" width="40" height="3"/></g>'
+        # glass over it
+        + '<path d="M492 900 L506 884" stroke="#fff" stroke-width="4" '
+          'stroke-linecap="round" opacity=".7"/></g>'
     )
 
 
@@ -298,7 +338,7 @@ def extras(expr):
 
 
 def character(expr):
-    return (shoulders() + head() + brows(expr) + eyes(expr) + nose()
+    return (shoulders() + amulet() + head() + brows(expr) + eyes(expr) + nose()
             + mouth(expr) + mustache(expr) + comb() + cap() + extras(expr))
 
 
@@ -308,7 +348,7 @@ def avatar_svg(expr):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" '
             f'role="img" aria-label="{TITLES[expr]}"><title>{TITLES[expr]}</title>'
             f'{background()}'
-            f'<g transform="translate(512 540) scale(1.14) translate(-512 -500)">'
+            f'<g transform="translate(512 {CHAR_Y}) scale({CHAR_S}) translate(-512 -500)">'
             f'{character(expr)}</g></svg>\n')
 
 
