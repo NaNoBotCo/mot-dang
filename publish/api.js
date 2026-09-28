@@ -314,14 +314,19 @@ export function queryPlaces(index, sp, now = new Date()) {
 }
 
 /* Advertising, labelled: the ads aimed at the shelves the query named, or all
- * of them when it named none. Kept apart from `results`, which it never enters. */
+ * of them when it named none. A geofenced ad needs near= inside its fence.
+ * Kept apart from `results`, which it never enters. */
 function adsFor(block, p) {
   if (!block) return null;
   const want = new Set([...p.cat, ...p.sub.flatMap(s => p.cat.map(c => `${c}/${s}`)), ...p.sub]);
   const t = block.targets || {};
-  const ads = want.size
-    ? block.ads.filter(a => (t[a.id] || []).some(k => k === "*" || want.has(k)))
-    : block.ads;
+  const ads = block.ads.filter(a => {
+    const tg = t[a.id] || { cats: [] };
+    const f = tg.geofence;
+    if (f && !(p.near && distanceM(p.near.lat, p.near.lng, f.lat, f.lng) <= f.radiusM))
+      return false;
+    return !want.size || tg.cats.some(k => k === "*" || want.has(k));
+  });
   return { label: block.label, note: block.note, ads };
 }
 

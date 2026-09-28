@@ -208,7 +208,10 @@ Rules that bite:
   .geojson, and `advertising` in /api/v1 (index.json + api.js `adsFor()`,
   apart from `results`). Not in JSON-LD: Google's structured-data policy wants
   markup to match what the page shows. `ad_box()` draws nothing; advertise.html
-  is no longer written. How an ad relates to the site comes only from `house`
+  is no longer written. An ad may carry no `url` and a `geofence`
+  (lat, lng, radiusM): then it lands only on place .json inside the fence and
+  API answers whose near= is inside it, never on a shelf .geojson (Nan,
+  2026-09-28, for Garden Restaurant and Prostar Magic). How an ad relates to the site comes only from `house`
   or its own `relation` field, never by guess. api.js is Worker code: the
   API's `advertising` goes live on `wrangler deploy` in publish/, not deploy.py.
 - Before committing docs/: `grep -rl "/Users/" docs/` must be empty.

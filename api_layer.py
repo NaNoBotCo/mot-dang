@@ -273,7 +273,9 @@ def build_index(g, data, photos, tags):
         # Every ad with its targeting; api.js hands a response the ones aimed
         # at the shelves it asked about, wrapped and labelled as advertising.
         "advertising": {**g["ad_block"](g["ADS"]),
-                        "targets": {a["id"]: a["cats"] for a in g["ADS"]}},
+                        "targets": {a["id"]: {"cats": a["cats"],
+                                              "geofence": a.get("geofence")}
+                                    for a in g["ADS"]}},
         "count": len(rows),
         # WHICH population `count` counts, said out loud — so a caller who
         # also holds the bulk dataset never has to work out a difference from
@@ -417,8 +419,9 @@ def openapi(base):
                         "advertising": {"type": "object", "description":
                             "Advertising, labelled as such: the ads aimed at the "
                             "shelves this query asked about (cat=/sub=), or every "
-                            "ad when it named none. Not results, not ranked into "
-                            "them."},
+                            "ad when it named none. A geofenced ad appears only "
+                            "when near= falls inside its fence. Not results, not "
+                            "ranked into them."},
                     }}}}}}}},
             "/places/{idOrSlug}": {"get": {
                 "summary": "One place, every field",

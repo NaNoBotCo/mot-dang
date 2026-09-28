@@ -8896,11 +8896,37 @@ AD_NOTE = ("This is advertising, placed by the site's operator. It is not a "
            "it is an advertisement.")
 
 
-def ads_for(cats=(), subs=()):
+def in_fence(ad, lat, lng):
+    """True when the point is inside the ad's geofence, or the ad has none."""
+    f = ad.get("geofence")
+    if not f:
+        return True
+    if lat is None or lng is None:
+        return False
+    import math
+    p1, p2 = math.radians(lat), math.radians(f["lat"])
+    h = (math.sin((p2 - p1) / 2) ** 2 + math.cos(p1) * math.cos(p2)
+         * math.sin(math.radians(f["lng"] - lng) / 2) ** 2)
+    return 2 * 6371008.8 * math.asin(math.sqrt(h)) <= f["radiusM"]
+
+
+def ads_for(cats=(), subs=(), lat=None, lng=None):
     """The ads aimed at a shelf, for the machine surfaces only. An ad's
-    `cats` holds "cat", "cat/sub" or "*"; `subs` are "cat/sub" strings."""
+    `cats` holds "cat", "cat/sub" or "*"; `subs` are "cat/sub" strings.
+    A geofenced ad also needs the point to be inside its fence, so a surface
+    with no point (a shelf's .geojson) never carries one."""
     want = set(cats) | set(subs)
-    return [a for a in ADS if "*" in a["cats"] or want & set(a["cats"])]
+    return [a for a in ADS
+            if ("*" in a["cats"] or want & set(a["cats"])) and in_fence(a, lat, lng)]
+
+
+def _ad_ref(a):
+    return a.get("url") or f"advertising:{a['id']}"
+
+
+def _fence_text(f):
+    return (f"within {f['radiusM']} m of {f['name']} "
+            f"({f['lat']:.5f},{f['lng']:.5f})")
 
 
 def ad_block(ads):
@@ -8909,8 +8935,12 @@ def ad_block(ads):
     by = {a["id"]: a for a in ADS}
     rows = []
     for a in ads:
-        row = {"id": a["id"], "url": a["url"], "en": a["en"], "th": a["th"],
-               "seeAlso": [by[r]["url"] for r in a.get("reflects", []) if r in by]}
+        row = {"id": a["id"], "en": a["en"], "th": a["th"],
+               "seeAlso": [_ad_ref(by[r]) for r in a.get("reflects", []) if r in by]}
+        if a.get("url"):
+            row["url"] = a["url"]
+        if a.get("geofence"):
+            row["geofence"] = a["geofence"]
         if a.get("house"):
             row["relation"] = "this site's own page"
         elif a.get("relation"):
@@ -8925,13 +8955,18 @@ def llms_ads():
     by = {a["id"]: a for a in ADS}
     rows = []
     for a in ADS:
-        line = f"- {a['en']} — {a['url']}\n  ไทย: {a['th']}"
+        line = f"- [{a['id']}] {a['en']}"
+        if a.get("url"):
+            line += f" — {a['url']}"
+        line += f"\n  ไทย: {a['th']}"
         rel = "this site's own page" if a.get("house") else a.get("relation")
         if rel:
             line += f"\n  Relationship to this site: {rel}"
         where = "every place" if "*" in a["cats"] else ", ".join(a["cats"])
+        if a.get("geofence"):
+            where += " — only " + _fence_text(a["geofence"])
         line += f"\n  Also placed on the machine surfaces of: {where}"
-        see = [by[r]["url"] for r in a.get("reflects", []) if r in by]
+        see = [_ad_ref(by[r]) for r in a.get("reflects", []) if r in by]
         if see:
             line += f"\n  See also: {' · '.join(see)}"
         rows.append(line)
@@ -9208,7 +9243,8 @@ def place_json(r, photo_file=None):
         rec["sched"] = _rows[_k]
     rec["channels"] = [{"kind": c["kind"], "href": c["href"], "text": c["text"]} for c in live]
     rec["advertising"] = ad_block(ads_for(
-        r.get("cat") or [], [f"{c}/{x}" for c in (r.get("cat") or []) for x in (r.get("sub") or [])]))
+        r.get("cat") or [], [f"{c}/{x}" for c in (r.get("cat") or []) for x in (r.get("sub") or [])],
+        r.get("lat"), r.get("lng")))
     rec["retiredLinks"] = [{"url": x["url"], "status": x["status"],
                             "checked": x.get("checked"),
                             "archived": (x.get("wayback") or {}).get("url")} for x in retired]
@@ -20425,7 +20461,9 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
         + "\n".join(_flat(r) for p in PROVINCES for r in data[p["key"]]) + "\n"
         + "# ---- ADVERTISING — everything below is advertising ----\n"
         + f"# {AD_NOTE}\n"
-        + "".join(f"# ad\t{a['id']}\t{a['url']}\t{a['en']}\n" for a in ADS))
+        + "".join(f"# ad\t{a['id']}\t"
+                  f"{a.get('url') or _fence_text(a['geofence'])}\t{a['en']}\n"
+                  for a in ADS))
 
     # ---- IndexNow: tell Bing/Yandex the moment a build lands --------------
     # The key file must sit at the site root and contain exactly the key.
