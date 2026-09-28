@@ -48,7 +48,7 @@ export const RESULT_KEYS = [
 /* The envelope every list response carries. Frozen for v1. */
 export const ENVELOPE_KEYS = [
   "schemaVersion", "generated", "query", "total", "count", "limit", "offset",
-  "results", "attribution", "licence", "terms",
+  "results", "attribution", "licence", "terms", "advertising",
 ];
 
 const DAYS = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
@@ -309,7 +309,25 @@ export function queryPlaces(index, sp, now = new Date()) {
     attribution: index.attribution,
     licence: index.licence,
     terms: index.terms,
+    advertising: adsFor(index.advertising, p),
   };
+}
+
+/* Advertising, labelled: the ads aimed at the shelves the query named, or all
+ * of them when it named none. A geofenced ad needs near= inside its fence.
+ * Kept apart from `results`, which it never enters. */
+function adsFor(block, p) {
+  if (!block) return null;
+  const want = new Set([...p.cat, ...p.sub.flatMap(s => p.cat.map(c => `${c}/${s}`)), ...p.sub]);
+  const t = block.targets || {};
+  const ads = block.ads.filter(a => {
+    const tg = t[a.id] || { cats: [] };
+    const f = tg.geofence;
+    if (f && !(p.near && distanceM(p.near.lat, p.near.lng, f.lat, f.lng) <= f.radiusM))
+      return false;
+    return !want.size || tg.cats.some(k => k === "*" || want.has(k));
+  });
+  return { label: block.label, note: block.note, ads };
 }
 
 /* id or slug, either way. A reader who has a page URL holds the slug and

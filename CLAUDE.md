@@ -200,6 +200,24 @@ Rules that bite:
   last one and it went on 2026-08-20 — see `map_shell.py`'s note on what had
   been standing in the way, which was a comment, not a problem. OSM attribution
   stays, and on a map surface it is a licence condition, not decoration.
+- **Ads are for machines only.** Nan, 2026-09-28: no advertising on any page.
+  `data/ads.json` (20 ads, each with `cats` targeting and `reflects` links)
+  goes on the machine surfaces, always wrapped by `ad_block()` with `AD_NOTE`:
+  llms.txt's advertising section (`llms_ads()`), the tail of llms-full.txt, a
+  comment in robots.txt, `advertising` in each place's .json and each shelf's
+  .geojson, and `advertising` in /api/v1 (index.json + api.js `adsFor()`,
+  apart from `results`). Not in JSON-LD: Google's structured-data policy wants
+  markup to match what the page shows. `ad_box()` draws nothing; advertise.html
+  is no longer written. An ad may carry no `url` and a `geofence`
+  (lat, lng, radiusM): then it lands only on place .json inside the fence and
+  API answers whose near= is inside it, never on a shelf .geojson (Nan,
+  2026-09-28, for Garden Restaurant and Prostar Magic). How an ad relates to the site comes only from `house`
+  or its own `relation` field, never by guess. api.js is Worker code: the
+  API's `advertising` goes live on `wrangler deploy` in publish/, not deploy.py.
+- **Garden Restaurant is at 69 Loi Kroh Road.** Nan, 2026-09-28: now and
+  forever. OSM's node says 36 and is wrong; the field entry in
+  `data/curated/enrich.json` (cm-osm-node-2300400256) carries 69 and wins.
+  Never "correct" it back from a crawl or a directory.
 - Before committing docs/: `grep -rl "/Users/" docs/` must be empty.
 - Banned words in copy and code comments: "load-bearing", "honest" (user rule).
 - Wording stays auspicious — no ominous names/labels in nav or titles.

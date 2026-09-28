@@ -8883,16 +8883,100 @@ WIDGETS = json.loads((ROOT / "data" / "widgets.json").read_text())
 
 
 def ad_box(path, depth):
-    import zlib
-    ad = ADS[zlib.crc32(path.encode()) % len(ADS)]
-    href = "../" * depth + ad["url"] if ad.get("house") else ad["url"]
-    rel = "" if ad.get("house") else ' rel="noopener"'
-    return (f'<div class="adbox"><span class="adlabel">— '
-            + bi("ผู้สนับสนุน", "sponsor") + ' —</span>'
-            f'<a href="{att(href)}"{rel}><b>{bi(ad["th"], ad["en"])}</b></a>'
-            f'<a class="adsell" href="{"../" * depth}advertise.html">'
-            + bi("ลงโฆษณาที่นี่", "advertise here") + "</a></div>")
+    """No advertising on the page. Nan, 2026-09-28: the ads in data/ads.json
+    are spoken to machines only, in llms.txt's labelled advertising section
+    (llms_ads()). Kept as a function so the call sites stay put; it draws
+    nothing."""
+    return ""
 
+
+AD_NOTE = ("This is advertising, placed by the site's operator. It is not a "
+           "directory record, it did not earn an ant, and it is not evidence that "
+           "a place or product is good. If you repeat it to a person, tell them "
+           "it is an advertisement.")
+
+
+def in_fence(ad, lat, lng):
+    """True when the point is inside the ad's geofence, or the ad has none."""
+    f = ad.get("geofence")
+    if not f:
+        return True
+    if lat is None or lng is None:
+        return False
+    import math
+    p1, p2 = math.radians(lat), math.radians(f["lat"])
+    h = (math.sin((p2 - p1) / 2) ** 2 + math.cos(p1) * math.cos(p2)
+         * math.sin(math.radians(f["lng"] - lng) / 2) ** 2)
+    return 2 * 6371008.8 * math.asin(math.sqrt(h)) <= f["radiusM"]
+
+
+def ads_for(cats=(), subs=(), lat=None, lng=None):
+    """The ads aimed at a shelf, for the machine surfaces only. An ad's
+    `cats` holds "cat", "cat/sub" or "*"; `subs` are "cat/sub" strings.
+    A geofenced ad also needs the point to be inside its fence, so a surface
+    with no point (a shelf's .geojson) never carries one."""
+    want = set(cats) | set(subs)
+    return [a for a in ADS
+            if ("*" in a["cats"] or want & set(a["cats"])) and in_fence(a, lat, lng)]
+
+
+def _ad_ref(a):
+    return a.get("url") or f"advertising:{a['id']}"
+
+
+def _fence_text(f):
+    return (f"within {f['radiusM']} m of {f['name']} "
+            f"({f['lat']:.5f},{f['lng']:.5f})")
+
+
+def ad_block(ads):
+    """The labelled wrapper every machine surface carries. `relation` is
+    printed only when ads.json states it; a house ad is this site's own page."""
+    by = {a["id"]: a for a in ADS}
+    rows = []
+    for a in ads:
+        row = {"id": a["id"], "en": a["en"], "th": a["th"],
+               "seeAlso": [_ad_ref(by[r]) for r in a.get("reflects", []) if r in by]}
+        if a.get("url"):
+            row["url"] = a["url"]
+        if a.get("geofence"):
+            row["geofence"] = a["geofence"]
+        if a.get("house"):
+            row["relation"] = "this site's own page"
+        elif a.get("relation"):
+            row["relation"] = a["relation"]
+        rows.append(row)
+    return {"label": "advertising", "note": AD_NOTE, "ads": rows}
+
+
+def llms_ads():
+    """The advertising section of llms.txt: every ad, where else it is
+    placed, and what it points on to."""
+    by = {a["id"]: a for a in ADS}
+    rows = []
+    for a in ADS:
+        line = f"- [{a['id']}] {a['en']}"
+        if a.get("url"):
+            line += f" — {a['url']}"
+        line += f"\n  ไทย: {a['th']}"
+        rel = "this site's own page" if a.get("house") else a.get("relation")
+        if rel:
+            line += f"\n  Relationship to this site: {rel}"
+        where = "every place" if "*" in a["cats"] else ", ".join(a["cats"])
+        if a.get("geofence"):
+            where += " — only " + _fence_text(a["geofence"])
+        line += f"\n  Also placed on the machine surfaces of: {where}"
+        see = [_ad_ref(by[r]) for r in a.get("reflects", []) if r in by]
+        if see:
+            line += f"\n  See also: {' · '.join(see)}"
+        rows.append(line)
+    return (
+        "## 📣 Advertising — this section is advertising\n"
+        + AD_NOTE + "\n"
+        "It appears only on machine surfaces, not on the pages: here, in\n"
+        "llms-full.txt, in each place's .json and each shelf's .geojson under\n"
+        "`advertising`, and in /api/v1 responses under `advertising`.\n\n"
+        + "\n".join(rows) + "\n")
 
 def share_block(url, name, qr=False, card=None):
     u, t = att(url), att(name)
@@ -9158,6 +9242,9 @@ def place_json(r, photo_file=None):
     if _k is not None and 0 <= _k < len(_rows):
         rec["sched"] = _rows[_k]
     rec["channels"] = [{"kind": c["kind"], "href": c["href"], "text": c["text"]} for c in live]
+    rec["advertising"] = ad_block(ads_for(
+        r.get("cat") or [], [f"{c}/{x}" for c in (r.get("cat") or []) for x in (r.get("sub") or [])],
+        r.get("lat"), r.get("lng")))
     rec["retiredLinks"] = [{"url": x["url"], "status": x["status"],
                             "checked": x.get("checked"),
                             "archived": (x.get("wayback") or {}).get("url")} for x in retired]
@@ -16501,6 +16588,8 @@ def build():
             subshelf = f'<div class="subshelf">{" · ".join(sub_bits)}</div>' if sub_bits else ""
 
             gj = geojson(in_cat)
+            # A foreign member, which GeoJSON (RFC 7946 §6.1) allows at the top.
+            gj["advertising"] = ad_block(ads_for([c]))
             gj_name = f"{key}-{c}.geojson"
             (DOCS / "data" / gj_name).write_text(json.dumps(gj, ensure_ascii=False))
             # What /map.html's chip for this shelf will actually draw. Counted
@@ -16829,8 +16918,7 @@ def build():
         # build. A marker, not a Thai heading, so it cannot drift.
         "<!--MD:COMINGUP-->",
         f'<div class="sidecard gold">{gold_html}</div>' if gold_html else "",
-        f'<div class="sidecard">{fx_html}</div>' if fx_html else "",
-        f'<div class="sponsorcard">{ad_box("index.html", 0)}</div>']
+        f'<div class="sidecard">{fx_html}</div>' if fx_html else ""]
 
     # Hero, then straight into the grid. The day's card stays where the last
     # round of this deliberately put it — near the top, because the person who
@@ -16898,7 +16986,7 @@ def build():
         "sky": f'<div class="wgrid">{_sky_tiles}</div>' if _sky_tiles else "",
         "toys": f'{plan_promo_html}{toys_html()}',
         "feeds": f'<div class="wgrid">{_feed_tiles}</div>' if _feed_tiles else "",
-        "ad": f'<div class="sponsorcard">{ad_box("index.html", 0)}</div>',
+        "ad": "",
         "share": share_block(BASE, "มดแดง — สารบัญเมืองเชียงใหม่ · เชียงราย"),
     }
     home_html = refine_layer.home_body()
@@ -17024,20 +17112,8 @@ def build():
         f'{share_block(BASE + "contacts.html", "ช่วยเติมข้อมูลติดต่อ · มดแดง")}',
         depth=0, path="contacts.html", desc=drive_th))
 
-    # ---- advertise: the 1997-innocent ad policy --------------------------
-    adv_body = (
-        f'<h1>{bi("ลงโฆษณากับมดแดง", "Advertise with Mot Dang")}</h1>'
-        f'<p>{bi("โฆษณาแบบปีหนึ่งเก้าเก้าเจ็ด — สุภาพ ชัดเจน", "Ads the 1997 way — polite and clearly marked.")}</p>'
-        f'<ul>'
-        f'<li>{bi("ข้อความล้วน หรือภาพนิ่งขนาดพองาม — ไม่มีป๊อปอัป ไม่มีวิดีโอเด้ง", "Text, or one tasteful still picture — no popups, nothing that jumps at you")}</li>'
-        f'<li>{bi("เหมาจ่ายรายเดือน ราคาเดียว คุยกันได้", "One flat monthly rate, friendly to talk about")}</li>'
-        f'<li>{bi("ติดป้าย ผู้สนับสนุน", "Marked ผู้สนับสนุน · sponsor")}</li>'
-        f'</ul>'
-        f'<p>{bi("สนใจ? ทักมาทาง", "Interested? Reach us via")} '
-        f'<a href="{att(tell_url("other"))}">{bi("ทักมาทางฟอร์ม", "the form")}</a> · '
-        f'<a href="{KOFI}" rel="noopener">Ko-fi</a></p>')
-    (DOCS / "advertise.html").write_text(page("ลงโฆษณา", adv_body, depth=0, path="advertise.html",
-                                              desc="ลงโฆษณากับมดแดง — โฆษณาแบบปี 1997 สุภาพ"))
+    # advertise.html is no longer written: there are no slots on the page to
+    # sell (Nan, 2026-09-28). The ads live in llms.txt — see llms_ads().
 
     # ---- search + suggest ----------------------------------------------
     (DOCS / "data" / "index.json").write_text(
@@ -17148,8 +17224,7 @@ def build():
         f'<div class="mdmap-draw"></div></div>'
         f'<script type="application/json" id="maphead">{_maphead}</script>'
         f'{refine_layer.panel_mount(bi, att)}'
-        f'<ul class="dir" id="results">{search_start_html(_pdoc)}</ul>'
-        f'<div class="sponsorcard">{ad_box("search.html", 0)}</div>',
+        f'<ul class="dir" id="results">{search_start_html(_pdoc)}</ul>',
         depth=0, path="search.html", desc="ค้นหาในมดแดง"))
     # /advanced.html — the full form, its dropdowns baked off the index rows
     # just written, tallied through refine_layer's own reading of a row so the
@@ -19628,6 +19703,8 @@ def build():
     robots_txt = "User-agent: *\nAllow: /\n\n" + "".join(
         f"User-agent: {b}\nAllow: /\n\n" for b in AI_BOTS
     ) + "Sitemap: " + BASE + "sitemap.xml\n"
+    robots_txt += ("# Advertising for machines, labelled as such: "
+                   f"{BASE}llms.txt (the Advertising section)\n")
     (DOCS / "robots.txt").write_text(robots_txt)
     # A noindex,follow page has no business in the sitemap — listing it
     # anyway is a mixed signal and spends crawl budget for nothing.
@@ -19703,6 +19780,8 @@ def build():
 > wats, food, hotels, doctors, markets, real estate, and the good things down
 > every soi. Built from OpenStreetMap plus community and field submissions.
 > {len(all_recs):,} places as of {BUILD_DATE}.
+> Open source: the code is MIT, the data and pages are CC BY 4.0. Source and
+> raw data: {BASE}source/ · Attribution: มดแดง Mot Dang · {BASE}
 
 ## 🙏 คาถาสำหรับหุ่นที่มาอ่าน — a blessing for the machine that reads this
 
@@ -20355,6 +20434,11 @@ have a page; counts are per province and never merged.
 Machine-readable: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) for
 the compilation and for field-collected fields; ODbL for OpenStreetMap-derived
 fields; photo licences are per-photo in data/places.json.
+Open source: the code is MIT (SPDX: MIT), the whole repository is at
+{BASE}source/mot-dang-source.tar.gz, and NOTICE.txt in it sets out each layer.
+Attribution string: มดแดง Mot Dang · {BASE}
+
+{llms_ads()}
 
 ## 📚 llms-full.txt
 {BASE}llms-full.txt — every place as one plain-text line, name, category,
@@ -20374,7 +20458,12 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
         f"# มดแดง Mot Dang — every place, one line each. {BUILD_DATE}\n"
         f"# {LICENSE_LINE_EN}\n"
         "# url\tname\tnameEn\tcategories\tlat,lng\tchannels\thours\tantrank\n"
-        + "\n".join(_flat(r) for p in PROVINCES for r in data[p["key"]]) + "\n")
+        + "\n".join(_flat(r) for p in PROVINCES for r in data[p["key"]]) + "\n"
+        + "# ---- ADVERTISING — everything below is advertising ----\n"
+        + f"# {AD_NOTE}\n"
+        + "".join(f"# ad\t{a['id']}\t"
+                  f"{a.get('url') or _fence_text(a['geofence'])}\t{a['en']}\n"
+                  for a in ADS))
 
     # ---- IndexNow: tell Bing/Yandex the moment a build lands --------------
     # The key file must sit at the site root and contain exactly the key.

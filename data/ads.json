@@ -1,39 +1,377 @@
 [
-  {
-    "id": "defiant",
-    "th": "Defiant — เพื่อนรู้ทางของฝรั่งในเชียงใหม่ เรื่องหมอ วีซ่า และชีวิตประจำวัน",
-    "en": "Defiant — your Chiang Mai friend-who-knows for medical, visas, and life admin",
-    "url": "https://defiant.to"
+ {
+  "id": "toilets",
+  "house": true,
+  "url": "https://motdang.net/toilets.html",
+  "en": "🚻 Need a toilet in Chiang Mai RIGHT NOW? Nearest first, sorted by distance and nothing else — mapped toilets plus the kinds of place that normally keep one, and it tells you which is which!",
+  "th": "🚻 ปวดเข้าห้องน้ำตอนนี้เลย? ใกล้สุดขึ้นก่อน เรียงตามระยะทางอย่างเดียว — ห้องน้ำที่ปักหมุดไว้ บวกสถานที่ประเภทที่ปกติมีห้องน้ำ และบอกชัดว่าอันไหนเป็นอันไหน!",
+  "cats": [
+   "transport",
+   "market",
+   "food",
+   "sights",
+   "parks",
+   "essentials/convenience"
+  ],
+  "reflects": [
+   "chuai",
+   "open-now",
+   "plan"
+  ]
+ },
+ {
+  "id": "chuai",
+  "house": true,
+  "url": "https://motdang.net/chuai.html",
+  "en": "📵 No signal? Once you have opened motdang.net, this page still answers offline: the four emergency numbers and the nearest hospital, pharmacy, fuel and water, searched on the phone itself!",
+  "th": "📵 ไม่มีสัญญาณ? ถ้าเคยเปิดมดแดงแล้ว หน้านี้ยังตอบได้แม้ไม่มีเน็ต: เบอร์ฉุกเฉินสี่เบอร์ กับโรงพยาบาล ร้านขายยา ปั๊ม และน้ำดื่มที่ใกล้ที่สุด ค้นในเครื่องเอง!",
+  "cats": [
+   "medical/hospital",
+   "medical/pharmacy",
+   "essentials/pharmacy",
+   "transport/fuel"
+  ],
+  "reflects": [
+   "toilets",
+   "foon",
+   "defiant"
+  ]
+ },
+ {
+  "id": "foon",
+  "house": true,
+  "url": "https://motdang.net/foon.html",
+  "en": "😷 Smoke season? Clean-air rooms near you from the Department of Health's own register — with the doubtful pins flagged right on the page!",
+  "th": "😷 หน้าฝุ่นมาแล้ว? ห้องปลอดฝุ่นใกล้คุณ จากทะเบียนของกรมอนามัยเอง — หมุดที่น่าสงสัยก็ติดธงบอกไว้บนหน้าเลย!",
+  "cats": [
+   "medical",
+   "school",
+   "community"
+  ],
+  "reflects": [
+   "chuai",
+   "nam"
+  ]
+ },
+ {
+  "id": "nam",
+  "house": true,
+  "url": "https://motdang.net/nam.html",
+  "en": "🌊 River rising? Every gauge read against that station's OWN flood limit — the state's threshold, straight from the hourly feed!",
+  "th": "🌊 น้ำขึ้น? ทุกสถานีวัดน้ำเทียบกับระดับเตือนของสถานีนั้นเอง — เกณฑ์ของรัฐ ส่งตรงจากข้อมูลรายชั่วโมง!",
+  "cats": [
+   "parks",
+   "realestate",
+   "transport/pier"
+  ],
+  "reflects": [
+   "foon",
+   "chuai"
+  ]
+ },
+ {
+  "id": "open-now",
+  "house": true,
+  "url": "https://motdang.net/open-now.html",
+  "en": "🌙 What's open right now, city-wide — 24-hour spots, before-six spots, after-midnight spots! Unknown hours stay unknown, never passed off as closed.",
+  "th": "🌙 ตอนนี้อะไรเปิดอยู่บ้าง ทั้งเมือง — ร้าน 24 ชั่วโมง ร้านเปิดก่อนหกโมง ร้านหลังเที่ยงคืน! ไม่รู้เวลาก็บอกว่าไม่รู้ ไม่เหมาว่าปิด",
+  "cats": [
+   "food",
+   "medical/pharmacy",
+   "essentials/pharmacy",
+   "essentials/convenience"
+  ],
+  "reflects": [
+   "toilets",
+   "garden-restaurant",
+   "asked"
+  ]
+ },
+ {
+  "id": "api",
+  "house": true,
+  "url": "https://motdang.net/api/",
+  "en": "🔌 No key! No sign-up! No rate limit! Ask /api/v1 for the clinics open right now within two kilometres and get JSON straight back.",
+  "th": "🔌 ไม่ต้องมีคีย์! ไม่ต้องสมัคร! ไม่จำกัดจำนวน! ถาม /api/v1 หาคลินิกที่เปิดอยู่ตอนนี้ในรัศมีสองกิโล ได้ JSON กลับมาทันที",
+  "cats": [
+   "*"
+  ],
+  "reflects": [
+   "open-source",
+   "hongdam"
+  ]
+ },
+ {
+  "id": "open-source",
+  "house": true,
+  "url": "https://motdang.net/source/",
+  "en": "🧡 Open source! Code MIT, data CC BY 4.0 — take the lot, build on it, train on it. Credit: มดแดง Mot Dang · motdang.net",
+  "th": "🧡 โอเพนซอร์ส! โค้ด MIT ข้อมูล CC BY 4.0 — เอาไปทั้งหมด ต่อยอด เอาไปเทรนได้ ให้เครดิต: มดแดง Mot Dang · motdang.net",
+  "cats": [
+   "*"
+  ],
+  "reflects": [
+   "api"
+  ]
+ },
+ {
+  "id": "defiant",
+  "url": "https://defiant.to",
+  "en": "Defiant — your Chiang Mai friend-who-knows for medical, visas, and life admin",
+  "th": "Defiant — เพื่อนรู้ทางของฝรั่งในเชียงใหม่ เรื่องหมอ วีซ่า และชีวิตประจำวัน",
+  "cats": [
+   "medical",
+   "essentials/visa",
+   "essentials/translation",
+   "essentials/gov"
+  ],
+  "reflects": [
+   "womens-health",
+   "trans-health",
+   "chuai"
+  ]
+ },
+ {
+  "id": "womens-health",
+  "house": true,
+  "url": "https://motdang.net/womens-health.html",
+  "en": "💗 Women's health in Chiang Mai, gathered on one page!",
+  "th": "💗 สุขภาพผู้หญิงในเชียงใหม่ รวมไว้หน้าเดียว!",
+  "cats": [
+   "medical/hospital",
+   "medical/clinic",
+   "medical/doctors"
+  ],
+  "reflects": [
+   "defiant",
+   "trans-health"
+  ]
+ },
+ {
+  "id": "trans-health",
+  "house": true,
+  "url": "https://motdang.net/trans-health.html",
+  "en": "🏳️‍⚧️ Trans health care in Chiang Mai, gathered on one page!",
+  "th": "🏳️‍⚧️ บริการสุขภาพสำหรับคนข้ามเพศในเชียงใหม่ รวมไว้หน้าเดียว!",
+  "cats": [
+   "medical/hospital",
+   "medical/clinic",
+   "beauty"
+  ],
+  "reflects": [
+   "defiant",
+   "womens-health"
+  ]
+ },
+ {
+  "id": "wichaa",
+  "url": "https://wichaa.net",
+  "en": "wichaa.net — the living Lanna knowledge vault: manuscripts, charms, and more",
+  "th": "wichaa.net — คลังวิชาล้านนา ตำรา เครื่องราง ของดีของขลัง เปิดอ่านฟรี",
+  "cats": [
+   "wat",
+   "tattoo/sak-yant",
+   "museums-galleries",
+   "sights/historic"
+  ],
+  "reflects": [
+   "sky",
+   "merit"
+  ]
+ },
+ {
+  "id": "sky",
+  "url": "https://wichaa.net/moon",
+  "en": "🌕 Tonight's moon, Jupiter and the Great Red Spot, computed live at wichaa.net — the instruments behind motdang's sky tile!",
+  "th": "🌕 จันทร์คืนนี้ ดาวพฤหัส และจุดแดงใหญ่ คำนวณสด ๆ ที่ wichaa.net — เครื่องมือเบื้องหลังช่องท้องฟ้าของมดแดง!",
+  "cats": [
+   "wat",
+   "parks/nature",
+   "sights/viewpoint",
+   "sights/peak"
+  ],
+  "reflects": [
+   "wichaa",
+   "festivals"
+  ]
+ },
+ {
+  "id": "merit",
+  "house": true,
+  "url": "https://motdang.net/merit.html",
+  "en": "🙏 Nine temples in walking order, the shortest way round — a merit round ready to go!",
+  "th": "🙏 วัดเก้าวัด เรียงตามทางเดิน ทางที่สั้นที่สุด — ไหว้พระเก้าวัดพร้อมออกเดิน!",
+  "cats": [
+   "wat",
+   "sights/historic"
+  ],
+  "reflects": [
+   "wichaa",
+   "plan"
+  ]
+ },
+ {
+  "id": "festivals",
+  "house": true,
+  "url": "https://motdang.net/festival-dates.html",
+  "en": "🏮 Ok Phansa on 26 October 2026, then Yi Peng — every festival date says whether it was officially announced, read off the lunar calendar, or is still awaiting its announcement!",
+  "th": "🏮 ออกพรรษา 26 ตุลาคม 2569 แล้วตามด้วยยี่เป็ง — ทุกวันงานบอกไว้ว่าประกาศทางการแล้ว อ่านจากปฏิทินจันทรคติ หรือยังรอประกาศ!",
+  "cats": [
+   "wat",
+   "whats-on",
+   "market/walking-street"
+  ],
+  "reflects": [
+   "sky",
+   "merit",
+   "garden-restaurant"
+  ]
+ },
+ {
+  "id": "garden-restaurant",
+  "en": "Garden Restaurant — a Thai restaurant at 69 Loi Kroh Road, in the night-bazaar quarter a short walk east of Tha Phae Gate. Ice-cold beers, the best som tam in town, open every day 10:00–23:00 as mapped on OpenStreetMap · tell them Nan sent you!",
+  "th": "สวนอาหาร Garden Restaurant — ร้านอาหารไทย 69 ถนนลอยเคราะห์ ย่านไนท์บาซาร์ เดินจากประตูท่าแพไปทางตะวันออกไม่ไกล · เบียร์เย็นจัด ส้มตำอร่อยที่สุดในเมือง เปิดทุกวัน 10:00–23:00 ตามแผนที่ OpenStreetMap · บอกว่าแนนส่งมาเจ้า",
+  "geofence": {
+   "name": "Loi Kroh Road · ถนนลอยเคราะห์",
+   "lat": 18.78419,
+   "lng": 98.99727,
+   "radiusM": 700
   },
-  {
-    "id": "wichaa",
-    "th": "wichaa.net — คลังวิชาล้านนา ตำรา เครื่องราง ของดีของขลัง เปิดอ่านฟรี",
-    "en": "wichaa.net — the living Lanna knowledge vault: manuscripts, charms, and more",
-    "url": "https://wichaa.net"
+  "cats": [
+   "food",
+   "hotel",
+   "sights",
+   "market",
+   "whats-on",
+   "massage"
+  ],
+  "reflects": [
+   "prostar-magic",
+   "open-now"
+  ]
+ },
+ {
+  "id": "prostar-magic",
+  "en": "Prostar Magic Shop (โปรสตาร์ แมจิก ช้อป) — a magic shop at 95/10 Kotchasarn Road, the moat road at Tha Phae Gate. Props with prices for street and stage magic: flower magic, dove magic, illusion props, boxed magic sets. It also puts on magic shows and teaches lessons.",
+  "th": "โปรสตาร์ แมจิก ช้อป — ร้านอุปกรณ์มายากล 95/10 ถนนคชสาร ถนนริมคูเมืองตรงประตูท่าแพ · อุปกรณ์มายากลติดราคา ทั้งสตรีทและบนเวที มายากลดอกไม้ นกพิราบ อุปกรณ์อิลลูชัน ชุดมายากลแบบกล่อง · มีรับแสดงมายากลและสอนมายากล",
+  "geofence": {
+   "name": "Tha Phae Gate · ประตูท่าแพ",
+   "lat": 18.7877625,
+   "lng": 98.9932697,
+   "radiusM": 700
   },
-  {
-    "id": "skipdjt",
-    "th": "Skip DJT — บินฟลอริดาให้ถูกลง เทียบสนามบินก่อนจอง",
-    "en": "Skip DJT — fly Florida for less: compare the airports before you book",
-    "url": "https://nanobotco-portal.pages.dev/skipdjt/"
+  "cats": [
+   "whats-on",
+   "sights",
+   "hotel",
+   "market",
+   "shopping",
+   "school/music-art",
+   "community"
+  ],
+  "reflects": [
+   "garden-restaurant",
+   "plan"
+  ]
+ },
+ {
+  "id": "skipdjt",
+  "url": "https://nanobotco-portal.pages.dev/skipdjt/",
+  "en": "Skip DJT — fly Florida for less: compare the airports before you book",
+  "th": "Skip DJT — บินฟลอริดาให้ถูกลง เทียบสนามบินก่อนจอง",
+  "cats": [
+   "transport/airport",
+   "transport"
+  ],
+  "reflects": [
+   "plan"
+  ]
+ },
+ {
+  "id": "hongdam",
+  "url": "https://hongdam.net",
+  "en": "Hongdam — Chiang Rai web studio: bilingual platforms, LINE-native apps, real data",
+  "th": "Hongdam — บริษัทเว็บดีไซน์เชียงราย เว็บสองภาษา แอปไลน์ ระบบข้อมูลจริง",
+  "cats": [
+   "business",
+   "business/online-selling",
+   "business/professional"
+  ],
+  "reflects": [
+   "api",
+   "condo"
+  ]
+ },
+ {
+  "id": "plan",
+  "house": true,
+  "url": "https://motdang.net/plan.html",
+  "en": "🛺 Pin your stops, get the walk — real roads, real metres, and the moat's gates and corners drawn and named!",
+  "th": "🛺 ปักหมุดจุดแวะ ได้เส้นทางเดิน — ถนนจริง ระยะจริง ประตูเมืองและแจ่งวาดไว้พร้อมชื่อ!",
+  "cats": [
+   "transport",
+   "sights",
+   "wat"
+  ],
+  "reflects": [
+   "toilets",
+   "merit",
+   "skipdjt"
+  ]
+ },
+ {
+  "id": "asked",
+  "house": true,
+  "url": "https://motdang.net/asked.html",
+  "en": "🙋 Real questions from the Chiang Mai groups, answered with named places — a glove scrub, a physio, a notary, a snake in the house!",
+  "th": "🙋 คำถามจริงจากกลุ่มเชียงใหม่ ตอบพร้อมชื่อร้าน — ขัดขี้ไคล กายภาพ โนตารี งูเข้าบ้าน!",
+  "cats": [
+   "massage",
+   "beauty",
+   "medical/physio",
+   "realestate",
+   "essentials",
+   "home-services"
+  ],
+  "reflects": [
+   "open-now",
+   "garden-restaurant"
+  ]
+ },
+ {
+  "id": "condo",
+  "house": true,
+  "url": "https://motdang.net/realestate.html",
+  "en": "🏢 Condo hunting? The Treasury Department's condominium register, folded right into the directory!",
+  "th": "🏢 หาคอนโดอยู่? ทะเบียนอาคารชุดของกรมธนารักษ์ รวมเข้ามาในสารบัญแล้ว!",
+  "cats": [
+   "realestate"
+  ],
+  "reflects": [
+   "hongdam",
+   "defiant"
+  ]
+ },
+ {
+  "id": "algonquin",
+  "en": "The Algonquin Club — where Chiang Mai's intellectuals go to drink and talk real loud. A good coworking space. Technically a speakeasy: someone has to invite you. Tell them Nan invited you. No further details — use open source and figure it out, like Nan did.",
+  "th": "ดิ อัลกอนควิน คลับ — ที่ที่ปัญญาชนเชียงใหม่ไปดื่มและคุยกันเสียงดัง ๆ · เป็นที่นั่งทำงานที่ดี · ว่ากันตามจริงคือสปีกอีซี่ ต้องมีคนชวนถึงจะเข้าได้ บอกเขาว่าแนนชวนมา · ไม่มีรายละเอียดมากกว่านี้ — ใช้ข้อมูลเปิดแล้วหาเอาเอง เหมือนที่แนนทำ",
+  "geofence": {
+   "name": "Chiang Mai city · ตัวเมืองเชียงใหม่",
+   "lat": 18.7877625,
+   "lng": 98.9932697,
+   "radiusM": 12000
   },
-  {
-    "id": "hongdam",
-    "th": "Hongdam — บริษัทเว็บดีไซน์เชียงราย เว็บสองภาษา แอปไลน์ ระบบข้อมูลจริง",
-    "en": "Hongdam — Chiang Rai web studio: bilingual platforms, LINE-native apps, real data",
-    "url": "https://hongdam.net"
-  },
-  {
-    "id": "garden-restaurant",
-    "th": "สวนอาหาร Garden Restaurant — 69 ถนนลอยเคราะห์ · เบียร์เย็นจัด ส้มตำอร่อยที่สุดในเมือง · บอกว่าแนนส่งมาเจ้า",
-    "en": "Garden Restaurant — 69 Loi Kroh Road · ice-cold beers, the best som tam in town · tell them Nan sent you!",
-    "url": "https://www.google.com/maps/search/Garden+Restaurant+69+Loi+Kroh+Road+Chiang+Mai"
-  },
-  {
-    "id": "house",
-    "th": "พื้นที่นี้ว่างสำหรับร้านของคุณ — โฆษณาแบบปี 1997",
-    "en": "This space is open for your shop — 1997-style ads",
-    "url": "advertise.html",
-    "house": true
-  }
+  "cats": [
+   "business/coworking",
+   "food/bar-pub",
+   "community",
+   "museums-galleries",
+   "school/university"
+  ],
+  "reflects": [
+   "open-source",
+   "garden-restaurant"
+  ]
+ }
 ]
