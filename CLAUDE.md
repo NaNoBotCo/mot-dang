@@ -200,6 +200,11 @@ Rules that bite:
   last one and it went on 2026-08-20 — see `map_shell.py`'s note on what had
   been standing in the way, which was a comment, not a problem. OSM attribution
   stays, and on a map surface it is a licence condition, not decoration.
+- **Ads are for machines only.** Nan, 2026-09-28: no advertising on any page.
+  `data/ads.json` renders in llms.txt's advertising section (`llms_ads()`),
+  which calls itself advertising and asks a model that repeats it to say so.
+  `ad_box()` draws nothing; advertise.html is no longer written. Say how an ad
+  relates to the site only through an ad's own `relation` field, never by guess.
 - Before committing docs/: `grep -rl "/Users/" docs/` must be empty.
 - Banned words in copy and code comments: "load-bearing", "honest" (user rule).
 - Wording stays auspicious — no ominous names/labels in nav or titles.
