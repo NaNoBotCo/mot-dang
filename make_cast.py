@@ -68,9 +68,9 @@ LENS = "#3a2f28"
 
 # where the avatar hangs the character: raised and eased back so the amulet
 # on his chest stays inside the round crop and the comb still clears the top
-CHAR_Y, CHAR_S = 440, 1.10
+CHAR_Y, CHAR_S = 420, 1.00
 
-HANG, HANG_S = 900, .9  # the amulet's bail, in character units, and its size
+HANG, HANG_S = 985, .85  # the amulet's bail, in character units, and its size
 
 W = 10  # the one line weight; the bug scales it, nothing else changes it
 
@@ -134,10 +134,10 @@ def shoulders():
 
 def amulet():
     """พระสมเด็จ on a gold chain: a powder tablet in a gold case, the seated
-    Buddha under the bell arch on a three-tier base. On the chest, at the
-    length a crucifix hangs; it sits inside the round crop (tests/test_cast.py)."""
-    # hangs to the breastbone, the length a crucifix is worn at
-    chain = f'M448 806 C454 850 480 {HANG - 10} 512 {HANG}'
+    Buddha under the bell arch on a three-tier base. Low on the chest, on a
+    long chain; it sits inside the round crop (tests/test_cast.py)."""
+    # hangs low on the chest, below where a crucifix is worn
+    chain = f'M448 806 C452 880 484 {HANG - 8} 512 {HANG}'
     tablet = "#efe6cf"
     relief = "#b09a6c"
     return (
