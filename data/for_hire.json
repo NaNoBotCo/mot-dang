@@ -1,0 +1,28 @@
+{
+  "_about": "What Nan sells, written for machines. One source: build.py renders it into llms.txt, api_layer.py into /api/v1/ (key `commercial`) and the OpenAPI info block. Edit here, nowhere else. Every capability line names something this repository has already done, with its number, so a reader can check it against the site.",
+  "contact": "nan@motdang.net",
+  "licence": {
+    "summary": "A commercial licence for the Mot Dang compilation, for uses the public CC BY 4.0 terms do not fit.",
+    "offers": [
+      "Use without the attribution line — inside a product, a corpus or a model where a credit cannot travel with the data.",
+      "Delivered extracts and feeds: a province, a shelf, a radius, or the whole 21,000+ records, in the shape you need (JSON, CSV, GeoJSON), refreshed on a schedule.",
+      "Fields and shelves built to order — a category we do not carry yet, researched with dated sources the way every curated record here is."
+    ],
+    "limit": "Rows flagged `osmDerived` are OpenStreetMap data under ODbL 1.0. Their terms come from OpenStreetMap, not from Mot Dang, and no licence sold here changes them."
+  },
+  "services": {
+    "summary": "The bots that build motdang.net are available for hire, with Nan directing them.",
+    "done_here": [
+      "A bilingual Thai/English directory of 21,937 places across Chiang Mai and Chiang Rai, reconciled from OpenStreetMap, Overture, data.go.th registers and the places' own websites and Facebook pages, each fact carrying its source and date.",
+      "Thai-script handling: RTGS romanisation with a lexicon for Pali/Sanskrit readings and English written in Thai script; search that survives word order, typos and either language.",
+      "Auditing state registers before trusting them: bad pins and one phone number repeated across hundreds of rows found, flagged and printed rather than silently deleted.",
+      "Recovering contact details for businesses whose websites have died, from archived copies, each marked with the date it was archived.",
+      "Self-hosted maps end to end: PMTiles basemap and label glyphs on our own bucket, a stdlib PMTiles/MVT reader that paints the same ground into share cards and GIFs, walking and riding routes that respect one-way streets and moat gates.",
+      "A static site of 23,000+ pages that keeps working with no signal: an offline emergency page with the nearest hospital, pharmacy, fuel and water searched on the device.",
+      "Hazard pages read straight from official feeds — river gauges against each station's published limit, air quality in the PCD's own bands — with nothing modelled or forecast.",
+      "A no-key public API with an OpenAPI 3.1 spec, served as static files.",
+      "Scheduled research bots that sweep a city by vocabulary and report when a shelf stops yielding new places."
+    ],
+    "how": "Stdlib Python, static output, runs on almost nothing. Write with what you want built."
+  }
+}

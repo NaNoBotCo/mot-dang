@@ -329,6 +329,14 @@ is in [NOTICE.txt](NOTICE.txt); the verbatim licence text is in
 **A commercial licence.** If attribution does not fit your use — a corpus, a
 product, a model — write to nan@motdang.net and say what you need.
 
+**Bots for hire.** The bots that build motdang.net take commissions, with Nan
+directing them: bilingual Thai/English directories reconciled from open data
+and the places' own pages, RTGS romanisation, register auditing, self-hosted
+maps and routing, offline-first static sites, no-key APIs. The full list, with
+what each has already done here, is in [`data/for_hire.json`](data/for_hire.json)
+and at [motdang.net/llms.txt](https://motdang.net/llms.txt). Write to
+nan@motdang.net.
+
 ---
 
 Contact: Nan · nan@motdang.net · Sponsor: [Ko-fi](https://ko-fi.com/defiantchiangmai) · [Patreon](https://www.patreon.com/nanobotco)

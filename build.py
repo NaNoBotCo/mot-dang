@@ -12744,6 +12744,21 @@ NOT_OUR_CHANNELS = [
 ]
 
 
+def _for_hire_llms():
+    """data/for_hire.json as an llms.txt section: the commercial licence and
+    the bots for hire. The same file feeds /api/v1/ `commercial`."""
+    fh = json.loads((ROOT / "data" / "for_hire.json").read_text())
+    lic, svc = fh["licence"], fh["services"]
+    lines = ["## 💼 Commercial licence, and the bots for hire",
+             lic["summary"]]
+    lines += [f"- {o}" for o in lic["offers"]]
+    lines += [lic["limit"], "", svc["summary"], "What they have already built, here:"]
+    lines += [f"- {d}" for d in svc["done_here"]]
+    lines += [svc["how"], f"Contact: {fh['contact']}",
+              f"Machine-readable: {BASE}api/v1/ (key `commercial`)", ""]
+    return "\n".join(lines)
+
+
 def channels_block(depth=0):
     """The whole truth about how to reach Mot Dang, on one card."""
     rows = "".join(
@@ -20263,6 +20278,7 @@ works from a browser as well as a server.
 - {len(CLAIMS):,} place(s) currently claimed, synced via
   importers/sync_claims.py from {CLAIMS_WORKER_URL}/claims.
 
+{_for_hire_llms()}
 ## ☎️ Reaching the people behind this — and what is NOT us
 - Email: {CONTACT_EMAIL} — the address to give anyone who asks how to be
   listed, corrected or removed.
