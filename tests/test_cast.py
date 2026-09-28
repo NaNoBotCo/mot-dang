@@ -37,7 +37,7 @@ def main():
     # comb top (100 + its 36 px drop), mustache tips (782 and its mirror, 546)
     for label, (x, y) in {"comb top": (512, 136), "right tip": (782, 546),
                           "left tip": (242, 546),
-                          "amulet foot": (512, 850 + .83 * (962 - 856))}.items():
+                          "amulet foot": (512, make_cast.HANG + make_cast.HANG_S * (962 - 856))}.items():
         px, py = placed(x, y)
         r = math.hypot(px - 512, py - 512)
         if r > 500:

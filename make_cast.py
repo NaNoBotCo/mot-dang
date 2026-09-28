@@ -24,7 +24,7 @@ correctly by definition (same reason as make_og_cards.py).
 The palette is the site's: --ant #c13a2e behind him (it is also the red of the
 portraits he was drawn from), --ink #2a1e16 for every line, --gold for the
 piping. No emblem of any organisation is drawn on the cap; the pin is a comb.
-At his throat, the พระสมเด็จ he wears, in a gold case on a gold chain.
+On his chest, the พระสมเด็จ he wears, in a gold case on a long gold chain.
 """
 import argparse
 import shutil
@@ -66,9 +66,11 @@ SHIRT = "#2b2522"
 TEE = "#f7f2e8"
 LENS = "#3a2f28"
 
-# where the avatar hangs the character: raised so the amulet at his throat
-# stays inside the round crop
-CHAR_Y, CHAR_S = 490, 1.14
+# where the avatar hangs the character: raised and eased back so the amulet
+# on his chest stays inside the round crop and the comb still clears the top
+CHAR_Y, CHAR_S = 440, 1.10
+
+HANG, HANG_S = 900, .9  # the amulet's bail, in character units, and its size
 
 W = 10  # the one line weight; the bug scales it, nothing else changes it
 
@@ -108,8 +110,8 @@ def _polar(deg, r=1100, cx=512, cy=470):
 def shoulders():
     return (
         # shirt
-        f'<path d="M120 1030 C130 900 230 838 418 806 L512 842 L606 806 '
-        f'C794 838 894 900 904 1030 Z" fill="{SHIRT}" stroke="{INK}" stroke-width="{W}" '
+        f'<path d="M120 1110 C130 900 230 838 418 806 L512 842 L606 806 '
+        f'C794 838 894 900 904 1110 Z" fill="{SHIRT}" stroke="{INK}" stroke-width="{W}" '
         f'stroke-linejoin="round"/>'
         # neck
         f'<path d="M436 690 L440 826 C470 852 554 852 584 826 L588 690 Z" '
@@ -124,24 +126,25 @@ def shoulders():
         f'<path d="M606 806 L644 846 L580 900 L512 936 L588 820 Z" fill="{SHIRT}" '
         f'stroke="{INK}" stroke-width="{W}" stroke-linejoin="round"/>'
         f'<g stroke="#4a403a" stroke-width="6" fill="none" stroke-linecap="round">'
-        f'<path d="M512 950 L512 1030"/><path d="M300 900 C290 950 288 990 290 1030"/>'
-        f'<path d="M724 900 C734 950 736 990 734 1030"/></g>'
+        f'<path d="M512 950 L512 1110"/><path d="M300 900 C290 950 288 990 290 1110"/>'
+        f'<path d="M724 900 C734 950 736 990 734 1110"/></g>'
         f'<circle cx="512" cy="975" r="8" fill="#4a403a"/>'
     )
 
 
 def amulet():
     """พระสมเด็จ on a gold chain: a powder tablet in a gold case, the seated
-    Buddha under the bell arch on a three-tier base. At the throat, where he
-    wears it; it sits inside the round crop (tests/test_cast.py)."""
-    chain = 'M448 806 C458 834 486 850 512 850'
+    Buddha under the bell arch on a three-tier base. On the chest, at the
+    length a crucifix hangs; it sits inside the round crop (tests/test_cast.py)."""
+    # hangs to the breastbone, the length a crucifix is worn at
+    chain = f'M448 806 C454 850 480 {HANG - 10} 512 {HANG}'
     tablet = "#efe6cf"
     relief = "#b09a6c"
     return (
         mirror(chain, "none", stroke=GOLD_DEEP, sw=7)
         + mirror(chain, "none", stroke=GOLD, sw=3)
-        # the pendant is drawn at full size and hung at 0.83 from the chain's foot
-        + '<g transform="translate(512 850) scale(.83) translate(-512 -856)">'
+        # the pendant is drawn at full size and hung at HANG_S from the chain's foot
+        + f'<g transform="translate(512 {HANG}) scale({HANG_S}) translate(-512 -856)">'
         + f'<circle cx="512" cy="864" r="8" fill="none" stroke="{GOLD_DEEP}" stroke-width="5"/>'
         + f'<rect x="478" y="870" width="68" height="92" rx="9" fill="{GOLD}" '
           f'stroke="{INK}" stroke-width="6"/>'
