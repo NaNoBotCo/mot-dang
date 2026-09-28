@@ -800,6 +800,15 @@ def publish() -> None:
     subprocess.run([sys.executable, "publish/deploy.py", "--only", "voight-kampff", "--yes"], cwd=ROOT, check=True)
 
 
+def gossip_json(w: dict, items: list[dict], day: str) -> None:
+    """The latest issue's beats as JSON, for the Anthill (motdang.net/anthill) to show."""
+    keep = ("key", "bot", "title_th", "rom", "title_en", "th", "en", "stat")
+    doc = {"issue": day, "from": w.get("from"), "to": w.get("to"),
+           "url": f"https://motdang.net/voight-kampff/{day}/",
+           "beats": [{k: it.get(k) for k in keep} for it in items]}
+    (VK / "gossip.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
 def main() -> None:
     args = sys.argv[1:]
     today = dt.datetime.now(ICT).date()
@@ -821,6 +830,7 @@ def main() -> None:
     out.mkdir(parents=True, exist_ok=True)
     (out / "index.html").write_text(issue_page(w, items, day), encoding="utf-8")
     card_png(w, items, out / "card.png")
+    gossip_json(w, items, day)
     splice_main(weekly_block(w, items, day))
     for it in items:
         print(f"· {it['title_en']}: {it['en']}")
