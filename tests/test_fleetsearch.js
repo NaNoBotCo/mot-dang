@@ -458,6 +458,43 @@ t("lead lines: emergency numbers, the route planner on the first place, listings
   eq(h("scooter rental"), "", "scooter → no listings line");
 });
 
+t("MASSIVE false lifts stay fixed: vacuums, Uber, students, San Kamphaeng, CJ, orders", () => {
+  const l = (q) => { const x = fs.liftIntent(q); return `${x.q}|${[x.price, x.buy && "buy", ...x.heard.map((h) => h.id)].filter(Boolean).join(",")}`; };
+  eq(l("เครื่องดูดฝุ่น"), "เครื่องดูดฝุ่น|");
+  eq(l("เรียกอูเบอร์ให้หน่อย"), "เรียกอูเบอร์ให้หน่อย|taxi");
+  eq(l("นักเรียน"), "นักเรียน|");
+  eq(l("ร้านอาหารสันกำแพง"), "ร้านอาหารสันกำแพง|");
+  eq(l("ซีเจ"), "ซีเจ|");
+  eq(l("คำสั่งซื้อ"), "คำสั่งซื้อ|");
+  eq(l("good morning"), "good morning|");
+  eq(l("are you free tonight"), "are you free tonight|");
+  eq(l("ท่าอากาศยานเชียงใหม่"), "ท่าอากาศยานเชียงใหม่|transit", "the airport, not the weather");
+});
+t("MASSIVE gaps heard: Thai inside a run, near said first, takeaway, hours", () => {
+  const l = (q) => { const x = fs.liftIntent(q); return `${x.q}|${[x.near && "near", ...x.heard.map((h) => h.id)].filter(Boolean).join(",")}`; };
+  eq(l("สภาพอากาศวันนี้"), "สภาพอากาศวันนี้|weather");
+  eq(l("แถวนี้มีร้านกาแฟไหม"), "มีร้านกาแฟไหม|near");
+  eq(l("ร้านกาแฟใกล้ที่สุด"), "ร้านกาแฟ|near");
+  eq(l("ซื้อกลับบ้าน ข้าวมันไก่"), "ข้าวมันไก่|delivery");
+  eq(l("what time does maya open"), "maya open|hours");
+  eq(l("แท็กซี่ไปสนามบิน"), "แท็กซี่ไปสนามบิน|transit,taxi");
+});
+
+/* findmeaning.js: the bge-m3 half (Nan, 2026-10-04: "both"). */
+const FM = await import(join(ROOT, "publish/findmeaning.js"));
+t("meaning boosts close pages by address, rescues only the close ones not shown", () => {
+  const hits = [{ url: "https://motdang.net/a.html", score: 0.5 }, { url: "https://motdang.net/b.html", score: 0.42 },
+                { url: "https://motdang.net/c.html", score: 0.33 }];
+  const b = FM.semBoost(hits);
+  eq(b.get("https://motdang.net/a.html"), 1.6, "whole boost at 0.47+");
+  ok(b.get("https://motdang.net/b.html") > 1 && b.get("https://motdang.net/b.html") < 1.6, "part boost");
+  ok(!b.has("https://motdang.net/c.html"), "noise not boosted");
+  eq(FM.rescueRows(hits, [{ url: "https://motdang.net/a.html" }]).map((h) => h.url).join(","), "https://motdang.net/b.html");
+  const s = fs.sql('"quiet"', { n: 10, sem: b, learn: new Map([["https://motdang.net/x.html", 1.2]]) });
+  eq((s.text.match(/\?/g) || []).length, s.binds.length, "meaning binds line up");
+  ok(s.text.indexOf("JOIN pages lp") === s.text.lastIndexOf("JOIN pages lp"), "one join for learned + meaning");
+});
+
 if (process.argv.includes("--dump")) {
   const out = {};
   for (const [q, adv] of CASES) out[(adv ? "adv:" : "") + q] = steps(q, adv);

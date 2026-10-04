@@ -27,6 +27,7 @@ import { norm, loose, edits, slack, INTENT_RULES } from "./searchcore.js";
 import { learnedFor } from "./findlearn.js";
 import { pinsFor } from "./findpins.js";
 import { liftMore, preferOf, saidOf, leadHtml, leadJson } from "./intents.js";
+import { meaningSoon, semBoost, rescueRows, rescueHtml } from "./findmeaning.js";
 import { readingHtml, sayLine, stripHtml, rowData, PEEK_BTN, PREVIEW_CSS } from "./findpreview.js";
 
 const RE_THAI = /[฀-๿]+/g;
@@ -586,6 +587,13 @@ for (const [name, value, pats] of INTENT_RULES) {
   else if (name === "open" && value === "now") LIFT.open.push(...pats);
   else if (name === "price") LIFT.price.push(...pats.map((p) => [p, value]));
 }
+/* More ways to say near me, from Amazon's MASSIVE requests (2026-10-04).
+ * Not a bare "near": "near X" names a place to be near, not the reader. */
+LIFT.near.push("nearest", "closest", "in my area", "in this area", "around me", "close by",
+  "ใกล้ที่สุด", "ย่านนี้", "บริเวณนี้", "ละแวกนี้", "ใกล้บ้าน");
+/* Thai words that end in a constraint without being one: สันกำแพง is a
+ * district, not "expensive"; รับซื้อ and คำสั่งซื้อ are not "buy". */
+const NOT_AFTER = { "แพง": "กำ", "ซื้อ": "รับ|สั่ง" };
 const reEsc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 export function liftIntent(q) {
@@ -598,7 +606,8 @@ export function liftIntent(q) {
        * of a run (ข้าวซอยใกล้ฉัน), never at its start or inside it — ถูกต้อง
        * is "correct", not "cheap". */
       /* รับซื้อ is "we buy", the shop that buys from you — not ซื้อ. */
-      const re = new RegExp(`${/^ซื้อ/.test(p) ? "(?<!รับ)" : ""}${reEsc(p)}(?=[^\\u0e00-\\u0e7f]|$)`);
+      const na = NOT_AFTER[p] ? `(?<!${NOT_AFTER[p]})` : "";
+      const re = new RegExp(`${na}${reEsc(p)}(?=[^\\u0e00-\\u0e7f]|$)`);
       if (!re.test(s)) return false;
       s = s.replace(re, (m) => m.replace(p, " "));
       return true;
@@ -610,6 +619,9 @@ export function liftIntent(q) {
   };
   const longest = (a) => a.slice().sort((x, y) => (y[0] || y).length - (x[0] || x).length);
   for (const p of longest(LIFT.near)) if (take(p)) { out.near = true; out.said.push(p); }
+  /* แถวนี้มีร้านกาแฟไหม: near me said first. */
+  const nearFront = /(^|\s)(แถวนี้|ใกล้ฉัน|ใกล้ๆ)(?=[\u0e00-\u0e7f])/;
+  if (nearFront.test(s)) { out.said.push(s.match(nearFront)[2]); s = s.replace(nearFront, "$1"); out.near = true; }
   for (const p of longest(LIFT.open)) if (take(p)) { out.open = true; out.said.push(p); }
   for (const [p, v] of longest(LIFT.price)) if (take(p)) { out.price = out.price || v; out.said.push(p); }
   /* The rest of what a reader asks for (intents.js): rank-first constraints,
@@ -806,6 +818,13 @@ export function sql(match, opts) {
     if (learned.length) {
       sc += ` * (CASE lp.url ${learned.map(() => "WHEN ? THEN ?").join(" ")} ELSE 1.0 END)`;
       for (const [u, m] of learned) tb.push(u, m);
+      lj = " JOIN pages lp ON lp.id = w.id";
+    }
+    /* Pages the meaning search found too (findmeaning.js), by address. */
+    const sem = o.sem && o.sem.size ? Array.from(o.sem).slice(0, 20) : [];
+    if (sem.length) {
+      sc += ` * (CASE lp.url ${sem.map(() => "WHEN ? THEN ?").join(" ")} ELSE 1.0 END)`;
+      for (const [u, m] of sem) tb.push(u, m);
       lj = " JOIN pages lp ON lp.id = w.id";
     }
     /* A page Nan put first for these words (findpins.js). */
@@ -1454,7 +1473,7 @@ footer{margin-top:2.5em;padding-top:.6em;border-top:1px solid var(--rule);color:
 .th img{display:block;width:72px;height:72px}
 .th i{position:absolute;width:10px;height:10px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--red);border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
 .cr{font-size:.86em;color:var(--mute)}.cr a{color:var(--mute)}
-.rich{font-size:.9em;margin:.15em 0}.rich span{margin-right:.9em;white-space:nowrap}.rich .fa{letter-spacing:.12em}
+.sem li{margin:.5em 0}.sem .abs{font-size:.9em}.rich{font-size:.9em;margin:.15em 0}.rich span{margin-right:.9em;white-space:nowrap}.rich .fa{letter-spacing:.12em}
 @media(max-width:40em){.th,.th img{width:60px;height:60px}.r{gap:.6em}}
 label{display:inline-block;margin-right:.8em}
 @media(max-width:40em){.sites{columns:1}html{font-size:16px}}
@@ -2099,14 +2118,16 @@ async function answer(request, env, url, ctx, coreP, now) {
     if (core === null && coreP) { try { core = await coreP(); } catch { core = false; } }
     return core || null;
   };
-  const [register, events, , ax, learn, answers] = await Promise.all([
+  const [register, events, , ax, learn, answers, mean] = await Promise.all([
     lap("sites", siteRows(env)),
     adv ? null : lap("cal", eventData(env)),
     (!boolQ || /[฀-๿]/.test(qm)) ? lap("dict", getCore()) : null,
     lap("aux", aux(db)),
     adv ? new Map() : lap("learn", learnedFor(db, qm)),
     adv ? null : lap("answers", answerDocs(env)),
+    adv || boolQ || !qm ? null : lap("meaning", meaningSoon(env, qm, ctx).catch(() => null)),
   ]);
+  const meaning = mean ? mean.hits : null;
   if (intent.near && st.pin && !sp.get("sort")) st.sort = "near";
   if (intent.open && !st.has.includes("open")) st.has = HAS_KEYS.filter((h) => h === "open" || st.has.includes(h));
   st.intentNear = intent.near;
@@ -2133,7 +2154,8 @@ async function answer(request, env, url, ctx, coreP, now) {
                  from: st.from, to: st.to, n: st.n, offset: (page - 1) * st.n,
                  kind: st.kind, sec: st.sec, has: st.has, today: when.today,
                  open: openIds(ax.scheds, when.minute), learn, pins: adv ? new Map() : pinsFor(q),
-                 prefer: adv ? [] : preferOf(intent.heard, { phrase, seg, scheds: ax.scheds, openAt }) };
+                 prefer: adv ? [] : preferOf(intent.heard, { phrase, seg, scheds: ax.scheds, openAt }),
+                 sem: semBoost(meaning) };
   const wantFacets = !lucky && fmt !== "json";
 
   /* What the box understood besides the words, said in one line each. */
@@ -2264,10 +2286,12 @@ async function answer(request, env, url, ctx, coreP, now) {
       near: st.pin ? { lat: st.pin.lat, lon: st.pin.lon, exact: st.pin.exact } : undefined,
       note: note || undefined,
       intent: intent.said.length ? { lifted: intent.said, heard: intent.heard.length ? intent.heard.map((h) => h.id) : undefined,
-        leads: intent.heard.length ? leadJson(intent.heard, { top: rows.find((r) => /^https:\/\/motdang\.net\/(cm|cr)\/p\//.test(r.url || "")) || null, q: qm, origin: url.origin }) : undefined,
+        leads: intent.heard.length ? leadJson(intent.heard, { top: rows.find((r) => /^https:\/\/motdang\.net\/(cm|cr)\/p\//.test(r.url || "")) || null, q: qm, today: when.today, origin: url.origin }) : undefined,
         near: intent.near || undefined, open_now: intent.open || undefined,
         price: intent.price ? { asked: intent.price, filtered: false } : undefined } : undefined,
       spelling: Object.keys(fixUsed).length ? fixUsed : undefined,
+      meaning: meaning && meaning.length ? { boosted: opts.sem.size || undefined,
+        rescued: page === 1 ? rescueRows(meaning, rows, total).map((h) => ({ url: h.url, title: h.title, score: h.score })) : undefined } : undefined,
       shelf: door ? door.url : undefined,
       answer: ansHit ? { topic: ansHit.a.en, answer: ansHit.a.a_en, answer_th: ansHit.a.a_th, read: ansHit.doc.read,
         pages: (ansHit.a.go || []).map((g) => g.u), desk: ansHit.doc.desk.name, desk_page: ansHit.a.d || undefined,
@@ -2317,7 +2341,7 @@ async function answer(request, env, url, ctx, coreP, now) {
   if (adv) { try { c = await counts(db); } catch { c = null; } }
   let body = head(adv) + (adv ? booleanForm(q, st, c) : simpleForm(q, st));
   if (pl.error) body += `<p class="note">${esc(pl.error)}</p>`;
-  body += leadHtml(intent.heard, { top: rows.find((r) => /^https:\/\/motdang\.net\/(cm|cr)\/p\//.test(r.url || "")) || null, q: qm, esc }) + saidHtml;
+  body += leadHtml(intent.heard, { top: rows.find((r) => /^https:\/\/motdang\.net\/(cm|cr)\/p\//.test(r.url || "")) || null, q: qm, today: when.today, esc }) + saidHtml;
   if (intent.near && !st.pin) body += exactLink(url, null);
   const calB = calHtml(calM, today.getTime());
   const calFirst = calM && (calM.when || calM.asked);
@@ -2357,14 +2381,18 @@ async function answer(request, env, url, ctx, coreP, now) {
     body += pager(url, page, total, st.n);
     if (rows.length >= 5) body += (adv ? "" : simpleForm(q, st));
   }
+  /* The words found two pages or fewer: the closest pages by meaning. */
+  if (!fault && page === 1) body += rescueHtml(rescueRows(meaning, rows, total), esc);
   const engineDown = fault && faultKind(fault) === "engine";
   const res = html(shell(`${q} · ค้นหา · Search · มดแดง`, body, "noindex,follow"),
     engineDown ? 503 : 200, {
-      "cache-control": engineDown ? "no-store" : `public, max-age=60, s-maxage=${CACHE_S}`,
+      "cache-control": engineDown || (mean && mean.late) ? "no-store" : `public, max-age=60, s-maxage=${CACHE_S}`,
       "x-fleet-ms": String(ms), "server-timing": timing,
       "x-fleet-match": encodeURIComponent(used).slice(0, 900).replace(/%[0-9A-F]?$/, ""),
       ...(engineDown ? { "retry-after": "60" } : {}) });
-  if (cache && ckey && !fault) {
+  /* A page built while the meaning search was still out is not kept: the next
+   * asker gets the meaning from the colo cache (findmeaning.js). */
+  if (cache && ckey && !fault && !(mean && mean.late)) {
     try { ctx.waitUntil(cache.put(ckey, res.clone()).catch(() => {})); } catch { /* next asker fills it */ }
   }
   return res;

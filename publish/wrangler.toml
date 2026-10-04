@@ -28,6 +28,45 @@ compatibility_date = "2026-07-01"
 binding = "SITE"
 bucket_name = "mot-dang-site"
 
+# The edge count (Nan's decision 2026-09-05, arrivals note A1). One row per
+# request, written from inside this Worker — see the block at the foot of
+# worker.js for what a row holds and what it deliberately leaves out.
+#
+# The dataset is traffic-eye's, on purpose: that project already collects the
+# same eight blobs for the other sites and already has a dashboard over them.
+# A route could not be used here — motdang.net/* belongs to this Worker — so
+# the classifier is vendored into publish/classify.js instead.
+#
+# The dataset is created on first write; nothing to set up beyond having
+# Analytics Engine enabled on the account, which it is (traffic_eye exists).
+#
+# Binding name must stay TRAFFIC — worker.js reads env.TRAFFIC. If it is
+# missing the Worker still serves every page and simply records nothing.
+[[analytics_engine_datasets]]
+binding = "TRAFFIC"
+dataset = "traffic_eye"
+
+# The fleet search index (fleetsearch/README.md): every page of every site on
+# the roster, in FTS5. Filled by `python3 fleetsearch/load.py --remote` — a
+# content step, like deploy.py; the Worker only changes when the query or the
+# page does. Binding name must stay SEARCH — fleetsearch.js reads env.SEARCH.
+# Without it /find answers 503 and every other path serves as before.
+[[d1_databases]]
+binding = "SEARCH"
+database_name = "motdang-search"
+database_id = "abec2f32-1958-413f-b05c-02c40af65f1d"
+
+# The meaning half of /find (publish/findmeaning.js): the query embedded with
+# bge-m3 on Workers AI, matched against every page in the Vectorize index
+# motdang-find (filled by `python3 fleetsearch/embed.py`). Without either
+# binding /find is the word search alone.
+[ai]
+binding = "AI"
+
+[[vectorize]]
+binding = "FIND_VEC"
+index_name = "motdang-find"
+
 # The live site. Declared here rather than clicked in the dashboard so the
 # domain binding is recorded in the repo — if this Worker ever has to be
 # rebuilt from scratch, the hostname comes back with it.
