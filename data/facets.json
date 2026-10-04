@@ -371,7 +371,7 @@
      "th": "ต้องจองก่อน",
      "en": "Booking needed",
      "ask_th": "ต้องโทรจองก่อนไหม",
-     "ask_en": "Do you have to telephone ahead?"
+     "ask_en": "Is a phone call ahead needed?"
     },
     {
      "key": "shower",
@@ -503,7 +503,7 @@
    "appliesToCat": [
     "beauty"
    ],
-   "th": "ก่อนนั่งเก้าอี้ ควรถาม",
+   "th": "คำถามก่อนนั่งเก้าอี้",
    "en": "What to ask before you sit in the chair",
    "note_th": "ร้านผมสองร้านในซอยเดียวกันไม่เหมือนกันเลย — ร้านหนึ่งดัดดิจิตอลได้ อีกร้านไม่เคยจับผมหยิกฝอย ร้านหนึ่งถักเปียเป็น อีกร้านต่อผมอย่างเดียว ร้านหนึ่งโกนหน้าด้วยมีดโกนพับ อีกร้านมีแต่ปัตตาเลี่ยน และไม่มีอย่างไหนอยู่ในแผนที่สักอย่างเดียว จาก 371 จุดร้านผมและร้านเสริมสวยของสองจังหวัด ไม่มีจุดไหนติดป้ายบอกเลยว่าร้านทำอะไรได้บ้าง คำถามพวกนี้คือสิ่งที่คนเดินเข้าไปถามจริง ๆ มดแดงจดคำตอบของร้านไว้พร้อมที่มา เจ้าของร้านติ๊กเองได้ ไม่มีใครเดาแทน ช่องว่างคือความเงียบ ไม่ใช่คำว่าไม่",
    "note_en": "Two hair shops in one soi are not the same shop. One does digital perms; the next has never touched tightly coiled hair. One braids; the next only does extensions. One finishes with a straight razor; the next owns clippers and nothing else. None of it is in OpenStreetMap — of the 371 hairdresser and beauty points across both provinces, not one carries a tag saying what the shop can actually do. These are the questions somebody walking in actually asks. The ants write down what the shop answers, with a source; an owner can tick their own. A blank is silence, never a no.",
@@ -910,7 +910,7 @@
    "appliesToCat": [
     "medical"
    ],
-   "th": "ก่อนไปหาหมอ ควรรู้",
+   "th": "เรื่องน่ารู้ก่อนไปหาหมอ",
    "en": "What to know before you go",
    "note_th": "คลินิกสองแห่งบนถนนเดียวกันก็ไม่เหมือนกัน ใช้สิทธิอะไรได้ ปิดกี่โมง คุยภาษาอะไรได้ — มดแดงจดไว้ให้",
    "note_en": "Two clinics on one road are not the same clinic. Which coverage they take, when they shut, what language you can be understood in — written down.",
@@ -1034,7 +1034,7 @@
    "appliesToCat": [
     "muaythai"
    ],
-   "th": "ก่อนไปค่ายมวยหรือสนามมวย ควรรู้",
+   "th": "เรื่องน่ารู้ก่อนไปค่ายมวยหรือสนามมวย",
    "en": "What to know before you go to a camp or a stadium",
    "note_th": "ค่ายสองแห่งในซอยเดียวกันก็ไม่เหมือนกัน มาลองครั้งเดียวได้ไหม รับมือใหม่ไหม มีครูหญิงไหม ราคาติดป้ายไหม มีมวยให้ดูคืนไหน — มดแดงจดไว้ให้ และเจ้าของติ๊กเองได้",
    "note_en": "Two camps in one soi are not the same camp. Whether you can drop in once, whether they take beginners, whether there is a woman trainer, whether the prices are on the wall, which nights there are fights to watch — written down, and the owner can tick it.",
@@ -1177,7 +1177,7 @@
    "appliesToCat": [
     "cooking"
    ],
-   "th": "ก่อนจองคลาสทำอาหาร ควรรู้",
+   "th": "เรื่องน่ารู้ก่อนจองคลาสทำอาหาร",
    "en": "What to know before you book a cooking class",
    "note_th": "สองโรงเรียนในซอยเดียวกันก็ไม่เหมือนกัน จองวันนี้ได้ไหม มีคลาสเย็นไหม พาเดินตลาดไหม มีรถมารับไหม ทำเมนูเจ-ฮาลาลได้ไหม สอนเป็นไทยหรืออังกฤษ ใบอนุญาตติดผนังไหม — มดแดงจดไว้ให้ และเจ้าของติ๊กเองได้",
    "note_en": "Two schools in one soi are not the same school. Whether you can book today, whether there is an evening class, whether it walks the market first, whether a van comes for you, whether the menu can be vegan or halal, whether it teaches in Thai or English, whether a licence hangs on the wall — written down, and the owner can tick it.",
@@ -1378,7 +1378,7 @@
    "appliesToCat": [
     "chang"
    ],
-   "th": "ก่อนไปปางช้าง ควรถาม",
+   "th": "คำถามก่อนไปปางช้าง",
    "en": "What to ask before you go to an elephant camp",
    "note_th": "ปางสองแห่งในหุบเขาเดียวกันไม่เหมือนกัน — ขี่ไหม อาบน้ำไหม มีโชว์ไหม ดูอย่างเดียวได้ไหม ใช้ตะขอไหม กลางคืนช้างอยู่ที่ไหน มีสัตวแพทย์ไหม ราคาติดป้ายไหม — มดแดงจดคำตอบของปางไว้ และเจ้าของติ๊กเองได้ ไม่มีใครเดาแทน",
    "note_en": "Two camps in one valley are not the same camp — riding, bathing, shows, a hands-off option, the hook, where the elephants are at night, a vet, prices on the wall. The ants write down what the camp answers, and the owner can tick it; nobody guesses on its behalf.",
@@ -1540,7 +1540,7 @@
     "school",
     "school-intl"
    ],
-   "th": "ก่อนพาลูกไปดูโรงเรียน ควรรู้",
+   "th": "เรื่องน่ารู้ก่อนพาลูกไปดูโรงเรียน",
    "en": "What to know before you visit a school",
    "note_th": "โรงเรียนสองแห่งบนถนนเดียวกันก็ไม่เหมือนกัน สอนภาษาอะไร มีรถรับส่งไหม ค่าเทอมติดป้ายไว้หรือเปล่า — มดแดงจดไว้ให้",
    "note_en": "Two schools on one road are not the same school. What language the lessons are in, whether there is a bus, whether the fees are written where you can read them — written down.",
@@ -1675,7 +1675,7 @@
     "dorm",
     "moobaan"
    ],
-   "th": "ก่อนวางมัดจำ ควรถาม",
+   "th": "คำถามก่อนวางมัดจำ",
    "en": "What to ask before the deposit",
    "note_th": "ตึกสองตึกในซอยเดียวกันไม่เหมือนกันเลย — ตึกหนึ่งค่าไฟหน่วยละไม่แพง อีกตึกแพงกว่าเท่าตัว ตึกหนึ่งเฟอร์ครบ อีกตึกห้องเปล่า ตึกหนึ่งเลี้ยงแมวได้ อีกตึกห้ามเด็ดขาด และไม่มีสักอย่างอยู่ในแผนที่ จาก 322 ระเบียนที่อยู่อาศัยของสองจังหวัด แผนที่รู้จำนวนชั้นของ 77 ตึก เบอร์โทรของ 41 ตึก และไม่รู้ค่าไฟ ค่ามัดจำ หรือกติกาสัตว์เลี้ยงของตึกไหนเลย คำถามพวกนี้คือสิ่งที่คนถามจริงหน้าโต๊ะ มดแดงจดคำตอบของตึกไว้พร้อมที่มา เจ้าของติ๊กเองได้ ช่องว่างคือความเงียบ ไม่ใช่คำว่าไม่",
    "note_en": "Two buildings in one soi are not the same building. One posts a fair per-unit electric rate; the next charges double. One room comes furnished; the next is bare concrete. One takes a cat; the next never will. None of it is on any map — of the 322 residential records across both provinces, OpenStreetMap knows the floor count of 77, a phone for 41, and the electric rate, the deposit or the pet rule of none. These are the questions people actually ask at the desk. The ants write down what the building answers, with a source; an owner can tick their own. A blank is silence, never a no.",
@@ -2083,8 +2083,8 @@
    ],
    "th": "ร้านนี้ทำอะไรให้ได้บ้าง",
    "en": "What this counter will actually do",
-   "note_th": "ร้านถ่ายเอกสาร ขาย สำเนา ส่วนร้านแปลหรือเอเจนต์วีซ่า ทำ เอกสาร — สองอาชีพ สองราคา ร้านหน้าอำเภอกับหน้า ตม. มักทำทั้งสองอย่างที่เคาน์เตอร์เดียว จึงต้องถามให้ชัดว่าจ่ายค่าอะไร",
-   "note_en": "A copy shop sells you a copy; a translator or visa agent prepares a document. Two trades, two prices — and the shop at the gate of the district office or immigration often does both at one counter, so ask which one you are paying for.",
+   "note_th": "ร้านถ่ายเอกสาร ขาย สำเนา ส่วนร้านแปลหรือเอเจนต์วีซ่า ทำ เอกสาร — สองอาชีพ สองราคา ร้านหน้าอำเภอกับหน้า ตม. มักทำทั้งสองอย่างที่เคาน์เตอร์เดียว",
+   "note_en": "A copy shop sells you a copy; a translator or visa agent prepares a document. Two trades, two prices — and the shop at the gate of the district office or immigration often does both at one counter.",
    "facets": [
     {
      "key": "printphone",

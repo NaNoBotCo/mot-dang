@@ -365,7 +365,7 @@ def emit(g, data):
         f'<p class="care-note">{bi("อักษรไทย · คำอ่านแบบ RTGS · ความหมาย — เทียบรูปคำกับป้ายได้แม้อ่านไทยไม่ออก", "Thai script · RTGS spelling · what it means — enough to match a word against a sign by its shape, without reading Thai.")}</p>'
         f'{gloss_html}'
 
-        f'<p class="care-note">{bi("มดแดงเป็นสารบัญของสถานที่ ไม่ใช่คำแนะนำทางการแพทย์ ไม่ใช่การส่งต่อคนไข้ ไม่ใช่คำแนะนำเรื่องประกันหรือวีซ่า และไม่ใช่การรับรองคุณภาพ ข้อมูลสถานพยาบาลบางส่วนมาจาก OpenStreetMap (ODbL 1.0)", "Mot Dang is a directory of places. It is not medical advice, not a referral, not insurance or visa advice, and not a quality guarantee. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors.")}</p>'
+        f'<p class="care-note">{bi("มดแดงเป็นสารบัญของสถานที่ ข้อมูลสถานพยาบาลบางส่วนมาจาก OpenStreetMap (ODbL 1.0)", "Mot Dang is a directory of places. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors.")}</p>'
         f'<p class="care-note"><a href="womens-health.html">{bi("สุขภาพผู้หญิง — วัยทอง ฮอร์โมน สูตินรีเวช", "Women’s health — menopause, hormones, OB-GYN")}</a> · '
         f'<a href="medicine-airport.html">{bi("ยาข้ามพรมแดน — พกยาผ่านสนามบิน", "medicine through the airport, both directions")}</a> · '
         f'<a href="cm/medical/index.html">{bi("ชั้นหมอ-สถานพยาบาล", "the medical shelf")}</a></p>'

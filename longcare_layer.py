@@ -286,7 +286,7 @@ def emit(g, data):
         f'{retire_html}'
         f'{gloss_html}'
         f'{unread_html}'
-        f'<p class="lc-note">{bi("มดแดงเป็นสารบัญของสถานที่ ไม่ใช่คำแนะนำทางการแพทย์ ไม่ใช่การส่งต่อคนไข้ และไม่ใช่การรับรองคุณภาพ ข้อมูลบางส่วนมาจาก OpenStreetMap (ODbL 1.0)", "Mot Dang is a directory of places. It is not medical advice, not a referral, and not a quality guarantee. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors.")}</p>'
+        f'<p class="lc-note">{bi("มดแดงเป็นสารบัญของสถานที่ ข้อมูลบางส่วนมาจาก OpenStreetMap (ODbL 1.0)", "Mot Dang is a directory of places. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors.")}</p>'
         f'<p class="lc-note"><a href="care.html">{bi("ดูแลต่อเนื่อง — แผนก คลินิกนอกเวลา เอกสาร", "ongoing care — departments, after-hours, paperwork")}</a> · '
         f'<a href="adhd.html">{bi("สมาธิสั้น — ทะเบียนจิตเวช", "ADHD — the psychiatric register")}</a> · '
         f'<a href="cm/medical/index.html">{bi("ชั้นหมอ-สถานพยาบาล", "the medical shelf")}</a></p>'

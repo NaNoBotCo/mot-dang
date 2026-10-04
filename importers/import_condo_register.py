@@ -70,7 +70,7 @@ def slug(name, province, seen):
 
 
 def fold(existing_records):
-    """(new_records, review_rows). Never mutates what it is given."""
+    """(new_records, review_rows). Never mutates what it is given."""  # stylecheck: allow — code docstring
     if not REG.exists():
         return [], []
     doc = json.loads(REG.read_text())

@@ -361,7 +361,7 @@ def emit(g, data):
     card("กระทะกับไฟ — ผัด", "The wok and the fire — stir-frying",
          bi("ผัด (phàt) คือไฟแรง กระทะร้อนจัด น้ำมันนิดหน่อย กระเทียมลงก่อน แล้วทุกอย่างตามติด ๆ ภายในสองนาที — ครูจะบอก “ใส่ ๆ ๆ” เพราะกระทะรอไม่ได้ ของทั้งหมดต้องหั่นเสร็จก่อนจุดไฟ (mise en place แบบไทย) · ข้าวผัดที่ดีมีกลิ่นไหม้นิด ๆ จากกระทะ · ผัดไทยเป็นการจูนรสเปรี้ยวหวานเค็มในน้ำซอสก่อนผัด ไม่ใช่ตอนผัด",
             "Stir-frying (ผัด, phàt) is high heat, a smoking wok, a little oil, garlic first, then everything in fast — done inside two minutes. The teacher will say “sài sài sài” (in, in, in) because the wok does not wait; everything is cut before the flame goes on. Good fried rice carries a faint scorch from the wok. Pad thai is tuned sour-sweet-salty in the sauce before it ever meets the pan, not during."),
-         bi("คลาสส่วนใหญ่ใช้เตาแก๊สแรงแบบบ้านหรือร้าน ไม่ใช่เตาเหล็กร้านข้างทาง — ที่บ้านของคุณก็ทำได้ ขอแค่กระทะร้อนพอและอย่าใส่ของเยอะเกินไปในครั้งเดียว",
+         bi("คลาสส่วนใหญ่ใช้เตาแก๊สแรงแบบบ้านหรือร้าน ไม่ใช่เตาเหล็กร้านข้างทาง — ที่บ้านของคุณก็ทำได้ ขอแค่กระทะร้อนพอและไม่ใส่ของเยอะเกินไปในครั้งเดียว",
             "Most classes cook on ordinary strong gas rings, not a street stall's jet burner — which is the point: you can do this at home, if the pan is hot enough and you do not crowd it."))
     card("เมนูเหนือ และข้าวเหนียว", "The Northern menu, and sticky rice",
          bi("อาหารเหนือ (อาหารล้านนา, อาหารเมือง) ไม่ใช่แกงเขียวหวานกับต้มยำ: ข้าวซอย (khâao sɔɔi) เส้นในน้ำแกงกะหรี่ใส่กะทิ โรยเส้นทอด · น้ำพริกอ่อง (nám phrík òng) หมูสับมะเขือเทศ · น้ำพริกหนุ่ม (nám phrík nùm) พริกหนุ่มย่างตำ กินกับแคบหมู · ไส้อั่ว (sâi ùa) ไส้กรอกสมุนไพร · แกงฮังเล (kaeng hang-lee) แกงหมูขิงมะขาม ไม่ใส่กะทิ · ลาบคั่ว (lâap khûa) ลาบแบบเหนือใส่พริกลาบ — โรงเรียนส่วนใหญ่สอนเมนูกลาง ถามว่ามี “เมนูเหนือ” ไหม บางแห่งระบุไว้บนกระดาน",
@@ -419,7 +419,7 @@ def emit(g, data):
                   + "</p></div>")
 
     # ---- assemble ---------------------------------------------------------
-    intro = bi("หน้านี้มีสามอย่าง: กระดานรอบเรียนของโรงเรียนสอนทำอาหารในเมือง (โรงเรียนบอกเอง มดจดไว้พร้อมที่มา) ชั้นโรงเรียนทุกแบบ — ในสวน ที่บ้านครู เจ-วีแกน อาหารเหนือ-อาข่า ขนมไทย แกะสลัก โรงแรม — และเรื่องที่ควรรู้ก่อนจับครก เขียนจากหน้าเขียง ไม่ได้จัดอันดับว่าครัวไหนแท้กว่ากัน ครัวก็คือครัว",
+    intro = bi("หน้านี้มีสามอย่าง: กระดานรอบเรียนของโรงเรียนสอนทำอาหารในเมือง (โรงเรียนบอกเอง มดจดไว้พร้อมที่มา) ชั้นโรงเรียนทุกแบบ — ในสวน ที่บ้านครู เจ-วีแกน อาหารเหนือ-อาข่า ขนมไทย แกะสลัก โรงแรม — และเรื่องน่ารู้ก่อนจับครก เขียนจากหน้าเขียง ไม่ได้จัดอันดับว่าครัวไหนแท้กว่ากัน ครัวก็คือครัว",
                "Three things on one page: the weekly class board for the town's cooking schools (each school states its own sessions; the ants write them down with the source), the shelf of every kind of school — farm, home kitchen, vegetarian and vegan, Northern and Akha, Thai dessert, carving, hotel — and what to know before you lift the pestle, written from the chopping board, with no ranking of kitchens into real and otherwise. A kitchen is a kitchen.")
     ld = {
         "@context": "https://schema.org", "@type": "ItemList",
@@ -456,7 +456,7 @@ def emit(g, data):
     (DOCS / "cooking.html").write_text(page(
         "เรียนทำอาหารไทย — คลาสวันนี้ เชียงใหม่ · Thai cooking classes, Chiang Mai",
         body, depth=0, path="cooking.html",
-        desc="กระดานรอบเรียนของโรงเรียนสอนทำอาหารไทยในเชียงใหม่และเชียงราย ราคาที่ประกาศ รถรับ โรงเรียนทุกแบบ — ฟาร์ม บ้านครู เจ-วีแกน อาหารเหนือ ขนมไทย แกะสลัก โรงแรม — และเรื่องที่ควรรู้ก่อนจับครก · Thai cooking classes in Chiang Mai and Chiang Rai: today's class board, posted prices, pickup, every kind of school, and what to know before the mortar",
+        desc="กระดานรอบเรียนของโรงเรียนสอนทำอาหารไทยในเชียงใหม่และเชียงราย ราคาที่ประกาศ รถรับ โรงเรียนทุกแบบ — ฟาร์ม บ้านครู เจ-วีแกน อาหารเหนือ ขนมไทย แกะสลัก โรงแรม — และเรื่องน่ารู้ก่อนจับครก · Thai cooking classes in Chiang Mai and Chiang Rai: today's class board, posted prices, pickup, every kind of school, and what to know before the mortar",
         extra_head=head, og=og,
         crumbs=f'<a href="index.html">{bi("หน้าแรก", "Home")}</a> › {bi("เรียนทำอาหารไทย", "Thai cooking classes")}'))
     stated_days = sum(1 for v in schools if v.get("days"))

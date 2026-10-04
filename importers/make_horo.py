@@ -112,7 +112,7 @@ WHEEL = [0, 1, 2, 3, 6, 4, 7, 5]
 STATIONS = [
     {"th": "บริวาร", "en": "Boriwan", "mean_th": "คนรอบตัว ครอบครัว มิตรสหาย",
      "mean_en": "your people — family, team, friends",
-     "line_th": "วันของคนรอบตัว งานที่ทำด้วยกันไปได้ดี ชวนกันทำ อย่าทำคนเดียว",
+     "line_th": "วันของคนรอบตัว งานที่ทำด้วยกันไปได้ดี ชวนกันทำ อย่าทำคนเดียว",  # stylecheck: allow — a horoscope reading
      "line_en": "A day for your people — shared work goes well; do it together rather than alone.",
      "v": "ดี"},
     {"th": "อายุ", "en": "Ayu", "mean_th": "ชีวิตความเป็นอยู่ สุขภาพ",
@@ -122,7 +122,7 @@ STATIONS = [
      "v": "กลาง"},
     {"th": "เดช", "en": "Det", "mean_th": "อำนาจ เกียรติ ความน่าเกรงขาม",
      "mean_en": "authority and standing",
-     "line_th": "เสียงของคุณมีน้ำหนัก เหมาะเจรจา นำประชุม ขอในสิ่งที่ควรได้",
+     "line_th": "เสียงของคุณมีน้ำหนัก เหมาะเจรจา นำประชุม ขอในสิ่งที่ควรได้",  # stylecheck: allow — a horoscope reading
      "line_en": "Your word carries weight — negotiate, lead, ask for what is due.",
      "v": "ดี"},
     {"th": "ศรี", "en": "Si", "mean_th": "สิริมงคล โชคลาภ เสน่ห์",
@@ -149,7 +149,7 @@ STATIONS = [
      "mean_en": "friction",
      "line_th": "วันเบาๆ เลี่ยงเริ่มเรื่องใหญ่ ใจเย็นเข้าไว้ ทำบุญสักหน่อยก็ชื่นใจ",
      "line_en": "Keep the day light — hold the big launch, keep cool; a small act of merit settles it.",
-     "v": "ระวัง"},
+     "v": "ระวัง"},  # stylecheck: allow — the horoscope's verdict term
 ]
 
 THAI_ZODIAC = [
@@ -238,7 +238,7 @@ def branch_relation(day_b, your_b):
 
 
 DAY_REL = {
-    "chong": {"zh": "沖", "th": "ชง", "en": "clash", "v": "ระวัง",
+    "chong": {"zh": "沖", "th": "ชง", "en": "clash", "v": "ระวัง",  # stylecheck: allow — the horoscope's verdict term
               "line_th": "วันชงของปีคุณ งดตัดสินใจเรื่องใหญ่ เลื่อนได้ก็เลื่อน ใจเย็นเข้าไว้",
               "line_en": "The day clashes with your year — hold the big decision if you can, and keep your temper."},
     "liuhe": {"zh": "六合", "th": "ฮะ", "en": "harmony", "v": "ดี",
@@ -251,13 +251,13 @@ DAY_REL = {
              "line_th": "วันตรงปีคุณพอดี เรื่องเก่าวนกลับมาให้ปิดให้จบ",
              "line_en": "The day mirrors your year — an old matter circles back to be finished."},
     "xing": {"zh": "刑", "th": "เฮ้ง", "en": "testing", "v": "กลาง",
-             "line_th": "วันเฮ้ง กติกาและปากเสียงเป็นเรื่องใหญ่ อ่านสัญญาให้ครบ อย่ารับปากลอยๆ",
+             "line_th": "วันเฮ้ง กติกาและปากเสียงเป็นเรื่องใหญ่ อ่านสัญญาให้ครบ อย่ารับปากลอยๆ",  # stylecheck: allow — a horoscope reading
              "line_en": "A testing day — read the fine print, promise nothing loosely."},
     "hai": {"zh": "害", "th": "ไห่", "en": "scraping", "v": "กลาง",
             "line_th": "วันเสียดสี คำพูดเล็กๆ อาจบาดใจ พูดน้อยลง ฟังมากขึ้น",
             "line_en": "A scraping day — small words can cut; say less, listen more."},
     "po": {"zh": "破", "th": "ผั่ว", "en": "wobble", "v": "กลาง",
-           "line_th": "ของเก่าอาจสะดุด อย่าเพิ่งรื้อของดีที่มีอยู่ ซ่อมได้ให้ซ่อม",
+           "line_th": "ของเก่าอาจสะดุด อย่าเพิ่งรื้อของดีที่มีอยู่ ซ่อมได้ให้ซ่อม",  # stylecheck: allow — a horoscope reading
            "line_en": "Old arrangements wobble — mend rather than break."},
     "plain": {"zh": "", "th": "ปกติ", "en": "even", "v": "กลาง",
               "line_th": "วันเรียบๆ กับปีคุณ เดินหน้าตามแผนได้",
@@ -267,7 +267,7 @@ DAY_REL = {
 # ปีชง, the year-level relations Thai readers know from every มูเตลู column:
 # the year branch against yours, in the ชง-เฮ้ง-ไห่-ผั่ว vocabulary.
 YEAR_REL = {
-    "chong": {"th": "ปีชงตรง", "en": "direct clash year", "v": "ระวัง",
+    "chong": {"th": "ปีชงตรง", "en": "direct clash year", "v": "ระวัง",  # stylecheck: allow — the horoscope's verdict term
               "line_th": "ปีนี้ชงตรงกับปีคุณ ตามธรรมเนียมนิยมไหว้ไท้ส่วยเอี๊ยรับปี "
                          "ทำบุญใหญ่สักครั้ง แล้วเดินปีอย่างมีสติ",
               "line_en": "A direct-clash year for your sign — tradition favours paying respects to Tai Sui, one solid act of merit, and walking the year mindfully."},
@@ -281,7 +281,7 @@ YEAR_REL = {
             "line_th": "ปีไห่ของคุณ ถนอมน้ำใจคนใกล้ตัวเป็นพิเศษ",
             "line_en": "A scraping year — take particular care of those close to you."},
     "po": {"th": "ปีผั่ว (ชงร่วม)", "en": "wobble year", "v": "กลาง",
-           "line_th": "ปีผั่วของคุณ ของเดิมที่ดีอยู่แล้วอย่าเพิ่งรื้อ",
+           "line_th": "ปีผั่วของคุณ ของเดิมที่ดีอยู่แล้วอย่าเพิ่งรื้อ",  # stylecheck: allow — a horoscope reading
            "line_en": "A wobble year — do not dismantle what already serves you."},
     "liuhe": {"th": "ปีฮะ", "en": "harmonious year", "v": "ดี",
               "line_th": "ปีสมพงศ์ของคุณ จับมือ ร่วมทุน ผูกมิตร ได้จังหวะดี",
@@ -374,7 +374,7 @@ def west_reading(sign, lons):
             best_rank, best = rank, (pi, akey)
     if moon_a:
         score += aspect_score(1, moon_a)
-    v = "ดี" if score >= 2 else ("ระวัง" if score <= -2 else "กลาง")
+    v = "ดี" if score >= 2 else ("ระวัง" if score <= -2 else "กลาง")  # stylecheck: allow — the horoscope's verdict term
     return {"moon_sign": psigns[1], "moon_aspect": moon_a,
             "top": best, "verdict": v}
 
@@ -646,7 +646,7 @@ def main():
         },
         "verdicts": {"ดี": {"en": "good", "cls": "good"},
                      "กลาง": {"en": "middling", "cls": "mid"},
-                     "ระวัง": {"en": "take care", "cls": "care"}},
+                     "ระวัง": {"en": "take care", "cls": "care"}},  # stylecheck: allow — the horoscope's verdict term
     }
 
     today = date.today()

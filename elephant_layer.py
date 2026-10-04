@@ -316,7 +316,7 @@ def emit(g, data):
     if rest:
         links = " · ".join(f'<a href="{href(r)}">{name_bi(r)}</a>' for r in rest[:8])
         name_items.append(f'<li><b>{bi("อื่น ๆ", "other")}</b> <span class="cnt">({len(rest)})</span> — {links}</li>')
-    names_html = (f'<p class="ch-note">{bi(f"ระเบียน {len(named)} แห่งในสารบัญมีคำว่าช้างอยู่ในชื่อโดยไม่ใช่ปางช้าง — เมืองนี้จำช้างไว้ในชื่อย่าน ประตู วัด ดอย และชื่อเล่น (ลุงช้างคือคน) นี่คือแผนที่ว่าช้างเคยอยู่ตรงไหน ไม่ใช่ความผิดพลาดที่ต้องเก็บกวาด", f"{len(named)} records carry the elephant in their name without being an elephant venue — the city remembers elephants in the names of quarters, a gate, temples, a mountain and a nickname (Uncle Chang is a man). A map of where elephants were, not a mess to clean up")}</p>'
+    names_html = (f'<p class="ch-note">{bi(f"ระเบียน {len(named)} แห่งในสารบัญมีคำว่าช้างอยู่ในชื่อโดยไม่ใช่ปางช้าง — เมืองนี้จำช้างไว้ในชื่อย่าน ประตู วัด ดอย และชื่อเล่น (ลุงช้างคือคน) นี่คือแผนที่ว่าช้างเคยอยู่ตรงไหน ไม่ใช่ความผิดพลาดที่ต้องเก็บกวาด", f"{len(named)} records carry the elephant in their name without being an elephant venue — the city remembers elephants in the names of quarters, a gate, temples, a mountain and a nickname (Uncle Chang is a man). A map of where elephants were, not a mess to clean up")}</p>'  # stylecheck: allow — ชื่อย่าน is a word, not advice
                   f'<ul class="ch-names">{"".join(name_items)}</ul>')
 
     # ---- the primer -------------------------------------------------------------
@@ -396,7 +396,7 @@ def emit(g, data):
                   + "</p></div>")
 
     # ---- assemble ---------------------------------------------------------
-    intro = bi("หน้านี้มีสามอย่าง: ทะเบียนว่าแต่ละปางบอกเองอย่างไรเรื่องขี่ช้าง อาบน้ำ โชว์ และการดูอย่างเดียว (ปางบอก มดจดพร้อมที่มา) ชั้นปางช้างและคลินิกที่สารบัญมี และเรื่องที่ควรรู้ก่อนไป — กฎหมายสองฉบับ องค์กรที่ออกใบรับรอง ชื่อในเมืองที่มีช้างอยู่ และคำศัพท์ — เขียนจากข้าง ๆ ช้าง",
+    intro = bi("หน้านี้มีสามอย่าง: ทะเบียนว่าแต่ละปางบอกเองอย่างไรเรื่องขี่ช้าง อาบน้ำ โชว์ และการดูอย่างเดียว (ปางบอก มดจดพร้อมที่มา) ชั้นปางช้างและคลินิกที่สารบัญมี และเรื่องน่ารู้ก่อนไป — กฎหมายสองฉบับ องค์กรที่ออกใบรับรอง ชื่อในเมืองที่มีช้างอยู่ และคำศัพท์ — เขียนจากข้าง ๆ ช้าง",
                "Three things on one page: a register of what each camp states for itself about riding, bathing, shows and hands-off (the camp states it; the ants write it down with the source), the shelf of camps and the clinic the directory holds, and what to know before you go — the two laws, the bodies that certify, the names in this city that carry the elephant, and the words — written from beside an elephant.")
     ld = {
         "@context": "https://schema.org", "@type": "ItemList",
@@ -436,7 +436,7 @@ def emit(g, data):
     (DOCS / "chang.html").write_text(page(
         "ช้าง — ปางช้างเชียงใหม่ บอกเองว่าอะไร · Elephant camps, Chiang Mai — what each states",
         body, depth=0, path="chang.html",
-        desc="ทะเบียนปางช้างเชียงใหม่: แต่ละปางบอกเองว่ามีขี่ช้างไหม อาบน้ำไหม โชว์ไหม ดูอย่างเดียวได้ไหม ราคาที่ประกาศ กฎหมาย องค์กรรับรอง ชื่อในเมืองที่มีช้าง และเรื่องที่ควรรู้ก่อนไป · Elephant camps in Chiang Mai: what each states about riding, bathing, shows and hands-off, posted prices, the law, the certifying bodies, the city's elephant names, and what to know before you go",
+        desc="ทะเบียนปางช้างเชียงใหม่: แต่ละปางบอกเองว่ามีขี่ช้างไหม อาบน้ำไหม โชว์ไหม ดูอย่างเดียวได้ไหม ราคาที่ประกาศ กฎหมาย องค์กรรับรอง ชื่อในเมืองที่มีช้าง และเรื่องน่ารู้ก่อนไป · Elephant camps in Chiang Mai: what each states about riding, bathing, shows and hands-off, posted prices, the law, the certifying bodies, the city's elephant names, and what to know before you go",
         extra_head=head, og=og,
         crumbs=f'<a href="index.html">{bi("หน้าแรก", "Home")}</a> › {bi("ช้าง", "Elephants")}'))
     return {"page": 1, "venues": len(venues), "no_riding_stated": n_no_ride,

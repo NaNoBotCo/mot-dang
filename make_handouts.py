@@ -256,9 +256,9 @@ def main():
     shan_ok = bool(doc.get("shanVerified"))
     qr = qr_data_uri()
     if not qr:
-        print("warning: no LINE QR found in assets/qr — printing without it")
+        print("warning: no LINE QR found in assets/qr — printing without it")  # stylecheck: allow — console output
     if not cfg.get("lineOaId"):
-        print("warning: no lineOaId in data/config.json — the sheet will print "
+        print("warning: no lineOaId in data/config.json — the sheet will print "  # stylecheck: allow — console output
               "without the one thing it exists to hand over")
 
     chrome = find_chrome()

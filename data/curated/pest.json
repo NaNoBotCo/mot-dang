@@ -93,8 +93,8 @@
    "_pricesVerified": false,
    "unit_th": "ความยาวรอบตัวอาคาร (เมตร) — เรียกกันว่า LM",
    "unit_en": "the linear metre of the building's perimeter, quoted as LM",
-   "why_th": "สองเจ้าเสนอราคาบ้านหลังเดียวกันไม่เท่ากันเพราะคูณคนละตัวเลข ถามว่ารอบบ้านกี่เมตร แล้วราคาต่อเมตรเท่าไหร่ ถึงจะเทียบกันได้",
-   "why_en": "Two quotes for the same house are not comparable until you know the perimeter each was multiplied by. Ask for the metres and the rate, not just the total.",
+   "why_th": "สองเจ้าเสนอราคาบ้านหลังเดียวกันไม่เท่ากันเพราะคูณคนละตัวเลข จะเทียบกันได้เมื่อรู้ว่ารอบบ้านกี่เมตร และราคาต่อเมตรเท่าไหร่",
+   "why_en": "Two quotes for the same house are not comparable until you know the perimeter each was multiplied by.",
    "systems": [
     {
      "key": "bait",
@@ -228,8 +228,8 @@
    "do_en": ["Call 1669.", "Keep still; keep the bitten part below heart level.", "Wash the wound with clean water.", "Take off rings and watches before the swelling starts.", "Photograph the snake if it is safe to — do not carry the snake to the hospital."],
    "dont_th": ["ห้ามขันชะเนาะ", "ห้ามกรีดแผล ห้ามดูดพิษ", "ห้ามประคบเย็นหรือน้ำแข็ง", "ห้ามดื่มเหล้า"],
    "dont_en": ["No tourniquet — the standing Thai advice is that it does more harm than the bite.", "Do not cut the wound or suck it.", "No ice or cold packs.", "No alcohol."],
-   "note_th": "เซรุ่มมีที่โรงพยาบาล ไม่ได้มีทุกที่ทุกชนิด และหมอจะให้ต่อเมื่อมีอาการของพิษ — เหตุผลอีกข้อที่ควรไปโรงพยาบาล ไม่ใช่รอดูอาการที่บ้าน",
-   "note_en": "Antivenom lives at hospitals, not every hospital carries every kind, and it is given when signs of envenoming appear rather than on the fact of a bite. Which is another reason the destination is a hospital and not the sofa.",
+   "note_th": "เซรุ่มมีที่โรงพยาบาล ไม่ได้มีทุกที่ทุกชนิด และหมอจะให้ต่อเมื่อมีอาการของพิษ",
+   "note_en": "Antivenom lives at hospitals, not every hospital carries every kind, and it is given when signs of envenoming appear rather than on the fact of a bite.",
    "sources": [
     {"type": "hospital", "ref": "https://www.nakornthon.com/article/detail/%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%90%E0%B8%A1%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B9%80%E0%B8%9A%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%95%E0%B9%89%E0%B8%99%E0%B8%AD%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%96%E0%B8%B9%E0%B8%81%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%96%E0%B8%B9%E0%B8%81%E0%B8%87%E0%B8%B9%E0%B8%81%E0%B8%B1%E0%B8%94", "fetched": "2026-08-31"},
     {"type": "gov", "ref": "https://www.rama.mahidol.ac.th/poisoncenter/th/contactus", "fetched": "2026-08-31"}
@@ -239,8 +239,8 @@
   "protected": {
    "th": "งูหลายชนิดในไทยเป็นสัตว์ป่าคุ้มครองตามกฎกระทรวง — งูจงอาง งูเหลือม งูหลาม งูสิง งูทางมะพร้าว งูแสงอาทิตย์ และอื่นๆ รวม 14 ชนิด ห้ามล่า ห้ามทำอันตราย ห้ามครอบครอง ส่วนงูเห่าไม่ได้อยู่ในบัญชีนี้ — ซึ่งเป็นอีกเหตุผลว่าทำไมการแยกชนิดไม่ใช่หน้าที่ของคนอยู่บ้านตอนสี่ทุ่ม",
    "en": "Fourteen snakes are named protected wildlife by ministerial regulation — the king cobra, the reticulated and Burmese pythons, the rat snakes, the sunbeam snake and others — with hunting, harming and keeping all forbidden. The common monocled cobra is not on that list. Which is the point: telling the protected one from the unprotected one, in the dark, is not a householder's job, and it is one more reason the call is free and the crew is trained.",
-   "checker_th": "รายชื่อเปลี่ยนได้ ตรวจกับกรมอุทยานฯ เอง",
-   "checker_en": "The list moves; check it against the department's own, not against us.",
+   "checker_th": "รายชื่อเปลี่ยนได้ รายชื่อปัจจุบันอยู่ที่กรมอุทยานฯ",
+   "checker_en": "The list moves; the department keeps the current one.",
    "checker_url": "https://portal.dnp.go.th/Content/LegalAffairs?contentId=22540",
    "sources": [
     {"type": "news", "ref": "https://www.sanook.com/news/9537374/", "fetched": "2026-08-31", "note": "names the 14 species and the ministerial regulation"}

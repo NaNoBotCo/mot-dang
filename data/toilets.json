@@ -336,8 +336,8 @@
       "cost": "free",
       "window": "allday",
       "strength": "soft",
-      "basis_th": "โรงแรมมีห้องน้ำที่โถงรับรอง เปิดตลอดคืนและมีพนักงานอยู่เสมอ แต่มีไว้สำหรับแขกผู้เข้าพัก ควรทักพนักงานที่เคาน์เตอร์ก่อน อย่าเดินผ่านไปเฉย ๆ",
-      "basis_en": "A hotel has a lobby toilet, staffed and open through the night — but it is there for guests. Ask at the desk rather than walking past it.",
+      "basis_th": "โรงแรมมีห้องน้ำที่โถงรับรอง เปิดตลอดคืนและมีพนักงานอยู่เสมอ แต่มีไว้สำหรับแขกผู้เข้าพัก",
+      "basis_en": "A hotel has a lobby toilet, staffed and open through the night — but it is there for guests.",
       "source": "class-habit"
     }
   ],

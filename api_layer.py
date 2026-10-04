@@ -330,7 +330,7 @@ def build_index(g, data, photos, tags):
         "places": rows,
     }
     if sched_note:
-        index["hours"]["warning"] = sched_note
+        index["hours"]["warning"] = sched_note  # stylecheck: allow — code key
     return index
 
 
@@ -425,7 +425,7 @@ def openapi(base):
                 "responses": {"200": {"description": "The full record"},
                               "300": {"description": "The page slug is shared by more than "
                                                      "one record; `candidates` lists them by "
-                                                     "id. Ask again by id."},
+                                                     "id. Ask again by id."},  # stylecheck: allow — API documentation for developers
                               "404": {"description": "No such place"}}}},
             "/categories": {"get": {"summary": "The category tree with live counts",
                                     "responses": {"200": {"description": "Categories"}}}},
@@ -552,20 +552,20 @@ def _terms_page(g):
              "Hours and phone numbers change; a place may have closed since we last looked"),
             ("การมีชื่ออยู่ในสารบัญไม่ใช่การรับรอง",
              "Being listed is not an endorsement"),
-            ("อย่าใช้เป็นแหล่งเดียวสำหรับเหตุฉุกเฉิน การตัดสินใจทางการแพทย์ หรือที่อยู่ทางกฎหมาย",
-             "Do not use it as the only source for an emergency, a medical decision, or a legal address"),
+            ("อย่าใช้เป็นแหล่งเดียวสำหรับเหตุฉุกเฉิน การตัดสินใจทางการแพทย์ หรือที่อยู่ทางกฎหมาย",  # stylecheck: allow — API terms of use
+             "Do not use it as the only source for an emergency, a medical decision, or a legal address"),  # stylecheck: allow — API terms of use
             ("ข้อมูลให้ตามสภาพ ไม่มีการรับประกันใด ๆ ทั้งสิ้น",
              "Provided as-is, with no warranty of any kind"),
         ])
 
-        + h2("อย่าทำ", "Not allowed")
+        + h2("อย่าทำ", "Not allowed")  # stylecheck: allow — API terms of use
         + ul([
-            ("อย่าทำให้เข้าใจว่ามดแดงรับรองคุณ หรือว่าข้อเท็จจริงที่คุณเพิ่มเองมาจากเรา",
-             "Do not imply that Mot Dang endorses you, or that a fact you added came from us"),
+            ("อย่าทำให้เข้าใจว่ามดแดงรับรองคุณ หรือว่าข้อเท็จจริงที่คุณเพิ่มเองมาจากเรา",  # stylecheck: allow — API terms of use
+             "Do not imply that Mot Dang endorses you, or that a fact you added came from us"),  # stylecheck: allow — API terms of use
             ("อย่าขายลำดับการแสดงผล",
              "Do not sell listing position off this data"),
-            ("อย่าลบที่มาของข้อมูลแล้วเผยแพร่เหมือนเป็นการสำรวจของคุณเอง",
-             "Do not strip the provenance and republish it as your own survey"),
+            ("อย่าลบที่มาของข้อมูลแล้วเผยแพร่เหมือนเป็นการสำรวจของคุณเอง",  # stylecheck: allow — API terms of use
+             "Do not strip the provenance and republish it as your own survey"),  # stylecheck: allow — API terms of use
             ("ข้อมูลติดต่อที่เจ้าของร้านกรอกเองให้ไว้สำหรับสารบัญ ไม่ใช่สำหรับทำรายชื่อส่งโฆษณา",
              "Owner-supplied contact details were given for a directory listing, not for a marketing list"),
         ])

@@ -38,13 +38,13 @@
        "th": "นวดราชสำนัก",
        "rtgs": "nûat râat-chá-sǎm-nàk",
        "gloss": "“royal court”",
-       "en": "The court lineage: hands only, no elbows or knees, practitioner at a set distance. Ask for it by name."
+       "en": "The court lineage: hands only, no elbows or knees, practitioner at a set distance."
       },
       {
        "th": "นวดจับเส้น",
        "rtgs": "nûat càp sên",
        "gloss": "จับ “seize” · เส้น the sen lines",
-       "en": "Deep work on one complaint. Expect it to hurt — that is the treatment. Say เบา ๆ for less."
+       "en": "Deep work on one complaint. It hurts — that is the treatment. เบา ๆ means lighter."
       },
       {
        "th": "ตอกเส้น",
@@ -241,13 +241,13 @@
        "rtgs": "nûat nám-nom",
        "gloss": "“milk massage”",
        "tags": "as นวดน้ำมัน · often sold with a scrub",
-       "en": "Oil massage with a milk-based lotion instead of oil, sold for dry skin. Mind the near-miss: นวดนม without น้ำ means breast massage, and นวดเปิดท่อน้ำนม is duct massage for nursing mothers — a real and quite different service."
+       "en": "Oil massage with a milk-based lotion instead of oil, sold for dry skin. The near-miss: นวดนม without น้ำ means breast massage, and นวดเปิดท่อน้ำนม is duct massage for nursing mothers — a real and quite different service."
       },
       {
        "th": "นวดออฟฟิศซินโดรม",
        "rtgs": "nûat ɔ́ɔf-fít sin-droom",
        "tags": "undressed to the waist or fully · table · 1–1½ hr",
-       "en": "The name sounds clinical; the treatment is deep oil work on neck, shoulder blades and upper back, often with a hot compress. Expect to be asked to undress, and expect it to be the most painful item you could have ordered. Say เบา ๆ freely."
+       "en": "The name sounds clinical; the treatment is deep oil work on neck, shoulder blades and upper back, often with a hot compress. It is done undressed, and it is the most painful item on the board. เบา ๆ means lighter."
       },
       {
        "th": "ขัดผิว · สครับ",
@@ -283,8 +283,8 @@
    "url_label_th": "ร้านนวดทุกร้านที่มดไปเดินมาแล้ว พร้อมบอกว่าร้านไหนขายอะไร",
    "blocks": [],
    "prices": {
-    "heading_th": "ราคาที่ควรเจอ",
-    "heading_en": "What you should expect to pay",
+    "heading_th": "ราคาตามป้าย",
+    "heading_en": "Asking prices",
     "note_en": "Asking prices from shop rate boards, Chiang Mai, August 2026 — the shape of the market, not a quote. Per-shop prices as the ants walk them are on the site.",
     "note_th": "ราคาถาม จากป้ายหน้าร้าน เชียงใหม่ สิงหาคม ๒๕๖๙",
     "cols": [
@@ -381,7 +381,7 @@
      ],
      [
       "ปัดขึ้น เช่น 250 → 300",
-      "Rounding up is normal and reads as a tip: a 250 ฿ massage paid as 300 ฿."
+      "Rounding up is normal and reads as a tip — a 250 ฿ massage paid as 300 ฿."
      ],
      [
       "ยื่นให้คนนวดเอง ไม่ใช่ที่เคาน์เตอร์",
@@ -439,7 +439,7 @@
    "lede_th": "โปสเตอร์หน้าสนาม ป้ายในสนาม และป้ายหน้าค่ายบอกอยู่แล้วว่ามีอะไร คำเหล่านี้ครอบคลุมเกือบหมด — คืนนี้ชกที่ไหน ดูที่ motdang.net/muaythai.html",
    "url": "https://motdang.net/muaythai.html",
    "url_label_en": "Tonight's fight board, every camp and gym, and what to know before the pipes start",
-   "url_label_th": "กระดานคืนชก ค่ายมวยทุกค่าย และเรื่องที่ควรรู้ก่อนเสียงปี่ดัง",
+   "url_label_th": "กระดานคืนชก ค่ายมวยทุกค่าย และเรื่องน่ารู้ก่อนเสียงปี่ดัง",
    "blocks": [
     {
      "heading_th": "หน้าสนาม — บนโปสเตอร์และป้ายตั๋ว",
@@ -564,7 +564,7 @@
    "lede_th": "ครูที่แผงตลาดและป้ายในครัวใช้คำอยู่ไม่กี่สิบคำ คำเหล่านี้ครอบคลุมเกือบหมด — วันนี้เรียนที่ไหนได้ ดูที่ motdang.net/cooking.html",
    "url": "https://motdang.net/cooking.html",
    "url_label_en": "Today's class board, every school by kind, and what to know before the mortar",
-   "url_label_th": "กระดานรอบเรียน โรงเรียนทุกแบบ และเรื่องที่ควรรู้ก่อนจับครก",
+   "url_label_th": "กระดานรอบเรียน โรงเรียนทุกแบบ และเรื่องน่ารู้ก่อนจับครก",
    "blocks": [
     {
      "heading_th": "ที่แผงตลาด — ของที่ครูหยิบให้ดู",
@@ -679,7 +679,7 @@
    "title_th": "ตัดผม-ทำผม — คำที่ต้องพูดบนเก้าอี้",
    "audience_en": "For anyone getting their hair cut, permed, coloured, braided or put up in Chiang Mai or Chiang Rai — and for anyone asking a shop what it can do",
    "audience_th": "สำหรับคนที่จะตัดผม ดัดผม ทำสี ถักเปีย หรือเกล้าผม ในเชียงใหม่-เชียงราย และสำหรับคนที่จะถามร้านว่าทำอะไรได้บ้าง",
-   "lede_en": "A haircut you cannot name is a haircut you do not get. Point at the Thai — you need not read it. Ask for ดัดผม alone and you may go home with a cold perm; the word for the heated-rod one is on this sheet. Nothing here ranks a shop against another.",
+   "lede_en": "A haircut you cannot name is a haircut you do not get. Point at the Thai — you need not read it. ดัดผม alone can mean a cold perm; the word for the heated-rod one is on this sheet. Nothing here ranks a shop against another.",
    "lede_th": "ทรงที่อยากได้ ต้องมีคำเรียก ชี้ที่ตัวไทยได้เลย ไม่ต้องอ่านออก ถ้าพูดว่า “ดัดผม” เฉย ๆ อาจได้ดัดเย็นกลับบ้าน คำที่ถูกอยู่ในแผ่นนี้",
    "url": "https://motdang.net/beauty.html",
    "url_label_en": "All the words with their roots, the barber and salon shelves, and what nobody has asked the shops yet",
@@ -741,7 +741,7 @@
        "th": "ทำสี · ไฮไลท์ · ฟอกผม",
        "rtgs": "tham sǐi · hai-lái · fɔ̂ɔk phǒm",
        "gloss": "colour · highlights · bleach",
-       "en": "Bleaching is its own skill and its own risk. Ask how light they can go, and whether it is one sitting or several."
+       "en": "Bleaching is its own skill. How light a shop goes, and in how many sittings, varies."
       },
       {
        "th": "ทรีตเมนต์ · สปาผม · อบไอน้ำ",
@@ -765,7 +765,7 @@
        "th": "ถักเปีย · ถักเปียแถว · เดรดล็อค",
        "rtgs": "thàk pia · thàk pia thɛ̌ɛo · drèet-lɔ́k",
        "gloss": "a braid · cornrows · locs",
-       "en": "แถว is a row — cornrows are braided-in-rows. Ask if it is by the hour or by the head; ซ่อมเดรด is loc maintenance."
+       "en": "แถว is a row — cornrows are braided-in-rows. Shops price it by the hour or by the head; ซ่อมเดรด is loc maintenance."
       },
       {
        "th": "เกล้าผม · ทำผมเจ้าสาว",
@@ -887,7 +887,7 @@
        "th": "ขอใบเสร็จแบบแยกรายการ เป็นภาษาอังกฤษได้ไหม",
        "rtgs": "khɔ̌ɔ bai-sèt bɛ̀ɛp yɛ̂ɛk raai-kaan · pen phaa-sǎa aŋ-krìt dâi mǎi",
        "gloss": "แยกรายการ “separated by item”",
-       "en": "“May I have an itemised receipt, in English?” The word แยกรายการ is what turns a total into something a foreign insurer will read. Ask at the cashier BEFORE you pay — it is harder to reissue afterwards."
+       "en": "“May I have an itemised receipt, in English?” The word แยกรายการ is what turns a total into something a foreign insurer will read. It is harder to reissue after payment."
       },
       {
        "th": "ขอใบรับรองแพทย์ เป็นภาษาอังกฤษ",
@@ -976,7 +976,7 @@
        "th": "จิตแพทย์",
        "rtgs": "cìt-tà-phɛ̂ɛt",
        "gloss": "จิต “mind” < Pali citta · แพทย์ “physician”",
-       "en": "Psychiatrist — the specialist who can start this. Ask for this person by title, not for a department."
+       "en": "Psychiatrist — the specialist who can start this."
       },
       {
        "th": "จิตเวช",
@@ -988,7 +988,7 @@
        "th": "จิตแพทย์ผู้ใหญ่ · จิตแพทย์เด็กและวัยรุ่น",
        "rtgs": "…phûu yài · …dèk lɛ́ wai-rûn",
        "gloss": "“adult” · “child and adolescent”",
-       "en": "Adult vs child-and-adolescent psychiatry. Ask which one a clinic runs — the clinics published here are largely paediatric, and the sign rarely says."
+       "en": "Adult vs child-and-adolescent psychiatry. The clinics published here are largely paediatric, and the sign rarely says which."
       },
       {
        "th": "คลินิกพิเศษนอกเวลา",
@@ -1012,7 +1012,7 @@
        "th": "ใบรับรองแพทย์",
        "rtgs": "bai ráp-rɔɔng phɛ̂ɛt",
        "gloss": "“sheet of physician's certification”",
-       "en": "A doctor's certificate — and, with it, ใบสั่งยา bai sàng yaa, the prescription. This pair is what the permit system and the customs desk ask to see. Ask for them in English too."
+       "en": "A doctor's certificate — and, with it, ใบสั่งยา bai sàng yaa, the prescription. This pair is what the permit system and the customs desk ask to see."
       },
       {
        "th": "วัตถุออกฤทธิ์",
@@ -1030,7 +1030,7 @@
        "th": "เวชระเบียน",
        "rtgs": "wêet-chá rá-bian",
        "gloss": "“medical register”",
-       "en": "Your medical record. Ask for a copy in your own hand before you leave; it is what the next clinic starts from."
+       "en": "Your medical record — what the next clinic starts from."
       }
      ]
     },
@@ -1042,7 +1042,7 @@
       {
        "th": "ที่นี่มีจิตแพทย์ตรวจผู้ใหญ่ไหม",
        "rtgs": "thîi nîi mii cìt-tà-phɛ̂ɛt trùat phûu yài mǎi",
-       "en": "Do you have a psychiatrist who assesses adults? Ask before travelling to a clinic — many here see children only."
+       "en": "Do you have a psychiatrist who assesses adults? Many clinics here see children only."
       },
       {
        "th": "นัดแรกรอกี่วัน",
@@ -1086,8 +1086,8 @@
      ]
     ]
    },
-   "foot_th": "ถ่ายเอกสารแจกต่อได้เลย ไม่ต้องขอ · แผ่นนี้ไม่ใช่คำแนะนำทางการแพทย์ กฎหมายและรายการยาเปลี่ยนได้ ตรวจกับต้นทางเสมอ",
-   "foot_en": "Photocopy and hand these out freely — no permission needed. This sheet is not medical advice and carries no dose. Schedules and medicine lists change; always check against the source."
+   "foot_th": "ถ่ายเอกสารแจกต่อได้เลย ไม่ต้องขอ · แผ่นนี้ไม่มีขนาดยา กฎหมายและรายการยาเปลี่ยนได้",
+   "foot_en": "Photocopy and hand these out freely — no permission needed. This sheet carries no dose. Schedules and medicine lists change."
   },
   {
    "key": "carve-words",
@@ -1165,8 +1165,8 @@
       {
        "th": "ไม้พะยูง",
        "rtgs": "mái phá-yuung",
-       "gloss": "Siamese rosewood — ASK",
-       "en": "The whole Dalbergia genus is CITES Appendix II. Ask the species and get it on the receipt before you buy."
+       "gloss": "Siamese rosewood",
+       "en": "The whole Dalbergia genus is CITES Appendix II."
       },
       {
        "th": "ไม้กฤษณา",
@@ -1273,7 +1273,7 @@
        "th": "ขาวดำ · สี",
        "rtgs": "khǎao dam · sǐi",
        "gloss": "black-white · colour",
-       "en": "Mono is about a baht a page on a posted board, colour has no going rate. Ask before a colour job."
+       "en": "Mono is about a baht a page on a posted board, colour has no going rate."
       },
       {
        "th": "หน้าเดียว · หน้าหลัง",
@@ -1291,7 +1291,7 @@
        "th": "สแกนส่งไลน์",
        "rtgs": "sà-kɛɛn sòng laai",
        "gloss": "scan, send to LINE",
-       "en": "A scan sent back to your phone. Ask for PDF, not a photo."
+       "en": "A scan sent back to your phone, as a PDF or a photo."
       },
       {
        "th": "เซ็นสำเนาถูกต้อง",
@@ -1351,13 +1351,13 @@
        "th": "แปลพร้อมรับรองคำแปล",
        "rtgs": "plɛɛ phrɔ́ɔm ráp-rɔɔng kham-plɛɛ",
        "gloss": "translate + certify the translation",
-       "en": "A certified translation: the translator signs and stamps. Around 350 baht a page on one firm's own site. Ask for this by name or you may get a plain translation."
+       "en": "A certified translation: the translator signs and stamps. Around 350 baht a page on one firm's own site. A plain translation carries neither."
       },
       {
        "th": "รับรองนิติกรณ์",
        "rtgs": "ráp-rɔɔng ní-tì-kɔɔn",
        "gloss": "MFA legalization",
-       "en": "The ministry's own seal: 200 baht a seal, 400 express, at Central Airport floor 5. A firm that “runs” it for you charges from 1,800 a page — that fee buys a queue-stander, not the seal. Ask for the two as separate lines."
+       "en": "The ministry's own seal: 200 baht a seal, 400 express, at Central Airport floor 5. A firm that “runs” it for you charges from 1,800 a page — that fee buys a queue-stander, not the seal."
       },
       {
        "th": "ยื่นแทนได้ไหม",

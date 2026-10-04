@@ -770,7 +770,7 @@ if(b0)b0.addEventListener('click',function(){n=0;showPar();});
 
     def catch(th, en):
         return ('<p class="mo-catch"><span class="lbl">'
-                + bi("ข้อควรระวัง", "the catch") + "</span> — "
+                + bi("จุดอ่อน", "the catch") + "</span> — "
                 + bi(th, en) + "</p>")
 
     gloss_html = ('<table class="mo-gloss"><tbody>' + "".join(
@@ -1075,7 +1075,7 @@ if(b0)b0.addEventListener('click',function(){n=0;showPar();});
                       "with any other way as your check digit."))
 
         # ---- ๙ ask ----------------------------------------------------------
-        + way("๙", "ถามคน แล้วก็ถามเครื่อง", "Ask a person, then the machine",
+        + way("๙", "ถามคน แล้วก็ถามเครื่อง", "Ask a person, then the machine",  # stylecheck: allow — the name of the ninth way
               "ระยะศูนย์เมตร — คำตอบเด็ดขาด", "zero metres — the decisive clue",
               "<p>" + bi(
                   "ทางที่เก่าแก่ที่สุดยังไวที่สุด: ถามใครก็ได้ว่า ในเวียงก่อ "

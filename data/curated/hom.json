@@ -458,8 +458,8 @@
   "isan_en": "The northeast keeps the same Friday with its own cloth: Sakon Nakhon wears ผ้าย้อมคราม — indigo from Indigofera, not from the northern hill plant. Mukdahan wears Mukdahan cloth. Same day, different species.",
   "colour_th": "และวันศุกร์เป็น “สีฟ้า” อยู่แล้วในสีประจำวัน ซึ่งมาจากสีกายพระศุกร์ เทวดานพเคราะห์ — คนใส่ม่อฮ่อมวันศุกร์จึงพอดีกับสีของวันโดยไม่ได้ตั้งใจ",
   "colour_en": "And Friday is already blue. In the everyday สีประจำวัน scheme each day's colour comes from the body-colour of its planetary deva, and Friday belongs to พระศุกร์, Venus, whose colour is blue. So a Friday mo hom shirt lands on the day's own colour without anyone arranging it.",
-  "caveat_th": "ข้อควรระวังสองข้อ: เหตุผลของรัฐคือรายได้ชุมชนกับงานฝีมือ ไม่ใช่เรื่องดาว · และอย่าเอาสีประจำวันไปปนกับรายการสีในสวัสดิรักษา นั่นคือสีผ้าทรง “ณรงค์รบ” คนละเรื่องกัน",
-  "caveat_en": "Two cautions. The state's stated reasoning is craft income, not Venus — the fit is real but it is not a cause. And do not confuse the everyday scheme with the list in สวัสดิรักษา: that one is ผ้าทรงณรงค์รบ, battle dress, and it is a different list for a different occasion."
+  "caveat_th": "หมายเหตุสองข้อ: เหตุผลของรัฐคือรายได้ชุมชนกับงานฝีมือ ไม่ใช่เรื่องดาว · และสีประจำวันชุดนี้ไม่ใช่รายการสีในสวัสดิรักษา นั่นคือสีผ้าทรง “ณรงค์รบ” คนละเรื่องกัน",
+  "caveat_en": "Two notes. The state's stated reasoning is craft income, not Venus — the fit is real but it is not a cause. And the everyday scheme is not the list in สวัสดิรักษา: that one is ผ้าทรงณรงค์รบ, battle dress, and it is a different list for a different occasion."
  },
  "protection": [
   {
@@ -485,7 +485,7 @@
    "label_th": "แต่ไม่ใช่ผ้ายันต์",
    "label_en": "but not the yantra cloth",
    "th": "ผ้าประเจียดกับผ้ายันต์ทำจากผ้าสาลูขาว ลงสีขาว แดง เหลือง ไม่ใช่คราม — เพราะยันต์ต้องอ่านออก หมึกบนผ้าครามคือหมึกบนความมืด",
-   "en": "Thai amulet magic says no. ผ้าประเจียด — the inscribed cloth tied round the head or the upper arm, ancestor of the muay thai armband — is cut from plain white ผ้าสาลู and worked in white, red and yellow. Never indigo.",
+   "en": "Thai amulet magic says no. ผ้าประเจียด — the inscribed cloth tied round the head or the upper arm, ancestor of the muay thai armband — is cut from plain white ผ้าสาลู and worked in white, red and yellow. It is never indigo.",
    "use_th": "สรุป: เวทของสีย้อม กับ เวทของสิ่งที่เขียนลงไป เป็นคนละวิชากัน",
    "use_en": "Because a yantra has to be read, and ink on indigo is ink on nothing. The drawn magic and the dyed magic are two different technologies with two different colour rules — and this page is about the dyed one."
   }

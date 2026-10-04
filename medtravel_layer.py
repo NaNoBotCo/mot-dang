@@ -138,8 +138,8 @@ def emit(g, data):
             "Rules change; the linked source always outranks this page.")
         + "</p>"
 
-        + "<h2 class=\"mv-h\">" + bi("เช็กยาของคุณกับเครื่องมือ อย.",
-                                     "Check your medicine — the FDA tool") + "</h2>"
+        + "<h2 class=\"mv-h\">" + bi("เครื่องมือเช็กยาของ อย.",
+                                     "The FDA's medicine checker") + "</h2>"
         + "<p>" + bi(
             "พิมพ์ชื่อสามัญ (ชื่อโมเลกุล ไม่ใช่ยี่ห้อ) ลงใน "
             "<a href=\"" + att(FDA_TOOL) + "\" rel=\"noopener\">เครื่องมือตรวจสอบยาของ อย.</a> "
@@ -247,11 +247,11 @@ def emit(g, data):
                                            "Ordinary medicine from a hospital or pharmacy")
         + '<span class="mv-badge go">' + bi("เก็บฉลากกับใบเสร็จ", "keep the label and receipt") + "</span></h3>"
         + "<p>" + bi(
-            "ฝั่งไทยง่าย — เก็บฉลากยาและใบเสร็จไว้ ด่านที่กัดจริงคือประเทศปลายทาง "
-            "กฎนำเข้ายาของประเทศที่คุณจะลงเครื่องเป็นกฎที่ต้องเช็กก่อนบิน",
-            "The Thai side is easy — keep the pharmacy label and the receipt. The "
+            "ฝั่งไทยง่าย — ฉลากยากับใบเสร็จก็พอ ด่านที่กัดจริงคือประเทศปลายทาง "
+            "กฎนำเข้ายาของประเทศที่ลงเครื่องคือกฎที่ตัดสิน",
+            "The Thai side is easy — the pharmacy label and the receipt cover it. The "
             "checkpoint that bites is the destination: the import rules of the country "
-            "you land in are the ones to check before flying.") + "</p></div>"
+            "you land in decide.") + "</p></div>"
 
         + '<div class="mv-lane"><h3>' + bi("วัตถุออกฤทธิ์ที่หมอไทยสั่ง",
                                            "Thai-prescribed psychotropics")
@@ -282,11 +282,11 @@ def emit(g, data):
         + "<p>" + bi(
             "กัญชาและกระท่อมขายหน้าร้านได้ในไทย แต่ไม่ข้ามพรมแดน — เอกสารขาออกของ อย. "
             "ระบุว่าการนำเข้า-ส่งออกผลิตภัณฑ์ยาจากกัญชายังเป็นสิ่งต้องห้าม "
-            "และกฎหมายประเทศปลายทางซ้อนทับอีกชั้น ของที่ลังเลจะยื่นให้เจ้าหน้าที่ศุลกากรดู อย่าใส่กระเป๋า",
+            "และกฎหมายประเทศปลายทางซ้อนทับอีกชั้น",
             "Cannabis and kratom are sold openly in Thailand and cross no border — the "
             "FDA's outbound guidance states that import and export of cannabis-made "
             "medicinal products is prohibited, and the destination country's law stacks "
-            "on top. Anything you would hesitate to show a customs officer, don't pack.")
+            "on top.")
         + "</p>" + src_out + "</div>"
 
         + "<h2 class=\"mv-h\">" + bi("สายพานตรวจของเหลว เป็นอีกด่านหนึ่ง",
@@ -295,8 +295,7 @@ def emit(g, data):
             "ศุลกากรสนใจว่ายาคือสารอะไร จุดตรวจความปลอดภัยสนใจว่าเป็นของเหลวไหม "
             "สนามบินไทยใช้กติกา 100 มล. มาตรฐาน โดยมีข้อยกเว้นที่ประกาศไว้: "
             "ยาน้ำ เจล สเปรย์เกิน 100 มล. ผ่านได้เมื่อมีเอกสารระบุชื่อผู้โดยสาร — "
-            "ใบรับรองแพทย์หรือฉลากใบสั่งยา — และจะถูกตรวจเพิ่มที่จุดตรวจ "
-            "ยาที่กลัวความร้อนอย่างอินซูลิน ควรอยู่กระเป๋าถือขึ้นเครื่องเสมอ",
+            "ใบรับรองแพทย์หรือฉลากใบสั่งยา — และจะถูกตรวจเพิ่มที่จุดตรวจ",
             "Customs cares what the substance is; the security checkpoint cares that it "
             "is a liquid. Thai airports run the standard 100ml carry-on rule with a "
             "stated exemption: liquid, gel or aerosol medicine over 100ml passes when "

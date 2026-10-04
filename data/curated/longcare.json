@@ -134,7 +134,7 @@
     "cm-osm-way-542929587"
    ],
    "site": "https://www.thecabinchiangmai.com/",
-   "note_th": "แท็ก OSM ระบุ social_facility=rehabilitation และระเบียนมีเว็บไซต์ของตัวเอง — เว็บนั้นยังไม่ได้อ่าน สิ่งที่สถานที่พูดเองจึงยังไม่อยู่ในหน้านี้ · อย่าสับสนกับ The Cabin Hostel ซึ่งเป็นที่พัก",
+   "note_th": "แท็ก OSM ระบุ social_facility=rehabilitation และระเบียนมีเว็บไซต์ของตัวเอง — เว็บนั้นยังไม่ได้อ่าน สิ่งที่สถานที่พูดเองจึงยังไม่อยู่ในหน้านี้ · คนละแห่งกับ The Cabin Hostel ซึ่งเป็นที่พัก",
    "note_en": "The OSM tag states social_facility=rehabilitation and the record carries its own website — which is unread, so nothing the place says about itself is on this page yet. Not to be confused with The Cabin Hostel, which is lodging.",
    "src": "OpenStreetMap way 542929587 (cache/overpass/cm/community.json, crawled 2026-07-27)",
    "fetched": "2026-08-26"

@@ -883,7 +883,7 @@ def emit(g, data):
     B.append("<p>" + bi(
         "ถามว่าครามกันอะไร จะได้คำตอบสามชุดที่ไม่ตรงกัน — และชุดที่สามค้านสองชุดแรก "
         "หน้านี้จึงแยกไว้คนละกล่อง ไม่รวบเป็นเรื่องเดียว",
-        "Ask what indigo wards off and the answer comes in three registers that do not "
+        "What indigo wards off has an answer in three registers that do not "
         "agree with each other. The third contradicts the first two, so they are kept "
         "apart here rather than folded into one story.") + "</p>")
     B.append('<div class="hm-grid">')

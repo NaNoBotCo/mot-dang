@@ -413,7 +413,7 @@ def emit(g, events, data):
     map_html = g["event_map_svg"](located) if located else ""
     map_sec = (f'<h2 id="map">📍 {bi("แผนที่ — เมืองมารวมกันตรงไหน", "The map — where the city gathers")}</h2>'
                f'{map_html}'
-               f'<p class="tinynote">{bi("หมุดเชียงใหม่ในกรอบคูเมือง เชียงรายอยู่ในรายการข้างล่าง (ร้อยกิโลเมตรไม่ควรอยู่ในกรอบเดียวกัน) · ลากดูได้เมื่อแผนที่พื้นโหลด ก่อนนั้นคือภาพวาด", "Chiang Mai pins framed against the moat; Chiang Rai stays in the list (a hundred kilometres do not belong in one frame) · pan once the basemap arrives; until then it is the drawing")}</p>'
+               f'<p class="tinynote">{bi("หมุดเชียงใหม่ในกรอบคูเมือง เชียงรายอยู่ในรายการข้างล่าง (ร้อยกิโลเมตรใส่กรอบเดียวกันไม่ได้) · ลากดูได้เมื่อแผนที่พื้นโหลด ก่อนนั้นคือภาพวาด", "Chiang Mai pins framed against the moat; Chiang Rai stays in the list (a hundred kilometres do not belong in one frame) · pan once the basemap arrives; until then it is the drawing")}</p>'
                f'<ul class="yp-venues">{"".join(rows)}</ul>')
 
     # ---- three lights ------------------------------------------------
@@ -518,7 +518,7 @@ def emit(g, events, data):
     notices = (f'<h2 id="notices">📣 {bi("ยังไม่ประกาศ", "Not yet announced")}</h2>'
                f'<p>{bi("ทุกปีทางราชการประกาศสี่อย่างนี้ในเดือนสุดท้าย ๆ ก่อนงาน หน้านี้จะเติมช่องเองทันทีที่ประกาศจริงเข้าระบบ พร้อมลิงก์ไปที่ประกาศ", "Each year four official notices land in the final weeks before the festival. This page fills each slot on its own the moment the real notice enters the system, with the link.")}</p>'
                f'<table class="yp-gates"><thead><tr><th>{bi("ประกาศ", "notice")}</th><th>{bi("สถานะ", "status")}</th><th>{bi("รูปแบบปีก่อน", "last year’s pattern")}</th></tr></thead><tbody>{"".join(gate_rows)}</tbody></table>'
-               f'<p class="tinynote">{bi("ถ้าประกาศออกก่อนหน้านี้จะทัน — ถามคนขายโคมที่แผง วัดที่ท่านไป หรือที่พักของท่านได้เลย คนในพื้นที่รู้กันดีว่าคืนนั้นฟ้าเปิดตรงไหน · เห็นประกาศก่อนเรา บอกมดได้ที่", "If a notice lands before this page catches it, ask the stall you buy from, the wat you visit, or your host — local people know which sky is open that night · saw a notice before we did? tell the ants at")} <a href="list-your-event.html">{bi("หน้าลงงาน", "the listing page")}</a></p>')
+               f'<p class="tinynote">{bi("คนขายโคมที่แผง วัด และที่พัก รู้กันดีว่าคืนนั้นฟ้าเปิดตรงไหน · เห็นประกาศก่อนเรา บอกมดได้ที่", "Lantern stalls, wats and hosts know which sky is open that night · saw a notice before we did? tell the ants at")} <a href="list-your-event.html">{bi("หน้าลงงาน", "the listing page")}</a></p>')
 
     # ---- festival week, as a frame -------------------------------------------
     def wait(th, en):

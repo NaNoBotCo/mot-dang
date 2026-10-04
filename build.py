@@ -407,7 +407,7 @@ def emergency_band(cat_key):
         for n in EMERGENCY["numbers"])
     who = " · ".join(sorted({n["issuer"] for n in EMERGENCY["numbers"]}))
     return (f'<div class="emerg">'
-            f'<strong>{bi("เบอร์ที่ควรเก็บไว้", "Numbers worth keeping")}</strong>'
+            f'<strong>{bi("เบอร์ฉุกเฉิน", "Emergency numbers")}</strong>'
             f'<div class="row">{rows}</div>'
             f'<div class="who">{who}</div></div>')
 
@@ -447,7 +447,7 @@ def muaythai_band(cat_key, depth=2):
         return ""
     r = "../" * depth
     return (f'<p class="mtband"><a href="{r}muaythai.html">🥊 '
-            + bi("ดูมวยคืนนี้ — กระดานคืนชกทุกสนาม ราคาตั๋ว และเรื่องที่ควรรู้ก่อนเสียงปี่ดัง",
+            + bi("ดูมวยคืนนี้ — กระดานคืนชกทุกสนาม ราคาตั๋ว และเรื่องน่ารู้ก่อนเสียงปี่ดัง",
                  "Fight board — which stadium fights tonight, what a ticket costs, and what to know before the pipes start")
             + " →</a></p>")
 
@@ -466,7 +466,7 @@ def chang_band(cat_key, depth=2):
         return ""
     r = "../" * depth
     return (f'<p class="mtband"><a href="{r}chang.html">🐘 '
-            + bi("ทะเบียนปางช้าง — แต่ละปางบอกเองว่ามีขี่ไหม อาบน้ำไหม โชว์ไหม ดูอย่างเดียวได้ไหม ราคาที่ประกาศ และเรื่องที่ควรรู้ก่อนไป",
+            + bi("ทะเบียนปางช้าง — แต่ละปางบอกเองว่ามีขี่ไหม อาบน้ำไหม โชว์ไหม ดูอย่างเดียวได้ไหม ราคาที่ประกาศ และเรื่องน่ารู้ก่อนไป",
                  "The register — what each camp states about riding, bathing, shows and hands-off, posted prices, and what to know before you go")
             + " →</a></p>")
 
@@ -538,7 +538,7 @@ def cooking_band(cat_key, depth=2):
         return ""
     r = "../" * depth
     return (f'<p class="mtband"><a href="{r}cooking.html">🍳 '
-            + bi("กระดานคลาสทำอาหาร — โรงเรียนไหนมีคลาสวันนี้ เช้าหรือเย็น ราคาที่ประกาศ และเรื่องที่ควรรู้ก่อนจับครก",
+            + bi("กระดานคลาสทำอาหาร — โรงเรียนไหนมีคลาสวันนี้ เช้าหรือเย็น ราคาที่ประกาศ และเรื่องน่ารู้ก่อนจับครก",
                  "Class board — which school runs a class today, morning or evening, what it posts as the price, and what to know before you lift the pestle")
             + " →</a></p>")
 
@@ -634,7 +634,7 @@ def realestate_band(cat_key, depth=2):
         return ""
     r = "../" * depth
     return ('<p class="mtband"><a href="' + r + 'realestate.html">\U0001F3E0 '
-            + bi("คำที่ต้องถามก่อนวางมัดจำ — ค่าไฟหน่วยละ เฟอร์ครบ สัญญากี่เดือน พร้อมเสียงอ่าน · ชั้นคอนโด อพาร์ตเมนต์ หอพัก และสิ่งที่ยังไม่มีใครถามตึกเลย",
+            + bi("คำที่ใช้ถามก่อนวางมัดจำ — ค่าไฟหน่วยละ เฟอร์ครบ สัญญากี่เดือน พร้อมเสียงอ่าน · ชั้นคอนโด อพาร์ตเมนต์ หอพัก และสิ่งที่ยังไม่มีใครถามตึกเลย",
                  "What to ask before the deposit — the per-unit electric rate, furnished, the minimum contract, with the sounds; the condo, apartment and dorm shelves; and what nobody has asked the buildings yet")
             + " →</a></p>")
 
@@ -12947,7 +12947,7 @@ def widget_divination():
         # kind. wichaa.net/divination is a real casting: three coins, six
         # throws, changing lines and all.
         f'<a class="castown" href="https://wichaa.net/divination" rel="noopener">'
-        f'🪙 {bi("เสี่ยงทายเอง", "Cast your own")} →</a>'
+        f'🪙 {bi("เสี่ยงทายเอง", "Cast your own")} →</a>'  # stylecheck: allow — เสี่ยงทาย is casting lots, a word, not advice
         f'<span class="wfoot">{bi("วิธีเหมยฮวาอี้ซู่ ตั้งก่วยจากวันเวลา", "Plum Blossom time method — the date builds the hexagram")}</span>'
         f'</section>')
 
@@ -13071,19 +13071,19 @@ EIGHTBALL = [
     {"th": "ใช่เลย", "en": "Yes, clearly", "v": "ดี"},
     {"th": "ดีเกินคาด", "en": "Better than you expect", "v": "ดี"},
     {"th": "ใช่ และมีคนช่วย", "en": "Yes, and help is coming", "v": "ดี"},
-    {"th": "ใช่ — บอกคนที่ควรรู้ด้วย", "en": "Yes — and tell the person who should know", "v": "ดี"},
-    {"th": "ถามใหม่หลังกินข้าว", "en": "Ask again after lunch", "v": "กลาง"},
+    {"th": "ใช่ — บอกคนที่ควรรู้ด้วย", "en": "Yes — and tell the person who should know", "v": "ดี"},  # stylecheck: allow — a divination toy's answer
+    {"th": "ถามใหม่หลังกินข้าว", "en": "Ask again after lunch", "v": "กลาง"},  # stylecheck: allow — a divination toy's answer
     {"th": "ยังไม่ชัด ลองดูอีกมุม", "en": "Not clear yet — look from another side", "v": "กลาง"},
     {"th": "รอวันพระแล้วค่อยตัดสิน", "en": "Wait for wan phra, then decide", "v": "กลาง"},
     {"th": "ขึ้นอยู่กับคุณมากกว่าดวง", "en": "More up to you than the stars", "v": "กลาง"},
     {"th": "ครึ่งหนึ่งใช่ ครึ่งหนึ่งยังไม่", "en": "Half yes, half not yet", "v": "กลาง"},
     {"th": "เก็บไว้ถามผู้ใหญ่", "en": "One to ask an elder about", "v": "กลาง"},
     {"th": "ช้าลงหน่อย คำตอบจะมาเอง", "en": "Slow down; the answer will arrive", "v": "กลาง"},
-    {"th": "อย่าเพิ่ง — ยังไม่ถึงเวลา", "en": "Not yet — the hour hasn’t come", "v": "ระวัง"},
-    {"th": "ทางนี้ไม่ใช่ทางนั้นต่างหาก", "en": "Not this road — the other one", "v": "ระวัง"},
-    {"th": "ระวังคำพูดก่อน", "en": "Mind your words first", "v": "ระวัง"},
-    {"th": "ไม่ — และนั่นเป็นเรื่องดี", "en": "No — and that is a good thing", "v": "ระวัง"},
-    {"th": "ปล่อยไปเถอะ", "en": "Let it go", "v": "ระวัง"},
+    {"th": "อย่าเพิ่ง — ยังไม่ถึงเวลา", "en": "Not yet — the hour hasn’t come", "v": "ระวัง"},  # stylecheck: allow — a divination toy's answer
+    {"th": "ทางนี้ไม่ใช่ทางนั้นต่างหาก", "en": "Not this road — the other one", "v": "ระวัง"},  # stylecheck: allow — a divination toy's answer
+    {"th": "ระวังคำพูดก่อน", "en": "Mind your words first", "v": "ระวัง"},  # stylecheck: allow — a divination toy's answer
+    {"th": "ไม่ — และนั่นเป็นเรื่องดี", "en": "No — and that is a good thing", "v": "ระวัง"},  # stylecheck: allow — a divination toy's answer
+    {"th": "ปล่อยไปเถอะ", "en": "Let it go", "v": "ระวัง"},  # stylecheck: allow — a divination toy's answer
 ]
 
 
@@ -16109,7 +16109,7 @@ def care_shelf_html():
          None, "", ""),
         ("🚻", "ห้องน้ำใกล้ฉัน", "Toilets near you", "toilets.html", None, "", ""),
         ("🕐", "ตอนนี้เปิดอะไร", "Open now", "open-now.html", None, "", ""),
-        ("❓", "ถามมด", "Ask the ants", "asked.html", asked, "คำตอบ", "answers"),
+        ("❓", "ถามมด", "Ask the ants", "asked.html", asked, "คำตอบ", "answers"),  # stylecheck: allow — a page name
     ]
     lis = []
     for em, th, en, href, n, uth, uen in rows:
@@ -16121,8 +16121,8 @@ def care_shelf_html():
     return (
         f'<section class="caresec" data-reveal aria-labelledby="h-care">'
         f'<h2 class="sectiontitle" id="h-care">{bi("ดูแลตัวเอง", "Look after yourself")}</h2>'
-        + mark("ⓘ", "อ่านจากประกาศของสถานพยาบาลเอง พร้อมวันที่กำกับ — ไม่ใช่คำแนะนำทางการแพทย์",
-               "read from providers' own notices, dated — not medical advice", "carenote")
+        + mark("ⓘ", "อ่านจากประกาศของสถานพยาบาลเอง พร้อมวันที่กำกับ",
+               "read from providers' own notices, dated", "carenote")
         + f'<ul class="careshelf">{"".join(lis)}</ul></section>')
 
 
@@ -19108,13 +19108,13 @@ def build():
         f"({broke_pct}%). Another {n_social:,} links filed as “website” are really social pages.")
     reach_body_th = (
         "นี่ไม่ใช่การว่าใคร — เป็นเรื่องปกติของเว็บบ้านเรา ร้านทำเว็บไว้เมื่อสิบปีก่อน แล้วชีวิตจริงย้ายไปอยู่ไลน์กับเฟซบุ๊ก "
-        "โดเมนหมดอายุอย่างเงียบ ๆ คนที่ตามลิงก์ไปก็เจอหน้าว่างหรือคำเตือนความปลอดภัย "
+        "โดเมนหมดอายุอย่างเงียบ ๆ คนที่ตามลิงก์ไปก็เจอหน้าว่างหรือคำเตือนความปลอดภัย "  # stylecheck: allow — describes a browser's security page
         "มดแดงจึงทำสองอย่าง: เรียงช่องทางที่ติดต่อติดจริงไว้บนสุดของทุกหน้า "
         "และเก็บเว็บที่ปิดไปแล้วไว้เป็นฉบับเก็บถาวรแทนการส่งคนไปชนหน้าเสีย")
     reach_body_en = (
         "This is not a complaint about anyone's webmaster. It is the ordinary shape of the web here: a shop "
         "built a site a decade ago, the real conversation moved to LINE and Facebook, and the domain lapsed "
-        "quietly. Anyone following the old link meets a blank page or a security warning. So Mot Dang does two "
+        "quietly. Anyone following the old link meets a blank page or a security warning. So Mot Dang does two "  # stylecheck: allow — describes a browser's security page
         "things: it puts the channels that actually answer at the top of every place page, and when a site has "
         "stopped answering it keeps an archived copy instead of sending you into the wall.")
     reach_record_th = (
@@ -21837,5 +21837,5 @@ if __name__ == "__main__":
     build()
     if _UNKNOWN_CATS:
         for keys, ids in sorted(_UNKNOWN_CATS.items()):
-            print(f"WARN: {len(ids)} record(s) carry cat {list(keys)} which categories.json "
+            print(f"WARN: {len(ids)} record(s) carry cat {list(keys)} which categories.json "  # stylecheck: allow — console output
                   f"does not hold — shelf link skipped. e.g. {ids[0]}")

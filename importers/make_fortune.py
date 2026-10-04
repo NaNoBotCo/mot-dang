@@ -174,7 +174,7 @@ WUXING_REL = {
     "i_generate": ("เราส่งเสริมเขา ให้ออกไป", "you nourish it — a day of giving out"),
     "generates_me": ("เขาส่งเสริมเรา มีคนหนุน", "it nourishes you — support arrives"),
     "i_overcome": ("เราชนะเขา คุมสถานการณ์ได้", "you overcome it — the day yields to you"),
-    "overcomes_me": ("เขาชนะเรา ควรถ่อมและระวัง", "it overcomes you — go gently and watch your step"),
+    "overcomes_me": ("เขาชนะเรา ควรถ่อมและระวัง", "it overcomes you — go gently and watch your step"),  # stylecheck: allow — a fortune reading, the divination genre
 }
 
 

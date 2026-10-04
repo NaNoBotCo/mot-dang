@@ -75,7 +75,7 @@
    "th": "ชมรม-สโมสร",
    "en": "club",
    "gloss_th": "ชมรม สโมสร กลุ่มที่นัดพบกัน",
-   "gloss_en": "a club, society or group that meets — you join it, you do not buy from it"
+   "gloss_en": "a club, society or group that meets — joined, not bought from"
   },
   "sacred": {
    "th": "ที่ศักดิ์สิทธิ์",
@@ -548,7 +548,7 @@
     "photo"
    ],
    "say_th": "เก็บอะไรไว้ ใครเข้าใช้ได้ ต้องนัดไหม อยู่ในสังกัดใคร",
-   "say_en": "what it holds, who may use it, whether you must ask first, whose body it stands under"
+   "say_en": "what it holds, who may use it, whether an appointment is needed, whose body it stands under"
   },
   "congregation": {
    "fields": [

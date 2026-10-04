@@ -481,8 +481,8 @@
    ],
    "facts": [
     [
-     "โรงพยาบาลบอกเอง ไม่ใช่คำแนะนำทางการแพทย์",
-     "each hospital speaks for itself — not medical advice"
+     "โรงพยาบาลบอกเอง",
+     "each hospital speaks for itself"
     ],
     [
      "ที่ไหนไม่ได้เขียนไว้ = เงียบ ไม่ได้แปลว่าไม่มี",
@@ -649,7 +649,7 @@
      "href": "adhd.html",
      "main": true,
      "label": [
-      "หน้าสมาธิสั้น — บัญชียา การพกเข้าประเทศ และคำที่ต้องถาม",
+      "หน้าสมาธิสั้น — บัญชียา การพกเข้าประเทศ และคำที่ใช้ถาม",
       "the ADHD page — the schedules, bringing your own, and the questions to ask"
      ]
     },
@@ -999,7 +999,7 @@
     "Real estate & places to live"
    ],
    "lead": [
-    "คอนโด อพาร์ตเมนต์-แมนชั่น-คอร์ท และหอพัก ของเชียงใหม่-เชียงราย — แยกชั้นตามคำบนป้ายของตึกเอง พร้อมคำที่ต้องถามก่อนวางมัดจำ: ค่าไฟหน่วยละ มัดจำกี่เดือน สัญญาขั้นต่ำ",
+    "คอนโด อพาร์ตเมนต์-แมนชั่น-คอร์ท และหอพัก ของเชียงใหม่-เชียงราย — แยกชั้นตามคำบนป้ายของตึกเอง พร้อมคำที่ใช้ถามก่อนวางมัดจำ: ค่าไฟหน่วยละ มัดจำกี่เดือน สัญญาขั้นต่ำ",
     "The condominium, apartment-mansion-court and dormitory shelves of Chiang Mai and Chiang Rai — shelved by what each building's own sign says, with the words to ask before the deposit: the per-unit electric rate, the deposit, the minimum contract."
    ],
    "facts": [
@@ -1022,7 +1022,7 @@
      "href": "realestate.html",
      "main": true,
      "label": [
-      "คำที่ต้องถาม-ทะเบียนตึก",
+      "คำศัพท์-ทะเบียนตึก",
       "the words & the register"
      ]
     },
@@ -1132,10 +1132,6 @@
    ],
    "facts": [
     [
-     "ไม่ใช่คำแนะนำทางการแพทย์",
-     "not medical advice"
-    ],
-    [
      "ที่ไหนไม่ได้พูด = เงียบ ไม่ได้แปลว่าไม่มี",
      "where a place says nothing, that is silence — never a 'no'"
     ]
@@ -1224,10 +1220,6 @@
     [
      "นักกิจกรรมบำบัดเป็นผู้ประกอบโรคศิลปะ — ตรวจชื่อได้ที่ทะเบียนของ สบส.",
      "an OT here holds a Healing Arts licence — the name-check is a public register"
-    ],
-    [
-     "ไม่ใช่คำแนะนำทางการแพทย์",
-     "not medical advice"
     ]
    ],
    "doors": [
@@ -1664,10 +1656,6 @@
     [
      "ชั่วโมงแรกสำคัญที่สุด — โทร 1669 ฟรี ตลอด 24 ชั่วโมง ปลายทางต้องเป็นโรงพยาบาล ไม่ใช่คลินิก",
      "the first hour matters most — 1669 is free at any hour, and the destination must be a hospital, not a clinic"
-    ],
-    [
-     "ไม่ใช่คำแนะนำทางการแพทย์",
-     "not medical advice"
     ]
    ],
    "doors": [
@@ -1695,8 +1683,8 @@
     }
    ],
    "delight": [
-    "ระบบไทยมีคำและงบสำหรับหกเดือนแรกหลังสโตรกโดยเฉพาะ เรียกว่า ระยะกลาง — ถามโรงพยาบาลด้วยคำนี้",
-    "The Thai system has a name and a budget for the first six months after a stroke — ระยะกลาง, the intermediate phase. Ask the hospital using that word."
+    "ระบบไทยมีคำและงบสำหรับหกเดือนแรกหลังสโตรกโดยเฉพาะ เรียกว่า ระยะกลาง",
+    "The Thai system has a name and a budget for the first six months after a stroke — ระยะกลาง, the intermediate phase."
    ]
   },
   {
@@ -1832,8 +1820,8 @@
    ],
    "facts": [
     [
-     "ราคาไม่มีใครประกาศ ต้องถามหน้าร้านพร้อมของ",
-     "nobody publishes prices; you ask at the counter with the thing in hand"
+     "ราคาไม่มีใครประกาศ ราคาให้กันหน้าร้านเมื่อเห็นของ",
+     "nobody publishes prices; the price comes at the counter, with the thing in hand"
     ],
     [
      "ล้างแอร์ใช้คำว่า ล้าง ไม่ใช่ ซ่อม",
@@ -2137,8 +2125,8 @@
      "an optician measures for glasses; that is not a diagnosis"
     ],
     [
-     "ราคาที่ไม่ได้อ่านจะไม่พิมพ์ ไม่ใช่คำแนะนำทางการแพทย์",
-     "a price not read is not printed; not medical advice"
+     "ราคาที่ไม่ได้อ่านจะไม่พิมพ์",
+     "a price not read is not printed"
     ]
    ],
    "doors": [
@@ -2159,8 +2147,8 @@
     }
    ],
    "delight": [
-    "ต้อ คำเดียวคือโรคสี่โรค: ต้อกระจก ต้อหิน ต้อเนื้อ ต้อลม — ถามด้วยคำเต็มเสมอ",
-    "One word ต้อ covers four different diseases — cataract, glaucoma, pterygium, pinguecula. Always ask with the whole word."
+    "ต้อ คำเดียวคือโรคสี่โรค: ต้อกระจก ต้อหิน ต้อเนื้อ ต้อลม",
+    "One word ต้อ covers four different diseases — cataract, glaucoma, pterygium, pinguecula."
    ]
   },
   {
@@ -2208,10 +2196,6 @@
     [
      "สายด่วนสุขภาพจิต 1323 ฟรี ตลอด 24 ชั่วโมง",
      "the national mental-health line is 1323, free, around the clock"
-    ],
-    [
-     "ไม่ใช่คำแนะนำทางการแพทย์",
-     "not medical advice"
     ]
    ],
    "doors": [
@@ -2286,10 +2270,6 @@
     [
      "นักแก้ไขการพูดเป็นผู้ประกอบโรคศิลปะ — ตรวจชื่อได้ในทะเบียน",
      "a speech therapist here holds a Healing Arts licence — the name-check is public"
-    ],
-    [
-     "ไม่ใช่คำแนะนำทางการแพทย์",
-     "not medical advice"
     ]
    ],
    "doors": [
@@ -2360,10 +2340,6 @@
     [
      "ทุกแถวบอกว่าใครพูด: สถานที่เอง สารบัญ หรือประตูที่ใช้ประจำ",
      "every row names who is speaking: the place, a directory, or the usual door"
-    ],
-    [
-     "ไม่ใช่คำแนะนำทางการแพทย์",
-     "not medical advice"
     ]
    ],
    "doors": [
@@ -2622,7 +2598,7 @@
     "Souvenirs that travel well"
    ],
    "lead": [
-    "สถานะคุ้มครองของสัตว์และพืชไทยสำหรับนักเดินทาง — ของฝากชิ้นไหนขึ้นเครื่องได้ ชิ้นไหนต้องมีเอกสาร และชิ้นไหนไม่มีทางพาไป พร้อมเครื่องมือตรวจชนิดกับบัญชีไซเตสเอง และคำที่ควรถามก่อนจ่าย",
+    "สถานะคุ้มครองของสัตว์และพืชไทยสำหรับนักเดินทาง — ของฝากชิ้นไหนขึ้นเครื่องได้ ชิ้นไหนต้องมีเอกสาร และชิ้นไหนไม่มีทางพาไป พร้อมเครื่องมือตรวจชนิดกับบัญชีไซเตสเอง และคำที่ใช้ถามก่อนจ่าย",
     "The protection status of Thailand's animals and plants, for travellers: which souvenirs board the plane, which travel on papers, and which have no path at all — with the CITES checklist to verify any species yourself, and the questions to ask before paying."
    ],
    "facts": [
@@ -2640,7 +2616,7 @@
      "href": "souvenir.html",
      "main": true,
      "label": [
-      "หน้าของฝาก — สถานะของแต่ละอย่าง เอกสาร และคำที่ควรถาม",
+      "หน้าของฝาก — สถานะของแต่ละอย่าง เอกสาร และคำที่ใช้ถาม",
       "the souvenirs page — where each thing stands, the papers, the questions to ask"
      ]
     },

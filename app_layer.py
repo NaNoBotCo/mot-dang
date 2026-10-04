@@ -144,10 +144,10 @@ def emit(g, data):
     "The street-and-building map covers the Chiang Mai core (the moat plus 2 km) and "
     "the Chiang Rai core (clock tower down to Central). The 🏙️ button switches cities.")}
 <br><br>
-{bi("ข้อต่างที่ควรรู้: ในเชียงรายยังไม่มีใครปักหมุดห้องน้ำไว้ในแผนที่เปิดเลยสักแห่ง "
+{bi("ข้อต่างข้อหนึ่ง: ในเชียงรายยังไม่มีใครปักหมุดห้องน้ำไว้ในแผนที่เปิดเลยสักแห่ง "
     "สิ่งที่แอปแสดงที่นั่นจึงเป็นชั้นของที่พึ่งตามประเภทสถานที่ทั้งหมด "
     "ใครไปยืนหน้าประตูจริงแล้วกดบอกสักคำ คือคนที่เปลี่ยนเรื่องนี้ได้",
-    "One difference worth knowing: nobody has yet mapped a single toilet point in "
+    "One difference: nobody has yet mapped a single toilet point in "
     "Chiang Rai in OpenStreetMap, so everything the app shows there is class habit. "
     "The person who stands at the real door and taps one word is the one who changes that.")}
 </div>

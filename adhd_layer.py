@@ -112,9 +112,9 @@ CSS = """
 # and a register link has to be one. It is named in the leads instead.
 REGISTERS = [
     ("ยาของฉันจัดอยู่ในประเภทไหน — ตรวจเองได้",
-     "Which class is my own medicine in? Check it yourself",
+     "Which class is my own medicine in? — a self-check",
      "อย. — ตรวจสอบยาสำหรับผู้เดินทาง",
-     "Thai FDA — Check the Drug (for travellers)",
+     "Thai FDA — Check the Drug (for travellers)",  # stylecheck: allow — the FDA tool's own name
      "https://permitfortraveler.fda.moph.go.th/nct_permit_main/Main/FRM_checkdrug_index",
      "ค้นด้วยชื่อสามัญทางยา แล้วบอกเลยว่าเป็นยาเสพติดให้โทษ วัตถุออกฤทธิ์ หรือยาธรรมดา และนำเข้าได้หรือไม่",
      "Type the generic name and it returns the class and whether it may be "
@@ -357,8 +357,8 @@ def emit(g, data):
     tv = reg.get("travel") or {}
     tool = (
         '<div class="ad-tool"><span class="ask">'
-        + bi("ตรวจยาของตัวเองกับ อย. โดยตรง",
-             "Check your own medicine against the authority itself")
+        + bi("เครื่องมือตรวจยาของ อย. เอง",
+             "The authority's own medicine checker")
         + "</span>"
         + "<p>" + bi(
             "อย. มีเครื่องมือออนไลน์ที่บอกได้ว่ายาที่คุณกินอยู่จัดเป็นประเภทไหน และพกเข้าประเทศไทยได้หรือไม่ — "
@@ -438,7 +438,7 @@ def emit(g, data):
         + '<p class="ad-lead">' + bi(
             "สามเรื่องที่มักถูกรวบเป็นเรื่องเดียว: ยาตัวไหนอยู่ในบัญชีอะไร (แน่นอน ตรวจได้) · "
             "ระบบสาธารณสุขมีรูปแบบยาอะไรจริง ๆ (จำกัดกว่าที่คิด) · "
-            "และเคาน์เตอร์ตรงหน้าจะทำอะไรให้ (เปลี่ยนไปตามที่ ตามวัน — จึงเป็นคำถามที่ต้องถาม ไม่ใช่กฎที่ท่องได้) "
+            "และเคาน์เตอร์ตรงหน้าจะทำอะไรให้ (เปลี่ยนไปตามที่ ตามวัน — เป็นคำถาม ไม่ใช่กฎที่ท่องได้) "
             "เมื่อรวบสามเรื่องนี้เป็นเรื่องเดียว คนจะสรุปว่าไม่มีช่องทางเลย ทั้งที่มี",
             "Three things get folded into one rumour. Which list a molecule sits in — "
             "settled, and checkable. What the health system actually stocks — narrower "
@@ -450,11 +450,9 @@ def emit(g, data):
 
         + "<h2>" + bi("ยาของคุณอยู่ในบัญชีไหน", "Which list your medicine is on") + "</h2>"
         + '<p class="ad-note">' + bi(
-            "ตารางนี้บอกสถานะทางกฎหมายของตัวยา ซึ่งเป็นเรื่องของการนำเข้าและการหาซื้อ "
-            "ไม่ใช่คำแนะนำว่าใครควรกินอะไร และไม่มีขนาดยาอยู่ในหน้านี้เลย",
+            "ตารางนี้บอกสถานะทางกฎหมายของตัวยา ซึ่งเป็นเรื่องของการนำเข้าและการหาซื้อ",
             "This table gives the legal status of a substance, which is a question about "
-            "import and supply. It is not a recommendation about what anyone should take, "
-            "and there is no dose anywhere on this page.")
+            "import and supply.")
         + "</p>"
         + '<ul class="ad-mol">' + "".join(mol_rows) + "</ul>"
         + tool
@@ -463,7 +461,7 @@ def emit(g, data):
             "ความต่างระหว่างสองบรรทัดแรกคือเหตุผลที่หน้านี้มีอยู่ "
             "ยากลุ่มแอมเฟตามีนที่หมอที่บ้านสั่งให้ทุกวัน อยู่ในบัญชีเดียวกับยาบ้าในสายตากฎหมายไทย "
             "ขณะที่ยาบ้าเป็นของที่หาได้ง่ายและถูกกว่าในตลาดมืด "
-            "ช่องทางที่ถูกกฎหมายจึงแคบกว่าที่คนคาด และช่องทางที่ผิดกฎหมายกว้างกว่าที่ควร "
+            "ช่องทางที่ถูกกฎหมายจึงแคบกว่าที่คนคาด และช่องทางที่ผิดกฎหมายกว้างกว่ามาก "
             "ความไม่สมดุลนี้คือสิ่งที่หน้านี้พยายามแก้ด้วยข้อมูล — รู้ว่าทางที่ถูกกฎหมายอยู่ตรงไหน มีค่ามาก",
             "The distance between the first two rows is the reason this page exists. The "
             "amphetamine-family medicine a doctor at home prescribes as a matter of routine "
@@ -525,7 +523,7 @@ def emit(g, data):
             "And because it is a category-2 psychotropic, the law reserves import and sale "
             "to the Ministry of Public Health or a party it authorises. That is the "
             "structural reason this lives in a hospital rather than at the pharmacy on the "
-            "corner — not a shopkeeper's caution, a schedule.")
+            "corner — a schedule, not a shopkeeper's choice.")
         + "</p>"
 
         + sec("ที่ที่พูดถึงสมาธิสั้นไว้เอง", "Places that name ADHD themselves",
@@ -551,7 +549,7 @@ def emit(g, data):
               "Mot Dang prints the attempt rather than a guess.",
               sections["unread"])
 
-        + "<h2>" + bi("คำที่ควรถามที่เคาน์เตอร์", "The questions to ask at the desk") + "</h2>"
+        + "<h2>" + bi("คำถามที่เคาน์เตอร์", "The questions to ask at the desk") + "</h2>"
         + '<p class="ad-note">' + bi(
             "เพราะเคาน์เตอร์คือส่วนที่เปลี่ยนได้ เราจึงให้คำถาม ไม่ใช่คำตอบที่ท่องมา",
             "Because the desk is the part that varies, what follows is questions rather "
@@ -600,17 +598,14 @@ def emit(g, data):
         + '<p class="ad-note">' + zero_note + "</p>"
 
         + '<p class="ad-note">' + bi(
-            "มดแดงเป็นสารบัญของสถานที่ ไม่ใช่คำแนะนำทางการแพทย์ ไม่ใช่การส่งต่อคนไข้ และไม่ใช่การรับรองคุณภาพ "
-            "ไม่ระบุขนาดยา "
+            "มดแดงเป็นสารบัญของสถานที่ "
             "ข้อมูลสถานพยาบาลบางส่วนมาจาก OpenStreetMap (ODbL 1.0) และจากหน้าเว็บของแต่ละที่ตามวันที่ที่ระบุ "
-            "กฎหมายและรายการยาเปลี่ยนได้ — ตรวจกับต้นทางที่ลิงก์ไว้เสมอ "
-            "เห็นอะไรที่เปลี่ยนไปหรือควรเพิ่ม บอกมดได้ที่หน้าเสนอแนะ",
-            "Mot Dang is a directory of places. It is not medical advice, not a referral, "
-            "and not a quality guarantee. This page holds no view on what anyone should "
-            "take, names no dose, and recommends no brand and no doctor. Some facility data "
+            "กฎหมายและรายการยาเปลี่ยนได้ "
+            "เห็นอะไรที่เปลี่ยนไปหรืออยากให้เพิ่ม บอกมดได้ที่หน้าเสนอแนะ",
+            "Mot Dang is a directory of places. Some facility data "
             "is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors, and "
             "from each place's own pages on the dates shown. Schedules and medicine lists "
-            "change — always check against the linked source. If something here has changed "
+            "change. If something here has changed "
             "or is missing, tell the ants via the suggestion page.")
         + "</p>"
         + share_block(BASE + "adhd.html", "สมาธิสั้น เชียงใหม่ · มดแดง", card=og))

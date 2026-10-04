@@ -164,7 +164,7 @@ def question_page(g, entry, data):
     stem = f"asked-{key}"
     og = f"og/{stem}.png" if stem in g["OG_FILES"] else None
     body = (
-        f'<h1>❓ {bi("ถามมด", "Ask the ants")}</h1>'
+        f'<h1>❓ {bi("ถามมด", "Ask the ants")}</h1>'  # stylecheck: allow — a page name
         f'<div class="qagrid">{card_html(g, entry, data, depth=1, heading_link=False)}</div>'
         f'<p class="tinynote"><a href="../asked.html">{bi("คำถามอื่นที่คนถามมด", "Other questions people asked the ants")}</a> · '
         f'<a href="../lists/index.html">{bi("รายชื่อครบทั้งหมวด", "Complete lists")}</a> · '
@@ -176,7 +176,7 @@ def question_page(g, entry, data):
         extra_head='<link rel="stylesheet" href="../answers.css">',
         desc=f'{entry["q"]["th"]} · {entry["q"]["en"]} — คำตอบเท่าที่มดแดงมี',
         og=og,
-        crumbs=(f'<a href="../index.html">มดแดง</a> › <a href="../asked.html">{bi("ถามมด", "Ask the ants")}</a> › '
+        crumbs=(f'<a href="../index.html">มดแดง</a> › <a href="../asked.html">{bi("ถามมด", "Ask the ants")}</a> › '  # stylecheck: allow — a page name
                 + bi(entry["q"]["th"], entry["q"]["en"])))
 
 
@@ -196,9 +196,9 @@ def asked_page(g, data, entries):
     ask = g["tell_url"]("question", prefill=("ถาม / Question: \n"
                                             "อ่านเจอที่ (ถ้ามี) / where you saw it asked (optional): "))
     body = (
-        f'<h1>❓ {bi("ถามมด", "Ask the ants")}</h1>'
+        f'<h1>❓ {bi("ถามมด", "Ask the ants")}</h1>'  # stylecheck: allow — a page name
         f'<p>{bi(intro_th, intro_en)}</p>'
-        f'<p class="myhint">❓ <a href="{ask}">{bi("มีคำถามที่ยังไม่มีในนี้? ถามมด", "Have a question that is not here? Ask the ants")}</a> — '
+        f'<p class="myhint">❓ <a href="{ask}">{bi("มีคำถามที่ยังไม่มีในนี้? ถามมด", "Have a question that is not here? Ask the ants")}</a> — '  # stylecheck: allow — a link label
         f'{bi("หาอะไรอยู่แล้วหาไม่เจอ พิมพ์มาได้เลย มดจะไปหาให้แล้วเอามาตอบไว้ตรงนี้", "Looking for something you cannot find? Type it in; the ants go and look, and the answer lands on this page.")}</p>'
         f'<div class="qagrid">{cards}</div>'
         f'<p class="tinynote">{bi("ที่มา: ข้อมูลเปิด OpenStreetMap การเดินเก็บจริง และการตรวจสอบเว็บของแต่ละแห่งเอง (มีลิงก์ที่มาในข้อมูลแต่ละรายการ) ปรับปรุง", "From OpenStreetMap, field surveys, and a direct check of each business website where noted (source linked per record) · updated")} '
@@ -213,7 +213,7 @@ def asked_page(g, data, entries):
         extra_head='<link rel="stylesheet" href="answers.css">',
         desc=f"{desc} — คำถามจริงที่คนถามมดแดง คำตอบเท่าที่มี "
              "และช่องว่างที่ยังไม่มี · Real questions, the answers we hold, and the gaps.",
-        crumbs='<a href="index.html">มดแดง</a> › ' + bi("ถามมด", "Ask the ants"))
+        crumbs='<a href="index.html">มดแดง</a> › ' + bi("ถามมด", "Ask the ants"))  # stylecheck: allow — a page name
 
 
 def emit(g, data):

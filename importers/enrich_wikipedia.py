@@ -189,7 +189,7 @@ def wikidata_sitelinks(qid):
 
 
 def wiki_targets(r):
-    """[(lang, title)] this record itself points at. Never a guess from the name."""
+    """[(lang, title)] this record itself points at. Never a guess from the name."""  # stylecheck: allow — code docstring
     a = r.get("attrs") or {}
     out = []
     for lang, title in sorted(wikidata_sitelinks(a.get("wikidata") or "").items()):

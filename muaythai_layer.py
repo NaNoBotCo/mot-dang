@@ -348,8 +348,8 @@ def emit(g, data):
     card("ไหว้ครูรำมวย", "Wai khru ram muay",
          bi("ก่อนชกทุกคู่ นักมวยจะไหว้ครู (wâi khruu): เดินวนเวที แตะเชือกมุมทั้งสี่ แล้วรำท่าประจำค่ายของตัวเองช้า ๆ มีเสียงปี่กลองคลอ ใช้เวลาสองสามนาที เป็นการไหว้ครูผู้สอน ไหว้พ่อแม่ และประกาศว่าเวทีนี้เป็นของเรา คนดูท้องถิ่นอ่านออกจากท่ารำว่านักมวยมาจากค่ายไหน",
             "Before every bout each fighter performs the wai khru (ไหว้ครู, wâi khruu): a slow walk round the ring, a touch on the top rope at each corner, then the ram muay (รำมวย), the dance of their own camp, with the pipe and drums under it. Two or three minutes. It salutes the teacher and the parents and declares the ring theirs; a local crowd reads which camp a fighter comes from by the dance alone."),
-         bi("การชกยังไม่เริ่มจนกว่าท่านี้จะจบ — อย่าเพิ่งลุกไปซื้อเบียร์ตอนนี้",
-            "The fight has not begun until the dance ends — this is not the moment to go for a beer."))
+         bi("การชกยังไม่เริ่มจนกว่าท่านี้จะจบ",
+            "The fight has not begun until the dance ends."))
     card("มงคล · ประเจียด", "Mongkhon and prajiad",
          bi("มงคล (mong-khon) คือเชือกถักวงกลมที่สวมหัวเข้ามาในเวที เป็นของค่าย ไม่ใช่ของนักมวยคนใดคนหนึ่ง ครูเป็นคนสวมและถอดให้ก่อนยกแรก ประเจียด (prà-jìat) คือผ้ารัดต้นแขน มักมีคาถาหรือยันต์พับอยู่ข้างใน สวมไว้ตลอดการชก",
             "The mongkhon (มงคล, mong-khon) is the braided circlet worn into the ring: it belongs to the camp, not to any one fighter, and the trainer puts it on and takes it off before round one. The prajiad (ประเจียด, prà-jìat) are the armbands, often with a katha or a folded yant inside, worn through the fight."),
@@ -414,7 +414,7 @@ def emit(g, data):
                   + "</p></div>")
 
     # ---- assemble ---------------------------------------------------------
-    intro = bi("หน้านี้มีสามอย่าง: กระดานคืนชกของทุกสนามในเมือง (สนามบอกเอง มดจดไว้พร้อมที่มา) ชั้นค่ายมวยและยิมที่ฝึกได้ และเรื่องที่ควรรู้ก่อนเสียงปี่ดัง — เขียนจากที่นั่งคนดู ไม่ได้จัดอันดับว่าสนามไหนแท้กว่ากัน เวทีก็คือเวที",
+    intro = bi("หน้านี้มีสามอย่าง: กระดานคืนชกของทุกสนามในเมือง (สนามบอกเอง มดจดไว้พร้อมที่มา) ชั้นค่ายมวยและยิมที่ฝึกได้ และเรื่องน่ารู้ก่อนเสียงปี่ดัง — เขียนจากที่นั่งคนดู ไม่ได้จัดอันดับว่าสนามไหนแท้กว่ากัน เวทีก็คือเวที",
                "Three things on one page: the weekly fight board for every stadium in town (each stadium states its own nights; the ants write them down with the source), the shelf of camps and gyms where you can train, and what to know before the pipes start — written from the seat, with no ranking of stadiums into real and otherwise. A ring is a ring.")
     ld = {
         "@context": "https://schema.org", "@type": "ItemList",
@@ -452,7 +452,7 @@ def emit(g, data):
     (DOCS / "muaythai.html").write_text(page(
         "มวยไทย — ดูมวยคืนนี้ เชียงใหม่ · Muay Thai in Chiang Mai — tonight's fights",
         body, depth=0, path="muaythai.html",
-        desc="กระดานคืนชกมวยไทยทุกสนามในเชียงใหม่ ราคาตั๋ว ค่ายมวย-ยิมที่ฝึกได้ และเรื่องที่ควรรู้ก่อนเข้าสนาม · Muay Thai in Chiang Mai: tonight's fight board, ticket prices, camps and gyms, and what to know before the pipes start",
+        desc="กระดานคืนชกมวยไทยทุกสนามในเชียงใหม่ ราคาตั๋ว ค่ายมวย-ยิมที่ฝึกได้ และเรื่องน่ารู้ก่อนเข้าสนาม · Muay Thai in Chiang Mai: tonight's fight board, ticket prices, camps and gyms, and what to know before the pipes start",
         extra_head=head, og=og,
         crumbs=f'<a href="index.html">{bi("หน้าแรก", "Home")}</a> › {bi("มวยไทย", "Muay Thai")}'))
     stated = sum(1 for v in venues if v.get("days"))

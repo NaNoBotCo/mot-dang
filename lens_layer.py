@@ -289,7 +289,7 @@ def emit(g, data, lens):
         + (f'<p class="ln-note">{census}</p>' if census else "")
         + "".join(section_html)
         + reg_html + gloss_html + unread_html
-        + f'<p class="ln-note">{bi("มดแดงเป็นสารบัญของสถานที่ ไม่ใช่คำแนะนำทางการแพทย์ ไม่ใช่การส่งต่อคนไข้ และไม่ใช่การรับรองคุณภาพ ข้อมูลบางส่วนมาจาก OpenStreetMap (ODbL 1.0)", "Mot Dang is a directory of places. It is not medical advice, not a referral, and not a quality guarantee. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors.")}</p>'
+        + f'<p class="ln-note">{bi("มดแดงเป็นสารบัญของสถานที่ ข้อมูลบางส่วนมาจาก OpenStreetMap (ODbL 1.0)", "Mot Dang is a directory of places. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors.")}</p>'
         + (f'<p class="ln-note">{links}</p>' if links else "")
         + share_block(BASE + f"{key}.html", f'{lens["title"][0]} · มดแดง', card=og))
 

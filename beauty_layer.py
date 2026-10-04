@@ -93,7 +93,7 @@ WORDS = [
     ("บาร์เบอร์", "baboe", "baa-bêu", "barber", "English, borrowed whole",
      "On 46 signs here. A shop using this word is usually clippers, a razor and a mirror."),
     ("ตัดเฟด", "tat fet", "tàt fèet", "fade", "English fade, borrowed",
-     "Ask for สกินเฟด sa-kin-fèet if you want it to skin."),
+     "สกินเฟด sa-kin-fèet takes it to the skin."),
     ("โกนหนวด", "kon nuat", "koon nùat", "shave (the moustache/beard)", "โกน to shave",
      "โกนหน้า koon nâa is a face shave — the hot towel and the folding razor."),
     ("กันขอบ", "kan khop", "gan khɔ̀ɔp", "line up / edge up", "กัน to fence off + ขอบ edge",
@@ -147,11 +147,11 @@ SAYINGS = [
     ("ที่นี่ดัดดิจิตอลได้ไหม ใช้เวลากี่ชั่วโมง",
      "thîi-nîi dàt dì-jì-tôn dâi mǎi · chái wee-laa gìi chûa-moong",
      "Do you do digital perms here? How many hours does it take?",
-     "Three to four hours is normal. Ask before you sit down, not after."),
+     "Three to four hours is normal."),
     ("ช่างไปทำถึงที่พักได้ไหม ค่าเดินทางเท่าไร",
      "châang bpai tham thʉ̌ng thîi-phák dâi mǎi · khâa dəən-thaang thâo-rài",
      "Can the stylist come to where I'm staying? What's the travel charge?",
-     "Many Thai stylists will; almost none advertise it. You have to ask."),
+     "Many Thai stylists will; almost none advertise it."),
     ("มีป้ายราคาไหมคะ / ครับ",
      "mii bpâai raa-khaa mǎi ká / kráp",
      "Is there a price list?",
@@ -421,8 +421,8 @@ def emit(g, data):
         + listing(exts)
 
         + h2("ร้านบอกเองว่าตัดให้ใคร", "Who the shops state they cut for", len(stated))
-        + note("สามป้ายเดียวที่ OpenStreetMap รู้เรื่องร้านผม — male, female, unisex — และการนำเข้าเคยทิ้งทั้งสามไปทุกครั้ง ตอนนี้ขึ้นเป็นป้ายบนหน้าร้าน ร้านที่ตอบไปแล้วไม่ควรถูกถามซ้ำหน้าร้าน",
-               "The only three things OpenStreetMap knows about a hair shop — male, female, unisex — and the import threw all three away on every run until now. They are facet marks on the shop’s own page now: a shop that has already answered should not be asked again in person.")
+        + note("สามป้ายเดียวที่ OpenStreetMap รู้เรื่องร้านผม — male, female, unisex — และการนำเข้าเคยทิ้งทั้งสามไปทุกครั้ง ตอนนี้ขึ้นเป็นป้ายบนหน้าร้าน ร้านที่ตอบไปแล้วมีคำตอบอยู่ที่นี่",
+               "The only three things OpenStreetMap knows about a hair shop — male, female, unisex — and the import threw all three away on every run until now. They are facet marks on the shop’s own page now: a shop that has already answered has its answer here.")
         + listing(stated)
 
         + h2("ทะเบียนบริการ — ร้านบอกเอง", "The register — what each shop states")

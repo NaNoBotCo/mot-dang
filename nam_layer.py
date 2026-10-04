@@ -102,7 +102,7 @@ def station_row(g, st, city=False):
            f'<span class="nm-bar"><i style="width:{min(p, 100):.1f}%;'
            f'background:{band_colour(p)}"></i></span>')
     lim = ("" if not st.get("limit") else
-           f'<span class="nm-lim">{bi("ระดับเตือนภัยของสถานี", "the station’s own limit")} '
+           f'<span class="nm-lim">{bi("ระดับเตือนภัยของสถานี", "the station’s own limit")} '  # stylecheck: allow — the official term for a station's alert level
            f'<b>{st["limit"]:.2f} m</b></span>')
     return (f'<div class="nm-st{" city" if city else ""}">'
             f'<div class="nm-head"><span class="nm-id">{esc(st["id"])}</span>'
@@ -139,7 +139,7 @@ def emit(g, data):
         head = (
             f'<div class="nm-city" style="--band:{band_colour(p)}">'
             f'<span class="nm-cnum">{city["level"]:.2f}<small> m</small></span>'
-            f'<span class="nm-cof">{bi("จากระดับเตือนภัย", "of the alert level")} '
+            f'<span class="nm-cof">{bi("จากระดับเตือนภัย", "of the alert level")} '  # stylecheck: allow — the official term for a station's alert level
             f'<b>{city["limit"]:.2f} m</b> '
             f'({p:.0f}%)</span>'
             f'<span class="nm-cwhen">{esc(city["id"])} {bi(city["th"], city["en"])} · '
@@ -164,7 +164,7 @@ def emit(g, data):
     body = (
         f'<h1>🌊 {bi("น้ำ — แม่น้ำปิง ตอนนี้", "Water — the Ping right now")}</h1>'
         f'<p class="lede">'
-        + bi("ระดับน้ำรายชั่วโมงจากสถานีของกรมชลประทาน พร้อมระดับเตือนภัยที่สถานีนั้นประกาศเอง "
+        + bi("ระดับน้ำรายชั่วโมงจากสถานีของกรมชลประทาน พร้อมระดับเตือนภัยที่สถานีนั้นประกาศเอง "  # stylecheck: allow — the official term for a station's alert level
              "เรียงตามลำน้ำจากต้นน้ำลงมาถึงในเมือง",
              "Hourly stage from the Irrigation Department's own gauges, each shown "
              "against the alert level that station itself publishes, in the order "
@@ -173,7 +173,7 @@ def emit(g, data):
         + head + lagline +
         f'<h2>{bi("ตามลำน้ำปิง", "Down the Ping")}</h2>'
         f'<p class="tinynote">'
-        + bi("บนลงล่างคือทิศทางที่น้ำไหล เส้นประแดงในกราฟคือระดับเตือนภัยของสถานีนั้น",
+        + bi("บนลงล่างคือทิศทางที่น้ำไหล เส้นประแดงในกราฟคือระดับเตือนภัยของสถานีนั้น",  # stylecheck: allow — the official term for a station's alert level
              "Top to bottom is the way the water goes. The dashed red line in each "
              "chart is that station's own alert level.")
         + '</p>'
@@ -185,11 +185,11 @@ def emit(g, data):
         + "".join(station_row(g, s) for s in tribs) + '</div>'
         f'<h2>{bi("มาตรวัด", "Gauge readings")}</h2>'
         f'<p class="nm-not">'
-        + bi("หน้านี้บอกว่ามาตรวัดอ่านได้เท่าไร ระดับเตือนภัยของแต่ละสถานีเป็นเท่าไร และหกชั่วโมงที่ผ่านมาขึ้นหรือลงเท่าไร "
-             "การเตือนภัยเป็นของกรมป้องกันและบรรเทาสาธารณภัยและเทศบาล — สายด่วน 1784",
+        + bi("หน้านี้บอกว่ามาตรวัดอ่านได้เท่าไร ระดับเตือนภัยของแต่ละสถานีเป็นเท่าไร และหกชั่วโมงที่ผ่านมาขึ้นหรือลงเท่าไร "  # stylecheck: allow — the official term for a station's alert level
+             "การเตือนภัยเป็นของกรมป้องกันและบรรเทาสาธารณภัยและเทศบาล — สายด่วน 1784",  # stylecheck: allow — names who issues flood warnings
              "This page says what the gauges read, what each station's own alert level "
              "is, and which way the last six hours went. It does not say when the river "
-             "crests, who should move what, or whose house floods. Warnings belong to "
+             "crests, who should move what, or whose house floods. Warnings belong to "  # stylecheck: allow — names who issues flood warnings
              "ปภ. and the municipality — the hotline is 1784.")
         + f' <a class="nm-sos" href="tel:1784">☎ 1784</a> '
         f'<a href="chuai.html">🆘 '
@@ -210,10 +210,10 @@ def emit(g, data):
         json.dumps(doc, ensure_ascii=False), encoding="utf-8")
 
     html = g["page"](
-        "น้ำ — ระดับน้ำแม่น้ำปิง สะพานนวรัฐ P.1 ตอนนี้ เทียบระดับเตือนภัย",
+        "น้ำ — ระดับน้ำแม่น้ำปิง สะพานนวรัฐ P.1 ตอนนี้ เทียบระดับเตือนภัย",  # stylecheck: allow — the official term for a station's alert level
         body, depth=0, path="nam.html",
         desc="ระดับน้ำแม่น้ำปิงรายชั่วโมงที่สะพานนวรัฐ (P.1) และสถานีต้นน้ำ "
-             "เทียบกับระดับเตือนภัยที่กรมชลประทานประกาศเอง · Hourly Ping River "
+             "เทียบกับระดับเตือนภัยที่กรมชลประทานประกาศเอง · Hourly Ping River "  # stylecheck: allow — the official term for a station's alert level
              "levels at Nawarat Bridge and upstream, against the Irrigation "
              "Department's own alert levels.",
         extra_head='<link rel="stylesheet" href="nam.css">',

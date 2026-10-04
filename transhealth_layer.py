@@ -112,9 +112,9 @@ REGISTERS = [
      "สมาคมศัลยแพทย์ตกแต่งแห่งประเทศไทย",
      "Society of Plastic and Reconstructive Surgeons of Thailand",
      "https://thprs.org",
-     "วุฒิบัตรศัลยศาสตร์ตกแต่ง คือใบที่ควรถามถึงก่อนการผ่าตัดยืนยันเพศทุกชนิด",
+     "วุฒิบัตรศัลยศาสตร์ตกแต่ง คือวุฒิที่อยู่เบื้องหลังการผ่าตัดยืนยันเพศทุกชนิด",
      "Board certification in plastic surgery (วุฒิบัตรศัลยศาสตร์ตกแต่ง) is the "
-     "credential to ask about before any gender-affirming operation."),
+     "credential behind any gender-affirming operation."),
     ("มาตรฐานการดูแลที่คลินิกอ้างถึง คืออะไร",
      "The standards of care a clinic cites — what are they?",
      "WPATH — Standards of Care (SOC-8)", "WPATH — Standards of Care (SOC-8)",
@@ -511,11 +511,10 @@ def emit(g, data):
         + "</p>" + gloss_html
         + '<p class="gx-note">' + zero_note + "</p>"
         + '<p class="gx-note">'
-        + bi("มดแดงเป็นสารบัญของสถานที่ ไม่ใช่คำแนะนำทางการแพทย์ ไม่ใช่การส่งต่อคนไข้ และไม่ใช่การรับรองคุณภาพ "
+        + bi("มดแดงเป็นสารบัญของสถานที่ "
              "ข้อมูลสถานพยาบาลบางส่วนมาจาก OpenStreetMap (ODbL 1.0) และจากหน้าเว็บของแต่ละที่ตามวันที่ที่ระบุ "
-             "เห็นอะไรที่เปลี่ยนไปหรือควรเพิ่ม — บอกมดได้ที่หน้าเสนอแนะ",
-             "Mot Dang is a directory of places. It is not medical advice, not a referral, and not a quality "
-             "guarantee. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap "
+             "เห็นอะไรที่เปลี่ยนไปหรืออยากให้เพิ่ม — บอกมดได้ที่หน้าเสนอแนะ",
+             "Mot Dang is a directory of places. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap "
              "contributors, and from each place's own pages on the dates shown. If something here has "
              "changed or is missing, tell the ants via the suggestion page.")
         + "</p>"

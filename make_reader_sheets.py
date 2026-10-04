@@ -199,7 +199,7 @@ STAMP = {
     "prices": (
         "ราคายังไม่ได้สำรวจจริง — ห้ามแจกจนกว่าจะเดินเก็บราคาก่อน",
         "DRAFT — PRICES NOT YET CHECKED. The baht bands on this sheet are a read of "
-        "the market, not walked data. Do not photocopy or hand out until someone has "
+        "the market, not walked data. Do not photocopy or hand out until someone has "  # stylecheck: allow — draft stamp until prices are walked
         "read rate boards on three streets.",
     ),
 }
@@ -445,7 +445,7 @@ def main():
     for s in wanted:
         qr = qr_data_uri(s["url"])
         if not qr:
-            print("warning: segno not installed — printing without the QR")
+            print("warning: segno not installed — printing without the QR")  # stylecheck: allow — console output
         stamped = bool(s.get("stamp")) and not verified.get(s["stamp"], False)
         html = sheet_html(s, qr, stamped)
         src = tmp / f"{s['key']}.html"

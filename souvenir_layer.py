@@ -98,7 +98,7 @@ CSS = """
 # not linked as registers.
 REGISTERS = [
     ("ชนิดนี้อยู่บัญชีไซเตสไหน — ตรวจเองได้",
-     "Which CITES appendix is this species in? Check it yourself",
+     "Which CITES appendix is this species in? — a self-check",
      "Checklist of CITES Species",
      "The convention's own species checklist",
      "https://checklist.cites.org/",
@@ -277,8 +277,8 @@ def emit(g, data):
 
     tool = (
         '<div class="sv-tool"><span class="ask">'
-        + bi("ตรวจชนิดกับบัญชีของอนุสัญญาเอง",
-             "Check any species against the convention's own list")
+        + bi("บัญชีชนิดของอนุสัญญาเอง",
+             "The convention's own species list")
         + "</span>"
         + "<p>" + bi(
             "อนุสัญญาไซเตสมีบัญชีชนิดออนไลน์ให้ค้นเอง — พิมพ์ชื่อชนิดแล้วบัญชีที่ชนิดนั้นอยู่จะแสดงทันที "
@@ -361,7 +361,7 @@ def emit(g, data):
             "หลักข้อเดียวที่คุ้มครองนักเดินทางได้จริง: ถูกกฎหมายที่จะซื้อในไทย ไม่ได้แปลว่าถูกกฎหมายที่จะพาขึ้นเครื่อง "
             "งาช้างคือตัวอย่างที่คมที่สุด — ร้านในประเทศขายได้ตามระบบทะเบียนของ พ.ร.บ.งาช้าง "
             "แต่ไม่มีเอกสารใดในโลกที่พางาช้างชิ้นนั้นออกนอกประเทศได้อย่างถูกกฎหมายสำหรับนักท่องเที่ยว "
-            "ของที่ควรถามคือถามก่อนจ่าย ไม่ใช่ถามที่ด่าน",
+            "จังหวะของคำถามนี้คือตอนจ่ายเงิน ไม่ใช่ที่ด่าน",
             "The one rule that actually protects a traveller: legal to buy in "
             "Thailand is not legal to fly with. Ivory is the sharpest case — shops "
             "here sell it lawfully under a domestic registration act, and no "
@@ -392,7 +392,7 @@ def emit(g, data):
         + "</p>"
         + '<ul class="sv-laws">' + "".join(law_rows) + "</ul>"
 
-        + "<h2>" + bi("คำที่ควรถามก่อนจ่าย", "The questions to ask before paying") + "</h2>"
+        + "<h2>" + bi("คำถามก่อนจ่าย", "The questions to ask before paying") + "</h2>"
         + '<ul class="sv-ask">'
         + "<li>" + bi("ทำจากอะไร ชนิดไหน — ขอชื่อชนิดลงใบเสร็จได้ไหม",
                       "What is it made of, and which species? Can the species go "
@@ -430,13 +430,12 @@ def emit(g, data):
         + '<p class="sv-note">' + census_note + "</p>"
 
         + '<p class="sv-note">' + bi(
-            "มดแดงเป็นสารบัญของสถานที่ ไม่ใช่คำปรึกษาทางกฎหมาย "
-            "กฎหมายและบัญชีชนิดเปลี่ยนได้ — ตรวจกับต้นทางที่ลิงก์ไว้เสมอ และของที่ไม่แน่ใจ อย่าซื้อคือคำตอบที่ปลอดภัยเสมอ "
+            "มดแดงเป็นสารบัญของสถานที่ "
+            "กฎหมายและบัญชีชนิดเปลี่ยนได้ "
             "เรื่องช้างและงาช้างต่อได้ที่หน้าช้างของมดแดง "
-            "เห็นอะไรที่เปลี่ยนไปหรือควรเพิ่ม บอกมดได้ที่หน้าเสนอแนะ",
-            "Mot Dang is a directory of places, not legal advice. Laws and species "
-            "lists change — always check against the linked source, and for "
-            "anything uncertain, not buying is the answer that always works. The "
+            "เห็นอะไรที่เปลี่ยนไปหรืออยากให้เพิ่ม บอกมดได้ที่หน้าเสนอแนะ",
+            "Mot Dang is a directory of places. Laws and species "
+            "lists change. The "
             "elephant side of this story continues on Mot Dang's elephant page. If "
             "something here has changed or is missing, tell the ants via the "
             "suggestion page.")
@@ -451,7 +450,7 @@ def emit(g, data):
         desc=bi_text(
             "สถานะคุ้มครองของสัตว์และพืชไทยสำหรับนักเดินทาง — ของฝากชิ้นไหนขึ้นเครื่องได้ "
             "ชิ้นไหนต้องมีเอกสาร และชิ้นไหนไม่มีทางพาไป ตรวจชนิดกับบัญชีไซเตสเองได้ "
-            "พร้อมคำที่ควรถามก่อนจ่าย",
+            "พร้อมคำที่ใช้ถามก่อนจ่าย",
             "The protection status of Thailand's animals and plants, for "
             "travellers: which souvenirs board the plane, which travel on papers, "
             "which have no path at all — with the CITES checklist to verify any "

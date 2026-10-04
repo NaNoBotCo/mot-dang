@@ -108,7 +108,7 @@ WORDS = [
      "Commonly asked as months, not baht: มัดจำกี่เดือน — how many months down?"),
     ("ค่าน้ำ-ค่าไฟ", "kha nam kha fai", "khâa náam · khâa fai", "water & electric",
      "ค่า charge + น้ำ water + ไฟ fire/electricity",
-     "หน่วยละ nùai-lá = per unit. Buildings set their own per-unit rate, and it moves the real monthly cost more than the rent line. Ask it first."),
+     "หน่วยละ nùai-lá = per unit. Buildings set their own per-unit rate, and it moves the real monthly cost more than the rent line."),
     ("ค่าส่วนกลาง", "kha suan klang", "khâa sùan-glaang", "common fee", "ส่วนกลาง the central part",
      "The condo maintenance fee, charged per square metre per month. อาคารชุด all have one."),
     ("แมนชั่น", "maenchan", "mɛɛn-chân", "a budget monthly building", "English mansion, borrowed whole",
@@ -149,7 +149,7 @@ SAYINGS = [
     ("สัญญาขั้นต่ำกี่เดือน มัดจำกี่เดือน",
      "sǎn-yaa khân-tàm gìi dʉan · mát-jam gìi dʉan",
      "How many months is the minimum contract? How many months' deposit?",
-     "Both are counted in months here. Ask them together and there are no surprises at signing."),
+     "Both are counted in months here."),
     ("ค่าเช่ารวมอะไรบ้าง มีค่าส่วนกลางไหม",
      "khâa châo ruam à-rai bâang · mii khâa sùan-glaang mǎi",
      "What does the rent include? Is there a common fee?",
@@ -490,7 +490,7 @@ def emit(g, data):
 
     # ---- assemble ---------------------------------------------------------
     intro = bi(
-        "หน้านี้มีสี่อย่าง: คำที่ต้องถามก่อนวางมัดจำ (ภาษาไทย เสียงอ่าน และรากคำ — รวมเหตุที่ตึกถูกสุดในเมืองชื่อ แมนชั่น) · ชั้นคอนโด อพาร์ตเมนต์ หอพัก และนายหน้า หลังการแยกชั้นตามป้ายจริงของตึก · ตัวเลขจริงของสิ่งที่ยังไม่มีใครถามตึกเลย · และทะเบียนสิ่งที่ตึกบอกเอง เรียงตามตัวอักษร",
+        "หน้านี้มีสี่อย่าง: คำที่ใช้ถามก่อนวางมัดจำ (ภาษาไทย เสียงอ่าน และรากคำ — รวมเหตุที่ตึกถูกสุดในเมืองชื่อ แมนชั่น) · ชั้นคอนโด อพาร์ตเมนต์ หอพัก และนายหน้า หลังการแยกชั้นตามป้ายจริงของตึก · ตัวเลขจริงของสิ่งที่ยังไม่มีใครถามตึกเลย · และทะเบียนสิ่งที่ตึกบอกเอง เรียงตามตัวอักษร",
         "Four things on one page: the words to ask before the deposit, in Thai, with the sounds and the roots — including why the cheapest buildings in town are called Mansion · the condo, apartment, dorm and agent shelves, split by what each building's own sign says · the real counts of what nobody has asked the buildings yet · and the register of what buildings state for themselves. Alphabetical.")
 
     # THE DOOR TO THE LISTING SHEET. This page is the buildings; the sheet is
@@ -522,11 +522,11 @@ def emit(g, data):
     og = shelf_og("cm", "realestate") if shelf_og else None
     body = (
         "<h1>&#127968; "
-        + bi("อสังหาฯ-ที่พัก — คำที่ต้องถาม ตึกที่มี และสิ่งที่ยังไม่มีใครถาม",
+        + bi("อสังหาฯ-ที่พัก — คำที่ใช้ถาม ตึกที่มี และสิ่งที่ยังไม่มีใครถาม",
              "Real estate & places to live — the words to ask, the buildings, and what nobody has asked them")
         + "</h1><p class=\"re-intro\">" + intro + "</p>" + door_html
 
-        + h2("คำที่ต้องถามก่อนวางมัดจำ", "The words to ask before the deposit")
+        + h2("คำที่ใช้ถามก่อนวางมัดจำ", "The words to ask before the deposit")
         + note("ค่าเช่าที่เห็นไม่ใช่ราคาจริงของห้อง จนกว่าจะรู้ค่าไฟหน่วยละ ค่าน้ำ ค่าส่วนกลาง และมัดจำ — คำพวกนี้ไม่อยู่บนเว็บประกาศไหนเลย",
                "The rent on the sign is not the price of the room until you know the per-unit electric rate, the water rate, the common fee and the deposit — none of which any listing site prints.")
         + words_html
@@ -590,9 +590,9 @@ def emit(g, data):
         + "<li><a href=\"cm/home-services/\">" + bi("ช่าง-งานบ้าน", "Home services") + "</a> — "
         + bi("หลังจากได้ห้องแล้ว", "for after you have the room") + "</li>"
         + "</ul>"
-        + share_block(BASE + "realestate.html", "อสังหาฯ-ที่พัก คำที่ต้องถามก่อนวางมัดจำ · มดแดง", card=og))
+        + share_block(BASE + "realestate.html", "อสังหาฯ-ที่พัก คำที่ใช้ถามก่อนวางมัดจำ · มดแดง", card=og))
 
-    title = ("อสังหาฯ เชียงใหม่-เชียงราย — คอนโด อพาร์ตเมนต์ หอพัก คำที่ต้องถามก่อนวางมัดจำ"
+    title = ("อสังหาฯ เชียงใหม่-เชียงราย — คอนโด อพาร์ตเมนต์ หอพัก คำที่ใช้ถามก่อนวางมัดจำ"
              " · Real estate in Chiang Mai & Chiang Rai — condos, apartments, dorms")
     desc = ("คำไทยสำหรับเช่าห้อง ซื้อคอนโด ค่าไฟหน่วยละ มัดจำ ค่าส่วนกลาง โฉนด นิติบุคคล "
             "พร้อมเสียงอ่านและรากคำ · ชั้นอาคารชุด-คอนโด อพาร์ตเมนต์-แมนชั่น-คอร์ท และหอพัก "

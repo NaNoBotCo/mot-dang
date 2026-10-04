@@ -241,9 +241,9 @@
    "en": "The long-stayer",
    "wants_en": "Not a souvenir suit. Trousers hemmed, a zip replaced, a favourite shirt copied before it dies, a size Thai retail does not stock, black cotton dyed back to black, a jacket taken in after weight comes off.",
    "wants_th": "ไม่ใช่สูทที่ระลึก แต่คือแก้ขากางเกง เปลี่ยนซิป ก๊อปเสื้อตัวโปรดก่อนจะขาด ไซซ์ที่ร้านไทยไม่มี ย้อมผ้าดำให้ดำอีกครั้ง",
-   "where_en": "The mending trade — 119 shops, in every quarter, most with no English and no website, several inside malls where a walk-in is easy. Bring the garment; the word is แก้ทรง.",
-   "watch_en": "Bringing a garment to copy works better than a description. Ask the price before the work, not after — this trade quotes per job and the numbers are small.",
-   "watch_th": "เอาตัวจริงไปให้ดูดีกว่าอธิบาย และถามราคาก่อนลงมือ"
+   "where_en": "The mending trade — 119 shops, in every quarter, most with no English and no website, several inside malls where a walk-in is easy. The word is แก้ทรง.",
+   "watch_en": "A garment to copy works better than a description. This trade quotes per job and the numbers are small.",
+   "watch_th": "ตัวจริงให้ช่างดูได้ผลกว่าคำอธิบาย งานแบบนี้คิดราคาเป็นชิ้น ตัวเลขไม่สูง"
   },
   {
    "key": "local",
@@ -252,8 +252,8 @@
    "wants_en": "A uniform that has to be correct, a gown for a graduation, a ชุดไทย for an ordination or a wedding, a dress for a function, school kit, a sports strip with a number on the back. Most of it is deadline work against a ceremony date.",
    "wants_th": "เครื่องแบบที่ต้องถูกระเบียบ ชุดครุย ชุดไทยงานบวชงานแต่ง ชุดออกงาน ชุดนักเรียน ชุดกีฬาติดเบอร์ — ส่วนใหญ่มีวันงานเป็นเส้นตาย",
    "where_en": "Nowhere near the Night Bazaar. The uniform shops sit by the institutions they dress; the ห้องเสื้อ sit in residential streets and are known by word of mouth.",
-   "watch_en": "Ask the finish date in writing and ask for the leftover cloth back — both are the complaints Chiang Rai customers actually posted.",
-   "watch_th": "ขอวันนัดเป็นลายลักษณ์อักษร และขอผ้าที่เหลือคืน — สองข้อนี้คือเรื่องที่ลูกค้าเชียงรายบ่นไว้จริง"
+   "watch_en": "Finish dates and leftover cloth are the two complaints Chiang Rai customers posted.",
+   "watch_th": "วันนัดกับผ้าที่เหลือ คือสองเรื่องที่ลูกค้าเชียงรายบ่นไว้"
   }
  ],
  "tourist_trade": {
@@ -5164,18 +5164,8 @@
    }
   ],
   "complaints_locals_actually_posted": {
-   "note_en": "Two, and both are worth turning into a question you ask BEFORE the work. First: cloth going missing — a customer took in 4.50 m, a pair of trousers needs about a metre, and 2 m came back. Second: the job sat for months, the promised dates passed, other customers were jumped up the queue, and the sleeve was finished in a different colour thread. Neither is an accusation this file repeats about a named shop; the first shop was named by the poster and is NOT listed here.",
-   "note_th": "สองข้อ และควรถามก่อนลงมือทั้งคู่ — หนึ่ง ผ้าหาย เอาไป 4.50 เมตร ตัดกางเกงใช้เมตรกว่า ได้คืน 2 เมตร สอง ดองงานเป็นเดือน ผัดวันนัด ลัดคิวคนอื่น และเย็บชายแขนด้วยด้ายคนละสี",
-   "asks_en": [
-    "Ask for the leftover cloth back, and say so when you hand it over.",
-    "Get the finish date written on the receipt.",
-    "Ask how many fittings are included before you agree a price."
-   ],
-   "asks_th": [
-    "ขอผ้าที่เหลือคืน และบอกตั้งแต่ตอนส่งผ้า",
-    "ขอให้เขียนวันนัดลงในใบรับของ",
-    "ถามว่าราคานี้ลองได้กี่ครั้ง"
-   ],
+   "note_en": "Two. First: cloth going missing — a customer took in 4.50 m, a pair of trousers needs about a metre, and 2 m came back. Second: the job sat for months, the promised dates passed, other customers were jumped up the queue, and the sleeve was finished in a different colour thread. Neither is an accusation this file repeats about a named shop; the first shop was named by the poster and is NOT listed here.",
+   "note_th": "สองข้อ — หนึ่ง ผ้าหาย เอาไป 4.50 เมตร ตัดกางเกงใช้เมตรกว่า ได้คืน 2 เมตร สอง ดองงานเป็นเดือน ผัดวันนัด ลัดคิวคนอื่น และเย็บชายแขนด้วยด้ายคนละสี",
    "source": {
     "type": "forum",
     "ref": "https://forums.chiangraifocus.com/index.php?topic=10059.0",

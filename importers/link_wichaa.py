@@ -99,7 +99,7 @@ def read_vault(vault):
 
 
 def live_host():
-    """Ask which host answers. Falls back to the apex rather than to nothing."""
+    """Ask which host answers. Falls back to the apex rather than to nothing."""  # stylecheck: allow — code docstring
     for h in HOSTS:
         try:
             req = urllib.request.Request(h + PROBE, headers={"User-Agent": UA})

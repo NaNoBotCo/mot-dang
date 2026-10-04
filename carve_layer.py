@@ -93,7 +93,7 @@ CRAFT_SUBS = ("crafts", "gallery", "gallery-commercial", "antiques")
 
 CARRY_INK = {
     "ok":     ("#3d6b4a", "#e8f1e6", "พาไปได้", "travels"),
-    "ask":    ("#80621c", "#f6efdc", "ต้องถาม", "ask first"),
+    "ask":    ("#80621c", "#f6efdc", "ต้องถาม", "ask first"),  # stylecheck: allow — a carry-status label
     "papers": ("#7a4a1c", "#f3e8dc", "ต้องมีเอกสาร", "papers"),
     "no":     ("#8f3b2c", "#f6e3de", "ไม่ได้", "no"),
 }
@@ -468,7 +468,7 @@ def emit(g, data):
         "บันทึกในรัศมี 2.5 กิโลเมตรรอบหมุดบ้านถวาย",
         "records within 2.5 km of the Ban Tawai pin") + "</p>")
     B.append("<p><b>%d</b> " % n_craft + bi(
-        "ในจำนวนนั้นอยู่บนชั้นที่ร้านแกะไม้ควรจะอยู่ — และ <b>%d</b> รายการที่ชื่อของมันเอง "
+        "ในจำนวนนั้นอยู่บนชั้นที่ร้านแกะไม้น่าจะอยู่ — และ <b>%d</b> รายการที่ชื่อของมันเอง "
         "บอกว่าแกะไม้" % n_near_says,
         "of them sit on a shelf a carving shop would land on — and <b>%d</b> whose own "
         "name says it carves." % n_near_says, raw=True) + "</p>")
@@ -503,7 +503,7 @@ def emit(g, data):
     # the steak trap
     B.append('<h2 id="teak">' + bi("กับดักคำว่า teak", "The teak trap") + "</h2>")
     B.append("<p>" + bi(
-        "กับดักหนึ่งอันที่ควรพิมพ์ไว้ให้เห็น มากกว่าจะแอบแก้: ค้นคำว่า <b>teak</b> "
+        "กับดักหนึ่งอันที่พิมพ์ไว้ให้เห็น แทนที่จะแอบแก้: ค้นคำว่า <b>teak</b> "
         "แบบไม่สนตัวพิมพ์ใหญ่เล็ก ได้ %d รายการในสารบัญนี้ %d รายการเป็นร้านสเต็ก "
         "เพราะ steak มี teak อยู่ข้างใน ที่เหลืออีก %d รายการเป็นคาเฟ่ เกสต์เฮาส์ รีสอร์ต "
         "สวนสาธารณะ และวัดผาแตกซึ่งสะกดเป็นอังกฤษว่า Pha Teak — "
@@ -527,7 +527,7 @@ def emit(g, data):
         "roaster as a bookshop. The difference is that this one is not confined to our "
         "code: anyone typing teak into any search box has it too.", raw=True) + "</p>")
     B.append("<p>" + bi(
-        "คำไทยที่ควรใช้แทนคือ ไม้แกะสลัก — ทั้งสองจังหวัดมี %d บันทึกที่ชื่อของมันเองบอกว่า "
+        "คำไทยคือ ไม้แกะสลัก — ทั้งสองจังหวัดมี %d บันทึกที่ชื่อของมันเองบอกว่า "
         "ทำงานแกะหรืองานหัตถกรรม (ไม่นับคลาสแกะสลักผักผลไม้ ซึ่งเป็นคนละอาชีพและมีชั้นของ "
         "ตัวเองอยู่แล้ว) และในรัศมี 2.5 กิโลเมตรรอบหมู่บ้านมี %d รายการ — คือชื่อหมู่บ้านเอง "
         "บนหมุดตลาดสด" % (n_carve_named, n_carve_here),

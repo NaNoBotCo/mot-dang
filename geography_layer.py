@@ -618,7 +618,7 @@ def emit(g, data):
         + '<p class="doi-note">'
         + bi("ทะเบียนดิบ", "Raw readings") + ': <a href="data/terrain_meta.json">data/terrain_meta.json</a> · '
         + '<a href="data/terrain_profile.json">data/terrain_profile.json</a> · '
-        + bi("เห็นเลขที่ควรอ่านใหม่ — ", "a reading that needs re-reading — ")
+        + bi("เห็นเลขที่ต้องอ่านใหม่ — ", "a reading that needs re-reading — ")
         + '<a href="suggest.html">' + bi("บอกมด", "tell the ants") + "</a></p>"
         + share_block(BASE + "doi.html",
                       "ดอย — แผ่นดินเชียงใหม่·เชียงราย · มดแดง", card=og))

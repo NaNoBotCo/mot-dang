@@ -213,8 +213,8 @@
       ],
       "rule_th": "ตามธรรมเนียมเปิดงานราววันที่ 26 มกราคม วันครบรอบการสถาปนาเมืองเชียงราย พ.ศ. 1805 แล้วจัดต่อเนื่องราว 10–12 วันพร้อมงานกาชาดจังหวัด",
       "rule_en": "By custom it opens around 26 January — the anniversary of the city's founding in 1262 — and runs roughly 10–12 days together with the provincial Red Cross fair.",
-      "verify_th": "ปีที่ผ่านมามีทั้งที่จัดปลายมกราคมและเลื่อนไปกุมภาพันธ์–มีนาคม ควรเช็กประกาศจังหวัดก่อนเดินทาง",
-      "verify_en": "Recent years have run both from late January and later in February–March — check the provincial announcement before you travel.",
+      "verify_th": "ปีที่ผ่านมามีทั้งที่จัดปลายมกราคมและเลื่อนไปกุมภาพันธ์–มีนาคม จังหวัดประกาศวันเป็นปี ๆ",
+      "verify_en": "Recent years have run both from late January and later in February–March; the province announces the dates each year.",
       "venues": [
         {
           "th": "สนามงานประจำจังหวัด เมืองเชียงราย",
@@ -558,8 +558,8 @@
           "en": "Shan communities around Mae Sai, Chiang Rai"
         }
       ],
-      "merit_th": "เป็นพิธีของครอบครัวเจ้าภาพก่อน ไม่ใช่การแสดง — ถ่ายรูปได้แต่อย่ายืนขวางขบวน และถอดรองเท้าเมื่อเข้าเขตวิหาร",
-      "merit_en": "This is the host family's ceremony first and a spectacle second — photograph freely, but don't block the procession, and take your shoes off inside the viharn.",
+      "merit_th": "เป็นพิธีของครอบครัวเจ้าภาพก่อน ไม่ใช่การแสดง — เขตวิหารเป็นเขตถอดรองเท้า",
+      "merit_en": "This is the host family's ceremony first and a spectacle second; the viharn is shoes-off.",
       "verify_th": null,
       "verify_en": null
     },
@@ -621,8 +621,8 @@
       ],
       "cost_th": "เล่นน้ำรอบคูเมืองและงานในเมืองฟรีทั้งหมด ไม่มีบัตร — จ่ายแค่อุปกรณ์: ปืนฉีดน้ำ ถัง แว่นกันน้ำ ตามแผงราว 50–300 บาท ส่วนปาร์ตี้เวทีดีเจแบบขายบัตรเป็นงานเอกชนต่างหาก",
       "cost_en": "The water fight around the moat and the city events are all free, no ticket — you pay only for gear: water guns, buckets and goggles from street stalls, roughly 50–300 baht. The DJ-stage pool-party events with tickets are separate private affairs.",
-      "merit_th": "ขนทรายเข้าวัดก่อเจดีย์ทราย สรงน้ำพระ และรดน้ำดำหัวผู้ใหญ่ด้วยน้ำอบน้ำปรุง เตรียมขันน้ำ ดอกไม้ และผ้าขาวม้าหรือของฝากเล็ก ๆ ไปด้วย",
-      "merit_en": "Carry sand to the wat for a sand chedi, bathe the Buddha images, and pour scented water over elders' hands. Bring a bowl, flowers, and a small gift or cloth for the elders you visit.",
+      "merit_th": "คนขนทรายเข้าวัดก่อเจดีย์ทราย สรงน้ำพระ และรดน้ำดำหัวผู้ใหญ่ด้วยน้ำอบน้ำปรุง พร้อมขันน้ำ ดอกไม้ และผ้าขาวม้าหรือของฝากเล็ก ๆ ให้ผู้ใหญ่",
+      "merit_en": "People carry sand to the wat for a sand chedi, bathe the Buddha images, and pour scented water over elders' hands, with a bowl, flowers, and a small gift or cloth for the elders they visit.",
       "verify_th": null,
       "verify_en": null
     },
@@ -992,8 +992,8 @@
       "blurb_en": "The Akha women's new year, held mid-rains when the rice is in ear — a great swing is raised at the centre of the village and women wear full ceremonial dress. It is an ancestor rite and a prayer for the crop, not a performance.",
       "auspicious_th": "เป็นพิธีบูชาบรรพบุรุษและขอให้ข้าวในนาสมบูรณ์",
       "auspicious_en": "The rite honours the ancestors and asks for a full harvest.",
-      "merit_th": "เป็นพิธีของหมู่บ้าน ควรถามก่อนถ่ายรูปคนเสมอ และไปกับคนในพื้นที่ถ้าทำได้",
-      "merit_en": "This is a village ceremony — always ask before photographing people, and go with someone local if you can.",
+      "merit_th": "เป็นพิธีของหมู่บ้าน",
+      "merit_en": "This is a village ceremony.",
       "venues": [
         {
           "th": "หมู่บ้านอาข่า แม่ฟ้าหลวง–แม่จัน เชียงราย",
@@ -1242,8 +1242,8 @@
       ],
       "cost_th": "งานในเมืองเข้าฟรีทั้งหมด — ขบวนแห่ ริมน้ำ โคมที่ประตูเมืองและวัด ไม่มีบัตรผ่านประตู จ่ายเฉพาะของที่ลอยหรือปล่อย: กระทงใบตองตามแผงราว 30–100 บาท (หรือพับเองฟรีที่วัดริมน้ำหลายแห่ง) โคมลอยราว 50–100 บาท ส่วนภาพปล่อยโคมพร้อมกันนับพันลูกที่เห็นในโฆษณา เป็นงานเอกชนขายบัตรนอกเมือง ราคาราว 4,800–15,500 บาท (ราคาปี 2568)",
       "cost_en": "The city festival itself is free — the parades, the riverbank, the lantern displays at the gates and wats have no entry ticket. You pay only for what you float or release: a banana-leaf krathong runs about 30–100 baht from street stalls (or fold your own free at several riverside wats), a sky lantern about 50–100 baht. The thousand-lanterns-at-once photos are separate privately run ticketed events outside the city, roughly 4,800–15,500 baht (2025 prices).",
-      "verify_th": "การปล่อยโคมลอยหมู่ส่วนใหญ่ย้ายไปเป็นงานขายบัตรนอกเมืองแล้ว และในเขตเมืองมีการจำกัดเวลา-พื้นที่ ตามเส้นทางบิน ควรดูประกาศเขตปล่อยโคมของปีนั้น ๆ ก่อน",
-      "verify_en": "Mass lantern releases are now mostly ticketed events outside the city, and releasing inside the city is restricted by time and zone around the flight paths — check the official release zones published for that year.",
+      "verify_th": "การปล่อยโคมลอยหมู่ส่วนใหญ่ย้ายไปเป็นงานขายบัตรนอกเมืองแล้ว และในเขตเมืองมีการจำกัดเวลา-พื้นที่ ตามเส้นทางบิน โดยประกาศเขตปล่อยโคมเป็นปี ๆ",
+      "verify_en": "Mass lantern releases are now mostly ticketed events outside the city, and releasing inside the city is restricted by time and zone around the flight paths, with official release zones published each year.",
       "merit_th": "กระทงใบตองย่อยสลายได้ กระทงโฟมไม่ได้ — วัดริมน้ำหลายแห่งแจกใบตองให้ทำเองฟรี",
       "merit_en": "A banana-leaf krathong breaks down; a foam one does not. Several riverside wats hand out leaves and let you fold your own."
     },
@@ -1318,8 +1318,8 @@
       ],
       "rule_th": "ประกาศเป็นปี ๆ ไป ปกติปลายธันวาคมถึงสัปดาห์แรกของมกราคม ราว 10 วัน",
       "rule_en": "Announced annually — usually late December through the first week of January, about ten days.",
-      "verify_th": "สถานที่จัดเคยย้ายระหว่างสนามกีฬา 700 ปี กับสนามด้านหลังศาลากลางจังหวัด ควรเช็กประกาศของปีนั้น",
-      "verify_en": "The venue has moved between the 700th Anniversary Stadium and the municipal grounds behind City Hall — check that year's announcement.",
+      "verify_th": "สถานที่จัดเคยย้ายระหว่างสนามกีฬา 700 ปี กับสนามด้านหลังศาลากลางจังหวัด",
+      "verify_en": "The venue has moved between the 700th Anniversary Stadium and the municipal grounds behind City Hall.",
       "venues": [
         {
           "th": "สนามกีฬาสมโภชเชียงใหม่ 700 ปี",
@@ -1525,8 +1525,8 @@
       "blurb_en": "Chiang Mai counts down at Tha Phae Gate and Chiang Rai at the clock tower — while plenty of people see the year over at a wat instead, chanting through midnight as the temple bells go.",
       "auspicious_th": "สวดมนต์ข้ามปีที่วัดถือเป็นการเริ่มปีใหม่ด้วยบุญ แทนที่จะเริ่มด้วยความมึนเมา",
       "auspicious_en": "Chanting the year over at a wat is the traditional alternative: start the year in merit rather than in a hangover.",
-      "verify_th": "การปล่อยโคมลอยคืนปีใหม่มีข้อจำกัดตามเส้นทางบิน ควรดูประกาศของแต่ละปี",
-      "verify_en": "Sky-lantern releases on New Year's Eve are restricted around the flight paths — check that year's announcement.",
+      "verify_th": "การปล่อยโคมลอยคืนปีใหม่มีข้อจำกัดตามเส้นทางบิน ประกาศเป็นปี ๆ",
+      "verify_en": "Sky-lantern releases on New Year's Eve are restricted around the flight paths, announced each year.",
       "venues": [
         {
           "th": "ประตูท่าแพ เชียงใหม่",
@@ -1577,8 +1577,8 @@
         "seasonal",
         "viewpoint"
       ],
-      "rule_th": "ตลอดฤดูหนาว พฤศจิกายน–กุมภาพันธ์ ต้องขึ้นถึงยอดก่อนฟ้าสาง",
-      "rule_en": "All cool season, November–February — you need to be at the top before first light.",
+      "rule_th": "ตลอดฤดูหนาว พฤศจิกายน–กุมภาพันธ์ เห็นจากยอดก่อนฟ้าสาง",
+      "rule_en": "All cool season, November–February, seen from the top before first light.",
       "venues": [
         {
           "th": "ยอดภูชี้ฟ้า อำเภอเทิง เชียงราย",
@@ -1661,8 +1661,8 @@
           "note_en": "The rite ground is at the forest edge below the doi; the shrine itself stands in the grounds of Wat Phra That Doi Kham"
         }
       ],
-      "verify_th": "วันจริงประกาศโดยชุมชนแม่เหียะเป็นปี ๆ ควรเช็กก่อนเดินทาง",
-      "verify_en": "The date is announced by the Mae Hia community each year — check before travelling."
+      "verify_th": "วันจริงประกาศโดยชุมชนแม่เหียะเป็นปี ๆ",
+      "verify_en": "The date is announced by the Mae Hia community each year."
     }
   ]
 }
