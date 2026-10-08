@@ -77,8 +77,8 @@ def head(depth=0):
     """The two tags, for page() to put in front of md.js."""
     r = "../" * depth
     v = version()
-    return (f'<link rel="stylesheet" href="{r}tap.css?v={v}">'
-            f'<script src="{r}tap.js?v={v}" defer></script>')
+    return (f'<link rel="stylesheet" href="{r}tap.css">'
+            f'<script src="{r}tap.js" defer></script>')
 
 
 def emit(g):
@@ -121,6 +121,11 @@ CSS = """/* tap.css — the card a touch on any map opens. */
 .mdtap-en{color:var(--ink-soft);font-size:.95rem;margin:.1rem 0 0;
   overflow-wrap:anywhere}
 .mdtap-rom{color:var(--gloss);font-size:.85rem;margin:.05rem 0 0;font-style:italic}
+.mdtap-photo{margin:.55rem 0 0}
+.mdtap-photo img{display:block;width:100%;max-height:11rem;object-fit:cover;
+  border-radius:.6rem;background:var(--card-alt)}
+.mdtap-photo figcaption{font-size:.72rem;color:var(--ink-soft);margin-top:.15rem}
+.mdtap-photo figcaption a{color:inherit}
 .mdtap-facts{display:flex;flex-wrap:wrap;gap:.35rem;margin:.55rem 0 0}
 .mdtap-fact{display:inline-flex;align-items:center;gap:.3rem;font-size:.85rem;
   border:1.5px solid var(--warm-border);border-radius:999px;
@@ -134,6 +139,8 @@ CSS = """/* tap.css — the card a touch on any map opens. */
 .mdtap-tag:hover{border-color:var(--ant);background:var(--row-hover)}
 .mdtap-tag[aria-pressed="true"]{background:var(--ink);color:var(--card);
   border-color:var(--ink);font-weight:700}
+.mdtap-reach{margin:.2rem 0 0;display:flex;flex-wrap:wrap;gap:.6rem}
+.mdtap-reach a{min-height:2.75rem;display:inline-flex;align-items:center}
 .mdtap-lamp{display:inline-flex;align-items:center;gap:.4rem;font-size:.92rem;
   margin:.5rem 0 0}
 .mdtap-lamp b{width:.65rem;height:.65rem;border-radius:50%;display:inline-block;
@@ -161,10 +168,12 @@ CSS = """/* tap.css — the card a touch on any map opens. */
 .mdtap-do a,.mdtap-do button{display:inline-flex;align-items:center;
   min-height:44px;padding:.35rem .9rem;border-radius:999px;font:inherit;
   font-size:.92rem;border:2px solid var(--warm-border);background:#fff;
-  color:var(--ink);cursor:pointer;text-decoration:none}
+  color:var(--ink);cursor:pointer;text-decoration:none;
+  width:auto;height:auto;margin-left:0}
 .mdtap-do .mdtap-go{background:var(--ant);border-color:var(--ant);color:#fff;
   font-weight:700}
 .mdtap-do .mdtap-go:hover{background:var(--ant-dark);border-color:var(--ant-dark)}
+.mdtap-do .mdtap-grab{border-color:#00b14f;color:#00803a}
 .mdtap-do .on{background:var(--card-alt);border-color:var(--ink)}
 .mdtap :focus-visible{outline:3px solid var(--ant);outline-offset:2px}
 /* The dot that was touched, marked on whatever kind of map it was. */
@@ -275,6 +284,7 @@ function planGet(){
 function planSet(list){
   if(window.MDPLAN&&window.MDPLAN.set){window.MDPLAN.set(list);return;}
   try{localStorage.setItem(PLAN_KEY,JSON.stringify(list.slice(0,PLAN_MAX)));}catch(e){}
+  if(window.MDSAVED)MDSAVED.keys(list);
   var have={},i;
   for(i=0;i<list.length;i++)have[list[i]]=1;
   var btns=document.querySelectorAll('.planbtn[data-plan]');
@@ -334,6 +344,12 @@ function render(){
     h+='<p class="mdtap-en">'+esc(it.nameEn)+'</p>';
   if(it.rom&&it.rom!==it.nameEn&&it.rom!==it.name)
     h+='<p class="mdtap-rom">'+esc(it.rom)+'</p>';
+  if(it.photo){
+    var pc=it.photo.by?(it.photo.link?'<a href="'+esc(it.photo.link)+'" rel="noopener" target="_blank">'+
+      esc(it.photo.by)+'</a>':esc(it.photo.by)):'';
+    h+='<figure class="mdtap-photo"><img src="'+esc(it.photo.src)+'" alt="'+esc(it.name)+
+       '" loading="lazy" decoding="async">'+(pc?'<figcaption>'+pc+'</figcaption>':'')+'</figure>';
+  }
 
   var facts=[];
   var sub=words(it);
@@ -350,9 +366,31 @@ function render(){
 
   if(it.hk!=null&&TAB){
     var o=openNow(it.hk);
-    if(o!==null)
+    if(o!==null){
+      /* WO-78 — "open now" is the answer to a question nobody asked twice.
+         A reader looking at a map at four in the afternoon is deciding
+         whether to set off, and the useful half of a schedule is the hour it
+         shuts. MDROW reads it off the same `hk` the lamp does; where MDROW
+         has not loaded the lamp still says open or closed, as it always did. */
+      var wt=(window.MDROW&&TAB.hours)?window.MDROW.when(TAB.hours[it.hk],
+              (window.MDHOURS&&window.MDHOURS.now)?window.MDHOURS.now():null):null;
       h+='<p class="mdtap-lamp '+(o?'mdtap-open':'mdtap-shut')+'"><b></b>'+
-         (o?bi('เปิดอยู่','open now'):bi('ปิดอยู่','closed now'))+'</p>';
+         (wt?wt.html:(o?bi('เปิดอยู่','open now'):bi('ปิดอยู่','closed now')))+'</p>';
+    }
+  }
+  /* Reach, in the card, for the same reason it is on the row: the shortest
+     path from "that one" to done is a number you can dial, not a page you
+     have to load first. */
+  if(window.MDROW&&(it.ph||it.w)){
+    var reach='';
+    if(it.ph){var tt=window.MDROW.tel(it.ph);
+      if(tt)reach+='<a class="rtel" href="tel:'+esc(window.MDROW.telHref(it.ph))+'">'+
+        '<span aria-hidden="true">\u260e </span>'+esc(tt)+'</a>';}
+    var wb=it.w?window.MDROW.web(it.w):null;
+    if(wb)reach+='<a class="rweb" href="'+esc(wb.href)+'" rel="noopener nofollow" '+
+      'target="_blank">'+(wb.glyph?'<span aria-hidden="true">'+esc(wb.glyph)+' </span>':'')+
+      '<span class="rhost">'+esc(wb.host)+'</span></a>';
+    if(reach)h+='<p class="mdtap-reach">'+reach+'</p>';
   }
 
   h+=tagsHTML(it);
@@ -368,11 +406,28 @@ function render(){
        (inplan?'true':'false')+'">'+
        (inplan?bi('อยู่ในแผน','In plan'):bi('🧭 เพิ่มลงแผน','Add to plan'))+'</button>';
   }
+  if(it.lat!=null&&it.lng!=null){
+    var ll = it.lat+','+it.lng;
+    var enm = encodeURIComponent(it.name||'');
+    h+='<a class="mdtap-go" href="https://www.google.com/maps/search/?api=1&query='+ll+'" rel="noopener">Google Maps</a>';
+    h+='<a class="mdtap-go" href="https://maps.apple.com/?ll='+ll+'&q='+(it.name?enm:ll)+'" rel="noopener">Apple Maps</a>';
+    h+='<a class="mdtap-go" href="geo:'+ll+'?q='+ll+(it.name?'('+enm+')':'')+'">Geo URI / Apps</a>';
+    h+='<button type="button" class="mdtap-plan copylink" data-url="'+ll+'" data-done="'+esc(bi('คัดลอกแล้ว','Copied'))+'">'+
+       (window.mdIcon?window.mdIcon('i-link',16)+' ':'')+bi('คัดลอกพิกัด','Copy coordinates')+'</button>';
+  }
   if(it.lat!=null&&it.lng!=null)
-    h+='<a href="geo:'+it.lat+','+it.lng+'?q='+encodeURIComponent(it.name)+'">'+
-       bi('📍 นำทาง','Directions')+'</a>';
+    h+='<a class="mdtap-grab" rel="nofollow noopener" href="'+esc(grabUrl(it.lat,it.lng,it.name))+'">'+
+       (window.mdIcon?window.mdIcon('i-ride',16)+' ':'')+bi('เรียก Grab','Grab')+'</a>';
   h+='</p>';
   body.innerHTML=h;
+}
+
+// Grab's link, drop-off filled in, pickup left to the phone (build.py grab_ride_url).
+function grabUrl(la,ln,name){
+  var dp='grab://open?screenType=BOOKING&dropOffLatitude='+(+la).toFixed(6)+
+    '&dropOffLongitude='+(+ln).toFixed(6)+'&dropOffAddress='+encodeURIComponent(name||'');
+  return 'https://grab.onelink.me/2695613898?af_dp='+encodeURIComponent(dp)+
+    '&af_web_dp='+encodeURIComponent('https://www.grab.com/th/transport/');
 }
 
 function words(it){
@@ -477,11 +532,50 @@ function show(item,opener,opts){
            item.ar!=null||item.su;
   render();
   if(need&&!TAB)tables(function(){if(cur===item)render();});
+  if(item.json&&!item._got)record(item);
   /* One history entry per card. The first Back closes the card, the next
      walks the trail backwards — the behaviour a phone's own back gesture
      already promises, and the only "undo" a reader is guaranteed to know. */
   try{history.pushState({mdtap:++seq},'');ours++;}catch(e){}
   focusName();
+}
+/* A pin that carries only its name — the city map's GeoJSON — points at the
+   place's own record with `json`, and the card reads it on the touch: the
+   number, the website, the address and a photo where one is held. Until it
+   lands the card shows the name, which was the question. */
+function record(it){
+  it._got=true;
+  try{
+    var x=new XMLHttpRequest();
+    x.open('GET',it.json,true);
+    x.onload=function(){
+      if(x.status<200||x.status>=300)return;
+      var r;try{r=JSON.parse(x.responseText);}catch(e){return;}
+      fold(it,r||{});
+      if(cur===it)render();
+    };
+    x.send();
+  }catch(e){}
+}
+/* The record's fields in the shapes the card and MDROW already read: `ph` as
+   Thai digits, `w` stripped of its scheme, "f/<page>" for Facebook. */
+function fold(it,r){
+  if(!it.ph&&r.phone){
+    var d=String(r.phone).split(/[;,\/]/)[0].replace(/\D/g,'');
+    if(d.slice(0,2)==='66')d='0'+d.slice(2);
+    if(d)it.ph=d;
+  }
+  if(!it.w&&r.website){
+    var u=String(r.website).replace(/^https?:\/\//,'');
+    var fb=u.match(/^(?:www\.|m\.)?facebook\.com\/(.+)$/);
+    it.w=fb?'f/'+fb[1]:u;
+  }
+  if(!it.where&&it.st==null&&it.ar==null&&r.address)it.where=String(r.address);
+  var p=r.photo;
+  if(!it.photo&&p&&p.url)it.photo={
+    src:String(p.url).replace(/^https:\/\/motdang\.net\//,ROOT()),
+    by:[p.author,p.license].filter(Boolean).join(', '),
+    link:p.source||''};
 }
 function focusName(){
   var n=body&&body.querySelector('.mdtap-name');
@@ -637,6 +731,11 @@ function fromEl(a){
   if(d('st')!=null)item.st=+d('st');
   if(d('ar')!=null)item.ar=+d('ar');
   if(d('hk')!=null)item.hk=+d('hk');
+  /* WO-78 — the two things a reader uses to finish without opening the page.
+     A dot and a row are the same record seen twice, so the card reads the
+     same two attributes the list row reads. */
+  if(d('ph'))item.ph=d('ph');
+  if(d('w'))item.w=d('w');
   return item.name?item:null;
 }
 function rowsOf(holder){

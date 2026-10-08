@@ -42,6 +42,7 @@ import map_shell
 # map_shell, so there is no cycle. It NEVER supplies a name — only a reading
 # beside one; see translit.py's own header and name_bi() below.
 import translit
+import shelflife  # a perishable figure past its age is not drawn (Nan, 2026-09-25)
 
 # The other half of the same job. translit says how a Thai word SOUNDS;
 # terms.py says what the administrative and registry words MEAN, by composing
@@ -55,10 +56,26 @@ import terms
 # answers a question someone could ask OF ITS OWN KIND, not when it offers a
 # way to contact a seller. See kind_layer.py's header and data/curated/kinds.json.
 import kind_layer
+import best_layer
+import edge_layer
 import nownear_layer
 import refine_layer
 import daily_layer
 import rowline_layer
+import video_layer
+import pano_layer
+import inat_layer  # iNaturalist sightings near a place (Nan, 2026-10-02)
+import loo_road  # road distance to the nearest toilet (Nan, 2026-10-02)
+import hotel_layer  # the Stay block on lodging pages (NaN, 2026-10-04)
+import affiliate_layer  # paid links on named place pages (affiliate-slots registry, 2026-10-04)
+import net_layer
+import commons_layer
+import doodles_layer
+import preview_layer
+import pics_layer
+import waypics_layer
+import sites_layer
+import sitenet_layer
 import indexsplit_layer
 import glyphs
 
@@ -72,6 +89,7 @@ import trades_layer
 # offers MapLibre — and for the same reason: a surface that carries a map and
 # forgets to ask for the card is exactly the silence this replaces.
 import tapcard
+import wats_layer
 # ALPHA ONLY — delete this import, the tag in page() and the emit below at beta.
 import alpha_layer
 
@@ -147,16 +165,37 @@ DICE_FACES = 4000
 # school and hotel were 1.5–2.3 MB pages sitting just under the first bar.
 HUB_MAX_ROWS = 1400
 
-# A CHILD past this many rows splits again, along ย่าน — the named parts of
-# town people say out loud (data/curated/zones.json). The road graph was
+# A SHELF THE SUB-SHELVES DO NOT COVER still has to fit in a page. food is the
+# case: 19,265 rows in cm, of which the twelve sub-shelves hold 2,533 — 13%,
+# nowhere near the 90% the hub form needs — so every row stayed on the shelf
+# and cm/food/index.html was 26 MB of them.
+#
+# The number below is not taste. Googlebot parses the FIRST 15 MB of an HTML
+# file and discards the rest, so two thirds of that page's 19,275 links were in
+# the part no crawler reads, and the shelf was dark to search for the same
+# reason the sitemap was. Nan's go, 2026-09-20, was the shelf under 5 MB. A row
+# costs ~1.4 KB, so 2,000 rows is a page of about 2.7 MB — inside her number
+# with room for a row to grow, and a tenth of the bytes a reader on a hilltop
+# connection was being handed before.
+# (2,000 until 2026-10-03.)
+# Nan, 2026-10-03: "Break up all the shelf pages, and give anything with
+# approximately 50 entries its own shelf." Every list — shelf, sub-shelf, tag,
+# tag×shelf, neighbourhood — now pages at 100 rows (~150 KB), and any group of
+# SHELF_MIN or more inside a shelf (a tag, a named ย่าน) is a shelf of its own
+# with a door on the shelf front. A place stands on as many shelves as it
+# belongs to; the shelves are not a partition.
+SHELF_PAGE_ROWS = 100
+SHELF_MIN = 50
+
+# ย่าน — the named parts of town people say out loud (data/curated/zones.json).
+# A ย่าน holding SHELF_MIN or more of a shelf's rows is a shelf of its own
+# (shelf_doors). The road graph was
 # measured first and failed the job: it reaches 52% of the food shelf across
 # ~300 streets holding three places each. Zones are curated boxes (the moat
 # rectangle and its named quarters) and circles (the amphoe seats), each
 # holding a named anchor from our own records; check_zone_anchors refuses the
 # build if an anchor has drifted out of its zone. A record inside no zone
-# lands on the รอบนอก fallback page — "we have not named this zone yet" is a
-# fact, not a failure, the road graph's own rule.
-CHILD_SPLIT_ROWS = 1000
+# stays on the shelf's own pages and gets no ย่าน door.
 _zones_path = ROOT / "data" / "curated" / "zones.json"
 ZONES = {k: v for k, v in
          (json.loads(_zones_path.read_text()) if _zones_path.exists() else {}).items()
@@ -220,6 +259,12 @@ def moon_disc_svg():
     disc_angle_deg = (180.0 * parity + phase_angle_deg / 2.0) % 360.0
     return moondial.dial_svg(disc_angle_deg=disc_angle_deg)
 BASE = "https://motdang.net/"
+
+# motdang.net/home-help — the self-listing board (the homematch Worker, on its
+# own route). A housekeeper is a person, not a place: the empty shelves below
+# point there instead of printing "soon", and the home-services shelf links it.
+BOARD = BASE + "home-help/"
+BOARD_SHELVES = {("home-services", "housekeeper"): "housekeeper"}
 KOFI = "https://ko-fi.com/defiantchiangmai"
 
 
@@ -249,6 +294,16 @@ for _c in CFG["categories"]:
             SUB_LABELS.setdefault(_key, _ch)
             SUB_PARENT.setdefault(_key, _c["key"])
 PROVINCES = CFG["provinces"]
+# Nan 2026-09-29: coverage is all of northern Thailand (data/coverage.json).
+# The provinces we do not crawl join the site as wireframes the day their
+# canonical file holds a record (importers/import_all.write_passive), and not
+# before — an empty hub is a page that answers nothing.
+for _p in json.loads((ROOT / "data" / "coverage.json").read_text())["provinces"]:
+    _f = ROOT / "data" / "canonical" / f'{_p["key"]}.json'
+    if (_p["key"] not in {q["key"] for q in PROVINCES} and _f.exists()
+            and json.loads(_f.read_text() or "[]")):
+        PROVINCES.append({"key": _p["key"], "th": _p["th"], "en": _p["en"],
+                          "mode": "wireframe", "passive": True})
 
 # One drawn icon per category, keyed to the sprite in ICON_SPRITE. Drawn rather
 # than emoji: emoji change shape on every platform, carry a tone nobody chose,
@@ -299,6 +354,7 @@ COMMONS_IMAGES = (json.loads(_ci_path.read_text()).get("images", {})
 # Tagged on four axes because that is how she asked to reach them: topic,
 # season, location, mood.
 SITE_ART_SRC = ROOT / "assets" / "site"
+HERO_ART_SRC = SITE_ART_SRC / "hero"
 # Photographs of her own working instruments at wichaa.net, taken daily by
 # importers/make_widget_shots.py. build.py never fetches: it reads this file,
 # and if the file is not there the sky tile simply does not render rather than
@@ -312,6 +368,27 @@ _picks_path = ROOT / "data" / "curated" / "image_picks.json"
 SITE_ART = [p for p in (json.loads(_picks_path.read_text())["picks"]
                         if _picks_path.exists() else [])
             if p.get("file") and p.get("usable")]
+# Nan's own photographs (the GoPro rides) live beside the picks, not in them:
+# import_image_picks.py rewrites image_picks.json from its sources list.
+_own_path = ROOT / "data" / "curated" / "own_pictures.json"
+SITE_ART += [p for p in (json.loads(_own_path.read_text())["picks"]
+                         if _own_path.exists() else [])
+             if p.get("file") and p.get("usable")
+             and (ROOT / "assets" / p["file"]).exists()]
+# Commons photographs of the north (importers/commons_pool.py): the area sweep
+# and the hand-kept rows of the 2026-09-30 topic crawl, each with its
+# photographer and licence. Same shape as the picks, so art() draws from them.
+try:
+    SITE_ART += commons_layer.picks()
+except Exception as _e:                      # the pool is optional furniture
+    print("  ! commons pool not loaded:", _e)
+# Her ride pictures OF a listed place, by record id: `placeId` (one place) or
+# `places` (a frame showing several). The place page shows them under its photo.
+OWN_BY_PLACE = {}
+for _p in SITE_ART:
+    if _p.get("artist") == "NaN Peacock":
+        for _pid in {_p.get("placeId"), *(_p.get("places") or [])} - {None}:
+            OWN_BY_PLACE.setdefault(_pid, []).append(_p)
 ART_USED = {}     # slug -> pick, filled as pictures are drawn; feeds /pictures.html
 ART_DRAWN = {}    # slug -> how many times drawn, so art() can round-robin the pool
 
@@ -379,7 +456,10 @@ CAT_ART_TOPIC = {"wat": "wat", "food": "food", "market": "market",
                  # Both `sport` pictures ARE muay thai, so these two shelves
                  # get the thing itself. `animals` holds the elephants.
                  "muaythai": "sport", "sport": "sport", "chang": "animals",
-                 "shopping": "market"}
+                 "shopping": "market",
+                 # With the Commons pool (2026-10-02) these have their own
+                 # subjects: streets and buildings, places of faith.
+                 "realestate": "city", "business": "city", "community": "faith"}
 
 
 EMERGENCY = json.loads((ROOT / "data" / "curated" / "emergency.json").read_text())
@@ -674,6 +754,14 @@ _FLEET_REST = [
      "Basque dining rooms of California, Nevada and Idaho"),
     ("pinot-noir",        "ปิโนต์นัวร์",       "องุ่นปิโนต์นัวร์ แหล่งปลูก และโรงบ่ม",
      "pinot noir: the vine, the regions, the cellars"),
+    ("field",             "ภาคสนาม",          "ร้านที่เก็บจากป้ายหน้าร้าน พร้อมรูปถ่ายของแต่ละร้าน",
+     "street-level capture: places from their own signs, each with its photograph"),
+    ("golden-triangle",   "สามเหลี่ยมทองคำ",   "ที่น้ำรวกบรรจบแม่น้ำโขง สบรวก เชียงแสน ดอย และแม่น้ำ",
+     "where the Ruak meets the Mekong"),
+    ("prostar-magic",     "โปรสตาร์ แมจิก ช้อป", "ร้านมายากล ถนนคชสาร อุปกรณ์ โชว์ และสอนมายากล",
+     "magic shop on Kotchasarn Road: props, shows, lessons"),
+    ("poplucky",          "ป๊อปลัคกี้",         "กล่องสุ่มป๊อปมาร์ท จัดหมวดด้วยคำที่นักสะสมใช้",
+     "the Pop Mart collector's catalogue"),
     ("index",             "สารบัญรวม",        "ทุกอย่างที่มี นับไว้ที่เดียว",
      "everything, counted in one place"),
 ]
@@ -683,6 +771,12 @@ _FLEET_SERVICES = [
     ("defiant",     "ดีไฟแอนท์",        "หาหมอ ทำฟัน ในเชียงใหม่ พร้อมล่ามไปด้วย",
      "medical and dental care in Chiang Mai, with a translator at the appointment"),
     ("hongdam",     "หงส์ดำ",           "รับทำเว็บสองภาษา เชียงราย", "bilingual web development, Chiang Rai"),
+    ("chiangmaivisadesk", "เชียงใหม่วีซ่าเดสก์", "ใบอนุญาตทำงาน จดทะเบียนบริษัท และวีซ่า เชียงใหม่",
+     "work permits, company setup and visas, Chiang Mai"),
+    ("hunpayont",   "หุ่นพยนต์",         "แอปฟรีบนมือถือ ข้อมูลฟรี และงาน ทำที่ภาคเหนือ",
+     "free phone apps, free data, and work"),
+    ("onemansideshow", "วันแมนไซด์โชว์",  "ทำสารบัญเมืองคนเดียวกับทีมบอท ชุดเครื่องมือฟรี",
+     "a city directory run by one person and AI agents; the kit is free"),
 ]
 
 
@@ -766,29 +860,43 @@ def cat_art_band(cat_key, prov_key, depth=2):
     # THREE, not one. Same band, same height — the strip is divided, not added
     # to, so this costs no vertical space and no words. Three slots per shelf
     # is what lets art()'s round-robin actually reach the whole pool.
+    #
+    # This province's pictures first, then the ones tagged for the north at large,
+    # then the dish-or-custom pictures tagged `elsewhere` (Nan, 2026-09-07: use ALL
+    # the pictures). Never the other province: a Chiang Rai shelf headed by Chiang
+    # Mai (Nan, 2026-09-28, "yes pls fix").
     picks = []
+
+    def more(**kw):
+        have = {x["slug"] for x in picks}
+        picks.extend(q for q in art(topic=topic, n=3, key=k, **kw) if q["slug"] not in have)
+
     if hint:
-        picks = art(topic=topic, n=3, slug_has=hint, key=k,
-                    not_topic=("people",), local=True)
+        more(slug_has=hint, place=prov_key, not_topic=("people",), local=True)
+    # The season we are standing in leads, where the pool has one: a rains
+    # shelf in October, a cool-season one in December (สามฤดู, as the hero).
+    _m = int(BUILD_DATE[5:7])
+    _season = "hot" if _m in (3, 4, 5) else "rains" if 6 <= _m <= 10 else "cool"
+    more(place=prov_key, season=_season, not_topic=("people",), local=True)
+    for pl in (prov_key, "lanna"):
+        if len(picks) < 3:
+            more(place=pl, not_topic=("people",), local=True)
     if len(picks) < 3:
-        picks += [q for q in art(topic=topic, n=3, key=k,
-                                 not_topic=("people",), local=True)
-                  if q["slug"] not in {x["slug"] for x in picks}]
-    # Nan, 2026-09-07: use ALL the pictures. Where a topic's local pool runs
-    # out, the pictures she tagged `elsewhere` (the dish or the custom rather
-    # than this city) fill the trailing slots rather than sitting on disk.
-    # Local ones still take the leading slots. Reverse by restoring local=True.
-    if len(picks) < 3:
-        picks += [q for q in art(topic=topic, n=3, key=k)
-                  if q["slug"] not in {x["slug"] for x in picks}]
+        more(place="elsewhere")
     picks = picks[:3]
     if not picks:
         return ""
     r = "../" * depth
-    imgs = "".join(
-        f'<img src="{r}site/{q["slug"]}.jpg" alt="{att(art_alt(q))}" '
-        f'loading="lazy" width="{q.get("width") or 1000}" '
-        f'height="{q.get("height") or 750}">' for q in picks)
+
+    def one(q):
+        img = (f'<img src="{r}site/{q["slug"]}.jpg" alt="{att(art_alt(q))}" '
+               f'loading="lazy" width="{q.get("width") or 1000}" '
+               f'height="{q.get("height") or 750}">')
+        # Her pictures go to the place they show (NaN, 2026-09-28).
+        if q.get("artist") == "NaN Peacock" and q.get("lat") is not None:
+            return f'<a href="{r}{att(pics_layer.href_of(q).lstrip("/"))}">{img}</a>'
+        return img
+    imgs = "".join(one(q) for q in picks)
     # One chip for the strip. Every photographer and licence is on
     # /pictures.html, which is where the chip goes.
     chip = f'<a class="herocredit" href="{r}pictures.html">📷</a>'
@@ -827,6 +935,93 @@ def band_pic_file(pick):
     """
     small = BAND_PIC_SRC / (pick["slug"] + ".jpg")
     return ("band/" if small.exists() else "site/") + pick["slug"] + ".jpg"
+
+
+def own_strip(r, hero_file=None):
+    """NaN's ride pictures of this place, beside whatever photograph leads the page.
+
+    The lead photograph, when it is one of hers, is a byte copy of one of these
+    picks, so the same file size marks it and it is not shown twice.
+    """
+    pics = OWN_BY_PLACE.get(r["id"]) or []
+    if hero_file and (PHOTOS_SRC / hero_file).exists():
+        _sz = (PHOTOS_SRC / hero_file).stat().st_size
+        pics = [p for p in pics if (ROOT / "assets" / p["file"]).stat().st_size != _sz]
+    if not pics:
+        return ""
+    pics = sorted(pics, key=lambda p: (p.get("date") or "", p["slug"]), reverse=True)[:6]
+    for p in pics:
+        ART_USED[p["slug"]] = p
+    imgs = "".join(
+        f'<a href="../../{att(p["file"])}"><img src="../../{att(band_pic_file(p))}" '
+        f'width="{int(p.get("width") or 900)}" height="{int(p.get("height") or 600)}" '
+        f'alt="{att(art_alt(p))}" loading="lazy"></a>' for p in pics)
+    days = sorted({p["date"] for p in pics if p.get("date")})
+    when = " · ".join(datetime.date.fromisoformat(d).strftime("%-d %b %Y") for d in days)
+    return (f'<figure class="ownpics"><div>{imgs}</div><figcaption>📷 '
+            f'<a href="../../pictures.html">NaN Peacock</a>{" — " + when if when else ""}'
+            f' · CC BY 4.0</figcaption></figure>')
+
+
+def _emph(s):
+    """A history paragraph as safe markup: everything escaped, then the roads
+    corpus's *…* emphasis (it marks an inference apart from the record) turned
+    into <em>."""
+    return re.sub(r"\*(.+?)\*", r"<em>\1</em>", esc(s))
+
+
+def landmark_history(r):
+    """A landmark's sourced history, English and Thai, as read prose.
+
+    Businesses carry no blurb — a shop is its structured facts (Nan, 2026-09-06,
+    tests/test_no_blurbs.py). A gate is not a shop: the story of how Tha Phae
+    Gate was pulled down for a road in 1948 and rebuilt as the postcard forty
+    years later is the thing a reader came for, and it is cited to the roads
+    corpus, not composed here. Present only on records that carry `history`,
+    which the business path never sets.
+    """
+    h = r.get("history") or {}
+    if not h:
+        return ""
+    def paras(t):
+        return [p.strip() for p in (t or "").split("\n\n") if p.strip()]
+    en, th = paras(h.get("en")), paras(h.get("th"))
+    rows = []
+    for i in range(max(len(en), len(th))):
+        _th = th[i] if i < len(th) else ""
+        _en = en[i] if i < len(en) else ""
+        rows.append("<p>%s</p>" % bi(_emph(_th), _emph(_en), raw=True))
+    return ('<section class="history"><h2>%s</h2>%s</section>'
+            % (bi("ประวัติ", "History"), "".join(rows)))
+
+
+def landmark_gallery(r):
+    """A landmark's photographs, beside the one that leads the page.
+
+    The roads corpus's Commons pictures, copied to disk with each
+    photographer and licence. Thumbnails link to the full frame; the caption
+    names every photographer and licence, which CC BY-SA asks travel with the
+    picture. own_strip() carries Nan's own field photographs of the same place
+    separately, credited to her.
+    """
+    g = r.get("gallery") or []
+    if not g:
+        return ""
+    imgs = []
+    for im in g:
+        thumb = im.get("thumb") or im["file"]
+        _t = ", ".join(x for x in (im.get("author"), im.get("license")) if x)
+        imgs.append('<a href="../../%s" title="%s"><img src="../../%s" '
+                    'alt="%s" loading="lazy"></a>'
+                    % (att(im["file"]), att(_t),
+                       att(thumb), att(im.get("alt") or name_text(r))))
+    authors = list(dict.fromkeys(im.get("author") for im in g if im.get("author")))
+    lics = list(dict.fromkeys(im.get("license") for im in g if im.get("license")))
+    cap = " · ".join(x for x in (", ".join(authors), " / ".join(lics),
+                                 "Wikimedia Commons") if x)
+    return ('<figure class="landmarkpics"><div>%s</div>'
+            '<figcaption>📷 %s</figcaption></figure>'
+            % ("".join(imgs), esc(cap)))
 
 
 def band_credit(name):
@@ -1333,6 +1528,18 @@ SACRED_CATS = {"wat", "sights"}
 # each ping. Fixed here so the file and the ping can never disagree.
 INDEXNOW_KEY = "a9d3f16c4b7e42d0a8c15f39b6e07d2c"
 
+# Google Search Console, URL-prefix property for https://motdang.net, opened
+# 2026-09-20 on Nan's go. Verification is a file at the site root — the one
+# method that needs nothing but this build, where the DNS method would need a
+# TXT record and the wrangler OAuth token has zone READ only.
+#
+# rclone sync mirrors docs/: a file that stops being written here is deleted
+# from the bucket on the next publish, and the property loses its verification
+# with it. That is the whole reason this lives in build.py and not in a
+# one-off upload. Google's own line: "don't remove the file, even after
+# verification succeeds."
+GOOGLE_VERIFY = "googlec9c8aa711f88fa78.html"
+
 
 def placeholder_for(r):
     """A wat only stands in for a wat. Everything else gets the ant."""
@@ -1523,6 +1730,30 @@ def credit_rel(url):
     return ' rel="nofollow noopener"'
 
 
+_OH_RULE = re.compile(
+    r"^(?:Mo|Tu|We|Th|Fr|Sa|Su)(?:-(?:Mo|Tu|We|Th|Fr|Sa|Su))?(?:,(?:Mo|Tu|We|Th|Fr|Sa|Su)(?:-(?:Mo|Tu|We|Th|Fr|Sa|Su))?)*"
+    r"\s+\d\d:\d\d-\d\d:\d\d(?:,\s*\d\d:\d\d-\d\d:\d\d)*$")
+
+
+def postal_address(r):
+    """schema.org PostalAddress from a record, or None when it holds no address."""
+    pal = r.get("attrs") or {}
+    if not (r.get("address") or pal.get("tambon") or pal.get("amphoe")):
+        return None
+    addr = {"@type": "PostalAddress", "addressCountry": "TH"}
+    if r.get("address"):
+        addr["streetAddress"] = r["address"]
+    locality = pal.get("tambon") or pal.get("amphoe")
+    if isinstance(locality, str) and locality.strip():
+        addr["addressLocality"] = locality.strip()
+    region = FEST_PROV_LABEL.get(r.get("province"))
+    if region:
+        addr["addressRegion"] = region[1]
+    if pal.get("postcode"):
+        addr["postalCode"] = str(pal["postcode"])
+    return addr
+
+
 def ld_json(r, path, photo_file):
     obj = {
         "@context": "https://schema.org",
@@ -1554,19 +1785,8 @@ def ld_json(r, path, photo_file):
     # postcode — and addressLocality/postalCode are exactly the two fields both
     # Google's rich results and every LLM extractor read (G3 in the arrivals
     # note). The region is ours by construction: this directory is two provinces.
-    _pal = r.get("attrs") or {}
-    if r.get("address") or _pal.get("tambon") or _pal.get("amphoe"):
-        _addr = {"@type": "PostalAddress", "addressCountry": "TH"}
-        if r.get("address"):
-            _addr["streetAddress"] = r["address"]
-        _locality = _pal.get("tambon") or _pal.get("amphoe")
-        if isinstance(_locality, str) and _locality.strip():
-            _addr["addressLocality"] = _locality.strip()
-        _region = FEST_PROV_LABEL.get(r.get("province"))
-        if _region:
-            _addr["addressRegion"] = _region[1]
-        if _pal.get("postcode"):
-            _addr["postalCode"] = str(_pal["postcode"])
+    _addr = postal_address(r)
+    if _addr:
         obj["address"] = _addr
     if r.get("lat") is not None:
         obj["geo"] = {"@type": "GeoCoordinates", "latitude": r["lat"], "longitude": r["lng"]}
@@ -1578,6 +1798,24 @@ def ld_json(r, path, photo_file):
     phone_channel = next((c for c in live if c["kind"] == "phone"), None)
     if phone_channel:
         obj["telephone"] = phone_channel["text"]
+    # HOURS THE PAGE ALREADY PRINTS — 2026-09-23
+    # 4,403 records carry opening hours and the place page shows them, but this
+    # block never did, so no engine reading schema.org could see a single one.
+    # Same order as the page: the owner's confirmed hours first, then the
+    # record's. Two kinds stay page-only. Hours lifted from an archived copy of a
+    # dead site are printed with their year as a lead, and schema.org has no
+    # place for that caveat, so they are not stated here as current fact. And a
+    # value not already in schema.org's own form ("Mo-Su 08:00-18:00", ";" between
+    # rules) is left out rather than rewritten into something the owner never said.
+    _claim = CLAIMS.get(r.get("id")) or {}
+    _hours = _claim.get("hours") or r.get("hours")
+    _archived = (((r.get("enrichedFields") or {}).get("hours") or {}).get("license")
+                 == "archived-official-site") and not _claim.get("hours")
+    if _hours and not _archived:
+        _rules = [x.strip() for x in str(_hours).split(";") if x.strip()]
+        if _rules and all(x == "24/7" or _OH_RULE.match(x) for x in _rules):
+            obj["openingHours"] = ["Mo-Su 00:00-23:59" if x == "24/7" else x
+                                   for x in _rules]
     same_as = [c["href"] for c in live if c["href"].startswith("http")]
     # Wikipedia and Wikidata are what sameAs was invented for — the canonical
     # identifiers for the same real thing. They were sitting unused in the OSM
@@ -1634,6 +1872,9 @@ def city_reading(key):
     return f'<p><a href="{href}">{bi(th, en)}</a></p>'
 
 
+SITEMAP_CANON = re.compile(r'<link rel="canonical" href="([^"]+)"')
+
+
 def city_ld(key, p, n):
     """CollectionPage about the city, for {key}/index.html."""
     e = CITY_ENTITY.get(key)
@@ -1674,7 +1915,6 @@ def city_desc(p, counts, n):
     en = ", ".join(f'{CATS[c]["en"]} {counts[c]:,}' for c in picks)
     return (f'{p["th"]}: {th} — รวม {n:,} แห่ง · '
             f'{p["en"]}: {en} — {n:,} places · มดแดง Mot Dang')
-
 
 
 def website_ld():
@@ -1787,6 +2027,11 @@ html.lang-en .en{display:inline} html.lang-en .th{display:none}
    `.en` rule, and `html.lang-en .th.solo` (0,3,1) beats `html.lang-en .th`. */
 .en.solo{display:inline}
 html.lang-en .th.solo{display:inline}
+html.lang-both .bi>.th{font-weight:500}
+html.lang-both .bi>.en,.en-sub{display:inline-block;font-size:.85em;opacity:.72;letter-spacing:.015em;font-weight:400;margin-left:.35rem}
+html.lang-both .bi.stack,.bilingual-stack{display:flex;flex-direction:column}
+html.lang-both .bi.stack>.en,.bilingual-stack .en-sub{margin-left:0;font-size:.78em;line-height:1.2}
+.badge-count{display:inline-flex;align-items:center;justify-content:center;margin-left:.25rem;padding:0 .4rem;font-size:.75rem;border-radius:9999px;background:color-mix(in srgb,currentColor 15%,transparent)}
 /* P2 — ONE LANGUAGE PER ROW (Nan, 2026-09-07). A row's two NAMES are two
    facts and both stay. A unit is not: "· 810 ม. · 810 m" says one thing
    twice, on every row of a distance-sorted list, and in ไทย+EN — the DEFAULT
@@ -2114,6 +2359,24 @@ margin:.5rem 0 .2rem;font:inherit;font-weight:700;border:2px solid var(--ant)}
   margin:.35rem 0 .6rem;padding:0;font-size:.82rem;color:var(--ink-soft)}
 .mdkey li{display:flex;align-items:center;gap:.3rem}
 .mdkey svg{width:14px;height:14px;flex:none}
+.planseen{margin:.15rem 0 .6rem .4rem}
+.planbtn-lg+.planseen{margin-left:.5rem}
+.looline{margin:.45rem 0 .2rem .5rem;font-size:1rem;line-height:1.5}
+.looline b{white-space:nowrap}
+.looline .loomore{white-space:nowrap}
+.grabride{display:inline-flex;align-items:center;gap:.45rem;margin:.5rem 0 .2rem .5rem;
+padding:.5rem .95rem;border-radius:.6rem;border:2px solid #00b14f;color:#00803a;background:#fff;
+font-weight:700;text-decoration:none}
+.grabride:hover{background:#00b14f;color:#fff}
+.guidego{display:inline-flex;align-items:center;gap:.45rem;margin:.5rem 0 .2rem .5rem;
+padding:.5rem .95rem;border-radius:.6rem;border:2px solid var(--ant);color:var(--ant-dark);background:#fff;
+font-weight:700;text-decoration:none}
+.guidego:hover{background:var(--ant);color:#fff}
+/* Off a list or a map the way back floats: on a 1,999-row list the link above
+   the list was 23,000 px up by the time the reader tapped row 600. Under the
+   tap cards (z 60), which sit where it does. */
+.planseen.planfloat{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));
+margin:0;z-index:50;box-shadow:0 3px 0 var(--shadow-dark);max-width:calc(100vw - 2rem)}
 .planbtn-lg .off-label,.planbtn-lg.on .on-label{display:inline}
 .planbtn-lg .on-label,.planbtn-lg.on .off-label{display:none}
 .chip .plancount{background:var(--ant);color:#fff;border-radius:1rem;font-size:.72rem;
@@ -2129,6 +2392,13 @@ padding:.6rem 1rem;margin:.6rem 0 1rem}
 .hubkids .eg{color:var(--mute);font-size:.9em}
 .hubkids .eg a{color:var(--ant-dark)}
 .toolbar{display:flex;gap:.5rem;align-items:center;font-size:.9rem;margin:.4rem 0 .6rem;flex-wrap:wrap}
+/* The shelf pager. Big tap targets because it is the only way forward on a
+   shelf too long for one page, and it is read with a thumb. */
+.pager{display:flex;gap:.45rem;flex-wrap:wrap;align-items:center;
+  font-size:.95rem;margin:.7rem 0;line-height:2}
+.pager a,.pager b{padding:.15rem .5rem;border-radius:.3rem}
+.pager b{background:var(--ant-dark);color:var(--paper)}
+.pager a{border:1px solid var(--soft)}
 .toolbar button{font:inherit;font-size:.85rem;border:1.5px solid var(--ant-dark);
 background:none;color:var(--ant-dark);border-radius:999px;padding:.05rem .7rem;cursor:pointer}
 .toolbar button.on,.toolbar button:hover{background:var(--ant-dark);color:var(--paper)}
@@ -2336,6 +2606,8 @@ transition:transform .13s cubic-bezier(.34,1.56,.64,1),box-shadow .13s,filter .1
 .reach .pill:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 4px 12px rgba(0,0,0,.2)}
 .reach .pill:active{transform:translateY(0) scale(.97)}
 .reach .pill b{font-weight:700}
+.reach .chwrap,.reach .pill{max-width:100%;min-width:0}
+.reach .pill b{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .reach .chico{font-size:.95em;line-height:1}
 .reach .chlabel{opacity:.85;font-size:.82em}
 .reach .pill.phone{background:var(--ant)}
@@ -2521,6 +2793,17 @@ vertical-align:-.15em;margin-right:.35em;border:1px solid var(--soft)}
 .photo{max-width:100%;height:auto;max-height:280px;border-radius:.6rem;border:1px solid var(--soft);
 margin:.6rem 0;display:block;background:#fff}
 .phototag{color:var(--mute);font-size:.8rem;margin:-.4rem 0 .6rem}
+.ownpics{margin:.2rem 0 .8rem}
+.ownpics div{display:flex;gap:.4rem;overflow-x:auto}
+.ownpics img{height:150px;width:auto;border-radius:.5rem;border:1px solid var(--soft);display:block}
+.ownpics figcaption{color:var(--mute);font-size:.8rem;margin-top:.3rem}
+.landmarkpics{margin:.2rem 0 .8rem}
+.landmarkpics div{display:flex;gap:.4rem;overflow-x:auto}
+.landmarkpics img{height:170px;width:auto;border-radius:.5rem;border:1px solid var(--soft);display:block}
+.landmarkpics figcaption{color:var(--mute);font-size:.8rem;margin-top:.3rem}
+.history{margin:.6rem 0 1rem;max-width:42rem}
+.history h2{margin:0 0 .3rem;font-size:1.05rem}
+.history p{margin:0 0 .6rem;line-height:1.6}
 .phototag.quiet{opacity:.45;font-size:.72rem}
 .photodesc{color:var(--mute);font-style:italic}
 .chartlegend{font-size:.9rem;margin:.4rem 0}
@@ -2922,7 +3205,10 @@ border-radius:.6rem;padding:.15rem .6rem;cursor:pointer;font:inherit;font-size:.
 padding:.8rem 1rem;margin:.9rem 0}
 .planerr h2{margin:.1rem 0 .3rem;font-size:1.05rem}
 .planerrrow{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.5rem 0}
-.planerrrow select{flex:1 1 14rem;min-height:2.6rem;font-size:1rem;padding:.3rem .4rem}
+.planerrrow select{flex:1 1 14rem;min-height:2.6rem;font-size:1rem;padding:.3rem .4rem;
+min-width:0;max-width:100%}
+/* A select is as wide as its longest option unless told otherwise; this one
+   was 623 px, and a phone zoomed the whole plan out to fit it. */
 .planerrrow button{min-height:2.6rem}
 .planerrlist{list-style:none;padding-left:0;margin:.4rem 0;display:flex;
 flex-wrap:wrap;gap:.4rem}
@@ -2933,31 +3219,6 @@ flex-wrap:wrap;gap:.4rem}
 .errsaved{color:var(--ant-dark,#8F2E13);font-weight:600;margin:.2rem 0}
 ol.errpicks{margin:.4rem 0 .6rem 1.2rem}
 ol.errpicks li{padding:.15rem 0}
-/* ---- ไหว้พระ ๙ วัด ----------------------------------------------------- */
-.meritcard{background:#fff;border:1px solid var(--soft);border-radius:.8rem;
-padding:.9rem 1.1rem;margin:1rem 0}
-.meritcard h2{margin:.1rem 0 .2rem}
-.meritdist{color:var(--muted);margin:.1rem 0 .6rem}
-.meritmap{display:block;min-width:20rem;margin:.3rem 0}
-.merithint{font-size:.9rem;color:var(--muted);margin:.35rem 0}
-/* Numbered because the walk is ordered, gold rather than brand red because the
-   round is a merit-making one. Not a scoreboard — the page says so in words
-   and the numbers are deliberately the same size as each other. */
-ol.meritstops{list-style:none;counter-reset:mrt;padding-left:0;margin:.5rem 0}
-ol.meritstops>li{counter-increment:mrt;position:relative;padding:.22rem 0 .22rem 2.3rem}
-ol.meritstops>li::before{content:counter(mrt);position:absolute;left:0;top:.2rem;
-width:1.7rem;height:1.7rem;border-radius:50%;background:#C9A227;color:#fff;
-font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;
-justify-content:center}
-.meritplan{margin:.6rem 0 .1rem}
-.meritrule{font-weight:600}
-.meritdays{background:#fff;border:1px solid var(--soft);border-radius:.8rem;
-padding:.8rem 1rem;margin:1rem 0}
-.meritdays ul{list-style:none;padding-left:0;margin:.5rem 0 0;
-display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:.6rem}
-.meritdays li{line-height:1.45}
-.daydot{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;
-margin-right:.4rem;vertical-align:baseline;border:1px solid rgba(0,0,0,.2)}
 /* ---- read more elsewhere --------------------------------------------- */
 /* Quiet by design. These links leave the site, so they sit below the facts
    and above the contribute doors, and they do not compete with the contact
@@ -3055,7 +3316,30 @@ padding:.7rem 1rem;margin:0 0 1rem;display:flex;gap:.7rem;flex-wrap:wrap;align-i
 border-radius:.5rem;padding:.3rem .8rem;font:inherit;font-weight:700;cursor:pointer}
 .planmapwrap{background:#fff;border:1px solid var(--soft);border-radius:.8rem;padding:.4rem;
 overflow-x:auto;margin-bottom:1rem}
-.planmap{display:block;min-width:22rem}
+.planmap{display:block}
+/* Live guidance (A) and the nav-app hand-off (C). The guide button reuses
+   .plantools button.on for its active state; only these are new. */
+.planremain{background:var(--ant);color:#fff;border-radius:.6rem;padding:.5rem .85rem;
+margin:.2rem 0 .7rem;font-weight:700;font-size:1.05rem;line-height:1.4}
+.planremain .gcue{display:flex;align-items:center;gap:.6rem;font-size:1.25rem;line-height:1.25;padding:.15rem 0 .35rem}
+.planremain .gcue svg{flex:none;stroke:#fff;stroke-width:2.4}
+.planremain .gdist{font-size:1.45rem;white-space:nowrap}
+.planremain .gtxt{font-weight:700;flex:1;min-width:0;overflow-wrap:anywhere}
+.planremain .gnote{margin:.1rem 0 .35rem;font-size:.9rem;font-weight:400}
+.planremain .gfoot{display:flex;align-items:center;flex-wrap:wrap;gap:.35rem;font-size:.95rem;
+border-top:1px solid rgba(255,255,255,.35);padding-top:.35rem}
+.planremain .gvoice{margin-left:auto;background:none;border:2px solid #fff;color:#fff;border-radius:.5rem;
+padding:.2rem .45rem;line-height:0;cursor:pointer}
+.planremain .gvoice svg{stroke:#fff}
+.planstop.passed{opacity:.5}
+#planguidebtn.golit{box-shadow:0 0 0 4px var(--ant);animation:golit 1.2s ease-in-out 3}
+@keyframes golit{50%{box-shadow:0 0 0 9px rgba(0,0,0,0)}}
+.plantools a.plannav{border:2px solid var(--ant);color:var(--ant-dark);border-radius:.6rem;
+padding:.35rem .8rem;font:inherit;font-size:.9rem;text-decoration:none;background:none}
+.plantools a.plannav:hover{background:var(--ant);color:#fff}
+/* The drawing used to carry min-width:22rem, wider than a phone's box: the
+   basemap centred on the box and the pins on the wider picture, 10-25 px apart. */
+body.plan-has .planintro{display:none}
 .planempty{background:var(--soft);border-radius:.8rem;padding:1.2rem;text-align:center;
 color:var(--ink-soft)}
 .plansteps{list-style:none;margin:0 0 1rem;padding:0;display:flex;flex-direction:column;gap:0}
@@ -3078,7 +3362,26 @@ width:1.9rem;height:1.9rem;cursor:pointer;font-size:.95rem;line-height:1;padding
 .planacts button:hover{border-color:var(--ant)}
 .planacts button:disabled{opacity:.3;cursor:default}
 .planacts .plandel{color:var(--ant-dark)}
-.planleg{display:flex;align-items:center;gap:.6rem;padding:.25rem 0 .25rem 2.55rem;
+.planacts .planlock.on{background:var(--gold);border-color:var(--ink)}
+.planstop.locked{border-color:var(--gold);box-shadow:inset 3px 0 0 var(--gold)}
+.planfix{margin:.3rem 0 0;font-size:.85rem}
+.planfix summary{cursor:pointer;color:var(--ant-dark);min-height:2rem;display:flex;align-items:center}
+.planfix label{display:flex;align-items:center;gap:.4rem;margin:.3rem 0;flex-wrap:wrap}
+.planfix input{font:inherit;font-size:1rem;min-height:2.4rem;padding:.1rem .3rem;max-width:9rem}
+.planswapline{margin:.3rem 0 0;font-size:.85rem;color:#1c5aa8}
+.planswapline button{border:1.5px solid #1c5aa8;background:#fff;color:#1c5aa8;border-radius:.5rem;
+font:inherit;font-weight:700;min-height:2.4rem;padding:.1rem .7rem;cursor:pointer;margin-left:.2rem}
+.planlate{color:var(--ant-dark)}
+.planleave{display:inline-flex;align-items:center;gap:.35rem;font-size:.9rem;color:var(--ant-dark)}
+.planleave input{font:inherit;min-height:2.4rem;padding:.1rem .3rem}
+.plantools button:disabled{opacity:.4;cursor:default}
+/* On a phone the four stop buttons go in a row under the card, at a size a
+   thumb can hit — stacked at 30 px they were under the 44 px minimum. */
+@media (max-width:34rem){
+.planstop{flex-wrap:wrap}
+.planacts{flex-direction:row;width:100%;justify-content:flex-end;gap:.4rem}
+.planacts button{width:2.75rem;height:2.75rem;font-size:1.05rem}}
+.planleg{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;padding:.25rem 0 .25rem 2.55rem;
 font-size:.82rem;color:var(--mute)}
 .planleg::before{content:"";flex:0 0 2px;align-self:stretch;background:var(--dashed);
 min-height:1rem}
@@ -3130,6 +3433,9 @@ padding:.8rem 1rem;margin:1.1rem 0}
 .whatson h2{margin:0 0 .4rem;font-size:1.05rem}
 .whatson ul{margin:0;padding-left:1.1rem}
 .whatson li{margin:.3rem 0}
+.whatson h3{margin:.8rem 0 .3rem;font-size:.95rem}
+.whatson .evpast{color:var(--muted)}
+.whatson .evsince{font-size:.85rem;color:var(--muted)}
 .ssbody{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
 gap:.3rem;z-index:1;min-height:0;overflow:hidden}
 .sstube{width:2.6rem;height:4rem;border-radius:.3rem .3rem .9rem .9rem;
@@ -3698,6 +4004,7 @@ text-decoration:none;border:1px solid rgba(42,30,22,.12)}
 border:2px solid var(--ink);box-shadow:0 6px 18px rgba(42,30,22,.14);
 display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:2px}
 .catband img{width:100%;height:clamp(110px,18vw,175px);object-fit:cover;display:block}
+.catband>a{display:block;min-width:0}
 .freshstrip{display:flex;gap:.45rem;flex-wrap:wrap;align-items:center;margin:.7rem 0 .2rem}
 .freshchip{display:inline-flex;gap:.3rem;align-items:center;font-size:.78rem;
 background:var(--card);border:1.5px solid var(--soft);border-radius:999px;padding:.22rem .7rem}
@@ -4086,19 +4393,69 @@ const DEF={cm:{lat:18.7876,lng:98.9931,th:'ประตูท่าแพ',en:'T
            cr:{lat:19.9094,lng:99.8325,th:'หอนาฬิกาเชียงราย',en:'Clock Tower',src:'default'}};
 const near=lat=>(typeof lat==='number'&&lat>19.3)?DEF.cr:DEF.cm;
 // A remembered origin is a place the reader chose, never a fix we were
-// handed: a GPS coordinate is not written to disk anywhere on this site.
+// handed. A GPS fix is kept in this tab's sessionStorage (md-here) for twenty
+// minutes so every map on the page can show the reader; md-origin never holds one.
 function origin(lat){
 try{const v=JSON.parse(localStorage.getItem('md-origin'));
 if(v&&typeof v.lat==='number'&&v.src!=='gps')return v;}catch(e){}
 return near(lat);}
 function remember(o){if(o&&o.src!=='gps'){
 try{localStorage.setItem('md-origin',JSON.stringify(o));}catch(e){}}return o;}
-// Said no once, asked never again — and the doors go with it, because a
-// control that reopens a dialog the reader already refused is how a site
-// teaches people to distrust it on sight.
+// Said no on OUR question, asked never again on this page — and the doors
+// go with it, because a control that reopens a dialog the reader already
+// refused is how a site teaches people to distrust it on sight.
 function kill(){OFF=true;close();
 document.querySelectorAll('[data-gps-door]').forEach(el=>el.remove());}
 function close(){if(gate){gate.remove();gate=null;}}
+// The browser saying no is not the reader saying no. Nan's friend on Android,
+// 2026-09-28: he would give the site his location and could not — Chrome had
+// it blocked, the doors had quietly vanished, and nothing said where the
+// switch was. So a blocked browser keeps the doors, and a tap on one says how
+// to allow it on the phone in hand. A fix that simply did not arrive (Location
+// off, indoors, a slow GPS) is not a refusal either: it asks once more without
+// high accuracy, then says what to check.
+let BLOCKED=false;
+const UA=navigator.userAgent||'';
+const INAPP=/\bLine\/|FBAN|FBAV|FB_IAB|Instagram|MicroMessenger|TikTok/i.test(UA);
+const ANDROID=/Android/i.test(UA),IOS=/iPhone|iPad|iPod/i.test(UA);
+function box(title,lines,again){
+close();
+gate=document.createElement('div');
+gate.className='mdgate';gate.setAttribute('role','dialog');
+gate.setAttribute('aria-modal','true');gate.setAttribute('aria-label',title[0]+' / '+title[1]);
+gate.innerHTML='<div class="mdgatebox"><b>'+mdBi(title[0],title[1])+'</b>'+
+lines.map(l=>'<p>'+mdBi(l[0],l[1])+'</p>').join('')+
+'<div class="mdgateacts">'+(again?'<button type="button" data-g="y">'+
+mdBi('ลองอีกครั้ง','Try again')+'</button>':'')+
+'<button type="button" data-g="n" class="mdgateno">'+mdBi('ตกลง','OK')+
+'</button></div></div>';
+document.body.appendChild(gate);
+const y=gate.querySelector('[data-g="y"]');
+if(y)y.addEventListener('click',()=>{close();again();});
+gate.querySelector('[data-g="n"]').addEventListener('click',close);
+gate.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+(y||gate.querySelector('[data-g="n"]')).focus();}
+function howTo(){
+const t=['เว็บนี้ถูกปิดไม่ให้ใช้ตำแหน่ง','Location is blocked for this site'];
+if(INAPP)return box(t,[
+['แอปนี้ไม่ส่งตำแหน่งให้เว็บ เปิดหน้านี้ใน Chrome หรือ Safari: แตะ ⋮ หรือ ⋯ แล้วเลือก "เปิดในเบราว์เซอร์"',
+'This app does not pass a location to websites. Open the page in Chrome or Safari: tap ⋮ or ⋯, then "Open in browser".']]);
+if(IOS)return box(t,[
+['แตะ aA ในช่องที่อยู่ → การตั้งค่าเว็บไซต์ → ตำแหน่ง → อนุญาต แล้วโหลดหน้าใหม่',
+'Tap aA in the address bar → Website Settings → Location → Allow, then reload the page.'],
+['ถ้ายังไม่ได้: การตั้งค่า → ความเป็นส่วนตัวและความปลอดภัย → บริการหาตำแหน่ง → เว็บไซต์ Safari → ขณะใช้งานแอป',
+'Still nothing: Settings → Privacy & Security → Location Services → Safari Websites → While Using the App.']]);
+if(ANDROID)return box(t,[
+['แตะไอคอนทางซ้ายของช่องที่อยู่ → สิทธิ์ (หรือ การตั้งค่าเว็บไซต์) → ตำแหน่ง → อนุญาต แล้วโหลดหน้าใหม่',
+'Tap the icon at the left of the address bar → Permissions (or Site settings) → Location → Allow, then reload the page.'],
+['ถ้ายังไม่ได้: การตั้งค่าโทรศัพท์ → แอป → Chrome → สิทธิ์ → ตำแหน่ง → อนุญาต',
+'Still nothing: phone Settings → Apps → Chrome → Permissions → Location → Allow.']]);
+return box(t,[['คลิกไอคอนทางซ้ายของช่องที่อยู่ → ตำแหน่ง → อนุญาต แล้วโหลดหน้าใหม่',
+'Click the icon at the left of the address bar → Location → Allow, then reload the page.']]);}
+function noFix(retry){
+box(['หาตำแหน่งไม่เจอ','Could not find where you are'],[
+['เปิดตำแหน่ง (Location / GPS) ในโทรศัพท์ แล้วลองอีกครั้ง ข้างนอกอาคารจะเจอเร็วกว่า',
+'Switch on Location (GPS) on the phone and try again. It finds you faster outdoors.']],retry);}
 function build(onYes){
 gate=document.createElement('div');
 gate.className='mdgate';gate.setAttribute('role','dialog');
@@ -4106,8 +4463,8 @@ gate.setAttribute('aria-modal','true');gate.setAttribute('aria-label',
 'ใช้ตำแหน่งจริงของคุณไหม / Use your real location?');
 gate.innerHTML='<div class="mdgatebox"><b>'+
 mdBi('ใช้ตำแหน่งจริงของคุณไหม','Use your real location?')+'</b><p>'+
-mdBi('ตำแหน่งของคุณอยู่ในเครื่องคุณเท่านั้น ไม่ถูกส่งออกไปไหน และไม่ถูกเก็บไว้ ใช้เพื่อเรียงลำดับในหน้านี้อย่างเดียว',
-'Your location stays on this device. It is not sent anywhere and not stored — it only sorts this page.')+
+mdBi('ตำแหน่งของคุณใช้เรียงลำดับรายการในหน้านี้',
+'Your location sorts the list on this page.')+
 '</p><div class="mdgateacts"><button type="button" data-g="y">'+
 mdBi('📍 ใช้ตำแหน่งของฉัน','Use my location')+'</button>'+
 '<button type="button" data-g="n" class="mdgateno">'+mdBi('ไม่ต้อง','Not now')+
@@ -4117,24 +4474,50 @@ gate.querySelector('[data-g="y"]').addEventListener('click',()=>{close();onYes()
 gate.querySelector('[data-g="n"]').addEventListener('click',kill);
 gate.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
 gate.querySelector('[data-g="y"]').focus();}
-// ok(point) on a real fix; nope() every other way this can end — refused,
-// timed out, unsupported, or already denied at the OS level. Callers use
-// nope() to fall back to something that works, never to show an error.
+// One attempt. A refusal that comes back faster than a person can read the
+// browser's own prompt was the browser's, so the how-to shows at once; a
+// slower one was a person tapping Block, and it shows on their next tap.
+function fix(ok,nope,hi){
+const t0=Date.now();
+navigator.geolocation.getCurrentPosition(
+p=>{try{sessionStorage.setItem('md-here',JSON.stringify({lat:p.coords.latitude,lng:p.coords.longitude,acc:p.coords.accuracy,t:Date.now()}));}catch(e){}
+ok({lat:p.coords.latitude,lng:p.coords.longitude,src:'gps'});},
+e=>{if(e&&e.code===1){BLOCKED=true;if(Date.now()-t0<1500)howTo();nope&&nope('blocked');return;}
+if(hi){fix(ok,nope,false);return;}
+noFix(()=>fix(ok,nope,true));nope&&nope('nofix');},
+hi?{enableHighAccuracy:true,timeout:10000,maximumAge:60000}
+:{enableHighAccuracy:false,timeout:20000,maximumAge:600000});}
+// ok(point) on a real fix; nope(why) every other way this can end — 'off'
+// (said no here), 'blocked', 'nofix', 'none' (no geolocation at all).
+// Callers use nope() to fall back to something that works.
 function ask(ok,nope){
-if(OFF||!navigator.geolocation){nope&&nope();return;}
-build(()=>{navigator.geolocation.getCurrentPosition(
-p=>ok({lat:p.coords.latitude,lng:p.coords.longitude,src:'gps'}),
-()=>{kill();nope&&nope();},
-{enableHighAccuracy:true,timeout:10000,maximumAge:60000});});}
-// Ask the browser what it already knows, so a door is not shown for a
-// permission the OS has already refused.
+if(OFF){nope&&nope('off');return;}
+if(!navigator.geolocation){nope&&nope('none');return;}
+if(BLOCKED){howTo();nope&&nope('blocked');return;}
+build(()=>fix(ok,nope,true));}
+// Ask the browser what it already knows, so a door opens on the how-to
+// rather than a prompt the browser will not show.
 if(navigator.permissions&&navigator.permissions.query){
 try{navigator.permissions.query({name:'geolocation'}).then(st=>{
-if(st.state==='denied')kill();
-st.onchange=()=>{if(st.state==='denied')kill();};}).catch(()=>{});}catch(e){}}
-return {ask,origin,remember,kill,near,get off(){return OFF;}};
+BLOCKED=st.state==='denied';
+st.onchange=()=>{BLOCKED=st.state==='denied';};}).catch(()=>{});}catch(e){}}
+return {ask,origin,remember,kill,near,get off(){return OFF;},get blocked(){return BLOCKED;}};
 })();
 window.MDLOC=MDLOC;
+/* A map link, coordinates or a Plus Code typed into a search box opens the map at that point with the places
+   around it, instead of a word search that cannot read it (Nan, 2026-10-03: "you should be able to search a
+   google maps short link on motdang and come up with a map pin and placeIDs for anywhere nearby").
+   /map.html?su= opens Google short links through /api/resolve (locshare.js inbound). */
+(function(){
+var LINK=/https?:\/\/(?:maps\.app\.goo\.gl|goo\.gl\/maps|g\.co\/kgs|(?:www\.)?google\.[a-z.]+\/maps|maps\.google\.[a-z.]+|maps\.apple\.com|omaps\.app|(?:www\.)?openstreetmap\.org|osm\.org|line\.me\/R\/nv\/location)\S*/i;
+var LL=/^\s*-?\d{1,2}\.\d{3,}\s*[, ]\s*-?\d{1,3}\.\d{3,}\s*$/, PLUS=/(^|\s)[23456789CFGHJMPQRVWX]{2,8}\+[23456789CFGHJMPQRVWX]{0,3}(\s|$)/i;
+document.addEventListener('submit',function(e){
+  var f=e.target;if(!f||!f.querySelector||!/\/find\b/.test(f.getAttribute('action')||''))return;
+  var i=f.querySelector('input[type=search],input[name=q]');if(!i)return;
+  var v=(i.value||'').trim();if(!v||!(LINK.test(v)||LL.test(v)||PLUS.test(v)))return;
+  e.preventDefault();location.href='/map.html?su='+encodeURIComponent(v.slice(0,500));
+},true);
+})();
 
 // ---- language: Thai, both, or English ---------------------------------
 // Default is both. Someone who reads only one of the two should not have to
@@ -4163,11 +4546,12 @@ b.addEventListener('click',()=>mdSetRead(!RD.classList.contains('easyread')));})
 function mdSetLang(v){B.classList.remove('lang-en','lang-both','lang-th');
 B.classList.add(v==='en'?'lang-en':v==='th'?'lang-th':'lang-both');
 B.lang=v==='en'?'en':'th';
-try{localStorage.setItem('md-lang',v);}catch(e){}
+if(v!=='both')try{localStorage.setItem('md-lang',v);}catch(e){}
 document.querySelectorAll('.langbtn').forEach(b=>
 b.setAttribute('aria-pressed',b.dataset.lang===v?'true':'false'));}
 mdSetLang((()=>{let v=null;try{v=localStorage.getItem('md-lang');}catch(e){}
-return (v==='th'||v==='en'||v==='both')?v:'both';})());
+if(v==='th'||v==='en')return v;
+return B.classList.contains('lang-th')?'th':B.classList.contains('lang-en')?'en':'both';})());
 document.querySelectorAll('.langbtn').forEach(b=>
 b.addEventListener('click',()=>mdSetLang(b.dataset.lang)));
 // ---- hidden bell: the logo ant scurries ------------------------------
@@ -4188,6 +4572,72 @@ const resBox=document.getElementById('results');
 async function loadIndex(){const r=await fetch(RROOT+'data/index.json');
 const idx=await r.json();
 return window.MDIDX?window.MDIDX.fill(idx,RROOT):idx;}
+// THE SAME INDEX, BUT COMPLETE. loadIndex hands back the first file the
+// moment it parses, and the COORDINATES ARE IN THE SECOND ONE
+// (indexsplit_layer.py, 2026-09-08). Anything that reads a lat off a row has
+// to wait for that file, or it reads a field that has not ARRIVED as a field
+// the record does not HAVE — the one mistake MDIDX's own comment warns
+// about. It is what erased the route plan: every stop read as unpinned,
+// dropped, and the shortened list written back over the reader's own.
+// The 8 s ceiling is the same one the card panel's three-nearest uses.
+async function loadIndexFull(){const idx=await loadIndex();
+if(window.MDIDX&&!window.MDIDX.isFull())
+await Promise.race([new Promise(res=>window.MDIDX.whenFull(res)),
+new Promise(res=>setTimeout(res,8000))]);
+return idx;}
+// ---- md:clock — tests/test_search_page.py lifts this beside the pipeline ----
+// THE SHOP'S CLOCK, above the search block (2026-09-23). It lived inside the
+// search page's block, so window.MDHOURS existed only on search.html and the
+// plan's "arrive about 14:10 — closed by then" never printed anywhere. It
+// reads nothing but Intl.
+// THE CLOCK IS THE SHOP'S, NOT THE READER'S. This was new Date().getDay(),
+// which is right in Chiang Mai and wrong everywhere else: a reader in London
+// saw an unlit lamp on a shop that was open, while /api/v1 answered correctly
+// for the same place at the same moment, because it has always gone through
+// Intl. Intl does the zone rather than a hardcoded +7, for the reason
+// publish/api.js gives: Thailand has not moved its offset since 1920, and an
+// offset written into code is a silent bug the day a rule changes.
+// hourCycle h23 is the one place this differs from api.js — en-GB with
+// hour12:false reports midnight as 24 on some engines, which would put the
+// small hours a whole day out. api.js wants the same eight characters.
+const MDDAYS=['Mo','Tu','We','Th','Fr','Sa','Su'];
+const mdWmin=d=>{try{
+const pt=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Bangkok',weekday:'short',
+hour:'2-digit',minute:'2-digit',hour12:false,hourCycle:'h23'}).formatToParts(d||new Date());
+const g=t=>{const x=pt.find(q=>q.type===t);return x?x.value:'';};
+const dy=MDDAYS.indexOf(g('weekday').slice(0,2)),h=parseInt(g('hour'),10),m=parseInt(g('minute'),10);
+if(dy<0||isNaN(h)||isNaN(m))return null;return dy*1440+h*60+m;}catch(e){return null;}};
+// Recomputed at most twice a minute. A page left open crosses closing time,
+// and a lamp that was drawn once at load is a lamp that lies by teatime.
+let _wmT=0,_wmV=null;
+const WMIN=()=>{const n=Date.now();if(!_wmT||n-_wmT>3e4){_wmV=mdWmin();_wmT=n;}return _wmV;};
+// null, NEVER false, when nobody has recorded hours. build_open_lamps.py
+// refuses to guess at the strings it cannot parse, and this must not undo that
+// by drawing "no one has said" as "shut".
+const mdOpen=(sch,w)=>{if(!sch||!sch.length||w==null)return null;
+for(const iv of sch)if(w>=iv[0]&&w<iv[1])return true;return false;};
+// Minutes until the state changes. The intervals cover one week and they wrap,
+// so the edges are searched across three — last week, this one, next — and the
+// first one after now wins. A shop open right through to next week has no edge
+// ahead of it inside the window and gets null, which prints nothing.
+const MDWEEK=10080;
+const mdEdge=(sch,w)=>{if(!sch||!sch.length||w==null)return null;let best=null;
+for(const iv of sch)for(const k of[-MDWEEK,0,MDWEEK])for(const t of[iv[0]+k,iv[1]+k]){
+const d=t-w;if(d>0&&(best===null||d<best))best=d;}
+return best;};
+// The state between open and closed, which is the one a reader acts on: a lamp
+// says whether to go, this says whether to hurry. Only inside the hour — an
+// edge nine hours out is not news, it is the opening times, and those are on
+// the place's own page.
+const MDSOON=60;
+const mdWhen=(sch,w)=>{const on=mdOpen(sch,w);if(on===null)return '';
+const d=mdEdge(sch,w);if(d===null||d>MDSOON)return '';
+return on?mdBi('ปิดใน '+d+' นาที','closes in '+d+' min')
+:mdBi('เปิดใน '+d+' นาที','opens in '+d+' min');};
+// Handed to the surfaces that are their own files — here.js, near.js — so the
+// site has one reading of a schedule rather than one per page.
+if(typeof window!=='undefined')window.MDHOURS={open:mdOpen,edge:mdEdge,when:mdWhen,wmin:mdWmin,now:WMIN};
+// ---- md:clock ends ----
 if(resBox){(async()=>{
 const q=new URLSearchParams(location.search).get('q')||'';
 // WO-69 — THE FILTERS. tag= sub= cat= st= ar= narrow; near=lat,lng is a point
@@ -4362,53 +4812,6 @@ const TAB=Object.assign({tags:[],trade:[],streets:[],areas:[],subs:{},hours:[]},
 // depends on anything but TAB, and while it sat below, every `const` in it
 // was in the temporal dead zone for the pipeline that wanted to ask whether
 // a row was open — the same dead-zone bug tests/test_search_page.py exists for.
-// THE CLOCK IS THE SHOP'S, NOT THE READER'S. This was new Date().getDay(),
-// which is right in Chiang Mai and wrong everywhere else: a reader in London
-// saw an unlit lamp on a shop that was open, while /api/v1 answered correctly
-// for the same place at the same moment, because it has always gone through
-// Intl. Intl does the zone rather than a hardcoded +7, for the reason
-// publish/api.js gives: Thailand has not moved its offset since 1920, and an
-// offset written into code is a silent bug the day a rule changes.
-// hourCycle h23 is the one place this differs from api.js — en-GB with
-// hour12:false reports midnight as 24 on some engines, which would put the
-// small hours a whole day out. api.js wants the same eight characters.
-const MDDAYS=['Mo','Tu','We','Th','Fr','Sa','Su'];
-const mdWmin=d=>{try{
-const pt=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Bangkok',weekday:'short',
-hour:'2-digit',minute:'2-digit',hour12:false,hourCycle:'h23'}).formatToParts(d||new Date());
-const g=t=>{const x=pt.find(q=>q.type===t);return x?x.value:'';};
-const dy=MDDAYS.indexOf(g('weekday').slice(0,2)),h=parseInt(g('hour'),10),m=parseInt(g('minute'),10);
-if(dy<0||isNaN(h)||isNaN(m))return null;return dy*1440+h*60+m;}catch(e){return null;}};
-// Recomputed at most twice a minute. A page left open crosses closing time,
-// and a lamp that was drawn once at load is a lamp that lies by teatime.
-let _wmT=0,_wmV=null;
-const WMIN=()=>{const n=Date.now();if(!_wmT||n-_wmT>3e4){_wmV=mdWmin();_wmT=n;}return _wmV;};
-// null, NEVER false, when nobody has recorded hours. build_open_lamps.py
-// refuses to guess at the strings it cannot parse, and this must not undo that
-// by drawing "no one has said" as "shut".
-const mdOpen=(sch,w)=>{if(!sch||!sch.length||w==null)return null;
-for(const iv of sch)if(w>=iv[0]&&w<iv[1])return true;return false;};
-// Minutes until the state changes. The intervals cover one week and they wrap,
-// so the edges are searched across three — last week, this one, next — and the
-// first one after now wins. A shop open right through to next week has no edge
-// ahead of it inside the window and gets null, which prints nothing.
-const MDWEEK=10080;
-const mdEdge=(sch,w)=>{if(!sch||!sch.length||w==null)return null;let best=null;
-for(const iv of sch)for(const k of[-MDWEEK,0,MDWEEK])for(const t of[iv[0]+k,iv[1]+k]){
-const d=t-w;if(d>0&&(best===null||d<best))best=d;}
-return best;};
-// The state between open and closed, which is the one a reader acts on: a lamp
-// says whether to go, this says whether to hurry. Only inside the hour — an
-// edge nine hours out is not news, it is the opening times, and those are on
-// the place's own page.
-const MDSOON=60;
-const mdWhen=(sch,w)=>{const on=mdOpen(sch,w);if(on===null)return '';
-const d=mdEdge(sch,w);if(d===null||d>MDSOON)return '';
-return on?mdBi('ปิดใน '+d+' นาที','closes in '+d+' min')
-:mdBi('เปิดใน '+d+' นาที','opens in '+d+' min');};
-// Handed to the surfaces that are their own files — here.js, near.js — so the
-// site has one reading of a schedule rather than one per page.
-if(typeof window!=='undefined')window.MDHOURS={open:mdOpen,edge:mdEdge,when:mdWhen,wmin:mdWmin,now:WMIN};
 const schOf=e=>(e.hk==null?null:(TAB.hours[e.hk]||null));
 const openNow=e=>mdOpen(schOf(e),WMIN());
 globalThis.MD_TAB=TAB;
@@ -4644,7 +5047,7 @@ const IFILT=an.intent.filters||{};
 const ivals=k=>[].concat(IFILT[k]||[]);
 if(ivals('access').indexOf('parking')!==-1)wantShelves.add('parking');
 const TAGOF={diet:{vegetarian:'vegetarian',vegan:'vegan',halal:'halal'},access:{wheelchair:'wheelchair'},
-wifi:{yes:'wifi'},delivery:{yes:'delivery'},open:{late:'open-late'}};
+wifi:{yes:'wifi'},aircon:{yes:'air-con'},delivery:{yes:'delivery'},open:{late:'open-late'}};
 for(const k in TAGOF)for(const v of ivals(k)){const slug=TAGOF[k][v];if(!slug)continue;
 const ti=TAB.tags.findIndex(t=>t[0]===slug);if(ti>=0)pushTag({t:ti,soft:true,word:v});}
 // A topic the site keeps a whole page for answers with that page, not only
@@ -4690,6 +5093,12 @@ if(panel)for(const s of(panel.shelves||[]))wantShelves.add(s);
 const onShelf=e=>(e.c||[]).some(c=>wantShelves.has(c))||(e.su||[]).some(s=>wantShelves.has(s));
 if(wantShelves.size){for(const r of found){
 if(onShelf(r.doc))r.score+=0.5;}
+found.sort((a,b)=>b.score-a.score);}
+// EVENTS HELD AT A PLACE WEIGH ITS ROW (event ledger, Nan 2026-10-04): `ev`
+// counts the events and weekly series listed there, coming and gone. The lift
+// is a fraction of the shelf lift above — 0.08 for one event, 0.3 from about
+// a dozen — so it orders rows that matched about as well.
+if(found.some(r=>r.doc.ev)){for(const r of found)if(r.doc.ev)r.score+=Math.min(0.3,0.08*Math.log2(1+r.doc.ev));
 found.sort((a,b)=>b.score-a.score);}
 // Loosen by STEPS, never all at once. A reader who typed two words meant both,
 // so listings matching all of them are the answer and listings matching one are
@@ -4916,7 +5325,7 @@ if(sizeDropped)says.push('<s>'+hx(sizeDropped.join(' '))+'</s>');
 // `access` is the case that proves the pair is needed: access:parking has a
 // shelf behind it as of WO-67, access:wheelchair and access:english still
 // have nothing, and one word cannot answer for all three.
-const CANFILTER={access:['parking','wheelchair'],diet:['vegetarian','vegan','halal'],wifi:['yes'],delivery:['yes'],open:['late']};
+const CANFILTER={access:['parking','wheelchair'],diet:['vegetarian','vegan','halal'],wifi:['yes'],aircon:['yes'],delivery:['yes'],open:['late']};
 const canFilter=k=>{const c=CANFILTER[k];const vs=ivals(k);
 return !!c&&vs.length>0&&vs.every(v=>c.indexOf(v)!==-1);};
 const FILTER_SAY={size:['ยังไม่มีร้านไหนในนี้บันทึกไซส์ไว้ — ค้นจากคำที่เหลือ','no listing here records sizes yet — the search ran on the other words']};
@@ -5033,6 +5442,8 @@ return `<li class="rcard" data-id="${hx(e.id)}"${e.lat!=null?` data-lat="${e.lat
 (window.MDROW?mdGlyphs(window.MDROW.line(noDays(e),TAB,{root:RROOT}))
 :(ch.length?' <span class="rchips">'+ch.map(c=>`<a class="rchip" href="${RROOT}search.html${c[0]}">${c[1]}</a>`).join(' ')+'</span>':''))+
 (e.lat!=null?'<button type="button" class="rpin" aria-label="แผนที่ · map">'+(globalThis.mdIcon?globalThis.mdIcon('i-pin'):'')+'</button>':'')+
+// Share, LINE, Grab on the row itself (share_layer.py, Nan 2026-10-01).
+(window.MDSHAREROW?window.MDSHAREROW(dName(e)+(dEn(e)&&dEn(e)!==dName(e)?' · '+dEn(e):''),rowHref(e),e.lat,e.lng):'')+
 (e.u?'':'<div class="rpanel" hidden></div>')+'</li>';};
 // Two hundred names in one column is a list nobody reads. Grouped under the
 // shelf each one stands on, with its count, the same result becomes a page you
@@ -5970,9 +6381,9 @@ const named=[...groups.entries()].filter(([a])=>a).sort((x,y)=>y[1].length-x[1].
 const rest=groups.get('')||[];
 for(const [area,list] of named){const h=document.createElement('li');
 h.className='shelf areahead';const slug=list[0].dataset.areaHref;
-// A listing page always sits one level under its province, and the soi pages
-// are its sibling directory — the same relative step the row links already use.
-h.innerHTML=(slug?`<a href="../soi/${slug}.html">${area}</a>`:area)+
+// data-area-href is root-absolute now (build.py writes /<prov>/soi/<slug>.html);
+// the old bare slug kept the relative step, which broke below one level.
+h.innerHTML=(slug?`<a href="${slug.charAt(0)==='/'?slug:'../soi/'+slug+'.html'}">${area}</a>`:area)+
 ` <span class="count">${list.length}</span>`;
 dirList.appendChild(h);
 list.sort(nm).forEach(li=>{const d=li.querySelector('.dist');d&&d.remove();dirList.appendChild(li);});}
@@ -6293,6 +6704,14 @@ showStep(stepSuccess);
 claimErr.textContent=err.message;
 btn.disabled=false;btn.textContent='🏪 ยืนยันฟรี · Claim it free';}});
 }}
+// ---- guide me, from a place page ---------------------------------------
+// Beside the Grab button: this place as a one-stop plan on plan.html, with
+// its Guide button lit. Added here rather than in the page, so the place
+// pages themselves do not change.
+{const big=document.querySelector('.planbtn-lg[data-plan]'),gb=document.querySelector('a.grabride');
+if(big&&gb&&!document.querySelector('a.guidego')){const a=document.createElement('a');a.className='guidego';
+a.href=RROOT+'plan.html?stops='+encodeURIComponent(big.dataset.plan)+'&go=1';
+a.innerHTML=mdIcon('i-compass',18)+' '+mdBi('นำทางไปที่นี่','Guide me here');gb.after(a);}}
 // ---- route plan: pick stops anywhere, see them together on plan.html --
 // A plan is an ordered list of "province:slug" keys in localStorage. That is
 // the whole state — the same string is what travels in a ?stops= share link,
@@ -6303,13 +6722,44 @@ const WALK_KMH=4.6,RIDE_KMH=18;
 function planGet(){try{const v=JSON.parse(localStorage.getItem(PLAN_KEY));
 return Array.isArray(v)?v.slice(0,PLAN_MAX):[];}catch(e){return[];}}
 function planSet(list){try{localStorage.setItem(PLAN_KEY,JSON.stringify(list.slice(0,PLAN_MAX)));}
-catch(e){}planPaint();}
+catch(e){}if(window.MDSAVED)MDSAVED.keys(list);planPaint();}
+// THE WAY BACK (2026-09-21, Nan's call). 97,526 pages carried "Add to my
+// plan" and eight linked to the plan, none of them a place page or a list —
+// so a stop went in and the reader had nowhere to follow it. This puts ONE
+// link on any page that can add a stop, and only once there is a stop to see.
+//
+// One per page, not one per button: a list row's Add is a 14 px icon and
+// there are 1,926 of them on the wat list. So the link goes after the big
+// button where a place page has one, and floats in the corner where it does
+// not (above the list, it was out of sight for any row below the first screen).
+// It is built here rather than baked into the HTML because a plan lives in
+// the reader's own browser: a served link would be a dead control on every
+// page for everyone who has never planned anything.
+function planLink(n){
+if(document.getElementById('plansteps'))return;   // this IS the plan
+let a=document.querySelector('a.planseen');
+if(!n){if(a&&a.parentNode)a.parentNode.removeChild(a);return;}
+if(!a){
+const big=document.querySelector('.planbtn-lg[data-plan]:not(.rpanel *)'),
+      any=big||document.querySelector('.planbtn[data-plan]');
+if(!any)return;
+a=document.createElement('a');
+a.className='chip dark planseen';
+a.href=RROOT+'plan.html';
+if(big&&big.parentNode&&!big.closest('.mdtap,.mdcard'))big.parentNode.insertBefore(a,big.nextSibling);
+else{a.classList.add('planfloat');document.body.appendChild(a);}}
+a.innerHTML=mdIcon('i-route')+'<span>'+mdBi('ดูแผนเดินทาง','See my plan')+
+'</span><span class="plancount"></span>';}
 function planPaint(){const list=planGet(),have=new Set(list);
 document.querySelectorAll('.planbtn[data-plan]').forEach(b=>{
 const on=have.has(b.dataset.plan);b.classList.toggle('on',on);
 b.setAttribute('aria-pressed',on?'true':'false');});
+planLink(list.length);
 document.querySelectorAll('.plancount').forEach(el=>{
 el.textContent=list.length||'';el.style.display=list.length?'':'none';});}
+// A plan changed in another tab is the same plan. Without this, adding a stop
+// on one tab left the link on the other saying the old number, or nothing.
+window.addEventListener('storage',e=>{if(!e.key||e.key===PLAN_KEY)planPaint();});
 document.querySelectorAll('.planbtn[data-plan]').forEach(b=>{
 b.addEventListener('click',e=>{e.preventDefault();
 const k=b.dataset.plan,list=planGet(),i=list.indexOf(k);
@@ -6350,6 +6800,7 @@ let PLANFRAME=null;
 // A shared link wins over whatever is in this browser, but never silently:
 // the banner says a plan arrived and offers to keep it before it overwrites.
 const shared=new URLSearchParams(location.search).get('stops');
+const GO=new URLSearchParams(location.search).get('go')==='1';
 let stops=planGet(),incoming=null;
 if(shared){const inc=shared.split(',').map(s=>s.trim()).filter(Boolean).slice(0,PLAN_MAX);
 if(inc.length){incoming=inc;stops=inc;}}
@@ -6419,18 +6870,56 @@ return {d:Math.hypot(cx-px,cy-py),t:t,seg:Math.sqrt(L)};}
 // Snap a stop onto the network: nearest point on the nearest edge this mode may
 // use, with the walk-in distance to each end of it. Snapping to junctions alone
 // would throw away up to a block of accuracy on every stop.
+// The biggest connected run of road this mode can use, as a mask over edges.
+// A wat's pin is often nearest a path INSIDE its own compound that joins
+// nothing: Wat Phra Singh snapped onto sixteen junctions of courtyard footway,
+// and every leg to the most visited wat in the city came back unroutable.
+// Same rule as routing.py's main_component(), including reading connectivity
+// either-way — a one-way soi still joins the city, it is just left by the far
+// end. Computed once per mode, on the first snap that asks for it.
+function mainComponent(mode){
+if(!GRAPH)return null;
+GRAPH.main=GRAPH.main||{};
+if(GRAPH.main[mode])return GRAPH.main[mode];
+const m=MODES[mode],n=GRAPH.nodes.length,seen=new Uint8Array(n);
+let best=null,bestN=0;
+for(let s=0;s<n;s++){
+if(seen[s])continue;
+const stack=[s],group=[];seen[s]=1;
+while(stack.length){const v=stack.pop();group.push(v);
+const av=GRAPH.adj[v];
+for(let k=0;k<av.length;k++){const e=av[k];
+if(!(e[2]&(m.fwd|m.bwd))||seen[e[0]])continue;
+seen[e[0]]=1;stack.push(e[0]);}}
+if(group.length>bestN){bestN=group.length;best=group;}}
+const inMain=new Uint8Array(n);
+if(best)for(let k=0;k<best.length;k++)inMain[best[k]]=1;
+const keep=new Uint8Array(GRAPH.edges.length);
+for(let i=0;i<GRAPH.edges.length;i++){const e=GRAPH.edges[i];
+if((e[3]&(m.fwd|m.bwd))&&inMain[e[0]]&&inMain[e[1]])keep[i]=1;}
+GRAPH.main[mode]=keep;return keep;}
 function snap(p,mode){
 if(!GRAPH)return null;
+const keep=mainComponent(mode);
 let best=null;
 for(let i=0;i<GRAPH.geom.length;i++){
+if(keep&&!keep[i])continue;
 const flags=GRAPH.edges[i][3];
 if(!passable(flags,mode,true)&&!passable(flags,mode,false))continue;
 const pts=GRAPH.geom[i];
 let run=0;
 for(let k=0;k<pts.length-1;k++){
 const r=toSeg(p,pts[k],pts[k+1]);
-if(!best||r.d<best.d){
-best={d:r.d,edge:i,fromA:run+r.t*r.seg,total:0};}
+let d=r.d;
+if(p.hd!=null&&mode==='ride'&&typeof bearingOf==='function'){
+const fwd=passable(flags,mode,true),bwd=passable(flags,mode,false);
+if(fwd!==bwd){
+const segB=bearingOf(pts[k],pts[k+1]);
+const allowedB=fwd?segB:(segB+180)%360;
+const diff=Math.abs(((p.hd-allowedB+540)%360)-180);
+if(diff>90)d+=25;}}
+if(!best||d<best.d){
+best={d:d,edge:i,fromA:run+r.t*r.seg,total:0};}
 run+=r.seg;}
 if(best&&best.edge===i){
 let tot=0;
@@ -6569,6 +7058,33 @@ if(!passable(flags,mode,fwd===1))continue;
 const nc=c+len;
 if(nc<cost[to]){cost[to]=nc;h.push(nc,to);}}}
 return cost;}
+// The same search run backwards: what it costs to get from every junction TO
+// the stop t. Needed for "from this candidate on to the next stop" on a
+// network where one-way streets make there and back two different numbers.
+function costsTo(t,mode){
+if(!GRAPH||!t)return null;
+const N=GRAPH.nodes.length,cost=new Float64Array(N).fill(Infinity),h=new Heap();
+const fl=GRAPH.edges[t.edge][3];
+if(passable(fl,mode,true)){cost[t.a]=t.toA;h.push(t.toA,t.a);}
+if(passable(fl,mode,false)&&t.toB<cost[t.b]){cost[t.b]=t.toB;h.push(t.toB,t.b);}
+for(;;){const top=h.pop();if(!top)break;
+const c=top[0],n=top[1];
+if(c>cost[n])continue;
+const list=GRAPH.adj[n];
+for(let i=0;i<list.length;i++){
+// The entry runs n→u; arriving at n from u is the other way along it.
+const u=list[i][0],len=list[i][1],flags=list[i][2],fwd=list[i][4];
+if(!passable(flags,mode,fwd!==1))continue;
+const nc=c+len;
+if(nc<cost[u]){cost[u]=nc;h.push(nc,u);}}}
+return cost;}
+// From the snapped point s onward, over a costsTo() table.
+function costFrom(cost,s,mode){
+if(!cost||!s)return null;
+let best=Infinity;
+if(passable(GRAPH.edges[s.edge][3],mode,false))best=Math.min(best,cost[s.a]+s.toA);
+if(passable(GRAPH.edges[s.edge][3],mode,true))best=Math.min(best,cost[s.b]+s.toB);
+return best===Infinity?null:best;}
 function costTo(cost,t,mode){
 if(!cost||!t)return null;
 let best=Infinity;
@@ -6617,24 +7133,41 @@ for(let i=1;i<order.length-1;i++)for(let k=i+1;k<order.length;k++){
 const cand=order.slice(0,i).concat(order.slice(i,k+1).reverse(),order.slice(k+1));
 if(tourLen(M,cand)+1e-9<tourLen(M,order)){order=cand;improved=true;}}}
 return {order:order,len:tourLen(M,order)};}
+// The places each errand can be done at, inside the road map's box. One small
+// file per kind, written by build_plan_page(): [province, slug, name, lat, lng].
+// This read the whole directory index before, and never got an answer out of
+// it — the index files a pharmacy under `su`, not `c`, and a second full read
+// came back without coordinates — so every errand said "not enough of that
+// kind".
+const POOLS={};
+async function errandPool(k){
+if(!POOLS[k]){const rows=await mdJSON('data/errands/'+encodeURIComponent(k)+'.json');
+POOLS[k]=(rows||[]).map(r=>({p:r[0],s:r[1],n:r[2],lat:r[3],lng:r[4],b:r[5]||null}));}
+return POOLS[k];}
 async function solveErrands(kinds,mode){
-const idx=await loadIndex();
+await loadGraph();
 const area=GRAPH&&GRAPH.area;
 if(!area)return null;
-// Anchor the search: where the reader is, else the stops already chosen, else
-// the middle of the area we can route in.
-const anchor=here||(places.length?{lat:places[0].lat,lng:places[0].lng}
-:{lat:(area.n+area.s)/2,lng:(area.w+area.e)/2});
-const CAND=6;
+// The fixed part of the round: where the reader is, then their own stops.
+// With neither, it starts at the landmark people give directions from and
+// says so — it used to start at the middle of the box, a point nobody named,
+// and with no location it counted the first stop twice.
+const fixed=[];
+if(here)fixed.push({lat:here.lat,lng:here.lng,label:mdBi('เริ่มจากตำแหน่งของคุณ','starting from where you are')});
+places.forEach(p=>fixed.push({lat:p.lat,lng:p.lng,key:p.key,n:p.n}));
+if(!fixed.length){const o=MDLOC.origin(null);
+fixed.push({lat:o.lat,lng:o.lng,label:mdBi('เริ่มจาก'+o.th,'starting from '+o.en)});}
+if(!fixed.every(inArea))return {outside:true};
+const anchor=fixed[0];
+// Six candidates each while the combinations stay cheap; four once there are
+// three or more errands, so a phone is not asked for 1,296 rounds.
+const CAND=kinds.length>=3?4:6;
 const slots=[];
 for(const k of kinds){
-const pool=idx.filter(e=>e.lat!=null&&(e.c||[]).indexOf(k)>-1
-&&e.lat>area.s&&e.lat<area.n&&e.lng>area.w&&e.lng<area.e);
+const pool=(await errandPool(k)).filter(e=>inArea(e)&&!fixed.some(f=>f.key===e.p+':'+e.s));
 pool.sort((a,b)=>km(anchor,a)-km(anchor,b));
 if(!pool.length)return {missing:k};
 slots.push(pool.slice(0,CAND));}
-// Points: the fixed part of the round first, then every candidate.
-const fixed=[anchor].concat(places.map(p=>({lat:p.lat,lng:p.lng})));
 const pts=fixed.slice(),meta=[];
 slots.forEach((pool,si)=>pool.forEach(e=>{meta.push({slot:si,e:e,i:pts.length});
 pts.push({lat:e.lat,lng:e.lng});}));
@@ -6655,7 +7188,7 @@ if(!best)return null;
 // the question this way actually bought anything.
 const naive=slots.map((pool,si)=>meta.find(m=>m.slot===si&&m.e===pool[0]));
 const nOrder=bestOrder(M,fixed.map((_,i)=>i).concat(naive.map(m=>m.i)));
-return {best:best,naive:{len:nOrder.len},meta:meta,fixedCount:fixed.length};}
+return {best:best,naive:{len:nOrder.len},meta:meta,fixedCount:fixed.length,fixed:fixed};}
 function osmDirections(a,b,mode){
 return 'https://www.openstreetmap.org/directions?engine=fossgis_osrm_'+MODES[mode].osrm+
 '&route='+a.lat.toFixed(5)+'%2C'+a.lng.toFixed(5)+'%3B'+b.lat.toFixed(5)+'%2C'+b.lng.toFixed(5);}
@@ -6665,12 +7198,42 @@ return 'https://www.openstreetmap.org/directions?engine=fossgis_osrm_'+MODES[mod
 // straight walk-in charged for it is a guess. วัดเมืองลัง sits 450 m from the
 // nearest junction in the graph while OSM has a footpath 10 m away, and the
 // leg came out 916 m against a real walk of 4.3 km. One stop of the ninety on
-// the merit rounds is in that state — rare enough to name on the page rather
+// the wat rounds is in that state — rare enough to name on the page rather
 // than hide, and never to pass off as a measured distance.
 const FAR_FROM_ROAD=100;
+// Past the old-city box: the province road squares (road-near.js, the toilet
+// router) carry both provinces as far as the crawl has reached. That search is
+// async and a few hundred kilobytes, so a leg out there is asked once, kept
+// here by its ends and mode, and render() runs again when it lands. One at a
+// time — each search builds its own graph and a phone wants them in turn.
+// undefined = still asking, null = no road answer (the crow stands).
+const FAR={};let farQ=Promise.resolve(),farTimer=null,roadJs=null;
+function needRoad(){if(window.MDROAD)return Promise.resolve(window.MDROAD);
+if(typeof document==='undefined')return Promise.resolve(null);
+return roadJs||(roadJs=new Promise(ok=>{const s=document.createElement('script');
+s.src=RROOT+'road-near.js';s.onload=()=>ok(window.MDROAD||null);s.onerror=()=>ok(null);
+document.head.appendChild(s);}));}
+function farKey(a,b,mode){return mode+'|'+a.lat.toFixed(5)+','+a.lng.toFixed(5)+'|'+b.lat.toFixed(5)+','+b.lng.toFixed(5);}
+async function farRoute(a,b,mode){
+const R0=await needRoad();if(!R0)return null;
+const R=await R0.from(a.lat,a.lng,{mode:mode,to:[b.lat,b.lng]});
+if(!R)return null;
+const m=R.to(b.lat,b.lng),p=m!=null?R.path(b.lat,b.lng):null;
+return (m!=null&&p&&p.length>1)?{km:m/1000,path:p,snap:0,wide:true}:null;}
+function farLeg(a,b,mode){
+const k=farKey(a,b,mode);
+if(k in FAR)return FAR[k];
+FAR[k]=undefined;
+if(typeof window==='undefined'||!window.document){FAR[k]=null;return null;}
+farQ=farQ.then(()=>farRoute(a,b,mode)).then(r=>{FAR[k]=r;},()=>{FAR[k]=null;}).then(()=>{
+clearTimeout(farTimer);farTimer=setTimeout(()=>{if(typeof render==='function')render();},80);});
+return undefined;}
 function leg(a,b){
 const out={crow:km(a,b),foot:null,ride:null,routed:false,far:0};
-if(GRAPH_STATE!=='ready'||!inArea(a)||!inArea(b))return out;
+if(GRAPH_STATE==='ready'&&!(inArea(a)&&inArea(b))||GRAPH_STATE==='absent'){
+for(const mode of ['foot','ride']){const r=farLeg(a,b,mode);if(r)out[mode]=r;}
+out.routed=!!(out.foot||out.ride);return out;}
+if(GRAPH_STATE!=='ready')return out;
 for(const mode of ['foot','ride']){
 const s=snap(a,mode),t=snap(b,mode);
 if(!s||!t)continue;
@@ -6682,29 +7245,67 @@ out[mode]={km:(r.m+s.d+t.d)/1000,path:r.path,snap:Math.round(s.d+t.d)};
 out.far=Math.max(out.far,Math.round(Math.max(s.d,t.d)));}
 out.routed=!!(out.foot||out.ride);
 return out;}
+// A stop is read from the .json beside its own page, all of them at once.
+// This used to go through data/index.json first, which on 2026-09-23 was
+// 46.5 MB served at 10–130 KB/s: the page drew nothing, not even "no stops
+// yet", for as long as that took, and on a phone it never finished. The
+// per-place file already holds the name, the pin, the address, the channels
+// and the week, so the index bought nothing but the wait.
+//
+// Each key comes back in one of four states, and only one of them shortens
+// the plan: `gone` is a 404, the page itself no longer exists. `failed` is a
+// fetch that did not land and says nothing about the place; `unpinned` is a
+// real place with no pin yet. Both stay in the reader's plan.
+const TH_RE=/[\u0E00-\u0E7F]/;
+// A chain's identity, as plan_brand() in build.py gives it: the Wikidata id,
+// else the id the brand's words are known by (data/errands/_brands.json —
+// "ปตท" and "PTT" are one chain), else the words.
+const brandWords=v=>String(v||'').toLowerCase().replace(/[^0-9a-z\u0e00-\u0e7f]/g,'');
+const brandAlias=mdJSON('data/errands/_brands.json').then(v=>v||{});
+const brandOf=(a,AL)=>{a=a||{};const w=brandWords(a.brand);
+return a.brandWikidata||AL[w]||w||null;};
 async function resolve(keys){
-const idx=await loadIndex();
-const bySlug={};idx.forEach(e=>{bySlug[e.p+':'+e.s]=e;});
-const out=[];
-for(const k of keys){const e=bySlug[k];
-if(!e||e.lat==null)continue;
-const rec={key:k,n:e.n,en:e.e,p:e.p,s:e.s,pv:e.pv,c:e.c||[],lat:e.lat,lng:e.lng};
-// The slim index carries no address or phone. The per-place .json beside
-// every page does, and eight of those is a cheap price for stop cards that
-// are actually useful standing in the street.
-const j=await mdJSON(e.p+'/p/'+e.s+'.json');
-if(j){rec.addr=j.address||'';rec.chan=(j.channels||[]).slice(0,4);rec.sched=j.sched||null;}
-out.push(rec);}
-return out;}
+const PROV=(window.MDIDX&&MDIDX.PROV)||{},AL=await brandAlias;
+return Promise.all(keys.map(async k=>{
+const i=k.indexOf(':');if(i<1)return {key:k,state:'gone'};
+const p=k.slice(0,i),s=k.slice(i+1);
+let r;try{r=await fetch(RROOT+p+'/p/'+s+'.json');}catch(e){return {key:k,state:'failed'};}
+if(r.status===404)return {key:k,state:'gone'};
+let j=null;if(r.ok){try{j=await r.json();}catch(e){}}
+if(!j)return {key:k,state:'failed'};
+// name_pair() in build.py, read off the same record.
+const nm=(j.name||'').trim(),th=(j.nameTh||'').trim()||(TH_RE.test(nm)?nm:''),
+en0=(j.nameEn||'').trim()||(TH_RE.test(nm)?'':nm),en=(th&&en0===th)?'':en0;
+const rec={key:k,n:th||en||nm||s,en:en,p:p,s:s,pv:PROV[p]||'',c:j.cat||[],sub:j.sub||[],
+brand:brandOf(j.attrs,AL),lat:j.lat,lng:j.lng,addr:j.address||'',chan:(j.channels||[]).slice(0,4),
+sched:j.sched||null};
+return {key:k,state:(j.lat==null||j.lng==null)?'unpinned':'ok',rec:rec};}));}
 // Which network the reader is on. It decides what "nearest" means when the
 // stops are reordered, and which of the two lines the page leads with.
 let planMode=(()=>{try{return localStorage.getItem('md-planmode')==='ride'?'ride':'foot';}
 catch(e){return 'foot';}})();
 // The graph is half a megabyte, so it loads here and nowhere else on the site.
-await loadGraph();
-let places=await resolve(stops);
-// Drop anything the index no longer knows, rather than leaving a hole.
-if(places.length!==stops.length&&!incoming){stops=places.map(p=>p.key);planSet(stops);}
+// It and the stops load side by side; an empty plan waits for neither.
+if(!stops.length)elEmpty.style.display='';
+const got=(await Promise.all([loadGraph(),resolve(stops)]))[1];
+let places=got.filter(g=>g.state==='ok').map(g=>g.rec);
+// Stops that are kept but cannot be drawn: they ride along in the saved plan,
+// after the drawn ones, and are named on the page rather than dropped.
+let held=got.filter(g=>g.state==='unpinned'||g.state==='failed').map(g=>g.key);
+const gone=got.filter(g=>g.state==='gone');
+if(gone.length&&!incoming)planSet(places.map(p=>p.key).concat(held));
+function heldNote(){
+const unp=got.filter(g=>g.state==='unpinned'&&held.indexOf(g.key)>-1),
+fail=got.filter(g=>g.state==='failed'&&held.indexOf(g.key)>-1);
+const bits=[];
+if(unp.length)bits.push('<span>📍 '+mdBi('ยังไม่มีหมุด ไม่ได้อยู่ในแผนที่:','No pin yet, so not on the map:')+' '+
+unp.map(g=>'<a href="'+RROOT+g.rec.p+'/p/'+g.rec.s+'.html">'+H2(g.rec.n)+'</a>').join(' · ')+'</span>');
+if(fail.length)bits.push('<span>'+mdBi(fail.length+' จุดโหลดไม่สำเร็จ แต่ยังอยู่ในแผน',
+fail.length+' stop'+(fail.length>1?'s':'')+' did not load, and '+(fail.length>1?'are':'is')+' still in your plan')+
+'</span><button type="button" onclick="location.reload()">↻ '+mdBi('โหลดใหม่','Reload')+'</button>');
+if(gone.length)bits.push('<span>'+mdBi(gone.length+' จุดไม่มีบนเว็บแล้ว เอาออกจากแผนแล้ว',
+gone.length+' stop'+(gone.length>1?'s are':' is')+' no longer on the site and came out of the plan')+'</span>');
+return bits.join('');}
 // Is a point inside the moat ring? Ray casting, because the ring is a little
 // out of square and its bounding box puts Suan Dok Gate on the wrong bank.
 function inRing(p){
@@ -6730,7 +7331,7 @@ return [{x:p.x+t0*dx,y:p.y+t0*dy},{x:p.x+t1*dx,y:p.y+t1*dy}];}
 // Where to write "the moat" so the words land on water that is on the page and
 // not on top of a gate that is also naming itself. Pinning the label to the
 // ring's northernmost corner dropped it off the top of the picture on five of
-// the ten merit rounds — drawn water, no name — and putting it at the middle
+// the wat rounds — drawn water, no name — and putting it at the middle
 // of the longest visible side then landed it on Chang Phueak Gate.
 function moatLabelPoint(X,Y,W,H,taken){
 let best=null,fallback=null;
@@ -6758,27 +7359,41 @@ const py=Math.min(Math.max(pick.y,18),H-14);
 if(pick.upright){const right=pick.x<W/2;   // the words go on whichever side has room
 return [Math.min(Math.max(right?pick.x+8:pick.x-8,6),W-6),py,right?'start':'end'];}
 return [Math.min(Math.max(pick.x,60),W-60),Math.max(py-7,16),'middle'];}
-function svgMap(list,legs){
+function svgMap(list,legs,G){
 if(!list.length)return'';
+// G, while guiding: {you: the road from the reader to the next stop, frame:
+// {lat,lng,m} a square m metres either side of the reader}. The frame is the
+// drawing's, so the ground under it can be pointed at the same box and the
+// two stay one picture as the reader moves.
 // The stops set the frame — never the moat. Framing to the moat as well
 // squeezes four stops 400m apart into a knot in the middle of a 1.6km
 // square. The moat is drawn afterwards, clipped by the viewBox, so it is a
 // landmark you recognise at the edge of the picture rather than the subject.
-const pts=list.map(p=>({lat:p.lat,lng:p.lng}));
+let pts=list.map(p=>({lat:p.lat,lng:p.lng}));
 if(here)pts.push(here);
+const GF=G&&G.frame;
+if(GF){const dLa=GF.m/110574,dLo=GF.m/(111320*Math.cos(GF.lat*Math.PI/180));
+pts=[{lat:GF.lat-dLa,lng:GF.lng-dLo},{lat:GF.lat+dLa,lng:GF.lng+dLo}];}
 // Frame the roads the route actually uses, not just its stops: a leg that has
 // to go round three blocks leaves the box drawn around its endpoints.
-(legs||[]).forEach(l=>{if(!l)return;
+if(!GF)(legs||[]).forEach(l=>{if(!l)return;
 ['foot','ride'].forEach(m=>{if(l[m]&&l[m].path)l[m].path.forEach(
 q=>pts.push({lat:q[0],lng:q[1]}));});});
 let n=Math.max(...pts.map(p=>p.lat)),s=Math.min(...pts.map(p=>p.lat)),
 w=Math.min(...pts.map(p=>p.lng)),e=Math.max(...pts.map(p=>p.lng));
 // A single stop has no extent at all; give every plan a floor so one pin
 // does not divide by zero and eight clustered pins are not a smudge.
-const padLat=Math.max((n-s)*0.22,0.0022),padLng=Math.max((e-w)*0.22,0.0022);
+const padLat=GF?0:Math.max((n-s)*0.22,0.0022),padLng=GF?0:Math.max((e-w)*0.22,0.0022);
 n+=padLat;s-=padLat;w-=padLng;e+=padLng;
 const kx=Math.cos((n+s)/2*Math.PI/180),W=760;
 const H=Math.max(240,Math.min(520,W*((n-s)/((e-w)*kx||1e-9))));
+// Clamping the height without widening the frame to match drew north–south at
+// one scale and east–west at another, and over a basemap (one scale, both
+// ways) that put pins off their streets by up to half the picture. Grow the
+// short side of the frame instead, about its middle, so a metre is a metre.
+{const want=H/W;
+if((n-s)/((e-w)*kx)>want){const half=(n-s)/want/kx/2,mid=(w+e)/2;w=mid-half;e=mid+half;}
+else{const half=(e-w)*kx*want/2,mid=(n+s)/2;s=mid-half;n=mid+half;}}
 const X=lng=>(lng-w)/(e-w)*W,Y=lat=>(n-lat)/(n-s)*H;
 // The moat and its gates, worked out before the picture opens so the map can
 // say in its own label what it is showing. The rule does not depend on where
@@ -6882,9 +7497,18 @@ o.push('<path d="M'+X(a.lng).toFixed(1)+' '+Y(a.lat).toFixed(1)+'L'+X(p.lng).toF
 ' '+Y(p.lat).toFixed(1)+'" fill="none" stroke="#8a7a62" stroke-width="2" '+
 'stroke-dasharray="2 5" opacity=".8"><title>'+
 'เส้นตรง ยังไม่ได้คิดตามถนน / straight line, not routed</title></path>');}});
-if(here){o.push('<g data-mdpin="'+X(here.lng).toFixed(1)+','+Y(here.lat).toFixed(1)+
-'"><circle cx="'+X(here.lng).toFixed(1)+'" cy="'+Y(here.lat).toFixed(1)+
-'" r="7" fill="#2a78d6" fill-opacity=".25" stroke="#2a78d6" stroke-width="2">'+
+// The road still to go to the next stop, over the planned legs and under the
+// dot, in the colour of the way the reader is travelling.
+if(G&&G.you&&G.you.length>1){const d=G.you.map((q,i)=>(i?'L':'M')+X(q[1]).toFixed(1)+' '+Y(q[0]).toFixed(1)).join(' ');
+o.push('<path d="'+d+'" fill="none" stroke="#fff" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" opacity=".9"/>'+
+'<path d="'+d+'" fill="none" stroke="'+(G.ride?'#1c5aa8':'#a3231c')+'" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"'+
+(G.straight?' stroke-dasharray="3 7"':'')+'><title>ทางจากตรงนี้ · your way from here</title></path>');}
+if(here){const hx=X(here.lng).toFixed(1),hy=Y(here.lat).toFixed(1);
+o.push('<g data-mdpin="'+hx+','+hy+'">'+
+// Which way the reader is moving, once the phone knows it: a wedge on the dot.
+(here.hd!=null?'<path d="M0 -15 L6 -4 L-6 -4 Z" fill="#2a78d6" transform="translate('+hx+' '+hy+') rotate('+Math.round(here.hd)+')"/>':'')+
+'<circle cx="'+hx+'" cy="'+hy+
+'" r="7" fill="#2a78d6" fill-opacity="'+(G?'.9':'.25')+'" stroke="'+(G?'#fff':'#2a78d6')+'" stroke-width="2">'+
 '<title>ตำแหน่งของคุณ · you are here</title></circle></g>');}
 list.forEach((p,i)=>{const cx=X(p.lng),cy=Y(p.lat);
 // The pin, its number and its name are one symbol over one doorway. Grown
@@ -6936,14 +7560,21 @@ if(!a.dataset.tpl)a.dataset.tpl=a.getAttribute('href');
 a.setAttribute('href',a.dataset.tpl.split(SITE+'plan.html').join(encodeURIComponent(u)));});
 box.querySelectorAll('[data-url]').forEach(b=>{b.dataset.url=u;
 if(b.dataset.title!=null)b.dataset.title=t;});}
-function textPlan(){
+// Handed the legs render() already measured: each one is a shortest-path
+// search per mode, and working them all out a second time for the text copy
+// doubled the pause after every tap.
+function textPlan(legs,tl){
 const lines=['แผนเดินทาง / My route — มดแดง motdang.net',''];
 places.forEach((p,i)=>{lines.push((i+1)+'. '+p.n+(p.en&&p.en!==p.n?' ('+p.en+')':''));
+const T=tl&&tl[i],f=fixOf(p.key);
+if(T&&T.arrive!=null)lines.push('   ถึงประมาณ / arrive about '+clk(T.arrive)+
+(T.ap!=null?' · นัด / appointment '+clk(T.ap)+(T.late>0?' (สาย / late '+Math.round(T.late)+' min)':''):'')+
+(f.stay?' · อยู่ / there '+f.stay+' min':''));
 if(p.addr)lines.push('   '+p.addr);
 (p.chan||[]).forEach(c=>lines.push('   '+c.text));
 lines.push('   '+SITE+p.p+'/p/'+p.s+'.html');
 const nx=places[i+1];
-if(nx){const L=leg(p,nx);
+if(nx){const L=legs[i]||leg(p,nx);
 if(L.routed){
 if(L.foot)lines.push('   ↓ เดิน/walk '+dist(L.foot.km)+' — '+mins(L.foot.km,MODES.foot.kmh)+' นาที/min');
 else lines.push('   ↓ เดินไปไม่ได้ / not walkable');
@@ -6972,15 +7603,153 @@ const elDemo=document.getElementById('plandemo');
 // at the plan's own frame.
 if(elMap)elMap.addEventListener('mdmap:sync',function ready(){
 elMap.removeEventListener('mdmap:sync',ready);render();});
+// ---- the reader's own reasons for an order --------------------------------
+// Distance is one reason to run the stops in an order. The others only the
+// reader knows: a stop that has to come where it is (📌), an appointment at a
+// clock time (⏰), and how long each stop takes. Kept per stop, in this
+// browser, beside the plan. Nothing here is assumed: a stop with no stay set
+// takes no time, and one with no appointment can come whenever.
+const FIX_KEY='md-plan-fix',LEAVE_KEY='md-plan-leave';
+let fix=(()=>{try{const v=JSON.parse(localStorage.getItem(FIX_KEY));
+return v&&typeof v==='object'?v:{};}catch(e){return {};}})();
+const fixOf=k=>fix[k]||{};
+function setFix(k,patch){const f=Object.assign({},fix[k]||{},patch);
+Object.keys(f).forEach(x=>{if(f[x]===''||f[x]===false||f[x]==null||f[x]===0)delete f[x];});
+if(Object.keys(f).length)fix[k]=f;else delete fix[k];
+try{localStorage.setItem(FIX_KEY,JSON.stringify(fix));}catch(e){}}
+let leaveAt=(()=>{try{return localStorage.getItem(LEAVE_KEY)||'';}catch(e){return '';}})();
+const hm=v=>{const m=/^(\d{1,2}):(\d{2})$/.exec(v||'');return m?(+m[1])*60+(+m[2]):null;};
+const clk=m=>{m=((Math.round(m)%1440)+1440)%1440;
+return ('0'+Math.floor(m/60)).slice(-2)+':'+('0'+(m%60)).slice(-2);};
+// Chiang Mai's clock, the shop's and not the reader's (see THE SHOP'S CLOCK).
+function nowMin(){const w=(window.MDHOURS&&MDHOURS.now)?MDHOURS.now():null;
+if(w!=null)return w%1440;const d=new Date();return d.getHours()*60+d.getMinutes();}
+const leaveMin=()=>{const v=hm(leaveAt);return v==null?nowMin():v;};
+const minsFor=m=>m/(MODES[planMode].kmh*1000/60);
+// The order that runs the reader's day with the least travel. 📌 stops keep
+// their place; an appointment is a time to be there by, and being late is
+// charged a kilometre a minute, so the search walks further before it makes
+// anyone late; the stay at each stop counts toward the next. Every order is
+// tried and a branch is dropped the moment it is already worse than the best
+// found: nine stops is 362,880 orders at most, and most never get far.
+const LATE_M=1000;
+const openFix=new Set();   // which stops have their ⏰ settings unfolded
+function bestPlanOrder(){
+const off=here?1:0,pts=(here?[here]:[]).concat(places),n=places.length;
+// Off the road map the crow is the only distance there is, and snapping a
+// Chiang Rai stop onto a Chiang Mai soi would be worse than no answer.
+const M=(GRAPH_STATE==='ready'&&pts.every(inArea))?matrixFor(pts,planMode)
+:pts.map(a=>pts.map(b=>km(a,b)*1000));
+const cost=(a,b)=>{const v=M[a][b];return v==null?NOWAY:v;};
+const lock=places.map(p=>!!fixOf(p.key).lock),appt=places.map(p=>hm(fixOf(p.key).at)),
+stay=places.map(p=>+fixOf(p.key).stay||0);
+const used=lock.slice(),order=new Array(n);let best=null,bestCost=Infinity;
+(function dfs(pos,prev,t,dist,late){
+if(dist+late*LATE_M>=bestCost)return;
+if(pos===n){bestCost=dist+late*LATE_M;best=order.slice();return;}
+const cand=lock[pos]?[pos]:places.map((_,i)=>i).filter(i=>!used[i]);
+for(const i of cand){
+const d=prev<0?0:cost(prev,i+off);
+let t2=t+minsFor(d),l2=late;
+if(appt[i]!=null){if(t2<appt[i])t2=appt[i];else l2+=t2-appt[i];}
+t2+=stay[i];
+if(!lock[pos])used[i]=true;order[pos]=i;
+dfs(pos+1,i+off,t2,dist+d,l2);
+if(!lock[pos])used[i]=false;}})(0,here?0:-1,leaveMin(),0,0);
+return best?best.map(i=>places[i]):null;}
+// ---- a closer one that does the same thing --------------------------------
+// Nobody needs that PTT station; they need fuel. For a stop that is a
+// service, the errand files already hold every other place of its kind inside
+// the road map, so the page asks whether one of them makes the round shorter:
+// the same brand first (a closer PTT), then anything of the kind (a Shell).
+// A chain in any shelf gets the same-brand look (a closer Starbucks); "any of
+// the kind" is kept to the shelves where one really does stand in for
+// another. Mentioned only at 200 m or more, and never for a 📌 or ⏰ stop —
+// an appointment is with that place.
+const SWAP_KINDS=['transport.fuel','transport.parking','transport.motorcycle-parking',
+'transport.bicycle-parking','essentials.pharmacy','medical.pharmacy','essentials.bank',
+'essentials.laundry','essentials.convenience','essentials.post','essentials.copyshop',
+'essentials.printing','essentials.photo','repair.mend','shopping.alterations','market.fresh',
+'pets.pet-shop','shopping.diy'];
+const SWAP_MIN=200;
+// A stop's kinds as the errand files name them. A child shelved twice under
+// one name (pharmacy) has one file, under whichever shelf the menu kept, so
+// a kind is matched to the menu by its child.
+function kindOf(p){const offered=[...document.querySelectorAll('#planerrsel option')].map(o=>o.value);
+const out=[];
+(p.c||[]).forEach(c=>(p.sub||[]).forEach(sb=>{
+const k=offered.indexOf(c+'.'+sb)>-1?c+'.'+sb:offered.find(v=>v.split('.')[1]===sb);
+if(k&&out.indexOf(k)<0)out.push(k);}));
+return out;}
+let swapGen=0;
+async function closerFor(i,gen){
+const p=places[i],f=fixOf(p.key);
+if(f.lock||f.at||GRAPH_STATE!=='ready')return null;
+const kinds=kindOf(p),any=kinds.find(k=>SWAP_KINDS.some(w=>w.split('.')[1]===k.split('.')[1]));
+const kind=any||(p.brand?kinds[0]:null);
+if(!kind)return null;
+const prev=i>0?places[i-1]:here,next=places[i+1]||null;
+if(!prev&&!next)return null;
+if(![p,prev,next].filter(Boolean).every(inArea))return null;
+const pool=(await errandPool(kind)).filter(e=>!places.some(q=>q.key===e.p+':'+e.s));
+if(gen!==swapGen||!pool.length)return null;
+const mode=planMode,sP=prev&&snap(prev,mode),sN=next&&snap(next,mode);
+const fw=sP?costsFrom(sP,mode):null,rv=sN?costsTo(sN,mode):null;
+// This leg of the round through x: in from the stop before, on to the next.
+const via=x=>{const sx=snap(x,mode);if(!sx)return null;let a=0,b=0;
+if(sP){const c=costTo(fw,sx,mode);if(c==null)return null;a=c+sP.d+sx.d;}
+if(sN){const c=costFrom(rv,sx,mode);if(c==null)return null;b=c+sN.d+sx.d;}
+return a+b;};
+const cur=via(p);if(cur==null)return null;
+const crow=e=>(prev?km(prev,e):0)+(next?km(e,next):0);
+const near=pool.slice().sort((a,b)=>crow(a)-crow(b));
+const pick=list=>{let best=null;list.forEach(e=>{const v=via(e);
+if(v!=null&&(!best||cur-v>best.save))best={e:e,save:cur-v};});
+return best&&best.save>=SWAP_MIN?best:null;};
+const sameBrand=p.brand?pick(near.filter(e=>e.b===p.brand).slice(0,6)):null;
+let sameKind=any?pick(near.slice(0,10)):null;
+if(sameKind&&sameBrand&&(sameKind.e===sameBrand.e||sameKind.save<=sameBrand.save))sameKind=null;
+return (sameBrand||sameKind)?{brand:sameBrand,kind:sameKind}:null;}
+async function paintSwaps(){
+const gen=++swapGen;
+for(let i=0;i<places.length;i++){
+// One stop at a time, yielding between, so a phone keeps scrolling.
+await new Promise(r=>setTimeout(r,0));
+if(gen!==swapGen)return;
+let r=null;try{r=await closerFor(i,gen);}catch(e){r=null;}
+if(gen!==swapGen)return;
+const box=planSteps.querySelector('[data-swap="'+i+'"]');
+if(!box||!r)continue;
+const line=(x,what)=>'<p class="planswapline">↳ '+what+' <a href="'+RROOT+x.e.p+'/p/'+x.e.s+'.html">'+
+H2(x.e.n)+'</a> — '+mdBi('สั้นลง '+dist(x.save/1000),dist(x.save/1000)+' shorter')+
+' <button type="button" data-swapto="'+i+'" data-key="'+H2(x.e.p+':'+x.e.s)+'">'+
+mdBi('เปลี่ยน','Swap')+'</button></p>';
+box.innerHTML=(r.brand?line(r.brand,mdBi('แบรนด์เดียวกัน ใกล้กว่า:','Same brand, closer:')):'')+
+(r.kind?line(r.kind,mdBi('แบบเดียวกัน ใกล้กว่า:','Same kind, closer:')):'');
+box.querySelectorAll('[data-swapto]').forEach(b=>b.addEventListener('click',async()=>{
+b.disabled=true;
+const g=(await resolve([b.dataset.key]))[0];
+if(!g||g.state!=='ok'){b.disabled=false;return;}
+places[+b.dataset.swapto]=g.rec;commit();}));}}
 function render(){
 if(elDemo)elDemo.style.display=places.length?'none':'';
+// The page's own explanation is for someone with nothing planned. With a plan
+// open, the plan comes first — on a phone the lede and the demo were two
+// screens above the reader's own stops.
+document.body.classList.toggle('plan-has',!!places.length);
+if(!incoming){const hn=heldNote();elBanner.className='planbanner';
+elBanner.innerHTML=hn;elBanner.style.display=hn?'':'none';}
+const ro=document.getElementById('planreorderbtn');
+if(ro)ro.disabled=places.length<2;
+const rv=document.getElementById('planreversebtn');
+if(rv)rv.disabled=places.length<2;
 if(!places.length){elEmpty.style.display='';elHas.style.display='none';
 if(incoming)elBanner.style.display='none';return;}
 elEmpty.style.display='none';elHas.style.display='';
 const legs=[];for(let i=1;i<places.length;i++)legs.push(leg(places[i-1],places[i]));
 // With a basemap live the drawing belongs in its own layer under the tiles;
 // writing straight into the container would tear the live map out with it.
-(elMap.querySelector('.mdmap-draw')||elMap).innerHTML=svgMap(places,legs);
+(elMap.querySelector('.mdmap-draw')||elMap).innerHTML=svgMap(places,legs,guiding?guideDraw():null);
 if(window.MDMAP&&MDMAP.live(elMap)&&PLANFRAME){
 const F=PLANFRAME;
 // Measure the SVG, not its container. The wrapper scrolls sideways and the
@@ -6994,56 +7763,94 @@ const shown=(svgEl&&svgEl.getBoundingClientRect().width)||elMap.clientWidth||F.W
 // up at one zoom and the pins at another.
 MDMAP.retarget(elMap,(F.n+F.s)/2,(F.w+F.e)/2,
  (F.e-F.w)*F.kx*111320/shown);}
-// Totals per mode, and only over the legs that mode could actually route.
+// In guide mode the drawing frames a square round the reader (guideDraw), so
+// the same retarget above follows them at a nav zoom, north-up, with the drawn
+// route and the dot on the ground they stand for.
 // Summing a routed leg with a crow-flies one would produce a number that is
 // neither, so an unrouted leg is counted and named separately.
 const sum=m=>legs.reduce((t,l)=>t+(l[m]?l[m].km:0),0);
 const unrouted=legs.filter(l=>!l.routed).length;
 const footTot=sum('foot'),rideTot=sum('ride');
-const legIn=here&&places.length?leg(here,places[0]):null;
+// While guiding, the way in is the guide's own road (GD), re-asked only when
+// the reader leaves it — not a fresh search on every fix.
+const legIn=guiding?(GD.line?{[planMode]:{km:GD.left/1000}}:null):(here&&places.length?leg(here,places[0]):null);
 let tot='<b>'+places.length+' จุด / stops</b>';
 if(places.length>1){
 if(GRAPH_STATE==='ready'&&(footTot||rideTot)){
 tot+=' · <span class="pmode foot">🚶 '+dist(footTot)+' · '+mins(footTot,MODES.foot.kmh)+' นาที/min</span>'+
 ' · <span class="pmode ride">🛵 '+dist(rideTot)+' · '+mins(rideTot,MODES.ride.kmh)+' นาที/min</span>';
-if(rideTot>footTot*1.15)tot+=' <span class="tinynote">'+
+// Only a like-for-like comparison: when one mode routed a leg the other
+// could not, the two sums cover different ground.
+if(rideTot>footTot*1.15&&legs.every(l=>!l.routed||(!!l.foot===!!l.ride)))tot+=' <span class="tinynote">'+
 '(มอไซค์ไกลกว่าเพราะถนนเดินรถทางเดียว / longer by scooter — one-way streets)</span>';
 }else{
-tot+=' · '+dist(footTot||rideTot||0);}}
+// Nothing on the road map (every Chiang Rai plan, anything past the ~2 km
+// ring): this said "0 m". The crow's distance, called what it is.
+const crow=legs.reduce((t,l)=>t+l.crow,0);
+tot+=' · '+dist(crow)+' <span class="tinynote">'+mdBi('เส้นตรง ยังไม่ได้คิดตามถนน','straight line, not along the roads')+'</span>';}}
 else tot+=' · จุดเดียว / a single stop';
-if(legIn&&legIn.foot)tot+=' · จากตำแหน่งคุณถึงจุดแรก '+dist(legIn.foot.km);
+if(legIn&&legIn[planMode])tot+=' · '+mdBi('จากตำแหน่งคุณถึงจุดแรก','from you to the first stop')+' '+dist(legIn[planMode].km);
 if(unrouted)tot+=' · <b>'+unrouted+' ช่วงอยู่นอกเขตคิดเส้นทาง</b> / '+unrouted+
 ' leg'+(unrouted>1?'s':'')+' outside the routed area';
 elTotal.innerHTML=tot;
-// WHEN YOU GET THERE, IS IT STILL OPEN? Everything above this line is
-// metres; this is the other half of the same question, and the reason the
-// stops carry their week in `sched`. Travel time only — nothing is assumed
-// about how long an errand takes, because that is the reader's business and
-// not something this page can know — so it says "about", and an arrival that
-// lands after closing is worth saying out loud even approximately. No
-// schedule means no line at all: unknown is not shut.
+// Live guidance: one plain readout of what is left to the end of the plan —
+// the leg from the reader to the first stop plus every leg between the rest,
+// in the mode they picked. Shown only while guiding. paintNav keeps the C
+// hand-off pointed at the current stops and mode.
+{const gr=document.getElementById('planremain');
+if(gr){if(guiding){let rem=legs.slice(GD.next).reduce((t,l)=>t+(l&&l[planMode]?l[planMode].km:l?l.crow:0),0);
+if(legIn&&legIn[planMode])rem+=legIn[planMode].km;
+gr.hidden=false;paintCue(gr,rem);}
+else gr.hidden=true;}}
+paintNav();
+// WHEN YOU GET THERE, AND IS IT STILL OPEN? A timeline from the leaving time
+// (now, unless the reader set one): travel, then any wait for an appointment,
+// then the stay the reader gave. Nothing is assumed about how long a stop
+// takes — no stay set is no time — so each clock says "about". An arrival
+// after closing, or after an appointment, is said out loud.
 const MDW=10080;
 const NOWW=(window.MDHOURS&&MDHOURS.now)?MDHOURS.now():null;
+// Past a leg the road map does not cover, the clock is not known — a Chiang
+// Rai stop at walking pace put "arrive 13:27" on the next afternoon — so the
+// times stop there, and an appointment after it is shown without a verdict.
 const legMin=L=>{if(!L)return 0;const m=L[planMode]||L.foot||L.ride;
-return m?Math.round(m.km/MODES[planMode].kmh*60):0;};
-const cumMin=[];{let t=(legIn&&legIn[planMode])?Math.round(legIn[planMode].km/MODES[planMode].kmh*60):0;
-for(let i=0;i<places.length;i++){cumMin.push(t);t+=legMin(legs[i]);}}
+return m?Math.round(m.km/MODES[planMode].kmh*60):null;};
+const tl=[];{let t=leaveMin()+((legIn&&legIn[planMode])?Math.round(legIn[planMode].km/MODES[planMode].kmh*60):0);
+for(let i=0;i<places.length;i++){const f=fixOf(places[i].key),ap=hm(f.at),arrive=t;
+let wait=0,late=0;
+if(ap!=null&&t!=null){if(t<ap){wait=ap-t;t=ap;}else late=t-ap;}
+tl.push({arrive:arrive,wait:wait,late:late,ap:ap});
+if(t!=null){const lm=legMin(legs[i]);t=lm==null?null:t+(+f.stay||0)+lm;}}}
+const dayW=NOWW==null?null:NOWW-NOWW%1440;
 function arrivalHtml(p,i){
-if(NOWW===null||!p.sched||!window.MDHOURS)return '';
-const at=((NOWW+cumMin[i])%MDW+MDW)%MDW;
-const on=MDHOURS.open(p.sched,at);
-if(on===null)return '';
-const clock=('0'+Math.floor((at%1440)/60)).slice(-2)+':'+('0'+(at%60)).slice(-2);
-if(!on)return '<p class="planwhen shut">⚠ '+mdBi('ถึงประมาณ '+clock+' — ตอนนั้นปิดแล้ว',
-'arrive about '+clock+' — closed by then')+'</p>';
-const d=MDHOURS.edge(p.sched,at);
-const tail=(d!==null&&d<=60)?' · '+mdBi('อีก '+d+' นาทีปิด','closes '+d+' min later'):'';
-return '<p class="planwhen">'+mdBi('ถึงประมาณ '+clock+' — เปิดอยู่',
-'arrive about '+clock+' — open')+tail+'</p>';}
+const T=tl[i];
+if(T.arrive==null)return T.ap!=null?'<p class="planwhen">'+mdBi('นัด '+clk(T.ap),'appointment '+clk(T.ap))+'</p>':'';
+const clock=clk(T.arrive);
+let h=mdBi('ถึงประมาณ '+clock,'arrive about '+clock);
+if(T.ap!=null){
+if(T.late>0)h+=' · <b class="planlate">'+mdBi('นัด '+clk(T.ap)+' — สาย '+Math.round(T.late)+' นาที',
+'appointment '+clk(T.ap)+' — '+Math.round(T.late)+' min late')+'</b>';
+else h+=' · '+mdBi('นัด '+clk(T.ap)+(T.wait?' — รอ '+Math.round(T.wait)+' นาที':''),
+'appointment '+clk(T.ap)+(T.wait?' — '+Math.round(T.wait)+' min to wait':''));}
+let cls='planwhen';
+if(dayW!=null&&p.sched&&window.MDHOURS){
+const at=((dayW+Math.round(T.arrive+T.wait))%MDW+MDW)%MDW,on=MDHOURS.open(p.sched,at);
+if(on===false){cls+=' shut';h='⚠ '+h+' — '+mdBi('ตอนนั้นปิดแล้ว','closed by then');}
+else if(on){const d=MDHOURS.edge(p.sched,at);
+h+=' — '+mdBi('เปิดอยู่','open')+((d!==null&&d<=60)?' · '+mdBi('อีก '+d+' นาทีปิด','closes '+d+' min later'):'');}}
+return '<p class="'+cls+'">'+h+'</p>';}
+// The stop's own settings, folded away until wanted.
+function fixHtml(p,i){const f=fixOf(p.key);
+const sum=[f.at?'⏰ '+f.at:'',f.stay?mdBi('อยู่ '+f.stay+' นาที',f.stay+' min there'):''].filter(Boolean).join(' · ');
+return '<details class="planfix"'+(openFix.has(p.key)?' open':'')+' data-fixkey="'+H2(p.key)+'"><summary>'+
+(sum||mdBi('⏰ เวลานัด · เวลาที่อยู่','⏰ appointment · time there'))+'</summary>'+
+'<label>'+mdBi('นัดเวลา','Appointment at')+' <input type="time" data-at="'+i+'" value="'+H2(f.at||'')+'"></label>'+
+'<label>'+mdBi('อยู่นาน (นาที)','Time there (min)')+' <input type="number" min="0" max="720" step="5" '+
+'inputmode="numeric" data-stay="'+i+'" value="'+(f.stay||'')+'"></label></details>';}
 planSteps.innerHTML=places.map((p,i)=>{
 const cats=(p.c||[]).map(c=>CATL[c]?CATL[c][0]:c).join(' · ');
 const chan=(p.chan||[]).map(c=>'<a href="'+H2(c.href)+'" rel="noopener">'+H2(c.text)+'</a>').join('');
-const L=legs[i];
+const L=legs[i],lk=!!fixOf(p.key).lock;
 let legHtml='';
 if(L){
 if(L.routed){
@@ -7070,38 +7877,71 @@ legHtml='<li class="planleg out">↓ '+dist(L.crow)+' '+
 '<span class="tinynote">เส้นตรง ยังไม่ได้คิดตามถนน / straight line, not routed</span> '+
 '<a class="planosm" href="'+H2(osmDirections(A,B,'foot'))+'" rel="noopener">🚶 ดูเส้นทาง/directions ↗</a> '+
 '<a class="planosm" href="'+H2(osmDirections(A,B,'ride'))+'" rel="noopener">🛵 ดูเส้นทาง/directions ↗</a></li>';}}
-return '<li class="planstop"><span class="plannum">'+(i+1)+'</span>'+
+return '<li class="planstop'+(lk?' locked':'')+(guiding&&i<GD.next?' passed':'')+'"><span class="plannum">'+(i+1)+'</span>'+
 '<div class="planbody"><h3><a href="'+RROOT+p.p+'/p/'+p.s+'.html">'+H2(p.n)+'</a></h3>'+
 '<span class="plancat">'+H2(cats)+' · '+H2(p.pv)+'</span>'+
 (p.addr?'<p class="planaddr">'+H2(p.addr)+'</p>':'')+
-arrivalHtml(p,i)+
+arrivalHtml(p,i)+fixHtml(p,i)+
+'<div class="planswap" data-swap="'+i+'"></div>'+
 (chan?'<div class="planchan">'+chan+'</div>':'')+
 '</div><div class="planacts">'+
-'<button type="button" data-up="'+i+'" title="เลื่อนขึ้น / move up"'+(i?'':' disabled')+'>▲</button>'+
-'<button type="button" data-down="'+i+'" title="เลื่อนลง / move down"'+(i<places.length-1?'':' disabled')+'>▼</button>'+
-'<button type="button" class="plandel" data-del="'+i+'" title="เอาออก / remove">✕</button>'+
+'<button type="button" data-up="'+i+'" title="เลื่อนขึ้น / move up" aria-label="'+H2('เลื่อนขึ้น / move up: '+p.n)+'"'+(i?'':' disabled')+'>▲</button>'+
+'<button type="button" data-down="'+i+'" title="เลื่อนลง / move down" aria-label="'+H2('เลื่อนลง / move down: '+p.n)+'"'+(i<places.length-1?'':' disabled')+'>▼</button>'+
+'<button type="button" class="planlock'+(lk?' on':'')+'" data-lock="'+i+'" aria-pressed="'+(lk?'true':'false')+'" '+
+'title="'+H2('ให้อยู่ลำดับนี้ / keep in this place in the order')+'" aria-label="'+
+H2('ให้อยู่ลำดับนี้ / keep in this place: '+p.n)+'">📌</button>'+
+'<button type="button" class="plandel" data-del="'+i+'" title="เอาออก / remove" aria-label="'+H2('เอาออก / remove: '+p.n)+'">✕</button>'+
 '</div></li>'+legHtml;}).join('');
+// Moving a stop by hand carries its 📌 with it — a pinned stop moved on
+// purpose is pinned where it now stands.
 planSteps.querySelectorAll('[data-up]').forEach(b=>b.addEventListener('click',()=>{
 const i=+b.dataset.up;[places[i-1],places[i]]=[places[i],places[i-1]];commit();}));
 planSteps.querySelectorAll('[data-down]').forEach(b=>b.addEventListener('click',()=>{
 const i=+b.dataset.down;[places[i+1],places[i]]=[places[i],places[i+1]];commit();}));
 planSteps.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>{
 places.splice(+b.dataset.del,1);commit();}));
+planSteps.querySelectorAll('[data-lock]').forEach(b=>b.addEventListener('click',()=>{
+const p=places[+b.dataset.lock];setFix(p.key,{lock:!fixOf(p.key).lock});render();}));
+planSteps.querySelectorAll('details.planfix').forEach(d=>d.addEventListener('toggle',()=>{
+if(d.open)openFix.add(d.dataset.fixkey);else openFix.delete(d.dataset.fixkey);}));
+planSteps.querySelectorAll('[data-at]').forEach(el=>el.addEventListener('change',()=>{
+setFix(places[+el.dataset.at].key,{at:el.value||''});render();}));
+planSteps.querySelectorAll('[data-stay]').forEach(el=>el.addEventListener('change',()=>{
+const v=Math.max(0,Math.min(720,Math.round(+el.value||0)));
+setFix(places[+el.dataset.stay].key,{stay:v});render();}));
 const dl=document.getElementById('plandlbtn');
 if(dl){if(dl.dataset.blob)URL.revokeObjectURL(dl.dataset.blob);
-const url=URL.createObjectURL(new Blob([textPlan()],{type:'text/plain;charset=utf-8'}));
+const url=URL.createObjectURL(new Blob([textPlan(legs,tl)],{type:'text/plain;charset=utf-8'}));
 dl.dataset.blob=url;dl.href=url;}
-repointShare();}
-// commit = the plan changed for real: remember it, redraw, and stop treating
-// it as somebody else's shared link.
-function commit(){incoming=null;elBanner.style.display='none';
-planSet(places.map(p=>p.key));render();}
-if(incoming){const mine=planGet();
+repointShare();
+paintSwaps();}
+// The reader's own plan in storage: the stops drawn, then the ones held back.
+function save(){planSet(places.map(p=>p.key).concat(held));}
+// A change to the reader's own plan is saved. A change to a shared route that
+// has not been kept stays on this screen: the banner has just told the reader
+// their own plan is untouched, and a tap on ▲ must not make that untrue.
+function commit(){if(!incoming)save();render();}
+function keep(){incoming=null;
+if(location.search)history.replaceState(null,'',location.pathname);
+save();render();}
+if(incoming&&!GO){const mine=planGet();
 elBanner.className='planbanner';elBanner.style.display='';
 elBanner.innerHTML='<span>📩 <b>แผนที่มีคนแชร์มา '+incoming.length+' จุด</b> · '+
 'A route someone shared with you'+(mine.length?' — แผนเดิมของคุณยังอยู่ / your own plan is untouched':'')+
-'</span><button type="button" id="plankeep">💾 เก็บเป็นแผนของฉัน / Keep as mine</button>';
-document.getElementById('plankeep').addEventListener('click',commit);}
+'</span><button type="button" id="plankeep">💾 เก็บเป็นแผนของฉัน / Keep as mine</button>'+
+(mine.length?'<button type="button" id="planmerge">➕ '+mdBi('เพิ่มลงแผนของฉัน','Add to my plan')+'</button>':'');
+document.getElementById('plankeep').addEventListener('click',keep);
+// The site's own doors — a toilet's "walk me there", a wat round — arrive as
+// ?stops= links too, and "keep" replaced the reader's plan with them. This
+// adds them after the reader's own stops instead.
+const mg=document.getElementById('planmerge');
+mg&&mg.addEventListener('click',()=>{
+const add=places.map(p=>p.key).concat(held).filter(k=>mine.indexOf(k)<0);
+if(mine.length+add.length>PLAN_MAX){alert('แผนหนึ่งเก็บได้ '+PLAN_MAX+' จุด / a plan holds '+PLAN_MAX+' stops');return;}
+planSet(mine.concat(add));location.href=location.pathname;});}
+// Stops added in another tab arrive here too. Not over a shared route being
+// looked at, which is not the reader's plan until kept.
+window.addEventListener('storage',e=>{if(e.key===PLAN_KEY&&!incoming)location.reload();});
 document.querySelectorAll('.pmbtn').forEach(b=>b.addEventListener('click',()=>{
 planMode=b.dataset.mode;
 try{localStorage.setItem('md-planmode',planMode);}catch(e){}
@@ -7113,7 +7953,7 @@ document.body.classList.toggle('mode-ride',planMode==='ride');
 document.querySelectorAll('.pmbtn').forEach(x=>{const on=x.dataset.mode===planMode;
 x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
 document.getElementById('planclearbtn').addEventListener('click',()=>{
-places=[];planSet([]);incoming=null;elBanner.style.display='none';render();});
+places=[];held=[];if(!incoming)planSet([]);render();});
 // Where the run starts. With nothing granted the route simply begins at the
 // first stop, which is a complete answer — so this button adds precision, it
 // does not unlock the feature. Declining used to raise an alert() and leave
@@ -7122,21 +7962,230 @@ places=[];planSet([]);incoming=null;elBanner.style.display='none';render();});
 const planLoc=document.getElementById('planlocbtn');
 planLoc&&planLoc.addEventListener('click',()=>{MDLOC.ask(pt=>{
 here=pt;planLoc.classList.add('on');render();},
-()=>{const o=MDLOC.origin(places.length?places[0].lat:null);
+()=>{let o=MDLOC.origin(places.length?places[0].lat:null);
+// A remembered Chiang Rai origin is no start for a Chiang Mai round.
+if(places.length&&km(o,places[0])>60)o=MDLOC.near(places[0].lat);
 here={lat:o.lat,lng:o.lng};MDLOC.remember(o);
 planLoc.classList.add('on');
 planLoc.innerHTML='📍 '+mdBi('เริ่มจาก'+o.th,'Starting from '+o.en);
 render();});});
-// Nearest-neighbour from wherever the run starts. Not the optimal tour, and
-// it does not pretend to be — with eight stops it is close enough to save
-// real riding, and it stays legible: "always go to the nearest one next".
+// ---- GUIDE: the plan kept live, the next turn on screen and said aloud ----
+// Routes the reader to the next stop once, then tracks them ALONG that road:
+// distance left and the next turn are read from where they stand on it. Off
+// it by more than a lane or two on two fixes running, it asks again (at most
+// every five seconds). Inside the old-city box the road is this page's own
+// graph; past it, the province squares (road-near.js); with neither, a
+// straight line, drawn dotted and called what it is. A turn is a bend of 25°
+// or more at a junction, or a change of road name, read off the squares'
+// OSM names. The map stays north-up; the dot carries a wedge for the way the
+// reader is moving. C, the hand-off to Google or Apple Maps, stays for a long
+// drive or a reader who will not share a location with us.
+var guiding=false,guideWatch=null,guideBtn=document.getElementById('planguidebtn');
+var GD={next:0,line:null,cum:null,len:0,left:0,s:0,at:0,dOff:0,proj:null,cues:[],said:{},off:0,
+busy:false,asked:0,straight:false,seq:0,mode:null};
+var VOICE=(()=>{try{return localStorage.getItem('md-guide-voice')!=='0';}catch(e){return true;}})();
+const GUIDE_BOX={foot:220,ride:550};      // metres either side of the reader on the map
+const ARRIVE={foot:25,ride:40},OFFROUTE={foot:30,ride:45};
+const WARN={foot:[80,20],ride:[250,50]};  // the turn is said at the first, and again at the second
+const TURN={left:['เลี้ยวซ้าย','Turn left','i-turn-left'],right:['เลี้ยวขวา','Turn right','i-turn-right'],
+bearleft:['เบี่ยงซ้าย','Bear left','i-bear-left'],bearright:['เบี่ยงขวา','Bear right','i-bear-right'],
+uturn:['กลับรถ','Make a U-turn','i-uturn'],straight:['ตรงไป','Continue','i-straight'],
+arrive:['ถึง','Arrive at','i-flag']};
+function turnOf(d){const a=Math.abs(d);
+return a>=150?'uturn':a<25?'straight':a<50?(d>0?'bearright':'bearleft'):(d>0?'right':'left');}
+function mDist(a,b){return km({lat:a[0],lng:a[1]},{lat:b[0],lng:b[1]})*1000;}
+function bearingOf(a,b){const r=Math.PI/180,y=Math.sin((b[1]-a[1])*r)*Math.cos(b[0]*r),
+x=Math.cos(a[0]*r)*Math.sin(b[0]*r)-Math.sin(a[0]*r)*Math.cos(b[0]*r)*Math.cos((b[1]-a[1])*r);
+return (Math.atan2(y,x)/r+360)%360;}
+function cumOf(line){const c=[0];for(let i=1;i<line.length;i++)c.push(c[i-1]+mDist(line[i-1],line[i]));return c;}
+function pointAt(line,cum,d){if(d<=0)return line[0];
+for(let i=1;i<line.length;i++)if(cum[i]>=d){const t=(d-cum[i-1])/((cum[i]-cum[i-1])||1);
+return [line[i-1][0]+(line[i][0]-line[i-1][0])*t,line[i-1][1]+(line[i][1]-line[i-1][1])*t];}
+return line[line.length-1];}
+// Where the reader stands on the road: searched a little behind the last
+// match and forward from it, so a road that doubles back on itself is not
+// mistaken for progress.
+function projectOn(line,cum,p,from){let best=null;
+for(let i=Math.max(0,from-3);i<line.length-1;i++){const r=toSeg(p,line[i],line[i+1]);
+if(!best||r.d<best.d)best={i:i,d:r.d,s:cum[i]+r.t*(cum[i+1]-cum[i]),
+pt:[line[i][0]+(line[i+1][0]-line[i][0])*r.t,line[i][1]+(line[i+1][1]-line[i][1])*r.t]};}
+return best||{i:0,d:0,s:0,pt:line[0]};}
+async function youRoute(a,b,mode){
+if(GRAPH_STATE==='ready'&&inArea(a)&&inArea(b)){const s=snap(a,mode),t=snap(b,mode),r=s&&t?route(s,t,mode):null;
+if(r&&r.path&&r.path.length>1)return {line:[[a.lat,a.lng]].concat(r.path,[[b.lat,b.lng]])};}
+try{const r=await farRoute(a,b,mode);if(r)return {line:r.path};}catch(e){}
+return {line:[[a.lat,a.lng],[b.lat,b.lng]],straight:true};}
+const nameKey=n=>n?n.join('|'):'';
+const nameTh=n=>n[0]||(n[2]?'ทางหลวง '+n[2]:n[1]),nameEn=n=>n[1]||(n[2]?'Route '+n[2]:n[0]);
+async function cuesFor(line,cum,stop){
+let A=null;try{const R=await needRoad();A=R&&R.along?await R.along(line):null;}catch(e){A=null;}
+const L=cum[cum.length-1],out=[];
+for(let i=1;i<line.length-1;i++){const d=cum[i];if(d<8||L-d<8)continue;
+// Without the squares there is no junction to test, so only a sharp bend counts.
+const jn=A?A.junction(line[i][0],line[i][1]):false;
+const b1=bearingOf(pointAt(line,cum,Math.max(0,d-20)),line[i]),b2=bearingOf(line[i],pointAt(line,cum,Math.min(L,d+20)));
+const delta=((b2-b1+540)%360)-180,turn=turnOf(delta);
+if(!jn&&!(!A&&Math.abs(delta)>=60))continue;
+const pb=pointAt(line,cum,Math.max(0,d-12)),pa=pointAt(line,cum,Math.min(L,d+12));
+const nb=A?A.name(pb[0],pb[1]):null,na=A?A.name(pa[0],pa[1]):null;
+const changed=!!na&&nameKey(na)!==nameKey(nb);
+if(turn==='straight'&&!changed)continue;
+// A gentle bend back onto the road the last cue already named is that road.
+const prevC=out[out.length-1];
+if((turn==='straight'||turn==='bearleft'||turn==='bearright')&&prevC&&na&&nameKey(prevC.nm)===nameKey(na))continue;
+out.push({at:d,turn:turn,delta:delta,nm:na});}
+// Two cues within 20 m are one manoeuvre — a dog-leg across a junction.
+const merged=[];out.forEach(c=>{const p=merged[merged.length-1];
+if(p&&c.at-p.at<20){if(Math.abs(c.delta)>Math.abs(p.delta)){p.turn=c.turn;p.delta=c.delta;}
+p.nm=c.nm||p.nm;p.at=c.at;}else merged.push(c);});
+merged.push({at:L,turn:'arrive',nm:null,stop:stop});
+return merged;}
+function cueText(c){const T=TURN[c.turn];
+if(c.turn==='arrive')return ['ถึง'+c.stop.n,'Arrive at '+(c.stop.en||c.stop.n)];
+return [T[0]+(c.nm?'เข้าสู่'+nameTh(c.nm):''),T[1]+(c.nm?' onto '+nameEn(c.nm):'')];}
+function sayDist(m){if(m<1000){const r=m<100?Math.round(m/10)*10:Math.round(m/50)*50;
+return ['อีก '+r+' เมตร','In '+r+' metres'];}
+const r=Math.round(m/100)/10;return ['อีก '+r+' กิโลเมตร','In '+r+' kilometres'];}
+// The phone's own voice: Thai unless the reader chose English, or the phone
+// has no Thai voice to speak it with.
+function speak(th,en){if(!VOICE||!window.speechSynthesis)return;
+try{const vs=speechSynthesis.getVoices()||[],thv=vs.find(v=>/^th/i.test(v.lang));
+const useTh=!document.documentElement.classList.contains('lang-en')&&(thv||!vs.length);
+const u=new SpeechSynthesisUtterance(useTh?th:en);u.lang=useTh?'th-TH':'en-US';if(useTh&&thv)u.voice=thv;
+speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+function cueNow(){return GD.line?GD.cues.find(c=>c.at>GD.s+3)||null:null;}
+function announce(){const c=cueNow();if(!c)return;
+const ahead=c.at-GD.s,W=WARN[planMode],id=GD.seq+':'+Math.round(c.at),t=cueText(c);
+if(c.turn!=='arrive'&&ahead<=W[1]){if(!GD.said[id+'n']){GD.said[id+'n']=GD.said[id+'f']=1;speak(t[0],t[1]);}}
+else if(ahead<=W[0]&&!GD.said[id+'f']){GD.said[id+'f']=1;const d=sayDist(ahead);
+speak(d[0]+' '+t[0],d[1]+', '+t[1].charAt(0).toLowerCase()+t[1].slice(1));}}
+function guideDraw(){if(!here)return null;
+const you=GD.line?[GD.proj||[here.lat,here.lng]].concat(GD.line.slice(GD.at+1)):null;
+return {you:you,ride:planMode==='ride',straight:GD.straight,frame:{lat:here.lat,lng:here.lng,m:GUIDE_BOX[planMode]}};}
+const DIR8=[['ทิศเหนือ','north'],['ตะวันออกเฉียงเหนือ','north-east'],['ทิศตะวันออก','east'],['ตะวันออกเฉียงใต้','south-east'],
+['ทิศใต้','south'],['ตะวันตกเฉียงใต้','south-west'],['ทิศตะวันตก','west'],['ตะวันตกเฉียงเหนือ','north-west']];
+function paintCue(gr,rem){
+const c=cueNow(),stop=places[GD.next];let h='';
+if(!GD.line)h='<div class="gcue"><span class="gtxt">'+mdBi('กำลังหาทาง…','Finding the way…')+'</span></div>';
+else if(c){const t=cueText(c);
+h='<div class="gcue">'+mdIcon(TURN[c.turn][2],40)+'<span class="gdist">'+dist(Math.max(0,c.at-GD.s)/1000)+
+'</span><span class="gtxt">'+mdBi(t[0],t[1])+'</span></div>';}
+if(GD.line&&GD.straight&&stop&&here){const D=DIR8[Math.round(bearingOf([here.lat,here.lng],[stop.lat,stop.lng])/45)%8];
+h+='<p class="gnote">'+mdBi('ยังไม่มีถนนในเขตนี้ เส้นนี้เป็นเส้นตรง — ไปทาง'+D[0],'No roads on record here, so this is a straight line — head '+D[1])+'</p>';
+var nu=navUrl();if(nu)h+='<p class="gnote"><a class="plannav" href="'+nu+'" target="_blank" rel="noopener">🗺 '+mdBi('เปิดนำทางสดในแอปแผนที่','Open navigation in Maps app')+' ↗</a></p>';}
+if(planMode==='foot')h+='<p class="gnote footwarn">'+mdBi('⚠️ โหมดเดิน — ไม่ล็อกทางวันเวย์สำหรับรถ','⚠️ Walking mode: vehicle one-ways not enforced')+'</p>';
+h+='<div class="gfoot">'+mdIcon('i-compass',16)+' '+mdBi('เหลืออีก','to go')+' '+dist(rem)+' · ~'+
+mins(rem,MODES[planMode].kmh)+' '+mdBi('นาที','min')+
+(places.length>1?' · '+mdBi('จุดที่ '+(GD.next+1)+'/'+places.length,'stop '+(GD.next+1)+' of '+places.length):'')+
+'<button type="button" class="gvoice" aria-pressed="'+(VOICE?'true':'false')+'" aria-label="'+
+H2('เสียงนำทาง / voice directions')+'">'+mdIcon(VOICE?'i-volume':'i-volume-off',20)+'</button></div>';
+gr.innerHTML=h;
+const vb=gr.querySelector('.gvoice');
+vb&&vb.addEventListener('click',()=>{VOICE=!VOICE;
+try{localStorage.setItem('md-guide-voice',VOICE?'1':'0');}catch(e){}
+if(VOICE)speak('เปิดเสียงนำทาง','Voice on');else{try{speechSynthesis.cancel();}catch(e){}}
+render();});}
+function track(){const r=projectOn(GD.line,GD.cum,here,GD.at);
+GD.at=r.i;GD.s=r.s;GD.dOff=r.d;GD.proj=r.pt;GD.left=Math.max(0,GD.len-r.s);}
+async function reroute(off){const now=Date.now();
+if(GD.busy||!here||(off&&now-GD.asked<5000))return;
+const stop=places[GD.next];if(!stop)return;
+GD.busy=true;GD.asked=now;const seq=++GD.seq,mode=planMode;
+if(off)speak('เปลี่ยนเส้นทาง','New route');
+let r=null;try{r=await youRoute({lat:here.lat,lng:here.lng},stop,mode);}catch(e){r=null;}
+GD.busy=false;
+if(!guiding||seq!==GD.seq||!r)return;
+GD.line=r.line;GD.cum=cumOf(r.line);GD.len=GD.cum[GD.cum.length-1];GD.straight=!!r.straight;GD.mode=mode;
+GD.at=0;GD.off=0;GD.cues=[];track();render();
+const cues=await cuesFor(GD.line,GD.cum,stop);
+if(guiding&&seq===GD.seq){GD.cues=cues;announce();render();}}
+function arrived(stop){speak('ถึง'+stop.n+'แล้ว','You have arrived at '+(stop.en||stop.n));
+GD.next++;GD.line=null;GD.cues=[];
+if(GD.next>=places.length){stopGuide(true);return;}
+reroute(false);render();}
+function onFix(p){const c=p.coords;
+const moving=c.heading!=null&&!isNaN(c.heading)&&(c.speed==null||c.speed>0.6);
+here={lat:c.latitude,lng:c.longitude,hd:moving?c.heading:(here&&here.hd!=null?here.hd:null)};
+if(c.speed!=null&&c.speed>2.5&&planMode==='foot'){
+planMode='ride';try{localStorage.setItem('md-planmode','ride');}catch(e){}
+document.body.classList.add('mode-ride');
+document.querySelectorAll('.pmbtn').forEach(x=>{const on=x.dataset.mode==='ride';x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
+speak('สลับเป็นโหมดขี่รถเพื่อความปลอดภัยเรื่องวันเวย์','Switched to vehicle mode for one-way safety');
+if(GD.line)reroute(false);}
+const stop=places[GD.next];if(!stop){stopGuide(true);return;}
+if(km(here,stop)*1000<=ARRIVE[planMode]){arrived(stop);return;}
+if(GD.line&&GD.mode!==planMode)reroute(false);
+else if(GD.line){track();
+if(GD.dOff>OFFROUTE[planMode]){if(++GD.off>=2)reroute(true);}else GD.off=0;
+announce();}
+else if(!GD.busy)reroute(false);
+render();}
+function startWatch(){if(!navigator.geolocation)return;
+guideWatch=navigator.geolocation.watchPosition(onFix,
+function(){/* a dropped fix keeps the last dot; it is not a stop */},
+{enableHighAccuracy:true,maximumAge:2000,timeout:15000});}
+function stopWatch(){if(guideWatch!=null&&navigator.geolocation){
+navigator.geolocation.clearWatch(guideWatch);guideWatch=null;}}
+// The screen stays on while guiding, as locshare.js keeps it on while sharing.
+var wakeLk=null;
+function wakeOn(){try{if(navigator.wakeLock&&!wakeLk)navigator.wakeLock.request('screen').then(l=>{wakeLk=l;
+l.addEventListener('release',()=>{wakeLk=null;});}).catch(()=>{});}catch(e){}}
+function wakeOff(){try{if(wakeLk)wakeLk.release();}catch(e){}wakeLk=null;}
+function paintGuideBtn(){if(!guideBtn)return;
+guideBtn.classList.toggle('on',guiding);
+guideBtn.setAttribute('aria-pressed',guiding?'true':'false');
+guideBtn.innerHTML=guiding?mdIcon('i-compass',16)+' '+mdBi('กำลังนำทาง — แตะเพื่อหยุด','Guiding — tap to stop')
+:mdIcon('i-compass',16)+' '+mdBi('นำทางสด','Guide me');}
+function stopGuide(arrivedAll){guiding=false;stopWatch();wakeOff();
+GD.line=null;GD.cues=[];GD.seq++;
+document.body.classList.remove('plan-guiding');paintGuideBtn();render();
+if(arrivedAll&&elBanner){elBanner.className='planbanner';elBanner.style.display='';
+elBanner.innerHTML=mdIcon('i-flag',18)+' '+mdBi('ถึงจุดหมายแล้ว','You have arrived');}}
+function startGuide(){
+if(!places.length)return;
+if(!window.MDLOC||!navigator.geolocation){var u=navUrl();if(u)window.open(u,'_blank','noopener');return;}
+// iPhone speaks only after speech has been started inside a tap; this is it.
+if(VOICE&&window.speechSynthesis){try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;speechSynthesis.speak(u);}catch(e){}}
+MDLOC.ask(function(pt){guiding=true;GD.next=0;GD.line=null;GD.cues=[];GD.said={};
+document.body.classList.add('plan-guiding');paintGuideBtn();here={lat:pt.lat,lng:pt.lng,hd:null};wakeOn();
+// Standing at a stop already: it counts as reached.
+while(GD.next<places.length-1&&km(here,places[GD.next])*1000<=ARRIVE[planMode])GD.next++;
+reroute(false);render();startWatch();
+const gr=document.getElementById('planremain');gr&&gr.scrollIntoView({block:'start',behavior:'smooth'});},
+function(){stopGuide(false);});}
+guideBtn&&guideBtn.addEventListener('click',function(){guiding?stopGuide(false):startGuide();});
+// Battery: drop the watch while the tab is hidden, take it up again on return.
+document.addEventListener('visibilitychange',function(){
+if(document.hidden)stopWatch();else if(guiding){if(guideWatch==null)startWatch();wakeOn();}});
+// A place page's "Guide me" arrives as ?stops=<key>&go=1. Location is asked
+// only from a tap (MDLOC), so this brings the button to the reader, lit.
+if(GO&&guideBtn&&places.length){guideBtn.classList.add('golit');
+setTimeout(()=>guideBtn.scrollIntoView({block:'center',behavior:'smooth'}),300);}
+// C: build the hand-off URL from the plan's own stops. Origin is left out on
+// purpose so the maps app uses the device's own live location as the start.
+function navUrl(){if(!places.length)return null;
+var dest=places[places.length-1],mid=places.slice(0,-1),walking=planMode==='foot';
+var ua=navigator.userAgent||'';
+var apple=/iPhone|iPad|iPod|Macintosh/.test(ua)&&!/Android/.test(ua);
+if(apple)return 'https://maps.apple.com/?daddr='+dest.lat.toFixed(5)+','+dest.lng.toFixed(5)+
+'&dirflg='+(walking?'w':'d'); // Apple Maps: one destination + the live origin
+var u='https://www.google.com/maps/dir/?api=1&destination='+
+dest.lat.toFixed(5)+','+dest.lng.toFixed(5)+'&travelmode='+(walking?'walking':'driving');
+if(mid.length)u+='&waypoints='+mid.map(function(p){return p.lat.toFixed(5)+','+p.lng.toFixed(5);}).join('%7C');
+return u;}
+var navBtn=document.getElementById('plannavbtn');
+function paintNav(){if(!navBtn)return;var u=navUrl();navBtn.hidden=!u;if(u)navBtn.setAttribute('href',u);}
+paintNav();
 // ---- errands: the UI over solveErrands ---------------------------------
 const errSel=document.getElementById('planerrsel'),errAdd=document.getElementById('planerradd'),
 errList=document.getElementById('planerrlist'),errSolve=document.getElementById('planerrsolve'),
 errOut=document.getElementById('planerrout');
 if(errSel&&errAdd){
+// Only kinds this page still offers: the keys became shelf.child on
+// 2026-09-23, and a remembered "pharmacy" would search a file that is not there.
 let kinds=(()=>{try{const v=JSON.parse(localStorage.getItem('md-plan-kinds'));
-return Array.isArray(v)?v.slice(0,4):[];}catch(e){return[];}})();
+const ok=k=>[...errSel.options].some(o=>o.value===k);
+return Array.isArray(v)?v.filter(ok).slice(0,4):[];}catch(e){return[];}})();
 const labelOf=k=>{const o=[...errSel.options].find(o=>o.value===k);
 return o?o.textContent.replace(/\s*\(\d+\)$/,''):k;};
 function paintKinds(){
@@ -7153,18 +8202,35 @@ const k=errSel.value;
 // that the wait stops being worth the better answer.
 if(!k||kinds.indexOf(k)>-1||kinds.length>=4)return;
 kinds.push(k);paintKinds();errOut.innerHTML='';});
+errAdd.disabled=false;
 errSolve.addEventListener('click',async()=>{
 errOut.innerHTML='<p class="tinynote">🐜 '+H2('มดกำลังลองทุกทาง…')+'</p>';
 // Yield once so the message paints before the search blocks the thread.
 await new Promise(r=>setTimeout(r,30));
-const res=await solveErrands(kinds,planMode);
+let res=null;try{res=await solveErrands(kinds,planMode);}catch(e){res=null;}
 if(!res||res.missing){errOut.innerHTML='<p class="tinynote">'+
+(res&&res.missing?H2(labelOf(res.missing))+' — ':'')+
 H2('ยังไม่มีข้อมูลพอในเขตที่มดเดินถนนไว้ / not enough of that kind inside the area we hold roads for')+
 '</p>';return;}
+if(res.outside){errOut.innerHTML='<p class="tinynote">'+mdBi(
+'ธุระคิดได้เฉพาะในเวียงเก่าและรอบ ๆ ราว ๒ กม. — แผนนี้มีจุดอยู่นอกเขตนั้น',
+'Errands work inside the old city and about 2 km around it, and this plan has a stop outside that.')+'</p>';return;}
+// Unreachable legs are charged NOWAY so the search steers round them; a best
+// round that still carries one has no road answer at all.
+if(res.best.len>=NOWAY){errOut.innerHTML='<p class="tinynote">'+mdBi(
+'หาทางไปครบทุกจุดตามถนนไม่ได้','No road route reaches all of these.')+'</p>';return;}
 const chosen=res.best.chosen;
 const saved=res.naive.len-res.best.len;
-const rows=chosen.map(m=>'<li><a href="'+m.e.p+'/p/'+m.e.s+'.html">'+H2(m.e.n)+'</a> '+
-'<span class="tinynote">'+H2(labelOf(kinds[m.slot]))+'</span></li>').join('');
+// The round in the order it was measured — the reader's own stops included,
+// since the search is free to reorder them too — so what gets added is the
+// route the number above is for.
+const byI={};res.meta.forEach(m=>{byI[m.i]=m;});
+const seq=res.best.order.map(i=>i<res.fixedCount?res.fixed[i]:{pick:byI[i]});
+const rows=seq.map(x=>x.pick
+?'<li><a href="'+RROOT+x.pick.e.p+'/p/'+x.pick.e.s+'.html">'+H2(x.pick.e.n)+'</a> '+
+'<span class="tinynote">'+H2(labelOf(kinds[x.pick.slot]))+'</span></li>'
+:x.key?'<li>'+H2(x.n)+' <span class="tinynote">'+mdBi('อยู่ในแผนแล้ว','already in your plan')+'</span></li>'
+:'<li class="tinynote">'+x.label+'</li>').join('');
 // Say plainly whether asking the question this way helped. Sometimes the
 // nearest of each IS the best round, and claiming otherwise would be a lie
 // dressed as a feature.
@@ -7179,23 +8245,32 @@ H2(planMode==='foot'?'เดินทั้งรอบ / walking the whole roun
 '<button type="button" id="erradd2plan" class="pill dark">'+
 H2('ใส่ทั้งหมดลงในแผน')+' · '+H2('Add them all to the plan')+'</button>';
 document.getElementById('erradd2plan').addEventListener('click',()=>{
-const add=chosen.map(m=>m.e.p+':'+m.e.s).filter(k=>stops.indexOf(k)<0);
-stops=stops.concat(add).slice(0,PLAN_MAX);
-planSet(stops);location.href='plan.html?stops='+encodeURIComponent(stops.join(','));});});
+const keys=[];seq.forEach(x=>{const k=x.pick?x.pick.e.p+':'+x.pick.e.s:x.key;
+if(k&&keys.indexOf(k)<0)keys.push(k);});
+if(keys.length+held.length>PLAN_MAX){alert('แผนหนึ่งเก็บได้ '+PLAN_MAX+' จุด / a plan holds '+PLAN_MAX+' stops');return;}
+// The whole page reloads on the saved plan, the one address that always
+// means "my plan". Going to ?stops= showed the reader their own plan as
+// "a route someone shared with you".
+planSet(keys.concat(held));location.href=RROOT+'plan.html';});});
 paintKinds();}
+// 🔀 The order that does the day with the least travel — 📌 stops stay put,
+// appointments are kept (bestPlanOrder). With the reader's position the run
+// starts there; without it, any stop may come first.
 document.getElementById('planreorderbtn').addEventListener('click',()=>{
-if(places.length<3)return;
-const rest=places.slice();const out=[];
-let cur=here||rest[0];
-if(!here)out.push(rest.shift());
-// Nearest by the network the reader is actually travelling on. Ordering by
-// crow-flies would happily send a scooter the wrong way up a one-way soi.
-const nearBy=(a,b)=>{const L=leg(a,b);
-const r=L[planMode]||L.foot||L.ride;return r?r.km:L.crow;};
-while(rest.length){let bi=0,bd=Infinity;
-rest.forEach((p,i)=>{const d=nearBy(cur,p);if(d<bd){bd=d;bi=i;}});
-cur=rest[bi];out.push(rest.splice(bi,1)[0]);}
-places=out;commit();});
+if(places.length<2)return;
+const o=bestPlanOrder();if(o){places=o;commit();}});
+// ⇅ The same stops the other way round, 📌 stops where they are.
+const revBtn=document.getElementById('planreversebtn');
+revBtn&&revBtn.addEventListener('click',()=>{
+const free=places.map((p,i)=>i).filter(i=>!fixOf(places[i].key).lock);
+const moved=free.map(i=>places[i]).reverse();
+free.forEach((i,k)=>{places[i]=moved[k];});commit();});
+// 🕒 When the run starts. Empty is now, read again at every redraw.
+const leaveIn=document.getElementById('planleave');
+if(leaveIn){leaveIn.value=leaveAt;
+leaveIn.addEventListener('change',()=>{leaveAt=leaveIn.value||'';
+try{if(leaveAt)localStorage.setItem(LEAVE_KEY,leaveAt);else localStorage.removeItem(LEAVE_KEY);}catch(e){}
+render();});}
 render();
 })();}
 
@@ -7699,7 +8774,6 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
                  f'<span class="logorom">MOT DANG</span></span></a>')
     lang_html = (f'<div class="langgroup" role="group" aria-label="ภาษา Language">'
                  f'<button type="button" class="langbtn" data-lang="th" aria-pressed="false">ไทย</button>'
-                 f'<button type="button" class="langbtn" data-lang="both" aria-pressed="true">+EN</button>'
                  f'<button type="button" class="langbtn" data-lang="en" aria-pressed="false">EN</button>'
                  f'</div>')
     # MapLibre is a megabyte. It is pulled in only by the pages that actually
@@ -7741,8 +8815,13 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     # page parses. <html lang> is served "th"; the head script and mdSetLang
     # turn it to "en" for a reader who chose English.
     out = f"""<!DOCTYPE html>
-<html lang="th" class="lang-both" data-root="{r}" data-icons="{icons_href(r)}"><head><meta charset="utf-8">
+<html lang="th" class="lang-both" translate="no" data-root="{r}" data-icons="{icons_href(r)}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- The site is already bilingual and its own toggle is better than a machine's
+     (NaN, 2026-09-22: "site translates itself, turn off all google offers to do
+     so — google does worse"). translate="no" and this meta are what Chrome and
+     Safari read before offering. -->
+<meta name="google" content="notranslate">
 {alpha_layer.tag(r)}
 <script src="{r}md.js" defer></script>
 <!-- ยานีธะ ภูตานิ สะมาคะตานิ · ภุมมานิ วา ยานิวะ อันตะลิกเข
@@ -7767,16 +8846,17 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="มดแดง — ของเด่น" href="{r}rss.xml">
 <link rel="stylesheet" href="{r}style.css">
-<script>try{{var _r=document.documentElement,_l=localStorage.getItem('md-lang');if(localStorage.getItem('md-read')==='1')_r.classList.add('easyread');if(_l==='en'||_l==='th'){{_r.classList.remove('lang-both');_r.classList.add('lang-'+_l)}}if(_l==='en')_r.lang='en'}}catch(e){{}}</script>
+<script>try{{var _r=document.documentElement,_l=localStorage.getItem('md-lang');if(localStorage.getItem('md-read')==='1')_r.classList.add('easyread');if(_l!=='th'&&_l!=='en')_l=/bot|crawl|spider|slurp|preview|lighthouse/i.test(navigator.userAgent)?null:/^th/i.test(navigator.language||'')?'th':'en';if(_l==='en'||_l==='th'){{_r.classList.remove('lang-both');_r.classList.add('lang-'+_l)}}if(_l==='en')_r.lang='en'}}catch(e){{}}</script>
 <link rel="icon" type="image/svg+xml" href="{r}logo/motdang-favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="{r}logo/motdang-mark-32.png">
 <link rel="apple-touch-icon" href="{r}logo/motdang-mark-180.png">
+<link rel="manifest" href="/app.webmanifest"><meta name="theme-color" content="#C2401C">
 {extra_head}</head><body{f' class="{body_class}"' if body_class else ''}>
 <a class="skiplink" href="#content">{bi("ข้ามไปเนื้อหา", "Skip to content")}</a>
 <div class="ribbon" aria-hidden="true"></div>
 <main>
 {refine_layer.home_header(r, bi, att, lang_html) if path == "" else
- refine_layer.header(r, bi, att, svg_icon, logo_html, lang_html, "")}
+ refine_layer.header(r, bi, att, svg_icon, logo_html, lang_html, nownear_layer.strip(r, path))}
 <div class="beadrule" aria-hidden="true"></div>
 <span id="content"></span>
 {body}{subscribe_block() if hub and path != '' else ''}
@@ -7788,6 +8868,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
 </main>
 <div class="ribbon tall" aria-hidden="true"></div>
 <script src="{r}live.js" defer></script>
+<script src="{r}ticker.js" defer></script>
 {refine_layer.head(r)}
 <script>if('serviceWorker' in navigator)addEventListener('load',function(){{navigator.serviceWorker.register('/sw.js').catch(function(){{}})}})</script>
 </body></html>"""
@@ -7878,10 +8959,12 @@ def load():
     # land here as well as in import_all, so a build without an import still
     # carries them. Idempotent, so both paths can run.
     import facts as _facts
-    _fdoc = _facts.load_doc(ROOT / "data" / "curated" / "facts.json")
+    # facts.load_all merges gleaned_facts.json (glean.py, what listers stated
+    # about a building) in the same pass as import_all.py does.
+    _fdoc = _facts.load_all(ROOT / "data" / "curated")
     _fn = sum(_facts.apply(rs, _fdoc) for rs in loaded.values())
     if _fn:
-        print(f"  reader facts: {_fn} field(s) applied from data/curated/facts.json")
+        print(f"  reader + gleaned facts: {_fn} field(s) applied from data/curated/")
     PLACE_BY_ID.clear()
     PLACE_BY_ID.update({r["id"]: r for rs in loaded.values() for r in rs})
     # The second axis, stamped once for the whole build. Nothing in
@@ -7890,7 +8973,47 @@ def load():
     _ktally = kind_layer.stamp([r for rs in loaded.values() for r in rs])
     print("  kinds: " + " · ".join(
         f"{k} {n}" for k, n in sorted(_ktally.items(), key=lambda x: -x[1])))
+    _jn = stamp_japanese([r for rs in loaded.values() for r in rs])
+    print(f"  japanese: {_jn} food places")
     return loaded
+
+
+# The Japanese shelf (Nan, 2026-09-28 — Ootoya sat under International and no
+# shelf said Japanese). Added beside the record's other subs, in memory, like
+# `kind`: a place stays on International too. OSM's cuisine tag, the kind read
+# off a sign, or a Japanese word in the name; a name alone does not move a café
+# or a bakery, where ญี่ปุ่น is usually the fruit or the crêpe.
+JP_CUISINE = {"japanese", "sushi", "ramen", "udon", "soba", "yakiniku", "yakitori",
+              "izakaya", "teppanyaki", "tonkatsu", "donburi", "okonomiyaki", "takoyaki"}
+JP_WORDS = ("japanese", "ญี่ปุ่น", "sushi", "ซูชิ", "ramen", "ราเมง", "ราเม็ง",
+            "izakaya", "อิซากายะ", "yakiniku", "ยากินิคุ", "yakitori", "ยากิโทริ",
+            "tonkatsu", "ทงคัตสึ", "udon", "อุด้ง", "teppanyaki", "เทปันยากิ",
+            "omakase", "โอมากาเสะ", "takoyaki", "ทาโกะยากิ", "okonomiyaki",
+            "donburi", "ดงบุริ", "gyudon", "กิวด้ง", "onigiri", "โอนิกิริ",
+            "yayoi", "ยาโยอิ", "ootoya", "โอโตยะ", "hachiban", "ฮะจิบัง",
+            "ichibanya", "อิจิบันยะ", "yoshinoya", "โยชิโนยะ", "sukiya", "สุกิยะ",
+            "marugame", "มารุกาเมะ", "katsuya", "คัตสึยะ")
+
+
+def stamp_japanese(recs):
+    n = 0
+    for r in recs:
+        if "food" not in (r.get("cat") or []):
+            continue
+        subs = r.get("sub") or []
+        if "japanese" in subs:
+            n += 1
+            continue
+        a = r.get("attrs") or {}
+        cuis = {c.strip().lower() for c in str(a.get("cuisine") or "").split(";")}
+        hit = bool(cuis & JP_CUISINE) or "japanese" in str(a.get("kind") or "").lower()
+        if not hit and not set(subs) & {"cafe", "bakery-dessert"}:
+            name = " ".join(str(r.get(k) or "") for k in ("name", "nameTh", "nameEn")).lower()
+            hit = any(w in name for w in JP_WORDS)
+        if hit:
+            r["sub"] = ["japanese"] + list(subs)
+            n += 1
+    return n
 
 
 def matches(r, m):
@@ -8107,7 +9230,10 @@ def address_dd(addr):
     if not has_thai(a):
         return esc(a)
     units = terms.address(a, md_read)
-    out = f'<span class="th solo" lang="th">{esc(a)}</span>'
+    
+    copy_btn = (f' <button type="button" class="copylink badge" data-url="{att(a)}" '
+                f'data-done="{esc(bi_text("คัดลอกแล้ว", "Copied"))}">{bi("คัดลอก", "Copy")}</button>')
+    out = f'<span class="th solo" lang="th" style="-webkit-user-select:all;user-select:all;">{esc(a)}</span>{copy_btn}'
     if units:
         line = " · ".join(f"{lbl} {name}" for lbl, name in units)
         out += f' <span class="en roman" lang="en">{esc(line)}</span>'
@@ -8597,9 +9723,9 @@ def place_map(r, depth=2):
     cx, cy = W / 2.0, H / 2.0
     mpu = span / float(W)                      # metres per viewBox unit
     exact = prec == "exact"
-    dlat = span / 111320.0 * (H / float(min(W, H)))
+    dlat = span / 111320.0 * (H / float(W))
     kx = math.cos(math.radians(lat))
-    dlng = span / (111320.0 * kx) * (W / float(min(W, H)))
+    dlng = span / (111320.0 * kx)
     s_, w_ = lat - dlat / 2, lng - dlng / 2
     n_, e_ = lat + dlat / 2, lng + dlng / 2
     box = (-6.0, -6.0, W + 6.0, H + 6.0)
@@ -9241,6 +10367,23 @@ def plan_toggle_btn(r, big=False):
             f'{svg_icon("i-route", 14, "planicon")}</button>')
 
 
+
+def grab_ride_url(lat, lng, name):
+    """Grab's own link: opens the app at a booking with the drop-off filled in,
+    pickup left to the phone. Without the app it lands on grab.com/th.
+    The same link Psar Phnom Penh uses (phnom-penh/grab/README.txt)."""
+    dp = ("grab://open?screenType=BOOKING&dropOffLatitude=%.6f&dropOffLongitude=%.6f"
+          "&dropOffAddress=%s" % (lat, lng, urllib.parse.quote(name or "", safe="")))
+    return ("https://grab.onelink.me/2695613898?af_dp=" + urllib.parse.quote(dp, safe="")
+            + "&af_web_dp=" + urllib.parse.quote("https://www.grab.com/th/transport/", safe=""))
+
+
+def grab_ride_btn(r):
+    if r.get("lat") is None:
+        return ""
+    return (f'<a class="grabride" href="{att(grab_ride_url(r["lat"], r["lng"], name_text(r)))}" '
+            f'rel="nofollow noopener">{svg_icon("i-ride", 18)} '
+            f'{bi("เรียก Grab ไปที่นี่", "Ride here · Grab")}</a>')
 def entry_li(r, href):
     star = '<span class="star">★</span> ' if is_featured(r) else ""
     pin = ' <span class="badge pin">' + bi("รอปักหมุด", "pin wanted") + "</span>" \
@@ -9262,7 +10405,11 @@ def entry_li(r, href):
         _sname = _stg[0].get("name") or _stg[0].get("nameEn") or ""
         if _sname:
             keys += (f' data-area="{att(_sname)}"'
-                     f' data-area-href="{att(_stg[0].get("slug", ""))}"')
+                     # Root-absolute: the row is drawn on shelves, sub-shelves,
+                     # tag, list and /asked/ pages at four different depths, and
+                     # a relative ../soi/ step from md.js was right on one of them.
+                     + (f' data-area-href="/{r.get("province") or "cm"}/soi/{att(_stg[0]["slug"])}.html"'
+                        if _stg[0].get("slug") else ""))
     elif _a.get("tambon"):
         keys += f' data-area="{att("ต." + _a["tambon"])}"'
     # The completeness chip renders in the markup but stays hidden while the
@@ -9308,9 +10455,24 @@ def entry_li(r, href):
                     + att(f"ความสูงพื้นดินที่หมุด อ่านจากแบบจำลอง {TERRAIN_HEIGHTS_DATE}"
                           f" · ground height at the pin, model reading")
                     + f'">⛰ {_m:,} ม.</span>')
+    # A picture before the name and a Thai reading under a Latin-only one
+    # (preview_layer.py, Nan 2026-10-04: "not enough preview anywhere").
+    _pic = preview_layer.thumb(r, href, _root_rel(href), att)
+    _rd = preview_layer.reading(r, _th, name_pair(r)[1], esc)
     return (f'<li data-n="{att(name_text(r))}"{ne}{lat} data-rank="{rank}" '
-            f'data-upd="{att(upd)}"{keys}{fac}>{star}'
-            f'<a href="{href}">{name_bi(r)}</a>{ele_chip}{chip}{pin}{hon}{facet_pills(r)}{plan}</li>')
+            f'data-upd="{att(upd)}"{keys}{fac}>{star}{_pic}'
+            f'<a href="{href}">{name_bi(r)}{_rd}</a>{ele_chip}{chip}{pin}{hon}{facet_pills(r)}{plan}</li>')
+
+
+def _root_rel(href):
+    """'../../' from a row's link to its place page ('../../p/x.html' → '../../../'):
+    the place pages sit one folder under the province, so the site's root is one
+    step further up than the link's own folder."""
+    if href.startswith(("/", "http")):
+        return "/"
+    ups = href.count("../")
+    rest = href.replace("../", "")
+    return "../" * (ups if re.match(r"(cm|cr)/p/", rest) else ups + 1)
 
 
 # ---- brand shelves --------------------------------------------------------
@@ -9430,6 +10592,55 @@ def area_label(r):
         return st[0].get("name") or st[0].get("nameEn") or ""
     tambon = (r.get("attrs") or {}).get("tambon")
     return ("ต." + tambon) if tambon else ""
+
+
+def page_name(first, i):
+    """The file name of page i of a list whose first page is `first`.
+    index.html → page-2.html, all.html → all-2.html, x.html → x-p2.html."""
+    if i == 1:
+        return first
+    if first == "index.html":
+        return f"page-{i}.html"
+    if first == "all.html":
+        return f"all-{i}.html"
+    return f"{first[:-5]}-p{i}.html"
+
+
+def chunked(records):
+    """Rows cut into SHELF_PAGE_ROWS pages; an empty list is one empty page."""
+    return [records[i:i + SHELF_PAGE_ROWS]
+            for i in range(0, len(records), SHELF_PAGE_ROWS)] or [[]]
+
+
+def shelf_pager(n, total, first="index.html"):
+    """The strip that says which page of a shelf this is, and where the rest are.
+
+    Every page is a real address with its own rows on it — no JavaScript, no
+    infinite scroll, nothing a reader on a slow line or a crawler with a budget
+    has to execute to reach row 12,000. At 100 rows a page a big shelf has two
+    hundred pages, so the strip shows the first, the last, and two either side
+    of this one.
+    """
+    if total < 2:
+        return ""
+    def href(i):
+        return page_name(first, i)
+    shown = sorted({1, total, *range(max(1, n - 2), min(total, n + 2) + 1)})
+    bits, last = [], 0
+    for i in shown:
+        if i - last > 1:
+            bits.append("…")
+        bits.append(f'<b>{i}</b>' if i == n else f'<a href="{href(i)}">{i}</a>')
+        last = i
+    nums = " · ".join(bits)
+    prev = (f'<a rel="prev" href="{href(n - 1)}">← {bi("ก่อนหน้า", "Previous")}</a> · '
+            if n > 1 else "")
+    nxt = (f' · <a rel="next" href="{href(n + 1)}">{bi("ถัดไป", "Next")} →</a>'
+           if n < total else "")
+    # The label is plain text, not bi(): bi() returns spans, and an attribute
+    # is not a place markup can go.
+    return (f'<nav class="pager" aria-label="หน้า Pages">'
+            f'{prev}{nums}{nxt}</nav>')
 
 
 def fold_rows(records, href_of, order_out=None):
@@ -9608,14 +10819,18 @@ def toolbar(records=None):
             + "</div>")
 
 
-def listing_page(title_th, title_en, records, depth, prov, crumbs, path, extra_top="",
-                  extra_head="", seo_title=None, og=None, seo_title_en=None):
-    lis = fold_rows(records, lambda r: "../" * (depth - 1) + f"p/{place_slug(r)}.html")
-    body = (f"<h1>{bi(title_th, title_en)} "
-            f'<span class="count">({len(records):,})</span></h1>'
-            f"{extra_top}{ad_box(path, depth)}{toolbar(records)}{facet_chips(records)}"
-            f'<ul class="dir" data-sortable>{lis}</ul>'
-            f"{share_block(BASE + path, title_th, card=og)}")
+def listing_pages(title_th, title_en, records, depth, prov, crumbs, path, extra_top="",
+                  extra_head="", seo_title=None, og=None, seo_title_en=None, doors="",
+                  map_of=None):
+    """A list of places as pages of SHELF_PAGE_ROWS: [(path, html), ...].
+
+    Page one carries the furniture — the lede, the doors to the shelves inside
+    this one, the facet chips counted over the WHOLE list — and pages two on
+    carry the rows, the pager and the way back.
+    """
+    href_of = lambda r: "../" * (depth - 1) + f"p/{place_slug(r)}.html"
+    first = path.rsplit("/", 1)[-1]
+    base = path[: -len(first)]
     # seo_title carries province context into <title>/og:title without
     # touching the h1 — a subcategory name alone repeats verbatim between
     # provinces (e.g. "กาแฟ-คาเฟ่" in both cm and cr), which is a duplicate
@@ -9626,9 +10841,144 @@ def listing_page(title_th, title_en, records, depth, prov, crumbs, path, extra_t
     t_en = seo_title_en or title_en
     full_title = f"{t_th} · {t_en}" if t_en and t_en != t_th else t_th
     d_en = f" · {title_en}" if title_en and title_en != title_th else ""
-    return page(full_title, body, depth, crumbs=crumbs, path=path,
-                desc=f"{title_th} — {len(records)} แห่ง{d_en} · มดแดง", extra_head=extra_head,
-                og=og)
+    chunks = chunked(records)
+    out = []
+    for n, chunk in enumerate(chunks, 1):
+        dom = []
+        lis = fold_rows(chunk, href_of, order_out=dom)
+        # map_of draws this page's own rows on one ground (shelf_map, whose
+        # dots are row indexes — so it is handed the rows in DOM order).
+        mapped = map_of(dom or chunk) if map_of else ""
+        pager = shelf_pager(n, len(chunks), first)
+        if n == 1:
+            body = (f"<h1>{bi(title_th, title_en)} "
+                    f'<span class="count">({len(records):,})</span></h1>'
+                    f"{extra_top}{ad_box(path, depth)}{doors}{facet_chips(records)}"
+                    f"{mapped}{toolbar(chunk)}{pager}"
+                    f'<ul class="dir" data-sortable>{lis}</ul>{pager}'
+                    f"{share_block(BASE + path, title_th, card=og)}")
+            out.append((path, page(full_title, body, depth, crumbs=crumbs, path=path,
+                                   desc=f"{title_th} — {len(records)} แห่ง{d_en} · มดแดง",
+                                   extra_head=extra_head, og=og)))
+            continue
+        lo = (n - 1) * SHELF_PAGE_ROWS + 1
+        rng = f"{lo:,}–{lo + len(chunk) - 1:,}"
+        npath = base + page_name(first, n)
+        body = (f"<h1>{bi(title_th, title_en)} "
+                f'<span class="count">({rng} {bi("จาก", "of")} {len(records):,})</span></h1>'
+                f'<p class="prov"><a href="{first}">← '
+                f'{bi("กลับหน้าแรกของชั้น", "Back to the front of the shelf")}</a></p>'
+                f"{mapped}{toolbar(chunk)}{pager}"
+                f'<ul class="dir" data-sortable>{lis}</ul>{pager}')
+        out.append((npath, page(f"{full_title} — {n}", body, depth, crumbs=crumbs, path=npath,
+                                desc=f"{title_th} — {rng} จาก {len(records)} แห่ง{d_en} · มดแดง",
+                                og=og)))
+    return out
+
+
+def listing_page(*a, **k):
+    """Page one of listing_pages, for a caller that writes a single file."""
+    return listing_pages(*a, **k)[0][1]
+
+
+def write_listing(*a, **k):
+    """Write every page of listing_pages under DOCS; returns the page count."""
+    pages = listing_pages(*a, **k)
+    for pth, html_ in pages:
+        (DOCS / pth).parent.mkdir(parents=True, exist_ok=True)
+        (DOCS / pth).write_text(html_)
+    return len(pages)
+
+
+def shelf_doors(recs, p, rel_dir, depth, crumbs_head, name_th, name_en, og=None,
+                tag_href=None):
+    """Doors to every shelf of SHELF_MIN or more inside this one (Nan, 2026-10-03).
+
+    Two kinds of group, each a list of places a reader can name: a tag the
+    rows carry (cuisine, what it is, paying, hours, access…) and a named ย่าน
+    from data/curated/zones.json. A group holding nearly the whole shelf (95%)
+    would be the shelf again, and the `state` tags describe our record of a
+    place rather than the place, so neither gets a door.
+
+    tag_href(slug) names an existing page for a tag group (a shelf front links
+    the tag×shelf page tags_layer writes); without it the tag pages are written
+    here, `tag-<slug>.html` beside this shelf. Neighbourhood pages are always
+    written here, `yan-<key>.html`. Returns the doors' HTML, Yahoo-style:
+    family, then Term (count).
+    """
+    n_all = len(recs)
+    if n_all <= SHELF_MIN:
+        return ""
+    key = p["key"]
+    order = lambda rs: sorted(rs, key=lambda r: (not is_featured(r), name_of(r)))
+    lines = []
+
+    zone_links = []
+    zdef = ZONES.get(key)
+    if zdef:
+        zg = {}
+        for r in recs:
+            zd = zone_of(r, key)
+            if zd is not None:
+                zg.setdefault(zd["key"], (zd, []))[1].append(r)
+        for zd in zdef["boxes"] + zdef["circles"]:
+            if zd["key"] not in zg:
+                continue
+            rs = zg[zd["key"]][1]
+            if not (SHELF_MIN <= len(rs) < 0.95 * n_all):
+                continue
+            fname = f"yan-{zd['key']}.html"
+            write_listing(
+                f'{name_th} — {zd["th"]}', f'{name_en} — {zd["en"]}', order(rs),
+                depth=depth, prov=key,
+                crumbs=crumbs_head + f' › {bi(zd["th"], zd["en"])}',
+                path=f"{rel_dir}/{fname}",
+                seo_title=f'{name_th} {zd["th"]} {p["th"]}',
+                seo_title_en=f'{name_en} — {zd["en"]}, {p["en"]}', og=og)
+            zone_links.append(f'<a href="{fname}">{bi(zd["th"], zd["en"])}</a> '
+                              f'<span class="count">({len(rs):,})</span>')
+    if zone_links:
+        lines.append(f'<div class="subshelf"><b>{bi("ย่าน", "Neighbourhoods")}:</b> '
+                     + " · ".join(zone_links) + "</div>")
+
+    T = globals().get("TAGS")
+    if T:
+        no_rail = {f["key"] for f in T["doc"]["families"] if f.get("rails") is False}
+        by_tag = {}
+        for r in recs:
+            for s in T["by_id"].get(r["id"]) or ():
+                by_tag.setdefault(s, []).append(r)
+        fams = T["doc"]["families"]
+        for fam in fams:
+            if fam["key"] in no_rail:
+                continue
+            groups = sorted(((len(rs), s, rs) for s, rs in by_tag.items()
+                             if T["defs"][s]["family"] == fam["key"]
+                             and SHELF_MIN <= len(rs) < 0.95 * n_all),
+                            key=lambda x: (-x[0], x[1]))
+            links = []
+            for n, s, rs in groups:
+                d = T["defs"][s]
+                if tag_href:
+                    href = tag_href(s)
+                else:
+                    href = f"tag-{s}.html"
+                    write_listing(
+                        f'{name_th} · {d["th"] or d["en"]}', f'{name_en} · {d["en"] or d["th"]}',
+                        order(rs), depth=depth, prov=key,
+                        crumbs=crumbs_head + f' › {bi(d["th"], d["en"])}',
+                        path=f"{rel_dir}/{href}",
+                        seo_title=f'{name_th} {d["th"] or d["en"]} {p["th"]}',
+                        seo_title_en=f'{name_en} · {d["en"] or d["th"]}, {p["en"]}', og=og)
+                links.append(f'<a href="{href}">{bi(d["th"], d["en"])}</a> '
+                             f'<span class="count">({n:,})</span>')
+            if links:
+                lines.append(f'<div class="subshelf"><b>{bi(fam["th"], fam["en"])}:</b> '
+                             + " · ".join(links) + "</div>")
+    if not lines:
+        return ""
+    return (f'<section class="doors"><h2>{bi("ชั้นในชั้นนี้", "Shelves on this shelf")}</h2>'
+            + "".join(lines) + "</section>")
 
 
 ADS = json.loads((ROOT / "data" / "ads.json").read_text())
@@ -9647,7 +10997,7 @@ def ad_box(path, depth):
             + bi("ลงโฆษณาที่นี่", "advertise here") + "</a></div>")
 
 
-def share_block(url, name, qr=False, card=None):
+def share_block(url, name, qr=False, card=None, pick=False):
     u, t = att(url), att(name)
     qr_html = ""
     if qr:
@@ -9682,7 +11032,14 @@ def share_block(url, name, qr=False, card=None):
             f'data-label="🔗 {esc(bi_text("คัดลอกลิงก์", "Copy link"))}" '
             f'data-done="✓ {esc(bi_text("คัดลอกแล้ว", "Copied"))}">🔗 '
             + bi("คัดลอกลิงก์", "Copy link") + '</button>'
-            f'{card_html}</div>{qr_html}</div>')
+            f'{card_html}{pick_btn() if pick else ""}</div>{qr_html}</div>')
+
+
+def pick_btn():
+    """Opens share_layer's pick-what-to-send sheet: every line on the page,
+    each with its own tick box (Nan, 2026-10-01)."""
+    return (f'<button type="button" class="pill copy" data-pick>{svg_icon("i-check", 16)} '
+            f'{bi("เลือกส่ง", "Pick what to send")}</button>')
 
 
 CHANNEL_ICON = {"phone": "☎️", "line": "💬", "facebook": "f", "web": "🌐",
@@ -9752,12 +11109,77 @@ def elsewhere(r):
     # wat stands and when the gate opens; that one holds what is practised
     # inside it. Matched on name AND position by link_wichaa.py, so this is the
     # same temple and not merely one with the same name.
+    # The write-up next door. Citylife has published a Chiang Mai magazine
+    # since 2002; this directory holds the row and no paragraph. The year is
+    # printed because these pages are 2014–2020 and a reader deserves to know
+    # they are reading about the place as it stood then.
+    cl = CITYLIFE_LINKS.get(r["id"])
+    if cl:
+        _yr = cl.get("year")
+        out.append({"url": cl["url"], "marked": True, "identity": False,
+                    "th": ("ที่นี่ในนิตยสาร Chiang Mai Citylife — บทความปี %s" % _yr
+                           if _yr else "ที่นี่ในนิตยสาร Chiang Mai Citylife"),
+                    "en": ("This place in Chiang Mai Citylife — written up in %s" % _yr
+                           if _yr else "This place in Chiang Mai Citylife")})
     wl = WICHAA_LINKS.get(r["id"])
     if wl:
         out.append({"url": wl["url"], "marked": True, "identity": False,
                     "th": "วัดนี้ในคลังวิชา — ประวัติ ความเชื่อ และการปฏิบัติ",
                     "en": "This temple in the wichaa archive — its history and practice"})
+    # A landmark's own page in Roads of Chiang Mai, where its history was read
+    # from, and Nan's own field photographs of it. Both set by
+    # importers/landmarks_from_roads.py; absent on every other record.
+    if a.get("roadsUrl"):
+        out.append({"url": a["roadsUrl"], "marked": True, "identity": False,
+                    "th": "ที่นี่ใน Roads of Chiang Mai — ประวัติถนนและการสร้างเมือง",
+                    "en": "This place in Roads of Chiang Mai — its road-building history"})
+    for rl in READING_LINKS.get(r["id"], []):
+        out.append({"url": rl["url"], "marked": True, "identity": False,
+                    "th": rl["th"], "en": rl["en"]})
+    for fs in a.get("fieldScenes") or []:
+        _fth = fs.get("th") or fs.get("en") or ""
+        _fen = fs.get("en") or fs.get("th") or ""
+        out.append({"url": fs["url"], "marked": True, "identity": False,
+                    "th": "ภาพภาคสนาม — %s" % _fth,
+                    "en": "Field photograph — %s" % _fen})
     return out
+
+
+def place_thumb(rid):
+    """The smallest copy of any picture of this place, root-relative, or "".
+
+    Her own photograph of it, then her ride pictures of it, then a Commons
+    photograph matched to it by name. Used for the row thumbnails in a net."""
+    f = band_place_file(rid)
+    if f:
+        return f
+    own = OWN_BY_PLACE.get(rid)
+    if own:
+        return band_pic_file(own[0])
+    ci = COMMONS_IMAGES.get(rid) or {}
+    if ci.get("file"):
+        slug = ci["file"].rsplit("/", 1)[-1][:-4]
+        return ("band/" if (BAND_PIC_SRC / (slug + ".jpg")).exists() else "site/") + slug + ".jpg"
+    return ""
+
+
+NET_HELPERS = {"bi": lambda th, en: bi(th, en), "esc": lambda x: esc(x),
+               "att": lambda x: att(x), "name_bi": lambda r: name_bi(r),
+               "reading": lambda th: translit.reading(th),
+               "thumb": lambda rid: place_thumb(rid)}
+HOTEL_HELPERS = dict(NET_HELPERS, icon=lambda n, s=18: glyphs.icon(n, s),
+                     href=lambda rid: PLACE_HREF.get(rid), reach=lambda r: channels(r)[0],
+                     fmt_tel=lambda s: fmt_tel(s), tel_href=lambda s: tel_href(s))
+
+
+def around_pics(r):
+    """Commons pictures of this place and around it (commons_layer.around)."""
+    try:
+        _main = (COMMONS_IMAGES.get(r["id"]) or {}).get("title")
+        return commons_layer.around(r, NET_HELPERS, main_title=_main)
+    except Exception as e:                       # a picture strip never costs a page
+        print("  ! around pictures", r.get("id"), e)
+        return ""
 
 
 def elsewhere_block(r):
@@ -9928,6 +11350,8 @@ def place_json(r, photo_file=None):
     live, retired = channels(r)
     rec = dict(r)
     rec["url"] = BASE + f"{r['province']}/p/{place_slug(r)}.html"
+    if PLACE_CODES.get(r["id"]):
+        rec["code"] = "MD-" + PLACE_CODES[r["id"]]
     # `name`, `nameTh` and `nameEn` are kept exactly as the sources gave them;
     # this is the resolved pair, so a consumer does not have to work out that
     # a null `nameTh` beside a Thai `name` means the Thai name is right there.
@@ -9951,12 +11375,29 @@ def place_json(r, photo_file=None):
     if _k is not None and 0 <= _k < len(_rows):
         rec["sched"] = _rows[_k]
     rec["channels"] = [{"kind": c["kind"], "href": c["href"], "text": c["text"]} for c in live]
+    # Events held here, coming and gone (event ledger, 2026-10-04). fleetsearch
+    # reads `n` into its rank; a consumer gets the titles and the first date.
+    _pe = PLACE_EVENTS.get(r["id"])
+    if _pe and _pe.get("n"):
+        rec["events"] = {"n": _pe["n"], "upcoming": len(_pe["next"]), "past": len(_pe["past"]),
+                         "dates": _pe["dates"], "first": _pe["first"], "titles": _pe["titles"][:12]}
     rec["retiredLinks"] = [{"url": x["url"], "status": x["status"],
                             "checked": x.get("checked"),
                             "archived": (x.get("wayback") or {}).get("url")} for x in retired]
     if photo_file:
         rec["photo"] = {"url": BASE + f"photos/{photo_file}",
                         **PHOTO_CREDITS.get(r["id"], {})}
+    else:
+        # A Commons photograph OF this place (commons_layer): the map's tap card
+        # reads this field, so a pin that has one shows it.
+        try:
+            _pp = commons_layer.place_picture(r["id"])
+        except Exception:                        # noqa: BLE001
+            _pp = None
+        if _pp:
+            _by = _pp["by"].rsplit(", ", 1)
+            rec["photo"] = {"url": BASE + _pp["src"], "author": _by[0],
+                            "license": _by[1] if len(_by) > 1 else "", "source": _pp["link"]}
     if r["id"] in CLAIMS:
         rec["claim"] = CLAIMS[r["id"]]
     h = royal_of(r)
@@ -10108,11 +11549,50 @@ def write_moved_stubs():
     path = ROOT / "data" / "curated" / "moved.json"
     if not path.exists():
         return 0
-    moved = (json.loads(path.read_text()) or {}).get("moved") or {}
+    moved = dict((json.loads(path.read_text()) or {}).get("moved") or {})
+    # A place whose address changed since the last build — a name edited, a
+    # clash suffix added — keeps its old address as a forward. The last
+    # build's id -> path map is kept in cache/, so this needs nobody to
+    # remember to write moved.json; a curated entry still wins.
+    cur = {i: h + ".html" for i, h in (PLACE_HREF or {}).items()}
+    prev_p = ROOT / "cache" / "place_paths.json"
+    if prev_p.exists():
+        try:
+            for i, old in json.loads(prev_p.read_text()).items():
+                if cur.get(i) and cur[i] != old:
+                    moved.setdefault(old, cur[i])
+        except ValueError:
+            pass
+    # A record folded into another by data/curated/merges.json leaves the build
+    # with no page of its own; its old address forwards to the keeper's. The
+    # newsletter venues folded on 2026-10-04 had pages readers may have shared.
+    try:
+        _mg = (json.loads((ROOT / "data" / "curated" / "merges.json").read_text())
+               .get("merges") or {})
+        _drop_keep = {d: k for k, ds in _mg.items() for d in ds}
+        # {old path: keeper id}, kept across builds: place_paths.json forgets a
+        # dropped id after one build, and the forward has to outlive that.
+        _fw_p = ROOT / "cache" / "merged_paths.json"
+        _fw = json.loads(_fw_p.read_text()) if _fw_p.exists() else {}
+        if prev_p.exists():
+            for i, old in json.loads(prev_p.read_text()).items():
+                if _drop_keep.get(i) and i not in cur:
+                    _fw.setdefault(old, _drop_keep[i])
+        for old, k in _fw.items():
+            if cur.get(k):
+                moved.setdefault(old, cur[k])
+        if _fw:
+            _fw_p.write_text(json.dumps(_fw, ensure_ascii=False, separators=(",", ":")))
+    except (OSError, ValueError):
+        pass
+    if cur:
+        prev_p.write_text(json.dumps(cur, separators=(",", ":")))
+    live = set(cur.values())
     n = 0
     for old, new in moved.items():
         old, new = old.lstrip("/"), new.lstrip("/")
-        if old == new or not (DOCS / new).exists():
+        # never write a forward over a page that is itself live
+        if old == new or old in live or not (DOCS / new).exists():
             continue
         target = BASE + new
         out = DOCS / old
@@ -10125,6 +11605,36 @@ def write_moved_stubs():
             '<title>ย้ายแล้ว · moved</title></head><body>'
             f'<p>หน้านี้ย้ายไปที่ <a href="{att(target)}">{esc(target)}</a> · '
             'This page has moved.</p></body></html>\n')
+        n += 1
+    return n + write_split_stubs(json.loads(path.read_text()) or {})
+
+
+def write_split_stubs(doc):
+    """A shelf that became two leaves a door to each at its old address.
+
+    moved.json `split` holds {old_path: {"th", "en", "to": [[path, th, en], …]}}.
+    One forward cannot answer for two shelves, so the old address gets a small
+    page with a link to each new one that exists (Nan, 2026-10-04: Car & Bike
+    Rental became scooter rental and car rental). noindex, out of the sitemap,
+    and never written over a live page."""
+    n = 0
+    for old, spec in (doc.get("split") or {}).items():
+        old = old.lstrip("/")
+        out = DOCS / old
+        doors = [(t.lstrip("/"), th, en) for t, th, en in spec.get("to") or []
+                 if (DOCS / t.lstrip("/")).exists()]
+        if out.exists() or not doors:
+            continue
+        depth = old.count("/")
+        up = "../" * depth
+        items = "".join(f'<li><b><a href="{att(up + t)}">{bi(th, en)}</a></b></li>'
+                        for t, th, en in doors)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(page(
+            f'{spec.get("th", "")} · {spec.get("en", "")}',
+            f'<h1>{bi(spec.get("th", ""), spec.get("en", ""))}</h1>'
+            f'<ul class="cats">{items}</ul>',
+            depth=depth, path=old, robots="noindex,follow"))
         n += 1
     return n
 
@@ -10269,6 +11779,11 @@ LANG_WORDS = {"zh": ("จีน", "Chinese"), "ja": ("ญี่ปุ่น", "J
 
 def _fact_value(v):
     """Gloss one OSM value, or hand it back untouched if we have no word for it."""
+    # An importer can write a JSON true/false where OSM writes "yes"/"no"; the
+    # build of 2026-10-03 16:25 died on one in bi().
+    if isinstance(v, bool):
+        v = "yes" if v else "no"
+    v = str(v)
     th, en = FACT_VALUES.get(v, (v, v))
     return bi(th, en)
 
@@ -10312,6 +11827,10 @@ OFFER_VIA = {
     "menu-photo": ("จากรูปเมนู", "from a photograph of the menu"),
     "web-listing": ("จากรายชื่อในเว็บอื่น", "from a third-party listing"),
     "client-visit": ("จากการไปใช้บริการ", "from a visit"),
+    # The weakest source here, and it prints as what it is: somebody who went
+    # said they bought it. No review text, author or rating is held or shown —
+    # importers/harvest_weedth.py keeps the product key and the count only.
+    "visitor-review": ("จากรีวิวของผู้ไปใช้บริการ", "from a visitor's review"),
     "licence": ("จากใบอนุญาต", "from the licence"),
 }
 
@@ -10378,7 +11897,8 @@ def known_facts(r):
     plainly as a "yes" — that somebody checked and found no wheelchair ramp is
     a fact worth carrying, and it is not the same as nobody having looked.
     """
-    a = r.get("attrs") or {}
+    a = {k: ("yes" if v is True else "no" if v is False else v)
+         for k, v in (r.get("attrs") or {}).items()}
     rows = []
 
     def listed(spec, source=None):
@@ -10497,6 +12017,20 @@ def known_facts(r):
         d = _bearing_words(str(a["direction"]))
         if d:
             rows.append(f"<dt>{bi('หันไปทาง', 'Faces')}</dt><dd>{bi(*d)}</dd>")
+    # A view somebody STATED, standing there (the views note, door 6: "the
+    # claim becomes an attr with provenance ... and the existing attr rule
+    # reads it"). Nan, 2026-09-23, on Medileaves: "put the balcony view on the
+    # record" — the shelf's first stated view, in her words, sourced to her in
+    # data/curated/shelves.json. What is seen and where you stand; nothing
+    # is ranked and no bearing is inferred from it. A value written as
+    # "ไทย / English" renders in both tongues.
+    for key, th, en in (("viewOf", "วิว", "View of"), ("viewFrom", "ชมจาก", "Seen from")):
+        v = a.get(key)
+        if not v:
+            continue
+        v = str(v)
+        val = bi(*[x.strip() for x in v.split(" / ", 1)]) if " / " in v else esc(v)
+        rows.append(f"<dt>{bi(th, en)}</dt><dd>{val}</dd>")
     if a.get("ele"):
         m_ele = re.match(r"^\s*(\d{1,4}(?:[.,]\d+)?)\s*m?\s*$", str(a["ele"]))
         if m_ele:
@@ -11013,6 +12547,13 @@ def trade_tags_row(r):
             f"<dd>{' · '.join(bits)}</dd>")
 
 
+def _pin_shelf(r):
+    """The shelf /map.html lights around a place opened from its page: its
+    first category, as the explore map keys it (cm-food)."""
+    cats = [c for c in (r.get("cat") or []) if c in CATS]
+    return f'{r["province"]}-{cats[0]}' if cats else ""
+
+
 def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     rows = []
     # A record can carry a cat key that categories.json does not hold — a
@@ -11055,6 +12596,37 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         _label = (f'<a href="../../{_href}.html">{esc(_host_nm)}</a>'
                   if _href else esc(_host_nm))
         rows.append(f"<dt>{bi('อยู่ใน', 'Inside')}</dt><dd>{_label}</dd>")
+        # What the building publishes, lent to the tenant with the building's
+        # name on it: a shop with no phone or hours of its own is still reached
+        # through the mall's, and a reader standing outside needs the doors'
+        # hours before the shop's.
+        _host = PLACE_BY_ID.get(_host_id) if _host_id else None
+        if _host:
+            _hn = esc(name_of(_host))
+            if _host.get("hours") and not r.get("hours"):
+                rows.append(f"<dt>{bi('เวลาเปิดอาคาร', 'Building hours')}</dt>"
+                            f"<dd>{esc(str(_host['hours']))} <span class=\"count u\">· {_hn}</span></dd>")
+            if _host.get("phone") and not r.get("phone"):
+                _ph = str(_host["phone"]).split(",")[0].strip()
+                rows.append(f"<dt>{bi('โทร (อาคาร)', 'Phone (building)')}</dt>"
+                            f'<dd><a href="tel:{att(re.sub(r"[^0-9+]", "", _ph))}">{esc(_ph)}</a> <span class="count u">· {_hn}</span></dd>')
+            # Lent only while it works: a dead building site is retired on the
+            # building's own page, and the tenant must not print it live.
+            if (_host.get("website") and not r.get("website")
+                    and verdict(norm_url(_host["website"]) or "").get("status") not in BROKEN):
+                _dom = re.sub(r"^https?://(www[.])?", "", _host["website"]).rstrip("/")
+                rows.append(f"<dt>{bi('เว็บ (อาคาร)', 'Website (building)')}</dt>"
+                            f'<dd><a href="{att(_host["website"])}" rel="noopener">{esc(_dom)}</a></dd>')
+            if _host.get("address") and not (r.get("address") or "").strip(" จังหวัดเชียงรายเชียงใหม่เซ็นทรัล"):
+                rows.append(f"<dt>{bi('ที่อยู่อาคาร', 'Building address')}</dt><dd>{esc(_host['address'])}</dd>")
+            # the neighbours: what else stands in the same building
+            _sib = [t for t in (INSIDE_MEMBERS.get(_host_id) or []) if t["id"] != r["id"]]
+            if _sib:
+                _sl = " · ".join((f'<a href="../../{PLACE_HREF[t["id"]]}.html">{esc(name_of(t))}</a>'
+                                  if t["id"] in PLACE_HREF else esc(name_of(t))) for t in _sib[:12])
+                _sm = (f' <a class="count u" href="../../{PLACE_HREF[_host_id]}.html">· {bi(f"ทั้งหมด {len(_sib) + 1}", f"all {len(_sib) + 1}")}</a>'
+                       if len(_sib) > 12 and _host_id in PLACE_HREF else "")
+                rows.append(f"<dt>{bi('ในอาคารเดียวกัน', 'Same building')}</dt><dd>{_sl}{_sm}</dd>")
     # The branch, when the name says which one. 2,283 names carry สาขา and the
     # word was being shown as part of the name and read as part of nothing.
     if _al.get("branchName"):
@@ -11066,12 +12638,17 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     # pages are the better answer and the count says so.
     _tenants = INSIDE_MEMBERS.get(r["id"]) or []
     if _tenants:
-        _shown_t = _tenants[:12]
-        _links = " · ".join(
-            (f'<a href="../../{PLACE_HREF[t["id"]]}.html">{esc(name_of(t))}</a>'
-             if t["id"] in PLACE_HREF else esc(name_of(t)))
-            for t in _shown_t)
-        _more = (f' <span class="count u">· {bi(f"อีก {len(_tenants) - 12}", f"{len(_tenants) - 12} more")}</span>'
+        def _tlinks(ts):
+            return " · ".join(
+                (f'<a href="../../{PLACE_HREF[t["id"]]}.html">{esc(name_of(t))}</a>'
+                 if t["id"] in PLACE_HREF else esc(name_of(t)))
+                for t in ts)
+        _links = _tlinks(_tenants[:12])
+        # The rest fold behind their count — a count that opened nothing left
+        # 82 of Central Festival's tenants reachable from no page (Ootoya, 9/28).
+        _more = (f' <details class="tenants-more"><summary class="count u">'
+                 f'{bi(f"อีก {len(_tenants) - 12}", f"{len(_tenants) - 12} more")}</summary>'
+                 f'{_tlinks(_tenants[12:])}</details>'
                  if len(_tenants) > 12 else "")
         rows.append(f"<dt>{bi('ข้างใน', 'Inside here')} "
                     f'<span class="count">{len(_tenants)}</span></dt>'
@@ -11115,14 +12692,16 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     _off = offers_row(r)
     if _off:
         rows.append(_off)
+    _seen = pics_layer.seen_row(r, bi, esc)
+    if _seen:
+        rows.append(_seen)
     _tt = trade_tags_row(r)
     if _tt:
         rows.append(_tt)
-    # The Listing Sheet, cross-referenced. A COUNT and a LINK — never a price,
-    # an agency or a date. Offers are churn and belong on the sheet; that this
-    # catalogue does not carry them is what an agency was promised, and
-    # listings_layer.py keeps the line rather than trusting anyone to remember
-    # it. Silent when the sheet is not checked out or not built.
+    # The real-estate rows (listings_layer.place_row): live offers with their
+    # ranges and date, what listers stated about the building, licensed
+    # photos, and the building's register file. Nan's 2026-09-27 word put
+    # offers on the place page. Silent when the sheet is absent or unbuilt.
     import listings_layer as _listings_layer
     _lrow = _listings_layer.place_row(r, bi, esc, base="../../")
     if _lrow:
@@ -11140,16 +12719,39 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         rows.append(f"<dt>{bi('หมายเหตุจากร้าน', 'Note from the owner')}</dt>"
                     f"<dd>{esc(note_txt).replace(chr(10), '<br>')}{owner_badge}</dd>")
     if r.get("lat") is not None:
+        ll = f"{r['lat']:.6f},{r['lng']:.6f}"
         osm = f"https://www.openstreetmap.org/?mlat={r['lat']}&mlon={r['lng']}#map=18/{r['lat']}/{r['lng']}"
-        gmap = f"https://maps.google.com/?q={r['lat']},{r['lng']}"
+        gmap = f"https://www.google.com/maps/search/?api=1&query={ll}"
+        apple = f"https://maps.apple.com/?ll={ll}&q={urllib.parse.quote(name_text(r) or ll)}"
+        geo = f"geo:{ll}?q={ll}"
+        if name_text(r):
+            geo += f"({urllib.parse.quote(name_text(r))})"
         approx = " " + bi("(โดยประมาณ)", "(approximate)") if r["geoPrecision"] == "approx" else ""
+        
+        # Coordinates row
+        copy_ll = (f' <button type="button" class="copylink badge" data-url="{ll}" '
+                   f'data-done="{esc(bi_text("คัดลอกแล้ว", "Copied"))}">{bi("คัดลอก", "Copy")}</button>')
+        rows.append(f'<dt>{bi("พิกัด", "Coordinates")}</dt><dd>'
+                    f'<span style="-webkit-user-select:all;user-select:all;">{ll}</span>{copy_ll}</dd>')
+        
         # The <dt> beside it already says Map, so the first link says WHOSE
         # map it is instead of saying "map" a second time.
         rows.append(f'<dt>{bi("แผนที่", "Map")}</dt><dd>'
-                    f'<a href="../../map.html#16/{r["lat"]:.5f}/{r["lng"]:.5f}">'
+                    f'<a href="../../map.html#16/{r["lat"]:.5f}/{r["lng"]:.5f}/'
+                    f'{_pin_shelf(r)}/pin={r["province"]}:{place_slug(r)}">'
                     f'{bi("มดแดง", "Mot Dang")}</a> · '
                     f'<a href="{osm}" rel="noopener">OpenStreetMap</a> · '
-                    f'<a href="{gmap}" rel="noopener">Google Maps</a>{approx}</dd>')
+                    f'<a href="{gmap}" rel="noopener">Google Maps</a> · '
+                    f'<a href="{apple}" rel="noopener">Apple Maps</a> · '
+                    f'<a href="{geo}">แอปแผนที่ / Geo URI</a>{approx}</dd>')
+    if PLACE_CODES.get(r["id"]):
+        # Michael, 2026-09-28: a place ID short enough to say or paste. The map
+        # box opens it (placecode.py).
+        import linedoor
+        owner = (f' · <a href="{linedoor.url(linedoor.OWNER + "MD-" + PLACE_CODES[r["id"]])}" rel="noopener">'
+                 f'{bi("เจ้าของร้าน แก้ผ่าน LINE", "Owner? Edit by LINE")}</a>' if linedoor.ON else "")
+        rows.append(f'<dt>{bi("รหัสที่", "Place ID")}</dt><dd><code class="mdcode">'
+                    f'MD-{PLACE_CODES[r["id"]]}</code>{owner}</dd>')
     else:
         rows.append(f'<dt>{bi("แผนที่", "Map")}</dt><dd><span class="badge pin">'
                     # WO-52: was "pin wanted — tell us where!", an ask inside
@@ -11204,9 +12806,18 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         img_tag = (f'<img class="photo" src="../../photos/{att(photo_file)}" '
                    f'alt="{att(_photo_alt)}" loading="lazy">')
         if credit and credit.get("source"):
+            _via = (", via Wikimedia Commons"
+                    if "commons.wikimedia.org" in credit["source"] else "")
+            # When it was taken, where the credit knows (her rides carry `taken`).
+            _tk = ""
+            if credit.get("taken"):
+                try:
+                    _tk = " · " + datetime.date.fromisoformat(credit["taken"][:10]).strftime("%-d %b %Y")
+                except ValueError:
+                    pass
             photo_note = (f'<p class="phototag">📷 <a href="{att(credit["source"])}" rel="noopener">'
                          f'{esc(credit.get("author") or "Wikimedia Commons")}</a>'
-                         f' — {esc(credit.get("license") or "")}, via Wikimedia Commons</p>')
+                         f' — {esc(credit.get("license") or "")}{_via}{_tk}</p>')
         else:
             photo_note = ""
         photo_cta = ""
@@ -11215,13 +12826,31 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         # taken nearby. The description doubles as the alt text, because what
         # the photograph shows is worth reading whether or not you can see it.
         ci = COMMONS_IMAGES[r["id"]]
-        img_tag = (f'<img class="photo" src="{att(ci["thumb"])}" '
+        # commons_pool.py fetches its matches into our own tree (`file`); the
+        # older rows still point at Commons' thumbnail.
+        _ci_src = (f'../../{ci["file"]}' if ci.get("file") and (ROOT / "assets" / ci["file"]).exists()
+                   else ci["thumb"])
+        img_tag = (f'<img class="photo" src="{att(_ci_src)}" '
                    f'alt="{att(ci.get("description") or name_text(r))}" loading="lazy">')
         photo_note = (f'<p class="phototag">📷 '
                       f'<a href="{att(ci.get("full") or "#")}" rel="noopener">'
                       f'{esc(ci.get("artist") or "Wikimedia Commons")}</a>'
                       f' — {esc(ci.get("licence") or "")}, via Wikimedia Commons'
                       f'<br><span class="photodesc">{esc(ci.get("description") or "")[:220]}</span></p>')
+        photo_cta = ""
+    elif ((r.get("attrs") or {}).get("insideOfId") or "") in PHOTO_FILES:
+        # No photograph of the shop, one of the building it stands in. The
+        # caption names the building as the subject of the picture (NaN, 2026-09-23: "point you to the contents of Central
+        # Chiang Rai, with richness added into the page").
+        _hid = r["attrs"]["insideOfId"]
+        _hnm = r["attrs"].get("insideOf") or ""
+        img_tag = (f'<img class="photo" src="../../photos/{att(PHOTO_FILES[_hid])}" '
+                   f'alt="{att(bi_text("ภาพของ " + _hnm + " ที่ร้านนี้ตั้งอยู่", _hnm + ", the building this stands in"))}" loading="lazy">')
+        _hc = PHOTO_CREDITS.get(_hid) or {}
+        photo_note = (f'<p class="phototag">📷 {bi("ภาพของ", "Photo of")} '
+                      + (f'<a href="../../{PLACE_HREF[_hid]}.html">{esc(_hnm)}</a>' if _hid in PLACE_HREF else esc(_hnm))
+                      + (f' — {esc(_hc.get("author") or "")}, {esc(_hc.get("license") or "")}' if _hc.get("author") else "")
+                      + '</p>')
         photo_cta = ""
     else:
         # No photograph. The frame goes to the map instead of to a drawing of
@@ -11236,6 +12865,22 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         img_tag = place_map(r) or (
             f'<img class="photo placeholderpic" src="../../{ph}" '
             f'alt="{att(ph_alt)}" loading="lazy">')
+        # A minisite drawing of what the place does — a loom over a weaving
+        # shop — when none of its own pictures exists (Nan, 2026-10-02: "warp
+        # and weft animation can go to 'weaving' related items that lack better
+        # photos"). The map moves down to the locator. Skipped when "What is on
+        # here" already carries the same drawing.
+        # Better still, the place itself, drawn from its own facts by the auto-doodler: its name
+        # on its sign, its street, river or village, its hours, its trade at work (Nan, 2026-10-02:
+        # "utilize the doodler to avoid filler"). Wats, historic sights and museums keep the map.
+        _thumb = place_thumb(r["id"])
+        _ps = "" if _thumb else doodles_layer.place_scene(r)
+        _pdd = "" if _thumb or _ps else doodles_layer.fit_place(r)
+        if _ps:
+            img_tag = doodles_layer.portrait(r, _ps, "../../", att, bi=bi,
+                                                tags=((globals().get("TAGS") or {}).get("by_id") or {}).get(r["id"]) or [])
+        elif _pdd and f'data-dd="{_pdd}"' not in whatson:
+            img_tag = doodles_layer.figure(_pdd, "../../", att, bi=bi) or img_tag
         # WO-52. Three captions and an ask came off here, 41,000 page-
         # instances between them:
         #
@@ -11408,18 +13053,44 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     # directory owes the reader both. Where the frame is already the map,
     # adding it twice would be comic.
     locator = "" if img_tag.startswith('<div class="placemap"') else place_map(r)
-    plan_cta = plan_toggle_btn(r, big=True) if r.get("lat") is not None else ""
+    plan_cta = (plan_toggle_btn(r, big=True) + grab_ride_btn(r)) if r.get("lat") is not None else ""
+    # Nan, 2026-10-02: the nearest toilet, by road, from every place page.
+    plan_cta += loo_road.place_line(r, bi, att, esc)
+    plan_cta += affiliate_layer.place_line(r, bi, att, esc)
     # WO-52. The order is now: what this place IS, then how to reach it, then
     # its record — and only after all of that, one link asking for more.
     # ant_panel() came out entirely: "Some details on record — help fill in
     # the rest, free" stood on 21,047 pages, above the photograph, above the
     # phone number, and said nothing about the place. photo_note and
     # photo_cta came out with it (see the photo block above).
-    body = (f"<h1>{name_bi(r)}</h1>{status_line(r)}{plan_cta}{honour_panel(r)}{facet_panel(r)}{seven_band(r)}{tag_pills(r)}"
-            f"{img_tag}{locator}{wander_html}{blurb}"
-            f"{reach_block(r)}{whatson}<dl>{''.join(rows)}</dl>"
-            f"{elsewhere_block(r)}"
-            f"{share_block(BASE + path, name_text(r), qr=True)}{ad_box(path, 2)}{related_html}"
+    # Nan, 2026-10-03 (later the same day): "Maps should be up top, contact
+    # next, then pictures, then all the other clutter." The name, then the map
+    # with its directions row, then how to reach them, then every picture the
+    # page holds; sharing and the rest follow. Where the picture frame is the
+    # map, the frame moves up with it.
+    if img_tag.startswith('<div class="placemap"'):
+        top_map, img_tag = img_tag, ""
+    else:
+        top_map = locator
+    # A minisite whose register card names this place leads the pictures, with a
+    # line down to its net (Nan, 2026-10-04, Chiang Mai Visa Desk → The Long Stay).
+    # It stands in for the ant placeholder or a drawing; a photograph stays below it.
+    _pscard = sites_layer.place_card(r["id"])
+    if _pscard:
+        _psnet = _pscard.get("net")
+        _band = sites_layer.place_band(
+            r["id"], "../../", DOCS,
+            net_href=f"#net-{_psnet}" if _psnet and _psnet in [k for k, _n in net_layer.nets_of(r["id"])] else "")
+        _photo = img_tag.startswith('<img class="photo"') and "placeholderpic" not in img_tag
+        img_tag = _band + (img_tag if _photo else "")
+    body = (f"<h1>{name_bi(r)}</h1>{status_line(r)}{best_layer.line(r, bi)}{top_map}{plan_cta}{reach_block(r)}"
+            f"{img_tag}{own_strip(r, photo_file)}{pano_layer.block(r, att, esc, bi, svg_icon)}{landmark_gallery(r)}{video_layer.block(r, att, esc, bi)}{around_pics(r)}{inat_layer.block(r, NET_HELPERS)}{waypics_layer.block(r, bi, svg_icon)}{hotel_layer.block(r, HOTEL_HELPERS)}"
+            f"{share_block(BASE + path, name_text(r), qr=True, pick=True)}"
+            f"{honour_panel(r)}{facet_panel(r)}{seven_band(r)}{tag_pills(r)}"
+            f"{landmark_history(r)}{wander_html}{blurb}"
+            f"{whatson}<dl>{''.join(rows)}</dl>"
+            f"{elsewhere_block(r)}{net_layer.block(r, NET_HELPERS)}"
+            f"{ad_box(path, 2)}{related_html}"
             f'<p class="prov">{prov_line}{fetched}{checked}</p>{contact_cta}')
     desc = place_desc(r, prov_cfg)
     robots = "index,follow" if place_has_substance(r) else "noindex,follow"
@@ -11499,6 +13170,21 @@ try:
     EVENTS_RAW = EVENTS_RAW + _mt_layer.raw_events(BUILD_DATE)
 except Exception as _mt_exc:  # the harvest must never fail on the board
     print("  fight-nights: skipped —", _mt_exc)
+# Hand-kept extras, data/curated/event_extras.json, which no harvest writes:
+# "events" lays fields (a poster, a page of its own) over a harvested row by
+# uid; "add" carries rows a source stated once and may not restate next week.
+_evx_path = ROOT / "data" / "curated" / "event_extras.json"
+try:
+    _EVX = json.loads(_evx_path.read_text()) if _evx_path.exists() else {}
+except ValueError as _evx_exc:
+    print("  event extras: skipped —", _evx_exc)
+    _EVX = {}
+_ev_uids = {e.get("uid") for e in EVENTS_RAW}
+EVENTS_RAW = EVENTS_RAW + [dict(e) for e in _EVX.get("add", [])
+                           if e.get("uid") not in _ev_uids
+                           and (e.get("end") or e.get("start") or "")[:10] >= datetime.date.today().isoformat()]
+for _e in EVENTS_RAW:
+    _e.update(_EVX.get("events", {}).get(_e.get("uid"), {}))
 EVENTS = []  # filled by build() once places are loaded; see enrich_events()
 EVENTS_GENERATED = _EV_DOC.get("generated", "")
 
@@ -11700,8 +13386,10 @@ def enrich_events(data, photos):
         # regulars have no expiry and stay. Filtering here covers the page,
         # the carousel, the place-page bands, the .ics and the JSON export
         # in one place, so none of them can disagree.
+        # An exhibition that opened last week and runs to January is still on,
+        # so a stated end day is what ends it.
         if not e.get("recurring"):
-            start_day = (e.get("start") or "")[:10]
+            start_day = (e.get("end") or e.get("start") or "")[:10]
             if start_day and start_day < BUILD_DATE:
                 dropped += 1
                 continue
@@ -11719,6 +13407,7 @@ def enrich_events(data, photos):
                 "cat": (r["cat"] or [None])[0],
                 "channels": live[:3],
                 "precision": how,
+                "address": postal_address(r),
             }
         e["richness"] = event_richness(e)
         out.append(e)
@@ -11750,6 +13439,9 @@ def event_vevent(e):
     if not dt:
         return ""
     end = _ev_dt(e.get("end")) or (dt + datetime.timedelta(hours=2))
+    if len(str(e.get("end") or "").strip()) == 10:
+        # "end": "2026-10-25" names the last day, so the run ends when that day does
+        end += datetime.timedelta(days=1)
     where = e.get("venue_name") or ""
     if e.get("place"):
         where = e["place"]["name"]
@@ -12077,8 +13769,23 @@ def event_card(e, depth=0):
     # a mounted map because this page carries dozens of slides at once and
     # dozens of live maps would be a megabyte each.
     thumb = venue_thumb(p) if p else ""
-    if p and p.get("photo"):
+    if e.get("image"):
+        img = f'<img src="{r}{e["image"]}" alt="{att(e.get("image_alt") or "")}" loading="lazy">'
+    elif p and p.get("photo"):
         img = f'<img src="{r}photos/{p["photo"]}" alt="{att(p["name"])}" loading="lazy">'
+    elif doodles_layer.still(doodles_layer.fit(e.get("title"), e.get("venue_name"))):
+        # No picture of its own: the front page's cover doodle it fits (Nan, 2026-10-02).
+        _dd = doodles_layer.fit(e.get("title"), e.get("venue_name"))
+        img = (f'<img src="{r}{doodles_layer.still(_dd)}" loading="lazy" '
+               f'alt="{att(" / ".join(doodles_layer.alt(_dd)))}"'
+               + (f' data-dd="{_dd}">' if doodles_layer.plays(_dd) else ">"))
+        if doodles_layer.plays(_dd):
+            # a minisite's drawing: its credit on the picture, and it plays in place
+            img = (f'<span style="position:relative;display:block">{img}'
+                   + doodles_layer.credit(_dd, r, bi, ' style="position:absolute;right:6px;bottom:6px;z-index:1;'
+                                          'font-size:.72rem;line-height:1.3;padding:1px 6px;border-radius:6px;'
+                                          'background:rgba(0,0,0,.6);color:#fff;text-decoration:none"')
+                   + '</span>' + doodles_layer.script(r))
     elif thumb:
         img = (f'<img src="{r}{thumb}" loading="lazy" '
                f'alt="{att(bi_text("แผนที่ย่านที่จัดงาน " + (p.get("name") or ""), "Map of the area around %s" % (p.get("name") or "the venue")))}">')
@@ -12135,7 +13842,8 @@ def event_card(e, depth=0):
            f'🗓 {bi("ใส่ปฏิทิน", "Add to calendar")}</a>') if e.get("dt") else ""
 
     wd = e.get("weekday")
-    return (f'<article class="evcard" data-recurring="{1 if e.get("recurring") else 0}" '
+    return (f'<article class="evcard" id="{_ev_anchor(e.get("title"))}" '
+            f'data-recurring="{1 if e.get("recurring") else 0}" '
             f'data-weekday="{wd if wd is not None else ""}" '
             f'data-mapped="{1 if p else 0}" data-source="{att(e.get("source", ""))}">'
             f'<div class="evpic">{img}</div>'
@@ -12149,25 +13857,176 @@ def event_card(e, depth=0):
             f'</div></article>')
 
 
-def whats_on_here(place_id, events, depth=2):
-    """The 'what's on here' band for a place page — the point of the matching."""
-    mine = [e for e in events if (e.get("place") or {}).get("id") == place_id]
-    if not mine:
+# ---- the event ledger: what was on, kept after its day -------------------
+# data/event_ledger.json (importers/event_ledger.py, run by every harvest)
+# holds each event and weekly series the harvest has seen, with the dates it
+# was listed for. Matched here by the same match_venue() the live events use,
+# so an alias added today reaches last month's evenings too. Nan, 2026-10-04:
+# "Prior events and future events should add to a place's richness and
+# placement in our internal search results."
+_EVL_PATH = ROOT / "data" / "event_ledger.json"
+try:
+    EVENT_LEDGER = json.loads(_EVL_PATH.read_text()).get("events", {}) if _EVL_PATH.exists() else {}
+except ValueError:
+    EVENT_LEDGER = {}
+PLACE_EVENTS = {}   # place id -> {"next", "past", "n", "dates", "first", "titles"}
+
+
+def place_event_history(data, events):
+    """Every place's events, coming and gone.
+
+    next   the live, matched events (enrich_events), each carrying `since`
+           and `times` when the ledger saw the same series at this place before
+    past   ledger entries at this place whose listed dates are all behind us,
+           newest first
+    n      distinct events and series, coming and gone — what search weighs
+    dates  how many dated listings that is
+    """
+    idx = _venue_index(data)
+    out = {}
+    for e in events:
+        p = e.get("place")
+        if p:
+            out.setdefault(p["id"], {"next": [], "past": []})["next"].append(e)
+    pid_of = {}
+    for key, x in EVENT_LEDGER.items():
+        vn = x.get("venue_name") or ""
+        if not vn:
+            continue
+        if vn not in pid_of:
+            r, _how = match_venue(vn, idx)
+            pid_of[vn] = r["id"] if r else None
+        pid = pid_of[vn]
+        if not pid:
+            continue
+        gone = [d for d in (x.get("dates") or []) if d < BUILD_DATE]
+        if not gone:
+            continue
+        slot = out.setdefault(pid, {"next": [], "past": []})
+        t = _ev_norm_title(x.get("title"))
+
+        def _same(e):
+            # one series under two wordings — "Chiang Mai Geeks" and "Chiang
+            # Mai Geeks meets on Tuesdays" — on the same weekday at the same place
+            u = _ev_norm_title(e.get("title"))
+            if u == t:
+                return True
+            return (bool(x.get("recurring")) and e.get("recurring")
+                    and e.get("weekday") == x.get("weekday") and min(len(u), len(t)) >= 8
+                    and (u.startswith(t) or t.startswith(u)))
+        live = [e for e in slot["next"] if _same(e)]
+        if live:
+            # the same series is still on: its history rides on the live row
+            for e in live:
+                e["since"] = min([e.get("since") or gone[0], gone[0]])
+                e["times"] = max(e.get("times") or 0, len(gone))
+            continue
+        if not x.get("recurring") and (x.get("end") or "")[:10] >= BUILD_DATE:
+            continue                          # still running; not past
+        # the same title listed on several days (a course's sessions, a talk
+        # given twice) is one line with all its dates
+        twin = next((y for y in slot["past"] if _ev_norm_title(y.get("title")) == t), None)
+        if twin:
+            twin["gone"] = sorted(set(twin["gone"]) | set(gone))
+            for f in ("url", "cost"):
+                twin[f] = twin.get(f) or x.get(f)
+            continue
+        slot["past"].append(dict(x, key=key, gone=gone))
+    for d in out.values():
+        d["past"].sort(key=lambda x: x["gone"][-1], reverse=True)
+        names = ([e.get("title") or "" for e in d["next"]] + [x.get("title") or "" for x in d["past"]])
+        _seen = set()
+        d["titles"] = [n for n in names if n and not (_ev_norm_title(n) in _seen
+                                                      or _seen.add(_ev_norm_title(n)))]
+        d["n"] = len({_ev_norm_title(n) for n in d["titles"]})
+        d["dates"] = (sum(1 + (e.get("times") or 0) for e in d["next"])
+                      + sum(len(x["gone"]) for x in d["past"]))
+        firsts = [x["gone"][0] for x in d["past"]] + [e.get("since") or (e.get("start") or "")[:10]
+                                                      for e in d["next"]]
+        d["first"] = min(f for f in firsts if f) if any(firsts) else ""
+    return out
+
+
+from html import unescape as _html_unescape  # noqa: E402
+
+
+def _ev_anchor(title):
+    """events.html#ev-<slug>: the title slugged as the front page's #ev= is."""
+    return "ev-" + (re.sub(r"[^a-z0-9]+", "-", (title or "").lower()).strip("-")[:80] or "x")
+
+
+def _day_bi(iso, year=True):
+    try:
+        d = datetime.date.fromisoformat(iso[:10])
+    except ValueError:
         return ""
-    mine.sort(key=lambda e: (not e.get("recurring"), e.get("start") or ""))
+    return bi(f"{d.day} {MONTH_TH[d.month]}" + (f" {d.year + 543}" if year else ""),
+              d.strftime("%-d %b") + (d.strftime(" %Y") if year else ""))
+
+
+def _past_when(x):
+    """'every Saturday · 3 Aug – 28 Sep 2026 · 9 dates', or the one day."""
+    g = x["gone"]
+    if x.get("recurring") and x.get("weekday") is not None:
+        span = _day_bi(g[0], year=False) + " – " + _day_bi(g[-1]) if len(g) > 1 else _day_bi(g[0])
+        return (bi(f"ทุกวัน{WEEK_TH[x['weekday']]}", f"every {WEEK_EN[x['weekday']]}")
+                + f" · {span} · " + bi(f"{len(g)} ครั้ง", f"{len(g)} dates"))
+    if len(g) > 1:
+        return _day_bi(g[0], year=False) + " – " + _day_bi(g[-1])
+    return _day_bi(g[0])
+
+
+def whats_on_here(place_id, events, depth=2):
+    """The place page's events band: what is coming, then what has been."""
+    h = PLACE_EVENTS.get(place_id)
+    if h is None:
+        # before place_event_history() has run (a test calling this directly)
+        h = {"next": [e for e in events if (e.get("place") or {}).get("id") == place_id],
+             "past": [], "n": 0, "first": ""}
+    mine = sorted(h["next"], key=lambda e: (not e.get("recurring"), e.get("start") or ""))
+    past = h["past"]
+    if not (mine or past):
+        return ""
+    r = "../" * depth
     rows = []
     for e in mine[:6]:
         cal = (f'<a class="evcal small" href="{ics_data_uri(e)}" '
                f'download="{att((e.get("title") or "event")[:40])}.ics">🗓</a>') if e.get("dt") else ""
-        rows.append(f'<li><b>{esc(e.get("title", ""))}</b><br>'
-                    f'<span class="evwhen">{event_when(e)}</span> {cal}</li>')
-    r = "../" * depth
-    caveat = bi("ข้อมูลงานจากแหล่งเปิด ตรวจสอบกับผู้จัดอีกครั้งก่อนเดินทาง",
-                "Event data from open sources — check with the organiser before you travel")
+        since = ""
+        if e.get("since"):
+            since = (f' <span class="evsince">' + bi("ลงไว้ตั้งแต่ ", "listed since ")
+                     + _day_bi(e["since"]) + "</span>")
+        rows.append(f'<li><a href="{r}events.html#{_ev_anchor(e.get("title"))}">'
+                    f'<b>{esc(e.get("title", ""))}</b></a><br>'
+                    f'<span class="evwhen">{event_when(e)}</span>{since} {cal}</li>')
+    # A venue with no picture of its own gets the cover doodle its events fit
+    # (Nan, 2026-10-02); the map keeps the photo frame.
+    _dd = "" if place_thumb(place_id) else next(
+        (k for k in (doodles_layer.fit(e.get("title"), e.get("venue_name")) for e in mine + past) if k), "")
     # WO-69: the "check with the organiser" caveat came off (Michael, 9/7).
+    coming = (f'<ul>{"".join(rows)}</ul>' if rows else
+              f'<ul><li>{bi("ตอนนี้ยังไม่มีงานที่จะมาถึง", "Nothing coming up listed right now")}</li></ul>')
+    gone = ""
+    if past:
+        prow = []
+        for x in past[:8]:
+            u = (x.get("url") or "").strip()
+            if u and verdict(u).get("status") in BROKEN:
+                u = ""
+            # feed titles can arrive entity-encoded ("&#038;"); decode before escaping
+            t = esc(_html_unescape(x.get("title") or ""))
+            t = f'<a href="{att(u)}" rel="noopener">{t}</a>' if u else t
+            prow.append(f'<li>{t}<br><span class="evwhen">{_past_when(x)}</span></li>')
+        more = (f'<p class="tinynote">' + bi(f"และอีก {len(past) - 8} งาน", f"and {len(past) - 8} more")
+                + '</p>') if len(past) > 8 else ""
+        gone = (f'<h3>{bi("งานที่ผ่านมาที่นี่", "Held here before")}</h3>'
+                f'<ul class="evpast">{"".join(prow)}</ul>{more}')
+    tally = ""
+    if h.get("n", 0) > 1 and h.get("first"):
+        tally = bi(f"งานที่ลงไว้ที่นี่ {h['n']} งาน ตั้งแต่ ", f"{h['n']} events listed here since ") + _day_bi(h["first"]) + " · "
     return (f'<div class="whatson"><h2>🎪 {bi("ที่นี่มีอะไร", "What is on here")}</h2>'
-            f'<ul>{"".join(rows)}</ul>'
-            f'<p class="tinynote"><a href="{r}events.html">{bi("ดูงานทั้งหมด", "all events")}</a></p></div>')
+            f'{doodles_layer.figure(_dd, r, att, bi=bi)}{coming}{gone}'
+            f'<p class="tinynote">{tally}<a href="{r}events.html">{bi("ดูงานทั้งหมด", "all events")}</a></p></div>')
 
 
 MONTH_TH = ["", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
@@ -12249,6 +14108,19 @@ WICHAA_LINKS = _WL.get("links", {})
 for _wl in WICHAA_LINKS.values():
     if isinstance(_wl, dict) and _wl.get("url", "").startswith("https://wichaa.pages.dev"):
         _wl["url"] = _wl["url"].replace("https://wichaa.pages.dev", "https://wichaa.net")
+
+# Venues Chiang Mai Citylife has written up. Baked by
+# importers/link_citylife.py, which matches on name AND position and holds
+# anything looser rather than sending a reader to another restaurant's page.
+# Citylife publishes no API — the index behind this is built from their own
+# public pages, once, outside the build.
+_cl_path = ROOT / "data" / "citylife_links.json"
+_CL = json.loads(_cl_path.read_text()) if _cl_path.exists() else {}
+CITYLIFE_LINKS = _CL.get("links", {})
+
+# Readings on sibling sites about THIS place, keyed by record id.
+_rl_path = ROOT / "data" / "curated" / "reading_links.json"
+READING_LINKS = (json.loads(_rl_path.read_text()) if _rl_path.exists() else {}).get("links", {})
 
 _air_path = ROOT / "data" / "air.json"
 _AIR = json.loads(_air_path.read_text()) if _air_path.exists() else {}
@@ -12341,7 +14213,7 @@ def widget_weather():
             f'<span class="wxtemp">{temp}<sup>°C</sup></span>'
             f'<span class="wxcond">{bi(th, en)}</span>'
             f'<span class="wxdays">{days}</span></div>')
-    return (
+    return shelflife.guard("weather", WEATHER_DATE, (
         f'<section class="wtile wx" id="w-weather" data-wxgen="{att(WEATHER_DATE)}">'
         f'<h3>🌤 {bi("อากาศ", "Weather")}</h3>'
         f'<div class="wxpanes">{"".join(panes)}</div>'
@@ -12351,7 +14223,7 @@ def widget_weather():
         f'<p class="wpickhead">{bi("เลือกเมืองที่อยากดู", "Choose the cities you want")}</p>'
         f'{opts}</div>'
         f'<span class="wfoot">{bi("ข้อมูล " + WEATHER_DATE, "as of " + WEATHER_DATE)} · Open-Meteo</span>'
-        f'</section>')
+        f'</section>'))
 
 
 def widget_air():
@@ -12425,7 +14297,7 @@ def widget_air():
             f'{spark}</div>')
     honest_th = "ค่าจากแบบจำลอง ไม่ใช่เครื่องวัดในซอยคุณ"
     honest_en = "a modelled figure, not a monitor in your soi"
-    return (
+    return shelflife.guard("air", AIR_DATE, (
         f'<section class="wtile air" id="w-air" data-airgen="{att(AIR_DATE)}">'
         f'<h3>🌬 {bi("ฝุ่น PM2.5", "The air")}</h3>'
         f'<div class="airpanes">{"".join(panes)}</div>'
@@ -12436,7 +14308,7 @@ def widget_air():
         f'{opts}</div>'
         f'<span class="wfoot">{bi(honest_th, honest_en)} · '
         f'{bi("ข้อมูล " + AIR_DATE, "as of " + AIR_DATE)} · Open-Meteo</span>'
-        f'</section>')
+        f'</section>'))
 
 
 def widget_lottery():
@@ -12653,7 +14525,7 @@ def widget_cinema(data):
     # md.js swaps it in whenever the reader's day is not the sheet's day, so
     # the tile names the Saturday it holds instead of calling it "today".
     cnth, cnen = _thai_date_label(SHOWTIME_DATE)
-    return (
+    return shelflife.guard("showtimes", SHOWTIME_DATE, (
         f'<section class="wtile cine" id="w-cinema" data-cndate="{att(SHOWTIME_DATE)}" '
         f'data-cnth="{att("รอบหนัง" + cnth)}" data-cnen="{att("Showtimes for " + cnen)}">'
         f'<h3>🎬 {bi("รอบหนังวันนี้", "Showtimes today")}</h3>'
@@ -12662,7 +14534,7 @@ def widget_cinema(data):
         f'<span class="wfoot">{bi("ข้อมูล " + SHOWTIME_DATE, "as of " + SHOWTIME_DATE)} · '
         f'Major Cineplex · <a href="https://www.sfcinemacity.com/" rel="noopener">SF</a> '
         f'{bi("ต้องดูที่เว็บเขาเอง", "must be checked on their own site")}</span>'
-        f'</section>')
+        f'</section>'))
 
 
 def widget_events(events):
@@ -12684,9 +14556,11 @@ def widget_events(events):
         # the pair as markup; where we only have a venue string we cap it as
         # before, because a string is all there is.
         where_html = pl.get("nameHtml") or esc(where[:34])
-        has_pic = bool(pl.get("photo"))
-        pic = (f'<img src="photos/{pl["photo"]}" alt="" loading="lazy">'
-               if has_pic else "")
+        has_pic = bool(pl.get("photo") or e.get("image"))
+        pic = (f'<img src="{e["image"]}" alt="" loading="lazy">' if e.get("image") else
+               f'<img src="photos/{pl["photo"]}" alt="" loading="lazy">' if has_pic else "")
+        if e.get("page"):
+            href = e["page"]
         slides.append(
             f'<a class="evslide{"" if has_pic else " textonly"}" href="{href}"'
             f'{" hidden" if slides else ""}>{pic}'
@@ -13143,13 +15017,13 @@ def widget_siamsi():
         + bi("วันดีอย่างนี้ ออกไปเจอของดีเจ้า — สุ่มพาไป",
              "A fine day to wander — take me somewhere")
         + '</a>'
-        f'<a class="ssdoor" data-ssdoor="กลาง" href="merit.html" hidden>🛕 '
-        + bi("ทำบุญแล้วจะโล่งเจ้า — ไหว้พระ ๙ วัด เดินครบใน 2.5 กม.",
-             "Make merit and it lifts — nine temples, one 2.5 km walk")
+        f'<a class="ssdoor" data-ssdoor="กลาง" href="wats/" hidden>🛕 '
+        + bi("ทำบุญแล้วจะโล่งเจ้า — ไหว้พระ ๙ วัด เดินครบใน 3 กม.",
+             "Make merit and it lifts — nine wats, one 3 km walk")
         + '</a>'
-        f'<a class="ssdoor" data-ssdoor="ระวัง" href="merit.html" hidden>🛕 '
+        f'<a class="ssdoor" data-ssdoor="ระวัง" href="wats/" hidden>🛕 '
         + bi("แวะวัดเติมบุญ เสริมดวงก่อนเจ้า — เส้นทางไหว้พระ ๙ วัด",
-             "Call at a temple and top up the merit first — the nine-temple round")
+             "Call at a wat and top up the merit first — the nine-wat round")
         + '</a>')
     return (
         f'<section class="wtile siamsi maha" id="w-siamsi" data-siamsi=\'{att(data)}\'>'
@@ -13238,10 +15112,10 @@ def write_sky_json():
 
 def build_widgets_page(events, data, moon_svg):
     lede_th = ("วิดเจ็ตของมดแดง — อากาศหลายเมือง เทียบเวลา ข้างขึ้นข้างแรม โรงหนัง "
-               "และงานในเมือง เลือกเมืองที่อยากดูได้เอง จำไว้ในเครื่องคุณ ไม่ต้องสมัครอะไร")
+               "และงานในเมือง เลือกเมืองที่อยากดูได้เอง จำไว้ในเบราว์เซอร์นี้")
     lede_en = ("Mot Dang's widgets — weather for the cities you pick, a time "
                "converter, tonight's moon, the cinemas, and what is on. Your "
-               "choices are remembered in this browser. No account needed.")
+               "choices are remembered in this browser.")
     note_th = ("ทุกอย่างในหน้านี้อบมาพร้อมหน้าเว็บแล้ว ไม่มีการเรียกข้อมูลจากที่อื่นตอนเปิดหน้า "
                "อากาศจึงเป็นข้อมูล ณ วันที่อบ ไม่ใช่นาทีต่อนาที")
     note_en = ("Everything here is baked into the page — nothing is fetched when you "
@@ -13369,14 +15243,24 @@ def build_events_page(events):
     ld = {"@context": "https://schema.org", "@type": "ItemList",
           "name": "Upcoming events in Chiang Mai",
           "itemListElement": []}
-    for e in events[:60]:
+    # Every event the page prints, times in Bangkok's offset (the feeds are all
+    # Asia/Bangkok), and the venue's address where the catalogue holds one —
+    # Google's Event result needs location.address.
+    for e in events:
         item = {"@type": "Event", "name": e.get("title", ""),
                 "eventStatus": "https://schema.org/EventScheduled",
                 "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"}
         if e.get("dt"):
-            item["startDate"] = e["dt"].isoformat()
+            item["startDate"] = (e["dt"].date().isoformat() if e.get("all_day")
+                                 else e["dt"].isoformat() + "+07:00")
+        end = _ev_dt(e.get("end"))
+        if end:
+            item["endDate"] = (end.date().isoformat() if e.get("all_day") or len(str(e["end"])) <= 10
+                               else end.isoformat() + "+07:00")
         p = e.get("place")
         loc = {"@type": "Place", "name": (p or {}).get("name") or e.get("venue_name") or "Chiang Mai"}
+        if p and p.get("address"):
+            loc["address"] = p["address"]
         if p and p.get("lat") is not None:
             loc["geo"] = {"@type": "GeoCoordinates", "latitude": p["lat"], "longitude": p["lng"]}
         item["location"] = loc
@@ -13435,6 +15319,11 @@ def build_events_page(events):
 
 _cfg_path = ROOT / "data" / "config.json"
 CONFIG = json.loads(_cfg_path.read_text()) if _cfg_path.exists() else {}
+# doodle pay for llms.txt, shown once data/config.json names a `doodlePayRail` (tools/doodle_score.py)
+import sys  # noqa: E402
+sys.path.insert(0, str(ROOT / "tools"))
+import doodle_score as _ds  # noqa: E402
+_dp = (_ds.PICK_PAY, _ds.PAY_MIN, _ds.PAY_MAX)
 CONTACT_EMAIL = CONFIG.get("contactEmail", "530kings@proton.me")
 
 
@@ -13451,7 +15340,10 @@ SOURCE_FILES = ["build.py", "CLAUDE.md", "README.md", "AGENTS.md",
                 "souvenir_layer.py", "medtravel_layer.py", "shrine_layer.py",
                 "tags_layer.py", "transport_layer.py", "graph_layer.py",
                 "explore_layer.py", "hotspring_layer.py", "geography_layer.py",
-                "moat_layer.py", "seven_layer.py", "hom_layer.py", "bearings_layer.py"]
+                "homebits.py", "mapart.py", "home_next.py",
+                "moat_layer.py", "seven_layer.py", "hom_layer.py", "bearings_layer.py",
+                "video_layer.py", "net_layer.py", "commons_layer.py", "fullmoon_layer.py", "sites_layer.py", "sitenet_layer.py", "pano_layer.py",
+                "pics_layer.py", "waypics_layer.py", "ahead_layer.py"]
 # Anything that is somebody's private business, a credential, or a working
 # scratch never enters the archive. Whitelisting the trees above and naming
 # these again is belt and braces: a bare "everything except" would ship
@@ -13581,7 +15473,7 @@ def channels_block(depth=0):
             + bi("ช่องทางของมดแดง", "Where Mot Dang actually is")
             + f'</span><ul>{rows}</ul>'
             f'<p class="tinynote"><b>'
-            + bi("มดแดงไม่มีเพจในที่พวกนี้", "Mot Dang has no account on")
+            + bi("มดแดงไม่มีเพจในที่พวกนี้", "Mot Dang has no account on")  # stylecheck: allow — the impersonation list, not a virtue
             + f"</b> — {nots}. "
             + bi("ถ้าเจอเพจที่อ้างว่าเป็นมดแดง นั่นไม่ใช่เรา",
                  "If you find a page claiming to be us, it is not us.")
@@ -13999,17 +15891,22 @@ def plan_demo_figure():
             f'<figcaption>{bi(cap_th, cap_en)}</figcaption></figure>')
 
 
-def plan_kind_options(data):
-    """Errand kinds the solver can search for.
+def plan_errand_pools(data):
+    """Every place an errand can be run at, by errand, inside the road map's box.
 
-    Subcategories where one exists, because "ร้านยา" is an errand and "ของใช้
-    จำเป็น" is not — you do not run out to do a category. Only kinds that
-    actually hold enough places inside the routable box to be worth choosing
-    between; offering a kind with one candidate is offering a decision that has
-    already been made.
+    Keys are a shelf ("medical") or a shelf and its child ("medical.pharmacy").
+    The child alone was the key until 2026-09-23, and seven children share a
+    key across shelves — "international" is a restaurant under food and a
+    school under schools — so one option searched both.
+
+    Rows are [province, slug, name, lat, lng], plus the brand where OSM tags
+    one — what plan.html needs to offer "a closer PTT" for a PTT stop.
+    It used to filter the whole 46.5 MB directory index in the browser, on the
+    wrong field, and never answered.
     """
     area = ROAD_GRAPH_AREA
-    counts = {}
+    pools = {}
+    alias = plan_brand_alias(data)
     for p in PROVINCES:
         for r in data.get(p["key"], []):
             if r.get("lat") is None:
@@ -14017,26 +15914,112 @@ def plan_kind_options(data):
             if area and not (area["s"] < r["lat"] < area["n"]
                              and area["w"] < r["lng"] < area["e"]):
                 continue
-            for sub in r.get("sub") or []:
-                counts[("sub", sub)] = counts.get(("sub", sub), 0) + 1
+            row = [p["key"], place_slug(r), name_th(r),
+                   round(r["lat"], 5), round(r["lng"], 5)]
+            # brandOf() in md.js reads a stop's own record the same way.
+            _b = plan_brand(r.get("attrs"), alias)
+            if _b:
+                row.append(_b)
+            subs = set(r.get("sub") or [])
             for c in r.get("cat") or []:
-                counts[("cat", c)] = counts.get(("cat", c), 0) + 1
-    opts = []
-    for cdef in (CATS[c] for c in CAT_ORDER if c in CATS):
-        for child in cdef.get("children", []):
-            n = counts.get(("sub", child["key"]), 0)
-            if n >= 4:
-                opts.append((child["key"], "%s · %s" % (child["th"], child["en"]), n))
-    seen = set(o[0] for o in opts)
+                if c not in CATS:
+                    continue
+                pools.setdefault(c, []).append(row)
+                for child in CATS[c].get("children", []):
+                    if child["key"] in subs:
+                        pools.setdefault(f"{c}.{child['key']}", []).append(row)
+    return pools
+
+
+def _brand_words(v):
+    return re.sub(r"[^0-9a-z\u0e00-\u0e7f]", "", str(v or "").lower())
+
+
+def plan_brand_alias(data):
+    """Brand words → the Wikidata id the corpus pairs them with.
+
+    OSM spells one chain several ways — "PTT", "ปตท", "บางจาก", "Bangchak" —
+    and tags the id on only some stations, so neither the words nor the id
+    alone keeps a chain together. Every spelling seen beside an id folds into
+    it. md.js gets the table as data/errands/_brands.json and reads a stop's
+    own brand through it.
+    """
+    alias = {}
+    for p in PROVINCES:
+        for r in data.get(p["key"], []):
+            a = r.get("attrs") or {}
+            q = a.get("brandWikidata")
+            if not q:
+                continue
+            for k in ("brand", "brandTh", "brandEn"):
+                w = _brand_words(a.get(k))
+                if w:
+                    alias.setdefault(w, q)
+    return alias
+
+
+def plan_brand(attrs, alias):
+    """A place's chain, as one key: its Wikidata id, else the id its brand
+    words are known by, else the words."""
+    a = attrs or {}
+    w = _brand_words(a.get("brand"))
+    return a.get("brandWikidata") or alias.get(w) or w or None
+
+
+def plan_kind_options(pools):
+    """Errand kinds the solver can search for.
+
+    Subcategories first, because "ร้านยา" is an errand and "ของใช้ จำเป็น" is
+    not — you do not run out to do a category. Only kinds holding enough places
+    inside the routable box to be worth choosing between; offering a kind with
+    one candidate is offering a decision that has already been made.
+
+    Two shelves can hold the same child: the pharmacies under essentials and
+    under medical are the same 406 shops, and were listed twice. Same set, one
+    option. Same name over different sets gets its shelf's name beside it.
+    """
+    subs, cats = [], []
     for c in CAT_ORDER:
-        if c in seen or c not in CATS:
+        if c not in CATS:
             continue
-        n = counts.get(("cat", c), 0)
+        for child in CATS[c].get("children", []):
+            k = f"{c}.{child['key']}"
+            n = len(pools.get(k, ()))
+            if n >= 4:
+                subs.append((k, child["th"], child["en"], n, c))
+        n = len(pools.get(c, ()))
         if n >= 4:
-            opts.append((c, "%s · %s" % (CATS[c]["th"], CATS[c]["en"]), n))
-    opts.sort(key=lambda o: -o[2])
+            cats.append((c, CATS[c]["th"], CATS[c]["en"], n, None))
+    # One child under two shelves by the same name is one errand: a pharmacy
+    # is a pharmacy whether it was shelved under essentials or medical. The
+    # two lists are joined into the first shelf's file.
+    joined, merged = {}, []
+    for o in subs:
+        g = (o[0].split(".", 1)[1], o[2])
+        if g in joined:
+            k0 = joined[g]
+            have = {(x[0], x[1]) for x in pools[k0]}
+            pools[k0] = pools[k0] + [x for x in pools[o[0]] if (x[0], x[1]) not in have]
+            continue
+        joined[g] = o[0]
+        merged.append(o)
+    subs = [(k, th, en, len(pools[k]), par) for k, th, en, n, par in merged]
+    subs.sort(key=lambda o: -o[3])
+    cats.sort(key=lambda o: -o[3])
+    members = {o[0]: frozenset((x[0], x[1]) for x in pools[o[0]]) for o in subs + cats}
+    en_count = {}
+    for o in subs + cats:
+        en_count[o[2]] = en_count.get(o[2], 0) + 1
+    seen, opts = [], []
+    for k, th, en, n, parent in subs + cats:
+        if any(members[k] == members[j] for j in seen):
+            continue
+        seen.append(k)
+        if parent and en_count[en] > 1:
+            th, en = f"{th} ({CATS[parent]['th']})", f"{en} ({CATS[parent]['en']})"
+        opts.append((k, "%s · %s" % (th, en), n))
     return "".join('<option value="%s">%s (%d)</option>' % (att(k), esc(lab), n)
-                   for k, lab, n in opts)
+                   for k, lab, n in opts), [o[0] for o in opts]
 
 
 def build_plan_page(data):
@@ -14068,32 +16051,46 @@ def build_plan_page(data):
                "each leg on foot or by scooter. Share the whole run as one link, or download "
                "it to keep.")
     how_th = ('กด 🧭 "เพิ่มลงแผนเดินทาง" ที่หน้าร้านหรือในรายชื่อ '
-              'แล้วกลับมาที่นี่ — เก็บได้สูงสุด 8 จุดต่อทริป')
+              'แล้วกลับมาที่นี่ — เก็บได้สูงสุด 9 จุดต่อทริป')
     how_en = ('Tap "Add to plan" on any place page or listing row, then come back here — '
-              'up to 8 stops per trip.')
+              'up to 9 stops per trip.')
     # The old wording here said the distances were straight-line. They stopped
     # being straight-line when the road graph arrived, and a caveat that
     # undersells what the page does is as wrong as one that oversells it.
     plan_dist_caveat = bi(
-        "ระยะทางคิดตามถนนจริงในเวียงเก่าและรอบ ๆ ราว ๒ กม. ช่วงจากหมุดออกมาถึงถนนคิดเป็นเส้นตรง "
-        "ใช้กะเวลาคร่าว ๆ ไม่ใช่บอกทางเลี้ยวทีละช่วงเจ้า",
-        "Distances follow the real streets inside the old city and about 2 km around it. "
-        "The short hop from a pin out to the road it stands on is measured straight, so a "
-        "place set well back reads a little short. A guide to timing, not turn-by-turn "
-        "directions.")
+        "ระยะทางคิดตามถนนจริงในเวียงเก่าและรอบ ๆ ราว ๒ กม. นอกนั้นคิดตามถนนเท่าที่มดเก็บไว้แล้ว"
+        "ในเชียงใหม่และเชียงราย ช่วงจากหมุดออกมาถึงถนนคิดเป็นเส้นตรง "
+        "ปุ่ม “นำทางสด” บอกทางเลี้ยวทีละช่วง ทั้งบนจอและเป็นเสียงเจ้า",
+        "Distances follow the streets inside the old city and about 2 km around it, and "
+        "past that the roads mapped so far across Chiang Mai and Chiang Rai. The short hop "
+        "from a pin out to the road it stands on is measured straight, so a place set well "
+        "back reads a little short. “Guide me” gives each turn on screen and out loud.")
+    # It said the only crossings were the five gates and four corners. The
+    # router has used every bridge in the road graph since the footbridges
+    # went in (the demo's own caption is about one).
     plan_moat_caveat = bi(
-        "ถ้าช่วงไหนต้องข้ามคูเมือง มดแดงจะคิดระยะอ้อมไปทางประตูหรือแจ่งที่ใกล้ที่สุดให้ "
-        "จุดข้ามที่รู้จักคือประตูทั้งห้าและแจ่งทั้งสี่ — อาจมีสะพานอื่นอีกที่ยังไม่ได้บันทึกไว้",
-        "Where a leg has to cross the moat, the distance shown is the way round by the "
-        "nearest gate or corner, not through the water. The crossings on record are the "
-        "five gates and the four แจ่ง corners — there may be other bridges we have not "
-        "catalogued yet. The moat outline is traced between the four corner pins, so it "
-        "runs a little inside the real bank in places.")
+        "ถ้าช่วงไหนต้องข้ามคูเมือง ระยะทางคิดอ้อมไปทางประตู แจ่ง หรือสะพานที่มีในแผนที่ถนน "
+        "ไม่ใช่ข้ามน้ำ เส้นคูเมืองที่ลากไว้เชื่อมหมุดแจ่งทั้งสี่ จึงอยู่ด้านในขอบจริงเล็กน้อยในบางช่วง",
+        "Where a leg has to cross the moat, the distance goes round by a gate, a corner or "
+        "a bridge on the road map, not through the water. The moat outline is traced "
+        "between the four corner pins, so it runs a little inside the real bank in places.")
+    pools = plan_errand_pools(data)
+    kind_opts, kind_keys = plan_kind_options(pools)
+    # One file per offered errand, fetched when the reader picks it.
+    _ed = DOCS / "data" / "errands"
+    _ed.mkdir(parents=True, exist_ok=True)
+    for k in kind_keys:
+        (_ed / f"{k}.json").write_text(json.dumps(pools[k], ensure_ascii=False,
+                                                   separators=(",", ":")))
+    (_ed / "_brands.json").write_text(json.dumps(plan_brand_alias(data), ensure_ascii=False,
+                                                 separators=(",", ":")))
     body = (
         f'<h1>{svg_icon("i-route", 30)} {bi("วางแผนเดินทาง", "Plan your route")}</h1>'
-        f'<p>{bi(lede_th, lede_en)}</p>'
-        f'<p class="myhint">{bi(how_th, how_en)}</p>'
-        f'{plan_demo_figure()}'
+        # What the page is for, shown while there is nothing planned. With a
+        # plan open md.js sets body.plan-has and the plan comes straight after
+        # the title — on a phone this was two screens above the reader's stops.
+        f'<div class="planintro"><p>{bi(lede_th, lede_en)}</p>'
+        f'{plan_demo_figure()}</div>'
         f'<div id="planbanner" style="display:none"></div>'
         f'<div id="planempty" class="planempty" style="display:none">'
         f'<p>🐜 {bi("ยังไม่ได้เพิ่มจุดไหนเลย", "No stops added yet")}</p>'
@@ -14102,40 +16099,13 @@ def build_plan_page(data):
         f'</div>'
         f'<div id="planhasstops" style="display:none">'
         f'<div id="plantotal" class="plantotal"></div>'
+        f'<div id="planremain" class="planremain" hidden></div>'
         f'<div class="planmodes" role="group" aria-label="{att("วิธีเดินทาง / how you travel")}">'
         f'<span class="pmlabel">{bi("ไปแบบไหน", "Travelling by")}</span>'
         f'<button type="button" class="pmbtn on" data-mode="foot" aria-pressed="true">'
         f'🚶 {bi("เดิน", "On foot")}</button>'
         f'<button type="button" class="pmbtn" data-mode="ride" aria-pressed="false">'
         f'🛵 {bi("มอเตอร์ไซค์", "Scooter")}</button>'
-        f'</div>'
-        # Errands, as kinds rather than names. Every other tool makes you pick
-        # the pharmacy first and then routes to it; this picks the pharmacy that
-        # makes the whole round shortest, which is a different and better answer
-        # whenever more than one will do.
-        f'<div class="planerr">'
-        f'<h2>🧺 {bi("ธุระที่ต้องทำ", "Errands to run")}</h2>'
-        f'<p class="tinynote">{bi("บอกว่าจะไปทำอะไร ไม่ต้องบอกว่าร้านไหน — เราเลือกร้านที่ทำให้รอบนี้สั้นที่สุด", "Say what you need, not which shop. We pick the ones that make the whole round shortest.")}</p>'
-        f'<div class="planerrrow">'
-        f'<label class="vh" for="planerrsel">{bi("ชนิดของที่จะไป", "Kind of place")}</label>'
-        f'<select id="planerrsel">{plan_kind_options(data)}</select>'
-        f'<button type="button" id="planerradd">+ {bi("เพิ่มธุระ", "Add errand")}</button>'
-        f'</div>'
-        f'<ul class="planerrlist" id="planerrlist"></ul>'
-        # Measured, not asserted — tests/test_errands.py runs the same search
-        # over the same graph and reports this. If it ever stops being true the
-        # test fails rather than the page quietly overselling itself.
-        f'<p class="tinynote">{bi("ลองจริง ๒๐ รอบ วิธีนี้สั้นกว่าการเลือกที่ใกล้ที่สุดทีละอย่าง ๑๔ รอบ ประหยัดกลาง ๆ ๕๗๗ เมตร มากสุด ๒.๙ กิโลเมตร และไม่เคยยาวกว่าเลย", "Tested over 20 rounds: choosing together beat picking the nearest of each in 14 of them — median 577 m shorter, best 2.9 km — and was never longer.")}</p>'
-        f'<button type="button" id="planerrsolve" class="pill dark" style="display:none">'
-        f'🐜 {bi("หาร้านที่ทำให้รอบนี้สั้นที่สุด", "Find the shortest whole round")}</button>'
-        f'<div id="planerrout" class="planerrout"></div>'
-        f'</div>'
-        f'<div class="plantools">'
-        f'<button type="button" id="planlocbtn">📍 {bi("ใช้ตำแหน่งของฉัน", "Use my location")}</button>'
-        f'<button type="button" id="planreorderbtn">🔀 {bi("จัดลำดับให้ใกล้สุด", "Reorder for shortest route")}</button>'
-        f'<a id="plandlbtn" class="plandl" download="motdang-plan.txt">'
-        f'⬇ {bi("ดาวน์โหลดเป็นข้อความ", "Download as text")}</a>'
-        f'<button type="button" id="planclearbtn">🗑 {bi("ล้างแผนทั้งหมด", "Clear plan")}</button>'
         f'</div>'
         # The planner's own map, on the same ground as every other map here.
         # It is drawn in the browser and redrawn on every change, so it mounts
@@ -14145,7 +16115,47 @@ def build_plan_page(data):
         f'<div class="planmapwrap">'
         f'{map_shell.mount("planmap", "", prov="cm", zoom=14)}</div>'
         f'<ul class="plansteps" id="plansteps"></ul>'
+        # The order tools. 🔀 finds the shortest order that keeps every 📌 stop
+        # where it is and every ⏰ appointment; ⇅ turns the run round; ▲▼ on a
+        # stop move it by hand. 🕒 is when the run starts, for the clock times.
+        f'<div class="plantools">'
+        f'<label class="planleave">🕒 {bi("ออกเดินทาง", "Leaving at")} '
+        f'<input type="time" id="planleave" aria-label="{att("เวลาออกเดินทาง / leaving at (empty = now)")}"></label>'
+        f'<button type="button" id="planlocbtn">📍 {bi("ใช้ตำแหน่งของฉัน", "Use my location")}</button>'
+        f'<button type="button" id="planguidebtn">{svg_icon("i-compass", 18)} {bi("นำทางสด", "Guide me")}</button>'
+        f'<a id="plannavbtn" class="plannav" target="_blank" rel="noopener" hidden>'
+        f'{svg_icon("i-map", 18)} {bi("เปิดในแอปแผนที่", "Open in Maps")} ↗</a>'
+        f'<button type="button" id="planreorderbtn">🔀 {bi("จัดลำดับให้ใกล้สุด", "Reorder for shortest route")}</button>'
+        f'<button type="button" id="planreversebtn">⇅ {bi("กลับลำดับ", "Reverse")}</button>'
+        f'<a id="plandlbtn" class="plandl" download="motdang-plan.txt">'
+        f'⬇ {bi("ดาวน์โหลดเป็นข้อความ", "Download as text")}</a>'
+        f'<button type="button" id="planclearbtn">🗑 {bi("ล้างแผนทั้งหมด", "Clear plan")}</button>'
+        f'</div>'
         f'<div id="planshare">{share_block(BASE + "plan.html", "แผนเดินทาง · มดแดง")}</div>'
+        f'</div>'
+        # Errands, as kinds rather than names. Every other tool makes you pick
+        # the pharmacy first and then routes to it; this picks the pharmacy that
+        # makes the whole round shortest, which is a different and better answer
+        # whenever more than one will do. Outside #planhasstops: it can build a
+        # plan from nothing, and inside it an empty plan could not reach it.
+        f'<div class="planerr">'
+        f'<h2>🧺 {bi("ธุระที่ต้องทำ", "Errands to run")}</h2>'
+        f'<p class="tinynote">{bi("บอกว่าจะไปทำอะไร ไม่ต้องบอกว่าร้านไหน — เราเลือกร้านที่ทำให้รอบนี้สั้นที่สุด", "Say what you need, not which shop. We pick the ones that make the whole round shortest.")}</p>'
+        f'<div class="planerrrow">'
+        f'<label class="vh" for="planerrsel">{bi("ชนิดของที่จะไป", "Kind of place")}</label>'
+        f'<select id="planerrsel">{kind_opts}</select>'
+        # Disabled until md.js has wired it: on a slow phone the section shows a
+        # second or two before the road map has loaded, and a tap then was lost.
+        f'<button type="button" id="planerradd" disabled>+ {bi("เพิ่มธุระ", "Add errand")}</button>'
+        f'</div>'
+        f'<ul class="planerrlist" id="planerrlist"></ul>'
+        # Measured, not asserted — tests/test_errands.py runs the same search
+        # over the same graph and reports this. If it ever stops being true the
+        # test fails rather than the page quietly overselling itself.
+        f'<p class="tinynote">{bi("ลองจริง ๒๐ รอบ วิธีนี้สั้นกว่าการเลือกที่ใกล้ที่สุดทีละอย่าง ๑๔ รอบ ประหยัดกลาง ๆ ๕๗๗ เมตร มากสุด ๒.๙ กิโลเมตร และไม่เคยยาวกว่าเลย", "Tested over 20 rounds: choosing together beat picking the nearest of each in 14 of them — median 577 m shorter, best 2.9 km — and was never longer.")}</p>'
+        f'<button type="button" id="planerrsolve" class="pill dark" style="display:none">'
+        f'🐜 {bi("หาร้านที่ทำให้รอบนี้สั้นที่สุด", "Find the shortest whole round")}</button>'
+        f'<div id="planerrout" class="planerrout"></div>'
         f'</div>'
         f'<p class="tinynote">{plan_dist_caveat}</p>'
         f'<p class="tinynote">{plan_moat_caveat}</p>'
@@ -14270,6 +16280,67 @@ def build_privacy_page():
          "The search box",
          "เก็บคำที่คุณพิมพ์ ผลที่ได้ และคุณกดเปิดอันไหน",
          "Records what you typed, what came back, and which result you opened."),
+        ("คุยกับมดและผลค้นหา",
+         "Ask the ants, and the search results",  # stylecheck: allow — a section name
+         "เมื่อคุณแตะผลค้นหาใน /find หรือแตะการ์ด ชื่อร้าน หรือเลขที่มาในคำตอบของมด เว็บจะนับว่าคำค้นไหน "
+         "(เก็บเป็นคำที่เรียงใหม่) แสดงลิงก์ไหน กี่ครั้ง ถูกแตะกี่ครั้งที่ลำดับไหน กลับมาเร็วแค่ไหน "
+         "ถามซ้ำด้วยคำอื่นหรือเปล่า และปุ่มชอบ-ไม่ชอบ ยอดรวมช่วยเรียงผลครั้งต่อไป "
+         "นับเฉพาะเบราว์เซอร์ที่ตัวนับอ่านว่าเป็นคน เครื่องนับแยกไว้ คำถามที่มีคนถามแล้ว เก็บคำตอบไว้ตอบคนถัดไปที่ถามแบบเดียวกัน "
+         "เมื่อเปิดมดจากหน้าเว็บ คำถามส่งไปพร้อมหน้าที่เปิดอยู่ คำค้นล่าสุดของแท็บนี้กับผลที่เปิดจากคำค้นนั้น "
+         "(อยู่ใน sessionStorage ของแท็บ สองชั่วโมง) มุมมองแผนที่ถ้าเปิดอยู่ และตำแหน่งที่คุณให้เว็บไว้แล้วในแท็บนั้น มดใช้ตอบคำถามนั้น",
+         "When you tap a result on /find, or a card, a name or a source number in an ant's answer, the site "
+         "counts which words were asked (stored folded and sorted), which links were shown, how often each was "
+         "tapped and at what rank, how soon you came back, whether you asked again in other words, and the "
+         "thumbs. The totals help order results next time. Browsers the counter reads as people are counted; "
+         "machines are counted separately. A question someone has asked before keeps its answer for the next "
+         "person who asks it the same way. When you open the ants from a page, your question travels with that "
+         "page, this tab's recent searches and the results opened from them (in the tab's sessionStorage for two "
+         "hours), the map view if a map is open, and a location you already gave the site in that tab; the "
+         "answer uses them for that question."),
+        ("แผนที่",
+         "The maps",
+         "เมื่อคุณเลื่อนแผนที่แล้วหยุด เปิดที่บนแผนที่ ปักหมุด ส่งหมุด หรือวางรหัสที่หรือพิกัด "
+         "เว็บจะเก็บว่าทำอะไร บริเวณไหน (ละเอียดราวหนึ่งกิโลเมตร) ซูมระดับไหน "
+         "หน้าของที่นั้นถ้ามี และแผนที่อยู่บนหน้าไหน คำค้นบนแผนที่ที่หาไม่เจอ เก็บคำไว้ด้วย ลิงก์กูเกิลแมปส์ที่ไม่มีพิกัด ส่งข้อความที่อยู่ในลิงก์ไปให้ระบบค้นที่อยู่ของ OpenStreetMap (Nominatim) เพื่อหาจุด",
+         "When you move a map and stop, open a place on it, drop a pin, send pins, or paste "
+         "a place ID or coordinates, the site records which of those it was, the area to "
+         "about a kilometre, the zoom, the place's page if there was one, and the page the "
+         "map was on. A map search that found nothing keeps its words. A Google Maps link with no "
+         "coordinates in it sends its address text to OpenStreetMap's address search (Nominatim) to find the point."),
+        ("ส่งตำแหน่ง",
+         "Sending your location",
+         "ปุ่ม ตำแหน่ง บนหัวทุกหน้า แบบ ตอนนี้ ใส่ตำแหน่งไว้ในลิงก์เอง "
+         "แบบ สด 1 ชั่วโมง มือถือส่งตำแหน่งล่าสุดมาที่เว็บระหว่างที่แชร์ เก็บไว้แค่จุดล่าสุดจุดเดียว "
+         "ใครมีลิงก์ก็เห็น พอครบชั่วโมงหรือกดหยุด แถวนั้นถูกลบ",
+         "The Location button at the top of each page. Now puts the position in the link itself. "
+         "Live, 1 hour: while it runs your phone sends its latest position "
+         "to the site, which holds that one point for anyone with the link. When the hour ends or "
+         "you stop, the row is deleted."),
+        ("ส่งต่อ",
+         "Sharing",
+         "เมื่อคุณเปิดแผ่น ส่ง เลือกส่งแบบไหน ส่งทางไหน ทำภาพ เก็บภาพ ลงปฏิทิน หรือแตะข้อความชวนส่ง "
+         "เว็บจะเก็บว่าทำอะไร หน้าไหน ที่หรืองานไหน และรหัสส่งต่อแปดตัวอักษรที่สุ่มขึ้นตอนส่ง "
+         "ลิงก์ที่ส่งออกไปมีรหัสนั้นติดไปด้วย (?s=) พอมีคนเปิดลิงก์ เว็บเก็บรหัส ช่องทาง และหน้าที่เปิด "
+         "ถ้าคนที่เปิดส่งต่ออีก รหัสที่เขาเปิดเข้ามาจะติดไปกับการส่งครั้งใหม่ ภาพที่ทำวาดในเบราว์เซอร์ของคุณ",
+         "When you open the Send sheet, pick what to send, pick how it goes, make or save a picture, add an "
+         "event to a calendar, or tap a prompt to send, the site records which of those it was, the page, the "
+         "place or event, and an eight-letter share code drawn at random when you send. Links you send carry "
+         "that code (?s=). When someone opens one, the site records the code, the channel and the page opened; "
+         "if they send it on, the code they arrived with goes with the new share. Pictures are drawn in your browser."),
+        ("ปฏิทินหน้าแรก",
+         "The front page calendar",
+         "เมื่อคุณเปิดดูงานในปฏิทินหน้าแรก เว็บจะเก็บชื่องานนั้นหนึ่งบรรทัด ยอดรวม 30 วันใช้เรียงงาน "
+         "สิ่งที่คุณเปิด จำไว้ หรือซ่อน อยู่ในเบราว์เซอร์ของคุณเอง ไม่ได้ส่งมาที่เว็บ",
+         "When you open an event in the front page calendar, the site records that event's name as one "
+         "line; the 30-day totals help order the calendar. What you open, keep or hide is stored in your "
+         "own browser and is not sent to the site."),
+        ("หน้าแรกสองแบบ",
+         "The front page, two ways",
+         "หน้าแรกตอนนี้มีสองแบบ: ปฏิทิน 14 วันขึ้นก่อน หรือแผนที่ขึ้นก่อน เบราว์เซอร์ของคุณสุ่มได้แบบหนึ่งและจำไว้ในเบราว์เซอร์เอง "
+         "เมื่อคุณแตะปฏิทิน แผนที่ หรือลิงก์บนหน้าแรก เว็บจะเก็บหนึ่งบรรทัด: แบบไหน และแตะอะไร ยอดรวมใช้เทียบสองแบบ",
+         "The front page has two versions right now: the 14-day calendar first, or the map first. Your browser "
+         "draws one at random and keeps it in its own storage. When you tap the calendar, the map or a link on "
+         "the front page, the site records one line: which version, and what was tapped. The totals compare the two."),
         ("นับคนเข้า",
          "The arrival count",
          "ทุกครั้งที่มีการเรียกหน้าเว็บ จะเก็บหนึ่งบรรทัด: หน้าไหน มาจากเว็บไหน "
@@ -14284,10 +16355,11 @@ def build_privacy_page():
         ("เครื่องของคุณ",
          "Your own device",
          "ชั้นที่ปักหมุด วิดเจ็ต เมืองที่ดูอากาศ และแผนเดินทาง อยู่ใน localStorage "
-         "ของเบราว์เซอร์คุณ ล้างข้อมูลเบราว์เซอร์แล้วหาย หน้าดวงจีนก็คิดในเครื่องคุณ",
+         "ของเบราว์เซอร์คุณ ล้างข้อมูลเบราว์เซอร์แล้วหาย หน้าดวงจีนก็คิดในเครื่องคุณ ตำแหน่งที่คุณให้เว็บ อยู่ใน sessionStorage ของแท็บนั้น 20 นาที ให้แผนที่ทุกอันในหน้าแสดงจุดของคุณ ปิดแท็บแล้วหาย",
          "Pinned shelves, widgets, weather cities and your route basket stay in your "
          "browser's localStorage; clearing browser data erases them. The birth chart is "
-         "computed on your device too."),
+         "computed on your device too. A location you give the site stays in that tab's "
+         "sessionStorage for 20 minutes, so every map on the page can show you; closing the tab erases it."),
         ("สิ่งที่คุณส่งมาเอง",
          "What you send us",
          "ไลน์ อีเมล ฟอร์มยืนยันร้าน ฟอร์มรับได้เฉพาะช่องทางติดต่อกับเวลาเปิด "
@@ -14465,11 +16537,9 @@ def build_chart_page():
     HTML entirely, the same way the LINE blocks stay hidden while
     `lineOaId` is empty.
     """
-    lede_th = ("ดวงจีนสี่เสา (八字) จากวันเกิดของคุณ คิดในเครื่องคุณเอง "
-               "ไม่มีการส่งวันเกิดไปที่ไหนทั้งสิ้น ไม่ต้องกรอกชื่อ ไม่ต้องสมัคร")
+    lede_th = ("ดวงจีนสี่เสา (八字) จากวันเกิดของคุณ คิดในหน้านี้เอง")
     lede_en = ("Your Four Pillars (八字), worked out from your birth date. The arithmetic "
-               "runs on your own device — the date is not sent anywhere, and there is no "
-               "name to give and nothing to join.")
+               "runs in this page.")
     how_th = ("ปีจีนเปลี่ยนที่ลี่ชุน (立春) ราวต้นเดือนกุมภาพันธ์ ไม่ใช่วันที่ 1 มกราคม "
               "และไม่ใช่วันตรุษจีนด้วย คนเกิดปลายมกราคมจึงมักได้นักษัตรของปีก่อนหน้า "
               "ถ้าไม่ทราบเวลาเกิด เสาเวลาจะเว้นไว้ ไม่เดาให้ — อีกสามเสายังใช้ได้ตามปกติ "
@@ -14808,7 +16878,9 @@ def build_horoscope_page():
     # footpath in Hang Dong with a shopkeeper waiting, not on this site. Two of
     # the words on it (พะยูง, พระพุทธรูป) change what may lawfully leave the
     # country, which is not a thing to be recalled from memory at the till.
-    for _name in ("hair-words.pdf", "care-words.pdf", "carve-words.pdf"):
+    # adhd-words.pdf on the same argument: /adhd.html links it, and until
+    # 2026-10-03 that link was a 404.
+    for _name in ("hair-words.pdf", "care-words.pdf", "carve-words.pdf", "adhd-words.pdf"):
         _sheet = ROOT / "assets" / "reader" / _name
         if _sheet.exists():
             (DOCS / "reader").mkdir(exist_ok=True)
@@ -14817,10 +16889,8 @@ def build_horoscope_page():
 
 
 def build_add_page():
-    lede_th = ("อยากเพิ่มหรือแก้ข้อมูลในมดแดง เลือกทางไหนก็ได้ที่สะดวก "
-               "ไม่ต้องสมัครสมาชิก")
-    lede_en = ("Adding or fixing something on Mot Dang. Pick whichever is easiest — "
-               "no account.")
+    lede_th = ("อยากเพิ่มหรือแก้ข้อมูลในมดแดง เลือกทางไหนก็ได้ที่สะดวก")
+    lede_en = ("Adding or fixing something on Mot Dang. Pick whichever is easiest.")
     who_th = ("ใครช่วยได้บ้าง: เจ้าของร้าน (คุณรู้เบอร์ตัวเองดีที่สุด) · คนแถวนั้น "
               "(เดินผ่านทุกวัน รู้ว่าปิดวันไหน) · คนชอบถ่ายรูป (รูปวัด รูปตลาด รูปร้าน) · "
               "นักท่องเที่ยวที่เพิ่งไปมา (เปิดจริงไหม ราคาเท่าไหร่) · พระและคนวัด "
@@ -15563,6 +17633,40 @@ def clear_docs():
 
 _FINAL_DOCS = None
 
+# What a build has to leave free for the rest of the machine once it is done.
+ROOM_SPARE = 5 * 1024 ** 3
+
+
+def check_room():
+    """Refuse before writing when the new tree will not fit.
+
+    2026-10-05: the walk's build died at 16:53 with Errno 28 part-way through
+    docs.next/, after the disk had already reached 213 MB free and taken the
+    other sessions on the machine down with it. docs/ was 10.4 GB in 271,090
+    files that day, and the build holds a second copy of it beside the first
+    until the swap. The size of the last docs/ is the estimate, measured with
+    du because it is the only figure that counts the blocks.
+    """
+    import shutil
+    import subprocess
+    last = ROOT / "docs"
+    try:
+        out = subprocess.run(["du", "-sk", str(last)], capture_output=True,
+                             text=True, timeout=120).stdout
+        need = int(out.split()[0]) * 1024
+    except (OSError, ValueError, IndexError, subprocess.TimeoutExpired):
+        need = 12 * 1024 ** 3
+    free = shutil.disk_usage(DOCS.parent).free
+    if free < need + ROOM_SPARE:
+        gb = 1024 ** 3
+        release_build_lock()
+        raise SystemExit(
+            f"\n  REFUSING TO BUILD: {free / gb:.1f} GB free; the new tree "
+            f"needs about {need / gb:.1f} GB\n  and {ROOM_SPARE / gb:.0f} GB "
+            f"should stay free after it. docs/ is untouched.\n\n"
+            f"  python3 ~/.claude/bin/diskkeeper.py sweep   clears the caches "
+            f"that rebuild themselves.\n")
+
 
 def _swap_into_place():
     """docs.next/ → docs/, the old tree out of the way first and deleted last.
@@ -15671,6 +17775,7 @@ def toys_html():
         ("plan.html", "🛵", "วางแผนเดินทาง", "plan a route", "เดินกับขี่ ต่างกัน", "walking and riding answer differently"),
         ("doi.html", "⛰", "ดอย", "the doi", "แผ่นดินใต้เมือง สามมิติ", "the land under the city, in three dimensions"),
         ("nam.html", "🌊", "น้ำ", "the river", "ระดับน้ำปิงเทียบเกณฑ์สถานี", "the Ping against each station's own limit"),
+        ("traffic.html", "🛣", "รถติด", "traffic", "ชั่วโมงไหน ถนนเส้นไหน", "which hour, which road"),
         ("foon.html", "🌬", "ฝุ่น", "the dust", "ห้องปลอดฝุ่นใกล้ฉัน", "clean-air rooms near you"),
         ("nitnoy.html", "🏮", "นิดหน่อย", "nitnoy", "ตะเกียงร้านเปิด-ปิด ทั้งเมือง", "every shop's lamp, opening and closing"),
         ("chuai.html", "🆘", "ช่วย", "chuai", "หน้าที่ตอบได้แม้ไม่มีเน็ต", "the page that answers with no signal"),
@@ -15992,7 +18097,7 @@ def boards_html(data):
     fights = _reg_n("data/curated/fight_nights.json", "venues")
     cook = _reg_n("data/curated/cooking_classes.json", "schools")
     san = _reg_n("data/shrines.json", "shrines")
-    rounds = _reg_n("data/merit.json", "routes")
+    rounds = _reg_n("data/wats.json", "rounds")
     sois = len(STREETS) or None
     doors = [
         ("⛰", "ดอย-แผ่นดิน", "The doi", "doi.html", None, "", "",
@@ -16021,10 +18126,11 @@ def boards_html(data):
          san, "ศาล", "shrines",
          "ศาลเจ้าจีน หลักเมือง และเจ้าที่ ทีละหลัง",
          "Chinese shrines, city pillars, spirits of the place"),
-        ("☸️", "ไหว้พระ ๙ วัด", "Nine temples", "merit.html",
-         rounds, "สาย", "rounds",
-         "เส้นบุญ ๙ วัด พร้อมพระประจำวันเกิด",
-         "nine-wat merit rounds, with the birthday Buddhas"),
+        ("☸️", "ไหว้พระ ๙ วัด", "Nine wats", "wats/",
+         rounds, "รอบ", "rounds",
+         "รอบ ๙ วัด เรียงตามถนนจริง พร้อมรูปและประวัติแต่ละวัด",
+         "rounds of nine, ordered along the real streets, each wat with its "
+         "picture and what is recorded about it"),
         ("🛵", "ถนนและซอย", "Roads & sois", "soi.html",
          sois, "สาย", "streets",
          "ร้านเรียงตามถนนจริง ไม่ใช่ตามตัวอักษร",
@@ -16267,9 +18373,12 @@ def pictures_page():
         slug = p["slug"]
         where = ", ".join(p.get("topic", [])) or "—"
         rows.append(
-            f'<tr><td><img src="site/{slug}.jpg" alt="" loading="lazy" '
+            f'<tr><td><img src="{band_pic_file(p)}" alt="" loading="lazy" '
             f'width="120" height="80" class="credshot"></td>'
-            f'<td><a href="{esc(p["page"])}">{esc(p["title"][5:])}</a><br>'
+            # A photograph of a place links to that place's own page, read off
+            # PLACE_HREF so it is the filename the page was actually written to.
+            f'<td><a href="{esc(PLACE_HREF[p["placeId"]] + ".html" if p.get("placeId") in PLACE_HREF else (p.get("page") or "#" + slug))}">'
+            f'{esc(p["title"].removeprefix("File:"))}</a><br>'
             f'<span class="credmeta">{esc(where)}</span></td>'
             # Some Artist fields are a paragraph of the photographer's own
             # reuse terms. The name is what attribution needs and the file page
@@ -16294,88 +18403,6 @@ def pictures_page():
                        + bi("ภาพประกอบ", "Pictures"),
                 desc=f"ภาพประกอบ {len(SITE_ART):,} ภาพ ช่างภาพและสัญญาอนุญาต · "
                      f"{len(SITE_ART):,} pictures, photographer and licence")
-
-
-# ------------------------------------------------------- ไหว้พระ ๙ วัด
-# Nine temples in one round is a practice people here already keep, most at
-# ปีใหม่ and สงกรานต์. What nobody had was a walkable order for the nine nearest
-# them, which is a thing the road graph can simply work out.
-#
-# The numbers are stops in walking order.
-_merit_path = ROOT / "data" / "merit.json"
-MERIT = json.loads(_merit_path.read_text()) if _merit_path.exists() else {}
-MERIT_ROUTES = MERIT.get("routes", [])
-
-
-def merit_map_svg(route, by_id):
-    """The round as a closed loop, stops numbered in walking order.
-
-    Same equirectangular projection as the soi and event maps, drawn in Python
-    with no library. The line between stops is drawn
-    straight on purpose: the real route follows the road graph, and pretending
-    this sketch is that route would overstate it. The caption says so.
-    """
-    stops = route.get("stops") or []
-    if not stops:
-        return ""
-    lats = [s["lat"] for s in stops]
-    lngs = [s["lng"] for s in stops]
-    span = max(max(lats) - min(lats),
-               (max(lngs) - min(lngs)) * math.cos(math.radians(sum(lats) / len(lats))), 1e-4)
-    pad = span * 0.18
-    n, s_, w, e = max(lats) + pad, min(lats) - pad, min(lngs) - pad, max(lngs) + pad
-    kx = math.cos(math.radians((n + s_) / 2))
-    W = 720.0
-    H = max(240.0, min(560.0, W * ((n - s_) / ((e - w) * kx or 1e-9))))
-
-    def X(lng):
-        return (lng - w) / (e - w) * W
-
-    def Y(lat):
-        return (n - lat) / (n - s_) * H
-
-    walk = route.get("foot_m")
-    label = bi_text(
-        "แผนที่เส้นทางไหว้พระ ๙ วัด %s ระยะเดินราว %s กิโลเมตร จุดที่ ๑ ถึง ๙ "
-        "ลำดับที่เดิน"
-        % (route.get("area_th", ""), ("%.1f" % (walk / 1000.0)) if walk else "—"),
-        "Map of a nine-temple round %s, about %s km on foot. Points 1 to 9 are "
-        "the walking order."
-        % (route.get("area_en", ""), ("%.1f" % (walk / 1000.0)) if walk else "—"))
-    out = ['<svg viewBox="0 0 %.0f %.0f" width="100%%" class="meritmap" role="img" '
-           'aria-label="%s">' % (W, H, att(label)),
-           '<rect class="mdmap-bg" width="%.0f" height="%.0f" fill="#FBF6EE"/>' % (W, H)]
-    if MOAT_POLY:
-        mlat = [p[0] for p in MOAT_POLY]
-        mlng = [p[1] for p in MOAT_POLY]
-        if min(mlat) < n and max(mlat) > s_ and min(mlng) < e and max(mlng) > w:
-            ring = " ".join("%.1f,%.1f" % (X(p[1]), Y(p[0])) for p in MOAT_POLY)
-            out.append('<polygon points="%s" fill="none" stroke="#2a78d6" '
-                       'stroke-width="2" stroke-dasharray="5 4" opacity=".55">'
-                       '<title>คูเมืองเชียงใหม่ · the old city moat</title></polygon>' % ring)
-    ring = " ".join("%.1f,%.1f" % (X(s["lng"]), Y(s["lat"])) for s in stops)
-    out.append('<polygon points="%s" fill="none" stroke="#C9A227" stroke-width="2.5" '
-               'stroke-linejoin="round" opacity=".8"/>' % ring)
-    for i, st in enumerate(stops, 1):
-        cx, cy = X(st["lng"]), Y(st["lat"])
-        # The route between the stops is a walk in metres and grows with the
-        # ground. The stop is a numbered temple and stays a numbered temple.
-        out.append('<g data-mdpin="%.1f,%.1f">' % (cx, cy))
-        out.append('<circle cx="%.1f" cy="%.1f" r="12" fill="#C9A227" stroke="#7A5C00" '
-                   'stroke-width="1.5"><title>%s</title></circle>'
-                   % (cx, cy, att("%d. %s" % (i, st.get("name") or ""))))
-        out.append('<text x="%.1f" y="%.1f" text-anchor="middle" font-size="12" '
-                   'font-weight="700" fill="#fff">%d</text>' % (cx, cy + 4, i))
-        out.append('</g>')
-    out.append("</svg>")
-    # The round drawn over the streets it is actually walked on. The id
-    # carries the route's slug because merit.html renders every round on one
-    # page — a shared id would be ten elements answering to one name, which
-    # is invalid markup and would hand getElementById the wrong map.
-    return map_shell.mount(
-        "meritmap-" + str(route.get("slug") or len(out)), "".join(out),
-        lat=(n + s_) / 2, lng=(w + e) / 2,
-        mpu=(e - w) * 111320.0 * kx / W)
 
 
 def shelf_map(records, cat_key, prov_cfg, depth=2, label_th=None, label_en=None,
@@ -16616,133 +18643,15 @@ def shelf_map(records, cat_key, prov_cfg, depth=2, label_th=None, label_en=None,
     if pack:
         out.append('<script type="application/json" class="sm-pts">%s</script>'
                    % json.dumps(pack, ensure_ascii=False, separators=(",", ":")))
+    # Michael, 2026-09-28: "I like to see where everything is." The shelf
+    # opens on the big map with itself lit, where the others can join it.
+    big = (f'<p class="prov"><a href="{"../" * depth}map.html#12.4/'
+           f'{(n + s_) / 2:.5f}/{(w + e) / 2:.5f}/{prov_cfg["key"]}-{cat_key}">'
+           f'{bi("ดูบนแผนที่ใหญ่", "See it on the big map")} →</a></p>')
     return map_shell.mount(
         "shelfmap-%s-%s" % (prov_cfg["key"], cat_key), "".join(out),
         lat=(n + s_) / 2, lng=(w + e) / 2,
-        mpu=(e - w) * 111320.0 * kx / W) + "".join(legend)
-
-
-def merit_card(route, by_id, depth=0):
-    r_ = "../" * depth
-    stops = route.get("stops") or []
-    rows, plan_keys = [], []
-    for i, st in enumerate(stops, 1):
-        rec = by_id.get(st["id"])
-        if rec:
-            href = "%s%s/p/%s.html" % (r_, rec["province"], place_slug(rec))
-            plan_keys.append("%s:%s" % (rec["province"], place_slug(rec)))
-            hon = honour_badges(rec)
-            name = name_bi(rec)
-        else:
-            href, hon, name = None, "", esc(st.get("name") or "")
-        inner = ('<a href="%s">%s</a>%s' % (att(href), name, hon)) if href else name
-        rows.append("<li>%s</li>" % inner)
-    walk = route.get("foot_m")
-    ride = route.get("ride_m")
-
-    def km(m):
-        return "—" if not m else ("%.1f" % (m / 1000.0))
-
-    # Walking is usually SHORTER than riding here, because the one-way ring
-    # binds a scooter and not a person. Worth stating on a page about a round
-    # most people would assume is quicker on a bike.
-    hint = ""
-    if walk and ride and ride > walk * 1.05:
-        hint = ('<p class="merithint">%s</p>'
-                % bi("เดินใกล้กว่าขี่รถ เพราะถนนเดินรถทางเดียวบังคับรถ ไม่บังคับคนเดิน",
-                     "The walk is shorter than the ride — one-way streets bind a "
-                     "scooter and not a person on foot."))
-    plan = ""
-    if plan_keys:
-        plan = ('<p class="meritplan"><a class="pill dark" href="%splan.html?stops=%s">%s</a></p>'
-                % (r_, att(",".join(plan_keys)),
-                   bi("เปิดในตัววางแผน เดินทีละช่วง", "Open in the planner, leg by leg")))
-    return (
-        '<div class="meritcard" id="%s">'
-        '<h2>%s</h2>'
-        '<p class="meritdist">%s</p>'
-        '%s%s'
-        '<ol class="meritstops">%s</ol>%s'
-        '</div>'
-        % (att(route.get("slug", "")),
-           bi(route.get("th", ""), route.get("en", "")),
-           bi("เดิน %s กม. · ขี่รถ %s กม." % (km(walk), km(ride)),
-              "%s km on foot · %s km riding" % (km(walk), km(ride))),
-           merit_map_svg(route, by_id), hint,
-           "".join(rows), plan))
-
-
-def build_merit_page(data):
-    if not MERIT_ROUTES:
-        return 0
-    by_id = {r["id"]: r for p in PROVINCES for r in data[p["key"]]}
-    c = MERIT.get("counts", {})
-
-    # The eight พระประจำวันเกิด, as a reference — what to look for, at any
-    # temple. Deliberately NOT paired with routes or temples: the weekday image
-    # is a real tradition, "these nine temples are for people born on a Tuesday"
-    # is not, and inventing it here would be the same error as inventing a
-    # เซียมซี verse.
-    days = "".join(
-        '<li><span class="daydot" style="background:%s"></span>%s<br>'
-        '<span class="tinynote">%s</span></li>'
-        % (att(d.get("hex", "#ccc")), bi(d.get("th", ""), d.get("en", "")),
-           esc(d.get("buddha_th", "")) + " · " + esc(d.get("buddha_en", "")))
-        for d in MERIT.get("birthday_buddhas", []))
-    daystrip = ""
-    if days:
-        daystrip = (
-            '<div class="meritdays"><h2>%s</h2><p>%s</p><ul>%s</ul></div>'
-            % (bi("พระประจำวันเกิด — ไว้มองหาเวลาไปถึง",
-                  "The Buddha of your birth weekday — what to look for"),
-               bi("ที่วัดไหนก็มองหาได้ ไม่ได้ผูกกับวัดใดวัดหนึ่งหรือเส้นทางใด",
-                  "Look for it at any temple. It is not tied to a particular "
-                  "temple or to any of the rounds below."),
-               days))
-
-    intro = (
-        '<p>%s</p><p class="meritrule">%s</p>'
-        % (bi(MERIT.get("practice_th", ""), MERIT.get("practice_en", "")),
-           bi(MERIT.get("not_a_ranking_th", ""), MERIT.get("not_a_ranking_en", ""))))
-
-    how = (
-        '<div class="soiabout"><h2>%s</h2><p>%s</p><p class="tinynote">%s</p></div>'
-        % (bi("เส้นทางนี้มาจากไหน", "Where these rounds come from"),
-           bi("มดจับวัด %d แห่งที่อยู่ในเขตที่มีข้อมูลถนน มารวมเป็นรอบละ ๙ วัด "
-              "แล้วเรียงลำดับด้วยระยะทางจริงบนถนน ทั้งแบบเดินและแบบขี่รถ "
-              "วัดหนึ่งอยู่ได้รอบเดียว รอบที่เดินใกล้ที่สุดอยู่บนสุด"
-              % c.get("temples_in_box", 0),
-              "We took the %d temples inside the area we hold road data for, "
-              "grouped them into rounds of nine, and ordered each round by real "
-              "distance along the streets — separately for walking and riding. "
-              "No temple appears on two rounds. The shortest walk leads."
-              % c.get("temples_in_box", 0)),
-           bi("ตั้งวัดไว้ %d แห่งที่ถนนยังเดินไปไม่ถึงจริง และรวมชื่อซ้ำ %d ชื่อ "
-              "เพราะวัดเดียวไม่ควรโผล่สองครั้งในรอบเดียว"
-              % (c.get("set_aside", 0), c.get("duplicates_folded", 0)),
-              "%d temples were set aside because the road network cannot "
-              "actually reach them, and %d duplicate names were folded — one "
-              "temple should not appear twice in the same round."
-              % (c.get("set_aside", 0), c.get("duplicates_folded", 0)))))
-
-    cards = "".join(merit_card(r, by_id, depth=0) for r in MERIT_ROUTES)
-    body = (
-        '<h1>%s <span class="count">(%d)</span></h1>%s%s%s%s%s%s'
-        % (bi("ไหว้พระ ๙ วัด", "Nine-temple rounds"), len(MERIT_ROUTES),
-           intro, ad_box("merit.html", 0), daystrip, cards, how,
-           share_block(BASE + "merit.html", "ไหว้พระ ๙ วัด มดแดง")))
-    (DOCS / "merit.html").write_text(page(
-        "ไหว้พระ ๙ วัด", body, 0,
-        crumbs='<a href="index.html">%s</a> › %s' % (bi("หน้าแรก", "Home"),
-                                                     bi("ไหว้พระ ๙ วัด", "Nine-temple rounds")),
-        path="merit.html",
-        desc="ไหว้พระ ๙ วัด เชียงใหม่ — %d เส้นทาง เรียงตามระยะทางเดินจริง · มดแดง"
-             % len(MERIT_ROUTES),
-        extra_head=breadcrumb_ld([("หน้าแรก", BASE),
-                                  ("ไหว้พระ ๙ วัด", BASE + "merit.html")])))
-    if _merit_path.exists():
-        shutil.copyfile(_merit_path, DOCS / "data" / "merit.json")
-    return 1
+        mpu=(e - w) * 111320.0 * kx / W) + "".join(legend) + big
 
 
 def search_tables(data, T):
@@ -16929,6 +18838,9 @@ def search_start_html(pdoc):
 # so copying) the parent's heap in every child. MD_JOBS=1 is the old serial
 # loop, same function, same output.
 _PP = {}
+# placecode.py: {record id: short code}, filled in the parent before the fork.
+PLACE_CODES = {}
+_CODE_PATHS = {}
 
 
 def _jobs():
@@ -16938,6 +18850,9 @@ def _jobs():
     if not hasattr(os, "fork"):
         return 1
     return min(8, os.cpu_count() or 1)
+
+
+import anthill_layer  # noqa: E402  (the place pages' link to the bots' forum)
 
 
 def _place_chunk(idx):
@@ -16953,9 +18868,10 @@ def _place_chunk(idx):
         slug = place_slug(r)
         photo_file = photos.get(r["id"])
         # WO-71: nothing renders `related` any more (see detail_page).
-        (pdir / "p" / f"{slug}.html").write_text(
+        # 🐜 each place page links its thread on รังมด · The Anthill
+        (pdir / "p" / f"{slug}.html").write_text(anthill_layer.into_place(
             detail_page(r, p, photo_file,
-                        whats_on_here(r["id"], EVENTS, depth=2), related=None))
+                        whats_on_here(r["id"], EVENTS, depth=2), related=None), key, slug))
         if photo_file:
             images[f"{key}/p/{slug}.html"] = (BASE + f"photos/{photo_file}", name_text(r))
         # A predictable .json beside every .html. A reader that guesses the
@@ -16967,6 +18883,10 @@ def _place_chunk(idx):
 
 def write_place_pages(records, pdir, key, p, photos, sitemap_images):
     prior = {k: list(v) for k, v in _UNKNOWN_CATS.items()}
+    import placecode
+    PLACE_CODES.update(placecode.assign([r["id"] for r in records]))
+    for r in records:
+        _CODE_PATHS[r["id"]] = f"{key}/{place_slug(r)}"
     _PP.update(records=records, pdir=pdir, key=key, p=p, photos=photos,
                parent=os.getpid())
     chunks = [list(range(i, min(i + 200, len(records))))
@@ -16999,6 +18919,21 @@ def write_place_pages(records, pdir, key, p, photos, sitemap_images):
         _PP.clear()
 
 
+def home_next_page():
+    """The front page. Nan, 2026-09-30: "Replace current homepage with this new
+    design version + calendar enrichment" — front_layer.py. The page it replaced
+    (Nan, 2026-09-21: "graft the geofence onto it and swap the front page")
+    keeps rendering, to /home-classic.html; the switch back is returning
+    home_next.render() here. home_layer's scenes page stays at /home-scenes.html."""
+    import home_next
+    import homebits
+    import front_layer
+    (DOCS / "home-classic.html").write_text(home_next.render())
+    return front_layer.render(home_ld=home_next.HOME_LD, lang_head=homebits.LANG_HEAD, lang_css=homebits.LANG_CSS,
+                              lang_switch=homebits.LANG_SWITCH, lang_js=homebits.LANG_JS,
+                              built="Rebuilt %s · พ.ศ. %d" % (home_next.TODAY.isoformat(), home_next.TODAY.year + 543))
+
+
 def build():
     global DOCS, _FINAL_DOCS
     if DOCS == ROOT / "docs":
@@ -17014,6 +18949,7 @@ def build():
         take_build_lock()
         _FINAL_DOCS, DOCS = DOCS, ROOT / "docs.next"
     clear_docs()
+    check_room()
     DOCS.mkdir(exist_ok=True)
     (DOCS / ".nojekyll").write_text("")
     # NO docs/CNAME. It was emitted here for GitHub Pages, which has not served
@@ -17035,11 +18971,44 @@ def build():
     # and a second request for four kilobytes is a request for nothing.
     (DOCS / "refine.js").write_text(refine_layer.JS + "\n" + daily_layer.JS)
     (DOCS / "icons.svg").write_text(ICONS_SVG)
-    (DOCS / "md.js").write_text(JS + "\n" + rowline_layer.JS + "\n" + indexsplit_layer.js())
+    import eggs_layer  # hidden things, Nan 2026-09-28
+    import obs_layer  # rain + flood from readers, Nan 2026-09-28
+    import mine_layer  # saved places on every map, Michael 2026-09-29
+    import share_layer  # send my location, pick what to send, row share — Nan 2026-10-01
+    (DOCS / "md.js").write_text(JS + "\n" + rowline_layer.JS + "\n" + indexsplit_layer.js()
+                                + "\n" + eggs_layer.js() + "\n" + obs_layer.js()
+                                + "\n" + mine_layer.md_js() + "\n" + share_layer.md_js()
+                                + "\n" + preview_layer.LOADER)
+    # The same script alone, for the pages that do not load md.js: the front
+    # page (assets/front/index.html) and the Worker's /find.
+    # /find's tap learning rides here too (assets/find_learn.js, idle off /find).
+    (DOCS / "locshare.js").write_text(share_layer.md_js() + "\n" + (ROOT / "assets/find_learn.js").read_text()
+                                      + "\n" + preview_layer.LOADER)
+    # The picture, the event sheet and the shared-event welcome, fetched on first use.
+    (DOCS / "sharepic.js").write_text(share_layer.pic_js())
+    # Installs motdang as an app, and takes shares from other apps (share_target).
+    (DOCS / "app.webmanifest").write_text(share_layer.manifest())
+    (DOCS / "live.html").write_text(share_layer.live_page(page, _map_shell, bi, bi_text, esc))
     # WO-78 — appended rather than joined into the CSS chain, for the
     # reason in importers/apply_rowline_hook.py: that chain moves.
     with (DOCS / "style.css").open("a") as _rl_fh:
         _rl_fh.write("\n" + rowline_layer.CSS)
+        _rl_fh.write("\n" + video_layer.CSS)
+        _rl_fh.write("\n" + pano_layer.CSS)
+        _rl_fh.write("\n" + net_layer.CSS)
+        _rl_fh.write("\n" + commons_layer.CSS)
+        _rl_fh.write("\n" + sites_layer.CSS)
+        _rl_fh.write("\n" + preview_layer.CSS)
+        _rl_fh.write("\n" + hotel_layer.CSS)
+    # Clips under the photograph: assets/video/ → docs/v/, gate-checked rows only.
+    _vshown, _vheld, _vwhy = video_layer.counts()
+    print("  video: %d shown, %d held%s, %d files copied" % (
+        _vshown, _vheld, (" (%s)" % ", ".join("%s: %d" % kv for kv in _vwhy.items())) if _vwhy else "",
+        video_layer.copy_assets(DOCS)))
+    print("  commons pictures:", commons_layer.counts())
+    _nshown, _nskip = net_layer.counts()
+    print("  nets: %d member pages%s" % (_nshown, (", %d skipped (no record): %s" % (
+        len(_nskip), ", ".join(i for _, i in _nskip))) if _nskip else ""))
     (DOCS / "data").mkdir(exist_ok=True)
     card = ROOT / "assets" / "card.png"
     if card.exists():
@@ -17073,9 +19042,77 @@ def build():
     _muaythai = ROOT / "assets" / "muay-thai"
     if _muaythai.is_dir():
         shutil.copytree(_muaythai, DOCS / "muay-thai", dirs_exist_ok=True)
+    # Chiang Rai, Slowly at /chiang-rai. Built elsewhere (laila-chiang-rai) with
+    # SITE_URL=https://motdang.net/chiang-rai and installed into assets/chiang-rai/,
+    # copied here for the same reason /loop and /muay-thai are.
+    # Publish it on its own with:  python3 publish/deploy.py --only chiang-rai --yes
+    _chiangrai = ROOT / "assets" / "chiang-rai"
+    if _chiangrai.is_dir():
+        shutil.copytree(_chiangrai, DOCS / "chiang-rai", dirs_exist_ok=True)
+    # /sites/<slug>/ — one business's own minisite each (the first: garden-loikroh, 69 Loi
+    # Kroh). Each is built in its own repo with SITE_URL=https://motdang.net/sites/<slug> and
+    # installed into assets/sites/<slug>/; one copy here carries them all, for the same reason
+    # /loop and /chiang-rai are copied. Publish with:  python3 publish/deploy.py --only sites --yes
+    _sites = ROOT / "assets" / "sites"
+    if _sites.is_dir():
+        shutil.copytree(_sites, DOCS / "sites", dirs_exist_ok=True)
+    # /markets/ — every market and mall, /markets/<cm|cr>/, and one folder per market that has
+    # its own site (/markets/cm/kamthieng/amulets/). Built in the markets repo with MOTDANG=1 and
+    # installed into assets/markets/. Publish with:  python3 publish/deploy.py --only markets --yes
+    _markets = ROOT / "assets" / "markets"
+    if _markets.is_dir():
+        shutil.copytree(_markets, DOCS / "markets", dirs_exist_ok=True)
+    # Roads of Chiang Mai at /roads. Built elsewhere (chiang-mai-roads) with
+    # SITE_URL=https://motdang.net/roads and installed into assets/roads/, copied here
+    # for the same reason /loop and /muay-thai are. /soi.html is a different thing —
+    # this site's own board of places by road — and the two link to each other.
+    # Publish it on its own with:  python3 publish/deploy.py --only roads --yes
+    _roads = ROOT / "assets" / "roads"
+    if _roads.is_dir():
+        shutil.copytree(_roads, DOCS / "roads", dirs_exist_ok=True)
+    # Ghost Chiang Mai at /ghost. Built elsewhere (ghost-chiang-mai) with
+    # SITE_URL=https://motdang.net/ghost and installed into assets/ghost/, copied
+    # here for the same reason /loop and /roads are: it went live on 21 Sept by a
+    # direct upload with no copy here, and a later whole-tree sync deleted it.
+    # Publish it on its own with:  python3 publish/deploy.py --only ghost --yes
+    _ghost = ROOT / "assets" / "ghost"
+    if _ghost.is_dir():
+        shutil.copytree(_ghost, DOCS / "ghost", dirs_exist_ok=True)
+    # ภาคสนาม · Field at /field. Built elsewhere (field) with
+    # SITE_URL=https://motdang.net/field and installed into assets/field/, copied here
+    # for the same reason /loop and /ghost are. Its place links point at this site's
+    # own /cm/p/ pages, including the records the rides added.
+    # Publish it on its own with:  python3 publish/deploy.py --only field --yes
+    _field = ROOT / "assets" / "field"
+    if _field.is_dir():
+        shutil.copytree(_field, DOCS / "field", dirs_exist_ok=True)
+    # Voight-Kampff at /voight-kampff. One hand-written page in assets/voight-kampff/,
+    # copied here for the same reason /loop and /ghost are.
+    # Publish it on its own with:  python3 publish/deploy.py --only voight-kampff --yes
+    _vk = ROOT / "assets" / "voight-kampff"
+    if _vk.is_dir():
+        shutil.copytree(_vk, DOCS / "voight-kampff", dirs_exist_ok=True)
+    # The sign at /served (served.py writes it) and the stub at /roadworks, where the home
+    # page's under-construction GIF leads. Nan, 2026-09-28. Same copy as /voight-kampff.
+    #   python3 publish/deploy.py --only served --yes · --only roadworks --yes
+    for _hand in ("served", "roadworks"):
+        if (ROOT / "assets" / _hand).is_dir():
+            shutil.copytree(ROOT / "assets" / _hand, DOCS / _hand, dirs_exist_ok=True)
+    # The Plan at /the-plan — the pitch deck, one static page. Built elsewhere (the-plan) with
+    # SITE_URL=https://motdang.net/the-plan and installed into assets/the-plan/, copied here
+    # for the same reason /loop and /ghost are.
+    # Publish it on its own with:  python3 publish/deploy.py --only the-plan --yes
+    _theplan = ROOT / "assets" / "the-plan"
+    if _theplan.is_dir():
+        shutil.copytree(_theplan, DOCS / "the-plan", dirs_exist_ok=True)
     _demo = ROOT / "assets" / PLAN_DEMO_GIF
     if _demo.exists():
         shutil.copyfile(_demo, DOCS / PLAN_DEMO_GIF)
+    # The weekly traffic crawler above every footer. ticker.py (~/.claude/traffic-scripts)
+    # writes both files on Sundays; page() carries the script tag.
+    for _src, _dst in ((ROOT / "assets" / "ticker.js", "ticker.js"), (ROOT / "data" / "ticker.json", "ticker.json")):
+        if _src.exists():
+            shutil.copyfile(_src, DOCS / _dst)
     # The tile archive, for looking at the site locally. A symlink, never a
     # copy: it is 116 MB, it belongs in R2, and docs/tiles/ is gitignored so
     # this can never ride into the repo. Only when the configured url is a
@@ -17148,6 +19185,19 @@ def build():
         (DOCS / "site").mkdir(exist_ok=True)
         for _f in sorted(SITE_ART_SRC.glob("*.jpg")):
             shutil.copy(_f, DOCS / "site" / _f.name)
+    # 360-degree spheres (importers/make_panos.py) → docs/pano/, Pannellum → docs/vendor/pannellum/.
+    print("  pano: %d files copied" % pano_layer.copy_assets(DOCS))
+    print("  inat: %d photos copied" % inat_layer.copy_assets(DOCS))
+    # Nan's own frames for the front page — importers/make_hero.py. The
+    # homepage reads site/hero/index.json out of the tree being built, so the
+    # frames have to be copied in like any other asset. They used to be
+    # written straight into docs/, which the swap then threw away: every build
+    # from 2026-09-20 23:23 died here on a missing index.
+    if HERO_ART_SRC.exists():
+        (DOCS / "site" / "hero").mkdir(parents=True, exist_ok=True)
+        for _f in sorted(HERO_ART_SRC.iterdir()):
+            if _f.is_file() and _f.suffix in (".jpg", ".webp", ".json"):
+                shutil.copy(_f, DOCS / "site" / "hero" / _f.name)
     if BAND_PIC_SRC.exists():
         (DOCS / "band").mkdir(exist_ok=True)
         for _f in sorted(BAND_PIC_SRC.glob("*.jpg")):
@@ -17194,9 +19244,20 @@ def build():
         (DOCS / "photos").mkdir(exist_ok=True)
         for fname in photos.values():
             shutil.copy(PHOTOS_SRC / fname, DOCS / "photos" / fname)
+    # A landmark's photo gallery (landmark_gallery) — the roads corpus's Commons
+    # pictures under assets/photos/landmarks/<id>/. collect_photos() reads only
+    # the top of assets/photos, so these subtrees are copied whole and served at
+    # the same path the gallery links to.
+    _land_src = PHOTOS_SRC / "landmarks"
+    if _land_src.exists():
+        shutil.copytree(_land_src, DOCS / "photos" / "landmarks", dirs_exist_ok=True)
 
     data = load()
     _fill_seven_ctx(data)   # WO-38: twins + neighbours before any page renders
+    # Every junction's nearest walk-in toilet by road, once, before the place
+    # pages fork (loo_road.py; Nan 2026-10-02: road distance, not the crow).
+    import toilets_layer as _tl
+    print("  loo_road:", loo_road.prepare(_tl.doors(globals(), data)), "junctions reach a toilet")
 
     # WO-28: id -> "<prov>/p/<slug>" for the handful of places that link to
     # ANOTHER place by id — a monastic school and the temple it stands in.
@@ -17205,6 +19266,15 @@ def build():
     global PLACE_HREF
     PLACE_HREF = {r["id"]: f'{p["key"]}/p/{place_slug(r)}'
                   for p in PROVINCES for r in data[p["key"]]}
+    # Nets (data/curated/nets.json): every member page shows the whole net.
+    net_layer.bind({p["key"]: data[p["key"]] for p in PROVINCES}, PLACE_HREF)
+    commons_layer.bind({p["key"]: data[p["key"]] for p in PROVINCES}, PLACE_HREF)
+    # Her pictures, placed and linked (pics_layer.py, NaN 2026-09-28).
+    pics_layer.bind({p["key"]: data[p["key"]] for p in PROVINCES}, PLACE_HREF)
+    # The Stay block on lodging pages: road distances, nearest by road, around
+    # it, booking (hotel_layer.py, NaN 2026-10-04). Before the pages fork.
+    print("  hotel_layer:", hotel_layer.prepare(globals(), {p["key"]: data[p["key"]] for p in PROVINCES},
+                                                net=loo_road._NET, h=HOTEL_HELPERS))
     # The other direction of derive.py's insideOf: a market, a hospital or a
     # campus, and everything standing at its exact coordinate. The tenant's page
     # says what it is inside; without this the host's page — the one somebody
@@ -17273,6 +19343,18 @@ def build():
     # the carousel and the exports all read this same enriched list.
     global EVENTS
     EVENTS = enrich_events(data, photos)
+    # ... and each place's events, coming and gone, from the ledger
+    global PLACE_EVENTS
+    PLACE_EVENTS = place_event_history(data, EVENTS)
+    print(f"  event history: {len(PLACE_EVENTS):,} places hold events, "
+          f"{sum(1 for v in PLACE_EVENTS.values() if v['past']):,} with past ones "
+          f"({len(EVENT_LEDGER):,} in the ledger)")
+    # ... and strung into nets by kind: the jazz bar's page shows the other stages
+    import event_nets_layer
+    _evnets = event_nets_layer.nets(PLACE_EVENTS, PLACE_HREF, BASE)
+    net_layer.add(_evnets)
+    print(f"  event nets: " + ", ".join(f"{k} {sum(len(s['jewels']) for s in n['strands'])}"
+                                        for k, n in _evnets.items()))
 
     # The strip's window. Built here because it needs the enriched list, and
     # before any page is written because every page carries the strip.
@@ -17446,6 +19528,18 @@ def build():
             # but an offer on a record whose shelf is something else — a hotel
             # that does ตอกเส้น — matched nothing at all. Matched, not shown;
             # the row still displays the name.
+            # WHERE IT SAYS IT IS, WHEN WE CANNOT CONFIRM IT. attrs.amphoe
+            # and attrs.tambon are gazetteer-confirmed and carry the area chip
+            # above; `amphoeSaid` / `tambonSaid` are the reading off the
+            # address where nothing here can confirm the name — every อำเภอปาย
+            # shop, because this gazetteer holds two provinces and Pai is in
+            # neither. Matched, not shown: the chip still needs a real area,
+            # but a reader in Pai typing "pai" or "ปาย" now reaches the shop
+            # instead of nothing. (Nan, 2026-09-21: "People do end up in pai
+            # wondering where's the weed and kratom.")
+            for _said in (_al.get("amphoeSaid"), _al.get("tambonSaid")):
+                if isinstance(_said, str) and _said.strip():
+                    _k.append(_said.strip())
             for _of in (_al.get("offers") or []):
                 _ok = _of.get("k") if isinstance(_of, dict) else None
                 _och = SUB_LABELS.get(_ok) if _ok else None
@@ -17569,6 +19663,13 @@ def build():
                     for _w in (_lx.get("gloss"), lex_reading(_t.strip(), TRADE_LEX)):
                         if _w:
                             _k.append(_w)
+            # 🎪 What has been on here, and what is coming (event ledger,
+            # 2026-10-04): "jazz" reaches the bar that holds the jazz night, and
+            # `ev` lets a place with a run of evenings rank above one with none.
+            _pe = PLACE_EVENTS.get(r["id"])
+            if _pe and _pe.get("n"):
+                _k += _pe["titles"][:6]
+                idx_entry["ev"] = _pe["n"]
             _k = " ".join(x for x in _k if x)
             if _k:
                 idx_entry["k"] = _k
@@ -17665,12 +19766,9 @@ def build():
             (pdir / c).mkdir(exist_ok=True)
             # subcategory shelf (Yahoo genre: bold sub-links with counts; wireframes muted)
             sub_bits = []
-            matched_ids = set()   # who the children account for, for the hub gate
-            hub_rows = []         # one li per child, drawn only if the shelf goes hub
             for child in cdef.get("children", []):
                 in_sub = [r for r in in_cat if matches(r, child.get("match"))]
                 if in_sub:
-                    matched_ids.update(r["id"] for r in in_sub)
                     (pdir / c / child["key"]).mkdir(parents=True, exist_ok=True)
                     sub_path = f"{key}/{c}/{child['key']}/index.html"
                     sub_bc_ld = breadcrumb_ld([
@@ -17684,113 +19782,42 @@ def build():
                                   f'<a href="../../index.html">{bi(p["th"], p["en"])}</a> › '
                                   f'<a href="../index.html">{bi(cdef["th"], cdef["en"])}</a> › '
                                   f'{bi(child["th"], child["en"])}')
-                    if len(in_sub) > CHILD_SPLIT_ROWS and ZONES.get(key):
-                        # A child that outgrew one page splits along ย่าน —
-                        # same shape as the parent hub: zone lines with three
-                        # doors as a taste, the complete roll behind a
-                        # weighted, noindexed door.
-                        zdef_all = ZONES[key]
-                        zgroups, rest = {}, []
-                        for r2 in sub_sorted:
-                            zd = zone_of(r2, key)
-                            if zd is None:
-                                rest.append(r2)
-                            else:
-                                zgroups.setdefault(zd["key"], []).append(r2)
-                        if rest:
-                            zgroups[zdef_all["fallback"]["key"]] = rest
-                        zone_rows = []
-                        crumb_head = (f'<a href="../../../index.html">{bi("หน้าแรก", "Home")}</a> › '
-                                      f'<a href="../../index.html">{bi(p["th"], p["en"])}</a> › '
-                                      f'<a href="../index.html">{bi(cdef["th"], cdef["en"])}</a> › '
-                                      f'<a href="index.html">{bi(child["th"], child["en"])}</a>')
-                        for zd in (zdef_all["boxes"] + zdef_all["circles"]
-                                   + [zdef_all["fallback"]]):
-                            zrecs = zgroups.get(zd["key"])
-                            if not zrecs:
-                                continue
-                            zpath = f"{key}/{c}/{child['key']}/yan-{zd['key']}.html"
-                            z_bc_ld = breadcrumb_ld([
-                                ("หน้าแรก", BASE),
-                                (p["th"], BASE + key + "/index.html"),
-                                (cdef["th"], BASE + key + "/" + c + "/index.html"),
-                                (child["th"], BASE + sub_path),
-                                (zd["th"], BASE + zpath),
-                            ])
-                            (pdir / c / child["key"] / f"yan-{zd['key']}.html").write_text(
-                                listing_page(
-                                    f'{child["th"]} — {zd["th"]}',
-                                    f'{child["en"]} — {zd["en"]}',
-                                    zrecs, depth=3, prov=key,
-                                    crumbs=crumb_head + f' › {bi(zd["th"], zd["en"])}',
-                                    path=zpath,
-                                    extra_head=z_bc_ld + item_list_ld(zrecs, key),
-                                    seo_title=f'{child["th"]} {zd["th"]} {p["th"]}',
-                                    seo_title_en=f'{child["en"]} — {zd["en"]}, {p["en"]}',
-                                    og=shelf_og(key, c, child["key"])))
-                            zone_rows.append(
-                                f'<li><b><a href="yan-{zd["key"]}.html">{bi(zd["th"], zd["en"])}</a></b> '
-                                f'<span class="count">({len(zrecs):,})</span>'
-                                f'<span class="eg"> — {bi("เช่น", "e.g.")} '
-                                + " · ".join(f'<a href="../../p/{place_slug(x)}.html">{name_bi(x)}</a>'
-                                             for x in zrecs[:3])
-                                + '</span></li>')
-                        all_lis = fold_rows(sub_sorted,
-                                            lambda r: f"../../p/{place_slug(r)}.html")
-                        all_body = (f'<h1>{bi(child["th"], child["en"])} — {bi("รายชื่อครบ", "the complete roll")} '
-                                    f'<span class="count">({len(in_sub):,})</span></h1>'
-                                    f'<p class="prov"><a href="index.html">← {bi("กลับชั้นหลัก", "Back to the shelf")}</a></p>'
-                                    f'{toolbar(sub_sorted)}{facet_chips(sub_sorted)}'
-                                    f'<ul class="dir" data-sortable>{all_lis}</ul>')
-                        all_html = page(
-                            f'{child["th"]} {p["th"]} — รายชื่อครบ · {child["en"]}, {p["en"]} — the complete roll',
-                            all_body, depth=3, crumbs=sub_crumbs,
-                            path=f"{key}/{c}/{child['key']}/all.html",
-                            desc=f"{child['th']} {p['th']} รายชื่อครบ {len(in_sub)} แห่ง · {child['en']}, {p['en']} — every row on one page · มดแดง",
-                            extra_head='<meta name="robots" content="noindex,follow">',
-                            og=shelf_og(key, c, child["key"]))
-                        (pdir / c / child["key"] / "all.html").write_text(all_html)
-                        sub_mb = len(all_html.encode()) / 1_000_000
-                        hub_body = (
-                            f'<h1>{bi(child["th"], child["en"])} <span class="count">({len(in_sub):,})</span></h1>'
-                            f'{ad_box(sub_path, 3)}'
-                            f'<ul class="dir hubkids">{"".join(zone_rows)}</ul>'
-                            f'<p class="prov"><a href="all.html">📜 '
-                            f'{bi("รายชื่อครบทั้งชั้น หน้าเดียว", "The complete roll, one page")} '
-                            f'<span class="count">({len(in_sub):,})</span></a> · ~{sub_mb:.1f} MB</p>'
-                            f'{share_block(BASE + sub_path, child["th"] + " " + p["th"], card=shelf_og(key, c, child["key"]))}')
-                        (pdir / c / child["key"] / "index.html").write_text(page(
-                            f'{child["th"]} {cdef["th"]} {p["th"]} · {child["en"]}, {p["en"]}',
-                            hub_body, depth=3, crumbs=sub_crumbs, path=sub_path,
-                            desc=f"{child['th']} {p['th']} — {len(in_sub)} แห่ง แยกตามย่าน · {child['en']}, {p['en']} by neighbourhood · มดแดง",
-                            extra_head=sub_bc_ld + item_list_ld(sub_sorted, key),
-                            og=shelf_og(key, c, child["key"])))
-                    else:
-                        (pdir / c / child["key"] / "index.html").write_text(listing_page(
-                            child["th"], child["en"],
-                            sub_sorted,
-                            depth=3, prov=key,
-                            crumbs=sub_crumbs,
-                            path=sub_path,
-                            extra_head=sub_bc_ld + item_list_ld(sub_sorted, key),
-                            seo_title=f'{child["th"]} {cdef["th"]} {p["th"]}',
-                            seo_title_en=f'{child["en"]}, {p["en"]}',
-                            og=shelf_og(key, c, child["key"])))
+                    # Doors to every group of SHELF_MIN+ inside this sub-shelf
+                    # (its ย่าน and its tags, each written beside it), then the
+                    # rows, paged (Nan, 2026-10-03).
+                    sub_doors = shelf_doors(
+                        sub_sorted, p, f"{key}/{c}/{child['key']}", 3,
+                        sub_crumbs.rsplit(" › ", 1)[0]
+                        + f' › <a href="index.html">{bi(child["th"], child["en"])}</a>',
+                        child["th"], child["en"], og=shelf_og(key, c, child["key"]))
+                    write_listing(
+                        child["th"], child["en"],
+                        sub_sorted,
+                        depth=3, prov=key,
+                        crumbs=sub_crumbs,
+                        path=sub_path,
+                        extra_head=sub_bc_ld + item_list_ld(sub_sorted, key),
+                        seo_title=f'{child["th"]} {cdef["th"]} {p["th"]}',
+                        seo_title_en=f'{child["en"]}, {p["en"]}',
+                        og=shelf_og(key, c, child["key"]),
+                        doors=affiliate_layer.shelf_line(c, child["key"], key, bi, att, esc) + sub_doors,
+                        map_of=lambda rows, c=c, p=p, child=child: shelf_map(
+                            rows, c, p, depth=3, label_th=child["th"], label_en=child["en"]))
                     sub_bits.append(f'<b><a href="{child["key"]}/index.html">'
                                     f'{bi(child["th"], child["en"])}</a></b> '
                                     f'<span class="count">({len(in_sub):,})</span>')
-                    hub_rows.append(
-                        f'<li><b><a href="{child["key"]}/index.html">'
-                        f'{bi(child["th"], child["en"])}</a></b> '
-                        f'<span class="count">({len(in_sub):,})</span>'
-                        f'<span class="eg"> — {bi("เช่น", "e.g.")} '
-                        + " · ".join(f'<a href="../p/{place_slug(x)}.html">{name_bi(x)}</a>'
-                                     for x in sub_sorted[:3])
-                        + '</span></li>')
+                elif (c, child["key"]) in BOARD_SHELVES:
+                    sub_bits.append(f'<b><a href="{BOARD}?category={BOARD_SHELVES[(c, child["key"])]}">'
+                                    f'{bi(child["th"], child["en"])}</a></b> '
+                                    f'<span class="count">({bi("ลงชื่อเอง", "self-listed")})</span>')
                 elif p["mode"] == "full":
                     sub_bits.append(f'<span class="shelf">{bi(child["th"], child["en"])} '
                                     f'<span class="soon">🐜</span></span>')
             subshelf = f'<div class="subshelf">{" · ".join(sub_bits)}</div>' if sub_bits else ""
+            if c == "home-services":
+                subshelf += (f'<p class="prov"><a href="{BOARD}">'
+                             f'{bi("แม่บ้านและช่างที่ลงชื่อเอง ติดต่อตรง", "Housekeepers and handymen who list themselves, contacted directly")} →</a>'
+                             f' · <a href="{BOARD}join">{bi("ลงชื่อรับงาน", "List yourself")}</a></p>')
 
             gj = geojson(in_cat)
             gj_name = f"{key}-{c}.geojson"
@@ -17811,76 +19838,71 @@ def build():
                 (cdef["th"], BASE + key + "/" + c + "/index.html"),
             ])
             bands = (f'{emergency_band(c)}{muaythai_band(c)}{cooking_band(c)}{chang_band(c)}{springs_band(c)}{shrines_band(c)}{doi_band(c)}{beauty_band(c)}{realestate_band(c)}{womens_health_band(c)}{trans_health_band(c)}{longcare_band(c)}{transport_band(c)}{yant_band(c)}{fleet_band()}')
-            hub = (len(in_cat) > HUB_MAX_ROWS
-                   and len(matched_ids) >= 0.9 * len(in_cat))
-            if hub:
-                # The full roll keeps existing — one click deeper, noindexed
-                # (the sub-shelves are the indexed copy of every row), with
-                # its weight printed on the door so nobody on a hilltop
-                # connection opens 4 MB unwarned.
-                # The map belongs on THIS page, not on the shelf front. Its
-                # dots are answered by the list rows they point at, and this
-                # is the only page in the pair that renders them — all of
-                # them, in the order fold_rows reports.
-                all_order = []
-                all_lis = fold_rows(in_cat, lambda r: f"../p/{place_slug(r)}.html",
-                                    order_out=all_order)
-                all_body = (f'<h1>{bi(cdef["th"], cdef["en"])} — {bi("รายชื่อครบ", "the complete roll")} '
-                            f'<span class="count">({len(in_cat):,})</span></h1>'
-                            f'<p class="prov"><a href="index.html">← {bi("กลับชั้นหลัก", "Back to the shelf")}</a></p>'
-                            f'{shelf_map(all_order, c, p)}'
-                            f'{toolbar(in_cat)}<ul class="dir" data-sortable>{all_lis}</ul>{dl}')
-                all_html = page(
-                    f'{cdef["th"]} {p["th"]} — รายชื่อครบ · {cdef["en"]}, {p["en"]} — the complete roll',
-                    all_body, depth=2, crumbs=crumbs, path=f"{key}/{c}/all.html",
-                    desc=f"{cdef['th']} {p['th']} รายชื่อครบ {len(in_cat)} แห่ง · {cdef['en']}, {p['en']} — every row on one page · มดแดง",
-                    extra_head='<meta name="robots" content="noindex,follow">',
-                    og=shelf_og(key, c))
-                (pdir / c / "all.html").write_text(all_html)
-                all_mb = len(all_html.encode()) / 1_000_000
-                strays = [r for r in in_cat if r["id"] not in matched_ids]
-                stray_html = ""
-                if strays:
-                    stray_html = (f'<h2>{bi("ยังไม่เข้าชั้นย่อย", "Not yet on a sub-shelf")} '
-                                  f'<span class="count">({len(strays):,})</span></h2>'
-                                  f'<ul class="dir">'
-                                  f'{fold_rows(strays, lambda r: f"../p/{place_slug(r)}.html")}</ul>')
-                body = (f'{cat_art_band(c, key)}'
-                        f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
-                        f'{bands}'
-                        # 🏷 WO-76 — the shelf's own tag doors. 26,984 rows of
-                        # food is not a list anyone reads; `noodle shop (662)`
-                        # and `open late` are, and each chip carries its count
-                        # before it is clicked.
-                        + _tags_layer.shelf_chips(globals(), key, c, depth=1)
-                        + f'{ad_box(f"{key}/{c}/index.html", 2)}'
-                        # rows=[] : this page lists sub-shelves, not places, so
-                        # there is no row for a dot to resolve against and the
-                        # anonymous layer is not drawn. The ten named pins are
-                        # real links and stay. The dots live on all.html now.
-                        f'{shelf_map(in_cat, c, p, rows=[])}'
-                        f'<ul class="dir hubkids">{"".join(hub_rows)}</ul>'
-                        f'{stray_html}'
-                        f'<p class="prov"><a href="all.html">📜 '
-                        f'{bi("รายชื่อครบทั้งชั้น หน้าเดียว", "The complete roll, one page")} '
-                        f'<span class="count">({len(in_cat):,})</span></a> · ~{all_mb:.1f} MB</p>{dl}'
-                        f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"], card=shelf_og(key, c))}')
-            else:
-                # The map's dots carry row indexes resolved against the DOM, and
-                # fold_rows reorders rows into brand shelves — so the map is drawn
-                # from the order the rows actually land in (see fold_rows).
+            # Doors to every group of SHELF_MIN+ on this shelf: its ย่าน
+            # (written here) and its tags (the tag×shelf pages tags_layer
+            # writes). The hub form — a front of sub-shelf doors with the rows
+            # behind a noindexed all.html — is gone: at 100 rows a page every
+            # shelf front can carry its first page of rows (Nan, 2026-10-03).
+            doors = shelf_doors(in_cat, p, f"{key}/{c}", 2, crumbs.rsplit(" › ", 1)[0]
+                                + f' › <a href="index.html">{bi(cdef["th"], cdef["en"])}</a>',
+                                cdef["th"], cdef["en"], og=shelf_og(key, c),
+                                tag_href=lambda s, c=c: f"../tag/{s}--{c}.html")
+            # The map's dots carry row indexes resolved against the DOM, and
+            # fold_rows reorders rows into brand shelves — so the map is drawn
+            # from the order the rows actually land in (see fold_rows).
+            #
+            # Paged at SHELF_PAGE_ROWS. The rows are sliced BEFORE folding,
+            # so each page folds its own brands and a page's map, toolbar
+            # and row list all describe the same rows — a sort that moved
+            # entries between pages would be a sort the reader cannot see
+            # the result of.
+            chunks = chunked(in_cat)
+            for n, chunk in enumerate(chunks, 1):
                 dom_order = []
-                lis = fold_rows(in_cat, lambda r: f"../p/{place_slug(r)}.html",
+                lis = fold_rows(chunk, lambda r: f"../p/{place_slug(r)}.html",
                                 order_out=dom_order)
-                body = (f'{cat_art_band(c, key)}'
-                        f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
-                        f'{bands}'
-                        f'{subshelf}'
-                        + _tags_layer.shelf_chips(globals(), key, c, depth=1)
-                        + f'{ad_box(f"{key}/{c}/index.html", 2)}'
-                        f'{shelf_map(dom_order or in_cat, c, p)}{toolbar(in_cat)}'
-                        f'<ul class="dir" data-sortable>{lis}</ul>{dl}'
-                        f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"], card=shelf_og(key, c))}')
+                pager = shelf_pager(n, len(chunks))
+                first = (n - 1) * SHELF_PAGE_ROWS + 1
+                if n == 1:
+                    body = (f'{cat_art_band(c, key)}'
+                            f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
+                            f'{sites_layer.shelf_band(c, key, "../../")}'
+                            f'{bands}'
+                            f'{affiliate_layer.shelf_line(c, None, key, bi, att, esc)}'
+                            f'{subshelf}{doors}'
+                            f'{ad_box(f"{key}/{c}/index.html", 2)}'
+                            f'{shelf_map(dom_order or chunk, c, p)}{toolbar(chunk)}'
+                            f'{pager}'
+                            f'<ul class="dir" data-sortable>{lis}</ul>{pager}{dl}'
+                            f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"], card=shelf_og(key, c))}')
+                    continue
+                # Pages two and after carry the rows and the way back, and
+                # none of the shelf-front furniture: the bands, the art, the
+                # tag chips and the ad box all say the same thing page one
+                # said, and repeating them is the boilerplate WO-52 spent a
+                # week removing.
+                rng = f'{first:,}–{first + len(chunk) - 1:,}'
+                page_path = f"{key}/{c}/page-{n}.html"
+                page_body = (
+                    f'<h1>{bi(cdef["th"], cdef["en"])} '
+                    f'<span class="count">({rng} {bi("จาก", "of")} {len(in_cat):,})</span></h1>'
+                    f'<p class="prov"><a href="index.html">← '
+                    f'{bi("กลับหน้าแรกของชั้น", "Back to the front of the shelf")}</a></p>'
+                    f'{shelf_map(dom_order or chunk, c, p)}{toolbar(chunk)}'
+                    f'{pager}'
+                    f'<ul class="dir" data-sortable>{lis}</ul>{pager}{dl}')
+                (pdir / c / f"page-{n}.html").write_text(page(
+                    f'{cdef["th"]} {p["th"]} — หน้า {n} · '
+                    f'{cdef["en"]}, {p["en"]} — page {n}',
+                    page_body, depth=2, crumbs=crumbs, path=page_path,
+                    desc=f"{cdef['th']} {p['th']} — {rng} จาก {len(in_cat):,} แห่ง · "
+                         f"{cdef['en']}, {p['en']} — {rng} of {len(in_cat):,} · มดแดง",
+                    extra_head=breadcrumb_ld([
+                        ("หน้าแรก", BASE),
+                        (p["th"], BASE + key + "/index.html"),
+                        (cdef["th"], BASE + key + "/" + c + "/index.html"),
+                    ]) + item_list_ld(chunk, key),
+                    og=shelf_og(key, c)))
             (pdir / c / "index.html").write_text(page(
                 # Province-qualified title — the bare category name alone
                 # (e.g. "ร้านอาหาร-ของกิน") repeats verbatim between cm and cr,
@@ -17902,6 +19924,12 @@ def build():
             by_sub.setdefault(sub_key, []).append(r)
 
         write_place_pages(records, pdir, key, p, photos, sitemap_images)
+        import gc
+        gc.collect()
+
+    # Short place IDs, looked up by the map (placecode.py, 2026-09-28).
+    import placecode
+    print("  place codes:", placecode.emit(DOCS, _CODE_PATHS))
 
     # ---- home ----------------------------------------------------------
     # WO-53: the news ticker and the personalize panel are gone (Nan, 2026-09-02).
@@ -17945,19 +19973,20 @@ def build():
                            f'<p class="financecap">{bi("คริปโต ราคาต่อ 1 เหรียญ", "Crypto, price per coin")} · '
                            f'<a href="https://www.coingecko.com/" rel="noopener">CoinGecko</a>'
                            f' · {esc(cr["asOf"])}</p>')
-        fx_html = (
+            crypto_html = shelflife.guard("crypto", cr.get("asOf"), crypto_html)
+        fx_html = shelflife.guard("fx", fx_date, (
             f'<div class="module" id="m-fx"><h3>💱 {bi("แปลงสกุลเงิน", "Currency converter")}</h3>'
             f'<p style="margin:.2rem 0">฿ <input id="fxamount" type="number" value="100" min="0" step="1"> '
             f'{bi("บาท", "Thai baht")} =</p>'
             f'<div class="fxrows" id="fxrows">{fx_rows}</div>'
             f'<p class="financecap">{bi(fx_cap_th, fx_cap_en)}</p>'
-            f'{crypto_html}</div>')
+            f'{crypto_html}</div>'))
     if finance.get("gold"):
         g = finance["gold"]
         chg = g["changeFromPrevDay"]
         arrow = "▲" if chg > 0 else ("▼" if chg < 0 else "―")
         cls = "up" if chg > 0 else ("down" if chg < 0 else "")
-        gold_html = (
+        gold_html = shelflife.guard("gold", g.get("asOf"), (
             f'<div class="module" id="m-gold"><h3>🥇 {bi("ทองคำวันนี้", "Thai gold today")}</h3>'
             f'<div class="goldrow"><span class="lbl">{bi("ทองแท่ง รับซื้อ", "Gold bar, buy")}</span>'
             f'<span class="val">{g["barBuy"]:,.0f} ฿</span></div>'
@@ -17971,7 +20000,7 @@ def build():
             f'<p class="financecap">{bi("ราคาต่อทองคำหนัก 1 บาท ·", "Price per 1 baht-weight ·")} '
             f'<a href="https://www.goldtraders.or.th/" rel="noopener">'
             f'{bi("สมาคมค้าทองคำ", "Gold Traders Association")}</a> · '
-            f'{esc(g["asOf"][:16].replace("T"," "))}</p></div>')
+            f'{esc(g["asOf"][:16].replace("T"," "))}</p></div>'))
     total = len(search_index)
     rand_html = (f'<div class="module" id="m-rand"><h3>{bi("เดินเล่น", "Wander")}</h3>'
                  f'<p style="margin:.2rem 0"><a href="{RAND_FALLBACK}" class="rand">🎲 '
@@ -18310,11 +20339,32 @@ def build():
         elsewhere_body(), depth=0, path="elsewhere.html",
         desc="สารบัญและคลังอื่น ๆ ที่ทำด้วยมือเดียวกัน · The other directories and archives built by the same hands."))
 
-    # The front page is home_layer's (Nan, 2026-09-19: built from zero — the
-    # scenes, the pictures, no search box). home_html above still builds so
-    # home-classic.html keeps the previous page one release.
+    # THE FRONT PAGE IS home_next's AGAIN, with the geofence grafted onto it
+    # (Nan, 2026-09-21 evening: "graft the geofence onto it and swap the front
+    # page"). The graft is the thing that was missing when the same page went
+    # live on a routine sync earlier that day and was reverted: the page now
+    # carries meta[name=md-where] for publish/worker.js to fill, picks its
+    # province from the reader's own choice, else the edge, else Chiang Mai,
+    # draws a ring where the reader is standing on the big map, scores her
+    # photographs by distance the way home_layer does, and answers "what is
+    # around me" from the nine cells of data/here — on a tap, never at load.
+    # home_layer's scenes page stays on disk and renders at /home-scenes.html,
+    # so the switch back is this block and one path.
     import home_layer
-    (DOCS / "index.html").write_text(home_layer.render())
+    import home_next
+    # Both modules name their own docs/ for standalone runs. A build writes into
+    # docs.next/ and swaps it in, so anything they draw beside the page has to
+    # land in the tree being built: on 2026-09-25 the dot map's two frames went
+    # to the old docs/, the swap deleted them, and the front page went live
+    # pointing at two 404s. safety.check_tree now refuses that tree.
+    home_next.DOCS = home_layer.DOCS = DOCS
+    (DOCS / "index.html").write_text(home_next_page())
+    # The front page carries the next seven days; the months are one click away
+    # (NaN, 2026-09-22). Written after the front page, because the sprite the
+    # calendar page inlines is the marks that page has drawn.
+    import home_next
+    (DOCS / "calendar.html").write_text(home_next.calendar_page())
+    (DOCS / "home-scenes.html").write_text(home_layer.render())
     # The same stamps the strip reads, served for anyone who asks in JSON.
     (DOCS / "data" / "freshness.json").write_text(
         json.dumps(freshness_data(), ensure_ascii=False, indent=1))
@@ -18436,6 +20486,15 @@ def build():
                                               desc="ลงโฆษณากับมดแดง — โฆษณาแบบปี 1997 สุภาพ"))
 
     # ---- search + suggest ----------------------------------------------
+    # WO-96 — the named ways become findable. edge_layer projected 1,077 ways /
+    # 432 sois out of streets.json (WO-66) but they were never admitted to the
+    # index, so a soi typed by name found nothing. Added AFTER `total` above so
+    # they are not counted as "places" (a soi is not a place), and BEFORE the
+    # split so both the page index and the edge shards carry them. Rows arrive
+    # pre-compacted (id · s · n · r · kd:["way"] · lat/lng midpoint · u map href)
+    # — routing them through the generic compactor would drop the midpoint and
+    # point `u` at a place page that does not exist. tests/test_edge_soi.mjs.
+    search_index += edge_layer.search_rows(ROOT)
     # THE INDEX IN TWO FILES (indexsplit_layer.py). The first answers, the
     # second draws — eleven fields that only matter once a row is on screen,
     # aligned to the first by POSITION so they cost no keys. Nan, 2026-09-08:
@@ -18597,6 +20656,9 @@ def build():
         refine_layer.advanced_form(bi, att, refine_layer.bake_options(search_index, _SEARCH_TABLES)),
         depth=0, path="advanced.html",
         desc="ค้นหาขั้นสูงในมดแดง — คำ ประเภท ย่าน ถนน ระยะทาง · Advanced search across the Mot Dang directory."))
+    search_index.clear()
+    import gc
+    gc.collect()
     suggest_th = ("ร้านของคุณ ที่ที่คุณรัก หรือหมุดที่ยังไม่ปัก "
                   "ส่งมาได้ ลงสารบัญฟรี")
     suggest_en = ("Your shop, a place you love, or a pin we're missing. "
@@ -18615,9 +20677,8 @@ def build():
     # Built outside the f-string: this file runs on Python 3.9, where a
     # multi-line expression inside an f-string is a SyntaxError.
     privacy_note = bi(
-        "ไม่ต้องมีบัญชีอะไรทั้งนั้น — ที่อยู่ติดต่อที่ใส่มาใช้เพื่อถามกลับเท่านั้น ไม่เผยแพร่",
-        "No account of any kind. A contact address is used only to ask you a "
-        "question back, and is not published.")
+        "ที่อยู่ติดต่อที่ใส่มา เราใช้ถามกลับ",
+        "We use a contact address to ask you a question back.")
     (DOCS / "suggest.html").write_text(page(
         "แนะนำร้าน",
         f'<h1>{bi("แนะนำร้าน-เพิ่มที่ของคุณ", "Add your place")}</h1>'
@@ -18678,10 +20739,10 @@ def build():
     # and importers/sync_claims.py for how a claim reaches the built site.
     claim_cfg_json = json.dumps({"workerUrl": CLAIMS_WORKER_URL})
     claim_lede_th = ("เป็นเจ้าของร้าน คลินิก หรือวัดนี้ไหม — ยืนยันเบอร์โทร LINE เพจ หรือเวลาเปิด-ปิด "
-                      "ได้ฟรี ขึ้นทันทีไม่ต้องรอทีมตรวจ ไม่ต้องสมัครสมาชิก "
+                      "ได้ฟรี ขึ้นทันทีไม่ต้องรอทีมตรวจ "
                       "(แก้ชื่อ ที่อยู่ หรือหมุด ยังต้องผ่านทีมงานอยู่ — ใช้ปุ่ม “บอกมดแดง” แทนเจ้า)")
     claim_lede_en = ("Own this shop, clinic, or wat? Confirm your phone, LINE, page, or hours — free, "
-                     "live immediately, no account. (Corrections to the name, address, or map pin still "
+                     "live immediately. (Corrections to the name, address, or map pin still "
                      "go through a human — use the “tell the ants” link for those.)")
     (DOCS / "claim.html").write_text(page(
         "ยืนยันร้านของคุณ",
@@ -20296,7 +22357,7 @@ def build():
     (DOCS / "data" / "channels.json").write_text(json.dumps({
         "site": BASE,
         "ours": OUR_CHANNELS,
-        "notOurs": [{"platform": e, "note": "no account, on purpose"}
+        "notOurs": [{"platform": e, "note": "not ours"}
                     for _t, e in NOT_OUR_CHANNELS],
         "neverAsksForMoneyToBeListed": True,
         "generated": BUILD_DATE,
@@ -20304,6 +22365,18 @@ def build():
 
     (DOCS / "data" / "places.json").write_text(
         json.dumps(full_dump, ensure_ascii=False))
+    # /doodles/: the place portraits, worked out here in the parent — the pages above are written by
+    # forked workers, so nothing they note comes back (the first try wrote an empty list, 2026-10-05)
+    _dtg = (globals().get("TAGS") or {}).get("by_id") or {}
+    _pp = []
+    for r in full_dump:
+        _sc = "" if r.get("photo") or place_thumb(r["id"]) else doodles_layer.place_scene(r)
+        if _sc:
+            _pp.append((r, _sc, _dtg.get(r["id"]) or [], f"{r['province']}/p/{place_slug(r)}.html"))
+    print("doodles gallery:", doodles_layer.gallery(DOCS, _pp), "place portraits")
+    # /doodles/: the doodle repository (data/doodles/, recorded nightly by tools/doodle_repo.py)
+    import doodlerepo_layer
+    print("doodle repository:", doodlerepo_layer.emit(DOCS), "doodles")
 
     # ---- our own RSS feed: no fabricated per-item timestamps ---------------
     def rss_escape(s):
@@ -20611,11 +22684,11 @@ def build():
          "route drawing itself from stop to stop"),
         ("claim.jpg", "claim.html",
          "ร้านของคุณ เราลงไว้ให้แล้ว",
-         "We already made your shop its page — come and claim it. Free, "
-         "no account, no email; fix your own hours and we show them "
+         "We already made your shop its page — come and claim it. Free; "
+         "fix your own hours and we show them "
          "straight away.",
-         "กล่องยืนยันร้าน — ฟรี ไม่ต้องสมัคร ไม่ต้องมีอีเมล",
-         "The claim box — free, no signup, no email"),
+         "กล่องยืนยันร้าน — ฟรี",
+         "The claim box — free"),
     ]
     what_css = """<style>
 .tkbook{display:flex;flex-direction:column;gap:3rem;margin-top:2.6rem}
@@ -20656,7 +22729,7 @@ def build():
                     "long speeches are not our strong point, so we would "
                     "rather point. Here are fifteen of our own pages, all "
                     "photographed on the same Saturday. Tap any picture "
-                    "and we will carry you to the living one.")
+                    "to open the living one.")
     what_plates_html = "".join(
         f'<section class="tkplate{" tknarrow" if f in ("counts.jpg", "today.jpg") else ""}'
         f'{" tktiny" if f == "redspot.jpg" else ""}'
@@ -20756,7 +22829,7 @@ def build():
     build_notfound_page()
     print("  words on the signs:", build_trades_page(), "trade terms")
     print("  roads & sois:", build_street_pages(data), "pages")
-    print("  merit rounds:", build_merit_page(data), "page")
+    print("  wats:", wats_layer.emit(globals(), data), "pages")
     # ---- the basemap shell: one map constructor for the whole site --------
     # Emits map.js + the vendored libraries ONLY when data/basemap.json names
     # a real .pmtiles file and assets/vendor/ actually holds MapLibre. Until
@@ -20797,6 +22870,13 @@ def build():
     # aside when the gauges have not been read.
     import nam_layer
     print("  nam:", nam_layer.emit(globals(), data))
+    import traffic_layer                          # C106 answered 2026-10-03: "pls publish tomtom"
+    print("  traffic:", traffic_layer.emit(globals()))
+    # ---- lottery.html: the Government Lottery draw, every tier, a ticket check
+    import lottery_layer
+    print("  lottery:", lottery_layer.emit(globals(), data))
+    import films_layer
+    print("  films:", films_layer.emit(globals(), data))
     # ---- app.html: the toilets map as an installable, offline app -------
     import app_layer
     print("  app:", app_layer.emit(globals(), data))
@@ -20869,6 +22949,16 @@ def build():
     # register. Nothing here ranks a shrine.
     import shrine_layer
     print("  san:", shrine_layer.emit(globals(), data))
+
+    # ---- /full-moon: every full moon of the year at the wats (NaN, 2026-09-27),
+    # and the net it stamps onto the member wats' pages, the wat shelves and the
+    # festival pages. After the festivals and /wats, whose pages it writes into.
+    import fullmoon_layer
+    print("  full-moon: %d pages, %d stamped" % fullmoon_layer.emit(DOCS))
+    print(pics_layer.emit(DOCS))
+    import ahead_layer
+    print(ahead_layer.emit(globals()))
+    print(waypics_layer.emit(DOCS))
 
     # ---- doi.html: the land itself (WO-37) — hillshade over the basemap,
     # the opt-in 3D mode, the basin cut west to east, the highest cell the
@@ -21056,6 +23146,35 @@ def build():
     import api_layer
     print("  api:", api_layer.emit(globals(), data, photos, _tg))
 
+    # ---- the register: /sites/ and docs/data/sites.json -----------------
+    # Late on purpose: /sites/ lists the root pages under their own <h1>, so they
+    # have to be on disk; and before the sitemap, so the directory indexes itself.
+    # The Worker reads data/sites.json to put a site card above the page hits.
+    (DOCS / "sites").mkdir(exist_ok=True)
+    (DOCS / "sites" / "index.html").write_text(page(
+        "ทุกเว็บ · Every site",
+        sites_layer.directory_body(DOCS, svg_icon, prefix="../")
+        + share_block(BASE + "sites/", "ทุกเว็บในมดแดง · Every site on Mot Dang"),
+        depth=1, path="sites/",
+        desc="ทุกเว็บและเครื่องมือในมดแดง จัดเป็นหมวด · Every minisite and tool on Mot Dang, by group."))
+    (DOCS / "data").mkdir(exist_ok=True)
+    (DOCS / "data" / "sites.json").write_text(json.dumps(
+        sites_layer.search_rows(DOCS), ensure_ascii=False, separators=(",", ":")))
+    # The front page again, now that every page is on disk: written at the top of
+    # the root pages, it could only offer the six whose pages existed by then.
+    # front_layer bakes what the page reads (the live map's layers, near, the
+    # calendar, the minisites) from this build's own api index.
+    import front_layer
+    try:
+        print("  " + front_layer.bake(DOCS))
+    except Exception as _e:  # the page still renders; its folds say what is missing
+        print("  front: bake failed —", _e)
+    (DOCS / "index.html").write_text(home_next_page())
+    _unbuilt = [c["id"] for c in sites_layer.cards() if not sites_layer.on_disk(c, DOCS)]
+    print(f"  register: {len(sites_layer.cards())} cards, {sites_layer.count()} in /sites/, "
+          f"front six: {', '.join(c['id'] for c in sites_layer.best(6, docs=DOCS))}"
+          + (f"; carded, no page yet: {', '.join(_unbuilt)}" if _unbuilt else ""))
+
     # ---- bot hospitality: robots, sitemap, llms.txt ----------------------
     # Explicit per-bot welcomes, not just the wildcard — on purpose, in direct
     # contrast to sites in this operator's other corpora that block ClaudeBot.
@@ -21071,14 +23190,21 @@ def build():
         "Google-Extended", "Applebot-Extended", "Meta-ExternalAgent",
         "Amazonbot", "CCBot", "Bytespider",
     ]
-    robots_txt = "User-agent: *\nAllow: /\n\n" + "".join(
-        f"User-agent: {b}\nAllow: /\n\n" for b in AI_BOTS
+    # The two form pages carry a query string per place and field, so each
+    # place page hands a crawler dozens of extra addresses (37% of all
+    # crawler requests, week of 11 Sep). A bot reads only its own group,
+    # so every group carries the Disallow lines. Nan 2026-09-26; /search.html
+    # added 2026-09-29, after the crawlers moved there (81,933 on 27 Sep).
+    FORMS = "Disallow: /suggest.html\nDisallow: /add.html\nDisallow: /search.html\n"
+    robots_txt = "User-agent: *\nAllow: /\n" + FORMS + "\n" + "".join(
+        f"User-agent: {b}\nAllow: /\n{FORMS}\n" for b in AI_BOTS
     ) + "Sitemap: " + BASE + "sitemap.xml\n"
     (DOCS / "robots.txt").write_text(robots_txt)
     # A noindex,follow page has no business in the sitemap — listing it
-    # anyway is a mixed signal and spends crawl budget for nothing.
-    def _indexable(f):
-        return 'content="noindex' not in f.read_text(encoding="utf-8")
+    # anyway is a mixed signal and spends crawl budget for nothing. The
+    # test reads the file, and so does the fingerprint below, so the two
+    # share the one read: 99,000 pages is 321 MB and there is no reason
+    # to pull it off the disk twice.
 
     def _image_ext(rel_path):
         # Only the 114 real, Wikimedia-credited photos vendored into
@@ -21096,20 +23222,120 @@ def build():
     # them, and not in any sense a crawler should file under this directory:
     # no canonical, no shell, no relation to Chiang Mai. /get.html is the page
     # that lists them and it is in the sitemap like everything else.
-    sitemap_urls = "".join(
-        f"<url><loc>{BASE}{f.relative_to(DOCS).as_posix()}</loc>"
-        f"<lastmod>{BUILD_DATE}</lastmod>{_image_ext(f.relative_to(DOCS).as_posix())}</url>"
-        for f in sorted(DOCS.rglob("*.html"))
-        if _indexable(f) and not f.relative_to(DOCS).as_posix().startswith("get/"))
+    # ONE FILE WAS NOT A SITEMAP — 2026-09-20
+    # ---------------------------------------
+    # The protocol caps a sitemap file at 50,000 URLs and 50 MB uncompressed.
+    # This directory passed 50,000 in July and nobody noticed, because nothing
+    # on this side of the wire says so: the site keeps serving, the file keeps
+    # being written, and the pages past the cap are simply never offered to
+    # anyone. Search Console, read on 2026-09-20 with the property opened the
+    # same morning, had been saying it since 2026-08-20 — sitemap.xml, last
+    # read 2026-09-19, "Sitemap can be read, but has errors: Too many URLs",
+    # discovered pages 50,000 exactly, of 84,908 in the file. So 34,908 pages
+    # had no route into the index but a crawler stumbling on a link, and four
+    # pages of motdang.net were in Google.
+    #
+    # So the list is sharded and sitemap.xml becomes the INDEX that names the
+    # shards — the one address robots.txt has always given out, still answering
+    # at that address, now with something a crawler will accept behind it.
+    # 45,000 rather than the full 50,000 leaves room for a growth spurt between
+    # a shard count and the next build.
+    SITEMAP_MAX = 45_000
+
+    # LASTMOD IS A CLAIM ABOUT THE PAGE, NOT ABOUT THE BUILD — 2026-09-23
+    # -------------------------------------------------------------------
+    # Every URL used to carry BUILD_DATE, so all 98,000 of them announced
+    # that they changed today, and said it again tomorrow. Dates that all
+    # move together carry no information, and a crawler that finds them
+    # stops reading the field: the one signal that says "this page is new,
+    # come and see" was being spent on every page at once, which spends it
+    # on none.
+    #
+    # So a page keeps the date its own content last changed. The footer
+    # prints the build's date on every page — in ISO and in its Buddhist-era
+    # twin — so both forms are normalised out before hashing, or the stamp
+    # alone would churn all 98,000 fingerprints nightly and put us back
+    # where we started. blake2b at 16 bytes: this runs 99,000 times.
+    #
+    # The table lives in cache/ because it is derived, not authored. Lose
+    # it and every page reads as changed today — the old behaviour, which
+    # is a floor, not a break. It heals on the build after.
+    LASTMOD_DB = ROOT / "cache" / "sitemap-lastmod.json"
+    _be_today = f"{BE_BUILD}{BUILD_DATE[4:]}"
+
+    def _fingerprint(text):
+        text = text.replace(BUILD_DATE, "<d>").replace(_be_today, "<d>")
+        return hashlib.blake2b(text.encode("utf-8"), digest_size=16).hexdigest()
+
+    try:
+        _lm_was = json.loads(LASTMOD_DB.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        _lm_was = {}
+    _lm_now = {}
+
+    sitemap_urls, sitemap_dates = [], []
+    sitemap_seen = set()
+    for f in sorted(DOCS.rglob("*.html")):
+        rel = f.relative_to(DOCS).as_posix()
+        # WO-75 — get/ holds the toys THEMSELVES (see below)
+        if rel.startswith("get/"):
+            continue
+        text = f.read_text(encoding="utf-8")
+        if 'content="noindex' in text:
+            continue
+        # The sitemap names the address the page itself calls canonical: the
+        # front page is /, not /index.html, and a page that points elsewhere
+        # is that other page's copy, not an entry of its own.
+        _cm = SITEMAP_CANON.search(text[:20000])
+        loc = _cm.group(1).replace("&amp;", "&") if _cm else BASE + rel
+        if not loc.startswith(BASE) or loc in sitemap_seen:
+            continue
+        sitemap_seen.add(loc)
+        fp = _fingerprint(text)
+        seen = _lm_was.get(rel)
+        lastmod = seen[1] if seen and seen[0] == fp else BUILD_DATE
+        _lm_now[rel] = [fp, lastmod]
+        sitemap_urls.append(f"<url><loc>{att(loc)}</loc>"
+                            f"<lastmod>{lastmod}</lastmod>{_image_ext(rel)}</url>")
+        sitemap_dates.append(lastmod)
+
+    # Pages the Worker serves (home-help, sala) have no file under docs/, so the
+    # walk above cannot see them; the register can.
+    for _loc in sites_layer.sitemap_urls():
+        if _loc not in sitemap_seen:
+            sitemap_seen.add(_loc)
+            sitemap_urls.append(f"<url><loc>{att(_loc)}</loc></url>")
+    LASTMOD_DB.parent.mkdir(parents=True, exist_ok=True)
+    LASTMOD_DB.write_text(json.dumps(_lm_now, separators=(",", ":")),
+                          encoding="utf-8")
+    _fresh = sum(1 for d in sitemap_dates if d == BUILD_DATE)
+    print(f"           sitemap: {len(sitemap_urls):,} urls, "
+          f"{_fresh:,} changed today, "
+          f"{len(sitemap_urls) - _fresh:,} carrying an older date")
+
+    shards = [sitemap_urls[i:i + SITEMAP_MAX]
+              for i in range(0, len(sitemap_urls), SITEMAP_MAX)] or [[]]
+    # A shard's own lastmod is the newest page inside it, so a crawler that
+    # reads the index first can skip a shard whose pages have all sat still.
+    shard_dates = [max(sitemap_dates[i:i + SITEMAP_MAX], default=BUILD_DATE)
+                   for i in range(0, len(sitemap_urls), SITEMAP_MAX)] or [BUILD_DATE]
+    for n, shard in enumerate(shards, 1):
+        (DOCS / f"sitemap-{n}.xml").write_text(
+            '<?xml version="1.0" encoding="UTF-8"?>'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+            'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
+            + "".join(shard) + "</urlset>")
     (DOCS / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
-        'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
-        + sitemap_urls + "</urlset>")
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        + "".join(f"<sitemap><loc>{BASE}sitemap-{n}.xml</loc>"
+                  f"<lastmod>{d}</lastmod></sitemap>"
+                  for n, d in zip(range(1, len(shards) + 1), shard_dates))
+        + "</sitemapindex>")
     src = emit_source()
-    src_th = ("ทั้งเว็บนี้สร้างจากโค้ดและข้อมูลชุดนี้ ดาวน์โหลดไปใช้ได้เลย ไม่ต้องสมัครอะไร")
+    src_th = ("ทั้งเว็บนี้สร้างจากโค้ดและข้อมูลชุดนี้ ดาวน์โหลดไปใช้ได้เลย")
     src_en = ("Everything this site is built from — the builder, the importers, the "
-              "tests, and every canonical record. No account or sign-up. Served from this "
+              "tests, and every canonical record. Served from this "
               "domain.")
     named = [("categories.json", "หมวดหมู่ทั้งหมด", "the whole category tree"),
              ("sources.json", "ทะเบียนแหล่งข้อมูล", "the source registry"),
@@ -21143,6 +23369,39 @@ def build():
         f'<a href="../terms.html">{bi("เงื่อนไขฉบับเต็ม", "the full terms")}</a></p>'
         f'{share_block(BASE + "source/", "โค้ดและข้อมูลดิบ · Source and raw data")}',
         depth=1, path="source/index.html", desc=src_th))
+
+    # ---- 🔎 red-team surface: colophon, self-audit, bug bounty --------
+    # After the sitemap and source page (so the page count and the proof files
+    # are on disk), before llms.txt (so its section can carry this build's audit
+    # verdict). robots.txt was written above; the note is appended to it here,
+    # and the llms section is appended after the llms.txt write below.
+    import colophon_layer
+    import sala_layer  # รังมด · The Anthill, for robots.txt and llms.txt
+    import eggs_layer  # hidden things, for robots.txt and llms.txt
+    # all_recs is a local of build(), not a module global, so it is injected
+    # rather than read off globals() the way page/bi/BASE are.
+    _colo = colophon_layer.emit({**globals(), "all_recs": all_recs}, data)
+    print("  colophon:", _colo["status"])
+    with (DOCS / "robots.txt").open("a", encoding="utf-8") as _rf:
+        _rf.write(_colo["robots_note"])
+        _rf.write(sala_layer.robots_note())
+        _rf.write(eggs_layer.robots_note())
+
+    # Counted, not typed. Numbers written into this prose by hand drifted from
+    # the files they describe: on 2026-09-25 it said 431 mapped toilets while
+    # data/toilets.json held 537, and quoted the plan demo as 526 m / 762 m
+    # while plan.html, reading assets/plan-demo.json, said 560 m / 817 m.
+    # tests/test_llms_counts.py compares the built file with the data.
+    try:
+        _tv = json.loads((DOCS / "data" / "toilets.json").read_text())["verified"]
+    except (OSError, ValueError, KeyError):
+        _tv = []
+    LLMS_TOILETS_N = f"{len(_tv):,}"
+    LLMS_TOILETS_PRICED = sum(1 for _r in _tv if len(_r) > 5 and _r[5])
+    LLMS_PLAN_DEMO = (
+        f"- Worked example, from the demo on the page: one leg is {PLAN_DEMO['crowM']} m as the crow flies,\n"
+        f"  {PLAN_DEMO['footM']} m on foot and {PLAN_DEMO['rideM']} m on a scooter. Only the last two are true."
+        if PLAN_DEMO else "")
     (DOCS / "llms.txt").write_text(f"""# มดแดง Mot Dang
 
 > A Thai-first, open, 1997-style city directory for Chiang Mai and Chiang Rai —
@@ -21381,8 +23640,7 @@ works from a browser as well as a server.
   - **oneway binds the scooter and not the walker.** On a one-way ring road the
     shop thirty metres behind you is a lap away, which is exactly why crossing
     the moat costs a scooter a U-turn and a walker a footbridge.
-- Worked example, from the demo on the page: one leg is 419 m as the crow flies,
-  526 m on foot and 762 m on a scooter. Only the last two are true.
+{LLMS_PLAN_DEMO}
 - **The graph**: {BASE}data/road_graph.json — a junction graph of the old city
   and roughly a 2 km ring, built from OpenStreetMap highway ways. Junctions,
   edge lengths in metres, road shape kept for drawing, and four permission bits
@@ -21457,8 +23715,8 @@ works from a browser as well as a server.
   that oblige a customer — larger, fetched only when asked for).
 - READ THIS BEFORE REPEATING ANYTHING FROM THAT FILE. It carries two kinds of
   row and conflating them would put a claim in our mouth we did not make:
-  - `verified` — a toilet somebody mapped at that spot (amenity=toilets). 431
-    of them. Certain about the point; usually silent about price and hours.
+  - `verified` — a toilet somebody mapped at that spot (amenity=toilets).
+    {LLMS_TOILETS_N} of them. Certain about the point; usually silent about price and hours.
   - `places` — a venue whose CLASS normally keeps one. A HABIT, never a check
     on that building. Say "stations like this normally have a free toilet",
     never "this station has a toilet". The `tiers` block carries the exact
@@ -21469,8 +23727,8 @@ works from a browser as well as a server.
   convenience stores are NOT a tier — they do not normally keep a customer
   toilet, unlike their counterparts abroad. The `toilet` facet on those shops
   means "there is one within 30 m", which is a claim about the street.
-- The number worth knowing: of 344 mapped toilets in Chiang Mai, exactly ONE
-  records what it charges. Every 5-10 baht figure on the page is class
+- The number worth knowing: of {LLMS_TOILETS_N} mapped toilets, {LLMS_TOILETS_PRICED}
+  record what they charge in baht. Every 5-10 baht figure on the page is class
   knowledge waiting on a field report, and is labelled as such.
 
 ## 🏪 Sevens — two voices, and they do not mean the same thing
@@ -21710,6 +23968,25 @@ works from a browser as well as a server.
 - {len(CLAIMS):,} place(s) currently claimed, synced via
   importers/sync_claims.py from {CLAIMS_WORKER_URL}/claims.
 
+## Doodle votes, notes and picks — for humans and bots alike
+- Every doodle on {BASE}doodles/ takes a thumb up or down on two axes, accuracy
+  (does it show what it is meant to) and aesthetics (does it look good), and a
+  note on what is right and what is wrong with the picture.
+- POST {CLAIMS_WORKER_URL}/doodle-vote with JSON
+  {{"id": "<doodle id>", "v": <version>, "accuracy": 1, "aesthetics": -1, "note": "<up to 2000 characters>"}}.
+  1 is up, -1 down, 0 takes a vote back; send one axis or both. Each doodle's id
+  and latest version are the `id` and `v` of its row in {BASE}doodles/data/all/0.json,
+  1.json … (meta.json gives the count), and its page is {BASE}doodles/d/?id=<id>&v=<v>.
+- The better of two: {BASE}doodles/data/pairs.json lists pairs [idA, vA, idB, vB];
+  POST {CLAIMS_WORKER_URL}/doodle-pick with
+  {{"a": {{"id": "<idA>", "v": <vA>}}, "b": {{"id": "<idB>", "v": <vB>}}, "pick": "a"}}
+  ("a", "b", or "same" when you cannot tell).
+  The page for people is {BASE}doodles/pick/.
+- One vote per voter per axis per version, one pick per voter per pair; a second
+  replaces the first. Humans and bots are counted the same way.
+{('- Pay: $' + str(_dp[0]) + ' a pick, and $' + str(_dp[1]) + ' to $' + str(_dp[2]) + ' a note by how much it adds to the notes already' + chr(10) + '  left on that doodle and how much of it is about the picture, which Claude checks against' + chr(10) + '  the drawing for notes worth $' + str(_ds.JUDGE_FROM) + ' or more. Add "payee": "<' + CONFIG.get("doodlePayRail") + ' address>" to the body.' + ((' Paid ' + CONFIG["doodlePayEvery"] + '.') if CONFIG.get("doodlePayEvery") else '') + chr(10)) if CONFIG.get("doodlePayRail") else ''}- Tallies: GET {CLAIMS_WORKER_URL}/doodle-votes (all) or ?id=<id>&v=<version>.
+- A redrawn doodle is a new version, with its own tally.
+
 ## ☎️ Reaching the people behind this — and what is NOT us
 - Email: {CONTACT_EMAIL} — the address to give anyone who asks how to be
   listed, corrected or removed.
@@ -21807,6 +24084,24 @@ fields; photo licences are per-photo in data/places.json.
 {BASE}llms-full.txt — every place as one plain-text line, name, category,
 coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
 """)
+    with (DOCS / "llms.txt").open("a", encoding="utf-8") as _lf:
+        _lf.write(_colo["llms_section"])
+        _lf.write(sites_layer.llms_section(DOCS))
+        _lf.write(sala_layer.llms_section())
+        _lf.write(eggs_layer.llms_section())
+        _lf.write(sitenet_layer.llms_section(DOCS))
+    fullmoon_layer.llms(DOCS)
+
+    # ---- the Mot Dang net: every register page shows every other ----------
+    # Last of the page writes, so the colophon, /source/ and /sites/ carry it.
+    _sn_pages, _sn_off = sitenet_layer.inject(DOCS)
+    # The Send button on every page that does not load md.js (minisites, /loop,
+    # /roads, /markets, listings): share_layer.py, Nan 2026-10-03.
+    import share_layer as _share_layer
+    print(f"  share: /locshare.js put on {_share_layer.inject(DOCS)} pages without md.js")
+    (DOCS / "net.json").write_text(json.dumps(
+        sitenet_layer.net_json(DOCS), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    print(f"  sitenet: {_sn_pages} pages carry the net; served elsewhere: {', '.join(_sn_off)}")
 
     # ---- llms-full.txt: the whole directory as plain lines, nothing to strip
     def _flat(r):
@@ -21826,6 +24121,10 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
     # ---- IndexNow: tell Bing/Yandex the moment a build lands --------------
     # The key file must sit at the site root and contain exactly the key.
     (DOCS / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY)
+
+    # ---- Google Search Console ownership ---------------------------------
+    (DOCS / GOOGLE_VERIFY).write_text(
+        f"google-site-verification: {GOOGLE_VERIFY}\n")
 
     if _FINAL_DOCS is not None:
         _swap_into_place()
