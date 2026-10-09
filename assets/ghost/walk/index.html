@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>On foot — Ghost Chiang Mai</title>
+<meta name="description" content="Everything the old city holds, including the spot the founder was killed on, within a square 1.6 km on a side.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://motdang.net/ghost/walk/">
+<style>
+:root{
+ --bg:#f7f3ea;--panel:#fffdf8;--ink:#14121c;--mute:#5f5870;--line:#e2dacb;--chip:#efe7d6;
+ --hot:#6d3fb0;--sun:#c8880c;--jade:#0f6f66;--sky:#1a5fa8;--ember:#b3341f;
+ --focus:#0a4fd1;--shadow:rgba(20,18,28,.12);
+ --w1:#6d3fb0;--w2:#0f6f66;--w3:#c8880c;--w4:#b3341f;
+ --display:"Avenir Next Condensed","HelveticaNeue-CondensedBold","Arial Narrow Bold",
+   "Franklin Gothic Heavy",Impact,system-ui,sans-serif;
+ --body:"Avenir Next",Avenir,"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;
+ --thai:"Noto Sans Thai","Leelawadee UI","Thonburi","Sukhumvit Set","Krungthep",Tahoma,sans-serif;
+ --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+ --bg:#0f0d14;--panel:#171423;--ink:#f2ecdd;--mute:#a79ec0;--line:#2c2740;--chip:#231f33;
+ --hot:#b79bff;--sun:#ffc846;--jade:#3fd0bd;--sky:#77b6ff;--ember:#ff7a5e;
+ --focus:#8ab4f8;--shadow:rgba(0,0,0,.55);
+ --w1:#b79bff;--w2:#3fd0bd;--w3:#ffc846;--w4:#ff7a5e;}}
+:root[data-theme="dark"]{
+ --bg:#0f0d14;--panel:#171423;--ink:#f2ecdd;--mute:#a79ec0;--line:#2c2740;--chip:#231f33;
+ --hot:#b79bff;--sun:#ffc846;--jade:#3fd0bd;--sky:#77b6ff;--ember:#ff7a5e;
+ --focus:#8ab4f8;--shadow:rgba(0,0,0,.55);
+ --w1:#b79bff;--w2:#3fd0bd;--w3:#ffc846;--w4:#ff7a5e;}
+*{box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.62;
+ -webkit-text-size-adjust:100%}
+:lang(th),.th{font-family:var(--thai);line-height:1.85}
+a{color:var(--hot);text-decoration-thickness:.08em;text-underline-offset:.18em}
+a:hover{color:var(--ember)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:5px}
+img{max-width:100%;height:auto}
+hr{border:0;border-top:2px solid var(--line);margin:2rem 0}
+
+/* ---- frame */
+header.top{border-bottom:2px solid var(--ink);position:sticky;top:0;z-index:30;background:var(--bg)}
+@media (max-width:52rem){header.top{position:static}}
+header.top .in{max-width:66rem;margin:0 auto;padding:.5rem 1rem;display:flex;gap:.4rem 1rem;
+ align-items:center;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.2rem;letter-spacing:.01em;
+ text-transform:uppercase;text-decoration:none;color:var(--ink);white-space:nowrap}
+.brand b{color:var(--hot)}
+header.top nav{display:flex;gap:.1rem .6rem;flex-wrap:wrap;font-size:.72rem;
+ text-transform:uppercase;letter-spacing:.06em;font-weight:800}
+header.top nav a{text-decoration:none;color:var(--mute);padding:.15rem 0}
+header.top nav a:hover,header.top nav a[aria-current]{color:var(--ink);box-shadow:inset 0 -3px 0 var(--hot)}
+main{max-width:66rem;margin:0 auto;padding:1rem 1rem 5rem}
+footer.bot{border-top:2px solid var(--line);margin-top:3rem}
+footer.bot .in{max-width:66rem;margin:0 auto;padding:1.4rem 1rem 3rem;font-size:.8rem;color:var(--mute)}
+footer.bot a{color:var(--mute)}
+footer.bot p{max-width:46rem}
+
+/* ---- type */
+h1{font-family:var(--display);font-size:clamp(2.1rem,6.5vw,4rem);line-height:.97;margin:.4rem 0 .3rem;
+ font-weight:800;letter-spacing:-.01em;text-transform:uppercase}
+h1 .kind{display:block;font-size:clamp(.6rem,1.6vw,.72rem);color:var(--hot);letter-spacing:.3em;
+ margin-bottom:.55rem;font-weight:800}
+h1 .thai{display:block;font-family:var(--thai);font-size:clamp(1rem,2.6vw,1.5rem);
+ text-transform:none;letter-spacing:0;color:var(--mute);font-weight:400;margin-top:.45rem}
+h2{font-family:var(--display);font-size:clamp(1.3rem,3vw,1.75rem);margin:2.2rem 0 .5rem;font-weight:800;
+ text-transform:uppercase;border-bottom:3px solid var(--ink);padding-bottom:.2rem}
+h3{font-family:var(--display);font-size:1.08rem;margin:1.3rem 0 .3rem;font-weight:800;text-transform:uppercase}
+.lede{font-size:clamp(1.05rem,2.3vw,1.28rem);max-width:42rem;margin:.4rem 0 1rem}
+.mute{color:var(--mute)}.small{font-size:.82rem}
+p{margin:.6rem 0;max-width:42rem}
+.prose p{margin:.9rem 0}
+blockquote{margin:1rem 0;padding:.2rem 0 .2rem 1rem;border-left:4px solid var(--sun);color:var(--mute);
+ font-style:italic;max-width:40rem}
+
+/* ---- big numbers */
+.slab{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));
+ border:3px solid var(--ink);margin:1.2rem 0;background:var(--bg)}
+.slab div{padding:.75rem .8rem;border-right:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.slab b{display:block;font-family:var(--display);font-size:clamp(1.9rem,5.5vw,2.9rem);line-height:.92;
+ font-weight:800;color:var(--hot)}
+.slab span{display:block;font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;
+ color:var(--mute);font-weight:800;margin-top:.25rem}
+.slab div:last-child{border-right:0}
+
+/* ---- parallax bands: photograph, scrim, tint, type. The fixed attachment is the trick. */
+.band{position:relative;isolation:isolate;
+ margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw;
+ min-height:clamp(260px,52vh,520px);display:grid;align-items:center;
+ background-size:cover;background-position:center;background-repeat:no-repeat;
+ background-attachment:fixed;background-color:#0b0910;
+ border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);margin-block:2.6rem}
+.band::before{content:"";position:absolute;inset:0;z-index:-2;
+ background:linear-gradient(180deg,rgba(7,5,12,.82) 0%,rgba(7,5,12,.34) 38%,
+  rgba(7,5,12,.48) 62%,rgba(7,5,12,.88) 100%)}
+.band::after{content:"";position:absolute;inset:0;z-index:-1;mix-blend-mode:multiply;
+ background:radial-gradient(120% 90% at 22% 32%,rgba(109,63,176,.28),transparent 62%),
+  linear-gradient(90deg,rgba(11,9,16,.55),transparent 55%)}
+.band .in{max-width:66rem;margin:0 auto;padding:clamp(2rem,6vw,4.2rem) 1rem;width:100%}
+.band .kicker{display:block;font-family:var(--display);font-size:.7rem;font-weight:800;
+ letter-spacing:.34em;text-transform:uppercase;color:#d7bcff;margin-bottom:.7rem}
+.band h2{font-family:var(--display);font-size:clamp(1.9rem,6vw,3.5rem);line-height:.98;
+ margin:0 0 .5rem;border:0;color:#fff;text-transform:uppercase;letter-spacing:-.01em;
+ text-shadow:0 2px 26px rgba(0,0,0,.6);max-width:22ch}
+.band p{color:#efe6dc;font-size:clamp(1rem,2.2vw,1.2rem);max-width:34ch;margin:.3rem 0 0;
+ text-shadow:0 1px 14px rgba(0,0,0,.75)}
+.band .big{font-family:var(--display);font-size:clamp(3rem,11vw,7rem);line-height:.86;
+ font-weight:800;color:#fff;margin:0;text-shadow:0 3px 34px rgba(0,0,0,.6);letter-spacing:-.02em}
+.band .big small{display:block;font-family:var(--body);font-size:.16em;letter-spacing:.24em;
+ text-transform:uppercase;color:#d7bcff;margin-top:.5rem;font-weight:800}
+.band .cred{position:absolute;right:0;bottom:0;z-index:1;font-size:.6rem;color:#cbc0d8;
+ background:rgba(7,5,12,.74);padding:.22rem .5rem;max-width:74%}
+.band .cred a{color:#e2d6ef}
+.band .btn{margin-top:1.2rem}
+.band.right .in{text-align:right;display:flex;flex-direction:column;align-items:flex-end}
+.band.right::after{background:radial-gradient(120% 90% at 78% 32%,rgba(109,63,176,.28),transparent 62%),
+ linear-gradient(270deg,rgba(11,9,16,.55),transparent 55%)}
+.band.tall{min-height:clamp(340px,72vh,680px)}
+.band.short{min-height:clamp(200px,34vh,320px)}
+@media (pointer:coarse),(prefers-reduced-motion:reduce){.band{background-attachment:scroll}}
+@media print{.band{display:none}}
+
+/* ---- linked images: background, scrim, spacer, text. The whole box is the link. */
+.shot{position:relative;display:block;overflow:hidden;text-decoration:none;
+ background-color:#0b0910;isolation:isolate}
+.shot .bg{position:absolute;inset:0;background-size:cover;background-position:center;
+ background-repeat:no-repeat;transition:scale .9s cubic-bezier(.2,.7,.2,1)}
+.shot .scrim{position:absolute;inset:0;background:linear-gradient(180deg,
+ rgba(7,5,12,.08) 0%,rgba(7,5,12,.16) 40%,rgba(7,5,12,.62) 72%,rgba(7,5,12,.92) 100%)}
+.shot .sp{display:block;padding-top:62%}
+.shot .tx{position:absolute;left:0;right:0;bottom:0;padding:.5rem .7rem;color:#fff;
+ font-family:var(--display);font-weight:800;font-size:1.02rem;line-height:1.12;
+ letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.85)}
+.shot .tx small{display:block;font-family:var(--body);font-size:.62rem;font-weight:700;
+ letter-spacing:.14em;text-transform:uppercase;color:#d7bcff;margin-bottom:.2rem}
+.shot:hover .bg{scale:1.05}
+.shot:hover .tx{text-decoration:underline;text-underline-offset:.16em}
+.shot:focus-visible{outline:3px solid var(--sun);outline-offset:-3px}
+figure.thumb{margin:0;position:relative}
+figure.thumb h3{margin:0;font-size:1rem}
+figure.thumb .cred{position:absolute;right:0;top:0;z-index:1;font-size:.56rem;
+ color:#cbc0d8;background:rgba(7,5,12,.74);padding:.14rem .38rem;max-width:74%;line-height:1.25}
+figure.thumb .cred a{color:#e2d6ef}
+.card figure.thumb{margin:-.8rem -.9rem .6rem;border-bottom:2px solid var(--line)}
+@media (prefers-reduced-motion:reduce){.shot .bg{transition:none}.shot:hover .bg{scale:1}}
+
+/* the fill is a background too: anchored to the window, the box scrolls through it */
+.box{border:3px solid var(--ink);padding:1rem 1.1rem;margin:1.4rem 0;
+ background-image:linear-gradient(140deg,color-mix(in srgb,var(--hot) 13%,transparent),
+  color-mix(in srgb,var(--sun) 15%,transparent));
+ background-attachment:fixed;background-size:cover}
+.box h3{margin-top:0}
+.box p:last-child{margin-bottom:0}
+@media (pointer:coarse),(prefers-reduced-motion:reduce){.box{background-attachment:scroll}}
+
+/* ---- pictures */
+figure.shotf{margin:1.2rem 0;border:3px solid var(--ink);background:var(--panel)}
+figure.shotf img{display:block;width:100%;height:auto}
+figure.shotf figcaption{padding:.5rem .8rem;font-size:.72rem;color:var(--mute);border-top:2px solid var(--line)}
+figure.shotf figcaption a{color:var(--mute)}
+
+/* ---- cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(16.5rem,1fr));gap:.9rem;margin:1rem 0}
+.card{border:2px solid var(--line);background:var(--panel);padding:.8rem .9rem;position:relative}
+.card:hover{border-color:var(--ink);box-shadow:4px 4px 0 var(--shadow)}
+.card h3{margin:.1rem 0 .2rem;font-size:1rem}
+.card h3 a{text-decoration:none;color:var(--ink)}.card h3 a:hover{color:var(--hot)}
+.card .th{font-size:.84rem;color:var(--mute);margin:0 0 .3rem}
+.card p{font-size:.85rem;margin:.25rem 0;max-width:none}
+.tags{display:flex;gap:.3rem;flex-wrap:wrap;margin:.45rem 0 0}
+.tag{font-size:.64rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800;background:var(--chip);
+ color:var(--mute);padding:.13rem .42rem;border-radius:3px}
+.tag.walk{background:var(--w2);color:#04211e}
+.tag.ride{background:var(--w3);color:#241a02}
+.tag.scoot{background:var(--ember);color:#fff}
+.tag.drive{background:var(--w1);color:#fff}
+.tag.none{background:var(--w4);color:#fff}
+
+/* ---- the ordered route */
+ol.route{list-style:none;padding:0;margin:1.2rem 0;counter-reset:l}
+ol.route>li{border-left:5px solid var(--hot);padding:.1rem 0 1.1rem 1rem;margin:0 0 .8rem;position:relative;
+ background:linear-gradient(90deg,color-mix(in srgb,var(--hot) 8%,transparent),transparent 45%)}
+ol.route>li::before{counter-increment:l;content:counter(l);position:absolute;left:-1.45rem;top:.1rem;
+ font-family:var(--display);font-weight:800;font-size:.9rem;color:#fff;background:var(--hot);
+ width:1.5rem;height:1.5rem;display:grid;place-items:center;border-radius:99px}
+ol.route .hd{display:flex;gap:.55rem;align-items:baseline;flex-wrap:wrap}
+ol.route .hd a{font-family:var(--display);font-size:1.15rem;font-weight:800;text-decoration:none;
+ color:var(--ink);text-transform:uppercase}
+ol.route .hd a:hover{color:var(--hot)}
+ol.route .hd .th{font-size:.9rem;color:var(--mute)}
+ol.route .leg{font-size:.72rem;color:var(--mute);font-weight:800;letter-spacing:.07em;
+ text-transform:uppercase;margin:.2rem 0 0}
+ol.route p{font-size:.92rem;margin:.3rem 0 0}
+ol.route .do{font-size:.9rem;margin:.45rem 0 0;padding:.45rem .6rem;border-left:3px solid var(--sun);
+ background:color-mix(in srgb,var(--sun) 10%,transparent)}
+ol.route .do b{font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;font-size:.82rem;
+ color:var(--mute);display:block}
+
+/* ---- facts table at the head of a stop */
+dl.facts{display:grid;grid-template-columns:max-content 1fr;gap:.3rem .9rem;margin:1rem 0;font-size:.88rem;
+ border-top:2px solid var(--line);border-bottom:2px solid var(--line);padding:.7rem 0}
+dl.facts dt{font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--mute);
+ padding-top:.18rem}
+dl.facts dd{margin:0}
+@media (max-width:34rem){dl.facts{grid-template-columns:1fr;gap:.1rem}dl.facts dd{margin-bottom:.5rem}}
+
+/* ---- doubt */
+.doubt{border:2px dashed var(--line);padding:.7rem .85rem;margin:1.2rem 0;font-size:.9rem;
+ color:var(--mute);max-width:44rem}
+.doubt b{font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:.76rem;
+ color:var(--ember);display:block;margin-bottom:.2rem}
+
+/* ---- map */
+figure.map{margin:1.4rem 0;border:3px solid var(--ink);background:var(--panel);overflow:hidden}
+figure.map svg{display:block;width:100%;height:auto}
+figure.map figcaption{padding:.55rem .8rem;font-size:.76rem;color:var(--mute);border-top:2px solid var(--line)}
+.ground{fill:var(--panel)}
+.ht{fill:none;stroke:var(--sun);stroke-width:.6;opacity:.35}
+.ht5{stroke-width:1.1;opacity:.55}
+.wa{fill:var(--sky);opacity:.55;stroke:var(--sky);stroke-width:1.8;stroke-linejoin:round}
+.wl{fill:none;stroke:var(--sky);opacity:.55;stroke-linecap:round;stroke-linejoin:round}
+.wl.river{stroke-width:3}.wl.canal{stroke-width:1.4}
+.rd{fill:none;stroke:var(--mute);opacity:.38;stroke-linecap:round;stroke-linejoin:round}
+.wall{fill:none;stroke:var(--ember);stroke-width:2;stroke-dasharray:4 3;opacity:.7}
+.north{font-family:var(--display);font-size:11px;font-weight:800;fill:var(--ink)}
+.osm{font-size:8px;fill:var(--mute);font-family:var(--body)}
+.rt{fill:none;stroke:var(--hot);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;opacity:.85}
+.rt.case{stroke:var(--panel);stroke-width:6;opacity:.9}
+.rt.yards{stroke-width:1.8;stroke-dasharray:1 4}
+.pt{fill:var(--sun);stroke:var(--ink);stroke-width:1.4;paint-order:stroke}
+.pt.off{fill:var(--panel)}
+.plabel{font-family:var(--display);font-size:11px;font-weight:800;fill:var(--ink);
+ paint-order:stroke;stroke:var(--panel);stroke-width:3px;text-transform:uppercase}
+.scalebar line{stroke:var(--mute);stroke-width:1.5}
+.scalebar text{font-size:9px;fill:var(--mute);font-family:var(--body);font-weight:700}
+
+/* ---- tables */
+table{border-collapse:collapse;width:100%;font-size:.86rem;margin:.9rem 0}
+th,td{text-align:left;padding:.38rem .55rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;color:var(--mute);font-weight:800;
+ border-bottom:2px solid var(--line)}
+.scroll{overflow-x:auto}
+tr:hover td{background:color-mix(in srgb,var(--sun) 9%,transparent)}
+
+/* ---- buttons */
+.btn{display:inline-block;font-family:var(--display);font-weight:800;text-transform:uppercase;
+ letter-spacing:.07em;font-size:.86rem;padding:.55rem 1rem;border:3px solid var(--ink);
+ background:var(--hot);color:#fff;text-decoration:none}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+.btnrow{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0}
+
+/* ---- the bestiary */
+.lore{display:grid;gap:1rem;margin:1rem 0}
+.lore article{border:2px solid var(--line);background:var(--panel);padding:.85rem 1rem}
+.lore h3{margin:0 0 .1rem;font-size:1.05rem}
+.lore .nm{font-family:var(--thai);font-size:1.15rem;color:var(--ink);margin:0 0 .1rem}
+.lore .rt{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);
+ font-weight:800;margin:0 0 .5rem}
+.lore p{font-size:.95rem;max-width:46rem}
+.lore .src{font-size:.7rem;color:var(--mute);margin-top:.5rem}
+.lore .src a{color:var(--mute)}
+.gset{border-top:3px solid var(--ink);margin-top:2.2rem;padding-top:.4rem}
+.gset .glede{color:var(--mute);max-width:44rem;margin:.2rem 0 .6rem}
+
+/* ---- merit list */
+.acts{display:grid;gap:1rem;margin:1rem 0}
+.acts article{border:2px solid var(--line);background:var(--panel);padding:.85rem 1rem}
+.acts h3{margin:0 0 .2rem}
+.acts .th{font-family:var(--thai);color:var(--mute);font-size:.95rem;margin:0 0 .5rem}
+.acts ol{margin:.5rem 0;padding-left:1.15rem;font-size:.9rem}
+.acts ol li{margin:.25rem 0}
+.acts .cost{font-family:var(--mono);font-size:.82rem;color:var(--ember);font-weight:700}
+.acts .words{font-family:var(--thai);background:var(--chip);padding:.4rem .6rem;margin:.5rem 0 0;font-size:.95rem}
+
+
+/* ---- the ghost story: the one block on a stop page that is told rather than reported */
+.ghost{margin:1.6rem 0;border:3px solid var(--ink);background:var(--panel);
+ background-image:linear-gradient(160deg,color-mix(in srgb,var(--hot) 16%,transparent),
+  color-mix(in srgb,var(--sky) 10%,transparent) 55%,transparent);
+ background-attachment:fixed;background-size:cover;padding:1rem 1.15rem 1.1rem}
+.ghost>b{display:block;font-family:var(--display);text-transform:uppercase;letter-spacing:.16em;
+ font-size:.7rem;color:var(--hot);margin-bottom:.45rem}
+.ghost p{font-size:1.04rem;line-height:1.68;max-width:44rem;margin:.55rem 0}
+.ghost p:first-of-type{margin-top:0}
+.ghost .tier{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.11em;
+ text-transform:uppercase;padding:.14rem .45rem;border-radius:3px;background:var(--chip);
+ color:var(--mute);margin-top:.7rem}
+.ghost .tier.cited{background:var(--jade);color:#04211e}
+@media (pointer:coarse),(prefers-reduced-motion:reduce){.ghost{background-attachment:scroll}}
+ol.route .gh{font-size:.9rem;margin:.45rem 0 0;padding:.45rem .6rem;border-left:3px solid var(--hot);
+ background:color-mix(in srgb,var(--hot) 9%,transparent);color:var(--ink)}
+ol.route .gh b{font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;font-size:.8rem;
+ color:var(--mute);display:block}
+.rite{border:3px dashed var(--ember);padding:.9rem 1.05rem;margin:1.4rem 0}
+.rite>b{display:block;font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;
+ font-size:.78rem;color:var(--ember);margin-bottom:.3rem}
+.rite .th{font-family:var(--thai);color:var(--mute);margin:0 0 .5rem}
+.rite dl.facts{margin-top:.8rem;border-bottom:0;padding-bottom:0}
+
+@media print{
+ header.top,footer.bot,.btnrow{display:none}
+ body{background:#fff;color:#000;font-size:11pt}
+ main{max-width:none}
+ ol.route>li{break-inside:avoid}
+}
+</style>
+<header class="top"><div class="in">
+<a class="brand" href="/ghost/">Ghost <b>Chiang Mai</b></a>
+<nav><a href="/ghost/">The routes</a><a href="/ghost/walk/" aria-current="page">On foot</a><a href="/ghost/ride/">By bicycle</a><a href="/ghost/scoot/">On a scooter</a><a href="/ghost/drive/">With a driver</a><a href="/ghost/stops/">Every stop</a><a href="/ghost/lore/">The rest of them</a><a href="/ghost/merit/">Making merit</a><a href="/ghost/pictures/">Your pictures</a><a href="/ghost/sources/">Sources</a></nav>
+</div></header>
+<main>
+
+<h1><span class="kind">On foot · 12 stops</span>Inside the moat, in a morning
+<span class="thai" lang="th">เดิน</span></h1>
+<p class="lede">Everything the old city holds, including the spot the founder was killed on, within a square 1.6 km on a side.</p>
+<section class="band tall" style="background-image:url(/ghost/images/wat-chiang-man/chedi-chang-lom-wat-chiang-man.jpg)"><div class="in"><span class="kicker">On foot · เดิน</span><h2>Twelve stops, one square kilometre</h2><p>Wat Chiang Man, north-east quarter. Any red songthaew from anywhere in town, 30 ฿.</p></div><span class="cred">Christophe95 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File%3AChedi_Chang_Lom%2C_Wat_Chiang_Man.jpg">Commons</a></span></section>
+<dl class="facts">
+<dt>Start</dt><dd>Wat Chiang Man, north-east quarter. Any red songthaew from anywhere in town, 30 ฿.</dd>
+<dt>Finish</dt><dd>Chiang Mai Gate. The market is on from dusk.</dd>
+<dt>Timing</dt><dd>Start at seven. Monks eat before eleven, so anything involving a tray happens in the first four hours.</dd>
+<dt>Distance</dt><dd>8.7 km along the streets on foot.</dd>
+</dl>
+<figure class="map"><svg viewBox="0 0 860 1032" role="img" aria-label="In order, along the streets on foot: 8.7 km. Route from the OpenStreetMap routers at routing.openstreetmap.de; streets and water from OpenStreetMap. The White Lion house carries no pin, because this site gives it no address." xmlns="http://www.w3.org/2000/svg"><rect class="ground" width="860" height="1032"/><path class="wa" d="M650 917L646 912L648 908L722 909L733 908L737 885L739 845L743 842L748 844L743 905L737 914L719 918L650 917ZM748 715L750 714L756 716L749 827L747 830L741 827L748 715ZM754 701L750 698L755 622L759 620L762 623L757 699L754 701ZM681 163L680 171L605 169L605 160L681 163ZM434 156L438 153L594 159L593 169L437 164L434 156ZM18 294L13 296L9 294L17 158L20 146L25 146L28 143L180 148L180 155L27 149L24 153L18 294ZM13 306L17 308L16 368L11 371L6 367L9 308L13 306ZM308 161L309 152L412 155L412 163L308 161ZM765 437L774 438L769 532L760 532L765 437ZM776 407L774 410L768 407L772 323L775 320L780 323L776 407ZM783 272L781 309L780 312L774 312L781 178L779 174L693 172L693 164L782 168L785 171L783 272ZM5 530L2 665L0 668L-3 669L-8 666L-2 530L5 530ZM496 903L496 912L375 908L373 905L376 901L496 903ZM362 900L365 905L362 909L190 905L189 901L193 897L362 900ZM636 906L639 911L636 915L562 912L562 905L636 906ZM10 378L14 380L8 492L8 494L4 494L0 494L0 491L6 381L10 378ZM-1 898L-9 895L-13 891L-18 882L-19 872L-9 684L-3 679L1 681L-11 876L-7 889L2 894L2 897L-1 898ZM111 863L118 862L118 849L114 844L106 844L103 848L103 861L103 863L111 863ZM299 152L299 159L191 156L190 148L299 152ZM96 864L92 860L81 861L70 857L70 859L74 860L72 865L70 868L64 868L59 866L58 857L54 856L48 864L43 864L39 861L34 864L27 862L14 865L15 869L20 867L24 870L25 868L37 869L48 867L54 869L55 872L65 874L70 873L78 865L92 867L96 864ZM121 536L129 537L131 500L123 499L121 536ZM805 91L781 -75L783 -76L788 -44L791 -40L806 73L808 95L806 142L821 172L826 196L823 195L821 176L803 143L805 91ZM660 842L675 846L673 852L658 848L660 842ZM11 893L166 896L167 900L165 903L11 898L8 895L11 893ZM98 238L103 238L104 249L97 249L98 238ZM309 2848L315 2802L320 2781L325 2762L337 2737L359 2711L376 2696L407 2673L454 2652L482 2629L495 2594L497 2574L486 2529L485 2490L482 2476L492 2448L499 2439L562 2397L602 2377L605 2373L603 2367L618 2358L620 2361L642 2351L659 2348L692 2355L715 2355L767 2341L796 2323L824 2295L843 2270L851 2238L843 2183L848 2157L854 2143L868 2117L876 2106L881 2093L901 2061L912 2050L951 1998L966 1984L984 1973L1043 1948L1113 1945L1124 1938L1143 1935L1159 1934L1228 1906L1242 1897L1252 1881L1265 1854L1274 1818L1271 1776L1266 1754L1206 1651L1180 1598L1173 1540L1176 1513L1182 1494L1184 1463L1194 1429L1206 1398L1250 1330L1259 1318L1282 1295L1332 1252L1358 1214L1379 1191L1405 1155L1415 1134L1416 1099L1413 1063L1400 1034L1355 945L1345 923L1342 912L1328 891L1307 868L1292 837L1290 808L1299 774L1309 680L1309 649L1305 627L1291 594L1255 513L1237 477L1210 435L1194 418L1134 363L1079 290L1071 276L1058 235L1052 206L1060 128L1072 98L1089 72L1103 57L1132 34L1173 10L1198 -16L1201 -15L1201 -20L1218 -34L1230 -69L1243 -127L1256 -212L1270 -273L1271 -289L1263 -334L1264 -453L1260 -502L1242 -587L1207 -730L1183 -784L1164 -842L1156 -849L1149 -849L1146 -852L1151 -857L1136 -892L1111 -932L1097 -943L1074 -974L1068 -973L1010 -1031L973 -1072L928 -1109L884 -1153L867 -1174L857 -1194L840 -1218L829 -1246L825 -1272L830 -1304L849 -1357L863 -1375L886 -1396L904 -1416L940 -1468L953 -1495L963 -1524L969 -1548L969 -1575L958 -1592L938 -1606L913 -1635L884 -1663L846 -1692L832 -1709L813 -1721L747 -1752L688 -1798L678 -1815L665 -1850L641 -1928L606 -2006L589 -2056L577 -2110L555 -2159L518 -2202L473 -2238L441 -2270L391 -2315L365 -2345L339 -2401L327 -2444L333 -2478L352 -2537L396 -2635L401 -2656L402 -2675L439 -2678L439 -2648L420 -2621L410 -2610L398 -2588L369 -2501L364 -2482L361 -2444L362 -2416L372 -2370L411 -2322L433 -2303L491 -2264L541 -2213L564 -2181L585 -2146L615 -2079L641 -1987L675 -1888L682 -1876L684 -1862L688 -1850L707 -1818L723 -1801L764 -1769L840 -1729L905 -1684L945 -1646L979 -1587L986 -1569L987 -1557L986 -1512L974 -1491L969 -1469L941 -1426L902 -1376L873 -1343L858 -1314L854 -1293L856 -1266L864 -1239L878 -1204L896 -1173L920 -1149L986 -1095L1045 -1051L1098 -990L1161 -901L1174 -874L1182 -847L1226 -775L1246 -730L1248 -717L1247 -676L1278 -571L1294 -496L1299 -344L1304 -268L1302 -242L1291 -183L1284 -111L1273 -74L1264 -55L1247 -29L1220 2L1178 36L1145 56L1122 75L1095 134L1089 205L1093 229L1102 254L1156 341L1194 373L1252 429L1273 453L1320 530L1334 561L1341 581L1343 596L1332 733L1339 812L1355 865L1388 952L1401 983L1435 1033L1437 1042L1440 1045L1448 1065L1456 1139L1455 1155L1433 1197L1411 1220L1334 1279L1300 1314L1264 1363L1235 1407L1221 1436L1209 1489L1202 1532L1215 1587L1228 1626L1252 1658L1268 1684L1305 1743L1317 1769L1322 1832L1314 1866L1304 1889L1285 1909L1228 1940L1212 1948L1156 1966L1132 1980L1125 1982L1034 1977L1023 1981L1013 1987L973 2015L959 2029L907 2098L884 2143L882 2173L881 2252L877 2268L854 2305L822 2335L798 2350L775 2355L736 2369L690 2379L671 2387L631 2413L625 2410L609 2419L610 2421L519 2477L509 2532L514 2590L511 2610L506 2624L496 2639L476 2657L454 2670L436 2676L417 2687L373 2725L337 2780L329 2814L328 2851L309 2848ZM641 732L645 734L644 738L639 737L641 732Z"/><path class="wl canal" d="M811 92L808 93M808 93L806 93"/><path class="rd" stroke-width="0.55" d="M8 634L80 640L154 637M69 787L117 796M3 756L69 761L99 769M27 810L1 811M40 808L41 818L15 830L0 831M80 640L80 671M63 863L67 859L69 865L65 867L63 863M45 740L4 736M118 472L18 466M218 575L12 564M76 567L76 613L74 616L55 617L55 638M53 638L55 672M51 672L53 710M54 540L52 566M10 592L56 594M25 886L160 889L160 893L25 889L25 886M20 726L46 729L45 740M93 718L116 723M99 769L117 774M85 790L84 803M58 425L54 467M73 745L45 740M61 810L41 818M27 810L40 808M345 673L353 580L364 538M191 752L235 760M541 876L588 854M448 863L451 860L525 864L539 863M444 801L448 863M412 841L401 849L393 876M519 728L480 733L417 729M319 534L317 469M313 614L316 577M299 673L300 635M263 569L220 565M265 530L263 569M153 672L154 637L162 572M787 559L793 517L827 436M858 501L861 471L858 446M846 730L836 764L841 790L841 822L843 827L856 832M826 916L841 853L882 795M752 853L782 851L795 858L814 860L841 853M797 973L802 962L802 946L806 939L808 917M871 994L840 984L811 980L782 965L775 964M834 1060L805 1021L773 961L744 947L744 920M683 1048L694 1018L688 986L691 921M503 620L535 618L613 628M124 825L125 800L117 796M117 774L117 796M531 807L506 807L481 799L432 802M405 827L369 831M636 558L663 445M610 556L609 524L601 460L603 411L598 304M354 1020L333 1007L307 985L232 975L165 947M402 1041L400 1025L404 1013L416 990L441 1000L454 1001L458 939M588 854L588 894L592 899L597 900M117 774L122 769L124 754L115 743L116 723M736 827L700 821L670 811M614 799L586 793M114 506L117 516L114 568M156 626L207 641M841 796L811 800L782 783L756 780M869 786L841 790M879 854L856 832M589 986L569 991L511 994M688 986L592 1015M637 952L640 979L688 974M156 373L157 396L163 400L168 411L168 451L169 454L185 455L184 476M854 501L813 499L802 495M771 532L770 554L778 575L773 594L767 593L763 607L769 609L765 623L759 620L751 622L752 614L755 614L759 532L771 532M847 554L852 628L848 661M761 695L798 696L862 690M296 1033L279 1008M296 1033L351 1017M158 1020L200 1026M242 995L231 994L216 1001L209 1017L200 1026M260 980L260 910M538 972L542 917M434 951L432 967L416 990M614 1040L654 1030L690 1030M646 1053L645 1031M853 691L852 718L848 731M814 860L776 909L774 919M491 508L525 509M412 841L421 838L448 842M432 802L438 775L413 776M184 823L232 831L267 807L298 777L342 755M317 673L322 704L338 746M223 891L231 866M670 811L674 771M679 698L705 686L747 650M674 771L663 772L656 781M600 824L619 833L648 837M490 490L427 489M412 541L412 504M489 464L538 467L541 481L567 484L568 490L605 490M611 600L588 601L572 594L566 585L538 577L498 579M682 562L682 524L678 513M349 609L257 602M528 786L553 786M820 576L817 592L809 609L801 616M736 1036L745 1022L750 999M795 623L769 616M795 623L818 634L824 644L848 661M763 677L803 676M795 623L795 645L802 662L806 695M790 997L779 1002L774 1012L779 1015L774 1028M864 678L853 670L848 661M306 772L316 802M278 673L282 639M120 472L119 488M663 445L760 455M737 566L735 549L721 530L706 493M706 493L725 488M592 1040L589 969L590 919M661 560L656 601L655 655L614 649M681 674L714 679M675 698L683 661M724 475L727 453M688 637L694 611L688 608L697 589L704 582L707 564M748 630L726 629L688 637L656 637M819 1000L816 1010L805 1021M772 992L774 986L784 984M461 419L481 418L482 456L462 457L461 419M448 842L471 841L476 835L494 834L493 819L496 804M588 854L591 841L613 801L619 783M368 836L268 829M588 854L633 859M332 834L333 843L271 850M272 864L231 866M317 469L307 331L301 288M724 1013L730 989M116 537L103 537L102 568M147 712L145 724M171 697L198 698M348 416L347 467M405 1010L383 992M125 970L124 991L161 993M275 495L319 495M407 628L445 627L444 589L406 590L407 628M456 773L458 733M458 750L412 752M801 616L795 623M777 561L781 573L784 561L777 561M592 1015L566 1009L559 1010L559 1014M272 871L304 870L304 847M302 775L294 738L274 736L254 725M417 729L412 673M271 753L241 747M260 767L236 758M561 772L593 766L619 765M619 783L632 774L643 761L675 698M578 770L575 752M132 965L163 971M605 869L606 855M708 744L699 742M708 744L707 749M586 793L585 797L576 798L567 807L531 812M497 902L497 913L532 912L538 909L541 903L531 910L517 911L519 906L529 903L529 901L497 902M300 629L303 629L303 617L312 617L313 614M241 638L290 639M232 727L194 728M236 702L262 706M273 802L289 809L307 810M294 738L286 705L263 700M187 796L206 794M239 827L243 807L238 804L239 799L220 790M231 866L236 829M850 591L873 600M369 831L368 896M411 803L402 776L413 776M466 898L448 863L418 847L412 841L405 827M536 844L549 844M257 438L275 439L274 472M316 802L355 792M389 876L386 896M393 876L389 876M806 939L786 938M699 830L700 821M656 781L644 780L632 774M717 747L731 732L742 732M224 484L218 478M387 463L401 415M387 463L488 460M233 726L235 707M116 723L193 730M117 774L167 769L189 771M300 635L300 629M320 636L303 636L303 629M683 661L688 637M242 995L245 1026M245 1026L279 1008M196 1026L193 1044M762 955L755 980M316 577L319 534M314 596L257 591L257 602M114 568L116 639M116 639L115 671M427 489L413 488M412 504L413 488M413 488L413 462M412 734L412 729M412 729L379 739L342 755M417 729L412 729M777 491L775 491M859 504L858 501M860 552L859 504M858 501L854 501M755 518L732 516M168 819L184 823M674 771L682 759L717 747M660 840L670 811M338 746L342 755M342 755L369 831M517 712L531 711M405 827L411 803M416 803L411 803M271 850L272 871L261 892M268 829L247 827L243 825M706 493L690 494L685 474L691 450M249 979L242 995M750 999L742 991L731 985M731 985L742 942M279 1008L260 980M125 887L124 825M124 825L164 833M802 495L777 491M432 802L416 803M413 776L412 734M232 727L249 730M203 826L249 730L259 718L266 673M128 1021L158 1022M776 467L795 468M347 698L322 704M333 1007L341 987M455 1023L476 1038M619 783L614 649M613 628L610 556M364 538L387 463M730 989L731 985M821 557L820 576M217 970L212 984M500 418L491 423L492 460L500 463L500 418M426 451L457 451M614 649L613 628M589 952L637 952M313 614L278 612M136 473L118 472M55 42L-103 -30M156 373L21 373M27 221L49 214L79 216L79 233L73 236L73 267M146 290L145 267L107 270L73 267L25 267M95 301L99 316L91 341L22 347M14 135L97 -55M46 423L18 423M23 301L85 302L159 288L196 287M171 90L56 38M112 399L97 405L60 409L58 425M107 34L66 16M34 0L22 28M57 242L57 267M67 14L34 0M58 425L46 423M63 215L66 203M-22 211L8 212M817 363L797 359L782 361M845 319L846 397M555 201L547 186L547 174M669 299L669 239M595 277L646 278L647 296M663 424L663 395L670 337M560 334L600 334M476 283L595 277M488 27L454 43L412 48M815 196L810 258M819 338L817 363M878 333L844 299L830 262L827 260L810 258L787 258M810 400L780 400M840 409L828 408M840 409L854 419L856 445M255 24L242 73L242 86L245 95L241 145M409 11L382 13L261 6M350 256L347 205M420 203L392 205L388 208M421 226L386 227M301 196L304 212L317 217L316 250M736 404L762 414M667 360L713 373L723 378L726 392L737 401L730 427M717 180L710 237L707 241L707 274L701 290L701 303M769 292L728 277L707 274M771 245L734 238L710 237M597 216L622 220L684 242L707 241M347 205L328 203L314 196L301 196M317 220L347 216M383 170L380 206M488 27L501 46M184 143L187 103L192 102L192 94M215 69L169 63M647 296L645 305L598 304M381 262L272 242L193 253M524 213L486 218L459 225M822 320L784 317M180 65L171 90M422 171L421 226M793 21L707 27M802 87L787 -17M795 38L708 44L707 36M696 37L696 71L763 68M584 106L624 104L633 81M678 40L676 76M683 39L681 -1M667 88L713 95L751 95M663 42L665 66M633 81L631 56L632 52L663 42L707 36M302 8L304 -58M707 36L706 -10M707 8L790 3M280 -112L282 8M283 244L284 191M309 362L230 387L210 391M847 364L835 357L818 359M601 436L573 435M201 338L153 343M267 165L263 187L301 193M381 262L385 248L388 208M414 77L434 104L443 131L445 149M511 69L485 75L484 63M751 95L756 134L755 162M537 89L547 71L546 45L563 43M575 86L563 43L560 17M768 315L647 296M600 332L629 331L670 337M821 198L829 199M829 199L872 203M808 184L815 196M746 240L748 208M508 -17L504 1L488 27M443 131L456 127M484 63L414 71M434 104L445 98L454 97L454 83M311 107L309 148M501 46L504 52M560 17L560 12M560 12L557 -6M504 52L515 77L520 82L542 90L575 86M846 397L827 436M858 306L861 303M853 310L858 306M676 159L680 110L666 107L667 88M737 161L735 110M355 141L414 141L405 147L355 146L355 141M501 281L503 248M255 261L255 288M664 6L663 42M488 62L507 57M124 433L134 425L166 429M167 422L188 418M598 304L595 277M595 277L597 216M301 288L302 247M126 314L125 293M489 25L519 34M527 50L546 52M339 288L339 255M399 257L396 270M313 312L343 312L343 288M190 216L160 216L159 194L168 162M595 235L643 247M623 256L619 258L594 253M527 239L489 240L467 245M454 97L473 99M311 107L311 77L324 78L325 66L372 70M347 205L348 202M348 202L351 168M388 208L348 202M302 190L301 196M304 166L302 190M401 415L488 414M313 416L401 415M401 415L419 331L420 289M597 216L524 213M597 216L599 175M391 289L396 270L381 262M765 365L712 346L670 337M748 208L772 208M670 337L681 300M575 86L585 86M664 6L681 -1M633 81L667 88M860 381L846 397M751 95L779 93M815 196L821 198M157 396L124 395L112 399M207 374L156 373M663 445L663 424M828 408L814 404L810 400M773 200L764 185L751 179L763 180L770 184L773 200M773 93L770 69M137 75L148 55M134 425L122 423M248 43L242 42L237 53L229 59M261 6L153 -31M211 95L192 94M192 94L171 90M238 205L250 164M601 438L663 445M857 313L840 320L822 320M256 20L255 24M261 6L256 20"/><path class="rd" stroke-width="1.1" d="M7 673L96 671L471 676M16 510L109 510L114 506L123 481L136 473L223 478L387 463M827 436L917 464M364 538L496 545M485 928L488 921L483 916M757 919L726 921M546 1105L505 978M504 917L502 924L505 978L464 1064M485 928L429 954L406 970L332 1043M745 909L749 917L757 919M196 287L201 338L223 478M545 898L541 876M757 919L980 908M218 575L194 728L180 889M761 707L802 715L899 747M504 917L485 928M226 516L226 527M226 527L223 548M224 484L226 516M226 527L237 528M223 478L224 484M220 563L218 575M223 548L220 563M610 556L737 566M515 697L541 876M496 545L610 556M488 414L490 490L496 545M496 545L501 606L510 663M237 528L364 538M515 697L513 679M510 663L513 679M513 679L728 704L738 705L744 699M471 676L513 679M737 566L751 567M196 287L477 289M488 414L591 411L618 413L663 424L730 427M791 152L790 166M790 166L808 184M477 289L486 348L488 414M508 -17L473 2L408 6M791 152L798 171M291 147L296 33M599 -5L600 1M804 84L811 71M586 148L591 153L602 156M574 154L583 152L586 148M601 5L601 12M601 12L595 51L585 86L586 148M447 172L438 177L437 184M802 87L804 84M791 152L796 124M796 124L797 99L802 87M437 184L431 174L422 171M811 71L830 -11M600 1L601 5M778 429L827 436M188 194L196 287M186 162L188 194M437 184L464 237L477 289M730 427L761 428"/><path class="rd" stroke-width="1.6" d="M-5 517L2 512L16 515M-1 675L7 683M17 506L5 509L-5 505M29 884L155 888M7 664L-2 671M3 902L-7 901M7 683L-1 863M16 515L12 564M7 664L7 683M12 564L8 634M20 883L25 884M-1 863L6 880L20 883M166 907L3 902M18 445L18 466M17 488L17 506M18 466L17 488M17 506L16 515M8 634L7 664M25 884L29 884M177 897L174 904L166 907M140 1252L166 938M191 908L174 916L166 938M542 898L541 910L528 916M636 901L640 903L642 909L641 917L637 920M743 713L748 708L756 708L760 715M753 830L747 836L740 836L736 831M191 908L183 905L181 897M376 912L370 905L376 896M361 896L366 900L367 905L366 910L362 912M735 842L744 838L753 843M761 703L758 705L749 705L744 699M756 773L756 790M774 559L787 559M560 918L551 912L547 904L547 898M649 920L643 912L647 901M860 552L789 559M166 938L170 912L166 907M726 921L649 920M647 901L715 903M155 888L174 888M744 699L755 518M743 713L744 699M736 831L742 730M760 455L760 440M755 518L760 455M191 908L166 907M376 912L362 912M304 911L191 908M483 916L376 912M530 899L542 898M376 896L530 899M362 896L376 896M308 894L348 896M197 889L308 894M745 909L740 917L726 921M781 577L766 628M787 559L781 577M789 559L787 559M528 916L504 917M348 896L361 896M560 918L528 916M753 830L753 843M752 853L749 888M766 628L763 677M649 920L637 920M637 920L560 918M636 901L647 901M597 900L636 901M556 898L597 900M542 898L556 898M753 843L752 853M753 829L753 830M756 790L753 829M759 728L756 773M760 715L759 728M749 888L745 909M761 707L760 715M735 844L736 831M731 888L735 844M715 903L725 898L731 888M774 559L781 577M775 487L775 491M742 730L743 713M778 429L776 468M761 703L761 707M763 677L761 695M772 532L774 559M775 491L774 500M174 888L180 889M761 695L761 703M504 917L483 916M361 896L362 896M362 912L339 911M339 911L304 911M180 889L197 889M776 468L775 487M774 500L772 532M174 888L177 897M181 897L184 889M24 291L19 297L13 299L6 295L5 289M0 381L5 375L10 374L21 383M4 309L13 303L21 305L23 310M12 151L17 143L29 137M21 383L18 445M174 162L50 159M22 369L21 383M23 310L22 362M24 291L23 310M50 159L37 162L33 168L27 221M10 178L12 151M29 137L63 139M14 135L29 137M8 221L9 188M12 151L14 135M12 151L11 142L2 133M2 133L-24 124M63 139L177 143M27 221L25 267M4 309L5 289M5 289L8 221M-2 420L0 381M0 381L4 309M25 267L24 291M14 135L2 133M9 188L10 178M22 362L22 369M304 166L195 162M808 184L794 185L790 188M760 439L765 434L778 437M779 423L765 424L762 417M777 163L788 157M768 321L777 317L784 323M784 312L776 316L768 312M682 159L685 163L684 175L680 178M594 155L598 159L599 168L593 175M304 151L303 162M310 166L306 162M440 149L445 149M784 323L781 392M772 216L771 200L767 193L758 184L747 181M177 143L184 148M195 162L186 158M606 175L602 172L600 163L606 156M693 179L687 175L688 163L692 159M763 402L765 368M762 417L762 414M760 440L761 428M291 147L302 147M777 163L790 166M777 163L785 167L790 175M682 159L692 159M638 157L682 159M692 159L737 161M574 154L594 155M594 155L606 156M737 161L777 163M447 172L438 172M593 175L477 171M599 175L593 175M606 175L599 175M693 179L680 178M680 178L643 176M747 181L735 180M735 180L693 179M771 229L772 216M768 312L771 229M768 321L768 312M765 368L767 344M767 344L768 321M438 172L429 172M312 166L310 166M402 170L312 166M422 171L402 170M784 312L784 323M785 305L784 312M787 258L785 305M789 214L787 258M790 166L790 188M477 171L447 172M781 392L779 423M368 149L407 150M182 143L187 143M210 144L291 147M643 176L606 175M311 148L354 149M407 150L434 149M788 157L791 152M303 162L295 166M306 162L306 151M306 151L311 148M302 147L304 151M302 147L311 148M195 162L186 162M186 162L174 162M606 156L638 157M184 148L184 158M184 158L174 162M186 158L185 147M185 147L193 143M445 149L574 154M434 149L440 149M761 428L762 417M762 414L763 402M310 166L304 166M779 423L778 429M193 143L210 144M354 149L368 149M790 188L789 214M177 143L182 143M187 143L193 143M429 172L422 171"/><path class="rd" stroke-width="2.2" d="M3 902L-7 905M419 139L425 145L440 149M407 150L419 139M419 139L413 66M408 6L407 -7M409 11L408 7M413 66L413 59M413 59L412 48M408 7L408 6M413 66M412 45L409 11M412 48L412 45"/><path class="wall" d="M420 168L395 167L395 164L420 165L420 168M435 166L454 166L454 169L435 168L435 166M749 176L764 177L769 173L779 174L781 178L777 180L776 204L774 204L773 179L748 178L749 176M755 569L752 613L754 614L757 569L755 569M759 535L757 535L755 566L757 566L759 535M-5 875L1 884L21 888L4 887L2 891L-5 890M171 158L36 157L28 165L26 188L24 188L25 170L28 158L26 156L28 152L30 152L34 154L171 158M10 498L13 498L13 506L10 506L10 498M549 900L568 901L568 903L548 903L549 900M530 901L540 901L540 903L530 903L530 901M10 517L9 538L11 538L12 517L10 517M733 898L733 889L728 900L719 905L719 907L727 905L728 909L732 909L734 905L735 902L732 901L733 898M174 891L174 893L161 893L161 891L174 891M197 892L197 894L184 894L184 891L197 892"/><path class="rt case" d="M564 264L564 266L575 263L578 263L584 252L591 252L594 253L595 235L597 216L599 199L599 178L601 178L608 178L608 175L608 172L679 175L681 174L682 169L685 169L688 169L690 170L691 165L692 163L694 162L707 163L707 160L707 157L711 157L712 143L712 141L712 139L712 138L712 136M712 136L712 138L712 139L712 141L712 143L711 157L707 157L707 160L707 163L694 162L692 163L691 165L690 170L688 169L685 169L682 169L681 174L679 175L608 172L608 175L608 178L601 178L599 178L599 199L597 216L595 235L594 253L595 277L595 283L598 304L600 332L600 334L601 357L601 367L601 376L602 391L602 405L603 411L601 436L601 438L601 460L605 490L587 491L568 490L567 484L541 481L541 495L538 512L525 509L506 508L498 507L491 508L492 513L495 540L496 545L491 545L490 545M490 545L491 545L496 545L495 540L492 513L491 508L490 490L448 489M448 489L490 490L491 508L498 507L506 508L525 509L538 512L541 495L541 481L567 484L568 490L587 491L590 491M590 491L605 490L601 460L601 438L601 436L603 411L602 405L602 391L601 376L601 367L601 357L600 334L600 332L598 304L595 283L595 277L594 253L595 235L597 216L599 199L599 178L601 178L608 178L608 175L608 172L606 171L604 169L603 166L600 166L599 166L596 166L596 163L596 160L594 159L593 158L574 157L574 154L575 151L527 149L528 123L528 118M528 118L528 123L527 149L448 146L448 149L448 152L434 151L426 152L411 153L405 152L311 150L309 152L308 156L306 156L303 156L301 155L300 161L299 162L295 163L235 161L228 160L195 159L190 158L189 157L188 154L185 154L184 154L181 153L181 149L181 147L179 146L177 146L177 143L177 140L171 140M171 140L177 140L177 143L177 146L179 146L181 147L181 149L181 153L184 154L185 154L188 154L189 157L190 158L195 159L195 162L195 165L188 165L186 165L188 194L189 208L190 216L192 239L193 253L194 262L196 287L197 301L198 309L198 312L201 338L204 359L205 362L207 374L210 391L213 409L217 435L220 453L221 464L223 478L218 478L184 476L173 476L173 477L171 505L150 504L149 512L148 525L151 528L162 530L162 532L169 532L169 535M169 535L169 532L162 532L162 530L151 528L148 525L153 525L154 520L154 517L170 518L170 513L174 514L179 514L180 506L187 506L187 517L200 517L204 517L208 523L209 522L211 522L212 522L214 523L215 524L215 526L215 527L218 527L226 527L237 528L241 529L265 530L290 532L319 534L328 535L353 537L364 538L392 540L412 541L447 543L491 545L496 545L496 549L498 572L493 572L489 570L479 571L473 572L468 571M468 571L473 572L479 571L489 570L493 572L498 572L498 579L501 606L503 620L507 643L509 659L510 663L513 679L480 676L480 685L482 689L483 694L485 732L480 733L458 733L453 733L417 729L412 729L404 731L394 733L379 739L357 749L342 755L332 759L314 768L306 772L302 775L298 777L283 792L273 802L267 807L247 821L243 825L239 827L236 829L235 832L235 847L233 859L231 866L227 877L223 891L197 889L184 889L182 892L181 893L181 897L184 897L184 894L184 891L190 891M190 891L198 891L206 893L254 894L328 897L361 898L365 902L366 905L367 905L370 905L372 905L373 908L375 910L377 910L440 912L443 912L497 913L508 914L511 914L523 913L532 912L535 911L538 909L540 907L542 907L546 908L549 907L547 904L546 902"/><path class="rt" d="M564 264L564 266L575 263L578 263L584 252L591 252L594 253L595 235L597 216L599 199L599 178L601 178L608 178L608 175L608 172L679 175L681 174L682 169L685 169L688 169L690 170L691 165L692 163L694 162L707 163L707 160L707 157L711 157L712 143L712 141L712 139L712 138L712 136M712 136L712 138L712 139L712 141L712 143L711 157L707 157L707 160L707 163L694 162L692 163L691 165L690 170L688 169L685 169L682 169L681 174L679 175L608 172L608 175L608 178L601 178L599 178L599 199L597 216L595 235L594 253L595 277L595 283L598 304L600 332L600 334L601 357L601 367L601 376L602 391L602 405L603 411L601 436L601 438L601 460L605 490L587 491L568 490L567 484L541 481L541 495L538 512L525 509L506 508L498 507L491 508L492 513L495 540L496 545L491 545L490 545M490 545L491 545L496 545L495 540L492 513L491 508L490 490L448 489M448 489L490 490L491 508L498 507L506 508L525 509L538 512L541 495L541 481L567 484L568 490L587 491L590 491M590 491L605 490L601 460L601 438L601 436L603 411L602 405L602 391L601 376L601 367L601 357L600 334L600 332L598 304L595 283L595 277L594 253L595 235L597 216L599 199L599 178L601 178L608 178L608 175L608 172L606 171L604 169L603 166L600 166L599 166L596 166L596 163L596 160L594 159L593 158L574 157L574 154L575 151L527 149L528 123L528 118M528 118L528 123L527 149L448 146L448 149L448 152L434 151L426 152L411 153L405 152L311 150L309 152L308 156L306 156L303 156L301 155L300 161L299 162L295 163L235 161L228 160L195 159L190 158L189 157L188 154L185 154L184 154L181 153L181 149L181 147L179 146L177 146L177 143L177 140L171 140M171 140L177 140L177 143L177 146L179 146L181 147L181 149L181 153L184 154L185 154L188 154L189 157L190 158L195 159L195 162L195 165L188 165L186 165L188 194L189 208L190 216L192 239L193 253L194 262L196 287L197 301L198 309L198 312L201 338L204 359L205 362L207 374L210 391L213 409L217 435L220 453L221 464L223 478L218 478L184 476L173 476L173 477L171 505L150 504L149 512L148 525L151 528L162 530L162 532L169 532L169 535M169 535L169 532L162 532L162 530L151 528L148 525L153 525L154 520L154 517L170 518L170 513L174 514L179 514L180 506L187 506L187 517L200 517L204 517L208 523L209 522L211 522L212 522L214 523L215 524L215 526L215 527L218 527L226 527L237 528L241 529L265 530L290 532L319 534L328 535L353 537L364 538L392 540L412 541L447 543L491 545L496 545L496 549L498 572L493 572L489 570L479 571L473 572L468 571M468 571L473 572L479 571L489 570L493 572L498 572L498 579L501 606L503 620L507 643L509 659L510 663L513 679L480 676L480 685L482 689L483 694L485 732L480 733L458 733L453 733L417 729L412 729L404 731L394 733L379 739L357 749L342 755L332 759L314 768L306 772L302 775L298 777L283 792L273 802L267 807L247 821L243 825L239 827L236 829L235 832L235 847L233 859L231 866L227 877L223 891L197 889L184 889L182 892L181 893L181 897L184 897L184 894L184 891L190 891M190 891L198 891L206 893L254 894L328 897L361 898L365 902L366 905L367 905L370 905L372 905L373 908L375 910L377 910L440 912L443 912L497 913L508 914L511 914L523 913L532 912L535 911L538 909L540 907L542 907L546 908L549 907L547 904L546 902"/><path class="rt yards" d="M448 489L448 475M448 489L448 475M590 491L590 479M590 491L590 479"/><circle class="pt" cx="564.6" cy="264.4" r="5.5"/><circle class="pt" cx="712.1" cy="136.5" r="5.5"/><circle class="pt" cx="490.2" cy="540.5" r="5.5"/><circle class="pt" cx="448.0" cy="475.2" r="5.5"/><circle class="pt" cx="589.8" cy="479.1" r="5.5"/><circle class="pt" cx="530.1" cy="118.4" r="5.5"/><circle class="pt" cx="170.7" cy="139.8" r="5.5"/><circle class="pt" cx="168.3" cy="544.3" r="5.5"/><circle class="pt" cx="468.8" cy="566.1" r="5.5"/><circle class="pt" cx="190.2" cy="895.2" r="5.5"/><circle class="pt" cx="544.9" cy="902.7" r="5.5"/><text class="plabel" x="573.6" y="268.0" text-anchor="start">Wat Chiang Man</text><text class="plabel" x="703.1" y="140.1" text-anchor="end">Wat Pa Pao</text><text class="plabel" x="499.2" y="544.1" text-anchor="start">Ho Phaya Mangrai</text><text class="plabel" x="439.0" y="478.8" text-anchor="end">Wat Inthakhin Sadue Muang</text><text class="plabel" x="598.8" y="482.7" text-anchor="start">Wat Umong Maha Therachan</text><text class="plabel" x="539.1" y="122.0" text-anchor="start">Wat Chiang Yuen</text><text class="plabel" x="179.7" y="143.4" text-anchor="start">Wat Lok Molee</text><text class="plabel" x="177.3" y="547.9" text-anchor="start">Wat Phra Singh</text><text class="plabel" x="477.8" y="569.7" text-anchor="start">Wat Phan Tao</text><text class="plabel" x="199.2" y="898.8" text-anchor="start">Suan Prung Gate</text><text class="plabel" x="553.9" y="906.3" text-anchor="start">Chiang Mai Gate</text><g class="scalebar"><line x1="16" y1="1016.0000000003447" x2="133.6" y2="1016.0000000003447"/><line x1="16" y1="1012.0000000003447" x2="16" y2="1020.0000000003447"/><line x1="133.6" y1="1012.0000000003447" x2="133.6" y2="1020.0000000003447"/><text x="74.8" y="1009.0000000003447" text-anchor="middle">0.25 km</text></g><text class="north" x="844" y="22" text-anchor="end">N ↑</text><text class="osm" x="852" y="1024.0000000003447" text-anchor="end">© OpenStreetMap contributors</text></svg><figcaption>In order, along the streets on foot: 8.7 km. Route from the OpenStreetMap routers at routing.openstreetmap.de; streets and water from OpenStreetMap. The White Lion house carries no pin, because this site gives it no address. Blue is water; the red dashes are what stands of the city wall; dots run from the street to a stop set back from it.</figcaption></figure>
+<h2>What to carry</h2>
+<ul><li>Water. More than you think.</li><li>Long trousers or a long skirt; shoulders covered. Two of these stops will turn you away otherwise and lend you a sarong at the third.</li><li>Shoes that come off fast. You will take them off eight times.</li><li>Small notes. Nothing here has change for a thousand.</li><li>A hat. There is no shade on Ratchadamnoen.</li></ul>
+
+<h2>The route</h2>
+<ol class="route"><li><div class="hd"><a href="/ghost/stops/wat-chiang-man.html">Wat Chiang Man</a><span class="th" lang="th">วัดเชียงมั่น</span></div><p>None. This is where the living city started.</p><p class="gh"><b>What is said to be there</b>The crystal Buddha and the stone one in the viharn are older than the city and were carried here from somewhere else. They come out once a year, at Songkran, and go back in. The reasoning behind a locked image is not security. An image with that much handling behind it is held to be awake, and what is awake is let out on a schedule, not on demand.</p><p class="do"><b>Here</b>A tray, in the name of whoever in your family came first to a place and started something. <span class="mute small">(Tan khan khao — the tray of rice, Sweeping)</span></p></li><li><div class="hd"><a href="/ghost/stops/wat-pa-pao.html">Wat Pa Pao</a><span class="th" lang="th">วัดป่าเป้า</span></div><p class="leg">0.6 km on from the last one, on foot</p><p>Shan founders and abbots, in the small stupas around the chedi</p><p class="gh"><b>What is said to be there</b>Shan founders, Shan abbots, in the small stupas round the chedi, five centuries into a city that still files them under from somewhere else. Northern households feed their own dead — ผีปู่ย่า, the grandparents, danced to and given food so they stay ancestors and do not turn into something hungrier. A community that buried its dead a thousand kilometres from where those dead were born has been doing that work here since the 1400s.</p><p class="do"><b>Here</b>A tung, written for someone who died away from where they were born. The Shan community here has been doing exactly that for five hundred years. <span class="mute small">(Offering a tung, Pouring the water)</span></p></li><li><div class="hd"><a href="/ghost/stops/ho-phaya-mangrai.html">Ho Phaya Mangrai</a><span class="th" lang="th">หอพญามังราย</span></div><p class="leg">1.4 km on from the last one, on foot</p><p>Mangrai, founder of Chiang Mai, killed by a lightning strike in the market — B.E. 1854, 1311 CE, aged 72</p><p class="gh"><b>What is said to be there</b>He did not leave. In the northern reckoning a lord who dies in his own town becomes its เสื้อเมือง — the spirit of the place, wearing the office he held — and goes on running it from wherever he was put down. That is why the offerings at this shrine are not requests. People come and tell him things: what has been built, what has been sold off, who is in charge now. Seven hundred years of a city reporting to its founder on a street corner.</p><p class="do"><b>Here</b>A khan tang. He is not being asked for a favour so much as reported to — the city&#x27;s founder, told how his city is doing. Flowers and candles in pairs, set down, then pour the water at the root of the bodhi tree. <span class="mute small">(Khan tang — the tray for a spirit, Pouring the water)</span></p></li><li><div class="hd"><a href="/ghost/stops/wat-inthakhin-sadue-muang.html">Wat Inthakhin Sadue Muang</a><span class="th" lang="th">วัดอินทขีลสะดือเมือง</span></div><p class="leg">0.2 km on from the last one, on foot</p><p>No one buried. What is kept here is the city&#x27;s own life.</p><p class="gh"><b>What is said to be there</b>Indra sent the pillar down with two kumphan to guard it, on terms: keep up the offering and the guard stays. The Lawa kept it, then a generation did not, and the guardians walked off and took the pillar with them. What is told here is not a haunting but an eviction — the thing that watched the city left because it stopped being fed, and the eight days of flowers every May are the arrears.</p><p class="do"><b>Here</b>Sweep. The terrace takes leaf fall from the big trees and the brooms are against the wall. In late May, when the bowls are out across the city, flowers go in them here too — this is the ground the pillar came off. <span class="mute small">(Sweeping, Sai khan dok — flowers in the bowl, Pouring the water)</span></p></li><li><div class="hd"><a href="/ghost/stops/wat-umong-maha-therachan.html">Wat Umong Maha Therachan</a><span class="th" lang="th">วัดอุโมงค์มหาเถรจันทร์</span></div><p class="leg">0.4 km on from the last one, on foot</p><p>Mahathera Chan, the monk it was renamed for, and two centuries of nobody</p><p class="gh"><b>What is said to be there</b>A wat has its own spirit — ผีเสื้อวัด, the one that holds the ground — and the northern position is that it does not leave when the monks do. Two hundred years of Burmese rule emptied wat after wat inside these walls and left the guardians in them. That is what a วัดร้าง is in Chiang Mai: not an empty building, a building with only the caretaker left in it. This one got its monks back. Most did not.</p><p class="do"><b>Here</b>Sweep, and light a lamp on the old brick. A wat that spent two centuries with nobody to do either is the place for it. <span class="mute small">(Sweeping, Lighting a pang pratip, Pouring the water)</span></p></li><li><div class="hd"><a href="/ghost/stops/white-lion-house.html">The White Lion house</a><span class="th" lang="th">บ้านจางเหมือ</span></div><p>A family, by the account Citylife printed</p><p class="gh"><b>What is said to be there</b>Citylife printed it: a man built on a plot he was told repeatedly was wrong, moved his family in, and killed all of them. A death like that is ผีตายโหง in the northern classification — died wrong, died violently, did not get the rites — and the class is defined by not going anywhere. The compound has stood empty since apart from people sleeping rough in it, and one building still has a sign on it reading House of Success.</p><p class="do"><b>Here</b>Pour water for them somewhere else, at any of the wats on this walk. That is the whole of it. <span class="mute small">(Pouring the water)</span></p></li><li><div class="hd"><a href="/ghost/stops/wat-chiang-yuen.html">Wat Chiang Yuen</a><span class="th" lang="th">วัดเชียงยืน</span></div><p class="leg">1.0 km on from the last one, on foot</p><p>Nobody in particular. What is kept here is the office, not the man.</p><p class="gh"><b>What is said to be there</b>Lords changed their clothes here before going through the gate, and lords riding out to war stopped here on the way. Both directions. What a place like that accumulates, in the northern reckoning, is the office rather than the officers — the ones who came back and the ones who did not are equally present, and equally uninterested in you.</p><p class="do"><b>Here</b>A tray, in the name of somebody who held an office and had to hand it on. It is what the place is for. <span class="mute small">(Tan khan khao — the tray of rice, Khan tang — the tray for a spirit, Pouring the water)</span></p></li><li><div class="hd"><a href="/ghost/stops/wat-lok-molee.html">Wat Lok Molee</a><span class="th" lang="th">วัดโลกโมฬี</span></div><p class="leg">0.9 km on from the last one, on foot</p><p>Members of the Mangrai line, in and around the brick chedi</p><p class="gh"><b>What is said to be there</b>The Mangrai line is in and around the brick, and the wall was the reason: royal ash went outside it. The dead were kept on the far side of the line the living lived inside, close enough to be fed and far enough not to be underfoot. Stand here at dusk and the geography is the whole belief, laid out flat.</p><p class="do"><b>Here</b>A tung. The poles are along the wall and the wat sells the banners at the office. <span class="mute small">(Offering a tung, Pouring the water)</span></p></li><li><div class="hd"><a href="/ghost/stops/wat-phra-singh.html">Wat Phra Singh</a><span class="th" lang="th">วัดพระสิงห์</span></div><p class="leg">1.1 km on from the last one, on foot</p><p>Kham Fu, fourth king of the Mangrai line — the chedi was raised for his ashes in 1345</p><p class="gh"><b>What is said to be there</b>Two sets of remains, of different kinds. King Kham Fu&#x27;s ashes are in the chedi, and his son built it to put them there. The Phra Singh image in the Lai Kham hall is the other kind: an image that old, moved that often and claimed by three cities at once is treated in the north as a resident rather than an object — something that consented to be where it is and could stop consenting.</p><p class="do"><b>Here</b>Morning. A tray at the hall behind the chedi, with a name on it. The wat is busy enough that there is always a monk free before eleven. <span class="mute small">(Tan khan khao — the tray of rice, Pouring the water, Pha bangsukun — the cloth)</span></p></li><li><div class="hd"><a href="/ghost/stops/wat-phan-tao.html">Wat Phan Tao</a><span class="th" lang="th">วัดพันเตา</span></div><p class="leg">1.0 km on from the last one, on foot</p><p>Chao Mahotaraprathet, whose residence this was</p><p class="gh"><b>What is said to be there</b>The teak panels are the walls of a dead man&#x27;s house. Chao Mahotaraprathet lived inside them and they were taken down and put back up as a hall, which in the northern reading does not change whose they are — ผีเจ้านาย, the spirit of a lord, stays with what was his. The peacock over the door and the dog under it are his birth signs, which is to say the building is still signed.</p><p class="do"><b>Here</b>Lamps. The pond at the back is where the wat floats them, and there are usually some for sale by the door. <span class="mute small">(Lighting a pang pratip, Pouring the water)</span></p></li><li><div class="hd"><a href="/ghost/stops/pratu-suan-prung.html">Suan Prung Gate</a><span class="th" lang="th">ประตูสวนปรุง</span></div><p class="leg">1.3 km on from the last one, on foot</p><p>Six centuries of them, all outbound</p><p class="gh"><b>What is said to be there</b>Executions at the gate, by driving a sharpened stake into the stomach, and every corpse in the city carried out through the same arch for six hundred years. Both classes of ผีตายโหง in one doorway, in bulk. It is a traffic junction now with a rebuilt brick face, and the people who cross it on foot at two in the morning are not thinking about it, and the taxi drivers who will not stop there are.</p><p class="do"><b>Here</b>Nothing here is set up to receive an offering, so leave no food or wax on the brick. Carry the act a few minutes south on Wualai to Wat Muen San and put it in the name of whoever went out through this gate unnamed. <span class="mute small">(Song khro — sending it away, Lighting a pang pratip)</span></p></li><li><div class="hd"><a href="/ghost/stops/pratu-chiang-mai.html">Chiang Mai Gate</a><span class="th" lang="th">ประตูเชียงใหม่</span></div><p class="leg">0.8 km on from the last one, on foot</p><p>Not the corpse gate — that is two hundred metres west — but the road beyond it runs to Haiya and the burning grounds</p><p class="gh"><b>What is said to be there</b>Not the corpse gate — that is two hundred metres west — but the road that runs out of it goes to Haiya and the burning grounds, and it did that job for centuries. A crossing where the dead went out is where misfortune is still set down and left: a tray at the kerb, a raft, a little figure standing in for somebody. Outward, always. Look down when you cross.</p><p class="do"><b>Here</b>The rescue-foundation station on this side of town keeps a box. Ask for ศพไร้ญาติ. <span class="mute small">(Paying for the unclaimed dead)</span></p></li></ol>
+
+
+<p class="btnrow"><a class="btn ghost" href="/ghost/merit/">How each act works</a>
+<a class="btn ghost" href="/ghost/pictures/">Send a picture back</a></p>
+
+</main>
+<footer class="bot"><div class="in">
+<p><b>Ghost Chiang Mai</b> · ผีเจียงใหม่ — A self-guided tour of the city&#x27;s dead, on foot, by bicycle, or with a driver — and what to do at each stop.</p>
+<p>Words and data on this site: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+Take them, change them, keep the credit. Photographs carry their own licences, printed beside each one.
+Coordinates from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, ODbL.</p>
+<p>Corrections, and pictures for the stops that have none: <a href="mailto:nan@motdang.net">nan@motdang.net</a>.
+<a href="/ghost/sources/">Every source is listed.</a></p>
+</div></footer>
+</html>
