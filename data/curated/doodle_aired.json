@@ -1,0 +1,101 @@
+{
+ "about": "Doodles the front band has shown, one row a day; a doodle returns only at a higher version.",
+ "aired": [
+  {
+   "date": "2026-10-02",
+   "set": "latin",
+   "variant": "",
+   "version": 1,
+   "k": "coco-bongo-latin-night",
+   "t": "Coco Bongo Latin night",
+   "s": "2026-10-09 20:00:00",
+   "v": "Copacabana Rooftop CNX"
+  },
+  {
+   "date": "2026-10-03",
+   "k": "tales-my-ancestors-taught-me-akha-songs-and-stories",
+   "set": "akha",
+   "variant": "",
+   "version": 1,
+   "t": "Tales My Ancestors Taught Me: Akha songs and stories",
+   "s": "2026-10-03 16:00:00",
+   "v": "Chiang Mai City Craft Space"
+  },
+  {
+   "date": "2026-10-03",
+   "k": "tales-my-ancestors-taught-me-akha-songs-and-stories",
+   "set": "moat",
+   "variant": "tha-phae-gate",
+   "version": 1,
+   "t": "Tales My Ancestors Taught Me: Akha songs and stories",
+   "s": "2026-10-03 16:00:00",
+   "v": "Chiang Mai City Craft Space"
+  },
+  {
+   "date": "2026-10-04",
+   "k": "jing-jai-weekend-market",
+   "set": "market",
+   "variant": "",
+   "version": 1,
+   "t": "Jing Jai Weekend Market",
+   "s": "2026-10-04 06:30:00",
+   "v": "Jing Jai Market"
+  },
+  {
+   "date": "2026-10-04",
+   "k": "mindful-hike-8-km",
+   "set": "run",
+   "variant": "",
+   "version": 1,
+   "t": "Mindful hike, 8 km",
+   "s": "2026-10-04 07:30:00",
+   "v": "Wat Aranyawas"
+  },
+  {
+   "date": "2026-10-04",
+   "k": "padel-sunday-social-americano",
+   "set": "ball",
+   "variant": "",
+   "version": 1,
+   "t": "Padel Sunday social Americano",
+   "s": "2026-10-04 14:00:00",
+   "v": "Padel Club Chiang Mai"
+  },
+  {
+   "date": "2026-10-05",
+   "k": "defending-the-midterms-facing-election-interference-head-on",
+   "set": "band",
+   "variant": "",
+   "version": 1,
+   "t": "Defending the Midterms: facing election interference head-on",
+   "s": "2026-10-05 18:30:00",
+   "v": "Soi Dog Blues",
+   "la": 18.79037,
+   "lo": 98.99747
+  },
+  {
+   "date": "2026-10-05",
+   "k": "free-yoga-at-one-nimman",
+   "set": "yoga",
+   "variant": "",
+   "version": 1,
+   "t": "Free yoga at One Nimman",
+   "s": "2026-10-05 09:30:00",
+   "v": "One Nimman",
+   "la": 18.80006,
+   "lo": 98.968
+  },
+  {
+   "date": "2026-10-05",
+   "k": "chiang-mai-bridge-club",
+   "set": "learn",
+   "variant": "",
+   "version": 1,
+   "t": "Chiang Mai Bridge Club",
+   "s": "2026-10-05 13:00:00",
+   "v": "Oak Tree",
+   "la": 18.80682,
+   "lo": 98.96119
+  }
+ ]
+}

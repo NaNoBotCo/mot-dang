@@ -31,6 +31,12 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+# The @font-face run the site inlines into style.css, with its font paths made
+# root-absolute: /fonts/_faces.css was linked here and never existed (a 404 on
+# every issue until 2026-10-03).
+_FACES = ROOT / "assets" / "fonts" / "_faces.css"
+FACES_STYLE = ("<style>" + _FACES.read_text().strip().replace("url(fonts/", "url(/fonts/")
+               + "</style>") if _FACES.exists() else ""
 sys.path.insert(0, str(ROOT))
 from traffic import KEYS_PATH, sql  # noqa: E402
 
@@ -682,7 +688,7 @@ def issue_page(w: dict, items: list[dict], day: str) -> str:
 <meta name="theme-color" content="#1a1147">
 <link rel="canonical" href="https://motdang.net/voight-kampff/{day}/">
 <link rel="icon" href="/ant.svg">
-<link rel="stylesheet" href="/fonts/_faces.css">
+{FACES_STYLE}
 <link rel="stylesheet" href="/voight-kampff/vk.css">
 <meta property="og:title" content="Robot gossip · Voight-Kampff · {e(en)}">
 <meta property="og:description" content="{e(desc)}">
@@ -836,6 +842,9 @@ def main() -> None:
         print(f"· {it['title_en']}: {it['en']}")
     if "--no-deploy" not in args:
         publish()
+    # the sign at /served counts again with the new week's regulars
+    subprocess.run([sys.executable, "served.py"] + (["--no-deploy"] if "--no-deploy" in args else []),
+                   cwd=ROOT, check=False)
 
 
 def _agents(a: dt.date, b: dt.date) -> dict:

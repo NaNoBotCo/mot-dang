@@ -1,0 +1,3041 @@
+{
+ "from": "2026-09-28",
+ "to": "2026-10-04",
+ "total": 1318309,
+ "cats": {
+  "ai": 813700,
+  "other": 318998,
+  "human": 88869,
+  "seo": 38854,
+  "search": 35625,
+  "tool": 18716,
+  "social": 3547
+ },
+ "agents": {
+  "meta-externalagent": {
+   "cat": "ai",
+   "n": 579779
+  },
+  "data centre · Alibaba Cloud": {
+   "cat": "other",
+   "n": 187120
+  },
+  "GPTBot": {
+   "cat": "ai",
+   "n": 134402
+  },
+  "ShapBot": {
+   "cat": "other",
+   "n": 85255
+  },
+  "other browser": {
+   "cat": "human",
+   "n": 47677
+  },
+  "Amazonbot": {
+   "cat": "ai",
+   "n": 47219
+  },
+  "Chrome": {
+   "cat": "human",
+   "n": 37279
+  },
+  "Bytespider": {
+   "cat": "ai",
+   "n": 36792
+  },
+  "SemrushBot": {
+   "cat": "seo",
+   "n": 22657
+  },
+  "YandexBot": {
+   "cat": "search",
+   "n": 15498
+  },
+  "Reflectionbot": {
+   "cat": "other",
+   "n": 15368
+  },
+  "headless": {
+   "cat": "tool",
+   "n": 13726
+  },
+  "Chrome string, no Chrome": {
+   "cat": "other",
+   "n": 12683
+  },
+  "MJ12bot": {
+   "cat": "seo",
+   "n": 9701
+  },
+  "ClaudeBot": {
+   "cat": "ai",
+   "n": 8735
+  },
+  "bingbot": {
+   "cat": "search",
+   "n": 8661
+  },
+  "PetalBot": {
+   "cat": "search",
+   "n": 7129
+  },
+  "SERankingBacklinksBot": {
+   "cat": "other",
+   "n": 7094
+  },
+  "OAI-SearchBot": {
+   "cat": "ai",
+   "n": 6468
+  },
+  "AhrefsBot": {
+   "cat": "seo",
+   "n": 5617
+  },
+  "curl": {
+   "cat": "tool",
+   "n": 4802
+  },
+  "unrecognised": {
+   "cat": "other",
+   "n": 4251
+  },
+  "Facebook": {
+   "cat": "social",
+   "n": 3459
+  },
+  "Safari": {
+   "cat": "human",
+   "n": 2736
+  },
+  "Applebot": {
+   "cat": "search",
+   "n": 2356
+  },
+  "data centre · Google Cloud": {
+   "cat": "other",
+   "n": 1991
+  },
+  "Googlebot": {
+   "cat": "search",
+   "n": 1541
+  },
+  "YandexRenderResourcesBot": {
+   "cat": "other",
+   "n": 1466
+  },
+  "data centre · Meta": {
+   "cat": "other",
+   "n": 1221
+  },
+  "crawler": {
+   "cat": "other",
+   "n": 1171
+  },
+  "DotBot": {
+   "cat": "seo",
+   "n": 843
+  },
+  "Facebook in-app": {
+   "cat": "human",
+   "n": 829
+  },
+  "KeenableBot": {
+   "cat": "other",
+   "n": 687
+  },
+  "ChatGPT-User": {
+   "cat": "ai",
+   "n": 302
+  },
+  "data centre · Tencent Cloud": {
+   "cat": "other",
+   "n": 278
+  },
+  "Internet Archive": {
+   "cat": "search",
+   "n": 252
+  },
+  "Baiduspider": {
+   "cat": "search",
+   "n": 185
+  },
+  "Firefox": {
+   "cat": "human",
+   "n": 184
+  },
+  "python": {
+   "cat": "tool",
+   "n": 155
+  },
+  "TikTokSpider": {
+   "cat": "other",
+   "n": 120
+  },
+  "data centre · AWS": {
+   "cat": "other",
+   "n": 117
+  },
+  "Samsung Internet": {
+   "cat": "human",
+   "n": 70
+  },
+  "LINE": {
+   "cat": "social",
+   "n": 67
+  },
+  "data centre · M247": {
+   "cat": "other",
+   "n": 55
+  },
+  "Edge": {
+   "cat": "human",
+   "n": 43
+  },
+  "data centre · DigitalOcean": {
+   "cat": "other",
+   "n": 37
+  },
+  "DataForSeoBot": {
+   "cat": "seo",
+   "n": 36
+  },
+  "LINE in-app": {
+   "cat": "human",
+   "n": 33
+  },
+  "Go-http-client": {
+   "cat": "tool",
+   "n": 29
+  },
+  "data centre · Microsoft Azure": {
+   "cat": "other",
+   "n": 27
+  },
+  "Opera": {
+   "cat": "human",
+   "n": 18
+  },
+  "360Spider": {
+   "cat": "other",
+   "n": 13
+  },
+  "TapMapBot": {
+   "cat": "other",
+   "n": 12
+  },
+  "Slackbot": {
+   "cat": "social",
+   "n": 9
+  },
+  "QlyzeBot": {
+   "cat": "other",
+   "n": 7
+  },
+  "WhatsApp": {
+   "cat": "social",
+   "n": 6
+  },
+  "Skype": {
+   "cat": "social",
+   "n": 6
+  },
+  "data centre · Hetzner": {
+   "cat": "other",
+   "n": 5
+  },
+  "SEOJuice-SearchBot": {
+   "cat": "other",
+   "n": 4
+  },
+  "data centre · Linode": {
+   "cat": "other",
+   "n": 4
+  },
+  "okhttp": {
+   "cat": "tool",
+   "n": 4
+  },
+  "Claude-User": {
+   "cat": "ai",
+   "n": 3
+  },
+  "DuckDuckBot": {
+   "cat": "search",
+   "n": 3
+  },
+  "BitsExplorerBot": {
+   "cat": "other",
+   "n": 3
+  },
+  "data centre · OVH": {
+   "cat": "other",
+   "n": 2
+  },
+  "CompanyMapBot": {
+   "cat": "other",
+   "n": 2
+  },
+  "YisouSpider": {
+   "cat": "other",
+   "n": 2
+  },
+  "trendictionbot0.5.0": {
+   "cat": "other",
+   "n": 2
+  },
+  "RootCrawl-Crawler": {
+   "cat": "other",
+   "n": 1
+  }
+ },
+ "hours": {
+  "MJ12bot": [
+   544,
+   470,
+   238,
+   651,
+   339,
+   538,
+   179,
+   462,
+   1272,
+   381,
+   668,
+   131,
+   740,
+   130,
+   199,
+   524,
+   174,
+   257,
+   195,
+   255,
+   122,
+   525,
+   233,
+   474
+  ],
+  "Amazonbot": [
+   2004,
+   2093,
+   1901,
+   2304,
+   2470,
+   2594,
+   2431,
+   2478,
+   2490,
+   2435,
+   2340,
+   2354,
+   2385,
+   2309,
+   2394,
+   1511,
+   1511,
+   1293,
+   1242,
+   1330,
+   1519,
+   1243,
+   1225,
+   1363
+  ],
+  "data centre · Alibaba Cloud": [
+   10880,
+   11563,
+   9637,
+   8204,
+   8330,
+   7939,
+   8058,
+   8076,
+   8255,
+   8333,
+   8337,
+   8378,
+   8360,
+   8611,
+   8586,
+   7881,
+   6376,
+   5597,
+   5627,
+   5610,
+   5902,
+   6288,
+   6847,
+   5445
+  ],
+  "meta-externalagent": [
+   21478,
+   27156,
+   30657,
+   30804,
+   25812,
+   20762,
+   21241,
+   25479,
+   30396,
+   30557,
+   23101,
+   20584,
+   24792,
+   23489,
+   22271,
+   22872,
+   20270,
+   21691,
+   17932,
+   25138,
+   21439,
+   18238,
+   25499,
+   28121
+  ],
+  "Reflectionbot": [
+   371,
+   319,
+   241,
+   389,
+   593,
+   797,
+   791,
+   745,
+   691,
+   663,
+   703,
+   719,
+   714,
+   733,
+   752,
+   759,
+   703,
+   680,
+   666,
+   702,
+   682,
+   726,
+   698,
+   531
+  ],
+  "ShapBot": [
+   11238,
+   11788,
+   8294,
+   1538,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   39,
+   0,
+   0,
+   0,
+   0,
+   11298,
+   6640,
+   0,
+   0,
+   0,
+   0,
+   18881,
+   15539
+  ],
+  "YandexBot": [
+   390,
+   562,
+   703,
+   644,
+   515,
+   607,
+   492,
+   901,
+   545,
+   294,
+   1175,
+   168,
+   640,
+   386,
+   737,
+   598,
+   525,
+   578,
+   1224,
+   515,
+   156,
+   659,
+   479,
+   2005
+  ],
+  "bingbot": [
+   318,
+   326,
+   375,
+   311,
+   350,
+   365,
+   383,
+   390,
+   370,
+   308,
+   380,
+   441,
+   393,
+   262,
+   322,
+   408,
+   366,
+   351,
+   353,
+   379,
+   366,
+   266,
+   412,
+   466
+  ],
+  "Bytespider": [
+   1245,
+   1345,
+   1671,
+   1854,
+   1565,
+   1571,
+   1655,
+   1734,
+   1135,
+   1846,
+   1150,
+   1470,
+   1665,
+   1705,
+   1453,
+   1635,
+   2008,
+   746,
+   1673,
+   1321,
+   1349,
+   1339,
+   1798,
+   1859
+  ],
+  "SemrushBot": [
+   1141,
+   1237,
+   1399,
+   1076,
+   1014,
+   984,
+   913,
+   929,
+   975,
+   971,
+   941,
+   924,
+   942,
+   921,
+   919,
+   875,
+   901,
+   830,
+   845,
+   796,
+   759,
+   727,
+   762,
+   876
+  ],
+  "Chrome string, no Chrome": [
+   59,
+   120,
+   12,
+   76,
+   24,
+   1,
+   9,
+   4,
+   87,
+   68,
+   12,
+   176,
+   63,
+   9,
+   24,
+   38,
+   21,
+   26,
+   16,
+   77,
+   27,
+   11000,
+   7,
+   727
+  ],
+  "ClaudeBot": [
+   469,
+   1010,
+   494,
+   324,
+   164,
+   109,
+   122,
+   49,
+   39,
+   39,
+   30,
+   39,
+   34,
+   43,
+   40,
+   43,
+   368,
+   1100,
+   966,
+   1036,
+   808,
+   485,
+   542,
+   382
+  ],
+  "headless": [
+   210,
+   525,
+   892,
+   617,
+   277,
+   647,
+   256,
+   835,
+   246,
+   795,
+   841,
+   86,
+   170,
+   335,
+   978,
+   536,
+   324,
+   413,
+   889,
+   1075,
+   253,
+   695,
+   368,
+   1463
+  ],
+  "GPTBot": [
+   6451,
+   8171,
+   8909,
+   9116,
+   9372,
+   8518,
+   8429,
+   7593,
+   7338,
+   4113,
+   3965,
+   4155,
+   4277,
+   3888,
+   4423,
+   4601,
+   4400,
+   4748,
+   4557,
+   4466,
+   4403,
+   1867,
+   2804,
+   3838
+  ]
+ },
+ "countries": {
+  "meta-externalagent": {
+   "US": 579777,
+   "TH": 2
+  },
+  "data centre · Alibaba Cloud": {
+   "SG": 187037,
+   "HK": 51,
+   "US": 14,
+   "CN": 14,
+   "DE": 4
+  },
+  "GPTBot": {
+   "US": 134395,
+   "TH": 7
+  },
+  "ShapBot": {
+   "US": 85255
+  },
+  "Amazonbot": {
+   "US": 47219
+  },
+  "Bytespider": {
+   "SG": 36761,
+   "HK": 31
+  },
+  "SemrushBot": {
+   "US": 22657
+  },
+  "YandexBot": {
+   "RU": 15498
+  },
+  "Reflectionbot": {
+   "US": 15368
+  },
+  "headless": {
+   "RU": 11379,
+   "TH": 1910,
+   "US": 431,
+   "CN": 6
+  },
+  "Chrome string, no Chrome": {
+   "US": 11188,
+   "CN": 1117,
+   "TH": 108,
+   "GB": 52,
+   "PL": 46,
+   "IN": 34,
+   "RU": 22,
+   "NL": 21,
+   "BR": 21,
+   "DE": 14,
+   "FR": 10,
+   "SE": 7,
+   "LT": 6,
+   "CH": 4,
+   "PK": 3,
+   "IT": 3,
+   "IL": 2,
+   "SG": 2,
+   "BD": 2,
+   "AZ": 2,
+   "VN": 2,
+   "BO": 2,
+   "KZ": 2,
+   "SA": 1,
+   "XK": 1,
+   "UZ": 1,
+   "EC": 1,
+   "CA": 1,
+   "MY": 1,
+   "PT": 1,
+   "CZ": 1,
+   "AU": 1,
+   "AE": 1,
+   "TG": 1,
+   "AR": 1,
+   "AL": 1
+  },
+  "ClaudeBot": {
+   "US": 8735
+  },
+  "bingbot": {
+   "US": 8661
+  },
+  "MJ12bot": {
+   "FR": 7526,
+   "PL": 799,
+   "UA": 699,
+   "FI": 289,
+   "DE": 220,
+   "NO": 168
+  }
+ },
+ "fav": {
+  "meta-externalagent": [
+   [
+    "/chuai.html",
+    20836
+   ],
+   [
+    "/toilets.html",
+    2660
+   ],
+   [
+    "/api/v1/search",
+    667
+   ],
+   [
+    "/sites/doodle-chiang-rai/",
+    612
+   ],
+   [
+    "/sites/doodle-map/",
+    234
+   ]
+  ],
+  "headless": [
+   [
+    "/chuai.html",
+    2384
+   ],
+   [
+    "/sites/city-live/",
+    12
+   ],
+   [
+    "/map.html",
+    11
+   ]
+  ],
+  "ClaudeBot": [
+   [
+    "/toilets.html",
+    1375
+   ],
+   [
+    "/listings/b/cm-condoreg-%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%9E%E0%B8%A5%E0%B8%B1%E0%B8%AA-%E0%B8%8…",
+    59
+   ],
+   [
+    "/listings/b/cm-condoreg-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1…",
+    14
+   ],
+   [
+    "/cm/p/8899210206335.html",
+    10
+   ],
+   [
+    "/cr/school/driving/index.html",
+    10
+   ]
+  ],
+  "GPTBot": [
+   [
+    "/api/v1/search",
+    520
+   ]
+  ],
+  "ShapBot": [
+   [
+    "/chuai.html",
+    203
+   ],
+   [
+    "/toilets.html",
+    106
+   ],
+   [
+    "/cr/soi/2-439401.html",
+    30
+   ],
+   [
+    "/cm/p/47993924452251991933.html",
+    12
+   ],
+   [
+    "/cm/p/03501701003.html",
+    11
+   ]
+  ],
+  "Amazonbot": [
+   [
+    "/toilets.html",
+    154
+   ],
+   [
+    "/listings/b/cm-condoreg-%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%9E%E0%B8%A5%E0%B8%B1%E0%B8%AA-%E0%B8%8…",
+    34
+   ],
+   [
+    "/listings/b/cm-condoreg-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1…",
+    13
+   ],
+   [
+    "/cm/p/laylam-home-cooking-by-reservation-only-3-days-in-advance-316318646724933371535.html",
+    11
+   ],
+   [
+    "/cm/p/hunter-fries-18058764799088634873.html",
+    10
+   ]
+  ],
+  "Reflectionbot": [
+   [
+    "/toilets.html",
+    64
+   ],
+   [
+    "/cr/p/46655741714284201833856.html",
+    10
+   ],
+   [
+    "/cm/p/itsara-garden-succulent-cactus-217770959461108783.html",
+    10
+   ]
+  ],
+  "SemrushBot": [
+   [
+    "/listings/b/cm-condoreg-%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%9E%E0%B8%A5%E0%B8%B1%E0%B8%AA-%E0%B8%8…",
+    34
+   ],
+   [
+    "/listings/b/cm-condoreg-%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1…",
+    13
+   ],
+   [
+    "/listings/b/cm-condoreg-%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%AD%E0%B8%99%E0%B8%B1%E0%B8%99%E0%B8%95…",
+    10
+   ]
+  ],
+  "MJ12bot": [
+   [
+    "/cm/p/9246484391330368.html",
+    19
+   ],
+   [
+    "/cm/p/999568442296948037.html",
+    18
+   ],
+   [
+    "/cm/p/99610728493886926076818.html",
+    17
+   ],
+   [
+    "/cm/p/ai-oon-coffee-88632087468585987284.html",
+    17
+   ],
+   [
+    "/cm/p/813693004392433974192.html",
+    17
+   ]
+  ],
+  "Chrome string, no Chrome": [
+   [
+    "/roads/",
+    18
+   ],
+   [
+    "/cr/p/932085296482584445.html",
+    15
+   ],
+   [
+    "/cm/p/mb-star-cmcuratedmbstar.html",
+    15
+   ],
+   [
+    "/cm/p/0032726400897742817612689.html",
+    15
+   ],
+   [
+    "/cr/p/l4-1285536823.html",
+    15
+   ]
+  ],
+  "YandexBot": [
+   [
+    "/listings/b/cm-condoreg-%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%9E%E0%B8%A5%E0%B8%B1%E0%B8%AA-%E0%B8%8…",
+    12
+   ]
+  ],
+  "bingbot": [
+   [
+    "/cm/p/a-lanna-boutique-house-7023402878.html",
+    10
+   ],
+   [
+    "/cm/p/hillda-house-10245740611.html",
+    10
+   ],
+   [
+    "/cm/p/3478046646439515254008.html",
+    10
+   ]
+  ],
+  "Bytespider": [
+   [
+    "/cm/p/335647948533193266744.html",
+    10
+   ]
+  ]
+ },
+ "places": {
+  "ShapBot": 59207,
+  "meta-externalagent": 17469,
+  "YandexBot": 11703,
+  "Reflectionbot": 11653,
+  "SemrushBot": 11368,
+  "Amazonbot": 11193,
+  "data centre · Alibaba Cloud": 8661,
+  "Chrome string, no Chrome": 7662,
+  "bingbot": 7580,
+  "MJ12bot": 7317
+ },
+ "seen": {
+  "ShapBot": [
+   "2026-09-14 23:35:33",
+   "2026-10-03 16:21:53"
+  ],
+  "bingbot": [
+   "2026-09-08 01:48:37",
+   "2026-10-04 16:58:05"
+  ],
+  "MJ12bot": [
+   "2026-09-08 01:48:49",
+   "2026-10-04 14:49:30"
+  ],
+  "GPTBot": [
+   "2026-09-08 21:33:31",
+   "2026-10-04 11:33:39"
+  ],
+  "headless": [
+   "2026-09-08 20:34:37",
+   "2026-10-04 16:58:12"
+  ],
+  "ClaudeBot": [
+   "2026-09-10 14:26:12",
+   "2026-10-04 16:48:13"
+  ],
+  "YandexBot": [
+   "2026-09-09 01:48:30",
+   "2026-10-04 16:58:08"
+  ],
+  "Reflectionbot": [
+   "2026-09-15 10:59:44",
+   "2026-10-04 16:59:30"
+  ],
+  "Amazonbot": [
+   "2026-09-08 02:40:14",
+   "2026-10-04 16:57:07"
+  ],
+  "Bytespider": [
+   "2026-09-08 02:30:12",
+   "2026-10-04 16:56:03"
+  ],
+  "SemrushBot": [
+   "2026-09-08 01:49:06",
+   "2026-10-04 16:58:46"
+  ],
+  "meta-externalagent": [
+   "2026-09-08 01:49:26",
+   "2026-10-04 16:59:37"
+  ],
+  "Chrome string, no Chrome": [
+   "2026-09-27 08:52:17",
+   "2026-10-04 16:44:49"
+  ],
+  "data centre · Alibaba Cloud": [
+   "2026-09-27 09:00:06",
+   "2026-10-04 16:55:59"
+  ]
+ },
+ "misses": [
+  [
+   "meta-externalagent",
+   "/cm/p/null",
+   "US",
+   659
+  ],
+  [
+   "meta-externalagent",
+   "/cm/tag/null",
+   "US",
+   286
+  ],
+  [
+   "meta-externalagent",
+   "/cr/p/null",
+   "US",
+   278
+  ],
+  [
+   "meta-externalagent",
+   "/null",
+   "US",
+   195
+  ],
+  [
+   "meta-externalagent",
+   "/cm/soi/null",
+   "US",
+   175
+  ],
+  [
+   "meta-externalagent",
+   "/cr/tag/null",
+   "US",
+   124
+  ],
+  [
+   "unrecognised",
+   "/wp-admin/install.php",
+   "RU",
+   88
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/favicon.png",
+   "CN",
+   50
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/imgs/logox.png",
+   "CN",
+   49
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/static/icon/bjch.png",
+   "CN",
+   49
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/details/images/favicon.ico",
+   "CN",
+   49
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/Alvin9999/https/fanfan1.net/daohang/",
+   "CN",
+   48
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/themes/custom/ahaspeed/favicon.ico",
+   "CN",
+   47
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/img/logo_512.png",
+   "CN",
+   46
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/officialsite",
+   "CN",
+   45
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/images/favicon-196x196.png",
+   "CN",
+   43
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/assets/fire_admin/images/logo.png",
+   "CN",
+   42
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/favicon.ico.png",
+   "CN",
+   41
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/theme/Bob-Theme-Argon/favicon.ico",
+   "CN",
+   41
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/assets/index/kuailian/image/favicon.ico",
+   "CN",
+   37
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/assets/images/logo-cn-vpnweb.png",
+   "CN",
+   32
+  ],
+  [
+   "unrecognised",
+   "/.well-known/assetlinks.json",
+   "SG",
+   28
+  ],
+  [
+   "meta-externalagent",
+   "/cr/soi/null",
+   "US",
+   15
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/sites/many-hands/cm/p/cmcuratedchacharoengardencenter.html",
+   "US",
+   14
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/sites/many-hands/cm/p/24hr-self-service-laundry-4886910421.html",
+   "US",
+   13
+  ],
+  [
+   "meta-externalagent",
+   "/tags/null",
+   "US",
+   11
+  ],
+  [
+   "Googlebot",
+   "/front/ahead.json",
+   "US",
+   11
+  ],
+  [
+   "ShapBot",
+   "/p/ahcafela-coffee-eatery-60591334648102247270.html",
+   "US",
+   10
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/sites/many-hands/cm/p/washenjoy-chiangmai-516441397287112.html",
+   "US",
+   10
+  ],
+  [
+   "meta-externalagent",
+   "/wats/w/null",
+   "US",
+   10
+  ],
+  [
+   "ShapBot",
+   "/cm/page-8.html",
+   "US",
+   10
+  ],
+  [
+   "ShapBot",
+   "/p/90-9-cafe-bar-pool-villa-793042060548302198820989.html",
+   "US",
+   9
+  ],
+  [
+   "ShapBot",
+   "/p/276540146475860887364.html",
+   "US",
+   9
+  ],
+  [
+   "ShapBot",
+   "/p/294-cafe-747324657493359669004.html",
+   "US",
+   9
+  ],
+  [
+   "ShapBot",
+   "/p/hot-hospital-431830403.html",
+   "US",
+   9
+  ],
+  [
+   "ShapBot",
+   "/p/alley-caffe-10553059477902590106.html",
+   "US",
+   9
+  ],
+  [
+   "ShapBot",
+   "/p/ai-coffee-cnx-68665633464498729903.html",
+   "US",
+   9
+  ],
+  [
+   "ShapBot",
+   "/w/wat-muen-ngun-gong-238829914.html",
+   "US",
+   9
+  ],
+  [
+   "ShapBot",
+   "/p/4330243698380492576.html",
+   "US",
+   9
+  ],
+  [
+   "ShapBot",
+   "/p/the-garden-restaurant-guest-house-2300400256.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/735384898351822.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/around-town-coffee-cmcuratedaroundtowncoffee.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/4387488374675359979174.html",
+   "US",
+   8
+  ],
+  [
+   "Chrome",
+   "/front/ahead.json",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/202-restaurant-668376851.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/83-7320454762124759122.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/cm/page-9.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/alchemist-drip-coffee-40790049353492338.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/w/wat-chaimongkol-406558246.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/4-17-329030691401990773444.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/58938400432252.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/4284632443985640245103.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/mae-sai-hospital-3070620495927806.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/3-961872198247897040895218.html",
+   "US",
+   8
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/wp-json/gravitysmtp/v1/tests/mock-data",
+   "BR",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/89-maejo-8774084704585968025297.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/1661704673969988515178.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/69-cafe-11911389882.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/anamii-coffee-8018785429967198007486.html",
+   "US",
+   8
+  ],
+  [
+   "ShapBot",
+   "/p/818795144382288676535.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/24-cafe-541590884468608146248630.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/3385476402020115164838.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/676-447954584865515424467.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/129-coffee-home-cafe-43528940509212816825.html",
+   "US",
+   7
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/move-chorakhe-fat-hang.jpg",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/59-cafe-513552142036450262436.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/177-slow-bar-21939681942846596338581.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/w/wat-pa-phaeng-18882121.html",
+   "US",
+   7
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/.git/HEAD",
+   "PL",
+   7
+  ],
+  [
+   "ShapBot",
+   "/tag/tambon-chang-khlan--food.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/660965240361597.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/afrochoco-cnx-1120246904177195.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/98-s-cha-868224674248329232143840.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/c-r-m-clinic-48668774986582802207.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/1-10008774517.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/akha-ama-the-new-original-13202532002.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/air-diamond-cafe-and-hotel-6490272416891120676652.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/w/wat-duang-di-261339003.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/adventure-park-by-buffalo-island-resort-95336559145868406108.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/2t-and-nt-station-51142442968766340.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/3-1182231393.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/7-4336604589.html",
+   "US",
+   7
+  ],
+  [
+   "ShapBot",
+   "/p/96-7367744740825313378.html",
+   "US",
+   6
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/story-ww1-france.jpg",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/7up-1010788425.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/smart-drug-21263494984866191390.html",
+   "US",
+   6
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/term-chok.jpg",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/24homecafe-89124490961062067.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/2bees-cafe-garden-79725288546955900711441.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/22031948295471814180.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/121-coffee-87206384769354596772.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/4elemens-coffee-roasters-33089673149448967860519.html",
+   "US",
+   6
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/org-sat.jpg",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/273-brew-house-1247597445.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/5247954268498140575.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/22-caff-e-3575420524850027465848.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/24-coffee-62411991141182905000989.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/56-coff-e-caf-4499481043780697074.html",
+   "US",
+   6
+  ],
+  [
+   "data centre · DigitalOcean",
+   "/.git/config",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/91m5-cafe-9101259746717555936932.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/94-96-coffee-260928714111546513147.html",
+   "US",
+   6
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/rule-fouls.jpg",
+   "US",
+   6
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-10593235384.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/maharaj-nakorn-chiang-mai-hospital-189618479.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/7-11-318689243982107883.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/90-s-cafe-8505425424839043181931.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/adirek-63574981431825670377865.html",
+   "US",
+   6
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/news5c/assets/images/logo.svg",
+   "CN",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/amore-italian-food-pizza-by-the-pool-cmnewsletteramorehangdong.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/36552305641883464356.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/12-feb-homey-cafe-11508095574.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/121-coffee-121.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/298485561421849495899650.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/akha-ama-coffee-la-fattoria-93537410473827123766.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/gynecology-clinic-1255489465825192.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/4626088145372661398894.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/papa-s-cup-3862580751.html",
+   "US",
+   6
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/fzh",
+   "CN",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/28-twenty-eight-coffee-24591905545822086758084.html",
+   "US",
+   6
+  ],
+  [
+   "ShapBot",
+   "/p/168547466977589814819.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/6424880453859057412.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/akaliko-river-house-183709481098663782436.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/php-info.php",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/all-new-club-bar-gallery-57261805414973068.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/accha-indian-restaurant-4741722368.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/staging/.env",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/tmp/.env",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/37944894883544398056.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/azure/.env",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/akha-shabu-suki-51494848697494720961.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/w/wat-mo-kham-tuang-251360257.html",
+   "US",
+   5
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/style-lopburi.jpg",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/47683965749872856426.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/mt-intermed-hospital-4373307426785108576166282.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/kafka/.env",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/2394827403806531583136.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/50-14234848681040871815.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/amezon-coffee-58943783468619432373345.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/855150678343041902194845.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/82-74222036046719691034421.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/qa/.env",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/887950104406418584.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/w/wat-bupparam-261336735.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/mae-lao-hospital-1461887865.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/8-days-a-week-7320873716489039471722.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/24-meatballs-1853412443326683229.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/a-tale-900-776275123944286387199722.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/145-cafe-72625743246685920954.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/aiyana-caf-680538814700969588609.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/san-sai-hospital-main-building-1017058199.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/419-home-cafe-19335404418054871.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/svelte/.env",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/application/.env",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/82050544442386281.html",
+   "US",
+   5
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/favicon-32x32.png",
+   "CN",
+   5
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/wp-content/uploads/2023/08/logo-gold.png",
+   "CN",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/chanakarn-clinic-1919713016476658779942892.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/924730061476482704332194.html",
+   "US",
+   5
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/wp-content/uploads/2023/02/1677572030-814390417fe413b.png",
+   "CN",
+   5
+  ],
+  [
+   "ShapBot",
+   "/w/wat-ku-tao-665826690.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/cpanel/phpinfo.php",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/37301210649587701851043.html",
+   "US",
+   5
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-5625897021.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/241903145401670932746.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/mae-suai-hospital-643046395.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/chiang-saen-hospital-527539157.html",
+   "US",
+   5
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/story-kings-guard.jpg",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/2798422493814416.html",
+   "US",
+   5
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-5956477606.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/cm/japanese/index.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/187368948965216539775.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/1-one-coffee-171104738520147.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/98214842389879411653381.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/microservice/.env",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/18-cottage-chiangmai-785075485125594323.html",
+   "US",
+   5
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/person-nongtoom.jpg",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/area-27-715246549582698759.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/390766442896633545574.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/muang-yai-subdistrict-health-promotion-hospital-297707197.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/or-neuro-96815579442233683851.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/2gether-bar-3417307168.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/403014488559818996.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/akha-ama-coffee-the-new-original-13293742701.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/050170541941078058229753.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/cm/page-10.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/1266264304102272.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/mongodb/.env",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/transactional/.env",
+   "US",
+   5
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/term-khru.jpg",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/a-mai-homemade-bakery-and-cafe-939310980448253275956.html",
+   "US",
+   5
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/person-manop-yarana.jpg",
+   "US",
+   5
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/main.c6d13be3ea6fc9cb.js",
+   "CN",
+   5
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/term-muay-word.jpg",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/938855430397806303.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/magento/.env",
+   "US",
+   5
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/move-top-maphap.jpg",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/laravel5/.env",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/182-coffee-449446444863332717.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/alele-clinic-639094434664002639034.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/740632164916132803542.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/66-331568644086981161578.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/accio-caf-3961441694412886574.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/ame-cafe-210064668112488017.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/api/staging/.env",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/224-caf-7068158494409676805179439.html",
+   "US",
+   5
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/story-what-we-did-not-do.jpg",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/168-river-cafe-023865850482693653997211.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/panel/.env",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/304742029804692957.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/80352784895007976987.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/57697732464498616288.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/457105451455840314.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/cm/page-6.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/629024136013999.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/new-paradigm-holistic-trauma-and-depression-retreat-58307154846782676877204.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/50038556940873905519568.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/278317347779162681.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/7355396644798539303525720.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/gcp/.env",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/sites/roofs-of-the-north/cm/p/kumuang-properties-cmcuratedkumuangproperties.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/16sep-387987840215287914.html",
+   "US",
+   5
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/story-ekathotsarot-law.jpg",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/health-centre-760193829.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/5183787842504698333483.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/.env.backup2",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/prod/.env",
+   "US",
+   5
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/person-dieselnoi.jpg",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/scripts/.env",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/shopify/.env",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/2739506348793389089017234.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/8-inch-pizza-1797049146.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/17g-specialty-coffee-5165208468629606335.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/kasenrad-sriburin-hospital-1741228095.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/6556521491388376550280.html",
+   "US",
+   5
+  ],
+  [
+   "ShapBot",
+   "/p/tms-rehab-064463233648376768921580.html",
+   "US",
+   5
+  ],
+  [
+   "data centre · Google Cloud",
+   "/brevo/.env",
+   "US",
+   5
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/.git/index",
+   "IN",
+   4
+  ],
+  [
+   "GPTBot",
+   "/cr/hotel/page-2.html",
+   "US",
+   4
+  ],
+  [
+   "ClaudeBot",
+   "/sites/roofs-of-the-north/th/cm/p/habitat-mahidol-cmcuratedhabitatmahidol.html",
+   "US",
+   4
+  ],
+  [
+   "data centre · Google Cloud",
+   "/erp/.env",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/64391233435783538030.html",
+   "US",
+   4
+  ],
+  [
+   "data centre · Google Cloud",
+   "/.git/config",
+   "US",
+   4
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/style-korat.jpg",
+   "US",
+   4
+  ],
+  [
+   "data centre · Google Cloud",
+   "/var/www/html/.env",
+   "US",
+   4
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/wp-content/uploads/2020/10/official-logo-512x512.png",
+   "CN",
+   4
+  ],
+  [
+   "ShapBot",
+   "/w/692146706.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/942926924921159729788.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/aloha-cafe-84527134249590832347.html",
+   "US",
+   4
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/.env.swp",
+   "IN",
+   4
+  ],
+  [
+   "ShapBot",
+   "/sites/cm/p/washenjoy-chiangmai-516441397287112.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/w/wat-muen-larn-356585930.html",
+   "US",
+   4
+  ],
+  [
+   "GPTBot",
+   "/tiles/find/g/50816_29100.webp",
+   "US",
+   4
+  ],
+  [
+   "data centre · Google Cloud",
+   "/_environment",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/42364767479490686075.html",
+   "US",
+   4
+  ],
+  [
+   "data centre · Google Cloud",
+   "/.env.remote",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/50-degrees-cafe-12571224099625842549.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/6204824344015982811.html",
+   "US",
+   4
+  ],
+  [
+   "Chrome",
+   "/cm/p/chiang-mai-gate-market-3039367438391250387.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/ah-nyar-house-9297231577340503297173.html",
+   "US",
+   4
+  ],
+  [
+   "GPTBot",
+   "/tiles/find/p/dad1708830533354.webp",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/7984290732841.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/0886194689784181121.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/162-home-cafe-coffee-sanphakwan-5367612493477885745653.html",
+   "US",
+   4
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/gym-ed-visa.jpg",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/22caff-e-na-bann-ka-lan-kafee-5039594604507631089.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/mri-center-737934788759140964.html",
+   "US",
+   4
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-way-255927414.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/7226721467851034809.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/w/wat-pa-phrao-nai-406992814.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/678-678.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/2-7-40487043783609725300.html",
+   "US",
+   4
+  ],
+  [
+   "data centre · Google Cloud",
+   "/mailer/.env",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/200-noodle-cafe-11372700314.html",
+   "US",
+   4
+  ],
+  [
+   "GPTBot",
+   "/tiles/find/p/65f27025a55b1e97.webp",
+   "US",
+   4
+  ],
+  [
+   "GPTBot",
+   "/tiles/find/p/9009ff0f435ddda5.webp",
+   "US",
+   4
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/person-saenchai.jpg",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/61675846133687123383.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/doi-saket-hospital-239970155.html",
+   "US",
+   4
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/.git/config",
+   "FR",
+   4
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/person-kham-kaiwai.jpg",
+   "US",
+   4
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-6741632385.html",
+   "US",
+   4
+  ],
+  [
+   "data centre · Google Cloud",
+   "/stage/.env",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/2nat-coffee-48336427087596969.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/2streetcoffeecrew-13944613858.html",
+   "US",
+   4
+  ],
+  [
+   "GPTBot",
+   "/tiles/find/p/25ccdfb13a18cc89.webp",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/all-new-9960454887809.html",
+   "US",
+   4
+  ],
+  [
+   "GPTBot",
+   "/tiles/find/g/50708_29305.webp",
+   "US",
+   4
+  ],
+  [
+   "Googlebot",
+   "/cr/p/cr-osm-node-9166342526.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/66714614089902638375.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/central-chiang-mai-memorial-hospital-1628665577.html",
+   "US",
+   4
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-6817205186.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/4479038289400641811840.html",
+   "US",
+   4
+  ],
+  [
+   "meta-externalagent",
+   "/muay-thai/cards/bout-buakaw-k1-2004.jpg",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/577649748528612184.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/22538945276114515.html",
+   "US",
+   4
+  ],
+  [
+   "Googlebot",
+   "/cm/p/cm-osm-node-3421245743.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/32052342048588625721651.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/8428288084464190541984.html",
+   "US",
+   4
+  ],
+  [
+   "ShapBot",
+   "/p/0702473648941990698849.html",
+   "US",
+   4
+  ],
+  [
+   "Chrome string, no Chrome",
+   "/.git/HEAD",
+   "US",
+   4
+  ]
+ ],
+ "fibber": {
+  "TH": 2,
+  "US": 1
+ },
+ "anthill": {
+  "booted": [],
+  "stats": {
+   "bots": 2,
+   "joined": 1,
+   "threads": 12,
+   "replies": 0,
+   "nice": 0,
+   "held": 0,
+   "booted": 0,
+   "by_count": 1,
+   "by_riddle": 0,
+   "door_missed": 0
+  }
+ },
+ "people": {
+  "loads": 1320,
+  "visits": 690,
+  "mobile": 330,
+  "countries": {
+   "TH": 500,
+   "US": 140,
+   "SG": 20,
+   "MY": 10,
+   "IN": 10,
+   "AU": 10,
+   "PH": 0
+  },
+  "pages": [
+   [
+    "/",
+    220
+   ],
+   [
+    "/sites/city-live/",
+    190
+   ],
+   [
+    "/find",
+    130
+   ],
+   [
+    "/search.html",
+    90
+   ],
+   [
+    "/map.html",
+    40
+   ],
+   [
+    "/listings/",
+    30
+   ],
+   [
+    "/cm/p/390279548994150031030.html",
+    30
+   ],
+   [
+    "/sites/doodle-map/",
+    30
+   ],
+   [
+    "/loop/when/",
+    30
+   ],
+   [
+    "/sites/safety/",
+    20
+   ],
+   [
+    "/cm/p/3287871972.html",
+    20
+   ],
+   [
+    "/markets/cm/chamcha/",
+    20
+   ],
+   [
+    "/markets/cm/kamthieng/amulets/",
+    20
+   ],
+   [
+    "/field",
+    20
+   ],
+   [
+    "/index.html",
+    20
+   ],
+   [
+    "/cm/p/ootoya-0925.html",
+    20
+   ],
+   [
+    "/cr/p/yunnan-restaurant-1127661771.html",
+    20
+   ],
+   [
+    "/sites/long-stay/",
+    20
+   ],
+   [
+    "/toilets.html",
+    10
+   ],
+   [
+    "/cm/p/kitcha-dental-5030800523.html",
+    10
+   ]
+  ],
+  "facebook": 100,
+  "google": 0
+ },
+ "gossip": [
+  {
+   "key": "eater",
+   "bot": "meta-externalagent",
+   "title_th": "ตัวกินจุ",
+   "rom": "tua kin chu",
+   "title_en": "The big eater",
+   "th": "meta-externalagent (บริษัทเจ้าของเฟซบุ๊ก) ขอหน้าเว็บ 579,779 ครั้งในสัปดาห์นี้ คิดเป็น 44% ของทั้งหมด หน้าที่ชอบที่สุด: ช่วย อ่านไป 20,836 ครั้ง สัปดาห์ก่อน 755,332 ครั้ง",
+   "en": "meta-externalagent (Meta, Facebook's owner) asked for 579,779 pages this week, 44% of everything anyone asked for. Its favourite: ช่วย, chuai, the help page: emergency numbers, hospitals, pharmacies, 20,836 times. Last week, 755,332.",
+   "stat": "579,779"
+  },
+  {
+   "key": "new",
+   "bot": "data centre · Alibaba Cloud",
+   "title_th": "ขาใหม่",
+   "rom": "kha mai",
+   "title_en": "New in town",
+   "th": "data centre · Alibaba Cloud สัปดาห์ก่อนมา 9,214 ครั้ง สัปดาห์นี้มา 187,120 ครั้ง เคาะประตูครั้งแรกในบันทึกของเรา วันอาทิตย์ 27 ก.ย. 16:00 น.",
+   "en": "data centre · Alibaba Cloud came 9,214 times last week and 187,120 times this week. First knock in our log: Sun 27 Sept, 16:00.",
+   "stat": "187,120"
+  },
+  {
+   "key": "quiet",
+   "bot": "ClaudeBot",
+   "title_th": "หายเงียบ",
+   "rom": "hai ngiap",
+   "title_en": "Gone quiet",
+   "th": "ClaudeBot (บริษัทที่ทำ Claude) สัปดาห์ก่อนมา 164,558 ครั้ง สัปดาห์นี้เหลือ 8,735 ครั้ง เห็นครั้งสุดท้าย วันอาทิตย์ 4 ต.ค. 23:48 น.",
+   "en": "ClaudeBot (Anthropic, the Claude company) asked 164,558 times last week. This week, 8,735. Last seen Sun 4 Oct, 23:48.",
+   "stat": "8,735"
+  },
+  {
+   "key": "hours",
+   "bot": "Chrome string, no Chrome",
+   "title_th": "นกฮูก",
+   "rom": "nok huk",
+   "title_en": "Night owl",
+   "th": "Chrome string, no Chrome อ่าน 94% ของทั้งสัปดาห์ ช่วง 20:00 ถึง 02:00 เวลาเชียงใหม่ ชั่วโมงที่ยุ่งที่สุด: 21:00 น.",
+   "en": "Chrome string, no Chrome did 94% of its week's reading between 20:00 and 02:00 Chiang Mai time. Busiest hour: 21:00.",
+   "stat": ""
+  },
+  {
+   "key": "lost",
+   "bot": "meta-externalagent",
+   "title_th": "หลงทาง",
+   "rom": "long thang",
+   "title_en": "Lost",
+   "th": "meta-externalagent (บริษัทเจ้าของเฟซบุ๊ก) ขอหน้าที่ชื่อ “null” 1,753 ครั้ง ในภาษาคอมพิวเตอร์ null แปลว่า ไม่มีอะไร มันมาหาความว่างเปล่า แล้วก็เจอ",
+   "en": "meta-externalagent (Meta, Facebook's owner) asked 1,753 times for a page called “null”. In computer talk null means nothing. It came looking for nothing, and found it.",
+   "stat": "1,753"
+  },
+  {
+   "key": "door",
+   "bot": "",
+   "title_th": "เคาะผิดประตู",
+   "rom": "kho phit pratu",
+   "title_en": "Wrong door",
+   "th": "มีเครื่องมาเคาะประตูหลังของโปรแกรมที่เว็บนี้ไม่ได้ใช้ 260 ครั้ง ตัวที่เคาะมากที่สุดมาจากรัสเซีย ลองประตู /wp-admin/install.php 88 ครั้ง เครื่องมือของขโมยเดินไปทุกซอย ลองบิดลูกบิดทุกบ้าน",
+   "en": "Machines knocked 260 times at back doors of software this site doesn't run. The busiest knocker, from Russia, tried /wp-admin/install.php 88 times. Burglar tools walk every street and try every handle.",
+   "stat": "260"
+  },
+  {
+   "key": "face",
+   "bot": "",
+   "title_th": "ลองหน้า",
+   "rom": "long na",
+   "title_en": "Trying on faces",
+   "th": "เครื่องจากจีน ลองขอโลโก้ของเว็บอื่น 16 แบบ รวม 546 ครั้ง เช่น /assets/images/logo-cn-vpnweb.png เครื่องสแกนทำแบบนี้เพื่อเดาว่าเจอเว็บแบบไหน",
+   "en": "Machines from China tried on 16 other websites' logos here, 546 requests, /assets/images/logo-cn-vpnweb.png among them. A scanner does this to guess what kind of site it has found.",
+   "stat": "16"
+  },
+  {
+   "key": "worm",
+   "bot": "ShapBot",
+   "title_th": "หนอนหนังสือ",
+   "rom": "non nangsue",
+   "title_en": "Bookworm",
+   "th": "ShapBot อ่านหน้าร้าน วัด และสถานที่ 59,207 หน้าในสัปดาห์นี้ หน้าที่กลับไปอ่านซ้ำมากที่สุด: สะพานลอย · Saphan Loi, วัดดอยเต่า · Wat Doi Tao",
+   "en": "ShapBot read 59,207 pages about shops, temples and places this week. The ones it went back to most: สะพานลอย · Saphan Loi, วัดดอยเต่า · Wat Doi Tao.",
+   "stat": "59,207"
+  },
+  {
+   "key": "people",
+   "bot": "",
+   "title_th": "คน",
+   "rom": "khon",
+   "title_en": "People",
+   "th": "คนเข้ามาประมาณ 690 ครั้ง ใช้มือถือ 48% หน้าที่คนเปิดมากที่สุด: เมืองตอนนี้ · The City, Live · Mot Dang มาจากเฟซบุ๊กประมาณ 100 ครั้ง คนมา 1 ครั้ง เครื่องมา 1,911 ครั้ง",
+   "en": "About 690 visits by people, 48% on phones. The page people opened most: เมืองตอนนี้ · The City, Live · Mot Dang. About 100 came from Facebook. For every visit by a person, 1,911 requests by machines.",
+   "stat": "690"
+  }
+ ]
+}

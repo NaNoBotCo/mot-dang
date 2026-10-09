@@ -1,0 +1,586 @@
+MASSIVE x motdang /find liftIntent -- coverage report
+Run 2026-10-04. Read-only on the repo; liftIntent imported from publish/fleetsearch.js as it stands on disk.
+
+DATA
+  MASSIVE 1.1 (Amazon, CC BY 4.0). The S3 bucket named in the brief no longer exists (NoSuchBucket).
+  Used the same release from the AmazonScience/massive Hugging Face repo, parquet conversion
+  (refs/convert/parquet, en-US and th-TH, train+validation+test). Intent label indices mapped to names
+  from the parquet schema metadata. 16,521 utterances per locale, 60 intents, ids aligned across locales.
+  Files: en-US.jsonl, th-TH.jsonl, lifted.jsonl (every utterance with what liftIntent returned).
+
+  'Fired' = any of near / open / price / buy set, or heard[] non-empty.
+  th-TH 'sp' = utterance as MASSIVE has it (annotators left spaces between many words).
+  th-TH 'ns' = spaces between two Thai characters removed (how Thai is normally typed into a search box).
+
+1. OVERALL COVERAGE
+  set                         n   fired      %
+  en-US                   16521    2971   18.0
+  th-TH spaced            16521    2002   12.1
+  th-TH no-space          16521    1424    8.6
+  en-US                  focus intents: 2367/10219 = 23.2%   device-control intents (all lifts there are false): 28/2044 = 1.4%
+  th-TH spaced           focus intents: 1375/10219 = 13.5%   device-control intents (all lifts there are false): 149/2044 = 7.3%
+  th-TH no-space         focus intents: 1050/10219 = 10.3%   device-control intents (all lifts there are false): 84/2044 = 4.1%
+
+  Most of the fired share is two generic patterns: howto 'what is' (972 en) and price 'เท่าไหร่' (302 th).
+  Without howto at all: en 11.4%, th spaced 8.8%, th no-space 5.1%.
+
+2. PER MASSIVE INTENT (focus intents first, then the rest)
+  %fired per locale; top-3 = our ids that fired, with counts. price_low/price_high = the older searchcore price lift; price = intents.js price.
+  intent                        n    en%    th%  thNS%  en top-3                                     th top-3 (spaced)
+  recommendation_locations    235   40.9   29.8   14.5  best:42,near:39,howto:15                     near:31,best:24,buy:8
+  recommendation_events       259   35.9   12.7    8.1  weekend:35,howto:26,near:26                  near:18,best:6,weekend:3
+  recommendation_movies       102   39.2   16.7   13.7  best:18,howto:13,near:12                     best:13,near:4,howto:1
+  transport_query             314   36.0   15.9   14.6  route:51,howto:43,price:13                   howto:23,price:14,book:6
+  transport_ticket            187   48.7   65.8   46.5  book:58,buy:20,price_low:7                   book:110,buy:8,weekend:3
+  transport_taxi              150   19.3   49.3   34.0  book:26,near:1,price_low:1                   book:54,contact:25,near:1
+  transport_traffic           154   22.7    7.1    6.5  howto:25,route:8,near:2                      howto:9,price:1,near:1
+  weather_query               855   55.1   29.6   15.1  weather:433,howto:132,weekend:16             weather:157,howto:56,price:26
+  takeaway_query              181   44.2   10.5    4.4  delivery:67,near:6,price:4                   buy:11,howto:4,best:1
+  takeaway_order              177   26.0   11.3    5.6  delivery:30,near:11,best:6                   buy:5,best:3,price:3
+  qa_definition               379   28.0   23.2   24.0  howto:104,wifi:1,urgent:1                    howto:82,learn:3,contact:1
+  qa_factoid                  775   20.8   21.8   21.3  howto:131,price:16,best:9                    price:108,howto:56,learn:3
+  qa_currency                 213   54.5   31.5   30.5  howto:66,price:52,best:2                     howto:34,price:33
+  datetime_query              502   19.1   13.7   12.5  howto:91,weekend:3,price:1                   price:55,howto:7,weekend:5
+  calendar_query              794   14.5    4.5    3.1  howto:78,weekend:20,free:14                  howto:13,weekend:8,early:7
+  general_quirky              829   20.5    9.8    8.3  howto:85,best:46,price:13                    howto:45,price:11,best:6
+  cooking_recipe              320   40.9   20.0   20.3  howto:106,best:33,route:7                    howto:35,price:13,best:12
+  news_query                  709   21.2    5.2    3.8  howto:120,best:16,weather:7                  howto:27,weather:6,price:2
+  play_music                  938    7.7    1.9    0.7  best:64,howto:4,weather:3                    best:13,early:2,howto:2
+  play_radio                  401    6.7    0.7    1.0  best:21,howto:4,kids:1                       best:2,contact:1
+  play_podcasts               290    6.2    2.1    1.4  best:14,howto:3,price:1                      early:3,learn:1,best:1
+  play_audiobook              226    2.7    0.4    0.0  best:6                                       best:1
+  play_game                   169    1.2    0.0    0.0  best:2                                       -
+  lists_query                 299   17.4    9.0    8.0  howto:48,buy:4,best:1                        howto:15,contact:5,buy:3
+  email_query                 610    5.4    4.8    3.8  howto:18,contact:8,work:3                    howto:19,contact:10
+  social_query                151   11.9    6.6    5.3  howto:14,weekend:2,best:1                    howto:7,weekend:2,contact:1
+  calendar_remove [other]     426    1.9    1.6    0.7  weekend:5,free:1,route:1                     weekend:5,book:1,sunday:1
+  calendar_set [other]       1150    4.9    6.1    2.3  weekend:17,sunday:12,buy:5                   weekend:31,sunday:20,early:9
+  cooking_query [other]         6   33.3   33.3   33.3  route:2                                      howto:2
+  datetime_convert [other]     76   17.1   10.5    9.2  howto:13                                     price:6,price_high:1,howto:1
+  email_addcontact [other]     71   38.0   53.5   19.7  contact:27                                   contact:38
+  email_querycontact [other]  169   48.5   51.5   29.0  contact:63,howto:33,work:1                   contact:51,howto:37,price:2
+  email_sendemail [other]     531    9.6    8.1    2.4  weather:19,contact:12,weekend:6              kids:19,contact:15,weekend:3
+  general_greet [other]        28   25.0    0.0    0.0  best:6,howto:1                               -
+  general_joke [other]        106   17.0    8.5    9.4  best:14,howto:5,kids:1                       howto:8,best:2
+  lists_createoradd [other]   241    2.9    4.6    2.1  buy:3,urgent:2,best:1                        buy:5,learn:3,contact:2
+  lists_remove [other]        253    4.7    4.0    2.0  buy:5,best:2,contact:2                       contact:5,buy:4,sunday:1
+  music_dislikeness [other]    20    5.0    5.0    5.0  best:1                                       price:1
+  music_likeness [other]      165   17.0    1.8    1.2  best:26,howto:2                              open:1,howto:1,best:1
+  music_query [other]         219   19.2   10.0   10.5  howto:39,best:6                              howto:19,best:2,price:1
+  music_settings [other]       65    0.0    0.0    0.0  -                                            -
+  qa_maths [other]            116   47.4   50.0   48.3  howto:47,price:7,urgent:1                    price:39,howto:19
+  qa_stock [other]            202   68.3   32.2   31.2  price:114,howto:45,buy:5                     price:45,howto:19,buy:1
+  social_post [other]         414    7.0   10.6    2.4  delivery:6,contact:6,best:4                  learn:33,contact:7,kids:2
+  alarm_query [device]        183    2.2   10.4    7.1  howto:4,weekend:1                            early:9,howto:6,price:2
+  alarm_remove [device]       113    0.9    8.8    3.5  sunday:1                                     early:7,sunday:2,weekend:1
+  alarm_set [device]          254    1.6    5.9    2.8  fix:2,delivery:1,weekend:1                   early:8,weekend:5,sunday:2
+  audio_volume_down [device]   71    0.0    0.0    0.0  -                                            -
+  audio_volume_mute [device]  157    1.3    0.0    0.6  best:1,urgent:1                              -
+  audio_volume_other [device]   24    0.0    0.0    0.0  -                                            -
+  audio_volume_up [device]    135    0.0    0.0    0.0  -                                            -
+  iot_cleaning [device]       138    3.6   70.3   38.4  howto:3,best:1,urgent:1                      weather:97,howto:1
+  iot_coffee [device]         174    1.7    0.0    0.0  howto:2,fix:1                                -
+  iot_hue_lightchange [device]  183    2.2    1.6    1.1  best:3,fix:1                                 price_low:1,howto:1,late:1
+  iot_hue_lightdim [device]   114    0.0    0.9    0.9  -                                            late:1
+  iot_hue_lightoff [device]   213    0.9    0.5    0.5  best:2                                       open:1
+  iot_hue_lighton [device]     30    0.0    0.0    0.0  -                                            -
+  iot_hue_lightup [device]    115    0.0    0.0    0.0  -                                            -
+  iot_wemo_off [device]        75    2.7    2.7    2.7  wifi:2                                       wifi:2
+  iot_wemo_on [device]         65    1.5    1.5    0.0  wifi:1                                       open:1
+
+3. FALSE LIFTS -- concrete examples
+  Format: [locale] MASSIVE intent | utterance | trigger -> our id   (n = all fires of that trigger in that locale, spaced Thai)
+
+   1. [en-US] datetime_query | what is the time | 'what is' -> howto   (n=972)
+      pattern: 'what is' is a question opener, not a how-to request; 972 en fires, 128 on weather, 91 on time
+      fix: drop 'what is'/'what are' from howto pats (QUESTION_SCAFFOLD already strips them); keep 'what is a'/'what is an' if wanted
+   2. [en-US] weather_query | what is the weather now | 'what is' -> howto   (n=972)
+      pattern: same pattern; howto then ranks explainers above the weather lead
+   3. [en-US] general_greet | good morning olly | 'good' -> best   (n=128)
+      pattern: 'good' as greeting/adjective: good morning, good night, good song, good joke (128 fires)
+      fix: drop 'good' from rank:best, or unless /good (morning|night|evening|afternoon|day)/ and require a place noun after it
+   4. [en-US] play_music | play my favorite playlist | 'favorite' -> best   (n=88)
+      pattern: possessive 'my favorite' is the reader's own thing, not a ranking (88 fires, 36 play_music)
+      fix: unless /(my|your|our) favou?rite/
+   5. [en-US] news_query | get me top headlines | 'top' -> best   (n=49)
+      pattern: 'top headlines', 'top twenty', 'top forty'
+      fix: unless top is followed by a number word or headlines/news/hits
+   6. [en-US] email_addcontact | create new contact with email | 'contact' -> contact   (n=94)
+      pattern: 'contact' as the address-book noun (94 fires, 69 on email_* intents)
+      fix: drop bare 'contact'; keep 'contact number', 'phone number', 'line id'; unless /(contacts?|contact list|new contact|add .* contact)/
+   7. [en-US] lists_remove | remove the list of person starting from letter medium in my contact list | 'contact' -> contact   (n=94)
+      pattern: same, 'my contact list'
+   8. [en-US] calendar_query | am i free this saturday | 'free' -> free   (n=26)
+      pattern: 'am i free', 'free up', 'free time' = availability, not price
+      fix: unless /\b(am i|are you|is \w+|i'?m|we're) free\b|free (up|time|slot)/
+   9. [en-US] calendar_remove | free up my schedule for the next week | 'free' -> free   (n=26)
+      pattern: 'free up my schedule'
+  10. [en-US] audio_volume_mute | help me to mute my speaker | 'help me' -> urgent   (n=18)
+      pattern: 'help me' + any task shows the emergency numbers (18 fires; 'help me book a taxi' gets 1669/191)
+      fix: fire 'help me' only when it is the whole query or followed by please/now/!; never when a verb follows
+  11. [en-US] transport_ticket | help me book a train ticket | 'help me' -> urgent   (n=18)
+      pattern: same
+  12. [en-US] cooking_recipe | what's the best way to cook pasta | 'way to' -> route   (n=27)
+      pattern: 'best way to cook pasta', 'on the way to work' (27 fires, 7 transport)
+      fix: drop 'way to'; keep 'the way to <place>' only at query start
+  13. [en-US] general_quirky | help me get to sleep | 'get to' -> route   (n=17)
+      pattern: 'help me get to sleep', 'get to work', 'get to the shops'
+      fix: drop bare 'get to'; keep 'how do i get to', 'how to get to', 'how can i get to'
+  14. [en-US] alarm_set | fix an alarm | 'fix' -> fix   (n=6)
+      pattern: 'fix an alarm', 'fix me some coffee', 'fix a meeting' (Indian English 'arrange') -> becomes 'repair'
+      fix: unless /fix (me|us|a meeting|an? (alarm|appointment|time|date))/
+  15. [en-US] weather_query | how much snow has fallen in maine since yesterday | 'how much' -> price   (n=44)
+      pattern: quantity, not cost: 'how much snow', 'how much time' (44 fires)
+      fix: drop bare 'how much'; keep 'how much is', 'how much does ... cost', 'how much for'; unless /how much (time|snow|rain|longer|water|sugar|salt)/
+  16. [en-US] cooking_recipe | how much time do i have to boil an egg | 'how much' -> price   (n=44)
+      pattern: 'how much time do i have to boil an egg'
+  17. [en-US] social_post | tweet the president and tell him he's doing a horrible job | 'job' -> work   (n=14)
+      pattern: 'doing a horrible job', 'job title', 'steve jobs' (20 fires, none a job search)
+      fix: unless /(steve jobs|job title|(good|great|bad|horrible|nice) job|job offer email)/; prefer 'jobs in', 'job vacancy', 'hiring'
+  18. [en-US] general_joke | find me the best knock knock joke on the internet | 'internet' -> wifi   (n=13)
+      pattern: 'on the internet', 'internet speed issues', 'internet providers' (13 fires, 0 wifi asks)
+      fix: drop bare 'internet' from wifi:yes; keep 'internet cafe', 'with internet', 'internet access'
+  19. [en-US] play_music | play purple haze | 'haze' -> weather   (n=3)
+      pattern: 'purple haze'
+      fix: minor; unless /purple haze/ or require haze with today/now/air
+  20. [en-US] calendar_remove | take away all events | 'take away' -> delivery   (n=3)
+      pattern: 'take away all events', 'take away from the list'
+      fix: require food context or end of query: 'take away' not followed by all/from/the
+  21. [en-US] news_query | tell me about the federal budget | 'budget' -> price_low   (n=9)
+      pattern: 'federal budget', 'budget meeting', 'budget review'
+      fix: unless followed by meeting/review/request/report; prefer 'on a budget', 'budget hotel/room/eats'
+  22. [en-US] qa_stock | what's the change in best buy stick | 'buy' -> buy   (n=42)
+      pattern: 'best buy' is a shop name; also fires best
+      fix: treat 'best buy' as a name (no lift)
+  23. [en-US] recommendation_events | what is open late in la | 'what is open' -> open   (n=2)
+      pattern: 'what is open late in la' -> open-now wins, 'late' is left in the query
+      fix: lift late before open-now, or add 'what is open late'/'whats open late' to open:late
+  24. [th-TH] iot_cleaning | ดูดฝุ่น บ้าน ให้หน่อย | 'ฝุ่น' -> weather   (n=99)
+      pattern: ดูดฝุ่น = vacuum; end-of-run rule takes ฝุ่น as the tail of the compound (97 of 99 fires)
+      fix: list ฝุ่น as standalone-only, or unless /ดูดฝุ่น|เครื่องดูดฝุ่น/; keep ค่าฝุ่น, ฝุ่นวันนี้, PM2.5
+  25. [th-TH] social_post | ส่งข้อร้องเรียน บน ทวีต | 'เรียน' -> learn   (n=53)
+      pattern: ร้องเรียน (complain), นักเรียน (student), โรงเรียน (school) all end in เรียน (53 fires, 0 learning asks); query is cut to ร้อง
+      fix: drop bare เรียน as a pat; keep front อยากเรียน/เรียน+subject; unless /(ร้อง|นัก|โรง)เรียน/
+  26. [th-TH] transport_taxi | ตั้งให้ อูเบอร์ มารับ ฉัน สี่ทุ่มคืนนี้ | 'เบอร์' -> contact   (n=29)
+      pattern: อูเบอร์ (Uber), เบอร์เกอร์, แกร็บเบอร์ (29 fires, 25 Uber); 'เรียกอูเบอร์' becomes 'เรียกอู'
+      fix: drop bare เบอร์; keep เบอร์โทร, เบอร์ติดต่อ, ขอเบอร์
+  27. [th-TH] takeaway_query | เอมเค สั่งออนไลน์ มั้ยคะ | 'ไลน์' -> contact   (n=8)
+      pattern: ออนไลน์ (online) ends in ไลน์ (8 of 8 fires); 'สั่งออนไลน์' becomes 'สั่งออน'
+      fix: unless /ออนไลน์/; or use ไลน์ไอดี, แอดไลน์, line id
+  28. [th-TH] lists_remove | ลบ ประยุทธ์ สมโภช จาก รายชื่อติดต่อ | 'ติดต่อ' -> contact   (n=128)
+      pattern: ผู้ติดต่อ / รายชื่อติดต่อ = contacts list (128 fires, 117 on email/list intents)
+      fix: unless /(ผู้|รายชื่อ)ติดต่อ/
+  29. [th-TH] datetime_query | สันกำแพง เชียงใหม่ กี่โมงแล้ว | 'แพง' -> price_high   (n=8)
+      pattern: สันกำแพง (San Kamphaeng, a Chiang Mai district) ends in แพง: lifts price:high and cuts the place name to สันกำ
+      fix: unless /กำแพง/ (also กำแพงเพชร, ประตูท่าแพ is safe); same risk for any place name ending in a pattern
+  30. [th-TH] datetime_query | วันนี้ วันที่เท่าไหร่ | 'เท่าไหร่' -> price   (n=302)
+      pattern: เท่าไหร่ = how much / how many / what (date, age, temperature): 302 fires, 55 datetime, 97 factoid, 40 maths
+      fix: keep ราคาเท่าไหร่, ค่า...เท่าไหร่; drop bare เท่าไหร่/เท่าไร or require ราคา|ค่า|กี่บาท in the query
+  31. [th-TH] qa_factoid | คริส หอวัง อายุเท่าไหร่ | 'เท่าไหร่' -> price   (n=302)
+      pattern: อายุเท่าไหร่ (how old)
+  32. [th-TH] music_dislikeness | เพลงนี้ไม่ค่อยดีเท่าไหร่ | 'เท่าไหร่' -> price   (n=302)
+      pattern: ไม่ค่อยดีเท่าไหร่ = 'not very good'
+  33. [th-TH] email_sendemail | อีเมล ถึง ครอบครัว | 'ครอบครัว' -> kids   (n=26)
+      pattern: 'email to family' (26 fires, 19 email)
+      fix: keep เหมาะกับครอบครัว, สำหรับครอบครัว, ครอบครัวเที่ยว; drop bare ครอบครัว
+  34. [th-TH] alarm_set | ปลุกฉัน ตอนเช้า แปดโมงสี่สิบห้า | 'ตอนเช้า' -> early   (n=54)
+      pattern: 'in the morning' for alarms/reminders (54 fires, 0 opening-hours asks)
+      fix: keep เปิดเช้า, เปิดตอนเช้า; drop bare ตอนเช้า
+  35. [th-TH] weather_query | วันนี้ อากาศจะเป็นยังไง | 'ยังไง' -> howto   (n=75)
+      pattern: เป็นยังไง = 'how is it' (61 of 156 contexts); howto then fires on the weather question
+      fix: unless preceded by เป็น/เป็นยังไงบ้าง
+  36. [th-TH] takeaway_query | เมื่อไหร่ คำสั่งซื้อ ของฉัน จะมาถึง | 'ซื้อ' -> buy   (n=46)
+      pattern: คำสั่งซื้อ = 'order' (status), ซื้อกลับบ้าน = takeaway
+      fix: unless /คำสั่งซื้อ|สั่งซื้อ|ซื้อกลับบ้าน/ (route the last to delivery)
+  37. [th-TH] recommendation_locations | ซีเจ ซูเปอร์มาร์เก็ต ที่ ใกล้ที่สุด อยู่ที่ไหน | 'เจ' -> vegan   (n=4)
+      pattern: ซีเจ = CJ supermarket; 'ซีเจ ใกล้ฉัน' becomes 'ซี'
+      fix: unless /ซีเจ|ดีเจ|เจ\./; keep กินเจ, อาหารเจ, ร้านเจ
+  38. [th-TH] weather_query | การแข่งขันกอล์ฟของฉัน จะถูก ฝนตก ไล่ หรือเปล่า | 'ถูก' -> price_low   (n=3)
+      pattern: ถูก as passive marker: จะถูก ฝนตก ไล่ ('get rained out')
+      fix: standalone ถูก is too ambiguous; keep ราคาถูก, ถูกๆ, ของถูก
+  39. [th-TH] iot_hue_lightoff | ปิด ไฟ ที่เปิดอยู่ | 'เปิดอยู่' -> open   (n=5)
+      pattern: 'the light that is on' / 'the song playing' (5 fires, 0 open-now asks)
+      fix: require a place word before it or ร้าน...เปิดอยู่ไหม; or keep only เปิดอยู่ไหม
+  40. [th-TH] weather_query | รายงานสภาพอากาศ รายเดือน | 'รายเดือน' -> rent   (n=2)
+      pattern: รายเดือน alone = monthly (report, reminder)
+      fix: keep เช่ารายเดือน, ห้องรายเดือน; drop bare รายเดือน
+
+4. THAI PATTERNS IN THE LIFTER, AGAINST th-TH
+  present = th-TH utterances containing the pattern anywhere (spaces removed); sp/ns = times it actually fired.
+  tail = of the no-space fires, how many matched as the tail of a longer Thai run (the only place the rule lets it match).
+
+  id         kind  pattern              present    sp    ns  tail  where it appears
+  fix        pat   เสีย                     426     1     1     1  audio_volume_up:106, audio_volume_mute:95
+  howto      pat   คืออะไร                  386   365   363   349  qa_definition:67, qa_factoid:41
+  price      pat   เท่าไหร่                 348   302   289   287  qa_factoid:97, datetime_query:55
+  vegan      pat   เจ                       336     4     2     1  calendar_set:61, email_sendemail:38
+  buy        pat   ซื้อ                     275    46     7     6  takeaway_query:66, lists_remove:34
+  weather    pat   สภาพอากาศ                190    74     9     7  weather_query:176, email_sendemail:6
+  book       pat   จอง                      186   126   136     0  transport_ticket:113, transport_taxi:55
+  contact    pat   ติดต่อ                   175   128    35    35  email_querycontact:62, email_addcontact:56
+  price      pat   ราคา                     174    11     5     3  qa_stock:119, transport_query:12
+  howto      pat   ยังไง                    156    75    67    67  weather_query:74, transport_traffic:31
+  learn      pat   เรียน                    124    53    19    14  social_post:89, calendar_set:7
+  price:low  pat   ถูก                      118     3     1     1  email_sendemail:15, general_quirky:13
+  howto      front อะไรคือ                  114    75   103     0  qa_definition:25, lists_query:14
+  book       pat   จองตั๋ว                  110    49     1     1  transport_ticket:103, transport_query:6
+  weather    pat   ฝุ่น                     104    99    52    52  iot_cleaning:101, general_quirky:2
+  contact    pat   เบอร์                    101    29     6     5  email_querycontact:40, transport_taxi:29
+  best       pat   ดีที่สุด                  80    49    17    15  recommendation_locations:20, general_quirky:12
+  weekend    pat   สุดสัปดาห์                76    18     7     7  recommendation_events:28, calendar_query:15
+  weekend    pat   วันเสาร์                  73    63    20    20  calendar_set:33, weather_query:10
+  near:me    pat   แถวนี้                    72    39    24    24  recommendation_events:31, recommendation_locations:30
+  weather    pat   ฝนตก                      63    59     3     2  weather_query:61, play_music:1
+  early      pat   ตอนเช้า                   62    54    24    24  alarm_query:10, calendar_set:10
+  weather    pat   พยากรณ์อากาศ              58    32     3     2  weather_query:55, news_query:2
+  near:me    pat   ใกล้ฉัน                   53    12    29    29  recommendation_locations:19, recommendation_events:9
+  best       pat   แนะนำ                     51    34     1     1  recommendation_movies:15, recommendation_locations:11
+  howto      front วิธี                      49    13    15     0  cooking_recipe:32, general_quirky:9
+  sunday     pat   วันอาทิตย์                49    41    12    11  calendar_set:24, weather_query:4
+  route      front ทางไป                     47     0     3     0  transport_query:35, transport_traffic:5
+  price      pat   เท่าไร                    45    41    39    39  qa_factoid:13, qa_currency:11
+  contact    pat   เบอร์โทร                  36     1     0     0  email_querycontact:34, transport_taxi:1
+  kids       pat   ครอบครัว                  29    26     7     7  email_sendemail:19, general_quirky:3
+  howto      front ทำไม                      26    17    19     0  general_quirky:17, qa_factoid:7
+  price      pat   ราคาเท่าไหร่              22    21    21    20  qa_stock:9, transport_query:8
+  weather    pat   อากาศวันนี้               22     0     8     6  weather_query:22
+  route      front เส้นทางไป                 21     0     5     0  transport_query:18, transport_traffic:2
+  weather    pat   ฝนตกไหม                   19     2    17    17  weather_query:17, play_music:1
+  price:high pat   แพง                       15     8     1     1  datetime_query:3, recommendation_locations:3
+  late       pat   กลางคืน                   14    12     7     7  calendar_set:4, general_quirky:3
+  near:me    pat   ใกล้ๆ                     14     8     5     5  recommendation_locations:8, recommendation_events:3
+  contact    pat   ไลน์                      12     8     2     2  takeaway_order:2, general_quirky:2
+  weekend    pat   เสาร์อาทิตย์              11     1     0     0  recommendation_events:4, weather_query:3
+  work       pat   หางาน                     11     0     0     0  recommendation_events:9, general_quirky:1
+  best       pat   ยอดนิยม                   10     6     1     1  play_music:7, play_radio:1
+  howto      pat   ทำอย่างไร                  8     3     7     7  cooking_recipe:7, general_quirky:1
+  open:now   pat   เปิดอยู่                   8     5     4     4  lists_query:3, music_likeness:1
+  howto      pat   ทำยังไง                    7     6     7     7  cooking_recipe:6, general_quirky:1
+  price:low  pat   ราคาถูก                    7     4     1     1  transport_ticket:2, recommendation_locations:2
+  weather    pat   ฝนจะตกไหม                  7     0     7     6  weather_query:7
+  delivery   pat   สั่งกลับบ้าน               6     3     3     2  takeaway_query:4, takeaway_order:2
+  free       pat   ฟรี                        6     3     2     1  recommendation_events:2, general_quirky:2
+  howto      front วิธีการ                    5     3     4     0  cooking_recipe:5
+  buy        pat   หาซื้อ                     4     4     0     0  recommendation_locations:4
+  late       pat   ดึก                        4     1     0     0  recommendation_events:2, transport_query:1
+  price:low  pat   ประหยัด                    4     0     0     0  general_quirky:3, iot_wemo_off:1
+  best       pat   เด็ด                       3     2     1     1  news_query:1, alarm_remove:1
+  near:me    pat   ใกล้เคียง                  3     2     2     2  takeaway_order:1, recommendation_events:1
+  vegetarian pat   มังสวิรัติ                 3     2     2     1  cooking_recipe:1, social_query:1
+  late       pat   เปิดดึก                    2     1     0     0  recommendation_events:2
+  rent       pat   รายเดือน                   2     2     1     1  weather_query:1, calendar_set:1
+  delivery   pat   ส่งถึงบ้าน                 1     0     0     0  takeaway_query:1
+  delivery   pat   ใส่กล่อง                   1     1     0     0  takeaway_order:1
+  free       pat   ไม่เสียเงิน                1     1     0     0  recommendation_events:1
+  kids       pat   เหมาะกับเด็ก               1     1     0     0  recommendation_events:1
+  late       pat   ตลอดคืน                    1     1     0     0  weather_query:1
+  open:now   pat   เปิดตอนนี้                 1     0     1     1  play_radio:1
+  open:now   pat   เปิดไหม                    1     1     0     0  recommendation_locations:1
+  parking    pat   ที่จอดรถ                   1     1     0     0  weather_query:1
+  price:high pat   หรู                        1     0     0     0  qa_definition:1
+  price:low  pat   ถูกๆ                       1     1     0     0  general_quirky:1
+  price:low  pat   ไม่แพง                     1     0     0     0  recommendation_locations:1
+  route      pat   ไปทางไหน                   1     0     0     0  transport_query:1
+  urgent     pat   ฉุกเฉิน                    1     0     0     0  email_sendemail:1
+  urgent     pat   เหตุฉุกเฉิน                1     0     0     0  email_sendemail:1
+  urgent     pat   รถพยาบาล                   1     1     1     1  qa_definition:1
+  vegan      pat   กินเจ                      1     0     1     1  news_query:1
+  weather    pat   น้ำท่วม                    1     1     0     0  news_query:1
+
+  86 Thai patterns never occur in th-TH at all (MASSIVE has no amenity/diet/access vocabulary; this is not evidence they are wrong):
+    aircon:มีแอร์ aircon:ห้องแอร์ aircon:เปิดแอร์ aircon:แอร์เย็น best:ขึ้นชื่อ best:ร้านดัง bigsize:คนอ้วน
+    bigsize:บิ๊กไซส์ bigsize:สาวอวบ bigsize:อวบอ้วน bigsize:ไซส์พิเศษ bigsize:ไซส์ใหญ่ bigsize:ไซส์ใหญ่พิเศษ
+    book:จองโต๊ะ book:สำรองที่นั่ง buy:ขายที่ไหน buy:ซื้อที่ไหน buy:มีขายที่ไหน buy:หาซื้อที่ไหน
+    contact:ช่องทางติดต่อ delivery:เดลิเวอรี early:เช้ามาก early:เปิดเช้า english:พูดภาษาอังกฤษ
+    english:พูดอังกฤษ english:มีภาษาอังกฤษ fix:ซ่อมแซม fix:พัง free:เข้าฟรี free:ไม่มีค่าใช้จ่าย
+    free:ไม่เสียค่าเข้า halal:อาหารมุสลิม halal:ฮาลาล kids:พาเด็ก kids:เด็กเล่น late:24 ชม late:24ชม
+    late:เปิด 24 learn:อยากเรียน near:me:เดินไปได้ near:me:ใกล้นี่ open:now:ตอนนี้เปิด open:now:เปิดยัง
+    parking:จอดรถได้ parking:ลานจอดรถ pets:พาสัตว์เลี้ยง pets:พาหมาได้ pets:สัตว์เลี้ยงเข้าได้ price:ค่าเข้า
+    price:high:ระดับพรีเมียม price:high:ไฮเอนด์ price:low:งบน้อย price:low:ราคาย่อมเยา rent:เช่ารายเดือน
+    rent:เซ้ง rent:ให้เช่า route:วิธีไป route:ไปยังไง route:ไปอย่างไร sell:ขายต่อ sell:จะขาย sell:อยากขาย
+    sunday:เปิดวันอาทิตย์ urgent:ช่วยด้วย urgent:เจ็บป่วยฉุกเฉิน urgent:เรียกรถพยาบาล vegan:อาหารเจ
+    vegetarian:ไม่กินเนื้อ vegetarian:ไม่ใส่เนื้อ walkin:วอล์กอิน walkin:เดินเข้าไปได้ walkin:ไม่ต้องนัด
+    weather:ค่าฝุ่น weather:ฝุ่นวันนี้ weather:หมอกควัน wheelchair:ทางลาด wheelchair:รถเข็น wheelchair:วีลแชร์
+    wheelchair:ไม่มีบันได wifi:นั่งทำงาน wifi:นั่งทำงานได้ wifi:ไวไฟ work:ตำแหน่งว่าง work:รับสมัคร
+    work:รับสมัครงาน work:สมัครงาน
+
+  Present but never (or almost never) firing -- the rule is blocking them:
+   - route front ทางไป (47 present) and เส้นทางไป (21): 0 fires on spaced text, 3 and 5 unspaced. A front pattern needs a Thai
+     character right after it and must start a run, so 'ขอเส้นทางไป ...' / 'เส้นทางไป ทองหล่อ' never match. 35 of the 47 are transport_query.
+   - สภาพอากาศ 190 present -> 74 sp / 9 ns. ฝนตก 63 -> 59 / 3. พยากรณ์อากาศ 58 -> 32 / 3. จองตั๋ว 110 -> 49 / 1. แนะนำ 51 -> 34 / 1.
+     สุดสัปดาห์ 76 -> 18 / 7. วันเสาร์ 73 -> 63 / 20. All lose most hits once spaces go, because Thai puts the next word straight after.
+   - หางาน (11 present, 0 fires) is right to stay silent: every case is หา+งานอีเวนต์ ('look for an event'), not job hunting.
+   - ไปทางไหน (1 present, 0): 'ไปทางไหนได้' -- followed by Thai.
+
+  Fires wrongly because Thai has no spaces (pattern = tail of a different word): see section 3, items 24-40.
+  Summary of tail collisions found: ฝุ่น<ดูดฝุ่น, เรียน<ร้องเรียน/นักเรียน/โรงเรียน, เบอร์<อูเบอร์/เบอร์เกอร์, ไลน์<ออนไลน์,
+  แพง<สันกำแพง/รอมแพง, เจ<ซีเจ, ติดต่อ<ผู้ติดต่อ/รายชื่อติดต่อ, ซื้อ<คำสั่งซื้อ, ยังไง<เป็นยังไง, เท่าไหร่<วันที่เท่าไหร่/อายุเท่าไหร่.
+  When the lifted word is cut out, the remainder is a broken word: สันกำแพง->สันกำ, อูเบอร์->อู, ออนไลน์->ออน, ร้องเรียน->ร้อง, ซีเจ->ซี.
+  The end-of-run rule protects short words in the middle of runs well: เจ is in 336 utterances (เจ็ด 'seven') and fires 4 times;
+  เสีย is in 426 (เสียง 'sound') and fires once; ถูก is in 118 and fires 3 times.
+
+5. THAI SEGMENTATION: SPACED vs NO-SPACE
+  th-TH as published (spaced):   12.1% fired
+  th-TH spaces removed:          8.6% fired
+  en-US for reference:           18.0% fired
+  MASSIVE annotators often typed spaces between Thai words ('จอง ตั๋ว รถไฟ'), which a search-box user does not.
+  The spaced number overstates what real Thai input gets. Per-intent no-space numbers are in the thNS% column of section 2.
+  Our ids lost when spaces go: weather:178, contact:123, best:71, weekend:55, buy:43, book:38, learn:34, early:32, sunday:29, near:25, price:21, kids:20
+  Our ids gained when spaces go: howto:45, near:24, weather:10, route:9, delivery:2, early:2, late:1, open:1
+  Gains are front patterns that now have a Thai char after them (อะไรคือ, เส้นทางไป) and near ใกล้ฉัน, which in MASSIVE is often
+  written 'ใกล้ ฉัน'. Losses are patterns that sat at a space boundary and now sit mid-run.
+
+  Simulation (not a code change): if every Thai pattern of 5+ code points also matched anywhere in a run (short ones, and 18 known
+  ambiguous ones keep the end-of-run rule), no-space coverage would go from 8.6% to 11.9%.
+  The patterns that gain most: สภาพอากาศ, พยากรณ์อากาศ, ฝนตก(ไหม), จองตั๋ว, แนะนำ, แถวนี้, สุดสัปดาห์, ทางไป/เส้นทางไป.
+  The cost is the tail-collision class above for any pattern that is also the end of another word, so a per-pattern
+  'not after' list is needed either way (กำแพง, อู/แฮม/ชีส+เบอร์, ออน+ไลน์, ร้อง/นัก/โรง+เรียน, ซี/ดี+เจ, ดูด+ฝุ่น, ผู้/รายชื่อ+ติดต่อ).
+
+6. GAPS -- recurring phrasings in utterances the lifter did not touch
+  Per intent: unlifted count, then n-grams (1-3 words; Thai = MASSIVE's own spaced tokens) that recur in >=4 unlifted utterances
+  and are at least 50% specific to that intent across the whole locale. Counts are utterances.
+
+  recommendation_locations  en-US  unlifted 139/235: shops 21 | is the nearest 9 | within 9 | restaurants 8 | where can i 7 | stores 7 | mile 7 | a restaurant 6 | me where 6 | mile radius 5 | local shops 5 | what shops 5 | shops are 5 | ask a 5
+  recommendation_locations  th-TH  unlifted 165/235: ร้านอาหาร 36 | ใกล้ที่สุด 21 | ที่ ใกล้ที่สุด 20 | ใกล้ที่สุด อยู่ที่ไหน 9 | ที่ ใกล้ที่สุด อยู่ที่ไหน 8 | หา ร้านอาหาร 8 | บาร์ 8 | ร้านค้า 7 | ดีดี 7 | ร้านอาหาร ที่ ใกล้ที่สุด 6 | มี ร้านอาหาร 6 | อยู่ตรงไหน 6 | ได้ที่ไหน 6 | ใกล้ใกล้ 6
+  recommendation_events     en-US  unlifted 166/259: events in 19 | local events 13 | what events 13 | events are 13 | what events are 12 | events going on 10 | going on in 10 | there any events 6 | events in the 6 | going on around 5 | current events 5 | events around 5 | tonight in 5 | bay area 5
+  recommendation_events     th-TH  unlifted 226/259: งานอีเวนต์ 22 | งานอีเว้นท์ 12 | มี งานอีเวนต์ 6 | งานอีเวนต์ ที่กำลังจะมาถึง 4 | แสดง งานอีเวนต์ 4 | ในพื้นที่ 4
+  recommendation_movies     en-US  unlifted  62/102: movies 21 | what movies 14 | movies are 14 | what movies are 13 | movies are playing 9 | a movie 9 | playing in 8 | recommend a movie 6 | theaters 5 | i watch 5 | cinema 5 | olly what movies 4 | should i watch 4
+  recommendation_movies     th-TH  unlifted  85/102: หนัง 24 | ภาพยนตร์ 11 | โรงหนัง 8
+  transport_query           en-US  unlifted 201/314: train 136 | the train 37 | train to 26 | what time does 20 | next train 20 | time does the 19 | the next train 18 | does the train 17 | train times 14 | next train to 12 | trains 12 | arrive 12 | when does the 11 | train from 10
+  transport_query           th-TH  unlifted 264/314: รถไฟ 136 | ไป เชียงใหม่ 30 | รถไฟ ไป เชียงใหม่ 18 | จาก กรุงเทพ 11 | กรุงเทพ ไป 11 | กรุงเทพ ไป เชียงใหม่ 10 | ตอนกี่โมง 10 | ขบวน 9 | ขอเส้นทางไป 8 | รถไฟ จาก กรุงเทพ 7 | ที่ใกล้ที่สุด 7 | รถไฟ ขบวน 7 | เวลา รถไฟ 7 | รถไฟ กรุงเทพ 6
+  transport_ticket          en-US  unlifted  96/187: ticket 72 | train ticket 54 | a train 39 | a train ticket 36 | ticket to 32 | train ticket to 30 | me a train 22 | book me 18 | book me a 17 | ticket for 13 | to new york 12 | train ticket from 7 | a ticket 7 | train ticket for 6
+  transport_ticket          th-TH  unlifted  64/187: รถไฟ ไป 18 | ไป กรุงเทพ 15 | ตั๋ว 13 | ตั๋ว รถไฟ 12 | รถไฟ ไป เชียงใหม่ 8 | รถไฟ ไป กรุงเทพ 8 | ตั๋ว รถไฟ ไป 7 | ซื้อตั๋ว รถไฟ 6 | เชียงใหม่ ไป 6 | เชียงใหม่ ไป กรุงเทพ 5 | ฉันต้องการตั๋ว รถไฟ 5 | หา ตั๋ว รถไฟ 5 | รถไฟ จาก 4 | หาตั๋ว 4
+  transport_taxi            en-US  unlifted 121/150: taxi 58 | a taxi 44 | uber 42 | an uber 25 | taxi to 22 | a taxi to 17 | me a taxi 17 | call a 11 | ride 11 | cab 11 | me an uber 10 | airport 10 | need a taxi 8 | call a taxi 8
+  transport_taxi            th-TH  unlifted  76/150: แท็กซี่ 49 | เรียก 26 | เรียก แท็กซี่ 21 | แกร็บ 10 | แท็กซี่ ให้ฉัน 5 | แกร็บแท็กซี่ 5 | แท็กซี่ ไป 5 | หา แท็กซี่ 5 | สนามบิน 5 | เรียก แท็กซี่ ให้หน่อย 4 | ไป สนามบิน 4
+  transport_traffic         en-US  unlifted 119/154: traffic 98 | the traffic 31 | is the traffic 16 | is traffic 15 | traffic on 9 | any traffic 8 | current traffic 7 | heavy 7 | there any traffic 6 | traffic in 6 | traffic condition 5 | how is traffic 5 | traffic on the 5 | traffic to 5
+  transport_traffic         th-TH  unlifted 143/154: ถนนกาญจนาภิเษก 18 | การจราจร 7 | ที่ทำงาน 7 | การจราจรบน 6 | การจราจรบน ถนนกาญจนาภิเษก 5 | สภาพการจราจรใน 4
+  weather_query             en-US  unlifted 384/855: should i 48 | going to 47 | wear 45 | do i need 42 | temperature 40 | rain 31 | it going to 30 | umbrella 30 | outside 30 | i wear 30 | is it going 28 | should i wear 26 | snow 24 | will i need 22
+  weather_query             th-TH  unlifted 602/855: อากาศ 38 | ร่ม 34 | มั๊ย 32 | อุณหภูมิ 31 | เป็นอย่างไร 26 | จะมี 23 | ร้อน 22 | ครีมกันแดด 17 | สมุทรปราการ 16 | ข้างนอก 16 | อากาศที่ 15 | แดดออก 15 | หนาว 15 | สภาพอากาศใน 14
+  takeaway_query            en-US  unlifted 101/181: deliver 18 | my order 17 | my food 9 | is my order 7 | pick up my 6 | restaurant deliver 5 | the restaurant 5 | delivered 5 | does that 5 | does that restaurant 4 | my order ready 4 | can i pick 4 | my chinese 4 | i pick up 4
+  takeaway_query            th-TH  unlifted 162/181: ซื้อกลับบ้าน 33 | บริการส่ง 26 | เอ็มเค 12 | ซื้อกลับบ้าน ไหม 8 | ฮองมิน 5 | เอ็มเค ซื้อกลับบ้าน 4 | มี ซื้อกลับบ้าน 4 | เอมเค 4
+  takeaway_order            en-US  unlifted 131/177: order 102 | pizza 35 | order me 20 | order a 20 | take-out 13 | to order 12 | from dominoes 9 | order some 9 | pizza from 9 | a pizza 9 | order a pizza 8 | want to order 8 | large 8 | please order 7
+  takeaway_order            th-TH  unlifted 157/177: สั่ง 51 | พิซซ่า 25 | อาหาร 17 | กลับบ้าน 12 | เคเอฟซี 11 | โดมิโน่ 10 | สั่ง พิซซ่า 9 | พิซซ่าฮัท 8 | จาก โดมิโน่ 7 | สั่งอาหาร 5 | อาหาร จีน 5 | ซูชิ 5 | ฉันต้องการสั่ง 4
+  qa_definition             en-US  unlifted 273/379: describe 45 | define 45 | what does 44 | mean 38 | definition 36 | word 34 | definition of 25 | description 21 | the definition 19 | the definition of 18 | the word 18 | description of 15 | describe a 14 | the description 11
+  qa_definition             th-TH  unlifted 291/379: แปลว่าอะไร 32 | อธิบาย 15 | ขอคำจำกัดความของ 13 | ขอคำจำกัดความของคำว่า 11 | นิยาม 11 | หมายถึงอะไร 10 | อธิบายคำว่า 7 | มีลักษณะอย่างไร 6 | ให้คำจำกัดความ 5 | คอมพิวเตอร์ 5 | ขอคำอธิบายสำหรับ 4 | ลักลั่นย้อนแย้ง 4 | อธิบายเกี่ยวกับ 4 | ความหมายของ 4
+  qa_currency               en-US  unlifted  97/213: rate 54 | exchange 46 | dollar 45 | exchange rate 40 | euro 24 | s. 20 | the exchange 19 | u. s. 19 | the exchange rate 18 | s. d. 18 | u. s. d. 17 | currency 16 | rate for 13 | rate of 13
+  qa_currency               th-TH  unlifted 146/213: ดอลลาร์สหรัฐ 36 | ยูโร 24 | บาท 23 | หนึ่ง 18 | เยน 17 | รูปี 10 | หนึ่ง ดอลลาร์สหรัฐ 9 | หยวน 9 | ดอลลาร์สหรัฐ กับ 8 | และเงิน 8 | ปอนด์ 8 | รูปีอินเดีย 6 | แลกได้กี่ 6 | ขออัตราแลกเปลี่ยนระหว่างเงิน 5
+  datetime_query            en-US  unlifted 406/502: time is 70 | date 70 | the time 69 | what time is 68 | time is it 67 | what day 61 | time in 57 | the time in 35 | me the time 33 | current time 32 | day of 30 | day of the 28 | what day of 27 | of the week 26
+  datetime_query            th-TH  unlifted 433/502: กี่โมงแล้ว 50 | วันที่ 25 | ตอนนี้ที่ 23 | เชียงใหม่ กี่โมงแล้ว 19 | เป็นเวลากี่โมง 16 | ที่ กรุงเทพ 15 | ตรงกับวันอะไร 13 | ตอนนี้กี่โมง 13 | เป็นวันอะไร 13 | คือวันอะไร 13 | ตอนนี้กี่โมงแล้ว 12 | เวลาใน 12 | ตอนนี้ที่ เชียงใหม่ 11 | ปีนี้ 11
+  cooking_recipe            en-US  unlifted 189/320: recipe 60 | recipe for 36 | cook 28 | chicken 21 | a recipe 19 | the recipe 18 | a recipe for 14 | the recipe for 13 | cooking 13 | me the recipe 11 | how long should 10 | how long do 10 | long should i 9 | ingredients 9
+  cooking_recipe            th-TH  unlifted 256/320: สูตร 26 | สูตรอาหาร 25 | อย่างไร 16 | ไก่ย่าง 10 | สูตรอาหาร สำหรับ 7 | ฉันจะทำ 7 | ส้มตำ 7 | ไข่ 7 | หา สูตรอาหาร 6 | ส่วนผสม 6 | วิธี 6 | สปาเก็ตตี้ 5 | วิธี ทำ 5 | พาสต้า 5
+  news_query                en-US  unlifted 559/709: news 329 | latest 97 | the latest 71 | c. 64 | the news 62 | news from 54 | latest news 52 | n. 39 | the latest news 34 | news about 33 | c. n. 33 | c. n. n. 32 | me the latest 30 | b. c. 29
+  news_query                th-TH  unlifted 672/709: ข่าว 97 | ไทยรัฐ 84 | มีอะไรบ้าง 50 | เดลินิวส์ 33 | ประยุทธ์ 31 | โลก 23 | การเมือง 19 | รอบโลก 17 | จาก ไทยรัฐ 16 | ประยุทธ์ จันทร์โอชา 14 | ข่าวล่าสุด 13 | เทคโนโลยี 12 | มีข่าว 12 | ให้ฉันฟังหน่อย 11
+
+  Not proposed: datetime_query ('what time is it', กี่โมงแล้ว, วันอะไร) is a clock question, not a place search; bare กี่โมง would
+  also hit it 173 times. 'today/tonight/tomorrow' (วันนี้/คืนนี้/พรุ่งนี้) was tested as a time-scope intent and rejected:
+  1,588 en / 1,959 th hits, 93-95% outside the event/movie/place intents.
+
+7. PROPOSED NEW INTENTS (intents.js shape)
+  Counts: target = utterances of the named MASSIVE intents it fires on; new = of those, ones the current lifter misses;
+  off = fires outside the target intents (not all wrong -- see notes). th-NS(any) = no-space Thai, pattern matched anywhere
+  after removing the 'bad' words; th-NS(end) = same patterns under today's end-of-run rule, to show what the rule costs.
+
+  7.1 weather+  [TOP 8]  targets: weather_query
+      en-US       target  305/855   new  243  off   24  off in: cooking_recipe:8, general_quirky:6, qa_factoid:2, calendar_set:2
+      th-NS(any)  target  742/855   new  618  off  102  off in: email_sendemail:21, general_quirky:20, qa_factoid:15, news_query:11
+      th-NS(end)  target   35/855   new   25  off   15
+      top patterns en: temperature:57, rain:56, umbrella:31, snow:29, sunny:24, jacket:19
+      top patterns th: อากาศ:406, ฝน:94, อุณหภูมิ:67, แดด:49, ร่ม:39, หนาว:27
+      examples now missed: is it going to rain / is it currently snowing / is it going to rain in the evening / ฝนตกอยู่ใช่มั๊ย / ตอนนี้ฝนตกอยู่หรือเปล่า / สภาพอากาศสัปดาห์นี้เป็นอย่างไร
+  extend { id: "weather", kind: "lead", keep: true } pats with:
+    "temperature", "umbrella", "sunny", "rain", "rainy", "snow", "humid", "humidity", "windy", "storm", "degrees",
+    "jacket", "sunscreen", "cloudy", "fog", "foggy", "is it hot", "is it cold", "hot outside", "cold outside",
+    "อากาศ", "อุณหภูมิ", "หนาว", "ร้อน", "แดด", "ร่ม", "ฝน", "พายุ", "หมอก", "องศา", "ความชื้น", "ครีมกันแดด"
+    notAfter/bad: อากาศยาน (ท่าอากาศยานเชียงใหม่ = the airport), ร่มเกล้า, ร่มรื่น, ร้อนแรง;  unless: /play|song|playlist|recipe/
+
+  7.2 transit  [TOP 8]  targets: transport_query, transport_ticket
+      en-US       target  360/501   new  230  off   33  off in: transport_taxi:15, news_query:3, play_podcasts:3, calendar_set:2
+      th-NS(any)  target  374/501   new  270  off   37  off in: transport_taxi:15, news_query:4, calendar_set:3, play_podcasts:3
+      th-NS(end)  target   30/501   new   26  off    9
+      top patterns en: train:283, train times:25, next train:24, trains:13, train station:5, airport:3
+      top patterns th: รถไฟ:334, ตารางรถ:12, สถานีรถไฟ:11, ตารางเวลารถ:7, สนามบิน:3, เครื่องบิน:3
+      examples now missed: hey i want to get trains to manchester on wednesday / book me a ticket for a train to new york from boston in two days from now / schedule a journey to las vegas by train / เที่ยวบินราคาถูกที่สุดจากเชียงใหม่ไปกรุงเทพ / ฉันต้องการขึ้นรถไฟไปเชียงใหม่วันพุธ / เดินทางไปเชียงใหม่ก่อนเที่ยงด้วยรถไฟ
+  { id: "transit", kind: "lead",            // -> /plan.html, bus/train/airport pages
+    pats: ["train", "trains", "bus", "buses", "next train", "next bus", "train times", "bus times", "timetable",
+           "train station", "bus station", "bus terminal", "departure", "flight", "flights", "airport", "minivan",
+           "รถไฟ", "รถเมล์", "รถบัส", "รถทัวร์", "รถตู้", "ขบวน", "ตารางรถ", "ตารางเดินรถ", "เที่ยวรถ",
+           "สถานีขนส่ง", "บขส", "เที่ยวบิน", "สนามบิน", "เครื่องบิน"],
+    unless: /train my|training|radio|วิทยุ|คลื่น/ }
+  and add to book: "ticket", "tickets", "ตั๋ว", "ซื้อตั๋ว", "หาตั๋ว" (ticket alone: en 166 target / 80 new, th 170 / 87)
+
+  7.3 events  [TOP 8]  targets: recommendation_events
+      en-US       target  152/259   new  100  off  222  off in: calendar_query:103, news_query:46, calendar_set:21, general_quirky:17
+      th-NS(any)  target  129/259   new  115  off  113  off in: calendar_query:52, calendar_set:25, calendar_remove:13, general_quirky:9
+      th-NS(end)  target    1/259   new    1  off   19
+      top patterns en: events:57, going on:27, happening:23, event:16, what's happening:7, what is happening:6
+      top patterns th: กิจกรรม:37, อีเวนต์:26, อีเว้นท์:21, เทศกาล:8, กำลังจัด:8, มีงาน:6
+      examples now missed: current local events / current events / show me upcoming events in this area / งานอีเว้นท์ขณะนี้ / แสดงงานอีเวนต์ที่กำลังมาถึงในย่านนี้ / แสดงงานอีเวนต์ที่กำลังจะมาถึงในปทุมธานี
+  { id: "events", kind: "lead",              // -> calendar answer (calfind), /#day=
+    pats: ["events", "event", "what's on", "whats on", "what's happening", "whats happening", "happening",
+           "going on", "things to do", "something to do", "festival", "festivals", "concert", "concerts",
+           "live music", "exhibition", "fair",
+           "อีเวนต์", "อีเว้นท์", "อีเว้นต์", "อีเวนท์", "กิจกรรม", "เทศกาล", "คอนเสิร์ต", "มีงาน",
+           "กำลังจัด", "จัดขึ้น", "งานแสดง", "นิทรรศการ", "ทำอะไรดี", "เที่ยวไหนดี", "ไปไหนดี"],
+    unless: /\b(my|i have|do i|calendar|remind|meeting|add|set|create|delete|remove|cancel|schedule)\b|ปฏิทิน|เตือน|ของฉัน|ฉันมี/,
+    bad: ["รายงาน"] }
+
+  7.4 near+  [TOP 8]  targets: recommendation_locations, recommendation_events, recommendation_movies, takeaway_query, takeaway_order, transport_taxi, transport_traffic, transport_query
+      en-US       target  213/1572  new  119  off   30  off in: weather_query:10, general_quirky:7, play_radio:3, qa_factoid:3
+      th-NS(any)  target  312/1572  new  240  off   50  off in: weather_query:13, general_quirky:10, datetime_query:7, calendar_query:4
+      th-NS(end)  target   71/1572  new   42  off    9
+      top patterns en: near:73, nearest:41, in my area:29, closest:22, around me:13, in this area:10
+      top patterns th: ใกล้:82, แถวนี้:65, ใกล้ที่สุด:59, ในพื้นที่:40, ในเมือง:22, ย่านนี้:21
+      examples now missed: near pizza shops / where is the closest spot to order food for pickup / call the nearest pizza place that offers buffalo pizza / คุณช่วยพาฉันไปที่เมนูสำหรับจีนที่มีคะแนนสูงสุดที่อยู่ใกล้ฉันกลับบ้านได้ไหม / ลองหาร้านอาหารชื่อดังใกล้ฉันแล้วสั่งพิซซ่า / เฮ้กูเกิ้ลเฮ้โทรหาร้านอาหารจีนที่ใกล้ที่สุดสำหรับซื้อกลับบ้าน
+  add to searchcore near:me (the lifter's own near list):
+    "nearest", "closest", "in my area", "in this area", "in the area", "around me", "close by", "near", "in town",
+    "ใกล้ที่สุด", "ย่านนี้", "ในพื้นที่", "ใกล้ใกล้", "ใกล้บ้าน", "แถวแถวนี้", "บริเวณนี้", "ละแวกนี้", "ในเมือง"
+    and let แถวนี้ / ใกล้ฉัน match before Thai text too (แถวนี้มีอะไร, ใกล้ฉันที่สุด).
+    bare "near" needs care: "near X" names a place to be near, not the reader -- lift only when nothing follows or me/here follows.
+
+  7.5 takeaway  [TOP 8]  targets: takeaway_query, takeaway_order
+      en-US       target  139/358   new  123  off   17  off in: social_post:6, calendar_set:4, calendar_remove:2, transport_taxi:1
+      th-NS(any)  target  190/358   new  178  off    9  off in: lists_createoradd:2, social_post:2, general_quirky:1, play_radio:1
+      th-NS(end)  target   66/358   new   60  off    1
+      top patterns en: take-out:22, deliver:20, my order:18, order me:16, take out:16, order some:12
+      top patterns th: ซื้อกลับบ้าน:71, บริการส่ง:39, สั่งพิซซ่า:24, คำสั่งซื้อ:22, สั่งอาหาร:16, ส่งอาหาร:6
+      examples now missed: please order some sushi for dinner / order a pizza / order me a byron from deliveroo / แสดงรายการตัวเลือกการจัดส่งอาหารจีนที่มีคะแนนสูงสุด / บริการส่งอาหารจีน / หาร้านอาหารไทยแบบซื้อกลับบ้านของฉันแถวทองหล่อ
+  extend delivery (kind prefer, fac delivery) pats with:
+    "deliver", "delivered", "take-out", "takeout", "take out", "carry-out", "carryout", "my order", "order food",
+    "food delivery", "order a pizza", "order from",
+    "ซื้อกลับบ้าน", "กลับบ้านได้", "บริการส่ง", "ส่งอาหาร", "สั่งอาหาร", "เดลิเวอรี่", "ดิลิเวอรี่", "ไลน์แมน",
+    "ฟู้ดแพนด้า", "แกร็บฟู้ด", "สั่งพิซซ่า"
+    and make buy skip ซื้อ inside ซื้อกลับบ้าน / คำสั่งซื้อ / สั่งซื้อ.
+
+  7.6 taxi  [TOP 8]  targets: transport_taxi
+      en-US       target  144/150   new  116  off   13  off in: qa_factoid:3, calendar_set:2, transport_ticket:2, calendar_remove:1
+      th-NS(any)  target  137/150   new   88  off    8  off in: takeaway_order:2, calendar_remove:1, qa_factoid:1, qa_definition:1
+      th-NS(end)  target   23/150   new   16  off    2
+      top patterns en: taxi:73, uber:38, cab:16, pick me up:7, ride to:5, a ride:4
+      top patterns th: แท็กซี่:97, อูเบอร์:21, แกร็บ:17, เรียกรถ:2
+      examples now missed: olly book me a taxi to leith in half an hour / schedule an uber in twenty minutes to tesco on fifth street / book me a cab / อีกยี่สิบนาทีจองแกร็บไปเทสโก้บนถนนเพชรเกษม / เรียกแท็กซี่ให้ฉัน olly / เรียกแท็กซี่ไปสนามบินตอนตีห้าให้ฉันที
+  { id: "taxi", kind: "lead",                // -> the Grab ride button / onelink already on place pages
+    pats: ["taxi", "taxis", "cab", "uber", "grab", "bolt", "a ride", "ride to", "pick me up", "tuk tuk", "tuktuk",
+           "songthaew", "red truck",
+           "แท็กซี่", "แทกซี่", "เรียกรถ", "แกร็บ", "แกรบ", "อูเบอร์", "โบลท์", "มารับ", "รถแดง", "สองแถว",
+           "ตุ๊กตุ๊ก", "วินมอเตอร์ไซค์", "มอเตอร์ไซค์รับจ้าง"] }
+    note: แท็กซี่ is also written เเท็กซี่ (two เ) in MASSIVE; normalise เเ -> แ before matching.
+
+  7.7 traffic  [TOP 8]  targets: transport_traffic
+      en-US       target  131/154   new  102  off   11  off in: music_likeness:3, general_quirky:3, transport_query:3, calendar_set:1
+      th-NS(any)  target  125/154   new  117  off    6  off in: general_quirky:3, email_query:1, recommendation_events:1, transport_query:1
+      th-NS(end)  target    7/154   new    7  off    0
+      top patterns en: traffic:126, commute:2, congestion:1, congested:1, jam:1
+      top patterns th: การจราจร:106, รถติด:10, อุบัติเหตุ:5, จราจร:4
+      examples now missed: just how bad is traffic on my commute / traffic congestion issues / how is the traffic right now / แค่รถติดมันแย่แค่ไหนบนเส้นทางของฉัน / ปัญหาการจราจรแออัด / การจราจรตอนนี้เป็นยังไงบ้าง
+  { id: "traffic", kind: "lead",             // -> roads tile / roadworks / traffic page
+    pats: ["traffic", "jam", "congestion", "congested", "road conditions", "road closed", "roadworks", "commute",
+           "การจราจร", "จราจร", "รถติด", "ถนนปิด", "ปิดถนน", "ซ่อมถนน"] }
+
+  7.8 currency  [TOP 8]  targets: qa_currency
+      en-US       target  202/213   new   91  off   21  off in: qa_maths:5, general_quirky:4, qa_factoid:3, recommendation_locations:2
+      th-NS(any)  target  206/213   new  143  off   17  off in: general_quirky:4, qa_factoid:4, qa_maths:3, news_query:2
+      th-NS(end)  target   60/213   new   59  off    4
+      top patterns en: exchange rate:81, dollar:54, u. s. d.:23, exchange rates:16, currency:11, dollars:4
+      top patterns th: อัตราแลกเปลี่ยน:100, ดอลลาร์:50, ค่าเงิน:18, สกุลเงิน:7, แลกเปลี่ยน:6, เยน:5
+      examples now missed: how many euros are in a dollar / how many canadian dollars are in a u. s. dollar / what does one u. s. d. equal in aus / อเล็กซ่าบอกอัตราการแลกเปลี่ยนเงินต่างประเทศ / ฉันอยากให้บอกแนวโน้มของอัตราแลกเปลี่ยนเงินตราต่างประเทศ / หนึ่งดอลลาร์สหรัฐแลกได้กี่บาท
+  { id: "money", kind: "lead",               // -> money-exchange places (SuperRich etc.) + a rate line
+    pats: ["exchange rate", "exchange rates", "currency", "money exchange", "exchange money", "forex", "dollar",
+           "dollars", "euro", "euros", "pound", "yen", "baht", "usd",
+           "อัตราแลกเปลี่ยน", "แลกเงิน", "แลกเปลี่ยน", "ค่าเงิน", "สกุลเงิน", "ดอลลาร์", "ยูโร", "เยน", "ปอนด์", "หยวน"],
+    unless: /stock|share|weigh|pounds of|time zone|หุ้น/ }
+
+  7.9 movies  [further]  targets: recommendation_movies
+      en-US       target   82/102   new   49  off   56  off in: general_quirky:19, qa_factoid:18, recommendation_events:5, calendar_set:4
+      th-NS(any)  target   88/102   new   74  off   58  off in: general_quirky:20, qa_factoid:18, calendar_set:3, recommendation_events:3
+      th-NS(end)  target    5/102   new    5  off    6
+      top patterns en: movies:33, movie:26, theaters:10, theater:7, film:2, cinemas:2
+      top patterns th: หนัง:47, ภาพยนตร์:18, โรงหนัง:13, กำลังฉาย:8, ฉาย:2
+      examples now missed: should i watch this movie / what film should i watch / recommend a movie which is released last friday / ฉันควรดูหนังเรื่องนี้ไหม / หนังอะไรที่ฉันควรดู / มีหนังอะไรดีดีให้ดูตอนนี้
+  { id: "movies", kind: "lead",              // -> films tile
+    pats: ["movie", "movies", "film", "films", "cinema", "cinemas", "theater", "theaters", "showtimes", "now showing",
+           "หนัง", "ภาพยนตร์", "โรงหนัง", "กำลังฉาย", "รอบฉาย"], bad: ["หนังสือ", "ผิวหนัง", "หนังสั้น"],
+    unless: /play|song|actor|starred|directed/ }
+
+  7.10 define  [further]  targets: qa_definition
+      en-US       target  263/379   new  211  off   49  off in: general_quirky:19, calendar_query:7, qa_factoid:7, lists_query:3
+      th-NS(any)  target  266/379   new  222  off   71  off in: general_quirky:31, email_sendemail:17, qa_factoid:7, play_music:5
+      th-NS(end)  target   10/379   new   10  off    2
+      top patterns en: definition:71, define:47, describe:46, what does:44, description:21, meaning:18
+      top patterns th: คำจำกัดความ:78, อธิบาย:68, แปลว่า:35, ความหมาย:30, นิยาม:28, หมายถึง:12
+      examples now missed: what an umbrella means / define forensic / define capricious / ร่มหมายถึงอะไร / อธิบายความหมายของคำว่าจี. ดี. พี. / ขอคำจำกัดความของคำว่านิติเวช
+  extend howto (page: true) with: "define", "definition", "meaning", "what does", "mean", "means", "describe",
+    "translate", "in thai", "in english", "แปลว่า", "ความหมาย", "คำจำกัดความ", "นิยาม", "หมายถึง", "หมายความว่า", "อธิบาย", "คำว่า"
+    (bilingual readers asking what a Thai word means; not bare แปล, which hits แปลง 'convert')
+
+  7.11 recipe  [further]  targets: cooking_recipe, cooking_query
+      en-US       target  214/326   new  124  off   21  off in: general_quirky:8, calendar_set:3, qa_definition:3, iot_coffee:2
+      th-NS(any)  target  130/326   new  105  off   14  off in: general_quirky:5, qa_maths:2, qa_factoid:2, qa_definition:2
+      th-NS(end)  target   11/326   new   10  off    0
+      top patterns en: recipe:72, cook:37, how to cook:23, cooking:21, ingredients:10, how do i make:10
+      top patterns th: สูตร:76, ทำอาหาร:23, วิธีทำ:17, ส่วนผสม:9, วิธีการทำ:3, วิธีปรุง:2
+      examples now missed: what to cook for lunch / how long should i boil the eggs / what ingredients do i need for tomato soup / ทำอาหารอาหารกลางวันอะไร / ซุปมะเขือเทศมีส่วนผสมอะไรที่จำเป็น / บอกวิธีทำสเต็กที
+  extend howto or learn with: "recipe", "recipes", "how to cook", "how to make", "ingredients", "cooking",
+    "สูตร", "สูตรอาหาร", "วิธีทำ", "ทำอาหาร", "ส่วนผสม", "วิธีการทำ"   (not ย่าง: it is the tail of อย่าง, 491 false hits)
+
+  7.12 news  [further]  targets: news_query
+      en-US       target  428/709   new  346  off   27  off in: play_radio:6, qa_stock:4, social_query:4, email_query:3
+      th-NS(any)  target  514/709   new  500  off   34  off in: social_query:8, play_radio:6, qa_stock:4, general_quirky:3
+      th-NS(end)  target   15/709   new   15  off    6
+      top patterns en: news:302, latest news:68, headlines:35, breaking news:14, headline:9
+      top patterns th: ข่าว:466, พาดหัว:48
+      examples now missed: tell me b. b. c. news / what's the news on b. b. c. news / tell me the latest technology news / เล่าข่าวไทยรัฐให้ฉันฟังหน่อย / ข่าวช่องสามมีอะไรบ้าง / ข่าวล่าสุดของไทยรัฐมีอะไรบ้าง
+  { id: "news", kind: "lead", pats: ["news", "headlines", "breaking news", "latest news", "ข่าว", "ข่าวล่าสุด", "พาดหัว"] }
+    large in MASSIVE, weak fit for a directory unless motdang has a news/served page to point at.
+
+  7.13 recommend  [further]  targets: recommendation_locations, recommendation_events, recommendation_movies
+      en-US       target   43/596   new   32  off   27  off in: general_quirky:8, cooking_recipe:6, takeaway_query:3, music_query:3
+      th-NS(any)  target   51/596   new   48  off   37  off in: general_quirky:11, cooking_recipe:8, news_query:5, music_query:3
+      th-NS(end)  target    2/596   new    2  off   10
+      top patterns en: recommend:28, what should i:5, suggest:4, where should i:4, ideas:1, suggestion:1
+      top patterns th: แนะนำ:34, อะไรดี:8, น่าสนใจ:6, น่าไป:1, ที่ไหนดี:1, ไหนดี:1
+      examples now missed: could you suggest some fun in new york / recommend a movie which is released last friday / recommend a movie with justin bieber / มีหนังอะไรดีดีให้ดูตอนนี้ / เธอช่วยแนะนำอะไรสนุกสนุกในชลบุรีหน่อยได้ไหม / บอกฉันว่าแถวนี้มีงานอิเวนต์อะไรน่าสนใจ
+  add to best: "recommend", "suggest", "suggestions", "ideas", "what should i", "where should i",
+    "ที่ไหนดี", "อะไรดี", "ไหนดี", "น่าไป"; and allow แนะนำ at the front of a run (แนะนำร้านกาแฟ) -- today only ร้านกาแฟแนะนำ lifts.
+    bad: คำแนะนำ (instructions)
+
+  7.14 hours  [further]  targets: transport_query, recommendation_locations, recommendation_events, recommendation_movies, takeaway_query
+      en-US       target   49/1091  new   45  off   24  off in: calendar_query:12, datetime_query:4, datetime_convert:2, weather_query:1
+      th-NS(any)  target   10/1091  new    9  off    3  off in: datetime_convert:1, general_quirky:1, email_sendemail:1
+      th-NS(end)  target    7/1091  new    7  off    0
+      top patterns en: what time does:20, when does:13, times for:9, what time will:2, close today:1, open until:1
+      top patterns th: ออกกี่โมง:5, ถึงกี่โมง:2, ฉายกี่โมง:1, ออกเดินทางกี่โมง:1, รอบกี่โมง:1
+      examples now missed: what time will a movie be shown tomorrow / when does olive garden close today / show times for nearest theater / รถไฟไปกรุงเทพออกเดินทางกี่โมง / รถไฟเชียงใหม่ออกกี่โมง / ต้องขึ้นรถไฟรอบกี่โมงถึงจะถึงเชียงใหม่เก้าโมงเช้า
+  { id: "hours", kind: "prefer" (when: from the schedule), pats: ["what time does", "when does", "opening hours",
+    "opening times", "open until", "closing time", "เปิดกี่โมง", "ปิดกี่โมง", "เวลาเปิด", "เวลาทำการ", "ออกกี่โมง", "ถึงกี่โมง",
+    "ฉายกี่โมง", "รอบกี่โมง"], unless: /alarm|remind|meeting|appointment|calendar|ปลุก|เตือน|นัด/ }
+    small in MASSIVE (no opening-hours questions there) but it is the commonest place question in real logs.
+
+  7.15 howlong  [further]  targets: transport_query, transport_traffic
+      en-US       target   38/468   new   31  off   38  off in: qa_factoid:22, takeaway_query:4, cooking_recipe:4, general_quirky:2
+      th-NS(any)  target   33/468   new   28  off   56  off in: cooking_recipe:18, qa_factoid:14, email_sendemail:7, takeaway_query:4
+      th-NS(end)  target    7/468   new    7  off   13
+      top patterns en: arrive:12, how long will it take:7, how far:4, how long does it take:4, distance:4, travel time:4
+      top patterns th: นานแค่ไหน:17, ไปถึง:7, ใช้เวลา:4, ระยะทาง:3, ถึงเมื่อไหร่:2
+      examples now missed: how long will it take me to drive to the panic concert tomorrow / how far is walmart from here / how long will it take me to go to the train station from here / ฉันจะต้องใช้เวลานานแค่ไหนในการขับรถไปคอนเสิร์ตคาราบาวพรุ่งนี้ / ฉันต้องใช้เวลานานแค่ไหนที่จะไปสถานีรถไฟจากที่นี่ / บอกเวลาที่จดหมายจากกรุงเทพจะไปถึงเชียงใหม่ให้ฉันที
+  { id: "howlong", kind: "lead" (route) , pats: ["how long does it take", "how long will it take", "how far", "distance",
+    "travel time", "นานแค่ไหน", "ไกลแค่ไหน", "ไกลไหม", "ระยะทาง", "ใช้เวลา"] }  -- noisy: half its hits are cooking times/factoids.
+
+  7.16 ticket  [further]  targets: transport_ticket, recommendation_events, recommendation_movies
+      en-US       target  166/548   new   80  off   42  off in: transport_query:35, general_quirky:7
+      th-NS(any)  target  170/548   new   87  off   42  off in: transport_query:33, general_quirky:6, recommendation_locations:1, transport_taxi:1
+      th-NS(end)  target    5/548   new    4  off    0
+      top patterns en: ticket:149, tickets:12, seat:3, fare:1, fares:1
+      top patterns th: ตั๋ว:162, ที่นั่ง:6, ค่าโดยสาร:2
+      examples now missed: tickets / book me a ticket for a train to new york from boston in two days from now / get me a train ticket to go to / ตั๋ว / ช่วยจองตั๋วรถไฟไปเชียงใหม่คืนวันศุกร์ให้หน่อยได้มั้ย / จะไปเชียงใหม่คืนวันศุกร์จองตั๋วให้หน่อย
+  folded into transit/book above.
+
+  Notes on 'off': most events off-hits are MASSIVE calendar_query lines like 'what are the upcoming events' -- personal
+  calendar in a voice assistant, but the right answer on a public events site. transit off-hits are mostly taxi-to-airport.
+  weather+ Thai off-hits are 'email mom about the weather' style: the word is weather, the request is not.
+
+8. COVERAGE IF ADDED (simulated outside the repo; Thai new intents matched anywhere with their bad lists)
+  local-search intents = recommendation_*, transport_*, weather_query, takeaway_*, qa_currency
+  en-US sp       local-search intents:  42.8% now ->  81.7% with top 8 ->  85.0% with all 16 | all focus intents:  23.2% ->  35.7%
+  th-TH sp       local-search intents:  26.1% now ->  76.9% with top 8 ->  80.1% with all 16 | all focus intents:  13.5% ->  29.1%
+  th-TH ns       local-search intents:  16.8% now ->  77.6% with top 8 ->  81.4% with all 16 | all focus intents:  10.3% ->  28.8%
+

@@ -1,0 +1,49 @@
+FLEET SEARCH — RICHER ROWS · paused 2026-09-23 ~21:50, nothing deployed
+
+Nan's ask: more sorting and filtering; breadcrumbs; the blurb says what a listing
+holds (toilet, events coming up, ways to reach it); a thumbnail, else a map.
+
+DONE ON DISK (tests green: test_fleetsearch.js, test_fleetsearch.py)
+- fleetsearch/crawl.py   crumbs, kind, picture, ways, events, hours, facets,
+                         toilet (class Toilets — reads the toilet minisite)
+- fleetsearch/thumbs.py  NEW. 4,152 pictures + 10,955 map cells in
+                         cache/fleetsearch/thumbs/ (40 MB). NOT uploaded.
+- fleetsearch/load.py    new columns + scheds table + migrations
+- fleetsearch/preview.js NEW. node fleetsearch/preview.js → localhost:8841/find
+- publish/fleetsearch.js filters kind/has/sec, sorts rich/soon, the row
+- publish/worker.js      FLEET_PARAMS += kind, sec, has — AND the other
+                         session's notranslate patch, applied, untested live
+- tests/test_fleetsearch_page.js  new cases, NOT yet run (needs the twin)
+- cache/fleetsearch/pages.jsonl   fresh crawl, 106,120 pages
+
+⚠ DO NOT `wrangler deploy` publish/ UNTIL D1 IS LOADED. The new fleetsearch.js
+selects columns the live D1 does not have yet; /find would answer "the
+expression could not be read" on every query.
+
+TO FINISH, in order
+1. python3 fleetsearch/load.py --sql --local
+   node tests/test_fleetsearch_page.js     (raise the two byte budgets only by
+   what the thumbnails and rich line measure; say so)
+   look at it: node fleetsearch/preview.js
+2. python3 fleetsearch/thumbs.py --upload-only        (R2 tiles/find/)
+3. python3 fleetsearch/load.py --remote   — quiet hour; /find blinks per chunk
+4. cd publish && npx wrangler dev --remote → check /find and a page for
+   translate="no" (HTMLRewriter can't run in the node tests)
+5. npx wrangler deploy. Notranslate went live separately at 21:55 (version
+   f4c13667, built from the 9/21 bundle); worker.js on disk already carries it,
+   so this deploy keeps it. Ships with it: /merit → /wats/ 301 (another
+   session's, undeployed since 9/21). Rollback to the version before both:
+   wrangler versions deploy 479d9966-c65f-43e1-8e55-ef6be7a28410@100% -y
+   Seen by that session, on 9/21's code too: /api/v1/search?q=… hangs past 40 s.
+
+FIX BEFORE LOADING (seen in the last crawl tally)
+- A 7-Eleven row says "toilet": the `toilet` facet on convenience stores means
+  "there is one around here" (toilets_layer.py docstring), not in the shop.
+  Toilets.of() should read `toilet` only outside the convenience set.
+- A beauty salon got Nan's "toilet" line (1,570 rows carry it) — check which
+  stated kind matched it (probably sub mall on a shop inside a mall).
+- Rows: 1,911 habit · 5,365 Nan's word · 30 reported · 47,042 nearest-within-400 m.
+
+Toilet data: Nan's statements are in data/toilets.json `stated`. The session
+"Integrate the toilet minisite across Mot Dang" owns that file and
+toilets_layer.py now; it bakes a `said` column that crawl.py already prefers.

@@ -94,9 +94,9 @@ PRIMER = [
      "it?” is the question you will hear at the till."),
     ("☕", "กาแฟสด-เบเกอรี่ บางสาขา",
      "Fresh coffee and bakery, some branches",
-     "เคาน์เตอร์กาแฟ (All Café) และชั้นเบเกอรี่มีเป็นบางสาขา — สาขาที่มดรู้ว่ามี จะติดป้าย ☕ ในหน้าสาขานั้น",
+     "เคาน์เตอร์กาแฟ (All Café) และชั้นเบเกอรี่มีเป็นบางสาขา — สาขาที่รู้ว่ามี จะติดป้าย ☕ ในหน้าสาขานั้น",
      "A coffee counter (All Café) and a bake-off shelf exist at some "
-     "branches — the ones the ants know of carry the ☕ pill on their page."),
+     "branches — the ones known to carry it show the ☕ pill on their page."),
     ("🍺", "เหล้า-เบียร์ขายเป็นช่วง",
      "Alcohol sells in two windows",
      "ปกติ 11:00–14:00 และ 17:00–24:00 — เครื่องคิดเงินจะไม่ขายนอกช่วงเอง กติกาปรับได้ ป้ายที่ตู้แช่คือคำตอบล่าสุด",

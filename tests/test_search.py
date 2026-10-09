@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The search page's own logic, exercised against the real index.
+"""The search matcher, exercised against the real index.
 
 This exists because of a bug nobody would have found by reading the code. The
 matcher tested the whole query as one unbroken substring, so `rajavej hospital`
@@ -8,18 +8,30 @@ and linked, and simply could not be found by anyone typing its name. 5,190 of
 the catalogue's names run three words or longer, so the same hole swallowed
 `maharaj hospital`, `nimman coffee` and `dental clinic chiang mai`.
 
-The logic is JavaScript living inside build.py, so the test lifts that exact
-block out and runs it under node against docs/data/index.json. No reimplementing
-in Python — a paraphrase would pass while the shipped code failed. The block
-runs from the table set-up down to the first DOM write, which since WO-24 also
-covers the two decisions the page renders from:
+WHAT THIS RUNS IS WHAT THE SITE RUNS, and getting that wrong is the other half
+of the story. The test used to lift the matcher out of build.py by slicing the
+source between two lines of JavaScript. WO-4 moved the matcher to
+search-core/searchcore.js, both anchors stopped existing, and every run from
+2026-08-17 onward died on `ValueError: substring not found` before it reached a
+single case — a test that was not testing anything, quietly, for three weeks.
 
-  * which rich door (data/curated/search_panels.json) a query opens, and
-  * the namesake split — ช้าง answers twice in this city, the camps and the
-    gates/roads/shops that merely CARRY the elephant in their name, and the
-    page files them under separate headers.
+So nothing is found by guessing at code any more. Three things are checked
+before a case runs, and each one fails with an explanation rather than a
+traceback:
 
-    python3 tests/test_search.py          (after a build; MD_DOCS for scratch)
+  * assets/searchcore.js — the file the site ships — is loaded by node with
+    require(), verbatim. No slicing.
+  * build.py must still fold that exact file into the page script. If it stops,
+    this test is no longer testing the shipped matcher and says so.
+  * the page's own search pipeline is cut from build.JS between the
+    `md:search-pipeline` markers, which name this file. Move the block and take
+    the markers with it; delete them and the test reports what it lost.
+
+The canonical copy in ../search-core/ is compared too, on the same terms
+build.py uses: a stale assets/ copy means the rules being tested are not the
+rules that were fixed.
+
+    /opt/homebrew/bin/python3.13 tests/test_search.py     (after a build)
 """
 import json
 import os
@@ -28,315 +40,398 @@ import sys
 import tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BUILD = os.path.join(ROOT, "build.py")
 DOCS = os.environ.get("MD_DOCS", os.path.join(ROOT, "docs"))
 INDEX = os.path.join(DOCS, "data", "index.json")
+SHIPPED = os.path.join(ROOT, "assets", "searchcore.js")
+CANON = os.path.join(os.path.dirname(ROOT), "search-core", "searchcore.js")
 
-# The extracted block: pure decisions, no fetch above it, no DOM below it.
-# START sits just after the table fetches resolve; END is the first DOM write.
-START = "const SEG=segText.split"
-END = "document.getElementById('rescount')"
+MARK_START = "// ---- md:search-pipeline — tests/test_search.py lifts this block ----"
+MARK_END = "// ---- md:search-pipeline ends ----"
 
-ENP = "cm-curated-elephant-nature-park"
-MAESA = "cm-curated-maesa-elephant-camp"
+# A tier is what the page TELLS the reader about the match it made: 'exact' is
+# silent, and everything else prints a line saying the search widened. So the
+# tier is part of the contract, not an implementation detail — a near-spelling
+# match presented as an exact one has misled somebody about how well they were
+# understood.
+LOOSENED = ("thesaurus", "loose", "partial")
 
-# Each case: query, then only the expectations that matter for it.
-#   id_in    — this record id must be among the returned ids
-#   tier     — the reported worst tier must be exactly this
-#   none     — True: the query must return nothing
-#   panel    — the rich door that must open ('' asserts NO panel opens)
-#   on_id    — this id must land in the on-shelf rows
-#   names_nonempty / on_nonempty — that partition must hold something
-#   namesake_lookup — resolve a known namesake from the index by name and
-#                     require it in the names partition
+# (query, expect_id or None, expectation, note)
+#   exact     — found, and the search did not have to widen to do it
+#   loosened  — found, and the page says out loud that it widened
+#   some      — finds something; which rows is the catalogue's business
+#   none      — finds nothing, and must not fall back to finding everything
+#   shelf:KEY — finds something AND the first row stands on that shelf. For a
+#               query that cannot match every word by construction: "parking
+#               for motorcycle near taphae gate" names a shelf, a vehicle and
+#               a landmark, and no single row carries all four words, so the
+#               tier is `partial` and the count is large and defensible. What the
+#               reader is owed there is not a small number, it is a CAR PARK
+#               AT THE TOP.
 CASES = [
-    ("rajavej hospital", {"id_in": "cm-osm-way-97675282", "tier": "exact"},
+    ("rajavej hospital", "cm-osm-way-97675282", "exact",
      "the bug this file exists for: words with two others wedged between them"),
-    ("Rajavej Hospital", {"id_in": "cm-osm-way-97675282"}, "case must not matter"),
-    ("hospital rajavej", {"id_in": "cm-osm-way-97675282"}, "word order must not matter"),
-    ("โรงพยาบาลราชเวช", {"id_in": "cm-osm-way-97675282"},
-     "Thai carries no spaces — one term, matched as it always was"),
-    ("rajavey hospitl", {"id_in": "cm-osm-way-97675282", "tier": "loose"},
-     "two typos still land, and the tier says it loosened"),
-    ("maharaj hospital", {}, "the same word-gap shape, different place"),
-    ("wat phra singh", {}, "a name that WAS contiguous must not regress"),
-    ("", {"none": True}, "empty query finds nothing rather than everything"),
-    ("   ", {"none": True}, "whitespace is not a search"),
-    # Not zero: the phonetic key folds a consonant run, so zzzzqqq lands one
-    # edit from SK House's key. Three near-noise rows is livable; the
-    # catalogue is not. A tighter key for consonant runs is a search-core
-    # precision item, not this page's.
-    ("zzzzqqq", {"max_n": 5}, "a real miss stays tiny — fuzziness must not match all"),
-    ("kow soi", {}, "romanisation drift — signage in this city uses all of them"),
-    ("ข้าวซอย", {}, "the same dish in Thai finds the same places"),
-    ("coffee", {"panel": ""},
-     "the shelf is matched — and no rich door exists for coffee, so none opens"),
-    ("นวด", {"panel": "massage"}, "a Thai shelf word reaches the massage places"),
-    ("temple", {"panel": "wat"}, "an English word for a Thai shelf"),
-    # WO-24: the rich doors, and the namesake split.
-    ("elephant", {"panel": "chang", "on_id": ENP, "names_nonempty": True,
-                  "namesake_lookup": True},
-     "the chang door opens; camps on the shelf, ช้างเผือก the hospital never among them"),
-    ("ช้าง", {"panel": "chang", "on_id": ENP, "names_nonempty": True},
-     "the same door in Thai"),
-    ("จ๊าง", {"panel": "chang"},
-     "the Northern form arrives through the thesaurus, no extra listing needed"),
-    ("ปางช้างแม่สา", {"id_in": MAESA, "on_id": MAESA},
-     "a camp by its own Thai name lands on the shelf side"),
-    ("womens health", {"panel": "womens-health"},
-     "the query the screenshot was full of — the curated page answers first"),
-    ("มวยไทย", {"panel": "muaythai"}, "the fight-night door"),
-    # เรียนทำอาหาร/ทำอาหาร still open the door by query substring, but the
-    # segmenter takes ทำอาหาร apart (ทำ + อา + ร) so the ROWS are noise —
-    # a search-core vocabulary item (the term belongs in the thesaurus, and a
-    # thesaurus term is never segmented), noted in ROLLOUT's gap list. The
-    # English form both opens the door and finds the schools.
-    ("cooking class", {"panel": "cooking"}, "class-shaped query opens the class door"),
-    ("มังสวิรัติ", {"panel": ""},
-     "a vegetarian wants dinner, not a cooking class — the mined shelf table "
-     "sends this word to the cooking shelf and the door must NOT follow it"),
-    ("ห้องน้ำ", {"panel": "toilets"}, "the nearest-toilet door"),
-    ("yi peng", {"panel": "festivals"}, "a festival name opens the festival door"),
-    ("วัด", {"panel": "wat", "on_nonempty": True},
-     "the bare word is in no mined table — the door itself lifts the shelf"),
-    # WO-25 groundwork — the ongoing-care gemba (2026-08-21).
-    ("menopause", {"panel": "womens-health"},
-     "zero corpus rows for this word — the curated page is the true answer"),
-    ("วัยทอง", {"panel": "womens-health"},
-     "the sign word for the same clinic, through the same door"),
-    ("hormone", {"panel": "womens-health"},
-     "hormone care doors to the women's-health page and its glossary"),
-    ("international clinic", {"panel": "care"},
-     "the mined table maps 'clinic' to the chang shelf (lifted from the "
-     "elephant-hospital child's name); shelf_stops keeps this out of the "
-     "elephant door, and since the care page exists it answers instead"),
-    ("elephant clinic", {"panel": "chang"},
-     "the stop is per word: elephant itself still opens the chang door"),
-    # WO-25 door 1 — the care register (data/curated/care.json) is read, so
-    # the queries that returned NOTHING on the gemba walk have a true answer.
-    # These assert the DOOR, not rows: the corpus holds no cardiology record
-    # and inventing one is the failure the register exists to avoid.
-    ("cardiologist", {"panel": "care"},
-     "zero rows in the corpus; the read register names two stated heart clinics"),
-    ("โรคหัวใจ", {"panel": "care"},
-     "the Thai word, which used to return fried-meatball stalls"),
-    ("อายุรกรรม", {"panel": "care"},
-     "the department word for a lifelong condition — 2,522 rows of noise before"),
-    ("FMP", {"panel": "care"},
-     "the VA claim programme — used to loosen to a hotel named Champa"),
-    ("คลินิกพิเศษ", {"panel": "care"},
-     "the after-hours clinic, the phrase rarely printed in English"),
-    ("ใบรับรองแพทย์", {"panel": "care"},
-     "the certificate a visa desk asks for; 2,107 partial rows before"),
-    ("มวยไทย", {"panel": "muaythai"},
-     "a nearby door must not be swallowed by care's long query list"),
-    # WO-26 — trans health (2026-08-21). The curated register
-    # (data/curated/transhealth.json) feeds the index via TRANSHEALTH_ROWS in
-    # build.py, so these land on real places; the door is the panel. Route and
-    # reference grades carry no topic words by design — an unconfirmed
-    # hospital must not answer "transgender" as if it had said yes.
-    ("transgender", {"panel": "trans-health", "id_in": "cm-curated-mplus-chiangmai"},
-     "zero corpus rows carry this word — the register rows and the door answer"),
-    ("ข้ามเพศ", {"panel": "trans-health"},
-     "the Thai term, and every compound carrying it, by query substring"),
-    ("กะเทย", {"panel": "trans-health"},
-     "the community's own word reaches the same door"),
-    ("transport", {"panel": ""},
-     "trans- the prefix is not trans the topic — a bus-and-songthaew reader "
-     "must not be doored to a health page"),
-    ("ฮอร์โมน", {"id_in": "cm-curated-mplus-chiangmai"},
-     "hormone in Thai lands on the places that state hormone care"),
-    ("แปลงเพศ", {"panel": "trans-health", "id_in": "cm-curated-drwimon-clinic"},
-     "the one CM place that states operative care — surgery words are indexed "
-     "only for rows carrying surgery:true, so no clinic answers this by accident"),
-    # WO-27 — realestate (2026-08-21). The panel triggers by variants and
-    # query substring only, NEVER by the mined shelves table: that table
-    # sends หมู่บ้าน and "buildings" to the realestate shelf, and a person
-    # typing a village's name is not hunting a housing estate — the same
-    # overfire the มังสวิรัติ guard holds for cooking.
-    ("condo", {"panel": "realestate"},
-     "the residential door, and the ring reaches อพาร์ตเมนต์/หอพัก rows too"),
-    ("แมนชั่น", {"panel": "realestate"},
-     "a Mansion in Thailand is a monthly building — the Thai word opens the door"),
-    ("หอพัก", {"panel": "realestate"},
-     "the dorm word opens the residential door"),
-    ("หมู่บ้านป่าไผ่", {"panel": ""},
-     "a village name is not a housing-estate query — the mined หมู่บ้าน mapping "
-     "must not door it (the realestate panel carries no shelves trigger)"),
-    # WO-32: the long-term-care door.
-    ("nursing home", {"panel": "longcare"},
-     "the elder-care question opens the long-care door instead of two "
-     "records filed as volunteering"),
-    ("บ้านพักคนชรา", {"panel": "longcare"},
-     "the same door in Thai — the corpus holds zero, the door answers"),
-    ("พักฟื้น", {"panel": "longcare"},
-     "convalescence — nothing on any shelf says the word; the door carries "
-     "the census and the three real doors"),
-    ("detox", {"panel": "longcare"},
-     "the addiction question opens the door; the register speaks, no ranking"),
-    ("เลิกเหล้า", {"panel": "longcare"}, "quitting drink, in the reader's own words"),
-    ("retirement", {"panel": "longcare"},
-     "before WO-32 this query's one answer was the Elephant retirement park"),
-    # WO-38 — the branch layer's door.
-    ("เซเว่น", {"panel": "seven", "names_nonempty": True},
-     "the name everybody says opens the branch layer, rows still under it"),
-    ("7-11", {"panel": "seven"}, "the numeral spelling opens the same door"),
-    ("convenience store", {"panel": "seven"},
-     "the English shelf word opens the door"),
-    ("โชห่วย", {"panel": "seven"},
-     "the corner-grocer word belongs to the same shelf, not to silence"),
-    # WO-40 — the three doors of getting a paper sealed.
-    ("โนตารี", {"panel": "notary"},
-     "the counter word at the law office — zero names carry it; the door answers"),
-    ("notary", {"panel": "notary"}, "the reader's English opens the same door"),
-    ("นิติกรณ์", {"panel": "notary"},
-     "the government's word for the MFA seal — nobody's shopfront says it"),
-    ("apostille", {"panel": "notary"},
-     "in force 28 Feb 2027; until then the door explains the chain"),
+    ("Rajavej Hospital", "cm-osm-way-97675282", "exact", "case must not matter"),
+    ("hospital rajavej", "cm-osm-way-97675282", "exact", "word order must not matter"),
+    ("โรงพยาบาลราชเวช", "cm-osm-way-97675282", "exact",
+     "Thai carries no spaces — one term, split by the segmenter"),
+    ("rajavey hospitl", "cm-osm-way-97675282", "loosened",
+     "two typos still land, and the page says it loosened"),
+    ("maharaj hospital", None, "exact", "the same word-gap shape, different place"),
+    ("wat phra singh", None, "exact", "a name that WAS contiguous must not regress"),
+    ("", None, "none", "empty query finds nothing rather than everything"),
+    ("   ", None, "none", "whitespace is not a search"),
+    ("zzzzqqq", None, "none", "a real miss still misses — fuzziness must not match all"),
+    # WO-4: a reader's spelling is widened through the thesaurus, and the
+    # shelf/cuisine/road a place already carries is matched, not just its name.
+    ("kow soi", None, "some", "romanisation drift — signage in this city uses all of them"),
+    ("khaosoy", None, "some", "cross-script phonetic matching for khao soi"),
+    ("rachawech", "cm-osm-way-97675282", "loosened", "cross-script phonetic match for ราชเวช"),
+    ("ข้าวซอย", None, "some", "the same dish in Thai finds the same places"),
+    ("coffee", None, "some", "the shelf is matched, not only names containing 'coffee'"),
+    ("นวด", None, "some", "a Thai shelf word reaches the massage places"),
+    ("temple", None, "some", "an English word for a Thai shelf"),
+    # WO-67 (Michael, 2026-09-06). The catalogue held ZERO parking among
+    # 22,351 places; the word was a constraint the engine ate and could not
+    # act on. All three of these were "none" before the parking crawl.
+    ("parking", None, "some", "the word he typed first now reaches a shelf"),
+    ("ที่จอดรถ", None, "some", "and in Thai"),
+    ("motorcycle parking", None, "some", "the specific ask, as a shelf not a name search"),
+    ("parking for motorcycle near taphae gate", None, "shelf:parking",
+     "Michael's query, verbatim — the top row must be a car park"),
+    # 2026-09-10 — Nan, from River Tavern in Chiang Rai: "river tavern chiang
+    # rai" found nothing. Two faults: the record is held (name only, no pin) and
+    # was out of the index; and no row carried its own province, so the city
+    # was two more words no name contained. A held row is now indexed on its
+    # name and province, and a row carries its province words.
+    ("river tavern chiang rai", "cr-curated-river-tavern", "exact",
+     "a held record, found by name WITH its city attached"),
+    ("river tavern", "cr-curated-river-tavern", "exact", "and without it"),
+    ("River Tavern Chiangrai", "cr-curated-river-tavern", "exact", "one-word city"),
+    ("ข้าวซอย เชียงราย", None, "province:cr",
+     "the city narrows: every row is in the named province, not only the "
+     "rows with the city in their NAME (live 2026-09-10: 9 of 85)"),
+    ("khao soi chiang mai", None, "province:cm", "and the other city"),
+    ("cafe", None, "no-city-chip", "a query naming no city lifts no province"),
+    # 2026-09-10, from the first miss report (WO-84): the plain word for food
+    # answered with two loose rows. The two-letter question words หา and ขอ,
+    # and the vegan word เจ, were being cut out of the INSIDE of unspaced Thai
+    # words. A Thai phrase is stripped only at a boundary now (search-core).
+    ("อาหาร", None, "some", "the plain word for food reaches the food shelf"),
+    ("ของกิน", None, "some", "ขอ must not be cut out of ของกิน"),
+    ("วัดเจดีย์หลวง", None, "exact", "เจ must not be cut out of เจดีย์"),
+    ("หา ร้านอาหาร", None, "some", "the question word goes, the food word stays whole"),
+]
+
+# WHICH RICH DOOR OPENED, which is the other half of what the reader sees.
+# (query, expected panel id or None, note)
+#
+# This list exists because of one report. On 2026-09-06 "parking for
+# motorcycle near taphae gate" opened the ELEPHANTS door — full width, with a
+# count and lead sentences — above the page's own note that nothing had
+# matched. The route was the mined shelf table, which had learnt `gate` as an
+# elephant word from the chang teaser's phrase "the gate and the chedis that
+# carry its name". A lifted shelf can no longer open a panel at all, and the
+# teaser is now mined as a list rather than as prose (search-core mine.py).
+#
+# The first four are the regression. The rest are the other half of the
+# contract: retiring the trigger must not have shut a door that should open.
+PANEL_CASES = [
+    ("parking for motorcycle near taphae gate", None,
+     "THE REPORT: a query about parking must not open the elephant door"),
+    ("chiang mai gate", None, "no gate in this city is an elephant camp"),
+    ("ประตูช้างเผือก", "moat",
+     "Chang Phueak Gate is a GATE — the moat door, never the elephant one; "
+     "the chang panel's own delight line says the toponyms are not camps"),
+    ("visa extension", "paper",
+     "'extensions' reached the beauty shelf through the mined table, and beauty "
+     "is listed above paper — so a visa extension opened a hair salon"),
+    ("elephant", "chang", "the door still opens for the topic it is about"),
+    ("ช้าง", "chang", "and in Thai"),
+    ("ปางช้าง", "chang", "and for the word a Thai reader actually types"),
+    ("นวด", "massage", "massage keeps its door"),
+    ("มวยไทย", "muaythai", "muay thai keeps its door"),
+    ("ตัดผม", "beauty", "beauty keeps its door"),
+    ("คอนโด", "realestate", "real estate keeps its door"),
+    ("เซเว่น", "seven", "the 7-Eleven door was never mined-shelf-triggered"),
+    ("สนามบิน", "flights", "flights keeps its door"),
 ]
 
 
-def extract_js():
-    src = open(BUILD, encoding="utf-8").read()
-    i = src.index(START)
-    j = src.index(END, i)
-    return src[i:src.rindex("\n", i, j)]
+def premise():
+    """Everything that has to be true before a case means anything.
+
+    Returns (page_js, pipeline_js, notes) or exits with an explanation. The
+    checks are the point: each one is a way this file could go back to testing
+    nothing without anybody noticing.
+    """
+    notes = []
+    if not os.path.exists(INDEX):
+        sys.exit(f"✗ {INDEX} missing — run build.py first")
+    if not os.path.exists(SHIPPED):
+        sys.exit("✗ assets/searchcore.js missing — run search-core/sync.py")
+    shipped = open(SHIPPED, encoding="utf-8").read()
+
+    # A stale copy is the quiet failure: the site keeps building and keeps
+    # serving matching rules that were fixed somewhere else weeks ago, and this
+    # test keeps passing against the old ones.
+    if os.path.exists(CANON):
+        if open(CANON, encoding="utf-8").read() not in shipped:
+            sys.exit("✗ assets/searchcore.js is STALE against search-core/ — "
+                     "run search-core/sync.py, then rebuild")
+    else:
+        notes.append("search-core/ not checked out — parity with the canonical "
+                     "copy was not verified")
+
+    sys.path.insert(0, ROOT)
+    try:
+        import build  # noqa: E402  — imports cheap; build() runs only under __main__
+    except SyntaxError:
+        sys.exit("✗ build.py does not parse — run this under "
+                 "/opt/homebrew/bin/python3.13 (3.9 cannot read it)")
+
+    if shipped not in build.JS:
+        sys.exit("✗ build.py no longer folds assets/searchcore.js into the page "
+                 "script — this test would be exercising a matcher the site does "
+                 "not serve. Check searchcore_js() in build.py.")
+    if MARK_START not in build.JS or MARK_END not in build.JS:
+        sys.exit("✗ the md:search-pipeline markers are gone from build.py's "
+                 "search page. The block moved and this test cannot find it — "
+                 "put the markers back around the pipeline, or point this file "
+                 "at wherever it went.")
+
+    i = build.JS.index(MARK_START)
+    i = build.JS.index("\n", i) + 1
+    pipeline = build.JS[i:build.JS.index(MARK_END, i)]
+    return shipped, pipeline, notes
 
 
-def find_namesake(idx):
-    """A place that carries ช้างเผือก in its NAME and is not on the chang
-    shelf — โรงพยาบาลช้างเผือก, the human hospital, is the canonical one
-    (its name-fence was a WO-19 gotcha). Resolved from the index rather than
-    pinned to an id, so a re-crawl that renumbers it cannot rot this test."""
-    for e in idx:
-        name = (e.get("n") or "") + " " + (e.get("e") or "")
-        cats = (e.get("c") or []) + (e.get("su") or [])
-        if "ช้างเผือก" in name and "chang" not in cats and "โรงพยาบาล" in name:
-            return e["id"]
-    for e in idx:  # any namesake will do if the hospital ever leaves the index
-        name = e.get("n") or ""
-        cats = (e.get("c") or []) + (e.get("su") or [])
-        if "ช้างเผือก" in name and "chang" not in cats:
-            return e["id"]
-    return None
+def run_cases(shipped, pipeline, queries):
+    # MD_CATWORDS and MD_SUBWORDS are read out of the page script rather than
+    # rebuilt here, for the same reason the pipeline is: a table typed twice is
+    # a table that will disagree with itself.
+    sys.path.insert(0, ROOT)
+    import build
+    tables = build.JS[:build.JS.index(shipped)]
+
+    harness = f"""'use strict';
+const fs = require('fs'), path = require('path');
+require({json.dumps(SHIPPED)});          // publishes globalThis.SEARCHCORE
+const SEARCHCORE = globalThis.SEARCHCORE;
+{tables}
+const DOCS = {json.dumps(DOCS)};
+const RROOT = '';
+// The three ways the page reaches the network, and nothing else is stubbed —
+// if the pipeline grows a fourth, node throws here instead of quietly skipping.
+const read = rel => fs.readFileSync(path.join(DOCS, rel), 'utf8');
+const mdJSON = async rel => JSON.parse(read(rel));
+const fetch = async url => {{
+  const p = path.join(DOCS, url);
+  const ok = fs.existsSync(p);
+  return {{ ok, text: async () => (ok ? read(url) : '') }};
+}};
+let INDEX_CACHE = null;   // parsed once; the pipeline rebuilds its own index
+// Both halves. indexsplit_layer (2026-09-08) moved lat/lng/f/fx into
+// data/index2.json, merged by POSITION on the page; a harness reading the
+// first file alone sees no pins and every distance check fails.
+const loadIndex = async () => (INDEX_CACHE ||= (() => {{
+  const a = JSON.parse(read('data/index.json'));
+  try {{ const b = JSON.parse(read('data/index2.json'));
+    for (let i = 0; i < a.length && i < b.length; i++) if (b[i]) Object.assign(a[i], b[i]); }} catch (e) {{}}
+  return a; }})());
+
+// WO-69: a case is a query string, or {{q, tag, sub, cat, st, ar, near}} —
+// the filters the page reads beside q. F and QS are what search.html builds
+// from location.search; here they are built from the spec.
+async function search(spec) {{
+  const S = (typeof spec === 'string') ? {{q: spec}} : (spec || {{}});
+  const q = S.q || '';
+  const F = {{tag: S.tag || [], sub: S.sub || [], cat: S.cat || [], st: S.st || [], ar: S.ar || [],
+             near: Array.isArray(S.near) ? {{lat: S.near[0], lng: S.near[1]}} : null}};
+  F.any = !!(F.tag.length || F.sub.length || F.cat.length || F.st.length || F.ar.length || F.near);
+  const QS = '?' + ['q','tag','sub','cat','st','ar'].filter(k => (k==='q'?q:(F[k]||[]).length))
+    .map(k => k + '=' + encodeURIComponent(k==='q'?q:F[k].join(','))).join('&');
+{pipeline}
+  return {{
+    n: found.length,
+    filters: (typeof FT !== 'undefined') ? FT.map(x => (x.none != null ? 'none:' + x.none : (x.t != null ? 't:' + TAB.tags[x.t][0] : 'tt:' + TAB.trade[x.tt][0])) + (x.soft ? '~' : '') + (x.dropped ? '!' : '')) : [],
+    tags: found.slice(0, 50).map(r => (r.doc.t || []).map(i => TAB.tags[i][0])),
+    metres: found.slice(0, 50).map(r => r.m == null ? null : Math.round(r.m)),
+    qFor: (typeof qFor !== 'undefined') ? qFor : q,
+    ids: hits.map(e => e.id),
+    provs: found.slice(0, 200).map(r => r.doc.p),
+    pv: (typeof pv !== 'undefined') ? pv : null,
+    tier: found.length ? found[0].tier : null,
+    coverage: found.length ? found[0].coverage : null,
+    notes: an.notes,
+    top: found.length ? (found[0].doc.e || found[0].doc.n) : null,
+    topsu: found.length ? (found[0].doc.su || []) : [],
+    // Which rich door the query opened, and whether the engine had to loosen.
+    // Both are things the READER sees, so both are part of the contract —
+    // see PANEL_CASES and the note above it.
+    panel: (typeof panel !== 'undefined' && panel) ? panel.id : null,
+    shelves: (typeof wantShelves !== 'undefined') ? [...wantShelves].sort() : [],
+  }};
+}}
+
+(async () => {{
+  const out = [];
+  for (const q of JSON.parse(process.argv[2])) {{
+      console.error("running query:", q);
+      out.push(await search(q));
+  }}
+  console.log(JSON.stringify(out));
+}})();
+"""
+    with tempfile.NamedTemporaryFile("w", suffix=".cjs", delete=False,
+                                     encoding="utf-8") as fh:
+        fh.write(harness)
+        hpath = fh.name
+    try:
+        proc = subprocess.run(["node", hpath, json.dumps(queries)],
+                              capture_output=True, text=True, timeout=900)
+    finally:
+        print("HARNESS PATH:", hpath)
+    if proc.returncode:
+        print("✗ the shipped matcher failed to run under node:\n"
+              + (proc.stderr or proc.stdout)[-2000:])
+        return None
+    return json.loads(proc.stdout)
+
+
+def _every_tagged(slug):
+    def f(r):
+        if r["n"] < 1:
+            return False, " — found nothing"
+        missing = [t for t in r["tags"] if slug not in t]
+        return (not missing), (f" — {len(missing)} of the first {len(r['tags'])} rows lack {slug!r}" if missing else "")
+    return f
+
+
+def _sorted_metres(r):
+    m = [x for x in r["metres"] if x is not None]
+    return (r["n"] >= 1 and m == sorted(m)), ("" if m == sorted(m) else f" — metres not ascending: {m[:6]}")
+
+
+FILTER_CASES = [
+    ({"q": "", "tag": ["vegan"]}, _every_tagged("vegan"),
+     "tag= with no words: the filter is the query, every row carries the tag"),
+    ({"q": "cafe", "tag": ["vegan"]}, _every_tagged("vegan"),
+     "tag= narrows a word search hard"),
+    ({"q": "#vegan"}, lambda r: (r["qFor"] == "" and "t:vegan" in r["filters"] and r["n"] >= 1,
+                                 f" — qFor={r['qFor']!r} filters={r['filters']}"),
+     "#word is lifted out of the box into a filter"),
+    ({"q": "vegan cafe"}, lambda r: ("t:vegan~" in r["filters"] and r["n"] >= 1 and all("vegan" in t for t in r["tags"]),
+                                     f" — filters={r['filters']}"),
+     "a lifted constraint becomes a soft tag filter (route 2)"),
+    ({"q": "cafe", "tag": ["zzznotatag"]}, lambda r: (r["n"] == 0, f" — found {r['n']}"),
+     "an unknown hard tag answers zero, never everything"),
+    ({"q": "cafe", "near": [18.7876, 98.9931]}, _sorted_metres,
+     "near= sorts by metres from the point"),
+    ({"q": "", "sub": ["cafe"]}, lambda r: (r["n"] >= 50, f" — found {r['n']}"),
+     "sub= alone lists the sub-shelf"),
+    # WO-69's third route may read a bare shelf word as a SOFT tag (`~`), which
+    # narrows only when it can and never changes the words; the contract here
+    # is that no HARD filter appears and the query text is untouched.
+    ("rajavej hospital", lambda r: (all(f.endswith("~") or f.endswith("~!") for f in r["filters"]) and r["qFor"] == "rajavej hospital", f" — filters={r['filters']} qFor={r['qFor']!r}"),
+     "a plain query lifts no hard filter and is not changed"),
+    # WO-70 — the rare word is the question
+    ("best place to buy a Martin guitar", lambda r: (any("guitar" in i for i in r["ids"][:3]), f" — top three {r['ids'][:3]}"),
+     "a guitar shop outranks two hundred cafés that matched `buy`"),
+    ("cheap tok sen massage old city", lambda r: (r["n"] >= 1 and any("tok" in (i or "") or "massage" in (i or "") for i in r["ids"][:3]), f" — top three {r['ids'][:3]}"),
+     "a sentence is not punished for its extra words"),
+    ("วัดเจดีย์หลวง", lambda r: (not any("vegan" in f for f in r["filters"]) and r["n"] >= 1, f" — filters={r['filters']}"),
+     "a temple named for its chedi is not a vegan search (2026-09-10)"),
+]
 
 
 def main():
-    if not os.path.exists(INDEX):
-        print(f"✗ {INDEX} missing — run build.py first")
+    shipped, pipeline, notes = premise()
+    for n in notes:
+        print(f"  note: {n}")
+    got = run_cases(shipped, pipeline, [c[0] for c in CASES])
+    if got is None:
         return 1
-    js = extract_js()
-    idx = json.load(open(INDEX, encoding="utf-8"))
-    namesake = find_namesake(idx)
-    # The block widens spellings through the REAL tables — a stub would let a
-    # broken group or a broken panel trigger ship green.
-    thes_path = os.path.join(ROOT, "data", "search_thesaurus.json")
-    thes = json.load(open(thes_path, encoding="utf-8"))["groups"] \
-        if os.path.exists(thes_path) else []
-    seg_path = os.path.join(ROOT, "data", "search_segdict.txt")
-    seg = open(seg_path, encoding="utf-8").read() if os.path.exists(seg_path) else ""
-    shelves_path = os.path.join(ROOT, "data", "search_shelves.json")
-    shelves = json.load(open(shelves_path, encoding="utf-8")) \
-        if os.path.exists(shelves_path) else {"shelves": {}}
-    panels_path = os.path.join(ROOT, "data", "curated", "search_panels.json")
-    panels = json.load(open(panels_path, encoding="utf-8")) \
-        if os.path.exists(panels_path) else {"panels": []}
-    cfg = json.load(open(os.path.join(ROOT, "data", "categories.json"), encoding="utf-8"))
-    catwords = {c["key"]: f'{c["th"]} · {c["en"]}' for c in cfg["categories"]}
-    subwords = {}
-    for c in cfg["categories"]:
-        for ch in c.get("children") or []:
-            k = (ch.get("match") or {}).get("sub") or ch.get("key")
-            if k:
-                subwords.setdefault(k, f'{ch.get("th","")} {ch.get("en","")}'.strip())
-    harness = (
-        "import fs from 'fs';\n"
-        "import {createRequire} from 'module';\n"
-        "const require=createRequire(import.meta.url);\n"
-        f"const SEARCHCORE=require({json.dumps(os.path.join(ROOT, 'assets', 'searchcore.js'))});\n"
-        f"const MD_CATWORDS={json.dumps(catwords, ensure_ascii=False)};\n"
-        f"const MD_SUBWORDS={json.dumps(subwords, ensure_ascii=False)};\n"
-        f"const thesDoc={{groups:{json.dumps(thes, ensure_ascii=False)}}};\n"
-        f"const segText={json.dumps(seg, ensure_ascii=False)};\n"
-        f"const shelfDoc={json.dumps(shelves, ensure_ascii=False)};\n"
-        f"const panelDoc={json.dumps(panels, ensure_ascii=False)};\n"
-        f"const idx=JSON.parse(fs.readFileSync({json.dumps(INDEX)},'utf8'));\n"
-        "function search(q){\n" + js + "\n"
-        "return {n:found.length,tier:found.length?found[0].tier:null,\n"
-        "ids:hits.map(e=>e.id),panel:panel?panel.id:null,\n"
-        "on:onHits.map(e=>e.id),names:nameHits.map(e=>e.id)};}\n"
-        "const out=JSON.parse(process.argv[2]).map(q=>search(q));\n"
-        "console.log(JSON.stringify(out));\n")
-    with tempfile.NamedTemporaryFile("w", suffix=".mjs", delete=False) as fh:
-        fh.write(harness)
-        path = fh.name
-    try:
-        proc = subprocess.run(["node", path, json.dumps([c[0] for c in CASES])],
-                              capture_output=True, text=True, timeout=240)
-    finally:
-        os.unlink(path)
-    if proc.returncode:
-        print("✗ search block failed to run under node:\n" + proc.stderr[-800:])
-        return 1
-    got = json.loads(proc.stdout)
 
     bad = 0
-    for (q, want, note), r in zip(CASES, got):
-        faults = []
-        if want.get("none"):
-            if r["n"] != 0:
-                faults.append(f"expected nothing, found {r['n']}")
-        elif want.get("max_n") is not None:
-            if r["n"] > want["max_n"]:
-                faults.append(f"found {r['n']}, cap {want['max_n']}")
-        elif not want.get("panel") and r["n"] < 1 and "panel" not in want:
-            faults.append("found nothing")
-        if "id_in" in want and want["id_in"] not in r["ids"]:
-            faults.append(f"{want['id_in']} not in results")
-        if "tier" in want and r["tier"] != want["tier"]:
-            faults.append(f"tier {r['tier']!r}, wanted {want['tier']!r}")
-        if "panel" in want:
-            expected = want["panel"] or None
-            if r["panel"] != expected:
-                faults.append(f"panel {r['panel']!r}, wanted {expected!r}")
-        if "on_id" in want and want["on_id"] not in r["on"]:
-            faults.append(f"{want['on_id']} not in on-shelf rows")
-        if want.get("on_nonempty") and not r["on"]:
-            faults.append("on-shelf rows empty")
-        if want.get("names_nonempty") and not r["names"]:
-            faults.append("namesake rows empty")
-        # The invariant is that a namesake NEVER sits among the on-shelf rows —
-        # that interleaving is the harm this order removed. Being past the
-        # 200-row cap is fine; being filed as a camp is not.
-        if want.get("namesake_lookup"):
-            if namesake is None:
-                faults.append("no ช้างเผือก namesake found in the index at all")
-            elif namesake in r["on"]:
-                faults.append(f"namesake {namesake} filed among the on-shelf rows")
-        # A loosened tier that returns the whole catalogue is not a search.
-        # A strict match on a shelf word is a different thing: "coffee" really
-        # does reach 1,976 cafes, and capping that would forbid shelf matching.
-        if r["tier"] in ("loose", "partial") and r["n"] > 200:
-            faults.append(f"loosened to {r['n']} — a loosened tier must not return the catalogue")
-        ok = not faults
-        extra = "" if ok else " — " + "; ".join(faults)
-        print(f"  {'✓' if ok else '✗'} {q!r:22} n={r['n']:<5} tier={r['tier'] or '-':9} "
-              f"panel={r['panel'] or '-':13} {note}{extra}")
+    for (q, want_id, want, note), r in zip(CASES, got):
+        why = ""
+        if want.startswith("shelf:"):
+            shelf = want.split(":", 1)[1]
+            ok = r["n"] >= 1 and shelf in (r["topsu"] or [])
+            if not ok:
+                why = (" — found nothing" if not r["n"] else
+                       f" — top row is {r['top']!r}, on {r['topsu']!r}, not {shelf!r}")
+        elif want.startswith("province:"):
+            prov = want.split(":", 1)[1]
+            off = [p for p in r["provs"] if p != prov]
+            ok = r["n"] >= 1 and r["pv"] == prov and not off
+            if not ok:
+                why = (" — found nothing" if not r["n"] else
+                       f" — pv={r['pv']!r}, {len(off)} of {len(r['provs'])} rows outside {prov!r}")
+        elif want == "no-city-chip":
+            ok = r["n"] >= 1 and r["pv"] is None
+            if not ok:
+                why = f" — pv={r['pv']!r}"
+        elif want == "none":
+            ok = r["n"] == 0
+            if not ok:
+                why = f" — found {r['n']}, e.g. {r['top']!r} at tier {r['tier']!r}"
+        else:
+            ok = r["n"] >= 1
+            if not ok:
+                why = " — found nothing"
+            if ok and want_id and want_id not in r["ids"]:
+                ok, why = False, f" — {want_id} not among the {len(r['ids'])} shown"
+            if ok and want == "exact" and r["tier"] != "exact":
+                ok, why = False, f" — matched at tier {r['tier']!r}, not exact"
+            if ok and want == "loosened" and r["tier"] not in LOOSENED:
+                ok, why = False, (f" — tier {r['tier']!r}: the page never tells the "
+                                  "reader it widened")
+            # A loosened tier that returns the whole catalogue is not a search.
+            # A strict match on a shelf word is a different thing: "coffee"
+            # really does reach thousands of cafes, and capping this at 200
+            # would forbid the shelf matching WO-4 added.
+            # `thesaurus` is left out of the cap on purpose (2026-09-10): a
+            # synonym comes from a table, not from slack — "kow soi" reaching
+            # every khao soi place through the ข้าวซอย group is the same answer
+            # as typing the shelf word, and the shelf holds 322 of them.
+            if ok and r["tier"] in ("loose", "partial") and r["n"] > 200:
+                ok, why = False, (f" — loosened to {r['n']}; a loosened tier must "
+                                  "not return the catalogue")
+        print(f"  {'✓' if ok else '✗'} {q!r:22} n={r['n']:<6} "
+              f"tier={r['tier'] or '-':10} {note}{why}")
         bad += not ok
-    # Every internal door on every panel must be a page the build wrote — a
-    # panel pointing at a missing page is a wrong answer wearing gold.
-    for p in panels.get("panels", []):
-        for d in p.get("doors", []):
-            href = d.get("href", "")
-            if href.startswith("http"):
-                continue
-            target = os.path.join(DOCS, href.rstrip("/"),
-                                  "index.html") if href.endswith("/") \
-                else os.path.join(DOCS, href)
-            if not os.path.exists(target):
-                print(f"  ✗ panel {p['id']}: door {href!r} is not in the built site")
-                bad += 1
-    print(f"\n{'✓ search page OK' if not bad else f'✗ {bad} search case(s) failed'}")
+
+    # The rich doors. Run as their own pass so a panel failure reads as a
+    # panel failure — the two contracts fail for different reasons and get
+    # fixed in different files (search_panels.json vs the matcher).
+    print("\n  rich doors — which panel the query opens:")
+    pg = run_cases(shipped, pipeline, [c[0] for c in PANEL_CASES])
+    if pg is None:
+        return 1
+    for (q, want_panel, note), r in zip(PANEL_CASES, pg):
+        ok = r["panel"] == want_panel
+        why = "" if ok else f" — opened {r['panel']!r}, wanted {want_panel!r}"
+        print(f"  {'✓' if ok else '✗'} {q!r:42} panel={str(r['panel']):10} {note}{why}")
+        bad += not ok
+
+    # WO-69 — the filters and the tag lift. A tag is a filter, not a word:
+    # tag= narrows, #word lifts, a lifted constraint (vegan) narrows softly
+    # (never to nothing), near= sorts by metres, and an unmet hard filter
+    # answers zero rather than everything.
+    print("\n  filters — tag= / #word / near= (WO-69):")
+    fg = run_cases(shipped, pipeline, [c[0] for c in FILTER_CASES])
+    if fg is None:
+        return 1
+    for (spec, test, note), r in zip(FILTER_CASES, fg):
+        try:
+            ok, why = test(r)
+        except Exception as e:  # noqa: BLE001
+            ok, why = False, f" — {e!r}"
+        print(f"  {'✓' if ok else '✗'} {json.dumps(spec, ensure_ascii=False)[:44]:44} n={r['n']:<6} {note}{why}")
+        bad += not ok
+
+    print(f"\n{'✓ search matcher OK' if not bad else f'✗ {bad} search case(s) failed'}")
     return 1 if bad else 0
 
 

@@ -10,7 +10,7 @@ family of maps untouched — the ones Python draws with Pillow and saves as a
 file: the plan GIFs, the share cards, the posters, the handouts. Those are
 still pins on a cream rectangle, and they are the pictures that travel: a share
 card is what LINE and Facebook show, and it is the only map most people who
-meet this site will ever look at.
+meet that this site reads.
 
 A browser can fetch a .pmtiles over HTTP ranges. Pillow cannot. So this module
 is the reading half of map_shell, in Python and off the disk: a PMTiles v3
@@ -64,15 +64,15 @@ TILES = ROOT / "assets" / "tiles" / "cm-cr.pmtiles"
 # and are kept in sync by tests/test_ground.py.
 PALETTE = {
     "paper":      (251, 246, 236),      # #FBF6EC
-    "green":      (192, 210, 163),      # #C0D2A3
-    "built":      (230, 213, 180),      # #E6D5B4
-    "water":      (143, 174, 201),      # #8FAEC9
-    "water_line": (97, 139, 178),      # #618BB2
-    "building":   (212, 188, 144),      # #D4BC90
-    "casing":     (179, 144, 88),      # #B39058
-    "minor":      (255, 253, 248),      # #FFFDF8
-    "major":      (255, 252, 244),      # #FFFCF4
-    "highway":    (232, 184, 102),      # #E8B866
+    "green":      (181, 217, 147),      # #B5D993
+    "built":      (234, 223, 203),      # #EADFCB
+    "water":      (127, 181, 224),      # #7FB5E0
+    "water_line": (127, 181, 224),      # #7FB5E0
+    "building":   (237, 228, 211),      # #EDE4D3
+    "casing":     (203, 170, 114),      # #CBAA72
+    "minor":      (255, 255, 255),      # #FFFFFF
+    "major":      (255, 246, 226),      # #FFF6E2
+    "highway":    (245, 190, 94),       # #F5BE5E
 }
 
 

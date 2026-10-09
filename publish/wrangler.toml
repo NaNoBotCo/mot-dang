@@ -81,6 +81,61 @@ index_name = "motdang-find"
 # a hostname that is ALREADY proxied through Cloudflare, which those records
 # are. Same result, no DNS surgery, and it works with records this account's
 # deploy token cannot edit.
+# The mailing list (publish/subscribe.js). A D1 database of ITS OWN — never the
+# search index above (a reload of that must not touch a person's address) and
+# never the SITE bucket (that is the public web). Binding name must stay
+# SUBSCRIBERS — subscribe.js reads env.SUBSCRIBERS. Until it is bound, /subscribe
+# answers "not ready" and every other path serves as before.
+#
+# NOT created or migrated by a content deploy. Nan does it once:
+#   npx wrangler d1 create motdang-subscribers        # paste the id below
+#   npx wrangler d1 execute motdang-subscribers --file=migrations/0001_subscribers.sql --remote
+[[d1_databases]]
+binding = "SUBSCRIBERS"
+database_name = "motdang-subscribers"
+database_id = "15b25cdc-8cc1-4c85-9c2f-96d7c697dea1"
+
+# THE SEND GATE. Double opt-in confirmation mail is OFF until this reads exactly
+# "true". Off (and off when unset): subscribe.js composes the message and logs
+# it, and never calls Resend. No marketing mail is sent from here at all. Flip to
+# "true" ONLY after RESEND_KEY is set and you have okayed the consent copy.
+[vars]
+MAILING_LIST_LIVE = "true"
+# WHICH ROBOTS PAY (crawlpay.js, Nan 2026-10-04 "let's run a test"). "on" sends
+# training crawlers a 402 on one page in ten; anything else and they are served
+# as before. The two prices are hers to set; empty = no 402 even when "on".
+# On 2026-10-04 at her word: "0.001 and 0.05 as the test. kinda bracket it." 14 days.
+CRAWLPAY_ASK = "on"
+CRAWLPAY_PRICE_LO = "USD 0.001"
+CRAWLPAY_PRICE_HI = "USD 0.05"
+# The ask stops by itself after this moment (14 days from her go); listening goes on.
+CRAWLPAY_UNTIL = "2026-10-18T03:45:00Z"
+# The listing-agent gate (lister.js). "auto" (Nan, 2026-09-27): a confirmed
+# applicant who passes the sanity check is invited; one who fails waits with
+# the reasons on the row, and listing-sheet/digest.py mails Nan both once a
+# day. "operator": every applicant waits for her INVITE tap, one mail each.
+LISTER_INVITE = "auto"
+
+# THE SEND PATH: Resend, sending as nan@motdang.net — the same service beer-mail
+# uses, and motdang.net is already a verified domain there, so it can reach an
+# arbitrary subscriber's inbox (a destination-pinned CF binding cannot). The API
+# key is a SECRET, never in this file or in code:
+#   wrangler secret put RESEND_KEY
+# Point it at the account's motdang.net Resend key. Nothing sends until the key
+# is set AND MAILING_LIST_LIVE is flipped to "true".
+
+# The listing-agent gate signs its cookie and the add form's bearer with a
+# SECRET that the claims Worker (worker/) holds too, set the same on both:
+#   wrangler secret put LISTER_SECRET
+#
+# Mail to Nan from lister.js (a confirmed applicant, with INVITE / DECLINE
+# links). Pinned to her address, the same as the claims Worker's MAIL, so this
+# binding reaches her inbox and no other; that is why it is not behind
+# MAILING_LIST_LIVE.
+[[send_email]]
+name = "MAIL"
+destination_address = "530kings@proton.me"
+
 [[routes]]
 pattern = "motdang.net/*"
 zone_name = "motdang.net"
@@ -88,3 +143,13 @@ zone_name = "motdang.net"
 [[routes]]
 pattern = "www.motdang.net/*"
 zone_name = "motdang.net"
+
+# A reader's position, shared for an hour (live.js, Nan 2026-10-01). Its own
+# database: a row lives for the hour and goes. Binding name must stay LIVE —
+# live.js reads env.LIVE; without it /api/live answers 503.
+#   npx wrangler d1 create motdang-live
+#   npx wrangler d1 execute motdang-live --remote --file=migrations/0004_live.sql
+[[d1_databases]]
+binding = "LIVE"
+database_name = "motdang-live"
+database_id = "6afa7e56-c839-4eef-9688-0ace550018da"

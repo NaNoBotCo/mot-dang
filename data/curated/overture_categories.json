@@ -1,0 +1,481 @@
+{
+ "what": "Overture Places category -> Mot Dang cat/sub. Ordered; first match wins.",
+ "why": "Overture publishes 803 distinct categories in Chiang Mai and Chiang Rai. This maps them onto shelves the site already has, and DELIBERATELY does not map them all: a category with no row here admits no record. An unmapped place can still hand a phone number to a record we already hold, because enrichment does not need to know what a place is.",
+ "written": "2026-09-07",
+ "rules": [
+  {
+   "match": "restaurant$|^diner$|^eat_and_drink$|^food$|^food_court|^buffet|^steakhouse$|^delicatessen$|^food_stand|^food_truck$|^street_vendor|^food_beverage_service",
+   "cat": "food"
+  },
+  {
+   "match": "^cafe$|^coffee|^tea_room$|^bubble_tea$|^juice_bar|^smoothie",
+   "cat": "food",
+   "sub": "cafe"
+  },
+  {
+   "match": "^bakery|^desserts$|^ice_cream|^donut|^cupcake|^pastry|^chocolate|^candy",
+   "cat": "food",
+   "sub": "bakery-dessert"
+  },
+  {
+   "match": "^bar$|^pub$|^bar_and_grill|^brewery|^cocktail|^wine_bar|^beer_bar|^nightlife|^night_club|^dance_club$|^karaoke$|^lounge$",
+   "cat": "food",
+   "sub": "bar-pub"
+  },
+  {
+   "match": "^vegetarian|^vegan",
+   "cat": "food",
+   "sub": "vegetarian"
+  },
+  {
+   "match": "^noodle",
+   "cat": "food",
+   "sub": "noodle"
+  },
+  {
+   "match": "^seafood_restaurant",
+   "cat": "food",
+   "sub": "seafood"
+  },
+  {
+   "match": "^hotel$|^resort$|^motel$|^lodge$|^inn$|^accommodation$",
+   "cat": "hotel",
+   "sub": "hotel-full"
+  },
+  {
+   "match": "^hostel$|^bed_and_breakfast$|^guest_house|^holiday_rental|^vacation_rental|^campground$|^rv_park",
+   "cat": "hotel",
+   "sub": "guesthouse"
+  },
+  {
+   "match": "^buddhist_temple$|^temple$|^shrine$|^monastery",
+   "cat": "wat"
+  },
+  {
+   "match": "^church|^mosque$|^religious_organization$|^hindu_temple$|^synagogue|^spiritual",
+   "cat": "community",
+   "sub": "centre"
+  },
+  {
+   "match": "^hospital$|^medical_center|^emergency",
+   "cat": "medical",
+   "sub": "hospital"
+  },
+  {
+   "match": "^dentist$|^dental|_dentistry$|^orthodont|^endodont",
+   "cat": "medical",
+   "sub": "dentist"
+  },
+  {
+   "match": "^pharmacy$|^drugstore|^vitamins_and_supplements$",
+   "cat": "essentials",
+   "sub": "pharmacy"
+  },
+  {
+   "match": "^optometrist$|^eyewear|^optician",
+   "cat": "medical",
+   "sub": "optometrist"
+  },
+  {
+   "match": "^physical_therap|^physiotherap|^rehabilitation",
+   "cat": "medical",
+   "sub": "physio"
+  },
+  {
+   "match": "^retirement_home|^nursing_home|^assisted_living|^hospice|^home_health",
+   "cat": "medical",
+   "sub": "long-care"
+  },
+  {
+   "match": "^laborator|^diagnostic_services$|^medical_lab|^blood_bank|^imaging",
+   "cat": "medical",
+   "sub": "laboratory"
+  },
+  {
+   "match": "^doctor|^physician|^plastic_surgeon$|^dermatolog|^pediatric|^obstetric|^womens_health|^cardiolog|^psychiatr|^psycholog|^counsel|^chiropract|^acupunctur|^health_and_medical$|^medical_|^clinic|^surgeon|^oncolog|^orthoped|^urolog|^neurolog|^ophthalmolog|^ent_",
+   "cat": "medical",
+   "sub": "clinic"
+  },
+  {
+   "match": "^traditional_chinese_medicine|^herbal|^alternative_medicine|^naturopath|^ayurved",
+   "cat": "medical",
+   "sub": "thai-medicine"
+  },
+  {
+   "match": "^veterinarian$|^animal_hospital|^animal_shelter",
+   "cat": "pets",
+   "sub": "vet"
+  },
+  {
+   "match": "^pet_store$|^pet_supplies",
+   "cat": "pets",
+   "sub": "pet-shop"
+  },
+  {
+   "match": "^pet_service|^pet_groom|^pet_boarding|^dog_",
+   "cat": "pets",
+   "sub": "grooming"
+  },
+  {
+   "match": "^massage|^spas$|^health_spa$|^day_spa|^sauna|^bathhouse",
+   "cat": "massage"
+  },
+  {
+   "match": "^beauty_salon$|^cosmetic_and_beauty|^skin_care|^facial|^waxing|^eyelash|^tanning",
+   "cat": "beauty",
+   "sub": "beauty-spa"
+  },
+  {
+   "match": "^hair_salon$|^hair_",
+   "cat": "beauty",
+   "sub": "hair"
+  },
+  {
+   "match": "^barber",
+   "cat": "beauty",
+   "sub": "barber"
+  },
+  {
+   "match": "^nail_salon$|^nail_|^manicure",
+   "cat": "beauty",
+   "sub": "nails"
+  },
+  {
+   "match": "^tattoo|^piercing",
+   "cat": "tattoo",
+   "sub": "studio"
+  },
+  {
+   "match": "^gym$|^fitness|^yoga|^pilates|^martial_arts|^boxing|^sports_club|^active_life$|^personal_train|^crossfit",
+   "cat": "sport",
+   "sub": "gym"
+  },
+  {
+   "match": "^stadium|^soccer_field|^sports_and_recreation|^sports_field|^tennis|^badminton|^basketball|^futsal|^bowling|^skate",
+   "cat": "sport",
+   "sub": "sport"
+  },
+  {
+   "match": "^golf",
+   "cat": "sport",
+   "sub": "golf"
+  },
+  {
+   "match": "^swimming|^water_park",
+   "cat": "parks",
+   "sub": "water"
+  },
+  {
+   "match": "^elementary_school$|^middle_school$|^high_school$|^school$|^private_school$|^public_school|^secondary_school|^primary_school",
+   "cat": "school",
+   "sub": "government"
+  },
+  {
+   "match": "^preschool$|^kindergarten|^child_care|^day_care|^nursery_school",
+   "cat": "school",
+   "sub": "kindergarten"
+  },
+  {
+   "match": "^college_university$|^university$|^college$|^campus_building$",
+   "cat": "school",
+   "sub": "university"
+  },
+  {
+   "match": "^tutoring|^education$|^educational_services|^language_school|^driving_school|^music_school|^dance_school|^art_school|^vocational|^training|^test_prep|^adult_education|^special_education",
+   "cat": "school",
+   "sub": "training"
+  },
+  {
+   "match": "^library$",
+   "cat": "community",
+   "sub": "centre"
+  },
+  {
+   "match": "^museum$|^art_gallery$|^art_museum|^history_museum|^science_museum|^gallery",
+   "cat": "museums-galleries",
+   "sub": "museum"
+  },
+  {
+   "match": "^park$|^garden$|^playground$|^national_park|^botanical|^nursery_and_gardening$",
+   "cat": "parks",
+   "sub": "park"
+  },
+  {
+   "match": "^waterfall$|^lake$|^river$|^beach$|^forest$|^mountain$|^nature|^structure_and_geography$|^fishing",
+   "cat": "sights",
+   "sub": "nature"
+  },
+  {
+   "match": "^landmark_and_historical|^historic|^monument|^tourist_attraction|^scenic|^observation_deck|^castle|^palace",
+   "cat": "sights",
+   "sub": "historic"
+  },
+  {
+   "match": "^hot_spring",
+   "cat": "sights",
+   "sub": "hot-spring"
+  },
+  {
+   "match": "^zoo$|^aquarium|^wildlife",
+   "cat": "sights",
+   "sub": "nature"
+  },
+  {
+   "match": "^amusement|^theme_park",
+   "cat": "parks",
+   "sub": "park"
+  },
+  {
+   "match": "^arts_and_entertainment$|^entertainment",
+   "cat": "whats-on",
+   "sub": "events-venue",
+   "why": "a sights record with no sub is unclassified by kinds.json; an entertainment venue is a whats-on venue"
+  },
+  {
+   "match": "^convenience_store$|^corner_store",
+   "cat": "essentials",
+   "sub": "convenience"
+  },
+  {
+   "match": "^grocery|^supermarket|^market$|^farmers_market|^food_market|^night_market$|^fruits_and_vegetables$|^butcher|^seafood_market|^health_food_store$|^bottled_water",
+   "cat": "market",
+   "sub": "fresh"
+  },
+  {
+   "match": "^laundromat$|^laundry|^dry_clean|^linen$",
+   "cat": "essentials",
+   "sub": "laundry"
+  },
+  {
+   "match": "^printing_services$|^print_shop|^copy|^sign_making$|^office_equipment$|^stationery",
+   "cat": "essentials",
+   "sub": "printing"
+  },
+  {
+   "match": "^post_office|^shipping|^courier|^freight|^mailbox",
+   "cat": "essentials",
+   "sub": "post"
+  },
+  {
+   "match": "^bank|^credit_union|^atms?$|^financial_service|^currency_exchange|^money_transfer|^investment|^loan",
+   "cat": "essentials",
+   "sub": "bank"
+  },
+  {
+   "match": "^funeral|^cemetery|^crematorium|^memorial",
+   "cat": "essentials",
+   "sub": "funeral"
+  },
+  {
+   "match": "^photograph|^photo_",
+   "cat": "essentials",
+   "sub": "photo"
+  },
+  {
+   "match": "^utilit|^water_|^waste|^recycling|^internet_service|^telecom|^electric_utility",
+   "cat": "essentials",
+   "sub": "utilities"
+  },
+  {
+   "match": "^government|^public_service_and_government$|^central_government|^city_hall|^courthouse|^police|^fire_station|^embassy|^armed_forces|^military|^prison|^civic",
+   "cat": "essentials",
+   "sub": "gov"
+  },
+  {
+   "match": "^gas_station$|^petrol|^fuel|^charging_station",
+   "cat": "transport",
+   "sub": "fuel"
+  },
+  {
+   "match": "^parking",
+   "cat": "transport",
+   "sub": "parking"
+  },
+  {
+   "match": "^car_rental|^rental_service|^motorcycle_rental|^bicycle_rental|^scooter",
+   "cat": "transport",
+   "sub": "rental"
+  },
+  {
+   "match": "^motorcycle",
+   "cat": "transport",
+   "sub": "motorbike"
+  },
+  {
+   "match": "^automotive_repair$|^auto_|^car_wash$|^tire_dealer|^automotive|^used_car_dealer$|^car_dealer$|^towing|^vehicle_inspection",
+   "cat": "repair",
+   "sub": "auto"
+  },
+  {
+   "match": "^bus_|^transit|^port$|^ferry|^transportation$",
+   "cat": "transport",
+   "sub": "bus",
+   "why": "a station is the city working. kinds.json reads transport by its sub; a transport record with none is unclassified"
+  },
+  {
+   "match": "^train_|^railway",
+   "cat": "transport",
+   "sub": "train"
+  },
+  {
+   "match": "^airport$|^heliport",
+   "cat": "transport",
+   "sub": "airport"
+  },
+  {
+   "match": "^taxi",
+   "cat": "transport",
+   "sub": "taxi"
+  },
+  {
+   "match": "^travel_services$|^travel_company$|^tours$|^travel_agen|^tour_operator",
+   "cat": "transport",
+   "sub": "tours"
+  },
+  {
+   "match": "^electronics|^mobile_phone_store$|^computer|^it_service|^phone_repair|^software|^web_design|^data_",
+   "cat": "repair",
+   "sub": "tech"
+  },
+  {
+   "match": "^hardware_store$|^home_improvement|^building_supply|^construction|^plumb|^electrician|^contractor|^hvac|^roofing|^painter|^welding|^metal_fabricator$|^industrial|^machine_shop|^commercial_industrial$|^manufactur",
+   "cat": "repair",
+   "sub": "home"
+  },
+  {
+   "match": "^key_and_locksmith$|^locksmith|^repair|^watch_repair|^shoe_repair|^mend|^upholster|^tailoring_and_alteration",
+   "cat": "repair",
+   "sub": "mend"
+  },
+  {
+   "match": "^home_cleaning$|^home_service|^cleaning_service|^maid|^handyman",
+   "cat": "home-services"
+  },
+  {
+   "match": "^pest_control|^exterminator",
+   "cat": "home-services",
+   "sub": "pest-control"
+  },
+  {
+   "match": "^landscap|^garden_center|^tree_service",
+   "cat": "home-services",
+   "sub": "landscaper"
+  },
+  {
+   "match": "^furniture_store$|^home_goods|^home_decor|^appliance|^mattress|^kitchen_and_bath",
+   "cat": "shopping",
+   "sub": "home"
+  },
+  {
+   "match": "^clothing_store$|^womens_clothing|^mens_clothing|^childrens_clothing|^fashion|^boutique|^lingerie|^uniform|^swimwear",
+   "cat": "shopping",
+   "sub": "clothes"
+  },
+  {
+   "match": "^shoe_store$|^shoes",
+   "cat": "shopping",
+   "sub": "shoes"
+  },
+  {
+   "match": "^tailor|^alteration|^sewing|^dressmaker",
+   "cat": "shopping",
+   "sub": "alterations"
+  },
+  {
+   "match": "^fabric|^textile",
+   "cat": "shopping",
+   "sub": "fabric"
+  },
+  {
+   "match": "^jewelry|^watch_store|^accessories_store",
+   "cat": "shopping",
+   "sub": "crafts"
+  },
+  {
+   "match": "^arts_and_crafts$|^craft|^art_supply|^pottery|^handicraft|^souvenir|^gift_shop|^flowers_and_gifts|^florist",
+   "cat": "shopping",
+   "sub": "crafts"
+  },
+  {
+   "match": "^music_store|^musical_instrument|^music_production$|^recording",
+   "cat": "shopping",
+   "sub": "music"
+  },
+  {
+   "match": "^sporting_goods|^bicycle_shop|^outdoor_|^bicycle",
+   "cat": "shopping",
+   "sub": "sports-shop"
+  },
+  {
+   "match": "^shopping_center$|^shopping_mall|^department_store|^outlet|^shopping$",
+   "cat": "shopping",
+   "sub": "mall"
+  },
+  {
+   "match": "^bookstore|^book_|^newsstand|^media_news",
+   "cat": "shopping"
+  },
+  {
+   "match": "^thrift|^second_hand|^antique|^pawn|^flea_market$",
+   "cat": "shopping",
+   "sub": "secondhand"
+  },
+  {
+   "match": "^liquor|^wine_shop|^beverage|^tobacco|^toy_store|^baby_|^cosmetics",
+   "cat": "shopping"
+  },
+  {
+   "match": "^real_estate|^property_manage|^apartment|^condo|^home_developer$|^housing",
+   "cat": "realestate"
+  },
+  {
+   "match": "^coworking|^shared_office",
+   "cat": "business",
+   "sub": "coworking"
+  },
+  {
+   "match": "^wholesale|^distribut|^import_export|^supply",
+   "cat": "business",
+   "sub": "wholesale"
+  },
+  {
+   "match": "^professional_services$|^lawyer|^legal|^accountant|^insurance|^consult|^advertis|^marketing|^architect|^engineer|^notary|^translat|^employment|^staffing|^business_|^security_service|^office$|^bookkeep|^tax_",
+   "cat": "business",
+   "sub": "professional"
+  },
+  {
+   "match": "^party_and_event|^wedding|^catering|^event_plan",
+   "cat": "business",
+   "sub": "professional"
+  },
+  {
+   "match": "^farm$|^agricultur|^ranch|^orchard|^plantation|^fish_farm$|^livestock|^dairy|^mill$",
+   "cat": "business"
+  },
+  {
+   "match": "^community_center$|^community_services|^non_profit|^non_governmental|^charity|^social_service|^association|^club$|^senior_center",
+   "cat": "community",
+   "sub": "centre"
+  },
+  {
+   "match": "^music_venue$|^cinema$|^movie_theater|^theater|^concert|^event_space|^performing_arts|^comedy",
+   "cat": "whats-on",
+   "sub": "events-venue"
+  },
+  {
+   "match": "^cannabis|^dispensar|^smoke_shop|^vape",
+   "cat": "cannabis",
+   "sub": "dispensary"
+  },
+  {
+   "match": "^elephant",
+   "cat": "chang",
+   "sub": "elephant-camp"
+  },
+  {
+   "match": "^cooking_class|^culinary",
+   "cat": "cooking",
+   "sub": "class"
+  }
+ ]
+}

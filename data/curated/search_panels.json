@@ -865,7 +865,7 @@
    ],
    "lead": [
     "วัดทั้งสองจังหวัด — ชั้นพระอารามหลวงตามที่ทะเบียนสงฆ์กำหนด ปีก่อตั้ง และเส้นไหว้พระเก้าวัดรอบเวียง",
-    "Wats across both provinces — royal grades as the Sangha's register assigns them, founding years, and the nine-wat merit round inside the moat."
+    "Wats across both provinces — royal grades as the Sangha's register assigns them, founding years, and the rounds of nine inside the moat."
    ],
    "count": {
     "codes": [
@@ -889,7 +889,7 @@
      ]
     },
     {
-     "href": "merit.html",
+     "href": "wats/",
      "label": [
       "ไหว้พระ ๙ วัด",
       "the nine-wat round"
@@ -1275,7 +1275,11 @@
     "สะเก็ดเงิน",
     "psoriasis",
     "eczema",
-    "ผื่นแพ้"
+    "ผื่นแพ้",
+    "ติ่งเนื้อ",
+    "skin tag",
+    "ไฝ",
+    "mole removal"
    ],
    "query": [
     "ผิวหนัง",
@@ -1308,7 +1312,19 @@
     "รักษาสิว",
     "acne treatment",
     "ฉายแสงผิวหนัง",
-    "phototherapy"
+    "phototherapy",
+    "ติ่งเนื้อ",
+    "ตัดติ่งเนื้อ",
+    "กำจัดติ่งเนื้อ",
+    "จี้ติ่งเนื้อ",
+    "skin tag",
+    "skin tags",
+    "skin tag removal",
+    "จี้ไฝ",
+    "กำจัดไฝ",
+    "mole removal",
+    "ขี้แมลงวัน",
+    "กระเนื้อ"
    ],
    "title": [
     "ผิวหนัง — โรคผิวหนัง หมอผิวหนัง และคลินิกความงาม",
@@ -1512,10 +1528,17 @@
      ]
     },
     {
-     "href": "cm/transport/rental/index.html",
+     "href": "cm/transport/motorbike-rental/index.html",
      "label": [
-      "เช่ารถ-มอเตอร์ไซค์",
-      "car and bike rental"
+      "เช่ามอเตอร์ไซค์",
+      "scooter and motorbike rental"
+     ]
+    },
+    {
+     "href": "cm/transport/car-rental/index.html",
+     "label": [
+      "รถเช่า",
+      "car rental"
      ]
     },
     {
@@ -2413,8 +2436,8 @@
      "every entitlement starts with a state-hospital ENT diagnosis"
     ],
     [
-     "ไม่จัดอันดับ ไม่ใช่คำแนะนำทางการแพทย์ ราคาไม่ได้คัดลอกมา",
-     "not medical advice; no prices copied"
+     "ราคาไม่ได้คัดลอกมา",
+     "no prices copied"
     ]
    ],
    "doors": [
@@ -3039,6 +3062,61 @@
      ]
     }
    ]
+  },
+  {
+   "id": "events",
+   "glyph": "🎪",
+   "shelves": [],
+   "variants": [
+    "อีเว้น",
+    "อีเว้นท์",
+    "อีเวนต์",
+    "อีเว้นวันนี้",
+    "event",
+    "events",
+    "งานวันนี้",
+    "งานในเมือง",
+    "what's on",
+    "whats on",
+    "what is on",
+    "things to do",
+    "วันนี้มีอะไร"
+   ],
+   "title": [
+    "งานในเมือง",
+    "What is on"
+   ],
+   "lead": [
+    "งานประจำสัปดาห์และงานครั้งเดียวทั้งเมือง — วันนี้และเจ็ดวันข้างหน้า อยู่ในปฏิทินหน้าเดียว",
+    "Weekly regulars and one-offs across the city — today and the week ahead, on one calendar"
+   ],
+   "doors": [
+    {
+     "href": "events.html",
+     "main": true,
+     "label": [
+      "ปฏิทินงาน",
+      "the events calendar"
+     ]
+    },
+    {
+     "href": "index.html",
+     "label": [
+      "หน้าแรก — เจ็ดวันข้างหน้า",
+      "the front page — the week ahead"
+     ]
+    }
+   ],
+   "query": [
+    "อีเว้น",
+    "อีเว้นวันนี้",
+    "event",
+    "events",
+    "งานวันนี้",
+    "what's on",
+    "things to do"
+   ],
+   "_note": "2026-09-10 WO-84: the first miss report showed อีเว้นวันนี้ answered with 301 half-matches (a hotel named เซเว้นเดย์ first). The question is the calendar."
   }
  ]
 }

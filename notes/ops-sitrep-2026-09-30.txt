@@ -1,0 +1,42 @@
+OPS SITREP — Wednesday 30 September 2026, 15:00 desk (ran 18:12)
+Covers 27 Sept 12:32 to now. The hourly desk routed 29–30 Sept; 28 Sept had no ops file until today.
+
+PIPE
+  Health          ok, build 2026-09-07-neighbours
+  Rows waiting    0
+  Newest message  today 17:52, Nan. Alive.
+
+THE ROOM
+  About 130 messages, 27 Sept 12:32 – 30 Sept 17:52. Nan, Palida, Michael.
+
+FOR NAN
+  1. Two work orders you asked for on 28 Sept, 07:42 and 07:50, were never made:
+       a. "B2b zoom bot": a bot that runs a software demo over Zoom.
+       b. The ai-signed.com scan of hongdam.net (63/100). Checked today, still true:
+          missing HSTS, Content-Security-Policy, X-Frame-Options, Permissions-Policy,
+          and no structured data on the home page. All are header or page fixes.
+  2. Michael, 16:39 today: motdang.net on his phone shows the map, "no menu, no search".
+     The drawer is at the very bottom of the new front page. He has no ticket number.
+  3. Zia's awards site: you said Friday 2 Oct at the earliest. His next list wants emails too.
+  4. Michael asked 29 Sept for a separate channel just for bot things. Your call, unanswered.
+
+WORKED
+  hongdam.net headers checked (above).
+  Rooster's Smoked Meats: not in the directory, English or Thai. Michael's gift
+    certificate is for tonight. Nearest held: Pits and meat - BBQ & Steak, Meat Man.
+  English choirs (the Expats post you forwarded 29 Sept): nothing. A choir search
+    returns no choir in Chiang Mai or Chiang Rai. Shelf gap; asked.json candidate.
+
+ROUTED
+  27 evening and 28 Sept  → _incoming/line/ops/2026-09-28.txt
+  Zoom demo bot           → new work order, no project yet (nearest: nitpick / Open Weights)
+  hongdam trust scan      → hongdam site repo, response headers + JSON-LD
+  Rooster's, choirs       → ASK-NAN.txt already holds both
+  Price list, bac water   → ops; Palida has it
+
+BLOCKED
+  Zoom bot: yes or no to making it a project.
+  hongdam headers: yes to adding them (a deploy).
+  Front page menu: yes to moving search/menu up on phones (a deploy).
+  Bot channel: yes or no.
+  ASK-NAN.txt: 330 lines (306 on 27 Sept). Unfiled: 157 files. Drive queue: 56. All rising.

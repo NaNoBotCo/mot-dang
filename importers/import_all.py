@@ -15,6 +15,7 @@ Sources (all sibling repos under ~/Developer/claude code projects/):
   data/curated/merges.json                         duplicate records folded, human-confirmed pairs only
   data/curated/wat_registry.json                   รหัสวัด + founding year + nikaya, from importers/import_wat_registry.py
   data/curated/condo_register.json                 the Treasury's registered อาคารชุด + assessed value, from importers/harvest_condo_register.py
+  data/curated/status.json                         places shut or moved, by id, each with who reported it and when
 
 Output: data/canonical/cm.json, data/canonical/cr.json
 Curated/field records always win over crawled ones with the same source ref.
@@ -199,7 +200,7 @@ def apply_curated_pins(records):
     2,116 records carried geoPrecision "needs-pin" — real, addressed, and on
     no map. 945 of them were temples from the ONAB register, which states a
     ตำบล and an อำเภอ and no coordinate at all. Two passes fill what can
-    honestly be filled: importers/pin_from_osm.py matches a record to a
+    defensibly be filled: importers/pin_from_osm.py matches a record to a
     SURVEYED OpenStreetMap point by name within its province, refusing any
     name that answers to more than one place; importers/geocode_gaps.py
     infers a point from the written address with importers/geocode_local.py,
@@ -390,6 +391,44 @@ def apply_curated_retags(records):
     return n
 
 
+def apply_curated_status(records, path=None):
+    """Shut or moved, from data/curated/status.json, applied after the merge.
+
+    {"status": {id: {"state": "closed"|"moved", "since": "YYYY-MM-DD",
+    "to": "<url or text>", "source": "<who>", "reported": "YYYY-MM-DD"}}};
+    `since` is when the place shut or moved, `reported` when someone told us.
+    A file with the ids at the
+    top level reads the same. The record keeps every shelf and page it had —
+    build.py prints the state under the name and lights no open-now lamp.
+    Any other state is left alone. The appended source line says who
+    reported it and, when `reported` is held, when — never `since`, which
+    would print a closing date as the day the source was read. `path` is for
+    the test.
+    """
+    path = path or ROOT / "data" / "curated" / "status.json"
+    if not path.exists():
+        return 0
+    doc = json.loads(path.read_text()) or {}
+    fixes = doc.get("status") if isinstance(doc.get("status"), dict) else \
+        {k: v for k, v in doc.items() if not k.startswith("_")}
+    by_id = {r["id"]: r for r in records}
+    n = 0
+    for rid, fix in fixes.items():
+        r = by_id.get(rid)
+        if not r or not isinstance(fix, dict) or fix.get("state") not in ("closed", "moved"):
+            continue
+        status = {"state": fix["state"], "since": fix.get("since", ""),
+                  "source": fix.get("source", "")}
+        if fix.get("to"):
+            status["to"] = fix["to"]
+        r["status"] = status
+        r.setdefault("sources", []).append(
+            {"type": "curated", "ref": fix.get("source", ""),
+             "fetched": fix.get("reported", ""), "via": "data/curated/status.json"})
+        n += 1
+    return n
+
+
 def apply_curated_merges(records):
     """Fold duplicate records from data/curated/merges.json: {keep_id: [drop_ids]}.
 
@@ -398,7 +437,7 @@ def apply_curated_merges(records):
     coworking). Each merge keeps keep_id's record, unions the dropped record's
     shelves and sources into it, and fills only fields keep_id lacks. Merging
     is a curated decision because near-same-name-nearby is not proof: a
-    restaurant inside its hotel is two honest records, not a dupe.
+    restaurant inside its hotel is two separate records, not a dupe.
     """
     path = ROOT / "data" / "curated" / "merges.json"
     if not path.exists():
@@ -618,9 +657,43 @@ def apply_parking_locators(records, prov):
     return done
 
 
+def write_passive(outdir, passive, coverage):
+    """The provinces we do not crawl, one canonical file each, only while it
+    holds a record: build.py gives a province its pages when its file is
+    there and not empty. No register, Overture or derive pass runs on these —
+    they are keyed to the two crawled provinces — only the hand-kept ones."""
+    import sys as _sys
+    if str(ROOT) not in _sys.path:
+        _sys.path.insert(0, str(ROOT))
+    import facts as _facts
+    for pk in sorted(coverage - {"cm", "cr"}):
+        f = outdir / f"{pk}.json"
+        records = passive.get(pk)
+        if not records:
+            if f.exists():
+                f.unlink()
+                print(f"{pk}: nothing held — canonical file removed")
+            continue
+        by_id = {}
+        for r in records:
+            r.setdefault("sub", [])
+            r.setdefault("attrs", {})
+            r.setdefault("confidence", "curated")
+            by_id[r["id"]] = r
+        final = sorted(by_id.values(), key=lambda r: r["id"])
+        _facts.apply(final, _facts.load_all(ROOT / "data" / "curated"))
+        apply_curated_names(final)
+        apply_curated_pins(final)
+        apply_curated_status(final)
+        final, _ = apply_curated_merges(final)
+        f.write_text(json.dumps(final, ensure_ascii=False, indent=1), encoding="utf-8")
+        print(f"{pk}: {len(final)} records (passive — not crawled)")
+
+
 def main():
     import import_overpass
     import import_fixtures
+    import aircon_stated
     import import_weedth
     import import_citizeninfo
     import import_obec
@@ -660,6 +733,7 @@ def main():
     cm += import_mueang_map("osm.json", "cm")
     cm += import_overpass.records("cm")
     cm += json.loads((ROOT / "data" / "curated" / "additions-chiang-mai.json").read_text())
+    cm += json.loads((ROOT / "data" / "curated" / "landmarks-chiang-mai.json").read_text())
     cm += [r for r in weedth if r["province"] == "cm"]
     cr += import_mueang_map("osm-chiang-rai.json", "cr")
     cr += import_overpass.records("cr")
@@ -675,9 +749,30 @@ def main():
     odata = import_opendata.records()
     cm += [r for r in odata if r["province"] == "cm"]
     cr += [r for r in odata if r["province"] == "cr"]
+    # Nan 2026-09-29: coverage is all of northern Thailand. We crawl CM and CR
+    # only; the other fifteen provinces hold what arrives on its own — a
+    # reader's suggestion, an owner, a field drop — kept by hand in
+    # additions-north.json with the province key from data/coverage.json.
+    coverage = {p["key"] for p in json.loads(
+        (ROOT / "data" / "coverage.json").read_text())["provinces"]}
+    north_file = ROOT / "data" / "curated" / "additions-north.json"
+    north = json.loads(north_file.read_text()) if north_file.exists() else []
+    passive = {}
+    for r in north:
+        pk = r.get("province")
+        if pk == "cm":
+            cm.append(r)
+        elif pk == "cr":
+            cr.append(r)
+        elif pk in coverage and r.get("id", "").startswith(pk + "-"):
+            passive.setdefault(pk, []).append(r)
+        else:
+            print(f"additions-north: {r.get('id')} refused — province {pk!r} is not "
+                  f"a data/coverage.json key, or the id does not start with it")
 
     outdir = ROOT / "data" / "canonical"
     outdir.mkdir(parents=True, exist_ok=True)
+    write_passive(outdir, passive, coverage)
     for prov, records in (("cm", cm), ("cr", cr)):
         # field/curated truth wins over crawled truth; same place from two
         # sources keeps the stronger record and unions its shelves
@@ -729,6 +824,20 @@ def main():
             print(f"{prov}: {c_stamped} condo(s) stamped from the Treasury "
                   f"register, {len(c_unmapped)} registered but not held")
             final = sorted(final + c_unmapped, key=lambda r: r["id"])
+        # Overture Places, on the merged list and for the same reason the two
+        # registers above are: it joins by name and proximity, so it has to see
+        # everything we hold before it decides a place is missing. Two jobs in
+        # one pass — a contact fact onto a record that lacks one, and a record
+        # for a shop nobody here held. It never overwrites, never moves a pin,
+        # and nothing it touches is giveable to OpenStreetMap. Measurements and
+        # refusals: importers/import_overture.py, notes/overture-2026-09-07.txt.
+        import import_overture
+        o_enriched, o_new = import_overture.apply(final, prov)
+        if o_enriched or o_new:
+            print(f"{prov}: {o_enriched} record(s) gained a contact from Overture, "
+                  f"{len(o_new)} place(s) admitted that nothing here held")
+            final = sorted(final + o_new, key=lambda r: r["id"])
+
         # Facets last, on the merged records: the ATM join needs the final
         # coordinates, and the tag lift needs whichever source ref survived.
         facets = import_fixtures.apply(final, prov)
@@ -738,14 +847,20 @@ def main():
         storied = apply_curated_story_hooks(final)
         if storied:
             print(f"{prov}: {storied} curated story hook(s) filled in")
+        # Air-con by Nan's word (2026-09-28), after the curated names so a
+        # renamed 7-Eleven is still found by its name.
+        cooled = aircon_stated.apply(final)
+        if cooled:
+            print(f"{prov}: air-con by her word on {sum(cooled.values())} place(s) "
+                  + "(" + ", ".join(f"{k} {v}" for k, v in sorted(cooled.items())) + ")")
         # Reader-supplied facts approved by hand (facts.py / apply_facts.py).
         import sys as _sys
         if str(ROOT) not in _sys.path:
             _sys.path.insert(0, str(ROOT))
         import facts as _facts
-        _fn = _facts.apply(final, _facts.load_doc(ROOT / "data" / "curated" / "facts.json"))
+        _fn = _facts.apply(final, _facts.load_all(ROOT / "data" / "curated"))
         if _fn:
-            print(f"{prov}: {_fn} reader fact(s) applied")
+            print(f"{prov}: {_fn} reader/gleaned fact(s) applied")
         pinned = apply_curated_pins(final)
         if pinned:
             print(f"{prov}: {pinned} curated pin(s) applied to records that had none")
@@ -755,6 +870,9 @@ def main():
         retagged = apply_curated_retags(final)
         if retagged:
             print(f"{prov}: {retagged} curated retag(s) applied — a shelf taken away, with its receipt")
+        statused = apply_curated_status(final)
+        if statused:
+            print(f"{prov}: {statused} record(s) marked shut or moved, with the receipt")
         specialised = apply_specialty(final, prov)
         if specialised:
             print(f"{prov}: {specialised} medical record(s) state a specialty")
@@ -791,6 +909,21 @@ def main():
         located = apply_parking_locators(final, prov)
         if located:
             print(f"{prov}: {located} unnamed car park(s) now say where they are")
+        # SOFT EYES, LAST. derive.py reads what the record's own address, name,
+        # phone and neighbours already say and writes it into fields nothing was
+        # reading — the อำเภอ inside an address string, the branch after สาขา,
+        # the chain a repeated name makes. It runs after every apply_* pass on
+        # purpose: it is first-writer-loses by design, so a register's fact, a
+        # curated correction and an owner's claim have all had their turn before
+        # a reading of ours is allowed near an empty field.
+        import derive as _derive
+        _derive.TODAY = __import__("datetime").date.today().isoformat()
+        _dcounts: dict = {}
+        _derived = sum(fn(final, prov, _dcounts) for _, fn in _derive.PASSES)
+        if _derived:
+            print(f"{prov}: {_derived} field(s) derived from what the records already say")
+            for _k in sorted(_dcounts):
+                print(f"        {_k:<44} {_dcounts[_k]:>7,}")
         (outdir / f"{prov}.json").write_text(
             json.dumps(final, ensure_ascii=False, indent=1), encoding="utf-8")
         got = sum(1 for r in final if (r.get("attrs") or {}).get("facets"))

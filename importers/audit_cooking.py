@@ -57,7 +57,7 @@ Reports, one per child that a NAME can fill, then the guards:
 What this deliberately does NOT do:
 
   * Guess. A name that declares nothing produces nothing. Absent is not false.
-  * Sort classes into tourist and real, school and activity. A kitchen whose
+  * Sort classes by who they are thought to be for, school and activity. A kitchen whose
     sign says Cooking School is a cooking school; what its licence says is a
     door question (the `cooking` facet set asks it, nobody infers it).
   * Infer sessions, prices or pickup. Those are the school's own statements

@@ -386,7 +386,7 @@ t("plain http answers 301 to https, path and query kept", () => {
 const P = await import(join(ROOT, "publish/findpins.js"));
 const BANSABAI = "https://motdang.net/cm/p/ban-sabai-village-senior-residence-and-care-home-860456741841507.html";
 t("a pin answers its words as a phrase, in either script", () => {
-  for (const q of ["ban sabai", "Ban Sabai Village", "BAN-SABAI!", "nursing homes chiang mai", "care home",
+  for (const q of ["ban sabai", "Ban Sabai Village", "BAN-SABAI!", "nursing homes chiang mai", "care home", "seniors", "senior care", "care for seniors chiang mai",
                    "บ้านสบาย", "บ้านสบาย ซีเนียร์", "บ้านพักคนชรา เชียงใหม่", "บ้านพัก คนชรา"]) {
     eq(P.pinsFor(q).get(BANSABAI), P.PIN_X, q);
   }

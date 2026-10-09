@@ -143,15 +143,28 @@ KNOWN_EMPTY = {
 
     # The massage modalities, added 2026-08-17. Sixteen shelves went up; five
     # are live off the shops' own names (thai-traditional 52, blind-massage 2,
-    # foot 2, oil 1, spa-body 1) and these eleven are waiting on the door
+    # foot 2, oil 1, spa-body 1) and these ten are waiting on the door
     # survey. They are on this list rather than off the tree because the words
     # are on shopfronts all over this city — the gap is that OSM records a
     # massage shop as shop=massage and stops, so no crawl can tell one from
     # another, and 237 of 294 names decline to say. A wireframe shelf reading
     # "the ants are still collecting" is the true statement here.
+    # ("massage", "tok-sen") left this list on 2026-09-05. It sat here with the
+    # reason "nobody names it", which was true of signboards and false of the
+    # city: a harvest (_incoming/toksen-2026-09-04.txt, go/toksen) found the
+    # word on thirty menus, own pages and one registered name, and the shelf
+    # now fills from data/curated/shelves.json (10 tags, each naming the page
+    # that says it) and additions-chiang-mai.json (20 records). The lesson is
+    # the WO-22 one again, one layer down: read the names, then read the MENUS.
+    # The other ten fill the same way, one modality at a time — Hangdong Thai
+    # Massage School names yam khang outright on the same listing.
+    # ("massage", "chap-sen") left this list on 2026-09-05. It sat here with
+    # the reason "deep sen work: named on the door menu, not the sign", which
+    # was true of most shops and false of one: Nuat Lanna Tok Sen / Chap Sen
+    # clinic has จับเส้น in its own registered name, and the shelf now holds it
+    # through data/curated/shelves.json. One record is a thin shelf and an
+    # documented one; the other ten modalities below still wait on the door survey.
     ("massage", "prakhop"),          # herbal compress: an add-on, rarely in a name
-    ("massage", "chap-sen"),         # deep sen work: named on the door menu, not the sign
-    ("massage", "tok-sen"),          # Lanna, and genuinely offered here — nobody names it
     ("massage", "yam-khang"),        # Lanna, rare enough that finding one is the survey
     ("massage", "ratchasamnak"),     # court lineage: a training claim, asked not read
     ("massage", "office-syndrome"),  # heavily advertised, but on menus and in shop windows
@@ -167,43 +180,152 @@ KNOWN_EMPTY = {
     # the crawl (dispensary, cannabis-cafe, kratom); these two are on the tree
     # because both are real trades here and neither leaves a trace a crawl can
     # read.
-    ("cannabis", "clinic"),   # a คลินิกกัญชา carries amenity=clinic and nothing
-                              # that says cannabis, so it is indistinguishable
-                              # from every other clinic in the province. The
-                              # sign on the door says it; no tag does.
-    ("cannabis", "farm"),     # licensed plots exist in both provinces and OSM
-                              # maps them, where it maps them at all, as
-                              # landuse=farmland with no crop. A rule that
-                              # guessed from that would file somebody's longan
-                              # orchard as a grow.
+    # ("cannabis", "clinic") and ("cannabis", "farm") both left this list on
+    # 2026-09-05, and they are the clearest case yet of the failure this file
+    # keeps warning about. Their reasons read:
+    #   clinic — "a คลินิกกัญชา carries amenity=clinic and nothing that says
+    #            cannabis, so it is indistinguishable from every other clinic
+    #            in the province. The sign on the door says it; no tag does."
+    #   farm   — "OSM maps them, where it maps them at all, as
+    #            landuse=farmland with no crop. A rule that guessed from that
+    #            would file somebody's longan orchard as a grow."
+    # BOTH WERE WRITTEN ABOUT OPENSTREETMAP, and both were true of it. The
+    # weed.th fold landed afterwards, and in it 24 shops say farm on their own
+    # sign — Chiang Dao Cannabis Farm, ฟาร์มกัญชาทางการแพทย์ ม.แม่โจ้, Alice
+    # weed farm — and 4 say clinic — Plan B Cannabis Clinic @Chiang Mai,
+    # คลินิกกัญชาเวช น.พ.เกรียงศักดิ์. Every one arrived filed `dispensary`,
+    # because that is what the directory lists and nothing read the name.
+    # THE LESSON, which is not the WO-22 one: a KNOWN_EMPTY reason has to be
+    # re-read against every SOURCE that lands after it was written, not just
+    # against the names. And this test could never have caught it — it only
+    # fires when a KNOWN_EMPTY shelf goes live, and no rule existed that could
+    # make these two live. The reason and the rule rotted together, silently.
+    # The name rules are in importers/import_weedth.py; dispensary is kept
+    # alongside, because a farm with a counter is both.
+
+    # เครื่องนอน and ผ้าเมตร, added 2026-08-31 (WO-46). These two go up empty
+    # on purpose, and the census was run the way WO-22 says to run it — the
+    # names first, in the language the shops wrote them. Twenty-eight words
+    # across both scripts (ผ้าปูที่นอน · เครื่องนอน · ที่นอน · ผ้านวม ·
+    # ปลอกหมอน · รัดมุม · ผ้าเมตร · ร้านผ้า · bedding · bed linen · flat sheet
+    # · duvet · mattress · fabric · linen …) against all 20,778 records in both
+    # provinces, in every field: ZERO. Only `textile` (2) and `ซักรีด` (2)
+    # survive anywhere. This is not the beauty-shelf error repeating — the
+    # names WERE read, in Thai, and the trade is genuinely absent from the
+    # catalogue rather than hiding in it under another word.
+    #
+    # NEITHER IS UNFILLABLE, and neither is waiting on OSM growing a tag. Both
+    # are waiting on ONE crawl that has not been run, which is a step, not a
+    # hope: the hospitality-supply channel first (if Thai hotels bed with a top
+    # sheet then flat sheets are made and sold here at volume, into trade
+    # supply rather than onto a retail shelf, and that single fetch decides
+    # whether this shelf is five records or fifty), then the Warorot cloth
+    # floor, then ผ้าเมตร shops. The five DIY anchors already in the catalogue
+    # — HomePro ×3, บุญถาวร, Global House — are one walk down one aisle away
+    # from answering the retail half. notes/bedding-proposal-2026-08-31.md
+    # holds the ranked list and the words to search with; every Thai term in it
+    # is a reading and not yet a source, which is the other reason nothing has
+    # been filed here from a desk.
+    # ("shopping", "fabric") left this list on 2026-09-05: it holds ten records
+    # now — Warorot's เชียงใหม่ใจดี รวมผ้านานาชนิด off the cmhy directory, two
+    # Chiang Rai rows off yellowpages, and seven OSM names (Golden Thai Silk,
+    # เฮือนฝ้าย ด้ายงาม, กลุ่มทอผ้าตำบลป่าตึง …). Bedding is still at zero and
+    # still waiting on the crawl the note describes.
+    ("shopping", "bedding"),
+
+    # แล็บ-ตรวจวิเคราะห์, matched on attrs.facilityType == "laboratory". Read by
+    # name twice — 2026-09-04 over every category (16 hits for "lab": cannabis
+    # dispensaries, a bar, a coffee roaster, a dental lab, a photo lab) and
+    # 2026-09-05 inside medical alone (3 hits: ฟาร์ม่าแล็บ is a pharmacy,
+    # ฟิวเจอร์ แล็ป คลินิก a doctors' clinic, Elite Dental Lab a dental lab).
+    # Not one is a place a person walks into for a blood test. Genuinely empty
+    # by name; it fills from a licence register (the MOPH clinical-laboratory
+    # licences) or a door survey, not from a rule.
+    ("medical", "laboratory"),
+
+    # Four children that stood on the tree with NO match rule at all until
+    # 2026-09-05 — a shelf that could never hold a record, which is the
+    # silence strain in its purest form (notes/search-disease-cure-plan-
+    # 2026-09-05.txt, §2.4). Each now matches sub == its own key, and each is
+    # empty for a reason that was read, not assumed, the same day:
+    ("home-services", "housekeeper"),  # แม่บ้าน / maid / cleaning: 1 name hit in 24,000, a gym called
+                                       # Little Mermaid. Housekeepers are hired by phone and LINE, not
+                                       # from a signboard; fills by the asked loop or a door survey.
+    ("home-services", "handyman"),     # ช่างซ่อมบ้าน / handyman: 46 name hits for รับซ่อม, every one a
+                                       # cloth-alterations shop already on shopping/alterations. The
+                                       # trade is real and unsigned; same route as housekeeper.
+    ("business", "online-selling"),    # ขายออนไลน์-ดรอปชิป: 0 name hits. An online seller has no
+                                       # shopfront by definition; this shelf fills from own pages
+                                       # and the cmhy job table (WO-58), never from a map.
+    ("sights", "outing"),              # ทริปวันเดียว: 0 name hits. A day trip is a route, not a place;
+                                       # the shelf is waiting on the ride-plan layer to publish
+                                       # itineraries as records, which is a decision, not a crawl.
 }
+
+
+def _matches(r, m):
+    """build.matches, restated: a child claims a record by {lens} on
+    attrs.lens, {sub} on record.sub, or {attr, value} on attrs. Kept in step
+    with build.py by the parity check in shelves() rather than by importing
+    18,000 lines to read eight."""
+    if not m:
+        return False
+    a = r.get("attrs") or {}
+    if "lens" in m:
+        return m["lens"] in (a.get("lens") or [])
+    if "sub" in m:
+        return m["sub"] in (r.get("sub") or [])
+    if "attr" in m:
+        return a.get(m["attr"]) == m["value"]
+    return False
 
 
 def shelves():
     cats = json.loads((ROOT / "data" / "categories.json").read_text())
-    subs = set()
+    records = []
     for prov in ("cm", "cr"):
         f = ROOT / "data" / "canonical" / f"{prov}.json"
-        if not f.exists():
-            continue
-        for r in json.loads(f.read_text()):
-            for cat in r.get("cat") or []:
-                for s in r.get("sub") or []:
-                    subs.add((cat, s))
+        if f.exists():
+            records += json.loads(f.read_text())
+    subs = {(cat, s) for r in records
+            for cat in r.get("cat") or [] for s in r.get("sub") or []}
 
+    # parity: the matcher above is a copy of build.matches, so hold it to the
+    # original's text — if build.py grows a fourth claim kind this fails here
+    # before a shelf can go silently empty under it.
+    src = (ROOT / "build.py").read_text()
+    for needle in ('if "lens" in m:', 'if "sub" in m:', 'if "attr" in m:'):
+        check(f"build.matches still claims by {needle.split()[1]}", needle in src,
+              "build.matches changed shape; update _matches in this test")
+    check("build.matches has no claim kind this test lacks",
+          src.count("in m:") == 3, "a fourth claim kind exists in build.py")
+
+    # Until 2026-09-05 this loop read only children matching on `sub`, so a
+    # child matching on a lens or an attr — or on NOTHING, which six children
+    # did — could sit at zero forever unreported. The plan at go/cure calls
+    # that the silence strain; this is where it stops.
     print("\nshelf rules")
     for c in cats["categories"]:
         for ch in c.get("children", []):
             m = ch.get("match") or {}
-            if "sub" not in m:
-                continue
             key = (c["key"], ch["key"])
-            live = (c["key"], m["sub"]) in subs
+            if not m:
+                check(f'{c["key"]}/{ch["key"]} has a match rule', False,
+                      "a child with no rule can never hold a record and renders "
+                      "as a wireframe forever; give it {sub}/{lens}/{attr}")
+                continue
+            live = any(c["key"] in (r.get("cat") or []) and _matches(r, m)
+                       for r in records)
+            if live and key in KNOWN_EMPTY:
+                check(f'{c["key"]}/{ch["key"]} is still empty', False,
+                      "it holds records now — a KNOWN_EMPTY reason that has "
+                      "stopped being true comes out the day it is fixed")
+                continue
             if live or key in KNOWN_EMPTY:
                 continue
             near = sorted(s for (cat, s) in subs if cat == c["key"])
             check(f'{c["key"]}/{ch["key"]} finds records', False,
-                  f"match sub={m['sub']!r} matches nothing; "
+                  f"match {m!r} matches nothing; "
                   f"subs present here: {near}")
 
     # The mirror: records that reach no shelf at all are equally invisible,

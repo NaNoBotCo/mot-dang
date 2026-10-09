@@ -1,0 +1,1398 @@
+{
+ "_comment": "LINE handles found by searching the open web for the handle rather than for the shop. LEADS, not records. 'inCatalogue' null means no record carries this handle — which is what a lookup can say, and not that the business is missing.",
+ "generated": "2026-09-21",
+ "counts": {
+  "queries": 10,
+  "results": 77,
+  "handles": 68,
+  "officialAccounts": 68,
+  "personal": 0,
+  "alreadyInCatalogue": 0,
+  "new": 68,
+  "byShape": {
+   "page": 54,
+   "link": 3,
+   "typed_en": 0,
+   "typed_th": 1
+  }
+ },
+ "handles": [
+  {
+   "kind": "oa",
+   "handle": "@037hgilk",
+   "name_hint": "Nescafe-ChaokhunPark",
+   "found_on": "https://page.line.me/037hgilk?oat_content=url&openQrModal=true",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "food-drink"
+   ],
+   "queries": [
+    "site:page.line.me ร้านกาแฟ เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@145nmhur",
+   "name_hint": "Senz Diva Massage ร้าน เซ็นซ์~ ดีว่า นวดเพื่อสุขภาพ เชียงใหม่",
+   "found_on": "https://www.chiangmailocator.com/wiki-senz-diva-massage-chiang-mai-thai-p230",
+   "snippet": "ไลน์ไอดี: @145nmhur โทร +66(0)629920446",
+   "prov": "cm",
+   "shelves": [
+    "massage"
+   ],
+   "queries": [
+    "\"ไลน์ไอดี\" นวด เชียงใหม่"
+   ],
+   "shapes": [
+    "typed_th"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@169ncpyq",
+   "name_hint": "ภาคตะวันออกและภาคตะวันตก",
+   "found_on": "https://page.line.me/169ncpyq/showcase/731302887237337/item/731317458249509",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "essentials/pharmacy",
+    "food-drink"
+   ],
+   "queries": [
+    "site:page.line.me ร้านยา เชียงใหม่",
+    "site:page.line.me ร้านกาแฟ เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@193lnujv",
+   "name_hint": "HomePro สันทราย",
+   "found_on": "https://page.line.me/193lnujv?openQrModal=true",
+   "snippet": "Santhrai",
+   "prov": "cm",
+   "shelves": [
+    "home-services"
+   ],
+   "queries": [
+    "site:page.line.me แม่บ้าน เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@286ebust",
+   "name_hint": "DAILY hair&nail spa",
+   "found_on": "https://page.line.me/286ebust?oat_content=url&openQrModal=true",
+   "snippet": "Bangkok",
+   "prov": "cm",
+   "shelves": [
+    "beauty-health"
+   ],
+   "queries": [
+    "site:page.line.me ร้านทำผม เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@577hclvi",
+   "name_hint": "สกร.จ.เชียงใหม่",
+   "found_on": "https://page.line.me/577hclvi",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "repair"
+   ],
+   "queries": [
+    "site:page.line.me ช่าง เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@607ssgtc",
+   "name_hint": "The Hair Care-Korat",
+   "found_on": "https://page.line.me/607ssgtc",
+   "snippet": "Korat",
+   "prov": "cm",
+   "shelves": [
+    "beauty-health"
+   ],
+   "queries": [
+    "site:page.line.me ร้านทำผม เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@632zjjzy",
+   "name_hint": "thaidaiso",
+   "found_on": "https://page.line.me/632zjjzy?openQrModal=true",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "food-drink"
+   ],
+   "queries": [
+    "site:page.line.me ร้านกาแฟ เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@673swhkq",
+   "name_hint": "MWhealthcare ร้านยา",
+   "found_on": "https://page.line.me/673swhkq?openQrModal=true",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "essentials/pharmacy"
+   ],
+   "queries": [
+    "site:page.line.me ร้านยา เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@885zroiv",
+   "name_hint": "Ayesays",
+   "found_on": "https://page.line.me/885zroiv",
+   "snippet": "dental and aesthetic clinic, Nimmanhaemin Road",
+   "prov": "cm",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@930uriwn",
+   "name_hint": "แก้วสมบูรณ์โอสถ",
+   "found_on": "https://page.line.me/930uriwn",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "essentials/pharmacy"
+   ],
+   "queries": [
+    "site:page.line.me ร้านยา เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@aim3311i",
+   "name_hint": "Romrawin Clinic",
+   "found_on": "https://page.line.me/aim3311i",
+   "snippet": "skin and aesthetic",
+   "prov": "cm",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@ajf7309f",
+   "name_hint": "บริการจัดหา แม่บ้าน พี่เลี้ยง",
+   "found_on": "https://page.line.me/ajf7309f/showcase/77911482897743",
+   "snippet": "housemaid and nanny placement, live-in and daily",
+   "prov": "cm",
+   "shelves": [
+    "home-services"
+   ],
+   "queries": [
+    "site:page.line.me แม่บ้าน เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@bfe9485l",
+   "name_hint": "นทีสินอพาร์ทเมนท์",
+   "found_on": "https://page.line.me/bfe9485l",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "repair"
+   ],
+   "queries": [
+    "site:page.line.me ช่าง เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@bwo5147r",
+   "name_hint": "ผึ้งน้อย เบเกอรี่",
+   "found_on": "https://page.line.me/bwo5147r",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "beauty-health",
+    "essentials/pharmacy",
+    "food-drink"
+   ],
+   "queries": [
+    "site:page.line.me ร้านทำผม เชียงใหม่",
+    "site:page.line.me ร้านยา เชียงใหม่",
+    "site:page.line.me ร้านกาแฟ เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@chaiyoservices",
+   "name_hint": "รับซ่อมเครื่องชงกาแฟ",
+   "found_on": "https://page.line.me/unc4312s",
+   "snippet": "coffee machine repair, Chiang Mai, 086-821-1991, Line ID @chaiyoservices",
+   "prov": "cm",
+   "shelves": [
+    "repair"
+   ],
+   "queries": [
+    "site:page.line.me ช่าง เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@dch4721s",
+   "name_hint": "เรืองชัยยนต์",
+   "found_on": "https://page.line.me/dch4721s",
+   "snippet": "vehicle service centre, Chiang Mai",
+   "prov": "cm",
+   "shelves": [
+    "repair"
+   ],
+   "queries": [
+    "site:page.line.me ช่าง เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@eeq0900w",
+   "name_hint": "ภูมิสุข เมืองพล",
+   "found_on": "https://page.line.me/eeq0900w",
+   "snippet": "food centre, coffee and bakery, daily 7:00-20:00",
+   "prov": "cm",
+   "shelves": [
+    "food-drink"
+   ],
+   "queries": [
+    "site:page.line.me ร้านกาแฟ เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@fbr3264s",
+   "name_hint": "ร้านยาสองคุณหมอยา",
+   "found_on": "https://page.line.me/fbr3264s",
+   "snippet": "pharmacist on duty all day, daily 06:00-23:00",
+   "prov": "cm",
+   "shelves": [
+    "essentials/pharmacy"
+   ],
+   "queries": [
+    "site:page.line.me ร้านยา เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@fbv4961c",
+   "name_hint": "Dr.Orn Clinic",
+   "found_on": "https://page.line.me/fbv4961c",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "beauty-health"
+   ],
+   "queries": [
+    "site:page.line.me ร้านทำผม เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@fks8678d",
+   "name_hint": "Health Up Group",
+   "found_on": "https://page.line.me/fks8678d",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "essentials/pharmacy"
+   ],
+   "queries": [
+    "site:page.line.me ร้านยา เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@hkq4242m",
+   "name_hint": "Link Mansion",
+   "found_on": "https://page.line.me/hkq4242m",
+   "snippet": "accommodation, Chiang Mai",
+   "prov": "cm",
+   "shelves": [
+    "home-services"
+   ],
+   "queries": [
+    "site:page.line.me แม่บ้าน เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@ile4520s",
+   "name_hint": "โรงแรมเชียงใหม่ฮิลล์",
+   "found_on": "https://page.line.me/ile4520s",
+   "snippet": "hotel, Suthep",
+   "prov": "cm",
+   "shelves": [
+    "home-services"
+   ],
+   "queries": [
+    "site:page.line.me แม่บ้าน เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@jqc3590i",
+   "name_hint": "Q-CHANG (คิวช่าง)",
+   "found_on": "https://page.line.me/jqc3590i",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "repair"
+   ],
+   "queries": [
+    "site:page.line.me ช่าง เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@jxc8568u",
+   "name_hint": "รุ่งโรจน์ อะไหล่ยนต์",
+   "found_on": "https://page.line.me/jxc8568u",
+   "snippet": "auto parts, Chiang Mai",
+   "prov": "cm",
+   "shelves": [
+    "beauty-health",
+    "repair"
+   ],
+   "queries": [
+    "site:page.line.me ร้านทำผม เชียงใหม่",
+    "site:page.line.me ช่าง เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@lhv2802g",
+   "name_hint": "บ้านยายิ้ม",
+   "found_on": "https://page.line.me/lhv2802g",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "essentials/pharmacy"
+   ],
+   "queries": [
+    "site:page.line.me ร้านยา เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@lkt7119z",
+   "name_hint": "จัมโบ้ชัตเตอร์",
+   "found_on": "https://page.line.me/lkt7119z",
+   "snippet": "44/3 Moo 6, Chiang Mai-Ban Sahakorn Road, Sarei District, Chiang Mai",
+   "prov": "cm",
+   "shelves": [
+    "repair"
+   ],
+   "queries": [
+    "site:page.line.me ช่าง เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@lsd1461s",
+   "name_hint": "ท่าช้าง คาเฟ่",
+   "found_on": "https://page.line.me/lsd1461s",
+   "snippet": "082-0283736 / 093-3096299, walk-in from 17:00",
+   "prov": "cm",
+   "shelves": [
+    "food-drink"
+   ],
+   "queries": [
+    "site:page.line.me ร้านกาแฟ เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@lsz1529e",
+   "name_hint": "NUNTAPUN",
+   "found_on": "https://page.line.me/lsz1529e",
+   "snippet": "33/4-5 Moo 6, Chiang Mai-Hang Dong Road, Mae Hia, Mueang, Chiang Mai",
+   "prov": "cm",
+   "shelves": [
+    "repair"
+   ],
+   "queries": [
+    "site:page.line.me ช่าง เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@ltd1158d",
+   "name_hint": "THORFUN CLINIC",
+   "found_on": "https://page.line.me/ltd1158d",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "repair",
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me ช่าง เชียงใหม่",
+    "site:page.line.me คลินิก เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@maccafe",
+   "name_hint": "Mac Cafe'",
+   "found_on": "https://page.line.me/maccafe",
+   "snippet": "coffee, food, bakery and bar",
+   "prov": "cm",
+   "shelves": [
+    "food-drink"
+   ],
+   "queries": [
+    "site:page.line.me ร้านกาแฟ เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@mfq4602m",
+   "name_hint": "DoHome",
+   "found_on": "https://page.line.me/mfq4602m",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "home-services"
+   ],
+   "queries": [
+    "site:page.line.me แม่บ้าน เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@nxn3616p",
+   "name_hint": "Miss Mamon",
+   "found_on": "https://page.line.me/nxn3616p",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "food-drink"
+   ],
+   "queries": [
+    "site:page.line.me ร้านกาแฟ เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@qdi2076t",
+   "name_hint": "786 CO-working Salon",
+   "found_on": "https://page.line.me/qdi2076t?openQrModal=true",
+   "snippet": "Bangkok",
+   "prov": "cm",
+   "shelves": [
+    "beauty-health"
+   ],
+   "queries": [
+    "site:page.line.me ร้านทำผม เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@rdh4169j",
+   "name_hint": "สาขาของ PB Clinic",
+   "found_on": "https://page.line.me/rdh4169j/showcase/1129750677559836",
+   "snippet": "physical therapy, branch 5 in Chiang Mai",
+   "prov": "cm",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@rfk5046q",
+   "name_hint": "The lounge hairsalon",
+   "found_on": "https://page.line.me/rfk5046q",
+   "snippet": "Bangkok",
+   "prov": "cm",
+   "shelves": [
+    "beauty-health"
+   ],
+   "queries": [
+    "site:page.line.me ร้านทำผม เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@ssa8484s",
+   "name_hint": "บ้านอิงดอย แม่กำปอง",
+   "found_on": "https://page.line.me/ssa8484s",
+   "snippet": "homestay, Mae Kampong",
+   "prov": "cm",
+   "shelves": [
+    "home-services"
+   ],
+   "queries": [
+    "site:page.line.me แม่บ้าน เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@tfn4245m",
+   "name_hint": "Hair Perm - ดัดผม",
+   "found_on": "https://page.line.me/tfn4245m/showcase/565183531404400/item/565184672255092",
+   "snippet": "",
+   "prov": "cm",
+   "shelves": [
+    "beauty-health"
+   ],
+   "queries": [
+    "site:page.line.me ร้านทำผม เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@unc4312s",
+   "name_hint": "รับซ่อมเครื่องชงกาแฟ",
+   "found_on": "https://page.line.me/unc4312s",
+   "snippet": "coffee machine repair, Chiang Mai, 086-821-1991, Line ID @chaiyoservices",
+   "prov": "cm",
+   "shelves": [
+    "repair"
+   ],
+   "queries": [
+    "site:page.line.me ช่าง เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@vam9585x",
+   "name_hint": "Rinrada Clinic CM",
+   "found_on": "https://page.line.me/vam9585x",
+   "snippet": "aesthetic clinic, Chiang Mai, Mon-Sat 10:00-20:00",
+   "prov": "cm",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@wakeup24hrs",
+   "name_hint": "Wake Up (Thailand) Account Page",
+   "found_on": "https://page.line.me/wakeup24hrs",
+   "snippet": "coffee chain, Chiang Mai, Lamphun, Lampang, Phitsanulok, Bangkok",
+   "prov": "cm",
+   "shelves": [
+    "food-drink"
+   ],
+   "queries": [
+    "site:page.line.me ร้านกาแฟ เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@whn1121q",
+   "name_hint": "ร้านยา เอเภสัช",
+   "found_on": "https://page.line.me/whn1121q",
+   "snippet": "Pibulwattana Building, Samsenvittayalai School",
+   "prov": "cm",
+   "shelves": [
+    "essentials/pharmacy"
+   ],
+   "queries": [
+    "site:page.line.me ร้านยา เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@wjo6416z",
+   "name_hint": "WECLINIC",
+   "found_on": "https://page.line.me/wjo6416z?openQrModal=true",
+   "snippet": "aesthetic surgery, branches Bangkok and Chiang Mai",
+   "prov": "cm",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@zcf0245f",
+   "name_hint": "สุขสวัสดิ์ไม้อัดไทย",
+   "found_on": "https://page.line.me/zcf0245f",
+   "snippet": "plywood, free delivery in Chiang Mai",
+   "prov": "cm",
+   "shelves": [
+    "beauty-health",
+    "home-services"
+   ],
+   "queries": [
+    "site:page.line.me ร้านทำผม เชียงใหม่",
+    "site:page.line.me แม่บ้าน เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@zel1886x",
+   "name_hint": "Perfect Homes",
+   "found_on": "https://page.line.me/zel1886x",
+   "snippet": "real estate agent, Chiang Mai, buying and renting houses and condos",
+   "prov": "cm",
+   "shelves": [
+    "home-services"
+   ],
+   "queries": [
+    "site:page.line.me แม่บ้าน เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@zhf2528x",
+   "name_hint": "อีซูซุศาลาเชียงใหม่",
+   "found_on": "https://page.line.me/zhf2528x",
+   "snippet": "Isuzu dealership, Chiang Mai",
+   "prov": "cm",
+   "shelves": [
+    "home-services"
+   ],
+   "queries": [
+    "site:page.line.me แม่บ้าน เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "short",
+   "handle": "QdlQHZzF",
+   "name_hint": "TV Onsite บริการซ่อมทีวี LCD LED Plasma เชียงใหม่",
+   "found_on": "https://www.facebook.com/Onsitetvservice/",
+   "snippet": "TV repair, LCD LED Plasma Smart OLED, Chiang Mai. https://lin.ee/QdlQHZzF",
+   "prov": "cm",
+   "shelves": [
+    "transport/bicycle"
+   ],
+   "queries": [
+    "\"lin.ee\" ซ่อม เชียงใหม่"
+   ],
+   "shapes": [
+    "link"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "short",
+   "handle": "RFK4avM",
+   "name_hint": "แสงชัยพานิชย์เชียงใหม่ อำเภอเมือง เชียงใหม่",
+   "found_on": "https://www.cmhy.city/place/2134-sangchai-panish",
+   "snippet": "Honda motorcycle dealer and service, Chiang Mai. https://lin.ee/RFK4avM",
+   "prov": "cm",
+   "shelves": [
+    "transport/bicycle"
+   ],
+   "queries": [
+    "\"lin.ee\" ซ่อม เชียงใหม่"
+   ],
+   "shapes": [
+    "link"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "short",
+   "handle": "f3EG60v",
+   "name_hint": "I Love Phone ซื้อ ขาย ผ่อน ซ่อม มือถือ เชียงใหม่",
+   "found_on": "https://www.facebook.com/ilovephone168/",
+   "snippet": "81 ต.สุเทพ อ.เมือง — phone sales, repair, installments. https://lin.ee/f3EG60v",
+   "prov": "cm",
+   "shelves": [
+    "transport/bicycle"
+   ],
+   "queries": [
+    "\"lin.ee\" ซ่อม เชียงใหม่"
+   ],
+   "shapes": [
+    "link"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@314gbnkn",
+   "name_hint": "The Prima Clinic",
+   "found_on": "https://page.line.me/314gbnkn",
+   "snippet": "",
+   "prov": "cr",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงราย"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@605krwsu",
+   "name_hint": "Mi-A Clinic",
+   "found_on": "https://page.line.me/605krwsu?openQrModal=true",
+   "snippet": "",
+   "prov": "cr",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงราย",
+    "site:page.line.me คลินิก เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@aqh6089n",
+   "name_hint": "Overbrook Hospital",
+   "found_on": "https://page.line.me/aqh6089n",
+   "snippet": "",
+   "prov": "cr",
+   "shelves": [
+    "unshelved"
+   ],
+   "queries": [
+    "site:page.line.me ร้าน เชียงราย"
+   ],
+   "shapes": [
+    "deposit"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@bkd1310k",
+   "name_hint": "PWA9",
+   "found_on": "https://page.line.me/bkd1310k",
+   "snippet": "",
+   "prov": "cr",
+   "shelves": [
+    "unshelved"
+   ],
+   "queries": [
+    "site:page.line.me ร้าน เชียงราย"
+   ],
+   "shapes": [
+    "deposit"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@chiangraimusic",
+   "name_hint": "เชียงรายมิวสิค",
+   "found_on": "https://page.line.me/chiangraimusic",
+   "snippet": "musical instruments and music equipment",
+   "prov": "cr",
+   "shelves": [
+    "unshelved"
+   ],
+   "queries": [
+    "site:page.line.me ร้าน เชียงราย"
+   ],
+   "shapes": [
+    "deposit"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@dqu1086b",
+   "name_hint": "นิ่มลีสซิ่ง",
+   "found_on": "https://page.line.me/dqu1086b?openQrModal=true",
+   "snippet": "",
+   "prov": "cr",
+   "shelves": [
+    "unshelved"
+   ],
+   "queries": [
+    "site:page.line.me ร้าน เชียงราย"
+   ],
+   "shapes": [
+    "deposit"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@epy9589z",
+   "name_hint": "นอร์ท ออร์แกนิค ไทย",
+   "found_on": "https://page.line.me/epy9589z",
+   "snippet": "139/9 ถ.พหลโยธิน ต.ทรายขาว อ.พาน จ.เชียงราย 57120",
+   "prov": "cr",
+   "shelves": [
+    "unshelved"
+   ],
+   "queries": [
+    "site:page.line.me ร้าน เชียงราย"
+   ],
+   "shapes": [
+    "deposit"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@gongkham",
+   "name_hint": "กองคำ เชียงราย",
+   "found_on": "https://page.line.me/gongkham?openQrModal=true",
+   "snippet": "tea, butter snacks",
+   "prov": "cr",
+   "shelves": [
+    "unshelved"
+   ],
+   "queries": [
+    "site:page.line.me ร้าน เชียงราย"
+   ],
+   "shapes": [
+    "deposit"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@ipm1052v",
+   "name_hint": "รักษ์คุณ คลินิก",
+   "found_on": "https://page.line.me/ipm1052v",
+   "snippet": "dermatology, beauty, anti-aging",
+   "prov": "cr",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงราย"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@ivg5583n",
+   "name_hint": "Sinthanee",
+   "found_on": "https://page.line.me/ivg5583n",
+   "snippet": "111 ม.25 ถ.ซุปเปอร์ไฮเวย์ ต.รอบเวียง, Chiang Rai",
+   "prov": "cr",
+   "shelves": [
+    "unshelved"
+   ],
+   "queries": [
+    "site:page.line.me ร้าน เชียงราย"
+   ],
+   "shapes": [
+    "deposit"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@jpd3616j",
+   "name_hint": "Bumrungrad Hospital",
+   "found_on": "https://page.line.me/jpd3616j",
+   "snippet": "",
+   "prov": "cr",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงราย"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@mfx9014r",
+   "name_hint": "ไร่แสงอรุณ เชียงราย",
+   "found_on": "https://page.line.me/mfx9014r",
+   "snippet": "farm by the Mekong, Chiang Khong district, daily 11:00-17:00",
+   "prov": "cr",
+   "shelves": [
+    "unshelved"
+   ],
+   "queries": [
+    "site:page.line.me ร้าน เชียงราย"
+   ],
+   "shapes": [
+    "deposit"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@nke0936e",
+   "name_hint": "Mixed media feed",
+   "found_on": "https://page.line.me/nke0936e/media/1437770663608221/item/1174522438176753400",
+   "snippet": "",
+   "prov": "cr",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงราย"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@rwl3748r",
+   "name_hint": "เอวาร่าห์ คลินิก",
+   "found_on": "https://page.line.me/rwl3748r",
+   "snippet": "beauty clinic, anti-aging",
+   "prov": "cr",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงราย"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@sef7123e",
+   "name_hint": "Mixed media feed",
+   "found_on": "https://page.line.me/sef7123e/media/225161245722002/item/13",
+   "snippet": "restaurant, delivery, @aekocha",
+   "prov": "cr",
+   "shelves": [
+    "unshelved"
+   ],
+   "queries": [
+    "site:page.line.me ร้าน เชียงราย"
+   ],
+   "shapes": [
+    "deposit"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@tpg4970v",
+   "name_hint": "กปภ.สาขาเชียงราย",
+   "found_on": "https://page.line.me/tpg4970v",
+   "snippet": "",
+   "prov": "cr",
+   "shelves": [
+    "unshelved"
+   ],
+   "queries": [
+    "site:page.line.me ร้าน เชียงราย"
+   ],
+   "shapes": [
+    "deposit"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@uqx5846z",
+   "name_hint": "39 สาขาทั่วประเทศ",
+   "found_on": "https://page.line.me/uqx5846z/signboard/710880116412913",
+   "snippet": "",
+   "prov": "cr",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงราย",
+    "site:page.line.me คลินิก เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@yeb4758p",
+   "name_hint": "SmallAnimalHospital",
+   "found_on": "https://page.line.me/yeb4758p",
+   "snippet": "Faculty of Veterinary Science, Chiang Mai University",
+   "prov": "cr",
+   "shelves": [
+    "medical",
+    "repair"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงราย",
+    "site:page.line.me ช่าง เชียงใหม่",
+    "site:page.line.me คลินิก เชียงใหม่"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  },
+  {
+   "kind": "oa",
+   "handle": "@yex7140y",
+   "name_hint": "KaijaiClinic ใกล้ใจ",
+   "found_on": "https://page.line.me/yex7140y",
+   "snippet": "",
+   "prov": "cr",
+   "shelves": [
+    "medical"
+   ],
+   "queries": [
+    "site:page.line.me คลินิก เชียงราย"
+   ],
+   "shapes": [
+    "page"
+   ],
+   "fetched": "2026-09-21",
+   "inCatalogue": null,
+   "status": "lead"
+  }
+ ]
+}

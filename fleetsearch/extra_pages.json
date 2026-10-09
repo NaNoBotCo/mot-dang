@@ -1,0 +1,70 @@
+[
+ {
+  "url": "https://motdang.net/home-help/",
+  "title": "แม่บ้าน · คนสวน · ซักรีด · ช่าง — ลงชื่อเอง ติดต่อตรง · Housekeepers, gardeners, laundry, handymen",
+  "abstract": "แม่บ้าน คนสวน ร้านซักรีดรับ-ส่ง และช่างซ่อมบ้าน ลงชื่อเองบนมดแดง ติดต่อทางไลน์หรือโทรได้โดยตรง · Housekeepers, gardeners, laundry pickup and handymen list themselves; contact them directly.",
+  "body": "แม่บ้าน ทำความสะอาด ทำความสะอาดบ้าน แม่บ้านรายวัน แม่บ้านประจำ คนสวน ตัดหญ้า จัดสวน ซักรีด ซักผ้า รีดผ้า รับส่งผ้า ช่าง ช่างซ่อมบ้าน ช่างไฟ ช่างประปา maid housekeeper cleaner cleaning lady house cleaning gardener landscaping lawn laundry ironing pickup delivery handyman repairs plumber electrician มดแดง กระดานประกาศ ลงชื่อเอง ติดต่อตรง ไลน์ โทร เชียงใหม่ เชียงราย Chiang Mai Chiang Rai notice board list yourself contact directly",
+  "site": "motdang",
+  "fetch": true
+ },
+ {
+  "url": "https://motdang.net/home-help/?category=housekeeper",
+  "title": "แม่บ้าน ทำความสะอาด · Housekeepers and cleaners — มดแดง",
+  "abstract": "แม่บ้านและบริการทำความสะอาดในเชียงใหม่และเชียงราย ลงชื่อเอง ติดต่อตรง · Housekeepers and cleaning services, contacted directly.",
+  "body": "แม่บ้าน แม่บ้านรายวัน แม่บ้านประจำ แม่บ้านอยู่ประจำ ทำความสะอาดบ้าน บริการทำความสะอาด maid housekeeper cleaner cleaning lady house cleaning live-in maid มดแดง กระดานประกาศ ลงชื่อเอง ติดต่อตรง ไลน์ โทร เชียงใหม่ เชียงราย Chiang Mai Chiang Rai notice board list yourself contact directly",
+  "site": "motdang"
+ },
+ {
+  "url": "https://motdang.net/home-help/?category=gardener",
+  "title": "คนสวน จัดสวน ตัดหญ้า · Gardeners — มดแดง",
+  "abstract": "คนสวนและร้านจัดสวน ลงชื่อเอง ติดต่อตรง · Gardeners and landscapers, contacted directly.",
+  "body": "คนสวน ชาวสวน จัดสวน ตัดหญ้า ดูแลสวน ตัดแต่งกิ่ง gardener garden landscaper landscaping lawn mowing yard มดแดง กระดานประกาศ ลงชื่อเอง ติดต่อตรง ไลน์ โทร เชียงใหม่ เชียงราย Chiang Mai Chiang Rai notice board list yourself contact directly",
+  "site": "motdang"
+ },
+ {
+  "url": "https://motdang.net/home-help/?category=laundry",
+  "title": "ซักรีด รับ-ส่งถึงบ้าน · Laundry pickup and delivery — มดแดง",
+  "abstract": "ร้านซักรีดที่รับ-ส่งถึงบ้าน · Laundries that pick up and deliver.",
+  "body": "ซักรีด ซักผ้า รีดผ้า รับส่งผ้า รับ-ส่งถึงบ้าน ซักอบรีด laundry laundry pickup laundry delivery ironing wash and fold มดแดง กระดานประกาศ ลงชื่อเอง ติดต่อตรง ไลน์ โทร เชียงใหม่ เชียงราย Chiang Mai Chiang Rai notice board list yourself contact directly",
+  "site": "motdang"
+ },
+ {
+  "url": "https://motdang.net/home-help/?category=handyperson",
+  "title": "ช่างซ่อมบ้าน · Handymen and home repair — มดแดง",
+  "abstract": "ช่างซ่อมบ้านที่ลงชื่อเอง และร้านซ่อมบ้านจากมดแดง · Handymen who list themselves, and home-repair shops.",
+  "body": "ช่าง ช่างซ่อมบ้าน ซ่อมบ้าน ช่างไฟ ช่างประปา ช่างทาสี ช่างไม้ ซ่อมหลังคา handyman home repair repairs plumber electrician painter carpenter roof มดแดง กระดานประกาศ ลงชื่อเอง ติดต่อตรง ไลน์ โทร เชียงใหม่ เชียงราย Chiang Mai Chiang Rai notice board list yourself contact directly",
+  "site": "motdang"
+ },
+ {
+  "url": "https://motdang.net/anthill/",
+  "site": "motdang",
+  "fetch": true
+ },
+ {
+  "url": "https://motdang.net/anthill/jobs",
+  "site": "motdang",
+  "fetch": true,
+  "brand": [
+   "รังมด",
+   "The Anthill"
+  ]
+ },
+ {
+  "url": "https://motdang.net/anthill/bounty",
+  "site": "motdang",
+  "fetch": true,
+  "brand": [
+   "รังมด",
+   "The Anthill"
+  ]
+ },
+ {
+  "url": "https://motdang.net/anthill/gate",
+  "site": "motdang",
+  "fetch": true,
+  "brand": [
+   "รังมด",
+   "The Anthill"
+  ]
+ }
+]

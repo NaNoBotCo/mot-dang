@@ -1,0 +1,112 @@
+{
+ "_": "The toys /get.html publishes. One object per toy. Everything measurable is measured at build time and must NOT be typed here: size, sha256. `src` is a path relative to the projects directory (mot-dang's parent) or absolute — the toy is published from where it is built. `open` is a URL or site-relative path for a toy with no file. `page` is a longer page on this site, if it has one. `price` in baht; a price with no `buy` URL is held out of the build rather than printed with nothing to tap. `draft: true` holds a row. `on` is any of android · ios · web · desktop · print. `k` is extra words the search should match, never displayed.",
+ "toys": [
+  {
+   "id": "hongnam",
+   "glyph": "🚻",
+   "name": [
+    "ห้องน้ำใกล้ฉัน",
+    "Nearest toilet"
+   ],
+   "line": [
+    "แผนที่ทั้งเมืองอยู่ในเครื่อง ไม่ต้องมีเน็ต",
+    "the whole city map on the phone, works with no signal"
+   ],
+   "on": [
+    "android",
+    "ios"
+   ],
+   "src": "mot-dang/app/out/motdang-hongnam.apk",
+   "page": "app.html",
+   "k": "toilet ห้องน้ำ ส้วม สุขา app แอป offline apk android"
+  },
+  {
+   "id": "almanac",
+   "glyph": "🌕",
+   "name": [
+    "วันเมือง",
+    "Lanna Almanac"
+   ],
+   "line": [
+    "วันเดือนเหนือ แฮม-เป็ง ปีจุลศักราชและวันศีล อยู่ในไฟล์เดียว",
+    "the Northern lunar day, the Chulasakarat year and วันศีล, in one file"
+   ],
+   "on": [
+    "web",
+    "desktop"
+   ],
+   "src": "lanna-almanac/out/almanac.html",
+   "k": "ปฏิทิน almanac lanna วันศีล จุลศักราช เป็ง แฮม calendar widget"
+  },
+  {
+   "id": "samching",
+   "glyph": "🎱",
+   "name": [
+    "สามชิ่ง",
+    "Sam Ching"
+   ],
+   "line": [
+    "บิลเลียดสามชิ่ง ไฟล์เดียวจบ",
+    "three-cushion billiards, one file"
+   ],
+   "on": [
+    "web"
+   ],
+   "src": "sam-ching/index.html",
+   "k": "billiards สนุกเกอร์ พูล เกม game carom"
+  },
+  {
+   "id": "blinky1200",
+   "glyph": "📼",
+   "name": [
+    "blinky1200",
+    ""
+   ],
+   "line": [
+    "หยุดนาฬิกาวิดีโอที่กะพริบ 12:00 มาตั้งแต่ปี 1987 · 11 ด่าน",
+    "stop the clock that has blinked 12:00 since 1987 — 11 levels"
+   ],
+   "on": [
+    "web"
+   ],
+   "src": "blinking-twelve/index.html",
+   "k": "vcr puzzle เกม game retro clock"
+  },
+  {
+   "id": "blinky",
+   "glyph": "🔘",
+   "name": [
+    "blinky",
+    ""
+   ],
+   "line": [
+    "ของเล่นมือ ตั้งเวลา หมุนเทป จูนสัญญาณ ไม่มีคำอธิบายสักคำ",
+    "a wordless VCR fidget — set the clock, spin the tape, tune the static"
+   ],
+   "on": [
+    "web"
+   ],
+   "src": "blinky-fidget/index.html",
+   "k": "fidget vcr ของเล่น toy"
+  },
+  {
+   "id": "thai-drawn",
+   "glyph": "ก",
+   "name": [
+    "ภาษาไทย วาดให้ดู",
+    "Thai, Drawn"
+   ],
+   "line": [
+    "ก ไก่ ถึง ฮ นกฮูก เป็นภาพขยับได้ เครื่องผันเสียง คำ ป้าย ราก เปิดได้ไม่ต้องมีเน็ต",
+    "ก for chicken to ฮ for owl as moving pictures, a tone machine, words, signs, roots; opens with no signal"
+   ],
+   "on": [
+    "android",
+    "web"
+   ],
+   "src": "thai-drawn/docs/thai-drawn.apk",
+   "page": "sites/thai-drawn/",
+   "k": "learn thai เรียนภาษาไทย alphabet ก-ฮ พยัญชนะ วรรณยุกต์ tones vowels สระ flashcards app แอป apk android offline"
+  }
+ ]
+}

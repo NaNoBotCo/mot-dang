@@ -1,0 +1,122 @@
+==============================================================================
+OPS SITREP — Wednesday 23 September 2026, desk run 11:35
+==============================================================================
+
+PIPE
+  Health          {"ok":true} — build 2026-09-07-neighbours, reads_sign,
+                  reads_neighbours. Answered at once.
+  Rows waiting    0. "nothing waiting."
+  Newest message  22 Sept 20:01, Nan, "Thank you". About 15 hours old.
+                  The pipe is ALIVE and the room is genuinely quiet.
+
+  Yesterday's 20 messages all landed and were all routed by the 22:57 pull
+  and the 22:59 desk run. Nothing arrived overnight. Nothing was left unread.
+
+THE ROOM
+  0 new messages this run. Last traffic 22 Sept, 11:28 to 20:01 — 20 messages
+  over nine hours: Michael 8, Palida (Beer) 11, Nan 1.
+
+FOR NAN
+  1. THE SWIM DAY IS TODAY, NOT TOMORROW. Beer said "tomorrow" on 22 Sept.
+     That is today, Wednesday 23 Sept, 14:30 — about three hours from now.
+     Last swim day at Wat Suan Dok school. You and Michael said you are going.
+
+       โรงเรียนวัดสวนดอก / Wat Suandok School
+       137 Suthep Rd, Suthep, Mueang Chiang Mai
+       053 278 617 · 18.7888143, 98.9685574
+       Held as wat-suandok-school-2638649027.
+
+  2. Michael turned the visit into a work order, in the room, at 11:43:
+     "We need to put together our presentation/video for our donors. They have
+     specific rules about photographing the children, for their safety of
+     course, buy we need to get as much as we can for the presentation."
+     So today is a shoot, and the school's rules govern what may be shot.
+     Nobody has said what those rules are. Worth asking before 14:30, not at
+     the poolside.
+
+  3. And a second one at 13:25: John's deck needs updating, and he wants the
+     two of you ready to present it — "This is John's slide deck for the swim
+     program... Nan and I need to be prepared to present it."
+     No date: "In the future; no specific date at this time."
+     A video is still to come from John Schorr.
+
+  4. If today closes the Wat Suan Dok course, it closes the last 2026 gap in
+     the register. The number the desk needs is students enrolled and students
+     passed. Nobody will send it unless it is asked for today.
+
+WORKED
+  John's deck, read. 35 MB, 24 slides, 23 images. Author John Schorr, revision
+  40, title "Using Service Organizations and NGO's to Develop and Promote
+  Children's Water Safety and Drowning Prevention Programs in Thailand".
+  Held at _incoming/line/photos/2026-09-22/_unfiled/632881682932302590.pptx.
+  Its shape, so you know what you are taking on:
+
+    1     Title — John's name and "Chair, CMIRC's CWSDPP". A byline change is
+          yours to make, not mine.
+    2-3   The problem: drowning the leading cause of death under 15 in
+          Thailand, 1,000 children a year, cited to the Thai Ministry of
+          Public Health (2014) and WHO (2014). Twelve-year-old citations.
+    4     The numbers slide. Says 2015-2025, 11 municipal schools plus Wat
+          Suan Dok, 14 schools in Phrao, 15 hours per class, 85% pass,
+          1,000 baht per child, 650,000 baht a year.
+    5-12  Eight photo-only slides. No text at all. The photo bank.
+    13    "Video of our Chiang Mai Program" — the placeholder for the video
+          John still has to send.
+    14    The Chiang Mai water safety team.
+    15    Sponsors — Swiss Lanna Society Chiang Mai named; the rest are logos.
+    16-17 Two more photo-only slides.
+    18    Long-term goals — the national adoption argument.
+    19-22 The expat community-service section: CEC, CMIRC's other projects,
+          nine other NGOs. Roughly a third of the deck is not about swimming.
+    23    Photo-only.
+    24    Contact — John's email, Thai mobile, LINE and WhatsApp.
+
+  Three things in it that will not survive a donor questioning. Checked
+  against the register at ~/Developer/claude code projects/cmirc-cwsdpp:
+
+    · Slide 4 says "600 to 700 children each year". 2025 actually did 738 —
+      Chiang Mai 391, Phrao 347. The deck undersells itself by about forty
+      children. The 85% pass claim, by contrast, is right: 633 of 738, 85.8%.
+    · Slide 4 says 1,000 baht per child. Pricing is per classroom, not per
+      child, so the real figure swings with class size: Wat Gu Kam 2026 was
+      24,474 baht for 16 children, 1,530 each; Wat Pa Phaeng 23,500 for 55,
+      427 each. 1,000 is a fleet average no single course matches.
+    · Slides 2-3 rest entirely on 2014 sources. Anyone can ask what the
+      number is now. I have not looked for a newer one — say the word.
+
+  The photo slides are the update. Eight of them carry no words, and today is
+  the last 2026 swim day in Chiang Mai. That makes this afternoon the last
+  chance this year to put 2026 children in a 2015-2025 deck — which is
+  probably why Michael wrote what he wrote.
+
+  The register, checked. 2026 Chiang Mai: 13 course lines, 4 completed,
+  94,974 baht. Wat Suan Dok still reads not_reported, "No completion record
+  found in mail as of 21 Aug 2026". Today is the day that line either closes
+  or does not.
+
+  Wat Suan Dok school, resolved against the catalogue. Held, with phone and
+  pin, as above. No new place row needed.
+
+ROUTED
+  Nothing new to route — no messages arrived since the last run.
+  Yesterday's twenty are already at _incoming/line/ops/2026-09-22.txt.
+  The deck and the two open questions are already in ASK-NAN.txt.
+
+BLOCKED
+  The deck's byline. If you and Michael present it, slide 1 and slide 24 say
+  John. Changing them is a courtesy call inside CMIRC and it is yours.
+
+  The photography rules at the school. Michael named them; nobody has them.
+  One line from Beer or the school before 14:30.
+
+  Drive photo queue, day 16. Eleven files queued, none uploaded — ten photos
+  from 7, 8, 12 and 14 Sept, plus yesterday's 35 MB deck, which the base64
+  path cannot carry at all. rclone is installed here with no remote. One
+  authorised Drive remote retires this; the sign-in is yours.
+
+  Two photos still unfilable without you, both asked more than once:
+  the "Lucky carpark" near the airport (Beer, 8 Sept) and "Pha Naresuan"
+  (Beer, 12 Sept, five photos).
+
+  ASK-NAN.txt is 262 lines, up from 222 on 19 Sept. Eleven files sit unfiled
+  across five days. Both numbers are still going the wrong way.

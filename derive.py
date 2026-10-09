@@ -28,7 +28,7 @@ THE MEASUREMENTS THAT MADE IT WORTH BUILDING (2026-09-08, 88,161 records)
   attrs.amphoe was on 3.7% of records and NOTHING in the repo derived it; it
   arrived only on records whose register happened to include it.
 
-EVERY WRITE IS FIRST-WRITER-WINS AND CARRIES A RECEIPT
+every WRITE IS FIRST-WRITER-WINS AND CARRIES A RECEIPT
 -----------------------------------------------------
 A pass never overwrites a value that is already there — an importer's fact, a
 curated correction and an owner's claim all outrank a derivation, and
@@ -135,6 +135,28 @@ def metres(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
         + math.cos(rad(lat1)) * math.cos(rad(lat2)) * math.sin(rad(lng2 - lng1) / 2) ** 2))
 
 
+# "Amphoe Pai," / "Pai District" — the two ways a romanised Thai address
+# writes its district. Kept off the Thai path so a Thai address is read the
+# way it always was.
+# A romanised district name is one to three words — Pai, Mae Taeng, Mueang
+# Chiang Mai, San Kamphaeng — so the whole name is taken, not its last word.
+# A single-word capture read "Mae Taeng District" as Taeng and "Hang Dong" as
+# Dong, which is a fragment of a real district and worse than no reading.
+# Capitalisation is required on the District form, so a lowercase street word
+# before it cannot be swallowed.
+_LATIN_AMPHOE = re.compile(
+    r"(?i:\bamphoe\s+)([A-Za-z][A-Za-z'\- ]{1,24}?)"
+    r"(?=\s*,|(?i:\s+chang\s*wat\b)|$)"
+    r"|\b((?:[A-Z][a-z'\-]+[ ]){0,2}[A-Z][a-z'\-]+)[ ]District\b")
+# A province name running on the end of a district reading. THE SPACE IS LOAD
+# BEARING: อำเภอเมืองเชียงใหม่ is a district whose name ends in its province
+# and must never be cut to เมือง, so only a province standing as its own word
+# is stripped.
+_PROVINCE_TAIL = re.compile(
+    r"\s+(?:จังหวัด\s*)?(?:แม่ฮ่องสอน|เชียงใหม่|เชียงราย|ลำพูน|ลำปาง|พะเยา"
+    r"|น่าน|แพร่|ตาก|สุโขทัย|อุตรดิตถ์)\s*$")
+
+
 def parse_address(address: str) -> dict:
     """Everything a Thai address string says about where it is.
 
@@ -146,7 +168,20 @@ def parse_address(address: str) -> dict:
     out = {}
     amphoe = _grab(address, r"อำเภอ|(?<![ก-๙])อ\.|เขต")
     if amphoe:
+        # อำเภอปาย แม่ฮ่องสอน — a Thai address that writes จังหวัด without the
+        # word runs the province straight on to the district, and _grab has no
+        # marker to stop at. "ปาย แม่ฮ่องสอน" is not a district.
+        amphoe = _PROVINCE_TAIL.sub("", amphoe).strip() or amphoe
         out["amphoe"] = amphoe
+    elif _LATIN_AMPHOE.search(address):
+        # LATIN ADDRESSES SAY IT TOO, AND NOTHING HERE WAS READING THEM. Every
+        # field above is keyed on a Thai marker, so "Amphoe Pai, Chang Wat Mae
+        # Hong Son" parsed to a postcode and nothing else — 47 of the 49 Pai
+        # shops in the weed.th harvest are written that way. Read to the same
+        # raw grade as the Thai reading; the caller still decides what a
+        # gazetteer will confirm.
+        m = _LATIN_AMPHOE.search(address)
+        out["amphoe"] = (m.group(1) or m.group(2) or "").strip(" ,.")
     tambon = _grab(address, r"ตำบล|(?<![ก-๙])ต\.|แขวง")
     if tambon:
         out["tambon"] = normalise(tambon)
@@ -253,9 +288,19 @@ def apply_address(records: list, prov: str, counts: dict | None = None) -> int:
                     if metres(lat, lng, r["lat"], r["lng"]) > radius:
                         attrs["amphoeDisputed"] = "the pin falls outside this อำเภอ"
                         c["amphoe/disputed by the pin"] = c.get("amphoe/disputed by the pin", 0) + 1
-            else:
-                c["amphoe/no such อำเภอ in this province"] = \
-                    c.get("amphoe/no such อำเภอ in this province", 0) + 1
+            elif not attrs.get("amphoeSaid"):
+                # NOT OURS TO CONFIRM, STILL THE READER'S ANSWER. The same
+                # two grades tambonSaid keeps, for the same reason: this
+                # gazetteer holds the districts of two provinces, and a shop
+                # in อำเภอปาย is in none of them. Counting it as "no such
+                # อำเภอ" and writing nothing left 37 Pai cannabis shops with
+                # no district at all on the page and no word to be found by —
+                # the wrong answer for a reader standing in Pai. It goes in
+                # marked as a reading, never into attrs.amphoe.
+                attrs["amphoeSaid"] = said["amphoe"]
+                c["amphoe/said, not in this province's gazetteer"] = \
+                    c.get("amphoe/said, not in this province's gazetteer", 0) + 1
+                written += 1
 
         if said.get("tambon") and not attrs.get("tambon"):
             t = said["tambon"]
@@ -886,6 +931,74 @@ def apply_venues(records: list, prov: str, counts: dict | None = None) -> int:
     return written
 
 
+def _venue_key(s: str) -> str:
+    """A host's name reduced to what a tenant's branch wording repeats.
+
+    Spaces, case and the words that come and go between one sign and the next
+    (สาขา, พลาซ่า / plaza, จังหวัด) are dropped, so "สาขาเซ็นทรัลพลาซ่าเชียงราย"
+    and "เซ็นทรัล เชียงราย" meet. FESTIVAL is kept: CentralFestival Chiang Mai and
+    Central Chiangmai Airport are different buildings."""
+    s = re.sub(r"\s+|[·\-_,.()]", "", (s or "").lower())
+    for w in ("สาขา", "พลาซ่า", "พล่าซ่า", "plaza", "จังหวัด", "branch"):
+        s = s.replace(w, "")
+    return s
+
+
+def apply_named_venues(records: list, prov: str, counts: dict | None = None) -> int:
+    """A tenant that NAMES its building is inside it, pin or no pin.
+
+    apply_venues reads a shared exact pin, which a mall's shops rarely have:
+    2,000 "…สาขาเซ็นทรัล…" and "… Central Chiangrai" names sit on approximate
+    or missing pins, and a mall holds far more than MAX_VENUE of them. Here the
+    tenant's own name says where it is. The host is the longest host key the
+    name contains, and it must be within HOST_REACH_KM of the tenant when the
+    tenant has a pin. A tenant with no pin takes the host's, marked approx with
+    the reason, so it stands on the map where a reader would walk to.
+    An `insideOf` already written (by hand or by the pin rule) is left alone."""
+    c = counts if counts is not None else {}
+    hosts = [(k, h) for h in records if _is_host(h) and h.get("lat")
+             for k in {_venue_key(h.get("name")), _venue_key(h.get("nameEn"))} if len(k) >= 8]
+    hosts.sort(key=lambda kh: -len(kh[0]))
+    written = 0
+    for r in records:
+        attrs = r.setdefault("attrs", {})
+        if attrs.get("insideOf") or _is_host(r):
+            continue
+        raw = f"{r.get('name') or ''} {r.get('nameEn') or ''}"
+        # "หน้าโรงพยาบาล", "ใกล้มหาวิทยาลัย", "opposite the market": the name
+        # places it BY the building, not in it.
+        if _BESIDE.search(raw):
+            c["insideOf by name/beside, not inside"] = c.get("insideOf by name/beside, not inside", 0) + 1
+            continue
+        names = {_venue_key(r.get("name")), _venue_key(r.get("nameEn"))}
+        for k, h in hosts:
+            if h is r or not any(k in n and n != k for n in names if n):
+                continue
+            if r.get("lat") is not None and r.get("lng") is not None:
+                d = math.hypot((r["lat"] - h["lat"]) * 111.32,
+                               (r["lng"] - h["lng"]) * 111.32 * math.cos(math.radians(h["lat"])))
+                if d > HOST_REACH_KM:
+                    c["insideOf by name/too far from the building, refused"] = \
+                        c.get("insideOf by name/too far from the building, refused", 0) + 1
+                    break
+            else:
+                r["lat"], r["lng"] = h["lat"], h["lng"]
+                r["geoPrecision"] = "approx"
+                attrs["pinVia"] = f"inside {h.get('name')} (its name says so); the building's pin"
+                c["insideOf by name/pinned to its building"] = \
+                    c.get("insideOf by name/pinned to its building", 0) + 1
+            attrs["insideOf"] = h.get("name")
+            attrs["insideOfId"] = h.get("id")
+            c["insideOf by name"] = c.get("insideOf by name", 0) + 1
+            written += 1
+            break
+    return written
+
+
+HOST_REACH_KM = 2.0
+_BESIDE = re.compile(r"ห่าง|หน้า|ใกล้|ตรงข้าม|ข้าง|หลัง|ติด|\b(?:near|opposite|in front of|behind|next to)\b", re.I)
+
+
 # ------------------------------------------------------- two fields that disagree
 
 def apply_category_agreement(records: list, prov: str, counts: dict | None = None) -> int:
@@ -916,9 +1029,198 @@ def apply_category_agreement(records: list, prov: str, counts: dict | None = Non
     return written
 
 
+# ------------------------------------------------------------ pins in doubt
+
+# A PIN THE RECORD'S OWN FILING CONTRADICTS (investigation 2026-09-25).
+# importers/import_overture.py stamps every new Overture place "exact" whatever
+# Meta's geocoder did, and importers/harvest_overture.py files a place by its
+# postcode, so "Chiang Rai White Temple" — a Facebook page registered at a
+# Chiang Mai tour office — is filed cm and pinned 161 m from Tha Phae Gate.
+#
+# This pass marks such a pin `needs-pin`, the value the near lists and the
+# API's near= already leave out. The coordinate moves to attrs.pinWas and the
+# reason to attrs.pinDoubt; the record, its province and its page data stay.
+# It runs first so the polygon, river and venue passes do not read the pin.
+#
+#   other-province       the pin stands inside the other province's COD-AB
+#                        อำเภอ polygons (the ones apply_admin_polygon reads),
+#                        further than POLY_EDGE_M from their vertices.
+#   name-other-province  a third-party name names the other province (or
+#                        Nimman), or, on a sights / wat / parks shelf, one of
+#                        its landmarks — see _names_elsewhere for what is read
+#                        as a borrowed name instead.
+#   stacked:N            N >= STACK_MIN records claim "exact" at one
+#                        coordinate (5 decimals, ~1 m) and no single address
+#                        naming a building holds half of them.
+#
+# Scope: confidence curated / field is skipped (a person placed it). OSM nodes
+# (crawled) are skipped by the first two readings: the mapper put the node
+# there, so the doubt is the filing, not the pin — 3 of them stand in the other
+# province and are left for a refiling decision.
+#
+# Measured on 88,776 records, 2026-09-25, before this pass wrote anything:
+#   other-province        82 pins inside the other province's polygons; 79
+#                         flagged (78 Overture, 1 OBEC school), 3 OSM skipped
+#   name-other-province   16 flagged (10 cm, 6 cr). Set aside as borrowed
+#                         names: branches; names that also name their own
+#                         province (a road or a firm serving both); village,
+#                         wat, road and gate compounds (บ้านสันเชียงใหม่,
+#                         วัดเชียงแสน, ราชเชียงแสน, ประตูเชียงใหม่); dish styles
+#                         (น้ำเงี้ยว…เชียงราย, 6 shops in CM, one facing Wing 41);
+#                         landmark words off a sight shelf (Golden Triangle
+#                         Motorcycle Club, Chiang Saen Art Souvenirs)
+#   stacked               4,048 exact records on 405 coordinates (cm 2,807 on
+#                         275, cr 1,241 on 130); the largest holds 143
+#                         unrelated businesses at 18.767,99.02614. A shared
+#                         house number is not a building here: "47/9 ถนน
+#                         โชตนา" is the address of a wat, a church, two hotels
+#                         and a barber at one point, and Overture's "5 ถนน
+#                         สุเทพ" style addresses repeat across 10 unrelated
+#                         shops, so only an address naming a building (floor,
+#                         mall, market, Central…) leaves a stack standing — 0
+#                         stacks today. Tenants pinned to their building by
+#                         apply_named_venues are approx and do not count:
+#                         Central Chiang Rai's 30 tenants hold 1 exact pin.
+STACK_MIN = 5
+_PLACE_WORDS = {
+    "cm": r"chiang\s*-?\s*mai|chiangmai|เชียงใหม่|\bcnx\b",
+    "cr": r"chiang\s*-?\s*rai|chiangrai|chaing\s*rai|เชียงราย",
+}
+_ELSEWHERE_PLACE = {"cm": _PLACE_WORDS["cr"],
+                    "cr": _PLACE_WORDS["cm"] + r"|nimman|นิมมาน"}
+_ELSEWHERE_SIGHT = {
+    "cm": r"wat\s*rong\s*khun|ร่องขุ่น|white\s*temple|golden\s*triangle|"
+          r"สามเหลี่ยมทองคำ|mae\s*sai|แม่สาย|chiang\s*saen|เชียงแสน",
+    "cr": r"doi\s*suthep|ดอยสุเทพ",
+}
+_SIGHT_SHELVES = {"sights", "wat", "parks"}
+_PIN_BRANCH = re.compile(r"สาขา|branch", re.I)
+# A term preceded by one of these is part of another name: a village (บ้าน,
+# สัน), a wat, a road (ราชเชียงแสน, ถนนเชียงใหม่-…), a gate (Chiang Rai's own
+# ประตูเชียงใหม่), or a destination ("to go to ChiangMai", ไปเชียงราย).
+_BORROWED_BEFORE = re.compile(r"(?:บ้าน|วัด|สัน|ราช|rat|ประตู|ถนน|ถ\.|to\s+go\s+to|ไป)\s*$", re.I)
+_BORROWED_AFTER = re.compile(r"^\s*(?:รำลึก|style|สไตล์)", re.I)
+_DISH = re.compile(r"น้ำเงี้ยว|ข้าวซอย|khao\s*so[iy]", re.I)
+_BUILDING_ADDR = re.compile(r"ชั้น|floor|ห้าง|ศูนย์การค้า|plaza|พลาซ่า|mall|อาคาร|"
+                            r"building|tower|เซ็นทรัล|central|ตลาด|market", re.I)
+
+
+def _names_elsewhere(record: dict, prov: str) -> str | None:
+    """The term in a name that places the record in the other province, or None."""
+    other = "cr" if prov == "cm" else "cm"
+    raw = " ".join(dict.fromkeys(x for x in (record.get("name"), record.get("nameTh"),
+                                             record.get("nameEn")) if x))
+    if not raw or _PIN_BRANCH.search(raw) or re.search(_PLACE_WORDS[prov], raw, re.I):
+        return None
+    terms = _ELSEWHERE_PLACE[prov]
+    if _SIGHT_SHELVES & set(record.get("cat") or []):
+        terms += "|" + _ELSEWHERE_SIGHT[prov]
+    for m in re.finditer(terms, raw, re.I):
+        if _BORROWED_BEFORE.search(raw[:m.start()]) or _BORROWED_AFTER.search(raw[m.end():]):
+            continue
+        if _DISH.search(raw) and re.fullmatch(_PLACE_WORDS[other], m.group(0), re.I):
+            continue
+        return m.group(0)
+    return None
+
+
+def _in_other_province(lat: float, lng: float, prov: str) -> bool:
+    other = "cr" if prov == "cm" else "cm"
+    for f in (_load_polys().get(other) or {}).get("amphoe") or []:
+        if _contains(f, lat, lng):
+            return not _near_edge(f, lat, lng)
+    return False
+
+
+def _pin_key(record: dict):
+    """The ~1 m cell of an exact pin, or of the pin a stack flag moved to pinWas.
+
+    A record flagged and later placed by another pass (apply_named_venues pins
+    "…มหาวิทยาลัยแม่โจ้" to the university, approx) has no key: it is not a
+    member of any stack, which keeps a second run from flagging it again."""
+    attrs = record.get("attrs") or {}
+    if record.get("lat") is None or record.get("lng") is None:
+        if str(attrs.get("pinDoubt") or "").startswith("stacked") and attrs.get("pinWas"):
+            la, ln = attrs["pinWas"]
+            return (round(la, 5), round(ln, 5))
+        return None
+    if attrs.get("pinDoubt") or (record.get("geoPrecision") or "exact") != "exact":
+        return None
+    return (round(record["lat"], 5), round(record["lng"], 5))
+
+
+def _unpin(record: dict, why: str) -> None:
+    attrs = record.setdefault("attrs", {})
+    attrs["pinWas"] = [record["lat"], record["lng"]]
+    attrs["pinDoubt"] = why
+    record["lat"] = record["lng"] = None
+    record["geoPrecision"] = "needs-pin"
+    # provenance.validate reads a receipt for an empty field as a bug; the
+    # source itself stays in record["sources"].
+    for f in ("lat", "lng"):
+        (record.get("provenance") or {}).pop(f, None)
+
+
+def apply_pin_doubt(records: list, prov: str, counts: dict | None = None) -> int:
+    """Mark needs-pin a pin its province, its name or its neighbours contradict."""
+    c = counts if counts is not None else {}
+    placed_by_hand = ("curated", "field")
+    written = 0
+
+    def flag(r, why):
+        nonlocal written
+        _unpin(r, why)
+        key = "pinDoubt/" + why.split(":")[0]
+        c[key] = c.get(key, 0) + 1
+        written += 1
+
+    for r in records:
+        if r.get("lat") is None or r.get("lng") is None:
+            continue
+        if r.get("confidence") in placed_by_hand + ("crawled",):
+            continue
+        if (r.get("geoPrecision") or "exact") == "needs-pin" or (r.get("attrs") or {}).get("pinDoubt"):
+            continue
+        if _in_other_province(r["lat"], r["lng"], prov):
+            flag(r, "other-province")
+        elif r.get("confidence") == "third-party" and _names_elsewhere(r, prov):
+            flag(r, "name-other-province")
+
+    stacks: dict = {}
+    for r in records:
+        key = _pin_key(r)
+        if key is not None:
+            stacks.setdefault(key, []).append(r)
+    for members in stacks.values():
+        if len(members) < STACK_MIN:
+            continue
+        addrs = [re.sub(r"\s+", "", (r.get("address") or "").lower()) for r in members]
+        addrs = [a for a in addrs if a]
+        top = max(set(addrs), key=addrs.count) if addrs else ""
+        if top and addrs.count(top) >= max(3, len(addrs) / 2) and _BUILDING_ADDR.search(top):
+            c["pinDoubt/stack left standing: one building's address"] = \
+                c.get("pinDoubt/stack left standing: one building's address", 0) + 1
+            continue
+        for r in members:
+            if r.get("lat") is None or r.get("confidence") in placed_by_hand:
+                continue
+            flag(r, f"stacked:{len(members)}")
+    return written
+
+
+# ------------------------------------------------------------- vehicle hire
+
+def apply_vehicle_hire(records: list, prov: str, counts: dict | None = None) -> int:
+    """Car hire, scooter hire and bicycle hire as separate shelves, read off
+    each hire shop's own words (Nan, 2026-10-04). See vehicle_hire.py."""
+    import vehicle_hire
+    return vehicle_hire.apply(records, prov, counts, TODAY)
+
+
 # ------------------------------------------------------------------- runner
 
 PASSES = [
+    ("pin doubt", apply_pin_doubt),
     ("address", apply_address),
     ("admin polygon", apply_admin_polygon),
     ("riverside", apply_riverside),
@@ -926,6 +1228,8 @@ PASSES = [
     ("contact shape", apply_contact_shape),
     ("chains", apply_chains),
     ("venues", apply_venues),
+    ("named venues", apply_named_venues),
+    ("vehicle hire", apply_vehicle_hire),
     ("category agreement", apply_category_agreement),
 ]
 

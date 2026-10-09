@@ -1,0 +1,38 @@
+OPS SITREP — Wednesday 7 October 2026, 18:55 (Claude). Covers 15:50 onward; the 15:50 Antigravity copy covers the morning.
+
+PIPE
+  Health          ok, build 2026-09-30-group-modes
+  Rows waiting    1 before the pull, 0 after
+  Newest message  18:38 today, Michael. 17 minutes old. Alive.
+
+THE ROOM
+  22 messages, 15:50 to 18:38. Nan, Palida, Michael. 1 file (a PDF), no photos.
+  Threads: the lab test, Brian's price list, the Chiang Rai trip.
+
+FOR NAN
+  1. You told Palida at 15:50 you need until Friday 9 Oct for the other half of the Zia project. Nothing on disk says Zia has been told the new date.
+  2. Chiang Rai trip: Palida picks you up at 9:00 tomorrow, Thu 8 Oct, at your house. She booked Baan Kan, a hotel in Rim Kok. The Laila document is Friday.
+  3. Meeting place is unsettled. Michael at 18:16 was confused (Mark's house or Kristian's, where, does Laila come). At 18:38 he offered Kristian's house, 27 minutes by motorbike. Nobody has answered him.
+  4. Michael asked Palida at 18:17 for a cooler, or to buy one on the way. Unanswered.
+  5. Palida's bug report from 4 Oct is still open as BUG-0002. Nobody has told her.
+
+WORKED
+  Lab: Palida will find the labs herself (15:51), so the call list is closed. Your spec is on file: Vidalista tadalafil 20 mg and 5 mg, Evolve oxandrolone 20 or 10 mg, LC-MS wanted.
+  LC prices on disk: CMU Science HPLC ฿2,700 an item, with a method. CMU Agriculture lab LC-TOF-MS/MS identity screen ฿10,000, 053-944009. No lab on disk lists an LC-MS quantity price; that is the number Palida's calls need to get.
+  The bridge-vial site already carries a call sheet with these questions (reference standards, LC-MS, paperwork). She can use it.
+  Brian's price list: a peptide supplier list, 36 rows (tirzepatide, retatrutide, tesamorelin, BPC-157 and others), USD and baht at 33.53. No tadalafil or oxandrolone on it.
+  "bann kan" resolved: Baan Kan Chiang Rai (บ้านกาญจน์ เชียงราย), a hotel already in the catalogue, 080-745-7583. Name match only.
+  Two lines from last night held for this desk (Palida, 6 Oct 20:37, the Chiang Rai trip and Laila's document): read and filed as ops. Not case material.
+
+ROUTED
+  Lab spec, price list        → bridge-vial (lab prices: gc-ms-thailand/data/cmu_prices.json)
+  Trip, cooler, Zia date      → _incoming/line/ops/2026-10-07.txt
+  Held 6 Oct lines            → _incoming/line/ops/2026-10-06.txt
+  Price list, bann kan        → ASK-NAN.txt, both questions marked closable
+
+BLOCKED
+  Meeting place in Chiang Rai: one line from you or Palida to Michael.
+  Zia: whether he knows about Friday.
+  Zia batch 2: your four choices (the plan asked for them Thu 8 Oct).
+  Still open from earlier: is Tuesday a second amulet-market day; what the post office receipt is for.
+  ASK-NAN.txt 368 lines (362 at 15:50). Unfiled photos and files 202. Drive queue 204 (203). Still rising: the room is read and not answered.

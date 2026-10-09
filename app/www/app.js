@@ -11,7 +11,7 @@
  * reused verbatim. A field report at a spot outranks its tier, toiletnone
  * included.
  *
- * Your own visit log lives in localStorage on this phone. It is never sent
+ * Your own visit log lives in localStorage on this phone. It stays there; the code does not send it
  * anywhere, and the erase button really erases it.
  */
 'use strict';
@@ -689,11 +689,11 @@ document.getElementById('btn-privacy').onclick = function () {
     'ถนน อาคาร และหมุดทุกอัน ติดตั้งมาพร้อมแอป การเปิดดูแผนที่ไม่เรียกหาเซิร์ฟเวอร์ใดเลย ไม่มีใครรู้ว่าคุณเปิดดูตรงไหน<br>' +
     '<small>The whole map ships inside the app. Browsing it makes no network request, to anyone.</small></section>' +
     '<section><b class="h">ตำแหน่งของคุณไม่ออกจากเครื่อง</b>' +
-    'ตำแหน่งใช้เรียงรายการ "ใกล้ที่สุดก่อน" ในเครื่องเท่านั้น ไม่ถูกส่ง ไม่ถูกเก็บ<br>' +
-    '<small>Your location sorts the list on this phone. It is never sent, never stored.</small></section>' +
+    'ตำแหน่งใช้เรียงรายการ "ใกล้ที่สุดก่อน" ในเครื่องนี้<br>' +
+    '<small>Your location sorts the list on this phone.</small></section>' +
     '<section><b class="h">การบอกต่อ ส่งแค่คำเดียว</b>' +
     'เมื่อคุณกดบอกสภาพห้องน้ำ แอปส่งรหัสสถานที่กับคำหนึ่งคำจากห้าคำ ไปที่เซิร์ฟเวอร์ของมดแดงเท่านั้น ไม่มีชื่อ ไม่มีบัญชี ไม่มีตำแหน่งของคุณติดไป<br>' +
-    '<small>A report sends the place id and one word from a closed list of five, to Mot Dang\'s own worker. No name, no account, nothing about you rides along.</small></section>' +
+    '<small>A report sends the place id and one word from a closed list of five, to Mot Dang\'s own worker. No name and nothing about you rides along.</small></section>' +
     '<section><b class="h">บันทึกของคุณเป็นของคุณ</b>' +
     'บันทึกว่าคุณใช้ห้องน้ำที่ไหน อยู่ในเครื่องนี้เท่านั้น ลบได้ทุกเมื่อในหน้า 🗂️<br>' +
     '<small>Your visit log lives on this phone only, and the erase button really erases it.</small></section>' +
@@ -793,3 +793,59 @@ frame();
 // The map opens on the baked city, the list is already sorted, and 📍 is
 // right there in the toolbar when someone wants it. Finding the nearest
 // toilet is still the job; it just no longer costs a permission up front.
+
+/* ── ใส่ไว้ที่หน้าจอโฮม — the install door ────────────────────────────────
+   Nan, 2026-09-17: "you should be able to download it to your homescreen
+   very easily and for free."
+
+   It already could, and that was the problem: the way in was Chrome's ⋮ menu
+   or Safari's share sheet, three taps deep behind an icon nobody reads as
+   "install". Android hands the page a `beforeinstallprompt` event it can
+   hold and fire later, which turns the whole thing into one tap. iOS fires
+   nothing and never will, so there the sheet prints Safari's two taps.
+
+   Both are free and neither is a store. The button hides itself once the app
+   is standing on its own — a phone reports that as display-mode: standalone,
+   and an install button inside an installed app is a dead control.
+   Inside the Android WebView (file://) there is nothing to install either. */
+(function () {
+  var btn = document.getElementById('btn-install');
+  var sheet = document.getElementById('inst-sheet');
+  var go = document.getElementById('inst-go');
+  var steps = document.getElementById('inst-steps');
+  var close = document.getElementById('inst-close');
+  if (!btn || !sheet) return;
+  if (location.protocol.indexOf('http') !== 0) return;          // the APK's own copy
+  var standalone = (window.matchMedia &&
+                    window.matchMedia('(display-mode: standalone)').matches) ||
+                   window.navigator.standalone === true;
+  if (standalone) return;
+  var held = null;
+  var ios = /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+  function open() {
+    steps.hidden = !!held;
+    go.hidden = !held;
+    sheet.hidden = false;
+  }
+  function shut() { sheet.hidden = true; }
+
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();          // hold it, so the offer is ours to place
+    held = e;
+    btn.hidden = false;
+  });
+  // Safari says nothing, so the button is offered on its own evidence.
+  if (ios) btn.hidden = false;
+
+  btn.addEventListener('click', open);
+  close.addEventListener('click', shut);
+  sheet.addEventListener('click', function (e) { if (e.target === sheet) shut(); });
+  go.addEventListener('click', function () {
+    if (!held) { shut(); return; }
+    var p = held; held = null; shut(); btn.hidden = true;
+    p.prompt();
+  });
+  window.addEventListener('appinstalled', function () { btn.hidden = true; shut(); });
+})();

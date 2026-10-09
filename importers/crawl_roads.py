@@ -21,6 +21,7 @@ to time Overpass out — and a tile that fails can be retried on its own.
   python3 importers/crawl_roads.py            # fetch only missing tiles
   python3 importers/crawl_roads.py --fetch    # refetch everything (slow, on purpose)
   python3 importers/crawl_roads.py --tiles 4  # finer split if tiles keep timing out
+  python3 importers/crawl_roads.py --wide     # the WIDE boxes, into cache/roads/wide/
 
 Cache: cache/roads/<n>-<e>.json — build_road_graph.py reads these.
 """
@@ -43,6 +44,13 @@ RETRY_PAUSE = 45
 # side: 2 km is 0.0181° of latitude, and 0.0190° of longitude at this latitude.
 AREA = {"s": 18.7635, "n": 18.8133, "w": 98.9600, "e": 99.0120}
 
+# --wide: where NaN's ride pictures lie beyond AREA (the San Kamphaeng side to
+# Chamcha market, and south of the ring), for the way-there strip on a place
+# page (waypics_layer.py). Tiles land in cache/roads/wide/, which the default
+# graph does not read; build_road_graph.py --wide adds them.
+WIDE = [("e", {"s": 18.7450, "n": 18.8250, "w": 99.0100, "e": 99.0680}, 3),
+        ("s", {"s": 18.7450, "n": 18.7650, "w": 98.9530, "e": 99.0120}, 2)]
+
 # Everything a person on foot or on a scooter can legally be on, plus the
 # barriers worth knowing about. Deliberately broad — build_road_graph.py decides
 # which mode may use what, and it is cheaper to filter locally than to re-crawl.
@@ -52,8 +60,9 @@ HIGHWAY = ("motorway|trunk|primary|secondary|tertiary|unclassified|residential|"
            "road|corridor")
 
 
-def tiles(n):
+def tiles(n, area=None, prefix=""):
     """n x n boxes covering AREA, each as an Overpass bbox string."""
+    AREA = area or globals()["AREA"]
     out = []
     dlat = (AREA["n"] - AREA["s"]) / n
     dlng = (AREA["e"] - AREA["w"]) / n
@@ -64,7 +73,7 @@ def tiles(n):
             # Overlap each tile slightly so a way crossing a seam is complete in
             # at least one tile and the graph does not come out cut into squares.
             pad_lat, pad_lng = dlat * 0.02, dlng * 0.02
-            out.append((f"{i}-{j}",
+            out.append((f"{prefix}{i}-{j}",
                         f"{s - pad_lat:.5f},{w - pad_lng:.5f},"
                         f"{s + dlat + pad_lat:.5f},{w + dlng + pad_lng:.5f}"))
     return out
@@ -99,13 +108,19 @@ def main():
     if "--tiles" in args:
         n = int(args[args.index("--tiles") + 1])
     cache = ROOT / "cache" / "roads"
+    plan = [(n, tiles(n))]
+    if "--wide" in args:
+        cache = cache / "wide"
+        plan = [(k, tiles(k, a, p)) for p, a, k in WIDE]
+        plan = [(n, [t for _, ts in plan for t in ts])]
     cache.mkdir(parents=True, exist_ok=True)
-    todo = [(name, bbox) for name, bbox in tiles(n)
+    n_all = len(plan[0][1])
+    todo = [(name, bbox) for name, bbox in plan[0][1]
             if force or not (cache / f"{name}.json").exists()]
     if not todo:
-        print(f"roads: all {n * n} tiles cached — nothing to fetch (--fetch to refresh)")
+        print(f"roads: all {n_all} tiles cached — nothing to fetch (--fetch to refresh)")
         return
-    print(f"roads: {len(todo)}/{n * n} tiles to fetch, {PAUSE}s between each — slow on purpose")
+    print(f"roads: {len(todo)}/{n_all} tiles to fetch, {PAUSE}s between each — slow on purpose")
     ways = nodes = 0
     for i, (name, bbox) in enumerate(todo):
         data = fetch(name, bbox)

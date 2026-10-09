@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 import build  # noqa: E402  — the site's own helpers, so the two agree
+import provenance  # noqa: E402  — per-field receipts, same grammar as the repo
 
 OUT = ROOT / "publish" / "hf-dataset"
 REPO_ID = "NaNoBotCo/mot-dang-chiang-mai-chiang-rai"
@@ -68,6 +69,7 @@ def rows():
             bits = build.ant_bits(r)
             srcs = r.get("sources") or []
             attrs = r.get("attrs") or {}
+            prov = r.get("provenance") or {}
 
             yield {
                 "id": r["id"],
@@ -118,6 +120,18 @@ def rows():
                 # it instead of guessing which rows carry the obligation.
                 "osm_derived": any(s.get("type") == "osm" for s in srcs),
 
+                # WHOSE FACT IS THIS, one field at a time. `sources` says
+                # where the RECORD came from; a record with four sources
+                # cannot tell you which of them gave the phone number. This
+                # can. Absence is absence: a field missing from the table has
+                # UNKNOWN provenance and must never be read as ours.
+                "provenance": (json.dumps(prov, ensure_ascii=False, sort_keys=True)
+                               if prov else None),
+                "fields_stated": [f for f, e in prov.items()
+                                  if e.get("how") == provenance.STATED],
+                "fields_derived": [f for f, e in prov.items()
+                                   if e.get("how") != provenance.STATED],
+
                 "attrs": json.dumps(attrs, ensure_ascii=False, sort_keys=True) if attrs else None,
                 "updated_at": r.get("updatedAt") or None,
             }
@@ -134,6 +148,9 @@ def main():
     n = len(recs)
     n_osm = sum(1 for r in recs if r["osm_derived"])
     n_pinned = sum(1 for r in recs if r["lat"] is not None)
+    n_prov = sum(1 for r in recs if r["provenance"])
+    n_stated = sum(len(r["fields_stated"]) for r in recs)
+    n_derived = sum(len(r["fields_derived"]) for r in recs)
     n_cm = sum(1 for r in recs if r["province"] == "cm")
     cats = {}
     for r in recs:
@@ -143,7 +160,8 @@ def main():
     for r in recs:
         ants[r["ant_rank"]] = ants.get(r["ant_rank"], 0) + 1
 
-    (OUT / "README.md").write_text(card(n, n_cm, n_osm, n_pinned, cats, ants))
+    (OUT / "README.md").write_text(
+        card(n, n_cm, n_osm, n_pinned, cats, ants, n_prov, n_stated, n_derived))
     (OUT / "LICENSE").write_text(licence_text())
 
     print(f"wrote {OUT}")
@@ -154,8 +172,11 @@ def main():
     print()
     print(f"  {n_osm:,} rows carry osm_derived=true; {n_pinned:,} have coordinates")
     print()
-    print("  not pushed. to push, from this directory:")
-    print(f"    huggingface-cli upload {REPO_ID} . --repo-type=dataset")
+    print(f"  {n_prov:,} rows carry a per-field provenance table "
+          f"({n_stated:,} stated fields, {n_derived:,} derived)")
+    print()
+    print("  not pushed. to push:")
+    print(f"    python3 publish/hf_push.py {OUT} {REPO_ID}")
 
 
 def cat_table(cats):
@@ -195,7 +216,7 @@ Attribution to {build.BASE} is all we ask.
 """
 
 
-def card(n, n_cm, n_osm, n_pinned, cats, ants):
+def card(n, n_cm, n_osm, n_pinned, cats, ants, n_prov, n_stated, n_derived):
     return f"""---
 license: other
 license_name: cc-by-4.0-compilation-odbl-1.0-map-fields
@@ -242,6 +263,22 @@ to be good.
 
 Live at {build.BASE} · built {build.BUILD_DATE}
 
+## If you want to ask it questions instead of holding it
+
+This snapshot is the whole corpus as typed columns. If what you actually want
+is *the clinics open right now within two kilometres*, there is a live public
+API over the same records — no key, no sign-up, open to every origin, same
+licence:
+
+- {build.BASE}api/ — documentation
+- `GET {build.BASE}api/v1/places?cat=medical&near=18.7883,98.9853&radius=2000&open_now=1`
+- {build.BASE}api/v1/openapi.json — the spec
+- {build.BASE}api/v1/schema.json — the key contract; v1 keys may be added to
+- {build.BASE}terms.html — the terms, which are: take it, credit มดแดง Mot Dang
+
+Read `openNow: null` as UNKNOWN and never as closed, exactly as the `hours`
+column here is empty rather than false where nobody holds the hours.
+
 ## What is in a row
 
 | field | type | what it is |
@@ -259,7 +296,9 @@ Live at {build.BASE} · built {build.BUILD_DATE}
 | `featured` `landmark` | bool | editorial flags |
 | `blurb_th` `blurb_en` | string | written where a place needed explaining |
 | `confidence` | string | `curated`, `field`, `crawled`, `third-party` |
-| `source_types` `sources` | list | provenance per record, with fetch dates |
+| `source_types` `sources` | list | where the RECORD came from, with fetch dates |
+| `provenance` | string (JSON) | where each FIELD came from — see below |
+| `fields_stated` `fields_derived` | list[string] | the same table, split so you can filter on it |
 | `osm_derived` | bool | **true = this row carries ODbL.** See Licence |
 | `attrs` | string (JSON) | 101 possible keys; a wat has `watCode`, a shop has `cuisine` |
 | `updated_at` | string | ISO date |
@@ -307,8 +346,28 @@ and has never been walked.
 rest are known to exist but not yet pinned, and are marked `needs-pin` rather
 than dropped — a clinic you cannot yet put on a map is still a clinic.
 
-Every record carries its own `sources` with fetch dates. Provenance is
-per-field and per-record, not a blanket statement at the bottom of a page.
+## Per-field provenance
+
+`sources` says where a record came from. On a record with four sources that
+does not tell you which one gave the phone number, so {n_prov:,} of the
+{n:,} rows also carry `provenance`: a table keyed by field name.
+
+```json
+{{"phone":   {{"source": "directory:overture", "how": "stated",  "at": "2026-09-07"}},
+ "address": {{"source": "derived:address-parse", "how": "derived"}},
+ "lat":     {{"source": "osm:mot-dang overpass", "how": "stated"}}}}
+```
+
+`how` is the part worth filtering on. **stated** — a source asserted this
+value ({n_stated:,} fields). **derived** — we computed it from something else,
+such as an address parsed into road and tambon, or a pin geocoded from a
+written address ({n_derived:,} fields). `fields_stated` and `fields_derived`
+carry the same split as plain lists.
+
+**A field absent from the table has unknown provenance.** It does not mean
+ours and it does not mean OSM. Most first-hand and curated fields predate the
+receipt system and are simply not stamped yet; the table is a floor, not a
+census.
 
 ## Known limits
 

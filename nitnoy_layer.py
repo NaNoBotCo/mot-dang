@@ -447,7 +447,7 @@ def emit(g, data, frame):
                     "ไม่ใช่คำสัญญาของร้านใดร้านหนึ่ง")
     meal_note_en = ("Each curve is the share of a category open at each "
                     "half-hour, averaged over the week — an inference about "
-                    "the category's habit, never a promise about one shop.")
+                    "the category's habit, not a promise about one shop.")
 
     kad_gap_th = ("มีเวลาเปิดแค่ %d จาก %d ตลาด และจังหวะรายแผงข้างในกาด "
                   "ไม่มีในข้อมูลเปิดที่ไหนเลย — ต้องเดินเก็บเอง "

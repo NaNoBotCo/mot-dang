@@ -1,0 +1,67 @@
+{
+  "about": "The doodle above the front page's map: one calendar event a day, drawn with math in assets/front/doodles.js (by kind). A day with no row here draws its leading event, one a kind below fits first. k = the event's key in docs/front/events.json. kinds: what each drawing fits — `fits` is a regex over an event's title and venue (or a festival's names and tags), `festivals` names festival ids outright. An event, venue or festival with no picture of its own gets the drawing it fits: front calendar, events.html, a venue's 'What is on here', a festival page. A kind with `places` also fits place pages with no picture (name, nameEn, attrs.kind, attrs.services; `skip` names categories it stays off); `from` credits and links the minisite the drawing came from, and such stills play their drawing in place (doodles.js play()). Stills: python3 make_doodle_stills.py → assets/doodles/<kind>.png.",
+  "kinds": {
+    "latin-night": {
+      "th": "ภาพวาด: คู่เต้นละตินหกคู่ใต้ไฟประดับ ด้านหลังเป็นวัด ประตูท่าแพ แม่น้ำปิง และสะพานเหล็กของเชียงใหม่",
+      "en": "Drawing: six couples dancing a Latin night under string lights, with Chiang Mai's wats, Tha Phae Gate, the Ping and the Iron Bridge behind",
+      "fits": "latin|salsa|bachata|kizomba|zouk|merengue|cumbia|reggaeton|tango|milonga|ละติน|ซัลซ่า|บาชาต้า|แทงโก้",
+      "festivals": [],
+      "math": "y = a·cosh(x/a)<br>x = sin t, y = sin t·cos t<br>θ = 3t"
+    },
+    "weaving": {
+      "th": "ภาพวาด: กี่กำลังทอผ้าคลุมไหมเขมรทีละเส้นพุ่ง กระสวยวิ่งผ่านเส้นยืน ฟืมกระทบเส้นพุ่งให้แน่น บนผ้าเป็นลายวัวมีโหนก ดอกไม้ และดาว",
+      "en": "Drawing: a loom weaving a Khmer silk shawl one weft thread at a time, the shuttle crossing the warp and the reed beating each thread in; humped cattle, flowers and stars in the cloth",
+      "fits": "ทอผ้า|ผ้าทอ|ทอมือ|ผ้าไหม|ไหมไทย|ไทยซิลค์|เลี้ยงไหม|กี่ทอ|กี่กระตุก|ผ้าซิ่น|ตีนจก|มัดหมี่|ย้อมคราม|(?<!เสื้อ)ผ้าพื้นเมือง|สิ่งทอ|\\bweav(?:e|es|er|ers|ing)\\b|\\bwoven\\b|\\blooms?\\b|\\bsilk\\b(?!\\s*road)|\\btextiles?\\b|\\bikat\\b",
+      "festivals": [],
+      "math": "warp up ⇔ (c + q) mod 3 = 0<br>4× → one colour per crossing",
+      "from": {
+        "th": "เส้นยืน เส้นพุ่ง",
+        "en": "Warp and Weft",
+        "href": "https://nanobotco.github.io/warp-and-weft/"
+      },
+      "places": {
+        "skip": [
+          "food",
+          "massage",
+          "medical",
+          "beauty",
+          "cannabis",
+          "hotel",
+          "essentials",
+          "realestate",
+          "transport"
+        ]
+      }
+    },
+    "akha": {
+      "th": "ภาพวาด: ขอบหมวกอาข่า ปุ่มเงินเรียงสองแถว สายลูกปัดหลากสีห้อยเหรียญเงินและพู่แดง แกว่งไปมา ใต้ลงมาเป็นแถบลายปักรูปข้าวหลามตัด",
+      "en": "Drawing: the band of an Akha headdress, two rows of silver studs, strands of coloured beads ending in silver coins and red pom-poms, swinging; an embroidered band of diamonds below",
+      "fits": "\\bakha\\b|อาข่า|อีก้อ",
+      "festivals": [],
+      "math": "θᵢ = Aᵢ·sin(ωᵢt + φᵢ)",
+      "from": {
+        "th": "ทำนองและลวดลายบนดอย",
+        "en": "Melodies and Motifs",
+        "href": "sites/melodies-and-motifs/"
+      },
+      "places": {
+        "skip": [
+          "massage",
+          "medical",
+          "beauty",
+          "cannabis",
+          "realestate"
+        ]
+      }
+    }
+  },
+  "days": [
+    {
+      "date": "2026-10-02",
+      "k": "coco-bongo-latin-night",
+      "kind": "latin-night",
+      "th": "คืนเต้นละติน โคโค่บองโก้",
+      "en": "Coco Bongo Latin night"
+    }
+  ]
+}

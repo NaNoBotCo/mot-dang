@@ -1,0 +1,533 @@
+{
+ "totals": {
+  "cm": 62874,
+  "cr": 25398
+ },
+ "shelves": [
+  {
+   "key": "wat",
+   "th": "วัด-สิ่งศักดิ์สิทธิ์",
+   "en": "Wats & Sacred Places",
+   "cm": 1918,
+   "pin": 3340,
+   "web": 453,
+   "tel": 795,
+   "wichaa": 518,
+   "live": 46,
+   "social": 8,
+   "cr": 1422
+  },
+  {
+   "key": "food",
+   "th": "ร้านอาหาร-ของกิน",
+   "en": "Food & Eats",
+   "cm": 19250,
+   "tel": 20771,
+   "pin": 26965,
+   "hrs": 1391,
+   "web": 2486,
+   "live": 985,
+   "social": 318,
+   "cr": 7725
+  },
+  {
+   "key": "massage",
+   "th": "นวด-สปา",
+   "en": "Massage & Spa",
+   "cm": 1083,
+   "pin": 1292,
+   "tel": 1059,
+   "web": 275,
+   "social": 17,
+   "live": 130,
+   "hrs": 93,
+   "cr": 227
+  },
+  {
+   "key": "medical",
+   "th": "หมอ-คลินิก-โรงพยาบาล",
+   "en": "Doctors & Hospitals",
+   "cm": 2040,
+   "pin": 2806,
+   "tel": 1833,
+   "hrs": 275,
+   "web": 686,
+   "social": 159,
+   "live": 301,
+   "cr": 790
+  },
+  {
+   "key": "cannabis",
+   "th": "กัญชา-กระท่อม",
+   "en": "Cannabis & Kratom",
+   "cm": 515,
+   "tel": 73,
+   "web": 30,
+   "pin": 631,
+   "hrs": 16,
+   "live": 11,
+   "social": 3,
+   "cr": 120
+  },
+  {
+   "key": "essentials",
+   "th": "ของจำเป็นประจำเมือง",
+   "en": "City Essentials",
+   "cm": 5245,
+   "pin": 6935,
+   "tel": 3567,
+   "hrs": 1438,
+   "web": 1761,
+   "live": 718,
+   "social": 343,
+   "cr": 1710
+  },
+  {
+   "key": "hotel",
+   "th": "โรงแรม-ที่พัก",
+   "en": "Hotels & Stays",
+   "cm": 6167,
+   "tel": 6620,
+   "web": 2346,
+   "pin": 8514,
+   "live": 1172,
+   "hrs": 83,
+   "social": 79,
+   "cr": 2351
+  },
+  {
+   "key": "school",
+   "th": "โรงเรียน-สถานศึกษา",
+   "en": "Schools & Education",
+   "cm": 3016,
+   "tel": 3218,
+   "pin": 4497,
+   "web": 1290,
+   "live": 662,
+   "social": 37,
+   "hrs": 17,
+   "cr": 1661
+  },
+  {
+   "key": "school-intl",
+   "th": "โรงเรียนนานาชาติ",
+   "en": "International Schools"
+  },
+  {
+   "key": "market",
+   "th": "ตลาด",
+   "en": "Markets",
+   "cm": 943,
+   "pin": 1399,
+   "tel": 1043,
+   "hrs": 27,
+   "web": 153,
+   "social": 12,
+   "live": 57,
+   "cr": 456
+  },
+  {
+   "key": "shopping",
+   "th": "ช้อปปิ้ง-ของฝาก",
+   "en": "Shopping & Gifts",
+   "cm": 3678,
+   "tel": 4050,
+   "pin": 5008,
+   "hrs": 115,
+   "web": 1087,
+   "social": 58,
+   "live": 559,
+   "cr": 1381
+  },
+  {
+   "key": "realestate",
+   "th": "อสังหาฯ-คอนโด",
+   "en": "Real Estate & Condos",
+   "cm": 1413,
+   "pin": 1460,
+   "tel": 925,
+   "web": 354,
+   "live": 168,
+   "hrs": 2,
+   "social": 11,
+   "cr": 269
+  },
+  {
+   "key": "transport",
+   "th": "รถ-เดินทาง",
+   "en": "Getting Around",
+   "cm": 3318,
+   "pin": 4432,
+   "tel": 1703,
+   "hrs": 291,
+   "web": 727,
+   "social": 119,
+   "live": 334,
+   "cr": 1114
+  },
+  {
+   "key": "repair",
+   "th": "ช่าง-ซ่อม",
+   "en": "Repairs & Trades",
+   "cm": 3853,
+   "tel": 4919,
+   "web": 1103,
+   "pin": 5466,
+   "social": 175,
+   "hrs": 263,
+   "live": 494,
+   "cr": 1630
+  },
+  {
+   "key": "beauty",
+   "th": "เสริมสวย-ทำผม",
+   "en": "Beauty & Hair",
+   "cm": 1899,
+   "tel": 2197,
+   "pin": 2576,
+   "web": 271,
+   "live": 98,
+   "hrs": 66,
+   "social": 43,
+   "cr": 679
+  },
+  {
+   "key": "tattoo",
+   "th": "สักยันต์-รอยสัก",
+   "en": "Tattoo & Sak Yant",
+   "cm": 294,
+   "pin": 375,
+   "hrs": 10,
+   "tel": 324,
+   "web": 64,
+   "live": 27,
+   "social": 10,
+   "cr": 81
+  },
+  {
+   "key": "pets",
+   "th": "สัตว์เลี้ยง",
+   "en": "Pets",
+   "cm": 525,
+   "pin": 654,
+   "tel": 582,
+   "hrs": 132,
+   "web": 177,
+   "social": 116,
+   "live": 33,
+   "cr": 129
+  },
+  {
+   "key": "sport",
+   "th": "กีฬา-ฟิตเนส",
+   "en": "Sport & Fitness",
+   "cm": 746,
+   "web": 231,
+   "live": 116,
+   "pin": 904,
+   "tel": 678,
+   "hrs": 28,
+   "social": 14,
+   "cr": 162
+  },
+  {
+   "key": "muaythai",
+   "th": "มวยไทย",
+   "en": "Muay Thai",
+   "cm": 26,
+   "pin": 23,
+   "tel": 13,
+   "hrs": 7,
+   "web": 11,
+   "live": 9,
+   "cr": 14,
+   "social": 1
+  },
+  {
+   "key": "cooking",
+   "th": "เรียนทำอาหารไทย",
+   "en": "Thai Cooking Classes",
+   "cm": 23,
+   "tel": 14,
+   "web": 16,
+   "live": 11,
+   "hrs": 6,
+   "pin": 21,
+   "cr": 2
+  },
+  {
+   "key": "chang",
+   "th": "ช้าง",
+   "en": "Elephants",
+   "cm": 28,
+   "pin": 27,
+   "tel": 18,
+   "web": 22,
+   "live": 19,
+   "hrs": 5,
+   "cr": 2
+  },
+  {
+   "key": "home-services",
+   "th": "แม่บ้าน-ช่างสวน-ดูแลบ้าน",
+   "en": "Home Services",
+   "cm": 90,
+   "tel": 110,
+   "web": 40,
+   "live": 28,
+   "pin": 110,
+   "hrs": 7,
+   "social": 1,
+   "cr": 34
+  },
+  {
+   "key": "community",
+   "th": "ชมรม-สมาคม",
+   "en": "Clubs & Community",
+   "cm": 1269,
+   "pin": 2139,
+   "tel": 1031,
+   "web": 412,
+   "live": 217,
+   "hrs": 8,
+   "wichaa": 1,
+   "social": 19,
+   "cr": 870
+  },
+  {
+   "key": "business",
+   "th": "ธุรกิจ-ค้าขาย",
+   "en": "Doing Business",
+   "cm": 3123,
+   "pin": 4558,
+   "tel": 3830,
+   "web": 1033,
+   "live": 495,
+   "hrs": 71,
+   "social": 77,
+   "cr": 1438
+  },
+  {
+   "key": "whats-on",
+   "th": "หนัง-คอนเสิร์ต-อีเวนต์",
+   "en": "Movies, Concerts & Events",
+   "cm": 300,
+   "pin": 401,
+   "tel": 290,
+   "web": 70,
+   "live": 37,
+   "social": 6,
+   "cr": 101
+  },
+  {
+   "key": "museums-galleries",
+   "th": "พิพิธภัณฑ์-หอศิลป์",
+   "en": "Museums & Galleries",
+   "cm": 237,
+   "pin": 329,
+   "tel": 216,
+   "hrs": 31,
+   "web": 109,
+   "social": 5,
+   "live": 64,
+   "cr": 92
+  },
+  {
+   "key": "parks",
+   "th": "สวน-ที่พักผ่อน",
+   "en": "Parks & Green Space",
+   "cm": 439,
+   "pin": 669,
+   "hrs": 13,
+   "tel": 275,
+   "web": 107,
+   "live": 54,
+   "social": 3,
+   "cr": 231
+  },
+  {
+   "key": "sights",
+   "th": "ที่เที่ยว-ของดี",
+   "en": "Sights & Good Things",
+   "cm": 1436,
+   "tel": 983,
+   "web": 257,
+   "live": 113,
+   "pin": 2141,
+   "hrs": 8,
+   "wichaa": 4,
+   "social": 4,
+   "cr": 707
+  }
+ ],
+ "linkhealth": {
+  "generated": "2026-09-13",
+  "urls": 13398,
+  "ok": 5984,
+  "social": 1539,
+  "domains": 9303
+ },
+ "top_domains": [
+  [
+   "linktr.ee",
+   183
+  ],
+  [
+   "",
+   177
+  ],
+  [
+   "7eleven.co.th",
+   172
+  ],
+  [
+   "sites.google.com",
+   165
+  ],
+  [
+   "shopee.co.th",
+   79
+  ],
+  [
+   "booking.com",
+   65
+  ],
+  [
+   "reservation.roomscope.com",
+   61
+  ],
+  [
+   "oyorooms.com",
+   43
+  ],
+  [
+   "airbnb.com",
+   42
+  ],
+  [
+   "book-directonline.com",
+   36
+  ],
+  [
+   "wongnai.com",
+   36
+  ],
+  [
+   "gsb.or.th",
+   35
+  ],
+  [
+   "agoda.com",
+   27
+  ],
+  [
+   "thaweeyont.com",
+   27
+  ],
+  [
+   "openlink.co",
+   26
+  ],
+  [
+   "reservation.xpaxbooking.com",
+   25
+  ],
+  [
+   "kasikornbank.com",
+   22
+  ],
+  [
+   "laundrybarthai.com",
+   20
+  ],
+  [
+   "scb.co.th",
+   20
+  ],
+  [
+   "mkrestaurant.com",
+   19
+  ],
+  [
+   "r.grab.com",
+   16
+  ],
+  [
+   "lazada.co.th",
+   15
+  ],
+  [
+   "s.shopee.co.th",
+   14
+  ],
+  [
+   "bigcamera.co.th",
+   14
+  ],
+  [
+   "shell.co.th",
+   13
+  ],
+  [
+   "mcthai.co.th",
+   13
+  ],
+  [
+   "sansiri.com",
+   13
+  ],
+  [
+   "business.google.com",
+   13
+  ],
+  [
+   "mrdiy.co.th",
+   12
+  ],
+  [
+   "th.airbnb.com",
+   12
+  ],
+  [
+   "dtac.co.th",
+   12
+  ],
+  [
+   "ornsirin.co.th",
+   11
+  ],
+  [
+   "b2s.co.th",
+   10
+  ],
+  [
+   "pizzahut.co.th",
+   10
+  ],
+  [
+   "rimping.com",
+   10
+  ],
+  [
+   "tara-isuzu.co.th",
+   10
+  ],
+  [
+   "lotuss.com",
+   10
+  ],
+  [
+   "nimtransport.com",
+   10
+  ],
+  [
+   "linkbio.co",
+   9
+  ],
+  [
+   "ktoptic.com",
+   9
+  ]
+ ],
+ "wichaa": 523
+}

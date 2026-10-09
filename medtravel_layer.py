@@ -132,10 +132,10 @@ def emit(g, data):
 
         + '<p class="mv-note">' + bi(
             "หน้านี้ไม่ใช่คำแนะนำทางการแพทย์หรือกฎหมาย ไม่มีขนาดยา "
-            "เป็นเรื่องของเอกสารกับด่านเท่านั้น กฎเปลี่ยนได้ — ต้นทางที่ลิงก์ไว้ชนะหน้านี้เสมอ",
+            "เป็นเรื่องของเอกสารกับด่านเท่านั้น กฎเปลี่ยนได้ — ต้นทางที่ลิงก์ไว้ชนะหน้านี้",
             "This page is not medical or legal advice. It names no dose and holds no view "
             "on what anyone should take — it is about paperwork and checkpoints only. "
-            "Rules change; the linked source always outranks this page.")
+            "Rules change; the linked source outranks this page.")
         + "</p>"
 
         + "<h2 class=\"mv-h\">" + bi("เครื่องมือเช็กยาของ อย.",
@@ -300,8 +300,7 @@ def emit(g, data):
             "is a liquid. Thai airports run the standard 100ml carry-on rule with a "
             "stated exemption: liquid, gel or aerosol medicine over 100ml passes when "
             "accompanied by documentation bearing the passenger's name — a doctor's note "
-            "or the prescription label — with an extra check at the belt. "
-            "Temperature-sensitive medicine like insulin belongs in the carry-on, always.")
+            "or the prescription label — with an extra check at the belt.")
         + "</p>"
 
         + "<h2 class=\"mv-h\">" + bi("คำบนป้ายและแบบฟอร์ม",

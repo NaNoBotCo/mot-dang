@@ -19,7 +19,7 @@ station, pharmacy, fuel forecourt and mapped drinking-water point with a pin
 — ride inline in one array, ~176 kB raw and ~30 kB over the wire. One request
 means the page is whole the instant it lands, with no second fetch to fail and
 no race with the service worker. The nearest-thing search runs on the device
-against that array; the reader's position is never sent anywhere, which is the
+against that array; the reader's position does not leave the browser, which is the
 site's ordinary privacy rule and not a special promise for this page.
 
 WHAT sw.js DOES, precisely, so nobody has to read the JavaScript to know:
@@ -43,6 +43,8 @@ import json
 import shutil
 import zlib
 from pathlib import Path
+
+import shelflife
 
 ROOT = Path(__file__).resolve().parent
 
@@ -144,7 +146,7 @@ def air_line(g):
     if not cm:
         return ""
     b = cm.get("band") or {}
-    return (f'<div class="ch-air" style="--band:{esc(b.get("colour", "#888"))}">'
+    return shelflife.guard("air", air.get("generated"), f'<div class="ch-air" style="--band:{esc(b.get("colour", "#888"))}">'
             f'<span class="ch-airnum">{esc(str(cm.get("pm25")))}'
             f'<small> µg/m³</small></span>'
             f'<span class="ch-airband">{bi(b.get("th", ""), b.get("en", ""))}</span>'
@@ -155,6 +157,7 @@ def air_line(g):
 # ------------------------------------------------------------------ the page
 
 def build_page(g, rows, dropped, n_water):
+    import obs_layer
     bi, esc, att = g["bi"], g["esc"], g["att"]
     page, share_block, BASE = g["page"], g["share_block"], g["BASE"]
     mark = g["mark"]
@@ -196,14 +199,15 @@ def build_page(g, rows, dropped, n_water):
         f'<button type="button" id="ch-locate" class="ch-go">'
         f'📍 {bi("หาที่ใกล้ฉัน", "Find what is nearest")}</button>'
         f'<p class="ch-privacy">'
-        + mark("ⓘ " + bi("ตำแหน่งอยู่ในเครื่องคุณเท่านั้น", "your position stays on your device"),
-               "หน้านี้ค้นในเครื่อง ไม่ส่งพิกัดไปที่ใด และไม่ต้องใช้เน็ตในการค้น",
-               "the search runs on your device; no coordinates are sent anywhere, "
-               "and it needs no network to run")
+        + mark("ⓘ " + bi("ค้นในหน้านี้", "the search runs in this page"),
+               "หน้านี้ค้นในเครื่อง และไม่ต้องใช้เน็ตในการค้น",
+               "the search runs on your device and needs no network to run")
         + '</p>'
         f'<div class="ch-chips">{kind_chips}</div>'
         f'<div id="ch-out" class="ch-out" aria-live="polite"></div>'
         f'<p class="ch-tally">{tally} · {bi(dnote_th, dnote_en)}</p>'
+        # Nan, 2026-09-28: "a 'how deep is your flooding' question for emergencies".
+        + obs_layer.flood_block() +
 
         f'<h2>{bi("อากาศ ตอนที่หน้านี้ถูกสร้าง", "The air, when this page was built")}</h2>'
         + air_line(g) +
@@ -213,7 +217,7 @@ def build_page(g, rows, dropped, n_water):
         + bi("เปิดหน้านี้ครั้งเดียว แล้วมันจะอยู่ในเครื่องคุณ — เบอร์ ชื่อ พิกัด "
              "และการค้นหาที่ใกล้ที่สุด ทำงานได้โดยไม่ต้องมีสัญญาณ "
              "หน้าอื่นที่คุณเคยเปิดก็จะยังอ่านได้",
-             "Open this page once and it stays on your device. The numbers, the "
+             "Open this page once and your phone keeps a copy. The numbers, the "
              "names, the pins and the nearest-thing search all work with no "
              "signal, and the other pages you have already read stay readable.")
         + f' <span class="ch-when">{bi("ข้อมูลชุดนี้ลงวันที่", "This copy is dated")} '
@@ -239,7 +243,7 @@ def build_page(g, rows, dropped, n_water):
 
     payload = json.dumps(rows, ensure_ascii=False, separators=(",", ":"))
     inline = (f'<script id="ch-data" type="application/json">{payload}</script>'
-              f'<script>{js(g)}</script>')
+              f'<script>{js(g)}</script><script>{obs_layer.js()}</script>')
 
     return page(
         "ช่วย — เบอร์ฉุกเฉิน โรงพยาบาล ร้านยา ปั๊ม น้ำดื่ม ที่ใกล้ที่สุด",

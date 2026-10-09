@@ -14,7 +14,7 @@ five rules apply that no script can skip:
      refused. Refused, not written: the previous good file stays exactly as
      it was, byte for byte.
   2. ATOMIC WRITE — a temporary file in the same directory, then rename().
-     A killed process never leaves a half-written JSON behind, which is the
+     A killed process does not leave a half-written JSON behind, which is the
      one corruption a reader cannot detect.
   3. NEVER DESTRUCTIVE ON FAILURE — refuse() and record_failure() touch the
      meta file only. Yesterday's good data outranks today's empty basket

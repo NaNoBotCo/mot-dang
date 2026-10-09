@@ -55,7 +55,12 @@ def main():
         print("docs/ is not built — run build.py first")
         return 1
 
-    files = list(DOCS.rglob("*.html")) + list(DOCS.rglob("*.svg"))
+    # WO-75 — get/ is the toys themselves, published verbatim from the repos that
+    # build them. This suite is a check on the pages this site WRITES; making a
+    # third-party game pass it would mean editing the game. downloads_layer.py
+    # names any image without alt text in its own build line instead.
+    files = [f for f in list(DOCS.rglob("*.html")) + list(DOCS.rglob("*.svg"))
+             if not f.relative_to(DOCS).as_posix().startswith("get/")]
     n_img = n_svg = 0
     no_alt, generic, unlabelled = [], [], []
 

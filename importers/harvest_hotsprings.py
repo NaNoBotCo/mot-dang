@@ -8,7 +8,7 @@ import files them as full catalogue records. THIS file asks the SAME
 selectors — imported from crawl_overpass.QUERIES, one copy — in the other
 fifteen provinces of ภาคเหนือ, register-only: a reader soaking is a reader
 on a day trip, and the springs she weighs against สันกำแพง are ท่าปาย,
-แจ้ซ้อน and ภูซาง, none of which this directory will ever hold as records.
+แจ้ซ้อน and ภูซาง, none of which this directory holds as records.
 
 Manners are the crawler's own, imported not copied: area-clipped ISO 3166-2
 provinces (never a bounding box — a rectangle round แม่ฮ่องสอน is somebody

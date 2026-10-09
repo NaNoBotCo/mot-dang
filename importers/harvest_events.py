@@ -35,7 +35,8 @@ import urllib.error
 import urllib.request
 from datetime import date, datetime, timedelta
 
-import ingest         # the shared write discipline (WO-41 Phase 2)
+import ingest           # the shared write discipline (WO-41 Phase 2)
+import read_newsletter  # the weekly newsletter: email in, no endpoint to fetch
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(ROOT, "cache", "events")
@@ -145,6 +146,17 @@ def venue_from_text(title, description):
     # separator. Unescaping first turns those into spaces and the capture then
     # runs on into the next paragraph.
     m = re.search(r"\*\*Location:\*\*\s*((?:\\,|[^\\])+)", description or "")
+    if m:
+        return _unescape(m.group(1)).strip().rstrip(",.;"), "description"
+    # Two more shapes the Chiang Mai groups write (2026-10-04): a line that
+    # opens on the pin, "📍Downtown garden" (a pin inside a bold header,
+    # "**📍 Sunday Brunch Gathering**", is a heading and is skipped), and a bold
+    # line naming the place and the city, "**Spice Garden, Chiang Mai**".
+    m = re.search(r"\\n📍\s*([^*\\][^\\]*?)\s*(?:\\n|$)", description or "")
+    if m:
+        v = re.sub(r"(?i)^(?:location|venue|where)\s*:\s*", "", _unescape(m.group(1)))
+        return v.strip().rstrip(",.;"), "description"
+    m = re.search(r"\\n\*\*([^*\\]{3,60}?)\\,\s*Chiang Mai\*\*", description or "")
     if m:
         return _unescape(m.group(1)).strip().rstrip(",.;"), "description"
     m = re.search(r"\s+@\s+(.+)$", title or "")
@@ -297,6 +309,16 @@ def mark_recurring(events):
     return events
 
 
+# Every channel a lead can carry. LINE, Facebook and a maps pin were being
+# dropped on the floor here while the newsletter handed over 49 Facebook pages,
+# 14 LINE handles and 19 Google Maps links in one issue — and LINE is the
+# channel that actually answers in Thailand, ranking second only to the phone in
+# build.py's channels(). A field this file does not copy is a field the
+# catalogue never sees.
+LEAD_FIELDS = ("phone", "website", "email", "address", "city",
+               "facebook", "instagram", "lineId", "lineUrl", "maps", "whatsapp")
+
+
 def dedupe_leads(leads):
     out = {}
     for l in leads:
@@ -304,7 +326,7 @@ def dedupe_leads(leads):
         if not key:
             continue
         cur = out.setdefault(key, {"venue_name": l["venue_name"], "sources": []})
-        for f in ("phone", "website", "email", "address", "city"):
+        for f in LEAD_FIELDS:
             if l.get(f) and not cur.get(f):
                 cur[f] = l[f]
         if l["source"] not in cur["sources"]:
@@ -379,6 +401,31 @@ def main():
                 failures.append((s["id"], f"{type(ex).__name__}: {ex}"))
                 print(f"   FAIL   {s['id']}: {type(ex).__name__}: {ex}")
 
+    # The weekly newsletter is the one source that arrives as EMAIL, so it has
+    # no endpoint to fetch: a human drops the issue's text into
+    # _incoming/newsletter/ and read_newsletter.py parses it off disk. It rides
+    # this run rather than writing its own file so that it passes through the
+    # same validate/atomic/never-destructive discipline as every other feed —
+    # and so a bad parse is refused instead of published. No issue on disk is a
+    # normal state, not a failure: it just means nobody has pasted this week's
+    # in yet.
+    issue = read_newsletter.latest_issue()
+    if issue:
+        try:
+            got, got_leads, st = read_newsletter.read_issue(issue)
+            events.extend(got)
+            leads.extend(got_leads)
+            ok_sources.append(read_newsletter.SOURCE_ID)
+            print(f"   read   {read_newsletter.SOURCE_ID}: {st['events']} event(s) "
+                  f"({st['events_dated']} dated, {st['events_weekly']} from weekly "
+                  f"rules), {st['leads']} contact lead(s) — issue {st['issue']}")
+        except Exception as ex:
+            failures.append((read_newsletter.SOURCE_ID, f"{type(ex).__name__}: {ex}"))
+            print(f"   FAIL   {read_newsletter.SOURCE_ID}: {type(ex).__name__}: {ex}")
+    else:
+        print(f"   none   {read_newsletter.SOURCE_ID}: no issue in "
+              f"{read_newsletter.INCOMING}")
+
     events = mark_recurring(events)
     events.sort(key=lambda e: (e.get("start") or "", e.get("title") or ""))
     horizon = (date.today() - timedelta(days=1)).isoformat()
@@ -416,6 +463,11 @@ def main():
     else:
         ingest.refuse(LEADS, "the same harvest that could not publish events",
                       ok_sources, failures)
+    # What was on stays on record after its day (Nan, 2026-10-04): the ledger
+    # is what lets a venue's past evenings count toward its page and search.
+    if ok:
+        import event_ledger
+        event_ledger.main([])
     if failures:
         print(f"⚠  {len(failures)} source(s) failed: {[f[0] for f in failures]}")
     return 0 if ok else 1

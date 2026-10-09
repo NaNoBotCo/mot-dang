@@ -1,80 +1,2974 @@
 {
-  "_comment": "Scheduled nonstop routes at CNX and CEI. Route list + monthly arrival counts from FlightConnections (flights-to pages, published 2026-08-02), cross-checked against the Wikipedia airline/destination tables the same day. per_month = arrivals that month; every route here flies both directions. To refresh: revisit the two source pages, update per_month / airlines / season, bump as_of. flights_layer.py renders everything else.",
-  "as_of": "2026-08-02",
-  "sources": [
-    {"name": "FlightConnections — flights to CNX", "url": "https://www.flightconnections.com/flights-to-chiang-mai-cnx"},
-    {"name": "FlightConnections — flights to CEI", "url": "https://www.flightconnections.com/flights-to-chiang-rai-cei"}
-  ],
-  "affiliate": {"marker": "749581.motdang", "host": "https://www.aviasales.com"},
-  "airports": {
-    "CNX": {"th": "ท่าอากาศยานเชียงใหม่", "en": "Chiang Mai International Airport", "city": "cm"},
-    "CEI": {"th": "ท่าอากาศยานแม่ฟ้าหลวง เชียงราย", "en": "Mae Fah Luang – Chiang Rai International Airport", "city": "cr"}
+ "_comment": "Scheduled nonstop routes at CNX and CEI. Route list + per_month (arrivals a month) from FlightConnections flights-to pages (2 Aug 2026) cross-checked with Wikipedia; refreshed 3 Oct 2026 for the northern winter 2026/27 season (25 Oct 2026 - 27 Mar 2027) from AeroRoutes, airline schedule pages (Nok Air, Lao Airlines, Spring Airlines), Korea Airportal, airline press releases and Thai/Korean/Chinese news. Every value names its source: route['src'] maps a field to a source id; each timetable row in out/in carries its own src. out = departures from our airport, in = arrivals into it; times local; days 1=Mon..7=Sun; valid = 'from/to'. Rows without days are printed on the route card but kept off the day board. 'seen' = times seen on a booking or current-schedule page on given dates, not a timetable. per_month: src.per_month says which month and how. block_min = median gate-to-gate minutes of the out rows (UTC offsets applied). FlightConnections and flightsfrom.com now sit behind bot challenges and were not used for this refresh. Research cache: cache/flights-research/. Layer: flights_layer.py (python3 flights_layer.py regenerates the page).",
+ "as_of": "2026-10-03",
+ "sources": [
+  {
+   "id": "fc-cnx-2026-08",
+   "name": "FlightConnections — flights to CNX",
+   "url": "https://www.flightconnections.com/flights-to-chiang-mai-cnx",
+   "date": "2026-08-02"
   },
-  "airlines": {
-    "TG": {"th": "การบินไทย", "en": "Thai Airways"},
-    "FD": {"th": "ไทยแอร์เอเชีย", "en": "Thai AirAsia"},
-    "DD": {"th": "นกแอร์", "en": "Nok Air"},
-    "SL": {"th": "ไทยไลอ้อนแอร์", "en": "Thai Lion Air"},
-    "VZ": {"th": "ไทยเวียตเจ็ท", "en": "Thai Vietjet"},
-    "PG": {"th": "บางกอกแอร์เวย์ส", "en": "Bangkok Airways"},
-    "TR": {"th": "สกู๊ต", "en": "Scoot"},
-    "AK": {"th": "แอร์เอเชีย มาเลเซีย", "en": "AirAsia"},
-    "MH": {"th": "มาเลเซียแอร์ไลน์", "en": "Malaysia Airlines"},
-    "BX": {"th": "แอร์ปูซาน", "en": "Air Busan"},
-    "ZE": {"th": "อีสตาร์เจ็ท", "en": "Eastar Jet"},
-    "7C": {"th": "เชจูแอร์", "en": "Jeju Air"},
-    "LJ": {"th": "จินแอร์", "en": "Jin Air"},
-    "KE": {"th": "โคเรียนแอร์", "en": "Korean Air"},
-    "TW": {"th": "ทีเวย์แอร์", "en": "T'way Air"},
-    "CI": {"th": "ไชน่าแอร์ไลน์", "en": "China Airlines"},
-    "BR": {"th": "อีวีเอแอร์", "en": "EVA Air"},
-    "JX": {"th": "สตาร์ลักซ์", "en": "Starlux Airlines"},
-    "UO": {"th": "ฮ่องกงเอ็กซ์เพรส", "en": "HK Express"},
-    "9C": {"th": "สปริงแอร์ไลน์", "en": "Spring Airlines"},
-    "MU": {"th": "ไชน่าอีสเทิร์น", "en": "China Eastern"},
-    "HO": {"th": "จูนเหยาแอร์", "en": "Juneyao Air"},
-    "CZ": {"th": "ไชน่าเซาเทิร์น", "en": "China Southern"},
-    "CA": {"th": "แอร์ไชน่า", "en": "Air China"},
-    "EU": {"th": "เฉิงตูแอร์ไลน์", "en": "Chengdu Airlines"},
-    "PN": {"th": "เวสต์แอร์", "en": "West Air"},
-    "EY": {"th": "เอทิฮัด", "en": "Etihad Airways"},
-    "QV": {"th": "ลาวแอร์ไลน์", "en": "Lao Airlines"},
-    "8M": {"th": "เมียนมาร์แอร์เวย์ส", "en": "Myanmar Airways Intl"}
+  {
+   "id": "fc-cei-2026-08",
+   "name": "FlightConnections — flights to CEI",
+   "url": "https://www.flightconnections.com/flights-to-chiang-rai-cei",
+   "date": "2026-08-02"
   },
-  "routes": [
-    {"airport": "CNX", "iata": "DMK", "th": "กรุงเทพฯ ดอนเมือง", "en": "Bangkok Don Mueang", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 830, "airlines": ["DD", "FD", "SL"]},
-    {"airport": "CNX", "iata": "BKK", "th": "กรุงเทพฯ สุวรรณภูมิ", "en": "Bangkok Suvarnabhumi", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 602, "airlines": ["PG", "FD", "TG", "VZ"]},
-    {"airport": "CNX", "iata": "HKT", "th": "ภูเก็ต", "en": "Phuket", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 127, "airlines": ["PG", "FD", "VZ"]},
-    {"airport": "CNX", "iata": "PVG", "th": "เซี่ยงไฮ้ ผู่ตง", "en": "Shanghai Pudong", "country_th": "จีน", "country_en": "China", "dom": false, "per_month": 93, "airlines": ["MU", "HO", "9C"]},
-    {"airport": "CNX", "iata": "ICN", "th": "โซล อินชอน", "en": "Seoul Incheon", "country_th": "เกาหลีใต้", "country_en": "South Korea", "dom": false, "per_month": 90, "airlines": ["BX", "ZE", "7C", "LJ", "KE", "TW"]},
-    {"airport": "CNX", "iata": "TPE", "th": "ไทเป เถาหยวน", "en": "Taipei Taoyuan", "country_th": "ไต้หวัน", "country_en": "Taiwan", "dom": false, "per_month": 84, "airlines": ["CI", "BR", "JX", "FD"]},
-    {"airport": "CNX", "iata": "CAN", "th": "กว่างโจว", "en": "Guangzhou", "country_th": "จีน", "country_en": "China", "dom": false, "per_month": 82, "airlines": ["CZ", "9C"]},
-    {"airport": "CNX", "iata": "KMG", "th": "คุนหมิง", "en": "Kunming", "country_th": "จีน", "country_en": "China", "dom": false, "per_month": 75, "airlines": ["MU"]},
-    {"airport": "CNX", "iata": "HKG", "th": "ฮ่องกง", "en": "Hong Kong", "country_th": "ฮ่องกง", "country_en": "Hong Kong", "dom": false, "per_month": 62, "airlines": ["UO"]},
-    {"airport": "CNX", "iata": "USM", "th": "เกาะสมุย", "en": "Ko Samui", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 59, "airlines": ["PG"]},
-    {"airport": "CNX", "iata": "SIN", "th": "สิงคโปร์", "en": "Singapore", "country_th": "สิงคโปร์", "country_en": "Singapore", "dom": false, "per_month": 53, "airlines": ["TR"]},
-    {"airport": "CNX", "iata": "KBV", "th": "กระบี่", "en": "Krabi", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 52, "airlines": ["PG", "FD"]},
-    {"airport": "CNX", "iata": "URT", "th": "สุราษฎร์ธานี", "en": "Surat Thani", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 44, "airlines": ["FD"]},
-    {"airport": "CNX", "iata": "KUL", "th": "กัวลาลัมเปอร์", "en": "Kuala Lumpur", "country_th": "มาเลเซีย", "country_en": "Malaysia", "dom": false, "per_month": 38, "airlines": ["AK", "MH"]},
-    {"airport": "CNX", "iata": "KKC", "th": "ขอนแก่น", "en": "Khon Kaen", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 31, "airlines": ["FD"]},
-    {"airport": "CNX", "iata": "RGN", "th": "ย่างกุ้ง", "en": "Yangon", "country_th": "เมียนมา", "country_en": "Myanmar", "dom": false, "per_month": 31, "airlines": ["8M"]},
-    {"airport": "CNX", "iata": "XIY", "th": "ซีอาน", "en": "Xi'an", "country_th": "จีน", "country_en": "China", "dom": false, "per_month": 28, "airlines": ["9C"], "season": {"months": [8, 9, 10], "th": "ส.ค.–ต.ค.", "en": "Aug–Oct"}},
-    {"airport": "CNX", "iata": "HAN", "th": "ฮานอย", "en": "Hanoi", "country_th": "เวียดนาม", "country_en": "Vietnam", "dom": false, "per_month": 23, "airlines": ["FD"]},
-    {"airport": "CNX", "iata": "PEK", "th": "ปักกิ่ง", "en": "Beijing", "country_th": "จีน", "country_en": "China", "dom": false, "per_month": 18, "airlines": ["CA"]},
-    {"airport": "CNX", "iata": "HDY", "th": "หาดใหญ่", "en": "Hat Yai", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 18, "airlines": ["FD"]},
-    {"airport": "CNX", "iata": "HHQ", "th": "หัวหิน", "en": "Hua Hin", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 18, "airlines": ["FD"]},
-    {"airport": "CNX", "iata": "LPQ", "th": "หลวงพระบาง", "en": "Luang Prabang", "country_th": "ลาว", "country_en": "Laos", "dom": false, "per_month": 18, "airlines": ["QV"]},
-    {"airport": "CNX", "iata": "UTP", "th": "อู่ตะเภา พัทยา–ระยอง", "en": "U-Tapao Pattaya–Rayong", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 17, "airlines": ["SL"]},
-    {"airport": "CNX", "iata": "MDL", "th": "มัณฑะเลย์", "en": "Mandalay", "country_th": "เมียนมา", "country_en": "Myanmar", "dom": false, "per_month": 14, "airlines": ["8M"]},
-    {"airport": "CNX", "iata": "KIX", "th": "โอซากา คันไซ", "en": "Osaka Kansai", "country_th": "ญี่ปุ่น", "country_en": "Japan", "dom": false, "per_month": 13, "airlines": ["VZ"]},
-    {"airport": "CNX", "iata": "UTH", "th": "อุดรธานี", "en": "Udon Thani", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 13, "airlines": ["DD", "FD"]},
-    {"airport": "CNX", "iata": "TFU", "th": "เฉิงตู เทียนฝู่", "en": "Chengdu Tianfu", "country_th": "จีน", "country_en": "China", "dom": false, "per_month": 12, "airlines": ["EU"], "season": {"months": [8, 9, 10], "th": "ส.ค.–ต.ค.", "en": "Aug–Oct"}},
-    {"airport": "CNX", "iata": "PUS", "th": "ปูซาน", "en": "Busan", "country_th": "เกาหลีใต้", "country_en": "South Korea", "dom": false, "per_month": 9, "airlines": ["BX", "ZE"]},
-    {"airport": "CNX", "iata": "CKG", "th": "ฉงชิ่ง", "en": "Chongqing", "country_th": "จีน", "country_en": "China", "dom": false, "per_month": 9, "airlines": ["PN"], "season": {"months": [8, 9, 10], "th": "ส.ค.–ต.ค.", "en": "Aug–Oct"}},
-    {"airport": "CNX", "iata": "AUH", "th": "อาบูดาบี", "en": "Abu Dhabi", "country_th": "ยูเออี", "country_en": "UAE", "dom": false, "per_month": 0, "airlines": ["EY"], "season": {"months": [10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9], "th": "เริ่ม ต.ค. 2569", "en": "from Oct 2026", "upcoming": true}},
-    {"airport": "CEI", "iata": "DMK", "th": "กรุงเทพฯ ดอนเมือง", "en": "Bangkok Don Mueang", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 328, "airlines": ["DD", "FD", "SL"]},
-    {"airport": "CEI", "iata": "BKK", "th": "กรุงเทพฯ สุวรรณภูมิ", "en": "Bangkok Suvarnabhumi", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 184, "airlines": ["TG", "VZ"]},
-    {"airport": "CEI", "iata": "SIN", "th": "สิงคโปร์", "en": "Singapore", "country_th": "สิงคโปร์", "country_en": "Singapore", "dom": false, "per_month": 13, "airlines": ["TR"]},
-    {"airport": "CEI", "iata": "HKT", "th": "ภูเก็ต", "en": "Phuket", "country_th": "ไทย", "country_en": "Thailand", "dom": true, "per_month": 0, "airlines": ["VZ"], "season": {"months": [10, 11, 12, 1, 2, 3], "th": "ฤดูหนาว ต.ค.–มี.ค.", "en": "Oct–Mar"}}
-  ]
+  {
+   "id": "ar-260919-tgnw26th",
+   "name": "AeroRoutes — THAI NW26 Domestic Service Increases (19 Sep 2026)",
+   "url": "https://www.aeroroutes.com/eng/260919-tgnw26th",
+   "cached": "cache/flights-research/ar_260919-tgnw26th.html",
+   "date": "2026-09-19"
+  },
+  {
+   "id": "ar-260901-fdoct26bkk",
+   "name": "AeroRoutes — Thai AirAsia Resumes Bangkok Suvarnabhumi Service From Oct 2026 (1 Sep 2026)",
+   "url": "https://www.aeroroutes.com/eng/260901-fdoct26bkk",
+   "cached": "cache/flights-research/ar_260901-fdoct26bkk.html",
+   "date": "2026-09-01"
+  },
+  {
+   "id": "ar-260803-fd3q26bkk",
+   "name": "AeroRoutes — Thai AirAsia 3Q26 Bangkok Suvarnabhumi Suspensions (3 Aug 2026)",
+   "url": "https://www.aeroroutes.com/eng/260803-fd3q26bkk",
+   "cached": "cache/flights-research/ar_260803-fd3q26bkk.html",
+   "date": "2026-08-03"
+  },
+  {
+   "id": "ar-260428-fdmay26bkk",
+   "name": "AeroRoutes — Thai AirAsia May/June 2026 Domestic Service Reductions (28 Apr 2026)",
+   "url": "https://www.aeroroutes.com/eng/260428-fdmay26bkk",
+   "cached": "cache/flights-research/ar_260428-fdmay26bkk.html",
+   "date": "2026-04-28"
+  },
+  {
+   "id": "ar-260405-airasia2q26dom",
+   "name": "AeroRoutes — AirAsia 2Q26 Domestic Service Reductions (6 Apr 2026)",
+   "url": "https://www.aeroroutes.com/eng/260405-airasia2q26dom",
+   "cached": "cache/flights-research/ar_260405-airasia2q26dom.html",
+   "date": "2026-04-06"
+  },
+  {
+   "id": "ar-260420-vz2q26",
+   "name": "AeroRoutes — Thai VietJet Air 2Q26 Service Reductions (20 Apr 2026)",
+   "url": "https://www.aeroroutes.com/eng/260420-vz2q26",
+   "cached": "cache/flights-research/ar_260420-vz2q26.html",
+   "date": "2026-04-20"
+  },
+  {
+   "id": "ar-260722-thns26",
+   "name": "AeroRoutes — Data: Thailand NS26 Route Connectivity Losses (22 Jul 2026)",
+   "url": "https://www.aeroroutes.com/eng/260722-thns26",
+   "cached": "cache/flights-research/ar_260722-thns26.html",
+   "date": "2026-07-22"
+  },
+  {
+   "id": "ar-251003-fddec25cnxuth",
+   "name": "AeroRoutes — Thai AirAsia Adds Chiang Mai – Udon Thani From Dec 2025 (4 Oct 2025)",
+   "url": "https://www.aeroroutes.com/eng/251003-fddec25cnxuth",
+   "cached": "cache/flights-research/ar_251003-fddec25cnxuth.html",
+   "date": "2025-10-04"
+  },
+  {
+   "id": "nation-tg-nw26",
+   "name": "The Nation — Thai Airways sets 66-route winter schedule for peak season (3 Sep 2026)",
+   "url": "https://www.nationthailand.com/business/corporate/40070584",
+   "cached": "cache/flights-research/dom_nation_tg-nw26.html",
+   "date": "2026-09-03"
+  },
+  {
+   "id": "eglobal-fd-q4",
+   "name": "e-Global Travel Media — AirAsia Boosts Domestic Flights for Year-End Rush (Thai AirAsia Q4 2026 release, 28 Aug 2026)",
+   "url": "https://eglobaltravelmedia.com.au/2026/08/28/airasia-boosts-domestic-flights-for-year-end-rush/",
+   "cached": "cache/flights-research/dom_eglobal_fd-q4.html",
+   "date": "2026-08-28"
+  },
+  {
+   "id": "siamrath-325976",
+   "name": "Siam Rath — Mae Fah Luang Chiang Rai airport 28th anniversary briefing (2 Oct 2026)",
+   "url": "https://siamrath.co.th/regional/325976",
+   "cached": "cache/flights-research/siamrath_325976.html",
+   "date": "2026-10-02"
+  },
+  {
+   "id": "nok-CNX-DMK",
+   "name": "Nok Air public flight schedule, CNX→DMK, 25 Oct 2026–27 Mar 2027 (rendered 3 Oct 2026)",
+   "url": "https://booking.nokair.com/en/flight-schedule?startDate=2026-10-25&endDate=2027-03-27&from=CNX&to=DMK",
+   "cached": "cache/flights-research/dom_nok_sched_CNX-DMK.txt",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "nok-DMK-CNX",
+   "name": "Nok Air public flight schedule, DMK→CNX, 25 Oct 2026–27 Mar 2027 (rendered 3 Oct 2026)",
+   "url": "https://booking.nokair.com/en/flight-schedule?startDate=2026-10-25&endDate=2027-03-27&from=DMK&to=CNX",
+   "cached": "cache/flights-research/dom_nok_sched_DMK-CNX.txt",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "nok-CEI-DMK",
+   "name": "Nok Air public flight schedule, CEI→DMK, 25 Oct 2026–27 Mar 2027 (rendered 3 Oct 2026)",
+   "url": "https://booking.nokair.com/en/flight-schedule?startDate=2026-10-25&endDate=2027-03-27&from=CEI&to=DMK",
+   "cached": "cache/flights-research/dom_nok_sched_CEI-DMK.txt",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "nok-DMK-CEI",
+   "name": "Nok Air public flight schedule, DMK→CEI, 25 Oct 2026–27 Mar 2027 (rendered 3 Oct 2026)",
+   "url": "https://booking.nokair.com/en/flight-schedule?startDate=2026-10-25&endDate=2027-03-27&from=DMK&to=CEI",
+   "cached": "cache/flights-research/dom_nok_sched_DMK-CEI.txt",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "nok-CNX-UTH",
+   "name": "Nok Air public flight schedule, CNX↔UTH, 25 Oct 2026–27 Mar 2027 (rendered 3 Oct 2026)",
+   "url": "https://booking.nokair.com/en/flight-schedule?startDate=2026-10-25&endDate=2027-03-27&from=CNX&to=UTH",
+   "cached": "cache/flights-research/dom_nok_sched_CNX-UTH.txt",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "aa-cnx-dmk",
+   "name": "AirAsia MOVE route page Chiang Mai→Bangkok DMK (fare listings with sample flights)",
+   "url": "https://www.airasia.com/flights/from-chiang-mai-cnx-to-bangkok-dmk",
+   "cached": "cache/flights-research/dom_aa_cnx-dmk.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "aa-cnx-bkk",
+   "name": "AirAsia MOVE route page Chiang Mai→Bangkok (both airports)",
+   "url": "https://www.airasia.com/flights/from-chiang-mai-cnx-to-bangkok-bkk",
+   "cached": "cache/flights-research/dom_aa_chiang-mai-cnx-to-bangkok-bkk.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "aa-cnx-hkt",
+   "name": "AirAsia MOVE route page Chiang Mai→Phuket",
+   "url": "https://www.airasia.com/flights/from-chiang-mai-cnx-to-phuket-hkt",
+   "cached": "cache/flights-research/dom_aa_cnx-to-phuket-hkt.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "aa-cnx-kbv",
+   "name": "AirAsia MOVE route page Chiang Mai→Krabi",
+   "url": "https://www.airasia.com/flights/from-chiang-mai-cnx-to-krabi-kbv",
+   "cached": "cache/flights-research/dom_aa_cnx-to-krabi-kbv.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "aa-cnx-urt",
+   "name": "AirAsia MOVE route page Chiang Mai→Surat Thani",
+   "url": "https://www.airasia.com/flights/from-chiang-mai-cnx-to-surat-thani-urt",
+   "cached": "cache/flights-research/dom_aa_cnx-to-surat-thani-urt.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "aa-cnx-kkc",
+   "name": "AirAsia MOVE route page Chiang Mai→Khon Kaen",
+   "url": "https://www.airasia.com/flights/from-chiang-mai-cnx-to-khon-kaen-kkc",
+   "cached": "cache/flights-research/dom_aa_cnx-to-khon-kaen-kkc.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "aa-cnx-hdy",
+   "name": "AirAsia MOVE route page Chiang Mai→Hat Yai",
+   "url": "https://www.airasia.com/flights/from-chiang-mai-cnx-to-hat-yai-hdy",
+   "cached": "cache/flights-research/dom_aa_cnx-to-hat-yai-hdy.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "aa-cnx-hhq",
+   "name": "AirAsia MOVE route page Chiang Mai→Hua Hin",
+   "url": "https://www.airasia.com/flights/from-chiang-mai-cnx-to-hua-hin-hhq",
+   "cached": "cache/flights-research/dom_aa_chiang-mai-cnx-to-hua-hin-hhq.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "aa-cnx-usm",
+   "name": "AirAsia MOVE route page Chiang Mai→Koh Samui",
+   "url": "https://www.airasia.com/flights/from-chiang-mai-cnx-to-koh-samui-usm",
+   "cached": "cache/flights-research/dom_aa_chiang-mai-cnx-to-koh-samui-usm.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "aa-cei-dmk",
+   "name": "AirAsia MOVE route page Chiang Rai→Bangkok DMK",
+   "url": "https://www.airasia.com/flights/from-chiang-rai-cei-to-bangkok-dmk",
+   "cached": "cache/flights-research/dom_aa_chiang-rai-cei-to-bangkok-dmk.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "aa-cei-bkk",
+   "name": "AirAsia MOVE route page Chiang Rai→Bangkok (both airports)",
+   "url": "https://www.airasia.com/flights/from-chiang-rai-cei-to-bangkok-bkk",
+   "cached": "cache/flights-research/dom_aa_chiang-rai-cei-to-bangkok-bkk.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "aa-cei-hkt",
+   "name": "AirAsia MOVE route page Chiang Rai→Phuket",
+   "url": "https://www.airasia.com/flights/from-chiang-rai-cei-to-phuket-hkt",
+   "cached": "cache/flights-research/dom_aa_chiang-rai-cei-to-phuket-hkt.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "asiantrails-cei-hkt",
+   "name": "Asian Trails — Chiang Rai–Phuket flights return (Thai Vietjet, from Jan 2026)",
+   "url": "https://www.asiantrails.travel/latest-news/chiang-rai-phuket-flights-return/",
+   "cached": "cache/flights-research/dom_asiantrails_cei-hkt.html"
+  },
+  {
+   "id": "chav-169979",
+   "name": "ch-aviation — Thailand's Ezy Airlines adds Chiang Mai routes for late 3Q26 (29 Jul 2026)",
+   "url": "https://www.ch-aviation.com/news/169979-thailands-ezy-airlines-adds-chiang-mai-routes-for-late-3q26",
+   "cached": "cache/flights-research/dom_chav_169979.html",
+   "date": "2026-07-29"
+  },
+  {
+   "id": "chav-171133",
+   "name": "ch-aviation — Thailand's Ezy Airlines pauses Chiang Mai plans over costs (28 Aug 2026; headline only, body paywalled)",
+   "url": "https://www.ch-aviation.com/news/171133-thailands-ezy-airlines-pauses-chiang-mai-plans-over-costs",
+   "cached": "cache/flights-research/dom_chav_171133.html",
+   "date": "2026-08-28"
+  },
+  {
+   "id": "cmcl-ezy",
+   "name": "Chiang Mai CityLife — Ezy Airlines suspends all Northern routes (24 Aug 2026)",
+   "url": "https://www.chiangmaicitylife.com/citynews/general/ezy-airlines-suspends-all-northern-routes-following-big-media-blitz-last-month/",
+   "cached": "cache/flights-research/dom_cmcl_ezy.html",
+   "date": "2026-08-24"
+  },
+  {
+   "id": "ar-260428-eyyr26cnx",
+   "name": "AeroRoutes — Etihad Removes 2Q26 Chiang Mai Schedule",
+   "url": "https://www.aeroroutes.com/eng/260428-eyyr26cnx",
+   "cached": "cache/flights-research/ar_260428-eyyr26cnx.html",
+   "date": "2026-04-28"
+  },
+  {
+   "id": "ar-260401-eyyr26cnxkno",
+   "name": "AeroRoutes — Etihad Converts Chiang Mai to Seasonal; Medan Cancellation",
+   "url": "https://www.aeroroutes.com/eng/260401-eyyr26cnxkno",
+   "cached": "cache/flights-research/ar_260401-eyyr26cnxkno.html",
+   "date": "2026-04-01"
+  },
+  {
+   "id": "ar-260824-deeycodeshare",
+   "name": "AeroRoutes — Condor Adds Etihad Thailand Codeshare in 2H26",
+   "url": "https://www.aeroroutes.com/eng/260824-deeycodeshare",
+   "cached": "cache/flights-research/ar_260824-deeycodeshare.html",
+   "date": "2026-08-24"
+  },
+  {
+   "id": "ar-260810-vjnw26as",
+   "name": "AeroRoutes — VietJet Air NW26 Asia Network Additions",
+   "url": "https://www.aeroroutes.com/eng/260810-vjnw26as",
+   "cached": "cache/flights-research/ar_260810-vjnw26as.html",
+   "date": "2026-08-10"
+  },
+  {
+   "id": "ar-260721-bxnw26",
+   "name": "AeroRoutes — Air Busan NW26 Busan Network Additions",
+   "url": "https://www.aeroroutes.com/eng/260721-bxnw26",
+   "cached": "cache/flights-research/ar_260721-bxnw26.html",
+   "date": "2026-07-21"
+  },
+  {
+   "id": "ar-260126-bxns26",
+   "name": "AeroRoutes — Air Busan NS26 Network Additions",
+   "url": "https://www.aeroroutes.com/eng/260126-bxns26",
+   "cached": "cache/flights-research/ar_260126-bxns26.html",
+   "date": "2026-01-26"
+  },
+  {
+   "id": "ar-260630-ljnw26int",
+   "name": "AeroRoutes — Jin Air NW26 International Flight Number Changes",
+   "url": "https://www.aeroroutes.com/eng/260630-ljnw26int",
+   "cached": "cache/flights-research/ar_260630-ljnw26int.html",
+   "date": "2026-06-30"
+  },
+  {
+   "id": "ar-260511-7cns26int",
+   "name": "AeroRoutes — Jeju Air NS26 International Service Reductions",
+   "url": "https://www.aeroroutes.com/eng/260511-7cns26int",
+   "cached": "cache/flights-research/ar_260511-7cns26int.html",
+   "date": "2026-05-11"
+  },
+  {
+   "id": "ar-250924-kenw25fltnbr",
+   "name": "AeroRoutes — Korean Air NW25 Additional Asia Flight Number Changes",
+   "url": "https://www.aeroroutes.com/eng/250924-kenw25fltnbr",
+   "cached": "cache/flights-research/ar_250924-kenw25fltnbr.html",
+   "date": "2025-09-24"
+  },
+  {
+   "id": "ar-230911-kenw23th",
+   "name": "AeroRoutes — Korean Air NW23 Thailand Service Expansion",
+   "url": "https://www.aeroroutes.com/eng/230911-kenw23th",
+   "cached": "cache/flights-research/ar_230911-kenw23th.html",
+   "date": "2023-09-11"
+  },
+  {
+   "id": "ar-240415-ze3q24",
+   "name": "AeroRoutes — EastarJet 3Q24 SE Asia Network Additions",
+   "url": "https://www.aeroroutes.com/eng/240415-ze3q24",
+   "cached": "cache/flights-research/ar_240415-ze3q24.html",
+   "date": "2024-04-15"
+  },
+  {
+   "id": "ar-230201-twcnx",
+   "name": "AeroRoutes — T'way Air Plans 737 MAX 8 International Debut in Feb 2023",
+   "url": "https://www.aeroroutes.com/eng/230201-twcnx",
+   "cached": "cache/flights-research/ar_230201-twcnx.html",
+   "date": "2023-02-01"
+  },
+  {
+   "id": "ar-260722-jx2h26cnx",
+   "name": "AeroRoutes — Starlux 2H26 Taipei – Chiang Mai Capacity Increases",
+   "url": "https://www.aeroroutes.com/eng/260722-jx2h26cnx",
+   "cached": "cache/flights-research/ar_260722-jx2h26cnx.html",
+   "date": "2026-07-22"
+  },
+  {
+   "id": "ar-260727-brnov26cnx",
+   "name": "AeroRoutes — EVA Air late-Nov 2026 Chiang Mai Aircraft Changes",
+   "url": "https://www.aeroroutes.com/eng/260727-brnov26cnx",
+   "cached": "cache/flights-research/ar_260727-brnov26cnx.html",
+   "date": "2026-07-27"
+  },
+  {
+   "id": "ar-260730-fdnov26tpects",
+   "name": "AeroRoutes — Thai AirAsia Nov 2026 Taipei / Sapporo Frequency Reductions",
+   "url": "https://www.aeroroutes.com/eng/260730-fdnov26tpects",
+   "cached": "cache/flights-research/ar_260730-fdnov26tpects.html",
+   "date": "2026-07-30"
+  },
+  {
+   "id": "ar-260525-fdns26int",
+   "name": "AeroRoutes — Thai AirAsia NS26 International Service Reductions",
+   "url": "https://www.aeroroutes.com/eng/260525-fdns26int",
+   "cached": "cache/flights-research/ar_260525-fdns26int.html",
+   "date": "2026-05-25"
+  },
+  {
+   "id": "ar-250815-cinw25cnx",
+   "name": "AeroRoutes — China Airlines NW25 Taipei – Chiang Mai Increase",
+   "url": "https://www.aeroroutes.com/eng/250815-cinw25cnx",
+   "cached": "cache/flights-research/ar_250815-cinw25cnx.html",
+   "date": "2025-08-15"
+  },
+  {
+   "id": "ar-260514-slns26tw",
+   "name": "AeroRoutes — Thai Lion Air NS26 Taiwan Charter Removals",
+   "url": "https://www.aeroroutes.com/eng/260514-slns26tw",
+   "cached": "cache/flights-research/ar_260514-slns26tw.html",
+   "date": "2026-05-14"
+  },
+  {
+   "id": "ar-260330-uoapr26",
+   "name": "AeroRoutes — HK Express April 2026 Service Reductions",
+   "url": "https://www.aeroroutes.com/eng/260330-uoapr26",
+   "cached": "cache/flights-research/ar_260330-uoapr26.html",
+   "date": "2026-03-30"
+  },
+  {
+   "id": "ar-250825-trnw25cnx",
+   "name": "AeroRoutes — Scoot Expands Chiang Mai Service in NW25",
+   "url": "https://www.aeroroutes.com/eng/250825-trnw25cnx",
+   "cached": "cache/flights-research/ar_250825-trnw25cnx.html",
+   "date": "2025-08-25"
+  },
+  {
+   "id": "ar-260525-trjul26",
+   "name": "AeroRoutes — Scoot July/August 2026 Frequency Changes",
+   "url": "https://www.aeroroutes.com/eng/260525-trjul26",
+   "cached": "cache/flights-research/ar_260525-trjul26.html",
+   "date": "2026-05-25"
+  },
+  {
+   "id": "ar-250812-trnw25",
+   "name": "AeroRoutes — Scoot NW25 Japan / Thailand Network Expansion",
+   "url": "https://www.aeroroutes.com/eng/250812-trnw25",
+   "cached": "cache/flights-research/ar_250812-trnw25.html",
+   "date": "2025-08-12"
+  },
+  {
+   "id": "ar-260413-trmay26",
+   "name": "AeroRoutes — Scoot May 2026 Service Reductions",
+   "url": "https://www.aeroroutes.com/eng/260413-trmay26",
+   "cached": "cache/flights-research/ar_260413-trmay26.html",
+   "date": "2026-04-13"
+  },
+  {
+   "id": "ar-240322-mh3q24",
+   "name": "AeroRoutes — Malaysia Airlines 3Q24 Regional Network Expansion",
+   "url": "https://www.aeroroutes.com/eng/240322-mh3q24",
+   "cached": "cache/flights-research/ar_240322-mh3q24.html",
+   "date": "2024-03-22"
+  },
+  {
+   "id": "ar-260413-mh2q26int",
+   "name": "AeroRoutes — Malaysia Airlines 2Q26 International Frequency Changes",
+   "url": "https://www.aeroroutes.com/eng/260413-mh2q26int",
+   "cached": "cache/flights-research/ar_260413-mh2q26int.html",
+   "date": "2026-04-13"
+  },
+  {
+   "id": "ar-260428-ulmhcodeshare",
+   "name": "AeroRoutes — SriLankan Airlines Expands Malaysia Airlines Codeshare From April 2026",
+   "url": "https://www.aeroroutes.com/eng/260428-ulmhcodeshare",
+   "cached": "cache/flights-research/ar_260428-ulmhcodeshare.html",
+   "date": "2026-04-28"
+  },
+  {
+   "id": "ar-240228-8mns24cnx",
+   "name": "AeroRoutes — Myanmar Airways International Adds Chiang Mai Service in 2Q24",
+   "url": "https://www.aeroroutes.com/eng/240228-8mns24cnx",
+   "cached": "cache/flights-research/ar_240228-8mns24cnx.html",
+   "date": "2024-02-28"
+  },
+  {
+   "id": "ar-251104-8mnw25int",
+   "name": "AeroRoutes — Myanmar Airways International NW25 International Service Changes",
+   "url": "https://www.aeroroutes.com/eng/251104-8mnw25int",
+   "cached": "cache/flights-research/ar_251104-8mnw25int.html",
+   "date": "2025-11-04"
+  },
+  {
+   "id": "ar-260202-vz1q267m8",
+   "name": "AeroRoutes — Thai VietJet Air Outlines 1Q26 737 MAX 8 International Service",
+   "url": "https://www.aeroroutes.com/eng/260202-vz1q267m8",
+   "cached": "cache/flights-research/ar_260202-vz1q267m8.html",
+   "date": "2026-02-02"
+  },
+  {
+   "id": "ar-250307-vzns25cnxkix",
+   "name": "AeroRoutes — Thai VietJet Air NS25 Chiang Mai – Osaka Kansai",
+   "url": "https://www.aeroroutes.com/eng/250307-vzns25cnxkix",
+   "cached": "cache/flights-research/ar_250307-vzns25cnxkix.html",
+   "date": "2025-03-07"
+  },
+  {
+   "id": "ar-250712-vzaug25cnxkix",
+   "name": "AeroRoutes — Thai VietJet Air August 2025 Chiang Mai – Osaka Kansai",
+   "url": "https://www.aeroroutes.com/eng/250712-vzaug25cnxkix",
+   "cached": "cache/flights-research/ar_250712-vzaug25cnxkix.html",
+   "date": "2025-07-12"
+  },
+  {
+   "id": "newsis-20260723",
+   "name": "Newsis — Air Busan to launch Guangzhou, resume Chiang Mai (23 Jul 2026)",
+   "url": "https://mobile.newsis.com/view/NISX20260723_0003720438",
+   "cached": "cache/flights-research/intl_newsis_20260723_0003720438.html",
+   "date": "2026-07-23"
+  },
+  {
+   "id": "airportal-icn-cnx",
+   "name": "Korea Airportal — airline schedule lookup, Incheon → Chiang Mai (current schedule, fetched 3 Oct 2026)",
+   "url": "https://www.airportal.go.kr/airline/airplaneSchedule.do",
+   "cached": "cache/flights-research/intl_airportal_RKSI_VTCC.json",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "airportal-pus-cnx",
+   "name": "Korea Airportal — airline schedule lookup, Busan → Chiang Mai (current schedule, fetched 3 Oct 2026)",
+   "url": "https://www.airportal.go.kr/airline/airplaneSchedule.do",
+   "cached": "cache/flights-research/intl_airportal_RKPK_VTCC.json",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "qv-w2627",
+   "name": "Lao Airlines — Flight Winter Schedule 2026-27 (international routes image), effective 25 Oct 2026 – 27 Mar 2027",
+   "url": "https://laoairlines.com/wp-content/uploads/2026/09/Untitled-13-01-w-1.jpg",
+   "cached": "cache/flights-research/intl_qv_Untitled-13-01-w-1.jpg",
+   "date": "2026-09"
+  },
+  {
+   "id": "qv-schedpage",
+   "name": "Lao Airlines — Flight Schedule page (summer 2026 + winter 2026-27)",
+   "url": "https://laoairlines.com/en/flight-schedule/",
+   "cached": "cache/flights-research/intl_qv_flight-schedule.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "uo-cnx",
+   "name": "HK Express — Flights to Chiang Mai page (fare deals dated Nov 2026 – Jan 2027)",
+   "url": "https://www.hkexpress.com/en-hk/flights-to-chiang-mai",
+   "cached": "cache/flights-research/intl_uo_flights-to-chiang-mai.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "cmcl-20260304",
+   "name": "Chiang Mai Citylife — Etihad suspends Chiang Mai–Abu Dhabi route indefinitely (4 Mar 2026)",
+   "url": "https://www.chiangmaicitylife.com/citynews/general/etihad-suspends-chiang-mai-abu-dhabi-route-indefinitely-over-middle-east-tensions",
+   "cached": "cache/flights-research/intl_cmcl_etihad-suspends.html",
+   "date": "2026-03-04"
+  },
+  {
+   "id": "mgr-9690000089419",
+   "name": "MGR Online — Chiang Mai Airport 8-month results and winter schedule outlook (Sep 2026)",
+   "url": "https://mgronline.com/local/detail/9690000089419",
+   "cached": "cache/flights-research/mgr_9690000089419.html",
+   "date": "2026-09"
+  },
+  {
+   "id": "wiki-cnx",
+   "name": "Wikipedia — Chiang Mai International Airport (airlines and destinations; mostly OAG Aug 2025 refs)",
+   "url": "https://en.wikipedia.org/wiki/Chiang_Mai_International_Airport",
+   "cached": "cache/flights-research/wiki_Chiang_Mai_International_Airport.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "wiki-cei",
+   "name": "Wikipedia — Mae Fah Luang–Chiang Rai International Airport",
+   "url": "https://en.wikipedia.org/wiki/Chiang_Rai_International_Airport",
+   "cached": "cache/flights-research/intl_wiki_Chiang_Rai_International_Airport.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "wiki-5j",
+   "name": "Wikipedia — List of Cebu Pacific destinations (Chiang Mai terminated; ref Bilyonaryo 4 Feb 2026)",
+   "url": "https://en.wikipedia.org/wiki/List_of_Cebu_Pacific_destinations",
+   "cached": "cache/flights-research/intl_wiki_List_of_Cebu_Pacific_destinations.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "ar-260928-honw26cnx",
+   "name": "AeroRoutes — Juneyao Resumes Shanghai – Chiang Mai in 4Q26 (28 Sep 2026)",
+   "url": "https://www.aeroroutes.com/eng/260928-honw26cnx",
+   "cached": "cache/flights-research/ar_260928-honw26cnx.html",
+   "date": "2026-09-28"
+  },
+  {
+   "id": "ar-260918-munw26kmg",
+   "name": "AeroRoutes — China Eastern NW26 Kunming – Southeast Asia Service Increases (18 Sep 2026)",
+   "url": "https://www.aeroroutes.com/eng/260918-munw26kmg",
+   "cached": "cache/flights-research/ar_260918-munw26kmg.html",
+   "date": "2026-09-18"
+  },
+  {
+   "id": "ar-251219-mu1q26sea",
+   "name": "AeroRoutes — China Eastern 1Q26 Southeast Asia Service Expansion (19 Dec 2025)",
+   "url": "https://www.aeroroutes.com/eng/251219-mu1q26sea",
+   "cached": "cache/flights-research/ar_251219-mu1q26sea.html",
+   "date": "2025-12-19"
+  },
+  {
+   "id": "ar-251223-cnfeb26th",
+   "name": "AeroRoutes — Chinese Airlines Boosts Thailand Feb 2026 Flights by 29% (23 Dec 2025)",
+   "url": "https://www.aeroroutes.com/eng/251223-cnfeb26th",
+   "cached": "cache/flights-research/ar_251223-cnfeb26th.html",
+   "date": "2025-12-23"
+  },
+  {
+   "id": "ar-260519-cn2q26sea",
+   "name": "AeroRoutes — Chinese Carriers Reduces 14% Southeast Asia Flights in May/June 2026 (19 May 2026)",
+   "url": "https://www.aeroroutes.com/eng/260519-cn2q26sea",
+   "cached": "cache/flights-research/ar_260519-cn2q26sea.html",
+   "date": "2026-05-19"
+  },
+  {
+   "id": "ar-260223-pnns26int",
+   "name": "AeroRoutes — China West Air NS26 International / Regional Network Additions – 22FEB26 (23 Feb 2026)",
+   "url": "https://www.aeroroutes.com/eng/260223-pnns26int",
+   "cached": "cache/flights-research/ar_260223-pnns26int.html",
+   "date": "2026-02-23"
+  },
+  {
+   "id": "ar-260203-pnns26int",
+   "name": "AeroRoutes — China West Air NS26 International / Regional Network Additions (3 Feb 2026; superseded)",
+   "url": "https://www.aeroroutes.com/eng/260203-pnns26int",
+   "cached": "cache/flights-research/ar_260203-pnns26int.html",
+   "date": "2026-02-03"
+  },
+  {
+   "id": "cn-people-cq-41494680",
+   "name": "人民网重庆 — 西部航空3月29日开通 重庆直飞清迈航班 (6 Feb 2026)",
+   "url": "http://cq.people.com.cn/n2/2026/0206/c365402-41494680.html",
+   "cached": "cache/flights-research/cn_people_cq_41494680.html",
+   "date": "2026-02-06"
+  },
+  {
+   "id": "ar-240925-drnw24cnx",
+   "name": "AeroRoutes — Ruili Airlines Adds Kunming – Chiang Mai Service From late-Oct 2024 (25 Sep 2024)",
+   "url": "https://www.aeroroutes.com/eng/240925-drnw24cnx",
+   "cached": "cache/flights-research/ar_240925-drnw24cnx.html",
+   "date": "2024-09-25"
+  },
+  {
+   "id": "ar-260921-a6nw26bkk",
+   "name": "AeroRoutes — Air Travel Adds Jinghong – Bangkok in NW26 (21 Sep 2026)",
+   "url": "https://www.aeroroutes.com/eng/260921-a6nw26bkk",
+   "cached": "cache/flights-research/ar_260921-a6nw26bkk.html",
+   "date": "2026-09-21"
+  },
+  {
+   "id": "9c-airport-cnx",
+   "name": "Spring Airlines official — 清迈国际机场航班时刻表 (flights.ch.com, fetched 3 Oct 2026)",
+   "url": "https://flights.ch.com/flight-date/airport-CNX/",
+   "cached": "cache/flights-research/cn_springair_airport-CNX.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "9c-num-pages",
+   "name": "Spring Airlines official — per-flight schedule pages 9C8511/8512/8933/8934/6627/6628/8979/8980 (fetched 3 Oct 2026)",
+   "url": "https://flights.ch.com/flight-date/num-9C8511/",
+   "cached": "cache/flights-research/cn_springair_num-9C8511.html (and cn_springair_num-*.html)",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "ctrip-kmg-cnx",
+   "name": "Ctrip — 昆明到清迈航班时刻表 (undated schedule page, fetched 3 Oct 2026)",
+   "url": "https://flights.ctrip.com/international/schedule/kmg-cnx.html",
+   "cached": "cache/flights-research/cn_ctrip_sched_kmg-cnx.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "wiki-cn-airports",
+   "name": "Wikipedia — Chinese airport pages (KMG, PVG, CAN, XIY, CKG, SZX, PEK, TFU, JHG …), fetched 3 Oct 2026",
+   "url": "https://en.wikipedia.org/wiki/Kunming_Changshui_International_Airport",
+   "cached": "cache/flights-research/cn_wiki_*.html",
+   "date": "2026-10-03"
+  },
+  {
+   "id": "cn-wenlvnews-722155",
+   "name": "文旅头条 — 西双版纳至清迈国际航线复航 (28 Mar 2023; historical)",
+   "url": "http://www.wenlvnews.com/p/722155.html",
+   "cached": "cache/flights-research/cn_wenlvnews_722155.html",
+   "date": "2023-03-28"
+  }
+ ],
+ "affiliate": {
+  "marker": "749581.motdang",
+  "host": "https://www.aviasales.com"
+ },
+ "airports": {
+  "CNX": {
+   "th": "ท่าอากาศยานเชียงใหม่",
+   "en": "Chiang Mai International Airport",
+   "city": "cm"
+  },
+  "CEI": {
+   "th": "ท่าอากาศยานแม่ฟ้าหลวง เชียงราย",
+   "en": "Mae Fah Luang – Chiang Rai International Airport",
+   "city": "cr"
+  }
+ },
+ "airlines": {
+  "TG": {
+   "th": "การบินไทย",
+   "en": "Thai Airways",
+   "url": "https://www.thaiairways.com"
+  },
+  "FD": {
+   "th": "ไทยแอร์เอเชีย",
+   "en": "Thai AirAsia",
+   "url": "https://www.airasia.com"
+  },
+  "DD": {
+   "th": "นกแอร์",
+   "en": "Nok Air",
+   "url": "https://www.nokair.com"
+  },
+  "SL": {
+   "th": "ไทยไลอ้อนแอร์",
+   "en": "Thai Lion Air",
+   "url": "https://www.lionairthai.com"
+  },
+  "VZ": {
+   "th": "ไทยเวียตเจ็ท",
+   "en": "Thai Vietjet",
+   "url": "https://www.vietjetair.com"
+  },
+  "PG": {
+   "th": "บางกอกแอร์เวย์ส",
+   "en": "Bangkok Airways",
+   "url": "https://www.bangkokair.com"
+  },
+  "TR": {
+   "th": "สกู๊ต",
+   "en": "Scoot",
+   "url": "https://www.flyscoot.com"
+  },
+  "AK": {
+   "th": "แอร์เอเชีย มาเลเซีย",
+   "en": "AirAsia",
+   "url": "https://www.airasia.com"
+  },
+  "MH": {
+   "th": "มาเลเซียแอร์ไลน์",
+   "en": "Malaysia Airlines",
+   "url": "https://www.malaysiaairlines.com"
+  },
+  "BX": {
+   "th": "แอร์ปูซาน",
+   "en": "Air Busan",
+   "url": "https://www.airbusan.com"
+  },
+  "ZE": {
+   "th": "อีสตาร์เจ็ท",
+   "en": "Eastar Jet",
+   "url": "https://www.eastarjet.com"
+  },
+  "7C": {
+   "th": "เชจูแอร์",
+   "en": "Jeju Air",
+   "url": "https://www.jejuair.net"
+  },
+  "LJ": {
+   "th": "จินแอร์",
+   "en": "Jin Air",
+   "url": "https://www.jinair.com"
+  },
+  "KE": {
+   "th": "โคเรียนแอร์",
+   "en": "Korean Air",
+   "url": "https://www.koreanair.com"
+  },
+  "TW": {
+   "th": "ทีเวย์แอร์",
+   "en": "T'way Air",
+   "url": "https://www.twayair.com"
+  },
+  "CI": {
+   "th": "ไชน่าแอร์ไลน์",
+   "en": "China Airlines",
+   "url": "https://www.china-airlines.com"
+  },
+  "BR": {
+   "th": "อีวีเอแอร์",
+   "en": "EVA Air",
+   "url": "https://www.evaair.com"
+  },
+  "JX": {
+   "th": "สตาร์ลักซ์",
+   "en": "Starlux Airlines",
+   "url": "https://www.starlux-airlines.com"
+  },
+  "UO": {
+   "th": "ฮ่องกงเอ็กซ์เพรส",
+   "en": "HK Express",
+   "url": "https://www.hkexpress.com"
+  },
+  "9C": {
+   "th": "สปริงแอร์ไลน์",
+   "en": "Spring Airlines",
+   "url": "https://www.ch.com"
+  },
+  "MU": {
+   "th": "ไชน่าอีสเทิร์น",
+   "en": "China Eastern",
+   "url": "https://www.ceair.com"
+  },
+  "HO": {
+   "th": "จูนเหยาแอร์",
+   "en": "Juneyao Air",
+   "url": "https://www.juneyaoair.com"
+  },
+  "CZ": {
+   "th": "ไชน่าเซาเทิร์น",
+   "en": "China Southern",
+   "url": "https://www.csair.com"
+  },
+  "CA": {
+   "th": "แอร์ไชน่า",
+   "en": "Air China",
+   "url": "https://www.airchina.com.cn"
+  },
+  "EU": {
+   "th": "เฉิงตูแอร์ไลน์",
+   "en": "Chengdu Airlines",
+   "url": "https://www.cdal.com.cn"
+  },
+  "PN": {
+   "th": "เวสต์แอร์",
+   "en": "West Air",
+   "url": "https://www.westair.cn"
+  },
+  "EY": {
+   "th": "เอทิฮัด",
+   "en": "Etihad Airways",
+   "url": "https://www.etihad.com"
+  },
+  "QV": {
+   "th": "ลาวแอร์ไลน์",
+   "en": "Lao Airlines",
+   "url": "https://laoairlines.com"
+  },
+  "8M": {
+   "th": "เมียนมาร์แอร์เวย์ส",
+   "en": "Myanmar Airways Intl",
+   "url": "https://www.maiair.com"
+  },
+  "VJ": {
+   "th": "เวียตเจ็ทแอร์",
+   "en": "VietJet Air",
+   "url": "https://www.vietjetair.com"
+  },
+  "DR": {
+   "th": "รุ่ยลี่แอร์ไลน์",
+   "en": "Ruili Airlines",
+   "url": "https://www.rlair.net"
+  }
+ },
+ "routes": [
+  {
+   "airport": "CNX",
+   "iata": "DMK",
+   "th": "กรุงเทพฯ ดอนเมือง",
+   "en": "Bangkok Don Mueang",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 830,
+   "airlines": [
+    "DD",
+    "FD",
+    "SL"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08",
+    "per_week": "nok-CNX-DMK",
+    "block_min": "rows (median of out rows)"
+   },
+   "out": [
+    {
+     "al": "DD",
+     "no": "DD123",
+     "dep": "06:45",
+     "arr": "08:00",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-CNX-DMK"
+    },
+    {
+     "al": "DD",
+     "no": "DD125",
+     "dep": "08:05",
+     "arr": "09:20",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-CNX-DMK"
+    },
+    {
+     "al": "DD",
+     "no": "DD127",
+     "dep": "11:15",
+     "arr": "12:30",
+     "plus": 0,
+     "days": "1357",
+     "valid": "2026-10-25/2027-03-26",
+     "src": "nok-CNX-DMK"
+    },
+    {
+     "al": "DD",
+     "no": "DD133",
+     "dep": "14:20",
+     "arr": "15:35",
+     "plus": 0,
+     "days": "246",
+     "valid": "2026-10-27/2027-03-27",
+     "src": "nok-CNX-DMK"
+    },
+    {
+     "al": "DD",
+     "no": "DD135",
+     "dep": "16:00",
+     "arr": "17:15",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-CNX-DMK"
+    },
+    {
+     "al": "DD",
+     "no": "DD131",
+     "dep": "18:05",
+     "arr": "19:20",
+     "plus": 0,
+     "days": "246",
+     "valid": "2026-10-27/2027-03-27",
+     "src": "nok-CNX-DMK"
+    },
+    {
+     "al": "DD",
+     "no": "DD137",
+     "dep": "19:25",
+     "arr": "20:40",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-CNX-DMK"
+    },
+    {
+     "al": "DD",
+     "no": "DD137",
+     "dep": "18:50",
+     "arr": "20:05",
+     "plus": 0,
+     "days": "23",
+     "valid": "2026-11-24/2026-11-25",
+     "src": "nok-CNX-DMK"
+    },
+    {
+     "al": "DD",
+     "no": "DD141",
+     "dep": "22:30",
+     "arr": "23:45",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-CNX-DMK"
+    }
+   ],
+   "in": [
+    {
+     "al": "DD",
+     "no": "DD124",
+     "dep": "06:20",
+     "arr": "07:35",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-DMK-CNX"
+    },
+    {
+     "al": "DD",
+     "no": "DD126",
+     "dep": "09:30",
+     "arr": "10:45",
+     "plus": 0,
+     "days": "1357",
+     "valid": "2026-10-25/2027-03-26",
+     "src": "nok-DMK-CNX"
+    },
+    {
+     "al": "DD",
+     "no": "DD130",
+     "dep": "09:45",
+     "arr": "11:00",
+     "plus": 0,
+     "days": "246",
+     "valid": "2026-10-27/2027-03-27",
+     "src": "nok-DMK-CNX"
+    },
+    {
+     "al": "DD",
+     "no": "DD132",
+     "dep": "12:35",
+     "arr": "13:50",
+     "plus": 0,
+     "days": "246",
+     "valid": "2026-10-27/2027-03-27",
+     "src": "nok-DMK-CNX"
+    },
+    {
+     "al": "DD",
+     "no": "DD134",
+     "dep": "14:15",
+     "arr": "15:30",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-DMK-CNX"
+    },
+    {
+     "al": "DD",
+     "no": "DD136",
+     "dep": "17:40",
+     "arr": "18:55",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-DMK-CNX"
+    },
+    {
+     "al": "DD",
+     "no": "DD136",
+     "dep": "17:05",
+     "arr": "18:20",
+     "plus": 0,
+     "days": "23",
+     "valid": "2026-11-24/2026-11-25",
+     "src": "nok-DMK-CNX"
+    },
+    {
+     "al": "DD",
+     "no": "DD140",
+     "dep": "20:45",
+     "arr": "22:00",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-DMK-CNX"
+    },
+    {
+     "al": "DD",
+     "no": "DD142",
+     "dep": "21:35",
+     "arr": "22:50",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-DMK-CNX"
+    },
+    {
+     "al": "DD",
+     "no": "DD122",
+     "dep": "05:00",
+     "arr": "06:15",
+     "plus": 0,
+     "days": "34",
+     "valid": "2026-11-25/2026-11-26",
+     "src": "nok-DMK-CNX"
+    }
+   ],
+   "seen": [
+    {
+     "dir": "out",
+     "al": "SL",
+     "dep": "07:05",
+     "src": "aa-cnx-dmk",
+     "arr": "08:20",
+     "dates": [
+      "2026-10-28",
+      "2026-11-11",
+      "2026-12-27"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "SL",
+     "dep": "18:45",
+     "src": "aa-cnx-dmk",
+     "arr": "20:00",
+     "dates": [
+      "2026-12-31"
+     ]
+    }
+   ],
+   "per_week": {
+    "DD": 45
+   },
+   "block_min": 75,
+   "notes": "Nok Air: 45 weekly each way, full NW26 list from Nok's own schedule page (no aircraft type shown). On 24–25 Nov 2026 DD137/DD136 run at earlier times (shown as separate rows); DD122 is an extra DMK→CNX 05:00 on 25–26 Nov only. Thai AirAsia: 'up to 17 daily' DMK–CNX in Q4 2026 per its 28 Aug release; no timetable found. Thai Lion Air: own site behind Cloudflare; departure times above are only those seen on winter dates in AirAsia MOVE fare listings (on 8 Oct 2026, still summer, that listing showed six SL departures: 07:10, 08:10, 10:30, 17:25, 21:30, 22:10). Morning departures from CNX are 06:45 (DD) and ~07:05 (SL); the last is DD141 22:30."
+  },
+  {
+   "airport": "CNX",
+   "iata": "BKK",
+   "th": "กรุงเทพฯ สุวรรณภูมิ",
+   "en": "Bangkok Suvarnabhumi",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 602,
+   "airlines": [
+    "PG",
+    "FD",
+    "TG",
+    "VZ"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08",
+    "per_week": "nation-tg-nw26 (TG); ar-260901-fdoct26bkk (FD)"
+   },
+   "seen": [
+    {
+     "dir": "out",
+     "al": "VZ",
+     "dep": "08:25",
+     "src": "aa-cnx-bkk",
+     "arr": "09:45",
+     "dates": [
+      "2026-10-28",
+      "2026-10-31"
+     ]
+    }
+   ],
+   "per_week": {
+    "TG": 63,
+    "FD": 42
+   },
+   "changes": [
+    {
+     "al": "TG",
+     "kind": "freq",
+     "from": "2026-10-25",
+     "to": "2027-01-31",
+     "per_week": 63,
+     "src": "ar-260919-tgnw26th"
+    },
+    {
+     "al": "TG",
+     "kind": "freq",
+     "from": "2027-02-01",
+     "per_week": 49,
+     "src": "nation-tg-nw26"
+    },
+    {
+     "al": "FD",
+     "kind": "freq",
+     "from": "2026-10-25",
+     "per_week": 42,
+     "src": "ar-260901-fdoct26bkk"
+    }
+   ],
+   "notes": "THAI: 63 weekly (9 daily, A320) 25 Oct 2026–31 Jan 2027, then 49 weekly (7 daily) from 1 Feb 2027 (AeroRoutes 19 Sep; The Nation 3 Sep). Thai AirAsia suspended BKK–CNX 15 Jul–30 Sep 2026, resumed 1 Oct with 30 weekly, 6 daily from 25 Oct. Bangkok Airways and Thai Vietjet: no NW26 frequency found (bangkokair.com refused; Thai Vietjet only 2Q26 cut data). No public timetable reachable for TG, PG or FD, so no full list of departure times; VZ 08:25 seen on winter dates in an AirAsia MOVE fare listing."
+  },
+  {
+   "airport": "CNX",
+   "iata": "HKT",
+   "th": "ภูเก็ต",
+   "en": "Phuket",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 127,
+   "airlines": [
+    "PG",
+    "FD",
+    "VZ"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "seen": [
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "06:25",
+     "src": "aa-cnx-hkt",
+     "arr": "08:30",
+     "dates": [
+      "2026-10-25",
+      "2026-10-28",
+      "2026-11-03"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "11:40",
+     "src": "aa-cnx-hkt",
+     "arr": "13:50",
+     "dates": [
+      "2026-10-28"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "13:05",
+     "src": "aa-cnx-hkt",
+     "arr": "15:10",
+     "dates": [
+      "2026-10-28"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "21:25",
+     "src": "aa-cnx-hkt",
+     "arr": "23:25",
+     "dates": [
+      "2026-11-13",
+      "2026-12-29",
+      "2026-12-31",
+      "2027-01-09"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "VZ",
+     "dep": "10:40",
+     "src": "aa-cnx-hkt",
+     "arr": "12:50",
+     "dates": [
+      "2026-10-28"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "VZ",
+     "dep": "10:50",
+     "src": "aa-cnx-hkt",
+     "arr": "12:50",
+     "dates": [
+      "2026-10-28"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "VZ",
+     "dep": "16:15",
+     "src": "aa-cnx-hkt",
+     "arr": "18:15",
+     "dates": [
+      "2026-10-28",
+      "2026-10-31"
+     ]
+    }
+   ],
+   "notes": "FD and VZ are sold nonstop on winter dates (AirAsia MOVE listing). FD cut CNX–HKT hard in 2Q/3Q 2026 (AeroRoutes: 245→111 flights 15 Jul–30 Sep); no NW26 frequency published. Bangkok Airways operation in NW26 not confirmed (its site refused)."
+  },
+  {
+   "airport": "CNX",
+   "iata": "PVG",
+   "th": "เซี่ยงไฮ้ ผู่ตง",
+   "en": "Shanghai Pudong",
+   "country_th": "จีน",
+   "country_en": "China",
+   "dom": false,
+   "per_month": 93,
+   "airlines": [
+    "MU",
+    "HO",
+    "9C"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08",
+    "per_week": "ar-260928-honw26cnx",
+    "eq": "rows",
+    "block_min": "rows (median of out rows)"
+   },
+   "out": [
+    {
+     "al": "HO",
+     "no": "HO1364",
+     "dep": "01:30",
+     "arr": "06:20",
+     "plus": 0,
+     "days": "357",
+     "eq": "A320",
+     "valid": "2026-10-17/",
+     "src": "ar-260928-honw26cnx"
+    },
+    {
+     "al": "9C",
+     "no": "9C8512",
+     "dep": "09:45",
+     "arr": "13:50",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-03-29/2026-10-24",
+     "src": "9c-num-pages"
+    },
+    {
+     "al": "9C",
+     "no": "9C8980",
+     "dep": "01:10",
+     "arr": "05:25",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-09-25/2026-10-09",
+     "src": "9c-num-pages"
+    }
+   ],
+   "in": [
+    {
+     "al": "HO",
+     "no": "HO1363",
+     "dep": "20:15",
+     "arr": "00:30",
+     "plus": 1,
+     "days": "246",
+     "eq": "A320",
+     "valid": "2026-10-17/",
+     "src": "ar-260928-honw26cnx"
+    },
+    {
+     "al": "9C",
+     "no": "9C8511",
+     "dep": "17:05",
+     "arr": "21:20",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-03-29/2026-10-24",
+     "src": "9c-num-pages"
+    },
+    {
+     "al": "9C",
+     "no": "9C8979",
+     "dep": "19:35",
+     "arr": "00:10",
+     "plus": 1,
+     "days": "1234567",
+     "valid": "2026-09-24/2026-10-08",
+     "src": "9c-num-pages"
+    }
+   ],
+   "per_week": {
+    "HO": 3
+   },
+   "eq": [
+    "A320"
+   ],
+   "block_min": 195,
+   "changes": [
+    {
+     "al": "HO",
+     "kind": "resumes",
+     "from": "2026-10-17",
+     "per_week": 4,
+     "src": "ar-260928-honw26cnx"
+    },
+    {
+     "al": "HO",
+     "kind": "freq",
+     "from": "2026-11-05",
+     "per_week": 3,
+     "src": "ar-260928-honw26cnx"
+    }
+   ],
+   "notes": "Juneyao resumes 17 Oct 2026 (last served until Mar 2025): 4 weekly from 17 Oct, 3 weekly from 5 Nov 2026; printed days (PVG 246 / CNX 357) are the 3-weekly pattern. Spring 9C8511/8512 daily on its official page only through 24 Oct 2026 (summer); its winter schedule is not yet on the page. Extra 9C8979/8980 late Sep–early Oct 2026. China Eastern went 1→2 daily (737-800/A320) 2 Feb–13 Mar 2026; no MU winter 2026/27 source found. 9C aircraft type not stated."
+  },
+  {
+   "airport": "CNX",
+   "iata": "ICN",
+   "th": "โซล อินชอน",
+   "en": "Seoul Incheon",
+   "country_th": "เกาหลีใต้",
+   "country_en": "South Korea",
+   "dom": false,
+   "per_month": 90,
+   "airlines": [
+    "BX",
+    "ZE",
+    "7C",
+    "LJ",
+    "KE",
+    "TW"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "seen": [
+    {
+     "dir": "in",
+     "al": "7C",
+     "dep": "18:10",
+     "src": "airportal-icn-cnx",
+     "no": "7C2515",
+     "on": "2026-10-03"
+    },
+    {
+     "dir": "in",
+     "al": "LJ",
+     "dep": "17:20",
+     "src": "airportal-icn-cnx",
+     "no": "LJ009",
+     "on": "2026-10-03"
+    },
+    {
+     "dir": "in",
+     "al": "ZE",
+     "dep": "18:30",
+     "src": "airportal-icn-cnx",
+     "no": "ZE517",
+     "on": "2026-10-03"
+    },
+    {
+     "dir": "in",
+     "al": "BX",
+     "dep": "19:55",
+     "src": "airportal-icn-cnx",
+     "no": "BX7475",
+     "on": "2026-10-03"
+    }
+   ],
+   "notes": "Airportal (3 Oct 2026) lists Jeju Air, Jin Air, EastarJet and Air Busan departures Incheon→Chiang Mai, departure times only. Jeju Air ran 4 weekly in summer 2026 (cut to 2 weekly 18 May–12 Jul 2026, AeroRoutes). EastarJet suspended the route 1 Jun–7 Jul 2026. Jin Air keeps the route in NW26 under new LJ02x flight numbers. Korean Air: listed on Wikipedia (OAG Aug 2025); flight numbers KE683/684 since 26 Oct 2025; no 2026 timetable found. MGR (Sep 2026) says Incheon flights return or increase in the winter schedule but names no airline. T'way: no 2026 source; twayair.com now titles itself Trinity Airways (트리니티항공). hist = older timetables, not NW26."
+  },
+  {
+   "airport": "CNX",
+   "iata": "TPE",
+   "th": "ไทเป เถาหยวน",
+   "en": "Taipei Taoyuan",
+   "country_th": "ไต้หวัน",
+   "country_en": "Taiwan",
+   "dom": false,
+   "per_month": 84,
+   "airlines": [
+    "CI",
+    "BR",
+    "JX",
+    "FD"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08",
+    "per_week": "ar-260727-brnov26cnx",
+    "eq": "rows",
+    "block_min": "rows (median of out rows)"
+   },
+   "out": [
+    {
+     "al": "BR",
+     "no": "BR258",
+     "dep": "11:50",
+     "arr": "16:30",
+     "plus": 0,
+     "days": "1234567",
+     "eq": "A330-300",
+     "valid": "2026-11-20/2026-11-27",
+     "src": "ar-260727-brnov26cnx"
+    },
+    {
+     "al": "JX",
+     "no": "JX752",
+     "dep": "17:20",
+     "arr": "22:10",
+     "plus": 0,
+     "days": "246",
+     "eq": "A330-900neo",
+     "valid": "2026-08-15/2026-10-24",
+     "src": "ar-260722-jx2h26cnx"
+    },
+    {
+     "al": "FD",
+     "no": "FD242",
+     "dep": "00:25",
+     "arr": "04:55",
+     "plus": 0,
+     "days": "57",
+     "eq": "A320",
+     "valid": "2026-10-27/2026-11-20",
+     "src": "ar-260730-fdnov26tpects"
+    },
+    {
+     "al": "FD",
+     "no": "FD242",
+     "dep": "01:40",
+     "arr": "06:30",
+     "plus": 0,
+     "days": "13",
+     "eq": "A320",
+     "valid": "2026-10-27/2026-11-20",
+     "src": "ar-260730-fdnov26tpects"
+    }
+   ],
+   "in": [
+    {
+     "al": "BR",
+     "no": "BR257",
+     "dep": "07:20",
+     "arr": "10:35",
+     "plus": 0,
+     "days": "1234567",
+     "eq": "A330-300",
+     "valid": "2026-11-20/2026-11-27",
+     "src": "ar-260727-brnov26cnx"
+    },
+    {
+     "al": "JX",
+     "no": "JX751",
+     "dep": "13:05",
+     "arr": "16:05",
+     "plus": 0,
+     "days": "246",
+     "eq": "A330-900neo",
+     "valid": "2026-08-15/2026-10-24",
+     "src": "ar-260722-jx2h26cnx"
+    },
+    {
+     "al": "FD",
+     "no": "FD243",
+     "dep": "18:55",
+     "arr": "22:10",
+     "plus": 0,
+     "days": "1357",
+     "eq": "A320",
+     "valid": "2026-10-27/2026-11-20",
+     "src": "ar-260730-fdnov26tpects"
+    }
+   ],
+   "per_week": {
+    "BR": 7,
+    "JX": 3,
+    "FD": 4
+   },
+   "eq": [
+    "A330-300",
+    "A330-900neo",
+    "A320"
+   ],
+   "block_min": 225,
+   "changes": [
+    {
+     "al": "JX",
+     "kind": "freq",
+     "from": "2026-11-22",
+     "to": "2027-01-20",
+     "per_week": 5,
+     "src": "ar-260722-jx2h26cnx"
+    },
+    {
+     "al": "FD",
+     "kind": "freq",
+     "from": "2026-10-27",
+     "to": "2026-11-20",
+     "per_week": 4,
+     "src": "ar-260730-fdnov26tpects"
+    }
+   ],
+   "notes": "EVA daily (A321neo; A330-300 20–27 Nov 2026). Starlux 3 weekly, rising to 5 weekly 22 Nov 2026–20 Jan 2027. Thai AirAsia CNX–TPE–CTS (Sapporo) has a nonstop CNX–TPE leg: 4 weekly instead of 7 for 27 Oct–20 Nov 2026 (2 weekly 15 Jun–30 Sep 2026). China Airlines went to 7 weekly from 26 Oct 2025 (737-800/A321neo); no 2026 source found. The CI rows in hist are NW25 times. FD per_week covers 27 Oct–20 Nov 2026 only."
+  },
+  {
+   "airport": "CNX",
+   "iata": "CAN",
+   "th": "กว่างโจว",
+   "en": "Guangzhou",
+   "country_th": "จีน",
+   "country_en": "China",
+   "dom": false,
+   "per_month": 82,
+   "airlines": [
+    "CZ",
+    "9C"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08",
+    "block_min": "rows (median of out rows)"
+   },
+   "out": [
+    {
+     "al": "9C",
+     "no": "9C8934",
+     "dep": "22:20",
+     "arr": "01:05",
+     "plus": 1,
+     "days": "2467",
+     "valid": "2026-03-29/2026-10-22",
+     "src": "9c-num-pages"
+    },
+    {
+     "al": "9C",
+     "no": "9C8934",
+     "dep": "22:20",
+     "arr": "01:15",
+     "plus": 1,
+     "days": "35",
+     "valid": "2026-09-09/2026-10-23",
+     "src": "9c-num-pages"
+    },
+    {
+     "al": "9C",
+     "no": "9C8934",
+     "dep": "22:20",
+     "arr": "01:15",
+     "plus": 1,
+     "days": "1",
+     "valid": "2026-09-28/2026-10-19",
+     "src": "9c-num-pages"
+    },
+    {
+     "al": "9C",
+     "no": "9C8934",
+     "dep": "22:20",
+     "arr": "01:00",
+     "plus": 1,
+     "days": "6",
+     "valid": "2026-10-24/2026-10-24",
+     "src": "9c-num-pages"
+    }
+   ],
+   "in": [
+    {
+     "al": "9C",
+     "no": "9C8933",
+     "dep": "05:55",
+     "arr": "08:45",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-03-29/2026-10-24",
+     "src": "9c-num-pages"
+    }
+   ],
+   "block_min": 110,
+   "notes": "China Southern Guangzhou–Chiang Mai cut from 61 to 51 flights for May–Jun 2026 (OAG filing). Spring times from its official page cover summer 2026 only (to 24 Oct); no winter 2026/27 timetable published there yet. No CZ timetable with CNX found (CZ's public timetable PDF of 4 Jun 2026 is mostly scanned images, summer only)."
+  },
+  {
+   "airport": "CNX",
+   "iata": "KMG",
+   "th": "คุนหมิง",
+   "en": "Kunming",
+   "country_th": "จีน",
+   "country_en": "China",
+   "dom": false,
+   "per_month": 90,
+   "airlines": [
+    "MU"
+   ],
+   "src": {
+    "per_month": "ar-260918-munw26kmg: 3 daily x 30 days, Nov 2026",
+    "per_week": "ar-260918-munw26kmg"
+   },
+   "seen": [
+    {
+     "dir": "out",
+     "al": "MU",
+     "dep": "09:10",
+     "src": "ctrip-kmg-cnx",
+     "no": "MU7622",
+     "arr": "12:00",
+     "on": "2026-10-03"
+    },
+    {
+     "dir": "out",
+     "al": "MU",
+     "dep": "10:05",
+     "src": "ctrip-kmg-cnx",
+     "no": "MU9640",
+     "arr": "12:50",
+     "on": "2026-10-03"
+    },
+    {
+     "dir": "out",
+     "al": "MU",
+     "dep": "16:10",
+     "src": "ctrip-kmg-cnx",
+     "no": "MU9620",
+     "arr": "18:55",
+     "on": "2026-10-03"
+    },
+    {
+     "dir": "in",
+     "al": "MU",
+     "dep": "06:55",
+     "src": "ctrip-kmg-cnx",
+     "no": "MU7621",
+     "arr": "08:10",
+     "on": "2026-10-03"
+    },
+    {
+     "dir": "in",
+     "al": "MU",
+     "dep": "08:20",
+     "src": "ctrip-kmg-cnx",
+     "no": "MU9639",
+     "arr": "09:15",
+     "on": "2026-10-03"
+    },
+    {
+     "dir": "in",
+     "al": "MU",
+     "dep": "14:25",
+     "src": "ctrip-kmg-cnx",
+     "no": "MU9619",
+     "arr": "15:20",
+     "on": "2026-10-03"
+    }
+   ],
+   "per_week": {
+    "MU": 21
+   },
+   "changes": [
+    {
+     "al": "MU",
+     "kind": "freq",
+     "from": "2026-10-25",
+     "per_week": 21,
+     "src": "ar-260918-munw26kmg"
+    }
+   ],
+   "notes": "China Eastern filed an increase from the initially filed 2 daily to 3 daily 737-800 from 25 Oct 2026 (also 2→3 daily 7–28 Feb 2026). Times are from Ctrip's undated schedule page (no days or validity given) — not confirmed as the winter timetable. Ruili Airlines started KMG–CNX daily from 27 Oct 2024 (DR5033/5034, 737-800) and Wikipedia's Kunming page still lists Ruili to Chiang Mai uncited; no 2026 source for it."
+  },
+  {
+   "airport": "CNX",
+   "iata": "HKG",
+   "th": "ฮ่องกง",
+   "en": "Hong Kong",
+   "country_th": "ฮ่องกง",
+   "country_en": "Hong Kong",
+   "dom": false,
+   "per_month": 62,
+   "airlines": [
+    "UO"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08",
+    "per_week": "ar-260330-uoapr26"
+   },
+   "per_week": {
+    "UO": 14
+   },
+   "notes": "HK Express: 2 daily as of April 2026 (cut to 1 daily 22–24 Apr 2026, AeroRoutes); per_week is that April 2026 figure. The HK Express Chiang Mai page shows fares for departures on 3 Nov 2026, 10 Jan 2027 and 28 Jan 2027. No flight times found. No Cathay Pacific or Greater Bay Airlines Chiang Mai service found (Wikipedia GBA page has no Chiang Mai)."
+  },
+  {
+   "airport": "CNX",
+   "iata": "USM",
+   "th": "เกาะสมุย",
+   "en": "Ko Samui",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 59,
+   "airlines": [
+    "PG"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "seen": [
+    {
+     "dir": "out",
+     "al": "PG",
+     "dep": "11:30",
+     "src": "aa-cnx-usm",
+     "arr": "13:15",
+     "dates": [
+      "2026-10-31",
+      "2026-11-05",
+      "2026-11-19"
+     ]
+    }
+   ],
+   "notes": "Bangkok Airways nonstop seen on winter dates in AirAsia MOVE listing (11:35 before 25 Oct, 11:30 from 31 Oct). Days of week and flight number not shown; bangkokair.com refused."
+  },
+  {
+   "airport": "CNX",
+   "iata": "SIN",
+   "th": "สิงคโปร์",
+   "en": "Singapore",
+   "country_th": "สิงคโปร์",
+   "country_en": "Singapore",
+   "dom": false,
+   "per_month": 53,
+   "airlines": [
+    "TR"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "notes": "Scoot: 11 weekly from 27 Oct 2025, 14 weekly from 3 Dec 2025, mostly A321neo (NW25). July/Aug 2026 raised from 62 to 84 flights (AeroRoutes). No NW26 timetable found; flyscoot.com refused access."
+  },
+  {
+   "airport": "CNX",
+   "iata": "KBV",
+   "th": "กระบี่",
+   "en": "Krabi",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 52,
+   "airlines": [
+    "PG",
+    "FD"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "seen": [
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "07:55",
+     "src": "aa-cnx-kbv",
+     "arr": "09:55",
+     "dates": [
+      "2026-12-08"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "12:55",
+     "src": "aa-cnx-kbv",
+     "arr": "14:55",
+     "dates": [
+      "2026-10-28",
+      "2026-12-08"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "17:05",
+     "src": "aa-cnx-kbv",
+     "arr": "19:05",
+     "dates": [
+      "2026-10-31",
+      "2026-12-01",
+      "2026-12-08",
+      "2027-01-07",
+      "2027-01-10"
+     ]
+    }
+   ],
+   "notes": "FD seen on winter dates (three departures on 8 Dec). Bangkok Airways CNX–KBV (a one-way service in past seasons) not seen in the listing and not confirmed for NW26."
+  },
+  {
+   "airport": "CNX",
+   "iata": "URT",
+   "th": "สุราษฎร์ธานี",
+   "en": "Surat Thani",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 44,
+   "airlines": [
+    "FD"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "seen": [
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "08:10",
+     "src": "aa-cnx-urt",
+     "arr": "10:05",
+     "dates": [
+      "2026-10-28",
+      "2026-11-10"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "17:30",
+     "src": "aa-cnx-urt",
+     "arr": "19:20",
+     "dates": [
+      "2026-11-01",
+      "2026-11-04",
+      "2027-01-06"
+     ]
+    }
+   ],
+   "notes": "Thai AirAsia nonstop on winter dates; no published frequency."
+  },
+  {
+   "airport": "CNX",
+   "iata": "KUL",
+   "th": "กัวลาลัมเปอร์",
+   "en": "Kuala Lumpur",
+   "country_th": "มาเลเซีย",
+   "country_en": "Malaysia",
+   "dom": false,
+   "per_month": 38,
+   "airlines": [
+    "AK",
+    "MH"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "notes": "Malaysia Airlines: 88 flights KUL→CNX scheduled 29 Mar–30 Jun 2026 (down from 91). SriLankan codeshares on MH KUL–CNX from April 2026. AirAsia (AK) is listed on Wikipedia (2026 ref). No NW26 timetable for either."
+  },
+  {
+   "airport": "CNX",
+   "iata": "KKC",
+   "th": "ขอนแก่น",
+   "en": "Khon Kaen",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 31,
+   "airlines": [
+    "FD"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "seen": [
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "10:00",
+     "src": "aa-cnx-kkc",
+     "arr": "11:05",
+     "dates": [
+      "2026-10-27",
+      "2026-11-05"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "16:30",
+     "src": "aa-cnx-kkc",
+     "arr": "17:35",
+     "dates": [
+      "2026-10-31",
+      "2026-12-25",
+      "2026-12-26",
+      "2026-12-29",
+      "2027-01-09"
+     ]
+    }
+   ],
+   "notes": "Thai AirAsia nonstop on winter dates; no published frequency."
+  },
+  {
+   "airport": "CNX",
+   "iata": "RGN",
+   "th": "ย่างกุ้ง",
+   "en": "Yangon",
+   "country_th": "เมียนมา",
+   "country_en": "Myanmar",
+   "dom": false,
+   "per_month": 31,
+   "airlines": [
+    "8M"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "notes": "MAI Yangon – Chiang Mai: 7 weekly from 1 Oct 2025, 14 weekly from 26 Oct 2025, ATR72/E190/A319; MAI's whole Chiang Mai service went from 6 to 16 weekly, Mandalay included (AeroRoutes Nov 2025). No 2026 source. maiair.com refused access."
+  },
+  {
+   "airport": "CNX",
+   "iata": "XIY",
+   "th": "ซีอาน",
+   "en": "Xi'an",
+   "country_th": "จีน",
+   "country_en": "China",
+   "dom": false,
+   "per_month": 28,
+   "airlines": [
+    "9C"
+   ],
+   "season": {
+    "months": [
+     8,
+     9,
+     10
+    ],
+    "th": "ส.ค.–ต.ค.",
+    "en": "Aug–Oct"
+   },
+   "src": {
+    "per_month": "fc-cnx-2026-08",
+    "per_week": "9c-airport-cnx",
+    "block_min": "rows (median of out rows)",
+    "status": "9c-airport-cnx",
+    "end": "9c-airport-cnx"
+   },
+   "out": [
+    {
+     "al": "9C",
+     "no": "9C6628",
+     "dep": "22:15",
+     "arr": "01:40",
+     "plus": 1,
+     "days": "13457",
+     "valid": "2026-08-23/2026-10-14",
+     "src": "9c-num-pages"
+    },
+    {
+     "al": "9C",
+     "no": "9C6628",
+     "dep": "22:15",
+     "arr": "01:40",
+     "plus": 1,
+     "days": "26",
+     "valid": "2026-10-03/2026-10-06",
+     "src": "9c-num-pages"
+    },
+    {
+     "al": "9C",
+     "no": "9C6628",
+     "dep": "22:15",
+     "arr": "01:40",
+     "plus": 1,
+     "days": "13457",
+     "valid": "2026-10-18/2026-10-23",
+     "src": "9c-num-pages"
+    }
+   ],
+   "in": [
+    {
+     "al": "9C",
+     "no": "9C6627",
+     "dep": "17:55",
+     "arr": "21:15",
+     "plus": 0,
+     "days": "13457",
+     "valid": "2026-08-23/2026-10-14",
+     "src": "9c-num-pages"
+    },
+    {
+     "al": "9C",
+     "no": "9C6627",
+     "dep": "17:55",
+     "arr": "21:15",
+     "plus": 0,
+     "days": "26",
+     "valid": "2026-10-03/2026-10-06",
+     "src": "9c-num-pages"
+    },
+    {
+     "al": "9C",
+     "no": "9C6627",
+     "dep": "17:55",
+     "arr": "21:15",
+     "plus": 0,
+     "days": "13457",
+     "valid": "2026-10-18/2026-10-23",
+     "src": "9c-num-pages"
+    }
+   ],
+   "per_week": {
+    "9C": 5
+   },
+   "block_min": 145,
+   "status": "ends",
+   "end": "2026-10-23",
+   "changes": [
+    {
+     "al": "9C",
+     "kind": "ends",
+     "from": "2026-10-23",
+     "src": "9c-airport-cnx"
+    }
+   ],
+   "notes": "Spring's official page shows the 2026 seasonal run 23 Aug – 23 Oct 2026 (5 weekly, plus extra Tue/Sat 3–6 Oct); nothing filed beyond 23 Oct on that page. per_week is the 23 Aug–23 Oct pattern. Wikipedia's Xi'an page also lists Sichuan Airlines (3U) to Chiang Mai — not verified by any schedule source."
+  },
+  {
+   "airport": "CNX",
+   "iata": "HAN",
+   "th": "ฮานอย",
+   "en": "Hanoi",
+   "country_th": "เวียดนาม",
+   "country_en": "Vietnam",
+   "dom": false,
+   "per_month": 23,
+   "airlines": [
+    "FD"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "notes": "Thai AirAsia Hanoi listed on Wikipedia, cited to the OAG Flight Guide of Aug 2025. No 2026 airline or AeroRoutes source found. Flight trackers (not used) list FD870/871."
+  },
+  {
+   "airport": "CNX",
+   "iata": "PEK",
+   "th": "ปักกิ่ง",
+   "en": "Beijing",
+   "country_th": "จีน",
+   "country_en": "China",
+   "dom": false,
+   "per_month": 18,
+   "airlines": [
+    "CA"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "notes": "Listed on Wikipedia's Chiang Mai page under Air China without citation; Wikipedia's Beijing Capital page does not list Chiang Mai for Air China. No 2026 schedule source found."
+  },
+  {
+   "airport": "CNX",
+   "iata": "HDY",
+   "th": "หาดใหญ่",
+   "en": "Hat Yai",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 18,
+   "airlines": [
+    "FD"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "seen": [
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "11:35",
+     "src": "aa-cnx-hdy",
+     "arr": "13:45",
+     "dates": [
+      "2026-10-30",
+      "2026-11-06",
+      "2026-11-19",
+      "2026-12-02"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "17:30",
+     "src": "aa-cnx-hdy",
+     "arr": "19:40",
+     "dates": [
+      "2026-10-27",
+      "2026-11-03",
+      "2026-11-19",
+      "2026-11-21",
+      "2026-12-31",
+      "2027-01-05"
+     ]
+    }
+   ],
+   "notes": "Thai AirAsia nonstop on winter dates (two departures on 19 Nov); no published frequency."
+  },
+  {
+   "airport": "CNX",
+   "iata": "HHQ",
+   "th": "หัวหิน",
+   "en": "Hua Hin",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 18,
+   "airlines": [
+    "FD"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "seen": [
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "12:50",
+     "src": "aa-cnx-hhq",
+     "arr": "14:10",
+     "dates": [
+      "2026-10-31",
+      "2026-11-05",
+      "2026-11-12",
+      "2026-11-21",
+      "2026-12-02",
+      "2026-12-03",
+      "2026-12-11",
+      "2026-12-15",
+      "2026-12-29"
+     ]
+    }
+   ],
+   "notes": "Thai AirAsia Hua Hin nonstop seen on winter dates; one departure time throughout; no published frequency."
+  },
+  {
+   "airport": "CNX",
+   "iata": "LPQ",
+   "th": "หลวงพระบาง",
+   "en": "Luang Prabang",
+   "country_th": "ลาว",
+   "country_en": "Laos",
+   "dom": false,
+   "per_month": 30,
+   "airlines": [
+    "QV"
+   ],
+   "src": {
+    "per_month": "rows: arrivals in Nov 2026",
+    "per_week": "qv-w2627",
+    "eq": "rows",
+    "block_min": "rows (median of out rows)"
+   },
+   "out": [
+    {
+     "al": "QV",
+     "no": "QV636",
+     "dep": "14:55",
+     "arr": "15:45",
+     "plus": 0,
+     "days": "1234567",
+     "eq": "ATR 72",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "qv-w2627"
+    }
+   ],
+   "in": [
+    {
+     "al": "QV",
+     "no": "QV635",
+     "dep": "13:25",
+     "arr": "14:15",
+     "plus": 0,
+     "days": "1234567",
+     "eq": "ATR 72",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "qv-w2627"
+    }
+   ],
+   "per_week": {
+    "QV": 7
+   },
+   "eq": [
+    "ATR 72"
+   ],
+   "block_min": 50,
+   "notes": "Lao Airlines winter schedule 2026-27. Also a one-stop Vientiane–LPQ–Chiang Mai (QV101/635 out, QV635/104 back) on Tue/Thu/Sat. The route was cancelled 11–30 Jun 2026."
+  },
+  {
+   "airport": "CNX",
+   "iata": "UTP",
+   "th": "อู่ตะเภา พัทยา–ระยอง",
+   "en": "U-Tapao Pattaya–Rayong",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 17,
+   "airlines": [
+    "SL"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "notes": "Thai Lion Air CNX–UTP was cancelled 1–30 Jun 2026 and back by early July (AeroRoutes 22 Jul). No NW26 source: lionairthai.com is behind Cloudflare and AirAsia has no route page."
+  },
+  {
+   "airport": "CNX",
+   "iata": "MDL",
+   "th": "มัณฑะเลย์",
+   "en": "Mandalay",
+   "country_th": "เมียนมา",
+   "country_en": "Myanmar",
+   "dom": false,
+   "per_month": 14,
+   "airlines": [
+    "8M"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "notes": "Listed on Wikipedia for MAI ('citation needed'). MAI launched Mandalay – Chiang Mai with an inaugural on 10 Feb 2025, per a search snippet of a maiair.com press page that was not fetched. No timetable found."
+  },
+  {
+   "airport": "CNX",
+   "iata": "KIX",
+   "th": "โอซากา คันไซ",
+   "en": "Osaka Kansai",
+   "country_th": "ญี่ปุ่น",
+   "country_en": "Japan",
+   "dom": false,
+   "per_month": 13,
+   "airlines": [
+    "VZ"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08",
+    "per_week": "ar-260202-vz1q267m8"
+   },
+   "per_week": {
+    "VZ": 3
+   },
+   "notes": "Thai VietJet: 3 weekly 737 MAX 8 from 2 Feb 2026 (AeroRoutes). No NW26 timetable found."
+  },
+  {
+   "airport": "CNX",
+   "iata": "UTH",
+   "th": "อุดรธานี",
+   "en": "Udon Thani",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 13,
+   "airlines": [
+    "DD",
+    "FD"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08",
+    "per_week": "nok-CNX-UTH",
+    "block_min": "rows (median of out rows)"
+   },
+   "out": [
+    {
+     "al": "DD",
+     "no": "DD702",
+     "dep": "11:40",
+     "arr": "12:45",
+     "plus": 0,
+     "days": "246",
+     "valid": "2026-10-27/2027-03-27",
+     "src": "nok-CNX-UTH"
+    }
+   ],
+   "in": [
+    {
+     "al": "DD",
+     "no": "DD703",
+     "dep": "16:30",
+     "arr": "17:35",
+     "plus": 0,
+     "days": "246",
+     "valid": "2026-10-27/2027-03-27",
+     "src": "nok-CNX-UTH"
+    }
+   ],
+   "per_week": {
+    "DD": 3
+   },
+   "block_min": 65,
+   "changes": [
+    {
+     "al": "DD",
+     "kind": "freq",
+     "from": "2026-10-27",
+     "per_week": 3,
+     "src": "nok-CNX-UTH"
+    }
+   ],
+   "notes": "Nok Air nonstop DD702/703 Tue/Thu/Sat from 27 Oct 2026 (Nok schedule page). FD2010/2011 times are the launch schedule from Dec 2025 (AeroRoutes); NW26 operation by FD NOT confirmed: AirAsia has no CNX–UTH route page and its Q4 2026 release does not mention the route."
+  },
+  {
+   "airport": "CNX",
+   "iata": "TFU",
+   "th": "เฉิงตู เทียนฝู่",
+   "en": "Chengdu Tianfu",
+   "country_th": "จีน",
+   "country_en": "China",
+   "dom": false,
+   "per_month": 12,
+   "airlines": [
+    "EU"
+   ],
+   "season": {
+    "months": [
+     8,
+     9,
+     10
+    ],
+    "th": "ส.ค.–ต.ค.",
+    "en": "Aug–Oct"
+   },
+   "src": {
+    "per_month": "fc-cnx-2026-08"
+   },
+   "notes": "Chengdu Airlines Chengdu Tianfu–Chiang Mai was cut from 26 to 16 flights for May–Jun 2026 (OAG filing). No winter 2026/27 schedule found; Wikipedia's Tianfu page does not list Chiang Mai."
+  },
+  {
+   "airport": "CNX",
+   "iata": "PUS",
+   "th": "ปูซาน",
+   "en": "Busan",
+   "country_th": "เกาหลีใต้",
+   "country_en": "South Korea",
+   "dom": false,
+   "per_month": 9,
+   "airlines": [
+    "BX",
+    "ZE"
+   ],
+   "src": {
+    "per_month": "fc-cnx-2026-08",
+    "per_week": "newsis-20260723",
+    "eq": "rows",
+    "block_min": "rows (median of out rows)"
+   },
+   "out": [
+    {
+     "al": "BX",
+     "no": "BX538",
+     "dep": "23:40",
+     "arr": "07:00",
+     "plus": 1,
+     "eq": "A321",
+     "valid": "2026-10-25/",
+     "src": "ar-260721-bxnw26"
+    }
+   ],
+   "in": [
+    {
+     "al": "BX",
+     "no": "BX537",
+     "dep": "19:00",
+     "arr": "22:50",
+     "plus": 0,
+     "days": "3467",
+     "eq": "A321",
+     "valid": "2026-10-25/",
+     "src": "newsis-20260723"
+    }
+   ],
+   "seen": [
+    {
+     "dir": "in",
+     "al": "ZE",
+     "dep": "18:55",
+     "src": "airportal-pus-cnx",
+     "no": "ZE917",
+     "on": "2026-10-03"
+    }
+   ],
+   "per_week": {
+    "BX": 4
+   },
+   "eq": [
+    "A321"
+   ],
+   "block_min": 320,
+   "changes": [
+    {
+     "al": "BX",
+     "kind": "resumes",
+     "from": "2026-10-25",
+     "per_week": 4,
+     "src": "ar-260721-bxnw26"
+    },
+    {
+     "al": "BX",
+     "kind": "freq",
+     "from": "2026-12-15",
+     "to": "2027-02-28",
+     "per_week": 6,
+     "src": "ar-260721-bxnw26"
+    }
+   ],
+   "notes": "Air Busan returns to Busan – Chiang Mai from 25 Oct 2026 (last served 3Q23): 4 weekly, 6 weekly 15 Dec 2026 – 28 Feb 2027. EastarJet ZE917 is listed on Korea Airportal as of 3 Oct 2026 (Thu, Sun); no NW26 source for ZE on this route."
+  },
+  {
+   "airport": "CNX",
+   "iata": "CKG",
+   "th": "ฉงชิ่ง",
+   "en": "Chongqing",
+   "country_th": "จีน",
+   "country_en": "China",
+   "dom": false,
+   "per_month": 9,
+   "airlines": [
+    "PN"
+   ],
+   "season": {
+    "months": [
+     8,
+     9,
+     10
+    ],
+    "th": "ส.ค.–ต.ค.",
+    "en": "Aug–Oct"
+   },
+   "src": {
+    "per_month": "fc-cnx-2026-08",
+    "per_week": "ar-260223-pnns26int",
+    "eq": "rows",
+    "block_min": "rows (median of out rows)"
+   },
+   "out": [
+    {
+     "al": "PN",
+     "no": "PN6596",
+     "dep": "12:10",
+     "arr": "15:40",
+     "plus": 0,
+     "days": "357",
+     "eq": "A320",
+     "valid": "2026-03-29/2026-10-24",
+     "src": "ar-260223-pnns26int"
+    }
+   ],
+   "in": [
+    {
+     "al": "PN",
+     "no": "PN6595",
+     "dep": "09:50",
+     "arr": "11:10",
+     "plus": 0,
+     "days": "357",
+     "eq": "A320",
+     "valid": "2026-03-29/2026-10-24",
+     "src": "ar-260223-pnns26int"
+    }
+   ],
+   "per_week": {
+    "PN": 3
+   },
+   "eq": [
+    "A320"
+   ],
+   "block_min": 150,
+   "notes": "West Air launched 29 Mar 2026: 1 weekly, 3 weekly (Wed/Fri/Sun) from 8 Apr 2026; full routing Taiyuan–Chongqing–Chiang Mai. People's Daily Chongqing (6 Feb 2026) gives the same numbers, times and days. May–Jun 2026 filing 26→24 flights. Summer 2026 schedule; no winter 2026/27 source found. An earlier filing (3 Feb 2026) showed evening times; superseded."
+  },
+  {
+   "airport": "CNX",
+   "iata": "AUH",
+   "th": "อาบูดาบี",
+   "en": "Abu Dhabi",
+   "country_th": "ยูเออี",
+   "country_en": "UAE",
+   "dom": false,
+   "per_month": 30,
+   "airlines": [
+    "EY"
+   ],
+   "season": {
+    "months": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12
+    ],
+    "th": "กลับมาบิน 25 ต.ค. 2569",
+    "en": "back 25 Oct 2026",
+    "upcoming": true
+   },
+   "src": {
+    "per_month": "rows: arrivals in Nov 2026",
+    "per_week": "ar-260428-eyyr26cnx",
+    "eq": "rows",
+    "block_min": "rows (median of out rows)",
+    "status": "ar-260428-eyyr26cnx",
+    "start": "ar-260428-eyyr26cnx"
+   },
+   "out": [
+    {
+     "al": "EY",
+     "no": "EY427",
+     "dep": "08:50",
+     "arr": "13:05",
+     "plus": 0,
+     "days": "1234567",
+     "eq": "A321neo",
+     "valid": "2026-10-25/",
+     "src": "ar-260428-eyyr26cnx"
+    }
+   ],
+   "in": [
+    {
+     "al": "EY",
+     "no": "EY426",
+     "dep": "21:15",
+     "arr": "06:05",
+     "plus": 1,
+     "days": "1234567",
+     "eq": "A321neo",
+     "valid": "2026-10-25/",
+     "src": "ar-260428-eyyr26cnx"
+    }
+   ],
+   "per_week": {
+    "EY": 7
+   },
+   "eq": [
+    "A321neo"
+   ],
+   "block_min": 435,
+   "status": "resumes",
+   "start": "2026-10-25",
+   "notes": "Suspended for summer 2026 (Citylife: halted from 1 Mar 2026; AeroRoutes: cancelled 23 Mar–24 Oct 2026). AeroRoutes 28 Apr 2026: resumes 25 Oct 2026, frequency up from 4 to 7 weekly, A321LR. Condor codeshare on CNX added from NW26 launch (AeroRoutes 24 Aug 2026); MGR Sep 2026 quotes the airport director that Etihad returns for the winter schedule. etihad.com could not be fetched, so not confirmed on the airline's own site."
+  },
+  {
+   "airport": "CEI",
+   "iata": "DMK",
+   "th": "กรุงเทพฯ ดอนเมือง",
+   "en": "Bangkok Don Mueang",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 328,
+   "airlines": [
+    "DD",
+    "FD",
+    "SL"
+   ],
+   "src": {
+    "per_month": "fc-cei-2026-08",
+    "per_week": "nok-CEI-DMK",
+    "block_min": "rows (median of out rows)"
+   },
+   "out": [
+    {
+     "al": "DD",
+     "no": "DD103",
+     "dep": "10:30",
+     "arr": "11:50",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-CEI-DMK"
+    },
+    {
+     "al": "DD",
+     "no": "DD103",
+     "dep": "09:45",
+     "arr": "11:05",
+     "plus": 0,
+     "days": "123",
+     "valid": "2026-11-23/2026-11-25",
+     "src": "nok-CEI-DMK"
+    },
+    {
+     "al": "DD",
+     "no": "DD107",
+     "dep": "13:25",
+     "arr": "14:45",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-CEI-DMK"
+    },
+    {
+     "al": "DD",
+     "no": "DD109",
+     "dep": "19:15",
+     "arr": "20:35",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-CEI-DMK"
+    }
+   ],
+   "in": [
+    {
+     "al": "DD",
+     "no": "DD102",
+     "dep": "08:35",
+     "arr": "10:00",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-DMK-CEI"
+    },
+    {
+     "al": "DD",
+     "no": "DD102",
+     "dep": "07:50",
+     "arr": "09:15",
+     "plus": 0,
+     "days": "123",
+     "valid": "2026-11-23/2026-11-25",
+     "src": "nok-DMK-CEI"
+    },
+    {
+     "al": "DD",
+     "no": "DD106",
+     "dep": "11:30",
+     "arr": "12:55",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-DMK-CEI"
+    },
+    {
+     "al": "DD",
+     "no": "DD108",
+     "dep": "17:20",
+     "arr": "18:45",
+     "plus": 0,
+     "days": "1234567",
+     "valid": "2026-10-25/2027-03-27",
+     "src": "nok-DMK-CEI"
+    }
+   ],
+   "seen": [
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "08:45",
+     "src": "aa-cei-dmk",
+     "arr": "10:00",
+     "dates": [
+      "2026-12-27",
+      "2026-12-28"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "14:00",
+     "src": "aa-cei-dmk",
+     "arr": "15:20",
+     "dates": [
+      "2026-12-04"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "FD",
+     "dep": "21:15",
+     "src": "aa-cei-dmk",
+     "arr": "22:30",
+     "dates": [
+      "2026-12-04",
+      "2026-12-15",
+      "2026-12-22"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "SL",
+     "dep": "10:10",
+     "src": "aa-cei-dmk",
+     "arr": "11:30",
+     "dates": [
+      "2026-12-04"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "SL",
+     "dep": "12:35",
+     "src": "aa-cei-dmk",
+     "arr": "13:55",
+     "dates": [
+      "2026-12-04"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "SL",
+     "dep": "14:40",
+     "src": "aa-cei-dmk",
+     "arr": "16:05",
+     "dates": [
+      "2026-12-04"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "SL",
+     "dep": "20:35",
+     "src": "aa-cei-dmk",
+     "arr": "22:00",
+     "dates": [
+      "2026-11-04",
+      "2026-11-18",
+      "2026-12-04",
+      "2026-12-26"
+     ]
+    }
+   ],
+   "per_week": {
+    "DD": 21
+   },
+   "block_min": 80,
+   "notes": "Nok Air 3 daily (21 weekly) each way, full NW26 list from Nok's schedule page; DD102/103 run earlier on 23–25 Nov 2026. Thai AirAsia: 'up to 6 daily' DMK–CEI in Q4 2026 (28 Aug release). Thai Lion Air: 4 departures seen on Fri 4 Dec in the AirAsia MOVE listing. FD and SL times are samples only."
+  },
+  {
+   "airport": "CEI",
+   "iata": "BKK",
+   "th": "กรุงเทพฯ สุวรรณภูมิ",
+   "en": "Bangkok Suvarnabhumi",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 184,
+   "airlines": [
+    "TG",
+    "VZ"
+   ],
+   "src": {
+    "per_month": "fc-cei-2026-08",
+    "per_week": "nation-tg-nw26"
+   },
+   "per_week": {
+    "TG": 21
+   },
+   "changes": [
+    {
+     "al": "TG",
+     "kind": "freq",
+     "from": "2026-10-25",
+     "per_week": 21,
+     "src": "nation-tg-nw26"
+    }
+   ],
+   "notes": "THAI 21 weekly (3 daily) in NW26 (The Nation 3 Sep 2026). Thai Vietjet still flies BKK–CEI (a VZ 11:15 CEI→BKK was seen on 8 Oct 2026 in AirAsia MOVE; no winter-dated sample, frequency not found). Thai AirAsia BKK–CEI is not among the three BKK routes it resumed from 1 Oct 2026 (CNX, KBV, HKT: AeroRoutes 1 Sep). Note: AeroRoutes 28 Apr 2026 had FD keeping BKK–CEI through May/June 2026 (cut to 261 flights), not suspending it from 1 May; by 15 Jul only BKK–CNX and BKK–HKT remained at BKK. Siam Rath (2 Oct 2026) lists FD, DD, SL, TG and VZ as CEI's domestic carriers."
+  },
+  {
+   "airport": "CEI",
+   "iata": "SIN",
+   "th": "สิงคโปร์",
+   "en": "Singapore",
+   "country_th": "สิงคโปร์",
+   "country_en": "Singapore",
+   "dom": false,
+   "per_month": 13,
+   "airlines": [
+    "TR"
+   ],
+   "src": {
+    "per_month": "fc-cei-2026-08"
+   },
+   "notes": "Scoot launched 1 Jan 2026, 5 weekly E190-E2. Still running in summer 2026: May 2026 cut from 18 to 14 flights (AeroRoutes 13 Apr 2026). Wikipedia lists it as current. No NW26 timetable found. Scoot is the only international airline Wikipedia lists at CEI (mainland China not checked here)."
+  },
+  {
+   "airport": "CEI",
+   "iata": "HKT",
+   "th": "ภูเก็ต",
+   "en": "Phuket",
+   "country_th": "ไทย",
+   "country_en": "Thailand",
+   "dom": true,
+   "per_month": 0,
+   "airlines": [
+    "VZ"
+   ],
+   "season": {
+    "months": [
+     10,
+     11,
+     12,
+     1,
+     2,
+     3
+    ],
+    "th": "ฤดูหนาว ต.ค.–มี.ค.",
+    "en": "Oct–Mar"
+   },
+   "src": {
+    "block_min": "aa-cei-hkt"
+   },
+   "seen": [
+    {
+     "dir": "out",
+     "al": "VZ",
+     "dep": "11:10",
+     "src": "aa-cei-hkt",
+     "arr": "13:25",
+     "dates": [
+      "2026-10-28"
+     ]
+    },
+    {
+     "dir": "out",
+     "al": "VZ",
+     "dep": "10:50",
+     "src": "aa-cei-hkt",
+     "arr": "13:05",
+     "dates": [
+      "2026-11-04",
+      "2026-11-13",
+      "2026-11-16"
+     ]
+    }
+   ],
+   "block_min": 135,
+   "notes": "Thai Vietjet relaunched CEI–HKT from Jan 2026 at 3 weekly (Asian Trails); 3 weekly cancelled 18 Apr–31 May 2026 (AeroRoutes). Sold nonstop on winter dates (seen Mon/Wed/Fri). Block 2h15m as listed."
+  },
+  {
+   "airport": "CNX",
+   "iata": "SGN",
+   "th": "โฮจิมินห์ซิตี",
+   "en": "Ho Chi Minh City",
+   "country_th": "เวียดนาม",
+   "country_en": "Vietnam",
+   "dom": false,
+   "per_month": 18,
+   "airlines": [
+    "VJ"
+   ],
+   "src": {
+    "per_month": "rows: arrivals in Nov 2026",
+    "per_week": "ar-260810-vjnw26as",
+    "eq": "rows",
+    "block_min": "rows (median of out rows)",
+    "status": "ar-260810-vjnw26as",
+    "start": "ar-260810-vjnw26as"
+   },
+   "out": [
+    {
+     "al": "VJ",
+     "no": "VJ1884",
+     "dep": "16:30",
+     "arr": "18:45",
+     "plus": 0,
+     "days": "1357",
+     "eq": "A321",
+     "valid": "2026-10-25/",
+     "src": "ar-260810-vjnw26as"
+    }
+   ],
+   "in": [
+    {
+     "al": "VJ",
+     "no": "VJ1883",
+     "dep": "13:25",
+     "arr": "15:30",
+     "plus": 0,
+     "days": "1357",
+     "eq": "A321",
+     "valid": "2026-10-25/",
+     "src": "ar-260810-vjnw26as"
+    }
+   ],
+   "per_week": {
+    "VJ": 4
+   },
+   "eq": [
+    "A321"
+   ],
+   "block_min": 135,
+   "status": "resumes",
+   "start": "2026-10-25",
+   "season": {
+    "months": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12
+    ],
+    "th": "กลับมาบิน 25 ต.ค. 2569",
+    "en": "back 25 Oct 2026",
+    "upcoming": true
+   },
+   "notes": "VietJet resumes Ho Chi Minh City – Chiang Mai, last served until February 2024."
+  },
+  {
+   "airport": "CNX",
+   "iata": "JHG",
+   "th": "จิ่งหง (สิบสองปันนา)",
+   "en": "Jinghong (Xishuangbanna)",
+   "country_th": "จีน",
+   "country_en": "China",
+   "dom": false,
+   "per_month": 0,
+   "airlines": [
+    "DR"
+   ],
+   "src": {
+    "status": "mgr-9690000089419",
+    "airlines": "wiki-cnx (Ruili, 3 weekly from 28 Oct 2025)"
+   },
+   "status": "resumes",
+   "season": {
+    "months": [
+     11,
+     12,
+     1,
+     2,
+     3
+    ],
+    "th": "ฤดูหนาว 2569/70",
+    "en": "winter 2026/27",
+    "upcoming": true
+   },
+   "notes": "Chiang Mai airport director (MGR Online, 12 Sep 2026) names Jinghong (Xishuangbanna) among routes resuming or adding frequency in the winter schedule; no airline or date given. Wikipedia cites a Ruili Airlines WeChat post for 3 weekly from 28 Oct 2025 (WeChat /s/ pages are robots-disallowed, not fetched). Separate: Air Travel (A6) adds 2 weekly Changsha–Jinghong–Bangkok from 25 Oct 2026, not via Chiang Mai."
+  }
+ ],
+ "refused": [
+  "airbusan.com schedule page, eastarjet.com, jinair.com — Cloudflare challenge",
+  "csair.com timetable PDF — scanned images, summer 2026 only, no Chiang Mai text extractable",
+  "etihad.com — connection dropped with no response; not fetched",
+  "flight trackers (FlightRadar24, trip.com status, airpaz, avionio, planefinder) seen in search results, not used",
+  "flightconnections.com — AWS WAF challenge (HTTP 202, empty body) on every page, 2026-10-03",
+  "flights.ctrip.com schedule pages other than kmg-cnx — no timetable in page; xiy-cnx redirected to homepage with captcha scripts (not pursued)",
+  "flightsfrom.com — Cloudflare challenge, 2026-10-03",
+  "flyscoot.com, evaair.com, china-airlines.com — Akamai Access Denied on robots.txt; not fetched",
+  "jejuair.net schedule page — 403 error page",
+  "koreanair.com — Akamai Access Denied (even robots.txt)",
+  "kukinews.com — Cloudflare 'Attention Required' (article on Daegu–Chiang Mai)",
+  "maiair.com — Cloudflare 'Just a moment' challenge (Thailand destinations + press pages)",
+  "mp.weixin.qq.com/s/6UuaAkMH1TfyjDgNKwj6bw (Ruili JHG–CNX) — robots.txt disallows /s/",
+  "prachachat.net/economic/local-economy/news-2065826 — Cloudflare 'Just a moment' challenge",
+  "th.vietjetair.com/robots.txt: 403 (the news article itself loaded)",
+  "thaiairways.com/content/thaigroundservices/news-updates/chengdu-airlines-celebrating-its-inaugural-flight — HTTP 403 service notice",
+  "www.bangkokair.com: Akamai 'Access Denied' (403) on robots.txt and homepage; not retried",
+  "www.lionairthai.com: Cloudflare 'Just a moment' challenge on robots.txt",
+  "www.thaiairways.com/flights/en/flights-from-chiang-rai-to-bangkok: 403 'Service Notice' (Cloudflare block)"
+ ]
 }

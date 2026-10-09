@@ -15,7 +15,7 @@ needed: กรมอนามัย keeps a national register of assessed clean-
 a public API, and importers/fetch_cleanrooms.py reads our two provinces out
 of it — 2,428 publicly accessible rooms with pins, every one with a phone.
 
-THE GRADE RIDES ON EVERY ROW, the same discipline as care.html, ot.html and
+THE GRADE RIDES ON every ROW, the same discipline as care.html, ot.html and
 the lens pages:
     ตรวจโดยเจ้าหน้าที่ · assessed by an officer  — 221 rooms, and only these
         carry an expiry date
@@ -36,6 +36,8 @@ Entry point: emit(globals_of_build, data).
 import datetime
 import json
 from pathlib import Path
+
+import shelflife
 
 ROOT = Path(__file__).resolve().parent
 
@@ -85,7 +87,8 @@ def _air(g):
             f'{spark}'
             f'<span class="fo-when">{esc(p.get("observed", ""))}</span></div>')
     note = (f'<p class="tinynote">{bi("ค่านี้เป็นค่าจากแบบจำลอง ไม่ใช่เครื่องวัดที่หัวถนน อบไว้ตอนสร้างหน้า — ดูค่าสดที่เครื่องวัดจริงได้ที่ cmuccdc.org", "A modelled figure, not a street-level monitor, and baked when the page was built — for live readings from real monitors see cmuccdc.org")} · {esc(air.get("source", ""))}</p>')
-    return f'<div class="fo-nowrow">{"".join(cards)}</div>{note}', air
+    return shelflife.guard("air", air.get("generated"),
+                           f'<div class="fo-nowrow">{"".join(cards)}</div>{note}'), air
 
 
 def bi_days_label(days):

@@ -1,0 +1,5 @@
+{
+  "_note": "Paid booking links for lodging pages, read by hotel_layer.py. search: [{name, url}] applied to every lodging page, {q} in the url is replaced by the place's name and city, URL-encoded. places: {record id: [{name, url}]} for one place. Rendered with rel=\"sponsored nofollow noopener\" under the paid-link label. Empty while motdang's Travelpayouts project is under review (2026-10-04).",
+  "search": [],
+  "places": {}
+}

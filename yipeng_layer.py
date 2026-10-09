@@ -581,7 +581,7 @@ def emit(g, events, data):
                f'{bi("วันที่: ปฏิทินจันทรคติที่เผยแพร่แล้ว + ประกาศทางการเมื่อออก", "dates: published lunar calendars + official notices as they land")} (<a href="data/festival_dates.json">festival_dates.json</a>) · '
                f'{bi("ข้อมูลหน้านี้ทั้งหมด", "everything on this page as data")}: <a href="data/yipeng.json">yipeng.json</a> · '
                f'{bi("ภาพ: Wikimedia Commons ตามที่ระบุใต้ภาพ — เครดิตทั้งหมดที่", "pictures: Wikimedia Commons as credited under each — all credits at")} <a href="pictures.html">pictures.html</a></p>'
-               f'<p class="myhint">{bi("ฤดูนี้ทำงานอย่างไร: หน้านี้ + จดหมายรายสัปดาห์ร่างโดยชุดบอต Festival Push (ส.ค.–พ.ย. ๒๕๖๙) จากทะเบียน ใบลาน และประกาศจริงเท่านั้น วันที่ที่ยังไม่ประกาศไม่มีทางถูกเดา — ถ้าเห็นช่องว่าง นั่นคือความจริง ณ วันที่สร้างหน้า", "How this season works: the page and the weekly letters are drafted by the Festival Push bots (Aug–Nov 2026) from the register, the manuscripts and real notices only. An unannounced date is never guessed — an empty slot is the truth on the build date.")} '
+               f'<p class="myhint">{bi("ฤดูนี้ทำงานอย่างไร: หน้านี้ + จดหมายรายสัปดาห์ร่างโดยชุดบอต Festival Push (ส.ค.–พ.ย. ๒๕๖๙) จากทะเบียน ใบลาน และประกาศจริงเท่านั้น วันที่ที่ยังไม่ประกาศจะเว้นว่างไว้ — ช่องว่างคือความจริง ณ วันที่สร้างหน้า", "How this season works: the page and the weekly letters are drafted by the Festival Push bots (Aug–Nov 2026) from the register, the manuscripts and real notices only. An unannounced date is left empty — an empty slot is what was known on the build date.")} '
                f'{bi("สร้าง " + g["BUILD_DATE"], "built " + g["BUILD_DATE"])}</p>')
 
     # ---- countdown script ------------------------------------------------

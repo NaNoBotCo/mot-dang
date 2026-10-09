@@ -5,7 +5,7 @@ WHY THIS EXISTS
 The weather tile and the PM2.5 tile were baked at build time, and the build is
 a thing a person runs by hand. On the day this was written the widget portal
 was showing weather from six days earlier and air from three. Both tiles said
-so honestly — "ข้อมูล 2026-08-05" — which made them truthful and useless.
+so plainly — "ข้อมูล 2026-08-05" — which made them truthful and useless.
 
 PM2.5 is the sharp end. `importers/make_air.py` says it plainly: for about a
 third of the year the number that governs what somebody in Chiang Mai does
@@ -25,7 +25,7 @@ map_shell sits on top of the drawn SVG:
   * On success the numbers are replaced in place and the footer stops saying
     "as of <date>" and starts saying "สด · live".
   * On any failure — offline, blocked, rate-limited, malformed — nothing
-    happens at all. The baked numbers and their honest date stay exactly as
+    happens at all. The baked numbers and their own date stay exactly as
     they were. A stale figure that admits its age beats an error message.
 
 So the page never depends on the network to be a page, and never shows a

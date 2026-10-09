@@ -26,6 +26,7 @@
     </div>
   </div>
   <div class="ribbon-actions">
+    <button id="btn-install" class="chip-btn install" title="ใส่ไว้ที่หน้าจอโฮม · add to home screen" hidden>⬇</button>
     <button id="btn-mylog" class="chip-btn" title="บันทึกของฉัน">🗂️</button>
     <button id="btn-privacy" class="chip-btn" title="ความเป็นส่วนตัว">🕊️</button>
   </div>
@@ -59,8 +60,8 @@
      aria-labelledby="loc-gate-t">
   <div class="locbox">
     <b id="loc-gate-t">ใช้ตำแหน่งจริงของคุณไหม · Use your real location?</b>
-    <p>ตำแหน่งของคุณอยู่ในเครื่องคุณเท่านั้น ไม่ถูกส่งออกไปไหน และไม่ถูกเก็บไว้ ·
-       Your location never leaves this device. It is not sent anywhere and not stored.</p>
+    <p>ตำแหน่งใช้เรียงรายการในเครื่องนี้ ·
+       The location sorts the list on this device.</p>
     <div class="locacts">
       <button type="button" id="loc-yes">📍 ใช้ตำแหน่งของฉัน · Use my location</button>
       <button type="button" id="loc-no" class="ghost">ไม่ต้อง · Not now</button>
@@ -72,6 +73,31 @@
 <article id="card" class="card" hidden></article>
 
 <article id="page" class="page" hidden></article>
+
+<!-- ใส่ไว้ที่หน้าจอโฮม — the one-tap install (Nan, 2026-09-17: "you should be
+     able to download it to your homescreen very easily and for free").
+     Android Chrome hands the page a beforeinstallprompt event and a button
+     that calls prompt() on it installs in one tap, no store and no APK. iOS
+     hands out no such event, so there the sheet prints the two taps Safari
+     needs instead. Neither appears once the app is already standing on its
+     own — display-mode: standalone is how a phone says that. -->
+<div id="inst-sheet" class="veil instsheet" hidden role="dialog" aria-modal="true"
+     aria-labelledby="inst-t">
+  <div class="locbox">
+    <b id="inst-t">ใส่ไว้ที่หน้าจอโฮม · Add to Home Screen</b>
+    <p id="inst-how">ฟรี ไม่ต้องเข้าสโตร์ ใช้ได้ตอนไม่มีเน็ต ·
+       Free, no store, works with no signal.</p>
+    <ol id="inst-steps" class="inst-steps" hidden>
+      <li>กดปุ่มแชร์ (สี่เหลี่ยมมีลูกศรขึ้น) ข้างล่าง ·
+          Tap the Share button below — the square with an arrow out of it</li>
+      <li>เลื่อนลง แล้วกด <b>ใส่ไว้ที่หน้าจอโฮม · Add to Home Screen</b></li>
+    </ol>
+    <div class="locacts">
+      <button type="button" id="inst-go" hidden>⬇ ติดตั้ง · Install</button>
+      <button type="button" id="inst-close" class="ghost">ปิด · Close</button>
+    </div>
+  </div>
+</div>
 
 <div id="toast" class="toast" hidden></div>
 

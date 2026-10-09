@@ -1,0 +1,190 @@
+THE FLEET SEARCH — motdang.net/find
+2026-09-21 · live since 12:05 Bangkok
+
+Your ask: search like 1990s AltaVista, drawing from the sites you run; two
+ways — boolean for the skilled, a lucky box for everyone else — both fast.
+
+==============================================================================
+WHERE
+==============================================================================
+
+  https://motdang.net/find              the box, and the Lucky button
+  https://motdang.net/find?adv=1        the boolean form
+  the header box on every page          now answers from the same index
+  https://motdang.net/find?q=…&fmt=json for machines
+
+  The old place filters (advanced.html → search.html?tag=…) still work at
+  their old address. Nothing else on the site changed.
+
+==============================================================================
+WHAT IT SEARCHES
+==============================================================================
+
+  105,077 pages from 20 of your sites — every page of every roster site that
+  has a build on this disk, read from the build itself (no crawling):
+
+    motdang.net              85,539      pinot-noir              164
+    wichaa.net               16,883      pink-box                154
+    care-abroad                 364      defiant.to              147
+    hand-poke                   311      hakfarang.net            18
+    amulet-atlas                308      offrampt.net              9
+    muay-thai                   305      thairoots                 2
+    mae-hong-son-loop           277      uptake                    2
+    basque-tables               207      hongdam.net               2
+    carolina-barbecue           201      index                     1
+    buffalo-wings               183      portal                    1
+
+  Each page: title, the description or its first 240 characters, address,
+  last-modified date, size — the AltaVista row. The words matched are the
+  page's own text, up to 4,000 characters.
+
+==============================================================================
+THE TWO WAYS
+==============================================================================
+
+  SIMPLE — words, and the page must hold all of them.
+    +คำ must appear · −คำ must not · "a phrase" · dermat* · title: url: site:
+    ลองโชค · LUCKY sends you to the first page found.
+    When every word finds nothing it widens one step at a time and says
+    which step answered: words split apart (a Thai compound), any word,
+    then synonyms from the fleet thesaurus (toksen → ตอกเส้น).
+
+  BOOLEAN — AND OR NOT NEAR ( ) "…" *, a site menu, a date range.
+    NOT binds tightest, then AND, then OR. NEAR = within 10 words.
+    Upper-case AND/OR/NOT/NEAR in the simple box switch it on too.
+
+==============================================================================
+FILTERING AND SORTING (added the same day, on your second ask)
+==============================================================================
+
+  Four controls, the same on both doors. On a results page they are a bar of
+  links across the top, each carrying the count it leads to:
+
+    เรียง · Sort          ตรงที่สุด Best match · ใหม่สุด Newest ·
+                          เก่าสุด Oldest · ก-ฮ A–Z
+    คำอยู่ที่ · Words in   ทั้งหน้า Anywhere · ชื่อหน้า Title · ที่อยู่ Address
+    ปรับปรุง · Updated    ทุกช่วง Any time · 7 days · 30 days · a year
+    ไซต์ · Site           every site the answer touches, counted
+
+  On the boolean form the same four are dropdowns, with from and to dates
+  instead of the presets, and 10 / 20 / 50 per page.
+
+  Three rules it holds to, each of which cost something to get right:
+
+  A COUNT IS THE COUNT YOU GET. The site numbers are taken with every other
+  filter already applied; the date numbers with the site filter applied. A
+  bucket holding the whole answer narrows nothing and is not shown — most of
+  Mot Dang carries the date of the nightly build, so "7 days" and "30 days"
+  are usually the same number, and showing both twice would be furniture.
+
+  A SORT ORDERS WHAT YOU CAN REACH. Anything but relevance orders the best
+  1,000 matches, which is also as deep as the pager goes, and the page says
+  so when the answer is bigger. Sorting 61,000 rows to show ten would cost
+  nine seconds and nobody would ever page to row 1,001.
+
+  THE FILTERS RIDE ALONG. Every link and both boxes carry the query, the
+  sort, the site, the dates and the page size, so typing a new word keeps
+  your filters and a results address is a bookmark. Changing a filter goes
+  back to page one, because page seven of the old answer is not page seven
+  of the new one. When an answer is empty, the filters in force are named
+  with a link to take each one off.
+
+  WHAT IT COST TO MAKE FAST: sorting or counting touches up to a thousand
+  scattered rows, and read from the main table those are fat rows — title,
+  abstract and address — which took nine seconds on the broadest query. A
+  covering index did not fix it: for a table keyed by rowid SQLite prefers
+  the primary key and reads the whole row anyway. So the keys now live in
+  their own narrow table, about 10 MB, and only the ten rows that survive
+  the sort are read whole.
+
+==============================================================================
+MEASURED, LIVE, FROM CHIANG MAI — FILTERED AND SORTED, 14:05
+==============================================================================
+
+  query                                   found    edge     page
+  ----------------------------------------------------------------
+  wat, newest first                      26,791   152 ms   3.2 KB
+  wat, on wichaa.net only                 7,982    94 ms   3.5 KB
+  massage, the word in the title only        556    50 ms   3.3 KB
+  massage, updated in 7 days               3,887    68 ms   3.3 KB
+  cafe, titles only, A–Z                   2,777    67 ms   3.2 KB
+  tok sen, oldest first                      262    50 ms   3.3 KB
+  เชียงใหม่, A–Z                          61,492   158 ms   3.8 KB
+  massage NOT spa, titles, A–Z (boolean)     409    56 ms   4.1 KB
+  wat, newest, page 5 of 50 a page        26,791   129 ms   5.1 KB
+
+  The broadest sort is the slowest thing here at about 190 ms, and it is
+  cached for ten minutes after the first reader asks.
+
+==============================================================================
+MEASURED, LIVE, FROM CHIANG MAI, 12:10 — BEFORE THE FILTERS
+==============================================================================
+
+  query                              found    edge     total   page
+  ------------------------------------------------------------------
+  ตอกเส้น (first, cold)                 91   370 ms   866 ms   2.6 KB
+  tok sen old city                      17    57 ms    91 ms   2.8 KB
+  elephant NEAR sanctuary              317    46 ms   118 ms   2.8 KB
+  ร้านกาแฟนิมมาน                        20    77 ms   172 ms   3.0 KB
+  (vegan OR เจ) AND cafe NOT spa       274    55 ms   141 ms   3.5 KB
+  massage nimman (header box)          396    46 ms    94 ms   2.9 KB
+  เชียงใหม่                          61,492    98 ms   194 ms   3.2 KB
+  toksen massage, lucky                 →  motdang.net/cm/p/chan-hom-toksen…
+  yant, json                           657    40 ms   133 ms   1.1 KB
+
+  "edge" is the Worker's own clock; "total" includes the trip from here.
+  A page is 2–4 KB gzipped, no script, no stylesheet to fetch. The old
+  search page downloaded 1.5 MB before its first answer.
+
+  The cold 370 ms is the dictionary (1 MB) loading once per edge machine;
+  the same query again is 57 ms. A repeated address is served from the
+  edge cache for ten minutes.
+
+==============================================================================
+HOW IT WORKS, IN A LINE EACH
+==============================================================================
+
+  fleetsearch/crawl.py reads each site's docs/ → 105k rows in 137 s.
+  fleetsearch/load.py puts them in a Cloudflare D1 database (SQLite with
+  full-text search) — 22 chunks, 15 min.
+  publish/fleetsearch.js turns what you typed into a full-text query and
+  writes the page; the site Worker routes /find to it.
+  Thai is split into dictionary words on both sides with the same file
+  the site already uses, and sent as a phrase.
+
+  Tests: 39 query-language and SQL cases, 37 end-to-end cases over a local
+  copy of the index with the real dictionary, 12 crawler-and-wiring checks.
+  All green before each deploy. The three existing Worker suites still green.
+
+==============================================================================
+WHAT IS NOT DONE, AND THE FORKS
+==============================================================================
+
+  RELOAD. The index is a snapshot of today's builds. Reloading is two
+  commands (crawl.py, load.py), but D1 does not answer queries while a
+  chunk is importing — a full reload is a few minutes of /find answering
+  errors. No nightly is scheduled.
+    a) nightly at 04:30 Bangkok, accept the gap        (cheapest)
+    b) build a delta loader first — only changed pages, no gap (a day's work)
+    ⏳ if silent: (a) from 2026-09-28, the gap logged each night
+
+  THE OLD PLACE FILTERS. advanced.html and its search.html?tag=… page are
+  a second "advanced search" beside the boolean one.
+    a) keep both
+    b) fold the place filters (kind, area, open now, near me) into the
+       boolean form as more rows
+    ⏳ if silent: (a)
+
+  RANKING. Title counts 8×, body 1×, address 2×. No site is favoured. If
+  you want motdang first, or wichaa first, that is one number.
+
+  THE DATES ARE BUILD DATES, mostly. Mot Dang rebuilds nightly, so nearly
+  every page of it says it changed within the week and the "updated" filter
+  cannot tell a page that really changed from one that was reprinted. It
+  does separate the older sites — defiant.to still says July — and the
+  bar hides a bucket that holds everything, so it shows as little as it can
+  rather than pretending. Making it mean more needs the record dates the
+  build already knows, which is work on the crawler, not on the search.
+
+  NOT SEARCHED: sites with no build on this disk — ask.motdang.net,
+  ai.motdang.net, Patreon, Ko-fi.

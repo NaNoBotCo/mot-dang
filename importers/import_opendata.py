@@ -113,6 +113,47 @@ def _phone(text):
     return re.sub(r"\s+", " ", m.group(0)).strip() if m else None
 
 
+# The FDA register's `appdate` column is nominally CE — 24,692 of its 24,888
+# rows are — and the licence number carries the same year in B.E.
+# (ขย1 ชม 79/2560), which is what lets the exceptions be read rather than
+# guessed. Two families of exception are in the file, both of them era
+# arithmetic done to the wrong column upstream:
+#   B.E. LEFT IN     2560-12-12 for licence 79/2560 — the year is the licence's
+#                    own B.E. year, unconverted. 16 rows. CE = year − 543.
+#   543 TAKEN TWICE  1470-01-08 for licence 1/2556, 1475-01-05 for 2/2561,
+#                    1464-06-07 for 7/2550 — B.E. − 543 − 543, exactly 1086
+#                    below the licence year in each clean case. 22 rows.
+#                    CE = year + 543.
+# Four rows fit neither: 2306-01-13 (licence 58/2556), 2299-04-28 (115/2556),
+# 2109-05-15 (3/2562) and 1484-09-30, whose + 543 lands in 2027. No single
+# shift puts any of them in a livable year, and the licence number does not
+# say which digit was mistyped. Those return None and take the same path as
+# the 154 rows whose appdate is simply blank. A date we cannot read is not a
+# date; inventing 2013-01-13 from a licence number would put a day's
+# precision on a guess.
+DATE_FLOOR = 1900
+
+
+def _ce_date(s):
+    """'2560-12-12' -> '2017-12-12'. An ISO date whose year is CE, or None.
+
+    Tries the year as written, then − 543, then + 543, and takes the first
+    that lands between DATE_FLOOR and today. The three shifts cannot collide:
+    the register's real CE years run 1970..2024, its B.E. years 2517..2560,
+    and its doubly-shifted years 1461..1484."""
+    m = re.match(r"\s*(\d{4})-(\d{2})-(\d{2})", s or "")
+    if not m:
+        return None
+    y, mo, d = int(m.group(1)), m.group(2), m.group(3)
+    for cand in (y, y - 543, y + 543):
+        if DATE_FLOOR <= cand <= date.today().year:
+            try:
+                return date(cand, int(mo), int(d)).isoformat()
+            except ValueError:          # 31 February in the register
+                return None
+    return None
+
+
 class _Gaz:
     """geocode_local, opened once, first use."""
     _g = None
@@ -343,6 +384,51 @@ def records():
                 "licence": m.get("licence") or "not specified",
                 "credit": m.get("publisher") or "data.go.th"}
 
+    # --- What a tourism-register row IS, read off its own name -------------
+    # The three Chiang Rai tourism lists (eco, religious/arts, community) came
+    # in with a `kind` from the register and no sub, so 228 records sat on the
+    # sights parent and reached no shelf: 29% of every sights record in the
+    # catalogue. The register's kind is a real fact and it is not a shelf —
+    # "แหล่งท่องเที่ยวเชิงสุขภาพ" turned out to be twelve Thai-named spas and
+    # massage shops filed under sights, in the province whose massage shelf is
+    # the thinnest thing we hold. So: read the NAME first, in Thai, and only
+    # fall back to the register's own word. Same posture as named_spring above
+    # — one rule, no inference beyond the words on the row.
+    TOURISM_RULES = [
+        # a wat is a wat; no sub, exactly as the 2,668 others carry none
+        (("วัด", "พระธาตุ", "พุทธมณฑล", "ที่พักสงฆ์", "อารามหลวง"), ["wat"], []),
+        (("พิพิธภัณฑ์", "หอศิลป"), ["museums-galleries"], ["museum"]),
+        (("ชุมชน",), [], ["community-tourism"]),
+        (("น้ำตก",), [], ["waterfall"]),
+        (("อุทยานแห่งชาติ", "วนอุทยาน", "สวนรุกขชาติ", "สวนสมเด็จ",
+          "สวนพฤกษศาสตร์"), ["parks"], ["nature"]),
+        (("จุดชมวิว", "ผาชมวิว"), [], ["viewpoint"]),
+        (("ดอย", "ภูชี้", "ผาตั้ง", "ยอดเขา"), [], ["peak"]),
+        (("สปา", "นวด", "มาสสาจ"), ["massage"], ["spa-body"]),
+    ]
+    KIND_FALLBACK = {
+        "ชุมชนท่องเที่ยว": ([], ["community-tourism"]),
+        "แหล่งท่องเที่ยวเชิงศาสนา ศิลปะ วัฒนธรรม": ([], ["culture-site"]),
+        "แหล่งท่องเที่ยวเชิงนิเวศ": (["parks"], ["nature"]),
+    }
+
+    def _tourism_shelf(rec):
+        """Union a cat/sub onto a tourism-register record from its own name,
+        then from the register's own kind. Never touches a record that already
+        reached a shelf — named_spring runs first and keeps its answer."""
+        if rec.get("sub"):
+            return rec
+        name = rec.get("name") or ""
+        for words, cats, subs in TOURISM_RULES:
+            if any(w in name for w in words):
+                rec["cat"] = sorted(set(rec["cat"]) | set(cats))
+                rec["sub"] = sorted(set(rec.get("sub") or []) | set(subs))
+                return rec
+        cats, subs = KIND_FALLBACK.get((rec.get("attrs") or {}).get("kind"), ([], []))
+        rec["cat"] = sorted(set(rec["cat"]) | set(cats))
+        rec["sub"] = sorted(set(rec.get("sub") or []) | set(subs))
+        return rec
+
     # --- Chiang Rai attractions with phone numbers -------------------------
     eco = data.get("cr-eco")
     if eco and eco.get("rows"):
@@ -377,7 +463,7 @@ def records():
                    "sources": [{**src_meta("cr-eco"),
                                 "credit": row["credit"] or (data.get("cr-eco") or {}).get("publisher", "")}],
                    "confidence": "official", "updatedAt": today}
-            return _pin(rec, addr, "cr")
+            return _pin(_tourism_shelf(rec), addr, "cr")
         recs, held = _fold_rows("cr-eco", rows, "cr", mk, canonical, review, run_keys=run_keys)
         print(f"opendata: cr attractions — {len(recs)} new, {held} already held")
         out += recs
@@ -409,7 +495,7 @@ def records():
                    "sources": [{**src_meta(_key),
                                 "credit": row["credit"] or (data.get(_key) or {}).get("publisher", "")}],
                    "confidence": "official", "updatedAt": today}
-            return _pin(rec, addr, "cr")
+            return _pin(_tourism_shelf(rec), addr, "cr")
         recs, held = _fold_rows(key, rows, "cr", mk, canonical, review,
                                 temple_keys=temple_keys, run_keys=run_keys)
         print(f"opendata: {key} — {len(recs)} new, {held} already held")
@@ -495,12 +581,35 @@ def records():
                          "cuisine": r[4] if len(r) > 4 else "",
                          "grade": (r[6] if len(r) > 6 else "").strip()})
 
+        # The register states the kitchen's own trade in its own column, and
+        # for 34 records that column was carried onto the record as attrs.kind
+        # and then went nowhere: cat food, no sub, no shelf. อาหารตามสั่ง is a
+        # shelf we have; ก๋วยเตี๋ยว is a shelf we have; อาหารเจ is a shelf we
+        # have. The word was on the record the whole time.
+        TF_KIND = (("อาหารเจ", "vegetarian"), ("มังสวิรัติ", "vegetarian"),
+                   ("อาหารเหนือ", "northern"), ("ก๋วยเตี๋ยว", "noodle"),
+                   ("ขนมจีน", "noodle"), ("อาหารตามสั่ง", "thai"),
+                   ("ข้าวราดแกง", "thai"), ("อาหารอีสาน", "thai"),
+                   ("อาหารจานเดียว", "thai"), ("กาแฟ", "cafe"),
+                   ("เบเกอรี", "bakery-dessert"), ("ขนม", "bakery-dessert"))
+
+        def _tf_sub(cuisine, name):
+            """One sub from the register's own cuisine column, most specific
+            first. อาหารจานเดียว and ข้าวราดแกง are 'a rice shop' and land on
+            `thai` — the plain shelf — rather than inventing one."""
+            blob = f"{cuisine} {name}"
+            for word, sub in TF_KIND:
+                if word in blob:
+                    return [sub]
+            return []
+
         def mk(row):
             addr = " ".join(x for x in (
                 f"ตำบล{row['tambon']}" if row["tambon"] else "",
                 f"อำเภอ{row['amphoe']}" if row["amphoe"] else "", "จังหวัดเชียงราย") if x)
             rec = {"id": _sid("cr", "thongfah", row["name"]),
-                   "province": "cr", "cat": ["food"], "sub": [],
+                   "province": "cr", "cat": ["food"],
+                   "sub": _tf_sub(row["cuisine"], row["name"]),
                    "name": row["name"], "nameTh": None, "nameEn": None,
                    "address": addr or None, "phone": None, "website": None, "hours": None,
                    "attrs": {"thongfah": row["grade"] or "yes",
@@ -548,7 +657,8 @@ def records():
                                  "tambon": r[H["thathmblnm"]], "amphoe": r[H["thaamphrnm"]],
                                  "zip": r[H["zipcode"]] if "zipcode" in H else "",
                                  "lic": r[H["lcnno_no"]] if "lcnno_no" in H else "",
-                                 "since": r[H["appdate"]] if "appdate" in H else ""})
+                                 "since": (_ce_date(r[H["appdate"]])
+                                           if "appdate" in H else None)})
 
                 def mk(row, _prov=prov, _th=prov_th):
                     addr = " ".join(x for x in (
@@ -575,7 +685,7 @@ def records():
                            "featured": False, "landmark": False,
                            "sources": [src_meta("fda-drug", "register")],
                            "confidence": "official",
-                           "updatedAt": (row["since"] or today)[:10]}
+                           "updatedAt": row["since"] or today}
                     return _pin(rec, addr, _prov)
                 recs, held = _fold_rows("fda-drug", rows, prov, mk, canonical, review,
                                         run_keys=run_keys)

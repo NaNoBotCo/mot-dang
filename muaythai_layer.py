@@ -254,7 +254,7 @@ def emit(g, data):
     data_attrs = " ".join(f'data-{i}="{att(tonight_sentence(i))}"' for i in range(7))
     tonight_html = (f'<div class="mt-today"><b>🥊 {bi("คืนนี้ชกที่ไหน", "Who fights tonight")}</b>'
                     f'<span id="mt-today" {data_attrs}>{esc(tonight_sentence(built_i))}</span>'
-                    f'<div class="mt-note">{bi("สนามบอกคืนชกของตัวเอง มดแดงแค่จดไว้ — ก่อนออกจากบ้านโทรหรือ LINE ถามสักครั้ง", "Each stadium states its own nights; the ants only write them down — one call or LINE before you set out is worth it")}</div></div>')
+                    f'<div class="mt-note">{bi("สนามบอกคืนชกของตัวเอง เราแค่จดไว้ — ก่อนออกจากบ้านโทรหรือ LINE ถามสักครั้ง", "Each stadium states its own nights; we only write them down — one call or LINE before you set out is worth it")}</div></div>')
     today_js = ("<script>(function(){try{var d=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Bangkok'})).getDay();"
                 "var i=(d+6)%7;document.querySelectorAll('[data-day=\"'+i+'\"]').forEach(function(c){c.classList.add('today')});"
                 "var t=document.getElementById('mt-today');if(t&&t.getAttribute('data-'+i)){t.textContent=t.getAttribute('data-'+i)}}catch(e){}})();</script>")
@@ -414,8 +414,8 @@ def emit(g, data):
                   + "</p></div>")
 
     # ---- assemble ---------------------------------------------------------
-    intro = bi("หน้านี้มีสามอย่าง: กระดานคืนชกของทุกสนามในเมือง (สนามบอกเอง มดจดไว้พร้อมที่มา) ชั้นค่ายมวยและยิมที่ฝึกได้ และเรื่องน่ารู้ก่อนเสียงปี่ดัง — เขียนจากที่นั่งคนดู ไม่ได้จัดอันดับว่าสนามไหนแท้กว่ากัน เวทีก็คือเวที",
-               "Three things on one page: the weekly fight board for every stadium in town (each stadium states its own nights; the ants write them down with the source), the shelf of camps and gyms where you can train, and what to know before the pipes start — written from the seat, with no ranking of stadiums into real and otherwise. A ring is a ring.")
+    intro = bi("หน้านี้มีสามอย่าง: กระดานคืนชกของทุกสนามในเมือง (สนามบอกเอง บันทึกไว้พร้อมที่มา) ชั้นค่ายมวยและยิมที่ฝึกได้ และเรื่องน่ารู้ก่อนเสียงปี่ดัง — เขียนจากที่นั่งคนดู ไม่ได้จัดอันดับว่าสนามไหนแท้กว่ากัน เวทีก็คือเวที",
+               "Three things on one page: the weekly fight board for every stadium in town (each stadium states its own nights; they are written down with the source), the shelf of camps and gyms where you can train, and what to know before the pipes start — written from the seat, with no ranking of stadiums into real and otherwise. A ring is a ring.")
     ld = {
         "@context": "https://schema.org", "@type": "ItemList",
         "name": "สนามมวยเชียงใหม่ — Muay Thai stadiums and fight nights, Chiang Mai",

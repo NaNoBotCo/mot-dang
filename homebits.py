@@ -213,9 +213,9 @@ def calendar(today, months=2, k_events=2, alive=None):
         head = "".join(f'<div class="wd"><span class="th" lang="th">{t}</span>'
                        f'<span class="en">{e}</span></div>'
                        for t, e in zip(THAI_WD, EN_WD))
-        out.append(f'<div class="month"><h3>{E(TH_MONTH[m])} '
+        out.append(f'<div class="month"><h3><span class="th" lang="th">{E(TH_MONTH[m])}</span> '
                    f'<span class="en">{first.strftime("%B %Y")}</span>'
-                   f'<span class="be">พ.ศ. {y + 543}</span></h3>'
+                   f'<span class="be th">พ.ศ. {y + 543}</span></h3>'
                    f'<div class="cal"><div class="wds">{head}</div>'
                    f'<div class="days">{"".join(cells)}</div></div></div>')
         y, m = y + (m == 12), m % 12 + 1
@@ -274,9 +274,24 @@ def _cal_data():
     byday: dict[str, list] = {}
     for e in EV:
         d = (e.get("start") or "")[:10]
-        if d:
-            byday.setdefault(d, []).append(e)
-    return F, S, {d: dedupe(v) for d, v in byday.items()}
+        if not d:
+            continue
+        byday.setdefault(d, []).append(e)
+        # A run with a stated end day sits in every square it runs through,
+        # after whatever opens that day.
+        end = (e.get("end") or "")[:10]
+        if end > d and not e.get("recurring"):
+            try:
+                day, last = datetime.date.fromisoformat(d), datetime.date.fromisoformat(end)
+            except ValueError:
+                continue
+            for _ in range(400):
+                day += datetime.timedelta(days=1)
+                if day > last:
+                    break
+                byday.setdefault(day.isoformat(), []).append(dict(e, running=True))
+    return F, S, {d: dedupe(sorted(v, key=lambda e: bool(e.get("running"))))
+                  for d, v in byday.items()}
 
 
 def horizon(byday, today, cap=6):
@@ -454,7 +469,13 @@ def geo_payload(shelves, proj, cities, needs=None):
     for — each a list of [shelf, sub] pairs ("" = the whole shelf) and the page a
     tile falls back to."""
     frames = []
-    for f in json.loads((MD / "docs/site/hero/index.json").read_text()):
+    # The tree being built first: build.py writes into docs.next/ and renames it
+    # into place at the end, so docs/ is the PREVIOUS build, or absent (it was
+    # archived off a full disk on 2026-10-04 and the build stopped here).
+    _hero = next((p for p in (MD / "docs.next/site/hero/index.json",
+                              MD / "docs/site/hero/index.json") if p.exists()),
+                 MD / "docs/site/hero/index.json")
+    for f in json.loads(_hero.read_text()):
         if not f.get("bg"):
             continue
         frames.append({"j": f"site/hero/{f['slug']}.jpg", "w": f"site/hero/{f['slug']}.webp",
@@ -463,6 +484,7 @@ def geo_payload(shelves, proj, cities, needs=None):
     for k in NEAR_KINDS:
         icon(CAT_ICON[k], 20)          # so the sprite subset carries what the list draws
     icon("i-phone", 18)
+    icon("i-camera", 18)
     return {"cities": cities, "pics": frames, "proj": proj,
             "kinds": {k: CAT_ICON[k] for k in NEAR_KINDS},
             "needs": needs or {},
@@ -559,7 +581,58 @@ function pictures(){
    if(v>bs){bs=v;best=f;}});
   if(!best)return;used[best.j]=1;
   el.style.backgroundImage='image-set(url('+best.w+') type("image/webp"),url('+best.j+'))';
-  if(!el.style.backgroundImage)el.style.backgroundImage='url('+best.j+')';});}
+  if(!el.style.backgroundImage)el.style.backgroundImage='url('+best.j+')';
+  pin(el,best,P);});
+ nearPics(P);}
+
+/* ---- a tap on a band's picture goes to where it was taken (NaN, 2026-09-28) */
+function pin(el,f,P){
+ var a=el.querySelector('a.bandpin');
+ if(f.la==null){if(a)a.remove();return;}
+ if(!a){a=document.createElement('a');a.className='bandpin';el.appendChild(a);}
+ a.href='map.html#17/'+f.la+'/'+f.lo;
+ a.innerHTML=mark('i-camera',14)+'ถ่ายที่นี่ · taken here'+(P?' <b>'+dist(km(P.lat,P.lon,f.la,f.lo))+'</b>':'');}
+
+/* The edge's guess is a city (6.4 km off at the house it was measured from), so from
+   it a distance is "nearby" or whole kilometres; only the reader's own fix earns metres. */
+function dist(d){
+ if(FIX)return d<1?Math.round(d*100)*10+' m':d.toFixed(d<10?1:0)+' km';
+ return d<1.5?'ใกล้ๆ · nearby':Math.round(d)+' km';}
+
+/* ---- her pictures around the reader, each a door to the place it shows. The pool
+   lives in 0.01-degree cells (pics_layer.py), fetched only once there is a position. */
+var PIX={},PIXI=null;
+function pixCell(k){if(!PIX[k])PIX[k]=fetch('data/pics/'+k+'.json')
+ .then(function(r){return r.ok?r.json():[];}).catch(function(){return [];});return PIX[k];}
+function pixIndex(){if(!PIXI)PIXI=fetch('data/pics/index.json').then(function(r){return r.ok?r.json():null;})
+ .catch(function(){return null;});return PIXI;}
+var TH_M=['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],
+ EN_M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function day(iso){if(!iso)return '';var m=+iso.slice(5,7)-1,d=+iso.slice(8,10);
+ return '<span lang="th">'+d+' '+TH_M[m]+'</span><span class="en" lang="en"> · '+d+' '+EN_M[m]+'</span>';}
+function nearPics(P){
+ var box=document.getElementById('nearpics');if(!box||!P||(FAR&&!FIX))return;
+ pixIndex().then(function(ix){if(!ix)return;
+  var C=ix.cell,cx=Math.floor(P.lat/C),cy=Math.floor(P.lon/C);
+  function ring(n){var ks=[];for(var i=-n;i<=n;i++)for(var j=-n;j<=n;j++){
+   var k=(cx+i)+'_'+(cy+j);if(ix.cells[k])ks.push(k);}return ks;}
+  function load(ks){return Promise.all(ks.map(pixCell)).then(function(a){return [].concat.apply([],a);});}
+  return load(ring(1)).then(function(rows){return rows.length>=4?rows:load(ring(3));})
+   .then(function(rows){return rows.length>=4?rows:load(ring(8));});})
+ .then(function(rows){if(!rows||!rows.length)return;
+  rows.forEach(function(r){r.d=km(P.lat,P.lon,r[0],r[1]);});
+  rows.sort(function(a,b){return a.d-b.d||(b[6]+b[7]<a[6]+a[7]?-1:1);});
+  var out=[],seen={};
+  for(var i=0;i<rows.length&&out.length<10;i++){var r=rows[i];if((seen[r[3]]||0)>=2)continue;seen[r[3]]=(seen[r[3]]||0)+1;
+   out.push('<a class="pic" href="'+esc(r[3].replace(/^\//,''))+'"><img src="'+esc(r[2].replace(/^\//,''))+
+    '" alt="'+esc(r[5]||r[4])+'" loading="lazy"'+(r[10]?' width="'+r[10]+'" height="'+r[11]+'"':'')+'>'+
+    '<span class="cap"><b>'+esc(r[4]||r[5])+'</b><i>'+mark('i-near',12)+dist(r.d)+' · '+day(r[6])+
+    (r[7]?' '+esc(r[7]):'')+'</i></span></a>');}
+  box.innerHTML='<p class="pichead">'+mark('i-camera',18)+'ภาพแถวนี้ · pictures near you'+
+   '<span class="src">'+(FIX?'ตรงนี้ · from your fix':'ประมาณจากเครือข่าย · from your network')+
+   ' · ระยะเส้นตรง · straight-line</span></p><div class="pics">'+out.join('')+'</div>'+
+   '<p class="piccred">ภาพ · pictures NaN Peacock, CC BY 4.0</p>';
+  box.hidden=false;});}
 
 /* ---- near: the cells around the reader, fetched only when the reader asks, and
    kept, so a second tile answers without a second download. The edge's guess is a
@@ -686,22 +759,150 @@ try{if(navigator.permissions)navigator.permissions.query({name:'geolocation'})
 # on an 8 px twitch upward; now the bar leaves on the first real downward move past
 # the fold and only returns on a deliberate 90 px of scrolling back up, or at the top
 # of the page. UP and DOWN accumulate separately, so a wobble moves neither.
+# ---- the language switch: ไทย · EN ----------------------------------------------
+# Beer, 2026-10-02: two states, no TH+EN. A reader with no stored choice gets the
+# browser's language; crawlers and readers with scripts off get both. The same two modes, the same md-lang key and the same <html> classes as the
+# pages build.py draws, so a choice made on one page holds on the next. LANG_HEAD
+# goes in <head> so the chosen language is the first one painted.
+LANG_HEAD = ("<script>try{var _r=document.documentElement,_l=localStorage.getItem('md-lang');"
+             "if(_l!=='th'&&_l!=='en')_l=/bot|crawl|spider|slurp|preview|lighthouse/i.test(navigator.userAgent)?null:/^th/i.test(navigator.language||'')?'th':'en';"
+             "if(_l==='en'||_l==='th'){_r.classList.remove('lang-both');_r.classList.add('lang-'+_l)}"
+             "if(_l==='en')_r.lang='en'}catch(e){}</script>")
+
+LANG_SWITCH = ('<div class="langsw" role="group" aria-label="ภาษา · Language">'
+               '<button type="button" data-lang="th" lang="th">ไทย</button>'
+               '<button type="button" data-lang="en" lang="en">EN</button></div>')
+
+LANG_JS = r"""<script>
+(function(){
+var H=document.documentElement;
+function cur(){return H.classList.contains('lang-th')?'th':H.classList.contains('lang-en')?'en':'both';}
+function mark(){var v=cur();document.querySelectorAll('.langsw button').forEach(function(b){
+ b.setAttribute('aria-pressed',b.dataset.lang===v?'true':'false');});
+ document.querySelectorAll('[placeholder]').forEach(function(i){
+  var o=i.dataset.ph||(i.dataset.ph=i.getAttribute('placeholder')),m=split(o);
+  i.setAttribute('placeholder',!m||v==='both'?o:v==='th'?m[1]:m[3]);});}
+document.querySelectorAll('.langsw button').forEach(function(b){b.addEventListener('click',function(){
+ var v=b.dataset.lang;H.classList.remove('lang-th','lang-en','lang-both');H.classList.add('lang-'+v);
+ H.lang=v==='en'?'en':'th';try{localStorage.setItem('md-lang',v);}catch(e){}mark();});});
+var TC=/[\u0E00-\u0E7F]/,LC=/[A-Za-z]/;
+function split(v){var b=v.trim(),c=[],re=/ — | · /g,m;if(!b)return null;
+ while((m=re.exec(b)))c.push([m.index,m[0]]);
+ c.sort(function(x,y){return (x[1]!==' — ')-(y[1]!==' — ');});
+ for(var i=0;i<c.length;i++){var a=b.slice(0,c[i][0]),e=b.slice(c[i][0]+3);
+  if(TC.test(a)&&!LC.test(a)&&LC.test(e)&&!TC.test(e))
+   return [v.slice(0,v.length-v.replace(/^\s+/,'').length),a,c[i][1],e,v.slice(v.replace(/\s+$/,'').length)];}
+ return null;}
+function pair(root){var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),a=[],n;
+ while((n=w.nextNode()))a.push(n);
+ a.forEach(function(n){var p=n.parentNode;if(!p||/^(SCRIPT|STYLE|TEXTAREA)$/.test(p.nodeName))return;
+  var m=split(n.nodeValue);if(!m)return;
+  var s=document.createElement('span');s.className='tx'+(m[2]===' — '?' dash':'');
+  var t=document.createElement('span');t.className='th';t.lang='th';t.textContent=m[1];
+  var e=document.createElement('span');e.className='en';e.lang='en';e.textContent=m[3];
+  s.appendChild(t);s.appendChild(e);var f=document.createDocumentFragment();
+  if(m[0])f.appendChild(document.createTextNode(m[0]));f.appendChild(s);
+  if(m[4])f.appendChild(document.createTextNode(m[4]));p.replaceChild(f,n);});}
+mark();pair(document.body);
+if(window.MutationObserver)new MutationObserver(function(ms){ms.forEach(function(m){
+ m.addedNodes.forEach(function(x){if(x.nodeType===1)pair(x);else if(x.nodeType===3&&x.parentNode)pair(x.parentNode);});});})
+ .observe(document.body,{childList:true,subtree:true});
+})();
+</script>"""
+
+# Last in the sheet, and !important, because the page's own rules set display on
+# .th and .en all over (.bi, .lbl, the nav) and the reader's choice outranks them.
+# A .solo run has no partner in the other language, so it stays in every mode.
+LANG_CSS = """
+html.lang-th .en:not(.solo){display:none!important}
+html.lang-en .th:not(.solo){display:none!important}
+html.lang-en header.top nav a .en{display:inline;margin-left:0}
+html.lang-en .bi>.en,html.lang-en a.pill>.en,html.lang-en a.need>.en{font-size:.9rem;
+ letter-spacing:.01em;text-transform:none;color:inherit;font-weight:700}
+html.lang-both .tx>.en::before{content:" · "}
+html.lang-both .tx.dash>.en::before{content:" — "}
+"""
+
+
+def tx(th, en):
+    """An inline pair, "ไทย · English". The dot is drawn only when both show."""
+    return (f'<span class="tx"><span class="th" lang="th">{th}</span>'
+            f'<span class="en" lang="en">{en}</span></span>')
+
+
+# A bare "ไทย · English" run is two languages in one text node, and nothing can
+# hide half of it. pair_bare() splits the ones that split cleanly — Thai with no
+# Latin letter on one side, Latin with no Thai on the other — into the same pair
+# tx() draws. The page script does the same to lines it writes after load.
+_THC = re.compile("[฀-๿]")
+_LAT = re.compile("[A-Za-z]")
+_SEP = re.compile(" — | · ")
+
+
+def _pair(t):
+    body = t.strip()
+    if not body:
+        return t
+    lead, tail = t[:len(t) - len(t.lstrip())], t[len(t.rstrip()):]
+    cuts = sorted(_SEP.finditer(body), key=lambda m: m[0] != " — ")
+    for m in cuts:
+        a, b = body[:m.start()], body[m.end():]
+        if _THC.search(a) and not _LAT.search(a) and _LAT.search(b) and not _THC.search(b):
+            dash = " dash" if m[0] == " — " else ""
+            return (f'{lead}<span class="tx{dash}"><span class="th" lang="th">{a}</span>'
+                    f'<span class="en" lang="en">{b}</span></span>{tail}')
+    return t
+
+
+def pair_bare(page):
+    out, skip = [], None
+    for part in re.split(r"(<[^>]*>)", page):
+        if part.startswith("<"):
+            tag = re.match(r"</?([a-zA-Z0-9]+)", part)
+            name = tag[1].lower() if tag else ""
+            if skip is None and not part.startswith("</") and name in (
+                    "script", "style", "title", "textarea"):
+                skip = name
+            elif skip == name and part.startswith("</"):
+                skip = None
+            out.append(part)
+        else:
+            out.append(part if skip or not part.strip() else _pair(part))
+    return "".join(out)
+
+
 HEADER_JS = r"""<script>
 (function(){
-var b=document.body,y=window.pageYOffset,up=0,dn=0,ticking=false;
+var b=document.body,h=document.querySelector('header.top'),y=window.pageYOffset,up=0,dn=0,ticking=false;
+// The header is sticky in the page's flow, so folding it moved everything under it up
+// and the browser anchored the scroll to follow: a reader who stopped just past the fold
+// was thrown back above it, the bar unfolded, the page was thrown forward, and it did
+// that every frame (NaN, 2026-09-28: "isn't staying properly collapsed"). The fold now
+// keeps the page's height: the rows it drops become margin under the bar. Scroll
+// anchoring is off for the instant of the fold, since the height is read between steps.
+function tight(on){
+ if(on===b.classList.contains('nav-tight'))return;
+ if(!h){b.classList.toggle('nav-tight',on);return;}
+ var r=document.documentElement.style;r.overflowAnchor='none';
+ h.style.marginBottom='';var a=h.offsetHeight;
+ b.classList.toggle('nav-tight',on);
+ if(on)h.style.marginBottom=Math.max(0,a-h.offsetHeight)+'px';
+ void h.offsetHeight;r.overflowAnchor='';
+}
 function frame(){
  ticking=false;
  var n=window.pageYOffset,d=n-y;y=n;
- if(n<60){up=dn=0;b.classList.remove('nav-away','nav-tight');return;}
- b.classList.add('nav-tight');
+ if(n<60){up=dn=0;b.classList.remove('nav-away');tight(false);return;}
+ tight(true);
  if(d>0){dn+=d;up=0;if(dn>14)b.classList.add('nav-away');}
  else if(d<0){up-=d;dn=0;if(up>90)b.classList.remove('nav-away');}
 }
 addEventListener('scroll',function(){
  if(!ticking){ticking=true;requestAnimationFrame(frame);}},{passive:true});
+addEventListener('resize',function(){
+ if(b.classList.contains('nav-tight')){b.classList.remove('nav-tight');tight(true);}},{passive:true});
 addEventListener('focusin',function(e){
- var h=document.querySelector('header.top');
- if(h&&h.contains(e.target))b.classList.remove('nav-away');});
+ if(h&&h.contains(e.target)){b.classList.remove('nav-away');tight(false);}});
 frame();
 })();
 </script>"""

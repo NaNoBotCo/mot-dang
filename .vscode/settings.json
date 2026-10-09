@@ -1,0 +1,24 @@
+{
+  "files.watcherExclude": {
+    "**/docs/**": true,
+    "**/docs.next/**": true,
+    "**/docs.prev/**": true,
+    "**/cache/**": true,
+    "**/node_modules/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true
+  },
+  "search.exclude": {
+    "**/docs/**": true,
+    "**/docs.next/**": true,
+    "**/docs.prev/**": true,
+    "**/cache/**": true,
+    "**/node_modules/**": true
+  },
+  "files.exclude": {
+    "**/docs.next/**": true,
+    "**/docs.prev/**": true,
+    "**/cache/**": true
+  },
+  "antigravity.searchMaxWorkspaceFileCount": 2500
+}

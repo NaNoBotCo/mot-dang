@@ -325,7 +325,7 @@ def emit(g, data):
         # A molecule nobody has ruled on. The default below points HERE and not
         # at permitted-limited, because a missing verdict rendered as "may be
         # carried in, with papers" would be this page inventing the one fact it
-        # exists to keep honest.
+        # exists to keep it answerable.
         "unstated": ("ask", "ยังไม่มีคำตัดสิน", "no verdict on file"),
     }
     mol_rows = []

@@ -28,7 +28,7 @@ thousands of requests from is both the simplest thing and the fastest. A D1
 table would add a binding, a migration, a second source of truth, and a way
 for a field to mean one thing on a page and another in the API. This cannot
 drift that way: it is written by the build that writes the pages, in the same
-pass, from the same records, through the same helpers. And it carries EVERY
+pass, from the same records, through the same helpers. And it carries every
 record — see the "nothing is filtered out" note in build_index() for why an
 invisible filter is the one thing an API must not do to a caller.
 
@@ -135,6 +135,14 @@ def _schedule_table(g):
     return lamps.get("schedules", []), by_id, ""
 
 
+# THE PROVINCE IS A WORD ON every ROW (Nan, 2026-09-10). "river tavern chiang
+# rai" tested two words no row carried and answered nothing; the edge row now
+# carries its city in both scripts, so the words land whether or not api.js
+# lifts them into the province filter.
+PROVINCE_WORDS = {"cm": ["เชียงใหม่", "chiang mai", "chiangmai"],
+                  "cr": ["เชียงราย", "chiang rai", "chiangrai"]}
+
+
 def _match_blob(g, r, tag_slugs):
     """The lowercased haystack ?q= tests against.
 
@@ -151,6 +159,7 @@ def _match_blob(g, r, tag_slugs):
                  r.get("address")]
     bi_parts += list(attrs.get("altNames") or [])
     bi_parts += list((attrs.get("namesOther") or {}).values())
+    bi_parts += PROVINCE_WORDS.get(r.get("province") or "", [])
     for c in r.get("cat") or []:
         cd = g["CATS"].get(c)
         if cd:
@@ -239,7 +248,10 @@ def build_index(g, data, photos, tags):
                 row["lat"], row["lng"] = r["lat"], r["lng"]
             if r.get("hours"):
                 row["hours"] = r["hours"]
-            if r["id"] in sched_by_id:
+            # No schedule for a shut or moved place (data/curated/status.json):
+            # openNow stays null for it, the same as unknown hours.
+            _st = r.get("status") if isinstance(r.get("status"), dict) else {}
+            if r["id"] in sched_by_id and _st.get("state") not in ("closed", "moved"):
                 row["sched"] = sched_by_id[r["id"]]
             if tag_slugs:
                 row["tags"] = tag_slugs
@@ -289,6 +301,7 @@ def build_index(g, data, photos, tags):
             "descriptor": base + "api/v1/",
             "places": base + "api/v1/places",
             "place": base + "api/v1/places/{idOrSlug}",
+            "search": base + "api/v1/search",
             "categories": base + "api/v1/categories",
             "tags": base + "api/v1/tags",
             "health": base + "api/v1/health",
@@ -315,7 +328,8 @@ def build_index(g, data, photos, tags):
             "withKnownHours": sum(1 for row in rows if "sched" in row),
             "note": ("A place absent from the schedule table has UNKNOWN hours. "
                      "openNow is null for it, never false, and open_now=1 "
-                     "excludes it rather than calling it shut."),
+                     "excludes it rather than calling it shut. A place marked "
+                     "shut or moved is absent from it too."),
         },
         "provinces": [{"key": p["key"], "th": p["th"], "en": p["en"],
                        "mode": p.get("mode"),
@@ -355,6 +369,8 @@ _PARAMS = [
     ("near", "string", "lat,lng. Places with no pin cannot answer this and drop "
                        "out of the result rather than being placed."),
     ("radius", "integer", "Metres from near=. Default 2000, max 50000."),
+    ("bbox", "string", "west,south,east,north in degrees — the viewport as a question. "
+             "Pinned rows inside the box; rows with no pin leave the answer."),
     ("open_now", "boolean", "Restrict to places open at this moment in "
                             "Asia/Bangkok. Unknown hours are EXCLUDED, not "
                             "called closed."),
@@ -413,7 +429,7 @@ def openapi(base):
                     }}}}}}}},
             "/places/{idOrSlug}": {"get": {
                 "summary": "One place, every field",
-                "description": "The same object the place page has always served "
+                "description": "The same object the place page serves "
                                "at its own URL with .json — one generator, so the "
                                "API and the page cannot disagree.",
                 "parameters": [{"name": "idOrSlug", "in": "path", "required": True,
@@ -427,6 +443,43 @@ def openapi(base):
                                                      "one record; `candidates` lists them by "
                                                      "id. Ask again by id."},  # stylecheck: allow — API documentation for developers
                               "404": {"description": "No such place"}}}},
+            # publish/worker.js searchHandler(): searchcore over the shards
+            # under api/v1/edge/. limit and offset travel inside `query` here.
+            "/search": {"get": {
+                "summary": "Places ranked by words, as the site's search box ranks them",
+                "parameters": [
+                    qp("q", "string", "Words in Thai or English. A city named here "
+                                      "narrows to its province."),
+                    qp("province", "string", "cm | cr"),
+                    qp("limit", "integer", "Default 20, max 200."),
+                    qp("offset", "integer", "For paging. total says how many matched."),
+                ],
+                "responses": {
+                    "200": {"description": "A page of ranked results", "content": {
+                        "application/json": {"schema": {"type": "object", "properties": {
+                            "schemaVersion": {"type": "integer"},
+                            "generated": {"type": "string"},
+                            "engine": {"type": "string"},
+                            "query": {"type": "object"},
+                            "total": {"type": "integer"},
+                            "count": {"type": "integer"},
+                            "tier": {"type": ["string", "null"],
+                                     "description": "exact | thesaurus | loose | partial, "
+                                                    "of the first result"},
+                            "notes": {"type": "array", "items": {"type": "string"},
+                                      "description": "How q was read: mended, segmented, "
+                                                     "stopwords, widened, intent"},
+                            "results": {"type": "array", "items": {
+                                "type": "object", "properties": dict(
+                                    result_props, score={"type": "number"},
+                                    tier={"type": "string"})}},
+                            "attribution": {"type": "string"},
+                            "licence": {"type": "object"},
+                            "terms": {"type": "string"},
+                        }}}}},
+                    "500": {"description": "The engine broke on this query; /places?q= answers"},
+                    "503": {"description": "The search shards are not published; /places?q= answers"},
+                }}},
             "/categories": {"get": {"summary": "The category tree with live counts",
                                     "responses": {"200": {"description": "Categories"}}}},
             "/tags": {"get": {"summary": "Every tag, lens and facet key in use",
@@ -463,7 +516,8 @@ def schema(base):
                 "distanceM": "only when near= was given",
             },
             "nullMeansUnknown": [
-                "openNow — null when nobody holds this place's hours. Never "
+                "openNow — null when nobody holds this place's hours, or when the "
+                "place is marked shut or moved. Never "
                 "false-because-unknown.",
                 "lat / lng — null when the place is known but not yet pinned; "
                 "geoPrecision says which.",
@@ -527,7 +581,7 @@ def _terms_page(g):
             ("ดึงข้อมูลผ่าน API หรือโหลดไฟล์ทั้งชุดไปเก็บไว้เองก็ได้",
              "Call the API, or take the bulk file and never call us again"),
         ])
-        + f'<p>{bi("ไม่ต้องสมัคร ไม่มีคีย์ ไม่มีค่าธรรมเนียม ไม่ต้องทำสัญญา ไม่มีการให้สิทธิ์แต่ผู้เดียวกับใคร", "No sign-up, no key, no fee, no contract, no exclusivity with anyone.")}</p>'
+        + f'<p>{bi("ไม่ต้องสมัคร ไม่มีคีย์ ไม่มีค่าธรรมเนียม ไม่ต้องทำสัญญา", "No sign-up, no key, no fee, no contract.")}</p>'
 
         + h2("เครดิต", "Attribution")
         + ul([
@@ -562,8 +616,6 @@ def _terms_page(g):
         + ul([
             ("อย่าทำให้เข้าใจว่ามดแดงรับรองคุณ หรือว่าข้อเท็จจริงที่คุณเพิ่มเองมาจากเรา",  # stylecheck: allow — API terms of use
              "Do not imply that Mot Dang endorses you, or that a fact you added came from us"),  # stylecheck: allow — API terms of use
-            ("อย่าขายลำดับการแสดงผล",
-             "Do not sell listing position off this data"),
             ("อย่าลบที่มาของข้อมูลแล้วเผยแพร่เหมือนเป็นการสำรวจของคุณเอง",  # stylecheck: allow — API terms of use
              "Do not strip the provenance and republish it as your own survey"),  # stylecheck: allow — API terms of use
             ("ข้อมูลติดต่อที่เจ้าของร้านกรอกเองให้ไว้สำหรับสารบัญ ไม่ใช่สำหรับทำรายชื่อส่งโฆษณา",
@@ -571,7 +623,7 @@ def _terms_page(g):
         ])
 
         + h2("มารยาทในการเรียกใช้", "Caller etiquette")
-        + f'<p>{bi("ไม่มีคีย์ ไม่มีลิมิต ขอแค่ช่วยกันประหยัด", "There is no key and no rate limit. In exchange:")}</p>'
+        + f'<p>{bi("ขอแค่ช่วยกันประหยัด", "Two things that keep it cheap to serve:")}</p>'
         + ul([
             ("แคชคำตอบไว้ และส่ง If-None-Match มาด้วย — ทุกคำตอบมี ETag",
              "Cache, and send If-None-Match — every response carries an ETag"),
@@ -609,7 +661,7 @@ def _api_page(g, index):
     body = (
         f'<h1>{bi("API สาธารณะ", "The public API")} '
         f'<span class="count">({index["count"]:,} {bi("แห่ง", "places")})</span></h1>'
-        f'<p class="lead">{bi("ไม่ต้องสมัคร ไม่มีคีย์ ไม่มีลิมิต เรียกจากเบราว์เซอร์ได้เลย (CORS เปิดทุก origin)", "No sign-up, no key, no rate limit, and open to every origin — call it straight from a browser.")}</p>'
+        f'<p class="lead">{bi("ไม่ต้องสมัคร ไม่มีคีย์ เรียกจากเบราว์เซอร์ได้เลย (CORS เปิดทุก origin)", "No sign-up, no key, open to every origin — call it straight from a browser.")}</p>'
 
         f'<h2>{bi("ลองเลย", "Try it")}</h2>'
         f'<ul class="dir">'

@@ -1,0 +1,53 @@
+MOT DANG — the next gaps
+2026-09-22 · ordered by your lane: where you stand, what is true this minute, then the rest
+
+WHERE YOU STAND
+------------------------------------------------------------------------------
+1  Nearest sort runs on 5% of the pins.  keys holds lat/lon for 3,705 of 76,847 pages; the 9/21 reload stopped.
+   Fix: python3 fleetsearch/load.py --remote --from 1, at a quiet hour — /find blinks 503 during each chunk.
+   Cost: ~15 s a chunk × 22, one command. Nothing else unlocks distance search.
+2  The edge guess is a city.  6.4 km off at the house. The 📍 tap fixes it and nobody counts the taps.
+   Fork F1 (query and tap counter) is still yours; without it the miss stays unmeasured.
+3  Pai has no pins.  Postcode 58130 is two districts; the guard now refuses rather than pins 40 km out.
+   Fix: a Mae Hong Son centroid set, or a Thai geocoder (fork F2). 37 shops.
+4  Tambon polygons — the largest geocoder gain on the tools note (3.2, go/tools-note), not started. 2,098 records need pins,
+   1,207 unreachable without a Thai geocoder.
+
+WHAT IS TRUE THIS MINUTE
+------------------------------------------------------------------------------
+5  Hours: 6.4% of CM records.  "Open now" cannot grow by UI. A harvest: Thai-named registers (สบส. licence register,
+   DBD, thdata), the 806 held Facebook pages, Wongnai (enumeration unsolved — /listings is client-rendered, sitemap empty).
+6  Freshness WO-41 phases 1 / 3 / 4a–c / 5 / 6 wait on a numbered go (C19). Events: 111.
+7  Nightly reload fork C80 fires 2026-09-28 on default (a). D1 locks during import; a delta loader through the
+   query API is the cure and is not built.
+8  First Thai query of the day costs 0.96 s (dictionary load) vs 0.13 s warm. Pre-warm on a cron, or ship the
+   dictionary split.
+
+BEING FOUND
+------------------------------------------------------------------------------
+9  Google: 4 of 98,153 pages.  Shards went live 9/21; Search Console has not re-read them. Still open:
+   the CM food hub is 26 MB with 19,275 links (Googlebot stops at 15 MB); 98k near-identical pages on an
+   8-week domain read as "crawled, not indexed". Split the hub; give shelf pages distinct text.
+10 Deploy cycle ~4 h (170-min build + 64-min upload). Every page re-uploads daily because the footer carries the
+   build date and the head five ?v= hashes. Forks 4–8 in notes/deploy-speed-2026-09-10.txt are yours.
+
+THE INDEX ITSELF
+------------------------------------------------------------------------------
+11 153 of 367 of your own Chiang Mai questions (GPT archive, 9/5) return nothing; 24,216 records carry no
+   description, blurb or offers — index text is name + slug + hours + phone. Phase 1 vocabulary.json is the
+   first step and does not exist.
+12 Hub records: Churairat Music tops Birkenstocks, telescopes and live poker. Thin index text; reranker (2.9)
+   or offers[] (phase 3).
+13 Chiang Rai is thin on every lens: CR curated 28 vs CM 2,688; CR massage 12 records.
+14 Shelves the corpus already fills and no shelf shows (F9): pet-shop 64, northern cuisine 58, CR tourism 228;
+   cuisine axis, specialty clinics, locksmith, watch repair, self-storage, clubs — from your own questions.
+15 1,374 licensed tour businesses with addresses, phones, emails (esapi.dot.go.th, 9/20) and no shelf to
+   put them on. Fork: a tour-agency shelf, or leave it.
+16 76 duplicate pairs (C51) and 1,711 records the API never returns (C52); both fire on default 2026-10-02.
+17 KNOWN_EMPTY entries go stale within a day (chap-sen, cannabis/farm, cannabis/clinic) — the test says so; remove.
+18 Provenance backfill (143,500 entries) is STAGED, not applied; ~12 importer call sites do not stamp yet.
+19 search_segdict (40,408 words) held back from HF for want of a nameable source — your fork.
+
+Sources: fleetsearch README · notes/search-disease-status-2026-09-05.txt · notes/source-scout-2026-09-20.md ·
+the tools note (go/tools-note) · notes/twenty-follow-ups-2026-09-05.md · QUEUE.txt C19/C51/C52/C80 ·
+Search Console 9/21 · this morning's curl runs

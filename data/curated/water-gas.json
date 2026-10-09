@@ -1,0 +1,6158 @@
+{
+ "_readme": [
+  "WO-57/58 — the water-gas register, from the CMHY.city read in cache/cmhy/water-gas/.",
+  "EVERY row is kept so the page can print the denominator, not just the hits.",
+  "`trade` is decided by the row's OWN name and tags, never by the directory's",
+  "category alone; `refused` says why a row is not a record; `osm` names the",
+  "canonical record ALREADY ON THE SAME SHELF within 80 m that is this door.",
+  "A DIRECTORY IS NOT A FIRST-HAND SOURCE: its service tags live here and print",
+  "at the `listed` grade. They never enter enrich.json, which is for a place's",
+  "own site. Hours carry `_hoursSource`; a row with no GPS is `needs-pin`."
+ ],
+ "_built": "2026-09-04",
+ "counts": {
+  "utilities": 0,
+  "matched": 355,
+  "refused": 5,
+  "needs_pin": 0,
+  "cmhy_rows": 360,
+  "written_new": 0,
+  "touched": 0
+ },
+ "rows": [
+  {
+   "cmhy": "10136",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (Asia Water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-30",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-10136",
+   "metres": 0
+  },
+  {
+   "cmhy": "12072",
+   "name": "พีที LPG (รัตนโกสินทร์)",
+   "tags": [
+    "แอลพีจี",
+    "แก๊ส",
+    "แก๊สรถยนต์"
+   ],
+   "phone": "1614,02-168-3377,02-168-3388",
+   "amphoe": "เมือง",
+   "modified": "2025-10-23",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "12251",
+   "name": "ล้านสวนดอกแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "บริการส่งแก๊ส"
+   ],
+   "phone": "053-211-947,053-894-998,094-979-4642",
+   "amphoe": "เมือง",
+   "modified": "2024-12-11",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-12251",
+   "metres": 0
+  },
+  {
+   "cmhy": "12384",
+   "name": "โชคไพศาลแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม"
+   ],
+   "phone": "053-217-601,089-851-8053",
+   "amphoe": "เมือง",
+   "modified": "2021-12-09",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-12384",
+   "metres": 0
+  },
+  {
+   "cmhy": "1393",
+   "name": "ออโต้ LPG แก๊สซัพพลาย",
+   "tags": [
+    "ปั๊มแก๊ส",
+    "เติมแก๊ส",
+    "แก๊สรถยนต์"
+   ],
+   "phone": "053-011-631",
+   "amphoe": "เมือง",
+   "modified": "2022-03-07",
+   "trade": "utilities",
+   "facets": {},
+   "osm": "cm-curated-utilities-1393",
+   "metres": 0
+  },
+  {
+   "cmhy": "14068",
+   "name": "ก๊าซหุงต้มเดลิเวอรี่ (สาขาสุเทพ)",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "แก๊สบ้าน"
+   ],
+   "phone": "052-000547,098-771-1465,052-000-547",
+   "amphoe": "เมือง",
+   "modified": "2020-06-16",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-14068",
+   "metres": 0
+  },
+  {
+   "cmhy": "14390",
+   "name": "ตู้น้ำหยอดเหรียญ (Ninety-nine)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "053-244-818",
+   "amphoe": "เมือง",
+   "modified": "2022-03-05",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-14390",
+   "metres": 0
+  },
+  {
+   "cmhy": "14469",
+   "name": "ตู้น้ำหยอดเหรียญ",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-12-03",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-14469",
+   "metres": 0
+  },
+  {
+   "cmhy": "14499",
+   "name": "ชินแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "แก๊สบ้าน"
+   ],
+   "phone": "053-217-090,092-345-0101",
+   "amphoe": "เมือง",
+   "modified": "2026-02-10",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-14499",
+   "metres": 0
+  },
+  {
+   "cmhy": "14514",
+   "name": "ตู้น้ำหยอดเหรียญ(Aquatek กรีนฮิลล์เพลส)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-08-01",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-14514",
+   "metres": 0
+  },
+  {
+   "cmhy": "14542",
+   "name": "ตู้น้ำ เคียงดอยเพลส (frist clean)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-12-10",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-14542",
+   "metres": 0
+  },
+  {
+   "cmhy": "14562",
+   "name": "ตู้น้ำหยอดเหรียญ",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-12-11",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-14562",
+   "metres": 0
+  },
+  {
+   "cmhy": "14595",
+   "name": "ตู้น้ำหยอดเหรียญ (วิวออดิงค์)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-12-05",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-14595",
+   "metres": 0
+  },
+  {
+   "cmhy": "14672",
+   "name": "ตู้น้ำหยอดเหรียญ(หอพักสันติ)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-12-10",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-14672",
+   "metres": 0
+  },
+  {
+   "cmhy": "1483",
+   "name": "ออร์คิดแก๊ส (ซุปเปอร์ไฮเวย์)",
+   "tags": [
+    "ปั๊มแก๊ส",
+    "เติมแก๊ส",
+    "แก๊สรถยนต์"
+   ],
+   "phone": "053-120-024,053-120-025",
+   "amphoe": "เมือง",
+   "modified": "2020-09-14",
+   "trade": "utilities",
+   "facets": {},
+   "osm": "cm-curated-utilities-1483",
+   "metres": 0
+  },
+  {
+   "cmhy": "14978",
+   "name": "ตู้น้ำหยอดเหรียญ(Super Fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "053-007-778",
+   "amphoe": "เมือง",
+   "modified": "2019-02-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-14978",
+   "metres": 0
+  },
+  {
+   "cmhy": "14994",
+   "name": "ตู้น้ำหยอดเหรียญ (Easy Water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-01-02",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-14994",
+   "metres": 0
+  },
+  {
+   "cmhy": "15094",
+   "name": "เชียงใหม่อุปกรณ์แก๊ส จำกัด (ป่าตัน)",
+   "tags": [
+    "เตาแก๊ส",
+    "ขายเตาแก๊ส",
+    "ท่อแก๊ส"
+   ],
+   "phone": "061-649-6888",
+   "amphoe": "เมือง",
+   "modified": "2025-08-25",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15109",
+   "name": "ตู้น้ำหยอดเหรียญ (aquatek)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-11",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15109",
+   "metres": 0
+  },
+  {
+   "cmhy": "15147",
+   "name": "ตู้น้ำหยอดเหรียญ(Super Fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "052-007-778",
+   "amphoe": "เมือง",
+   "modified": "2022-03-31",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15147",
+   "metres": 0
+  },
+  {
+   "cmhy": "15270",
+   "name": "ตู้น้ำหยอดเหรียญ(good life)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "0870078951",
+   "amphoe": "เมือง",
+   "modified": "2019-01-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15270",
+   "metres": 0
+  },
+  {
+   "cmhy": "15277",
+   "name": "ตู้น้ำหยอดเหรียญ(super fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "052007788",
+   "amphoe": "เมือง",
+   "modified": "2019-01-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15277",
+   "metres": 0
+  },
+  {
+   "cmhy": "15302",
+   "name": "ตู้น้ำหยอดเหรียญ(good Drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "088-412-8840",
+   "amphoe": "เมือง",
+   "modified": "2019-02-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15302",
+   "metres": 0
+  },
+  {
+   "cmhy": "15408",
+   "name": "ตู้น้ำหยอดเหรียญ (ทักษิน)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15408",
+   "metres": 0
+  },
+  {
+   "cmhy": "15624",
+   "name": "ก๊าซหุงต้มเดลิเวอรี่ (สาขา แม่เหียะ เชียงใหม่หางดง)",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "แก๊สบ้าน"
+   ],
+   "phone": "053-806-205,053-277-518",
+   "amphoe": "เมือง",
+   "modified": "2023-11-30",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-15624",
+   "metres": 0
+  },
+  {
+   "cmhy": "15652",
+   "name": "แม่เหียะ แก๊ส เซ็นเตอร์",
+   "tags": [
+    "แก๊สหุงต้ม",
+    "แก๊สบ้าน",
+    "แก๊สหุงต้ม"
+   ],
+   "phone": "053-447-537,086-730-7137,096-649-1951",
+   "amphoe": "เมือง",
+   "modified": "2024-12-20",
+   "trade": "utilities",
+   "facets": {},
+   "osm": "cm-curated-utilities-15652",
+   "metres": 0
+  },
+  {
+   "cmhy": "15732",
+   "name": "ปรีชาเซอร์วิส",
+   "tags": [
+    "แก๊ส",
+    "ส่งแก๊ส",
+    "ซ่อมเตา"
+   ],
+   "phone": "053-282-128,053-275-138",
+   "amphoe": "เมือง",
+   "modified": "2020-11-18",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-15732",
+   "metres": 0
+  },
+  {
+   "cmhy": "15743",
+   "name": "ตู้น้ำหยอดเหรียญ(water king)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-02-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15743",
+   "metres": 0
+  },
+  {
+   "cmhy": "15785",
+   "name": "ซักผ้าหยอดเหรียญ เคหะหยอดเหรียญ [สามแยกการเคหะหนองหอย]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ตู้น้ำหยอดเหรียญ",
+    "เครื่องอบผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15785",
+   "metres": 0
+  },
+  {
+   "cmhy": "15831",
+   "name": "ตู้น้ำหยอดเหรียญ(nismo)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15831",
+   "metres": 0
+  },
+  {
+   "cmhy": "15837",
+   "name": "ตู้น้ำหยอดเหรียญ(rainbow)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "02-048-7978",
+   "amphoe": "เมือง",
+   "modified": "2019-02-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15837",
+   "metres": 0
+  },
+  {
+   "cmhy": "15874",
+   "name": "ตู้น้ำหยอดเหรียญ(ozone)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "02-510,7028",
+   "amphoe": "เมือง",
+   "modified": "2019-02-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15874",
+   "metres": 0
+  },
+  {
+   "cmhy": "15943",
+   "name": "ชุลีพรแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "อุปกรณ์เตาแก๊ส"
+   ],
+   "phone": "053-260-748,096-152-9864,099-295-5625",
+   "amphoe": "เมือง",
+   "modified": "2024-06-13",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-15943",
+   "metres": 0
+  },
+  {
+   "cmhy": "15948",
+   "name": "ตู้น้ำหยอดเหรียญ(Good drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "08-9891-2684",
+   "amphoe": "เมือง",
+   "modified": "2019-02-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15948",
+   "metres": 0
+  },
+  {
+   "cmhy": "15955",
+   "name": "ตู้น้ำหยอดเหรียญ(bio active)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "095-429-4158",
+   "amphoe": "เมือง",
+   "modified": "2019-02-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15955",
+   "metres": 0
+  },
+  {
+   "cmhy": "15998",
+   "name": "ตู้น้ำหยอดเหรียญ(fresh &drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15998",
+   "metres": 0
+  },
+  {
+   "cmhy": "15999",
+   "name": "ตู้น้ำหยอดเหรียญ(Thaksin)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-15999",
+   "metres": 0
+  },
+  {
+   "cmhy": "16012",
+   "name": "บ้านหยอดเหรียญ พีระเซอร์วิส",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "093-359-9105",
+   "amphoe": "เมือง",
+   "modified": "2021-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16012",
+   "metres": 0
+  },
+  {
+   "cmhy": "16014",
+   "name": "ตู้น้ำหยอดเหรียญ",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "50"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16014",
+   "metres": 0
+  },
+  {
+   "cmhy": "16028",
+   "name": "ตู้น้ำหยอดเหรียญ",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "50"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16028",
+   "metres": 0
+  },
+  {
+   "cmhy": "16030",
+   "name": "ตู้น้ำหยอดเหรียญ(super fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "052007788",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16030",
+   "metres": 0
+  },
+  {
+   "cmhy": "16033",
+   "name": "ตู้น้ำหยอดเหรียญ( speed water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16033",
+   "metres": 0
+  },
+  {
+   "cmhy": "16035",
+   "name": "บ้านหยอดเหรียญ (พีระเซอร์วิส)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "093-359-9105",
+   "amphoe": "เมือง",
+   "modified": "2023-06-04",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16035",
+   "metres": 0
+  },
+  {
+   "cmhy": "16039",
+   "name": "ตู้น้ำหยอดเหรียญ(super fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "052007788",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16039",
+   "metres": 0
+  },
+  {
+   "cmhy": "16044",
+   "name": "ตู้น้ำหยอดเหรียญ(good drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "08-9891-2684",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16044",
+   "metres": 0
+  },
+  {
+   "cmhy": "16055",
+   "name": "ตู้น้ำหยอดเหรียญ(Happy drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "0863804917",
+   "amphoe": "เมือง",
+   "modified": "2019-03-22",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16055",
+   "metres": 0
+  },
+  {
+   "cmhy": "16070",
+   "name": "ตู้น้ำหยอดเหรียญ(good drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "08-9891-2684",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16070",
+   "metres": 0
+  },
+  {
+   "cmhy": "16083",
+   "name": "ตู้น้ำหยอดเหรียญ(super fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "052007788",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16083",
+   "metres": 0
+  },
+  {
+   "cmhy": "16087",
+   "name": "ตู้น้ำหยอดเหรียญ(Clean water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "052-021-078",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16087",
+   "metres": 0
+  },
+  {
+   "cmhy": "16090",
+   "name": "ตู้น้ำหยอดเหรียญ(good drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "08-9891-2684",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16090",
+   "metres": 0
+  },
+  {
+   "cmhy": "16097",
+   "name": "ตู้น้ำหยอดเหรียญ(watersave)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "0273563312",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16097",
+   "metres": 0
+  },
+  {
+   "cmhy": "16136",
+   "name": "ตู้น้ำหยอดเหรียญ (new wave)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "50"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-05",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16136",
+   "metres": 0
+  },
+  {
+   "cmhy": "16143",
+   "name": "ตู้น้ำหยอดเหรียญ (new wave)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "50"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-05",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16143",
+   "metres": 0
+  },
+  {
+   "cmhy": "16169",
+   "name": "ตู้น้ำหยอดเหรียญ (Qthai)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16169",
+   "metres": 0
+  },
+  {
+   "cmhy": "16205",
+   "name": "ตู้น้ำหยอดเหรียญ(S&B)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "084-912-5571",
+   "amphoe": "เมือง",
+   "modified": "2022-02-24",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16205",
+   "metres": 0
+  },
+  {
+   "cmhy": "16214",
+   "name": "ตู้น้ำหยอดเหรียญ (Qthai)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16214",
+   "metres": 0
+  },
+  {
+   "cmhy": "16217",
+   "name": "ตู้น้ำหยอดเหรียญ(clean water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "052-021-078",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16217",
+   "metres": 0
+  },
+  {
+   "cmhy": "16224",
+   "name": "ตู้น้ำหยอดเหรียญ [เจริญเมือง ซอย 2]",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "50"
+   ],
+   "phone": "094-353-5991",
+   "amphoe": "เมือง",
+   "modified": "2026-04-09",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16224",
+   "metres": 0
+  },
+  {
+   "cmhy": "16227",
+   "name": "ตู้น้ำหยอดเหรียญ( smart water )",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16227",
+   "metres": 0
+  },
+  {
+   "cmhy": "16239",
+   "name": "ตู้น้ำหยอดเหรียญ(KP)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "0819180343",
+   "amphoe": "เมือง",
+   "modified": "2022-03-28",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16239",
+   "metres": 0
+  },
+  {
+   "cmhy": "16269",
+   "name": "ตู้น้ำหยอดเหรียญ  (LW)",
+   "tags": [
+    "น้ำแร่พลังแม่เหล็ก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16269",
+   "metres": 0
+  },
+  {
+   "cmhy": "16271",
+   "name": "ตู้น้ำหยอดเหรียญ (new wave)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "50"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16271",
+   "metres": 0
+  },
+  {
+   "cmhy": "16276",
+   "name": "ตู้น้ำหยอดเหรียญ(good drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "08-9891-2684",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16276",
+   "metres": 0
+  },
+  {
+   "cmhy": "16277",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (water fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16277",
+   "metres": 0
+  },
+  {
+   "cmhy": "16278",
+   "name": "ตู้น้ำหยอดเหรียญ (Diamond)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16278",
+   "metres": 0
+  },
+  {
+   "cmhy": "16280",
+   "name": "ตู้น้ำหยอดเหรียญ (Lion water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-04-21",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16280",
+   "metres": 0
+  },
+  {
+   "cmhy": "16290",
+   "name": "ตู้น้ำหยอดเหรียญ (Pure Water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16290",
+   "metres": 0
+  },
+  {
+   "cmhy": "16294",
+   "name": "ตู้น้ำหยอดเหรียญ (Pure Water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16294",
+   "metres": 0
+  },
+  {
+   "cmhy": "16374",
+   "name": "ตู้น้ำหยอดเหรียญ (good life)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "0870078951",
+   "amphoe": "เมือง",
+   "modified": "2019-09-30",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16374",
+   "metres": 0
+  },
+  {
+   "cmhy": "16439",
+   "name": "ตู้น้ำหยอดเหรียญ(Happy drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "0863804917",
+   "amphoe": "เมือง",
+   "modified": "2019-03-22",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16439",
+   "metres": 0
+  },
+  {
+   "cmhy": "16500",
+   "name": "ตู้น้ำหยอดเหรียญ(Aquatek)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "0819511810,0818435007",
+   "amphoe": "เมือง",
+   "modified": "2019-03-26",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16500",
+   "metres": 0
+  },
+  {
+   "cmhy": "16570",
+   "name": "ตู้น้ำหยอดเหรียญ(Drinking Water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-04-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16570",
+   "metres": 0
+  },
+  {
+   "cmhy": "16581",
+   "name": "ตู้น้ำหยอดเหรียญ (พีระ เซอร์วิส )",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "063-990-4306,093-959-9105",
+   "amphoe": "เมือง",
+   "modified": "2022-02-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16581",
+   "metres": 0
+  },
+  {
+   "cmhy": "16609",
+   "name": "ตู้น้ำหยอดเหรียญ(Bio active)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "087-174-2882",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16609",
+   "metres": 0
+  },
+  {
+   "cmhy": "16611",
+   "name": "ตู้น้ำหยอดเหรียญ (Manatic)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-04-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16611",
+   "metres": 0
+  },
+  {
+   "cmhy": "16614",
+   "name": "ตู้น้ำหยอดเหรียญ (กรองน้ำ RO)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16614",
+   "metres": 0
+  },
+  {
+   "cmhy": "16618",
+   "name": "ตู้น้ำหยอดเหรียญ (Ninety-nine)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "053-244-818",
+   "amphoe": "เมือง",
+   "modified": "2019-04-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16618",
+   "metres": 0
+  },
+  {
+   "cmhy": "16653",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (water fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-04-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16653",
+   "metres": 0
+  },
+  {
+   "cmhy": "16758",
+   "name": "ตู้น้ำหยอดเหรียญ (Singer)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16758",
+   "metres": 0
+  },
+  {
+   "cmhy": "16766",
+   "name": "ตู้น้ำหยอดเหรียญ (mt water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-07-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16766",
+   "metres": 0
+  },
+  {
+   "cmhy": "16809",
+   "name": "ตู้น้ำหยอดเหรียญ(water king)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "084-571-7961",
+   "amphoe": "เมือง",
+   "modified": "2019-04-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16809",
+   "metres": 0
+  },
+  {
+   "cmhy": "16810",
+   "name": "ตู้น้ำหยอดเหรียญ(clean water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "052-021-078",
+   "amphoe": "เมือง",
+   "modified": "2019-04-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16810",
+   "metres": 0
+  },
+  {
+   "cmhy": "16828",
+   "name": "ตู้น้ำหยอดเหรียญ(water king)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "084-571-7961",
+   "amphoe": "เมือง",
+   "modified": "2019-04-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16828",
+   "metres": 0
+  },
+  {
+   "cmhy": "16871",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (water fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-04-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16871",
+   "metres": 0
+  },
+  {
+   "cmhy": "16919",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (aquater)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-02",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-16919",
+   "metres": 0
+  },
+  {
+   "cmhy": "17048",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (Good Life)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "0870078951",
+   "amphoe": "เมือง",
+   "modified": "2019-05-02",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17048",
+   "metres": 0
+  },
+  {
+   "cmhy": "17087",
+   "name": "ตู้น้ำหยอดเหรียญ (พีระ เซอร์วิส )",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "083-325-6019",
+   "amphoe": "เมือง",
+   "modified": "2019-05-02",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17087",
+   "metres": 0
+  },
+  {
+   "cmhy": "17092",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (water fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-02",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17092",
+   "metres": 0
+  },
+  {
+   "cmhy": "17097",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (New wave)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-02",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17097",
+   "metres": 0
+  },
+  {
+   "cmhy": "17142",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (Good life)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-02",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17142",
+   "metres": 0
+  },
+  {
+   "cmhy": "17171",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (Fresh inter)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-30",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17171",
+   "metres": 0
+  },
+  {
+   "cmhy": "17184",
+   "name": "ร้านสุปราณีแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "แก๊สบ้าน"
+   ],
+   "phone": "091-875-1961,053-260-719,053-308-700",
+   "amphoe": "เมือง",
+   "modified": "2023-10-13",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-17184",
+   "metres": 0
+  },
+  {
+   "cmhy": "17192",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (Tasksin)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-02",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17192",
+   "metres": 0
+  },
+  {
+   "cmhy": "17205",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (น้ำใส)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17205",
+   "metres": 0
+  },
+  {
+   "cmhy": "17314",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (aquatek)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "063-990-4306,093-959-9105",
+   "amphoe": "เมือง",
+   "modified": "2023-04-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17314",
+   "metres": 0
+  },
+  {
+   "cmhy": "17325",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (BP water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17325",
+   "metres": 0
+  },
+  {
+   "cmhy": "17330",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (aquater)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17330",
+   "metres": 0
+  },
+  {
+   "cmhy": "17333",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (aquater)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17333",
+   "metres": 0
+  },
+  {
+   "cmhy": "17336",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (Minere water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17336",
+   "metres": 0
+  },
+  {
+   "cmhy": "17342",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (water fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-12-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17342",
+   "metres": 0
+  },
+  {
+   "cmhy": "17346",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (Clean water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17346",
+   "metres": 0
+  },
+  {
+   "cmhy": "17361",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ ( pure water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-30",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17361",
+   "metres": 0
+  },
+  {
+   "cmhy": "17368",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (พีระ เซอร์วิส)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "063-990-4306,093-959-9105",
+   "amphoe": "เมือง",
+   "modified": "2019-05-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17368",
+   "metres": 0
+  },
+  {
+   "cmhy": "17376",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (Good Drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17376",
+   "metres": 0
+  },
+  {
+   "cmhy": "17461",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (good drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17461",
+   "metres": 0
+  },
+  {
+   "cmhy": "17522",
+   "name": "เมืองเหนือแก๊ส",
+   "tags": [
+    "เตาแก๊ส",
+    "หุงต้ม",
+    "ส่งแก๊ส"
+   ],
+   "phone": "053-854-195,053262861",
+   "amphoe": "เมือง",
+   "modified": "2020-04-24",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-17522",
+   "metres": 0
+  },
+  {
+   "cmhy": "17600",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ [SML 2555]",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-11-10",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-6275922687",
+   "metres": 13
+  },
+  {
+   "cmhy": "17605",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (ninety nine)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17605",
+   "metres": 0
+  },
+  {
+   "cmhy": "17618",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (super fresh )",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "0845023938",
+   "amphoe": "เมือง",
+   "modified": "2022-03-30",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17618",
+   "metres": 0
+  },
+  {
+   "cmhy": "17622",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (ro fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17622",
+   "metres": 0
+  },
+  {
+   "cmhy": "17639",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (น้ำแร่พลังแม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "053-582-195",
+   "amphoe": "เมือง",
+   "modified": "2020-04-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17639",
+   "metres": 0
+  },
+  {
+   "cmhy": "17664",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (SML ชุมชนสวนดอก)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17664",
+   "metres": 0
+  },
+  {
+   "cmhy": "17676",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (SML ชุมชนสวนดอก)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17676",
+   "metres": 0
+  },
+  {
+   "cmhy": "17713",
+   "name": "ตู้น้ำหยอดเหรียญ (Easy Water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-24",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17713",
+   "metres": 0
+  },
+  {
+   "cmhy": "17714",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (Clean water) ซอย ธานินทร์",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "Clean",
+    "water"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-27",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-17714",
+   "metres": 0
+  },
+  {
+   "cmhy": "18502",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (good life)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "Clean",
+    "water"
+   ],
+   "phone": "0870078951",
+   "amphoe": "เมือง",
+   "modified": "2026-08-15",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-18502",
+   "metres": 0
+  },
+  {
+   "cmhy": "18504",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (บ้านหยอดเหรียญ)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "Clean",
+    "water"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-09-22",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-18504",
+   "metres": 0
+  },
+  {
+   "cmhy": "18601",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (bio active)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "Clean",
+    "water"
+   ],
+   "phone": "0869196257",
+   "amphoe": "เมือง",
+   "modified": "2019-09-22",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-18601",
+   "metres": 0
+  },
+  {
+   "cmhy": "18610",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (purewater)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "Clean",
+    "water"
+   ],
+   "phone": "0943535991",
+   "amphoe": "เมือง",
+   "modified": "2019-09-22",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-18610",
+   "metres": 0
+  },
+  {
+   "cmhy": "18911",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (super fresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "Clean",
+    "water"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-09-22",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-18911",
+   "metres": 0
+  },
+  {
+   "cmhy": "19015",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (kangzen)",
+   "tags": [
+    "น้ำดื่มอัลคาไลน์",
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "Clean"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-09-22",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-19015",
+   "metres": 0
+  },
+  {
+   "cmhy": "19038",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (ninety nine)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "Clean",
+    "water"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-04-10",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-19038",
+   "metres": 0
+  },
+  {
+   "cmhy": "19210",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (good drink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "Clean",
+    "water"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-10-08",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-19210",
+   "metres": 0
+  },
+  {
+   "cmhy": "19371",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (fresh and clens)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-19371",
+   "metres": 0
+  },
+  {
+   "cmhy": "19394",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (rain water",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-4734317049",
+   "metres": 75
+  },
+  {
+   "cmhy": "19414",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (PT Water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-4734317049",
+   "metres": 5
+  },
+  {
+   "cmhy": "19437",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (TThouse easywater)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "053-116-320",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-19437",
+   "metres": 0
+  },
+  {
+   "cmhy": "19477",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (water fresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-19477",
+   "metres": 0
+  },
+  {
+   "cmhy": "19793",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (Water fresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-19793",
+   "metres": 0
+  },
+  {
+   "cmhy": "19798",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (View)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-19798",
+   "metres": 0
+  },
+  {
+   "cmhy": "19801",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (mineral water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-19801",
+   "metres": 0
+  },
+  {
+   "cmhy": "19803",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (good drink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-19803",
+   "metres": 0
+  },
+  {
+   "cmhy": "19807",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (water quality)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-10-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-19807",
+   "metres": 0
+  },
+  {
+   "cmhy": "20379",
+   "name": "พีทีที แก๊ส",
+   "tags": [
+    "ปั๊มแก๊ส",
+    "LPG",
+    "แอลพีจี"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-02-26",
+   "trade": "utilities",
+   "facets": {},
+   "osm": "cm-curated-utilities-20379",
+   "metres": 0
+  },
+  {
+   "cmhy": "20380",
+   "name": "พีทีที โออาร์",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สปตท",
+    "แก๊สบ้าน"
+   ],
+   "phone": "053-963-155,094-991-9544",
+   "amphoe": "เมือง",
+   "modified": "2020-02-26",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-20380",
+   "metres": 0
+  },
+  {
+   "cmhy": "2046",
+   "name": "เชียงใหม่โฮมแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "ขายแก๊ส",
+    "แก๊สหุงต้ม"
+   ],
+   "phone": "053-271-411",
+   "amphoe": "เมือง",
+   "modified": "2020-04-11",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-2046",
+   "metres": 0
+  },
+  {
+   "cmhy": "20568",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (Water fresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-12-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-20568",
+   "metres": 0
+  },
+  {
+   "cmhy": "20661",
+   "name": "ส่งแก๊ส [ ม.พายัพ หนองป่าครั่ง]",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-08-29",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-20661",
+   "metres": 0
+  },
+  {
+   "cmhy": "20723",
+   "name": "แดงแก๊ส(เจ็ดยอด)",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้น",
+    "แก๊สบ้าน"
+   ],
+   "phone": "053-217-258,062-249-5661",
+   "amphoe": "เมือง",
+   "modified": "2021-08-07",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-20723",
+   "metres": 0
+  },
+  {
+   "cmhy": "20736",
+   "name": "ตู้น้ำหยอดเหรียญ (water king)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "0894310162",
+   "amphoe": "เมือง",
+   "modified": "2020-01-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-20736",
+   "metres": 0
+  },
+  {
+   "cmhy": "20838",
+   "name": "ตู้น้ำหยอดเหรียญ(pure water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-20838",
+   "metres": 0
+  },
+  {
+   "cmhy": "20843",
+   "name": "ตู้น้ำหยอดเหรียญ (aquatek)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-20843",
+   "metres": 0
+  },
+  {
+   "cmhy": "20850",
+   "name": "ตู้น้ำหยอดเหรียญ  (Smile Drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "0660469545",
+   "amphoe": "เมือง",
+   "modified": "2020-01-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-20850",
+   "metres": 0
+  },
+  {
+   "cmhy": "20867",
+   "name": "ตู้น้ำหยอดเหรียญ (Smile Drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "0660469545",
+   "amphoe": "เมือง",
+   "modified": "2020-01-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-20867",
+   "metres": 0
+  },
+  {
+   "cmhy": "20905",
+   "name": "ตู้น้ำหยอดเหรียญ (super fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-01-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-20905",
+   "metres": 0
+  },
+  {
+   "cmhy": "20909",
+   "name": "ตู้น้ำหยอดเหรียญ (new wave)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "094-353-5991",
+   "amphoe": "เมือง",
+   "modified": "2020-01-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-20909",
+   "metres": 0
+  },
+  {
+   "cmhy": "21051",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (Water fresh)",
+   "tags": [
+    "ตู้น้ำ",
+    "น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-02-17",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-21051",
+   "metres": 0
+  },
+  {
+   "cmhy": "21351",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (good drink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "029746600",
+   "amphoe": "เมือง",
+   "modified": "2020-04-11",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-21351",
+   "metres": 0
+  },
+  {
+   "cmhy": "21602",
+   "name": "ส่งแก๊ส & ปั๊มหลอด No.01 (91/95/ดีเซล/เบนซิน) [ป่าข่อยใต้]",
+   "tags": [
+    "เติมน้ำมัน",
+    "ปั๊มน้ำมัน",
+    "ปั๊มหลอด"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-01-23",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-21602",
+   "metres": 0
+  },
+  {
+   "cmhy": "21632",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (โกลบอล)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-22",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-21632",
+   "metres": 0
+  },
+  {
+   "cmhy": "21634",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ  (R.O.)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-21634",
+   "metres": 0
+  },
+  {
+   "cmhy": "21661",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (ทำน้ำแร่พลังแม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "0850299720",
+   "amphoe": "เมือง",
+   "modified": "2020-04-22",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-21661",
+   "metres": 0
+  },
+  {
+   "cmhy": "21676",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (gooddrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "029746600",
+   "amphoe": "เมือง",
+   "modified": "2020-04-22",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-21676",
+   "metres": 0
+  },
+  {
+   "cmhy": "21743",
+   "name": "ชานนท์แก๊ส (สาขาหนองหอย)",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สบ้าน",
+    "แก๊สหุงต้ม"
+   ],
+   "phone": "053-424-880,0642342151,0642342547",
+   "amphoe": "เมือง",
+   "modified": "2024-04-04",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-21743",
+   "metres": 0
+  },
+  {
+   "cmhy": "21868",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (fresh and clean)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-09",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-21868",
+   "metres": 0
+  },
+  {
+   "cmhy": "22102",
+   "name": "ออร์คิดแก๊ส (ซุปเปอร์ไฮเวย์)",
+   "tags": [
+    "แก๊ส",
+    "ปั๊มแก๊ส",
+    "LPG"
+   ],
+   "phone": "053-120-024,053-120-025",
+   "amphoe": "เมือง",
+   "modified": "2025-07-25",
+   "trade": "utilities",
+   "facets": {},
+   "osm": "cm-curated-utilities-22102",
+   "metres": 0
+  },
+  {
+   "cmhy": "22125",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (w 4 lively)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-22125",
+   "metres": 0
+  },
+  {
+   "cmhy": "22142",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (บ้านหยอดเหรียญ)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-05-25",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-22142",
+   "metres": 0
+  },
+  {
+   "cmhy": "22301",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (water fresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-05-25",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-22301",
+   "metres": 0
+  },
+  {
+   "cmhy": "22305",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (water fresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-05-25",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-22305",
+   "metres": 0
+  },
+  {
+   "cmhy": "22581",
+   "name": "แม่เหียะแก๊สเซ็นเตอร์ 1( สาขา กาดวรุณ)",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "แก๊สบ้าน"
+   ],
+   "phone": "090-331-4531,095-134-1537",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-22581",
+   "metres": 0
+  },
+  {
+   "cmhy": "22623",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (speed water",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-06-08",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-22623",
+   "metres": 0
+  },
+  {
+   "cmhy": "22629",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (น้ำแร่พลังแม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-02-24",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-22629",
+   "metres": 0
+  },
+  {
+   "cmhy": "22741",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (น้ำแร่พลังแม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "083-325-6019",
+   "amphoe": "เมือง",
+   "modified": "2022-02-24",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-22741",
+   "metres": 0
+  },
+  {
+   "cmhy": "22743",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (gooddrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "02947660",
+   "amphoe": "เมือง",
+   "modified": "2020-06-15",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-22743",
+   "metres": 0
+  },
+  {
+   "cmhy": "22807",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (first clean)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-30",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-22807",
+   "metres": 0
+  },
+  {
+   "cmhy": "22903",
+   "name": "ก๊าซหุงต้มเดลิเวอรี่ (สาขาสี่แยกศาลเด็ก) บริษัทแก๊สซัพพลายส์",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "แก๊สบ้าน"
+   ],
+   "phone": "098-746-6595",
+   "amphoe": "เมือง",
+   "modified": "2022-03-07",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-22903",
+   "metres": 0
+  },
+  {
+   "cmhy": "22904",
+   "name": "ก๊าซหุงต้มเดลิเวอรี่ 3 (สาขาต้นพยอม)",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "แก๊สบ้าน"
+   ],
+   "phone": "097-921-7523,053277523",
+   "amphoe": "เมือง",
+   "modified": "2024-03-18",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-22904",
+   "metres": 0
+  },
+  {
+   "cmhy": "23025",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ  (PTwater)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "0816710757",
+   "amphoe": "เมือง",
+   "modified": "2020-07-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-23025",
+   "metres": 0
+  },
+  {
+   "cmhy": "23029",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (gooddrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-07-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-23029",
+   "metres": 0
+  },
+  {
+   "cmhy": "23074",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (gooddrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-07-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-23074",
+   "metres": 0
+  },
+  {
+   "cmhy": "23179",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ  (speed water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-07-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-23179",
+   "metres": 0
+  },
+  {
+   "cmhy": "23182",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (gooddrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-10-14",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-23182",
+   "metres": 0
+  },
+  {
+   "cmhy": "23314",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ Clear",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "091-741-5644",
+   "amphoe": "เมือง",
+   "modified": "2024-09-26",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-23314",
+   "metres": 0
+  },
+  {
+   "cmhy": "23740",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ ( Gooodrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-08-31",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-23740",
+   "metres": 0
+  },
+  {
+   "cmhy": "24078",
+   "name": "ตู้น้ำหยอดเหรียญ ประชารัฐ",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-10-21",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-24078",
+   "metres": 0
+  },
+  {
+   "cmhy": "24449",
+   "name": "พชร แก๊สซัพพลายส์",
+   "tags": [
+    "ส่งแก๊ส",
+    "เตาแก๊ส",
+    "แก๊สหุงต้ม"
+   ],
+   "phone": "097-998-8298,064-229-4462",
+   "amphoe": "เมือง",
+   "modified": "2024-03-18",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-24449",
+   "metres": 0
+  },
+  {
+   "cmhy": "25244",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (water fresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-25244",
+   "metres": 0
+  },
+  {
+   "cmhy": "25249",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (goodlife)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-25249",
+   "metres": 0
+  },
+  {
+   "cmhy": "25255",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ ( Gooodrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-25255",
+   "metres": 0
+  },
+  {
+   "cmhy": "25266",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ ( Gooodrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-25266",
+   "metres": 0
+  },
+  {
+   "cmhy": "25267",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (boss water work)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-07",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-25267",
+   "metres": 0
+  },
+  {
+   "cmhy": "25268",
+   "name": "ตู้น้ำหยอดเหรียญ (ซิงเกอร์)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-07",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-25268",
+   "metres": 0
+  },
+  {
+   "cmhy": "25276",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ ( Gooodrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-25276",
+   "metres": 0
+  },
+  {
+   "cmhy": "25847",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ พีระเซอร์วิส",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "093-359-9105",
+   "amphoe": "เมือง",
+   "modified": "2021-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-25847",
+   "metres": 0
+  },
+  {
+   "cmhy": "2636",
+   "name": "นิวหทัยแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สบ้าน"
+   ],
+   "phone": "053-211-703,053-211771",
+   "amphoe": "เมือง",
+   "modified": "2020-06-19",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-2636",
+   "metres": 0
+  },
+  {
+   "cmhy": "2639",
+   "name": "ช้างเผือกแก๊ส พีทีทีแอลพีจี สมาร์ทชอป",
+   "tags": [
+    "ก๊าซหุงต้ม",
+    "ส่งแก๊ส",
+    "พีทีทีแอลพีจีสมาร์ทชอป"
+   ],
+   "phone": "053-211-777,053-211-771",
+   "amphoe": "เมือง",
+   "modified": "2019-06-11",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-2639",
+   "metres": 0
+  },
+  {
+   "cmhy": "2710",
+   "name": "อัมพรแก๊ส",
+   "tags": [
+    "แก๊สหุงต้ม",
+    "ส่งแก๊ส"
+   ],
+   "phone": "053-241-648",
+   "amphoe": "เมือง",
+   "modified": "2021-08-15",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-2710",
+   "metres": 0
+  },
+  {
+   "cmhy": "27259",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (baibua)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-01-17",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-27259",
+   "metres": 0
+  },
+  {
+   "cmhy": "28971",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (PT water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-06-24",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-28971",
+   "metres": 0
+  },
+  {
+   "cmhy": "29134",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (PT water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-06-24",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-29134",
+   "metres": 0
+  },
+  {
+   "cmhy": "29271",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (gooddrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-29271",
+   "metres": 0
+  },
+  {
+   "cmhy": "29291",
+   "name": "กิติธนาทรัพย์ หยกแก๊ส ส่งแก๊ส [ กู่เต้า ] บริการส่งถึงบ้าน",
+   "tags": [
+    "ส่งแก๊ส",
+    "อุปกรณ์แก๊ส",
+    "บริการแก๊สหุงต้ม"
+   ],
+   "phone": "053-216-989,081-446-2969",
+   "amphoe": "เมือง",
+   "modified": "2026-03-02",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-29291",
+   "metres": 0
+  },
+  {
+   "cmhy": "29414",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (water fresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-07-20",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-29414",
+   "metres": 0
+  },
+  {
+   "cmhy": "29935",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (gooddrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-04-17",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-29935",
+   "metres": 0
+  },
+  {
+   "cmhy": "30116",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (aquatek)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-17",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30116",
+   "metres": 0
+  },
+  {
+   "cmhy": "30172",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (supernova)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30172",
+   "metres": 0
+  },
+  {
+   "cmhy": "30250",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (น้ำแร่พลังแม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30250",
+   "metres": 0
+  },
+  {
+   "cmhy": "30281",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (gooddrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-26",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30281",
+   "metres": 0
+  },
+  {
+   "cmhy": "30282",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (greenwater)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-26",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30282",
+   "metres": 0
+  },
+  {
+   "cmhy": "30316",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (เติมสบาย)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-10-28",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30316",
+   "metres": 0
+  },
+  {
+   "cmhy": "30328",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (waterfresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-31",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30328",
+   "metres": 0
+  },
+  {
+   "cmhy": "30335",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (aquatek)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-31",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30335",
+   "metres": 0
+  },
+  {
+   "cmhy": "30410",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (pt water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-31",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30410",
+   "metres": 0
+  },
+  {
+   "cmhy": "30426",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (น้ำแร่พลังแม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30426",
+   "metres": 0
+  },
+  {
+   "cmhy": "30428",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (nano plus)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-31",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30428",
+   "metres": 0
+  },
+  {
+   "cmhy": "30433",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (asiawater)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-31",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30433",
+   "metres": 0
+  },
+  {
+   "cmhy": "30437",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (ninety nine)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-31",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30437",
+   "metres": 0
+  },
+  {
+   "cmhy": "30530",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (wealth)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-07-09",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30530",
+   "metres": 0
+  },
+  {
+   "cmhy": "30534",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (waterfresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-05",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30534",
+   "metres": 0
+  },
+  {
+   "cmhy": "30539",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (ประชารัฐ)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-05",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30539",
+   "metres": 0
+  },
+  {
+   "cmhy": "30542",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (ประชารัฐ)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-05",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30542",
+   "metres": 0
+  },
+  {
+   "cmhy": "30767",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (พีระเซอร์วิส)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30767",
+   "metres": 0
+  },
+  {
+   "cmhy": "30777",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (waterfresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30777",
+   "metres": 0
+  },
+  {
+   "cmhy": "30789",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (น้ำแร่แม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30789",
+   "metres": 0
+  },
+  {
+   "cmhy": "30790",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (pure water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30790",
+   "metres": 0
+  },
+  {
+   "cmhy": "30808",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (ro water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30808",
+   "metres": 0
+  },
+  {
+   "cmhy": "30809",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (view)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30809",
+   "metres": 0
+  },
+  {
+   "cmhy": "30822",
+   "name": "ติ่งแก๊ส ส่งแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "แก๊สบ้าน"
+   ],
+   "phone": "081-951-1673",
+   "amphoe": "เมือง",
+   "modified": "2026-08-13",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-30822",
+   "metres": 0
+  },
+  {
+   "cmhy": "30879",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (goodlife)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30879",
+   "metres": 0
+  },
+  {
+   "cmhy": "30895",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (easy tech)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30895",
+   "metres": 0
+  },
+  {
+   "cmhy": "30900",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (green)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-08-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30900",
+   "metres": 0
+  },
+  {
+   "cmhy": "30902",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (ozone)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30902",
+   "metres": 0
+  },
+  {
+   "cmhy": "30948",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (น้ำแร่พลังแม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-12-01",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30948",
+   "metres": 0
+  },
+  {
+   "cmhy": "30950",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (gooddrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-12-01",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30950",
+   "metres": 0
+  },
+  {
+   "cmhy": "30954",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (waterfresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-12-01",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-30954",
+   "metres": 0
+  },
+  {
+   "cmhy": "30964",
+   "name": "จำหน่ายเตาแก๊ส ถังแก๊สใหม่  ป่าตัน",
+   "tags": [
+    "เตาแก๊ส",
+    "ถังแก๊ส",
+    "อะหลั่ยเตาแก๊ส"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-05",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "31002",
+   "name": "เชียงใหม่รุ่งเรืองแก๊ส (สาขาที่ 3 หนองหอย)",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "อุปกรณ์แก๊ส"
+   ],
+   "phone": "063-114-7499",
+   "amphoe": "เมือง",
+   "modified": "2022-07-21",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-31002",
+   "metres": 0
+  },
+  {
+   "cmhy": "31016",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (พลังแม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-12-10",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31016",
+   "metres": 0
+  },
+  {
+   "cmhy": "31040",
+   "name": "ตู้บริการน้ำแร่ฟรี กระทรวงทรัพยากรธรรมชาติ (ถนนวัวลาย อำเภอเมือง เชียงใหม่)",
+   "tags": [
+    "เติมน้ำฟรี",
+    "บริการน้ำแร่ฟรี",
+    "น้ำดื่มเติมฟรี"
+   ],
+   "phone": "053-112-725",
+   "amphoe": "เมือง",
+   "modified": "2025-04-04",
+   "trade": "utilities",
+   "facets": {},
+   "osm": "cm-curated-utilities-31040",
+   "metres": 0
+  },
+  {
+   "cmhy": "31103",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (aquatek)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31103",
+   "metres": 0
+  },
+  {
+   "cmhy": "31107",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (บ้านหยอดเหรียญ)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31107",
+   "metres": 0
+  },
+  {
+   "cmhy": "31113",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (d drinkwater)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31113",
+   "metres": 0
+  },
+  {
+   "cmhy": "31174",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (โกลบอล)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31174",
+   "metres": 0
+  },
+  {
+   "cmhy": "31180",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (nj water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-06",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31180",
+   "metres": 0
+  },
+  {
+   "cmhy": "31345",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (aquatek)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-04-17",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31345",
+   "metres": 0
+  },
+  {
+   "cmhy": "31385",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (revere osmosis)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31385",
+   "metres": 0
+  },
+  {
+   "cmhy": "31389",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (น้ำพลังแม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31389",
+   "metres": 0
+  },
+  {
+   "cmhy": "31404",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (n99)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31404",
+   "metres": 0
+  },
+  {
+   "cmhy": "31421",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (superfresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-16",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31421",
+   "metres": 0
+  },
+  {
+   "cmhy": "31431",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (gooddrink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-16",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31431",
+   "metres": 0
+  },
+  {
+   "cmhy": "31524",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (pt water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-04-17",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31524",
+   "metres": 0
+  },
+  {
+   "cmhy": "31525",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (pure)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-04-17",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31525",
+   "metres": 0
+  },
+  {
+   "cmhy": "31534",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (goodlife)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-26",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31534",
+   "metres": 0
+  },
+  {
+   "cmhy": "31540",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ  (goodlife)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-26",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31540",
+   "metres": 0
+  },
+  {
+   "cmhy": "31554",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (daily fresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-12",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31554",
+   "metres": 0
+  },
+  {
+   "cmhy": "31560",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (good drink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-26",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31560",
+   "metres": 0
+  },
+  {
+   "cmhy": "31689",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (tk water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-02-16",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31689",
+   "metres": 0
+  },
+  {
+   "cmhy": "31696",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (pure water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-02-25",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-31696",
+   "metres": 0
+  },
+  {
+   "cmhy": "31882",
+   "name": "สิงห์ทองแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สบ้าน",
+    "แก๊สหุงต้ม"
+   ],
+   "phone": "053-283-851,095-452-2552",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-31882",
+   "metres": 0
+  },
+  {
+   "cmhy": "32018",
+   "name": "ร้านรุ่งเรืองแก๊ส (สาขาที่ 1 กาดสามแยก)",
+   "tags": [
+    "ส่งแก๊ส",
+    "อะไหล่แก๊ส",
+    "แก๊สบ้าน"
+   ],
+   "phone": "063-114-7499",
+   "amphoe": "เมือง",
+   "modified": "2023-11-22",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-32018",
+   "metres": 0
+  },
+  {
+   "cmhy": "32019",
+   "name": "ร้านรุ่งเรืองแก๊ส (สาขาที่ 2 สันติธรรม)",
+   "tags": [
+    "ส่งแก๊ส",
+    "อะไหล่แก๊ส",
+    "แก๊สบ้าน"
+   ],
+   "phone": "088-116-9333",
+   "amphoe": "เมือง",
+   "modified": "2022-04-18",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-32019",
+   "metres": 0
+  },
+  {
+   "cmhy": "32084",
+   "name": "ตู้น้ำหยอดเหรียญ คิวซี",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-04-07",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32084",
+   "metres": 0
+  },
+  {
+   "cmhy": "32100",
+   "name": "ตู้น้ำหยอดเหรียญ (clean water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-04-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32100",
+   "metres": 0
+  },
+  {
+   "cmhy": "32103",
+   "name": "ตู้น้ำหยอดเหรียญ (aqartek)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-04-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32103",
+   "metres": 0
+  },
+  {
+   "cmhy": "32167",
+   "name": "ตู้น้ำหยอดเหรียญ (บ้านหยอดเหรียญ)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32167",
+   "metres": 0
+  },
+  {
+   "cmhy": "32174",
+   "name": "ตู้น้ำหยอดเหรียญ (aqar tek)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32174",
+   "metres": 0
+  },
+  {
+   "cmhy": "32215",
+   "name": "ตู้น้ำหยอดเหรียญ (waterquality)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-17",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32215",
+   "metres": 0
+  },
+  {
+   "cmhy": "32297",
+   "name": "ตู้น้ำหยอดเหรียญ (waterfresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-06-03",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32297",
+   "metres": 0
+  },
+  {
+   "cmhy": "32298",
+   "name": "ตู้น้ำหยอดเหรียญ (diamond)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-06-03",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32298",
+   "metres": 0
+  },
+  {
+   "cmhy": "32393",
+   "name": "ตู้น้ำหยอดเหรียญ (ro. sabuy)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-06-03",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32393",
+   "metres": 0
+  },
+  {
+   "cmhy": "32395",
+   "name": "ตู้น้ำหยอดเหรียญ (ion water system)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-06-03",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32395",
+   "metres": 0
+  },
+  {
+   "cmhy": "32558",
+   "name": "ตู้น้ำหยอดเหรียญ (water fresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-07-01",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32558",
+   "metres": 0
+  },
+  {
+   "cmhy": "32559",
+   "name": "ตู้น้ำหยอดเหรียญ (good drink)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-07-01",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32559",
+   "metres": 0
+  },
+  {
+   "cmhy": "32565",
+   "name": "ตู้น้ำหยอดเหรียญ (พีระเซอร์วิส)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-07-09",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32565",
+   "metres": 0
+  },
+  {
+   "cmhy": "32566",
+   "name": "ตู้น้ำหยอดเหรียญ (น้ำแร่ธรรมชาติ)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-07-01",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32566",
+   "metres": 0
+  },
+  {
+   "cmhy": "32586",
+   "name": "ส่งแก๊ส ปั๊ม PT",
+   "tags": [
+    "ส่งแก๊สหุงต้ม",
+    "แก๊สบ้าน"
+   ],
+   "phone": "081-132-7804",
+   "amphoe": "เมือง",
+   "modified": "2022-07-11",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-32586",
+   "metres": 0
+  },
+  {
+   "cmhy": "32593",
+   "name": "ตู้น้ำหยอดเหรียญ (daily fresh)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-07-01",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32593",
+   "metres": 0
+  },
+  {
+   "cmhy": "32805",
+   "name": "ตู้น้ำหยอดเหรียญ (aquatek)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-07-26",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32805",
+   "metres": 0
+  },
+  {
+   "cmhy": "32993",
+   "name": "ตู้น้ำหยอดเหรียญ (aquartek)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-08",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-32993",
+   "metres": 0
+  },
+  {
+   "cmhy": "33008",
+   "name": "ตู้น้ำหยอดเหรียญ (sml)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-08",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-33008",
+   "metres": 0
+  },
+  {
+   "cmhy": "33070",
+   "name": "ตู้น้ำหยอดเหรียญ (โกบอล)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-15",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-33070",
+   "metres": 0
+  },
+  {
+   "cmhy": "33142",
+   "name": "ตู้น้ำหยอดเหรียญ (view)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-33142",
+   "metres": 0
+  },
+  {
+   "cmhy": "33170",
+   "name": "ตู้น้ำหยอดเหรียญ (good life)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-09-08",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-33170",
+   "metres": 0
+  },
+  {
+   "cmhy": "33171",
+   "name": "ตู้น้ำหยอดเหรียญ (ocean water )",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-09-08",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-33171",
+   "metres": 0
+  },
+  {
+   "cmhy": "33182",
+   "name": "น้องหล้าแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "แก๊สบ้าน"
+   ],
+   "phone": "053-806-078,053-328-644",
+   "amphoe": "เมือง",
+   "modified": "2022-09-21",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-33182",
+   "metres": 0
+  },
+  {
+   "cmhy": "33444",
+   "name": "ตู้น้ำหยอดเหรียญ (pi water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-09-22",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-33444",
+   "metres": 0
+  },
+  {
+   "cmhy": "3387",
+   "name": "เวียงพิงค์แก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สบ้าน",
+    "เตาแก๊ส"
+   ],
+   "phone": "053-214-075,099-143-2444",
+   "amphoe": "เมือง",
+   "modified": "2025-07-06",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-3387",
+   "metres": 0
+  },
+  {
+   "cmhy": "35398",
+   "name": "ตู้น้ำหยอดเหรียญ (น้ำแร่พลังแม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-03-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-35398",
+   "metres": 0
+  },
+  {
+   "cmhy": "35465",
+   "name": "ตู้น้ำหยอดเหรียญ (น้ำแร่เพื่อสุขภาพ)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-04-08",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-35465",
+   "metres": 0
+  },
+  {
+   "cmhy": "35798",
+   "name": "ตู้น้ำหยอดเหรียญ (PST Water)",
+   "tags": [
+    "ตู้น้ำดื่มหยอดเหรียญ",
+    "ตู้น้ำดื่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-06-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-35798",
+   "metres": 0
+  },
+  {
+   "cmhy": "35812",
+   "name": "ตู้น้ำหยอดเหรียญ(Aqua pure water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-07-20",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-35812",
+   "metres": 0
+  },
+  {
+   "cmhy": "36026",
+   "name": "ตู้น้ำหยอดเหรียญ(999 water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36026",
+   "metres": 0
+  },
+  {
+   "cmhy": "36029",
+   "name": "ตู้น้ำหยอดเหรียญ(jawater)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36029",
+   "metres": 0
+  },
+  {
+   "cmhy": "36030",
+   "name": "ตู้น้ำหยอดเหรียญ(น้ำดื่มบริสุทธิ์)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36030",
+   "metres": 0
+  },
+  {
+   "cmhy": "36037",
+   "name": "ตู้น้ำหยอดเหรียญ(น้ำแร่บริสุทธิ์)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36037",
+   "metres": 0
+  },
+  {
+   "cmhy": "36039",
+   "name": "ตู้น้ำหยอดเหรียญ(clean water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36039",
+   "metres": 0
+  },
+  {
+   "cmhy": "36054",
+   "name": "ตู้น้ำหยอดเหรียญ (ไม่มีชื่อ)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-01-31",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36054",
+   "metres": 0
+  },
+  {
+   "cmhy": "36061",
+   "name": "ตู้น้ำหยอดเหรียญ(บ้านหยอดเหรียญ",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36061",
+   "metres": 0
+  },
+  {
+   "cmhy": "36308",
+   "name": "ตู้น้ำหยอดเหรียญ(Drinking Water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36308",
+   "metres": 0
+  },
+  {
+   "cmhy": "36311",
+   "name": "ตู้น้ำหยอดเหรียญ(น้ำแร่พลังแม่เหล็ก",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36311",
+   "metres": 0
+  },
+  {
+   "cmhy": "36319",
+   "name": "ตู้น้ำหยอดเหรียญ(drinking water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36319",
+   "metres": 0
+  },
+  {
+   "cmhy": "36335",
+   "name": "ตู้น้ำหยอดเหรียญ(น้ำแร่พลังแม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-12",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36335",
+   "metres": 0
+  },
+  {
+   "cmhy": "36367",
+   "name": "ตู้น้ำหยอดเหรียญ(aqua purewater)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36367",
+   "metres": 0
+  },
+  {
+   "cmhy": "36369",
+   "name": "ตู้น้ำหยอดเหรียญ( good life)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36369",
+   "metres": 0
+  },
+  {
+   "cmhy": "36410",
+   "name": "ตู้น้ำหยอดเหรียญ(Wealth Water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36410",
+   "metres": 0
+  },
+  {
+   "cmhy": "36452",
+   "name": "ตู้น้ำหยอดเหรียญ(ro water )",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-25",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36452",
+   "metres": 0
+  },
+  {
+   "cmhy": "36453",
+   "name": "ตู้น้ำหยอดเหรียญ(colandas)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-25",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36453",
+   "metres": 0
+  },
+  {
+   "cmhy": "36455",
+   "name": "ตู้น้ำหยอดเหรียญ(nanoplus)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-25",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36455",
+   "metres": 0
+  },
+  {
+   "cmhy": "36456",
+   "name": "ตู้น้ำหยอดเหรียญ(filtex)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-25",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36456",
+   "metres": 0
+  },
+  {
+   "cmhy": "36459",
+   "name": "ตู้น้ำหยอดเหรียญ(นครพิงค์คอนโด)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-25",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36459",
+   "metres": 0
+  },
+  {
+   "cmhy": "36656",
+   "name": "ตู้น้ำหยอดเหรียญ(Aquateck)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-11-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36656",
+   "metres": 0
+  },
+  {
+   "cmhy": "36658",
+   "name": "ตู้น้ำหยอดเหรียญ(Good Drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-11-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36658",
+   "metres": 0
+  },
+  {
+   "cmhy": "36661",
+   "name": "ตู้น้ำหยอดเหรียญ(เอกฝนทิพย์)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-11-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36661",
+   "metres": 0
+  },
+  {
+   "cmhy": "36663",
+   "name": "ตู้น้ำหยอดเหรียญ(บ้านหยอดเหรียญ)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-11-23",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36663",
+   "metres": 0
+  },
+  {
+   "cmhy": "36783",
+   "name": "ตู้น้ำหยอดเหรียญ(บ้านหยอดเหรียญ)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-11-03",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36783",
+   "metres": 0
+  },
+  {
+   "cmhy": "36893",
+   "name": "ตู้น้ำหยอดเหรียญ (บ้านหยอดเหรียญ)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-01-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36893",
+   "metres": 0
+  },
+  {
+   "cmhy": "36917",
+   "name": "ตู้น้ำหยอดเหรียญ (SML ชุมชนป่าห้า)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-01-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36917",
+   "metres": 0
+  },
+  {
+   "cmhy": "36918",
+   "name": "ตู้น้ำหยอดเหรียญ (ro fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-01-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-36918",
+   "metres": 0
+  },
+  {
+   "cmhy": "3701",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (R.O.)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-3701",
+   "metres": 0
+  },
+  {
+   "cmhy": "37193",
+   "name": "ตู้น้ำหยอดเหรียญ(waterfor life)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-02-17",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-37193",
+   "metres": 0
+  },
+  {
+   "cmhy": "37285",
+   "name": "ตู้น้ำหยอดเหรียญ(บ้านหยอดเหรียญ",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-06-13",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-37285",
+   "metres": 0
+  },
+  {
+   "cmhy": "37416",
+   "name": "ตู้น้ำหยอดเหรียญ(water fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-01-19",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-37416",
+   "metres": 0
+  },
+  {
+   "cmhy": "37448",
+   "name": "ตู้น้ำหยอดเหรียญ(water fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-37448",
+   "metres": 0
+  },
+  {
+   "cmhy": "37466",
+   "name": "ตู้น้ำหยอดเหรียญ(goodmind)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-37466",
+   "metres": 0
+  },
+  {
+   "cmhy": "37539",
+   "name": "ตู้น้ำหยอดเหรียญ(good life)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-01-31",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-37539",
+   "metres": 0
+  },
+  {
+   "cmhy": "37598",
+   "name": "ตู้น้ำหยอดเหรียญ(Aquatek)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-01-31",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-37598",
+   "metres": 0
+  },
+  {
+   "cmhy": "37601",
+   "name": "ตู้น้ำหยอดเหรียญ(water king)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-01-31",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-37601",
+   "metres": 0
+  },
+  {
+   "cmhy": "37679",
+   "name": "ร้านน้องดิวแก๊ส บริการส่งแก๊ส [ซอยต๋าเหิน เมืองสาตร]",
+   "tags": [
+    "ส่งแก๊สหุงต้ม",
+    "ส่งแก๊สบ้าน",
+    "บริการส่งแก๊ส"
+   ],
+   "phone": "053-800-207,089-952-8202",
+   "amphoe": "เมือง",
+   "modified": "2026-08-20",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-37679",
+   "metres": 0
+  },
+  {
+   "cmhy": "37722",
+   "name": "ซักผ้าหยอดเหรียญ & ตู้น้ำ(บ้านหยอดเหรียญ)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-04-17",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-37722",
+   "metres": 0
+  },
+  {
+   "cmhy": "37816",
+   "name": "ตู้น้ำหยอดเหรียญ( water fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-01-10",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-37816",
+   "metres": 0
+  },
+  {
+   "cmhy": "37819",
+   "name": "ตู้น้ำหยอดเหรียญ ( good life)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-01-10",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-37819",
+   "metres": 0
+  },
+  {
+   "cmhy": "3793",
+   "name": "น้ำดื่มหยอดเหรียญ (Good Drink)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "08-9891-2684",
+   "amphoe": "เมือง",
+   "modified": "2022-03-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-3793",
+   "metres": 0
+  },
+  {
+   "cmhy": "38412",
+   "name": "เมืองลังแก๊ส",
+   "tags": [
+    "แก๊สบ้าน",
+    "แก๊สหุงต้ม",
+    "บริการแก๊ส"
+   ],
+   "phone": "086-191-6623,086-196-8285",
+   "amphoe": "เมือง",
+   "modified": "2024-09-12",
+   "trade": "utilities",
+   "facets": {},
+   "osm": "cm-curated-utilities-38412",
+   "metres": 0
+  },
+  {
+   "cmhy": "38624",
+   "name": "ซักผ้าหยอดเหรียญ & ตู้น้ำ(หมู่บ้านเอื้ออาทร บ้านท่อ)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-01-09",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-38624",
+   "metres": 0
+  },
+  {
+   "cmhy": "3885",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-02-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-3885",
+   "metres": 0
+  },
+  {
+   "cmhy": "3921",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (P.T. Water)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "081-7056354,081-7056356",
+   "amphoe": "เมือง",
+   "modified": "2022-03-29",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-3921",
+   "metres": 0
+  },
+  {
+   "cmhy": "4073",
+   "name": "ศักดาแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "เตาแก๊ส"
+   ],
+   "phone": "053-275-060,086-181-7503,085-713-3104",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-4073",
+   "metres": 0
+  },
+  {
+   "cmhy": "41481",
+   "name": "ไทเกอร์ แก๊ส (เสือน้อยแก๊ส)",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สบ้าน",
+    "แก๊สหุงต้ม"
+   ],
+   "phone": "091-802-5117,091-802-3277",
+   "amphoe": "เมือง",
+   "modified": "2026-03-16",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-41481",
+   "metres": 0
+  },
+  {
+   "cmhy": "41682",
+   "name": "ประพันธ์แก๊สหลังตลาดแม่เหียะ",
+   "tags": [
+    "ร้านส่งแก๊ส",
+    "ร้านส่งแก๊สหุงต้ม",
+    "ขายแก๊สหุงต้ม"
+   ],
+   "phone": "083-474-9427,053-804-732",
+   "amphoe": "เมือง",
+   "modified": "2026-04-09",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-41682",
+   "metres": 0
+  },
+  {
+   "cmhy": "41977",
+   "name": "ตู้บริการน้ำดื่มสะอาด บริการประชาชนฟรี (การประปาส่วนภูมิภาคสาขาเชียงใหม่ (ชั้นพิเศษ)",
+   "tags": [
+    "ตู้น้ำดื่มบริการฟรี",
+    "ตู้น้ำดื่มฟรี"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-05-30",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-41977",
+   "metres": 0
+  },
+  {
+   "cmhy": "4993",
+   "name": "สยามแก๊ส (ถนน มหิดล)",
+   "tags": [
+    "แก๊สรถยนต์",
+    "ปั๊มแก๊ส",
+    "ยูนิคแก๊ส"
+   ],
+   "phone": "0-2120-9999",
+   "amphoe": "เมือง",
+   "modified": "2026-03-24",
+   "trade": "utilities",
+   "facets": {},
+   "osm": "cm-curated-utilities-4993",
+   "metres": 0
+  },
+  {
+   "cmhy": "5130",
+   "name": "ดำรงอ้อมเมืองแก๊ส ปั๊มแก๊สรถยนต์ ส่งแก๊ส",
+   "tags": [
+    "แก๊ส",
+    "ปั๊มแก๊ส",
+    "ยูนิคแก๊ส"
+   ],
+   "phone": "053-270-266,,053-201-635",
+   "amphoe": "เมือง",
+   "modified": "2022-10-10",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-5130",
+   "metres": 0
+  },
+  {
+   "cmhy": "5292",
+   "name": "ยูนิคแก๊ส คู่ครัวไทย [บุญรอดแก๊ส]",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม",
+    "ส่งแก๊สหุงต้ม"
+   ],
+   "phone": "053-204-858,053-275-848",
+   "amphoe": "เมือง",
+   "modified": "2026-03-24",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-5292",
+   "metres": 0
+  },
+  {
+   "cmhy": "5320",
+   "name": "เจริญพรแก๊ส ส่งแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สบ้าน"
+   ],
+   "phone": "081-950-2823,093-246-1972",
+   "amphoe": "เมือง",
+   "modified": "2021-07-31",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-5320",
+   "metres": 0
+  },
+  {
+   "cmhy": "5812",
+   "name": "จันทร์ประเสริฐแก๊ส(กาดก้อม)",
+   "tags": [
+    "ส่งแก๊ส",
+    "เตาแก๊ส",
+    "สั่งแก๊ส"
+   ],
+   "phone": "0956975127,095-448-4172,0983099022",
+   "amphoe": "เมือง",
+   "modified": "2021-01-30",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-5812",
+   "metres": 0
+  },
+  {
+   "cmhy": "5911",
+   "name": "เทคนิคแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สหุงต้ม"
+   ],
+   "phone": "053232260,053251633",
+   "amphoe": "เมือง",
+   "modified": "2021-09-26",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-5911",
+   "metres": 0
+  },
+  {
+   "cmhy": "5960",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ  (99 อาร์โอ )",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-02-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-5960",
+   "metres": 0
+  },
+  {
+   "cmhy": "6211",
+   "name": "แก๊สนครพิงค์",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สบ้าน",
+    "แก๊สหุงต้ม"
+   ],
+   "phone": "053-252-889,053-232-853,086-915-8511",
+   "amphoe": "เมือง",
+   "modified": "2021-09-21",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-6211",
+   "metres": 0
+  },
+  {
+   "cmhy": "6298",
+   "name": "ข่วงสิงห์แก๊ส",
+   "tags": [
+    "เตาแก๊ส",
+    "ส่งแก๊ส",
+    "อะไหล่เตาแก๊ส"
+   ],
+   "phone": "053-212-827,089-555-6121",
+   "amphoe": "เมือง",
+   "modified": "2026-01-07",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-6298",
+   "metres": 0
+  },
+  {
+   "cmhy": "6474",
+   "name": "ตู้น้ำหยอดเหรียญ(เพื่อชุมชน)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-02-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-6474",
+   "metres": 0
+  },
+  {
+   "cmhy": "6482",
+   "name": "ตู้น้ำหยอดเหรียญ (Fresh & Clean)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-06-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-6482",
+   "metres": 0
+  },
+  {
+   "cmhy": "6502",
+   "name": "ตู้น้ำหยอดเหรียญ(โกบอล)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-02-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-6502",
+   "metres": 0
+  },
+  {
+   "cmhy": "6540",
+   "name": "ตู้น้ำหยอดเหรียญ(โฮมวอเตอร์)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-02-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-6540",
+   "metres": 0
+  },
+  {
+   "cmhy": "6548",
+   "name": "ตู้น้ำหยอดเหรียญ(สแตม & สตางค์ น้ำดื่ม)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "086-671-0757",
+   "amphoe": "เมือง",
+   "modified": "2021-10-12",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-6548",
+   "metres": 0
+  },
+  {
+   "cmhy": "6564",
+   "name": "ตู้น้ำหยอดเหรียญ(aquatek)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "08-9891-2684",
+   "amphoe": "เมือง",
+   "modified": "2021-10-30",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-6564",
+   "metres": 0
+  },
+  {
+   "cmhy": "6616",
+   "name": "ซุปเปอร์แก๊ส สันป่าข่อย",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊งหุงต้ม",
+    "แก๊สบรรจุถัง"
+   ],
+   "phone": "053-243-659,053-303-149,085-324-3659",
+   "amphoe": "เมือง",
+   "modified": "2022-10-25",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-6616",
+   "metres": 0
+  },
+  {
+   "cmhy": "6628",
+   "name": "ตู้น้ำหยอดเหรียญ(RO Fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-02-18",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-6628",
+   "metres": 0
+  },
+  {
+   "cmhy": "6732",
+   "name": "ซักผ้า หยอดเหรียญ บริการด้วยน้ำประปา และ ตู้น้ำหยอดเหรียญ [ถนน บ้านเสาหิน]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-11-22",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-6732",
+   "metres": 0
+  },
+  {
+   "cmhy": "7280",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ(น้ำแร่พลังแม่เหล็ก)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-27",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-7280",
+   "metres": 0
+  },
+  {
+   "cmhy": "752",
+   "name": "ปตท. NGV (มีสุขใจ) [เจริญเมือง]",
+   "tags": [
+    "เติมลม",
+    "เติมแก๊ส",
+    "ปั๊มแก๊ส"
+   ],
+   "phone": "053-260-799",
+   "amphoe": "เมือง",
+   "modified": "2019-11-07",
+   "trade": "utilities",
+   "facets": {},
+   "osm": "cm-curated-utilities-752",
+   "metres": 0
+  },
+  {
+   "cmhy": "789",
+   "name": "สันป่าข่อย แก๊ส",
+   "tags": [
+    "แก๊สหุงต้ม",
+    "จำหน่าย",
+    "เตาแก๊ส"
+   ],
+   "phone": "053-242-246,053-242-273",
+   "amphoe": "เมือง",
+   "modified": "2020-05-28",
+   "trade": "utilities",
+   "facets": {},
+   "osm": "cm-curated-utilities-789",
+   "metres": 0
+  },
+  {
+   "cmhy": "8183",
+   "name": "แอร์พอร์ท แก๊ส และออกแบบครัวสเตนเลส",
+   "tags": [
+    "ถังแก๊สสปตท",
+    "ลัคกี้เฟรม",
+    "ครัวแสตนเลส"
+   ],
+   "phone": "086-118-1467,081-980-6476",
+   "amphoe": "เมือง",
+   "modified": "2024-03-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8306",
+   "name": "นิวเอเซียแก๊ส ข่วงสิงห์",
+   "tags": [
+    "เตาแก๊ส",
+    "แก๊สหุงต้ม",
+    "ส่งแก๊ส"
+   ],
+   "phone": "053-213-790,053-409-664",
+   "amphoe": "เมือง",
+   "modified": "2024-02-17",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-8306",
+   "metres": 0
+  },
+  {
+   "cmhy": "8547",
+   "name": "เจริญผลแก๊ส",
+   "tags": [
+    "ส่งแก๊ส",
+    "แก๊สธงฟ้า"
+   ],
+   "phone": "081-366-5399",
+   "amphoe": "เมือง",
+   "modified": "2026-08-22",
+   "trade": "utilities",
+   "facets": {
+    "delivery": true
+   },
+   "osm": "cm-curated-utilities-8547",
+   "metres": 0
+  },
+  {
+   "cmhy": "8641",
+   "name": "สยามแก๊ส (วงแหวนรอบกลาง)",
+   "tags": [
+    "ปั๊มแก๊ส"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-10",
+   "trade": "utilities",
+   "facets": {},
+   "osm": "cm-curated-utilities-8641",
+   "metres": 0
+  },
+  {
+   "cmhy": "892",
+   "name": "ปั๊มแก๊ส LPG ทุ่งโฮเต็ล",
+   "tags": [
+    "ปั๊มแก๊ส",
+    "เติมแก๊ส",
+    "แก๊สรถยนต์"
+   ],
+   "phone": "089-700-5279",
+   "amphoe": "เมือง",
+   "modified": "2019-07-12",
+   "trade": "utilities",
+   "facets": {},
+   "osm": "cm-curated-utilities-892",
+   "metres": 0
+  },
+  {
+   "cmhy": "9146",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (พีระเซอร์วิส)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-06-04",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-9146",
+   "metres": 0
+  },
+  {
+   "cmhy": "9552",
+   "name": "ลัดดาแก๊ส",
+   "tags": [
+    "จำหน่ายแก๊ส",
+    "หุงต้ม",
+    "ซ่อมแก๊ส"
+   ],
+   "phone": "081-993-8803,086-117-4276,053273432",
+   "amphoe": "เมือง",
+   "modified": "2025-11-06",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "9777",
+   "name": "ตู้น้ำดื่มหยอดเหรียญ (water fresh)",
+   "tags": [
+    "ตู้น้ำหยอดเหรียญ",
+    "ตู้น้ำดื่มหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-28",
+   "trade": "utilities",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-curated-utilities-9777",
+   "metres": 0
+  }
+ ]
+}

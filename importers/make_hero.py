@@ -3,8 +3,15 @@
 
 Reads data/curated/hero_picks.json (uuid, slug, pool, scene; the coordinates
 stay in that file), finds each frame's 1024 px preview in the Photos library
-on this Mac, and writes docs/site/hero/<slug>.jpg and .webp plus
-docs/site/hero/index.json.
+on this Mac, and writes assets/site/hero/<slug>.jpg and .webp plus
+assets/site/hero/index.json.
+
+It writes into assets/, not docs/. build.py builds into docs.next/ and swaps
+the whole tree into place, so a frame hand-placed in docs/ is gone at the next
+build and the homepage renderer — which reads the index out of the tree being
+built — dies on a missing file. That is what stopped every build from
+2026-09-20 23:23 onwards. Frames that must travel with a build live in
+assets/ and are copied in, the same way the fonts and the city pictures are.
 
 The index carries slug, pool, scene, width, height, the iconic flag, and —
 only for a frame marked pub in the picks — a coordinate rounded to three
@@ -19,7 +26,7 @@ from PIL import Image, ImageOps
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 LIB = pathlib.Path.home() / "Pictures" / "Photos Library.photoslibrary" / "resources" / "derivatives"
-OUT = ROOT / "docs" / "site" / "hero"
+OUT = ROOT / "assets" / "site" / "hero"
 PICKS = ROOT / "data" / "curated" / "hero_picks.json"
 
 

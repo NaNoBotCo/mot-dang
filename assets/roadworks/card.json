@@ -1,0 +1,14 @@
+{
+  "id": "roadworks",
+  "href": "roadworks/",
+  "th": "งานถนน",
+  "en": "Roadworks",
+  "line_th": "ถนนที่กำลังซ่อม เชียงใหม่ เชียงราย หน้านี้เองก็ยังสร้างไม่เสร็จ ช่วยกันสร้างต่อได้",
+  "line_en": "roads under repair in Chiang Mai and Chiang Rai; the page itself is still under construction, so build on it",
+  "icon": "i-road",
+  "shipped": "2026-09-28",
+  "group": "behind",
+  "where": "both",
+  "served": "docs",
+  "words": ["roadworks", "road works", "under construction", "construction", "sandbox", "bounty", "bots", "งานถนน", "ซ่อมถนน", "ถนนปิด", "กำลังก่อสร้าง", "ทางเบี่ยง"]
+}

@@ -16,14 +16,26 @@ ADDRESS. Do not come back expecting it to fill contacts; it cannot, and a
 comment promising otherwise would send somebody hunting for a bug that is not
 there.
 
-WHAT IS NEVER TAKEN. The pages carry a rating and a wall of reviews, and both
-are refused — not skipped for convenience, refused. This site holds no ratings
-by rule (CLAUDE.md), and these particular ones are Google's: every review
-author links to google.com/maps/contrib/. Thailand is the SEO capital of the
-world and a Google rating on a Chiang Mai shopfront is not evidence about that
-shop. Republishing them would import somebody else's manipulated numbers and
-stamp our name on them. `_strip_refused()` removes them at parse time so they
-cannot reach a record even by accident, and there is a test for it.
+WHAT IS NEVER TAKEN. The pages carry a rating and a wall of reviews. The
+rating is refused — not skipped for convenience, refused. This site holds no
+ratings by rule (CLAUDE.md), and these particular ones are Google's: every
+review author links to google.com/maps/contrib/. Thailand is the SEO capital
+of the world and a Google rating on a Chiang Mai shopfront is not evidence
+about that shop. Republishing them would import somebody else's manipulated
+numbers and stamp our name on them. `_strip_refused()` removes ratings and
+review text at parse time so they cannot reach a record even by accident, and
+there is a test for it.
+
+THE ONE THING READ OUT OF A REVIEW, AND WHY (Nan, 2026-09-21). She searched
+the live site for kratom, got one shop, and said to read the reviews for it.
+`offers_from_reviews()` runs BEFORE the strip and takes one thing: whether a
+visitor said they bought a named product here. It returns product keys and a
+count. No text, no author, no date, no rating, no link — none of it reaches an
+entry, a record or a page, and the wording of a review is never republished.
+
+A review is not a name, an address, an hour or a neighbour, which is what the
+offers field forbids inferring from; it is somebody saying what they walked
+out with. It is also the weakest source in OFFER_VIA and prints as one.
 
 MANNERS. Their robots.txt asks for 1 second between requests. This waits
 EIGHT, because 839 pages is a lot to ask of somebody else's server and we are
@@ -81,6 +93,52 @@ def _strip_refused(node):
     return node
 
 
+# Product keys read out of review text, and the wordings that earn each.
+# Latin needs a word boundary so "Kratom" never lights up inside another word.
+# Thai bare กระท่อม is the leaf HERE and a hut almost everywhere else — every
+# page in this cache is a cannabis shop's, so the source calibrates the word,
+# the same guard tags_mine.earn_by_name() uses. Do not lift this table onto
+# the open corpus: 35 of the 37 กระท่อม names in the two provinces are farm
+# shelters (notes/kratom-2026-09-21.txt).
+OFFER_WORDS = {
+    "kratom": (re.compile(r"\b(?:kratom|krathom|ketum)\b", re.I),
+               re.compile(r"ใบกระท่อม|น้ำกระท่อม|น้ำท่อม|ใบท่อม|กระท่อม")),
+}
+
+# A customer ASKING whether a shop sells something is not evidence that it
+# does. Measured 2026-09-21: "มีน้ำท่อมขายไหมครับ" on ร้าน Color Beauty — a
+# beauty salon — was the only thing that put it on the kratom list.
+_ASKING = re.compile(
+    r"ไหม|มั้ย|มัย|หรือเปล่า|รึเปล่า|ป่าว|"
+    r"do you have|do they have|does anyone|anyone know|is there any|"
+    r"any .{0,12}\?", re.I)
+
+# Clause enough to hold one statement. Thai does not space its words, so the
+# split is on punctuation and line ends only.
+_CLAUSE = re.compile(r"[.!?\n·•]+|(?<=[ก-๙])\s{2,}")
+
+
+def offers_from_reviews(store):
+    """Product keys a visitor said they bought here — {key: mentions}.
+
+    Reads `reviewBody` and nothing else, returns keys and counts and nothing
+    else. The text does not leave this function.
+    """
+    out = {}
+    reviews = store.get("review") if isinstance(store, dict) else None
+    for rv in (reviews if isinstance(reviews, list) else []):
+        body = rv.get("reviewBody") if isinstance(rv, dict) else None
+        if not isinstance(body, str):
+            continue
+        for clause in _CLAUSE.split(unescape(body)):
+            if _ASKING.search(clause):
+                continue
+            for key, pats in OFFER_WORDS.items():
+                if any(p.search(clause) for p in pats):
+                    out[key] = out.get(key, 0) + 1
+    return out
+
+
 def get(url):
     req = urllib.request.Request(url, headers={
         "User-Agent": UA,
@@ -135,24 +193,64 @@ def shop_urls():
     return out
 
 
-def store_block(html_text):
-    """The schema.org Store block, with ratings and reviews already gone."""
+def _unescape_values(node):
+    """HTML-unescape the strings INSIDE a parsed block, never the JSON text."""
+    if isinstance(node, str):
+        return unescape(node)
+    if isinstance(node, dict):
+        return {k: _unescape_values(v) for k, v in node.items()}
+    if isinstance(node, list):
+        return [_unescape_values(v) for v in node]
+    return node
+
+
+def store_block_raw(html_text):
+    """The schema.org Store block as the page wrote it, ratings and all.
+
+    The only caller that may hold this is the one line below that strips it,
+    and offers_from_reviews(), which reads review text and returns counts.
+
+    PARSE FIRST, UNESCAPE AFTER. This used to HTML-unescape the script text
+    and then parse it, which works until a reviewer types a double quote:
+    weed.th writes that as &quot; inside the JSON string, unescaping turned it
+    back into a bare " in the middle of a JSON string, and the whole block
+    failed to parse. The shop then had no Store block and was dropped from the
+    harvest entirely. Measured over the 839 cached pages on 2026-09-21: 113
+    blank before, 84 after, **29 shops recovered** — The Living Room, Fat Jim,
+    Chiangmai 420, and HERBAL Garden Home: Cannabis and Kratom among them. A
+    page that only parses the old way is still read that way.
+
+    The name check is the other half: some pages carry a second, nameless
+    Store block, and popping the stack could reach it first and return a shop
+    with no name, which the caller counts as blank just the same.
+    """
     for m in re.finditer(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>',
                          html_text, re.S | re.I):
+        text = m.group(1).strip()
         try:
-            doc = json.loads(unescape(m.group(1).strip()))
+            doc = json.loads(text)
         except Exception:
-            continue
+            try:
+                doc = json.loads(unescape(text))
+            except Exception:
+                continue
         stack = [doc]
         while stack:
             cur = stack.pop()
             if isinstance(cur, list):
                 stack.extend(cur)
             elif isinstance(cur, dict):
-                if str(cur.get("@type", "")) in ("Store", "LocalBusiness"):
-                    return _strip_refused(cur)
+                if str(cur.get("@type", "")) in ("Store", "LocalBusiness") \
+                        and cur.get("name"):
+                    return _unescape_values(cur)
                 stack.extend(v for v in cur.values() if isinstance(v, (dict, list)))
     return None
+
+
+def store_block(html_text):
+    """The schema.org Store block, with ratings and reviews already gone."""
+    raw = store_block_raw(html_text)
+    return _strip_refused(raw) if raw is not None else None
 
 
 def main():
@@ -160,13 +258,18 @@ def main():
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--refetch", action="store_true")
+    ap.add_argument("--reparse", action="store_true",
+                    help="re-read every cached page and rewrite the entries; "
+                         "fetches nothing, so a new field mined from the "
+                         "cache costs their server nothing")
     args = ap.parse_args()
 
     os.makedirs(CACHE, exist_ok=True)
     doc = json.load(open(OUT, encoding="utf-8")) if os.path.exists(OUT) else {}
     shops = shop_urls()
     todo = [s for s in shops
-            if args.refetch or not os.path.exists(os.path.join(CACHE, s[0] + ".html"))]
+            if args.refetch or args.reparse
+            or not os.path.exists(os.path.join(CACHE, s[0] + ".html"))]
     if args.limit:
         todo = todo[:args.limit]
     print(f"🐜 weed.th: {len(shops)} shops in the sitemap "
@@ -176,10 +279,11 @@ def main():
     if todo and not allowed(todo[0][3]):
         print("   robots.txt says no — stopping."), exit(1)
 
-    today, got, blank, broke = date.today().isoformat(), 0, 0, 0
+    today, got, blank, broke, offered = date.today().isoformat(), 0, 0, 0, 0
     for i, (uuid, prov, slug, url) in enumerate(todo, 1):
         path = os.path.join(CACHE, uuid + ".html")
         if os.path.exists(path) and not args.refetch:
+            # --reparse never reaches get(); a cached page is the whole input.
             page = open(path, encoding="utf-8", errors="replace").read()
         else:
             try:
@@ -191,7 +295,8 @@ def main():
                 continue
             open(path, "w", encoding="utf-8").write(page)
             time.sleep(DELAY)
-        st = store_block(page)
+        raw = store_block_raw(page)
+        st = _strip_refused(raw) if raw is not None else None
         if not st or not st.get("name"):
             blank += 1
             continue
@@ -201,6 +306,12 @@ def main():
             "src": url,
             "fetched": today,
         }
+        # Keys and counts. The reviews themselves stay in `raw`, which goes
+        # out of scope on the next turn of this loop.
+        seen_offers = offers_from_reviews(raw)
+        if seen_offers:
+            entry["offers"] = seen_offers
+            offered += 1
         addr = st.get("address")
         if isinstance(addr, str) and addr.strip():
             entry["address"] = addr.strip()
@@ -216,10 +327,13 @@ def main():
         if i % 25 == 0 or i == len(todo):
             print(f"  {i:4}/{len(todo)}  kept {got}")
 
-    doc["_note"] = ("Names and addresses only. Ratings and reviews are refused "
-                    "at parse time — see importers/harvest_weedth.py. "
+    doc["_note"] = ("Names and addresses, and on some entries an `offers` count "
+                    "of the products a visitor said they bought — keys and "
+                    "counts, never the wording. Ratings and review text are "
+                    "refused at parse time — see importers/harvest_weedth.py. "
                     "Fetched one page per shop, 8s apart, robots.txt obeyed.")
-    print(f"\n🐜 kept {got} · no Store block {blank} · unreachable {broke}")
+    print(f"\n🐜 kept {got} · no Store block {blank} · unreachable {broke} "
+          f"· a visitor named a product on {offered}")
     if args.dry_run:
         print("   --dry-run: nothing written")
         return

@@ -1168,6 +1168,22 @@
           "place_matched": "exact"
         },
         {
+          "th": "มูลนิธิกวนอิมธรรมทาน ถนนเมืองสมุทร เชียงใหม่",
+          "en": "Guan Im Dhamma Dan Foundation, Mueang Samut Road, Chiang Mai",
+          "note_th": "ปี 2569 จัด 9–18 ต.ค. พระสงฆ์จีนนำสวด ใส่ชุดขาวเข้าพิธี",
+          "note_en": "9–18 Oct 2026; Chinese monks lead the rites; white clothes",
+          "place_id": "cm-ovt-e8a26868-615d-4c5a-8bb8-fafeb7352c5f",
+          "place_matched": "exact"
+        },
+        {
+          "th": "ศาลเจ้าปุงเถ่ากง ข้างกาดหลวง เชียงใหม่",
+          "en": "Pung Tao Kong Shrine, by Warorot, Chiang Mai",
+          "note_th": "ปี 2568 แจกอาหารเจฟรีครบเก้าวัน",
+          "note_en": "Free jay meals all nine days in 2025",
+          "place_id": "cm-osm-way-255987533",
+          "place_matched": "exact"
+        },
+        {
           "th": "ศาลเจ้าและโรงเจในเชียงใหม่และเชียงราย",
           "en": "Shrine halls (rong je) in Chiang Mai and Chiang Rai"
         },

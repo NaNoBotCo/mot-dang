@@ -76,7 +76,7 @@
     {"name": "Safe Drive Chiang Mai's own site", "ref": "safedrivechiangmai.com", "reason": "The domain did not resolve on 5 Sep 2026; the school is on the map with a phone."},
     {"name": "Whether each mapped school is department-approved", "ref": "—", "reason": "Only an approved school may run the fifteen-hour course and test on site. No school's approval was verified, so none is claimed."}
   ],
-  "links": [["cm/transport/rental/index.html", "เช่ารถ-มอเตอร์ไซค์", "car and bike rental"], ["cm/transport/motorbike/index.html", "ร้านมอเตอร์ไซค์", "motorbike dealers"], ["asked/document-prep.html", "ทำเอกสาร วีซ่า แปล", "documents, visas, translation"], ["cm/essentials/gov/index.html", "ราชการ", "government offices"]],
+  "links": [["cm/transport/motorbike-rental/index.html", "เช่ามอเตอร์ไซค์", "scooter and motorbike rental"], ["cm/transport/car-rental/index.html", "รถเช่า", "car rental"], ["cm/transport/motorbike/index.html", "ร้านมอเตอร์ไซค์", "motorbike dealers"], ["asked/document-prep.html", "ทำเอกสาร วีซ่า แปล", "documents, visas, translation"], ["cm/essentials/gov/index.html", "ราชการ", "government offices"]],
   "index": {"base": "ใบขับขี่ ทำใบขับขี่ ต่อใบขับขี่ สอนขับรถ ขนส่ง driving licence driving school", "for": {"new": "อบรม 5 ชั่วโมง สอบใบขับขี่", "renew": "ต่ออายุ ใบรับรองแพทย์"}},
   "panel": {"id": "driving", "glyph": "🛵",
     "variants": ["ใบขับขี่", "ทำใบขับขี่", "ต่อใบขับขี่", "สอนขับรถ", "โรงเรียนสอนขับรถ", "driving licence", "driving license", "driving school", "ขนส่ง"],
@@ -84,7 +84,7 @@
     "title": ["ใบขับขี่และโรงเรียนสอนขับรถ", "The driving licence and the schools"],
     "lead": ["เชียงใหม่มีสำนักงานขนส่งสองแห่งและทำคนละงาน — ใบขับขี่อยู่ที่แม่เหียะ ไม่ใช่หนองหอย และคิวต้องจองล่วงหน้าหนึ่งวัน", "Chiang Mai has two transport offices doing different work — licences are at Mae Hia, not Nong Hoi — and the queue must be booked a day ahead."],
     "facts": [["จองคิวล่วงหน้าอย่างน้อย 1 วันผ่าน DLT Smart Queue", "book at least one day ahead through DLT Smart Queue"], ["ใบรับรองแพทย์ต้องออกไม่เกิน 1 เดือน", "the medical certificate must be less than a month old"]],
-    "doors": [{"href": "cm/transport/rental/index.html", "label": ["เช่ารถ-มอเตอร์ไซค์", "car and bike rental"]}, {"href": "asked/document-prep.html", "label": ["ทำเอกสาร", "documents"]}],
+    "doors": [{"href": "cm/transport/motorbike-rental/index.html", "label": ["เช่ามอเตอร์ไซค์", "scooter and motorbike rental"]}, {"href": "cm/transport/car-rental/index.html", "label": ["รถเช่า", "car rental"]}, {"href": "asked/document-prep.html", "label": ["ทำเอกสาร", "documents"]}],
     "delight": ["สำนักงานแห่งที่ 1 หนองหอย ทำทะเบียนมอเตอร์ไซค์และภาษีแบบไม่ต้องลงจากรถ แห่งที่ 2 แม่เหียะ ทำใบขับขี่ — ไปผิดที่คือเสียไปหนึ่งวัน", "Branch 1 at Nong Hoi does motorcycle registration and drive-thru tax; branch 2 at Mae Hia does licences. Going to the wrong one costs a day."]},
   "thesaurus": [["driving licence", "driving license", "ใบขับขี่", "ใบอนุญาตขับรถ", "ทำใบขับขี่"], ["driving school", "สอนขับรถ", "โรงเรียนสอนขับรถ"], ["land transport office", "สำนักงานขนส่ง", "ขนส่งจังหวัด"]]
 }

@@ -1,0 +1,368 @@
+{
+  "generated": "2026-09-26 11:49",
+  "method": "Google Autocomplete (client=chrome, hl en+th, gl th); alphabet-soup + intent expansion",
+  "expansions_run": 204,
+  "distinct_cm_cr_terms": 2469,
+  "top": [
+    {
+      "rank": 1,
+      "query": "is chiang rai safe",
+      "surfaced_in_N_expansions": 7,
+      "avg_position": 5.86
+    },
+    {
+      "rank": 2,
+      "query": "chiang mai to bangkok",
+      "surfaced_in_N_expansions": 6,
+      "avg_position": 4.67
+    },
+    {
+      "rank": 3,
+      "query": "is it worth visiting chiang rai",
+      "surfaced_in_N_expansions": 6,
+      "avg_position": 5.33
+    },
+    {
+      "rank": 4,
+      "query": "what is chiang rai known for",
+      "surfaced_in_N_expansions": 6,
+      "avg_position": 5.5
+    },
+    {
+      "rank": 5,
+      "query": "cost of living in chiang rai",
+      "surfaced_in_N_expansions": 6,
+      "avg_position": 6.0
+    },
+    {
+      "rank": 6,
+      "query": "chiang mai university",
+      "surfaced_in_N_expansions": 5,
+      "avg_position": 1.6
+    },
+    {
+      "rank": 7,
+      "query": "chiang mai night safari",
+      "surfaced_in_N_expansions": 5,
+      "avg_position": 1.8
+    },
+    {
+      "rank": 8,
+      "query": "chiang rai weather",
+      "surfaced_in_N_expansions": 4,
+      "avg_position": 1.0
+    },
+    {
+      "rank": 9,
+      "query": "chiang mai weather",
+      "surfaced_in_N_expansions": 4,
+      "avg_position": 1.75
+    },
+    {
+      "rank": 10,
+      "query": "chiang mai zoo",
+      "surfaced_in_N_expansions": 4,
+      "avg_position": 3.75
+    },
+    {
+      "rank": 11,
+      "query": "chiang rai temperature",
+      "surfaced_in_N_expansions": 4,
+      "avg_position": 5.75
+    },
+    {
+      "rank": 12,
+      "query": "chiang rai to bangkok",
+      "surfaced_in_N_expansions": 4,
+      "avg_position": 7.25
+    },
+    {
+      "rank": 13,
+      "query": "what to eat in chiang rai",
+      "surfaced_in_N_expansions": 4,
+      "avg_position": 7.25
+    },
+    {
+      "rank": 14,
+      "query": "difference between chiang mai and chiang rai",
+      "surfaced_in_N_expansions": 4,
+      "avg_position": 7.25
+    },
+    {
+      "rank": 15,
+      "query": "chiang mai york mills menu",
+      "surfaced_in_N_expansions": 4,
+      "avg_position": 11.75
+    },
+    {
+      "rank": 16,
+      "query": "chiang rai white temple",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 1.33
+    },
+    {
+      "rank": 17,
+      "query": "chiang mai night market",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 1.67
+    },
+    {
+      "rank": 18,
+      "query": "chiang mai airport",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 2.0
+    },
+    {
+      "rank": 19,
+      "query": "chiang mai food",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 2.0
+    },
+    {
+      "rank": 20,
+      "query": "chiang mai zoo tickets",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 2.0
+    },
+    {
+      "rank": 21,
+      "query": "chiang mai zoo reviews",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 3.0
+    },
+    {
+      "rank": 22,
+      "query": "chiang rai golden triangle",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 3.33
+    },
+    {
+      "rank": 23,
+      "query": "chiang mai night bazaar",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 4.0
+    },
+    {
+      "rank": 24,
+      "query": "chiangrai prachanukroh hospital",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 4.67
+    },
+    {
+      "rank": 25,
+      "query": "chiang mai map",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 5.33
+    },
+    {
+      "rank": 26,
+      "query": "chiang mai sunday night market",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 5.33
+    },
+    {
+      "rank": 27,
+      "query": "chiang mai zip code",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 5.33
+    },
+    {
+      "rank": 28,
+      "query": "chiang mai population",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 6.0
+    },
+    {
+      "rank": 29,
+      "query": "chiang mai zoo photos",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 6.33
+    },
+    {
+      "rank": 30,
+      "query": "chiang mai elephant sanctuary",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 6.67
+    },
+    {
+      "rank": 31,
+      "query": "chiang mai boxing stadium",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 7.33
+    },
+    {
+      "rank": 32,
+      "query": "chiang mai to chiang rai",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 7.33
+    },
+    {
+      "rank": 33,
+      "query": "chiang mai zoo entrance fee",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 7.33
+    },
+    {
+      "rank": 34,
+      "query": "chiang rai to chiang mai",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 7.67
+    },
+    {
+      "rank": 35,
+      "query": "chiang mai international airport",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 8.33
+    },
+    {
+      "rank": 36,
+      "query": "chiang mai zoo map",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 8.33
+    },
+    {
+      "rank": 37,
+      "query": "chiang rai weather forecast 30 days",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 8.33
+    },
+    {
+      "rank": 38,
+      "query": "chiang mai weather forecast",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 9.0
+    },
+    {
+      "rank": 39,
+      "query": "is chiang rai worth visiting",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 9.33
+    },
+    {
+      "rank": 40,
+      "query": "chiangrai things to do",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 9.33
+    },
+    {
+      "rank": 41,
+      "query": "chiang mai zipline king kong",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 9.67
+    },
+    {
+      "rank": 42,
+      "query": "chiang mai things to do",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 10.67
+    },
+    {
+      "rank": 43,
+      "query": "chiang mai zoo animals",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 11.0
+    },
+    {
+      "rank": 44,
+      "query": "chiang mai zoo panda",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 12.0
+    },
+    {
+      "rank": 45,
+      "query": "chiang mai zoo price",
+      "surfaced_in_N_expansions": 3,
+      "avg_position": 13.0
+    },
+    {
+      "rank": 46,
+      "query": "chiang mai 3 day itinerary",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 47,
+      "query": "chiang mai 4th ring road",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 48,
+      "query": "chiang mai 5 star hotels",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 49,
+      "query": "chiang mai 67 bar",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 50,
+      "query": "chiang mai 700 years park",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 51,
+      "query": "chiangmai weather",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 52,
+      "query": "chiang rai day trip from chiang mai",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 53,
+      "query": "chiang rai january weather",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 54,
+      "query": "chiang rai karen village",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 55,
+      "query": "chiang rai or pai",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 56,
+      "query": "chiang rai youth orchestra",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 57,
+      "query": "chiang rai zoo",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 58,
+      "query": "chiang rai 2 day itinerary",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 59,
+      "query": "chiang rai 4 seasons",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    },
+    {
+      "rank": 60,
+      "query": "chiangrai united",
+      "surfaced_in_N_expansions": 2,
+      "avg_position": 0.0
+    }
+  ]
+}

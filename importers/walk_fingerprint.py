@@ -41,11 +41,12 @@ import json
 import sys
 from pathlib import Path
 
-# Directories that are never inputs to a build: build output, scratch, the
+# Directories that are never inputs to a build: build output (docs, and
+# docs.next while a build fills it before the rename), scratch, the
 # suggestion inbox (which carries senders' emails and reaches nothing on its
 # own), and the basemap archive — 116 MB that changes only when it is
 # re-extracted by hand and never rides in docs/ anyway.
-SKIP_DIRS = {".git", "docs", "cache", "_incoming", "node_modules",
+SKIP_DIRS = {".git", "docs", "docs.next", "cache", "_incoming", "node_modules",
              ".venv", "__pycache__", "tiles"}
 
 # Top-level JSON keys that record WHEN we looked, not WHAT we found.

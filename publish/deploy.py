@@ -1,11 +1,33 @@
 #!/usr/bin/env python3
-"""Publish the built site to R2. Stdlib + rclone; no GitHub anywhere in the path.
+"""Publish the built site to R2. Stdlib + rclone, and nothing else in the path.
 
     python3 publish/deploy.py            # dry run, prints exactly what would change
     python3 publish/deploy.py --yes      # actually sync
+    python3 publish/deploy.py --only listings --yes
+                                         # publish ONE subtree of docs/ and
+                                         # leave the rest of the site alone
+    python3 publish/deploy.py --files hom.html hom.css --yes
+                                         # publish exactly these files of
+                                         # docs/ (rclone copy: deletes nothing)
     python3 publish/deploy.py --tiles    # also push the tile archives (~280 MB:
                                          # basemap + terrain DEM, whatever
                                          # data/basemap.json declares)
+    python3 publish/deploy.py --yes --prune
+                                         # allow a deletion of more than
+                                         # safety.DELETE_CEILING live objects.
+                                         # Needed only when a large retirement
+                                         # is genuinely intended; without it a
+                                         # mass deletion stops and shows itself.
+    python3 publish/deploy.py --yes --prune-up-to 6000
+                                         # allow up to 6,000 deletions, and
+                                         # only when docs/ passed the
+                                         # whole-site check. The bounded form
+                                         # the standing walk passes unattended,
+                                         # so ordinary churn retires on its own
+                                         # while a tree missing limbs still
+                                         # stops. Above the bound it refuses.
+    python3 publish/safety.py            # is docs/ a whole site? (no network)
+    python3 publish/safety.py --smoke    # is the LIVE site answering?
 
 WHY A WRAPPER AND NOT JUST `rclone sync`
 ----------------------------------------
@@ -21,6 +43,22 @@ So this refuses to sync a suspiciously small tree, refuses to sync one with
 local paths in it, and shows the deletions before it makes them. The floor is a
 count, not a guess: a healthy build is ~27,500 files, and anything under FLOOR
 is a broken build rather than a small site.
+
+THE FLOOR WAS NOT ENOUGH — 2026-09-08
+-------------------------------------
+It is a TOTAL count, and docs/cm/ alone is 77,107 files. A docs/ holding
+nothing but cm/ and data/ clears a 20,000-file floor four times over while
+missing the front page, 404.html, map.js, both vendored libraries, all four
+glyph ranges, the whole of cr/ and the API index — and that is exactly the
+tree that got mirrored onto the live site that morning. Everything it did not
+contain was deleted from the bucket, and motdang.net answered 404 for its own
+front page.
+
+publish/safety.py now asks the question the count could not: not "is this
+tree big" but "is this tree THE SITE". It carries the required-path set, the
+per-subtree floors, a deletion preview computed by listing both sides, and a
+smoke test that puts a question to the live origin AFTER the upload. Read its
+docstring before loosening anything here.
 
 CREDENTIALS
 -----------
@@ -40,15 +78,40 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
 import time
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import safety                                    # noqa: E402  (same directory)
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 BASEMAP = ROOT / "data" / "basemap.json"
 BUCKET = "mot-dang-site"
 BUILD_LOCK = ROOT / "cache" / "build.lock"
+DEPLOY_LOG = ROOT / "cache" / "deploy.log"
 _lock_held = False
+
+
+def note(line):
+    """Append one line to cache/deploy.log, and say it.
+
+    Added 2026-09-08. When the front page went to 404 there was no record on
+    this machine that a publish had ever run — not when, not from where, not
+    what it deleted — so the outage had to be diagnosed backwards from the
+    live site's own 404s. A publish is the most destructive thing this repo
+    does and it was the only thing that left no trace.
+    """
+    stamp = datetime.datetime.now().isoformat(timespec="seconds")
+    print(line)
+    try:
+        DEPLOY_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with DEPLOY_LOG.open("a") as fh:
+            fh.write("%s  pid=%s  %s\n" % (stamp, os.getpid(), line.strip()))
+    except OSError:
+        pass                                     # a log that cannot be written
+                                                 # must never stop a publish
 
 # A healthy build is ~27,577 files. Anything much under this is a broken or
 # half-finished build, and syncing it would delete most of the site.
@@ -163,35 +226,69 @@ def release_docs():
     BUILD_LOCK.unlink(missing_ok=True)
 
 
-def gate():
+def gate(scope=None):
     """The same checks a human is supposed to run before publishing, made
-    impossible to forget. Both have bitten this project before."""
+    impossible to forget. Both have bitten this project before.
+
+    `scope` narrows both checks to one subtree, for --only. The whole-tree
+    FLOOR is a deletion guard — it asks "is docs/ big enough that mirroring it
+    will not empty the bucket" — and that question is meaningless when the sync
+    can only ever touch one prefix. Applied anyway it does real harm: it makes
+    the listings nightly fail for the whole of any hour in which somebody else
+    is rebuilding the site, which is a build's business and not a listing's.
+    The local-path check is about what gets PUBLISHED and so applies either
+    way, just narrowed to the files actually going up.
+    """
     if not DOCS.is_dir():
         sys.exit("no docs/ — run python3 build.py first")
-    n = sum(1 for p in DOCS.rglob("*") if p.is_file())
-    print("  files in docs/: %s" % f"{n:,}")
-    if n < FLOOR:
+    root = DOCS / scope if scope else DOCS
+    n = sum(1 for p in root.rglob("*") if p.is_file())
+    print("  files in %s: %s" % (root.name + "/" if scope else "docs/", f"{n:,}"))
+    if scope:
+        if not n:
+            sys.exit("REFUSING: %s holds no files, and syncing an empty "
+                     "directory would delete what is there now." % root)
+    elif n < FLOOR:
         sys.exit("REFUSING: only %s files, floor is %s. That is a broken build, "
                  "not a small site — syncing it would delete the rest of the "
                  "bucket. Rebuild, then try again." % (f"{n:,}", f"{FLOOR:,}"))
-    hits = subprocess.run(["grep", "-rl", "/Users/", str(DOCS)],
+    hits = subprocess.run(["grep", "-rl", "/Users/", str(root)],
                           capture_output=True, text=True).stdout.strip()
     if hits:
         sys.exit("REFUSING: local paths in the output —\n" +
                  "\n".join(hits.splitlines()[:5]))
     print("  no local paths, count sane")
+
+    # THE CHECK THE COUNT ABOVE CANNOT DO (added 2026-09-08, after the outage).
+    # FLOOR is a total, and docs/cm/ alone is 77,107 files — four times the
+    # floor — so a tree missing the front page, both vendored libraries, all
+    # four glyph ranges, the whole of cr/ and the API index sails through it.
+    # A site is not a file count; it is a set of paths. safety.py holds the
+    # set, and the reasoning, and the story of the day this was learned.
+    #
+    # Scoped to whole-tree publishes: --only deliberately touches one subtree
+    # and cannot delete anything outside it, so asking it for a whole site
+    # would break the listings nightly for no gain.
+    if not scope:
+        problems = safety.check_tree(DOCS)
+        if problems:
+            sys.exit("\nREFUSING:\n\n" + "\n\n".join(problems) +
+                     "\n\nThat is a half-built or half-deleted docs/, not a "
+                     "small site.\nRun a build to completion, then publish.\n"
+                     "To see this check alone: python3 publish/safety.py")
     return n
 
 
 def declared_archives():
     """(local file, bucket key) for every tile archive data/basemap.json
-    declares — the basemap under "url", the elevation DEM under "terrain.url".
+    declares — the basemap under "url", the elevation DEM under "terrain.url",
+    the doodle engine's north archive under "doodle.url".
 
     The config is what the built pages actually fetch, so --tiles pushes
     exactly that set and nothing hardcoded here. This function replaced a
     single hardcoded path the day after the DEM shipped dark: the terrain
     archive was declared on 2026-08-27, built, symlinked, rendered locally —
-    and never uploaded, because --tiles only knew the basemap. Every reader
+    and went un-uploaded, because --tiles only knew the basemap. Every reader
     of /doi.html got a 404ing relief while every deploy reported success.
 
     A key is the declared relative url verbatim; the local copy sits under
@@ -205,7 +302,8 @@ def declared_archives():
     except (OSError, ValueError) as e:
         sys.exit("cannot read %s: %s" % (BASEMAP, e))
     out = []
-    for u in (cfg.get("url"), (cfg.get("terrain") or {}).get("url")):
+    for u in (cfg.get("url"), (cfg.get("terrain") or {}).get("url"),
+              (cfg.get("doodle") or {}).get("url")):
         if not u or "://" in u:
             continue
         key = u.lstrip("./")
@@ -288,15 +386,217 @@ def run(args, env, quiet=False):
     return p.stdout or ""
 
 
+def rclone_stats(line):
+    """The structured stats object off one --use-json-log line, or None.
+
+    rclone logs its stats at every --stats tick and once more when it is
+    done; under --use-json-log each of those lines carries, beside the text,
+    the same object the rc `core/stats` call answers. The last one seen is
+    the whole run. Numbers, not the wording of a progress line — safety.py
+    says why that matters.
+    """
+    try:
+        s = json.loads(line).get("stats")
+    except (ValueError, AttributeError):
+        return None
+    return s if isinstance(s, dict) else None
+
+
+def rclone_text(line):
+    """A --use-json-log line as rclone prints it plain, so the terminal and
+    the tower log read as before. A line that is not JSON (a panic, a stray
+    print) comes back as it is."""
+    try:
+        d = json.loads(line)
+        msg = d["msg"]
+    except (ValueError, KeyError, TypeError):
+        return line.rstrip("\n")
+    stamp = str(d.get("time", ""))[:19].replace("T", " ")
+    return "%s %s: %s" % (stamp, str(d.get("level", "")).upper(),
+                          str(msg).rstrip("\n"))
+
+
+def _size(n):
+    """Bytes in rclone's own units, so the log and its progress lines agree."""
+    n = float(n)
+    for unit in ("B", "KiB", "MiB", "GiB", "TiB"):
+        if n < 1024 or unit == "TiB":
+            return ("%d %s" if unit == "B" else "%.1f %s") % (n, unit)
+        n /= 1024
+
+
+def _elapsed(secs):
+    secs = int(round(float(secs)))
+    h, m, s = secs // 3600, secs % 3600 // 60, secs % 60
+    if h:
+        return "%dh %02dm %02ds" % (h, m, s)
+    return "%dm %02ds" % (m, s) if m else "%ds" % s
+
+
+def rclone_summary(stats, scope=""):
+    """The one deploy.log line per sync: files, bytes, elapsed, rate, errors.
+
+    Before 2026-09-10 the log held the deletion count and "site synced" and
+    nothing rclone itself measured, so whether a change to --transfers had
+    helped could not be read back. The rates are whole-run averages
+    computed here: rclone's own `speed` is a trailing window and reads 0 by
+    the time the final line is written. Files per second is the number that
+    matters on this line — the sync is bound by round trips, not bytes.
+    """
+    head = "  rclone%s:" % (" (%s/)" % scope if scope else "")
+    if not stats:
+        return head + " no stats line seen"
+    n = int(stats.get("transfers") or 0)
+    nbytes = int(stats.get("bytes") or 0)
+    secs = float(stats.get("elapsedTime") or 0)
+    errs = int(stats.get("errors") or 0)
+    per_s = ("%.1f" % (n / secs)) if secs else "?"
+    rate = _size(nbytes / secs) if secs else "?"
+    line = ("%s transferred %s file(s) / %s in %s, %s/s, %s file(s)/s, "
+            "deleted %s, %s error(s)"
+            % (head, f"{n:,}", _size(nbytes), _elapsed(secs), rate, per_s,
+               f"{int(stats.get('deletes') or 0):,}", f"{errs:,}"))
+    if errs and stats.get("lastError"):
+        line += " — last: %s" % stats["lastError"]
+    return line
+
+
+def mirror(args, env, scope=""):
+    """One real rclone sync: streamed to the terminal, summarised into the
+    log, fatal on failure. The summary is written before the exit so a
+    failed sync leaves its error count behind, which is the run that most
+    needs one."""
+    p = subprocess.Popen(args + ["--use-json-log"], env=env, text=True,
+                         stderr=subprocess.PIPE)
+    stats = None
+    for line in p.stderr:
+        s = rclone_stats(line)
+        if s is not None:
+            stats = s
+        print(rclone_text(line))
+    p.wait()
+    note(rclone_summary(stats, scope))
+    if p.returncode != 0:
+        sys.exit("rclone failed (%d)" % p.returncode)
+
+
+def only_prefix():
+    """--only <dir>: publish one subtree instead of mirroring the whole site.
+
+    The Listing Sheet's nightly needs this. A listing arriving through the form
+    changes exactly one directory, and the alternative — rebuild 27,000 pages
+    and mirror the lot — costs twenty minutes and, worse, publishes whatever
+    ELSE happens to be half-finished in docs/ at 08:40. A scoped sync cannot do
+    that: rclone is pointed at docs/<prefix> and the bucket's <prefix>, so
+    nothing outside it is read, written, or deleted.
+
+    The whole-tree FLOOR guard does not apply here and a different one does:
+    the prefix must exist and hold files. An empty local directory synced onto
+    a populated remote one is still a deletion, just a smaller one.
+    """
+    if "--only" not in sys.argv:
+        return None
+    i = sys.argv.index("--only")
+    if i + 1 >= len(sys.argv):
+        sys.exit("--only needs a directory under docs/, e.g. --only listings")
+    rel = sys.argv[i + 1].strip("/")
+    local = DOCS / rel
+    if not local.is_dir():
+        sys.exit("no %s — build it before publishing it" % local)
+    return rel, local, sum(1 for f in local.rglob("*") if f.is_file())
+
+
+def only_files():
+    """--files <path> ...: publish these files of docs/ and nothing else.
+
+    For a fix to a handful of top-level pages, where --only has no directory
+    to point at and a whole-tree sync would carry whatever else is
+    half-finished in docs/. `rclone copy --files-from` uploads the named
+    files and cannot delete anything, here or anywhere else in the bucket.
+    Every path must exist under docs/.
+    """
+    if "--files" not in sys.argv:
+        return None
+    i = sys.argv.index("--files")
+    names = []
+    for a in sys.argv[i + 1:]:
+        if a.startswith("--"):
+            break
+        names.append(a.strip("/"))
+    if not names:
+        sys.exit("--files needs one or more paths under docs/, e.g. --files hom.html hom.css")
+    missing = [n for n in names if not (DOCS / n).is_file()]
+    if missing:
+        sys.exit("not in docs/: " + ", ".join(missing))
+    return names
+
+
+def prune_bound():
+    """--prune-up-to N: allow up to N deletions, for a tree that passed the
+    whole-site check. None when the flag is absent.
+
+    The ceiling stops a mass deletion and asks; --prune lifts it outright.
+    Neither suits the standing walk: it runs unattended and cannot type
+    --prune, so the night the churn reached 4,115 objects it could not have
+    published at all. A bound says how much retirement is ordinary here
+    while a tree missing limbs still refuses — safety.deletion_verdict
+    applies it only when check_tree passed.
+    """
+    # Both spellings. --prune-up-to=6000 read as an unknown word would have
+    # left the 2,000 ceiling standing and said nothing.
+    for a in sys.argv:
+        if a.startswith("--prune-up-to="):
+            n = a.split("=", 1)[1]
+            if not n.isdigit():
+                sys.exit("--prune-up-to needs a whole number of deletions, "
+                         "e.g. --prune-up-to 6000")
+            return int(n)
+    if "--prune-up-to" not in sys.argv:
+        return None
+    i = sys.argv.index("--prune-up-to")
+    if i + 1 >= len(sys.argv) or not sys.argv[i + 1].isdigit():
+        sys.exit("--prune-up-to needs a whole number of deletions, "
+                 "e.g. --prune-up-to 6000")
+    return int(sys.argv[i + 1])
+
+
 def main():
     go = "--yes" in sys.argv
     with_tiles = "--tiles" in sys.argv
+    prune = "--prune" in sys.argv
+    prune_up_to = prune_bound()
+    only = only_prefix()
+    files = only_files()
 
     if not subprocess.run(["which", "rclone"], capture_output=True).returncode == 0:
         sys.exit("rclone not installed — brew install rclone")
 
+    if files:
+        print("mot-dang → r2://%s" % BUCKET)
+        hits = [n for n in files if "/Users/" in (DOCS / n).read_text(errors="ignore")]
+        if hits:
+            sys.exit("REFUSING: local paths in " + ", ".join(hits))
+        env = rclone_env(creds())
+        listing = Path(tempfile.mkstemp(suffix=".txt")[1])
+        listing.write_text("\n".join(files) + "\n")
+        cmd = ["rclone", "copy", str(DOCS), "R2:%s" % BUCKET, "--files-from", str(listing),
+               "--checksum", "--s3-no-head", "--stats-one-line",
+               "--stats-log-level", "NOTICE", "-v"]
+        print("  %d file(s), copy only — nothing is deleted" % len(files))
+        if not go:
+            print("\n  DRY RUN — nothing will change. Add --yes to do it.\n")
+            run(cmd + ["--dry-run"], env)
+            return
+        run(cmd, env)
+        print("\n  asking the live site…")
+        bad = safety.smoke(say=note)
+        if bad:
+            sys.exit("  SMOKE FAILED on %d URL(s)" % len(bad))
+        note("  %d file(s) published" % len(files))
+        return
+
     print("mot-dang → r2://%s" % BUCKET)
-    gate()
+    gate(only[0] if only else None)
     c = creds()
     env = rclone_env(c)
     dest = "R2:%s" % BUCKET
@@ -316,8 +616,32 @@ def main():
               # MapLibre and then 404 on the tiles. Re-uploading is ~280 MB
               # and nobody would connect the two events.
               "--exclude", "tiles/**",
-              "--transfers", "32", "--checkers", "32",
-              "--fast-list", "--stats", "10s", "--stats-one-line"]
+              # 96 in flight, and no HEAD after each PUT (Nan, 2026-09-10).
+              # Measured that night: one object round trip ~1 s from here,
+              # the sync moving 27 files/s with the line 88% idle — bound by
+              # round trips, not bytes. The next sync's checksum pass
+              # verifies what the skipped HEAD would have.
+              "--transfers", "96", "--checkers", "32", "--s3-no-head",
+              "--fast-list", "--stats", "10s", "--stats-one-line",
+              # rclone logs its stats at INFO and runs at NOTICE by default,
+              # so without this line the stats lines above went nowhere —
+              # not to the terminal, not to the log (found 2026-09-10, when
+              # nothing could say whether --transfers 96 had helped).
+              "--stats-log-level", "NOTICE"]
+
+    if only:
+        rel, local, n = only
+        scoped = "%s/%s" % (dest, rel)
+        print("  scoped to %s/ — %s file(s); nothing outside it is touched"
+              % (rel, f"{n:,}"))
+        if not go:
+            print("\n  DRY RUN — nothing will change. Add --yes to do it.\n")
+            run(["rclone", "sync", str(local), scoped, "--dry-run", "-v"]
+                + common, env)
+            return
+        mirror(["rclone", "sync", str(local), scoped] + common, env, scope=rel)
+        print("  %s/ synced" % rel)
+        return
 
     if not go:
         print("\n  DRY RUN — nothing will change. Add --yes to do it.\n")
@@ -331,9 +655,37 @@ def main():
     if n_after < FLOOR:
         sys.exit("REFUSING: docs/ fell to %s files while taking the lock — "
                  "something wiped it. Rebuild, then try again." % f"{n_after:,}")
-    print("\n  syncing…")
-    run(["rclone", "sync", str(DOCS), dest] + common, env)
-    print("  site synced")
+    # Re-run the structural check under the lock, for the same reason the
+    # count above is re-run: everything checked before the lock was checked
+    # against a tree somebody else could still be rewriting.
+    problems = safety.check_tree(DOCS, say=lambda *_: None)
+    if problems:
+        sys.exit("\nREFUSING: docs/ stopped being a whole site while the lock "
+                 "was being taken —\n\n" + "\n\n".join(problems))
+    # Both checks above exit on failure, so this is True here by
+    # construction. It is passed rather than assumed so the verdict carries
+    # the condition: a caller that skips the checks gets the ceiling, not
+    # the bound.
+    tree_ok = n_after >= FLOOR and not problems
+
+    # WHAT WILL THIS DELETE? Asked out loud, before anything is destroyed.
+    # The outage deleted the front page, /vendor/, /glyphs/, all of /cr/ and
+    # the API index without one word of warning, because a sync's deletions
+    # were never counted or shown. Now they are, and a mass deletion needs
+    # --prune said out loud, or a bound (--prune-up-to N) that the
+    # whole-site check has earned.
+    print("\n  listing the bucket to see what this would delete…")
+    gone = safety.deletions_preview(dest, env, run)
+    ok, msg = safety.deletion_verdict(gone, prune=prune, prune_up_to=prune_up_to,
+                                      tree_ok=tree_ok)
+    if not ok:
+        sys.exit("\n" + msg + "\n")
+    note(msg)
+
+    note("\n  syncing… (%s local files, %s deletions)"
+         % (f"{n_after:,}", f"{len(gone):,}"))
+    mirror(["rclone", "sync", str(DOCS), dest] + common, env)
+    note("  site synced")
 
     if with_tiles:
         archives = declared_archives()
@@ -349,14 +701,28 @@ def main():
             print("\n  uploading %s (%.0f MB, only changes when re-extracted)…"
                   % (key, mb))
             run(["rclone", "copyto", str(local), "%s/%s" % (dest, key),
-                 "--checksum", "--stats", "10s", "--stats-one-line"], env)
+                 "--checksum", "--stats", "10s", "--stats-one-line",
+                 "--stats-log-level", "NOTICE"], env)
         if archives:
             print("  tile archives uploaded — data/basemap.json already "
                   "points the site at them")
     else:
         audit_tiles(env, dest)
 
-    print("\ndone. https://motdang.net/")
+    # ASK THE LIVE SITE. A publish that prints "done" while the front page
+    # 404s is precisely what happened on 2026-09-08, and it stood for hours
+    # because nothing ever put a question to the origin afterwards. R2 is
+    # read-after-write consistent, so this needs no settling delay; a failure
+    # here is a real failure, not a race.
+    print("\n  asking the live site…")
+    bad = safety.smoke(say=note)
+    if bad:
+        note("  SMOKE FAILED on %d URL(s) — the site is NOT whole" % len(bad))
+        print("\n  The upload finished but the site does not answer. Do not\n"
+              "  walk away from this. Re-check docs/ (python3 publish/safety.py),\n"
+              "  rebuild if it is short, and publish again.\n")
+        sys.exit(1)
+    note("\ndone. https://motdang.net/")
 
 
 if __name__ == "__main__":

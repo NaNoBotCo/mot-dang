@@ -1,0 +1,202 @@
+KRATOM — WHY THE SHELF ANSWERED WITH ONE SHOP
+Measured 2026-09-21. Nan searched the live site for kratom and got one result.
+
+WHAT SHE SAW WAS REAL
+The shelf exists and is finished: categories.json carries cannabis >
+kratom, ร้านน้ำใบกระท่อม / Kratom, and search_thesaurus.json already maps
+kratom · กระท่อม · น้ำใบกระท่อม · ร้านน้ำใบกระท่อม · ใบกระท่อม onto it.
+Nothing was missing but records. The shelf held 1 in Chiang Mai and 1 in
+Chiang Rai, both from OSM.
+
+THE WORD IS TWO WORDS, AND THAT IS THE WHOLE TRAP
+กระท่อม is the leaf and it is also a hut. Overpass, both provinces,
+2026-09-21: 37 elements carry it in the name. 35 are farm shelters —
+กระท่อมในสวนลำไย, a hut in a longan orchard; กระท่อมน้อยคอยรถโดยสาร, a hut
+waiting for the bus. The remaining 2 are the 2 shops already held. Overture
+adds 13 more in-corpus hits and 11 of those are homestays and cottages.
+
+So OSM is finished on this trade: a re-crawl returns the two records already
+on the shelf. And reading the name off the open corpus fills the kratom shelf
+with holiday cottages.
+
+WHAT WAS ACTUALLY RECOVERABLE, AND IS NOW WRITTEN
+9 shops in the weed.th harvest put ใบกระท่อม or Kratom on their own sign and
+reached the reader shelved "dispensary" alone:
+
+  cm  Terp Buddeez - Kratom & Cannabis (Weed Dispensary)
+  cm  Budbro กัญชา & ใบกระท่อม
+  cm  จำหน่ายใบกระท่อม krathom
+  cm  The jungle bar น้ำกระท่อม กัญชาเชียงใหม่
+  cm  กัญชากระท่อมเชียงใหม่ (เจ็ดยอด-ช่างเคี่ยน)
+  cm  กระท่อมหางดง - Cannabis shop
+  cm  Selling Bai Kratom and Cannabis
+  cr  ร้านใบไม้ร่าเริง ร้านกัญชาและใบกระท่อมแม่สาย Special Leaf Cannabis Store
+  cr  กระท่อม&กัญชาแม่ฟ้าหลวง
+
+import_weedth.py already earned "farm" and "clinic" off a shop's own name
+this way and kept "dispensary" beside them. Kratom is the third case and was
+simply never written. Reading the name is safe in that importer and unsafe on
+the open corpus for one reason: every row there arrived cat=["cannabis"] from
+a cannabis directory, so the shelf calibrates the word — the same guard
+tags_mine.earn_by_name() uses.
+
+Shelf after the next import_all + build: cm 1 → 8, cr 1 → 3.
+Floors are asserted in tests/test_answer_shaped.py.
+
+WHAT IS STILL MISSING, AND WHERE IT IS
+Eleven records is the corpus catching up with itself, not the trade. The
+standalone kratom shops — the ones that sell leaf and น้ำกระท่อม and nothing
+else — are on Wongnai, which the search-disease note named on 2026-09-05 as
+an unexploited source and which nothing here has ever read.
+
+Checked 2026-09-21. wongnai.com/robots.txt disallows /users/ and nothing
+else. A shop page is server-rendered and carries the Thai name, an English
+name, the address down to ตำบล/อำเภอ, a phone, the owner's own category, and
+a "ร้านนี้อาจจะปิดแล้ว" flag when the shop may have closed. Read on one page,
+ใบกระท่อมลานนา (Lanna Kratom Leaves): 34/4 หมู่ 8 บ้านปินดก ซอย 3 ตำบล
+สันทรายหลวง อำเภอสันทราย, +66994838800, อาหารและสินค้าเพื่อสุขภาพ.
+
+Three more named in a first pass, unverified: ร้านใบกระท่อมเชียงใหม่ สาขา
+เชียงใหม่ (ต.สันพระเนตร อ.สันทราย, delivery, 063-7262052) · ใบกระท่อม
+น้ำกระท่อม เชียงใหม่ (Facebook) · สายยัน ยัน สมุนไพร ใบกระท่อม น้ำท่อม
+(Wongnai x LINE MAN).
+
+THE OPEN PROBLEM: enumeration. /listings renders its results client-side, so
+there is no server-rendered result page to page through the way weed.th's
+sitemap allowed. Their sitemap.xml returned nothing to this fetch. Routes not
+yet tried: a district listing page (the breadcrumb ร้านค้าในอำเภอสันทราย
+implies one), their documented data service, and LINE MAN's own delivery
+listing. Until one of those opens, shops can only be added one at a time from
+a name, which is the additions-*.json path, not a harvest.
+
+THE REVIEWS — SHE SAID READ THEM
+Nan, 2026-09-21: "if the reviews mention kratom, please add it." That narrows
+the refusal rather than lifting it. `offers_from_reviews()` runs before
+`_strip_refused()` and returns product keys and a mention count. No wording,
+author, date, rating or link is kept, and none reaches an entry, a record or a
+page. The claim lands in attrs.offers, which already exists and is already
+indexed for search, as via "visitor-review" — the weakest source in OFFER_VIA,
+printing as "จากรีวิวของผู้ไปใช้บริการ / from a visitor's review".
+
+sub is what a place IS and its own sign says that; a customer writing "they
+have kratom too" is evidence of what is on sale. So a shop that already earned
+the sub from its own name takes no offer row.
+
+A QUESTION IS NOT A SALE. "มีน้ำท่อมขายไหมครับ" — do you sell nam thom? — was
+the only thing putting ร้าน Color Beauty, a beauty salon, on the kratom list.
+The guard reads the clause around the word for ไหม · มั้ย · หรือเปล่า · ป่าว ·
+"do you have" · "anyone know", and drops it. It drops that salon and nothing
+else across all 839 pages.
+
+Six shops gained kratom this way and no other:
+  cm  สกั๊งค์ แคนนาบิส (2)   ·  cm  The Living Room (2)
+  cm  GCT CANNABIS CNX (1)  ·  cm  420 Store (Nong Pa Khrang) (1)
+  cm  WEED PACK (1)         ·  cm  Rolling Weed store (1)
+
+tests/test_weedth_reviews.py holds the line: ratings and review text out,
+counts in, a question refused, and no wording on disk.
+
+A BUG FOUND ON THE WAY, AND FIXED — 29 SHOPS
+harvest_weedth.py HTML-unescaped the ld+json text and then parsed it. A
+reviewer typing a double quote is written &quot; inside the JSON string;
+unescaping put a bare " in the middle of a string and the whole block failed
+to parse. The shop then had no Store block and was dropped from the harvest.
+Over the 839 cached pages: 113 blank before, 84 after, 29 shops recovered —
+The Living Room, Fat Jim, Chiangmai 420, and HERBAL Garden Home: Cannabis and
+Kratom, which is an eleventh kratom shop that was never reaching the site at
+all. Parse first, unescape the values after; a page that only parses the old
+way is still read that way. A second, nameless Store block on some pages could
+also win the traversal, so the block must carry a name.
+
+The harvest went 722 -> 755 shops. The extra 29 are cannabis records generally,
+not kratom, and they land on the next import_all under the existing no-
+automatic-dedupe rule.
+
+WHERE THIS LEAVES THE COUNT
+  cm  shelf 1 -> 8, and 6 more answer a search for kratom through offers = 14
+  cr  shelf 1 -> 4
+Against 2 the morning of 2026-09-21. All of it on the next import_all + build;
+a build held the lock while this was written, so nothing was rebuilt.
+
+PAI — KEPT, ON HER WORD, AND THE PIN WAS THE REAL PROBLEM
+Nan, 2026-09-21: "keep the pai shops. People do end up in pai wondering
+where's the weed and kratom." 49 shops in this harvest carry a Mae Hong Son
+address and are filed cm, because weed.th's sitemap files Pai under its
+chiang-mai path; 38 are already live in the cm corpus.
+
+Keeping them turned out to mean fixing them, because every one was findable
+only in the worst way: ALL 37 PAI SHOPS SAT ON ONE PIN 40.5 KM AWAY, in the
+wrong district, tagged อ.กัลยาณิวัฒนา.
+
+WHY. Postcode 58130 belongs to TWO districts in two provinces — อำเภอปาย in
+Mae Hong Son and อำเภอกัลยาณิวัฒนา in Chiang Mai, which is the mountain
+postal route and not a mistake. geocode_local's postcode tier is built on the
+premise that "a five-digit Thai postcode names one delivery area and cannot be
+confused", and our centroid for 58130 is the mean of sixteen Galyani Vadhana
+schools and health stations. Every Pai address landed on it. The admin-polygon
+pass then read that pin and stamped อ.กัลยาณิวัฒนา over a Mae Hong Son shop.
+
+The tier already carries a guard for exactly this — "a postcode that
+contradicts the named district is a typo" — and it could not fire, because it
+asks whether the postcode disagrees with the district the address names, and
+อำเภอปาย resolves to no district we hold. There was nothing to disagree with.
+
+THREE FIXES, AND WHAT EACH IS FOR
+1. geocode_local.stands_off_our_ground() — an address whose own postcode puts
+   it outside CM and CR is refused before any tier runs. Pai now takes no pin
+   rather than a confident wrong one, which is this module's own rule.
+
+   IT READS THE POSTCODE, NOT THE PROVINCE NAME, and the first draft did the
+   opposite and was wrong. Matching province names walks straight into the
+   trap this module already documents for roads: พะเยา sits inside the
+   building name สันพะเยาแมนชั่น, แพร่ inside the Hang Dong tambon น้ำแพร่ /
+   Nam Phrae, and ลำพูน is a Chiang Mai road. Thai does not space its words,
+   so there is no boundary to anchor to. That draft refused 158 addresses and
+   most of them were ours. The first two digits of a postcode are a field and
+   cannot be a road: 50 Chiang Mai, 57 Chiang Rai.
+
+   Three things the reading itself had to learn, each measured rather than
+   guessed: a decimal part is not a postcode (this field is pasted from map
+   apps — "@18.79687,98.96510" offers two candidates and neither is one); the
+   LAST candidate is the postcode, because a house number opens an address
+   where a postcode closes it; and 99% of the 10,895 records whose confirmed
+   postcode appears in their own address carry 20 characters or fewer after
+   it, so a five-digit run with more address left than that is a house number.
+   Thai postcodes run 10xxx–96xxx, which drops "ถนน hiway04301".
+
+   A NAMED PROVINCE OVERRIDES, one way only: อ.กัลยาณิวัฒนา writes
+   จ.เชียงใหม่ beside its 58130, so an address that names one of ours is kept
+   whatever its postcode says.
+
+   Refuses 56 of 49,142 addresses, 0.12%: 37 Pai, 9 Lamphun, and ten singles
+   in Lampang, Phayao, Bangkok and one in Burbank, California. Around five are
+   a store or house number misread as a postcode and lose a pin they had —
+   the cost of the guard, against 37 records that were 40 km wrong, and in
+   the direction this module already prefers.
+2. derive.parse_address now reads a ROMANISED district — "Amphoe Pai",
+   "Pai District". Every field in it was keyed on a Thai marker, so 47 of the
+   49 Pai addresses parsed to a postcode and nothing else. Two traps found
+   while writing it: a single-word capture read "Mae Taeng District" as Taeng
+   and "Hang Dong" as Dong, a fragment of a real district and worse than no
+   reading; and the Thai path let a province run on to the district, giving
+   "ปาย แม่ฮ่องสอน" — the strip for that requires whitespace, because
+   อำเภอเมืองเชียงใหม่ ends in its own province and must never be cut to
+   เมือง.
+3. attrs.amphoeSaid, the pair to the tambonSaid that already existed: a
+   district the address names that this gazetteer cannot confirm. It never
+   enters attrs.amphoe. build.py indexes it as a keyword, so a reader in Pai
+   typing "pai" or "ปาย" reaches the shop. The area chip still needs a real
+   area and does not show it.
+
+MEASURED, BOTH PROVINCES: 37 Pai records now carry the district they are
+actually in; ZERO confirmed amphoe changed anywhere; no fragments written.
+
+NOT DONE
+No kratom shelf page, minisite or share card. Fourteen records is a shelf, not
+a subject.
+
+WHAT WEED.TH IS NOT
+It is a cannabis directory. Its shops declare product categories — Cannabis
+Bud/Flower on 158 pages, Prerolls 33, Edibles 27, Gear 27, Misc 22, Topicals
+7, Seeds 5. There is no kratom category among them, so the 9 above are the
+whole of what that source can say on this trade by name.

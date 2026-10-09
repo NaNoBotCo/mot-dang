@@ -1,0 +1,458 @@
+{
+ "_readme": [
+  "THE SOURCE REGISTER — where a fact about a Chiang Mai or Chiang Rai place can come from,",
+  "what each source holds, whether it is the place's OWN voice or somebody's copy, what licence",
+  "it carries, and — the part that decides everything — whether we can actually READ it, measured",
+  "on a date with a count. Nan, 2026-09-06: 'identify what potential information sources exist and",
+  "grow/scale around them. In perpetuity.' The source-scout bot (BOTS.md Tier 0) grows this file:",
+  "it adds sources, measures mechanisms, and never marks one 'works' without a yield number.",
+  "",
+  "grade: own-voice (the place wrote it) · official-register (a state list) · directory (someone's",
+  "copy of the place) · told-of (a person said). Only own-voice and official-register enter a record",
+  "as a fact; directory and told-of enter as leads.",
+  "mechanism.status: in-use · works · blocked · partial · to-scout. 'works' and 'partial' carry",
+  "measured_on and yield. A source nobody has measured is to-scout, however obvious it looks.",
+  "Rules: a source with a licence that forbids reuse is recorded here anyway, with status blocked-",
+  "by-licence, so nobody re-discovers it. Nothing here is a scrape policy: Nan, 2026-09-06, 'I don't",
+  "clutch pearls about scraping.' The limits are honesty (say where it came from) and harm (no private",
+  "individual's data)."
+ ],
+ "_built": "2026-09-27",
+ "sources": {
+  "facebook-page-via-search": {
+   "name": "Facebook business pages, found through a search engine restricted to facebook.com",
+   "grade": "own-voice",
+   "holds": "page URL, page name, city line, and the engine's read of the About tab (often hours, address, phone, what they sell)",
+   "licence": "the page is the business's public storefront; we record facts, never repost content",
+   "mechanism": {
+    "method": "importers/discover_facebook.py --queue → a bot's WebSearch → --deposit → --report. The direct path (html.duckduckgo.com, keyless) is written but answers a self-identified bot UA with a 'select all squares containing a duck' challenge (HTTP 202, measured 2026-09-06) and results only to a browser UA; we do not pretend to be a browser to pass a bot check, so the volume goes through the Opus bot.",
+    "status": "partial",
+    "measured_on": "2026-09-06",
+    "yield": "10 results per query with a browser UA; via WebSearch 8 hand queries → 46 real CM businesses, 43 not in the catalogue; 1,224-query matrix (both provinces) at 40 per nightly run ≈ 31 nights for a first pass"
+   },
+   "trades": "every shelf label in data/categories.json",
+   "next": "facebook-reader runs 40 queries a night; a keyed search API (below) would make the direct path live"
+  },
+  "facebook-page-logged-out-fetch": {
+   "name": "Facebook page HTML, fetched with no session",
+   "grade": "own-voice",
+   "holds": "og:title only, sometimes a city line",
+   "licence": "—",
+   "mechanism": {
+    "method": "plain HTTP GET",
+    "status": "blocked",
+    "measured_on": "2026-09-06",
+    "yield": "HTTP 400 with a browser UA; og:title only via a lenient fetcher; 0 of 5 pages gave hours, phone or address; mbasic. and /about the same"
+   },
+   "trades": "—",
+   "next": "do not spend crawl budget here; identity confirmation only"
+  },
+  "facebook-about-logged-in-browser": {
+   "name": "Facebook page About tab, read in Nan's logged-in Chrome",
+   "grade": "own-voice",
+   "holds": "Categories, Contact info (mobile, email), Websites and social links (TikTok/LINE/IG), Basic info (price range), and — for pages with a location — address, hours, service area",
+   "licence": "—",
+   "mechanism": {
+    "method": "claude-in-chrome MCP: navigate <page>/about, find/read_page the About regions",
+    "status": "partial",
+    "measured_on": "2026-09-06",
+    "yield": "CHAYMYMIN: phone, email, category, price range, TikTok — no address/hours because the page has no location set (online-first shop). 1 of 1 read; pages WITH a location untested"
+   },
+   "trades": "any",
+   "next": "facebook-reader bot; measure the fraction of pages that carry a location; a page without one is still a business, filed needs-pin"
+  },
+  "osm-overpass": {
+   "name": "OpenStreetMap via Overpass, the crawl the catalogue was built on",
+   "grade": "directory",
+   "holds": "pin, name, one primary tag, sometimes contact:* and opening_hours",
+   "licence": "ODbL — share-alike; see data/curated/osm_giveback.json",
+   "mechanism": {
+    "method": "importers/crawl_overpass.py",
+    "status": "in-use",
+    "measured_on": "2026-09-06",
+    "yield": "15,108 of 24,059 records (63%); shop=clothes and shop=shoes were never queried until WO-bigsize"
+   },
+   "trades": "what a mapper walked past",
+   "next": "stays a source; stops being the first one"
+  },
+  "onab-temple-register": {
+   "name": "ONAB ทะเบียนวัด B.E. 2567",
+   "grade": "official-register",
+   "holds": "temple code, rank, sect, wisung, founding year",
+   "licence": "Open Government Data of Thailand (DGA OGL)",
+   "mechanism": {
+    "method": "importers/import_wat_registry.py",
+    "status": "in-use",
+    "measured_on": "2026-09-06",
+    "yield": "2,084 records"
+   },
+   "trades": "wat",
+   "next": "—"
+  },
+  "dga-open-data": {
+   "name": "data.go.th registers (schools OBEC/OPEC, health MOPH, condo register, weedth)",
+   "grade": "official-register",
+   "holds": "per register",
+   "licence": "DGA OGL, no share-alike",
+   "mechanism": {
+    "method": "importers/import_opendata.py + siblings",
+    "status": "in-use",
+    "measured_on": "2026-09-06",
+    "yield": "dgth 1,292 · obec 1,077 · weedth 658 · moph 482 · condoreg 367 · opec 168"
+   },
+   "trades": "schools, health, condos, cannabis",
+   "next": "scout: which other registers on data.go.th name places in CM/CR"
+  },
+  "cmhy-directory": {
+   "name": "CMHY.city trade directory",
+   "grade": "directory",
+   "holds": "name, phone, tags, amphoe; no pin for most",
+   "licence": "—",
+   "mechanism": {
+    "method": "cache/cmhy/*, WO-57/58",
+    "status": "in-use",
+    "measured_on": "2026-09-04",
+    "yield": "motorbike 499 rows, 391 matched, 108 refused"
+   },
+   "trades": "many",
+   "next": "—"
+  },
+  "dbd-juristic-register": {
+   "name": "Department of Business Development — registered juristic persons (บริษัท/หจก.) with registered address and business objective (TSIC code)",
+   "grade": "official-register",
+   "holds": "เลขทะเบียน · ชื่อนิติบุคคล (Thai) · วันที่จดทะเบียน · ทุนจดทะเบียน · รหัสวัตถุประสงค์ (TSIC, 5 digits) · วัตถุประสงค์ (the objective written out) · ที่ตั้งสำนักงานใหญ่ (street address) · ตำบล · อำเภอ · จังหวัด · รหัสไปรษณีย์. Eleven fields, and the address ones are filled on every single row.",
+   "licence": "Open Data Common (dataset_11_0121). The all-juristic bulk set 'juristic' is Creative Commons Attribution — but see mechanism: its ZIP is a stub.",
+   "mechanism": {
+    "method": "Monthly CSV, no key, direct: https://openapi.dbd.go.th/juristic_person/registration/99_YYYYMM_1.csv (Buddhist year, e.g. 99_202607_1.csv = July 2569). data.go.th package_show?id=dataset_11_0121 lists 55 months, 2565-01 through 2569-07; a few older months are served from opendata.dbd.go.th instead and the dissolution file uses .../dissolution/99_YYYYMM_2.csv. REFUSED as a mechanism: the 'juristic' all-companies ZIP (data.go.th 401baf4b…) is 764 bytes and contains only datapackage.json — metadata, no rows; and openapi.dbd.go.th/api/v1/juristic_person/{id} is a one-company-at-a-time lookup, not an enumerator.",
+    "status": "works",
+    "measured_on": "2026-09-06",
+    "yield": "One month (2569-07): 7,512 rows nationwide, เชียงใหม่ 336, เชียงราย 106. 336/336 CM rows carry street address, tambon, amphoe AND postcode — 100%. CM amphoe spread: เมืองเชียงใหม่ 128, สันทราย 45, สารภี 25, หางดง 24, สันกำแพง 21. Shelf-mappable by TSIC prefix in that one month (CM): shopping 63, food 35, realestate 11, repair 10, beauty+massage 10, medical 10, hotel 9, tours 8. Named examples read off the rows: บจ.อารีย์ ฟิสิโอ คลินิก (86902, ต.สุเทพ) — a physiotherapy clinic, and the physio shelf is EMPTY; บจ.ลูม่า เดนทัล (86203); หจ.ของขวัญ นวดแผนไทย (96101, ต.ท่าศาลา). At ~336 CM + ~106 CR a month, the 55 months on offer are on the order of 18,000 CM and 5,800 CR rows. · SECOND MEASUREMENT 2026-09-20, aimed at the two EMPTY home-services shelves: three months (2568-06/07/08) = 23,471 rows nationwide, 1,156 เชียงใหม่+เชียงราย, of which 27 carry a home-services TSIC — 81210 การบริการทำความสะอาดทั่วไปของตัวอาคาร 10 · 43210 การติดตั้งไฟฟ้า 9 · 43223 ระบบระบายอากาศ/แอร์ 4 · 81293 กำจัดปลวกและแมลง 2 · 95220 ซ่อมเครื่องใช้ในบ้าน 1 · 43299 งานติดตั้งเฉพาะทางอื่น 1. Named examples read off the rows: หจก.นอร์ท คลีนนิ่ง (81210, ต.นางแล, เชียงราย), บจ.พรีเมียมสะอาด (81210), หจก.กฤษณา ริด เทอร์ไมท์ (81293, อ.แม่อาย), หจก.999 วอเทอร์ เซอร์วิส (95220). At ~9 a month the 55-month archive is on the order of 400–500 CM+CR home-services firms."
+   },
+   "trades": "every registered company — clinics, salons, shops, restaurants, schools; NOT sole traders",
+   "next": "importers/import_dbd.py: walk the 55 monthly URLs into cache/dbd/, keep only จังหวัด in ('จ.เชียงใหม่','จ.เชียงราย'), and map รหัสวัตถุประสงค์ to the shelf tree — 55=hotel, 56=food, 86=medical (86902 physio, 86903 laboratory, 86201/86202 clinic, 86203 dentist), 96101=massage, 96104/96201=beauty, 79=tours, 85=school, 47=shopping, 68=realestate, 45/95=repair. TWO HONESTY GATES: (a) a registered office is where the paperwork lives, not necessarily where the shop stands — the address is a REGISTERED ADDRESS and must be labelled and sourced as one, never printed as 'the shop is here'; (b) a registered company is not an open business — status is not in this file, so every row is a lead until its own voice or a licence confirms it. Pins would come from the tambon centroid or the Longdo geocoder, never invented. Nan's call on both is the fork raised 2026-09-06. ALSO, from the 2026-09-20 measurement: this is the register that fills the two home-services shelves on KNOWN_EMPTY. ('home-services','housekeeper') sat there reading '1 name hit in 24,000' and ('home-services','handyman') reading '46 name hits for รับซ่อม, every one a…' — both true about SHOP NAMES and false about the trade, which registers as a company under 81210 / 81293 / 43210 / 43223 / 95220 rather than putting แม่บ้าน or ช่างซ่อมบ้าน on a sign. Same shape as the WO-22 beauty lesson one layer out: the signal was not on the shopfront, it was on the objective code. Those two KNOWN_EMPTY reasons should be re-read the day import_dbd.py runs, not before."
+  },
+  "hss-clinic-licence-register": {
+   "name": "กรมสนับสนุนบริการสุขภาพ (สบส.) — licensed private clinics and hospitals (สถานพยาบาล)",
+   "grade": "official-register",
+   "holds": "licensed clinic name, licence type (เวชกรรม/ทันตกรรม/กายภาพบำบัด/การพยาบาลและการผดุงครรภ์/แพทย์แผนไทย…), address, licence holder",
+   "licence": "public register; check reuse terms",
+   "mechanism": {
+    "method": "TWO things were scouted and neither enumerates a province. (1) hosp.hss.moph.go.th — the สบส. private-healthcare verifier privatehospital.hss.moph.go.th sends you to. It 403s a plain UA and loads in a browser; the form offers exactly two modes, เลขที่ใบอนุญาต or ชื่อสถานพยาบาล. No province filter, no type filter, no browse-all: it CONFIRMS a clinic you can already name, it does not list one. (2) data.go.th org 'hss' (กรมสนับสนุนบริการสุขภาพ) publishes 22 datasets; the only สถานพยาบาล one is dataset-5-1-03 จำนวนสถานพยาบาลเอกชน, a count.",
+    "status": "partial — a verifier, not a register we can read",
+    "measured_on": "2026-09-06",
+    "yield": "0 enumerable rows for either province. Denominator found instead: สสจ.เชียงราย (data.go.th dataset50_77) says เชียงราย held 887 clinics of all types in 2568, 797 in 2567. The catalogue holds 0 physio and 23 long-care records across both provinces."
+   },
+   "trades": "clinics, dentists, physio (the physio shelf is EMPTY), Thai traditional medicine, nursing homes",
+   "next": "Do NOT build an importer against hosp.hss — it takes a name and gives back one licence. Two live doors instead: (a) DBD TSIC 86xxx rows carry clinic name AND full address (see dbd-juristic-register — 86902 กายภาพบำบัด, 86903 ห้องปฏิบัติการ, 86201/86202 เวชกรรม-เสริมความงาม, 86203 ทันตกรรม), and hosp.hss then VERIFIES each name one at a time as licensed; (b) scout สสจ.เชียงใหม่ (chiangmaihealth.go.th) and สสจ.เชียงราย for a published รายชื่อสถานพยาบาล PDF/XLS — the provinces hold the list the department will only verify. || 2026-09-27: for the LABORATORY child specifically, a third door is measured and works — mtcouncil-lab-accreditation (the Medical Technology Council's accredited-lab table, 49 CM+CR rows)."
+  },
+  "line-official-account": {
+   "name": "LINE Official Account pages (page.line.me / lin.ee)",
+   "grade": "own-voice",
+   "holds": "Measured, not assumed: the OA display name, a phone, the shop's own status message, a verified badge, and — in the JSON-LD, not in the display fields — the shop's own website via sameAs. The schema also has address, workingTime and budget keys; on the profiles read today they were all null, i.e. the shops had not filled them in.",
+   "licence": "—",
+   "mechanism": {
+    "method": "TWO HOPS, no key, no session. (1) Resolve the shortlink: GET https://lin.ee/<code> follows to https://line.me/R/ti/p/@<oaid> — that redirect is the only way to turn a lin.ee code into a stable OA id, and the deep link itself carries NO metadata. (2) GET https://page.line.me/<oaid> (no @). A real profile comes back at 80–110 kB with the name in <title> and the fields inside the __NEXT_DATA__ blob plus a JSON-LD block; an OA with no public page returns a ~1.8 kB stub titled just 'LINE', which is how you tell them apart. Extraction caveat for whoever writes the importer: the website is in JSON-LD sameAs and in the account_info_website_link anchor, NOT in the escaped \"website\" key — my key-based regex reported 0/5 while a by-hand read found one, so trust the anchor.",
+    "status": "works",
+    "measured_on": "2026-09-06",
+    "yield": "19 distinct LINE links on disk → 19 distinct OA ids → 5 have a public page.line.me profile (14 are add-friend-only). Of those 5: name 5/5, phone 2/5, own status message 4/5, verified badge 5/5, address 0/5, opening hours 0/5. Named: NewPlus DentalClinic · DEAR HEARING (081-352-8412) · Pet Village & Salon · Eat @ Rincome (052005111) · Yuzu House Chiangmai."
+   },
+   "trades": "any Thai SME; salons and clinics especially",
+   "next": "importers/enrich_line.py, alongside enrich_sites.py: for every record already carrying a LINE link, resolve to the OA id, fetch the profile, and write name/phone/website into curated/enrich.json as own-voice with the date. It is a small harvest — 5 profiles from 19 links — but it is the FIRST logged-out own-voice mechanism that returns contact facts at all: the Facebook equivalent gave og:title and nothing else on 0 of 5. The bigger prize is the reverse direction, which is NOT measured yet: whether a shop's OA can be found from its name, rather than only read once a link is already on disk. That is next week's question."
+  },
+  "instagram-business": {
+   "name": "Instagram business profiles",
+   "grade": "own-voice",
+   "holds": "Measured, not assumed: og:title (the display name the shop set, plus the handle) and og:description (follower / following / post counts). NOTHING ELSE. biography, business_phone_number, business_address_json, category_name, external_url and is_business_account are all ABSENT from the logged-out HTML — count 0 on every page read.",
+   "licence": "—",
+   "mechanism": {
+    "method": "GET https://www.instagram.com/<handle>/ with our own User-Agent. No session, no browser impersonation, no challenge. ~700 kB of app shell per profile for two meta tags; the old ?__a=1 JSON endpoint is gone.",
+    "status": "partial — identity only, no contact fact",
+    "measured_on": "2026-09-20",
+    "yield": "492 distinct Instagram handles are already on disk across data/canonical + curated/enrich.json. Five read (137pillars_chiangmai · 7sensesgelato · aromashopcnx · artisaninktattoo · Pacharaclinic): 5/5 HTTP 200, 5/5 og:title and og:description, 3/5 a non-empty display name (two shops never set one), 0/5 address, 0/5 phone, 0/5 category, 0/5 bio, 0/5 hours."
+   },
+   "trades": "cafes, fashion, tattoo, beauty",
+   "next": "Do NOT build an enrichment importer against it: it returns nothing data/canonical does not already hold. Its one honest use is confirming that a handle we hold still exists and what the shop currently calls itself — cheap, and the only thing measured. Whether a LOGGED-IN read (the Facebook-about-in-Chrome lane) carries the business fields is untested and is the only version worth another hour. Sample: cache/source_scout/instagram-business/2026-09-20.json"
+  },
+  "google-maps-listing": {
+   "name": "Google Maps / Business Profile",
+   "grade": "directory",
+   "holds": "everything, as Google renders it",
+   "licence": "Google ToS forbids reuse; ranked last by Nan's preference",
+   "mechanism": {
+    "method": "—",
+    "status": "blocked-by-licence"
+   },
+   "trades": "—",
+   "next": "not a source; a place's Google listing may point to its own page, which is"
+  },
+  "wongnai": {
+   "name": "Wongnai",
+   "grade": "directory",
+   "holds": "name, address, hours, menu, reviews",
+   "licence": "FORBIDS IT. wongnai.com/terms, ข้อห้าม (3): members may not 'รวบรวมข้อมูลร้านค้า ที่อยู่ร้าน รีวิว … เพื่อวัตถุประสงค์ใด ๆ ก็ตาม เว้นแต่จะได้รับอนุญาตจากทางบริษัท' — compiling shop data, addresses or reviews for any purpose without the company's permission. robots.txt disallows only /users/.",
+   "mechanism": {
+    "method": "GET https://www.wongnai.com/restaurants/<id> with our own UA → HTTP 200, 336–836 kB, server-rendered; the shop's facts sit in an embedded state blob (contact.address with subDistrict id+name, phoneno, lat/lng, workingHours, priceRange) plus a PostalAddress. The listing API /_api/businesses answers 403. No sitemap (404). Read against the 33 Wongnai links already in our own records, 10 fetched, one at a time, 3 s apart.",
+    "status": "blocked-by-licence",
+    "measured_on": "2026-09-27",
+    "yield": "10/10 pages read: phone 10/10, tambon 10/10, lat/lng 10/10, hours 10/10 (CM 8, CR 2) — the richest per-page schema of any directory scouted — but the shop's OWN voice is almost absent: own LINE 1/10, own Instagram 1/10, own Facebook 0/10, own website 0/10. The 'a Wongnai page often names the shop's own FB' premise is measured false."
+   },
+   "trades": "food, beauty, massage",
+   "next": "Nothing, unless Nan answers the 2026-09-27 fork. Its data is exactly what its terms forbid us to compile, and the one legitimate use we had in mind — a pointer to the shop's own page — yields 1 in 10. Do not build an importer. Sample (booleans + tambon only): cache/source_scout/wongnai/2026-09-27.json"
+  },
+  "lazada-shopee-storefront": {
+   "name": "Lazada / Shopee seller storefronts",
+   "grade": "own-voice",
+   "holds": "seller name, products, prices, ship-from province; usually no shop address",
+   "licence": "robots.txt: Shopee disallows /shop/*/search and /shop/*/details only; Lazada allows all but login paths.",
+   "mechanism": {
+    "method": "Measured against the 175 storefront links already in our records (shopee 132 + shp.ee 11 + lazada 24 + s.lazada 8). Shopee: GET https://shopee.co.th/<handle> 307→200 with our UA, but every shop returns the SAME 202,062-byte SPA shell (byte-identical across three shops; the handle does not even appear in it); /api/v4/shop/get_shop_base answers 403 with error 90309999 — an anti-bot gate we do not dress up to pass. Lazada: /shop/<key>/ and s.lazada shortlinks resolve and answer 200 (~150 kB) with the seller's display name in <title>/og and a sellerKey; no location, no ship-from, no phone, no address in the HTML.",
+    "status": "partial — Lazada gives a seller name, Shopee gives nothing",
+    "measured_on": "2026-09-27",
+    "yield": "Shopee 3/3 read, 0 facts each (identical shell); Shopee API 0/1 (403). Lazada 3/3 read: seller display name 3/3, location 0/3, phone 0/3. Nothing here we do not already hold."
+   },
+   "trades": "online-only sellers; big-size clothing, amulets, instruments",
+   "next": "No importer — it would write nothing new. The storefront link stays as a link on the record. The policy question in the old note (does an online-only seller get a shelf?) is moot for this source until it yields a fact; business/online-selling stays KNOWN_EMPTY for the reason test_facets.py already gives. Sample: cache/source_scout/lazada-shopee-storefront/2026-09-27.json"
+  },
+  "tat-registered-tour-businesses": {
+   "name": "กรมการท่องเที่ยว (Department of Tourism) — the licensed tour-business register, read through the public licence-lookup's own API",
+   "grade": "official-register",
+   "holds": "35 fields per licence. tour_business_license_no · business_type (ทั่วไป / ในประเทศ / นำเที่ยวจากต่างประเทศ / เฉพาะพื้นที่) · name_th · name_en · issued_date · expired_date · license_status (ปกติ · ยกเลิก · หมดอายุตามกฏหมาย · เพิกถอน · พักใช้) · diving_service · province_name · district_name · subdistrict_name · address_no · moo · soi · road · village_name · building · floor · room_no · postal_code · mobile_no · tel_no · fax · website · email · office · master_branch_main_name. TWO FIELDS ARE A PRIVATE INDIVIDUAL'S AND MUST NEVER BE STORED: identity_no is a 13-digit Thai national ID, and requester_name is a natural person — 1,569 of 2,133 rows in one slice were requester_type=person.",
+   "licence": "A public statutory register under พ.ร.บ.ธุรกิจนำเที่ยวและมัคคุเทศก์, published by the department as a public lookup at esvcs.dot.go.th/e-service/LicenseInformationPage. NO reuse terms were found on esvcs or esapi on 2026-09-20 — unknown, and raised as a fork rather than assumed either way.",
+   "mechanism": {
+    "method": "POST https://esapi.dot.go.th/api/report/tour-business with JSON body {\"full_name\":\"<substring>\"} (the same call the public search box makes; no key, no session, no bot check). The box also accepts {\"license_no\":\"…\"} and {\"full_name_en\":\"…\"}. full_name is a SUBSTRING match on the trade name, which is what makes it enumerable: a single common Thai character sweeps most of the register. Measured response times 2.0–3.6 s for 20–47 MB. Siblings on the same API, NOT read: /report/guide and /report/tour-leader — those enumerate licensed GUIDES and TOUR LEADERS, who are natural persons, and are refused under the no-private-individual rule. The SPA also calls /old/tour-business-filter2, not measured.",
+    "status": "works",
+    "measured_on": "2026-09-20",
+    "yield": "Five substring queries (า · ิ · ทัวร์ · ุ · เ) → 5,323 distinct เชียงใหม่/เชียงราย licence records, of which 1,374 are currently ปกติ (CM 1,200 · CR 174); the rest are 3,463 ยกเลิก, 403 expired, 70 revoked, 13 suspended. Field fill on the 2,133-row ทัวร์ slice: name_th 2133/2133 · name_en 2132 · address_no 2133 · tambon 2129 · amphoe 2129 · postcode 2133 · mobile 1742 · landline 1012 · email 1415 · website 275. Active CM amphoe spread: เมืองเชียงใหม่ 639 · สันทราย 116 · สันกำแพง 81 · สารภี 72 · หางดง 72 · ดอยสะเก็ด 53. Whole-normalised-name match of the 1,374 active against data/canonical: 131 hit, 1,243 unmatched. Corroboration: สำนักงานจังหวัดเชียงใหม่ dataset_10_344 puts CM at 1,128 licensed tour businesses in 2567 against our 1,200 active today — the two numbers agree."
+   },
+   "trades": "NONE YET — data/categories.json has no tour-agency shelf. The 28 shelves were read on 2026-09-20: the nearest is sights/community (ชุมชนท่องเที่ยว), which is a different thing. 1,374 active licensed operators with an address and a phone have nowhere to land until Nan decides whether a shelf exists. Fork raised 2026-09-20.",
+   "next": "Nothing is imported until the shelf question is answered. When it is, importers/import_dot_tour.py: sweep a handful of substrings, keep province_name in (เชียงใหม่, เชียงราย), DROP identity_no and requester_name on read (never write them to disk), keep only license_status == ปกติ as records and file the other 3,949 as history, pin from the tambon centroid or the Longdo geocoder — never invented. The licence number, its type and its expiry date are the own-record fact this shelf would be built on, and no other directory of either province can print them. Cache sample (personal fields stripped): cache/source_scout/tat-registered-tour-businesses/2026-09-20.json"
+  },
+  "thai-yellow-pages": {
+   "name": "Thailand YellowPages",
+   "grade": "directory",
+   "holds": "Measured on one profile page: business name, หมวดหมู่ (category, empty on the page read), full street address to ตำบล/อำเภอ/จังหวัด + postcode, telephone, fax. No coordinates, no opening hours, and NO JSON-LD anywhere on the page — every fact has to be read out of the rendered Thai text.",
+   "licence": "their content",
+   "mechanism": {
+    "method": "A profile page (https://www.yellowpages.co.th/profile/<thai-slug>-<id>) fetches at HTTP 200, 132 kB, with our own UA. robots.txt permits it: the only relevant Disallow lines are /search/ and /profiles/ (the Drupal code directory, not the listings). Enumeration is the problem, and two doors were measured: /ypsearch?keyword=… 302s back to the home page (the search form needs the site's own JS), and /heading/<Thai category> answers 200 with a province filter and a pager — but the listing rows are rendered client-side, so ZERO /profile/ links are in the HTML. No sitemap.xml (404).",
+    "status": "partial — a profile reads, a listing does not enumerate without a browser",
+    "measured_on": "2026-09-20",
+    "yield": "1 profile read end-to-end (สำนักงาน ททท. ภาคเหนือเขต 1): name, address to tambon + postcode, phone, fax. 0 rows enumerable by plain HTTP. The บริการทำความสะอาด heading page reports a count in the page chrome but serves no rows to a fetcher."
+   },
+   "trades": "trades with a phone and no web presence",
+   "next": "Leads only, and only ONE AT A TIME behind a name we already hold — it is a directory, so a fact read here enters as a lead, never as a record. Bulk is not available without driving a browser through the category pages, and that is not worth an hour against a source whose best field (the address) DBD and the DOT register both carry first-hand. Revisit only if a shelf turns out to be reachable nowhere else."
+  },
+  "municipal-and-provincial-lists": {
+   "name": "เทศบาลนครเชียงใหม่ / provincial office lists (markets, licensed food stalls, ตลาดสด, licensed massage สถานประกอบการเพื่อสุขภาพ)",
+   "grade": "official-register",
+   "holds": "varies; the สถานประกอบการเพื่อสุขภาพ licence list names every legal massage shop and spa",
+   "licence": "public",
+   "mechanism": {
+    "method": "The สถานประกอบการเพื่อสุขภาพ licence list this entry was looking for is NOT municipal — it is national, held by กรมสนับสนุนบริการสุขภาพ, and it is now measured under hss-health-establishment-licence. What WAS found at the provincial level: both provinces run their own CKAN catalogue — https://chiangmai.gdcatalog.go.th/ and https://chiangrai.gdcatalog.go.th/ (both HTTP 200, no key). Their datasets surface in data.go.th search under orgs 'chiangrai-province' / the Chiang Mai equivalent; a per-org package_search 502s at data.go.th and has to be run against the provincial portal's own /api/3/action/. เทศบาลนครเชียงใหม่'s own lists were not reached this run.",
+    "status": "partial",
+    "measured_on": "2026-09-06",
+    "yield": "1 provincial dataset read end-to-end: dataset50_77 คลินิกทุกประเภท (สำนักงานจังหวัดเชียงราย) — a 6-row time series, no names: 887 clinics 2568, 797 in 2567, 674 in 2566. A denominator, not a list. Provincial portals both live, dataset counts not yet enumerated."
+   },
+   "trades": "massage (97% OSM today), markets, food stalls",
+   "next": "2026-09-27: named lists now measured on both portals and registered separately (provincial-food-certification-lists, chiangrai-blueflag-shop-register, cm-lpg-station-list, cm-agrifood-factory-list). Still owed: a full dataset-by-dataset enumeration of both portals, and เทศบาลนครเชียงใหม่'s own ตลาดสด / food-handling licence lists, which are a different office and were not reached. Measured as COUNTS only (denominators, no names): CM 68_119 ร้านค้าธงฟ้าประชารัฐ 5,266 (2566); CM 68_11 สถานพยาบาล by amphoe (เมืองเชียงใหม่ 669 clinics, 2564; licence not specified); CR dataset_50_25 สถานพยาบาล by amphoe."
+  },
+  "keyed-search-api": {
+   "name": "A keyed web-search API so importers/discover_facebook.py can search directly under its own name. THE KEY ALREADY EXISTS — Brave Search API, in ~/.config/nanobotco/keys.json under brave_search, registered 2026-09-04 for the white-label AI with USD 25 prepaid (~5,000 searches) plus a $5 monthly free credit.",
+   "grade": "mechanism, not a source",
+   "holds": "the same url/title/snippet triples the bot collects",
+   "licence": "Brave Search API terms; key is in Nan's name and is already paid for",
+   "mechanism": {
+    "method": "GET https://api.search.brave.com/res/v1/web/search?q=<query>&count=20 with header X-Subscription-Token. GOTCHA, measured: adding country=th&search_lang=th returns HTTP 422 Unprocessable Entity; drop both parameters and the same query answers 200 with Thai results anyway. discover_facebook.py's fetch() takes a provider hook and nothing is wired to it yet.",
+    "status": "works",
+    "measured_on": "2026-09-06",
+    "yield": "q='site:facebook.com นวดแผนไทย เชียงใหม่' → 19 results, of which 6 on the first screen are real Chiang Mai shop pages (chetawan.cm · ChiangMaiMassageSukhumvit79 · นวดแผนไทยหนองป่าครั่งสาขา1 · สุ นวดแผนไทย บ้านท่อ · ร้านนวดเชียงใหม่ แผนโบราณ · chiangmaiklaimor). 2 queries spent measuring. The 1,224-query matrix would cost ~1,224 of the ~5,000 prepaid searches."
+   },
+   "trades": "all",
+   "next": "Wire fetch() to the brave_search entry (read the key with json.load, never on a command line) and the direct path is live tonight. What is NOT decided is the money: those searches are prepaid AI-assistant credit, and spending a quarter of it on discovery is Nan's call, not mine — fork raised 2026-09-06, and it SUPERSEDES the 'sign up for a key' fork written earlier the same day, which was measuring a key that already existed."
+  },
+  "hss-health-establishment-licence": {
+   "name": "กรมสนับสนุนบริการสุขภาพ — รายการสถานประกอบการเพื่อสุขภาพที่ได้รับอนุญาต (the licensed massage/spa/elder-care establishment register, data.go.th hss_11_27)",
+   "grade": "official-register",
+   "holds": "CertificateCode, ShopName, ServiceType (นวด · สปา · กิจการดูแลผู้สูงอายุ), ProvinceID, Province. FIVE FIELDS AND THAT IS ALL — no address, no tambon, no phone, no coordinates. The 4th–5th digits of the certificate code are the licence class (5001=สปา, 5002/5003=นวด), NOT an amphoe.",
+   "licence": "Open Data Common (DGA), no share-alike",
+   "mechanism": {
+    "method": "GET https://hss.gdcatalog.go.th/dataset/071f89fe-bbb3-4569-8ce0-1ab645c2868b/resource/4d173e85-2103-4b7a-baee-1bae5d42d6d4/download/.csv — one CSV, UTF-8-BOM, no key, no redirect, ~2.4 MB. Found via https://data.go.th/api/3/action/package_show?id=hss_11_27. Metadata says quarterly; the newest certificate year in the file is 67 (2024).",
+    "status": "works",
+    "measured_on": "2026-09-06",
+    "yield": "18,180 rows nationwide; เชียงใหม่ 1,254 (นวด 1,153 · สปา 101), เชียงราย 257 (นวด 247 · สปา 10) = 1,511 licensed establishments. The catalogue holds 325 CM + 12 CR massage records, so the state licenses ~4.5x what we list. Whole-normalised-name match against data/canonical: 19 CM + 12 CR hit, 1,480 unmatched — a floor, since the register has no address to disambiguate with. No CM/CR row carries กิจการดูแลผู้สูงอายุ (2,336 of the 2,590 nationwide are Bangkok). Modality words in CM+CR names: แผนไทย 247, สปา 112, ตาบอด 3, ตอกเส้น 1, อโรมา 1."
+   },
+   "trades": "massage (all 17 children), spa-body, long-care",
+   "next": "importers/import_hss_establishments.py, in two halves. (1) MATCH: for each of the 1,511, whole-name against data/canonical — a hit gains a licensed:true fact with certificate code, ServiceType and licence year, provenance official-register. That is a provenance upgrade the massage shelf has never had and it needs no address. (2) WORKLIST: the ~1,480 unmatched become _incoming/hss-unmatched-<date>.txt, a NAMED queue for the Facebook finder and the reader — a licensed shop name is the best possible search term. Whether an unmatched licensed name becomes a needs-pin RECORD is Nan's call (fork raised 2026-09-06)."
+  },
+  "provincial-gdcatalog-portals": {
+   "name": "ระบบบัญชีข้อมูลจังหวัด — the two provinces' own CKAN open-data catalogues",
+   "grade": "official-register",
+   "holds": "Both portals enumerated 2026-09-06: เชียงใหม่ 539 datasets, เชียงราย 377. Mostly official statistics. The useful minority are lists that NAME places with a tambon and sometimes a phone; the majority — including several whose titles begin รายชื่อ or ทะเบียน — are aggregate counts by year and amphoe, which are denominators, not records.",
+   "licence": "Open Data Common (DGA OGL) on every dataset sampled; a few carry Creative Commons Attribution",
+   "mechanism": {
+    "method": "CKAN on each portal's own host: GET https://chiangmai.gdcatalog.go.th/api/3/action/package_search?rows=1000 (and the chiangrai equivalent) returns every dataset with its resources in one call, no key. Resource CSVs download straight from the same host. NOTE the same query with an org filter against data.go.th returns 502 — go to the province, not the national portal. Encodings vary: try utf-8-sig, then cp874.",
+    "status": "works",
+    "measured_on": "2026-09-06",
+    "yield": "916 datasets enumerated (CM 539 · CR 377). 28 list-shaped CSVs opened and read: 9 carry real place names with a location, the rest are counts. The nine, with row counts read off the files: CM 68_113 รายชื่อโรงเรียนพระปริยัติธรรม 56 (อำเภอ · ตำบล · วัด · ชื่อโรงเรียน, year 2568) · CM 68_121 รายชื่อโรงงานอุตสาหกรรมด้านการเกษตรและอาหาร 83 (name · trade · amphoe · address) · CM 69_143 สถานที่ใช้ก๊าซปิโตรเลียม 66 · CM 69_140 สถานีบริการก๊าซปิโตรเลียม 28 (company · tambon · amphoe, year 2569) · CM 69_142 สถานที่เก็บรักษาน้ำมัน 25 · CM 69_121 แหล่งท่องเที่ยวเชิงเกษตร 24 (name · activities · location) · CR dataset_20_31 รายชื่อแหล่งท่องเที่ยว 39 (type · name · address · amphoe · tambon · PHONE) · CR dataset_20_19 แหล่งท่องเที่ยวเชิงศาสนา 128 (name · amphoe) · CM 69_138 รถขนส่งน้ำมัน 47 (but the name field is the OWNER, so this one is people, not places). Denominators found in the counts: CM held 16,783 บริษัทจำกัด + 8,405 หจก. in 2564; CM lodging 2564 = 469 hotels, 339 resorts, 201 guesthouses; CM ของฝาก/OTOP outlets 2567 = 200 in เมืองเชียงใหม่ alone; CR clinics 2568 = 887."
+   },
+   "trades": "medical, market, essentials, sights",
+   "next": "Two importers, both small. (1) importers/import_monastic_schools.py — 68_113 holds 56 monastic schools for 2568 and the catalogue holds 27; each row names its วัด, so the join to an already-pinned temple record is the same one that filled this shelf the first time. This is a KNOWN_EMPTY shelf that came off the list in August and is sitting at 48% of the register. (2) importers/import_provincial_lists.py for the other eight — sights (CR 39 with phones + 128 religious + CM 24 agri-tourism) and essentials/fuel (CM 66+28+25 LPG and fuel sites). Every row is official-register grade with a tambon, so pins come from the tambon centroid or the Longdo geocoder, never invented. REFUSED: 69_138, whose named party is a business owner, not a place."
+  },
+  "hosp-hss-verifier": {
+   "name": "hosp.hss.moph.go.th — สบส. licensed-healthcare VERIFIER (one name in, one licence out)",
+   "grade": "official-register",
+   "holds": "per query: whether a named clinic holds a current สถานพยาบาล licence, and the licence number",
+   "licence": "public register",
+   "mechanism": {
+    "method": "Browser only — HTTP 403 to a plain UA on the document root while /api/ and /hospital 404 (the server answers, the root is gated). Read in a browser tab on 2026-09-06: the form offers เลขที่ใบอนุญาต or ชื่อสถานพยาบาล and nothing else. We do not dress a script up as a browser, so bulk is out; a bounded, one-at-a-time verification in a real browser is in.",
+    "status": "partial — verification only, no enumeration",
+    "measured_on": "2026-09-06",
+    "yield": "0 rows enumerable; 1 form read, 2 search modes, no province or type filter"
+   },
+   "trades": "medical (clinic, dentist, physio, laboratory, thai-medicine)",
+   "next": "Use it as the SECOND step behind DBD: DBD names a clinic with an address, this says whether it is licensed. Not an importer of its own."
+  },
+  "mots-tourism-directory": {
+   "name": "Thailand Tourism Directory (กระทรวงการท่องเที่ยวและกีฬา) — the state's own directory of attractions, restaurants, spas, accommodation, souvenir shops and activities",
+   "grade": "official-register",
+   "holds": "per record: name in Thai/English/Chinese, description, type, photo, latitude, longitude, telephone, email, url, opening hours, price, and an address keyed by DOPA codes — citySubDivision is the tambon code, city the amphoe, countrySubDivision TH-50 / TH-57. That is the same geographic key the crawl already clips provinces by.",
+   "licence": "MIXED and unsettled: the attractions dataset is Open Data Common; spas, restaurants, accommodation, stores and activities are published on ckan.mots.go.th with licence 'License not specified'. A fork is raised rather than assumed either way.",
+   "mechanism": {
+    "method": "Found on BOTH provincial portals (they mirror the ministry's CKAN). The JSON resources at ckan.mots.go.th download without a key, e.g. .../download/spas.json. The documented interface is a v2 API described in how-to-call-api-ttd-v2.pdf, which 502'd on every attempt today, as did www.thailandtourismdirectory.go.th intermittently; the site is server-rendered and exposes no /api/ path in its HTML. || 2026-09-27: ckan.mots.go.th answered and the v2 manual downloaded (how-to-call-api-ttd-v2.pdf, 702 kB; also admin.thailandtourismdirectory.go.th/manual/ttd-open-api.pdf). The API is POST https://api.thailandtourismdirectory.go.th/openapi/read with JSON {APIKey, SecretKey, Lang, Skip, Limit, Type 1–6 (attraction, activity, accommodation, spa, restaurant, store), ProvinceCode 50|57}. An unkeyed call answers 401 auth-0001 'Incorrect credential' — the endpoint is live. We hold no TTD key (not in keys.json). www.thailandtourismdirectory.go.th itself still 502s, so the signup page could not be read.",
+    "status": "blocked — needs an APIKey + SecretKey registered in Nan's name",
+    "measured_on": "2026-09-27",
+    "yield": "0 rows (401 without a key). Measured instead: the v2 RESPONSE carries only URL, Type, IntroImage, Name, Detail, Latitude, Longitude, District (amphoe name), Province, Region, IsOpen — NO phone, email, hours, price or tambon code. The rich schema recorded on 2026-09-06 is the website's, not the API's. The 2026-09-06 dumps remain ten-row samples of น่าน/เลย."
+   },
+   "trades": "sights, food, hotel, massage (spa), shopping (souvenir), whats-on",
+   "next": "Fork 2026-09-27 (API key). If she registers one: one call per Type × ProvinceCode 50/57 with Skip paging gives the count; importers/import_ttd.py would map Type 1→sights, 3→stay-play, 4→massage (spa), 5→food, 6→shopping, and pin from Latitude/Longitude — but it brings name, coordinates and amphoe only; phones would still come from the place's own page. The 2026-09-06 licence fork applies to Types 2–6 either way."
+  },
+  "cdd-otop-producer-register": {
+   "name": "กรมการพัฒนาชุมชน (CDD) — ทะเบียนผู้ประกอบการ OTOP, the community-producer register (data.go.th otop45)",
+   "grade": "official-register",
+   "holds": "SIX COLUMNS AND THAT IS ALL: จังหวัด · อำเภอ · ตำบล/เขต · ชื่อผู้ประกอบการ · เลขผู้ประกอบการ (a 10-digit registration number whose first two digits are the province) · ลักษณะผู้ประกอบการ (sole community producer / producer group / SME). No street address, no phone, no coordinates, no product.",
+   "licence": "Open Data Common (DGA), no share-alike",
+   "mechanism": {
+    "method": "GET https://logi.cdd.go.th/opendata_cdd/2026/CDD_otop_own_2026.csv — one CSV, UTF-8-BOM, no key, ~22 MB. Two earlier editions are published beside it (.../2024/CDD_otop_own.csv and .../2025/CDD_otop_own_2025.csv), so it is a yearly series and a producer that drops out can be seen dropping out. Found via https://data.go.th/api/3/action/package_show?id=otop45.",
+    "status": "works",
+    "measured_on": "2026-09-20",
+    "yield": "98,177 rows nationwide in the 2569 edition; เชียงใหม่ 2,217 · เชียงราย 2,210 = 4,427, every one carrying อำเภอ AND ตำบล (4,427/4,427). Type split: sole community producer 2,297 · producer group 1,938 · SME 192. CM amphoe spread: สันกำแพง 199 · ฝาง 185 · สันทราย 185 · สันป่าตอง 170 · สารภี 137 · ดอยสะเก็ด 130. Name shapes, counted because they decide what may be used: กลุ่ม… 1,182 · วิสาหกิจชุมชน… 432 · institutional (ศูนย์/สหกรณ์/สวน/ไร่/บ้าน…) 189 · juristic 169 · ร้าน… 132 · a PERSONAL TITLE (นาย/นาง/นางสาว) 569 · other 1,754, which is mostly a trade name (P.DESIGN · สไบทอง · ทิพย์สมุนไพร · ฝ้ายละอ่อน · เป่าแก้วศิลป์เชียงใหม่) but contains bare personal names too (ผ่องพันธ์ ไชยเดช)."
+   },
+   "trades": "shopping/crafts and shopping/fabric first (the ผ้าฝ้าย, เครื่องเงิน, เครื่องเขิน, จักสาน names are thick here), then food (ของฝาก, สมุนไพร), market and chang/craft",
+   "next": "importers/import_otop.py, with a name-shape gate as its FIRST step and not an afterthought: the 569 rows beginning นาย/นาง/นางสาว are named individuals and are refused outright, and a bare two-word Thai personal name in the 1,754 'other' bucket is refused the same way — the test is the NAME, not the ลักษณะ column, because 2,297 rows are filed as sole producers and most of those still trade under a shop name. What survives is a lead with a tambon and no phone: match whole-name against data/canonical to upgrade a record's provenance, and queue the rest for the Facebook finder, where a producer group's name is a good search term. Denominator worth printing either way: the state registers 4,427 OTOP producers in the two provinces. Sample: cache/source_scout/cdd-otop-producer-register/2026-09-20.json"
+  },
+  "dataforthai-tsic-directory": {
+   "name": "dataforthai.com — a commercial directory built on the DBD register, browsable by TSIC objective code",
+   "grade": "directory",
+   "holds": "the DBD fields re-presented per company, listed by 5-digit TSIC objective code (e.g. /business/objective/81210 = การบริการทำความสะอาดทั่วไปของตัวอาคาร)",
+   "licence": "their presentation of a public register; not measured",
+   "mechanism": {
+    "method": "GET https://www.dataforthai.com/business/objective/<TSIC> — answers HTTP 403 to our own User-Agent, on 2026-09-20. Its robots.txt permits everything but /api/ and /business/favorites-export (and explicitly permits GPTBot), so the block is at the server, not in the policy. We do not dress a script up as a browser to get past it.",
+    "status": "blocked — 403 to a non-browser UA",
+    "measured_on": "2026-09-20",
+    "yield": "0 rows."
+   },
+   "trades": "any, by TSIC",
+   "next": "Nothing. It is a second-hand copy of dbd-juristic-register, which we read first-hand from the department's own CSV; it is written down only so nobody spends an afternoon rediscovering it. Its one use would be checking a TSIC code's meaning by eye."
+  },
+  "mtcouncil-lab-accreditation": {
+   "name": "สภาเทคนิคการแพทย์ — มาตรฐานห้องปฏิบัติการ (LA): the Medical Technology Council's table of accredited medical laboratories",
+   "grade": "official-register",
+   "holds": "per row: lab/department name, the hospital or clinic it belongs to, จังหวัด, accreditation round (LA / RE-LA n), accredited-on and expiry dates, and ประเภทหน่วยงาน (สถานพยาบาลรัฐบาล / คลินิกเทคนิคการแพทย์ / …) in the newer table. No address, no phone, no coordinates. Institutions only — no person in any row.",
+   "licence": "unknown — no terms page found on mtcouncil.org; a statutory council's public list",
+   "mechanism": {
+    "method": "GET https://mtcouncil.org/lab-quality-accreditation/ (HTTP 200, 879 kB, our own UA, WordPress, server-rendered). The page carries TWO HTML tables — a newer one with ประเภทหน่วยงาน, and an older one whose last column is the surveillance-document due month. Parse <tr>/<td>, filter จังหวัด ∈ {เชียงใหม่, เชียงราย}.",
+    "status": "works",
+    "measured_on": "2026-09-27",
+    "yield": "1,015 rows nationally; 49 CM+CR rows. About 10 are walk-in private labs — the thing the empty medical/laboratory shelf is for: CM อาร์เอส แล็บ คลินิกเทคนิคการแพทย์, เชียงใหม่อาร์ไอเอ, แคร์แมทเชียงใหม่, กรุงเทพ อาร์ ไอเอ แล็ป สาขาเชียงใหม่, N Health (เนชั่นแนล เฮลท์แคร์ ซิสเทมส์) สหคลินิกเชียงใหม่, เอ็มพลัสสหคลินิก; CR เอ็น เค คลินิกเทคนิคการแพทย์, เม็งรายแล็บ, N Health แม่สาย, เอ็มพลัสเชียงราย. The rest are hospital lab departments (hospitals are already shelved). Whole-name check: ChiangMai RIA Lab, BRIA LAB, N Health คลินิกเทคนิคการแพทย์ and เม็งรายแล็บ are already in data/canonical — but carry sub 'laboratory' (or 'hospital'), while the shelf matches attrs.facilityType == 'laboratory', which is why the shelf still reads empty. Three older-table accreditations (N Health แม่สาย, เชียงใหม่อาร์ไอเอ, แคร์แมท) show expiry dates already past — accreditation lapses are not licence lapses; do not print them."
+   },
+   "trades": "medical/laboratory (KNOWN_EMPTY), medical/hospital (verification)",
+   "next": "importers/import_mtc_labs.py: take the คลินิกเทคนิคการแพทย์ / lab-company rows, whole-name match to canonical, set attrs.facilityType = 'laboratory' on the matches with source {type:'official-register', id:'mtcouncil-lab-accreditation', date}, and add the unmatched as needs-pin leads for the finder. Then re-read the ('medical','laboratory') KNOWN_EMPTY reason in tests/test_facets.py — it names 'the MOPH clinical-laboratory licences' as the fill route; this is a sibling register that already names them. Sample: cache/source_scout/mtcouncil-lab-accreditation/2026-09-27.json",
+   "added": "2026-09-27"
+  },
+  "dmsc-blood-draw-unit-register": {
+   "name": "กรมวิทยาศาสตร์การแพทย์ สำนักมาตรฐานห้องปฏิบัติการ — รายชื่อหน่วยบริการเจาะเลือดที่ผ่านการขึ้นทะเบียน (registered blood-draw service units)",
+   "grade": "official-register",
+   "holds": "expected: registered specimen-collection units — the walk-in blood-draw points the lab shelf is for. NOT YET SEEN.",
+   "licence": "unknown",
+   "mechanism": {
+    "method": "Linked from https://blqs.dmsc.moph.go.th/ → /th/detailAll/3195/nwp/225 (HTTP 200, 369 kB). The page shell carries no list, no iframe, no PDF/XLSX link and 0 mentions of เชียงใหม่/เชียงราย in the HTML — the rows are drawn some other way (client-side, or an attachment the shell hides).",
+    "status": "to-scout"
+   },
+   "trades": "medical/laboratory",
+   "next": "Open the page in a browser tab (no login) and find where the list actually loads from; count CM+CR rows.",
+   "added": "2026-09-27"
+  },
+  "dmsc-iso15189-accredited-labs": {
+   "name": "กรมวิทยาศาสตร์การแพทย์ — รายชื่อห้องปฏิบัติการที่ผ่านรับรองตามมาตรฐาน ISO 15189 และ ISO 15190",
+   "grade": "official-register",
+   "holds": "expected: ISO 15189-accredited medical labs nationwide. NOT YET SEEN.",
+   "licence": "unknown",
+   "mechanism": {
+    "method": "Linked from https://blqs.dmsc.moph.go.th/th/detailAll/3502/nwp/229 to a Google Apps Script web app (script.google.com/macros/s/AKfycbxMP8gi…/exec). Plain GET → HTTP 200, 12 kB shell, 0 rows; the table is rendered by the script's own JS.",
+    "status": "to-scout"
+   },
+   "trades": "medical/laboratory",
+   "next": "Read in a browser tab; if the script serves JSON to its own page, note the call. Overlaps mtcouncil-lab-accreditation — measure the overlap before writing anything.",
+   "added": "2026-09-27"
+  },
+  "chiangrai-blueflag-shop-register": {
+   "name": "สำนักงานพาณิชย์จังหวัดเชียงราย — รายชื่อร้านธงฟ้าพัฒนาเศรษฐกิจท้องถิ่น (Blue Flag shops accepting the state welfare card)",
+   "grade": "official-register",
+   "holds": "ประเภทร้าน (the payment channel: ถุงเงิน / เครื่อง EDC / One Stop — not a trade), ชื่อร้านค้า, a full street address to ตำบล, อำเภอ and postcode, and a mobile number.",
+   "licence": "Open Data Common (chiangrai.gdcatalog.go.th, dataset40_12)",
+   "mechanism": {
+    "method": "CKAN: https://chiangrai.gdcatalog.go.th/api/3/action/package_show?id=dataset40_12 → the 'รายชื่อร้านธงฟ้าพัฒนาเศรษฐกิจท้องถิ่น' CSV. No key.",
+    "status": "works",
+    "measured_on": "2026-09-27",
+    "yield": "3,511 Chiang Rai rows; address with ตำบล 3,511/3,511; mobile 3,507/3,511; 3,223 distinct addresses (84 rows share one address on ถ.ธนาลัย, likely a market or a registration office — treat as not-a-shopfront). Top amphoe: เมืองเชียงราย 773 · พาน 373 · แม่จัน 254 · แม่สรวย 250. Names: 914 begin ร้าน…; 165 begin with a personal title and are refused. Chiang Mai publishes only a count for its equivalent (68_119: 5,266 shops, 2566), not a list."
+   },
+   "trades": "shopping / essentials-convenience (mostly โชห่วย and small grocers — the trade has to come from the name, not ประเภทร้าน)",
+   "next": "Fork 2026-09-27 (sole-trader mobiles). Whatever the answer: importers/import_blueflag_cr.py, name-gated (drop personal-title names), address-geocoded to tambon, trade from name words (ร้านค้า/ร้านชำ/มินิมาร์ท → essentials/convenience), as needs-pin records or leads per the 2026-09-06 DBD fork's answer. Sample (no phones): cache/source_scout/chiangrai-blueflag-shop-register/2026-09-27.json",
+   "added": "2026-09-27"
+  },
+  "provincial-food-certification-lists": {
+   "name": "Provincial restaurant certification lists — CM Thai SELECT (สำนักงานพาณิชย์จังหวัดเชียงใหม่ _67_69), CM Q Restaurant (สำนักงานเกษตรและสหกรณ์จังหวัดเชียงใหม่ _67_68), CR ร้านอาหารธงฟ้าราคาประหยัด (สำนักงานพาณิชย์จังหวัดเชียงราย dataset40_11)",
+   "grade": "official-register",
+   "holds": "Thai SELECT: year + restaurant name only. Q Restaurant: year, อำเภอ, name, certification start and end dates. CR ธงฟ้า restaurants: name, operator (a natural person — never stored), อำเภอ, ตำบล, food type, star type, grade A/B.",
+   "licence": "Open Data Common, all three",
+   "mechanism": {
+    "method": "CKAN package_show on chiangmai.gdcatalog.go.th (_67_69, _67_68) and chiangrai.gdcatalog.go.th (dataset40_11); one CSV each, no key.",
+    "status": "works",
+    "measured_on": "2026-09-27",
+    "yield": "81 named restaurants: CM Thai SELECT 40 (name only, certified 2563→), CM Q Restaurant 7 (with อำเภอ, valid to 2571), CR ธงฟ้าราคาประหยัด 34 (with ตำบล and food type). Small — but each is a state certification that can be printed as a fact on a record we already hold. Clean Food Good Taste (กรมอนามัย) is published as a LIST only by other provinces (ตรัง counts, อยุธยา list); neither CM nor CR portal carries one — 0 hits for 'clean food' on both."
+   },
+   "trades": "food (all children; CR list carries food type)",
+   "next": "importers/import_food_certs.py: whole-name match to canonical food records and attach a certification line (Thai SELECT / Q Restaurant / ธงฟ้า, with year and validity) as official-register provenance; unmatched names go to the finder as leads. Next scout step: ask สสจ.เชียงใหม่/เชียงราย whether a Clean Food Good Taste list exists — the national figure is 45,710 certified shops. Sample: cache/source_scout/provincial-food-certification-lists/2026-09-27.json",
+   "added": "2026-09-27"
+  },
+  "cm-lpg-station-list": {
+   "name": "สำนักงานพลังงานจังหวัดเชียงใหม่ — รายชื่อสถานีบริการก๊าซปิโตรเลียม / ร้านที่จำหน่ายก๊าซปิโตรเลียม (69_140, 69_139)",
+   "grade": "official-register",
+   "holds": "year, อำเภอ, ตำบล, operator name (all juristic in the sample)",
+   "licence": "Open Data Common",
+   "mechanism": {
+    "method": "CKAN package_show id=69_140 / 69_139 on chiangmai.gdcatalog.go.th; CSV.",
+    "status": "works",
+    "measured_on": "2026-09-27",
+    "yield": "28 rows each (2569), with ตำบล; the two datasets carry the same rows under two titles — so 28, not 56. Found while scouting food; not a food source."
+   },
+   "trades": "essentials/utilities (gas), transport",
+   "next": "Low priority: a shelf decision first (is an LPG station a place on this directory?). Not imported.",
+   "added": "2026-09-27"
+  },
+  "cm-agrifood-factory-list": {
+   "name": "สำนักงานอุตสาหกรรมจังหวัดเชียงใหม่ — รายชื่อโรงงานอุตสาหกรรมด้านการเกษตรและด้านอาหาร (68_121)",
+   "grade": "official-register",
+   "holds": "sector, year, factory (company) name, activity, อำเภอ, address to ตำบล",
+   "licence": "Open Data Common",
+   "mechanism": {
+    "method": "CKAN package_show id=68_121 on chiangmai.gdcatalog.go.th; CSV. A sibling 69_28 รายชื่อโรงงานอุตสาหกรรม exists and was not counted this run.",
+    "status": "works",
+    "measured_on": "2026-09-27",
+    "yield": "83 Chiang Mai rows (rice mills, crop dryers, food processors) with address; juristic names in the sample."
+   },
+   "trades": "harvested, business/wholesale",
+   "next": "Count 69_28 next run; map by activity words to harvested (โรงสี, อบพืช) — factories are places, but few are walk-in.",
+   "added": "2026-09-27"
+  }
+ }
+}

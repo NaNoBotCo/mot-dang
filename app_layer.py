@@ -10,7 +10,7 @@ been built yet, it says so and steps aside — the site never breaks over it.
 Distribution is the file itself, not a store. Android asks the reader for
 one extra nod when installing outside a store; the page walks through that
 calmly, in Thai first, and says exactly why this app has nothing to confess:
-the map is in the box, location never leaves the phone, and a report is one
+the map is in the box, location stays on the phone, and a report is one
 word with no name on it.
 
 Entry point: emit(globals_of_build, data), same handshake as every layer.
@@ -26,6 +26,8 @@ APK_NAME = "motdang-hongnam.apk"
 WWW = ROOT / "app" / "www"
 
 CSS = """
+.apk-alt{display:inline-block;margin:.5rem 0 0;color:#fff;font-size:.9rem;
+  text-decoration:underline;text-underline-offset:3px}
 .app-hero{background:linear-gradient(135deg,var(--ant) 0%,var(--ant-dark) 100%);
   color:#fff;border-radius:22px;padding:26px 22px;margin:14px 0 18px;
   box-shadow:0 10px 30px rgba(143,42,33,.3)}
@@ -89,7 +91,8 @@ def emit(g, data):
   <small>{esc("The whole map — streets, buildings, temples, markets and every toilet pin, "
               "for both Chiang Mai and Chiang Rai — installs once and works with no "
               "signal. Open it and the nearest one is already first.")}</small></p>
-  <a class="apk-btn" href="app/{APK_NAME}" download>⬇️ {esc("ดาวน์โหลดแอป (Android)")} · {mb:.1f} MB</a>
+  <a class="apk-btn" href="app/">{esc("เปิดแอป แล้วใส่ไว้ที่หน้าจอโฮม")} · Open &amp; add to Home Screen</a>
+  <a class="apk-alt" href="app/{APK_NAME}" download>⬇️ {esc("หรือดาวน์โหลดไฟล์แอนดรอยด์")} · {mb:.1f} MB</a>
   <span class="apk-meta">{esc("รุ่น")} {esc(ver)} · SHA-256 {sha[:16]}…</span>
 </div>
 
@@ -127,12 +130,12 @@ def emit(g, data):
 <div class="app-quiet"><b class="h">🗺️ {bi("ไม่เรียกแผนที่จากใคร", "It draws its own map")}</b>
 {bi("แผนที่วาดจากข้อมูลในเครื่องทั้งหมด การเปิดดูไม่เรียกหาเซิร์ฟเวอร์แผนที่ใดเลย",
     "Every street and building is drawn from data inside the app. Browsing the map makes no request to any tile server.")}</div>
-<div class="app-quiet"><b class="h">📍 {bi("ตำแหน่งไม่ออกจากเครื่อง", "Location stays on the phone")}</b>
-{bi("ตำแหน่งใช้เรียงรายการในเครื่องเท่านั้น ไม่ถูกส่ง ไม่ถูกเก็บ",
-    "Your position sorts the list on the device. It is never sent and never stored.")}</div>
+<div class="app-quiet"><b class="h">📍 {bi("ตำแหน่งใช้เรียงรายการ", "Location sorts the list")}</b>
+{bi("ตำแหน่งใช้เรียงรายการในเครื่อง",
+    "Your position sorts the list on the device.")}</div>
 <div class="app-quiet"><b class="h">🙏 {bi("การบอกต่อส่งแค่คำเดียว", "A report is one word")}</b>
-{bi("กดบอกสภาพห้องน้ำ = ส่งรหัสสถานที่กับคำหนึ่งคำจากห้าคำ ไม่มีชื่อ ไม่มีบัญชี",
-    "Reporting a toilet sends the place id and one word from a closed list of five. No name, no account.")}</div>
+{bi("กดบอกสภาพห้องน้ำ = ส่งรหัสสถานที่กับคำหนึ่งคำจากห้าคำ",
+    "Reporting a toilet sends the place id and one word from a closed list of five.")}</div>
 <div class="app-quiet"><b class="h">🗂️ {bi("บันทึกของคุณเป็นของคุณ", "Your log is yours")}</b>
 {bi("บันทึกว่าใช้ห้องน้ำที่ไหนอยู่ในเครื่องเท่านั้น และปุ่มลบ ลบจริง",
     "The visit log lives on the phone only, and the erase button really erases.")}</div>

@@ -13,7 +13,7 @@ on one page (/beauty.html):
   2. WHICH SHOPS — the barber shelf (which held 6 of the city's 62 until this
      build), the salon shelf (which held NONE of 62), the one braiding shop,
      and who each shop states it cuts for.
-  3. WHAT NOBODY HAS ASKED THEM — the honest census. Across all 18,686 records
+  3. WHAT NOBODY HAS ASKED THEM — the plain census. Across all 18,686 records
      in both provinces, ZERO shopfronts say perm, updo, afro, textured or house
      call. That is a measurement, not a shrug: those five are door questions,
      they are the `beauty` facet set in data/facets.json, and this page prints
@@ -287,8 +287,8 @@ def emit(g, data):
              "Tightly coiled and Afro-textured hair — still unanswered")
         + "</b><p><span class=\"n\">" + str(zero["textured"]) + "</span> " + bi(gap_th, gap_en)
         + "</p><p>"
-        + bi("สิ่งที่ทำได้ตอนนี้: ถามด้วยประโยคข้างบน แล้วบอกมดว่าร้านตอบว่าอะไร — คำตอบจะขึ้นเป็นป้าย 🌀 บนหน้าร้านนั้น และเป็นของสาธารณะตลอดไป",
-             "What can be done today: ask the sentence above, then tell the ants what the shop answered. It becomes a 🌀 mark on that shop’s page, and it stays public for good.")
+        + bi("สิ่งที่ทำได้ตอนนี้: ถามด้วยประโยคข้างบน แล้วบอกมดว่าร้านตอบว่าอะไร — คำตอบจะขึ้นเป็นป้าย 🌀 บนหน้าร้านนั้น",
+             "What can be done today: ask the sentence above, then tell the ants what the shop answered. It becomes a 🌀 mark on that shop’s page.")
         + "</p></div>")
 
     def li(th, en, val):

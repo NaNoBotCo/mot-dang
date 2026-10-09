@@ -19,7 +19,7 @@
 //     On a page whose whole point is a search box, a game that swallows the
 //     space bar has taken the page away from the person who needs it.
 //
-// The rest hold the physics honest: a jump that cannot clear the tallest thing
+// The rest hold the physics to account: a jump that cannot clear the tallest thing
 // on the road, or a gap narrower than a jump is long, is a game that cheats.
 'use strict';
 const fs = require('fs');

@@ -1,0 +1,188 @@
+{
+ "_comment": "Great trees and public art for the doodle map (docs/sites/doodle-map). Gleaned 2026-10-03 from OpenStreetMap, Wikipedia, Commons and the pages in each row's src; pin says where the position comes from. Murals are reported in 2019-2024 sources and may be repainted.",
+ "trees": [
+  {
+   "en": "City marker yang tree, Wat Chedi Luang",
+   "th": "ต้นยางนาไม้หมายเมือง วัดเจดีย์หลวง",
+   "lat": 18.7867029,
+   "lng": 98.9879412,
+   "note_en": "Planted beside the city pillar under King Kawila; about 200 years old.",
+   "note_th": "ปลูกคู่เสาอินทขิลสมัยพระเจ้ากาวิละ อายุราว 200 ปี",
+   "src": "https://www.chiangmaicitylife.com/citynews/general/giant-branch-of-200-year-old-yang-tree-crashes-down-at-wat-chedi-luang/",
+   "pin": "OSM node 11346563469 ('Chiang Mai Landmark (rubber tree)')"
+  },
+  {
+   "en": "Yang avenue, Chiang Mai–Lamphun Road (northern end)",
+   "th": "ถนนสายต้นยาง เชียงใหม่–ลำพูน (ต้นเหนือสุด)",
+   "lat": 18.7739534,
+   "lng": 99.0075421,
+   "note_en": "Planted 1882 from Nawarat Bridge; the avenue continues south to Lamphun.",
+   "note_th": "ปลูก พ.ศ. 2425 เริ่มจากเชิงสะพานนวรัฐ แนวต้นยางต่อลงใต้ถึงลำพูน",
+   "src": "https://www.thaipbs.or.th/news/content/308334",
+   "pin": "OSM node 3848872926 (tree ref 1, northernmost mapped avenue tree)"
+  },
+  {
+   "en": "Bodhi tree, Wat Chet Yot",
+   "th": "ต้นโพธิ์ วัดเจ็ดยอด (วัดโพธารามมหาวิหาร)",
+   "lat": 18.808965,
+   "lng": 98.972152,
+   "note_en": "King Tilokarat planted a bodhi seedling; the wat is named for it.",
+   "note_th": "พระเจ้าติโลกราชโปรดให้ปลูกหน่อโพธิ์ เป็นที่มาของชื่อวัดโพธาราม",
+   "src": "https://en.wikipedia.org/wiki/Wat_Chet_Yot",
+   "pin": "documented wat: centre of OSM way 1561708867; tree not mapped"
+  },
+  {
+   "en": "Rain tree, Wat Ket (137 Pillars House)",
+   "th": "ต้นจามจุรี ชุมชนวัดเกต (137 Pillars House)",
+   "lat": 18.791894,
+   "lng": 99.004046,
+   "note_en": "Over 100 years old; blessed in a community ceremony on 14 January.",
+   "note_th": "อายุกว่า 100 ปี ชุมชนร่วมทำพิธีอวยพรต้นไม้เมื่อ 14 มกราคม",
+   "src": "https://chiangmaicitylife.com/citynow/social-life/live-events/137-pillars-house-tree-blessing",
+   "pin": "137 Pillars House (OSM way 528019091); exact tree not identified"
+  },
+  {
+   "en": "Rain tree, Prince Royal's College",
+   "th": "ต้นจามจุรี โรงเรียนปรินส์รอยแยลส์วิทยาลัย",
+   "lat": 18.7961357,
+   "lng": 99.0042705,
+   "note_en": "OSM tags it a natural monument.",
+   "note_th": "OSM ระบุเป็นอนุสรณ์ทางธรรมชาติ",
+   "src": "https://www.openstreetmap.org/node/7706469731",
+   "pin": "OSM node 7706469731"
+  },
+  {
+   "en": "Talking tree, Wat Umong",
+   "th": "ต้นไม้พูดได้ วัดอุโมงค์",
+   "lat": 18.783103,
+   "lng": 98.952579,
+   "note_en": "",
+   "note_th": "",
+   "src": "https://commons.wikimedia.org/wiki/File:Talking_tree_at_Wat_Umong_Suan_Phutthatham.jpg",
+   "pin": "documented wat: OSM node 1445519684; tree not mapped"
+  }
+ ],
+ "art": [
+  {
+   "en": "Khruba Srivichai Monument",
+   "th": "อนุสาวรีย์ครูบาศรีวิชัย",
+   "lat": 18.812828,
+   "lng": 98.946133,
+   "note_en": "On Huay Kaew Road, Su Thep subdistrict.",
+   "note_th": "ถนนห้วยแก้ว ตำบลสุเทพ",
+   "src": "https://www.openstreetmap.org/node/1595548120",
+   "pin": "OSM node 1595548120",
+   "kind": "statue"
+  },
+  {
+   "en": "King Kawila Monument",
+   "th": "อนุสาวรีย์พระเจ้ากาวิละ",
+   "lat": 18.778825,
+   "lng": 99.007344,
+   "note_en": "Opposite Kawila Camp, with the Ping River behind it.",
+   "note_th": "ตั้งอยู่ตรงข้ามค่ายกาวิละ ด้านหลังเป็นแม่น้ำปิง",
+   "src": "https://travel.trueid.net/detail/6g7ll6BQk6XK",
+   "pin": "OSM node 2648427918",
+   "kind": "statue"
+  },
+  {
+   "en": "White Elephant Monument, Chang Phueak",
+   "th": "อนุสาวรีย์ช้างเผือก",
+   "lat": 18.80052,
+   "lng": 98.98609,
+   "note_en": "Two elephants: Phaya Prap Mueang Man Mueang Yak and Phaya Prap Chakkrawan.",
+   "note_th": "ช้างสองเชือก พญาปราบเมืองมารเมืองยักษ์ และพญาปราบจักรวาล",
+   "src": "https://www.thairath.co.th/news/local/north/2699849",
+   "pin": "midpoint of OSM memorial ways 1462613627 and 1462613628, north of Chang Phueak Gate",
+   "kind": "monument"
+  },
+  {
+   "en": "LOVE word sculpture",
+   "th": "ประติมากรรมตัวอักษร LOVE",
+   "lat": 18.776163,
+   "lng": 98.99932,
+   "note_en": "Near Changklan Road.",
+   "note_th": "ใกล้ถนนช้างคลาน",
+   "src": "https://www.openstreetmap.org/node/4870779021",
+   "pin": "OSM node 4870779021",
+   "kind": "sculpture"
+  },
+  {
+   "en": "Playing elephants sculpture",
+   "th": "ประติมากรรมช้างเล่นกัน",
+   "lat": 18.787305,
+   "lng": 99.002762,
+   "note_en": "Near the west end of Nawarat Bridge.",
+   "note_th": "ใกล้เชิงสะพานนวรัฐฝั่งตะวันตก",
+   "src": "https://www.openstreetmap.org/node/3941993609",
+   "pin": "OSM node 3941993609",
+   "kind": "sculpture"
+  },
+  {
+   "en": "Three white elephants",
+   "th": "รูปปั้นช้างเผือกสามเชือก",
+   "lat": 18.781357,
+   "lng": 98.977583,
+   "note_en": "Near Chaeng Ku Hueang, the moat's southwest corner.",
+   "note_th": "ใกล้แจ่งกู่เฮือง มุมตะวันตกเฉียงใต้ของคูเมือง",
+   "src": "https://www.openstreetmap.org/node/2108508915",
+   "pin": "OSM node 2108508915",
+   "kind": "statue"
+  },
+  {
+   "en": "Murals near Zoe in Yellow, Ratwithi Road",
+   "th": "ภาพวาดกำแพง ใกล้ Zoe in Yellow ถนนราชวิถี",
+   "lat": 18.790977,
+   "lng": 98.991358,
+   "note_en": "Iagazzo pieces and Mauy's three-headed elephant reported here.",
+   "note_th": "มีรายงานผลงานของ Iagazzo และช้างสามเศียรของ Mauy",
+   "src": "https://sailingstonetravel.com/?p=12421",
+   "pin": "OSM node 6078348785 ('Mural Paintings')",
+   "kind": "mural"
+  },
+  {
+   "en": "Graffiti wall, Wualai",
+   "th": "กำแพงกราฟฟิตี ย่านวัวลาย",
+   "lat": 18.778535,
+   "lng": 98.984321,
+   "note_en": "Near Wat Sri Suphan, off Wualai Road.",
+   "note_th": "ใกล้วัดศรีสุพรรณ ย่านถนนวัวลาย",
+   "src": "https://www.openstreetmap.org/node/12602399355",
+   "pin": "OSM node 12602399355",
+   "kind": "mural"
+  },
+  {
+   "en": "Style Walls, Jing Jai Market",
+   "th": "กำแพงสตรีทอาร์ต ตลาดจริงใจ",
+   "lat": 18.807128,
+   "lng": 98.995318,
+   "note_en": "Works by Alex Face, Mauy, Sanchai and Jiko reported.",
+   "note_th": "มีผลงานของ Alex Face, Mauy, Sanchai และ Jiko",
+   "src": "https://www.kathmanduandbeyond.com/?p=241006",
+   "pin": "OSM node 6741601985",
+   "kind": "mural"
+  },
+  {
+   "en": "Car-park murals, Hillside 4, Huay Kaew Road",
+   "th": "ภาพวาดกำแพงลานจอดรถ ฮิลล์ไซด์ 4 ถนนห้วยแก้ว",
+   "lat": 18.801052,
+   "lng": 98.970677,
+   "note_en": "Several artists; pieces are repainted from time to time.",
+   "note_th": "ศิลปินหลายคน ผลงานถูกวาดใหม่เป็นระยะ",
+   "src": "https://sailingstonetravel.com/?p=12421",
+   "pin": "Hillside 4 building (OSM way 103523135); wall not mapped",
+   "kind": "mural"
+  },
+  {
+   "en": "Murals, Chiang Mai Gate Market",
+   "th": "ภาพวาดกำแพง ตลาดประตูเชียงใหม่",
+   "lat": 18.781793,
+   "lng": 98.988393,
+   "note_en": "Mauy and MueBon's Pukruk; often hidden behind vendors until noon.",
+   "note_th": "ผลงาน Mauy และ Pukruk ของ MueBon มักถูกแผงค้าบังจนถึงเที่ยง",
+   "src": "https://www.kathmanduandbeyond.com/?p=241006",
+   "pin": "Chiang Mai Gate Market (OSM way 107940199); wall not mapped",
+   "kind": "mural"
+  }
+ ]
+}

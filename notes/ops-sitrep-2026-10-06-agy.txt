@@ -1,0 +1,45 @@
+OPS SITREP — Tuesday 6 October 2026, second copy (Antigravity, 15:45)
+No 15:00 file for today was on disk, so this covers the whole day. The hourly desk had routed up to 15:18.
+
+PIPE
+  Health          ok, build 2026-09-30-group-modes
+  Rows waiting    3 at 15:45, pulled now, 0 left
+  Newest message  15:42 today, Palida. Minutes old. Alive.
+
+THE ROOM
+  31 messages today, 09:34 to 15:42. Michael, Palida, Nan. 2 photos.
+  Three threads: Michael's dental consult, Palida to Rotary tonight, the shared calendar.
+
+FOR NAN
+  1. Zia: you told the room on 5 Oct you would come back "in a couple days". Both replies are ready on the Claude desk:
+       - Product + Leader: Beer's draft to Zia is written. 401 prospects, US$2 a line, US$802.
+       - Telesales batch 2 (100 named decision-makers): four choices wait on you. The plan asks for them by Thu 8 Oct.
+       Both are in the rtp-partner folder, dated 6 Oct.
+  2. Tomorrow, Wed 7 Oct, your dentist at Kitcha. At 13:55 Palida said she did not have the details and had "forgot to ask nan".
+     Her calendar showed nothing on 7 Oct at 14:08, before sharing was fixed. Worth checking it is on the Appointments calendar.
+  3. Calendar sharing is done. Michael and Beer confirmed at 15:41. Beer: "I see it now thank you".
+  4. Palida reported a bug on 4 Oct ("the last photo I handled was handled wrong"). Logged as BUG-0002, still open. Nobody has told her.
+
+WORKED
+  Michael's consult: booked Sun 11 Oct, 18:00, Kitcha Dental (held, 2-3 Chang Lor Rd, 053 200201, daily 09:00-20:00).
+    It could not be the same trip as yours. The directory holds about 129 places for จัดฟัน (orthodontics), if he wants a second opinion.
+  Rotary tonight: S.P. Hotel is held. It has the same pin as the Chiang Mai International Rotary Club record (69 Sirithorn Rd).
+    Meeting time and venue added as a knowledge row.
+  Search misses found on the way: "SP Hotel" does not find "S.P. Hotel". "โรตารี" finds none of the 3 Rotary clubs, which have no Thai name.
+  Post office receipt (Palida, 14:07): gives the Chang Phueak branch phone 091-771-9341. The record has a different number. Added as a row, marked uncertain.
+  Calendar screenshot: the hourly desk's sign reader made it "Blue Bird Tours". It is a calendar. Those 3 rows are marked do-not-promote.
+    Plumber is on the calendar for Thu 8 Oct, so that loop from yesterday is closed.
+
+ROUTED
+  Dental, Rotary, calendar         → _incoming/line/ops/2026-10-06.txt
+  Rotary meeting, post office phone → _incoming/line/knowledge/2026-10-06.json
+  Two Kitcha rows                   → kept, changed to uncertain (a booking slot is not opening hours)
+  Zia                               → rtp-partner
+  Receipt photo: why it is motdang  → ASK-NAN.txt (asked by the hourly desk)
+
+BLOCKED
+  Zia: your word on the Product + Leader draft, and the four batch-2 choices.
+  Amulet market: on 2 Oct you said Thursday mornings, and the markets pages say that. On 5 Oct you said "Tuesday is amulet market", and you went today.
+    Line needed: a second day, or a different market?
+  Receipt photo: what it is for.
+  ASK-NAN.txt is 356 lines (348 on 2 Oct). Unfiled photos 189 (166). Drive queue 201 (176). All three still rising: the room is read and not answered.

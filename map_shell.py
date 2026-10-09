@@ -26,8 +26,8 @@ party, and it would have leaned on a donated CDN whose usage policy a growing di
 built to violate.
 
 Protomaps solves both: one .pmtiles file we host ourselves, fetched in ranges
-by the client, no API key, no per-request billing, no rate limit, nobody's
-logs but ours. The cost is honesty about the wording: this is first-party,
+by the client, no API key, no per-request billing, nobody's
+logs but ours. The cost is saying plainly: this is first-party,
 not zero-party. A page with a map on it now makes a request to our own bucket.
 Pages without a map still make none, because none of this loads unless a map
 is actually on the page.
@@ -46,6 +46,10 @@ ever goes away.
 
 import json
 import zlib
+
+import mine_layer
+import mapsense_layer
+import traffic_map_layer
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -110,11 +114,10 @@ def version():
 
     The hash covers the runtime config as well as the code, because a changed
     tile URL or a retuned style layer changes what this script *does* just as
-    surely as an edited line does. Same crc32 shape as build.py's `_asset_v`,
-    kept here rather than imported so this module still stands alone.
+    surely as an edited line does.
     """
     cfg = config()
-    payload = JS + json.dumps(
+    payload = JS + mine_layer.map_js() + mapsense_layer.map_js() + traffic_map_layer.map_js() + json.dumps(
         {"url": cfg.get("url"), "glyphs": cfg.get("glyphs"),
          "bounds": cfg.get("bounds") or BOUNDS,
          "minZoom": cfg.get("minZoom") or MIN_ZOOM,
@@ -145,7 +148,7 @@ def head(depth=0):
     return (f'<link rel="stylesheet" href="{r}vendor/maplibre-gl.css">'
             f'<script src="{r}vendor/pmtiles.js" defer></script>'
             f'<script src="{r}vendor/maplibre-gl.js" defer></script>'
-            f'<script src="{r}map.js?v={v}" defer></script>')
+            f'<script src="{r}map.js" defer></script>')
 
 
 def head_urls(depth=0):
@@ -157,7 +160,7 @@ def head_urls(depth=0):
         return []
     r = "../" * depth
     return [f"{r}vendor/maplibre-gl.css", f"{r}vendor/pmtiles.js",
-            f"{r}vendor/maplibre-gl.js", f"{r}map.js?v={version()}"]
+            f"{r}vendor/maplibre-gl.js", f"{r}map.js"]
 
 
 def mount(map_id, fallback_svg="", *, prov="cm", zoom=14,
@@ -182,7 +185,7 @@ def mount(map_id, fallback_svg="", *, prov="cm", zoom=14,
     the shape itself or on a <g> wrapping a shape and its label. map.js owns
     the `transform` attribute of whatever carries it, so a mark that already
     needs a transform of its own gets a wrapper. Tag nothing and the picture
-    still works — it simply zooms as a whole, which is the honest default.
+    still works — it simply zooms as a whole, which is the right default.
 
     A third kind is not on the ground at all — a north arrow, a scale bar,
     anything belonging to the frame rather than the city. Tag those
@@ -278,13 +281,83 @@ var GLYPHS=(function(){
   return new URL(g.slice(0,i),new URL(ROOT||'./',location.href)).href+g.slice(i);
 })();
 
+/* The relief under the streets comes from the elevation archive, the same
+   one doi.js reads. No archive configured, no relief layer: the rest of the
+   style stands without it. */
+var TER=CFG.terrain&&CFG.terrain.url?
+  new URL(CFG.terrain.url,new URL(ROOT||'./',location.href)).href:null;
 function style(){
-  return {version:8,glyphs:GLYPHS,sources:{p:{type:'vector',
-    url:'pmtiles://'+ABS,attribution:CFG.attribution||''}},
-    layers:CFG.layers||[]};
+  var src={p:{type:'vector',url:'pmtiles://'+ABS,attribution:CFG.attribution||''}};
+  if(TER)src.t={type:'raster-dem',url:'pmtiles://'+TER,
+    encoding:CFG.terrain.encoding||'terrarium',tileSize:256,
+    maxzoom:CFG.terrain.maxzoom||12};
+  return {version:8,glyphs:GLYPHS,sources:src,
+    layers:(CFG.layers||[]).filter(function(l){return !l.source||src[l.source];})};
+}
+
+/* The landmark badges and the road shield, drawn here rather than shipped
+   as a sprite sheet: the same glyphs and colours as the front page's map
+   (city-live city.js ICON), on a disc with a white rim. MapLibre asks for
+   each one the first time a tile needs it. */
+var BADGE={
+  temple:['#b7791f','M12 2L13.2 7H14.5L15.5 11H17L18 15H6L7 11H8.5L9.5 7H10.8ZM5 16H19V19H5Z'],
+  market:['#e8710a','M4 9L6 4H18L20 9ZM5 10H19V19H15V13H9V19H5Z'],
+  mall:['#1a73e8','M6 8H18L17 20H7ZM9 8V6.5A3 3 0 0 1 15 6.5V8H13.6V6.5A1.6 1.6 0 0 0 10.4 6.5V8Z'],
+  university:['#5b5bd6','M12 4L22 9L12 14L2 9ZM6 11.5V16C8 18 16 18 18 16V11.5L12 14.5Z'],
+  gate:['#9c4a1e','M3 6H6V4H8V6H10.5V4H13.5V6H16V4H18V6H21V20H15V14A3 3 0 0 0 9 14V20H3Z'],
+  hospital:['#d93025','M9.5 4H14.5V9.5H20V14.5H14.5V20H9.5V14.5H4V9.5H9.5Z'],
+  monument:['#6d5d45','M10.5 3H13.5L14.5 16H9.5ZM7 17H17V20H7Z'],
+  park:['#188038','M12 2C16 2 19 5.5 18 9.5C20 11 19.5 15.5 15 15.5H13V21H11V15.5H9C4.5 15.5 4 11 6 9.5C5 5.5 8 2 12 2Z'],
+  airport:['#5f6368','M21 15.5V13.5L13.5 9V4A1.5 1.5 0 0 0 10.5 4V9L3 13.5V15.5L10.5 13V18L8.5 19.5V21L12 20L15.5 21V19.5L13.5 18V13Z'],
+  terminal:['#1a73e8','M6 3H18A2 2 0 0 1 20 5V17H18.5V19.5H16V17H8V19.5H5.5V17H4V5A2 2 0 0 1 6 3ZM6 6V11H18V6Z'],
+  waterfall:['#1a73e8','M5 3H19V6H16V21H14V6H13V21H11V6H10V21H8V6H5Z'],
+  sight:['#0b8a8a','M12 2.5L14.8 8.6L21.5 9.3L16.5 13.8L17.9 20.4L12 17L6.1 20.4L7.5 13.8L2.5 9.3L9.2 8.6Z'],
+  peak:['#7a5c3e','M12 4L21 19H3Z']
+};
+function paintImage(map,id){
+  var R=2,c=document.createElement('canvas'),x=c.getContext('2d');
+  if(!x||!window.Path2D)return;
+  if(id==='md-shield'){
+    /* a stretchable blue plate: icon-text-fit sizes it to the number */
+    c.width=24*R;c.height=20*R;x.scale(R,R);
+    x.beginPath();
+    if(x.roundRect)x.roundRect(1,1,22,18,4);else x.rect(1,1,22,18);
+    x.fillStyle='#1f5fae';x.fill();x.lineWidth=1.5;x.strokeStyle='#fff';x.stroke();
+    map.addImage(id,x.getImageData(0,0,c.width,c.height),{pixelRatio:R,
+      stretchX:[[6*R,18*R]],stretchY:[[6*R,14*R]],content:[4*R,3*R,20*R,17*R]});
+    return;
+  }
+  var b=BADGE[id.slice(3)];if(!b)return;
+  var D=19,r=7.6,h=D/2;
+  c.width=c.height=D*R;x.scale(R,R);
+  x.beginPath();x.arc(h,h,r+1.6,0,6.2832);x.fillStyle='#fff';x.fill();
+  x.beginPath();x.arc(h,h,r,0,6.2832);x.fillStyle=b[0];x.fill();
+  x.save();x.translate(h-r*0.62,h-r*0.62);x.scale(r*1.24/24,r*1.24/24);
+  x.fillStyle='#fff';x.fill(new Path2D(b[1]),'evenodd');x.restore();
+  map.addImage(id,x.getImageData(0,0,c.width,c.height),{pixelRatio:R});
+}
+
+/* Names the basemap adds follow the reader's language: Thai, English, or
+   both on two lines while no choice has been made. */
+var LANG_LAYERS=['landmarks','water-labels'];
+function langField(){
+  var c=document.documentElement.classList;
+  if(c.contains('lang-en'))return ['coalesce',['get','name:en'],['get','name']];
+  if(c.contains('lang-th'))return ['coalesce',['get','name'],['get','name:en']];
+  return ['format',['coalesce',['get','name'],['get','name:en']],{},
+    ['case',['all',['has','name:en'],['!=',['get','name:en'],['get','name']]],
+      ['concat','\n',['get','name:en']],''],{'font-scale':0.84}];
+}
+function setLang(map){
+  var f=langField();
+  LANG_LAYERS.forEach(function(id){
+    if(map.getLayer(id))try{map.setLayoutProperty(id,'text-field',f);}catch(e){}
+  });
 }
 
 var reg=new WeakMap();
+/* Layers waiting on a box whose map is not built yet; flushed by build(). */
+var pend=new WeakMap();
 /* Per-box: the function that re-fixes the drawing to the ground. Kept apart
    from reg so live() and retarget() keep reading exactly what they read. */
 var anch=new WeakMap();
@@ -393,6 +466,25 @@ function build(el){
   Home.prototype.onRemove=function(){if(this._d&&this._d.parentNode)
     this._d.parentNode.removeChild(this._d);};
   map.addControl(new Home(),'top-left');
+  /* North, for the maps whose drawing carries no frame furniture of its own
+     beyond a scale bar (the drawings that do put their arrow top-right). */
+  if(!(draw&&draw.querySelector('[data-mdfix]:not(.mdmap-scale)'))){
+    var North=function(){};
+    North.prototype.onAdd=function(){
+      var d=document.createElement('div');
+      d.className='maplibregl-ctrl mdmap-north';
+      d.setAttribute('aria-hidden','true');
+      d.style.cssText='display:none;margin:8px 10px 0 0;pointer-events:none;'+
+        'filter:drop-shadow(0 0 2px #FFFDF8) drop-shadow(0 0 2px #FFFDF8)';
+      d.innerHTML='<svg viewBox="0 0 24 30" width="22" height="28"><path d="M12 2L18 20L12 16L6 20Z" fill="#2A1E16"/><path d="M12 2L12 16L6 20Z" fill="#8A7761"/><text x="12" y="29" text-anchor="middle" font-size="9" font-weight="700" fill="#2A1E16">N</text></svg>';
+      this._d=d;return d;};
+    North.prototype.onRemove=function(){if(this._d&&this._d.parentNode)
+      this._d.parentNode.removeChild(this._d);};
+    map.addControl(new North(),'top-right');
+  }
+  map.on('styleimagemissing',function(e){
+    if(e.id&&e.id.indexOf('md-')===0&&!map.hasImage(e.id))paintImage(map,e.id);
+  });
   /* A live scale bar, true at every zoom. The drawn bars in the SVGs are
      true only at the scale they were drawn at — which is why the shell has
      always hidden them the moment somebody zoomed — so with a basemap under
@@ -410,11 +502,13 @@ function build(el){
      cannot use a zoom button they cannot see either. Only the parent changes;
      MapLibre keeps its own references and still takes these nodes away itself
      when the map is removed. */
-  ['bottom-right','bottom-left','top-left'].forEach(function(c){
+  ['bottom-right','bottom-left','top-left','top-right'].forEach(function(c){
     var n=live.querySelector('.maplibregl-ctrl-'+c);
-    if(n)el.appendChild(n);
+    if(n){el.appendChild(n);if(c==='top-right')n.style.zIndex=4;}
   });
   reg.set(el,map);
+  var waiting=pend.get(el);
+  if(waiting){pend.delete(el);waiting.forEach(function(fn){window.MDMAP.ready(el,fn);});}
 
   /* ---- keeping the drawing and the ground in register -------------------
      The drawn SVG is a picture in screen space. The tiles under it are not.
@@ -466,7 +560,7 @@ function build(el){
      size it was drawn, pivoting on the point it names — so the pin keeps its
      tip on the doorway while everything under it opens out. Everything else
      scales, which is the right default: a layer that says nothing gets the
-     honest picture, just larger.
+     same picture, larger.
 
      The transform attribute of a tagged element belongs to this module and
      will be overwritten. A layer that needs its own placement transform
@@ -663,13 +757,26 @@ function build(el){
   map.on('resize',frame);
   map.on('load',function(){
     el.classList.add('mdmap-on');
+    setLang(map);
+    var nn=el.querySelector('.mdmap-north');if(nn)nn.style.display='';
+    new MutationObserver(function(){setLang(map);}).observe(
+      document.documentElement,{attributes:true,attributeFilter:['class']});
     frame();
+    /* saved places (mine_layer.py) go on before any layer asks for the map */
+    if(window.MDMINE)window.MDMINE.paint(map,el);
+    /* the views readers settle on (mapsense_layer.py) */
+    if(window.MDSENSE)window.MDSENSE.watch(map);
+    /* TomTom flow and the nearest measured road (traffic_map_layer.py) */
+    if(window.MDTRAFFIC)window.MDTRAFFIC.paint(map,el);
     /* The drawn SVG stays in the DOM — it is what prints, and it is what
        comes back if the tiles ever stop resolving. It is only hidden from
        sight, and only once there is something real underneath. */
     if(draw)draw.setAttribute('aria-hidden','true');
   });
-  map.on('error',function(){
+  map.on('error',function(e){
+    /* The relief is a garnish: a missing elevation tile leaves the streets. */
+    if(e&&(e.sourceId==='t'||e.sourceId==='tt'))return;
+    var nn=el.querySelector('.mdmap-north');if(nn)nn.style.display='none';
     /* Tiles unreachable, bucket moved, offline. Take the live layer away and
        leave the reader exactly what they had before any of this existed. A
        blank grey canvas would be strictly worse than the picture we drew. */
@@ -714,7 +821,153 @@ function inView(el){
 }
 function maybe(el){
   if(seen.has(el)||!inView(el))return;
-  seen.add(el);build(el);
+  seen.add(el);start(el);
+}
+function start(el){
+  if(el.classList.contains('placemapbox'))placeMount(el);else build(el);
+}
+
+/* ---- three looks for a place map ---------------------------------------
+   Nan, 2026-10-03, for Michael, who loves the front page's map: place maps
+   open on the same hand-drawn city (/sites/doodle-map, and Chiang Rai's),
+   with Terrain (this style: relief, forest) and Streets (a plain road map)
+   a tap away. Chiang Mai's city and Chiang Rai have their own doodles; the
+   rest of the north (her word 2026-10-03, "extend the doodle to the rest of
+   the north") falls to /sites/doodle-north, drawn from the tile archive.
+   Outside all three a place map opens on Terrain. The reader's pick is kept in
+   md-maplook. */
+var DOODLES=[{u:'sites/doodle-map/',b:[18.62,18.87,98.86,99.14]},
+  {u:'sites/doodle-chiang-rai/',b:[19.70,20.48,99.50,100.47]},
+  {u:'sites/doodle-north/',b:[14.8,20.5,97.3,101.8]}];
+function doodleAt(lat,lng){
+  for(var i=0;i<DOODLES.length;i++){var b=DOODLES[i].b;
+    if(lat>=b[0]&&lat<=b[1]&&lng>=b[2]&&lng<=b[3])return DOODLES[i];}
+  return null;
+}
+function lookGet(){
+  try{var v=localStorage.getItem('md-maplook');
+    if(v==='doodle'||v==='terrain'||v==='streets')return v;}catch(e){}
+  return 'doodle';
+}
+function lookSet(v){try{localStorage.setItem('md-maplook',v);}catch(e){}}
+/* Streets: the same tiles with the relief, forest and farm tints off and the
+   roads drawn white on grey, the way a navigation map reads. Terrain puts
+   back what the style file says. */
+var STREETS={
+  'earth':{'background-color':'#F2EFE9'},
+  'landcover':0,'landuse-wood':0,'relief':0,
+  'landuse-green':{'fill-color':'#CDE6B8'},
+  'landuse-built':{'fill-color':'#ECE8E1'},
+  'water':{'fill-color':'#9FCDF0'},'water-edge':{'line-color':'#9FCDF0'},
+  'water-line':{'line-color':'#9FCDF0'},'moat-over':{'line-color':'#9FCDF0'},
+  'buildings':{'fill-color':'#E3DFD7','fill-outline-color':'#D2CDC4'},
+  'roads-casing':{'line-color':'#C4BCAE'},
+  'roads-minor':{'line-color':'#FFFFFF'},
+  'roads-major':{'line-color':'#FFFFFF'},
+  'roads-primary':{'line-color':'#FFF0B8'},
+  'roads-highway':{'line-color':'#F8C96A'},
+  'road-labels':{'text-color':'#3C4043','text-halo-color':'#FFFFFF'},
+  'place-labels':{'text-color':'#3C4043','text-halo-color':'#F2EFE9'}
+};
+var ORIG={};
+(CFG.layers||[]).forEach(function(l){ORIG[l.id]={p:l.paint||{},v:(l.layout&&l.layout.visibility)||'visible'};});
+function applyLook(map,look){
+  Object.keys(STREETS).forEach(function(id){
+    if(!map.getLayer(id))return;
+    var o=STREETS[id],g=ORIG[id]||{p:{},v:'visible'};
+    try{
+      if(o===0)map.setLayoutProperty(id,'visibility',look==='streets'?'none':g.v);
+      else Object.keys(o).forEach(function(k){
+        map.setPaintProperty(id,k,look==='streets'?o[k]:(g.p[k]!==undefined?g.p[k]:null));});
+    }catch(e){}
+  });
+}
+/* The page's neighbours, read off its own drawing: each carries its
+   coordinate and its name pair, which the doodle splits by script. */
+function nearOf(el){
+  var out=[];
+  el.querySelectorAll('.mdmap-draw a[data-lat][data-lng]').forEach(function(a){
+    out.push({lat:+a.getAttribute('data-lat'),lng:+a.getAttribute('data-lng'),
+      n:a.getAttribute('data-n')||'',u:a.href});
+  });
+  return out;
+}
+var FULL=null;
+function fullSet(el,on){
+  var f=el.querySelector('iframe.mdmap-doodle');
+  if(on){
+    if(FULL===el)return;
+    FULL=el;el.classList.add('mdlook-full');
+    document.documentElement.classList.add('mdlook-lock');
+    try{history.pushState({mdlook:1},'');}catch(e){}
+  }else{
+    if(FULL!==el)return;
+    FULL=null;el.classList.remove('mdlook-full');
+    document.documentElement.classList.remove('mdlook-lock');
+    if(f&&f.contentWindow)f.contentWindow.postMessage({type:'md-map',tool:false},location.origin);
+    if(history.state&&history.state.mdlook)try{history.back();}catch(e){}
+  }
+}
+addEventListener('message',function(e){
+  if(e.origin!==location.origin||!e.data||e.data.type!=='md-map')return;
+  document.querySelectorAll('iframe.mdmap-doodle').forEach(function(f){
+    if(f.contentWindow===e.source)fullSet(f.parentNode,!!e.data.tool);});
+});
+addEventListener('popstate',function(){if(FULL)fullSet(FULL,false);});
+function placeMount(el){
+  if(!document.getElementById('mdlook-css')){
+    var st=document.createElement('style');st.id='mdlook-css';
+    st.textContent='.mdlook{display:flex;gap:6px;flex-wrap:wrap;margin:.4rem 0 0}'+
+      '.mdlook button{font:inherit;font-size:.85rem;font-weight:600;padding:.3rem .85rem;min-height:36px;border-radius:99px;'+
+      'border:1.5px solid #2b2118;background:#fffaf0;color:#2b2118;cursor:pointer}'+
+      '.mdlook button[aria-pressed=true]{background:#2b2118;color:#f5ecd7}'+
+      'html.lang-both .mdlook .en::before{content:" · "}'+
+      '.placemapbox.mdlook-doodle{position:relative;height:clamp(300px,82vw,460px)}'+
+      '.mdlook-doodle .mdmap-draw{visibility:hidden}'+
+      'iframe.mdmap-doodle{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:6;display:block;background:#f5ecd7}'+
+      '.mdlook-full iframe.mdmap-doodle{position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;z-index:2147483000}'+
+      'html.mdlook-lock,html.mdlook-lock body{overflow:hidden}';
+    document.head.appendChild(st);
+  }
+  var lat=parseFloat(el.dataset.lat),lng=parseFloat(el.dataset.lng),dd=doodleAt(lat,lng);
+  var bar=document.createElement('div');
+  bar.className='mdlook';bar.setAttribute('role','group');
+  bar.setAttribute('aria-label','แบบแผนที่ · Map look');
+  var opts=[['doodle','ภาพวาด','Doodle'],['terrain','ภูมิประเทศ','Terrain'],['streets','ถนน','Streets']];
+  if(!dd)opts.shift();
+  var btns=opts.map(function(o){
+    var b=document.createElement('button');
+    b.type='button';b.setAttribute('data-look',o[0]);
+    b.innerHTML='<span class="th" lang="th">'+o[1]+'</span><span class="en" lang="en">'+o[2]+'</span>';
+    b.addEventListener('click',function(){lookSet(o[0]);show(o[0]);});
+    bar.appendChild(b);return b;
+  });
+  el.parentNode.insertBefore(bar,el.nextSibling);
+  function show(look){
+    if(look==='doodle'&&!dd)look='terrain';
+    btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-look')===look));});
+    var f=el.querySelector('iframe.mdmap-doodle');
+    if(look==='doodle'){
+      if(!f){
+        f=document.createElement('iframe');
+        f.className='mdmap-doodle';
+        f.title='แผนที่วาด · Doodle map';
+        f.src=new URL(dd.u,new URL(ROOT||'./',location.href)).href+'?embed=1&pin='+
+          lat.toFixed(5)+','+lng.toFixed(5)+'&pn='+encodeURIComponent(el.dataset.label||'');
+        f.addEventListener('load',function(){
+          try{f.contentWindow.postMessage({type:'md-doodle-near',marks:nearOf(el)},location.origin);}catch(e){}
+        });
+        el.appendChild(f);
+      }
+      el.classList.add('mdlook-doodle');
+      return;
+    }
+    if(f){fullSet(el,false);f.parentNode.removeChild(f);}
+    el.classList.remove('mdlook-doodle');
+    if(!reg.get(el))build(el);
+    window.MDMAP.ready(el,function(m){applyLook(m,look);});
+  }
+  show(lookGet());
 }
 function sweep(){document.querySelectorAll('[data-mdmap]').forEach(maybe);}
 
@@ -722,7 +975,7 @@ if(window.IntersectionObserver){
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){
       if(!e.isIntersecting||seen.has(e.target))return;
-      seen.add(e.target);io.unobserve(e.target);build(e.target);});
+      seen.add(e.target);io.unobserve(e.target);start(e.target);});
   },{rootMargin:'200px'});
   document.querySelectorAll('[data-mdmap]').forEach(function(el){io.observe(el);});
 }
@@ -743,7 +996,11 @@ window.MDMAP={
      well under a pixel, so the pins land where the streets are. */
   retarget:function(el,lat,lng,metresPerCssPx){
     var m=reg.get(el);if(!m)return false;
-    var z=Math.log(156543.03392*Math.cos(lat*Math.PI/180)/metresPerCssPx)/Math.LN2;
+    /* MapLibre's zoom 0 is the world 512 CSS px wide, so 78,271.5 m per px at
+       the equator. 156,543 is the 256-px figure: with it, every drawing sat
+       over streets at twice its own scale (asked for 5 m/px, the map showed
+       2.5), measured on plan.html 2026-09-23. */
+    var z=Math.log(78271.51696*Math.cos(lat*Math.PI/180)/metresPerCssPx)/Math.LN2;
     m.jumpTo({center:[lng,lat],zoom:Math.max(1,Math.min(22,z))});
     /* Re-take the anchor. A layer calls this the instant after it has redrawn
        itself, which makes it the one moment the drawing and the ground are
@@ -781,12 +1038,10 @@ window.MDMAP={
     var m=reg.get(el);
     if(!m){
       /* The box may not have been mounted yet — it mounts when it comes into
-         view. Wait for the element to gain a map rather than making one. */
-      var tries=0,t=setInterval(function(){
-        var mm=reg.get(el);
-        if(mm){clearInterval(t);window.MDMAP.ready(el,fn);}
-        else if(++tries>400)clearInterval(t);   /* ~40 s, then give up quietly */
-      },100);
+         view, and a place map showing its doodle builds no map until the
+         reader picks another look. Wait for it rather than making one. */
+      var q=pend.get(el);if(!q){q=[];pend.set(el,q);}
+      q.push(fn);
       return false;
     }
     if(m.isStyleLoaded&&m.isStyleLoaded())fn(m);
@@ -933,7 +1188,11 @@ CSS = """/* The map box. The drawn SVG and the live tiles occupy the same square
    them. MapLibre's own rules still place them in their corners; all they need
    here is to sit above the drawing rather than below it. */
 .mdmap>.maplibregl-ctrl-top-left,
+.mdmap>.maplibregl-ctrl-top-right,
 .mdmap>.maplibregl-ctrl-bottom-right{z-index:4}
+.mdmap:not(.mdmap-on)>.maplibregl-ctrl-top-right{display:none}
+.mdmap .mdmap-north{margin:8px 10px 0 0;pointer-events:none;
+  filter:drop-shadow(0 0 2px #FFFDF8) drop-shadow(0 0 2px #FFFDF8)}
 /* Out of the live layer, they no longer fade in with it — so they are held
    back until there is a basemap for them to belong to. A zoom button over a
    picture that cannot zoom, and a tile credit with no tiles under it, both
@@ -1017,7 +1276,8 @@ def emit(g):
                "terrain": cfg.get("terrain")}
     (docs / "map.js").write_text(
         "window.MDMAP_CFG=" + json.dumps(runtime, ensure_ascii=False,
-                                         separators=(",", ":")) + ";\n" + JS)
+                                         separators=(",", ":")) + ";\n" + JS
+        + "\n" + mine_layer.map_js() + "\n" + mapsense_layer.map_js() + "\n" + traffic_map_layer.map_js())
     vend = docs / "vendor"
     vend.mkdir(exist_ok=True)
     for f in VENDOR:

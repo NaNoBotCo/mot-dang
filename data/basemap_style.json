@@ -1,11 +1,13 @@
 {
-  "_comment": "Mot Dang basemap style over the Protomaps v4 vector schema. Muted ground, high-contrast pins drawn ON TOP by each layer module — nothing in here competes with a pin. Palette is the site's: cream paper #FBF6EC, rule #BCA070, moat blue #8FA5CC, ant red #D4552C. Source id is 'p', set by map_shell.py. Symbol (label) layers are dropped automatically when no self-hosted glyph URL is configured — see map_shell.emit().",
+  "_comment": "Mot Dang basemap style over the Protomaps v4 vector schema. Printed-map ground like the front page (blue water, green parks, softer forest, relief, landmark badges, road shields), high-contrast pins drawn ON TOP by each layer module — nothing in here competes with a pin. Palette is the site's: cream paper #FBF6EC, rule #BCA070, moat blue #8FA5CC, ant red #D4552C. Source id is 'p', set by map_shell.py. Symbol (label) layers are dropped automatically when no self-hosted glyph URL is configured — see map_shell.emit().",
   "_labels": "Thai first, Latin second, on two lines. NOTE: the Protomaps v4 schema carries no name:th — verified against the built archive. 'name' IS the local name, which in this bbox is the Thai one, and 'name:en' is the Latin. Asking for name:th returns nothing and every label silently falls through to English, which on a Thai-first site is exactly backwards.",
   "layers": [
     {
       "id": "earth",
       "type": "background",
-      "paint": { "background-color": "#FBF6EC" }
+      "paint": {
+        "background-color": "#FBF6EC"
+      }
     },
     {
       "id": "landcover",
@@ -14,14 +16,52 @@
       "source-layer": "landcover",
       "paint": {
         "fill-color": [
-          "match", ["get", "kind"],
-          "grassland", "#DCE4C8",
-          "forest", "#CFDCAF",
-          "scrub", "#DAE2C6",
-          "farmland", "#E7E2C6",
-          "#E2DCC4"
+          "match",
+          [
+            "get",
+            "kind"
+          ],
+          "forest",
+          "#CFE0B4",
+          "grassland",
+          "#DCE8C6",
+          "scrub",
+          "#D8E4C0",
+          "farmland",
+          "#ECE8CC",
+          "#E6E2C8"
         ],
-        "fill-opacity": 0.55
+        "fill-opacity": 0.8
+      }
+    },
+    {
+      "id": "landuse-wood",
+      "type": "fill",
+      "source": "p",
+      "source-layer": "landuse",
+      "_note": "The forested hills, softer than a park — the front page's wood (#cfe0b4).",
+      "filter": [
+        "in",
+        [
+          "get",
+          "kind"
+        ],
+        [
+          "literal",
+          [
+            "wood",
+            "forest",
+            "scrub",
+            "nature_reserve",
+            "national_park",
+            "grassland",
+            "meadow",
+            "protected_area"
+          ]
+        ]
+      ],
+      "paint": {
+        "fill-color": "#CFE0B4"
       }
     },
     {
@@ -29,16 +69,84 @@
       "type": "fill",
       "source": "p",
       "source-layer": "landuse",
-      "filter": ["in", ["get", "kind"], ["literal", ["park", "forest", "garden", "recreation_ground", "pitch", "cemetery", "grass"]]],
-      "paint": { "fill-color": "#C0D2A3" }
+      "filter": [
+        "in",
+        [
+          "get",
+          "kind"
+        ],
+        [
+          "literal",
+          [
+            "park",
+            "garden",
+            "recreation_ground",
+            "pitch",
+            "cemetery",
+            "grass",
+            "golf_course",
+            "zoo",
+            "village_green",
+            "playground",
+            "dog_park"
+          ]
+        ]
+      ],
+      "paint": {
+        "fill-color": "#B5D993"
+      }
     },
     {
       "id": "landuse-built",
       "type": "fill",
       "source": "p",
       "source-layer": "landuse",
-      "filter": ["in", ["get", "kind"], ["literal", ["school", "university", "hospital", "industrial", "commercial", "retail"]]],
-      "paint": { "fill-color": "#E6D5B4" }
+      "filter": [
+        "in",
+        [
+          "get",
+          "kind"
+        ],
+        [
+          "literal",
+          [
+            "school",
+            "university",
+            "college",
+            "kindergarten",
+            "hospital",
+            "industrial",
+            "commercial",
+            "retail"
+          ]
+        ]
+      ],
+      "paint": {
+        "fill-color": "#EADFCB"
+      }
+    },
+    {
+      "id": "landuse-air",
+      "type": "fill",
+      "source": "p",
+      "source-layer": "landuse",
+      "filter": [
+        "in",
+        [
+          "get",
+          "kind"
+        ],
+        [
+          "literal",
+          [
+            "aerodrome",
+            "military"
+          ]
+        ]
+      ],
+      "paint": {
+        "fill-color": "#E2DEE8"
+      }
     },
     {
       "id": "water",
@@ -46,8 +154,73 @@
       "source": "p",
       "source-layer": "water",
       "_note": "THE FILTER IS REQUIRED, not decoration — deleting it puts the Ping 600 m wide again. Rivers, streams and canals live in this same source-layer as LineStrings (see water-line below), and a MapLibre fill layer does NOT skip non-polygon geometry: it treats each line as a ring, closes it, and fills the lobe between the meander and its own closing chord. Measured 2026-08-21 over a 13 km frame at z14: 8.73 km2 of real water, 19.34 km2 of phantom. map_ground.py guards the same thing with 'if gt == 3'. Safe as plain equality because a vector-tile feature carries a numeric type, so geometry-type only ever returns Point/LineString/Polygon — never MultiPolygon.",
-      "filter": ["==", ["geometry-type"], "Polygon"],
-      "paint": { "fill-color": "#8FAEC9" }
+      "filter": [
+        "==",
+        [
+          "geometry-type"
+        ],
+        "Polygon"
+      ],
+      "paint": {
+        "fill-color": "#7FB5E0"
+      }
+    },
+    {
+      "id": "water-edge",
+      "type": "line",
+      "source": "p",
+      "source-layer": "water",
+      "_note": "Narrow water drawn a little wider than it is, as a printed map does — the moat is a string of slivers, and the bank roads cover it at its true width.",
+      "filter": [
+        "==",
+        [
+          "geometry-type"
+        ],
+        "Polygon"
+      ],
+      "paint": {
+        "line-color": "#7FB5E0",
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          12,
+          0.5,
+          16,
+          2.2
+        ]
+      }
+    },
+    {
+      "id": "relief",
+      "type": "hillshade",
+      "source": "t",
+      "_note": "Relief from the elevation archive (MDMAP_CFG.terrain). map.js drops this layer when no terrain is configured. Sits above the water fill, under every line and label.",
+      "paint": {
+        "hillshade-exaggeration": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          9,
+          0.55,
+          14,
+          0.35,
+          17,
+          0.2
+        ],
+        "hillshade-shadow-color": "#5B6E4A",
+        "hillshade-highlight-color": "#FFFDF4",
+        "hillshade-accent-color": "#7A6A4E",
+        "hillshade-illumination-direction": 315
+      }
     },
     {
       "id": "water-line",
@@ -55,13 +228,46 @@
       "source": "p",
       "source-layer": "water",
       "_note": "There is no physical_line layer in this schema — rivers, streams and canals are line features inside 'water' alongside the polygons. The Ping and the moat's feeder canals come through here.",
-      "filter": ["all",
-        ["==", ["geometry-type"], "LineString"],
-        ["in", ["get", "kind"], ["literal", ["river", "stream", "canal"]]]
+      "filter": [
+        "all",
+        [
+          "==",
+          [
+            "geometry-type"
+          ],
+          "LineString"
+        ],
+        [
+          "in",
+          [
+            "get",
+            "kind"
+          ],
+          [
+            "literal",
+            [
+              "river",
+              "stream",
+              "canal"
+            ]
+          ]
+        ]
       ],
       "paint": {
-        "line-color": "#618BB2",
-        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.6, 15, 2.6]
+        "line-color": "#7FB5E0",
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          0.8,
+          15,
+          3.2
+        ]
       }
     },
     {
@@ -71,9 +277,123 @@
       "source-layer": "buildings",
       "minzoom": 14,
       "paint": {
-        "fill-color": "#D4BC90",
-        "fill-outline-color": "#BCA070",
-        "fill-opacity": ["interpolate", ["linear"], ["zoom"], 14, 0, 15.2, 0.85]
+        "fill-color": "#EDE4D3",
+        "fill-outline-color": "#DCCDB3",
+        "fill-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          14,
+          0,
+          15.2,
+          0.9
+        ]
+      }
+    },
+    {
+      "id": "runways",
+      "type": "line",
+      "source": "p",
+      "source-layer": "roads",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        [
+          "==",
+          [
+            "get",
+            "kind"
+          ],
+          "aeroway"
+        ],
+        [
+          "in",
+          [
+            "get",
+            "kind_detail"
+          ],
+          [
+            "literal",
+            [
+              "runway",
+              "taxiway"
+            ]
+          ]
+        ]
+      ],
+      "paint": {
+        "line-color": "#C9C2D6",
+        "line-width": [
+          "interpolate",
+          [
+            "exponential",
+            1.5
+          ],
+          [
+            "zoom"
+          ],
+          11,
+          [
+            "match",
+            [
+              "get",
+              "kind_detail"
+            ],
+            "runway",
+            2,
+            0.5
+          ],
+          16,
+          [
+            "match",
+            [
+              "get",
+              "kind_detail"
+            ],
+            "runway",
+            34,
+            6
+          ]
+        ]
+      }
+    },
+    {
+      "id": "roads-path",
+      "type": "line",
+      "source": "p",
+      "source-layer": "roads",
+      "minzoom": 15,
+      "filter": [
+        "==",
+        [
+          "get",
+          "kind"
+        ],
+        "path"
+      ],
+      "paint": {
+        "line-color": "#B49E7C",
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          0.6,
+          18,
+          1.6
+        ],
+        "line-dasharray": [
+          2,
+          1.6
+        ]
       }
     },
     {
@@ -82,27 +402,99 @@
       "source": "p",
       "source-layer": "roads",
       "minzoom": 11,
-      "layout": { "line-cap": "round", "line-join": "round" },
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
       "paint": {
-        "line-color": "#B39058",
+        "line-color": "#CBAA72",
         "line-width": [
-          "interpolate", ["exponential", 1.5], ["zoom"],
-          11, ["match", ["get", "kind"], "highway", 2.4, "major_road", 1.6, 0.6],
-          17, ["match", ["get", "kind"], "highway", 15, "major_road", 11, 6]
+          "interpolate",
+          [
+            "exponential",
+            1.5
+          ],
+          [
+            "zoom"
+          ],
+          11,
+          [
+            "match",
+            [
+              "get",
+              "kind"
+            ],
+            "highway",
+            2.6,
+            "major_road",
+            1.8,
+            0.6
+          ],
+          17,
+          [
+            "match",
+            [
+              "get",
+              "kind"
+            ],
+            "highway",
+            16,
+            "major_road",
+            12,
+            6.4
+          ]
         ]
-      }
+      },
+      "filter": [
+        "in",
+        [
+          "get",
+          "kind"
+        ],
+        [
+          "literal",
+          [
+            "highway",
+            "major_road",
+            "minor_road"
+          ]
+        ]
+      ]
     },
     {
       "id": "roads-minor",
       "type": "line",
       "source": "p",
       "source-layer": "roads",
-      "filter": ["==", ["get", "kind"], "minor_road"],
+      "filter": [
+        "==",
+        [
+          "get",
+          "kind"
+        ],
+        "minor_road"
+      ],
       "minzoom": 12,
-      "layout": { "line-cap": "round", "line-join": "round" },
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
       "paint": {
-        "line-color": "#FFFDF8",
-        "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 12, 0.4, 17, 4.4]
+        "line-color": "#FFFFFF",
+        "line-width": [
+          "interpolate",
+          [
+            "exponential",
+            1.5
+          ],
+          [
+            "zoom"
+          ],
+          12,
+          0.4,
+          17,
+          4.6
+        ]
       }
     },
     {
@@ -110,23 +502,245 @@
       "type": "line",
       "source": "p",
       "source-layer": "roads",
-      "filter": ["==", ["get", "kind"], "major_road"],
-      "layout": { "line-cap": "round", "line-join": "round" },
+      "filter": [
+        "==",
+        [
+          "get",
+          "kind"
+        ],
+        "major_road"
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
       "paint": {
-        "line-color": "#FFFCF4",
-        "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 11, 1.1, 17, 9]
+        "line-color": "#FFF6E2",
+        "line-width": [
+          "interpolate",
+          [
+            "exponential",
+            1.5
+          ],
+          [
+            "zoom"
+          ],
+          11,
+          1.2,
+          17,
+          9.4
+        ]
       }
+    },
+    {
+      "id": "roads-primary",
+      "type": "line",
+      "source": "p",
+      "source-layer": "roads",
+      "filter": [
+        "all",
+        [
+          "==",
+          [
+            "get",
+            "kind"
+          ],
+          "major_road"
+        ],
+        [
+          "in",
+          [
+            "get",
+            "kind_detail"
+          ],
+          [
+            "literal",
+            [
+              "trunk",
+              "primary",
+              "trunk_link",
+              "primary_link"
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#FFE3A0",
+        "line-width": [
+          "interpolate",
+          [
+            "exponential",
+            1.5
+          ],
+          [
+            "zoom"
+          ],
+          11,
+          1.2,
+          17,
+          9.4
+        ]
+      },
+      "_note": "Trunk and primary roads in the yellow a printed map gives them, over the cream of the other major roads."
     },
     {
       "id": "roads-highway",
       "type": "line",
       "source": "p",
       "source-layer": "roads",
-      "filter": ["==", ["get", "kind"], "highway"],
-      "layout": { "line-cap": "round", "line-join": "round" },
+      "filter": [
+        "==",
+        [
+          "get",
+          "kind"
+        ],
+        "highway"
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
       "paint": {
-        "line-color": "#E8B866",
-        "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 9, 1.2, 17, 13]
+        "line-color": "#F5BE5E",
+        "line-width": [
+          "interpolate",
+          [
+            "exponential",
+            1.5
+          ],
+          [
+            "zoom"
+          ],
+          9,
+          1.3,
+          17,
+          13.5
+        ]
+      }
+    },
+    {
+      "id": "moat-over",
+      "type": "line",
+      "source": "p",
+      "source-layer": "water",
+      "maxzoom": 16,
+      "_note": "The moat and the canals again, ABOVE the roads, while the map is far enough out that the bank roads would cover them (the front page does the same). Rivers and lakes are left out so the bridges stay whole.",
+      "filter": [
+        "all",
+        [
+          "==",
+          [
+            "geometry-type"
+          ],
+          "Polygon"
+        ],
+        [
+          "==",
+          [
+            "get",
+            "kind"
+          ],
+          "water"
+        ],
+        [
+          "any",
+          [
+            "!",
+            [
+              "has",
+              "kind_detail"
+            ]
+          ],
+          [
+            "in",
+            [
+              "get",
+              "kind_detail"
+            ],
+            [
+              "literal",
+              [
+                "canal",
+                "moat",
+                "ditch",
+                "drain"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "layout": {
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#7FB5E0",
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          12,
+          1.2,
+          14,
+          2.6,
+          15.5,
+          3.4
+        ],
+        "line-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          1,
+          16,
+          0
+        ]
+      }
+    },
+    {
+      "id": "rail",
+      "type": "line",
+      "source": "p",
+      "source-layer": "roads",
+      "minzoom": 11,
+      "filter": [
+        "==",
+        [
+          "get",
+          "kind"
+        ],
+        "rail"
+      ],
+      "paint": {
+        "line-color": "#8C8399",
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          11,
+          0.8,
+          16,
+          2
+        ],
+        "line-dasharray": [
+          3,
+          2
+        ]
       }
     },
     {
@@ -137,31 +751,72 @@
       "paint": {
         "line-color": "#A38B62",
         "line-width": 0.9,
-        "line-dasharray": [3, 2.5]
+        "line-dasharray": [
+          3,
+          2.5
+        ]
       }
     },
     {
-      "id": "place-labels",
+      "id": "water-labels",
       "type": "symbol",
       "source": "p",
-      "source-layer": "places",
-      "filter": ["in", ["get", "kind"], ["literal", ["locality", "neighbourhood", "suburb", "village", "town", "city"]]],
+      "source-layer": "water",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          [
+            "geometry-type"
+          ],
+          "Polygon"
+        ],
+        [
+          "has",
+          "name"
+        ],
+        [
+          "!",
+          [
+            "in",
+            [
+              "get",
+              "kind"
+            ],
+            [
+              "literal",
+              [
+                "swimming_pool",
+                "fountain"
+              ]
+            ]
+          ]
+        ]
+      ],
       "layout": {
         "text-field": [
-          "format",
-          ["coalesce", ["get", "name"], ["get", "name:en"]], {},
-          "\n", {},
-          ["coalesce", ["get", "name:en"], ""], { "font-scale": 0.82 }
+          "coalesce",
+          [
+            "get",
+            "name"
+          ],
+          [
+            "get",
+            "name:en"
+          ]
         ],
-        "text-font": ["NotoSans"],
-        "text-size": ["interpolate", ["linear"], ["zoom"], 10, 11, 15, 14],
-        "text-anchor": "center",
-        "text-max-width": 8
+        "text-font": [
+          "NotoSans"
+        ],
+        "text-size": 12,
+        "text-max-width": 7,
+        "text-letter-spacing": 0.04
       },
       "paint": {
-        "text-color": "#5A4838",
-        "text-halo-color": "#FBF6EC",
-        "text-halo-width": 1.6
+        "text-color": "#2F6FA8",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 1.4
       }
     },
     {
@@ -170,17 +825,476 @@
       "source": "p",
       "source-layer": "roads",
       "minzoom": 14,
-      "filter": ["in", ["get", "kind"], ["literal", ["major_road", "minor_road"]]],
+      "filter": [
+        "in",
+        [
+          "get",
+          "kind"
+        ],
+        [
+          "literal",
+          [
+            "major_road",
+            "minor_road"
+          ]
+        ]
+      ],
       "layout": {
         "symbol-placement": "line",
-        "text-field": ["coalesce", ["get", "name"], ["get", "name:en"]],
-        "text-font": ["NotoSans"],
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            "name"
+          ],
+          [
+            "get",
+            "name:en"
+          ]
+        ],
+        "text-font": [
+          "NotoSans"
+        ],
         "text-size": 11
       },
       "paint": {
         "text-color": "#8A7761",
         "text-halo-color": "#FFFDF8",
         "text-halo-width": 1.4
+      }
+    },
+    {
+      "id": "road-shields",
+      "type": "symbol",
+      "source": "p",
+      "source-layer": "roads",
+      "minzoom": 10,
+      "_note": "The road's number on a shield, from the tiles' own shield_text. md-shield is drawn by map.js (styleimagemissing).",
+      "filter": [
+        "all",
+        [
+          "in",
+          [
+            "get",
+            "kind"
+          ],
+          [
+            "literal",
+            [
+              "highway",
+              "major_road"
+            ]
+          ]
+        ],
+        [
+          "has",
+          "shield_text"
+        ],
+        [
+          "<=",
+          [
+            "length",
+            [
+              "to-string",
+              [
+                "get",
+                "shield_text"
+              ]
+            ]
+          ],
+          4
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          220,
+          16,
+          420
+        ],
+        "text-field": [
+          "to-string",
+          [
+            "get",
+            "shield_text"
+          ]
+        ],
+        "text-font": [
+          "NotoSans"
+        ],
+        "text-size": 10.5,
+        "text-rotation-alignment": "viewport",
+        "icon-rotation-alignment": "viewport",
+        "icon-image": "md-shield",
+        "icon-text-fit": "both",
+        "icon-text-fit-padding": [
+          1,
+          4,
+          1,
+          4
+        ]
+      },
+      "paint": {
+        "text-color": "#FFFFFF"
+      }
+    },
+    {
+      "id": "landmarks",
+      "type": "symbol",
+      "source": "p",
+      "source-layer": "pois",
+      "minzoom": 12,
+      "_note": "Landmark badges like the front page's: the icon (md-*) is drawn by map.js; the name follows the reader's language. A poi whose kind is not listed gets no icon and is filtered out.",
+      "filter": [
+        "all",
+        [
+          "has",
+          "name"
+        ],
+        [
+          "in",
+          [
+            "get",
+            "kind"
+          ],
+          [
+            "literal",
+            [
+              "place_of_worship",
+              "marketplace",
+              "mall",
+              "department_store",
+              "university",
+              "college",
+              "hospital",
+              "park",
+              "garden",
+              "zoo",
+              "nature_reserve",
+              "national_park",
+              "aerodrome",
+              "city_gate",
+              "monument",
+              "memorial",
+              "ruins",
+              "archaeological_site",
+              "castle",
+              "attraction",
+              "museum",
+              "viewpoint",
+              "waterfall",
+              "bus_station",
+              "train_station",
+              "peak"
+            ]
+          ]
+        ],
+        [
+          "any",
+          [
+            "!=",
+            [
+              "get",
+              "kind"
+            ],
+            "place_of_worship"
+          ],
+          [
+            "any",
+            [
+              "in",
+              "วัด",
+              [
+                "coalesce",
+                [
+                  "get",
+                  "name"
+                ],
+                ""
+              ]
+            ],
+            [
+              "in",
+              "Wat ",
+              [
+                "coalesce",
+                [
+                  "get",
+                  "name:en"
+                ],
+                ""
+              ]
+            ]
+          ]
+        ],
+        [
+          "<=",
+          [
+            "coalesce",
+            [
+              "get",
+              "min_zoom"
+            ],
+            14
+          ],
+          [
+            "+",
+            [
+              "zoom"
+            ],
+            1
+          ]
+        ]
+      ],
+      "layout": {
+        "icon-image": [
+          "match",
+          [
+            "get",
+            "kind"
+          ],
+          "place_of_worship",
+          "md-temple",
+          "marketplace",
+          "md-market",
+          [
+            "mall",
+            "department_store"
+          ],
+          "md-mall",
+          [
+            "university",
+            "college"
+          ],
+          "md-university",
+          "hospital",
+          "md-hospital",
+          [
+            "park",
+            "garden",
+            "zoo",
+            "nature_reserve",
+            "national_park"
+          ],
+          "md-park",
+          "aerodrome",
+          "md-airport",
+          "city_gate",
+          "md-gate",
+          [
+            "monument",
+            "memorial",
+            "ruins",
+            "archaeological_site",
+            "castle"
+          ],
+          "md-monument",
+          [
+            "attraction",
+            "museum",
+            "viewpoint"
+          ],
+          "md-sight",
+          "waterfall",
+          "md-waterfall",
+          [
+            "bus_station",
+            "train_station"
+          ],
+          "md-terminal",
+          "peak",
+          "md-peak",
+          ""
+        ],
+        "icon-size": 1,
+        "icon-allow-overlap": false,
+        "symbol-sort-key": [
+          "coalesce",
+          [
+            "get",
+            "min_zoom"
+          ],
+          14
+        ],
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            "name"
+          ],
+          [
+            "get",
+            "name:en"
+          ]
+        ],
+        "text-font": [
+          "NotoSans"
+        ],
+        "text-size": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          13,
+          11,
+          17,
+          12.5
+        ],
+        "text-variable-anchor": [
+          "left",
+          "right",
+          "top",
+          "bottom"
+        ],
+        "text-radial-offset": 1.05,
+        "text-justify": "auto",
+        "text-max-width": 9,
+        "text-optional": true
+      },
+      "paint": {
+        "text-color": [
+          "match",
+          [
+            "get",
+            "kind"
+          ],
+          "place_of_worship",
+          "#7A4E10",
+          "marketplace",
+          "#9A4A06",
+          [
+            "mall",
+            "department_store"
+          ],
+          "#1A4F9C",
+          [
+            "university",
+            "college"
+          ],
+          "#3D3D96",
+          "hospital",
+          "#962018",
+          [
+            "park",
+            "garden",
+            "zoo",
+            "nature_reserve",
+            "national_park"
+          ],
+          "#14592A",
+          "aerodrome",
+          "#454749",
+          "city_gate",
+          "#6E3314",
+          [
+            "monument",
+            "memorial",
+            "ruins",
+            "archaeological_site",
+            "castle"
+          ],
+          "#4D4131",
+          "waterfall",
+          "#1A4F9C",
+          [
+            "bus_station",
+            "train_station"
+          ],
+          "#1A4F9C",
+          "peak",
+          "#5A4838",
+          "#0A6262"
+        ],
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "place-labels",
+      "type": "symbol",
+      "source": "p",
+      "source-layer": "places",
+      "filter": [
+        "in",
+        [
+          "get",
+          "kind"
+        ],
+        [
+          "literal",
+          [
+            "locality",
+            "neighbourhood",
+            "suburb",
+            "village",
+            "town",
+            "city"
+          ]
+        ]
+      ],
+      "layout": {
+        "text-field": [
+          "format",
+          [
+            "coalesce",
+            [
+              "get",
+              "name"
+            ],
+            [
+              "get",
+              "name:en"
+            ]
+          ],
+          {},
+          "\n",
+          {},
+          [
+            "coalesce",
+            [
+              "get",
+              "name:en"
+            ],
+            ""
+          ],
+          {
+            "font-scale": 0.82
+          }
+        ],
+        "text-font": [
+          "NotoSans"
+        ],
+        "text-size": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          11,
+          15,
+          14
+        ],
+        "text-anchor": "center",
+        "text-max-width": 8
+      },
+      "paint": {
+        "text-color": "#5A4838",
+        "text-halo-color": "#FBF6EC",
+        "text-halo-width": 1.6
       }
     }
   ]

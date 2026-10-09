@@ -200,3 +200,9 @@ body{
 .locacts button{width:100%;border:0;border-radius:16px;padding:14px 16px;
   font-size:16px;font-weight:700;color:#fff;background:var(--ant,#D4552C);cursor:pointer}
 .locacts .ghost{background:transparent;color:var(--ink);border:1.5px solid var(--warm-border)}
+
+/* ---- ใส่ไว้ที่หน้าจอโฮม ---- */
+.chip-btn.install{background:rgba(255,255,255,.34);font-weight:700}
+.instsheet .locbox{max-width:22rem}
+.inst-steps{margin:.6rem 0 .2rem 1.1rem;padding:0;line-height:1.5;font-size:.92rem}
+.inst-steps li{margin:.3rem 0}

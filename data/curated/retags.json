@@ -1,6 +1,20 @@
 {
- "_readme": "Shelves TAKEN AWAY from a crawled record, by id — the rare case where OpenStreetMap's primary tag is wrong about the door. shelves.json only ever adds (a second identity the one primary tag could not hold); this file removes, and only with a receipt. Each entry names the evidence a person read, the date, the shelves dropped, and the shelf the record should stand on instead — a correction never leaves a place shelfless. Applied by importers/import_all.py apply_curated_retags() after shelves.json. Every entry here also gets a fix-ledger line in data/fixes.json under มดเอง, and is worth fixing upstream in OSM when somebody has an editor open. Keep this file short: a long retags.json is a crawl that needs a rule, not a person with a list.",
+ "_readme": "Shelves TAKEN AWAY from a crawled record, by id — the rare case where OpenStreetMap's primary tag is wrong about the door. shelves.json only ever adds (a second identity the one primary tag could not hold); this file removes, and only with a receipt. Each entry names the evidence a person read, the date, the shelves dropped, and the shelf the record should stand on instead — a correction does not leave a place shelfless. Applied by importers/import_all.py apply_curated_retags() after shelves.json. Every entry here also gets a fix-ledger line in data/fixes.json under มดเอง, and is worth fixing upstream in OSM when somebody has an editor open. Keep this file short: a long retags.json is a crawl that needs a rule, not a person with a list.",
  "retags": {
+  "cm-ovt-c86f0456-7daa-4dbe-a1ff-f84fcb1c507c": {
+   "note": "Ban Sabai Village Senior Residence and Care Home — Overture filed it guest_house, so it stood on the guesthouse shelf beside a second record of itself (cm-curated-elder-7945, the cmhy.city row, 120 m off). Folded together 2026-10-04 when Nan asked for a fuller page; this takes the guesthouse shelf away.",
+   "drop_cat": [
+    "hotel"
+   ],
+   "drop_sub": [
+    "guesthouse"
+   ],
+   "add_cat": [
+    "medical"
+   ],
+   "evidence": "The home's own front page, read 2026-10-04: \"Senior Residence – Long Stay Senior Care Resort & Nursing Home\" (https://bansabaicare.com/). Its price page sells rooms with care packages by the month, not nights to travellers.",
+   "fetched": "2026-10-04"
+  },
   "cm-osm-node-11411206869": {
    "note": "หรรษา มินิกอล์ฟ / Hansa Minigolf — mapped shop=tattoo, sat on the tattoo shelf from the 2026-07-27 crawl until WO-14",
    "drop_cat": [

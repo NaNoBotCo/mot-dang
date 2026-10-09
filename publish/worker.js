@@ -48,8 +48,31 @@ import { SCHEMA_VERSION, queryPlaces, findPlace, slugCandidates, minuteOfWeek,
          present, liftProvince, norm, parseQuery, rowMatches,
          LIMIT_DEFAULT, LIMIT_MAX } from "./api.js";
 import SEARCHCORE from "./searchcore.js";
+import { fleetSearch } from "./fleetsearch.js";
+import { cachedGet } from "./r2cache.js";
+
+/* The fleet search (publish/fleetsearch.js) answers /find, and it answers
+ * /search.html — the address the header box on every page posts to — when
+ * the query carries only its own parameters. The older place-filter page
+ * (advanced.html → search.html?tag=…&su=…) keeps its address: any other
+ * parameter falls through to the static file as before. */
+const FLEET_PARAMS = new Set(["q", "adv", "lucky", "p", "n", "site", "from", "to", "fmt",
+                              "sort", "in", "since", "near", "kind", "sec", "has"]);
+function fleetOwns(url) {
+  const p = url.pathname;
+  if (p === "/find" || p === "/find/" || p === "/find.html" || p === "/search") return true;
+  if (p !== "/search.html") return false;
+  for (const k of url.searchParams.keys()) if (!FLEET_PARAMS.has(k)) return false;
+  return true;
+}
 import { EdgeIndex } from "./edgesearch.js";
 import { classify } from "./classify.js";
+import { subscribe } from "./subscribe.js";
+import { lister, ownsLister } from "./lister.js";
+import { live, ownsLive, resolve } from "./live.js";
+import { shareSense, shareLand } from "./sharesense.js";
+import { findSense } from "./findlearn.js";
+import { crawlAsk, crawlListen } from "./crawlpay.js";
 
 const TYPES = {
   html: "text/html; charset=utf-8",
@@ -69,6 +92,7 @@ const TYPES = {
   ics: "text/calendar; charset=utf-8",
   pdf: "application/pdf",
   apk: "application/vnd.android.package-archive",
+  webmanifest: "application/manifest+json",
   pmtiles: "application/octet-stream",
   /* Label glyphs for the basemap, self-hosted since 2026-08-20 so that a page
    * carrying a map asks nobody but us for anything. They would already serve
@@ -147,22 +171,280 @@ function headers(obj, key, extra) {
   h.set("x-content-type-options", "nosniff");
   h.set("referrer-policy", "strict-origin-when-cross-origin");
   for (const [k, v] of Object.entries(CORS)) h.set(k, v);
-  if (obj.httpEtag) h.set("etag", obj.httpEtag);
+  if (obj.httpEtag) h.set("etag", ext(key) === "html" ? ntEtag(obj.httpEtag) : obj.httpEtag);
   return h;
 }
 
-/* The front page carries one meta, md-where, which home_layer.py writes empty.
- * The edge fills it with what Cloudflare already knows about the request —
- * city, coordinates, timezone, country — so the page can stand in Chiang Mai
- * or Chiang Rai before anyone taps anything. It is the carrier's idea of
- * where the request came from, not a fix on the reader; the page treats it
- * as a guess, and a tap on the pill or the locate button replaces it. */
-function withWhere(res, request) {
+/* Machine translation off (Nan, 2026-09-23). Done here, not in a build, because
+ * the bucket holds pages from several builds. A page's etag gains NT_ETAG so a
+ * browser holding a copy from before this change fetches the page again. */
+const NT_ETAG = "-nt1";
+const NT_META_GOOGLE = '<meta name="google" content="notranslate">';
+const NT_META_ROBOTS = '<meta name="robots" content="notranslate">';
+const NT_SCRIPT = '<script>if(/[.]translate[.]goog$/.test(location.hostname))location.replace("https://"+location.hostname.slice(0,-15).replace(/--/g,"~").replace(/-/g,".").replace(/~/g,"-")+location.pathname+location.search.replace(/([?&])_x_tr_[^&]*/g,"$1").replace(/[?&]+$/,"").replace(/[?]&+/,"?")+location.hash)</script>';
+const NT_DONE = new WeakSet();
+
+export const ntEtag = (tag) => tag.replace(/"$/, NT_ETAG + '"');
+
+export function ntClass(c) {
+  if (c == null || c.trim() === "") return "notranslate";
+  return /(^|\s)notranslate(\s|$)/.test(c) ? c : c + " notranslate";
+}
+
+/* R2 knows the bare etag. A tag without the suffix names a copy from before
+ * the rewrite, so it is dropped and the page goes out again. */
+export function ntConditional(reqHeaders) {
+  const h = new Headers();
+  const inm = reqHeaders.get("if-none-match");
+  if (inm) {
+    const keep = [];
+    for (const raw of inm.split(",")) {
+      const t = raw.trim();
+      const m = t.match(/^(W\/)?"(.*)"$/);
+      if (t === "*") keep.push(t);
+      else if (m && m[2].endsWith(NT_ETAG))
+        keep.push(`${m[1] || ""}"${m[2].slice(0, -NT_ETAG.length)}"`);
+    }
+    if (keep.length) h.set("if-none-match", keep.join(", "));
+  }
+  for (const k of ["if-match", "if-unmodified-since"]) {
+    const v = reqHeaders.get(k);
+    if (v) h.set(k, v);
+  }
+  return h;
+}
+
+function noTranslate(rw) {
+  let done = false, google = false, robots = false, script = false;
+  const tags = () => (google ? "" : NT_META_GOOGLE) + (robots ? "" : NT_META_ROBOTS) +
+                     (script ? "" : NT_SCRIPT);
+  const put = (write) => { if (!done) { done = true; write(tags()); } };
+  return rw
+    .on("html", {
+      element(e) {
+        e.setAttribute("translate", "no");
+        e.setAttribute("class", ntClass(e.getAttribute("class")));
+      },
+    })
+    .on('meta[name="google" i][content*="notranslate" i]', { element() { google = true; } })
+    .on('meta[name="robots" i][content*="notranslate" i]', { element() { robots = true; } })
+    .on("head > script:not([src]):not([type])", {
+      text(t) { if (t.text.includes("translate[.]goog")) script = true; },
+    })
+    .on("head", {
+      element(e) { e.onEndTag((end) => put((s) => end.before(s, { html: true }))); },
+    })
+    .on("body", { element(e) { put((s) => e.before(s, { html: true })); } })
+    .onDocument({ end(d) { put((s) => d.append(s, { html: true })); } });
+}
+
+/* Last step for every response: a page not yet rewritten is rewritten, and
+ * the header is appended (a page may already send noindex). A redirect has no
+ * page to translate and keeps its headers as they were. */
+export function finish(res) {
+  const type = res.headers.get("content-type") || "";
+  const out = res.body && !NT_DONE.has(res) && /^text\/html/i.test(type)
+    ? noTranslate(new HTMLRewriter()).transform(res)
+    : new Response(res.body, res);
+  if (!(out.status >= 301 && out.status <= 308 && out.status !== 304))
+    out.headers.append("x-robots-tag", "notranslate");
+  return out;
+}
+
+/* WHERE THE READER IS, on every page
+ * ----------------------------------
+ * Cloudflare already knows roughly where a request came from, so a page can
+ * stand in the right city before anyone taps anything. Two things are done
+ * with that, and both hold to the same rule: SAY WHAT IT IS WORTH.
+ *
+ *   1. `meta[name=md-where]` carries city|lat|lon|tz|country. A page that has
+ *      the tag gets it filled; a page without one has it written into the head.
+ *      Writing it rather than only filling it is what makes this reach the
+ *      whole site — and it is not theoretical: the front page rebuilt on
+ *      2026-09-21 dropped the tag the 2026-09-19 page had carried, so the one
+ *      page the geofence was built for stopped receiving a position while
+ *      nothing looked broken.
+ *   2. A page that says where IT is — schema.org GeoCoordinates in its head —
+ *      gets a line under its heading saying how far away it is and which way.
+ *
+ * IT IS A CITY, NOT A PERSON. Measured 2026-09-21: Cloudflare placed a
+ * connection at 18.790, 98.985 — Chiang Mai, and 6 km from the house it was
+ * actually sent from. So a coarse position is drawn as "ใกล้ๆ · nearby" or
+ * "~6 km", never with a decimal it has not earned, and the line says whose
+ * guess it is. The exact fix is the reader's to give and the page offers a
+ * tap for it; fleetsearch.js draws the same distinction the same way.
+ *
+ * A PERSONALISED PAGE IS MARKED `private`, so no shared cache may keep one
+ * reader's copy for the next. HTML here is already `max-age=0,
+ * must-revalidate` and Cloudflare is not caching it, but a page that carries a
+ * reader's city says so in its own headers rather than resting on that.
+ */
+const M_PER_DEG = 111_320;
+const COMPASS = [["เหนือ", "N"], ["ตะวันออกเฉียงเหนือ", "NE"], ["ตะวันออก", "E"],
+                 ["ตะวันออกเฉียงใต้", "SE"], ["ใต้", "S"], ["ตะวันตกเฉียงใต้", "SW"],
+                 ["ตะวันตก", "W"], ["ตะวันตกเฉียงเหนือ", "NW"]];
+
+export function hereLine(from, to) {
+  const dLat = (to.lat - from.lat) * M_PER_DEG;
+  const dLon = (to.lon - from.lon) * M_PER_DEG * Math.cos((from.lat * Math.PI) / 180);
+  const m = Math.sqrt(dLat * dLat + dLon * dLon);
+  if (!Number.isFinite(m)) return null;
+  const deg = (Math.atan2(dLon, dLat) * 180) / Math.PI;
+  const dir = (dLat || dLon) ? COMPASS[Math.round(((deg + 360) % 360) / 45) % 8] : null;
+  const far = m < 1500 ? ["ใกล้ๆ", "nearby"]
+            : m < 100_000 ? [`~${Math.round(m / 1000)} กม.`, `~${Math.round(m / 1000)} km`]
+            : [`~${Math.round(m / 1000)} กม.`, `~${Math.round(m / 1000)} km`];
+  return { m, far, dir };
+}
+
+function whereHtml(from, to, city) {
+  const line = hereLine(from, to);
+  if (!line) return "";
+  const dir = line.dir ? ` ${esc(line.dir[0])} · ${esc(line.dir[1])}` : "";
+  const place = city ? ` ${esc(city)}` : "";
+  return `<p class="md-here" style="margin:.2em 0 .6em;font-size:.95em">` +
+         `<span style="color:#0b6b3a">${esc(line.far[0])} · ${esc(line.far[1])}${dir}</span> ` +
+         `<span style="color:#5c4d38;font-size:.9em">— จากตำแหน่งโดยประมาณของเครือข่าย${place} · ` +
+         `from your network's rough position</span></p>`;
+}
+
+const esc = (x) => String(x == null ? "" : x)
+  .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+/* A directory or a shelf is not one place, so there is no distance to draw —
+ * but the reader still stands in a city, and that city is drawn the way a
+ * place page's line is drawn: Cloudflare's guess, named as a guess, never a
+ * decimal it has not earned, and nothing at all when cf handed over no
+ * position. The precise fix is the reader's to give, one tap away on /find,
+ * which reads the same request.cf and offers the browser-geolocation upgrade
+ * (fleetsearch.js exactLink). No script is injected into the shelf itself. */
+function whereCityHtml(cf) {
+  const city = cf.city ? `<span style="color:#0b6b3a">${esc(cf.city)}</span> ` : "";
+  return `<p class="md-here" data-md-where-city style="margin:.2em 0 .6em;font-size:.95em">` +
+         `${city}<span style="color:#5c4d38;font-size:.9em">` +
+         `— จากตำแหน่งโดยประมาณของเครือข่าย · from your network's rough position</span> ` +
+         `<a href="/find" style="font-size:.9em">ของใกล้ตัว · what's near you ›</a></p>`;
+}
+
+/* The one decision, made pure so it can be tested without HTMLRewriter: given
+ * where the reader is (cf, and whether it was usable — `known`), what the page
+ * turned out to be (a single place `pin`, or an ItemList directory `isList`),
+ * return the line to draw under the heading, or "" for none.
+ *   cf absent            → "" (no false position anywhere)
+ *   a single place       → the distance line, as before
+ *   an ItemList surface  → the reader's city line (newly covered)
+ *   anything else        → "" (front page, an article, a game keep silence) */
+export function whereLine({ known, pin, isList, from, cf }) {
+  if (!known) return "";
+  if (pin) return whereHtml(from, pin, cf.city);
+  if (isList) return whereCityHtml(cf);
+  return "";
+}
+
+/* One streaming pass. The JSON-LD sits in <head> and every heading after it,
+ * so the page's own position is known before there is anywhere to write it —
+ * which is why this needs no second fetch and no rebuild of the 88,000 pages
+ * that already carry the coordinate. A page without one is untouched beyond
+ * its meta. */
+/* A page bigger than this gets its meta filled and nothing else. The biggest
+ * hub pages run to tens of megabytes of rows, their JSON-LD is a list rather
+ * than a place, and walking one to learn that would cost real time on a page
+ * that was never going to draw the line. */
+const GEO_MAX_BYTES = 2_000_000;
+const LD_MAX_CHARS = 65_536;
+
+function withWhere(res, request, size) {
   const cf = request.cf || {};
-  const v = [cf.city || "", cf.latitude || "", cf.longitude || "", cf.timezone || "", cf.country || ""].join("|");
-  return new HTMLRewriter()
-    .on('meta[name="md-where"]', { element(e) { e.setAttribute("content", v); } })
-    .transform(res);
+  const v = [cf.city || "", cf.latitude || "", cf.longitude || "",
+             cf.timezone || "", cf.country || ""].join("|");
+  const from = { lat: Number(cf.latitude), lon: Number(cf.longitude) };
+  const known = Number.isFinite(from.lat) && Number.isFinite(from.lon) && (from.lat || from.lon);
+
+  let pin = null;      // the page's own position, set while the head streams
+  let isList = false;  // an ItemList in the head → this is a directory or shelf
+  let drawn = false;
+  let metaSeen = false;
+  const rw = noTranslate(new HTMLRewriter())
+    .on('meta[name="md-where"]', {
+      element(e) { metaSeen = true; e.setAttribute("content", v); },
+    })
+    .on("head", {
+      element(e) {
+        e.onEndTag((end) => {
+          if (!metaSeen) {
+            end.before(`<meta name="md-where" content="${esc(v)}">`, { html: true });
+          }
+        });
+      },
+    });
+
+  if (known) {
+    /* The full geo read is skipped on the biggest hub pages (GEO_MAX_BYTES):
+     * walking tens of megabytes of rows to learn the page is a list, not a
+     * place, would cost real time. The ItemList scan below is cheap either way
+     * — HTMLRewriter hands it only the ld+json text, not the whole page — so a
+     * shelf too big to walk still earns its city line. */
+    const parseGeo = !(size > GEO_MAX_BYTES);
+    rw.on('script[type="application/ld+json"]', {
+      text(t) {
+        /* An ItemList means a directory or a shelf: many places, none of them
+         * where the page stands. The token is distinct from BreadcrumbList and
+         * ListItem, and it sits at the head of the block, so a substring scan
+         * of the streamed text settles it without a parse. */
+        if (!isList && t.text.includes("ItemList")) isList = true;
+        if (!parseGeo || pin === false) return;
+        this.buf = (this.buf || "") + t.text;
+        /* A block this long is a catalogue, not a place. Dropping it beats
+         * holding megabytes of it in the isolate to reach the same answer. */
+        if (this.buf.length > LD_MAX_CHARS) { this.buf = ""; pin = false; return; }
+        if (!t.lastInTextNode) return;
+        try {
+          const found = [];
+          collectGeo(JSON.parse(this.buf), found);
+          /* A directory page carries a coordinate for every place it lists and
+           * none of them is where the page is, so more than one distinct
+           * coordinate means no distance line rather than a guess at which one
+           * counts — it still draws the reader's city below. */
+          const uniq = Array.from(new Set(found.map((g) => `${g.lat},${g.lon}`)));
+          if (pin === null && uniq.length === 1) {
+            const [lat, lon] = uniq[0].split(",").map(Number);
+            pin = { lat, lon };
+          } else if (uniq.length) {
+            pin = false;
+          }
+        } catch { /* a block that will not parse tells us nothing */ }
+        this.buf = "";
+      },
+    }).on("h1", {
+      element(e) {
+        if (drawn) return;
+        drawn = true;
+        const line = whereLine({ known, pin, isList, from, cf });
+        if (line) e.after(line, { html: true });
+      },
+    });
+  }
+  const out = rw.transform(res);
+  /* One reader's city must never be handed to the next one out of a shared
+   * cache. The HTML is not cached at the edge today; this says it out loud so
+   * it cannot start being. */
+  out.headers.set("cache-control", "private, max-age=0, must-revalidate");
+  NT_DONE.add(out);
+  return out;
+}
+
+export function collectGeo(obj, out) {
+  if (Array.isArray(obj)) { for (const v of obj) collectGeo(v, out); return; }
+  if (!obj || typeof obj !== "object") return;
+  const g = obj.geo;
+  if (g && typeof g === "object") {
+    const lat = Number(g.latitude), lon = Number(g.longitude);
+    if (Number.isFinite(lat) && Number.isFinite(lon) && (lat || lon) &&
+        Math.abs(lat) <= 90 && Math.abs(lon) <= 180) {
+      out.push({ lat: Number(lat.toFixed(6)), lon: Number(lon.toFixed(6)) });
+    }
+  }
+  for (const v of Object.values(obj)) collectGeo(v, out);
 }
 
 /* ------------------------------------------------------------------ API */
@@ -237,8 +519,8 @@ function edgeLoader(env) {
 function edgeCore(env) {
   if (!CORE_P) {
     CORE_P = (async () => {
-      const [th, sg] = await Promise.all([env.SITE.get("data/search_thesaurus.json"),
-                                          env.SITE.get("data/search_segdict.txt")]);
+      const [th, sg] = await Promise.all([cachedGet(env, "data/search_thesaurus.json", 3600),
+                                          cachedGet(env, "data/search_segdict.txt", 3600)]);
       const groups = th ? (await th.json()).groups : [];
       const seg = sg ? (await sg.text()).split("\n").filter((l) => l && l[0] !== "#") : [];
       return new SEARCHCORE.SearchCore(groups, seg);
@@ -256,6 +538,83 @@ function edgeIndex(env) {
     })().catch((e) => { EDGE_P = null; throw e; });
   }
   return EDGE_P;
+}
+
+/* REFINE FACETS — the narrowing chips, computed from the result set itself.
+ *
+ * A reader who typed two ordinary words ("japanese restaurant", "skin tag
+ * removal", "somewhere to fix my zip") cannot be asked to also know our shelf
+ * codes. So after the words are answered, we read what the ANSWER is made of —
+ * its cuisines, its shelves, its services, its districts, whether any of it
+ * keeps hours — and hand back the handful of splits that would actually divide
+ * THIS set. Every value is a term the reader can add to their query; the chip
+ * re-asks with one more word, which narrows on any engine and needs no field
+ * the index does not already carry.
+ *
+ * GENEROUS, and read off what the row already tells us — the tags the build
+ * writes, the shelf, the match blob — never a new column. A value every row
+ * shares is dropped: it narrows nothing. Kept small on purpose: six per group,
+ * and only groups that split the set. */
+const RF_CUISINE = ("japanese korean thai chinese italian indian burmese vietnamese mexican "
+  + "french american isan northern lanna muslim halal vegetarian vegan seafood noodle sushi "
+  + "ramen shabu sukiyaki bbq buffet steak pizza burger dimsum izakaya khaosoi curry dessert "
+  + "bakery coffee tea").split(" ");
+const RF_SERVICE = ("alterations mend hemming zip repair tailoring dermatology cosmetic dental "
+  + "braces massage laundry printing framing").split(" ");
+const RF_FEATURE = { outdoor: ["outdoor", "นั่งนอก"], wifi: ["wifi", "ไวไฟ"], halal: ["halal", "ฮาลาล"],
+  delivery: ["delivery", "ส่งถึง"], parking: ["parking", "จอดรถ"], aircon: ["air-con", "แอร์"],
+  "24h": ["24"], takeaway: ["takeaway", "กลับบ้าน"] };
+const RF_CATLABEL = { food: ["ร้านอาหาร", "food & eats"], medical: ["คลินิก-โรงพยาบาล", "clinics & hospitals"],
+  shopping: ["ร้านค้า", "shops"], repair: ["ซ่อม", "repair"], beauty: ["ความงาม", "beauty"],
+  hotel: ["ที่พัก", "stays"], school: ["โรงเรียน", "schools"], transport: ["เดินทาง", "transport"],
+  wat: ["วัด", "temples"], market: ["ตลาด", "markets"], essentials: ["ของใช้", "essentials"],
+  business: ["บริการ", "services"], sights: ["ที่เที่ยว", "sights"], community: ["ชุมชน", "community"],
+  realestate: ["อสังหาฯ", "property"] };
+const RF_ORDER = ["cuisine", "kind", "service", "type", "area", "feature", "open"];
+const RF_GROUP_LABEL = { cuisine: ["อาหาร", "cuisine"], kind: ["ประเภท", "kind"], service: ["บริการ", "service"],
+  type: ["หมวด", "category"], area: ["ย่าน", "area"], feature: ["สิ่งอำนวย", "features"], open: ["เวลาเปิด", "open"] };
+
+function rfWord(hay, w) { return hay.includes(w); }
+
+/* rows: the api index rows of the whole matched set (before paging). `qwords`:
+ * the words already typed, so a chip never offers a term the reader gave. */
+export function refineFacets(rows, qwords) {
+  const n = rows.length;
+  if (n < 2) return [];
+  const typed = new Set((qwords || []).map(w => w.toLowerCase()));
+  const dims = {};             // dim -> Map(value -> [count, add-term, thLabel, enLabel])
+  const bump = (dim, value, add, th, en) => {
+    if (typed.has((add || value).toLowerCase())) return;
+    let m = dims[dim]; if (!m) { m = new Map(); dims[dim] = m; }
+    const row = m.get(value) || [0, add || value, th || value, en || value];
+    row[0] += 1; m.set(value, row);
+  };
+  for (const r of rows) {
+    const cat = r.cat || [], sub = r.sub || [], tags = r.tags || [];
+    const hay = ((r.q || "") + " " + (r.name || "") + " " + (r.nameEn || "")).toLowerCase();
+    for (const c of cat) { const l = RF_CATLABEL[c]; bump("type", c, l ? l[1] : c, l ? l[0] : c, l ? l[1] : c); }
+    for (const s of sub) bump("kind", s, s, s, s);
+    if (cat.includes("food")) for (const cz of RF_CUISINE)
+      if (tags.includes(cz) || rfWord(hay, cz)) bump("cuisine", cz, cz, cz, cz);
+    for (const sv of RF_SERVICE) if (tags.includes(sv) || rfWord(hay, sv)) bump("service", sv, sv, sv, sv);
+    for (const f in RF_FEATURE) if (RF_FEATURE[f].some(nd => hay.includes(nd))) bump("feature", f, RF_FEATURE[f][0], f, f);
+    for (const t of tags) {
+      if (t.startsWith("in-mueang-")) { const a = t.slice(3).replace(/-/g, " "); bump("area", a, a, a, a); }
+      else if (t.startsWith("tambon-")) { const a = "tambon " + t.slice(7).replace(/-/g, " "); bump("area", a, t.slice(7).replace(/-/g, " "), a, a); }
+    }
+    if ((r.has || []).includes("hours")) bump("open", "open", "open now", "เปิดอยู่", "open now");
+  }
+  const out = [];
+  for (const dim of RF_ORDER) {
+    const m = dims[dim]; if (!m) continue;
+    const vals = [...m.entries()]
+      .filter(([, row]) => row[0] < n && row[0] > 0)      // a value shared by all narrows nothing
+      .sort((a, b) => b[1][0] - a[1][0])
+      .slice(0, 6)
+      .map(([value, [count, add, th, en]]) => ({ value, add, count, th, en }));
+    if (vals.length) out.push({ dim, th: RF_GROUP_LABEL[dim][0], en: RF_GROUP_LABEL[dim][1], values: vals });
+  }
+  return out;
 }
 
 /* /api/v1/search?q=…&limit=&offset=&province= — the words, ranked as the page
@@ -337,9 +696,11 @@ export async function searchHandler(env, ix, sp, now = new Date()) {
     if (d != null) out.distanceM = Math.round(d);
     return out;
   });
+  const refine = refineFacets(rows.map(r => r[0]),
+                              (q || "").toLowerCase().split(/\s+/).filter(Boolean));
   return { ...envelope, total: rows.length, count: results.length,
            tier: rows.length && rows[0][3] != null ? rows[0][3] : null,
-           notes, results, attribution: ix.attribution, licence: ix.licence, terms: ix.terms };
+           notes, refine, results, attribution: ix.attribution, licence: ix.licence, terms: ix.terms };
 }
 
 /* The 🎲 destinations. Re-read every ten minutes so an isolate that has been
@@ -523,7 +884,12 @@ async function api(request, env, url, path, ctx) {
 
   if (path === "/search") {
     try {
-      const res = apiJson(await searchHandler(env, ix, url.searchParams));
+      const body = await searchHandler(env, ix, url.searchParams);
+      const res = apiJson(body);
+      /* How many answered, for the counter (record(): a search that found
+       * nothing keeps its words there). Set before the clone so a cached copy
+       * carries it too. */
+      res.headers.set("x-md-n", String(body.total ?? (body.results || []).length));
       if (cache && ckey) {
         try { ctx.waitUntil(cache.put(ckey, res.clone()).catch(() => {})); }
         catch { /* unfilled: the next asker computes it */ }
@@ -602,6 +968,36 @@ async function serve(request, env, ctx) {
   if (request.method === "OPTIONS")
     return new Response(null, { status: 204, headers: CORS });
 
+  /* The mailing list (subscribe.js). Ahead of the GET/HEAD guard because the
+   * sign-up form POSTs here; subscribe() refuses on its own every method a
+   * given path does not take. Double opt-in, and the confirmation mail is
+   * gated off (MAILING_LIST_LIVE). */
+  if (url.pathname === "/subscribe" || url.pathname === "/subscribe/" ||
+      url.pathname === "/subscribe/confirm")
+    return subscribe(request, env, url);
+
+  /* The listing-agent gate (lister.js): join, confirm, Nan's invite and
+   * decline taps, sign-in, and /lister/me for the add form. */
+  if (ownsLister(url.pathname))
+    return lister(request, env, url);
+
+  /* A reader's position, shared for an hour (live.js). POSTs from the sharer's
+   * phone, GETs from the people holding the link. */
+  if (ownsLive(url.pathname))
+    return live(request, env, url);
+  if (url.pathname === "/api/resolve")
+    return resolve(url);
+
+  /* What readers do on the maps (mapSense, below). A POST from sendBeacon. */
+  if (url.pathname === "/api/map")
+    return mapSense(request, env);
+  /* What gets shared, and who comes back (sharesense.js). A POST from sendBeacon. */
+  if (url.pathname === "/api/share")
+    return shareSense(request, env, classify);
+  /* What people tap on /find, and whether they come back (findlearn.js). */
+  if (url.pathname === "/api/find")
+    return findSense(request, env, classify);
+
   if (request.method !== "GET" && request.method !== "HEAD") {
     return new Response("Method not allowed", {
       status: 405,
@@ -650,6 +1046,9 @@ async function serve(request, env, ctx) {
   if (url.pathname.startsWith("/api/v1"))
     return api(request, env, url, url.pathname.slice(7), ctx);
 
+  if (fleetOwns(url))
+    return fleetSearch(request, env, url, ctx, () => edgeCore(env));
+
   /* Renamed shelves. The learn/ slug said classes while the shelf held
    * gyms (WO-37, 2026-08-26); the pages moved to sport/ and every old URL
    * keeps working — a rename must never eat a bookmark or a search
@@ -659,6 +1058,22 @@ async function serve(request, env, ctx) {
     const to = `/${renamed[1]}/sport${renamed[2] || "/"}`;
     return Response.redirect(url.origin + to + url.search, 301);
   }
+
+  /* Retired pages. /why was "ทำไมมดแดงดีกว่า Google" and stopped being built
+   * on 2026-09-04; what.html answers the same question and is the page a
+   * reader wanted. It matters more than an ordinary retirement: on
+   * 2026-09-20 it was one of a handful of motdang.net URLs Google held, and
+   * a 404 on the only address an index knows teaches that index the site is
+   * gone. 301 moves the entry to a page that exists.
+   *
+   * /merit.html was the nine-temple page; /wats/ is the site that replaced it
+   * on 2026-09-21 — the same rounds with the streets drawn, a page per wat, and
+   * a slug that says what it holds. Anything that linked or bookmarked the old
+   * address lands on the new one. */
+  const retired = { "/why": "/what.html", "/why.html": "/what.html",
+                    "/merit": "/wats/", "/merit.html": "/wats/" };
+  if (retired[url.pathname])
+    return Response.redirect(url.origin + retired[url.pathname] + url.search, 301);
 
   /* Near-misses for the Listing Sheet. /listings resolves on its own (an
    * extensionless path tries listings/index.html), but the singular and the
@@ -684,11 +1099,22 @@ async function serve(request, env, ctx) {
      * (and may carry W/ weak tags, a comma list, or *). Range has the same
      * shape of trap with suffix and open-ended forms. Letting R2 parse both
      * removes the whole class. */
-    const opts = { onlyIf: request.headers };
+    const opts = { onlyIf: ext(key) === "html" ? ntConditional(request.headers) : request.headers };
     if (range) opts.range = request.headers;
 
     const obj = await env.SITE.get(key, opts);
     if (obj === null) continue;
+
+    /* A folder asked for without its slash: send the reader to the slash. Served
+     * in place, the page's relative links (img/x.jpg, app.js, ../p/…) resolve one
+     * folder too high and 404 — 43 pages broke that way, found 2026-10-04 after
+     * /sites/best-krapow showed empty frames. Only the folder's index redirects;
+     * /toilets still serves toilets.html straight. */
+    if (key.endsWith("/index.html") &&
+        key === decodeURIComponent(url.pathname).replace(/^\/+/, "") + "/index.html") {
+      if (obj.body) obj.body.cancel();
+      return Response.redirect(url.origin + url.pathname + "/" + url.search, 301);
+    }
 
     /* No body means the conditional matched: unchanged since the copy the
      * reader already holds. R2 hands back a plain R2Object in that case. */
@@ -709,7 +1135,7 @@ async function serve(request, env, ctx) {
       return new Response(null, { status, headers: h });
     }
     const res = new Response(obj.body, { status, headers: h });
-    return key === "index.html" ? withWhere(res, request) : res;
+    return ext(key) === "html" ? withWhere(res, request, obj.size) : res;
   }
 
   /* Miss. Serve the site's own 404 page when one has been deployed, so a
@@ -772,7 +1198,11 @@ function record(request, response, env, ms) {
   if (!env.TRAFFIC) return; // not bound — nothing to do, and nothing to say
 
   const url = new URL(request.url);
-  const { category, agent } = classify(request.headers.get("user-agent") || "");
+  /* A map beacon is not an arrival: mapSense writes its own rows. Nor is a
+   * live share's position, sent every few seconds for an hour. */
+  if (url.pathname === "/api/map" || url.pathname === "/api/share" || url.pathname === "/api/find" || url.pathname.startsWith("/api/live")) return;
+  const { category, agent } = classify(request.headers.get("user-agent") || "",
+    { asn: request.cf?.asn, headers: request.headers });
 
   let refHost = "";
   const ref = request.headers.get("referer");
@@ -795,12 +1225,95 @@ function record(request, response, env, ms) {
       String(response.status),        // 6 status
       refHost,                        // 7 referrer host only
       request.method,                 // 8 method
+      ...searchSense(url, response),  // 9–11 search: the view, and words that found nothing
     ],
     /* double1 is a literal 1 so SUM(double1) survives sampling; COUNT(*) would
      * quietly under-report if this site ever gets busy enough to be sampled. */
-    doubles: [1, response.status, ms],
+    doubles: [1, response.status, ms, ...searchCount(url, response)],
     indexes: [url.host],              // sampling key, per-site
   });
+  /* opened from a shared link (?s=<code>.<channel>): one more row, sharesense.js */
+  shareLand(env, url, request, response, category, agent, refHost);
+  /* a crawler that says it can pay, or signs itself: one more row, crawlpay.js */
+  crawlListen(request, response, env, category, agent, ms);
+}
+
+/* ---- WHERE READERS LOOK: THE MAPS (Nan, 2026-09-29, "everything") --------
+ * Two sources, both in traffic_eye beside the arrival rows:
+ *
+ *   /api/v1/search rows gain blob9 "search", blob10 the cell at the middle of
+ *   the bbox the map asked about, blob11 the words — kept only when nothing
+ *   was found — and double4 the view's zoom, double5 the number found. The
+ *   map asks this every time a reader with words in the box moves it; so do
+ *   machines that call the API directly, and they land in their own column.
+ *
+ *   /api/map rows, one per event the maps send (mapsense_layer.py): blob9 the
+ *   event, blob10 the cell, blob11 the place key or a short detail, blob12
+ *   the page the map is on; double4 the zoom. double1 is 0 on these rows so
+ *   every existing SUM(double1) — traffic.py, ticker, served, the dashboard —
+ *   counts arrivals exactly as before; a map event counts in double5.
+ *
+ * A cell is latitude and longitude to two decimals, about 1.1 km. */
+const CELL = (lat, lng) => `${(+lat).toFixed(2)},${(+lng).toFixed(2)}`;
+
+function bboxOf(url) {
+  const b = (url.searchParams.get("bbox") || "").split(",").map(Number);
+  return b.length === 4 && b.every(Number.isFinite) ? b : null;
+}
+
+function searchSense(url, response) {
+  if (url.pathname !== "/api/v1/search") return [];
+  const b = bboxOf(url);
+  const h = response.headers.get("x-md-n");
+  const n = h === null ? -1 : Number(h);
+  const q = (url.searchParams.get("q") || "").trim().replace(/\s+/g, " ");
+  return ["search", b ? CELL((b[1] + b[3]) / 2, (b[0] + b[2]) / 2) : "",
+          n === 0 ? q.slice(0, 48) : ""];
+}
+
+function searchCount(url, response) {
+  if (url.pathname !== "/api/v1/search") return [];
+  const b = bboxOf(url);
+  const w = b ? Math.abs(b[2] - b[0]) : 0;
+  const h = response.headers.get("x-md-n");
+  return [w > 0 ? Math.round(Math.log2(360 / w)) : -1, h === null ? -1 : Number(h)];
+}
+
+const MAP_EVENTS = new Set(["view", "open", "saved", "unsave", "pin", "share",
+                            "code", "coord", "near"]);
+
+/* The beacon itself. Anything malformed is dropped without a word: this
+ * answers 204 whatever arrives, so there is nothing here to probe. */
+async function mapSense(request, env) {
+  const done = new Response(null, { status: 204, headers: { "cache-control": "no-store" } });
+  if (request.method !== "POST" || !env.TRAFFIC) return done;
+  let d;
+  try {
+    const text = await request.text();
+    if (text.length > 8192) return done;
+    d = JSON.parse(text);
+  } catch { return done; }
+  if (!d || !Array.isArray(d.ev)) return done;
+  const url = new URL(request.url);
+  const { category, agent } = classify(request.headers.get("user-agent") || "",
+    { asn: request.cf?.asn, headers: request.headers });
+  const pg = typeof d.pg === "string" && /^\/[\w\-\/.]{0,95}$/.test(d.pg) ? d.pg : "";
+  try {
+    for (const e of d.ev.slice(0, 40)) {
+      if (!e || !MAP_EVENTS.has(e.e)) continue;
+      const c = typeof e.c === "string" && /^-?\d{1,2}\.\d{2},-?\d{1,3}\.\d{2}$/.test(e.c) ? e.c : "";
+      const k = typeof e.k === "string" && /^[a-z]{2}:[a-z0-9-]{1,90}$/.test(e.k) ? e.k
+              : typeof e.d === "string" && /^[a-z0-9_-]{1,24}$/.test(e.d) ? e.d : "";
+      const z = Number.isInteger(e.z) && e.z >= 0 && e.z <= 22 ? e.z : -1;
+      env.TRAFFIC.writeDataPoint({
+        blobs: [url.host, category, agent, "/api/map", request.cf?.country || "XX",
+                "204", "(same site)", "EVENT", e.e, c, k, pg],
+        doubles: [0, 204, 0, z, 1],
+        indexes: [url.host],
+      });
+    }
+  } catch { /* counting is never worth an error */ }
+  return done;
 }
 
 /* Paths here are high-cardinality by design — 93,577 of them — which Analytics
@@ -810,12 +1323,64 @@ function trimPath(pathname) {
   return pathname.length > 96 ? pathname.slice(0, 96) + "…" : pathname;
 }
 
+/* GO READ THE RULES (Nan, 2026-09-29) — a courtesy, not a block.
+ * A browser string from a cloud network (the counter's "data centre · …"
+ * rows; 36,400 on 29 Sep from Alibaba Cloud in Singapore alone) gets a 302 to
+ * the precepts at the ho trai instead of the page. robots.txt and llms.txt
+ * still answer, so this site's own rules stay readable from anywhere.
+ *
+ * Left alone: Meta and Azure, whose link-preview fetchers wear browser
+ * strings (Facebook is where readers come from); and "Chrome string, no
+ * Chrome", which on 29 Sep included Thai requests loading fonts and icons
+ * like an in-app browser. Both stay counted as machines.
+ *
+ * The counter still writes the row, with status 302. */
+const RULES = "https://wichaa.net/hotrai/t/sin-yon.txt";
+const RULES_SPARED = new Set(["Meta", "Microsoft Azure"]);
+const RULES_OPEN = new Set(["/robots.txt", "/llms.txt"]);
+
+function sendToRules(request) {
+  if (RULES_OPEN.has(new URL(request.url).pathname)) return null;
+  const { category, agent } = classify(request.headers.get("user-agent") || "",
+    { asn: request.cf?.asn, headers: request.headers });
+  if (category !== "other" || !agent.startsWith("data centre · ")) return null;
+  if (RULES_SPARED.has(agent.slice("data centre · ".length))) return null;
+  return new Response(`Go read the rules: ${RULES}\n`, {
+    status: 302,
+    headers: {
+      location: RULES,
+      "content-type": "text/plain; charset=utf-8",
+      "cache-control": "no-store",
+    },
+  });
+}
+
+/* WHICH ROBOTS PAY (Nan, 2026-10-04) — crawlpay.js. Off unless CRAWLPAY_ASK
+ * is "on"; even then only training crawlers on one page in ten get a 402. */
+function askCrawler(request, env) {
+  if (env.CRAWLPAY_ASK !== "on") return null;
+  if (env.CRAWLPAY_UNTIL && Date.now() > Date.parse(env.CRAWLPAY_UNTIL)) return null;
+  const { category, agent } = classify(request.headers.get("user-agent") || "",
+    { asn: request.cf?.asn, headers: request.headers });
+  return crawlAsk(request, env, category, agent);
+}
+
+/* Plain http:// answers with a 301 to the same path and query on https://.
+ * A local wrangler dev on http://localhost is left alone. */
+export function toHttps(request) {
+  const u = new URL(request.url);
+  if (u.protocol !== "http:") return null;
+  if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname) || u.hostname.endsWith(".localhost")) return null;
+  u.protocol = "https:";
+  return new Response(null, { status: 301, headers: { location: u.toString(), "cache-control": "public, max-age=86400" } });
+}
+
 export default {
   async fetch(request, env, ctx) {
     const started = Date.now();
 
     /* The one thing that matters. Nothing below this line can fail it. */
-    const response = await serve(request, env, ctx);
+    const response = finish(toHttps(request) || sendToRules(request) || askCrawler(request, env) || await serve(request, env, ctx));
 
     try {
       ctx.waitUntil(Promise.resolve(record(request, response, env, Date.now() - started)));

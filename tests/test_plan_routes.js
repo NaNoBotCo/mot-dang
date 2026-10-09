@@ -41,8 +41,11 @@ function need(p, what) {
 }
 
 const src = fs.readFileSync(need(path.join(DOCS, 'md.js'), 'run build.py first'), 'utf8');
-const merit = JSON.parse(fs.readFileSync(need(path.join(ROOT, 'data', 'merit.json'),
-  'run importers/build_merit.py first'), 'utf8'));
+// The wat rounds are the fixture here: nine real stops a reader is sent to
+// walk, in nine parts of the city, which is a harder test of the plan JS than
+// any hand-written pair of points.
+const wats = JSON.parse(fs.readFileSync(need(path.join(ROOT, 'data', 'wats.json'),
+  'run importers/build_wats.py first'), 'utf8'));
 const graphPath = need(path.join(ROOT, 'data', 'road_graph.json'), 'run build_road_graph.py first');
 const recs = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'canonical', 'cm.json'), 'utf8'));
 const byId = {};
@@ -111,7 +114,7 @@ const lineLen = p => !p ? 0 : p.reduce((t, q, i, a) => i ? t + hav(a[i - 1], q) 
   let legs = 0, drawnLow = [], noPath = [], unrouted = [], distinctNames = true;
   let mapsWithMoat = 0, unnamedMoat = [], gateLabels = 0, farLegs = [];
 
-  merit.routes.forEach(rt => {
+  wats.rounds.forEach(rt => {
     const stops = rt.stops.map(s => {
       const r = byId[s.id];
       return { key: s.id, n: s.name || s.nameEn || s.id, e: s.nameEn, p: s.province,
@@ -129,11 +132,17 @@ const lineLen = p => !p ? 0 : p.reduce((t, q, i, a) => i ? t + hav(a[i - 1], q) 
         const o = L[m];
         if (!o) return;
         if (!o.path || o.path.length < 2) { noPath.push(where + ' ' + m); return; }
-        const cover = lineLen(o.path) / (o.km * 1000);
+        // The line is the ROAD; the metres beside it also carry the walk in
+        // from each pin to that road, which leg() reports as `snap`. Measuring
+        // the line against the whole journey marked a 194 m ride between two
+        // wats set back from the street as 57% drawn, when every metre of road
+        // in it was on the page.
+        const road = o.km * 1000 - (o.snap || 0);
+        const cover = road > 0 ? lineLen(o.path) / road : 1;
         // A stop the graph does not reach cannot be drawn to the end: the rest
         // is the straight walk-in, and the page says so in words rather than
         // drawing a road that is not there. Those legs are listed below.
-        if (o.km * 1000 > 120 && cover < MIN_COVER && (L.far || 0) < 100)
+        if (road > 120 && cover < MIN_COVER && (L.far || 0) < 100)
           drawnLow.push(where + ' ' + m + ' ' + Math.round(cover * 100) + '%');
       });
     });
@@ -150,16 +159,16 @@ const lineLen = p => !p ? 0 : p.reduce((t, q, i, a) => i ? t + hav(a[i - 1], q) 
       check(rt.slug + ': every walked leg is on the map', false, red + ' lines for ' + want + ' legs');
   });
 
-  console.log('\nrouting, over ' + merit.routes.length + ' rounds of nine');
+  console.log('\nrouting, over ' + wats.rounds.length + ' rounds of nine');
   check('every leg routes', unrouted.length === 0, unrouted.join('; ') || legs + ' legs');
   check('every routed leg draws a line', noPath.length === 0,
     noPath.length ? noPath.join('; ') : 'both modes, all ' + legs + ' legs');
   check('the line covers the walk it charges for', drawnLow.length === 0,
     drawnLow.length ? drawnLow.join('; ') : 'all legs ≥ ' + Math.round(MIN_COVER * 100) + '%');
-  check('a round of nine holds nine different temples', distinctNames);
+  check('a round of nine holds nine different wats', distinctNames);
 
   console.log('\nthe moat and its gates');
-  check('the ring reaches these maps at all', mapsWithMoat > 0, mapsWithMoat + ' of ' + merit.routes.length);
+  check('the ring reaches these maps at all', mapsWithMoat > 0, mapsWithMoat + ' of ' + wats.rounds.length);
   check('water on the page is named', unnamedMoat.length === 0, unnamedMoat.join(', ') || 'every one');
   check('gates are shipped to the page', (GEO.gates || []).length >= 9,
     (GEO.gates || []).length + ' gates and แจ่ง corners in plan.html');

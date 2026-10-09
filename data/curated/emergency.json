@@ -31,6 +31,17 @@
    "issuer_url": "https://www.disaster.go.th/"
   },
   {
+   "tel": "1784",
+   "th": "สายด่วนสาธารณภัย · น้ำท่วม ไฟป่า แผ่นดินไหว",
+   "en": "Disaster hotline · flood, wildfire, earthquake",
+   "note_th": "ตลอด 24 ชั่วโมง แจ้งเหตุและขอความช่วยเหลือสาธารณภัย",
+   "note_en": "24 hours, for reporting and asking help in a disaster",
+   "issuer": "กรมป้องกันและบรรเทาสาธารณภัย",
+   "issuer_url": "https://www.disaster.go.th/",
+   "added": "2026-09-04",
+   "_added_why": "WO-57. The four standing numbers answer an emergency that has happened to one person. This one answers the kind that happens to a district — the season this site is actually exposed to. Same issuer as 199, which was already here."
+  },
+  {
    "tel": "1155",
    "th": "ตำรวจท่องเที่ยว",
    "en": "Tourist police",

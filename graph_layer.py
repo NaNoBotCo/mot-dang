@@ -204,17 +204,42 @@ def build_graph(g, data):
             edge(f"place:{pid}", bid, "branch_of", "computed", len(ids),
                  f"{len(ids)} branches on the map")
 
-    # -------------------------------------------------- the register's geography
+    # ------------------------------------------------------------- the geography
+    # THE RECEIPT HAS TO SAY WHICH. Until 2026-09-08 both of these read "the
+    # temple register files it here", which was true of all 3,267 records that
+    # had an amphoe — every one arrived from a register that shipped the field.
+    # derive.py now reads the same field out of the record's own address string
+    # for ~14,000 more, and a receipt that named the register for those would be
+    # a false one on the majority of the edges. provenance already knows the
+    # difference, so the edge asks it rather than guessing.
+    _SAID = {"derived:address-parse": ("its own address says so",
+                                       "its own address says so")}
     for r in records:
         a = r.get("attrs") or {}
-        if a.get("amphoe"):
-            aid = node(f'amphoe:{a["amphoe"]}', "amphoe", a["amphoe"])
-            edge(f'place:{r["id"]}', aid, "in_amphoe", "computed", 1,
-                 "the temple register files it here")
-        if a.get("tambon"):
-            tid = node(f'tambon:{a["tambon"]}', "tambon", a["tambon"])
-            edge(f'place:{r["id"]}', tid, "in_tambon", "computed", 1,
-                 "the temple register files it here")
+        prov_of = r.get("provenance") or {}
+        for field, kind, rel in (("amphoe", "amphoe", "in_amphoe"),
+                                 ("tambon", "tambon", "in_tambon")):
+            if not a.get(field):
+                continue
+            src = (prov_of.get(field) or {}).get("source") or ""
+            why = _SAID.get(src, ("a register files it here",))[0]
+            nid = node(f'{kind}:{a[field]}', kind, a[field])
+            edge(f'place:{r["id"]}', nid, rel, "computed", 1, why)
+
+    # ------------------------------------------------------------- inside what
+    # derive.py's insideOf: a shop and the market, hospital or campus standing
+    # at the same exact coordinate. A real containment, and the only relation
+    # here whose receipt is a refusal count as much as a match — the pass
+    # writes nothing where two candidate hosts share a pin.
+    _inside = {}
+    for r in records:
+        host = (r.get("attrs") or {}).get("insideOfId")
+        if host:
+            _inside.setdefault(host, []).append(r["id"])
+    for host, members in _inside.items():
+        for pid in members:
+            edge(f"place:{pid}", f"place:{host}", "inside_of", "computed",
+                 len(members), f"{len(members)} at this exact pin")
 
     # ------------------------------------------------------- the other property
     # 523 temples matched to wichaa.net by a written rule — exact Thai name AND

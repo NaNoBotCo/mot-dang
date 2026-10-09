@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """home_layer.py — the front page of motdang.net, built from zero.
 
-Nan, 2026-09-19: remove all body content and build from scratch — big
+NaN, 2026-09-19: remove all body content and build from scratch — big
 parallax pictures, what is close by and happening now or soon (geofencing,
 counters, clocks, calendars), the minisites, some of the divination back,
 uncluttered, few words, a very multilingual audience, no search box until
@@ -14,7 +14,7 @@ words on the page are the nine the redesign kept plus the names of things.
     python3 home_layer.py            # writes docs/index.html
 
 build.py calls render() for index.html so the daily walk ships the same page.
-Pictures: docs/site/hero/ (Nan's own frames, importers/make_hero.py) and the
+Pictures: docs/site/hero/ (NaN's own frames, importers/make_hero.py) and the
 Commons picks in docs/site/ with their credits. Nothing here fetches at load
 except the pictures and, on a tap, nine cells of data/here/.
 """
@@ -24,6 +24,8 @@ import json
 import math
 import pathlib
 import zoneinfo
+
+import shelflife
 
 ROOT = pathlib.Path(__file__).resolve().parent
 DATA = ROOT / "data"
@@ -40,7 +42,7 @@ CITIES = (("cm", "เชียงใหม่", "Chiang Mai", 18.7883, 98.9853),
 # table filled all twenty-eight rows because all twenty-eight could be filled,
 # and the result was a mossy demon mask over Beauty & Hair, a temple guardian
 # over Pets and a hillside of flowers over Elephants — every one of them an
-# association that holds at one remove and collapses on contact. Nan kept a
+# association that holds at one remove and collapses on contact. NaN kept a
 # copy: archive.org/details/motdang-shelves-2026-09-19.
 #
 # So the rule now is the plain one. A shelf gets a photograph that shows the
@@ -49,7 +51,7 @@ CITIES = (("cm", "เชียงใหม่", "Chiang Mai", 18.7883, 98.9853),
 # not a gap to be filled later with whatever is nearest; it is the answer
 # until a picture of the thing exists.
 #
-# A value is a hero slug (Nan's own frame), ("site", slug) for one of the
+# A value is a hero slug (NaN's own frame), ("site", slug) for one of the
 # hand-picked Commons photographs in image_picks.json, or None.
 SHELF_PIC = {
     "wat": "golden-chedi-flags",                  # her own: chedi, flags, wat ground
@@ -82,19 +84,22 @@ SHELF_PIC = {
     "sights": "black-house",                      # her own: the Black House gate
 }
 
-# The minisites. `pic` is a hero slug or ("site", commons-slug).
-MINISITES = [
-    {"href": "loop/", "th": "ลูปแม่ฮ่องสอน", "en": "Mae Hong Son Loop", "pic": "flower-garden-hills"},
-    {"href": "muay-thai/", "th": "มวยไทย", "en": "Muay Thai", "pic": ("site", "muay-thai-thai-boxing-kids-img-1824")},
-    {"href": "https://wichaa.net/handpoke/", "th": "สักมือ", "en": "Hand Poke", "pic": ("site", "thai-tattoo-made-by-ajarn-prayot")},
-    {"href": "festivals.html", "th": "เทศกาล", "en": "Festivals", "pic": ("site", "chiang-mai-procession-lantern-festival-thailand")},
-    {"href": "merit.html", "th": "ไหว้พระ ๙ วัด", "en": "Nine Wats", "pic": "golden-chedi-1"},
-    {"href": "horoscope.html", "th": "ดวง", "en": "Horoscope", "pic": ("site", "420-sak-yant-tattoo-32")},
-    {"href": "foon.html", "th": "ฝุ่น", "en": "Dust", "pic": "pm25-sign"},
-    {"href": "plan.html", "th": "วางแผนเดิน", "en": "Plan a walk", "pic": "lane-morning"},
-    {"href": "toilets.html", "th": "ห้องน้ำ", "en": "Toilets", "pic": None},
-    {"href": "chuai.html", "th": "ช่วย", "en": "Help, nearest", "pic": None},
-]
+# The minisites come from the register (data/curated/sites.json, via sites_layer);
+# this only keeps the picture each one wears here. A hero slug or ("site", commons-slug).
+_MINI_PICS = {
+    "chiang-rai/": "black-house",
+    "loop/": "flower-garden-hills",
+    "muay-thai/": ("site", "muay-thai-thai-boxing-kids-img-1824"),
+    "https://wichaa.net/handpoke/": ("site", "thai-tattoo-made-by-ajarn-prayot"),
+    "festivals.html": ("site", "chiang-mai-procession-lantern-festival-thailand"),
+    "wats/": "golden-chedi-1",
+    "horoscope.html": ("site", "420-sak-yant-tattoo-32"),
+    "foon.html": "pm25-sign",
+    "plan.html": "lane-morning",
+}
+import sites_layer  # noqa: E402
+MINISITES = [{"href": c["href"], "th": c["th"], "en": c["en"], "pic": _MINI_PICS.get(c["href"])}
+             for c in sites_layer.best(12)]
 
 
 def _j(p):
@@ -215,8 +220,11 @@ def wan_phra(today):
 
 
 def weather_air():
-    W = {c["id"]: c for c in _j("weather.json")["cities"]}
-    A = {p["id"]: p for p in _j("air.json")["places"]}
+    # A figure past its age goes in empty (shelflife, Nan 2026-09-25 "b"); this
+    # page draws from the payload, so the build-time check is the one it gets.
+    wj, aj = _j("weather.json"), _j("air.json")
+    W = {c["id"]: c for c in wj["cities"]} if shelflife.fresh("weather", wj.get("generated")) else {}
+    A = {p["id"]: p for p in aj["places"]} if shelflife.fresh("air", aj.get("generated")) else {}
     out = {}
     for key, _, _, _, _ in CITIES:
         wid = {"cm": "chiang-mai", "cr": "chiang-rai"}[key]
@@ -293,7 +301,7 @@ class Art:
         return {"j": f'site/{slug}.jpg', "w": "", "W": p["width"], "H": p["height"], "by": slug}
 
     def flat(self):
-        """Every frame of Nan's, as the page carries them: the two files, the
+        """Every frame of NaN's, as the page carries them: the two files, the
         hour pool, the scene it was chosen for, the iconic flag, and — only
         where the picks marked the frame public — a coordinate at three
         decimals. That coordinate is the whole geofence: a reader standing at
@@ -326,7 +334,7 @@ class Art:
             f'{esc(p.get("artist") or "")}, {esc(p.get("licence") or "")}</li>'
             for p in self.used_commons.values())
         return (f'<!-- stylecheck: allow-start --><details class="credits"><summary>{bi("ภาพ", "Pictures")}</summary>'
-                f'<p>{bi("ภาพถ่ายในหน้านี้: Nan", "Photographs on this page: Nan")} · CC BY 4.0</p>'
+                f'<p>{bi("ภาพถ่ายในหน้านี้: NaN", "Photographs on this page: NaN")} · CC BY 4.0</p>'
                 f'<ul>{rows}</ul><p><a href="pictures.html">{bi("ภาพทั้งหมด", "All pictures")}</a></p></details><!-- stylecheck: allow-end -->')
 
 
@@ -366,7 +374,7 @@ def render(today=None):
     # Server-side frame per scene: a fixed choice per build date, so a reader
     # with no script still sees a picture. The script re-picks by the hour.
     #
-    # THE PICTURES DO NOT MOVE (Nan, 2026-09-19). They are not in the scenes
+    # THE PICTURES DO NOT MOVE (NaN, 2026-09-19). They are not in the scenes
     # at all: one fixed layer sits behind the whole page, holding one frame
     # per scene, and the scene that owns the viewport is the one showing. The
     # page scrolls; the photograph stays exactly where it is and the next one
@@ -386,7 +394,6 @@ def render(today=None):
 
     lang_html = ('<div class="langs" role="group" aria-label="ภาษา Language">'
                  '<button type="button" data-lang="th" aria-pressed="false">ไทย</button>'
-                 '<button type="button" data-lang="both" aria-pressed="true">+EN</button>'
                  '<button type="button" data-lang="en" aria-pressed="false">EN</button></div>')
     read_html = ('<button type="button" class="readbtn" data-read aria-pressed="false" '
                  'title="อ่านง่าย · Easy read" aria-label="อ่านง่าย · Easy read">อา</button>')
@@ -417,7 +424,8 @@ def render(today=None):
     og = art.hero("golden-chedi-flags")["j"]
 
     page = f"""<!DOCTYPE html>
-<html lang="th" class="lang-both" data-root=""><head><meta charset="utf-8">
+<html lang="th" class="lang-both" translate="no" data-root=""><head><meta charset="utf-8">
+<meta name="google" content="notranslate">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>มดแดง — เชียงใหม่ · เชียงราย · Mot Dang — Chiang Mai & Chiang Rai</title>
 <meta name="description" content="{esc(desc)}">
@@ -437,7 +445,7 @@ def render(today=None):
 <link rel="icon" type="image/svg+xml" href="logo/motdang-favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="logo/motdang-mark-32.png">
 <link rel="apple-touch-icon" href="logo/motdang-mark-180.png">
-<script>try{{var _r=document.documentElement,_l=localStorage.getItem('md-lang');if(localStorage.getItem('md-read')==='1')_r.classList.add('easyread');if(_l==='en'||_l==='th'){{_r.classList.remove('lang-both');_r.classList.add('lang-'+_l)}}if(_l==='en')_r.lang='en'}}catch(e){{}}</script>
+<script>try{{var _r=document.documentElement,_l=localStorage.getItem('md-lang');if(localStorage.getItem('md-read')==='1')_r.classList.add('easyread');if(_l!=='th'&&_l!=='en')_l=/bot|crawl|spider|slurp|preview|lighthouse/i.test(navigator.userAgent)?null:/^th/i.test(navigator.language||'')?'th':'en';if(_l==='en'||_l==='th'){{_r.classList.remove('lang-both');_r.classList.add('lang-'+_l)}}if(_l==='en')_r.lang='en'}}catch(e){{}}</script>
 <style>{FACES}
 {CSS}</style>
 <script type="application/ld+json">{json.dumps({"@context": "https://schema.org", "@type": "WebSite", "name": "มดแดง Mot Dang", "alternateName": "Mot Dang", "url": BASE, "inLanguage": ["th", "en"]}, ensure_ascii=False)}</script>
@@ -484,7 +492,7 @@ def render(today=None):
 <p class="where" id="where"></p>
 <button type="button" class="locate" id="locate">📍 <span>{bi("ที่ฉันยืนอยู่", "Where I stand")}</span></button>
 <ol class="nearlist" id="nearlist"></ol>
-<p class="doors"><a href="map.html">{bi("แผนที่", "Map")}</a> · <a href="here.html">{bi("ตรงนี้", "Here")}</a> · <a href="toilets.html">{bi("ห้องน้ำ", "Toilets")}</a></p>
+<p class="doors"><a href="map.html">{bi("แผนที่", "Map")}</a> · <a href="here.html">{bi("ตรงนี้", "Here")}</a> · <a href="toilets.html">{bi("ห้องน้ำ", "Toilets")}</a><span class="nnplanwrap" hidden> · <a class="nnplan" href="plan.html"></a></span></p>
 </div>
 </div>
 </section>
@@ -494,7 +502,7 @@ def render(today=None):
 <div class="plate">
 <h2>{bi("วันนี้", "Today")}</h2>
 <details class="card" id="daycard"><summary id="daysum"></summary><div class="more" id="daymore"></div>
-<p class="doors"><a href="horoscope.html">{bi("ดวง", "Horoscope")}</a> · <a href="merit.html">{bi("ไหว้พระ ๙ วัด", "Nine wats")}</a> · <a href="widgets.html#w-katha">{bi("คาถา", "Katha")}</a> · <a href="widgets.html#w-lottery">{bi("หวย", "Lottery")}</a> · <a href="widgets.html#w-siamsi">{bi("เซียมซี", "Siam si")}</a></p></details>
+<p class="doors"><a href="horoscope.html">{bi("ดวง", "Horoscope")}</a> · <a href="wats/">{bi("ไหว้พระ ๙ วัด", "Nine wats")}</a> · <a href="widgets.html#w-katha">{bi("คาถา", "Katha")}</a> · <a href="widgets.html#w-lottery">{bi("หวย", "Lottery")}</a> · <a href="widgets.html#w-siamsi">{bi("เซียมซี", "Siam si")}</a></p></details>
 </div>
 </div>
 </section>
@@ -673,6 +681,7 @@ html.lang-both .city .en,html.lang-both .moon .en{display:none}
 .nearlist .d{font-family:var(--mono);font-size:14px;color:var(--dim)}
 .nearlist .k{font-size:24px;width:32px;text-align:center}
 .nearlist .open{color:var(--gold);font-size:13px}
+.nearlist li.crow{font-family:var(--mono);font-size:12px;color:var(--dim);padding:6px 0}
 .doors{margin:clamp(20px,2.6vw,28px) 0 0;color:var(--dim);font-family:var(--th);font-size:clamp(14px,1.4vw,17px);
  display:flex;flex-wrap:wrap;gap:6px 14px}
 .doors a{padding:8px 0;color:var(--ink)}
@@ -741,7 +750,7 @@ function read(k){try{return localStorage.getItem(k);}catch(e){return null;}}
 document.querySelectorAll('.langs button').forEach(function(b){b.addEventListener('click',function(){
   var l=b.dataset.lang;H.classList.remove('lang-th','lang-en','lang-both');H.classList.add('lang-'+l);H.lang=l==='en'?'en':'th';
   store('md-lang',l==='both'?null:l);document.querySelectorAll('.langs button').forEach(function(x){x.setAttribute('aria-pressed',x===b);});});});
-(function(){var l=read('md-lang')||'both';document.querySelectorAll('.langs button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.lang===l);});})();
+(function(){var l=H.classList.contains('lang-th')?'th':H.classList.contains('lang-en')?'en':'both';document.querySelectorAll('.langs button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.lang===l);});})();
 var rb=document.querySelector('[data-read]');rb.setAttribute('aria-pressed',H.classList.contains('easyread'));
 rb.addEventListener('click',function(){var on=!H.classList.contains('easyread');H.classList.toggle('easyread',on);store('md-read',on?'1':null);rb.setAttribute('aria-pressed',on);});
 
@@ -756,7 +765,7 @@ function tick(){T=now();var el=document.getElementById('clock');el.textContent=(
 tick();setInterval(tick,15000);
 
 /* ---- the pictures ------------------------------------------------------
-   Every frame is Nan's own, and most carry a coordinate at three decimals.
+   Every frame is NaN's own, and most carry a coordinate at three decimals.
    So the page can answer the question a reader never asks out loud: show me
    where I am. Standing at a wat, the frames shot at that wat win; a few
    kilometres out, the ones from that part of town; past fifty, only the
@@ -867,7 +876,7 @@ function render(){var L=[],wa=D.wa[CITY]||{},h=T.h;
   var mk=nextMarket();if(mk){var w=mk.wait;var whenM=w===0?bi('เปิดอยู่','open now'):w<1440?fmtIn(w):bi(wdName(Math.floor(mk.iv[0]/1440))[0]+' '+hm(mk.iv[0]),wdName(Math.floor(mk.iv[0]/1440))[1]+' '+hm(mk.iv[0]));
     L.push({href:CITY+'/market/',big:'',glyph:'🏮',t:esc(mk.m.n),s:whenM});}
   if(D.shows.d===T.iso&&D.shows.n)L.push({href:CITY+'/whats-on/',big:D.shows.n,t:bi('รอบหนังวันนี้','films showing today'),s:''});
-  var wp=D.wp.filter(function(d){return d>=T.iso;})[0];if(wp){var dd=daysTo(wp);L.push({href:'merit.html',glyph:'🌕',big:dd===0?'':dd,t:bi('วันพระ','Wan phra'),s:dd===0?bi('วันนี้','today'):bi('อีก '+dd+' วัน','in '+dd+' days')});}
+  var wp=D.wp.filter(function(d){return d>=T.iso;})[0];if(wp){var dd=daysTo(wp);L.push({href:'wats/',glyph:'🌕',big:dd===0?'':dd,t:bi('วันพระ','Wan phra'),s:dd===0?bi('วันนี้','today'):bi('อีก '+dd+' วัน','in '+dd+' days')});}
   nextFest().forEach(function(x){L.push({href:'festivals/'+x.f.id+'.html',glyph:'🎊',big:x.dated&&x.dd>0?x.dd:'',t:bi(x.f.th,x.f.en),s:x.dated?(x.dd<=0?bi('กำลังจัด','on now'):bi('อีก '+x.dd+' วัน','in '+x.dd+' days')):x.dd===0?bi('เดือนนี้','this month'):bi('ราวเดือน '+['','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'][x.f.m[0]],'around '+['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][x.f.m[0]])});});
   document.getElementById('counters').innerHTML=L.slice(0,4).map(function(r){return '<li class="'+(r.cls||'')+'"><a href="'+esc(r.href)+'"'+(r.ext?' rel="noopener"':'')+'><span class="big">'+(r.big!==''&&r.big!=null?r.big:(r.glyph||''))+'</span><span class="lbl"><span class="t">'+r.t+'</span><small>'+(r.s||'')+'</small></span>'+(r.extra||'')+'</a></li>';}).join('');
   /* the top line */
@@ -901,13 +910,28 @@ function showNear(lat,lon){var keys=[];for(var i=-1;i<=1;i++)for(var j=-1;j<=1;j
   Promise.all(keys.map(function(k){return fetch('data/here/'+k+'.json').then(function(r){return r.ok?r.json():[];}).catch(function(){return [];});})).then(function(all){
     var rows=[].concat.apply([],all).map(function(r){return {la:r[0],ln:r[1],p:r[2],slug:r[3],th:r[4],en:r[5],cat:r[6],rank:r[8],hours:r[9],d:km(lat,lon,r[0],r[1])};});
     rows.sort(function(a,b){return a.d-b.d;});var out=[],seen={};kinds(T.h).forEach(function(k){var best=null;for(var i=0;i<rows.length;i++){var r=rows[i];if(r.cat!==k||seen[r.slug])continue;var o=isOpen(r.hours);if(o===false)continue;if(!best||(o===true&&isOpen(best.hours)!==true))best=r;if(o===true)break;}if(best){seen[best.slug]=1;out.push([k,best]);}});
-    document.getElementById('nearlist').innerHTML=out.map(function(x){var k=x[0],r=x[1];var o=isOpen(r.hours);return '<li><a href="'+r.p+'/p/'+esc(r.slug)+'.html"><span class="k">'+GL[k]+'</span><span class="lbl"><span>'+esc(r.th||r.en)+(r.en&&r.th?'<span class="en" lang="en"> '+esc(r.en)+'</span>':'')+'</span>'+(o===true?'<span class="open">'+bi('เปิดอยู่','open')+'</span>':'')+'</span><span class="d">'+(r.d<1?Math.round(r.d*1000)+' m':r.d.toFixed(1)+' km')+'</span></a></li>';}).join('')||'<li><a href="here.html">'+bi('ไม่พบในระยะ 1 กม. → ตรงนี้','Nothing within 1 km → Here')+'</a></li>';
+    document.getElementById('nearlist').innerHTML=(out.length?'<li class="crow">'+bi('ระยะเป็นเส้นตรง ไม่ใช่ระยะทางถนน','straight-line distance, not the road')+'</li>':'')+out.map(function(x){var k=x[0],r=x[1];var o=isOpen(r.hours);return '<li><a href="'+r.p+'/p/'+esc(r.slug)+'.html"><span class="k">'+GL[k]+'</span><span class="lbl"><span>'+esc(r.th||r.en)+(r.en&&r.th?'<span class="en" lang="en"> '+esc(r.en)+'</span>':'')+'</span>'+(o===true?'<span class="open">'+bi('เปิดอยู่','open')+'</span>':'')+'</span><span class="d" title="ระยะเส้นตรง · straight-line distance">'+(r.d<1?Math.round(r.d*1000)+' m':r.d.toFixed(1)+' km')+'</span></a></li>';}).join('')||'<li><a href="here.html">'+bi('ไม่พบในระยะ 1 กม. → ตรงนี้','Nothing within 1 km → Here')+'</a></li>';
     var m=document.querySelector('.near .doors a');if(m)m.href='map.html#'+lat.toFixed(4)+','+lon.toFixed(4);});}
 document.getElementById('locate').addEventListener('click',function(){var b=this;if(!navigator.geolocation){b.hidden=true;return;}b.disabled=true;
   navigator.geolocation.getCurrentPosition(function(p){b.disabled=false;b.hidden=true;FIX={lat:p.coords.latitude,lon:p.coords.longitude};paint();showNear(p.coords.latitude,p.coords.longitude);},function(){b.disabled=false;},{maximumAge:60000,timeout:8000});});
 try{if(navigator.permissions)navigator.permissions.query({name:'geolocation'}).then(function(s){if(s.state==='granted')document.getElementById('locate').click();});}catch(e){}
 
 setCity(CITY,false);today();paint();setInterval(function(){render();today();},60000);
+/* THE WAY BACK TO THE PLAN (NaN, 2026-09-21). A plan lives in the reader's own
+   browser, so no build can know whether there is one: the chip ships hidden
+   and this reveals it. The separator is inside the wrapper, so an empty plan
+   leaves no stray " · " on the end of the doors line — the same shape
+   nownear_layer used, and the same reason. Reads one key, writes nothing,
+   asks nothing, fetches nothing. */
+(function(){var w=document.querySelector('.nnplanwrap');if(!w)return;
+var a=w.querySelector('.nnplan');
+function planPaint(){var n=0;
+try{var v=JSON.parse(localStorage.getItem('md-plan'));n=Array.isArray(v)?v.length:0;}catch(e){}
+w.hidden=!n;
+a.textContent=n?'\u{1F5FA} \u0E41\u0E1C\u0E19\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13 '+n+' \u0E08\u0E38\u0E14 \u00B7 your plan, '+n+(n>1?' stops':' stop'):'';}
+planPaint();
+window.addEventListener('storage',function(e){if(!e.key||e.key==='md-plan')planPaint();});
+})();
 })();
 """
 

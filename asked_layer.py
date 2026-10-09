@@ -37,7 +37,7 @@ without anybody editing it.
 Shibari is the one entry that stays a gap on purpose even after a real lead
 turned up: press coverage shows a rope-teaching scene has existed in Chiang
 Mai, but the source was a single old, paywalled article naming one private
-individual in a sensitive practice — not something this site will publish
+individual in a sensitive practice — not something published here
 without that person's own consent, no matter how citable. The practice
 (add.html, self-submitted, no address required) is the correct path here,
 not a name pulled from someone else's reporting.
@@ -199,7 +199,7 @@ def asked_page(g, data, entries):
         f'<h1>❓ {bi("ถามมด", "Ask the ants")}</h1>'  # stylecheck: allow — a page name
         f'<p>{bi(intro_th, intro_en)}</p>'
         f'<p class="myhint">❓ <a href="{ask}">{bi("มีคำถามที่ยังไม่มีในนี้? ถามมด", "Have a question that is not here? Ask the ants")}</a> — '  # stylecheck: allow — a link label
-        f'{bi("หาอะไรอยู่แล้วหาไม่เจอ พิมพ์มาได้เลย มดจะไปหาให้แล้วเอามาตอบไว้ตรงนี้", "Looking for something you cannot find? Type it in; the ants go and look, and the answer lands on this page.")}</p>'
+        f'{bi("หาอะไรอยู่แล้วหาไม่เจอ พิมพ์มาได้เลย เราจะไปหาแล้วเอามาตอบไว้ตรงนี้", "Looking for something you cannot find? Type it in; we go and look, and the answer lands on this page.")}</p>'
         f'<div class="qagrid">{cards}</div>'
         f'<p class="tinynote">{bi("ที่มา: ข้อมูลเปิด OpenStreetMap การเดินเก็บจริง และการตรวจสอบเว็บของแต่ละแห่งเอง (มีลิงก์ที่มาในข้อมูลแต่ละรายการ) ปรับปรุง", "From OpenStreetMap, field surveys, and a direct check of each business website where noted (source linked per record) · updated")} '
         f'{g["BUILD_DATE"]} · '

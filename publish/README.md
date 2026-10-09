@@ -3,12 +3,113 @@
 The site is served out of an **R2 bucket by a Worker** (`worker.js`). GitHub is
 not in the publish path at all, and neither is Cloudflare Pages.
 
+## The public API lives in this Worker too
+
+`worker.js` answers `/api/v1/*` in front of the bucket, and `api.js` beside it
+holds every rule about what a query means — that split exists so
+`tests/test_api_worker.js` can run the whole filter/sort/page path under plain
+node against the real index, with no Cloudflare and no network.
+
+There is no database. `api_layer.py` bakes `docs/api/v1/index.json` at build
+time; the Worker parses it once per isolate and answers from memory. So the API
+ships with a **content deploy**, not a Worker deploy — the Worker only needs
+redeploying when the routing or the query rules change.
+
+Every response, static file included, now carries `Access-Control-Allow-Origin: *`.
+The licence has always said take it; until this the door was locked to anything
+running in a browser.
+
+Two tests guard the shape, and both should pass before a deploy:
+
+```bash
+python3 tests/test_api.py && node tests/test_api_worker.js
+```
+
+`test_api.py` is the key-stability lock: `/api/v1/` keys may be added to, never
+removed, renamed or retyped, and it fails if `api_layer.py`, `api.js`,
+`schema.json` and `openapi.json` stop agreeing. A breaking change is not
+forbidden — it is a `/api/v2/`, and that test is where you find out.
+
+## The fleet search
+
+`/find` (and the header box's `/search.html?q=`) is answered by `fleetsearch.js`
+from a D1 database, `motdang-search`, bound as `SEARCH`. The index holds every
+page of every site on the roster and is filled by `python3 fleetsearch/load.py`
+— a content step, like `deploy.py`. `fleetsearch/README.md` has the query
+language, the reload cost and the tests:
+
+```bash
+node tests/test_fleetsearch.js && node tests/test_fleetsearch_page.js && python3 tests/test_fleetsearch.py
+```
+
+## The edge count
+
+The Worker writes one row per request into Cloudflare Analytics Engine. Nan's
+decision, 2026-09-05 (`notes/arrivals-2026-09-05.txt`, A1): count arrivals
+first-party — referrer host and landing path, no cookie, no third party,
+aggregated.
+
+Read it:
+
+```bash
+python3 traffic.py          # last 7 days
+python3 traffic.py 30       # last 30
+```
+
+`traffic.py` reads back over the Analytics Engine SQL API with the fleet token
+in `~/.config/nanobotco/keys.json`, which already carries Account Analytics
+Read. Nothing to mint, nothing to paste.
+
+**Why it lives in this Worker instead of traffic-eye.** traffic-eye is the
+fleet's collector and it already does exactly this for the other sites, by
+sitting in front of them on a route. A Cloudflare hostname belongs to exactly
+one Worker, and `motdang.net/*` belongs to this one — so a route there was
+never available. The classifier is vendored to `publish/classify.js` instead,
+and the rows go to traffic-eye's own `traffic_eye` dataset in its blob order,
+so its dashboard reads motdang.net alongside the rest.
+
+That shared dataset is the thing to be careful with: **position is the schema**.
+A row written with the blobs in a different order is not an error, it is a
+wrong number that looks right. `tests/test_edge_count.mjs` compares the two
+files' blob comments and fails when they drift.
+
+**What a row cannot hold.** No IP, no cookie, no identifier of any kind, so two
+requests by one reader are two rows that cannot be joined. The referrer is cut
+to its host — a full referrer from a search engine carries the words somebody
+typed — and the query string is dropped from the path for the same reason. The
+test asserts each of those absences by sending the header and checking it does
+not appear in the row.
+
+**It cannot break the site.** `serve()` runs first and its response is returned
+whatever happens after. The write goes through `waitUntil` inside a try/catch
+whose failure path is to do nothing; an unbound binding, an Analytics Engine
+outage, or an unfamiliar User-Agent all end with the reader getting the page.
+
+**Categories are claims, not proof.** They come from the User-Agent, which is
+self-declared — anything can call itself Googlebot. "human" means a browser's
+User-Agent with no bot marker, which is the ceiling of what a count with no
+cookie can know.
+
+Deploying the count is a **Worker** deploy, not a content deploy:
+
+```bash
+export CLOUDFLARE_API_TOKEN=$(python3 -c "import json,pathlib;print(json.loads((pathlib.Path.home()/'.config/nanobotco/keys.json').read_text())['cloudflare']['api_token'])")
+cd publish && npx wrangler deploy
+```
+
+**That deploy ends in a red error and has still worked.** The script uploads;
+wrangler then reconciles `[[routes]]` against the zone, and the fleet token
+carries Workers Scripts write but not Workers Routes write, so that last call
+401s. The routes already exist and are untouched — first deploy done this way
+(2026-09-08) was live and recording within a minute. The error only blocks
+*changing* a route.
+
 ## Why it changed
 
-Pages pulled from the GitHub repo. When the GitHub account was suspended that
-pipeline stopped — and because Pages keeps serving its last good build, nothing
-appeared broken. The site just quietly stopped accepting new work, so pushes
-that felt like shipping were shipping nothing.
+Pages pulled from the GitHub repo, and because Pages keeps serving its last
+good build, a pipeline that stops looks exactly like one that is working. The
+site accepted no new work while pushes still felt like shipping. R2 removes
+that failure mode: the sync either writes the objects or says why not.
 
 Behind that sat a second wall: **Pages caps a project at 20,000 files and
 `docs/` is 27,577** (13,514 pages, plus a `.json` sibling for every place, plus
@@ -86,12 +187,12 @@ git rm -r --cached docs
 echo "docs/" >> .gitignore
 ```
 
-Left undone deliberately — it is a large history-affecting commit and the
-GitHub account is suspended, so it should land when pushing is possible again.
+Left undone deliberately — it is a large history-affecting commit, so it
+wants a quiet moment when no build or publish is in flight.
 Note it stops the growth but does not reclaim the 2.8 GB; that needs a history
 rewrite, which is a separate and riskier job.
 
-## Local test, no account needed
+## Local test
 
 ```bash
 cd publish

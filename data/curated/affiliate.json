@@ -1,0 +1,292 @@
+{
+ "_what": "Paid links, written by affiliate-slots/sync.py from slots.json. Edit there, not here. A slot with url null renders nothing.",
+ "slots": {
+  "md-cnx-kiwitaxi": {
+   "brand": "Kiwitaxi",
+   "url": "https://kiwitaxi.tpx.li/TdHDVcyJ",
+   "en": "Airport transfer · Kiwitaxi",
+   "th": "รถรับส่งสนามบิน · Kiwitaxi",
+   "records": [
+    "cm-curated-chiang-mai-airport",
+    "cm-osm-relation-12410725",
+    "cm-osm-way-58309446",
+    "cm-ovt-f78505cf-db19-417d-8b9c-3c3888889b9b",
+    "cm-ovt-dbc7fa70-df39-4d62-a034-aa7525d01497"
+   ]
+  },
+  "md-cnx-welcome": {
+   "brand": "Welcome Pickups",
+   "url": "https://tpx.li/AGwXCfaX",
+   "en": "Driver at arrivals · Welcome Pickups",
+   "th": "คนขับรอที่ขาเข้า · Welcome Pickups",
+   "records": [
+    "cm-curated-chiang-mai-airport",
+    "cm-osm-relation-12410725",
+    "cm-osm-way-58309446",
+    "cm-ovt-f78505cf-db19-417d-8b9c-3c3888889b9b",
+    "cm-ovt-dbc7fa70-df39-4d62-a034-aa7525d01497"
+   ]
+  },
+  "md-cnx-esim": {
+   "brand": "Yesim",
+   "url": "https://yesim.tpx.li/qhsZDJvy",
+   "en": "Thailand eSIM · Yesim",
+   "th": "eSIM ไทย · Yesim",
+   "records": [
+    "cm-curated-chiang-mai-airport",
+    "cm-osm-relation-12410725",
+    "cm-osm-way-58309446",
+    "cm-ovt-f78505cf-db19-417d-8b9c-3c3888889b9b",
+    "cm-ovt-dbc7fa70-df39-4d62-a034-aa7525d01497"
+   ]
+  },
+  "md-cnx-luggage": {
+   "brand": "Radical Storage",
+   "url": "https://radicalstorage.tpx.li/1kzmdckO",
+   "en": "Luggage storage in Chiang Mai · Radical Storage",
+   "th": "ฝากกระเป๋าในเชียงใหม่ · Radical Storage",
+   "records": [
+    "cm-curated-chiang-mai-airport",
+    "cm-osm-relation-12410725",
+    "cm-osm-way-58309446",
+    "cm-ovt-f78505cf-db19-417d-8b9c-3c3888889b9b",
+    "cm-ovt-dbc7fa70-df39-4d62-a034-aa7525d01497"
+   ]
+  },
+  "md-cei-kiwitaxi": {
+   "brand": "Kiwitaxi",
+   "url": "https://kiwitaxi.tpx.li/nHb3V5sk",
+   "en": "Airport transfer · Kiwitaxi",
+   "th": "รถรับส่งสนามบิน · Kiwitaxi",
+   "records": [
+    "cr-osm-way-593126810",
+    "cr-osm-way-87458645"
+   ]
+  },
+  "md-cei-esim": {
+   "brand": "Yesim",
+   "url": "https://yesim.tpx.li/qhsZDJvy",
+   "en": "Thailand eSIM · Yesim",
+   "th": "eSIM ไทย · Yesim",
+   "records": [
+    "cr-osm-way-593126810",
+    "cr-osm-way-87458645"
+   ]
+  },
+  "md-nightsafari": {
+   "brand": "Klook",
+   "url": "https://klook.tpx.li/wZLOsZQ3",
+   "en": "Night Safari tickets · Klook",
+   "th": "บัตรเชียงใหม่ไนท์ซาฟารี · Klook",
+   "records": [
+    "cm-ovt-24d136a6-1e70-4bfd-9bdd-51da8a482b97",
+    "cm-ovt-ec184b0a-b0fa-4ad9-8ee5-e90bd9fd4807"
+   ]
+  },
+  "md-cm-tours": {
+   "brand": "Klook",
+   "url": "https://klook.tpx.li/ufknb568",
+   "en": "Chiang Mai tours & tickets · Klook",
+   "th": "ทัวร์และตั๋วเที่ยวเชียงใหม่ · Klook",
+   "shelves": [
+    "sights/waterfall",
+    "sights/peak",
+    "sights/viewpoint",
+    "sights/nature",
+    "sights/hot-spring",
+    "sights/cave",
+    "sights/historic",
+    "sights/outing"
+   ],
+   "prov": "cm",
+   "on": "both"
+  },
+  "md-cm-tours-shelf": {
+   "brand": "Klook",
+   "url": "https://klook.tpx.li/ufknb568",
+   "en": "Chiang Mai tours & tickets · Klook",
+   "th": "ทัวร์และตั๋วเที่ยวเชียงใหม่ · Klook",
+   "shelves": [
+    "sights",
+    "transport/tours"
+   ],
+   "prov": "cm",
+   "on": "shelf"
+  },
+  "md-cr-tours": {
+   "brand": "Klook",
+   "url": "https://klook.tpx.li/JEGzLknR",
+   "en": "Chiang Rai tours & tickets · Klook",
+   "th": "ทัวร์และตั๋วเที่ยวเชียงราย · Klook",
+   "shelves": [
+    "sights/waterfall",
+    "sights/peak",
+    "sights/viewpoint",
+    "sights/nature",
+    "sights/hot-spring",
+    "sights/cave",
+    "sights/historic",
+    "sights/outing"
+   ],
+   "prov": "cr",
+   "on": "both"
+  },
+  "md-cr-tours-shelf": {
+   "brand": "Klook",
+   "url": "https://klook.tpx.li/JEGzLknR",
+   "en": "Chiang Rai tours & tickets · Klook",
+   "th": "ทัวร์และตั๋วเที่ยวเชียงราย · Klook",
+   "shelves": [
+    "sights",
+    "transport/tours"
+   ],
+   "prov": "cr",
+   "on": "shelf"
+  },
+  "md-cm-car": {
+   "brand": "Localrent",
+   "url": "https://localrent.tpx.li/Guc9HBC1",
+   "en": "Rental cars in Chiang Mai · Localrent",
+   "th": "รถเช่าในเชียงใหม่ · Localrent",
+   "shelves": [
+    "transport/car-rental",
+    "transport/airport"
+   ],
+   "prov": "cm",
+   "on": "shelf"
+  },
+  "md-cr-car": {
+   "brand": "Localrent",
+   "url": "https://localrent.tpx.li/r9e76OLN",
+   "en": "Rental cars in Chiang Rai · Localrent",
+   "th": "รถเช่าในเชียงราย · Localrent",
+   "shelves": [
+    "transport/car-rental",
+    "transport/airport"
+   ],
+   "prov": "cr",
+   "on": "shelf"
+  },
+  "md-cm-scooter": {
+   "brand": "BikesBooking",
+   "url": "https://bikesbooking.tpx.li/8rrBtDKf",
+   "en": "Scooter rental in Chiang Mai · BikesBooking",
+   "th": "เช่ามอเตอร์ไซค์ในเชียงใหม่ · BikesBooking",
+   "shelves": [
+    "transport/motorbike-rental"
+   ],
+   "prov": "cm",
+   "on": "shelf"
+  },
+  "md-cr-scooter": {
+   "brand": "BikesBooking",
+   "url": "https://bikesbooking.tpx.li/5nqCfvwQ",
+   "en": "Scooter rental in Chiang Rai · BikesBooking",
+   "th": "เช่ามอเตอร์ไซค์ในเชียงราย · BikesBooking",
+   "shelves": [
+    "transport/motorbike-rental"
+   ],
+   "prov": "cr",
+   "on": "shelf"
+  },
+  "md-cm-cooking": {
+   "brand": "Klook",
+   "url": "https://klook.tpx.li/OgG4Fpo1",
+   "en": "Cooking classes · Klook",
+   "th": "คลาสทำอาหาร · Klook",
+   "shelves": [
+    "cooking"
+   ],
+   "prov": "cm",
+   "on": "shelf"
+  },
+  "md-cm-elephant": {
+   "brand": "Klook",
+   "url": "https://klook.tpx.li/onnKOtA7",
+   "en": "Elephant sanctuary visits · Klook",
+   "th": "เที่ยวปางช้าง · Klook",
+   "shelves": [
+    "chang"
+   ],
+   "prov": "cm",
+   "on": "shelf"
+  },
+  "md-cm-muaythai": {
+   "brand": "Klook",
+   "url": "https://klook.tpx.li/ykBHYRI9",
+   "en": "Muay Thai tickets · Klook",
+   "th": "ตั๋วมวยไทย · Klook",
+   "shelves": [
+    "muaythai/stadium"
+   ],
+   "prov": "cm",
+   "on": "both"
+  },
+  "md-cm-muaythai-shelf": {
+   "brand": "Klook",
+   "url": "https://klook.tpx.li/ykBHYRI9",
+   "en": "Muay Thai tickets · Klook",
+   "th": "ตั๋วมวยไทย · Klook",
+   "shelves": [
+    "muaythai"
+   ],
+   "prov": "cm",
+   "on": "shelf"
+  },
+  "md-insurance": {
+   "brand": "EKTA",
+   "url": "https://ektatraveling.tpx.li/v7iXBP12",
+   "en": "Travel insurance · EKTA",
+   "th": "ประกันเดินทาง · EKTA",
+   "shelves": [
+    "essentials/visa"
+   ],
+   "on": "both"
+  },
+  "md-hotel-transfer-cm": {
+   "brand": "Kiwitaxi",
+   "url": "https://kiwitaxi.tpx.li/u9gkwlNh",
+   "en": "Airport transfer · Kiwitaxi",
+   "th": "รถรับส่งสนามบิน · Kiwitaxi",
+   "shelves": [
+    "hotel"
+   ],
+   "prov": "cm",
+   "on": "both"
+  },
+  "md-hotel-transfer-cr": {
+   "brand": "Kiwitaxi",
+   "url": "https://kiwitaxi.tpx.li/Wk9NnU9t",
+   "en": "Airport transfer · Kiwitaxi",
+   "th": "รถรับส่งสนามบิน · Kiwitaxi",
+   "shelves": [
+    "hotel"
+   ],
+   "prov": "cr",
+   "on": "both"
+  },
+  "md-hotel-luggage-cm": {
+   "brand": "Radical Storage",
+   "url": "https://radicalstorage.tpx.li/79A3dneV",
+   "en": "Luggage storage · Radical Storage",
+   "th": "ฝากกระเป๋า · Radical Storage",
+   "shelves": [
+    "hotel"
+   ],
+   "prov": "cm",
+   "on": "both"
+  },
+  "md-hotel-esim": {
+   "brand": "Airalo",
+   "url": "https://airalo.tpx.li/r5DOKmfw",
+   "en": "Thailand eSIM · Airalo",
+   "th": "eSIM ไทย · Airalo",
+   "shelves": [
+    "hotel"
+   ],
+   "on": "both"
+  }
+ },
+ "label_en": "Paid link: Mot Dang earns a fee if you book.",
+ "label_th": "ลิงก์มีค่าตอบแทน: มดแดงได้ค่าแนะนำเมื่อคุณจองผ่านลิงก์นี้"
+}

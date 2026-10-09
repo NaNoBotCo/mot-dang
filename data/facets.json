@@ -160,6 +160,7 @@
     "thai",
     "international",
     "noodle",
+    "northern",
     "seafood",
     "vegetarian",
     "bakery-dessert",
@@ -173,6 +174,33 @@
    "note_th": "สิ่งที่คนถามก่อนจะนั่งลง — ห้องน้ำ ที่จอดรถ แอร์ ไวไฟ ไม่มีในแผนที่ ต้องมีคนไปนั่งจริงถึงจะรู้",
    "note_en": "The things people ask before they sit down. None of it is in the map data — somebody has to have sat there.",
    "facets": [
+    {
+     "key": "delivery",
+     "icon": "🛵",
+     "th": "ส่งถึงที่",
+     "en": "Delivery",
+     "ask_th": "มีส่งถึงที่ไหม",
+     "ask_en": "Do they deliver?",
+     "auto": "osm-delivery"
+    },
+    {
+     "key": "takeaway",
+     "icon": "🥡",
+     "th": "สั่งกลับบ้าน",
+     "en": "Takeaway",
+     "ask_th": "สั่งใส่ถุงกลับบ้านได้ไหม",
+     "ask_en": "Can you order it to take away?",
+     "auto": "osm-takeaway"
+    },
+    {
+     "key": "seating",
+     "icon": "🪑",
+     "th": "มีที่นั่ง",
+     "en": "Seating",
+     "ask_th": "มีโต๊ะเก้าอี้ให้นั่งไหม",
+     "ask_en": "Are there tables or chairs to sit at?",
+     "auto": "osm-seating"
+    },
     {
      "key": "toilethere",
      "icon": "🚻",
@@ -867,6 +895,15 @@
      "auto": "osm-crypto"
     },
     {
+     "key": "aircon",
+     "icon": "❄️",
+     "th": "ติดแอร์",
+     "en": "Air-conditioned",
+     "ask_th": "ข้างในร้านติดแอร์ไหม",
+     "ask_en": "Is the inside air-conditioned?",
+     "auto": "osm-air-conditioning"
+    },
+    {
      "key": "wifi",
      "icon": "📶",
      "th": "ไวไฟ",
@@ -1006,6 +1043,15 @@
      "ask_en": "Is there someone who speaks Northern Thai?"
     },
     {
+     "key": "aircon",
+     "icon": "❄️",
+     "th": "ห้องรอติดแอร์",
+     "en": "Air-conditioned waiting room",
+     "ask_th": "ห้องรอหมอติดแอร์ไหม",
+     "ask_en": "Is the waiting room air-conditioned?",
+     "auto": "osm-air-conditioning"
+    },
+    {
      "key": "parking",
      "icon": "🏍️",
      "th": "ที่จอดรถ",
@@ -1134,6 +1180,15 @@
      "en": "Sells gloves and shorts",
      "ask_th": "ขายนวม กางเกงมวย หรืออุปกรณ์ไหม",
      "ask_en": "Do you sell gloves, shorts or gear?"
+    },
+    {
+     "key": "aircon",
+     "icon": "❄️",
+     "th": "ยิมติดแอร์",
+     "en": "Air-conditioned gym",
+     "ask_th": "ห้องซ้อมติดแอร์ไหม หรือเป็นยิมเปิดโล่ง",
+     "ask_en": "Is the training room air-conditioned, or open-air?",
+     "auto": "osm-air-conditioning"
     },
     {
      "key": "shower",
@@ -1348,7 +1403,8 @@
      "th": "ครัวติดแอร์",
      "en": "Air-conditioned kitchen",
      "ask_th": "ห้องครัวที่เรียนติดแอร์ไหม",
-     "ask_en": "Is the teaching kitchen air-conditioned?"
+     "ask_en": "Is the teaching kitchen air-conditioned?",
+     "auto": "osm-air-conditioning"
     },
     {
      "key": "parking",
@@ -1650,6 +1706,15 @@
      "ask_en": "Is halal food available?"
     },
     {
+     "key": "aircon",
+     "icon": "❄️",
+     "th": "ห้องเรียนติดแอร์",
+     "en": "Air-conditioned classrooms",
+     "ask_th": "ห้องเรียนติดแอร์ไหม",
+     "ask_en": "Are the classrooms air-conditioned?",
+     "auto": "osm-air-conditioning"
+    },
+    {
      "key": "wheelchair",
      "icon": "♿",
      "th": "เข้าด้วยรถเข็นได้",
@@ -1703,6 +1768,15 @@
      "en": "Fully furnished",
      "ask_th": "ห้องมีเฟอร์นิเจอร์ครบไหม",
      "ask_en": "Does the room come furnished?"
+    },
+    {
+     "key": "aircon",
+     "icon": "❄️",
+     "th": "ห้องติดแอร์",
+     "en": "Air-conditioned rooms",
+     "ask_th": "ห้องติดแอร์ทุกห้องไหม หรือมีห้องพัดลม",
+     "ask_en": "Is every room air-conditioned, or are there fan rooms?",
+     "auto": "osm-air-conditioning"
     },
     {
      "key": "lift",
@@ -1811,6 +1885,15 @@
      "en": "Appointment needed",
      "ask_th": "ต้องนัดล่วงหน้าไหม หรือเดินเข้าไปได้เลย",
      "ask_en": "Do you need an appointment, or can you walk in?"
+    },
+    {
+     "key": "aircon",
+     "icon": "❄️",
+     "th": "สำนักงานติดแอร์",
+     "en": "Air-conditioned office",
+     "ask_th": "สำนักงานติดแอร์ไหม",
+     "ask_en": "Is the office air-conditioned?",
+     "auto": "osm-air-conditioning"
     },
     {
      "key": "card",
@@ -1949,6 +2032,7 @@
   {
    "key": "tailor",
    "appliesTo": [
+    "dresshire",
     "tailor",
     "alterations",
     "fabric"
@@ -2053,6 +2137,15 @@
      "en": "Copies a garment you bring",
      "ask_th": "เอาเสื้อตัวเก่าไปให้ตัดตามได้ไหม",
      "ask_en": "Will they copy a garment you bring in?"
+    },
+    {
+     "key": "aircon",
+     "icon": "❄️",
+     "th": "ร้านติดแอร์",
+     "en": "Air-conditioned shop",
+     "ask_th": "ในร้านติดแอร์ไหม ตอนลองชุด",
+     "ask_en": "Is the shop air-conditioned for fittings?",
+     "auto": "osm-air-conditioning"
     },
     {
      "key": "english",
@@ -2183,12 +2276,192 @@
      "ask_en": "Open around the clock?"
     },
     {
+     "key": "aircon",
+     "icon": "❄️",
+     "th": "ติดแอร์ นั่งรอได้",
+     "en": "Air-conditioned, somewhere to wait",
+     "ask_th": "ในร้านติดแอร์ มีที่นั่งรอไหม",
+     "ask_en": "Is it air-conditioned, with somewhere to wait?",
+     "auto": "osm-air-conditioning"
+    },
+    {
      "key": "priceboard",
      "icon": "🏷",
      "th": "ติดป้ายราคา",
      "en": "Prices posted",
      "ask_th": "มีป้ายราคาต่อแผ่นไหม",
      "ask_en": "Is the per-sheet price posted?"
+    }
+   ]
+  },
+  {
+   "key": "market",
+   "appliesTo": [
+    "fresh",
+    "walking-street",
+    "flea"
+   ],
+   "appliesToCat": [
+    "market"
+   ],
+   "th": "เรื่องน่ารู้ก่อนไปตลาด",
+   "en": "What to know before you go",
+   "note_th": "ของกิน ห้องน้ำ ที่จอดรถ และการเช่าโต๊ะขาย",
+   "note_en": "Food, toilets, parking, and renting a table to sell.",
+   "facets": [
+    {
+     "key": "foodinside",
+     "icon": "🍜",
+     "th": "มีร้านอาหารข้างใน",
+     "en": "Places to eat inside",
+     "ask_th": "ในตลาดมีร้านอาหารไหม",
+     "ask_en": "Are there places to eat inside?"
+    },
+    {
+     "key": "toilethere",
+     "icon": "🚻",
+     "th": "มีห้องน้ำ",
+     "en": "Toilet",
+     "ask_th": "ในตลาดมีห้องน้ำไหม",
+     "ask_en": "Is there a toilet?"
+    },
+    {
+     "key": "toiletpay",
+     "icon": "🪙",
+     "th": "ห้องน้ำเสียเงิน",
+     "en": "Pay toilet",
+     "ask_th": "ห้องน้ำต้องจ่ายเงินไหม",
+     "ask_en": "Do you pay to use the toilet?"
+    },
+    {
+     "key": "walkintable",
+     "icon": "🪑",
+     "th": "มานั่งตั้งโต๊ะขายได้เลย ไม่ต้องจอง",
+     "en": "Sellers take a table on the day, no booking",
+     "ask_th": "มาตั้งโต๊ะขายของได้เลยโดยไม่ต้องจองไหม",
+     "ask_en": "Can a seller take a table on the day without booking?"
+    },
+    {
+     "key": "tablefee100",
+     "icon": "💵",
+     "th": "ค่าโต๊ะ ๑๐๐ บาท เก็บที่โต๊ะ",
+     "en": "Table 100 baht, collected at the table",
+     "ask_th": "ค่าโต๊ะ ๑๐๐ บาท มีคนเดินมาเก็บที่โต๊ะไหม",
+     "ask_en": "Is a table 100 baht, collected at the table?"
+    },
+    {
+     "key": "parking",
+     "icon": "🅿️",
+     "th": "ที่จอดรถ",
+     "en": "Parking",
+     "ask_th": "มีที่จอดรถไหม",
+     "ask_en": "Is there parking?"
+    }
+   ]
+  },
+  {
+   "key": "stay",
+   "appliesTo": [
+    "hotel-full",
+    "guesthouse",
+    "hostel"
+   ],
+   "appliesToCat": [
+    "hotel"
+   ],
+   "th": "ห้องพักมีอะไร",
+   "en": "What the rooms have",
+   "note_th": "ห้องแอร์กับห้องพัดลมราคาไม่เท่ากัน ที่พักเดียวกันมักมีทั้งสองแบบ",
+   "note_en": "An air-conditioned room and a fan room are priced differently, and one guesthouse often has both.",
+   "facets": [
+    {
+     "key": "aircon",
+     "icon": "❄️",
+     "th": "ห้องแอร์",
+     "en": "Air-conditioned rooms",
+     "ask_th": "ห้องพักติดแอร์ไหม หรือมีแต่พัดลม",
+     "ask_en": "Are the rooms air-conditioned, or fan only?",
+     "auto": "osm-air-conditioning"
+    },
+    {
+     "key": "wifi",
+     "icon": "📶",
+     "th": "ไวไฟ",
+     "en": "Wi-Fi",
+     "ask_th": "มีไวไฟในห้องพักไหม",
+     "ask_en": "Is there Wi-Fi in the rooms?",
+     "auto": "osm-internet-access"
+    },
+    {
+     "key": "parking",
+     "icon": "🅿️",
+     "th": "ที่จอดรถ",
+     "en": "Parking",
+     "ask_th": "มีที่จอดรถไหม",
+     "ask_en": "Is there parking?"
+    },
+    {
+     "key": "wheelchair",
+     "icon": "♿",
+     "th": "เข้าด้วยรถเข็นได้",
+     "en": "Step-free entry",
+     "ask_th": "รถเข็นเข้าได้ไหม มีทางลาดหรือลิฟต์ไหม",
+     "ask_en": "Can a wheelchair get in — ramp or lift?",
+     "auto": "osm-wheelchair"
+    }
+   ]
+  },
+  {
+   "key": "indoors",
+   "appliesTo": [
+    "coworking",
+    "cinema",
+    "library",
+    "gym",
+    "museum",
+    "gallery",
+    "gallery-commercial"
+   ],
+   "th": "ข้างในเป็นอย่างไร",
+   "en": "What it is like inside",
+   "note_th": "หน้าร้อนกับหน้าหมอกควัน ที่เย็นๆ ให้นั่งได้นานคือสิ่งที่คนถามหา",
+   "note_en": "In the hot months and the smoke season, a cool room you can sit in for a while is what people ask for.",
+   "facets": [
+    {
+     "key": "aircon",
+     "icon": "❄️",
+     "th": "ติดแอร์",
+     "en": "Air-conditioned",
+     "ask_th": "ข้างในติดแอร์ไหม",
+     "ask_en": "Is the inside air-conditioned?",
+     "auto": "osm-air-conditioning"
+    },
+    {
+     "key": "seating",
+     "icon": "🪑",
+     "th": "มีที่นั่ง",
+     "en": "Seating",
+     "ask_th": "มีที่ให้นั่งไหม",
+     "ask_en": "Is there somewhere to sit?",
+     "auto": "osm-seating"
+    },
+    {
+     "key": "wifi",
+     "icon": "📶",
+     "th": "ไวไฟ",
+     "en": "Wi-Fi",
+     "ask_th": "มีไวไฟให้ใช้ไหม",
+     "ask_en": "Is there Wi-Fi?",
+     "auto": "osm-internet-access"
+    },
+    {
+     "key": "wheelchair",
+     "icon": "♿",
+     "th": "เข้าด้วยรถเข็นได้",
+     "en": "Step-free entry",
+     "ask_th": "รถเข็นเข้าได้ไหม",
+     "ask_en": "Can a wheelchair get in?",
+     "auto": "osm-wheelchair"
     }
    ]
   }
@@ -2199,9 +2472,10 @@
  "_school_note": "The school row asks what a crawl cannot answer and what a parent asks first. NOTHING HERE IS EVER INFERRED FROM CATEGORY OR NAME: an international school is not assumed to teach in English, a government school is not assumed to lack an EP stream, and a school with no ticks has not been asked — it has not answered no. A wrong 'no' here costs a child a place. ค่าเทอม is asked because asking whether a thing is แพง is ordinary talk and hiding the price serves nobody; ED visa and drop-in are asked because a language school or a ค่ายมวย lives or dies on them, and no directory of this city records either.",
  "_muaythai_note": "The muay thai row asks what a crawl cannot answer and what a person about to walk into a camp or a stadium asks first. NOTHING HERE IS EVER INFERRED FROM NAME OR SHELF: a gym called Fitness & Boxing is not assumed to take beginners, a camp with fighters on the cards is not assumed to refuse them, a stadium is not assumed to fight tonight, and a place with no ticks has not been asked — it has not answered no. Fight nights, prices and drop-in rules are the venue's own statement (attrs on the record, data/curated/fight_nights.json) or nothing. The set sits BEFORE the school set on purpose: the school set claims sub `muaythai`, and a camp should meet these questions rather than the school bus and the lunch.",
  "_cooking_note": "The cooking row asks what a crawl cannot answer and what a person about to book a class asks first. NOTHING HERE IS EVER INFERRED FROM NAME OR SHELF: a school on the farm shelf is not assumed to fetch you, a school whose site says vegan is not ticked vegan until somebody at the door or the owner says so, and a school with no ticks has not been asked — it has not answered no. Sessions, prices and pickup radius are the school's own statements (attrs on the record via enrich.json, data/curated/cooking_classes.json) or nothing. The two licence facets are paperwork, photographable, and positive only: a โรงเรียนนอกระบบ registered with สช. under the Private School Act B.E. 2550 hangs a numbered licence and can issue a Ministry-recognised certificate; a class that fetches you and walks a market may be registered instead as a tour business with a TAT licence number (Suwannee in Chiang Rai prints hers). Neither absence is recorded — a licence can sit behind a counter — and neither is a judgement: a kitchen is a kitchen. The set sits BEFORE the school set on purpose: the school set claims sub `cooking`, and a cooking school should meet these questions rather than the school bus and the lunch.",
- "_chang_note": "The elephant row asks what a crawl cannot answer and what a person about to book a day with elephants asks first — and it is asked, never inferred. NOTHING HERE IS TICKED FROM A NAME, A SHELF OR A WEBSITE: a place called Sanctuary is not assumed to refuse riding, a place called Camp is not assumed to offer it, a place that says ethical is not assumed anything. What a venue states on its own page lives on the record as attrs.ridingStated / elephantProgram / elephantsStated (with programVia and a date) and on the board in data/curated/elephants.json with stated_by and fetched; a tick is the owner's or the door survey's. No welfare score, no ethical/unethical sort, ever — a wrong 'unethical' is a slur on a named family's camp at this site's scale, a wrong 'ethical' sends a reader somewhere under false comfort, and both are statements about a named business. The set sits after cooking and before school; no other set claims its subs.",
+ "_chang_note": "The elephant row asks what a crawl cannot answer and what a person about to book a day with elephants asks first — and it is asked, not inferred. NOTHING HERE IS TICKED FROM A NAME, A SHELF OR A WEBSITE: a place called Sanctuary is not assumed to refuse riding, a place called Camp is not assumed to offer it, a place that says ethical is not assumed anything. What a venue states on its own page lives on the record as attrs.ridingStated / elephantProgram / elephantsStated (with programVia and a date) and on the board in data/curated/elephants.json with stated_by and fetched; a tick is the owner's or the door survey's. No welfare score, no ethical/unethical sort, ever — a wrong 'unethical' is a slur on a named family's camp at this site's scale, a wrong 'ethical' sends a reader somewhere under false comfort, and both are statements about a named business. The set sits after cooking and before school; no other set claims its subs.",
  "_realestate_note": "The realestate row asks what the crawl cannot answer and what decides whether a person takes the room. OSM sometimes knows the floor count and nothing else; the per-unit electric rate (ค่าไฟหน่วยละ) moves the real monthly cost more than the rent line does, and no map anywhere records it. Every key is a policy the building itself states — never an inference from its name or its price. The one number this set deliberately refuses: the foreign quota remaining in a condominium. It lives at the juristic office and changes with every transfer, so it may appear in data/curated/realestate.json only as a dated statement from the building's own channel — a facet tick would rot into a lie the week after it was true.",
  "_professional_note": "WO-40. The lawyer-accountant shelf's one question with its own word: โนตารี. Thailand keeps no notary public; the Lawyers Council registers notarial services attorneys (ทนายความผู้ทำคำรับรองลายมือชื่อและเอกสาร), and whether an office has one is exactly the kind of fact OSM never holds — it hangs framed on the office wall. english/booking/card are keys that already exist elsewhere; only notary is new to FACET_KEYS.",
  "_pest_note": "WO-48. กำจัดปลวก — the trade that answers a telephone and never a door, which is why every ask_th here is a sentence for the phone or for LINE rather than something a passer-by ticks on the pavement. `fdalicence` is the one that matters and the one no other directory carries: a firm spraying for hire holds permission for type-3 hazardous substances under the Hazardous Substances Act B.E. 2535 and works under a certified supervisor, and the FDA publishes a lookup for both (data/curated/pest.json -> pest.licence.checks). It is a positive fact only — there is no 'no-licence-seen' key, for the hsscert reason: a certificate can sit in a filing cabinet, so an absence is one afternoon's answer rather than testimony, and it would land on a named business. `termite`/`rodent`/`bedbug`/`mosquito` are which animal the firm's own page says it takes — asked separately because a house with bed bugs and a house with termites are not looking for the same firm, and bed bugs are named by almost nobody. `baitsystem`/`pipesystem` are the two ways a termite job is done and the reason two quotes differ. `herbal` records a stated non-chemical method WITHOUT endorsing it — the tick means they say so, and the blurb keeps the claim in their words. `petsafe` asks for a NUMBER OF HOURS, not for reassurance: 'it's safe' is marketing, 'four hours' is a fact you can plan a day around. english/priceboard/booking/parking/card already exist.",
- "_tailor_note": "WO-49, 2026-08-31. This set exists because the site's tailor shelf held ten records, seven of them Night Bazaar suit shops and two of them cobblers, while the Thai directories carried 126 tailors and 119 repair shops. The facets are the answer to Nan's rule that day: good for tourists does not equal good for locals or expats. An absent facet is not a false one — most shops here have been read from a directory, not walked, so only what a shop says about itself is set."
+ "_tailor_note": "WO-49, 2026-08-31. This set exists because the site's tailor shelf held ten records, seven of them Night Bazaar suit shops and two of them cobblers, while the Thai directories carried 126 tailors and 119 repair shops. The facets are the answer to Nan's rule that day: good for tourists does not equal good for locals or expats. An absent facet is not a false one — most shops here have been read from a directory, not walked, so only what a shop says about itself is set.",
+ "_sitdown_note": "2026-09-05: seating, takeaway and delivery were added to this set. The tag rules for all three already existed in import_fixtures.TAG_RULES and the values were already on the records (attrs.outdoorSeating on 347, attrs.takeaway on 200, attrs.delivery on 53) — but a facet only fills where its SET declares the key, and the biggest set we have declared none of them. 263 restaurants and cafes were holding an answer to 'can I sit outside' that nothing could ask. The convenience set had `seating` from its first day; sitdown never did."
 }

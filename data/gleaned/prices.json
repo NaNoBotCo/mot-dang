@@ -1,0 +1,9 @@
+{
+ "_readme": "Asking-price aggregates from the Listing Sheet, gleaned by glean.py. A cell counts distinct properties at the latest price a lister stood behind; rent is baht a month. Cells under min_n are withheld and counted.",
+ "cells": [],
+ "min_n": 3,
+ "withheld": {
+  "cells": 4,
+  "properties": 4
+ }
+}

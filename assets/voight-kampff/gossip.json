@@ -1,0 +1,98 @@
+{
+ "issue": "2026-10-04",
+ "from": "2026-09-28",
+ "to": "2026-10-04",
+ "url": "https://motdang.net/voight-kampff/2026-10-04/",
+ "beats": [
+  {
+   "key": "eater",
+   "bot": "meta-externalagent",
+   "title_th": "ตัวกินจุ",
+   "rom": "tua kin chu",
+   "title_en": "The big eater",
+   "th": "meta-externalagent (บริษัทเจ้าของเฟซบุ๊ก) ขอหน้าเว็บ 579,779 ครั้งในสัปดาห์นี้ คิดเป็น 44% ของทั้งหมด หน้าที่ชอบที่สุด: ช่วย อ่านไป 20,836 ครั้ง สัปดาห์ก่อน 755,332 ครั้ง",
+   "en": "meta-externalagent (Meta, Facebook's owner) asked for 579,779 pages this week, 44% of everything anyone asked for. Its favourite: ช่วย, chuai, the help page: emergency numbers, hospitals, pharmacies, 20,836 times. Last week, 755,332.",
+   "stat": "579,779"
+  },
+  {
+   "key": "new",
+   "bot": "data centre · Alibaba Cloud",
+   "title_th": "ขาใหม่",
+   "rom": "kha mai",
+   "title_en": "New in town",
+   "th": "data centre · Alibaba Cloud สัปดาห์ก่อนมา 9,214 ครั้ง สัปดาห์นี้มา 187,120 ครั้ง เคาะประตูครั้งแรกในบันทึกของเรา วันอาทิตย์ 27 ก.ย. 16:00 น.",
+   "en": "data centre · Alibaba Cloud came 9,214 times last week and 187,120 times this week. First knock in our log: Sun 27 Sept, 16:00.",
+   "stat": "187,120"
+  },
+  {
+   "key": "quiet",
+   "bot": "ClaudeBot",
+   "title_th": "หายเงียบ",
+   "rom": "hai ngiap",
+   "title_en": "Gone quiet",
+   "th": "ClaudeBot (บริษัทที่ทำ Claude) สัปดาห์ก่อนมา 164,558 ครั้ง สัปดาห์นี้เหลือ 8,735 ครั้ง เห็นครั้งสุดท้าย วันอาทิตย์ 4 ต.ค. 23:48 น.",
+   "en": "ClaudeBot (Anthropic, the Claude company) asked 164,558 times last week. This week, 8,735. Last seen Sun 4 Oct, 23:48.",
+   "stat": "8,735"
+  },
+  {
+   "key": "hours",
+   "bot": "Chrome string, no Chrome",
+   "title_th": "นกฮูก",
+   "rom": "nok huk",
+   "title_en": "Night owl",
+   "th": "Chrome string, no Chrome อ่าน 94% ของทั้งสัปดาห์ ช่วง 20:00 ถึง 02:00 เวลาเชียงใหม่ ชั่วโมงที่ยุ่งที่สุด: 21:00 น.",
+   "en": "Chrome string, no Chrome did 94% of its week's reading between 20:00 and 02:00 Chiang Mai time. Busiest hour: 21:00.",
+   "stat": ""
+  },
+  {
+   "key": "lost",
+   "bot": "meta-externalagent",
+   "title_th": "หลงทาง",
+   "rom": "long thang",
+   "title_en": "Lost",
+   "th": "meta-externalagent (บริษัทเจ้าของเฟซบุ๊ก) ขอหน้าที่ชื่อ “null” 1,753 ครั้ง ในภาษาคอมพิวเตอร์ null แปลว่า ไม่มีอะไร มันมาหาความว่างเปล่า แล้วก็เจอ",
+   "en": "meta-externalagent (Meta, Facebook's owner) asked 1,753 times for a page called “null”. In computer talk null means nothing. It came looking for nothing, and found it.",
+   "stat": "1,753"
+  },
+  {
+   "key": "door",
+   "bot": "",
+   "title_th": "เคาะผิดประตู",
+   "rom": "kho phit pratu",
+   "title_en": "Wrong door",
+   "th": "มีเครื่องมาเคาะประตูหลังของโปรแกรมที่เว็บนี้ไม่ได้ใช้ 260 ครั้ง ตัวที่เคาะมากที่สุดมาจากรัสเซีย ลองประตู /wp-admin/install.php 88 ครั้ง เครื่องมือของขโมยเดินไปทุกซอย ลองบิดลูกบิดทุกบ้าน",
+   "en": "Machines knocked 260 times at back doors of software this site doesn't run. The busiest knocker, from Russia, tried /wp-admin/install.php 88 times. Burglar tools walk every street and try every handle.",
+   "stat": "260"
+  },
+  {
+   "key": "face",
+   "bot": "",
+   "title_th": "ลองหน้า",
+   "rom": "long na",
+   "title_en": "Trying on faces",
+   "th": "เครื่องจากจีน ลองขอโลโก้ของเว็บอื่น 16 แบบ รวม 546 ครั้ง เช่น /assets/images/logo-cn-vpnweb.png เครื่องสแกนทำแบบนี้เพื่อเดาว่าเจอเว็บแบบไหน",
+   "en": "Machines from China tried on 16 other websites' logos here, 546 requests, /assets/images/logo-cn-vpnweb.png among them. A scanner does this to guess what kind of site it has found.",
+   "stat": "16"
+  },
+  {
+   "key": "worm",
+   "bot": "ShapBot",
+   "title_th": "หนอนหนังสือ",
+   "rom": "non nangsue",
+   "title_en": "Bookworm",
+   "th": "ShapBot อ่านหน้าร้าน วัด และสถานที่ 59,207 หน้าในสัปดาห์นี้ หน้าที่กลับไปอ่านซ้ำมากที่สุด: สะพานลอย · Saphan Loi, วัดดอยเต่า · Wat Doi Tao",
+   "en": "ShapBot read 59,207 pages about shops, temples and places this week. The ones it went back to most: สะพานลอย · Saphan Loi, วัดดอยเต่า · Wat Doi Tao.",
+   "stat": "59,207"
+  },
+  {
+   "key": "people",
+   "bot": "",
+   "title_th": "คน",
+   "rom": "khon",
+   "title_en": "People",
+   "th": "คนเข้ามาประมาณ 690 ครั้ง ใช้มือถือ 48% หน้าที่คนเปิดมากที่สุด: เมืองตอนนี้ · The City, Live · Mot Dang มาจากเฟซบุ๊กประมาณ 100 ครั้ง คนมา 1 ครั้ง เครื่องมา 1,911 ครั้ง",
+   "en": "About 690 visits by people, 48% on phones. The page people opened most: เมืองตอนนี้ · The City, Live · Mot Dang. About 100 came from Facebook. For every visit by a person, 1,911 requests by machines.",
+   "stat": "690"
+  }
+ ]
+}

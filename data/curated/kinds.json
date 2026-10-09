@@ -311,6 +311,8 @@
     "motorbike",
     "fuel",
     "rental",
+    "car-rental",
+    "motorbike-rental",
     "bicycle",
     "tours"
    ]

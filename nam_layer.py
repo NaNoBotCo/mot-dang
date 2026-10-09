@@ -34,6 +34,8 @@ import datetime
 import json
 from pathlib import Path
 
+import shelflife
+
 ROOT = Path(__file__).resolve().parent
 
 
@@ -161,6 +163,14 @@ def emit(g, data):
                  f"the days behind us, not a promise about the next flood.")
             + '</p>')
 
+    # Readings older than a day are not shown (Nan, 2026-09-25, "b"): this is
+    # the page people open when the river is rising. The line that stands in
+    # for them points at the register itself.
+    stale = (f'<p class="nm-stale">'
+             + bi("ไม่มีค่าที่อ่านได้ภายในวันที่ผ่านมาในหน้านี้ — ค่าล่าสุดอยู่ที่หน้าของกรมชลประทานเอง",
+                  "No gauge reading from the last day here — the Irrigation Department's "
+                  "own page has the latest.")
+             + f' <a href="{att(src["url"])}" rel="noopener">hydro-1.net</a></p>')
     body = (
         f'<h1>🌊 {bi("น้ำ — แม่น้ำปิง ตอนนี้", "Water — the Ping right now")}</h1>'
         f'<p class="lede">'
@@ -170,7 +180,7 @@ def emit(g, data):
              "against the alert level that station itself publishes, in the order "
              "the water passes on its way into the city.")
         + '</p>'
-        + head + lagline +
+        + shelflife.guard("river", doc.get("generated"), head + lagline +
         f'<h2>{bi("ตามลำน้ำปิง", "Down the Ping")}</h2>'
         f'<p class="tinynote">'
         + bi("บนลงล่างคือทิศทางที่น้ำไหล เส้นประแดงในกราฟคือระดับเตือนภัยของสถานีนั้น",  # stylecheck: allow — the official term for a station's alert level
@@ -182,8 +192,8 @@ def emit(g, data):
         + '</div>'
         f'<h2>{bi("ลำน้ำสาขา", "The tributaries")}</h2>'
         f'<div class="nm-grid">'
-        + "".join(station_row(g, s) for s in tribs) + '</div>'
-        f'<h2>{bi("มาตรวัด", "Gauge readings")}</h2>'
+        + "".join(station_row(g, s) for s in tribs) + '</div>', stale_html=stale)
+        + f'<h2>{bi("มาตรวัด", "Gauge readings")}</h2>'
         f'<p class="nm-not">'
         + bi("หน้านี้บอกว่ามาตรวัดอ่านได้เท่าไร ระดับเตือนภัยของแต่ละสถานีเป็นเท่าไร และหกชั่วโมงที่ผ่านมาขึ้นหรือลงเท่าไร "  # stylecheck: allow — the official term for a station's alert level
              "การเตือนภัยเป็นของกรมป้องกันและบรรเทาสาธารณภัยและเทศบาล — สายด่วน 1784",  # stylecheck: allow — names who issues flood warnings

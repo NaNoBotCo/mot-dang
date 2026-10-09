@@ -155,10 +155,10 @@ def main():
     # WO-41 Phase 2 — PER SECTION, because this file is three feeds in a
     # trenchcoat and they fail one at a time. On 2026-08-16 all three failed
     # at once and the file was written as {"generated": today} and nothing
-    # else: a page that said "updated today" over an empty box. Now a section
+    # else: a page reading "updated today" over an empty box. Now a section
     # that came home empty keeps yesterday's numbers and says how old they are
     # (`stale_sections`), which the freshness chips can read; only a run where
-    # EVERY section failed is refused outright.
+    # every section failed is refused outright.
     OUT = ROOT / "data" / "finance.json"
     prev = {}
     try:

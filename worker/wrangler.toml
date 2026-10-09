@@ -16,3 +16,46 @@ compatibility_date = "2026-07-01"
 [[kv_namespaces]]
 binding = "KV"
 id = "ec8e8043f8304f35a3fb01d5cfbefa31"
+
+# Outbound mail for the Listing Sheet's front door (POST /listing). Cloudflare
+# Email Routing is receive-only, but a Worker may send to a VERIFIED
+# destination address on the account — and 530kings@proton.me is verified,
+# because it is already where nan@/hello@/beer@motdang.net forward. Pinning
+# destination_address means this binding can send to that address and nowhere
+# else, so the worst case of a bug here is mail to Nan, never mail to a
+# stranger. It also means no DKIM selector, no sending domain, no new service:
+# the notification rides infrastructure that was already there.
+#
+# It follows that the sender cannot be auto-acknowledged — an arbitrary
+# agency's address is not a verified destination and never will be. The form
+# says so rather than promising a reply it cannot send.
+[[send_email]]
+name = "MAIL"
+destination_address = "530kings@proton.me"
+
+# Photos a lister sends in for a listing they already submitted. PRIVATE, and
+# it must stay private: the site's own bucket IS the public web, so an
+# unpublished submission's pictures cannot live there. Nothing serves this
+# bucket — the only reader is intake.py --photos-pull on Nan's Mac, over the
+# S3 API with the R2 credentials that already exist. Public access is off
+# (verified at creation); turning it on would publish every held submission.
+[[r2_buckets]]
+binding = "PHOTOS"
+bucket_name = "mot-dang-listing-photos"
+
+# ALPHA — DELETE AT BETA, with the alpha block in worker.js. The nightly run
+# lands in scheduled() there, which deletes alpha/ screenshots in PHOTOS that
+# are older than the KV record that named them (ALPHA_TTL, 180 days) — R2
+# has no TTL of its own. 03:17 UTC is 10:17 in Chiang Mai.
+[triggers]
+crons = ["17 3 * * *"]
+
+# THE LISTING-AGENT GATE (lister_bearer.js). "true": POST /listing and
+# /listing-csv answer 401 without a valid bearer from motdang.net/lister/me.
+# The bearer is checked with the LISTER_SECRET secret, the same value the
+# site Worker (publish/) signs with:
+#   wrangler secret put LISTER_SECRET
+# Deploy the site Worker with lister.js first; with this "true" and the site
+# Worker not yet answering /lister/me, the add form's Send gets a 401.
+[vars]
+LISTER_REQUIRED = "true"

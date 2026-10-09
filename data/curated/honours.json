@@ -338,7 +338,7 @@
    "source": "https://data.go.th/dataset/_67_69"
   }
  ],
- "_unverified_comment": "Leads only. NOT rendered on the site. เชลล์ชวนชิม has no readable public database: shellshuanshim.com serves an expired TLS certificate so the fetcher refuses it, and its search subdomain carries no province field. The URLs below appeared as search-result titles implying Chiang Mai holders; none was opened, so none is a fact yet. One browser session on shellshuanshim.com would settle the lot. Also unresolved: the 2026 Bib Gourmand roster for Chiang Mai is 18 names and only a handful are identified here — the full list needs the client-rendered michelin.com filter pages, which need a real browser.",
+ "_unverified_comment": "Leads only. NOT rendered on the site. เชลล์ชวนชิม has no readable public database: shellshuanshim.com serves an expired TLS certificate so the fetcher drops it, and its search subdomain carries no province field. The URLs below appeared as search-result titles implying Chiang Mai holders; none was opened, so none is a fact yet. One browser session on shellshuanshim.com would settle the lot. Also unresolved: the 2026 Bib Gourmand roster for Chiang Mai is 18 names and only a handful are identified here — the full list needs the client-rendered michelin.com filter pages, which need a real browser.",
  "unverified": [
   {
    "award": "shell",

@@ -425,5 +425,129 @@
         "removes": true
       }
     }
-  ]
+  ],
+  "_stated": "What Nan has said outright about where the toilets are, 2026-09-23, while the fleet search was being given its toilet line. Stronger than a tier: a tier is a habit of a class of venue; these are her word. fleetsearch/crawl.py (Toilets.said) reads it; toilets_layer.py (said_index) reads it and bakes a `said` column into docs/data/toilets.json. `big` on the hotel line reads 'big hotels' as 4 stars or more, 50 rooms or more, or a chain; Nan confirmed that reading, 2026-09-23.",
+  "stated": {
+    "kinds": [
+      {
+        "key": "ptt",
+        "said": "All PTT stations have toilets available during their posted open hours.",
+        "match": {
+          "sub": [
+            "fuel"
+          ],
+          "brand_any": [
+            "ptt",
+            "ปตท",
+            "ป.ต.ท"
+          ]
+        },
+        "th": "มีห้องน้ำ ตามเวลาเปิด",
+        "en": "toilet, during opening hours"
+      },
+      {
+        "key": "wat",
+        "said": "All wats have toilets available during their posted open hours.",
+        "match": {
+          "cat": [
+            "wat"
+          ],
+          "name_prefix": [
+            "วัด",
+            "wat "
+          ],
+          "not_name": [
+            "ร้าง"
+          ],
+          "not_sub": [
+            "shrine",
+            "spirit-house"
+          ]
+        },
+        "th": "มีห้องน้ำ ตามเวลาเปิด",
+        "en": "toilet, during opening hours"
+      },
+      {
+        "key": "market",
+        "said": "All the markets have toilets (often pay toilets).",
+        "match": {
+          "cat": [
+            "market"
+          ]
+        },
+        "th": "มีห้องน้ำ มักเสียเงิน",
+        "en": "toilet, often paid"
+      },
+      {
+        "key": "hotel",
+        "said": "All the big hotels have toilets in the lobby.",
+        "match": {
+          "sub": [
+            "hotel-full"
+          ],
+          "big": true
+        },
+        "th": "มีห้องน้ำที่ล็อบบี้",
+        "en": "toilet in the lobby"
+      },
+      {
+        "key": "mall",
+        "said": "All the malls have toilets.",
+        "match": {
+          "sub": [
+            "mall"
+          ],
+          "not_name": [
+            "มินิบิ๊กซี",
+            "mini big c"
+          ]
+        },
+        "th": "มีห้องน้ำ",
+        "en": "toilet"
+      },
+      {
+        "key": "bigc-makro",
+        "said": "All the Big C's and Makros have toilets.",
+        "match": {
+          "name_prefix": [
+            "big c",
+            "bigc",
+            "บิ๊กซี",
+            "makro",
+            "แม็คโคร",
+            "แมคโคร"
+          ],
+          "not_name": [
+            "mini",
+            "มินิ"
+          ]
+        },
+        "th": "มีห้องน้ำ",
+        "en": "toilet"
+      }
+    ],
+    "places": [
+      {
+        "id": "cm-osm-node-2300400256",
+        "said": "Garden Restaurant on Loi Kroh Road has a toilet.",
+        "name": "The Garden Restaurant & Guest House, 69 ถนนลอยเคราะห์",
+        "th": "มีห้องน้ำ",
+        "en": "toilet"
+      },
+      {
+        "id": "cm-curated-fb-lashstorystudio",
+        "said": "Lash Story in Faham has a toilet for customers.",
+        "name": "Lash Story, Supalai Monte Biz 44/30, Nong Pa Khrang (Faham side) — added to data/curated/additions-chiang-mai.json 2026-09-23",
+        "th": "มีห้องน้ำสำหรับลูกค้า",
+        "en": "toilet for customers"
+      },
+      {
+        "id": "cm-osm-node-6351675891",
+        "said": "There's a pay toilet at the market.",
+        "name": "the amulet market (ตลาดนัดพระเครื่อง) in the Kamthieng market beside Jing Jai; NaN, 2026-09-25. In the 24 Sep footage a blue ห้องสุขา sign points down a tiled corridor off the aisle, by stall Zone A3 028-029, with a turnstile at its entrance (frames GSAC4358_185-187, GSAC4728_245)",
+        "th": "มีห้องน้ำ เสียเงิน",
+        "en": "pay toilet"
+      }
+    ]
+  }
 }

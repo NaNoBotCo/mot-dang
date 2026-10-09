@@ -1,0 +1,2290 @@
+{
+ "_note": "Rows of ../commons-crawl/found.jsonl (2026-09-30 topic crawl) judged worth showing, with hand-written tags. importers/commons_pool.py reads it; anything not listed here was not used.",
+ "keep": {
+  "File:Chiang-Mai Thailand Buddhist-Manuscript-Library-and-Museum-01.jpg": {
+   "topic": [
+    "arts",
+    "history",
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - Wat Panping - 0004.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - Chiang Mai City Art and Cultural Center - 0001.jpg": {
+   "topic": [
+    "arts",
+    "history",
+    "city"
+   ],
+   "mood": [
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - Wat Chiang Man - 0002.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - Wat Chiang Man - 0001.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - Wat Phra Singh - 0001.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - Wat Phra Singh - 0006.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - Wat Phra Singh - 0019.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - Wat Tung Yu - 0005.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - Wat Pha Lat - 0001.jpg": {
+   "topic": [
+    "wat",
+    "nature"
+   ],
+   "mood": [
+    "sacred",
+    "green"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - Wat Chet Lin - 0002.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - Wat Up Khut - 0021.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:20171106 Chiang Mai 0182 DxO.jpg": {
+   "topic": [
+    "city",
+    "wires"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Wat-Phra-That-Doi-Suthep-01.jpg": {
+   "topic": [
+    "wat",
+    "nature"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Wat-Phra-That-Doi-Suthep-02.jpg": {
+   "topic": [
+    "wat",
+    "faith",
+    "people"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Wat-Phra-That-Doi-Suthep-03.jpg": {
+   "topic": [
+    "wat",
+    "faith",
+    "people"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - East gate of the city wall - 0001.jpg": {
+   "topic": [
+    "city",
+    "history"
+   ],
+   "mood": [
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:20171105 Tha Phae Gate Chiang Mai 9784 DxO.jpg": {
+   "topic": [
+    "city",
+    "history"
+   ],
+   "mood": [
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Brick-wall-01.jpg": {
+   "topic": [
+    "city",
+    "history"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Doi Pui mountains, Chiang Mai, Thailand.jpg": {
+   "topic": [
+    "nature"
+   ],
+   "mood": [
+    "green"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Night Market Chiang Mai.jpg": {
+   "topic": [
+    "market",
+    "night"
+   ],
+   "mood": [
+    "streetlife",
+    "festive"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:20171106 Wat Phra That Doi Suthep 0103 DxO.jpg": {
+   "topic": [
+    "wat",
+    "faith"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Wat-Phra-That-Doi-Suthep-02b.jpg": {
+   "topic": [
+    "wat",
+    "faith",
+    "people"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai Graffiti-152116833.jpg": {
+   "topic": [
+    "arts",
+    "streetart"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai Spirit House.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai Fresco.jpg": {
+   "topic": [
+    "arts",
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Ho Kum Luang (I).jpg": {
+   "topic": [
+    "arts",
+    "landmark",
+    "nature"
+   ],
+   "mood": [
+    "landmark",
+    "green"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:20171105 Wat Chai Prakiat Chiang Mai 9792 DxO.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Wat-Chedi-Luang-01.jpg": {
+   "topic": [
+    "wat",
+    "history"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Wat-Chedi-Luang-15.jpg": {
+   "topic": [
+    "wat",
+    "history"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Wat-Chedi-Luang-16.jpg": {
+   "topic": [
+    "wat",
+    "history"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Wat-Chedi-Luang-10.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Ka-lae bus station Chiang Mai city.JPG": {
+   "topic": [
+    "arts",
+    "history",
+    "transport"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Ka lae 2.jpg": {
+   "topic": [
+    "arts",
+    "history"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Wat Intharawat (Wat Ton Kwen).jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Wat San Kamphaeng.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:House of Scripture; Wat Pratu Pa.jpg": {
+   "topic": [
+    "wat",
+    "arts",
+    "history"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Chiang Rai - Lanna Scripture Museum - 0001.jpg": {
+   "topic": [
+    "arts",
+    "history",
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cr",
+   "season": []
+  },
+  "File:Ho Kum Luang (III).jpg": {
+   "topic": [
+    "arts",
+    "history"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Ho Kum Luang (IV).jpg": {
+   "topic": [
+    "arts",
+    "landmark"
+   ],
+   "mood": [
+    "landmark",
+    "green"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Wat Tham Chetawan - Phra Mahathat chedi seen from the front.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:The entrance gate of Wat Phra That Lampang Luang.JPG": {
+   "topic": [
+    "wat",
+    "history"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:วัดพระธาตุลำปางหลวง 03.jpg": {
+   "topic": [
+    "wat",
+    "history"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:หอพระพุทธ วัดพระธาตุลำปางหลวง.jpg": {
+   "topic": [
+    "wat",
+    "arts"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Lampang Luang 01.jpg": {
+   "topic": [
+    "wat",
+    "history"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Fontleb.JPG": {
+   "topic": [
+    "festival",
+    "arts",
+    "people"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:พระเจ้าเก้าตื้อ pra chao kao tue 3.jpg": {
+   "topic": [
+    "wat",
+    "arts",
+    "history"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:พระเจ้าเก้าตื้อ pra chao kao tue.jpg": {
+   "topic": [
+    "wat",
+    "arts",
+    "history"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:The Buddha's Footprint.jpg": {
+   "topic": [
+    "arts",
+    "history",
+    "faith"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Bronze Buddha Subduing Mara, Chiangsean Art, Ramkhamhaeng Museum, Sukhothai (40681752053).jpg": {
+   "topic": [
+    "arts",
+    "history",
+    "faith"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Lanna Folklife Museum at night.jpg": {
+   "topic": [
+    "arts",
+    "history",
+    "night"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Lanna Folklife Museum.jpg": {
+   "topic": [
+    "arts",
+    "history"
+   ],
+   "mood": [
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Lanna Folklife Museum (I).jpg": {
+   "topic": [
+    "arts",
+    "history"
+   ],
+   "mood": [
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Tung-lanna.JPG": {
+   "topic": [
+    "wat",
+    "nature"
+   ],
+   "mood": [
+    "sacred",
+    "green"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:วัดพันเตา 2242.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Jim Thompson Museum silk printing frame IMG 7035.jpg": {
+   "topic": [
+    "textile",
+    "arts"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:National Museum of Ethnology, Osaka - A figure of an Akha woman weaving - Thailand.jpg": {
+   "topic": [
+    "textile",
+    "hill",
+    "arts"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Hanuman Guardian - US Civil Affairs immerses in local community to learn generational craft (9575321).jpg": {
+   "topic": [
+    "textile",
+    "people"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Khao soi Chiang Mai.jpg": {
+   "topic": [
+    "food"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Khao Soi 01.jpg": {
+   "topic": [
+    "food"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Khao Soi 02.jpg": {
+   "topic": [
+    "food"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Khao soi - Bangkok - 2017-05-07 (001).jpg": {
+   "topic": [
+    "food"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Beef khao soi - Chiang Mai - 2017-07-09 (002).jpg": {
+   "topic": [
+    "food"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Beef khao soi - Chiang Mai - 2017-07-09 (001).jpg": {
+   "topic": [
+    "food"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Taste from Heaven Vegetarian Restaurant, Chiang Mai P1110843.JPG": {
+   "topic": [
+    "food"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Lao-style khao soi.jpg": {
+   "topic": [
+    "food"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Street food in Thailand P1110099.JPG": {
+   "topic": [
+    "food",
+    "market"
+   ],
+   "mood": [
+    "appetite",
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Street food in Thailand P1110102.JPG": {
+   "topic": [
+    "food",
+    "market"
+   ],
+   "mood": [
+    "appetite",
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Khanom tokyo - Hua Hin - 2017-04-15 (001).jpg": {
+   "topic": [
+    "food"
+   ],
+   "mood": [
+    "appetite"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Songkran-Festival-2017-02.jpg": {
+   "topic": [
+    "festival"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "cm",
+   "season": [
+    "hot"
+   ]
+  },
+  "File:Chiang-Mai Thailand Songkran-Festival-2017-03.jpg": {
+   "topic": [
+    "festival"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "cm",
+   "season": [
+    "hot"
+   ]
+  },
+  "File:Chiang-Mai Thailand Songkran-Festival-2017-04.jpg": {
+   "topic": [
+    "festival"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "cm",
+   "season": [
+    "hot"
+   ]
+  },
+  "File:Chiang-Mai Thailand Songkran-Festival-2017-06.jpg": {
+   "topic": [
+    "festival"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "cm",
+   "season": [
+    "hot"
+   ]
+  },
+  "File:Women holding a statue of the Buddha in Laos.jpg": {
+   "topic": [
+    "festival",
+    "faith"
+   ],
+   "mood": [
+    "festive",
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": [
+    "hot"
+   ]
+  },
+  "File:Laughing woman.jpg": {
+   "topic": [
+    "festival",
+    "people"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": [
+    "hot"
+   ]
+  },
+  "File:Muay Thai Ao Nang 6.jpg": {
+   "topic": [
+    "sport"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Muay Thai Ao Nang 4.jpg": {
+   "topic": [
+    "sport"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Bow Pano.jpg": {
+   "topic": [
+    "arts",
+    "people"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Khon performance Culture of Thailand by Peak Hora DSCN8455.jpg": {
+   "topic": [
+    "arts",
+    "people"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Khon performance Culture of Thailand by Peak Hora DSCN8458.jpg": {
+   "topic": [
+    "arts",
+    "people"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Khon performance Culture of Thailand by Peak Hora DSCN8863.jpg": {
+   "topic": [
+    "arts",
+    "people"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Thai Folklore Cultural and Arts performances 02.jpg": {
+   "topic": [
+    "arts",
+    "people"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Thai Folklore Cultural and Arts performances 03.jpg": {
+   "topic": [
+    "arts",
+    "people"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Bangkok, Erawan Shrine, classical Thai dancer.jpg": {
+   "topic": [
+    "arts",
+    "faith"
+   ],
+   "mood": [
+    "festive",
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Peacock Inspired Makeup for dance.jpg": {
+   "topic": [
+    "arts",
+    "people"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Menora Traditional Dance of Thailand.jpg": {
+   "topic": [
+    "arts",
+    "people"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Siamese girl in haircutting ceremony dress (NYPL Hades-2359941-4044706).jpg": {
+   "topic": [
+    "history",
+    "people",
+    "textile"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Habit of an ambassador from Siam in 1749. Ambassadeur de Siam (NYPL b14140320-1638040).jpg": {
+   "topic": [
+    "history",
+    "people"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Thai Student Dance Team.jpg": {
+   "topic": [
+    "arts",
+    "people",
+    "textile"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Costumes Annamites Cambodgiens et Siamois (Vietnamese Cambodian Thai) c1870.jpg": {
+   "topic": [
+    "history",
+    "people",
+    "textile"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Siamese Man in Traditional Attire by Mercier 1845.jpg": {
+   "topic": [
+    "history",
+    "people",
+    "textile"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Silk Loom Jim Thompson House photo Don Ramey Logan.jpg": {
+   "topic": [
+    "textile",
+    "arts"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:เทศกาลสงกรานต์กรุงเทพมหานคร 2562 Photographed by Peak Hora (15).jpg": {
+   "topic": [
+    "festival",
+    "people",
+    "textile"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": [
+    "hot"
+   ]
+  },
+  "File:Chiang Rai, Akha woman.jpg": {
+   "topic": [
+    "hill",
+    "people",
+    "textile",
+    "festival"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "cr",
+   "season": [
+    "cool"
+   ]
+  },
+  "File:Chiang Rai, Lahu woman.jpg": {
+   "topic": [
+    "hill",
+    "people",
+    "textile",
+    "festival"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "cr",
+   "season": [
+    "cool"
+   ]
+  },
+  "File:Thai patterned clothing2.jpg": {
+   "topic": [
+    "textile",
+    "shop"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Standard Suea Pat.JPG": {
+   "topic": [
+    "textile",
+    "history"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Child's cap, Phami Akha people, Northern Thailand, collected in 1986 - Ethnological Museum, Berlin - DSC01397.JPG": {
+   "topic": [
+    "hill",
+    "textile"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Hat, Akha people, Northern Thailand, collected in 1986 - Ethnological Museum, Berlin - DSC01385.JPG": {
+   "topic": [
+    "hill",
+    "textile"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Thai wall elephants LR.jpg": {
+   "topic": [
+    "hill",
+    "arts"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Thai Hill Tribe Wall Caddy LR.jpg": {
+   "topic": [
+    "hill",
+    "arts"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Married woman's headdress, Akha peoples, Thailand, Laos, or Myanmar, 20th century, silver, fur, glass, aluminum, wool - Fernbank Museum of Natural History - DSC00054.JPG": {
+   "topic": [
+    "hill",
+    "textile"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Woman's clothing, Akha peoples, Thailand, Laos, Myanmar, 20th century, cotton, glass, seeds, brass - Fernbank Museum of Natural History - DSC00005.JPG": {
+   "topic": [
+    "hill",
+    "textile"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Woman from Akha tribe.jpg": {
+   "topic": [
+    "hill",
+    "people"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Man's jacket detail, Hmong people, Northern Thailand, collected in 1986 - Ethnological Museum, Berlin - DSC01380.JPG": {
+   "topic": [
+    "hill",
+    "textile"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Pleated skirt detail, White Hmong, Northern Thailand, collected in 1986 - Ethnological Museum, Berlin - DSC01377.JPG": {
+   "topic": [
+    "hill",
+    "textile"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Woman's jacket, Blue Hmong people, Northern Thailand, collected in 1986 - Ethnological Museum, Berlin - DSC01373.JPG": {
+   "topic": [
+    "hill",
+    "textile"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Su Thep, Mueang Chiang Mai District, Chiang Mai, Thailand - panoramio (41).jpg": {
+   "topic": [
+    "city"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Hmong chiang-mai-1464237 960 720.jpg": {
+   "topic": [
+    "hill",
+    "people"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Hmong tribal village in the middle of Doi Suthep-Pui mountain.jpg": {
+   "topic": [
+    "hill",
+    "nature"
+   ],
+   "mood": [
+    "green"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Hmongové, severní Thajsko.jpg": {
+   "topic": [
+    "hill",
+    "people"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Thailand (Karen), woman's costume, 1970s-1980s - Bunka Gakuen Costume Museum - DSC05292.JPG": {
+   "topic": [
+    "hill",
+    "textile"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Basket, Karen people, Northern Thailand, collected in 1986 - Ethnological Museum, Berlin - DSC01355.JPG": {
+   "topic": [
+    "hill",
+    "arts"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Baskets, Karen people, Northern Thailand, collected in 1986 - Ethnological Museum, Berlin - DSC01358.JPG": {
+   "topic": [
+    "hill",
+    "arts"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Chiang Mai - Buddhist Manuscript Library and Museum - 0002.jpg": {
+   "topic": [
+    "arts",
+    "history",
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai - Buddhist Manuscript Library and Museum - 0004.jpg": {
+   "topic": [
+    "arts",
+    "history",
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:20171105 guardian Buddhist Manuscript Library and Museum - Chiang Mai - 9928 DxO.jpg": {
+   "topic": [
+    "arts",
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Fakkham inscription.jpg": {
+   "topic": [
+    "history",
+    "arts"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:20171105 Wat Chedi Luang Chiang Mai 9910 DxO.jpg": {
+   "topic": [
+    "wat",
+    "arts"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:20171105 Statue in front of Wat Phra Singh, Chiang Mai, Thailand 9867 DxO.jpg": {
+   "topic": [
+    "wat",
+    "arts"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Rai Wat Phra Singha วัดพระสิงห์ เชียงราย - อุโบสถ ubosot.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cr",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Wat-Chedi-Luang-stupa-01.jpg": {
+   "topic": [
+    "wat",
+    "history"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Wat-Chedi-Luang-stupa-02.jpg": {
+   "topic": [
+    "wat",
+    "history"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Chiang-Mai-City-Pillar-shrine-01.jpg": {
+   "topic": [
+    "wat",
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:20171105 Golden elephant statue of the Wat Phra Singh temple, Chiang Mai, Thailand 9843 DxO.jpg": {
+   "topic": [
+    "wat",
+    "arts",
+    "animals"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Rai Wat Phra Singha วัดพระสิงห์ เชียงราย - ubosot อุโบสถ.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cr",
+   "season": []
+  },
+  "File:Chiang Rai Wat Phra Singha วัดพระสิงห์ เชียงราย - vihara kaew.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cr",
+   "season": []
+  },
+  "File:20171105 Wat Chedi Luang Chiang Mai 9897 DxO.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Wat Chedi Luang Assembly Hall, Chiang Mai, Thailand - Diliff.jpg": {
+   "topic": [
+    "wat",
+    "faith",
+    "people"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Wat Phra That Doi Suthep D 3.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Wat Phra That Doi Suthep D 6.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Wat Phra That Doi Suthep D 12.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Wat Phra That Doi Suthep D 17.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Wat Phra That Doi Suthep D 22.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Wat Phra That Doi Suthep D 29.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Wat Phra That Doi Suthep in Chiang Mai 01.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Wat Phra That Doi Suthep 3.jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Wat Phra That Doi Suthep (I).jpg": {
+   "topic": [
+    "wat"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Muay Thai spectacular kick.jpg": {
+   "topic": [
+    "sport"
+   ],
+   "mood": [
+    "festive"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Sop-Ruak Thailand Golden-Triangle-01.jpg": {
+   "topic": [
+    "wat",
+    "landmark",
+    "history"
+   ],
+   "mood": [
+    "sacred",
+    "landmark"
+   ],
+   "place": "cr",
+   "season": []
+  },
+  "File:Thailand Glass Art Festival 2018 - (1).jpg": {
+   "topic": [
+    "arts"
+   ],
+   "mood": [
+    "calm"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Ganesha marble sculpture in Thailand by Trisorn Triboon 02.jpg": {
+   "topic": [
+    "arts",
+    "faith"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:เศียรพระพุทธรูปในรากโพธิ์.jpg": {
+   "topic": [
+    "faith",
+    "history",
+    "nature"
+   ],
+   "mood": [
+    "sacred",
+    "green"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Phuket Town Thailand-Murals-in-Thalang-Road-01.jpg": {
+   "topic": [
+    "arts",
+    "streetart"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:20171105 Wat Phra Sing, Chiang Mai 0004 DxO.jpg": {
+   "topic": [
+    "arts",
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:20171105 Wat Phra Sing, Chiang Mai 0001 DxO.jpg": {
+   "topic": [
+    "arts",
+    "wat"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai Graffiti-152116831.jpg": {
+   "topic": [
+    "arts",
+    "streetart"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai Graffiti-152116837.jpg": {
+   "topic": [
+    "arts",
+    "streetart"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai Graffiti-152116840.jpg": {
+   "topic": [
+    "arts",
+    "streetart"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai Graffiti-152116841.jpg": {
+   "topic": [
+    "arts",
+    "streetart"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai Graffiti-152116849.jpg": {
+   "topic": [
+    "arts",
+    "streetart"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Graffiti in Bangkok.JPG": {
+   "topic": [
+    "arts",
+    "streetart"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:BANGKOK THAILANDE.jpg": {
+   "topic": [
+    "arts",
+    "streetart"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Tuk-Tuk-01.jpg": {
+   "topic": [
+    "transport",
+    "city"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang-Mai Thailand Taxis-at-Arcade-Bus-Station-01.jpg": {
+   "topic": [
+    "transport",
+    "city"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Thailand Tuk Tuk in Traffic.jpg": {
+   "topic": [
+    "transport",
+    "city"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Trang - frog tuk tuks outside railway station - Sep 2024.jpg": {
+   "topic": [
+    "transport",
+    "city"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Red Car Chiang Mai queue in front of Wat Phra That Doi Suthep.jpg": {
+   "topic": [
+    "transport",
+    "wat"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Red Car Chiang Mai queue in front of Chiang Mai Zoo.jpg": {
+   "topic": [
+    "transport",
+    "city"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Red Car Chiang Mai (3).jpg": {
+   "topic": [
+    "transport",
+    "city"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Red Car Chiang Mai (5).jpg": {
+   "topic": [
+    "transport",
+    "city"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Red Car Chiang Mai queue behind Chiang Mai University.jpg": {
+   "topic": [
+    "transport",
+    "city"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai 20230521.jpg": {
+   "topic": [
+    "transport",
+    "city",
+    "history"
+   ],
+   "mood": [
+    "streetlife",
+    "landmark"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Inside a Thai songthaew.jpg": {
+   "topic": [
+    "transport"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai Sunday Night Market 2.jpg": {
+   "topic": [
+    "market",
+    "night"
+   ],
+   "mood": [
+    "streetlife",
+    "festive"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai Sunday Night Market 3.jpg": {
+   "topic": [
+    "market",
+    "night"
+   ],
+   "mood": [
+    "streetlife",
+    "festive"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai Sunday Night Market 5.jpg": {
+   "topic": [
+    "market",
+    "night"
+   ],
+   "mood": [
+    "streetlife",
+    "festive"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai Sunday Night Market 6.jpg": {
+   "topic": [
+    "market",
+    "night"
+   ],
+   "mood": [
+    "streetlife",
+    "festive"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Tangled cables in Bangkok.jpg": {
+   "topic": [
+    "city",
+    "wires"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Phra Sing, Mueang Chiang Mai District, Chiang Mai, Thailand - panoramio (22).jpg": {
+   "topic": [
+    "city"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Multiple wires run low overhead in Bangkok's Khlong Toei Neighbourhood.jpg": {
+   "topic": [
+    "city",
+    "wires"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Dense overhead utility lines in Bangkok - 2.jpg": {
+   "topic": [
+    "city",
+    "wires"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Apartments - panoramio - gary4now.jpg": {
+   "topic": [
+    "city",
+    "stay"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chang Khlan, Mueang Chiang Mai District, Chiang Mai, Thailand - panoramio (17).jpg": {
+   "topic": [
+    "city"
+   ],
+   "mood": [
+    "streetlife"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Spirit house in Bangkok.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Buddhist offering table with fruits meat rice confectionery flowers and candles at Bangkok City Pillar Shrine Thailand.jpg": {
+   "topic": [
+    "faith",
+    "mu",
+    "food"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Udon Thani - Spirit House - 0001.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Thai spirit houses duo.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Thai Spirit House and Altar, Sukhothai (33758707448).jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Chiang Rai Spirit house 20240927.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cr",
+   "season": []
+  },
+  "File:Spirit house - panoramio.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Tak Community Center Spirit Shrine.JPG": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Thailand-3491 - Spirits live here.. (View Original) (3686873692).jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Temple Wat Yai Chai Mongkon 9.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Riverside community of Kong subdistrict, Kong Krailat (2026) - img 04.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:DFC 2506 A small ornate Thai spirit house painted gold and red stands on tall pillars amid lush green trees in a quiet temple courtyard.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Spirit House in Chiang Mai.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Traditional Spirit House in Chiang Mai.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:ศาลพระภูมิชัยกฤษณะ.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "lanna",
+   "season": []
+  },
+  "File:Spirit houses in Chiang Mai.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Green Spirit House in Chiang Mai-2.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Green Spirit House in Chiang Mai-1.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Chiang Mai-Spirit House.jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:20171105 Wat Phra Sing, Chiang Mai elephant statue 9878 DxO.jpg": {
+   "topic": [
+    "wat",
+    "arts",
+    "animals"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  },
+  "File:Citizen of Amulet Market-1.jpg": {
+   "topic": [
+    "mu",
+    "market",
+    "amulets"
+   ],
+   "mood": [
+    "sacred",
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Citizen of Amulet Market-2.jpg": {
+   "topic": [
+    "mu",
+    "market",
+    "amulets"
+   ],
+   "mood": [
+    "sacred",
+    "streetlife"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:พระสมเด็จหลวงพ่อทองคำ รุ่นสมปรารถนา by Peak Hora DSCN6380.jpg": {
+   "topic": [
+    "mu",
+    "amulets"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:พระไพรีพินาศ ๘๐ พรรษา สมเด็จพระสังฆราช by Peak Hora DSCN6249.jpg": {
+   "topic": [
+    "mu",
+    "amulets"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:พระพุทธนวราชบพิตร วัดตรีทศเทพ by Peak Hora DSCN6285.jpg": {
+   "topic": [
+    "mu",
+    "amulets"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:สมเด็จ ๑๙ วัดบวรนิเวศวิหาร by Peak Hora DSCN6301.jpg": {
+   "topic": [
+    "mu",
+    "amulets"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:สมเด็จพระอรหัง ขวัญถุง วัดบวรนิเวศวิหาร by Peak Hora DSCN6312.jpg": {
+   "topic": [
+    "mu",
+    "amulets"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Nai Lert Park Heritage Home - amulets.jpg": {
+   "topic": [
+    "mu",
+    "amulets",
+    "history"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "elsewhere",
+   "season": []
+  },
+  "File:Thailand-3749 - Four Faces Buddha (Brahma) (6042345760).jpg": {
+   "topic": [
+    "faith",
+    "mu"
+   ],
+   "mood": [
+    "sacred"
+   ],
+   "place": "cm",
+   "season": []
+  }
+ }
+}

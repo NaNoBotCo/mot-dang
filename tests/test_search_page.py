@@ -26,7 +26,11 @@ asserts what a reader would see, not what the code contains:
   * a query about its own topic still does;
   * naming a landmark sorts by distance and says so (WO-68);
   * the declutter rules hold: no province chip when every row is in one
-    province, no "wrong results?" line under a search that worked.
+    province, no "wrong results?" line under a search that worked;
+  * a row draws its marks as glyphs, never stock emoji, and carries no
+    open-<day> chip — both through the fallback chips and through MDROW;
+  * the front page's remembered city (md-city) never narrows a search;
+  * a failed index fetch leaves a way forward in the list.
 
     /opt/homebrew/bin/python3.13 tests/test_search_page.py     (after a build)
 """
@@ -45,6 +49,11 @@ SHIPPED = os.path.join(ROOT, "assets", "searchcore.js")
 PIPE_START = "// ---- md:search-pipeline — tests/test_search.py lifts this block ----"
 RENDER_START = "// ---- md:search-render — tests/test_search_page.py lifts from here ----"
 RENDER_END = "// ---- md:search-render ends ----"
+# The shop's clock (WMIN, mdOpen, mdWhen) sat inside the pipeline until
+# 2026-09-23, when it moved above the search block so plan.html could read
+# opening hours too. The rows still read it, so it is lifted with them.
+CLOCK_START = "// ---- md:clock — tests/test_search_page.py lifts this beside the pipeline ----"
+CLOCK_END = "// ---- md:clock ends ----"
 
 # (query, [checks]) — each check is (name, predicate over the rendered page)
 #
@@ -120,6 +129,32 @@ def cases():
              and "including words that mean the same thing" not in p["html"]),
         ]),
         # WO-69 — THE CARD (Michael, 2026-09-07)
+        # 2026-09-10 — Nan: "When search results do appear, they announce
+        # 'we lack information on this place' — NO WE DO NOT. SILENCE." The
+        # state family (Phone number held, Facebook page held, A thin entry,
+        # Not pinned yet, No way to reach it) no longer rides into a row.
+        ("khao soi", [
+            ("no row announces what the record holds or lacks",
+             lambda p: not any(s in p["html"] for s in (
+                 "Phone number held", "Facebook page held", "Website held",
+                 "Opening hours held", "A thin entry", "Not pinned yet",
+                 "No way to reach it", "Name only", "ข้อมูลยังบาง", "มีเบอร์โทร",
+                 "มีเพจเฟซบุ๊ก", "ยังไม่ได้ปักหมุด", "ยังไม่มีช่องทางติดต่อ"))),
+            ("the wait bar is gone once the rows are drawn",
+             lambda p: "mdseeking" not in p["bodyClasses"]),
+        ]),
+        # 2026-09-10 — River Tavern, Chiang Rai: a held record found by name
+        # with its city attached, drawn as a plain card, no "no pin" badge.
+        ("river tavern chiang rai", [
+            ("the held record is the first row",
+             lambda p: "River Tavern" in p["first"]),
+            ("a one-result answer gets a short page",
+             lambda p: "mdshort" in p["bodyClasses"]),
+            ("the city is an active, removable chip",
+             lambda p: 'class="rchip on"' in p["html"] and "Chiang Rai" in p["html"]),
+            ("and nothing on the row announces a lack",
+             lambda p: "no pin" not in p["html"] and "ยังไม่มีพิกัด" not in p["html"]),
+        ]),
         ("guitar", [
             ("every card carries at least two chips",
              lambda p: p["rows"] and all(r.count('class="rchip"') >= 2 for r in p["rowhtml"])),
@@ -137,6 +172,23 @@ def cases():
         ({"q": "", "tag": ["vegan"]}, [
             ("a filter with no words draws cards", lambda p: len(p["rows"]) > 0),
             ("the active filter is a removable chip", lambda p: 'class="rchip on"' in p["html"]),
+            ("a row's tag chip draws its mark as a glyph", _glyphed),
+            ("and no row prints a stock emoji", _no_emoji),
+        ]),
+        # The page draws rows through MDROW (rowline_layer.py): every tag, the
+        # phone, the web host. The harness loads it for these cases.
+        ({"q": "", "tag": ["vegan"], "mdrow": True}, [
+            ("MDROW draws rows", lambda p: len(p["rows"]) > 0 and 'class="rline"' in p["html"]),
+            ("its chips and ☎ come out as glyphs", _glyphed),
+            ("and no row prints a stock emoji", _no_emoji),
+        ]),
+        ({"q": "", "tag": ["open-sunday"]}, [
+            ("rows draw", lambda p: len(p["rows"]) > 0),
+            ("no row carries an open-<day> chip", _no_day_chip),
+        ]),
+        ({"q": "", "tag": ["open-sunday"], "mdrow": True}, [
+            ("rows draw", lambda p: len(p["rows"]) > 0),
+            ("no MDROW row carries an open-<day> chip", _no_day_chip),
         ]),
         ("#wifi coffee", [
             ("the lifted tag is an active chip", lambda p: 'class="rchip on"' in p["html"]),
@@ -156,8 +208,36 @@ def cases():
              lambda p: "mdshort" not in p["bodyClasses"]),
             ("nothing found still offers the shelves", has("crawl-request")),
             ("and asks the reader what went wrong", has("tellants")),
+            # 2026-09-10: the rail and the sponsor box stand down under a 0.
+            ("nothing found is its own state: body.mdnone",
+             lambda p: "mdnone" in p["bodyClasses"]),
         ]),
     ]
+
+
+# U+1F300–1FAFF, U+2600–27BF and the flag letters — the stock emoji a row
+# must not print. The name and the English name are the record's own words
+# and are left out of the look.
+_EMO = re.compile("[\U0001F300-\U0001FAFF\u2600-\u27BF\U0001F1E6-\U0001F1FF]")
+
+
+def _marks(r):
+    r = re.sub(r'<a class="rname".*?</a>', "", r, flags=re.S)
+    return re.sub(r'<span class="count en[^"]*" lang="en">.*?</span>', "", r, flags=re.S)
+
+
+def _no_emoji(p):
+    bad = [_EMO.findall(_marks(r)) for r in p["rowhtml"]]
+    return bool(p["rowhtml"]) and not any(bad)
+
+
+def _glyphed(p):
+    return any('class="rowicon"' in _marks(r) for r in p["rowhtml"])
+
+
+def _no_day_chip(p):
+    day = re.compile(r"tag=open-(mon|tues|wednes|thurs|fri|satur|sun)day")
+    return bool(p["rowhtml"]) and not any(day.search(r) for r in p["rowhtml"])
 
 
 def _metres(rowhtml):
@@ -183,7 +263,7 @@ def premise():
     except SyntaxError:
         sys.exit("✗ build.py does not parse — run this under "
                  "/opt/homebrew/bin/python3.13 (3.9 cannot read it)")
-    for mark in (PIPE_START, RENDER_START, RENDER_END):
+    for mark in (PIPE_START, RENDER_START, RENDER_END, CLOCK_START, CLOCK_END):
         if mark not in build.JS:
             sys.exit(f"✗ the marker {mark[:44]}… is gone from build.py's search "
                      f"page. The block moved and this test cannot find it — put "
@@ -196,15 +276,21 @@ def premise():
     pipeline = build.JS[i:j]
     k = build.JS.index("\n", j) + 1
     render = build.JS[k:build.JS.index(RENDER_END, k)]
-    return shipped, pipeline + render, build.JS[:build.JS.index(shipped)]
+    c = build.JS.index(CLOCK_START)
+    clock = build.JS[c:build.JS.index(CLOCK_END, c)]
+    return shipped, clock + pipeline + render, build.JS[:build.JS.index(shipped)]
 
 
 def run(shipped, block, tables, queries):
     """Run pipeline+render per query under a DOM stub, return what was drawn."""
+    import rowline_layer
+    rowjs = rowline_layer.JS
     harness = f"""'use strict';
 const fs = require('fs'), path = require('path');
 require({json.dumps(SHIPPED)});
 const SEARCHCORE = globalThis.SEARCHCORE;
+// md.js defines window.mdIcon; mdGlyphs reads it off globalThis.
+globalThis.mdIcon = (n) => '<svg class="rowicon" aria-hidden="true"><use href="#' + n + '"></use></svg>';
 {tables}
 const DOCS = {json.dumps(DOCS)};
 const RROOT = '';
@@ -218,7 +304,14 @@ const fetch = async url => {{
   return {{ ok, text: async () => (ok ? read(url) : '') }};
 }};
 let INDEX_CACHE = null;
-const loadIndex = async () => (INDEX_CACHE ||= JSON.parse(read('data/index.json')));
+// Both halves — indexsplit_layer (2026-09-08) moved lat/lng/f/fx into
+// data/index2.json, merged by POSITION on the page; a harness reading the
+// first file alone sees no pins and every distance check fails.
+const loadIndex = async () => {{
+  const a = JSON.parse(read('data/index.json'));
+  try {{ const b = JSON.parse(read('data/index2.json'));
+    for (let i = 0; i < a.length && i < b.length; i++) if (b[i]) Object.assign(a[i], b[i]); }} catch (e) {{}}
+  return a; }};
 
 // The smallest DOM that this block actually touches. Deliberately NOT jsdom:
 // the point is to run the shipped code, and a stub that throws on anything
@@ -264,6 +357,17 @@ async function drawn(spec) {{
   const document = doc;
   const resBox = doc.box;
   const mdBi = (th, en) => th + ' · ' + en;
+  // mdSolo wraps a lone name for the language toggle; identity is enough here.
+  // `window` exists in the page and not in node — the render half reads
+  // window.MDROW / MDREFINE / MDMAP, all optional, so an empty one is the
+  // page without its add-ons. (Both were missing: every case THREW from the
+  // day the card shipped, and the file said 35 checks failed on a page that
+  // rendered fine. 2026-09-10.)
+  const mdSolo = (s) => String(s == null ? '' : s);
+  const window = {{}};
+  if (S.mdrow) {{
+{rowjs}
+  }}
   let err = null;
   try {{
 {block}
@@ -323,19 +427,110 @@ def check_css():
     import build
     bad = 0
     print("  stylesheet contracts:")
-    # THE STYLESHEET MUST BE VERSIONED. It is served with a seven-day
-    # max-age, so an unversioned URL means a returning reader keeps the CSS
-    # they already had for a week — and a layout fix reaches first-time
-    # visitors only. P1 and P2 deployed clean and did not appear in a browser
-    # for exactly this reason.
+    # THE STYLESHEET IS NOT VERSIONED ANY MORE (Nan, 2026-09-10). It was,
+    # because the Worker served it with a seven-day max-age and P1/P2 once
+    # deployed clean and never appeared in a browser. The fingerprint sat in
+    # 96,000 pages and made every CSS edit a full re-upload; now the Worker
+    # serves css/js with stale-while-revalidate (publish/worker.js cacheFor),
+    # so the plain name is right and a ?v= creeping back is the regression.
     src = open(os.path.join(ROOT, "build.py"), encoding="utf-8").read()
-    ok = 'style.css?v={MD_CSS_V}' in src
-    print(f"    {'✓' if ok else '✗'} the stylesheet URL carries its content hash")
+    ok = 'href="{r}style.css">' in src and 'style.css?v=' not in src
+    print(f"    {'✓' if ok else '✗'} the stylesheet URL is plain (no ?v=)")
     bad += not ok
     for name, rule in CSS_CONTRACTS:
         ok = rule in build.CSS
         print(f"    {'✓' if ok else '✗'} {name}")
         bad += not ok
+    return bad
+
+
+def check_lost():
+    """The index or a table fetch rejects. The handler is the .catch() on the
+    search IIFE, just past the render marker; it runs here under stubs."""
+    import build
+    src = build.JS
+    print("  a failed fetch:")
+    try:
+        i = src.index(RENDER_END)
+        j = src.index(".catch(", i) + len(".catch(")
+        k = src.index("\n// ---- THE OUTCOME BEACON", j)
+        handler = src[j:k].rstrip()
+        assert handler.endswith(");}")
+        handler = handler[:-3]
+    except (ValueError, AssertionError):
+        print("    ✗ cannot find the search's .catch() after the render marker")
+        return 1
+    js = """'use strict';
+const mdBi = (th, en) => th + ' · ' + en;
+function lost(search, cls, before) {
+  const resBox = { className: cls, innerHTML: before || '',
+    insertAdjacentHTML(w, h) { this.innerHTML = w === 'afterbegin' ? h + this.innerHTML : this.innerHTML + h; } };
+  const location = { search, href: 'https://motdang.net/search.html' + search };
+  const document = { body: { classList: { remove() {} } } };
+  const RROOT = '';
+  const console = { error() {} };
+  const h = eval('(' + HANDLER + ')');
+  h(new TypeError('Failed to fetch'));
+  return resBox.innerHTML;
+}
+console.log(JSON.stringify([
+  lost('?q=pad%20thai', 'dir', ''),
+  lost('?tag=vegan', 'dir', '<li class="richdoor">doors</li>'),
+  lost('?q=pad%20thai', 'dir cards', '<li class="rcard">row</li>'),
+]));
+""".replace("HANDLER", json.dumps(handler))
+    with tempfile.NamedTemporaryFile("w", suffix=".cjs", delete=False, encoding="utf-8") as fh:
+        fh.write(js)
+        hpath = fh.name
+    try:
+        proc = subprocess.run(["node", hpath], capture_output=True, text=True, timeout=60)
+    finally:
+        os.unlink(hpath)
+    if proc.returncode:
+        print("    ✗ the handler threw under node:\n" + (proc.stderr or proc.stdout)[-1500:])
+        return 1
+    typed, filt, drawn = json.loads(proc.stdout)
+    checks = [
+        ("an emptied list gets one shelf row",
+         typed.count('<li class="shelf">') == 1),
+        ("that retries the same address",
+         'href="https://motdang.net/search.html?q=pad%20thai"' in typed and "connection lost" in typed),
+        ("and sends no reader to /api/v1/search, which answers JSON",
+         "api/v1/search" not in typed),
+        ("a filter with no words gets no edge link, and keeps its doors",
+         "api/v1/search" not in filt and filt.startswith('<li class="shelf">') and "doors" in filt),
+        ("a list the render already wrote is left alone",
+         drawn == '<li class="rcard">row</li>'),
+    ]
+    bad = 0
+    for name, ok in checks:
+        print(f"    {'✓' if ok else '✗'} {name}")
+        bad += not ok
+    return bad
+
+
+# The boot, above the pipeline marker, is not run here; these hold its lines.
+JS_CONTRACTS = [
+    ("a filter with no words keeps the served doors until rows exist",
+     "if(q)resBox.innerHTML='';"),
+]
+
+
+def check_js():
+    import build
+    print("  boot contracts:")
+    bad = 0
+    for name, line in JS_CONTRACTS:
+        ok = line in build.JS
+        print(f"    {'✓' if ok else '✗'} {name}")
+        bad += not ok
+    # 2026-09-11: the front page's remembered city was read here as a soft
+    # province filter and taken out the same day — with home set to Chiang
+    # Mai, "mae sai" answered 200 Chiang Mai namesakes and none of Chiang
+    # Rai's own district. The front page keeps md-city for itself.
+    ok = "md-city" not in build.JS
+    print(f"    {'✓' if ok else '✗'} the search script does not read the front page's md-city")
+    bad += not ok
     return bad
 
 
@@ -345,7 +540,7 @@ def main():
     got = run(shipped, block, tables, [q for q, _ in cs])
     if got is None:
         return 1
-    bad = check_css()
+    bad = check_css() + check_js() + check_lost()
     for (q, checks), p in zip(cs, got):
         print(f"\n  {q!r}  — {len(p['rows'])} rows, count {p['count']!r}"
               + (f", qualifier {p['qual']!r}" if p["qual"] else ""))

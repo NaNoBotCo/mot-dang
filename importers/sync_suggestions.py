@@ -19,6 +19,8 @@ into a public commit by accident.
     python3 importers/sync_suggestions.py --offline --kind question
                                                      # triage from the file on
                                                      # disk, no wrangler round-trip
+    python3 importers/accept_suggestion.py           # then: accept or reject by
+                                                     # number; the fixes.json row
 
 The `question` kind is the ถามมด intake (asked_layer.py): a reader asking where
 to find something. Triage prints the question and whether a reply address was
@@ -33,6 +35,7 @@ import json
 import os
 import subprocess
 import sys
+import unicodedata
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_DIR = os.path.join(ROOT, "_incoming")
@@ -105,9 +108,19 @@ def main():
                   f"{(r.get('what') or '')[:100]}")
         else:
             where = r.get("placeId") or "(no place)"
-            print(f"   [{r.get('kind','?'):10}] {where:28} {(r.get('what') or '')[:60]}")
+            # the three ways a listing stops being true read as words;
+            # `detail` carries since-when / moved-where / duplicate-of-which
+            kind = r.get("kind") or "?"
+            word = {"closed": "ปิดถาวร · closed", "moved": "ย้ายแล้ว · moved",
+                    "duplicate": "ซ้ำ · duplicate"}.get(kind, kind)
+            tail = f"  ({r['detail'][:60]})" if r.get("detail") else ""
+            # pad to what the eye sees: Thai vowel and tone marks take no column
+            pad = " " * max(0, 16 - sum(unicodedata.category(c) != "Mn" for c in word))
+            print(f"   [{word}{pad}] {where:28} {(r.get('what') or '')[:60]}{tail}")
     if len(rows) > 40:
         print(f"   … and {len(rows) - 40} more")
+    if rows:
+        print("   next: python3 importers/accept_suggestion.py")
     return 0
 
 

@@ -21,7 +21,7 @@ WHY EACH CHECK EXISTS
       math.floor(lat*100) in Python must agree, or a place sits in a file the
       page never asks for. Checked in Python; and, when node is on the PATH,
       checked against node for a thousand random coordinates.
-  EVERY PINNED PLACE IS IN EXACTLY ONE CELL       the cells partition the
+  every PINNED PLACE IS IN EXACTLY ONE CELL       the cells partition the
       catalogue: count in == count out, no row twice.
   THE OLD CITY STAYS AFFORDABLE                   the nine cells around Tha
       Phae Gate, gzipped, under a stated ceiling. Measured at 166 kB on
@@ -90,7 +90,7 @@ import build as _B  # noqa: E402
 _saved = {k: getattr(_B, k, None) for k in
           ("WEATHER_CITIES", "AIR_PLACES", "TODAY_DAYS", "WEATHER_DATE", "AIR_DATE", "BUILD_DATE")}
 try:
-    # the worst honest case: every feed stale, nothing on today
+    # the worst real-world case: every feed stale, nothing on today
     _B.WEATHER_CITIES, _B.AIR_PLACES, _B.TODAY_DAYS = [], [], {}
     _B.WEATHER_DATE = _B.AIR_DATE = "2026-01-01"
     _B.BUILD_DATE = "2026-09-07"
@@ -151,9 +151,9 @@ else:
         check('href="%s"' % door in html, "door to %s" % door)
     for gate in ("ประตูท่าแพ", "ประตูช้างเผือก", "ประตูเชียงใหม่", "ประตูสวนดอก", "ประตูแสนปุง"):
         check(gate in html, "gate named: %s" % gate)
-    v = re.search(r'here\.js\?v=([0-9a-f]{8})', html)
-    check(bool(v), "here.js carries a ?v= cache-buster")
-    check(bool(re.search(r'near\.js\?v=[0-9a-f]{8}', html)), "near.js carries a ?v= cache-buster")
+    # no ?v= since 2026-09-10 (Nan): the Worker serves scripts and sheets with stale-while-revalidate instead
+    check('src="here.js"' in html, "here.js is named plainly, no ?v=")
+    check('src="near.js"' in html, "near.js is named plainly, no ?v=")
     check("maplibre-gl.js" in html, "page() pulled the basemap in (data-mdmap seen)")
 
     cdir = DOCS / here_layer.CELL_DIR

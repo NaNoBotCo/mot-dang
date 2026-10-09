@@ -57,8 +57,8 @@ to a search for teak furniture. Same family as `(?<!ห)วัด` (จังห
 is printed on the page rather than fixed silently, because the reader typing
 "teak" into any search box anywhere has the same problem.
 
-DRAWN, NOT DESCRIBED. Three instruments, all inline SVG, no script and no
-basemap: what the directory holds on the ground around the village; the chain
+DRAWN, NOT DESCRIBED. Three instruments, inline SVG: what the directory holds
+on the ground around the village, over the site's own basemap; the chain
 of hands with the place the price moves marked on it; and the timeline on
 true year scale from the drought to the two fairs of 2568.
 
@@ -108,20 +108,22 @@ def _km(lat1, lng1, lat2, lng2):
 # ───────────────────────────────────────────────────── FIGURE 1 · the ground
 
 def _ground_svg(reg, near, esc, bi_text):
-    """Everything the directory holds within 2.5 km of the village pin.
+    """Everything the directory holds within 2.5 km of the village pin, on
+    the site's own basemap (map_shell: cm-cr.pmtiles under the drawing).
 
-    Drawn from real coordinates only. No boundary, no road line, no shading —
-    the directory holds none of those for this ground, and a drawn approach
-    road would be a claim the data cannot carry. What the picture is FOR is
-    the shape of the absence: a village of carvers with a ring of cafes,
-    schools and health stations around it and not one carving shop in it.
+    The drawing carries the finding and the ground carries the streets: a
+    village of carvers with a ring of cafes, schools and health stations
+    around it and not one carving shop in it. Rings and dots are drawn in
+    metres and travel with the ground; the village pin keeps its size.
+    With no tiles (script off, print) the drawing stands on its own paper.
     """
+    import map_shell
     v = reg["village"]
     lat0, lng0 = v["lat"], v["lng"]
     W, H = 720, 400
     pad = 46
     kx = 111.320 * math.cos(math.radians(lat0))
-    # metres per pixel chosen so the 2.5 km ring fits with room for labels
+    # px per km, chosen so the 2.5 km ring fits with room for labels
     span = NEAR_KM * 2.15
     sc = min((W - 2 * pad), (H - 2 * pad)) / span
 
@@ -131,22 +133,20 @@ def _ground_svg(reg, near, esc, bi_text):
 
     o = ['<svg viewBox="0 0 %d %d" role="img" xmlns="http://www.w3.org/2000/svg" '
          'aria-label="%s">' % (W, H, esc(bi_text(
-             "แผนภาพสิ่งที่สารบัญมีในรัศมี 2.5 กิโลเมตรรอบหมุดบ้านถวาย "
+             "แผนที่สิ่งที่สารบัญมีในรัศมี 2.5 กิโลเมตรรอบหมุดบ้านถวาย บนแผนที่ถนน "
              "หมุดทองคือหมู่บ้าน วงเล็กคือร้านและสถานที่อื่นทั้งหมด",
-             "A plot of everything this directory holds within 2.5 km of the Ban "
-             "Tawai pin. The gold pin is the village; every small ring is some "
-             "other kind of place.")))]
+             "A map of everything this directory holds within 2.5 km of the Ban "
+             "Tawai pin, on the street map. The gold pin is the village; every "
+             "small ring is some other kind of place."))),
+         '<rect class="mdmap-bg" width="%d" height="%d" fill="#FBF6EE"/>' % (W, H)]
     # the rings, at 1 and 2 km
     cx, cy = W / 2, H / 2
     # Labels go at twelve o'clock, not at three. On the right of the ring they
     # landed on top of the village pin's own label, which is the one word on
     # the drawing that has to be readable.
-    for km, lab in ((1, "1 กม. · 1 km"), (2, "2 กม. · 2 km")):
+    for km in (1, 2):
         o.append('<circle cx="%.1f" cy="%.1f" r="%.1f" class="cv-ring"/>'
                  % (cx, cy, km * sc))
-        o.append('<text x="%.1f" y="%.1f" class="cv-ringlab" '
-                 'text-anchor="middle">%s</text>'
-                 % (cx, cy - km * sc - 5, esc(lab)))
     for d in near:
         x, y = xy(d["lat"], d["lng"])
         cls = "cv-dot"
@@ -154,18 +154,22 @@ def _ground_svg(reg, near, esc, bi_text):
             cls += " craft"
         o.append('<circle cx="%.1f" cy="%.1f" r="4.2" class="%s"><title>%s</title></circle>'
                  % (x, y, cls, esc(d["name"] + " — " + d["shelf"])))
+    # Ring labels after the dots, so no dot sits on a distance.
+    for km, lab in ((1, "1 กม. · 1 km"), (2, "2 กม. · 2 km")):
+        o.append('<text x="%.1f" y="%.1f" class="cv-ringlab" '
+                 'text-anchor="middle">%s</text>'
+                 % (cx, cy - km * sc - 5, esc(lab)))
     x, y = xy(lat0, lng0)
+    o.append('<g data-mdpin="%.1f,%.1f">' % (x, y))
     o.append('<circle cx="%.1f" cy="%.1f" r="9" class="cv-pin"><title>%s</title></circle>'
              % (x, y, esc(bi_text("บ้านถวาย — หมุดเดียวที่มีชื่อหมู่บ้าน",
                                   "Ban Tawai — the one pin carrying the name"))))
     o.append('<text x="%.1f" y="%.1f" class="cv-pinlab">%s</text>'
              % (x + 14, y + 4, esc("บ้านถวาย · Ban Tawai")))
-    o.append('<text x="%d" y="%d" class="cv-ringlab">%s</text>'
-             % (pad - 30, H - 12, esc(bi_text(
-                 "วาดจากพิกัดจริงเท่านั้น ไม่มีเส้นถนนเพราะสารบัญไม่มีให้วาด",
-                 "Real coordinates only. No road line: the directory holds none to draw."))))
+    o.append("</g>")
     o.append("</svg>")
-    return "".join(o)
+    return map_shell.mount("tawaimap", "".join(o), lat=lat0, lng=lng0,
+                           mpu=1000.0 / sc)
 
 
 # ────────────────────────────────────────────────── FIGURE 2 · chain of hands
@@ -274,7 +278,7 @@ def _timeline_svg(reg, esc, bi_text):
         o.append('<text x="%.1f" y="%.1f" class="cv-ev">%s</text>'
                  % (lx, ty, esc(label)))
     # The canvas is sized to the rows the packer actually used, so adding an
-    # event never leaves a band of empty card under the drawing (or, worse,
+    # event does not leave a band of empty card under the drawing (or, worse,
     # pushes a label out of the frame).
     H = TOP + (max(r for r, _ in placed) + 1) * ROW_H + 12
     return ('<svg viewBox="0 0 %d %d" role="img" xmlns="http://www.w3.org/2000/svg" '
@@ -291,12 +295,16 @@ CSS = """
   border:1px solid var(--warm-border);border-radius:14px;overflow-x:auto}
 .cv-fig svg{display:block;width:100%;height:auto;min-width:560px}
 .cv-figcap{font-size:.86rem;color:var(--mute);margin:.55rem .3rem 0;line-height:1.5}
-.cv-ring{fill:none;stroke:var(--warm-border);stroke-width:1.1;stroke-dasharray:4 5}
+.cv-ring{fill:none;stroke:#8a7a62;stroke-width:1.3;stroke-dasharray:4 5}
 .cv-ringlab{font-size:11px;fill:var(--mute)}
-.cv-dot{fill:none;stroke:var(--mute);stroke-width:1.5;opacity:.8}
+.cv-dot{fill:#fffdf7;stroke:#5c4d38;stroke-width:1.5;opacity:.9}
 .cv-dot.craft{fill:#7a4a1c;stroke:#7a4a1c}
-.cv-pin{fill:#8a6a1f;stroke:var(--card);stroke-width:2.5}
+.cv-pin{fill:#8a6a1f;stroke:#fffdf7;stroke-width:2.5}
 .cv-pinlab{font-size:13px;font-weight:700;fill:var(--ink)}
+.cv-ringlab,.cv-pinlab{paint-order:stroke;stroke:#fffdf7;stroke-width:3px;stroke-linejoin:round}
+.cv-mapfig{padding:0;overflow:hidden}
+.cv-mapfig .mdmap{margin:0}
+.cv-mapfig svg{min-width:0}
 .cv-box{fill:var(--soft);stroke:var(--warm-border);stroke-width:1.2}
 .cv-box.last{stroke:#7a4a1c;stroke-width:2}
 .cv-boxth{font-size:14px;font-weight:700;fill:var(--ink)}
@@ -455,13 +463,12 @@ def emit(g, data):
     # ── FIGURE 1 · the ground, and the finding ────────────────────────────
     B.append('<h2 id="ground">' + bi("สารบัญนี้มีอะไรอยู่ตรงนั้น",
                                      "What this directory holds there") + "</h2>")
-    B.append('<div class="cv-fig">' + _ground_svg(reg, near, esc, bi_text) + "</div>")
+    B.append('<div class="cv-fig cv-mapfig">' + _ground_svg(reg, near, esc, bi_text) + "</div>")
     B.append('<p class="cv-figcap">' + bi(
         "แต่ละวงคือหนึ่งบันทึกในรัศมี 2.5 กิโลเมตรจากหมุดหมู่บ้าน หมุดทองคือหมู่บ้านเอง "
-        "วาดจากพิกัดจริงล้วน ไม่มีเส้นถนนเพราะสารบัญไม่มีเส้นถนนตรงนั้นให้วาด",
+        "ระยะในวงเป็นเส้นตรง ไม่ใช่ระยะทางถนน",
         "Every ring is one record within 2.5 km of the village pin; the gold pin is the "
-        "village itself. Drawn from real coordinates only — there is no road line "
-        "because the directory holds none there to draw.") + "</p>")
+        "village itself. The rings measure straight-line distance, not the road.") + "</p>")
 
     B.append('<div class="cv-count">')
     B.append("<p><b>%d</b> " % len(near) + bi(

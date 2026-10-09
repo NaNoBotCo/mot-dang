@@ -40,6 +40,14 @@ THE RULES THE MODEL WORKS UNDER, and they are the whole design:
     python3 importers/enrich_services.py --kind medical --limit 40
     python3 importers/enrich_services.py                       # the whole queue
 
+WRONG PAGE, fixed 2026-10-02. Nothing checked that the page belonged to the
+place: on 9/30 14 of 42 entries came off someone else's page (eleven schools
+read onab.go.th). queue() now skips a website host shared by more than one
+record (facebook.com/<page>, linktr.ee/<x> and kin count by path) and a list of
+aggregators; the model must answer page_is_this_place: true or nothing is
+written. Held entries that fail either test are listed every run and removed
+only with --prune; --recheck also re-asks the model about their cached pages.
+
 Output: data/curated/services.json, keyed by place id in the enrich.json shape
 (fields / how / source / fetched), owned wholesale by this importer.
 """
@@ -58,6 +66,16 @@ ACCT = CF.get("account_id") or "fe332688b1b25b543f8429d7f08292a3"
 MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
 MAX_TEXT = 6000
 
+# Hosts that are not one place's own site: aggregators, directories, mail.
+NOT_A_PLACE = {"share.google", "booking.com", "wongnai.com", "wongn.ai",
+               "flickr.com", "hotmail.com", "gmail.com", "data.bopp-obec.info",
+               "thaischool.in.th"}
+# Hosts where the first path segment names the place (facebook.com/<page>).
+BY_PATH = {"facebook.com", "m.facebook.com", "web.facebook.com", "fb.me",
+           "fb.com", "m.me", "linktr.ee", "instagram.com", "tiktok.com",
+           "youtube.com", "sites.google.com", "page.line.me", "shop.line.me",
+           "lin.ee", "line.me"}
+
 SCHEMA = """{
  "does": ["<what they actually do or sell, in their own words, up to 8>"],
  "does_th": ["<the same, in Thai, as the page writes it>"],
@@ -65,7 +83,9 @@ SCHEMA = """{
  "languages": ["<only if the page says so>"],
  "appointment": "required|walk-in|unknown",
  "price_hint": "<only if the page prints a price, else null>",
- "evidence": {"<each key above>": "<the exact words on the page, <=20 words>"}
+ "page_is_this_place": true|false,
+ "evidence": {"<each key above>": "<the exact words on the page, <=20 words>",
+              "page_is_this_place": "<the words naming THIS business, or why not>"}
 }"""
 
 PROMPT = """You are reading ONE business's own web page for a Chiang Mai directory.
@@ -78,6 +98,11 @@ If the page does not say, the answer is unknown — set "not_stated": true and
 leave the field out. Never write that they do NOT do something: a page that is
 silent about a service tells us nothing about whether they offer it.
 Every field you fill must have the page's own words in "evidence".
+
+FIRST decide whether this page is the PLACE's own page. If it is a parent
+organisation, a chain's head office, a government or directory site, a hosting
+ad, or a different business, set "page_is_this_place": false and fill nothing
+else. A branch counts only if the page is about that branch.
 
 Return ONLY JSON in this shape:
 """ + SCHEMA + """
@@ -133,10 +158,47 @@ def page_text(url):
     return text, False
 
 
-def queue(records, kind=None):
+def site_key(url):
+    """The host, or host + first path segment where the path names the place."""
+    if "//" not in url:
+        url = "https://" + url.lstrip("/")
+    u = urllib.parse.urlsplit(url.strip())
+    host = (u.hostname or "").lower()
+    if host.startswith("www."):
+        host = host[4:]
+    if host in BY_PATH:
+        seg = [x for x in u.path.split("/") if x]
+        return host + "/" + (seg[0].lower() if seg else "")
+    return host
+
+
+def shared_keys(records):
+    n = {}
+    for r in records:
+        if r.get("website"):
+            k = site_key(r["website"])
+            n[k] = n.get(k, 0) + 1
+    return n
+
+
+def not_this_place(url, counts):
+    """Why a URL cannot be trusted as one place's own page, or None."""
+    k = site_key(url)
+    host = k.split("/")[0]
+    if any(host == b or host.endswith("." + b) for b in NOT_A_PLACE):
+        return "aggregator"
+    if counts.get(k, 0) > 1:
+        return f"host shared by {counts[k]} records"
+    return None
+
+
+def queue(records, kind=None, counts=None):
+    counts = counts if counts is not None else shared_keys(records)
     out = []
     for r in records:
         if not r.get("website"):
+            continue
+        if not_this_place(r["website"], counts):
             continue
         if kind and kind not in (r.get("cat") or []):
             continue
@@ -154,13 +216,42 @@ def main():
     ap.add_argument("--kind", help="only this cat, e.g. medical")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--refresh", action="store_true")
+    ap.add_argument("--prune", action="store_true",
+                    help="remove held entries that fail the wrong-page guard")
+    ap.add_argument("--recheck", action="store_true",
+                    help="ask the model whether each held entry's cached page is the place")
     a = ap.parse_args()
 
     held = {}
     if OUT.exists() and not a.refresh:
         held = json.loads(OUT.read_text())
     records = ES.load_records()
-    q = queue(records, a.kind)
+    byid = {r["id"]: r for r in records}
+    counts = shared_keys(records)
+
+    # Held entries that fail the guard are listed; --prune removes them.
+    dropped = []
+    for pid in [k for k in held if not k.startswith("_")]:
+        src = held[pid].get("src") or (byid.get(pid) or {}).get("website") or ""
+        why = not_this_place(src, counts) if src else None
+        if not why and a.recheck and src:
+            text, _ = page_text(src)
+            if text:
+                name = (byid.get(pid) or {}).get("name") or pid
+                got = call(PROMPT.replace("{name}", str(name)).replace("{text}", text[:MAX_TEXT]))
+                if got.get("page_is_this_place") is False:
+                    why = "model: " + str((got.get("evidence") or {}).get("page_is_this_place") or "not this place")[:80]
+        if why:
+            dropped.append((pid, src, why))
+            if a.prune:
+                del held[pid]
+    for pid, src, why in dropped:
+        print(f"  - {pid:<40} {src[:50]:<50} {why}")
+    if dropped:
+        print(f"{len(dropped)} held entries fail the wrong-page guard"
+              f"{' — removed' if a.prune else ' — kept; --prune removes them'}")
+
+    q = queue(records, a.kind, counts)
     if a.limit:
         q = [r for r in q if a.refresh or r["id"] not in held][:a.limit]
 
@@ -177,6 +268,10 @@ def main():
         got = call(prompt)
         if got.get("_error"):
             print(f"  ! {r['name'][:40]}: {got['_error'][:60]}")
+            continue
+        if got.get("page_is_this_place") is not True:
+            print(f"  ✗ {r['name'][:40]:<40} not this place's page: "
+                  f"{str((got.get('evidence') or {}).get('page_is_this_place') or '')[:60]}")
             continue
         does = [d for d in (got.get("does") or []) if d]
         if not does:

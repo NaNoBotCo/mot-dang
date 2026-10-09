@@ -1,0 +1,63 @@
+OPS SITREP — Friday 2 October 2026, 15:00 desk (ran early, 04:10)
+Covers 30 Sept 17:52 to 1 Oct 21:45. The hourly desk routed it all at 04:04; this adds the checks.
+
+PIPE
+  Health          ok, build 2026-09-30-group-modes
+  Rows waiting    0
+  Newest message  1 Oct 21:45, Nan. About 6 hours old. Alive.
+
+THE ROOM
+  About 170 messages, 30 Sept 17:52 – 1 Oct 21:45. Nan, Palida, Michael.
+  About 105 of them are amulet-trip photos, posted 21:20–21:24.
+
+FOR NAN
+  1. Today is the Friday you named. Three things you set for today:
+       a. Zia: the sanity-check search, then a price. You floated $100 a category, not promised.
+       b. Zia's awards site (said 30 Sept: Friday at the earliest).
+       c. Search back at the top of motdang.net. You asked if it matters; Palida said yes, "very useful".
+  2. Four site fixes you reported on 1 Oct, each with a screenshot:
+       - place-page facts squeeze into a thin column on phones; should stack.
+       - "Send this spot" offers only an app list; it needs a plain copy-link.
+       - map dots at street zoom should show their names without a click.
+       - Kad Suan Kaew mall wants a listing (CityNews, 1 Oct: Krungthai asking 2.583 billion baht).
+  3. Palida is to send Zia your four questions (countries, closing date, suppression list,
+     a past email). No sign in the room that she has.
+  4. From 30 Sept, still open: you asked Palida to set a meeting with the friend who sent
+     the price list. Not answered in the room.
+
+WORKED
+  Kad Suan Kaew: the mall has no record of its own and is not on the listings register.
+    The directory holds 6 shops inside it (B2S, Boots, Central) and one misspelt mall
+    record, "เซ็นทรัน กาดสวนแก้วววว", that is probably the mall itself.
+  zmoothiez: not in the directory. It holds about 6 cannabis shops near the top of a Thai
+    search, but nothing for delivery. Before listing him: Thai law since mid-2025 requires a
+    prescription to sell cannabis. Whether a delivery listing fits is your call.
+  Fern Forest Cafe (your meeting with Brian): held, cm-osm-node-3385494997.
+  Visa prices from Lila: 6+ visa agents already held (SANS, Solshine, Night Visa, Star,
+    Premium, VFS). Lila's agency is unnamed, so the price list cannot be attached yet.
+
+ROUTED (by the hourly desk, checked)
+  Ops, Zia brief, fixes      → _incoming/line/ops/2026-10-01.txt
+  Stall phones, zmoothiez    → _incoming/line/knowledge/2026-10-01.json
+  Amulet photos              → unfiled; likely wichaa amulets/pieces, asked
+  Visa prices                → visa net, once the agency is named
+  Zia awards                 → Red Team Partners project (prospect pilot)
+
+BLOCKED
+  Fixes 1c and 2: each is a deploy. Yes to any of them and it moves.
+  zmoothiez: list him or not.
+  Lila: which agency is she with.
+  Amulet photos: Nong Ho market, and are they for wichaa.
+  Friday Morning market: Palida said Saturday 9 am. Saturday 3 Oct, or Friday?
+  ASK-NAN.txt is 348 lines (330 on 30 Sept). Unfiled photos 166 (157). Drive queue 176 (56).
+  All three are still rising.
+
+LATER, 04:30 — NAN ANSWERED
+  Laila's visa prices: close-hold. Figures scrubbed from the ops file; they stay only in the raw chat.
+  Amulet market: Thursday mornings, whatever the signs say. Table and two chairs, 80 baht.
+    Markets pages LIVE with both; the place record and the register card carry it on the next walk.
+  The 109 photos: Kamthieng market shots, 12 Grab "Map Your City" screens, and the 19–20 Sep
+    contest book. Read photo by photo: _incoming/line/glean/2026-10-01/. 12 knowledge rows added.
+  Grab: she wants it copied for motdang. Plan and forks: notes/map-your-city-2026-10-02.txt.
+  Kad Suan Kaew: goes up in real estate with a full open-source description. In progress.
+  Standing: every photo in the channel is motdang work; ask her when the link is unclear.

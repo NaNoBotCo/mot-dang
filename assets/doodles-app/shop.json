@@ -1,0 +1,37 @@
+{
+ "about": "The doodle shop. store: the shop's own page. links: doodle id (f-2026-10-04-market, p-…, as on /doodles/d/?id=) → product → {url, price}; a chip shows on the doodle's page only where a url is set. Print files: tools/doodle_swag.py.",
+ "store": "",
+ "products": [
+  {
+   "id": "mug",
+   "th": "แก้วมัค",
+   "en": "Mug"
+  },
+  {
+   "id": "tee",
+   "th": "เสื้อยืด",
+   "en": "T-shirt"
+  },
+  {
+   "id": "tote",
+   "th": "กระเป๋าผ้า",
+   "en": "Tote"
+  },
+  {
+   "id": "poster",
+   "th": "โปสเตอร์",
+   "en": "Poster"
+  },
+  {
+   "id": "flip",
+   "th": "สมุดพลิก",
+   "en": "Flip book"
+  },
+  {
+   "id": "book",
+   "th": "หนังสือภาพ",
+   "en": "Picture book"
+  }
+ ],
+ "links": {}
+}

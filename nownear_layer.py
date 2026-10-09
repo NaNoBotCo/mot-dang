@@ -36,14 +36,15 @@ What is deliberately NOT in the strip:
   📝 to-do — localStorage 'md-notes' is my.html's sticky-notes textarea,
      free text, not a list. Nothing to count. Fork F2 stays hers.
 
-Called from build.py: strip() in page(), where the ☰ <details> is written
-inline around the chips and the svcbar; home() where the spare
-front page was composed; CSS and JS appended where style.css and md.js are
-written. tests/test_page_weight.py gates the result.
+Called from build.py: tile_values(), calendar_days(), today_count() and
+day_items(); CSS and JS appended where style.css and md.js are written.
+tests/test_page_weight.py gates the result.
 """
 
 import datetime
 import re
+
+import glyphs
 
 # The eight paths — the questions people actually bring, ranked by go/gptmine
 # on 2026-09-05 (shopping 96 · clinics 50 · food 49 · activities 35 ·
@@ -88,11 +89,81 @@ def today_count(events, build_date):
                 dt = e.get("dt")
                 hit = bool(dt) and dt.weekday() == wd
         else:
-            hit = (e.get("start") or "")[:10] == build_date
+            hit = _runs_on(e, build_date)
         if hit:
             seen.add(key)
             n += 1
     return n
+
+
+def _on_day(e, day):
+    """Does event `e` happen on date `day`? The same reading of a row as
+    today_count and build.event_when: `weekday`, `byday`, else its own dt."""
+    wd = day.weekday()
+    if e.get("recurring"):
+        if e.get("weekday") is not None:
+            return e["weekday"] == wd
+        if e.get("byday"):
+            return _BYDAY[wd] in e["byday"]
+        dt = e.get("dt")
+        return bool(dt) and dt.weekday() == wd
+    return _runs_on(e, day.isoformat())
+
+
+def _runs_on(e, iso):
+    """A one-off is on its start day and, when it states an end day, on every
+    day up to it: a fair that runs 12–18 October is on the 15th as well."""
+    start = (e.get("start") or "")[:10]
+    end = (e.get("end") or "")[:10]
+    return start == iso or bool(start and end and start <= iso <= end)
+
+
+def day_items(events, iso, limit=4):
+    """Up to `limit` events on one day, richest first, de-duplicated the way
+    the carousel is: [{t, w, v, h}] — title, when, venue (markup), href."""
+    import build as B
+    try:
+        day = datetime.date.fromisoformat(iso)
+    except (TypeError, ValueError):
+        return []
+    # what opens that day comes before what is merely still running
+    pool = sorted(events, key=lambda e: ((e.get("start") or "")[:10] != iso,
+                                         -e.get("richness", 0), e.get("start") or ""))
+    out, seen = [], set()
+    for e in pool:
+        key = (e.get("title"), (e.get("place") or {}).get("id"))
+        if key in seen or not _on_day(e, day):
+            continue
+        seen.add(key)
+        pl = e.get("place") or {}
+        where = pl.get("name") or e.get("venue_name") or ""
+        # The time of day alone: the cell already says which day, and the
+        # whole bilingual sentence made every line three lines on a phone.
+        st = str(e.get("start") or "")
+        when = st[11:16] if len(st) >= 16 and st[10] in "T " and not e.get("all_day") else ""
+        out.append({"t": B.esc((e.get("title") or "")[:60]),
+                    "w": when,
+                    "v": pl.get("nameHtml") or B.esc(where[:34]),
+                    "h": pl.get("href") or "events.html"})
+        if len(out) >= limit:
+            break
+    return out
+
+
+def calendar_days(events, build_date, n=7):
+    """The front page's strip: n days from the build date, each with its count
+    and its first three events. [{iso, d, wd, n, items}]"""
+    try:
+        d0 = datetime.date.fromisoformat(build_date)
+    except (TypeError, ValueError):
+        return []
+    days = []
+    for i in range(n):
+        d = d0 + datetime.timedelta(days=i)
+        iso = d.isoformat()
+        days.append({"iso": iso, "d": d.day, "wd": d.weekday(),
+                     "n": today_count(events, iso), "items": day_items(events, iso, 3)})
+    return days
 
 
 def _pick(rows, path):
@@ -105,6 +176,7 @@ def _pick(rows, path):
     return rows[0] if rows else None
 
 
+# No caller in build.py (tests/test_here.py still runs it); whether it stays is WO-65 decisions J–M.
 def strip(r, path=""):
     """One line: 🌤 24° ฝนปรอย · PM2.5 17 ดี · 🎪 24 งานวันนี้ · 🗺 (plan, JS).
     A cell with nothing true to say drops; a stale file drops its cell rather
@@ -114,6 +186,9 @@ def strip(r, path=""):
     wx = _pick(B.WEATHER_CITIES, path)
     if wx and B.WEATHER_DATE >= B.BUILD_DATE and isinstance(wx.get("temp"), (int, float)):
         icon, th, en = B.wmo(wx.get("code"))
+        # Drawn where a drawing exists (WO-77); the wmo table's emoji otherwise.
+        g = glyphs.EMOJI.get(icon.strip())
+        icon = glyphs.icon(g, 18) if g else icon
         cells.append(f'<a class="nn nnwx" href="{r}widgets.html#w-weather" '
                      f'aria-label="{B.att(B.bi_text(th, en))}">{icon} {wx["temp"]:.0f}°</a>')
     air = _pick(B.AIR_PLACES, path)
@@ -161,11 +236,30 @@ def strip(r, path=""):
 
 
 
+def tile_values(path=""):
+    """What the 2a weather tile shows: (temp, pm25, band_th, band_en, band_key)
+    with the same freshness guards strip() keeps — a stale file returns None
+    for its half rather than printing yesterday as today. Either half may be
+    None; the tile draws what is true and the icon alone when nothing is."""
+    import build as B
+    temp = pm25 = None
+    band_th = band_en = band_key = ""
+    wx = _pick(B.WEATHER_CITIES, path)
+    if wx and B.WEATHER_DATE >= B.BUILD_DATE and isinstance(wx.get("temp"), (int, float)):
+        temp = wx["temp"]
+    air = _pick(B.AIR_PLACES, path)
+    if air and B.AIR_DATE >= B.BUILD_DATE and isinstance(air.get("pm25"), (int, float)):
+        pm25 = air["pm25"]
+        band = air.get("band") or {}
+        band_th, band_en, band_key = band.get("th", ""), band.get("en", ""), str(band.get("key") or band.get("level") or "")
+    return temp, pm25, band_th, band_en, band_key
+
+
 def _fold(fid, glyph, th, en, inner):
     import build as B
     if not inner:
         return ""
-    return (f'<details class="homefold" id="{fid}"><summary>{glyph} {B.bi(th, en)}</summary>'
+    return (f'<details class="homefold" id="{fid}"><summary>{glyphs.emoji_to_icon(glyph, 18)} {B.bi(th, en)}</summary>'
             f'<div class="homefoldbody">{inner}</div></details>')
 
 
@@ -176,12 +270,12 @@ def home(parts):
     import build as B
     p = parts
     paths = '<span class="nnsep"> · </span>'.join(
-        f'<a href="{href}">{g} {B.bi(th, en)}</a>' for href, g, th, en in PATHS)
+        f'<a href="{href}">{glyphs.icon(g, 18)} {B.bi(th, en)}</a>' for href, g, th, en in glyphs.PATHS)
     # The finder carries its own <h2>🔎; the fold's summary says it once.
     finder = re.sub(r"(?s)<h2>.*?</h2>", "", p.get("finder", ""), count=1)
     return (
         '<section class="hero herolite"><div class="herocopy">'
-        f'<h1 class="herotitle"><span class="accent">{B.bi("มดแดงรู้ทุกซอย", "the red ants know every lane")}</span></h1>'
+        f'<h1 class="herotitle"><span class="accent">{B.bi("สารบัญเมืองเชียงใหม่-เชียงราย", "The Chiang Mai and Chiang Rai directory")}</span></h1>'
         '</div></section>'
         f'{p.get("ev_strip", "")}'
         f'{p.get("map", "")}'
@@ -189,7 +283,7 @@ def home(parts):
         + _fold("shelves", "🔎", "ทุกชั้น ทุกหมวด", "every shelf", finder)
         + _fold("today", "✨", "วันนี้", "today", p.get("today", ""))
         + _fold("sky", "🌙", "ฟ้า ลม น้ำ ราคา", "sky, air and prices", p.get("sky", ""))
-        + _fold("toys", "🧭", "เครื่องมือของมด", "the ants’ instruments", p.get("toys", ""))
+        + _fold("toys", "🧭", "เครื่องมือ", "instruments", p.get("toys", ""))
         + _fold("feeds", "📡", "ข่าวสด", "live", "<!--MD:COMINGUP-->" + p.get("feeds", ""))
         + p.get("ad", "") + p.get("share", ""))
 
@@ -204,6 +298,13 @@ CSS = """
 .nownear a{white-space:nowrap}
 .nownear a{color:var(--ant-dark);text-decoration:none;white-space:nowrap}
 .nownear a:hover{color:var(--ant);text-decoration:underline}
+/* The plan and here cells carry their own leading separator INSIDE the nowrap
+   anchor (set by JS), and strip() appends them with no whitespace between
+   anchors — so without this the last weather cell and the plan cell were one
+   unbreakable run that ran off the right edge and scrolled the whole page
+   sideways on a 360 px phone. Normal whitespace on the separator restores the
+   break opportunity the line was designed to have. */
+.nownear .nnsep{white-space:normal}
 .nnsep{color:var(--mute)}
 details.morenav{margin:.15rem 0 0}
 details.morenav>summary{cursor:pointer;list-style:none;display:inline-block;

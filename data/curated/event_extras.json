@@ -1,0 +1,63 @@
+{
+ "_note": "Hand-kept extras for events. Read by build.py right after data/events.json; no harvest writes this file. 'events' lays fields over a harvested row by uid (image = a path under docs/, page = a motdang page for the carousel, url = the details link). 'add' holds rows a source stated once, kept until their end day; a row is used only when the harvest no longer carries its uid.",
+ "events": {
+  "newsletter-d-2026-10-03-melodies-and-motifs-in-the-mountains-exhibition-closed-mond": {
+   "image": "sites/melodies-and-motifs/img/poster-exhibit.jpg",
+   "image_alt": "Akha headdresses with silver coins on stands, beside a portrait of an elder Akha woman (poster: Cultural Crossroads Asia)",
+   "page": "sites/melodies-and-motifs/",
+   "url": "https://motdang.net/sites/melodies-and-motifs/",
+   "end": "2027-01-10 18:00:00",
+   "description": "A multimedia exhibit of traditional music and textiles by Cultural Crossroads Asia · 3 Oct 2026 – 10 Jan 2027, closed Mondays · Chiang Mai City Craft Space, 280 Tha Phae Road"
+  },
+  "newsletter-d-2026-10-03-tales-my-ancestors-taught-me-akha-songs-and-stories": {
+   "image": "sites/melodies-and-motifs/img/poster-tales.jpg",
+   "image_alt": "A young Akha man in a feathered headdress plays a bamboo flute (poster: Cultural Crossroads Asia)",
+   "page": "sites/melodies-and-motifs/",
+   "url": "https://motdang.net/sites/melodies-and-motifs/",
+   "end": "2026-10-03 17:00:00",
+   "description": "An afternoon of age-old Akha songs and stories by Cultural Crossroads Asia · Sat 3 Oct 2026, 16:00–17:00 · Chiang Mai City Craft Space, 280 Tha Phae Road"
+  }
+ },
+ "add": [
+  {
+   "uid": "newsletter-d-2026-10-03-melodies-and-motifs-in-the-mountains-exhibition-closed-mond",
+   "start": "2026-10-03 10:00:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2027-01-10 18:00:00",
+   "title": "Melodies and Motifs in the Mountains: exhibition (closed Mondays)",
+   "description": "A multimedia exhibit of traditional music and textiles by Cultural Crossroads Asia · 3 Oct 2026 – 10 Jan 2027, closed Mondays · Chiang Mai City Craft Space, 280 Tha Phae Road",
+   "url": "https://motdang.net/sites/melodies-and-motifs/",
+   "source": "steve-newsletter",
+   "venue_name": "Chiang Mai City Craft Space",
+   "venue_from": "title",
+   "recurring": false,
+   "weekday": null,
+   "cost": null,
+   "from_rule": false,
+   "image": "sites/melodies-and-motifs/img/poster-exhibit.jpg",
+   "image_alt": "Akha headdresses with silver coins on stands, beside a portrait of an elder Akha woman (poster: Cultural Crossroads Asia)",
+   "page": "sites/melodies-and-motifs/"
+  },
+  {
+   "uid": "newsletter-d-2026-10-03-tales-my-ancestors-taught-me-akha-songs-and-stories",
+   "start": "2026-10-03 16:00:00",
+   "all_day": false,
+   "tz": "Asia/Bangkok",
+   "end": "2026-10-03 17:00:00",
+   "title": "Tales My Ancestors Taught Me: Akha songs and stories",
+   "description": "An afternoon of age-old Akha songs and stories by Cultural Crossroads Asia · Sat 3 Oct 2026, 16:00–17:00 · Chiang Mai City Craft Space, 280 Tha Phae Road",
+   "url": "https://motdang.net/sites/melodies-and-motifs/",
+   "source": "steve-newsletter",
+   "venue_name": "Chiang Mai City Craft Space",
+   "venue_from": "title",
+   "recurring": false,
+   "weekday": null,
+   "cost": null,
+   "from_rule": false,
+   "image": "sites/melodies-and-motifs/img/poster-tales.jpg",
+   "image_alt": "A young Akha man in a feathered headdress plays a bamboo flute (poster: Cultural Crossroads Asia)",
+   "page": "sites/melodies-and-motifs/"
+  }
+ ]
+}

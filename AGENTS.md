@@ -10,9 +10,12 @@ Written 2026-07-30, after a week in which the site grew an ant rank, a LINE fron
 
 A city directory for Chiang Mai and Chiang Rai. Thai first, open data, static HTML, stdlib Python. It is run by one person and it competes with Google by being structurally different rather than bigger: every fact carries where it came from and when it was read.
 
-It is not a startup, a marketplace, a platform, or an MVP on the way to something.
+**Struck by Nan, 2026-09-18:** *"agents.md is wrong — motdang is 50 days old and I founded it."*
+The line that stood here — "not a startup, a marketplace, a platform, or an MVP on the way to
+something" — was a session's invention, never hers. She is the founder. What the venture is and
+what it becomes is hers to say, and no session re-opens this from a file birth time.
 
-Two things were bundled into that refusal that did not belong in it. **A mobile app** — the site ships one: `docs/app/` has a manifest, a service worker, icons and a signed APK, and `/app.html` is the หาห้องน้ำ app's own page. **A/B testing** — the objection was always to watching readers, not to trying two wordings; the site already picks copy by measurement it can make without surveillance (`tests/test_contrast.py`, the reader-sheet passes, WO-42's AA failures). Both were written as settled and neither was. If something here reads as a closed question, check whether the repo already answers it differently.
+Two further things were bundled into that struck refusal that never belonged in it. **A mobile app** — the site ships one: `docs/app/` has a manifest, a service worker, icons and a signed APK, and `/app.html` is the หาห้องน้ำ app's own page. **A/B testing** — the objection was always to watching readers, not to trying two wordings; the site already picks copy by measurement it can make without surveillance (`tests/test_contrast.py`, the reader-sheet passes, WO-42's AA failures). Both were written as settled and neither was. If something here reads as a closed question, check whether the repo already answers it differently.
 
 ## Who it is for
 
@@ -32,15 +35,13 @@ Not animation. Not micro-interactions. Not a design system. The site is delibera
 
 **Auspiciousness as a constraint.** Nine, not eight. No ominous words in nav or labels. The katha in `llms.txt` is sincere. If a number is arbitrary, make it nine. This is not decoration and it is not to be quietly rationalised away by an agent that finds it unscientific.
 
-**Honesty rendered as interface.** The dead-link forensics on `reach.html` — naming a dead link, dating it, linking the archive rather than pretending. The ant rank showing exactly what is missing. Marks that print the year of the edition they were read from. This is the deepest delight the site has, because it is the thing readers cannot get anywhere else, and it converts directly into trust. When you have a choice between hiding an imperfection and dating it, date it.
+**Candour rendered as interface.** The dead-link forensics on `reach.html` — naming a dead link, dating it, linking the archive rather than pretending. The ant rank showing exactly what is missing. Marks that print the year of the edition they were read from. This is the deepest delight the site has, because it is the thing readers cannot get anywhere else, and it converts directly into trust. When you have a choice between hiding an imperfection and dating it, date it.
 
 ## What value means here
 
 **Information is power, made visible.** The ant rank exists to turn "your listing is thin" into something an owner can see, count, and fix in five minutes. Any new signal should follow that pattern: legible, countable, unbuyable.
 
 **Advertising sits in a marked box and does not mix into a listing.** How that box is priced and what else may be sold is Nan's call, not a settled position — put any proposal to her.
-
-**Provenance beats volume.** Another thousand crawled records with no contact details is worth less than a hundred with a dated source. The 0-to-9 distribution is truthful and unflattering — most places sit at 0 to 2 — and that is fine. Do not inflate a score to make a page look better.
 
 **Marks are dated or they are not published.** Michelin, เชลล์ชวนชิม, royal grade: every entry in `data/curated/honours.json` carries `edition`/`sources`, and the badge prints the year. A mark with a year stays true forever. A mark without one rots into a lie. Nothing goes into the verified lists without a URL that was actually fetched; leads live in `unverified` and stay unrendered.
 
@@ -59,8 +60,6 @@ These are not style preferences. Each one is a scar.
 **A crawl is not a verification.** The freshness ant originally counted `updatedAt`, which meant one bulk OSM import handed the ant to all 10,000 records at once and the signal said nothing. Freshness now requires a human touch — an owner's claim, or a curated/field source. Any signal that everything can earn simultaneously is not a signal.
 
 **A person's private data does not go on a page to make it look complete.** No home addresses for individuals, no ID numbers, no plate numbers, nothing about visa or work permit. Do not ask for them either. The ant rank must do not reward publishing them.
-
-**Do not write in a language you cannot read back.** The Shan on the housekeeper handout is a machine attempt and the sheet prints a black UNVERIFIED banner across both sides until a Shan speaker signs it off (`shanVerified` in `data/curated/handouts.json`). A wrong handout given to a migrant worker is worse than no handout. The same discipline applies to any Thai legal or administrative claim: search a current source or say plainly that you do not know.
 
 **One source of truth per channel.** `data/config.json` holds the contact email, LINE OA id and QR. A superseded `data/line.json` path survived a refactor, was still being called, and rendered nothing — two sources of truth for the same phone number is how a wrong number eventually ships. Delete the loser.
 
@@ -91,7 +90,7 @@ Two environment traps that cost real time and will cost you the same time again.
 
 In the order they should be paid.
 
-1. **A person is not a place.** The driver and housekeeper handouts promise a page that the schema cannot yet create — `home-services` holds zero records and `transport` holds fuel stations. Until this exists, those two sheets must not be handed out.
+1. **A person is not a place.** The driver and housekeeper handouts promise a page that the schema cannot yet create — `home-services` holds zero records and `transport` holds fuel stations. Until this exists, those two sheets must not be handed out. **2026-09-27:** motdang.net/home-help is live — the homematch repo, its own Worker route — where a housekeeper or driver lists themselves and gets a page (noindex unless they opt in). `BOARD` in `build.py` links it from the home-services shelf. The handouts do not yet print its address.
 2. **Unlisted by default for people.** URL and QR reachable; absent from the category index, the sitemap, `places.json` and `llms-full.txt`; `noindex`; opt in to indexing separately. See the fourth persona for why this is not optional.
 3. **`hello@motdang.net`** on the domain, forwarding wherever, replacing the free mailbox in `config.json`.
 4. **The Shan needs a human.** Fifteen minutes of a Shan speaker's time clears the banner.

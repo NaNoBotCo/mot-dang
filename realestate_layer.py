@@ -66,6 +66,12 @@ CSS = """
   background:var(--accent,#a33d21);color:#fff}
 .re-door .go.q{background:transparent;color:var(--accent,#a33d21);
   border:1px solid currentColor}
+.re-doors{display:grid;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr));gap:.55rem;margin:.8rem 0 1.1rem}
+.re-tile{display:flex;align-items:center;gap:.55rem;min-height:2.9rem;padding:.55rem .75rem;border-radius:.8rem;
+  background:var(--soft);color:var(--ink);text-decoration:none;font-weight:600;line-height:1.25}
+.re-tile:hover,.re-tile:focus-visible{outline:3px solid var(--accent,#a33d21);outline-offset:1px}
+.re-ic{flex:none;color:var(--accent,#a33d21)}
+.re-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .re-words{width:100%;border-collapse:collapse;margin:.6rem 0 1rem;font-size:.95rem}
 .re-words th,.re-words td{padding:.45rem .4rem;border-bottom:1px solid rgba(0,0,0,.08);
   text-align:left;vertical-align:top}
@@ -350,7 +356,7 @@ def emit(g, data):
             + ("" if prov_of[r["id"]] == "cm" else " <small>&middot;&#3594;&#3619;</small>")
             + "</div>" for r, _ in sorted(landoffices, key=lambda x: x[1]))
         gap_html = (
-            "<div class=\"re-gap\"><b>&#127968; "
+            "<div class=\"re-gap\"><b>" + (g.get("svg_icon") or (lambda *a, **k: ""))("i-document", 20, "re-ic") + " "
             + bi("สำนักงานที่ดิน — ที่ที่การโอนโฉนดเกิดขึ้นจริง",
                  "The Land Office — where a chanote transfer actually happens")
             + "</b><p>"
@@ -362,7 +368,7 @@ def emit(g, data):
             + "</p></div>")
     else:
         gap_html = (
-            "<div class=\"re-gap\"><b>&#127968; "
+            "<div class=\"re-gap\"><b>" + (g.get("svg_icon") or (lambda *a, **k: ""))("i-document", 20, "re-ic") + " "
             + bi("สำนักงานที่ดิน — ศูนย์ทั้งสารบัญ",
                  "The Land Office — zero, in the whole catalogue")
             + "</b><p>"
@@ -493,40 +499,89 @@ def emit(g, data):
         "หน้านี้มีสี่อย่าง: คำที่ใช้ถามก่อนวางมัดจำ (ภาษาไทย เสียงอ่าน และรากคำ — รวมเหตุที่ตึกถูกสุดในเมืองชื่อ แมนชั่น) · ชั้นคอนโด อพาร์ตเมนต์ หอพัก และนายหน้า หลังการแยกชั้นตามป้ายจริงของตึก · ตัวเลขจริงของสิ่งที่ยังไม่มีใครถามตึกเลย · และทะเบียนสิ่งที่ตึกบอกเอง เรียงตามตัวอักษร",
         "Four things on one page: the words to ask before the deposit, in Thai, with the sounds and the roots — including why the cheapest buildings in town are called Mansion · the condo, apartment, dorm and agent shelves, split by what each building's own sign says · the real counts of what nobody has asked the buildings yet · and the register of what buildings state for themselves. Alphabetical.")
 
-    # THE DOOR TO THE LISTING SHEET. This page is the buildings; the sheet is
-    # the offers standing on them, and the two are separate instruments on
-    # purpose — a dated asking price with a named seller is exactly what this
-    # catalogue's launch scope excludes. What that separation must never mean is
-    # that a reader who wants a price, or an agency with forty properties,
-    # cannot find the place that holds them: /listings/ had no inbound link on
-    # this whole site, so the only way to it was to already know the address.
-    # A count and a link is all that crosses. No price appears here.
+    # THE SECTION'S DOORS (client 2026-09-27: "Motdang needs a real estate
+    # section"). One row of nouns, each with its count: the offers on the
+    # Listing Sheet, the buildings on this page, the words, the way in for a
+    # listing agent, and the same rows as MLS-shaped data (listing-sheet
+    # reso.py). Counts are read at build time from what is on disk.
+    import listings_layer as _ll
+    _join = _ll._load()
+    live_n = sum(e.get("live", 0) for e in _join.values())
+    bld_n = len(condos) + len(apartments) + len(dorms) + len(moobaans)
+    icon = g.get("svg_icon") or (lambda *a, **k: "")
+    # /listings/join is answered by the site Worker (publish/lister.js), which
+    # ships on a separate deploy from these pages. data/config.json
+    # "listerJoin": true is set when that Worker is live, so this page never
+    # links a door the edge cannot answer yet.
+    try:
+        join_live = bool(json.loads((ROOT / "data" / "config.json").read_text()).get("listerJoin"))
+    except (OSError, ValueError):
+        join_live = False
+
+    def door(href_, ic, th, en, n=None):
+        c = "" if n is None else " <span class=\"re-count\">(" + str(n) + ")</span>"
+        return ("<a class=\"re-tile\" href=\"" + href_ + "\">" + icon(ic, 22, "re-ic")
+                + "<span>" + bi(th, en) + c + "</span></a>")
+
     door_html = (
-        "<div class=\"re-door\"><b>&#128220; "
-        + bi("ราคาประกาศจริงอยู่ที่กระดานประกาศ", "Asking prices live on the Listing Sheet")
-        + "</b>"
-        + bi("หน้านี้คือ<b>ตึก</b> — ชื่อ ที่ตั้ง และสิ่งที่ตึกบอกเอง ส่วน<b>ข้อเสนอ</b> "
-             "คือราคาขาย ราคาเช่า พร้อมวันที่และผู้ที่ติดต่อได้ อยู่บนกระดานประกาศ "
-             "ซึ่งเป็นคนละแผ่นกัน ทุกราคามีวันที่กำกับ และไม่มีใครซื้ออันดับได้",
-             "This page is the <b>buildings</b> — what they are called, where they "
-             "are, and what they state for themselves. The <b>offers</b> — a price "
-             "to buy or rent, the day it was true, and a person to ask — are a "
-             "separate sheet, because a dated price with a named seller is not a "
-             "stable fact about a building. Nothing on it can be ranked for money.")
-        + "<div><a class=\"go\" href=\"listings/\">"
-        + bi("ดูกระดานประกาศ", "See the Listing Sheet")
-        + "</a><a class=\"go q\" href=\"listings/add.html\">"
-        + bi("ลงประกาศของคุณ", "Add a listing")
-        + "</a></div></div>")
+        "<nav class=\"re-doors\" aria-label=\"อสังหาฯ · Real estate\">"
+        + (door("listings/register/index.html", "i-home2", "ทะเบียนตึก", "The register", bld_n)
+           if (_ll.SHEET / "out" / "register" / "index.html").exists()
+           else door("#shelves", "i-home2", "ตึก", "Buildings", bld_n))
+        + door("listings/", "i-tag", "ประกาศขาย-เช่า", "Listings", live_n or None)
+        + door("#words", "i-book", "คำศัพท์", "Words")
+        + door("listings/add.html", "i-plus-circle", "ลงประกาศ", "List a property")
+        + (door("listings/join", "i-me", "สมัครเป็นนายหน้า", "Join as an agent")
+           if join_live else "")
+        + (door("listings/reso/index.json", "i-download", "ข้อมูล", "Data")
+           if (_ll.SHEET / "out" / "reso" / "index.json").exists() else "")
+        + "</nav>")
+
+    # RENTS AND PRICES BY TAMBON — glean.py's aggregate of what listers sent
+    # (data/gleaned/prices.json). Cells glean withheld for being too thin are
+    # not in the file; an empty or missing file prints nothing.
+    prices_html = ""
+    try:
+        _pc = json.loads((ROOT / "data" / "gleaned" / "prices.json").read_text(encoding="utf-8"))
+        cells = _pc.get("cells") or []
+    except (OSError, ValueError):
+        cells = []
+    if cells:
+        KIND = {"house": ("บ้าน", "house"), "condo": ("คอนโด", "condo"),
+                "apartment": ("อพาร์ตเมนต์", "apartment"), "townhouse": ("ทาวน์เฮาส์", "townhouse"),
+                "land": ("ที่ดิน", "land"), "room": ("ห้อง", "room"),
+                "commercial": ("อาคารพาณิชย์", "commercial"), "compound": ("บ้านหลายหลัง", "compound")}
+        OFFER = {"rent": ("เช่า/เดือน", "rent/month"), "sale": ("ขาย", "sale")}
+
+        def baht(v):
+            return "&#3647;" + format(int(round(v)), ",") if v is not None else ""
+        rows_ = "".join(
+            "<tr><td>" + esc(c.get("tambon") or "") + "</td><td>"
+            + bi(*KIND.get(c.get("kind"), (c.get("kind"), c.get("kind")))) + "</td><td>"
+            + bi(*OFFER.get(c.get("offer"), (c.get("offer"), c.get("offer")))) + "</td><td>"
+            + esc(str(c.get("bedrooms") if c.get("bedrooms") is not None else "")) + "</td><td>"
+            + str(c.get("n", "")) + "</td><td><b>" + baht(c.get("median")) + "</b></td><td>"
+            + baht(c.get("p25")) + "&ndash;" + baht(c.get("p75")) + "</td><td>"
+            + esc(str(c.get("from") or "")) + "&ndash;" + esc(str(c.get("to") or "")) + "</td></tr>"
+            for c in sorted(cells, key=lambda c: (c.get("province") or "", c.get("tambon") or "",
+                                                  c.get("kind") or "", c.get("offer") or "")))
+        prices_html = (
+            h2("ราคาตามตำบล", "Prices by tambon")
+            + "<div class=\"re-scroll\"><table class=\"re-words\"><thead><tr><th>" + bi("ตำบล", "Tambon") + "</th><th>"
+            + bi("ประเภท", "Kind") + "</th><th>" + bi("ขาย-เช่า", "Offer") + "</th><th>"
+            + bi("ห้องนอน", "Beds") + "</th><th>n</th><th>" + bi("มัธยฐาน", "Median")
+            + "</th><th>" + bi("ช่วงกลาง", "Middle half") + "</th><th>" + bi("วันที่", "Dates")
+            + "</th></tr></thead><tbody>" + rows_ + "</tbody></table></div>")
 
     og = shelf_og("cm", "realestate") if shelf_og else None
     body = (
-        "<h1>&#127968; "
+        "<h1>" + icon("i-home2", 30, "re-ic") + " "
         + bi("อสังหาฯ-ที่พัก — คำที่ใช้ถาม ตึกที่มี และสิ่งที่ยังไม่มีใครถาม",
              "Real estate & places to live — the words to ask, the buildings, and what nobody has asked them")
-        + "</h1><p class=\"re-intro\">" + intro + "</p>" + door_html
+        + "</h1>" + door_html + "<p class=\"re-intro\">" + intro + "</p>"
+        + prices_html
 
-        + h2("คำที่ใช้ถามก่อนวางมัดจำ", "The words to ask before the deposit")
+        + h2("คำที่ใช้ถามก่อนวางมัดจำ", "The words to ask before the deposit").replace("<h2>", "<h2 id=\"words\">", 1)
         + note("ค่าเช่าที่เห็นไม่ใช่ราคาจริงของห้อง จนกว่าจะรู้ค่าไฟหน่วยละ ค่าน้ำ ค่าส่วนกลาง และมัดจำ — คำพวกนี้ไม่อยู่บนเว็บประกาศไหนเลย",
                "The rent on the sign is not the price of the room until you know the per-unit electric rate, the water rate, the common fee and the deposit — none of which any listing site prints.")
         + words_html
@@ -534,7 +589,7 @@ def emit(g, data):
         + h2("ประโยคที่ใช้ได้จริงหน้าโต๊ะ", "Sentences that work at the desk")
         + say_html
 
-        + h2("ชั้นหลังการแยก", "The shelves, after the split")
+        + h2("ชั้นหลังการแยก", "The shelves, after the split").replace("<h2>", "<h2 id=\"shelves\">", 1)
         + note("จนถึง 21 ส.ค. ตึกทุกหลังถูกจัดเป็น “อาคารคอนโด” ทั้งที่ป้ายบอกว่าเป็นคอนโดจริง 53 หลัง — ที่เหลือคือแมนชั่น คอร์ท อพาร์ตเมนต์ และหอพัก ตอนนี้แยกตามคำบนป้ายของตึกเอง ความผิดแบบเดียวกับชั้นร้านตัดผมชาย (6 จาก 62) และแก้แบบเดียวกัน: อ่านป้าย",
                "Until 21 August every building here was filed as a Condo Building, while the signs said condominium on 53. The rest are mansions, courts, apartments and dorms — now shelved by the word on each building's own sign. The same error as the barber shelf (6 of 62), corrected the same way: read the signs.")
 

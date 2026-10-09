@@ -204,7 +204,7 @@ def emit(g, data):
     # brings a camp in with a surveyed pin and no read of its own site, and
     # the gap between the two lists is a fact worth stating rather than
     # papering over: the shelf says it exists; the register says what it
-    # states; a camp can honestly be on one and not yet the other.
+    # states; a camp can be on one and not yet the other.
     reg_ids = {v.get("place") for v in venues}
     no_row = [r for p in PROVINCES for r in data[p["key"]]
               if "chang" in (r.get("cat") or []) and "elephant-camp" in (r.get("sub") or [])
@@ -213,7 +213,7 @@ def emit(g, data):
     if no_row:
         links = " · ".join(f'<a href="{href(r)}">{name_bi(r)}</a>'
                            for r in sorted(no_row, key=lambda x: name_of(x).lower()))
-        norow_html = (f'<p class="ch-note">🐜 {bi("บนชั้นแล้ว มดยังไม่ได้อ่านเว็บของปางเอง", "On the shelf; the ants have not yet read the venue’s own pages")} '
+        norow_html = (f'<p class="ch-note">🐜 {bi("บนชั้นแล้ว ยังไม่ได้อ่านเว็บของปางเอง", "On the shelf; the venue’s own pages have not been read yet")} '
                       f'({len(no_row)}): {links}</p>')
     cr = reg.get("chiang_rai") or {}
     cr_html = f'<p class="ch-note">🌱 {bi(cr.get("note_th", ""), cr.get("note_en", ""))}</p>' if cr else ""
@@ -353,7 +353,7 @@ def emit(g, data):
     card("ถามที่ประตู — ห้าคำถาม", "At the gate — five questions",
          bi("1 มีขี่ช้างไหม ถ้ามี หลังเปล่าหรือแหย่ง · 2 ควาญใช้ตะขอไหม · 3 กลางคืนช้างอยู่ไหน ล่ามไหม · 4 มีสัตวแพทย์ไหม · 5 ขอดูตั๋วรูปพรรณได้ไหม — ถามอย่างสุภาพ คำตอบคือข้อมูลของปาง ไม่ใช่ข้อสอบ และคนที่ตอบคือคนที่อยู่กับช้างทุกวัน",
             "1 Is there riding, and if so bareback or with a chair · 2 Do the mahouts carry a hook · 3 Where are the elephants at night, and are they chained · 4 Is there a vet · 5 May I see the registration papers — asked politely; the answers are the camp's own information, not an exam, and the person answering is the one who is with the elephants every day."),
-         say("มดแดงจดคำตอบที่ปางประกาศไว้ (ตารางด้านบน) และเจ้าของปางติ๊กเองได้ที่หน้าของตัวเอง — ไม่มีใครติ๊กแทนปาง", "The ants write down what a camp has stated (the register above) and a camp's owner can tick the facts on their own page — nobody ticks on a camp's behalf."))
+         say("คำตอบที่ปางประกาศไว้อยู่ในตารางด้านบน และเจ้าของปางติ๊กเองได้ที่หน้าของตัวเอง", "The register above holds what each camp has stated, and a camp's owner can tick the facts on their own page."))
     card("คำที่จะได้ยิน", "Words you will hear",
          '<ul class="ch-words">'
          + "".join(f"<li>{bi(th, en)}</li>" for th, en in [
@@ -396,8 +396,8 @@ def emit(g, data):
                   + "</p></div>")
 
     # ---- assemble ---------------------------------------------------------
-    intro = bi("หน้านี้มีสามอย่าง: ทะเบียนว่าแต่ละปางบอกเองอย่างไรเรื่องขี่ช้าง อาบน้ำ โชว์ และการดูอย่างเดียว (ปางบอก มดจดพร้อมที่มา) ชั้นปางช้างและคลินิกที่สารบัญมี และเรื่องน่ารู้ก่อนไป — กฎหมายสองฉบับ องค์กรที่ออกใบรับรอง ชื่อในเมืองที่มีช้างอยู่ และคำศัพท์ — เขียนจากข้าง ๆ ช้าง",
-               "Three things on one page: a register of what each camp states for itself about riding, bathing, shows and hands-off (the camp states it; the ants write it down with the source), the shelf of camps and the clinic the directory holds, and what to know before you go — the two laws, the bodies that certify, the names in this city that carry the elephant, and the words — written from beside an elephant.")
+    intro = bi("หน้านี้มีสามอย่าง: ทะเบียนว่าแต่ละปางบอกเองอย่างไรเรื่องขี่ช้าง อาบน้ำ โชว์ และการดูอย่างเดียว (ปางบอกเอง บันทึกไว้พร้อมที่มา) ชั้นปางช้างและคลินิกที่สารบัญมี และเรื่องน่ารู้ก่อนไป — กฎหมายสองฉบับ องค์กรที่ออกใบรับรอง ชื่อในเมืองที่มีช้างอยู่ และคำศัพท์ — เขียนจากข้าง ๆ ช้าง",
+               "Three things on one page: a register of what each camp states for itself about riding, bathing, shows and hands-off (the camp states it; it is written down with the source), the shelf of camps and the clinic the directory holds, and what to know before you go — the two laws, the bodies that certify, the names in this city that carry the elephant, and the words — written from beside an elephant.")
     ld = {
         "@context": "https://schema.org", "@type": "ItemList",
         "name": "ปางช้างเชียงใหม่ — Elephant camps and sanctuaries, Chiang Mai: what each states",

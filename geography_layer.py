@@ -631,8 +631,8 @@ def emit(g, data):
              "The terrain of Chiang Mai and Chiang Rai: real relief shading, an opt-in 3D mode, "
              "a cross-section of the basin, the model's highest cell, and the landscape words "
              "inside northern place-names — every number dated and sourced.",
-        extra_head='<link rel="stylesheet" href="doi.css?v=%s">' % v
-                   + '<script src="doi.js?v=%s" defer></script>' % v
+        extra_head='<link rel="stylesheet" href="doi.css">'
+                   + '<script src="doi.js" defer></script>'
                    + '<script type="application/ld+json">'
                    + json.dumps(ld, ensure_ascii=False) + "</script>",
         og=og,

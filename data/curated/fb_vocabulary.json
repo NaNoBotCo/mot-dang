@@ -1,0 +1,1941 @@
+{
+ "_readme": [
+  "THE QUERY VOCABULARY for importers/discover_facebook.py. Nan, 2026-09-06: 'I bet there's thousands of",
+  "live, active records on FB for entities that WANT to be publicly shared, and don't exist online or on",
+  "Open Street Map. All categories, no limits.'",
+  "",
+  "Two dimensions. WORDS: tier 1 is every shelf label in data/categories.json (the site's own tree); tier 2",
+  "is the words businesses use for THEMSELVES — Facebook's page-category strings, Thai and English. The",
+  "tier-2 seed below is hand-written; it GROWS in perpetuity, because facebook-reader harvests",
+  "attrs.fbCategories off every page it reads and reconcile() folds new ones in here with their date and",
+  "how often this city actually uses them. Mining our own record names was tried and rejected: 3,481 of",
+  "19,462 Thai names begin โรงเรียน and 2,657 วัด, so the catalogue's names reproduce exactly the OSM bias",
+  "this lane exists to correct.",
+  "",
+  "GEO: province first, then each อำเภอ — 25 in Chiang Mai, 18 in Chiang Rai. The amphoe pass is what makes",
+  "the sweep cover the province rather than the city: a shop in สันกำแพง or แม่สาย is not returned by a",
+  "search that says เชียงใหม่. It is ADAPTIVE — a word only earns its 43 amphoe queries once the province",
+  "query for that word has returned at least one page, so dead words cost 1 query, not 44.",
+  "",
+  "Nothing here is a claim about the city. A word with no results means this search found none."
+ ],
+ "_built": "2026-10-05",
+ "tier2_words": [
+  {
+   "w": "ร้านอาหาร",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านกาแฟ",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "คาเฟ่",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านอาหารไทย",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านอาหารเหนือ",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านก๋วยเตี๋ยว",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านข้าวมันไก่",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านหมูกระทะ",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านชาบู",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านปิ้งย่าง",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านอาหารญี่ปุ่น",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านอาหารอีสาน",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านเบเกอรี่",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านขนม",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านไอศกรีม",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านชานมไข่มุก",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "บาร์",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ผับ",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านเหล้า",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านอาหารมังสวิรัติ",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ครัว",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โรงเบียร์",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านส้มตำ",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านข้าวซอย",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ฟู้ดทรัค",
+   "group": "food-drink",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Restaurant",
+   "group": "food-drink",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Coffee shop",
+   "group": "food-drink",
+   "lang": "en",
+   "from": "seed 2026-09-06",
+   "pages": 1,
+   "last_seen": "2026-10-05"
+  },
+  {
+   "w": "Cafe",
+   "group": "food-drink",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Bakery",
+   "group": "food-drink",
+   "lang": "en",
+   "from": "seed 2026-09-06",
+   "pages": 4,
+   "last_seen": "2026-10-05"
+  },
+  {
+   "w": "Bar",
+   "group": "food-drink",
+   "lang": "en",
+   "from": "seed 2026-09-06",
+   "pages": 1,
+   "last_seen": "2026-10-05"
+  },
+  {
+   "w": "Pub",
+   "group": "food-drink",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Food truck",
+   "group": "food-drink",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Dessert shop",
+   "group": "food-drink",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Ice cream shop",
+   "group": "food-drink",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Bubble tea shop",
+   "group": "food-drink",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Vegetarian restaurant",
+   "group": "food-drink",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Northern Thai restaurant",
+   "group": "food-drink",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านขายเสื้อผ้า",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านเสื้อผ้าผู้หญิง",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านเสื้อผ้าผู้ชาย",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านรองเท้า",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านกระเป๋า",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านเครื่องประดับ",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านทอง",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านนาฬิกา",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านแว่นตา",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านขายของชำ",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านสะดวกซื้อ",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านดอกไม้",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านหนังสือ",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านเครื่องเขียน",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านของฝาก",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านของที่ระลึก",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านผ้า",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านผ้าไทย",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านเฟอร์นิเจอร์",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านเครื่องใช้ไฟฟ้า",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านมือถือ",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านคอมพิวเตอร์",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านต้นไม้",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านสัตว์เลี้ยง",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านเครื่องดนตรี",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านกีฬา",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านจักรยาน",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านของเล่น",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านเครื่องครัว",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านวัสดุก่อสร้าง",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านอะไหล่",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านมือสอง",
+   "group": "shopping",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Clothing store",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06",
+   "pages": 5,
+   "last_seen": "2026-10-05"
+  },
+  {
+   "w": "Shoe store",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Jewelry store",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Bookstore",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Florist",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Grocery store",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Convenience store",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Furniture store",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Pet store",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Sporting goods store",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Toy store",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Gift shop",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Hardware store",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Thrift store",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Electronics store",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Mobile phone shop",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Optician",
+   "group": "shopping",
+   "lang": "en",
+   "from": "seed 2026-09-06",
+   "pages": 1,
+   "last_seen": "2026-10-05"
+  },
+  {
+   "w": "ร้านเสริมสวย",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านทำผม",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านตัดผม",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านทำเล็บ",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านต่อขนตา",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านสัก",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สปา",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านนวด",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "นวดแผนไทย",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "คลินิกความงาม",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "คลินิกเสริมความงาม",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "คลินิกทันตกรรม",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "คลินิกกายภาพบำบัด",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "คลินิกสัตวแพทย์",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โรงพยาบาลสัตว์",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านขายยา",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "คลินิกแพทย์แผนไทย",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "คลินิกจิตเวช",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ศูนย์ดูแลผู้สูงอายุ",
+   "group": "beauty-health",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Beauty salon",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Hair salon",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Barber shop",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Nail salon",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Tattoo shop",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Spa",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Massage service",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Medical clinic",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Dentist",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Physical therapist",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Veterinarian",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Pharmacy",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Skin care service",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Eyelash service",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Elderly care",
+   "group": "beauty-health",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "อู่ซ่อมรถ",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านซ่อมมอเตอร์ไซค์",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านล้างรถ",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านยางรถยนต์",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านซ่อมคอมพิวเตอร์",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านซ่อมมือถือ",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านซักรีด",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านซักอบรีด",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านตัดเย็บ",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านทำป้าย",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านถ่ายเอกสาร",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านพิมพ์",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านถ่ายรูป",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สตูดิโอถ่ายภาพ",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "บริษัททัวร์",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "บริษัทขนส่ง",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "บริษัทรับเหมาก่อสร้าง",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สำนักงานบัญชี",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สำนักงานกฎหมาย",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "บริษัทอสังหาริมทรัพย์",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านกุญแจ",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านทำความสะอาด",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "บริษัทกำจัดปลวก",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ร้านจัดดอกไม้งาน",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ออร์แกไนเซอร์",
+   "group": "services",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Auto repair shop",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Motorcycle repair shop",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Car wash",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Laundromat",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06",
+   "pages": 4,
+   "last_seen": "2026-10-05"
+  },
+  {
+   "w": "Dry cleaner",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Tailor",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Print shop",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Photographer",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Photography studio",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Travel agency",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Moving company",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Contractor",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Accountant",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Lawyer & law firm",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Real estate agent",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Locksmith",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Cleaning service",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Pest control service",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Event planner",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Wedding planner",
+   "group": "services",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โรงเรียนสอนพิเศษ",
+   "group": "learning-work",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สถาบันกวดวิชา",
+   "group": "learning-work",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โรงเรียนสอนภาษา",
+   "group": "learning-work",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โรงเรียนสอนดนตรี",
+   "group": "learning-work",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โรงเรียนสอนเต้น",
+   "group": "learning-work",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โรงเรียนสอนทำอาหาร",
+   "group": "learning-work",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โรงเรียนสอนขับรถ",
+   "group": "learning-work",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โรงเรียนอนุบาล",
+   "group": "learning-work",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "เนอสเซอรี่",
+   "group": "learning-work",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ศูนย์พัฒนาเด็ก",
+   "group": "learning-work",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โคเวิร์กกิ้งสเปซ",
+   "group": "learning-work",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Tutoring service",
+   "group": "learning-work",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Language school",
+   "group": "learning-work",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Music lessons",
+   "group": "learning-work",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Dance school",
+   "group": "learning-work",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Cooking school",
+   "group": "learning-work",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Driving school",
+   "group": "learning-work",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Preschool",
+   "group": "learning-work",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Day care",
+   "group": "learning-work",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Coworking space",
+   "group": "learning-work",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Education",
+   "group": "learning-work",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โรงแรม",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "รีสอร์ท",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "เกสต์เฮาส์",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โฮสเทล",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "อพาร์ตเมนต์",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "หอพัก",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "บ้านเช่า",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สนามกอล์ฟ",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ฟิตเนส",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ยิม",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สตูดิโอโยคะ",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สระว่ายน้ำ",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สนามฟุตบอล",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สนามแบดมินตัน",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ค่ายมวย",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โรงหนัง",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "บอร์ดเกมคาเฟ่",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ห้องหนีออก",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "คาราโอเกะ",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สนามเด็กเล่น",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สวนสนุก",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "แกลเลอรี่",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "พิพิธภัณฑ์",
+   "group": "stay-play",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Hotel",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Resort",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Guest house",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Hostel",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06",
+   "pages": 1,
+   "last_seen": "2026-10-05"
+  },
+  {
+   "w": "Apartment",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Dormitory",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Golf course",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Gym",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Yoga studio",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Swimming pool",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Football field",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Badminton court",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Boxing gym",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Movie theater",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Board game cafe",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Escape room",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Karaoke",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Art gallery",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Museum",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Amusement park",
+   "group": "stay-play",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "วัด",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "โบสถ์",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "มัสยิด",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ศาลเจ้า",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "มูลนิธิ",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สมาคม",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ชมรม",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สหกรณ์",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ตลาด",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ตลาดนัด",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ถนนคนเดิน",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "สถานีตำรวจ",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "ที่ทำการไปรษณีย์",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "เทศบาล",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "องค์การบริหารส่วนตำบล",
+   "group": "community",
+   "lang": "th",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Temple",
+   "group": "community",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Church",
+   "group": "community",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Mosque",
+   "group": "community",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Non-profit organization",
+   "group": "community",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Foundation",
+   "group": "community",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Community organization",
+   "group": "community",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Market",
+   "group": "community",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Night market",
+   "group": "community",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Police station",
+   "group": "community",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Post office",
+   "group": "community",
+   "lang": "en",
+   "from": "seed 2026-09-06"
+  },
+  {
+   "w": "Local business",
+   "group": "community",
+   "lang": "en",
+   "from": "seed 2026-09-06",
+   "pages": 15,
+   "last_seen": "2026-10-05"
+  },
+  {
+   "w": "Physical Therapist",
+   "group": "harvested",
+   "pages": 5,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 5 pages read, 2026-09-07"
+  },
+  {
+   "w": "Optometrist",
+   "group": "harvested",
+   "pages": 3,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 3 pages read, 2026-09-07"
+  },
+  {
+   "w": "Medical Lab",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-07"
+  },
+  {
+   "w": "Hospital",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-07"
+  },
+  {
+   "w": "Massage Service",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-07"
+  },
+  {
+   "w": "Women's clothing store",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-08"
+  },
+  {
+   "w": "Clothing Company",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-08"
+  },
+  {
+   "w": "Clothing (Brand)",
+   "group": "harvested",
+   "pages": 3,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-08"
+  },
+  {
+   "w": "Apparel & clothing",
+   "group": "harvested",
+   "pages": 4,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-08"
+  },
+  {
+   "w": "Bridal Shop",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-08"
+  },
+  {
+   "w": "Passport & Visa Service",
+   "group": "harvested",
+   "pages": 5,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 5 pages read, 2026-09-16"
+  },
+  {
+   "w": "Medical Cannabis Dispensary",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-16"
+  },
+  {
+   "w": "Translator",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-16"
+  },
+  {
+   "w": "Real Estate Agent",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-16"
+  },
+  {
+   "w": "Product/service",
+   "group": "harvested",
+   "pages": 9,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 3 pages read, 2026-09-20"
+  },
+  {
+   "w": "Appliance Repair Service",
+   "group": "harvested",
+   "pages": 3,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 3 pages read, 2026-09-20"
+  },
+  {
+   "w": "Pest Control Service",
+   "group": "harvested",
+   "pages": 3,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 3 pages read, 2026-09-20"
+  },
+  {
+   "w": "Digital creator",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-20"
+  },
+  {
+   "w": "Phone/Tablet",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-20"
+  },
+  {
+   "w": "Business service",
+   "group": "harvested",
+   "pages": 3,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-21"
+  },
+  {
+   "w": "Art",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-21"
+  },
+  {
+   "w": "Artist",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-21"
+  },
+  {
+   "w": "Health/beauty",
+   "group": "harvested",
+   "pages": 4,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 3 pages read, 2026-09-23"
+  },
+  {
+   "w": "Car Rental",
+   "group": "harvested",
+   "pages": 4,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 3 pages read, 2026-09-23"
+  },
+  {
+   "w": "Pharmacy / Drugstore",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-23"
+  },
+  {
+   "w": "Cleaning Service",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-23"
+  },
+  {
+   "w": "Thai Restaurant",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-09-30"
+  },
+  {
+   "w": "Local service",
+   "group": "harvested",
+   "pages": 3,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-10-02"
+  },
+  {
+   "w": "Sports & recreation",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-10-02"
+  },
+  {
+   "w": "Real Estate",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-10-02"
+  },
+  {
+   "w": "Cars",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-10-02"
+  },
+  {
+   "w": "Public figure",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-10-03"
+  },
+  {
+   "w": "Shopping & retail",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-10-03"
+  },
+  {
+   "w": "Home decor",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-10-03"
+  },
+  {
+   "w": "Food & Drink",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-10-03"
+  },
+  {
+   "w": "Arts & entertainment",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-10-05"
+  },
+  {
+   "w": "Medical & health",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-10-05"
+  },
+  {
+   "w": "Hotel resort",
+   "group": "harvested",
+   "pages": 2,
+   "last_seen": "2026-10-05",
+   "lang": "en",
+   "from": "fbCategories on 2 pages read, 2026-10-05"
+  }
+ ],
+ "geo": {
+  "cm": {
+   "province": {
+    "th": "เชียงใหม่",
+    "en": "Chiang Mai"
+   },
+   "amphoe": [
+    "กัลยาณิวัฒนา",
+    "จอมทอง",
+    "ดอยสะเก็ด",
+    "ดอยหล่อ",
+    "ดอยเต่า",
+    "ฝาง",
+    "พร้าว",
+    "สะเมิง",
+    "สันกำแพง",
+    "สันทราย",
+    "สันป่าตอง",
+    "สารภี",
+    "หางดง",
+    "อมก๋อย",
+    "ฮอด",
+    "เชียงดาว",
+    "เมืองเชียงใหม่",
+    "เวียงแหง",
+    "แม่ริม",
+    "แม่วาง",
+    "แม่ออน",
+    "แม่อาย",
+    "แม่แจ่ม",
+    "แม่แตง",
+    "ไชยปราการ"
+   ]
+  },
+  "cr": {
+   "province": {
+    "th": "เชียงราย",
+    "en": "Chiang Rai"
+   },
+   "amphoe": [
+    "ขุนตาล",
+    "ดอยหลวง",
+    "ป่าแดด",
+    "พญาเม็งราย",
+    "พาน",
+    "เชียงของ",
+    "เชียงแสน",
+    "เทิง",
+    "เมืองเชียงราย",
+    "เวียงชัย",
+    "เวียงป่าเป้า",
+    "เวียงเชียงรุ้ง",
+    "เวียงแก่น",
+    "แม่จัน",
+    "แม่ฟ้าหลวง",
+    "แม่ลาว",
+    "แม่สรวย",
+    "แม่สาย"
+   ]
+  }
+ },
+ "counts": {
+  "tier2_seed": 293,
+  "amphoe_cm": 25,
+  "amphoe_cr": 18
+ }
+}

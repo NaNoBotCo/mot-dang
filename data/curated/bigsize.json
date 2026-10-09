@@ -179,7 +179,7 @@
  "the_finding": {
   "no_such_category": {
    "th": "ไม่มีหมวด \"ไซส์ใหญ่\" ที่ไหนเลย",
-   "en": "THERE IS NO BIG-SIZE CATEGORY, ANYWHERE. Not in OpenStreetMap's tag vocabulary, not on CMHY.city's 583-place apparel index, not on any Thai directory read for this order. A shop that carries a 3XL or a 47 is not a kind of shop in this city; it is an ordinary shop that happens to hold the size, and the only place that fact is ever written down is the shop's own name, its own hashtags, or its own description. That is why the register scores every apparel record for the words instead of filtering a category — and why the shelf this order builds is `clothes`, an honest shelf of clothes shops, with the size read onto the records that state it."
+   "en": "THERE IS NO BIG-SIZE CATEGORY, ANYWHERE. Not in OpenStreetMap's tag vocabulary, not on CMHY.city's 583-place apparel index, not on any Thai directory read for this order. A shop that carries a 3XL or a 47 is not a kind of shop in this city; it is an ordinary shop that happens to hold the size, and the only place that fact is ever written down is the shop's own name, its own hashtags, or its own description. That is why the register scores every apparel record for the words instead of filtering a category — and why the shelf this order builds is `clothes`, a shelf of clothes shops, with the size read onto the records that state it."
   },
   "night_hours": {
    "th": "ร้านไซส์ใหญ่เปิดเย็น ไม่ได้เปิดเช้า",
