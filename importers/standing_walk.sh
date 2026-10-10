@@ -219,11 +219,9 @@ take_walk_lock() {
 if ! take_walk_lock; then stand_down "another walk holds the lock (pid $(cat "$LOCK/pid" 2>/dev/null || print unknown))"; fi
 trap 'rm -rf "$LOCK" 2>/dev/null' EXIT
 
-# --- what the server published since the last round ------------------------
-# Before the stand-downs below, which a quiet round reaches long before the
-# end, so the copy back and the search reload follow every server publish.
-mirror_from_server
-if [[ -n "$MIRRORED" ]]; then search_reload || true; fi
+# No copy-back of the server's docs/ (her word 2026-10-10: "you should not be
+# copying the site to the mac"). The search reload that read the copy moves to
+# the server.
 
 # --- one build at a time (CLAUDE.md rule) --------------------------------
 # ASK THE LOCK, NOT ps. build.take_build_lock() writes the holder's pid to

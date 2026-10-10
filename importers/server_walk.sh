@@ -7,7 +7,6 @@
 # and deploy the laptop ran.
 #
 #   /srv/state/attempted   last hand-off tried     /srv/state/published  last one live
-#   /srv/state/mirrored    last one the laptop copied back
 #   /srv/state/walk-rest   the laptop's cache/walk-rest, sent each round
 #   ~/motdang-server-walk.log, /srv/state/walk.jsonl
 set -u
@@ -59,13 +58,6 @@ try:
 except Exception:
     sys.exit(1)
 PY
-fi
-
-# Give the laptop its copy of the last publish before docs/ is rebuilt.
-PUB=$(cat "$SSTATE/published" 2>/dev/null)
-if [[ -n "$PUB" && "$PUB" != "$(cat $SSTATE/mirrored 2>/dev/null)" ]] \
-   && [[ -n $(find "$SSTATE/published" -mmin -30 2>/dev/null) ]]; then
-  exit 0
 fi
 
 exec 8>"$SSTATE/docs.lock"; flock 8

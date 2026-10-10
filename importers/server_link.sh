@@ -3,11 +3,7 @@
 #
 #   hand_to_server       source → /srv/mot-dang.in, then a new id in .handoff
 #   push_rest            cache/walk-rest mirrored to /srv/state/walk-rest
-#   mirror_from_server   after a server publish, its docs/ back into docs/ here,
-#                        so /find's reload and --files publishes read what is live.
-#                        The server holds docs.lock while it builds, and waits
-#                        up to 30 minutes after a publish for this copy before
-#                        it starts the next build.
+#   (no copy-back: the server's docs/ stays on the server, her word 2026-10-10)
 #
 # The server copies the staging folder into its working tree only between
 # builds, under the same flock as the hand-off, so a build never reads a
@@ -51,18 +47,3 @@ push_rest() {
   fi
 }
 
-MIRRORED=""
-mirror_from_server() {
-  [[ -f cache/build-on-server ]] || return 0
-  local pub mine
-  pub=$("${SSH[@]}" "$SERVER" "cat $SSTATE/published 2>/dev/null") || return 0
-  mine=$(cat cache/server-mirrored 2>/dev/null)
-  [[ -z "$pub" || "$pub" == "$mine" ]] && return 0
-  say "the server published $pub — copying its docs/ back"
-  rsync -a --delete-delay $RSYNC_IDLE --exclude /tiles/ -e "${SSH[*]}" \
-    --rsync-path="flock -s -n $SSTATE/docs.lock rsync" "$SERVER:$SRV/docs/" docs/ \
-    || { say "docs/ not copied back — the server is building; next round tries again"; return 0 }
-  print -- "$pub" > cache/server-mirrored
-  "${SSH[@]}" "$SERVER" "echo $pub > $SSTATE/mirrored" || true
-  MIRRORED=1
-}
