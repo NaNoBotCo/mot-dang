@@ -20,6 +20,8 @@ function bkk(t) { return new Date(t + 7 * 3600e3); }
 function hhmm(t) { return bkk(t).toISOString().slice(11, 16); }
 function ymd(t) { return bkk(t).toISOString().slice(0, 10); }
 function at(s) { return Date.parse(s.replace(' ', 'T') + '+07:00'); }
+/* an event's end: a bare date (a festival's last day) runs to the end of that day */
+function atEnd(s) { return s.length > 10 ? at(s) : at(s + ' 23:59:59'); }
 var MON_TH = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
 var MON_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 var DAY_TH = ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์'], DAY_EN = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -409,10 +411,10 @@ function art(cv, e, w, h) {            /* an illustration drawn from the kind of
 }
 function dayName(d) { var t = new Date(d + 'T12:00:00+07:00'); return [DAY_TH[t.getUTCDay()] + ' ' + t.getUTCDate() + ' ' + MON_TH[t.getUTCMonth()], DAY_EN[t.getUTCDay()] + ' ' + t.getUTCDate() + ' ' + MON_EN[t.getUTCMonth()]]; }
 function ics(e) {
-  var z = function (s) { return new Date(at(s)).toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z'; };
-  var end = e.e || new Date(at(e.s) + 7200e3 + 7 * 3600e3).toISOString().slice(0, 19).replace('T', ' ');
+  var z = function (ms) { return isNaN(ms) ? '' : new Date(ms).toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z'; };
+  var s0 = at(e.s), end = e.e ? atEnd(e.e) : s0 + 7200e3;
   var t = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//motdang.net//front//EN', 'BEGIN:VEVENT', 'UID:' + e.k + '-' + e.s.slice(0, 10) + '@motdang.net',
-    'DTSTAMP:' + z(e.s), 'DTSTART:' + z(e.s), 'DTEND:' + z(end), 'SUMMARY:' + e.t.replace(/[,;]/g, ' '), 'LOCATION:' + (e.v || '').replace(/[,;]/g, ' '),
+    'DTSTAMP:' + z(s0), 'DTSTART:' + z(s0), 'DTEND:' + z(end), 'SUMMARY:' + e.t.replace(/[,;]/g, ' '), 'LOCATION:' + (e.v || '').replace(/[,;]/g, ' '),
     'URL:' + (e.url || 'https://motdang.net/'), 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
   return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(t);
 }
@@ -457,7 +459,7 @@ function cal() {
   E.events.forEach(function (e) { if (e.n > maxN) maxN = e.n; });
   Object.keys(ME.cats).forEach(function (k) { if (ME.cats[k] > maxC) maxC = ME.cats[k]; });
   var live = E.events.filter(function (e) {
-    var s = at(e.s), en = e.e ? at(e.e) : s + 2 * 3600e3;
+    var s = at(e.s), en = e.e ? atEnd(e.e) : s + 2 * 3600e3;
     return en > now && !ME.hidden[e.k] && !ME.hideCats[e.c];
   }).map(function (e) { return score(e, maxN, maxC); });
   /* the chips: what is here, with counts */
@@ -471,7 +473,7 @@ function cal() {
   $('calbar').innerHTML = chips;
   var list = live.filter(function (e) { return (!FILTER.c || e.c === FILTER.c) && (!FILTER.area || e.aen === FILTER.area) && (!FILTER.saved || ME.saved[e.k]); });
   /* long runs (exhibitions) sit above the days */
-  var runs = list.filter(function (e) { return e.e && at(e.e) - at(e.s) > 30 * 3600e3; });
+  var runs = list.filter(function (e) { return e.e && atEnd(e.e) - at(e.s) > 30 * 3600e3; });
   var byDay = {};
   list.forEach(function (e) { if (runs.indexOf(e) >= 0) return; var d = ymd(Math.max(at(e.s), now)); (byDay[d] = byDay[d] || []).push(e); });
   var days = Object.keys(byDay).sort().slice(0, SHOWN), html = '', t = 0;
@@ -583,7 +585,8 @@ function month(how) {
     return '<button type="button" class="mq" data-mcat="' + c.k + '" aria-pressed="' + (MF.c === c.k) + '"><s style="background:' + (CAT_PAPER[c.k] || CAT_PAPER.other) + '"></s>' + bi(c.th, c.en) + '<i class="badge-count">' + kinds[c.k] + '</i></button>';
   }).join('') + '</div>';
   h += '<div class="wk" role="group" aria-label="14 วัน · 14 days">' + WD_TH.map(function (w, k) { return '<div class="wd" aria-hidden="true">' + bi(w, WD_EN[k]) + '</div>'; }).join('');
-  for (i = 0; i < lead; i++) h += '<span class="mc pad" aria-hidden="true"></span>';
+  /* the week's days already gone, crossed off; the last week filled out blank */
+  for (i = lead; i > 0; i--) h += '<span class="mc pad past" aria-hidden="true"><span class="mn">' + (+ymd(t0 - i * 864e5).slice(8)) + '</span></span>';
   var inView = {}; if (MVIEW) viewList(MVIEW, now).forEach(function (p) { inView[p[0]] = 1; });
   days.forEach(function (d, k) {
     var evs = (by[d] || []).slice().sort(function (a, b) { return b.sc - a.sc; }), n = evs.length, dn = dayName(d), dow = (lead + k) % 7;
@@ -601,6 +604,7 @@ function month(how) {
       (cats.length ? '<span class="md" aria-hidden="true">' + cats.slice(0, 5).map(function (c) { return '<i style="background:' + (CAT_PAPER[c] || CAT_PAPER.other) + '"></i>'; }).join('') + '</span>' : '') +
       (wp ? '<span class="mw" aria-hidden="true"></span>' : '') + '</button>';
   });
+  for (i = 1; i <= (7 - (lead + days.length) % 7) % 7; i++) h += '<span class="mc pad after" aria-hidden="true"><span class="mn">' + (+ymd(at(last + ' 12:00:00') + i * 864e5).slice(8)) + '</span></span>';
   g.innerHTML = h + '</div>';
   /* the chosen day, or the quick pick, listed */
   var o = '', TOPM = 6, ix = 0;
@@ -2200,7 +2204,7 @@ j(LIVE + 'front/near.json').then(function (d) { D.near = d; near(); }, function 
 Promise.all([j(LIVE + 'front/events.json').then(function (d) { D.events = d; }), j(LIVE + 'front/soon.json').then(function (d) { D.soon = d; }),
              j(LIVE + 'data/sky.json').then(function (d) { D.sky = d; }, function () { }),
              j(LIVE + 'front/doodle.json').then(function (d) { D.doodle = d; }, function () { })])
-  .then(function () { cal(); big(); doodle(); jump(); route(); }, function () { });
+  .then(function () { [cal, big, doodle, jump, route].forEach(function (f) { try { f(); } catch (err) { console.error(err); } }); }, function () { });   /* each on its own: one that fails leaves the rest, the doodle above all, standing */
 j(LIVE + 'front/sites.json').then(function (d) { D.sites = d; sites(); }, function () { });
 
 j(LIVE + 'front/drawer.json').then(function (d) { D.drawer = d; drawer(); }, function () { });

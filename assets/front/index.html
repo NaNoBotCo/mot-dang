@@ -224,6 +224,82 @@ html[data-stage=cal] #now{display:none}
 #mday{margin-top:1rem}
 #mday .dayh{margin:.4rem 0 .2rem}
 #mday .mall{display:inline-block;margin-top:.6rem}
+/* THE FORTNIGHT ON PAPER (Nan, 2026-10-10: the calendar and the map "should be equal"): the hand-drawn
+   map's paper, ink, Mali lettering, wobbled corners and offset shadows (sites/doodle-map), so both tabs
+   are one hand. The tokens are redefined on #month, so the day's list and the ahead cards follow. */
+@font-face{font-family:'Mali';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/mali-600-thai.woff2) format('woff2');unicode-range:U+02D7,U+0303,U+0331,U+0E01-0E5B,U+200C-200D,U+25CC}
+@font-face{font-family:'Mali';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/mali-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Mali';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/mali-700-thai.woff2) format('woff2');unicode-range:U+02D7,U+0303,U+0331,U+0E01-0E5B,U+200C-200D,U+25CC}
+@font-face{font-family:'Mali';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/mali-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+#month{--ink:#2b2118;--mute:#5c4d3c;--dim:#6d5d4b;--line:rgba(43,33,24,.3);--card:#fffaf0;--bg:#f5ecd7;--link:#8a3b2a;--hot:#b0442e;--hand:Mali,var(--sans);--pen:rgba(43,33,24,.2);
+  color:var(--ink);background:radial-gradient(rgba(43,33,24,.07) 1px,transparent 1.4px) 0 0/9px 9px,#f5ecd7;border-top:2px dashed #b0442e;border-bottom:2px dashed #b0442e;padding:1rem 0 2rem}
+#mgrid .mh{flex-wrap:wrap;justify-content:flex-start;gap:.1rem .8rem;width:fit-content;max-width:100%;margin:.1rem 0 1rem;padding:.45rem .9rem .5rem;background:rgba(255,250,236,.93);border:2px solid var(--ink);border-radius:6px 14px 8px 12px;box-shadow:3px 3px 0 rgba(43,33,24,.25);transform:rotate(-.6deg)}
+#mgrid .mh b{font:700 1.4rem/1.15 var(--hand)}
+#mgrid .mh small{color:#8a3b2a;font:600 .85rem var(--hand)}
+#month .mbar{margin:0 -.3rem;padding:.1rem .3rem .8rem}
+#month .mq{background:var(--card);border:1.5px solid var(--ink);border-radius:12px 8px 12px 9px;color:var(--ink);font:600 .9rem var(--hand);box-shadow:2px 2px 0 var(--pen)}
+#month .mq:nth-child(even){border-radius:9px 12px 8px 12px}
+#month .mq[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+#month .mq[aria-pressed=true] .en,#month .mq[aria-pressed=true] b{color:var(--bg)}
+#month .mq s{border:1px solid rgba(43,33,24,.45)}
+#month .mq b{color:#c2185b}
+#month .msep{background:var(--line)}
+#mgrid .wd{font:600 .85rem var(--hand);color:var(--mute)}
+#mgrid .wk{gap:8px}
+#month .mc{background:linear-gradient(rgba(233,181,47,var(--h,0)),rgba(233,181,47,var(--h,0))),var(--card);border:2px solid var(--ink);border-radius:7px 13px 9px 12px;box-shadow:3px 3px 0 var(--pen);color:var(--ink)}
+#month .mc:nth-child(3n){border-radius:12px 8px 13px 7px;rotate:.35deg}
+#month .mc:nth-child(4n+1){border-radius:9px 12px 7px 14px;rotate:-.3deg}
+#month .mc:nth-child(5n+2){rotate:.2deg}
+#month .mc.we{background:linear-gradient(rgba(233,181,47,var(--h,0)),rgba(233,181,47,var(--h,0))),#fbf0d6}
+#month .mc .mn{position:relative;font:700 1.2rem/1 var(--hand)}
+#month .mc .mk{font:600 .74rem var(--hand);color:var(--mute)}
+#month .mc .mo{font:700 .74rem var(--hand);color:#8a3b2a}
+#month .mc .mf{color:#8a3b2a}
+#month .mc .mt{color:var(--ink)}
+#month .mc .md i{box-shadow:0 0 0 1px rgba(43,33,24,.35)}
+#month .mc .mcv{border-top:2px solid var(--ink)}
+#month .mc.fest{box-shadow:inset 0 4px 0 #d9473b,3px 3px 0 var(--pen)}
+#month .mc.today{border-color:#d9473b}
+#month .mc.today .mn::after{content:"";position:absolute;inset:-.3em -.4em;border:2px solid #d9473b;border-radius:52% 46% 55% 44%;rotate:-9deg;pointer-events:none}
+#month .mc[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg);translate:0 -3px;box-shadow:4px 5px 0 rgba(43,33,24,.35)}
+#month .mc[aria-pressed=true] .mk,#month .mc[aria-pressed=true] .mt,#month .mc[aria-pressed=true] .en{color:var(--bg)}
+#month .mc[aria-pressed=true] .mo,#month .mc[aria-pressed=true] .mf{color:#ffc266}
+#month .mc[aria-pressed=true] .mcv{border-top-color:var(--bg)}
+#month .mc[aria-pressed=true].today .mn::after{border-color:#ffc266}
+@media (hover:hover) and (pointer:fine){#month .mc:not(.pad):not(:disabled):hover{box-shadow:4px 6px 0 rgba(43,33,24,.3)}}
+#month .mc.pad{visibility:visible;background:none;border:1.5px dashed rgba(43,33,24,.3);box-shadow:none;cursor:default;rotate:none}
+#month .mc.pad .mn{color:rgba(43,33,24,.42);font-size:1rem}
+#month .mc.past .mn::after{content:"";position:absolute;inset:-.15em -.3em;pointer-events:none;
+  background:linear-gradient(to top right,transparent calc(50% - 1px),rgba(176,68,46,.7) calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px)),linear-gradient(to top left,transparent calc(50% - 1px),rgba(176,68,46,.7) calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px))}
+#month .mdh{background:var(--bg)}
+#month .dayh{font-family:var(--hand);border-bottom:2px dashed #b0442e}
+#month .dayh small{color:var(--mute)}
+#month .mnav{background:var(--card);border:2px solid var(--ink);color:var(--ink);box-shadow:2px 2px 0 var(--pen)}
+#month canvas.mdb{border:2px solid var(--ink);border-radius:8px 16px 10px 14px;box-shadow:3px 3px 0 var(--pen)}
+#month details.ev{background:var(--card);border:2px solid var(--ink);border-radius:8px 16px 10px 14px;box-shadow:3px 3px 0 var(--pen)}
+#month details.ev:nth-of-type(even){border-radius:14px 9px 15px 8px}
+#month details.ev[open]>summary{border-bottom:1.5px dashed var(--line)}
+#month details.ev.at{box-shadow:inset 5px 0 0 #d9473b,0 0 0 2px #d9473b}
+#month .ev .tt{font-family:var(--hand);font-weight:700}
+#month .ev .art{background:#efe4c9}
+#month .why>span{border-color:var(--line)}
+#month .acts a,#month .acts button{background:#fff;border:1.5px solid var(--ink);border-radius:10px 7px 11px 8px;color:var(--ink)}
+#month .acts .on{background:var(--ink);color:var(--bg)}
+#month .acts .on .en{color:var(--bg)}
+#month details.dmore>summary{border:1.5px dashed rgba(43,33,24,.45);font-family:var(--hand)}
+#month .cd.on{color:#1d6b12}
+#month #ahead{margin-top:1.6rem}
+#month #ahead .ahh h3{font-family:var(--hand)}
+#month #ahrib{border:2px solid var(--ink);border-radius:8px 16px 10px 14px;box-shadow:3px 3px 0 var(--pen)}
+#month .ahc{background:var(--card);border:2px solid var(--ink);border-radius:8px 16px 10px 14px;box-shadow:3px 3px 0 var(--pen);margin:0 3px 4px 0}
+#month .ahc:nth-child(even){border-radius:14px 9px 15px 8px}
+#month .ahc .ahv{border-bottom:2px solid var(--ink)}
+#month .ahc .ahn{color:#b0442e}
+#month .ahc .aht{font-family:var(--hand)}
+#month .ahc .aha .chip{background:#fff;border:1.5px solid var(--ink);color:var(--ink)}
+@media (max-width:560px){#month .mc .md{display:none}#mgrid .wk{gap:6px}#mgrid .mh b{font-size:1.2rem}#month .dayh{font-size:1.1rem}#month .ev .tt{font-size:1.02rem;font-weight:600}}
+@media (max-width:420px){#month .mc .mk{display:none}#month .mc .mn{font-size:1.05rem}}
+html[data-contrast="more"] #month{--ink:#000;--mute:#000;--dim:#000;--line:#000;--card:#fff;--bg:#fff;--link:#000;--hot:#a00000;--pen:transparent;background:#fff}
 
 .more{display:inline-block;margin-top:.5rem;font-weight:700;font-size:.95rem;color:var(--link)}
 
@@ -449,7 +525,7 @@ html[data-contrast="more"] #veil{display:none}
   <button type="button" role="tab" id="tab-cal" aria-controls="month" data-stage="cal"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-cal"></use></svg><span class="bi"><span class="th" lang="th">ปฏิทิน</span><span class="en" lang="en">Calendar</span></span></button>
   <button type="button" role="tab" id="tab-map" aria-controls="now" data-stage="map"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-map"></use></svg><span class="bi"><span class="th" lang="th">แผนที่</span><span class="en" lang="en">Map</span></span></button>
 </div>
-<div id="month" role="tabpanel" aria-labelledby="tab-cal"><div class="wrap"><div id="mgrid"></div><div id="ahead"></div><div id="mday" aria-live="polite"></div></div></div>
+<div id="month" role="tabpanel" aria-labelledby="tab-cal"><div class="wrap"><div id="mgrid"></div><div id="mday" aria-live="polite"></div><div id="ahead"></div></div></div>
 <div id="now" role="tabpanel" aria-labelledby="tab-map">
   <iframe data-src="/sites/doodle-map/?embed=1" allow="geolocation" title="แผนที่วาดมือ · a hand-drawn map"></iframe>
   <div class="mapcity" role="group" aria-label="เมือง · city"><button type="button" data-city="cm"><span class="bi"><span class="th" lang="th">เชียงใหม่</span><span class="en" lang="en">Chiang Mai</span></span></button><button type="button" data-city="cr"><span class="bi"><span class="th" lang="th">เชียงราย</span><span class="en" lang="en">Chiang Rai</span></span></button></div>
