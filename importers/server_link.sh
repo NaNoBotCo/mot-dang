@@ -18,6 +18,11 @@ SRV=/srv/mot-dang
 STAGE=/srv/mot-dang.in
 SSTATE=/srv/state
 SSH=(ssh -o BatchMode=yes -o ConnectTimeout=20)
+# An idle limit on every transfer. On 2026-10-10 the copy-back stalled on one
+# file with nothing arriving for minutes; macOS's rsync (openrsync) does not give
+# up on its own, so the walk round never reached its import or hand-off, and the
+# shared docs.lock it held on the server would have kept the next build waiting.
+RSYNC_IDLE=--timeout=300
 
 # _incoming/enrich/ is read from the Legal Cases export and stays on this Mac.
 HANDOFF_EXCLUDES=(--exclude /docs/ --exclude /docs.next/ --exclude /docs.prev/
@@ -30,7 +35,7 @@ hand_to_server() {
   "${SSH[@]}" "$SERVER" "mkdir -p $STAGE $SSTATE" || return 1
   # What is live, as far as this Mac knows: the server checks its build against it.
   (cd docs && find . -type f ! -path './tiles/*' | sed 's#^\./##' | sort) | gzip > cache/docs-list.txt.gz
-  rsync -a --delete --partial "${HANDOFF_EXCLUDES[@]}" -e "${SSH[*]}" \
+  rsync -a --delete --partial $RSYNC_IDLE "${HANDOFF_EXCLUDES[@]}" -e "${SSH[*]}" \
     --rsync-path="flock $SSTATE/stage.lock rsync" ./ "$SERVER:$STAGE/" || return 1
   "${SSH[@]}" "$SERVER" "flock $SSTATE/stage.lock sh -c 'echo $id > $STAGE/.handoff'" || return 1
   say "sent to the server as $id"
@@ -39,7 +44,7 @@ hand_to_server() {
 push_rest() {
   [[ -f cache/build-on-server ]] || return 0
   if [[ -f "$REST" ]]; then
-    rsync -a -e "${SSH[*]}" "$REST" "$SERVER:$SSTATE/walk-rest" 2>/dev/null \
+    rsync -a $RSYNC_IDLE -e "${SSH[*]}" "$REST" "$SERVER:$SSTATE/walk-rest" 2>/dev/null \
       || say "⚠️  could not tell the server the walk is resting"
   else
     "${SSH[@]}" "$SERVER" "rm -f $SSTATE/walk-rest" 2>/dev/null || true
@@ -54,7 +59,7 @@ mirror_from_server() {
   mine=$(cat cache/server-mirrored 2>/dev/null)
   [[ -z "$pub" || "$pub" == "$mine" ]] && return 0
   say "the server published $pub — copying its docs/ back"
-  rsync -a --delete-delay --exclude /tiles/ -e "${SSH[*]}" \
+  rsync -a --delete-delay $RSYNC_IDLE --exclude /tiles/ -e "${SSH[*]}" \
     --rsync-path="flock -s -n $SSTATE/docs.lock rsync" "$SERVER:$SRV/docs/" docs/ \
     || { say "docs/ not copied back — the server is building; next round tries again"; return 0 }
   print -- "$pub" > cache/server-mirrored
