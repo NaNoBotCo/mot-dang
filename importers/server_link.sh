@@ -1,7 +1,9 @@
 # server_link.sh — the laptop's half of building on motdang-build.
 # Sourced by standing_walk.sh; acts only while cache/build-on-server exists.
 #
-#   hand_to_server       source → /srv/mot-dang.in, then a new id in .handoff
+#   hand_to_server       source → /srv/mot-dang.in, then a new id in .handoff and,
+#                        in .handoff-at, when the copy began (UTC): the publish
+#                        leaves alone live files uploaded after it
 #   push_rest            cache/walk-rest mirrored to /srv/state/walk-rest
 #   (no copy-back: the server's docs/ stays on the server, her word 2026-10-10)
 #
@@ -27,7 +29,7 @@ HANDOFF_EXCLUDES=(--exclude /docs/ --exclude /docs.next/ --exclude /docs.prev/
   --exclude .DS_Store)
 
 hand_to_server() {
-  local id; id="$(date +%Y%m%dT%H%M%S)-$$"
+  local id at; id="$(date +%Y%m%dT%H%M%S)-$$"; at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
   "${SSH[@]}" "$SERVER" "mkdir -p $STAGE $SSTATE" || return 1
   # What is live, as far as this Mac knows: the server checks its build against it.
   (cd docs && find . -type f ! -path './tiles/*' | sed 's#^\./##' | sort) | gzip > cache/docs-list.txt.gz
@@ -49,7 +51,7 @@ hand_to_server() {
   fi
   rsync -a --delete --partial $RSYNC_IDLE "${HANDOFF_EXCLUDES[@]}" -e "${SSH[*]}" \
     --rsync-path="flock $SSTATE/stage.lock rsync" ./ "$SERVER:$STAGE/" || return 1
-  "${SSH[@]}" "$SERVER" "flock $SSTATE/stage.lock sh -c 'echo $id > $STAGE/.handoff'" || return 1
+  "${SSH[@]}" "$SERVER" "flock $SSTATE/stage.lock sh -c 'echo $at > $STAGE/.handoff-at && echo $id > $STAGE/.handoff'" || return 1
   say "sent to the server as $id"
 }
 

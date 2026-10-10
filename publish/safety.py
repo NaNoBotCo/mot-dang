@@ -67,6 +67,7 @@ import os
 import re
 import subprocess
 import sys
+import tempfile
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -318,6 +319,78 @@ def deletions_preview(dest, env, run, root=None, exclude=("tiles/",)):
     gone = {k for k in live - local
             if not any(k.startswith(x) for x in exclude)}
     return sorted(gone)
+
+
+# How long before its source was taken a live file still counts as newer than
+# the build. A session can upload a minisite straight from docs/ and put its
+# copy in assets/ a little after; an hour covers that order.
+SOURCE_GRACE_S = 3600
+
+
+# With no hand-off time to go by (a build made on the laptop), a live file
+# uploaded in this window before the publish is treated as newer than the build.
+UNKNOWN_SOURCE_S = 6 * 3600
+
+
+def source_time():
+    """(when this build's source was taken, how that is known).
+
+    MD_SOURCE_AT (ISO, set by importers/server_walk.sh from the hand-off) says
+    it. Without it, UNKNOWN_SOURCE_S before now: a guess on the early side,
+    which keeps more live files for one round and deletes none it should keep.
+    """
+    import datetime
+    now = datetime.datetime.now(datetime.timezone.utc)
+    s = os.environ.get("MD_SOURCE_AT", "").strip()
+    s = s[:-1] + "+00:00" if s[-1:] in "Zz" else s
+    try:
+        t = datetime.datetime.fromisoformat(s)
+        return (t if t.tzinfo else t.astimezone()), "hand-off"
+    except ValueError:
+        return now - datetime.timedelta(seconds=UNKNOWN_SOURCE_S), "no hand-off time; 6 h back"
+
+
+def uploaded_since(dest, env, run, keys, since):
+    """The keys among `keys` whose live copy was uploaded at or after `since`.
+
+    WHY — 2026-10-10. Lanna Craft went live at 21:27 by a direct upload
+    (deploy.py --files) and its copy went into assets/sites/ the same minute.
+    The server was by then building from source sent at 20:08, without it;
+    at 21:59 that build's sync deleted all 88 files, because a sync deletes
+    whatever the build lacks. A build can only speak for files that existed
+    when its source was taken. A live file uploaded after that is newer than
+    the build, and the next build, which has seen it, decides.
+
+    The time is the bucket's own upload time (--use-server-modtime), not the
+    mtime rclone carries over from the laptop. Only `keys` are looked up, one
+    object each, so this costs seconds, not the whole-bucket walk.
+    """
+    import datetime
+    if not keys:
+        return []
+    fd, path = tempfile.mkstemp(suffix=".txt")
+    with os.fdopen(fd, "w") as fh:
+        fh.write("".join(k + "\n" for k in keys))
+    try:
+        out = run(["rclone", "lsjson", "-R", "--files-only", "--no-mimetype",
+                   "--use-server-modtime", "--files-from", path, dest],
+                  env, quiet=True)
+    finally:
+        os.unlink(path)
+    cut = since - datetime.timedelta(seconds=SOURCE_GRACE_S)
+    young = []
+    for o in json.loads(out or "[]"):
+        m = str(o.get("ModTime", ""))
+        m = re.sub(r"(\.\d{6})\d+", r"\1", m)          # fromisoformat takes 6 digits
+        m = m[:-1] + "+00:00" if m.endswith("Z") else m
+        try:
+            t = datetime.datetime.fromisoformat(m)
+        except ValueError:
+            young.append(o["Path"])                     # unreadable: keep it
+            continue
+        if t >= cut:
+            young.append(o["Path"])
+    return sorted(young)
 
 
 def deletion_verdict(gone, prune=False, prune_up_to=None, tree_ok=False):

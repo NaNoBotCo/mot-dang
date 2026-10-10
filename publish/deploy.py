@@ -76,6 +76,7 @@ import atexit
 import datetime
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -528,7 +529,34 @@ def only_files():
     missing = [n for n in names if not (DOCS / n).is_file()]
     if missing:
         sys.exit("not in docs/: " + ", ".join(missing))
+    unsourced = [n for n in names if not in_source(n)]
+    if unsourced:
+        sys.exit("REFUSING: the build makes these from assets/, and assets/ does not "
+                 "have them —\n  %s\nThe next whole publish would delete them. Install "
+                 "the site into assets/ first (build.py copies those folders whole)."
+                 % "\n  ".join(unsourced))
     return names
+
+
+# Folders build.py copies whole from assets/<name>/ to docs/<name>/ (its
+# copytree block, "/sites/<slug>/ — one business's own minisite each").
+MIRRORED = ("brief", "field", "ghost", "logo", "loop", "markets", "muay-thai",
+            "roads", "roadworks", "served", "sites", "the-plan", "voight-kampff",
+            "chiang-rai")
+
+
+def in_source(rel):
+    """False for a file under a MIRRORED folder whose site is not in assets/.
+
+    /ghost went live on 21 Sept by a direct upload with no copy in assets/,
+    and the next whole-tree sync deleted it. A file inside an installed site
+    passes even when the build wrote it (sites/city-live/data/kinds.json):
+    the site's folder in assets/ is what makes the build carry it.
+    """
+    parts = rel.split("/")
+    if parts[0] not in MIRRORED or len(parts) == 1:
+        return True
+    return (ROOT / "assets" / Path(*parts[:2 if len(parts) > 2 else 1])).exists()
 
 
 def prune_bound():
@@ -676,6 +704,23 @@ def main():
     # whole-site check has earned.
     print("\n  listing the bucket to see what this would delete…")
     gone = safety.deletions_preview(dest, env, run)
+    # Files uploaded after this build's source was taken are newer than the
+    # build: it keeps its hands off them (safety.uploaded_since says why).
+    since, how = safety.source_time()
+    young = safety.uploaded_since(dest, env, run, gone, since)
+    keep_list = None
+    if young:
+        note("  keeping %d live file(s) uploaded after this build's source "
+             "(%s, %s): %s%s"
+             % (len(young), since.isoformat(timespec="seconds"), how,
+                ", ".join(young[:5]), " …" if len(young) > 5 else ""))
+        keep_list = Path(tempfile.mkstemp(suffix=".txt")[1])
+        atexit.register(keep_list.unlink, missing_ok=True)
+        # --exclude-from reads globs; escape so a key matches only itself.
+        keep_list.write_text("".join(
+            "/" + re.sub(r"([*?\[\]{}\\])", r"\\\1", k) + "\n" for k in young))
+        kept = set(young)
+        gone = [k for k in gone if k not in kept]
     ok, msg = safety.deletion_verdict(gone, prune=prune, prune_up_to=prune_up_to,
                                       tree_ok=tree_ok)
     if not ok:
@@ -684,7 +729,8 @@ def main():
 
     note("\n  syncing… (%s local files, %s deletions)"
          % (f"{n_after:,}", f"{len(gone):,}"))
-    mirror(["rclone", "sync", str(DOCS), dest] + common, env)
+    mirror(["rclone", "sync", str(DOCS), dest] + common
+           + (["--exclude-from", str(keep_list)] if keep_list else []), env)
     note("  site synced")
 
     if with_tiles:

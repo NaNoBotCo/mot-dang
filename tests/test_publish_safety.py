@@ -239,6 +239,33 @@ def main():
     check("smoke includes a must-404 URL, so 'everything is 200' is caught",
           any(want == 404 for _, want in safety.SMOKE))
 
+    # ---- files newer than the build (Lanna Craft, 2026-10-10) -------------
+    import datetime
+    utc = datetime.timezone.utc
+    listing = json.dumps([
+        {"Path": "sites/lanna-craft/index.html", "ModTime": "2026-10-10T14:27:44.123456789Z"},
+        {"Path": "sites/old/index.html", "ModTime": "2026-10-09T01:00:00Z"},
+        {"Path": "sites/edge/index.html", "ModTime": "2026-10-10T12:30:00Z"},
+        {"Path": "sites/odd/index.html", "ModTime": "not a time"}])
+    fake = lambda args, env, quiet=False: listing                # noqa: E731
+    since = datetime.datetime(2026, 10, 10, 13, 8, 42, tzinfo=utc)   # the 20:08 hand-off
+    got = safety.uploaded_since("R2:x", {}, fake, ["a"], since)
+    check("a live file uploaded after the build's source is kept",
+          "sites/lanna-craft/index.html" in got, got)
+    check("one uploaded within the grace before it is kept too",
+          "sites/edge/index.html" in got, got)
+    check("an older one is left to the sync", "sites/old/index.html" not in got, got)
+    check("an unreadable upload time keeps the file", "sites/odd/index.html" in got, got)
+    check("no candidates asks the bucket nothing",
+          safety.uploaded_since("R2:x", {}, None, [], since) == [])
+
+    # ---- a direct upload needs its site in assets/ ------------------------
+    check("a minisite file with no folder in assets/ is refused",
+          not deploy.in_source("sites/no-such-site-here/index.html"))
+    check("a file the build writes at the top of a copied folder passes",
+          deploy.in_source("sites/index.html"))
+    check("a file outside the copied folders passes", deploy.in_source("data/flightboard.json"))
+
     print("\n%d passed, %d failed" % (len(PASS), len(FAIL)))
     return 1 if FAIL else 0
 

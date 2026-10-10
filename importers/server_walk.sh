@@ -63,9 +63,21 @@ fi
 exec 8>"$SSTATE/docs.lock"; flock 8
 say "== hand-off $HAND"
 flock "$SSTATE/stage.lock" rsync -a --delete --exclude /docs/ --exclude /docs.next/ \
-  --exclude /docs.prev/ --exclude /cache/build.lock --exclude /.handoff "$STAGE/" "$REPO/" \
+  --exclude /docs.prev/ --exclude /cache/build.lock --exclude /.handoff --exclude /.handoff-at \
+  "$STAGE/" "$REPO/" \
   || { say "copy from staging FAILED"; note "failed" "staging copy"; exit 1 }
 print -- "$HAND" > "$SSTATE/attempted"
+# When the laptop began sending this source. deploy.py keeps live files
+# uploaded after it: this build cannot know them (publish/safety.py,
+# uploaded_since — Lanna Craft, 2026-10-10). A hand-off from before
+# .handoff-at existed reads its id's wall clock 14 h early, the earliest that
+# clock can mean in any zone.
+MD_SOURCE_AT=$(cat "$STAGE/.handoff-at" 2>/dev/null)
+if [[ -z "$MD_SOURCE_AT" ]]; then
+  MD_SOURCE_AT=$(date -u -d "$(print -- "${HAND%%-*}" | sed -E 's/(....)(..)(..)T(..)(..)(..)/\1-\2-\3 \4:\5:\6/') UTC - 14 hours" +%Y-%m-%dT%H:%M:%SZ 2>/dev/null)
+fi
+export MD_SOURCE_AT
+say "source taken ${MD_SOURCE_AT:-at an unknown time}"
 cd "$REPO" || exit 1
 
 # The laptop sent HEAD's code beside the folder (importers/build_code.py): it
